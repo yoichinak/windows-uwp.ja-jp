@@ -7,12 +7,12 @@ keywords: デバイス, デジタイザー, 入力, 操作, 挿入
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 2699917beed9330dd2044704f19b3c25256c3ca8
-ms.sourcegitcommit: 7676d4b4c323e665302c2dfca3c763751a47afa3
+ms.openlocfilehash: 2ff3150d4c1ed713451669b8918906141daa9659
+ms.sourcegitcommit: 09edf480f2224e29e190fad8518f680c16e21c6d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58343241"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65065242"
 ---
 # <a name="simulate-user-input-through-input-injection"></a>入力の挿入によるユーザー入力のシミュレート
 
@@ -50,7 +50,8 @@ UWP アプリで入力の挿入 API を使用するには、次のコードを�
 1. まず、UI を設定します (MainPage.xaml)。
 
     2 つのグリッド領域 (マウス入力用に 1 つとタッチ入力用に 1 つ) があり、それぞれ 4 つのボタンがあります。
-       > [!NOTE] The Grid background must be assigned a value (`Transparent`, in this case), otherwise pointer events are not detected.
+      > [!NOTE] 
+      > グリッドの背景色に値を代入する必要があります (`Transparent`、この場合)、それ以外の場合、ポインター イベントは検出されません。
 
     入力領域でマウスのクリックが検出されると、対応するタッチ イベントが入力の挿入領域に挿入されます。 挿入の入力からのボタンのクリックはタイトル領域で報告されます。
 
