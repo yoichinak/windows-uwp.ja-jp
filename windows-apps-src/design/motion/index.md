@@ -12,18 +12,33 @@ design-contact: jeffarn
 doc-status: Published
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 2701844ccefdc5a535fa8fc20086c550cb7bc29e
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 1096bdab340c3f0fef24b5815423f72b0f5c8219
+ms.sourcegitcommit: cc0ef75f314658b14376eb60ef8e5bb4d7726e04
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57583449"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65444169"
 ---
 # <a name="motion-for-uwp-apps"></a>UWP アプリのモーション
 
-![ヒーロー イメージ](images/header-motion2.svg)
+![モーション アイコン](../images/motion-2x.png)
 
 Fluent モーションはアプリで目的を果たします。 これは、ユーザーの動作に基づいてインテリジェントなフィードバックを提供し、UI にアクティブな印象を与え、アプリ内でユーザーのナビゲーションを誘導します。 Fluent モーションは、ユーザーとそのデジタル エクスペリエンス間の感情面の結び付きを生み出します。 マイクロソフトでは、ユーザーが既に現実世界から認識している自然な動きの基盤のうえに構築し、そこからシステムを拡張します。
+
+## <a name="examples"></a>例
+
+<table>
+<tr>
+<td><img src="images/xaml-controls-gallery-app-icon.png" alt="XAML controls gallery" width="168"></img></td>
+<td>
+    <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合、こちらをクリックして<a href="xamlcontrolsgallery:/category/Motion">アプリを開き、モーションの動作を確認</a>してください。</p>
+    <ul>
+    <li><a href="https://www.microsoft.com/store/productId/9MSVH128X2ZT">XAML コントロール ギャラリー アプリを入手する (Microsoft Store)</a></li>
+    <li><a href="https://github.com/Microsoft/Xaml-Controls-Gallery">ソース コード (GitHub) を入手する</a></li>
+    </ul>
+</td>
+</tr>
+</table>
 
 ## <a name="fluent-motion-principles"></a>Fluent モーションの原則
 
@@ -53,7 +68,7 @@ Fluent モーションはアプリで目的を果たします。 これは、ユ
 インテリジェントなモーションは、UI を操作する方法に沿った方法でユーザーにフィードバックを提供します。 操作はユーザーを中心にしています。 動きはフォーム ファクターに適切であると感じられ、シナリオに基づいて設計されています。 各ユーザーにとって快適である必要があります。
 
 ![状況依存のモーションの UI の例](images/Contextual.gif)
-> アニメーションはユーザーの操作に沿ったものである必要があります。 コンテキスト メニューは、ユーザーがアクティブ化したポイントから展開されます。 
+> アニメーションはユーザーの操作に沿ったものである必要があります。 コンテキスト メニューは、ユーザーがアクティブ化したポイントから展開されます。
 
 ## <a name="motion-articles"></a>モーションの記事
 
