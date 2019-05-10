@@ -12,12 +12,12 @@ design-contact: conrwi
 dev-contact: stpete
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 719a150c6750116a368d59fff9600fcf65bf8f61
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 953a92cdb8cc3168a2cbeae9a1f3610f771c6339
+ms.sourcegitcommit: cc0ef75f314658b14376eb60ef8e5bb4d7726e04
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57590687"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65444188"
 ---
 # <a name="parallax"></a>視差
 
@@ -30,7 +30,7 @@ ms.locfileid: "57590687"
 <table>
 <th align="left">XAML コントロール ギャラリー<th>
 <tr>
-<td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td><img src="images/xaml-controls-gallery-app-icon.png" alt="XAML controls gallery" width="168"></img></td>
 <td>
     <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合、こちらをクリックして<a href="xamlcontrolsgallery:/item/ParallaxView">アプリを開き、ParallaxView の動作を確認</a>してください。</p>
     <ul>
@@ -47,7 +47,7 @@ ms.locfileid: "57590687"
 
 ## <a name="how-it-works-in-a-user-interface"></a>ユーザー インターフェイスでのしくみ
 
-UI では、UI のスクロールやパンを行うときに、さまざまなオブジェクトをさまざまな速度で動かすことによって、視差効果を作成できます。 <!-- Parallax is an important tool in adding depth to applications along with other techniques like transition animations, perspective tilt, and layering. --> 示すには、コンテンツ、リスト、および背景画像の 2 つのレイヤーを見てみましょう。  リストは背景画像の上に配置されており、リストがアプリの閲覧者の近くに表示されているという錯覚を既に与えています。  次に、視差効果を実現するために、最も近くに表示されているオブジェクトを、遠くに表示されているオブジェクトよりも "速く" 動かします。  ユーザーがインターフェイスをスクロールすると、リストは背景画像よりも速い速度で動作し、奥行きがあるような錯覚を与えます。
+UI では、UI のスクロールやパンを行うときに、さまざまなオブジェクトをさまざまな速度で動かすことによって、視差効果を作成できます。 <!-- Parallax is an important tool in adding depth to applications along with other techniques like transition animations, perspective tilt, and layering. --> その実例として、コンテンツの 2 つのレイヤー (リストと背景画像) を見てみましょう。  リストは背景画像の上に配置されており、リストがアプリの閲覧者の近くに表示されているという錯覚を既に与えています。  次に、視差効果を実現するために、最も近くに表示されているオブジェクトを、遠くに表示されているオブジェクトよりも "速く" 動かします。  ユーザーがインターフェイスをスクロールすると、リストは背景画像よりも速い速度で動作し、奥行きがあるような錯覚を与えます。
 
  ![リストと背景画像を使用した視差の例](images/_Parallax_v2.gif)
 
@@ -118,10 +118,6 @@ VerticalShift プロパティと HorizontalShift プロパティでは、視差�
 - 視差は、背景画像を持つリストで使用してください
 - ListViewItems に画像が含まれている場合は、ListViewItems で視差を使用することを検討してください
 - 視差はアプリの数か所で使用してください。視差を過剰に使用すると、その効果が低下する可能性があります
-
-## <a name="get-the-sample-code"></a>サンプル コードを入手する
-
-- [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - インタラクティブな形で XAML コントロールのすべてを参照できます。
 
 ## <a name="related-articles"></a>関連記事
 

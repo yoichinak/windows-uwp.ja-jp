@@ -8,12 +8,12 @@ pm-contact: stmoy
 design-contact: jeffarn
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 81da1e769ab171e47a4f4046e8ec7e7c84ecf2d1
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 183a5433553ff6fdfcb09f6960f6a642f2c8bc08
+ms.sourcegitcommit: cc0ef75f314658b14376eb60ef8e5bb4d7726e04
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57630357"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65444155"
 ---
 # <a name="animating-xaml-elements-with-composition-animations"></a>合成アニメーションを XAML 要素をアニメーション化
 
@@ -31,6 +31,22 @@ Windows 10、バージョンは 1809、以降のプロパティを基になる�
 > [!NOTE]
 > UIElement にこれらのプロパティを使用するには、UWP プロジェクトのターゲット バージョンは 1809 以降にする必要があります。 プロジェクトのバージョンを構成する方法の詳細については、次を参照してください。[バージョン アダプティブ アプリ](../../debug-test-perf/version-adaptive-apps.md)します。
 
+## <a name="examples"></a>例
+
+<table>
+<th align="left">XAML コントロール ギャラリー<th>
+<tr>
+<td><img src="images/xaml-controls-gallery-app-icon.png" alt="XAML controls gallery" width="168"></img></td>
+<td>
+    <p>ある場合、 <strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong>アプリをインストールするには、ここをクリックして<a href="xamlcontrolsgallery:/item/XamlCompInterop">アプリを開き、アニメーションの相互運用機能の動作を参照してください。</a>します。</p>
+    <ul>
+    <li><a href="https://www.microsoft.com/store/productId/9MSVH128X2ZT">XAML コントロール ギャラリー アプリを入手する (Microsoft Store)</a></li>
+    <li><a href="https://github.com/Microsoft/Xaml-Controls-Gallery">ソース コード (GitHub) を入手する</a></li>
+    </ul>
+</td>
+</tr>
+</table>
+
 ## <a name="new-rendering-properties-replace-old-rendering-properties"></a>新しいレンダリング プロパティは、古いレンダリング プロパティを置き換えます
 
 この表でアニメーション化もできる、UIElement のレンダリングを変更に使用できるプロパティを示します、 [CompositionAnimation](/uwp/api/windows.ui.composition.compositionanimation)します。
@@ -39,11 +55,11 @@ Windows 10、バージョンは 1809、以降のプロパティを基になる�
 | -- | -- | -- |
 | [不透明度](/uwp/api/windows.ui.xaml.uielement.opacity) | Double | オブジェクトの不透明度 |
 | [翻訳](/uwp/api/windows.ui.xaml.uielement.translation) | Vector3 | 要素の X、Y、/Z 位置をシフトします。 |
-| [平行移動](/uwp/api/windows.ui.xaml.uielement.transformmatrix) | Matrix4x4 | 要素に適用する変換行列 |
+| [TransformMatrix](/uwp/api/windows.ui.xaml.uielement.transformmatrix) | Matrix4x4 | 要素に適用する変換行列 |
 | [スケール](/uwp/api/windows.ui.xaml.uielement.scale) | Vector3 | スケール、要素中心点の中央に配置 |
 | [回転](/uwp/api/windows.ui.xaml.uielement.rotation) | Float | RotationAxis および中心点を中心、要素を回転させる |
 | [RotationAxis](/uwp/api/windows.ui.xaml.uielement.rotationaxis) | Vector3 | 回転の軸 |
-| [中心点](/uwp/api/windows.ui.xaml.uielement.centerpoint) | Vector3 | 拡大縮小や回転の中心点 |
+| [CenterPoint](/uwp/api/windows.ui.xaml.uielement.centerpoint) | Vector3 | 拡大縮小や回転の中心点 |
 
 TransformMatrix プロパティの値は、次の順序でスケール、回転、および変換のプロパティと組み合わせます。Scale、Rotation、Translation と平行移動します。
 

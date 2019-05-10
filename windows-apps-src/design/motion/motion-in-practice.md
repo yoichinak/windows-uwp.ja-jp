@@ -11,12 +11,12 @@ design-contact: jeffarn
 doc-status: Draft
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 6eafbfd965d2783c0f72e75c91a04e5ac1cb119f
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 7272abca9862eaf5ed7ceb161e433849497369a2
+ms.sourcegitcommit: cc0ef75f314658b14376eb60ef8e5bb4d7726e04
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57599407"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65444215"
 ---
 # <a name="bringing-it-together"></a>まとめる
 
@@ -78,10 +78,24 @@ ms.locfileid: "57599407"
     :::column-end:::
 :::row-end:::
 
+## <a name="examples"></a>例
+
+<table>
+<tr>
+<td><img src="images/xaml-controls-gallery-app-icon.png" alt="XAML controls gallery" width="168"></img></td>
+<td>
+    <p>ある場合、 <strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong>アプリをインストールするには、ここをクリックして<a href="xamlcontrolsgallery:/item/ImplicitTransition">アプリを開き、操作の暗黙的な遷移を参照してください</a>します。</p>
+    <ul>
+    <li><a href="https://www.microsoft.com/store/productId/9MSVH128X2ZT">XAML コントロール ギャラリー アプリを入手する (Microsoft Store)</a></li>
+    <li><a href="https://github.com/Microsoft/Xaml-Controls-Gallery">ソース コード (GitHub) を入手する</a></li>
+    </ul>
+</td>
+</tr>
+</table>
+
 ## <a name="implicit-animations"></a>暗黙的なアニメーション
 
 > 暗黙的なアニメーションに必要な Windows 10、バージョンは 1809 ([SDK 17763](https://developer.microsoft.com/windows/downloads/windows-10-sdk)) またはそれ以降。
-
 
 暗黙的なアニメーションは、自動的にパラメーターの変更中に新旧の値の間を補間によって Fluent の動きを実現する簡単な方法です。
 
@@ -94,7 +108,7 @@ ms.locfileid: "57599407"
   - **翻訳**
 
 - [境界線](/uwp/api/windows.ui.xaml.controls.border)、 [ContentPresenter](/uwp/api/windows.ui.xaml.controls.contentpresenter)、または[パネル](/uwp/api/windows.ui.xaml.controls.panel)
-  - **バック グラウンド**
+  - **背景情報**
 
 各プロパティをアニメーション化に暗黙的に変更を持つことができますが、対応する_遷移_プロパティ。 プロパティをアニメーション化するが移行型を割り当て、対応する_遷移_プロパティ。 このテーブルを示しています、_遷移_プロパティとそれぞれに使用する移行型。
 

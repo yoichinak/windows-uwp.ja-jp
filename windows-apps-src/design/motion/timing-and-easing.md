@@ -11,16 +11,31 @@ design-contact: jeffarn
 doc-status: Draft
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 5b9a0719e4967f9d527d2b2565818a0dea1be0a6
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: b736a10a7284e3cc9aa193e082dc654e908afe40
+ms.sourcegitcommit: cc0ef75f314658b14376eb60ef8e5bb4d7726e04
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57645267"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65444174"
 ---
 # <a name="timing-and-easing"></a>タイミングとイージング
 
-モーションが現実世界に基づいている場合、私たちは速度とパフォーマンスへの期待を伴うデジタル メディアでもあります。 
+モーションが現実世界に基づいている場合、私たちは速度とパフォーマンスへの期待を伴うデジタル メディアでもあります。
+
+## <a name="examples"></a>例
+
+<table>
+<tr>
+<td><img src="images/xaml-controls-gallery-app-icon.png" alt="XAML controls gallery" width="168"></img></td>
+<td>
+    <p>ある場合、 <strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong>アプリをインストールするには、ここをクリックして<a href="xamlcontrolsgallery:/item/EasingFunction">アプリを開き、アクションのイージング関数を参照してください</a>します。</p>
+    <ul>
+    <li><a href="https://www.microsoft.com/store/productId/9MSVH128X2ZT">XAML コントロール ギャラリー アプリを入手する (Microsoft Store)</a></li>
+    <li><a href="https://github.com/Microsoft/Xaml-Controls-Gallery">ソース コード (GitHub) を入手する</a></li>
+    </ul>
+</td>
+</tr>
+</table>
 
 ## <a name="how-fluent-motion-uses-time"></a>Fluent モーションが時間を使用する方法
 
@@ -40,8 +55,8 @@ Fluent のモーションのタイミングでは、ベースラインとして 
 
 :::row:::
     :::column:::
-        Use for objects or pages that are exiting the scene or closing.
-        Allows for very quick directional feedback of exiting UI where timing does not impede upon framerate to achieve a smooth animation.
+オブジェクトまたはシーンの終了は、または終了しているページに使用します。
+終了する UI の非常に速い方向性フィードバックを可能にします。ここでは、スムーズなアニメーションを実現するためにタイミングがフレーム レートを妨げることはありません。
     :::column-end:::
     :::column:::
         ![150ms motion](images/150msAlt.gif)
@@ -52,8 +67,8 @@ Fluent のモーションのタイミングでは、ベースラインとして 
 
 :::row:::
     :::column:::
-        Use for objects or pages that are entering the scene or opening.
-        Allows a reasonable amount of time to celebrate content as it enters the scene.
+オブジェクトまたはシーンを入力するか、開くページに使用します。
+シーンに入るときにコンテンツを彩るために適切な時間が確保されます。
     :::column-end:::
     :::column:::
         ![300ms motion](images/300ms.gif)
@@ -64,7 +79,7 @@ Fluent のモーションのタイミングでは、ベースラインとして 
 
 :::row:::
     :::column:::
-        Use for objects which are translating across a single scene or multiple scenes. 
+シーンは 1 つまたは複数のシーンの間で翻訳をオブジェクトに使用します。 
     :::column-end:::
     :::column:::
         ![500ms motion](images/500ms.gif)
@@ -87,10 +102,10 @@ Fluent のモーションのタイミングでは、ベースラインとして 
 
 :::row:::
     :::column:::
-        Use for UI or objects that are exiting the scene.
+UI またはシーンを終了するオブジェクトを使用します。
 
-        Objects become powered and gain momentum until they reach escape velocity.
-        The resulting feel is that the object is trying its hardest to get out of the user's way and make room for new content to come in.
+オブジェクトは、電源になるし、エスケープ ベロシティに到達するまで、運動量を取得します。
+結果として得られる感覚は、オブジェクトが、ユーザーの邪魔に活用し付属する新しいコンテンツの場所を確保する最も難しいその試行されています。
     :::column-end:::
     :::column:::
         ![accelerate easing](images/accelEase.gif)
@@ -126,12 +141,12 @@ _exitAnimation.Duration = TimeSpan.FromMilliseconds(150);
 
 :::row:::
     :::column:::
-        Use for objects or UI entering the scene, either navigating or spawning.
+オブジェクトまたはシーンを入力する UI を移動するか、起動に使用します。
 
-        Once on-scene, the object is met with extreme friction, which slows the object to rest.
-        The resulting feel is that the object traveled from a long distance away and entered at an extreme velocity, or is quickly returning to a rest state.
+シーンのオブジェクトは、極端な摩擦が rest にオブジェクトの速度は満たされます。
+結果として得られる感覚は、オブジェクトの旅行時間の長い距離を離れてからするか、極端な速度では、時に入力したして、rest の状態にすばやく返すことがしたです。
 
-        Even if it's preceded by a moment of unresponsiveness, the velocity of the incoming object has the effect of feeling fast and responsive.
+無応答の少し前に、場合でも、受信オブジェクトの速度は高速で応答性を感じての効果を持ちます。
     :::column-end:::
     :::column:::
         ![decelerate easing](images/decelEase.gif)
@@ -167,10 +182,10 @@ _enterAnimation.Duration = TimeSpan.FromMilliseconds(300);
 
 :::row:::
     :::column:::
-        This is the baseline easing for any animated parameter change inside of the system.
-        Use standard easing for objects that change from state to state on-screen, such as a simple position change. Also, use it for objects morphing in-scene, like an object that grows.
+これは、システム内でアニメーション化されたパラメーターの変更のイージング基準です。
+単純な位置変更など、画面上で状態ごとに変化するオブジェクトに標準的なイージングを使用します。 また、拡大するオブジェクトのように、シーン内でモーフィングするオブジェクトに使用します。
 
-        The resulting feel is that objects changing state from A to B are overcoming, and taken over by, natural forces.
+結果として得られる感覚は、A から B に状態を変更するオブジェクトの解決は、自然の強制によって実行される、です。
     :::column-end:::
     :::column:::
         ![standard easing](images/standardEase.gif)

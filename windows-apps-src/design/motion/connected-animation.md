@@ -9,12 +9,12 @@ pm-contact: stmoy
 design-contact: conrwi
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: a205fb151d1c9e6614dc97ccde639e43720aa8a9
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 901aa1fa5c37c18a815e5e70becdf15001ed74c4
+ms.sourcegitcommit: cc0ef75f314658b14376eb60ef8e5bb4d7726e04
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57618197"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65444232"
 ---
 # <a name="connected-animation-for-uwp-apps"></a>UWP アプリ用の接続型アニメーション
 
@@ -24,7 +24,22 @@ ms.locfileid: "57618197"
 
 > **重要な API**:[ConnectedAnimation クラス](/uwp/api/windows.ui.xaml.media.animation.connectedanimation)、 [ConnectedAnimationService クラス](/uwp/api/windows.ui.xaml.media.animation.connectedanimationservice)
 
-## <a name="see-it-in-action"></a>実際の動作を見る
+
+## <a name="examples"></a>例
+
+<table>
+<th align="left">XAML コントロール ギャラリー<th>
+<tr>
+<td><img src="images/xaml-controls-gallery-app-icon.png" alt="XAML controls gallery" width="168"></img></td>
+<td>
+    <p>ある場合、 <strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong>アプリをインストールするには、ここをクリックして<a href="xamlcontrolsgallery:/item/ConnectedAnimation">アプリを開き、接続されているアニメーション動作を確認</a>します。</p>
+    <ul>
+    <li><a href="https://www.microsoft.com/store/productId/9MSVH128X2ZT">XAML コントロール ギャラリー アプリを入手する (Microsoft Store)</a></li>
+    <li><a href="https://github.com/Microsoft/Xaml-Controls-Gallery">ソース コード (GitHub) を入手する</a></li>
+    </ul>
+</td>
+</tr>
+</table>
 
 この短いビデオでは、アプリは、「継続」次のページのヘッダーの一部となる項目のイメージをアニメーション化するのにアニメーションの結び付けを使用します。 この効果を利用すると、画面の切り替えでユーザー コンテキストを維持することができます。
 
@@ -86,7 +101,7 @@ ms.locfileid: "57618197"
 | 構成 | 保護に努めています DefaultDuration でしょうか。 | 保護に努めています DefaultEasingFunction でしょうか。 |
 | - | - | - |
 | 重力 | 〇 | ○* <br/> **A から B への基本的な変換がこのイージング関数を使用しますが、"重力 dip"が、独自のイージング関数。*  |
-| ダイレクト | X <br/> *超える 150ms をアニメーション化します。*| X <br/> *イージング関数は、減速を使用します。* |
+| [直接] | X <br/> *超える 150ms をアニメーション化します。*| X <br/> *イージング関数は、減速を使用します。* |
 | 基本 | 〇 | 〇 |
 
 ## <a name="how-to-implement-connected-animation"></a>アニメーションの結び付けを実装する方法
@@ -318,10 +333,6 @@ void OnNavigatedTo(NavigationEventArgs e)
 - 使用[DirectConnectedAnimationConfiguration](/uwp/api/windows.ui.xaml.media.animation.directconnectedanimationconfiguration)のナビゲーションをバックアップします。
 - ネットワーク要求または他の実行時間の長い非同期の操作を準備して、接続されているアニメーションの開始の間に待機はありません。 早めに切り替えを実行するには、必要な情報を事前に読み込んでおく必要があります。または、高解像度の画像が切り替え先のビューに読み込まれるときに、低解像度のプレースホルダー画像を使用する必要があります。
 - 使用[SuppressNavigationTransitionInfo](/uwp/api/windows.ui.xaml.media.animation.suppressnavigationtransitioninfo)の遷移のアニメーションを防ぐために、**フレーム**を使用する場合**ConnectedAnimationService**、アニメーションの結び付け以降既定のナビゲーションの切り替えを同時に使用するためのものはありません。 ナビゲーション切り替えの使用方法について詳しくは、「[NavigationThemeTransition](/uwp/api/Windows.UI.Xaml.Media.Animation.NavigationThemeTransition)」をご覧ください。
-
-## <a name="download-the-code-samples"></a>コード サンプルのダウンロード
-
-[WindowsUIDevLabs](https://github.com/Microsoft/WindowsUIDevLabs) サンプル ギャラリーの[接続型アニメーションのサンプル](https://github.com/Microsoft/WindowsUIDevLabs/tree/master/SampleGallery/Samples/SDK%2014393/ConnectedAnimationSample)をご覧ください。
 
 ## <a name="related-articles"></a>関連記事
 

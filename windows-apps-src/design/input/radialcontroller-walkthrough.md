@@ -8,7 +8,7 @@ ms.topic: article
 ms.localizationpriority: medium
 ms.openlocfilehash: 1c8042bbe3ad8a37802b592e4e638a7c42e79a6d
 ms.sourcegitcommit: 99271798fe53d9768fc52b21366de05268cadcb0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/20/2019
 ms.locfileid: "58221468"
@@ -559,7 +559,7 @@ Surface Dial およびその他のホイール デバイスは、現在の操作
             }
         }
         ```
-    - 最後に、触覚フィードバックに要求した**[波形](https://docs.microsoft.com/uwp/api/windows.devices.haptics.simplehapticscontrollerfeedback.Waveform)** (サポートされている場合) を取得します。 
+    - 最後に、触覚フィードバックに要求した **[波形](https://docs.microsoft.com/uwp/api/windows.devices.haptics.simplehapticscontrollerfeedback.Waveform)** (サポートされている場合) を取得します。 
 
         ```csharp
         // Get the requested waveform.
