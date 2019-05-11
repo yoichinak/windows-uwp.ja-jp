@@ -5,12 +5,12 @@ ms.date: 10/25/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: e4657c9dfb651c1e7f6bb4e2cafdc49d0a11237b
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 291c2a922e2b2df7111da8bfc6aefb57b87e84bb
+ms.sourcegitcommit: 4bad5f9427e7db27b57bedc6d7df19077c62e8c3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57630567"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65535195"
 ---
 # <a name="my-people-notifications"></a>マイ連絡先の通知
 
@@ -18,7 +18,7 @@ ms.locfileid: "57630567"
 
 ![ハート絵文字通知](images/heart-emoji-notification-small.gif)
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>要件
 
 + Windows 10 と Microsoft Visual Studio 2017。 インストールについて詳しくは、「[Visual Studio のセットアップ](https://docs.microsoft.com/en-us/windows/uwp/get-started/get-set-up)」をご覧ください。
 + C# またはこれに類似するオブジェクト指向プログラミング言語に関する基本的な知識。 C# で作業を始めるには、「["Hello, world" アプリを作成する](https://docs.microsoft.com/en-us/windows/uwp/get-started/create-a-hello-world-app-xaml-universal)」をご覧ください。
@@ -51,11 +51,11 @@ experienceType=”shoulderTap”
 
 + **src**
     + アセットの URI。 HTTP/HTTPS Web URI、msappx URI、またはローカル ファイルへのパスを指定できます。
-+ **spritesheet src**
++ **spritesheet-src**
     + アセットの URI。 HTTP/HTTPS Web URI、msappx URI、またはローカル ファイルへのパスを指定できます。 Spritesheet アニメーションの場合のみ必要です。
-+ **spritesheet 高さ**
++ **spritesheet-height**
     + フレームの高さ (ピクセル単位)。 Spritesheet アニメーションの場合のみ必要です。
-+ **spritesheet fps**
++ **spritesheet-fps**
     + 1 秒あたりのフレーム数 (FPS)。 Spritesheet アニメーションの場合のみ必要です。 1 ～ 120 の値のみがサポートされます。
 + **spritesheet startingFrame**
     + アニメーションを開始するフレーム番号です。 Spritesheet アニメーションの場合のみ使用されます。指定されていない場合は、既定値は 0 となります。
@@ -68,7 +68,7 @@ experienceType=”shoulderTap”
 さらに、トップ レベルのトースト ノードには、**hint-people** パラメーターを含めて、送信連絡先を指定する必要があります。 このパラメーターは次の値を取ることができます。
 
 + **電子メール アドレス** 
-    + 例: mailto:johndoe@mydomain.com
+    + 例: ` mailto:johndoe@mydomain.com `
 + **電話番号** 
     + 例: tel:888-888-8888
 + **リモート ID** 
