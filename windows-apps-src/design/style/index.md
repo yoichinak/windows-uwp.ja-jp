@@ -7,16 +7,16 @@ ms.topic: article
 ms.assetid: 4df395d2-f10e-4e0e-9bf2-660f82b8a9fa
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 1d313e35b7d1ab3ebe72bd3a073323fe8782098a
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 7d5da19fc9fdab324db2c162a3cb6792fa91f120
+ms.sourcegitcommit: 09edf480f2224e29e190fad8518f680c16e21c6d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57583778"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65065366"
 ---
 # <a name="style-for-uwp-apps"></a>UWP アプリのスタイル
 
-![ヒーロー イメージ](images/header-style.svg)
+![スタイル アイコン](../images/style-2x.png)
 
 アプリはスタイルによってさらに引き立ちます。ここで説明するスタイル ガイドラインは、色、文字体裁、アクリル素材や表示ハイライトなどの新機能を使用して Fluent Design を作成するのに役立ちます。
 

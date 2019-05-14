@@ -1,5 +1,5 @@
 ---
-description: UWP アプリにコントロールとパターンを追加する方法についての設計ガイダンスとコーディングの手順を説明します。 アプリで使用できる 45 種類以上の強力なコントロールを紹介します。
+description: UWP アプリにコントロールとパターンを追加する方法についての設計ガイダンスとコーディングの手順を入手できます。 アプリで使用できる 45 種類以上の強力なコントロールを紹介します。
 title: UWP のコントロールとパターン - Windows アプリ開発
 keywords: UWP コントロール, ユーザー インターフェイス, アプリ コントロール
 label: Controls & patterns
@@ -8,15 +8,16 @@ ms.date: 11/16/2017
 ms.topic: article
 ms.assetid: ce2e611c-c419-4a14-9095-b88ac711d1b8
 ms.localizationpriority: medium
-ms.openlocfilehash: 417f9b72c5708a85fa570476de2829bf6217c165
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 6ffed5cdc063a35b4693aa4a9323e2143b69e4fc
+ms.sourcegitcommit: 09edf480f2224e29e190fad8518f680c16e21c6d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57583171"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65065346"
 ---
-# <a name="controls-and-patterns-for-uwp-apps"></a>UWP アプリのコントロールとパターン
- 
+# <a name="controls-for-uwp-apps"></a>UWP アプリのコントロール 
+
+![コントロール](../images/controls-2x.png)
 
 UWP アプリ開発では、<i>コントロール</i>は、コンテンツを表示したり、操作を有効にしたりする UI 要素です。 コントロールとは、ユーザー インターフェイスの構成要素です。 <i>パターン</i>とは、いくつかのコントロールを組み合わせて、新しいものを作成するためのレシピです。
 
