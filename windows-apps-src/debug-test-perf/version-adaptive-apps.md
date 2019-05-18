@@ -1,16 +1,16 @@
 ---
 title: バージョン アダプティブ アプリ
 description: 以前のバージョンとの互換性を保ちながら、新しい API を利用する方法について説明します
-ms.date: 09/17/2018
+ms.date: 05/17/2019
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 435bbdbfaaf1bec90fa1ee2d598b4a3fe78d3789
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 579f92cc51ed5f9eeea522d81cfdb030f85ef0da
+ms.sourcegitcommit: f282c906cddf0d57217484e61a5cbd2fe8469421
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57631657"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65852273"
 ---
 # <a name="version-adaptive-apps-use-new-apis-while-maintaining-compatibility-with-previous-versions"></a>アダプティブ アプリのバージョン:新しい Api を使用して、以前のバージョンとの互換性を維持しながら
 
@@ -57,6 +57,7 @@ Visual Studio で既に作成済みのプロジェクトの最小バージョン
 | Fall Creators Update | 1709 | 16299 |
 | April 2018 Update | 1803 | 17134 |
 | 2018年 10 月 Update | 1809 | 17763 |
+| 2019 の月の更新 | 1903 | 18362 |
 
 SDK のすべてのリリース版は、「[Windows SDK とエミュレーターのアーカイブ](https://developer.microsoft.com/downloads/sdk-archive)」からダウンロードできます。 最新の Windows Insider Preview SDK は、[Windows Insider](https://insider.windows.com/Home/BuildWithWindows) サイトの「開発者向け」セクションからダウンロードできます。
 
