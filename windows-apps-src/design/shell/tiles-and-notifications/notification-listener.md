@@ -8,12 +8,12 @@ ms.date: 06/13/2017
 ms.topic: article
 keywords: Windows 10, UWP, 通知リスナー, usernotificationlistener, ドキュメント, 通知へのアクセス
 ms.localizationpriority: medium
-ms.openlocfilehash: de1032eb3d0d364a62beff0a1af8f84240c11d87
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: d6c18740cbba0ea037440300edbe2d7ba4fd116e
+ms.sourcegitcommit: 1d04910a6bbfcaa985d2074caf8f898c35eab7ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57649617"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65933161"
 ---
 # <a name="notification-listener-access-all-notifications"></a>通知リスナー。すべての通知へのアクセスします。
 
@@ -277,17 +277,17 @@ foreach (uint id in toBeRemoved)
 ## <a name="foreground-event-for-notification-addeddismissed"></a>追加/無視される通知のフォアグラウンド イベント
 
 > [!IMPORTANT] 
-> 既知の問題:フォア グラウンドのイベントは、最近のバージョンの Windows では、CPU のループが発生し、前に、その以前動作しなかった。 フォア グラウンド イベントを使用しないでください。 Windows を今後の更新プログラム、この修正する予定です。
+> 既知の問題:17763 をビルドする前に/2018 の年 10 月のビルドで更新プログラム]、[バージョン 1809、フォア グラウンドのイベントにより、CPU のループや動作しませんでした。 それらの以前のビルドでのサポートが必要な場合は、バック グラウンド タスクを使用します。
 
-フォア グラウンド イベントを使用するのではなくの前に示したコードを使用して、 [1 つのプロセス モデル](../../../launch-resume/create-and-register-an-inproc-background-task.md)バック グラウンド タスク。 バック グラウンド タスクでは、アプリが終了または実行中に、両方の変更イベント通知を受信することはも。
+メモリ内のイベント ハンドラーから通知をリッスンすることができますもしています.
 
 ```csharp
-// Subscribe to foreground event (DON'T USE THIS)
+// Subscribe to foreground event
 listener.NotificationChanged += Listener_NotificationChanged;
  
 private void Listener_NotificationChanged(UserNotificationListener sender, UserNotificationChangedEventArgs args)
 {
-    // NOTE: This event WILL CAUSE CPU LOOPS, DO NOT USE. Use the background task instead.
+    // Your code for handling the notification
 }
 ```
 

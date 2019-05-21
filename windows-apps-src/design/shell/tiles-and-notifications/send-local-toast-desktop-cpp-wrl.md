@@ -7,12 +7,12 @@ ms.date: 03/07/2018
 ms.topic: article
 keywords: windows 10, uwp, win32, デスクトップ, トースト通知, トーストの送信, ローカル トーストの送信, デスクトップ ブリッジ, C++, cpp, c プラスプラス, WRL
 ms.localizationpriority: medium
-ms.openlocfilehash: 82de349009350c970fce923a2aa503df0801c3b7
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: af6c4392d97bdbf06c3e185b8a1c0235225bfe5a
+ms.sourcegitcommit: 81021b7930905beb67383a08b09520cf95c68fd9
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57609847"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65940314"
 ---
 # <a name="send-a-local-toast-notification-from-desktop-c-wrl-apps"></a>デスクトップ C++ WRL アプリからのローカル トースト通知の送信
 
@@ -62,7 +62,7 @@ using namespace Microsoft::WRL;
 
 ## <a name="step-4-implement-the-activator"></a>手順 4:アクティベーターを実装します。
 
-ユーザーがトーストをクリックしたときにアプリが動作できるように、トーストをアクティブ化するためのハンドラーを実装する必要があります。 これは、アクション センターにトーストを継続的に表示するために必要です (トーストは、数日後、アプリが閉じているときにクリックされる可能性があります)。 このクラスは、プロジェクトの任意の位置に指定できます。
+アプリが何かを実行できるユーザーは、トーストをクリックすると、ようにトースト アクティブにするためのハンドラーを実装する必要があります。 これは、アクション センターにトーストを継続的に表示するために必要です (トーストは、数日後、アプリが閉じているときにクリックされる可能性があります)。 このクラスは、プロジェクトの任意の位置に指定できます。
 
 以下に示すように、UUID を含めて **INotificationActivationCallback** インターフェイスを実装し、**CoCreatableClass** を呼び出して、クラスを COM 作成可能としてフラグ設定します。 UUID は、任意のオンライン GUID ジェネレーターを使用して、一意の GUID を作成します。 アクション センターは、この GUID CLSID (クラス識別子) に基づいて、COM アクティブ化するクラスを認識します。
 
@@ -420,8 +420,8 @@ Windows 8.1 以下をサポートする場合は、実行時に Windows 10 を�
 
 | OS | ToastGeneric | COM アクティベーター | レガシ トースト テンプレート |
 | -- | ------------ | ------------- | ---------------------- |
-| Windows 10 | サポートされている | サポートされている | サポート対象 (ただし COM サーバーをアクティブ化しない) |
-| Windows 8.1 / 8 | なし | なし | サポートされている |
+| Windows 10 | サポート対象 | サポート対象 | サポート対象 (ただし COM サーバーをアクティブ化しない) |
+| Windows 8.1 / 8 | なし | なし | サポート対象 |
 | Windows 7 以下 | なし | なし | なし |
 
 Windows 10 で実行しているかどうかを確認するには、`<VersionHelpers.h>` ヘッダーをインクルードし、**IsWindows10OrGreater** メソッドを確認します。 これが true を返す場合は、続いてこのドキュメントで説明されているすべてのメソッドを呼び出してください。 

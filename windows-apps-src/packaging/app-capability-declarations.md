@@ -7,12 +7,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: 3c126b17e8ba9b66bc5e7c4fccd0142cd63ab7e9
-ms.sourcegitcommit: fca0132794ec187e90b2ebdad862f22d9f6c0db8
+ms.openlocfilehash: d004f3e735328fb23b7dab6c062d046b005563c2
+ms.sourcegitcommit: a4ea618279448a3099fee4c94dcfc560d00ffdd6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63777911"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65922412"
 ---
 # <a name="app-capability-declarations"></a>アプリ機能の宣言
 
@@ -196,7 +196,7 @@ ms.locfileid: "63777911"
 | **バック グラウンド メディアの記録** | **BackgroundMediaRecording**機能などのメディアに固有の Api の動作を変更する、 [ **MediaCapture** ](https://docs.microsoft.com/uwp/api/windows.media.capture.mediacapture)と[ **AudioGraph** ](https://msdn.microsoft.com/library/windows/apps/windows.media.audio.audiograph.aspx)メディアの中に、アプリがバック グラウンドの記録を有効にするクラス。 |
 |**Ink ワークスペースのプレビュー**| **previewInkWorkspace** 機能を使うと、アプリは、Ink ワークスペース内でホストされている Preview Ink 名前空間にアクセスできます。 一般的に、この機能は、デバイス上のホワイト ボード アプリケーションを置き換えるために、OEM によって使用されます。<br /> <br />[  **Windows.ApplicationModel.Preview.InkWorkspace**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.preview.inkworkspace) 名前空間の API を使う場合は、この機能が必要になります。 |
 |**スタート画面の管理**| **startScreenManagement** 機能を使うと、アプリは、スタート画面にタイルを自動的にピン留めすることができます。 アプリは、バックグラウンドでピン留めすることもできます。 **startScreenManagement** 機能がないといずれかの API がブロックされるということではなく、**startScreenManagement** を使用すると、アプリで Pin API を使用しているときにシェルによって UI が表示されなくなります。 |
-|**Cortana アクセス許可**| **cortanaPermissions** 機能を使うと、アプリは、デバイス上でユーザーが Cortana に付与したアクセス許可を列挙できます。 また、アプリはこの機能によって、デバイス上で Cortana のアクセス許可の付与および取り消しを行うことができます。 **cortanaPermissions** を使うには、アクセス許可を付与する前にデバイスで法的なテキストを表示する必要があります。 アプリには、アクセス許可を変更した場合に生じる法的な影響をユーザーに通知する義務があります。<br /> <br /><br />この機能は読み取りアクセスするために必要な**HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search\(*)** レジストリ設定します。<br /><br />Microsoft Store に提出するアプリケーションでは、この機能を宣言することをお勧めします。 ほとんどの場合、この機能の使用を承認されません。 |
+|**Cortana アクセス許可**| **cortanaPermissions** 機能を使うと、アプリは、デバイス上でユーザーが Cortana に付与したアクセス許可を列挙できます。 また、アプリはこの機能によって、デバイス上で Cortana のアクセス許可の付与および取り消しを行うことができます。 **cortanaPermissions** を使うには、アクセス許可を付与する前にデバイスで法的なテキストを表示する必要があります。 アプリには、アクセス許可を変更した場合に生じる法的な影響をユーザーに通知する義務があります。<br /> <br /><br />この機能は読み取りアクセスするために必要な**HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search**レジストリ設定します。<br /><br />Microsoft Store に提出するアプリケーションでは、この機能を宣言することをお勧めします。 ほとんどの場合、この機能の使用を承認されません。 |
 |**すべてのアプリのカスタム設定**| **allAppMods** 機能を使うと、アプリは、すべてのアプリに対して AppMods フォルダーにアクセスできます。 Mod 管理ユーティリティでは **allAppMods** を使用し、MOD を使用するゲームやアプリの外で、その MOD を管理します。 |
 |**展開リソース**| **expandedResources** 機能を使うと、アプリは、ゲーム モードのリソースにアクセスできます。 Xbox と、ゲーム バーに対応する PC で、ゲーム モードのリソースとは、アプリ専用に予約されている、使用可能な CPU コアのサブセットを表します。 Xbox では、アプリは 4 GB 以上のメモリ パーティションも排他的に使用できます。<br /><br />前述のように CPU とメモリのリソースを排他的に使用するには、この機能が必要になります。 |
 |**保護対象のアプリ**| **protectedApp** 機能を使うと、ストアによって保護されているプロセスにアプリを読み込むことができます。 アプリがストアに取り込まれると、ストアによって実行可能ファイルに blob が追加されます。 ストアでは、Microsoft キーを使って実行可能ファイルへの署名も行われます。 blob には Microsoft の署名が必要であるため、プロセス ローダーは、保護されたプロセスを適用する機能ではなく、この blob をチェックします。<br /><br />Microsoft Store に提出するアプリケーションでは、この機能を宣言することをお勧めします。 ほとんどの場合、この機能の使用を承認されません。 |
@@ -221,7 +221,8 @@ ms.locfileid: "63777911"
 | **パッケージの書き込みのリダイレクト互換性 Shim** | **PackageWriteRedirectionCompatibilityShim**制限付き機能がユーザーごとの場所ですべての新しいファイルを作成するアプリケーションを構成します。 書き込み用に開くすべて既存のファイルはまずユーザーごとの場所にコピーし、その場所にファイルに変更が行われます。 この機能は、アプリケーションを作成またはのインストール フォルダーでファイルを変更する場合に便利です。<br /><br />この機能は、Microsoft とパートナーによって公開されているデスクトップ PC ゲームの特定の種類に適しています。 ただし、これもある場合によっては他のアプリに適用できます。 |
 | **カスタム インストール アクション** | **CustomInstallActions**制限された機能により、アプリケーションで宣言する、 [windows.customInstall](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-desktop6-package-extension)いずれかを指定できるマニフェストまたは以上の追加は、そのパッケージ内の拡張機能インストーラー ファイル (.exe または .msi) が、アプリケーションで実行されます。 標準の展開シナリオのいずれかのカスタム アクションを指定できます。 インストール、更新、修復、またはアンインストールします。 たとえば、これは、サード パーティの再頒布可能コンポーネントをバンドルするアプリケーションに役立ちます。<br /><br />この機能は、Microsoft とパートナーによって公開されているデスクトップ PC ゲームの特定の種類に適しています。 その他のシナリオには付与されません。 |
 | **パッケージ サービス** | **PackagedServices**制限された機能により、宣言するには、Microsoft パートナーと企業によって作成されるアプリケーション、 [windows.service](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-desktop6-extension)そのパッケージ内の拡張機能マニフェスト、その it1 つまたは複数のサービスとアプリをインストールできます。 これらのサービスは、ローカル サービス、ネットワーク サービスまたはローカル システム アカウントで実行を構成できます。 ローカル サービスとネットワーク サービスのサービスが必要なだけ、 **packagedServices**機能します。 ローカルのシステム サービスでは、両方が必要です、 **packagedServices**と**localSystemServices**機能します。<br /><br />Microsoft Store に提出するアプリケーションでは、この機能を宣言することをお勧めします。 ほとんどの場合、この機能の使用を承認されません。  |
-| **ローカルのシステム サービス** | **LocalSystemServices**制限された機能により、1 つまたは複数のローカル システム サービスとアプリをインストールするには、Microsoft パートナーと企業によって作成されるアプリケーション (つまり、アプリケーションを宣言できます、StartAccount サービスを LocalSystem)。 このシナリオにも必要があります、 **packagesServices**機能します。 <br /><br />Microsoft Store に提出するアプリケーションでは、この機能を宣言することをお勧めします。 ほとんどの場合、この機能の使用を承認されません。 
+| **ローカルのシステム サービス** | **LocalSystemServices**制限された機能により、1 つまたは複数のローカル システム サービスとアプリをインストールするには、Microsoft パートナーと企業によって作成されるアプリケーション (つまり、アプリケーションを宣言できます、StartAccount サービスを LocalSystem)。 このシナリオにも必要があります、 **packagesServices**機能します。 <br /><br />Microsoft Store に提出するアプリケーションでは、この機能を宣言することをお勧めします。 ほとんどの場合、この機能の使用を承認されません。 |
+| **バック グラウンド空間認識** | **BackgroundSpatialPerception**制限された機能により、アプリケーションは、アプリのバック グラウンドで実行中に、ユーザーのヘッド ノード、手、アニメーション コント ローラー、およびその他の追跡対象のオブジェクトの移動にアクセスします。 |
 
 ## <a name="custom-capabilities"></a>カスタムの機能
 
