@@ -1,31 +1,46 @@
 ---
 Description: デスクトップ アプリケーションおよび UWP アプリ間で共有コード
-Search.Product: eADQiWindows 10XVcnh
 title: デスクトップ アプリケーションおよび UWP アプリ間で共有コード
 ms.date: 10/03/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 151584f15013c9d4ab7d9566e175b957a7a84149
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 16b75226d6b79b19978ddf7e37231b15ac7a4e3e
+ms.sourcegitcommit: f0f933d5cf0be734373a7b03e338e65000cc3d80
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57644347"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65984167"
 ---
-# <a name="share-code-between-a-desktop-application-and-a-uwp-app"></a>デスクトップ アプリケーションおよび UWP アプリ間で共有コード
+# <a name="move-from-a-desktop-application-to-uwp"></a>UWP へのデスクトップ アプリケーションからの移動します。
 
-お持ちのコードを .NET Standard ライブラリに移行し、ユニバーサル Windows プラットフォーム (UWP) アプリを作成すると、すべての Windows 10 デバイスをターゲットにすることができます。 デスクトップ アプリケーションを UWP アプリに変換できるツールはありませんが、多くの既存コードを再利用できるため、UWP アプリの作成コストを削減できます。 このガイドでは、その方法を示しています。
+.NET Framework (WPF と Windows フォームを含む) を使用して構築された既存のデスクトップ アプリケーションがある場合またはC++Win32 Api では、Windows 10 とユニバーサル Windows プラットフォーム (UWP) に移動するためのいくつかのオプションがあります。
 
-## <a name="share-code-in-a-net-standard-20-library"></a>.NET Standard 2.0 ライブラリでコードを共有する
+## <a name="package-your-desktop-application-in-an-msix-package"></a>MSIX パッケージ内のデスクトップ、アプリケーションをパッケージ化します。
 
-できる限り多くのコードを .NET Standard 2.0 クラス ライブラリに配置してください。  標準で定義されている API を使用しているコードは、UWP アプリで再利用できます。 .NET Standard 2.0 に含まれる API が大幅に増えたため、.NET Standard ライブラリでのコード共有は、従来よりずっと簡単になっています。
+Windows 10 の多数の機能へのアクセスを取得する MSIX パッケージをデスクトップ アプリケーションをパッケージ化することができます。 MSIX には、UWP、WPF、Windows フォーム、Win32 アプリを含む、すべてのアプリの Windows ユニバーサルのパッケージ化エクスペリエンスを提供する最新 Windows アプリ パッケージ形式です。 堅牢なインストールへのアクセスを取得する MSIX パッケージで、デスクトップの Windows アプリをパッケージ化し、Microsoft Store、エンタープライズ管理、および多くのカスタムのサポート、機能の柔軟性の高いシステムでの管理セキュリティ モデルのエクスペリエンスを更新するには、配布モデル。 ソース コードがあるかどうか、またはのみ (MSI、または、APP-V のインストーラー) などの既存のインストーラー ファイルがあるかどうか、アプリケーションをパッケージ化することができます。 アプリケーションをパッケージ化したら、パッケージの拡張機能とその他の UWP コンポーネントなどの UWP 機能を統合できます。
 
-詳しい解説は、こちらのビデオでご覧ください。
-&nbsp;
+詳細については、次を参照してください。[デスクトップ アプリケーション (デスクトップ ブリッジ) パッケージ](/windows/msix/desktop/desktop-to-uwp-root)と[パッケージ id が必要な機能](/windows/apps/desktop/modernize/modernize-packaged-apps)します。
+
+## <a name="use-uwp-apis"></a>UWP Api を使用して、
+
+UWP Api の多くは、Windows フォーム、WPF で直接呼び出すことができますかC++Win32 デスクトップ アプリに Windows 10 のユーザー用に光を最新のエクスペリエンスを統合します。 たとえば、デスクトップ アプリにトースト通知を追加する UWP Api を呼び出すことができます。
+
+詳細については、次を参照してください。[デスクトップ アプリでの UWP Api を使用して](/windows/apps/desktop/modernize/desktop-to-uwp-enhance)します。
+
+## <a name="migrate-a-net-framework-app-to-a-uwp-app"></a>移行、.NET Framework アプリを UWP アプリ
+
+アプリケーションを .NET Framework で実行する場合は、.NET Standard 2.0 を利用して UWP アプリに移行することができます。 .NET Standard 2.0 クラス ライブラリにことができますし、.NET Standard 2.0 ライブラリを参照する UWP アプリを作成すると、多くのコードに移動します。 
+
+### <a name="share-code-in-a-net-standard-20-library"></a>.NET Standard 2.0 ライブラリでコードを共有する
+
+.NET Framework でアプリケーションを実行する場合は、することができますに .NET Standard 2.0 クラス ライブラリのコードを配置します。 標準で定義されている API を使用しているコードは、UWP アプリで再利用できます。 .NET Standard 2.0 に含まれる API が大幅に増えたため、.NET Standard ライブラリでのコード共有は、従来よりずっと簡単になっています。
+
+詳細については、通知するビデオを次に示します。
+
 > [!VIDEO https://www.youtube-nocookie.com/embed/YI4MurjfMn8?list=PLRAdsfhKI4OWx321A_pr-7HhRNk7wOLLY&amp;ecver=1]
 
-### <a name="add-net-standard-libraries"></a>.NET Standard ライブラリを追加する
+#### <a name="add-net-standard-libraries"></a>.NET Standard ライブラリを追加する
 
 まず、1 つ以上の .NET Standard クラス ライブラリをソリューションに追加します。  
 
@@ -45,7 +60,7 @@ ms.locfileid: "57644347"
 
 次に、ツールを使用して、どの程度のコードが標準に準拠しているか調べます。 これにより、コードをライブラリに移行する前に、どの部分を再利用でき、どの部分で最小限の変更が必要になり、どの部分がアプリケーション固有にしておくのかを決定できます。
 
-### <a name="check-library-and-code-compatibility"></a>ライブラリとコードの互換性を確認する
+#### <a name="check-library-and-code-compatibility"></a>ライブラリとコードの互換性を確認する
 
 まず Nuget パッケージと、サード パーティから取得したその他の dll ファイルから始めます。
 
@@ -61,7 +76,7 @@ ms.locfileid: "57644347"
 
 コードの一部はプラットフォーム固有でありデスクトップ アプリケーション プロジェクト内に残す必要があります。
 
-### <a name="example-migrating-data-access-code-to-a-net-standard-20-library"></a>以下に例を示します.NET Standard 2.0 ライブラリへのデータ アクセス コードの移行
+#### <a name="example-migrating-data-access-code-to-a-net-standard-20-library"></a>以下に例を示します.NET Standard 2.0 ライブラリへのデータ アクセス コードの移行
 
 Northwind サンプル データベースから顧客を表示する非常に基本的な Windows フォーム アプリケーションがあると仮定します。
 
@@ -151,7 +166,7 @@ public partial class Customers : Form
 }
 ```
 
-## <a name="reach-all-windows-devices"></a>すべての Windows デバイスにリーチ
+### <a name="create-a-uwp-app"></a>UWP アプリを作成します。
 
 これで、ソリューションに UWP アプリを追加する準備ができました。
 
@@ -163,7 +178,7 @@ UI ページは XAML で設計し、デバイス固有またはプラットフ�
 
 これらは、UWP による利点のごく一部です。 詳しくは、「[Windowsで優れたエクスペリエンスを実現](https://developer.microsoft.com/windows/why-build-for-uwp)」をご覧ください。
 
-### <a name="add-a-uwp-project"></a>UWP プロジェクトを追加する
+#### <a name="add-a-uwp-project"></a>UWP プロジェクトを追加する
 
 まず、UWP プロジェクトをソリューションに追加します。
 
@@ -173,7 +188,7 @@ UI ページは XAML で設計し、デバイス固有またはプラットフ�
 
 ![クラス ライブラリ参照](images/desktop-to-uwp/class-library-reference2.png)
 
-### <a name="build-your-pages"></a>ページをビルドする
+#### <a name="build-your-pages"></a>ページをビルドする
 
 XAML ページを追加し、.NET Standard 2.0 ライブラリ内のコードを呼び出します。
 
@@ -201,10 +216,9 @@ public sealed partial class MainPage : Page
 }
 ```
 
-
 UWP を使い始めるには、「[UWP アプリとは](https://docs.microsoft.com/windows/uwp/get-started/universal-application-platform-guide)」をご覧ください。
 
-## <a name="reach-ios-and-android-devices"></a>iOS および Android デバイスへのリーチ
+### <a name="reach-ios-and-android-devices"></a>iOS および Android デバイスへのリーチ
 
 Xamarin プロジェクトを追加することにより、Android デバイスと iOS デバイスをターゲットにすることができます。  
 
@@ -216,7 +230,7 @@ Xamarin プロジェクトを追加することにより、Android デバイス�
 
 UWP の場合と同様、.NET Standard 2.0 クラス ライブラリに用意されているビジネス ロジックを再利用できるため、Android アプリまたは iOS アプリを追加するコストが低くなります。 UI ページは XAML で設計し、デバイス固有またはプラットフォーム固有のコードを記述する必要があります。
 
-### <a name="add-a-xamarin-project"></a>Xamarin プロジェクトを追加する
+#### <a name="add-a-xamarin-project"></a>Xamarin プロジェクトを追加する
 
 まず、**Android**、**iOS**、または**クロス プラットフォーム**のプロジェクトをソリューションに追加します。
 
@@ -231,7 +245,7 @@ UWP の場合と同様、.NET Standard 2.0 クラス ライブラリに用意さ
 
 ![クラス ライブラリ参照](images/desktop-to-uwp/class-library-reference3.png)
 
-### <a name="build-your-pages"></a>ページをビルドする
+#### <a name="build-your-pages"></a>ページをビルドする
 
 この例では、Android アプリに顧客の一覧が示されます。
 

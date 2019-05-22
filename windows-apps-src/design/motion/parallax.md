@@ -12,12 +12,12 @@ design-contact: conrwi
 dev-contact: stpete
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 953a92cdb8cc3168a2cbeae9a1f3610f771c6339
-ms.sourcegitcommit: cc0ef75f314658b14376eb60ef8e5bb4d7726e04
+ms.openlocfilehash: 5feea95245a7e3ff6deefe73617b050f89243a90
+ms.sourcegitcommit: f0f933d5cf0be734373a7b03e338e65000cc3d80
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65444188"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65984128"
 ---
 # <a name="parallax"></a>視差
 
@@ -43,7 +43,7 @@ ms.locfileid: "65444188"
 
 ## <a name="parallax-and-the-fluent-design-system"></a>視差と Fluent Design System
 
- Fluent Design System では、ライト、深度、モーション、マテリアル、スケールを取り入れた、モダンで目を引く UI を作成できます。 視差は、アプリにモーション、深度、スケールを追加する Fluent Design System コンポーネントです。 詳しくは、[UWP 用の Fluent Design の概要に関するページ](../fluent-design-system/index.md)をご覧ください。
+ Fluent Design System では、ライト、深度、モーション、マテリアル、スケールを取り入れた、モダンで目を引く UI を作成できます。 視差は、アプリにモーション、深度、スケールを追加する Fluent Design System コンポーネントです。 詳しくは、[UWP 用の Fluent Design の概要に関するページ](/windows/apps/fluent-design-system)をご覧ください。
 
 ## <a name="how-it-works-in-a-user-interface"></a>ユーザー インターフェイスでのしくみ
 
@@ -122,5 +122,5 @@ VerticalShift プロパティと HorizontalShift プロパティでは、視差�
 ## <a name="related-articles"></a>関連記事
 
 - [ParallaxView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Parallaxview) 
-- [UWP 用 Fluent デザイン](../fluent-design-system/index.md)
+- [UWP 用 Fluent デザイン](/windows/apps/fluent-design-system)
 - [システムで科学:Fluent デザインと深さ](https://medium.com/microsoft-design/science-in-the-system-fluent-design-and-depth-fb6d0f23a53f)

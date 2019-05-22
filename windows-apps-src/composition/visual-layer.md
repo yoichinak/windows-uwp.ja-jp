@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 599c2625bffff40a30f26bfb40f7cce9c97acdd1
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 4607280fd031fa556bfc5d1c719f4b4e1aeb928e
+ms.sourcegitcommit: f0f933d5cf0be734373a7b03e338e65000cc3d80
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57626407"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65984100"
 ---
 # <a name="visual-layer"></a>ビジュアル レイヤー
 
@@ -61,6 +61,12 @@ Windows UWP アプリは、いずれかの UI フレームワークを介して�
 [  **Windows.UI.Xaml.Hosting**](https://msdn.microsoft.com/library/windows/apps/Hh701908) の [**ElementCompositionPreview**](https://msdn.microsoft.com/library/windows/apps/Mt608976) クラスを使用して、XAML フレームワークによってビジュアルを作成できるようになり、表示可能な FrameworkElement を強化することができます。 フレームワークによって作成されたビジュアルには、カスタマイズに関するいくつかの制限があることに注意してください。 これは、フレームワークがオフセット、変換、有効期間を管理するためです。 ただし、独自のビジュアルを作成し、ElementCompositionPreview によって、またはビジュアル ツリー構造内のどこかに既にある ContainerVisual に追加することにより、既存の XAML 要素にアタッチできます。
 
 詳しくは、[XAML でのビジュアル レイヤーの使用](using-the-visual-layer-with-xaml.md)の概要をご覧ください。
+
+### <a name="working-with-your-desktop-app"></a>デスクトップ アプリの使用
+
+ビジュアル層を使用するで、外観や、Windows フォーム、WPF の機能を強化するために、 C++ Win32 デスクトップ アプリ。 ビジュアル層を使用し、その既存のフレームワークで、UI の残りの部分へのコンテンツの島を移行できます。 これは、行うことができます重要な更新プログラムと機能強化、アプリケーションの UI に、既存のコードに広範な変更を加えることがなく基本ことを意味します。
+
+詳細については、次を参照してください。[ビジュアル レイヤーを使用して、デスクトップ アプリの近代化](/windows/apps/desktop/modernize/visual-layer-in-desktop-apps)します。
 
 ## <a name="additional-resources"></a>その他の資料
 

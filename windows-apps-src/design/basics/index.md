@@ -5,12 +5,12 @@ keywords: UWP アプリのレイアウト, ユニバーサル Windows プラッ�
 ms.date: 03/07/2018
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 03e30aa091a04e16ee84f38832dc962d34659e1b
-ms.sourcegitcommit: 09edf480f2224e29e190fad8518f680c16e21c6d
+ms.openlocfilehash: 78462d5d29ebcc31792aa46da7657c57fb960e13
+ms.sourcegitcommit: f0f933d5cf0be734373a7b03e338e65000cc3d80
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65065440"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65984111"
 ---
 # <a name="design-basics-for-uwp-apps"></a>UWP アプリの設計の基本
 
@@ -24,7 +24,7 @@ ms.locfileid: "65065440"
 
 すべての種類の Windows デバイスで適切に対応するアプリを作成するためのベスト プラクティスと組み合わされた、UWP 機能の概要です。
 
-[**Fluent Design System**](../fluent-design-system/index.md)
+[**Fluent Design System**](/windows/apps/fluent-design-system)
 
 Fluent Design System では、順応性が高く、親近感があり、優れた美しさを持つユーザー インターフェイスを作成するための目標や原則を示します。
 

@@ -11,7 +11,7 @@ ms.date: 02/08/2017
 ms.topic: article
 ms.openlocfilehash: 1350c6e0eae057386fb721a358f71acb19c4efc1
 ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/06/2019
 ms.locfileid: "57591767"
@@ -38,7 +38,7 @@ ms.locfileid: "57591767"
 アプリで使用可能な入力値の種類は、**[InputScopeNameValue](https://msdn.microsoft.com/library/windows/apps/hh702028)** 列挙体のメンバーです。  **[TextBox](https://msdn.microsoft.com/library/windows/apps/br209683)** または **[RichEditBox](https://msdn.microsoft.com/library/windows/apps/br227548)** の **InputScope** プロパティを、これらの値のいずれかに設定できます。
 
 > [!IMPORTANT]
-> **[InputScope](https://msdn.microsoft.com/library/windows/apps/dn996570)** プロパティ**[PasswordBox](https://msdn.microsoft.com/library/windows/apps/br227519)** のみをサポート、**パスワード**と**NumericPin**値。 それ以外の値はすべて無視されます。
+> **[InputScope](https://msdn.microsoft.com/library/windows/apps/dn996570)** プロパティ **[PasswordBox](https://msdn.microsoft.com/library/windows/apps/br227519)** のみをサポート、 **パスワード** と **NumericPin** 値。 それ以外の値はすべて無視されます。
 
 ここでは、各テキスト ボックスで予期されるデータと一致するように、いくつかのテキスト ボックスの入力値の種類を変更します。
 
@@ -169,7 +169,7 @@ phoneNumberTextBox.InputScope = new InputScope()
 ![URL 用 Windows タッチ キーボード](images/input-scopes/url.png)
 
 - **.com** キーと ![Go キー](images/input-scopes/kbdgokey.png) (Go) キーがあります。 長押しし、 **.com**追加のオプションを表示するキー (**.org**、 **.net**、およびリージョン固有のサフィックスを)
-- 含まれています、 **:**、 **-**、および**/** キー
+- 含まれています、 **:**、 **-**、および **/** キー
 - スペル チェック: 既定では無効だが、有効にすることも可能
 - 自動修正: 既定では無効だが、有効にすることも可能
 - 大文字の自動設定: 既定では無効だが、有効にすることも可能
