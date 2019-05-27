@@ -3,12 +3,15 @@ Description: 最新の XAML ユーザー インターフェイスを追加し、
 title: Windows 用デスクトップ アプリの現代化
 ms.topic: article
 ms.date: 04/17/2019
-ms.openlocfilehash: 0314523996989f6f5b5cfe320cfc4cc06445ac9d
-ms.sourcegitcommit: f0f933d5cf0be734373a7b03e338e65000cc3d80
+ms.author: mcleans
+author: mcleanbyron
+ms.localizationpriority: medium
+ms.openlocfilehash: 6153a0a094d03081388c15ec31696ef277ef7081
+ms.sourcegitcommit: d1c3e13de3da3f7dce878b3735ee53765d0df240
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65984352"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66215212"
 ---
 # <a name="modernize-your-desktop-apps"></a>デスクトップ アプリの現代化
 
