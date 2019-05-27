@@ -10,12 +10,12 @@ design-contact: rybick
 dev-contact: jevansa
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 0600e66c672a28683befdb7b0090f5455a28c948
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 4731ab089189a8a03656281d1a9a6da6e4d24e89
+ms.sourcegitcommit: f0f933d5cf0be734373a7b03e338e65000cc3d80
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57624197"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65984260"
 ---
 # <a name="acrylic-material"></a>アクリル素材
 
@@ -38,7 +38,7 @@ ms.locfileid: "57624197"
 
 ## <a name="acrylic-and-the-fluent-design-system"></a>アクリルと Fluent Design System
 
- Fluent Design System では、ライト、深度、モーション、マテリアル、スケールを取り入れた、モダンで目を引く UI を作成できます。 アクリルは、アプリに物理的なテクスチャ (マテリアル) と深度を追加する Fluent Design System コンポーネントです。 詳しくは、[UWP 用の Fluent Design の概要に関するページ](../fluent-design-system/index.md)をご覧ください。
+ Fluent Design System では、ライト、深度、モーション、マテリアル、スケールを取り入れた、モダンで目を引く UI を作成できます。 アクリルは、アプリに物理的なテクスチャ (マテリアル) と深度を追加する Fluent Design System コンポーネントです。 詳しくは、[UWP 用の Fluent Design の概要に関するページ](/windows/apps/fluent-design-system)をご覧ください。
 
  ## <a name="video-summary"></a>ビデオの概要
 
@@ -48,14 +48,14 @@ ms.locfileid: "57624197"
 
 :::row:::
     :::column span:::
-        ![Some image](images/XAML-controls-gallery-app-icon.png)
+![一部の画像](images/XAML-controls-gallery-app-icon.png)
     :::column-end:::
     :::column span="2":::
-        **XAML Controls Gallery**<br>
-        If you have the XAML Controls Gallery app installed, click <a href="xamlcontrolsgallery:/item/Acrylic">here</a> to open the app and see acrylic in action.
+**XAML コントロール ギャラリー**<br>
+XAML コントロール ギャラリー アプリをインストールした場合にクリックします<a href="xamlcontrolsgallery:/item/Acrylic">ここ</a>をアプリを開き、アクションのアクリルを参照してください。
 
-        <a href="https://www.microsoft.com/store/productId/9MSVH128X2ZT">Get the XAML Controls Gallery app (Microsoft Store)</a><br>
-        <a href="https://github.com/Microsoft/Xaml-Controls-Gallery">Get the source code (GitHub)</a>
+<a href="https://www.microsoft.com/store/productId/9MSVH128X2ZT">XAML コントロール ギャラリー アプリを入手する (Microsoft Store)</a><br>
+<a href="https://github.com/Microsoft/Xaml-Controls-Gallery">ソース コード (GitHub) を入手する</a>
     :::column-end:::
 :::row-end:::
 
@@ -73,7 +73,7 @@ ms.locfileid: "57624197"
 ## <a name="when-to-use-acrylic"></a>アクリルを使用する状況
 
 * 重複するコンテンツがスクロールまたは操作したときに画面上など、UI をサポートするためには、アプリ内のアクリルを使用します。
-* コンテキスト メニュー、フライアウト、光 dimsissable UI などの一時的な UI 要素の背景のアクリルを使用します。<br />一時的なシナリオでアクリルを使用すると、一時的な UI をトリガーするコンテンツで視覚的な関係を維持できます。
+* コンテキスト メニュー、フライアウト、光 dismissable UI などの一時的な UI 要素の背景のアクリルを使用します。<br />一時的なシナリオでアクリルを使用すると、一時的な UI をトリガーするコンテンツで視覚的な関係を維持できます。
 
 ナビゲーション画面をアプリ内のアクリルを使用している場合は、アプリでフローを向上させるためにアクリル ペインの下にコンテンツを拡張することを検討します。 NavigationView を使用してはこの処理を自動実行します。 ただし、ストライピング効果の作成を回避するため、アクリル - エッジでの複数の部分を配置しないでくださいこのことができます、2 つのぼかしサーフェスの間で不要な継ぎ目を作成します。 アクリルは、設計を visual 調和を実現するツールですが、適切に使用されることが余計。
 
@@ -98,7 +98,7 @@ NavigationView を利用できるように、アプリは、アクリルを追�
 
 ![情報のポップアップを使用してメール アプリのパターン](images/Mail_TransientContextMenu.png)
 
-コントロールの多くは、既定でアクリルを使用します。 [MenuFlyouts](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/menus)、 [AutoSuggestBox](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/auto-suggest-box)、 [ComboBox](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.combobox) light dimiss ポップアップのようなコントロールはすべて一時的なアクリル場合に、使用に呼び出されます。
+コントロールの多くは、既定でアクリルを使用します。 [MenuFlyouts](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/menus)、 [AutoSuggestBox](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/auto-suggest-box)、 [ComboBox](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.combobox)およびのようなコントロールでは、ポップアップをライト-消去したり、すべて使用する一時的なアクリルときに呼び出されます。
 
 > [!Note]
 > GPU の負荷がデバイスの電力消費量を増やすことができますし、バッテリの寿命を短縮するにはアクリル サーフェスをレンダリングします。 Acrylic 効果は、選択した場合デバイスがバッテリー セーバー モードに入るし、ユーザーには、すべてのアプリのアクリル効果が無効にすることができます自動的に無効にします。
@@ -319,7 +319,7 @@ protected override void OnLaunched(LaunchActivatedEventArgs e)
 ## <a name="dos-and-donts"></a>推奨と非推奨
 * アクリルは、ナビゲーション ウィンドウなど、アプリのプライマリ サーフェス以外のサーフェスで背景素材として使用してください。
 * シームレスなエクスペリエンスを実現するには、アプリの周囲とわずかにブレンドするようにして、アクリルをアプリの 1 つ以上の端にまで拡張してください。
-* アプリの大きな背景サーフェイス デスクトップ arylic を入れないでください - 一時的なサーフェイスの主に使用されているアクリルのメンタル モデルが破損します。
+* アプリの大きな背景サーフェイスでデスクトップのアクリルを入れないでください - 一時的なサーフェイスの主に使用されているアクリルのメンタル モデルが破損します。
 * アプリ内アクリルと背景アクリルは、継ぎ目部分での視覚的なテンションを回避するために、隣接するようには配置しないでください。
 * 複数のアクリル ウィンドウを、同じ濃淡や不透明度で隣接するように配置しないでください。このようにすると、望ましくない継ぎ目が表示されます。
 * アクリル サーフェスの上には、アクセント カラーのテキストを配置しないでください。

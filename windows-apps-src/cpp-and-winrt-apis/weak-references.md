@@ -1,17 +1,17 @@
 ---
 description: Windows ランタイムは参照カウント システムです。このようなシステムでは、強参照と弱参照の重要性とこれらの違いを認識することが重要です。
 title: C++/WinRT の弱参照
-ms.date: 10/03/2018
+ms.date: 05/16/2019
 ms.topic: article
 keywords: windows 10、uwp、標準の c++、cpp、winrt、プロジェクション、strong、弱い参照
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 0e2e40daaf777e36094b698d058f21840b1804c8
-ms.sourcegitcommit: 82edc63a5b3623abce1d5e70d8e200a58dec673c
+ms.openlocfilehash: c9fb112c6f83fa7bd9a3612916efd2527d821c29
+ms.sourcegitcommit: 6c7e1aa3bd396a1ad714e8b77c0800759dc2d8e1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58291830"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65821070"
 ---
 # <a name="strong-and-weak-references-in-cwinrt"></a>強力と脆弱の参照を c++/cli WinRT
 
@@ -19,12 +19,13 @@ Windows ランタイムは、参照カウント システムです。重要性�
 
 ## <a name="safely-accessing-the-this-pointer-in-a-class-member-coroutine"></a>安全にアクセスする、*この*クラス メンバーのコルーチンでのポインター
 
-コード リストは、クラスのメンバー関数は、コルーチンの典型的な例を示します。
+コード リストは、クラスのメンバー関数は、コルーチンの典型的な例を示します。 できますコピーして貼り付けこの例を指定したファイルに、新しい**Windows コンソール アプリケーション (C++/WinRT)** プロジェクト。
 
 ```cppwinrt
 // pch.h
 #pragma once
 #include <iostream>
+#include <winrt/coroutine.h>
 #include <winrt/Windows.Foundation.h>
 
 // main.cpp : Defines the entry point for the console application.
@@ -101,11 +102,14 @@ IAsyncOperation<winrt::hstring> RetrieveValueAsync()
 }
 ```
 
-C++WinRT オブジェクト直接的または間接的に派生から/、 [ **winrt::implements** ](/uwp/cpp-ref-for-winrt/implements) 、テンプレート、 C++/WinRT オブジェクトを呼び出すことができます、 [ **implements.get_strong** ](/uwp/cpp-ref-for-winrt/implements#implementsget_strong-function)プロテクト メンバー関数への強い参照を取得するその*この*ポインター。 実際に使用する必要がないことに注意してください、`strong_this`変数; を呼び出すだけ**get_strong** 、参照カウントをインクリメントし、暗黙的な保持*この*ポインターが無効です。
+A C++WinRT クラス直接的または間接的に派生から/、 [ **winrt::implements** ](/uwp/cpp-ref-for-winrt/implements)テンプレート。 そのため、 C++/WinRT オブジェクトを呼び出すことができます、 [ **implements.get_strong** ](/uwp/cpp-ref-for-winrt/implements#implementsget_strong-function)プロテクト メンバー関数への強い参照を取得するその*これ*ポインター。 実際に使用する必要がないことに注意してください、`strong_this`変数を上記のコード例では呼び出すだけ**get_strong**インクリメント、 C++/WinRT オブジェクトの参照カウントされ、暗黙的な*この*ポインターが無効です。
+
+> [!IMPORTANT]
+> **Get_strong**のメンバー関数は、 **winrt::implements**構造体のテンプレートを呼び出せることからの直接または間接的に派生したクラスからのみ**winrt::implements**などをC++/WinRT クラス。 派生することに関する詳細情報の**winrt::implements**、例についてを参照してくださいと[作成者 Api をC++/WinRT](/windows/uwp/cpp-and-winrt-apis/author-apis)。
 
 これは、手順 4 に移動するときに以前の問題を解決します。 クラスのインスタンスへの他のすべての参照が表示されない場合でも、コルーチンがその依存関係が安定したことを保証する予防措置を取得します。
 
-強い参照が、適切でないかどうかは、代わりに呼び出すことができます[ **implements::get_weak** ](/uwp/cpp-ref-for-winrt/implements#implementsget_weak-function)への弱い参照を取得する*この*します。 アクセスする前に強い参照を取得するにはことを確認して*この*します。
+強い参照が、適切でないかどうかは、代わりに呼び出すことができます[ **implements::get_weak** ](/uwp/cpp-ref-for-winrt/implements#implementsget_weak-function)への弱い参照を取得する*この*します。 アクセスする前に強い参照を取得するにはことを確認して*この*します。 ここでも、 **get_weak**のメンバー関数は、 **winrt::implements**テンプレートの構造体。
 
 ```cppwinrt
 IAsyncOperation<winrt::hstring> RetrieveValueAsync()
@@ -244,6 +248,9 @@ event_source.Event([this](auto&& ...)
 ### <a name="the-solution"></a>ソリューション
 
 このソリューションでは、強い参照をキャプチャします。 強い参照*は*され、参照カウントをインクリメント*は*現在のオブジェクトを維持します。 キャプチャ変数を宣言するだけです (と呼ばれる`strong_this`この例では) への呼び出しで初期化と[ **implements.get_strong**](/uwp/cpp-ref-for-winrt/implements#implementsget_strong-function)への強い参照を取得しています、 *この*ポインター。
+
+> [!IMPORTANT]
+> **Get_strong**のメンバー関数は、 **winrt::implements**構造体のテンプレートを呼び出せることからの直接または間接的に派生したクラスからのみ**winrt::implements**などをC++/WinRT クラス。 派生することに関する詳細情報の**winrt::implements**、例についてを参照してくださいと[作成者 Api をC++/WinRT](/windows/uwp/cpp-and-winrt-apis/author-apis)。
 
 ```cppwinrt
 event_source.Event([this, strong_this { get_strong()}](auto&& ...)

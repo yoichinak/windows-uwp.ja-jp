@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, Microsoft Store プロモーション API, 広告キャンペーン
 ms.localizationpriority: medium
-ms.openlocfilehash: 41c11ee9c5decffff57a2d443e1385398ce40d89
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 3411ee4c947d809009c2185389f5513a49afce98
+ms.sourcegitcommit: d1c3e13de3da3f7dce878b3735ee53765d0df240
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57658467"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66215031"
 ---
 # <a name="manage-creatives"></a>クリエイティブの管理
 
@@ -120,10 +120,10 @@ Authorization: Bearer <your access token>
 |  content   |  string   |  クリエイティブ イメージのコンテンツです (Base64 でエンコードされた形式)。<br/><br/>**注**&nbsp;&nbsp;クリエイティブの最大許容サイズは 40 KB です。 これよりも大きいクリエイティブ ファイルを送信しても、この API からはエラーが返されず、キャンペーンは正しく作成されません。     |  X     |      |   〇    |       
 |  height   |  整数   |   クリエイティブの高さです。    |    X    |      |   〇    |       
 |  width   |  整数   |  クリエイティブの幅です。     |  X    |     |    〇   |       
-|  landingUrl   |  string   |  Kochava、AppsFlyer、Tune などのキャンペーン追跡サービスを使用して、アプリのインストール分析を行う場合、POST メソッドを呼び出すときに、このフィールドの追跡 URL を割り当てます (このフィールドを指定する場合、値は有効な URI であることが必要です)。 キャンペーン追跡サービスを使用していない場合、POST メソッドを呼び出すときには、この値を省略します (その場合、この URL は自動的に作成されます)。   |  X    |     |   〇    |       
+|  landingUrl   |  string   |  アプリのインストールの分析を測定する、キャンペーンの追跡 AppsFlyer、Kochava、調整、Vungle などのサービスを使用する場合、POST メソッドを呼び出すときにこのフィールドに、追跡 URL を割り当てる (指定される場合、この値は、有効な URI)。 キャンペーン追跡サービスを使用していない場合、POST メソッドを呼び出すときには、この値を省略します (その場合、この URL は自動的に作成されます)。   |  X    |     |   〇    |
 |  format   |  string   |   広告形式です。 現時点では、サポートされている唯一の値は **Banner** です。    |   X    |  バナー   |  X     |       
-|  imageAttributes   | [ImageAttributes](#image-attributes)    |   クリエイティブの属性を指定します。     |   いいえ    |      |   〇    |       
-|  storeProductId   |  string   |   この広告キャンペーンが関連付けられているアプリの[ストア ID](in-app-purchases-and-trials.md#store-ids) です。 製品のストア ID の例は、9nblggh42cfd です。    |   いいえ    |    |  X     |   |  
+|  imageAttributes   | [ImageAttributes](#image-attributes)    |   クリエイティブの属性を指定します。     |   X    |      |   〇    |       
+|  storeProductId   |  string   |   この広告キャンペーンが関連付けられているアプリの[ストア ID](in-app-purchases-and-trials.md#store-ids) です。 製品のストア ID の例は、9nblggh42cfd です。    |   X    |    |  X     |   |  
 
 
 <span id="image-attributes"/>
@@ -132,7 +132,7 @@ Authorization: Bearer <your access token>
 
 | フィールド        | 種類   |  説明      |  読み取り専用かどうか  | 既定値  | POST に必須かどうか |  
 |--------------|--------|---------------|------|-------------|------------|
-|  imageExtension   |   string  |   次のいずれかの値です。**PNG**または**JPG**します。    |    いいえ   |      |   〇    |       |
+|  imageExtension   |   string  |   次のいずれかの値です。**PNG**または**JPG**します。    |    X   |      |   〇    |       |
 
 
 ## <a name="related-topics"></a>関連トピック

@@ -6,12 +6,12 @@ ms.date: 08/25/2017
 ms.topic: article
 ms.assetid: 260cf387-88be-4a3d-93bc-7e4560f90abc
 ms.localizationpriority: medium
-ms.openlocfilehash: 176009cb3a2fb14eb5071d48d59a0b807d4c81d6
-ms.sourcegitcommit: fca0132794ec187e90b2ebdad862f22d9f6c0db8
+ms.openlocfilehash: 464aa35aa8362049042ad23a6816c4de21b25634
+ms.sourcegitcommit: 559d3387d5929431212d147d9e085895e162916a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63770365"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66184520"
 ---
 # <a name="enable-apps-for-websites-using-app-uri-handlers"></a>アプリの URI ハンドラーを使用してアプリを Web サイトで有効にする
 
@@ -55,7 +55,7 @@ Web とアプリのリンクを有効にするには、次を行う必要があ�
 >[!Important]
 > JSON ファイルには、.json ファイル接尾辞を指定しないでください。
 
-**windows-app-web-link** という名前で JSON ファイルを作成し (.json ファイル拡張子は付加しない)、アプリのパッケージ ファミリ名を指定します。 次に、例を示します。
+**windows-app-web-link** という名前で JSON ファイルを作成し (.json ファイル拡張子は付加しない)、アプリのパッケージ ファミリ名を指定します。 例:
 
 ``` JSON
 [{
@@ -76,7 +76,7 @@ Windows によって、Web サイトへの https 接続が行われ、Web サー
 | **\***       | 任意の部分文字列を表します      |
 | **?**        | 1 つの文字を表します |
 
-たとえば、上記の例のように `"excludePaths" : [ "/news/*", "/blog/*" ]` と指定すると、アプリでは、Web サイトのアドレス (上記の例では msn.com) で始まるすべてのパスがサポートされますが、`/news/` と `/blog/` の下にあるパスは**サポートされません**。 つまり、**msn.com/weather.html** はサポートされますが、****msn.com/news/topnews.html**** はサポートされません。
+たとえば、上記の例のように `"excludePaths" : [ "/news/*", "/blog/*" ]` と指定すると、アプリでは、Web サイトのアドレス (上記の例では msn.com) で始まるすべてのパスがサポートされますが、`/news/` と `/blog/` の下にあるパスは**サポートされません**。 **msn.com/weather.html**サポートされますが、なく**msn.com/news/topnews.html**します。
 
 ### <a name="multiple-apps"></a>複数のアプリ
 

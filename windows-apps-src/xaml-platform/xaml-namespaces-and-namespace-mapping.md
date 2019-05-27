@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 4332bd0b19d381937e477efc472634d6d81afd58
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: b7e8be3a2c2f3d6d4ecf3ade708741fa323167fc
+ms.sourcegitcommit: 13fe5d04bdb43c75d0fc4de18c2c3d4ae58ff982
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57651087"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66221038"
 ---
 # <a name="xaml-namespaces-and-namespace-mapping"></a>XAML 名前空間と名前空間マッピング
 
@@ -48,6 +48,33 @@ XAML プロセッサは、ランタイム オブジェクト表現を作成す�
 これらの宣言の関係としては、XAML が言語定義であること、および Windows ランタイムが言語として XAML を使用し、型が XAML で参照される特定のボキャブラリを定義する 1 つの実装であることが挙げられます。
 
 XAML 言語では、特定の言語要素を指定します。これらの各要素には、XAML 名前空間に対応する XAML プロセッサの実装を介してアクセスする必要があります。 XAML 言語の XAML 名前空間に通常マップする "x:" の後には、プロジェクト テンプレート、サンプル コード、および言語機能に関するドキュメントが続きます。 XAML 言語の名前空間では、C++、C#、または Visual Basic を使った基本的な Windows ランタイム アプリでも必要な、よく使われる複数の機能を定義します。 たとえば、部分クラスを介して XAML ファイルにコード ビハインドを追加するには、関連する XAML ファイルのルート要素における [x:Class 属性](x-class-attribute.md)としてそのクラスを指定する必要があります。 または、[ResourceDictionary と XAML リソースの参照](https://msdn.microsoft.com/library/windows/apps/mt187273)内のキーを持つリソースとして XAML ページで定義されている要素の該当するオブジェクト要素では、[x:Key](x-key-attribute.md) 属性を設定する必要があります。
+
+## <a name="code-namespaces-that-map-to-the-default-xaml-namespace"></a>既定の XAML 名前空間にマップするコードの名前空間
+
+既定の XAML 名前空間に現在割り当てられているコード名前空間の一覧を以下に示します。
+
+* Windows.UI
+* Windows.UI.Xaml
+* Windows.UI.Xaml.Automation
+* Windows.UI.Xaml.Automation.Peers
+* Windows.UI.Xaml.Automation.Provider
+* Windows.UI.Xaml.Automation.Text
+* Windows.UI.Xaml.Controls
+* Windows.UI.Xaml.Controls.Primitives
+* Windows.UI.Xaml.Data
+* Windows.UI.Xaml.Documents
+* Windows.UI.Xaml.Input
+* Windows.UI.Xaml.Interop
+* Windows.UI.Xaml.Markup
+* Windows.UI.Xaml.Media
+* Windows.UI.Xaml.Media.Animation
+* Windows.UI.Xaml.Media.Imaging
+* Windows.UI.Xaml.Media.Media3D
+* Windows.UI.Xaml.Navigation
+* Windows.UI.Xaml.Resources
+* Windows.UI.Xaml.Shapes
+* Windows.UI.Xaml.Threading
+* Windows.UI.Text
 
 <span id="other-XAML-namespaces"/>
 

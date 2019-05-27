@@ -8,7 +8,7 @@ ms.assetid: 89f3d331-20cd-457b-83e8-1a22aaab2658
 ms.localizationpriority: medium
 ms.openlocfilehash: fb1ff6431b3ccf609b7362db819569c2f6cebc48
 ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/06/2019
 ms.locfileid: "57657017"
@@ -636,7 +636,7 @@ Windows Hello コンパニオン デバイス アプリは、ShowNotificationMes
 
 **ガイダンス**
 
-- "Swipe up or press space bar to sign in with *device name*." (デバイス名*にサインインするには、上にスワイプするか Space キーを押してください。)
+- "Swipe up or press space bar to sign in with *device name*." (デバイス名にサインインするには、上にスワイプするか Space キーを押してください。)
 - "Setting up your companion device.  Please wait or use another sign-in option." (コンパニオン デバイスをセットアップしています。しばらく待機するか、別のサインイン オプションを使用してください。)
 - "サインインするには、*デバイス名* を NFC リーダーにタップしてください。"
 - "*デバイス名* を探しています..."

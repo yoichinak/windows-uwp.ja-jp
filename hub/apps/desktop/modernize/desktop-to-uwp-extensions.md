@@ -5,13 +5,15 @@ ms.date: 04/18/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 0a8cedac-172a-4efd-8b6b-67fd3667df34
+ms.author: mcleans
+author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: a7815639c8dafa555be6d4f0eac0eb07b43dba98
-ms.sourcegitcommit: f0f933d5cf0be734373a7b03e338e65000cc3d80
+ms.openlocfilehash: 063106362a36aa32d0874be15dd589b5fb573409
+ms.sourcegitcommit: d1c3e13de3da3f7dce878b3735ee53765d0df240
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65984452"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66214945"
 ---
 # <a name="integrate-your-packaged-desktop-app-with-windows-10-and-uwp"></a>Windows 10 と UWP パッケージ化されたデスクトップ アプリに統合します。
 
@@ -406,9 +408,9 @@ http://schemas.microsoft.com/appx/manifest/desktop/windows10/2
 
 ### <a name="place-your-dll-files-into-any-folder-of-the-package"></a>DLL ファイルをパッケージの任意のフォルダーに配置します。
 
-拡張機能を使ってそれらのフォルダーを指定します。 これにより、システムは配置したファイルを見つけて読み込むことができます。 この拡張機能は、_%PATH%_ 環境変数の置き換えと考えてください。
+拡張機能を使ってそれらのフォルダーを指定します。 これにより、システムは配置したファイルを見つけて読み込むことができます。 この拡張機能は、 _%PATH%_ 環境変数の置き換えと考えてください。
 
-この拡張機能を使わない場合、システムはプロセスのパッケージの依存関係グラフ、パッケージ ルート フォルダー、システム ディレクトリ (_%SystemRoot%\system32_) の順で検索します。 詳しくは、[Windows アプリの検索順序に関するページ](https://msdn.microsoft.com/library/windows/desktop/ms682586.aspx#_search_order_for_windows_store_apps)をご覧ください。
+この拡張機能を使わない場合、システムはプロセスのパッケージの依存関係グラフ、パッケージ ルート フォルダー、システム ディレクトリ ( _%SystemRoot%\system32_) の順で検索します。 詳しくは、[Windows アプリの検索順序に関するページ](https://msdn.microsoft.com/library/windows/desktop/ms682586.aspx#_search_order_for_windows_store_apps)をご覧ください。
 
 各パッケージには、これらの拡張機能を 1 つだけ含めることができます。 つまり、1 つをメイン パッケージに追加し、他の拡張機能は[オプション パッケージと関連するセット](https://docs.microsoft.com/windows/uwp/packaging/optional-packages)それぞれに 1 つずつ追加できます。
 

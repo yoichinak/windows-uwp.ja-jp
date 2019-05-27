@@ -7,7 +7,7 @@ keywords: Windows 10、UWP、広告ネットワーク、アプリのメタデー
 ms.localizationpriority: medium
 ms.openlocfilehash: 518648d52c613a3dd5f1bca0d34a7f533b59733f
 ms.sourcegitcommit: df8e4143e81a1c5fe1aa5f14407b8dd5f155a12e
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/14/2019
 ms.locfileid: "57829912"
@@ -49,7 +49,7 @@ Microsoft Store analytics API でこのメソッドを使用して、UWP アプ�
 | skip | int | クエリでスキップする行数です。 大きなデータ セットを操作するには、このパラメーターを使用します。 たとえば、top=10000 と skip=0 を指定すると、データの最初の 10,000 行が取得され、top=10000 と skip=10000 を指定すると、データの次の 10,000 行が取得されます。 | X |
 | filter | string | 応答内の行をフィルター処理する 1 つまたは複数のステートメントです。 各ステートメントには、応答本文と、eq、ne または演算子に関連付けられている値からフィールド名が含まれていますとを使用してステートメントを組み合わせることができますとまたはまたはします。 文字列の値は、フィルター パラメーターで単一引用符で囲む必要があります。 たとえば、フィルター処理 = 市場 eq '米国'] と [性別の eq います '。 <br/> 応答本文から次のフィールドを指定することができます。 <ul><li>**acquisitionType**</li><li>**経過時間**</li><li>**storeClient**</li><li>**性別**</li><li>**market**</li><li>**osVersion**</li><li>**deviceType**</li><li>**sandboxId**</li></ul> | X |
 | aggregationLevel | string | 集計データを取得する時間範囲を指定します。 次のいずれかの文字列を指定できます。**day**、**week**、または **month**。 指定しない場合、既定値は **day** です。 | X |
-| orderby | string | それぞれのアドオン入手数について結果データ値の順序を指定するステートメントです。 構文は*orderby フィールド [order]、[順序] フィールドを = しています.**field* パラメーターには、次のいずれかの文字列を指定できます。 <ul><li>**date**</li><li>**acquisitionType**</li><li>**経過時間**</li><li>**storeClient**</li><li>**性別**</li><li>**market**</li><li>**osVersion**</li><li>**deviceType**</li><li>**orderName**</li></ul> 順序パラメーターは省略可能で、できる**asc**または**desc**を昇順または降順の各フィールドの順序を指定します。 既定値は **asc** です。 <br/> *orderby* 文字列の例: *orderby=date,market* | X |
+| orderby | string | それぞれのアドオン入手数について結果データ値の順序を指定するステートメントです。 構文は *orderby フィールド [order]、[順序] フィールドを = しています.* *field* パラメーターには、次のいずれかの文字列を指定できます。 <ul><li>**date**</li><li>**acquisitionType**</li><li>**経過時間**</li><li>**storeClient**</li><li>**性別**</li><li>**market**</li><li>**osVersion**</li><li>**deviceType**</li><li>**orderName**</li></ul> 順序パラメーターは省略可能で、できる**asc**または**desc**を昇順または降順の各フィールドの順序を指定します。 既定値は **asc** です。 <br/> *orderby* 文字列の例: *orderby=date,market* | X |
 | groupby | string | 指定したフィールドのみにデータ集計を適用するステートメントです。 次のフィールドを指定できます。 <ul><li>**date**</li><li>**applicationName**</li><li>**addonProductName**</li> <li>**acquisitionType**</li><li>**経過時間**</li> <li>**storeClient**</li><li>**性別**</li> <li>**market**</li> <li>**osVersion**</li><li>**deviceType**</li><li>**paymentInstrumentType**</li><li>**sandboxId**</li><li>**xboxTitleIdHex**</li></ul> 返されるデータ行には、*groupby* パラメーターに指定したフィールドと次の値が含まれます。 <ul><li>**date**</li><li>**applicationId**</li><li>**addonProductId**</li><li>**acquisitionQuantity**</li></ul> Groupby パラメーターで使用できる、 *aggregationLevel*パラメーター。 例: *& groupby = 年齢、市場 aggregationLevel = 週* | いいえ |
 
 ### <a name="request-example"></a>要求の例

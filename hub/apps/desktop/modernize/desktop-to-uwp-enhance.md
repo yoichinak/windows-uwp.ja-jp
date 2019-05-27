@@ -4,14 +4,16 @@ title: デスクトップ アプリでの UWP Api を使用します。
 ms.date: 04/19/2019
 ms.topic: article
 keywords: windows 10, uwp
+ms.author: mcleans
+author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: eb0cee26ee65c029af3f0385f44630afa057b29f
-ms.sourcegitcommit: f0f933d5cf0be734373a7b03e338e65000cc3d80
+ms.openlocfilehash: 22aefb58dc06a35ed3a10338eb585aa6c49e55fc
+ms.sourcegitcommit: d1c3e13de3da3f7dce878b3735ee53765d0df240
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65984662"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66215100"
 ---
 # <a name="call-uwp-apis-in-desktop-apps"></a>デスクトップ アプリでの UWP Api を呼び出す
 
@@ -27,7 +29,7 @@ UWP API を使用するには、プロジェクトにいくつかの変更を加
 
 ### <a name="modify-a-net-project-to-use-windows-runtime-apis"></a>Windows ランタイム Api を使用する .NET プロジェクトを変更します。
 
-1. **[参照マネージャー]** ダイアログ ボックスを開き、**[参照]** ボタンを選択して、**[すべてのファイル]** を選択します。
+1. **[参照マネージャー]** ダイアログ ボックスを開き、 **[参照]** ボタンを選択して、 **[すべてのファイル]** を選択します。
 
     ![[参照の追加] ダイアログ ボックス](images/desktop-to-uwp/browse-references.png)
 
@@ -84,7 +86,7 @@ API の概要の下に、その API の API コントラクトを説明する表
 
 ![API コントラクト表](images/desktop-to-uwp/contract-table.png)
 
-.NET ベースのデスクトップ アプリの場合、その API コントラクトへの参照を追加します。その後、そのファイルの **[ローカルにコピー]** プロパティを **[False]** に設定します。 C++ ベースのプロジェクトの場合、**[追加のインクルード ディレクトリ]** に、このコントラクトを含むフォルダーのパスを追加します。
+.NET ベースのデスクトップ アプリの場合、その API コントラクトへの参照を追加します。その後、そのファイルの **[ローカルにコピー]** プロパティを **[False]** に設定します。 C++ ベースのプロジェクトの場合、 **[追加のインクルード ディレクトリ]** に、このコントラクトを含むフォルダーのパスを追加します。
 
 :white_check_mark:**お客様のエクスペリエンスを追加する Api を呼び出す**
 

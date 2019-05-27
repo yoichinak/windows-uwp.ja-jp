@@ -5,12 +5,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: d07a90ce34e9b4613eed6782338cbd889d7935c9
-ms.sourcegitcommit: e63fbd7a63a7e8c03c52f4219f34513f4b2bb411
+ms.openlocfilehash: 53a69393d945be1640f733b47410f88631fc7714
+ms.sourcegitcommit: 13fe5d04bdb43c75d0fc4de18c2c3d4ae58ff982
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58081874"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66221046"
 ---
 # <a name="responsive-layouts-with-xaml"></a>XAML でのレスポンシブ レイアウト
 
@@ -27,7 +27,7 @@ XAML レイアウト システムでは、静的レイアウトと柔軟なレ�
 ここでは、XAML プロパティとレイアウト パネルを使って、柔軟なレイアウトを作成する方法を説明します。
 
 ### <a name="layout-properties"></a>レイアウト プロパティ
-レイアウト プロパティは、要素のサイズと位置を制御します。 柔軟なレイアウトを作成するには、要素の自動または比例サイズ設定を使用し、必要に応じて、レイアウト パネルで子を配置できるようにします。 
+レイアウト プロパティは、要素のサイズと位置を制御します。 滑らかなレイアウトを作成するには、要素の場合、自動または比例サイズ設定を使用し、必要に応じて、その子を配置するレイアウト パネルを設定します。 
 
 いくつかの一般的なレイアウト プロパティと、それらを使用して柔軟なレイアウトを作成する方法を示します。
 
@@ -348,7 +348,7 @@ VisualState では、通常、コントロールのプロパティの値、つ�
 
 **ファイル名を使用して、**
 
-ファイルに修飾子名を使用するには、*[pageName]*.DeviceFamily-*[qualifierString]*.xaml という形式を使用します。
+ファイルに修飾子名を使用するには、 *[pageName]* .DeviceFamily- *[qualifierString]* .xaml という形式を使用します。
 
 MainPage.xaml という名前のファイルの例を見てみましょう。 タブレット デバイス用のビューを作成するには、XAML ビューに MainPage.DeviceFamily-Tablet.xaml という名前を付けます。 PC デバイス用のビューを作成するには、ビューに MainPage.DeviceFamily-Desktop.xaml という名前を付けます。 Microsoft Visual Studio で、ソリューションがどのように表示されるかを以下に示します。
 
@@ -356,7 +356,7 @@ MainPage.xaml という名前のファイルの例を見てみましょう。 �
 
 **フォルダー名を使用します。**
 
-フォルダーを使用して Visual Studio プロジェクト内のビューを整理するには、フォルダーで修飾子名を使うことができます。 これを行うには、次のように、フォルダーを名前します。DeviceFamily -*[qualifierString]* します。 この場合は、各 XAML ファイルの名前は同じになります。 ファイル名に修飾子を含めないでください。
+フォルダーを使用して Visual Studio プロジェクト内のビューを整理するには、フォルダーで修飾子名を使うことができます。 これを行うには、次のように、フォルダーを名前します。DeviceFamily - *[qualifierString]* します。 この場合は、各 XAML ファイルの名前は同じになります。 ファイル名に修飾子を含めないでください。
 
 MainPage.xaml という名前のファイルの例を以下に示します。 タブレット デバイス用のビューを作成するには、"DeviceFamily-Tablet" という名前のフォルダーを作成し、このフォルダーに MainPage.xaml という名前の XAML ビューを配置します。 PC デバイス用のビューを作成するには、"DeviceFamily-Desktop" という名前のフォルダーを作成し、このフォルダーに MainPage.xaml という名前の別の XAML ビューを配置します。 Visual Studio で、ソリューションがどのように表示されるかを以下に示します。
 

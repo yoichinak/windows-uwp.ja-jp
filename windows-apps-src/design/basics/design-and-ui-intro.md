@@ -7,12 +7,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 32838e2c3369535928c9e9311f62654eba54e4e0
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 25dc7118fcb7d9c6e997fae458ef7846777b1262
+ms.sourcegitcommit: f0f933d5cf0be734373a7b03e338e65000cc3d80
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57611757"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65983924"
 ---
 # <a name="introduction-to-uwp-app-design"></a>UWP アプリ設計の概要
 
@@ -20,7 +20,7 @@ ms.locfileid: "57611757"
 
 ユニバーサル Windows プラットフォーム (UWP) の設計ガイダンスは、美しく洗練されたアプリを設計および構築するのに役立つリソースです。
 
-これは規範的な規則の一覧ではなく、進化する [Fluent Design System](../fluent-design-system/index.md)、およびアプリ構築コミュニティのニーズに適応するように設計された生きたドキュメントです。
+これは規範的な規則の一覧ではなく、進化する [Fluent Design System](/windows/apps/fluent-design-system)、およびアプリ構築コミュニティのニーズに適応するように設計された生きたドキュメントです。
 
 この記事では、あらゆる UWP アプリに含まれているユニバーサル デザイン機能の概要を説明します。これらの機能により、さまざまなデバイス間で美しくスケーリングされるユーザー インターフェイス (UI) を構築できます。
 
@@ -98,7 +98,7 @@ Visual Studio で [Windows Template Studio](https://github.com/Microsoft/Windows
 
 ## <a name="controls"></a>コントロール
 
-UWP の設計プラットフォームには、すべての Windows デバイスで適切に動作することが保証されている一連のコモン コントロールが用意されており、[Fluent Design System](../fluent-design-system/index.md) の原則に従っています。 これらのコントロールには、ボタンやテキスト要素などの単純なコントロールから、一連のデータとテンプレートからリストを生成する高度なコントロールまで、すべてのものが含まれます。
+UWP の設計プラットフォームには、すべての Windows デバイスで適切に動作することが保証されている一連のコモン コントロールが用意されており、[Fluent Design System](/windows/apps/fluent-design-system) の原則に従っています。 これらのコントロールには、ボタンやテキスト要素などの単純なコントロールから、一連のデータとテンプレートからリストを生成する高度なコントロールまで、すべてのものが含まれます。
 
 ![UWP コントロール](../style/images/color/windows-controls.svg)
 
@@ -172,10 +172,10 @@ UWP コントロールとコントロールに基づいて作成できるパタ�
 
 ## <a name="next-fluent-design-system"></a>次に：Fluent Design System
 
-Fluent Design (Microsoft のデザイン システム) の背後にある原則や、UWP アプリに組み込むことができる多くの機能について確認する場合は、引き続き「[Fluent Design System](../fluent-design-system/index.md)」をご覧ください。
+Fluent Design (Microsoft のデザイン システム) の背後にある原則や、UWP アプリに組み込むことができる多くの機能について確認する場合は、引き続き「[Fluent Design System](/windows/apps/fluent-design-system)」をご覧ください。
 
 ## <a name="related-articles"></a>関連記事
 
 - [UWP アプリとは](../../get-started/universal-application-platform-guide.md)
-- [Fluent Design System](../fluent-design-system/index.md)
+- [Fluent Design System](/windows/apps/fluent-design-system)
 - [XAML プラットフォームの概要](../../xaml-platform/index.md)

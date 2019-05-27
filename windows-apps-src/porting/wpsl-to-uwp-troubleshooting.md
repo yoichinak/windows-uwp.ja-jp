@@ -8,7 +8,7 @@ keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: 372fd491e329a468c273dd039c917eba5dc3e123
 ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/06/2019
 ms.locfileid: "57643587"
@@ -32,7 +32,7 @@ XAML 解析例外は診断が難しい場合があります。特に、わかり
 
 このセクションで説明、Visual Studio で Windows 10 プロジェクトを開くときに、メッセージが表示する場合に実行する"Visual Studio 更新プログラムが必要です。 1 つ以上のプロジェクトでは、インストールされていないか、Visual Studio に対する今後の更新の一部として含まれるプラットフォーム SDK &lt;バージョン&gt; が必要です。" というメッセージが表示されます。
 
--   最初に、SDK の Windows 10 のインストールされているバージョン番号を確認します。 移動します**c:\\Program Files (x86)\\Windows キット\\10\\Include\\&lt;versionfoldername&gt;**  のメモ*&lt;versionfoldername&gt;* 表記"Major.Minor.Build.Revision"になる予定です。
+-   最初に、SDK の Windows 10 のインストールされているバージョン番号を確認します。 移動します**c:\\Program Files (x86)\\Windows キット\\10\\Include\\&lt;versionfoldername&gt;**  のメモ *&lt;versionfoldername&gt;* 表記"Major.Minor.Build.Revision"になる予定です。
 -   編集用のプロジェクト ファイルを開き、`TargetPlatformVersion` 要素と `TargetPlatformMinVersion` 要素を探します。 これらの要素を次のように編集します。*&lt;versionfoldername&gt;* は、ディスク上で見つけた 4 つの部分から成るバージョン番号に置き換えてください。
 
 ```xml

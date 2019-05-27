@@ -11,12 +11,12 @@ dev-contact: ''
 doc-status: Published
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 4ba3a45701d82ad0b43591469bf390190ec18db0
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 1a396377eb332052ae7f238a23865f2b7dc0aa16
+ms.sourcegitcommit: f0f933d5cf0be734373a7b03e338e65000cc3d80
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57642227"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65984181"
 ---
 # <a name="navigation-view"></a>ナビゲーション ビュー
 
@@ -624,7 +624,7 @@ private void On_Navigated(object sender, NavigationEventArgs e)
 }
 ```
 
-次に示します、 [C +/cli WinRT](/windows/uwp/cpp-and-winrt-apis/index)のバージョン、 **NavView_ItemInvoked**からハンドラー、C#上記のコード例です。 手法 C +/cli WinRT ハンドラーでは、する必要があります最初に格納する (のタグで、 [ **NavigationViewItem**](/uwp/api/windows.ui.xaml.controls.navigationviewitem)) 移動するページの完全な型名。 ハンドラーで、その値をボックス化解除になると、 [ **::interop::typename** ](/uwp/api/windows.ui.xaml.interop.typename)オブジェクト、および変換先のページに移動するに使用します。 という名前のマッピングの変数の必要はありません`_pages`に表示される、C#の例の場合とは、タグの中の値は有効な型のことを確認する単体テストを作成することでしょう。 参照してください[c++ IInspectable をボックス化とボックス化解除のスカラー値/cli WinRT](/windows/uwp/cpp-and-winrt-apis/boxing)します。
+次に示します、 [ C++/WinRT](/windows/uwp/cpp-and-winrt-apis/index)のバージョン、 **NavView_ItemInvoked**からハンドラー、C#上記のコード例です。 手法 C +/cli WinRT ハンドラーでは、する必要があります最初に格納する (のタグで、 [ **NavigationViewItem**](/uwp/api/windows.ui.xaml.controls.navigationviewitem)) 移動するページの完全な型名。 ハンドラーで、その値をボックス化解除になると、 [ **::interop::typename** ](/uwp/api/windows.ui.xaml.interop.typename)オブジェクト、および変換先のページに移動するに使用します。 という名前のマッピングの変数の必要はありません`_pages`に表示される、C#の例の場合とは、タグの中の値は有効な型のことを確認する単体テストを作成することでしょう。 参照してください[c++ IInspectable をボックス化とボックス化解除のスカラー値/cli WinRT](/windows/uwp/cpp-and-winrt-apis/boxing)します。
 
 ```cppwinrt
 void MainPage::NavView_ItemInvoked(Windows::Foundation::IInspectable const & /* sender */, Windows::UI::Xaml::Controls::NavigationViewItemInvokedEventArgs const & args)
@@ -715,4 +715,4 @@ void MainPage::NavView_ItemInvoked(Windows::Foundation::IInspectable const & /* 
 - [NavigationView クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.navigationview)
 - [マスター/詳細](master-details.md)
 - [ナビゲーションの基本](../basics/navigation-basics.md)
-- [Fluent デザイン for UWP の概要](../fluent-design-system/index.md)
+- [Fluent デザイン for UWP の概要](/windows/apps/fluent-design-system)

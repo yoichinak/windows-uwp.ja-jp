@@ -5,12 +5,12 @@ keywords: 最新情報, 更新, 機能, 開発者向けガイダンス, Windows 
 ms.date: 07/05/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 1875fecbdfa6b97cdc30413c8afa6cc58d3251ef
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 03bc41ca76f6c6b20f06c98b0e71e2bc5a361992
+ms.sourcegitcommit: f0f933d5cf0be734373a7b03e338e65000cc3d80
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57595037"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65984200"
 ---
 # <a name="whats-new-in-the-windows-developer-docs-in-july-2017"></a>Windows 開発者向けドキュメントの最新情報、2017 年 7 月
 
@@ -112,7 +112,7 @@ docs.microsoft.com の [UWP の概念](../get-started/universal-application-plat
 
 ### <a name="test-your-windows-app-for-windows-10-s"></a>Windows アプリの Windows 10 S 対応のテスト
 
-Windows アプリをテストして、Windows S を実行するデバイスで正しく動作することを確認します。方法については、[新しいガイド](../porting/desktop-to-uwp-test-windows-s.md)をご覧ください。 
+Windows アプリをテストして、Windows S を実行するデバイスで正しく動作することを確認します。方法については、[新しいガイド](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-test-windows-s)をご覧ください。
 
 ## <a name="samples"></a>サンプル
 

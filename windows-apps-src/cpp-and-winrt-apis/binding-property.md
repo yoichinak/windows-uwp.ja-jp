@@ -1,16 +1,16 @@
 ---
 description: XAML コントロールに効果的にバインドできるプロパティは、*監視可能な*プロパティと呼ばれます。 このトピックでは、監視可能なプロパティを実装および使用する方法と、XAML コントロールをバインドする方法を示します。
 title: 'XAML コントロール: C++/WinRT プロパティへのバインド'
-ms.date: 08/21/2018
+ms.date: 04/24/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, XAML, コントロール, バインド, プロパティ
 ms.localizationpriority: medium
-ms.openlocfilehash: 9bdbfef54b799f8dff23ad739007cec9fef98af8
-ms.sourcegitcommit: c315ec3e17489aeee19f5095ec4af613ad2837e1
+ms.openlocfilehash: 2fe5c03eebd2b68e98ae908ea4624471fbd2b3d2
+ms.sourcegitcommit: d23dab1533893b7fe0f01ca6eb273edfac4705e6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58921728"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65627668"
 ---
 # <a name="xaml-controls-bind-to-a-cwinrt-property"></a>XAML コントロール: C++/WinRT プロパティへのバインド
 XAML コントロールに効果的にバインドできるプロパティは、*監視可能な*プロパティと呼ばれます。 この概念は、*オブザーバー パターン*と呼ばれるソフトウェアの設計パターンに基づいています。 このトピックで監視可能なプロパティを実装する方法を示しています。 [C +/cli WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt)、および XAML コントロールをバインドする方法。
@@ -27,7 +27,7 @@ XAML テキスト要素、またはコントロールでは、更新された値
 > インストールと使用について、 C++WinRT Visual Studio Extension (VSIX) と (をまとめてプロジェクト テンプレートを提供し、ビルドのサポート)、NuGet パッケージを参照してください。 [Visual Studio のサポートC++/WinRT](intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)します。
 
 ## <a name="create-a-blank-app-bookstore"></a>空のアプリ (Bookstore) を作成する
-まず、Microsoft Visual Studio で、新しいプロジェクトを作成します。 作成、 **Visual C** > **Windows ユニバーサル** > **空のアプリ (C +/cli WinRT)** プロジェクト、および名前を付けます*書店*.
+まず、Microsoft Visual Studio で、新しいプロジェクトを作成します。 作成、**空のアプリ (C++/WinRT)** プロジェクト、および名前を付けます*書店*します。
 
 監視可能なタイトルのプロパティを持つブックを表すための新しいクラスを作成します。 同じコンパイル ユニット内のクラスを作成および使用しています。 ただし、XAML からこのクラスへバインドできるようにしたいため、ランタイム クラスにします。 また、この作成と使用のどちらにも C++/WinRT を使用します。
 
@@ -61,7 +61,6 @@ namespace Bookstore
 ```cppwinrt
 // BookSku.h
 #pragma once
-
 #include "BookSku.g.h"
 
 namespace winrt::Bookstore::implementation
@@ -89,6 +88,7 @@ namespace winrt::Bookstore::implementation
 // BookSku.cpp
 #include "pch.h"
 #include "BookSku.h"
+#include "BookSku.g.cpp"
 
 namespace winrt::Bookstore::implementation
 {
@@ -142,18 +142,17 @@ namespace Bookstore
 }
 ```
 
-保存してビルドします。 `Generated Files` フォルダーから `BookstoreViewModel.h` と `BookstoreViewModel.cpp` をプロジェクト フォルダーにコピーし、プロジェクトに追加します。 これらのファイルを開き、次に示すように、ランタイム クラスを実装します。 注方法で、 `BookstoreViewModel.h`、含まれています`BookSku.h`、実装の種類を宣言しています (**winrt::Bookstore::implementation::BookSku**)。 復元削除することで既定のコンス トラクターと`= delete`します。
+保存してビルドします。 `Generated Files\sources` フォルダーから `BookstoreViewModel.h` と `BookstoreViewModel.cpp` をプロジェクト フォルダーにコピーし、プロジェクトに追加します。 これらのファイルを開き、次に示すように、ランタイム クラスを実装します。 注方法で、 `BookstoreViewModel.h`、含まれています`BookSku.h`の実装の種類を宣言する**BookSku** (これは**winrt::Bookstore::implementation::BookSku**)。 削除する予定していると`= default`既定のコンス トラクターから。
 
 ```cppwinrt
 // BookstoreViewModel.h
 #pragma once
-
 #include "BookstoreViewModel.g.h"
 #include "BookSku.h"
 
 namespace winrt::Bookstore::implementation
 {
-    struct BookstoreViewModel final : BookstoreViewModelT<BookstoreViewModel>
+    struct BookstoreViewModel : BookstoreViewModelT<BookstoreViewModel>
     {
         BookstoreViewModel();
 
@@ -169,6 +168,7 @@ namespace winrt::Bookstore::implementation
 // BookstoreViewModel.cpp
 #include "pch.h"
 #include "BookstoreViewModel.h"
+#include "BookstoreViewModel.g.cpp"
 
 namespace winrt::Bookstore::implementation
 {
@@ -208,9 +208,9 @@ namespace Bookstore
 
 Include を省略した場合`BookstoreViewModel.idl`(の一覧を参照してください`MainPage.idl`上)、エラーが表示されます**を指定してください\<"MainViewModel"近く**。 別のヒントは、同じ名前空間のすべての種類のままにすることを確認する: コードの一覧に表示される名前空間。
 
-表示される予定ですエラーを解決するようになりましたする必要がありますのアクセサーのスタブをコピー、 **MainViewModel**生成されたファイルからのプロパティ (`\Bookstore\Bookstore\Generated Files\sources\MainPage.h`と`MainPage.cpp`) に`\Bookstore\Bookstore\MainPage.h`と`MainPage.cpp`します。
+表示される予定ですエラーを解決するようになりましたする必要がありますのアクセサーのスタブをコピー、 **MainViewModel**生成されたファイルからのプロパティ (`\Bookstore\Bookstore\Generated Files\sources\MainPage.h`と`MainPage.cpp`) に`\Bookstore\Bookstore\MainPage.h`と`MainPage.cpp`します。 そのための手順は次に説明します。
 
-`\Bookstore\Bookstore\MainPage.h`、含める`BookstoreViewModel.h`、実装の種類を宣言しています (**winrt::Bookstore::implementation::BookstoreViewModel**)。 ビュー モデルを格納するプライベート メンバーを追加します。 プロパティ アクセサー関数 (およびメンバー m_mainViewModel) は、投影型である **Bookstore::BookstoreViewModel** に関して実装されていることに注意してください。 M_mainViewModel を受け取るコンス トラクター オーバー ロードを使用して作成するため、アプリケーションと同じプロジェクト (コンパイル単位) での実装の種類は`nullptr_t`します。 削除しても、 **MyProperty**プロパティ。
+`\Bookstore\Bookstore\MainPage.h`、含める`BookstoreViewModel.h`の実装の種類を宣言する**BookstoreViewModel** (これは**winrt::Bookstore::implementation::BookstoreViewModel**)。 ビュー モデルを格納するプライベート メンバーを追加します。 プロパティのアクセサー関数 (およびメンバー m_mainViewModel) が、射影された型の観点から実装されることに注意してください。 **BookstoreViewModel** (これは**Bookstore::BookstoreViewModel**)。 M_mainViewModel を受け取るコンス トラクター オーバー ロードを使用して作成するため、アプリケーションと同じプロジェクト (コンパイル単位) での実装の種類は`nullptr_t`します。 削除しても、 **MyProperty**プロパティ。
 
 ```cppwinrt
 // MainPage.h
@@ -240,6 +240,7 @@ namespace winrt::Bookstore::implementation
 // MainPage.cpp
 #include "pch.h"
 #include "MainPage.h"
+#include "MainPage.g.cpp"
 
 using namespace winrt;
 using namespace Windows::UI::Xaml;
@@ -281,5 +282,5 @@ namespace winrt::Bookstore::implementation
 * [winrt::make 関数テンプレート](/uwp/cpp-ref-for-winrt/make)
 
 ## <a name="related-topics"></a>関連トピック
-* [C++/WinRT での API の使用](consume-apis.md)
-* [C++/WinRT での API の作成](author-apis.md)
+* [C++/WinRT で API を使用する](consume-apis.md)
+* [C++/WinRT で API を作成する](author-apis.md)

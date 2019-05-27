@@ -1,17 +1,20 @@
 ---
 Description: 新しいデスクトップ アプリを作成するときに、Win32 および COM API または .NET を使用するかどうかが最初に判断します。
 ms.assetid: 82705644-F1F0-40F3-99B1-7A97BFB32831
-title: アプリ プラットフォームを選択します
+title: アプリ プラットフォームの選択
 ms.topic: article
 ms.date: 03/18/2019
-ms.openlocfilehash: 960dda5e4cb7e8edc1edf7ce2e81da8306555f1c
-ms.sourcegitcommit: f0f933d5cf0be734373a7b03e338e65000cc3d80
+ms.author: mcleans
+author: mcleanbyron
+ms.localizationpriority: medium
+ms.openlocfilehash: 5ece6c5eea6cc05a966a7eae4cd16958dddee4d4
+ms.sourcegitcommit: d1c3e13de3da3f7dce878b3735ee53765d0df240
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65984492"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66215050"
 ---
-# <a name="choose-your-app-platform"></a>アプリ プラットフォームを選択します
+# <a name="choose-your-app-platform"></a>アプリ プラットフォームの選択
 
 Windows Pc の新しいデスクトップ アプリケーションを作成する場合は、最初に決定することを使用するには、どのアプリケーション プラットフォームです。 Windows では、それぞれさまざまな長所を持つ 4 つのメインのアプリケーション プラットフォームを提供します。
 

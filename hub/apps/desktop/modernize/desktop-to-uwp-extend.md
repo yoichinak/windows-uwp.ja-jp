@@ -4,13 +4,15 @@ title: Windows UI とコンポーネントによるデスクトップ アプリ�
 ms.date: 06/08/2018
 ms.topic: article
 keywords: windows 10, uwp
+ms.author: mcleans
+author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: ff87990341b3936b5f2e02b8ff8b119a23188e92
-ms.sourcegitcommit: f0f933d5cf0be734373a7b03e338e65000cc3d80
+ms.openlocfilehash: 10ad54dd485d7dbf5e7f4cb119c7700c09056017
+ms.sourcegitcommit: d1c3e13de3da3f7dce878b3735ee53765d0df240
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65984432"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66215131"
 ---
 # <a name="extend-your-desktop-app-with-modern-uwp-components"></a>最新の UWP コンポーネントを使ってデスクトップ アプリを拡張します。
 
@@ -51,7 +53,7 @@ UWP プロジェクトとランタイム コンポーネントを 1 つ以上ソ
 
 ![UWP プロジェクト](images/desktop-to-uwp/add-uwp-project-to-solution.png)
 
-パッケージ プロジェクトで、**[アプリケーション]** ノードを右クリックして **[参照の追加]** をクリックします。
+パッケージ プロジェクトで、 **[アプリケーション]** ノードを右クリックして **[参照の追加]** をクリックします。
 
 ![UWP プロジェクトを参照する](images/desktop-to-uwp/add-uwp-project-reference.png)
 
@@ -162,7 +164,7 @@ XAML UI を UWP プロジェクトに追加します。 基本的なマップの
 
 プロトコルに名前を付けて、UWP プロジェクトによって生成された実行可能ファイルの名前と、エントリ ポイント クラスの名前を指定します。
 
-デザイナーで **package.appxmanifest** 開き、**[宣言]** タブを選んで、そこで拡張機能を追加することもできます。
+デザイナーで **package.appxmanifest** 開き、 **[宣言]** タブを選んで、そこで拡張機能を追加することもできます。
 
 ![[宣言] タブ](images/desktop-to-uwp/protocol-properties.png)
 
@@ -459,7 +461,7 @@ public sealed class SiteVerifier : IBackgroundTask
 
 マニフェスト デザイナーで開く、 **package.appxmanifest**ソリューションのパッケージ化プロジェクトのファイル。
 
-**[宣言]** タブで、**[バックグラウンド タスク]** 宣言を追加します。
+**[宣言]** タブで、 **[バックグラウンド タスク]** 宣言を追加します。
 
 ![バックグラウンド タスクのオプション](images/desktop-to-uwp/background-task-option.png)
 

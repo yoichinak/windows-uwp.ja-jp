@@ -122,7 +122,7 @@ UWP アプリでゲームプレイをキャプチャするには、2 つの方�
 ### <a name="write-metadata-to-the-system-cache-for-your-app"></a>アプリのシステム キャッシュにメタデータを書き込む
 各メタデータ項目には 1 つのラベルがあり、メタデータ項目、関連するデータ値 (文字列、整数、または double 型の値)、データ項目の相対的な優先順位を示す **[AppCaptureMetadataPriority](https://docs.microsoft.com/uwp/api/windows.media.capture.appcapturemetadatapriority)** 列挙の値が識別されます。 メタデータ項目は、ある時点で発生する "イベント" またはある時間枠で値を維持する "状態" と見なすことができます。 メタデータは、システムによってアプリ用に割り当てられて管理されるメモリ キャッシュに書き込まれます。 システムは、メタデータのメモリ キャッシュにサイズ制限を適用し、制限に達すると、各メタデータに書き込まれている優先順位に基づいてデータを削除します。 この記事の次のセクションでは、アプリのメタデータのメモリ割り当てを管理する方法を示します。
 
-一般的なアプリでは、キャプチャ セッションの最初に特定のメタデータを書き込んで、以降のデータのコンテキストを提供することを選択できます。 このシナリオでは、瞬間的な "イベント" データを使用することをお勧めします。 この例では、**[AddStringEvent](https://docs.microsoft.com/uwp/api/windows.media.capture.appcapturemetadatawriter.addstringevent)**、**[AddDoubleEvent](https://docs.microsoft.com/uwp/api/windows.media.capture.appcapturemetadatawriter.adddoubleevent)**、および**[AddInt32Event](https://docs.microsoft.com/uwp/api/windows.media.capture.appcapturemetadatawriter.addint32event)** を呼び出して、各データ型の瞬間的な値を設定します。
+一般的なアプリでは、キャプチャ セッションの最初に特定のメタデータを書き込んで、以降のデータのコンテキストを提供することを選択できます。 このシナリオでは、瞬間的な "イベント" データを使用することをお勧めします。 この例では、 **[AddStringEvent](https://docs.microsoft.com/uwp/api/windows.media.capture.appcapturemetadatawriter.addstringevent)** 、 **[AddDoubleEvent](https://docs.microsoft.com/uwp/api/windows.media.capture.appcapturemetadatawriter.adddoubleevent)** 、および **[AddInt32Event](https://docs.microsoft.com/uwp/api/windows.media.capture.appcapturemetadatawriter.addint32event)** を呼び出して、各データ型の瞬間的な値を設定します。
 
 [!code-cpp[StartSession](./code/AppRecordingExample/cpp/AppRecordingExample/App.cpp#SnippetStartSession)]
 
@@ -143,7 +143,7 @@ UWP アプリでゲームプレイをキャプチャするには、2 つの方�
 [!code-cpp[RaceComplete](./code/AppRecordingExample/cpp/AppRecordingExample/App.cpp#SnippetRaceComplete)]
 
 ### <a name="manage-metadata-cache-storage-limit"></a>メタデータ キャッシュの記憶域の制限を管理する
-**AppCaptureMetadataWriter** を使用して書き込むメタデータは、関連付けられているメディア ストリームに書き込まれるまで、システムによってキャッシュされます。 システムでは、各アプリのメタデータ キャッシュのサイズ制限を定義しています。 キャッシュのサイズ制限に達すると、システムはキャッシュされたメタデータの削除を開始します。 記述されたメタデータが削除**[AppCaptureMetadataPriority.Informational](https://docs.microsoft.com/uwp/api/windows.media.capture.appcapturemetadatapriority)** 優先度の値を使用してメタデータを削除する前に、 **[AppCaptureMetadataPriority.Important](https://docs.microsoft.com/uwp/api/windows.media.capture.appcapturemetadatapriority)** 優先順位。
+**AppCaptureMetadataWriter** を使用して書き込むメタデータは、関連付けられているメディア ストリームに書き込まれるまで、システムによってキャッシュされます。 システムでは、各アプリのメタデータ キャッシュのサイズ制限を定義しています。 キャッシュのサイズ制限に達すると、システムはキャッシュされたメタデータの削除を開始します。 記述されたメタデータが削除 **[AppCaptureMetadataPriority.Informational](https://docs.microsoft.com/uwp/api/windows.media.capture.appcapturemetadatapriority)**  優先度の値を使用してメタデータを削除する前に、 **[AppCaptureMetadataPriority.Important](https://docs.microsoft.com/uwp/api/windows.media.capture.appcapturemetadatapriority)**  優先順位。
 
 いつでも、**[RemainingStorageBytesAvailable](https://docs.microsoft.com/uwp/api/windows.media.capture.appcapturemetadatawriter.RemainingStorageBytesAvailable)** を呼び出すことによって、アプリのメタデータ キャッシュで利用可能なバイト数を確認できます。 独自のアプリで定義されたしきい値を設定することを選択し、その後でキャッシュに書き込むメタデータの量を減らすことを選択できます。 次の例は、このパターンの簡単な実装を示しています。
 

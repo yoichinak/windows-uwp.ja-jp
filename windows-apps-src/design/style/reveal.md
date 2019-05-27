@@ -10,12 +10,12 @@ design-contact: conrwi
 dev-contact: jevansa
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: aeba4dbd734ea4b521033726968e90c232c154cb
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 0f6a4fef72206058874edf845d5fbbe0768c53ec
+ms.sourcegitcommit: f0f933d5cf0be734373a7b03e338e65000cc3d80
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57628667"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65984220"
 ---
 # <a name="reveal-highlight"></a>強調表示を表示します。
 
@@ -79,7 +79,7 @@ ms.locfileid: "57628667"
 | コントロール名   | リソース名 |
 |----------|:-------------:|
 | Button |  ButtonRevealStyle |
-| ToggleButton | ToggleButtonRevealStyle |
+| トグル ボタン | ToggleButtonRevealStyle |
 | RepeatButton | RepeatButtonRevealStyle |
 | AppBarButton | AppBarButtonRevealStyle |
 | AppBarToggleButton | AppBarToggleButtonRevealStyle |
@@ -282,13 +282,13 @@ ms.locfileid: "57628667"
 
 ## <a name="reveal-and-the-fluent-design-system"></a>表示と Fluent Design System
 
- Fluent Design System では、ライト、深度、モーション、マテリアル、スケールを取り入れた、モダンで目を引く UI を作成できます。 表示は、アプリに発光効果を加える Fluent Design System コンポーネントです。 詳しくは、[UWP 用の Fluent Design の概要に関するページ](../fluent-design-system/index.md)をご覧ください。
+ Fluent Design System では、ライト、深度、モーション、マテリアル、スケールを取り入れた、モダンで目を引く UI を作成できます。 表示は、アプリに発光効果を加える Fluent Design System コンポーネントです。 詳しくは、[UWP 用の Fluent Design の概要に関するページ](/windows/apps/fluent-design-system)をご覧ください。
 
 ## <a name="related-articles"></a>関連記事
 
 - [RevealBrush クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.revealbrush)
 - [アクリル](acrylic.md)
 - [合成効果](https://msdn.microsoft.com/windows/uwp/graphics/composition-effects)
-- [UWP 用 Fluent デザイン](../fluent-design-system/index.md)
+- [UWP 用 Fluent デザイン](/windows/apps/fluent-design-system)
 - [システムで科学:Fluent デザインと深さ](https://medium.com/microsoft-design/science-in-the-system-fluent-design-and-depth-fb6d0f23a53f)
 - [システムで科学:Fluent デザインおよびライト](https://medium.com/microsoft-design/the-science-in-the-system-fluent-design-and-light-94a17e0b3a4f)

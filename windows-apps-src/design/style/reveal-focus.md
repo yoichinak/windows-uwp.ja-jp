@@ -9,12 +9,12 @@ pm-contact: chphilip
 design-contact: ''
 dev-contact: stevenki
 ms.localizationpriority: medium
-ms.openlocfilehash: 7bcceb8d44b6d92cab05a9c077531b3fe1b05c79
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 5de4b51687e152ef5d25a583f949cdd108f2f029
+ms.sourcegitcommit: f0f933d5cf0be734373a7b03e338e65000cc3d80
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57651757"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65984208"
 ---
 # <a name="reveal-focus"></a>フォーカスを表示します。
 
@@ -168,7 +168,7 @@ ms.locfileid: "57651757"
 
 ## <a name="reveal-focus-and-the-fluent-design-system"></a>フォーカスと Fluent デザイン システムを表示します。
 
-フォーカスがあるアプリに光を追加する Fluent Design System コンポーネントを表示します。 Fluent Design System およびその他のコンポーネントについて詳しくは、[UWP 用の Fluent Design の概要](../fluent-design-system/index.md)をご覧ください。
+フォーカスがあるアプリに光を追加する Fluent Design System コンポーネントを表示します。 Fluent Design System およびその他のコンポーネントについて詳しくは、[UWP 用の Fluent Design の概要](/windows/apps/fluent-design-system)をご覧ください。
 
 ## <a name="related-articles"></a>関連記事
 

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 2089f9fcd54989234b52f95eb3ee9535f9b3ede3
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: f8e74688d0f7048276b12680237b85663d7e2b81
+ms.sourcegitcommit: d1c3e13de3da3f7dce878b3735ee53765d0df240
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57603117"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66214735"
 ---
 # <a name="contributing-to-uwp-conceptual-documentation"></a>UWP の概念に関するドキュメントへの投稿
 
@@ -34,7 +34,7 @@ ms.locfileid: "57603117"
 
 ## <a name="internal-contributions"></a>内部の投稿
 
-投稿する場合は、Microsoft の従業員、[プライベート コンテンツ リポジトリ](https://cpubwin.visualstudio.com/_git/windows-uwp)します。 このリポジトリでの使用に関するガイダンスを見つけることができます、 [Windows Authoring Guide](https://review.docs.microsoft.com/windows-authoring-guide/uwp/?branch=master)します。 プライベート リポジトリのみを使用して、今後の機能に関するドキュメントを提供する必要があります。
+投稿する場合は、Microsoft の従業員、[プライベート コンテンツ リポジトリ](https://github.com/microsoftdocs/windows-uwp-pr)します。 このリポジトリでの使用に関するガイダンスを見つけることができます、 [Windows Authoring Guide](https://review.docs.microsoft.com/windows-authoring-guide/uwp/?branch=master)します。 プライベート リポジトリのみを使用して、今後の機能に関するドキュメントを提供する必要があります。
 
 ### <a name="editing-a-file"></a>ファイルを編集します。
 

@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: eefebbd7087070f85ead09e562f154f43ed49e37
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 3d8805f03f8476bcae8404395c27d9d78952f782
+ms.sourcegitcommit: f0f933d5cf0be734373a7b03e338e65000cc3d80
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57583418"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65984226"
 ---
 # <a name="porting-apps-to-windows10"></a>Windows 10 にアプリを移植する
 
@@ -24,11 +24,11 @@ Windows ランタイム (WinRT) は、ユニバーサル Windows プラットフ
 
 | トピック | 説明 |
 |-------|-------------|
-| [Windows Phone Silverlight から UWP への移行](wpsl-to-uwp-root.md) | Windows Phone Silverlight アプリの開発者は、Windows 10 への移行で、自身のスキル セットとソース コードを十分に活用できます。 Windows 10 では、UWP アプリを作成できます。これは、どのような種類のデバイスにでもインストールできる単一のアプリ パッケージです。 |
+| [デスクトップから UWP への移行](desktop-to-uwp-migrate.md) | UWP エクスペリエンスを Win32 および .NET デスクトップ アプリケーションに取り込むいくつかのオプションからいずれかを選択します。 |
 | [Windows ランタイム 8.x から UWP への移行](w8x-to-uwp-root.md) | ユニバーサル 8.1 アプリがある場合は、その対象が、Windows 8.1 と Windows Phone 8.1 のいずれかであるか、両方であるかにかかわらず、ソース コードとスキルがスムーズに Windows 10 に移植されることがわかるでしょう。 Windows 10 では、UWP アプリを作成できます。これは、どのような種類のデバイスにでもインストールできる単一のアプリ パッケージです。 |
 | [Android と iOS 開発者向けの Windows アプリ概念マッピング](android-ios-uwp-map.md) | このリソースには、Android や iOS のスキルとコードを持つ開発者が Windows 10 とユニバーサル Windows プラットフォームに移行する場合に、それら 3 つのプラットフォーム間でプラットフォームの機能と知識を関連付けるために必要なすべての情報が含まれています。 |
 | [iOS から UWP への移行](ios-to-uwp-root.md) | iOS 向けに開発したアプリを Windows 10 と UWP に移行するにはどうすればよいでしょうか。 これは思っているほど難しくはありません。 iOS デバイスと同様に Windows でも (おそらくより快適に) 動作する優れたアプリの作成に必要なツール、手法、情報が用意されています。 |
-| [デスクトップから UWP への移行](desktop-to-uwp-root.md) | Win32 および .NET 4.6.1 デスクトップ アプリケーションをユニバーサル Windows プラットフォーム (UWP) アプリに変換します。 |
+| [Windows Phone Silverlight から UWP への移行](wpsl-to-uwp-root.md) | Windows Phone Silverlight アプリの開発者は、Windows 10 への移行で、自身のスキル セットとソース コードを十分に活用できます。 Windows 10 では、UWP アプリを作成できます。これは、どのような種類のデバイスにでもインストールできる単一のアプリ パッケージです。 |
 | [Web アプリを PWA に変換する](https://docs.microsoft.com/microsoft-edge/progressive-web-apps) | Web アプリをプログレッシブ Web アプリ (PWA) 変換できるようになりました。PWA は、UWP を含むあらゆるプラットフォームで動作します。 [PWA ビルダー ツール](https://www.pwabuilder.com)により、必要なマニフェストが自動的に生成されます。 これは、ホスト型 Web アプリ (HWA) ブリッジを置き換えるものです。 |
 
 ## <a name="related-topics"></a>関連トピック

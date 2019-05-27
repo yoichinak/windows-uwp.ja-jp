@@ -5,13 +5,15 @@ template: detail.hbs
 ms.date: 03/18/2019
 ms.topic: article
 keywords: UWP、レンダリング、合成、win32
+ms.author: jimwalk
+author: jwmsft
 ms.localizationpriority: medium
-ms.openlocfilehash: 0cf4e45ac6214e714e2c73a73006654584f50799
-ms.sourcegitcommit: f0f933d5cf0be734373a7b03e338e65000cc3d80
+ms.openlocfilehash: c9b4ec38b0dd1f6eca3f43cfded74c6292c08100
+ms.sourcegitcommit: d1c3e13de3da3f7dce878b3735ee53765d0df240
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65985242"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66215195"
 ---
 # <a name="using-the-visual-layer-with-win32"></a>Win32 でのビジュアル層の使用
 
@@ -109,7 +111,7 @@ UWP API をホストしているが、これらの前提条件です。
 
 1. プロジェクトに新しいクラス ファイルを追加します。
     - **ソリューション エクスプ ローラー**を右クリックして、 _HelloComposition_プロジェクト。
-    - コンテキスト メニューで選択**追加** > **クラス.**.
+    - コンテキスト メニューで選択**追加** > **クラス.** .
     - **クラスの追加**ダイアログ ボックスで、クラス名_CompositionHost.cs_、 をクリックし、**追加**します。
 
 1. ヘッダーを含めると_using_合成相互運用機能に必要な。
@@ -258,7 +260,7 @@ UWP API をホストしているが、これらの前提条件です。
     {
         auto root = m_compositor.CreateContainerVisual();
         root.RelativeSizeAdjustment({ 1.0f, 1.0f });
-        root.Offset({ 24, 24, 0 });
+        root.Offset({ 124, 12, 0 });
         m_target.Root(root);
     }
     ```
@@ -271,7 +273,7 @@ UWP API をホストしているが、これらの前提条件です。
 
 インフラストラクチャを導入するに表示する合成コンテンツを生成できます。
 
-この例では、単純な四角形を作成するコードを追加する[SpriteVisual](/uwp/api/windows.ui.composition.spritevisual)します。
+この例では、ランダムに色付きの正方形を作成するコードを追加する[SpriteVisual](/uwp/api/windows.ui.composition.spritevisual)短い遅延の後に削除すると、そのアニメーションとします。
 
 1. 合成要素を追加します。
     - CompositionHost.h でという名前のパブリック メソッドを宣言_AddElement_を受け取る 3 **float**引数として値。
@@ -290,9 +292,28 @@ UWP API をホストしているが、これらの前提条件です。
             auto visuals = m_target.Root().as<ContainerVisual>().Children();
             auto visual = m_compositor.CreateSpriteVisual();
 
-            visual.Brush(m_compositor.CreateColorBrush({ 0xDC, 0x5B, 0x9B, 0xD5 }));
-            visual.Size({ size, size });
-            visual.Offset({ x, y, 0.0f, });
+            auto element = m_compositor.CreateSpriteVisual();
+            uint8_t r = (double)(double)(rand() % 255);;
+            uint8_t g = (double)(double)(rand() % 255);;
+            uint8_t b = (double)(double)(rand() % 255);;
+
+            element.Brush(m_compositor.CreateColorBrush({ 255, r, g, b }));
+            element.Size({ size, size });
+            element.Offset({ x, y, 0.0f, });
+
+            auto animation = m_compositor.CreateVector3KeyFrameAnimation();
+            auto bottom = (float)600 - element.Size().y;
+            animation.InsertKeyFrame(1, { element.Offset().x, bottom, 0 });
+
+            using timeSpan = std::chrono::duration<int, std::ratio<1, 1>>;
+
+            std::chrono::seconds duration(2);
+            std::chrono::seconds delay(3);
+
+            animation.Duration(timeSpan(duration));
+            animation.DelayTime(timeSpan(delay));
+            element.StartAnimation(L"Offset", animation);
+            visuals.InsertAtTop(element);
 
             visuals.InsertAtTop(visual);
         }
@@ -301,27 +322,60 @@ UWP API をホストしているが、これらの前提条件です。
 
 ## <a name="create-and-show-the-window"></a>作成し、ウィンドウを表示します。
 
-ここで、UWP コンポジションのコンテンツを Win32 の UI に追加できます。 使用して、アプリケーションの_InitInstance_ Windows 合成を初期化し、コンテンツを生成するメソッド。
+ここで、Win32 UI には、ボタンと UWP コンポジションのコンテンツを追加できます。
 
-1. HelloComposition.cpp、含める_CompositionHost.h_ファイルの上部にあります。
+1. ファイルの上部にある、HelloComposition.cpp 含める_CompositionHost.h_BTN_ADD を定義し、CompositionHost のインスタンスを取得します。
 
     ```cppwinrt
     #include "CompositionHost.h"
+
+    // #define MAX_LOADSTRING 100 // This is already in the file.
+    #define BTN_ADD 1000
+
+    CompositionHost* compHost = CompositionHost::GetInstance();
     ```
 
-1. `InitInstance`メソッドの初期化し、CompositionHost クラスを使用するコードを追加します。
-
-    HWND が作成されると呼び出しの前に、次のコードを追加`ShowWindow`します。
+1. `InitInstance`メソッドを作成するウィンドウのサイズを変更します。 (このコマンドラインで次のように変更します`CW_USEDEFAULT, 0`に`900, 672`。)。
 
     ```cppwinrt
-    CompositionHost* compHost = CompositionHost::GetInstance();
-    compHost->Initialize(hWnd);
-    compHost->AddElement(150, 10, 10);
+    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
+        CW_USEDEFAULT, 0, 900, 672, nullptr, nullptr, hInstance, nullptr);
+    ```
+
+1. WndProc 関数に、追加`case WM_CREATE`を_メッセージ_の switch ブロックです。 ここで、CompositionHost を初期化し、ボタンを作成します。
+
+    ```cppwinrt
+    case WM_CREATE:
+    {
+        compHost->Initialize(hWnd);
+        srand(time(nullptr));
+
+        CreateWindow(TEXT("button"), TEXT("Add element"),
+            WS_VISIBLE | WS_CHILD | BS_PUSHBUTTON,
+            12, 12, 100, 50,
+            hWnd, (HMENU)BTN_ADD, nullptr, nullptr);
+    }
+    break;
+    ```
+
+1. WndProc 関数では、UI に合成要素を追加するボタンのクリックを処理します。 
+
+    追加`case BTN_ADD`を_wmId_ WM_COMMAND ブロック内の switch ブロックです。
+
+    ```cppwinrt
+    case BTN_ADD: // addButton click
+    {
+        double size = (double)(rand() % 150 + 50);
+        double x = (double)(rand() % 600);
+        double y = (double)(rand() % 200);
+        compHost->AddElement(size, x, y);
+        break;
+    }
     ```
 
 ビルドして、アプリを実行することができますようになりました。 必要がある場合は、すべてのコードは、適切な場所にいるかどうかを確認するチュートリアルの最後に完全なコードを確認します。
 
-アプリを実行するときに、UI に追加、青い四角形が表示されます。
+アプリを実行する ボタンをクリックすると、UI に追加するアニメーションの正方形が表示されます。
 
 ## <a name="additional-resources"></a>その他の資料
 
@@ -437,7 +491,7 @@ void CompositionHost::CreateCompositionRoot()
 {
     auto root = m_compositor.CreateContainerVisual();
     root.RelativeSizeAdjustment({ 1.0f, 1.0f });
-    root.Offset({ 24, 24, 0 });
+    root.Offset({ 124, 12, 0 });
     m_target.Root(root);
 }
 
@@ -448,37 +502,128 @@ void CompositionHost::AddElement(float size, float x, float y)
         auto visuals = m_target.Root().as<ContainerVisual>().Children();
         auto visual = m_compositor.CreateSpriteVisual();
 
-        visual.Brush(m_compositor.CreateColorBrush({ 0xDC, 0x5B, 0x9B, 0xD5 }));
-        visual.Size({ size, size });
-        visual.Offset({ x, y, 0.0f, });
+        auto element = m_compositor.CreateSpriteVisual();
+        uint8_t r = (double)(double)(rand() % 255);;
+        uint8_t g = (double)(double)(rand() % 255);;
+        uint8_t b = (double)(double)(rand() % 255);;
+
+        element.Brush(m_compositor.CreateColorBrush({ 255, r, g, b }));
+        element.Size({ size, size });
+        element.Offset({ x, y, 0.0f, });
+
+        auto animation = m_compositor.CreateVector3KeyFrameAnimation();
+        auto bottom = (float)600 - element.Size().y;
+        animation.InsertKeyFrame(1, { element.Offset().x, bottom, 0 });
+
+        using timeSpan = std::chrono::duration<int, std::ratio<1, 1>>;
+
+        std::chrono::seconds duration(2);
+        std::chrono::seconds delay(3);
+
+        animation.Duration(timeSpan(duration));
+        animation.DelayTime(timeSpan(delay));
+        element.StartAnimation(L"Offset", animation);
+        visuals.InsertAtTop(element);
 
         visuals.InsertAtTop(visual);
     }
 }
 ```
 
-### <a name="hellocompositioncpp---initinstance"></a>HelloComposition.cpp - InitInstance
+### <a name="hellocompositioncpp-partial"></a>HelloComposition.cpp (部分的)
 
 ```cppwinrt
+#include "pch.h"
+#include "HelloComposition.h"
+#include "CompositionHost.h"
+
+#define MAX_LOADSTRING 100
+#define BTN_ADD 1000
+
+CompositionHost* compHost = CompositionHost::GetInstance();
+
+// Global Variables:
+
+// ...
+// ... code not shown ...
+// ...
+
 BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hInst = hInstance; // Store instance handle in our global variable
 
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
-      CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
+      CW_USEDEFAULT, 0, 900, 672, nullptr, nullptr, hInstance, nullptr);
 
-   if (!hWnd)
-   {
-      return FALSE;
-   }
-
-   CompositionHost* compHost = CompositionHost::GetInstance();
-   compHost->Initialize(hWnd);
-   compHost->AddElement(150, 10, 10);
-
-   ShowWindow(hWnd, nCmdShow);
-   UpdateWindow(hWnd);
-
-   return TRUE;
+// ...
+// ... code not shown ...
+// ...
 }
+
+// ...
+
+LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
+{
+    switch (message)
+    {
+// Add this...
+    case WM_CREATE:
+    {
+        compHost->Initialize(hWnd);
+        srand(time(nullptr));
+
+        CreateWindow(TEXT("button"), TEXT("Add element"),
+            WS_VISIBLE | WS_CHILD | BS_PUSHBUTTON,
+            12, 12, 100, 50,
+            hWnd, (HMENU)BTN_ADD, nullptr, nullptr);
+    }
+    break;
+// ...
+    case WM_COMMAND:
+    {
+        int wmId = LOWORD(wParam);
+        // Parse the menu selections:
+        switch (wmId)
+        {
+        case IDM_ABOUT:
+            DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
+            break;
+        case IDM_EXIT:
+            DestroyWindow(hWnd);
+            break;
+// Add this...
+        case BTN_ADD: // addButton click
+        {
+            double size = (double)(rand() % 150 + 50);
+            double x = (double)(rand() % 600);
+            double y = (double)(rand() % 200);
+            compHost->AddElement(size, x, y);
+            break;
+        }
+// ...
+        default:
+            return DefWindowProc(hWnd, message, wParam, lParam);
+        }
+    }
+    break;
+    case WM_PAINT:
+    {
+        PAINTSTRUCT ps;
+        HDC hdc = BeginPaint(hWnd, &ps);
+        // TODO: Add any drawing code that uses hdc here...
+        EndPaint(hWnd, &ps);
+    }
+    break;
+    case WM_DESTROY:
+        PostQuitMessage(0);
+        break;
+    default:
+        return DefWindowProc(hWnd, message, wParam, lParam);
+    }
+    return 0;
+}
+
+// ...
+// ... code not shown ...
+// ...
 ```

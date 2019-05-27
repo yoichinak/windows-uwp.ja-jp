@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: b725a823f31309c2419bcdc5095a78994d1929c0
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: e22a10e74a834daf4d256313f0e353a6829911c0
+ms.sourcegitcommit: f0f933d5cf0be734373a7b03e338e65000cc3d80
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57583439"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65984238"
 ---
 # <a name="xaml-platform"></a>XAML プラットフォーム
 
@@ -26,4 +26,4 @@ ms.locfileid: "57583439"
 | [添付プロパティの概要](attached-properties-overview.md) | XAML での添付プロパティの概念を説明し、例をいくつか紹介します。 |
 | [カスタム添付プロパティ](custom-attached-properties.md) | XAML 添付プロパティを依存関係プロパティとして実装する方法と、添付プロパティを XAML で使うために必要なアクセサー変換を定義する方法を説明します。 |
 | [イベントとルーティング イベントの概要](events-and-routed-events-overview.md) | このトピックでは、Windows ランタイム アプリで、プログラミング言語に C#、Visual Basic、または C++/CX、UI 定義に XAML を使う場合のイベントのプログラミングの概念について説明します。 イベントのハンドラーは、UI 要素の宣言の一部として XAML で割り当てることも、コードで追加することもできます。 Windows ランタイムは**ルーティング イベント**をサポートしており、特定の入力イベントとデータ イベントを、その発生元オブジェクト以外のオブジェクトで処理できます。 ルーティング イベントは、コントロール テンプレートを定義する際や、ページまたはレイアウト コンテナーを使う際に役立ちます。 |
-|[WPF および Windows フォーム アプリケーションで UWP コントロールをホストする](xaml-host-controls.md)| UWP XAML コントロールを使用して、Windows フォームまたは Windows デスクトップ アプリケーションの UI を強化する方法について説明します。|
+|[デスクトップ アプリケーションの UWP コントロール (XAML アイランド)](/windows/apps/desktop/modernize/xaml-islands)| UWP XAML コントロールを使用して、Windows フォーム、WPF、または Win32 デスクトップ アプリケーションの UI を強化する方法について説明します。|

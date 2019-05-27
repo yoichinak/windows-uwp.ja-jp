@@ -8,7 +8,7 @@ keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: e988582877a6aa4ca3cf88ba0a5d98aceb56939e
 ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/06/2019
 ms.locfileid: "57595057"
@@ -301,9 +301,9 @@ XAML を使用できる Windows ランタイム API のリファレンス トピ
 XAML の使用方法のセクションでも、さまざまな一般化されたプレースホルダーが使われています。 これらのプレースホルダーは、「**XAML 値**」で毎回再定義されるわけではありません。何を表しているかを推測したり、しだいに覚えることができるためです。 ほとんどの読者は、「**XAML 値**」で定義を繰り返し見ることに飽きてしまうと思われるので、定義しないままにしています。 参考までに、これらのプレースホルダーの一部と、それらの一般的な意味を、次の一覧に示しておきます。
 
 -   *object*: 理論上は任意のオブジェクト値ですが、多くの場合、実際には特定の型のオブジェクトに限定されます (文字列かオブジェクトかの選択など)。詳しくは、リファレンス ページの「解説」をご覧ください。
--   *オブジェクト**プロパティ*:*オブジェクト**プロパティ*の組み合わせとして使用できる型の構文が表示されている構文である場合の使用は、多くのプロパティの属性値。 たとえば、 **Xaml 属性使用構文**に対して表示される[**ブラシ**](/uwp/api/Windows.UI.Xaml.Media.Brush)が含まれています: <*オブジェクト**プロパティ*="*predefinedColorName*"/>
+-   *オブジェクト* *プロパティ*:*オブジェクト* *プロパティ*の組み合わせとして使用できる型の構文が表示されている構文である場合の使用は、多くのプロパティの属性値。 たとえば、 **Xaml 属性使用構文** に対して表示される[**ブラシ**](/uwp/api/Windows.UI.Xaml.Media.Brush)が含まれています: <*オブジェクト* *プロパティ*="*predefinedColorName*"/>
 -   *eventhandler*:これは、イベント属性に対して表示されるすべての XAML 構文の属性の値として表示されます。 これに対して指定するのは、イベント ハンドラー関数の関数名です。 この関数は、XAML ページのコード ビハインドで定義されている必要があります。 プログラミングのレベルでは、その関数は処理するイベントのデリゲート シグネチャと一致する必要があり、一致しない場合はアプリのコードがコンパイルされません。 ただし、それは実際にはプログラミングでの考慮事項であり、XAML での考慮事項ではないため、XAML 構文ではデリゲート型について何も言及しようとはしていません。 イベントのためにどのデリゲートを実装する必要があるかを知りたい場合は、イベントのリファレンス トピックにある「**イベント情報**」セクションの表で、" **デリゲート**" というラベルの行をご覧ください。
--   *enumMemberName*: すべての列挙体の属性構文に示されます。 列挙値を使うプロパティのための同じようなプレースホルダーがありますが、通常は、列挙体の名前を示すプレフィックスがプレースホルダーに付けられます。 たとえば、[**FrameworkElement.FlowDirection**](https://msdn.microsoft.com/library/windows/apps/br208716) で示される構文は、<*frameworkElement***FlowDirection**="* flowDirectionMemberName*"/> です。 これらのプロパティのリファレンス ページで、「**プロパティ値**」のセクションの "**型:**" というテキストの横に表示される、列挙型へのリンクをクリックしてください。 その列挙体を使うプロパティの属性値には、「**メンバー**」の表の「**メンバー名**」列に表示される任意の文字列を使用できます。
+-   *enumMemberName*: すべての列挙体の属性構文に示されます。 列挙値を使うプロパティのための同じようなプレースホルダーがありますが、通常は、列挙体の名前を示すプレフィックスがプレースホルダーに付けられます。 たとえば、[**FrameworkElement.FlowDirection**](https://msdn.microsoft.com/library/windows/apps/br208716) で示される構文は、<*frameworkElement* **FlowDirection** ="* flowDirectionMemberName*"/> です。 これらのプロパティのリファレンス ページで、「**プロパティ値**」のセクションの "**型:**" というテキストの横に表示される、列挙型へのリンクをクリックしてください。 その列挙体を使うプロパティの属性値には、「**メンバー**」の表の「**メンバー名**」列に表示される任意の文字列を使用できます。
 -   *二重*、 *int*、*文字列*、 *bool*:これらは、既知の XAML 言語プリミティブ型です。 C# または Visual Basic を使ってプログラミングを行う場合は、これらの型が Microsoft .NET での対応する型 ([**Double**](https://msdn.microsoft.com/library/windows/apps/xaml/system.double.aspx)、[**Int32**](https://msdn.microsoft.com/library/windows/apps/xaml/system.int32.aspx)、[**String**](https://msdn.microsoft.com/library/windows/apps/xaml/system.string.aspx)、[**Boolean**](https://msdn.microsoft.com/library/windows/apps/xaml/system.boolean.aspx) など) に対応付けられ、XAML で定義された値を .NET コード ビハインドで扱うときには、それらの .NET 型の任意のメンバーを使うことができます。 C++/CX を使ってプログラミングを行う場合は、C++ のプリミティブ型を使いますが、[**Platform**](https://msdn.microsoft.com/library/windows/apps/xaml/hh710417.aspx) 名前空間で定義されている、それらと同等の型 (たとえば [**Platform::String**](https://msdn.microsoft.com/library/windows/apps/xaml/hh755812.aspx)) を使うこともできます。 場合によっては、特定のプロパティに対して、追加の値の制限があります。 しかし、そのような制限はコードの使用方法と XAML の使用方法の両方に適用されるので、それらの注は通常は「XAML」セクションではなく「**プロパティ値**」または「解説」セクションに記載されます。
 
 ## <a name="tips-and-tricks-notes-on-style"></a>スタイルに関するヒントと注意事項

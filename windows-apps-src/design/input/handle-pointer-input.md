@@ -10,7 +10,7 @@ ms.topic: article
 ms.localizationpriority: medium
 ms.openlocfilehash: 596e9221fac686964b4faaa8a75f112dbb8ddf5a
 ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/06/2019
 ms.locfileid: "57619367"
@@ -196,7 +196,7 @@ UWP アプリでは、次のポインター イベントをリッスンするこ
 
 ほとんどの場合、イベント ハンドラーの [**PointerRoutedEventArgs**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.PointerRoutedEventArgs) を使ってポインター情報を取得することをお勧めします。
 
-イベント引数が必要なポインターの詳細を公開しない場合は、拡張へのアクセスを取得できます[ **PointerPoint** ](https://docs.microsoft.com/uwp/api/Windows.UI.Input.PointerPoint)を通じて公開される情報、 [ **GetCurrentPoint**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.pointerroutedeventargs.getcurrentpoint)と **[GetIntermediatePoints]**https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.pointerroutedeventargs.getintermediatepoints)メソッドの[ **PointerRoutedEventArgs**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.PointerRoutedEventArgs)します。
+イベント引数が必要なポインターの詳細を公開しない場合は、拡張へのアクセスを取得できます[**PointerPoint**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.PointerPoint)を通じて公開される情報、 [**GetCurrentPoint**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.pointerroutedeventargs.getcurrentpoint)と **[GetIntermediatePoints]**https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.pointerroutedeventargs.getintermediatepoints)メソッドの[**PointerRoutedEventArgs**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.PointerRoutedEventArgs)します。
 
 次のコードでは、アクティブな各ポインターを追跡するためのグローバル ディクショナリ オブジェクトを設定し、ターゲット オブジェクトのさまざまなポインター イベント リスナーを識別しています。
 
@@ -572,7 +572,7 @@ private void Target_PointerCaptureLost(object sender, PointerRoutedEventArgs e)
 
 ### <a name="get-pointer-properties"></a>ポインターのプロパティを取得する
 
-前述のようから最も拡張ポインターの情報を取得する必要があります、 [ **Windows.UI.Input.PointerPoint** ](https://docs.microsoft.com/uwp/api/Windows.UI.Input.PointerPoint)経由で取得したオブジェクト、 [ **GetCurrentPoint**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.pointerroutedeventargs.getcurrentpoint)と **[GetIntermediatePoints]**https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.pointerroutedeventargs.getintermediatepoints)メソッドの[ **PointerRoutedEventArgs**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.PointerRoutedEventArgs)します。 次のコード スニペットでその方法を示します。
+前述のようから最も拡張ポインターの情報を取得する必要があります、 [**Windows.UI.Input.PointerPoint**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.PointerPoint)経由で取得したオブジェクト、 [ **GetCurrentPoint**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.pointerroutedeventargs.getcurrentpoint)と **[GetIntermediatePoints]**https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.pointerroutedeventargs.getintermediatepoints)メソッドの[**PointerRoutedEventArgs**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.PointerRoutedEventArgs)します。 次のコード スニペットでその方法を示します。
 
 -   最初に、ポインターごとに新しい [**TextBlock**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock) を作成します。
 
