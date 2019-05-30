@@ -7,12 +7,12 @@ keywords:
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 87eb6562c6ee66ca1d409d3748e688861d5f3920
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: e3614b7bde3a87c8f5fa6fdc0eada560fd7bbcdc
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57605047"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66370963"
 ---
 # <a name="stream-output-so-stage"></a>ストリーム出力 (SO) ステージ
 
@@ -31,7 +31,7 @@ ms.locfileid: "57605047"
 ストリーム出力データをパイプラインに送る方法は 2 とおりあります。
 
 -   ストリーム出力データは、入力アセンブラー (IA) ステージに戻すことができます。
--   ストリーム出力データは、ロード関数 ([Load](https://msdn.microsoft.com/library/windows/desktop/bb509694) など) を使用して、プログラム可能なシェーダーで読み取ることができます。
+-   ストリーム出力データは、ロード関数 ([Load](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-to-load) など) を使用して、プログラム可能なシェーダーで読み取ることができます。
 
 ## <a name="span-idinputspanspan-idinputspanspan-idinputspaninput"></a><span id="Input"></span><span id="input"></span><span id="INPUT"></span>入力
 

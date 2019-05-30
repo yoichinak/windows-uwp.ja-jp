@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, 地図, 位置情報, ジオフェンス
 ms.localizationpriority: medium
-ms.openlocfilehash: e3fe7cb84d4ae265ed20a6a74b76e4f08dd4c1dd
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 4580662bf4caf5124caeb34883023121db7ce30f
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57622477"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66370675"
 ---
 # <a name="guidelines-for-geofencing-apps"></a>ジオフェンス アプリのガイドライン
 
@@ -20,23 +20,23 @@ ms.locfileid: "57622477"
 
 **重要な API**
 
--   [**Geofence クラス (XAML)**](https://msdn.microsoft.com/library/windows/apps/dn263587)
--   [**Geolocator クラス (XAML)**](https://msdn.microsoft.com/library/windows/apps/br225534)
+-   [**Geofence クラス (XAML)** ](https://docs.microsoft.com/uwp/api/Windows.Devices.Geolocation.Geofencing.Geofence)
+-   [**Geolocator クラス (XAML)** ](https://docs.microsoft.com/uwp/api/Windows.Devices.Geolocation.Geolocator)
 
-アプリの [**ジオフェンス**](https://msdn.microsoft.com/library/windows/apps/dn263744) については、次のベスト プラクティスに従ってください。
+アプリの [**ジオフェンス**](https://docs.microsoft.com/uwp/api/Windows.Devices.Geolocation.Geofencing) については、次のベスト プラクティスに従ってください。
 
 ## <a name="recommendations"></a>推奨事項
 
 
--   [  **Geofence**](https://msdn.microsoft.com/library/windows/apps/dn263587) イベントが発生したときにインターネット アクセスが必要な場合は、ジオフェンスを作成する前にインターネット アクセスを確認します。
+-   [  **Geofence**](https://docs.microsoft.com/uwp/api/Windows.Devices.Geolocation.Geofencing.Geofence) イベントが発生したときにインターネット アクセスが必要な場合は、ジオフェンスを作成する前にインターネット アクセスを確認します。
     -   アプリで現在インターネットにアクセスできない場合、ジオフェンスをセットアップする前にユーザーに対してインターネットに接続するようメッセージを表示することができます。
     -   インターネット アクセスが不可能である場合は、ジオフェンスの位置確認に必要な電力を消費しないようにしてください。
--   ジオフェンス イベントが [**Entered**](https://msdn.microsoft.com/library/windows/apps/dn263660) 状態または **Exited** 状態に対する変更を示す場合、タイム スタンプと現在の位置をチェックしてジオフェンス通知の関連性を確認します。 詳しくは、次の「**タイム スタンプと現在位置の確認**」をご覧ください。
+-   ジオフェンス イベントが [**Entered**](https://docs.microsoft.com/uwp/api/Windows.Devices.Geolocation.Geofencing.GeofenceState) 状態または **Exited** 状態に対する変更を示す場合、タイム スタンプと現在の位置をチェックしてジオフェンス通知の関連性を確認します。 詳しくは、次の「**タイム スタンプと現在位置の確認**」をご覧ください。
 詳細については、次の「(#timestamp)」をご覧ください。
 -   デバイスで位置情報にアクセスできない場合は、ケースを管理する例外を作成し、必要に応じてユーザーに通知します。 アクセス許可がオフになっている、デバイスに GPS 機能が付いていない、GPS 信号がブロックされている、Wi-Fi 信号が弱いなどの理由で、位置情報が利用できない場合があります。
 -   一般に、フォアグラウンドとバックグラウンドの両方で同時にジオフェンス イベントをリッスンする必要はありません。 ただし、アプリがフォアグラウンドとバックグラウンドの両方で同時にジオフェンス イベントをリッスンする必要がある場合は、次の手順を行います。
 
-    -   [  **ReadReports**](https://msdn.microsoft.com/library/windows/apps/dn263633) メソッドを呼び出して、イベントが発生したかどうかを確認します。
+    -   [  **ReadReports**](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geofencing.geofencemonitor.readreports) メソッドを呼び出して、イベントが発生したかどうかを確認します。
     -   ユーザーからアプリが見えなくなったときはフォアグラウンド イベント リスナーの登録を解除し、再び見えるようになったときにもう一度登録します。
 
     コード例と詳しい情報については、「[バックグラウンドとフォアグラウンドのリスナー](#background-and-foreground-listeners)」をご覧ください。
@@ -48,7 +48,7 @@ ms.locfileid: "57622477"
 
 ### <a name="checking-the-time-stamp-and-current-location"></a>タイム スタンプと現在位置の確認
 
-イベントにより [**Entered**](https://msdn.microsoft.com/library/windows/apps/dn263660) または **Exited** 状態に変化したときは、イベントのタイム スタンプと現在位置の両方を確認します。 イベントが実際にユーザーによって処理される時期は、システムでバックグラウンド タスクを起動するリソースが不足していたり、ユーザーが通知に気付かなかったり、デバイスがスタンバイ中であったり (Windows の場合) など、さまざまな要因によって影響を受けます。 たとえば、次のような順序で事態が進む可能性があります。
+イベントにより [**Entered**](https://docs.microsoft.com/uwp/api/Windows.Devices.Geolocation.Geofencing.GeofenceState) または **Exited** 状態に変化したときは、イベントのタイム スタンプと現在位置の両方を確認します。 イベントが実際にユーザーによって処理される時期は、システムでバックグラウンド タスクを起動するリソースが不足していたり、ユーザーが通知に気付かなかったり、デバイスがスタンバイ中であったり (Windows の場合) など、さまざまな要因によって影響を受けます。 たとえば、次のような順序で事態が進む可能性があります。
 
 -   アプリがジオフェンスを作成して、ジオフェンスの進入イベントと退出イベントを監視します。
 -   ユーザーがデバイスをジオフェンスの内側に移動して、進入イベントをトリガーします。
@@ -60,7 +60,7 @@ ms.locfileid: "57622477"
 
 ### <a name="background-and-foreground-listeners"></a>バックグラウンドとフォアグラウンドのリスナー
 
-一般に、アプリは、フォアグラウンド タスクとバックグラウンド タスクの両方で同時に [**Geofence**](https://msdn.microsoft.com/library/windows/apps/dn263587) イベントをリッスンする必要はありません。 両方が必要になる場合に最も明確な処理方法は、バックグラウンド タスクに通知処理を任せることです。 実際にフォアグラウンドとバックグラウンドの両方でジオフェンス リスナーをセットアップした場合、どちらが最初にトリガーされるか不明であるため、常に [**ReadReports**](https://msdn.microsoft.com/library/windows/apps/dn263633) メソッドを呼び出してイベントが発生したか確認する必要があります。
+一般に、アプリは、フォアグラウンド タスクとバックグラウンド タスクの両方で同時に [**Geofence**](https://docs.microsoft.com/uwp/api/Windows.Devices.Geolocation.Geofencing.Geofence) イベントをリッスンする必要はありません。 両方が必要になる場合に最も明確な処理方法は、バックグラウンド タスクに通知処理を任せることです。 実際にフォアグラウンドとバックグラウンドの両方でジオフェンス リスナーをセットアップした場合、どちらが最初にトリガーされるか不明であるため、常に [**ReadReports**](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geofencing.geofencemonitor.readreports) メソッドを呼び出してイベントが発生したか確認する必要があります。
 
 また、フォアグラウンドとバックグラウンドの両方でジオフェンス リスナーをセットアップした場合、ユーザーからアプリが見えなくなるたびにフォアグラウンド イベント リスナーの登録を解除し、再び見えるようになったときにアプリを再登録する必要があります。 表示イベントに登録するコード例を次に示します。
 
@@ -120,15 +120,15 @@ function onVisibilityChanged() {
 
 ### <a name="sizing-your-geofences"></a>ジオフェンスのサイズ変更
 
-GPS を使うと最も正確な位置情報が得られますが、ジオフェンスでは Wi-Fi などの位置センサーを使ってユーザーの現在位置を判断することもできます。 しかし、GPS とは別のこういった方法を使うと、作成できるジオフェンスのサイズが影響を受けます。 精度が低い場合、小さなジオフェンスを作成しても役に立ちません。 通常、50 m より半径が小さいジオフェンスを作らないことをお勧めします。 また、Windows ではジオフェンスのバックグラウンド タスクが周期的にしか実行されないため、小さなジオフェンスを使った場合、[**Enter**](https://msdn.microsoft.com/library/windows/apps/dn263660) イベントや **Exit** イベントをまったく認識できない可能性があります。
+GPS を使うと最も正確な位置情報が得られますが、ジオフェンスでは Wi-Fi などの位置センサーを使ってユーザーの現在位置を判断することもできます。 しかし、GPS とは別のこういった方法を使うと、作成できるジオフェンスのサイズが影響を受けます。 精度が低い場合、小さなジオフェンスを作成しても役に立ちません。 通常、50 m より半径が小さいジオフェンスを作らないことをお勧めします。 また、Windows ではジオフェンスのバックグラウンド タスクが周期的にしか実行されないため、小さなジオフェンスを使った場合、[**Enter**](https://docs.microsoft.com/uwp/api/Windows.Devices.Geolocation.Geofencing.GeofenceState) イベントや **Exit** イベントをまったく認識できない可能性があります。
 
 アプリで小さなジオフェンスを使う必要がある場合は、最高のパフォーマンスを実現するために GPS 機能付きのデバイスでアプリを使うようユーザーに勧めてください。
 
 ## <a name="related-topics"></a>関連トピック
 
 
-* [ジオフェンスのセットアップ](https://msdn.microsoft.com/library/windows/apps/mt219702)
-* [現在の場所を取得します](https://msdn.microsoft.com/library/windows/apps/mt219698)
+* [ジオフェンスのセットアップ](https://docs.microsoft.com/windows/uwp/maps-and-location/set-up-a-geofence)
+* [現在の場所を取得します](https://docs.microsoft.com/windows/uwp/maps-and-location/get-location)
 * [UWP の場所のサンプル (地理的位置情報)](https://go.microsoft.com/fwlink/p/?linkid=533278)
  
 

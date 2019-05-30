@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp, セキュリティ
 ms.localizationpriority: medium
-ms.openlocfilehash: aacce5710f8ed0066e5efdfb5e0344473f718f9b
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 1026bd153f43d5e956fbacdcc33728d890f34e34
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57651547"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66371969"
 ---
 # <a name="windows-hello"></a>Windows Hello
 
@@ -115,16 +115,16 @@ if (!keyCredentialAvailable)
 
 このシナリオでは、ユーザーの一意の識別子としてメール アドレスを使用します。 ユーザーがサインアップしたら、アドレスが有効であることを確認するために確認メールを送信することを検討する必要があります。 これにより、必要な場合にアカウントをリセットすることができます。
 
-ユーザーが自分の PIN をセットアップすると、アプリはユーザーの [**KeyCredential**](https://msdn.microsoft.com/library/windows/apps/dn973029) を作成します。 また、アプリは、オプションでキーの構成証明情報も取得して、キーが TPM で生成されたことを示す暗号証明を入手します。 生成された公開キーと、キーの構成証明 (任意に指定) をバックエンド サーバーに送信して、使われているデバイスを登録します。 各デバイスで生成されたすべてのキーのペアは一意になります。
+ユーザーが自分の PIN をセットアップすると、アプリはユーザーの [**KeyCredential**](https://docs.microsoft.com/uwp/api/Windows.Security.Credentials.KeyCredential) を作成します。 また、アプリは、オプションでキーの構成証明情報も取得して、キーが TPM で生成されたことを示す暗号証明を入手します。 生成された公開キーと、キーの構成証明 (任意に指定) をバックエンド サーバーに送信して、使われているデバイスを登録します。 各デバイスで生成されたすべてのキーのペアは一意になります。
 
-[  **KeyCredential**](https://msdn.microsoft.com/library/windows/apps/dn973029) を作成するコードは、次のようになります。
+[  **KeyCredential**](https://docs.microsoft.com/uwp/api/Windows.Security.Credentials.KeyCredential) を作成するコードは、次のようになります。
 
 ```csharp
 var keyCreationResult = await KeyCredentialManager.RequestCreateAsync(
     AccountId, KeyCredentialCreationOption.ReplaceExisting);
 ```
 
-[  **RequestCreateAsync**](https://msdn.microsoft.com/library/windows/apps/dn973048) では、公開キーと秘密キーの作成を行います。 デバイスに適切な TPM チップが搭載されている場合、API は、秘密キーと公開キーの作成およびその結果の保存を TPM チップに要求します。TPM チップが利用できない場合は、OS によって、コードでキーのペアが作成されます。 作成した秘密キーにアプリが直接アクセスする方法はありません。 キーのペアを作成する処理によって、構成証明情報も生成されます。 (構成証明について詳しくは、次のセクションをご覧ください。)
+[  **RequestCreateAsync**](https://docs.microsoft.com/previous-versions/windows/dn973048(v=win.10)) では、公開キーと秘密キーの作成を行います。 デバイスに適切な TPM チップが搭載されている場合、API は、秘密キーと公開キーの作成およびその結果の保存を TPM チップに要求します。TPM チップが利用できない場合は、OS によって、コードでキーのペアが作成されます。 作成した秘密キーにアプリが直接アクセスする方法はありません。 キーのペアを作成する処理によって、構成証明情報も生成されます。 (構成証明について詳しくは、次のセクションをご覧ください。)
 
 デバイスでキーのペアと構成証明情報が作成されたら、公開キー、オプションの構成証明情報、および一意の識別子 (メール アドレスなど) をバックエンドの登録サービスに送信し、バックエンドに保存する必要があります。
 
@@ -208,8 +208,8 @@ static async void RegisterUser(string AccountId)
 - AIK 証明書の期間が有効であること。
 - チェーンに含まれている発行元の CA の証明書がすべて有効期間内にあり、失効していないこと。
 - 構成証明ステートメントが正しい形式になっていること。
-- [  **KeyAttestation**](https://msdn.microsoft.com/library/windows/apps/dn298288) BLOB の署名は、AIK 公開キーを使います。
-- [  **KeyAttestation**](https://msdn.microsoft.com/library/windows/apps/dn298288) BLOB に含まれる公開キーは、クライアントが構成証明ステートメントと共に送信した公開 RSA キーと一致します。
+- [  **KeyAttestation**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.Certificates.KeyAttestationHelper) BLOB の署名は、AIK 公開キーを使います。
+- [  **KeyAttestation**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.Certificates.KeyAttestationHelper) BLOB に含まれる公開キーは、クライアントが構成証明ステートメントと共に送信した公開 RSA キーと一致します。
 
 アプリは、これらの条件によって、さまざまな認証レベルをユーザーに割り当てる場合があります。 たとえば、これらの確認項目のいずれかが適切でない場合、ユーザーを登録しない、またはユーザーが実行できる操作を制限することがあります。
 
@@ -219,7 +219,7 @@ static async void RegisterUser(string AccountId)
 
 ### <a name="33-force-the-user-to-sign-in-again"></a>3.3 もう一度サインインするようにユーザーに強制する
 
-いくつかのシナリオでは、ユーザーが、アプリにアクセスする前、または場合によってはアプリ内の特定の操作を実行する前に、そのユーザーが現在サインインしている人であることの証明を必要とすることがあります。 たとえば、バンキング アプリが送金のコマンドをサーバーに送信する前に、使用者がユーザー本人であり、ログインされたデバイスを見つけて取引を行おうとしている他の人物ではないことを確認する必要があります。 [  **UserConsentVerifier**](https://msdn.microsoft.com/library/windows/apps/dn279134) クラスを使って、アプリにもう一度サインインするようにユーザーに強制することができます。 次のコード行では、資格情報の入力をユーザーに強制します。
+いくつかのシナリオでは、ユーザーが、アプリにアクセスする前、または場合によってはアプリ内の特定の操作を実行する前に、そのユーザーが現在サインインしている人であることの証明を必要とすることがあります。 たとえば、バンキング アプリが送金のコマンドをサーバーに送信する前に、使用者がユーザー本人であり、ログインされたデバイスを見つけて取引を行おうとしている他の人物ではないことを確認する必要があります。 [  **UserConsentVerifier**](https://docs.microsoft.com/uwp/api/Windows.Security.Credentials.UI.UserConsentVerifier) クラスを使って、アプリにもう一度サインインするようにユーザーに強制することができます。 次のコード行では、資格情報の入力をユーザーに強制します。
 
 次のコード行では、資格情報の入力をユーザーに強制します。
 
@@ -267,7 +267,7 @@ if (openKeyResult.Status == KeyCredentialStatus.Success)
 }
 ```
 
-最初の行の [**KeyCredentialManager.OpenAsync**](https://msdn.microsoft.com/library/windows/apps/dn973046) では、キー ハンドルを開くように OS に要求します。 これが正常に実行された場合、[**KeyCredential.RequestSignAsync**](https://msdn.microsoft.com/library/windows/apps/dn973058) メソッドにより、OS が Windows Hello を利用してユーザーの PIN や生体認証の情報を要求するようにトリガーされるため、チャレンジ メッセージに署名することができます。 開発者は、ユーザーの秘密キーにはアクセスすることはできません。 秘密キーに対する処理は、API を使うことにより安全性が保たれます。
+最初の行の [**KeyCredentialManager.OpenAsync**](https://docs.microsoft.com/uwp/api/windows.security.credentials.keycredentialmanager.openasync) では、キー ハンドルを開くように OS に要求します。 これが正常に実行された場合、[**KeyCredential.RequestSignAsync**](https://docs.microsoft.com/uwp/api/windows.security.credentials.keycredential.requestsignasync) メソッドにより、OS が Windows Hello を利用してユーザーの PIN や生体認証の情報を要求するようにトリガーされるため、チャレンジ メッセージに署名することができます。 開発者は、ユーザーの秘密キーにはアクセスすることはできません。 秘密キーに対する処理は、API を使うことにより安全性が保たれます。
 
 この API を使って、OS に対して秘密キーを使ってチャレンジに署名するように要求します。 システムでは、PIN コードや構成済みの生体認証ログオンをユーザーに求めます。 適切な情報が入力されると、システムは、暗号化関数を実行してチャレンジに署名するように TPM に要求します。 (TPM を利用できない場合は、フォールバック ソフトウェア ソリューションを使います)。 クライアントは、署名されたチャレンジをサーバーに返信する必要があります。
 
@@ -387,9 +387,9 @@ UI は次のようになります。
 
 ![Windows Hello の UI](images/passport-ui.png)
 
-ユーザーが Windows Hello を使うことにした場合、前に説明した [**KeyCredential**](https://msdn.microsoft.com/library/windows/apps/dn973029) を作成します。 バックエンドの登録サーバーでは、公開キーとオプションの構成証明ステートメントをデータベースに追加します。 ユーザーはユーザー名とパスワードで既に認証されているため、サーバーではこの新しい資格情報をデータベース内の現在のユーザー情報にリンクできます。 データベース モデルは、前に説明した例と同じである場合があります。
+ユーザーが Windows Hello を使うことにした場合、前に説明した [**KeyCredential**](https://docs.microsoft.com/uwp/api/Windows.Security.Credentials.KeyCredential) を作成します。 バックエンドの登録サーバーでは、公開キーとオプションの構成証明ステートメントをデータベースに追加します。 ユーザーはユーザー名とパスワードで既に認証されているため、サーバーではこの新しい資格情報をデータベース内の現在のユーザー情報にリンクできます。 データベース モデルは、前に説明した例と同じである場合があります。
 
-アプリは、ユーザーの [**KeyCredential**](https://msdn.microsoft.com/library/windows/apps/dn973029) を作成できた場合、アプリを再起動したときにユーザーが一覧からアカウントを選ぶことができるように、ユーザー ID を分離ストレージに保存します。 これ以降、フローはこれまでの章で説明した例とまったく同じものとなります。
+アプリは、ユーザーの [**KeyCredential**](https://docs.microsoft.com/uwp/api/Windows.Security.Credentials.KeyCredential) を作成できた場合、アプリを再起動したときにユーザーが一覧からアカウントを選ぶことができるように、ユーザー ID を分離ストレージに保存します。 これ以降、フローはこれまでの章で説明した例とまったく同じものとなります。
 
 Windows Hello の完全なシナリオへ移行する最後の手順では、アプリでログオン名とパスワードのオプションを無効にし、保存されているハッシュ済みのパスワードをデータベースから削除します。
 
@@ -408,7 +408,7 @@ Windows 10 には、簡単に実現できる、高いレベルのセキュリテ
 ### <a name="61-articles-and-sample-code"></a>6.1 記事とサンプル コード
 
 - [Windows こんにちはの概要](https://windows.microsoft.com/windows-10/getstarted-what-is-hello)
-- [Windows こんにちはの実装の詳細](https://msdn.microsoft.com/library/mt589441)
+- [Windows こんにちはの実装の詳細](https://technet.microsoft.com/itpro/windows/keep-secure/microsoft-passport-guide)
 - [Windows こんにちは GitHub コード サンプル](https://go.microsoft.com/fwlink/?LinkID=717812)
 
 ### <a name="62-terminology"></a>6.2 用語

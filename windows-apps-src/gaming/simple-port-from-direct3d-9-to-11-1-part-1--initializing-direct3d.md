@@ -6,20 +6,20 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, Direct3D 11, 初期化, 移植, Direct3D 9
 ms.localizationpriority: medium
-ms.openlocfilehash: 2aaf6dcc001a09e33588ac18898767b9cf92819c
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: c5a7f33ddbc6d70af5293b92165892c2098e452d
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57604187"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66368032"
 ---
 # <a name="initialize-direct3d-11"></a>Direct3D 11 の初期化
 
 
 
-**要約**
+**概要**
 
--   第 1 部:Direct3D 11 の初期化
+-   作業 1:Direct3D 11 の初期化
 -   [パート 2: レンダリングのフレームワークを変換します。](simple-port-from-direct3d-9-to-11-1-part-2--rendering.md)
 -   [パート 3:ポート、ゲームのループ](simple-port-from-direct3d-9-to-11-1-part-3--viewport-and-game-loop.md)
 
@@ -29,7 +29,7 @@ Direct3D デバイスとデバイス コンテキストへのハンドルを取�
 ## <a name="initialize-the-direct3d-device"></a>Direct3D デバイスの初期化
 
 
-Direct3D 9 では、[**IDirect3D9::CreateDevice**](https://msdn.microsoft.com/library/windows/desktop/bb174313) を呼び出して、Direct3D デバイスへのハンドルを作成しました。 最初に [**IDirect3D9 interface**](https://msdn.microsoft.com/library/windows/desktop/bb174300) へのポインターを取得し、Direct3D デバイスとスワップ チェーンの構成を制御するさまざまなパラメーターを指定しました。 それを実行する前に、[**GetDeviceCaps**](https://msdn.microsoft.com/library/windows/desktop/dd144877) を呼び出して、デバイスが実行できない処理を求めていないことを確認しました。
+Direct3D 9 では、[**IDirect3D9::CreateDevice**](https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3d9-createdevice) を呼び出して、Direct3D デバイスへのハンドルを作成しました。 最初に [**IDirect3D9 interface**](https://docs.microsoft.com/windows/desktop/api/d3d9helper/nn-d3d9helper-idirect3d9) へのポインターを取得し、Direct3D デバイスとスワップ チェーンの構成を制御するさまざまなパラメーターを指定しました。 それを実行する前に、[**GetDeviceCaps**](https://docs.microsoft.com/windows/desktop/api/wingdi/nf-wingdi-getdevicecaps) を呼び出して、デバイスが実行できない処理を求めていないことを確認しました。
 
 Direct3D 9
 
@@ -69,7 +69,7 @@ m_pD3D->CreateDevice(
 
 Direct3D 11 では、デバイス コンテキストとグラフィックス インフラストラクチャはデバイス自体とは別と見なされます。 初期化は複数の手順に分かれます。
 
-まず、デバイスを作成します。 デバイスでサポートしている機能レベルの一覧を取得します。これにより、GPU に関する必要な情報がほとんどわかります。 また、Direct3D にアクセスするためだけに、インターフェイスを作成する必要がありません。 代わりに、[**D3D11CreateDevice**](https://msdn.microsoft.com/library/windows/desktop/ff476082) コア API を使います。 これにより、デバイスへのハンドルとデバイスのイミディエイト コンテキストが提供されます。 デバイス コンテキストは、パイプラインの状態を設定し、レンダリング コマンドを生成するために使われます。
+まず、デバイスを作成します。 デバイスでサポートしている機能レベルの一覧を取得します。これにより、GPU に関する必要な情報がほとんどわかります。 また、Direct3D にアクセスするためだけに、インターフェイスを作成する必要がありません。 代わりに、[**D3D11CreateDevice**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-d3d11createdevice) コア API を使います。 これにより、デバイスへのハンドルとデバイスのイミディエイト コンテキストが提供されます。 デバイス コンテキストは、パイプラインの状態を設定し、レンダリング コマンドを生成するために使われます。
 
 Direct3D 11 デバイスとコンテキストを作成すると、COM のポインター機能を利用して、最新バージョンのインターフェイスを取得できます。このインターフェイスには追加機能が含まれているため、常に取得することをお勧めします。
 
@@ -125,11 +125,11 @@ Direct3D 11 には、DirectX Graphics Infrastructure (DXGI) と呼ばれるデ�
 
 Direct3D デバイスでは、DXGI の COM インターフェイスを実装します。 最初に、そのインターフェイスを取得し、それを使って、デバイスをホストしている DXGI アダプターを要求する必要があります。 次に、DXGI アダプターを使って、DXGI ファクトリを作成します。
 
-> **注**   COM インターフェイスのうち、最初の応答が使用することがありますので[ **QueryInterface**](https://msdn.microsoft.com/library/windows/desktop/ms682521)します。 しかし、代わりに、[**Microsoft::WRL::ComPtr**](https://msdn.microsoft.com/library/windows/apps/br244983.aspx) スマート ポインターを使ってください。 次に、[**As()**](https://msdn.microsoft.com/library/windows/apps/br230426.aspx) メソッドを呼び出して、適切なインターフェイスの種類の空の COM ポインターを提供します。
+> **注**   COM インターフェイスのうち、最初の応答が使用することがありますので[ **QueryInterface**](https://docs.microsoft.com/windows/desktop/api/unknwn/nf-unknwn-iunknown-queryinterface(q_))します。 しかし、代わりに、[**Microsoft::WRL::ComPtr**](https://docs.microsoft.com/cpp/windows/comptr-class) スマート ポインターを使ってください。 次に、[**As()** ](https://docs.microsoft.com/previous-versions/br230426(v=vs.140)) メソッドを呼び出して、適切なインターフェイスの種類の空の COM ポインターを提供します。
 
  
 
-**Direct3d11**
+**Direct3D 11**
 
 ```cpp
 ComPtr<IDXGIDevice2> dxgiDevice;
@@ -147,13 +147,13 @@ dxgiAdapter->GetParent(
     );
 ```
 
-DXGI ファクトリを作成したので、それを使って、スワップ チェーンを作成できます。 スワップ チェーンのパラメーターを定義します。 画面の形式を指定する必要があります選択します[ **DXGI\_形式\_B8G8R8A8\_UNORM** ](https://msdn.microsoft.com/library/windows/desktop/bb173059) Direct2D との互換性があるためです。 画面のスケーリング、マルチサンプリング、ステレオ レンダリングは、この例では使わないため、オフにします。 CoreWindow で直接実行するため、幅と高さを 0 に設定したままにし、全画面の値を自動的に取得できます。
+DXGI ファクトリを作成したので、それを使って、スワップ チェーンを作成できます。 スワップ チェーンのパラメーターを定義します。 画面の形式を指定する必要があります選択します[ **DXGI\_形式\_B8G8R8A8\_UNORM** ](https://docs.microsoft.com/windows/desktop/api/dxgiformat/ne-dxgiformat-dxgi_format) Direct2D との互換性があるためです。 画面のスケーリング、マルチサンプリング、ステレオ レンダリングは、この例では使わないため、オフにします。 CoreWindow で直接実行するため、幅と高さを 0 に設定したままにし、全画面の値を自動的に取得できます。
 
 > **注**  常にセット、 *SDKVersion* D3D11 パラメーター\_SDK\_UWP アプリのバージョン。
 
  
 
-**Direct3d11**
+**Direct3D 11**
 
 ```cpp
 ComPtr<IDXGISwapChain1> swapChain;
@@ -167,13 +167,13 @@ dxgiFactory->CreateSwapChainForCoreWindow(
 swapChain.As(&m_swapChain);
 ```
 
-画面に表示できる実際よりもより多くの場合、レンダリングは確実に、1 を使用してフレームの待機時間を設定します[ **DXGI\_スワップ\_効果\_反転\_シーケンシャル**](https://msdn.microsoft.com/library/windows/desktop/bb173077). これにより、電力が節約されます。また、これはストアの認定の要件です。このチュートリアルのパート 2 では、画面への表示について詳しく説明します。
+画面に表示できる実際よりもより多くの場合、レンダリングは確実に、1 を使用してフレームの待機時間を設定します[ **DXGI\_スワップ\_効果\_反転\_シーケンシャル**](https://docs.microsoft.com/windows/desktop/api/dxgi/ne-dxgi-dxgi_swap_effect). これにより、電力が節約されます。また、これはストアの認定の要件です。このチュートリアルのパート 2 では、画面への表示について詳しく説明します。
 
-> **注**  を使用することができますマルチ スレッド (たとえば、 [ **ThreadPool** ](https://msdn.microsoft.com/library/windows/apps/br229642)作業項目) レンダリング スレッドがブロックされている間に他の作業を続行します。
+> **注**  を使用することができますマルチ スレッド (たとえば、 [ **ThreadPool** ](https://docs.microsoft.com/uwp/api/Windows.System.Threading)作業項目) レンダリング スレッドがブロックされている間に他の作業を続行します。
 
  
 
-**Direct3d11**
+**Direct3D 11**
 
 ```cpp
 dxgiDevice->SetMaximumFrameLatency(1);
@@ -186,7 +186,7 @@ dxgiDevice->SetMaximumFrameLatency(1);
 
 最初に、バック バッファーへのハンドルを取得する必要があります  (注: バック バッファーが、DXGI スワップ チェーンによって所有されている DirectX 9 で Direct3D デバイスによって所有されている一方です。)レンダー ターゲットを作成して、レンダー ターゲットとして使用する Direct3D デバイスを説明し、*ビュー*バック バッファーを使用します。
 
-**Direct3d11**
+**Direct3D 11**
 
 ```cpp
 ComPtr<ID3D11Texture2D> backBuffer;
@@ -206,7 +206,7 @@ m_d3dDevice->CreateRenderTargetView(
 
 これでデバイス コンテキストが使えるようになりました。 デバイス コンテキスト インターフェイスを使って、新しく作成したレンダー ターゲット ビューを使うように Direct3D に指示します。 ウィンドウ全体をビューポートとしてターゲットにできるように、バック バッファーの幅と高さを取得します。 バック バッファーはスワップ チェーンに関連付けられています。そのため、ウィンドウ サイズが変更された場合 (ユーザーがゲーム ウィンドウを別のモニターにドラッグした場合など) は、バック バッファーのサイズを変更し、一部の設定をやり直す必要があります。
 
-**Direct3d11**
+**Direct3D 11**
 
 ```cpp
 D3D11_TEXTURE2D_DESC backBufferDesc = {0};

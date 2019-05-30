@@ -6,12 +6,12 @@ ms.date: 08/09/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: f1abd71cda8358e3f7e2fe36091f9c42f05bcb00
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: ee87a62796ed51d09d44cabecd0b49873145bd90
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57663797"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66366084"
 ---
 # <a name="pointer-click-animations"></a>ポインター クリックのアニメーション
 
@@ -20,7 +20,7 @@ ms.locfileid: "57663797"
 ポインター アニメーションを使って、ユーザーが項目をタップまたはクリックしたときに視覚的なフィードバックをユーザーに提供します。 ポインター ダウン アニメーション (押された項目を若干縮小して傾ける) は、項目が最初にタップされたときに再生されます。 ポインター アップ アニメーション (項目を元の位置に復元する) は、ユーザーがポインターから指を離したときに再生されます。
 
 
-> **重要な API**:[**PointerUpThemeAnimation クラス**](https://msdn.microsoft.com/library/windows/apps/hh969168)、 [ **PointerDownThemeAnimation クラス**](https://msdn.microsoft.com/library/windows/apps/hh969164)
+> **重要な API**:[**PointerUpThemeAnimation クラス**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.PointerUpThemeAnimation)、 [ **PointerDownThemeAnimation クラス**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.PointerDownThemeAnimation)
 
 
 ## <a name="dos-and-donts"></a>推奨と非推奨
@@ -29,11 +29,11 @@ ms.locfileid: "57663797"
 
 ## <a name="related-articles"></a>関連記事
 
-* [アニメーションの概要](https://msdn.microsoft.com/library/windows/apps/mt187350)
-* [アニメーション ポインター数回のクリック](https://msdn.microsoft.com/library/windows/apps/xaml/jj649432)
-* [クイック スタート:Library のアニメーションを使用して、UI をアニメーション化](https://msdn.microsoft.com/library/windows/apps/xaml/hh452703)
-* [**PointerUpThemeAnimation クラス**](https://msdn.microsoft.com/library/windows/apps/hh969168)
-* [**PointerDownThemeAnimation クラス**](https://msdn.microsoft.com/library/windows/apps/hh969164)
+* [アニメーションの概要](https://docs.microsoft.com/windows/uwp/graphics/animations-overview)
+* [アニメーション ポインター数回のクリック](https://docs.microsoft.com/previous-versions/windows/apps/jj649432(v=win.10))
+* [クイック スタート:Library のアニメーションを使用して、UI をアニメーション化](https://docs.microsoft.com/previous-versions/windows/apps/hh452703(v=win.10))
+* [**PointerUpThemeAnimation クラス**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.PointerUpThemeAnimation)
+* [**PointerDownThemeAnimation クラス**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.PointerDownThemeAnimation)
 
  
 

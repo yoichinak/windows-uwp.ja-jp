@@ -6,12 +6,12 @@ ms.date: 10/24/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, ユーザー インターフェイス, DirectX
 ms.localizationpriority: medium
-ms.openlocfilehash: 09005eb12997126a9cad68c388beb0473b19fda3
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: HT
+ms.openlocfilehash: ef966901534302c505ddad37bd277d9141b512a1
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57609057"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66367861"
 ---
 # <a name="add-a-user-interface"></a>ユーザー インターフェイスの追加
 
@@ -31,7 +31,7 @@ Direct2D を使用して、UWP の DirectX ゲームなどを多数のユーザ�
 ## <a name="the-user-interface-overlay"></a>ユーザー インターフェイスのオーバーレイ
 
 
-DirectX ゲームにテキストおよびユーザー インターフェイス要素を表示するさまざまな方法はありますが、ここにフォーカスを使用して[Direct2D](https://msdn.microsoft.com/library/windows/apps/dd370990.aspx)します。 使用することも[DirectWrite](https://msdn.microsoft.com/library/windows/desktop/dd368038)のテキスト要素です。
+DirectX ゲームにテキストおよびユーザー インターフェイス要素を表示するさまざまな方法はありますが、ここにフォーカスを使用して[Direct2D](https://docs.microsoft.com/windows/desktop/Direct2D/direct2d-portal)します。 使用することも[DirectWrite](https://docs.microsoft.com/windows/desktop/DirectWrite/direct-write-portal)のテキスト要素です。
 
 
 Direct2D は、ピクセル ベース プリミティブと効果を描画するために一連の 2D 描画 Api を使用します。 以降 Direct2D では、ときに、複雑にならないことをお勧めします。 複雑なレイアウトやインターフェイス動作には、時間と計画が必要です。 ゲームには、シミュレーションと戦略ゲームなどに見られるよう、複雑なユーザー インターフェイスが必要な場合は、代わりに XAML の使用を検討してください。
@@ -53,7 +53,7 @@ Direct2D はされていないユーザー インターフェイスまたは HTM
 ![ゲーム オーバーレイのスクリーン ショット](images/simple-dx-game-ui-overlay.png)
 
 オーバーレイは、次の基本的なプリミティブで構成されます。
-- [**DirectWrite** ](https://msdn.microsoft.com/en-us/library/windows/desktop/dd368038)のプレーヤーに通知する右上隅にあるテキスト 
+- [**DirectWrite** ](https://docs.microsoft.com/windows/desktop/DirectWrite/direct-write-portal)のプレーヤーに通知する右上隅にあるテキスト 
     - 成功したヒット数
     - プレーヤーが行われたショットの数
     - レベルの残りの期間
@@ -64,12 +64,12 @@ Direct2D はされていないユーザー インターフェイスまたは HTM
 
 オーバーレイのゲームのヘッドアップ ディスプレイの状態で表示されます、 [ **GameHud::Render** ](https://github.com/Microsoft/Windows-universal-samples/blob/5f0d0912214afc1c2a7c7470203933ddb46f7c89/Samples/Simple3DGameDX/cpp/GameHud.cpp#L234-L358)のメソッド、 [ **GameHud** ](https://github.com/Microsoft/Windows-universal-samples/blob/5f0d0912214afc1c2a7c7470203933ddb46f7c89/Samples/Simple3DGameDX/cpp/GameHud.h)クラス。 このメソッド内に残りとレベルの数のヒット数の変更を反映するように、Direct2D のオーバーレイを表す、UI が更新されます。
 
-ゲームが初期化されたかどうかは追加`TotalHits()`、 `TotalShots()`、および`TimeRemaining()`に、 [ **swprintf_s** ](https://docs.microsoft.com/cpp/c-runtime-library/reference/sprintf-s-sprintf-s-l-swprintf-s-swprintf-s-l)バッファーし、印刷の形式を指定します。 使用して描画できますし、 [ **DrawText** ](https://msdn.microsoft.com/en-us/library/windows/desktop/dd742848)メソッド。 同じ現在のレベルのインジケーターの描画など ➀、未完了のレベルを表示する空の番号と ➊ など、特定のレベルが完了したことを表示するの塗りつぶされた番号。
+ゲームが初期化されたかどうかは追加`TotalHits()`、 `TotalShots()`、および`TimeRemaining()`に、 [ **swprintf_s** ](https://docs.microsoft.com/cpp/c-runtime-library/reference/sprintf-s-sprintf-s-l-swprintf-s-swprintf-s-l)バッファーし、印刷の形式を指定します。 使用して描画できますし、 [ **DrawText** ](https://docs.microsoft.com/windows/desktop/Direct2D/id2d1rendertarget-drawtext)メソッド。 同じ現在のレベルのインジケーターの描画など ➀、未完了のレベルを表示する空の番号と ➊ など、特定のレベルが完了したことを表示するの塗りつぶされた番号。
 
 
 次のコード スニペットの説明、 **GameHud::Render**のメソッドの処理 
-- 使用して、ビットマップを作成する[* * ID2D1RenderTarget::DrawBitmap * *](https://msdn.microsoft.com/en-us/library/windows/desktop/dd371880)
-- UI 領域を使用して四角形に分割[ **D2D1::RectF**](https://msdn.microsoft.com/en-us/library/windows/desktop/dd368184)
+- 使用して、ビットマップを作成する[* * ID2D1RenderTarget::DrawBitmap * *](https://docs.microsoft.com/windows/desktop/api/d2d1/nf-d2d1-id2d1rendertarget-drawbitmap(id2d1bitmap_constd2d1_rect_f__float_d2d1_bitmap_interpolation_mode_constd2d1_rect_f_))
+- UI 領域を使用して四角形に分割[ **D2D1::RectF**](https://docs.microsoft.com/windows/desktop/api/dcommon/ns-dcommon-d2d_rect_f)
 - 使用して**DrawText**テキスト要素を作成するには
 
 ```cpp
@@ -171,7 +171,7 @@ void GameHud::Render(_In_ Simple3DGame^ game)
 }
 ```
 
-この部分にさらに、下のメソッドの重大な[ **GameHud::Render** ](https://github.com/Microsoft/Windows-universal-samples/blob/5f0d0912214afc1c2a7c7470203933ddb46f7c89/Samples/Simple3DGameDX/cpp/GameHud.cpp#L320-L358)メソッドは、移行を描画を四角形の起動と[ **ID2D1RenderTarget::DrawRectangle**](https://msdn.microsoft.com/library/windows/desktop/dd371902)、十字線を 2 つの呼び出しを使用して、 [ **ID2D1RenderTarget::DrawLine**](https://msdn.microsoft.com/library/windows/desktop/dd371895)します。
+この部分にさらに、下のメソッドの重大な[ **GameHud::Render** ](https://github.com/Microsoft/Windows-universal-samples/blob/5f0d0912214afc1c2a7c7470203933ddb46f7c89/Samples/Simple3DGameDX/cpp/GameHud.cpp#L320-L358)メソッドは、移行を描画を四角形の起動と[ **ID2D1RenderTarget::DrawRectangle**](https://docs.microsoft.com/windows/desktop/api/d2d1/nf-d2d1-id2d1rendertarget-drawrectangle(constd2d1_rect_f__id2d1brush_float_id2d1strokestyle))、十字線を 2 つの呼び出しを使用して、 [ **ID2D1RenderTarget::DrawLine**](https://docs.microsoft.com/windows/desktop/api/d2d1/nf-d2d1-id2d1rendertarget-drawline)します。
 
 ```cpp
         // Check if game is playing
@@ -219,7 +219,7 @@ void GameHud::Render(_In_ Simple3DGame^ game)
 auto windowBounds = m_deviceResources->GetLogicalSize();
 ```
 
- ゲームのウィンドウのサイズの取得は、UI プログラミングに不可欠です。 ウィンドウのサイズが 1/96 インチ単位として、DIP が定義されている Dip (デバイス非依存ピクセル) と呼ばれるで与えられます。 Direct2D スケーリング図面の単位を実際のピクセルが図面が発生したときに Windows ドット/インチ (DPI) 設定を使用して、そいます。 同様に、描画するとテキストを使用して[ **DirectWrite**](https://msdn.microsoft.com/en-us/library/windows/desktop/dd368038)フォントのサイズの点ではなく、Dip を指定します。 DIP は、浮動小数点数として表されます。
+ ゲームのウィンドウのサイズの取得は、UI プログラミングに不可欠です。 ウィンドウのサイズが 1/96 インチ単位として、DIP が定義されている Dip (デバイス非依存ピクセル) と呼ばれるで与えられます。 Direct2D スケーリング図面の単位を実際のピクセルが図面が発生したときに Windows ドット/インチ (DPI) 設定を使用して、そいます。 同様に、描画するとテキストを使用して[ **DirectWrite**](https://docs.microsoft.com/windows/desktop/DirectWrite/direct-write-portal)フォントのサイズの点ではなく、Dip を指定します。 DIP は、浮動小数点数として表されます。
 
  
 
@@ -271,11 +271,11 @@ auto windowBounds = m_deviceResources->GetLogicalSize();
  
 
 #### <a name="gameinfooverlaygameinfooverlay"></a>GameInfoOverlay::GameInfoOverlay
-[ **GameInfoOverlay::GameInfoOverlay** ](https://github.com/Microsoft/Windows-universal-samples/blob/5f0d0912214afc1c2a7c7470203933ddb46f7c89/Samples/Simple3DGameDX/cpp/GameInfoOverlay.cpp#L30-L78)コンストラクターに、プレーヤーに情報を表示するに使用するビットマップの画面を維持、オーバーレイを初期化します。 コンストラクターから工場出荷時の取得、 [ **ID2D1Device** ](https://msdn.microsoft.com/library/windows/desktop/hh404478)オブジェクトの作成に使用するように渡される、 [ **ID2D1DeviceContext** ](https://msdn.microsoft.com/library/windows/desktop/hh404479)オーバーレイはオブジェクト自体を描画できます。 [IDWriteFactory::CreateTextFormat](https://msdn.microsoft.com/en-us/library/windows/desktop/dd368203) 
+[ **GameInfoOverlay::GameInfoOverlay** ](https://github.com/Microsoft/Windows-universal-samples/blob/5f0d0912214afc1c2a7c7470203933ddb46f7c89/Samples/Simple3DGameDX/cpp/GameInfoOverlay.cpp#L30-L78)コンス トラクターに、プレーヤーに情報を表示するに使用するビットマップの画面を維持、オーバーレイを初期化します。 コンス トラクターから工場出荷時の取得、 [ **ID2D1Device** ](https://docs.microsoft.com/windows/desktop/api/d2d1_1/nn-d2d1_1-id2d1device)オブジェクトの作成に使用するように渡される、 [ **ID2D1DeviceContext** ](https://docs.microsoft.com/windows/desktop/api/d2d1_1/nn-d2d1_1-id2d1devicecontext)オーバーレイはオブジェクト自体を描画できます。 [IDWriteFactory::CreateTextFormat](https://docs.microsoft.com/windows/desktop/api/dwrite/nf-dwrite-idwritefactory-createtextformat) 
 
 
 #### <a name="gameinfooverlaycreatedevicedependentresources"></a>GameInfoOverlay::CreateDeviceDependentResources
-[**GameInfoOverlay::CreateDeviceDependentResources** ](https://github.com/Microsoft/Windows-universal-samples/blob/5f0d0912214afc1c2a7c7470203933ddb46f7c89/Samples/Simple3DGameDX/cpp/GameInfoOverlay.cpp#L82-L104)メソッドは、テキストの描画に使用されるブラシを作成します。 これを行うには、取得、 [ **ID2D1DeviceContext2** ](https://msdn.microsoft.com/en-us/library/windows/desktop/dn890789)オブジェクトを作成できるようにし、ジオメトリの描画インクとグラデーションなどの機能とメッシュをレンダリングします。 一連の色のブラシを使用して作成し[ **ID2D1SolidColorBrush** ](https://msdn.microsoft.com/en-us/library/windows/desktop/dd372207) folling の UI 要素を描画します。
+[**GameInfoOverlay::CreateDeviceDependentResources** ](https://github.com/Microsoft/Windows-universal-samples/blob/5f0d0912214afc1c2a7c7470203933ddb46f7c89/Samples/Simple3DGameDX/cpp/GameInfoOverlay.cpp#L82-L104)メソッドは、テキストの描画に使用されるブラシを作成します。 これを行うには、取得、 [ **ID2D1DeviceContext2** ](https://docs.microsoft.com/windows/desktop/api/d2d1_3/nn-d2d1_3-id2d1devicecontext2)オブジェクトを作成できるようにし、ジオメトリの描画インクとグラデーションなどの機能とメッシュをレンダリングします。 一連の色のブラシを使用して作成し[ **ID2D1SolidColorBrush** ](https://docs.microsoft.com/windows/desktop/api/d2d1/nn-d2d1-id2d1solidcolorbrush) folling の UI 要素を描画します。
 - 四角形の背景に黒のブラシ
 - 状態のテキストのブラシを白
 - オレンジ色のブラシをアクション テキスト
@@ -309,9 +309,9 @@ auto windowBounds = m_deviceResources->GetLogicalSize();
     ```
 
 - ビットマップがという名前が作成`m_levelBitmap`を使用してアカウントを現在の DPI を考慮して**CreateBitmap**します。
-- `m_levelBitmap` 2D のレンダー ターゲットを使用して、として設定されて[ **ID2D1DeviceContext::SetTarget**](https://msdn.microsoft.com/en-us/library/windows/desktop/hh404533)します。
-- 黒を使用して行われたすべてのピクセルのビットマップがオフになって[ **ID2D1RenderTarget::Clear**](https://msdn.microsoft.com/en-us/library/windows/desktop/dd371772)します。
-- [**ID2D1RenderTarget::BeginDraw** ](https://msdn.microsoft.com/en-us/library/windows/desktop/dd371768)描画を開始すると呼びます。 
+- `m_levelBitmap` 2D のレンダー ターゲットを使用して、として設定されて[ **ID2D1DeviceContext::SetTarget**](https://docs.microsoft.com/windows/desktop/api/d2d1_1/nf-d2d1_1-id2d1devicecontext-settarget)します。
+- 黒を使用して行われたすべてのピクセルのビットマップがオフになって[ **ID2D1RenderTarget::Clear**](https://docs.microsoft.com/windows/desktop/api/d2d1/nf-d2d1-id2d1rendertarget-clear)します。
+- [**ID2D1RenderTarget::BeginDraw** ](https://docs.microsoft.com/windows/desktop/api/d2d1/nf-d2d1-id2d1rendertarget-begindraw)描画を開始すると呼びます。 
 - **DrawText**に格納されているテキストを描画するために呼び出される`m_titleString`、 `m_bodyString`、および`m_actionString`、対応するを使用して approperiate 四角で**ID2D1SolidColorBrush**します。
 - [**ID2D1RenderTarget::EndDraw** ](ID2D1RenderTarget::EndDraw)ですべての描画操作を停止するために呼び出される`m_levelBitmap`します。
 - 使用して、もう 1 つのビットマップが作成された**CreateBitmap**という`m_tooSmallBitmap`環境設定の表示が小さすぎるため、ゲームのかどうかのみ表示される、フォールバックとして使用します。

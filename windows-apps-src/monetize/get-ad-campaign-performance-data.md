@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, Store サービス, Microsoft Store 分析 API, 広告キャンペーン
 ms.localizationpriority: medium
-ms.openlocfilehash: 1190ec43c5b98eabd897a3bed3788aaf6eb0cb7d
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: d1b76184f70c796ad3b6e89b119dd56670ed028f
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57594577"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66372158"
 ---
 # <a name="get-ad-campaign-performance-data"></a>広告キャンペーンのパフォーマンス データの取得
 
@@ -54,13 +54,13 @@ ms.locfileid: "57594577"
 |---------------|--------|-----------------|----------|
 | applicationId   | string    | 広告キャンペーンのパフォーマンス データを取得するアプリの [Store ID](in-app-purchases-and-trials.md#store-ids) です。 |    X      |
 |  startDate  |  date   |  広告キャンペーンのパフォーマンス データを取得する日付範囲の開始日です。YYYY/MM/DD の形式で指定します。 既定値は、現在の日付から 30 日を差し引いた日付になります。   |   X    |
-| endDate   |  date   |  広告キャンペーンのパフォーマンス データを取得する日付範囲の終了日です。YYYY/MM/DD の形式で指定します。 既定値は、現在の日付から 1 日を差し引いた日付になります。   |   いいえ    |
+| endDate   |  date   |  広告キャンペーンのパフォーマンス データを取得する日付範囲の終了日です。YYYY/MM/DD の形式で指定します。 既定値は、現在の日付から 1 日を差し引いた日付になります。   |   X    |
 | top   |  int   |  要求で返すデータの行数です。 最大値および指定しない場合の既定値は 10000 です。 クエリにこれを上回る行がある場合は、応答本文に次リンクが含まれ、そのリンクを使ってデータの次のページを要求できます。   |   X    |
 | skip   | int    |  クエリでスキップする行数です。 大きなデータ セットを操作するには、このパラメーターを使用します。 たとえば、top=10000 と skip=0 を指定すると、データの最初の 10,000 行が取得され、top=10000 と skip=10000 を指定すると、データの次の 10,000 行が取得されます。   |   X    |
-| filter   |  string   |  応答内の行をフィルター処理する 1 つまたは複数のステートメントです。 サポートされているフィルターは **campaignId** のみです。 各ステートメントでは **eq** や **ne** 演算子を使用できます。また、ステートメントを **and** や **or** で結合することもできます。  *filter* パラメーターの例: ```filter=campaignId eq '100023'```。   |   いいえ    |
+| filter   |  string   |  応答内の行をフィルター処理する 1 つまたは複数のステートメントです。 サポートされているフィルターは **campaignId** のみです。 各ステートメントでは **eq** や **ne** 演算子を使用できます。また、ステートメントを **and** や **or** で結合することもできます。  *filter* パラメーターの例: ```filter=campaignId eq '100023'```。   |   X    |
 |  aggregationLevel  |  string   | 集計データを取得する時間範囲を指定します。 次のいずれかの文字列を指定できます。<strong>day</strong>、<strong>week</strong>、または <strong>month</strong>。 指定しない場合、既定値は <strong>day</strong> です。    |   X    |
-| orderby   |  string   |  <p>広告キャンペーンのパフォーマンス データに関する結果データ値の順序を指定するステートメントです。 構文は <em>orderby=field [order],field [order],...</em> です。<em>field</em> パラメーターには、次のいずれかの文字列を指定できます。</p><ul><li><strong>date</strong></li><li><strong>campaignId</strong></li></ul><p><em>order</em> パラメーターは省略可能であり、<strong>asc</strong> または <strong>desc</strong> を指定して、各フィールドを昇順または降順にすることができます。 既定値は <strong>asc</strong> です。</p><p><em>orderby</em> 文字列の例: <em>orderby=date,campaignId</em></p>   |   いいえ    |
-|  groupby  |  string   |  <p>指定したフィールドのみにデータ集計を適用するステートメントです。 次のフィールドを指定できます。</p><ul><li><strong>campaignId</strong></li><li><strong>applicationId</strong></li><li><strong>date</strong></li><li><strong>CurrencyCode</strong></li></ul><p><em>groupby</em> パラメーターは、<em>aggregationLevel</em> パラメーターと同時に使用できます。 例: <em>&amp;groupby=applicationId&amp;aggregationLevel=week</em></p>   |   X    |
+| orderby   |  string   |  <p>広告キャンペーンのパフォーマンス データに関する結果データ値の順序を指定するステートメントです。 構文は <em>orderby=field [order],field [order],...</em> です。<em>field</em> パラメーターには、次のいずれかの文字列を指定できます。</p><ul><li><strong>date</strong></li><li><strong>campaignId</strong></li></ul><p><em>order</em> パラメーターは省略可能であり、<strong>asc</strong> または <strong>desc</strong> を指定して、各フィールドを昇順または降順にすることができます。 既定値は <strong>asc</strong> です。</p><p><em>orderby</em> 文字列の例: <em>orderby=date,campaignId</em></p>   |   X    |
+|  groupby  |  string   |  <p>指定したフィールドのみにデータ集計を適用するステートメントです。 次のフィールドを指定できます。</p><ul><li><strong>campaignId</strong></li><li><strong>applicationId</strong></li><li><strong>date</strong></li><li><strong>currencyCode</strong></li></ul><p><em>groupby</em> パラメーターは、<em>aggregationLevel</em> パラメーターと同時に使用できます。 例: <em>&amp;groupby=applicationId&amp;aggregationLevel=week</em></p>   |   X    |
 
 
 ### <a name="request-example"></a>要求の例
@@ -150,6 +150,6 @@ Authorization: Bearer <your access token>
 
 ## <a name="related-topics"></a>関連トピック
 
-* [アプリの広告キャンペーンを作成します。](https://msdn.microsoft.com/windows/uwp/publish/create-an-ad-campaign-for-your-app)
+* [アプリの広告キャンペーンを作成します。](https://docs.microsoft.com/windows/uwp/publish/create-an-ad-campaign-for-your-app)
 * [Microsoft Store サービスを使用して広告キャンペーンを実行します。](run-ad-campaigns-using-windows-store-services.md)
 * [Microsoft Store サービスを使用して分析データにアクセス](access-analytics-data-using-windows-store-services.md)

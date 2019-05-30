@@ -10,18 +10,18 @@ dev_langs:
 - vb
 - cppcx
 - cppwinrt
-ms.openlocfilehash: 7d66eaa77f86deffd59ebc81360ccb8183afd7d6
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 9e13138ca634c075eba0c9b1331f6af4176de1eb
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57654537"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66360428"
 ---
 # <a name="xaml-lighting"></a>XAML の照明
 
 [**CompositionLight** ](/uwp/api/Windows.UI.Composition.CompositionLight)オブジェクトは、組み合わせて使用[ **SceneLightingEffect** ](/uwp/api/Windows.UI.Composition.Effects.SceneLightingEffect)動的なライティングと反射をシミュレートします。
 
-[  **Visual**](https://msdn.microsoft.com/library/windows/apps/Dn706858) と XAML [**UIElement**](/uwp/api/Windows.UI.Xaml.UIElement) にライトを適用できます。
+[  **Visual**](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.Visual) と XAML [**UIElement**](/uwp/api/Windows.UI.Xaml.UIElement) にライトを適用できます。
 
 ## <a name="applying-lights-to-xaml-uielements"></a>XAML UIElement へのライトの適用
 

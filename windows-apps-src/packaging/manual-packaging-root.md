@@ -6,19 +6,19 @@ ms.date: 04/30/2018
 ms.topic: article
 keywords: Windows 10, UWP, パッケージ化
 ms.localizationpriority: medium
-ms.openlocfilehash: 5c429c3c88b0ae23cb518a59cab2e5a3c4f380a2
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: d90307560c315741751a5ab58ccdf0eaf35d97fc
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57658197"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66372793"
 ---
 # <a name="manual-app-packaging"></a>手動でのアプリのパッケージ化
 
 アプリ パッケージを作成して署名するときに、Visual Studio を使ってアプリを開発していない場合は、手動でのアプリのパッケージ化ツールを使用する必要があります。
 
 > [!IMPORTANT] 
-> Visual Studio を使用してアプリを開発する場合は、Visual Studio のウィザードを使ってアプリ パッケージを作成し、署名することをお勧めします。 詳しくは、「[Visual Studio での UWP アプリのパッケージ化](https://msdn.microsoft.com/windows/uwp/packaging/packaging-uwp-apps)」をご覧ください。
+> Visual Studio を使用してアプリを開発する場合は、Visual Studio のウィザードを使ってアプリ パッケージを作成し、署名することをお勧めします。 詳しくは、「[Visual Studio での UWP アプリのパッケージ化](https://docs.microsoft.com/windows/uwp/packaging/packaging-uwp-apps)」をご覧ください。
 
 ## <a name="purpose"></a>目的
 

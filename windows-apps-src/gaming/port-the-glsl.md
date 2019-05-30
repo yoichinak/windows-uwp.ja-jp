@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, GLSL, 移植
 ms.localizationpriority: medium
-ms.openlocfilehash: 809440f9e77af19c01f4a050eee3b6f8d1c709b7
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 210f98476a06b88e7d3d543006a6d4ec886cfd45
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57621377"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66368251"
 ---
 # <a name="port-the-glsl"></a>GLSL の移植
 
@@ -20,14 +20,14 @@ ms.locfileid: "57621377"
 
 **重要な API**
 
--   [HLSL のセマンティクス](https://msdn.microsoft.com/library/windows/desktop/bb205574)
--   [シェーダー定数 (HLSL)](https://msdn.microsoft.com/library/windows/desktop/bb509581)
+-   [HLSL のセマンティクス](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dcl-usage---ps)
+-   [シェーダー定数 (HLSL)](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-constants)
 
 バッファーとシェーダー オブジェクトを作成して構成するコードが完成したら、それらのシェーダー内のコードを OpenGL ES 2.0 の GL シェーダー言語 (GLSL) から Direct3D 11 の上位レベル シェーダー言語 (HLSL) に移植します。
 
 OpenGL ES 2.0 でシェーダーがなどの組み込み関数を使用して実行後にデータを返す**gl\_位置**、 **gl\_FragColor**、または**gl\_FragData\[n\]**  (n は、特定のレンダー ターゲットのインデックスです)。 Direct3D では、特定の組み込みメソッドはなく、シェーダーはそれぞれの main() 関数の戻り値の型としてデータを返します。
 
-頂点の位置や法線など、シェーダー ステージ間で補間されるデータは、**varying** 宣言を使って処理します。 ただし、Direct3D にはこの宣言がありません。そのため、シェーダー ステージ間で受け渡されるデータは [HLSL セマンティクス](https://msdn.microsoft.com/library/windows/desktop/bb205574)でマークする必要があります。 選んだ特定のセマンティクスはデータの目的を示します。 たとえば、フラグメント シェーダー間で補完される頂点データは次のように宣言します。
+頂点の位置や法線など、シェーダー ステージ間で補間されるデータは、**varying** 宣言を使って処理します。 ただし、Direct3D にはこの宣言がありません。そのため、シェーダー ステージ間で受け渡されるデータは [HLSL セマンティクス](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dcl-usage---ps)でマークする必要があります。 選んだ特定のセマンティクスはデータの目的を示します。 たとえば、フラグメント シェーダー間で補完される頂点データは次のように宣言します。
 
 `float4 vertPos : POSITION;`
 
@@ -54,7 +54,7 @@ cbuffer ModelViewProjectionConstantBuffer : register(b0)
 };
 ```
 
-ここでは、定数バッファーはレジスタ b0 を使って、パックされたバッファーを保持します。 すべてのレジスタ フォーム b で参照される\#します。 HLSL での定数バッファー、レジスタ、データ パッキングの実装について詳しくは、「[シェーダー定数 (HLSL)](https://msdn.microsoft.com/library/windows/desktop/bb509581)」をご覧ください。
+ここでは、定数バッファーはレジスタ b0 を使って、パックされたバッファーを保持します。 すべてのレジスタ フォーム b で参照される\#します。 HLSL での定数バッファー、レジスタ、データ パッキングの実装について詳しくは、「[シェーダー定数 (HLSL)](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-constants)」をご覧ください。
 
 <a name="instructions"></a>手順
 ------------
@@ -159,10 +159,10 @@ float4 main(PixelShaderInput input) : SV_TARGET
 ---------
 [画面への描画](draw-to-the-screen.md) 解説
 -------
-HLSL セマンティクスと定数バッファーのパッキングについて理解すると、デバッグの苦労がいくらか少なくなるだけでなく、最適化できるようにもなります。 機会を得る場合読んで[変数構文 (HLSL)](https://msdn.microsoft.com/library/windows/desktop/bb509706)、 [direct3d11 のバッファーの概要](https://msdn.microsoft.com/library/windows/desktop/ff476898)、および[方法。定数バッファーを作成](https://msdn.microsoft.com/library/windows/desktop/ff476896)です。 機会がない場合は、次のセマンティクスと定数バッファーについての基本的なヒントを心に留めておいてください。
+HLSL セマンティクスと定数バッファーのパッキングについて理解すると、デバッグの苦労がいくらか少なくなるだけでなく、最適化できるようにもなります。 機会を得る場合読んで[変数構文 (HLSL)](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-variable-syntax)、 [direct3d11 のバッファーの概要](https://docs.microsoft.com/windows/desktop/direct3d11/overviews-direct3d-11-resources-buffers-intro)、および[方法。定数バッファーを作成](https://docs.microsoft.com/windows/desktop/direct3d11/overviews-direct3d-11-resources-buffers-constant-how-to)です。 機会がない場合は、次のセマンティクスと定数バッファーについての基本的なヒントを心に留めておいてください。
 
 -   必ずレンダラーの Direct3D 構成コードを見直して、定数バッファーの構造体が HLSL の cbuffer 構造体の宣言と一致し、コンポーネントのスカラー型が両方の宣言で一致していることを確認する。
--   レンダラーの C++ コードでは、データ パッキングが適切に行われるように、定数バッファーの宣言で [DirectXMath](https://msdn.microsoft.com/library/windows/desktop/hh437833) 型を使う。
+-   レンダラーの C++ コードでは、データ パッキングが適切に行われるように、定数バッファーの宣言で [DirectXMath](https://docs.microsoft.com/windows/desktop/dxmath/directxmath-portal) 型を使う。
 -   定数バッファーを効率的に使う最良の方法として、更新頻度に応じてシェーダーの変数を定数バッファーにまとめる。 たとえば、フレームごとに 1 回更新される uniform データと、カメラが移動したときにだけ更新される uniform データがある場合は、それらのデータを 2 つの定数バッファーに分けることを考えます。
 -   セマンティクスの適用し忘れや誤った適用は、シェーダー コンパイル (FXC) エラーのよくある原因である。 よく見直してください。 以前のページやサンプルの多くでは Direct3D 11 より前のさまざまなバージョンの HLSL セマンティクスを参照しているため、ドキュメントが混乱を招くことがあります。
 -   各シェーダーのターゲットとする Direct3D 機能レベルを確認する。 機能をセマンティクス レベル 9\_ \*が 11 の異なる\_1。

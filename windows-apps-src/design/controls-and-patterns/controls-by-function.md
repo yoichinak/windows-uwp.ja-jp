@@ -8,12 +8,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: a0a267385668a276fc776c5f5d495b27ae72a2b3
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 6de5e9d8899a7f270d30438a0563b879ccdab898
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57611517"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66363139"
 ---
 # <a name="controls-by-function"></a>機能別コントロール
 
@@ -43,14 +43,14 @@ Windows の XAML UI フレームワークには、UI 開発をサポートする
 ### <a name="app-bar"></a>アプリ バー
 アプリ特有のコマンドを表示するツール バー。 「コマンド バー」をご覧ください。
 
-参照 :[AppBar](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.appbar.aspx) 
+参照 :[AppBar](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.AppBar) 
 
 ### <a name="app-bar-button"></a>アプリ バーのボタン
 アプリ バー スタイルを使ってコマンドを表示するボタン。
 
 ![アプリ バーのボタン アイコン](images/controls/app-bar-buttons.png) 
 
-参照 :[AppBarButton](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.appbarbutton.aspx)、 [SymbolIcon](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.symbolicon.aspx)、 [BitmapIcon](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.bitmapicon.aspx)、 [FontIcon](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.fonticon.aspx)、 [PathIcon](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.pathicon.aspx) 
+参照 :[AppBarButton](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.AppBarButton)、 [SymbolIcon](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.SymbolIcon)、 [BitmapIcon](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.BitmapIcon)、 [FontIcon](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.FontIcon)、 [PathIcon](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.PathIcon) 
 
 設計と操作方法:[アプリ バーとコマンド バーのコントロールのガイド](app-bars.md) 
 
@@ -59,14 +59,14 @@ Windows の XAML UI フレームワークには、UI 開発をサポートする
 ### <a name="app-bar-separator"></a>アプリ バーの区分線
 コマンド バーのコマンドのグループを視覚的に区切ります。
 
-参照 :[AppBarSeparator](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.appbarseparator.aspx) 
+参照 :[AppBarSeparator](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.AppBarSeparator) 
 
 サンプル コード:[コマンド実行の XAML サンプル](https://go.microsoft.com/fwlink/p/?LinkId=620019)
 
 ### <a name="app-bar-toggle-button"></a>アプリ バーのトグル ボタン
 コマンド バーでコマンドを切り替えるボタン。
 
-参照 :[AppBarToggleButton](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.appbartogglebutton.aspx) 
+参照 :[AppBarToggleButton](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.AppBarToggleButton) 
 
 サンプル コード:[コマンド実行の XAML サンプル](https://go.microsoft.com/fwlink/p/?LinkId=620019)
 
@@ -82,7 +82,7 @@ Windows の XAML UI フレームワークには、UI 開発をサポートする
     <AppBarButton Icon="Play" Label="Play" Click="AppBarButton_Click"/>
 </CommandBar>
 ```
-参照 :[コマンド バー](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.commandbar.aspx) 
+参照 :[コマンド バー](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CommandBar) 
 
 設計と操作方法:[アプリ バーとコマンド バーのコントロールのガイド](app-bars.md)
 
@@ -100,7 +100,7 @@ Windows の XAML UI フレームワークには、UI 開発をサポートする
         Click="Button_Click" />
 ```
 
-参照 :[ボタン](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.button.aspx) 
+参照 :[ボタン](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Button) 
 
 設計と操作方法:[ボタン コントロールのガイド](buttons.md) 
 
@@ -117,7 +117,7 @@ Windows の XAML UI フレームワークには、UI 開発をサポートする
                  NavigateUri="https://www.microsoft.com"/>
 ```
 
-参照 :[HyperlinkButton](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.hyperlinkbutton.aspx) 
+参照 :[HyperlinkButton](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.HyperlinkButton) 
 
 設計と操作方法:[ハイパーリンク コントロールのガイド](hyperlinks.md)
 
@@ -131,7 +131,7 @@ Windows の XAML UI フレームワークには、UI 開発をサポートする
               Click="RepeatButton_Click" />
 ```
 
-参照 :[RepeatButton](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.primitives.repeatbutton.aspx) 
+参照 :[RepeatButton](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Primitives.RepeatButton) 
 
 設計と操作方法:[ボタン コントロールのガイド](buttons.md) 
 
@@ -148,7 +148,7 @@ Windows の XAML UI フレームワークには、UI 開発をサポートする
 </FlipView>
 ```
 
-参照 :[FlipView](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.flipview.aspx) 
+参照 :[FlipView](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.FlipView) 
 
 設計と操作方法:[フリップ ビュー コントロールのガイド](flipview.md) 
 
@@ -162,7 +162,7 @@ Windows の XAML UI フレームワークには、UI 開発をサポートする
 </GridView>
 ```
 
-参照 :[GridView](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.gridview.aspx) 
+参照 :[GridView](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.GridView) 
 
 設計と操作方法:[リスト](lists.md) 
 
@@ -175,7 +175,7 @@ Windows の XAML UI フレームワークには、UI 開発をサポートする
 <ItemsControl/>
 ```
 
-参照 :[ItemsControl](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.itemscontrol.aspx) 
+参照 :[ItemsControl](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ItemsControl) 
 
 ### <a name="list-view"></a>リスト ビュー
 縦方向にスクロールできるリストで項目のコレクションを表示するコントロール。
@@ -187,7 +187,7 @@ Windows の XAML UI フレームワークには、UI 開発をサポートする
 </ListView>
 ```
 
-参照 :[ListView](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.listview.aspx) 
+参照 :[ListView](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView) 
 
 設計と操作方法:[リスト](lists.md) 
 
@@ -204,7 +204,7 @@ Windows の XAML UI フレームワークには、UI 開発をサポートする
 <CalendarDatePicker/>
 ```
 
-参照 :[CalendarDatePicker](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.calendardatepicker.aspx) 
+参照 :[CalendarDatePicker](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CalendarDatePicker) 
 
 設計と操作方法:[予定表、日付、およびタイム コントロール](date-and-time.md)
  
@@ -215,7 +215,7 @@ Windows の XAML UI フレームワークには、UI 開発をサポートする
 <CalendarView/>
 ```
 
-参照 :[予定表ビュー](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.calendarview.aspx) 
+参照 :[予定表ビュー](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CalendarView) 
 
 設計と操作方法:[予定表、日付、およびタイム コントロール](date-and-time.md) 
 
@@ -228,7 +228,7 @@ Windows の XAML UI フレームワークには、UI 開発をサポートする
 <DatePicker Header="Arrival Date"/>
 ```
 
-参照 :[DatePicker](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.datepicker.aspx) 
+参照 :[DatePicker](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.DatePicker) 
 
 設計と操作方法:[予定表、日付、およびタイム コントロール](date-and-time.md)
  
@@ -241,13 +241,13 @@ Windows の XAML UI フレームワークには、UI 開発をサポートする
 <TimePicker Header="Arrival Time"/>
 ```
 
-参照 :[TimePicker](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.timepicker.aspx) 
+参照 :[TimePicker](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TimePicker) 
 
 設計と操作方法:[予定表、日付、およびタイム コントロール](date-and-time.md)
 
 ## <a name="flyouts"></a>ポップアップ
 
-### <a name="context-menu"></a>ショートカット メニュー
+### <a name="context-menu"></a>コンテキスト メニュー
 「メニュー ポップアップ」および「ポップアップ メニュー」をご覧ください。
 
 ### <a name="flyout"></a>ポップアップ
@@ -264,7 +264,7 @@ Windows の XAML UI フレームワークには、UI 開発をサポートする
 </Flyout>
 ```
 
-参照 :[フライアウト](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.flyout.aspx) 
+参照 :[フライアウト](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Flyout) 
 
 設計と操作方法:[フライアウト](dialogs-and-flyouts/flyouts.md) 
 
@@ -284,7 +284,7 @@ Windows の XAML UI フレームワークには、UI 開発をサポートする
 </MenuFlyout>
 ```
 
-参照 :[MenuFlyout](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.menuflyout.aspx)、 [MenuFlyoutItem](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.menuflyoutitem.aspx)、 [MenuFlyoutSeparator](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.menuflyoutseparator.aspx)、 [ToggleMenuFlyoutItem](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.togglemenuflyoutitem.aspx) 
+参照 :[MenuFlyout](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.MenuFlyout)、 [MenuFlyoutItem](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.MenuFlyoutItem)、 [MenuFlyoutSeparator](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.MenuFlyoutSeparator)、 [ToggleMenuFlyoutItem](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ToggleMenuFlyoutItem) 
 
 設計と操作方法:[メニューとショートカット メニュー](menus.md) 
 
@@ -293,7 +293,7 @@ Windows の XAML UI フレームワークには、UI 開発をサポートする
 ### <a name="popup-menu"></a>ポップアップ メニュー
 指定したコマンドを表示するためのカスタム メニュー。
 
-参照 :[ポップアップ メニュー](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.popups.popupmenu.aspx) 
+参照 :[ポップアップ メニュー](https://docs.microsoft.com/uwp/api/Windows.UI.Popups.PopupMenu) 
 
 設計と操作方法:[ダイアログ ボックス](dialogs-and-flyouts/dialogs.md) 
 
@@ -307,11 +307,11 @@ Windows の XAML UI フレームワークには、UI 開発をサポートする
         ToolTipService.ToolTip="Click to perform action" />
 ```
 
-参照 :[ツールヒント](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.tooltip.aspx)、 [ToolTipService](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.tooltipservice.aspx) 
+参照 :[ツールヒント](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ToolTip)、 [ToolTipService](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ToolTipService) 
 
 設計と操作方法:ヒントのガイドライン 
 
-## <a name="images"></a>イメージ
+## <a name="images"></a>画像
 
 ### <a name="image"></a>イメージ
 画像を表示するコントロール。
@@ -320,7 +320,7 @@ Windows の XAML UI フレームワークには、UI 開発をサポートする
 <Image Source="Assets/Logo.png" />
 ```
 
-参照 :[イメージ](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.image.aspx) 
+参照 :[イメージ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Image) 
 
 設計と操作方法:[イメージと ImageBrush](images-imagebrushes.md) 
 
@@ -335,7 +335,7 @@ Windows の XAML UI フレームワークには、UI 開発をサポートする
 <InkCanvas/>
 ```
 
-参照 :[InkCanvas](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.inkcanvas.aspx) 
+参照 :[InkCanvas](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) 
 
 ### <a name="shapes"></a>図形
 楕円形、四角形、直線、ベジエ パスなどのように表示できる、保持モードの各種グラフィック オブジェクト。
@@ -349,15 +349,15 @@ Windows の XAML UI フレームワークには、UI 開発をサポートする
 <Rectangle/>
 ```
 
-参照 :[図形](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.shapes.shape.aspx) 
+参照 :[図形](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Shapes.Shape) 
 
-手順[図形の描画](../../graphics/drawing-shapes.md) 
+方法: [図形の描画](../../graphics/drawing-shapes.md) 
 
 サンプル コード:[XAML のベクトルに基づく描画サンプル](https://go.microsoft.com/fwlink/p/?linkid=226866)
 
 ## <a name="layout-controls"></a>レイアウト コントロール
 
-### <a name="border"></a>境界線
+### <a name="border"></a>罫線
 境界線、背景、またはこの両方を他のオブジェクトの周囲に描画するコンテナー コントロール。
 
 ![2 つの四角形の周囲の境界線](images/controls/border.png) 
@@ -373,7 +373,7 @@ Windows の XAML UI フレームワークには、UI 開発をサポートする
 </Border>
 ```
 
-参照 :[境界線](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.border.aspx)
+参照 :[境界線](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Border)
 
 ### <a name="canvas"></a>キャンバス
 キャンバスの左上隅を基準とする子要素の絶対配置をサポートするレイアウト パネル。
@@ -389,7 +389,7 @@ Windows の XAML UI フレームワークには、UI 開発をサポートする
 </Canvas>
 ```
 
-参照 :[キャンバス](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.canvas.aspx)
+参照 :[キャンバス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Canvas)
  
 ### <a name="grid"></a>グリッド
 複数行と複数列での子要素の配置をサポートするレイアウト パネル。
@@ -413,7 +413,7 @@ Windows の XAML UI フレームワークには、UI 開発をサポートする
 </Grid>
 ```
 
-参照 :[グリッド](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.grid.aspx)
+参照 :[グリッド](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid)
  
 ### <a name="panning-scroll-viewer"></a>パン スクロール ビューアー
 「スクロール ビューアー」をご覧ください。
@@ -430,12 +430,12 @@ Windows の XAML UI フレームワークには、UI 開発をサポートする
 </RelativePanel>
 ```
 
-参照 :[RelativePanel](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.relativepanel.aspx)
+参照 :[RelativePanel](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RelativePanel)
 
 ### <a name="scroll-bar"></a>スクロール バー
 「スクロール ビューアー」をご覧ください  (ScrollBar は ScrollViewer の要素です。 通常、スタンドアロン コントロールとしては使用しません)。
 
-参照 :[スクロール バー](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.primitives.scrollbar.aspx)
+参照 :[スクロール バー](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Primitives.ScrollBar)
  
 ### <a name="scroll-viewer"></a>スクロール ビューアー
 ユーザーが、コンテンツのパンとズームを実行できるようにするコンテナー コントロール。
@@ -449,7 +449,7 @@ Windows の XAML UI フレームワークには、UI 開発をサポートする
 </ScrollViewer>
 ```
 
-参照 :[ScrollViewer](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.scrollviewer.aspx)
+参照 :[ScrollViewer](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ScrollViewer)
 
 設計と操作方法:[スクロール、パン コントロールのガイド](scroll-controls.md) 
 
@@ -469,7 +469,7 @@ Windows の XAML UI フレームワークには、UI 開発をサポートする
 </StackPanel>
 ```
 
-参照 :[StackPanel](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.stackpanel.aspx)
+参照 :[StackPanel](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.StackPanel)
  
 ### <a name="variablesizedwrapgrid"></a>VariableSizedWrapGrid
 複数行と複数列での子要素の配置をサポートするレイアウト パネル。 各子要素を、複数の行と列に配置できます。
@@ -489,7 +489,7 @@ Windows の XAML UI フレームワークには、UI 開発をサポートする
 </VariableSizedWrapGrid>
 ```
 
-参照 :[VariableSizedWrapGrid](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.variablesizedwrapgrid.aspx)
+参照 :[VariableSizedWrapGrid](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.VariableSizedWrapGrid)
 
 ### <a name="viewbox"></a>Viewbox
 コンテンツを指定されたサイズに拡大縮小するコンテナー コントロール。
@@ -508,7 +508,7 @@ Windows の XAML UI フレームワークには、UI 開発をサポートする
 </Viewbox>
 ```
 
-参照 :[Viewbox](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.viewbox.aspx)
+参照 :[Viewbox](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Viewbox)
  
 ### <a name="zooming-scroll-viewer"></a>ズーム スクロール ビューアー
 「スクロール ビューアー」をご覧ください。
@@ -525,7 +525,7 @@ Windows の XAML UI フレームワークには、UI 開発をサポートする
 <MediaElement x:Name="myMediaElement"/>
 ```
 
-参照 :[MediaElement](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.mediaelement.aspx) 
+参照 :[MediaElement](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.MediaElement) 
 
 設計と操作方法:[メディア要素のコントロールのガイド](media-playback.md)
 
@@ -538,7 +538,7 @@ MediaElement の再生コントロールを提供するコントロール。
 <MediaTransportControls MediaElement="myMediaElement"/>
 ```
 
-参照 :[MediaTransportControls](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.mediatransportcontrols.aspx) 
+参照 :[MediaTransportControls](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.MediaTransportControls) 
 
 設計と操作方法:[メディア要素のコントロールのガイド](media-playback.md) 
 
@@ -574,7 +574,7 @@ MediaElement の再生コントロールを提供するコントロール。
 </SplitView>
 ```
 
-参照 :[SplitView](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.splitview.aspx) 
+参照 :[SplitView](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.SplitView) 
 
 設計と操作方法:[分割ビュー コントロールのガイド](split-view.md)
 
@@ -587,7 +587,7 @@ Web コンテンツをホストするコンテナー コントロール。
          Height="400" Width="800"/>
 ```
 
-参照 :[WebView](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.webview.aspx) 
+参照 :[WebView](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.WebView) 
 
 設計と操作方法:Web ビューのガイドライン 
 
@@ -608,7 +608,7 @@ Web コンテンツをホストするコンテナー コントロール。
 </SemanticZoom>
 ```
 
-参照 :[SemanticZoom](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.semanticzoom.aspx) 
+参照 :[SemanticZoom](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.SemanticZoom) 
 
 設計と操作方法:[セマンティック ズーム コントロールのガイド](semantic-zoom.md)
 
@@ -635,7 +635,7 @@ Web コンテンツをホストするコンテナー コントロール。
 <ProgressBar x:Name="indeterminateProgressBar1" IsIndeterminate="True" Width="100"/>
 ```
 
-参照 :[ProgressBar](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.progressbar.aspx) 
+参照 :[ProgressBar](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ProgressBar) 
 
 設計と操作方法:[進行状況コントロールのガイド](progress-controls.md) 
 
@@ -648,7 +648,7 @@ Web コンテンツをホストするコンテナー コントロール。
 <ProgressRing x:Name="progressRing1" IsActive="True"/>
 ```
 
-参照 :[ProgressRing](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.progressring.aspx) 
+参照 :[ProgressRing](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ProgressRing) 
 
 設計と操作方法:[進行状況コントロールのガイド](progress-controls.md) 
 
@@ -659,7 +659,7 @@ Web コンテンツをホストするコンテナー コントロール。
 
 ![検索の自動提案ボックス](images/controls/auto-suggest-box.png) 
 
-参照 :[AutoSuggestBox](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.autosuggestbox.aspx)
+参照 :[AutoSuggestBox](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.AutoSuggestBox)
 
 設計と操作方法:[テキスト コントロール](text-controls.md)、 [Auto suggest ボックス コントロールのガイド](auto-suggest-box.md)
 
@@ -678,7 +678,7 @@ Web コンテンツをホストするコンテナー コントロール。
              PasswordChanged="PasswordBox_PasswordChanged" />
 ```
 
-参照 :[PasswordBox](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.passwordbox.aspx) 
+参照 :[PasswordBox](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.PasswordBox) 
 
 設計と操作方法:[テキスト コントロール](text-controls.md)、[パスワード ボックス コントロールのガイド](password-box.md) 
 
@@ -691,7 +691,7 @@ Web コンテンツをホストするコンテナー コントロール。
 <RichEditBox />
 ```
 
-参照 :[RichEditBox](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.richeditbox.aspx) 
+参照 :[RichEditBox](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RichEditBox) 
 
 設計と操作方法:[テキスト コントロール](text-controls.md)、[リッチ エディット ボックス コントロールのガイド](rich-edit-box.md)
 
@@ -715,7 +715,7 @@ Web コンテンツをホストするコンテナー コントロール。
 <TextBlock x:Name="textBlock1" Text="I am a TextBlock"/>
 ```
 
-参照 :[TextBlock](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.textblock.aspx)、 [RichTextBlock](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.richtextblock.aspx) 
+参照 :[TextBlock](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock)、 [RichTextBlock](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RichTextBlock) 
 
 設計と操作方法:[テキスト コントロール](text-controls.md)、[テキスト ブロック コントロール ガイド](text-block.md)、[リッチ テキスト ブロック コントロールのガイド](rich-text-block.md)
 
@@ -731,7 +731,7 @@ Web コンテンツをホストするコンテナー コントロール。
          TextChanged="TextBox_TextChanged"/>
 ```
 
-参照 :[TextBox](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.textbox.aspx) 
+参照 :[TextBox](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox) 
 
 設計と操作方法:[テキスト コントロール](text-controls.md)、[テキスト ボックス コントロールのガイド](text-box.md) 
 
@@ -749,7 +749,7 @@ Web コンテンツをホストするコンテナー コントロール。
           Checked="CheckBox_Checked"/>
 ```
 
-参照 :[チェック ボックス](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.checkbox.aspx) 
+参照 :[チェック ボックス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CheckBox) 
 
 設計と操作方法:[チェック ボックス コントロールのガイド](checkbox.md) 
 
@@ -767,7 +767,7 @@ Web コンテンツをホストするコンテナー コントロール。
 </ComboBox>
 ```
 
-参照 :[ComboBox](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.combobox.aspx) 
+参照 :[ComboBox](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ComboBox) 
 
 設計と操作方法:[リスト](lists.md) 
 
@@ -785,7 +785,7 @@ Web コンテンツをホストするコンテナー コントロール。
 </ListBox>
 ```
 
-参照 :[リスト ボックス](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.listbox.aspx) 
+参照 :[ListBox](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListBox) 
 
 設計と操作方法:[リスト](lists.md) 
 
@@ -803,7 +803,7 @@ Web コンテンツをホストするコンテナー コントロール。
              Checked="RadioButton_Checked"/>
 ```
 
-参照 :[オプション ボタン](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.radiobutton.aspx) 
+参照 :[オプション ボタン](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RadioButton) 
 
 設計と操作方法:[ラジオ ボタン コントロールのガイド](radio-button.md)
  
@@ -816,7 +816,7 @@ Web コンテンツをホストするコンテナー コントロール。
 <Slider x:Name="slider1" Width="100" ValueChanged="Slider_ValueChanged" />
 ```
 
-参照 :[スライダー](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.slider.aspx) 
+参照 :[スライダー](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Slider) 
 
 設計と操作方法:[スライダー コントロールのガイド](slider.md) 
 
@@ -828,7 +828,7 @@ Web コンテンツをホストするコンテナー コントロール。
               Checked="ToggleButton_Checked"/>
 ```
 
-参照 :[トグル ボタン](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.primitives.togglebutton.aspx)
+参照 :[トグル ボタン](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Primitives.ToggleButton)
 
 設計と操作方法:[切り替えコントロールのガイド](toggles.md) 
 
@@ -843,6 +843,6 @@ Web コンテンツをホストするコンテナー コントロール。
               Toggled="ToggleSwitch_Toggled"/>
 ```
 
-参照 :[ToggleSwitch](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.toggleswitch.aspx) 
+参照 :[ToggleSwitch](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ToggleSwitch) 
 
 設計と操作方法:[切り替えコントロールのガイド](toggles.md) 

@@ -4,12 +4,12 @@ description: 開発者はプロトコルのアクティブ化および起動ア�
 ms.topic: article
 ms.localizationpriority: medium
 ms.date: 02/08/2017
-ms.openlocfilehash: fb68b4bbd1b751591e9f336efe5dad3c22b3bf92
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: f61fcfcef549295b8f3c9004572a74043a2917a2
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57618307"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66365824"
 ---
 # <a name="automate-launching-windows-10-uwp-apps"></a>Windows 10 UWP アプリの自動起動
 
@@ -29,14 +29,14 @@ ms.locfileid: "57618307"
 
 1. Visual Studio で **Package.appxmanifest** ファイルを開きます。
 2. **[宣言]** タブをクリックします。
-3. **[使用可能な宣言]** ボックスの一覧で **[プロトコル]** を選び、**[追加]** をクリックします。
+3. **[使用可能な宣言]** ボックスの一覧で **[プロトコル]** を選び、 **[追加]** をクリックします。
 4. **[プロパティ]** の **[名前]** フィールドに、アプリの起動に使うプロトコルの一意の名前を入力します。 
 
     ![プロトコルのアクティブ化](images/automate-uwp-apps-1.png)
 
 5. ファイルを保存し、プロジェクトを展開します。 
 6. プロジェクトの展開が完了したら、プロトコルのアクティブ化を設定します。 
-7. **[コントロール パネル]、[すべてのコントロール パネル項目]、[既定のプログラム]** の順にクリックし、**[ファイルの種類またはプロトコルのプログラムへの関連付け]** を選択します。 **[プロトコル]** セクションまでスクロールし、プロトコルが一覧に表示されていることを確認します。 
+7. **[コントロール パネル]、[すべてのコントロール パネル項目]、[既定のプログラム]** の順にクリックし、 **[ファイルの種類またはプロトコルのプログラムへの関連付け]** を選択します。 **[プロトコル]** セクションまでスクロールし、プロトコルが一覧に表示されていることを確認します。 
 
 プロトコルのアクティブ化を設定したら、2 つの方法 (コマンド ラインまたはランチャー アプリケーション) のどちらかを使用して、プロトコルを使ってアプリをアクティブ化できます。 
 
@@ -48,7 +48,7 @@ ms.locfileid: "57618307"
   scheme://username:password@host:port/path.extension?query#fragment
   ```
 
-この形式の URI 文字列は、Uri オブジェクトのメソッドで解析できます。 詳しくは、[MSDN の Uri クラスのトピック](https://msdn.microsoft.com/library/windows/apps/windows.foundation.uri.aspx)をご覧ください。 
+この形式の URI 文字列は、Uri オブジェクトのメソッドで解析できます。 詳しくは、[MSDN の Uri クラスのトピック](https://docs.microsoft.com/uwp/api/windows.foundation.uri)をご覧ください。 
 
 例:
 
@@ -110,7 +110,7 @@ Uri(URI));
 パッケージ ファミリ名を取得するには、次の手順に従うと最も簡単です。
 
 1. **Package.appxmanifest** ファイルを開きます。
-2. **[パッケージ化]** タブで、**[パッケージ名]** を入力します。
+2. **[パッケージ化]** タブで、 **[パッケージ名]** を入力します。
 
     ![起動アクティブ化](images/automate-uwp-apps-2.png)
 

@@ -6,12 +6,12 @@ keywords: アプリへの通信、IPC、メッセージング、バック グラ
 ms.date: 01/16/2019
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 96ecad8494ad82dc4927b3675ad322f07a8ca7f3
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 21e1b409406cf03d83ff10b04d96d7ff9f0413dd
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57643577"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66370747"
 ---
 # <a name="create-and-consume-an-app-service"></a>アプリ サービスの作成と利用
 
@@ -133,7 +133,7 @@ Windows 10 バージョン 1607 以降では、ホスト アプリと同じプ�
     * 呼び出し元がフォア グラウンドである場合は、アプリ サービスの有効期間は、呼び出し元の場合と同じです。
     * 呼び出し元は、バック グラウンドでは、app service は 30 秒の実行を取得します。 保留されると、1 回 5 秒追加されます。
 
-    **OnTaskCanceled**タスクが取り消されたときに呼び出されます。 クライアント アプリを破棄するときにタスクが取り消された、 [AppServiceConnection](https://msdn.microsoft.com/library/windows/apps/dn921704)、クライアント アプリケーションが中断された、OS がシャット ダウンしたり、スリープ状態になり、または OS のタスクを実行するリソースが不足します。
+    **OnTaskCanceled**タスクが取り消されたときに呼び出されます。 クライアント アプリを破棄するときにタスクが取り消された、 [AppServiceConnection](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.AppService.AppServiceConnection)、クライアント アプリケーションが中断された、OS がシャット ダウンしたり、スリープ状態になり、または OS のタスクを実行するリソースが不足します。
 
 ## <a name="write-the-code-for-the-app-service"></a>アプリ サービスのコードを記述する
 
@@ -202,15 +202,15 @@ private async void OnRequestReceived(AppServiceConnection sender, AppServiceRequ
 }
 ```
 
-なお**OnRequestReceived**は**async** 、この待機可能なメソッドを呼び出すため、 [SendResponseAsync](https://msdn.microsoft.com/library/windows/apps/dn921722)この例では。
+なお**OnRequestReceived**は**async** 、この待機可能なメソッドを呼び出すため、 [SendResponseAsync](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appservice.appservicerequest.sendresponseasync)この例では。
 
-サービスが使用できるように、遅延が実行される**async**メソッド、 **OnRequestReceived**ハンドラー。 これにより、**OnRequestReceived** への呼び出しは、メッセージの処理が完了するまで完了しません。  [SendResponseAsync](https://msdn.microsoft.com/library/windows/apps/dn921722)呼び出し元に結果を送信します。 **SendResponseAsync** は、呼び出しの完了時に通知しません。 信号を遅延の完了が[SendMessageAsync](https://msdn.microsoft.com/library/windows/apps/dn921712)を**OnRequestReceived**が完了します。 呼び出し**SendResponseAsync**いても、遅延を完了する必要がありますので、try/finally ブロックでラップされて**SendResponseAsync**例外をスローします。
+サービスが使用できるように、遅延が実行される**async**メソッド、 **OnRequestReceived**ハンドラー。 これにより、**OnRequestReceived** への呼び出しは、メッセージの処理が完了するまで完了しません。  [SendResponseAsync](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appservice.appservicerequest.sendresponseasync)呼び出し元に結果を送信します。 **SendResponseAsync** は、呼び出しの完了時に通知しません。 信号を遅延の完了が[SendMessageAsync](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appservice.appserviceconnection.sendmessageasync)を**OnRequestReceived**が完了します。 呼び出し**SendResponseAsync**いても、遅延を完了する必要がありますので、try/finally ブロックでラップされて**SendResponseAsync**例外をスローします。
 
-App services の使用[ValueSet](https://msdn.microsoft.com/library/windows/apps/dn636131)情報を交換するオブジェクト。 渡すことができるデータのサイズは、システム リソースによってのみ制限されます。 **ValueSet** で使うことができる定義済みのキーはありません。 アプリ サービスのプロトコルの定義に使うキーの値を決定する必要があります。 呼び出し元は、そのプロトコルを念頭に置いて記述する必要があります。 この例では、アプリ サービスがインベントリ項目またはその価格の名前を提供するかどうかを示す値を持つ、`Command` という名前のキーを選びました。 インベントリ名のインデックスは、`ID` キーに保存されています。 戻り値は `Result` キーに保存されます。
+App services の使用[ValueSet](https://docs.microsoft.com/uwp/api/Windows.Foundation.Collections.ValueSet)情報を交換するオブジェクト。 渡すことができるデータのサイズは、システム リソースによってのみ制限されます。 **ValueSet** で使うことができる定義済みのキーはありません。 アプリ サービスのプロトコルの定義に使うキーの値を決定する必要があります。 呼び出し元は、そのプロトコルを念頭に置いて記述する必要があります。 この例では、アプリ サービスがインベントリ項目またはその価格の名前を提供するかどうかを示す値を持つ、`Command` という名前のキーを選びました。 インベントリ名のインデックスは、`ID` キーに保存されています。 戻り値は `Result` キーに保存されます。
 
-[AppServiceClosedStatus](https://msdn.microsoft.com/library/windows/apps/dn921703)列挙型は、app service への呼び出しが成功または失敗するかどうかを示すために、呼び出し元に返されます。 アプリ サービスへの呼び出しが失敗する例として、OS がサービスのエンドポイントを中止した、リソースが超過したなどがあります。 使用して追加のエラー情報を返すことができます、 [ValueSet](https://msdn.microsoft.com/library/windows/apps/dn636131)します。 この例では、`Status` という名前のキーを使って、より詳細なエラー情報を呼び出し元に返します。
+[AppServiceClosedStatus](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.AppService.AppServiceClosedStatus)列挙型は、app service への呼び出しが成功または失敗するかどうかを示すために、呼び出し元に返されます。 アプリ サービスへの呼び出しが失敗する例として、OS がサービスのエンドポイントを中止した、リソースが超過したなどがあります。 使用して追加のエラー情報を返すことができます、 [ValueSet](https://docs.microsoft.com/uwp/api/Windows.Foundation.Collections.ValueSet)します。 この例では、`Status` という名前のキーを使って、より詳細なエラー情報を呼び出し元に返します。
 
-呼び出し[SendResponseAsync](https://msdn.microsoft.com/library/windows/apps/dn921722)を返します、 [ValueSet](https://msdn.microsoft.com/library/windows/apps/dn636131)呼び出し元にします。
+呼び出し[SendResponseAsync](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appservice.appservicerequest.sendresponseasync)を返します、 [ValueSet](https://docs.microsoft.com/uwp/api/Windows.Foundation.Collections.ValueSet)呼び出し元にします。
 
 ## <a name="deploy-the-service-app-and-get-the-package-family-name"></a>サービス アプリを展開して、パッケージ ファミリ名を取得する
 
@@ -302,9 +302,9 @@ App services の使用[ValueSet](https://msdn.microsoft.com/library/windows/apps
 
     最初に、コードによってアプリ サービスとの接続が確立されます。 接続は、`this.inventoryService` を破棄するまで開いたままになります。 App service の名前に一致する必要があります、`AppService`要素の`Name`に追加する属性、 **AppServiceProvider**プロジェクトの**Package.appxmanifest**ファイル。 この例では `<uap3:AppService Name="com.microsoft.inventory"/>` です。
 
-    A [ValueSet](https://msdn.microsoft.com/library/windows/apps/dn636131)という`message`を app service に送信するコマンドを指定するが作成されます。 この例のアプリ サービスでは、2 つのアクションのどちらを実行するかをコマンドが示すことを想定しています。 クライアント アプリでテキスト ボックスからインデックスを取得し、使用して、サービスを呼び出して、`Item`項目の説明を取得するコマンド。 その後、`Price` コマンドで呼び出しを行い、項目の価格を取得します。 ボタンのテキストは結果に設定されています。
+    A [ValueSet](https://docs.microsoft.com/uwp/api/Windows.Foundation.Collections.ValueSet)という`message`を app service に送信するコマンドを指定するが作成されます。 この例のアプリ サービスでは、2 つのアクションのどちらを実行するかをコマンドが示すことを想定しています。 クライアント アプリでテキスト ボックスからインデックスを取得し、使用して、サービスを呼び出して、`Item`項目の説明を取得するコマンド。 その後、`Price` コマンドで呼び出しを行い、項目の価格を取得します。 ボタンのテキストは結果に設定されています。
 
-    [AppServiceResponseStatus](https://msdn.microsoft.com/library/windows/apps/dn921724)オペレーティング システムがチェックを app service への呼び出しに接続できるかどうかを示します、`Status`キー、 [ValueSet](https://msdn.microsoft.com/library/windows/apps/dn636131)アプリからの受信サービス要求を処理することであったことをします。
+    [AppServiceResponseStatus](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.AppService.AppServiceResponseStatus)オペレーティング システムがチェックを app service への呼び出しに接続できるかどうかを示します、`Status`キー、 [ValueSet](https://docs.microsoft.com/uwp/api/Windows.Foundation.Collections.ValueSet)アプリからの受信サービス要求を処理することであったことをします。
 
 6. 設定、 **ClientApp**プロジェクトをスタートアップ プロジェクト (で右クリックし、**ソリューション エクスプ ローラー** > **スタートアップ プロジェクトとして設定**) し、ソリューションを実行します。 数値 1 をテキスト ボックスに入力し、ボタンをクリックします。 取得する必要があります"椅子。価格 = 88.99"、サービスから返信します。
 
@@ -318,8 +318,8 @@ App services の使用[ValueSet](https://msdn.microsoft.com/library/windows/apps
 
 ## <a name="debug-the-app-service"></a>アプリ サービスのデバッグ
 
-1.  サービスを呼び出す前にアプリ サービス プロバイダーのアプリが配置される必要があるため、ソリューションがデバッグする前に展開されるようにします。 (Visual Studio で、**[ビルド] &gt; [ソリューションの配置]** の順にクリックします)。
-2.  **ソリューション エクスプ ローラー**を右クリックし、 **AppServiceProvider**プロジェクト**プロパティ**します。 **[デバッグ]** タブで、**[開始動作]** を **[起動しないが、開始時にマイ コードをデバッグする]** に変更します。 (C++ を使ってアプリ サービス プロバイダーを実装した場合、**[デバッグ]** タブから **[アプリケーションの起動]** を **[いいえ]** に変更します)。
+1.  サービスを呼び出す前にアプリ サービス プロバイダーのアプリが配置される必要があるため、ソリューションがデバッグする前に展開されるようにします。 (Visual Studio で、 **[ビルド] &gt; [ソリューションの配置]** の順にクリックします)。
+2.  **ソリューション エクスプ ローラー**を右クリックし、 **AppServiceProvider**プロジェクト**プロパティ**します。 **[デバッグ]** タブで、 **[開始動作]** を **[起動しないが、開始時にマイ コードをデバッグする]** に変更します。 (C++ を使ってアプリ サービス プロバイダーを実装した場合、 **[デバッグ]** タブから **[アプリケーションの起動]** を **[いいえ]** に変更します)。
 3.  **MyAppService**プロジェクトの**Inventory.cs**にブレークポイントを設定ファイルで、 **OnRequestReceived**します。
 4.  設定、 **AppServiceProvider**プロジェクトをスタートアップ プロジェクトとキーを押して**F5**します。
 5.  開始**ClientApp** (Visual Studio) からではなく [スタート] メニューから。
@@ -329,7 +329,7 @@ App services の使用[ValueSet](https://msdn.microsoft.com/library/windows/apps
 
 1.  前の手順に従って、アプリ サービスを呼び出すクライアントをデバッグします。
 2.  起動**ClientApp** [スタート] メニュー。
-3.  デバッガーをアタッチ、 **ClientApp.exe**プロセス (いない、 **ApplicationFrameHost.exe**プロセス)。 (Visual Studio で、**[デバッグ] &gt; [プロセスにアタッチ]** の順に選びます)。
+3.  デバッガーをアタッチ、 **ClientApp.exe**プロセス (いない、 **ApplicationFrameHost.exe**プロセス)。 (Visual Studio で、 **[デバッグ] &gt; [プロセスにアタッチ]** の順に選びます)。
 4.  **ClientApp**プロジェクトでのブレークポイントを設定、**ボタン\_クリックして**。
 5.  テキスト ボックスに数字 1 を入力すると、クライアントと、app service の両方でブレークポイントにヒット今すぐ**ClientApp**ボタンをクリックします。
 
@@ -337,7 +337,7 @@ App services の使用[ValueSet](https://msdn.microsoft.com/library/windows/apps
 
 発生した場合、 **AppUnavailable** app service に接続しようとしました。 後のステータスは、次を確認します。
 
-- アプリ サービス プロバイダー プロジェクトとアプリ サービス プロジェクトが展開されていることを確認します。 クライアントを実行する前に、両方が展開されている必要があります。展開されていない場合、クライアントには接続先がありません。 Visual Studio から **[ビルド]** > **[ソリューションの配置]** で展開できます。
+- アプリ サービス プロバイダー プロジェクトとアプリ サービス プロジェクトが展開されていることを確認します。 クライアントを実行する前に、両方が展開されている必要があります。展開されていない場合、クライアントには接続先がありません。 Visual Studio から **[ビルド]**  >  **[ソリューションの配置]** で展開できます。
 - **ソリューション エクスプ ローラー**、アプリ サービスのプロバイダー プロジェクトが、app service を実装するプロジェクトへのプロジェクト間参照であることを確認します。
 - いることを確認、`<Extensions>`エントリとその子要素が追加されました、 **Package.appxmanifest**で上で指定したアプリ サービス プロバイダーのプロジェクトに属しているファイル[するアプリ サービスの拡張機能の追加Package.appxmanifest](#appxmanifest)します。
 - いることを確認、 [AppServiceConnection.AppServiceName](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appservice.appserviceconnection.appservicename)をアプリのサービス プロバイダーを呼び出すクライアントでの文字列に一致する、`<uap3:AppService Name="..." />`アプリ サービス プロバイダー プロジェクトで指定された**Package.appxmanifest**ファイル。
@@ -348,8 +348,8 @@ App services の使用[ValueSet](https://msdn.microsoft.com/library/windows/apps
 
 アプリ サービス プロバイダーまたはアプリ サービス プロジェクトのブレークポイントでデバッガーが停止しない場合は、以下を確認します。
 
-- アプリ サービス プロバイダー プロジェクトとアプリ サービス プロジェクトが展開されていることを確認します。 クライアントを実行する前に、両方が展開されている必要があります。 Visual Studio から **[ビルド]** > **[ソリューションの配置]** で展開できます。
-- デバッグするプロジェクトがスタートアップ プロジェクトとして設定されていると、プロジェクトを実行しない、そのプロジェクトのデバッグのプロパティが設定されていることを確認時に**F5**が押されました。 プロジェクトを右クリックし、**[プロパティ]**、**[デバッグ]** (または C++ では **[デバッグ]**) の順にクリックします。 C# では、**[開始動作]** を **[起動しないが、開始時にマイ コードをデバッグする]** に設定します。 C++ では、**[アプリケーションの起動]** を **[いいえ]** に設定します。
+- アプリ サービス プロバイダー プロジェクトとアプリ サービス プロジェクトが展開されていることを確認します。 クライアントを実行する前に、両方が展開されている必要があります。 Visual Studio から **[ビルド]**  >  **[ソリューションの配置]** で展開できます。
+- デバッグするプロジェクトがスタートアップ プロジェクトとして設定されていると、プロジェクトを実行しない、そのプロジェクトのデバッグのプロパティが設定されていることを確認時に**F5**が押されました。 プロジェクトを右クリックし、 **[プロパティ]** 、 **[デバッグ]** (または C++ では **[デバッグ]** ) の順にクリックします。 C# では、 **[開始動作]** を **[起動しないが、開始時にマイ コードをデバッグする]** に設定します。 C++ では、 **[アプリケーションの起動]** を **[いいえ]** に設定します。
 
 ## <a name="remarks"></a>注釈
 
@@ -359,7 +359,7 @@ App services の使用[ValueSet](https://msdn.microsoft.com/library/windows/apps
 * 追加、`windows.appService`をアプリ サービス プロバイダーの拡張機能**Package.appxmanifest**ファイル。
 * クライアント アプリからそれに接続できるように、アプリのサービス プロバイダーのパッケージ ファミリ名を取得します。
 * アプリのサービス プロバイダーのプロジェクトからアプリ サービスのプロジェクトにプロジェクト間参照を追加します。
-* 使用[Windows.ApplicationModel.AppService.AppServiceConnection](https://msdn.microsoft.com/library/windows/apps/dn921704)サービスを呼び出します。
+* 使用[Windows.ApplicationModel.AppService.AppServiceConnection](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.AppService.AppServiceConnection)サービスを呼び出します。
 
 ## <a name="full-code-for-myappservice"></a>MyAppService の完全なコード
 

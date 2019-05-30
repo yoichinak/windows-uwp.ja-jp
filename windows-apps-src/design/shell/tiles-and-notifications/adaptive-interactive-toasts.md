@@ -8,12 +8,12 @@ ms.date: 11/20/2017
 ms.topic: article
 keywords: windows 10, uwp, トースト通知, 対話型トースト, アダプティブ トースト, トーストのコンテンツ, トースト ペイロード
 ms.localizationpriority: medium
-ms.openlocfilehash: a75e39dfcddbef5bb5c37c2a253a46a7b9cc9577
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 75e5ea7e83a1a274b90b14588f7d809a4aa91269
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57596827"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66366876"
 ---
 # <a name="toast-content"></a>トーストのコンテンツ
 
@@ -22,7 +22,7 @@ ms.locfileid: "57596827"
 > **重要な API**:[UWP Community Toolkit Notifications NuGet パッケージ](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/)
 
 > [!NOTE]
-> Windows 8.1 および Windows Phone 8.1 から従来のテンプレートを表示するには、次を参照してください。、[レガシ トースト テンプレート カタログ](https://msdn.microsoft.com/library/windows/apps/hh761494)します。
+> Windows 8.1 および Windows Phone 8.1 から従来のテンプレートを表示するには、次を参照してください。、[レガシ トースト テンプレート カタログ](https://docs.microsoft.com/previous-versions/windows/apps/hh761494(v=win.10))します。
 
 
 ## <a name="getting-started"></a>概要

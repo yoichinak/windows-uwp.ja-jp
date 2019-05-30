@@ -6,12 +6,12 @@ ms.date: 03/27/2018
 ms.topic: article
 keywords: Windows 10、UWP、ゲーム、クラウド サービス
 ms.localizationpriority: medium
-ms.openlocfilehash: 5781d8f8606f68360018cfa17d5cfe5719ed31a6
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 15a7e3bed746a31ce2d8f458045cdd1126b71b8c
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57637687"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66368993"
 ---
 #  <a name="using-cloud-services-for-uwp-games"></a>UWP ゲーム用のクラウド サービスの使用
 
@@ -91,7 +91,7 @@ Windows 10 のユニバーサル Windows プラットフォーム (UWP) では�
             <ul>
                 <li><a href="https://channel9.msdn.com/Shows/Cloud+Cover/Episode-228-Building-Games-with-Service-Fabric#time=06m52s">Service Fabric を使用したゲームの構築:アセント MMO ゲーム (ビデオ) の有効期間</a>
                 <li><a href="https://channel9.msdn.com/Events/Build/2016/KEY02#time=57m20s">Azure Service Fabric (ビデオ) を使用してマイクロ サービスとしてのゲーム コンポーネントを管理します。</a> 
-                <li><a href="https://channel9.msdn.com/Shows/Azure-Friday/Age-of-Ascent-from-Illyriad-Powered-by-Azure-Service-Fabric-and-ASPNET">Age of Ascent 開発者 (ビデオ) へのインタビューします。</a>
+                <li><a href="/Blogs/Azure/Age-of-Ascent-from-Illyriad-Powered-by-Azure-Service-Fabric-and-ASPNET">Age of Ascent 開発者 (ビデオ) へのインタビューします。</a>
             </ul>
         </td>
     </tr>
@@ -198,8 +198,8 @@ Azure のクラウド サービスをゲームに使用するためのいくつ�
 
 ## <a name="learning-resources"></a>学習リソース
 
-* build 2016:[CodeLabs &mdash; Unity でゲームのスコアを保存するバックエンドを使用して Microsoft Azure App Service と Microsoft SQL Azure](https://github.com/Microsoft-Build-2016/CodeLabs-GameDev-6-Azure)
-* build 2017:[提供する世界クラスのゲームでは、Microsoft Azure を使用した操作性します。Halo、Hitman、Walking Dead (ビデオ) などのタイトルから学んだ教訓](https://channel9.msdn.com/Events/Build/2017/P4062)
+* //build 2016:[CodeLabs &mdash; Unity でゲームのスコアを保存するバックエンドを使用して Microsoft Azure App Service と Microsoft SQL Azure](https://github.com/Microsoft-Build-2016/CodeLabs-GameDev-6-Azure)
+* //build 2017:[提供する世界クラスのゲームでは、Microsoft Azure を使用した操作性します。Halo、Hitman、Walking Dead (ビデオ) などのタイトルから学んだ教訓](https://channel9.msdn.com/Events/Build/2017/P4062)
 * 構成要素、プロジェクト、サービス、および GitHub の Azure を使用して一般的なゲームのワークロードをサポートするためのベスト プラクティスの再利用可能なセット。[Azure でのゲームのための構成要素](https://github.com/MicrosoftDX/nether)
 * [ゲーム サービス on Azure (ビデオ)](https://channel9.msdn.com/Series/Gaming-Services-on-Azure)
 
@@ -221,7 +221,7 @@ SDK を使用して、このソリューションを、モバイル、PC、ま�
 
 ## <a name="related-links"></a>関連リンク
 
-* [Windows 10 ゲーム開発ガイド](https://msdn.microsoft.com/windows/uwp/gaming/e2e)
+* [Windows 10 ゲーム開発ガイド](https://docs.microsoft.com/windows/uwp/gaming/e2e)
 * [ゲーム用の azure](https://azure.microsoft.com/solutions/gaming/)
 * [Playfab](https://playfab.com/)
 * [Microsoft for Startups](https://startups.microsoft.com)

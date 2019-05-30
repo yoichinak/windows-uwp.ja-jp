@@ -7,12 +7,12 @@ ms.topic: article
 keywords: Windows 10, UWP, Store サービス, Microsoft Store 分析 API
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: ab3e223c99a13e4520d5bc603454881803a3cb64
-ms.sourcegitcommit: 6a7dd4da2fc31ced7d1cdc6f7cf79c2e55dc5833
+ms.openlocfilehash: 14a1b73a2c82beea746d40c25bfa18ddf6171203
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58334860"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66372000"
 ---
 # <a name="access-analytics-data-using-store-services"></a>ストア サービスを使った分析データへのアクセス
 
@@ -42,9 +42,9 @@ Azure AD アプリケーションをパートナー センター アカウント
 
 2.  [次へ]、**ユーザー**ページで、**アカウント設定**パートナー センターの「[して Azure AD アプリケーションを追加](../publish/add-users-groups-and-azure-ad-applications.md#add-azure-ad-applications-to-your-partner-center-account)アプリを使用してサービスを表す分析データをパートナー センター アカウントにアクセスします。 このアプリケーションに必ず**マネージャー** ロールを割り当てます。 アプリケーションが存在しない場合、Azure AD ディレクトリで実行できます[を新規作成パートナー センターで Azure AD アプリケーション](../publish/add-users-groups-and-azure-ad-applications.md#create-a-new-azure-ad-application-account-in-your-organizations-directory-and-add-it-to-your-partner-center-account)します。
 
-3.  **[ユーザー]** ページに戻り、Azure AD アプリケーションの名前をクリックしてアプリケーション設定に移動し、**[テナント ID]** と **[クライアント ID]** の値を書き留めます。
+3.  **[ユーザー]** ページに戻り、Azure AD アプリケーションの名前をクリックしてアプリケーション設定に移動し、 **[テナント ID]** と **[クライアント ID]** の値を書き留めます。
 
-4. **[新しいキーの追加]** をクリックします。 次の画面で、**[キー]** の値を書き留めます。 このページから離れると、この情報に再度アクセスすることはできません。 詳しくは、「[Azure AD アプリケーションのキーを管理する方法](../publish/add-users-groups-and-azure-ad-applications.md#manage-keys)」をご覧ください。
+4. **[新しいキーの追加]** をクリックします。 次の画面で、 **[キー]** の値を書き留めます。 このページから離れると、この情報に再度アクセスすることはできません。 詳しくは、「[Azure AD アプリケーションのキーを管理する方法](../publish/add-users-groups-and-azure-ad-applications.md#manage-keys)」をご覧ください。
 
 <span id="obtain-an-azure-ad-access-token" />
 
@@ -95,7 +95,7 @@ Azure AD アクセス トークンを取得したら、Microsoft Store 分析 AP
 
 ### <a name="methods-for-desktop-applications"></a>デスクトップ アプリケーション向けのメソッド
 
-次の分析メソッドは、[Windows デスクトップ アプリケーション プログラム](https://msdn.microsoft.com/library/windows/desktop/mt826504)に参加している開発者アカウントで利用できます。
+次の分析メソッドは、[Windows デスクトップ アプリケーション プログラム](https://docs.microsoft.com/windows/desktop/appxpkg/windows-desktop-application-program)に参加している開発者アカウントで利用できます。
 
 | シナリオ       | メソッド      |
 |---------------|--------------------|
@@ -125,7 +125,7 @@ Azure AD アクセス トークンを取得したら、Microsoft Store 分析 AP
 
 ### <a name="methods-for-hardware-and-drivers"></a>ハードウェアとドライバー向けのメソッド
 
-開発者アカウントに属している、 [Windows ハードウェア ダッシュ ボード プログラム](https://msdn.microsoft.com/windows/hardware/drivers/dashboard/get-started-with-the-hardware-dashboard)追加ハードウェアとドライバーの分析データを取得するためのメソッドのセットにアクセスします。 詳細については、次を参照してください。[ハードウェア ダッシュ ボード API](https://docs.microsoft.com/windows-hardware/drivers/dashboard/dashboard-api)します。
+開発者アカウントに属している、 [Windows ハードウェア ダッシュ ボード プログラム](https://docs.microsoft.com/windows-hardware/drivers/dashboard/get-started-with-the-hardware-dashboard)追加ハードウェアとドライバーの分析データを取得するためのメソッドのセットにアクセスします。 詳細については、次を参照してください。[ハードウェア ダッシュ ボード API](https://docs.microsoft.com/windows-hardware/drivers/dashboard/dashboard-api)します。
 
 ## <a name="code-example"></a>コードの例
 

@@ -6,12 +6,12 @@ ms.topic: article
 keywords: Windows 10, UWP, Microsoft Store 申請 API, パッケージのロールアウト, フライトの申請, 更新, 割合
 ms.assetid: ee9aa223-e945-4c11-b430-1f4b1e559743
 ms.localizationpriority: medium
-ms.openlocfilehash: d5f7a388eed193e780fe2b7be9cafa5d249f6653
-ms.sourcegitcommit: 6a7dd4da2fc31ced7d1cdc6f7cf79c2e55dc5833
+ms.openlocfilehash: c9aa114cc8b9aca73d4c278761b88e6daca0db11
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58334810"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66371443"
 ---
 # <a name="update-the-rollout-percentage-for-a-flight-submission"></a>フライトの申請に関するロールアウト率の更新
 
@@ -47,7 +47,7 @@ ms.locfileid: "58334810"
 
 | 名前        | 種類   | 説明                                                                 |
 |---------------|--------|-----------------------------------------------------------------------------|
-| applicationId | string | 必須。 パッケージ ロールアウト率を更新する対象のパッケージ フライト申請が含まれているアプリのストア ID です。 ストア ID について詳しくは、「[アプリ ID の詳細の表示](https://msdn.microsoft.com/windows/uwp/publish/view-app-identity-details)」をご覧ください。  |
+| applicationId | string | 必須。 パッケージ ロールアウト率を更新する対象のパッケージ フライト申請が含まれているアプリのストア ID です。 ストア ID について詳しくは、「[アプリ ID の詳細の表示](https://docs.microsoft.com/windows/uwp/publish/view-app-identity-details)」をご覧ください。  |
 | flightId | string | 必須。 パッケージ ロールアウト率を更新する対象の申請が含まれているパッケージ フライトの ID です。 この ID は、[パッケージ フライトの作成](create-a-flight.md)要求と[アプリのパッケージ フライトの取得](get-flights-for-an-app.md)要求の応答データで確認できます。 パートナー センターで作成されたフライトはこの ID はパートナー センターでのフライトのページの URL で使用できるも。  |
 | submissionId | string | 必須。 パッケージ ロールアウト率を更新する対象の申請の ID。 この ID は、[パッケージ フライトの申請の作成](create-a-flight-submission.md)要求に対する応答データで確認できます。 パートナー センターで作成された送信、この ID はパートナー センターでの送信 ページの URL で使用できるも。  |
 | percentage  |  FLOAT  |  必須。 段階的なロールアウト パッケージを受信するユーザーの割合。  |

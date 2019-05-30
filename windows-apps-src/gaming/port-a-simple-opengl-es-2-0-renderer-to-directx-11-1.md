@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, OpenGL, Direct3D 11, 移植
 ms.localizationpriority: medium
-ms.openlocfilehash: 0b6d06ff168f778c87e46fa399775492a3cebcaa
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 3c17e0b8ceb5938b7ca224f4a67198929a37a7f4
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57594217"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66368358"
 ---
 # <a name="port-a-simple-opengl-es-20-renderer-to-direct3d-11"></a>簡単な OpenGL ES 2.0 レンダラーの Direct3D 11 への移植
 
@@ -27,7 +27,7 @@ ms.locfileid: "57594217"
 
 このトピックは、新しい DirectX 11 プロジェクトを作成したところから始まります。 新しい DirectX 11 プロジェクトを作成する方法については、「[テンプレートからの DirectX ゲーム プロジェクトの作成](user-interface.md)」をご覧ください。
 
-これらのリンクのどちらかから作成されたプロジェクトには [Direct3D](https://msdn.microsoft.com/library/windows/desktop/ff476345) インフラストラクチャ用のコードがすべて用意されているため、OpenGL ES 2.0 から Direct3D 11 にレンダラーを移植するプロセスをすぐに始めることができます。
+これらのリンクのどちらかから作成されたプロジェクトには [Direct3D](https://docs.microsoft.com/windows/desktop/direct3d11/dx-graphics-overviews) インフラストラクチャ用のコードがすべて用意されているため、OpenGL ES 2.0 から Direct3D 11 にレンダラーを移植するプロセスをすぐに始めることができます。
 
 このトピックでは、2 つのコード パスについて説明します。どちらも同じ基本的なグラフィックス タスクを実行します。頂点シェーディングされた回転する立方体をウィンドウに表示するというものです。 どちらの場合も、コードは次のプロセスに対応しています。
 
@@ -89,12 +89,12 @@ typedef struct
 
 ### <a name="technologies"></a>テクノロジ
 
--   [Microsoft Visual C](https://msdn.microsoft.com/library/vstudio/60k1461a.aspx)
+-   [Microsoft Visual C](https://docs.microsoft.com/previous-versions/60k1461a(v=vs.140))
 -   OpenGL ES 2.0
 
 ### <a name="prerequisites"></a>前提条件
 
--   任意。 「[DXGI と Direct3D の EGL コードの比較](moving-from-egl-to-dxgi.md)」をご覧ください。 このトピックを読むと、DirectX によって提供されるグラフィックス インターフェイスについて理解を深めることができます。
+-   (省略可能)。 「[DXGI と Direct3D の EGL コードの比較](moving-from-egl-to-dxgi.md)」をご覧ください。 このトピックを読むと、DirectX によって提供されるグラフィックス インターフェイスについて理解を深めることができます。
 
 ## <a name="span-idkeylinksstepsheadingspansteps"></a><span id="keylinks_steps_heading"></span>手順
 

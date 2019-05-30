@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, タッチ, コントロール, DirectX, 入力
 ms.localizationpriority: medium
-ms.openlocfilehash: e8892219b485d320bb77f90ac0d172e8e2403392
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: b1f683f2d357057e33f3daa613e1b027a83776af
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57618737"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66367765"
 ---
 # <a name="touch-controls-for-games"></a>ゲームのタッチ コントロール
 
@@ -119,7 +119,7 @@ public:
 
 最後に、次のメソッドとプロパティを使って、カメラ コントローラーの状態情報の初期化、アクセス、更新を行います。
 
--   **Initialize**は、アプリがコントロールを初期化して、表示ウィンドウを定義する [**CoreWindow**](https://msdn.microsoft.com/library/windows/apps/br208225) オブジェクトにそれらのコントロールを適用するときに呼び出すイベント ハンドラーです。
+-   **Initialize**は、アプリがコントロールを初期化して、表示ウィンドウを定義する [**CoreWindow**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreWindow) オブジェクトにそれらのコントロールを適用するときに呼び出すイベント ハンドラーです。
 -   **SetPosition** は、アプリがシーン空間内のコントロールの (x、y、z) 座標を設定するときに呼び出すメソッドです。 z 座標はこのチュートリアル全体で 0 であることに注意してください。
 -   **取得\_位置**シーン空間でカメラの現在位置を取得するアプリにアクセスするプロパティです。 このプロパティは、カメラの現在の位置をアプリに伝える手段として使います。
 -   **取得\_FixedLookPoint**は対象となるコント ローラーのカメラが向いている現在のポイントを取得するアプリにアクセスするプロパティです。 この例では、x-y 平面に垂直にロックされています。
@@ -134,15 +134,15 @@ public:
 
 Windows ランタイムのイベント ディスパッチャーは、アプリで処理するイベントを 3 つ提供します。
 
--   [**PointerPressed**](https://msdn.microsoft.com/library/windows/apps/br208278)
--   [**PointerMoved**](https://msdn.microsoft.com/library/windows/apps/br208276)
--   [**PointerReleased**](https://msdn.microsoft.com/library/windows/apps/br208279)
+-   [**PointerPressed**](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.pointerpressed)
+-   [**PointerMoved**](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.pointermoved)
+-   [**PointerReleased**](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.pointerreleased)
 
-これらのイベントは、[**CoreWindow**](https://msdn.microsoft.com/library/windows/apps/br208225) 型に実装されています。 ここでは、操作する **CoreWindow** オブジェクトが既にあると想定しています。 詳しくは、「[UWP C++ アプリで DirectX ビューを表示するための設定方法](https://msdn.microsoft.com/library/windows/apps/hh465077)」をご覧ください。
+これらのイベントは、[**CoreWindow**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreWindow) 型に実装されています。 ここでは、操作する **CoreWindow** オブジェクトが既にあると想定しています。 詳しくは、「[UWP C++ アプリで DirectX ビューを表示するための設定方法](https://docs.microsoft.com/previous-versions/windows/apps/hh465077(v=win.10))」をご覧ください。
 
 これらのイベントは Windows ストア アプリの実行中に起動するため、ハンドラーはプライベート フィールドに定義されているカメラ コントローラーの状態情報を更新します。
 
-まず、タッチ ポインターのイベント ハンドラーを設定します。 最初のイベント ハンドラーである **OnPointerPressed** では、ユーザーが画面をタッチまたはマウスをクリックしたときに表示を管理する [**CoreWindow**](https://msdn.microsoft.com/library/windows/apps/br208225) からポインターの x-y 座標を取得します。
+まず、タッチ ポインターのイベント ハンドラーを設定します。 最初のイベント ハンドラーである **OnPointerPressed** では、ユーザーが画面をタッチまたはマウスをクリックしたときに表示を管理する [**CoreWindow**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreWindow) からポインターの x-y 座標を取得します。
 
 **OnPointerPressed**
 
@@ -190,7 +190,7 @@ void CameraPanController::OnPointerMoved(
 }
 ```
 
-最後に、プレイヤーが画面から手を離したときに、カメラのパン動作を非アクティブにする必要があります。 使用して**OnPointerReleased**、ときに呼び出されます[ **PointerReleased** ](https://msdn.microsoft.com/library/windows/apps/br208279)を設定する発生した**m\_panInUse**を FALSE に、カメラのパンの動きをオフにし、ポインター ID を 0 に設定します。
+最後に、プレイヤーが画面から手を離したときに、カメラのパン動作を非アクティブにする必要があります。 使用して**OnPointerReleased**、ときに呼び出されます[ **PointerReleased** ](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.pointerreleased)を設定する発生した**m\_panInUse**を FALSE に、カメラのパンの動きをオフにし、ポインター ID を 0 に設定します。
 
 **OnPointerReleased**
 
@@ -239,7 +239,7 @@ void CameraPanController::Initialize( _In_ CoreWindow^ window )
 }
 ```
 
-**Initialize** は、アプリの [**CoreWindow**](https://msdn.microsoft.com/library/windows/apps/br208225) インスタンスへの参照をパラメーターとして使い、先ほど作成したイベント ハンドラーをその **CoreWindow** の適切なイベントに登録します。
+**Initialize** は、アプリの [**CoreWindow**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreWindow) インスタンスへの参照をパラメーターとして使い、先ほど作成したイベント ハンドラーをその **CoreWindow** の適切なイベントに登録します。
 
 ## <a name="getting-and-setting-the-position-of-the-camera-controller"></a>カメラ コントローラーの位置の取得と設定
 

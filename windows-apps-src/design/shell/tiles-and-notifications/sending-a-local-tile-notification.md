@@ -7,12 +7,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 5752a7bf18d785121258ea3fe75afe8383be2aff
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 4a6b61463204b4ae60fbb853cd00a10c7185a084
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57636107"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66362699"
 ---
 # <a name="send-a-local-tile-notification"></a>ローカル タイル通知の送信
  
@@ -204,7 +204,7 @@ TileUpdateManager.CreateTileUpdaterForApplication().Clear();
 
 **通知キューを使用します。**
 
-最初のタイルの更新を実行したので、[通知キュー](https://msdn.microsoft.com/library/windows/apps/xaml/hh868234)を有効にしてタイルの機能を拡張できます。
+最初のタイルの更新を実行したので、[通知キュー](https://docs.microsoft.com/previous-versions/windows/apps/hh868234(v=win.10))を有効にしてタイルの機能を拡張できます。
 
 **その他の通知の配信方法**
 
@@ -291,7 +291,7 @@ var notification = new TileNotification(doc);
 * [通知ライブラリ](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/)
 * [GitHub の完全なコード サンプル](https://github.com/WindowsNotifications/quickstart-sending-local-tile-win10)
 * [**Windows.UI.Notifications 名前空間**](https://docs.microsoft.com/uwp/api/Windows.UI.Notifications)
-* [通知キュー (XAML) を使用する方法](https://msdn.microsoft.com/library/windows/apps/xaml/hh868234)
+* [通知キュー (XAML) を使用する方法](https://docs.microsoft.com/previous-versions/windows/apps/hh868234(v=win.10))
 * [通知を配信します。](choosing-a-notification-delivery-method.md)
  
 

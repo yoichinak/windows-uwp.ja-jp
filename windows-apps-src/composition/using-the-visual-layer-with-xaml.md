@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 66b61b9db88392c7ca7370f06fb2150deba7c8c3
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: c00bf23a8539f7ee37974e16586a4477cc6b78bb
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57606827"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66360401"
 ---
 # <a name="using-the-visual-layer-with-xaml"></a>XAML でのビジュアル レイヤーの使用
 
@@ -45,12 +45,12 @@ XAML UI 要素の照明など、ライトの使い方について詳しくは、
 
 ## <a name="the-elementcompositionpreview-class"></a>ElementCompositionPreview クラス
 
-[**ElementCompositionPreview** ](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.hosting.elementcompositionpreview.aspx)は XAML とビジュアル層の相互運用機能を提供する静的クラスです。 ビジュアル レイヤーとその機能の概要については、「[ビジュアル レイヤー](https://msdn.microsoft.com/windows/uwp/graphics/visual-layer)」をご覧ください。 **ElementCompositionPreview** クラスには、次のメソッドが用意されています。
+[**ElementCompositionPreview** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.elementcompositionpreview)は XAML とビジュアル層の相互運用機能を提供する静的クラスです。 ビジュアル レイヤーとその機能の概要については、「[ビジュアル レイヤー](https://docs.microsoft.com/windows/uwp/graphics/visual-layer)」をご覧ください。 **ElementCompositionPreview** クラスには、次のメソッドが用意されています。
 
--   [**GetElementVisual**](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.hosting.elementcompositionpreview.getelementvisual.aspx):この要素を表示するために使用される Visual「配布資料」を取得します。
--   [**SetElementChildVisual**](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.hosting.elementcompositionpreview.setelementchildvisual.aspx):"Handin"最後の子としてのビジュアルのこの要素のビジュアル ツリーを設定します。 この Visual は、他の要素の上に描画されます。 
--   [**GetElementChildVisual**](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.hosting.elementcompositionpreview.getelementvisual.aspx):ビジュアルのセットを使用して取得**SetElementChildVisual**
--   [**GetScrollViewerManipulationPropertySet**](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.hosting.elementcompositionpreview.getelementvisual.aspx):スクロールのオフセットに基づく 60 fps のアニメーションを作成するために使用できるオブジェクトを取得、 **ScrollViewer**
+-   [**GetElementVisual**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.elementcompositionpreview.getelementvisual):この要素を表示するために使用される Visual「配布資料」を取得します。
+-   [**SetElementChildVisual**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.elementcompositionpreview.setelementchildvisual):"Handin"最後の子としてのビジュアルのこの要素のビジュアル ツリーを設定します。 この Visual は、他の要素の上に描画されます。 
+-   [**GetElementChildVisual**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.elementcompositionpreview.getelementvisual):ビジュアルのセットを使用して取得**SetElementChildVisual**
+-   [**GetScrollViewerManipulationPropertySet**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.elementcompositionpreview.getelementvisual):スクロールのオフセットに基づく 60 fps のアニメーションを作成するために使用できるオブジェクトを取得、 **ScrollViewer**
 
 ## <a name="remarks-on-elementcompositionpreviewgetelementvisual"></a>ElementCompositionPreview.GetElementVisual の解説
 
@@ -96,7 +96,7 @@ ElementCompositionPreview.GetElementVisual(MyImage).StartAnimation("Offset", par
 
 ## <a name="getalphamask-methods"></a>**GetAlphaMask** メソッド
 
-[**イメージ**](https://msdn.microsoft.com/library/windows/apps/br242752)、 [ **TextBlock**](https://msdn.microsoft.com/library/windows/apps/br209652)、および[**図形**](/uwp/api/Windows.UI.Xaml.Shapes.Shape)と呼ばれるメソッドを実装する各**GetAlphaMask**を返す、 **CompositionBrush**要素の形状を持つ、グレースケール イメージを表します。 この **CompositionBrush** は、コンポジション **DropShadow** の入力として使用できます。そのため、シャドウでは、四角形ではなく要素の形状を反映することができます。 これにより、テキスト、アルファを含む画像、図形に対して、ピクセル パーフェクトで輪郭ベースのシャドウを使用することができます。 この API の例については、以下の「*ドロップ シャドウ*」をご覧ください。
+[**イメージ**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Image)、 [ **TextBlock**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock)、および[**図形**](/uwp/api/Windows.UI.Xaml.Shapes.Shape)と呼ばれるメソッドを実装する各**GetAlphaMask**を返す、 **CompositionBrush**要素の形状を持つ、グレースケール イメージを表します。 この **CompositionBrush** は、コンポジション **DropShadow** の入力として使用できます。そのため、シャドウでは、四角形ではなく要素の形状を反映することができます。 これにより、テキスト、アルファを含む画像、図形に対して、ピクセル パーフェクトで輪郭ベースのシャドウを使用することができます。 この API の例については、以下の「*ドロップ シャドウ*」をご覧ください。
 
 ## <a name="recipes"></a>レシピ
 
@@ -362,8 +362,8 @@ private void InitializeFrostedGlass(UIElement glassHost)
 
 ## <a name="additional-resources"></a>その他のリソース
 
-- [ビジュアル層の概要](https://msdn.microsoft.com/windows/uwp/composition/visual-layer)
-- [**ElementCompositionPreview**クラス](https://msdn.microsoft.com/library/windows/apps/mt608976)
+- [ビジュアル層の概要](https://docs.microsoft.com/windows/uwp/composition/visual-layer)
+- [**ElementCompositionPreview**クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Hosting.ElementCompositionPreview)
 - [WindowsUIDevLabs GitHub](https://github.com/microsoft/windowsuidevlabs) にある高度な UI とコンポジションのサンプル
 - [BasicXamlInterop サンプル](https://github.com/Microsoft/WindowsUIDevLabs/tree/master/SampleGallery/Samples/SDK%2010586/BasicXamlInterop)
 - [ParallaxingListItems サンプル](https://github.com/Microsoft/WindowsUIDevLabs/tree/master/SampleGallery/Samples/SDK%2010586/ParallaxingListItems)

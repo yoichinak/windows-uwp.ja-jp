@@ -7,14 +7,14 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 9794a04d-e67f-472c-8ba8-8ebe442f6ef2
 ms.localizationpriority: medium
-ms.openlocfilehash: 5b221220d417df5b70927984ac65eff93fae54a4
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 2ad32f67dc8cfaf90b96523429bb0ac4b6722abb
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57646537"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66365076"
 ---
-# <a name="tutorial-use-grid-and-stackpanel-to-create-a-simple-weather-app"></a>チュートリアル: Grid や StackPanel を使用して、簡単な天気予報アプリケーションを作成するには
+# <a name="tutorial-use-grid-and-stackpanel-to-create-a-simple-weather-app"></a>チュートリアル:Grid や StackPanel を使用して、簡単な天気予報アプリケーションを作成するには
 
 ここでは、XAML の **Grid** 要素と **StackPanel** 要素を使って単純な天気予報アプリのレイアウトを作成します。 これらのツールを使用すると、Windows 10 が実行されたすべてのデバイスで動作する魅力ある外観のアプリを作成できます。 このチュートリアルの所要時間は 10 ～ 20 分です。
 
@@ -22,14 +22,14 @@ ms.locfileid: "57646537"
 
 ## <a name="prerequisites"></a>前提条件
 - Windows 10 および Microsoft Visual Studio 2015 またはそれ以降。 (Visual Studio の最新推奨される現在の開発およびセキュリティ更新プログラム)[Visual Studio を使用して設定する方法についてはここをクリックして](../../get-started/get-set-up.md)します。
-- XAML と C# を使って基本的な "Hello World" アプリを作成する方法に関する知識。 必要に応じて[ここをクリックし、"Hello World" アプリの作成方法を学習してください](https://msdn.microsoft.com/windows/uwp/get-started/create-a-hello-world-app-xaml-universal)。
+- XAML と C# を使って基本的な "Hello World" アプリを作成する方法に関する知識。 必要に応じて[ここをクリックし、"Hello World" アプリの作成方法を学習してください](https://docs.microsoft.com/windows/uwp/get-started/create-a-hello-world-app-xaml-universal)。
 
 ## <a name="step-1-create-a-blank-app"></a>手順 1:空のアプリを作成します。
-1. Visual Studio のメニューで、**[ファイル]** > **[新しいプロジェクト]** を選択します。
-2. **[新しいプロジェクト]** ダイアログ ボックスの左側のウィンドウで、**[Visual C#]** > **[Windows]** > **[ユニバーサル]** を選択するか、**[Visual C++]** > **[Windows]** > **[ユニバーサル]** を選択します。
-3. 中央のウィンドウで、**[空のアプリケーション]** を選択します。
-4. **[名前]** ボックスに「**WeatherPanel**」と入力し、**[OK]** を選択します。
-5. プログラムを実行するには、メニューで **[デバッグ]** > **[デバッグの開始]** を選択するか、F5 を選択します。
+1. Visual Studio のメニューで、 **[ファイル]**  >  **[新しいプロジェクト]** を選択します。
+2. **[新しいプロジェクト]** ダイアログ ボックスの左側のウィンドウで、 **[Visual C#]**  >  **[Windows]**  >  **[ユニバーサル]** を選択するか、 **[Visual C++]**  >  **[Windows]**  >  **[ユニバーサル]** を選択します。
+3. 中央のウィンドウで、 **[空のアプリケーション]** を選択します。
+4. **[名前]** ボックスに「**WeatherPanel**」と入力し、 **[OK]** を選択します。
+5. プログラムを実行するには、メニューで **[デバッグ]**  >  **[デバッグの開始]** を選択するか、F5 を選択します。
 
 ## <a name="step-2-define-a-grid"></a>手順 2:グリッドを定義します。
 XAML において、**Grid** は一連の行と列で構成されます。 **Grid** で要素の行と列を指定することで、ユーザー インターフェイス内に要素を配置し、他の要素との間の余白を設定できます。 行と列は、**RowDefinition** 要素と**ColumnDefinition** 要素で定義します。
@@ -51,7 +51,7 @@ XAML において、**Grid** は一連の行と列で構成されます。 **Gri
 
 この新しい **Grid** によって 2 行 x 2 列のセットが作成され、このアプリ インターフェイスのレイアウトが定義されます。 最初の列が、**幅**の"3\*"、2 つ目があるときに、"5\*"、3:5 の比率で 2 つの列間の水平方向の領域に分割します。 2 つの行である、同じ方法で、**高さ**の"2\*「と」\*"それぞれため、**グリッド**と 2 つ目の最初の行の 2 倍の領域の割り当て ("\*"と同じでは、"1\*")。 これらの比率は、ウィンドウのサイズを変更したり、異なるデバイスを使ったりしても変わりません。
 
-行や列のサイズを指定するその他の方法については、「[XAML を使ったページ レイアウトの定義](https://msdn.microsoft.com/windows/uwp/layout/layouts-with-xaml#layout-properties)」をご覧ください。
+行や列のサイズを指定するその他の方法については、「[XAML を使ったページ レイアウトの定義](https://docs.microsoft.com/windows/uwp/layout/layouts-with-xaml)」をご覧ください。
 
 この時点では、**Grid** 領域にコンテンツがまったく含まれていないため、アプリケーションを実行しても空白のページが表示されるだけです。 そこで **Grid** を表示するために、色を付けることにします。
 
@@ -120,6 +120,6 @@ XAML において、**Grid** は一連の行と列で構成されます。 **Gri
 さらに理解を深めたい場合は、上のレイアウトを自由に変更して、天気データをさまざまな方法で表示してみてください。
 
 ## <a name="related-articles"></a>関連記事
-UWP アプリのレイアウト設計の概要については、「[UWP アプリ設計の概要](https://msdn.microsoft.com/windows/uwp/layout/design-and-ui-intro)」をご覧ください。
+UWP アプリのレイアウト設計の概要については、「[UWP アプリ設計の概要](https://docs.microsoft.com/windows/uwp/layout/design-and-ui-intro)」をご覧ください。
 
-さまざまな画面サイズに適応できるレスポンシブ レイアウトの作成については、「[XAML を使ったページ レイアウトの定義](https://msdn.microsoft.com/windows/uwp/layout/layouts-with-xaml)」をご覧ください。
+さまざまな画面サイズに適応できるレスポンシブ レイアウトの作成については、「[XAML を使ったページ レイアウトの定義](https://docs.microsoft.com/windows/uwp/layout/layouts-with-xaml)」をご覧ください。

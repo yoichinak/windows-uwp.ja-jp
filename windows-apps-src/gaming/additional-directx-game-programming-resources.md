@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10、UWP、ゲーム、プログラミング
 ms.localizationpriority: medium
-ms.openlocfilehash: 84d5068c2f474af22d789dea6428f911087f9ff0
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: b855bc9adc79b3ae5dd5ab7128be7035a78a4aa0
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57639217"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66369104"
 ---
 # <a name="game-programming-resources"></a>ゲーム プログラミング リソース
 
@@ -23,13 +23,13 @@ Windows でのゲーム プログラミングについて詳しくは、次の�
 ## <a name="game-programming-reference"></a>ゲーム プログラミング リファレンス
 
 
--   [グラフィックスとゲーム](https://msdn.microsoft.com/library/windows/desktop/ee663279)
+-   [グラフィックスとゲーム](https://docs.microsoft.com/windows/desktop/graphics-and-multimedia)
 -   [OpenGL の参照](https://go.microsoft.com/fwlink/p/?LinkID=288875)
 
 ## <a name="game-design-guidance"></a>ゲーム設計のガイダンス
 
 
--   [UWP アプリ用のインデックスの UX のガイドライン](https://msdn.microsoft.com/library/windows/apps/hh465424)
+-   [UWP アプリ用のインデックスの UX のガイドライン](https://developer.microsoft.com/windows/design)
 
 ## <a name="blogs"></a>ブログ
 
@@ -43,7 +43,7 @@ Windows でのゲーム プログラミングについて詳しくは、次の�
 
 -   [DirectX ツール キット](  https://go.microsoft.com/fwlink/p/?LinkID=248929)
 -   [DirectXTex テクスチャ処理ライブラリ](  https://go.microsoft.com/fwlink/p/?LinkID=248926)
--   Microsoft Visual Studio [ グラフィックス診断](https://msdn.microsoft.com/library/windows/apps/hh873207.aspx) に関するページ
+-   Microsoft Visual Studio [ グラフィックス診断](https://docs.microsoft.com/visualstudio/debugger/overview-of-visual-studio-graphics-diagnostics?view=vs-2015) に関するページ
 -   [Win2D](https://github.com/Microsoft/Win2D) - GPU アクセラレーションを使った即時モードの 2D グラフィックス レンダリング用の、使いやすい Windows ランタイム API です。
 -   [Microsoft Store の角度](https://go.microsoft.com/fwlink/p/?linkid=618387)-OpenGL ES の API を変換することによって Windows の実行の OpenGL ES コンテンツは、DirectX 11 の API 呼び出しに呼び出します。
 

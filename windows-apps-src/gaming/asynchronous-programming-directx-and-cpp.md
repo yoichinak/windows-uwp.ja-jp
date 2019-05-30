@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10、UWP、ゲーム、非同期プログラミング、DirectX
 ms.localizationpriority: medium
-ms.openlocfilehash: 8551a49512d4b17ab1bab704596d9e5389de3eb6
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 3fc2722c8db40aaabd4313dac60f676b93478d69
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57616157"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66369040"
 ---
 # <a name="asynchronous-programming-directx-and-c"></a>非同期プログラミング (DirectX と C++)
 
@@ -34,7 +34,7 @@ DirectX の学習経験や使用経験にかかわらず、グラフィックス
 -   コントロール
 -   XAML ベースの UI コンポーネント
 
-こうしたコンポーネントについては、複数の同時実行スレッド上で処理することができます。 ファイル I/O (特にアセットの読み込み) を非同期で行うと、数メガバイトや数百メガバイトのアセットを読み込んだりストリーミングしたりしている間も、ゲームやアプリのインターフェイスを操作できるようになるため、マルチ スレッド化には非常に大きな意義があります。 これらのスレッドは、[並列パターン ライブラリ](https://msdn.microsoft.com/library/dd492418.aspx) と **task** パターン (PPLTasks.h に定義されている **concurrency** 名前空間) を使って作成、管理するのが最も簡単です。 [並列パターン ライブラリ](https://msdn.microsoft.com/library/dd492418.aspx) は、マルチ コアとハイパースレッディングに対応した CPU の利点をダイレクトに引き出し、体感的な読み込み時間から、CPU 計算やネットワーク処理の集中に伴う滞りや遅延にいたるまで、さまざまな側面を向上させます。
+こうしたコンポーネントについては、複数の同時実行スレッド上で処理することができます。 ファイル I/O (特にアセットの読み込み) を非同期で行うと、数メガバイトや数百メガバイトのアセットを読み込んだりストリーミングしたりしている間も、ゲームやアプリのインターフェイスを操作できるようになるため、マルチ スレッド化には非常に大きな意義があります。 これらのスレッドは、[並列パターン ライブラリ](https://docs.microsoft.com/cpp/parallel/concrt/parallel-patterns-library-ppl) と **task** パターン (PPLTasks.h に定義されている **concurrency** 名前空間) を使って作成、管理するのが最も簡単です。 [並列パターン ライブラリ](https://docs.microsoft.com/cpp/parallel/concrt/parallel-patterns-library-ppl) は、マルチ コアとハイパースレッディングに対応した CPU の利点をダイレクトに引き出し、体感的な読み込み時間から、CPU 計算やネットワーク処理の集中に伴う滞りや遅延にいたるまで、さまざまな側面を向上させます。
 
 > **注**  全体でシングル スレッド アパートメント (STA) で、ユニバーサル Windows プラットフォーム (UWP) アプリ、ユーザー インターフェイスを実行します。 DirectX ゲーム用の UI を [XAML の相互運用機能](directx-and-xaml-interop.md) を使って作成する場合、そのコントロールには、STA を使ってのみアクセスできます。
 
@@ -43,23 +43,23 @@ DirectX の学習経験や使用経験にかかわらず、グラフィックス
 ## <a name="multithreading-with-direct3d-devices"></a>Direct3D デバイスでのマルチスレッド化
 
 
-デバイス コンテキストのマルチ スレッドは 11 の Direct3D 機能レベルをサポートするグラフィックス デバイスで使用可能なのみ\_0 またはそれ以降。 しかし、ゲーム専用機など、数多くのプラットフォームに搭載されている強力な GPU は最大限に活用したいものです。 たとえば、単純なケースでは、ヘッドアップ ディスプレイ (HUD) オーバーレイのレンダリングを 3D シーンのレンダリングとプロジェクションから切り離し、2 つのコンポーネントに独立した並列パイプラインを割り当てることができます。 どちらのスレッドも、同じ [**ID3D11DeviceContext**](https://msdn.microsoft.com/library/windows/desktop/ff476385) を使ってリソース オブジェクト (テクスチャ、メッシュ、シェーダーなど、各種アセット) を作成、管理する必要がありますが、ID3D11DeviceContext はシングル スレッドであり、安全にアクセスするには何らかの同期機構 (クリティカル セクションなど) を実装する必要があります。 また、異なるスレッドのデバイス コンテキストに対し、(遅延レンダリング用の) 別々のコマンド リストを作成している間、これらのコマンド リストを同じ **ID3D11DeviceContext** インスタンスで同時に再生することはできません。
+デバイス コンテキストのマルチ スレッドは 11 の Direct3D 機能レベルをサポートするグラフィックス デバイスで使用可能なのみ\_0 またはそれ以降。 しかし、ゲーム専用機など、数多くのプラットフォームに搭載されている強力な GPU は最大限に活用したいものです。 たとえば、単純なケースでは、ヘッドアップ ディスプレイ (HUD) オーバーレイのレンダリングを 3D シーンのレンダリングとプロジェクションから切り離し、2 つのコンポーネントに独立した並列パイプラインを割り当てることができます。 どちらのスレッドも、同じ [**ID3D11DeviceContext**](https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11devicecontext) を使ってリソース オブジェクト (テクスチャ、メッシュ、シェーダーなど、各種アセット) を作成、管理する必要がありますが、ID3D11DeviceContext はシングル スレッドであり、安全にアクセスするには何らかの同期機構 (クリティカル セクションなど) を実装する必要があります。 また、異なるスレッドのデバイス コンテキストに対し、(遅延レンダリング用の) 別々のコマンド リストを作成している間、これらのコマンド リストを同じ **ID3D11DeviceContext** インスタンスで同時に再生することはできません。
 
-現在では、スレッド セーフな [**ID3D11Device**](https://msdn.microsoft.com/library/windows/desktop/ff476379) を使ってリソース オブジェクトを作成することもできるようになりました。 このような状況であれば、**ID3D11DeviceContext** は使わず、常に [**ID3D11Device**](https://msdn.microsoft.com/library/windows/desktop/ff476385) を使えばよいのではないでしょうか。 現時点では、一部のグラフィックス インターフェイスで、ドライバーがマルチスレッドをサポートしていない可能性があります。 デバイスに対して問い合わせを行い、マルチスレッドをサポートしているかどうかを調べることもできますが、幅広いユーザーを対象とするために、あえてシングル スレッドの **ID3D11DeviceContext** を使って、リソース オブジェクトを管理する場合があります。 もっとも、グラフィックス デバイス ドライバーがマルチスレッドやコマンド リストをサポートしていない場合、Direct3D 11 は、デバイス コンテキストへの同期アクセスを内部的に処理することを試み、コマンド リストがサポートされていなかった場合は、ソフトウェアによって実装された同等の機能を提供します。 結果として、プラットフォームのグラフィックス インターフェイスについて、デバイス コンテキストへのマルチスレッド アクセスをドライバーがサポートしていない場合でもきちんと動作するマルチスレッド対応のコードを作成することが可能です。
+現在では、スレッド セーフな [**ID3D11Device**](https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11device) を使ってリソース オブジェクトを作成することもできるようになりました。 このような状況であれば、**ID3D11DeviceContext** は使わず、常に [**ID3D11Device**](https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11devicecontext) を使えばよいのではないでしょうか。 現時点では、一部のグラフィックス インターフェイスで、ドライバーがマルチスレッドをサポートしていない可能性があります。 デバイスに対して問い合わせを行い、マルチスレッドをサポートしているかどうかを調べることもできますが、幅広いユーザーを対象とするために、あえてシングル スレッドの **ID3D11DeviceContext** を使って、リソース オブジェクトを管理する場合があります。 もっとも、グラフィックス デバイス ドライバーがマルチスレッドやコマンド リストをサポートしていない場合、Direct3D 11 は、デバイス コンテキストへの同期アクセスを内部的に処理することを試み、コマンド リストがサポートされていなかった場合は、ソフトウェアによって実装された同等の機能を提供します。 結果として、プラットフォームのグラフィックス インターフェイスについて、デバイス コンテキストへのマルチスレッド アクセスをドライバーがサポートしていない場合でもきちんと動作するマルチスレッド対応のコードを作成することが可能です。
 
-開発しているアプリが、コマンド リストの処理用とフレームの表示用に別々のスレッドをサポートする場合、GPU はアクティブにしておきましょう。体感的な引っかかりや遅延を生じることなく適切なタイミングでフレームを表示すると共に、コマンド リストを処理することができます。 ここでは、個別を使用してでした[ **ID3D11DeviceContext** ](https://msdn.microsoft.com/library/windows/desktop/ff476385) 、D3D11 で描画の作成でのリソース (テクスチャ) などを共有して、各スレッドの\_リソース\_その他\_SHARED フラグ。 このシナリオでは、処理用のスレッドで [**ID3D11DeviceContext::Flush**](https://msdn.microsoft.com/library/windows/desktop/ff476425) を呼び出し、コマンド リストの実行を完了してから、表示用のスレッドで、リソース オブジェクトの処理結果を表示する必要があります。
+開発しているアプリが、コマンド リストの処理用とフレームの表示用に別々のスレッドをサポートする場合、GPU はアクティブにしておきましょう。体感的な引っかかりや遅延を生じることなく適切なタイミングでフレームを表示すると共に、コマンド リストを処理することができます。 ここでは、個別を使用してでした[ **ID3D11DeviceContext** ](https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11devicecontext) 、D3D11 で描画の作成でのリソース (テクスチャ) などを共有して、各スレッドの\_リソース\_その他\_SHARED フラグ。 このシナリオでは、処理用のスレッドで [**ID3D11DeviceContext::Flush**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-flush) を呼び出し、コマンド リストの実行を完了してから、表示用のスレッドで、リソース オブジェクトの処理結果を表示する必要があります。
 
 ## <a name="deferred-rendering"></a>遅延レンダリング
 
 
 遅延レンダリングは、グラフィックス コマンドを後から再生できるようにコマンド リストに記録するもので、一方のスレッドでレンダリングを行いながら、別のスレッドで、レンダリングに使うコマンドを記録するしくみになっています。 必要なコマンドがすべて揃った後、最終的な表示オブジェクト (フレーム バッファー、テクスチャなどのグラフィックス出力) を生成したスレッド上で、それらのコマンドを実行することができます。
 
-遅延コンテキストは、(イミディエイト コンテキストを作成する) [**D3D11CreateDevice**](https://msdn.microsoft.com/library/windows/desktop/ff476082) や [**D3D11CreateDeviceAndSwapChain**](https://msdn.microsoft.com/library/windows/desktop/ff476083) ではなく、[**ID3D11Device::CreateDeferredContext**](https://msdn.microsoft.com/library/windows/desktop/ff476505) を使って作成します。 詳しくは、「[イミディエイト レンダリングおよびディファード レンダリング](https://msdn.microsoft.com/library/windows/desktop/ff476892)」をご覧ください。
+遅延コンテキストは、(イミディエイト コンテキストを作成する) [**D3D11CreateDevice**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-d3d11createdevice) や [**D3D11CreateDeviceAndSwapChain**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-d3d11createdeviceandswapchain) ではなく、[**ID3D11Device::CreateDeferredContext**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11device-createdeferredcontext) を使って作成します。 詳しくは、「[イミディエイト レンダリングおよびディファード レンダリング](https://docs.microsoft.com/windows/desktop/direct3d11/overviews-direct3d-11-render-multi-thread-render)」をご覧ください。
 
 ## <a name="related-topics"></a>関連トピック
 
 
-* [概要 Direct3D のマルチ スレッド化 11](https://msdn.microsoft.com/library/windows/desktop/ff476891)
+* [概要 Direct3D のマルチ スレッド化 11](https://docs.microsoft.com/windows/desktop/direct3d11/overviews-direct3d-11-render-multi-thread-intro)
 
  
 

@@ -8,12 +8,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 503f7baad0d91f4e7c29010145ecb162f98bc81c
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: b1ea41a509b1673b7c4f5812d34db93dd6b0c93e
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57606287"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66365943"
 ---
 # <a name="choose-a-notification-delivery-method"></a>通知配信方法の選択
 
@@ -28,7 +28,7 @@ ms.locfileid: "57606287"
 通知を配信するためにアプリで使用できるメカニズムには、次の 4 種類があります。
 
 -   **地元の**
--   **スケジュール設定**
+-   **[スケジュール]**
 -   **定期的です**
 -   **プッシュ**
 
@@ -153,7 +153,7 @@ API 呼び出しはローカルですが、通知では Web 画像を参照で�
 詳しくは、次のトピックをご覧ください。
 
 -   [Windows プッシュ通知サービス (WNS) の概要](windows-push-notification-services--wns--overview.md)
--   [プッシュ通知のガイドライン](https://msdn.microsoft.com/library/windows/apps/hh761462)
+-   [プッシュ通知のガイドライン](https://docs.microsoft.com/windows/uwp/controls-and-patterns/tiles-and-notifications-windows-push-notification-services--wns--overview)
 -   [ユニバーサル Windows プラットフォーム (UWP) 通知コード サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Notifications)
 
 
@@ -162,8 +162,8 @@ API 呼び出しはローカルですが、通知では Web 画像を参照で�
 
 * [ローカル タイル通知の送信](sending-a-local-tile-notification.md)
 * [ローカル トースト通知の送信](send-local-toast.md)
-* [プッシュ通知のガイドライン](https://msdn.microsoft.com/library/windows/apps/hh761462)
-* [トースト通知のガイドライン](https://msdn.microsoft.com/library/windows/apps/hh465391)
+* [プッシュ通知のガイドライン](https://docs.microsoft.com/windows/uwp/controls-and-patterns/tiles-and-notifications-windows-push-notification-services--wns--overview)
+* [トースト通知のガイドライン](https://docs.microsoft.com/windows/uwp/controls-and-patterns/tiles-badges-notifications)
 * [定期的な通知の概要](periodic-notification-overview.md)
 * [Windows プッシュ通知サービス (WNS) の概要](windows-push-notification-services--wns--overview.md)
 * [ユニバーサル Windows プラットフォーム (UWP) の通知は GitHub のサンプルをコードします。](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Notifications)

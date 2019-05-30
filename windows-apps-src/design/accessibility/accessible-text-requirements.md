@@ -8,12 +8,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 3f474ec0c3017c3834d3eadb6f1caa989fc188a7
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 8dda866c877eb166c38949cfff5cec504103fd30
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57653337"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66359602"
 ---
 # <a name="accessible-text-requirements"></a>アクセシビリティに対応したテキストの要件  
 
@@ -46,21 +46,21 @@ Standard、web アクセシビリティのテキストのコントラストが�
 ## <a name="text-element-roles"></a>テキスト要素の役割  
 UWP アプリでは、次の既定の要素 (一般に*テキスト要素*または*テキスト編集コントロール*と呼ばれる) を使うことができます。
 
-* [**TextBlock**](https://msdn.microsoft.com/library/windows/apps/BR209652): 役割は、 [**テキスト**](https://msdn.microsoft.com/library/windows/apps/BR209182)
-* [**テキスト ボックス**](https://msdn.microsoft.com/library/windows/apps/BR209683): 役割は、 [**編集**](https://msdn.microsoft.com/library/windows/apps/BR209182)
-* [**RichTextBlock** ](https://msdn.microsoft.com/library/windows/apps/BR227565) (とクラスを overflow [ **RichTextBlockOverflow**](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.richtextblockoverflow)): 役割は、 [**テキスト**](https://msdn.microsoft.com/library/windows/apps/BR209182)
-* [**RichEditBox**](https://msdn.microsoft.com/library/windows/apps/BR227548): 役割は、 [**編集**](https://msdn.microsoft.com/library/windows/apps/BR209182)
+* [**TextBlock**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock): 役割は、 [**テキスト**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Automation.Peers.AutomationControlType)
+* [**テキスト ボックス**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox): 役割は、 [**編集**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Automation.Peers.AutomationControlType)
+* [**RichTextBlock** ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RichTextBlock) (とクラスを overflow [ **RichTextBlockOverflow**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.richtextblockoverflow)): 役割は、 [**テキスト**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Automation.Peers.AutomationControlType)
+* [**RichEditBox**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RichEditBox): 役割は、 [**編集**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Automation.Peers.AutomationControlType)
 
-コントロールから [**Edit**](https://msdn.microsoft.com/library/windows/apps/BR209182) の役割があることが報告されると、支援技術では、ユーザーが値を変更できると想定します。 このため、静的テキストを [**TextBox**](https://msdn.microsoft.com/library/windows/apps/BR209683) に配置すると、役割が誤って報告され、この結果、アクセシビリティ対応を必要とするユーザーにアプリの構造が誤って報告されます。
+コントロールから [**Edit**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Automation.Peers.AutomationControlType) の役割があることが報告されると、支援技術では、ユーザーが値を変更できると想定します。 このため、静的テキストを [**TextBox**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox) に配置すると、役割が誤って報告され、この結果、アクセシビリティ対応を必要とするユーザーにアプリの構造が誤って報告されます。
 
-XAML のテキスト モデルでは、静的なテキスト、[**TextBlock**](https://msdn.microsoft.com/library/windows/apps/BR209652)、[**RichTextBlock**](https://msdn.microsoft.com/library/windows/apps/BR227565) で主に使われる 2 つの要素があります。 これらはいずれも [**Control**](https://msdn.microsoft.com/library/windows/apps/BR209390) サブクラスではないため、キーボード フォーカス可能でなく、またタブ オーダーに含めることはできません。 ただし、支援技術でそれらを読み取ることができないか、または読み取られないわけではありません。 スクリーン リーダーは一般的に、「仮想カーソル」など、フォーカスとタブ オーダーを超える専用読み取り値モードやナビゲーション パターンを含めて、アプリ内のコンテンツを読み取る複数のモードをサポートするように設計されています。 したがって、タブ オーダーによりユーザーが移動できることのみを理由として、フォーカス可能なコンテナーに静的テキストを格納しないでください。 支援技術ユーザーは、タブ オーダー内では対話的であることを期待しており、そこに静的なテキストが存在するとその有用性にも増して、混乱を招くことになります。 アプリの静的テキストを調べるためにスクリーン リーダーを使う場合に、アプリに対するユーザー エクスペリエンスの感覚を得るために、自身で、ナレーターによりこの出力のテストを行う必要があります
+XAML のテキスト モデルでは、静的なテキスト、[**TextBlock**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock)、[**RichTextBlock**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RichTextBlock) で主に使われる 2 つの要素があります。 これらはいずれも [**Control**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Control) サブクラスではないため、キーボード フォーカス可能でなく、またタブ オーダーに含めることはできません。 ただし、支援技術でそれらを読み取ることができないか、または読み取られないわけではありません。 スクリーン リーダーは一般的に、「仮想カーソル」など、フォーカスとタブ オーダーを超える専用読み取り値モードやナビゲーション パターンを含めて、アプリ内のコンテンツを読み取る複数のモードをサポートするように設計されています。 したがって、タブ オーダーによりユーザーが移動できることのみを理由として、フォーカス可能なコンテナーに静的テキストを格納しないでください。 支援技術ユーザーは、タブ オーダー内では対話的であることを期待しており、そこに静的なテキストが存在するとその有用性にも増して、混乱を招くことになります。 アプリの静的テキストを調べるためにスクリーン リーダーを使う場合に、アプリに対するユーザー エクスペリエンスの感覚を得るために、自身で、ナレーターによりこの出力のテストを行う必要があります
 
 <span id="Auto-suggest_accessibility"/>
 <span id="auto-suggest_accessibility"/>
 <span id="AUTO-SUGGEST_ACCESSIBILITY"/>
 
 ## <a name="auto-suggest-accessibility"></a>自動提案のアクセシビリティ  
-ユーザーが入力フィールドに入力すると、潜在的な候補の一覧が表示される場合、この種のシナリオは自動提案と呼ばれます。 これは、メールの**宛先:** 行フィールド、Windows の Cortana 検索ボックス、Microsoft Edge の URL 入力フィールド、天気予報アプリの場所入力フィールドなどでよく使用されます。 XAML の [**AutosuggestBox**](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.autosuggestbox) や HTML の組み込みコントロールを使用している場合、このエクスペリエンスは既定で用意されています。 このエクスペリエンスをアクセシビリティ対応にするには、入力フィールドと一覧を関連付ける必要があります。 これについては、「[自動提案の実装](#implementing_auto-suggest)」セクションで説明しています。
+ユーザーが入力フィールドに入力すると、潜在的な候補の一覧が表示される場合、この種のシナリオは自動提案と呼ばれます。 これは、メールの**宛先:** 行フィールド、Windows の Cortana 検索ボックス、Microsoft Edge の URL 入力フィールド、天気予報アプリの場所入力フィールドなどでよく使用されます。 XAML の [**AutosuggestBox**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.autosuggestbox) や HTML の組み込みコントロールを使用している場合、このエクスペリエンスは既定で用意されています。 このエクスペリエンスをアクセシビリティ対応にするには、入力フィールドと一覧を関連付ける必要があります。 これについては、「[自動提案の実装](#implementing_auto-suggest)」セクションで説明しています。
 
 ナレーターは、特別な候補の表示モードによって、このタイプのエクスペリエンスをアクセシビリティ対応にするように更新されました。 大まかに言うと、編集フィールドと一覧が正しく接続されている場合、エンドユーザーには次のようなメリットがあります。
 
@@ -78,24 +78,24 @@ _候補リストの例_
 <span id="IMPLEMENTING_AUTO-SUGGEST"/>
 
 ### <a name="implementing-auto-suggest"></a>自動提案の実装  
-このエクスペリエンスをアクセシビリティ対応にするには、UIA ツリーで、入力フィールドと一覧が関連付けられている必要があります。 この関連付けは、デスクトップ アプリの [UIA_ControllerForPropertyId](https://msdn.microsoft.com/windows/desktop/ee684017) プロパティまたは UWP アプリの [ControlledPeers](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.automation.automationproperties.getcontrolledpeers) プロパティを使って設定されます。
+このエクスペリエンスをアクセシビリティ対応にするには、UIA ツリーで、入力フィールドと一覧が関連付けられている必要があります。 この関連付けは、デスクトップ アプリの [UIA_ControllerForPropertyId](https://msdn.microsoft.com/windows/desktop/ee684017) プロパティまたは UWP アプリの [ControlledPeers](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.automationproperties.getcontrolledpeers) プロパティを使って設定されます。
 
 自動提案のエクスペリエンスには、大まかに 2 つの種類があります。
 
 **既定の選択**  
-一覧で既定の選択が行われる場合、ナレーターは、デスクトップ アプリでは [**UIA_SelectionItem_ElementSelectedEventId**](https://msdn.microsoft.com/library/windows/desktop/ee671223) イベント、UWP アプリでは [**AutomationEvents.SelectionItemPatternOnElementSelected**](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.automation.peers.automationevents) イベントの発生を検索します。 選択項目が変更されるたび、つまりユーザーが別の文字を入力して候補が更新されたときや、ユーザーが一覧内を移動したときに、**ElementSelected** イベントが発生する必要があります。
+一覧で既定の選択が行われる場合、ナレーターは、デスクトップ アプリでは [**UIA_SelectionItem_ElementSelectedEventId**](https://docs.microsoft.com/windows/desktop/WinAuto/uiauto-event-ids) イベント、UWP アプリでは [**AutomationEvents.SelectionItemPatternOnElementSelected**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.peers.automationevents) イベントの発生を検索します。 選択項目が変更されるたび、つまりユーザーが別の文字を入力して候補が更新されたときや、ユーザーが一覧内を移動したときに、**ElementSelected** イベントが発生する必要があります。
 
 ![既定値を選択した場合、ボックスの一覧します。](images/autosuggest-default-selection.png)<br/>
 _例が、既定の選択_
 
 **既定の選択がありません。**  
-天気予報アプリの場所のボックスなど、既定の選択がない場合、ナレーターはデスクトップの [**UIA_LayoutInvalidatedEventId**](https://msdn.microsoft.com/library/windows/desktop/ee671223 ) イベントまたは UWP の [**LayoutInvalidated**](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.automation.peers.automationevents) イベントの発生を検索します。
+天気予報アプリの場所のボックスなど、既定の選択がない場合、ナレーターはデスクトップの [**UIA_LayoutInvalidatedEventId**](https://docs.microsoft.com/windows/desktop/WinAuto/uiauto-event-ids) イベントまたは UWP の [**LayoutInvalidated**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.peers.automationevents) イベントの発生を検索します。
 
 ![既定値も選択されていないを一覧表示します。](images/autosuggest-no-default-selection.png)<br/>
 _例を既定の選択が存在しません。_
 
 ### <a name="xaml-implementation"></a>XAML の実装  
-XAML の既定の [**AutosuggestBox**](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.autosuggestbox) を使用している場合、既にすべての準備が完了しています。 [  **TextBox**](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.textbox) と一覧を使って独自の自動提案エクスペリエンスを作成している場合は、**TextBox** で一覧を [**AutomationProperties.ControlledPeers**](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.automation.automationproperties.getcontrolledpeers) として設定する必要があります。 [  **ControlledPeers**](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.automation.automationproperties.getcontrolledpeers) プロパティを追加または削除するたびに、このプロパティの **AutomationPropertyChanged** イベントを発生させる必要があります。また、この記事で既に説明したシナリオのタイプに応じて、独自の [**SelectionItemPatternOnElementSelected**](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.automation.peers.automationevents) イベントまたは [**LayoutInvalidated**](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.automation.peers.automationevents) イベントを発生させる必要があります。
+XAML の既定の [**AutosuggestBox**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.autosuggestbox) を使用している場合、既にすべての準備が完了しています。 [  **TextBox**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox) と一覧を使って独自の自動提案エクスペリエンスを作成している場合は、**TextBox** で一覧を [**AutomationProperties.ControlledPeers**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.automationproperties.getcontrolledpeers) として設定する必要があります。 [  **ControlledPeers**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.automationproperties.getcontrolledpeers) プロパティを追加または削除するたびに、このプロパティの **AutomationPropertyChanged** イベントを発生させる必要があります。また、この記事で既に説明したシナリオのタイプに応じて、独自の [**SelectionItemPatternOnElementSelected**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.peers.automationevents) イベントまたは [**LayoutInvalidated**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.peers.automationevents) イベントを発生させる必要があります。
 
 ### <a name="html-implementation"></a>HTML の実装  
 HTML で組み込みのコントロールを使っている場合は、UIA 実装が既にマップされています。 既に準備されている実装の例を次に示します。
@@ -116,7 +116,7 @@ HTML で組み込みのコントロールを使っている場合は、UIA 実�
 
 ## <a name="text-in-graphics"></a>グラフィックス内のテキスト
 
-可能な限り、テキストをグラフィックスに含めないでください。 たとえば、アプリで [**Image**](https://msdn.microsoft.com/library/windows/apps/BR242752) 要素として表示されるイメージ ソース ファイルにテキストを含めると、支援技術ではそのテキストのアクセスや読み取りを自動的に行うことはできません。 グラフィックス内でテキストを使う必要がある場合は、"alt テキスト" に相当するものとして指定する [**AutomationProperties.Name**](https://msdn.microsoft.com/library/windows/apps/Hh759770) の値に、そのテキストまたはテキストの意味の要約を含めてください。 これは、テキスト文字をベクトルから [**Path**](/uwp/api/Windows.UI.Xaml.Shapes.Path) の一部として作成する場合や、[**Glyphs**](https://msdn.microsoft.com/library/windows/apps/BR209921) を使って作成する場合も同様です。
+可能な限り、テキストをグラフィックスに含めないでください。 たとえば、アプリで [**Image**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Image) 要素として表示されるイメージ ソース ファイルにテキストを含めると、支援技術ではそのテキストのアクセスや読み取りを自動的に行うことはできません。 グラフィックス内でテキストを使う必要がある場合は、"alt テキスト" に相当するものとして指定する [**AutomationProperties.Name**](https://docs.microsoft.com/dotnet/api/system.windows.automation.automationproperties.name?view=netframework-4.8) の値に、そのテキストまたはテキストの意味の要約を含めてください。 これは、テキスト文字をベクトルから [**Path**](/uwp/api/Windows.UI.Xaml.Shapes.Path) の一部として作成する場合や、[**Glyphs**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Documents.Glyphs) を使って作成する場合も同様です。
 
 <span id="Text_font_size"/>
 <span id="text_font_size"/>
@@ -130,7 +130,7 @@ HTML で組み込みのコントロールを使っている場合は、UIA 実�
 
 * 拡大鏡ツール、UI の選択範囲を拡大します。 アプリ内のテキストのレイアウトが困難に拡大鏡を使用して、読み取り用に行う必要があります。
 * スケールと解像度の設定をグローバル**設定]、[システムの表示]-> [-> スケールとレイアウト**します。 正確にサイズ変更オプションが使用可能なディスプレイ デバイスの機能に依存とは異なります。
-* テキスト サイズ設定**設定、アクセスの容易さの表示-> **します。 調整、**テキストを大きく**すべてのアプリケーションと画面 (すべての UWP テキスト コントロールは、テキストをカスタマイズまたはテンプレートなしのエクスペリエンスをスケーリングをサポート) 間でのサポート コントロールでテキストのサイズだけを指定する設定。 
+* テキスト サイズ設定**設定、アクセスの容易さの表示->** します。 調整、**テキストを大きく**すべてのアプリケーションと画面 (すべての UWP テキスト コントロールは、テキストをカスタマイズまたはテンプレートなしのエクスペリエンスをスケーリングをサポート) 間でのサポート コントロールでテキストのサイズだけを指定する設定。 
 > [!NOTE]
 > **すべての大きな**設定により、ユーザーのプライマリ画面のみに一般にテキストとアプリの推奨サイズを指定します。
 
@@ -172,19 +172,19 @@ private async void UISettings_TextScaleFactorChanged(Windows.UI.ViewManagement.U
 値**TextScaleFactor**が範囲内の二重\[1,2.25\]します。 最も小さい文字がこの大きさまで拡大されます。 たとえば、この値を使ってテキストに合わせてグラフィックスを拡大縮小できます。 ただし、すべてのテキストが同じ倍率で拡大縮小されるわけではないことに注意してください。 一般に、最初の状態のテキストのサイズが大きいほど、拡大縮小の影響は小さくなります。
 
 次の型に **IsTextScaleFactorEnabled** プロパティがあります。  
-* [**ContentPresenter**](https://msdn.microsoft.com/library/windows/apps/BR209378)
-* [**コントロール**](https://msdn.microsoft.com/library/windows/apps/BR209390)と派生クラス
-* [**FontIcon**](https://msdn.microsoft.com/library/windows/apps/Dn279514)
-* [**RichTextBlock**](https://msdn.microsoft.com/library/windows/apps/BR227565)
-* [**TextBlock**](https://msdn.microsoft.com/library/windows/apps/BR209652)
-* [**TextElement** ](https://msdn.microsoft.com/library/windows/apps/BR209967)と派生クラス
+* [**ContentPresenter**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ContentPresenter)
+* [**コントロール**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Control)と派生クラス
+* [**FontIcon**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.FontIcon)
+* [**RichTextBlock**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RichTextBlock)
+* [**TextBlock**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock)
+* [**TextElement** ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Documents.TextElement)と派生クラス
 
 <span id="related_topics"/>
 
 ## <a name="related-topics"></a>関連トピック  
 
 * [テキストのスケーリング](https://docs.microsoft.com/windows/uwp/design/input/text-scaling)
-* [アクセシビリティ](accessibility.md)
+* [ユーザー補助](accessibility.md)
 * [基本的なユーザー補助情報](basic-accessibility-information.md)
 * [XAML テキスト表示のサンプル](https://go.microsoft.com/fwlink/p/?linkid=238579)
 * [XAML テキスト編集のサンプル](https://go.microsoft.com/fwlink/p/?linkid=251417)

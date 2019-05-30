@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 4432362db74f830774a2c4f74401c472c128a120
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: f445b186c42095bfdf6d10fa7960b78691ced792
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57659987"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66371093"
 ---
 # <a name="xdeferloadstrategy-attribute"></a>x:DeferLoadStrategy 属性
 
@@ -33,17 +33,17 @@ ms.locfileid: "57659987"
 **x:DeferLoadStrategy** を使う際の制約を以下に示します。
 
 - 定義する必要があります、 [X:name](x-name-attribute.md) 要素にそこにある必要がありますを後で、要素を見つけることです。
-- 遅延できるのは、[**UIElement**](https://msdn.microsoft.com/library/windows/apps/br208911) または [**FlyoutBase**](https://msdn.microsoft.com/library/windows/apps/dn279249) から派生した型のみです。
-- [  **Page**](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.page)、[**UserControl**](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.usercontrol)、または [**DataTemplate**](https://msdn.microsoft.com/library/windows/apps/br242348) のルート要素は遅延できません。
-- [  **ResourceDictionary**](https://msdn.microsoft.com/library/windows/apps/br208794) の要素は遅延できません。
-- [  **XamlReader.Load**](https://msdn.microsoft.com/library/windows/apps/br228048) で読み込まれた Loose XAML は遅延できません。
+- 遅延できるのは、[**UIElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement) または [**FlyoutBase**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Primitives.FlyoutBase) から派生した型のみです。
+- [  **Page**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.page)、[**UserControl**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.usercontrol)、または [**DataTemplate**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.DataTemplate) のルート要素は遅延できません。
+- [  **ResourceDictionary**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.ResourceDictionary) の要素は遅延できません。
+- [  **XamlReader.Load**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.markup.xamlreader.load) で読み込まれた Loose XAML は遅延できません。
 - 親要素を移動すると、実現されていない要素はすべて消去されます。
 
 遅延要素を実現するには、いくつかの方法があります。
 
-- 要素に対して定義した名前を指定して [**FindName**](https://msdn.microsoft.com/library/windows/apps/br208715) を呼び出します。
-- 要素に対して定義した名前を指定して [**GetTemplateChild**](https://msdn.microsoft.com/library/windows/apps/br209416) を呼び出します。
-- [  **VisualState**](https://msdn.microsoft.com/library/windows/apps/br209007) で、遅延要素をターゲットに設定している [**Setter**](https://msdn.microsoft.com/library/windows/apps/br208817) または **Storyboard** アニメーションを使います。
+- 要素に対して定義した名前を指定して [**FindName**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.findname) を呼び出します。
+- 要素に対して定義した名前を指定して [**GetTemplateChild**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.gettemplatechild) を呼び出します。
+- [  **VisualState**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.VisualState) で、遅延要素をターゲットに設定している [**Setter**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Setter) または **Storyboard** アニメーションを使います。
 - 任意の **Storyboard** で遅延要素をターゲットに設定します。
 - 遅延要素をターゲットに設定しているバインドを使います。
 
@@ -51,17 +51,17 @@ ms.locfileid: "57659987"
 
 上に示したいずれかの方法で遅延要素が作成されると、以下の動作が発生します。
 
-- 要素の [**Loaded**](https://msdn.microsoft.com/library/windows/apps/br208723) イベントが生成されます。
+- 要素の [**Loaded**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.loaded) イベントが生成されます。
 - 要素のバインドが評価されます。
 - 遅延要素を含むプロパティに関するプロパティ変更通知を受信するように登録した場合は、通知が生成されます。
 
 遅延要素は入れ子にできますが、最も外側の要素から実体化する必要があります。  親が実体化される前に子要素を実体化しようとすると、例外が生成されます。
 
-通常は、最初のフレームに表示できないものを遅延させることをお勧めします。 遅延対象の候補を見つけるための指針の 1 つは、[**Visibility**](https://msdn.microsoft.com/library/windows/apps/br208992) が折りたたまれた状態で作成されている要素を探すことです。 また、ユーザーの操作によってトリガーされる UI は、遅延できる要素がないか探す対象として適しています。
+通常は、最初のフレームに表示できないものを遅延させることをお勧めします。 遅延対象の候補を見つけるための指針の 1 つは、[**Visibility**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.visibility) が折りたたまれた状態で作成されている要素を探すことです。 また、ユーザーの操作によってトリガーされる UI は、遅延できる要素がないか探す対象として適しています。
 
-[  **ListView**](https://msdn.microsoft.com/library/windows/apps/br242878) の遅延要素に注意してください。この場合、遅延要素により起動時間が短縮しますが、作成する内容によっては、パンのパフォーマンスも低下することがあります。 パンのパフォーマンスを向上させる方法については、[{x:Bind} マークアップ拡張](x-bind-markup-extension.md) および [x:Phase 属性](x-phase-attribute.md) に関するドキュメントをご覧ください。
+[  **ListView**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView) の遅延要素に注意してください。この場合、遅延要素により起動時間が短縮しますが、作成する内容によっては、パンのパフォーマンスも低下することがあります。 パンのパフォーマンスを向上させる方法については、[{x:Bind} マークアップ拡張](x-bind-markup-extension.md) および [x:Phase 属性](x-phase-attribute.md) に関するドキュメントをご覧ください。
 
-**x:DeferLoadStrategy** と同時に [x:Phase 属性](x-phase-attribute.md)を使った場合、要素または要素ツリーが実体化されると、バインディングが現在のフェーズまで (現在のフェーズを含めて) 適用されます。 **x:Phase** に指定されたフェーズによって、要素の遅延が影響または制御されることはありません。 パンの一部としてリスト項目がリサイクルされると、実体化された要素は、アクティブな他の要素と同じように機能し、コンパイル済みバインド (**{x:Bind}** バインディング) は同じルール (フェージングを含む) を使って処理されます。
+**x:DeferLoadStrategy** と同時に [x:Phase 属性](x-phase-attribute.md)を使った場合、要素または要素ツリーが実体化されると、バインディングが現在のフェーズまで (現在のフェーズを含めて) 適用されます。 **x:Phase** に指定されたフェーズによって、要素の遅延が影響または制御されることはありません。 パンの一部としてリスト項目がリサイクルされると、実体化された要素は、アクティブな他の要素と同じように機能し、コンパイル済みバインド ( **{x:Bind}** バインディング) は同じルール (フェージングを含む) を使って処理されます。
 
 一般的なガイドラインでは、必要なパフォーマンスが得られていることを確認するために、作業の前と後にアプリのパフォーマンスを測定します。
 

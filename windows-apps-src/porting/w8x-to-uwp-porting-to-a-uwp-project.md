@@ -6,27 +6,27 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: c7a40d81171113656a39dda2fe02e0701fdd8ba4
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: fac31b773c2326f8a9e0ed50cdf876552fee5689
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57596657"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66372251"
 ---
 # <a name="porting-a-windows-runtime-8x-project-to-a-uwp-project"></a>Windows ランタイム 8.x プロジェクトの UWP プロジェクトへの移植
 
 
 
-移植プロセスを開始するとき、2 つの方法から選ぶことができます。 1 つは、既にあるプロジェクト ファイル (アプリ パッケージ マニフェストなど) のコピーを編集する方法です。この方法については、「[アプリをユニバーサル Windows プラットフォーム (UWP) へ移行する](https://msdn.microsoft.com/library/mt148501.aspx)」に記載されているプロジェクト ファイルの更新に関する説明をご覧ください。 その他のオプションでは、Visual Studio で新しい Windows 10 プロジェクトを作成し、ファイルをコピーします。 このトピックの最初のセクションでは、2 番目の方法について説明しますが、トピックの他の部分では、両方の方法に適用できる追加情報について説明します。 既存のプロジェクトと同じソリューションに新しい Windows 10 プロジェクトを保持し、共有プロジェクトを使用してソース コード ファイルを共有することもできます。 また、新しいプロジェクトを独自のソリューションに保持しておき、Visual Studio のリンク ファイル機能を使ってソース コード ファイルを共有することもできます。
+移植プロセスを開始するとき、2 つの方法から選ぶことができます。 1 つは、既にあるプロジェクト ファイル (アプリ パッケージ マニフェストなど) のコピーを編集する方法です。この方法については、「[アプリをユニバーサル Windows プラットフォーム (UWP) へ移行する](https://docs.microsoft.com/visualstudio/misc/migrate-apps-to-the-universal-windows-platform-uwp?view=vs-2015)」に記載されているプロジェクト ファイルの更新に関する説明をご覧ください。 その他のオプションでは、Visual Studio で新しい Windows 10 プロジェクトを作成し、ファイルをコピーします。 このトピックの最初のセクションでは、2 番目の方法について説明しますが、トピックの他の部分では、両方の方法に適用できる追加情報について説明します。 既存のプロジェクトと同じソリューションに新しい Windows 10 プロジェクトを保持し、共有プロジェクトを使用してソース コード ファイルを共有することもできます。 また、新しいプロジェクトを独自のソリューションに保持しておき、Visual Studio のリンク ファイル機能を使ってソース コード ファイルを共有することもできます。
 
 ## <a name="create-the-project-and-copy-files-to-it"></a>プロジェクトを作成し、ファイルをコピーする
 
 次の手順は、Visual Studio で新しい Windows 10 プロジェクトを作成し、ファイルをコピーするオプションに注目します。 作成するプロジェクトの数およびコピーするファイルに関する一部の仕様は、「[ユニバーサル 8.1 アプリがある場合](w8x-to-uwp-root.md)」や、それに続くセクションで説明されている要因と決定事項によって異なります。 次の手順では、最もシンプルなケースを前提としています。
 
-1.  Microsoft Visual Studio 2015 を起動し、新しい空のアプリケーション (ユニバーサル Windows) プロジェクトを作成します。 詳細については、次を参照してください。 [Jumpstart、Windows ランタイム 8.x アプリのテンプレートを使用して (C#、C++、Visual Basic)](https://msdn.microsoft.com/library/windows/apps/hh768232)します。 新しいプロジェクトによって、すべてのデバイス ファミリで実行される 1 つのアプリ パッケージ (appx ファイル) が構築されます。
+1.  Microsoft Visual Studio 2015 を起動し、新しい空のアプリケーション (ユニバーサル Windows) プロジェクトを作成します。 詳細については、次を参照してください。 [Jumpstart、Windows ランタイム 8.x アプリのテンプレートを使用して (C#、C++、Visual Basic)](https://docs.microsoft.com/previous-versions/windows/apps/hh768232(v=win.10))します。 新しいプロジェクトによって、すべてのデバイス ファミリで実行される 1 つのアプリ パッケージ (appx ファイル) が構築されます。
 2.  ユニバーサル 8.1 アプリ プロジェクトで、再利用するすべてのソース コード ファイルとビジュアル アセット ファイルを確認します。 エクスプローラーを使って、データ モデル、ビュー モデル、ビジュアル アセット、リソース ディクショナリ、フォルダー構造、および再利用するその他すべての要素を、新しいプロジェクトにコピーします。 必要に応じて、ディスクにサブフォルダーをコピーするか、作成します。
 3.  新しいプロジェクトに、ビュー (たとえば MainPage.xaml、MainPage.xaml.cs など) もコピーします。 ここでも、必要に応じて新しいサブフォルダーを作成し、プロジェクトから既にあるビューを削除します。 ただし、Visual Studio が生成したビューを上書きまたは削除する前に、後で参照するときに役立つ場合があるため、コピーを保存しておきます。 ユニバーサル 8.1 アプリを移植する最初のフェーズでは、1 つのデバイス ファミリでアプリが適切に表示され機能することを重視します。 その後で、すべてのフォーム ファクターに対してビューを適切に対応させることに重点を置きます。必要に応じて、特定のデバイス ファミリを最大限に活用できるように、アダプティブ コードを追加します。
-4.  **ソリューション エクスプローラー**で、**[すべてのファイルを表示]** がオンであることを確認します。 コピーしたファイルを選択して右クリックし、**[プロジェクトに含める]** をクリックします。 これによって、含まれるフォルダーが自動的に取り込まれます。 後で必要に応じて、**[すべてのファイルを表示]** をオフに切り替えることができます。 代替ワークフローとして、**[既存項目の追加]** コマンドを使って Visual Studio **ソリューション エクスプローラー**で必要なすべてのサブフォルダーを作成することもできます。 ビジュアル アセットで、**[ビルド アクション]** が **[コンテンツ]** に設定されており、**[出力ディレクトリにコピー]** が **[コピーしない]** に設定されていることを確認します。
+4.  **ソリューション エクスプローラー**で、 **[すべてのファイルを表示]** がオンであることを確認します。 コピーしたファイルを選択して右クリックし、 **[プロジェクトに含める]** をクリックします。 これによって、含まれるフォルダーが自動的に取り込まれます。 後で必要に応じて、 **[すべてのファイルを表示]** をオフに切り替えることができます。 代替ワークフローとして、 **[既存項目の追加]** コマンドを使って Visual Studio **ソリューション エクスプローラー**で必要なすべてのサブフォルダーを作成することもできます。 ビジュアル アセットで、 **[ビルド アクション]** が **[コンテンツ]** に設定されており、 **[出力ディレクトリにコピー]** が **[コピーしない]** に設定されていることを確認します。
 5.  この段階では、ビルド エラーが発生する可能性があります。 ただし、どのような変更が必要であるかを理解している場合は、Visual Studio の **[検索と置換]** コマンドを使って、ソース コードに対して一括変更を実行できます。また Visual Studio の命令型コード エディターで、コンテキスト メニューの **[解決]** コマンドと **[using の整理]** コマンドを使って、よりターゲットを絞った変更を実行することもできます。
 
 ## <a name="maximizing-markup-and-code-reuse"></a>マークアップとコードを最大限に再利用する
@@ -39,7 +39,7 @@ ms.locfileid: "57596657"
 -   Windows 10 をサポートするためにのみ必要がある場合は、8.1 ユニバーサル アプリのソース コードで、多くの条件付きコンパイル ディレクティブを削除する必要があります。 このトピックの「[条件付きコンパイルとアダプティブ コード](#conditional-compilation-and-adaptive-code)」をご覧ください。
 -   一部のデバイス ファミリでのみ利用できる機能 (プリンター、スキャナー、またはカメラのボタンなど) を使うには、アダプティブ コードを記述します。 このトピックの「[条件付きコンパイルとアダプティブ コード](#conditional-compilation-and-adaptive-code)」に記載されている 3 番目の例をご覧ください。
 -   コード型の Windows 8.1、Windows Phone 8.1、および Windows 10 をサポートする場合は、同じソリューション内の 3 つのプロジェクトのまま共有プロジェクトでコードを共有したりできます。 または、プロジェクト間でソース コード ファイルを共有することができます。 Visual Studio でこのような処理を行うには、**ソリューション エクスプローラー**でプロジェクトを右クリックして **[既存項目の追加]** を選択し、共有するファイルを選択して **[リンクとして追加]** をクリックします。 リンクしたプロジェクトを確認できるファイル システム上の共通のフォルダーにソース コード ファイルを格納します。 また、ソース コントロールに追加することを忘れないでください。
--   ソース コード レベルではなくバイナリ レベルでの再利用については、「[C# および Visual Basic での Windows ランタイム コンポーネントの作成](https://msdn.microsoft.com/library/windows/apps/xaml/br230301.aspx)」をご覧ください。 ポータブル クラス ライブラリでは、Windows 8.1、Windows Phone 8.1、および Windows 10 アプリ (.NET Core) の .NET Framework と完全な .NET Framework で利用できる .NET Api のサブセットのサポートもあります。 ポータブル クラス ライブラリ アセンブリは、これらのプラットフォームすべてとバイナリ レベルで互換性があります。 Visual Studio を使って、ポータブル クラス ライブラリをターゲットとするプロジェクトを作成します。 「[汎用性のあるクラス ライブラリを使用したプラットフォーム間の開発](https://msdn.microsoft.com/library/gg597391.aspx)」をご覧ください。
+-   ソース コード レベルではなくバイナリ レベルでの再利用については、「[C# および Visual Basic での Windows ランタイム コンポーネントの作成](https://docs.microsoft.com/previous-versions/windows/apps/br230301(v=vs.140))」をご覧ください。 ポータブル クラス ライブラリでは、Windows 8.1、Windows Phone 8.1、および Windows 10 アプリ (.NET Core) の .NET Framework と完全な .NET Framework で利用できる .NET Api のサブセットのサポートもあります。 ポータブル クラス ライブラリ アセンブリは、これらのプラットフォームすべてとバイナリ レベルで互換性があります。 Visual Studio を使って、ポータブル クラス ライブラリをターゲットとするプロジェクトを作成します。 「[汎用性のあるクラス ライブラリを使用したプラットフォーム間の開発](https://docs.microsoft.com/dotnet/standard/cross-platform/cross-platform-development-with-the-portable-class-library)」をご覧ください。
 
 ## <a name="extension-sdks"></a>拡張 SDK
 
@@ -47,7 +47,7 @@ ms.locfileid: "57596657"
 
 検出できなかった名前空間、型、メンバーについてのコンパイル エラーが発生した場合は、上記のことが原因となる可能性があります。 API リファレンス ドキュメントで API のトピックを表示し、要件に関するセクションに移動します。このセクションでは、どのようなデバイス ファミリが API を実装するかが示されています。 ターゲット デバイス ファミリが示されていない場合は、プロジェクトで API を利用できるようにするために、そのデバイス ファミリ用の拡張 SDK に対する参照が必要になります。
 
-をクリックして**プロジェクト** &gt; **参照の追加** &gt; **Windows Universal** &gt; **拡張**と適切な拡張機能 SDK を選択します。 たとえば、呼び出す API がモバイル デバイス ファミリでのみ利用可能であり、それらの API がバージョン 10.0.x.y で導入されている場合は、**[Windows Mobile Extensions for the UWP]** を選びます。
+をクリックして**プロジェクト** &gt; **参照の追加** &gt; **Windows Universal** &gt; **拡張**と適切な拡張機能 SDK を選択します。 たとえば、呼び出す API がモバイル デバイス ファミリでのみ利用可能であり、それらの API がバージョン 10.0.x.y で導入されている場合は、 **[Windows Mobile Extensions for the UWP]** を選びます。
 
 これにより、次の参照がプロジェクト ファイルに追加されます。
 
@@ -63,7 +63,7 @@ ms.locfileid: "57596657"
 
 `\Program Files (x86)\Windows Kits\10\Extension SDKs\WindowsMobile\10.0.x.y`
 
-API を実装するデバイス ファミリがアプリのターゲットではない場合は、[**ApiInformation**](https://msdn.microsoft.com/library/windows/apps/dn949001) クラスを使って、API を呼び出す前に API の有無をテストする必要があります (これはアダプティブ コードと呼ばれます)。 このテストの条件は、アプリの実行時に必ず評価されますが、API が存在するデバイスに対してのみ true と評価され、呼び出しが可能になります。 ユニバーサル API が存在するかどうかを最初に確認した後では、拡張 SDK とアダプティブ コードのみを使います。 次のセクションで、例をいくつか示します。
+API を実装するデバイス ファミリがアプリのターゲットではない場合は、[**ApiInformation**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Metadata.ApiInformation) クラスを使って、API を呼び出す前に API の有無をテストする必要があります (これはアダプティブ コードと呼ばれます)。 このテストの条件は、アプリの実行時に必ず評価されますが、API が存在するデバイスに対してのみ true と評価され、呼び出しが可能になります。 ユニバーサル API が存在するかどうかを最初に確認した後では、拡張 SDK とアダプティブ コードのみを使います。 次のセクションで、例をいくつか示します。
 
 「[アプリ パッケージ マニフェスト](#app-package-manifest)」もご覧ください。
 
@@ -83,7 +83,7 @@ API を実装するデバイス ファミリがアプリのターゲットでは
 #endif // WINDOWS_APP
 ```
 
-Windows 10 の集約、 [ **PickSingleFileAsync** ](https://msdn.microsoft.com/library/windows/apps/jj635275) API は、このコードが簡素化します。
+Windows 10 の集約、 [ **PickSingleFileAsync** ](https://docs.microsoft.com/uwp/api/windows.storage.pickers.fileopenpicker.picksinglefileasync) API は、このコードが簡素化します。
 
 ```csharp
     // Use Windows.Storage.Pickers.FileOpenPicker.PickSingleFileAsync
@@ -106,7 +106,7 @@ Windows 10 の集約、 [ **PickSingleFileAsync** ](https://msdn.microsoft.com/l
 #endif // WINDOWS_PHONE_APP
 ```
 
-Windows 10 では、[戻る] ボタンのイベントは、ユニバーサル概念です。 ハードウェアまたはソフトウェアに実装されているすべての "戻る" ボタンでは [**BackRequested**](https://msdn.microsoft.com/library/windows/apps/dn893596) イベントが発生するため、このイベントを処理します。
+Windows 10 では、[戻る] ボタンのイベントは、ユニバーサル概念です。 ハードウェアまたはソフトウェアに実装されているすべての "戻る" ボタンでは [**BackRequested**](https://docs.microsoft.com/uwp/api/windows.ui.core.systemnavigationmanager.backrequested) イベントが発生するため、このイベントを処理します。
 
 ```csharp
     Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested +=
@@ -137,7 +137,7 @@ void HardwareButtons_CameraPressed(object sender, Windows.Phone.UI.Input.CameraE
 #endif // WINDOWS_PHONE_APP
 ```
 
-Windows 10 では、ハードウェア カメラ ボタンは、モバイル デバイス ファミリに特定の概念です。 1 つのアプリ パッケージがすべてのデバイスで実行されるため、アダプティブ コードと呼ばれる手法を使って、コンパイル時の条件を実行時の条件に変更します。 そのためには、[**ApiInformation**](https://msdn.microsoft.com/library/windows/apps/dn949001) クラスを使って、実行時に [**HardwareButtons**](https://msdn.microsoft.com/library/windows/apps/jj207557) クラスの有無を照会します。 **HardwareButtons** は、モバイル拡張 SDK で定義されているため、その SDK への参照をプロジェクトに追加して、このコードをコンパイルする必要があります。 ただし、ハンドラーはモバイル拡張 SDK で定義されている型を実装するデバイスでのみ実行されることに注意してください。このようなデバイスは、モバイル デバイス ファミリに該当します。 このコードは事実上ユニバーサル 8.1 コードと同等のコードとなるため、このコードでは存在する機能のみを使うように注意してください。これは、別の方法で実施することもできます。
+Windows 10 では、ハードウェア カメラ ボタンは、モバイル デバイス ファミリに特定の概念です。 1 つのアプリ パッケージがすべてのデバイスで実行されるため、アダプティブ コードと呼ばれる手法を使って、コンパイル時の条件を実行時の条件に変更します。 そのためには、[**ApiInformation**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Metadata.ApiInformation) クラスを使って、実行時に [**HardwareButtons**](https://docs.microsoft.com/uwp/api/Windows.Phone.UI.Input.HardwareButtons) クラスの有無を照会します。 **HardwareButtons** は、モバイル拡張 SDK で定義されているため、その SDK への参照をプロジェクトに追加して、このコードをコンパイルする必要があります。 ただし、ハンドラーはモバイル拡張 SDK で定義されている型を実装するデバイスでのみ実行されることに注意してください。このようなデバイスは、モバイル デバイス ファミリに該当します。 このコードは事実上ユニバーサル 8.1 コードと同等のコードとなるため、このコードでは存在する機能のみを使うように注意してください。これは、別の方法で実施することもできます。
 
 ```csharp
     // Note: Cache the value instead of querying it more than once.
@@ -162,18 +162,18 @@ private void HardwareButtons_CameraPressed(object sender, Windows.Phone.UI.Input
 
 ## <a name="app-package-manifest"></a>アプリ パッケージ マニフェスト
 
-[Windows 10 での変更点](https://msdn.microsoft.com/library/windows/apps/dn705793)トピックでは、追加、削除されると、および変更された要素を含む、Windows 10 用パッケージのマニフェスト スキーマ リファレンスへの変更を示します。 このスキーマのすべての要素、属性、タイプに関するリファレンス情報については、「[要素の階層](https://msdn.microsoft.com/library/windows/apps/dn934819)」をご覧ください。 Windows Phone ストア アプリを移植する場合、または Windows Phone ストアのアプリに対する更新となるアプリを作成する場合は、**pm:PhoneIdentity** 要素が、以前のアプリのアプリ マニフェストの値と一致していることを確認してください (ストアからアプリに割り当てられたものと同じ GUID を使用してください)。 これにより、アプリのユーザーが Windows 10 にアップグレードした場合に、新しいアプリが確実に更新プログラムとして配布され、アプリの重複を避けることができます。 詳しくは、[**pm:PhoneIdentity**](https://msdn.microsoft.com/library/windows/apps/dn934763) のリファレンス トピックをご覧ください。
+[Windows 10 での変更点](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/what-s-changed-in-windows-10)トピックでは、追加、削除されると、および変更された要素を含む、Windows 10 用パッケージのマニフェスト スキーマ リファレンスへの変更を示します。 このスキーマのすべての要素、属性、タイプに関するリファレンス情報については、「[要素の階層](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/root-elements)」をご覧ください。 Windows Phone ストア アプリを移植する場合、または Windows Phone ストアのアプリに対する更新となるアプリを作成する場合は、**pm:PhoneIdentity** 要素が、以前のアプリのアプリ マニフェストの値と一致していることを確認してください (ストアからアプリに割り当てられたものと同じ GUID を使用してください)。 これにより、アプリのユーザーが Windows 10 にアップグレードした場合に、新しいアプリが確実に更新プログラムとして配布され、アプリの重複を避けることができます。 詳しくは、[**pm:PhoneIdentity**](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-pm-phoneidentity) のリファレンス トピックをご覧ください。
 
-プロジェクトの設定 (すべての拡張 SDK の参照を含む) により、アプリが呼び出すことができる API サーフェス領域が決定されます。 ただし、ユーザーがアプリをストアからインストールできる実際のデバイスのセットを決定するのは、アプリ パッケージ マニフェストです。 詳しくは、「[**TargetDeviceFamily**](https://msdn.microsoft.com/library/windows/apps/dn986903)」の例をご覧ください。
+プロジェクトの設定 (すべての拡張 SDK の参照を含む) により、アプリが呼び出すことができる API サーフェス領域が決定されます。 ただし、ユーザーがアプリをストアからインストールできる実際のデバイスのセットを決定するのは、アプリ パッケージ マニフェストです。 詳しくは、「[**TargetDeviceFamily**](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-targetdevicefamily)」の例をご覧ください。
 
-さまざまな宣言、機能、および一部の機能で必要となる他の設定を指定するように、アプリ パッケージ マニフェストを編集できます。 Visual Studio アプリ パッケージ マニフェスト エディターを使って、編集できます。 **ソリューション エクスプローラー**が表示されていない場合は、**[表示]** メニューから選択します。 **[Package.appxmanifest]** をダブルクリックします。 マニフェスト エディター ウィンドウが開きます。 変更する適切なタブを選び、保存します。
+さまざまな宣言、機能、および一部の機能で必要となる他の設定を指定するように、アプリ パッケージ マニフェストを編集できます。 Visual Studio アプリ パッケージ マニフェスト エディターを使って、編集できます。 **ソリューション エクスプローラー**が表示されていない場合は、 **[表示]** メニューから選択します。 **[Package.appxmanifest]** をダブルクリックします。 マニフェスト エディター ウィンドウが開きます。 変更する適切なタブを選び、保存します。
 
 次のトピックは「[トラブルシューティング](w8x-to-uwp-troubleshooting.md)」です。
 
 ## <a name="related-topics"></a>関連トピック
 
-* [ユニバーサル Windows プラットフォーム用アプリを開発します。](https://msdn.microsoft.com/library/dn975273.aspx)
-* [Jumpstart、Windows ランタイム 8.x アプリのテンプレートを使用して (C#、C++、Visual Basic)](https://msdn.microsoft.com/library/windows/apps/hh768232)
-* [Windows ランタイム コンポーネントの作成](https://msdn.microsoft.com/library/windows/apps/xaml/hh441572.aspx)
-* [ポータブル クラス ライブラリを使用したクロス プラットフォーム開発](https://msdn.microsoft.com/library/gg597391.aspx)
+* [ユニバーサル Windows プラットフォーム用アプリを開発します。](https://docs.microsoft.com/visualstudio/cross-platform/develop-apps-for-the-universal-windows-platform-uwp?view=vs-2015)
+* [Jumpstart、Windows ランタイム 8.x アプリのテンプレートを使用して (C#、C++、Visual Basic)](https://docs.microsoft.com/previous-versions/windows/apps/hh768232(v=win.10))
+* [Windows ランタイム コンポーネントの作成](https://docs.microsoft.com/previous-versions/windows/apps/hh441572(v=vs.140))
+* [ポータブル クラス ライブラリを使用したクロス プラットフォーム開発](https://docs.microsoft.com/dotnet/standard/cross-platform/cross-platform-development-with-the-portable-class-library)
 

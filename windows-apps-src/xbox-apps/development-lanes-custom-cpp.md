@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 6ae36021-94d3-43df-9e96-69a93cfe8b56
 ms.localizationpriority: medium
-ms.openlocfilehash: 23dfb8843ed8e70fc6f979bd778a517d0c30327a
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 585289fdc66b8730036f3d14faeafce8c22c09a7
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57613877"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66371359"
 ---
 # <a name="bring-custom-c-games-to-uwp-on-xbox"></a>カスタム C++ ゲームを Xbox の UWP に移行する
 
@@ -19,7 +19,7 @@ ms.locfileid: "57613877"
 
 ユニバーサル Windows プラットフォーム (UWP) の C++ ゲームは、レンダリングに DirectX を使用します。 詳しくは、「[DirectX のグラフィックスとゲーミング](https://msdn.microsoft.com/library/windows/desktop/ee663274(v=vs.85).aspx)」をご覧ください。
 
-開発には、[C++ コンポーネント拡張機能](https://msdn.microsoft.com/library/windows/apps/hh699871.aspx) (C++/CX) または[標準 C++](https://msdn.microsoft.com/library/windows/apps/mt592904.aspx) (Win32 と COM) を使うことができます。
+開発には、[C++ コンポーネント拡張機能](https://docs.microsoft.com/cpp/cppcx/visual-c-language-reference-c-cx) (C++/CX) または[標準 C++](https://docs.microsoft.com/uwp/win32-and-com/win32-and-com-for-uwp-apps) (Win32 と COM) を使うことができます。
 
 コンソールを開発キットとして使用する方法と Visual Studio から展開する方法については、「[ゲームと DirectX](../gaming/index.md)」および「[ファースト ステップ ガイド](getting-started.md)」をご覧ください。
 

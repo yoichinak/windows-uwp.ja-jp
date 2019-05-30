@@ -6,26 +6,26 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 304c023251a15995ce15f5b3d846c662797661cd
-ms.sourcegitcommit: bad7ed6def79acbb4569de5a92c0717364e771d9
+ms.openlocfilehash: 988cd2fafbb0cd632711dc2eaa5f6a6db8eed7e4
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59244328"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66371383"
 ---
 # <a name="httpclient"></a>HttpClient
 
 **重要な API**
 
--   [**HttpClient**](https://msdn.microsoft.com/library/windows/apps/dn298639)
--   [**Windows.Web.Http**](https://msdn.microsoft.com/library/windows/apps/dn279692)
--   [**Windows.Web.Http.HttpResponseMessage**](https://msdn.microsoft.com/library/windows/apps/dn279631)
+-   [**HttpClient**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpClient)
+-   [**Windows.Web.Http**](https://docs.microsoft.com/uwp/api/Windows.Web.Http)
+-   [**Windows.Web.Http.HttpResponseMessage**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpResponseMessage)
 
-HTTP 2.0 プロトコルと HTTP 1.1 プロトコルを使って情報を送受信するには、[**HttpClient**](https://msdn.microsoft.com/library/windows/apps/dn298639) とその他の [**Windows.Web.Http**](https://msdn.microsoft.com/library/windows/apps/dn279692) 名前空間 API を使います。
+HTTP 2.0 プロトコルと HTTP 1.1 プロトコルを使って情報を送受信するには、[**HttpClient**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpClient) とその他の [**Windows.Web.Http**](https://docs.microsoft.com/uwp/api/Windows.Web.Http) 名前空間 API を使います。
 
 ## <a name="overview-of-httpclient-and-the-windowswebhttp-namespace"></a>HttpClient と Windows.Web.Http 名前空間の概要
 
-[  **Windows.Web.Http**](https://msdn.microsoft.com/library/windows/apps/dn279692) 名前空間、関連する [**Windows.Web.Http.Headers**](https://msdn.microsoft.com/library/windows/apps/dn252713) 名前空間、[**Windows.Web.Http.Filters**](https://msdn.microsoft.com/library/windows/apps/dn298623) 名前空間のクラスには、基本的な GET 要求を実行したり、次のようなさらに高度な HTTP 機能を実装したりするための HTTP クライアントとして動作する、ユニバーサル Windows プラットフォーム (UWP) アプリ用のプログラミング インターフェイスが用意されています。
+[  **Windows.Web.Http**](https://docs.microsoft.com/uwp/api/Windows.Web.Http) 名前空間、関連する [**Windows.Web.Http.Headers**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.Headers) 名前空間、[**Windows.Web.Http.Filters**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.Filters) 名前空間のクラスには、基本的な GET 要求を実行したり、次のようなさらに高度な HTTP 機能を実装したりするための HTTP クライアントとして動作する、ユニバーサル Windows プラットフォーム (UWP) アプリ用のプログラミング インターフェイスが用意されています。
 
 -   一般的な動詞 (**DELETE**、**GET**、**PUT**、**POST**) に対応するメソッド。 これらの各要求は、非同期操作として送られます。
 
@@ -39,25 +39,25 @@ HTTP 2.0 プロトコルと HTTP 1.1 プロトコルを使って情報を送受�
 
 -   非同期メソッドで利用可能な HTTP 要求の進行状況情報。
 
-[  **Windows.Web.Http.HttpRequestMessage**](https://msdn.microsoft.com/library/windows/apps/dn279617) クラスは、[**Windows.Web.Http.HttpClient**](https://msdn.microsoft.com/library/windows/apps/dn298639) から送られた HTTP 要求メッセージを表します。 [  **Windows.Web.Http.HttpResponseMessage**](https://msdn.microsoft.com/library/windows/apps/dn279631) クラスは、HTTP 要求から受け取った HTTP 応答メッセージを表します。 HTTP メッセージは、IETF によって [RFC 2616](https://go.microsoft.com/fwlink/p/?linkid=241642) で規定されています。
+[  **Windows.Web.Http.HttpRequestMessage**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpRequestMessage) クラスは、[**Windows.Web.Http.HttpClient**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpClient) から送られた HTTP 要求メッセージを表します。 [  **Windows.Web.Http.HttpResponseMessage**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpResponseMessage) クラスは、HTTP 要求から受け取った HTTP 応答メッセージを表します。 HTTP メッセージは、IETF によって [RFC 2616](https://go.microsoft.com/fwlink/p/?linkid=241642) で規定されています。
 
-[  **Windows.Web.Http**](https://msdn.microsoft.com/library/windows/apps/dn279692) 名前空間は、クッキーを含む HTTP エンティティ ボディおよびヘッダーとして HTTP コンテンツを表します。 HTTP コンテンツは、HTTP 要求または HTTP 応答に関連付けることができます。 **Windows.Web.Http** 名前空間には、HTTP コンテンツを表す多数のさまざまなクラスが用意されています。
+[  **Windows.Web.Http**](https://docs.microsoft.com/uwp/api/Windows.Web.Http) 名前空間は、クッキーを含む HTTP エンティティ ボディおよびヘッダーとして HTTP コンテンツを表します。 HTTP コンテンツは、HTTP 要求または HTTP 応答に関連付けることができます。 **Windows.Web.Http** 名前空間には、HTTP コンテンツを表す多数のさまざまなクラスが用意されています。
 
--   [**HttpBufferContent**](https://msdn.microsoft.com/library/windows/apps/dn298625)します。 バッファーとしてのコンテンツ。
--   [**HttpFormUrlEncodedContent**](https://msdn.microsoft.com/library/windows/apps/dn298685)します。 **application/x-www-form-urlencoded** MIME タイプでエンコードされた名前と値の組としてのコンテンツ。
--   [**HttpMultipartContent**](https://msdn.microsoft.com/library/windows/apps/dn298708)します。 コンテンツの形式で、**マルチパート/\***  MIME の種類。
--   [**HttpMultipartFormDataContent**](https://msdn.microsoft.com/library/windows/apps/dn279596)します。 **multipart/form-data** MIME タイプとしてエンコードされているコンテンツ。
--   [**HttpStreamContent**](https://msdn.microsoft.com/library/windows/apps/dn279649)します。 ストリームとしてのコンテンツ (この内部タイプは、HTTP GET メソッドでのデータの受信、および HTTP POST メソッドでのデータのアップロードに使われます)。
--   [**HttpStringContent**](https://msdn.microsoft.com/library/windows/apps/dn279661)します。 文字列としてのコンテンツ。
--   [**IHttpContent** ](https://msdn.microsoft.com/library/windows/apps/dn279684) -独自のコンテンツ オブジェクトを作成する開発者向けの基本インターフェイス
+-   [**HttpBufferContent**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpBufferContent)します。 バッファーとしてのコンテンツ。
+-   [**HttpFormUrlEncodedContent**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpFormUrlEncodedContent)します。 **application/x-www-form-urlencoded** MIME タイプでエンコードされた名前と値の組としてのコンテンツ。
+-   [**HttpMultipartContent**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpMultipartContent)します。 コンテンツの形式で、**マルチパート/\***  MIME の種類。
+-   [**HttpMultipartFormDataContent**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpMultipartFormDataContent)します。 **multipart/form-data** MIME タイプとしてエンコードされているコンテンツ。
+-   [**HttpStreamContent**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpStreamContent)します。 ストリームとしてのコンテンツ (この内部タイプは、HTTP GET メソッドでのデータの受信、および HTTP POST メソッドでのデータのアップロードに使われます)。
+-   [**HttpStringContent**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpStringContent)します。 文字列としてのコンテンツ。
+-   [**IHttpContent** ](https://docs.microsoft.com/uwp/api/Windows.Web.Http.IHttpContent) -独自のコンテンツ オブジェクトを作成する開発者向けの基本インターフェイス
 
-「HTTP 経由でシンプルな GET 要求を送信する」セクションのコード スニペットでは、[**HttpStringContent**](https://msdn.microsoft.com/library/windows/apps/dn279661) クラスを使って、HTTP GET 要求からの HTTP 応答を文字列として表しています。
+「HTTP 経由でシンプルな GET 要求を送信する」セクションのコード スニペットでは、[**HttpStringContent**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpStringContent) クラスを使って、HTTP GET 要求からの HTTP 応答を文字列として表しています。
 
-[  **Windows.Web.Http.Headers**](https://msdn.microsoft.com/library/windows/apps/dn252713) 名前空間では、HTTP ヘッダーと Cookie の作成がサポートされます。これらはプロパティとして、[**HttpRequestMessage**](https://msdn.microsoft.com/library/windows/apps/dn279617) オブジェクトと [**HttpResponseMessage**](https://msdn.microsoft.com/library/windows/apps/dn279631) オブジェクトに関連付けられます。
+[  **Windows.Web.Http.Headers**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.Headers) 名前空間では、HTTP ヘッダーと Cookie の作成がサポートされます。これらはプロパティとして、[**HttpRequestMessage**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpRequestMessage) オブジェクトと [**HttpResponseMessage**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpResponseMessage) オブジェクトに関連付けられます。
 
 ## <a name="send-a-simple-get-request-over-http"></a>HTTP 経由でシンプルな GET 要求を送信する
 
-この記事の中で既に説明したように、[**Windows.Web.Http**](https://msdn.microsoft.com/library/windows/apps/dn279692) 名前空間は、UWP アプリで GET 要求を送信できるようにします。 次のコード スニペットは、GET 要求を送信する方法を示します http://www.contoso.comを使用して、 [ **Windows.Web.Http.HttpClient** ](https://msdn.microsoft.com/library/windows/apps/dn298639)クラスおよび[ **Windows.Web.Http.HttpResponseMessage** ](https://msdn.microsoft.com/library/windows/apps/dn279631) GET 要求から応答を読み取るクラス。
+この記事の中で既に説明したように、[**Windows.Web.Http**](https://docs.microsoft.com/uwp/api/Windows.Web.Http) 名前空間は、UWP アプリで GET 要求を送信できるようにします。 次のコード スニペットは、GET 要求を送信する方法を示します http://www.contoso.comを使用して、 [ **Windows.Web.Http.HttpClient** ](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpClient)クラスおよび[ **Windows.Web.Http.HttpResponseMessage** ](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpResponseMessage) GET 要求から応答を読み取るクラス。
 
 ```csharp
 //Create an HTTP client object
@@ -232,19 +232,19 @@ int main()
 
 ## <a name="exceptions-in-windowswebhttp"></a>Windows.Web.Http の例外
 
-Uniform Resource Identifier (URI) として無効な文字列が、[**Windows.Foundation.Uri**](https://msdn.microsoft.com/library/windows/apps/br225998) オブジェクトのコンストラクターに渡されると、例外がスローされます。
+Uniform Resource Identifier (URI) として無効な文字列が、[**Windows.Foundation.Uri**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Uri) オブジェクトのコンストラクターに渡されると、例外がスローされます。
 
-**.NET:**  、 [ **Windows.Foundation.Uri** ](https://msdn.microsoft.com/library/windows/apps/br225998)種類[ **System.Uri** ](https://msdn.microsoft.com/library/windows/apps/xaml/system.uri.aspx)でC#とVB.
+**.NET:**   、 [ **Windows.Foundation.Uri** ](https://docs.microsoft.com/uwp/api/Windows.Foundation.Uri)種類[ **System.Uri** ](https://docs.microsoft.com/dotnet/api/system.uri?redirectedfrom=MSDN)でC#とVB.
 
-C# や Visual Basic では、.NET 4.5 の [**System.Uri**](https://msdn.microsoft.com/library/windows/apps/xaml/system.uri.aspx) クラスと、[**System.Uri.TryCreate**](https://msdn.microsoft.com/library/windows/apps/xaml/system.uri.trycreate.aspx) メソッドの 1 つを使って、URI が作成される前にユーザーから受け取った文字列をテストすることによって、このエラーを回避できます。
+C# や Visual Basic では、.NET 4.5 の [**System.Uri**](https://docs.microsoft.com/dotnet/api/system.uri?redirectedfrom=MSDN) クラスと、[**System.Uri.TryCreate**](https://docs.microsoft.com/dotnet/api/system.uri.trycreate?redirectedfrom=MSDN#overloads) メソッドの 1 つを使って、URI が作成される前にユーザーから受け取った文字列をテストすることによって、このエラーを回避できます。
 
-C++ では、URI として渡される文字列を試行して解析するメソッドはありません。 アプリがユーザーから [**Windows.Foundation.Uri**](https://msdn.microsoft.com/library/windows/apps/br225998) の入力を取得する場合、このコンストラクターを try/catch ブロックに配置する必要があります。 例外がスローされた場合、アプリは、ユーザーに通知し、新しいホスト名を要求することができます。
+C++ では、URI として渡される文字列を試行して解析するメソッドはありません。 アプリがユーザーから [**Windows.Foundation.Uri**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Uri) の入力を取得する場合、このコンストラクターを try/catch ブロックに配置する必要があります。 例外がスローされた場合、アプリは、ユーザーに通知し、新しいホスト名を要求することができます。
 
-[  **Windows.Web.Http**](https://msdn.microsoft.com/library/windows/apps/dn279692) には便利な関数がありません。 そのため、この名前空間の [**HttpClient**](https://msdn.microsoft.com/library/windows/apps/dn298639) と他のクラスを使うアプリは、**HRESULT** 値を使う必要があります。
+[  **Windows.Web.Http**](https://docs.microsoft.com/uwp/api/Windows.Web.Http) には便利な関数がありません。 そのため、この名前空間の [**HttpClient**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpClient) と他のクラスを使うアプリは、**HRESULT** 値を使う必要があります。
 
-.NET Framework 4.5 を使用してアプリC#、VB.NET、 [System.Exception](https://msdn.microsoft.com/library/system.exception.aspx)例外が発生したときに、アプリの実行中にエラーを表します。 [System.Exception.HResult](https://msdn.microsoft.com/library/system.exception.hresult.aspx) プロパティは、特定の例外に割り当てられた **HRESULT** を返します。 [System.Exception.Message](https://msdn.microsoft.com/library/system.exception.message.aspx) プロパティは、例外を説明するメッセージを返します。 使うことができる **HRESULT** 値は、*Winerror.h* ヘッダー ファイルに記載されています。 アプリは特定の **HRESULT** 値に対するフィルター処理を行い、例外の原因に応じてアプリの動作を変更できます。
+.NET Framework 4.5 を使用してアプリC#、VB.NET、 [System.Exception](https://docs.microsoft.com/dotnet/api/system.exception?redirectedfrom=MSDN)例外が発生したときに、アプリの実行中にエラーを表します。 [System.Exception.HResult](https://docs.microsoft.com/dotnet/api/system.exception.hresult?redirectedfrom=MSDN#System_Exception_HResult) プロパティは、特定の例外に割り当てられた **HRESULT** を返します。 [System.Exception.Message](https://docs.microsoft.com/dotnet/api/system.exception.message?redirectedfrom=MSDN#System_Exception_Message) プロパティは、例外を説明するメッセージを返します。 使うことができる **HRESULT** 値は、*Winerror.h* ヘッダー ファイルに記載されています。 アプリは特定の **HRESULT** 値に対するフィルター処理を行い、例外の原因に応じてアプリの動作を変更できます。
 
-Managed C++ を使うアプリでは、アプリの実行中に例外が発生したときに、[Platform::Exception](https://msdn.microsoft.com/library/windows/apps/hh755825.aspx) がエラーを表します。 [Platform::Exception::HResult](https://msdn.microsoft.com/library/windows/apps/hh763371.aspx) プロパティは、特定の例外に割り当てられた **HRESULT** を返します。 [Platform::Exception::Message](https://msdn.microsoft.com/library/windows/apps/hh763375.aspx) プロパティは、**HRESULT** 値に関連付けられた、システムが提供する文字列を返します。 使うことができる **HRESULT** 値は、*Winerror.h* ヘッダー ファイルに記載されています。 アプリは特定の **HRESULT** 値に対するフィルター処理を行い、例外の原因に応じてアプリの動作を変更できます。
+Managed C++ を使うアプリでは、アプリの実行中に例外が発生したときに、[Platform::Exception](https://docs.microsoft.com/cpp/cppcx/platform-exception-class) がエラーを表します。 [Platform::Exception::HResult](https://docs.microsoft.com/cpp/cppcx/platform-exception-class#hresult) プロパティは、特定の例外に割り当てられた **HRESULT** を返します。 [Platform::Exception::Message](https://docs.microsoft.com/cpp/cppcx/platform-exception-class#message) プロパティは、**HRESULT** 値に関連付けられた、システムが提供する文字列を返します。 使うことができる **HRESULT** 値は、*Winerror.h* ヘッダー ファイルに記載されています。 アプリは特定の **HRESULT** 値に対するフィルター処理を行い、例外の原因に応じてアプリの動作を変更できます。
 
 ほとんどのパラメーター検証エラー、 **HRESULT**が返される**E\_INVALIDARG**します。 一部の無効なメソッド呼び出しの**HRESULT**が返される**E\_不正な\_メソッド\_呼び出す**。
 

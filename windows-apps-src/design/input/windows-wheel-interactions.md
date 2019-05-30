@@ -8,12 +8,12 @@ ms.date: 02/08/2017
 ms.topic: article
 ms.assetid: e7deb1d6-feeb-471e-9a83-26386d1aaf37
 ms.localizationpriority: medium
-ms.openlocfilehash: 3456742c4dbb3ca2ab146217763e8f7475c79df2
-ms.sourcegitcommit: e63fbd7a63a7e8c03c52f4219f34513f4b2bb411
+ms.openlocfilehash: da9142a073df1058bf220f948c49a492c2862670
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57822927"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66365377"
 ---
 # <a name="surface-dial-interactions"></a>Surface Dial の操作
 
@@ -57,7 +57,7 @@ Surface Dial は Windows と緊密に統合されており、システム ボリ
 - ユーザーが Windows デスクトップ システムで作業する場合のシステムの明るさツール
 - メディアの再生中の前または次のトラック ツール
 
-この一般的なプラットフォームのサポートに加えて、Surface Dial は Windows Ink プラットフォームのコントロール ([**InkCanvas**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Xaml.Controls.InkCanvas) や [**InkToolbar**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Xaml.Controls.InkToolbar)) とも緊密に統合されています。
+この一般的なプラットフォームのサポートに加えて、Surface Dial は Windows Ink プラットフォームのコントロール ([**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) や [**InkToolbar**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkToolbar)) とも緊密に統合されています。
 
 ![Surface ペンで画面のダイヤル](images/windows-wheel/dial-and-pen-400px.png)  
 *Surface ペンで画面のダイヤル*
@@ -77,7 +77,7 @@ Surface Dial と共に使用する場合、これらのコントロールで、�
 
 ## <a name="user-customization"></a>ユーザーのカスタマイズ
 
-ユーザーは、既定のフォント、バイブレーション (または触覚フィードバック)、利き手など、Dial のエクスペリエンスの一部を、**[Windows の設定] -> [デバイス] -> [ホイール]** ページでカスタマイズできます。 
+ユーザーは、既定のフォント、バイブレーション (または触覚フィードバック)、利き手など、Dial のエクスペリエンスの一部を、 **[Windows の設定] -> [デバイス] -> [ホイール]** ページでカスタマイズできます。 
 
 Surface Dial ユーザー エクスペリエンスをカスタマイズする場合、特定の機能や動作が利用可能であり、ユーザーが有効にしていることを常に確認する必要があります。
 
@@ -127,7 +127,7 @@ Surface Dial メニュー項目は無効な状態をサポートしていない�
 
 ### <a name="developer-guidance"></a>開発者向けガイダンス
 
-包括的な一連の [Windows ランタイム API](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialController) を使用してアプリの機能を補完するために、Surface Dial エクスペリエンスをカスタマイズできます。 
+包括的な一連の [Windows ランタイム API](https://docs.microsoft.com/uwp/api/Windows.UI.Input.RadialController) を使用してアプリの機能を補完するために、Surface Dial エクスペリエンスをカスタマイズできます。 
 
 前述のように、既定の Surface Dial メニューには、幅広い基本的なシステム機能 (システム ボリューム、システムの明るさ、スクロール、ズーム、取り消し、およびシステムで継続的なオーディオやビデオの再生が検出された場合のメディア コントロール) をカバーする組み込みツールのセットがあらかじめ含まれています。 ただし、これらの既定のツールでは、アプリに必要な機能が提供されない可能性があります。 
 
@@ -174,15 +174,15 @@ Surface Dial メニュー項目は無効な状態をサポートしていない�
     </Grid>
     ```
 
-2. その後、分離コードで、Surface Dial メニューにカスタム ツールを追加し、[**RadialController**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialController) 入力ハンドラーを宣言します。 
+2. その後、分離コードで、Surface Dial メニューにカスタム ツールを追加し、[**RadialController**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.RadialController) 入力ハンドラーを宣言します。 
 
-   [  **CreateForCurrentView**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialController.CreateForCurrentView) を呼び出すことによって、Surface Dial (myController) の [**RadialController**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialController) オブジェクトへの参照を取得します。
+   [  **CreateForCurrentView**](https://docs.microsoft.com/uwp/api/windows.ui.input.radialcontroller.createforcurrentview) を呼び出すことによって、Surface Dial (myController) の [**RadialController**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.RadialController) オブジェクトへの参照を取得します。
 
-   次に [**RadialControllerMenuItem.CreateFromIcon**](https://msdn.microsoft.com/library/windows/apps/mt759255) を呼び出すことによって、[**RadialControllerMenuItem**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialControllerMenuItem) (myItem) のインスタンスを作成します。 
+   次に [**RadialControllerMenuItem.CreateFromIcon**](https://docs.microsoft.com/uwp/api/windows.ui.input.radialcontrollermenuitem.createfromicon) を呼び出すことによって、[**RadialControllerMenuItem**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.RadialControllerMenuItem) (myItem) のインスタンスを作成します。 
 
    次に、その項目をメニュー項目のコレクションに追加します。
 
-   [  **RadialController**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialController)オブジェクトの入力イベント ハンドラー ([**ButtonClicked**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialController.ButtonClicked) と [**RotationChanged**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialController.RotationChanged)) を宣言します。
+   [  **RadialController**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.RadialController)オブジェクトの入力イベント ハンドラー ([**ButtonClicked**](https://docs.microsoft.com/uwp/api/windows.ui.input.radialcontroller.buttonclicked) と [**RotationChanged**](https://docs.microsoft.com/uwp/api/windows.ui.input.radialcontroller.rotationchanged)) を宣言します。
 
    最後に、イベント ハンドラーを定義します。
 
@@ -247,7 +247,7 @@ Surface Dial メニュー項目は無効な状態をサポートしていない�
 
 **組み込みのツールを指定します。**
 
-[  **RadialControllerConfiguration**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialControllerConfiguration) クラスを使用して、アプリの組み込みのメニュー項目のコレクションをカスタマイズできます。
+[  **RadialControllerConfiguration**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.RadialControllerConfiguration) クラスを使用して、アプリの組み込みのメニュー項目のコレクションをカスタマイズできます。
 
 たとえば、アプリにスクロール領域やズーム領域がない場合や、元に戻す/やり直し機能が不要な場合は、これらのツールをメニューから削除できます。 これにより、メニューにアプリのカスタム ツールを追加するための空き領域ができます。 
 
@@ -329,14 +329,14 @@ Dial メニューの組み込みのツールとコマンドは、回転ベース
 
 #### <a name="developer-guidance"></a>開発者向けガイダンス
 
-ユーザーがデバイスを回転させると、[**RadialController.RotationChanged**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialController.RotationChanged) イベントが、回転の方向を基準としたデルタ ([**RadialControllerRotationChangedEventArgs.RotationDeltaInDegrees**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialControllerRotationChangedEventArgs.RotationDeltaInDegrees)) に基づいて発生します。 データの感度 (または解像度) は、[**RadialController.RotationResolutionInDegrees**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialController.RotationResolutionInDegrees) プロパティで設定できます。
+ユーザーがデバイスを回転させると、[**RadialController.RotationChanged**](https://docs.microsoft.com/uwp/api/windows.ui.input.radialcontroller.rotationchanged) イベントが、回転の方向を基準としたデルタ ([**RadialControllerRotationChangedEventArgs.RotationDeltaInDegrees**](https://docs.microsoft.com/uwp/api/windows.ui.input.radialcontrollerrotationchangedeventargs.rotationdeltaindegrees)) に基づいて発生します。 データの感度 (または解像度) は、[**RadialController.RotationResolutionInDegrees**](https://docs.microsoft.com/uwp/api/windows.ui.input.radialcontroller.rotationresolutionindegrees) プロパティで設定できます。
 
 > [!NOTE]
-> 既定では、デバイスが最小値の 10 度回転された場合に、初めて回転入力イベントが [**RadialController**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialController) オブジェクトに配信されます。 各入力イベントによって、デバイスのバイブレーションが発生します。
+> 既定では、デバイスが最小値の 10 度回転された場合に、初めて回転入力イベントが [**RadialController**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.RadialController) オブジェクトに配信されます。 各入力イベントによって、デバイスのバイブレーションが発生します。
 
 一般的に、回転解像度が 5 度未満に設定されている場合は、触覚フィードバックを無効にすることをお勧めします。 これにより、連続的な対話式操作でスムーズなエクスペリエンスを提供できます。 
 
-カスタム ツールの触覚フィードバックを有効または無効にするには、[**RadialController.UseAutomaticHapticFeedback**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialController.UseAutomaticHapticFeedback) プロパティを使用します。
+カスタム ツールの触覚フィードバックを有効または無効にするには、[**RadialController.UseAutomaticHapticFeedback**](https://docs.microsoft.com/uwp/api/windows.ui.input.radialcontroller.useautomatichapticfeedback) プロパティを使用します。
 
 > [!NOTE]
 > ボリューム コントロールなどのシステム ツールの触覚動作をオーバーライドすることはできません。 これらのツールについては、ユーザーが [ホイールの設定] ページからのみ触覚フィードバックを無効にすることができます。
@@ -380,13 +380,13 @@ Surface Dial のクリックは、マウスの左ボタンのクリックと似�
 
 **モーダルのツールを有効になっているまたは Surface Dial で無効にしないでください。**
 
-一部のアプリ/ツールのモードは、回転に依存する操作と競合する、つまり無効にする場合があります。 Windows Ink ツール バーのルーラーなどのツールは、他の UI アフォーダンスでオンとオフを切り替える必要があります (Ink ツール バーには、組み込みの [**ToggleButton**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Xaml.Controls.Primitives.ToggleButton) コントロールがあります)。
+一部のアプリ/ツールのモードは、回転に依存する操作と競合する、つまり無効にする場合があります。 Windows Ink ツール バーのルーラーなどのツールは、他の UI アフォーダンスでオンとオフを切り替える必要があります (Ink ツール バーには、組み込みの [**ToggleButton**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Primitives.ToggleButton) コントロールがあります)。
 
 モーダル ツールの場合、アクティブな Surface Dial メニュー項目を、ターゲット ツールまたは以前に選択したメニュー項目にマップします。
 
 #### <a name="developer-guidance"></a>開発者向けガイダンス
 
-Surface Dial がクリックされると、[**RadialController.ButtonClicked**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialController.ButtonClicked) イベントが発生します。 [  **RadialControllerButtonClickedEventArgs**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialControllerButtonClickedEventArgs) には、Surface Dial が Surface Studio の画面に接触している位置と境界領域を格納する [**Contact**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialControllerButtonClickedEventArgs.Contact) プロパティが含まれています。 Surface Dial が画面に接触していない場合、このプロパティは null です。 
+Surface Dial がクリックされると、[**RadialController.ButtonClicked**](https://docs.microsoft.com/uwp/api/windows.ui.input.radialcontroller.buttonclicked) イベントが発生します。 [  **RadialControllerButtonClickedEventArgs**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.RadialControllerButtonClickedEventArgs) には、Surface Dial が Surface Studio の画面に接触している位置と境界領域を格納する [**Contact**](https://docs.microsoft.com/uwp/api/windows.ui.input.radialcontrollerbuttonclickedeventargs.contact) プロパティが含まれています。 Surface Dial が画面に接触していない場合、このプロパティは null です。 
 
 ### <a name="on-screen"></a>オンスクリーン
 
@@ -413,7 +413,7 @@ Surface Dial がクリックされると、[**RadialController.ButtonClicked**](
 
 デバイスを使用するときに、ハードウェアに加えて、ユーザーの手や腕によって画面の一部が見えなくなることがあります。
 
-見えなくなる領域は、どちらの手でデバイスを使用しているかによって異なります。 Surface Dial は、主に利き手以外の手で使用するように設計されているため、Surface Dial 関連の UI はユーザーが指定した利き手 (**[Windowsの設定] > [デバイス] > [ペンと Windows Ink] > [利き手を選択してください]** の設定) に合わせて調整する必要があります。
+見えなくなる領域は、どちらの手でデバイスを使用しているかによって異なります。 Surface Dial は、主に利き手以外の手で使用するように設計されているため、Surface Dial 関連の UI はユーザーが指定した利き手 ( **[Windowsの設定] > [デバイス] > [ペンと Windows Ink] > [利き手を選択してください]** の設定) に合わせて調整する必要があります。
 
 **相互作用が移動ではなく、Surface Dial の位置に応答する必要があります。**
 
@@ -425,11 +425,11 @@ UI コンテキスト (コントロール、キャンバス、ウィンドウと
 
 #### <a name="developer-guidance"></a>開発者向けガイダンス
 
-Surface Dial が Surface Studio のデジタイザー サーフェス上に配置されると、[**RadialController.ScreenContactStarted**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialController.ScreenContactStarted) イベントが発生し、接触情報 ([**RadialControllerScreenContactStartedEventArgs.Contact**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialControllerScreenContactStartedEventArgs.Contact)) がアプリに提供されます。
+Surface Dial が Surface Studio のデジタイザー サーフェス上に配置されると、[**RadialController.ScreenContactStarted**](https://docs.microsoft.com/uwp/api/windows.ui.input.radialcontroller.screencontactstarted) イベントが発生し、接触情報 ([**RadialControllerScreenContactStartedEventArgs.Contact**](https://docs.microsoft.com/uwp/api/windows.ui.input.radialcontrollerscreencontactstartedeventargs.contact)) がアプリに提供されます。
 
-同様に、Surface Studio のデジタイザー サーフェスに接触しているときに、Surface Dial がクリックされた場合、[**RadialController.ButtonClicked**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialController.ButtonClicked) イベントが発生し、接触情報 ([**RadialControllerButtonClickedEventArgs.Contact**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialControllerButtonClickedEventArgs.Contact)) がアプリに提供されます。 
+同様に、Surface Studio のデジタイザー サーフェスに接触しているときに、Surface Dial がクリックされた場合、[**RadialController.ButtonClicked**](https://docs.microsoft.com/uwp/api/windows.ui.input.radialcontroller.buttonclicked) イベントが発生し、接触情報 ([**RadialControllerButtonClickedEventArgs.Contact**](https://docs.microsoft.com/uwp/api/windows.ui.input.radialcontrollerbuttonclickedeventargs.contact)) がアプリに提供されます。 
 
-接触情報 ([**RadialControllerScreenContact**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialControllerScreenContact)) には、アプリの座標空間での Surface Dial の中心のX/Y座標 ([**RadialControllerScreenContact.Position**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialControllerScreenContact.Position)) と、デバイスに依存しないピクセル (DIP) での境界の四角形 ([**RadialControllerScreenContact.Bounds**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialControllerScreenContact.Bounds)) が含まれます。 この情報は、アクティブなツールにコンテキストを提供し、ユーザーにデバイスに関連する視覚的なフィードバックを提供する場合に、非常に便利です。
+接触情報 ([**RadialControllerScreenContact**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.RadialControllerScreenContact)) には、アプリの座標空間での Surface Dial の中心のX/Y座標 ([**RadialControllerScreenContact.Position**](https://docs.microsoft.com/uwp/api/windows.ui.input.radialcontrollerscreencontact.position)) と、デバイスに依存しないピクセル (DIP) での境界の四角形 ([**RadialControllerScreenContact.Bounds**](https://docs.microsoft.com/uwp/api/windows.ui.input.radialcontrollerscreencontact.bounds)) が含まれます。 この情報は、アクティブなツールにコンテキストを提供し、ユーザーにデバイスに関連する視覚的なフィードバックを提供する場合に、非常に便利です。
 
 次の例では、それぞれが 1 つのスライダーと 1 つのトグル スイッチを含む、4 つの異なるセクションを持つ基本的なアプリを作成したしました。 Surface Dial の画面上の位置を使用して、Surface Dial で制御されるスライダーとトグル スイッチのセットを決定します。
 
@@ -652,18 +652,18 @@ private void ActivateGridAtLocation(Point Location)
 
 ### <a name="api-reference"></a>API リファレンス
 
-- [**RadialController**クラス](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialController)
-- [**RadialControllerButtonClickedEventArgs**クラス](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialControllerButtonClickedEventArgs)
-- [**RadialControllerConfiguration**クラス](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialControllerConfiguration) 
-- [**RadialControllerControlAcquiredEventArgs**クラス](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialControllerControlAcquiredEventArgs) 
-- [**RadialControllerMenu**クラス](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialControllerMenu) 
-- [**RadialControllerMenuItem**クラス](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialControllerMenuItem) 
-- [**RadialControllerRotationChangedEventArgs**クラス](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialControllerRotationChangedEventArgs) 
-- [**RadialControllerScreenContact**クラス](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialControllerScreenContact) 
-- [**RadialControllerScreenContactContinuedEventArgs**クラス](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialControllerScreenContactContinuedEventArgs) 
-- [**RadialControllerScreenContactStartedEventArgs**クラス](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialControllerScreenContactStartedEventArgs)
-- [**RadialControllerMenuKnownIcon**列挙型](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialControllerMenuKnownIcon) 
-- [**RadialControllerSystemMenuItemKind**列挙型](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialControllerSystemMenuItemKind) 
+- [**RadialController**クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Input.RadialController)
+- [**RadialControllerButtonClickedEventArgs**クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Input.RadialControllerButtonClickedEventArgs)
+- [**RadialControllerConfiguration**クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Input.RadialControllerConfiguration) 
+- [**RadialControllerControlAcquiredEventArgs**クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Input.RadialControllerControlAcquiredEventArgs) 
+- [**RadialControllerMenu**クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Input.RadialControllerMenu) 
+- [**RadialControllerMenuItem**クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Input.RadialControllerMenuItem) 
+- [**RadialControllerRotationChangedEventArgs**クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Input.RadialControllerRotationChangedEventArgs) 
+- [**RadialControllerScreenContact**クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Input.RadialControllerScreenContact) 
+- [**RadialControllerScreenContactContinuedEventArgs**クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Input.RadialControllerScreenContactContinuedEventArgs) 
+- [**RadialControllerScreenContactStartedEventArgs**クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Input.RadialControllerScreenContactStartedEventArgs)
+- [**RadialControllerMenuKnownIcon**列挙型](https://docs.microsoft.com/uwp/api/Windows.UI.Input.RadialControllerMenuKnownIcon) 
+- [**RadialControllerSystemMenuItemKind**列挙型](https://docs.microsoft.com/uwp/api/Windows.UI.Input.RadialControllerSystemMenuItemKind) 
 
 ### <a name="samples"></a>サンプル
 

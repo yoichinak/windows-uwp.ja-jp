@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10、uwp、接続されているデバイス、リモート システム、ローマ、プロジェクトのローマ
 ms.assetid: 54f6a33d-a3b5-4169-8664-653dbab09175
 ms.localizationpriority: medium
-ms.openlocfilehash: 26a67816195105572d9f690599b9a880ece90c98
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: ac4a5783250f3bd21cb8a3b96a579715830e687d
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57658417"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66371713"
 ---
 # <a name="launch-an-app-on-a-remote-device"></a>リモート デバイスでのアプリの起動
 
@@ -62,7 +62,7 @@ Windows 10 Version 1607 以降で実行される UWP アプリは、同じく Wi
 
 ## <a name="launch-an-app-on-a-remote-device"></a>リモート デバイスでのアプリの起動
 
-接続するデバイスを [**RemoteLauncher.LaunchUriAsync**](https://msdn.microsoft.com/library/windows/apps/windows.system.remotelauncher.launchuriasync.aspx) API に渡すことによって、アプリをリモートで起動します。 このメソッドには 3 つのオーバーロードがあります。 この例で示されている最も単純なオーバーロードでは、リモート デバイス上のアプリをアクティブ化する URI を指定します。 この例では、URI によって、リモート コンピューター上のマップ アプリがスペース ニードルの 3D ビューで開かれます。
+接続するデバイスを [**RemoteLauncher.LaunchUriAsync**](https://docs.microsoft.com/uwp/api/windows.system.remotelauncher.launchuriasync) API に渡すことによって、アプリをリモートで起動します。 このメソッドには 3 つのオーバーロードがあります。 この例で示されている最も単純なオーバーロードでは、リモート デバイス上のアプリをアクティブ化する URI を指定します。 この例では、URI によって、リモート コンピューター上のマップ アプリがスペース ニードルの 3D ビューで開かれます。
 
 その他の **RemoteLauncher.LaunchUriAsync** のオーバーロードでは、適切なアプリがリモート デバイスで起動できない場合に参照する Web サイトの URI などのオプションや、リモート デバイスでの URI の起動に使用できるパッケージ ファミリ名のオプションの一覧を指定できます。 キーと値のペアの形式でデータを提供することもできます。 音楽の再生をデバイスから別のデバイスへと切り替えるとき、アクティブ化しているアプリにデータを渡して、再生する曲名や現在の再生位置などのコンテキストをリモート アプリに提供する場合があります。
 
@@ -70,11 +70,11 @@ Windows 10 Version 1607 以降で実行される UWP アプリは、同じく Wi
 
 [!code-cs[Main](./code/RemoteLaunchScenario/MainPage.xaml.cs#SnippetRemoteUriLaunch)]
 
-**RemoteLauncher.LaunchUriAsync()** から返される [**RemoteLaunchUriStatus**](https://msdn.microsoft.com/library/windows/apps/windows.system.remotelaunchuristatus.aspx) オブジェクトは、リモートの起動が成功したかどうか、さらに、失敗した場合はその理由についての情報を提供します。
+**RemoteLauncher.LaunchUriAsync()** から返される [**RemoteLaunchUriStatus**](https://docs.microsoft.com/uwp/api/windows.system.remotelaunchuristatus) オブジェクトは、リモートの起動が成功したかどうか、さらに、失敗した場合はその理由についての情報を提供します。
 
 ## <a name="related-topics"></a>関連トピック
 
-[リモート システムの API のリファレンス](https://msdn.microsoft.com/library/windows/apps/Windows.System.RemoteSystems)  
+[リモート システムの API のリファレンス](https://docs.microsoft.com/uwp/api/Windows.System.RemoteSystems)  
 [接続されているアプリとデバイス (プロジェクト ローマ) の概要](connected-apps-and-devices.md)  
 [リモート デバイスの検出](discover-remote-devices.md)  
 [リモート システムのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/dev/Samples/RemoteSystems)では、リモート システムを検出する方法、リモート システムでアプリを起動する方法、アプリ サービスを使って 2 つのシステム上で実行しているアプリ間でメッセージを送信する方法が説明されています。

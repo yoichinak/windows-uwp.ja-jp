@@ -6,12 +6,12 @@ ms.date: 08/10/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, サンプル, DirectX, 3D
 ms.localizationpriority: medium
-ms.openlocfilehash: 39f915ad9cf200a5c2c762976ab3c39c2ef85410
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: f287110584c02a5d7822f6b1d84cd332d4d6199d
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57662467"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66368912"
 ---
 # <a name="developing-marble-maze-a-uwp-game-in-c-and-directx"></a>Marble Maze、C++ と DirectX での UWP ゲームの開発
 
@@ -43,7 +43,7 @@ Marble Maze では、ユーザーは複数の方法でゲーム ボードを操�
 
 
 -   Windows 10 Creators Update します。
--   [Microsoft Visual Studio 2017](https://www.visualstudio.com/downloads/)
+-   [Microsoft Visual Studio 2017](https://www.visualstudio.com/downloads/)
 -   C++ プログラミングの知識
 -   DirectX と DirectX の用語に関する知識
 -   COM に関する基本的な知識
@@ -61,9 +61,9 @@ Marble Maze では、ユーザーは複数の方法でゲーム ボードを操�
 このドキュメントでは、以下の方法について説明します。
 
 -   Windows ランタイム API と DirectX を使って UWP ゲームを作成する。
--   [Direct3D](https://msdn.microsoft.com/library/windows/desktop/ff476080) と [Direct2D](https://msdn.microsoft.com/library/windows/desktop/dd370990) を使って、モデル、テクスチャ、頂点シェーダー、ピクセル シェーダー、2D オーバーレイ等の視覚的なコンテンツを操作する。
+-   [Direct3D](https://docs.microsoft.com/windows/desktop/direct3d11/atoc-dx-graphics-direct3d-11) と [Direct2D](https://docs.microsoft.com/windows/desktop/Direct2D/direct2d-portal) を使って、モデル、テクスチャ、頂点シェーダー、ピクセル シェーダー、2D オーバーレイ等の視覚的なコンテンツを操作する。
 -   タッチ、加速度計、Xbox One コントローラーなどの入力メカニズムを統合する。
--   [XAudio2](https://msdn.microsoft.com/library/windows/desktop/hh405049) を使って、音楽とサウンド エフェクトを組み込む。
+-   [XAudio2](https://docs.microsoft.com/windows/desktop/xaudio2/xaudio2-apis-portal) を使って、音楽とサウンド エフェクトを組み込む。
 
 ## <a name="what-this-documentation-does-not-cover"></a>このドキュメントで扱われていない内容
 
@@ -77,7 +77,7 @@ Marble Maze では、ユーザーは複数の方法でゲーム ボードを操�
 -   海外で使用できるようにゲームを準備する方法。
 -   ゲームを検証して Microsoft Store に公開する方法。
 
-Marble Maze では、[DirectXMath](https://msdn.microsoft.com/library/windows/desktop/hh437833) ライブラリを使って、3D ジオメトリの操作と衝突などの物理計算を実行します。 DirectXMath については、このセクションでは詳しく説明しません。 Marble Maze での DirectXMath の使用方法については、ソース コードをご覧ください。
+Marble Maze では、[DirectXMath](https://docs.microsoft.com/windows/desktop/dxmath/directxmath-portal) ライブラリを使って、3D ジオメトリの操作と衝突などの物理計算を実行します。 DirectXMath については、このセクションでは詳しく説明しません。 Marble Maze での DirectXMath の使用方法については、ソース コードをご覧ください。
 
 Marble Maze には再利用可能なコンポーネントがたくさん用意されていますが、それは完全なゲーム開発フレームワークではありません。 Marble Maze のコンポーネントをゲームで再利用できると見なされる場合は、このドキュメントでその点を強調しています。
 

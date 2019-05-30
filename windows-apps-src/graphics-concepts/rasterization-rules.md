@@ -7,12 +7,12 @@ keywords:
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: c622c037f878d1ad34cdadf897dde10683532832
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 28376f6e96cc490c7c44f4ed60093591e873300e
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57660867"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66371007"
 ---
 # <a name="rasterization-rules"></a>ラスター化ルール
 
@@ -26,7 +26,7 @@ ms.locfileid: "57660867"
 
 三角形の内部にあるピクセルの中心はすべて描画されます。左上ルールに適合すると、ピクセルは内部にあると見なされます。 左上ルールでは、ピクセルの中心が三角形の上のエッジまたは左のエッジにある場合に、三角形の内部にあると定義されます。
 
-この場合
+それぞれの文字の説明は次のとおりです。
 
 -   上のエッジは、完全に水平で、他のエッジよりも上にあるものです。
 -   左のエッジは、完全には水平でなく、三角形の左側にあるものです。三角形には、左のエッジが 1 つまたは 2 つあります。
@@ -97,7 +97,7 @@ srcColor \* srcAlpha + destColor \* (1-srcAlpha)
 
 -   点の場合、ピクセルの中心ではなく、各サンプリング位置に対してカバレッジ テストが実行されます。
 
-マルチサンプリング フォーマットは、「[Load](https://msdn.microsoft.com/library/windows/desktop/bb509694)」を使用してシェーダーに読み戻すことができるレンダー ターゲットで使用することができます。これは、シェーダーがアクセスする個々のサンプルには解決が不要なためです。 深度フォーマットは、マルチサンプル リソースではサポートされていないため、レンダー ターゲットのみに制限されます。
+マルチサンプリング フォーマットは、「[Load](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-to-load)」を使用してシェーダーに読み戻すことができるレンダー ターゲットで使用することができます。これは、シェーダーがアクセスする個々のサンプルには解決が不要なためです。 深度フォーマットは、マルチサンプル リソースではサポートされていないため、レンダー ターゲットのみに制限されます。
 
 型なしフォーマットではマルチサンプリングがサポートされており、リソース ビューで異なる方法でデータを解釈できます。 マルチ サンプリングを R8G8B8A8 を使用してリソースを作成する、\_TYPELESS、R8G8B8A8 のレンダー ターゲット ビュー リソースを使用してレンダリング\_UINT、書式を設定し、R8G8B8A8 で別のリソースへの内容を解決する\_UNORM データ形式。
 

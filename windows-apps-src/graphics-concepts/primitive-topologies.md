@@ -7,12 +7,12 @@ keywords:
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 85d1c41fc10f509f3872fb1e4a0af5fa1e1e7c30
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 0b7a60b3eba8545eeeea4cf477a40e044578c166
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57631397"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66371242"
 ---
 # <a name="primitive-topologies"></a>プリミティブ トポロジ
 
@@ -69,7 +69,7 @@ Direct3D では、ポイントの一覧、線の一覧、三角形ストリッ�
 ## <a name="span-idgeneratingmultiplestripsspanspan-idgeneratingmultiplestripsspanspan-idgeneratingmultiplestripsspangenerating-multiple-strips"></a><span id="Generating_Multiple_Strips"></span><span id="generating_multiple_strips"></span><span id="GENERATING_MULTIPLE_STRIPS"></span>複数のストリップを生成します。
 
 
-ストリップ カットによって、複数のストリップを生成することができます。 ストリップ カットを実行するには、[RestartStrip](https://msdn.microsoft.com/library/windows/desktop/bb509660) HLSL 関数を明示的に呼び出すか、インデックス バッファーに特殊なインデックス値を挿入します。 この値とは –1 で、32 ビットのインデックスは 0xffffffff、16 ビットのインデックスは 0xffff です。
+ストリップ カットによって、複数のストリップを生成することができます。 ストリップ カットを実行するには、[RestartStrip](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-so-restartstrip) HLSL 関数を明示的に呼び出すか、インデックス バッファーに特殊なインデックス値を挿入します。 この値とは –1 で、32 ビットのインデックスは 0xffffffff、16 ビットのインデックスは 0xffff です。
 
 -1 のインデックスは、現在のストリップの明示的な ”カット” または ”再開” を示します。 前のインデックスは前のプリミティブかストリップを完了し、次のインデックスは新しいプリミティブかストリップを開始します。
 

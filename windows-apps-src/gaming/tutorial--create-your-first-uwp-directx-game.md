@@ -6,12 +6,12 @@ keywords: DirectX ゲームのサンプル, ゲームのサンプル, ユニバ�
 ms.date: 12/01/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: dc602e2dd29231c1e6554d7ef55e9666a373fa31
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: c2ee2795410c083a6dd460a8537115dc8d20de31
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57642867"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66367704"
 ---
 # <a name="create-a-simple-universal-windows-platform-uwp-game-with-directx"></a>DirectX を使った単純なユニバーサル Windows プラットフォーム (UWP) ゲームの作成
 
@@ -32,7 +32,7 @@ UWP DirectX ゲームの基本的な概念とコンポーネントを使い、Di
 -   線形代数およびニュートン物理学の基本的な概念。
 -   基本的なグラフィックス プログラミング用語。
 -   Windows プログラミングの基本的な概念。
--   [Direct2D](https://msdn.microsoft.com/library/windows/apps/dd370990.aspx) および [Direct3D 11](https://msdn.microsoft.com/library/windows/desktop/hh404569) API に関する基本的な知識。
+-   [Direct2D](https://docs.microsoft.com/windows/desktop/Direct2D/direct2d-portal) および [Direct3D 11](https://docs.microsoft.com/windows/desktop/direct3d11/how-to-use-direct3d-11) API に関する基本的な知識。
 
 ##  <a name="direct3d-uwp-shooting-game-sample"></a>Direct3D UWP シューティング ゲームのサンプル
 
@@ -61,5 +61,5 @@ UWP DirectX ゲームの基本的な概念とコンポーネントを使い、Di
 | [レンダリングのフレームワーク II:ゲームのレンダリング](tutorial-game-rendering.md) | レンダリング トピックの第 2 部では、レンダリングが発生する前に必要なデータを準備する方法について説明します。 |
 | [ユーザー インターフェイスを追加します。](tutorial--adding-a-user-interface.md) | 単純なメニュー オプションとヘッドアップ ディスプレイ コンポーネントを追加し、プレイヤーにフィードバックを提供します。 |
 | [コントロールを追加します。](tutorial--adding-controls.md) | ゲームに移動検索コントロールを追加&mdash;基本タッチ、マウス、およびゲーム コント ローラーのコントロール。 |
-| [サウンドを追加します。](tutorial--adding-sound.md) | [XAudio2](https://msdn.microsoft.com/library/windows/desktop/ee415813) API を使用して、ゲームのサウンドを作成する方法について説明します。 |
+| [サウンドを追加します。](tutorial--adding-sound.md) | [XAudio2](https://docs.microsoft.com/windows/desktop/xaudio2/xaudio2-introduction) API を使用して、ゲームのサウンドを作成する方法について説明します。 |
 | [ゲームのサンプルを拡張します。](tutorial-resources.md) | XAML を使用したオーバーレイの作成など、DirectX ゲーム開発の知識をさらに深めるためのリソースです。 |

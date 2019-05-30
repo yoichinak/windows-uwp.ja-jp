@@ -8,12 +8,12 @@ keywords: スピーチ, 音声, 音声認識, 自然言語, ディクテーシ�
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 09787d5a83415b65b8946860edb5b7cad09a5846
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: fb292ad5cba892275709fbc89d5d53fa136144f3
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57637077"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66365299"
 ---
 # <a name="speech-interactions"></a>音声操作
 
@@ -23,7 +23,7 @@ ms.locfileid: "57637077"
 
 **TTS:** 音声合成エンジン (声) を使って、テキスト文字列を音声に変換します。 入力文字列は、基本的でシンプルなテキスト、またはより複雑な Speech Synthesis Markup Language (SSML) のいずれかになります。 SSML は、発音、音量、ピッチ、速度、強調など、音声出力の特性を制御する標準的な方法です。
 
-**その他の音声関連のコンポーネント:**
+**その他の音声関連のコンポーネント:** 
 Windows アプリケーションの **Cortana** ではカスタマイズした音声コマンド (発声したコマンドまたは入力したコマンド) を使って、アプリをフォアグラウンドで起動したり (スタート メニューから起動した場合と同様にアプリがフォーカスを取得します)、バック グラウンド サービスとしてアクティブ化したりすることができます (**Cortana** がフォーカスを維持しますが、アプリからの結果を表示します)。 **Cortana** UI でアプリの機能を公開する場合は、「[Cortana voice command (VCD) guidelines](https://docs.microsoft.com/en-us/cortana/voice-commands/vcd)」(Cortana 音声コマンド (VCD) のガイドライン) をご覧ください。
 
 ## <a name="speech-interaction-design"></a>音声操作の設計
@@ -164,7 +164,7 @@ SRGS で定義された制約を使う音声認識エンジンにおける組み
     -   各文法の規模を小さくします。 文法に含める語句を少なくする方が、規模の大きな文法に多数の語句が含まれている場合よりも、認識精度が高くなる傾向があります。 アプリ全体に対して 1 つの文法を設定するよりも、特定のシナリオごとに別々の小規模な文法を設定することをお勧めします。
     -   ユーザーには、各アプリのコンテキストに基づいて何と話しかければよいかを知らせ、必要に応じて文法を無効にします。
     -   文法は、ユーザーがさまざまな形でコマンドを音声入力できるように設計します。 たとえば、**GARBAGE** 規則を使って、文法で定義されていない音声入力を照合することができます。 これにより、ユーザーはアプリにとって意味を持たない語句を含めて話すことができます。 たとえば、"お願い"、"それと"、"ええと"、"多分" などの語句を含めることができます。
-    -   音声入力の認識率を高めるには、[sapi:subset](https://msdn.microsoft.com/library/windowsphone/design/jj572474.aspx) 要素を使います。 この要素は、部分的な語句の照合をサポートするための、SRGS 仕様に対する Microsoft の拡張機能です。
+    -   音声入力の認識率を高めるには、[sapi:subset](https://docs.microsoft.com/previous-versions/office/developer/speech-technologies/jj572474(v=office.14)) 要素を使います。 この要素は、部分的な語句の照合をサポートするための、SRGS 仕様に対する Microsoft の拡張機能です。
     -   音節が 1 つしかない語句は、文法に定義しないようにしてください。 音節が 2 つ以上ある語句の方が、正確に認識されやすくなります。
     -   同じように聞こえる語句を使わないようにしてください。 たとえば、"hello"、"bellow"、"fellow" などの語句を使うと音声認識エンジンが混乱し、認識精度が低くなる可能性があります。
 
@@ -175,11 +175,11 @@ SRGS で定義された制約を使う音声認識エンジンにおける組み
 
 一般的ではない単語や架空の単語を含む特殊なボキャブラリや、普通とは異なる発音の単語がアプリに含まれる場合は、カスタムの発音を定義することで、認識性能が高まる可能性があります。
 
-単語や語句の一覧が小規模な場合や、あまり使われない単語や語句の一覧の場合、カスタムの発音を SRGS 文法で作成できます。 詳しくは、「[token 要素](https://msdn.microsoft.com/library/windowsphone/design/hh361600.aspx)」をご覧ください。
+単語や語句の一覧が小規模な場合や、あまり使われない単語や語句の一覧の場合、カスタムの発音を SRGS 文法で作成できます。 詳しくは、「[token 要素](https://docs.microsoft.com/previous-versions/office/developer/speech-technologies/hh361600(v=office.14))」をご覧ください。
 
-単語や語句の一覧が大規模な場合や、頻繁に使われる単語や語句については、発音辞書のドキュメントを別途作成することもできます。 詳しくは、[辞書と音標文字に関するページ](https://msdn.microsoft.com/library/windowsphone/design/hh361646.aspx)をご覧ください。
+単語や語句の一覧が大規模な場合や、頻繁に使われる単語や語句については、発音辞書のドキュメントを別途作成することもできます。 詳しくは、[辞書と音標文字に関するページ](https://docs.microsoft.com/previous-versions/office/developer/speech-technologies/hh361646(v=office.14))をご覧ください。
 
-## <a name="testing"></a>テスト
+## <a name="testing"></a>Testing (テスト)
 
 音声認識の精度のテストとサポートされている UI のテストは、アプリの対象ユーザーに対して行います。 このようなテスト方法は、アプリの音声操作エクスペリエンスの有効性を判断するために最適な方法です。 たとえば、アプリが一般的な語句を聞き取らないために、ユーザーが良好な認識結果を得られない可能性があります。
 
@@ -200,7 +200,7 @@ TTS では、プレーンテキストまたは SSML から音声出力が生成�
 -   単語が不自然な順番で連続している場合や、文字列に含まれる数値や句読点を発声する場合に、語句が不明瞭になる可能性があります。
 -   韻律や抑揚がネイティブ スピーカーによる発声と異なると、音声が不自然に聞こえる場合があります。
 
-どちらの問題も、スピーチ シンセサイザーへの入力にプレーンテキストではなく SSML を使うことで対処できます。 SSML について詳しくは、「[SSML による合成音声の制御](https://msdn.microsoft.com/library/windowsphone/design/hh378454.aspx)」と「[Speech Synthesis Markup Language (SSML) のリファレンス](https://msdn.microsoft.com/library/windowsphone/design/hh378377.aspx)」をご覧ください。
+どちらの問題も、スピーチ シンセサイザーへの入力にプレーンテキストではなく SSML を使うことで対処できます。 SSML について詳しくは、「[SSML による合成音声の制御](https://docs.microsoft.com/previous-versions/office/developer/speech-technologies/hh378454(v=office.14))」と「[Speech Synthesis Markup Language (SSML) のリファレンス](https://docs.microsoft.com/previous-versions/office/developer/speech-technologies/hh378377(v=office.14))」をご覧ください。
 
 ## <a name="other-articles-in-this-section"></a>このセクションの他の記事 
 
@@ -215,8 +215,8 @@ TTS では、プレーンテキストまたは SSML から音声出力が生成�
 
 ## <a name="related-articles"></a>関連記事
 
-* [音声操作](https://msdn.microsoft.com/library/windows/apps/mt185614)
-* [Cortana の操作](https://msdn.microsoft.com/library/windows/apps/mt185598)
+* [音声操作](https://docs.microsoft.com/windows/uwp/input-and-devices/speech-interactions)
+* [Cortana の操作](https://docs.microsoft.com/windows/uwp/input-and-devices/cortana-interactions)
 
  **サンプル**
 

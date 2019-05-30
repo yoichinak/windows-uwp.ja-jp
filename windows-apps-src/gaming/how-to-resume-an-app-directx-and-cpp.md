@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, 再開, DirectX
 ms.localizationpriority: medium
-ms.openlocfilehash: f0aa60061ae9fc14392bfe4beb0693ba50fda0df
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: b1506351dd06563386154ac35938cbd17f5ced32
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57601607"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66368614"
 ---
 # <a name="how-to-resume-an-app-directx-and-c"></a>アプリを再開する方法 (DirectX と C++)
 
@@ -22,9 +22,9 @@ ms.locfileid: "57601607"
 ## <a name="register-the-resuming-event-handler"></a>Resuming イベント ハンドラーに登録する
 
 
-[  **CoreApplication::Resuming**](https://msdn.microsoft.com/library/windows/apps/br205859) イベントを処理するために登録します。このイベントは、ユーザーがアプリを切り替えてから、アプリに戻ったことを示します。
+[  **CoreApplication::Resuming**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplication.resuming) イベントを処理するために登録します。このイベントは、ユーザーがアプリを切り替えてから、アプリに戻ったことを示します。
 
-このコードをビュー プロバイダーの [**IFrameworkView::Initialize**](https://msdn.microsoft.com/library/windows/apps/hh700495) メソッドの実装に追加します。
+このコードをビュー プロバイダーの [**IFrameworkView::Initialize**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.iframeworkview.initialize) メソッドの実装に追加します。
 
 ```cpp
 // The first method is called when the IFrameworkView is being created.
@@ -43,7 +43,7 @@ void App::Initialize(CoreApplicationView^ applicationView)
 ## <a name="refresh-displayed-content-after-suspension"></a>一時停止の後で表示されるコンテンツを更新する
 
 
-アプリでは、Resuming イベントを処理する時点で、表示されているコンテンツを更新できます。 [  **CoreApplication::Suspending**](https://msdn.microsoft.com/library/windows/apps/br205860) のハンドラーで保存した任意のアプリを復元し、処理を再開します。 ゲーム開発の場合、オーディオ エンジンを一時停止していたら、ここで再開します。
+アプリでは、Resuming イベントを処理する時点で、表示されているコンテンツを更新できます。 [  **CoreApplication::Suspending**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplication.suspending) のハンドラーで保存した任意のアプリを復元し、処理を再開します。 ゲーム開発の場合、オーディオ エンジンを一時停止していたら、ここで再開します。
 
 ```cpp
 void App::OnResuming(Platform::Object^ sender, Platform::Object^ args)
@@ -56,7 +56,7 @@ void App::OnResuming(Platform::Object^ sender, Platform::Object^ args)
 }
 ```
 
-このコールバックは、アプリの [**CoreWindow**](https://msdn.microsoft.com/library/windows/apps/br208225). の [**CoreDispatcher**](https://msdn.microsoft.com/library/windows/apps/br208211) によって処理されるイベント メッセージとして発生します。 このコールバックは、アプリのメイン ループ (ビュー プロバイダーの [**IFrameworkView::Run**](https://msdn.microsoft.com/library/windows/apps/hh700505) メソッドで実装) から [**CoreDispatcher::ProcessEvents**](https://msdn.microsoft.com/library/windows/apps/br208215) を呼び出さない場合は呼び出されません。
+このコールバックは、アプリの [**CoreWindow**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreWindow). の [**CoreDispatcher**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreDispatcher) によって処理されるイベント メッセージとして発生します。 このコールバックは、アプリのメイン ループ (ビュー プロバイダーの [**IFrameworkView::Run**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.iframeworkview.run) メソッドで実装) から [**CoreDispatcher::ProcessEvents**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.processevents) を呼び出さない場合は呼び出されません。
 
 ``` syntax
 // This method is called after the window becomes active.

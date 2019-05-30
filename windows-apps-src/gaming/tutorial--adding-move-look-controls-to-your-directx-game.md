@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, ムーブ/ルック, コントロール
 ms.localizationpriority: medium
-ms.openlocfilehash: 222f46bbda165442003aecea0bbd138bcb844a3b
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: f1516ada043ac5e9d5c059f7cd2b91cb69a5eab1
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57604377"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66367854"
 ---
 # <a name="span-iddevgamingtutorialaddingmove-lookcontrolstoyourdirectxgamespanmove-look-controls-for-games"></a><span id="dev_gaming.tutorial__adding_move-look_controls_to_your_directx_game"></span>ゲームの移動検索コントロール
 
@@ -178,7 +178,7 @@ internal:
 
 最後に、次のメソッドとプロパティを使って、コントローラーの状態情報の初期化、アクセス、更新を行います。
 
--   **Initialize**。 Windows ストア アプリは、コントロールを初期化して、表示ウィンドウを定義する [**CoreWindow**](https://msdn.microsoft.com/library/windows/apps/br208225) オブジェクトにそれらのコントロールを適用するときに、このイベント ハンドラーを呼び出します。
+-   **Initialize**。 Windows ストア アプリは、コントロールを初期化して、表示ウィンドウを定義する [**CoreWindow**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreWindow) オブジェクトにそれらのコントロールを適用するときに、このイベント ハンドラーを呼び出します。
 -   **SetPosition**。 Windows ストア アプリは、シーン空間内のコントロールの (x、y、z) 座標を設定するときに、このメソッドを呼び出します。
 -   **SetOrientation**。 Windows ストア アプリは、カメラのピッチとヨーを設定するときに、このメソッドを呼び出します。
 -   **取得\_位置**します。 Windows ストア アプリは、シーン空間内のカメラの現在の位置を取得するときに、このプロパティにアクセスします。 このプロパティは、カメラの現在の位置をアプリに伝える手段として使います。
@@ -192,17 +192,17 @@ internal:
 
 Windows ランタイムのイベント ディスパッチャーは、**MoveLookController** クラスのインスタンスで処理するイベントを 5 つ提供します。
 
--   [**PointerPressed**](https://msdn.microsoft.com/library/windows/apps/br208278)
--   [**PointerMoved**](https://msdn.microsoft.com/library/windows/apps/br208276)
--   [**PointerReleased**](https://msdn.microsoft.com/library/windows/apps/br208279)
--   [**KeyUp**](https://msdn.microsoft.com/library/windows/apps/br208271)
--   [**KeyDown**](https://msdn.microsoft.com/library/windows/apps/br208270)
+-   [**PointerPressed**](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.pointerpressed)
+-   [**PointerMoved**](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.pointermoved)
+-   [**PointerReleased**](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.pointerreleased)
+-   [**KeyUp**](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.keyup)
+-   [**KeyDown**](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.keydown)
 
-これらのイベントは、[**CoreWindow**](https://msdn.microsoft.com/library/windows/apps/br208225) 型に実装されています。 ここでは、操作する **CoreWindow** オブジェクトが既にあると想定しています。 取得方法が不明な場合は、「[ユニバーサル Windows プラットフォーム (UWP) C++ アプリで DirectX ビューを表示するための設定方法](https://msdn.microsoft.com/library/windows/apps/hh465077)」をご覧ください。
+これらのイベントは、[**CoreWindow**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreWindow) 型に実装されています。 ここでは、操作する **CoreWindow** オブジェクトが既にあると想定しています。 取得方法が不明な場合は、「[ユニバーサル Windows プラットフォーム (UWP) C++ アプリで DirectX ビューを表示するための設定方法](https://docs.microsoft.com/previous-versions/windows/apps/hh465077(v=win.10))」をご覧ください。
 
 これらのイベントは Windows ストア アプリの実行中に起動するため、ハンドラーはプライベート フィールドに定義されているコントローラーの状態情報を更新します。
 
-まず、マウス ポインターとタッチ ポインターのイベント ハンドラーを設定します。 最初のイベント ハンドラーである **OnPointerPressed()** では、ユーザーがルック コントローラー領域でマウスをクリックまたは画面をタッチすると、表示を管理する [**CoreWindow**](https://msdn.microsoft.com/library/windows/apps/br208225) からポインターの x-y 座標を取得します。
+まず、マウス ポインターとタッチ ポインターのイベント ハンドラーを設定します。 最初のイベント ハンドラーである **OnPointerPressed()** では、ユーザーがルック コントローラー領域でマウスをクリックまたは画面をタッチすると、表示を管理する [**CoreWindow**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreWindow) からポインターの x-y 座標を取得します。
 
 **OnPointerPressed**
 
@@ -299,11 +299,11 @@ void MoveLookController::OnPointerMoved(
 
 **OnPointerMoved** イベント ハンドラーは、ポインターが動くたび起動します (この場合、タッチ スクリーンのポインターがドラッグされているとき、またはマウスの左ボタンを押しながらマウス ポインターが動かされているとき)。 ポインター ID がムーブ コントローラーのポインターの ID と同じ場合は、ムーブ ポインターになります。違う場合は、アクティブなポインターであるルック コントローラーかどうかを確認します。
 
-ムーブ コントローラーの場合は、単にポインターの位置を更新します。 **OnPointerPressed** イベント ハンドラーでキャプチャした最初の位置と最後の位置を比較するため、[**PointerMoved**](https://msdn.microsoft.com/library/windows/apps/br208276) イベントが起動を続ける限りポインターの位置を更新し続けます。
+ムーブ コントローラーの場合は、単にポインターの位置を更新します。 **OnPointerPressed** イベント ハンドラーでキャプチャした最初の位置と最後の位置を比較するため、[**PointerMoved**](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.pointermoved) イベントが起動を続ける限りポインターの位置を更新し続けます。
 
 ルック コントローラーの場合は、やや複雑になります。 新しい視点を計算してカメラの中心をそこに合わせ、前の視点と現在の画面の位置との差分を計算する必要があります。その後、倍率を乗算します。倍率を調整すると、画面移動の距離に比例して動きが小さくまたは大きく見えるようにすることができます。 その値を使って、ピッチとヨーを計算します。
 
-最後に、プレイヤーがマウスの移動を停止したとき、または画面から手を離したときに、ムーブ コントローラーまたはルック コントローラーの動作を非アクティブにする必要があります。 使用して**OnPointerReleased**、ときと呼ばれる[ **PointerReleased** ](https://msdn.microsoft.com/library/windows/apps/br208279)を設定する発生した**m\_moveInUse**または**m\_lookInUse**を FALSE にカメラのパンの動きをオフにして、ポインター ID をゼロにする
+最後に、プレイヤーがマウスの移動を停止したとき、または画面から手を離したときに、ムーブ コントローラーまたはルック コントローラーの動作を非アクティブにする必要があります。 使用して**OnPointerReleased**、ときと呼ばれる[ **PointerReleased** ](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.pointerreleased)を設定する発生した**m\_moveInUse**または**m\_lookInUse**を FALSE にカメラのパンの動きをオフにして、ポインター ID をゼロにする
 
 **OnPointerReleased**
 
@@ -424,7 +424,7 @@ void MoveLookController::Initialize( _In_ CoreWindow^ window )
 }
 ```
 
-**Initialize** は、アプリの [**CoreWindow**](https://msdn.microsoft.com/library/windows/apps/br208225) インスタンスへの参照をパラメーターとして使い、先ほど作成したイベント ハンドラーをその **CoreWindow** の適切なイベントに登録します。 このハンドラーは、ムーブ ポインターとルック ポインターの ID を初期化し、タッチ スクリーンのムーブ コントローラー実装用のコマンド ベクターをゼロに設定して、アプリの起動時にカメラが正面を向くように設定します。
+**Initialize** は、アプリの [**CoreWindow**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreWindow) インスタンスへの参照をパラメーターとして使い、先ほど作成したイベント ハンドラーをその **CoreWindow** の適切なイベントに登録します。 このハンドラーは、ムーブ ポインターとルック ポインターの ID を初期化し、タッチ スクリーンのムーブ コントローラー実装用のコマンド ベクターをゼロに設定して、アプリの起動時にカメラが正面を向くように設定します。
 
 ## <a name="getting-and-setting-the-position-and-orientation-of-the-camera"></a>カメラの位置と向きの取得と設定
 

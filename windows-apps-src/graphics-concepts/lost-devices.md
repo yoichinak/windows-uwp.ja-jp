@@ -7,12 +7,12 @@ keywords:
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 2f0b42a10c2cdd61aef84e08d6bd4f6408a978c3
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 8a280d07ab7d715adaa7da941be641cd54e24443
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57617317"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66371016"
 ---
 # <a name="lost-devices"></a>喪失デバイス
 
@@ -21,7 +21,7 @@ Direct3D デバイスは、稼働状態または喪失状態に設定できま�
 
 仕様上、デバイスが喪失になる可能性があるあらゆるシナリオ セットが定められているわけではありません。 一般的な例には、ユーザーが Alt + Tab を押した場合やシステム ダイアログが初期化された場合など、フォーカスの喪失が含まれます。 電源管理インベントや、別のアプリケーションが全画面操作を引き受けた場合などのためにデバイスが喪失することもあります。 加えて、デバイスのリセットによるエラーによってもデバイスが喪失状態になります。
 
-[  **IUnknown**](https://msdn.microsoft.com/library/windows/desktop/ms680509) から派生したすべてのメソッドは、デバイスが喪失した後も動作することが保証されています。 デバイスの喪失後、各機能には一般に次の 3 つのオプションがあります。
+[  **IUnknown**](https://docs.microsoft.com/windows/desktop/api/unknwn/nn-unknwn-iunknown) から派生したすべてのメソッドは、デバイスが喪失した後も動作することが保証されています。 デバイスの喪失後、各機能には一般に次の 3 つのオプションがあります。
 
 -   "デバイス喪失" エラーによって失敗する - これは、何らかの操作が正常でないことをアプリケーションが識別できるように、そのデバイスが喪失したことをアプリケーションが認識する必要があることを意味します。
 -   サイレント モードで失敗し、返します S\_[ok] または他のリターン コードの関数に自動的に失敗した場合、アプリケーション通常と区別できない「成功」の結果「サイレント エラー」

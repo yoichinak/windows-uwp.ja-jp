@@ -7,35 +7,35 @@ keywords:
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 00d6c16ecaa64abf7d83154fdb864671dbff3eae
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: db8a368f6cd9e0b6d38fb16d81dbc31a0f8a615f
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57643487"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66370602"
 ---
 # <a name="hlsl-streaming-resources-exposure"></a>HLSL ストリーミング リソースの露出
 
 
-[シェーダー モデル 5](https://msdn.microsoft.com/library/windows/desktop/ff471356) のストリーミング リソースをサポートするには、Microsoft 上位レベル シェーダー言語 (HLSL) の特定の構文が必要です。
+[シェーダー モデル 5](https://docs.microsoft.com/windows/desktop/direct3dhlsl/d3d11-graphics-reference-sm5) のストリーミング リソースをサポートするには、Microsoft 上位レベル シェーダー言語 (HLSL) の特定の構文が必要です。
 
 シェーダー モデル 5 の HLSL 構文は、ストリーミング リソースのサポートを備えたデバイスでのみ使用できます。 次の表のストリーミング リソース用の関連する各 HLSL メソッドでは、1 つ (フィードバック) または 2 つ (クランプとフィードバックをこの順序で) の追加の省略可能なパラメーターを指定できます。 **Sample** メソッドの例を示します。
 
 **サンプル (サンプラー、場所\[、オフセット\[、クランプ\[、フィードバック\] \] \])**
 
-**Sample** メソッドの例は、[**Texture2D.Sample(S,float,int,float,uint)**](https://msdn.microsoft.com/library/windows/desktop/dn393787) のようになります。
+**Sample** メソッドの例は、[**Texture2D.Sample(S,float,int,float,uint)** ](https://docs.microsoft.com/windows/desktop/direct3dhlsl/t2darray-sample-s-float-int-float-uint-) のようになります。
 
 offset、clamp、feedback の各パラメーターは省略可能です。 必要なパラメーターまで、すべての省略可能なパラメーターを指定する必要があります。これは、C++ の既定の関数の引数に関する規則と一貫しています。 たとえば、フィードバックの状態が必要な場合、**Sample** に対して、論理的には必要ではない場合でも、offset および clamp の両方のパラメーターを明示的に指定する必要があります。
 
 clamp パラメーターは、浮動小数点のスカラー値です。 リテラル値の clamp = 0.0f は、クランプ操作が実行されていないことを示します。
 
-feedback パラメーターは **uint** 変数で、メモリ アクセス照会の組み込み関数 [**CheckAccessFullyMapped**](https://msdn.microsoft.com/library/windows/desktop/dn292083) に対して指定できます。 feedback パラメーターの値を変更または解釈しないでください。コンパイラでは、値を変更したかどうかを検出するための高度な分析と診断の機能は提供されません。
+feedback パラメーターは **uint** 変数で、メモリ アクセス照会の組み込み関数 [**CheckAccessFullyMapped**](https://docs.microsoft.com/windows/desktop/direct3dhlsl/checkaccessfullymapped) に対して指定できます。 feedback パラメーターの値を変更または解釈しないでください。コンパイラでは、値を変更したかどうかを検出するための高度な分析と診断の機能は提供されません。
 
-[  **CheckAccessFullyMapped**](https://msdn.microsoft.com/library/windows/desktop/dn292083) の構文は次のとおりです。
+[  **CheckAccessFullyMapped**](https://docs.microsoft.com/windows/desktop/direct3dhlsl/checkaccessfullymapped) の構文は次のとおりです。
 
-**(で uint FeedbackVar); bool CheckAccessFullyMapped**
+**bool CheckAccessFullyMapped(in uint FeedbackVar);**
 
-[**CheckAccessFullyMapped** ](https://msdn.microsoft.com/library/windows/desktop/dn292083)の値を解釈*FeedbackVar*アクセスされているすべてのデータがリソースにマップされているそれ以外の場合は true を返します**CheckAccessFullyMapped**。false を返します。
+[**CheckAccessFullyMapped** ](https://docs.microsoft.com/windows/desktop/direct3dhlsl/checkaccessfullymapped)の値を解釈*FeedbackVar*アクセスされているすべてのデータがリソースにマップされているそれ以外の場合は true を返します**CheckAccessFullyMapped**。false を返します。
 
 clamp と feedback のいずれかのパラメーターが存在する場合、コンパイラは、基本的な命令のバリアントを出力します。 たとえば、ストリーミング リソースのサンプルは、`sample_cl_s` 命令を生成します。
 
@@ -56,7 +56,7 @@ HLSL コンパイラは、クランプが 0.0f であり、フィードバック
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left"><a href="https://msdn.microsoft.com/library/windows/desktop/ff471359">HLSL オブジェクト</a> </th>
+<th align="left"><a href="https://docs.microsoft.com/windows/desktop/direct3dhlsl/d3d11-graphics-reference-sm5-objects">HLSL オブジェクト</a> </th>
 <th align="left">フィードバック オプションを持つ組み込みメソッド (*) - クランプ オプションも持つ</th>
 </tr>
 </thead>

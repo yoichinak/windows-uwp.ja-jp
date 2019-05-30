@@ -6,18 +6,18 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp, セキュリティ
 ms.localizationpriority: medium
-ms.openlocfilehash: 5c93527a2ee738a3e6b0f4e9b9d2a1343158441b
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 15feb86677cd70774a99fe4046d817c71fc71f90
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57608267"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66372579"
 ---
 # <a name="data-protection"></a>データ保護
 
 
 
-この記事では、[**Windows.Security.Cryptography.DataProtection**](https://msdn.microsoft.com/library/windows/apps/br241585) 名前空間の [**DataProtectionProvider**](https://msdn.microsoft.com/library/windows/apps/br241559) クラスを使って、UWP アプリでデジタル データの暗号化と暗号化解除を行う方法について説明します。
+この記事では、[**Windows.Security.Cryptography.DataProtection**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.DataProtection) 名前空間の [**DataProtectionProvider**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.DataProtection.DataProtectionProvider) クラスを使って、UWP アプリでデジタル データの暗号化と暗号化解除を行う方法について説明します。
 
 データ保護 API はさまざまな方法で使用することができます。
 
@@ -26,12 +26,12 @@ ms.locfileid: "57608267"
 -   対称キーを使ってデータを保護します。 この方法は、たとえば、Live ID のような非 AD プリンシパルに対するデータを保護する場合に適しています。
 -   Web サイトへのログオン時に使われる資格情報 (パスワード) でデータを保護できます。
 
-データを保護するには、[**DataProtectionProvider**](https://msdn.microsoft.com/library/windows/apps/br241559) オブジェクトを作成するときに、保護記述子を指定してから [**ProtectAsync**](https://msdn.microsoft.com/library/windows/apps/br241563) または [**ProtectStreamAsync**](https://msdn.microsoft.com/library/windows/apps/br241564) を呼び出す必要があります。 保護記述子の例を次に示します。
+データを保護するには、[**DataProtectionProvider**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.DataProtection.DataProtectionProvider) オブジェクトを作成するときに、保護記述子を指定してから [**ProtectAsync**](https://docs.microsoft.com/uwp/api/windows.security.cryptography.dataprotection.dataprotectionprovider.protectasync) または [**ProtectStreamAsync**](https://docs.microsoft.com/uwp/api/windows.security.cryptography.dataprotection.dataprotectionprovider.protectstreamasync) を呼び出す必要があります。 保護記述子の例を次に示します。
 
 ## <a name="protecting-static-data"></a>静的データの保護
 
 
-次の例に、[**ProtectAsync**](https://msdn.microsoft.com/library/windows/apps/br241563) メソッドと [**UnprotectAsync**](https://msdn.microsoft.com/library/windows/apps/br241565) メソッドを使って、現在のユーザーの SID に対する静的データを非同期に保護する方法を示します。
+次の例に、[**ProtectAsync**](https://docs.microsoft.com/uwp/api/windows.security.cryptography.dataprotection.dataprotectionprovider.protectasync) メソッドと [**UnprotectAsync**](https://docs.microsoft.com/uwp/api/windows.security.cryptography.dataprotection.dataprotectionprovider.unprotectasync) メソッドを使って、現在のユーザーの SID に対する静的データを非同期に保護する方法を示します。
 
 ```cs
 using Windows.Security.Cryptography;
@@ -116,7 +116,7 @@ namespace SampleProtectAsync
 ## <a name="protecting-stream-data"></a>ストリーム データの保護
 
 
-次の例に、[**ProtectStreamAsync**](https://msdn.microsoft.com/library/windows/apps/br241564) メソッドと [**UnprotectStreamAsync**](https://msdn.microsoft.com/library/windows/apps/br241566) メソッドを使って、現在のユーザーの SID に対するストリーム データを非同期に保護する方法を示します。
+次の例に、[**ProtectStreamAsync**](https://docs.microsoft.com/uwp/api/windows.security.cryptography.dataprotection.dataprotectionprovider.protectstreamasync) メソッドと [**UnprotectStreamAsync**](https://docs.microsoft.com/uwp/api/windows.security.cryptography.dataprotection.dataprotectionprovider.unprotectstreamasync) メソッドを使って、現在のユーザーの SID に対するストリーム データを非同期に保護する方法を示します。
 
 ```cs
 using Windows.Security.Cryptography;

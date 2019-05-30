@@ -6,12 +6,12 @@ ms.date: 03/19/2018
 ms.topic: article
 keywords: Windows 10, UWP, Microsoft Store コレクション API, フルフィルメント, コンシューマブル
 ms.localizationpriority: medium
-ms.openlocfilehash: cea8937af3df0ad1e80434d649f431d188521667
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 994113abc34a0a5f7905bff00aa77c6785409927
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57615807"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66372771"
 ---
 # <a name="report-consumable-products-as-fulfilled"></a>コンシューマブルな製品をフルフィルメント完了として報告する
 
@@ -58,9 +58,9 @@ ms.locfileid: "57615807"
 |---------------|--------------|---------------------|----------|
 | beneficiary   | UserIdentity | この項目が使用されているユーザー。 詳細については、次の表を参照してください。        | 〇      |
 | itemId        | string       | [製品の照会](query-for-products.md)で返される *itemId* 値。 このパラメーターは *trackingId* と共に使用します。      | X       |
-| trackingId    | guid         | 開発者により指定される一意の追跡 ID。 このパラメーターは *itemId* と共に使用します。         | いいえ       |
+| trackingId    | guid         | 開発者により指定される一意の追跡 ID。 このパラメーターは *itemId* と共に使用します。         | X       |
 | productId     | string       | [製品の照会](query-for-products.md)で返される *productId* 値。 このパラメーターは *transactionId* と共に使用します。   | X       |
-| transactionId | guid         | 次のいずれかのソースから取得されるトランザクション ID 値。 このパラメーターは *productId* と共に使用します。<ul><li>[PurchaseResults](https://msdn.microsoft.com/library/windows/apps/dn263392) クラスの [TransactionID](https://docs.microsoft.com/uwp/api/windows.applicationmodel.store.purchaseresults.transactionid) プロパティ。</li><li>[RequestProductPurchaseAsync](https://docs.microsoft.com/uwp/api/windows.applicationmodel.store.currentapp.requestproductpurchaseasync)、[RequestAppPurchaseAsync](https://docs.microsoft.com/uwp/api/windows.applicationmodel.store.currentapp.requestapppurchaseasync)、または [GetAppReceiptAsync](https://docs.microsoft.com/uwp/api/windows.applicationmodel.store.currentapp.getappreceiptasync) から返されるアプリまたは製品の通知。</li><li>[製品の照会](query-for-products.md)で返される *transactionId* パラメーター。</li></ul>   | X       |
+| transactionId | guid         | 次のいずれかのソースから取得されるトランザクション ID 値。 このパラメーターは *productId* と共に使用します。<ul><li>[PurchaseResults](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Store.PurchaseResults) クラスの [TransactionID](https://docs.microsoft.com/uwp/api/windows.applicationmodel.store.purchaseresults.transactionid) プロパティ。</li><li>[RequestProductPurchaseAsync](https://docs.microsoft.com/uwp/api/windows.applicationmodel.store.currentapp.requestproductpurchaseasync)、[RequestAppPurchaseAsync](https://docs.microsoft.com/uwp/api/windows.applicationmodel.store.currentapp.requestapppurchaseasync)、または [GetAppReceiptAsync](https://docs.microsoft.com/uwp/api/windows.applicationmodel.store.currentapp.getappreceiptasync) から返されるアプリまたは製品の通知。</li><li>[製品の照会](query-for-products.md)で返される *transactionId* パラメーター。</li></ul>   | X       |
 
 
 UserIdentity オブジェクトには以下のパラメーターが含まれています。

@@ -6,14 +6,14 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, DirectX, シャドウ ボリューム, 深度バッファー, DirectX 11
 ms.localizationpriority: medium
-ms.openlocfilehash: 2feecb3080efefb2f9625fd8b66c5b722ad02a45
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 2ce0cbd310ea89c5fa7b5c68033402f559768a24
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57622277"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66368509"
 ---
-# <a name="walkthrough-implement-shadow-volumes-using-depth-buffers-in-direct3d-11"></a>チュートリアル:Direct3d11 の深度バッファーを使用してボリュームをシャドウの実装します。
+# <a name="walkthrough-implement-shadow-volumes-using-depth-buffers-in-direct3d-11"></a>チュートリアル: Direct3d11 の深度バッファーを使用してボリュームをシャドウの実装します。
 
 
 
@@ -75,13 +75,13 @@ Windows 8 adde 9 の機能レベルを比較機能を d 深さ\_1 から 9\_3。
 
 **Direct3D**
 
-* [Direct3D 9 での HLSL シェーダーの記述](https://msdn.microsoft.com/library/windows/desktop/bb944006)
+* [Direct3D 9 での HLSL シェーダーの記述](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-writing-shaders-9)
 * [UWP の DirectX 11 の新しいプロジェクトを作成します。](user-interface.md)
 
 **シャドウの技術情報のマッピング**
 
-* [影の深さのマップを向上させるために一般的な手法](https://msdn.microsoft.com/library/windows/desktop/ee416324)
-* [カスケード シャドウ マップ](https://msdn.microsoft.com/library/windows/desktop/ee416307)
+* [影の深さのマップを向上させるために一般的な手法](https://docs.microsoft.com/windows/desktop/DxTechArts/common-techniques-to-improve-shadow-depth-maps)
+* [カスケード シャドウ マップ](https://docs.microsoft.com/windows/desktop/DxTechArts/cascaded-shadow-maps)
 
  
 

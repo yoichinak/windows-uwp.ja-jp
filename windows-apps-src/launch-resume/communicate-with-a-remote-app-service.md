@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10、uwp、接続されているデバイス、リモート システム、ローマ、プロジェクトのローマ、バック グラウンド タスク、アプリ サービス
 ms.localizationpriority: medium
-ms.openlocfilehash: ddadae05ca3243f9bbd6b53cbb98f234ac560acd
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 067b465feccda424dd6a8e3f44e784166afe6d48
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57612937"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66366419"
 ---
 # <a name="communicate-with-a-remote-app-service"></a>リモート アプリ サービスとの通信
 
@@ -63,14 +63,14 @@ URI を使ってリモート デバイスでアプリを起動するのに加え
 [!code-cs[Main](./code/RemoteAppService/MainPage.xaml.cs#SnippetUsings)]
 
 
-まず、アプリ サービスをローカルで呼び出すのと同じように [**AppServiceConnection**](https://msdn.microsoft.com/library/windows/apps/Windows.ApplicationModel.AppService.AppServiceConnection) オブジェクトをインスタンス化する必要があります。 このプロセスについては、「[アプリ サービスの作成と利用](how-to-create-and-consume-an-app-service.md)」で詳しく説明します。 この例では、ターゲットにアプリ サービスは乱数ジェネレーター サービスです。
+まず、アプリ サービスをローカルで呼び出すのと同じように [**AppServiceConnection**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.AppService.AppServiceConnection) オブジェクトをインスタンス化する必要があります。 このプロセスについては、「[アプリ サービスの作成と利用](how-to-create-and-consume-an-app-service.md)」で詳しく説明します。 この例では、ターゲットにアプリ サービスは乱数ジェネレーター サービスです。
 
 > [!NOTE]
-> 次のメソッドを呼び出すコード内で、何らかの方法で [RemoteSystem](https://msdn.microsoft.com/library/windows/apps/Windows.System.RemoteSystems.RemoteSystem) オブジェクトが既に取得されていることを前提としています。 これをセットアップする方法については、「[リモート アプリの起動](launch-a-remote-app.md)」をご覧ください。
+> 次のメソッドを呼び出すコード内で、何らかの方法で [RemoteSystem](https://docs.microsoft.com/uwp/api/Windows.System.RemoteSystems.RemoteSystem) オブジェクトが既に取得されていることを前提としています。 これをセットアップする方法については、「[リモート アプリの起動](launch-a-remote-app.md)」をご覧ください。
 
 [!code-cs[Main](./code/RemoteAppService/MainPage.xaml.cs#SnippetAppService)]
 
-次に、目的のリモート デバイスに [**RemoteSystemConnectionRequest**](https://msdn.microsoft.com/library/windows/apps/Windows.System.RemoteSystems.RemoteSystemConnectionRequest) オブジェクトが作成されます。 これは、そのサービスに対して **AppServiceConnection** を開くために使われます。 次の例では、簡単にするためにエラー処理とレポートが大幅に簡略化されている点に注意してください。
+次に、目的のリモート デバイスに [**RemoteSystemConnectionRequest**](https://docs.microsoft.com/uwp/api/Windows.System.RemoteSystems.RemoteSystemConnectionRequest) オブジェクトが作成されます。 これは、そのサービスに対して **AppServiceConnection** を開くために使われます。 次の例では、簡単にするためにエラー処理とレポートが大幅に簡略化されている点に注意してください。
 
 [!code-cs[Main](./code/RemoteAppService/MainPage.xaml.cs#SnippetRemoteConnection)]
 
@@ -78,7 +78,7 @@ URI を使ってリモート デバイスでアプリを起動するのに加え
 
 ## <a name="exchange-service-specific-messages-over-the-remote-connection"></a>リモート接続経由でサービス固有のメッセージをやり取りする
 
-ここでは、[**ValueSet**](https://msdn.microsoft.com/library/windows/apps/windows.foundation.collections.valueset) オブジェクトの形式を使ってサービスとの間でメッセージを送受信できます (詳しくは「[アプリ サービスの作成と利用](how-to-create-and-consume-an-app-service.md)」をご覧ください)。 乱数ジェネレーター サービスは、キー `"minvalue"` と `"maxvalue"` と共に 2 つの整数を入力として取得し、その範囲内の整数をランダムに選んで、キー `"Result"` と共に呼び出し元プロセスに返します。
+ここでは、[**ValueSet**](https://docs.microsoft.com/uwp/api/windows.foundation.collections.valueset) オブジェクトの形式を使ってサービスとの間でメッセージを送受信できます (詳しくは「[アプリ サービスの作成と利用](how-to-create-and-consume-an-app-service.md)」をご覧ください)。 乱数ジェネレーター サービスは、キー `"minvalue"` と `"maxvalue"` と共に 2 つの整数を入力として取得し、その範囲内の整数をランダムに選んで、キー `"Result"` と共に呼び出し元プロセスに返します。
 
 [!code-cs[Main](./code/RemoteAppService/MainPage.xaml.cs#SnippetSendMessage)]
 
@@ -89,5 +89,5 @@ URI を使ってリモート デバイスでアプリを起動するのに加え
 [接続されているアプリとデバイス (プロジェクト ローマ) の概要](connected-apps-and-devices.md)  
 [リモート アプリを起動します。](launch-a-remote-app.md)  
 [App Service の作成と利用](how-to-create-and-consume-an-app-service.md)  
-[リモート システムの API のリファレンス](https://msdn.microsoft.com/library/windows/apps/Windows.System.RemoteSystems)  
+[リモート システムの API のリファレンス](https://docs.microsoft.com/uwp/api/Windows.System.RemoteSystems)  
 [リモート システムのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/dev/Samples/RemoteSystems)

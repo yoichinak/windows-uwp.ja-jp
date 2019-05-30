@@ -6,20 +6,20 @@ ms.date: 06/03/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 4cdad8f3405420e0548974c734ad23bfd44f2c6b
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 8278e02de4d0f9a0efa301051a57bf59bce8d520
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57648827"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66363298"
 ---
 # <a name="sockets"></a>ソケット
 ソケットは、下位レベルのデータ転送テクノロジであり、多くのネットワーク プロトコルがこの上に実装されています。 UWP は、接続が長期間維持されるか、確立された接続が必要あるかどうかに関係なく、クライアント/サーバー アプリケーションまたは ピア ツー ピア アプリケーションの TCP および UDP ソケット クラスを提供します。
 
-このトピックでは、[**Windows.Networking.Sockets**](/uwp/api/Windows.Networking.Sockets) 名前空間にあるユニバーサル Windows プラットフォーム (UWP) ソケット クラスを使う方法に焦点を当てます。 しかし、[Windows ソケット 2 (Winsock)](https://msdn.microsoft.com/library/windows/desktop/ms740673) を UWP アプリで使うこともできます。
+このトピックでは、[**Windows.Networking.Sockets**](/uwp/api/Windows.Networking.Sockets) 名前空間にあるユニバーサル Windows プラットフォーム (UWP) ソケット クラスを使う方法に焦点を当てます。 しかし、[Windows ソケット 2 (Winsock)](https://docs.microsoft.com/windows/desktop/WinSock/windows-sockets-start-page-2) を UWP アプリで使うこともできます。
 
 > [!NOTE]
-> [ネットワーク分離](https://msdn.microsoft.com/library/windows/apps/hh770532.aspx)の結果として、Windows では、同じコンピューターで実行される 2 つの UWP アプリ間での、ローカル ループバック アドレス (127.0.0.0) 経由であるか明示的なローカル IP アドレスの指定によるかに関係なく、ソケット接続 (Sockets または WinSock) の確立を禁止しています。 UWP アプリが別の UWP アプリとの通信に使うメカニズムについて詳しくは、「[アプリ間通信](/windows/uwp/app-to-app/index)」をご覧ください。
+> [ネットワーク分離](https://docs.microsoft.com/previous-versions/windows/apps/hh770532(v=win.10))の結果として、Windows では、同じコンピューターで実行される 2 つの UWP アプリ間での、ローカル ループバック アドレス (127.0.0.0) 経由であるか明示的なローカル IP アドレスの指定によるかに関係なく、ソケット接続 (Sockets または WinSock) の確立を禁止しています。 UWP アプリが別の UWP アプリとの通信に使うメカニズムについて詳しくは、「[アプリ間通信](/windows/uwp/app-to-app/index)」をご覧ください。
 
 ## <a name="build-a-basic-tcp-socket-client-and-server"></a>基本的な TCP ソケット クライアントおよびサーバーを構築する
 TCP (伝送制御プロトコル) ソケットは、有効期間が長い接続用にどちらの方向にも下位レベルのネットワーク データ転送機能を提供します。 TCP ソケットは、インターネットで使われるほとんどのネットワーク プロトコルのベースとなる機能です。 基本的な TCP 操作の方法を示すため、以下のコード例では、TCP 経由でデータを送受信してエコー クライアントおよびサーバーを形成する [**StreamSocket**](/uwp/api/Windows.Networking.Sockets.StreamSocket) と [**StreamSocketListener**](/uwp/api/Windows.Networking.Sockets.StreamSocketListener) を示しています。
@@ -555,7 +555,7 @@ void StreamSocketListener_ConnectionReceived(Windows::Networking::Sockets::Strea
 ## <a name="build-a-basic-udp-socket-client-and-server"></a>基本的な UDP ソケット クライアントおよびサーバーを構築する
 UDP (ユーザー データグラム プロトコル) ソケットは、どちらの方向にも低レベルのネットワーク データ転送を提供する TCP ソケットに似ています。 ただし、TCP ソケットは有効期間が長い接続向けであり、UDP ソケットは確立された接続が必要ないアプリケーション向けです。 UDP ソケットはどちらのエンドポイントでも接続を保持しないため、リモート コンピューター間のネットワーク向けの高速でシンプルなソリューションです。 ただし、UDP ソケットは、ネットワーク パケットの整合性も、パケットがリモートの宛先に到達するかどうかもまったく保証しません。 したがって、アプリはそれを許容するように設計されている必要があります。 UDP ソケットを使うアプリケーションの例には、ローカル ネットワーク探索やローカル チャット クライアントなどがあります。
 
-基本的な UDP 操作の方法を示すため、以下のコード例では、UDP 経由でデータを送受信してエコー クライアントおよびサーバーを形成するために使用される [**DatagramSocket**](/uwp/api/Windows.Networking.Sockets.DatagramSocket) クラスを示しています。 新しいプロジェクトを作成し、以下のクライアント コードとサーバー コードの両方を同じプロジェクトに配置します。 TCP ソケットの場合と同様、**[プライベート ネットワーク (クライアントとサーバー)]** アプリ機能を宣言する必要があります。
+基本的な UDP 操作の方法を示すため、以下のコード例では、UDP 経由でデータを送受信してエコー クライアントおよびサーバーを形成するために使用される [**DatagramSocket**](/uwp/api/Windows.Networking.Sockets.DatagramSocket) クラスを示しています。 新しいプロジェクトを作成し、以下のクライアント コードとサーバー コードの両方を同じプロジェクトに配置します。 TCP ソケットの場合と同様、 **[プライベート ネットワーク (クライアントとサーバー)]** アプリ機能を宣言する必要があります。
 
 ### <a name="an-echo-client-and-server-using-udp-sockets"></a>UDP ソケットを使ったエコー クライアントおよびサーバー
 エコー サーバーの役割を果たす [**DatagramSocket**](/uwp/api/Windows.Networking.Sockets.DatagramSocket) を構築して特定のポート番号にバインドし、受信 UDP メッセージをリッスンしてエコーし直します。 [  **DatagramSocket.MessageReceived**](/uwp/api/Windows.Networking.Sockets.DatagramSocket.MessageReceived) イベントは、メッセージがソケットで受信されたときに発生します。
@@ -1353,7 +1353,7 @@ Concurrency::create_task(Windows::Security::Cryptography::Certificates::Certific
 ## <a name="important-apis"></a>重要な API
 * [CertificateQuery](/uwp/api/windows.security.cryptography.certificates.certificatequery)
 * [CertificateStores.FindAllAsync](/uwp/api/windows.security.cryptography.certificates.certificatestores.findallasync)
-* [マッピングされています](/uwp/api/Windows.Networking.Sockets.DatagramSocket)
+* [DatagramSocket](/uwp/api/Windows.Networking.Sockets.DatagramSocket)
 * [DatagramSocket.BindServiceNameAsync](/uwp/api/windows.networking.sockets.datagramsocket.bindservicenameasync)
 * [DatagramSocket.Control](/uwp/api/windows.networking.sockets.datagramsocket.Control)
 * [DatagramSocket.GetOutputStreamAsync](/uwp/api/windows.networking.sockets.datagramsocket.getoutputstreamasync)
@@ -1380,8 +1380,8 @@ Concurrency::create_task(Windows::Security::Cryptography::Certificates::Certific
 ## <a name="related-topics"></a>関連トピック
 * [アプリ間通信](/windows/uwp/app-to-app/index)
 * [同時実行と非同期操作を C +/cli WinRT](/windows/uwp/cpp-and-winrt-apis/concurrency)
-* [ネットワーク機能を設定する方法](https://msdn.microsoft.com/library/windows/apps/hh770532.aspx)
-* [Windows ソケット (Winsock) 2](https://msdn.microsoft.com/library/windows/desktop/ms740673)
+* [ネットワーク機能を設定する方法](https://docs.microsoft.com/previous-versions/windows/apps/hh770532(v=win.10))
+* [Windows ソケット (Winsock) 2](https://docs.microsoft.com/windows/desktop/WinSock/windows-sockets-start-page-2)
 
 ## <a name="samples"></a>サンプル
 * [StreamSocket サンプル](https://go.microsoft.com/fwlink/p/?LinkId=620609)

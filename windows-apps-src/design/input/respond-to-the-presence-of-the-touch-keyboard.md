@@ -7,12 +7,12 @@ template: detail.hbs
 keywords: キーボード, アクセシビリティ, ナビゲーション, フォーカス, テキスト, 入力, ユーザーの操作
 ms.date: 07/13/2018
 ms.topic: article
-ms.openlocfilehash: e44b7cf5a61a795e52490f6d603aea0bcf87bea2
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 192c016dfa61f39074d99bccf58ff9371f16d16f
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57658297"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66365426"
 ---
 # <a name="respond-to-the-presence-of-the-touch-keyboard"></a>タッチ キーボードの表示への応答
 
@@ -211,8 +211,8 @@ void Scenario2_ShowHideEvents::OnHiding(InputPane^ /*sender*/, InputPaneVisibili
 ## <a name="related-articles"></a>関連記事
 
 - [キーボードの相互作用](keyboard-interactions.md)
-- [キーボードのアクセシビリティ](https://msdn.microsoft.com/library/windows/apps/mt244347)
-- [カスタム オートメーション ピア](https://msdn.microsoft.com/library/windows/apps/mt297667)
+- [キーボードのアクセシビリティ](https://docs.microsoft.com/windows/uwp/accessibility/keyboard-accessibility)
+- [カスタム オートメーション ピア](https://docs.microsoft.com/windows/uwp/accessibility/custom-automation-peers)
 
 **サンプル**
 

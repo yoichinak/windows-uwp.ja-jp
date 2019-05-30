@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10、uwp、バック グラウンド タスク
 ms.localizationpriority: medium
-ms.openlocfilehash: 4b30cd39a4440a1ade1ea0dda5a35d3f7c15f963
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 471c2851f72027c364fdd0c9c295c8c9babe17c5
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57615677"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66366180"
 ---
 # <a name="declare-background-tasks-in-the-application-manifest"></a>アプリケーション マニフェストでのバックグラウンド タスクの宣言
 
@@ -20,8 +20,8 @@ ms.locfileid: "57615677"
 
 **重要な API**
 
--   [**BackgroundTasks スキーマ**](https://msdn.microsoft.com/library/windows/apps/br224794)
--   [**Windows.ApplicationModel.Background**](https://msdn.microsoft.com/library/windows/apps/br224847)
+-   [**BackgroundTasks スキーマ**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.IBackgroundTask)
+-   [**Windows.ApplicationModel.Background**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background)
 
 アプリ マニフェストでバックグラウンド タスクを拡張機能として宣言し、バックグラウンド タスクを使うことができるようにします。
 
@@ -90,7 +90,7 @@ ms.locfileid: "57615677"
 
 2.  Task Type 属性のリストを、このバックグラウンド タスクで使われるタスク登録の種類を示すように変更します。 バックグラウンド タスクを複数の種類のトリガーで登録する場合は、必要な Task 要素と Type 属性を個々に追加します。
 
-    **注**  トリガーの種類の各ボックスの一覧を使用している、またはバック グラウンド タスクが宣言されていないトリガーの種類を登録できないかどうかを確認 (、 [**登録**](https://msdn.microsoft.com/library/windows/apps/br224772)メソッドには失敗、例外をスロー)。
+    **注**  トリガーの種類の各ボックスの一覧を使用している、またはバック グラウンド タスクが宣言されていないトリガーの種類を登録できないかどうかを確認 (、 [**登録**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundtaskbuilder.register)メソッドには失敗、例外をスロー)。
 
     次の抜粋例は、システム イベント トリガーとプッシュ通知の使用法を示します。
 
@@ -171,7 +171,7 @@ ms.locfileid: "57615677"
 </Extensions>
 ```
 
-**EntryPoint** を指定すると、アプリケーションは指定されたメソッドへのコールバックをトリガーの発生時に受け取ります。 **EntryPoint** を指定していない場合、アプリケーションは [OnBackgroundActivated()](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.application.onbackgroundactivated.aspx) を介してコールバックを受け取ります。  詳しくは、「[インプロセス バックグラウンド タスクの作成と登録](create-and-register-an-inproc-background-task.md)」をご覧ください
+**EntryPoint** を指定すると、アプリケーションは指定されたメソッドへのコールバックをトリガーの発生時に受け取ります。 **EntryPoint** を指定していない場合、アプリケーションは [OnBackgroundActivated()](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onbackgroundactivated) を介してコールバックを受け取ります。  詳しくは、「[インプロセス バックグラウンド タスクの作成と登録](create-and-register-an-inproc-background-task.md)」をご覧ください
 
 ### <a name="specify-where-your-background-task-runs-with-the-resourcegroup-attribute"></a>ResourceGroup 属性を使用して、バックグラウンド タスクの実行先を指定
 

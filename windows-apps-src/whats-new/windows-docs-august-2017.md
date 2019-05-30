@@ -5,12 +5,12 @@ keywords: 最新情報, 更新, 機能, 開発者向けガイダンス, Windows 
 ms.date: 08/03/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: edf81f0474855c868ea1fb50afa683523aedcd07
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 53bd11950d30e3924d6d196e911fa05208d0f5ec
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57614867"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66371916"
 ---
 # <a name="whats-new-in-the-windows-developer-docs-in-august-2017"></a>Windows 開発者向けドキュメントの最新情報、2017 年 8 月
 
@@ -32,7 +32,7 @@ Visual Studio 2017 用の新しい [Windows Template Studio](https://aka.ms/wtsi
 
 ### <a name="game-mode"></a>ゲーム モード
 
-ユニバーサル Windows プラットフォーム (UWP) 用の[ゲーム モード](https://msdn.microsoft.com/library/windows/desktop/mt808808) API では、Windows 10 のゲーム モードを利用することで最適化されたゲーム エクスペリエンスを実現できます。 これらの API は **&lt;expandedresources.h&gt;** ヘッダーに含まれています。
+ユニバーサル Windows プラットフォーム (UWP) 用の[ゲーム モード](https://docs.microsoft.com/previous-versions/windows/desktop/gamemode/game-mode-portal) API では、Windows 10 のゲーム モードを利用することで最適化されたゲーム エクスペリエンスを実現できます。 これらの API は **&lt;expandedresources.h&gt;** ヘッダーに含まれています。
 
 ![ゲーム モード](images/game-mode.png)
 
@@ -45,7 +45,7 @@ Visual Studio 2017 用の新しい [Windows Template Studio](https://aka.ms/wtsi
 
 ### <a name="data-schemas-for-store-products"></a>Store 製品のデータ スキーマ
 
-記事「[ストア製品のデータ スキーマ](../monetize/data-schemas-for-store-products.md)」が追加されました。 この記事では、[StoreProduct](https://docs.microsoft.com/uwp/api/windows.services.store.storeproduct) や [StoreAppLicense](https://docs.microsoft.com/uwp/api/windows.services.store.storeapplicense) など、[Windows.Services.Store](https://msdn.microsoft.com/library/windows/apps/windows.services.store.aspx) 名前空間のいくつかのオブジェクトで利用できるストア関連のデータ用のスキーマを示します。
+記事「[ストア製品のデータ スキーマ](../monetize/data-schemas-for-store-products.md)」が追加されました。 この記事では、[StoreProduct](https://docs.microsoft.com/uwp/api/windows.services.store.storeproduct) や [StoreAppLicense](https://docs.microsoft.com/uwp/api/windows.services.store.storeapplicense) など、[Windows.Services.Store](https://docs.microsoft.com/uwp/api/windows.services.store) 名前空間のいくつかのオブジェクトで利用できるストア関連のデータ用のスキーマを示します。
 
 ### <a name="desktop-bridge"></a>デスクトップ ブリッジ
 

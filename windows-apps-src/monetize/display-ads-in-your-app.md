@@ -6,12 +6,12 @@ ms.date: 06/20/2018
 ms.topic: article
 keywords: Windows 10, UWP, 広告, 宣伝, バナー, 広告コントロール, スポット広告
 ms.localizationpriority: medium
-ms.openlocfilehash: 84ed7f5f1eb65f06a47e92de962777ca9d3c50c7
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 0ef3050e2583674bf6cd5a601dbde1500f6b457e
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57658497"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66372552"
 ---
 # <a name="display-ads-in-your-app-with-the-microsoft-advertising-sdk"></a>Microsoft Advertising SDK を使用したアプリでの広告の表示
 
@@ -31,7 +31,7 @@ Microsoft Advertising SDK を使用して、Windows 10 用ユニバーサル Win
 <tbody>
 <tr>
 <td align="left"><img src="images/install-sdk.png" alt="Install SDK icon" /></td>
-<td align="left"><b>作業の開始</b><br/><br/>
+<td align="left"><b>開始するには</b><br/><br/>
     <a href="https://aka.ms/ads-sdk-uwp">Microsoft Advertising SDK をインストールします。</a>
 </td>
 <td align="left"><img src="images/write-code.png" alt="Develop icon" /></td>
@@ -48,7 +48,7 @@ Microsoft Advertising SDK を使用して、Windows 10 用ユニバーサル Win
     <br/>
     <a href="best-practices-for-ads-in-apps.md">ベスト プラクティス</a>
     <br/>
-    <a href="https://msdn.microsoft.com/en-us/library/windows/apps/mt691884.aspx">API リファレンス</a>
+    <a href="https://docs.microsoft.com/uwp/api/overview/advertising">API リファレンス</a>
     </td>
 </tr>
 </tbody>
@@ -110,7 +110,7 @@ Microsoft Advertising SDK の使用に関するその他のヘルプについて
 
 |  タスク    | リソース |               
 |----------|-------|
-| 広告のバグを報告したり個別のサポートを受けたりする     | [サポート ページ](https://developer.microsoft.com/en-us/windows/support)にアクセスし、**[アプリ内広告]** を選択します。        |
+| 広告のバグを報告したり個別のサポートを受けたりする     | [サポート ページ](https://developer.microsoft.com/en-us/windows/support)にアクセスし、 **[アプリ内広告]** を選択します。        |
 | コミュニティ サポートを受ける     | [フォーラム](https://go.microsoft.com/fwlink/p/?LinkId=401266)をご覧ください。       |
 | バナーやスポット広告をアプリに追加する方法を説明するサンプル プロジェクトをダウンロードします。     | 「[GitHub の広告サンプル](https://aka.ms/githubads)」をご覧ください。       |
 | Windows アプリの最新の収益機会について学ぶ     | 「[アプリの収益の獲得](https://developer.microsoft.com/store/monetize)」をご覧ください。        |

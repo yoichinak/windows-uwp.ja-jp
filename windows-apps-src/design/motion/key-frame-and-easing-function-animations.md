@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 696a3f0f065c209bec28f774224da6e4c8d93275
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: ea6ec3b879ebfe997e565488828ee9942d4ecb13
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57635547"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66366109"
 ---
 # <a name="key-frame-animations-and-easing-function-animations"></a>キー フレーム アニメーションとイージング関数のアニメーション
 
@@ -21,28 +21,28 @@ ms.locfileid: "57635547"
 
 ## <a name="prerequisites"></a>前提条件
 
-トピック「[ストーリーボードに設定されたアニメーション](storyboarded-animations.md)」を読んでいること。 このトピックは、「[ストーリーボードに設定されたアニメーション](storyboarded-animations.md)」で説明したアニメーションの概念を基に作成されています。その内容はここでは触れません。 具体的には、「[ストーリーボードに設定されたアニメーション](storyboarded-animations.md)」では、アニメーションのターゲットを設定する方法、リソースとしてのストーリーボード、[**Duration**](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.media.animation.timeline.duration) や [**FillBehavior**](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.media.animation.timeline.fillbehavior) などの [**Timeline**](https://msdn.microsoft.com/library/windows/apps/BR210517) プロパティ値について紹介しています。
+トピック「[ストーリーボードに設定されたアニメーション](storyboarded-animations.md)」を読んでいること。 このトピックは、「[ストーリーボードに設定されたアニメーション](storyboarded-animations.md)」で説明したアニメーションの概念を基に作成されています。その内容はここでは触れません。 具体的には、「[ストーリーボードに設定されたアニメーション](storyboarded-animations.md)」では、アニメーションのターゲットを設定する方法、リソースとしてのストーリーボード、[**Duration**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.timeline.duration) や [**FillBehavior**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.timeline.fillbehavior) などの [**Timeline**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.Timeline) プロパティ値について紹介しています。
 
 ## <a name="animating-using-key-frame-animations"></a>キー フレーム アニメーションを使ったアニメーション化
 
-キー フレーム アニメーションでは、アニメーション タイムラインに沿ってポイントに到達する複数のターゲット値を使うことができます。 つまり、キー フレームごとに異なる中間値も指定でき、到達した最後のキー フレームが最終的なアニメーション値になります。 複数の値を指定してアニメーション化を行うことで、より複雑なアニメーションを実現できます。 キー フレーム アニメーションでは、アニメーションの種類ごとに異なる **KeyFrame** サブクラスとして実装される、異なる補間ロジックを使うこともできます。 具体的には、各種類のキー フレーム アニメーションには、キー フレームを指定するための **KeyFrame** クラスのバリエーションが 4 つ (**Discrete**、**Linear**、**Spline**、**Easing**) あります。 たとえば、[**Double**](https://msdn.microsoft.com/library/windows/apps/xaml/system.double.aspx) をターゲットとし、キー フレームを使うアニメーションを指定するには、[**DiscreteDoubleKeyFrame**](https://msdn.microsoft.com/library/windows/apps/BR243130)、[**LinearDoubleKeyFrame**](https://msdn.microsoft.com/library/windows/apps/BR210316)、[**SplineDoubleKeyFrame**](https://msdn.microsoft.com/library/windows/apps/BR210446)、[**EasingDoubleKeyFrame**](https://msdn.microsoft.com/library/windows/apps/BR210269) でキー フレームを宣言できます。 単一の **KeyFrames** コレクションに含まれるこれらすべての種類を使って、新しいキー フレームに到達するたびに補間を変更できます。
+キー フレーム アニメーションでは、アニメーション タイムラインに沿ってポイントに到達する複数のターゲット値を使うことができます。 つまり、キー フレームごとに異なる中間値も指定でき、到達した最後のキー フレームが最終的なアニメーション値になります。 複数の値を指定してアニメーション化を行うことで、より複雑なアニメーションを実現できます。 キー フレーム アニメーションでは、アニメーションの種類ごとに異なる **KeyFrame** サブクラスとして実装される、異なる補間ロジックを使うこともできます。 具体的には、各種類のキー フレーム アニメーションには、キー フレームを指定するための **KeyFrame** クラスのバリエーションが 4 つ (**Discrete**、**Linear**、**Spline**、**Easing**) あります。 たとえば、[**Double**](https://docs.microsoft.com/dotnet/api/system.double?redirectedfrom=MSDN) をターゲットとし、キー フレームを使うアニメーションを指定するには、[**DiscreteDoubleKeyFrame**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.DiscreteDoubleKeyFrame)、[**LinearDoubleKeyFrame**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.LinearDoubleKeyFrame)、[**SplineDoubleKeyFrame**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.SplineDoubleKeyFrame)、[**EasingDoubleKeyFrame**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.EasingDoubleKeyFrame) でキー フレームを宣言できます。 単一の **KeyFrames** コレクションに含まれるこれらすべての種類を使って、新しいキー フレームに到達するたびに補間を変更できます。
 
 補間の動作のために、各キー フレームはその **KeyTime** の時間に達するまで補間を制御します。 その時点で、その **Value** にも達します。 それ以上のキー フレームがある場合は、値はシーケンス内の次のキー フレームの開始値になります。
 
 アニメーションの開始時に、**KeyTime** が "0:0:0" のキー フレームがない場合、開始値はプロパティのアニメーション化されていない値になります。 これは、**From** がない場合の **From**/**To**/**By** アニメーションの動作方法と似ています。
 
-キー フレーム アニメーションの継続時間は、いずれかのキー フレームに設定されている最も大きい **KeyTime** 値と暗黙的に等しくなります。 必要に応じて [**Duration**](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.media.animation.timeline.duration) を明示的に設定することもできますが、独自のキー フレームの **KeyTime** よりも短くならないように注意してください。アニメーションが途中で途切れることになります。
+キー フレーム アニメーションの継続時間は、いずれかのキー フレームに設定されている最も大きい **KeyTime** 値と暗黙的に等しくなります。 必要に応じて [**Duration**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.timeline.duration) を明示的に設定することもできますが、独自のキー フレームの **KeyTime** よりも短くならないように注意してください。アニメーションが途中で途切れることになります。
 
-[  **Duration**](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.media.animation.timeline.duration) 以外にも、**From**/**To**/**By** アニメーションの場合と同様に、[**Timeline**](https://msdn.microsoft.com/library/windows/apps/BR210517) ベースのすべてのプロパティをキー フレーム アニメーションに設定できます。キー フレーム アニメーション クラスも **Timeline** から派生しているためです。 それらを次に示します。
+[  **Duration**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.timeline.duration) 以外にも、**From**/**To**/**By** アニメーションの場合と同様に、[**Timeline**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.Timeline) ベースのすべてのプロパティをキー フレーム アニメーションに設定できます。キー フレーム アニメーション クラスも **Timeline** から派生しているためです。 それらを次に示します。
 
--   [**AutoReverse**](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.media.animation.timeline.autoreverse): 最後のキー フレームに達すると、フレームが末尾から逆の順序で繰り返されます。 アニメーションの明確な継続時間が 2 倍になります。
--   [**BeginTime**](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.media.animation.timeline.begintime): アニメーションの開始を遅らせます。 **BeginTime** に達するまで、フレーム内にある **KeyTime** 値のタイムラインはカウントを開始しないため、フレームがカットされる心配はありません。
--   [**FillBehavior**](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.media.animation.timeline.fillbehavior): 最後のキー フレームに達したときの動作を制御します。 **FillBehavior** はどの中間キー フレームにも影響しません。
--   [**RepeatBehavior**](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.media.animation.timeline.repeatbehaviorproperty):
+-   [**AutoReverse**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.timeline.autoreverse): 最後のキー フレームに達すると、フレームが末尾から逆の順序で繰り返されます。 アニメーションの明確な継続時間が 2 倍になります。
+-   [**BeginTime**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.timeline.begintime): アニメーションの開始を遅らせます。 **BeginTime** に達するまで、フレーム内にある **KeyTime** 値のタイムラインはカウントを開始しないため、フレームがカットされる心配はありません。
+-   [**FillBehavior**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.timeline.fillbehavior): 最後のキー フレームに達したときの動作を制御します。 **FillBehavior** はどの中間キー フレームにも影響しません。
+-   [**RepeatBehavior**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.timeline.repeatbehaviorproperty):
     -   **Forever** に設定した場合、キー フレームとそのタイムラインが無限に繰り返されます。
     -   反復回数に設定した場合、タイムラインはその回数だけ繰り返されます。
-    -   [  **Duration**](https://msdn.microsoft.com/library/windows/apps/BR242377) に設定した場合、その時間に達するまでタイムラインが繰り返されます。 このとき、キー フレーム シーケンスの途中でアニメーションが途切れる可能性があります (タイムラインの暗黙的な継続時間の整数ファクターではない場合)。
--   [**SpeedRatio** ](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.media.animation.timeline.speedratioproperty) (されません一般的に使用)
+    -   [  **Duration**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Duration) に設定した場合、その時間に達するまでタイムラインが繰り返されます。 このとき、キー フレーム シーケンスの途中でアニメーションが途切れる可能性があります (タイムラインの暗黙的な継続時間の整数ファクターではない場合)。
+-   [**SpeedRatio** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.timeline.speedratioproperty) (されません一般的に使用)
 
 ### <a name="linear-key-frames"></a>線形キー フレーム
 
@@ -71,13 +71,13 @@ ms.locfileid: "57635547"
 離散キー フレームでは、補間を一切使いません。 **KeyTime** に達すると、新しい **Value** が単純に適用されます。 アニメーション化される UI プロパティに応じて、"ジャンプ" するように見えるアニメーションになることがよくあります。 これが、望みどおりのきれいな動作であることを確認してください。 宣言するキー フレームの数を増やすことで明確なジャンプを最小限に抑えることができますが、スムーズなアニメーションが必要な場合は、線形キー フレームかスプライン キー フレームを使うことをお勧めします。
 
 > [!NOTE]
-> 離散キー フレームは、[**Double**](https://msdn.microsoft.com/library/windows/apps/xaml/system.double.aspx)、[**Point**](https://msdn.microsoft.com/library/windows/apps/BR225870)、[**Color**](https://msdn.microsoft.com/library/windows/apps/Hh673723) 型ではない値を [**DiscreteObjectKeyFrame**](https://msdn.microsoft.com/library/windows/apps/BR243132) でアニメーション化するための唯一の手段です。 その詳しい内容については、このトピックの後半で説明します。
+> 離散キー フレームは、[**Double**](https://docs.microsoft.com/dotnet/api/system.double?redirectedfrom=MSDN)、[**Point**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Point)、[**Color**](https://docs.microsoft.com/uwp/api/Windows.UI.Color) 型ではない値を [**DiscreteObjectKeyFrame**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.DiscreteObjectKeyFrame) でアニメーション化するための唯一の手段です。 その詳しい内容については、このトピックの後半で説明します。
 
 ### <a name="spline-key-frames"></a>スプライン キー フレーム
 
-スプライン キー フレームでは、値から値までの可変的な遷移を **KeySpline** プロパティの値に基づいて作成します。 このプロパティは、ベジエ曲線の 1 つ目と 2 つ目の制御点を指定し、アニメーションの加速度を表します。 基本的には、[**KeySpline**](https://msdn.microsoft.com/library/windows/apps/BR210307) は、時間に基づく関数の関係 (関数の時間グラフがそのベジエ曲線の図形となる) を定義するものです。 通常は、スペースまたはコンマで区切った 4 つの [**Double**](https://msdn.microsoft.com/library/windows/apps/xaml/system.double.aspx) 値を持つ XAML の短縮形の属性文字列で **KeySpline** 値を指定します。 これらの値は、ベジエ曲線の 2 つの制御点に対応する "X,Y" のペアです。 "X" は時間、"Y" は値に対する関数修飾子です。 各値は、必ず 0 と 1 の間 (両端を含む) である必要があります。 **KeySpline** に対する制御点を変更しない場合、0,0 から 1,1 までの直線は、線形補間の時間に基づく関数を表したものです。 制御点によってその曲線の図形が変化するため、スプライン アニメーションの時間に基づく関数の動作も変化します。 これはグラフで視覚的に確かめることをお勧めします。 ブラウザーで [Silverlight キー スプライン ビジュアライザーのサンプル](https://samples.msdn.microsoft.com/Silverlight/SampleBrowser/index.htm#/?sref=KeySplineExample)を実行すると、制御点によって曲線がどのように変化するかや、制御点を **KeySpline** 値として使ったときのサンプル アニメーションの動作を調べることができます。
+スプライン キー フレームでは、値から値までの可変的な遷移を **KeySpline** プロパティの値に基づいて作成します。 このプロパティは、ベジエ曲線の 1 つ目と 2 つ目の制御点を指定し、アニメーションの加速度を表します。 基本的には、[**KeySpline**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.KeySpline) は、時間に基づく関数の関係 (関数の時間グラフがそのベジエ曲線の図形となる) を定義するものです。 通常は、スペースまたはコンマで区切った 4 つの [**Double**](https://docs.microsoft.com/dotnet/api/system.double?redirectedfrom=MSDN) 値を持つ XAML の短縮形の属性文字列で **KeySpline** 値を指定します。 これらの値は、ベジエ曲線の 2 つの制御点に対応する "X,Y" のペアです。 "X" は時間、"Y" は値に対する関数修飾子です。 各値は、必ず 0 と 1 の間 (両端を含む) である必要があります。 **KeySpline** に対する制御点を変更しない場合、0,0 から 1,1 までの直線は、線形補間の時間に基づく関数を表したものです。 制御点によってその曲線の図形が変化するため、スプライン アニメーションの時間に基づく関数の動作も変化します。 これはグラフで視覚的に確かめることをお勧めします。 ブラウザーで [Silverlight キー スプライン ビジュアライザーのサンプル](https://samples.msdn.microsoft.com/Silverlight/SampleBrowser/index.htm#/?sref=KeySplineExample)を実行すると、制御点によって曲線がどのように変化するかや、制御点を **KeySpline** 値として使ったときのサンプル アニメーションの動作を調べることができます。
 
-次の例は、アニメーションに適用される 3 種類のキー フレームを示しています。最後のキー フレームは、[**Double**](https://msdn.microsoft.com/library/windows/apps/xaml/system.double.aspx) 値のキー スプライン アニメーションです ([**SplineDoubleKeyFrame**](https://msdn.microsoft.com/library/windows/apps/BR210446))。 文字列 "0.6,0.0 0.9,0.00" が **KeySpline** に対して適用されていることに注目してください。 これにより、アニメーションが最初はゆっくり動作するものの、**KeyTime** に達する直前で急速に速度を増す曲線となります。
+次の例は、アニメーションに適用される 3 種類のキー フレームを示しています。最後のキー フレームは、[**Double**](https://docs.microsoft.com/dotnet/api/system.double?redirectedfrom=MSDN) 値のキー スプライン アニメーションです ([**SplineDoubleKeyFrame**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.SplineDoubleKeyFrame))。 文字列 "0.6,0.0 0.9,0.00" が **KeySpline** に対して適用されていることに注目してください。 これにより、アニメーションが最初はゆっくり動作するものの、**KeyTime** に達する直前で急速に速度を増す曲線となります。
 
 ```xml
 <Storyboard x:Name="myStoryboard">
@@ -109,11 +109,11 @@ ms.locfileid: "57635547"
 
 ### <a name="easing-key-frames"></a>イージング キー フレーム
 
-イージング キー フレームは、補間が適用され、補間の時間に基づく関数が複数の定義済みの数式によって制御されるキー フレームです。 スプライン キー フレームでは、一部の種類のイージング関数とほぼ同じ結果を得ることができるものの、スプラインでは再現できない [**BackEase**](https://msdn.microsoft.com/library/windows/apps/BR243049) などのイージング関数もあります。
+イージング キー フレームは、補間が適用され、補間の時間に基づく関数が複数の定義済みの数式によって制御されるキー フレームです。 スプライン キー フレームでは、一部の種類のイージング関数とほぼ同じ結果を得ることができるものの、スプラインでは再現できない [**BackEase**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.BackEase) などのイージング関数もあります。
 
 イージング関数をイージング キー フレームに適用するには、**EasingFunction** プロパティをそのキー フレームの XAML でプロパティ要素として設定します。 値として、いずれかの種類のイージング関数のオブジェクト要素を指定します。
 
-この例では、[**DoubleAnimation**](https://msdn.microsoft.com/library/windows/apps/BR243136) に対して [**CubicEase**](https://msdn.microsoft.com/library/windows/apps/BR243126) を適用し、さらに [**BounceEase**](https://msdn.microsoft.com/library/windows/apps/BR243057) を連続するキー フレームとして適用して、跳ね返りの効果を作成します。
+この例では、[**DoubleAnimation**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.DoubleAnimation) に対して [**CubicEase**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.CubicEase) を適用し、さらに [**BounceEase**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.BounceEase) を連続するキー フレームとして適用して、跳ね返りの効果を作成します。
 
 ```xml
 <Storyboard x:Name="myStoryboard">
@@ -148,29 +148,29 @@ ms.locfileid: "57635547"
 
 イージング関数は 3 とおりの方法でアニメーションに適用できます。
 
--   前のセクションで説明したように、キー フレーム アニメーションでイージング キー フレームを使う方法。 [  **EasingColorKeyFrame.EasingFunction**](https://msdn.microsoft.com/library/windows/apps/BR210267)、[**EasingDoubleKeyFrame.EasingFunction**](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.media.animation.easingdoublekeyframe.easingfunction.aspx)、または [**EasingPointKeyFrame.EasingFunction**](https://msdn.microsoft.com/library/windows/apps/BR210279) を使います。
--   **From**/**To**/**By** のいずれかの種類のアニメーションで **EasingFunction** プロパティを設定する方法。 [  **ColorAnimation.EasingFunction**](https://msdn.microsoft.com/library/windows/apps/BR243075)、[**DoubleAnimation.EasingFunction**](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.media.animation.doubleanimation.easingfunction.aspx)、または [**PointAnimation.EasingFunction**](https://msdn.microsoft.com/library/windows/apps/BR210354) を使います。
--   [  **VisualTransition**](https://msdn.microsoft.com/library/windows/apps/BR209034) の一部として [**GeneratedEasingFunction**](https://msdn.microsoft.com/library/windows/apps/BR209037) を設定する方法。 これは、コントロールの表示状態を定義する場合の固有の方法です。詳しくは、「[**GeneratedEasingFunction**](https://msdn.microsoft.com/library/windows/apps/BR209037)」または「[表示状態用にストーリーボードに設定されたアニメーション](https://msdn.microsoft.com/library/windows/apps/xaml/JJ819808)」をご覧ください。
+-   前のセクションで説明したように、キー フレーム アニメーションでイージング キー フレームを使う方法。 [  **EasingColorKeyFrame.EasingFunction**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.easingcolorkeyframe.easingfunction)、[**EasingDoubleKeyFrame.EasingFunction**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.easingdoublekeyframe.easingfunction)、または [**EasingPointKeyFrame.EasingFunction**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.easingpointkeyframe.easingfunction) を使います。
+-   **From**/**To**/**By** のいずれかの種類のアニメーションで **EasingFunction** プロパティを設定する方法。 [  **ColorAnimation.EasingFunction**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.coloranimation.easingfunction)、[**DoubleAnimation.EasingFunction**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.doubleanimation.easingfunction)、または [**PointAnimation.EasingFunction**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.pointanimation.easingfunction) を使います。
+-   [  **VisualTransition**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.VisualTransition) の一部として [**GeneratedEasingFunction**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.visualtransition.generatedeasingfunction) を設定する方法。 これは、コントロールの表示状態を定義する場合の固有の方法です。詳しくは、「[**GeneratedEasingFunction**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.visualtransition.generatedeasingfunction)」または「[表示状態用にストーリーボードに設定されたアニメーション](https://docs.microsoft.com/previous-versions/windows/apps/jj819808(v=win.10))」をご覧ください。
 
 一連のイージング関数を以下にまとめます。
 
--   [**BackEase**](https://msdn.microsoft.com/library/windows/apps/BR243049):指定されたパスのアニメーションを開始する前に、少しアニメーションの動きは取り消します。
--   [**BounceEase**](https://msdn.microsoft.com/library/windows/apps/BR243057):バウンド効果を作成します。
--   [**CircleEase**](https://msdn.microsoft.com/library/windows/apps/BR243063):アニメーションを加速または減速円関数を使用して作成します。
--   [**CubicEase**](https://msdn.microsoft.com/library/windows/apps/BR243126):アニメーションを加速または減速数式 f(t) を使用して作成 t3 を = です。
--   [**ElasticEase**](https://msdn.microsoft.com/library/windows/apps/BR210282):スプリングが伸び縮みし静止するまでのようなアニメーションを作成します。
--   [**ExponentialEase**](https://msdn.microsoft.com/library/windows/apps/BR210294):加速または指数式を使って減速するアニメーションを作成します。
--   [**PowerEase**](https://msdn.microsoft.com/library/windows/apps/BR210399):アニメーションを加速または減速数式 f(t) を使用して作成 = p と等しい tp、 [ **Power** ](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.media.animation.powerease.power)プロパティ。
--   [**QuadraticEase**](https://msdn.microsoft.com/library/windows/apps/BR210403):アニメーションを加速または減速数式 f(t) を使用して作成 t2 を = です。
--   [**QuarticEase**](https://msdn.microsoft.com/library/windows/apps/BR210405):アニメーションを加速または減速数式 f(t) を使用して作成 t4 を = です。
--   [**QuinticEase**](https://msdn.microsoft.com/library/windows/apps/BR210407):アニメーションを加速または減速数式 f(t) を使用して作成 t5 を = です。
--   [**SineEase**](https://msdn.microsoft.com/library/windows/apps/BR210439):アニメーションを加速または減速正弦公式を使用して作成します。
+-   [**BackEase**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.BackEase):指定されたパスのアニメーションを開始する前に、少しアニメーションの動きは取り消します。
+-   [**BounceEase**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.BounceEase):バウンド効果を作成します。
+-   [**CircleEase**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.CircleEase):アニメーションを加速または減速円関数を使用して作成します。
+-   [**CubicEase**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.CubicEase):アニメーションを加速または減速数式 f(t) を使用して作成 t3 を = です。
+-   [**ElasticEase**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.ElasticEase):スプリングが伸び縮みし静止するまでのようなアニメーションを作成します。
+-   [**ExponentialEase**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.ExponentialEase):加速または指数式を使って減速するアニメーションを作成します。
+-   [**PowerEase**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.PowerEase):アニメーションを加速または減速数式 f(t) を使用して作成 = p と等しい tp、 [ **Power** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.powerease.power)プロパティ。
+-   [**QuadraticEase**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.QuadraticEase):アニメーションを加速または減速数式 f(t) を使用して作成 t2 を = です。
+-   [**QuarticEase**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.QuarticEase):アニメーションを加速または減速数式 f(t) を使用して作成 t4 を = です。
+-   [**QuinticEase**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.QuinticEase):アニメーションを加速または減速数式 f(t) を使用して作成 t5 を = です。
+-   [**SineEase**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.SineEase):アニメーションを加速または減速正弦公式を使用して作成します。
 
-一部のイージング関数には固有のプロパティがあります。 たとえば、[**BounceEase**](https://msdn.microsoft.com/library/windows/apps/BR243057) には [**Bounces**](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.media.animation.bounceease.bounces.aspx) と [**Bounciness**](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.media.animation.bounceease.bounciness.aspx) という 2 つのプロパティがあります。これらは、その特定の **BounceEase** の時間に基づく関数の動作を変更します。 [  **CubicEase**](https://msdn.microsoft.com/library/windows/apps/BR243126) など、その他のイージング関数は、すべてのイージング関数に共通の [**EasingMode**](https://msdn.microsoft.com/library/windows/apps/BR210275) プロパティ以外にプロパティはなく、生成される時間に基づく関数の動作は常に同じです。
+一部のイージング関数には固有のプロパティがあります。 たとえば、[**BounceEase**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.BounceEase) には [**Bounces**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.bounceease.bounces) と [**Bounciness**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.bounceease.bounciness) という 2 つのプロパティがあります。これらは、その特定の **BounceEase** の時間に基づく関数の動作を変更します。 [  **CubicEase**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.CubicEase) など、その他のイージング関数は、すべてのイージング関数に共通の [**EasingMode**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.easingfunctionbase.easingmode) プロパティ以外にプロパティはなく、生成される時間に基づく関数の動作は常に同じです。
 
-これらのイージング関数の一部は、プロパティを持つイージング関数でのプロパティの設定方法に応じて、重複する場合があります。 たとえば、[**QuadraticEase**](https://msdn.microsoft.com/library/windows/apps/BR210403) は、[**Power**](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.media.animation.powerease.power) が 2 の [**PowerEase**](https://msdn.microsoft.com/library/windows/apps/BR210399) と完全に同じです。 [  **CircleEase**](https://msdn.microsoft.com/library/windows/apps/BR243063) は、基本的には既定値の [**ExponentialEase**](https://msdn.microsoft.com/library/windows/apps/BR210294) です。
+これらのイージング関数の一部は、プロパティを持つイージング関数でのプロパティの設定方法に応じて、重複する場合があります。 たとえば、[**QuadraticEase**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.QuadraticEase) は、[**Power**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.powerease.power) が 2 の [**PowerEase**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.PowerEase) と完全に同じです。 [  **CircleEase**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.CircleEase) は、基本的には既定値の [**ExponentialEase**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.ExponentialEase) です。
 
-[  **BackEase**](https://msdn.microsoft.com/library/windows/apps/BR243049) イージング関数は、キー フレームの **From**/**To** または値によって設定される通常の範囲外の値を変更できるため、特別な関数です。 通常の **From**/**To** 動作とは逆の方向に値を変更することでアニメーションを開始し、**From** に戻るか、値をもう一度開始してから、アニメーションを通常どおり実行します。
+[  **BackEase**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.BackEase) イージング関数は、キー フレームの **From**/**To** または値によって設定される通常の範囲外の値を変更できるため、特別な関数です。 通常の **From**/**To** 動作とは逆の方向に値を変更することでアニメーションを開始し、**From** に戻るか、値をもう一度開始してから、アニメーションを通常どおり実行します。
 
 前の例で、キー フレーム アニメーションのイージング関数を宣言する方法を紹介しました。 次の例では、イージング関数を **From**/**To**/**By** アニメーションに適用します。
 
@@ -192,15 +192,15 @@ ms.locfileid: "57635547"
 </StackPanel>
 ```
 
-イージング関数が **From**/**To**/**By** アニメーションに適用されると、時間に基づく関数の特性 (アニメーションの [**Duration**](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.media.animation.timeline.duration) に基づいて値が **From** 値と **To** 値の間で補完されるしくみ) が変化します。 イージング関数を使わない場合は、線形補間になります。
+イージング関数が **From**/**To**/**By** アニメーションに適用されると、時間に基づく関数の特性 (アニメーションの [**Duration**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.timeline.duration) に基づいて値が **From** 値と **To** 値の間で補完されるしくみ) が変化します。 イージング関数を使わない場合は、線形補間になります。
 
 ## <a name="span-iddiscreteobjectvalueanimationsspanspan-iddiscreteobjectvalueanimationsspanspan-iddiscreteobjectvalueanimationsspandiscrete-object-value-animations"></a><span id="Discrete_object_value_animations"></span><span id="discrete_object_value_animations"></span><span id="DISCRETE_OBJECT_VALUE_ANIMATIONS"></span>個々 のオブジェクトの値のアニメーション
 
-[  **Double**](https://msdn.microsoft.com/library/windows/apps/xaml/system.double.aspx)、[**Point**](https://msdn.microsoft.com/library/windows/apps/BR225870)、または [**Color**](https://msdn.microsoft.com/library/windows/apps/Hh673723) 型ではないプロパティにアニメーション化された値を適用する唯一の方法として、ある種類のアニメーションについて以下に説明します。 それは、キー フレーム アニメーション [**ObjectAnimationUsingKeyFrames**](https://msdn.microsoft.com/library/windows/apps/BR210320) です。 [  **Object**](https://msdn.microsoft.com/library/windows/apps/xaml/system.object.aspx) 値を使ったアニメーション化は、フレーム間で値が補間される可能性がないため、これとは異なります。 フレームの [**KeyTime**](https://msdn.microsoft.com/library/windows/apps/BR210342) に達すると、アニメーション化された値はキー フレームの **Value** に指定された値にすぐに設定されます。 使用する 1 つだけのキー フレームが補間がないため、 **ObjectAnimationUsingKeyFrames**キー フレームのコレクション。[**DiscreteObjectKeyFrame**](https://msdn.microsoft.com/library/windows/apps/BR243132)します。
+[  **Double**](https://docs.microsoft.com/dotnet/api/system.double?redirectedfrom=MSDN)、[**Point**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Point)、または [**Color**](https://docs.microsoft.com/uwp/api/Windows.UI.Color) 型ではないプロパティにアニメーション化された値を適用する唯一の方法として、ある種類のアニメーションについて以下に説明します。 それは、キー フレーム アニメーション [**ObjectAnimationUsingKeyFrames**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.ObjectAnimationUsingKeyFrames) です。 [  **Object**](https://docs.microsoft.com/dotnet/api/system.object?redirectedfrom=MSDN) 値を使ったアニメーション化は、フレーム間で値が補間される可能性がないため、これとは異なります。 フレームの [**KeyTime**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.objectkeyframe.keytime) に達すると、アニメーション化された値はキー フレームの **Value** に指定された値にすぐに設定されます。 使用する 1 つだけのキー フレームが補間がないため、 **ObjectAnimationUsingKeyFrames**キー フレームのコレクション。[**DiscreteObjectKeyFrame**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.DiscreteObjectKeyFrame)します。
 
-プロパティ要素構文を使って [**DiscreteObjectKeyFrame**](https://msdn.microsoft.com/library/windows/apps/BR243132) の [**Value**](https://msdn.microsoft.com/library/windows/apps/BR210344) が設定されることはよくあります。これは、設定を試みるオブジェクト値が、属性構文の **Value** を設定するための文字列として表現できない場合があるためです。 [StaticResource](https://msdn.microsoft.com/library/windows/apps/Mt185588) などの参照を使う場合は、属性構文を利用できます。
+プロパティ要素構文を使って [**DiscreteObjectKeyFrame**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.DiscreteObjectKeyFrame) の [**Value**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.objectkeyframe.value) が設定されることはよくあります。これは、設定を試みるオブジェクト値が、属性構文の **Value** を設定するための文字列として表現できない場合があるためです。 [StaticResource](https://docs.microsoft.com/windows/uwp/xaml-platform/staticresource-markup-extension) などの参照を使う場合は、属性構文を利用できます。
 
-既定のテンプレートで [**ObjectAnimationUsingKeyFrames**](https://msdn.microsoft.com/library/windows/apps/BR210320) が使われる状況として、テンプレート プロパティが [**Brush**](/uwp/api/Windows.UI.Xaml.Media.Brush) リソースを参照する場合が挙げられます。 このようなリソースは単なる [**Color**](https://msdn.microsoft.com/library/windows/apps/Hh673723) 値ではなく [**SolidColorBrush**](https://msdn.microsoft.com/library/windows/apps/BR242962) オブジェクトであり、システム テーマとして定義されているリソース ([**ThemeDictionaries**](https://msdn.microsoft.com/library/windows/apps/BR208807)) を使います。 これらのリソースは、[**TextBlock.Foreground**](https://msdn.microsoft.com/library/windows/apps/BR209665) などの **Brush** 型の値に直接割り当てることができ、間接的なターゲット設定を使う必要はありません。 ただし、**SolidColorBrush** は [**Double**](https://msdn.microsoft.com/library/windows/apps/xaml/system.double.aspx)、[**Point**](https://msdn.microsoft.com/library/windows/apps/BR225870)、または **Color** ではないため、リソースを使うには **ObjectAnimationUsingKeyFrames** を利用する必要があります。
+既定のテンプレートで [**ObjectAnimationUsingKeyFrames**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.ObjectAnimationUsingKeyFrames) が使われる状況として、テンプレート プロパティが [**Brush**](/uwp/api/Windows.UI.Xaml.Media.Brush) リソースを参照する場合が挙げられます。 このようなリソースは単なる [**Color**](https://docs.microsoft.com/uwp/api/Windows.UI.Color) 値ではなく [**SolidColorBrush**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.SolidColorBrush) オブジェクトであり、システム テーマとして定義されているリソース ([**ThemeDictionaries**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.resourcedictionary.themedictionaries)) を使います。 これらのリソースは、[**TextBlock.Foreground**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock.foreground) などの **Brush** 型の値に直接割り当てることができ、間接的なターゲット設定を使う必要はありません。 ただし、**SolidColorBrush** は [**Double**](https://docs.microsoft.com/dotnet/api/system.double?redirectedfrom=MSDN)、[**Point**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Point)、または **Color** ではないため、リソースを使うには **ObjectAnimationUsingKeyFrames** を利用する必要があります。
 
 ```xml
 <Style x:Key="TextButtonStyle" TargetType="Button">
@@ -237,7 +237,7 @@ ms.locfileid: "57635547"
 </Style>
 ```
 
-列挙値を使うプロパティをアニメーション化するために、[**ObjectAnimationUsingKeyFrames**](https://msdn.microsoft.com/library/windows/apps/BR210320) を使うこともできます。 次に、Windows ランタイムの既定のテンプレートに含まれている名前付きスタイルの別の例を示します。 [  **Visibility**](https://msdn.microsoft.com/library/windows/apps/BR209006) 列挙定数を列挙定数受け取る [**Visibility**](https://msdn.microsoft.com/library/windows/apps/BR208992) プロパティの設定方法に注目してください。 この場合は、属性構文を使って値を設定できます。 必要なのは、プロパティに "Collapsed" などの列挙値を設定するための列挙値からの非修飾定数名だけです。
+列挙値を使うプロパティをアニメーション化するために、[**ObjectAnimationUsingKeyFrames**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.ObjectAnimationUsingKeyFrames) を使うこともできます。 次に、Windows ランタイムの既定のテンプレートに含まれている名前付きスタイルの別の例を示します。 [  **Visibility**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Visibility) 列挙定数を列挙定数受け取る [**Visibility**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.visibility) プロパティの設定方法に注目してください。 この場合は、属性構文を使って値を設定できます。 必要なのは、プロパティに "Collapsed" などの列挙値を設定するための列挙値からの非修飾定数名だけです。
 
 ```xml
 <Style x:Key="BackButtonStyle" TargetType="Button">
@@ -265,11 +265,11 @@ ms.locfileid: "57635547"
 </Style>
 ```
 
-[  **ObjectAnimationUsingKeyFrames**](https://msdn.microsoft.com/library/windows/apps/BR210320) フレーム セットに対して、複数の [**DiscreteObjectKeyFrame**](https://msdn.microsoft.com/library/windows/apps/BR243132) を使うことができます。 この方法は、複数のオブジェクト値が役立つサンプル シナリオで、[**Image.Source**](https://msdn.microsoft.com/library/windows/apps/BR242760) の値をアニメーション化して "スライド ショー" アニメーションを作成する際に検討することをお勧めします。
+[  **ObjectAnimationUsingKeyFrames**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.ObjectAnimationUsingKeyFrames) フレーム セットに対して、複数の [**DiscreteObjectKeyFrame**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.DiscreteObjectKeyFrame) を使うことができます。 この方法は、複数のオブジェクト値が役立つサンプル シナリオで、[**Image.Source**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.image.source) の値をアニメーション化して "スライド ショー" アニメーションを作成する際に検討することをお勧めします。
 
  ## <a name="related-topics"></a>関連トピック
 
-* [プロパティ パスの構文](https://msdn.microsoft.com/library/windows/apps/Mt185586)
-* [依存関係プロパティの概要](https://msdn.microsoft.com/library/windows/apps/Mt185583)
-* [**ストーリー ボード**](https://msdn.microsoft.com/library/windows/apps/BR210490)
-* [**Storyboard.TargetProperty**](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.media.animation.storyboard.targetpropertyproperty)
+* [プロパティ パスの構文](https://docs.microsoft.com/windows/uwp/xaml-platform/property-path-syntax)
+* [依存関係プロパティの概要](https://docs.microsoft.com/windows/uwp/xaml-platform/dependency-properties-overview)
+* [**ストーリー ボード**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.Storyboard)
+* [**Storyboard.TargetProperty**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.storyboard.targetpropertyproperty)

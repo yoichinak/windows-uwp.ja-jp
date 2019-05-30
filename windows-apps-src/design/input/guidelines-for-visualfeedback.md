@@ -8,18 +8,18 @@ keywords: 視覚的なフィードバック, フォーカス フィードバッ�
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: b043ec71eb7d5883a1b22c4f0d8f43824034d454
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 1f716b930a4d8b96a55a5741e5a520be624526fa
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57640787"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66363538"
 ---
 # <a name="guidelines-for-visual-feedback"></a>視覚的なフィードバックのガイドライン
 
 視覚的なフィードバックは、対話式操作が検出、解釈、処理されていることをユーザーに示すために使います。 視覚的なフィードバックは、対話式操作を促進することによってユーザーを支援します。 対話式操作の成功を示すことによって、ユーザーのコントロール感を向上させます。 また、システム状態の中継やエラーの削減も可能になります。
 
-> **重要な API**:[**Windows.Devices.Input**](https://msdn.microsoft.com/library/windows/apps/br225648)、 [ **Windows.UI.Input**](https://msdn.microsoft.com/library/windows/apps/br242084)、 [ **Windows.UI.Core**](https://msdn.microsoft.com/library/windows/apps/br208383)
+> **重要な API**:[**Windows.Devices.Input**](https://docs.microsoft.com/uwp/api/Windows.Devices.Input)、 [ **Windows.UI.Input**](https://docs.microsoft.com/uwp/api/Windows.UI.Input)、 [ **Windows.UI.Core**](https://docs.microsoft.com/uwp/api/Windows.UI.Core)
 
 ## <a name="recommendations"></a>推奨事項
 
@@ -27,7 +27,7 @@ ms.locfileid: "57640787"
     - 表示状態のプロパティなど、コントロールのプロパティのカスタマイズの詳細については、「[XAML スタイル](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/xaml-styles)」を参照してください。
     - コントロール テンプレートに対する変更の詳細については、「[UserControl クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.usercontrol)」を参照してください。
     - コントロール テンプレートに大幅な変更を加える必要がある場合は、独自にテンプレート化したカスタム コントロールを作成することを検討してください。 テンプレート化したカスタム コントロールの例については、「[カスタム編集コントロールのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/CustomEditControl)」を参照してください。
-- タッチの視覚エフェクトがアプリの使用を妨げる可能性がある場合は、使わないでください。 詳しくは、「[**ShowGestureFeedback**](https://msdn.microsoft.com/library/windows/apps/br241969)」をご覧ください。
+- タッチの視覚エフェクトがアプリの使用を妨げる可能性がある場合は、使わないでください。 詳しくは、「[**ShowGestureFeedback**](https://docs.microsoft.com/uwp/api/windows.ui.input.gesturerecognizer.showgesturefeedback)」をご覧ください。
 - どうしても必要な場合以外は、フィードバックを表示しないでください。 その場所でしか意味がない場合を除き、視覚的なフィードバックを表示せずに、UI の簡潔さを維持してください。
 - Windows の組み込みジェスチャの視覚的なフィードバックの動作は大幅にカスタマイズしないでください。この動作をカスタマイズすると、ユーザー エクスペリエンスに一貫性がなくなり、混乱する可能性があります。
 
@@ -44,7 +44,7 @@ ms.locfileid: "57640787"
 
 視覚的なフィードバックは、一般に入力デバイス (タッチ、タッチバッド、マウス、ペン/スタイラス、キーボードなど) に依存します。 たとえば、マウスの組み込みフィードバックには、通常はカーソルの移動と変化が伴います。一方、タッチとペンの場合は接触の視覚エフェクトが必要です。キーボードによる入力とナビゲーションの場合は、フォーカス用の四角形と強調表示を使います。
 
-プラットフォーム ジェスチャのフィードバック動作を設定するには、[**ShowGestureFeedback**](https://msdn.microsoft.com/library/windows/apps/br241969) を使います。
+プラットフォーム ジェスチャのフィードバック動作を設定するには、[**ShowGestureFeedback**](https://docs.microsoft.com/uwp/api/windows.ui.input.gesturerecognizer.showgesturefeedback) を使います。
 
 フィードバック UI をカスタマイズする場合は、すべての入力モードをサポートした適切なフィードバックを提供してください。
 
@@ -73,7 +73,7 @@ Xbox とテレビの使用で一般的な **10 フィート エクスペリエ�
 ```
 ![視認性の高いフォーカスの視覚効果における余白部分の太さ](images/FocusMargin.png)
 
-余白は [**Thickness**](https://msdn.microsoft.com/library/system.windows.thickness) という種類のプロパティで指定されます。このため、コントロールの特定の側にのみ表示されるように、余白をカスタマイズすることができます。 以下に例を示します。![可視性の高いフォーカス ビジュアルの余白の厚み下端のみ](images/FocusThicknessSide.png)
+余白は [**Thickness**](https://docs.microsoft.com/dotnet/api/system.windows.thickness?redirectedfrom=MSDN) という種類のプロパティで指定されます。このため、コントロールの特定の側にのみ表示されるように、余白をカスタマイズすることができます。 以下に例を示します。![可視性の高いフォーカス ビジュアルの余白の厚み下端のみ](images/FocusThicknessSide.png)
 
 余白は、コントロールの視覚的な境界線と、フォーカスの視覚効果で示される*セカンダリ境界線*の開始点との間にあるスペースです。 既定の余白は、コントロールの境界線から **1 px** の幅で描画されます。 この余白はコントロールごとに変更できます。それには、**FocusVisualMargin** プロパティを変更します。
 ```XAML
@@ -112,7 +112,7 @@ Xbox とテレビの使用で一般的な **10 フィート エクスペリエ�
 * [パンのガイドライン](guidelines-for-panning.md)
 
 **開発者向け**
-* [カスタム ユーザー操作](https://msdn.microsoft.com/library/windows/apps/mt185599)
+* [カスタム ユーザー操作](https://developer.microsoft.com/windows/design/inputs-devices)
 
 **サンプル**
 * [基本的な入力サンプル](https://go.microsoft.com/fwlink/p/?LinkID=620302)

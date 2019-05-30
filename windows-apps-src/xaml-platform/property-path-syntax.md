@@ -6,29 +6,29 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: f0f49792a92010f97c8388540fd63c38eed5f75e
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: HT
+ms.openlocfilehash: 63656fc545596fc045dc536167313c0c8e3f6ad2
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57632367"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66371159"
 ---
 # <a name="property-path-syntax"></a>プロパティ パス構文
 
 
-[  **PropertyPath**](https://msdn.microsoft.com/library/windows/apps/br244259) クラスと文字列構文を使うと、**PropertyPath** 値を XAML またはコードでインスタンス化できます。 **PropertyPath** 値は、データ バインディングで使われます。 ストーリーボードに設定されたアニメーションのターゲットを設定する場合も、同様の構文が使われます。 どちらのシナリオにおいても、プロパティ パスは、最終的に 1 つのプロパティに解決される 1 つまたは複数のオブジェクトとプロパティの関係のトラバーサルを記述します。
+[  **PropertyPath**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.PropertyPath) クラスと文字列構文を使うと、**PropertyPath** 値を XAML またはコードでインスタンス化できます。 **PropertyPath** 値は、データ バインディングで使われます。 ストーリーボードに設定されたアニメーションのターゲットを設定する場合も、同様の構文が使われます。 どちらのシナリオにおいても、プロパティ パスは、最終的に 1 つのプロパティに解決される 1 つまたは複数のオブジェクトとプロパティの関係のトラバーサルを記述します。
 
-プロパティ パス文字列は、XAML の属性に直接設定できます。 同じ文字列構文を使って、[**Binding**](https://msdn.microsoft.com/library/windows/apps/br209820) をコードで設定する [**PropertyPath**](https://msdn.microsoft.com/library/windows/apps/br244259) を作成することも、[**SetTargetProperty**](https://msdn.microsoft.com/library/windows/apps/br210503) を使ってコードでアニメーション ターゲットを設定することもできます。 Windows ランタイムには、プロパティ パスを使う機能領域として、データ バインディングとアニメーション ターゲット設定の 2 つがあります。 Windows ランタイムの実装時には、アニメーション ターゲット設定で基になる PropertyPath 値が作成されず、情報が文字列として保持されます。しかし、オブジェクトとプロパティのトラバーサルの概念はよく似ています。 データ バインディングとアニメーション ターゲット設定ではプロパティ パスの評価方法が多少異なるため、それぞれについてプロパティ パス構文を説明していきます。
+プロパティ パス文字列は、XAML の属性に直接設定できます。 同じ文字列構文を使って、[**Binding**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.Binding) をコードで設定する [**PropertyPath**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.PropertyPath) を作成することも、[**SetTargetProperty**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.storyboard.settargetproperty) を使ってコードでアニメーション ターゲットを設定することもできます。 Windows ランタイムには、プロパティ パスを使う機能領域として、データ バインディングとアニメーション ターゲット設定の 2 つがあります。 Windows ランタイムの実装時には、アニメーション ターゲット設定で基になる PropertyPath 値が作成されず、情報が文字列として保持されます。しかし、オブジェクトとプロパティのトラバーサルの概念はよく似ています。 データ バインディングとアニメーション ターゲット設定ではプロパティ パスの評価方法が多少異なるため、それぞれについてプロパティ パス構文を説明していきます。
 
 ## <a name="property-path-for-objects-in-data-binding"></a>データ バインディングでのオブジェクトのプロパティ パス
 
 Windows ランタイムでは、任意の依存関係プロパティのターゲット値にバインドできます。 データ バインディングのソース プロパティ値は、依存関係プロパティである必要はなく、ビジネス オブジェクト (たとえば、Microsoft .NET 言語または C++ で書かれたクラス) のプロパティを使うことができます。 また、バインド値のソース オブジェクトには、アプリによって定義され、既に存在している依存関係オブジェクトを使うことができます。 ソースは、単純なプロパティ名を使うか、またはビジネス オブジェクトのオブジェクト グラフのオブジェクトとプロパティの関係のトラバーサルによって参照できます。
 
-バインド先として、個々のプロパティか、またはリストまたはコレクションを保持するターゲット プロパティを設定できます。 ソースがコレクションの場合、またはパスにコレクション プロパティが指定されている場合、データ バインディング エンジンにより、ソースのコレクション項目がバインディング ターゲットと照合されます。その結果、コレクション内の特定の項目を予測する必要なく、[**ListBox**](https://msdn.microsoft.com/library/windows/apps/br242868) にデータ ソース コレクションの項目のリストを設定する動作が実行されます。
+バインド先として、個々のプロパティか、またはリストまたはコレクションを保持するターゲット プロパティを設定できます。 ソースがコレクションの場合、またはパスにコレクション プロパティが指定されている場合、データ バインディング エンジンにより、ソースのコレクション項目がバインディング ターゲットと照合されます。その結果、コレクション内の特定の項目を予測する必要なく、[**ListBox**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListBox) にデータ ソース コレクションの項目のリストを設定する動作が実行されます。
 
 ### <a name="traversing-an-object-graph"></a>オブジェクト グラフのトラバーサル
 
-オブジェクト グラフ内のオブジェクトとプロパティの関係のトラバーサルを示す構文要素は、ドット (**.**) 文字です。 プロパティ パス文字列の各ドットは、オブジェクト (ドットの左側) とそのオブジェクトのプロパティ (ドットの右側) の間の区切りを表します。 文字列は左から右へ評価され、これにより複数のオブジェクトとプロパティの関係をステップごとに表すことができます。 次に例を示します。
+オブジェクト グラフ内のオブジェクトとプロパティの関係のトラバーサルを示す構文要素は、ドット ( **.** ) 文字です。 プロパティ パス文字列の各ドットは、オブジェクト (ドットの左側) とそのオブジェクトのプロパティ (ドットの右側) の間の区切りを表します。 文字列は左から右へ評価され、これにより複数のオブジェクトとプロパティの関係をステップごとに表すことができます。 次に例を示します。
 
 ``` syntax
 "{Binding Path=Customer.Address.StreetAddress1}"
@@ -36,7 +36,7 @@ Windows ランタイムでは、任意の依存関係プロパティのターゲ
 
 このパスは、次のように評価されます。
 
-1.  データ コンテキスト オブジェクト (または同じ [**Binding**](https://msdn.microsoft.com/library/windows/apps/br209820) によって指定された [**Source**](https://msdn.microsoft.com/library/windows/apps/br209832)) で、"Customer" という名前のプロパティが検索されます。
+1.  データ コンテキスト オブジェクト (または同じ [**Binding**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.Binding) によって指定された [**Source**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.source)) で、"Customer" という名前のプロパティが検索されます。
 2.  "Customer" プロパティの値であるオブジェクトで、"Address" という名前のプロパティが検索されます。
 3.  "Address" プロパティの値であるオブジェクトで、"StreetAddress1" という名前のプロパティが検索されます。
 
@@ -46,7 +46,7 @@ Windows ランタイムでは、任意の依存関係プロパティのターゲ
 
 -   プロパティ パスで参照されるすべてのプロパティは、ソース ビジネス オブジェクト内でパブリックであることが必要です。
 -   終了プロパティ (パスに指定された最後のプロパティ) は、パブリックであり変更可能である必要があります。静的値にバインドすることはできません。
--   このパスが双方向バインドの [**Path**](https://msdn.microsoft.com/library/windows/apps/br209830) 情報として使われる場合、終了プロパティは読み取り/書き込み可能である必要があります。
+-   このパスが双方向バインドの [**Path**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.path) 情報として使われる場合、終了プロパティは読み取り/書き込み可能である必要があります。
 
 ### <a name="indexers"></a>インデクサー
 
@@ -54,11 +54,11 @@ Windows ランタイムでは、任意の依存関係プロパティのターゲ
 
 たとえば、"Teams" (順序指定された一覧) の一覧を含むビジネス オブジェクトがあるとします。それぞれには、各プレイヤーの姓がキーとして使われている、"Players" という辞書があるとします。 2 番目のチームの特定のプレーヤーにプロパティ パスの例に示します。"チーム\[1\]します。プレーヤー\[Smith\]"。 (一覧はインデックス 0 で始まるため、"Teams" の 2 番目の項目を示すには 1 を使います)。
 
-**注**  C++ のデータ ソースのインデックス作成のサポートは制限されています。 を参照してください[深さでのデータ バインディング](https://msdn.microsoft.com/library/windows/apps/mt210946)します。
+**注**  C++ のデータ ソースのインデックス作成のサポートは制限されています。 を参照してください[深さでのデータ バインディング](https://docs.microsoft.com/windows/uwp/data-binding/data-binding-in-depth)します。
 
 ### <a name="attached-properties"></a>添付プロパティ
 
-プロパティ パスには、添付プロパティへの参照を含めることができます。 添付プロパティの識別名には既にドットが含まれているため、ドットがオブジェクトとプロパティのステップとして処理されないように、すべての添付プロパティ名をかっこで囲む必要があります。 たとえば、[**Canvas.ZIndex**](https://msdn.microsoft.com/library/windows/apps/hh759773) をバインド パスとして使うことを指定する文字列は "(Canvas.ZIndex)" となります。 添付プロパティについて詳しくは、「[添付プロパティの概要](attached-properties-overview.md)」をご覧ください。
+プロパティ パスには、添付プロパティへの参照を含めることができます。 添付プロパティの識別名には既にドットが含まれているため、ドットがオブジェクトとプロパティのステップとして処理されないように、すべての添付プロパティ名をかっこで囲む必要があります。 たとえば、[**Canvas.ZIndex**](https://docs.microsoft.com/previous-versions/windows/silverlight/dotnet-windows-silverlight/cc190397(v%3Dvs.95)) をバインド パスとして使うことを指定する文字列は "(Canvas.ZIndex)" となります。 添付プロパティについて詳しくは、「[添付プロパティの概要](attached-properties-overview.md)」をご覧ください。
 
 ### <a name="combining-property-path-syntax"></a>プロパティ パス構文の組み合わせ
 
@@ -70,52 +70,52 @@ Windows ランタイムでは、任意の依存関係プロパティのターゲ
 
 ## <a name="property-path-for-animation-targeting"></a>アニメーション ターゲット設定のためのプロパティ パス
 
-アニメーションは、アニメーションの実行時にストーリーボードに設定された値が適用される依存関係プロパティのターゲット設定に依存します。 アニメーション化されるプロパティが存在するオブジェクトを識別するために、アニメーションは、要素を名前 ([x:Name 属性](x-name-attribute.md)) でターゲット設定します。 通常、[**Storyboard.TargetName**](https://msdn.microsoft.com/library/windows/apps/hh759823) として識別されたオブジェクトで始まり、アニメーションが適用される特定の依存関係プロパティ値で終わるプロパティ パスを定義する必要があります。 このプロパティ パスは、[**Storyboard.TargetProperty**](https://msdn.microsoft.com/library/windows/apps/hh759824) の値として使われます。
+アニメーションは、アニメーションの実行時にストーリーボードに設定された値が適用される依存関係プロパティのターゲット設定に依存します。 アニメーション化されるプロパティが存在するオブジェクトを識別するために、アニメーションは、要素を名前 ([x:Name 属性](x-name-attribute.md)) でターゲット設定します。 通常、[**Storyboard.TargetName**](https://docs.microsoft.com/dotnet/api/system.windows.media.animation.storyboard.targetname?view=netframework-4.8) として識別されたオブジェクトで始まり、アニメーションが適用される特定の依存関係プロパティ値で終わるプロパティ パスを定義する必要があります。 このプロパティ パスは、[**Storyboard.TargetProperty**](https://docs.microsoft.com/previous-versions/windows/silverlight/dotnet-windows-silverlight/ms616983(v%3Dvs.95)) の値として使われます。
 
-XAML でアニメーションを定義する方法について詳しくは、「[ストーリーボードに設定されたアニメーション](https://msdn.microsoft.com/library/windows/apps/mt187354)」をご覧ください。
+XAML でアニメーションを定義する方法について詳しくは、「[ストーリーボードに設定されたアニメーション](https://docs.microsoft.com/windows/uwp/graphics/storyboarded-animations)」をご覧ください。
 
 ## <a name="simple-targeting"></a>単純なターゲット設定
 
-ターゲット設定されたオブジェクト自体に存在するプロパティをアニメーション化するときに、(プロパティ値のサブプロパティではなく) このプロパティの型にアニメーションを直接適用できる場合は、修飾を追加することなく、アニメーション化の対象のプロパティを指定するだけでかまいません。 たとえば、[**Shape**](/uwp/api/Windows.UI.Xaml.Shapes.Shape) サブクラス ([**Rectangle**](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle) など) をターゲット設定し、アニメーション化された [**Color**](https://msdn.microsoft.com/library/windows/apps/hh673723) を [**Fill**](/uwp/api/Windows.UI.Xaml.Shapes.Shape.Fill) プロパティに割り当てる場合、プロパティ パスとして "Fill" を指定できます。
+ターゲット設定されたオブジェクト自体に存在するプロパティをアニメーション化するときに、(プロパティ値のサブプロパティではなく) このプロパティの型にアニメーションを直接適用できる場合は、修飾を追加することなく、アニメーション化の対象のプロパティを指定するだけでかまいません。 たとえば、[**Shape**](/uwp/api/Windows.UI.Xaml.Shapes.Shape) サブクラス ([**Rectangle**](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle) など) をターゲット設定し、アニメーション化された [**Color**](https://docs.microsoft.com/uwp/api/Windows.UI.Color) を [**Fill**](/uwp/api/Windows.UI.Xaml.Shapes.Shape.Fill) プロパティに割り当てる場合、プロパティ パスとして "Fill" を指定できます。
 
 ## <a name="indirect-property-targeting"></a>間接的なプロパティのターゲット設定
 
-ターゲット オブジェクトのサブプロパティであるプロパティをアニメーション化できます。 言い換えると、ターゲット オブジェクトにプロパティがあり (つまり、オブジェクト自体)、このオブジェクトにプロパティがある場合は、オブジェクトとプロパティの関係をステップごとに表す方法を説明するプロパティ パスを定義する必要があります。 サブプロパティをアニメーション化するオブジェクトを指定するときは、必ずプロパティ名をかっこで囲み、プロパティを *typename*.*propertyname* 形式で指定します。 たとえば、ターゲット オブジェクトの [**RenderTransform**](https://msdn.microsoft.com/library/windows/apps/br208980) プロパティのオブジェクト値を指定するには、"(UIElement.RenderTransform)" をプロパティ パスの最初のステップとして指定します。 [  **Transform**](https://msdn.microsoft.com/library/windows/apps/br243006) 値に直接適用できるアニメーションはないため、これはまだ完全なパスではありません。 そこで、この例では、**Double** 値によってアニメーション化できる **Transform** サブクラスのプロパティを終了プロパティに指定して、"(UIElement.RenderTransform).(CompositeTransform.TranslateX)" というプロパティ パスを完成させます。
+ターゲット オブジェクトのサブプロパティであるプロパティをアニメーション化できます。 言い換えると、ターゲット オブジェクトにプロパティがあり (つまり、オブジェクト自体)、このオブジェクトにプロパティがある場合は、オブジェクトとプロパティの関係をステップごとに表す方法を説明するプロパティ パスを定義する必要があります。 サブプロパティをアニメーション化するオブジェクトを指定するときは、必ずプロパティ名をかっこで囲み、プロパティを *typename*.*propertyname* 形式で指定します。 たとえば、ターゲット オブジェクトの [**RenderTransform**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.rendertransform) プロパティのオブジェクト値を指定するには、"(UIElement.RenderTransform)" をプロパティ パスの最初のステップとして指定します。 [  **Transform**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Transform) 値に直接適用できるアニメーションはないため、これはまだ完全なパスではありません。 そこで、この例では、**Double** 値によってアニメーション化できる **Transform** サブクラスのプロパティを終了プロパティに指定して、"(UIElement.RenderTransform).(CompositeTransform.TranslateX)" というプロパティ パスを完成させます。
 
 ## <a name="specifying-a-particular-child-in-a-collection"></a>コレクション内の特定の子の指定
 
 コレクション プロパティ内の子項目を指定する場合、数値インデクサーを使うことができます。 角かっこを使用して、"\[\]"整数の周囲の文字のインデックス値。 参照できるのは順序指定された一覧のみで、辞書は参照できません。 コレクションはアニメーション化できる値ではないため、インデクサーの使用はプロパティ パスの終了プロパティとなりません。
 
-たとえば、最初の色をアニメーション化するように指定停止の色で、 [ **LinearGradientBrush** ](https://msdn.microsoft.com/library/windows/apps/br210108)コントロールに適用される[**バック グラウンド**](https://msdn.microsoft.com/library/windows/apps/br209395)プロパティ、これは、プロパティ パス:"(されたルックアップ)。(GradientBrush.GradientStops)\[0\](。GradientStop.Color)"。 インデクサーがパスの最終ステップにならないことに注目してください。さらに、アニメーション化された値 [**Color**](https://msdn.microsoft.com/library/windows/apps/hh673723) を適用するために特に最終ステップでコレクション内の項目 0 の [**GradientStop.Color**](https://msdn.microsoft.com/library/windows/apps/br210094) プロパティを参照する必要があることに注目してください。
+たとえば、最初の色をアニメーション化するように指定停止の色で、 [ **LinearGradientBrush** ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.LinearGradientBrush)コントロールに適用される[**バック グラウンド**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.background)プロパティ、これは、プロパティ パス:"(されたルックアップ)。(GradientBrush.GradientStops)\[0\](。GradientStop.Color)"。 インデクサーがパスの最終ステップにならないことに注目してください。さらに、アニメーション化された値 [**Color**](https://docs.microsoft.com/uwp/api/Windows.UI.Color) を適用するために特に最終ステップでコレクション内の項目 0 の [**GradientStop.Color**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.gradientstop.color) プロパティを参照する必要があることに注目してください。
 
 ## <a name="animating-an-attached-property"></a>添付プロパティのアニメーション化
 
-これは一般的なシナリオではありませんが、添付プロパティがアニメーションの種類と一致するプロパティ値を持つ限り、添付プロパティをアニメーション化することもあります。 添付プロパティの識別名には既にドットが含まれているため、ドットがオブジェクトとプロパティのステップとして処理されないように、すべての添付プロパティ名をかっこで囲む必要があります。 たとえば、オブジェクトの [**Grid.Row**](https://msdn.microsoft.com/library/windows/apps/hh759795) 添付プロパティをアニメーション化することを指定する文字列として、プロパティ パス "(Grid.Row)" を使います。
+これは一般的なシナリオではありませんが、添付プロパティがアニメーションの種類と一致するプロパティ値を持つ限り、添付プロパティをアニメーション化することもあります。 添付プロパティの識別名には既にドットが含まれているため、ドットがオブジェクトとプロパティのステップとして処理されないように、すべての添付プロパティ名をかっこで囲む必要があります。 たとえば、オブジェクトの [**Grid.Row**](https://docs.microsoft.com/dotnet/api/system.windows.controls.grid.row?view=netframework-4.8) 添付プロパティをアニメーション化することを指定する文字列として、プロパティ パス "(Grid.Row)" を使います。
 
-**注**  この例では、値の[ **Grid.Row** ](https://msdn.microsoft.com/library/windows/apps/hh759795)は、 **Int32**プロパティの型。 したがって、**Double** アニメーションを使ってこれをアニメーション化することはできません。 その代わり、[**DiscreteObjectKeyFrame**](https://msdn.microsoft.com/library/windows/apps/br243132) コンポーネントを持つ [**ObjectAnimationUsingKeyFrames**](https://msdn.microsoft.com/library/windows/apps/br210320) を定義します。ここで、[**ObjectKeyFrame.Value**](https://msdn.microsoft.com/library/windows/apps/br210344) は、"0"、"1" などの整数に設定します。
+**注**  この例では、値の[ **Grid.Row** ](https://docs.microsoft.com/dotnet/api/system.windows.controls.grid.row?view=netframework-4.8)は、 **Int32**プロパティの型。 したがって、**Double** アニメーションを使ってこれをアニメーション化することはできません。 その代わり、[**DiscreteObjectKeyFrame**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.DiscreteObjectKeyFrame) コンポーネントを持つ [**ObjectAnimationUsingKeyFrames**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.ObjectAnimationUsingKeyFrames) を定義します。ここで、[**ObjectKeyFrame.Value**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.objectkeyframe.value) は、"0"、"1" などの整数に設定します。
 
 ## <a name="rules-for-the-properties-in-an-animation-targeting-property-path"></a>アニメーション ターゲット設定プロパティ パスのプロパティの規則
 
--   プロパティ パスの想定される開始点は、[**Storyboard.TargetName**](https://msdn.microsoft.com/library/windows/apps/hh759823) によって識別されるオブジェクトです。
+-   プロパティ パスの想定される開始点は、[**Storyboard.TargetName**](https://docs.microsoft.com/dotnet/api/system.windows.media.animation.storyboard.targetname?view=netframework-4.8) によって識別されるオブジェクトです。
 -   プロパティ パスで参照されるすべてのオブジェクトおよびプロパティは、パブリックであることが必要です。
 -   終了プロパティ (パスに指定された最後のプロパティ) は、パブリックで読み取り/書き込み可能な依存関係プロパティである必要があります。
--   終了プロパティは、さまざまなアニメーションの種類 ([**Color**](https://msdn.microsoft.com/library/windows/apps/hh673723) アニメーション、**Double** アニメーション、[**Point**](https://msdn.microsoft.com/library/windows/apps/br225870) アニメーション、[**ObjectAnimationUsingKeyFrames**](https://msdn.microsoft.com/library/windows/apps/br210320)) のいずれかでアニメーション化できるプロパティ型を持つ必要があります。
+-   終了プロパティは、さまざまなアニメーションの種類 ([**Color**](https://docs.microsoft.com/uwp/api/Windows.UI.Color) アニメーション、**Double** アニメーション、[**Point**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Point) アニメーション、[**ObjectAnimationUsingKeyFrames**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.ObjectAnimationUsingKeyFrames)) のいずれかでアニメーション化できるプロパティ型を持つ必要があります。
 
 ## <a name="the-propertypath-class"></a>PropertyPath クラス
 
-[  **PropertyPath**](https://msdn.microsoft.com/library/windows/apps/br244259) クラスは、バインド シナリオのための [**Binding.Path**](https://msdn.microsoft.com/library/windows/apps/br209830) の基になるプロパティ型です。
+[  **PropertyPath**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.PropertyPath) クラスは、バインド シナリオのための [**Binding.Path**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.path) の基になるプロパティ型です。
 
-ほとんどの場合、コードをまったく使わずに [**PropertyPath**](https://msdn.microsoft.com/library/windows/apps/br244259) を XAML で適用できます。 しかし、場合によっては、コードを使って **PropertyPath** オブジェクトを定義し、実行時にプロパティに割り当てることができます。
+ほとんどの場合、コードをまったく使わずに [**PropertyPath**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.PropertyPath) を XAML で適用できます。 しかし、場合によっては、コードを使って **PropertyPath** オブジェクトを定義し、実行時にプロパティに割り当てることができます。
 
-[**PropertyPath** ](https://msdn.microsoft.com/library/windows/apps/br244259)が、 [ **PropertyPath(String)** ](https://msdn.microsoft.com/library/windows/apps/br244261)コンストラクター、および既定のコンストラクターはありません。 このコンストラクターには、前に説明したプロパティ パス構文を使って定義した文字列を渡します。 これは、パスを [**Path**](https://msdn.microsoft.com/library/windows/apps/br209830) 属性として割り当てるために使うのと同じ文字列でもあります。 **PropertyPath** クラスの唯一の他の API は [**Path**](https://msdn.microsoft.com/library/windows/apps/br244260) プロパティで、これは読み取り専用です。 このプロパティは、他の **PropertyPath** インスタンスの構成文字列として使うことができます。
+[**PropertyPath** ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.PropertyPath)が、 [ **PropertyPath(String)** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.propertypath.)コンス トラクター、および既定のコンス トラクターはありません。 このコンストラクターには、前に説明したプロパティ パス構文を使って定義した文字列を渡します。 これは、パスを [**Path**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.path) 属性として割り当てるために使うのと同じ文字列でもあります。 **PropertyPath** クラスの唯一の他の API は [**Path**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.propertypath.path) プロパティで、これは読み取り専用です。 このプロパティは、他の **PropertyPath** インスタンスの構成文字列として使うことができます。
 
 ## <a name="related-topics"></a>関連トピック
 
-* [データ バインディングの詳細](https://msdn.microsoft.com/library/windows/apps/mt210946)
-* [アニメーションの再検討](https://msdn.microsoft.com/library/windows/apps/mt187354)
+* [データ バインディングの詳細](https://docs.microsoft.com/windows/uwp/data-binding/data-binding-in-depth)
+* [アニメーションの再検討](https://docs.microsoft.com/windows/uwp/graphics/storyboarded-animations)
 * [{0} バインド} マークアップ拡張機能](binding-markup-extension.md)
-* [**propertyPath**](https://msdn.microsoft.com/library/windows/apps/br244259)
-* [**バインド**](https://msdn.microsoft.com/library/windows/apps/br209820)
-* [**バインディングのコンストラクター**](https://msdn.microsoft.com/library/windows/apps/br209825)
-* [**DataContext**](https://msdn.microsoft.com/library/windows/apps/br208713)
+* [**propertyPath**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.PropertyPath)
+* [**バインド**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.Binding)
+* [**バインディングのコンス トラクター**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.)
+* [**DataContext**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.datacontext)
 

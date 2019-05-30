@@ -8,12 +8,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp, トースト通知の送信, 通知, 通知の送信, トースト通知, 方法, クイックスタート, 作業の開始, コード サンプル, チュートリアル
 ms.localizationpriority: medium
-ms.openlocfilehash: 410e8121aecfe13805586c9287f62444f80a1b1b
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 4c8def5d1a220fe0458dd5c244d875b991b2b76c
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57605927"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66365929"
 ---
 # <a name="send-a-local-toast-notification"></a>ローカル トースト通知の送信
 
@@ -54,7 +54,7 @@ ms.locfileid: "57605927"
 > Windows 8/8.1 とは異なり、アプリがトースト通知を表示できることをアプリのマニフェストで宣言する必要はなくなりました。 すべてのアプリがトースト通知を送信して表示できます。
 
 > [!NOTE]
-> **Windows 8 または 8.1 アプリ**:使用してください、[アーカイブされたドキュメント](https://msdn.microsoft.com/library/windows/apps/xaml/hh868254.aspx)します。
+> **Windows 8 または 8.1 アプリ**:使用してください、[アーカイブされたドキュメント](https://docs.microsoft.com/previous-versions/windows/apps/hh868254(v=win.10))します。
 
 
 ## <a name="install-nuget-packages"></a>NuGet パッケージをインストールする
@@ -238,7 +238,7 @@ toast.ExpirationTime = DateTime.Now.AddDays(2);
 
 送信した通知をプログラムで削除するか差し替える必要がある場合、Tag プロパティ (および必要に応じて Group プロパティ) を使って通知の主キーを提供する必要があります。 そうすると、今後この主キーを使って、通知の削除や差し替えができるようになります。
 
-置換/削除既にについて詳しくは、トースト通知を配信を表示するには、次を参照してください[クイック スタート。アクション センター (XAML) でのトースト通知を管理する](https://msdn.microsoft.com/library/windows/apps/xaml/dn631260.aspx)します。
+置換/削除既にについて詳しくは、トースト通知を配信を表示するには、次を参照してください[クイック スタート。アクション センター (XAML) でのトースト通知を管理する](https://docs.microsoft.com/previous-versions/windows/apps/dn631260(v=win.10))します。
 
 Tag と Group を組み合わせると、復号主キーとして機能します。 グループより汎用的な識別子では、"wallPosts"、"messages"、"friendRequests"などのようなグループを割り当てることができます。タグは、グループ内の通知自体から一意に識別します。 汎用グループを使うことで、[RemoveGroup API](https://docs.microsoft.com/uwp/api/Windows.UI.Notifications.ToastNotificationHistory#Windows_UI_Notifications_ToastNotificationHistory_RemoveGroup_System_String_) を使ってそのグループからすべての通知を削除できます。
 
@@ -270,7 +270,7 @@ Windows では、ユーザーが明示的に通知をクリックした場合の
 3. アプリが会話を開き、その会話のすべてのトーストを消去する (その会話用にアプリが提供するグループで [RemoveGroup](https://docs.microsoft.com/uwp/api/Windows.UI.Notifications.ToastNotificationHistory#Windows_UI_Notifications_ToastNotificationHistory_RemoveGroup_System_String_) を使う)
 4. ユーザーのアクション センターが通知の状態を正しく反映して、その会話の古い通知がアクション センターに残らないように処理する
 
-すべての通知をクリアするか、特定の通知を削除する詳細については、次を参照してください。[クイック スタート。アクション センター (XAML) でのトースト通知を管理する](https://msdn.microsoft.com/library/windows/apps/xaml/dn631260.aspx)します。
+すべての通知をクリアするか、特定の通知を削除する詳細については、次を参照してください。[クイック スタート。アクション センター (XAML) でのトースト通知を管理する](https://docs.microsoft.com/previous-versions/windows/apps/dn631260(v=win.10))します。
 
 
 ## <a name="handling-activation"></a>アクティブ化の処理

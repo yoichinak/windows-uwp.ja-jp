@@ -7,12 +7,12 @@ keywords:
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 2347efc5d68abd53442f52ecabdc060393ee561b
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 7146fe6489d61c641b7104e8c7c25728550c1c54
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57636557"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66370663"
 ---
 # <a name="face-and-vertex-normal-vectors"></a>顔と頂点の標準ベクター
 
@@ -31,7 +31,7 @@ ms.locfileid: "57636557"
 ## <a name="span-idcullingbackfacesspanspan-idcullingbackfacesspanspan-idcullingbackfacesspanculling-back-faces"></a><span id="Culling_back_faces"></span><span id="culling_back_faces"></span><span id="CULLING_BACK_FACES"></span>Faces カリング戻る
 
 
-前面ではない面はすべて背面です。 Direct3D では、背面は常にレンダリングされるわけではありません。これを、背面がカリングされているといいます。 背面のカリングは、背面がレンダリングされなくなることを意味します。 必要に応じて、カリング モードを変更し、背面をレンダリングすることもできます。 詳細については、「[カリング ステート](https://msdn.microsoft.com/library/windows/desktop/bb204882)」を参照してください。
+前面ではない面はすべて背面です。 Direct3D では、背面は常にレンダリングされるわけではありません。これを、背面がカリングされているといいます。 背面のカリングは、背面がレンダリングされなくなることを意味します。 必要に応じて、カリング モードを変更し、背面をレンダリングすることもできます。 詳細については、「[カリング ステート](https://docs.microsoft.com/windows/desktop/direct3d9/culling-state)」を参照してください。
 
 ## <a name="span-idvertexunitnormalsspanspan-idvertexunitnormalsspanspan-idvertexunitnormalsspanvertex-unit-normals"></a><span id="Vertex_unit_normals"></span><span id="vertex_unit_normals"></span><span id="VERTEX_UNIT_NORMALS"></span>単位の頂点の法線
 

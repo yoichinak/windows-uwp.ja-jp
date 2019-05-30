@@ -6,23 +6,23 @@ ms.date: 07/05/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 3d8cbb3d7e245b747a7637726df9559f5fa87a6d
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 568863969dc4b5bc028301d37a02c64b25244cde
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57625597"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66371525"
 ---
 # <a name="handle-uri-activation"></a>URI のアクティブ化の処理
 
 **重要な API**
 
--   [**Windows.ApplicationModel.Activation.ProtocolActivatedEventArgs**](https://msdn.microsoft.com/library/windows/apps/br224742)
--   [**Windows.UI.Xaml.Application.OnActivated**](https://msdn.microsoft.com/library/windows/apps/br242330)
+-   [**Windows.ApplicationModel.Activation.ProtocolActivatedEventArgs**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Activation.ProtocolActivatedEventArgs)
+-   [**Windows.UI.Xaml.Application.OnActivated**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onactivated)
 
 URI (Uniform Resource Identifier) スキーム名の既定のハンドラーとしてアプリを登録する方法について説明します。 Windows デスクトップ アプリとユニバーサル Windows プラットフォーム (UWP) アプリの両方を、URI スキーム名の既定のハンドラーとして登録できます。 アプリを URI スキーム名の既定のハンドラーとして選ぶと、アプリはその種類の URI を起動するたびにアクティブ化されます。
 
-URI スキーム名に登録するのは、その種類の URI スキームのすべての URI 起動を処理する場合のみにすることをお勧めします。 URI スキーム名に登録する場合は、その URI スキームのためにアプリをアクティブ化した際に期待される機能をエンド ユーザーに提供する必要があります。 たとえば、アプリを登録、mailto:URI のスキーム名は、ユーザーが新しい電子メールを作成するため、新しい電子メール メッセージを開く必要があります。 URI の関連付けについて詳しくは、「[ファイルの種類と URI のガイドラインとチェック リスト](https://msdn.microsoft.com/library/windows/apps/hh700321)」をご覧ください。
+URI スキーム名に登録するのは、その種類の URI スキームのすべての URI 起動を処理する場合のみにすることをお勧めします。 URI スキーム名に登録する場合は、その URI スキームのためにアプリをアクティブ化した際に期待される機能をエンド ユーザーに提供する必要があります。 たとえば、アプリを登録、mailto:URI のスキーム名は、ユーザーが新しい電子メールを作成するため、新しい電子メール メッセージを開く必要があります。 URI の関連付けについて詳しくは、「[ファイルの種類と URI のガイドラインとチェック リスト](https://docs.microsoft.com/windows/uwp/files/index)」をご覧ください。
 
 以下の手順では、カスタムの URI スキーム名 `alsdk://` を登録する方法と、ユーザーによって `alsdk://` URI が起動されたときにアプリをアクティブ化する方法について説明します。
 
@@ -33,14 +33,14 @@ URI スキーム名に登録するのは、その種類の URI スキームの�
 
 アプリは、パッケージ マニフェストに一覧表示される URI スキーム名のアクティブ化イベントだけを受け取ります。 アプリが `alsdk` URI スキーム名を処理することを示す方法は次のとおりです。
 
-1. **ソリューション エクスプローラー**で、package.appxmanifest をダブルクリックしてマニフェスト デザイナーを開きます。 **[宣言]** タブを選び、**[使用可能な宣言]** ドロップダウンから **[プロトコル]** を選んで **[追加]** をクリックします。
+1. **ソリューション エクスプローラー**で、package.appxmanifest をダブルクリックしてマニフェスト デザイナーを開きます。 **[宣言]** タブを選び、 **[使用可能な宣言]** ドロップダウンから **[プロトコル]** を選んで **[追加]** をクリックします。
 
-    プロトコルのマニフェスト デザイナーで指定することができる各フィールドについて、以下で簡単に説明します (詳しくは、「[**AppX パッケージ マニフェスト**](https://msdn.microsoft.com/library/windows/apps/dn934791)」をご覧ください)。
+    プロトコルのマニフェスト デザイナーで指定することができる各フィールドについて、以下で簡単に説明します (詳しくは、「[**AppX パッケージ マニフェスト**](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-uap-extension)」をご覧ください)。
 
 | フィールド | 説明 |
 |-------|-------------|
-| **Logo** | **コントロール パネル**の [[既定のプログラムを設定する]](https://msdn.microsoft.com/library/windows/desktop/cc144154) で URI スキーム名を識別するために使われるロゴを指定します。 ロゴを指定しない場合は、アプリの小さいロゴが使われます。 |
-| **表示名** | **コントロール パネル**の [[既定のプログラムを設定する]](https://msdn.microsoft.com/library/windows/desktop/cc144154) で URI スキーム名を識別するための表示名を指定します。 |
+| **Logo** | **コントロール パネル**の [[既定のプログラムを設定する]](https://docs.microsoft.com/windows/desktop/shell/default-programs) で URI スキーム名を識別するために使われるロゴを指定します。 ロゴを指定しない場合は、アプリの小さいロゴが使われます。 |
+| **表示名** | **コントロール パネル**の [[既定のプログラムを設定する]](https://docs.microsoft.com/windows/desktop/shell/default-programs) で URI スキーム名を識別するための表示名を指定します。 |
 | **名前** | URI スキームの名前を選びます。 |
 |  | **注**  名前はすべて小文字である必要があります。 |
 |  | **予約および禁止されているファイルの種類** 予約または禁止されいるため、UWP アプリを登録できない URI スキームの一覧 (アルファベット順) については、「[予約済みの URI スキーム名とファイルの種類](reserved-uri-scheme-names.md)」をご覧ください。 |
@@ -48,14 +48,14 @@ URI スキーム名に登録するのは、その種類の URI スキームの�
 | **エントリ ポイント** | プロトコル拡張機能を処理するタスクを指定します。 これは、通常、Windows ランタイムの型の完全な名前空間修飾名です。 指定しない場合、アプリのエントリ ポイントが使用されます。 |
 | **スタート ページ** | 拡張ポイントを処理する Web ページです。 |
 | **リソース グループ** | リソース管理のために拡張機能のアクティブ化をグループ化するために使用できるタグ。 |
-| **必要な表示** (Windows のみ) | この URI スキーム名に対して起動されたときにアプリのウィンドウに必要なスペースの量を示すには、**[必要な表示]** フィールドを指定します。 **[必要な表示]** に指定できる値は、**Default**、**UseLess**、**UseHalf**、**UseMore**、または **UseMinimum** です。<br/>**注**  Windows では、ターゲット アプリの最終的なウィンドウ サイズを決定するときに複数の異なる要素が考慮されます。たとえば、ソース アプリの設定、画面上のアプリの数、画面の向きなどです。 **[必要な表示]** を設定しても、ターゲット アプリの特定のウィンドウ動作が保証されるわけではありません。<br/>**モバイル デバイス ファミリ:ビューに必要な**はモバイル デバイス ファミリでサポートされていません。 |
+| **必要な表示** (Windows のみ) | この URI スキーム名に対して起動されたときにアプリのウィンドウに必要なスペースの量を示すには、 **[必要な表示]** フィールドを指定します。 **[必要な表示]** に指定できる値は、**Default**、**UseLess**、**UseHalf**、**UseMore**、または **UseMinimum** です。<br/>**注**  Windows では、ターゲット アプリの最終的なウィンドウ サイズを決定するときに複数の異なる要素が考慮されます。たとえば、ソース アプリの設定、画面上のアプリの数、画面の向きなどです。 **[必要な表示]** を設定しても、ターゲット アプリの特定のウィンドウ動作が保証されるわけではありません。<br/>**モバイル デバイス ファミリ:ビューに必要な**はモバイル デバイス ファミリでサポートされていません。 |
 
 2. **[ロゴ]** に `images\Icon.png` と入力します。
 3. **[表示名]** に `SDK Sample URI Scheme` と入力します。
 4. **[名前]** に `alsdk` と入力します。
 5. Ctrl + S キーを押して、変更を package.appxmanifest に保存します。
 
-    これにより、次のような [**Extension**](https://msdn.microsoft.com/library/windows/apps/br211400) 要素がパッケージ マニフェストに追加されます。 **windows.protocol** カテゴリは、アプリが `alsdk` URI スキーム名を処理することを示しています。
+    これにより、次のような [**Extension**](https://docs.microsoft.com/uwp/schemas/appxpackage/appxmanifestschema/element-1-extension) 要素がパッケージ マニフェストに追加されます。 **windows.protocol** カテゴリは、アプリが `alsdk` URI スキーム名を処理することを示しています。
 
 ```xml
     <Applications>
@@ -75,11 +75,11 @@ URI スキーム名に登録するのは、その種類の URI スキームの�
 
 ## <a name="step-2-add-the-proper-icons"></a>手順 2:適切なアイコンを追加します。
 
-URI スキーム名の既定となるアプリは、そのアイコンがシステムのさまざまな場所に表示されます。アイコンは、[既定のプログラム] コントロール パネルなどに表示されます。 このため、プロジェクトに 44 x 44 アイコンを含めます。 アプリのタイルのロゴの外観を調和させ、アイコンを透明にするのではなく、アプリの背景色を使います。 パディングせずにロゴを端まで拡張します。 アイコンは、白い背景でテストします。 アイコンについて詳しくは、「[タイルとアイコン アセットのガイドライン](https://docs.microsoft.com/windows/uwp/shell/tiles-and-notifications/app-assets)」をご覧ください。
+URI スキーム名の既定となるアプリは、そのアイコンがシステムのさまざまな場所に表示されます。アイコンは、[既定のプログラム] コントロール パネルなどに表示されます。 このため、プロジェクトに 44 x 44 アイコンを含めます。 アプリのタイルのロゴの外観を調和させ、アイコンを透明にするのではなく、アプリの背景色を使います。 パディングせずにロゴを端まで拡張します。 アイコンは、白い背景でテストします。 参照してください[アプリ アイコンとロゴ](https://docs.microsoft.com/windows/uwp/design/style/app-icons-and-logos)アイコンの詳細についてはします。
 
 ## <a name="step-3-handle-the-activated-event"></a>手順 3:アクティブ化されたイベントを処理します。
 
-[  **OnActivated**](https://msdn.microsoft.com/library/windows/apps/br242330) イベント ハンドラーは、すべてのファイル アクティブ化イベントを受け取ります。 **Kind** プロパティは、アクティブ化イベントの種類を示しています。 次の例では、[**Protocol**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.applicationmodel.activation.activationkind.aspx#Protocol) アクティブ化イベントを処理するように設定されています。
+[  **OnActivated**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onactivated) イベント ハンドラーは、すべてのファイル アクティブ化イベントを受け取ります。 **Kind** プロパティは、アクティブ化イベントの種類を示しています。 次の例では、[**Protocol**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Activation.ActivationKind) アクティブ化イベントを処理するように設定されています。
 
 ```csharp
 public partial class App
@@ -146,7 +146,7 @@ void App::OnActivated(Windows::ApplicationModel::Activation::IActivatedEventArgs
 
 URI からアプリを起動する方法について詳しくは、「[URI に応じた既定のアプリの起動](launch-default-app.md)」をご覧ください。
 
-新しいページを開くアクティブ化イベントごとにアプリで新しい XAML [**フレーム**](https://msdn.microsoft.com/library/windows/apps/br242682)を作成することをお勧めします。 こうすると、新しい XAML **フレーム**のナビゲーション バックスタックに、中断されたときに現在のウィンドウに表示されていた以前のコンテンツが含まれなくなります。 起動コントラクトとファイル コントラクトで単一 XAML **フレーム**を使うことにしたアプリは、新しいページに移動する前に**フレーム**のナビゲーション ジャーナルにあるページをクリアする必要があります。
+新しいページを開くアクティブ化イベントごとにアプリで新しい XAML [**フレーム**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Frame)を作成することをお勧めします。 こうすると、新しい XAML **フレーム**のナビゲーション バックスタックに、中断されたときに現在のウィンドウに表示されていた以前のコンテンツが含まれなくなります。 起動コントラクトとファイル コントラクトで単一 XAML **フレーム**を使うことにしたアプリは、新しいページに移動する前に**フレーム**のナビゲーション ジャーナルにあるページをクリアする必要があります。
 
 プロトコルのアクティブ化によって起動されるときは、アプリの先頭ページに戻ることができる UI を含めることを検討してください。
 
@@ -160,9 +160,9 @@ URI スキーム名は、悪意のあるものも含め、あらゆるアプリ�
 > [!NOTE]
 > プロトコルのコントラクトを使用してを起動するとその [戻る] ボタンを受け取り、ユーザー バックアップ、アプリの起動画面にアプリの前のコンテンツにしないことを確認します。
 
-新しい URI ターゲットを開くアクティブ化イベントごとに、アプリで新しい XAML [**フレーム**](https://msdn.microsoft.com/library/windows/apps/br242682)を作成することをお勧めします。 こうすると、新しい XAML **フレーム**のナビゲーション バックスタックに、中断されたときに現在のウィンドウに表示されていた以前のコンテンツが含まれなくなります。
+新しい URI ターゲットを開くアクティブ化イベントごとに、アプリで新しい XAML [**フレーム**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Frame)を作成することをお勧めします。 こうすると、新しい XAML **フレーム**のナビゲーション バックスタックに、中断されたときに現在のウィンドウに表示されていた以前のコンテンツが含まれなくなります。
 
-アプリが、起動コントラクトとプロトコル コントラクトに単一 XAML [**フレーム**](https://msdn.microsoft.com/library/windows/apps/br242682)を使うようにした場合は、新しいページに移動する前に**フレーム**のナビゲーション ジャーナルにあるページをクリアする必要があります。 プロトコル コントラクトによって起動されるときは、アプリの先頭に戻ることができる UI をアプリに含めることを検討してください。
+アプリが、起動コントラクトとプロトコル コントラクトに単一 XAML [**フレーム**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Frame)を使うようにした場合は、新しいページに移動する前に**フレーム**のナビゲーション ジャーナルにあるページをクリアする必要があります。 プロトコル コントラクトによって起動されるときは、アプリの先頭に戻ることができる UI をアプリに含めることを検討してください。
 
 ## <a name="related-topics"></a>関連トピック
 
@@ -172,20 +172,20 @@ URI スキーム名は、悪意のあるものも含め、あらゆるアプリ�
 
 ### <a name="concepts"></a>概念
 
-- [既定のプログラム](https://msdn.microsoft.com/library/windows/desktop/cc144154)
-- [ファイルの種類と URI のアソシエーション モデル](https://msdn.microsoft.com/library/windows/desktop/hh848047)
+- [既定のプログラム](https://docs.microsoft.com/windows/desktop/shell/default-programs)
+- [ファイルの種類と URI のアソシエーション モデル](https://docs.microsoft.com/windows/desktop/w8cookbook/file-type-and-protocol-associations-model)
 
-### <a name="tasks"></a>タスク
+### <a name="tasks"></a>処理手順
 
 - [URI に応じた既定のアプリの起動](launch-default-app.md)
 - [ファイルのアクティブ化の処理](handle-file-activation.md)
 
 ### <a name="guidelines"></a>ガイドライン
 
-- [ファイルの種類と Uri のガイドライン](https://msdn.microsoft.com/library/windows/apps/hh700321)
+- [ファイルの種類と Uri のガイドライン](https://docs.microsoft.com/windows/uwp/files/index)
 
 ### <a name="reference"></a>リファレンス
 
-- [AppX パッケージ マニフェスト](https://msdn.microsoft.com/library/windows/apps/dn934791)
-- [Windows.ApplicationModel.Activation.ProtocolActivatedEventArgs](https://msdn.microsoft.com/library/windows/apps/br224742)
-- [Windows.UI.Xaml.Application.OnActivated](https://msdn.microsoft.com/library/windows/apps/br242330)
+- [AppX パッケージ マニフェスト](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-uap-extension)
+- [Windows.ApplicationModel.Activation.ProtocolActivatedEventArgs](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Activation.ProtocolActivatedEventArgs)
+- [Windows.UI.Xaml.Application.OnActivated](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onactivated)

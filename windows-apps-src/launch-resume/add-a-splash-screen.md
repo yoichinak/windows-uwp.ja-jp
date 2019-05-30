@@ -6,12 +6,12 @@ ms.date: 05/08/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 882ee548754b9fa498697a8d75a12a23f86fc9de
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 956e4050e3077ac827cf8107470698b42878a5e1
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57616887"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66370873"
 ---
 # <a name="add-a-splash-screen"></a>スプラッシュ画面の追加
 
@@ -29,21 +29,21 @@ Visual Studio テンプレートを使ってアプリを作成すると、既定
 
     ![Visual Studio 2017 で表示される [package.appxmanifest] ウィンドウのスクリーン ショット](images/appmanifest.png)
 
-    テキスト エディターで "Package.appxmanifest" を開くと、[**VisualElements 要素**](https://msdn.microsoft.com/library/windows/apps/br211471) の子として [**SplashScreen 要素**](https://msdn.microsoft.com/library/windows/apps/br211467) が表示されます。 マニフェスト ファイル内の既定のスプラッシュ画面のマークアップはテキスト エディターで次のようになります。
+    テキスト エディターで "Package.appxmanifest" を開くと、[**VisualElements 要素**](https://docs.microsoft.com/uwp/schemas/appxpackage/appxmanifestschema/element-visualelements) の子として [**SplashScreen 要素**](https://docs.microsoft.com/uwp/schemas/appxpackage/appxmanifestschema/element-splashscreen) が表示されます。 マニフェスト ファイル内の既定のスプラッシュ画面のマークアップはテキスト エディターで次のようになります。
 
     ```xml
     <uap:SplashScreen Image="Assets\SplashScreen.png" />
     ```
 
-4. UWP アプリ用の新しいスプラッシュ画面の画像を選ぶには、**[スケーリングされた資産]** で **[1240 x 600 px]** ラベルの横にある省略記号のボタンをクリックします。 スプラッシュ画面の画像に使う 1240 × 600 ピクセルの画像 (.png、.jpg、または .jpeg) を選びます。
+4. UWP アプリ用の新しいスプラッシュ画面の画像を選ぶには、 **[スケーリングされた資産]** で **[1240 x 600 px]** ラベルの横にある省略記号のボタンをクリックします。 スプラッシュ画面の画像に使う 1240 × 600 ピクセルの画像 (.png、.jpg、または .jpeg) を選びます。
 
     **重要な**  スプラッシュ スクリーン イメージを選択するが、1 x スケール ファクターを使用して 620 x 300 ピクセルにする必要があります。 また、スプラッシュ画面を設計するときは、画面より小さく、中央に表示されることに注意してください。 Windows Phone ストア アプリのスプラッシュ画面のように画面全体に表示されるわけではありません。
 
-5. 新しい Windows Phone ストア アプリ用スプラッシュ画面の画像を選ぶには、**[スケーリングされた資産]** で **[1152 x 1920 px]** ラベルの横にある省略記号のボタンをクリックします。 スプラッシュ画面の画像に使う 1152 × 1920 ピクセルの画像 (.png、.jpg、または .jpeg) を選びます。
+5. 新しい Windows Phone ストア アプリ用スプラッシュ画面の画像を選ぶには、 **[スケーリングされた資産]** で **[1152 x 1920 px]** ラベルの横にある省略記号のボタンをクリックします。 スプラッシュ画面の画像に使う 1152 × 1920 ピクセルの画像 (.png、.jpg、または .jpeg) を選びます。
 
     **重要な**  スプラッシュ スクリーン イメージを選択する必要があります 1152 x 1920 ピクセル x スケール ファクターの 2.4 の適切なサイズであります。 提供する資産がこれだけである場合は、1.4 倍と等倍の倍率にスケール ダウンされます。
 
-6. **[スプラッシュ画面]** セクションの **[背景色]** で、スプラッシュ画面の画像と共に表示される背景色を設定します。 色の名前を入力する、または '\#' と色の 16 進値。 利用可能な色の名前の一覧については、「[**SplashScreen 要素**](https://msdn.microsoft.com/library/windows/apps/br211467)」をご覧ください。 スプラッシュ画面の背景色の設定は省略できます。 淡い灰色 UWP アプリ用の色を指定しない場合、スプラッシュ スクリーンの背景色の既定値 (16 進数の値\#464646)。 これは、**[タイル]** の既定の背景色 (**[ビジュアル資産]** タブの **[タイル イメージとロゴ]** セクションの **[背景色]** を参照) と同じ色です。 Windows Phone の色を指定しないか、「透明」に設定した場合は、スプラッシュ画面の背景色が透明になります。
+6. **[スプラッシュ画面]** セクションの **[背景色]** で、スプラッシュ画面の画像と共に表示される背景色を設定します。 色の名前を入力する、または '\#' と色の 16 進値。 利用可能な色の名前の一覧については、「[**SplashScreen 要素**](https://docs.microsoft.com/uwp/schemas/appxpackage/appxmanifestschema/element-splashscreen)」をご覧ください。 スプラッシュ画面の背景色の設定は省略できます。 淡い灰色 UWP アプリ用の色を指定しない場合、スプラッシュ スクリーンの背景色の既定値 (16 進数の値\#464646)。 これは、 **[タイル]** の既定の背景色 ( **[ビジュアル資産]** タブの **[タイル イメージとロゴ]** セクションの **[背景色]** を参照) と同じ色です。 Windows Phone の色を指定しないか、「透明」に設定した場合は、スプラッシュ画面の背景色が透明になります。
 
 ## <a name="summary-and-next-steps"></a>要約と次のステップ
 
@@ -52,5 +52,5 @@ Visual Studio テンプレートを使ってアプリを作成すると、既定
 ## <a name="related-topics"></a>関連トピック
 
 * [カスタマイズされたスプラッシュ スクリーンを作成します。](create-a-customized-splash-screen.md)
-* [パッケージ マニフェスト スキーマ リファレンス:スプラッシュ スクリーン要素](https://msdn.microsoft.com/library/windows/apps/br211467)
-* [Windows.ApplicationModel.Activation.SplashScreen クラス](https://msdn.microsoft.com/library/windows/apps/br224763)
+* [パッケージ マニフェスト スキーマ リファレンス:スプラッシュ スクリーン要素](https://docs.microsoft.com/uwp/schemas/appxpackage/appxmanifestschema/element-splashscreen)
+* [Windows.ApplicationModel.Activation.SplashScreen クラス](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Activation.SplashScreen)

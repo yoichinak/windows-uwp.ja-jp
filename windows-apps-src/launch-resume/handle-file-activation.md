@@ -11,23 +11,23 @@ dev_langs:
 - vb
 - cppwinrt
 - cpp
-ms.openlocfilehash: eaf6118720ab77931decf93113a13341ab4f51d0
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 28188acfd3999c0b384326f013a0ba1bdf71a34f
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57642177"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66370754"
 ---
 # <a name="handle-file-activation"></a>ファイルのアクティブ化の処理
 
 **重要な API**
 
--   [**Windows.ApplicationModel.Activation.FileActivatedEventArgs**](https://msdn.microsoft.com/library/windows/apps/br224716)
--   [**Windows.UI.Xaml.Application.OnFileActivated**](https://msdn.microsoft.com/library/windows/apps/br242331)
+-   [**Windows.ApplicationModel.Activation.FileActivatedEventArgs**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Activation.FileActivatedEventArgs)
+-   [**Windows.UI.Xaml.Application.OnFileActivated**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onfileactivated)
 
 アプリは、特定のファイルの種類の既定のハンドラーを登録できます。 Windows デスクトップ アプリケーションとユニバーサル Windows プラットフォーム (UWP) アプリの両方を、既定のファイル ハンドラーとして登録できます。 ユーザーがアプリを特定のファイルの種類の既定のハンドラーとして選ぶと、アプリはその種類のファイルを起動したときにアクティブ化されます。
 
-ファイルの種類に登録するのは、その種類のファイルのすべてのファイル起動を処理する場合のみにすることをお勧めします。 アプリをそのファイルの種類に内部的にのみ使う場合、既定のハンドラーに登録する必要はありません。 ファイルの種類に登録する場合は、そのファイルの種類のためにアプリをアクティブ化した際に期待される機能をエンド ユーザーに提供する必要があります。 たとえば、.jpg ファイルを表示する画像ビューアー アプリを登録できます。 ファイルの関連付けについて詳しくは、「[ファイルの種類と URI のガイドライン](https://msdn.microsoft.com/library/windows/apps/hh700321)」をご覧ください。
+ファイルの種類に登録するのは、その種類のファイルのすべてのファイル起動を処理する場合のみにすることをお勧めします。 アプリをそのファイルの種類に内部的にのみ使う場合、既定のハンドラーに登録する必要はありません。 ファイルの種類に登録する場合は、そのファイルの種類のためにアプリをアクティブ化した際に期待される機能をエンド ユーザーに提供する必要があります。 たとえば、.jpg ファイルを表示する画像ビューアー アプリを登録できます。 ファイルの関連付けについて詳しくは、「[ファイルの種類と URI のガイドライン](https://docs.microsoft.com/windows/uwp/files/index)」をご覧ください。
 
 以下の手順では、カスタムのファイルの種類 .alsdk を登録する方法と、ユーザーによって .alsdk ファイルが起動されたときにアプリをアクティブ化する方法について説明します。
 
@@ -37,15 +37,15 @@ ms.locfileid: "57642177"
 
 アプリは、パッケージ マニフェストに一覧表示されるファイル拡張子のアクティブ化イベントだけを受け取ります。 アプリが `.alsdk` 拡張子を持つファイルを処理することを示す方法は次のとおりです。
 
-1.  **ソリューション エクスプローラー**で、package.appxmanifest をダブルクリックしてマニフェスト デザイナーを開きます。 **[宣言]** タブを選び、**[使用可能な宣言]** ドロップダウンから **[ファイルの種類の関連付け]** を選んで **[追加]** をクリックします。 ファイルの関連付けで使われる識別子について詳しくは、「[プログラムの識別子](https://msdn.microsoft.com/library/windows/desktop/cc144152)」をご覧ください。
+1.  **ソリューション エクスプローラー**で、package.appxmanifest をダブルクリックしてマニフェスト デザイナーを開きます。 **[宣言]** タブを選び、 **[使用可能な宣言]** ドロップダウンから **[ファイルの種類の関連付け]** を選んで **[追加]** をクリックします。 ファイルの関連付けで使われる識別子について詳しくは、「[プログラムの識別子](https://docs.microsoft.com/windows/desktop/shell/fa-progids)」をご覧ください。
 
     マニフェスト デザイナーで指定することができる各フィールドについて、以下で簡単に説明します。
 
 | フィールド | 説明 |
 |------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **表示名** | ファイルの種類のグループの表示名を指定します。 表示名は、**コントロール パネル**の [[既定のプログラムを設定する]](https://msdn.microsoft.com/library/windows/desktop/cc144154) でファイルの種類を識別するために使われます。 |
-| **Logo** | デスクトップと**コントロール パネル**の [[既定のプログラムを設定する]](https://msdn.microsoft.com/library/windows/desktop/cc144154) でファイルの種類を識別するために使われるロゴを指定します。 ロゴを指定しない場合は、アプリケーションの小さいロゴが使われます。 |
-| **に関するヒント** | ファイルの種類のグループの [InfoTip](https://msdn.microsoft.com/library/windows/desktop/cc144152) を指定します。 このヒントのテキストは、ユーザーがこの種類のファイルのアイコンの上にマウス ポインターを置くと表示されます。 |
+| **表示名** | ファイルの種類のグループの表示名を指定します。 表示名は、**コントロール パネル**の [[既定のプログラムを設定する]](https://docs.microsoft.com/windows/desktop/shell/default-programs) でファイルの種類を識別するために使われます。 |
+| **Logo** | デスクトップと**コントロール パネル**の [[既定のプログラムを設定する]](https://docs.microsoft.com/windows/desktop/shell/default-programs) でファイルの種類を識別するために使われるロゴを指定します。 ロゴを指定しない場合は、アプリケーションの小さいロゴが使われます。 |
+| **に関するヒント** | ファイルの種類のグループの [InfoTip](https://docs.microsoft.com/windows/desktop/shell/fa-progids) を指定します。 このヒントのテキストは、ユーザーがこの種類のファイルのアイコンの上にマウス ポインターを置くと表示されます。 |
 | **名前** | 同じ表示名、ロゴ、InfoTip、編集フラグを共有するファイルの種類のグループの名前を選びます。 このグループ名は、アプリの更新後も維持される名前にします。 **注**  名前はすべて小文字である必要があります。 |
 | **コンテンツの種類** | 特定のファイルの種類の MIME コンテンツの種類 (**image/jpeg** など) を指定します。 **許可されているコンテンツの種類についての重要な注意事項:** 予約または禁止されるため、パッケージ マニフェストに入力することはできませんの MIME コンテンツ タイプのアルファベット順の一覧を次に示します:**アプリケーション/強制ダウンロード**、**アプリケーションまたはオクテット ストリーム**、**アプリケーション、または不明な**、**アプリケーション/x-msdownload**します。 |
 | **ファイルの種類** | 登録するファイルの種類を指定します。先頭にはピリオドを付けます (例: ".jpeg")。 **予約されており、禁止されているファイルの種類:** 参照してください[予約済みの URI スキームの名前とファイルの種類](reserved-uri-scheme-names.md)のアルファベット順の一覧ファイルの種類の組み込みのアプリを予約または禁止されるため、UWP アプリを登録することはできません。 |
@@ -55,7 +55,7 @@ ms.locfileid: "57642177"
 4.  入力"イメージ\\Icon.png"のロゴとして。
 5.  Ctrl + S キーを押して、変更を package.appxmanifest に保存します。
 
-上記の手順により、次のような [**Extension**](https://msdn.microsoft.com/library/windows/apps/br211400) 要素がパッケージ マニフェストに追加されます。 **windows.fileTypeAssociation** カテゴリは、アプリが `.alsdk` 拡張子を持つファイルを処理することを示しています。
+上記の手順により、次のような [**Extension**](https://docs.microsoft.com/uwp/schemas/appxpackage/appxmanifestschema/element-1-extension) 要素がパッケージ マニフェストに追加されます。 **windows.fileTypeAssociation** カテゴリは、アプリが `.alsdk` 拡張子を持つファイルを処理することを示しています。
 
 ```xml
       <Extensions>
@@ -83,7 +83,7 @@ ms.locfileid: "57642177"
 
 ## <a name="step-3-handle-the-activated-event"></a>手順 3:アクティブ化されたイベントを処理します。
 
-[  **OnFileActivated**](https://msdn.microsoft.com/library/windows/apps/br242331) イベント ハンドラーは、すべてのファイル アクティブ化イベントを受け取ります。
+[  **OnFileActivated**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onfileactivated) イベント ハンドラーは、すべてのファイル アクティブ化イベントを受け取ります。
 
 ```csharp
 protected override void OnFileActivated(FileActivatedEventArgs args)
@@ -129,7 +129,7 @@ void App::OnFileActivated(Windows::ApplicationModel::Activation::FileActivatedEv
 
 ## <a name="remarks"></a>注釈
 
-受け取るファイルは、信頼できないソースからのファイルである可能性があります。 操作する前に、ファイルのコンテンツを検証することをお勧めします。 入力の検証について詳しくは、[安全なコードの記述](https://go.microsoft.com/fwlink/p/?LinkID=142053)をご覧ください。
+受け取るファイルは、信頼できないソースからのファイルである可能性があります。 操作する前に、ファイルのコンテンツを検証することをお勧めします。
 
 ## <a name="related-topics"></a>関連トピック
 
@@ -139,18 +139,18 @@ void App::OnFileActivated(Windows::ApplicationModel::Activation::FileActivatedEv
 
 ### <a name="concepts"></a>概念
 
-* [既定のプログラム](https://msdn.microsoft.com/library/windows/desktop/cc144154)
-* [ファイルの種類とプロトコルの関連付けのモデル](https://msdn.microsoft.com/library/windows/desktop/hh848047)
+* [既定のプログラム](https://docs.microsoft.com/windows/desktop/shell/default-programs)
+* [ファイルの種類とプロトコルの関連付けのモデル](https://docs.microsoft.com/windows/desktop/w8cookbook/file-type-and-protocol-associations-model)
 
-### <a name="tasks"></a>タスク
+### <a name="tasks"></a>処理手順
 
 * [ファイルに応じた既定のアプリの起動](launch-the-default-app-for-a-file.md)
 * [URI のアクティブ化の処理](handle-uri-activation.md)
 
 ### <a name="guidelines"></a>ガイドライン
 
-* [ファイルの種類と Uri のガイドライン](https://msdn.microsoft.com/library/windows/apps/hh700321)
+* [ファイルの種類と Uri のガイドライン](https://docs.microsoft.com/windows/uwp/files/index)
 
 ### <a name="reference"></a>リファレンス
-* [Windows.ApplicationModel.Activation.FileActivatedEventArgs](https://msdn.microsoft.com/library/windows/apps/br224716)
-* [Windows.UI.Xaml.Application.OnFileActivated](https://msdn.microsoft.com/library/windows/apps/br242331)
+* [Windows.ApplicationModel.Activation.FileActivatedEventArgs](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Activation.FileActivatedEventArgs)
+* [Windows.UI.Xaml.Application.OnFileActivated](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onfileactivated)

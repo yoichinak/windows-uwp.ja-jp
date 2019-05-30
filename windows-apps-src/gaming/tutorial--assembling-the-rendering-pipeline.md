@@ -6,12 +6,12 @@ ms.date: 10/24/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, レンダリング
 ms.localizationpriority: medium
-ms.openlocfilehash: 4c16f1fbb55374b1d04c9fc9f5f7eae72ad19b00
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 0eeb515f07d9bc2e48ba97f6ef4d71afd0226ace
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57604857"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66367730"
 ---
 # <a name="rendering-framework-i-intro-to-rendering"></a>レンダリングのフレームワーク i:レンダリングの概要
 
@@ -75,7 +75,7 @@ void App::Initialize(
 
 単純なフローは次のとおりです。
 1. __Update__
-2. __レンダリング__
+2. __Render__
 3. __存在します。__
 
 ### <a name="gamemainrun-method"></a>GameMain::Run メソッド
@@ -122,7 +122,7 @@ void GameMain::Run()
 }
 ```
 
-### <a name="update"></a>Update
+### <a name="update"></a>更新
 
 [  __App::Update__ および __GameMain::Update__](tutorial-game-flow-management.md#appupdate-method) メソッドで、ゲームの状態がどのように更新される化については、「[ゲームのフロー管理](tutorial-game-flow-management.md)」の記事を参照してください。
 
@@ -496,11 +496,11 @@ void DX::DeviceResources::Present()
 * [シェーダーのステージ](#shader-stages)
 * [さまざまなシェーダー ファイルの形式](#various-shader-file-formats)
 
-詳細については、[Direct3D 11 のレンダリング パイプラインに関するページ](https://msdn.microsoft.com/library/windows/desktop/dn643746.aspx)と[グラフィックス パイプラインに関するページ](https://msdn.microsoft.com/library/windows/desktop/ff476882.aspx)を参照してください。
+詳細については、[Direct3D 11 のレンダリング パイプラインに関するページ](https://docs.microsoft.com/windows/desktop/direct3dgetstarted/understand-the-directx-11-2-graphics-pipeline)と[グラフィックス パイプラインに関するページ](https://docs.microsoft.com/windows/desktop/direct3d11/overviews-direct3d-11-graphics-pipeline)を参照してください。
 
 #### <a name="hlsl"></a>HLSL
 
-HLSL は、DirectX 用の上位レベル シェーダー言語です。 HLSL を使用して、Direct3D パイプライン用の C に似たプログラミング可能なシェーダーを作成できます。 詳しくは、「[HLSL](https://msdn.microsoft.com/library/windows/desktop/bb509561.aspx)」をご覧ください。
+HLSL は、DirectX 用の上位レベル シェーダー言語です。 HLSL を使用して、Direct3D パイプライン用の C に似たプログラミング可能なシェーダーを作成できます。 詳しくは、「[HLSL](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl)」をご覧ください。
 
 #### <a name="shaders"></a>シェーダー
 
@@ -516,7 +516,7 @@ Direct3D 9 シェーダーは、シェーダー モデル 1、シェーダー �
 
 #### <a name="shader-stages"></a>シェーダー ステージ
 
-このプリミティブのストリームを処理するために定義されたさまざまなシェーダーのシーケンスは、レンダリング パイプラインのシェーダー ステージと呼ばれます。 実際のステージは、Direct3D のバージョンによって異なりますが、通常は、頂点、ジオメトリ、ピクセルのステージが含まれます。 テセレーション用のハル シェーダーやドメイン シェーダー、計算シェーダーなど、他のステージもあります。 これらステージはすべて、[HLSL])(#hlsl) を使用して完全にプログラミングできます。 詳細については、[グラフィックス パイプラインに関するページ](https://msdn.microsoft.com/library/windows/desktop/ff476882.aspx)を参照してください。
+このプリミティブのストリームを処理するために定義されたさまざまなシェーダーのシーケンスは、レンダリング パイプラインのシェーダー ステージと呼ばれます。 実際のステージは、Direct3D のバージョンによって異なりますが、通常は、頂点、ジオメトリ、ピクセルのステージが含まれます。 テセレーション用のハル シェーダーやドメイン シェーダー、計算シェーダーなど、他のステージもあります。 これらステージはすべて、[HLSL])(#hlsl) を使用して完全にプログラミングできます。 詳細については、[グラフィックス パイプラインに関するページ](https://docs.microsoft.com/windows/desktop/direct3d11/overviews-direct3d-11-graphics-pipeline)を参照してください。
 
 #### <a name="various-shader-file-formats"></a>さまざまなシェーダー ファイル形式
 
@@ -537,7 +537,7 @@ Direct3D 11 は、ゲームなどのグラフィックスを多用するアプ�
 
 グラフィックス プログラミングに関する経験が浅い場合は、リソース (デバイス リソースとも呼ばれる) は、テクスチャ、位置、色など、オブジェクトをレンダリングする方法に関する情報と考えてもかまいません。 リソースは、パイプラインにデータを提供し、シーン内でレンダリングされる対象を定義します。 リソースは、ゲーム メディアから読み込むことも、実行時に動的に作成することもできます。
 
-リソースは、実際には、Direct3D [パイプライン](#rendering-pipeline)からアクセスできるメモリ内の領域です。 パイプラインでメモリに効率的にアクセスするには、パイプラインに渡すデータ (入力ジオメトリ、シェーダー リソース、テクスチャなど) をリソースに格納する必要があります。 すべての Direct3D リソースの派生元となるリソースは 2 種類あります。バッファーとテクスチャです。 各パイプライン ステージでは最大 128 個のリソースをアクティブにできます。 詳しくは、「[リソース](../graphics-concepts/resources.md)」をご覧ください。
+リソースは、実際には、Direct3D [パイプライン](#rendering-pipeline)からアクセスできるメモリ内の領域です。 パイプラインでメモリに効率的にアクセスするには、パイプラインに渡すデータ (入力ジオメトリ、シェーダー リソース、テクスチャなど) をリソースに格納する必要があります。 すべての Direct3D リソースの派生元となるリソースは 2 種類あります。バッファーとテクスチャです。 各パイプライン ステージでは最大 128 個のリソースをアクティブにできます。 詳しくは、「 [Resources](../graphics-concepts/resources.md)」をご覧ください。
 
 #### <a name="subresource"></a>サブリソース
 
@@ -545,7 +545,7 @@ Direct3D 11 は、ゲームなどのグラフィックスを多用するアプ�
 
 #### <a name="depth-stencil"></a>深度/ステンシル
 
-深度/ステンシル リソースには、深度とステンシルの情報を保持するための形式とバッファーが含まれます。 このリソースは、テクスチャー リソースを使用して作成されます。 深度/ステンシル リソースを作成する方法について詳しくは、「[深度/ステンシル機能の構成](https://msdn.microsoft.com/library/windows/desktop/bb205074.aspx)」を参照してください。 深度/ステンシル リソースにアクセスするには、[ID3D11DepthStencilView](https://msdn.microsoft.com/library/windows/desktop/ff476377.aspx) インターフェイスを使って実装される深度/ステンシル ビュー使用します。
+深度/ステンシル リソースには、深度とステンシルの情報を保持するための形式とバッファーが含まれます。 このリソースは、テクスチャー リソースを使用して作成されます。 深度/ステンシル リソースを作成する方法について詳しくは、「[深度/ステンシル機能の構成](https://docs.microsoft.com/windows/desktop/direct3d11/d3d10-graphics-programming-guide-depth-stencil)」を参照してください。 深度/ステンシル リソースにアクセスするには、[ID3D11DepthStencilView](https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11depthstencilview) インターフェイスを使って実装される深度/ステンシル ビュー使用します。
 
 深度情報は、ビューから隠すのではなくレンダリングする多角形の領域を示します。 ステンシル情報は、マスクするピクセルを示します。 ステンシル情報は、ピクセルを描画するかどうかを決定する (ビットを 1 または 0 に設定する) ため、特殊効果を生成するために使用できます。 
 
@@ -553,9 +553,9 @@ Direct3D 11 は、ゲームなどのグラフィックスを多用するアプ�
 
 #### <a name="render-target"></a>レンダー ターゲット
 
-レンダー ターゲットは、レンダリング パスの最後に書き込むことができるリソースです。 通常、[ID3D11Device::CreateRenderTargetView](https://msdn.microsoft.com/library/windows/desktop/ff476517.aspx) メソッドで、入力パラメーターとしてスワップ チェーン バック バッファー (これもリソースです) を使用して作成されます。 
+レンダー ターゲットは、レンダリング パスの最後に書き込むことができるリソースです。 通常、[ID3D11Device::CreateRenderTargetView](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11device-createrendertargetview) メソッドで、入力パラメーターとしてスワップ チェーン バック バッファー (これもリソースです) を使用して作成されます。 
 
-各レンダー ターゲットには、対応する深度/ステンシル ビューも必要です。これは、レンダー ターゲットを使用する前に、[OMSetRenderTargets](https://msdn.microsoft.com/library/windows/desktop/ff476464.aspx) を使用してレンダー ターゲットを設定するときに、深度/ステンシル ビューも必要となるためです。 レンダー ターゲット リソースにアクセスするには、[ID3D11RenderTargetView](https://msdn.microsoft.com/library/windows/desktop/ff476582.aspx) インターフェイスを使用して実装されるレンダー ターゲット ビューを使用します。 
+各レンダー ターゲットには、対応する深度/ステンシル ビューも必要です。これは、レンダー ターゲットを使用する前に、[OMSetRenderTargets](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-omsetrendertargets) を使用してレンダー ターゲットを設定するときに、深度/ステンシル ビューも必要となるためです。 レンダー ターゲット リソースにアクセスするには、[ID3D11RenderTargetView](https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11rendertargetview) インターフェイスを使用して実装されるレンダー ターゲット ビューを使用します。 
 
 #### <a name="device"></a>デバイス
 
@@ -563,25 +563,25 @@ Direct3D 11 の使用経験が浅い場合は、デバイスは、オブジェ�
 
 より正確に説明すると、Direct3D デバイスは Direct3D のレンダリング コンポーネントです。 デバイスは、レンダリングの状態をカプセル化して格納します。また、変換や照明の操作、サーフェスへのイメージのラスタライズを実行します。 詳しくは、「[デバイス](../graphics-concepts/devices.md)」をご覧ください。
 
-デバイスは、[ID3D11Device](https://msdn.microsoft.com/library/windows/desktop/ff476379.aspx) インターフェイスによって表されます。 つまり、ID3D11Device インターフェイスは仮想ディスプレイ アダプターを表し、デバイスによって所有されるリソースを作成するために使用します。 
+デバイスは、[ID3D11Device](https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11device) インターフェイスによって表されます。 つまり、ID3D11Device インターフェイスは仮想ディスプレイ アダプターを表し、デバイスによって所有されるリソースを作成するために使用します。 
 
-ID3D11Device には複数のバージョンがあり、[ID3D11Device5](https://msdn.microsoft.com/library/windows/desktop/mt492478.aspx) が最新バージョンで、ID3D11Device4 に新しいメソッドが追加されています。 Direct3D が基になるハードウェアと通信する方法の詳細については、[Windows Device Driver Model (WDDM) アーキテクチャに関するページ](https://docs.microsoft.com/windows-hardware/drivers/display/windows-vista-and-later-display-driver-model-architecture)を参照してください。
+ID3D11Device には複数のバージョンがあり、[ID3D11Device5](https://docs.microsoft.com/windows/desktop/api/d3d11_4/nn-d3d11_4-id3d11device5) が最新バージョンで、ID3D11Device4 に新しいメソッドが追加されています。 Direct3D が基になるハードウェアと通信する方法の詳細については、[Windows Device Driver Model (WDDM) アーキテクチャに関するページ](https://docs.microsoft.com/windows-hardware/drivers/display/windows-vista-and-later-display-driver-model-architecture)を参照してください。
 
-各アプリケーションには少なくとも 1 つのデバイスが必要であり、ほとんどのアプリケーションは 1 つだけデバイスを作成します。 呼び出すことによって、コンピューターにインストールされているハードウェアのドライバーのいずれかのデバイスを作成__D3D11CreateDevice__または__D3D11CreateDeviceAndSwapChain__ D3D でドライバーの種類を指定して\_ドライバー\_型フラグ。 各デバイスでは、必要な機能に応じて、1 つまたは複数のデバイス コンテキストを使用できます。 詳細については、[D3D11CreateDevice 関数に関するページ](https://msdn.microsoft.com/library/windows/desktop/ff476082.aspx)を参照してください。
+各アプリケーションには少なくとも 1 つのデバイスが必要であり、ほとんどのアプリケーションは 1 つだけデバイスを作成します。 呼び出すことによって、コンピューターにインストールされているハードウェアのドライバーのいずれかのデバイスを作成__D3D11CreateDevice__または__D3D11CreateDeviceAndSwapChain__ D3D でドライバーの種類を指定して\_ドライバー\_型フラグ。 各デバイスでは、必要な機能に応じて、1 つまたは複数のデバイス コンテキストを使用できます。 詳細については、[D3D11CreateDevice 関数に関するページ](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-d3d11createdevice)を参照してください。
 
 #### <a name="device-context"></a>デバイス コンテキスト
 
 デバイス コンテキストは、[パイプライン](#rendering-pipeline)の状態を設定し、[デバイス](#device)によって所有される[リソース](#resource)を使用してレンダリング コマンドを生成するために使用されます。 
 
-Direct3D 11 は 2 種類のデバイス コンテキストを実装します。1 つは即時レンダリング用で、もう 1 つは遅延レンダリング用です。いずれのコンテキストも [ID3D11DeviceContext](https://msdn.microsoft.com/library/windows/desktop/ff476385.aspx) インターフェイスを使用して表されます。  
+Direct3D 11 は 2 種類のデバイス コンテキストを実装します。1 つは即時レンダリング用で、もう 1 つは遅延レンダリング用です。いずれのコンテキストも [ID3D11DeviceContext](https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11devicecontext) インターフェイスを使用して表されます。  
 
 __ID3D11DeviceContext__ インターフェイスには複数のバージョンがあり、__ID3D11DeviceContext4__ は __ID3D11DeviceContext3__ に新しいメソッドを追加します。
 
-注:__ID3D11DeviceContext4__の最新バージョンであり、Windows 10 Creators Update で導入された、 __ID3D11DeviceContext__インターフェイス。 Windows 10 Creators Update を対象とするアプリケーションでは、以前のバージョンではなく、このインターフェイスを使用する必要があります。 詳しくは、[ID3D11DeviceContext4 に関するページ](https://msdn.microsoft.com/library/windows/desktop/mt492481.aspx)を参照してください。
+注:__ID3D11DeviceContext4__の最新バージョンであり、Windows 10 Creators Update で導入された、 __ID3D11DeviceContext__インターフェイス。 Windows 10 Creators Update を対象とするアプリケーションでは、以前のバージョンではなく、このインターフェイスを使用する必要があります。 詳しくは、[ID3D11DeviceContext4 に関するページ](https://docs.microsoft.com/windows/desktop/api/d3d11_3/nn-d3d11_3-id3d11devicecontext4)を参照してください。
 
 #### <a name="dxdeviceresources"></a>DX::DeviceResources
 
-__DX::DeviceResources__ クラスは、__DeviceResources.cpp__/__.h__ ファイルに含まれており、すべての DirectX デバイス リソースを制御します。 サンプル ゲーム プロジェクトおよび DirectX 11 アプリ テンプレート プロジェクトでは、これらのファイルは __Commons__ フォルダーにあります。 Visual Studio 2015 以降で、新しい DirectX 11 アプリ テンプレート プロジェクトを作成するときに、これらのファイルの最新バージョンを取り込むことができます。
+__DX::DeviceResources__ クラスは、__DeviceResources.cpp__/ __.h__ ファイルに含まれており、すべての DirectX デバイス リソースを制御します。 サンプル ゲーム プロジェクトおよび DirectX 11 アプリ テンプレート プロジェクトでは、これらのファイルは __Commons__ フォルダーにあります。 Visual Studio 2015 以降で、新しい DirectX 11 アプリ テンプレート プロジェクトを作成するときに、これらのファイルの最新バージョンを取り込むことができます。
 
 ### <a name="buffer"></a>バッファー
 
@@ -612,11 +612,11 @@ __DX::DeviceResources__ クラスは、__DeviceResources.cpp__/__.h__ ファイ�
     * ストリーム出力ステージ。そのためには、__ID3D11DeviceContext::SOSetTargets__ を呼び出します。
     * シェーダー ステージ。そのためには、__ID3D11DeviceContext::VSSetConstantBuffers__ などのシェーダー メソッドを呼び出します。
 
-詳しくは、「[Direct3D 11 のバッファーについて](https://msdn.microsoft.com/library/windows/desktop/ff476898.aspx)」をご覧ください。
+詳しくは、「[Direct3D 11 のバッファーについて](https://docs.microsoft.com/windows/desktop/direct3d11/overviews-direct3d-11-resources-buffers-intro)」をご覧ください。
 
 ### <a name="dxgi"></a>DXGI
 
-Microsoft DirectX Graphics Infrastructure (DXGI) は、direct3d10 で必要な低レベルのタスクの一部をカプセル化する Windows Vista で導入された新しいサブシステム 10.1、11、および 11.1 します。 マルチスレッド アプリケーションで DXGI を使用する場合、デッドロックが発生しないように特に注意する必要があります。 詳細については、次を参照してください。 [DirectX Graphics Infrastructure (DXGI)。ベスト プラクティス-マルチ スレッド](https://msdn.microsoft.com/library/windows/desktop/ee417025.aspx#multithreading_and_dxgi)
+Microsoft DirectX Graphics Infrastructure (DXGI) は、direct3d10 で必要な低レベルのタスクの一部をカプセル化する Windows Vista で導入された新しいサブシステム 10.1、11、および 11.1 します。 マルチスレッド アプリケーションで DXGI を使用する場合、デッドロックが発生しないように特に注意する必要があります。 詳細については、次を参照してください。 [DirectX Graphics Infrastructure (DXGI)。ベスト プラクティス-マルチ スレッド](https://docs.microsoft.com/windows/desktop/direct3darticles/dxgi-best-practices)
 
 ### <a name="feature-level"></a>機能レベル
 
@@ -624,9 +624,9 @@ Microsoft DirectX Graphics Infrastructure (DXGI) は、direct3d10 で必要な�
 
 各ビデオ カードは、インストールされている GPU に応じて、特定のレベルの DirectX の機能を実装します。 以前のバージョンの Microsoft Direct3D では、ビデオ カードが実装しているバージョンを検出し、それに応じてアプリケーションをプログラミングすることができました。 
 
-機能レベルを使用すると、デバイスを作成するときに、必要な機能レベルのデバイスを作成してみることができます。 デバイスの作成に成功した場合は、その機能レベルが存在します。失敗した場合は、ハードウェアはその機能レベルをサポートしていません。 低い機能レベルでデバイスを再作成してみることも、アプリケーションの終了を選択することもできます。 たとえば、12\_Direct3D 11.3 や direct3d12、シェーダー モデル 5.1 0 の機能レベルが必要です。 詳細については、次を参照してください。 [Direct3D 機能レベル。各機能レベルの概要](https://msdn.microsoft.com/library/windows/desktop/ff476876.aspx#Overview)します。
+機能レベルを使用すると、デバイスを作成するときに、必要な機能レベルのデバイスを作成してみることができます。 デバイスの作成に成功した場合は、その機能レベルが存在します。失敗した場合は、ハードウェアはその機能レベルをサポートしていません。 低い機能レベルでデバイスを再作成してみることも、アプリケーションの終了を選択することもできます。 たとえば、12\_Direct3D 11.3 や direct3d12、シェーダー モデル 5.1 0 の機能レベルが必要です。 詳細については、次を参照してください。 [Direct3D 機能レベル。各機能レベルの概要](https://docs.microsoft.com/windows/desktop/direct3d11/overviews-direct3d-11-devices-downlevel-intro)します。
 
-機能レベルを使用して、Direct3D 9、Microsoft の direct3d10 または direct3d11、アプリケーションを開発し、9、10、または 11 のハードウェア (一部の例外) を実行できます。 詳細については、[Direct3D の機能レベルに関するページ](https://msdn.microsoft.com/library/windows/desktop/ff476876.aspx)を参照してください。
+機能レベルを使用して、Direct3D 9、Microsoft の direct3d10 または direct3d11、アプリケーションを開発し、9、10、または 11 のハードウェア (一部の例外) を実行できます。 詳細については、[Direct3D の機能レベルに関するページ](https://docs.microsoft.com/windows/desktop/direct3d11/overviews-direct3d-11-devices-downlevel-intro)を参照してください。
 
 ### <a name="stereo-rendering"></a>ステレオ レンダリング
 
@@ -646,7 +646,7 @@ Microsoft DirectX Graphics Infrastructure (DXGI) は、direct3d10 で必要な�
 
 V(device) = V(model) x M(model-to-world) x M(world-to-view) x M(view-to-device)。
 
-この場合 
+それぞれの文字の説明は次のとおりです。 
 * M(model-to-world) はモデル座標からワールド座標への変換行列であり、[ワールド変換行列](#world-transform-matrix)とも呼ばれます。 このマトリックスは、プリミティブによって提供されます。
 * M(world-to-view) はワールド座標からビュー座標への変換行列であり、[ビュー変換行列](#view-transform-matrix)とも呼ばれます。
     * これは、カメラのビュー行列によって提供されます。 これは、カメラの位置とルック ベクター (カメラからシーンを直接ポイントする "ルック アット" ベクターとシーンに対して垂直かつ上向きの "ルック アップ" ベクター) によって定義されます。

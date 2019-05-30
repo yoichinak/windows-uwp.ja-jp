@@ -6,12 +6,12 @@ ms.date: 06/18/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 8e04170fb8952ecd5802b6190816d44012f56d8a
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: f9dba57d8e75ba105a2154be5add5b101a4a6aa4
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57661437"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66369334"
 ---
 # <a name="files-and-folders-in-the-music-pictures-and-videos-libraries"></a>ミュージック、画像、およびビデオ ライブラリのファイルとフォルダー
 
@@ -24,7 +24,7 @@ ms.locfileid: "57661437"
 
 -   **ユニバーサル Windows プラットフォーム (UWP) アプリの非同期プログラミングを理解します。**
 
-    C# や Visual Basic での非同期アプリの作成方法については、「[C# または Visual Basic での非同期 API の呼び出し](https://msdn.microsoft.com/library/windows/apps/mt187337)」をご覧ください。 C++ での非同期アプリの作成方法については、「[C++ での非同期プログラミング](https://msdn.microsoft.com/library/windows/apps/mt187334)」をご覧ください。
+    C# や Visual Basic での非同期アプリの作成方法については、「[C# または Visual Basic での非同期 API の呼び出し](https://docs.microsoft.com/windows/uwp/threading-async/call-asynchronous-apis-in-csharp-or-visual-basic)」をご覧ください。 C++ での非同期アプリの作成方法については、「[C++ での非同期プログラミング](https://docs.microsoft.com/windows/uwp/threading-async/asynchronous-programming-in-cpp-universal-windows-platform-apps)」をご覧ください。
 
 -   **場所へのアクセス許可**
 
@@ -42,11 +42,11 @@ ms.locfileid: "57661437"
 > 必ず適切な機能を宣言してください。 詳しくは、「[アプリ機能の宣言](https://docs.microsoft.com/windows/uwp/packaging/app-capability-declarations)」をご覧ください。
  
 
-ユーザーの音楽、画像、またはビデオ ライブラリへの参照を取得するには、[**StorageLibrary.GetLibraryAsync**](https://msdn.microsoft.com/library/windows/apps/dn251725) メソッドを呼び出します。 [  **KnownLibraryId**](https://msdn.microsoft.com/library/windows/apps/dn298399) 列挙体の対応する値を指定します。
+ユーザーの音楽、画像、またはビデオ ライブラリへの参照を取得するには、[**StorageLibrary.GetLibraryAsync**](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrary.getlibraryasync) メソッドを呼び出します。 [  **KnownLibraryId**](https://docs.microsoft.com/uwp/api/Windows.Storage.KnownLibraryId) 列挙体の対応する値を指定します。
 
--   [**KnownLibraryId.Music**](https://msdn.microsoft.com/library/windows/apps/br227155)
--   [**KnownLibraryId.Pictures**](https://msdn.microsoft.com/library/windows/apps/br227156)
--   [**KnownLibraryId.Videos**](https://msdn.microsoft.com/library/windows/apps/br227159)
+-   [**KnownLibraryId.Music**](https://docs.microsoft.com/uwp/api/windows.storage.knownfolders.musiclibrary)
+-   [**KnownLibraryId.Pictures**](https://docs.microsoft.com/uwp/api/windows.storage.knownfolders.pictureslibrary)
+-   [**KnownLibraryId.Videos**](https://docs.microsoft.com/uwp/api/windows.storage.knownfolders.videoslibrary)
 
 ```cs
 var myPictures = await Windows.Storage.StorageLibrary.GetLibraryAsync(Windows.Storage.KnownLibraryId.Pictures);
@@ -55,7 +55,7 @@ var myPictures = await Windows.Storage.StorageLibrary.GetLibraryAsync(Windows.St
 ## <a name="get-the-list-of-folders-in-a-library"></a>ライブラリ内のフォルダーの一覧を取得する
 
 
-ライブラリ内のフォルダーの一覧を取得するには、[**StorageLibrary.Folders**](https://msdn.microsoft.com/library/windows/apps/dn251724) プロパティの値を取得します。
+ライブラリ内のフォルダーの一覧を取得するには、[**StorageLibrary.Folders**](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrary.folders) プロパティの値を取得します。
 
 ```cs
 using Windows.Foundation.Collections;
@@ -65,7 +65,7 @@ IObservableVector<Windows.Storage.StorageFolder> myPictureFolders = myPictures.F
 ## <a name="get-the-folder-in-a-library-where-new-files-are-saved-by-default"></a>新しいファイルが既定で保存されるライブラリのフォルダーを取得する
 
 
-新しいファイルが既定で保存されるライブラリのフォルダーを取得するには、[**StorageLibrary.SaveFolder**](https://msdn.microsoft.com/library/windows/apps/dn251728) プロパティの値を取得します。
+新しいファイルが既定で保存されるライブラリのフォルダーを取得するには、[**StorageLibrary.SaveFolder**](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrary.savefolder) プロパティの値を取得します。
 
 ```cs
 Windows.Storage.StorageFolder savePicturesFolder = myPictures.SaveFolder;
@@ -73,7 +73,7 @@ Windows.Storage.StorageFolder savePicturesFolder = myPictures.SaveFolder;
 
 ## <a name="add-an-existing-folder-to-a-library"></a>ライブラリに既存のフォルダーを追加する
 
-ライブラリにフォルダーを追加するには、[**StorageLibrary.RequestAddFolderAsync**](https://msdn.microsoft.com/library/windows/apps/dn251726) を呼び出します。 画像ライブラリを例として考えた場合、このメソッドを呼び出すとフォルダー ピッカーが **[ピクチャにこのフォルダーを追加]** ボタンと共に表示されます。 ユーザーがフォルダーを選ぶと、フォルダーはディスク上の元の場所に残り、[**StorageLibrary.Folders**](https://msdn.microsoft.com/library/windows/apps/dn251724) プロパティ (および組み込みのフォト アプリ) 内の項目となりますが、フォルダーはエクスプローラーでピクチャ フォルダーの子として表示されません。
+ライブラリにフォルダーを追加するには、[**StorageLibrary.RequestAddFolderAsync**](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrary.requestaddfolderasync) を呼び出します。 画像ライブラリを例として考えた場合、このメソッドを呼び出すとフォルダー ピッカーが **[ピクチャにこのフォルダーを追加]** ボタンと共に表示されます。 ユーザーがフォルダーを選ぶと、フォルダーはディスク上の元の場所に残り、[**StorageLibrary.Folders**](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrary.folders) プロパティ (および組み込みのフォト アプリ) 内の項目となりますが、フォルダーはエクスプローラーでピクチャ フォルダーの子として表示されません。
 
 
 ```cs
@@ -82,11 +82,11 @@ Windows.Storage.StorageFolder newFolder = await myPictures.RequestAddFolderAsync
 
 ## <a name="remove-a-folder-from-a-library"></a>フォルダーをライブラリから削除する
 
-フォルダーをライブラリから削除するには、[**StorageLibrary.RequestRemoveFolderAsync**](https://msdn.microsoft.com/library/windows/apps/dn251727) メソッドを呼び出して、削除するフォルダーを指定します。 [  **StorageLibrary.Folders**](https://msdn.microsoft.com/library/windows/apps/dn251724) と [**ListView**](https://msdn.microsoft.com/library/windows/apps/br242878) コントロール (または同様のコントロール) を使って、ユーザーが削除するフォルダーを選べるようにすることができます。
+フォルダーをライブラリから削除するには、[**StorageLibrary.RequestRemoveFolderAsync**](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrary.requestremovefolderasync) メソッドを呼び出して、削除するフォルダーを指定します。 [  **StorageLibrary.Folders**](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrary.folders) と [**ListView**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView) コントロール (または同様のコントロール) を使って、ユーザーが削除するフォルダーを選べるようにすることができます。
 
-[  **StorageLibrary.RequestRemoveFolderAsync**](https://msdn.microsoft.com/library/windows/apps/dn251727) を呼び出すと、フォルダーが "ピクチャに表示されなくなるが、削除されない" ことを示す確認ダイアログがユーザーに表示されます。 これは、フォルダーがディスク上の元の場所に残るが、[**StorageLibrary.Folders**](https://msdn.microsoft.com/library/windows/apps/dn251724) プロパティから削除され、組み込みのフォト アプリには含まれなくなることを意味します。
+[  **StorageLibrary.RequestRemoveFolderAsync**](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrary.requestremovefolderasync) を呼び出すと、フォルダーが "ピクチャに表示されなくなるが、削除されない" ことを示す確認ダイアログがユーザーに表示されます。 これは、フォルダーがディスク上の元の場所に残るが、[**StorageLibrary.Folders**](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrary.folders) プロパティから削除され、組み込みのフォト アプリには含まれなくなることを意味します。
 
-次の例では、ユーザーが削除するフォルダーを **lvPictureFolders** という名前の [**ListView**](https://msdn.microsoft.com/library/windows/apps/br242878) コントロールから選んだことを前提としています。
+次の例では、ユーザーが削除するフォルダーを **lvPictureFolders** という名前の [**ListView**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView) コントロールから選んだことを前提としています。
 
 
 ```cs
@@ -96,7 +96,7 @@ bool result = await myPictures.RequestRemoveFolderAsync(folder);
 ## <a name="get-notified-of-changes-to-the-list-of-folders-in-a-library"></a>ライブラリ内のフォルダーの一覧に対する変更の通知を受け取る
 
 
-ライブラリ内のフォルダーの一覧に対する変更について通知を受け取るには、ライブラリの [**StorageLibrary.DefinitionChanged**](https://msdn.microsoft.com/library/windows/apps/dn251723) イベントにハンドラーを登録します。
+ライブラリ内のフォルダーの一覧に対する変更について通知を受け取るには、ライブラリの [**StorageLibrary.DefinitionChanged**](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrary.definitionchanged) イベントにハンドラーを登録します。
 
 
 ```cs
@@ -158,7 +158,7 @@ private async void getSongs()
 
 ユーザーは、既定でオプションの SD カードにファイルを格納するように選ぶことができます。 また、アプリでは、ファイルが SD カードに格納されないようにすることができます。 その結果、メディア ライブラリがデバイスの内部ストレージと SD カードの両方に存在する可能性があります。
 
-この状況を処理するために追加のコードを記述する必要はありません。 既知のフォルダーを照会する [**Windows.Storage**](https://msdn.microsoft.com/library/windows/apps/br227346) 名前空間のメソッドが、両方の場所からのクエリ結果を透過的に結合します。 結合された結果を取得するために、アプリ マニフェスト ファイルで **removableStorage** 機能を指定する必要もありません。
+この状況を処理するために追加のコードを記述する必要はありません。 既知のフォルダーを照会する [**Windows.Storage**](https://docs.microsoft.com/uwp/api/Windows.Storage) 名前空間のメソッドが、両方の場所からのクエリ結果を透過的に結合します。 結合された結果を取得するために、アプリ マニフェスト ファイルで **removableStorage** 機能を指定する必要もありません。
 
 次の図に示すデバイスのストレージの状態について考えてみましょう。
 
@@ -175,7 +175,7 @@ private async void getSongs()
 
 **写真をキャプチャしているアプリで開く**
 
-ユーザーが撮影に使ったアプリで後から再び写真を表示できるようにするには、写真のメタデータと一緒に **CreatorAppId** を保存します。次のコード例を参考にしてください。 この例では、**testPhoto** は [**StorageFile**](https://msdn.microsoft.com/library/windows/apps/br227171) です。
+ユーザーが撮影に使ったアプリで後から再び写真を表示できるようにするには、写真のメタデータと一緒に **CreatorAppId** を保存します。次のコード例を参考にしてください。 この例では、**testPhoto** は [**StorageFile**](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageFile) です。
 
 ```cs
 IDictionary<string, object> propertiesToSave = new Dictionary<string, object>();

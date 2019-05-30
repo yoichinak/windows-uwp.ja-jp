@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: b8c4777e1c34bca36200bf6e8a96c35d6a0b1079
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 727abc5724914e3a8ad4463645455b9d63933bd7
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57640307"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66372190"
 ---
 # <a name="custom-events-and-event-accessors-in-windows-runtime-components"></a>Windows ランタイム コンポーネントのカスタム イベントおよびイベント アクセサー
 
@@ -26,8 +26,8 @@ UWP のイベントを処理するための登録を行うと、add アクセサ
 
 さいわい、Visual Basic とC#コンパイラはこのプロセスを簡略化します。Windows ランタイム コンポーネントでカスタムのアクセサーでイベントを宣言するときに、コンパイラは自動的に UWP パターンを使用します。 たとえば、add アクセサーがトークンを返さない場合、コンパイル エラーが発生します。 .NET Framework には、実装をサポートするための 2 種類の型が用意されています。
 
--   [EventRegistrationToken](https://msdn.microsoft.com/library/windows/apps/windows.foundation.eventregistrationtoken.aspx) 構造体はトークンを表します。
--   [EventRegistrationTokenTable&lt;T&gt;](https://msdn.microsoft.com/library/hh138412.aspx) クラスはトークンを作成し、トークンとイベント ハンドラーの間の対応付けを保持します。 ジェネリック型引数は、イベント引数の型です。 イベント ハンドラーがイベントに対して最初に登録されたときに、イベントごとにこのクラスのインスタンスを作成します。
+-   [EventRegistrationToken](https://docs.microsoft.com/uwp/api/windows.foundation.eventregistrationtoken) 構造体はトークンを表します。
+-   [EventRegistrationTokenTable&lt;T&gt;](https://docs.microsoft.com/dotnet/api/system.runtime.interopservices.windowsruntime.eventregistrationtokentable-1?redirectedfrom=MSDN) クラスはトークンを作成し、トークンとイベント ハンドラーの間の対応付けを保持します。 ジェネリック型引数は、イベント引数の型です。 イベント ハンドラーがイベントに対して最初に登録されたときに、イベントごとにこのクラスのインスタンスを作成します。
 
 NumberChanged イベントの次のコードは、UWP イベントの基本パターンを示しています。 この例では、イベント引数オブジェクトのコンストラクターである NumberChangedEventArgs は、変更された数値を表す単一の整数パラメーターを受け取ります。
 
@@ -101,16 +101,16 @@ static (Visual Basic では Shared) GetOrCreateEventRegistrationTokenTable メ�
 
 > **重要な**  EventRegistrationTokenTable のイベントのインスタンスを保持するフィールド、スレッドの安全を確保する&lt;T&gt;クラス レベルのフィールドである必要があります。 クラス レベルのフィールドである場合、GetOrCreateEventRegistrationTokenTable メソッドでは、複数のスレッドがトークン テーブルの作成を試みるときに、すべてのスレッドでテーブルの同じインスタンスが取得されます。 特定のイベントでは、GetOrCreateEventRegistrationTokenTable メソッドのすべての呼び出しは、同じクラス レベルのフィールドを使う必要があります。
 
-remove アクセサーや [RaiseEvent](https://msdn.microsoft.com/library/fwd3bwed.aspx) メソッド (C# では OnRaiseEvent メソッド) で GetOrCreateEventRegistrationTokenTable メソッドを呼び出すことによって、イベント ハンドラー デリゲートが追加される前にこれらのメソッドを呼び出した場合、例外は発生しません。
+remove アクセサーや [RaiseEvent](https://docs.microsoft.com/dotnet/articles/visual-basic/language-reference/statements/raiseevent-statement) メソッド (C# では OnRaiseEvent メソッド) で GetOrCreateEventRegistrationTokenTable メソッドを呼び出すことによって、イベント ハンドラー デリゲートが追加される前にこれらのメソッドを呼び出した場合、例外は発生しません。
 
 UWP イベント パターンで使われる EventRegistrationTokenTable&lt;T&gt; クラスの他のメンバーには、次のものがあります。
 
--   [AddEventHandler](https://msdn.microsoft.com/library/hh138458.aspx) メソッドは、イベント ハンドラー デリゲートのトークンを生成し、デリゲートをテーブルに保存し、デリゲートを呼び出しリストに追加して、トークンを返します。
--   [RemoveEventHandler(EventRegistrationToken)](https://msdn.microsoft.com/library/hh138425.aspx) メソッド オーバーロードは、テーブルと呼び出しリストからデリゲートを削除します。
+-   [AddEventHandler](https://docs.microsoft.com/dotnet/api/system.runtime.interopservices.windowsruntime.eventregistrationtokentable-1.addeventhandler?redirectedfrom=MSDN#System_Runtime_InteropServices_WindowsRuntime_EventRegistrationTokenTable_1_AddEventHandler__0_) メソッドは、イベント ハンドラー デリゲートのトークンを生成し、デリゲートをテーブルに保存し、デリゲートを呼び出しリストに追加して、トークンを返します。
+-   [RemoveEventHandler(EventRegistrationToken)](https://docs.microsoft.com/dotnet/api/system.runtime.interopservices.windowsruntime.eventregistrationtokentable-1.removeeventhandler?redirectedfrom=MSDN#System_Runtime_InteropServices_WindowsRuntime_EventRegistrationTokenTable_1_RemoveEventHandler_System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken_) メソッド オーバーロードは、テーブルと呼び出しリストからデリゲートを削除します。
 
     >**注**  AddEventHandler および RemoveEventHandler(EventRegistrationToken) メソッドがスレッド セーフを確保しやすくテーブルをロックします。
 
--   [InvocationList](https://msdn.microsoft.com/library/hh138465.aspx) プロパティは、イベントを処理するために現在登録されているすべてのイベント ハンドラーを含むデリゲートを返します。 このデリゲートを使ってイベントを発生させるか、Delegate クラスのメソッドを使ってハンドラーを個別に呼び出します。
+-   [InvocationList](https://docs.microsoft.com/dotnet/api/system.runtime.interopservices.windowsruntime.eventregistrationtokentable-1.invocationlist?redirectedfrom=MSDN#System_Runtime_InteropServices_WindowsRuntime_EventRegistrationTokenTable_1_InvocationList) プロパティは、イベントを処理するために現在登録されているすべてのイベント ハンドラーを含むデリゲートを返します。 このデリゲートを使ってイベントを発生させるか、Delegate クラスのメソッドを使ってハンドラーを個別に呼び出します。
 
     >**注**  この記事の前半で示した例に示すようにパターンに従いし、デリゲートを呼び出す前に、一時変数にコピーすることをお勧めします。 これにより、あるスレッドが最後のハンドラーを削除して、別のスレッドがデリゲートを呼び出す直前にデリゲートが null となる競合状態を回避できます。 デリゲートは変更できないため、コピーは引き続き有効です。
 
@@ -118,12 +118,12 @@ UWP イベント パターンで使われる EventRegistrationTokenTable&lt;T&gt
 
 C#ユーザー:UWP のイベント パターンでカスタム イベント アクセサーを記述する場合、コンパイラは、通常の構文ショートカットを提供していません。 コードでイベント名を使うとエラーが発生します。
 
-Visual Basic の場合:.NET framework では、イベントは、すべての登録済みのイベント ハンドラーを表すマルチキャスト デリゲートだけです。 イベントを発生させることは、デリゲートを呼び出すことを意味します。 一般に、Visual Basic の構文はデリゲートとの対話を非表示にします。また、スレッド セーフに関するメモに説明されているように、コンパイラはデリゲートを呼び出す前にデリゲートをコピーします。 Windows ランタイム コンポーネントでカスタム イベントを作成する場合、デリゲートを直接扱う必要があります。 これは、たとえばハンドラーを個別に呼び出す場合、[MulticastDelegate.GetInvocationList](https://msdn.microsoft.com/library/system.multicastdelegate.getinvocationlist.aspx) メソッドを使って、イベント ハンドラーごとに個別のデリゲートが含まれる配列を取得できることも意味します。
+Visual Basic の場合:.NET framework では、イベントは、すべての登録済みのイベント ハンドラーを表すマルチキャスト デリゲートだけです。 イベントを発生させることは、デリゲートを呼び出すことを意味します。 一般に、Visual Basic の構文はデリゲートとの対話を非表示にします。また、スレッド セーフに関するメモに説明されているように、コンパイラはデリゲートを呼び出す前にデリゲートをコピーします。 Windows ランタイム コンポーネントでカスタム イベントを作成する場合、デリゲートを直接扱う必要があります。 これは、たとえばハンドラーを個別に呼び出す場合、[MulticastDelegate.GetInvocationList](https://docs.microsoft.com/dotnet/api/system.multicastdelegate.getinvocationlist?redirectedfrom=MSDN#System_MulticastDelegate_GetInvocationList) メソッドを使って、イベント ハンドラーごとに個別のデリゲートが含まれる配列を取得できることも意味します。
 
 ## <a name="related-topics"></a>関連トピック
 
-* [イベント (Visual Basic)](https://msdn.microsoft.com/library/ms172877.aspx)
-* [イベント (c# プログラミング ガイド)](https://msdn.microsoft.com/library/awbftdfh.aspx)
-* [.NET の UWP アプリの概要](https://msdn.microsoft.com/library/windows/apps/xaml/br230302.aspx)
-* [UWP アプリ用 .NET](https://msdn.microsoft.com/library/windows/apps/xaml/mt185501.aspx)
+* [イベント (Visual Basic)](https://docs.microsoft.com/dotnet/articles/visual-basic/programming-guide/language-features/events/index)
+* [イベント (c# プログラミング ガイド)](https://docs.microsoft.com/dotnet/articles/csharp/programming-guide/events/index)
+* [.NET の UWP アプリの概要](https://docs.microsoft.com/previous-versions/windows/apps/br230302(v=vs.140))
+* [UWP アプリ用 .NET](https://docs.microsoft.com/dotnet/api/index?view=dotnet-uwp-10.0)
 * [チュートリアル: 単純な Windows ランタイム コンポーネントの作成および JavaScript による呼び出し](walkthrough-creating-a-simple-windows-runtime-component-and-calling-it-from-javascript.md)

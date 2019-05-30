@@ -6,20 +6,20 @@ ms.date: 06/06/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: f8c1cc6e17d95f55cc97af7695c12b374edcaaa8
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 2c7fadaf902b4aa543234bc8d43fbc1595a54219
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57632887"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66369685"
 ---
 # <a name="use-the-compass"></a>コンパスの使用
 
 
 **重要な API**
 
--   [**Windows.Devices.Sensors**](https://msdn.microsoft.com/library/windows/apps/BR206408)
--   [**Compass**](https://msdn.microsoft.com/library/windows/apps/BR225705)
+-   [**Windows.Devices.Sensors**](https://docs.microsoft.com/uwp/api/Windows.Devices.Sensors)
+-   [**Compass**](https://docs.microsoft.com/uwp/api/Windows.Devices.Sensors.Compass)
 
 **サンプル**
 
@@ -134,11 +134,11 @@ You'll need to rename the namespace in the previous snippet with the name you ga
 
 元のスニペットのクラス名の最初の部分を、自分のアプリの名前空間に置き換える必要があります。 たとえば、作成したプロジェクトの名前が **CompassCS** だとすると、`x:Class="App1.MainPage"` を `x:Class="CompassCS.MainPage"` に置き換えます。 また、`xmlns:local="using:App1"` を `xmlns:local="using:CompassCS"` に置き換える必要があります。
 
--   アプリをビルド、展開、実行するには、F5 キーを押すか、**[デバッグ]** > **[デバッグの開始]** の順にクリックします。
+-   アプリをビルド、展開、実行するには、F5 キーを押すか、 **[デバッグ]**  >  **[デバッグの開始]** の順にクリックします。
 
 アプリを実行した後、デバイスを移動するか、エミュレーター ツールを使うことによって、コンパスの値を変更できます。
 
--   アプリを停止するには、Visual Studio に戻り、Shift キーを押しながら F5 キーを押すか、**[デバッグ]** > **[デバッグの停止]** の順にクリックします。
+-   アプリを停止するには、Visual Studio に戻り、Shift キーを押しながら F5 キーを押すか、 **[デバッグ]**  >  **[デバッグの停止]** の順にクリックします。
 
 ### <a name="explanation"></a>説明
 

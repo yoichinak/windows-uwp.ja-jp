@@ -8,12 +8,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 6b9535cd8c2dd82b0c209919080df9a88bb80ccc
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 33244391ca9f2ffcba21adacccebf2e9b1d73419
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57612777"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66363358"
 ---
 # <a name="toast-content-xml-schema"></a>トースト通知のコンテンツの XML スキーマ
 
@@ -79,15 +79,15 @@ scenario?
 
 lang?
 
--   この省略可能な属性について詳しくは、[要素のスキーマに関するこの記事](https://msdn.microsoft.com/library/windows/apps/br230847)をご覧ください。
+-   この省略可能な属性について詳しくは、[要素のスキーマに関するこの記事](https://docs.microsoft.com/uwp/schemas/tiles/toastschema/element-visual)をご覧ください。
 
 baseUri?
 
--   この省略可能な属性について詳しくは、[要素のスキーマに関するこの記事](https://msdn.microsoft.com/library/windows/apps/br230847)をご覧ください。
+-   この省略可能な属性について詳しくは、[要素のスキーマに関するこの記事](https://docs.microsoft.com/uwp/schemas/tiles/toastschema/element-visual)をご覧ください。
 
 addImageQuery?
 
--   この省略可能な属性について詳しくは、[要素のスキーマに関するこの記事](https://msdn.microsoft.com/library/windows/apps/br230847)をご覧ください。
+-   この省略可能な属性について詳しくは、[要素のスキーマに関するこの記事](https://docs.microsoft.com/uwp/schemas/tiles/toastschema/element-visual)をご覧ください。
 
 **属性&lt;バインド&gt;**
 
@@ -99,27 +99,27 @@ template?
 
 lang?
 
--   この省略可能な属性について詳しくは、[要素のスキーマに関するこの記事](https://msdn.microsoft.com/library/windows/apps/br230847)をご覧ください。
+-   この省略可能な属性について詳しくは、[要素のスキーマに関するこの記事](https://docs.microsoft.com/uwp/schemas/tiles/toastschema/element-visual)をご覧ください。
 
 baseUri?
 
--   この省略可能な属性について詳しくは、[要素のスキーマに関するこの記事](https://msdn.microsoft.com/library/windows/apps/br230847)をご覧ください。
+-   この省略可能な属性について詳しくは、[要素のスキーマに関するこの記事](https://docs.microsoft.com/uwp/schemas/tiles/toastschema/element-visual)をご覧ください。
 
 addImageQuery?
 
--   この省略可能な属性について詳しくは、[要素のスキーマに関するこの記事](https://msdn.microsoft.com/library/windows/apps/br230847)をご覧ください。
+-   この省略可能な属性について詳しくは、[要素のスキーマに関するこの記事](https://docs.microsoft.com/uwp/schemas/tiles/toastschema/element-visual)をご覧ください。
 
 **属性&lt;テキスト&gt;**
 
 lang?
 
--   この省略可能な属性について詳しくは、[要素のスキーマに関するこの記事](https://msdn.microsoft.com/library/windows/apps/br230847)をご覧ください。
+-   この省略可能な属性について詳しくは、[要素のスキーマに関するこの記事](https://docs.microsoft.com/uwp/schemas/tiles/toastschema/element-visual)をご覧ください。
 
 **属性&lt;イメージ&gt;**
 
 src
 
--   この必須の属性について詳しくは、[要素のスキーマに関するこの記事](https://msdn.microsoft.com/library/windows/apps/br230844)をご覧ください。
+-   この必須の属性について詳しくは、[要素のスキーマに関するこの記事](https://docs.microsoft.com/uwp/schemas/tiles/toastschema/element-image)をご覧ください。
 
 placement?
 
@@ -131,11 +131,11 @@ placement?
 
 alt?
 
--   この省略可能な属性について詳しくは、[要素のスキーマに関するこの記事](https://msdn.microsoft.com/library/windows/apps/br230844)をご覧ください。
+-   この省略可能な属性について詳しくは、[要素のスキーマに関するこの記事](https://docs.microsoft.com/uwp/schemas/tiles/toastschema/element-image)をご覧ください。
 
 addImageQuery?
 
--   この省略可能な属性について詳しくは、[要素のスキーマに関するこの記事](https://msdn.microsoft.com/library/windows/apps/br230844)をご覧ください。
+-   この省略可能な属性について詳しくは、[要素のスキーマに関するこの記事](https://docs.microsoft.com/uwp/schemas/tiles/toastschema/element-image)をご覧ください。
 
 hint-crop?
 
@@ -148,15 +148,15 @@ hint-crop?
 
 src?
 
--   この省略可能な属性について詳しくは、[要素のスキーマに関するこの記事](https://msdn.microsoft.com/library/windows/apps/br230842)をご覧ください。
+-   この省略可能な属性について詳しくは、[要素のスキーマに関するこの記事](https://docs.microsoft.com/uwp/schemas/tiles/toastschema/element-audio)をご覧ください。
 
 loop?
 
--   この省略可能な属性について詳しくは、[要素のスキーマに関するこの記事](https://msdn.microsoft.com/library/windows/apps/br230842)をご覧ください。
+-   この省略可能な属性について詳しくは、[要素のスキーマに関するこの記事](https://docs.microsoft.com/uwp/schemas/tiles/toastschema/element-audio)をご覧ください。
 
 silent?
 
--   この省略可能な属性について詳しくは、[要素のスキーマに関するこの記事](https://msdn.microsoft.com/library/windows/apps/br230842)をご覧ください。
+-   この省略可能な属性について詳しくは、[要素のスキーマに関するこの記事](https://docs.microsoft.com/uwp/schemas/tiles/toastschema/element-audio)をご覧ください。
 
 ## <a name="schemas-ltactiongt"></a>スキーマ: &lt;action&gt;
 

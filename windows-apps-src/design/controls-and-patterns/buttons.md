@@ -13,12 +13,12 @@ dev-contact: mitra
 doc-status: Published
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 286b278d0c41edfbc5c008f31e5a8e28fa30f93a
-ms.sourcegitcommit: aeebfe35330aa471d22121957d9b510f6ebacbcf
+ms.openlocfilehash: 210431928c5dd7c5d5dfb99855322f1560e91dd7
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58901640"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66363229"
 ---
 # <a name="buttons"></a>ボタン
 
@@ -30,14 +30,14 @@ XAML フレームワークでは、いくつかの特殊なボタン コント�
 
 コントロール | 説明
 ------- | -----------
-[Button](/uwp/api/windows.ui.xaml.controls.button) | 即時のアクションを開始します。 コマンド バインディングまたは Click イベントと共に使用することができます。
+[ボタン](/uwp/api/windows.ui.xaml.controls.button) | 即時のアクションを開始します。 コマンド バインディングまたは Click イベントと共に使用することができます。
 [RepeatButton](/uwp/api/windows.ui.xaml.controls.primitives.repeatbutton) | 押されたときに継続的には、クリック イベントを発生させるボタン。
 [HyperlinkButton](/uwp/api/windows.ui.xaml.controls.hyperlinkbutton) | A ボタンをハイパーリンクのナビゲーションのために使用されるようにスタイルが適用されます。 詳しくは、「[ハイパーリンク](hyperlinks.md)」をご覧ください。
 [DropDownButton](/uwp/api/windows.ui.xaml.controls.dropdownbutton) | 開く、アタッチされたフライアウトのシェブロン ボタン。
-[分割ボタン](/uwp/api/windows.ui.xaml.controls.splitbutton) | 2 つの辺のボタンです。 一方の側の操作を開始して、もう一方の側には、メニューが開かれます。
+[SplitButton](/uwp/api/windows.ui.xaml.controls.splitbutton) | 2 つの辺のボタンです。 一方の側の操作を開始して、もう一方の側には、メニューが開かれます。
 [ToggleSplitButton](/uwp/api/windows.ui.xaml.controls.togglesplitbutton) | 2 つの辺をトグル ボタン。 一方の側をオン/オフを切り替えるし、もう一方の側には、メニューが開かれます。
 
-| **Windows UI ライブラリを入手する** |
+| **Windows の UI ライブラリを入手します。** |
 | - |
 | DropDownButton、分割ボタン、および ToggleSplitButton は Windows の UI ライブラリ、新しいコントロール、および UWP アプリの UI 機能を含む NuGet パッケージの一部として含まれています。 インストール手順を含む詳細については、次を参照してください。、 [Windows UI ライブラリの概要](https://docs.microsoft.com/uwp/toolkits/winui/)します。 |
 
@@ -120,16 +120,16 @@ private async void SubscribeButton_Click(object sender, RoutedEventArgs e)
 
 ### <a name="button-interaction"></a>ボタンの対話式操作
 
-ポインターがボタンの上にあるときに、指やスタイラスでそのボタンをタップするか、マウスの左ボタンを押すと、ボタンでは [Click](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.primitives.buttonbase.click.aspx) イベントが発生します。 ボタンにキーボード フォーカスがある場合は、Enter キーまたは Space キーを押しても、Click イベントが発生します。
+ポインターがボタンの上にあるときに、指やスタイラスでそのボタンをタップするか、マウスの左ボタンを押すと、ボタンでは [Click](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.click) イベントが発生します。 ボタンにキーボード フォーカスがある場合は、Enter キーまたは Space キーを押しても、Click イベントが発生します。
 
-通常、ボタンでは低レベルな [PointerPressed](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.uielement.pointerpressed.aspx) イベントを処理できません。これに代わる Click 動作があるためです。 詳しくは、「[イベントとルーティング イベントの概要](https://msdn.microsoft.com/library/windows/apps/mt185584.aspx)」をご覧ください。
+通常、ボタンでは低レベルな [PointerPressed](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerpressed) イベントを処理できません。これに代わる Click 動作があるためです。 詳しくは、「[イベントとルーティング イベントの概要](https://docs.microsoft.com/windows/uwp/xaml-platform/events-and-routed-events-overview)」をご覧ください。
 
 ボタンで Click イベントが発生する方法を変えるには、[ClickMode](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.clickmode) プロパティを変更します。 ClickMode の既定値は **Release** ですが、ボタンの ClickMode を **Hover** または **Press** に設定することもできます。 ClickMode が **Hover** の場合、キーボード操作やタッチ操作によって Click イベントを発生させることはできません。
 
 
 ### <a name="button-content"></a>ボタンのコンテンツ
 
-ボタンは [ContentControl](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.contentcontrol.aspx) です。 その XAML コンテンツ プロパティは [Content](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.contentcontrol.content.aspx) であり、`<Button>A button's content</Button>` のような XAML 構文を使用できます。 任意のオブジェクトをボタンのコンテンツとして設定できます。 コンテンツが [UIElement](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.uielement.aspx) の場合、ボタンにレンダリングされます。 コンテンツが別のタイプのオブジェクトの場合、その文字列表現がボタンに表示されます。
+ボタンは [ContentControl](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ContentControl) です。 その XAML コンテンツ プロパティは [Content](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.contentcontrol.content) であり、`<Button>A button's content</Button>` のような XAML 構文を使用できます。 任意のオブジェクトをボタンのコンテンツとして設定できます。 コンテンツが [UIElement](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement) の場合、ボタンにレンダリングされます。 コンテンツが別のタイプのオブジェクトの場合、その文字列表現がボタンに表示されます。
 
 ボタンのコンテンツは、通常はテキストです。 テキスト コンテンツの付いたボタンの設計に関する推奨事項を次に示します。
 -   ボタンによって行われる操作を明確に説明する、簡潔で具体的でわかりやすいテキストを使います。 通常、ボタンのテキスト コンテンツは、1 語の動詞です。
@@ -140,11 +140,11 @@ private async void SubscribeButton_Click(object sender, RoutedEventArgs e)
 
 <table>
 <tr>
-<td> <b>必要な修正:</b><br> オーバーフロー テキストの付いたボタン。 </td>
+<td> <b>修正する必要があります。</b><br> オーバーフロー テキストの付いたボタン。 </td>
 <td> <img src="images/button-wraptext.png"/> </td>
 </tr>
 <tr>
-<td> <b>オプション 1:</b><br> テキストの長さが 26 文字より大きい場合は、ボタンの幅やスタック ボタンを増やし、テキストを折り返します。 </td>
+<td> <b>選択肢 1:</b><br> テキストの長さが 26 文字より大きい場合は、ボタンの幅やスタック ボタンを増やし、テキストを折り返します。 </td>
 <td> <img src="images/button-wraptext1.png"> </td>
 </tr>
 <tr>
@@ -175,7 +175,7 @@ private async void SubscribeButton_Click(object sender, RoutedEventArgs e)
 
 ## <a name="create-a-repeat-button"></a>繰り返しボタンの作成
 
-[RepeatButton](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.primitives.repeatbutton.aspx) は、ボタンが押されてから離されるまで、繰り返し [Click](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.primitives.buttonbase.click.aspx) イベントを発生させるボタンです。 ボタンが押されてからクリック操作の繰り返しを始めるまでの RepeatButton の待ち時間を指定するには、[Delay](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.primitives.repeatbutton.delay.aspx) プロパティを設定します。 クリック操作の繰り返し間隔を指定するには、[Interval](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.primitives.repeatbutton.interval.aspx) プロパティを設定します。 これらのプロパティの時間はどちらもミリ秒単位で指定します。
+[RepeatButton](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.repeatbutton) は、ボタンが押されてから離されるまで、繰り返し [Click](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.click) イベントを発生させるボタンです。 ボタンが押されてからクリック操作の繰り返しを始めるまでの RepeatButton の待ち時間を指定するには、[Delay](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.repeatbutton.delay) プロパティを設定します。 クリック操作の繰り返し間隔を指定するには、[Interval](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.repeatbutton.interval) プロパティを設定します。 これらのプロパティの時間はどちらもミリ秒単位で指定します。
 
 次の例は 2 つの RepeatButton コントロールを示しています。それぞれの Click イベントを使って、テキスト ブロックに表示される値を増減します。
 
@@ -268,7 +268,7 @@ private void AlignmentMenuFlyoutItem_Click(object sender, RoutedEventArgs e)
 
 > 分割ボタンには、Windows 10、バージョンは 1809 が必要です ([SDK 17763](https://developer.microsoft.com/windows/downloads/windows-10-sdk)) またはそれ以降、または[Windows UI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)します。
 
-A [SplitButton](/uwp/api/windows.ui.xaml.controls.splitbutton)は個別に呼び出すことができる 2 つの部分があります。 1 つの部分では、標準のボタンのように動作し、即時のアクションを呼び出します。 他の部分では、ユーザーが選択できる追加のオプションを含むフライアウトを呼び出します。
+A [SplitButton](/uwp/api/windows.ui.xaml.controls.splitbutton)は個別に呼び出すことができる 2 つの部分があります。 1 つのパーツは標準のボタンのように動作し、即座にアクションを呼び出します。 もう一方のパーツは、ユーザーが選択できる追加オプションを含むポップアップを呼び出します。
 
 > [!NOTE]
 > タッチで呼び出されると、分割ボタンのドロップダウン ボタンとして動作します。ボタンの両方の部分では、フライアウトを呼び出します。 入力の他の方法で、ユーザーは個別にボタンのいずれかの半分を呼び出すことができます。
@@ -376,7 +376,7 @@ public sealed partial class MainPage : Page
 
 > ToggleSplitButton には、Windows 10、バージョンは 1809 が必要です ([SDK 17763](https://developer.microsoft.com/windows/downloads/windows-10-sdk)) またはそれ以降、または[Windows UI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)します。
 
-A [ToggleSplitButton](/uwp/api/windows.ui.xaml.controls.togglesplitbutton)は個別に呼び出すことができる 2 つの部分があります。 1 つの部分は、トグル ボタンをオンまたはオフにできるように動作します。 他の部分では、ユーザーが選択できる追加のオプションを含むフライアウトを呼び出します。
+A [ToggleSplitButton](/uwp/api/windows.ui.xaml.controls.togglesplitbutton)は個別に呼び出すことができる 2 つの部分があります。 1 つのパーツは、オンまたはオフにできるトグル ボタンのように動作します。 もう一方のパーツは、ユーザーが選択できる追加オプションを含むポップアップを呼び出します。
 
 切り替えの分割ボタンを有効または機能を無効にする機能、ユーザーが選択できる複数のオプションがあるときに通常使用されます。 たとえば、ドキュメント エディターでそのされる可能性がありますリスト オン/オフ、ドロップダウンを使用して、リストのスタイルを選択します。
 
@@ -535,7 +535,7 @@ private void ApplyListStyle(string listStyle)
 
 ## <a name="related-articles"></a>関連記事
 
-- [Button クラス](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.button.aspx)
+- [ボタン クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.button)
 - [オプション ボタン](radio-button.md)
 - [チェック ボックス](checkbox.md)
 - [トグル スイッチ](toggles.md)

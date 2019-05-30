@@ -1,16 +1,16 @@
 ---
 description: アジャイル オブジェクトは、いずれかのスレッドからアクセスできます。 お使いの C++/WinRT 型は既定ではアジャイルですが、オプトアウトできます。
 title: C++/WinRT でのアジャイル オブジェクト
-ms.date: 10/20/2018
+ms.date: 04/24/2019
 ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、アジャイル、オブジェクト、アジリティ、IAgileObject
 ms.localizationpriority: medium
-ms.openlocfilehash: 0b390161a4eb2c4f38fed9bce226c5a5e92c5ad8
-ms.sourcegitcommit: 82edc63a5b3623abce1d5e70d8e200a58dec673c
+ms.openlocfilehash: 82dff619e6fa3934f69b93090bee90de6359ca07
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58291781"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66360331"
 ---
 # <a name="agile-objects-in-cwinrt"></a>アジャイル オブジェクト c++/cli WinRT
 
@@ -19,7 +19,7 @@ ms.locfileid: "58291781"
 ただし、オプトアウトできます。配置、たとえば、シングル スレッド アパートメントで、型のオブジェクトを必要とする特別な理由があります。 これは通常、再入の要件で行う必要があります。 それでもますます、ユーザー インターフェイス (UI) API ではアジャイル オブジェクトを提供するようになっています。 一般に、アジリティは最も単純で最もパフォーマンスの高いオプションです。 また、アクティベーション ファクトリを実装する際は、対応するランタイム クラスがアジャイルではない場合でもアジャイルにする必要があります。
 
 > [!NOTE]
-> Windows ランタイムは COM に基づいています。 COM の用語では、アジャイル クラスは `ThreadingModel` = *両方*に登録されています。 COM スレッド モデル、およびアパートメントの詳細については、次を参照してください。 [COM スレッド モデルを使用すると理解](https://msdn.microsoft.com/library/ms809971)します。
+> Windows ランタイムは COM に基づいています。 COM の用語では、アジャイル クラスは `ThreadingModel` = *両方*に登録されています。 COM スレッド モデル、およびアパートメントの詳細については、次を参照してください。 [COM スレッド モデルを使用すると理解](/previous-versions/ms809971(v=msdn.10))します。
 
 ## <a name="code-examples"></a>コード例
 
@@ -37,7 +37,7 @@ struct MyType : winrt::implements<MyType, IStringable>
 };
 ```
 
-オプトアウトしていないため、この実装はアジャイルです。 [  **Winrt::implements**](/uwp/cpp-ref-for-winrt/implements) 基本構造体は [**IAgileObject**](https://msdn.microsoft.com/library/windows/desktop/hh802476) と [**IMarshal**](/windows/desktop/api/objidl/nn-objidl-imarshal) を実装します。 **IMarshal** 実装は、**IAgileObject** について知らないレガシー コードで適切な処理を行うために **CoCreateFreeThreadedMarshaler** を使用します。
+オプトアウトしていないため、この実装はアジャイルです。 [  **Winrt::implements**](/uwp/cpp-ref-for-winrt/implements) 基本構造体は [**IAgileObject**](https://docs.microsoft.com/windows/desktop/api/objidl/nn-objidl-iagileobject) と [**IMarshal**](/windows/desktop/api/objidl/nn-objidl-imarshal) を実装します。 **IMarshal** 実装は、**IAgileObject** について知らないレガシー コードで適切な処理を行うために **CoCreateFreeThreadedMarshaler** を使用します。
 
 このコードでは、オブジェクトのアジリティを確認します。 `myimpl` がアジャイルではない場合に [**IUnknown::as**](/uwp/cpp-ref-for-winrt/windows-foundation-iunknown#iunknownas-function) の呼び出しで例外がスローされます。
 
@@ -115,7 +115,7 @@ winrt::hstring message{ nonagile_obj_again.Message() };
 
 ## <a name="important-apis"></a>重要な API
 
-* [IAgileObject インターフェイス](https://msdn.microsoft.com/library/windows/desktop/hh802476)
+* [IAgileObject インターフェイス](https://docs.microsoft.com/windows/desktop/api/objidl/nn-objidl-iagileobject)
 * [IMarshal インターフェイス](/windows/desktop/api/objidl/nn-objidl-imarshal)
 * [winrt::agile_ref 構造体のテンプレート](/uwp/cpp-ref-for-winrt/agile-ref)
 * [winrt::implements 構造体のテンプレート](/uwp/cpp-ref-for-winrt/implements)
@@ -126,4 +126,4 @@ winrt::hstring message{ nonagile_obj_again.Message() };
 
 ## <a name="related-topics"></a>関連トピック
 
-* [理解し、COM スレッド モデルの使用](https://msdn.microsoft.com/library/ms809971)
+* [理解し、COM スレッド モデルの使用](/previous-versions/ms809971(v=msdn.10))

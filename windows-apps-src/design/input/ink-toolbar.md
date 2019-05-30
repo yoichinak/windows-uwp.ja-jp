@@ -8,34 +8,34 @@ ms.date: 02/08/2017
 ms.topic: article
 ms.assetid: d888f75f-c2a0-4134-81db-907b5e24fcc5
 ms.localizationpriority: medium
-ms.openlocfilehash: 0dd16eac9fe61f292b4f05e1fbd515c0e7255377
-ms.sourcegitcommit: d00acf229aa41be2d41ef3e5a7d1f40fa7153acc
+ms.openlocfilehash: 05e10fd728930ea23615e11ffd5a004a420c9b64
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65187514"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66365837"
 ---
 # <a name="add-an-inktoolbar-to-a-universal-windows-platform-uwp-app"></a>InkToolbar をユニバーサル Windows プラットフォーム (UWP) アプリに追加する
 
 
 
-ユニバーサル Windows プラットフォーム (UWP) アプリで手描き入力機能を容易にする 2 つの異なるコントロールがあります。[**InkCanvas** ](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.inkcanvas.aspx)と[ **InkToolbar**](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.inktoolbar.aspx)します。
+ユニバーサル Windows プラットフォーム (UWP) アプリで手描き入力機能を容易にする 2 つの異なるコントロールがあります。[**InkCanvas** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas)と[ **InkToolbar**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar)します。
 
-[  **InkCanvas**](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.inkcanvas.aspx) コントロールには、基本的な Windows Ink 機能が用意されています。 このコントロールを使用して、ペン入力をインク ストローク (色と太さの既定の設定を使う) か消去ストロークとしてレンダリングできます。
+[  **InkCanvas**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas) コントロールには、基本的な Windows Ink 機能が用意されています。 このコントロールを使用して、ペン入力をインク ストローク (色と太さの既定の設定を使う) か消去ストロークとしてレンダリングできます。
 
 > InkCanvas の実装について詳しくは、「[UWP アプリのペン操作とスタイラス操作](pen-and-stylus-interactions.md)」をご覧ください。
 
 InkCanvas は、完全に透明なオーバーレイであるため、インク ストロークのプロパティを設定するための UI は組み込まれていません。 既定の手書き入力エクスペリエンスを変更する場合、ユーザーがインク ストロークのプロパティを設定し、その他のカスタムの手書き入力機能を使用できるようにします。これには 2 つの方法があります。
 
-- コード ビハインドで、InkCanvas にバインドされている、基になる [**InkPresenter**](https://msdn.microsoft.com/library/windows/apps/windows.ui.input.inking.inkpresenter.aspx) オブジェクトを使用します。
+- コード ビハインドで、InkCanvas にバインドされている、基になる [**InkPresenter**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkpresenter) オブジェクトを使用します。
 
   InkPresenter API では、手書き入力エクスペリエンスのさまざまなカスタマイズをサポートしています。 詳しくは、「[UWP アプリのペン操作とスタイラス操作](pen-and-stylus-interactions.md)」をご覧ください。
 
-- [  **InkToolbar**](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.inktoolbar.aspx) を InkCanvas にバインドします。 既定では、InkToolbar には、インク機能をアクティブ化し、ストロークのサイズ、インクの色、ペン先の形状などのインク関連のプロパティを設定できる、カスタマイズ可能で拡張可能なボタンのコレクションが用意されています。
+- [  **InkToolbar**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar) を InkCanvas にバインドします。 既定では、InkToolbar には、インク機能をアクティブ化し、ストロークのサイズ、インクの色、ペン先の形状などのインク関連のプロパティを設定できる、カスタマイズ可能で拡張可能なボタンのコレクションが用意されています。
 
   ここでは、InkToolbar について説明します。
 
-> **重要な API**:[**InkCanvas クラス**](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.inkcanvas.aspx)、 [ **InkToolbar クラス**](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.inktoolbar.aspx)、 [ **InkPresenter クラス**](https://msdn.microsoft.com/library/windows/apps/windows.ui.input.inking.inkpresenter.aspx)、 [**Windows.UI.Input.Inking**](https://msdn.microsoft.com/library/windows/apps/br208524)
+> **重要な API**:[**InkCanvas クラス**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas)、 [ **InkToolbar クラス**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar)、 [ **InkPresenter クラス**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkpresenter)、 [**Windows.UI.Input.Inking**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking)
 
 ## <a name="default-inktoolbar"></a>既定の InkToolbar
 
@@ -103,7 +103,7 @@ XAML でインク ツール バーの位置と向きを明示的に設定する�
 
 **ユーザーの設定やデバイスの状態に基づいて初期化**
 
-場合によっては、ユーザー設定またはデバイスの状態に基づいてインク ツール バーの位置と向きを設定する必要があります。 次の例は、**[設定] > [デバイス] > [ペンと Windows Ink] > [ペン] > [利き手を選択してください]** で指定されている、左利きや右利きに関する設定に基づいてインク ツール バーの位置と向きを設定する方法を示しています。
+場合によっては、ユーザー設定またはデバイスの状態に基づいてインク ツール バーの位置と向きを設定する必要があります。 次の例は、 **[設定] > [デバイス] > [ペンと Windows Ink] > [ペン] > [利き手を選択してください]** で指定されている、左利きや右利きに関する設定に基づいてインク ツール バーの位置と向きを設定する方法を示しています。
 
 ![主要な手の形の設定](./images/ink/location-handedness-setting.png)  
 *主要な手の形の設定*
@@ -137,7 +137,7 @@ public MainPage()
     1. 新しいフォルダーをプロジェクトに追加し、そのフォルダーに **ViewModels** という名前を付けます。
     1. 新しいクラスを ViewModels フォルダーに追加します (この例では、**InkToolbarSnippetHostViewModel.cs** という名前です)。
         > [!NOTE] 
-        > アプリケーションの有効期間中に必要となるこの種類のオブジェクトは 1 つのみであるため、[シングルトン パターン](https://msdn.microsoft.com/library/ff650849.aspx)を使用しました。
+        > アプリケーションの有効期間中に必要となるこの種類のオブジェクトは 1 つのみであるため、[シングルトン パターン](https://docs.microsoft.com/previous-versions/msp-n-p/ff650849(v=pandp.10))を使用しました。
 
     1. `using System.ComponentModel` 名前空間をファイルに追加します。
     1. **instance** という静的メンバー変数、および **Instance** という名前の静的な読み取り専用プロパティを追加します。 コンストラクターをプライベートにして、このクラスには Instance プロパティ経由でのみアクセスできるようにします。   
@@ -413,7 +413,7 @@ public MainPage()
 ここでは、(ボールペンではなく) 鉛筆ボタンが選択され、鉛筆がアクティブになるように、既定のツール バーを初期化します。
 
 1. 前の例から、InkCanvas と InkToolbar の XAML 宣言を使用します。
-2. コード ビハインドで、[InkToolbar](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.inktoolbar.aspx) オブジェクトの [Loaded](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.frameworkelement.loaded.aspx) イベントのハンドラーを設定します。
+2. コード ビハインドで、[InkToolbar](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar) オブジェクトの [Loaded](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.loaded) イベントのハンドラーを設定します。
 
   ```csharp
   /// <summary>
@@ -428,12 +428,12 @@ public MainPage()
   }
   ```
 
-3. [Loaded](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.frameworkelement.loaded.aspx) イベントのハンドラーで次の処理を行います。
-    1. 組み込みの [InkToolbarPencilButton](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.inktoolbarpencilbutton.aspx) への参照を取得します。
+3. [Loaded](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.loaded) イベントのハンドラーで次の処理を行います。
+    1. 組み込みの [InkToolbarPencilButton](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbarpencilbutton) への参照を取得します。
 
-    [GetToolButton](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.inktoolbar.gettoolbutton.aspx) メソッドで [InkToolbarTool.Pencil](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.inktoolbartool.aspx) オブジェクトを渡すことで、[InkToolbarPencilButton](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.inktoolbarpencilbutton.aspx) の [InkToolbarToolButton](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.inktoolbartoolbutton.aspx) オブジェクトが返されます。
+    [GetToolButton](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar.gettoolbutton) メソッドで [InkToolbarTool.Pencil](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbartool) オブジェクトを渡すことで、[InkToolbarPencilButton](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbarpencilbutton) の [InkToolbarToolButton](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbartoolbutton) オブジェクトが返されます。
 
-    2. 前の手順で返されたオブジェクトに [ActiveTool](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.inktoolbar.activetool.aspx) を設定します。
+    2. 前の手順で返されたオブジェクトに [ActiveTool](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar.activetool) を設定します。
 
 ```CSharp
 /// <summary>
@@ -457,11 +457,11 @@ private void inkToolbar_Loaded(object sender, RoutedEventArgs e)
 
 既に説明したように、Windows Ink ツール バーには既定の組み込みボタンのコレクションが含まれます。 これらのボタンは次の順序で (左から右に) 表示されます。
 
-- [InkToolbarBallpointPenButton](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.inktoolbarballpointpenbutton.aspx)
-- [InkToolbarPencilButton](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.inktoolbarpencilbutton.aspx)
-- [InkToolbarHighlighterButton](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.inktoolbarhighlighterbutton.aspx)
-- [InkToolbarEraserButton](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.inktoolbareraserbutton.aspx)
-- [InkToolbarRulerButton](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.inktoolbarrulerbutton.aspx)
+- [InkToolbarBallpointPenButton](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbarballpointpenbutton)
+- [InkToolbarPencilButton](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbarpencilbutton)
+- [InkToolbarHighlighterButton](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbarhighlighterbutton)
+- [InkToolbarEraserButton](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbareraserbutton)
+- [InkToolbarRulerButton](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbarrulerbutton)
 
 ここでは、組み込みのボールペン、鉛筆、および消しゴムのボタンのみ表示されるようにツール バーを初期化します。
 
@@ -470,8 +470,8 @@ private void inkToolbar_Loaded(object sender, RoutedEventArgs e)
 **XAML**
 
 最初の例から、InkCanvas と InkToolbar の XAML 宣言を変更します。
-- [InitialControls](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.inktoolbar.initialcontrols.aspx) 属性を追加し、値を "[None](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.inktoolbarinitialcontrols.aspx)" に設定します。 これで組み込みボタンの既定のコレクションがクリアされます。
-- アプリで必要な特定の InkToolbar ボタンを追加します。 ここでは、[InkToolbarBallpointPenButton](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.inktoolbarballpointpenbutton.aspx)、[InkToolbarPencilButton](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.inktoolbarpencilbutton.aspx)、および [InkToolbarEraserButton](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.inktoolbareraserbutton.aspx) のみ追加します。
+- [InitialControls](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar.initialcontrols) 属性を追加し、値を "[None](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbarinitialcontrols)" に設定します。 これで組み込みボタンの既定のコレクションがクリアされます。
+- アプリで必要な特定の InkToolbar ボタンを追加します。 ここでは、[InkToolbarBallpointPenButton](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbarballpointpenbutton)、[InkToolbarPencilButton](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbarpencilbutton)、および [InkToolbarEraserButton](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbareraserbutton) のみ追加します。
 > [!NOTE]
 > ボタンは、ここで指定した順序ではなく、フレームワークで定義されている順序でツール バーに追加されます。
 
@@ -534,7 +534,7 @@ private void inkToolbar_Loaded(object sender, RoutedEventArgs e)
   </Grid>
   ```
 
-2. コード ビハインドで、[InkToolbar](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.inktoolbar.aspx) オブジェクトの [Loading](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.frameworkelement.loading.aspx) イベントのハンドラーを設定します。
+2. コード ビハインドで、[InkToolbar](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar) オブジェクトの [Loading](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.loading) イベントのハンドラーを設定します。
 
   ```csharp
   /// <summary>
@@ -549,12 +549,12 @@ private void inkToolbar_Loaded(object sender, RoutedEventArgs e)
   }
   ```
 
-3. [InitialControls](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.inktoolbar.initialcontrols.aspx) を "[None](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.inktoolbarinitialcontrols.aspx)" に設定します。
-4. アプリで必要なボタンのオブジェクト参照を作成します。 ここでは、[InkToolbarBallpointPenButton](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.inktoolbarballpointpenbutton.aspx)、[InkToolbarPencilButton](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.inktoolbarpencilbutton.aspx)、および [InkToolbarEraserButton](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.inktoolbareraserbutton.aspx) のみ追加します。
+3. [InitialControls](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar.initialcontrols) を "[None](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbarinitialcontrols)" に設定します。
+4. アプリで必要なボタンのオブジェクト参照を作成します。 ここでは、[InkToolbarBallpointPenButton](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbarballpointpenbutton)、[InkToolbarPencilButton](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbarpencilbutton)、および [InkToolbarEraserButton](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbareraserbutton) のみ追加します。
   > [!NOTE]
   > ボタンは、ここで指定した順序ではなく、フレームワークで定義されている順序でツール バーに追加されます。
 
-5. [Add](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.dependencyobjectcollection.add.aspx) メソッドを使用して、ボタンを InkToolbar に追加します。
+5. [Add](https://docs.microsoft.com/uwp/api/windows.ui.xaml.dependencyobjectcollection.add) メソッドを使用して、ボタンを InkToolbar に追加します。
 
   ```csharp
   /// <summary>
@@ -630,14 +630,14 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 ```
 
-4. CalligraphicPen クラスが [InkToolbarCustomPen](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.inktoolbarcustompen.aspx) から派生するように指定します。
+4. CalligraphicPen クラスが [InkToolbarCustomPen](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbarcustompen) から派生するように指定します。
 ```csharp
 class CalligraphicPen : InkToolbarCustomPen
 {
 }
 ```
 
-5. [CreateInkDrawingAttributesCore](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.inktoolbarcustompen.createinkdrawingattributescore.aspx) をオーバーライドし、ブラシとストロークのサイズを独自に指定します。
+5. [CreateInkDrawingAttributesCore](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbarcustompen.createinkdrawingattributescore) をオーバーライドし、ブラシとストロークのサイズを独自に指定します。
 ```csharp
 class CalligraphicPen : InkToolbarCustomPen
 {
@@ -648,7 +648,7 @@ class CalligraphicPen : InkToolbarCustomPen
 }
 ```
 
-6. [InkDrawingAttributes](https://msdn.microsoft.com/library/windows/apps/windows.ui.input.inking.inkdrawingattributes.aspx) オブジェクトを作成し、[ペン先の形状](https://msdn.microsoft.com/library/windows/apps/windows.ui.input.inking.inkdrawingattributes.pentip.aspx)、[ペン先の回転](https://msdn.microsoft.com/library/windows/apps/windows.ui.input.inking.inkdrawingattributes.pentiptransform.aspx)、[ストロークのサイズ](https://msdn.microsoft.com/library/windows/apps/windows.ui.input.inking.inkdrawingattributes.size.aspx)、および[インクの色](https://msdn.microsoft.com/library/windows/apps/windows.ui.input.inking.inkdrawingattributes.color.aspx)を設定します。
+6. [InkDrawingAttributes](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkdrawingattributes) オブジェクトを作成し、[ペン先の形状](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkdrawingattributes.pentip)、[ペン先の回転](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkdrawingattributes.pentiptransform)、[ストロークのサイズ](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkdrawingattributes.size)、および[インクの色](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkdrawingattributes.color)を設定します。
 ```csharp
 class CalligraphicPen : InkToolbarCustomPen
 {
@@ -682,7 +682,7 @@ class CalligraphicPen : InkToolbarCustomPen
 
 次に、MainPage.xaml で、カスタム ペンへの必要な参照を追加します。
 
-1. CalligraphicPen.cs で定義したカスタム ペン (`CalligraphicPen`) と、カスタム ペンでサポートされる[ブラシ コレクション](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Xaml.Media.BrushCollection.aspx) (`CalligraphicPenPalette`) への参照を作成するローカル ページのリソース ディクショナリを宣言します。
+1. CalligraphicPen.cs で定義したカスタム ペン (`CalligraphicPen`) と、カスタム ペンでサポートされる[ブラシ コレクション](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.BrushCollection) (`CalligraphicPenPalette`) への参照を作成するローカル ページのリソース ディクショナリを宣言します。
 ```xaml
 <Page.Resources>
     <!-- Add the custom CalligraphicPen to the page resources. -->
@@ -695,11 +695,11 @@ class CalligraphicPen : InkToolbarCustomPen
 </Page.Resources>
 ```
 
-2. 次に、InkToolbar と子要素の [InkToolbarCustomPenButton](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.inktoolbarcustompenbutton.aspx) を追加します。
+2. 次に、InkToolbar と子要素の [InkToolbarCustomPenButton](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbarcustompenbutton) を追加します。
 
   カスタム ペン ボタンには、ページ リソースで宣言された `CalligraphicPen` と `CalligraphicPenPalette` の 2 つの静的なリソース参照が含まれます。
 
-  また、ストローク サイズのスライダーの範囲 ([MinStrokeWidth](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.inktoolbarpenbutton.minstrokewidth.aspx)、[MaxStrokeWidth](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.inktoolbarpenbutton.maxstrokewidth.aspx)、および [SelectedStrokeWidth](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.inktoolbarpenbutton.selectedstrokewidthproperty.aspx))、選択されたブラシ ([SelectedBrushIndex](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.inktoolbarpenbutton.selectedbrushindex.aspx))、カスタム ペン ボタンのアイコン ([SymbolIcon](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.symbolicon.aspx)) も指定します。
+  また、ストローク サイズのスライダーの範囲 ([MinStrokeWidth](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbarpenbutton.minstrokewidth)、[MaxStrokeWidth](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbarpenbutton.maxstrokewidth)、および [SelectedStrokeWidth](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbarpenbutton.selectedstrokewidthproperty))、選択されたブラシ ([SelectedBrushIndex](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbarpenbutton.selectedbrushindex))、カスタム ペン ボタンのアイコン ([SymbolIcon](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.symbolicon)) も指定します。
 ```xaml
 <Grid Grid.Row="1">
     <InkCanvas x:Name="inkCanvas" />
@@ -734,13 +734,13 @@ class CalligraphicPen : InkToolbarCustomPen
 アプリが起動すると、ペンによる手書き入力のみがサポートされ、タッチは手書き入力の入力面をパンまたはズームするために使用されます。 タッチによる手書き入力が有効化されていると、手書き入力の入力面をタッチ入力でパンまたはズームすることはできません。
 
 > [!NOTE]
-> [  **InkCanvas**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Xaml.Controls.InkCanvas) および [**InkToolbar**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Xaml.Controls.InkToolbar) の UX ガイドラインは、「[インク コントロール](../controls-and-patterns/inking-controls.md)」をご覧ください。 次の推奨事項は、この例に関連したものです。
-> - [  **InkToolbar**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Xaml.Controls.InkToolbar) と手書き入力全般は、アクティブなペンを通じて最適なエクスペリエンスを実現します。 ただし、アプリで必要な場合は、マウスやタッチによる手書き入力をサポートできます。 
+> [  **InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) および [**InkToolbar**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkToolbar) の UX ガイドラインは、「[インク コントロール](../controls-and-patterns/inking-controls.md)」をご覧ください。 次の推奨事項は、この例に関連したものです。
+> - [  **InkToolbar**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkToolbar) と手書き入力全般は、アクティブなペンを通じて最適なエクスペリエンスを実現します。 ただし、アプリで必要な場合は、マウスやタッチによる手書き入力をサポートできます。 
 > - タッチ入力による手書き入力をサポートする場合、トグル ボタンに "Segoe MLD2 アセット" フォントの "ED5F" アイコンを使うと共に、"タッチによる手書き" というヒントを表示することをお勧めします。 
 
 **XAML**
 
-1. まず、イベント ハンドラー (Toggle_Custom) を指定する Click イベント リスナーを持つ [**InkToolbarCustomToggleButton**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Xaml.Controls.InkToolbarCustomToggleButton) 要素 (toggleButton) を宣言します。
+1. まず、イベント ハンドラー (Toggle_Custom) を指定する Click イベント リスナーを持つ [**InkToolbarCustomToggleButton**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkToolbarCustomToggleButton) 要素 (toggleButton) を宣言します。
 
 ```xaml 
 <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -848,9 +848,9 @@ namespace Ink_Basic_InkToolbar
 
 カスタム ツール ボタンを作成して、アプリで定義されたペン以外のツールを呼び出すことができます。
 
-既定では、[**InkPresenter**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.Inking.InkPresenter) はすべての入力をインク ストロークか消去ストロークとして処理します。 これには、セカンダリ ハードウェア アフォーダンス (ペン バレル ボタン、マウスの右ボタンなど) によって変更された入力も含まれます。 ただし、[**InkPresenter**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.Inking.InkPresenter) は、特定の入力を未処理のままにするように設定でき、それをカスタム処理のためにアプリに渡すことができます。
+既定では、[**InkPresenter**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking.InkPresenter) はすべての入力をインク ストロークか消去ストロークとして処理します。 これには、セカンダリ ハードウェア アフォーダンス (ペン バレル ボタン、マウスの右ボタンなど) によって変更された入力も含まれます。 ただし、[**InkPresenter**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking.InkPresenter) は、特定の入力を未処理のままにするように設定でき、それをカスタム処理のためにアプリに渡すことができます。
 
-この例では、カスタム ツール ボタンを定義しており、これを選択すると、後続のストロークはインクではなく、なげなわ選択 (破線) として処理されてレンダリングされます。 選択領域の範囲内のすべてのインク ストロークが [**Selected**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.Inking.InkStroke.Selected) に設定されます。
+この例では、カスタム ツール ボタンを定義しており、これを選択すると、後続のストロークはインクではなく、なげなわ選択 (破線) として処理されてレンダリングされます。 選択領域の範囲内のすべてのインク ストロークが [**Selected**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkstroke.selected) に設定されます。
 
 > [!NOTE]
 > InkCanvas および InkToolbar の UX ガイドラインは、「インク コントロール」をご覧ください。 次の推奨事項は、この例に関連したものです。
@@ -858,9 +858,9 @@ namespace Ink_Basic_InkToolbar
  
 **XAML**
 
-1. まず、ストローク選択が構成されているイベント ハンドラー (customToolButton_Click) を指定する Click イベント リスナーを持つ [**InkToolbarCustomToolButton**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Xaml.Controls.InkToolbarCustomToolButton) 要素 (customToolButton) を宣言します。 (ストローク選択のコピー、切り取り、貼り付けのための一連のボタンも追加しました。)
+1. まず、ストローク選択が構成されているイベント ハンドラー (customToolButton_Click) を指定する Click イベント リスナーを持つ [**InkToolbarCustomToolButton**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkToolbarCustomToolButton) 要素 (customToolButton) を宣言します。 (ストローク選択のコピー、切り取り、貼り付けのための一連のボタンも追加しました。)
 
-2. 選択ストロークを描画するための Canvas 要素も追加します。 別のレイヤーを使って選択ストロークを描画すると、[**InkCanvas**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Xaml.Controls.InkCanvas) とそのコンテンツは影響を受けることがありません。 
+2. 選択ストロークを描画するための Canvas 要素も追加します。 別のレイヤーを使って選択ストロークを描画すると、[**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) とそのコンテンツは影響を受けることがありません。 
 
 ```xaml
 <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -915,9 +915,9 @@ namespace Ink_Basic_InkToolbar
 
 **分離コード**
 
-2. 次に、MainPage.xaml.cs コードビハインド ファイルの [**InkToolbarCustomToolButton**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Xaml.Controls.InkToolbarCustomToolButton) の Click イベントを処理します。
+2. 次に、MainPage.xaml.cs コードビハインド ファイルの [**InkToolbarCustomToolButton**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkToolbarCustomToolButton) の Click イベントを処理します。
 
-   このハンドラは、未処理の入力をアプリに渡すように [**InkPresenter**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.Inking.InkPresenter) を設定します。 
+   このハンドラは、未処理の入力をアプリに渡すように [**InkPresenter**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking.InkPresenter) を設定します。 
 
    このコードをより詳細なステップ。パススルーの入力の高度な処理のセクションを参照してください[UWP アプリでの相互作用と Windows の手描き入力をペン](pen-and-stylus-interactions.md)します。
 
@@ -1109,15 +1109,15 @@ namespace Ink_Basic_InkToolbar
 
 ### <a name="custom-ink-rendering"></a>カスタム インク レンダリング
 
-既定では、手書き入力は低待機時間のバックグラウンド スレッドで処理され、描画と同時に "ウェット" レンダリングが行われます。 ストロークが完了すると (ペンまたは指が画面を離れるか、マウスのボタンが離されると)、UI スレッドでストロークが処理されて、[**InkCanvas**](https://msdn.microsoft.com/library/windows/apps/dn858535) レイヤーへの "ドライ" レンダリングが行われます (アプリケーション コンテンツの上にレンダリングされてウェット インクが置き換えられます)。
+既定では、手書き入力は低待機時間のバックグラウンド スレッドで処理され、描画と同時に "ウェット" レンダリングが行われます。 ストロークが完了すると (ペンまたは指が画面を離れるか、マウスのボタンが離されると)、UI スレッドでストロークが処理されて、[**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) レイヤーへの "ドライ" レンダリングが行われます (アプリケーション コンテンツの上にレンダリングされてウェット インクが置き換えられます)。
 
 インク プラットフォームでは、この動作を上書きして、手書き入力のカスタム ドライ レンダリングによって手書き入力エクスペリエンスを全面的にカスタマイズすることができます。
 
 カスタム ドライ レンダリングについて詳しくは、「[UWP アプリでのペン操作と Windows Ink](https://docs.microsoft.com/windows/uwp/design/input/pen-and-stylus-interactions#custom-ink-rendering)」をご覧ください。
 
 > [!NOTE]
-> カスタム ドライ レンダリングと [**InkToolbar**](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.inktoolbar.aspx)  
-> カスタム ドライの実装によって、アプリが [**InkPresenter**](https://msdn.microsoft.com/library/windows/apps/dn922011) の既定のインク レンダリング動作を上書きすると、レンダリングされたインク ストロークが InkToolbar で利用できなくなり、InkToolbar の組み込みの消去コマンドが正常に機能しなくなります。 消去機能を提供するには、すべてのポインター イベントを処理し、ストロークごとにヒット テストを実行すると共に、組み込みの [すべてのインクのデータを消去] コマンドをオーバーライドする必要があります。
+> カスタム ドライ レンダリングと [**InkToolbar**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar)  
+> カスタム ドライの実装によって、アプリが [**InkPresenter**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking.InkPresenter) の既定のインク レンダリング動作を上書きすると、レンダリングされたインク ストロークが InkToolbar で利用できなくなり、InkToolbar の組み込みの消去コマンドが正常に機能しなくなります。 消去機能を提供するには、すべてのポインター イベントを処理し、ストロークごとにヒット テストを実行すると共に、組み込みの [すべてのインクのデータを消去] コマンドをオーバーライドする必要があります。
 
 ## <a name="related-articles"></a>関連記事
 

@@ -6,33 +6,33 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 74c01c21ae65f9e93638e2ce1df604591043a729
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 1a314d0acdc3df1e0b53b1d78445b6ab1b71bf92
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57601217"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66369746"
 ---
 # <a name="scan-from-your-app"></a>アプリからスキャンする
 
 
 **重要な API**
 
--   [**Windows.Devices.Scanners**](https://msdn.microsoft.com/library/windows/apps/Dn264250)
--   [**DeviceInformation**](https://msdn.microsoft.com/library/windows/apps/BR225393)
--   [**DeviceClass**](https://msdn.microsoft.com/library/windows/apps/BR225381)
+-   [**Windows.Devices.Scanners**](https://docs.microsoft.com/uwp/api/Windows.Devices.Scanners)
+-   [**DeviceInformation**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceInformation)
+-   [**DeviceClass**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceClass)
 
 フラットベッド、フィーダー、自動構成の各スキャン ソースを使ってアプリからコンテンツをスキャンする方法について説明します。
 
-**重要な**  、 [ **Windows.Devices.Scanners** ](https://msdn.microsoft.com/library/windows/apps/Dn264250) Api、デスクトップの一部である[デバイス ファミリ](https://msdn.microsoft.com/library/windows/apps/Dn894631)します。 アプリでは、Windows 10 のデスクトップ バージョンでのみ、これらの Api を使用できます。
+**重要な**  、 [ **Windows.Devices.Scanners** ](https://docs.microsoft.com/uwp/api/Windows.Devices.Scanners) Api、デスクトップの一部である[デバイス ファミリ](https://docs.microsoft.com/windows/uwp/get-started/universal-application-platform-guide)します。 アプリでは、Windows 10 のデスクトップ バージョンでのみ、これらの Api を使用できます。
 
-アプリからスキャンを実行するにはまず、新しい [**DeviceInformation**](https://msdn.microsoft.com/library/windows/apps/BR225393) オブジェクトを宣言し、[**DeviceClass**](https://msdn.microsoft.com/library/windows/apps/BR225381) 型を取得することによって、利用できるスキャナーをリストする必要があります。 WIA ドライバーと共にインストールされているローカルのスキャナーのみがリストされ、アプリから利用することができます。
+アプリからスキャンを実行するにはまず、新しい [**DeviceInformation**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceInformation) オブジェクトを宣言し、[**DeviceClass**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceClass) 型を取得することによって、利用できるスキャナーをリストする必要があります。 WIA ドライバーと共にインストールされているローカルのスキャナーのみがリストされ、アプリから利用することができます。
 
-利用できるスキャナーをリストしたら、スキャナーの種類に基づく自動構成のスキャン設定を使うか、フラットベッドとフィーダーのいずれかのスキャン ソースを使ってスキャンのみを実行することができます。 自動構成設定を使うには、スキャナーが自動構成に対応し、なおかつ、フラットベッドとフィーダーのどちらか一方のみを備えたスキャナーであることが必要です。 詳細については、[自動構成スキャン](https://msdn.microsoft.com/library/windows/hardware/Ff539393)に関するページを参照してください。
+利用できるスキャナーをリストしたら、スキャナーの種類に基づく自動構成のスキャン設定を使うか、フラットベッドとフィーダーのいずれかのスキャン ソースを使ってスキャンのみを実行することができます。 自動構成設定を使うには、スキャナーが自動構成に対応し、なおかつ、フラットベッドとフィーダーのどちらか一方のみを備えたスキャナーであることが必要です。 詳細については、[自動構成スキャン](https://docs.microsoft.com/windows-hardware/drivers/image/auto-configured-scanning)に関するページを参照してください。
 
 ## <a name="enumerate-available-scanners"></a>利用できるスキャナーを列挙する
 
-Windows はスキャナーを自動的には検出しません。 アプリがスキャナーと通信するためには、次の手順を実行する必要があります。 この例では、[**Windows.Devices.Enumeration**](https://msdn.microsoft.com/library/windows/apps/BR225459) 名前空間を使ってスキャナー デバイスの列挙処理を実行しています。
+Windows はスキャナーを自動的には検出しません。 アプリがスキャナーと通信するためには、次の手順を実行する必要があります。 この例では、[**Windows.Devices.Enumeration**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration) 名前空間を使ってスキャナー デバイスの列挙処理を実行しています。
 
 1.  まず、クラス定義ファイルに次の using ステートメントを追加します。
 
@@ -88,7 +88,7 @@ Windows はスキャナーを自動的には検出しません。 アプリが�
 
 1.  **ImageScanner オブジェクトを取得します。**
 
-[  **ImageScannerScanSource**](https://msdn.microsoft.com/library/windows/apps/Dn264238) 列挙型の各メンバーに対しては、**Default**、**AutoConfigured**、**Flatbed**、**Feeder** のいずれであれ、最初に [**ImageScanner.FromIdAsync**](https://msdn.microsoft.com/library/windows/apps/windows.devices.scanners.imagescanner.fromidasync) メソッドを呼び出して [**ImageScanner**](https://msdn.microsoft.com/library/windows/apps/Dn263806) オブジェクトを作成する必要があります。その例を次に示します。
+[  **ImageScannerScanSource**](https://docs.microsoft.com/uwp/api/Windows.Devices.Scanners.ImageScannerScanSource) 列挙型の各メンバーに対しては、**Default**、**AutoConfigured**、**Flatbed**、**Feeder** のいずれであれ、最初に [**ImageScanner.FromIdAsync**](https://docs.microsoft.com/uwp/api/windows.devices.scanners.imagescanner.fromidasync) メソッドを呼び出して [**ImageScanner**](https://docs.microsoft.com/uwp/api/Windows.Devices.Scanners.ImageScanner) オブジェクトを作成する必要があります。その例を次に示します。
 
  ```csharp
     ImageScanner myScanner = await ImageScanner.FromIdAsync(deviceId);
@@ -96,7 +96,7 @@ Windows はスキャナーを自動的には検出しません。 アプリが�
 
 2.  **スキャンするだけです。**
 
-既定の設定でスキャンを行う場合、アプリは、[**Windows.Devices.Scanners**](https://msdn.microsoft.com/library/windows/apps/Dn264250) 名前空間を使ってスキャナーを選び、そのソースからスキャンを実行します。 スキャンの設定は変更されません。 この場合、自動構成、フラットベッド、フィーダーのいずれかのスキャナーが選ばれます。 このタイプのスキャンは、意図しないソースからスキャンが実行されたとしても (意図したフィーダーではなくフラットベッドからスキャンされるなど) スキャン操作が正常に実行される可能性は最も高くなります。
+既定の設定でスキャンを行う場合、アプリは、[**Windows.Devices.Scanners**](https://docs.microsoft.com/uwp/api/Windows.Devices.Scanners) 名前空間を使ってスキャナーを選び、そのソースからスキャンを実行します。 スキャンの設定は変更されません。 この場合、自動構成、フラットベッド、フィーダーのいずれかのスキャナーが選ばれます。 このタイプのスキャンは、意図しないソースからスキャンが実行されたとしても (意図したフィーダーではなくフラットベッドからスキャンされるなど) スキャン操作が正常に実行される可能性は最も高くなります。
 
 **注**  フィーダーにスキャンするドキュメントを配置して、ユーザー場合と、スキャナーが代わりに、ベッドからスキャンされます。 空のフィーダーからスキャンを実行した場合、スキャン ジョブからは一切、スキャンしたファイルが生成されません。
  
@@ -107,7 +107,7 @@ Windows はスキャナーを自動的には検出しません。 アプリが�
 
 3.  **自動構成をスキャン、ベッド、またはフィーダー ソース**
 
-デバイスの[自動構成スキャン](https://msdn.microsoft.com/library/windows/hardware/Ff539393)を使うと、最適なスキャン設定でスキャンを実行することができます。 このオプションでは、スキャン対象のコンテンツに応じた最適なスキャン設定 (カラー モード、スキャン解像度など) をデバイスが自動的に判断します。 スキャン設定は、新しいスキャン ジョブの実行時にその都度選択されます。
+デバイスの[自動構成スキャン](https://docs.microsoft.com/windows-hardware/drivers/image/auto-configured-scanning)を使うと、最適なスキャン設定でスキャンを実行することができます。 このオプションでは、スキャン対象のコンテンツに応じた最適なスキャン設定 (カラー モード、スキャン解像度など) をデバイスが自動的に判断します。 スキャン設定は、新しいスキャン ジョブの実行時にその都度選択されます。
 
 **注**  すべてスキャナーがスキャナーが、この設定を使用する前にこの機能をサポートしているかどうか、アプリを確認する必要がありますので、この機能をサポートします。
 
@@ -174,4 +174,4 @@ cancellationToken = new CancellationTokenSource();
 
 ## <a name="scanning-to-the-pictures-library"></a>画像ライブラリにスキャンする
 
-[  **FolderPicker**](https://msdn.microsoft.com/library/windows/apps/BR207881) クラスを使うことで、ユーザーは任意のフォルダーにスキャン結果を動的に格納することができます。ただし、画像ライブラリ フォルダーにスキャン結果を格納できるようにするには、*画像ライブラリ*の機能をマニフェストで宣言する必要があります。 アプリの機能の詳細については、「[アプリ機能の宣言](https://msdn.microsoft.com/library/windows/apps/Mt270968)」を参照してください。
+[  **FolderPicker**](https://docs.microsoft.com/uwp/api/Windows.Storage.Pickers.FolderPicker) クラスを使うことで、ユーザーは任意のフォルダーにスキャン結果を動的に格納することができます。ただし、画像ライブラリ フォルダーにスキャン結果を格納できるようにするには、*画像ライブラリ*の機能をマニフェストで宣言する必要があります。 アプリの機能の詳細については、「[アプリ機能の宣言](https://docs.microsoft.com/windows/uwp/packaging/app-capability-declarations)」を参照してください。

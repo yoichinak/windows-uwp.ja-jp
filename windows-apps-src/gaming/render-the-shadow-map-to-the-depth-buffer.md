@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10、UWP、ゲーム、レンダリング、シャドウ マップ、深度バッファー、Direct3D
 ms.localizationpriority: medium
-ms.openlocfilehash: 27cd535dc51a330937c345acf352677a42c652eb
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: a8ae67df457d4abafc8fb689a747139f62ca0e0e
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57621337"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66368072"
 ---
 # <a name="render-the-shadow-map-to-the-depth-buffer"></a>深度バッファーへのシャドウ マップのレンダリング
 
@@ -37,7 +37,7 @@ context->ClearDepthStencilView(m_shadowDepthView.Get(), D3D11_CLEAR_DEPTH | D3D1
 
 ライト ビューポート、頂点シェーダーを指定し、ライト空間の定数バッファーを設定します。 このパスに前面のカリングを使って、シャドウ バッファーに配置された深度値を最適化します。
 
-ほとんどのデバイスでは、ピクセル シェーダーに対して nullptr を指定できます (または、ピクセル シェーダーの指定を完全にスキップできます)。 ただし、ドライバーによっては、Direct3D デバイスで null のピクセル シェーダーを設定して描画を呼び出すと、例外がスローされる場合があります。 この例外を避けるには、シャドウのレンダリング パスに対して最小限のピクセル シェーダーを設定します。 このシェーダーの出力は破棄されるため、各ピクセルで [**discard**](https://msdn.microsoft.com/library/windows/desktop/bb943995) を呼び出すことができます。
+ほとんどのデバイスでは、ピクセル シェーダーに対して nullptr を指定できます (または、ピクセル シェーダーの指定を完全にスキップできます)。 ただし、ドライバーによっては、Direct3D デバイスで null のピクセル シェーダーを設定して描画を呼び出すと、例外がスローされる場合があります。 この例外を避けるには、シャドウのレンダリング パスに対して最小限のピクセル シェーダーを設定します。 このシェーダーの出力は破棄されるため、各ピクセルで [**discard**](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-discard) を呼び出すことができます。
 
 シャドウが生じる可能性があるオブジェクトをレンダリングしますが、シャドウが生じる可能性がないジオメトリ (部屋の床や、最適化のためにシャドウ パスから削除したオブジェクトなど) のレンダリングについては気にする必要はありません。
 
@@ -125,7 +125,7 @@ void ShadowSceneRenderer::RenderShadowMap()
 }
 ```
 
-**視錐台を最適化するには。** 実装は、深度バッファーから最も有効桁数を取得するために緊密な錐を計算することを確認します。 シャドウの方法に関するヒントについては、「[シャドウ深度マップを向上させるための一般的な方法](https://msdn.microsoft.com/library/windows/desktop/ee416324)」をご覧ください。
+**視錐台を最適化するには。** 実装は、深度バッファーから最も有効桁数を取得するために緊密な錐を計算することを確認します。 シャドウの方法に関するヒントについては、「[シャドウ深度マップを向上させるための一般的な方法](https://docs.microsoft.com/windows/desktop/DxTechArts/common-techniques-to-improve-shadow-depth-maps)」をご覧ください。
 
 ## <a name="vertex-shader-for-shadow-pass"></a>シャドウ パスの頂点シェーダー
 

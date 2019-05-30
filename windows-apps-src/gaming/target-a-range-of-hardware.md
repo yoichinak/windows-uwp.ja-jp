@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, UWP, ゲーム, シャドウ マップ, DirectX
 ms.localizationpriority: medium
-ms.openlocfilehash: d0e661065f86ac173a6ce323281c80fc964d0a4c
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 1087a063fa19bea716b86143c10097711cef9205
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57646367"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66367906"
 ---
 # <a name="support-shadow-maps-on-a-range-of-hardware"></a>ハードウェアの範囲でのシャドウ マップのサポート
 
@@ -108,7 +108,7 @@ return float4(input.color * (light + shadow), 1.f);
 ## <a name="shadow-buffer-size"></a>シャドウ バッファーのサイズ
 
 
-シャドウ マップを大きくするとブロックノイズが発生しなくなりますが、グラフィックス メモリ内の領域を多く消費します。 ゲームでさまざまなシャドウ マップのサイズを試し、さまざまなデバイスとディスプレイ サイズで結果を確認してください。 少ないグラフィックス メモリで良い結果が得られるように、カスケードされたシャドウ マップなどの最適化を検討してください。 「[シャドウ深度マップを向上させるための一般的な方法](https://msdn.microsoft.com/library/windows/desktop/ee416324)」をご覧ください。
+シャドウ マップを大きくするとブロックノイズが発生しなくなりますが、グラフィックス メモリ内の領域を多く消費します。 ゲームでさまざまなシャドウ マップのサイズを試し、さまざまなデバイスとディスプレイ サイズで結果を確認してください。 少ないグラフィックス メモリで良い結果が得られるように、カスケードされたシャドウ マップなどの最適化を検討してください。 「[シャドウ深度マップを向上させるための一般的な方法](https://docs.microsoft.com/windows/desktop/DxTechArts/common-techniques-to-improve-shadow-depth-maps)」をご覧ください。
 
 ## <a name="shadow-buffer-depth"></a>シャドウ バッファーの深度
 

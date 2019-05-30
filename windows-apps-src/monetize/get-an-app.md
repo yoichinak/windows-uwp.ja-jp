@@ -6,12 +6,12 @@ ms.date: 02/28/2018
 ms.topic: article
 keywords: Windows 10, UWP, Microsoft Store 申請 API, アプリ
 ms.localizationpriority: medium
-ms.openlocfilehash: c6f4a4cb86bb5cf23e84e75ad99750dd6cff9539
-ms.sourcegitcommit: 6a7dd4da2fc31ced7d1cdc6f7cf79c2e55dc5833
+ms.openlocfilehash: 96efc6145d382d4f6a996e541d638f2a1d896e80
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58334541"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66372660"
 ---
 # <a name="get-an-app"></a>アプリの入手
 
@@ -44,7 +44,7 @@ ms.locfileid: "58334541"
 
 | 名前        | 種類   | 説明                                                                 |
 |---------------|--------|-----------------------------------------------------------------------------|
-| applicationId | string | 必須。 取得するアプリのストア ID。 ストア ID について詳しくは、「[アプリ ID の詳細の表示](https://msdn.microsoft.com/windows/uwp/publish/view-app-identity-details)」をご覧ください。  |
+| applicationId | string | 必須。 取得するアプリのストア ID。 ストア ID について詳しくは、「[アプリ ID の詳細の表示](https://docs.microsoft.com/windows/uwp/publish/view-app-identity-details)」をご覧ください。  |
 
 
 ### <a name="request-body"></a>要求本文

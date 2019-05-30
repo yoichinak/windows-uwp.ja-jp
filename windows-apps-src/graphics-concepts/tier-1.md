@@ -7,12 +7,12 @@ keywords:
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 0ae76111f6feefa0bb63fd18516e033050cc06fc
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 3aeb30fca8e9fbad21f274162aab3106afcf2e45
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57589887"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66370839"
 ---
 # <a name="tier-1"></a>階層 1
 
@@ -52,7 +52,7 @@ LOD のクランプとマップされた状態のフィードバックのため�
 
 使用してタイル プール内のタイルを参照している間で切り替えるために、[バッファー](introduction-to-buffers.md)リソースを使用して同じタイルの参照を[テクスチャ](introduction-to-textures.md)リソース、逆に、最新のタイルのマッピングを更新またはコピー同じリソース ディメンションのこれらのタイルにマッピングを定義するタイルのマッピングのプールのタイルがある必要があります (テクスチャとバッファー\*) タイルへのアクセスに使用されるリソース ディメンションとして。 そうでない場合、デバイスのリセットの可能性も含めて動作が未定義になります。
 
-たとえば、タイル マッピングを更新してバッファーのタイル マッピングを定義した後、[**Texture2D**](https://msdn.microsoft.com/library/windows/desktop/ff471525) リソースを介してタイル プール内の同じタイルへのタイル マッピングを更新し、バッファを介してそれらのタイルにアクセスすることは正しくありません。 これを回避する操作は、タイルを共有するバッファーとテクスチャの間で切り替えるときにリソースのタイル マッピングを再定義するか、バッファー リソースとテクスチャ リソースの間でタイル プール内のタイルを共有しないことです。
+たとえば、タイル マッピングを更新してバッファーのタイル マッピングを定義した後、[**Texture2D**](https://docs.microsoft.com/windows/desktop/direct3dhlsl/sm5-object-texture2d) リソースを介してタイル プール内の同じタイルへのタイル マッピングを更新し、バッファを介してそれらのタイルにアクセスすることは正しくありません。 これを回避する操作は、タイルを共有するバッファーとテクスチャの間で切り替えるときにリソースのタイル マッピングを再定義するか、バッファー リソースとテクスチャ リソースの間でタイル プール内のタイルを共有しないことです。
 
 ### <a name="span-idminmaxreductionfilteringspanspan-idminmaxreductionfilteringspanspan-idminmaxreductionfilteringspanminmax-reduction-filtering"></a><span id="Min_Max_reduction_filtering"></span><span id="min_max_reduction_filtering"></span><span id="MIN_MAX_REDUCTION_FILTERING"></span>最小/最大削減のフィルター処理
 

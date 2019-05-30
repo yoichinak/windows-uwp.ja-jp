@@ -6,12 +6,12 @@ ms.date: 08/25/2017
 ms.topic: article
 ms.assetid: 260cf387-88be-4a3d-93bc-7e4560f90abc
 ms.localizationpriority: medium
-ms.openlocfilehash: 464aa35aa8362049042ad23a6816c4de21b25634
-ms.sourcegitcommit: 559d3387d5929431212d147d9e085895e162916a
+ms.openlocfilehash: c638eb843528cc17a3f02233ef5f238264eb58a0
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66184520"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66370526"
 ---
 # <a name="enable-apps-for-websites-using-app-uri-handlers"></a>アプリの URI ハンドラーを使用してアプリを Web サイトで有効にする
 
@@ -46,7 +46,7 @@ Web とアプリのリンクを有効にするには、次を行う必要があ�
 </Applications>
 ```
 
-上記の宣言によって、指定されたホストからのリンクを処理するようにアプリが登録されます。 Web サイトに複数のアドレス (例: m.example.com、www\.、example.com、*.example.com) 個別に追加し、`<uap3:Host Name=... />`内のエントリ、`<uap3:AppUriHandler>`アドレスごとにします。
+上記の宣言によって、指定されたホストからのリンクを処理するようにアプリが登録されます。 Web サイトに複数のアドレス (例: m.example.com、www\.、example.com、 .example.com) 個別に追加し、`<uap3:Host Name=... />`内のエントリ、`<uap3:AppUriHandler>`アドレスごとにします。
 
 ## <a name="associate-your-app-and-website-with-a-json-file"></a>アプリと Web サイトを JSON ファイルに関連付ける
 
@@ -55,7 +55,7 @@ Web とアプリのリンクを有効にするには、次を行う必要があ�
 >[!Important]
 > JSON ファイルには、.json ファイル接尾辞を指定しないでください。
 
-**windows-app-web-link** という名前で JSON ファイルを作成し (.json ファイル拡張子は付加しない)、アプリのパッケージ ファミリ名を指定します。 例:
+**windows-app-web-link** という名前で JSON ファイルを作成し (.json ファイル拡張子は付加しない)、アプリのパッケージ ファミリ名を指定します。 次に、例を示します。
 
 ``` JSON
 [{
@@ -80,7 +80,7 @@ Windows によって、Web サイトへの https 接続が行われ、Web サー
 
 ### <a name="multiple-apps"></a>複数のアプリ
 
-Web サイトにリンクするアプリが 2 つある場合、両方のアプリケーションのパッケージ ファミリ名を **windows-app-web-link** JSON ファイルに指定します。 これで、どちらのアプリもサポートされます。 両方のアプリがインストールされている場合、ユーザーに対して、どちらを既定のリンクとして選ぶかが示されます。 既定のリンクを後で変更する場合は、**[設定] > [Web サイト用のアプリ]** で変更できます。 また、開発者はいつでも JSON ファイルを変更できます。変更内容は、変更と同日内になるべく早く確認するか、更新後 8 日以内に確認してください。
+Web サイトにリンクするアプリが 2 つある場合、両方のアプリケーションのパッケージ ファミリ名を **windows-app-web-link** JSON ファイルに指定します。 これで、どちらのアプリもサポートされます。 両方のアプリがインストールされている場合、ユーザーに対して、どちらを既定のリンクとして選ぶかが示されます。 既定のリンクを後で変更する場合は、 **[設定] > [Web サイト用のアプリ]** で変更できます。 また、開発者はいつでも JSON ファイルを変更できます。変更内容は、変更と同日内になるべく早く確認するか、更新後 8 日以内に確認してください。
 
 ``` JSON
 [{
@@ -177,25 +177,25 @@ AppModel\SystemAppData\YourApp\AppUriHandlers`
 
 リンクをクリックしたときにアプリがアクティブ化されるかどうか確認するには、アプリケーションを閉じておきます。 次に、Web サイトでサポートされるパスのいずれかのアドレスをコピーします。 たとえば、web サイトのアドレスが"msn.com"で"path1"は、サポート パスの 1 つの場合を使用します。 `http://msn.com/path1`
 
-アプリが閉じていることを確認します。 **Windows キー + R** キーを押し、**[ファイル名を指定して実行]** ダイアログ ボックスを開き、ウィンドウにリンクを貼り付けます。 Web ブラウザーではなく、アプリが起動します。
+アプリが閉じていることを確認します。 **Windows キー + R** キーを押し、 **[ファイル名を指定して実行]** ダイアログ ボックスを開き、ウィンドウにリンクを貼り付けます。 Web ブラウザーではなく、アプリが起動します。
 
-また、[LaunchUriAsync](https://msdn.microsoft.com/library/windows/apps/hh701480.aspx) API を使用し、他のアプリから目的のアプリを起動してテストすることもできます。 この API を使用して、電話でテストすることもできます。
+また、[LaunchUriAsync](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchuriasync) API を使用し、他のアプリから目的のアプリを起動してテストすることもできます。 この API を使用して、電話でテストすることもできます。
 
 プロトコルのアクティブ化ロジックを実行する場合は、**OnActivated** イベント ハンドラーにブレークポイントを設定します。
 
 ## <a name="appurihandlers-tips"></a>AppUriHandlers のヒント:
 
 - アプリで処理できるリンクのみを必ず指定してください。
-- サポートするすべてのホストの一覧を指定します。  その www に注意してください\.example.com、*.example.com、別のホスト。
+- サポートするすべてのホストの一覧を指定します。  その www に注意してください\.example.com、 .example.com、別のホスト。
 - ユーザーは、Web サイトを処理する特定のアプリを [設定] で選ぶことができます。
 - JSON ファイルは、https サーバーにアップロードする必要があります。
 - サポートするパスを変更する場合は、アプリを再公開しなくても、JSON ファイルを再公開することができます。 ユーザーには、1 ~ 8 日の間、変更内容が表示されます。
 - AppUriHandlers と共にサイドロードされたすべてのアプリでは、インストール時にホストのリンクが検証されます。 機能をテストするために JSON ファイルをアップロードする必要はありません。
-- この機能は、アプリが [LaunchUriAsync](https://msdn.microsoft.com/library/windows/apps/hh701480.aspx) によって起動された UWP アプリである場合、または [ShellExecuteEx](https://msdn.microsoft.com/library/windows/desktop/bb762154(v=vs.85).aspx) によって起動された Windows デスクトップ アプリである場合は、必ず動作します。 URL が、登録されているアプリの URI ハンドラーに対応している場合、ブラウザーではなくアプリが起動されます。
+- この機能は、アプリが [LaunchUriAsync](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchuriasync) によって起動された UWP アプリである場合、または [ShellExecuteEx](https://msdn.microsoft.com/library/windows/desktop/bb762154(v=vs.85).aspx) によって起動された Windows デスクトップ アプリである場合は、必ず動作します。 URL が、登録されているアプリの URI ハンドラーに対応している場合、ブラウザーではなくアプリが起動されます。
 
 ## <a name="see-also"></a>関連項目
 
 [Web とアプリのサンプル プロジェクト](https://github.com/project-rome/AppUriHandlers/tree/master/NarwhalFacts)
-[windows.protocol の登録](https://msdn.microsoft.com/library/windows/apps/br211458.aspx)
-[URI のアクティブ化の処理](https://msdn.microsoft.com/windows/uwp/launch-resume/handle-uri-activation)
+[windows.protocol の登録](https://docs.microsoft.com/uwp/schemas/appxpackage/appxmanifestschema/element-protocol)
+[URI のアクティブ化の処理](https://docs.microsoft.com/windows/uwp/launch-resume/handle-uri-activation)
 [関連付けによる起動のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/AssociationLaunching)では、LaunchUriAsync() API の使用方法を説明します。

@@ -6,18 +6,18 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: cda37ee9964a3e7e02f4e4ce3829a8b55e823692
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: fd0e7137f31a8f1620f7937b52efe1ca84a6b99a
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57660897"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66370782"
 ---
 # <a name="launch-the-microsoft-store-app"></a>Microsoft Store アプリの起動
 
 
 
-このトピックで説明します、 **ms-windows ストア。** URI スキーム。 アプリは、この URI スキームを使用して、使用して、ストア内の特定のページに、Microsoft Store アプリを起動する、 [ **LaunchUriAsync** ](https://msdn.microsoft.com/library/windows/apps/hh701476)メソッド。
+このトピックで説明します、 **ms-windows ストア。** URI スキーム。 アプリは、この URI スキームを使用して、使用して、ストア内の特定のページに、Microsoft Store アプリを起動する、 [ **LaunchUriAsync** ](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchuriasync)メソッド。
 
 この例では、Microsoft Store のゲームのページを開く方法を示します。
 
@@ -41,7 +41,7 @@ bool result = await Windows.System.Launcher.LaunchUriAsync(new Uri("ms-windows-s
 </tr>
 <tr>
 <td rowspan="4">製品の詳細ページ (PDP) を起動します。 <p>Store ID は、Windows 10 でのお客様をお勧めし、協力してこれ以前の方法がすべての OS バージョン (例。PFN) はまだサポートされています。</p>
-<p>これらの値を確認できる<a href="https://partner.microsoft.com/dashboard">パートナー センター</a>上、<a href="https://msdn.microsoft.com/library/windows/apps/mt148561.aspx">アプリ id</a>  ページの各アプリのアプリの管理セクション。</p>
+<p>これらの値を確認できる<a href="https://partner.microsoft.com/dashboard">パートナー センター</a>上、<a href="https://docs.microsoft.com/windows/uwp/publish/view-app-identity-details">アプリ id</a>  ページの各アプリのアプリの管理セクション。</p>
 </td>
 <td>
 Store ID <p>(推奨)</p>

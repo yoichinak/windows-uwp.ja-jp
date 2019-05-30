@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10、uwp、standard、c++、cpp、winrt、プロジェクション、ニュース、ものの新しい
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: b84736e41e039d350a849c55fead008cbab5fdea
-ms.sourcegitcommit: bc64db47b6ff326f15cac15fc2cfd709fa7f877b
+ms.openlocfilehash: a84e118d988d8bf6a7d26eba7d5dd009c7ad44f3
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65626212"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66360142"
 ---
 # <a name="whats-new-in-cwinrt"></a>新しい c++/cli WinRT
 
@@ -302,7 +302,7 @@ C++ 以前ままの場合/cli WinRT を今すぐそれらを含める必要が�
 
 現時点では、Windows SDK ヘッダー ファイルの分離の唯一の例外は組み込み関数、および数値です。 この最後の残りの依存関係に関する既知の問題はありません。
 
-必要がある場合は、プロジェクトの Windows SDK のヘッダーとの相互運用を有効にできます再。 COM インターフェイスを実装する可能性があります、たとえば、(ルートと[ **IUnknown**](https://msdn.microsoft.com/library/windows/desktop/ms680509))。 例では、含める`unknwn.h`すべて C + インクルードする前に/cli WinRT ヘッダー。 そのため、C +/cli WinRT ベースのライブラリにクラシック COM インターフェイスをサポートするためにさまざまなフックを有効にします。 コード例では、次を参照してください。 [C + での作成者の COM コンポーネント/cli WinRT](author-coclasses.md)します。 同様に、宣言型や関数を呼び出そうとするその他の Windows SDK ヘッダーに明示的に含まれます。
+必要がある場合は、プロジェクトの Windows SDK のヘッダーとの相互運用を有効にできます再。 COM インターフェイスを実装する可能性があります、たとえば、(ルートと[ **IUnknown**](https://docs.microsoft.com/windows/desktop/api/unknwn/nn-unknwn-iunknown))。 例では、含める`unknwn.h`すべて C + インクルードする前に/cli WinRT ヘッダー。 そのため、C +/cli WinRT ベースのライブラリにクラシック COM インターフェイスをサポートするためにさまざまなフックを有効にします。 コード例では、次を参照してください。 [C + での作成者の COM コンポーネント/cli WinRT](author-coclasses.md)します。 同様に、宣言型や関数を呼び出そうとするその他の Windows SDK ヘッダーに明示的に含まれます。
 
 ### <a name="how-to-retarget-your-cwinrt-project-to-a-later-version-of-the-windows-sdk"></a>C++ の再ターゲットする方法/cli 以降のバージョンの Windows SDK に WinRT プロジェクト
 
@@ -315,7 +315,7 @@ C++ 以前ままの場合/cli WinRT を今すぐそれらを含める必要が�
 
 これら 2 つのメソッドのいずれかを使用した後、コンパイラやリンカー エラーが発生するかどうかは、ソリューションをクリーニングを再試行してください (**ビルド** > **ソリューションのクリーン**またはすべてを手動で削除一時フォルダーおよびファイル) をもう一度ビルドを試みる前にします。
 
-C++ コンパイラが生成した場合"*エラー C2039:'IUnknown': のメンバーではない '\`グローバル名前空間'*"、追加し、`#include <unknwn.h>`の先頭に、`pch.h`ファイル (C +、インクルードする前に/cli WinRT ヘッダー)。
+C++ コンパイラが生成した場合"*エラー C2039:'IUnknown': のメンバーではない '\`グローバル名前空間'* "、追加し、`#include <unknwn.h>`の先頭に、`pch.h`ファイル (C +、インクルードする前に/cli WinRT ヘッダー)。
 
 追加する必要がありますも`#include <hstring.h>`にします。
 

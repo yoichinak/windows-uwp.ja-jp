@@ -7,12 +7,12 @@ keywords:
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 4de5ba146c8241598527dd268d604fcc9bb97d6d
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: a29fbe49e45b819ddf4ffc3172445996d3622360
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57662357"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66370626"
 ---
 # <a name="span-iddirect3dconceptsfloating-pointrulesspanfloating-point-rules"></a><span id="direct3dconcepts.floating-point_rules"></span>浮動小数点の規則
 
@@ -59,7 +59,7 @@ Direct3D は、複数の浮動小数点表現をサポートします。 すべ�
 -   演算への NaN の入力は常に NaN が出力されます。 ただし、同じ値を維持するために NaN の厳密なビット パターンは必要ありません (その演算が、データを一切変更しない、未変更のデータの移動命令ではない場合)。
 -   一方のオペランドのみが NaN である min または max 演算では、もう一方のオペランドが結果として返されます (前述の比較規則とは異なります)。 これは IEEE 754R 規則です。
 
-    浮動小数点の min および max 演算についての IEEE-754R 仕様では、min または max への入力のいずれかが quiet QNaN 値である場合、演算の結果はもう一方のパラメーターになります。 次に、例を示します。
+    浮動小数点の min および max 演算についての IEEE-754R 仕様では、min または max への入力のいずれかが quiet QNaN 値である場合、演算の結果はもう一方のパラメーターになります。 例:
 
     ```ManagedCPlusPlus
     min(x,QNaN) == min(QNaN,x) == x (same for max)
@@ -82,13 +82,13 @@ Direct3D は、複数の浮動小数点表現をサポートします。 すべ�
 -   x +/- 0.0f は常に x となります (フラッシュされた非正規化数を除く)。 ただし、-0 + 0 = +0 となります。
 -   組み合わせ演算 (mad、dp3 など) では、非組み合わせ演算で展開した場合の最悪順序の評価よりも、正確性が劣ることはありません。 許容誤差に関する最悪順序の定義は、特定の組み合わせ演算についての固定の定義ではなく、入力の特定の値によって変わります。 非組み合わせ演算の展開における個々のステップは、それぞれ 1 ULP の許容誤差が認められます (また、Direct3D が、1 ULP よりも緩い許容誤差で呼び出す命令には、より緩い許容誤差が認められます)。
 -   組み合わせ演算は、非組み合わせ演算と同じ NaN の規則に従います。
--   sqrt と rcp には、1 ULP の許容誤差があります。 シェーダーの逆数および逆数平方根命令 [**rcp**](https://msdn.microsoft.com/library/windows/desktop/hh447205) と [**rsq**](https://msdn.microsoft.com/library/windows/desktop/hh447221) には、それぞれ独自の緩やかな精度要件があります。
+-   sqrt と rcp には、1 ULP の許容誤差があります。 シェーダーの逆数および逆数平方根命令 [**rcp**](https://docs.microsoft.com/previous-versions/windows/desktop/legacy/hh447205(v=vs.85)) と [**rsq**](https://docs.microsoft.com/windows/desktop/direct3dhlsl/rsq--sm4---asm-) には、それぞれ独自の緩やかな精度要件があります。
 -   乗算および除算はそれぞれ、32 ビット浮動小数点の精度レベル (乗算の場合は 0.5 ULP の精度、逆数の場合は 1.0 ULP の精度) で実行されます。 x/y が直接実装されている場合、結果は 2 段階の方法以上の精度になる必要があります。
 
 ## <a name="span-iddoubleprec64bitspanspan-iddoubleprec64bitspan64-bit-double-precision-floating-point-rules"></a><span id="double_prec_64_bit"></span><span id="DOUBLE_PREC_64_BIT"></span>64 ビット (倍精度) 浮動ポイント規則
 
 
-ハードウェアやディスプレイ ドライバーは、必要に応じて、倍精度浮動小数点数をサポートします。 呼び出すときに、サポートを示すために[ **ID3D11Device::CheckFeatureSupport** ](https://msdn.microsoft.com/library/windows/desktop/ff476497)で[ **D3D11\_機能\_DOUBLE**](https://msdn.microsoft.com/library/windows/desktop/ff476124#d3d11-feature-doubles)、ドライバー セット**DoublePrecisionFloatShaderOps**の[ **D3D11\_機能\_データ\_DOUBLE**](https://msdn.microsoft.com/library/windows/desktop/ff476127)を TRUE にします。 この場合、ドライバーとハードウェアでは、すべての倍精度浮動小数点命令しをサポートしている必要があります。
+ハードウェアやディスプレイ ドライバーは、必要に応じて、倍精度浮動小数点数をサポートします。 呼び出すときに、サポートを示すために[ **ID3D11Device::CheckFeatureSupport** ](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11device-checkfeaturesupport)で[ **D3D11\_機能\_DOUBLE**](https://docs.microsoft.com/windows/desktop/api/d3d11/ne-d3d11-d3d11_feature)、ドライバー セット**DoublePrecisionFloatShaderOps**の[ **D3D11\_機能\_データ\_DOUBLE**](https://docs.microsoft.com/windows/desktop/api/d3d11/ns-d3d11-d3d11_feature_data_doubles)を TRUE にします。 この場合、ドライバーとハードウェアでは、すべての倍精度浮動小数点命令しをサポートしている必要があります。
 
 倍精度命令は IEEE 754R の動作の要件に従っています。
 
@@ -148,9 +148,9 @@ float11/float10 の値 (v) は次の規則に従います。
 
 [付録](appendix.md)
 
-[リソース](https://msdn.microsoft.com/library/windows/desktop/ff476894)
+[リソース](https://docs.microsoft.com/windows/desktop/direct3d11/overviews-direct3d-11-resources)
 
-[テクスチャ](https://msdn.microsoft.com/library/windows/desktop/ff476902)
+[テクスチャ](https://docs.microsoft.com/windows/desktop/direct3d11/overviews-direct3d-11-resources-textures)
 
  
 

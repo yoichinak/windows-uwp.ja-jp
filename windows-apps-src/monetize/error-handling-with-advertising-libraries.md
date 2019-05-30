@@ -6,12 +6,12 @@ ms.date: 05/11/2018
 ms.topic: article
 keywords: Windows 10, UWP, 広告, 宣伝, エラー処理, JavaScript, XAML, C#
 ms.localizationpriority: medium
-ms.openlocfilehash: d0e2e1c019497fc22e8d922ba5f0a02a30034b65
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: e7b98dc583b8f7d77aa582b4c69b87c726a83129
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57617757"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66371812"
 ---
 # <a name="handle-ad-errors"></a>広告のエラー処理
 
@@ -67,9 +67,9 @@ JavaScript アプリで **ErrorOccur** エラーを処理するには:
 </div>
 ```
 
-エラー処理関数は宣言型で、[markSupportedForProcessing](https://msdn.microsoft.com/library/windows/apps/Hh967819.aspx) 関数内で囲む必要があります。
+エラー処理関数は宣言型で、[markSupportedForProcessing](https://docs.microsoft.com/previous-versions/windows/apps/hh967819(v=win.10)) 関数内で囲む必要があります。
 
-エラーが発生すると、エラー ハンドラーが JavaScript エラー オブジェクトをキャッチします。 エラー オブジェクトは 2 つの引数をエラー ハンドラーに提供します。 詳しくは、「[非同期 Windows ランタイム メソッドからの特殊なエラー プロパティ](https://msdn.microsoft.com/library/windows/apps/hh994690.aspx)」をご覧ください。
+エラーが発生すると、エラー ハンドラーが JavaScript エラー オブジェクトをキャッチします。 エラー オブジェクトは 2 つの引数をエラー ハンドラーに提供します。 詳しくは、「[非同期 Windows ランタイム メソッドからの特殊なエラー プロパティ](https://docs.microsoft.com/scripting/jswinrt/special-error-properties-from-asynchronous-windows-runtime-methods)」をご覧ください。
 
 **onErrorOccurred** イベントを処理する **errorLogger** という名前のエラー処理関数の例を示します。
 

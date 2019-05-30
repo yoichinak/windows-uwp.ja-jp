@@ -6,12 +6,12 @@ ms.date: 10/24/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, DirectX
 ms.localizationpriority: medium
-ms.openlocfilehash: 175009773f7969adbaf36a036e733443f593467f
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 940de8c00dc2639785ae82e87d63f4994b1b6b2e
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57620557"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66367746"
 ---
 #  <a name="define-the-uwp-app-framework"></a>UWP アプリ フレームワークの定義
 
@@ -22,11 +22,11 @@ ms.locfileid: "57620557"
 ビュー プロバイダー オブジェクトは、__IFrameworkView__ インターフェイスを実装します。これには、このゲーム サンプルを作成するために構成する必要がある一連のメソッドが含まれています。
 
 アプリ シングルトンが呼び出す次の 5 つのメソッドを実装する必要があります。
-* [__初期化します。__](#initialize-the-view-provider)
+* [__初期化します。__ ](#initialize-the-view-provider)
 * [__SetWindow__](#configure-the-window-and-display-behaviors)
 * [__ロード__](#load-method-of-the-view-provider)
-* [__実行__](#run-method-of-the-view-provider)
-* [__初期化を解除します。__](#uninitialize-method-of-the-view-provider)
+* [__Run__](#run-method-of-the-view-provider)
+* [__初期化を解除します。__ ](#uninitialize-method-of-the-view-provider)
 
 __Initialize__ メソッドは、アプリケーションの起動時に呼び出されます。 __SetWindow__ メソッドは __Initialize__ の後に呼び出されます。 次に、__Load__ メソッドが呼び出されます。 __Run__ メソッドはゲームの実行中に呼び出されます。 ゲームが終了すると、__Uninitialize__ メソッドが呼び出されます。 詳しくは、[__IFrameworkView__ の API リファレンス](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.iframeworkview)を参照してください。 
 
@@ -71,7 +71,7 @@ IFrameworkView^ DirectXApplicationSource::CreateView()
 
 ## <a name="initialize-the-view-provider"></a>ビュー プロバイダーを初期化する
 
-ビュー プロバイダー オブジェクトが作成されたら、アプリケーションの起動時に、アプリ シングルトンが [**Initialize**](https://msdn.microsoft.com/library/windows/apps/hh700495) メソッドを呼び出します。 このため、メイン ウィンドウのアクティブ化の処理や、ゲームが突然の中断 (とその後に行われる場合がある再開) イベントを処理できることの確認など、UWP ゲームの最も基本的な動作をこのメソッドで処理することが非常に重要です。
+ビュー プロバイダー オブジェクトが作成されたら、アプリケーションの起動時に、アプリ シングルトンが [**Initialize**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.iframeworkview.initialize) メソッドを呼び出します。 このため、メイン ウィンドウのアクティブ化の処理や、ゲームが突然の中断 (とその後に行われる場合がある再開) イベントを処理できることの確認など、UWP ゲームの最も基本的な動作をこのメソッドで処理することが非常に重要です。
 
 この時点で、ゲーム アプリは一時停止 (または再開) メッセージを処理できます。 ただし、まだ操作するウィンドウはなく、ゲームは初期化されていません。 必要なことが、あといくつか残っています。
 
@@ -105,11 +105,11 @@ void App::Initialize(
 
 ## <a name="configure-the-window-and-display-behaviors"></a>ウィンドウと表示動作を構成する
 
-ここでは、[__SetWindow__](https://msdn.microsoft.com/library/windows/apps/hh700509) の実装を見てみましょう。 __SetWindow__ メソッドでは、ウィンドウと表示動作を構成します。
+ここでは、[__SetWindow__](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.iframeworkview.setwindow) の実装を見てみましょう。 __SetWindow__ メソッドでは、ウィンドウと表示動作を構成します。
 
 ### <a name="appsetwindow-method"></a>App::SetWindow メソッド
 
-アプリ シングルトンは、ゲームのメイン ウィンドウを表す [__CoreWindow__](https://msdn.microsoft.com/library/windows/apps/br208225) オブジェクトを提供し、そのリソースとイベントをゲームで使用できるようにします。 操作するウィンドウができたら、ゲームの基本的な UI コンポーネントとイベントを追加できます。
+アプリ シングルトンは、ゲームのメイン ウィンドウを表す [__CoreWindow__](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreWindow) オブジェクトを提供し、そのリソースとイベントをゲームで使用できるようにします。 操作するウィンドウができたら、ゲームの基本的な UI コンポーネントとイベントを追加できます。
 
 次に、マウスとタッチ コントロールの両方で使用できる __CoreCursor__ メソッドを使用してポインターを作成します。
 
@@ -162,7 +162,7 @@ void App::SetWindow(
 
 ## <a name="load-method-of-the-view-provider"></a>ビュー プロバイダーの Load メソッド
 
-メイン ウィンドウが設定された後、アプリ シングルトンは [__Load__](https://msdn.microsoft.com/library/windows/apps/hh700501) を呼び出します。 このメソッドで一連の非同期タスクを使って、ゲーム オブジェクトを作成し、グラフィックス リソースを読み込み、ゲームのステート マシンを初期化します。 ゲームのデータまたはアセットを事前に取得するには、**SetWindow** や **Initialize** よりも、このメソッドが適しています。 
+メイン ウィンドウが設定された後、アプリ シングルトンは [__Load__](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.iframeworkview.load) を呼び出します。 このメソッドで一連の非同期タスクを使って、ゲーム オブジェクトを作成し、グラフィックス リソースを読み込み、ゲームのステート マシンを初期化します。 ゲームのデータまたはアセットを事前に取得するには、**SetWindow** や **Initialize** よりも、このメソッドが適しています。 
 
 Windows では、非同期タスク パターンを使用して、ゲームが入力の処理を開始するまでにかけることができる時間に制限が設けられているため、ゲームが入力の処理を開始できるように、__Load__ メソッドは迅速に完了するように設計する必要があります。 読み込みに時間がかかる場合やリソースが多い場合は、進行状況バーを用意して定期的に更新するようにします。 開始時の状態やグローバルな値の設定など、ゲームを開始する前に必要な準備を行う場合にも、このメソッドを使用します。
 
@@ -308,9 +308,9 @@ GameMain::GameMain(const std::shared_ptr<DX::DeviceResources>& deviceResources) 
     * __非アクティブ化__:ゲーム ウィンドウが非アクティブ化される (フォーカスを失う) か、スナップされます。 この場合、ゲームではイベントの処理を中断し、ウィンドウがフォーカスまたはスナップを解除されるまで待機します。
     * __TooSmall__:ゲームでは、独自の状態を更新し、表示するためのグラフィックスをレンダリングします。
 
-ゲームにフォーカスがある場合、メッセージ キューに到達する各イベントを処理する必要があるため、[**CoreWindowDispatch.ProcessEvents**](https://msdn.microsoft.com/library/windows/apps/br208215) を **ProcessAllIfPresent** オプションで呼び出す必要があります。 他のオプションでは、メッセージ イベントの処理に遅延が発生することがあり、この場合、ゲームが応答しなくなったように見えるか、タッチ動作の反応が遅くて "敏感" でないように見える可能性があります。
+ゲームにフォーカスがある場合、メッセージ キューに到達する各イベントを処理する必要があるため、[**CoreWindowDispatch.ProcessEvents**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.processevents) を **ProcessAllIfPresent** オプションで呼び出す必要があります。 他のオプションでは、メッセージ イベントの処理に遅延が発生することがあり、この場合、ゲームが応答しなくなったように見えるか、タッチ動作の反応が遅くて "敏感" でないように見える可能性があります。
 
-ゲームが表示されていないときや中断またはスナップ状態のときにリソースを循環させてどこにも到達しないメッセージをディスパッチすることは回避する必要があるため、 ゲームでは **ProcessOneAndAllPending** を使う必要があります。この結果、イベントが取得されるまではブロックが行われ、その後、そのイベントと、そのイベントの処理中にプロセス キューに到達した他のイベントが処理されます。 [**ProcessEvents** ](https://msdn.microsoft.com/library/windows/apps/br208215)キューの処理が完了したらすぐに返します。
+ゲームが表示されていないときや中断またはスナップ状態のときにリソースを循環させてどこにも到達しないメッセージをディスパッチすることは回避する必要があるため、 ゲームでは **ProcessOneAndAllPending** を使う必要があります。この結果、イベントが取得されるまではブロックが行われ、その後、そのイベントと、そのイベントの処理中にプロセス キューに到達した他のイベントが処理されます。 [**ProcessEvents** ](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.processevents)キューの処理が完了したらすぐに返します。
 
 ```cpp
 void App::Run()

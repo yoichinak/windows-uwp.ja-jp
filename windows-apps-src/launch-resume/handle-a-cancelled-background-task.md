@@ -10,20 +10,20 @@ dev_langs:
 - csharp
 - cppwinrt
 - cpp
-ms.openlocfilehash: 1feffac4d9b616c2fadff0080c3282e4200f3be7
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 832a13f8b1f4a6e6e221b4fa0ce328b5edabac7d
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57625577"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66371674"
 ---
 # <a name="handle-a-cancelled-background-task"></a>取り消されたバックグラウンド タスクの処理
 
 **重要な API**
 
--   [**BackgroundTaskCanceledEventHandler**](https://msdn.microsoft.com/library/windows/apps/br224775)
--   [**IBackgroundTaskInstance**](https://msdn.microsoft.com/library/windows/apps/br224797)
--   [**ApplicationData.Current**](https://msdn.microsoft.com/library/windows/apps/br241619)
+-   [**BackgroundTaskCanceledEventHandler**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundtaskcanceledeventhandler)
+-   [**IBackgroundTaskInstance**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.IBackgroundTaskInstance)
+-   [**ApplicationData.Current**](https://docs.microsoft.com/uwp/api/windows.storage.applicationdata.current)
 
 取り消し要求を認識し、作業を停止して、固定ストレージを使っているアプリに取り消しを報告するバックグラウンド タスクの作成方法について説明します。
 
@@ -177,7 +177,7 @@ else
 ```
 
 > [!NOTE]
-> 使用前に示したコード サンプル、 [ **IBackgroundTaskInstance**](https://msdn.microsoft.com/library/windows/apps/br224797).[**進行状況**](https://msdn.microsoft.com/library/windows/apps/br224800)バック グラウンド タスクの進行状況を記録するために使用されるプロパティ。 進行状況は、[**BackgroundTaskProgressEventArgs**](https://msdn.microsoft.com/library/windows/apps/br224782) クラスを使ってアプリに報告されます。
+> 使用前に示したコード サンプル、 [ **IBackgroundTaskInstance**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.IBackgroundTaskInstance).[**進行状況**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtaskinstance.progress)バック グラウンド タスクの進行状況を記録するために使用されるプロパティ。 進行状況は、[**BackgroundTaskProgressEventArgs**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.BackgroundTaskProgressEventArgs) クラスを使ってアプリに報告されます。
 
 変更、**実行**タスクが完了または取り消されたかどうかを記録、メソッド、その後の処理が停止しました。 この手順は、バックグラウンド タスクが取り消されたときにプロセス間で通信する手段が必要となるため、別のプロセスで実行されるアウトプロセス バック グラウンド タスクに適用されます。 インプロセス バックグラウンド タスクでは、タスクが取り消されたことを示すために、状態をアプリケーションと共有するだけで十分です。
 

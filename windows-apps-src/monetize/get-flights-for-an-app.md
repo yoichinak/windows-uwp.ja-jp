@@ -6,16 +6,16 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, Microsoft Store 申請 API, フライト, パッケージ フライト
 ms.localizationpriority: medium
-ms.openlocfilehash: 6f55a218c0cb4f4964fe12eb8e2eeb5b504f6405
-ms.sourcegitcommit: 6a7dd4da2fc31ced7d1cdc6f7cf79c2e55dc5833
+ms.openlocfilehash: 66e64f2c499835a345bb9563fd005b86a926a4d2
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58334780"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66372014"
 ---
 # <a name="get-package-flights-for-an-app"></a>アプリのパッケージ フライトの取得
 
-Microsoft Store 送信 API でこのメソッドを使用して、パートナー センター アカウントに登録されているアプリのパッケージのフライトを一覧表示します。 パッケージ フライトについて詳しくは、「[パッケージ フライト](https://msdn.microsoft.com/windows/uwp/publish/package-flights)」をご覧ください。
+Microsoft Store 送信 API でこのメソッドを使用して、パートナー センター アカウントに登録されているアプリのパッケージのフライトを一覧表示します。 パッケージ フライトについて詳しくは、「[パッケージ フライト](https://docs.microsoft.com/windows/uwp/publish/package-flights)」をご覧ください。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -44,7 +44,7 @@ Microsoft Store 送信 API でこのメソッドを使用して、パートナ�
 
 |  名前  |  種類  |  説明  |  必須  |
 |------|------|------|------|
-|  applicationId  |  string  |  パッケージ フライトを取得するアプリのストア ID です。 ストア ID について詳しくは、「[アプリ ID の詳細の表示](https://msdn.microsoft.com/windows/uwp/publish/view-app-identity-details)」をご覧ください。  |  〇  |
+|  applicationId  |  string  |  パッケージ フライトを取得するアプリのストア ID です。 ストア ID について詳しくは、「[アプリ ID の詳細の表示](https://docs.microsoft.com/windows/uwp/publish/view-app-identity-details)」をご覧ください。  |  〇  |
 |  top  |  int  |  要求で返される項目の数 (つまり、返されるパッケージ フライトの数)。 クエリで指定した値よりアカウントのパッケージ フライトの数が多い場合、応答本文には、データの次のページを要求するためにメソッド URI に追加できる相対 URI パスが含まれます。  |  X  |
 |  skip  |  int  |  残りの項目を返す前にクエリでバイパスする項目の数。 データ セットを操作するには、このパラメーターを使用します。 たとえば、top = 10 と skip = 0 は、1 から 10 の項目を取得し、top=10 と skip=10 は 11 から 20 の項目を取得するという具合です。  |  X  |
 

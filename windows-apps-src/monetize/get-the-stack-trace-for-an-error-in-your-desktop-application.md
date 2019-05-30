@@ -5,16 +5,16 @@ ms.date: 06/05/2018
 ms.topic: article
 keywords: Windows 10, UWP, Store サービス, Microsoft Store 分析 API, スタック トレース, エラー, デスクトップ アプリケーション
 ms.localizationpriority: medium
-ms.openlocfilehash: 8cc8aaef2b26af88234efe62bf7cf1cb998e19bc
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 4aaa71c431a9dac6ad6650d05f71df897f0884fa
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57659897"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66372684"
 ---
 # <a name="get-the-stack-trace-for-an-error-in-your-desktop-application"></a>デスクトップ アプリケーションのエラーに関するスタック トレースの取得
 
-[Windows デスクトップ アプリケーション プログラム](https://msdn.microsoft.com/library/windows/desktop/mt826504)に追加したデスクトップ アプリケーションのエラーに関するスタック トレースを取得するには、Microsoft Store 分析 API の以下のメソッドを使います。 このメソッドでダウンロードできるのは、過去 30 日以内に発生したエラーに関するスタック トレースのみです。 スタック トレースがでも利用できる、[正常性レポート](https://msdn.microsoft.com/library/windows/desktop/mt826504)パートナー センターでのデスクトップ アプリケーションです。
+[Windows デスクトップ アプリケーション プログラム](https://docs.microsoft.com/windows/desktop/appxpkg/windows-desktop-application-program)に追加したデスクトップ アプリケーションのエラーに関するスタック トレースを取得するには、Microsoft Store 分析 API の以下のメソッドを使います。 このメソッドでダウンロードできるのは、過去 30 日以内に発生したエラーに関するスタック トレースのみです。 スタック トレースがでも利用できる、[正常性レポート](https://docs.microsoft.com/windows/desktop/appxpkg/windows-desktop-application-program)パートナー センターでのデスクトップ アプリケーションです。
 
 このメソッドを使うには、その前にまず「[デスクトップ アプリケーションのエラーに関する詳細情報の取得](get-details-for-an-error-in-your-desktop-application.md)」のメソッドを使って、スタック トレースを取得するエラーに関連付けられた CAB ファイルの ID ハッシュを取得する必要があります。
 
@@ -48,7 +48,7 @@ ms.locfileid: "57659897"
 
 | パラメーター        | 種類   |  説明      |  必須  |
 |---------------|--------|---------------|------|
-| applicationId | string | スタック トレースを取得するデスクトップ アプリケーションの製品 ID です。 デスクトップ アプリケーションの製品 ID を取得するには、いずれかを開く[analytics は、パートナー センターでデスクトップ アプリケーションのレポート](https://msdn.microsoft.com/library/windows/desktop/mt826504)(など、**正常性レポート**) し、URL から、製品 ID を取得します。 |  〇  |
+| applicationId | string | スタック トレースを取得するデスクトップ アプリケーションの製品 ID です。 デスクトップ アプリケーションの製品 ID を取得するには、いずれかを開く[analytics は、パートナー センターでデスクトップ アプリケーションのレポート](https://docs.microsoft.com/windows/desktop/appxpkg/windows-desktop-application-program)(など、**正常性レポート**) し、URL から、製品 ID を取得します。 |  〇  |
 | cabIdHash | string | スタック トレースを取得するエラーに関連付けられた CAB ファイルの一意の ID ハッシュです。 この値を取得するには、「[デスクトップ アプリケーションのエラーに関する詳細情報の取得](get-details-for-an-error-in-your-desktop-application.md)」のメソッドを使ってアプリケーションの特定のエラーに関する詳細情報を取得し、そのメソッドの応答本文に含まれる **cabIdHash** 値を使用します。 |  〇  |
 
  
@@ -79,9 +79,9 @@ Authorization: Bearer <your access token>
 
 | Value           | 種類    | 説明      |
 |-----------------|---------|----------------|
-| level            | string  |  コール スタックでこの要素が表すフレーム番号です。  |
+| レベル (level)            | string  |  コール スタックでこの要素が表すフレーム番号です。  |
 | image   | string  |   このスタック フレームで呼び出される関数が含まれている実行可能ファイルまたはライブラリ イメージの名前です。           |
-| function | string  |  このスタック フレームで呼び出される関数の名前。 これは、アプリが実行可能ファイルまたはライブラリのシンボルを含んでいる場合のみ使用可能です。              |
+| 関数 (function) | string  |  このスタック フレームで呼び出される関数の名前。 これは、アプリが実行可能ファイルまたはライブラリのシンボルを含んでいる場合のみ使用可能です。              |
 | offset     | string  |  関数の先頭を基準とした現在の命令のバイト オフセットです。      |
 
 

@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, DirectX, 入力待ち時間
 ms.localizationpriority: medium
-ms.openlocfilehash: 537dd6e9d3f300666a0692b66f422ce00dd68460
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: a74e2e24810dee058aa166800091af91d55cdef4
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57601747"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66368457"
 ---
 #  <a name="optimize-input-latency-for-universal-windows-platform-uwp-directx-games"></a>ユニバーサル Windows プラットフォーム (UWP) DirectX ゲームの入力待ち時間の最適化
 
@@ -65,7 +65,7 @@ DirectX ゲームのコンテンツがレンダリングされて画面に表示
 
 ジグソー パズル ゲームの最初の反復処理では、ユーザーがパズルのピースを移動した場合にのみ画面を更新します。 ユーザーは、パズルのピースをドラッグして動かしたり、ピースを選んで適切な移動先をタッチすることではめ込む可能性があります。 2 番目のケースでは、パズルのピースはアニメーションやエフェクトなしで移動先にジャンプします。
 
-コードには、**CoreProcessEventsOption::ProcessOneAndAllPending** を使う [**IFrameworkView::Run**](https://msdn.microsoft.com/library/windows/apps/hh700505) メソッド内にシングル スレッドのゲーム ループがあります。 このオプションを使うと、現在キューに入っているすべてのイベントがディスパッチされます。 保留中のイベントがない場合、ゲーム ループはイベントが発生するまで待機します。
+コードには、**CoreProcessEventsOption::ProcessOneAndAllPending** を使う [**IFrameworkView::Run**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.iframeworkview.run) メソッド内にシングル スレッドのゲーム ループがあります。 このオプションを使うと、現在キューに入っているすべてのイベントがディスパッチされます。 保留中のイベントがない場合、ゲーム ループはイベントが発生するまで待機します。
 
 ``` syntax
 void App::Run()
@@ -96,7 +96,7 @@ void App::Run()
 
 2 番目の反復処理では、ユーザーがパズルのピースを選んでそのピースの適切な移動先をタッチする際、移動先に到達するまで画面にアニメーションが表示されるようにゲームが変更されます。
 
-前のケースと同様、コードには **ProcessOneAndAllPending** を使ってキュー内の入力イベントをディスパッチするシングル スレッドのゲーム ループがあります。 ここで異なるのは、アニメーション時、ループが新しい入力イベントを待機しないように **CoreProcessEventsOption::ProcessAllIfPresent** を使うように変更される点です。 保留中のイベントがない場合、すぐに [**ProcessEvents**](https://msdn.microsoft.com/library/windows/apps/br208215) が返され、アプリがアニメーションで次のフレームを表示できるようになります。 アニメーションが完了したら、ループはもう一度 **ProcessOneAndAllPending** に切り替えられた画面の更新が制限されます。
+前のケースと同様、コードには **ProcessOneAndAllPending** を使ってキュー内の入力イベントをディスパッチするシングル スレッドのゲーム ループがあります。 ここで異なるのは、アニメーション時、ループが新しい入力イベントを待機しないように **CoreProcessEventsOption::ProcessAllIfPresent** を使うように変更される点です。 保留中のイベントがない場合、すぐに [**ProcessEvents**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.processevents) が返され、アプリがアニメーションで次のフレームを表示できるようになります。 アニメーションが完了したら、ループはもう一度 **ProcessOneAndAllPending** に切り替えられた画面の更新が制限されます。
 
 ``` syntax
 void App::Run()
@@ -182,7 +182,7 @@ void App::Run()
 
 ゲームによっては、シナリオ 3 で見られる入力待ち時間を無視するか、相殺することができます。 ただし、ゲームのエクスペリエンスとプレーヤー フィードバックの感覚にとって短い入力待ち時間が重要な場合、1 秒あたり 60 フレームをレンダリングするゲームは別個のスレッドで入力を処理する必要があります。
 
-ジグソー パズル ゲームの 4 番目の反復処理は、ゲーム ループにより入力処理とグラフィック レンダリングを別個のスレッドに分割することで、シナリオ 3 をベースに構築されています。 それぞれ別個のスレッドを用意することで、グラフィック出力により入力が遅延することはなくなりますが、その結果、コードの複雑さが増します。 シナリオ 4 では、[**CoreProcessEventsOption::ProcessUntilQuit**](https://msdn.microsoft.com/library/windows/apps/br208217) を使って [**ProcessEvents**](https://msdn.microsoft.com/library/windows/apps/br208215) を呼び出します。これは、新しいイベントを待機し、利用できるすべてのイベントをディスパッチします。 この動作は、ウィンドウが閉じられるか、ゲームが [**CoreWindow::Close**](https://msdn.microsoft.com/library/windows/apps/br208260) を呼び出すまで継続します。
+ジグソー パズル ゲームの 4 番目の反復処理は、ゲーム ループにより入力処理とグラフィック レンダリングを別個のスレッドに分割することで、シナリオ 3 をベースに構築されています。 それぞれ別個のスレッドを用意することで、グラフィック出力により入力が遅延することはなくなりますが、その結果、コードの複雑さが増します。 シナリオ 4 では、[**CoreProcessEventsOption::ProcessUntilQuit**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreProcessEventsOption) を使って [**ProcessEvents**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.processevents) を呼び出します。これは、新しいイベントを待機し、利用できるすべてのイベントをディスパッチします。 この動作は、ウィンドウが閉じられるか、ゲームが [**CoreWindow::Close**](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.close) を呼び出すまで継続します。
 
 ``` syntax
 void App::Run()
@@ -233,7 +233,7 @@ void JigsawPuzzleMain::StartRenderThread()
 }
 ```
 
-**DirectX 11 および XAML アプリ (ユニバーサル Windows)** Microsoft Visual Studio 2015 でのテンプレートが同様の方法で複数のスレッドにゲーム ループを分割します。 [  **Windows::UI::Core::CoreIndependentInputSource**](https://msdn.microsoft.com/library/windows/apps/dn298460) オブジェクトを使って、入力処理専用のスレッドが開始され、XAML UI スレッドとは独立したレンダリング スレッドも作成されます。 これらのテンプレートについて詳しくは、「[テンプレートからのユニバーサル Windows プラットフォームおよび DirectX ゲーム プロジェクトの作成](user-interface.md)」をご覧ください。
+**DirectX 11 および XAML アプリ (ユニバーサル Windows)** Microsoft Visual Studio 2015 でのテンプレートが同様の方法で複数のスレッドにゲーム ループを分割します。 [  **Windows::UI::Core::CoreIndependentInputSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreIndependentInputSource) オブジェクトを使って、入力処理専用のスレッドが開始され、XAML UI スレッドとは独立したレンダリング スレッドも作成されます。 これらのテンプレートについて詳しくは、「[テンプレートからのユニバーサル Windows プラットフォームおよび DirectX ゲーム プロジェクトの作成](user-interface.md)」をご覧ください。
 
 ## <a name="additional-ways-to-reduce-input-latency"></a>入力待ち時間を短縮する他の方法
 

@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: e17b9ddd5833899a83e24d24c74f9c620a28f5c8
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: bfd84d5e0e41f07b53be0c0afce4b881a8a75d59
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57617637"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66359216"
 ---
 # <a name="receive-data"></a>データの受信
 
@@ -25,7 +25,7 @@ ms.locfileid: "57617637"
 
 1.  マニフェスト ファイルを開きます。 マニフェスト ファイルは **package.appxmanifest** のような名前になっています。
 2.  **[宣言]** タブを開きます。
-3.  **[使用可能な宣言]** ボックスの一覧の **[共有ターゲット]** を選び、**[追加]** をクリックします。
+3.  **[使用可能な宣言]** ボックスの一覧の **[共有ターゲット]** を選び、 **[追加]** をクリックします。
 
 ## <a name="choose-file-types-and-formats"></a>ファイルの種類と形式を選択する
 
@@ -36,13 +36,13 @@ ms.locfileid: "57617637"
 ファイルの種類を設定するには:
 
 1.  マニフェスト ファイルを開きます。 マニフェスト ファイルは **package.appxmanifest** のような名前になっています。
-2.  **[宣言]** ページの **[サポートされるファイルの種類]** セクションで、**[新規追加]** をクリックします。
+2.  **[宣言]** ページの **[サポートされるファイルの種類]** セクションで、 **[新規追加]** をクリックします。
 3.  サポートするファイル名拡張子を入力します。たとえば、「.docx」と入力します。 ピリオドを忘れないように注意してください。 すべてのファイルの種類をサポートする場合は、**SupportsAnyFileType** チェック ボックスをオンにします。
 
 データ形式を設定するには:
 
 1.  マニフェスト ファイルを開きます。
-2.  **[宣言]** ページの **[データ形式]** セクションを開き、**[新規追加]** をクリックします。
+2.  **[宣言]** ページの **[データ形式]** セクションを開き、 **[新規追加]** をクリックします。
 3.  サポートすデータ形式の名前を入力します。たとえば、「テキスト」と入力します。
 
 ## <a name="handle-share-activation"></a>共有のアクティブ化の処理
@@ -57,7 +57,7 @@ protected override async void OnShareTargetActivated(ShareTargetActivatedEventAr
 } 
 ```
 
-ユーザーが共有するデータは、[**ShareOperation**](https://msdn.microsoft.com/library/windows/apps/Windows.ApplicationModel.DataTransfer.ShareTarget.ShareOperation) オブジェクトに格納されています。 このオブジェクトを使うと、オブジェクトに格納されているデータの形式を調べることができます。
+ユーザーが共有するデータは、[**ShareOperation**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.DataTransfer.ShareTarget.ShareOperation) オブジェクトに格納されています。 このオブジェクトを使うと、オブジェクトに格納されているデータの形式を調べることができます。
 
 ```cs
 ShareOperation shareOperation = args.ShareOperation;
@@ -79,7 +79,7 @@ if (shareOperation.Data.Contains(StandardDataFormats.Text))
 shareOperation.ReportStarted(); 
 ```
 
-[  **ReportStarted**](https://msdn.microsoft.com/library/windows/apps/Windows.ApplicationModel.DataTransfer.ShareTarget.ShareOperation.ReportStarted) を呼び出した後、ユーザーはアプリをそれ以上操作できなくなります。 したがって、このオブジェクトの呼び出しは、ユーザーがアプリを閉じても問題がない状況でのみ行ってください。
+[  **ReportStarted**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.sharetarget.shareoperation.reportstarted) を呼び出した後、ユーザーはアプリをそれ以上操作できなくなります。 したがって、このオブジェクトの呼び出しは、ユーザーがアプリを閉じても問題がない状況でのみ行ってください。
 
 長時間共有が行われている状況では、アプリが DataPackage オブジェクトからすべてのデータを取得する前に、ユーザーがソース アプリを閉じる可能性があります。 そのため、アプリが必要なデータを取得したタイミングをシステムに通知することをお勧めします。 こうすると、システムは必要に応じてソース アプリを中断または終了できます。
 
@@ -93,21 +93,21 @@ shareOperation.ReportSubmittedBackgroundTask();
 shareOperation.ReportError("Could not reach the server! Try again later."); 
 ```
 
-最後に、アプリによる共有コンテンツの処理が正常に完了したときは、[**ReportCompleted**](https://msdn.microsoft.com/library/windows/apps/Windows.ApplicationModel.DataTransfer.ShareTarget.ShareOperation.ReportCompleted) を呼び出してシステムに通知する必要があります。
+最後に、アプリによる共有コンテンツの処理が正常に完了したときは、[**ReportCompleted**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.sharetarget.shareoperation.reportcompleted) を呼び出してシステムに通知する必要があります。
 
 ```cs
 shareOperation.ReportCompleted();
 ```
 
-これらのメソッドを使う場合は、通常、前に説明した順序で呼び出し、2 回以上呼び出さないようにしてください。 ただし、ターゲット アプリが [**ReportStarted**](https://msdn.microsoft.com/library/windows/apps/Windows.ApplicationModel.DataTransfer.ShareTarget.ShareOperation.ReportStarted) の前に [**ReportDataRetrieved**](https://msdn.microsoft.com/library/windows/apps/Windows.ApplicationModel.DataTransfer.ShareTarget.ShareOperation.ReportDataRetrieved) を呼び出すことができる場合があります。 たとえば、アプリがアクティブ化ハンドラーのタスクの一部としてデータを受信できるが、ユーザーが **[共有]** ボタンをクリックするまで **ReportStarted** を呼び出さない場合です。
+これらのメソッドを使う場合は、通常、前に説明した順序で呼び出し、2 回以上呼び出さないようにしてください。 ただし、ターゲット アプリが [**ReportStarted**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.sharetarget.shareoperation.reportstarted) の前に [**ReportDataRetrieved**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.sharetarget.shareoperation.reportdataretrieved) を呼び出すことができる場合があります。 たとえば、アプリがアクティブ化ハンドラーのタスクの一部としてデータを受信できるが、ユーザーが **[共有]** ボタンをクリックするまで **ReportStarted** を呼び出さない場合です。
 
 ## <a name="return-a-quicklink-if-sharing-was-successful"></a>共有が成功した場合に QuickLink を返す
 
-ユーザーがアプリでコンテンツを受け取ることを選んだときは、[**QuickLink**](https://msdn.microsoft.com/library/windows/apps/Windows.ApplicationModel.DataTransfer.ShareTarget.QuickLink) を作成することをお勧めします。 **QuickLink** は、情報をアプリと簡単に共有できるようにするショートカットのようなものです。 たとえば、あらかじめ友人のメール アドレスが構成された新しいメール メッセージを開く **QuickLink** を作成できます。
+ユーザーがアプリでコンテンツを受け取ることを選んだときは、[**QuickLink**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.DataTransfer.ShareTarget.QuickLink) を作成することをお勧めします。 **QuickLink** は、情報をアプリと簡単に共有できるようにするショートカットのようなものです。 たとえば、あらかじめ友人のメール アドレスが構成された新しいメール メッセージを開く **QuickLink** を作成できます。
 
-**QuickLink** には、タイトル、アイコン、ID が必要です。タイトル ("母へのメール" など) とアイコンは、ユーザーが共有チャームをタップすると表示されます。 ID は、アプリがメール アドレスやログイン資格情報などのカスタム情報にアクセスするために使われます。 アプリは、**QuickLink** を作成すると、[**ReportCompleted**](https://msdn.microsoft.com/library/windows/apps/Windows.ApplicationModel.DataTransfer.ShareTarget.ShareOperation.ReportCompleted) を呼び出して **QuickLink** をシステムに返します。
+**QuickLink** には、タイトル、アイコン、ID が必要です。タイトル ("母へのメール" など) とアイコンは、ユーザーが共有チャームをタップすると表示されます。 ID は、アプリがメール アドレスやログイン資格情報などのカスタム情報にアクセスするために使われます。 アプリは、**QuickLink** を作成すると、[**ReportCompleted**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.sharetarget.shareoperation.reportcompleted) を呼び出して **QuickLink** をシステムに返します。
 
-**QuickLink** には、実際にデータが格納されているわけではなく、 識別子だけが含まれています。選択されたときにその識別子がアプリに送られます。 **QuickLink** の ID と対応するユーザー データは、アプリで格納する必要があります。 ユーザーが **QuickLink** をタップすると、[**QuickLinkId**](https://msdn.microsoft.com/library/windows/apps/Windows.ApplicationModel.DataTransfer.ShareTarget.ShareOperation.QuickLinkId) プロパティを介してその ID を取得できます。
+**QuickLink** には、実際にデータが格納されているわけではなく、 識別子だけが含まれています。選択されたときにその識別子がアプリに送られます。 **QuickLink** の ID と対応するユーザー データは、アプリで格納する必要があります。 ユーザーが **QuickLink** をタップすると、[**QuickLinkId**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.sharetarget.shareoperation.quicklinkid) プロパティを介してその ID を取得できます。
 
 ```cs
 async void ReportCompleted(ShareOperation shareOperation, string quickLinkId, string quickLinkTitle)
@@ -135,11 +135,11 @@ async void ReportCompleted(ShareOperation shareOperation, string quickLinkId, st
 
 * [アプリ間通信](index.md)
 * [データの共有](share-data.md)
-* [OnShareTargetActivated](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.application.onsharetargetactivated.aspx)
-* [ReportStarted](https://msdn.microsoft.com/library/windows/apps/windows.applicationmodel.datatransfer.sharetarget.shareoperation.reportstarted.aspx)
-* [ReportError](https://msdn.microsoft.com/library/windows/apps/windows.applicationmodel.datatransfer.sharetarget.shareoperation.reporterror.aspx)
-* [ReportCompleted](https://msdn.microsoft.com/library/windows/apps/windows.applicationmodel.datatransfer.sharetarget.shareoperation.reportcompleted.aspx)
-* [ReportDataRetrieved](https://msdn.microsoft.com/library/windows/apps/windows.applicationmodel.datatransfer.sharetarget.shareoperation.reportdataretrieved.aspx)
-* [ReportStarted](https://msdn.microsoft.com/library/windows/apps/windows.applicationmodel.datatransfer.sharetarget.shareoperation.reportstarted.aspx)
-* [クイック リンク](https://msdn.microsoft.com/library/windows/apps/windows.applicationmodel.datatransfer.sharetarget.quicklink.aspx)
-* [QuickLInkId](https://msdn.microsoft.com/library/windows/apps/windows.applicationmodel.datatransfer.sharetarget.quicklink.id.aspx)
+* [OnShareTargetActivated](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onsharetargetactivated)
+* [ReportStarted](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.sharetarget.shareoperation.reportstarted)
+* [ReportError](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.sharetarget.shareoperation.reporterror)
+* [ReportCompleted](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.sharetarget.shareoperation.reportcompleted)
+* [ReportDataRetrieved](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.sharetarget.shareoperation.reportdataretrieved)
+* [ReportStarted](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.sharetarget.shareoperation.reportstarted)
+* [クイック リンク](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.sharetarget.quicklink)
+* [QuickLInkId](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.sharetarget.quicklink.id)

@@ -7,12 +7,12 @@ keywords:
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: ca3b5e230270b46b7cb2709d4bfa06c4c51d0224
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 5893719e43314eb15c684948a31de5a025a926fc
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57598157"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66370836"
 ---
 # <a name="vertex-shader-vs-stage"></a>頂点シェーダー (VS) ステージ
 
@@ -29,7 +29,7 @@ ms.locfileid: "57598157"
 -   モーフィング
 -   頂点ごとの照明の適用
 
-頂点シェーダー ステージはプログラム可能なシェーダー ステージであり、[グラフィックス パイプライン](graphics-pipeline.md)の図では角丸ブロックとして示されています。 このシェーダー ステージではシェーダー モデル 4.0 の[共通シェーダー コア](https://msdn.microsoft.com/library/windows/desktop/bb509580)が使われます。
+頂点シェーダー ステージはプログラム可能なシェーダー ステージであり、[グラフィックス パイプライン](graphics-pipeline.md)の図では角丸ブロックとして示されています。 このシェーダー ステージではシェーダー モデル 4.0 の[共通シェーダー コア](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-common-core)が使われます。
 
 頂点シェーダー (VS) ステージは、入力アセンブラーから頂点を受け取って処理します。 頂点シェーダーは常に、1 つの入力頂点を処理して 1 つの出力頂点を生成します。 パイプラインを実行するには、頂点シェーダー ステージが常にアクティブになっている必要があります。 頂点の変更や変換が必要ない場合は、パススルー頂点シェーダーを作成してパイプラインに設定する必要があります。
 
@@ -39,7 +39,7 @@ ms.locfileid: "57598157"
 
 頂点シェーダーは常にすべての頂点に対して実行され、これには隣接性を持つ入力プリミティブ トポロジ内の隣接頂点も含まれます。 頂点シェーダーが実行された回数は、CPU から VSInvocations パイプライン統計を使って照会できます。
 
-頂点シェーダーとを実行できますロード テクスチャ サンプリング操作画面領域の派生クラスは必要ありません (HLSL の組み込み関数を使用します。[サンプル (DirectX HLSL テクスチャ オブジェクト)](https://msdn.microsoft.com/library/windows/desktop/bb509695)、 [SampleCmpLevelZero (DirectX HLSL テクスチャ オブジェクト)](https://msdn.microsoft.com/library/windows/desktop/bb509697)、および[SampleGrad (DirectX HLSL テクスチャ オブジェクト)](https://msdn.microsoft.com/library/windows/desktop/bb509698))。
+頂点シェーダーとを実行できますロード テクスチャ サンプリング操作画面領域の派生クラスは必要ありません (HLSL の組み込み関数を使用します。[サンプル (DirectX HLSL テクスチャ オブジェクト)](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-to-sample)、 [SampleCmpLevelZero (DirectX HLSL テクスチャ オブジェクト)](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-to-samplecmplevelzero)、および[SampleGrad (DirectX HLSL テクスチャ オブジェクト)](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-to-samplegrad))。
 
 ## <a name="span-idinputspanspan-idinputspanspan-idinputspaninput"></a><span id="Input"></span><span id="input"></span><span id="INPUT"></span>入力
 

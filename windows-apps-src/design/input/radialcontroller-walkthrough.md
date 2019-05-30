@@ -6,12 +6,12 @@ keywords: ダイヤル, ラジアル, チュートリアル
 ms.date: 03/11/2019
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 1c8042bbe3ad8a37802b592e4e638a7c42e79a6d
-ms.sourcegitcommit: 99271798fe53d9768fc52b21366de05268cadcb0
-ms.translationtype: HT
+ms.openlocfilehash: a16b455d692eaf9f73b7dc90200bd0f021025e52
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58221468"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66365658"
 ---
 # <a name="tutorial-support-the-surface-dial-and-other-wheel-devices-in-your-uwp-app"></a>チュートリアル:UWP アプリで Surface Dial (およびその他のホイール デバイス) をサポートする
 
@@ -51,19 +51,19 @@ Dial は、次の 3 つの基本的なジェスチャをサポートしていま
 ## <a name="set-up-your-devices"></a>デバイスをセットアップする
 
 1. Windows デバイスがオンになっていることを確認します。
-2. **[スタート]** に移動し、**[設定]** > [**デバイス]** > **[Bluetooth とその他のデバイス]** の順に選択して、**[Bluetooth]** をオンにします。
+2. **[スタート]** に移動し、 **[設定]**  > [**デバイス]**  >  **[Bluetooth とその他のデバイス]** の順に選択して、 **[Bluetooth]** をオンにします。
 3. Surface Dial の下部のバッテリ収納部を開き、単 4 電池が 2 本入っていることを確認します。
 4. Dial の底面にバッテリのタブが残っている場合には、それを取り外します。
 5. バッテリの横にある小さな押しボタンを、Bluetooth のライトが点滅するまで長押しします。
-6. Windows デバイスに戻り、**[Bluetooth またはその他のデバイスを追加する]** を選びます。
-7. **[デバイスの追加]** ダイアログ ボックスで、**[Bluetooth]** > **[Surface Dial]** の順に選びます。 Surface Dial が接続されて、**[Bluetooth とその他のデバイス]** 設定ページの **[マウス、キーボード、ペン]** の下のデバイスの一覧に追加されます。
+6. Windows デバイスに戻り、 **[Bluetooth またはその他のデバイスを追加する]** を選びます。
+7. **[デバイスの追加]** ダイアログ ボックスで、 **[Bluetooth]**  >  **[Surface Dial]** の順に選びます。 Surface Dial が接続されて、 **[Bluetooth とその他のデバイス]** 設定ページの **[マウス、キーボード、ペン]** の下のデバイスの一覧に追加されます。
 8. Dial を数秒ほど長押しして、組み込みのメニューが表示されるかどうかテストします。
 9. (ダイヤルする必要がありますバイブレーションも)、画面上のメニューが表示されない場合は、Bluetooth の設定に戻すには、デバイスを削除し、デバイスをもう一度接続を移動します。
 
 > [!NOTE]
 > ホイール デバイスは **[ホイール]** 設定から構成できます。
 > 1. **[スタート]** メニューで **[設定]** を選びます。
-> 2. **[デバイス]** > **[ホイール]** の順に選びます。    
+> 2. **[デバイス]**  >  **[ホイール]** の順に選びます。    
 > ![ホイールの設定 画面](images/radialcontroller/wheel-settings.png)
 
 これでチュートリアルを開始する準備ができました。 
@@ -75,8 +75,8 @@ Dial は、次の 3 つの基本的なジェスチャをサポートしていま
 
 1. 緑の **[Clone or download]** (複製またはダウンロード) ボタンを選択します。  
 ![リポジトリの複製](images/radialcontroller/wheel-clone.png)
-2. GitHub のアカウントを使っている場合には、**[Open in Visual Studio]** (Visual Studio で開く) を選択して、リポジトリをローカル コンピューターに複製できます。 
-3. GitHub アカウントを使っていない場合、またはプロジェクトのローカル コピーのみが必要な場合には、**[Download ZIP]** (ZIP をダウンロードする) を選択します (最新の更新をダウンロードするには、定期的に確認する必要があります)。
+2. GitHub のアカウントを使っている場合には、 **[Open in Visual Studio]** (Visual Studio で開く) を選択して、リポジトリをローカル コンピューターに複製できます。 
+3. GitHub アカウントを使っていない場合、またはプロジェクトのローカル コピーのみが必要な場合には、 **[Download ZIP]** (ZIP をダウンロードする) を選択します (最新の更新をダウンロードするには、定期的に確認する必要があります)。
 
 > [!IMPORTANT]
 > サンプル コードのほとんどの部分はコメント アウトされています。このトピックの各手順を進めていく際に、コードの各セクションのコメントを解除します。 Visual Studio では、コードの行を強調表示して Ctrl + K キーを押して Ctrl + U キーを押します。
@@ -87,8 +87,8 @@ Dial は、次の 3 つの基本的なジェスチャをサポートしていま
 
 | Component | 説明 |
 | --- | --- |
-| [**RadialController**クラス](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialController)および関連します。 | Surface Dial などのホイール入力デバイスまたはアクセサリを表します。 |
-| [**IRadialControllerConfigurationInterop**](https://msdn.microsoft.com/library/windows/desktop/mt790709) / [**IRadialControllerInterop**](https://msdn.microsoft.com/library/windows/desktop/mt790711)<br/>この機能はこのドキュメントの範囲外です。詳しくは、「[Windows クラシック デスクトップ サンプル](https://aka.ms/radialcontrollerclassicsample)」をご覧ください。 | UWP アプリとの相互運用性を提供します。 |
+| [**RadialController**クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Input.RadialController)および関連します。 | Surface Dial などのホイール入力デバイスまたはアクセサリを表します。 |
+| [**IRadialControllerConfigurationInterop**](https://docs.microsoft.com/previous-versions/windows/desktop/api/radialcontrollerinterop/nn-radialcontrollerinterop-iradialcontrollerconfigurationinterop) / [**IRadialControllerInterop**](https://docs.microsoft.com/previous-versions/windows/desktop/api/radialcontrollerinterop/nn-radialcontrollerinterop-iradialcontrollerinterop)<br/>この機能はこのドキュメントの範囲外です。詳しくは、「[Windows クラシック デスクトップ サンプル](https://aka.ms/radialcontrollerclassicsample)」をご覧ください。 | UWP アプリとの相互運用性を提供します。 |
 
 ## <a name="step-1-run-the-sample"></a>手順 1:サンプルを実行します。
 
@@ -108,7 +108,7 @@ RadialController サンプル アプリをダウンロードしたら、実行�
 
 ## <a name="step-2-basic-radialcontroller-functionality"></a>手順 2:基本的な RadialController 機能
 
-アプリを実行して、フォア グラウンドで Surface Dial を長押しすると、**RadialController ** メニューが表示されます。
+表示する Surface Dial の押しのアプリが実行されていると、フォア グラウンドで、 **RadialController**メニュー。
 
 まだアプリ用のカスタマイズを行っていないため、メニューにはコンテキスト依存の既定のツールのセットが含まれています。 
 
@@ -155,7 +155,7 @@ RadialController サンプル アプリをダウンロードしたら、実行�
                     Margin="0,0,0,20"
                     HorizontalAlignment="center"/>
     ```
-この時点では、**[Initialize sample]** (サンプルの初期化) ボタン、スライダー、トグル スイッチのみを有効にします。 他のボタンは後の手順で使用して、スライダーとトグル スイッチへのアクセスを提供する **RadialController** のメニュー項目の追加と削除を行います。
+この時点では、 **[Initialize sample]** (サンプルの初期化) ボタン、スライダー、トグル スイッチのみを有効にします。 他のボタンは後の手順で使用して、スライダーとトグル スイッチへのアクセスを提供する **RadialController** のメニュー項目の追加と削除を行います。
 
 ![基本的なサンプル アプリの UI](images/radialcontroller/wheel-app-step3-basicui.png)
 
@@ -284,7 +284,7 @@ RadialController サンプル アプリをダウンロードしたら、実行�
 
 ## <a name="step-5-configure-menu-at-runtime"></a>手順 5:実行時にメニューを構成します。
 
-この手順では、**[Add/Remove item]** (項目の追加と削除) ボタンと **[Reset RadialController menu]** (RadialController メニューのリセット) ボタンを接続して、メニューを動的にカスタマイズする方法を説明します。
+この手順では、 **[Add/Remove item]** (項目の追加と削除) ボタンと **[Reset RadialController menu]** (RadialController メニューのリセット) ボタンを接続して、メニューを動的にカスタマイズする方法を説明します。
 
 1. MainPage_Basic.xaml.cs ファイルを開きます。
 2. この手順のタイトルでマークされたコードの検索 ("//手順 5。設定] メニューの [実行時に")。
@@ -346,7 +346,7 @@ Surface Dial およびその他のホイール デバイスは、現在の操作
 この手順では、触覚フィードバックをカスタマイズする方法を説明します。ここでは、スライダーとトグル スイッチ コントロールを関連付け、それらを使って動的に触覚フィードバック動作を指定します。 この例では、フィードバックを有効にするには、トグル スイッチをオンにする必要があります。スライダーの値により、クリックのフィードバックの反復頻度を指定します。 
 
 > [!NOTE]
-> 触覚フィードバックは、ユーザーにより **[設定]** >  **[デバイス]** > **[ホイール]** ページで無効にすることができます。
+> 触覚フィードバックは、ユーザーにより **[設定]**  >   **[デバイス]**  >  **[ホイール]** ページで無効にすることができます。
 
 1. App.xaml.cs ファイルを開きます。
 2. この手順のタイトルでマークされたコードの検索 ("手順 6。カスタマイズ デバイス haptics")。
@@ -619,18 +619,18 @@ Surface Dial の接触位置と境界の両方を検出することにより、�
 
 ### <a name="api-reference"></a>API リファレンス
 
-- [**RadialController**クラス](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialController)
-- [**RadialControllerButtonClickedEventArgs**クラス](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialControllerButtonClickedEventArgs)
-- [**RadialControllerConfiguration**クラス](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialControllerConfiguration) 
-- [**RadialControllerControlAcquiredEventArgs**クラス](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialControllerControlAcquiredEventArgs) 
-- [**RadialControllerMenu**クラス](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialControllerMenu) 
-- [**RadialControllerMenuItem**クラス](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialControllerMenuItem) 
-- [**RadialControllerRotationChangedEventArgs**クラス](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialControllerRotationChangedEventArgs) 
-- [**RadialControllerScreenContact**クラス](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialControllerScreenContact) 
-- [**RadialControllerScreenContactContinuedEventArgs**クラス](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialControllerScreenContactContinuedEventArgs) 
-- [**RadialControllerScreenContactStartedEventArgs**クラス](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialControllerScreenContactStartedEventArgs)
-- [**RadialControllerMenuKnownIcon**列挙型](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialControllerMenuKnownIcon) 
-- [**RadialControllerSystemMenuItemKind**列挙型](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Input.RadialControllerSystemMenuItemKind) 
+- [**RadialController**クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Input.RadialController)
+- [**RadialControllerButtonClickedEventArgs**クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Input.RadialControllerButtonClickedEventArgs)
+- [**RadialControllerConfiguration**クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Input.RadialControllerConfiguration) 
+- [**RadialControllerControlAcquiredEventArgs**クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Input.RadialControllerControlAcquiredEventArgs) 
+- [**RadialControllerMenu**クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Input.RadialControllerMenu) 
+- [**RadialControllerMenuItem**クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Input.RadialControllerMenuItem) 
+- [**RadialControllerRotationChangedEventArgs**クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Input.RadialControllerRotationChangedEventArgs) 
+- [**RadialControllerScreenContact**クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Input.RadialControllerScreenContact) 
+- [**RadialControllerScreenContactContinuedEventArgs**クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Input.RadialControllerScreenContactContinuedEventArgs) 
+- [**RadialControllerScreenContactStartedEventArgs**クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Input.RadialControllerScreenContactStartedEventArgs)
+- [**RadialControllerMenuKnownIcon**列挙型](https://docs.microsoft.com/uwp/api/Windows.UI.Input.RadialControllerMenuKnownIcon) 
+- [**RadialControllerSystemMenuItemKind**列挙型](https://docs.microsoft.com/uwp/api/Windows.UI.Input.RadialControllerSystemMenuItemKind) 
 
 ### <a name="samples"></a>サンプル
 

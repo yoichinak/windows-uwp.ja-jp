@@ -5,12 +5,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 53a69393d945be1640f733b47410f88631fc7714
-ms.sourcegitcommit: 13fe5d04bdb43c75d0fc4de18c2c3d4ae58ff982
+ms.openlocfilehash: 749466e8ebce798f68295df28ad9f11a15e46702
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66221046"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66365021"
 ---
 # <a name="responsive-layouts-with-xaml"></a>XAML でのレスポンシブ レイアウト
 
@@ -33,16 +33,16 @@ XAML レイアウト システムでは、静的レイアウトと柔軟なレ�
 
 **高さと幅**
 
-[  **Height**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.frameworkelement.height.aspx) プロパティと [**Width**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.frameworkelement.width.aspx) プロパティは要素のサイズを指定します。 有効ピクセル単位で測定された固定値を使うことも、自動サイズ変更または比例サイズ変更を行うこともできます。 
+[  **Height**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.height) プロパティと [**Width**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.width) プロパティは要素のサイズを指定します。 有効ピクセル単位で測定された固定値を使うことも、自動サイズ変更または比例サイズ変更を行うこともできます。 
 
 自動サイズ変更は、UI 要素をコンテンツや親コンテナーに合わせてサイズ変更します。 グリッドの行と列を使って、自動サイズ変更を行うこともできます。 自動サイズ変更を使うには、UI 要素の Height や Width を **Auto** に設定します。
 
 > [!NOTE]
 > コンテンツやコンテナーに合わせて要素のサイズが変更されるかどうかは、親コンテナーで子のサイズ変更を処理する方法によって決まります。 詳しくは、この記事の「[レイアウト パネル](#layout-panels)」をご覧ください。
 
-比例サイズ変更 (*スター サイズ指定*とも呼ばれる) を使うと、使用可能なスペースが加重比率によりグリッドの行と列の間で分散されます。 XAML、星型の値として表されます\*(または*n* \*スターのサイズ変更の加重計算される)。 たとえば、2 段組レイアウトで 1 つの列と、幅が 5 倍の列とを指定するには、[**ColumnDefinition**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.columndefinition.aspx) 要素の [**Width**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.columndefinition.width.aspx) プロパティで "5\*" と "\*" を使います。
+比例サイズ変更 (*スター サイズ指定*とも呼ばれる) を使うと、使用可能なスペースが加重比率によりグリッドの行と列の間で分散されます。 XAML、星型の値として表されます\*(または*n* \*スターのサイズ変更の加重計算される)。 たとえば、2 段組レイアウトで 1 つの列と、幅が 5 倍の列とを指定するには、[**ColumnDefinition**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ColumnDefinition) 要素の [**Width**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.columndefinition.width) プロパティで "5\*" と "\*" を使います。
 
-次の例では、4 つの列を含む [**Grid**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.grid.aspx) で、固定、自動、比例サイズ指定を組み合わせています。
+次の例では、4 つの列を含む [**Grid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid) で、固定、自動、比例サイズ指定を組み合わせています。
 
 &nbsp;|&nbsp;|&nbsp;
 ------|------|------
@@ -69,28 +69,28 @@ Visual Studio の XAML デザイナーでは、結果は次のように表示さ
 
 ![Visual Studio デザイナーでの 4 列のグリッド](images/xaml-layout-grid-in-designer.png)
 
-実行時に要素のサイズを取得するには、Height と Width の代わりに、読み取り専用の [**ActualHeight**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.frameworkelement.actualheight.aspx) プロパティと [**ActualWidth**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.frameworkelement.actualwidth.aspx) プロパティを使います。
+実行時に要素のサイズを取得するには、Height と Width の代わりに、読み取り専用の [**ActualHeight**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.actualheight) プロパティと [**ActualWidth**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.actualwidth) プロパティを使います。
 
 **サイズの制約**
 
-UI で自動サイズ変更を使用する場合でも、要素のサイズに制約を設けることが必要になる可能性があります。 [  **MinWidth**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.frameworkelement.minwidth.aspx)/[**MaxWidth**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.frameworkelement.maxwidth.aspx) と [**MinHeight**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.frameworkelement.minheight.aspx)/[**MaxHeight**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.frameworkelement.maxheight.aspx) の各プロパティを設定することによって、柔軟なサイズ変更を許可しながら、要素のサイズを制約する値を指定できます。
+UI で自動サイズ変更を使用する場合でも、要素のサイズに制約を設けることが必要になる可能性があります。 [  **MinWidth**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.minwidth)/[**MaxWidth**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.maxwidth) と [**MinHeight**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.minheight)/[**MaxHeight**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.maxheight) の各プロパティを設定することによって、柔軟なサイズ変更を許可しながら、要素のサイズを制約する値を指定できます。
 
 また、Grid では、MinWidth/MaxWidth を列定義と共に使用でき、MinHeight/MaxHeight を行定義と共に使用できます。
 
 **配置**
 
-親コンテナー内の要素の配置方法を指定するには、[**HorizontalAlignment**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.frameworkelement.horizontalalignment.aspx) プロパティと [**VerticalAlignment**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.frameworkelement.verticalalignment.aspx) プロパティを使います。
+親コンテナー内の要素の配置方法を指定するには、[**HorizontalAlignment**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.horizontalalignment) プロパティと [**VerticalAlignment**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.verticalalignment) プロパティを使います。
 - **HorizontalAlignment** の値は、**Left**、**Center**、**Right**、**Stretch** です。
 - **VerticalAlignment** の値は、**Top**、**Center**、**Bottom**、**Stretch** です。
 
-**Stretch** 配置にすると、要素は、親コンテナーで提供されたスペース全体に配置されます。 Stretch は、両方の配置プロパティの既定値です。 ただし、[**Button**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.button.aspx) などの一部のコントロールでは、その既定のスタイルでこの値がオーバーライドされます。
+**Stretch** 配置にすると、要素は、親コンテナーで提供されたスペース全体に配置されます。 Stretch は、両方の配置プロパティの既定値です。 ただし、[**Button**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Button) などの一部のコントロールでは、その既定のスタイルでこの値がオーバーライドされます。
 子要素を持つことができるすべての要素で、HorizontalAlignment プロパティと VerticalAlignment プロパティの Stretch 値を一意に処理することができます。 たとえば、既定の Stretch 値を使用する要素が Grid に配置された場合、要素はその要素を含むセルいっぱいに拡大されます。 同じ要素が Canvas に配置された場合は、そのコンテンツに合わせてサイズが変更されます。 各パネルでの Stretch 値の処理方法について詳しくは、「[レイアウト パネル](layout-panels.md)」をご覧ください。
 
-詳しくは、「[配置、余白、およびパディング](alignment-margin-padding.md)」や、[**HorizontalAlignment**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.frameworkelement.horizontalalignment.aspx) と [**VerticalAlignment**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.frameworkelement.verticalalignment.aspx) のリファレンス ページをご覧ください。
+詳しくは、「[配置、余白、およびパディング](alignment-margin-padding.md)」や、[**HorizontalAlignment**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.horizontalalignment) と [**VerticalAlignment**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.verticalalignment) のリファレンス ページをご覧ください。
 
 **可視性**
 
-表示したり、設定、要素を非表示にその[**可視性**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.uielement.visibility.aspx)プロパティのいずれかを[**可視性**列挙](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.visibility.aspx)値。**表示される**または**折りたたまれている**します。 要素が Collapsed である場合、UI レイアウト内の領域は使用されません。
+表示したり、設定、要素を非表示にその[**可視性**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.visibility)プロパティのいずれかを[**可視性**列挙](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Visibility)値。**表示される**または**折りたたまれている**します。 要素が Collapsed である場合、UI レイアウト内の領域は使用されません。
 
 コードまたは表示状態で、要素の Visibility プロパティを変更できます。 要素の Visibility が変更されると、そのすべての子要素も変更されます。 1 つのパネルを表示して別のパネルを折りたたむことによって、UI のセクションを置き換えることができます。
 
@@ -99,11 +99,11 @@ UI で自動サイズ変更を使用する場合でも、要素のサイズに�
 
 ### <a name="style-resources"></a>Style リソース
 
-コントロールに対して各プロパティ値を個別に設定する必要はありません。 通常、プロパティ値を [**Style**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.style.aspx) リソースとしてグループ化し、Style をコントロールに適用する方が効率的です。 これは、特に、同じプロパティ値を多くのコントロールに適用する必要がある場合に当てはまります。 スタイルの使用について詳しくは、「[コントロールのスタイル](../controls-and-patterns/xaml-styles.md)」をご覧ください。
+コントロールに対して各プロパティ値を個別に設定する必要はありません。 通常、プロパティ値を [**Style**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Style) リソースとしてグループ化し、Style をコントロールに適用する方が効率的です。 これは、特に、同じプロパティ値を多くのコントロールに適用する必要がある場合に当てはまります。 スタイルの使用について詳しくは、「[コントロールのスタイル](../controls-and-patterns/xaml-styles.md)」をご覧ください。
 
 ### <a name="layout-panels"></a>レイアウト パネル
 
-ビジュアル オブジェクトを配置するには、パネルなどのコンテナー オブジェクトにビジュアル オブジェクトを配置する必要があります。 XAML フレームワークには、UI 要素を内部に配置できるコンテナーとしての役割を持つさまざまなパネル クラス ([**Canvas**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.canvas.aspx)、[**Grid**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.grid.aspx)、[**RelativePanel**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.relativepanel.aspx)、[**StackPanel**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.stackpanel.aspx) など) が用意されています。
+ビジュアル オブジェクトを配置するには、パネルなどのコンテナー オブジェクトにビジュアル オブジェクトを配置する必要があります。 XAML フレームワークには、UI 要素を内部に配置できるコンテナーとしての役割を持つさまざまなパネル クラス ([**Canvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Canvas)、[**Grid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid)、[**RelativePanel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RelativePanel)、[**StackPanel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.StackPanel) など) が用意されています。
 
 レイアウト パネルを選ぶ際に主に考慮が必要なのは、パネルでの子要素の配置とサイズです。 重複する子要素をお互いに重ねる方法を検討する必要があることもあります。
 
@@ -111,11 +111,11 @@ XAML フレームワークで提供されるパネル コントロールの主�
 
 パネル コントロール | 説明
 --------------|------------
-[**キャンバス**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.canvas.aspx) | **Canvas** は柔軟な UI をサポートしていません。子要素の配置とサイズに関するすべての側面を制御します。 通常、グラフィックスの作成などの特殊な場合や、大規模なアダプティブ UI の小さな静的領域を定義するために使用します。 コードまたは表示状態を使って、実行時に要素の位置を変更できます。<li>Canvas.Top 添付プロパティと Canvas.Left 添付プロパティを使って、要素を絶対的に配置します。</li><li>Canvas.ZIndex 添付プロパティを使って、重なりを明示的に指定することもできます。</li><li>HorizontalAlignment/VerticalAlignment の Stretch の値は無視されます。 要素のサイズが明示的に設定されていない場合は、そのコンテンツに合わせてサイズ変更されます。</li><li>パネルより大きい場合、子のコンテンツは視覚上クリップされません。 </li><li>子のコンテンツはパネルの境界によって制約されません。</li>
-[**グリッド**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.grid.aspx) | **Grid** は、子要素の柔軟なサイズ変更をサポートしています。 コードまたは表示状態を使って、要素の位置の変更や再配置を実行できます。<li>Grid.Row 添付プロパティと Grid.Column 添付プロパティを使って、要素は行と列に配置されます。</li><li>行や列をまたいで要素を表示するには、Grid.RowSpan 添付プロパティと Grid.ColumnSpan 添付プロパティを使います。</li><li>HorizontalAlignment/VerticalAlignment の Stretch の値は考慮されます。 要素のサイズを明示的に設定しないと、グリッド セルの利用可能な領域いっぱいに拡大されます。</li><li>パネルより大きい場合、子のコンテンツは視覚上クリップされます。</li><li>コンテンツのサイズはパネルの境界によって制約されるため、スクロール可能なコンテンツでは必要に応じてスクロール バーが表示されます。</li>
-[**RelativePanel**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.relativepanel.aspx) | <li>要素は、パネルの端または中央を基準として、および互いを基準として配置されます。</li><li>要素は、パネルの配置、兄弟の配置、兄弟の位置を制御するさまざまな添付プロパティを使用して配置されます。 </li><li>HorizontalAlignment/VerticalAlignment の Stretch 値は、配置の RelativePanel 添付プロパティが拡大の原因である場合 (要素がパネルの右端と左端の両方に整列される場合など) を除き、無視されます。 要素のサイズが明示的に設定されておらず、要素が拡大されていない場合、要素はそのコンテンツに合わせてサイズ変更されます。</li><li>パネルより大きい場合、子のコンテンツは視覚上クリップされます。</li><li>コンテンツのサイズはパネルの境界によって制約されるため、スクロール可能なコンテンツでは必要に応じてスクロール バーが表示されます。</li>
-[**StackPanel**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.stackpanel.aspx) |<li>要素は、水平方向または垂直方向に 1 列に並べて表示されます。</li><li>HorizontalAlignment/VerticalAlignment の Stretch 値は、Orientation プロパティとは逆の方向で考慮されます。 要素のサイズが明示的に設定されていない場合、利用可能な幅 (Orientation が Horizontal の場合は高さ) いっぱいに拡大されます。 要素は、Orientation プロパティで指定された方向に、そのコンテンツに合わせてサイズ変更されます。</li><li>パネルより大きい場合、子のコンテンツは視覚上クリップされます。</li><li>コンテンツのサイズは、Orientation プロパティで指定された方向では、パネルの境界によって制約されないため、スクロール可能なコンテンツはパネルの境界を越えて拡大され、スクロール バーは表示されません。 スクロール バーを表示するには、子のコンテンツの高さ (または幅) を明示的に制約する必要があります。</li>
-[**VariableSizedWrapGrid**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.variablesizedwrapgrid.aspx) |<li>要素は、複数行、複数列に配置され、MaximumRowsOrColumns 値に達すると新しい行または列に自動的に折り返して配置されます。</li><li>要素を行と列のどちらの形式で配置するかは、Orientation プロパティで指定します。</li><li>行や列をまたいで要素を表示するには、VariableSizedWrapGrid.RowSpan 添付プロパティと VariableSizedWrapGrid.ColumnSpan 添付プロパティを使います。</li><li>HorizontalAlignment/VerticalAlignment の Stretch の値は無視されます。 ItemHeight プロパティと ItemWidth プロパティを指定すると、要素のサイズが変更されます。 これらのプロパティが設定されていない場合、最初のセルの項目はそのコンテンツに合わせてサイズ変更され、その他のすべてのセルはこのサイズを継承します。</li><li>パネルより大きい場合、子のコンテンツは視覚上クリップされます。</li><li>コンテンツのサイズはパネルの境界によって制約されるため、スクロール可能なコンテンツでは必要に応じてスクロール バーが表示されます。</li>
+[**キャンバス**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Canvas) | **Canvas** は柔軟な UI をサポートしていません。子要素の配置とサイズに関するすべての側面を制御します。 通常、グラフィックスの作成などの特殊な場合や、大規模なアダプティブ UI の小さな静的領域を定義するために使用します。 コードまたは表示状態を使って、実行時に要素の位置を変更できます。<li>Canvas.Top 添付プロパティと Canvas.Left 添付プロパティを使って、要素を絶対的に配置します。</li><li>Canvas.ZIndex 添付プロパティを使って、重なりを明示的に指定することもできます。</li><li>HorizontalAlignment/VerticalAlignment の Stretch の値は無視されます。 要素のサイズが明示的に設定されていない場合は、そのコンテンツに合わせてサイズ変更されます。</li><li>パネルより大きい場合、子のコンテンツは視覚上クリップされません。 </li><li>子のコンテンツはパネルの境界によって制約されません。</li>
+[**グリッド**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid) | **Grid** は、子要素の柔軟なサイズ変更をサポートしています。 コードまたは表示状態を使って、要素の位置の変更や再配置を実行できます。<li>Grid.Row 添付プロパティと Grid.Column 添付プロパティを使って、要素は行と列に配置されます。</li><li>行や列をまたいで要素を表示するには、Grid.RowSpan 添付プロパティと Grid.ColumnSpan 添付プロパティを使います。</li><li>HorizontalAlignment/VerticalAlignment の Stretch の値は考慮されます。 要素のサイズを明示的に設定しないと、グリッド セルの利用可能な領域いっぱいに拡大されます。</li><li>パネルより大きい場合、子のコンテンツは視覚上クリップされます。</li><li>コンテンツのサイズはパネルの境界によって制約されるため、スクロール可能なコンテンツでは必要に応じてスクロール バーが表示されます。</li>
+[**RelativePanel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RelativePanel) | <li>要素は、パネルの端または中央を基準として、および互いを基準として配置されます。</li><li>要素は、パネルの配置、兄弟の配置、兄弟の位置を制御するさまざまな添付プロパティを使用して配置されます。 </li><li>HorizontalAlignment/VerticalAlignment の Stretch 値は、配置の RelativePanel 添付プロパティが拡大の原因である場合 (要素がパネルの右端と左端の両方に整列される場合など) を除き、無視されます。 要素のサイズが明示的に設定されておらず、要素が拡大されていない場合、要素はそのコンテンツに合わせてサイズ変更されます。</li><li>パネルより大きい場合、子のコンテンツは視覚上クリップされます。</li><li>コンテンツのサイズはパネルの境界によって制約されるため、スクロール可能なコンテンツでは必要に応じてスクロール バーが表示されます。</li>
+[**StackPanel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.StackPanel) |<li>要素は、水平方向または垂直方向に 1 列に並べて表示されます。</li><li>HorizontalAlignment/VerticalAlignment の Stretch 値は、Orientation プロパティとは逆の方向で考慮されます。 要素のサイズが明示的に設定されていない場合、利用可能な幅 (Orientation が Horizontal の場合は高さ) いっぱいに拡大されます。 要素は、Orientation プロパティで指定された方向に、そのコンテンツに合わせてサイズ変更されます。</li><li>パネルより大きい場合、子のコンテンツは視覚上クリップされます。</li><li>コンテンツのサイズは、Orientation プロパティで指定された方向では、パネルの境界によって制約されないため、スクロール可能なコンテンツはパネルの境界を越えて拡大され、スクロール バーは表示されません。 スクロール バーを表示するには、子のコンテンツの高さ (または幅) を明示的に制約する必要があります。</li>
+[**VariableSizedWrapGrid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.VariableSizedWrapGrid) |<li>要素は、複数行、複数列に配置され、MaximumRowsOrColumns 値に達すると新しい行または列に自動的に折り返して配置されます。</li><li>要素を行と列のどちらの形式で配置するかは、Orientation プロパティで指定します。</li><li>行や列をまたいで要素を表示するには、VariableSizedWrapGrid.RowSpan 添付プロパティと VariableSizedWrapGrid.ColumnSpan 添付プロパティを使います。</li><li>HorizontalAlignment/VerticalAlignment の Stretch の値は無視されます。 ItemHeight プロパティと ItemWidth プロパティを指定すると、要素のサイズが変更されます。 これらのプロパティが設定されていない場合、最初のセルの項目はそのコンテンツに合わせてサイズ変更され、その他のすべてのセルはこのサイズを継承します。</li><li>パネルより大きい場合、子のコンテンツは視覚上クリップされます。</li><li>コンテンツのサイズはパネルの境界によって制約されるため、スクロール可能なコンテンツでは必要に応じてスクロール バーが表示されます。</li>
 
 これらのパネルの例および詳細情報については、「[レイアウト パネル](layout-panels.md)」をご覧ください。 [レスポンシブな手法のサンプル](https://go.microsoft.com/fwlink/p/?LinkId=620024)に関するページもご覧ください。
 
@@ -126,13 +126,13 @@ XAML フレームワークで提供されるパネル コントロールの主�
 
 アプリ ウィンドウを一定量を超えて拡大/縮小するときに、レイアウト プロパティを変更して、UI のセクションの位置変更、サイズ変更、再配置、表示、置換を行うことが必要になる可能性があります。 UI のさまざまな表示状態を定義し、ウィンドウの幅や高さが指定したしきい値を超えたときに適用できます。 
 
-[  **AdaptiveTrigger**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.adaptivetrigger.aspx) を使うと、状態を適用するしきい値 ("ブレークポイント" とも呼ばれます) を簡単に設定できます。 [  **VisualState**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.visualstate.aspx) は、要素が特定の状態にあるときに、要素に適用されるプロパティ値を定義します。 指定された条件が満たされたときに適切な VisualState を適用する [**VisualStateManager**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.visualstatemanager.aspx) で表示状態をグループ化します。
+[  **AdaptiveTrigger**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.AdaptiveTrigger) を使うと、状態を適用するしきい値 ("ブレークポイント" とも呼ばれます) を簡単に設定できます。 [  **VisualState**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.VisualState) は、要素が特定の状態にあるときに、要素に適用されるプロパティ値を定義します。 指定された条件が満たされたときに適切な VisualState を適用する [**VisualStateManager**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.VisualStateManager) で表示状態をグループ化します。
 
 ### <a name="set-visual-states-in-code"></a>コードでの表示状態の設定
 
-コードで表示状態を適用するには、[**VisualStateManager.GoToState**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.visualstatemanager.gotostate.aspx) メソッドを呼び出します。 たとえば、アプリ ウィンドウが特定のサイズであるときに状態を適用するには、[**SizeChanged**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.window.sizechanged.aspx) イベントを処理し、**GoToState** を呼び出して適切な状態を適用します。
+コードで表示状態を適用するには、[**VisualStateManager.GoToState**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.visualstatemanager.gotostate) メソッドを呼び出します。 たとえば、アプリ ウィンドウが特定のサイズであるときに状態を適用するには、[**SizeChanged**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.window.sizechanged) イベントを処理し、**GoToState** を呼び出して適切な状態を適用します。
 
-ここでは、[**VisualStateGroup**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.visualstategroup.aspx) に 2 つの VisualState の定義が含まれています。 最初の `DefaultState` は空です。 これが適用される場合、XAML ページで定義されている値が適用されます。 2 番目の `WideState` は、[**SplitView**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.splitview.aspx) の [**DisplayMode**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.splitview.displaymode.aspx) プロパティを **Inline** に変更し、ウィンドウを開きます。 この状態は、ウィンドウの幅が 640 有効ピクセルより大きい場合に、SizeChanged イベント ハンドラーで適用されます。
+ここでは、[**VisualStateGroup**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.VisualStateGroup) に 2 つの VisualState の定義が含まれています。 最初の `DefaultState` は空です。 これが適用される場合、XAML ページで定義されている値が適用されます。 2 番目の `WideState` は、[**SplitView**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.SplitView) の [**DisplayMode**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.splitview.displaymode) プロパティを **Inline** に変更し、ウィンドウを開きます。 この状態は、ウィンドウの幅が 640 有効ピクセルより大きい場合に、SizeChanged イベント ハンドラーで適用されます。
 
 > [!NOTE]
 > 先に進む前に知っておくべきですが、アプリが実行されている特定のデバイスをアプリが検出する手段は、Windows では提供されていません。 アプリが実行されているデバイス ファミリー (モバイル、デスクトップなど)、効果的な解像度、およびアプリが利用できる画面領域の量 (アプリのウィンドウのサイズ) は伝えることができます。 [画面のサイズとブレークポイント](screen-sizes-and-breakpoints-for-responsive-design.md)の表示状態を定義することをお勧めします。
@@ -193,11 +193,11 @@ private void CurrentWindow_SizeChanged(object sender, Windows.UI.Core.WindowSize
 
 ### <a name="set-visual-states-in-xaml-markup"></a>XAML マークアップでの表示状態の設定
 
-Windows 10 より前のバージョンでは、VisualState の定義にプロパティ変更のための [**Storyboard**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.media.animation.storyboard.aspx) オブジェクトが必要であり、コードで **GoToState** を呼び出して状態を適用する必要がありました。 これは前の例に示されています。 この構文はまだ多くの例で使用されており、この構文を使用する既存のコードがある可能性もあります。
+Windows 10 より前のバージョンでは、VisualState の定義にプロパティ変更のための [**Storyboard**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.Storyboard) オブジェクトが必要であり、コードで **GoToState** を呼び出して状態を適用する必要がありました。 これは前の例に示されています。 この構文はまだ多くの例で使用されており、この構文を使用する既存のコードがある可能性もあります。
 
-Windows 10 以降では、ここで示す簡素化された [**Setter**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.setter.aspx) 構文を使うことができ、XAML マークアップで [**StateTrigger**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.statetrigger.aspx) を使って状態を適用できます。 状態トリガーを使って、アプリのイベントに応答して自動的に表示状態の変更をトリガーする単純な規則を作成します。
+Windows 10 以降では、ここで示す簡素化された [**Setter**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Setter) 構文を使うことができ、XAML マークアップで [**StateTrigger**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.StateTrigger) を使って状態を適用できます。 状態トリガーを使って、アプリのイベントに応答して自動的に表示状態の変更をトリガーする単純な規則を作成します。
 
-この例は前の例と同じですが、プロパティの変更を定義する Storyboard の代わりに、簡素化された **Setter** 構文を使用しています。 また、GoToState を呼び出す代わりに、組み込みの [**AdaptiveTrigger**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.adaptivetrigger.aspx) 状態トリガーを使って状態を適用しています。 状態トリガーを使う場合、空の `DefaultState` を定義する必要はありません。 状態トリガーの条件が満たされなくなったときには、既定の設定が自動的に再適用されます。
+この例は前の例と同じですが、プロパティの変更を定義する Storyboard の代わりに、簡素化された **Setter** 構文を使用しています。 また、GoToState を呼び出す代わりに、組み込みの [**AdaptiveTrigger**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.AdaptiveTrigger) 状態トリガーを使って状態を適用しています。 状態トリガーを使う場合、空の `DefaultState` を定義する必要はありません。 状態トリガーの条件が満たされなくなったときには、既定の設定が自動的に再適用されます。
 
 ```xaml
 <Page ...>
@@ -238,7 +238,7 @@ Windows 10 以降では、ここで示す簡素化された [**Setter**](https:/
 
 VisualState では、通常、コントロールのプロパティの値、つまりコントロールを含むパネルのいずれかの添付プロパティの値を設定します。 添付プロパティを設定するときは、添付プロパティ名をかっこで囲みます。
 
-この例では、`myTextBox` という名前の TextBox に対して、[**RelativePanel.AlignHorizontalCenterWithPanel**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.relativepanel.alignhorizontalcenterwithpanel.aspx) 添付プロパティを設定する方法を示しています。 最初の XAML では [**ObjectAnimationUsingKeyFrames**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.media.animation.objectanimationusingkeyframes.aspx) 構文を使用し、2 つ目の XAML では **Setter** 構文を使用しています。
+この例では、`myTextBox` という名前の TextBox に対して、[**RelativePanel.AlignHorizontalCenterWithPanel**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.relativepanel.alignhorizontalcenterwithpanelproperty) 添付プロパティを設定する方法を示しています。 最初の XAML では [**ObjectAnimationUsingKeyFrames**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.ObjectAnimationUsingKeyFrames) 構文を使用し、2 つ目の XAML では **Setter** 構文を使用しています。
 
 ```xaml
 <!-- Set an attached property using ObjectAnimationUsingKeyFrames. -->
@@ -254,7 +254,7 @@ VisualState では、通常、コントロールのプロパティの値、つ�
 
 ### <a name="custom-state-triggers"></a>カスタム状態トリガー
 
-[  **StateTrigger**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.statetrigger.aspx) クラスを拡張して、さまざまなシナリオに対するカスタム トリガーを作成できます。 たとえば、入力の種類に基づいてさまざまな状態をトリガーする StateTrigger を作成して、入力の種類がタッチである場合はコントロールの周囲の余白を増やすことができます。 また、アプリが実行されるデバイス ファミリに基づいてさまざまな状態を適用する StateTrigger を作成することもできます。 カスタム トリガーを作成し、それらを使用して単一の XAML ビュー内から最適化された UI エクスペリエンスを作成する方法の例については、[状態トリガーのサンプル](https://go.microsoft.com/fwlink/p/?LinkId=620025)に関するページをご覧ください。
+[  **StateTrigger**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.StateTrigger) クラスを拡張して、さまざまなシナリオに対するカスタム トリガーを作成できます。 たとえば、入力の種類に基づいてさまざまな状態をトリガーする StateTrigger を作成して、入力の種類がタッチである場合はコントロールの周囲の余白を増やすことができます。 また、アプリが実行されるデバイス ファミリに基づいてさまざまな状態を適用する StateTrigger を作成することもできます。 カスタム トリガーを作成し、それらを使用して単一の XAML ビュー内から最適化された UI エクスペリエンスを作成する方法の例については、[状態トリガーのサンプル](https://go.microsoft.com/fwlink/p/?LinkId=620025)に関するページをご覧ください。
 
 ### <a name="visual-states-and-styles"></a>表示状態とスタイル
 
@@ -342,7 +342,7 @@ VisualState では、通常、コントロールのプロパティの値、つ�
 4. ビューの名前を入力します。 ビューには、正しく名前を付ける必要があります。 命名方法について詳しくは、このセクションの後半をご覧ください。
 5. [追加] をクリックします。 ファイルがプロジェクトに追加されます。
 
-前の手順では、XAML ファイルのみを作成し、関連付けられた分離コード ファイルは作成していません。 代わりに、ファイル名やフォルダー名の一部である "DeviceName" 修飾子を使って、XAML ビューが既存の分離コード ファイルに関連付けられています。 この修飾子名は、アプリが現在実行されているデバイスのデバイス ファミリを表す文字列値 ("Desktop"、"Tablet"、およびその他のデバイス ファミリの名前) にマップすることができます (「[**ResourceContext.QualifierValues**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.applicationmodel.resources.core.resourcecontext.qualifiervalues.aspx)」をご覧ください)。
+前の手順では、XAML ファイルのみを作成し、関連付けられた分離コード ファイルは作成していません。 代わりに、ファイル名やフォルダー名の一部である "DeviceName" 修飾子を使って、XAML ビューが既存の分離コード ファイルに関連付けられています。 この修飾子名は、アプリが現在実行されているデバイスのデバイス ファミリを表す文字列値 ("Desktop"、"Tablet"、およびその他のデバイス ファミリの名前) にマップすることができます (「[**ResourceContext.QualifierValues**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.resources.core.resourcecontext.qualifiervalues)」をご覧ください)。
 
 ファイル名に修飾子を追加することや、修飾子名を持つフォルダーにファイルを追加することができます。
 
@@ -389,7 +389,7 @@ else
 }
 ```
 
-さまざまな条件に従って移動先のページを決定することもできます。 他の例については、[カスタマイズされた複数のビューのサンプル](https://go.microsoft.com/fwlink/p/?LinkId=620636)に関するページをご覧ください。このサンプルでは、[**GetIntegratedDisplaySize**](https://msdn.microsoft.com/library/windows/apps/xaml/dn904185.aspx) 関数を使って、統合ディスプレイの物理サイズを確認しています。
+さまざまな条件に従って移動先のページを決定することもできます。 他の例については、[カスタマイズされた複数のビューのサンプル](https://go.microsoft.com/fwlink/p/?LinkId=620636)に関するページをご覧ください。このサンプルでは、[**GetIntegratedDisplaySize**](https://docs.microsoft.com/windows/desktop/api/sysinfoapi/nf-sysinfoapi-getintegrateddisplaysize) 関数を使って、統合ディスプレイの物理サイズを確認しています。
 
 ## <a name="related-topics"></a>関連トピック
 - [チュートリアル: アダプティブ レイアウトを作成します。](../basics/xaml-basics-adaptive-layout.md)

@@ -6,18 +6,18 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, レンダリング フレームワーク, 変換, Direct3D 9, Direct3D 11
 ms.localizationpriority: medium
-ms.openlocfilehash: aba723a5ee2443664d6d640adc124b991ff0da7e
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 6629ba035a7fb0085e28f3fa033e58a1c1105ccf
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57608827"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66368024"
 ---
 # <a name="convert-the-rendering-framework"></a>レンダリング フレームワークの変換
 
 
 
-**要約**
+**概要**
 
 -   [パート 1: Direct3D の初期化 11](simple-port-from-direct3d-9-to-11-1-part-1--initializing-direct3d.md)
 -   パート 2:レンダリング フレームワークの変換
@@ -93,7 +93,7 @@ technique RenderSceneSimple
 }
 ```
 
-Direct3D 11 では、引き続き HLSL シェーダーを使うことができます。 各シェーダーは、それぞれの HLSL ファイルに配置して、Visual Studio で別々のファイルにコンパイルされるようにします。その後で、個々の Direct3D リソースとして読み込みます。 ターゲットをレベルを設定します[シェーダー モデル 4 レベルの 9\_1 (4/\_0\_レベル\_9\_1)](https://msdn.microsoft.com/library/windows/desktop/ff476876) DirectX 9.1 Gpu のこれらのシェーダーが書き込まれるためです。
+Direct3D 11 では、引き続き HLSL シェーダーを使うことができます。 各シェーダーは、それぞれの HLSL ファイルに配置して、Visual Studio で別々のファイルにコンパイルされるようにします。その後で、個々の Direct3D リソースとして読み込みます。 ターゲットをレベルを設定します[シェーダー モデル 4 レベルの 9\_1 (4/\_0\_レベル\_9\_1)](https://docs.microsoft.com/windows/desktop/direct3d11/overviews-direct3d-11-devices-downlevel-intro) DirectX 9.1 Gpu のこれらのシェーダーが書き込まれるためです。
 
 入力レイアウトを定義する際に、入力レイアウトが表す、頂点ごとのデータを格納するために使うデータ構造体がシステム メモリと GPU メモリで同じことを確認しました。 同じように、頂点シェーダーの出力がピクセル シェーダーへの入力として使われる構造体と一致する必要があります。 規則は C++ の関数間でデータを受け渡す場合と異なり、構造体の末尾の使わない変数は省略できます。 ただし、順序を並べ替えることはできず、データ構造体の真ん中のコンテンツをスキップすることもできません。
 
@@ -101,7 +101,7 @@ Direct3D 11 では、引き続き HLSL シェーダーを使うことができ�
 
  
 
-HLSL ファイルが古い構文 SV ではなく色などを示す-シェーダー セマンティクスを使用することは\_ターゲット。 その場合は、HLSL 互換モード (/Gec コンパイラ オプション) を有効にするか、シェーダー [セマンティクス](https://msdn.microsoft.com/library/windows/desktop/bb509647)を現行の構文に更新する必要があります。 この例の頂点シェーダーは現行の構文で更新されています。
+HLSL ファイルが古い構文 SV ではなく色などを示す-シェーダー セマンティクスを使用することは\_ターゲット。 その場合は、HLSL 互換モード (/Gec コンパイラ オプション) を有効にするか、シェーダー [セマンティクス](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-semantics)を現行の構文に更新する必要があります。 この例の頂点シェーダーは現行の構文で更新されています。
 
 ハードウェア変換の頂点シェーダーを次に示します。今回は、個別のファイルに定義しています。
 
@@ -185,7 +185,7 @@ PS_OUTPUT main(PS_INPUT In)
 ## <a name="compile-and-load-shaders"></a>シェーダーのコンパイルと読み込み
 
 
-Direct3D 9 ゲームでは、プログラム可能なパイプラインを実装する便利な方法として Effects ライブラリをよく使いました。 エフェクトは [**D3DXCreateEffectFromFile function**](https://msdn.microsoft.com/library/windows/desktop/bb172768) メソッドを使って実行時にコンパイルできます。
+Direct3D 9 ゲームでは、プログラム可能なパイプラインを実装する便利な方法として Effects ライブラリをよく使いました。 エフェクトは [**D3DXCreateEffectFromFile function**](https://docs.microsoft.com/windows/desktop/direct3d9/d3dxcreateeffectfromfile) メソッドを使って実行時にコンパイルできます。
 
 Direct3D 9 でのエフェクトの読み込み
 
@@ -234,7 +234,7 @@ m_d3dDevice->CreateVertexShader(
     );
 ```
 
-コンパイル済みのアプリ パッケージにシェーダーのバイトコードを含めるには、単純に Visual Studio プロジェクトに HLSL ファイルを追加します。 Visual Studio では、[エフェクト コンパイラ ツール](https://msdn.microsoft.com/library/windows/desktop/bb232919) (FXC) を使って、HLSL ファイルをコンパイル済みシェーダー オブジェクト (.CSO ファイル) にコンパイルし、それらをアプリ パッケージに含めます。
+コンパイル済みのアプリ パッケージにシェーダーのバイトコードを含めるには、単純に Visual Studio プロジェクトに HLSL ファイルを追加します。 Visual Studio では、[エフェクト コンパイラ ツール](https://docs.microsoft.com/windows/desktop/direct3dtools/fxc) (FXC) を使って、HLSL ファイルをコンパイル済みシェーダー オブジェクト (.CSO ファイル) にコンパイルし、それらをアプリ パッケージに含めます。
 
 > **注**   HLSL コンパイラの適切なターゲットの機能レベルを設定してください Visual Studio で、HLSL ソース ファイルを右クリックし、プロパティを選択して、変更、**シェーダー モデル**設定 **。HLSL コンパイラ -&gt;全般**します。 アプリで Direct3D シェーダー リソースを作成するときに、Direct3D ではこのプロパティとハードウェアの機能を照合します。
 
@@ -242,11 +242,11 @@ m_d3dDevice->CreateVertexShader(
 
 ![HLSL シェーダーのプロパティ](images/hlslshaderpropertiesmenu.png)![HLSL シェーダーの種類](images/hlslshadertypeproperties.png)
 
-ここは、Direct3D 9 の頂点ストリームの宣言に対応する入力レイアウトを作成するのに適した場所です。 頂点ごとのデータ構造体は、頂点シェーダーで使う構造体と一致する必要があります。Direct3D 11 では、入力レイアウトをより細かく制御できます。そのため、浮動小数点ベクトルの配列サイズとビット長を定義し、頂点シェーダーのセマンティクスを指定できます。 作成、 [ **D3D11\_入力\_要素\_DESC** ](https://msdn.microsoft.com/library/windows/desktop/ff476180)構造体し、Direct3D を通知するために、頂点ごとのデータのように使用します。 API では入力レイアウトを頂点シェーダー リソースに照らして検証するため、頂点シェーダーを読み込んで、入力レイアウトを定義するまで待ちます。 入力レイアウトに互換性がない場合は、Direct3D から例外がスローされます。
+ここは、Direct3D 9 の頂点ストリームの宣言に対応する入力レイアウトを作成するのに適した場所です。 頂点ごとのデータ構造体は、頂点シェーダーで使う構造体と一致する必要があります。Direct3D 11 では、入力レイアウトをより細かく制御できます。そのため、浮動小数点ベクトルの配列サイズとビット長を定義し、頂点シェーダーのセマンティクスを指定できます。 作成、 [ **D3D11\_入力\_要素\_DESC** ](https://docs.microsoft.com/windows/desktop/api/d3d11/ns-d3d11-d3d11_input_element_desc)構造体し、Direct3D を通知するために、頂点ごとのデータのように使用します。 API では入力レイアウトを頂点シェーダー リソースに照らして検証するため、頂点シェーダーを読み込んで、入力レイアウトを定義するまで待ちます。 入力レイアウトに互換性がない場合は、Direct3D から例外がスローされます。
 
-頂点ごとのデータは互換性のある型でシステム メモリに格納する必要があります。 DirectXMath データ型が役立つことができます。たとえば、DXGI\_形式\_R32G32B32\_に対応する FLOAT [ **XMFLOAT3**](https://msdn.microsoft.com/library/windows/desktop/ee419475)します。
+頂点ごとのデータは互換性のある型でシステム メモリに格納する必要があります。 DirectXMath データ型が役立つことができます。たとえば、DXGI\_形式\_R32G32B32\_に対応する FLOAT [ **XMFLOAT3**](https://docs.microsoft.com/windows/desktop/api/directxmath/ns-directxmath-xmfloat3)します。
 
-> **注**  定数バッファーが同時に 4 つの浮動小数点数に合わせて調整される固定入力レイアウトを使用します。 [**XMFLOAT4** ](https://msdn.microsoft.com/library/windows/desktop/ee419608) (とその派生物) は、定数バッファーのデータをお勧めします。
+> **注**  定数バッファーが同時に 4 つの浮動小数点数に合わせて調整される固定入力レイアウトを使用します。 [**XMFLOAT4** ](https://docs.microsoft.com/windows/desktop/api/directxmath/ns-directxmath-xmfloat4) (とその派生物) は、定数バッファーのデータをお勧めします。
 
  
 
@@ -483,7 +483,7 @@ DirectX 11 を使った画面へのフレームの表示
 m_swapChain->Present(1, 0);
 ```
 
-作成したレンダリング チェーンは、[**IFrameworkView::Run**](https://msdn.microsoft.com/library/windows/apps/hh700505) メソッドに実装したゲーム ループから呼び出されます。 これに示した[パート 3。ビューポートとゲームのループ](simple-port-from-direct3d-9-to-11-1-part-3--viewport-and-game-loop.md)します。
+作成したレンダリング チェーンは、[**IFrameworkView::Run**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.iframeworkview.run) メソッドに実装したゲーム ループから呼び出されます。 これに示した[パート 3。ビューポートとゲームのループ](simple-port-from-direct3d-9-to-11-1-part-3--viewport-and-game-loop.md)します。
 
  
 

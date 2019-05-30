@@ -3,15 +3,15 @@ ms.assetid: 54973C62-9669-4988-934E-9273FB0425FD
 title: デバイスを開発用に有効にする
 description: 開発およびデバッグ用に Windows 10 デバイスを構成します。
 keywords: 開発者用 Visual Studio での作業の開始, 開発者用ライセンス対応デバイス
-ms.date: 05/30/2018
+ms.date: 4/9/2019
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 90ff8e8c0d11e58d251e9c2f5bfb00f3b8aedf1a
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: f927d8bce1e59ba9a8ed9b0f3f08ce3575c6d7bd
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57618957"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66367022"
 ---
 # <a name="enable-your-device-for-development"></a>デバイスを開発用に有効にする
 
@@ -21,11 +21,11 @@ ms.locfileid: "57618957"
 
 コンピューターをゲーム、Web 閲覧、メール、Office アプリなどの日々の通常の用途に使用している場合は、開発者モードを有効にする*必要はなく*、また有効にしないことをお勧めします。 その場合は、このページの情報の残りの部分は、関連のない情報ですので、 元の作業にお戻りください。
 
-コンピューターで初めて Visual Studio を使用してソフトウェアを作成する場合は、開発用 PC とコードのテスト用デバイスの両方で、開発者モードを有効にする*必要*があります。 開発者モードが有効になっていない状態で UWP プロジェクトを開くと、**[開発者向け]** 設定ページが開くか、Visual Studio に次のダイアログ ボックスが表示されます。
+コンピューターで初めて Visual Studio を使用してソフトウェアを作成する場合は、開発用 PC とコードのテスト用デバイスの両方で、開発者モードを有効にする*必要*があります。 開発者モードが有効になっていない状態で UWP プロジェクトを開くと、 **[開発者向け]** 設定ページが開くか、Visual Studio に次のダイアログ ボックスが表示されます。
 
 ![Visual Studio で表示される、開発者モードを有効にするためのダイアログ](images/latestenabledialog.png)
 
-このダイアログが表示された場合は、**[開発者向け設定]** をクリックして **[開発者向け]**  設定ページを開きます。
+このダイアログが表示された場合は、 **[開発者向け設定]** をクリックして **[開発者向け]**  設定ページを開きます。
 
 > [!NOTE]
 > **[開発者向け]** ページにいつでも移動し、開発者モードの有効/無効を切り替えることができます。その場合には、タスク バーの Cortana 検索ボックスに「開発者向け」と入力するだけです。
@@ -35,7 +35,7 @@ ms.locfileid: "57618957"
 開発者モードを有効にするには、またはその他の設定にアクセスするには:
 
 1.  **[開発者向け]** 設定ダイアログ ボックスで、必要なアクセスのレベルを選択します。
-2.  選択した設定の免責事項を読み、**[はい]** をクリックして変更を受け入れます。
+2.  選択した設定の免責事項を読み、 **[はい]** をクリックして変更を受け入れます。
 
 > [!NOTE]
 > 開発者モードを有効にするには、管理者のアクセス権が必要です。 組織所有のデバイスの場合は、このオプションが無効になっていることもあります。
@@ -76,7 +76,7 @@ ms.locfileid: "57618957"
 開発者モードは、開発者用ライセンスに対する Windows 8.1 の要件に置き換わるものです。  サイドローディングだけでなく、開発者モードの設定でデバッグおよび追加の展開オプションを有効にできます。 デバイスを展開先にできるようにする SSH サービスの開始も含まれます。 このサービスを停止するためには、開発者モードを無効にしなければなりません。
 
 デスクトップで開発者モードを有効にすると、次のような機能のパッケージがインストールされます。
-- Windows Device Portal。 Device Portal が有効になり、ファイアウォール規則が構成されるのは、**[デバイス ポータルを有効にする]** オプションがオンの場合のみです。
+- Windows Device Portal。 Device Portal が有効になり、ファイアウォール規則が構成されるのは、 **[デバイス ポータルを有効にする]** オプションがオンの場合のみです。
 - アプリのリモート インストールを可能にする SSH サービスのファイアウォール規則がインストールされ、構成されます。 **[デバイスの検出]** を有効にすると、SSH サーバーが有効になります。
 
 
@@ -93,11 +93,11 @@ ms.locfileid: "57618957"
 Device Portal について詳しくは、「[Windows Device Portal の概要](../debug-test-perf/device-portal.md)」をご覧ください。
 
 デバイス固有のセットアップ手順については、以下をご覧ください。
-- [デスクトップ用のデバイス ポータル](https://msdn.microsoft.com/windows/uwp/debug-test-perf/device-portal-desktop)
+- [デスクトップ用のデバイス ポータル](https://docs.microsoft.com/windows/uwp/debug-test-perf/device-portal-desktop)
 - [HoloLens デバイス ポータル](https://developer.microsoft.com/windows/holographic/using_the_windows_device_portal)
 - [IoT のデバイス ポータル](https://developer.microsoft.com/windows/iot/docs/DevicePortal)
 - [モバイル デバイスのポータル](../debug-test-perf/device-portal-mobile.md)
-- [Xbox 用のデバイス ポータル](../debug-test-perf/device-portal-xbox.md)
+- [Xbox 用のデバイス ポータル](../xbox-apps/device-portal-xbox.md)
 
 開発者モードの有効化または Device Portal について問題が発生した場合には、「[既知の問題](https://social.msdn.microsoft.com/Forums/en-US/home?forum=Win10SDKToolsIssues&sort=relevancedesc&brandIgnore=True&searchTerm=%22device+portal%22)」フォーラムで問題の回避策を見つけるか、または「[開発者モード パッケージのインストール エラー](#failure-to-install-developer-mode-package)」で、開発者モード パッケージをブロック解除するための WSUS サポート技術情報の追加の情報をご覧ください。
 
@@ -125,7 +125,7 @@ Windows で使用される既存の SSH サーバーはまだプロトコルに�
 
 ### <a name="optimizations-for-windows-explorer-remote-desktop-and-powershell-desktop-only"></a>エクスプローラー、リモート デスクトップ、PowerShell の最適化 (デスクトップのみ)
 
- デスクトップ デバイス ファミリの場合、**[開発者向け]** 設定ページには、開発タスク用 PC を最適化するために使用できる設定へのショートカットが備わっています。 それぞれの設定で、チェック ボックスを選択して **[適用]** をクリックするか、**[設定の表示]** リンクをクリックして対象オプションの設定ページを開くことができます。
+ デスクトップ デバイス ファミリの場合、 **[開発者向け]** 設定ページには、開発タスク用 PC を最適化するために使用できる設定へのショートカットが備わっています。 それぞれの設定で、チェック ボックスを選択して **[適用]** をクリックするか、 **[設定の表示]** リンクをクリックして対象オプションの設定ページを開くことができます。
 
 
 ## <a name="notes"></a>メモ
@@ -133,7 +133,7 @@ Windows で使用される既存の SSH サーバーはまだプロトコルに�
 
 Windows 10 PC から Windows 10 デバイスへのアプリの展開に使用できるツールはいくつかあります。 デバイスは両方ともワイヤード (有線) またはワイヤレスでネットワークの同じサブネットに接続されているか、または 2 台のデバイスが USB で接続されている必要があります。 どちらの方法を使用しても、アプリ パッケージ (.appx/.appxbundle) のみがインストールされます。証明書はインストールされません。
 
--   Windows 10 アプリケーション展開 (WinAppDeployCmd) ツールを使います。 詳しくは、[WinAppDeployCmd ツール](https://msdn.microsoft.com/library/windows/apps/mt203806.aspx)に関するページをご覧ください。
+-   Windows 10 アプリケーション展開 (WinAppDeployCmd) ツールを使います。 詳しくは、[WinAppDeployCmd ツール](https://docs.microsoft.com/previous-versions/windows/apps/mt203806(v=vs.140))に関するページをご覧ください。
 -   [デバイス ポータル](../debug-test-perf/device-portal.md)を使用して、ブラウザーから、Windows 10 バージョン 1511 以降を実行しているモバイル デバイスに展開できます。 Device Portal の **[アプリ](../debug-test-perf/device-portal.md#apps-manager)** ページを使用して、アプリ パッケージ (.appx) をアップロードしてデバイスにインストールします。
 
 ## <a name="failure-to-install-developer-mode-package"></a>開発者モード パッケージのインストール エラー
@@ -154,7 +154,7 @@ Windows 10 PC から Windows 10 デバイスへのアプリの展開に使用で
 
 1. お使いのコンピューターがインターネットに接続されていることを確認します。
 2. ドメインに参加しているコンピューターの場合は、ネットワーク管理者に問い合わせます。 開発者モード パッケージは、すべてのオンデマンド機能と同様に、既定では WSUS でブロックされています。
-2.1. 開発者モード パッケージが現在と以前のリリースでのブロックを解除するには WSUS で次のサポート技術情報を許可する必要があります。4016509、3180030、3197985  
+2.1. 開発者モード パッケージが現在と以前のリリースでのブロックを解除するには WSUS で次のサポート技術情報を許可する必要があります。4016509, 3180030, 3197985  
 3. [設定] > [更新とセキュリティ] > [Windows Update] で Windows の更新プログラムをチェックします。
 4. [設定] > [システム] > [アプリと機能] > [オプション機能を管理する] に、Windows 開発者モード パッケージが存在することを確認します。 ない場合は、Windows はコンピューターの適切なパッケージを検出できません。
 
@@ -201,13 +201,13 @@ Windows 10 Home をお持ちでない場合は、gpedit.msc を使って、グ�
 1.  **regedit** を実行します。
 2.  サイドローディングを有効にするには、この DWORD の値を 1 に設定します。
 
-    -   **HKLM\\ソフトウェア\\Microsoft\\Windows\\CurrentVersion\\AppModelUnlock\\AllowAllTrustedApps**
+    -   **HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\AppModelUnlock\\AllowAllTrustedApps**
 
     - または -
 
     開発者モードを有効にするには、この DWORD の値を 1 に設定します。
 
-    -   **HKLM\\ソフトウェア\\Microsoft\\Windows\\CurrentVersion\\AppModelUnlock\\AllowDevelopmentWithoutDevLicense**
+    -   **HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\AppModelUnlock\\AllowDevelopmentWithoutDevLicense**
 
 **PowerShell を使用して、デバイスを有効にするには**
 

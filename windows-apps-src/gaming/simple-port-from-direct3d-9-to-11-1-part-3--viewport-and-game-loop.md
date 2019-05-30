@@ -6,38 +6,38 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, 移植, ゲーム ループ, Direct3D 9, DirectX 11
 ms.localizationpriority: medium
-ms.openlocfilehash: 2087959bc29d2b2b02cdc9a2f373a8b62ea8c25a
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: bd6a17b5e1684fbee21965158295dba123737bd6
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57627987"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66367912"
 ---
 # <a name="port-the-game-loop"></a>ゲーム ループの移植
 
 
 
-**要約**
+**概要**
 
 -   [パート 1: Direct3D の初期化 11](simple-port-from-direct3d-9-to-11-1-part-1--initializing-direct3d.md)
 -   [パート 2: レンダリングのフレームワークを変換します。](simple-port-from-direct3d-9-to-11-1-part-2--rendering.md)
 -   パート 3:ゲーム ループの移植
 
 
-[  **IFrameworkView**](https://msdn.microsoft.com/library/windows/apps/hh700478) を作成して、全画面表示の [**CoreWindow**](https://msdn.microsoft.com/library/windows/apps/br208225) を制御する方法など、ユニバーサル Windows プラットフォーム (UWP) ゲームのウィンドウを実装する方法とゲーム ループを移植する方法について説明します。 「[チュートリアル: DirectX 11 とユニバーサル Windows プラットフォーム (UWP) への簡単な Direct3D 9 アプリの移植](walkthrough--simple-port-from-direct3d-9-to-11-1.md)」のパート 3 です。
+[  **IFrameworkView**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Core.IFrameworkView) を作成して、全画面表示の [**CoreWindow**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreWindow) を制御する方法など、ユニバーサル Windows プラットフォーム (UWP) ゲームのウィンドウを実装する方法とゲーム ループを移植する方法について説明します。 「[チュートリアル: DirectX 11 とユニバーサル Windows プラットフォーム (UWP) への簡単な Direct3D 9 アプリの移植](walkthrough--simple-port-from-direct3d-9-to-11-1.md)」のパート 3 です。
 
 ## <a name="create-a-window"></a>ウィンドウの作成
 
 
 Direct3D 9 のビューポートを使ってデスクトップ ウィンドウを設定するためには、デスクトップ アプリ用の従来のウィンドウ フレームワークを実装する必要がありました。 また、HWND の作成、ウィンドウ サイズの設定、ウィンドウ処理コールバックの提供、ウィンドウの表示などを実行する必要もありました。
 
-UWP 環境には、はるかに簡単なシステムが用意されています。 DirectX を使った Microsoft Store ゲームでは、従来のウィンドウを設定する代わりに、[**IFrameworkView**](https://msdn.microsoft.com/library/windows/apps/hh700478) を実装します。 このインターフェイスは、アプリ コンテナー内の [**CoreWindow**](https://msdn.microsoft.com/library/windows/apps/br208225) で直接 DirectX アプリやゲームを実行するために存在します。
+UWP 環境には、はるかに簡単なシステムが用意されています。 DirectX を使った Microsoft Store ゲームでは、従来のウィンドウを設定する代わりに、[**IFrameworkView**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Core.IFrameworkView) を実装します。 このインターフェイスは、アプリ コンテナー内の [**CoreWindow**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreWindow) で直接 DirectX アプリやゲームを実行するために存在します。
 
-> **注**   Windows がソース アプリケーション オブジェクトなどのリソースへのマネージ ポインターを提供し、 [ **CoreWindow**](https://msdn.microsoft.com/library/windows/apps/br208225)します。 参照してください **[オブジェクト演算子 (^) へのハンドル]**https://msdn.microsoft.com/library/windows/apps/yk97tc08.aspxします。
+> **注**   Windows がソース アプリケーション オブジェクトなどのリソースへのマネージ ポインターを提供し、 [ **CoreWindow**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreWindow)します。 参照してください **[オブジェクト演算子 (^) へのハンドル]** https://msdn.microsoft.com/library/windows/apps/yk97tc08.aspxします。
 
  
 
-"Main"クラスから継承する必要は[ **IFrameworkView** ](https://msdn.microsoft.com/library/windows/apps/hh700478) 、5 つの実装と**IFrameworkView**メソッド。[**初期化**](https://msdn.microsoft.com/library/windows/apps/hh700495)、 [ **SetWindow**](https://msdn.microsoft.com/library/windows/apps/hh700509)、 [**ロード**](https://msdn.microsoft.com/library/windows/apps/hh700501)、 [ **の実行**](https://msdn.microsoft.com/library/windows/apps/hh700505)、および[**初期化**](https://msdn.microsoft.com/library/windows/apps/hh700523)します。 (実質的に) ゲームが存在する場所となる **IFrameworkView** の作成に加えて、**IFrameworkView** のインスタンスを作成するファクトリ クラスを実装する必要があります。 ゲームにはこれまでどおり **main()** と呼ばれるメソッドを含む実行可能ファイルが存在しますが、main で実行できる操作は、ファクトリを使って、**IFrameworkView** のインスタンスを作成することだけです。
+"Main"クラスから継承する必要は[ **IFrameworkView** ](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Core.IFrameworkView) 、5 つの実装と**IFrameworkView**メソッド。[**初期化**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.iframeworkview.initialize)、 [ **SetWindow**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.iframeworkview.setwindow)、 [**ロード**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.iframeworkview.load)、 [ **の実行**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.iframeworkview.run)、および[**初期化**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.iframeworkview.uninitialize)します。 (実質的に) ゲームが存在する場所となる **IFrameworkView** の作成に加えて、**IFrameworkView** のインスタンスを作成するファクトリ クラスを実装する必要があります。 ゲームにはこれまでどおり **main()** と呼ばれるメソッドを含む実行可能ファイルが存在しますが、main で実行できる操作は、ファクトリを使って、**IFrameworkView** のインスタンスを作成することだけです。
 
 main 関数
 
@@ -103,9 +103,9 @@ while(WM_QUIT != msg.message)
 
 このゲーム ループは、UWP バージョンのゲームと似ていますが、それよりも簡単です。
 
-このゲームは [**IFrameworkView**](https://msdn.microsoft.com/library/windows/apps/hh700478) クラス内で機能するため、ゲーム ループは (**main()** ではなく) [**IFrameworkView::Run**](https://msdn.microsoft.com/library/windows/apps/hh700505) メソッドで実行されます。
+このゲームは [**IFrameworkView**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Core.IFrameworkView) クラス内で機能するため、ゲーム ループは (**main()** ではなく) [**IFrameworkView::Run**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.iframeworkview.run) メソッドで実行されます。
 
-メッセージ処理フレームワークを実装し、[**PeekMessage**](https://msdn.microsoft.com/library/windows/desktop/ms644943) を呼び出す代わりに、アプリ ウィンドウの [**CoreDispatcher**](https://msdn.microsoft.com/library/windows/apps/br208211) に組み込まれている [**ProcessEvents**](https://msdn.microsoft.com/library/windows/apps/br208215) メソッドを呼び出すことができます。 ゲーム ループで分岐し、メッセージを処理する必要はありません。**ProcessEvents** を呼び出し、次に進むだけです。
+メッセージ処理フレームワークを実装し、[**PeekMessage**](https://docs.microsoft.com/windows/desktop/api/winuser/nf-winuser-peekmessagea) を呼び出す代わりに、アプリ ウィンドウの [**CoreDispatcher**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreDispatcher) に組み込まれている [**ProcessEvents**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.processevents) メソッドを呼び出すことができます。 ゲーム ループで分岐し、メッセージを処理する必要はありません。**ProcessEvents** を呼び出し、次に進むだけです。
 
 Direct3D 11 Microsoft Store ゲームのゲーム ループ
 

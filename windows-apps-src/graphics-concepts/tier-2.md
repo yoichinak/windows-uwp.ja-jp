@@ -7,12 +7,12 @@ keywords:
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 6f9f9a69c0e30459929d1e31084ea88b3f7ebbd0
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: c48b02de34bd37acced8ef65859708f31fd78ca2
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57612887"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66370859"
 ---
 # <a name="tier-2"></a>階層 2
 
@@ -42,7 +42,7 @@ ms.locfileid: "57612887"
 
 **NULL** のタイルと **NULL** でないタイルをまたぐフットプリントを含むテクスチャ フィルタリングでは、**NULL** タイル上のテクセルの場合に全体的なフィルター処理に 0 が送られます (欠落した形式コンポーネントの既定値と共に)。 一部の初期のハードウェアはこの要件を満たしていないため、いずれかのテクセル (0 以外の重み付き) が **NULL** タイルにかかる場合、完全なフィルター処理の結果に対して 0 を返します (欠落した形式コンポーネントの既定値と共に)。 その他のハードウェアには、すべての (0 以外の重み付きの) テクセルをフィルター処理に含めるために要件の欠落は許されません。
 
-**NULL** テクセルにアクセスすると、テクスチャの読み取りが false を返すように、状態のフィードバックに [**CheckAccessFullyMapped**](https://msdn.microsoft.com/library/windows/desktop/dn292083) 操作が行われます。 これは、テクスチャへのアクセスの結果で書き込みがシェーダーでどのようにマスクされるかや、テクスチャ形式に含まれるコンポーネントの数には関係なく行われます (これらの組み合わせによって、テクスチャへのアクセスが必要ないことがわかる場合があります)。
+**NULL** テクセルにアクセスすると、テクスチャの読み取りが false を返すように、状態のフィードバックに [**CheckAccessFullyMapped**](https://docs.microsoft.com/windows/desktop/direct3dhlsl/checkaccessfullymapped) 操作が行われます。 これは、テクスチャへのアクセスの結果で書き込みがシェーダーでどのようにマスクされるかや、テクスチャ形式に含まれるコンポーネントの数には関係なく行われます (これらの組み合わせによって、テクスチャへのアクセスが必要ないことがわかる場合があります)。
 
 ## <a name="span-idalignmentconstraintsspanspan-idalignmentconstraintsspanspan-idalignmentconstraintsspanalignment-constraints"></a><span id="Alignment_constraints"></span><span id="alignment_constraints"></span><span id="ALIGNMENT_CONSTRAINTS"></span>配置の制約
 

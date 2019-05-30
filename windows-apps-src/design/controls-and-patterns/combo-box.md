@@ -10,12 +10,12 @@ pm-contact: stmoy
 design-contact: ''
 doc-status: Draft
 ms.localizationpriority: medium
-ms.openlocfilehash: 21a6c698fa0e07587e2c25ae827dc6654a8ced9d
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 297b907191dfa07084e5e4ada0e3468733e47090
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57618627"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66363129"
 ---
 # <a name="combo-box"></a>コンボ ボックス
 
@@ -305,6 +305,6 @@ bool IsValid(string Text)
 - [テキスト コントロール](text-controls.md)
 - [スペル チェック](text-controls.md)
 - [検索](search.md)
-- [TextBox クラス](https://msdn.microsoft.com/library/windows/apps/br209683)
-- [Windows.UI.Xaml.Controls PasswordBox クラス](https://msdn.microsoft.com/library/windows/apps/br227519)
-- [String.Length プロパティ](https://msdn.microsoft.com/library/system.string.length.aspx)
+- [TextBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox)
+- [Windows.UI.Xaml.Controls PasswordBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.PasswordBox)
+- [String.Length プロパティ](https://docs.microsoft.com/dotnet/api/system.string.length?redirectedfrom=MSDN#System_String_Length)

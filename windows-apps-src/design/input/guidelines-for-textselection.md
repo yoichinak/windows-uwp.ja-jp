@@ -8,19 +8,19 @@ keywords: キーボード, テキスト, 入力, ユーザーの操作
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 9679e6e658e7fa1eb50b41331e7e59ec2115fc14
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: fc227904e57577a30eb2d171a060fb69d39b71f0
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57612507"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66363497"
 ---
 # <a name="selecting-text-and-images"></a>テキストと画像の選択
 
 
 この記事では、テキスト、画像、コントロールの選択と操作について説明し、アプリでこれらのメカニズムを使うときに考慮する必要があるユーザー エクスペリエンスのガイドラインを示します。
 
-> **重要な API**:[**Windows.UI.Xaml.Input**](https://msdn.microsoft.com/library/windows/apps/br227994)、 [ **Windows.UI.Input**](https://msdn.microsoft.com/library/windows/apps/br242084)
+> **重要な API**:[**Windows.UI.Xaml.Input**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input)、 [ **Windows.UI.Input**](https://docs.microsoft.com/uwp/api/Windows.UI.Input)
  
 
 
@@ -109,7 +109,7 @@ UWP アプリでカスタム オブジェクト操作を実装する場合は、
 
 
 **開発者向け**
-* [カスタム ユーザー操作](https://msdn.microsoft.com/library/windows/apps/mt185599)
+* [カスタム ユーザー操作](https://developer.microsoft.com/windows/design/inputs-devices)
 
 **サンプル**
 * [基本的な入力サンプル](https://go.microsoft.com/fwlink/p/?LinkID=620302)

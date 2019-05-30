@@ -5,20 +5,20 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 3ae656b473a4dd5999588057b0ec970645703eec
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 35488417497ac157969ff2641fbeaa0d4bb02591
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57635087"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66370118"
 ---
 # <a name="bluetooth-gatt-client"></a>Bluetooth GATT クライアント
 
 
 **重要な API**
 
--   [**Windows.Devices.Bluetooth**](https://msdn.microsoft.com/library/windows/apps/Dn263413)
--   [**Windows.Devices.Bluetooth.GenericAttributeProfile**](https://msdn.microsoft.com/library/windows/apps/Dn297685)
+-   [**Windows.Devices.Bluetooth**](https://docs.microsoft.com/uwp/api/Windows.Devices.Bluetooth)
+-   [**Windows.Devices.Bluetooth.GenericAttributeProfile**](https://docs.microsoft.com/uwp/api/Windows.Devices.Bluetooth.GenericAttributeProfile)
 
 この記事では、ユニバーサル Windows プラットフォーム (UWP) アプリ用の Bluetooth 汎用属性 (GATT) クライアント API の使用方法を、一般的な GATT クライアント タスクのサンプル コードを使って示します。
 - 近くのデバイスの照会
@@ -28,7 +28,7 @@ ms.locfileid: "57635087"
 - 特性値が変化したときの通知の受信登録
 
 ## <a name="overview"></a>概要
-開発者は、[**Windows.Devices.Bluetooth.GenericAttributeProfile**](https://msdn.microsoft.com/library/windows/apps/Dn297685) 名前空間の API を使って Bluetooth LE デバイスにアクセスすることができます。 Bluetooth LE デバイスは、その機能をコレクションを通じて公開します。コレクションには次の情報が含まれています。
+開発者は、[**Windows.Devices.Bluetooth.GenericAttributeProfile**](https://docs.microsoft.com/uwp/api/Windows.Devices.Bluetooth.GenericAttributeProfile) 名前空間の API を使って Bluetooth LE デバイスにアクセスすることができます。 Bluetooth LE デバイスは、その機能をコレクションを通じて公開します。コレクションには次の情報が含まれています。
 
 -   サービス
 -   特性
@@ -51,9 +51,9 @@ Bluetooth SIG は、利便性向上のため、[一連のプロファイル](htt
 - Windows.Devices.Enumeration の DeviceWatcher
 - Windows.Devices.Bluetooth.Advertisement の AdvertisementWatcher
 
-2 つ目のメソッドについては、[アドバタイズ](ble-beacon.md)に関するドキュメントで詳しく説明されているため、ここでは簡単に説明します。基本的な考え方は、特定の[アドバタイズ フィルター](https://msdn.microsoft.com/en-us/library/windows/apps/windows.devices.bluetooth.advertisement.bluetoothleadvertisementwatcher.advertisementfilter.aspx)の条件を満たす、近くにあるデバイスの Bluetooth アドレスを検出するということです。 アドレスを検出したら、[BluetoothLEDevice.FromBluetoothAddressAsync](https://msdn.microsoft.com/en-us/library/windows/apps/mt608819.aspx) を呼び出して、デバイスへの参照を取得します。 
+2 つ目のメソッドについては、[アドバタイズ](ble-beacon.md)に関するドキュメントで詳しく説明されているため、ここでは簡単に説明します。基本的な考え方は、特定の[アドバタイズ フィルター](https://docs.microsoft.com/uwp/api/windows.devices.bluetooth.advertisement.bluetoothleadvertisementwatcher.advertisementfilter)の条件を満たす、近くにあるデバイスの Bluetooth アドレスを検出するということです。 アドレスを検出したら、[BluetoothLEDevice.FromBluetoothAddressAsync](https://docs.microsoft.com/uwp/api/windows.devices.bluetooth.bluetoothledevice.frombluetoothaddressasync) を呼び出して、デバイスへの参照を取得します。 
 
-DeviceWatcher メソッドの説明に戻ります。 Bluetooth LE デバイスは、Windows の他のデバイスと同じように[列挙 API](https://msdn.microsoft.com/library/windows/apps/BR225459) を使って照会できます。 [DeviceWatcher](https://msdn.microsoft.com/en-us/library/windows/apps/windows.devices.enumeration.devicewatcher) クラスを使用して、検索するデバイスを指定するクエリ文字列を渡します。 
+DeviceWatcher メソッドの説明に戻ります。 Bluetooth LE デバイスは、Windows の他のデバイスと同じように[列挙 API](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration) を使って照会できます。 [DeviceWatcher](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.devicewatcher) クラスを使用して、検索するデバイスを指定するクエリ文字列を渡します。 
 
 ```csharp
 // Query for extra properties you want returned
@@ -78,10 +78,10 @@ deviceWatcher.Stopped += DeviceWatcher_Stopped;
 // Start the watcher.
 deviceWatcher.Start();
 ```
-DeviceWatcher を開始すると、対象のデバイスの [Added](https://msdn.microsoft.com/en-us/library/windows/apps/windows.devices.enumeration.devicewatcher.added) イベントのハンドラーで、クエリを満たすデバイスごとに [DeviceInformation](https://msdn.microsoft.com/library/windows/apps/br225393) を受信します。 DeviceWatcher について詳しくは、[Github](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/DeviceEnumerationAndPairing) にある完全なサンプルをご覧ください。 
+DeviceWatcher を開始すると、対象のデバイスの [Added](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.devicewatcher.added) イベントのハンドラーで、クエリを満たすデバイスごとに [DeviceInformation](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceInformation) を受信します。 DeviceWatcher について詳しくは、[Github](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/DeviceEnumerationAndPairing) にある完全なサンプルをご覧ください。 
 
 ## <a name="connecting-to-the-device"></a>デバイスへの接続
-目的のデバイスが検出されたら、[DeviceInformation.Id](https://msdn.microsoft.com/en-us/library/windows/apps/windows.devices.enumeration.deviceinformation.id) を使用して、対象のデバイスの Bluetooth LE デバイス オブジェクトを取得します。 
+目的のデバイスが検出されたら、[DeviceInformation.Id](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformation.id) を使用して、対象のデバイスの Bluetooth LE デバイス オブジェクトを取得します。 
 
 ```csharp
 async void ConnectDevice(DeviceInformation deviceInfo)
@@ -168,7 +168,7 @@ if (result.Status == GattCommunicationStatus.Success)
     // Successfully wrote to device
 }
 ```
-> **ヒント**:使用してに慣れます[DataReader](https://msdn.microsoft.com/en-us/library/windows/apps/windows.storage.streams.datareader.aspx)と[datawriter の各](https://msdn.microsoft.com/en-us/library/windows/apps/windows.storage.streams.datawriter.aspx)します。 多くの Bluetooth API から取得した未加工バッファーを操作するときは、これらの機能が不可欠です。 
+> **ヒント**:使用してに慣れます[DataReader](https://docs.microsoft.com/uwp/api/windows.storage.streams.datareader)と[datawriter の各](https://docs.microsoft.com/uwp/api/windows.storage.streams.datawriter)します。 多くの Bluetooth API から取得した未加工バッファーを操作するときは、これらの機能が不可欠です。 
 ## <a name="subscribing-for-notifications"></a>通知の受信登録
 
 特性が Indicate または Notify をサポートしているかどうかを確認します (確認するには特性のプロパティを調べます)。 

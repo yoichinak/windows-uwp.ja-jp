@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, フィードバック Hub, 起動
 ms.localizationpriority: medium
-ms.openlocfilehash: bfce2ed245a3bf4e9b1c8b1a70c8de905d7034a3
-ms.sourcegitcommit: 6a7dd4da2fc31ced7d1cdc6f7cf79c2e55dc5833
+ms.openlocfilehash: 4190c8af5c8cb7db6b80b1149dff631a8454015b
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58334801"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66371076"
 ---
 # <a name="launch-feedback-hub-from-your-app"></a>アプリからのフィードバック Hub の起動
 
@@ -20,7 +20,7 @@ ms.locfileid: "58334801"
 アプリからフィードバック Hub を起動するには、[Microsoft Store Services SDK](https://aka.ms/store-em-sdk) が提供する API を使用します。 この API を使用して、設計ガイドラインに準拠したアプリの UI 要素からフィードバック Hub を起動することをお勧めします。
 
 > [!NOTE]
-> フィードバック Hub は、デスクトップとモバイルの[デバイス ファミリ](https://msdn.microsoft.com/windows/uwp/get-started/universal-application-platform-guide#device-families)に基づく Windows 10 OS の バージョン 10.0.14271 またはそれ以降を実行しているデバイスのみで利用できます。 フィードバック Hub がユーザーのデバイスで利用できる場合にのみ、アプリにフィードバック コントロールを表示することをお勧めします。 このトピックのコードは、これを実行する方法を示しています。
+> フィードバック Hub は、デスクトップとモバイルの[デバイス ファミリ](https://docs.microsoft.com/windows/uwp/get-started/universal-application-platform-guide)に基づく Windows 10 OS の バージョン 10.0.14271 またはそれ以降を実行しているデバイスのみで利用できます。 フィードバック Hub がユーザーのデバイスで利用できる場合にのみ、アプリにフィードバック コントロールを表示することをお勧めします。 このトピックのコードは、これを実行する方法を示しています。
 
 ## <a name="how-to-launch-feedback-hub-from-your-app"></a>アプリからフィードバック Hub を起動する方法
 
@@ -28,9 +28,9 @@ ms.locfileid: "58334801"
 
 1. [Microsoft Store Services SDK](microsoft-store-services-sdk.md#install-the-sdk) をインストールします。
 2. Visual Studio でプロジェクトを開きます。
-3. ソリューション エクスプローラーで、プロジェクトの **[参照設定]** ノードを右クリックし、**[参照の追加]** をクリックします。
-4. **[参照マネージャー]** で、**[ユニバーサル Windows]** を展開し、**[拡張機能]** をクリックします。
-5. SDK の一覧で、**[Microsoft Engagement Framework]** の横にあるチェック ボックスをオンにして、**[OK]** をクリックします。
+3. ソリューション エクスプローラーで、プロジェクトの **[参照設定]** ノードを右クリックし、 **[参照の追加]** をクリックします。
+4. **[参照マネージャー]** で、 **[ユニバーサル Windows]** を展開し、 **[拡張機能]** をクリックします。
+5. SDK の一覧で、 **[Microsoft Engagement Framework]** の横にあるチェック ボックスをオンにして、 **[OK]** をクリックします。
 6. プロジェクトで、フィードバック Hub を起動するために、ユーザーに表示するボタンなどのコントロールを追加します。 コントロールを次のように構成することをお勧めします。
   * コントロールに表示するコンテンツのフォントを **Segoe MDL2 Assets** に設定します。
   * コントロールのテキストを 16 進数の Unicode 文字コード E939 に設定します。 これは、**Segoe MDL2 アセット** フォントで推奨されるフィードバック アイコンの文字コードです。
@@ -44,9 +44,9 @@ ms.locfileid: "58334801"
     <Button x:Name="feedbackButton" FontFamily="Segoe MDL2 Assets" Content="&#xE939;" HorizontalAlignment="Left" Margin="138,352,0,0" VerticalAlignment="Top" Visibility="Collapsed"  Click="feedbackButton_Click"/>
     ```
 
-7. フィードバック コントロールをホストするアプリのページの初期化コードで、[StoreServicesFeedbackLauncher](https://docs.microsoft.com/uwp/api/microsoft.services.store.engagement.storeservicesfeedbacklauncher) クラスの [IsSupported](https://docs.microsoft.com/uwp/api/microsoft.services.store.engagement.storeservicesfeedbacklauncher.issupported) 静的メソッドを使用して、フィードバック Hub がユーザーのデバイスで利用できるかどうかを指定します。 フィードバック Hub は、デスクトップとモバイルの[デバイス ファミリ](https://msdn.microsoft.com/windows/uwp/get-started/universal-application-platform-guide#device-families)に基づく Windows 10 OS の バージョン 10.0.14271 またはそれ以降を実行しているデバイスのみで利用できます。
+7. フィードバック コントロールをホストするアプリのページの初期化コードで、[StoreServicesFeedbackLauncher](https://docs.microsoft.com/uwp/api/microsoft.services.store.engagement.storeservicesfeedbacklauncher) クラスの [IsSupported](https://docs.microsoft.com/uwp/api/microsoft.services.store.engagement.storeservicesfeedbacklauncher.issupported) 静的メソッドを使用して、フィードバック Hub がユーザーのデバイスで利用できるかどうかを指定します。 フィードバック Hub は、デスクトップとモバイルの[デバイス ファミリ](https://docs.microsoft.com/windows/uwp/get-started/universal-application-platform-guide)に基づく Windows 10 OS の バージョン 10.0.14271 またはそれ以降を実行しているデバイスのみで利用できます。
 
-    このプロパティが **true** を返す場合、コントロールを表示にします。 次のコードは、[Button](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.button.aspx) に対してこの処理を実行する方法を示しています。
+    このプロパティが **true** を返す場合、コントロールを表示にします。 次のコードは、[Button](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.button) に対してこの処理を実行する方法を示しています。
 
     [!code-csharp[LaunchFeedback](./code/StoreSDKSamples/cs/FeedbackPage.xaml.cs#ToggleFeedbackVisibility)]
       > [!NOTE]

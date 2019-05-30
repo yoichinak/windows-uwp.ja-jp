@@ -6,12 +6,12 @@ ms.date: 07/19/2018
 ms.topic: article
 keywords: Windows 10、UWP、地図、位置情報、画像、オーバーレイ
 ms.localizationpriority: medium
-ms.openlocfilehash: c0c2f07a364980b67a34a519eb5dd8b4da1a18f0
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: e9b4d439958e6cfbf0845aaf5bcd31644ff39432
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57663087"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66371683"
 ---
 # <a name="overlay-tiled-images-on-a-map"></a>地図へのタイル画像のオーバーレイ
 
@@ -23,11 +23,11 @@ ms.locfileid: "57663087"
 
 ## <a name="tiled-image-overview"></a>タイル画像の概要
 
-Nokia Maps や Bing Maps などのマップ サービスでは、迅速な取得と表示のために正方形タイルに地図を切り取ります。 こうしたタイルは 256 ピクセル x 256 ピクセル サイズであり、いくつかの詳細レベルで事前にレンダリングされます。 また、多くのサード パーティ サービスがタイルに切り取られた地図ベースのデータを提供しています。 タイル ソースを使ってサード パーティ製タイルを取得するか、独自のカスタム タイルを作成してそれを [**MapControl**](https://msdn.microsoft.com/library/windows/apps/dn637004) に表示された地図上にオーバーレイできます。
+Nokia Maps や Bing Maps などのマップ サービスでは、迅速な取得と表示のために正方形タイルに地図を切り取ります。 こうしたタイルは 256 ピクセル x 256 ピクセル サイズであり、いくつかの詳細レベルで事前にレンダリングされます。 また、多くのサード パーティ サービスがタイルに切り取られた地図ベースのデータを提供しています。 タイル ソースを使ってサード パーティ製タイルを取得するか、独自のカスタム タイルを作成してそれを [**MapControl**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl) に表示された地図上にオーバーレイできます。
 
-**重要な**  タイル ソースを使用する場合を要求する、または個々 のタイルの位置にコードを記述する必要はありません。 [  **MapControl**](https://msdn.microsoft.com/library/windows/apps/dn637004) が必要時にタイルを要求します。 各要求では、個々のタイルについて X 座標と Y 座標、ズーム レベルを指定します。 タイルを取得するために使う URI またはファイル名の形式を **UriFormatString** プロパティに指定します。 つまり、各タイルの X 座標、Y 座標、ズーム レベルを渡す場所を示すベース URI またはファイル名に、置き換え可能なパラメーターを挿入します。
+**重要な**  タイル ソースを使用する場合を要求する、または個々 のタイルの位置にコードを記述する必要はありません。 [  **MapControl**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl) が必要時にタイルを要求します。 各要求では、個々のタイルについて X 座標と Y 座標、ズーム レベルを指定します。 タイルを取得するために使う URI またはファイル名の形式を **UriFormatString** プロパティに指定します。 つまり、各タイルの X 座標、Y 座標、ズーム レベルを渡す場所を示すベース URI またはファイル名に、置き換え可能なパラメーターを挿入します。
 
-次に、X 座標、Y 座標、ズーム レベルの置き換え可能なパラメーターを示す [**HttpMapTileDataSource**](https://msdn.microsoft.com/library/windows/apps/dn636986) の [**UriFormatString**](https://msdn.microsoft.com/library/windows/apps/dn636992) プロパティの例を示します。
+次に、X 座標、Y 座標、ズーム レベルの置き換え可能なパラメーターを示す [**HttpMapTileDataSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.HttpMapTileDataSource) の [**UriFormatString**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.httpmaptiledatasource.uriformatstring) プロパティの例を示します。
 
 ```syntax
 http://www.<web service name>.com/z={zoomlevel}&x={x}&y={y}
@@ -39,39 +39,39 @@ X 座標と Y 座標は、指定された詳細レベルで世界地図内の個
 
 ### <a name="overlay-tiles-from-a-tile-source"></a>タイル ソースからのタイルのオーバーレイ
 
-[  **MapTileDataSource**](https://msdn.microsoft.com/library/windows/apps/dn637141) を使って、タイル ソースからのタイル画像を地図にオーバーレイします。
+[  **MapTileDataSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapTileDataSource) を使って、タイル ソースからのタイル画像を地図にオーバーレイします。
 
-1.  [  **MapTileDataSource**](https://msdn.microsoft.com/library/windows/apps/dn637141) から継承する 3 つのタイル データ ソース クラスのいずれかをインスタンス化します。
+1.  [  **MapTileDataSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapTileDataSource) から継承する 3 つのタイル データ ソース クラスのいずれかをインスタンス化します。
 
-    -   [**HttpMapTileDataSource**](https://msdn.microsoft.com/library/windows/apps/dn636986)
-    -   [**LocalMapTileDataSource**](https://msdn.microsoft.com/library/windows/apps/dn636994)
-    -   [**CustomMapTileDataSource**](https://msdn.microsoft.com/library/windows/apps/dn636983)
+    -   [**HttpMapTileDataSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.HttpMapTileDataSource)
+    -   [**LocalMapTileDataSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.LocalMapTileDataSource)
+    -   [**CustomMapTileDataSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.CustomMapTileDataSource)
 
     ベース URI またはファイル名に置き換え可能なパラメーターを挿入することにより、タイルの要求に使う **UriFormatString** を構成します。
 
-    次の例では、[**HttpMapTileDataSource**](https://msdn.microsoft.com/library/windows/apps/dn636986) をインスタンス化します。 次の例では、**HttpMapTileDataSource** のコンストラクターで [**UriFormatString**](https://msdn.microsoft.com/library/windows/apps/dn636992) の値を指定しています。
+    次の例では、[**HttpMapTileDataSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.HttpMapTileDataSource) をインスタンス化します。 次の例では、**HttpMapTileDataSource** のコンストラクターで [**UriFormatString**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.httpmaptiledatasource.uriformatstring) の値を指定しています。
 
     ```csharp
         HttpMapTileDataSource dataSource = new HttpMapTileDataSource(
           "http://www.<web service name>.com/z={zoomlevel}&x={x}&y={y}");
     ```
 
-2.  [  **MapTileSource**](https://msdn.microsoft.com/library/windows/apps/dn637144) をインスタンス化および構成します。 以前の手順で **MapTileSource** の [**DataSource**](https://msdn.microsoft.com/library/windows/apps/dn637149) として構成した [**MapTileDataSource**](https://msdn.microsoft.com/library/windows/apps/dn637141) を指定します。
+2.  [  **MapTileSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapTileSource) をインスタンス化および構成します。 以前の手順で **MapTileSource** の [**DataSource**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.maptilesource.datasource) として構成した [**MapTileDataSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapTileDataSource) を指定します。
 
-    次の例では、[**MapTileSource**](https://msdn.microsoft.com/library/windows/apps/dn637144) のコンストラクターで [**DataSource**](https://msdn.microsoft.com/library/windows/apps/dn637149) を指定しています。
+    次の例では、[**MapTileSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapTileSource) のコンストラクターで [**DataSource**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.maptilesource.datasource) を指定しています。
 
     ```csharp
         MapTileSource tileSource = new MapTileSource(dataSource);
     ```
 
-    [  **MapTileSource**](https://msdn.microsoft.com/library/windows/apps/dn637144) のプロパティを使うことにより、タイルが表示される条件を制限できます。
+    [  **MapTileSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapTileSource) のプロパティを使うことにより、タイルが表示される条件を制限できます。
 
-    -   [  **Bounds**](https://msdn.microsoft.com/library/windows/apps/dn637147) プロパティの値を指定することにより、特定地域内にのみタイルを表示します。
-    -   [  **ZoomLevelRange**](https://msdn.microsoft.com/library/windows/apps/dn637171) プロパティの値を指定することにより、特定の詳細レベルでのみタイルを表示します。
+    -   [  **Bounds**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.maptilesource.bounds) プロパティの値を指定することにより、特定地域内にのみタイルを表示します。
+    -   [  **ZoomLevelRange**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.maptilesource.zoomlevelrange) プロパティの値を指定することにより、特定の詳細レベルでのみタイルを表示します。
 
-    オプションで、[**Layer**](https://msdn.microsoft.com/library/windows/apps/dn637157)、[**AllowOverstretch**](https://msdn.microsoft.com/library/windows/apps/dn637145)、[**IsRetryEnabled**](https://msdn.microsoft.com/library/windows/apps/dn637153)、[**IsTransparencyEnabled**](https://msdn.microsoft.com/library/windows/apps/dn637155) など、タイルの読み込みまたは表示に影響する [**MapTileSource**](https://msdn.microsoft.com/library/windows/apps/dn637144) の他のプロパティを構成します。
+    オプションで、[**Layer**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.maptilesource.layer)、[**AllowOverstretch**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.maptilesource.allowoverstretch)、[**IsRetryEnabled**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.maptilesource.isretryenabled)、[**IsTransparencyEnabled**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.maptilesource.istransparencyenabled) など、タイルの読み込みまたは表示に影響する [**MapTileSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapTileSource) の他のプロパティを構成します。
 
-3.  [  **MapControl**](https://msdn.microsoft.com/library/windows/apps/dn637004) の [**TileSources**](https://msdn.microsoft.com/library/windows/apps/dn637053) コレクションに [**MapTileSource**](https://msdn.microsoft.com/library/windows/apps/dn637144) を追加します。
+3.  [  **MapControl**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl) の [**TileSources**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.tilesources) コレクションに [**MapTileSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapTileSource) を追加します。
 
     ```csharp
          MapControl1.TileSources.Add(tileSource);
@@ -80,20 +80,20 @@ X 座標と Y 座標は、指定された詳細レベルで世界地図内の個
 ## <a name="overlay-tiles-from-a-web-service"></a>Web サービスからのタイルのオーバーレイ
 
 
-[  **HttpMapTileDataSource**](https://msdn.microsoft.com/library/windows/apps/dn636986) を使って、Web サービスから取得したタイル画像をオーバーレイします。
+[  **HttpMapTileDataSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.HttpMapTileDataSource) を使って、Web サービスから取得したタイル画像をオーバーレイします。
 
-1.  [  **HttpMapTileDataSource**](https://msdn.microsoft.com/library/windows/apps/dn636986) をインスタンス化します。
-2.  Web サービスで [**UriFormatString**](https://msdn.microsoft.com/library/windows/apps/dn636992) プロパティの値として想定される URI の形式を指定します。 この値を作成するには、ベース URI に置き換え可能なパラメーターを挿入します。 たとえば次のコード サンプルでは、**UriFormatString** の値は次のとおりです。
+1.  [  **HttpMapTileDataSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.HttpMapTileDataSource) をインスタンス化します。
+2.  Web サービスで [**UriFormatString**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.httpmaptiledatasource.uriformatstring) プロパティの値として想定される URI の形式を指定します。 この値を作成するには、ベース URI に置き換え可能なパラメーターを挿入します。 たとえば次のコード サンプルでは、**UriFormatString** の値は次のとおりです。
 
     ``` syntax
     http://www.<web service name>.com/z={zoomlevel}&x={x}&y={y}
     ```
 
-    この Web サービスでは、置き換え可能なパラメーター {x}、{y}、{zoomlevel} を含む URI をサポートする必要があります。 大半の Web サービス (たとえば Nokia、Bing、Google など) で、この形式の URI がサポートされています。 [  **UriFormatString**](https://msdn.microsoft.com/library/windows/apps/dn636992) プロパティで使用できない追加引数が Web サービスで必要な場合は、カスタム URI を作成する必要があります。 [  **UriRequested**](https://msdn.microsoft.com/library/windows/apps/dn636993) イベントを処理することにより、カスタム URI を作成して返します。 詳しくは、このトピックで後述する「[カスタム URI の指定](#customuri)」をご覧ください。
+    この Web サービスでは、置き換え可能なパラメーター {x}、{y}、{zoomlevel} を含む URI をサポートする必要があります。 大半の Web サービス (たとえば Nokia、Bing、Google など) で、この形式の URI がサポートされています。 [  **UriFormatString**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.httpmaptiledatasource.uriformatstring) プロパティで使用できない追加引数が Web サービスで必要な場合は、カスタム URI を作成する必要があります。 [  **UriRequested**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.httpmaptiledatasource.urirequested) イベントを処理することにより、カスタム URI を作成して返します。 詳しくは、このトピックで後述する「[カスタム URI の指定](#customuri)」をご覧ください。
 
 3.  次に、「[タイル画像の概要](#tileintro)」で説明した残りの手順に従います。
 
-次の例では、北米のマップに架空の Web サービスからのタイルをオーバーレイしています。 [  **HttpMapTileDataSource**](https://msdn.microsoft.com/library/windows/apps/dn636986) のコンストラクターで [**UriFormatString**](https://msdn.microsoft.com/library/windows/apps/dn636992) の値を指定しています。 この例では、省略可能な [**Bounds**](https://msdn.microsoft.com/library/windows/apps/dn637147) プロパティによって指定した地理的境界内にのみタイルが表示されます。
+次の例では、北米のマップに架空の Web サービスからのタイルをオーバーレイしています。 [  **HttpMapTileDataSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.HttpMapTileDataSource) のコンストラクターで [**UriFormatString**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.httpmaptiledatasource.uriformatstring) の値を指定しています。 この例では、省略可能な [**Bounds**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.maptilesource.bounds) プロパティによって指定した地理的境界内にのみタイルが表示されます。
 
 ```csharp
 private void AddHttpMapTileSource()
@@ -167,16 +167,16 @@ void MainPage::AddHttpMapTileSource()
 ## <a name="overlay-tiles-from-local-storage"></a>ローカル記憶域からのタイルのオーバーレイ
 
 
-[  **LocalMapTileDataSource**](https://msdn.microsoft.com/library/windows/apps/dn636994) を使って、ローカル ストレージにファイルとして格納されたタイル画像をオーバーレイします。 通常、こうしたファイルはアプリと共にパッケージ化して配布します。
+[  **LocalMapTileDataSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.LocalMapTileDataSource) を使って、ローカル ストレージにファイルとして格納されたタイル画像をオーバーレイします。 通常、こうしたファイルはアプリと共にパッケージ化して配布します。
 
-1.  [  **LocalMapTileDataSource**](https://msdn.microsoft.com/library/windows/apps/dn636994) をインスタンス化します。
-2.  [  **UriFormatString**](https://msdn.microsoft.com/library/windows/apps/dn636998) プロパティの値としてファイル名の形式を指定します。 この値を作成するには、ベース ファイル名に置き換え可能なパラメーターを挿入します。 たとえば次のコード サンプルでは、[**UriFormatString**](https://msdn.microsoft.com/library/windows/apps/dn636992) の値は次のとおりです。
+1.  [  **LocalMapTileDataSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.LocalMapTileDataSource) をインスタンス化します。
+2.  [  **UriFormatString**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.localmaptiledatasource.uriformatstring) プロパティの値としてファイル名の形式を指定します。 この値を作成するには、ベース ファイル名に置き換え可能なパラメーターを挿入します。 たとえば次のコード サンプルでは、[**UriFormatString**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.httpmaptiledatasource.uriformatstring) の値は次のとおりです。
 
     ``` syntax
         Tile_{zoomlevel}_{x}_{y}.png
     ```
 
-    [  **UriFormatString**](https://msdn.microsoft.com/library/windows/apps/dn636998) プロパティで使用できない追加引数がファイル名の形式で必要な場合は、カスタム URI を作成する必要があります。 [  **UriRequested**](https://msdn.microsoft.com/library/windows/apps/dn637001) イベントを処理することにより、カスタム URI を作成して返します。 詳しくは、このトピックで後述する「[カスタム URI の指定](#customuri)」をご覧ください。
+    [  **UriFormatString**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.localmaptiledatasource.uriformatstring) プロパティで使用できない追加引数がファイル名の形式で必要な場合は、カスタム URI を作成する必要があります。 [  **UriRequested**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.localmaptiledatasource.urirequested) イベントを処理することにより、カスタム URI を作成して返します。 詳しくは、このトピックで後述する「[カスタム URI の指定](#customuri)」をご覧ください。
 
 3.  次に、「[タイル画像の概要](#tileintro)」で説明した残りの手順に従います。
 
@@ -185,15 +185,15 @@ void MainPage::AddHttpMapTileSource()
 | Uri | 詳細情報 |
 |---------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | ms-appx:/// | アプリのインストール フォルダーのルートを参照します。 |
-|  | これは、[Package.InstalledLocation](https://msdn.microsoft.com/library/windows/apps/br224681) プロパティによって参照される場所です。 |
+|  | これは、[Package.InstalledLocation](https://docs.microsoft.com/uwp/api/windows.applicationmodel.package.installedlocation) プロパティによって参照される場所です。 |
 | ms-appdata:///local | アプリのローカル ストレージのルートを参照します。 |
-|  | これは、[ApplicationData.LocalFolder](https://msdn.microsoft.com/library/windows/apps/br241621) プロパティによって参照される場所です。 |
+|  | これは、[ApplicationData.LocalFolder](https://docs.microsoft.com/uwp/api/windows.storage.applicationdata.localfolder) プロパティによって参照される場所です。 |
 | ms-appdata:///temp | アプリの一時フォルダーを参照します。 |
-|  | これは、[ApplicationData.TemporaryFolder](https://msdn.microsoft.com/library/windows/apps/br241629) プロパティによって参照される場所です。 |
+|  | これは、[ApplicationData.TemporaryFolder](https://docs.microsoft.com/uwp/api/windows.storage.applicationdata.temporaryfolder) プロパティによって参照される場所です。 |
 
  
 
-次の例では、`ms-appx:///` プロトコルを使って、アプリのインストール フォルダーにファイルとして格納されたタイルを読み込みます。 [  **LocalMapTileDataSource**](https://msdn.microsoft.com/library/windows/apps/dn636994) のコンストラクターで [**UriFormatString**](https://msdn.microsoft.com/library/windows/apps/dn636998) の値を指定しています。 この例では、省略可能な [**ZoomLevelRange**](https://msdn.microsoft.com/library/windows/apps/dn637171) プロパティによって指定された範囲内に地図のズーム レベルがある場合にのみ、タイルが表示されます。
+次の例では、`ms-appx:///` プロトコルを使って、アプリのインストール フォルダーにファイルとして格納されたタイルを読み込みます。 [  **LocalMapTileDataSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.LocalMapTileDataSource) のコンストラクターで [**UriFormatString**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.localmaptiledatasource.uriformatstring) の値を指定しています。 この例では、省略可能な [**ZoomLevelRange**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.maptilesource.zoomlevelrange) プロパティによって指定された範囲内に地図のズーム レベルがある場合にのみ、タイルが表示されます。
 
 ```csharp
         void AddLocalMapTileSource()
@@ -219,10 +219,10 @@ void MainPage::AddHttpMapTileSource()
 
 ## <a name="provide-a-custom-uri"></a>カスタム URI の指定
 
-[  **HttpMapTileDataSource**](https://msdn.microsoft.com/library/windows/apps/dn636986) の [**UriFormatString**](https://msdn.microsoft.com/library/windows/apps/dn636992) プロパティまたは [**LocalMapTileDataSource**](https://msdn.microsoft.com/library/windows/apps/dn636994) の [**UriFormatString**](https://msdn.microsoft.com/library/windows/apps/dn636998) プロパティにより使用できる置き換え可能なパラメーターがタイルの取得に十分でない場合は、カスタム URI を作成する必要があります。 **UriRequested** イベントのカスタム ハンドラーを指定することによりカスタム URI を作成して返します。 **UriRequested** イベントは、個々のタイルについて発生します。
+[  **HttpMapTileDataSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.HttpMapTileDataSource) の [**UriFormatString**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.httpmaptiledatasource.uriformatstring) プロパティまたは [**LocalMapTileDataSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.LocalMapTileDataSource) の [**UriFormatString**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.localmaptiledatasource.uriformatstring) プロパティにより使用できる置き換え可能なパラメーターがタイルの取得に十分でない場合は、カスタム URI を作成する必要があります。 **UriRequested** イベントのカスタム ハンドラーを指定することによりカスタム URI を作成して返します。 **UriRequested** イベントは、個々のタイルについて発生します。
 
-1.  カスタム URI を作成するために、**UriRequested** イベントのカスタム ハンドラーで、[**MapTileUriRequestedEventArgs**](https://msdn.microsoft.com/library/windows/apps/dn637177) の [**X**](https://msdn.microsoft.com/library/windows/apps/dn610743) プロパティ、[**Y**](https://msdn.microsoft.com/library/windows/apps/dn610744) プロパティ、[**ZoomLevel**](https://msdn.microsoft.com/library/windows/apps/dn610745) プロパティにより必要なカスタム引数を組み合わせます。
-2.  [  **MapTileUriRequestedEventArgs**](https://msdn.microsoft.com/library/windows/apps/dn637177) の [**Request**](https://msdn.microsoft.com/library/windows/apps/dn637179) プロパティに含まれている [**MapTileUriRequest**](https://msdn.microsoft.com/library/windows/apps/dn637173) の [**Uri**](https://msdn.microsoft.com/library/windows/apps/dn610748) プロパティにカスタム URI を返します。
+1.  カスタム URI を作成するために、**UriRequested** イベントのカスタム ハンドラーで、[**MapTileUriRequestedEventArgs**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapTileUriRequestedEventArgs) の [**X**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.maptileurirequestedeventargs.x) プロパティ、[**Y**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.maptileurirequestedeventargs.y) プロパティ、[**ZoomLevel**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.maptileurirequestedeventargs.zoomlevel) プロパティにより必要なカスタム引数を組み合わせます。
+2.  [  **MapTileUriRequestedEventArgs**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapTileUriRequestedEventArgs) の [**Request**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.maptileurirequestedeventargs.request) プロパティに含まれている [**MapTileUriRequest**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapTileUriRequest) の [**Uri**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.maptileurirequest.uri) プロパティにカスタム URI を返します。
 
 次の例では、**UriRequested** イベントのカスタム ハンドラーを作成することによりカスタム URI を指定する方法を示しています。 また、カスタム URI を作成するために非同期処理が必要な場合に、保留パターンを実装する方法を示しています。
 
@@ -264,14 +264,14 @@ using System.Threading.Tasks;
 
 ## <a name="overlay-tiles-from-a-custom-source"></a>カスタム ソースからのタイルのオーバーレイ
 
-[  **CustomMapTileDataSource**](https://msdn.microsoft.com/library/windows/apps/dn636983) を使って、カスタム タイルをオーバーレイします。 プログラムによってメモリ内で随時にタイルを作成するか、または別のソースから既存のタイルを読み込むために独自のコードを記述します。
+[  **CustomMapTileDataSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.CustomMapTileDataSource) を使って、カスタム タイルをオーバーレイします。 プログラムによってメモリ内で随時にタイルを作成するか、または別のソースから既存のタイルを読み込むために独自のコードを記述します。
 
-カスタム タイルを作成するか読み込むには、[**BitmapRequested**](https://msdn.microsoft.com/library/windows/apps/dn636984) イベントのカスタム ハンドラーを指定します。 **BitmapRequested** イベントは、個々のタイルについて発生します。
+カスタム タイルを作成するか読み込むには、[**BitmapRequested**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.custommaptiledatasource.bitmaprequested) イベントのカスタム ハンドラーを指定します。 **BitmapRequested** イベントは、個々のタイルについて発生します。
 
-1.  カスタム タイルを作成または取得するために、[**BitmapRequested**](https://msdn.microsoft.com/library/windows/apps/dn636984) イベントのカスタム ハンドラーで、[**MapTileBitmapRequestedEventArgs**](https://msdn.microsoft.com/library/windows/apps/dn637132) の [**X**](https://msdn.microsoft.com/library/windows/apps/dn637135) プロパティ、[**Y**](https://msdn.microsoft.com/library/windows/apps/dn637136) プロパティ、[**ZoomLevel**](https://msdn.microsoft.com/library/windows/apps/dn637137) プロパティにより必要なカスタム引数を組み合わせます。
-2.  [  **MapTileBitmapRequestedEventArgs**](https://msdn.microsoft.com/library/windows/apps/dn637132) の [**Request**](https://msdn.microsoft.com/library/windows/apps/dn637134) プロパティに含まれている [**MapTileBitmapRequest**](https://msdn.microsoft.com/library/windows/apps/dn637128) の [**PixelData**](https://msdn.microsoft.com/library/windows/apps/dn637140) プロパティにカスタム タイルを返します。 **PixelData** プロパティの型は [**IRandomAccessStreamReference**](https://msdn.microsoft.com/library/windows/apps/hh701664) です。
+1.  カスタム タイルを作成または取得するために、[**BitmapRequested**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.custommaptiledatasource.bitmaprequested) イベントのカスタム ハンドラーで、[**MapTileBitmapRequestedEventArgs**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapTileBitmapRequestedEventArgs) の [**X**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.maptilebitmaprequestedeventargs.x) プロパティ、[**Y**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.maptilebitmaprequestedeventargs.y) プロパティ、[**ZoomLevel**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.maptilebitmaprequestedeventargs.zoomlevel) プロパティにより必要なカスタム引数を組み合わせます。
+2.  [  **MapTileBitmapRequestedEventArgs**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapTileBitmapRequestedEventArgs) の [**Request**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.maptilebitmaprequestedeventargs.request) プロパティに含まれている [**MapTileBitmapRequest**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapTileBitmapRequest) の [**PixelData**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.maptilebitmaprequest.pixeldata) プロパティにカスタム タイルを返します。 **PixelData** プロパティの型は [**IRandomAccessStreamReference**](https://docs.microsoft.com/uwp/api/Windows.Storage.Streams.IRandomAccessStreamReference) です。
 
-次の例では、**BitmapRequested** イベントのカスタム ハンドラーを作成することによりカスタム タイルを指定する方法を示しています。 この例では、一部が不透明な赤の同じタイルを作成します。 この例では、[**MapTileBitmapRequestedEventArgs**](https://msdn.microsoft.com/library/windows/apps/dn637132) の [**X**](https://msdn.microsoft.com/library/windows/apps/dn637135) プロパティ、[**Y**](https://msdn.microsoft.com/library/windows/apps/dn637136) プロパティ、[**ZoomLevel**](https://msdn.microsoft.com/library/windows/apps/dn637137) プロパティを無視します。 これは実際の例ではありませんが、メモリ内で随時にカスタム タイルを作成する方法を示しています。 この例ではまた、カスタム タイルを作成するために非同期処理が必要な場合に、保留パターンを実装する方法を示しています。
+次の例では、**BitmapRequested** イベントのカスタム ハンドラーを作成することによりカスタム タイルを指定する方法を示しています。 この例では、一部が不透明な赤の同じタイルを作成します。 この例では、[**MapTileBitmapRequestedEventArgs**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapTileBitmapRequestedEventArgs) の [**X**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.maptilebitmaprequestedeventargs.x) プロパティ、[**Y**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.maptilebitmaprequestedeventargs.y) プロパティ、[**ZoomLevel**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.maptilebitmaprequestedeventargs.zoomlevel) プロパティを無視します。 これは実際の例ではありませんが、メモリ内で随時にカスタム タイルを作成する方法を示しています。 この例ではまた、カスタム タイルを作成するために非同期処理が必要な場合に、保留パターンを実装する方法を示しています。
 
 ```csharp
 using Windows.UI.Xaml.Controls.Maps;
@@ -415,13 +415,13 @@ InMemoryRandomAccessStream^ TileSources::CustomRandomAccessStream::get()
 
 既定の地図をサード パーティ製タイルまたはカスタム タイルに完全に置き換えるには、次の手順に従います。
 
--   [  **MapTileSource**](https://msdn.microsoft.com/library/windows/apps/dn637144) の [**Layer**](https://msdn.microsoft.com/library/windows/apps/dn637157) プロパティ値として [**MapTileLayer**](https://msdn.microsoft.com/library/windows/apps/dn637143).**BackgroundReplacement** を指定します。
--   [  **MapControl**](https://msdn.microsoft.com/library/windows/apps/dn637004) の [**Style**](https://msdn.microsoft.com/library/windows/apps/dn637051) プロパティ値として [**MapStyle**](https://msdn.microsoft.com/library/windows/apps/dn637127).**None** を指定します。
+-   [  **MapTileSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapTileSource) の [**Layer**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.maptilesource.layer) プロパティ値として [**MapTileLayer**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapTileLayer).**BackgroundReplacement** を指定します。
+-   [  **MapControl**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl) の [**Style**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.style) プロパティ値として [**MapStyle**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapStyle).**None** を指定します。
 
 ## <a name="related-topics"></a>関連トピック
 
 * [Bing Maps Developer Center](https://www.bingmapsportal.com/)
 * [UWP の地図のサンプル](https://go.microsoft.com/fwlink/p/?LinkId=619977)
-* [地図の設計ガイドライン](https://msdn.microsoft.com/library/windows/apps/dn596102)
+* [地図の設計ガイドライン](https://docs.microsoft.com/windows/uwp/maps-and-location/controls-map)
 * [Build 2015 のビデオ:Windows アプリでの電話、タブレット、PC で使用できるマップと位置情報の活用](https://channel9.msdn.com/Events/Build/2015/2-757)
 * [UWP の交通情報アプリのサンプル](https://go.microsoft.com/fwlink/p/?LinkId=619982)

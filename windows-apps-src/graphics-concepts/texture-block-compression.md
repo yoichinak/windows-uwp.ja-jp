@@ -7,21 +7,21 @@ keywords:
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: dec33768eff90b9bd35a3ea60f3158fce663345e
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: a8d88ad4db56b40490f2fc4d034b1569eb0850ba
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57640187"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66370925"
 ---
 # <a name="texture-block-compression"></a>テクスチャのブロック圧縮
 
 
 Direct3D 11 では、テクスチャのブロック圧縮 (BC) サポートが拡張され、BC6H および BC7 アルゴリズムが組み込まれています。 BC6H はハイ ダイナミック レンジのカラー ソース データをサポートし、BC7 は標準 RGB ソース データのアーティファクトを低減して標準よりも優れた品質の圧縮を提供します。
 
-BC1 ～ BC5 形式のサポートなど、Direct3D 11 より前のブロック圧縮アルゴリズムのサポートに関する具体的な情報については、「[ブロック圧縮 (Direct3D 10)](https://msdn.microsoft.com/library/windows/desktop/bb694531)」をご覧ください。
+BC1 ～ BC5 形式のサポートなど、Direct3D 11 より前のブロック圧縮アルゴリズムのサポートに関する具体的な情報については、「[ブロック圧縮 (Direct3D 10)](https://docs.microsoft.com/windows/desktop/direct3d10/d3d10-graphics-programming-guide-resources-block-compression)」をご覧ください。
 
-**ファイル形式に関する注意事項。  **BC6H および BC7 テクスチャの圧縮形式は、圧縮されたテクスチャ データを格納する DDS ファイル形式を使用します。 詳しくは、「[DDS 用プログラミング ガイド](https://msdn.microsoft.com/library/windows/desktop/bb943991)」をご覧ください。
+**ファイル形式に関する注意事項。  **BC6H および BC7 テクスチャの圧縮形式は、圧縮されたテクスチャ データを格納する DDS ファイル形式を使用します。 詳しくは、「[DDS 用プログラミング ガイド](https://docs.microsoft.com/windows/desktop/direct3ddds/dx-graphics-dds-pguide)」をご覧ください。
 
 ## <a name="span-idblockcompressionformatssupportedindirect3d11spanspan-idblockcompressionformatssupportedindirect3d11spanspan-idblockcompressionformatssupportedindirect3d11spanblock-compression-formats-supported-in-direct3d-11"></a><span id="Block_Compression_Formats_Supported_in_Direct3D_11"></span><span id="block_compression_formats_supported_in_direct3d_11"></span><span id="BLOCK_COMPRESSION_FORMATS_SUPPORTED_IN_DIRECT3D_11"></span>Direct3D でサポートされている圧縮形式のブロック 11
 
@@ -67,7 +67,7 @@ BC1、BC2、および BC3 形式は Direct3D 9 DXTn テクスチャ圧縮形式�
 ## <a name="span-idbc6hformatspanspan-idbc6hformatspanspan-idbc6hformatspanbc6h-format"></a><span id="BC6H_Format"></span><span id="bc6h_format"></span><span id="BC6H_FORMAT"></span>BC6H 形式
 
 
-この形式については詳しくは、「[BC6H 形式](https://msdn.microsoft.com/library/windows/desktop/hh308952)」をご覧ください。
+この形式については詳しくは、「[BC6H 形式](https://docs.microsoft.com/windows/desktop/direct3d11/bc6h-format)」をご覧ください。
 
 | ブロック圧縮形式 | DXGI 形式                                                                      | 相当する Direct3D 9 の形式 | 4 x 4 のピクセル ブロックあたりのバイト数 |
 |--------------------------|----------------------------------------------------------------------------------|------------------------------|---------------------------|
@@ -80,7 +80,7 @@ BC6H 形式では、4 x 4 のピクセル ブロックごとに異なるエン�
 ## <a name="span-idbc7formatspanspan-idbc7formatspanspan-idbc7formatspanbc7-format"></a><span id="BC7_Format"></span><span id="bc7_format"></span><span id="BC7_FORMAT"></span>BC7 形式
 
 
-この形式については詳しくは、「[BC7 形式](https://msdn.microsoft.com/library/windows/desktop/hh308953)」をご覧ください。
+この形式については詳しくは、「[BC7 形式](https://docs.microsoft.com/windows/desktop/direct3d11/bc7-format)」をご覧ください。
 
 | ブロック圧縮形式 | DXGI 形式                                                                           | 相当する Direct3D 9 の形式 | 4 x 4 のピクセル ブロックあたりのバイト数 |
 |--------------------------|---------------------------------------------------------------------------------------|------------------------------|---------------------------|
@@ -95,7 +95,7 @@ BC7 形式では、4 x 4 のピクセル ブロックごとに異なるエンコ
 
 [付録](appendix.md)
 
-[テクスチャ](https://msdn.microsoft.com/library/windows/desktop/ff476902)
+[テクスチャ](https://docs.microsoft.com/windows/desktop/direct3d11/overviews-direct3d-11-resources-textures)
 
  
 

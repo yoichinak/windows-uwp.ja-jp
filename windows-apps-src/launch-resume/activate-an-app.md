@@ -11,12 +11,12 @@ dev_langs:
 - cppwinrt
 - cpp
 - vb
-ms.openlocfilehash: a75136f26aa6cfa330e4118e6709b0b4d4be4054
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 622fc4246c0ce8051135feab07295034b55a82e4
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57626597"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66370820"
 ---
 # <a name="handle-app-activation"></a>アプリのアクティブ化の処理
 
@@ -24,9 +24,9 @@ ms.locfileid: "57626597"
 
 ## <a name="override-the-launch-handler"></a>起動ハンドラーを上書きする
 
-何らかの理由で、アプリがアクティブになったときに、システムが送信、 [ **CoreApplicationView.Activated** ](/uwp/api/windows.applicationmodel.core.coreapplicationview.activated)イベント。 アクティブ化の種類の一覧については、[**ActivationKind**](https://msdn.microsoft.com/library/windows/apps/br224693) 列挙型をご覧ください。
+何らかの理由で、アプリがアクティブになったときに、システムが送信、 [ **CoreApplicationView.Activated** ](/uwp/api/windows.applicationmodel.core.coreapplicationview.activated)イベント。 アクティブ化の種類の一覧については、[**ActivationKind**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Activation.ActivationKind) 列挙型をご覧ください。
 
-[  **Windows.UI.Xaml.Application**](https://msdn.microsoft.com/library/windows/apps/br242324) クラスで定義されているメソッドを上書きして、さまざまなアクティブ化の種類に対応することができます。 一部のアクティブ化の種類には、上書きできる専用のメソッドがあります。 それ以外のアクティブ化の種類では、[**OnActivated**](https://msdn.microsoft.com/library/windows/apps/br242330) メソッドを上書きします。
+[  **Windows.UI.Xaml.Application**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Application) クラスで定義されているメソッドを上書きして、さまざまなアクティブ化の種類に対応することができます。 一部のアクティブ化の種類には、上書きできる専用のメソッドがあります。 それ以外のアクティブ化の種類では、[**OnActivated**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onactivated) メソッドを上書きします。
 
 アプリのクラスを定義します。
 
@@ -37,7 +37,7 @@ ms.locfileid: "57626597"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 ```
 
-[  **OnLaunched**](https://msdn.microsoft.com/library/windows/apps/br242335) メソッドを上書きします。 このメソッドは、ユーザーがアプリを起動するたびに呼び出されます。 [  **LaunchActivatedEventArgs**](https://msdn.microsoft.com/library/windows/apps/br224731) パラメーターには、アプリの以前の状態とアクティブ化引数が含まれています。
+[  **OnLaunched**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onlaunched) メソッドを上書きします。 このメソッドは、ユーザーがアプリを起動するたびに呼び出されます。 [  **LaunchActivatedEventArgs**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Activation.LaunchActivatedEventArgs) パラメーターには、アプリの以前の状態とアクティブ化引数が含まれています。
 
 > [!NOTE]
 > 、Windows の開始のタイルまたはアプリの一覧から中断されているアプリを起動するこのメソッドを呼び出すしません。
@@ -187,7 +187,7 @@ void App::EnsurePageCreatedAndActivate()
 
 ## <a name="restore-application-data-if-app-was-suspended-then-terminated"></a>アプリが一時停止後に終了された場合は、アプリケーション データを復元する
 
-ユーザーが終了したアプリに切り替えると、システムは [**Activated**](https://msdn.microsoft.com/library/windows/apps/br225018) イベントを送信します。このとき、[**Kind**](https://msdn.microsoft.com/library/windows/apps/br224728) は **Launch** に設定され、[**PreviousExecutionState**](https://msdn.microsoft.com/library/windows/apps/br224729) は **Terminated** または **ClosedByUser** に設定されます。 アプリでは、保存されているアプリ データを読み込み、表示されているコンテンツを更新する必要があります。
+ユーザーが終了したアプリに切り替えると、システムは [**Activated**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplicationview.activated) イベントを送信します。このとき、[**Kind**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.activation.iactivatedeventargs.kind) は **Launch** に設定され、[**PreviousExecutionState**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.activation.iactivatedeventargs.previousexecutionstate) は **Terminated** または **ClosedByUser** に設定されます。 アプリでは、保存されているアプリ データを読み込み、表示されているコンテンツを更新する必要があります。
 
 ```csharp
 async protected override void OnLaunched(LaunchActivatedEventArgs args)
@@ -259,19 +259,19 @@ void App::OnLaunched(Windows::ApplicationModel::Activation::LaunchActivatedEvent
 }
 ```
 
-[  **PreviousExecutionState**](https://msdn.microsoft.com/library/windows/apps/br224729) の値が **NotRunning** である場合は、アプリがアプリケーション データの保存に失敗しているため、初めて起動するときのように最初からアプリをやり直す必要があります。
+[  **PreviousExecutionState**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.activation.iactivatedeventargs.previousexecutionstate) の値が **NotRunning** である場合は、アプリがアプリケーション データの保存に失敗しているため、初めて起動するときのように最初からアプリをやり直す必要があります。
 
 ## <a name="remarks"></a>注釈
 
 > [!NOTE]
-> 現在のウィンドウにコンテンツ セットが既にある場合、アプリは初期化をスキップすることがあります。 チェックすることができます、 [ **LaunchActivatedEventArgs.TileId** ](https://msdn.microsoft.com/library/windows/apps/br224736)プロパティかどうか、アプリが、プライマリやセカンダリ タイルから起動して、その情報に基づいて判断する必要があるかどうかを決定します。新しいやアプリのエクスペリエンスを再開します。
+> 現在のウィンドウにコンテンツ セットが既にある場合、アプリは初期化をスキップすることがあります。 チェックすることができます、 [ **LaunchActivatedEventArgs.TileId** ](https://docs.microsoft.com/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs.tileid)プロパティかどうか、アプリが、プライマリやセカンダリ タイルから起動して、その情報に基づいて判断する必要があるかどうかを決定します。新しいやアプリのエクスペリエンスを再開します。
 
 ## <a name="important-apis"></a>重要な API
-* [Windows.ApplicationModel.Activation](https://msdn.microsoft.com/library/windows/apps/br224766)
-* [Windows.UI.Xaml.Application](https://msdn.microsoft.com/library/windows/apps/br242324)
+* [Windows.ApplicationModel.Activation](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Activation)
+* [Windows.UI.Xaml.Application](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Application)
 
 ## <a name="related-topics"></a>関連トピック
 * [アプリの中断の処理](suspend-an-app.md)
 * [アプリの再開の処理](resume-an-app.md)
-* [アプリに関するガイドラインの中断し、再開](https://msdn.microsoft.com/library/windows/apps/hh465088)
+* [アプリに関するガイドラインの中断し、再開](https://docs.microsoft.com/windows/uwp/launch-resume/index)
 * [アプリのライフサイクル](app-lifecycle.md)

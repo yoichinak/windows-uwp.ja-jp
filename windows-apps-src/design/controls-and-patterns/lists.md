@@ -12,12 +12,12 @@ design-contact: kimsea
 dev-contact: ranjeshj
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: eb9c600e58be04d8ce967eb119777d6746507fbe
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: a574ff858f8eab3fa1984ecd883a786fa0e0f19c
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57636367"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66364717"
 ---
 # <a name="lists"></a>リスト
 
@@ -30,7 +30,7 @@ ms.locfileid: "57636367"
 
 ここでは、各リスト パターンについて、設計のガイドライン、特徴、例を示します。
 
-> **重要な API**:[ListView クラス](https://msdn.microsoft.com/library/windows/apps/br242878)、 [GridView クラス](https://msdn.microsoft.com/library/windows/apps/br242705)、 [ComboBox クラス](https://msdn.microsoft.com/library/windows/apps/br209348)
+> **重要な API**:[ListView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView)、 [GridView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.GridView)、 [ComboBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ComboBox)
 
 
 > <div id="main">
@@ -265,11 +265,11 @@ ms.locfileid: "57636367"
 - [マスター/詳細](master-details.md)
 - [ナビゲーション ウィンドウ](navigationview.md)
 - [セマンティック ズーム](semantic-zoom.md)
-- [ドラッグ アンド ドロップ](https://msdn.microsoft.com/windows/uwp/app-to-app/drag-and-drop)
+- [ドラッグ アンド ドロップ](https://docs.microsoft.com/windows/uwp/app-to-app/drag-and-drop)
 - [縮小表示イメージ](../../files/thumbnails.md)
 
 **開発者向け**
-- [ListView クラス](https://msdn.microsoft.com/library/windows/apps/br242878)
-- [GridView クラス](https://msdn.microsoft.com/library/windows/apps/br242705)
-- [コンボ ボックス クラス](https://msdn.microsoft.com/library/windows/apps/br209348)
-- [ListBox クラス](https://msdn.microsoft.com/library/windows/apps/br242868)
+- [ListView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView)
+- [GridView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.GridView)
+- [コンボ ボックス クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ComboBox)
+- [ListBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListBox)

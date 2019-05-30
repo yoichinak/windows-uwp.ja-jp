@@ -5,12 +5,12 @@ keywords: ホストされた Web アプリ、HWA、REST API、単一ページ �
 ms.date: 05/10/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 4c76f0da8c3ac1d50ccd2d328dd321df9aa9bd3e
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: c38a7182cd27abcfb0de66c721f0e06b95b695d5
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57624627"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66366986"
 ---
 # <a name="create-a-single-page-web-app-with-rest-api-backend"></a>REST API のバックエンドを使った単一ページの Web アプリを作成する
 
@@ -115,7 +115,7 @@ Azure の部分を行わない (または後で行う) 場合には、Azure の�
 
 1. 新しいフォルダー (たとえば、ローカルの *GitHub* ディレクトリ) を作成し、メモリ ゲーム API 定義を含む [**api.json**](https://raw.githubusercontent.com/Microsoft/Windows-tutorials-web/master/Single-Page-App-with-REST-API/backend/api.json?token=ACEfklXAHTeLkHYaI5plV20QCGuqC31cks5ZFhVIwA%3D%3D) ファイルをダウンロードします。 フォルダー名にスペースが含まれていないことを確認します。
 
-2. このフォルダーで好みのシェル ([または Visual Studio Code の統合ターミナル](https://code.visualstudio.com/docs/editor/integrated-terminal)) を開き、次の Node Package Manager (NPM) コマンドを実行して、[Yeoman](https://yeoman.io/) (yo) コード スキャフォールディング ツールおよび Swagger ジェネレーターをグローバル (**-g**) Node 環境にインストールします。
+2. このフォルダーで好みのシェル ([または Visual Studio Code の統合ターミナル](https://code.visualstudio.com/docs/editor/integrated-terminal)) を開き、次の Node Package Manager (NPM) コマンドを実行して、[Yeoman](https://yeoman.io/) (yo) コード スキャフォールディング ツールおよび Swagger ジェネレーターをグローバル ( **-g**) Node 環境にインストールします。
 
     ```
     npm install -g yo
@@ -142,7 +142,7 @@ Azure の部分を行わない (または後で行う) 場合には、Azure の�
     npm install swaggerize-ui
     ```
 
-    VS Code を開始し、**[ファイル]**  >  **[フォルダーを開く]** と選び、MemoryGameAPI ディレクトリに移動します。 これは、先ほど作成した Node.js API サーバーです。 これは、よく使われる [ExpressJS](https://expressjs.com/en/4x/api.html) Web アプリケーション フレームワークを使って、プロジェクトを構造化して実行します。
+    VS Code を開始し、 **[ファイル]**  >  **[フォルダーを開く]** と選び、MemoryGameAPI ディレクトリに移動します。 これは、先ほど作成した Node.js API サーバーです。 これは、よく使われる [ExpressJS](https://expressjs.com/en/4x/api.html) Web アプリケーション フレームワークを使って、プロジェクトを構造化して実行します。
 
 ### <a name="2-customize-the-server-code-and-setup-debugging"></a>2. サーバー コードとデバッグのセットアップをカスタマイズします。
 
@@ -237,7 +237,7 @@ Swagger ファイル (config\swagger.json) では、定義されている各 URL
 
 VS Code ですべての変更を保存したことを確認し、サーバーを再度起動 (VS Code で F5 キーを押すか、またはシェルから `npm start` を実行して、次に [https://localhost:8000](https://localhost:8000) に移動する) して、ゲームの API をテストします。
 
-**Try it out!** ボタンを **/game**、**/guess**、**/new** のいずれかで押して、下の **Response Body** および **Response Code** の結果を確認し、予想どおりに動作していることを確認します。
+**Try it out!** ボタンを **/game**、 **/guess**、 **/new** のいずれかで押して、下の **Response Body** および **Response Code** の結果を確認し、予想どおりに動作していることを確認します。
 
 次のように試してみます。 
 
@@ -278,9 +278,9 @@ for (var i=0; i < board.length; i++){
  - [API アプリの Git デプロイを設定する](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-rest-api#deploy-the-api-with-git)
  - [API アプリのコードを Azure に展開します。](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-rest-api#deploy-the-api-with-git)
 
-アプリを登録する場合、*アプリ名*を他と異なるものにするようにします (*http://memorygameapi.azurewebsites.net* URL のバリエーションを要求する、他のアプリと名前が競合しないようにします)。
+アプリを登録する場合、*アプリ名*を他と異なるものにするようにします ( *http://memorygameapi.azurewebsites.net* URL のバリエーションを要求する、他のアプリと名前が競合しないようにします)。
 
-ここまでの作業を行って、Azure と Swagger UI が機能している場合、メモリ ゲームのバックエンドに必要な最後の手順が 1 つあります。 [Azure Portal](https://portal.azure.com) から、新しく作成した*アプリ サービス*を選び、**CORS** (クロス オリジン リソース共有) オプションを選択または検索します。 **[許可されたオリジン]** の下で、アスタリスク (`*`) を追加して、**[保存]** をクリックします。 これにより、ローカル マシンで開発を行いながら、メモリ ゲームのフロントエンドから、作成した API サービスへのクロス オリジンの呼び出しが可能となります。 メモリ ゲームのフロント エンドが完成し、Azure にデプロイしたら、このエントリを Web アプリの特定の URL で置き換えることができます。
+ここまでの作業を行って、Azure と Swagger UI が機能している場合、メモリ ゲームのバックエンドに必要な最後の手順が 1 つあります。 [Azure Portal](https://portal.azure.com) から、新しく作成した*アプリ サービス*を選び、**CORS** (クロス オリジン リソース共有) オプションを選択または検索します。 **[許可されたオリジン]** の下で、アスタリスク (`*`) を追加して、 **[保存]** をクリックします。 これにより、ローカル マシンで開発を行いながら、メモリ ゲームのフロントエンドから、作成した API サービスへのクロス オリジンの呼び出しが可能となります。 メモリ ゲームのフロント エンドが完成し、Azure にデプロイしたら、このエントリを Web アプリの特定の URL で置き換えることができます。
 
 ### <a name="going-further"></a>追加情報
 
@@ -636,7 +636,7 @@ Microsoft Store に公開するための基本的な手順は次のとおりで�
 
  1. [Windows デベロッパー](https://developer.microsoft.com/en-us/store/register) アカウントを作成します。
  2. アプリの申請の[チェックリスト](https://docs.microsoft.com/en-us/windows/uwp/publish/app-submissions)を使用します。
- 3. アプリを申請して[認定](https://msdn.microsoft.com/windows/uwp/publish/the-app-certification-process)を受けます。
+ 3. アプリを申請して[認定](https://docs.microsoft.com/windows/uwp/publish/the-app-certification-process)を受けます。
 
 そのために役立つ追加情報を次に示します。
 

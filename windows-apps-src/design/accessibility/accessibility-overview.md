@@ -8,12 +8,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: d0c3bea228cae8d9482a8e0cb24c958e36992848
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 001f7cb641b7bb210897ef9406c2324bbc20a2bd
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57649737"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66362066"
 ---
 # <a name="accessibility-overview"></a>アクセシビリティの概要  
 
@@ -44,7 +44,7 @@ XAML 向けのコントロールには、キーボードのサポートと、ス
 <span id="UI_AUTOMATION"/>
 
 ## <a name="ui-automation"></a>UI オートメーション  
-アクセシビリティ サポートは主に、Microsoft UI オートメーション フレームワークの統合サポートに基づいています。 このようなサポートは、基底クラス、コントロール型に対するクラス実装の組み込み動作、UI オートメーション プロバイダー API のインターフェイス表現を通じて提供されます。 各コントロール クラスは、UI オートメーションの概念であるオートメーション ピアとオートメーション パターンを使って、コントロールの役割とコンテンツを UI オートメーション クライアントに報告します。 アプリは、UI オートメーションではトップレベル ウィンドウとして扱われ、UI オートメーション フレームワークを通じて、そのアプリ ウィンドウ内のすべてのアクセシビリティ関連のコンテンツが UI オートメーション クライアントに利用できるようになります。 UI オートメーションについて詳しくは、「[UI オートメーションの概要](https://msdn.microsoft.com/library/windows/desktop/Ee684076)」をご覧ください。
+アクセシビリティ サポートは主に、Microsoft UI オートメーション フレームワークの統合サポートに基づいています。 このようなサポートは、基底クラス、コントロール型に対するクラス実装の組み込み動作、UI オートメーション プロバイダー API のインターフェイス表現を通じて提供されます。 各コントロール クラスは、UI オートメーションの概念であるオートメーション ピアとオートメーション パターンを使って、コントロールの役割とコンテンツを UI オートメーション クライアントに報告します。 アプリは、UI オートメーションではトップレベル ウィンドウとして扱われ、UI オートメーション フレームワークを通じて、そのアプリ ウィンドウ内のすべてのアクセシビリティ関連のコンテンツが UI オートメーション クライアントに利用できるようになります。 UI オートメーションについて詳しくは、「[UI オートメーションの概要](https://docs.microsoft.com/windows/desktop/WinAuto/uiauto-uiautomationoverview)」をご覧ください。
 
 <span id="Assistive_technology"/>
 <span id="assistive_technology"/>
@@ -83,7 +83,7 @@ XAML 向けのコントロールには、キーボードのサポートと、ス
 <span id="KEYBOARD_SUPPORT"/>
 
 ## <a name="keyboard-support"></a>キーボードのサポート  
-キーボードのサポートを十分なものにするには、アプリのすべての部分をキーボードで操作できるようにする必要があります。 アプリで使うコントロールのほとんどが標準のコントロールであり、カスタム コントロールを使っていない場合は、ほぼこれを実現できていると言えます。 基本的な XAML コントロール モデルには、タブ ナビゲーション、テキスト入力、コントロール固有のサポートなど、キーボードのサポートが組み込まれています。 レイアウト コンテナー (パネルなど) として機能する要素では、レイアウトの順序を使って、既定のタブの順序を設定します。 この順序は通常、UI をアクセシビリティ対応で表示するのに適したタブの順序です。 データの表示に使う [**ListBox**](https://msdn.microsoft.com/library/windows/apps/BR242868) コントロールと [**GridView**](https://msdn.microsoft.com/library/windows/apps/BR242705) コントロールには、方向キーのナビゲーションが組み込まれています。 また、[**Button**](https://msdn.microsoft.com/library/windows/apps/BR209265) コントロールを使う場合は、Space キーまたは Enter キーが自動で処理されてボタンがアクティブ化されます。
+キーボードのサポートを十分なものにするには、アプリのすべての部分をキーボードで操作できるようにする必要があります。 アプリで使うコントロールのほとんどが標準のコントロールであり、カスタム コントロールを使っていない場合は、ほぼこれを実現できていると言えます。 基本的な XAML コントロール モデルには、タブ ナビゲーション、テキスト入力、コントロール固有のサポートなど、キーボードのサポートが組み込まれています。 レイアウト コンテナー (パネルなど) として機能する要素では、レイアウトの順序を使って、既定のタブの順序を設定します。 この順序は通常、UI をアクセシビリティ対応で表示するのに適したタブの順序です。 データの表示に使う [**ListBox**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListBox) コントロールと [**GridView**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.GridView) コントロールには、方向キーのナビゲーションが組み込まれています。 また、[**Button**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Button) コントロールを使う場合は、Space キーまたは Enter キーが自動で処理されてボタンがアクティブ化されます。
 
 タブの順序やキー ベースのアクティブ化、ナビゲーションなど、キーボードのサポートのあらゆる側面について詳しくは、「[キーボードのアクセシビリティ](keyboard-accessibility.md)」をご覧ください。
 
@@ -92,7 +92,7 @@ XAML 向けのコントロールには、キーボードのサポートと、ス
 <span id="MEDIA_AND_CAPTIONING"/>
 
 ## <a name="media-and-captioning"></a>メディアと字幕  
-通常、オーディオビジュアル メディアを表示するには、[**MediaElement**](https://msdn.microsoft.com/library/windows/apps/BR242926) オブジェクトを使います。 **MediaElement** API を使うとメディアの再生を制御できます。 アクセシビリティ対応にするには、ユーザーが必要に応じてメディアを再生、一時停止、停止できるコントロールを用意します。 メディアには、キャプションや、ナレーションによる説明が含まれている別のオーディオ トラックなど、アクセシビリティ用の追加コンポーネントが含まれている場合があります。
+通常、オーディオビジュアル メディアを表示するには、[**MediaElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.MediaElement) オブジェクトを使います。 **MediaElement** API を使うとメディアの再生を制御できます。 アクセシビリティ対応にするには、ユーザーが必要に応じてメディアを再生、一時停止、停止できるコントロールを用意します。 メディアには、キャプションや、ナレーションによる説明が含まれている別のオーディオ トラックなど、アクセシビリティ用の追加コンポーネントが含まれている場合があります。
 
 <span id="Accessible_text"/>
 <span id="accessible_text"/>
@@ -103,7 +103,7 @@ XAML 向けのコントロールには、キーボードのサポートと、ス
 
 * ツールでは、テキストをタブ順のトラバーサルの一部として読み取るか、ドキュメント全体の表示の一部として読み取るかどうかを決める必要があります。 テキストの表示に適した要素を選ぶか、これらのテキスト要素のプロパティを調整することで、この決定の制御に役立てることができます。 各テキスト要素には、固有の目的があり、その目的には通常、対応する UI オートメーションの役割があります。 不適切な要素を使うと、誤った役割が UI オートメーションに報告され、支援技術を使うユーザーの混乱を招くことになります。
 * 視覚に障碍があり、背景に対するコントラストが適切でないとテキストを読み取ることが困難なユーザーが多数います。 視覚に障碍がないアプリの開発者には、こうしたユーザーが受ける影響は直感的には理解できません。 たとえば、色覚に障碍がある場合、設計で不適切な色を選ぶと、テキストを読むことができないユーザーもいます。 当初は Web コンテンツ用に作成された、アクセシビリティに関する推奨事項には、これらの問題をアプリで回避するためのコントラストの基準も定義されています。 詳しくは、「[アクセシビリティに対応したテキストの要件](accessible-text-requirements.md)」をご覧ください。
-* テキストが単に小さすぎるために読むことが難しい場合もよくあります。 この問題は、アプリの UI のテキストを最初から適切な大きさにすることで防止できます。 ただし、大量のテキストを表示するアプリや、テキストと他の視覚要素が混在するアプリでは、こうした変更が難しい場合があります。 このような場合は、ディスプレイを拡大できるシステム機能とアプリが正しくやり取りできるようにすることで、アプリ内のテキストも拡大します  (一部のユーザーはアクセシビリティのオプションとして DPI の値を変更します。 このオプションは、**[コンピューターの簡単操作]** の **[画面上の項目を拡大します]** から利用できます。この操作は、**コントロール パネル**の UI の **[デスクトップのカスタマイズ]** / **[ディスプレイ]** にリダイレクトされます)。
+* テキストが単に小さすぎるために読むことが難しい場合もよくあります。 この問題は、アプリの UI のテキストを最初から適切な大きさにすることで防止できます。 ただし、大量のテキストを表示するアプリや、テキストと他の視覚要素が混在するアプリでは、こうした変更が難しい場合があります。 このような場合は、ディスプレイを拡大できるシステム機能とアプリが正しくやり取りできるようにすることで、アプリ内のテキストも拡大します  (一部のユーザーはアクセシビリティのオプションとして DPI の値を変更します。 このオプションは、 **[コンピューターの簡単操作]** の **[画面上の項目を拡大します]** から利用できます。この操作は、**コントロール パネル**の UI の **[デスクトップのカスタマイズ]**  /  **[ディスプレイ]** にリダイレクトされます)。
 
 <span id="Supporting_high-contrast_themes"/>
 <span id="supporting_high-contrast_themes"/>
@@ -121,7 +121,7 @@ UI コントロールでは、テーマの XAML リソース ディクショナ�
 
 多くの場合、幅広いユーザーが利用できるようにするために、重要な情報を複数の方法で伝えることができます。 たとえば、アイコンと色の両方を使って情報を目立つようにすると、色覚に障碍があるユーザーが確認しやすくなります。また、効果音と一緒に視覚的な警告も表示すると、聴覚障碍があるユーザーに便利です。
 
-必要に応じて、不要な要素やアニメーションがまったくないアクセシビリティ対応のユーザー インターフェイス要素を代わりに使えるようにしたり、ユーザー操作が効率的になるように簡略化したりできます。 次のコード例は、1 つの [**UserControl**](https://msdn.microsoft.com/library/windows/apps/BR227647) インスタンスを表示して、ユーザー設定に依存する別のインスタンスの代わりに使う方法を示しています。
+必要に応じて、不要な要素やアニメーションがまったくないアクセシビリティ対応のユーザー インターフェイス要素を代わりに使えるようにしたり、ユーザー操作が効率的になるように簡略化したりできます。 次のコード例は、1 つの [**UserControl**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.UserControl) インスタンスを表示して、ユーザー設定に依存する別のインスタンスの代わりに使う方法を示しています。
 
 XAML
 ```xml
@@ -181,18 +181,18 @@ private void ShowAccessibleUICheckBox_Click(object sender, RoutedEventArgs e)
 <span id="ASSISTIVE_TECHNOLOGY_SUPPORT_IN_CUSTOM_CONTROLS"/>
 
 ## <a name="assistive-technology-support-in-custom-controls"></a>カスタム コントロールでの支援技術のサポート  
-カスタム コントロールを作るときは、1 つ以上の [**AutomationPeer**](https://msdn.microsoft.com/library/windows/apps/BR209185) サブクラスを実装または拡張してアクセシビリティをサポートすることをお勧めします。 基本コントロール クラスで使われていたのと同じピア クラスを使う場合は、派生クラスのオートメーション サポートは基本レベルで十分ですが、 そのことをテストする必要があります。また、そのような場合でも、新しいコントロール クラスのクラス名を正しく報告できるように、ピアを実装することをお勧めします。 カスタム オートメーション ピアを実装するにはいくつかの手順を実行する必要があります。 詳しくは、「[カスタム オートメーション ピア](custom-automation-peers.md)」をご覧ください。
+カスタム コントロールを作るときは、1 つ以上の [**AutomationPeer**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Automation.Peers.AutomationPeer) サブクラスを実装または拡張してアクセシビリティをサポートすることをお勧めします。 基本コントロール クラスで使われていたのと同じピア クラスを使う場合は、派生クラスのオートメーション サポートは基本レベルで十分ですが、 そのことをテストする必要があります。また、そのような場合でも、新しいコントロール クラスのクラス名を正しく報告できるように、ピアを実装することをお勧めします。 カスタム オートメーション ピアを実装するにはいくつかの手順を実行する必要があります。 詳しくは、「[カスタム オートメーション ピア](custom-automation-peers.md)」をご覧ください。
 
 <span id="Assistive_technology_support_in_apps_that_support_XAML___Microsoft_DirectX_interop"/>
 <span id="assistive_technology_support_in_apps_that_support_xaml___microsoft_directx_interop"/>
 <span id="ASSISTIVE_TECHNOLOGY_SUPPORT_IN_APPS_THAT_SUPPORT_XAML___MICROSOFT_DIRECTX_INTEROP"/>
 
 ## <a name="assistive-technology-support-in-apps-that-support-xaml--microsoft-directx-interop"></a>XAML/Microsoft DirectX の相互運用機能をサポートするアプリでの支援技術のサポート  
-([**SwapChainPanel**](https://msdn.microsoft.com/library/windows/apps/Dn252834) または [**SurfaceImageSource**](https://msdn.microsoft.com/library/windows/apps/Hh702041) を使って) XAML UI にホストされる Microsoft DirectX コンテンツには、既定ではアクセスできません。 ホストされた DirectX コンテンツの UI オートメーション ピアを作成する方法は、[XAML SwapChainPanel DirectX 相互運用性のサンプル](https://go.microsoft.com/fwlink/p/?LinkID=309155) で確認できます。 この手法を利用すると、ホストされたコンテンツに UI オートメーションを通じてアクセスできるようになります。
+([**SwapChainPanel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.SwapChainPanel) または [**SurfaceImageSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Imaging.SurfaceImageSource) を使って) XAML UI にホストされる Microsoft DirectX コンテンツには、既定ではアクセスできません。 ホストされた DirectX コンテンツの UI オートメーション ピアを作成する方法は、[XAML SwapChainPanel DirectX 相互運用性のサンプル](https://go.microsoft.com/fwlink/p/?LinkID=309155) で確認できます。 この手法を利用すると、ホストされたコンテンツに UI オートメーションを通じてアクセスできるようになります。
 
 ## <a name="related-topics"></a>関連トピック  
-* [**Windows.UI.Xaml.Automation**](https://msdn.microsoft.com/library/windows/apps/BR209179)
-* [ユーザー補助のための設計](https://msdn.microsoft.com/library/windows/apps/Hh700407)
+* [**Windows.UI.Xaml.Automation**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Automation)
+* [ユーザー補助のための設計](https://docs.microsoft.com/windows/uwp/accessibility/accessibility-overview)
 * [XAML のアクセシビリティのサンプル](https://go.microsoft.com/fwlink/p/?linkid=238570)
-* [アクセシビリティ](accessibility.md)
+* [ユーザー補助](accessibility.md)
 * [ナレーターを概要します。](https://support.microsoft.com/help/22798/windows-10-narrator-get-started)

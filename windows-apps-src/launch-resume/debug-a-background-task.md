@@ -6,18 +6,18 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10、uwp、バック グラウンド タスク
 ms.localizationpriority: medium
-ms.openlocfilehash: e0ae12bbb2bad1fbcd663f5be8f26656d640afc8
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 11ebd180ebc3bc08b418f3b22ebed190bf73c18d
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57599207"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66366207"
 ---
 # <a name="debug-a-background-task"></a>バックグラウンド タスクのデバッグ
 
 
 **重要な API**
--   [Windows.ApplicationModel.Background](https://msdn.microsoft.com/library/windows/apps/br224847)
+-   [Windows.ApplicationModel.Background](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background)
 
 バックグラウンド タスクをデバッグする方法について説明します。バックグラウンド タスクのアクティブ化のほか、Windows イベント ログでのデバッグ トレースなどについて取り上げます。
 
@@ -36,16 +36,16 @@ ms.locfileid: "57599207"
 
 バックグラウンド タスクは、Microsoft Visual Studio を使って手動でトリガーできます。 その後で、コードをステップ実行してデバッグできます。
 
-1.  C# では、バックグラウンド クラスの Run メソッドにブレークポイントを置き (インプロセス バックグラウンド タスクの場合は、App.OnBackgroundActivated() にブレークポイントを置きます)、[**System.Diagnostics**](https://msdn.microsoft.com/library/windows/apps/xaml/hh441592.aspx) を使ってデバッグ出力を記述します。
+1.  C# では、バックグラウンド クラスの Run メソッドにブレークポイントを置き (インプロセス バックグラウンド タスクの場合は、App.OnBackgroundActivated() にブレークポイントを置きます)、[**System.Diagnostics**](https://docs.microsoft.com/dotnet/api/system.diagnostics?view=netframework-4.7.2) を使ってデバッグ出力を記述します。
 
-    C++ では、バックグラウンド クラスの Run 関数にブレークポイントを置き (インプロセス バックグラウンド タスクの場合は、App.OnBackgroundActivated() にブレークポイントを置きます)、[**OutputDebugString**](https://msdn.microsoft.com/library/windows/desktop/aa363362) を使ってデバッグ出力を記述します。
+    C++ では、バックグラウンド クラスの Run 関数にブレークポイントを置き (インプロセス バックグラウンド タスクの場合は、App.OnBackgroundActivated() にブレークポイントを置きます)、[**OutputDebugString**](https://docs.microsoft.com/windows/desktop/api/debugapi/nf-debugapi-outputdebugstringw) を使ってデバッグ出力を記述します。
 
-2.  デバッガーでアプリケーションを実行し、**[ライフサイクル イベント]** ツール バーを使ってバックグラウンド タスクをトリガーします。 このドロップダウンには、Visual Studio でアクティブ化できるバックグラウンド タスクの名前が表示されます。
+2.  デバッガーでアプリケーションを実行し、 **[ライフサイクル イベント]** ツール バーを使ってバックグラウンド タスクをトリガーします。 このドロップダウンには、Visual Studio でアクティブ化できるバックグラウンド タスクの名前が表示されます。
 
     この機能を使うには、バックグラウンド タスクが既に登録されていて、トリガーを待機する状態になっていることが必要です。 たとえば、1 回限りの TimeTrigger に対してバックグラウンド タスクを登録した場合、そのトリガーが起動された後に Visual Studio からそのタスクを起動しても何も起こりません。
 
 > [!Note]
-> 次のトリガーを使用してバック グラウンド タスクは、この方法でアクティブにできません。[**アプリケーション トリガー**](https://msdn.microsoft.com/library/windows/apps/windows.applicationmodel.background.applicationtrigger.aspx)、 [ **MediaProcessing トリガー**](https://msdn.microsoft.com/library/windows/apps/windows.applicationmodel.background.mediaprocessingtrigger.aspx)、 [ **ControlChannelTrigger**](https://msdn.microsoft.com/library/windows/apps/hh701032)、 [**PushNotificationTrigger**](https://msdn.microsoft.com/library/windows/apps/hh700543)、およびバック グラウンド タスクを使用して、 [ **SystemTrigger** ](https://msdn.microsoft.com/library/windows/apps/br224838)で、 [ **SmsReceived** ](https://msdn.microsoft.com/library/windows/apps/br224839)の種類をトリガーします。  
+> 次のトリガーを使用してバック グラウンド タスクは、この方法でアクティブにできません。[**アプリケーション トリガー**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.applicationtrigger)、 [ **MediaProcessing トリガー**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.mediaprocessingtrigger)、 [ **ControlChannelTrigger**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger)、 [**PushNotificationTrigger**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.PushNotificationTrigger)、およびバック グラウンド タスクを使用して、 [ **SystemTrigger** ](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.SystemTrigger)で、 [ **SmsReceived** ](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.SystemTriggerType)の種類をトリガーします。  
 > **Application trigger** と **MediaProcessingTrigger** は、`trigger.RequestAsync()` を使ってコードで手動通知できます。
 
 ![バックグラウンド タスクのデバッグ](images/debugging-activation.png)
@@ -69,9 +69,9 @@ ms.locfileid: "57599207"
 
 2.  マニフェスト デザイナーを使い、バックグラウンド タスクがパッケージ マニフェストで正しく宣言されているかどうかを確認します。
 
-    -   C# と C++ の場合、エントリ ポイント属性が、クラス名の前のバックグラウンド タスク名前空間と一致している必要があります。 次に、例を示します。RuntimeComponent1.MyBackgroundTask します。
+    -   C# と C++ の場合、エントリ ポイント属性が、クラス名の前のバックグラウンド タスク名前空間と一致している必要があります。 例:RuntimeComponent1.MyBackgroundTask します。
     -   タスクと共に使われるトリガー タイプがすべて指定されている必要があります。
-    -   [  **ControlChannelTrigger**](https://msdn.microsoft.com/library/windows/apps/hh701032) または [**PushNotificationTrigger**](https://msdn.microsoft.com/library/windows/apps/hh700543) を使う場合以外、実行可能ファイルを指定しないでください。
+    -   [  **ControlChannelTrigger**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) または [**PushNotificationTrigger**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.PushNotificationTrigger) を使う場合以外、実行可能ファイルを指定しないでください。
 
 3.  Windows のみ。 バックグラウンド タスクをアクティブ化するために Windows で使われるエントリ ポイントを確認するには、デバッグ トレースを有効にして Windows イベント ログを使います。
 
@@ -80,7 +80,7 @@ ms.locfileid: "57599207"
     1.  スタート画面に移動して eventvwr.exe を検索し、イベント ビューアーを開きます。
     2.  移動して**アプリケーションとサービス ログ** - &gt; **Microsoft**  - &gt; **Windows**  - &gt;**BackgroundTaskInfrastructure**イベント ビューアでします。
     3.  操作 ウィンドウで、次のように選択します。**ビュー**  - &gt; **分析およびデバッグ ログ**診断ログを有効にします。
-    4.  **診断ログ**を選び、**[ログの有効化]** をクリックします。
+    4.  **診断ログ**を選び、 **[ログの有効化]** をクリックします。
     5.  次に、アプリを使ってバックグラウンド タスクの登録とアクティブ化をもう一度試します。
     6.  診断ログで、詳しいエラー情報を確認します。 このログには、バックグラウンド タスクに登録されたエントリ ポイントが含まれます。
 
@@ -101,7 +101,7 @@ ms.locfileid: "57599207"
 -   バックグラウンド タスクがロック画面へのアクセスを必要とする場合は、バックグラウンド タスクをデバッグする前にロック画面にアプリを配置してください。 ロック画面対応アプリのマニフェスト オプションを指定する方法については、「[アプリケーション マニフェストでのバックグラウンド タスクの宣言](declare-background-tasks-in-the-application-manifest.md)」をご覧ください。
 -   バックグラウンド タスクの登録パラメーターは登録時に検証されます。 いずれかの登録パラメーターが有効でない場合は、エラーが返されます。 バックグラウンド タスクの登録が失敗するシナリオをアプリが適切に処理するようにします。タスクを登録しようとした後で、有効な登録オブジェクトを持っていることを前提として動作するアプリは、クラッシュする場合があります。
 
-VS を使用したバック グラウンド タスクのデバッグの詳細についてを参照してください。[をトリガーする方法を中断、再開、およびバック グラウンド イベントを UWP アプリ](https://msdn.microsoft.com/library/windows/apps/xaml/hh974425.aspx)します。
+VS を使用したバック グラウンド タスクのデバッグの詳細についてを参照してください。[をトリガーする方法を中断、再開、およびバック グラウンド イベントを UWP アプリ](https://docs.microsoft.com/visualstudio/debugger/how-to-trigger-suspend-resume-and-background-events-for-windows-store-apps-in-visual-studio?view=vs-2015)します。
 
 ## <a name="related-topics"></a>関連トピック
 
@@ -110,8 +110,8 @@ VS を使用したバック グラウンド タスクのデバッグの詳細に
 * [バックグラウンド タスクの登録](register-a-background-task.md)
 * [アプリケーション マニフェストでのバックグラウンド タスクの宣言](declare-background-tasks-in-the-application-manifest.md)
 * [バックグラウンド タスクのガイドライン](guidelines-for-background-tasks.md)
-* [トリガーする方法を中断、再開、およびバック グラウンド イベントを UWP アプリ](https://msdn.microsoft.com/library/windows/apps/xaml/hh974425.aspx)
-* [Visual Studio code 分析による UWP アプリのコード品質の分析](https://msdn.microsoft.com/library/windows/apps/xaml/hh441471.aspx)
+* [トリガーする方法を中断、再開、およびバック グラウンド イベントを UWP アプリ](https://docs.microsoft.com/visualstudio/debugger/how-to-trigger-suspend-resume-and-background-events-for-windows-store-apps-in-visual-studio?view=vs-2015)
+* [Visual Studio code 分析による UWP アプリのコード品質の分析](https://docs.microsoft.com/visualstudio/test/analyze-the-code-quality-of-store-apps-using-visual-studio-static-code-analysis?view=vs-2015)
 
  
 

@@ -6,28 +6,28 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 01efd2cfd88143f99bf9058e8140308eb6afe458
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: c7296923b3e991a56fed115527b28a6b62b3ffd6
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57583370"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66369458"
 ---
  # <a name="files-folders-and-libraries"></a>ファイル、フォルダー、およびライブラリ
 
 
-[Windows.Storage](https://msdn.microsoft.com/library/windows/apps/br227346)、[Windows.Storage.Streams](https://msdn.microsoft.com/library/windows/apps/br241791)、[Windows.Storage.Pickers](https://msdn.microsoft.com/library/windows/apps/br207928) の各名前空間の API を使い、ファイル内にあるテキストやその他のデータ形式の読み取りと書き込み、およびファイルやフォルダーの管理を行います。 このセクションでは、アプリの設定の読み取りと書き込み、ファイルやフォルダーのピッカー、およびビデオ ライブラリやミュージック ライブラリなどのセキュリティで保護された特別な場所についても説明します。
+[Windows.Storage](https://docs.microsoft.com/uwp/api/Windows.Storage)、[Windows.Storage.Streams](https://docs.microsoft.com/uwp/api/Windows.Storage.Streams)、[Windows.Storage.Pickers](https://docs.microsoft.com/uwp/api/Windows.Storage.Pickers) の各名前空間の API を使い、ファイル内にあるテキストやその他のデータ形式の読み取りと書き込み、およびファイルやフォルダーの管理を行います。 このセクションでは、アプリの設定の読み取りと書き込み、ファイルやフォルダーのピッカー、およびビデオ ライブラリやミュージック ライブラリなどのセキュリティで保護された特別な場所についても説明します。
 
 | トピック | 説明  |
 |-------|--------------|
 | [ファイルとフォルダーの列挙と照会](quickstart-listing-files-and-folders.md) | フォルダー、ライブラリ、デバイス、またはネットワークの場所にあるファイルやフォルダーにアクセスします。 ファイルやフォルダーのクエリを作成することで、任意の場所にあるファイルやフォルダーを照会することもできます。 |
-| [ファイルの作成、書き込み、および読み取り](quickstart-reading-and-writing-files.md) | [StorageFile](https://msdn.microsoft.com/library/windows/apps/br227171) オブジェクトを使ってファイルの読み取りと書き込みを行います。 |
+| [ファイルの作成、書き込み、および読み取り](quickstart-reading-and-writing-files.md) | [StorageFile](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageFile) オブジェクトを使ってファイルの読み取りと書き込みを行います。 |
 | [ファイルへの書き込みに関するベスト プラクティス](best-practices-for-writing-to-files.md) | [FileIO](https://docs.microsoft.com/uwp/api/windows.storage.fileio) および [PathIO](https://docs.microsoft.com/uwp/api/windows.storage.pathio) クラスのさまざまなファイル書き込みメソッドの使用に関するベスト プラクティスについて学習します。 |
-| [ファイルのプロパティの取得](quickstart-getting-file-properties.md) | [StorageFile](https://msdn.microsoft.com/library/windows/apps/br227171) オブジェクトで表されるファイルのプロパティ (最上位、基本、拡張) を取得します。 |
-| [ピッカーでファイルやフォルダーを開く](quickstart-using-file-and-folder-pickers.md) | ユーザーがピッカーを操作してファイルやフォルダーにアクセスできるようにします。 フォルダーへのアクセスには [FolderPicker](https://msdn.microsoft.com/library/windows/apps/br207881) を使います。 |
-| [ピッカーによるファイルの保存](quickstart-save-a-file-with-a-picker.md) | [FileSavePicker](https://msdn.microsoft.com/library/windows/apps/br207871) を使って、ユーザーがアプリで保存するファイルの名前とその保存場所を指定できるようにします。 |
+| [ファイルのプロパティの取得](quickstart-getting-file-properties.md) | [StorageFile](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageFile) オブジェクトで表されるファイルのプロパティ (最上位、基本、拡張) を取得します。 |
+| [ピッカーでファイルやフォルダーを開く](quickstart-using-file-and-folder-pickers.md) | ユーザーがピッカーを操作してファイルやフォルダーにアクセスできるようにします。 フォルダーへのアクセスには [FolderPicker](https://docs.microsoft.com/uwp/api/Windows.Storage.Pickers.FolderPicker) を使います。 |
+| [ピッカーによるファイルの保存](quickstart-save-a-file-with-a-picker.md) | [FileSavePicker](https://docs.microsoft.com/uwp/api/Windows.Storage.Pickers.FileSavePicker) を使って、ユーザーがアプリで保存するファイルの名前とその保存場所を指定できるようにします。 |
 | [ホームグループ コンテンツへのアクセス](quickstart-accessing-homegroup-content.md) | ユーザーのホームグループ フォルダーに格納されているコンテンツ (画像、音楽、ビデオなど) にアクセスします。 |
-| [Microsoft OneDrive ファイルが利用可能かどうかの確認](quickstart-determining-availability-of-microsoft-onedrive-files.md) | [StorageFile.IsAvailable](https://msdn.microsoft.com/library/windows/apps/windows.storage.storagefile.isavailable.aspx) プロパティを使って、Microsoft OneDrive ファイルが利用可能かどうかを確認します。 |
+| [Microsoft OneDrive ファイルが利用可能かどうかの確認](quickstart-determining-availability-of-microsoft-onedrive-files.md) | [StorageFile.IsAvailable](https://docs.microsoft.com/uwp/api/windows.storage.storagefile.isavailable) プロパティを使って、Microsoft OneDrive ファイルが利用可能かどうかを確認します。 |
 | [ミュージック、画像、およびビデオ ライブラリのファイルとフォルダー](quickstart-managing-folders-in-the-music-pictures-and-videos-libraries.md) | 音楽、画像、またはビデオの既存のフォルダーを対応するライブラリに追加できます。 ライブラリからフォルダーを削除したり、ライブラリ内のフォルダーの一覧を取得したり、保存した写真、音楽、ビデオにアクセスしたりすることもできます。 |
 | [最近使ったファイルやフォルダーの追跡](how-to-track-recently-used-files-and-folders.md) | ユーザーが頻繁にアクセスするファイルを追跡するには、そのファイルを最近使ったアプリの一覧 (MRU) に追加します。 MRU はプラットフォームが管理し、最後にアクセスした日時に基づいて項目を並べ替えたり、一覧の上限である 25 項目に達したら最も古い項目を削除したりします。 すべてのアプリにはそれぞれに専用の MRU があります。 |
 | [ファイル システムの変更のバックグラウンドでの追跡](change-tracking-filesystem.md) | アプリが実行されていない場合でも、ファイル システムの変更を追跡します。|

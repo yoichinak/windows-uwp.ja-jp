@@ -1,20 +1,20 @@
 ---
 description: With C++/WinRT では、標準的な C++ ワイド文字列型を使用して Windows ランタイム API を呼び出すか、または winrt::hstring 型を使用することができます。
 title: C++/WinRT での文字列の処理
-ms.date: 10/03/2018
+ms.date: 04/23/2019
 ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、文字列
 ms.localizationpriority: medium
-ms.openlocfilehash: b6f1e12b82ec3ee41cdacc86fcc5f41d664262be
-ms.sourcegitcommit: 9031a51f9731f0b675769e097aa4d914b4854e9e
-ms.translationtype: HT
+ms.openlocfilehash: d66cdcff8eff8c620d58a5948cbcf081acea2f45
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58618399"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66360182"
 ---
 # <a name="string-handling-in-cwinrt"></a>C++/WinRT での文字列の処理
 
-[C +/cli WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt)、ワイド文字列型の C++ 標準ライブラリを使用して Windows ランタイム Api を呼び出すことができます**std::wstring** (注: 文字列型など、ナローではなく**std::string**). C++/WinRT には [**winrt::hstring**](/uwp/cpp-ref-for-winrt/hstring) というカスタム文字列型があります (C++/WinRT 基本ライブラリ、`%WindowsSdkDir%Include\<WindowsTargetPlatformVersion>\cppwinrt\winrt\base.h` で定義)。 これは、Windows ランタイムのコンストラクター、関数、およびプロパティで実際に受け取られ、返される文字列型です。 多くの場合&mdash;の方々 に感謝**hstring**の変換コンストラクターおよび変換演算子&mdash;注意すべきかどうかを選択することができます**hstring**クライアント コードにします。 API を*作成している*場合は、**hstring** を理解しておく必要性が高くなると思われます。
+[C +/cli WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt)、ワイド文字列型の C++ 標準ライブラリを使用して Windows ランタイム Api を呼び出すことができます**std::wstring** (注: 文字列型など、ナローではなく**std::string**). C++/WinRT には [**winrt::hstring**](/uwp/cpp-ref-for-winrt/hstring) というカスタム文字列型があります (C++/WinRT 基本ライブラリ、`%WindowsSdkDir%Include\<WindowsTargetPlatformVersion>\cppwinrt\winrt\base.h` で定義)。 これは、Windows ランタイムのコンストラクター、関数、およびプロパティで実際に受け取られ、返される文字列型です。 多くの場合&mdash;の方々 に感謝**hstring**の変換コンス トラクターおよび変換演算子&mdash;注意すべきかどうかを選択することができます**hstring**クライアント コードにします。 API を*作成している*場合は、**hstring** を理解しておく必要性が高くなると思われます。
 
 C++ には多くの文字列型があります。 C++ 標準ライブラリの **std::basic_string** に加えて、多くのライブラリにバリアントが存在します。 C++17 には、すべての文字列型間のギャップの橋渡しをする文字列変換ユーティリティと **std::basic_string_view** があります。  [**winrt::hstring** ](/uwp/cpp-ref-for-winrt/hstring)ででも提供**std::wstring_view**相互運用性を提供するを**std::basic_string_view**用に設計されました。
 
@@ -72,14 +72,14 @@ hstring domainHstring{ contosoUri.Domain() }; // L"contoso.com"
 domainHstring = awUri.Domain(); // L"adventure-works.com"
 ```
 
-同様に、[**IStringable::ToString**](https://msdn.microsoft.com/library/windows/desktop/dn302136) は hstring を返します。
+同様に、[**IStringable::ToString**](https://docs.microsoft.com/windows/desktop/api/windows.foundation/nf-windows-foundation-istringable-tostring) は hstring を返します。
 
 ```cppwinrt
 public:
     hstring ToString() const;
 ```
 
-**Uri** は [**IStringable**](https://msdn.microsoft.com/library/windows/desktop/dn302135) インターフェイスを実装しています。
+**Uri** は [**IStringable**](https://docs.microsoft.com/windows/desktop/api/windows.foundation/nn-windows-foundation-istringable) インターフェイスを実装しています。
 
 ```cppwinrt
 // Access hstring's IStringable::ToString, via a conversion operator to a standard type.
@@ -150,7 +150,7 @@ WINRT_ASSERT(w == L"Hello, World!");
 **hstring** の関数および演算子のその他の例および詳細については、[**winrt::hstring**](/uwp/cpp-ref-for-winrt/hstring) API リファレンス トピックをご覧ください。
 
 ## <a name="the-rationale-for-winrthstring-and-winrtparamhstring"></a>**winrt::hstring** および **winrt::param::hstring** の原理
-Windows ランタイムは **wchar_t** 文字によって実装されていますが、Windows ランタイムのアプリケーション バイナリ インターフェイス (ABI) は **std::wstring** や **std::wstring_view** が提供するもののサブセットではありません。 これらを使用すると、効率が大幅に低下します。 代わりに、C++/WinRT は **winrt::hstring** を提供します。これは、基礎となる [HSTRING](https://msdn.microsoft.com/library/windows/desktop/br205775) と互換性がある不変文字列を表し、**std::wstring** の場合と同様にインターフェイスの背後に実装されています。 
+Windows ランタイムは **wchar_t** 文字によって実装されていますが、Windows ランタイムのアプリケーション バイナリ インターフェイス (ABI) は **std::wstring** や **std::wstring_view** が提供するもののサブセットではありません。 これらを使用すると、効率が大幅に低下します。 代わりに、C++/WinRT は **winrt::hstring** を提供します。これは、基礎となる [HSTRING](https://docs.microsoft.com/windows/desktop/WinRT/hstring) と互換性がある不変文字列を表し、**std::wstring** の場合と同様にインターフェイスの背後に実装されています。 
 
 論理的に **winrt::hstring** を受け入れるはずの C++/WinRT 入力パラメーターが、実際には **winrt::param::hstring** を予期している場合があります。 **param** 名前空間には、自然に C++ 標準ライブラリにバインドしてコピーやその他の非効率性を回避するために、入力パラメーターの最適化にのみ使用される一連の型が含まれています。 これらの型は直接使用しないでください。 独自の関数で最適化を使用する場合は、**std::wstring_view** を使用します。
 
