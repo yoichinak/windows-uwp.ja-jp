@@ -8,18 +8,18 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 7ff3f89887235fc9c8d9d7afbbdea3d79bace810
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 671f33cf106eabf11b317b00d5c2a6cd9abcf3d0
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57630797"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66363036"
 ---
 # <a name="intro-to-controls-and-patterns"></a>コントロールとパターンの概要
 
 UWP アプリ開発では、*コントロール*は、コンテンツを表示したり、操作を有効にしたりする UI 要素です。 ボタン、テキスト ボックス、コンボ ボックスなどのコントロールを使って、データを表示し、ユーザー入力を取得するためのアプリの UI を作ります。
 
-> **重要な API**:[Windows.UI.Xaml.Controls 名前空間](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.aspx)
+> **重要な API**:[Windows.UI.Xaml.Controls 名前空間](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls)
 
 *パターン*とは、コントロールを変更するか、いくつかのコントロールを組み合わせて、新しいものを作成するためのレシピです。 たとえば、[マスター/詳細](master-details.md)パターンが使用できる方法を[SplitView](split-view.md)のアプリのナビゲーション コントロール。 同様のテンプレートをカスタマイズすることができます、 [NavigationView](navigationview.md)タブ パターンを実装するコントロール。
 
@@ -144,7 +144,7 @@ Button1.Click += new RoutedEventHandler(Button_Click);
 ## <a name="related-topics"></a>関連トピック
 
 -   [機能別コントロールのインデックス](controls-by-function.md)
--   [Windows.UI.Xaml.Controls 名前空間](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.aspx)
+-   [Windows.UI.Xaml.Controls 名前空間](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls)
 -   [レイアウト](../layout/index.md)
 -   [スタイル](../style/index.md)
 -   [ユーザビリティ](../usability/index.md)

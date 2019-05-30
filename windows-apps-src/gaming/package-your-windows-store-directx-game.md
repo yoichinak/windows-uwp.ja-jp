@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, DirectX, パッケージ
 ms.localizationpriority: medium
-ms.openlocfilehash: 631ba2c278c72f406a0fdd8a6d6d8d8a14c9eb05
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 27ea422982ce991de20e67649bc0925a60547cd8
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57635407"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66368311"
 ---
 #  <a name="package-your-universal-windows-platform-uwp-directx-game"></a>ユニバーサル Windows プラットフォーム (UWP) DirectX ゲームのパッケージ化
 
@@ -22,7 +22,7 @@ ms.locfileid: "57635407"
 -   アプリ パッケージには、プラットフォーム固有の実行可能ファイルとライブラリが含まれます。 通常、UWP ゲームでは、それぞれ x86、x64、ARM の CPU アーキテクチャに対応する 3 つのアプリ パッケージを含めることができます。 そのハードウェア プラットフォームに固有のコードやデータはすべて、対応するアプリ パッケージに含める必要があります。 アプリ パッケージには、基本レベルの再現性とパフォーマンスでゲームを実行するための主要アセットもすべて含める必要があります。
 -   リソース パッケージにはゲーム アセット (テクスチャ、メッシュ、サウンド、テキスト) など、プラットフォームにとらわれないオプション データまたは拡張データが含まれます。 UWP ゲームには、1 つまたは複数のリソース パッケージを含めることができます。これには、高解像度のアセットまたはテクスチャ、DirectX 機能レベル 11 以上のリソース、言語固有のアセットやリソースなどのリソース パッケージが含まれます。
 
-アプリ バンドルとアプリ パッケージについて詳しくは、「[アプリ リソースの定義](https://msdn.microsoft.com/library/windows/apps/xaml/hh965321)」をご覧ください。
+アプリ バンドルとアプリ パッケージについて詳しくは、「[アプリ リソースの定義](https://docs.microsoft.com/previous-versions/windows/apps/hh965321(v=win.10))」をご覧ください。
 
 アプリ パッケージにすべてのコンテンツを含めることもできますが、冗長であり非効率的になります。 テクスチャ ファイルは、サイズが大きいリソースです。これを各プラットフォーム用に (特に、不要かもしれない ARM プラットフォーム用を含めて) 3 回もレプリケートする必要はありません。 目標は、ユーザーがダウンロードする対象のサイズをできる限り小さくすることです。これにより、ユーザーはゲームの開始を早め、デバイス上の領域を節約でき、場合によっては従量制の帯域幅コストを回避することができます。
 
@@ -83,7 +83,7 @@ UWP アプリ インストーラーに含まれるこの機能を使用するに
 
      
 
--   ロケール固有のリソースをアプリ用に指定し、読み込むには、[**Windows.ApplicationModel.Resources**](https://msdn.microsoft.com/library/windows/apps/br206022) と [**Windows.ApplicationModel.Resources.Core**](https://msdn.microsoft.com/library/windows/apps/br225039) の API を使います。 また、これらの API は、ユーザーの設定に基づいて適切なロケールを判別し、ユーザーの適切なリソースを取得するため、特定のロケールが含まれないアセット参照を使ってください。
+-   ロケール固有のリソースをアプリ用に指定し、読み込むには、[**Windows.ApplicationModel.Resources**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Resources) と [**Windows.ApplicationModel.Resources.Core**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Resources.Core) の API を使います。 また、これらの API は、ユーザーの設定に基づいて適切なロケールを判別し、ユーザーの適切なリソースを取得するため、特定のロケールが含まれないアセット参照を使ってください。
 -   Microsoft Visual Studio 2015 では、次のように選択します**プロジェクト]、[ストア アプリ パッケージの作成]-> [。** パッケージを作成します。
 
 ## <a name="defining-scaling-factor-resource-packs"></a>倍率リソース パッケージの定義
@@ -100,7 +100,7 @@ UWP アプリの各種の倍率に応じたリソース パッケージをサポ
 
      
 
--   アセットを読み込むには、[**Windows.ApplicationModel.Resources.Core**](https://msdn.microsoft.com/library/windows/apps/br225039) の API を使います。 アセット参照は、特定のスケール バリエーションを除外して汎用化 (サフィックスなし) する必要があります。 システムは、ディスプレイの適切なスケール アセットとユーザーの設定を取得します。
+-   アセットを読み込むには、[**Windows.ApplicationModel.Resources.Core**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Resources.Core) の API を使います。 アセット参照は、特定のスケール バリエーションを除外して汎用化 (サフィックスなし) する必要があります。 システムは、ディスプレイの適切なスケール アセットとユーザーの設定を取得します。
 -   Visual Studio 2015 では、次のように選択します**プロジェクト]、[ストア アプリ パッケージの作成]-> [。** パッケージを作成します。
 
 ## <a name="defining-directx-feature-level-resource-packs"></a>DirectX 機能レベル リソース パッケージの定義
@@ -110,7 +110,7 @@ DirectX の機能レベルは、以前のバージョンと現在のバージョ
 
 ベースラインと、アプリ パックは、ベースラインのテクスチャの圧縮形式を使用してください。BC1、BC2、または BC3 の場合は。 これらの形式は、ローエンドの ARM プラットフォームから、専用のマルチ GPU ワークステーションやメディア コンピューターまで、任意の UWP デバイスで使うことができます。
 
-ローカル ディスク領域とダウンロード帯域幅を節約するには、DirectX 機能レベル 10 以上のテクスチャ形式サポートをリソース パッケージに追加する必要があります。 これにより、BC6H や BC7 など、11 に対応する高度な圧縮方式の使用が有効になります  (詳細については、次を参照してください[direct3d11 のテクスチャのブロック圧縮](https://msdn.microsoft.com/library/windows/desktop/hh308955)。)。これらの形式は最新の Gpu でサポートされている高解像度のテクスチャ アセットの効率を高めると、それらを使用すると、外観、パフォーマンス、およびハイエンドのプラットフォームで、ゲームの領域の要件に向上します。
+ローカル ディスク領域とダウンロード帯域幅を節約するには、DirectX 機能レベル 10 以上のテクスチャ形式サポートをリソース パッケージに追加する必要があります。 これにより、BC6H や BC7 など、11 に対応する高度な圧縮方式の使用が有効になります  (詳細については、次を参照してください[direct3d11 のテクスチャのブロック圧縮](https://docs.microsoft.com/windows/desktop/direct3d11/texture-block-compression-in-direct3d-11)。)。これらの形式は最新の Gpu でサポートされている高解像度のテクスチャ アセットの効率を高めると、それらを使用すると、外観、パフォーマンス、およびハイエンドのプラットフォームで、ゲームの領域の要件に向上します。
 
 | DirectX 機能レベル | サポートされるテクスチャ圧縮 |
 |-----------------------|-------------------------------|
@@ -163,7 +163,7 @@ DirectX の機能レベルは、以前のバージョンと現在のバージョ
     );
     ```
 
--   リソースを読み込むには、[**Windows.ApplicationModel.Resources.Core**](https://msdn.microsoft.com/library/windows/apps/br225039) の API を使います。 アセット参照は、機能レベルを除外して汎用化 (サフィックスなし) する必要があります。 ただし、言語やスケールとは異なり、システムは特定のディスプレイに適した機能レベルを自動的に判別しません。コード ロジックに基づいてご自身で判断してください。 この決定を行ったら、API を使って希望する機能レベルを OS に通知します。 その後、システムはその設定に基づいて適切なアセットを取得できます。 次のコード サンプルでは、プラットフォームの現在の DirectX 機能レベルをアプリに通知する方法を示します。
+-   リソースを読み込むには、[**Windows.ApplicationModel.Resources.Core**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Resources.Core) の API を使います。 アセット参照は、機能レベルを除外して汎用化 (サフィックスなし) する必要があります。 ただし、言語やスケールとは異なり、システムは特定のディスプレイに適した機能レベルを自動的に判別しません。コード ロジックに基づいてご自身で判断してください。 この決定を行ったら、API を使って希望する機能レベルを OS に通知します。 その後、システムはその設定に基づいて適切なアセットを取得できます。 次のコード サンプルでは、プラットフォームの現在の DirectX 機能レベルをアプリに通知する方法を示します。
     
     ```cpp
     // Set the current UI thread's MRT ResourceContext's DXFeatureLevel with the right DXFL. 
@@ -191,7 +191,7 @@ DirectX の機能レベルは、以前のバージョンと現在のバージョ
 
      
 
--   ここで、[**ResourceManager**](https://msdn.microsoft.com/library/windows/apps/br206078) を使って、現在の DirectX 機能レベルに合致するファイルを見つけます。 **ResourceManager** は [**ResourceMap**](https://msdn.microsoft.com/library/windows/apps/br206089) を返します。その [**ResourceMap::GetValue**](https://msdn.microsoft.com/library/windows/apps/br206098) (または [**ResourceMap::TryGetValue**](https://msdn.microsoft.com/library/windows/apps/jj655438)) と渡された [**ResourceContext**](https://msdn.microsoft.com/library/windows/apps/br206064) を使って照会します。 これにより、[**SetGlobalQualifierValue**](https://msdn.microsoft.com/library/windows/apps/mt622101) を呼び出して指定された DirectX 機能レベルと最も近い [**ResourceCandidate**](https://msdn.microsoft.com/library/windows/apps/br206051) が返されます。
+-   ここで、[**ResourceManager**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Resources.Core.ResourceManager) を使って、現在の DirectX 機能レベルに合致するファイルを見つけます。 **ResourceManager** は [**ResourceMap**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Resources.Core.ResourceMap) を返します。その [**ResourceMap::GetValue**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.resources.core.resourcemap.getvalue) (または [**ResourceMap::TryGetValue**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.resources.core.resourcemap.trygetvalue)) と渡された [**ResourceContext**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Resources.Core.ResourceContext) を使って照会します。 これにより、[**SetGlobalQualifierValue**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.resources.core.resourcecontext.setglobalqualifiervalue) を呼び出して指定された DirectX 機能レベルと最も近い [**ResourceCandidate**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Resources.Core.ResourceCandidate) が返されます。
     
     ```cpp
     // An explicit ResourceContext is needed to match the DirectX feature level for the display on which the current view is presented.
@@ -216,9 +216,9 @@ DirectX の機能レベルは、以前のバージョンと現在のバージョ
 ## <a name="related-topics"></a>関連トピック
 
 
-* [アプリ リソースの定義](https://msdn.microsoft.com/library/windows/apps/xaml/hh965321)
-* [アプリのパッケージ化](https://msdn.microsoft.com/library/windows/apps/mt270969)
-* [App packager (MakeAppx.exe)](https://msdn.microsoft.com/library/windows/desktop/hh446767)
+* [アプリ リソースの定義](https://docs.microsoft.com/previous-versions/windows/apps/hh965321(v=win.10))
+* [アプリのパッケージ化](https://docs.microsoft.com/windows/uwp/packaging/index)
+* [App packager (MakeAppx.exe)](https://docs.microsoft.com/windows/desktop/appxpkg/make-appx-package--makeappx-exe-)
 
  
 

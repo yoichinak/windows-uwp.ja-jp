@@ -7,12 +7,12 @@ keywords:
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: a0474345e21161e76fbfeebe0086e5d433b2d219
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: a68623b0a61672426c9b6eef85cb7d1ddc990a19
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57607357"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66370991"
 ---
 # <a name="mappings-are-into-a-tile-pool"></a>タイル プールにマッピングされます
 
@@ -31,13 +31,13 @@ ms.locfileid: "57607357"
 
 各ページ テーブルのエントリが 64 ビットであるとします。
 
-最悪のページの表に、ヒット、ストリーミングでリソースが作成、128 ビット要素ごとの形式 (たとえば、RGBA float)、そのため 64 KB のタイルと direct3d11 でのリソース制限を指定された 1 つの画面のサイズには 4096 のみピクセルが含まれます。 サポートされている最大[ **Texture2DArray** ](https://msdn.microsoft.com/library/windows/desktop/ff471526) 16384 サイズ\*16384\*完全に設定されている場合、2048 (が 1 つの mipmap のみ) が約 1 GB ページ テーブル内のストレージを必要とは(含まない mipmap) 64 ビットのテーブルのエントリを使用します。 ミップマップを追加すると、完全にマッピングされた (最悪のケース) ページ テーブル ストレージが約 3 分の 1 増加し、約 1.3 GB になります。
+最悪のページの表に、ヒット、ストリーミングでリソースが作成、128 ビット要素ごとの形式 (たとえば、RGBA float)、そのため 64 KB のタイルと direct3d11 でのリソース制限を指定された 1 つの画面のサイズには 4096 のみピクセルが含まれます。 サポートされている最大[ **Texture2DArray** ](https://docs.microsoft.com/windows/desktop/direct3dhlsl/sm5-object-texture2darray) 16384 サイズ\*16384\*完全に設定されている場合、2048 (が 1 つの mipmap のみ) が約 1 GB ページ テーブル内のストレージを必要とは(含まない mipmap) 64 ビットのテーブルのエントリを使用します。 ミップマップを追加すると、完全にマッピングされた (最悪のケース) ページ テーブル ストレージが約 3 分の 1 増加し、約 1.3 GB になります。
 
 このケースでは、約 10.6 TB のアドレス可能メモリにアクセスできます。 ただし、アドレス可能メモリの量に制限が存在することがあり、その場合これらの量は 1 TB 前後の範囲に減少する可能性があります。
 
-考慮すべきもう 1 つのケースは、1 つ[ **Texture2D** ](https://msdn.microsoft.com/library/windows/desktop/ff471525) 16384 のリソースをストリーミング\*16384 mipmap を含む、32 ビット要素ごとの形式。 完全に書き込まれたページ テーブルに必要な領域は、64 ビットのテーブル エントリで約 170 KB です。
+考慮すべきもう 1 つのケースは、1 つ[ **Texture2D** ](https://docs.microsoft.com/windows/desktop/direct3dhlsl/sm5-object-texture2d) 16384 のリソースをストリーミング\*16384 mipmap を含む、32 ビット要素ごとの形式。 完全に書き込まれたページ テーブルに必要な領域は、64 ビットのテーブル エントリで約 170 KB です。
 
-最後に、BC 形式を使った例について考えます。たとえば、128 ビット/タイルが 4x4 ピクセル存在する BC7 であるとします。 これは、ピクセルあたり 1 バイトです。 A [ **Texture2DArray** ](https://msdn.microsoft.com/library/windows/desktop/ff471526) 16384\*16384\*2048 mipmap を含む必要約 85 MB を完全にページの表に、このメモリを設定します。 1 つのストリーミング リソースが 550 ギガピクセル (この場合は 512 GB のメモリ) に対応できることを考えると、これは悪くありません。
+最後に、BC 形式を使った例について考えます。たとえば、128 ビット/タイルが 4x4 ピクセル存在する BC7 であるとします。 これは、ピクセルあたり 1 バイトです。 A [ **Texture2DArray** ](https://docs.microsoft.com/windows/desktop/direct3dhlsl/sm5-object-texture2darray) 16384\*16384\*2048 mipmap を含む必要約 85 MB を完全にページの表に、このメモリを設定します。 1 つのストリーミング リソースが 550 ギガピクセル (この場合は 512 GB のメモリ) に対応できることを考えると、これは悪くありません。
 
 実際には、これほどの量を一度にマッピングしたり参照したりできる量の物理メモリが存在することはないため、このようなほぼフル マッピングは定義されません。 しかし、タイル プールでは、アプリケーションがタイルの再利用を選択することがあり (シンプルな例としては、イメージ内の大きい黒色の領域に "黒" のカラー タイルを再利用)、事実上タイル プール (つまり、ページ テーブル マッピング) をメモリ圧縮のツールとして使っていることになります。
 

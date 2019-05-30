@@ -6,12 +6,12 @@ ms.date: 10/24/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, メイン オブジェクト
 ms.localizationpriority: medium
-ms.openlocfilehash: 96aefc8b053dd7490f47910ca5bb79989855e1a3
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: HT
+ms.openlocfilehash: a3c47f3c22c41e7ca73c8a8b5d4e26dc27fab343
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57651497"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66367651"
 ---
 # <a name="define-the-main-game-object"></a>メイン ゲーム オブジェクトの定義
 
@@ -46,7 +46,7 @@ __Simple3DGame__クラス オブジェクト。
 
 プレーヤーがゲームを開始すると、ゲーム オブジェクトはその状態を初期化し、オーバーレイの作成と追加を行い、プレーヤーのパフォーマンスを追跡する変数を設定して、レベルの構築時に使うオブジェクトをインスタンス化する必要があります。 このサンプルでは、これは、ときに、新しい__GameMain__でインスタンスが作成される[ __App::Load__](https://github.com/Microsoft/Windows-universal-samples/blob/5f0d0912214afc1c2a7c7470203933ddb46f7c89/Samples/Simple3DGameDX/cpp/App.cpp#L115-L123)します。 
 
-ゲーム オブジェクト__Simple3DGame__で作成、 __GameMain__コンストラクター。 使用して、初期化、 [ __Simple3DGame::Initialize__ ](https://github.com/Microsoft/Windows-universal-samples/blob/5f0d0912214afc1c2a7c7470203933ddb46f7c89/Samples/Simple3DGameDX/cpp/Simple3DGame.cpp#L54-L250)メソッド中に、[非同期でタスクを作成する、 __GameMain__コンストラクター](https://github.com/Microsoft/Windows-universal-samples/blob/5f0d0912214afc1c2a7c7470203933ddb46f7c89/Samples/Simple3DGameDX/cpp/GameMain.cpp#L65-L74).
+ゲーム オブジェクト__Simple3DGame__で作成、 __GameMain__コンス トラクター。 使用して、初期化、 [ __Simple3DGame::Initialize__ ](https://github.com/Microsoft/Windows-universal-samples/blob/5f0d0912214afc1c2a7c7470203933ddb46f7c89/Samples/Simple3DGameDX/cpp/Simple3DGame.cpp#L54-L250)メソッド中に、[非同期でタスクを作成する、 __GameMain__コンス トラクター](https://github.com/Microsoft/Windows-universal-samples/blob/5f0d0912214afc1c2a7c7470203933ddb46f7c89/Samples/Simple3DGameDX/cpp/GameMain.cpp#L65-L74).
 
 ### <a name="simple3dgameinitialize-method"></a>Simple3DGame::Initialize メソッド
 
@@ -54,7 +54,7 @@ __Simple3DGame__クラス オブジェクト。
 
 * 新規のオーディオ再生オブジェクトを作成します。
 * 一連のレベル プリミティブ、弾薬、障害物を含む、ゲームのグラフィック プリミティブの配列を作成します。
-* ゲーム状態データを保存する場所を作成し、*Game* という名前を付け、[**ApplicationData::Current**](https://msdn.microsoft.com/library/windows/apps/br241619) で指定するアプリ データ設定ストレージの場所に格納します。
+* ゲーム状態データを保存する場所を作成し、*Game* という名前を付け、[**ApplicationData::Current**](https://docs.microsoft.com/uwp/api/windows.storage.applicationdata.current) で指定するアプリ データ設定ストレージの場所に格納します。
 * ゲーム タイマーと初期ゲーム内オーバーレイ ビットマップを作成します。
 * 具体的なビュー パラメーターとプロジェクション パラメーター セットを使って新規のカメラを作成します。
 * プレーヤーがコントロール開始位置とカメラ位置の 1 対 1 の対応を確保されるように、入力デバイス (コントローラー) をカメラと同じ位置に上下と左右の開始位置を設定します。
@@ -245,8 +245,8 @@ void GameRenderer::Render()
 
 -   **初期化**:グローバル変数の開始値を設定し、ゲーム オブジェクトを初期化します。 これについては、[を初期化して、ゲームを開始](#initialize-and-start-the-game)セクション。
 -   **LoadGame**:新しいレベルを初期化し、読み込みを開始します。
--   **LoadLevelAsync**:非同期タスクを開始 (非同期タスクを慣れていない場合を参照してください。[並列パターン ライブラリ](https://docs.microsoft.com/cpp/parallel/concrt/parallel-patterns-library-ppl)) に、レベルを初期化し、デバイスの特定レベル リソースを読み込むレンダラーの非同期タスクを呼び出します。 このメソッドは独立したスレッドで実行されます。そのため、このスレッドから呼び出すことができるのは [**ID3D11Device**](https://msdn.microsoft.com/library/windows/desktop/ff476379) メソッドだけです ([**ID3D11DeviceContext**](https://msdn.microsoft.com/library/windows/desktop/ff476385) メソッドは呼び出されません)。 デバイス コンテキストのメソッドは、**FinalizeLoadLevel** メソッドで呼び出されます。
--   **FinalizeLoadLevel**:メイン スレッドで実行する必要があるレベル読み込みの作業を完了します。 これには、Direct3D 11 のデバイス コンテキスト ([**ID3D11DeviceContext**](https://msdn.microsoft.com/library/windows/desktop/ff476385)) のメソッドの呼び出しが含まれます。
+-   **LoadLevelAsync**:非同期タスクを開始 (非同期タスクを慣れていない場合を参照してください。[並列パターン ライブラリ](https://docs.microsoft.com/cpp/parallel/concrt/parallel-patterns-library-ppl)) に、レベルを初期化し、デバイスの特定レベル リソースを読み込むレンダラーの非同期タスクを呼び出します。 このメソッドは独立したスレッドで実行されます。そのため、このスレッドから呼び出すことができるのは [**ID3D11Device**](https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11device) メソッドだけです ([**ID3D11DeviceContext**](https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11devicecontext) メソッドは呼び出されません)。 デバイス コンテキストのメソッドは、**FinalizeLoadLevel** メソッドで呼び出されます。
+-   **FinalizeLoadLevel**:メイン スレッドで実行する必要があるレベル読み込みの作業を完了します。 これには、Direct3D 11 のデバイス コンテキスト ([**ID3D11DeviceContext**](https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11devicecontext)) のメソッドの呼び出しが含まれます。
 -   **StartLevel**:新しいレベルでゲーム プレイを開始します。
 -   **PauseGame**:ゲームを一時停止します。
 -   **RunGame**:ゲーム ループの反復を実行します。 ゲームの状態が **App::Update** の場合、ゲーム ループを反復するごとに **Active** から 1 回呼び出されます。

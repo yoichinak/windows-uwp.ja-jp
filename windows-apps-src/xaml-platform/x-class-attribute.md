@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 8eb1238499355cf37b3f5113dbb10c456de55961
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: dcda1677a8b5d289fd4c5e86db69212004f00824
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57624767"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66371102"
 ---
 # <a name="xclass-attribute"></a>x:Class 属性
 
@@ -36,7 +36,7 @@ ms.locfileid: "57624767"
 
 ## <a name="remarks"></a>注釈
 
-**x:Class** は、XAML ファイル/オブジェクト ツリーのルートであり、ビルド アクションによってコンパイルされる任意の要素か、コンパイルされたアプリケーションのアプリケーション定義中の [**Application**](https://msdn.microsoft.com/library/windows/apps/br242324) ルートの属性として宣言できます。 ルート ノード以外の任意の要素に対して **x:Class** を宣言した場合、XAML ファイルが **Page** ビルド動作でコンパイルされていない任意の状況下で、コンパイル時エラーになります。
+**x:Class** は、XAML ファイル/オブジェクト ツリーのルートであり、ビルド アクションによってコンパイルされる任意の要素か、コンパイルされたアプリケーションのアプリケーション定義中の [**Application**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Application) ルートの属性として宣言できます。 ルート ノード以外の任意の要素に対して **x:Class** を宣言した場合、XAML ファイルが **Page** ビルド動作でコンパイルされていない任意の状況下で、コンパイル時エラーになります。
 
 **x:Class** として使われたクラスは、ネストされたクラスにすることはできません。
 

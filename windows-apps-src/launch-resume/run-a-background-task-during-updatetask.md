@@ -5,12 +5,12 @@ ms.date: 04/21/2017
 ms.topic: article
 keywords: windows 10、uwp、更新、バック グラウンド タスク、updatetask、バック グラウンド タスク
 ms.localizationpriority: medium
-ms.openlocfilehash: 8cd7d4494340d1c5e617361f2e3d750b35ebabb9
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 3683595926f20fdd9f9af5929db65396b0001bcc
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57603527"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66371485"
 ---
 # <a name="run-a-background-task-when-your-uwp-app-is-updated"></a>UWP アプリが更新された際のバックグラウンド タスクの実行
 
@@ -22,16 +22,16 @@ ms.locfileid: "57603527"
 
 ## <a name="step-1-create-the-background-task-class"></a>手順 1:バック グラウンド タスク クラスを作成します。
 
-他の種類のバックグラウンド タスクの場合と同様に、Windows ランタイム コンポーネントとして更新タスク バックグラウンド タスクを実装します。 このコンポーネントを作成するには、「[アウトプロセス バックグラウンド タスクの作成と登録](https://docs.microsoft.com/windows/uwp/launch-resume/create-and-register-a-background-task)」の「**バックグラウンド タスク クラスを作る**」セクションの手順に従ってください。 次の手順を実行します。
+他の種類のバックグラウンド タスクの場合と同様に、Windows ランタイム コンポーネントとして更新タスク バックグラウンド タスクを実装します。 このコンポーネントを作成するには、「[アウトプロセス バックグラウンド タスクの作成と登録](https://docs.microsoft.com/windows/uwp/launch-resume/create-and-register-a-background-task)」の「**バックグラウンド タスク クラスを作る**」セクションの手順に従ってください。 次のような手順で構成されます。
 
 - ソリューションに Windows ランタイム コンポーネント プロジェクトを追加する。
 - アプリからコンポーネントへの参照を作成する。
-- [  **IBackgroundTask**](https://msdn.microsoft.com/library/windows/apps/br224794) を実装するコンポーネント内の public sealed クラスを作成する。
-- 更新タスクの実行時に呼び出される必要なエントリ ポイントである [**Run**](https://msdn.microsoft.com/library/windows/apps/br224811) メソッドを実装する。 バックグラウンド タスクからの非同期呼び出しを作成する場合は、「[アウトプロセス バックグラウンド タスクの作成と登録](https://docs.microsoft.com/windows/uwp/launch-resume/create-and-register-a-background-task)」で **Run** メソッドでの遅延の使用方法を説明しています。
+- [  **IBackgroundTask**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.IBackgroundTask) を実装するコンポーネント内の public sealed クラスを作成する。
+- 更新タスクの実行時に呼び出される必要なエントリ ポイントである [**Run**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtask.) メソッドを実装する。 バックグラウンド タスクからの非同期呼び出しを作成する場合は、「[アウトプロセス バックグラウンド タスクの作成と登録](https://docs.microsoft.com/windows/uwp/launch-resume/create-and-register-a-background-task)」で **Run** メソッドでの遅延の使用方法を説明しています。
 
-更新タスクを使用するうえで、このバックグラウンド タスクの登録 (**「アウトプロセス バックグラウンド タスクの作成と登録」** トピックの「実行するバックグラウンド タスクを登録する」セクション) は不要です。 更新タスクを使用する主な理由は、タスクを登録するためにコードをアプリに追加する必要がないこと、およびアプリの更新前にアプリを少なくとも 1 回実行してバックグラウンド タスクを登録する必要がないことです。
+更新タスクを使用するうえで、このバックグラウンド タスクの登録 ( **「アウトプロセス バックグラウンド タスクの作成と登録」** トピックの「実行するバックグラウンド タスクを登録する」セクション) は不要です。 更新タスクを使用する主な理由は、タスクを登録するためにコードをアプリに追加する必要がないこと、およびアプリの更新前にアプリを少なくとも 1 回実行してバックグラウンド タスクを登録する必要がないことです。
 
-次のサンプル コードは、C# の更新タスク バックグラウンド タスク クラスの基本的な開始点を示しています。 バックグラウンド タスク クラス自体と、バックグラウンド タスク プロジェクト内のその他すべてのクラスは、**public****sealed** クラスである必要があります。 バックグラウンド タスク クラスは **IBackgroundTask** から派生する必要があり、以下に示すシグネチャを持つパブリック **Run()** メソッドが含まれている必要があります。
+次のサンプル コードは、C# の更新タスク バックグラウンド タスク クラスの基本的な開始点を示しています。 バックグラウンド タスク クラス自体と、バックグラウンド タスク プロジェクト内のその他すべてのクラスは、**public** **sealed** クラスである必要があります。 バックグラウンド タスク クラスは **IBackgroundTask** から派生する必要があり、以下に示すシグネチャを持つパブリック **Run()** メソッドが含まれている必要があります。
 
 ```cs
 using Windows.ApplicationModel.Background;
@@ -50,7 +50,7 @@ namespace BackgroundTasks
 
 ## <a name="step-2-declare-your-background-task-in-the-package-manifest"></a>手順 2:パッケージ マニフェストに、バック グラウンド タスクを宣言します。
 
-Visual Studio のソリューション エクスプローラーで、**Package.appxmanifest** を右クリックし、**[コードの表示]** をクリックして、パッケージ マニフェストを表示します。 次の `<Extensions>` XML を追加して更新タスクを宣言します。
+Visual Studio のソリューション エクスプローラーで、**Package.appxmanifest** を右クリックし、 **[コードの表示]** をクリックして、パッケージ マニフェストを表示します。 次の `<Extensions>` XML を追加して更新タスクを宣言します。
 
 ```XML
 <Package ...>
@@ -78,11 +78,11 @@ Visual Studio のソリューション エクスプローラーで、**Package.a
 
 ![ブレークポイントの設定](images/run-func-breakpoint.png)
 
-次に、ソリューション エクスプローラーで、アプリのプロジェクト (バックグラウンド タスクのプロジェクトではない) を右クリックし、**[プロパティ]** をクリックします。 アプリケーションの [プロパティ] ウィンドウで、左側の **[デバッグ]** をクリックし、**[起動しないが、開始時にコードをデバッグ]** を選択します。
+次に、ソリューション エクスプローラーで、アプリのプロジェクト (バックグラウンド タスクのプロジェクトではない) を右クリックし、 **[プロパティ]** をクリックします。 アプリケーションの [プロパティ] ウィンドウで、左側の **[デバッグ]** をクリックし、 **[起動しないが、開始時にコードをデバッグ]** を選択します。
 
 ![デバッグ設定の設定](images/do-not-launch-but-debug.png)
 
-次に、UpdateTask がトリガーされるように、パッケージのバージョン番号を増やします。 ソリューション エクスプローラーで、アプリの **Package.appxmanifest** ファイルをダブルクリックして、パッケージ デザイナーを開き、**[ビルド]** 番号を更新します。
+次に、UpdateTask がトリガーされるように、パッケージのバージョン番号を増やします。 ソリューション エクスプローラーで、アプリの **Package.appxmanifest** ファイルをダブルクリックして、パッケージ デザイナーを開き、 **[ビルド]** 番号を更新します。
 
 ![バージョンの更新](images/bump-version.png)
 

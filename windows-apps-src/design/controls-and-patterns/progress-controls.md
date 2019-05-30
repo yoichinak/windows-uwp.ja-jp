@@ -12,12 +12,12 @@ design-contact: jeffarn
 dev-contact: mitra
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: a162d992390e8fc7d05d52303ec292fcf8e920a9
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: a409c4b940ad0e194428981f536823d880e56302
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57634427"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66364489"
 ---
 # <a name="progress-controls"></a>プログレス コントロール
 
@@ -25,7 +25,7 @@ ms.locfileid: "57634427"
 
 プログレス コントロールは、時間のかかる操作が進行中であることを示すフィードバックをユーザーに返します。 使用されているインジケーターに応じて、進行状況インジケーターが表示されているときはユーザーはアプリを操作できないことを知らせたり、待ち時間の長さを示したりできます。
 
-> **重要な API**:[ProgressBar クラス](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.progressbar.aspx)、 [IsIndeterminate プロパティ](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.progressbar.isindeterminate.aspx)、 [ProgressRing クラス](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.progressring.aspx)、 [IsActive プロパティ](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.progressring.isactive.aspx)
+> **重要な API**:[ProgressBar クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ProgressBar)、 [IsIndeterminate プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.progressbar.isindeterminate)、 [ProgressRing クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ProgressRing)、 [IsActive プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.progressring.isactive)
 
 ## <a name="types-of-progress"></a>プログレス コントロールの種類
 
@@ -187,9 +187,9 @@ Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows
 
 ## <a name="related-articles"></a>関連記事
 
-- [ProgressBar クラス](https://msdn.microsoft.com/library/windows/apps/br227529)
-- [ProgressRing クラス](https://msdn.microsoft.com/library/windows/apps/br227538)
+- [ProgressBar クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ProgressBar)
+- [ProgressRing クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ProgressRing)
 
 **開発者向け (XAML)**
-- [進行状況コントロールを追加します。](https://msdn.microsoft.com/library/windows/apps/xaml/hh780651)
+- [進行状況コントロールを追加します。](https://docs.microsoft.com/previous-versions/windows/apps/hh780651(v=win.10))
 - [Windows Phone のカスタムの不確定な進行状況バーを作成する方法](https://go.microsoft.com/fwlink/p/?LinkID=392426)

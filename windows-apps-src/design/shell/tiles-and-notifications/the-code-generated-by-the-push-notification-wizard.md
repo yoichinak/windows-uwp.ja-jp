@@ -7,12 +7,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 1ac5ca785eab39612bb3a9c6ccd58779c6241059
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: e30140a60906cb350940cc5ebd87347878845986
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57596867"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66365883"
 ---
 # <a name="code-generated-by-the-push-notification-wizard"></a>プッシュ通知ウィザードにより生成されるコード
  
@@ -207,7 +207,7 @@ function sendNotifications(request) {
 
 sendNotifications 関数は、1 つの通知をトースト通知として送信します。 他の種類のプッシュ通知を使うこともできます。
 
-**ヒント:**  スクリプトの編集中にヘルプを取得する方法については、次を参照してください。[サーバー側の JavaScript 用 IntelliSense を有効にする](https://go.microsoft.com/fwlink/p/?LinkId=309275)します。
+**ヒント:**   スクリプトの編集中にヘルプを取得する方法については、次を参照してください。[サーバー側の JavaScript 用 IntelliSense を有効にする](https://go.microsoft.com/fwlink/p/?LinkId=309275)します。
 
  
 
@@ -216,20 +216,20 @@ sendNotifications 関数は、1 つの通知をトースト通知として送信
 
 Windows では、プッシュ通知ではない通知がサポートされています。 通知に関する一般情報については、「[通知配信方法の選択](choosing-a-notification-delivery-method.md)」をご覧ください。
 
-トースト通知は使いやすく、自動的に生成されるチャネル テーブルの Insert.js コードで例を確認できます。 タイル通知かバッジ通知を使う予定の場合、タイルとバッジの XML テンプレートを作成し、テンプレートでパッケージ化された情報のエンコードを指定する必要があります。 「[タイル、バッジ、トースト通知の操作](https://msdn.microsoft.com/library/windows/apps/xaml/hh868259)」をご覧ください。
+トースト通知は使いやすく、自動的に生成されるチャネル テーブルの Insert.js コードで例を確認できます。 タイル通知かバッジ通知を使う予定の場合、タイルとバッジの XML テンプレートを作成し、テンプレートでパッケージ化された情報のエンコードを指定する必要があります。 「[タイル、バッジ、トースト通知の操作](https://docs.microsoft.com/previous-versions/windows/apps/hh868259(v=win.10))」をご覧ください。
 
 Windows は、プッシュ通知に応答するため、アプリが実行されていないときにこれらの通知のほとんどを処理できます。 たとえば、プッシュ通知は、ローカル メール アプリが実行されていないときでも新しいメール メッセージを受信したことをユーザーに知らせることができます。 Windows は、テキスト メッセージの先頭行のようなメッセージを表示することで、トースト通知を処理します。 Windows は、ライブ タイルを更新して新しいメール メッセージの数を反映することで、タイル通知またはバッジ通知を処理します。 このように、新しい情報をチェックするように促すプロンプトをアプリのユーザーに表示できます。 アプリは、実行中に直接通知を受け取ることができるため、直接通知を使ってアプリにデータを送ることができます。 アプリが実行されていない場合、プッシュ通知を監視するバックグラウンド タスクを設定できます。
 
-プッシュ通知は、ユーザーのリソースを消費し、使いすぎると煩わしくなる場合があるため、ユニバーサル Windows プラットフォーム (UWP) アプリに従って使ってください。 「[プッシュ通知のガイドラインとチェック リスト](https://msdn.microsoft.com/library/windows/apps/hh761462)」をご覧ください。
+プッシュ通知は、ユーザーのリソースを消費し、使いすぎると煩わしくなる場合があるため、ユニバーサル Windows プラットフォーム (UWP) アプリに従って使ってください。 「[プッシュ通知のガイドラインとチェック リスト](https://docs.microsoft.com/windows/uwp/controls-and-patterns/tiles-and-notifications-windows-push-notification-services--wns--overview)」をご覧ください。
 
-プッシュ通知でライブ タイルを更新する場合は、「[タイルとバッジのガイドラインとチェック リスト](https://msdn.microsoft.com/library/windows/apps/hh465403)」のガイドラインにも従ってください。
+プッシュ通知でライブ タイルを更新する場合は、「[タイルとバッジのガイドラインとチェック リスト](https://docs.microsoft.com/windows/uwp/controls-and-patterns/tiles-and-notifications-creating-tiles)」のガイドラインにも従ってください。
 
 ## <a name="next-steps"></a>次のステップ
 
 
 ### <a name="using-the-windows-push-notification-services-wns"></a>Windows プッシュ通知サービス (WNS) の使用
 
-Window Azure のモバイル サービスの柔軟性が不十分な場合、C# または Visual Basic でサーバー コードを記述する場合、または既にクラウド サービスを持っていてそこからプッシュ通知を送る場合は、Windows プッシュ通知サービス (WNS) を直接呼び出すこともできます。 WNS を直接呼び出すことで、データベースや他の Web サービスからのデータを監視するワーカーの役割など、独自のクラウド サービスからプッシュ通知を送ることができます。 クラウド サービスがプッシュ通知をアプリに送るには、WNS に対して認証する必要があります。 [Windows プッシュ通知サービスに対して認証する方法 (JavaScript)](https://msdn.microsoft.com/library/windows/apps/hh465407) または [(C#/C++/VB)](https://msdn.microsoft.com/library/windows/apps/xaml/hh868206) に関するページをご覧ください。
+Window Azure のモバイル サービスの柔軟性が不十分な場合、C# または Visual Basic でサーバー コードを記述する場合、または既にクラウド サービスを持っていてそこからプッシュ通知を送る場合は、Windows プッシュ通知サービス (WNS) を直接呼び出すこともできます。 WNS を直接呼び出すことで、データベースや他の Web サービスからのデータを監視するワーカーの役割など、独自のクラウド サービスからプッシュ通知を送ることができます。 クラウド サービスがプッシュ通知をアプリに送るには、WNS に対して認証する必要があります。 [Windows プッシュ通知サービスに対して認証する方法 (JavaScript)](https://docs.microsoft.com/previous-versions/windows/apps/hh465407(v=win.10)) または [(C#/C++/VB)](https://docs.microsoft.com/previous-versions/windows/apps/hh868206(v=win.10)) に関するページをご覧ください。
 
 モバイル サービスでスケジュール済みタスクを実行して、プッシュ通知を送ることもできます。 「[Mobile Services での繰り返し発生するジョブのスケジュール](https://go.microsoft.com/fwlink/p/?linkid=301694)」をご覧ください。
 
@@ -242,9 +242,9 @@ Window Azure のモバイル サービスの柔軟性が不十分な場合、C# 
 
 * [Windows プッシュ通知サービス (WNS) の概要](windows-push-notification-services--wns--overview.md)
 * [直接通知の概要](raw-notification-overview.md)
-* [Windows に接続する Azure Mobile Services (JavaScript)](https://msdn.microsoft.com/library/windows/apps/dn263160)
-* [Windows に接続する Azure Mobile Services (C#/C+/cli VB)](https://msdn.microsoft.com/library/windows/apps/xaml/dn263175)
-* [クイック スタート:(JavaScript) のモバイル サービスのプッシュ通知の追加](https://msdn.microsoft.com/library/windows/apps/dn263163)
+* [Windows に接続する Azure Mobile Services (JavaScript)](https://docs.microsoft.com/previous-versions/windows/apps/dn263160(v=win.10))
+* [Windows に接続する Azure Mobile Services (C#/C+/cli VB)](https://docs.microsoft.com/previous-versions/windows/apps/dn263175(v=win.10))
+* [クイック スタート:(JavaScript) のモバイル サービスのプッシュ通知の追加](https://docs.microsoft.com/previous-versions/windows/apps/dn263163(v=win.10))
  
 
  

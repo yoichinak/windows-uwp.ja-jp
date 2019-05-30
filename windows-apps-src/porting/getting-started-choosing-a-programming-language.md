@@ -6,19 +6,19 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 48cea8c1a3a3c35a53a3376c48e3192c94caf709
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: f5605c115c409771ce8dc9ddfeb1a4922e04aece
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57620777"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66372842"
 ---
 # <a name="getting-started-choosing-a-programming-language"></a>概要: プログラミング言語の選択
 
 
 ## <a name="choosing-a-programming-language"></a>プログラミング言語の選択
 
-先へ進む前に、ユニバーサル Windows プラットフォーム (UWP) アプリを開発するときに選択できるプログラミング言語について理解している必要があります。 この記事のチュートリアルでは C# が使われていますが、UWP アプリは複数のプログラミング言語を使って開発できます (「[言語、ツール、フレームワーク](https://msdn.microsoft.com/library/windows/apps/dn465799)」をご覧ください)。
+先へ進む前に、ユニバーサル Windows プラットフォーム (UWP) アプリを開発するときに選択できるプログラミング言語について理解している必要があります。 この記事のチュートリアルでは C# が使われていますが、UWP アプリは複数のプログラミング言語を使って開発できます (「[言語、ツール、フレームワーク](https://docs.microsoft.com/previous-versions/windows/apps/dn465799(v=win.10))」をご覧ください)。
 
 C++、C#、Microsoft Visual Basic、JavaScript を使って開発できます。 JavaScript では UI のレイアウトに HTML5 マークアップを使い、他の言語では *XAML (Extensible Application Markup Language)* と呼ばれるマークアップ言語を使って UI を記述します。
 
@@ -30,9 +30,9 @@ C++、C#、Microsoft Visual Basic、JavaScript を使って開発できます。
 
 **注**  3D グラフィックスを使用するアプリの場合は、OpenGL や OpenGL ES の標準は UWP アプリのネイティブに使用できません。 OpenGL ES のコードを Microsoft DirectX に書き換えない場合は、**Angle** に関心を持つかもしれません。 Angle は OpenGL API 呼び出しを DirectX API 呼び出しに翻訳することにより、OpenGL を DirectX に変換するように設計された進行中のプロジェクトです。 詳しくは、次のトピックをご覧ください。
 -   [角度](https://code.google.com/p/angleproject/)
--   [DirectX を使用して、最初の UWP アプリを作成します。](https://msdn.microsoft.com/library/windows/apps/br229580)
+-   [DirectX を使用して、最初の UWP アプリを作成します。](https://docs.microsoft.com/previous-versions/windows/apps/br229580(v=win.10))
 -   [DirectX を使用して UWP アプリのサンプル](https://go.microsoft.com/fwlink/p/?LinkId=263603)
--   [DirectX SDK はどこにでしょうか。](https://msdn.microsoft.com/library/windows/desktop/ee663275)
+-   [DirectX SDK はどこにでしょうか。](https://docs.microsoft.com/windows/desktop/directx-sdk--august-2009-)
 
 ## <a name="giving-c-a-go"></a>C# を試してみる
 

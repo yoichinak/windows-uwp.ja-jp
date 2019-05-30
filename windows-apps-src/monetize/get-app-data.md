@@ -6,12 +6,12 @@ ms.date: 02/28/2018
 ms.topic: article
 keywords: Windows 10, UWP, Microsoft Store 申請 API, アプリ データ
 ms.localizationpriority: medium
-ms.openlocfilehash: 23e392e2064a2a48089d1efadd1461c146e0d343
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: cfbe8df46f51b41ccdd840f609caf2c593735e1f
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57598897"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66372144"
 ---
 # <a name="get-app-data"></a>アプリ データの入手
 
@@ -64,11 +64,11 @@ Microsoft Store 申請 API に関するすべての[前提条件](create-and-man
 
 | Value           | 種類    | 説明       |
 |-----------------|---------|---------------------|
-| id            | string  | アプリケーションのストア ID です。 ストア ID について詳しくは、「[アプリ ID の詳細の表示](https://msdn.microsoft.com/windows/uwp/publish/view-app-identity-details)」をご覧ください。   |
+| id            | string  | アプリケーションのストア ID です。 ストア ID について詳しくは、「[アプリ ID の詳細の表示](https://docs.microsoft.com/windows/uwp/publish/view-app-identity-details)」をご覧ください。   |
 | primaryName   | string  | アプリのプライマリ名です。      |
 | packageFamilyName | string  | アプリのパッケージ ファミリ名です。      |
 | packageIdentityName          | string  | アプリのパッケージ ID 名です。                       |
-| publisherName       | string  | アプリに関連付けられている Windows 発行元 ID です。 これに対応して、**パッケージ/ユーザー/パブリッシャー**に表示される値、[アプリ id](https://msdn.microsoft.com/windows/uwp/publish/view-app-identity-details)パートナー センターでアプリのページ。       |
+| publisherName       | string  | アプリに関連付けられている Windows 発行元 ID です。 これに対応して、**パッケージ/ユーザー/パブリッシャー**に表示される値、[アプリ id](https://docs.microsoft.com/windows/uwp/publish/view-app-identity-details)パートナー センターでアプリのページ。       |
 | firstPublishedDate      | string  | アプリが最初に発行された日付 (ISO 8601 形式)。   |
 | lastPublishedApplicationSubmission       | オブジェクト | アプリの最後に公開された申請に関する情報を提供する[申請のリソース](#submission_object)。    |
 | pendingApplicationSubmission        | オブジェクト  |  アプリの現在保留中の申請に関する情報を提供する[申請のリソース](#submission_object)。   |   
@@ -121,14 +121,14 @@ Microsoft Store 申請 API に関するすべての[前提条件](create-and-man
 
 このリソースには、次の値があります。
 
-| 値           | 種類    | 説明           |
+| Value           | 種類    | 説明           |
 |-----------------|---------|------------------------|
 | flightId            | string  | パッケージ フライトの ID。 この値は、パートナー センターによって提供されます。  |
 | friendlyName           | string  | 開発者によって指定されているパッケージ フライトの名前。   |
 | lastPublishedFlightSubmission       | オブジェクト | パッケージ フライトの最後に公開された申請に関する情報を提供する[申請のリソース](#submission_object)。   |
 | pendingFlightSubmission        | オブジェクト  |  パッケージ フライトの現在保留中の申請に関する情報を提供する[申請のリソース](#submission_object)。  |    
-| groupIds           | array  | パッケージ フライトに関連付けられているフライト グループの ID を含む文字列の配列。 フライト グループについて詳しくは、「[パッケージ フライト](https://msdn.microsoft.com/windows/uwp/publish/package-flights)」をご覧ください。   |
-| rankHigherThan           | string  | 現在のパッケージ フライトの次に低位のパッケージ フライトのフレンドリ名。 フライト グループのランク付けについて詳しくは、「[パッケージ フライト](https://msdn.microsoft.com/windows/uwp/publish/package-flights)」をご覧ください。  |
+| groupIds           | array  | パッケージ フライトに関連付けられているフライト グループの ID を含む文字列の配列。 フライト グループについて詳しくは、「[パッケージ フライト](https://docs.microsoft.com/windows/uwp/publish/package-flights)」をご覧ください。   |
+| rankHigherThan           | string  | 現在のパッケージ フライトの次に低位のパッケージ フライトのフレンドリ名。 フライト グループのランク付けについて詳しくは、「[パッケージ フライト](https://docs.microsoft.com/windows/uwp/publish/package-flights)」をご覧ください。  |
 
 
 <span id="submission_object" />

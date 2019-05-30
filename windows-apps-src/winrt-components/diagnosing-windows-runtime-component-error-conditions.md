@@ -6,26 +6,26 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 4733edba06b7042c436918e882556f86dfa00071
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: HT
+ms.openlocfilehash: 72a7a7d4bbe6987781c538a7276bf3942f10cf5b
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57646567"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66372203"
 ---
 # <a name="diagnosing-windows-runtime-component-error-conditions"></a>Windows ランタイム コンポーネントでのエラー状態の診断
 
 
 
 
-この記事では、マネージ コードで記述された Windows ランタイム コンポーネントでの制限に関する追加情報について説明します。 ここでは、[Winmdexp.exe (Windows ランタイム メタデータ エクスポート ツール)](https://msdn.microsoft.com/library/hh925576.aspx) からのエラー メッセージに示されている情報についても説明します。また、「[C# および Visual Basic での Windows ランタイム コンポーネントの作成](creating-windows-runtime-components-in-csharp-and-visual-basic.md)」に記載されている制限事項の情報について補足説明します。
+この記事では、マネージ コードで記述された Windows ランタイム コンポーネントでの制限に関する追加情報について説明します。 ここでは、[Winmdexp.exe (Windows ランタイム メタデータ エクスポート ツール)](https://docs.microsoft.com/dotnet/framework/tools/winmdexp-exe-windows-runtime-metadata-export-tool) からのエラー メッセージに示されている情報についても説明します。また、「[C# および Visual Basic での Windows ランタイム コンポーネントの作成](creating-windows-runtime-components-in-csharp-and-visual-basic.md)」に記載されている制限事項の情報について補足説明します。
 
 この記事では、すべてのエラーが説明されているわけではありません。 ここで説明するエラーは一般的なカテゴリにまとめられており、各カテゴリには、関連するエラー メッセージの表が示されています。 この表を利用するには、メッセージ テキストで検索するか (プレース ホルダーの特定の値は省略してください)、メッセージ番号で検索してください。 必要な情報が見つからない場合は、この記事の最後にあるフィードバック ボタンをご利用ください。ドキュメントの内容を充実させるためにご協力をお願いします。 フィードバックを送る際には、エラー メッセージを含めてください。 また、Microsoft Connect の Web サイトで問題点をご連絡していただくこともできます。
 
 ## <a name="error-message-for-implementing-async-interface-provides-incorrect-type"></a>非同期インターフェイスの実装に関するエラー メッセージで示される型が正しくない
 
 
-マネージ型の Windows ランタイム コンポーネントは、非同期処理や非同期操作を表すユニバーサル Windows プラットフォーム (UWP) インターフェイス ([IAsyncAction](https://msdn.microsoft.com/library/br205781.aspx)、[IAsyncActionWithProgress&lt;TProgress&gt;](https://msdn.microsoft.com/library/br205784.aspx)、[IAsyncOperation&lt;TResult&gt;](https://msdn.microsoft.com/library/windows/apps/br206598.aspx)、[IAsyncOperationWithProgress&lt;TResult, TProgress&gt;](https://msdn.microsoft.com/library/windows/apps/br206594.aspx)) を実装することはできません。 代わりに、.NET Framework には、Windows ランタイム コンポーネントの非同期操作を生成するための [AsyncInfo](https://msdn.microsoft.com/library/system.runtime.interopservices.windowsruntime.asyncinfo.aspx) クラスが用意されています。 非同期インターフェイスを実装しようとしたときに Winmdexp.exe により表示されるエラー メッセージでは、このクラスが誤って以前の名前の AsyncInfoFactory として示されます。 .NET Framework では、AsyncInfoFactory クラスが使われなくなりました。
+マネージ型の Windows ランタイム コンポーネントは、非同期処理や非同期操作を表すユニバーサル Windows プラットフォーム (UWP) インターフェイス ([IAsyncAction](https://docs.microsoft.com/windows/desktop/api/windows.foundation/nn-windows-foundation-iasyncaction)、[IAsyncActionWithProgress&lt;TProgress&gt;](https://docs.microsoft.com/previous-versions//br205784(v=vs.85))、[IAsyncOperation&lt;TResult&gt;](https://docs.microsoft.com/uwp/api/Windows.Foundation.IAsyncOperation_TResult_)、[IAsyncOperationWithProgress&lt;TResult, TProgress&gt;](https://docs.microsoft.com/uwp/api/Windows.Foundation.IAsyncOperationWithProgress_TResult_TProgress_)) を実装することはできません。 代わりに、.NET Framework には、Windows ランタイム コンポーネントの非同期操作を生成するための [AsyncInfo](https://docs.microsoft.com/dotnet/api/system.runtime.interopservices.windowsruntime?redirectedfrom=MSDN) クラスが用意されています。 非同期インターフェイスを実装しようとしたときに Winmdexp.exe により表示されるエラー メッセージでは、このクラスが誤って以前の名前の AsyncInfoFactory として示されます。 .NET Framework では、AsyncInfoFactory クラスが使われなくなりました。
 
 | エラー番号 | メッセージ テキスト|       
 |--------------|-------------|
@@ -69,7 +69,7 @@ UWP のクラスは、指定された数のパラメーターを持つコンス�
 
 | エラー番号 | メッセージ テキスト                                                                                                                                            |
 |--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| WME1099      | 型 '{0}'に複数のコンストラクターを持つ'{1}' 個の引数。 Windows ランタイム型には、同じ数の引数を持つ複数のコンストラクターがありません。 |
+| WME1099      | 型 '{0}'に複数のコンス トラクターを持つ'{1}' 個の引数。 Windows ランタイム型には、同じ数の引数を持つ複数のコンストラクターがありません。 |
 
  
 
@@ -124,13 +124,13 @@ Windows ランタイム コンポーネントの型には、名前空間と同�
 
 コンポーネントのパブリック インターフェイスは UWP 型のみを公開する必要があります。 ただし、.NET Framework には、.NET Framework や UWP とはわずかに異なる多数の一般的な型に対応したマッピングが用意されています。 これにより、.NET Framework の開発者は、新しい型を習得せずに、使い慣れた型を使うことができます。 マップされた .NET Framework 型は、コンポーネントのパブリック インターフェイスで使うことができます。 [「C# および Visual Basic での Windows ランタイム コンポーネントの作成」](creating-windows-runtime-components-in-csharp-and-visual-basic.md)の「Windows ランタイム コンポーネントの宣言型」と「ユニバーサル Windows プラットフォーム型のマネージ コードへの引き渡し」、および「 [.NET Framework での Windows ランタイム型の対応付け](net-framework-mappings-of-windows-runtime-types.md)」をご覧ください。
 
-これらのマッピングの多くはインターフェイスです。 たとえば、[IList&lt;T&gt;](https://msdn.microsoft.com/library/5y536ey6.aspx) は、UWP インターフェイス [IVector&lt;T&gt;](https://msdn.microsoft.com/library/windows/apps/br206631.aspx) にマップされます。 パラメーター型として IList&lt;string&gt; の代わりに List&lt;string&gt; (Visual Basic の `List(Of String)`) を使うと、Winmdexp.exe によって代替のインターフェイスのリストが提供されます。このリストには、List&lt;T&gt; によって実装されたマップ済みのインターフェイスがすべて含まれています。 List&lt;Dictionary&lt;int, string&gt;&gt; (Visual Basic の List(Of Dictionary(Of Integer, String))) など、入れ子になったジェネリック型を使う場合、Winmdexp.exe によって入れ子のレベルごとに選択肢のリストが提供されます。 これらのリストはかなり長くなる場合があります。
+これらのマッピングの多くはインターフェイスです。 たとえば、[IList&lt;T&gt;](https://docs.microsoft.com/dotnet/api/system.collections.generic.ilist-1?redirectedfrom=MSDN) は、UWP インターフェイス [IVector&lt;T&gt;](https://docs.microsoft.com/uwp/api/Windows.Foundation.Collections.IVector_T_) にマップされます。 パラメーター型として IList&lt;string&gt; の代わりに List&lt;string&gt; (Visual Basic の `List(Of String)`) を使うと、Winmdexp.exe によって代替のインターフェイスのリストが提供されます。このリストには、List&lt;T&gt; によって実装されたマップ済みのインターフェイスがすべて含まれています。 List&lt;Dictionary&lt;int, string&gt;&gt; (Visual Basic の List(Of Dictionary(Of Integer, String))) など、入れ子になったジェネリック型を使う場合、Winmdexp.exe によって入れ子のレベルごとに選択肢のリストが提供されます。 これらのリストはかなり長くなる場合があります。
 
 一般に、最適なのは型に最も近いインターフェイスです。 たとえば、Dictionary&lt;int, string&gt; の場合、IDictionary&lt;int, string&gt; が最適と考えられます。
 
 > **重要な**  JavaScript はマネージ型を実装するインターフェイスの一覧の先頭に表示されるインターフェイスを使用します。 たとえば、Dictionary&lt;int, string&gt; を JavaScript コードに返した場合、戻り値の型としてどのインターフェイスを指定しても、IDictionary&lt;int, string&gt; として表示されます。 つまり、後のインターフェイスにメンバーが最初のインターフェイスに含まれていない場合、そのメンバーは JavaScript では認識されません。
 
-> **注意**  の非ジェネリックの使用を避け[IList](https://msdn.microsoft.com/library/system.collections.ilist.aspx)と[IEnumerable](https://msdn.microsoft.com/library/system.collections.ienumerable.aspx)インターフェイス、コンポーネントが JavaScript で使用される場合。 これらのインターフェイスは、それぞれ [IBindableVector](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.interop.ibindablevector.aspx) と [IBindableIterator](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.interop.ibindableiterator.aspx) にマップされます。 これらは、XAML コントロールのバインドをサポートし、JavaScript には参照されません。 JavaScript では、実行時エラー ("関数 'X' に無効なシグネチャがあるため、呼び出せません") が発生します。
+> **注意**  の非ジェネリックの使用を避け[IList](https://docs.microsoft.com/dotnet/api/system.collections.ilist?redirectedfrom=MSDN)と[IEnumerable](https://docs.microsoft.com/dotnet/api/system.collections.ienumerable?redirectedfrom=MSDN)インターフェイス、コンポーネントが JavaScript で使用される場合。 これらのインターフェイスは、それぞれ [IBindableVector](https://docs.microsoft.com/uwp/api/windows.ui.xaml.interop.ibindablevector) と [IBindableIterator](https://docs.microsoft.com/uwp/api/windows.ui.xaml.interop.ibindableiterator) にマップされます。 これらは、XAML コントロールのバインドをサポートし、JavaScript には参照されません。 JavaScript では、実行時エラー ("関数 'X' に無効なシグネチャがあるため、呼び出せません") が発生します。
 
  
 
@@ -157,7 +157,7 @@ Windows ランタイム コンポーネントの型には、名前空間と同�
 <tr class="odd">
 <td align="left">WME1039</td>
 <td align="left"><p>メソッド '{0}'型のパラメーターが'{1}' そのシグニチャにします。 このジェネリック型は有効な Windows ランタイム型ではありませんが、この型またはそのジェネリック パラメーターは、有効な Windows ランタイム型であるインターフェイスを実装します。 {2}</p>
-> **注**  の{2}、Winmdexp.exe は代替のリストをなど、追加します"型の変更を検討してください 'System.Collections.Generic.List&lt;T&gt;' には、次の種類のいずれかのメソッド シグネチャでその代わりに："System.Collections.Generic.IList&lt;T&gt;、System.Collections.Generic.IReadOnlyList&lt;T&gt;、System.Collections.Generic.IEnumerable&lt;T&gt;'."
+> **注**  の{2}、Winmdexp.exe は代替のリストをなど、追加します"型の変更を検討してください 'System.Collections.Generic.List&lt;T&gt;' には、次の種類のいずれかのメソッド シグネチャでその代わりに：'System.Collections.Generic.IList&lt;T&gt;, System.Collections.Generic.IReadOnlyList&lt;T&gt;, System.Collections.Generic.IEnumerable&lt;T&gt;'."
 </td>
 </tr>
 <tr class="even">
@@ -200,7 +200,7 @@ UWP では、メンバーのシグネチャ内の配列は 1 次元で、下限�
 ## <a name="array-parameters-must-specify-whether-array-contents-are-readable-or-writable"></a>配列パラメーターでは、配列の内容が読み取り可能であるか書き込み可能であるかどうかを指定する必要がある
 
 
-UWP では、パラメーターは読み取り専用または書き込み専用に指定する必要があります。 パラメーターは、**ref** (Visual Basic では [OutAttribute](https://msdn.microsoft.com/library/system.runtime.interopservices.outattribute.aspx) 属性のない **ByRef**) とマークすることはできません。 これは配列の内容に適用されるため、配列パラメーターは配列の内容が読み取り専用または書き込み専用であるかどうかを示す必要があります。 **out** パラメーター (Visual Basic では OutAttribute 属性のある **ByRef** パラメーター) の方向は明確ですが、値によって渡される配列パラメーター (Visual Basic の ByVal) はマークする必要があります。 [「Windows ランタイム コンポーネントに配列を渡す方法」](passing-arrays-to-a-windows-runtime-component.md)をご覧ください。
+UWP では、パラメーターは読み取り専用または書き込み専用に指定する必要があります。 パラメーターは、**ref** (Visual Basic では [OutAttribute](https://docs.microsoft.com/dotnet/api/system.runtime.interopservices.outattribute?redirectedfrom=MSDN) 属性のない **ByRef**) とマークすることはできません。 これは配列の内容に適用されるため、配列パラメーターは配列の内容が読み取り専用または書き込み専用であるかどうかを示す必要があります。 **out** パラメーター (Visual Basic では OutAttribute 属性のある **ByRef** パラメーター) の方向は明確ですが、値によって渡される配列パラメーター (Visual Basic の ByVal) はマークする必要があります。 [「Windows ランタイム コンポーネントに配列を渡す方法」](passing-arrays-to-a-windows-runtime-component.md)をご覧ください。
 
 | エラー番号 | メッセージ テキスト         |
 |--------------|----------------------|
@@ -238,7 +238,7 @@ UWP では、戻り値は出力パラメーターであると見なされ、パ�
 
 > **注**  戻り値の名前を変更すると、新しい名前が別のパラメーターの名前と競合、エラー WME1091 が発生します。
 
-JavaScript コードは、戻り値も含め、メソッドの出力パラメーターに名前でアクセスできます。 例については、[ReturnValueNameAttribute](https://msdn.microsoft.com/library/windows/apps/system.runtime.interopservices.windowsruntime.returnvaluenameattribute.aspx) 属性に関するトピックをご覧ください。
+JavaScript コードは、戻り値も含め、メソッドの出力パラメーターに名前でアクセスできます。 例については、[ReturnValueNameAttribute](https://docs.microsoft.com/dotnet/api/system.runtime.interopservices.windowsruntime.returnvaluenameattribute?redirectedfrom=MSDN) 属性に関するトピックをご覧ください。
 
 | エラー番号 | メッセージ テキスト |
 |--------------|--------------|
@@ -251,4 +251,4 @@ JavaScript コードは、戻り値も含め、メソッドの出力パラメー
 ## <a name="related-topics"></a>関連トピック
 
 * [C# および Visual Basic での Windows ランタイム コンポーネントの作成](creating-windows-runtime-components-in-csharp-and-visual-basic.md)
-* [Winmdexp.exe (Windows ランタイム メタデータ エクスポート ツール)](https://msdn.microsoft.com/library/hh925576.aspx)
+* [Winmdexp.exe (Windows ランタイム メタデータ エクスポート ツール)](https://docs.microsoft.com/dotnet/framework/tools/winmdexp-exe-windows-runtime-metadata-export-tool)

@@ -5,12 +5,12 @@ keywords: console uwp
 ms.date: 08/02/2018
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 111ef4d5e8830485a5de3b44d69826df256d1c4d
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: c2dba15d78301c84f4064bcd6548d44e3c17beb2
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57592107"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66366350"
 ---
 # <a name="create-a-universal-windows-platform-console-app"></a>ユニバーサル Windows プラットフォームを使用してコンソール アプリを作成する
 
@@ -24,7 +24,7 @@ ms.locfileid: "57592107"
 
 ## <a name="use-a-uwp-console-app-template"></a>UWP コンソール アプリ テンプレートを使用する 
 
-UWP コンソール アプリを作成するには、まず [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=AndrewWhitechapelMSFT.ConsoleAppUniversal) から入手できる**コンソール アプリ (ユニバーサル) プロジェクト テンプレート**をインストールします。 インストール済みのテンプレートは、で利用できます**新しいプロジェクト** > **インストール済み** > **他の言語** >  **Visual C** > **Windows ユニバーサル**として**コンソール アプリ C +/cli WinRT (ユニバーサル Windows)** と**コンソール アプリ C + + CX (ユニバーサル Windows)**.
+UWP コンソール アプリを作成するには、まず [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=AndrewWhitechapelMSFT.ConsoleAppUniversal) から入手できる**コンソール アプリ (ユニバーサル) プロジェクト テンプレート**をインストールします。 インストール済みのテンプレートは、で利用できます**新しいプロジェクト** > **インストール済み** > **他の言語** >  **Visual C++**   >  **Windows Universal**として**コンソール アプリC++/WinRT (ユニバーサル Windows)** と**コンソール アプリC++/CX (ユニバーサル Windows)** します。
 
 ## <a name="add-your-code-to-main"></a>Main() にコードを追加します。
 
@@ -60,7 +60,7 @@ int __cdecl main()
 
 UWP コンソール アプリは、実行されているディレクトリ、およびその下のファイル システムにアクセスできます。 テンプレートは [AppExecutionAlias](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-uap5-appexecutionalias) 拡張機能をアプリの Package.appxmanifest ファイルに追加するため、これが可能になります。 この拡張機能を使用すると、コンソール ウィンドウからエイリアスを入力してアプリを起動することもできます。 アプリを起動するためにシステムパスに入る必要はありません。
 
-さらに、[ファイル アクセス許可](https://docs.microsoft.com/windows/uwp/files/file-access-permissions) で説明されているように、制限された機能 `broadFileSystemAccess` を追加することで、ファイルシステムへの広範なアクセスを UWP コンソール アプリに付与することができます。 この機能は、[**Windows.Storage**](https://msdn.microsoft.com/library/windows/apps/BR227346) 名前空間の API で動作します。
+さらに、[ファイル アクセス許可](https://docs.microsoft.com/windows/uwp/files/file-access-permissions) で説明されているように、制限された機能 `broadFileSystemAccess` を追加することで、ファイルシステムへの広範なアクセスを UWP コンソール アプリに付与することができます。 この機能は、[**Windows.Storage**](https://docs.microsoft.com/uwp/api/Windows.Storage) 名前空間の API で動作します。
 
 テンプレートによって [SupportsMultipleInstances](multi-instance-uwp.md) 機能がアプリの Package.appxmanifest ファイルに追加されるため、複数の UWP コンソール アプリのインスタンスを同時に実行できます。
 

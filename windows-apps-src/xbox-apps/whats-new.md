@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: fe63c527-8f06-43a5-868f-de909f5664b3
 ms.localizationpriority: medium
-ms.openlocfilehash: aff65e5f1b4771cbb33bc8b8219224042b7bf7e2
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 27810fb850a54b70e620f06ea033b7c362792bfc
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57660687"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66372958"
 ---
 # <a name="whats-new-for-developers-in-the-latest-update-of-uwp-on-xbox-one"></a>Xbox One の UWP の最新の更新プログラムでの開発者向けの新機能
 
@@ -21,7 +21,7 @@ Xbox One のユニバーサル Windows プラットフォーム (UWP) の最新�
 Xbox では、x86 アプリの開発または x86 アプリのストアへの申請をサポートしなくなりました。
 
 ## <a name="apps-can-now-support-navigating-back-to-the-previous-app"></a>アプリは前のアプリに戻る移動をサポート可能に 
-Xbox One アプリの UWP では、前のアプリに戻る移動をサポートできるようになりました。 これを行うには、[**Windows.UI.Core.SystemNavigationManager.BackRequested**](https://msdn.microsoft.com/library/windows/apps/dn893595) イベントにサブスクライブし、イベント ハンドラーで **Handled** プロパティを **false** に設定します。
+Xbox One アプリの UWP では、前のアプリに戻る移動をサポートできるようになりました。 これを行うには、[**Windows.UI.Core.SystemNavigationManager.BackRequested**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.SystemNavigationManager) イベントにサブスクライブし、イベント ハンドラーで **Handled** プロパティを **false** に設定します。
 
 > [!NOTE]
 > 互換性の理由から、この機能は Xbox One で最新リリースの UWP を使って構築されたアプリでのみ利用できます。 
@@ -39,7 +39,7 @@ Dev Home のユーザー インターフェイスに、次の生産性強化機�
 Windows Device Portal (WDP) にコンソール設定のサポートが追加されました。 
 
 ## <a name="you-can-now-switch-the-type-of-your-uwp-title-between-app-and-game"></a>"アプリ" と "ゲーム" の間で、UWP タイトルの種類を切り替えることができるようになりました。
-"アプリ" と "ゲーム" の間で UWP タイトルの種類を切り替えると、ストアに公開しなくてもゲーム シナリオをテストすることができます。 Dev Home の **[アプリ+ゲーム]** ウィンドウでアプリを選んでコントローラーで [表示] ボタンを押し、**[アプリの詳細]** を選んで種類を "アプリ" または "ゲーム" に変更します。
+"アプリ" と "ゲーム" の間で UWP タイトルの種類を切り替えると、ストアに公開しなくてもゲーム シナリオをテストすることができます。 Dev Home の **[アプリ+ゲーム]** ウィンドウでアプリを選んでコントローラーで [表示] ボタンを押し、 **[アプリの詳細]** を選んで種類を "アプリ" または "ゲーム" に変更します。
 
 ## <a name="see-also"></a>関連項目
 - [既知の問題](known-issues.md)

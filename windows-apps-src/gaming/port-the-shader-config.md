@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, 移植, シェーダー, Direct3D, OpenGL
 ms.localizationpriority: medium
-ms.openlocfilehash: f061d31ca779cb4c6cbe76f163e190996a6985cb
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: b800a32149011376e1d97e0da44d32c733ddfb93
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57618747"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66368234"
 ---
 # <a name="port-the-shader-objects"></a>シェーダー オブジェクトの移植
 
@@ -20,8 +20,8 @@ ms.locfileid: "57618747"
 
 **重要な API**
 
--   [**ID3D11Device**](https://msdn.microsoft.com/library/windows/desktop/ff476379)
--   [**ID3D11DeviceContext**](https://msdn.microsoft.com/library/windows/desktop/ff476385)
+-   [**ID3D11Device**](https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11device)
+-   [**ID3D11DeviceContext**](https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11devicecontext)
 
 OpenGL ES 2.0 から簡単なレンダラーを移植する場合、最初の手順では、Direct3D 11 の対応する頂点シェーダー オブジェクトとフラグメント シェーダー オブジェクトを設定し、コンパイル後にメイン プログラムがシェーダー オブジェクトと通信できるようにします。
 
@@ -29,7 +29,7 @@ OpenGL ES 2.0 から簡単なレンダラーを移植する場合、最初の手
 
  
 
-OpenGL ES 2.0 と同じように、Direct3D のコンパイル済みシェーダーは描画コンテキストに関連付ける必要があります。 ただし、Direct3D にはもともとシェーダー プログラム オブジェクトという概念がありません。そのため、代わりに、シェーダーを [**ID3D11DeviceContext**](https://msdn.microsoft.com/library/windows/desktop/ff476385) に直接割り当てる必要があります。 この手順では、OpenGL ES 2.0 のシェーダー オブジェクトを作成してバインドするプロセスに従い、Direct3D で対応する API の動作を実現します。
+OpenGL ES 2.0 と同じように、Direct3D のコンパイル済みシェーダーは描画コンテキストに関連付ける必要があります。 ただし、Direct3D にはもともとシェーダー プログラム オブジェクトという概念がありません。そのため、代わりに、シェーダーを [**ID3D11DeviceContext**](https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11devicecontext) に直接割り当てる必要があります。 この手順では、OpenGL ES 2.0 のシェーダー オブジェクトを作成してバインドするプロセスに従い、Direct3D で対応する API の動作を実現します。
 
 <a name="instructions"></a>手順
 ------------
@@ -168,7 +168,7 @@ GLuint __cdecl LoadShaderProgram (const char *vertShaderSrcStr, const char *frag
 glUseProgram(renderer->programObject);
 ```
 
-Direct3D には、シェーダー プログラム オブジェクトという概念がありません。 そのため、シェーダーは、[**ID3D11Device**](https://msdn.microsoft.com/library/windows/desktop/ff476379) インターフェイスでいずれかのシェーダー作成メソッド ([**ID3D11Device::CreateVertexShader**](https://msdn.microsoft.com/library/windows/desktop/ff476524) や [**ID3D11Device::CreatePixelShader**](https://msdn.microsoft.com/library/windows/desktop/ff476513) など) が呼び出されたときに作成されます。 現在の描画コンテキストのシェーダーを設定するには、シェーダー設定メソッド (頂点シェーダーの [**ID3D11DeviceContext::VSSetShader**](https://msdn.microsoft.com/library/windows/desktop/ff476493) やフラグメント シェーダーの [**ID3D11DeviceContext::PSSetShader**](https://msdn.microsoft.com/library/windows/desktop/ff476472) など) を使って、シェーダーを対応する [**ID3D11DeviceContext**](https://msdn.microsoft.com/library/windows/desktop/ff476385) に渡します。
+Direct3D には、シェーダー プログラム オブジェクトという概念がありません。 そのため、シェーダーは、[**ID3D11Device**](https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11device) インターフェイスでいずれかのシェーダー作成メソッド ([**ID3D11Device::CreateVertexShader**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11device-createvertexshader) や [**ID3D11Device::CreatePixelShader**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11device-createpixelshader) など) が呼び出されたときに作成されます。 現在の描画コンテキストのシェーダーを設定するには、シェーダー設定メソッド (頂点シェーダーの [**ID3D11DeviceContext::VSSetShader**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-vssetshader) やフラグメント シェーダーの [**ID3D11DeviceContext::PSSetShader**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-pssetshader) など) を使って、シェーダーを対応する [**ID3D11DeviceContext**](https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11devicecontext) に渡します。
 
 Direct3D 11。グラフィックス デバイスの描画コンテキストのシェーダーを設定します。
 
@@ -227,7 +227,7 @@ renderer->mvpLoc = glGetUniformLocation(renderer->programObject, "u_mvpMatrix");
 
 Direct3D には、同じ意味での "attribute" と "uniform" の概念がありません (または、少なくともこの構文を共有しません)。 その代わり、Direct3D サブリソースとして表される定数バッファーがあります。これは、メイン プログラムとシェーダー プログラムの間で共有されるリソースです。 頂点の位置や色など、これらのサブリソースの一部は HLSL セマンティクスと呼ばれます。 OpenGL ES 2.0 の概念に関連する定数バッファーと HLSL セマンティクスについて詳しくは、「[OpenGL ES 2.0 のバッファー、uniform、頂点 attribute と Direct3D の比較](porting-uniforms-and-attributes.md)」を参照してください。
 
-このプロセスを Direct3D に移行する場合は、uniform を Direct3D の定数バッファー (cbuffer) に変換し、**register** HLSL セマンティクスを使って、検索のために cbuffer をレジスタに割り当てます。 2 つの頂点 attribute はシェーダー パイプライン ステージの入力要素として処理され、シェーダーに通知する [HLSL セマンティクス](https://msdn.microsoft.com/library/windows/desktop/bb205574) (POSITION と COLOR0) が割り当てられます。 ピクセル シェーダーは、SV\_位置を SV\_ GPU によって生成されたシステムの値であることを示すプレフィックス。 (この場合、これはスキャンの変換中に生成されたピクセル位置) です。VertexShaderInput と PixelShaderInput 定数前者を頂点バッファーの定義に使用するためのバッファーとしてを宣言されていない (を参照してください[頂点バッファーとデータをポート](port-the-vertex-buffers-and-data-config.md))、後者の場合、データがの結果として生成されると、頂点シェーダーをここでは、パイプラインの前のステージ。
+このプロセスを Direct3D に移行する場合は、uniform を Direct3D の定数バッファー (cbuffer) に変換し、**register** HLSL セマンティクスを使って、検索のために cbuffer をレジスタに割り当てます。 2 つの頂点 attribute はシェーダー パイプライン ステージの入力要素として処理され、シェーダーに通知する [HLSL セマンティクス](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dcl-usage---ps) (POSITION と COLOR0) が割り当てられます。 ピクセル シェーダーは、SV\_位置を SV\_ GPU によって生成されたシステムの値であることを示すプレフィックス。 (この場合、これはスキャンの変換中に生成されたピクセル位置) です。VertexShaderInput と PixelShaderInput 定数前者を頂点バッファーの定義に使用するためのバッファーとしてを宣言されていない (を参照してください[頂点バッファーとデータをポート](port-the-vertex-buffers-and-data-config.md))、後者の場合、データがの結果として生成されると、頂点シェーダーをここでは、パイプラインの前のステージ。
 
 Direct3D:定数バッファーと頂点データの HLSL の定義
 
@@ -275,7 +275,7 @@ struct VertexPositionColor
 
 使用して、DirectXMath XM\*シェーダー パイプラインに送信されるときに適切なパッキングと内容の配置を提供するために、定数の型が、要素をバッファーします。 Windows プラットフォームの標準の浮動小数点型と配列を使う場合は、手動でパッキングとアラインメントを実行する必要があります。
 
-定数バッファーをバインドするとしてレイアウトの説明を作成、 [ **CD3D11\_バッファー\_DESC** ](https://msdn.microsoft.com/library/windows/desktop/jj151620)構造体に渡すと[ **ID3DDevice:。CreateBuffer**](https://msdn.microsoft.com/library/windows/desktop/ff476501)します。 次に、レンダリング メソッドで、定数バッファーを [**ID3D11DeviceContext::UpdateSubresource**](https://msdn.microsoft.com/library/windows/desktop/ff476486) に渡してから、描画します。
+定数バッファーをバインドするとしてレイアウトの説明を作成、 [ **CD3D11\_バッファー\_DESC** ](https://docs.microsoft.com/windows/desktop/api/d3d11/ns-d3d11-cd3d11_buffer_desc)構造体に渡すと[ **ID3DDevice:。CreateBuffer**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11device-createbuffer)します。 次に、レンダリング メソッドで、定数バッファーを [**ID3D11DeviceContext::UpdateSubresource**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-updatesubresource) に渡してから、描画します。
 
 Direct3D 11。定数バッファーをバインドします。
 

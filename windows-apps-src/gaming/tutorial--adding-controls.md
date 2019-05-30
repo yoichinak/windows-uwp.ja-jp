@@ -6,12 +6,12 @@ ms.date: 10/24/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, コントロール, 入力
 ms.localizationpriority: medium
-ms.openlocfilehash: 369aa076184f79aa1e43c3aac11706982a6be268
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 0ff7088ec4062973d0b9d1ff6d20d7992e4135c3
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57595417"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66367950"
 ---
 # <a name="add-controls"></a>コントロールの追加
 
@@ -43,11 +43,11 @@ ms.locfileid: "57595417"
 
 event | 説明
 :------ | :-------
-[**CoreWindow::PointerPressed**](https://msdn.microsoft.com/library/windows/apps/br208278) | マウスの左または右ボタンが押された (そして押され続けた) か、タッチ画面がタッチされました。
-[**CoreWindow::PointerMoved**](https://msdn.microsoft.com/library/windows/apps/br208276) |マウスが動かされたか、タッチ画面でドラッグ操作が行われました。
-[**CoreWindow::PointerReleased**](https://msdn.microsoft.com/library/windows/apps/br208279) |マウスの左ボタンが離されたか、タッチ画面に触れているオブジェクトが離されました。
-[**CoreWindow::PointerExited**](https://msdn.microsoft.com/library/windows/apps/br208275) |ポインターがメイン ウィンドウの外に動かされました。
-[**Windows::Devices::Input::MouseMoved**](https://msdn.microsoft.com/library/windows/apps/hh758356) | マウスが一定の距離動かされました。 現在の X-Y 位置ではなく、マウス移動のデルタ値にのみ注目します。
+[**CoreWindow::PointerPressed**](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.pointerpressed) | マウスの左または右ボタンが押された (そして押され続けた) か、タッチ画面がタッチされました。
+[**CoreWindow::PointerMoved**](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.pointermoved) |マウスが動かされたか、タッチ画面でドラッグ操作が行われました。
+[**CoreWindow::PointerReleased**](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.pointerreleased) |マウスの左ボタンが離されたか、タッチ画面に触れているオブジェクトが離されました。
+[**CoreWindow::PointerExited**](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.pointerexited) |ポインターがメイン ウィンドウの外に動かされました。
+[**Windows::Devices::Input::MouseMoved**](https://docs.microsoft.com/uwp/api/windows.devices.input.mousedevice.mousemoved) | マウスが一定の距離動かされました。 現在の X-Y 位置ではなく、マウス移動のデルタ値にのみ注目します。
 
 
 これらのイベント ハンドラーは、アプリケーション ウィンドウ内で **MoveLookController** が初期化されるとすぐに、ユーザー入力の待機を開始するように設定されています。
@@ -105,7 +105,7 @@ void MoveLookController::InitWindow(_In_ CoreWindow^ window)
 
 
 すべてのポインター入力は、**Active** 状態で追跡され、ポインターの操作に応じて異なるポインター ID が設定されます。
-[  **PointerPressed**](https://msdn.microsoft.com/library/windows/apps/br208278) イベントが受け取られると、**MoveLookController** は、ウィンドウで作成されたポインターの ID 値を取得します。 ポインター ID は、特定の種類の入力を表します。 たとえば、マルチタッチ デバイスでは、複数の異なるアクティブ入力が同時に行われる場合があります。 ID は、プレイヤーが使っている入力を追跡するために使われます。 タッチ スクリーンのムーブ四角形内にイベントがある場合、ポインター ID が割り当てられ、ムーブ四角形内のポインター イベントが追跡されます。 ファイア四角形内の他のポインター イベントは、別のポインター ID で別途追跡されます。
+[  **PointerPressed**](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.pointerpressed) イベントが受け取られると、**MoveLookController** は、ウィンドウで作成されたポインターの ID 値を取得します。 ポインター ID は、特定の種類の入力を表します。 たとえば、マルチタッチ デバイスでは、複数の異なるアクティブ入力が同時に行われる場合があります。 ID は、プレイヤーが使っている入力を追跡するために使われます。 タッチ スクリーンのムーブ四角形内にイベントがある場合、ポインター ID が割り当てられ、ムーブ四角形内のポインター イベントが追跡されます。 ファイア四角形内の他のポインター イベントは、別のポインター ID で別途追跡されます。
 
 
 > [!NOTE]
@@ -160,7 +160,7 @@ bool MoveLookController::IsFiring()
 
 マウス移動が検出された場合は、その移動を使ってカメラの新しいピッチとヨーを特定します。 そのためには、相対マウス コントロールを実装します。相対マウス コントロールでは、動作の絶対 x-y ピクセル座標を記録するのではなく、マウスが移動した相対距離 (移動の開始から停止までのデルタ) を処理します。
 
-これを行うには、[**MouseMoved**](https://msdn.microsoft.com/library/windows/apps/hh758356) イベントによって返される [**Windows::Device::Input::MouseEventArgs::MouseDelta**](https://msdn.microsoft.com/library/windows/apps/hh758358) 引数オブジェクトの [**MouseDelta::X**](https://msdn.microsoft.com/library/windows/apps/hh758353) フィールドと **MouseDelta::Y** フィールドを調べて、X (横方向の動作) と Y (縦方向の動作) の座標の変化を取得します。
+これを行うには、[**MouseMoved**](https://docs.microsoft.com/uwp/api/windows.devices.input.mousedevice.mousemoved) イベントによって返される [**Windows::Device::Input::MouseEventArgs::MouseDelta**](https://docs.microsoft.com/uwp/api/windows.devices.input.mouseeventargs.mousedelta) 引数オブジェクトの [**MouseDelta::X**](https://docs.microsoft.com/uwp/api/Windows.Devices.Input.MouseDelta) フィールドと **MouseDelta::Y** フィールドを調べて、X (横方向の動作) と Y (縦方向の動作) の座標の変化を取得します。
 
 ```cpp
 void MoveLookController::OnMouseMoved(
@@ -220,8 +220,8 @@ void MoveLookController::OnMouseMoved(
 
 **MoveLookController** は、ポインター ID を確認してイベントがどこで発生したかを判断し、次のいずれかの処理を実行します。
 
--   [  **PointerMoved**](https://msdn.microsoft.com/library/windows/apps/br208276) イベントがムーブまたはファイア四角形で発生した場合は、コントローラーのポインターの位置を更新します。
--   [  **PointerMoved**](https://msdn.microsoft.com/library/windows/apps/br208276) イベントが画面の残りの部分 (ルック コントロールとして定義されている部分) のどこかで発生した場合は、ルック方向ベクトルのピッチとヨーの変化を計算します。
+-   [  **PointerMoved**](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.pointermoved) イベントがムーブまたはファイア四角形で発生した場合は、コントローラーのポインターの位置を更新します。
+-   [  **PointerMoved**](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.pointermoved) イベントが画面の残りの部分 (ルック コントロールとして定義されている部分) のどこかで発生した場合は、ルック方向ベクトルのピッチとヨーの変化を計算します。
 
 
 タッチ コントロールを実装すると、前に Direct2D を使って描画した四角形が、ムーブ、ファイア、ルックの各ゾーンの場所をプレイヤーに示します。
@@ -401,7 +401,7 @@ window->PointerReleased +=
 
 ここで、**MoveLookController** は、ルック領域に対応する特定の変数に、イベントを発生させたポインターのポインターの ID を割り当てます。 外観のリージョンで発生しているタッチの場合、 **m\_lookPointerID**変数、イベントを発生させたポインター ID に設定されます。 ブール値変数、 **m\_lookInUse**はまた、コントロールされていないことを示すために設定まだリリースします。
 
-次は、このゲーム サンプルで [**PointerMoved**](https://msdn.microsoft.com/library/windows/apps/br208276) タッチ スクリーン イベントを処理する方法を見てみましょう。
+次は、このゲーム サンプルで [**PointerMoved**](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.pointermoved) タッチ スクリーン イベントを処理する方法を見てみましょう。
 
 
 **MoveLookController::OnPointerMoved** メソッド内で、どのような種類のポインター ID がイベントに割り当てられているかを確認します。 **m_lookPointerID** の場合は、ポインターの位置の変更を計算します。
@@ -435,9 +435,9 @@ window->PointerReleased +=
 
 
 
-確認する最後の要素は、このゲーム サンプルで [**PointerReleased**](https://msdn.microsoft.com/library/windows/apps/br208279) タッチ スクリーン イベントがどのように処理されているかです。
+確認する最後の要素は、このゲーム サンプルで [**PointerReleased**](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.pointerreleased) タッチ スクリーン イベントがどのように処理されているかです。
 ユーザーがタッチ ジェスチャを終了し、画面から指を離すと、[**MoveLookController::OnPointerReleased**](https://github.com/Microsoft/Windows-universal-samples/blob/ef073ed8a2007d113af1d88eddace479e3bf0e07/SharedContent/cpp/GameContent/MoveLookController.cpp#L441-L500) が開始されます。
-[  **PointerReleased**](https://msdn.microsoft.com/library/windows/apps/br208279) イベントを発生させたポインターの ID が前に記録されたムーブ ポインターの ID である場合は、プレイヤーがルック領域から指を離したため、**MoveLookController** は速度を `0` に設定します。
+[  **PointerReleased**](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.pointerreleased) イベントを発生させたポインターの ID が前に記録されたムーブ ポインターの ID である場合は、プレイヤーがルック領域から指を離したため、**MoveLookController** は速度を `0` に設定します。
 
 ```cpp
     else if (pointerID == m_lookPointerID)
@@ -469,7 +469,7 @@ P | ゲームを一時停止します。
 マウスの左ボタン | 球体を発射します。
 
 
-キーボードを使用するために、ゲーム サンプルは、[**MoveLookController::InitWindow**](https://github.com/Microsoft/Windows-universal-samples/blob/ef073ed8a2007d113af1d88eddace479e3bf0e07/SharedContent/cpp/GameContent/MoveLookController.cpp#L84-L88) メソッド内で 2 つの新しいイベント [**CoreWindow::KeyUp**](https://msdn.microsoft.com/library/windows/apps/br208271) と [**CoreWindow::KeyDown**](https://msdn.microsoft.com/library/windows/apps/br208270) を登録します。 これらのイベントは、キーを押す操作と離す操作を処理します。
+キーボードを使用するために、ゲーム サンプルは、[**MoveLookController::InitWindow**](https://github.com/Microsoft/Windows-universal-samples/blob/ef073ed8a2007d113af1d88eddace479e3bf0e07/SharedContent/cpp/GameContent/MoveLookController.cpp#L84-L88) メソッド内で 2 つの新しいイベント [**CoreWindow::KeyUp**](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.keyup) と [**CoreWindow::KeyDown**](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.keydown) を登録します。 これらのイベントは、キーを押す操作と離す操作を処理します。
 
 ```cpp
 window->KeyDown +=

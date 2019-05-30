@@ -10,20 +10,20 @@ dev_langs:
 - csharp
 - cppwinrt
 - cpp
-ms.openlocfilehash: 5417a2cded6dab98747569acc4e6e92356361482
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: d8e4a84b0e927be8e1b89e6189e80acd2d3e4266
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57595817"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66371317"
 ---
 # <a name="monitor-background-task-progress-and-completion"></a>バックグラウンド タスクの進捗状況と完了の監視
 
 **重要な API**
 
-- [**BackgroundTaskRegistration**](https://msdn.microsoft.com/library/windows/apps/br224786)
-- [**BackgroundTaskProgressEventHandler**](https://msdn.microsoft.com/library/windows/apps/br224785)
-- [**BackgroundTaskCompletedEventHandler**](https://msdn.microsoft.com/library/windows/apps/br224781)
+- [**BackgroundTaskRegistration**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.BackgroundTaskRegistration)
+- [**BackgroundTaskProgressEventHandler**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundtaskprogresseventhandler)
+- [**BackgroundTaskCompletedEventHandler**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundtaskcompletedeventhandler)
 
 アウトプロセスで実行されるバックグラウンド タスクから報告される進行状況と完了をアプリから認識する方法について説明します  (インプロセス バックグラウンド タスクの場合、共有変数を設定して進行状況と完了を表すことができます)。
 
@@ -34,7 +34,7 @@ ms.locfileid: "57595817"
 ## <a name="create-an-event-handler-to-handle-completed-background-tasks"></a>完了したバックグラウンド タスクを処理するイベント ハンドラーの作成
 
 ### <a name="step-1"></a>手順 1
-完了したバックグラウンド タスクを処理するイベント ハンドラー関数を作ります。 このコードは、特定フット プリントは、する必要があります、 [ **IBackgroundTaskRegistration** ](https://msdn.microsoft.com/library/windows/apps/br224803)オブジェクトと[ **BackgroundTaskCompletedEventArgs**](https://msdn.microsoft.com/library/windows/apps/br224778)オブジェクト。
+完了したバックグラウンド タスクを処理するイベント ハンドラー関数を作ります。 このコードは、特定フット プリントは、する必要があります、 [ **IBackgroundTaskRegistration** ](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.IBackgroundTaskRegistration)オブジェクトと[ **BackgroundTaskCompletedEventArgs**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.BackgroundTaskCompletedEventArgs)オブジェクト。
 
 次のフット プリントを使用して、 **OnCompleted**イベント ハンドラー メソッドのタスクをバック グラウンドします。
 
@@ -92,7 +92,7 @@ auto completed = [this](BackgroundTaskRegistration^ task, BackgroundTaskComplete
 ## <a name="create-an-event-handler-function-to-handle-background-task-progress"></a>バックグラウンド タスクの進行状況を処理するイベント ハンドラー関数の作成
 
 ### <a name="step-1"></a>手順 1
-完了したバックグラウンド タスクを処理するイベント ハンドラー関数を作ります。 このコードは、[**IBackgroundTaskRegistration**](https://msdn.microsoft.com/library/windows/apps/br224803) オブジェクトと [**BackgroundTaskProgressEventArgs**](https://msdn.microsoft.com/library/windows/apps/br224782) オブジェクトを受け入れる特定のフットプリントに従っている必要があります。
+完了したバックグラウンド タスクを処理するイベント ハンドラー関数を作ります。 このコードは、[**IBackgroundTaskRegistration**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.IBackgroundTaskRegistration) オブジェクトと [**BackgroundTaskProgressEventArgs**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.BackgroundTaskProgressEventArgs) オブジェクトを受け入れる特定のフットプリントに従っている必要があります。
 
 OnProgress バックグラウンド タスク イベント ハンドラー メソッドには次のフットプリントを使います。
 
@@ -215,7 +215,7 @@ void SampleBackgroundTask::AttachProgressAndCompletedHandlers(IBackgroundTaskReg
 ```
 
 ### <a name="step-2"></a>手順 2
-アプリが起動された時点、またはバックグラウンド タスクの状態が関連する新しいページに移動した時点で、現在登録されているバックグラウンド タスクの一覧を取得し、進行状況と完了に対応するイベント ハンドラー関数に関連付ける必要があります。 アプリケーションで現在登録されているバックグラウンド タスクの一覧は、[**BackgroundTaskRegistration**](https://msdn.microsoft.com/library/windows/apps/br224786).[**AllTasks**](https://msdn.microsoft.com/library/windows/apps/br224787) プロパティで保持されます。
+アプリが起動された時点、またはバックグラウンド タスクの状態が関連する新しいページに移動した時点で、現在登録されているバックグラウンド タスクの一覧を取得し、進行状況と完了に対応するイベント ハンドラー関数に関連付ける必要があります。 アプリケーションで現在登録されているバックグラウンド タスクの一覧は、[**BackgroundTaskRegistration**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.BackgroundTaskRegistration).[**AllTasks**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundtaskregistration.alltasks) プロパティで保持されます。
 
 たとえば、[バックグラウンド タスクのサンプル](https://go.microsoft.com/fwlink/p/?LinkId=618666)では、次のコードを使って SampleBackgroundTask ページの移動時にイベント ハンドラーをアタッチします。
 

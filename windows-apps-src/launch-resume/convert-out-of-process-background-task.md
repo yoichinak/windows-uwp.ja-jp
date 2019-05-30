@@ -6,16 +6,16 @@ ms.topic: article
 keywords: アプリ サービス、windows 10、uwp、バック グラウンド タスク
 ms.assetid: 5327e966-b78d-4859-9b97-5a61c362573e
 ms.localizationpriority: medium
-ms.openlocfilehash: 97dd249165877591743892a136d51e0969dd902a
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 42aaa5600b30924acc84aa61c2a15dbb2a320c10
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57601207"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66366259"
 ---
 # <a name="port-an-out-of-process-background-task-to-an-in-process-background-task"></a>アウトプロセスのバックグラウンド タスクをインプロセスのバックグラウンド タスクに移植する
 
-プロセス アクティビティには、アウト プロセス (OOP) バック グラウンド アクティビティを移植する最も簡単な方法を取り込む、 [IBackgroundTask.Run](https://msdn.microsoft.com/library/windows/apps/windows.applicationmodel.background.ibackgroundtask.run.aspx?f=255&MSPPError=-2147217396)メソッドは、アプリケーション内のコードし、開始から[OnBackgroundActivated](/uwp/api/windows.ui.xaml.application.onbackgroundactivated). ここで説明されている手法が、OOP のバック グラウンド タスクから、プロセス内のバック グラウンド タスクに shim を作成する方法について書き換え (または移植) をプロセス内のバージョンに、OOP バージョン。
+プロセス アクティビティには、アウト プロセス (OOP) バック グラウンド アクティビティを移植する最も簡単な方法を取り込む、 [IBackgroundTask.Run](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtask.run?f=255&MSPPError=-2147217396)メソッドは、アプリケーション内のコードし、開始から[OnBackgroundActivated](/uwp/api/windows.ui.xaml.application.onbackgroundactivated). ここで説明されている手法が、OOP のバック グラウンド タスクから、プロセス内のバック グラウンド タスクに shim を作成する方法について書き換え (または移植) をプロセス内のバージョンに、OOP バージョン。
 
 アプリに複数バックグラウンド タスクがある場合、[バックグラウンドのアクティブ化のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/dev/Samples/BackgroundActivation) に、`BackgroundActivatedEventArgs.TaskInstance.Task.Name` を使って開始されるタスクを識別する方法が示されています。
 
@@ -24,4 +24,4 @@ ms.locfileid: "57601207"
 ## <a name="background-tasks-and-trigger-types-that-cannot-be-converted"></a>変換できないバックグラウンド タスクとトリガーの種類
 
 * インプロセスのバックグラウンド タスクでは、VoIP バックグラウンド タスクのアクティブ化がサポートされていません。
-* プロセス内のバック グラウンド タスクは、次のトリガーをサポートしません。[DeviceUseTrigger](https://msdn.microsoft.com/library/windows/apps/windows.applicationmodel.background.deviceusetrigger.aspx?f=255&MSPPError=-2147217396)、 [DeviceServicingTrigger](https://msdn.microsoft.com/library/windows/apps/windows.applicationmodel.background.deviceservicingtrigger.aspx)と**IoTStartupTask**
+* プロセス内のバック グラウンド タスクは、次のトリガーをサポートしません。[DeviceUseTrigger](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.deviceusetrigger?f=255&MSPPError=-2147217396)、 [DeviceServicingTrigger](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.deviceservicingtrigger)と**IoTStartupTask**

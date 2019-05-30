@@ -6,22 +6,22 @@ ms.date: 07/05/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 11f68d9dd912c92ff7de8b861f576e8f0c4b4dde
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 4029bcdd554b05363397f6a6946b8ebc2bbdd1de
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57658707"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66371655"
 ---
 # <a name="handle-app-prelaunch"></a>アプリの事前起動の処理
 
-[  **OnLaunched**](https://msdn.microsoft.com/library/windows/apps/br242335) メソッドをオーバーライドすることで、アプリの事前起動を処理する方法について説明します。
+[  **OnLaunched**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onlaunched) メソッドをオーバーライドすることで、アプリの事前起動を処理する方法について説明します。
 
 ## <a name="introduction"></a>概要
 
 使用可能なシステム リソースができるように、事前に、バック グラウンドでのユーザーの最もよく使用されるアプリを起動することでデスクトップ デバイス ファミリのデバイスでの UWP アプリの起動時のパフォーマンスが向上しました。 事前起動されたアプリは起動直後に中断状態になります。 その後、ユーザーがアプリを呼び出すと、アプリは中断状態から実行状態に移って再開されます。これは、アプリのコールド スタートよりも高速です。 ユーザーのエクスペリエンスとしては、アプリが非常に短時間で起動するように感じられます。
 
-Windows 10 より前では、アプリは自動的には事前起動を利用しませんでした。 Windows 10 バージョン 1511 では、すべてのユニバーサル Windows プラットフォーム (UWP) アプリは、prelaunched 中の候補をでした。 Windows 10 バージョン 1607 では、[CoreApplication.EnablePrelaunch(true)](https://msdn.microsoft.com/library/windows/apps/windows.applicationmodel.core.coreapplication.enableprelaunch.aspx) を呼び出すことで、事前起動の動作にオプトインする必要があります。 この呼び出しを配置する最適な場所は、`OnLaunched()` 内の `if (e.PrelaunchActivated == false)` チェックが実行される位置の近くです。
+Windows 10 より前では、アプリは自動的には事前起動を利用しませんでした。 Windows 10 バージョン 1511 では、すべてのユニバーサル Windows プラットフォーム (UWP) アプリは、prelaunched 中の候補をでした。 Windows 10 バージョン 1607 では、[CoreApplication.EnablePrelaunch(true)](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplication.enableprelaunch) を呼び出すことで、事前起動の動作にオプトインする必要があります。 この呼び出しを配置する最適な場所は、`OnLaunched()` 内の `if (e.PrelaunchActivated == false)` チェックが実行される位置の近くです。
 
 アプリが事前起動されるかどうかは、システム リソースに応じて決まります。 システムのリソースに負荷が掛かっている場合、アプリは事前起動されません。
 
@@ -35,7 +35,7 @@ XAML プロジェクト (C#、VB、C++) と WinJS の既定のテンプレート
 
 ## <a name="detect-and-handle-prelaunch"></a>事前起動の検出と処理
 
-アプリはアクティブ化中に [**LaunchActivatedEventArgs.PrelaunchActivated**](https://msdn.microsoft.com/library/windows/apps/dn263740) フラグを受け取ります。 このフラグを使用してのみに実行するユーザーが明示的にアプリケーションを起動する次の変更で示すようにコードを実行する[ **Application.OnLaunched**](https://msdn.microsoft.com/library/windows/apps/br242335)します。
+アプリはアクティブ化中に [**LaunchActivatedEventArgs.PrelaunchActivated**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs.prelaunchactivated) フラグを受け取ります。 このフラグを使用してのみに実行するユーザーが明示的にアプリケーションを起動する次の変更で示すようにコードを実行する[ **Application.OnLaunched**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onlaunched)します。
 
 ```csharp
 protected override void OnLaunched(LaunchActivatedEventArgs e)
@@ -116,7 +116,7 @@ private void TryEnablePrelaunch()
 
 ## <a name="use-the-visibilitychanged-event"></a>VisibilityChanged イベントの使用
 
-事前起動によってアクティブ化されたアプリはユーザーに対して表示されません。 ユーザーがそれらのアプリに切り替えると表示されます。 アプリのメイン ウィンドウが表示されるまで、特定の操作を遅らせることが必要になる場合があります。 たとえば、アプリによってフィードからの新着アイテムの一覧が表示される場合は、[**VisibilityChanged**](https://msdn.microsoft.com/library/windows/apps/hh702458) イベントの発生時に一覧を更新できます。アプリの事前起動時に生成された一覧は使いません。ユーザーがアプリをアクティブ化するまでに、その一覧が古くなっている可能性があるためです。 次のコードは、**MainPage** の **VisibilityChanged** イベントを処理します。
+事前起動によってアクティブ化されたアプリはユーザーに対して表示されません。 ユーザーがそれらのアプリに切り替えると表示されます。 アプリのメイン ウィンドウが表示されるまで、特定の操作を遅らせることが必要になる場合があります。 たとえば、アプリによってフィードからの新着アイテムの一覧が表示される場合は、[**VisibilityChanged**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.window.visibilitychanged) イベントの発生時に一覧を更新できます。アプリの事前起動時に生成された一覧は使いません。ユーザーがアプリをアクティブ化するまでに、その一覧が古くなっている可能性があるためです。 次のコードは、**MainPage** の **VisibilityChanged** イベントを処理します。
 
 ```csharp
 public sealed partial class MainPage : Page
@@ -138,7 +138,7 @@ public sealed partial class MainPage : Page
 
 ## <a name="directx-games-guidance"></a>DirectX ゲームのガイダンス
 
-DirectX ゲームは、一般に、事前起動を有効にしないでください。多くの DirectX ゲームは、事前起動を検出できるより前に初期化を実行するためです。 Windows 1607 (Anniversary エディション) 以降では、ゲームは既定で事前起動されません。  ゲームで事前起動を利用する必要がある場合は、[CoreApplication.EnablePrelaunch(true)](https://msdn.microsoft.com/library/windows/apps/windows.applicationmodel.core.coreapplication.enableprelaunch.aspx) を呼び出します。
+DirectX ゲームは、一般に、事前起動を有効にしないでください。多くの DirectX ゲームは、事前起動を検出できるより前に初期化を実行するためです。 Windows 1607 (Anniversary エディション) 以降では、ゲームは既定で事前起動されません。  ゲームで事前起動を利用する必要がある場合は、[CoreApplication.EnablePrelaunch(true)](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplication.enableprelaunch) を呼び出します。
 
 以前のバージョンの Windows 10 をターゲットとするゲームでは、事前起動の条件を処理してアプリケーションを終了することができます。
 
@@ -180,7 +180,7 @@ void ViewProvider::OnActivated(CoreApplicationView^ appView,IActivatedEventArgs^
 
 ## <a name="winjs-app-guidance"></a>WinJS アプリのガイダンス
 
-以前のバージョンの Windows 10 をターゲットとする WinJS アプリでは、[onactivated](https://msdn.microsoft.com/library/windows/apps/br212679.aspx) ハンドラー内で事前起動の条件を処理することができます。
+以前のバージョンの Windows 10 をターゲットとする WinJS アプリでは、[onactivated](https://docs.microsoft.com/previous-versions/windows/apps/br212679(v=win.10)) ハンドラー内で事前起動の条件を処理することができます。
 
 ```javascript
     app.onactivated = function (args) {
@@ -196,7 +196,7 @@ void ViewProvider::OnActivated(CoreApplicationView^ appView,IActivatedEventArgs^
 ## <a name="general-guidance"></a>一般的なガイダンス
 
 -   長時間かかる操作を、アプリが事前起動時に実行しないようにしてください。アプリはすぐに中断状態に移れない場合に終了するためです。
--   アプリが事前起動された場合、アプリは [**Application.OnLaunched**](https://msdn.microsoft.com/library/windows/apps/br242335) からオーディオの再生を開始しません。アプリは表示されず、オーディオ再生が行われる理由がはっきりしないためです。
+-   アプリが事前起動された場合、アプリは [**Application.OnLaunched**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onlaunched) からオーディオの再生を開始しません。アプリは表示されず、オーディオ再生が行われる理由がはっきりしないためです。
 -   アプリがユーザーに表示されていることを前提とした操作やユーザーによって明示的に起動されたことを前提とした操作を、アプリが事前起動時に実行しないようにしてください。 アプリはユーザーによる明示的な操作なしにバックグラウンドで起動できるようになったため、開発者はプライバシー、ユーザー エクスペリエンス、パフォーマンスへの影響を配慮する必要があります。
     -   プライバシーの配慮の一例は、ソーシャル アプリがユーザーの状態をオンラインに変更する場合です。 アプリの事前起動時に状態を変更せずに、ユーザーがそのアプリに切り替えるまで待機する必要があります。
     -   ユーザー エクスペリエンスの配慮の一例は、ゲームなどのアプリが起動時に導入シーケンスを表示する場合です。ユーザーがアプリに切り替えるまでそのシーケンスを遅らせる必要があります。
@@ -208,4 +208,4 @@ void ViewProvider::OnActivated(CoreApplicationView^ appView,IActivatedEventArgs^
 ## <a name="related-topics"></a>関連トピック
 
 * [アプリのライフサイクル](app-lifecycle.md)
-* [CoreApplication.EnablePrelaunch](https://msdn.microsoft.com/library/windows/apps/windows.applicationmodel.core.coreapplication.enableprelaunch.aspx)
+* [CoreApplication.EnablePrelaunch](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplication.enableprelaunch)

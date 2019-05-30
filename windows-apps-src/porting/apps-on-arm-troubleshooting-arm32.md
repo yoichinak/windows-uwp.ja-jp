@@ -5,12 +5,12 @@ ms.date: 01/03/2019
 ms.topic: article
 keywords: windows 10 s, 常時接続, ARM での ARM32 アプリ, ARM 版 windows 10, トラブルシューティング
 ms.localizationpriority: medium
-ms.openlocfilehash: 3431b12fc6f6b6ba2d870400ec4f6684f8290a61
-ms.sourcegitcommit: fca0132794ec187e90b2ebdad862f22d9f6c0db8
+ms.openlocfilehash: ddf28627838ebc8cb2df620c398f3803c026cb17
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63815275"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66366831"
 ---
 # <a name="troubleshooting-arm-uwp-apps"></a>UWP アプリを ARM のトラブルシューティング
 
@@ -33,7 +33,7 @@ Visual Studio と UWP SDK に組み込まれていない正しくユニバーサ
 
 これらの問題を解決できます: 利用不可の依存関係を削除して、最新の Microsoft Visual Studio と UWP SDK バージョンの; を使用して、アプリを再構築または、Microsoft Store から ARM アプリを削除する最後の手段としてように x86 (該当する場合)、アプリのバージョンは、ユーザーの Pc にダウンロードされます。
 
-UWP アプリに使用可能な .NET API について詳しくは、「[UWP アプリの .NET](https://msdn.microsoft.com/library/windows/apps/mt185501.aspx)」をご覧ください。
+UWP アプリに使用可能な .NET API について詳しくは、「[UWP アプリの .NET](https://docs.microsoft.com/dotnet/api/index?view=dotnet-uwp-10.0)」をご覧ください。
 
 ### <a name="compiling-an-app-with-an-older-version-of-visual-studio-and-sdk"></a>以前のバージョンの Visual Studio と SDK を使ったアプリのコンパイル
 問題が発生した場合、最新バージョンの Microsoft Visual Studio と Windows SDK を使ってアプリをコンパイルしていることを確認します。 以前のバージョンの Visual Studio と SDK でコンパイルされたアプリでは、以降のバージョンで修正された問題が発生する可能性があります。

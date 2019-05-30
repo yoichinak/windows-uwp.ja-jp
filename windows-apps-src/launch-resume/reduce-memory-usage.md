@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 28c21b3d3b3e53def2181e96a58b53998ee0f04a
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 7a660512abe5f18f7b1955853dc5389dc902fd2e
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57660727"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66371276"
 ---
 # <a name="free-memory-when-your-app-moves-to-the-background"></a>アプリがバックグラウンドに移動したときのメモリの解放
 
@@ -19,34 +19,34 @@ ms.locfileid: "57660727"
 
 ## <a name="new-background-events"></a>新しいバックグラウンド イベント
 
-Windows 10 バージョン 1607 では、2 つ新しいアプリケーション ライフ サイクル イベント [**EnteredBackground**](https://msdn.microsoft.com/library/windows/apps/Windows.ApplicationModel.Core.CoreApplication.EnteredBackground) および [**LeavingBackground**](https://msdn.microsoft.com/library/windows/apps/Windows.ApplicationModel.Core.CoreApplication.LeavingBackground) が導入されています。 これらのイベントによって、バックグラウンドへの移行とバックグラウンドからの移行をアプリに通知できます。
+Windows 10 バージョン 1607 では、2 つ新しいアプリケーション ライフ サイクル イベント [**EnteredBackground**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplication.enteredbackground) および [**LeavingBackground**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplication.leavingbackground) が導入されています。 これらのイベントによって、バックグラウンドへの移行とバックグラウンドからの移行をアプリに通知できます。
 
 アプリがバックグラウンドに移行すると、システムにより強制されるメモリ制限が変化する場合があります。 これらのイベントを使用することで、バックグラウンドに移行しているアプリが中断されたり、場合によっては終了されたりしないように、現在のメモリ消費量を確認してリソースを解放し、制限値を下回っている状態を保ちます。
 
 ### <a name="events-for-controlling-your-apps-memory-usage"></a>アプリのメモリ使用量を制御するイベント
 
-[MemoryManager.AppMemoryUsageLimitChanging](https://msdn.microsoft.com/library/windows/apps/windows.system.memorymanager.appmemoryusagelimitchanging.aspx) は、アプリで使用できる合計メモリの制限が変更される直前に発生します。 たとえば、アプリがバックグラウンドに移行し、それが Xbox 上である場合、メモリ制限が 1024 MB から 128 MB に変更されます。  
+[MemoryManager.AppMemoryUsageLimitChanging](https://docs.microsoft.com/uwp/api/windows.system.memorymanager.appmemoryusagelimitchanging) は、アプリで使用できる合計メモリの制限が変更される直前に発生します。 たとえば、アプリがバックグラウンドに移行し、それが Xbox 上である場合、メモリ制限が 1024 MB から 128 MB に変更されます。  
 プラットフォームによってアプリが中断または終了されることを回避するには、このイベントを処理することが最も重要になります。
 
-[MemoryManager.AppMemoryUsageIncreased](https://msdn.microsoft.com/library/windows/apps/windows.system.memorymanager.appmemoryusageincreased.aspx) は、アプリのメモリ消費量が [AppMemoryUsageLevel](https://msdn.microsoft.com/library/windows/apps/windows.system.appmemoryusagelevel.aspx) 列挙値の高い値まで増加したときに発生します。 たとえば、**Low** から **Medium** まで増加した場合です。 このイベントの処理は省略可能ですが、制限未満に留まることについてはまだアプリに責任があるため、処理することをお勧めします。
+[MemoryManager.AppMemoryUsageIncreased](https://docs.microsoft.com/uwp/api/windows.system.memorymanager.appmemoryusageincreased) は、アプリのメモリ消費量が [AppMemoryUsageLevel](https://docs.microsoft.com/uwp/api/windows.system.appmemoryusagelevel) 列挙値の高い値まで増加したときに発生します。 たとえば、**Low** から **Medium** まで増加した場合です。 このイベントの処理は省略可能ですが、制限未満に留まることについてはまだアプリに責任があるため、処理することをお勧めします。
 
-[MemoryManager.AppMemoryUsageDecreased](https://msdn.microsoft.com/library/windows/apps/windows.system.memorymanager.appmemoryusagedecreased.aspx) は、アプリのメモリ消費量が **AppMemoryUsageLevel** 列挙値の低い値まで減少したときに発生します。 たとえば、**High** から **Low** まで減少した場合です。 このイベントの処理は省略可能ですが、処理することによって必要に応じてアプリで追加のメモリを割り当てられる可能性があることが示されます。
+[MemoryManager.AppMemoryUsageDecreased](https://docs.microsoft.com/uwp/api/windows.system.memorymanager.appmemoryusagedecreased) は、アプリのメモリ消費量が **AppMemoryUsageLevel** 列挙値の低い値まで減少したときに発生します。 たとえば、**High** から **Low** まで減少した場合です。 このイベントの処理は省略可能ですが、処理することによって必要に応じてアプリで追加のメモリを割り当てられる可能性があることが示されます。
 
 ## <a name="handle-the-transition-between-foreground-and-background"></a>フォアグラウンドとバックグラウンドの間の移行の処理
 
-アプリがフォアグラウンドからバックグラウンドに移動すると、[**EnteredBackground**](https://msdn.microsoft.com/library/windows/apps/Windows.ApplicationModel.Core.CoreApplication.EnteredBackground) イベントが発生します。 アプリがフォアグラウンドに戻るときには、[**LeavingBackground**](https://msdn.microsoft.com/library/windows/apps/Windows.ApplicationModel.Core.CoreApplication.LeavingBackground) イベントが発生します。 アプリの作成時にこれらのイベントのハンドラーを登録できます。 既定のプロジェクト テンプレートでは、これは、App.xaml.cs の **App** クラス コンストラクターで行われます。
+アプリがフォアグラウンドからバックグラウンドに移動すると、[**EnteredBackground**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplication.enteredbackground) イベントが発生します。 アプリがフォアグラウンドに戻るときには、[**LeavingBackground**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplication.leavingbackground) イベントが発生します。 アプリの作成時にこれらのイベントのハンドラーを登録できます。 既定のプロジェクト テンプレートでは、これは、App.xaml.cs の **App** クラス コンストラクターで行われます。
 
-バックグラウンドで実行すると、アプリが保持することを許可されているメモリ リソースが減少するため、[**AppMemoryUsageIncreased**](https://msdn.microsoft.com/library/windows/apps/Windows.System.MemoryManager.AppMemoryUsageIncreased) と [**AppMemoryUsageLimitChanging**](https://msdn.microsoft.com/library/windows/apps/Windows.System.MemoryManager.AppMemoryUsageLimitChanging) イベントについても登録する必要があります。これらは、アプリの現在のメモリ使用量と、現在の制限を確認するために使用できます。 これらのイベントのハンドラーを、次の例に示します。 UWP アプリのアプリケーション ライフサイクルについて詳しくは、「[アプリのライフサイクル](..//launch-resume/app-lifecycle.md)」をご覧ください。
+バックグラウンドで実行すると、アプリが保持することを許可されているメモリ リソースが減少するため、[**AppMemoryUsageIncreased**](https://docs.microsoft.com/uwp/api/windows.system.memorymanager.appmemoryusageincreased) と [**AppMemoryUsageLimitChanging**](https://docs.microsoft.com/uwp/api/windows.system.memorymanager.appmemoryusagelimitchanging) イベントについても登録する必要があります。これらは、アプリの現在のメモリ使用量と、現在の制限を確認するために使用できます。 これらのイベントのハンドラーを、次の例に示します。 UWP アプリのアプリケーション ライフサイクルについて詳しくは、「[アプリのライフサイクル](..//launch-resume/app-lifecycle.md)」をご覧ください。
 
 [!code-cs[RegisterEvents](./code/ReduceMemory/cs/App.xaml.cs#SnippetRegisterEvents)]
 
-[  **EnteredBackground**](https://msdn.microsoft.com/library/windows/apps/Windows.ApplicationModel.Core.CoreApplication.EnteredBackground) イベントが発生したときに、現在バックグラウンドで実行していることを示す追跡変数を設定します。 これは、メモリ使用量を削減するためのコードを記述する際に役立ちます。
+[  **EnteredBackground**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplication.enteredbackground) イベントが発生したときに、現在バックグラウンドで実行していることを示す追跡変数を設定します。 これは、メモリ使用量を削減するためのコードを記述する際に役立ちます。
 
 [!code-cs[EnteredBackground](./code/ReduceMemory/cs/App.xaml.cs#SnippetEnteredBackground)]
 
 アプリがバックグラウンドに移行するときに、現在のフォアグラウンド アプリが応答性の高いユーザー エクスペリエンスを提供するために十分なリソースを確保できるように、システムによってアプリのメモリ制限が低減されます。
 
-[  **AppMemoryUsageLimitChanging**](https://msdn.microsoft.com/library/windows/apps/Windows.System.MemoryManager.AppMemoryUsageLimitChanging) イベント ハンドラーによって、割り当てられたメモリが削減されたことをアプリに通知することができ、ハンドラーに渡されるイベント引数で新しい制限を提供します。 アプリの現在のメモリ使用量を提供する [**MemoryManager.AppMemoryUsage**](https://msdn.microsoft.com/library/windows/apps/Windows.System.MemoryManager.AppMemoryUsage) プロパティと、新しい制限を指定するイベント引数の [**NewLimit**](https://msdn.microsoft.com/library/windows/apps/Windows.System.AppMemoryUsageLimitChangingEventArgs.NewLimit) プロパティを比較してください。 メモリ使用量が制限を超えている場合は、メモリ使用量を削減する必要があります。
+[  **AppMemoryUsageLimitChanging**](https://docs.microsoft.com/uwp/api/windows.system.memorymanager.appmemoryusagelimitchanging) イベント ハンドラーによって、割り当てられたメモリが削減されたことをアプリに通知することができ、ハンドラーに渡されるイベント引数で新しい制限を提供します。 アプリの現在のメモリ使用量を提供する [**MemoryManager.AppMemoryUsage**](https://docs.microsoft.com/uwp/api/windows.system.memorymanager.appmemoryusage) プロパティと、新しい制限を指定するイベント引数の [**NewLimit**](https://docs.microsoft.com/uwp/api/windows.system.appmemoryusagelimitchangingeventargs.newlimit) プロパティを比較してください。 メモリ使用量が制限を超えている場合は、メモリ使用量を削減する必要があります。
 
 この例では、この処理はヘルパー メソッド **ReduceMemoryUsage** で実行されます。このメソッドの定義については、後で説明します。
 
@@ -55,13 +55,13 @@ Windows 10 バージョン 1607 では、2 つ新しいアプリケーション 
 > [!NOTE]
 > デバイス構成によって、システム リソースが不足するまで新しいメモリ制限でアプリケーションの実行を続けることができる場合とできない場合があります。 特に Xbox では、アプリが 2 秒以内にメモリ使用量を新しい制限未満に減らさない場合、アプリは中断または終了されます。 つまり、このイベントを使用して、イベントの発生から 2 秒以内にリソースの使用量を制限未満に減らすことにより、幅広いデバイスで最適なエクスペリエンスを提供できます。
 
-アプリが最初にバックグラウンドに移行した時点でアプリの現在のメモリ使用量がバックグラウンド アプリのメモリ制限を下回っていても、時間の経過と共にメモリ消費量が増加し、この制限に接近し始める可能性があります。 [  **AppMemoryUsageIncreased**](https://msdn.microsoft.com/library/windows/apps/Windows.System.MemoryManager.AppMemoryUsageIncreased) ハンドラーによって、メモリ使用量が増加したときに現在の使用量を確認し、必要に応じて、メモリを解放する機会を得ることができます。
+アプリが最初にバックグラウンドに移行した時点でアプリの現在のメモリ使用量がバックグラウンド アプリのメモリ制限を下回っていても、時間の経過と共にメモリ消費量が増加し、この制限に接近し始める可能性があります。 [  **AppMemoryUsageIncreased**](https://docs.microsoft.com/uwp/api/windows.system.memorymanager.appmemoryusageincreased) ハンドラーによって、メモリ使用量が増加したときに現在の使用量を確認し、必要に応じて、メモリを解放する機会を得ることができます。
 
-[  **AppMemoryUsageLevel**](https://msdn.microsoft.com/library/windows/apps/Windows.System.AppMemoryUsageLevel) が **High** または **OverLimit** になっていないかどうかを確認し、これらの値になっている場合はメモリ使用量を減らします。 この例では、これはヘルパー メソッド **ReduceMemoryUsage** によって処理されます。 [  **AppMemoryUsageDecreased**](https://msdn.microsoft.com/library/windows/apps/Windows.System.MemoryManager.AppMemoryUsageDecreased) イベントを受信登録して、アプリのメモリ使用量が制限未満であるかどうかを確認でき、制限未満である場合は追加のリソースを割り当てることができます。
+[  **AppMemoryUsageLevel**](https://docs.microsoft.com/uwp/api/Windows.System.AppMemoryUsageLevel) が **High** または **OverLimit** になっていないかどうかを確認し、これらの値になっている場合はメモリ使用量を減らします。 この例では、これはヘルパー メソッド **ReduceMemoryUsage** によって処理されます。 [  **AppMemoryUsageDecreased**](https://docs.microsoft.com/uwp/api/windows.system.memorymanager.appmemoryusagedecreased) イベントを受信登録して、アプリのメモリ使用量が制限未満であるかどうかを確認でき、制限未満である場合は追加のリソースを割り当てることができます。
 
 [!code-cs[MemoryUsageIncreased](./code/ReduceMemory/cs/App.xaml.cs#SnippetMemoryUsageIncreased)]
 
-**ReduceMemoryUsage** は、バックグラウンドで実行されているアプリがメモリ使用量の制限を超えている場合にメモリを解放するために実装できるヘルパー メソッドです。 メモリを解放する方法はアプリの仕様によって異なりますが、推奨されるメモリ解放の方法の 1 つは、UI と、アプリ ビューに関連付けられている他のリソースを破棄することです。 そのためには、バックグラウンド状態で実行されていることを確認してから、アプリのウィンドウの [**Content**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Xaml.Window.Content) プロパティを `null` に設定します。次に、UI イベント ハンドラーを登録解除し、存在する可能性があるそのページへのその他の参照をすべて削除します。 UI イベント ハンドラーの登録を解除しないで、存在する可能性があるそのページへのその他の参照をすべてクリアすると、ページ リソースが解放されません。 次に、**GC.Collect** を呼び出して、解放されたメモリをすぐに再利用します。 通常、ガベージ コレクションはシステムが処理するため、強制的に実行したくはありません。 この特定のケースでは、アプリケーションをバックグラウンドに移行する際にこのアプリケーションに割り当てられるメモリ量を減らすことで、メモリを再利用するためにアプリケーションを終了する必要があるとシステムが判断する可能性を減らしています。
+**ReduceMemoryUsage** は、バックグラウンドで実行されているアプリがメモリ使用量の制限を超えている場合にメモリを解放するために実装できるヘルパー メソッドです。 メモリを解放する方法はアプリの仕様によって異なりますが、推奨されるメモリ解放の方法の 1 つは、UI と、アプリ ビューに関連付けられている他のリソースを破棄することです。 そのためには、バックグラウンド状態で実行されていることを確認してから、アプリのウィンドウの [**Content**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.window.content) プロパティを `null` に設定します。次に、UI イベント ハンドラーを登録解除し、存在する可能性があるそのページへのその他の参照をすべて削除します。 UI イベント ハンドラーの登録を解除しないで、存在する可能性があるそのページへのその他の参照をすべてクリアすると、ページ リソースが解放されません。 次に、**GC.Collect** を呼び出して、解放されたメモリをすぐに再利用します。 通常、ガベージ コレクションはシステムが処理するため、強制的に実行したくはありません。 この特定のケースでは、アプリケーションをバックグラウンドに移行する際にこのアプリケーションに割り当てられるメモリ量を減らすことで、メモリを再利用するためにアプリケーションを終了する必要があるとシステムが判断する可能性を減らしています。
 
 [!code-cs[UnloadViewContent](./code/ReduceMemory/cs/App.xaml.cs#SnippetUnloadViewContent)]
 
@@ -72,11 +72,11 @@ Windows 10 バージョン 1607 では、2 つ新しいアプリケーション 
 
 [!code-cs[MainPageUnloaded](./code/ReduceMemory/cs/App.xaml.cs#SnippetMainPageUnloaded)]
 
-[  **LeavingBackground**](https://msdn.microsoft.com/library/windows/apps/Windows.ApplicationModel.Core.CoreApplication.LeavingBackground) イベント ハンドラーで、アプリがバックグラウンドで実行されなくなったことを示すために追跡変数 (`isInBackgroundMode`) を設定する必要があります。 次に、現在のウィンドウの [**Content**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Xaml.Window.Content) が `null` であるかどうかを確認します。バックグラウンドでの実行中にメモリを消去するためにアプリ ビューを破棄した場合は、null になります。 ウィンドウのコンテンツが `null` の場合は、アプリ ビューを再構築します。 この例では、ウィンドウのコンテンツは、**CreateRootFrame** ヘルパー メソッドで作成されます。
+[  **LeavingBackground**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplication.leavingbackground) イベント ハンドラーで、アプリがバックグラウンドで実行されなくなったことを示すために追跡変数 (`isInBackgroundMode`) を設定する必要があります。 次に、現在のウィンドウの [**Content**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.window.content) が `null` であるかどうかを確認します。バックグラウンドでの実行中にメモリを消去するためにアプリ ビューを破棄した場合は、null になります。 ウィンドウのコンテンツが `null` の場合は、アプリ ビューを再構築します。 この例では、ウィンドウのコンテンツは、**CreateRootFrame** ヘルパー メソッドで作成されます。
 
 [!code-cs[LeavingBackground](./code/ReduceMemory/cs/App.xaml.cs#SnippetLeavingBackground)]
 
-**CreateRootFrame** ヘルパー メソッドは、アプリ ビューのコンテンツを再作成します。 このメソッドのコードは、既定のプロジェクト テンプレートで提供される [**OnLaunched**](https://msdn.microsoft.com/library/windows/apps/br242335) ハンドラーのコードとほぼ同じです。 1 つ異なる点は、**Launching** ハンドラーが [**LaunchActivatedEventArgs**](https://msdn.microsoft.com/library/windows/apps/Windows.ApplicationModel.Activation.LaunchActivatedEventArgs) の [**PreviousExecutionState**](https://msdn.microsoft.com/library/windows/apps/Windows.ApplicationModel.Activation.LaunchActivatedEventArgs.PreviousExecutionState) プロパティから以前の実行状態を特定するのに対して、**CreateRootFrame** メソッドは単に引数として渡される以前の実行状態を取得します。 重複するコードを最小限に抑えるには、既定の **Launching** イベント ハンドラーのコードをリファクタリングして、**CreateRootFrame** を呼び出します。
+**CreateRootFrame** ヘルパー メソッドは、アプリ ビューのコンテンツを再作成します。 このメソッドのコードは、既定のプロジェクト テンプレートで提供される [**OnLaunched**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onlaunched) ハンドラーのコードとほぼ同じです。 1 つ異なる点は、**Launching** ハンドラーが [**LaunchActivatedEventArgs**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Activation.LaunchActivatedEventArgs) の [**PreviousExecutionState**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs.previousexecutionstate) プロパティから以前の実行状態を特定するのに対して、**CreateRootFrame** メソッドは単に引数として渡される以前の実行状態を取得します。 重複するコードを最小限に抑えるには、既定の **Launching** イベント ハンドラーのコードをリファクタリングして、**CreateRootFrame** を呼び出します。
 
 [!code-cs[CreateRootFrame](./code/ReduceMemory/cs/App.xaml.cs#SnippetCreateRootFrame)]
 
@@ -104,4 +104,4 @@ Windows 10 バージョン 1607 では、2 つ新しいアプリケーション 
 ## <a name="related-topics"></a>関連トピック
 
 * [バックグラウンド メディア再生のサンプル](https://go.microsoft.com/fwlink/p/?LinkId=800141) - アプリがバックグラウンド状態に移行するときにメモリを解放する方法を説明します。
-* [診断ツール](https://blogs.msdn.microsoft.com/visualstudioalm/2015/01/16/diagnostic-tools-debugger-window-in-visual-studio-2015/) - 診断ツールを使用して、ガベージ コレクション イベントを監視し、予想される方法によりアプリでメモリが解放されているかどうかを検証します。
+* [診断ツール](https://devblogs.microsoft.com/devops/diagnostic-tools-debugger-window-in-visual-studio-2015/) - 診断ツールを使用して、ガベージ コレクション イベントを監視し、予想される方法によりアプリでメモリが解放されているかどうかを検証します。

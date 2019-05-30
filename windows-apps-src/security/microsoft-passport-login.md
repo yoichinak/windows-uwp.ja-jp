@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp, セキュリティ
 ms.localizationpriority: medium
-ms.openlocfilehash: 8319d4a0975e209edea7cb70b22910e8124f16c1
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 72b7f168c9f4e812b1cfb459ebea91f61a988122
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57593977"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66371304"
 ---
 # <a name="create-a-windows-hello-login-app"></a>Windows Hello ログイン アプリの作成
 
@@ -415,7 +415,7 @@ ms.locfileid: "57593977"
     }
     ```
 
--   MicrosoftPassportHelper のメソッドを参照しているコメント化されたコードがありました。 MicrosoftPassportHelper.cs で、CreatePassportKeyAsync という新しいメソッドを追加します。 このメソッドは、[**KeyCredentialManager**](https://msdn.microsoft.com/library/windows/apps/dn973043) で Windows Hello API を使います。 [  **RequestCreateAsync**](https://msdn.microsoft.com/library/windows/apps/dn973048) を呼び出すと、*accountId* とローカル コンピューターに固有の Passport キーが作成されます。 実際のシナリオでこれを実装する場合は、switch ステートメント内のコメントに注目してください。
+-   MicrosoftPassportHelper のメソッドを参照しているコメント化されたコードがありました。 MicrosoftPassportHelper.cs で、CreatePassportKeyAsync という新しいメソッドを追加します。 このメソッドは、[**KeyCredentialManager**](https://docs.microsoft.com/uwp/api/Windows.Security.Credentials.KeyCredentialManager) で Windows Hello API を使います。 [  **RequestCreateAsync**](https://docs.microsoft.com/previous-versions/windows/dn973048(v=win.10)) を呼び出すと、*accountId* とローカル コンピューターに固有の Passport キーが作成されます。 実際のシナリオでこれを実装する場合は、switch ステートメント内のコメントに注目してください。
 
     ```cs
     /// <summary>
@@ -482,7 +482,7 @@ ms.locfileid: "57593977"
     }
     ```
 
--   アプリをビルドして実行します。 自動的に Login ページに移動します。 "sampleUsername" と入力し、[Login] をクリックします。 PIN の入力を求める Windows Hello プロンプトが表示されます。 PIN を正しく入力すると、CreatePassportKeyAsync メソッドが Windows Hello キーを作成できるようになります。 出力ウィンドウで、成功を示すメッセージが表示されるかどうかを確認してください。
+-   アプリケーションをビルドして実行します。 自動的に Login ページに移動します。 "sampleUsername" と入力し、[Login] をクリックします。 PIN の入力を求める Windows Hello プロンプトが表示されます。 PIN を正しく入力すると、CreatePassportKeyAsync メソッドが Windows Hello キーを作成できるようになります。 出力ウィンドウで、成功を示すメッセージが表示されるかどうかを確認してください。
 
     ![Windows Hello のログイン PIN の入力画面](images/passport-login-8.png)
 
@@ -620,11 +620,11 @@ ms.locfileid: "57593977"
     }
     ```
 
--   アプリをビルドして実行します。 "sampleUsername" を使ってログインし、[Login] をクリックします。 PIN を入力し、成功した場合は、自動的にようこそ画面に移動します。 ユーザーの消去ボタンをクリックし、出力ウィンドウでユーザーが削除されたかどうかを確認してください。 ユーザーが削除されても、ウェルカム ページから移動しない点に注意してください。 アプリが移動できるユーザーの選択ページを作成する必要があります。
+-   アプリケーションをビルドして実行します。 "sampleUsername" を使ってログインし、[Login] をクリックします。 PIN を入力し、成功した場合は、自動的にようこそ画面に移動します。 ユーザーの消去ボタンをクリックし、出力ウィンドウでユーザーが削除されたかどうかを確認してください。 ユーザーが削除されても、ウェルカム ページから移動しない点に注意してください。 アプリが移動できるユーザーの選択ページを作成する必要があります。
 
     ![Windows Hello のようこそ画面](images/passport-login-9.png)
 
--   Views フォルダーで、"UserSelection.xaml" という新しい空白ページを作成し、次の XAML を追加してユーザー インターフェイスを定義します。 このページには、ローカル アカウントの一覧にすべてのユーザーを表示する [**ListView**](https://msdn.microsoft.com/library/windows/apps/br242878) と、ログイン ページに移動してユーザーが別のアカウントを追加できるようにする Button が含められます。
+-   Views フォルダーで、"UserSelection.xaml" という新しい空白ページを作成し、次の XAML を追加してユーザー インターフェイスを定義します。 このページには、ローカル アカウントの一覧にすべてのユーザーを表示する [**ListView**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView) と、ログイン ページに移動してユーザーが別のアカウントを追加できるようにする Button が含められます。
 
     ```xml
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -868,7 +868,7 @@ ms.locfileid: "57593977"
     }
     ```
 
--   アプリをビルドして実行します。 "sampleUsername" を使ってログインします。 PIN を入力します。成功した場合は、自動的にようこそ画面に移動します。 ユーザーの一覧に戻るボタンをクリックします。 一覧にユーザーが表示されます。 この Passport をクリックすると、パスワードなどを再入力しなくても再度サインインできるようになります。
+-   アプリケーションをビルドして実行します。 "sampleUsername" を使ってログインします。 PIN を入力します。成功した場合は、自動的にようこそ画面に移動します。 ユーザーの一覧に戻るボタンをクリックします。 一覧にユーザーが表示されます。 この Passport をクリックすると、パスワードなどを再入力しなくても再度サインインできるようになります。
 
     ![Windows Hello のユーザー選択用の一覧](images/passport-login-10.png)
 
@@ -957,7 +957,7 @@ ms.locfileid: "57593977"
     }
     ```
 
--   アプリをビルドして実行します。 新しいユーザーを登録してみます。 その後、ユーザーの一覧に戻り、そのユーザーを選んでログインできることを検証します。
+-   アプリケーションをビルドして実行します。 新しいユーザーを登録してみます。 その後、ユーザーの一覧に戻り、そのユーザーを選んでログインできることを検証します。
 
     ![Windows Hello の新しいユーザーの登録](images/passport-login-11.png)
 

@@ -5,12 +5,12 @@ ms.date: 07/11/2018
 ms.topic: article
 keywords: windows 10、デスクトップ アプリのブロック、Windows デスクトップ アプリケーション プログラム
 localizationpriority: medium
-ms.openlocfilehash: 66516c2bee58b3628542b66afcb0de24d0d9702b
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: dd2c68bc86e8f0ff557f5e3f84e48214c421cf78
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57600227"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66372125"
 ---
 # <a name="get-upgrade-block-details-for-your-desktop-application"></a>デスクトップ アプリケーションのアップグレード ブロックの詳細情報の取得
 
@@ -47,7 +47,7 @@ ms.locfileid: "57600227"
 
 | パラメーター        | 種類   |  説明      |  必須  
 |---------------|--------|---------------|------|
-| applicationId | string | ブロックのデータを取得するデスクトップ アプリケーションの製品の ID。 デスクトップ アプリケーションの製品 ID を取得するには、いずれかを開く[analytics は、パートナー センターでデスクトップ アプリケーションのレポート](https://msdn.microsoft.com/library/windows/desktop/mt826504)(など、**ブロック レポート**) し、URL から、製品 ID を取得します。 |  〇  |
+| applicationId | string | ブロックのデータを取得するデスクトップ アプリケーションの製品の ID。 デスクトップ アプリケーションの製品 ID を取得するには、いずれかを開く[analytics は、パートナー センターでデスクトップ アプリケーションのレポート](https://docs.microsoft.com/windows/desktop/appxpkg/windows-desktop-application-program)(など、**ブロック レポート**) し、URL から、製品 ID を取得します。 |  〇  |
 | fileName | string | ブロックされている実行可能ファイルの名前 |
 | startDate | date | 取得するデータ ブロックの日付範囲の開始日。 既定では、現在の日付の前に 90 日間です。 |  X  |
 | endDate | date | 取得するデータ ブロックの日付範囲の終了日。 既定値は現在の日付です。 |  X  |

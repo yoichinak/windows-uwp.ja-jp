@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 3212128a5fda9f6c5c811b2725b97f64655588b1
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: c53d93735d097aed3fe6e6f24912e659ad7d28a7
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57617627"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66358701"
 ---
 # <a name="getting-started-with-uwp-for-ios-developers"></a>iOS 開発者のための UWP の概要
 
@@ -32,10 +32,10 @@ Windows 10 では、デスクトップ、ラップトップ、タブレット、
 | [はじめに。プログラミング言語の選択](getting-started-choosing-a-programming-language.md) | 先へ進む前に、UWP アプリを開発するときに選択できるプログラミング言語について理解している必要があります。 |
 | [はじめに。Visual Studio 内を移動します。](getting-started-getting-around-in-visual-studio.md) | ここでは、前の手順で作ったプロジェクトに戻り、Visual Studio 統合開発環境 (IDE) の操作方法について示します。 |
 | [はじめに。コモン コントロール](getting-started-common-controls.md) | ここでは、アプリやそれに対応する iOS アプリで使用するいくつかのコモン コントロールを紹介します。 |
-| [はじめに。ナビゲーション](getting-started-navigation.md) | Windows 10 アプリでこのナビゲーションを管理する方法の 1 つに、[Frame](https://msdn.microsoft.com/library/windows/apps/br242682) クラスを使う方法があります。 以下のチュートリアルでは実際に試す方法を示しています。 |
+| [はじめに。ナビゲーション](getting-started-navigation.md) | Windows 10 アプリでこのナビゲーションを管理する方法の 1 つに、[Frame](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Frame) クラスを使う方法があります。 以下のチュートリアルでは実際に試す方法を示しています。 |
 | [はじめに。アニメーション](getting-started-animation.md) | Windows アプリでのアニメーションもプログラムで作成できますが、Extensible Application Markup Language (XAML) を使った宣言で定義することもできます。 |
 | [はじめに。次のステップ](getting-started-what-next.md) | この基本情報を使って、もっと興味深いユニバーサル Windows プラットフォーム (UWP) アプリの作成を今すぐ開始できます。 次の手順として、次のトピックを読んでから Visual Studio を起動し、コードの作成を始めます。 |
-| [Windows アプリの概念のマッピング](https://msdn.microsoft.com//windows/uwp/porting/android-ios-uwp-map) | Windows (および Android) 機能の観点からの iOS の概念の考え方 |
+| [Windows アプリの概念のマッピング](https://docs.microsoft.com/windows/uwp/porting/android-ios-uwp-map) | Windows (および Android) 機能の観点からの iOS の概念の考え方 |
 
  
 

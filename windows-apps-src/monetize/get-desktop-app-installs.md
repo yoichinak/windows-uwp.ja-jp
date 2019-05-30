@@ -5,17 +5,17 @@ ms.date: 03/01/2018
 ms.topic: article
 keywords: windows 10、デスクトップ アプリをインストール、Windows デスクトップ アプリケーション プログラム
 localizationpriority: medium
-ms.openlocfilehash: f9beb73dafa96c489b8a4c9dddecf59d8a047109
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 27ee2f0b6977c551d50fce9dec26c864e3858413
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57612977"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66372134"
 ---
 # <a name="get-desktop-application-installs"></a>デスクトップ アプリケーションのインストール数の取得
 
 
-この REST URI を使用して、デスクトップ アプリケーションに追加した JSON 形式で集計のインストール データを取得する、 [Windows デスクトップ アプリケーション プログラム](https://msdn.microsoft.com/library/windows/desktop/mt826504)します。 この URI では、特定の日付範囲とその他のオプションのフィルターの中にインストール データを取得することができます。 この情報も記載されて、[レポートをインストール](https://msdn.microsoft.com/library/windows/desktop/mt826504)パートナー センターでのデスクトップ アプリケーションです。
+この REST URI を使用して、デスクトップ アプリケーションに追加した JSON 形式で集計のインストール データを取得する、 [Windows デスクトップ アプリケーション プログラム](https://docs.microsoft.com/windows/desktop/appxpkg/windows-desktop-application-program)します。 この URI では、特定の日付範囲とその他のオプションのフィルターの中にインストール データを取得することができます。 この情報も記載されて、[レポートをインストール](https://docs.microsoft.com/windows/desktop/appxpkg/windows-desktop-application-program)パートナー センターでのデスクトップ アプリケーションです。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -46,14 +46,14 @@ ms.locfileid: "57612977"
 
 | パラメーター        | 種類   |  説明      |  必須  
 |---------------|--------|---------------|------|
-| applicationId | string | 取得するデスクトップ アプリケーションの製品 ID は、データをインストールします。 デスクトップ アプリケーションの製品 ID を取得するには、いずれかを開く[analytics は、パートナー センターでデスクトップ アプリケーションのレポート](https://msdn.microsoft.com/library/windows/desktop/mt826504)(など、**レポートをインストール**) し、URL から、製品 ID を取得します。 |  〇  |
+| applicationId | string | 取得するデスクトップ アプリケーションの製品 ID は、データをインストールします。 デスクトップ アプリケーションの製品 ID を取得するには、いずれかを開く[analytics は、パートナー センターでデスクトップ アプリケーションのレポート](https://docs.microsoft.com/windows/desktop/appxpkg/windows-desktop-application-program)(など、**レポートをインストール**) し、URL から、製品 ID を取得します。 |  〇  |
 | startDate | date | 取得するインストール データの日付範囲の開始日です。 既定では、現在の日付の前に 90 日間です。 |  X  |
 | endDate | date | 取得するインストール データの日付範囲の終了日です。 既定値は現在の日付です。 |  X  |
 | top | int | 要求で返すデータの行数です。 最大値および指定しない場合の既定値は 10000 です。 クエリにこれを上回る行がある場合は、応答本文に次リンクが含まれ、そのリンクを使ってデータの次のページを要求できます。 |  X  |
 | skip | int | クエリでスキップする行数です。 大きなデータ セットを操作するには、このパラメーターを使用します。 たとえば、top=10000 と skip=0 を指定すると、データの最初の 10,000 行が取得され、top=10000 と skip=10000 を指定すると、データの次の 10,000 行が取得されます。 |  X  |
 | filter | string  | 応答内の行をフィルター処理する 1 つまたは複数のステートメントです。 各ステートメントには、応答本文からのフィールド名、および **eq** 演算子または **ne** 演算子と関連付けられる値が含まれており、**and** や **or** を使用してステートメントを組み合わせることができます。 *filter* パラメーターでは、文字列値を単一引用符で囲む必要があります。 応答本文から次のフィールドを指定することができます。<p/><ul><li><strong>applicationVersion</strong></li><li><strong>deviceType</strong></li><li><strong>market</strong></li><li><strong>osVersion</strong></li><li><strong>osRelease</strong></li></ul> | X   |
 | orderby | string | 各インストールの結果データ値の順序を指定するステートメントです。 構文は <em>orderby=field [order],field [order],...</em> です。<em>field</em> パラメーターには、応答本文から次のフィールドのいずれかを指定できます。<p/><ul><li><strong>ProductName</strong></li><li><strong>date</strong><li><strong>applicationVersion</strong></li><li><strong>deviceType</strong></li><li><strong>market</strong></li><li><strong>osVersion</strong></li><li><strong>osRelease</strong></li><li><strong>installBase</strong></li></ul><p><em>order</em> パラメーターは省略可能であり、<strong>asc</strong> または <strong>desc</strong> を指定して、各フィールドを昇順または降順にすることができます。 既定値は <strong>asc</strong> です。</p><p><em>orderby</em> 文字列の例: <em>orderby=date,market</em></p> |  X  |
-| groupby | string | 指定したフィールドのみにデータ集計を適用するステートメントです。 応答本文から次のフィールドを指定することができます。<p/><ul><li><strong>applicationVersion</strong></li><li><strong>deviceType</strong></li><li><strong>market</strong></li><li><strong>osVersion</strong></li><li><strong>osRelease</strong></li></ul><p>返されるデータ行には、<em>groupby</em> パラメーターに指定したフィールドと次の値が含まれます。</p><ul><li><strong>applicationId</strong></li><li><strong>date</strong></li><li><strong>ProductName</strong></li><li><strong>installBase</strong></li></ul></p> |  いいえ  |
+| groupby | string | 指定したフィールドのみにデータ集計を適用するステートメントです。 応答本文から次のフィールドを指定することができます。<p/><ul><li><strong>applicationVersion</strong></li><li><strong>deviceType</strong></li><li><strong>market</strong></li><li><strong>osVersion</strong></li><li><strong>osRelease</strong></li></ul><p>返されるデータ行には、<em>groupby</em> パラメーターに指定したフィールドと次の値が含まれます。</p><ul><li><strong>applicationId</strong></li><li><strong>date</strong></li><li><strong>ProductName</strong></li><li><strong>installBase</strong></li></ul></p> |  X  |
 
 
 ### <a name="request-example"></a>要求の例
@@ -121,4 +121,4 @@ Authorization: Bearer <your access token>
 
 ## <a name="related-topics"></a>関連トピック
 
-* [Windows デスクトップ アプリケーション プログラム](https://msdn.microsoft.com/library/windows/desktop/mt826504)
+* [Windows デスクトップ アプリケーション プログラム](https://docs.microsoft.com/windows/desktop/appxpkg/windows-desktop-application-program)

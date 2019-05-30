@@ -6,16 +6,16 @@ ms.date: 10/24/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, サウンド
 ms.localizationpriority: medium
-ms.openlocfilehash: 8d5a976ef65bee5efc3329afc98bf198d094b037
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 945270247b8a288554e1910ac1c6f8e5c1ec1619
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57589937"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66367842"
 ---
 # <a name="add-sound"></a>サウンドの追加
 
-このトピックでは単純なサウンド エンジンを使用して作成します[XAudio2](https://msdn.microsoft.com/library/windows/desktop/ee415813) Api。 慣れていない場合__XAudio2__、下の短い概要を含めています[オーディオ概念](#audio-concepts)します。
+このトピックでは単純なサウンド エンジンを使用して作成します[XAudio2](https://docs.microsoft.com/windows/desktop/xaudio2/xaudio2-introduction) Api。 慣れていない場合__XAudio2__、下の短い概要を含めています[オーディオ概念](#audio-concepts)します。
 
 >[!Note]
 >このサンプルの最新ゲーム コードをダウンロードしていない場合は、[Direct3D ゲーム サンプルのページ](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Simple3DGameDX)に移動してください。 このサンプルは、UWP 機能のサンプルの大規模なコレクションの一部です。 サンプルをダウンロードする手順については、「[GitHub から UWP のサンプルを取得する](https://docs.microsoft.com/windows/uwp/get-started/get-uwp-app-samples)」をご覧ください。
@@ -129,10 +129,10 @@ void Simple3DGame::Initialize(
 
 ## <a name="create-and-initialize-the-audio-resources"></a>作成し、オーディオのリソースの初期化
 
-* 使用[XAudio2Create](https://msdn.microsoft.com/library/windows/desktop/ee419212)、XAudio2 API、音楽とサウンド効果エンジンを定義する 2 つの新しい XAudio2 オブジェクトを作成します。 このメソッドは、オブジェクトのポインターを返します[IXAudio2](https://msdn.microsoft.com/library/windows/desktop/ee415908)すべてのオーディオ エンジンを管理するインターフェイスの状態、オーディオのスレッドや音声のグラフを処理します。
-* エンジンがインスタンス化された後に使用して、 [IXAudio2::CreateMasteringVoice](https://msdn.microsoft.com/library/windows/desktop/hh405048)サウンド エンジン オブジェクトの各マスタリング音声を作成します。
+* 使用[XAudio2Create](https://docs.microsoft.com/windows/desktop/api/xaudio2/nf-xaudio2-xaudio2create)、XAudio2 API、音楽とサウンド効果エンジンを定義する 2 つの新しい XAudio2 オブジェクトを作成します。 このメソッドは、オブジェクトのポインターを返します[IXAudio2](https://docs.microsoft.com/windows/desktop/api/xaudio2/nn-xaudio2-ixaudio2)すべてのオーディオ エンジンを管理するインターフェイスの状態、オーディオのスレッドや音声のグラフを処理します。
+* エンジンがインスタンス化された後に使用して、 [IXAudio2::CreateMasteringVoice](https://docs.microsoft.com/windows/desktop/api/xaudio2/nf-xaudio2-ixaudio2-createmasteringvoice)サウンド エンジン オブジェクトの各マスタリング音声を作成します。
 
-詳細についてを参照してください[方法。初期化 XAudio2](https://msdn.microsoft.com/library/windows/desktop/ee415779.aspx)します。
+詳細についてを参照してください[方法。初期化 XAudio2](https://docs.microsoft.com/windows/desktop/xaudio2/how-to--initialize-xaudio2)します。
 
 ### <a name="audiocreatedeviceindependentresources-method"></a>Audio::CreateDeviceIndependentResources メソッド
 
@@ -172,29 +172,29 @@ void Audio::CreateDeviceIndependentResources()
 
 ### <a name="mediareaderloadmedia-method"></a>MediaReader::LoadMedia メソッド
 
-このメソッドは、[メディア ファンデーション](https://msdn.microsoft.com/library/windows/desktop/ms694197) API を使って、.wav オーディオ ファイルをパルス符号変調 (PCM) バッファーとして読み取ります。
+このメソッドは、[メディア ファンデーション](https://docs.microsoft.com/windows/desktop/medfound/microsoft-media-foundation-sdk) API を使って、.wav オーディオ ファイルをパルス符号変調 (PCM) バッファーとして読み取ります。
 
 #### <a name="set-up-the-source-reader"></a>ソース リーダーを設定します。
 
-1. 使用[MFCreateSourceReaderFromURL](https://msdn.microsoft.com/library/windows/desktop/dd388110)ソース リーダー、メディアを作成する ([IMFSourceReader](https://msdn.microsoft.com/library/windows/desktop/dd374655))。
-2. 使用[MFCreateMediaType](https://msdn.microsoft.com/library/windows/desktop/ms693861)メディアの種類を作成する ([IMFMediaType](https://msdn.microsoft.com/library/windows/desktop/ms704850)) オブジェクト (_mediaType_)。 メディア形式の説明を表します。 
+1. 使用[MFCreateSourceReaderFromURL](https://docs.microsoft.com/windows/desktop/api/mfreadwrite/nf-mfreadwrite-mfcreatesourcereaderfromurl)ソース リーダー、メディアを作成する ([IMFSourceReader](https://docs.microsoft.com/windows/desktop/api/mfreadwrite/nn-mfreadwrite-imfsourcereader))。
+2. 使用[MFCreateMediaType](https://docs.microsoft.com/windows/desktop/api/mfapi/nf-mfapi-mfcreatemediatype)メディアの種類を作成する ([IMFMediaType](https://docs.microsoft.com/windows/desktop/api/mfobjects/nn-mfobjects-imfmediatype)) オブジェクト (_mediaType_)。 メディア形式の説明を表します。 
 3. 指定、 _mediaType_出力をデコードはオーディオは、PCM のオーディオ入力を__XAudio2__を使用できます。
-4. デコード済み出力メディアを呼び出すことによってソース リーダーの入力セット[IMFSourceReader::SetCurrentMediaType](https://msdn.microsoft.com/library/windows/desktop/dd374667.aspx)します。
+4. デコード済み出力メディアを呼び出すことによってソース リーダーの入力セット[IMFSourceReader::SetCurrentMediaType](https://docs.microsoft.com/windows/desktop/api/mfreadwrite/nf-mfreadwrite-imfsourcereader-setcurrentmediatype)します。
 
-ソース リーダーを使用する理由の詳細についてを参照してください[ソース リーダー](https://msdn.microsoft.com/library/windows/desktop/dd940436.aspx)します。
+ソース リーダーを使用する理由の詳細についてを参照してください[ソース リーダー](https://docs.microsoft.com/windows/desktop/medfound/source-reader)します。
 
 #### <a name="describe-the-data-format-of-the-audio-stream"></a>オーディオ ストリームのデータ形式について説明します
 
-1. 使用[IMFSourceReader::GetCurrentMediaType](https://msdn.microsoft.com/library/windows/desktop/dd374660)ストリームの現在のメディアの種類を取得します。
-2. 使用[IMFMediaType::MFCreateWaveFormatExFromMFMediaType](https://msdn.microsoft.com/library/windows/desktop/ms702177)に現在のオーディオ メディアの種類に変換する、 [WAVEFORMATEX](https://msdn.microsoft.com/library/windows/hardware/ff538799)バッファー、以前の操作の結果を入力として使用します。 この構造体には、オーディオが読み込まれた後に使用される wave オーディオ ストリームのデータ形式を指定します。 
+1. 使用[IMFSourceReader::GetCurrentMediaType](https://docs.microsoft.com/windows/desktop/api/mfreadwrite/nf-mfreadwrite-imfsourcereader-getcurrentmediatype)ストリームの現在のメディアの種類を取得します。
+2. 使用[IMFMediaType::MFCreateWaveFormatExFromMFMediaType](https://docs.microsoft.com/windows/desktop/api/mfapi/nf-mfapi-mfcreatewaveformatexfrommfmediatype)に現在のオーディオ メディアの種類に変換する、 [WAVEFORMATEX](https://docs.microsoft.com/windows/desktop/api/mmreg/ns-mmreg-twaveformatex)バッファー、以前の操作の結果を入力として使用します。 この構造体には、オーディオが読み込まれた後に使用される wave オーディオ ストリームのデータ形式を指定します。 
 
-__WAVEFORMATEX__ PCM バッファーを記述する形式を使用できます。 比較、 [WAVEFORMATEXTENSIBLE](https://msdn.microsoft.com/library/windows/hardware/ff538802)構造、wave オーディオ形式のサブセットの記述にのみ使用できます。 詳細の相違点について__WAVEFORMATEX__と__WAVEFORMATEXTENSIBLE__を参照してください[Wave 形式の拡張可能な記述子](https://docs.microsoft.com/windows-hardware/drivers/audio/extensible-wave-format-descriptors)します。
+__WAVEFORMATEX__ PCM バッファーを記述する形式を使用できます。 比較、 [WAVEFORMATEXTENSIBLE](https://docs.microsoft.com/windows-hardware/drivers/ddi/content/ksmedia/ns-ksmedia-waveformatextensible)構造、wave オーディオ形式のサブセットの記述にのみ使用できます。 詳細の相違点について__WAVEFORMATEX__と__WAVEFORMATEXTENSIBLE__を参照してください[Wave 形式の拡張可能な記述子](https://docs.microsoft.com/windows-hardware/drivers/audio/extensible-wave-format-descriptors)します。
 
 #### <a name="read-the-audio-stream"></a>オーディオ ストリームを読み取り
 
-1.  取得、期間 (秒) を呼び出すことによって、オーディオ ストリームの[IMFSourceReader::GetPresentationAttribute](https://msdn.microsoft.com/library/windows/desktop/dd374662)バイトに期間を変換します。
-2.  ストリームとして呼び出してでオーディオ ファイルを読み取る[IMFSourceReader::ReadSample](https://msdn.microsoft.com/library/windows/desktop/dd374665)します。 __ReadSample__メディア ソースから次のサンプルを読み取ります。
-3.  使用[IMFSample::ConvertToContiguousBuffer](https://msdn.microsoft.com/library/windows/desktop/ms698917.aspx)オーディオ サンプル バッファーの内容をコピーする (_サンプル_) 配列に (_mediaBuffer_)。
+1.  取得、期間 (秒) を呼び出すことによって、オーディオ ストリームの[IMFSourceReader::GetPresentationAttribute](https://docs.microsoft.com/windows/desktop/api/mfreadwrite/nf-mfreadwrite-imfsourcereader-getpresentationattribute)バイトに期間を変換します。
+2.  ストリームとして呼び出してでオーディオ ファイルを読み取る[IMFSourceReader::ReadSample](https://docs.microsoft.com/windows/desktop/api/mfreadwrite/nf-mfreadwrite-imfsourcereader-readsample)します。 __ReadSample__メディア ソースから次のサンプルを読み取ります。
+3.  使用[IMFSample::ConvertToContiguousBuffer](https://docs.microsoft.com/windows/desktop/api/mfobjects/nf-mfobjects-imfsample-converttocontiguousbuffer)オーディオ サンプル バッファーの内容をコピーする (_サンプル_) 配列に (_mediaBuffer_)。
 
 ```cpp
 Platform::Array<byte>^ MediaReader::LoadMedia(_In_ Platform::String^ filename)
@@ -342,8 +342,8 @@ void SoundEffect::Initialize(
 ### <a name="soundeffectplaysound-method"></a>SoundEffect::PlaySound メソッド
 
 * ソースの音声オブジェクトを使用して**m\_sourceVoice**サウンド データ バッファーの再生を開始する**m\_soundData**
-* 作成、 [XAUDIO2\_バッファー](https://msdn.microsoft.com/library/windows/desktop/ee419228)するサウンド データ バッファーへの参照を提供およびへの呼び出しに送信します、 [IXAudio2SourceVoice::SubmitSourceBuffer](https://msdn.microsoft.com/library/windows/desktop/ee418473)します。 
-* サウンドのデータをキューに入れ、 **SoundEffect::PlaySound**開始を呼び出すことによって再生[IXAudio2SourceVoice::Start](https://msdn.microsoft.com/library/windows/desktop/ee418471)します。
+* 作成、 [XAUDIO2\_バッファー](https://docs.microsoft.com/windows/desktop/api/xaudio2/ns-xaudio2-xaudio2_buffer)するサウンド データ バッファーへの参照を提供およびへの呼び出しに送信します、 [IXAudio2SourceVoice::SubmitSourceBuffer](https://docs.microsoft.com/windows/desktop/api/xaudio2/nf-xaudio2-ixaudio2sourcevoice-submitsourcebuffer)します。 
+* サウンドのデータをキューに入れ、 **SoundEffect::PlaySound**開始を呼び出すことによって再生[IXAudio2SourceVoice::Start](https://docs.microsoft.com/windows/desktop/api/xaudio2/nf-xaudio2-ixaudio2sourcevoice-start)します。
 
 ```cpp
 void SoundEffect::PlaySound(_In_ float volume)
@@ -457,9 +457,9 @@ UWP のフレームワーク、グラフィックス、コントロール、ユ�
 
 ## <a name="audio-concepts"></a>オーディオの概念
 
-Windows 10 ゲームの開発、XAudio2 バージョン 2.9 を使用します。 このバージョンには、Windows 10 が同梱されています。 詳細についてを参照してください[XAudio2 バージョン](https://msdn.microsoft.com/library/windows/desktop/ee415802.aspx)します。
+Windows 10 ゲームの開発、XAudio2 バージョン 2.9 を使用します。 このバージョンには、Windows 10 が同梱されています。 詳細についてを参照してください[XAudio2 バージョン](https://docs.microsoft.com/windows/desktop/xaudio2/xaudio2-versions)します。
 
-__AudioX2__は信号処理や基盤を提供する低レベルの API です。 詳細については、次を参照してください。 [XAudio2 Key Concepts](https://msdn.microsoft.com/library/windows/desktop/ee415764.aspx)します。
+__AudioX2__は信号処理や基盤を提供する低レベルの API です。 詳細については、次を参照してください。 [XAudio2 Key Concepts](https://docs.microsoft.com/windows/desktop/xaudio2/xaudio2-key-concepts)します。
 
 ### <a name="xaudio2-voices"></a>XAudio2 音声
 
@@ -473,13 +473,13 @@ XAudio2 音声オブジェクトの 3 種類があります: ソースをおよ�
 
 ### <a name="audio-graph"></a>オーディオのグラフ
 
-オーディオのグラフのコレクションである[XAudio2 音声](/windows/desktop/xaudio2/xaudio2-voices)します。 オーディオ音源のオーディオのグラフの一方の側から開始するには、必要に応じて、1 つまたは複数のサブミックス音声を通過およびマスタリング音声で終了します。 オーディオのグラフは、それぞれのサウンドを再生中に 0 個以上のサブミックス音声用ソース音声と 1 つのマスタリング音声が格納されます。 最も簡単なオーディオ グラフと、XAudio2 で音を鳴らす必要な最小値は、マスタリング音声に直接出力する 1 つのソース音声です。 詳細についてを参照してください[オーディオ グラフ](https://msdn.microsoft.com/library/windows/desktop/ee415739.aspx)します。
+オーディオのグラフのコレクションである[XAudio2 音声](/windows/desktop/xaudio2/xaudio2-voices)します。 オーディオ音源のオーディオのグラフの一方の側から開始するには、必要に応じて、1 つまたは複数のサブミックス音声を通過およびマスタリング音声で終了します。 オーディオのグラフは、それぞれのサウンドを再生中に 0 個以上のサブミックス音声用ソース音声と 1 つのマスタリング音声が格納されます。 最も簡単なオーディオ グラフと、XAudio2 で音を鳴らす必要な最小値は、マスタリング音声に直接出力する 1 つのソース音声です。 詳細についてを参照してください[オーディオ グラフ](https://docs.microsoft.com/windows/desktop/xaudio2/audio-graphs)します。
 
-### <a name="additional-reading"></a>その他の情報
+### <a name="additional-reading"></a>その他の参考資料
 
-* 「[XAudio2 を初期化します。](https://msdn.microsoft.com/library/windows/desktop/ee415779.aspx)
+* 「[XAudio2 を初期化します。](https://docs.microsoft.com/windows/desktop/xaudio2/how-to--initialize-xaudio2)
 * 「[XAudio2 にオーディオ データ ファイルを読み込む](https://msdn.microsoft.com/library/windows/desktop/ee415781(v=vs.85).aspx)
-* 「[XAudio2 で音を鳴らす](https://msdn.microsoft.com/library/windows/desktop/ee415787.aspx)
+* 「[XAudio2 で音を鳴らす](https://docs.microsoft.com/windows/desktop/xaudio2/how-to--play-a-sound-with-xaudio2)
 
 ## <a name="key-audio-h-files"></a>キーのオーディオ .h ファイル
 

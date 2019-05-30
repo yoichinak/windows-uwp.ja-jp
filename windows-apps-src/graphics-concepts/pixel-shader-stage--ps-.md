@@ -7,19 +7,19 @@ keywords:
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: e1f7e787f2ee80a3168d38a9afd9a249dc0e6de0
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 81b2bc5e78087b19d8829df4dab4b03e4db76467
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57603067"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66370985"
 ---
 # <a name="pixel-shader-ps-stage"></a>ピクセル シェーダー (PS) ステージ
 
 
 ピクセル シェーダー (PS) ステージはプリミティブの補間データを受信し、カラーなどのピクセル単位のデータを生成します。
 
-これはプログラム可能なシェーダー ステージであり、[グラフィックス パイプライン](graphics-pipeline.md)図では角丸ブロックとして示されます。 このシェーダー ステージは、シェーダー モデル 4.0 の[共通シェーダー コア](https://msdn.microsoft.com/library/windows/desktop/bb509580)に基づいて構築された、独自の機能を公開します。
+これはプログラム可能なシェーダー ステージであり、[グラフィックス パイプライン](graphics-pipeline.md)図では角丸ブロックとして示されます。 このシェーダー ステージは、シェーダー モデル 4.0 の[共通シェーダー コア](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-common-core)に基づいて構築された、独自の機能を公開します。
 
 ピクセル シェーダー ステージ (PS) では、ピクセル単位の照明や後処理など、豊富なシェーディング手法を使用できます。 ピクセル シェーダーは、定数変数、テクスチャ データ、補間された頂点単位の値などのデータを組み合わせて、ピクセル単位の出力を生成するプログラムです。 [ラスタライザー (RS) ステージ](rasterizer-stage--rs-.md)では、プリミティブによってカバーされたピクセルごとにピクセル シェーダーが 1 回呼び出されます。ただし、**NULL** シェーダーを指定して、シェーダーを実行しないようにすることもできます。
 
@@ -34,9 +34,9 @@ ms.locfileid: "57603067"
 
 ピクセル シェーダーの入力データには (パースペクティブ補正あり/なしで補間可能な) 頂点属性が含まれます。または、ピクセル シェーダーの入力データをプリミティブ単位の定数として処理することもできます。 ピクセル シェーダー入力は、宣言された補間モードに基づき、ラスター化されているプリミティブの頂点属性から補間されます。 プリミティブがラスター化前にクリップされた場合は、クリッピング処理中に補間モードが受け入れられます。
 
-頂点属性は、ピクセル シェーダーの中心位置で補間 (または評価) されます。 ピクセル シェーダーの属性補間モードは、入力レジスタ宣言において、[引数](https://msdn.microsoft.com/library/windows/desktop/bb509606)または[入力構造体](https://msdn.microsoft.com/library/windows/desktop/bb509668)の要素単位で宣言します。 属性は、線形補間することも、重心サンプリングによって補間することもできます。 「[ラスター化ルール](rasterization-rules.md)」の「マルチサンプル アンチエイリアシング時の属性の重心サンプリング」セクションをご覧ください。 重心評価はマルチサンプリング時のみに関連し、ピクセルがプリミティブによってカバーされているが、ピクセルの重心はカバーされていない場合に対応するためのものです。重心評価は、(カバーされていない) ピクセルの重心のできるだけ近くで行われます。
+頂点属性は、ピクセル シェーダーの中心位置で補間 (または評価) されます。 ピクセル シェーダーの属性補間モードは、入力レジスタ宣言において、[引数](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-function-parameters)または[入力構造体](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-struct)の要素単位で宣言します。 属性は、線形補間することも、重心サンプリングによって補間することもできます。 「[ラスター化ルール](rasterization-rules.md)」の「マルチサンプル アンチエイリアシング時の属性の重心サンプリング」セクションをご覧ください。 重心評価はマルチサンプリング時のみに関連し、ピクセルがプリミティブによってカバーされているが、ピクセルの重心はカバーされていない場合に対応するためのものです。重心評価は、(カバーされていない) ピクセルの重心のできるだけ近くで行われます。
 
-入力はシステム値セマンティクスで宣言することもできます。[システム値セマンティクス](https://msdn.microsoft.com/library/windows/desktop/bb509647)は、他のパイプライン ステージで使用されるパラメーターをマークします。 たとえば、SV でピクセルの位置をマークする必要があります\_セマンティックの位置。 [入力アセンブラー (IA) ステージ](input-assembler-stage--ia-.md)ピクセル シェーダーの 1 つのスカラーを生成することができます (SV を使用して\_PrimitiveID)、 [(RS) ラスタライザー ステージ](rasterizer-stage--rs-.md)(SVを使用してピクセルシェーダーのも、1つのスカラーを生成できます\_IsFrontFace)。
+入力はシステム値セマンティクスで宣言することもできます。[システム値セマンティクス](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-semantics)は、他のパイプライン ステージで使用されるパラメーターをマークします。 たとえば、SV でピクセルの位置をマークする必要があります\_セマンティックの位置。 [入力アセンブラー (IA) ステージ](input-assembler-stage--ia-.md)ピクセル シェーダーの 1 つのスカラーを生成することができます (SV を使用して\_PrimitiveID)、 [(RS) ラスタライザー ステージ](rasterizer-stage--rs-.md)(SVを使用してピクセルシェーダーのも、1つのスカラーを生成できます\_IsFrontFace)。
 
 ## <a name="span-idoutputsspanspan-idoutputsspanspan-idoutputsspanoutputs"></a><span id="Outputs"></span><span id="outputs"></span><span id="OUTPUTS"></span>出力
 

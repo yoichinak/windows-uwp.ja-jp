@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10、UWP、ゲーム、Direct3D、深度バッファー
 ms.localizationpriority: medium
-ms.openlocfilehash: f5ce1ec522a194111e175e41f82c4275cda4fbf5
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: dfd45f620addcf7a3f6292ed2257bdfccc862cd3
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57613697"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66368893"
 ---
 # <a name="create-depth-buffer-device-resources"></a>深度バッファーのデバイス リソースの作成
 
@@ -38,7 +38,7 @@ ms.locfileid: "57613697"
 ## <a name="check-feature-support"></a>サポートされている機能
 
 
-深さのマップを作成する前に呼び出す、 [ **CheckFeatureSupport** ](https://msdn.microsoft.com/library/windows/desktop/ff476497)メソッド、Direct3D デバイスで要求**D3D11\_機能\_D3D9\_シャドウ\_サポート**を提供し、 [ **D3D11\_機能\_データ\_D3D9\_シャドウ\_サポート**](https://msdn.microsoft.com/library/windows/desktop/jj247569)構造体。
+深さのマップを作成する前に呼び出す、 [ **CheckFeatureSupport** ](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11device-checkfeaturesupport)メソッド、Direct3D デバイスで要求**D3D11\_機能\_D3D9\_シャドウ\_サポート**を提供し、 [ **D3D11\_機能\_データ\_D3D9\_シャドウ\_サポート**](https://docs.microsoft.com/windows/desktop/api/d3d11/ns-d3d11-d3d11_feature_data_d3d9_shadow_support)構造体。
 
 ```cpp
 D3D11_FEATURE_DATA_D3D9_SHADOW_SUPPORT isD3D9ShadowSupported;
@@ -82,7 +82,7 @@ HRESULT hr = pD3DDevice->CreateTexture2D(
     );
 ```
 
-次に、リソース ビューを作成します。 深度ステンシル ビューで mip スライスを 0 に設定し、シェーダー リソース ビューで mip レベルを 1 に設定します。 両方の TEXTURE2D、テクスチャのディメンションがあり、照合を使用する必要が両方[ **DXGI\_形式**](https://msdn.microsoft.com/library/windows/desktop/bb173059)します。
+次に、リソース ビューを作成します。 深度ステンシル ビューで mip スライスを 0 に設定し、シェーダー リソース ビューで mip レベルを 1 に設定します。 両方の TEXTURE2D、テクスチャのディメンションがあり、照合を使用する必要が両方[ **DXGI\_形式**](https://docs.microsoft.com/windows/desktop/api/dxgiformat/ne-dxgiformat-dxgi_format)します。
 
 ```cpp
 D3D11_DEPTH_STENCIL_VIEW_DESC depthStencilViewDesc;

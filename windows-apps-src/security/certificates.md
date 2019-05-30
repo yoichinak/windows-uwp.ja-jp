@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp, セキュリティ
 ms.localizationpriority: medium
-ms.openlocfilehash: 2ee96628fd90ec9eea998abf312c5da11bff3826
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 28419df1a37ff640db7246b54e50da5bfce9fedb
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57624357"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66372620"
 ---
 # <a name="intro-to-certificates"></a>証明書の概要
 
@@ -53,7 +53,7 @@ X.509 公開キー証明書標準は、長い間に改定されてきました�
 
 ![x.509 証明書バージョン 1、2、3](images/x509certificateversions.png)
 
-これらのフィールドと拡張機能の一部は、[**CertificateRequestProperties**](https://msdn.microsoft.com/library/windows/apps/br212079) クラスを使って証明書要求を作成するときに直接指定できます。 ほとんどはできません。 それらのフィールドは、発行元の機関によって入力される場合や、空欄のままにしておける場合があります。 フィールドについて詳しくは、次のセクションをご覧ください。
+これらのフィールドと拡張機能の一部は、[**CertificateRequestProperties**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.Certificates.CertificateRequestProperties) クラスを使って証明書要求を作成するときに直接指定できます。 ほとんどはできません。 それらのフィールドは、発行元の機関によって入力される場合や、空欄のままにしておける場合があります。 フィールドについて詳しくは、次のセクションをご覧ください。
 
 ### <a name="version-1-fields"></a>バージョン 1 のフィールド
 

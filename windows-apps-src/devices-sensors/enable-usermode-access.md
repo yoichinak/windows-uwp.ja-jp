@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, UWP, ACPI, GPIO, I2C, SPI, UEFI
 ms.assetid: 2fbdfc78-3a43-4828-ae55-fd3789da7b34
 ms.localizationpriority: medium
-ms.openlocfilehash: 442b3b9328212a5115384b5175b519b76286dd28
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: f41bf9f56b63f59844bec976e9d6e5e3d650b271
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57620307"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66370270"
 ---
 # <a name="enable-usermode-access-to-gpio-i2c-and-spi"></a>GPIO、I2C、SPI へのユーザー モード アクセスの有効化
 
@@ -41,7 +41,7 @@ Device(RHPX)
 * _CID – 互換性 ID です。“MSFT8000” にする必要があります。
 * _UID – 一意の ID です。1 に設定します。
 
-次に、ユーザー モードに公開する GPIO リソースと SPB リソースをそれぞれ宣言します。 プロパティとリソースを関連付けるためにリソース インデックスが使われるため、リソースが宣言される順序は重要です。 複数の I2C または SPI バスが公開されている場合は、最初に宣言されているバスがその種類のバスの '既定' と見なされ、[Windows.Devices.I2c.I2cController](https://msdn.microsoft.com/library/windows/apps/windows.devices.i2c.i2ccontroller.aspx) および [Windows.Devices.Spi.SpiController](https://msdn.microsoft.com/library/windows/apps/windows.devices.spi.spicontroller.aspx) の `GetDefaultAsync()` メソッドによって返されるインスタンスになります。
+次に、ユーザー モードに公開する GPIO リソースと SPB リソースをそれぞれ宣言します。 プロパティとリソースを関連付けるためにリソース インデックスが使われるため、リソースが宣言される順序は重要です。 複数の I2C または SPI バスが公開されている場合は、最初に宣言されているバスがその種類のバスの '既定' と見なされ、[Windows.Devices.I2c.I2cController](https://docs.microsoft.com/uwp/api/windows.devices.i2c.i2ccontroller) および [Windows.Devices.Spi.SpiController](https://docs.microsoft.com/uwp/api/windows.devices.spi.spicontroller) の `GetDefaultAsync()` メソッドによって返されるインスタンスになります。
 
 ### <a name="spi"></a>SPI
 
@@ -156,10 +156,10 @@ Package(2) { "bus-SPI-SPI1", Package() { 2 }},
 #### <a name="spi-driver-requirements"></a>SPI ドライバーの要件
 
 * `SpbCx` を使うか、SpbCx と互換性がある必要があります
-* [MITT SPI テスト](https://msdn.microsoft.com/library/windows/hardware/dn919873.aspx)に合格している必要があります
+* [MITT SPI テスト](https://docs.microsoft.com/windows-hardware/drivers/spb/spi-tests-in-mitt)に合格している必要があります
 * 4 Mhz のクロック周波数をサポートしている必要があります
 * 8 ビットのデータ長をサポートしている必要があります
-* すべての SPI モードをサポートする必要があります。0、1、2、3
+* すべての SPI モードをサポートする必要があります。0, 1, 2, 3
 
 ### <a name="i2c"></a>I2C
 
@@ -201,7 +201,7 @@ I2CSerialBus() 記述子の次のフィールドは固定されています。
 #### <a name="i2c-driver-requirements"></a>I2C ドライバーの要件
 
 * SpbCx を使うか、SpbCx と互換性がある必要があります
-* [MITT I2C テスト](https://msdn.microsoft.com/library/windows/hardware/dn919852.aspx)に合格している必要があります
+* [MITT I2C テスト](https://docs.microsoft.com/windows-hardware/drivers/spb/run-mitt-tests-for-an-i2c-controller-)に合格している必要があります
 * 7 ビットのアドレス指定をサポートしている必要があります
 * 100 kHz のクロック周波数をサポートしている必要があります
 * 400 kHz のクロック周波数をサポートしている必要があります
@@ -228,7 +228,7 @@ GpioInt(Edge, ActiveBoth, Shared, PullUp, 0, “\\_SB.GPI0”,) { 5 }
 
 GPIO ピンを宣言するときは、次の要件を順守する必要があります。
 
-* メモリ マップ GPIO コントローラーのみがサポートされています。 I2C/SPI 経由で接続された GPIO コントローラーはサポートされていません。 [CLIENT_QueryControllerBasicInformation](https://msdn.microsoft.com/library/windows/hardware/hh439399.aspx) コールバックへの応答で [CLIENT_CONTROLLER_BASIC_INFORMATION](https://msdn.microsoft.com/library/windows/hardware/hh439358.aspx) 構造に [MemoryMappedController](https://msdn.microsoft.com/library/windows/hardware/hh439449.aspx) フラグを設定する場合、コントローラー ドライバーはメモリ マップ コントローラーです。
+* メモリ マップ GPIO コントローラーのみがサポートされています。 I2C/SPI 経由で接続された GPIO コントローラーはサポートされていません。 [CLIENT_QueryControllerBasicInformation](https://docs.microsoft.com/windows-hardware/drivers/ddi/content/gpioclx/nc-gpioclx-gpio_client_query_controller_basic_information) コールバックへの応答で [CLIENT_CONTROLLER_BASIC_INFORMATION](https://docs.microsoft.com/windows-hardware/drivers/ddi/content/gpioclx/ns-gpioclx-_client_controller_basic_information) 構造に [MemoryMappedController](https://docs.microsoft.com/windows-hardware/drivers/ddi/content/gpioclx/ns-gpioclx-_controller_attribute_flags) フラグを設定する場合、コントローラー ドライバーはメモリ マップ コントローラーです。
 * 各ピンに GpioIO リソースと GpioInt リソースの両方が必要です。 GpioInt リソースは GpioIO リソースの直後に続き、同じピン番号を参照する必要があります。
 * GPIO リソースはピン番号の昇順で並べる必要があります。
 * 各 GpioIO リソースと GpioInt リソースには、ピン一覧に正確に 1 つのピン番号を含める必要があります。
@@ -282,7 +282,7 @@ Package (2) { “GPIO-UseDescriptorPinNumbers”, 1 },
 Package (2) { “GPIO-PinCount”, 54 },
 ```
 
-**PinCount** プロパティは、`GpioClx` ドライバーの [CLIENT_QueryControllerBasicInformation](https://msdn.microsoft.com/library/windows/hardware/hh439399.aspx) コールバックの **TotalPins** プロパティから返された値と一致する必要があります。
+**PinCount** プロパティは、`GpioClx` ドライバーの [CLIENT_QueryControllerBasicInformation](https://docs.microsoft.com/windows-hardware/drivers/ddi/content/gpioclx/nc-gpioclx-gpio_client_query_controller_basic_information) コールバックの **TotalPins** プロパティから返された値と一致する必要があります。
 
 ボードの既存の公開されたドキュメントと最も互換性のある番号付けスキームを選択します。 たとえば、多くの既存のピン配列図が BCM2835 ピン番号を使っているため、Raspberry Pi はネイティブのピンの番号付けを使います。 200 個を超えるピンから 10 個のピンのみが公開されるため、既存のピン配列図が少なく、連番のピンの番号付けでは開発者のエクスペリエンスが単純化されるので、MinnowBoardMax は連番のピンの番号付けを使います。 連番のピンの番号付けを使うかネイティブのピンの番号付けを使うかの決定は、開発者の混乱を少なくすることを目的として行う必要があります。
 
@@ -331,9 +331,9 @@ Package(2) { "bus-UART-UART2", Package() { 2 }},
 
 ピンの多重化は、同じ物理ピンをさまざまな機能のために使う機能です。 I2C コントローラー、SPI コントローラー、GPIO コントローラーなどのいくつかのオンチップ周辺機器が、SOC の同じ物理ピンにルーティングされる可能性があります。 多重化ブロックは、任意の時間にどの機能がピンでアクティブになるかを制御します。 従来は、ファームウェアが機能の割り当てを起動時に確立し、この割り当ては起動セッションを通じて静的なままでした。 実行時のピンの多重化は、実行時にピンの機能の割り当てを再構成する機能を追加します。 実行時にユーザーがピンの機能を選択できるようにすると、ユーザーがボードのピンをすばやく再構成できるようになることで開発が高速化され、静的な構成の場合よりもハードウェアが広い範囲のアプリケーションをサポートできるようになります。
 
-追加のコードを記述しなくても、ユーザーは GPIO、I2C、SPI、UART の多重化のサポートを利用できます。 ユーザーが [OpenPin()](https://msdn.microsoft.com/library/dn960157.aspx) または [FromIdAsync()](https://msdn.microsoft.com/windows.devices.i2c.i2cdevice.fromidasync) を使って GPIO を開くと、基になる物理ピンが要求された機能に対して自動的に多重化されます。 ピンが既に別の機能により使われている場合は、OpenPin() または FromIdAsync() の呼び出しは失敗します。 [GpioPin](https://msdn.microsoft.com/library/windows/apps/windows.devices.gpio.gpiopin.aspx)、[I2cDevice](https://msdn.microsoft.com/library/windows/apps/windows.devices.i2c.i2cdevice.aspx)、[SpiDevice](https://msdn.microsoft.com/library/windows/apps/windows.devices.spi.spidevice.aspx)、[SerialDevice](https://msdn.microsoft.com/library/windows/apps/windows.devices.serialcommunication.serialdevice.aspx) オブジェクトを廃棄することでユーザーがデバイスを閉じると、ピンが解放され、後で別の機能のために開くことができるようになります。
+追加のコードを記述しなくても、ユーザーは GPIO、I2C、SPI、UART の多重化のサポートを利用できます。 ユーザーが [OpenPin()](https://docs.microsoft.com/uwp/api/windows.devices.gpio.gpiocontroller.openpin) または [FromIdAsync()](https://docs.microsoft.com/uwp/api/windows.devices.i2c.i2cdevice.fromidasync) を使って GPIO を開くと、基になる物理ピンが要求された機能に対して自動的に多重化されます。 ピンが既に別の機能により使われている場合は、OpenPin() または FromIdAsync() の呼び出しは失敗します。 [GpioPin](https://docs.microsoft.com/uwp/api/windows.devices.gpio.gpiopin)、[I2cDevice](https://docs.microsoft.com/uwp/api/windows.devices.i2c.i2cdevice)、[SpiDevice](https://docs.microsoft.com/uwp/api/windows.devices.spi.spidevice)、[SerialDevice](https://docs.microsoft.com/uwp/api/windows.devices.serialcommunication.serialdevice) オブジェクトを廃棄することでユーザーがデバイスを閉じると、ピンが解放され、後で別の機能のために開くことができるようになります。
 
-Windows では、[GpioClx](https://msdn.microsoft.com/library/windows/hardware/hh439515.aspx)、[SpbCx](https://msdn.microsoft.com/library/windows/hardware/hh406203.aspx)、[SerCx](https://msdn.microsoft.com/library/windows/hardware/dn265349.aspx) フレームワークにピンの多重化の組み込みサポートが含まれています。 これらのフレームワークは、GPIO ピンまたはバスがアクセスされたときに正しい機能にピンを自動的に切り替えるために、連携して機能します。 複数のクライアント間での競合を避けるために、ピンへのアクセスは適切に判別されます。 この組み込みサポートに加えて、ピンの多重化のためのインターフェイスとプロトコルは汎用のため、追加のデバイスとシナリオをサポートするために拡張できます。
+Windows では、[GpioClx](https://docs.microsoft.com/windows-hardware/drivers/ddi/content/index)、[SpbCx](https://docs.microsoft.com/windows-hardware/drivers/spb/spb-framework-extension)、[SerCx](https://docs.microsoft.com/windows-hardware/drivers/ddi/content/index) フレームワークにピンの多重化の組み込みサポートが含まれています。 これらのフレームワークは、GPIO ピンまたはバスがアクセスされたときに正しい機能にピンを自動的に切り替えるために、連携して機能します。 複数のクライアント間での競合を避けるために、ピンへのアクセスは適切に判別されます。 この組み込みサポートに加えて、ピンの多重化のためのインターフェイスとプロトコルは汎用のため、追加のデバイスとシナリオをサポートするために拡張できます。
 
 このドキュメントでは、まずピンの多重化に関与する基となるインターフェイスとプロトコルについて説明してから、GpioClx、SpbCx、SerCx コントローラー ドライバーに対してピンの多重化のサポートを追加する方法について説明します。
 
@@ -353,8 +353,8 @@ Windows では、[GpioClx](https://msdn.microsoft.com/library/windows/hardware/h
 
 ![ピンの多重化のクライアントとサーバーの相互作用](images/usermode-access-diagram-1.png)
 
-1. クライアントは、[EvtDevicePrepareHardware()](https://msdn.microsoft.com/library/windows/hardware/ff540880.aspx) コールバックで、ACPI ファームウェアから MsftFunctionConfig リソースを受け取ります。
-2. クライアントはリソース ハブ ヘルパー関数 `RESOURCE_HUB_CREATE_PATH_FROM_ID()` を使ってリソース ID からパスを作成し、([ZwCreateFile()](https://msdn.microsoft.com/library/windows/hardware/ff566424.aspx)、[IoGetDeviceObjectPointer()](https://msdn.microsoft.com/library/windows/hardware/ff549198.aspx)、または [WdfIoTargetOpen()](https://msdn.microsoft.com/library/windows/hardware/ff548634.aspx) を使って) そのパスに対してハンドルを開きます。
+1. クライアントは、[EvtDevicePrepareHardware()](https://docs.microsoft.com/windows-hardware/drivers/ddi/content/wdfdevice/nc-wdfdevice-evt_wdf_device_prepare_hardware) コールバックで、ACPI ファームウェアから MsftFunctionConfig リソースを受け取ります。
+2. クライアントはリソース ハブ ヘルパー関数 `RESOURCE_HUB_CREATE_PATH_FROM_ID()` を使ってリソース ID からパスを作成し、([ZwCreateFile()](https://docs.microsoft.com/windows-hardware/drivers/ddi/content/ntifs/nf-ntifs-ntcreatefile)、[IoGetDeviceObjectPointer()](https://docs.microsoft.com/windows-hardware/drivers/ddi/content/wdm/nf-wdm-iogetdeviceobjectpointer)、または [WdfIoTargetOpen()](https://docs.microsoft.com/windows-hardware/drivers/ddi/content/wdfiotarget/nf-wdfiotarget-wdfiotargetopen) を使って) そのパスに対してハンドルを開きます。
 3. サーバーがリソース ハブ ヘルパー関数 `RESOURCE_HUB_ID_FROM_FILE_NAME()` を使ってファイル パスからリソース ハブ ID を抽出してから、リソース ハブを照会してリソース記述子を取得します。
 4. サーバーは記述子内の各ピンの共有の判別を実行し、IRP_MJ_CREATE 要求を完了します。
 5. クライアントが受け取ったハンドルに対する *IOCTL_GPIO_COMMIT_FUNCTION_CONFIG_PINS* 要求を生成します。
@@ -369,7 +369,7 @@ Windows では、[GpioClx](https://msdn.microsoft.com/library/windows/hardware/h
 
 #### <a name="parsing-resources"></a>リソースの解析
 
-WDF ドライバーが [EvtDevicePrepareHardware()](https://msdn.microsoft.com/library/windows/hardware/ff540880.aspx) ルーチンで `MsftFunctionConfig()` リソースを受け取ります。 MsftFunctionConfig リソースは、次のフィールドで識別できます。
+WDF ドライバーが [EvtDevicePrepareHardware()](https://docs.microsoft.com/windows-hardware/drivers/ddi/content/wdfdevice/nc-wdfdevice-evt_wdf_device_prepare_hardware) ルーチンで `MsftFunctionConfig()` リソースを受け取ります。 MsftFunctionConfig リソースは、次のフィールドで識別できます。
 
 ```cpp
 CM_PARTIAL_RESOURCE_DESCRIPTOR::Type = CmResourceTypeConnection
@@ -504,7 +504,7 @@ NTSTATUS AcquireFunctionConfigResource (
 }
 ```
 
-ドライバーは、後で閉じることができるように、WDFIOTARGET をいずれかのコンテキスト領域に格納する必要があります。 ドライバーが多重化構成を解放する準備ができたら、[WdfObjectDelete()](https://msdn.microsoft.com/library/windows/hardware/ff548734.aspx) を呼び出すか、WDFIOTARGET を再利用する場合には [WdfIoTargetClose()](https://msdn.microsoft.com/library/windows/hardware/ff548586.aspx) を呼び出してリソース ハンドルを閉じる必要があります。
+ドライバーは、後で閉じることができるように、WDFIOTARGET をいずれかのコンテキスト領域に格納する必要があります。 ドライバーが多重化構成を解放する準備ができたら、[WdfObjectDelete()](https://docs.microsoft.com/windows-hardware/drivers/ddi/content/wdfobject/nf-wdfobject-wdfobjectdelete) を呼び出すか、WDFIOTARGET を再利用する場合には [WdfIoTargetClose()](https://docs.microsoft.com/windows-hardware/drivers/ddi/content/wdfiotarget/nf-wdfiotarget-wdfiotargetclose) を呼び出してリソース ハンドルを閉じる必要があります。
 
 ```cpp
     WdfObjectDelete(resourceHandle);
@@ -532,7 +532,7 @@ NTSTATUS AcquireFunctionConfigResource (
 
 共有の判別に失敗した場合は、*STATUS_GPIO_INCOMPATIBLE_CONNECT_MODE* で要求を完了する必要があります。 共有の判別に成功した場合は、*STATUS_SUCCESS* で要求を完了する必要があります。
 
-着信要求の共有モードは、[IrpSp->Parameters.Create.ShareAccess](https://msdn.microsoft.com/library/windows/hardware/ff548630.aspx) ではなく MsftFunctionConfig 記述子から取得する必要があることに注意してください。
+着信要求の共有モードは、[IrpSp->Parameters.Create.ShareAccess](https://docs.microsoft.com/windows-hardware/drivers/ifs/irp-mj-create) ではなく MsftFunctionConfig 記述子から取得する必要があることに注意してください。
 
 #### <a name="handling-ioctlgpiocommitfunctionconfigpins-requests"></a>IOCTL_GPIO_COMMIT_FUNCTION_CONFIG_PINS 要求の処理
 
@@ -614,7 +614,7 @@ Device(I2C1)
 * CLIENT_ConnectFunctionConfigPins – `GpioClx` によって呼び出され、ミニポート ドライバーが指定された多重化構成を適用するように指示を出します。
 * CLIENT_DisconnectFunctionConfigPins – `GpioClx` によって呼び出され、ミニポート ドライバーが多重化構成を戻すように指示を出します。
 
-これらのルーチンの説明については、「[GpioClx イベント コールバック関数](https://msdn.microsoft.com/library/windows/hardware/hh439464.aspx)」をご覧ください。
+これらのルーチンの説明については、「[GpioClx イベント コールバック関数](https://docs.microsoft.com/previous-versions//hh439464(v=vs.85))」をご覧ください。
 
 これらの 2 つの新しい DDI に加えて、既存の DDI もピンの多重化の互換性の監査対象とする必要があります。
 
@@ -633,11 +633,11 @@ Windows 10 ビルド 14327 以降では、`SpbCx` および `SerCx` コントロ
 
 デバイスの初期化時に、`SpbCx` および `SerCx` フレームワークがハードウェア リソースとしてデバイスに提供されたすべての `MsftFunctionConfig()` リソースを解析します。 SpbCx/SerCx はその後、必要に応じてピンの多重化のリソースを取得および解放します。
 
-`SpbCx` ピン留めマルチプレキシング構成が適用されます、 *irp_mj_create 用*ハンドラーを呼び出すクライアント ドライバーの直前に[EvtSpbTargetConnect()](https://msdn.microsoft.com/library/windows/hardware/hh450818.aspx)コールバック。 多重化構成を適用できなかった場合、コントローラー ドライバーの `EvtSpbTargetConnect()` コールバックは呼び出されません。 そのため、SPB コントローラー ドライバーは `EvtSpbTargetConnect()` が呼び出されたときまでにピンが SPB 機能に対して多重化されていると想定することができます。
+`SpbCx` ピン留めマルチプレキシング構成が適用されます、 *irp_mj_create 用*ハンドラーを呼び出すクライアント ドライバーの直前に[EvtSpbTargetConnect()](https://docs.microsoft.com/windows-hardware/drivers/ddi/content/spbcx/nc-spbcx-evt_spb_target_connect)コールバック。 多重化構成を適用できなかった場合、コントローラー ドライバーの `EvtSpbTargetConnect()` コールバックは呼び出されません。 そのため、SPB コントローラー ドライバーは `EvtSpbTargetConnect()` が呼び出されたときまでにピンが SPB 機能に対して多重化されていると想定することができます。
 
-`SpbCx` pin でのマルチプレキシングの構成を元に戻します。 その*未完了*コント ローラーのドライバーを起動した直後、ハンドラー [EvtSpbTargetDisconnect()](https://msdn.microsoft.com/library/windows/hardware/hh450820.aspx)コールバック。 その結果、周辺機器ドライバーが SPB コントローラー ドライバーに対してハンドルを開くたびにピンが SPB 機能に対して多重化され、周辺機器ドライバーがハンドルを閉じると多重化が終了します。
+`SpbCx` pin でのマルチプレキシングの構成を元に戻します。 その*未完了*コント ローラーのドライバーを起動した直後、ハンドラー [EvtSpbTargetDisconnect()](https://docs.microsoft.com/windows-hardware/drivers/ddi/content/spbcx/nc-spbcx-evt_spb_target_disconnect)コールバック。 その結果、周辺機器ドライバーが SPB コントローラー ドライバーに対してハンドルを開くたびにピンが SPB 機能に対して多重化され、周辺機器ドライバーがハンドルを閉じると多重化が終了します。
 
-`SerCx` 同様に動作します。 `SerCx` すべてを取得`MsftFunctionConfig()`内のリソースの*irp_mj_create 用*コント ローラーのドライバーを起動する前にハンドラー [EvtSerCx2FileOpen()](https://msdn.microsoft.com/library/windows/hardware/dn265209.aspx)コールバックし、その未完了のすべてのリソースを解放コント ローラーのドライバーを起動した直後、ハンドラー [EvtSerCx2FileClose](https://msdn.microsoft.com/library/windows/hardware/dn265208.aspx)コールバック。
+`SerCx` 同様に動作します。 `SerCx` すべてを取得`MsftFunctionConfig()`内のリソースの*irp_mj_create 用*コント ローラーのドライバーを起動する前にハンドラー [EvtSerCx2FileOpen()](https://docs.microsoft.com/windows-hardware/drivers/ddi/content/sercx/nc-sercx-evt_sercx2_fileopen)コールバックし、その未完了のすべてのリソースを解放コント ローラーのドライバーを起動した直後、ハンドラー [EvtSerCx2FileClose](https://docs.microsoft.com/windows-hardware/drivers/ddi/content/sercx/nc-sercx-evt_sercx2_fileclose)コールバック。
 
 `SerCx` および `SpbCx` コントローラー ドライバーのための動的なピンの多重化の実装では、特定の時間で SPB/UART 機能のピンの多重化が終了することを許容できる必要があります。 コントローラー ドライバーは、`EvtSpbTargetConnect()` または `EvtSerCx2FileOpen()` が呼び出されるまでピンが多重化されないことを前提とする必要があります。 次のコールバック中に必ずしもピンが SPB/UART 機能に多重化される必要はありません。 次に示すのは完全な一覧ではありませんが、コントローラー ドライバーによって実装される最も一般的な PNP ルーチンを示しています。
 

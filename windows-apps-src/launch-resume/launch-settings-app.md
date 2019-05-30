@@ -7,24 +7,24 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: fb0e5aee9e7b3e57ebf0ebeaf3d035180e52c65b
-ms.sourcegitcommit: fca0132794ec187e90b2ebdad862f22d9f6c0db8
+ms.openlocfilehash: 1a0c632089c8c4cf84ecf6df99935671423b51a6
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63817513"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66370817"
 ---
 # <a name="launch-the-windows-settings-app"></a>Windows 設定アプリの起動
 
 **重要な API**
 
--   [**LaunchUriAsync**](https://msdn.microsoft.com/library/windows/apps/hh701476)
--   [**PreferredApplicationPackageFamilyName**](https://msdn.microsoft.com/library/windows/apps/hh965482)
--   [**DesiredRemainingView**](https://msdn.microsoft.com/library/windows/apps/dn298314)
+-   [**LaunchUriAsync**](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchuriasync)
+-   [**PreferredApplicationPackageFamilyName**](https://docs.microsoft.com/uwp/api/windows.system.launcheroptions.preferredapplicationpackagefamilyname)
+-   [**DesiredRemainingView**](https://docs.microsoft.com/uwp/api/windows.system.launcheroptions.desiredremainingview)
 
 Windows 設定アプリを起動する方法について説明します。 このトピックで説明します、 **ms 設定。** URI スキーム。 Windows 設定アプリを起動して特定の設定ページを表示するには、この URI スキームを使います。
 
-設定アプリの起動は、個人データにアクセスするアプリの開発の重要な部分です。 アプリが機密性の高いリソースにアクセスできない場合、そのリソースのプライバシー設定への便利なリンクをユーザーに提供することをお勧めします。 詳しくは、「[個人データにアクセスするアプリのガイドライン](https://msdn.microsoft.com/library/windows/apps/hh768223)」をご覧ください。
+設定アプリの起動は、個人データにアクセスするアプリの開発の重要な部分です。 アプリが機密性の高いリソースにアクセスできない場合、そのリソースのプライバシー設定への便利なリンクをユーザーに提供することをお勧めします。 詳しくは、「[個人データにアクセスするアプリのガイドライン](https://docs.microsoft.com/windows/uwp/security/index)」をご覧ください。
 
 ## <a name="how-to-launch-the-settings-app"></a>設定アプリを起動する方法
 
@@ -44,7 +44,7 @@ Windows 設定アプリを起動する方法について説明します。 こ�
 </TextBlock>
 ```
 
-また、アプリで [**LaunchUriAsync**](https://msdn.microsoft.com/library/windows/apps/hh701476) メソッドを呼び出し、コードから**設定**アプリを起動することもできます。 次の例は、`ms-settings:privacy-webcam` URI を使って、カメラのプライバシー設定ページを起動する方法を示しています。
+また、アプリで [**LaunchUriAsync**](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchuriasync) メソッドを呼び出し、コードから**設定**アプリを起動することもできます。 次の例は、`ms-settings:privacy-webcam` URI を使って、カメラのプライバシー設定ページを起動する方法を示しています。
 
 ```cs
 bool result = await Windows.System.Launcher.LaunchUriAsync(new Uri("ms-settings:privacy-webcam"));
@@ -238,7 +238,7 @@ URI の起動について詳しくは、「[URI に応じた既定のアプリ�
 | 通話履歴 | ms-settings:privacy-callhistory |
 | Camera | ms-settings:privacy-webcam |
 | 連絡先 | ms-settings:privacy-contacts |
-| ドキュメント | ms-settings:privacy-documents |
+| Documents | ms-settings:privacy-documents |
 | Email | ms-settings:privacy-email |
 | アイ トラッカー | ms-settings:privacy-eyetracker (eyetracker ハードウェアが必要) |
 | フィードバックと診断 | ms-settings:privacy-feedback |

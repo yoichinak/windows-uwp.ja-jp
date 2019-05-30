@@ -8,12 +8,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: c12acd2148c8c85d69354a71c016d7a7230e590b
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 07707160846f3d63c7d0c097fb7b84def08be9e7
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57605457"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66366690"
 ---
 # <a name="drag-animations"></a>ドラッグ アニメーション
 
@@ -22,7 +22,7 @@ ms.locfileid: "57605457"
 
 ドラッグ アンド ドロップ アニメーションは、リスト内で項目を移動するときや、特定の項目を別の項目上にドロップするときなど、オブジェクトを移動する際に使います。
 
-> **重要な API**:[**DragItemThemeAnimation クラス**](https://msdn.microsoft.com/library/windows/apps/br243174)
+> **重要な API**:[**DragItemThemeAnimation クラス**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.dragitemthemeanimation.)
 
 
 ## <a name="dos-and-donts"></a>推奨と非推奨
@@ -57,12 +57,12 @@ ms.locfileid: "57605457"
 ## <a name="related-articles"></a>関連記事
 
 **開発者向け**
-* [アニメーションの概要](https://msdn.microsoft.com/library/windows/apps/mt187350)
-* [ドラッグ アンド ドロップのシーケンスをアニメーション化](https://msdn.microsoft.com/library/windows/apps/xaml/jj649427)
-* [クイック スタート:Library のアニメーションを使用して、UI をアニメーション化](https://msdn.microsoft.com/library/windows/apps/xaml/hh452703)
-* [**DragItemThemeAnimation クラス**](https://msdn.microsoft.com/library/windows/apps/br243174)
-* [**DropTargetItemThemeAnimation クラス**](https://msdn.microsoft.com/library/windows/apps/br243186)
-* [**DragOverThemeAnimation クラス**](https://msdn.microsoft.com/library/windows/apps/br243180)
+* [アニメーションの概要](https://docs.microsoft.com/windows/uwp/graphics/animations-overview)
+* [ドラッグ アンド ドロップのシーケンスをアニメーション化](https://docs.microsoft.com/previous-versions/windows/apps/jj649427(v=win.10))
+* [クイック スタート:Library のアニメーションを使用して、UI をアニメーション化](https://docs.microsoft.com/previous-versions/windows/apps/hh452703(v=win.10))
+* [**DragItemThemeAnimation クラス**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.dragitemthemeanimation.)
+* [**DropTargetItemThemeAnimation クラス**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.droptargetitemthemeanimation.)
+* [**DragOverThemeAnimation クラス**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.dragoverthemeanimation.)
 
 
  

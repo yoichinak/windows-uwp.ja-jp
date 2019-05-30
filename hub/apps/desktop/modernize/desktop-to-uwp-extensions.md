@@ -8,12 +8,12 @@ ms.assetid: 0a8cedac-172a-4efd-8b6b-67fd3667df34
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: 063106362a36aa32d0874be15dd589b5fb573409
-ms.sourcegitcommit: d1c3e13de3da3f7dce878b3735ee53765d0df240
+ms.openlocfilehash: 291c16d14428f8c6476b12fbadf00f84c26a4235
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66214945"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66359478"
 ---
 # <a name="integrate-your-packaged-desktop-app-with-windows-10-and-uwp"></a>Windows 10 と UWP パッケージ化されたデスクトップ アプリに統合します。
 
@@ -99,7 +99,7 @@ http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabi
 
 ユーザーが特定の種類のデスクトップ バージョンのアプリを開く代わりにファイルの既定で、新しいパッケージ化されたアプリケーションを開くことを確認することができます。
 
-これを行うには、ファイルの関連付けを継承するために、関連付けされている各アプリケーションの[プログラム識別子 (ProgID)](https://msdn.microsoft.com/library/windows/desktop/cc144152.aspx) を指定します。
+これを行うには、ファイルの関連付けを継承するために、関連付けされている各アプリケーションの[プログラム識別子 (ProgID)](https://docs.microsoft.com/windows/desktop/shell/fa-progids) を指定します。
 
 #### <a name="xml-namespaces"></a>XML 名前空間
 
@@ -123,8 +123,8 @@ http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabi
 |名前 |説明 |
 |-------|-------------|
 |カテゴリ |常に ``windows.fileTypeAssociation`` です。
-|名前 |アプリの一意の ID。 この ID は、ファイルの種類の関連付けによって関連付けられたハッシュ対象の[プログラム識別子 (ProgID)](https://msdn.microsoft.com/library/windows/desktop/cc144152.aspx) を生成するために内部で使用されます。 この ID を使って、アプリの今後のバージョンで変更を管理することができます。 |
-|MigrationProgId |[プログラム識別子 (ProgID)](https://msdn.microsoft.com/library/windows/desktop/cc144152.aspx)アプリケーション、コンポーネント、およびファイルの関連付けを継承するデスクトップ アプリケーションのバージョンをについて説明します。|
+|名前 |アプリの一意の ID。 この ID は、ファイルの種類の関連付けによって関連付けられたハッシュ対象の[プログラム識別子 (ProgID)](https://docs.microsoft.com/windows/desktop/shell/fa-progids) を生成するために内部で使用されます。 この ID を使って、アプリの今後のバージョンで変更を管理することができます。 |
+|MigrationProgId |[プログラム識別子 (ProgID)](https://docs.microsoft.com/windows/desktop/shell/fa-progids)アプリケーション、コンポーネント、およびファイルの関連付けを継承するデスクトップ アプリケーションのバージョンをについて説明します。|
 
 #### <a name="example"></a>例
 
@@ -182,7 +182,7 @@ http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabi
 |名前 |説明 |
 |-------|-------------|
 |カテゴリ |常に ``windows.fileTypeAssociation`` です。
-|名前 |アプリの一意の ID。 この ID は、ファイルの種類の関連付けによって関連付けられたハッシュ対象の[プログラム識別子 (ProgID)](https://msdn.microsoft.com/library/windows/desktop/cc144152.aspx) を生成するために内部で使用されます。 この ID を使って、アプリの今後のバージョンで変更を管理することができます。   |
+|名前 |アプリの一意の ID。 この ID は、ファイルの種類の関連付けによって関連付けられたハッシュ対象の[プログラム識別子 (ProgID)](https://docs.microsoft.com/windows/desktop/shell/fa-progids) を生成するために内部で使用されます。 この ID を使って、アプリの今後のバージョンで変更を管理することができます。   |
 |FileType |アプリでサポートされているファイル拡張子。 |
 
 #### <a name="example"></a>例
@@ -410,7 +410,7 @@ http://schemas.microsoft.com/appx/manifest/desktop/windows10/2
 
 拡張機能を使ってそれらのフォルダーを指定します。 これにより、システムは配置したファイルを見つけて読み込むことができます。 この拡張機能は、 _%PATH%_ 環境変数の置き換えと考えてください。
 
-この拡張機能を使わない場合、システムはプロセスのパッケージの依存関係グラフ、パッケージ ルート フォルダー、システム ディレクトリ ( _%SystemRoot%\system32_) の順で検索します。 詳しくは、[Windows アプリの検索順序に関するページ](https://msdn.microsoft.com/library/windows/desktop/ms682586.aspx#_search_order_for_windows_store_apps)をご覧ください。
+この拡張機能を使わない場合、システムはプロセスのパッケージの依存関係グラフ、パッケージ ルート フォルダー、システム ディレクトリ ( _%SystemRoot%\system32_) の順で検索します。 詳しくは、[Windows アプリの検索順序に関するページ](https://docs.microsoft.com/windows/desktop/Dlls/dynamic-link-library-search-order)をご覧ください。
 
 各パッケージには、これらの拡張機能を 1 つだけ含めることができます。 つまり、1 つをメイン パッケージに追加し、他の拡張機能は[オプション パッケージと関連するセット](https://docs.microsoft.com/windows/uwp/packaging/optional-packages)それぞれに 1 つずつ追加できます。
 
@@ -673,7 +673,7 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
 
 ユーザーはエクスプローラーでこのフィールドを使用して、ファイルをグループ化できます。 また、このフィールドは、システム コンポーネントによって、インデックス作成などのさまざまな目的にも使用されます。
 
-**Kind** フィールドの詳細と、このフィールドに使用できる値については、「[種類名の使用](https://msdn.microsoft.com/library/windows/desktop/cc144136.aspx)」をご覧ください。
+**Kind** フィールドの詳細と、このフィールドに使用できる値については、「[種類名の使用](https://docs.microsoft.com/windows/desktop/properties/building-property-handlers-user-friendly-kind-names)」をご覧ください。
 
 #### <a name="xml-namespaces"></a>XML 名前空間
 
@@ -702,7 +702,7 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
 |カテゴリ |常に ``windows.fileTypeAssociation`` です。
 |名前 |アプリの一意の ID。 |
 |FileType |関連するファイル拡張子。 |
-|value |有効な [Kind 値](https://msdn.microsoft.com/en-us/library/windows/desktop/cc144136.aspx#kind_hierarchy)。 |
+|value |有効な [Kind 値](https://docs.microsoft.com/windows/desktop/properties/building-property-handlers-user-friendly-kind-names)。 |
 
 #### <a name="example"></a>例
 
@@ -1069,8 +1069,8 @@ http://schemas.microsoft.com/appx/manifest/desktop/windows10/3
 |DropTargetHandler |実装するアプリケーションのクラス ID、 [IDropTarget](https://docs.microsoft.com/dotnet/api/microsoft.visualstudio.ole.interop.idroptarget?view=visualstudiosdk-2017)インターフェイス。 リムーバブル メディアのファイルは、[IDropTarget](https://docs.microsoft.com/dotnet/api/microsoft.visualstudio.ole.interop.idroptarget?view=visualstudiosdk-2017) 実装の [Drop](https://docs.microsoft.com/dotnet/api/microsoft.visualstudio.ole.interop.idroptarget.drop?view=visualstudiosdk-2017#Microsoft_VisualStudio_OLE_Interop_IDropTarget_Drop_Microsoft_VisualStudio_OLE_Interop_IDataObject_System_UInt32_Microsoft_VisualStudio_OLE_Interop_POINTL_System_UInt32__) メソッドに渡されます。  |
 |パラメーター |すべてのコンテンツ イベントで [IDropTarget](https://docs.microsoft.com/dotnet/api/microsoft.visualstudio.ole.interop.idroptarget?view=visualstudiosdk-2017) インターフェイスを実装する必要はありません。 どのコンテンツ イベントにも、[IDropTarget](https://docs.microsoft.com/dotnet/api/microsoft.visualstudio.ole.interop.idroptarget?view=visualstudiosdk-2017) インターフェイスを実装する代わりにコマンド ライン パラメーターを指定することができます。 これらのイベントでは、自動再生がこれらのコマンド ライン パラメーターを使用してアプリケーションを起動します。 アプリの初期化コードでそれらのパラメーターを解析して、自動再生によって起動したかどうかを判断し、カスタム実装を提供することができます。 |
 |DeviceEvent |ユーザーに ``ActionDisplayName`` と ``ProviderDisplayName`` をプロンプト表示する原因となるデバイス イベントの名前。 デバイス イベントは、デバイスが PC に接続されると発生します。 デバイス イベントの先頭は文字列 ``WPD`` です。一覧については[ここ](https://docs.microsoft.com/windows/uwp/launch-resume/auto-launching-with-autoplay#autoplay-event-reference)をご覧ください。 |
-|HWEventHandler |実装するアプリケーションのクラス ID、 [IHWEventHandler](https://msdn.microsoft.com/library/windows/desktop/bb775492.aspx)インターフェイス。 |
-|InitCmdLine |[IHWEventHandler](https://msdn.microsoft.com/library/windows/desktop/bb775492.aspx) インターフェイスの [Initialize](https://msdn.microsoft.com/en-us/library/windows/desktop/bb775495.aspx) メソッドに渡す文字列パラメーター。 |
+|HWEventHandler |実装するアプリケーションのクラス ID、 [IHWEventHandler](https://docs.microsoft.com/windows/desktop/api/shobjidl/nn-shobjidl-ihweventhandler)インターフェイス。 |
+|InitCmdLine |[IHWEventHandler](https://docs.microsoft.com/windows/desktop/api/shobjidl/nn-shobjidl-ihweventhandler) インターフェイスの [Initialize](https://docs.microsoft.com/windows/desktop/api/shobjidl/nf-shobjidl-ihweventhandler-initialize) メソッドに渡す文字列パラメーター。 |
 
 ### <a name="example"></a>例
 
@@ -1101,14 +1101,14 @@ http://schemas.microsoft.com/appx/manifest/desktop/windows10/3
 
 ユーザーに更新プログラムをインストールするときに、アプリケーションが開いている場合、アプリケーションを閉じます。
 
-そのアプリケーションの場合、更新された後で再起動が完了すると、呼び出し、 [RegisterApplicationRestart](https://msdn.microsoft.com/library/windows/desktop/aa373347.aspx)を再起動するすべてのプロセス内の関数。
+そのアプリケーションの場合、更新された後で再起動が完了すると、呼び出し、 [RegisterApplicationRestart](https://docs.microsoft.com/windows/desktop/api/winbase/nf-winbase-registerapplicationrestart)を再起動するすべてのプロセス内の関数。
 
-各アクティブなウィンドウ、アプリケーションでの受信、 [WM_QUERYENDSESSION](https://msdn.microsoft.com/library/windows/desktop/aa376890.aspx)メッセージ。 この時点で、アプリケーションを呼び出すことができます、 [RegisterApplicationRestart](https://msdn.microsoft.com/library/windows/desktop/aa373347.aspx)必要な場合は、コマンドラインを更新するには、もう一度関数。
+各アクティブなウィンドウ、アプリケーションでの受信、 [WM_QUERYENDSESSION](https://docs.microsoft.com/windows/desktop/Shutdown/wm-queryendsession)メッセージ。 この時点で、アプリケーションを呼び出すことができます、 [RegisterApplicationRestart](https://docs.microsoft.com/windows/desktop/api/winbase/nf-winbase-registerapplicationrestart)必要な場合は、コマンドラインを更新するには、もう一度関数。
 
-アプリケーション内のアクティブな各ウィンドウが受信すると、 [WM_ENDSESSION](https://msdn.microsoft.com/library/windows/desktop/aa376889.aspx)メッセージ、アプリケーションがデータを保存およびシャット ダウンします。
+アプリケーション内のアクティブな各ウィンドウが受信すると、 [WM_ENDSESSION](https://docs.microsoft.com/windows/desktop/Shutdown/wm-endsession)メッセージ、アプリケーションがデータを保存およびシャット ダウンします。
 
 >[!NOTE]
-また、アクティブなウィンドウが表示される、 [WM_CLOSE](https://msdn.microsoft.com/library/windows/desktop/ms632617.aspx)メッセージ、アプリケーションが処理しない場合、 [WM_ENDSESSION](https://msdn.microsoft.com/library/windows/desktop/aa376889.aspx)メッセージ。
+また、アクティブなウィンドウが表示される、 [WM_CLOSE](https://docs.microsoft.com/windows/desktop/winmsg/wm-close)メッセージ、アプリケーションが処理しない場合、 [WM_ENDSESSION](https://docs.microsoft.com/windows/desktop/Shutdown/wm-endsession)メッセージ。
 
 この時点で、アプリケーションが、独自のプロセスを終了する 30 秒を持っているか、プラットフォームは、これらを強制的に終了します。
 

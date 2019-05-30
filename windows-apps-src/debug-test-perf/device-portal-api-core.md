@@ -7,12 +7,12 @@ ms.date: 04/19/2019
 ms.topic: article
 keywords: windows 10、uwp、デバイス ポータル
 ms.localizationpriority: medium
-ms.openlocfilehash: 910e3108009704d444fb81b195f9dd9eae3daa9d
-ms.sourcegitcommit: fca0132794ec187e90b2ebdad862f22d9f6c0db8
+ms.openlocfilehash: b2e1e2dfdb1dd52e1dd07a146badd78a6bb809fa
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63798183"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66359929"
 ---
 # <a name="device-portal-core-api-reference"></a>デバイス ポータル コア API リファレンス
 
@@ -1373,7 +1373,7 @@ ms.locfileid: "63798183"
 | URI パラメーター | 説明 |
 | :---          | :--- |
 | autoreboot   | (**オプション**) true または false。 これは、エラーやロックの発生後に、システムが自動的に再起動するかどうかを示します。 |
-| dumptype   | (**オプション**) dump タイプ。 サポートされる値については、「[CrashDumpType 列挙体](https://msdn.microsoft.com/library/azure/microsoft.azure.management.insights.models.crashdumptype.aspx)」をご覧ください。|
+| dumptype   | (**オプション**) dump タイプ。 サポートされる値については、「[CrashDumpType 列挙体](https://docs.microsoft.com/previous-versions/azure/reference/dn802457(v=azure.100))」をご覧ください。|
 | maxdumpcount   | (**オプション**) 保存するダンプの最大数。 |
 | overwrite   | (**オプション**) true または false。 これは、*maxdumpcount*で指定されているダンプ カウンターの制限に達した場合に古いダンプを上書きするかどうかを示します。 |
 
@@ -2362,7 +2362,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
  
 | メソッド      | 要求 URI |
 | :------     | :----- |
-| GET | /api/power/cfg/*<power scheme path>* |
+| GET | /api/power/cfg/ *<power scheme path>* |
 
 オプション:
 - SCHEME_CURRENT
@@ -2500,7 +2500,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
  
 | メソッド      | 要求 URI |
 | :------     | :----- |
-| POST | /api/power/cfg/*<power scheme path>* |
+| POST | /api/power/cfg/ *<power scheme path>* |
 
 
 **URI パラメーター**
@@ -3224,8 +3224,8 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | :------          | :------ |
 | インターフェイス   | (**必須**) ネットワークへの接続に使用するネットワーク インターフェイスの GUID。 |
 | op   | (**必須**) 実行するアクションを示します。 設定可能な値は、connect または disconnect です。|
-| ssid   | (***op* == connect の場合は必須**) 接続先 SSID。 |
-| key   | (***op* == connect で、ネットワークで認証が必要な場合は必須**) 共有キー。 |
+| ssid   | ( ***op* == connect の場合は必須**) 接続先 SSID。 |
+| key   | ( ***op* == connect で、ネットワークで認証が必要な場合は必須**) 共有キー。 |
 | createprofile | (**必要**) デバイスでネットワークのプロファイルを作成します。  これにより、今後、デバイスはネットワークに自動接続されます。 **yes** または **no** を指定できます。 |
 
 **要求ヘッダー**
@@ -4217,7 +4217,7 @@ DNS-SD アドバタイズにタグを追加します。
 | URI パラメーター | 説明 |
 | :------     | :----- |
 | knownfolderid | (**必須**) 必要なファイルの一覧の対象となるトップレベル ディレクトリ。 サイドロードされたアプリにアクセスするには、**LocalAppData** を使用します。 |
-| packagefullname | (***knownfolderid* == LocalAppData の場合は必須**) 対象となるアプリのパッケージのフルネーム。 |
+| packagefullname | ( ***knownfolderid* == LocalAppData の場合は必須**) 対象となるアプリのパッケージのフルネーム。 |
 | path | (**オプション**) 上で指定したフォルダーまたはパッケージ内のサブディレクトリ。 |
 
 **要求ヘッダー**
@@ -4278,7 +4278,7 @@ DNS-SD アドバタイズにタグを追加します。
 | :------     | :----- |
 | knownfolderid | (**必須**) ファイルをダウンロードするトップレベル ディレクトリ。 サイドロードされたアプリにアクセスするには、**LocalAppData** を使用します。 |
 | &lt;ファイル名&gt; | (**必須**) ダウンロードするファイルの名前。 |
-| packagefullname | (***knownfolderid* == LocalAppData の場合は必須**) 対象となるパッケージのフルネーム。 |
+| packagefullname | ( ***knownfolderid* == LocalAppData の場合は必須**) 対象となるパッケージのフルネーム。 |
 | path | (**オプション**) 上で指定したフォルダーまたはパッケージ内のサブディレクトリ。 |
 
 **要求ヘッダー**
@@ -4329,7 +4329,7 @@ DNS-SD アドバタイズにタグを追加します。
 | knownfolderid | (**必須**) ファイルが存在するトップレベル ディレクトリ。 サイドロードされたアプリにアクセスするには、**LocalAppData** を使用します。 |
 | &lt;ファイル名&gt; | (**必須**) 名前を変更するファイルの元の名前。 |
 | newfilename | (**必須**) ファイルの新しい名前。|
-| packagefullname | (***knownfolderid* == LocalAppData の場合は必須**) 対象となるアプリのパッケージのフルネーム。 |
+| packagefullname | ( ***knownfolderid* == LocalAppData の場合は必須**) 対象となるアプリのパッケージのフルネーム。 |
 | path | (**オプション**) 上で指定したフォルダーまたはパッケージ内のサブディレクトリ。 |
 
 **要求ヘッダー**
@@ -4380,7 +4380,7 @@ DNS-SD アドバタイズにタグを追加します。
 | :------     | :----- |
 | knownfolderid | (**必須**) ファイルを削除するトップレベル ディレクトリ。 サイドロードされたアプリにアクセスするには、**LocalAppData** を使用します。 |
 | &lt;ファイル名&gt; | (**必須**) 削除するファイルの名前。 |
-| packagefullname | (***knownfolderid* == LocalAppData の場合は必須**) 対象となるアプリのパッケージのフルネーム。 |
+| packagefullname | ( ***knownfolderid* == LocalAppData の場合は必須**) 対象となるアプリのパッケージのフルネーム。 |
 | path | (**オプション**) 上で指定したフォルダーまたはパッケージ内のサブディレクトリ。 |
 
 **要求ヘッダー**
@@ -4430,7 +4430,7 @@ DNS-SD アドバタイズにタグを追加します。
 | URI パラメーター | 説明 |
 | :------     | :----- |
 | knownfolderid | (**必須**) ファイルをアップロードするトップレベル ディレクトリ。 サイドロードされたアプリにアクセスするには、**LocalAppData** を使用します。 |
-| packagefullname | (***knownfolderid* == LocalAppData の場合は必須**) 対象となるアプリのパッケージのフルネーム。 |
+| packagefullname | ( ***knownfolderid* == LocalAppData の場合は必須**) 対象となるアプリのパッケージのフルネーム。 |
 | path | (**オプション**) 上で指定したフォルダーまたはパッケージ内のサブディレクトリ。 |
 
 **要求ヘッダー**

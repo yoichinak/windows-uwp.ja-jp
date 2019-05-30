@@ -6,19 +6,19 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 2b9f8de488ad0baea1de9aea5c911f2519385d25
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 02337d02472b7215f0fb9be47419caf52420e0f2
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57653867"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66372416"
 ---
 # <a name="windowsphone-silverlight-to-uwp-case-study-bookstore1"></a>UWP のケース スタディ「Windows Phone Silverlight:Bookstore1
 
 
-このトピックでは、Windows 10 ユニバーサル Windows プラットフォーム (UWP) アプリへの非常に単純な Windows Phone Silverlight アプリの移植のケース スタディを表示します。 Windows 10 ではパッケージを作成する 1 つのアプリをさまざまなデバイス、上に顧客をインストールし、このケース スタディでは何です。 「[UWP アプリのガイド](https://msdn.microsoft.com/library/windows/apps/dn894631)」をご覧ください。
+このトピックでは、Windows 10 ユニバーサル Windows プラットフォーム (UWP) アプリへの非常に単純な Windows Phone Silverlight アプリの移植のケース スタディを表示します。 Windows 10 ではパッケージを作成する 1 つのアプリをさまざまなデバイス、上に顧客をインストールし、このケース スタディでは何です。 「[UWP アプリのガイド](https://docs.microsoft.com/windows/uwp/get-started/universal-application-platform-guide)」をご覧ください。
 
-移植するアプリは、ビュー モデルにバインドされた **ListBox** で構成されます。 ビュー モデルにはタイトル、著者、表紙を示す書籍の一覧が含まれます。 表紙画像では、**[ビルド アクション]** が **[コンテンツ]** に設定され、**[出力ディレクトリにコピー]** が **[コピーしない]** に設定されています。
+移植するアプリは、ビュー モデルにバインドされた **ListBox** で構成されます。 ビュー モデルにはタイトル、著者、表紙を示す書籍の一覧が含まれます。 表紙画像では、 **[ビルド アクション]** が **[コンテンツ]** に設定され、 **[出力ディレクトリにコピー]** が **[コピーしない]** に設定されています。
 
 このセクションの前のトピックでは、プラットフォーム間の違いについて説明し、ビュー モデルへのバインドを通じて、データへのアクセスに至るまで、XAML マークアップからのアプリのさまざまな要素に対する移植プロセスの詳細とガイダンスを提供しました。 ケース スタディでは、実際の例が動作するようすを示すことにより、このガイダンスを補足することを目的としています。 ケース スタディは、ガイダンスを読み終わっていることを前提としているため、繰り返し説明することはありません。
 
@@ -40,13 +40,13 @@ ms.locfileid: "57653867"
 
 Visual Studio で新しいプロジェクトを作成し、そこへ Bookstore1WPSL8 からファイルをコピーし、コピーしたファイルを新しいプロジェクトに含めるというタスクは、非常に短時間で実行できます。 最初に、"新しいアプリケーション (Windows ユニバーサル)" プロジェクトを新規作成します。 名前を付けます Bookstore1Universal\_10。 これらの Bookstore1Universal Bookstore1WPSL8 から経由でコピーするファイルは\_10。
 
--   書籍カバーの画像の PNG ファイルを含むフォルダーにコピー (フォルダーが\\資産\\CoverImages)。 フォルダーをコピーしたら、**ソリューション エクスプローラー**で **[すべてのファイルを表示]** がオンであることを確認します。 コピーしたフォルダーを右クリックし、**[プロジェクトに含める]** をクリックします。 このコマンドは、ファイルまたはフォルダーをプロジェクトに "含める" ことを意味します。 ファイルやフォルダーをコピーするたびに、**ソリューション エクスプローラー**で **[更新]** をクリックしてから、ファイルまたはフォルダーをプロジェクトに含めます。 コピー先で置き換えるファイルについては、この手順を実行する必要はありません。
+-   書籍カバーの画像の PNG ファイルを含むフォルダーにコピー (フォルダーが\\資産\\CoverImages)。 フォルダーをコピーしたら、**ソリューション エクスプローラー**で **[すべてのファイルを表示]** がオンであることを確認します。 コピーしたフォルダーを右クリックし、 **[プロジェクトに含める]** をクリックします。 このコマンドは、ファイルまたはフォルダーをプロジェクトに "含める" ことを意味します。 ファイルやフォルダーをコピーするたびに、**ソリューション エクスプローラー**で **[更新]** をクリックしてから、ファイルまたはフォルダーをプロジェクトに含めます。 コピー先で置き換えるファイルについては、この手順を実行する必要はありません。
 -   ビュー モデルのソース ファイルを含むフォルダーをコピー (フォルダーが\\ViewModel)。
 -   MainPage.xaml をコピーして、コピー先のファイルを置き換えます。
 
 私たちは、App.xaml、および Visual Studio によって生成された Windows 10 プロジェクトで App.xaml.cs を保持できます。
 
-コピーしたソース コードとマークアップ ファイルを編集して Bookstore1Universal に Bookstore1WPSL8 名前空間への参照を変更\_10。 これをすばやく行うには、**[フォルダーを指定して置換]** 機能を使います。 ビュー モデルのソース ファイルに含まれている命令型コードでは、移植作業のために次の変更を行う必要があります。
+コピーしたソース コードとマークアップ ファイルを編集して Bookstore1Universal に Bookstore1WPSL8 名前空間への参照を変更\_10。 これをすばやく行うには、 **[フォルダーを指定して置換]** 機能を使います。 ビュー モデルのソース ファイルに含まれている命令型コードでは、移植作業のために次の変更を行う必要があります。
 
 -   `System.ComponentModel.DesignerProperties` を `DesignMode` に変更した後、これに対して **[解決]** コマンドを使います。 `IsInDesignTool` プロパティを削除し、IntelliSense を使って適切なプロパティ名 (`DesignModeEnabled`) を追加します。
 -   `ImageSource` に対して **[解決]** コマンドを使います。
@@ -76,7 +76,7 @@ MainPage.xaml では、移植作業のために次の変更を行う必要があ
 
 ## <a name="paying-off-the-debt-items-and-some-initial-styling"></a>削除した項目と一部の初期スタイルを戻す
 
-既定では、すべての向きがサポートされます。 自体は、Windows Phone Silverlight アプリが明示的に制約を縦専用に、その負債項目\#1 と\#2 が新しいプロジェクトで、アプリ パッケージのマニフェストに移動し完済**縦****向きをサポートされている**します。
+既定では、すべての向きがサポートされます。 自体は、Windows Phone Silverlight アプリが明示的に制約を縦専用に、その負債項目\#1 と\#2 が新しいプロジェクトで、アプリ パッケージのマニフェストに移動し完済**縦** **向きをサポートされている**します。
 
 このアプリでは、項目\#3 は、負債ので (旧称: システム トレイ) ステータス バーは既定で表示されます。 項目の\#4 と\#5、4 つのユニバーサル Windows プラットフォーム (UWP) を検索する必要があります **TextBlock**を使用していた Windows Phone Silverlight スタイルに対応するスタイル。 Windows Phone Silverlight アプリをエミュレーターで実行でき、比較の図と並行して、[テキスト](wpsl-to-uwp-porting-xaml-and-ui.md)セクション。 これを行う、および Windows Phone Silverlight のシステム スタイルのプロパティを見てから、このテーブルを実行できます。
 
@@ -104,7 +104,7 @@ Bookstore1WPSL8 では、次のことを適用しました。
     return new BitmapImage(new Uri(this.CoverImagePath, UriKind.Relative));
 ```
 
-Bookstore1Universal では、ms-appx [URI スキーム](https://msdn.microsoft.com/library/windows/apps/jj655406)を使います。 残るコードを変更せずに維持するために、**System.Uri** コンストラクターの異なるオーバーロードを使って、ベース URI に ms-appx URI スキームを格納し、パスの残る部分を追加できます。 次に例を示します。
+Bookstore1Universal では、ms-appx [URI スキーム](https://docs.microsoft.com/previous-versions/windows/apps/jj655406(v=win.10))を使います。 残るコードを変更せずに維持するために、**System.Uri** コンストラクターの異なるオーバーロードを使って、ベース URI に ms-appx URI スキームを格納し、パスの残る部分を追加できます。 次に例を示します。
 
 ```csharp
     // this.BookCoverImagePath contains a path of the form "/Assets/CoverImages/one.png".

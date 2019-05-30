@@ -6,25 +6,25 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 021e3142a4e94f762cc48dbc86905dcf0b658772
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 20a57e4bbd4784d67fc711f78d6c59493c5b435f
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57645237"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66371735"
 ---
 # <a name="launch-the-windows-maps-app"></a>Windows マップ アプリの起動
 
 
 
 
-アプリから Windows マップ アプリを起動する方法について説明します。 このトピックで説明、**bingmaps: *ms でドライブを:、ms-チュートリアル-を:** と**ms 設定。** Uniform Resource Identifier (URI) スキーム。 これらの URI スキームを使って、Windows マップ アプリを起動し、特定の地図、ルート案内、検索結果を表示したり、設定アプリから Windows マップ オフライン マップをダウンロードしたりします。
+アプリから Windows マップ アプリを起動する方法について説明します。 このトピックで説明、**bingmaps: *ms でドライブを:、ms-チュートリアル-を:* * と**ms 設定。** Uniform Resource Identifier (URI) スキーム。 これらの URI スキームを使って、Windows マップ アプリを起動し、特定の地図、ルート案内、検索結果を表示したり、設定アプリから Windows マップ オフライン マップをダウンロードしたりします。
 
 **ヒント** アプリから Windows マップ アプリを起動する方法について詳しくは、GitHub の [Windows-universal-samples リポジトリ](https://go.microsoft.com/fwlink/p/?LinkId=619979)から[ユニバーサル Windows プラットフォーム (UWP) の地図サンプル](https://go.microsoft.com/fwlink/p/?LinkId=619977)をダウンロードしてください。
 
 ## <a name="introducing-uris"></a>URI の概要
 
-URI スキームを使うと、ハイパーリンクのクリックによって (またはアプリでプログラム的に) アプリを開くことができます。 **mailto:** を使って新しいメールの作成を開始したり、**http:** を使って既定の Web ブラウザーを開いたりできるのと同様に、**bingmaps:**、**ms-drive-to:**、**ms-walk-to:** を使って Windows マップ アプリを開くことができます。
+URI スキームを使うと、ハイパーリンクのクリックによって (またはアプリでプログラム的に) アプリを開くことができます。 **mailto:** を使って新しいメールの作成を開始したり、**http:** を使って既定の Web ブラウザーを開いたりできるのと同様に、**bingmaps:** 、**ms-drive-to:** 、**ms-walk-to:** を使って Windows マップ アプリを開くことができます。
 
 -   **Bingmaps:** URI は、場所、検索結果、方向、およびトラフィックのマップを提供します。
 -   **Ms-ドライブ-します。** URI は、現在の場所から有効にする-めくり、道案内情報を提供します。
@@ -40,7 +40,7 @@ URI スキームを使うと、ハイパーリンクのクリックによって 
 
 URI スキームについて次に説明します。
 
-**bingmaps:? クエリ**
+**bingmaps:?query**
 
 この URI スキームでは、*query* は、次のようなパラメーター名と値の一連のペアを示します。
 
@@ -51,7 +51,7 @@ URI スキームについて次に説明します。
 ## <a name="launch-a-uri-from-your-app"></a>アプリからの URI の起動
 
 
-アプリから Windows マップ アプリを起動するには、呼び出し、 [ **LaunchUriAsync** ](https://msdn.microsoft.com/library/windows/apps/hh701476)メソッドを**bingmaps:**、 **ms でドライブを:**、または**ms-チュートリアル-します。** URI。 次の例では、前の例と同じ URI を起動します。 URI によるアプリの起動について詳しくは、「[URI に応じた既定のアプリの起動](launch-default-app.md)」をご覧ください。
+アプリから Windows マップ アプリを起動するには、呼び出し、 [ **LaunchUriAsync** ](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchuriasync)メソッドを**bingmaps:** 、 **ms でドライブを:** 、または**ms-チュートリアル-します。** URI。 次の例では、前の例と同じ URI を起動します。 URI によるアプリの起動について詳しくは、「[URI に応じた既定のアプリの起動](launch-default-app.md)」をご覧ください。
 
 ```cs
 // Center on New York City
@@ -63,7 +63,7 @@ launcherOptions.TargetApplicationPackageFamilyName = "Microsoft.WindowsMaps_8wek
 var success = await Windows.System.Launcher.LaunchUriAsync(uriNewYork, launcherOptions);
 ```
 
-この例では、Windows マップ アプリを確実に起動するために [**LauncherOptions**](https://msdn.microsoft.com/library/windows/apps/hh701435) クラスを使っています。
+この例では、Windows マップ アプリを確実に起動するために [**LauncherOptions**](https://docs.microsoft.com/uwp/api/Windows.System.LauncherOptions) クラスを使っています。
 
 ## <a name="display-known-locations"></a>既知の場所の表示
 
@@ -194,7 +194,7 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriNewYork, launcherO
 <tr class="even">
 <td align="left"><p><b>bb</b></p></td>
 <td align="left"><p>境界ボックス</p></td>
-<td align="left"><p>bb = "bb=" southlatitude "_" westlongitude "~" northlatitude "_" eastlongitude</p>
+<td align="left"><p>bb = "bb=" southlatitude " _" westlongitude "~" northlatitude "_ " eastlongitude</p>
 <p>southlatitude = degreeslat</p>
 <p>northlatitude = degreeslat</p>
 <p>westlongitude = degreeslon</p>
@@ -211,7 +211,7 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriNewYork, launcherO
 <td align="left"><p><b>where</b></p></td>
 <td align="left"><p>Location</p></td>
 <td align="left"><p>where = "where=" whereval</p>
-<p>whereval = 1 *( ALPHA / DIGIT / "-" / "." / "_" / pct-encoded / "!" / "$" / "'" / "(" / ")" / "*" / "+" / "," / ";" / ":" / "@" / "/" / "?")</p>
+<p>whereval = 1 *( ALPHA / DIGIT / "-" / "." / "_" / pct-encoded / "!" / "$" / "'" / "(" / ")" / "* " / "+" / "," / ";" / ":" / "@" / "/" / "?")</p>
 <p>以下に例を示します。</p>
 <p>where=1600%20Pennsylvania%20Ave,%20Washington,%20DC</p></td>
 <td align="left"><p>特定の所在地、ランドマーク、または場所を検索するための語句。</p></td>
@@ -323,8 +323,8 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriNewYork, launcherO
 <p>rtp=adr.One%20Microsoft%20Way,%20Redmond,%20WA~pos.45.23423_-122.1232 _My%20Picnic%20Spot</p></td>
 <td align="left"><p>地図上に表示するルートの開始地点と終了地点を、チルダ (<b>~</b>) で区切って定義します。 各中間点は、緯度、経度、オプションのタイトルを使った位置、または住所の識別情報を使って定義します。</p>
 <p>完全なルートとは、中間点が 2 つだけ含まれるルートです。 たとえば、2 つの中間点を持つルートは、<code>rtp="A"~"B"</code> のように定義されます。</p>
-<p>不完全なルートを指定することもできます。 たとえば、ルートの開始地点だけを定義する場合は、<code>rtp="A"~</code> のように指定できます。 この場合、ルート案内の入力が表示されると、**[出発地]** フィールドには指定された中間点が表示され、**[目的地]** フィールドにフォーカスが設定されます。</p>
-<p><code>rtp=~"B"</code> のようにルートの終了地点のみを指定した場合は、ルート案内のパネルが表示されると、**[目的地]** フィールドには指定された中間点が表示されます。 現在の正確な位置情報にアクセスできる場合、**[出発地]** フィールドに現在の場所があらかじめ入力され、フォーカスが設定されます。</p>
+<p>不完全なルートを指定することもできます。 たとえば、ルートの開始地点だけを定義する場合は、<code>rtp="A"~</code> のように指定できます。 この場合、ルート案内の入力が表示されると、 **[出発地]** フィールドには指定された中間点が表示され、 **[目的地]** フィールドにフォーカスが設定されます。</p>
+<p><code>rtp=~"B"</code> のようにルートの終了地点のみを指定した場合は、ルート案内のパネルが表示されると、 **[目的地]** フィールドには指定された中間点が表示されます。 現在の正確な位置情報にアクセスできる場合、 **[出発地]** フィールドに現在の場所があらかじめ入力され、フォーカスが設定されます。</p>
 <p>不完全なルートが指定されている場合は、ルートの線は表示されません。</p>
 <p>**mode** パラメーターと組み合わせて使うと、交通手段のモード (自動車、公共交通機関、徒歩) を指定できます。 **mode** が指定されていない場合、ルート案内は、ユーザーの交通手段の設定のモードを使って提供されます。</p>
 <div class="alert">
@@ -365,7 +365,7 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriNewYork, launcherO
 <p>以下に例を示します。</p>
 <p>collection=name.My%20Trip%20Stops~point.36.116584_-115.176753_Las%20Vegas~point.37.8268_-122.4798_Golden%20Gate%20Bridge</p></td>
 <td align="left"><p>地図と一覧に追加されるポイントのコレクションです。 name パラメーターを使用して、ポイントのコレクションに名前を付けることができます。 ポイントは、緯度、経度、およびオプションのタイトルを使用して指定されます。</p>
-<p>名前と複数のポイントをチルダ (**~**) で区切ります。</p>
+<p>名前と複数のポイントをチルダ ( **~** ) で区切ります。</p>
 <p>指定した項目にチルダが含まれている場合は、そのチルダを <code>%7E</code> としてエンコードしてください。 中心点のパラメーターやズーム レベルのパラメーターと共に使わない場合、コレクションによって、最適な地図ビューが表示されます。</p>
 
 <p>**重要** 指定した項目にアンダースコアが含まれている場合は、そのアンダースコアを %255F としてダブル エンコードしてください。</p></td>

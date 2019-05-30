@@ -6,12 +6,12 @@ ms.date: 08/30/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: fae4d5b57ac5cfb5c47fca1a2f3476cd16a56534
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: a44a1adb8685ad182620b4c68024176628b9204d
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57583202"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66369664"
 ---
 # <a name="enterprise"></a>エンタープライズ
 
@@ -102,9 +102,9 @@ Windows 10 には、一連のセキュリティ機能が用意されていま�
 
 | トピック | 説明 |
 |-------|-------------|
-| [安全な Windows アプリの開発について](https://msdn.microsoft.com/library/windows/apps/mt622741) | この概要記事では、認証、移動中データ、および保存データの各段階におけるさまざまな Windows のセキュリティ機能について説明します。 また、これらの段階をアプリに統合する方法についても説明します。 ここでは、さまざまなトピックを取り上げており、ユニバーサル Windows プラットフォーム アプリを短時間で簡単に作成するための Windows の機能を、アプリの設計者が詳しく理解できるようにすることを主な目的としています。 |
-| [認証とユーザー ID](https://msdn.microsoft.com/library/windows/apps/mt270184) | この記事では、UWP アプリで利用できるユーザー認証のためオプションを説明します。 企業向けには、新しい Microsoft Passport 機能を強くお勧めします。 Microsoft Passport では、既存の資格情報を確認して、生体認証または PIN ベースのユーザー ジェスチャで保護されるデバイス固有の資格情報を作成することで、パスワードを強力な 2 要素認証 (2FA) に置き換えます。これにより、便利で安全性の高いエクスペリエンスが実現されます。 |
-| [暗号化](https://msdn.microsoft.com/library/windows/apps/mt270191) | 「暗号化」セクションでは、UWP アプリで利用できる暗号化の機能の概要を説明します。 この記事では、重要なビジネス データを簡単に暗号化する方法についての入門用チュートリアルから、暗号化キーの操作や MAC、ハッシュ、署名の使用などの高度なトピックまでを取り上げています。 |
+| [安全な Windows アプリの開発について](https://docs.microsoft.com/windows/uwp/security/intro-to-secure-windows-app-development) | この概要記事では、認証、移動中データ、および保存データの各段階におけるさまざまな Windows のセキュリティ機能について説明します。 また、これらの段階をアプリに統合する方法についても説明します。 ここでは、さまざまなトピックを取り上げており、ユニバーサル Windows プラットフォーム アプリを短時間で簡単に作成するための Windows の機能を、アプリの設計者が詳しく理解できるようにすることを主な目的としています。 |
+| [認証とユーザー ID](https://docs.microsoft.com/windows/uwp/security/authentication-and-user-identity) | この記事では、UWP アプリで利用できるユーザー認証のためオプションを説明します。 企業向けには、新しい Microsoft Passport 機能を強くお勧めします。 Microsoft Passport では、既存の資格情報を確認して、生体認証または PIN ベースのユーザー ジェスチャで保護されるデバイス固有の資格情報を作成することで、パスワードを強力な 2 要素認証 (2FA) に置き換えます。これにより、便利で安全性の高いエクスペリエンスが実現されます。 |
+| [暗号化](https://docs.microsoft.com/windows/uwp/security/cryptography) | 「暗号化」セクションでは、UWP アプリで利用できる暗号化の機能の概要を説明します。 この記事では、重要なビジネス データを簡単に暗号化する方法についての入門用チュートリアルから、暗号化キーの操作や MAC、ハッシュ、署名の使用などの高度なトピックまでを取り上げています。 |
 | [Windows 情報保護 (WIP)](wip-hub.md) | ここでは、Windows 情報保護 (WIP) と、ファイル、バッファー、クリップボード、ネットワーク、バックグラウンド タスク、ロックの背後でのデータ保護との関係について、開発者向けに全体像を説明します。 |
 
 ## <a name="data-binding-and-databases"></a>データ バインディングとデータベース
@@ -113,8 +113,8 @@ Windows 10 には、一連のセキュリティ機能が用意されていま�
 
 | トピック | 説明 |
 |-------|-------------|
-| [データ バインディングの概要](https://msdn.microsoft.com/library/windows/apps/mt269383) | このトピックでは、ユニバーサル Windows プラットフォーム (UWP) アプリで、コントロール (または他の UI 要素) を単一の項目にバインドする方法や、項目コントロールを項目のコレクションにバインドする方法を説明します。 また、項目のレンダリングを制御する方法、選択内容に基づいて詳細ビューを実装する方法、表示するデータを変換する方法も紹介します。 |
-| [UWP 用 Entity Framework 7](https://msdn.microsoft.com/library/windows/apps/mt592863) | 大きなデータ セットに対する複雑なクエリの実行は、UWP をサポートする Entity Framework 7 を使用することで大幅に簡素化されます。 このチュートリアルでは、Entity Framework を使用してローカル SQLite データベースへの基本的なデータ アクセスを実行する UWP アプリを構築します。 |
+| [データ バインディングの概要](https://docs.microsoft.com/windows/uwp/data-binding/data-binding-quickstart) | このトピックでは、ユニバーサル Windows プラットフォーム (UWP) アプリで、コントロール (または他の UI 要素) を単一の項目にバインドする方法や、項目コントロールを項目のコレクションにバインドする方法を説明します。 また、項目のレンダリングを制御する方法、選択内容に基づいて詳細ビューを実装する方法、表示するデータを変換する方法も紹介します。 |
+| [UWP 用 Entity Framework 7](https://docs.microsoft.com/windows/uwp/data-access/entity-framework-7-with-sqlite-for-csharp-apps) | 大きなデータ セットに対する複雑なクエリの実行は、UWP をサポートする Entity Framework 7 を使用することで大幅に簡素化されます。 このチュートリアルでは、Entity Framework を使用してローカル SQLite データベースへの基本的なデータ アクセスを実行する UWP アプリを構築します。 |
 | [SQLite ローカル データベース](https://channel9.msdn.com/Series/A-Developers-Guide-to-Windows-10/10) | このビデオは、アプリのローカル データベースのソリューションとして推奨される SQLite を使用するための開発者向けの包括的なガイドです。 [SQLite](https://www.sqlite.org/download.html) にアクセスして UWP 用の最新バージョンをダウンロードするか、Windows 10 SDK で既に提供されているバージョンを使用してください。 |
 
 ## <a name="networking-and-data-serialization"></a>ネットワークとデータのシリアル化
@@ -123,10 +123,10 @@ Windows 10 には、一連のセキュリティ機能が用意されていま�
 
 | トピック | 説明 |
 |-------|-------------|
-| [ネットワークの基本](https://msdn.microsoft.com/library/windows/apps/mt280233) | このチュートリアルでは、使用する通信プロトコルに関係なく、すべての UWP アプリに関連する基本的なネットワークの概念について説明します。  |
-| [アプリに適したネットワーク テクノロジ](https://msdn.microsoft.com/library/windows/apps/mt280235) | UWP アプリで利用できるネットワーク テクノロジの概要と、アプリに適したテクノロジの選び方に関する推奨事項について説明します。 |
-| [XML シリアル化および SOAP シリアル化](https://msdn.microsoft.com/library/90c86ass.aspx) | XML シリアル化では、オブジェクトが、特定の XML スキーマ定義言語 (XSD) に準拠する XML ストリームに変換されます。 XML と厳密に型指定されたクラス間の変換を行うには、ネイティブの [XDocument](https://msdn.microsoft.com/library/system.xml.linq.xdocument.aspx) クラスまたは外部ライブラリを使用します。 |
-| [JSON シリアル化](https://msdn.microsoft.com/library/windows/apps/br240639) | JSON (JavaScript Object Notation) シリアル化は、REST API と通信するための一般的な形式です。 [Newtonsoft Json.NET](https://www.newtonsoft.com/json) は、UWP アプリで完全にサポートされています。 |
+| [ネットワークの基本](https://docs.microsoft.com/windows/uwp/networking/networking-basics) | このチュートリアルでは、使用する通信プロトコルに関係なく、すべての UWP アプリに関連する基本的なネットワークの概念について説明します。  |
+| [アプリに適したネットワーク テクノロジ](https://docs.microsoft.com/windows/uwp/networking/which-networking-technology) | UWP アプリで利用できるネットワーク テクノロジの概要と、アプリに適したテクノロジの選び方に関する推奨事項について説明します。 |
+| [XML シリアル化および SOAP シリアル化](https://docs.microsoft.com/dotnet/framework/serialization/xml-and-soap-serialization) | XML シリアル化では、オブジェクトが、特定の XML スキーマ定義言語 (XSD) に準拠する XML ストリームに変換されます。 XML と厳密に型指定されたクラス間の変換を行うには、ネイティブの [XDocument](https://docs.microsoft.com/dotnet/api/system.xml.linq.xdocument?redirectedfrom=MSDN) クラスまたは外部ライブラリを使用します。 |
+| [JSON シリアル化](https://docs.microsoft.com/uwp/api/Windows.Data.Json) | JSON (JavaScript Object Notation) シリアル化は、REST API と通信するための一般的な形式です。 [Newtonsoft Json.NET](https://www.newtonsoft.com/json) は、UWP アプリで完全にサポートされています。 |
 
 ## <a name="devices"></a>デバイス
 
@@ -134,9 +134,9 @@ Windows 10 には、一連のセキュリティ機能が用意されていま�
 
 | トピック  | 説明 |
 |--------|-------------|
-| [デバイスの列挙](https://msdn.microsoft.com/library/windows/apps/mt187355) | この記事では、[Windows.Devices.Enumeration](https://msdn.microsoft.com/library/windows/apps/br225459) 名前空間を使って、システムに内部接続されているデバイス、外部接続されているデバイス、ワイヤレス プロトコルまたはネットワーク プロトコル経由で検出できるデバイスを検索する方法について説明します。 デバイスと連携して動作するアプリを構築する場合は、ここから始めてください。 |
-| [印刷とスキャン](https://msdn.microsoft.com/library/windows/apps/mt204544) | アプリから印刷およびスキャンする方法について説明します。販売時点管理 (POS) システム、レシート プリンター、大容量フィーダー スキャナーなどの業務用デバイスに接続する方法やこれらのデバイスを操作する方法についても説明します。 |
-| [Bluetooth](https://msdn.microsoft.com/library/windows/apps/mt270288) | 従来の Bluetooth 接続を使用したデータの送受信やデバイスの制御に加えて、Windows 10 では、Bluetooth 低エネルギー (BTLE) を使用してバックグラウンドでビーコンを送受信できるようになりました。 この BTLE を利用して、通知を表示します。また、ユーザーが特定の場所に近づいた場合や特定の場所から離れた場合の機能を有効にします。 |
+| [デバイスの列挙](https://docs.microsoft.com/windows/uwp/devices-sensors/enumerate-devices) | この記事では、[Windows.Devices.Enumeration](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration) 名前空間を使って、システムに内部接続されているデバイス、外部接続されているデバイス、ワイヤレス プロトコルまたはネットワーク プロトコル経由で検出できるデバイスを検索する方法について説明します。 デバイスと連携して動作するアプリを構築する場合は、ここから始めてください。 |
+| [印刷とスキャン](https://docs.microsoft.com/windows/uwp/devices-sensors/printing-and-scanning) | アプリから印刷およびスキャンする方法について説明します。販売時点管理 (POS) システム、レシート プリンター、大容量フィーダー スキャナーなどの業務用デバイスに接続する方法やこれらのデバイスを操作する方法についても説明します。 |
+| [Bluetooth](https://docs.microsoft.com/windows/uwp/devices-sensors/bluetooth) | 従来の Bluetooth 接続を使用したデータの送受信やデバイスの制御に加えて、Windows 10 では、Bluetooth 低エネルギー (BTLE) を使用してバックグラウンドでビーコンを送受信できるようになりました。 この BTLE を利用して、通知を表示します。また、ユーザーが特定の場所に近づいた場合や特定の場所から離れた場合の機能を有効にします。 |
 | [エンタープライズ共有記憶域](enterprise-shared-storage.md) | デバイスのロックダウン シナリオにおける、同じアプリ内でのデータの共有、また 1 つのアプリの複数のインスタンス間でのデータの共有、さらに複数のアプリ間でのデータの共有について、その方法を説明します。 |
 
 ## <a name="device-targeting"></a>対象となるデバイス
@@ -145,7 +145,7 @@ Windows 10 には、一連のセキュリティ機能が用意されていま�
 
 | トピック | 説明 |
 |-------|-------------|
-| [UWP アプリ ガイド](https://msdn.microsoft.com/library/windows/apps/dn894631) | この入門用ガイドでは、Windows 10 UWP プラットフォームについて説明します。ここでは、デバイス ファミリの説明、対象となるデバイス ファミリを決定する方法、さまざまなデバイスのフォーム ファクターに合わせて UI を対応させることができる新しい UI コントロールとパネル、およびアプリで利用できる API サーフェスを理解し制御する方法を取り上げます。 |
+| [UWP アプリ ガイド](https://docs.microsoft.com/windows/uwp/get-started/universal-application-platform-guide) | この入門用ガイドでは、Windows 10 UWP プラットフォームについて説明します。ここでは、デバイス ファミリの説明、対象となるデバイス ファミリを決定する方法、さまざまなデバイスのフォーム ファクターに合わせて UI を対応させることができる新しい UI コントロールとパネル、およびアプリで利用できる API サーフェスを理解し制御する方法を取り上げます。 |
 | [アダプティブ XAML UI コードのサンプル](https://go.microsoft.com/fwlink/p/?LinkId=619992) | このコード サンプルでは、デバイスの種類に関係なく、アプリで利用できるすべてのレイアウト オプションとコントロールが示されています。また、このコード サンプルを使うと、パネルを操作して、目的のレイアウトを実現する方法を確認できます。 さまざまなフォーム ファクターに対する各コントロールの応答方法に加えて、アプリ自体の応答性、およびアダプティブ UI を実現するためのさまざまな方法も示されています。 |
 | [Xamarin のトピック](/xamarin/) | 電話をターゲットとする Xamarin |
 
@@ -155,7 +155,7 @@ Windows 10 には、一連のセキュリティ機能が用意されていま�
 
 | トピック | 説明 |
 |-------|-------------|
-| [企業に LOB アプリを配布する](https://msdn.microsoft.com/library/windows/apps/mt608995) | 基幹業務アプリを、ボリューム購入できるように、ビジネス向け Microsoft Store で企業に直接公開できます。一般ユーザーが利用できるようにアプリを公開する必要はありません。 |
+| [企業に LOB アプリを配布する](https://docs.microsoft.com/windows/uwp/publish/distribute-lob-apps-to-enterprises) | 基幹業務アプリを、ボリューム購入できるように、ビジネス向け Microsoft Store で企業に直接公開できます。一般ユーザーが利用できるようにアプリを公開する必要はありません。 |
 | [アプリのサイドローディング](https://technet.microsoft.com/library/mt269549) | アプリをサイドローディングすると、署名されたアプリ パッケージをデバイスに展開します。 これらのアプリの署名、ホスティング、配置は維持されます。 アプリのサイドローディングのプロセスは、Windows 10 向けに簡素化されています。             |
 | [Microsoft Store にアプリを公開する](https://dev.windows.com/publish) | 統合された Microsoft Store では、すべての Windows デバイス向けのすべてのアプリを公開して管理することができます。 市場ごとの価格、配布と表示のコントロール、その他のオプションを使って、アプリの使用可能状況をカスタマイズできます。 |
 

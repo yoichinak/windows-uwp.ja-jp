@@ -6,12 +6,12 @@ ms.date: 10/02/2018
 ms.topic: article
 keywords: windows 10, UWP, 市販デモ アプリ
 ms.localizationpriority: medium
-ms.openlocfilehash: 39b1323f048c1b420a2cf0b239cd9f1a9fb63ff7
-ms.sourcegitcommit: 6a7dd4da2fc31ced7d1cdc6f7cf79c2e55dc5833
+ms.openlocfilehash: 4c9f31da8e2509c41715a13fbc0bb0322782340a
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58334880"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66366520"
 ---
 # <a name="add-retail-demo-rdx-features-to-your-app"></a>小売デモ (RDX) 機能をアプリに追加します。
 
@@ -49,7 +49,7 @@ RDX に対応するアプリは、小売り店へのアプリのベストを紹�
 
 * **エラーのない経験**します。 アプリは、エラーなしで動作する必要があります。 また市販デモ デバイスを使うお客様に、エラー ポップアップやエラー通知を表示してはなりません。 エラーは、自体、ブランド、デバイスのブランド、デバイスの製造元のブランド、および Microsoft のブランドに、アプリの悪影響を及ぼす反映されます。
 
-* **有料のアプリは試用版モードで必要があります**します。 無料または含めるか、アプリで必要な[試用版モード](https://msdn.microsoft.com/windows/uwp/monetize/exclude-or-limit-features-in-a-trial-version-of-your-app)します。 お客様は小売店での試用に料金を支払うことは想定していません。
+* **有料のアプリは試用版モードで必要があります**します。 無料または含めるか、アプリで必要な[試用版モード](https://docs.microsoft.com/windows/uwp/monetize/exclude-or-limit-features-in-a-trial-version-of-your-app)します。 お客様は小売店での試用に料金を支払うことは想定していません。
 
 ### <a name="high-priority-requirements"></a>優先度の高い要件
 
@@ -359,7 +359,7 @@ namespace MyCompany.MyApp
 
 ## <a name="related-links"></a>関連リンク
 
-* [アプリ データの格納と取得](https://msdn.microsoft.com/windows/uwp/app-settings/store-and-retrieve-app-data)
-* [作成し、app service を使用する方法](https://msdn.microsoft.com/windows/uwp/launch-resume/how-to-create-and-consume-an-app-service)
-* [アプリの内容をローカライズします。](https://msdn.microsoft.com/windows/uwp/globalizing/globalizing-portal)
+* [アプリ データの格納と取得](https://docs.microsoft.com/windows/uwp/app-settings/store-and-retrieve-app-data)
+* [作成し、app service を使用する方法](https://docs.microsoft.com/windows/uwp/launch-resume/how-to-create-and-consume-an-app-service)
+* [アプリの内容をローカライズします。](https://docs.microsoft.com/windows/uwp/globalizing/globalizing-portal)
 * [小売デモ エクスペリエンス (RDX)](https://docs.microsoft.com/windows-hardware/customize/desktop/retail-demo-experience)

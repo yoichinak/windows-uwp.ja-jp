@@ -10,12 +10,12 @@ design-contact: conrwi
 dev-contact: jevansa
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 0f6a4fef72206058874edf845d5fbbe0768c53ec
-ms.sourcegitcommit: f0f933d5cf0be734373a7b03e338e65000cc3d80
+ms.openlocfilehash: 5cb076de6cd9c44280bf7030a59c645f601487bd
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65984220"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66370432"
 ---
 # <a name="reveal-highlight"></a>強調表示を表示します。
 
@@ -288,7 +288,7 @@ ms.locfileid: "65984220"
 
 - [RevealBrush クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.revealbrush)
 - [アクリル](acrylic.md)
-- [合成効果](https://msdn.microsoft.com/windows/uwp/graphics/composition-effects)
+- [合成効果](https://docs.microsoft.com/windows/uwp/graphics/composition-effects)
 - [UWP 用 Fluent デザイン](/windows/apps/fluent-design-system)
 - [システムで科学:Fluent デザインと深さ](https://medium.com/microsoft-design/science-in-the-system-fluent-design-and-depth-fb6d0f23a53f)
 - [システムで科学:Fluent デザインおよびライト](https://medium.com/microsoft-design/the-science-in-the-system-fluent-design-and-light-94a17e0b3a4f)

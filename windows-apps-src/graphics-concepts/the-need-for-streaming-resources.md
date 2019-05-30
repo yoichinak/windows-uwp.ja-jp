@@ -7,12 +7,12 @@ keywords:
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 0e0354b0e727e84d562bf63779e74be72f87198f
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: f5b44e60e3490f39a91724bf038aa8066de11bf0
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57632177"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66370888"
 ---
 # <a name="the-need-for-streaming-resources"></a>ストリーミング リソースのニーズ
 
@@ -33,7 +33,7 @@ ms.locfileid: "57632177"
 
 [バッファー](introduction-to-buffers.md)の場合、バッファー全体がサブリソースです。
 
-[テクスチャ](textures.md) ([**Texture2D**](https://msdn.microsoft.com/library/windows/desktop/ff471525) など) の場合、各ミップ レベルがサブリソースです。テクスチャ配列 ([**Texture2DArray**](https://msdn.microsoft.com/library/windows/desktop/ff471526) など) の場合、特定の配列スライスの各ミップ レベルがサブリソースです。 グラフィックス システムは、このサブリソースの詳細レベルで割り当てのマッピングを管理できることだけを公開します。 ストリーミング リソースのコンテキストでは、"マッピング" はデータを GPU に見えるようにすることを指します。
+[テクスチャ](textures.md) ([**Texture2D**](https://docs.microsoft.com/windows/desktop/direct3dhlsl/sm5-object-texture2d) など) の場合、各ミップ レベルがサブリソースです。テクスチャ配列 ([**Texture2DArray**](https://docs.microsoft.com/windows/desktop/direct3dhlsl/sm5-object-texture2darray) など) の場合、特定の配列スライスの各ミップ レベルがサブリソースです。 グラフィックス システムは、このサブリソースの詳細レベルで割り当てのマッピングを管理できることだけを公開します。 ストリーミング リソースのコンテキストでは、"マッピング" はデータを GPU に見えるようにすることを指します。
 
 ## <a name="span-idwithouttilingcantaccessonlyasmallportionofmipmapchainspanspan-idwithouttilingcantaccessonlyasmallportionofmipmapchainspanspan-idwithouttilingcantaccessonlyasmallportionofmipmapchainspanwithout-tiling-cant-access-only-a-small-portion-of-mipmap-chain"></a><span id="Without_tiling__can_t_access_only_a_small_portion_of_mipmap_chain"></span><span id="without_tiling__can_t_access_only_a_small_portion_of_mipmap_chain"></span><span id="WITHOUT_TILING__CAN_T_ACCESS_ONLY_A_SMALL_PORTION_OF_MIPMAP_CHAIN"></span>タイルを使用しない mipmap チェーンのごく一部のみにアクセスできません。
 
@@ -47,7 +47,7 @@ ms.locfileid: "57632177"
 
 ソフトウェア ページングを使用して、サーフェスをハードウェアが処理できる小さいタイルに分割することができます。
 
-Direct3D は、特定の辺で最大 16384 ピクセルある [**Texture2D**](https://msdn.microsoft.com/library/windows/desktop/ff471525) サーフェスをサポートします。 幅 16384 × 高さ 16384、1 ピクセルあたり 4 バイトの画像は、1 GB のビデオ メモリを消費します (ミップマップを追加すると、その量の倍になります)。 実際には、1 つのレンダリング操作で 1 GB 全体の参照が必要になることはほとんどありません。
+Direct3D は、特定の辺で最大 16384 ピクセルある [**Texture2D**](https://docs.microsoft.com/windows/desktop/direct3dhlsl/sm5-object-texture2d) サーフェスをサポートします。 幅 16384 × 高さ 16384、1 ピクセルあたり 4 バイトの画像は、1 GB のビデオ メモリを消費します (ミップマップを追加すると、その量の倍になります)。 実際には、1 つのレンダリング操作で 1 GB 全体の参照が必要になることはほとんどありません。
 
 一部のゲーム開発者は、地形のサーフェスを 128 K × 128 K の大きさでモデル化します。 彼らがこれを既存の GPU で動作させる方法は、サーフェスをハードウェアが処理できる小さいタイルに分割することです。 アプリケーションは、どのタイルが必要になるかを調べて、それらを GPU でテクスチャのキャッシュに読み込む必要があります。これがソフトウェア ページング システムです。
 

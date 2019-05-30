@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 9efa6cae8994c12ce742aac0a6301346d6eae0d1
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: efd024838194876532dc3a1925f9c43430513cda
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57622067"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66370731"
 ---
 #  <a name="porting-windowsphone-silverlight-to-uwp-for-form-factor-and-ux"></a>UWP への Windows Phone Silverlight のフォーム ファクターと UX の移植
 
@@ -48,15 +48,15 @@ Windows アプリは、PC、モバイル デバイス、その他の多くの種
 
 モバイル バージョンでは、書籍の一覧に最適な縦横比である縦向きのみに制限されます。また、モバイル デバイスで 1 列に最も適切に維持されるテキスト ページでも同様です。 しかし、PC とタブレットの画面はどの向きにも大きいため、このようなモバイル デバイスの制限は大型のデバイスでは不要であると考えられます。
 
-光学的にアプリを拡大表示してモバイル バージョンを大きくするだけでは、デバイスとその追加領域を活用できず、ユーザーに対して適切な機能を提供しません。 同じコンテンツをより大きく表示するのではなく、より多くのコンテンツを表示することを検討する必要があります。 タブレットであっても、コンテンツの表示行数を増やすことができます。 広告など、さまざまなコンテンツを表示するために追加領域を使うことができます。また、リスト ボックスをリスト ビューに変更することや、領域で可能であれば複数の列に項目を折り返すことができます。 「[リスト ビュー コントロールとグリッド ビュー コントロールのガイドライン](https://msdn.microsoft.com/library/windows/apps/mt186889)」をご覧ください。
+光学的にアプリを拡大表示してモバイル バージョンを大きくするだけでは、デバイスとその追加領域を活用できず、ユーザーに対して適切な機能を提供しません。 同じコンテンツをより大きく表示するのではなく、より多くのコンテンツを表示することを検討する必要があります。 タブレットであっても、コンテンツの表示行数を増やすことができます。 広告など、さまざまなコンテンツを表示するために追加領域を使うことができます。また、リスト ボックスをリスト ビューに変更することや、領域で可能であれば複数の列に項目を折り返すことができます。 「[リスト ビュー コントロールとグリッド ビュー コントロールのガイドライン](https://docs.microsoft.com/windows/uwp/controls-and-patterns/lists)」をご覧ください。
 
-リスト ビューおよびグリッド ビューなどの新しいコントロールのほかの Windows Phone Silverlight から確立されたレイアウト型のほとんどはユニバーサル Windows プラットフォーム (UWP) 対応をあります。 たとえば、[**Canvas**](https://msdn.microsoft.com/library/windows/apps/br209267)、[**Grid**](https://msdn.microsoft.com/library/windows/apps/br242704)、[**StackPanel**](https://msdn.microsoft.com/library/windows/apps/br209635) などです。 こうしたレイアウトを使う UI の多くは、簡単に移植できるはずですが、さまざまなサイズのデバイスでサイズ変更と再レイアウトを自動的に行うために、こうしたレイアウト パネルの動的レイアウト機能を活用する方法を常に模索してください。
+リスト ビューおよびグリッド ビューなどの新しいコントロールのほかの Windows Phone Silverlight から確立されたレイアウト型のほとんどはユニバーサル Windows プラットフォーム (UWP) 対応をあります。 たとえば、[**Canvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Canvas)、[**Grid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid)、[**StackPanel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.StackPanel) などです。 こうしたレイアウトを使う UI の多くは、簡単に移植できるはずですが、さまざまなサイズのデバイスでサイズ変更と再レイアウトを自動的に行うために、こうしたレイアウト パネルの動的レイアウト機能を活用する方法を常に模索してください。
 
 システム コントロールやレイアウト パネルに組み込まれている動的レイアウトを凌駕場合は、このと呼ばれる新しい Windows 10 機能使用できる[アダプティブ Visual State Manager](wpsl-to-uwp-porting-xaml-and-ui.md)します。
 
 ## <a name="input-modalities"></a>入力モダリティ
 
-Windows Phone Silverlight インターフェイスは、タッチに固有です。 また、移植するアプリのインターフェイスでももちろんタッチをサポートしますが、マウスやキーボードなど他の入力モダリティをさらにサポートすることもできます。 UWP では、マウス、ペン、タッチ入力は*ポインター入力*として統合されています。 詳しくは、「[ポインター入力の処理](https://msdn.microsoft.com/library/windows/apps/mt404610)」と「[キーボード操作](https://msdn.microsoft.com/library/windows/apps/mt185607)」をご覧ください。
+Windows Phone Silverlight インターフェイスは、タッチに固有です。 また、移植するアプリのインターフェイスでももちろんタッチをサポートしますが、マウスやキーボードなど他の入力モダリティをさらにサポートすることもできます。 UWP では、マウス、ペン、タッチ入力は*ポインター入力*として統合されています。 詳しくは、「[ポインター入力の処理](https://docs.microsoft.com/windows/uwp/input-and-devices/handle-pointer-input)」と「[キーボード操作](https://docs.microsoft.com/windows/uwp/input-and-devices/keyboard-interactions)」をご覧ください。
 
 ## <a name="maximizing-markup-and-code-re-use"></a>マークアップとコード再利用の最大化
 
@@ -65,8 +65,8 @@ Windows Phone Silverlight インターフェイスは、タッチに固有です
 ## <a name="more-info-and-design-guidelines"></a>詳しい情報と設計のガイドライン
 
 -   [UWP アプリをデザインします。](https://developer.microsoft.com/en-us/windows/apps/design)
--   [フォントのガイドライン](https://msdn.microsoft.com/library/windows/apps/hh700394)
--   [さまざまなフォーム ファクターの計画](https://msdn.microsoft.com/library/windows/apps/dn958435)
+-   [フォントのガイドライン](https://docs.microsoft.com/windows/uwp/controls-and-patterns/fonts)
+-   [さまざまなフォーム ファクターの計画](https://docs.microsoft.com/windows/uwp/layout/screen-sizes-and-breakpoints-for-responsive-design)
 
 ## <a name="related-topics"></a>関連トピック
 

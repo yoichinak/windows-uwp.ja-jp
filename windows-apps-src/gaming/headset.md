@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, ヘッドセット
 ms.localizationpriority: medium
-ms.openlocfilehash: b3de68cc59c9928a52eba5caeb840e9e825eecf0
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 73815fb3f1b732537e9f08932639a1eccd7ed1b0
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57627957"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66368624"
 ---
 # <a name="headset"></a>ヘッドセット
 
@@ -65,7 +65,7 @@ inputDevice.HeadsetDisconnected += ref new TypedEventHandler<IGameController^, H
 
 [Headset][] クラスは、XAudio エンドポイント ID を表す 2 つの文字列で構成されています。1 つはオーディオ キャプチャ (ヘッドセット マイクからの録音) 用の文字列で、もう 1 つはオーディオ レンダリング (ヘッドセットのイヤホンを使用した再生) 用の文字列です。
 
-ここでは XAudio の使用の詳細については説明しませんが、詳しくは、[XAudio2 プログラミング ガイド](https://msdn.microsoft.com/library/windows/desktop/ee415737.aspx)や [XAudio2 API リファレンス](https://msdn.microsoft.com/library/windows/desktop/ee415899.aspx)をご覧ください。
+ここでは XAudio の使用の詳細については説明しませんが、詳しくは、[XAudio2 プログラミング ガイド](https://docs.microsoft.com/windows/desktop/xaudio2/programming-guide)や [XAudio2 API リファレンス](https://docs.microsoft.com/windows/desktop/xaudio2/programming-reference)をご覧ください。
 
 
 [Windows.Gaming.Input]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.aspx
@@ -73,4 +73,4 @@ inputDevice.HeadsetDisconnected += ref new TypedEventHandler<IGameController^, H
 [igamecontroller.headset]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.igamecontroller.headset.aspx
 [igamecontroller.headsetconnected]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.igamecontroller.headsetconnected.aspx
 [igamecontroller.headsetdisconnected]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.igamecontroller.headsetdisconnected.aspx
-[Headset]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.headset.aspx
+[headset]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.headset.aspx

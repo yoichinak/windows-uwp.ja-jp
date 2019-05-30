@@ -7,12 +7,12 @@ keywords:
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 7768d63405281d3155affc6c9f09c62568761718
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: b8960d9723460fcbb8cec71da0998958cac8a6e8
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57607397"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66370940"
 ---
 # <a name="tessellator-ts-stage"></a>テッセレータ (TS) ステージ
 
@@ -52,7 +52,7 @@ Direct3D ランタイムは、テッセレーションを実装する 3 ステ�
 
 Direct3D グラフィックス パイプラインは、ハードウェアでテッセレーションを実装し、CPU から GPU に処理をオフロードします。 アプリケーションが多数のモーフ ターゲットや洗練されたスキニング/変形モデルを実装している場合、パフォーマンスの大幅な向上を実現できます。
 
-テッセレーションは、[ハル シェーダー](hull-shader-stage--hs-.md)をパイプラインにバインドすることで初期化される固定機能ステージです。 (を参照してください[How To:テッセレータ ステージを初期化](https://msdn.microsoft.com/library/windows/desktop/ff476341))。 テッセレータ ステージの目的は、ドメイン (クワッド、トライアングル、またはライン) を多数のより小さいオブジェクト (三角形、点または線) に分割することです。 テッセレータは、正規のドメインを標準化された (0 ～ 1 の) 座標系でタイル化します。 たとえば、クワッド ドメインは、単位正方形にテッセレーションされます。 
+テッセレーションは、[ハル シェーダー](hull-shader-stage--hs-.md)をパイプラインにバインドすることで初期化される固定機能ステージです。 (を参照してください[How To:テッセレータ ステージを初期化](https://docs.microsoft.com/windows/desktop/direct3d11/direct3d-11-advanced-stages-tessellator-initialize))。 テッセレータ ステージの目的は、ドメイン (クワッド、トライアングル、またはライン) を多数のより小さいオブジェクト (三角形、点または線) に分割することです。 テッセレータは、正規のドメインを標準化された (0 ～ 1 の) 座標系でタイル化します。 たとえば、クワッド ドメインは、単位正方形にテッセレーションされます。 
 
 ### <a name="span-idphasesinthetessellatortsstagespanspan-idphasesinthetessellatortsstagespanspan-idphasesinthetessellatortsstagespanphases-in-the-tessellator-ts-stage"></a><span id="Phases_in_the_Tessellator__TS__stage"></span><span id="phases_in_the_tessellator__ts__stage"></span><span id="PHASES_IN_THE_TESSELLATOR__TS__STAGE"></span>テッセレータ (TS) ステージ内のフェーズ
 
@@ -63,7 +63,7 @@ Direct3D グラフィックス パイプラインは、ハードウェアでテ�
 
     | パーティションの種類 | 範囲                       |
     |----------------------|-----------------------------|
-    | 小数部から成る\_奇数      | \[1 ~ 63\]                  |
+    | 小数部から成る\_奇数      | \[1...63\]                  |
     | 小数部から成る\_でも     | TessFactor 範囲:\[2..64\] |
     | 整数型              | TessFactor 範囲:\[1..64\] |
     | Pow2                 | TessFactor 範囲:\[1..64\] |

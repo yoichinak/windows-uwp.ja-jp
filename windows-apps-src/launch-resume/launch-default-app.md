@@ -6,21 +6,21 @@ ms.date: 06/26/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 6c5c8b99ec3646d1eebbb922557f97c9e9304ed4
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: d80cb18fc502df5f6d51d2b7bdc719e860730534
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57658367"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66370879"
 ---
 # <a name="launch-the-default-app-for-a-uri"></a>URI に応じた既定のアプリの起動
 
 
 **重要な API**
 
-- [**LaunchUriAsync**](https://msdn.microsoft.com/library/windows/apps/hh701476)
-- [**PreferredApplicationPackageFamilyName**](https://msdn.microsoft.com/library/windows/apps/hh965482)
-- [**DesiredRemainingView**](https://msdn.microsoft.com/library/windows/apps/dn298314)
+- [**LaunchUriAsync**](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchuriasync)
+- [**PreferredApplicationPackageFamilyName**](https://docs.microsoft.com/uwp/api/windows.system.launcheroptions.preferredapplicationpackagefamilyname)
+- [**DesiredRemainingView**](https://docs.microsoft.com/uwp/api/windows.system.launcheroptions.desiredremainingview)
 
 URI (Uniform Resource Identifier) に応じて既定のアプリを起動する方法について説明します。 URI を使うと、別のアプリを起動して特定の作業を実行できます。 また、Windows に組み込まれている多くの URI スキームの概要についても説明します。 カスタム URI も起動することができます。 カスタム URI スキームを登録する方法と URI のアクティブ化を処理する方法について詳しくは、「[URI のアクティブ化の処理](handle-uri-activation.md)」をご覧ください。
 
@@ -33,8 +33,8 @@ URI スキームでは、ハイパーリンクをクリックしてアプリを�
 |[bingmaps: ms でドライブを: および ms のウォーク-に。 ](#maps-app-uri-schemes) | マップ アプリ |
 |[http:](#http-uri-scheme) | 既定の Web ブラウザー |
 |[mailto:](#email-uri-scheme) | 既定のメール アプリ |
-|[ms 呼び出し。](#call-app-uri-scheme) |  通話アプリ |
-|[ms チャット:](#messaging-app-uri-scheme) | メッセージング アプリ |
+|[ms-call:](#call-app-uri-scheme) |  通話アプリ |
+|[ms-chat:](#messaging-app-uri-scheme) | メッセージング アプリ |
 |[ms ユーザー:](#people-app-uri-scheme) | People アプリ |
 |[ms 写真:](#photos-app-uri-scheme) | フォト アプリ |
 |[ms 設定:](#settings-app-uri-scheme) | 設定アプリ |
@@ -54,9 +54,9 @@ URI スキームでは、ハイパーリンクをクリックしてアプリを�
 
 ### <a name="call-launchuriasync-to-launch-a-uri"></a>LaunchUriAsync を呼び出して URI を起動
 
-URI を起動するには、[**LaunchUriAsync**](https://msdn.microsoft.com/library/windows/apps/hh701476) メソッドを使います。 このメソッドを呼び出すとき、アプリはユーザーに表示されるフォアグラウンド アプリである必要があります。 この要件は、ユーザーが制御を維持するのに役立ちます。 この要件を満たすために、すべての URI 起動がアプリの UI に直接結び付けられていることを確認します。 URI 起動を開始するには、常にユーザーがなんらかの操作を行う必要があります。 URI を起動しようとしたときにアプリがフォアグラウンドにない場合、起動は失敗し、エラー コールバックが呼び出されます。
+URI を起動するには、[**LaunchUriAsync**](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchuriasync) メソッドを使います。 このメソッドを呼び出すとき、アプリはユーザーに表示されるフォアグラウンド アプリである必要があります。 この要件は、ユーザーが制御を維持するのに役立ちます。 この要件を満たすために、すべての URI 起動がアプリの UI に直接結び付けられていることを確認します。 URI 起動を開始するには、常にユーザーがなんらかの操作を行う必要があります。 URI を起動しようとしたときにアプリがフォアグラウンドにない場合、起動は失敗し、エラー コールバックが呼び出されます。
 
-最初に URI を表す [**System.Uri**](https://msdn.microsoft.com/library/windows/apps/system.uri.aspx) オブジェクトを作成し、それを [**LaunchUriAsync**](https://msdn.microsoft.com/library/windows/apps/hh701476) メソッドに渡します。 次の例のように、返される結果を使って呼び出しが成功したかどうかを確認します。
+最初に URI を表す [**System.Uri**](https://docs.microsoft.com/dotnet/api/system.uri?redirectedfrom=MSDN) オブジェクトを作成し、それを [**LaunchUriAsync**](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchuriasync) メソッドに渡します。 次の例のように、返される結果を使って呼び出しが成功したかどうかを確認します。
 
 ```cs
 private async void launchURI_Click(object sender, RoutedEventArgs e)
@@ -82,7 +82,7 @@ private async void launchURI_Click(object sender, RoutedEventArgs e)
 
 ![灰色で表示されたアプリの背景にオーバーレイで表示された警告ダイアログ。 アプリを切り替えるかどうかをたずねるメッセージと、右下隅に [はい] と [いいえ] のボタンが表示されます。 [いいえ] ボタンが強調表示されています。](images/warningdialog.png)
 
-この確認ダイアログを常に表示する場合は、[**Windows.System.LauncherOptions.TreatAsUntrusted**](https://msdn.microsoft.com/library/windows/apps/hh701442) プロパティを使って、オペレーティング システムが警告を表示することを指定します。
+この確認ダイアログを常に表示する場合は、[**Windows.System.LauncherOptions.TreatAsUntrusted**](https://docs.microsoft.com/uwp/api/windows.system.launcheroptions.treatasuntrusted) プロパティを使って、オペレーティング システムが警告を表示することを指定します。
 
 ```cs
 // The URI to launch
@@ -102,7 +102,7 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriBing, promptOption
 
 推奨事項は、URI スキームを処理するアプリが複数登録されているときにも役立ちます。 特定のアプリを推奨すると、そのアプリが既にインストールされている場合、Windows はそのアプリを開きます。
 
-アプリを推奨するには、[**LauncherOptions.preferredApplicationPackageFamilyName**](https://msdn.microsoft.com/library/windows/apps/hh965482) を推奨するストア内のアプリのパッケージ ファミリ名に設定して、[**Windows.System.Launcher.LaunchUriAsync(Uri, LauncherOptions)**](https://msdn.microsoft.com/library/windows/apps/hh701484) メソッドを呼び出します。 オペレーティング システムではこの情報を使って、ストア内のアプリを検索する一般的なオプションを、ストアから推奨アプリを入手する固有のオプションに置き換えます。
+アプリを推奨するには、[**LauncherOptions.preferredApplicationPackageFamilyName**](https://docs.microsoft.com/uwp/api/windows.system.launcheroptions.preferredapplicationpackagefamilyname) を推奨するストア内のアプリのパッケージ ファミリ名に設定して、[**Windows.System.Launcher.LaunchUriAsync(Uri, LauncherOptions)** ](https://docs.microsoft.com/uwp/api/windows.system.launcher.) メソッドを呼び出します。 オペレーティング システムではこの情報を使って、ストア内のアプリを検索する一般的なオプションを、ストアから推奨アプリを入手する固有のオプションに置き換えます。
 
 ```cs
 // Set the recommended app
@@ -117,9 +117,9 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriContoso, options);
 
 ### <a name="set-remaining-view-preference"></a>残りの表示の基本設定
 
-[  **LaunchUriAsync**](https://msdn.microsoft.com/library/windows/apps/hh701476) を呼び出すソース アプリは、URI の起動後も画面上に留まることを要求できます。 既定では、利用可能なスペース全体がソース アプリと URI を処理するターゲット アプリとで均等に共有されます。 ソース アプリでは、[**DesiredRemainingView**](https://msdn.microsoft.com/library/windows/apps/dn298314) プロパティを使って、利用可能なスペースをソース アプリのウィンドウがどの程度占めるかをオペレーティング システムに指示できます。 この **DesiredRemainingView** では、URI の起動後にソース アプリが画面上に留まる必要がなく、ターゲット アプリに完全に置き換わっても良いことも示せます。 このプロパティは呼び出し元アプリの優先ウィンドウのサイズだけを指定します。 画面に同時に表示されている可能性のある他のアプリの動作は指定しません。
+[  **LaunchUriAsync**](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchuriasync) を呼び出すソース アプリは、URI の起動後も画面上に留まることを要求できます。 既定では、利用可能なスペース全体がソース アプリと URI を処理するターゲット アプリとで均等に共有されます。 ソース アプリでは、[**DesiredRemainingView**](https://docs.microsoft.com/uwp/api/windows.system.launcheroptions.desiredremainingview) プロパティを使って、利用可能なスペースをソース アプリのウィンドウがどの程度占めるかをオペレーティング システムに指示できます。 この **DesiredRemainingView** では、URI の起動後にソース アプリが画面上に留まる必要がなく、ターゲット アプリに完全に置き換わっても良いことも示せます。 このプロパティは呼び出し元アプリの優先ウィンドウのサイズだけを指定します。 画面に同時に表示されている可能性のある他のアプリの動作は指定しません。
 
-**注**  は考慮は Windows で複数のさまざまな要素、たとえば、ソース アプリの最終的なウィンドウのサイズを決定する場合、ソース アプリの基本設定、画面、画面の向き、上のアプリの数。 [  **DesiredRemainingView**](https://msdn.microsoft.com/library/windows/apps/dn298314) を設定しても、ソース アプリの特定のウィンドウ動作が保証されるわけではありません。
+**注**  は考慮は Windows で複数のさまざまな要素、たとえば、ソース アプリの最終的なウィンドウのサイズを決定する場合、ソース アプリの基本設定、画面、画面の向き、上のアプリの数。 [  **DesiredRemainingView**](https://docs.microsoft.com/uwp/api/windows.system.launcheroptions.desiredremainingview) を設定しても、ソース アプリの特定のウィンドウ動作が保証されるわけではありません。
 
 ```cs
 // Set the desired remaining view.
@@ -161,13 +161,13 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriContoso, options);
 
 ### <a name="maps-app-uri-schemes"></a>マップ アプリの URI スキーム
 
-使用して、 **bingmaps:**、 **ms でドライブを:**、および**ms-チュートリアル-に。** URI のスキームを[Windows マップ アプリを起動](launch-maps-app.md)特定のマップ、方向、および検索結果にします。 たとえば、次の URI は、Windows マップ アプリを開き、ニューヨークを中心とした地図を表示します。
+使用して、 **bingmaps:** 、 **ms でドライブを:** 、および**ms-チュートリアル-に。** URI のスキームを[Windows マップ アプリを起動](launch-maps-app.md)特定のマップ、方向、および検索結果にします。 たとえば、次の URI は、Windows マップ アプリを開き、ニューヨークを中心とした地図を表示します。
 
 `bingmaps:?cp=40.726966~-74.006076`
 
 ![Windows マップ アプリの例。](images/mapnyc.png)
 
-詳しくは、「[Windows マップ アプリの起動](launch-maps-app.md)」をご覧ください。 独自のアプリでマップ コントロールを使うには、「[2D、3D、Streetside ビューでの地図の表示](https://msdn.microsoft.com/library/windows/apps/mt219695)」をご覧ください。
+詳しくは、「[Windows マップ アプリの起動](launch-maps-app.md)」をご覧ください。 独自のアプリでマップ コントロールを使うには、「[2D、3D、Streetside ビューでの地図の表示](https://docs.microsoft.com/windows/uwp/maps-and-location/display-maps)」をご覧ください。
 
 ### <a name="messaging-app-uri-scheme"></a>メッセージング アプリの URI スキーム
 
@@ -189,7 +189,7 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriContoso, options);
 |------------|---------|
 | ms-tonepicker: | トーン、アラーム、システム音を選択します。 |
 
-パラメーターは [ValueSet](https://msdn.microsoft.com/library/windows/apps/windows.foundation.collections.valueset.aspx) を介して LaunchURI API に渡されます。 詳しくは、「[ms-tonepicker URI スキームを使ったトーンの選択と保存](launch-ringtone-picker.md)」をご覧ください。
+パラメーターは [ValueSet](https://docs.microsoft.com/uwp/api/windows.foundation.collections.valueset) を介して LaunchURI API に渡されます。 詳しくは、「[ms-tonepicker URI スキームを使ったトーンの選択と保存](launch-ringtone-picker.md)」をご覧ください。
 
 ### <a name="nearby-numbers-app-uri-scheme"></a>近隣の施設検索アプリの URI スキーム
 
@@ -206,7 +206,7 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriContoso, options);
 
 ### <a name="photos-app-uri-scheme"></a>フォト アプリの URI スキーム
 
-使用して、 **ms 写真。** 写真アプリ イメージを表示したり、動画の編集を起動する URI スキーム。 次に、例を示します。  
+使用して、 **ms 写真。** 写真アプリ イメージを表示したり、動画の編集を起動する URI スキーム。 例:  
 イメージを表示するには。 `ms-photos:viewer?fileName=c:\users\userName\Pictures\image.jpg`  
 または、ビデオを編集するのには。 `ms-photos:videoedit?InputToken=123abc&Action=Trim&StartTime=01:02:03`  
 
@@ -228,7 +228,7 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriContoso, options);
 
 ![カメラのプライバシー設定。](images/privacyawarenesssettingsapp.png)
 
-詳しくは、「[Windows 設定アプリの起動](launch-settings-app.md)」と「[個人データにアクセスするアプリのガイドライン](https://msdn.microsoft.com/library/windows/apps/hh768223)」をご覧ください。
+詳しくは、「[Windows 設定アプリの起動](launch-settings-app.md)」と「[個人データにアクセスするアプリのガイドライン](https://docs.microsoft.com/windows/uwp/security/index)」をご覧ください。
 
 ### <a name="store-app-uri-scheme"></a>ストア アプリの URI スキーム
 
@@ -244,4 +244,4 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriContoso, options);
 
 | URI スキーム | 結果 |
 |------------|---------|
-| msnweather://forecast?la=\[緯度\]& lo =\[経度\] | 場所の地理的座標に基づいて、予測ページでのお天気アプリを起動します。<br>`latitude` 場所の緯度を指します。<br> `longitude` その場所の経度を表します。<br> |
+| msnweather://forecast?la=\[latitude\]&lo=\[longitude\] | 場所の地理的座標に基づいて、予測ページでのお天気アプリを起動します。<br>`latitude` 場所の緯度を指します。<br> `longitude` その場所の経度を表します。<br> |

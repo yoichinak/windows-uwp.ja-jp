@@ -7,12 +7,12 @@ keywords:
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 8b6290fba9d4194df78c39902b8d96e952134682
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: eb0e870aa467641f82d24f03278a199ab56d0c8d
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57607417"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66370972"
 ---
 # <a name="streaming-resources-texture-sampling-features"></a>ストリーミング リソース テクスチャ サンプリング機能
 
@@ -27,12 +27,12 @@ ms.locfileid: "57607417"
 ## <a name="span-idshaderstatusfeedbackaboutmappedareasspanspan-idshaderstatusfeedbackaboutmappedareasspanspan-idshaderstatusfeedbackaboutmappedareasspanshader-status-feedback-about-mapped-areas"></a><span id="Shader_status_feedback_about_mapped_areas"></span><span id="shader_status_feedback_about_mapped_areas"></span><span id="SHADER_STATUS_FEEDBACK_ABOUT_MAPPED_AREAS"></span>マップ領域に関するシェーダーの状態のフィードバック
 
 
-ストリーミング リソースの読み取りや書き込みをするシェーダー命令が発生すると、状態情報が記録されます。 この状態は、リソース アクセス命令が発生するたびに、省略可能な追加の戻り値として公開され、32 ビットの一時レジスタに保存されます。 この戻り値の内容は "不透明" です。 つまり、シェーダー プログラムによる直接の読み取りは認められていません。 ただし、[**CheckAccessFullyMapped**](https://msdn.microsoft.com/library/windows/desktop/dn292083) 関数を使用して、状態情報を抽出できます。
+ストリーミング リソースの読み取りや書き込みをするシェーダー命令が発生すると、状態情報が記録されます。 この状態は、リソース アクセス命令が発生するたびに、省略可能な追加の戻り値として公開され、32 ビットの一時レジスタに保存されます。 この戻り値の内容は "不透明" です。 つまり、シェーダー プログラムによる直接の読み取りは認められていません。 ただし、[**CheckAccessFullyMapped**](https://docs.microsoft.com/windows/desktop/direct3dhlsl/checkaccessfullymapped) 関数を使用して、状態情報を抽出できます。
 
 ## <a name="span-idfullymappedcheckspanspan-idfullymappedcheckspanspan-idfullymappedcheckspanfully-mapped-check"></a><span id="Fully_mapped_check"></span><span id="fully_mapped_check"></span><span id="FULLY_MAPPED_CHECK"></span>完全にマップされたチェック
 
 
-[  **CheckAccessFullyMapped**](https://msdn.microsoft.com/library/windows/desktop/dn292083) 関数は、メモリ アクセスから返された状態を解釈し、アクセスされるすべてのデータがリソースにマップされていたかどうかを示します。 **CheckAccessFullyMapped** は、データがマップされている場合は true (0xFFFFFFFF) を、マップされていない場合は false (0x00000000) を返します。
+[  **CheckAccessFullyMapped**](https://docs.microsoft.com/windows/desktop/direct3dhlsl/checkaccessfullymapped) 関数は、メモリ アクセスから返された状態を解釈し、アクセスされるすべてのデータがリソースにマップされていたかどうかを示します。 **CheckAccessFullyMapped** は、データがマップされている場合は true (0xFFFFFFFF) を、マップされていない場合は false (0x00000000) を返します。
 
 フィルター操作中に、特定のテクセルの重み付けが 0.0 になることがあります。 例では、線形のサンプルを直接テクセル center のテクスチャ座標を示します。(いるものはハードウェアによって異なる場合) その他の 3 つのテクセルは、フィルターが 0 の重みを投稿します。 このような重みが 0 であるテクセルはフィルター結果にはまったく影響しないため、このようなテクセルが偶然 **NULL** タイルに適用された場合、マップされていないアクセスとしてカウントされません。 複数の mip レベルを含むテクスチャ フィルターにも、同じことが言えます。ミップマップの 1 つに適用されたテクセルがマップされていなくて、そのようなテクセルの重みが 0 の場合、それらのテクセルはマップされていないアクセスとしてカウントされません。
 
@@ -40,7 +40,7 @@ ms.locfileid: "57607417"
 
 シェーダーは状態を確認し、エラーが発生している場合は一連の対応策を実行できます。 たとえば、一連の対応策としては 'ミス' をログに記録すること (UAV 書き込みなど) であったり、より詳細度の低い、マップされていることがわかっている LOD にクランプした別の読み取りを発行することが該当します。 タイルのマップ済みセットのどの部分がアクセスされたかを把握するため、成功したアクセスもアプリケーションで追跡したい場合があります。
 
-ログで 1 つ厄介なのは、アクセスされたと思われる一連のタイルを正確にレポートできるメカニズムが存在しないことです。 アプリケーションは、アクセスに使用した座標の知識を基に控えめに推測を行うことも、LOD 命令を使用することもできます。たとえば、[**tex2Dlod**](https://msdn.microsoft.com/library/windows/desktop/bb509680) はハードウェア LOD の計算を返します。
+ログで 1 つ厄介なのは、アクセスされたと思われる一連のタイルを正確にレポートできるメカニズムが存在しないことです。 アプリケーションは、アクセスに使用した座標の知識を基に控えめに推測を行うことも、LOD 命令を使用することもできます。たとえば、[**tex2Dlod**](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-tex2dlod) はハードウェア LOD の計算を返します。
 
 また、同じタイルに対して大量のアクセスが発生するため、冗長なログも大量に発生し、メモリで競合が起きる可能性があります。 タイルのアクセスについて別の場所で既にレポートされている場合は、レポートを不要にするオプションがハードウェアに用意されると便利である可能性があります。 おそらく、そのような追跡の状態は、(おそらくフレーム境界において) API からリセットできるでしょう。
 
@@ -49,11 +49,11 @@ ms.locfileid: "57607417"
 
 マップされていないことがわかっているミップマップ ストリーミング リソース内の領域をシェーダーが回避できるように、サンプラー (フィルタリング) の使用を伴うほとんどのシェーダー命令には、シェーダーが追加の float32 MinLOD クランプ パラメーターをテクスチャ サンプルに渡すことができるモードがあります。 基盤のリソースと異なり、この値はビューのミップマップ番号のスペースに保持されます。
 
-ハードウェアは、リソースごとの MinLOD クランプが発生する LOD 計算において、同じ場所で ` max(fShaderMinLODClamp,fComputedLOD) ` を実行します。これは、[**max**](https://msdn.microsoft.com/library/windows/desktop/bb509624)() でもあります。
+ハードウェアは、リソースごとの MinLOD クランプが発生する LOD 計算において、同じ場所で ` max(fShaderMinLODClamp,fComputedLOD) ` を実行します。これは、[**max**](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-max)() でもあります。
 
 サンプルごとの LOD クランプとサンプラーで定義されているその他の任意の LOD クランプを適用した結果が空のセットの場合、結果は同じ境界へのアクセス結果からリソースごとの minLOD クランプとして。コンポーネント画面形式と不足しているコンポーネントの既定値は 0 です。
 
-LOD 命令 ([**tex2Dlod**](https://msdn.microsoft.com/library/windows/desktop/bb509680) など) は、ここで説明しているサンプルごとの minLOD クランプよりも古く、クランプ LOD とクランプなしの LOD の両方を返します。 この LOD 命令から返されたクランプありの LOD は、リソースごとのクランプも含め、すべてのクランプを反映しますが、サンプルごとのクランプは反映されません。 サンプルごとのクランプは、いずれにせよシェーダーによって制御および認識されているため、必要に応じて、シェーダーの作成者は手動でそのクランプを LOD 命令の戻り値に適用できます。
+LOD 命令 ([**tex2Dlod**](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-tex2dlod) など) は、ここで説明しているサンプルごとの minLOD クランプよりも古く、クランプ LOD とクランプなしの LOD の両方を返します。 この LOD 命令から返されたクランプありの LOD は、リソースごとのクランプも含め、すべてのクランプを反映しますが、サンプルごとのクランプは反映されません。 サンプルごとのクランプは、いずれにせよシェーダーによって制御および認識されているため、必要に応じて、シェーダーの作成者は手動でそのクランプを LOD 命令の戻り値に適用できます。
 
 ## <a name="span-idminmaxreductionfilteringspanspan-idminmaxreductionfilteringspanspan-idminmaxreductionfilteringspanminmax-reduction-filtering"></a><span id="Min_Max_reduction_filtering"></span><span id="min_max_reduction_filtering"></span><span id="MIN_MAX_REDUCTION_FILTERING"></span>最小/最大削減のフィルター処理
 

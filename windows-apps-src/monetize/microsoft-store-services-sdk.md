@@ -6,12 +6,12 @@ ms.date: 08/21/2017
 ms.topic: article
 keywords: Windows 10, UWP, Microsoft Store Services SDK
 ms.localizationpriority: medium
-ms.openlocfilehash: b74cb2b23b5fbfc7487d18be0531ff26170cbe3f
-ms.sourcegitcommit: 6a7dd4da2fc31ced7d1cdc6f7cf79c2e55dc5833
+ms.openlocfilehash: 48a19b2fc32733e13cb9a7b730bad7741307c328
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58334514"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66372806"
 ---
 # <a name="engage-customers-with-the-microsoft-store-services-sdk"></a>Microsoft Store Services SDK を使ってユーザーとの関係を深める
 
@@ -31,7 +31,7 @@ Microsoft Store Services SDK の提供する際に役立つ機能など、アプ
 |  [実験を実行すると、UWP アプリ B のテスト](run-app-experiments-with-a-b-testing.md)    |  ユニバーサル Windows プラットフォーム (UWP) アプリで A/B テストを実施して、すべてのユーザー向けに機能を公開する前に、一部のユーザーに対して機能の有効性を測定することができます。 使用して、パートナー センターで実験を定義した後、 [StoreServicesExperimentVariation](https://docs.microsoft.com/uwp/api/microsoft.services.store.engagement.storeservicesexperimentvariation)アプリでは、実験では、このデータを使用するテストは、機能の動作を変更するは、バリエーションを取得するクラスを使用して、[LogForVariation](https://docs.microsoft.com/uwp/api/microsoft.services.store.engagement.storeservicescustomeventlogger.logforvariation)パートナー センターにイベントを表示し、変換イベントを送信する方法。 最後に、パートナー センターを使用して、結果を表示したり、実験を管理します。  |
 |  [UWP アプリからのフィードバック ハブを起動します。](launch-feedback-hub-from-your-app.md)    |  UWP アプリで [StoreServicesFeedbackLauncher](https://docs.microsoft.com/uwp/api/microsoft.services.store.engagement.storeservicesfeedbacklauncher) クラスを使用し、Windows 10 ユーザーをフィードバック Hub に誘導して、ユーザーが問題、提案、賛成票を送信できるようにします。 次に、パートナー センターの[フィードバック レポート](../publish/feedback-report.md)でこのフィードバックを管理します。 |
 |  [パートナー センターのプッシュ通知を受信する UWP アプリを構成します。](configure-your-app-to-receive-dev-center-notifications.md)    |  使用して、 [StoreServicesEngagementManager](https://docs.microsoft.com/uwp/api/microsoft.services.store.engagement.storeservicesengagementmanager)パートナー センターを使用してお客様に送信するターゲットを絞ったプッシュ通知を受信するアプリを登録する UWP アプリでのクラス。  |
-|   [パートナー センターでの使用状況レポートの UWP アプリでカスタム イベントを記録します。](log-custom-events-for-dev-center.md)   |  使用して、 [StoreServicesCustomEventLogger](https://docs.microsoft.com/uwp/api/microsoft.services.store.engagement.storeservicescustomeventlogger.log)パートナー センターでアプリに関連付けられているカスタム イベントを記録する UWP アプリでのクラス。 その後、カスタム イベントの合計出現回数を確認、**カスタム イベント**のセクション、[使用状況レポート](https://msdn.microsoft.com/windows/uwp/publish/usage-report)パートナー センターでします。  |
+|   [パートナー センターでの使用状況レポートの UWP アプリでカスタム イベントを記録します。](log-custom-events-for-dev-center.md)   |  使用して、 [StoreServicesCustomEventLogger](https://docs.microsoft.com/uwp/api/microsoft.services.store.engagement.storeservicescustomeventlogger.log)パートナー センターでアプリに関連付けられているカスタム イベントを記録する UWP アプリでのクラス。 その後、カスタム イベントの合計出現回数を確認、**カスタム イベント**のセクション、[使用状況レポート](https://docs.microsoft.com/windows/uwp/publish/usage-report)パートナー センターでします。  |
 
 <span id="prerequisites" />
 
@@ -72,7 +72,7 @@ MSI インストーラーを使って Microsoft Store Services SDK をインス�
 
 4.  Visual Studio を再起動します。
 
-5.  以前のバージョンの Microsoft Store Services SDK、Microsoft Advertising SDK、Universal Ad Client SDK、Microsoft Store Engagement and Monetization SDK のライブラリを参照する既存のプロジェクトがある場合には、Visual Studio でプロジェクトを開き、プロジェクトをクリーンしてリビルドすることをお勧めします (**ソリューション エクスプ ローラー**でプロジェクト ノードを右クリックして、**[クリーン]** を選択し、次にもう一度プロジェクト ノードを右クリックして、**[リビルド]** を選択します)。
+5.  以前のバージョンの Microsoft Store Services SDK、Microsoft Advertising SDK、Universal Ad Client SDK、Microsoft Store Engagement and Monetization SDK のライブラリを参照する既存のプロジェクトがある場合には、Visual Studio でプロジェクトを開き、プロジェクトをクリーンしてリビルドすることをお勧めします (**ソリューション エクスプ ローラー**でプロジェクト ノードを右クリックして、 **[クリーン]** を選択し、次にもう一度プロジェクト ノードを右クリックして、 **[リビルド]** を選択します)。
 
   または、プロジェクトで初めて SDK を使う場合には、[アセンブリ参照をプロジェクトを追加する](#references)ことができます。
 
@@ -95,7 +95,7 @@ NuGet を使って Microsoft Store Services SDK をインストールするに�
     > [!NOTE]
     > プロジェクトに SDK の以前の MSI インストールからのライブラリの参照が既に含まれている場合は、これらの参照をプロジェクトから削除します。 これらの参照は、参照先のライブラリが前の手順で削除されたため、その隣に警告アイコンが表示されます。
 
-4. Visual Studio で、**[プロジェクト]** と **[NuGet パッケージの管理]** をクリックします。
+4. Visual Studio で、 **[プロジェクト]** と **[NuGet パッケージの管理]** をクリックします。
 
 5. 検索ボックスに「**Microsoft.Services.Store.Engagement**」と入力し、Microsoft.Services.Store.Engagement パッケージをインストールします。 パッケージのインストールが完了したら、ソリューションを保存します。
     > [!NOTE]
@@ -103,7 +103,7 @@ NuGet を使って Microsoft Store Services SDK をインストールするに�
 
 6. プロジェクトが含まれている Visual Studio ソリューションを閉じ、そのソリューションを再度開きます。
 
-7.  プロジェクトが NuGet によりインストールされた以前のバージョンの Microsoft Store Services SDK のライブラリを既に参照している場合で、プロジェクトを SDK の新しいリリースに更新する場合には、プロジェクトをクリーンしてリビルドすることをお勧めします (**ソリューション エクスプローラー**でプロジェクト ノードを右クリックして、**[クリーン]** を選択し、次にもう一度プロジェクト ノードを右クリックして、**[リビルド]** を選択します)。
+7.  プロジェクトが NuGet によりインストールされた以前のバージョンの Microsoft Store Services SDK のライブラリを既に参照している場合で、プロジェクトを SDK の新しいリリースに更新する場合には、プロジェクトをクリーンしてリビルドすることをお勧めします (**ソリューション エクスプローラー**でプロジェクト ノードを右クリックして、 **[クリーン]** を選択し、次にもう一度プロジェクト ノードを右クリックして、 **[リビルド]** を選択します)。
 
   または、プロジェクトで初めて SDK を使う場合には、[アセンブリ参照をプロジェクトを追加する](#references)ことができます。
 
@@ -115,11 +115,11 @@ NuGet を使って Microsoft Store Services SDK をインストールするに�
 
 1. Visual Studio でプロジェクトを開きます。
     > [!NOTE]
-    > プロジェクトが JavaScript アプリで、ターゲットが **[任意の CPU]** になっている場合は、アーキテクチャ固有のビルド出力 (たとえば **[x86]**) を使うようにプロジェクトを更新します。
+    > プロジェクトが JavaScript アプリで、ターゲットが **[任意の CPU]** になっている場合は、アーキテクチャ固有のビルド出力 (たとえば **[x86]** ) を使うようにプロジェクトを更新します。
 
-2. **ソリューション エクスプローラー**で、**[参照設定]** を右クリックし、**[参照の追加]** を選択します。
+2. **ソリューション エクスプローラー**で、 **[参照設定]** を右クリックし、 **[参照の追加]** を選択します。
 
-3. **[参照マネージャー]** で **[ユニバーサル Windows]** を展開し、**[拡張機能]** をクリックして、**[Microsoft Engagement Framework]** の横のチェック ボックスをオンにします。 これにより、[Microsoft.Services.Store.Engagement](https://docs.microsoft.com/uwp/api/microsoft.services.store.engagement) 名前空間の API を使用できます。
+3. **[参照マネージャー]** で **[ユニバーサル Windows]** を展開し、 **[拡張機能]** をクリックして、 **[Microsoft Engagement Framework]** の横のチェック ボックスをオンにします。 これにより、[Microsoft.Services.Store.Engagement](https://docs.microsoft.com/uwp/api/microsoft.services.store.engagement) 名前空間の API を使用できます。
 
 3. **[OK]** をクリックします。
 

@@ -11,12 +11,12 @@ pm-contact: chigy
 design-contact: kimsea
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 8edb38b8ae91d836e283a8eb37830850bf504db4
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: aa672c99dc83e7955c4d4f91b5bc34620c48ed01
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57661307"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66364550"
 ---
 # <a name="nested-ui-in-list-items"></a>リスト項目の入れ子になった UI
 
@@ -26,9 +26,9 @@ ms.locfileid: "57661307"
 
 入れ子になった UI を使用することで、重要な操作をスムーズに行うことができるようになる追加のオプションをユーザーに提供できます。 ただし、公開する操作の数が増えるにつれて、UI は複雑になります。 この UI パターンの使用を決めた場合は十分に注意することが必要です。 この記事では、特定の UI に最適な一連の操作の判断に役立つガイドラインを提供します。
 
-> **重要な API**:[ListView クラス](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.listview.aspx)、 [GridView クラス](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.gridview.aspx)
+> **重要な API**:[ListView クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listview)、 [GridView クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.gridview)
 
-この記事では、[ListView](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.listview.aspx) 項目および [GridView](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.gridview.aspx) 項目の入れ子になった UI の作成について説明します。 このセクションでは、入れ子になった UI の他の例については取り上げませんが、これらの概念は他でも利用できます。 始める前に、UI における ListView コントロールまたは GridView コントロールの使用について、一般的なガイダンスを理解している必要があります。この一般的なガイダンスについては、「[リスト](lists.md)」と「[リスト ビューとグリッド ビュー](listview-and-gridview.md)」の記事をご覧ください。
+この記事では、[ListView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listview) 項目および [GridView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.gridview) 項目の入れ子になった UI の作成について説明します。 このセクションでは、入れ子になった UI の他の例については取り上げませんが、これらの概念は他でも利用できます。 始める前に、UI における ListView コントロールまたは GridView コントロールの使用について、一般的なガイダンスを理解している必要があります。この一般的なガイダンスについては、「[リスト](lists.md)」と「[リスト ビューとグリッド ビュー](listview-and-gridview.md)」の記事をご覧ください。
 
 この記事で使用する用語、*リスト*、*リスト項目*、*入れ子になった UI* は次のように定義します。
 - *リスト*は、リスト ビューまたはグリッド ビューに含まれた項目のコレクションを表します。
@@ -37,7 +37,7 @@ ms.locfileid: "57661307"
 
 ![入れ子になった UI 部](images/nested-ui-example-1.png)
 
-> 注&nbsp;&nbsp; ListView と GridView はどちらも [ListViewBase](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.listviewbase.aspx) クラスから派生しているため機能は同じですが、データの表示方法が異なります。 この記事では、リストについての説明は ListView コントロールにも GridView コントロールにも適用されます。
+> 注&nbsp;&nbsp; ListView と GridView はどちらも [ListViewBase](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase) クラスから派生しているため機能は同じですが、データの表示方法が異なります。 この記事では、リストについての説明は ListView コントロールにも GridView コントロールにも適用されます。
 
 ## <a name="primary-and-secondary-actions"></a>プライマリ操作とセカンダリ操作
 
@@ -137,7 +137,7 @@ UWP でサポートされているすべての入力にアプリが対応して�
 - リスト項目の左側の UI 要素では、Tab キーでフォーカスを **A** に設定します。
 - リスト項目の右側の UI 要素では、Shift + Tab キーでフォーカスを **C** に設定します
 
-この UI を実現するには、リストで [IsItemClickEnabled](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.listviewbase.isitemclickenabled.aspx) を **true** に設定します。 [SelectionMode](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.listviewbase.selectionmode.aspx) は、任意の値を使うことができます。
+この UI を実現するには、リストで [IsItemClickEnabled](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase.isitemclickenabled) を **true** に設定します。 [SelectionMode](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase.selectionmode) は、任意の値を使うことができます。
 
 これを実装するコードについては、この記事の「[例](#example)」セクションをご覧ください。
 
@@ -151,9 +151,9 @@ UWP でサポートされているすべての入力にアプリが対応して�
 
 
 この UI を実現するには、リストのプロパティを次のように設定します。
-- [SelectionMode](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.listviewbase.selectionmode.aspx) を **None** に設定します。
-- [IsItemClickEnabled](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.listviewbase.isitemclickenabled.aspx) を **false** に設定します。
-- [IsFocusEngagementEnabled](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.control.isfocusengagementenabled.aspx) を **true** に設定します。
+- [SelectionMode](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase.selectionmode) を **None** に設定します。
+- [IsItemClickEnabled](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase.isitemclickenabled) を **false** に設定します。
+- [IsFocusEngagementEnabled](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.isfocusengagementenabled) を **true** に設定します。
 
 ```xaml
 <ListView SelectionMode="None" IsItemClickEnabled="False" >

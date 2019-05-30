@@ -6,16 +6,16 @@ ms.topic: article
 keywords: windows 10, uwp, セキュリティ
 ms.assetid: ec9293a1-237d-47b4-bcde-18112586241a
 ms.localizationpriority: medium
-ms.openlocfilehash: a0a16ac9a2d810f7f4cbe2be403713b5cec4997b
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: HT
+ms.openlocfilehash: f20179b03461f2b7746cc6d0f4330bbf45c10427
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57641027"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66371953"
 ---
 # <a name="web-account-manager"></a>Web アカウント マネージャー
 
-この記事では、Windows 10 Web アカウント マネージャー API を使い、**[AccountsSettingsPane](https://docs.microsoft.com/uwp/api/Windows.UI.ApplicationSettings.AccountsSettingsPane)** を利用して、ユニバーサル Windows プラットフォーム (UWP) アプリを外部の ID プロバイダー (Microsoft や Facebook など) に接続する方法について説明します。 ユーザーの Microsoft アカウントを使用するためにユーザーの許可を求める方法、アクセス トークンを取得する方法、アクセス トークンを使って基本的な操作 (プロファイル データの取得や OneDrive アカウントへのファイルのアップロードなど) を実行する方法を学習してください。 この手順は、ユーザーの許可を得て、Web アカウント マネージャーをサポートする ID プロバイダーにアクセスするための手順と似ています。
+この記事では、Windows 10 Web アカウント マネージャー API を使い、 **[AccountsSettingsPane](https://docs.microsoft.com/uwp/api/Windows.UI.ApplicationSettings.AccountsSettingsPane)** を利用して、ユニバーサル Windows プラットフォーム (UWP) アプリを外部の ID プロバイダー (Microsoft や Facebook など) に接続する方法について説明します。 ユーザーの Microsoft アカウントを使用するためにユーザーの許可を求める方法、アクセス トークンを取得する方法、アクセス トークンを使って基本的な操作 (プロファイル データの取得や OneDrive アカウントへのファイルのアップロードなど) を実行する方法を学習してください。 この手順は、ユーザーの許可を得て、Web アカウント マネージャーをサポートする ID プロバイダーにアクセスするための手順と似ています。
 
 > [!NOTE]
 > 完全なコード サンプルについては、[GitHub の WebAccountManagement サンプル](https://go.microsoft.com/fwlink/p/?LinkId=620621)をご覧ください。
@@ -24,7 +24,7 @@ ms.locfileid: "57641027"
 
 まず、Visual Studio で新しい空白のアプリを作成します。 
 
-次に、ID プロバイダーに接続するために、アプリをストアに関連付ける必要があります。 これを行うには、プロジェクトを右クリックして、**[ストア]** > **[アプリケーションをストアと関連付ける]** を選択し、ウィザードの指示に従います。 
+次に、ID プロバイダーに接続するために、アプリをストアに関連付ける必要があります。 これを行うには、プロジェクトを右クリックして、 **[ストア]**  >  **[アプリケーションをストアと関連付ける]** を選択し、ウィザードの指示に従います。 
 
 3 番目に、シンプルな XAML ボタンと 2 つのテキスト ボックスから成る、非常に基本的な UI を作成します。
 
@@ -174,7 +174,7 @@ private async void GetMsaTokenAsync(WebAccountProviderCommand command)
 
 この例では、_スコープ_ パラメーターに文字列 "wl.basic" を渡します。 スコープは、特定のユーザーの提供サービスから要求する情報の種類を表します。 スコープには、名前やメール アドレスなど、ユーザーの基本情報のみへのアクセス権を与えるものや、ユーザーの写真やメールの受信トレイなど、機密情報へのアクセス権を与えるものもあります。 一般的に、アプリではその機能を実行するために必要な最も制限の多いスコープが使われます。 サービス プロバイダーからは、サービス プロバイダーのサービスで使うトークンを取得する場合に必要となるスコープについて示したドキュメントが提供されます。 
 
-* Office 365 と Outlook.com のスコープについては、「[v2.0 認証エンドポイントを使用した Office 365 および Outlook.com の API の認証](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)」をご覧ください。 
+* Office 365 と Outlook.com のスコープについては、「[v2.0 認証エンドポイントを使用した Office 365 および Outlook.com の API の認証](https://developer.microsoft.com/graph/docs/concepts/auth_overview)」をご覧ください。 
 * OneDrive のスコープについては、「[OneDrive の認証とサインイン](https://dev.onedrive.com/auth/msa_oauth.htm#authentication-scopes)」をご覧ください。 
 
 > [!TIP]
@@ -214,7 +214,7 @@ private async void GetMsaTokenAsync(WebAccountProviderCommand command)
 > [!NOTE]
 > トークンを要求したときにエラーが発生した場合、最初の手順で説明したように、アプリを Microsoft Store に関連付けたかどうかを確認してください。 この手順を省略すると、アプリでトークンを取得することはできません。 
 
-トークンを取得したら、プロバイダーの API を呼び出すためにトークンを使うことができます。 次のコードでは、[ユーザー情報のための Microsoft Live API](https://msdn.microsoft.com/library/hh826533.aspx) を呼び出してユーザーに関する基本情報を取得し、UI に表示します。 ただし、ほとんどの場合、取得したトークンは保存してから、別のメソッドで使用することをお勧めします。
+トークンを取得したら、プロバイダーの API を呼び出すためにトークンを使うことができます。 次のコードでは、[ユーザー情報のための Microsoft Live API](https://docs.microsoft.com/office/) を呼び出してユーザーに関する基本情報を取得し、UI に表示します。 ただし、ほとんどの場合、取得したトークンは保存してから、別のメソッドで使用することをお勧めします。
 
 ```csharp
 private async void GetMsaTokenAsync(WebAccountProviderCommand command)
@@ -250,7 +250,7 @@ private async void GetMsaTokenAsync(WebAccountProviderCommand command)
 
 トークンはユーザーに関する情報を直ちに取得する場合に便利ですが、通常はさまざまな有効期限を持ちます。たとえば、MSA トークンは数時間のみ有効です。 ただし、トークンの有効期限が切れるたびに **AccountsSettingsPane** を再表示する必要はありません。 ユーザーが一度アプリを承認すると、将来使うためにユーザーのアカウント情報を保存できます。 
 
-これを行うには、**[WebAccount](https://docs.microsoft.com/uwp/api/windows.security.credentials.webaccount)** クラスを使います。 **WebAccount** は、トークンの要求で使ったメソッドと同じメソッドによって返されます。
+これを行うには、 **[WebAccount](https://docs.microsoft.com/uwp/api/windows.security.credentials.webaccount)** クラスを使います。 **WebAccount** は、トークンの要求で使ったメソッドと同じメソッドによって返されます。
 
 ```csharp
 private async void GetMsaTokenAsync(WebAccountProviderCommand command)
@@ -338,7 +338,7 @@ private void LoginButton_Click(object sender, RoutedEventArgs e)
 
 ## <a name="remove-a-stored-account"></a>保存されたアカウントの削除
 
-Web アカウントを保持するとき、場合によっては、ユーザーが自分のアカウントとアプリの関連付けを解除できるようにする必要があります。 これにより、実質的に「ログイン」アプリの: 起動すると、アカウント情報が自動的に読み込まれますは不要になった。 これを行うには、まず保存されたアカウントとプロバイダーの情報を記憶域から削除します。 次に、**[SignOutAsync](https://docs.microsoft.com/uwp/api/windows.security.credentials.webaccount.SignOutAsync)** を呼び出してキャッシュをクリアし、アプリが保持している可能性がある既存のトークンをすべて無効にします。 
+Web アカウントを保持するとき、場合によっては、ユーザーが自分のアカウントとアプリの関連付けを解除できるようにする必要があります。 これにより、実質的に「ログイン」アプリの: 起動すると、アカウント情報が自動的に読み込まれますは不要になった。 これを行うには、まず保存されたアカウントとプロバイダーの情報を記憶域から削除します。 次に、 **[SignOutAsync](https://docs.microsoft.com/uwp/api/windows.security.credentials.webaccount.SignOutAsync)** を呼び出してキャッシュをクリアし、アプリが保持している可能性がある既存のトークンをすべて無効にします。 
 
 ```csharp
 private async Task SignOutAccountAsync(WebAccount account)
@@ -422,11 +422,11 @@ private async void BuildPaneAsync(AccountsSettingsPane s, AccountsSettingsPaneCo
 
 ## <a name="see-also"></a>関連項目
 
-[Windows.Security.Authentication.Web.Core 名前空間](https://msdn.microsoft.com/library/windows/apps/windows.security.authentication.web.core.aspx)
+[Windows.Security.Authentication.Web.Core 名前空間](https://docs.microsoft.com/uwp/api/windows.security.authentication.web.core)
 
-[Windows.Security.Credentials 名前空間](https://msdn.microsoft.com/library/windows/apps/windows.security.credentials.aspx)
+[Windows.Security.Credentials 名前空間](https://docs.microsoft.com/uwp/api/windows.security.credentials)
 
-[AccountsSettingsPane クラス](https://msdn.microsoft.com/library/windows/apps/windows.ui.applicationsettings.accountssettingspane)
+[AccountsSettingsPane クラス](https://docs.microsoft.com/uwp/api/windows.ui.applicationsettings.accountssettingspane)
 
 [Web 認証ブローカー](web-authentication-broker.md)
 

@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, 深度, 効果, プリミティブ, DirectX
 ms.localizationpriority: medium
-ms.openlocfilehash: 02911338da858e3718235736cee7969a7bdebae2
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 63af04475e897dfade3afec91b2a0fa0d9790f84
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57646587"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66367500"
 ---
 # <a name="use-depth-and-effects-on-primitives"></a>プリミティブに対する深度と各種効果の使用
 
@@ -28,13 +28,13 @@ C++ に習熟していることを前提としています。 また、グラフ
 
 加えて、「[クイック スタート: DirectX リソースの設定と画像の表示](setting-up-directx-resources.md)」と「[シェーダーの作成とプリミティブの描画](creating-shaders-and-drawing-primitives.md)」にひととおり目を通しておく必要があります。
 
-**所要時間:** 20 分です。
+**所要時間:** 20 分
 
 <a name="instructions"></a>手順
 ------------
 ### <a name="1-defining-cube-variables"></a>1. キューブ変数を定義します。
 
-まず、立方体の **SimpleCubeVertex** 構造体と **ConstantBuffer** 構造体を定義する必要があります。 立方体の頂点の位置と色に加え、その見え方が、これらの構造体によって指定されます。 [  **ID3D11DepthStencilView**](https://msdn.microsoft.com/library/windows/desktop/ff476377) と [**ID3D11Buffer**](https://msdn.microsoft.com/library/windows/desktop/ff476351) を [**ComPtr**](https://msdn.microsoft.com/library/windows/apps/br244983.aspx) で宣言し、**ConstantBuffer** のインスタンスを宣言します。
+まず、立方体の **SimpleCubeVertex** 構造体と **ConstantBuffer** 構造体を定義する必要があります。 立方体の頂点の位置と色に加え、その見え方が、これらの構造体によって指定されます。 [  **ID3D11DepthStencilView**](https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11depthstencilview) と [**ID3D11Buffer**](https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11buffer) を [**ComPtr**](https://docs.microsoft.com/cpp/windows/comptr-class) で宣言し、**ConstantBuffer** のインスタンスを宣言します。
 
 ```cpp
 struct SimpleCubeVertex
@@ -66,7 +66,7 @@ private:
 
 ### <a name="2-creating-a-depth-stencil-view"></a>2. 深度ステンシル ビューを作成します。
 
-レンダー ターゲット ビューに加え、深度ステンシル ビューも作成します。 深度/ステンシル ビューによって、カメラに近いオブジェクトをカメラから遠いオブジェクトの前にレンダリングする Direct3D の処理を効率化できます。 深度ステンシル バッファーのビューを作成する前に、深度ステンシル バッファーを作成する必要があります。 設定します、 [ **D3D11\_TEXTURE2D\_DESC** ](https://msdn.microsoft.com/library/windows/desktop/ff476253)深度ステンシル バッファーを記述し、呼び出す[ **ID3D11Device::CreateTexture2D** ](https://msdn.microsoft.com/library/windows/desktop/ff476521)深度ステンシル バッファーを作成します。 設定します深度ステンシル ビューを作成する、 [ **D3D11\_深さ\_ステンシル\_ビュー\_DESC** ](https://msdn.microsoft.com/library/windows/desktop/ff476112)深度ステンシル ビューをについて説明し、渡します深度ステンシル ビューの説明と深度ステンシル バッファー [ **ID3D11Device::CreateDepthStencilView**](https://msdn.microsoft.com/library/windows/desktop/ff476507)します。
+レンダー ターゲット ビューに加え、深度ステンシル ビューも作成します。 深度/ステンシル ビューによって、カメラに近いオブジェクトをカメラから遠いオブジェクトの前にレンダリングする Direct3D の処理を効率化できます。 深度ステンシル バッファーのビューを作成する前に、深度ステンシル バッファーを作成する必要があります。 設定します、 [ **D3D11\_TEXTURE2D\_DESC** ](https://docs.microsoft.com/windows/desktop/api/d3d11/ns-d3d11-d3d11_texture2d_desc)深度ステンシル バッファーを記述し、呼び出す[ **ID3D11Device::CreateTexture2D** ](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11device-createtexture2d)深度ステンシル バッファーを作成します。 設定します深度ステンシル ビューを作成する、 [ **D3D11\_深さ\_ステンシル\_ビュー\_DESC** ](https://docs.microsoft.com/windows/desktop/api/d3d11/ns-d3d11-d3d11_depth_stencil_view_desc)深度ステンシル ビューをについて説明し、渡します深度ステンシル ビューの説明と深度ステンシル バッファー [ **ID3D11Device::CreateDepthStencilView**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11device-createdepthstencilview)します。
 
 ```cpp
         // Once the render target view is created, create a depth stencil view.  This
@@ -148,15 +148,15 @@ private:
 
 このアプリでは、前のチュートリアル (「[シェーダーの作成とプリミティブの描画](creating-shaders-and-drawing-primitives.md)」) で説明したものよりも複雑な頂点シェーダーとピクセル シェーダーを作成します。 このアプリの頂点シェーダーは、個々の頂点の位置を投影空間に変換し、頂点の色をピクセル シェーダーに渡します。
 
-アプリの配列の[ **D3D11\_入力\_要素\_DESC** ](https://msdn.microsoft.com/library/windows/desktop/ff476180)頂点シェーダー コードのレイアウトを記述する構造体が 2 つのレイアウト要素: 1 つの要素頂点の位置を定義し、その他の要素の色を定義します。
+アプリの配列の[ **D3D11\_入力\_要素\_DESC** ](https://docs.microsoft.com/windows/desktop/api/d3d11/ns-d3d11-d3d11_input_element_desc)頂点シェーダー コードのレイアウトを記述する構造体が 2 つのレイアウト要素: 1 つの要素頂点の位置を定義し、その他の要素の色を定義します。
 
 周回する立方体を定義する頂点バッファー、インデックス バッファー、定数バッファーを作成します。
 
 **周回キューブを定義するには**
 
 1.  まず立方体を定義します。 それぞれの頂点に、位置に加えて色を割り当てます。 これによってピクセル シェーダーが各表面に異なる色を適用できるようになり、表面が区別されます。
-2.  次に、頂点とインデックス バッファーについて説明します ([**D3D11\_バッファー\_DESC** ](https://msdn.microsoft.com/library/windows/desktop/ff476092)と[ **D3D11\_SUBRESOURCE\_データ**](https://msdn.microsoft.com/library/windows/desktop/ff476220)) キューブの定義を使用します。 各バッファーについて、[**ID3D11Device::CreateBuffer**](https://msdn.microsoft.com/library/windows/desktop/ff476501) を 1 回呼び出します。
-3.  次に、定数バッファーを作成します ([**D3D11\_バッファー\_DESC**](https://msdn.microsoft.com/library/windows/desktop/ff476092)) モデル、ビュー、および投影マトリックスを頂点シェーダーに渡すことです。 後でこの定数バッファーを使って、立方体を回転させたり、そこに透視投影を適用したりすることができます。 定数バッファーを作成するには、[**ID3D11Device::CreateBuffer**](https://msdn.microsoft.com/library/windows/desktop/ff476501) を呼び出します。
+2.  次に、頂点とインデックス バッファーについて説明します ([**D3D11\_バッファー\_DESC** ](https://docs.microsoft.com/windows/desktop/api/d3d11/ns-d3d11-d3d11_buffer_desc)と[ **D3D11\_SUBRESOURCE\_データ**](https://docs.microsoft.com/windows/desktop/api/d3d11/ns-d3d11-d3d11_subresource_data)) キューブの定義を使用します。 各バッファーについて、[**ID3D11Device::CreateBuffer**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11device-createbuffer) を 1 回呼び出します。
+3.  次に、定数バッファーを作成します ([**D3D11\_バッファー\_DESC**](https://docs.microsoft.com/windows/desktop/api/d3d11/ns-d3d11-d3d11_buffer_desc)) モデル、ビュー、および投影マトリックスを頂点シェーダーに渡すことです。 後でこの定数バッファーを使って、立方体を回転させたり、そこに透視投影を適用したりすることができます。 定数バッファーを作成するには、[**ID3D11Device::CreateBuffer**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11device-createbuffer) を呼び出します。
 4.  次に、カメラ位置 (X = 0、Y = 1、Z = 2) に対応するビュー変換を指定します。
 5.  最後に、*degree* 変数を宣言します。これは、立方体をフレームごとに回転させてアニメーション化する目的で使います。
 
@@ -336,20 +336,20 @@ private:
 
 ### <a name="5-rotating-and-drawing-the-cube-and-presenting-the-rendered-image"></a>5。回転しキューブを描画およびレンダリングされたイメージを提供
 
-シーンをレンダリングして表示し続けるために、無限ループを使います。 立方体のモデル マトリックスを Y 軸を中心に回転させるための値を設定するため、**rotationY** インライン関数 (BasicMath.h) に回転量を指定して呼び出します。 さらに、[**ID3D11DeviceContext::UpdateSubresource**](https://msdn.microsoft.com/library/windows/desktop/ff476486) を呼び出して定数バッファーを更新し、立方体モデルを回転させます。 [  **ID3D11DeviceContext::OMSetRenderTargets**](https://msdn.microsoft.com/library/windows/desktop/ff476464) を呼び出して、レンダー ターゲットを出力ターゲットとして指定します。 この **OMSetRenderTargets** 呼び出しでは、深度ステンシル ビューを渡します。 [  **ID3D11DeviceContext::ClearRenderTargetView**](https://msdn.microsoft.com/library/windows/desktop/ff476388) を呼び出してレンダー ターゲットを無地の青色にクリアし、[**ID3D11DeviceContext::ClearDepthStencilView**](https://msdn.microsoft.com/library/windows/desktop/ff476387) を呼び出して深度バッファーをクリアします。
+シーンをレンダリングして表示し続けるために、無限ループを使います。 立方体のモデル マトリックスを Y 軸を中心に回転させるための値を設定するため、**rotationY** インライン関数 (BasicMath.h) に回転量を指定して呼び出します。 さらに、[**ID3D11DeviceContext::UpdateSubresource**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-updatesubresource) を呼び出して定数バッファーを更新し、立方体モデルを回転させます。 [  **ID3D11DeviceContext::OMSetRenderTargets**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-omsetrendertargets) を呼び出して、レンダー ターゲットを出力ターゲットとして指定します。 この **OMSetRenderTargets** 呼び出しでは、深度ステンシル ビューを渡します。 [  **ID3D11DeviceContext::ClearRenderTargetView**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-clearrendertargetview) を呼び出してレンダー ターゲットを無地の青色にクリアし、[**ID3D11DeviceContext::ClearDepthStencilView**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-cleardepthstencilview) を呼び出して深度バッファーをクリアします。
 
 無限ループで、立方体を青色のサーフェス上に描画します。
 
 **キューブを描画するには**
 
-1.  まず、頂点バッファーから入力アセンブラー ステージへのデータの流れを定義するために、[**ID3D11DeviceContext::IASetInputLayout**](https://msdn.microsoft.com/library/windows/desktop/ff476454) を呼び出します。
-2.  次に、[**ID3D11DeviceContext::IASetVertexBuffers**](https://msdn.microsoft.com/library/windows/desktop/ff476456) と [**ID3D11DeviceContext::IASetIndexBuffer**](https://msdn.microsoft.com/library/windows/desktop/ff476453) を呼び出して、頂点バッファーとインデックス バッファーを入力アセンブラー ステージにバインドします。
-3.  次に、呼び出して[ **ID3D11DeviceContext::IASetPrimitiveTopology** ](https://msdn.microsoft.com/library/windows/desktop/ff476455)で、 [ **D3D11\_プリミティブ\_トポロジ\_TRIANGLESTRIP** ](https://msdn.microsoft.com/library/windows/desktop/ff476189#D3D11_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP)入力アセンブラー ステージを三角形ストリップとして頂点データの解釈を指定する値。
-4.  次に、[**ID3D11DeviceContext::VSSetShader**](https://msdn.microsoft.com/library/windows/desktop/ff476493) を呼び出して頂点シェーダー ステージを頂点シェーダー コードで初期化し、さらに、[**ID3D11DeviceContext::PSSetShader**](https://msdn.microsoft.com/library/windows/desktop/ff476472) を呼び出してピクセル シェーダー ステージをピクセル シェーダー コードで初期化します。
-5.  次に、[**ID3D11DeviceContext::VSSetConstantBuffers**](https://msdn.microsoft.com/library/windows/desktop/ff476491) を呼び出し、頂点シェーダーのパイプライン ステージで使われる定数バッファーを設定します。
-6.  最後に、[**ID3D11DeviceContext::DrawIndexed**](https://msdn.microsoft.com/library/windows/desktop/ff476409) を呼び出して立方体を描画し、レンダリング パイプラインに送ります。
+1.  まず、頂点バッファーから入力アセンブラー ステージへのデータの流れを定義するために、[**ID3D11DeviceContext::IASetInputLayout**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-iasetinputlayout) を呼び出します。
+2.  次に、[**ID3D11DeviceContext::IASetVertexBuffers**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-iasetvertexbuffers) と [**ID3D11DeviceContext::IASetIndexBuffer**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-iasetindexbuffer) を呼び出して、頂点バッファーとインデックス バッファーを入力アセンブラー ステージにバインドします。
+3.  次に、呼び出して[ **ID3D11DeviceContext::IASetPrimitiveTopology** ](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-iasetprimitivetopology)で、 [ **D3D11\_プリミティブ\_トポロジ\_TRIANGLESTRIP** ](https://docs.microsoft.com/previous-versions/windows/desktop/legacy/ff476189(v=vs.85))入力アセンブラー ステージを三角形ストリップとして頂点データの解釈を指定する値。
+4.  次に、[**ID3D11DeviceContext::VSSetShader**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-vssetshader) を呼び出して頂点シェーダー ステージを頂点シェーダー コードで初期化し、さらに、[**ID3D11DeviceContext::PSSetShader**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-pssetshader) を呼び出してピクセル シェーダー ステージをピクセル シェーダー コードで初期化します。
+5.  次に、[**ID3D11DeviceContext::VSSetConstantBuffers**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-vssetconstantbuffers) を呼び出し、頂点シェーダーのパイプライン ステージで使われる定数バッファーを設定します。
+6.  最後に、[**ID3D11DeviceContext::DrawIndexed**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-drawindexed) を呼び出して立方体を描画し、レンダリング パイプラインに送ります。
 
-レンダリングされた画像をウィンドウに表示するために、[**IDXGISwapChain::Present**](https://msdn.microsoft.com/library/windows/desktop/bb174576) を呼び出しています。
+レンダリングされた画像をウィンドウに表示するために、[**IDXGISwapChain::Present**](https://docs.microsoft.com/windows/desktop/api/dxgi/nf-dxgi-idxgiswapchain-present) を呼び出しています。
 
 ```cpp
             // Update the constant buffer to rotate the cube model.

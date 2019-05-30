@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, Microsoft Store 申請 API, アドオン, アプリ内製品, IAP
 ms.localizationpriority: medium
-ms.openlocfilehash: 51c940fffde3c770f397999e566570410528a1e8
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 8e06f8e915466f116692c63df5c53c2a0f97447f
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57617827"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66372496"
 ---
 # <a name="manage-add-ons"></a>アドオンの管理
 
@@ -97,11 +97,11 @@ Microsoft Store 申請 API に関するすべての[前提条件](create-and-man
 
 このリソースには、次の値があります。
 
-| 値      | 種類   | 説明        |
+| Value      | 種類   | 説明        |
 |------------|--------|--------------|
 | applications      | array  | このアドオンが関連付けられるアプリを表す 1 つの[アプリケーション リソース](#application-object)を格納する配列です。 この配列でサポートされる項目は 1 つのみです。  |
 | id | string  | アドオンのストア ID です。 この値は、ストアによって提供されます。 ストア ID の例は 9NBLGGH4TNMP です。  |
-| productId | string  | アドオンの製品 ID です。 これは、アドオンの作成時に開発者が指定した ID です。 詳しくは、「[IAP の製品の種類と製品 ID を設定する](https://msdn.microsoft.com/windows/uwp/publish/set-your-iap-product-id)」をご覧ください。 |
+| productId | string  | アドオンの製品 ID です。 これは、アドオンの作成時に開発者が指定した ID です。 詳しくは、「[IAP の製品の種類と製品 ID を設定する](https://docs.microsoft.com/windows/uwp/publish/set-your-iap-product-id)」をご覧ください。 |
 | productType | string  | アドオンの製品の種類です。 次の値がサポートされています。**持続性のある**と**消耗**します。  |
 | lastPublishedInAppProductSubmission       | オブジェクト | アドオンの最後に公開された申請に関する情報を提供する[申請のリソース](#submission-object)。         |
 | pendingInAppProductSubmission        | オブジェクト  |  アドオンの現在保留中の申請に関する情報を提供する[申請のリソース](#submission-object)。  |   |
@@ -128,9 +128,9 @@ Microsoft Store 申請 API に関するすべての[前提条件](create-and-man
 
 このリソースには、次の値があります。
 
-| 値           | 種類    | 説明        |
+| Value           | 種類    | 説明        |
 |-----------------|---------|-----------|
-| value            | オブジェクト  |  次の値を格納するオブジェクトです。 <br/><br/> <ul><li>*id*。アプリケーションのストア ID です。 ストア ID について詳しくは、「[アプリ ID の詳細の表示](https://msdn.microsoft.com/windows/uwp/publish/view-app-identity-details)」をご覧ください。</li><li>*resourceLocation*。 アプリの完全なデータを取得するために基本 ```https://manage.devcenter.microsoft.com/v1.0/my/``` 要求 URI に付加できる相対パス。</li></ul>   |
+| value            | オブジェクト  |  次の値を格納するオブジェクトです。 <br/><br/> <ul><li>*id*。アプリケーションのストア ID です。 ストア ID について詳しくは、「[アプリ ID の詳細の表示](https://docs.microsoft.com/windows/uwp/publish/view-app-identity-details)」をご覧ください。</li><li>*resourceLocation*。 アプリの完全なデータを取得するために基本 ```https://manage.devcenter.microsoft.com/v1.0/my/``` 要求 URI に付加できる相対パス。</li></ul>   |
 | totalCount   | int  | 応答本文の *applications* 配列のアプリ オブジェクトの数。                                                                                                                                                 |
 
 <span id="submission-object" />
@@ -150,7 +150,7 @@ Microsoft Store 申請 API に関するすべての[前提条件](create-and-man
 
 このリソースには、次の値があります。
 
-| 値           | 種類    | 説明     |
+| Value           | 種類    | 説明     |
 |-----------------|---------|------------------|
 | id            | string  | 申請 ID。    |
 | resourceLocation   | string  | 申請の完全なデータを取得するために基本 ```https://manage.devcenter.microsoft.com/v1.0/my/``` 要求 URI に付加できる相対パス。     |

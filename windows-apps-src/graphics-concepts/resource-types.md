@@ -7,12 +7,12 @@ keywords:
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 4138fd7275f7e1f9addb7685ff0846e756701003
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 9712b4498b03460568d20d4c8e27172ad5c14360
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57661987"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66362205"
 ---
 # <a name="resource-types"></a>リソースの種類
 
@@ -110,12 +110,12 @@ Direct3D には、シェーダー定数バッファーまたは単に定数バ�
 
 定数バッファーを使用して、ストリーム出力ステージの結果を保存します。
 
-シェーダーで定数バッファーを宣言する例については、「[シェーダー定数 (DirectX HLSL)](https://msdn.microsoft.com/library/windows/desktop/bb509581)」をご覧ください。
+シェーダーで定数バッファーを宣言する例については、「[シェーダー定数 (DirectX HLSL)](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-constants)」をご覧ください。
 
 ## <a name="span-idtextureresourcesspanspan-idtextureresourcesspanspan-idtextureresourcesspanspan-idtexture-resourcesspantexture-resources"></a><span id="Texture_Resources"></span><span id="texture_resources"></span><span id="TEXTURE_RESOURCES"></span><span id="texture-resources"></span>テクスチャのリソース
 
 
-テクスチャ リソースは、テクセルを格納するように設計された、データの構造化されたコレクションです。 バッファーと異なり、テクスチャは、シェーダー ユニットに読み取られる際にテクスチャ サンプラーでフィルターを適用することができます。 テクスチャへのフィルター処理の適用方法はテクスチャの種類に影響されます。 テクセルは、パイプラインで読み取ったり、書き込んだりすることができるテクスチャの最小単位を表します。 各テクセルには DXGI 形式のいずれかに配置された、1 ~ 4 のコンポーネントが含まれています (を参照してください[ **DXGI\_形式**](https://msdn.microsoft.com/library/windows/desktop/bb173059))。
+テクスチャ リソースは、テクセルを格納するように設計された、データの構造化されたコレクションです。 バッファーと異なり、テクスチャは、シェーダー ユニットに読み取られる際にテクスチャ サンプラーでフィルターを適用することができます。 テクスチャへのフィルター処理の適用方法はテクスチャの種類に影響されます。 テクセルは、パイプラインで読み取ったり、書き込んだりすることができるテクスチャの最小単位を表します。 各テクセルには DXGI 形式のいずれかに配置された、1 ~ 4 のコンポーネントが含まれています (を参照してください[ **DXGI\_形式**](https://docs.microsoft.com/windows/desktop/api/dxgiformat/ne-dxgiformat-dxgi_format))。
 
 テクスチャは構造化されたリソースとして作成されるため、そのサイズがわかります。 ただし、各テクスチャはリソース作成時に型指定される場合もありますが、テクスチャをパイプラインにバインドするときにビューを使用して型を完全に指定するという条件で、リソース作成時に型指定されない場合もあります。
 

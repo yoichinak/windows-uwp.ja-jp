@@ -6,19 +6,19 @@ ms.date: 09/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, サンプル, DirectX, 構造
 ms.localizationpriority: medium
-ms.openlocfilehash: 55b933db7f9b26de2caa3877bde445f96c08d561
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: a04e6714772d9b17c281f81ad93582d1fb691c9b
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57653727"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66368502"
 ---
 # <a name="marble-maze-application-structure"></a>Marble Maze のアプリケーション構造
 
 
 
 
-DirectX ユニバーサル Windows プラットフォーム (UWP) アプリの構造は、従来のデスクトップ アプリケーションとは異なります。 [HWND](https://msdn.microsoft.com/library/windows/desktop/aa383751) などのハンドル型や [CreateWindow](https://msdn.microsoft.com/library/windows/desktop/ms632679) などの関数は使いません。それよりも新しい、オブジェクト指向に沿った方法で UWP アプリを開発できるように、Windows ランタイムには [Windows::UI::Core::ICoreWindow](https://msdn.microsoft.com/library/windows/apps/br208296) をはじめとするインターフェイスが用意されています。 ここでは、Marble Maze アプリ コードがどのように構成されているかを確認します。
+DirectX ユニバーサル Windows プラットフォーム (UWP) アプリの構造は、従来のデスクトップ アプリケーションとは異なります。 [HWND](https://docs.microsoft.com/windows/desktop/WinProg/windows-data-types) などのハンドル型や [CreateWindow](https://docs.microsoft.com/windows/desktop/api/winuser/nf-winuser-createwindowa) などの関数は使いません。それよりも新しい、オブジェクト指向に沿った方法で UWP アプリを開発できるように、Windows ランタイムには [Windows::UI::Core::ICoreWindow](https://docs.microsoft.com/uwp/api/Windows.UI.Core.ICoreWindow) をはじめとするインターフェイスが用意されています。 ここでは、Marble Maze アプリ コードがどのように構成されているかを確認します。
 
 > [!NOTE]
 > このドキュメントに対応するサンプル コードは、[DirectX Marble Maze ゲームのサンプルに関するページ](https://go.microsoft.com/fwlink/?LinkId=624011)にあります。
@@ -79,7 +79,7 @@ HLSL シェーダーは、設計時と実行時で異なる形式を使うリソ
 ##  <a name="application-life-cycle"></a>アプリケーション ライフ サイクル
 
 
-Marble Maze は、一般的な UWP アプリのライフ サイクルに従っています。 UWP アプリのライフ サイクルについて詳しくは、「[アプリのライフサイクル](https://msdn.microsoft.com/library/windows/apps/mt243287)」をご覧ください。
+Marble Maze は、一般的な UWP アプリのライフ サイクルに従っています。 UWP アプリのライフ サイクルについて詳しくは、「[アプリのライフサイクル](https://docs.microsoft.com/windows/uwp/launch-resume/app-lifecycle)」をご覧ください。
 
 UWP ゲームの初期化時には、通常、Direct3D、Direct2D などのランタイム コンポーネントと、ゲームで使用される入力、オーディオ、または物理ライブラリが初期化されます。 また、ゲームを開始する前に必要なゲーム固有のリソースも読み込まれます。 この初期化は、ゲーム セッション中に 1 回行われます。
 
@@ -240,7 +240,7 @@ Marble Maze は、中断と再開をサポートするために、次のタス�
 -   中断の通知に対応して、状態を固定ストレージに保存します。
 -   再開の通知に対応して、状態を固定ストレージから読み込みます。 起動中に、以前の状態も読み込みます。
 
-中断と再開をサポートするために、Marble Maze は **PersistentState** クラスを定義しています。 **PersistentState.h** と **PersistentState.cpp** をご覧ください。 このクラスは、プロパティの読み取りと書き込みに [Windows::Foundation::Collections::IPropertySet](https://docs.microsoft.com/uwp/api/Windows.Foundation.Collections.IPropertySet) インターフェイスを使います。 **PersistentState** クラスには、バッキング ストアとの間でプリミティブ データ型 (**bool**、**int**、**float**、[XMFLOAT3](https://msdn.microsoft.com/library/windows/desktop/ee419475)、[Platform::String](https://docs.microsoft.com/cpp/cppcx/platform-string-class) など) の読み取りと書き込みを行うメソッドが用意されています。
+中断と再開をサポートするために、Marble Maze は **PersistentState** クラスを定義しています。 **PersistentState.h** と **PersistentState.cpp** をご覧ください。 このクラスは、プロパティの読み取りと書き込みに [Windows::Foundation::Collections::IPropertySet](https://docs.microsoft.com/uwp/api/Windows.Foundation.Collections.IPropertySet) インターフェイスを使います。 **PersistentState** クラスには、バッキング ストアとの間でプリミティブ データ型 (**bool**、**int**、**float**、[XMFLOAT3](https://docs.microsoft.com/windows/desktop/api/directxmath/ns-directxmath-xmfloat3)、[Platform::String](https://docs.microsoft.com/cpp/cppcx/platform-string-class) など) の読み取りと書き込みを行うメソッドが用意されています。
 
 ```cpp
 ref class PersistentState
@@ -414,7 +414,7 @@ void MarbleMazeMain::LoadState()
 > [!IMPORTANT]
 > Marble Maze は、コールド スタート (つまり、以前の中断イベントがない、初めての起動) と、中断状態からの再開とを区別しません。 これは、すべての UWP アプリにお勧めする設計です。
 
-アプリケーション データについて詳しくは、「[設定と他のアプリ データを保存して取得する](https://msdn.microsoft.com/library/windows/apps/mt299098)」をご覧ください。
+アプリケーション データについて詳しくは、「[設定と他のアプリ データを保存して取得する](https://docs.microsoft.com/windows/uwp/app-settings/store-and-retrieve-app-data)」をご覧ください。
 
 ##  <a name="next-steps"></a>次のステップ
 

@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp, セキュリティ
 ms.localizationpriority: medium
-ms.openlocfilehash: 6517241826d06b63fd88b45237552acffbdc62da
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 78b14023f61dd3f8c27bc31f5876407ff0ed0366
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57651237"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66371206"
 ---
 # <a name="macs-hashes-and-signatures"></a>MAC、ハッシュ、および署名
 
@@ -34,11 +34,11 @@ ms.locfileid: "57651237"
 
 メッセージ認証コードの作成によって保証されるのは、元のメッセージが改ざんされていないことと、共有の秘密鍵を使ったことから、その秘密鍵にアクセスできる人物によってメッセージ ハッシュへの署名が行われたことのみです。
 
-[  **MacAlgorithmProvider**](https://msdn.microsoft.com/library/windows/apps/br241530) を使って、利用可能な MAC アルゴリズムを列挙して対称キーを生成することができます。 [  **CryptographicEngine**](https://msdn.microsoft.com/library/windows/apps/br241490) クラスで静的メソッドを使って、MAC 値を作成する必要な暗号化を実行することができます。
+[  **MacAlgorithmProvider**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.Core.MacAlgorithmProvider) を使って、利用可能な MAC アルゴリズムを列挙して対称キーを生成することができます。 [  **CryptographicEngine**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.Core.CryptographicEngine) クラスで静的メソッドを使って、MAC 値を作成する必要な暗号化を実行することができます。
 
 デジタル署名は、秘密キーによるメッセージ認証コード (MAC) と等価の公開キーのコードです。 MAC ではメッセージが転送中に改ざんされなかったことをメッセージの受信者が確認するのに秘密キーを使いますが、署名では秘密キーと公開キーのペアを使います。
 
-次のコード例は、[**MacAlgorithmProvider**](https://msdn.microsoft.com/library/windows/apps/br241530) クラスを使ってハッシュ メッセージ認証コード (HMAC) を作成する方法を示しています。
+次のコード例は、[**MacAlgorithmProvider**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.Core.MacAlgorithmProvider) クラスを使ってハッシュ メッセージ認証コード (HMAC) を作成する方法を示しています。
 
 ```cs
 using Windows.Security.Cryptography;
@@ -137,11 +137,11 @@ namespace SampleMacAlgorithmProvider
 
 アリスは暗号化されていないメッセージを送信したことに注目してください。 ハッシュが暗号化されただけです。 この手順によって保証されるのは、元のメッセージが改変されていないことと、アリスの公開キーが使われていることから、アリスの秘密キーにアクセスできるだれか、おそらくアリス本人によってメッセージのハッシュが署名されたことだけです。
 
-[  **HashAlgorithmProvider**](https://msdn.microsoft.com/library/windows/apps/br241511) クラスを使って利用できるハッシュ アルゴリズムを列挙し、[**CryptographicHash**](https://msdn.microsoft.com/library/windows/apps/br241498) 値を作成することができます。
+[  **HashAlgorithmProvider**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.Core.HashAlgorithmProvider) クラスを使って利用できるハッシュ アルゴリズムを列挙し、[**CryptographicHash**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.Core.CryptographicHash) 値を作成することができます。
 
 デジタル署名は、秘密キーによるメッセージ認証コード (MAC) と等価の公開キーのコードです。 MAC ではメッセージが転送中に改変されなかったことをメッセージの受信者が確認するのに秘密キーを使いますが、署名では秘密キーと公開キーのペアを使います。
 
-[  **CryptographicHash**](https://msdn.microsoft.com/library/windows/apps/br241498) オブジェクトを使うと、その都度オブジェクトを作らなくても、異なるデータを繰り返しハッシュできます。 [  **Append**](https://msdn.microsoft.com/library/windows/apps/br241499) メソッドは、ハッシュ対象のバッファーに、新しいデータを追加します。 [  **GetValueAndReset**](https://msdn.microsoft.com/library/windows/apps/hh701376) メソッドは、データをハッシュし、次の使用のためにオブジェクトをリセットします。 この例を次に示します。
+[  **CryptographicHash**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.Core.CryptographicHash) オブジェクトを使うと、その都度オブジェクトを作らなくても、異なるデータを繰り返しハッシュできます。 [  **Append**](https://docs.microsoft.com/uwp/api/windows.security.cryptography.core.cryptographichash.append) メソッドは、ハッシュ対象のバッファーに、新しいデータを追加します。 [  **GetValueAndReset**](https://docs.microsoft.com/uwp/api/windows.security.cryptography.core.cryptographichash.getvalueandreset) メソッドは、データをハッシュし、次の使用のためにオブジェクトをリセットします。 この例を次に示します。
 
 ```cs
 public void SampleReusableHash()
@@ -191,4 +191,4 @@ public void SampleReusableHash()
 
 署名によって保証されるのは、元のメッセージが改変されていないことと、送信者の公開キーが使われていることから、秘密キーにアクセスできる人によってメッセージのハッシュが署名されたことだけです。
 
-[  **AsymmetricKeyAlgorithmProvider**](https://msdn.microsoft.com/library/windows/apps/br241478) オブジェクトを使って、利用できる署名アルゴリズムを列挙したり、キー ペアを生成またはインポートしたりできます。 [  **CryptographicHash**](https://msdn.microsoft.com/library/windows/apps/br241498) クラスの静的メソッドを使って、メッセージに署名したり、署名を検証したりできます。
+[  **AsymmetricKeyAlgorithmProvider**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.Core.AsymmetricKeyAlgorithmProvider) オブジェクトを使って、利用できる署名アルゴリズムを列挙したり、キー ペアを生成またはインポートしたりできます。 [  **CryptographicHash**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.Core.CryptographicHash) クラスの静的メソッドを使って、メッセージに署名したり、署名を検証したりできます。

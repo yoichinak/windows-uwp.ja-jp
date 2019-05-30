@@ -6,12 +6,12 @@ ms.date: 06/28/2017
 ms.topic: article
 keywords: windows 10、uwp、接続されているデバイス、リモート システム、ローマ、プロジェクトのローマ
 ms.localizationpriority: medium
-ms.openlocfilehash: 3dd23603df1f1c3fac151da2aea2f8435b3ee423
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 4787b6c14408dc8ee35e26764caafc5b6e7fbdc9
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57633417"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66371884"
 ---
 # <a name="connect-devices-through-remote-sessions"></a>リモート セッションでデバイスを接続する
 
@@ -42,7 +42,7 @@ if (!RemoteSystem.IsAuthorizationKindEnabled(RemoteSystemAuthorizationKind.Anony
 }
 ```
 
-この設定を変更するには、ユーザーが**設定**アプリを開く必要があります。 **[システム]** > **[共有エクスペリエンス]** > **[デバイス間で共有します]** メニューの順に移動すると、システムで共有可能なデバイスをユーザーが指定できるドロップダウン ボックスがあります。
+この設定を変更するには、ユーザーが**設定**アプリを開く必要があります。 **[システム]**  >  **[共有エクスペリエンス]**  >  **[デバイス間で共有します]** メニューの順に移動すると、システムで共有可能なデバイスをユーザーが指定できるドロップダウン ボックスがあります。
 
 ![[共有エクスペリエンス] 設定ページ](images/shared-experiences-settings.png)
 
@@ -57,7 +57,7 @@ using Windows.System.RemoteSystems;
 
 ## <a name="create-a-remote-session"></a>リモート セッション作成する
 
-リモート セッション インスタンスを作成するには、**[RemoteSystemSessionController](https://docs.microsoft.com/uwp/api/windows.system.remotesystems.remotesystemsessioncontroller)** オブジェクトから開始する必要があります。 新しいセッションを作成し、他のデバイスからの参加要求を処理するには、以下のフレームワークを使用します。
+リモート セッション インスタンスを作成するには、 **[RemoteSystemSessionController](https://docs.microsoft.com/uwp/api/windows.system.remotesystems.remotesystemsessioncontroller)** オブジェクトから開始する必要があります。 新しいセッションを作成し、他のデバイスからの参加要求を処理するには、以下のフレームワークを使用します。
 
 ```csharp
 public async void CreateSession() {
@@ -107,7 +107,7 @@ public async void CreateSession() {
 
 リモート セッションを一般に公開しない場合は、招待のみに設定することができます。 招待を受け取ったデバイスのみが参加要求を送信できます。 
 
-手順は上記とほとんど同じですが、**[RemoteSystemSessionController](https://docs.microsoft.com/uwp/api/windows.system.remotesystems.remotesystemsessioncontroller)** インスタンスを作成する際には、構成済みの **[RemoteSystemSessionOptions](https://docs.microsoft.com/uwp/api/windows.system.remotesystems.RemoteSystemSessionOptions)** オブジェクトを渡します。
+手順は上記とほとんど同じですが、 **[RemoteSystemSessionController](https://docs.microsoft.com/uwp/api/windows.system.remotesystems.remotesystemsessioncontroller)** インスタンスを作成する際には、構成済みの **[RemoteSystemSessionOptions](https://docs.microsoft.com/uwp/api/windows.system.remotesystems.RemoteSystemSessionOptions)** オブジェクトを渡します。
 
 ```csharp
 // define the session options with the invite-only designation
@@ -130,7 +130,7 @@ currentSession.SendInvitationAsync(guestSystem);
 
 ## <a name="discover-and-join-a-remote-session"></a>リモート セッションを検出して参加する
 
-リモート セッションを検出するプロセスは、個々のリモート システムの検出に似ており、**[RemoteSystemSessionWatcher](https://docs.microsoft.com/uwp/api/windows.system.remotesystems.remotesystemsessionwatcher)** クラスによって処理されます。
+リモート セッションを検出するプロセスは、個々のリモート システムの検出に似ており、 **[RemoteSystemSessionWatcher](https://docs.microsoft.com/uwp/api/windows.system.remotesystems.remotesystemsessionwatcher)** クラスによって処理されます。
 
 ```csharp
 public void DiscoverSessions() {
@@ -252,7 +252,7 @@ public async void SendMessageToAllParticipantsAsync(RemoteSystemSessionMessageCh
 }
 ```
 
-特定の参加者だけにメッセージを送信するには、まずセッションに参加しているリモート システムへの参照を取得する検出プロセスを開始する必要があります。 これは、セッションの外部でリモート システムを検出するプロセスと似ています。 セッションに参加しているデバイスを検出するには、**[RemoteSystemSessionParticipantWatcher](https://docs.microsoft.com/uwp/api/windows.system.remotesystems.remotesystemsessionparticipantwatcher)** インスタンスを使用します。
+特定の参加者だけにメッセージを送信するには、まずセッションに参加しているリモート システムへの参照を取得する検出プロセスを開始する必要があります。 これは、セッションの外部でリモート システムを検出するプロセスと似ています。 セッションに参加しているデバイスを検出するには、 **[RemoteSystemSessionParticipantWatcher](https://docs.microsoft.com/uwp/api/windows.system.remotesystems.remotesystemsessionparticipantwatcher)** インスタンスを使用します。
 
 ```csharp
 public void WatchForParticipants() {
@@ -322,4 +322,4 @@ public async void SendMessageToListAsync(RemoteSystemSessionMessageChannel messa
 
 ## <a name="related-topics"></a>関連トピック
 * [接続されているアプリとデバイス (プロジェクト ローマ)](connected-apps-and-devices.md)
-* [リモート システムの API のリファレンス](https://msdn.microsoft.com/library/windows/apps/Windows.System.RemoteSystems)
+* [リモート システムの API のリファレンス](https://docs.microsoft.com/uwp/api/Windows.System.RemoteSystems)

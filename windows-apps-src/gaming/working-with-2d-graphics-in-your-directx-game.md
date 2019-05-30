@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, DirectX, 2D, グラフィックス
 ms.localizationpriority: medium
-ms.openlocfilehash: 1154abc4305307d87f15fbe0c0e5461e3a15e27e
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 7e3a843c00d28d83157cf35a0bd9527be8c6b62f
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57632657"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66367352"
 ---
 # <a name="2d-graphics-for-directx-games"></a>DirectX ゲームの 2D グラフィックス
 
@@ -21,7 +21,7 @@ ms.locfileid: "57632657"
 
 2D グラフィックスは、2D のプリミティブやビットマップを扱う 3D グラフィックスのサブセットです。 平たく言えば、2D グラフィックスでは概して、3D ゲームで使うような Z 座標は使用せず、ゲーム プレイは x-y の平面に制限されます。 2D グラフィックスでは、3D グラフィックスの手法を使用して、ビジュアル コンポーネントを作成する場合があります。2D グラフィックスは通常、3D グラフィックスよりも開発が容易です。 ゲーミングの作業に初めて携わる場合、まず 2D のゲームから始めることをお勧めします。また 2D グラフィックスの開発は、DirectX を理解するうえで効果的な第一歩となります。
 
-DirectX で使用する 2D ゲーミングのグラフィックスは、Direct2D または Direct3D、あるいはその組み合わせを使用して開発できます。 [  **Sprite**](https://msdn.microsoft.com/library/windows/desktop/bb205601) クラスなど、2D ゲーム開発で使用できる有用なクラスが多く Direct3D にもあります。 Direct2D は、主にプリミティブ (たとえば、円、線、平面上の多角形図形など) の描画時にサポートが必要となるユーザー インターフェイスやアプリを対象とした API のセットです。 以上を前提として、Direct2D により、ゲーム グラフィックスの作成をはじめ、特にゲームのオーバーレイ、インターフェイス、およびヘッドアップ ディスプレイ (HUD) の作成、または多様な 2D ゲーム (シンプルなものから比較的複雑なものまで) の作成にあたって利用できる強力で効率のよいクラスとメソッドのセットが提供されます。 ただし、2D ゲームの作成に向けた最も効果的なアプローチは、両方のライブラリにある要素を利用することです。ここでは、こうしたアプローチによって 2D グラフィックスの開発について説明します。
+DirectX で使用する 2D ゲーミングのグラフィックスは、Direct2D または Direct3D、あるいはその組み合わせを使用して開発できます。 [  **Sprite**](https://docs.microsoft.com/windows/desktop/direct3d10/id3dx10sprite) クラスなど、2D ゲーム開発で使用できる有用なクラスが多く Direct3D にもあります。 Direct2D は、主にプリミティブ (たとえば、円、線、平面上の多角形図形など) の描画時にサポートが必要となるユーザー インターフェイスやアプリを対象とした API のセットです。 以上を前提として、Direct2D により、ゲーム グラフィックスの作成をはじめ、特にゲームのオーバーレイ、インターフェイス、およびヘッドアップ ディスプレイ (HUD) の作成、または多様な 2D ゲーム (シンプルなものから比較的複雑なものまで) の作成にあたって利用できる強力で効率のよいクラスとメソッドのセットが提供されます。 ただし、2D ゲームの作成に向けた最も効果的なアプローチは、両方のライブラリにある要素を利用することです。ここでは、こうしたアプローチによって 2D グラフィックスの開発について説明します。
 
 ## <a name="concepts-at-a-glance"></a>概要
 
@@ -56,6 +56,6 @@ DirectX では、2D グラフィックスは 3D パイプラインの一部と�
 ## <a name="reference"></a>リファレンス
 
 
--   [Direct2D の概要](https://msdn.microsoft.com/library/windows/desktop/dd370987)
--   [Direct2D クイック スタート](https://msdn.microsoft.com/library/windows/desktop/dd535473)
--   [Direct2D と Direct3D の相互運用性の概要](https://msdn.microsoft.com/library/windows/desktop/dd370966)
+-   [Direct2D の概要](https://docs.microsoft.com/windows/desktop/Direct2D/direct2d-overview)
+-   [Direct2D クイック スタート](https://docs.microsoft.com/windows/desktop/Direct2D/getting-started-with-direct2d)
+-   [Direct2D と Direct3D の相互運用性の概要](https://docs.microsoft.com/windows/desktop/Direct2D/direct2d-and-direct3d-interoperation-overview)

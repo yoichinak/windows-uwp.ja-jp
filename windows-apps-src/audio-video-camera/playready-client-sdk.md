@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 40df746d89757b481a47cefeaeda3f8a34091014
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: e82a0ffc0ddcf2ac1973ba446ec50dfc61a7cd1a
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57636847"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66361570"
 ---
 # <a name="playready-drm"></a>PlayReady DRM
 
@@ -34,7 +34,7 @@ PlayReady DRM を使うと、開発者はコンテンツ プロバイダーが�
 
     ハードウェア ベースのコンテンツ保護により、複数のデバイス プラットフォーム上で、高解像度 (HD) と超高解像度 (UHD) のコンテンツを安全に再生できます。 キー マテリアル (秘密キー、コンテンツ キー、これらのキーを派生またはロック解除するために使われるその他のキー マテリアルを含みます)、および暗号化解除された圧縮および非圧縮ビデオ サンプルは、ハードウェア セキュリティを利用して保護されます。 ハードウェア DRM の使用中は、HWDRM パイプラインは使用中の出力を常に判別できるため、不明な有効機能 (不明な再生/低解像度の不明な再生) も意味を持ちません。 詳しくは、「[ハードウェア DRM](hardware-drm.md)」をご覧ください。
 
--   PlayReady は AppX フレームワーク コンポーネントではなく、インボックス オペレーティング システム コンポーネントになりました。 名前空間は、**Microsoft.Media.PlayReadyClient** から [**Windows.Media.Protection.PlayReady**](https://msdn.microsoft.com/library/windows/apps/dn986454) に変更されました。
+-   PlayReady は AppX フレームワーク コンポーネントではなく、インボックス オペレーティング システム コンポーネントになりました。 名前空間は、**Microsoft.Media.PlayReadyClient** から [**Windows.Media.Protection.PlayReady**](https://docs.microsoft.com/uwp/api/Windows.Media.Protection.PlayReady) に変更されました。
 -   Windows ソフトウェア開発キット (SDK) の一部になった PlayReady のエラー コードを定義する次のヘッダー。Windows.Media.Protection.PlayReadyErrors.h Windows.Media.Protection.PlayReadyResults.h.
 -   永続的でないライセンスの事前の取得を提供します。
 
@@ -69,13 +69,13 @@ PlayReady DRM を使うと、開発者はコンテンツ プロバイダーが�
 
 PlayReady DRM に、次の新しいインターフェイス、クラス、列挙子が追加されました。
 
--   [**IPlayReadyLicenseAcquisitionServiceRequest** ](https://msdn.microsoft.com/library/windows/apps/dn986077)インターフェイス
--   [**IPlayReadyLicenseSession** ](https://msdn.microsoft.com/library/windows/apps/dn986080)インターフェイス
--   [**IPlayReadySecureStopServiceRequest** ](https://msdn.microsoft.com/library/windows/apps/dn986090)インターフェイス
--   [**PlayReadyLicenseSession** ](https://msdn.microsoft.com/library/windows/apps/dn986309)クラス
--   [**PlayReadySecureStopIterable** ](https://msdn.microsoft.com/library/windows/apps/dn986371)クラス
--   [**PlayReadySecureStopIterator** ](https://msdn.microsoft.com/library/windows/apps/dn986375)クラス
--   [**PlayReadyHardwareDRMFeatures** ](https://msdn.microsoft.com/library/windows/apps/dn986265)列挙子
+-   [**IPlayReadyLicenseAcquisitionServiceRequest** ](https://docs.microsoft.com/uwp/api/Windows.Media.Protection.PlayReady.IPlayReadyLicenseAcquisitionServiceRequest)インターフェイス
+-   [**IPlayReadyLicenseSession** ](https://docs.microsoft.com/uwp/api/Windows.Media.Protection.PlayReady.IPlayReadyLicenseSession)インターフェイス
+-   [**IPlayReadySecureStopServiceRequest**](https://docs.microsoft.com/uwp/api/Windows.Media.Protection.PlayReady.IPlayReadySecureStopServiceRequest) interface
+-   [**PlayReadyLicenseSession** ](https://docs.microsoft.com/uwp/api/Windows.Media.Protection.PlayReady.PlayReadyLicenseSession)クラス
+-   [**PlayReadySecureStopIterable**](https://docs.microsoft.com/uwp/api/Windows.Media.Protection.PlayReady.PlayReadySecureStopIterable) class
+-   [**PlayReadySecureStopIterator**](https://docs.microsoft.com/uwp/api/Windows.Media.Protection.PlayReady.PlayReadySecureStopIterator) class
+-   [**PlayReadyHardwareDRMFeatures** ](https://docs.microsoft.com/uwp/api/Windows.Media.Protection.PlayReady.PlayReadyHardwareDRMFeatures)列挙子
 
 PlayReady DRM の新機能を利用する方法を示すために、新しいサンプルが作成されました。 サンプルは、[https://go.microsoft.com/fwlink/p/?linkid=331670&clcid=0x409](https://go.microsoft.com/fwlink/p/?linkid=331670) からダウンロードできます。
 
@@ -87,7 +87,7 @@ PlayReady DRM の新機能を利用する方法を示すために、新しいサ
 -   新しい PlayReady 3.0 機能 (ハードウェア ベースのクライアント用の SL3000、1 つのライセンス取得メッセージでの永続的でない複数のライセンスの取得、永続的でないライセンスでの時間ベースの制限を含みますが、これらに限定されません) を活用するには、PlayReady サーバーが、Microsoft PlayReady サーバー ソフトウェア開発キット v3.0.2769 リリース バージョン以降である必要があります。
 -   コンテンツ ライセンスで指定された、出力保護ポリシーによっては、接続されている出力がこれらの要件をサポートしていない場合、メディアの再生はエンド ユーザーに対して失敗する可能性があります。 次の表は、結果として発生する一般的なエラーを示しています。 詳しくは、「[PlayReady の適合性と信頼性規則](https://www.microsoft.com/playready/licensing/compliance/)」をご覧ください。
 
-| エラー                                                   | 値      | 説明                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| エラー                                                   | Value      | 説明                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 |---------------------------------------------------------|------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | エラー\_グラフィックス\_OPM\_出力\_は\_いない\_サポート\_HDCP  | 0xC0262513 | ライセンスの出力保護ポリシーでは、モニターが HDCP をエンゲージする必要がありますが、HDCP をエンゲージできませんでした。                                                                                                                                                                                                                                                                                                                                                                                              |
 | MF\_E\_ポリシー\_サポートされていません                              | 0xC00D7159 | ライセンスの出力保護ポリシーでは、モニターが HDCP Type 1 をエンゲージする必要がありますが、HDCP Type 1 をエンゲージできませんでした。                                                                                                                                                                                                                                                                                                                                                                                |
@@ -289,7 +289,7 @@ PlayReady DRM では、HDCP 2.0 以降がエンゲージされるとすぐに Mi
     <tr>
         <th>シナリオ</th>
         <th>GUID</th>
-        <th>条件</th>
+        <th>もし...</th>
         <th>結果</th>
     </tr>
     <tr>
@@ -321,7 +321,7 @@ PlayReady DRM では、HDCP 2.0 以降がエンゲージされるとすぐに Mi
     <tr>
         <th>シナリオ</th>
         <th>GUID</th>
-        <th>条件</th>
+        <th>もし...</th>
         <th colspan="2">結果</th>
     </tr>
     <tr>
@@ -373,7 +373,7 @@ PlayReady DRM では、HDCP 2.0 以降がエンゲージされるとすぐに Mi
     <tr>
         <th>シナリオ</th>
         <th>GUID</th>
-        <th>条件</th>
+        <th>もし...</th>
         <th colspan="2">結果</th>
     </tr>
     <tr>
@@ -407,7 +407,7 @@ PlayReady で保護された UWP アプリの作成を開始する前に、次�
 
 このセクションには、Windows 10 に、既存の PlayReady Windows 8.x ストア アプリを移行する方法についてにが含まれます。
 
-Windows 10 の PlayReady の UWP アプリの名前空間がから変更された**Microsoft.Media.PlayReadyClient**に[ **Windows.Media.Protection.PlayReady**](https://msdn.microsoft.com/library/windows/apps/dn986454)します。 つまり、コード内で以前の名前空間を探し、新しい名前空間に置き換える必要があります。 winmd ファイルは、引き続き参照されます。 Windows.media.winmd、Windows 10 オペレーティング システム上の一部になります。 TH の Windows SDK の一部として、windows.winmd に含まれています。 winmd ファイルは、UWP では、windows.foundation.univeralappcontract.winmd で参照されます。
+Windows 10 の PlayReady の UWP アプリの名前空間がから変更された**Microsoft.Media.PlayReadyClient**に[ **Windows.Media.Protection.PlayReady**](https://docs.microsoft.com/uwp/api/Windows.Media.Protection.PlayReady)します。 つまり、コード内で以前の名前空間を探し、新しい名前空間に置き換える必要があります。 winmd ファイルは、引き続き参照されます。 Windows.media.winmd、Windows 10 オペレーティング システム上の一部になります。 TH の Windows SDK の一部として、windows.winmd に含まれています。 winmd ファイルは、UWP では、windows.foundation.univeralappcontract.winmd で参照されます。
 
 PlayReady で保護された高解像度 (HD) コンテンツ (1080p) および超高解像度 (UHD) コンテンツを再生するには、PlayReady ハードウェア DRM を実装する必要があります。 PlayReady ハードウェア DRM を実装する方法について詳しくは、「[ハードウェア DRM](hardware-drm.md)」をご覧ください。
 
@@ -455,14 +455,14 @@ mediaProtectionManager.Properties["Windows.Media.Protection.MediaProtectionConta
     var licenseSession = new Windows.Media.Protection.PlayReady.PlayReadyLicenseSession( licenseSessionProperties );
     ```
 
-3.  ライセンス サービス要求を作成します。 次に、例を示します。
+3.  ライセンス サービス要求を作成します。 例:
 
     ```cs
     var laSR = licenseSession.CreateLAServiceRequest();
     ```
 
 4.  手順 3. で作成したサービスの要求を使ってライセンスの取得を実行します。 ライセンスは、再生セッションに格納されます。
-5.  再生のメディア ソースに再生セッションを結び付けます。 次に、例を示します。
+5.  再生のメディア ソースに再生セッションを結び付けます。 例:
 
     ```cs
     licenseSession.configureMediaProtectionManager( mediaProtectionManager );
@@ -511,7 +511,7 @@ Windows 10 Version 1703 以降では、デコード コーデック、解像度�
 
 ## <a name="use-playready-drm-on-xbox-one"></a>Xbox One での PlayReady DRM の使用
 
-Xbox One での UWP アプリで PlayReady DRM を使用する必要がありますに登録する、[パートナー センター](https://partner.microsoft.com/dashboard)を使用して PlayReady を使用するための承認用のアプリを発行するアカウント。 次のいずれかの方法で無効にすることができます。
+Xbox One での UWP アプリで PlayReady DRM を使用する必要がありますに登録する、[パートナー センター](https://partner.microsoft.com/dashboard)を使用して PlayReady を使用するための承認用のアプリを発行するアカウント。 2 つの方法のいずれかでこれを行うことができます。
 
 * Microsoft の連絡担当者を通じて許可を申請します。
 * パートナー センター アカウントと会社名を送信することによって、承認の適用[ pronxbox@microsoft.com](mailto:pronxbox@microsoft.com)します。
@@ -519,7 +519,7 @@ Xbox One での UWP アプリで PlayReady DRM を使用する必要がありま
 許可を受信したら、追加の `<DeviceCapability>` をアプリ マニフェストに追加する必要があります。 アプリケーション マニフェスト デザイナーには現在利用できる設定がないため、これは手動で追加する必要があります。 構成するには、次の手順を実行します。
 
 1. Visual Studio でプロジェクトを開き、**ソリューション エクスプローラー**を開いて **Package.appxmanifest** を右クリックします。
-2. **[ファイルを開くアプリケーションの選択]** をクリックして **[XML (テキスト) エディター]** を選択し、**[OK]** をクリックします。
+2. **[ファイルを開くアプリケーションの選択]** をクリックして **[XML (テキスト) エディター]** を選択し、 **[OK]** をクリックします。
 3. `<Capabilities>` タグの間に次の `<DeviceCapability>` を追加します。
 
     ```xml

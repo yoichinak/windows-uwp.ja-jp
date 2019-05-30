@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, 収益化
 ms.localizationpriority: medium
-ms.openlocfilehash: 92d85f81be25eed5f0a43cafb4bb34d9f879c827
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 9ef957700f6554ccece9d0c3bf51ccf4244a4b74
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57606337"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66368414"
 ---
 #  <a name="monetization-for-games"></a>ゲームの収益化
 
@@ -27,7 +27,7 @@ UWP ゲームの販売促進や収益化には、次の方法があります。
 
 ## <a name="worldwide-distribution-channel"></a>世界規模の販売チャネル
 
-Microsoft Store が利用できるゲーム ダウンロード 200 台を超える国や地域で支払い Visa、Mastercard、PayPal などのさまざまなフォームを使用して課金のサポートにより、世界中。 国とリージョンの一覧については、次を参照してください。[を定義する市場選択](https://msdn.microsoft.com/windows/uwp/publish/define-pricing-and-market-selection)します。
+Microsoft Store が利用できるゲーム ダウンロード 200 台を超える国や地域で支払い Visa、Mastercard、PayPal などのさまざまなフォームを使用して課金のサポートにより、世界中。 国とリージョンの一覧については、次を参照してください。[を定義する市場選択](https://docs.microsoft.com/windows/uwp/publish/define-pricing-and-market-selection)します。
 
 ## <a name="set-a-price-for-your-game"></a>ゲームの価格設定
 
@@ -38,29 +38,29 @@ Microsoft Store が利用できるゲーム ダウンロード 200 台を超え�
 ### <a name="base-price"></a>基本価格
 
 ゲームの基本価格は、提供するゲームが_有料_か_無料_かを決定する要素です。 使用することができます[パートナー センター](https://partner.microsoft.com/dashboard)国と地域に基づいて基準価格を構成します。
-場合によっては、価格を決定する際に、[他国向けに販売する場合の納税義務](https://msdn.microsoft.com/windows/uwp/publish/tax-details-for-paid-apps)と[特定の市場向けに販売する場合のコストに関する考慮事項](https://msdn.microsoft.com/windows/uwp/publish/define-pricing-and-market-selection#price-considerations-for-specific-markets)を考慮する必要があります。 また[特定の市場向けにカスタム価格を設定](../publish/set-and-schedule-app-pricing.md#override-base-price-for-specific-markets)することもできます。
+場合によっては、価格を決定する際に、[他国向けに販売する場合の納税義務](https://docs.microsoft.com/windows/uwp/publish/tax-details-for-paid-apps)と[特定の市場向けに販売する場合のコストに関する考慮事項](https://docs.microsoft.com/windows/uwp/publish/define-pricing-and-market-selection)を考慮する必要があります。 また[特定の市場向けにカスタム価格を設定](../publish/set-and-schedule-app-pricing.md#override-base-price-for-specific-markets)することもできます。
 
 ### <a name="sale-price"></a>セール価格
 
 ゲームの販売促進方法の 1 つに、期間を限定して価格を下げる方法があります。 セール価格を__無料__に設定して、無料でゲームのダウンロードを許可することもできます。
-あらかじめセールの開始日と終了日の両方を設定することで、セール キャンペーンのスケジュールを事前に設定できます。 詳しくは、「[アプリとアドオンの販売](https://msdn.microsoft.com/windows/uwp/publish/put-apps-and-add-ons-on-sale)」をご覧ください。
+あらかじめセールの開始日と終了日の両方を設定することで、セール キャンペーンのスケジュールを事前に設定できます。 詳しくは、「[アプリとアドオンの販売](https://docs.microsoft.com/windows/uwp/publish/put-apps-and-add-ons-on-sale)」をご覧ください。
 
 ## <a name="in-game-purchases"></a>ゲーム内購入
 
-ゲーム内購入とは、ゲームの中で購入できる製品です。 これらの製品は、一般に_アプリ内購入_とも呼ばれます。 Microsoft Store で、これらの製品と呼ばれる_アドオン_します。 [アドオンを公開](https://msdn.microsoft.com/windows/uwp/publish/add-on-submissions)パートナー センターを通じてします。 また、ゲームのコードでアドオンを有効にする必要があります。
+ゲーム内購入とは、ゲームの中で購入できる製品です。 これらの製品は、一般に_アプリ内購入_とも呼ばれます。 Microsoft Store で、これらの製品と呼ばれる_アドオン_します。 [アドオンを公開](https://docs.microsoft.com/windows/uwp/publish/add-on-submissions)パートナー センターを通じてします。 また、ゲームのコードでアドオンを有効にする必要があります。
 
 ### <a name="types-of-add-ons"></a>アドオンの種類
 
 ストアでは、_永続的_と_コンシューマブル_の 2 種類のアドオンを作成できます。 永続的なアドオンは、指定された時間にわたって使うことができ、有効期限の間に一度だけ購入できる項目です。 コンシューマブルなアドオンとは、繰り返し購入して使うことができる項目です。
 
-コンシューマブルを作成する際は、追跡方法として、それらの項目が_開発者による管理_か_ストアによる管理_か (この機能は Windows 10、バージョン 1607 以降で使用可能) を決定してください。 開発者に管理された使用できるはのゲーマー; の項目の残高を追跡する責任を負いますストアで管理された使用できると Microsoft Store の追跡項目の分散できます。 詳しくは、「[コンシューマブルなアドオン購入の有効化](https://msdn.microsoft.com/windows/uwp/monetize/enable-consumable-add-on-purchases#overview-of-consumable-add-ons)」をご覧ください。
+コンシューマブルを作成する際は、追跡方法として、それらの項目が_開発者による管理_か_ストアによる管理_か (この機能は Windows 10、バージョン 1607 以降で使用可能) を決定してください。 開発者に管理された使用できるはのゲーマー; の項目の残高を追跡する責任を負いますストアで管理された使用できると Microsoft Store の追跡項目の分散できます。 詳しくは、「[コンシューマブルなアドオン購入の有効化](https://docs.microsoft.com/windows/uwp/monetize/enable-consumable-add-on-purchases)」をご覧ください。
 
 ### <a name="create-in-game-purchases"></a>ゲーム内購入の作成
 
-最新のアプリ内購入およびライセンス情報 API は、Windows SDK (Windows 10 バージョン 1607 以降) の [Windows.Services.Store](https://msdn.microsoft.com/library/windows/apps/windows.services.store.aspx) 名前空間に含まれています。 1607 以降のリリースをターゲットとする新しいゲームを開発している場合は、最新のアドオンの種類をサポートし、パフォーマンスに優れた __Windows.Services.Store__ 名前空間の使用をお勧めします。
-製品とパートナー センターと、ストアでサポートされる機能の今後の型と互換性がある設計もいます。 以前のバージョンの Windows 10 向けに開発を行う場合は、この代わりに [Windows.ApplicationModel.Store](https://msdn.microsoft.com/library/windows/apps/windows.applicationmodel.store.aspx) 名前空間を使います。
+最新のアプリ内購入およびライセンス情報 API は、Windows SDK (Windows 10 バージョン 1607 以降) の [Windows.Services.Store](https://docs.microsoft.com/uwp/api/windows.services.store) 名前空間に含まれています。 1607 以降のリリースをターゲットとする新しいゲームを開発している場合は、最新のアドオンの種類をサポートし、パフォーマンスに優れた __Windows.Services.Store__ 名前空間の使用をお勧めします。
+製品とパートナー センターと、ストアでサポートされる機能の今後の型と互換性がある設計もいます。 以前のバージョンの Windows 10 向けに開発を行う場合は、この代わりに [Windows.ApplicationModel.Store](https://docs.microsoft.com/uwp/api/windows.applicationmodel.store) 名前空間を使います。
 
-詳しくは、「[アプリ内購入と試用版](https://msdn.microsoft.com/windows/uwp/monetize/in-app-purchases-and-trials)」をご覧ください。
+詳しくは、「[アプリ内購入と試用版](https://docs.microsoft.com/windows/uwp/monetize/in-app-purchases-and-trials)」をご覧ください。
 
 #### <a name="simplified-purchase-example"></a>単純な購入の例
 
@@ -68,8 +68,8 @@ Microsoft Store が利用できるゲーム ダウンロード 200 台を超え�
 
 |ゲーム内の操作/アクティビティ                                                | ゲームのバックグラウンド タスク                  |
 |--------------------------------------------------------------------------|----------------------------------------|
-|ゲーマーが、ショップにアクセスします。 ショップ メニューがポップアップ表示され、入手可能なアドオンと購入価格が示されます。 |  ゲームがアドオンの[製品情報を取得](https://msdn.microsoft.com/windows/uwp/monetize/get-product-info-for-apps-and-add-ons)し、[アドオンが適切なライセンスを持つかどうかを判定](https://msdn.microsoft.com/windows/uwp/monetize/get-license-info-for-apps-and-add-ons)して、ゲーマーが購入できるアドオンをショップのメニューに表示します。                           |
-|ゲーマーが __[購入]__ をクリックして項目を購入します。             |__[購入]__ アクションが、項目の購入要求を送信し、それを取得するための支払いプロセスを開始します。 実装は、項目の種類によって異なります。 [永続的または 1 回限りの購入項目](https://msdn.microsoft.com/windows/uwp/monetize/enable-in-app-purchases-of-apps-and-add-ons)の場合、ユーザーは有効期限が切れるまで、1 つの項目のみを所有できます。 項目が[コンシューマブル](https://msdn.microsoft.com/windows/uwp/monetize/enable-consumable-add-on-purchases)の場合、お客様は 1 つ以上の項目を所有できます。 |
+|ゲーマーが、ショップにアクセスします。 ショップ メニューがポップアップ表示され、入手可能なアドオンと購入価格が示されます。 |  ゲームがアドオンの[製品情報を取得](https://docs.microsoft.com/windows/uwp/monetize/get-product-info-for-apps-and-add-ons)し、[アドオンが適切なライセンスを持つかどうかを判定](https://docs.microsoft.com/windows/uwp/monetize/get-license-info-for-apps-and-add-ons)して、ゲーマーが購入できるアドオンをショップのメニューに表示します。                           |
+|ゲーマーが __[購入]__ をクリックして項目を購入します。             |__[購入]__ アクションが、項目の購入要求を送信し、それを取得するための支払いプロセスを開始します。 実装は、項目の種類によって異なります。 [永続的または 1 回限りの購入項目](https://docs.microsoft.com/windows/uwp/monetize/enable-in-app-purchases-of-apps-and-add-ons)の場合、ユーザーは有効期限が切れるまで、1 つの項目のみを所有できます。 項目が[コンシューマブル](https://docs.microsoft.com/windows/uwp/monetize/enable-consumable-add-on-purchases)の場合、お客様は 1 つ以上の項目を所有できます。 |
 
 ### <a name="test-in-game-purchases-during-game-development"></a>ゲーム開発時のゲーム内購入のテスト
 
@@ -84,61 +84,61 @@ Microsoft Store が利用できるゲーム ダウンロード 200 台を超え�
 
 #### <a name="create-a-package"></a>パッケージを作成する
 
-公開されるすべてのゲームは、Windows アプリ認定の最小要件を満たす必要があります。 ゲームが Windows ストアで公開するための要件に適合していることを確認するには、Windows 10 SDK に含まれている [Windows アプリ認定キット](https://msdn.microsoft.com/windows/uwp/debug-test-perf/windows-app-certification-kit)を使ってゲームをテストすることができます。 Windows アプリ認定キットが含まれている Windows 10 SDK をまだダウンロードしていない場合は、[Windows 10 SDK](https://developer.microsoft.com/windows/downloads/windows-10-sdk) にアクセスしてください。
+公開されるすべてのゲームは、Windows アプリ認定の最小要件を満たす必要があります。 ゲームが Windows ストアで公開するための要件に適合していることを確認するには、Windows 10 SDK に含まれている [Windows アプリ認定キット](https://docs.microsoft.com/windows/uwp/debug-test-perf/windows-app-certification-kit)を使ってゲームをテストすることができます。 Windows アプリ認定キットが含まれている Windows 10 SDK をまだダウンロードしていない場合は、[Windows 10 SDK](https://developer.microsoft.com/windows/downloads/windows-10-sdk) にアクセスしてください。
 
 ストアにアップロード可能なパッケージを作成するには:
 
 1. Visual Studio でゲーム ソリューションを開きます。
-2. Visual Studio 内で、__[プロジェクト]__ > __[ストア]__ > __[アプリ パッケージの作成]__ の順に選びます。
+2. Visual Studio 内で、 __[プロジェクト]__  >  __[ストア]__  >  __[アプリ パッケージの作成]__ の順に選びます。
 3. __を Microsoft Store にアップロードするパッケージをビルドするでしょうか。__ オプションを選択し__はい__します。
 4. サインイン、[パートナー センター](https://partner.microsoft.com/dashboard)開発者アカウント。 アカウントを持っていない場合は、開発者アカウントに[登録](https://developer.microsoft.com/store/register)できます。
-5. アップロード パッケージを作成するアプリを選びます。 アプリの申請をまだ作成していない場合は、新しいアプリ名を指定して新しい申請を作成します。 詳しくは、「[名前の予約によるアプリの作成](https://msdn.microsoft.com/windows/uwp/publish/create-your-app-by-reserving-a-name)」をご覧ください。
-6. パッケージが正常に作成されたら、__[Windows アプリ認定キットを起動する]__ をクリックしてテスト プロセスを開始します。
+5. アップロード パッケージを作成するアプリを選びます。 アプリの申請をまだ作成していない場合は、新しいアプリ名を指定して新しい申請を作成します。 詳しくは、「[名前の予約によるアプリの作成](https://docs.microsoft.com/windows/uwp/publish/create-your-app-by-reserving-a-name)」をご覧ください。
+6. パッケージが正常に作成されたら、 __[Windows アプリ認定キットを起動する]__ をクリックしてテスト プロセスを開始します。
 7. エラーを修正してゲームパッケージを作成します。
 
 #### <a name="publish-the-game-as-hidden"></a>非表示としてゲームを公開する
 
 1. 移動して[パートナー センター](https://partner.microsoft.com/dashboard)してサインインします。
-2. __[ダッシュボード概要]__ ページまたは __[すべてのアプリ]__ ページで、目的のアプリをクリックします。 アプリの申請をまだ作成していない場合は、__[新しいアプリの作成]__ をクリックして名前を予約します。
-3. __[アプリの概要]__ ページで、__[提出を開始する]__ をクリックします。
+2. __[ダッシュボード概要]__ ページまたは __[すべてのアプリ]__ ページで、目的のアプリをクリックします。 アプリの申請をまだ作成していない場合は、 __[新しいアプリの作成]__ をクリックして名前を予約します。
+3. __[アプリの概要]__ ページで、 __[提出を開始する]__ をクリックします。
 4. この新しい申請を構成します。 [申請] ページで、次の手順を実行します。
-    * __[価格と使用可能状況]__ をクリックします。 __可視性__セクションで、'__このアプリを非表示にして、取得しないようにしています.__' チームが、ゲームへのアクセスを開発のみを確認します。 詳しくは、「[分布と認知度](https://msdn.microsoft.com/windows/uwp/publish/set-app-pricing-and-availability#distribution-and-visibility)」をご覧ください。
+    * __[価格と使用可能状況]__ をクリックします。 __可視性__セクションで、'__このアプリを非表示にして、取得しないようにしています.__ ' チームが、ゲームへのアクセスを開発のみを確認します。 詳しくは、「[分布と認知度](https://docs.microsoft.com/windows/uwp/publish/set-app-pricing-and-availability)」をご覧ください。
     * [__プロパティ__] を選択します。 __[カテゴリとサブカテゴリ]__ セクションで __[ゲーム]__ を選択し、ゲームに適したサブカテゴリを選びます。
     * __[年齢区分]__ をクリックします。 質問表に正確に入力します。
     * __[パッケージ]__ をクリックします。 前の手順で作成したゲーム パッケージをアップロードします。
 5. ダッシュボードに表示されるその他の申請プロンプトに従って、このゲームを一般のユーザーに対して非表示にしたまま、正常に公開します。
 6. __[ストアに提出]__ をクリックします。
 
-詳しくは、「[アプリの申請](https://msdn.microsoft.com/windows/uwp/publish/app-submissions)」をご覧ください。
+詳しくは、「[アプリの申請](https://docs.microsoft.com/windows/uwp/publish/app-submissions)」をご覧ください。
 
-ゲームをストアに提出すると、[アプリの認定プロセス](https://msdn.microsoft.com/windows/uwp/publish/the-app-certification-process)が開始します。 このプロセスでは、ゲームが表示されるまでに最大 16 時間かかることがあります。
+ゲームをストアに提出すると、[アプリの認定プロセス](https://docs.microsoft.com/windows/uwp/publish/the-app-certification-process)が開始します。 このプロセスでは、ゲームが表示されるまでに最大 16 時間かかることがあります。
 
 #### <a name="associate-your-game-solution-with-the-store"></a>ゲーム ソリューションをストアに関連付ける
 
 次の手順を実行して、Visual Studio でゲーム ソリューションを開きます。
 
-1. __[プロジェクト]__ > __[ストア]__ > __[アプリケーションをストアと関連付ける]__ の順に選びます。
+1. __[プロジェクト]__  >  __[ストア]__  >  __[アプリケーションをストアと関連付ける]__ の順に選びます。
 2. パートナー センターの開発者アカウントにサインインしを使用するこのソリューションを関連付けるアプリ名を選択します。
-3. __Package.appxmanifest.xml ファイル__をダブルクリックし、__[パッケージ化]__ タブに移動してゲームが正しく関連付けられていることを確認します。
+3. __Package.appxmanifest.xml ファイル__をダブルクリックし、 __[パッケージ化]__ タブに移動してゲームが正しく関連付けられていることを確認します。
 
-すでにライブのゲームとしてストアに掲載されている公開済みのゲームにソリューションを関連付けた場合、ソリューションにアクティブなライセンスが設定され、ゲーム用のアドオン作成が一歩前進します。 詳しくは、「[アプリのパッケージ化](https://msdn.microsoft.com/windows/uwp/packaging/index)」をご覧ください。
+すでにライブのゲームとしてストアに掲載されている公開済みのゲームにソリューションを関連付けた場合、ソリューションにアクティブなライセンスが設定され、ゲーム用のアドオン作成が一歩前進します。 詳しくは、「[アプリのパッケージ化](https://docs.microsoft.com/windows/uwp/packaging/index)」をご覧ください。
 
 #### <a name="create-an-add-on-in-the-store"></a>ストアでアドオンを作成する
 
-アドオンを作成する際は、提出した適切なゲームを確認してアドオンを関連付けます。 アドオンに関連付けるすべての多様な情報を構成する方法について詳しくは、「[アドオンの申請](https://msdn.microsoft.com/windows/uwp/publish/add-on-submissions)」をご覧ください。
+アドオンを作成する際は、提出した適切なゲームを確認してアドオンを関連付けます。 アドオンに関連付けるすべての多様な情報を構成する方法について詳しくは、「[アドオンの申請](https://docs.microsoft.com/windows/uwp/publish/add-on-submissions)」をご覧ください。
 
 1. 移動して[パートナー センター](https://partner.microsoft.com/dashboard)してサインインします。
 2. __[ダッシュボード概要]__ ページまたは __[すべてのアプリ]__ ページで、アドオンを作成するアプリをクリックします。
-3. __[アプリの概要]__ ページの __[アドオン]__ セクションで、__[新しいアドオンを作成する]__ をクリックします。
-4. アドオンの製品の種類として、__[開発者により管理されるコンシューマブル]__、__[ストアで管理されるコンシューマブル]__、__[永続的]__ のいずれかを選択します。
-5. 一意の製品 ID を入力します。この製品 ID は、このアドオンをゲーム コードに統合する際に文字列変数として使われます。 この ID は、ユーザーには表示されません。 詳しくは、「[アドオンの製品の種類と製品 ID を設定する](https://msdn.microsoft.com/windows/uwp/publish/set-your-add-on-product-id)」をご覧ください。
+3. __[アプリの概要]__ ページの __[アドオン]__ セクションで、 __[新しいアドオンを作成する]__ をクリックします。
+4. アドオンの製品の種類として、 __[開発者により管理されるコンシューマブル]__ 、 __[ストアで管理されるコンシューマブル]__ 、 __[永続的]__ のいずれかを選択します。
+5. 一意の製品 ID を入力します。この製品 ID は、このアドオンをゲーム コードに統合する際に文字列変数として使われます。 この ID は、ユーザーには表示されません。 詳しくは、「[アドオンの製品の種類と製品 ID を設定する](https://docs.microsoft.com/windows/uwp/publish/set-your-add-on-product-id)」をご覧ください。
 
 アドオンのその他の構成は次のとおりです。
-* [[プロパティ]](https://msdn.microsoft.com/windows/uwp/publish/enter-add-on-properties)
-* [価格と可用性](https://msdn.microsoft.com/windows/uwp/publish/set-add-on-pricing-and-availability)
-* [ストアの一覧](https://msdn.microsoft.com/windows/uwp/publish/create-add-on-store-listings)
+* [[プロパティ]](https://docs.microsoft.com/windows/uwp/publish/enter-add-on-properties)
+* [価格と可用性](https://docs.microsoft.com/windows/uwp/publish/set-add-on-pricing-and-availability)
+* [ストアの一覧](https://docs.microsoft.com/windows/uwp/publish/create-add-on-store-listings)
 
-ゲームに多くのアドオンがある場合は、することができます、プログラムで作成を使用して、 __Microsoft Store 送信 API__します。 詳細については、次を参照してください。[作成し、Microsoft Store サービスを使用して送信を管理](https://msdn.microsoft.com/windows/uwp/monetize/create-and-manage-submissions-using-windows-store-services)します。
+ゲームに多くのアドオンがある場合は、することができます、プログラムで作成を使用して、 __Microsoft Store 送信 API__します。 詳細については、次を参照してください。[作成し、Microsoft Store サービスを使用して送信を管理](https://docs.microsoft.com/windows/uwp/monetize/create-and-manage-submissions-using-windows-store-services)します。
 
 ## <a name="display-ads-in-your-game"></a>ゲーム内での広告の表示
 
@@ -163,7 +163,7 @@ Microsoft Advertising SDK を使って表示できる広告には、いくつか
 
 ### <a name="apis-for-displaying-ads"></a>広告を表示するための API
 
-ゲームで広告を表示するには、Microsoft Advertising SDK の [AdControl](https://msdn.microsoft.com/library/windows/apps/microsoft.advertising.winrt.ui.adcontrol.aspx) クラス、[InterstitialAd](https://msdn.microsoft.com/library/windows/apps/microsoft.advertising.winrt.ui.interstitialad.aspx) クラス、[NativeAd](https://msdn.microsoft.com/library/windows/apps/microsoft.advertising.winrt.ui.nativead.aspx) クラスを使用します。
+ゲームで広告を表示するには、Microsoft Advertising SDK の [AdControl](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.adcontrol) クラス、[InterstitialAd](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.interstitialad) クラス、[NativeAd](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.nativead) クラスを使用します。
 
 これにはまず、[Microsoft Advertising SDK](https://aka.ms/ads-sdk-uwp) をダウンロードし、Visual Studio 2015 以降のバージョンと共にインストールします。 詳しくは、「[Microsoft Advertising SDK のインストール](../monetize/install-the-microsoft-advertising-libraries.md)」をご覧ください。
 
@@ -171,23 +171,23 @@ Microsoft Advertising SDK を使って表示できる広告には、いくつか
 
 次のウォークスルーでは、__AdControl__、__InterstitialAd__、__NativeAd__ を使って広告を実装する方法を説明しています。
 
-* [XAML と .NET でバナー広告を作成します。](https://msdn.microsoft.com/windows/uwp/monetize/adcontrol-in-xaml-and--net)
-* [HTML5 と JavaScript でバナー広告を作成します。](https://msdn.microsoft.com/windows/uwp/monetize/adcontrol-in-html-5-and-javascript)
-* [スポット広告を作成します。](https://msdn.microsoft.com/windows/uwp/monetize/interstitial-ads)
-* [ネイティブの広告を作成します。](https://msdn.microsoft.com/windows/uwp/monetize/native-ads)
+* [XAML と .NET でバナー広告を作成します。](https://docs.microsoft.com/windows/uwp/monetize/adcontrol-in-xaml-and--net)
+* [HTML5 と JavaScript でバナー広告を作成します。](https://docs.microsoft.com/windows/uwp/monetize/adcontrol-in-html-5-and-javascript)
+* [スポット広告を作成します。](https://docs.microsoft.com/windows/uwp/monetize/interstitial-ads)
+* [ネイティブの広告を作成します。](https://docs.microsoft.com/windows/uwp/monetize/native-ads)
 
 開発時には、[広告ユニットのテスト値](../monetize/test-mode-values.md)を使って広告がどのようにレンダリングされるかを確認できます。 上のウォークスルーでも、これらの広告ユニットのテスト値が使われています。
 
 設計と実装のプロセスに役立つベスト プラクティスを次に示します。
 
-* [バナー広告のためのベスト プラクティス](https://msdn.microsoft.com/windows/uwp/monetize/ui-and-user-experience-guidelines)
-* [スポット広告のためのベスト プラクティス](https://msdn.microsoft.com/windows/uwp/monetize/ui-and-user-experience-guidelines#interstitialbestpractices10)
+* [バナー広告のためのベスト プラクティス](https://docs.microsoft.com/windows/uwp/monetize/ui-and-user-experience-guidelines)
+* [スポット広告のためのベスト プラクティス](https://docs.microsoft.com/windows/uwp/monetize/ui-and-user-experience-guidelines)
 
-広告が表示されない、ブラック ボックスが点滅し、表示されなくなる、広告が更新されないなど、開発上の一般的な問題に対する解決策については、[トラブルシューティング ガイド](https://msdn.microsoft.com/windows/uwp/monetize/troubleshooting-guides)」をご覧ください。
+広告が表示されない、ブラック ボックスが点滅し、表示されなくなる、広告が更新されないなど、開発上の一般的な問題に対する解決策については、[トラブルシューティング ガイド](https://docs.microsoft.com/windows/uwp/monetize/troubleshooting-guides)」をご覧ください。
 
 ### <a name="prepare-for-release-by-replacing-ad-unit-test-values"></a>広告ユニットのテスト値を置き換えてリリースの準備をする
 
-ライブ テストに移行する準備または公開したゲームで広告を受信する準備ができたら、テスト用の広告ユニット値を、ゲーム用に提供された実際の値に更新する必要があります。 ゲーム用の広告ユニットを作成する方法については、「[アプリの広告ユニットをセットアップする](https://msdn.microsoft.com/windows/uwp/monetize/set-up-ad-units-in-your-app)」をご覧ください。
+ライブ テストに移行する準備または公開したゲームで広告を受信する準備ができたら、テスト用の広告ユニット値を、ゲーム用に提供された実際の値に更新する必要があります。 ゲーム用の広告ユニットを作成する方法については、「[アプリの広告ユニットをセットアップする](https://docs.microsoft.com/windows/uwp/monetize/set-up-ad-units-in-your-app)」をご覧ください。
 
 ### <a name="other-ad-networks"></a>他の広告ネットワーク
 
@@ -213,21 +213,21 @@ Unity を使って作成された Windows 10 UWP ゲームに AdDuplex SDK を�
 
 ## <a name="maximize-your-games-potential-through-ad-campaigns"></a>広告キャンペーンによってゲームの可能性を最大限に広げる
 
-広告を利用して、ゲームの販売促進を強化しましょう。 ゲームの[広告キャンペーンを作成](https://msdn.microsoft.com/windows/uwp/publish/create-an-ad-campaign-for-your-app)すると、ゲームの販売を促進するための広告が、他の開発者のアプリやゲームに表示されます。
+広告を利用して、ゲームの販売促進を強化しましょう。 ゲームの[広告キャンペーンを作成](https://docs.microsoft.com/windows/uwp/publish/create-an-ad-campaign-for-your-app)すると、ゲームの販売を促進するための広告が、他の開発者のアプリやゲームに表示されます。
 
 ゲーマー ベースの増加に役立つキャンペーンを複数の種類から選択できます。
 
 |キャンペーンの種類             | ゲームの広告が表示されるアプリ                                                                                                                                                                   |
 |--------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |有料                      |ゲームのデバイスまたはカテゴリに一致するアプリ。                                                                                                                                                   |
-|コミュニティ (無料)            |コミュニティ広告キャンペーンにオプト インしている他の開発者が公開するアプリ。 詳しくは、「[コミュニティ広告について](https://msdn.microsoft.com/windows/uwp/publish/about-community-ads)」をご覧ください。|
-|自社 (無料)                |自社が公開したアプリのみ。 詳しくは、「[自社広告について](https://msdn.microsoft.com/windows/uwp/publish/about-house-ads)」をご覧ください。                                                            |
+|コミュニティ (無料)            |コミュニティ広告キャンペーンにオプト インしている他の開発者が公開するアプリ。 詳しくは、「[コミュニティ広告について](https://docs.microsoft.com/windows/uwp/publish/about-community-ads)」をご覧ください。|
+|自社 (無料)                |自社が公開したアプリのみ。 詳しくは、「[自社広告について](https://docs.microsoft.com/windows/uwp/publish/about-house-ads)」をご覧ください。                                                            |
 
 ## <a name="related-links"></a>関連リンク
 
-* [支払いの受け取り](https://msdn.microsoft.com/windows/uwp/publish/getting-paid-apps)
-* [勘定科目の種類、場所、および料金](https://msdn.microsoft.com/windows/uwp/publish/account-types-locations-and-fees)
-* [分析](https://msdn.microsoft.com/windows/uwp/publish/analytics)
-* [グローバリゼーションとローカライズ](https://msdn.microsoft.com/windows/uwp/globalizing/globalizing-portal)
-* [アプリの試用版を実装します。](https://msdn.microsoft.com/windows/uwp/monetize/implement-a-trial-version-of-your-app)
-* [A とアプリの実験を実行する B のテスト](https://msdn.microsoft.com/windows/uwp/monetize/run-app-experiments-with-a-b-testing)
+* [支払いの受け取り](https://docs.microsoft.com/windows/uwp/publish/getting-paid-apps)
+* [勘定科目の種類、場所、および料金](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees)
+* [分析](https://docs.microsoft.com/windows/uwp/publish/analytics)
+* [グローバリゼーションとローカライズ](https://docs.microsoft.com/windows/uwp/globalizing/globalizing-portal)
+* [アプリの試用版を実装します。](https://docs.microsoft.com/windows/uwp/monetize/implement-a-trial-version-of-your-app)
+* [A とアプリの実験を実行する B のテスト](https://docs.microsoft.com/windows/uwp/monetize/run-app-experiments-with-a-b-testing)

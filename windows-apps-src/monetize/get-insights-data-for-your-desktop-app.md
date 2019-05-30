@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10、uwp、Store services、Microsoft Store analytics API、insights
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 5545d27668b23e5b7ae91201421dfa4c92f9c8ed
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 8f6f4b2df1cda14bc1f363a1f9100e416f26489b
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57618137"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66372463"
 ---
 # <a name="get-insights-data-for-your-desktop-application"></a>デスクトップ アプリケーションのインサイト データの取得
 
@@ -45,10 +45,10 @@ Insights データを取得するには、Microsoft Store analytics API では�
 
 | パラメーター        | 種類   |  説明      |  必須  
 |---------------|--------|---------------|------|
-| applicationId | string | Insights のデータを取得するデスクトップ アプリケーションの製品の ID。 デスクトップ アプリケーションの製品 ID を取得するには、いずれかを開く[analytics は、パートナー センターでデスクトップ アプリケーションのレポート](https://msdn.microsoft.com/library/windows/desktop/mt826504)(など、**正常性レポート**) し、URL から、製品 ID を取得します。 このパラメーターを指定しないと、応答本文は、自分のアカウントに登録されているすべてのアプリの insights のデータが含まれます。  |  X  |
+| applicationId | string | Insights のデータを取得するデスクトップ アプリケーションの製品の ID。 デスクトップ アプリケーションの製品 ID を取得するには、いずれかを開く[analytics は、パートナー センターでデスクトップ アプリケーションのレポート](https://docs.microsoft.com/windows/desktop/appxpkg/windows-desktop-application-program)(など、**正常性レポート**) し、URL から、製品 ID を取得します。 このパラメーターを指定しないと、応答本文は、自分のアカウントに登録されているすべてのアプリの insights のデータが含まれます。  |  X  |
 | startDate | date | 取得する insights データの日付範囲の開始日。 既定値は、現在の日付の 30 日前です。 |  X  |
-| endDate | date | 取得する insights データの日付範囲の終了日。 既定値は現在の日付です。 |  いいえ  |
-| filter | string  | 応答内の行をフィルター処理する 1 つまたは複数のステートメントです。 各ステートメントには、応答本文からのフィールド名、および **eq** 演算子または **ne** 演算子と関連付けられる値が含まれており、**and** や **or** を使用してステートメントを組み合わせることができます。 *filter* パラメーターでは、文字列値を単一引用符で囲む必要があります。 たとえば、*フィルター = データ型 eq '買収'* します。 <p/><p/>現在このメソッドは、フィルターのみをサポート**ヘルス**します。  | いいえ   |
+| endDate | date | 取得する insights データの日付範囲の終了日。 既定値は現在の日付です。 |  X  |
+| filter | string  | 応答内の行をフィルター処理する 1 つまたは複数のステートメントです。 各ステートメントには、応答本文からのフィールド名、および **eq** 演算子または **ne** 演算子と関連付けられる値が含まれており、**and** や **or** を使用してステートメントを組み合わせることができます。 *filter* パラメーターでは、文字列値を単一引用符で囲む必要があります。 たとえば、*フィルター = データ型 eq '買収'* します。 <p/><p/>現在このメソッドは、フィルターのみをサポート**ヘルス**します。  | X   |
 
 ### <a name="request-example"></a>要求の例
 

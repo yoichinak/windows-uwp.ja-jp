@@ -6,12 +6,12 @@ ms.date: 11/09/2017
 ms.topic: article
 keywords: Windows 10、UWP、アクセシビリティ、ゲーム
 ms.localizationpriority: medium
-ms.openlocfilehash: 38060d0a6bead360ef8a682902a433670c79b495
-ms.sourcegitcommit: e63fbd7a63a7e8c03c52f4219f34513f4b2bb411
+ms.openlocfilehash: a3ef82db2d0ddb7883179279fd7e48c1acf38dd3
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58162780"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66369174"
 ---
 #  <a name="making-games-accessible"></a>ゲームをアクセシビリティ対応にする
 
@@ -35,7 +35,7 @@ Microsoft では、あらゆるユーザーが楽しめる、おもしろく、�
 
 すばらしいゲームを作っても、複雑すぎて一部の人にしかプレイできなければ、売り上げは限られてしまいます。 同様に、身体的、感覚的、または認知的な障碍を持つユーザーがプレイできないゲームを作成すると、潜在的な売り上げを失うことになります。 たとえば、[米国の人口の 19% にあたる人々に何らかの障碍があり](https://www.census.gov/newsroom/releases/archives/miscellaneous/cb12-134.html)、[米国内の成人の約 14% は読むことが困難であり](https://nces.ed.gov/naal/estimates/overview.aspx)、[男性の約 10% は何らかの色覚の障碍を持っている](https://www.aao.org/eye-health/diseases/color-blindness-risk)ということを考えると、これはタイトルの収益に大きな影響を及ぼす可能性があります。 
 
-その他の業務上の妥当性については、「[ビデオ ゲームのアクセシビリティ](https://msdn.microsoft.com/library/windows/desktop/ee415219)」をご覧ください。
+その他の業務上の妥当性については、「[ビデオ ゲームのアクセシビリティ](https://docs.microsoft.com/windows/desktop/DxTechArts/accessibility-best-practices)」をご覧ください。
 
 ### <a name="better-games"></a>より優れたゲーム
 
@@ -185,7 +185,7 @@ Microsoft では、あらゆるユーザーが楽しめる、おもしろく、�
 
 *   シンプルで読みやすいフォントを選びます。
 *   十分に大きいフォント サイズを選択するか、柔軟性を高めるために、フォント サイズを調整できるオプションを用意することを検討します  (適切なフォント サイズは、画面サイズ、画面から視聴位置までの距離、その他の要因によって異なります)。
-*   背景色とフォントの色のコントラストを高めます。 テキストには強いアウトラインとシャドウを使用します。 キャプションには濃い色の背景オーバーレイを使用し、有効または無効にするオプションを提供します  (詳しくは、[コントラスト比に関する情報](https://msdn.microsoft.com/windows/uwp/accessibility/accessible-text-requirements)をご覧ください)。
+*   背景色とフォントの色のコントラストを高めます。 テキストには強いアウトラインとシャドウを使用します。 キャプションには濃い色の背景オーバーレイを使用し、有効または無効にするオプションを提供します  (詳しくは、[コントラスト比に関する情報](https://docs.microsoft.com/windows/uwp/accessibility/accessible-text-requirements)をご覧ください)。
 * 画面には短い文を表示します。1 行あたり最大 38 文字、一度に表示するのは最大 2 ～ 3 行にします  (イベントが発生する前にテキストを表示してゲームを台無しにしないように注意してください)。
 *   サウンドの発生元や話している人物を区別できるようにします  (例。"Daniel:こんにちは!")
 *   クローズド キャプションと字幕をオンまたはオフにするオプションを用意します  (追加の機能。サウンド情報の量が表示されるかを選択する機能に基づく重要度。)
@@ -271,5 +271,5 @@ Xbox One の標準コントローラーと Xbox Elite コントローラーは�
 ## <a name="related-links"></a>関連リンク
 * [包括的なデザイン](https://www.microsoft.com/design/inclusive)
 * [Microsoft アクセシビリティ開発者ハブ](https://developer.microsoft.com/windows/accessible-apps)
-* [アクセス可能な UWP アプリの開発](https://msdn.microsoft.com/windows/uwp/accessibility/accessibility)
+* [アクセス可能な UWP アプリの開発](https://docs.microsoft.com/windows/uwp/accessibility/accessibility)
 * [エンジニア リング ソフトウェアのアクセシビリティの電子ブック](https://www.microsoft.com/download/details.aspx?id=19262)

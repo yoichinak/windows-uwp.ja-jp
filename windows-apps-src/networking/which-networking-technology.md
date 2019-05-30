@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: b64ddadd0e543930fa72d0c44a6cacf0a873df89
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: db2e444b9f13ba41127b362483774c92d45f1f77
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57656307"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66372753"
 ---
 # <a name="which-networking-technology"></a>アプリに適したネットワーク テクノロジ
 
@@ -22,7 +22,7 @@ UWP 開発者が利用できるネットワーク テクノロジの概要と、
 
 別のデバイスとの通信を独自のプロトコルで実行する場合は、[ソケット](sockets.md)を使います。
 
-ユニバーサル Windows プラットフォーム (UWP) の開発者向けのソケットの 2 つの実装があります。[**Windows.Networking.Sockets**](https://msdn.microsoft.com/library/windows/apps/br226960)、および[Winsock](https://msdn.microsoft.com/library/windows/desktop/ms740673)します。 新しいコードを記述するなら、Windows.Networking.Sockets には、UWP 開発者向けに設計された最新の API であるという利点があります。 クロスプラット フォームのネットワーク ライブラリや既存の Winsock コードを使う場合、または Winsock API の方が適している場合は、Winsock を使います。
+ユニバーサル Windows プラットフォーム (UWP) の開発者向けのソケットの 2 つの実装があります。[**Windows.Networking.Sockets**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets)、および[Winsock](https://docs.microsoft.com/windows/desktop/WinSock/windows-sockets-start-page-2)します。 新しいコードを記述するなら、Windows.Networking.Sockets には、UWP 開発者向けに設計された最新の API であるという利点があります。 クロスプラット フォームのネットワーク ライブラリや既存の Winsock コードを使う場合、または Winsock API の方が適している場合は、Winsock を使います。
 
 ### <a name="when-to-use-sockets"></a>ソケットを使う状況
 
@@ -32,12 +32,12 @@ UWP 開発者が利用できるネットワーク テクノロジの概要と、
 
 ### <a name="when-not-to-use-sockets"></a>ソケットを使わない状況
 
--   ソケットを使う独自の HTTP(S) スタックを実装しないでください。 別のデバイスとの通信を独自のプロトコルで実行する場合は、[**HttpClient**](https://msdn.microsoft.com/library/windows/apps/dn298639) を使います。
--   WebSocket ([**StreamWebSocket**](https://msdn.microsoft.com/library/windows/apps/br226923) クラスと [**MessageWebSocket**](https://msdn.microsoft.com/library/windows/apps/br226842) クラス) が通信ニーズ (Web サーバーに対する TCP) を満たす場合は、時間と開発リソースを費やしてソケットを使う同様の機能を実装する代わりに、これらのクラスを使うことを検討しましょう。
+-   ソケットを使う独自の HTTP(S) スタックを実装しないでください。 別のデバイスとの通信を独自のプロトコルで実行する場合は、[**HttpClient**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpClient) を使います。
+-   WebSocket ([**StreamWebSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamWebSocket) クラスと [**MessageWebSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.MessageWebSocket) クラス) が通信ニーズ (Web サーバーに対する TCP) を満たす場合は、時間と開発リソースを費やしてソケットを使う同様の機能を実装する代わりに、これらのクラスを使うことを検討しましょう。
 
 ## <a name="websockets"></a>WebSocket
 
-[WebSocket](websockets.md) プロトコルは、クライアントとサーバー間の高速でセキュリティ保護された双方向通信を Web 経由で行うためのメカニズムを定義します。 データはすぐに、全二重の 1 つのソケット接続によって転送され、両方のエンドポイントでメッセージの送受信をリアルタイムで実行できます。 WebSocket は、ソーシャル ネットワークでの即時の通知と最新情報 (ゲームの結果) の表示をセキュリティで保護すると同時に高速にデータ転送する必要があるリアルタイム ゲームでの使用に適しています。 UWP 開発者は、[**StreamWebSocket**](https://msdn.microsoft.com/library/windows/apps/br226923) クラスと [**MessageWebSocket**](https://msdn.microsoft.com/library/windows/apps/br226842) クラスを使うことで Websocket プロトコルをサポートするサーバーに接続できます。
+[WebSocket](websockets.md) プロトコルは、クライアントとサーバー間の高速でセキュリティ保護された双方向通信を Web 経由で行うためのメカニズムを定義します。 データはすぐに、全二重の 1 つのソケット接続によって転送され、両方のエンドポイントでメッセージの送受信をリアルタイムで実行できます。 WebSocket は、ソーシャル ネットワークでの即時の通知と最新情報 (ゲームの結果) の表示をセキュリティで保護すると同時に高速にデータ転送する必要があるリアルタイム ゲームでの使用に適しています。 UWP 開発者は、[**StreamWebSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamWebSocket) クラスと [**MessageWebSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.MessageWebSocket) クラスを使うことで Websocket プロトコルをサポートするサーバーに接続できます。
 
 ### <a name="when-to-use-websockets"></a>Websocket を使う状況
 
@@ -50,13 +50,13 @@ UWP 開発者が利用できるネットワーク テクノロジの概要と、
 
 ## <a name="httpclient"></a>HttpClient
 
-HTTP(S) を使って Web サービスまたは Web サーバーと通信する場合は、[HttpClient](httpclient.md) (とその他の [**Windows.Web.Http**](https://msdn.microsoft.com/library/windows/apps/dn279692) 名前空間 API) を使います。
+HTTP(S) を使って Web サービスまたは Web サーバーと通信する場合は、[HttpClient](httpclient.md) (とその他の [**Windows.Web.Http**](https://docs.microsoft.com/uwp/api/Windows.Web.Http) 名前空間 API) を使います。
 
 ### <a name="when-to-use-httpclient"></a>HttpClient を使う状況
 
 -   HTTP(S) を使って Web サービスと通信する場合。
 -   少数の小さなファイルをアップロードまたはダウンロードする場合。
--   WebSocket ([**StreamWebSocket**](https://msdn.microsoft.com/library/windows/apps/br226923) クラスと [**MessageWebSocket**](https://msdn.microsoft.com/library/windows/apps/br226842) クラス) が通信ニーズ (Web サーバーに対する TCP) を満たし、対象の Web サーバーが WebSocket をサポートする場合は、時間と開発リソースを費やして HttpClient を使う同様の機能を実装する代わりに、これらのクラスを使うことを検討しましょう。
+-   WebSocket ([**StreamWebSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamWebSocket) クラスと [**MessageWebSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.MessageWebSocket) クラス) が通信ニーズ (Web サーバーに対する TCP) を満たし、対象の Web サーバーが WebSocket をサポートする場合は、時間と開発リソースを費やして HttpClient を使う同様の機能を実装する代わりに、これらのクラスを使うことを検討しましょう。
 -   ネットワーク経由でコンテンツをストリーミングする場合。
 
 ### <a name="when-not-to-use-httpclient"></a>HttpClient を使わない状況
@@ -80,50 +80,50 @@ Windows 10 で、新しいバック グラウンド転送機能は、ファイ�
 
 ### <a name="when-not-to-use-background-transfers"></a>バックグラウンド転送を使わない状況
 
--   少数の小さなファイルを転送し、転送の完了時に後処理が必要ない場合は、[**HttpClient**](https://msdn.microsoft.com/library/windows/apps/dn298639) の PUT メソッドまたは POST メソッドを使うことを検討しましょう。
--   データをストリーミングして、着信したらローカルで利用する場合は、[**HttpClient**](https://msdn.microsoft.com/library/windows/apps/dn298639) を使います。
+-   少数の小さなファイルを転送し、転送の完了時に後処理が必要ない場合は、[**HttpClient**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpClient) の PUT メソッドまたは POST メソッドを使うことを検討しましょう。
+-   データをストリーミングして、着信したらローカルで利用する場合は、[**HttpClient**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpClient) を使います。
 
 ## <a name="additional-network-related-technologies"></a>その他のネットワークに関連するテクノロジ
 
 ### <a name="connection-quality"></a>接続の品質
 
-[  **Windows.Networking.Connectivity**](https://msdn.microsoft.com/library/windows/apps/br207308) API により、ネットワーク接続、コスト、使用状況の情報にアクセスできます。 この API の使い方について詳しくは、「[ネットワーク接続状態へのアクセスとネットワーク コストの管理](https://msdn.microsoft.com/library/windows/apps/hh452983)」をご覧ください。
+[  **Windows.Networking.Connectivity**](https://docs.microsoft.com/uwp/api/Windows.Networking.Connectivity) API により、ネットワーク接続、コスト、使用状況の情報にアクセスできます。 この API の使い方について詳しくは、「[ネットワーク接続状態へのアクセスとネットワーク コストの管理](https://docs.microsoft.com/previous-versions/windows/apps/hh452983(v=win.10))」をご覧ください。
 
 ### <a name="dns-service-discovery"></a>DNS サービス検出
 
-[  **Windows.Networking.ServiceDiscovery.Dnssd**](https://msdn.microsoft.com/library/windows/apps/dn895183) API により、IETF [RFC 2782](https://go.microsoft.com/fwlink/?LinkId=524158) に記述された DNS-SD プロトコルを使うネットワーク上の他のデバイスにネットワーク サービスをアドバタイズできます。
+[  **Windows.Networking.ServiceDiscovery.Dnssd**](https://docs.microsoft.com/uwp/api/Windows.Networking.ServiceDiscovery.Dnssd) API により、IETF [RFC 2782](https://go.microsoft.com/fwlink/?LinkId=524158) に記述された DNS-SD プロトコルを使うネットワーク上の他のデバイスにネットワーク サービスをアドバタイズできます。
 
 ### <a name="communicating-over-bluetooth"></a>Bluetooth 通信
 
-[  **Windows.Devices.Bluetooth**](https://msdn.microsoft.com/library/windows/apps/dn263413) API により、他のデバイスに Bluetooth 接続でデータを転送できます。 詳しくは、「 [RFCOMM によるファイルの送受信](https://msdn.microsoft.com/library/windows/apps/mt270289)」をご覧ください。
+[  **Windows.Devices.Bluetooth**](https://docs.microsoft.com/uwp/api/Windows.Devices.Bluetooth) API により、他のデバイスに Bluetooth 接続でデータを転送できます。 詳しくは、「 [RFCOMM によるファイルの送受信](https://docs.microsoft.com/windows/uwp/devices-sensors/send-or-receive-files-with-rfcomm)」をご覧ください。
 
 ### <a name="push-notifications-wns"></a>プッシュ通知 (WNS)
 
-[  **Windows.Networking.PushNotifications**](https://msdn.microsoft.com/library/windows/apps/br241307) API により、Windows プッシュ通知サービス (WNS) を使ってネットワーク経由のプッシュ通知が受信できます。 この API の使い方について詳しくは、「[Windows プッシュ通知サービス (WNS) の概要](https://msdn.microsoft.com/library/windows/apps/mt187203)」をご覧ください。
+[  **Windows.Networking.PushNotifications**](https://docs.microsoft.com/uwp/api/Windows.Networking.PushNotifications) API により、Windows プッシュ通知サービス (WNS) を使ってネットワーク経由のプッシュ通知が受信できます。 この API の使い方について詳しくは、「[Windows プッシュ通知サービス (WNS) の概要](https://docs.microsoft.com/windows/uwp/controls-and-patterns/tiles-and-notifications-windows-push-notification-services--wns--overview)」をご覧ください。
 
 ### <a name="near-field-communications"></a>近距離無線通信
 
-[  **Windows.Networking.Proximity**](https://msdn.microsoft.com/library/windows/apps/br241250) API により、プロキシミティまたはデバイスのタップを使うアプリについては近距離無線通信でデータを簡単に転送できます。 この API の使い方について詳しくは、「[近接通信とタップのサポート](https://msdn.microsoft.com/library/windows/apps/hh465229)」をご覧ください。
+[  **Windows.Networking.Proximity**](https://docs.microsoft.com/uwp/api/Windows.Networking.Proximity) API により、プロキシミティまたはデバイスのタップを使うアプリについては近距離無線通信でデータを簡単に転送できます。 この API の使い方について詳しくは、「[近接通信とタップのサポート](https://docs.microsoft.com/previous-versions/windows/apps/hh465229(v=win.10))」をご覧ください。
 
 ### <a name="rssatom-feeds"></a>RSS/Atom フィード
 
-[  **Windows.Web.Syndication**](https://msdn.microsoft.com/library/windows/apps/br243632) API により、RSS 形式と Atom 形式の配信フィードを管理できます。 この API の使用について詳しくは、「[RSS/Atom フィード](web-feeds.md)」をご覧ください。
+[  **Windows.Web.Syndication**](https://docs.microsoft.com/uwp/api/Windows.Web.Syndication) API により、RSS 形式と Atom 形式の配信フィードを管理できます。 この API の使用について詳しくは、「[RSS/Atom フィード](web-feeds.md)」をご覧ください。
 
 ### <a name="wi-fi-enumeration-and-connection-control"></a>Wi-Fi の列挙と接続の制御
 
-[  **Windows.Devices.WiFi**](https://msdn.microsoft.com/library/windows/apps/dn975224) API により、Wi-Fi アダプターを列挙し、利用可能な Wi-Fi ネットワークをスキャンして、アダプターをネットワークに接続できます。
+[  **Windows.Devices.WiFi**](https://docs.microsoft.com/uwp/api/Windows.Devices.WiFi) API により、Wi-Fi アダプターを列挙し、利用可能な Wi-Fi ネットワークをスキャンして、アダプターをネットワークに接続できます。
 
 ### <a name="radio-control"></a>無線制御
 
-[  **Windows.Devices.Radios**](https://msdn.microsoft.com/library/windows/apps/dn996447) API により、Wi-Fi と Bluetooth を含む無線をローカル デバイスで検出して制御できます。
+[  **Windows.Devices.Radios**](https://docs.microsoft.com/uwp/api/Windows.Devices.Radios) API により、Wi-Fi と Bluetooth を含む無線をローカル デバイスで検出して制御できます。
 
 ### <a name="wi-fi-direct"></a>Wi-Fi Direct
 
-[  **Windows.Devices.WiFiDirect**](https://msdn.microsoft.com/library/windows/apps/dn297687) API により、他のローカル デバイスに Wi-Fi Direct で接続して、アドホックのローカル無線ネットワークを作成できます。
+[  **Windows.Devices.WiFiDirect**](https://docs.microsoft.com/uwp/api/Windows.Devices.WiFiDirect) API により、他のローカル デバイスに Wi-Fi Direct で接続して、アドホックのローカル無線ネットワークを作成できます。
 
 ### <a name="wi-fi-direct-services"></a>Wi-Fi Direct サービス
 
-[  **Windows.Devices.WiFiDirect.Services**](https://msdn.microsoft.com/library/windows/apps/dn996481) API により、Wi-Fi Direct サービスを用意し、それらのサービスに接続できます。 Wi-Fi Direct サービスは、Wi-Fi Direct アドホック ネットワーク上のあるデバイス (サービス公表者) が Wi-Fi Direct 接続経由で別のデバイス (サービス探求者) に機能を提供する方法です。
+[  **Windows.Devices.WiFiDirect.Services**](https://docs.microsoft.com/uwp/api/Windows.Devices.WiFiDirect.Services) API により、Wi-Fi Direct サービスを用意し、それらのサービスに接続できます。 Wi-Fi Direct サービスは、Wi-Fi Direct アドホック ネットワーク上のあるデバイス (サービス公表者) が Wi-Fi Direct 接続経由で別のデバイス (サービス探求者) に機能を提供する方法です。
 
 ### <a name="mobile-operators"></a>携帯電話会社
 
@@ -131,9 +131,9 @@ Windows 10 では、デバイスの製造元および携帯電話会社にのみ
 
 ### <a name="network-operations"></a>ネットワーク操作
 
-[  **Windows.Networking.NetworkOperators**](https://msdn.microsoft.com/library/windows/apps/br241148) API は主に、電話の構成とプロビジョニングを処理します。 このため、この API を制御する機能を使う権限は、デバイスの製造元と通信事業者に限られています。
+[  **Windows.Networking.NetworkOperators**](https://docs.microsoft.com/uwp/api/Windows.Networking.NetworkOperators) API は主に、電話の構成とプロビジョニングを処理します。 このため、この API を制御する機能を使う権限は、デバイスの製造元と通信事業者に限られています。
 
 ### <a name="sms"></a>SMS
 
-[  **Windows.Devices.Sms**](https://msdn.microsoft.com/library/windows/apps/br206567) 名前空間は、SMS と関連メッセージを低レベルのエンティティとして処理します。 これは、携帯電話会社がアプリ向けの SMS で使うために提供されるもので、ほとんどのアプリ開発者の使用が許可されることはない機能によって制御されます。 メッセージを処理するアプリを記述する場合は、代わりに [**Windows.ApplicationModel.Chat**](https://msdn.microsoft.com/library/windows/apps/dn642321) API を使います。この API は、SMS メッセージだけではなく、リアルタイム チャット アプリなどの他のソースからのメッセージも処理するように設計されているため、よりリッチなチャット/メッセージング エクスペリエンスを提供できます。
+[  **Windows.Devices.Sms**](https://docs.microsoft.com/uwp/api/Windows.Devices.Sms) 名前空間は、SMS と関連メッセージを低レベルのエンティティとして処理します。 これは、携帯電話会社がアプリ向けの SMS で使うために提供されるもので、ほとんどのアプリ開発者の使用が許可されることはない機能によって制御されます。 メッセージを処理するアプリを記述する場合は、代わりに [**Windows.ApplicationModel.Chat**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Chat) API を使います。この API は、SMS メッセージだけではなく、リアルタイム チャット アプリなどの他のソースからのメッセージも処理するように設計されているため、よりリッチなチャット/メッセージング エクスペリエンスを提供できます。
 

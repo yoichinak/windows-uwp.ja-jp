@@ -7,12 +7,12 @@ keywords:
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: f147f4c30d2a662806df5928fc79178522b9b6a6
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 50c8fa623130412688f14307fa46540c81f38554
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57633097"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66370484"
 ---
 # <a name="bc6h-format"></a>BC6H 形式
 
@@ -40,7 +40,7 @@ BC6H 形式は、3 つの HDR カラー チャネルを使用した画像に、�
 
  
 
-BC6H 形式は、[Texture2D](https://msdn.microsoft.com/library/windows/desktop/bb205277) (配列を含む)、Texture3D、または TextureCube (配列を含む) のテクスチャ リソースに使用できます。 同様に、この形式は、これらのリソースに関連付けられた任意のミップマップ サーフェスに適用されます。
+BC6H 形式は、[Texture2D](https://docs.microsoft.com/windows/desktop/direct3d10/d3d10-graphics-reference-resource-structures) (配列を含む)、Texture3D、または TextureCube (配列を含む) のテクスチャ リソースに使用できます。 同様に、この形式は、これらのリソースに関連付けられた任意のミップマップ サーフェスに適用されます。
 
 BC6H は、16バイト (128 ビット) の固定ブロックサイズと 4 × 4 テクセルの固定タイル サイズを使用します。 以前の BC 形式と同様に、サポートされるタイル サイズ (4 x 4) よりも大きなテクスチャ画像は、複数のブロックを使用して圧縮されます。 このアドレス指定 ID は、3 次元画像とミップマップ、キューブマップ、テクスチャ配列にも適用されます。 すべての画像タイルは同じ形式でなければなりません。
 

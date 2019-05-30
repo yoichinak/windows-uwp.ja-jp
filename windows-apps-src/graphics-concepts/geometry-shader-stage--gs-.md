@@ -7,12 +7,12 @@ keywords:
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 63c678f4b2dde1a5e35c0131b5154493c9703951
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 0ea3e7ec73b042eeef560af3d88754afdfa5b441
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57623377"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66370460"
 ---
 # <a name="geometry-shader-gs-stage"></a>ジオメトリ シェーダー (GS) ステージ
 
@@ -28,7 +28,7 @@ ms.locfileid: "57623377"
 
 ジオメトリ シェーダーは、限定的なジオメトリの増幅と減幅もサポートしています。 ジオメトリ シェーダーは、入力プリミティブに対して、プリミティブを破棄することも、1つまたは複数の新しいプリミティブを出力することもできます。
 
-ジオメトリ シェーダー (GS) ステージはプログラム可能なシェーダー ステージです。[グラフィックス パイプライン](graphics-pipeline.md)の図では角丸ブロックとして表示されます。 このシェーダー ステージは、シェーダー モデル (「[共通シェーダー コア](https://msdn.microsoft.com/library/windows/desktop/bb509580)」を参照) に基づいて構築された、独自の機能を公開します。
+ジオメトリ シェーダー (GS) ステージはプログラム可能なシェーダー ステージです。[グラフィックス パイプライン](graphics-pipeline.md)の図では角丸ブロックとして表示されます。 このシェーダー ステージは、シェーダー モデル (「[共通シェーダー コア](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-common-core)」を参照) に基づいて構築された、独自の機能を公開します。
 
 ジオメトリ シェーダー ステージは、次のようなアルゴリズムに最適です。
 
@@ -62,7 +62,7 @@ ms.locfileid: "57623377"
 ## <a name="span-idoutputspanspan-idoutputspanspan-idoutputspanoutput"></a><span id="Output"></span><span id="output"></span><span id="OUTPUT"></span>出力
 
 
-ジオメトリ シェーダー (GS) ステージでは、1 つの選択したトポロジを形成する複数の頂点を出力することができます。 利用可能なジオメトリ シェーダーの出力トポロジには、**tristrip**、**linestrip**、および**pointlist** があります。 生成されるプリミティブの数は、ジオメトリ シェーダーの呼び出し内で自由に変えることができますが、生成可能な頂点の最大数は、静的に宣言する必要があります。 ジオメトリ シェーダーの呼び出しから生成されるストリップの長さは任意で、新しいストリップは [RestartStrip](https://msdn.microsoft.com/library/windows/desktop/bb509660) HLSL 組み込み関数を使用して作成できます。
+ジオメトリ シェーダー (GS) ステージでは、1 つの選択したトポロジを形成する複数の頂点を出力することができます。 利用可能なジオメトリ シェーダーの出力トポロジには、**tristrip**、**linestrip**、および**pointlist** があります。 生成されるプリミティブの数は、ジオメトリ シェーダーの呼び出し内で自由に変えることができますが、生成可能な頂点の最大数は、静的に宣言する必要があります。 ジオメトリ シェーダーの呼び出しから生成されるストリップの長さは任意で、新しいストリップは [RestartStrip](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-so-restartstrip) HLSL 組み込み関数を使用して作成できます。
 
 ジオメトリ シェーダー インスタンスの実行は、ストリームに追加されるデータがシリアルであることを除き、他の呼び出しからアトミックです。 ジオメトリ シェーダーの特定の呼び出しの出力は、他の呼び出しから独立しています (ただし、順序は考慮されます)。 三角形ストリップを生成するジオメトリ シェーダーは、すべての呼び出しで新しいストリップを開始します。
 

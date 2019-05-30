@@ -7,19 +7,19 @@ keywords:
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 2c55a12dfa7757a48874b6857c95af592e818c2b
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 25ee9960e55100eaf743d73d7007e9bcf51342ee
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57590767"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66370722"
 ---
 # <a name="bc7-format"></a>BC7 形式
 
 
 BC7 形式は、RGB および RGBA データの高品質圧縮に使用される、テクスチャ圧縮形式です。
 
-BC7 形式のブロック モードについて詳しくは、[BC7 形式モード リファレンス](https://msdn.microsoft.com/library/windows/desktop/hh308954)をご覧ください。
+BC7 形式のブロック モードについて詳しくは、[BC7 形式モード リファレンス](https://docs.microsoft.com/windows/desktop/direct3d11/bc7-format-mode-reference)をご覧ください。
 
 ## <a name="span-idabout-bc7-dxgi-format-bc7spanspan-idabout-bc7-dxgi-format-bc7spanspan-idabout-bc7-dxgi-format-bc7spanabout-bc7dxgiformatbc7"></a><span id="About-BC7-DXGI-FORMAT-BC7"></span><span id="about-bc7-dxgi-format-bc7"></span><span id="ABOUT-BC7-DXGI-FORMAT-BC7"></span>Bc7 の使用/DXGI について\_形式\_bc7 の使用
 
@@ -30,7 +30,7 @@ BC7 形式のブロック モードについて詳しくは、[BC7 形式モー�
 -   **DXGI\_形式\_BC7\_UNORM**します。
 -   **DXGI\_形式\_BC7\_UNORM\_SRGB**します。
 
-BC7 形式は、[Texture2D](https://msdn.microsoft.com/library/windows/desktop/bb205277) (配列を含む)、Texture3D、または TextureCube (配列を含む) のテクスチャ リソースに使用できます。 同様に、この形式は、これらのリソースに関連付けられた任意のミップマップ サーフェスに適用されます。
+BC7 形式は、[Texture2D](https://docs.microsoft.com/windows/desktop/direct3d10/d3d10-graphics-reference-resource-structures) (配列を含む)、Texture3D、または TextureCube (配列を含む) のテクスチャ リソースに使用できます。 同様に、この形式は、これらのリソースに関連付けられた任意のミップマップ サーフェスに適用されます。
 
 BC7 は、16バイト (128 ビット) の固定ブロックサイズと 4 × 4 テクセルの固定タイル サイズを使用します。 以前の BC 形式と同様に、サポートされるタイル サイズ (4 x 4) よりも大きなテクスチャ画像は、複数のブロックを使用して圧縮されます。 このアドレス指定 ID は、3 次元画像とミップマップ、キューブマップ、テクスチャ配列にも適用されます。 すべての画像タイルは同じ形式でなければなりません。
 

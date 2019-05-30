@@ -6,18 +6,18 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: ef98f3f4a9d20e836d5f9bddbc111a232f864bf5
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: dc9d71f6f02ec62fdf96161c397f7d2d7363b506
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57602617"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66372511"
 ---
 # <a name="net-framework-mappings-of-windows-runtime-types"></a>.NET Framework での Windows ランタイム型の対応付け
 
 
 
-次の表は、.NET Framework での、ユニバーサル Windows プラットフォーム (UWP) 型と .NET Framework 型の間の対応付けを示しています。 マネージ コードで記述されたユニバーサル Windows アプリでは、IntelliSense は UWP 型ではなく .NET Framework 型を表示します。 たとえば、Windows ランタイム メソッドが IVector&lt;string&gt; 型のパラメーターを受け取る場合、IntelliSense は IList&lt;string&gt; 型のパラメーターを表示します。 同様に、マネージ コードで記述された Windows ランタイム コンポーネントでは、.NET Framework 型をメンバーのシグネチャ内で使います。 [Windows ランタイム メタデータ エクスポート ツール (Winmdexp.exe)](https://msdn.microsoft.com/library/hh925576.aspx) で Windows ランタイム コンポーネントを生成すると、.NET Framework 型は、対応する UWP 型になります。
+次の表は、.NET Framework での、ユニバーサル Windows プラットフォーム (UWP) 型と .NET Framework 型の間の対応付けを示しています。 マネージ コードで記述されたユニバーサル Windows アプリでは、IntelliSense は UWP 型ではなく .NET Framework 型を表示します。 たとえば、Windows ランタイム メソッドが IVector&lt;string&gt; 型のパラメーターを受け取る場合、IntelliSense は IList&lt;string&gt; 型のパラメーターを表示します。 同様に、マネージ コードで記述された Windows ランタイム コンポーネントでは、.NET Framework 型をメンバーのシグネチャ内で使います。 [Windows ランタイム メタデータ エクスポート ツール (Winmdexp.exe)](https://docs.microsoft.com/dotnet/framework/tools/winmdexp-exe-windows-runtime-metadata-export-tool) で Windows ランタイム コンポーネントを生成すると、.NET Framework 型は、対応する UWP 型になります。
 
 ## <a name="mapping-tables"></a>対応表
 
@@ -59,7 +59,7 @@ UWP と .NET Framework の両方で同じ名前空間名と型名を持つ型の
 
 表 2:UWP は、同じ名前と名前空間の .NET Framework 型にマップする型します。
 
-| 名前空間                           | 種類               | .NET Framework アセンブリ                   |
+| Namespace                           | 種類               | .NET Framework アセンブリ                   |
 |-------------------------------------|--------------------|-------------------------------------------|
 | Windows.UI                          | 色              | System.Runtime.WindowsRuntime.dll         |
 | Windows.Foundation                  | ポイント              | System.Runtime.WindowsRuntime.dll         |
@@ -71,9 +71,9 @@ UWP と .NET Framework の両方で同じ名前空間名と型名を持つ型の
 | Windows.UI.Xaml                     | DurationType       | System.Runtime.WindowsRuntime.UI.Xaml.dll |
 | Windows.UI.Xaml                     | GridLength         | System.Runtime.WindowsRuntime.UI.Xaml.dll |
 | Windows.UI.Xaml                     | GridUnitType       | System.Runtime.WindowsRuntime.UI.Xaml.dll |
-| Windows.UI.Xaml                     | Thickness          | System.Runtime.WindowsRuntime.UI.Xaml.dll |
+| Windows.UI.Xaml                     | 太さ          | System.Runtime.WindowsRuntime.UI.Xaml.dll |
 | Windows.UI.Xaml.Controls.Primitives | GeneratorPosition  | System.Runtime.WindowsRuntime.UI.Xaml.dll |
-| Windows.UI.Xaml.Media               | Matrix             | System.Runtime.WindowsRuntime.UI.Xaml.dll |
+| Windows.UI.Xaml.Media               | マトリックス             | System.Runtime.WindowsRuntime.UI.Xaml.dll |
 | Windows.UI.Xaml.Media.Animation     | KeyTime            | System.Runtime.WindowsRuntime.UI.Xaml.dll |
 | Windows.UI.Xaml.Media.Animation     | RepeatBehavior     | System.Runtime.WindowsRuntime.UI.Xaml.dll |
 | Windows.UI.Xaml.Media.Animation     | RepeatBehaviorType | System.Runtime.WindowsRuntime.UI.Xaml.dll |

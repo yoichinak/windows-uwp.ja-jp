@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, Microsoft Store 申請 API, アドオンの作成, アプリ内製品, IAP
 ms.localizationpriority: medium
-ms.openlocfilehash: b358eecd1799e76573cf6d254a80e7a7971bc123
-ms.sourcegitcommit: 6a7dd4da2fc31ced7d1cdc6f7cf79c2e55dc5833
+ms.openlocfilehash: 00eb1a865631ce51cfa065d27ed00b44c66a6757
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58334170"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66371265"
 ---
 # <a name="create-an-add-on"></a>アドオンの作成
 
@@ -50,7 +50,7 @@ Microsoft Store 送信 API でこのメソッドを使用すると、パート�
 |  パラメーター  |  種類  |  説明  |  必須  |
 |------|------|------|------|
 |  applicationIds  |  array  |  このアドオンが関連付けられるアプリのストア ID を含む配列です。 この配列でサポートされる項目は 1 つのみです。   |  〇  |
-|  productId  |  string  |  アドオンの製品 ID です。 これは、アドオンを参照する、コード内で使用できる識別子です。 詳しくは、「[IAP の製品の種類と製品 ID を設定する](https://msdn.microsoft.com/windows/uwp/publish/set-your-iap-product-id)」をご覧ください。  |  〇  |
+|  productId  |  string  |  アドオンの製品 ID です。 これは、アドオンを参照する、コード内で使用できる識別子です。 詳しくは、「[IAP の製品の種類と製品 ID を設定する](https://docs.microsoft.com/windows/uwp/publish/set-your-iap-product-id)」をご覧ください。  |  〇  |
 |  productType  |  string  |  アドオンの製品の種類です。 次の値がサポートされています。**持続性のある**と**消耗**します。  |  〇  |
 
 

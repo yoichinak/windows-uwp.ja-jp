@@ -5,12 +5,12 @@ ms.date: 11/30/2018
 ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、ポート、移行、相互運用、ABI
 ms.localizationpriority: medium
-ms.openlocfilehash: 3eee6b75d3ea86c183293ffc27289e9cae2929ce
-ms.sourcegitcommit: 82edc63a5b3623abce1d5e70d8e200a58dec673c
+ms.openlocfilehash: a1745f9ad98ed8dac2e54e17d18467981eafdcec
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58291680"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66360224"
 ---
 # <a name="interop-between-cwinrt-and-the-abi"></a>C++/WinRT と ABI 間の相互運用
 
@@ -104,7 +104,7 @@ int main()
 }
 ```
 
-**as** 関数を実装すると、[**QueryInterface**](https://msdn.microsoft.com/library/windows/desktop/ms682521) が呼び出されます。 [  **AddRef**](https://msdn.microsoft.com/library/windows/desktop/ms691379) のみを呼び出す下位レベルの変換を行う場合は、[**winrt::copy_to_abi**](/uwp/cpp-ref-for-winrt/copy-to-abi) と [**winrt::copy_from_abi**](/uwp/cpp-ref-for-winrt/copy-from-abi) のヘルパー関数を使用できます。 次に、この下位レベル変換を上記のコード例に追加するコード例を示します。
+**as** 関数を実装すると、[**QueryInterface**](https://docs.microsoft.com/windows/desktop/api/unknwn/nf-unknwn-iunknown-queryinterface(q_)) が呼び出されます。 [  **AddRef**](https://docs.microsoft.com/windows/desktop/api/unknwn/nf-unknwn-iunknown-addref) のみを呼び出す下位レベルの変換を行う場合は、[**winrt::copy_to_abi**](/uwp/cpp-ref-for-winrt/copy-to-abi) と [**winrt::copy_from_abi**](/uwp/cpp-ref-for-winrt/copy-from-abi) のヘルパー関数を使用できます。 次に、この下位レベル変換を上記のコード例に追加するコード例を示します。
 
 ```cppwinrt
 int main()
@@ -173,7 +173,7 @@ T convert_from_abi(::IUnknown* from)
 }
 ```
 
-この関数は、[**QueryInterface**](https://msdn.microsoft.com/library/windows/desktop/ms682521) を呼び出し、要求された C++/WinRT 型の既定のインターフェイスを照会するだけです。
+この関数は、[**QueryInterface**](https://docs.microsoft.com/windows/desktop/api/unknwn/nf-unknwn-iunknown-queryinterface(q_)) を呼び出し、要求された C++/WinRT 型の既定のインターフェイスを照会するだけです。
 
 既に説明したように、C++/WinRT オブジェクトから同等の ABI インターフェイス ポインターへの変換には、ヘルパー関数は必要ありません。 [  **winrt::Windows::Foundation::IUnknown::as**](/uwp/cpp-ref-for-winrt/windows-foundation-iunknown#iunknownas-function) (または [**try_as**](/uwp/cpp-ref-for-winrt/windows-foundation-iunknown#iunknowntry_as-function)) メンバー関数を使用して、要求されたインターフェイスを照会するだけです。 **as** 関数と **try_as** 関数は、要求された ABI 型をラップする [**winrt::com_ptr**](/uwp/cpp-ref-for-winrt/com-ptr) オブジェクトを返します。
 
@@ -244,8 +244,8 @@ int main()
 ```
 
 ## <a name="important-apis"></a>重要な API
-* [AddRef 関数](https://msdn.microsoft.com/library/windows/desktop/ms691379)
-* [QueryInterface 関数](https://msdn.microsoft.com/library/windows/desktop/ms682521)
+* [AddRef 関数](https://docs.microsoft.com/windows/desktop/api/unknwn/nf-unknwn-iunknown-addref)
+* [QueryInterface 関数](https://docs.microsoft.com/windows/desktop/api/unknwn/nf-unknwn-iunknown-queryinterface(q_))
 * [winrt::attach_abi 関数](/uwp/cpp-ref-for-winrt/attach-abi)
 * [winrt::com_ptr 構造体のテンプレート](/uwp/cpp-ref-for-winrt/com-ptr)
 * [winrt::copy_from_abi 関数](/uwp/cpp-ref-for-winrt/copy-from-abi)

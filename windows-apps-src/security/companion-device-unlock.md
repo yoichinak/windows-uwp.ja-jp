@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp, セキュリティ
 ms.assetid: 89f3d331-20cd-457b-83e8-1a22aaab2658
 ms.localizationpriority: medium
-ms.openlocfilehash: fb1ff6431b3ccf609b7362db819569c2f6cebc48
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: HT
+ms.openlocfilehash: 0ddadde2502e8512ba38dc30c6ac24d22631d62c
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57657017"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66372643"
 ---
 # <a name="windows-unlock-with-windows-hello-companion-iot-devices"></a>Windows Hello コンパニオン (IoT) デバイスを使った Windows のロック解除
 
@@ -50,7 +50,7 @@ Windows Hello コンパニオン デバイス フレームワークは、Windows
 
 Windows Hello コンパニオン デバイス フレームワークとの統合には、以下が必要です。
 
-- コンパニオン デバイス用の[ユニバーサル Windows プラットフォーム (UWP)](https://msdn.microsoft.com/windows/uwp/get-started/universal-application-platform-guide) Windows Hello コンパニオン デバイス アプリ。Windows アプリ ストアからダウンロードできます。 
+- コンパニオン デバイス用の[ユニバーサル Windows プラットフォーム (UWP)](https://docs.microsoft.com/windows/uwp/get-started/universal-application-platform-guide) Windows Hello コンパニオン デバイス アプリ。Windows アプリ ストアからダウンロードできます。 
 - 2 つの 256 ビットの HMAC キーを Windows Hello コンパニオン デバイス上に作成し、HMAC を (SHA-256 を使用して) 生成する能力。
 - 適切に構成された Windows 10 デスクトップのセキュリティ設定。 Companion Authentication Service では、Windows Hello コンパニオン デバイスが接続される前に PIN が設定されている必要があります。 ユーザーは、[設定]、[アカウント]、[サインイン オプション] の順に移動して、PIN を設定する必要があります。
 

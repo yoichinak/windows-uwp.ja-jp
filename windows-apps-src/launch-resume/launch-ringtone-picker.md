@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 0c17e4fb-7241-4da9-b457-d6d3a7aefccb
 ms.localizationpriority: medium
-ms.openlocfilehash: 293c755ecaf81ce80fab148a8aca92a7e3a8fa48
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 78ed118ba15f38f8914cf2046344d782cd0df71b
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57618587"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66370790"
 ---
 # <a name="choose-and-save-tones-using-the-ms-tonepicker-uri-scheme"></a>ms-tonepicker URI スキームを使ったトーンの選択と保存
 
@@ -23,7 +23,7 @@ ms.locfileid: "57618587"
 
 ## <a name="ms-tonepicker-uri-scheme-reference"></a>ms-tonepicker:URI スキームの参照
 
-この URI スキームは、URI スキーム文字列を利用して引数を渡すことはせず、[ValueSet](https://msdn.microsoft.com/library/windows/apps/windows.foundation.collections.valueset.aspx) を介して引数を渡します。 すべての文字列で、大文字と小文字が区別されます。
+この URI スキームは、URI スキーム文字列を利用して引数を渡すことはせず、[ValueSet](https://docs.microsoft.com/uwp/api/windows.foundation.collections.valueset) を介して引数を渡します。 すべての文字列で、大文字と小文字が区別されます。
 
 以下のセクションでは、特定のタスクを実行するために渡される引数を示します。
 
@@ -49,7 +49,7 @@ if (status != LaunchQuerySupportStatus.Available)
 | CurrentToneFilePath | string | no | 既存のトーン トークン。 | トーンの選択コントロールに現在のトーンとして表示されるトーン。 この値が設定されていない場合、既定では、一覧の最初のトーンが選ばれます。<br>これは厳密にはファイル パスではありません。 トーンの選択コントロールから返された `ToneToken` の値から、`CurrenttoneFilePath` に適した値を取得できます。  |
 | TypeFilter | string | no | "Ringtones"、"Notifications"、"Alarms"、"None" | 選択コントロールに追加するトーンを選択します。 フィルターが指定されていない場合は、すべてのトーンが表示されます。 |
 
-[LaunchUriResults.Result](https://msdn.microsoft.com/library/windows/apps/windows.system.launchuriresult.result.aspx) に返される値は次のとおりです。
+[LaunchUriResults.Result](https://docs.microsoft.com/uwp/api/windows.system.launchuriresult.result) に返される値は次のとおりです。
 
 | 戻り値 | 種類 | 設定可能な値 | 説明 |
 |--------------|------|-------|-------------|
@@ -93,10 +93,10 @@ if (result.Status == LaunchUriStatus.Success)
 | パラメーター | 種類 | 必須 | 設定可能な値 | 説明 |
 |-----------|------|----------|-------|-------------|
 | アクション | string | ○ | "SaveRingtone" | 選択コントロールを開いて着信音を保存します。 |
-| ToneFileSharingToken | string | ○ | 保存する着信音ファイルの [SharedStorageAccessManager](https://msdn.microsoft.com/library/windows/apps/windows.applicationmodel.datatransfer.sharedstorageaccessmanager.aspx) ファイル共有トークン。 | 特定のサウンド ファイルを着信音として保存します。 サポートされるファイル コンテンツの種類は、MPEG オーディオと x-ms-wma オーディオです。 |
+| ToneFileSharingToken | string | ○ | 保存する着信音ファイルの [SharedStorageAccessManager](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.sharedstorageaccessmanager) ファイル共有トークン。 | 特定のサウンド ファイルを着信音として保存します。 サポートされるファイル コンテンツの種類は、MPEG オーディオと x-ms-wma オーディオです。 |
 | DisplayName | string | no | 指定したトーンのフレンドリ名。 | 指定した着信音を保存するときに使用する表示名を設定します。 |
 
-[LaunchUriResults.Result](https://msdn.microsoft.com/library/windows/apps/windows.system.launchuriresult.result.aspx) に返される値は次のとおりです。
+[LaunchUriResults.Result](https://docs.microsoft.com/uwp/api/windows.system.launchuriresult.result) に返される値は次のとおりです。
 
 | 戻り値 | 種類 | 設定可能な値 | 説明 |
 |--------------|------|-------|-------------|
@@ -159,7 +159,7 @@ if (result.Status == LaunchUriStatus.Success)
 | アクション | string | ○ | "GetToneName" | トーンのフレンドリ名を取得することを示します。 |
 | ToneToken | string | ○ | トーンのトークン | 表示名を取得する対象となるトーン トークン。 |
 
-[LaunchUriResults.Result](https://msdn.microsoft.com/library/windows/apps/windows.system.launchuriresult.result.aspx) に返される値は次のとおりです。
+[LaunchUriResults.Result](https://docs.microsoft.com/uwp/api/windows.system.launchuriresult.result) に返される値は次のとおりです。
 
 | 戻り値 | 種類 | 設定可能な値 | 説明 |
 |--------------|------|-------|-------------|

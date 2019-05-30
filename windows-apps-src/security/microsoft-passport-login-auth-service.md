@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp, セキュリティ
 ms.localizationpriority: medium
-ms.openlocfilehash: de4d8fc797efe2a0dde7340f42208a97bccf0b10
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 98251ecba05dd27cbe3112a94b6cfcd36440d380
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57645107"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66371228"
 ---
 # <a name="create-a-windows-hello-login-service"></a>Windows Hello ログイン サービスの作成
 
@@ -51,7 +51,7 @@ ms.locfileid: "57645107"
     }
     ```
 
-    PassportDevices のコメント アウトされた一覧があります。 現在の実装の既存のユーザー モデルにこの変更を加える必要があります。 PassportDevices の一覧には deviceID、Windows Hello から生成された公開キー、[**KeyCredentialAttestationResult**](https://msdn.microsoft.com/library/windows/apps/dn973034) が含められます。 このハンズオン ラボでは、keyAttestationResult を実装する必要があります。これらが、TPM (Trusted Platform Modules) チップを搭載するデバイスの Windows Hello によってのみ提供されるためです。 **KeyCredentialAttestationResult** は、複数のプロパティの組み合わせであるため、保存してデータベースに読み込むには分割する必要があります。
+    PassportDevices のコメント アウトされた一覧があります。 現在の実装の既存のユーザー モデルにこの変更を加える必要があります。 PassportDevices の一覧には deviceID、Windows Hello から生成された公開キー、[**KeyCredentialAttestationResult**](https://docs.microsoft.com/uwp/api/Windows.Security.Credentials.KeyCredentialAttestationResult) が含められます。 このハンズオン ラボでは、keyAttestationResult を実装する必要があります。これらが、TPM (Trusted Platform Modules) チップを搭載するデバイスの Windows Hello によってのみ提供されるためです。 **KeyCredentialAttestationResult** は、複数のプロパティの組み合わせであるため、保存してデータベースに読み込むには分割する必要があります。
 
 -   AuthService フォルダーに "PassportDevice.cs" という新しいクラスを作成します。 これは、上で説明した Windows Hello デバイスのモデルです。 クラス定義をパブリックに変更し、次のプロパティを追加します。
 

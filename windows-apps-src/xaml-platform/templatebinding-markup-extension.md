@@ -6,16 +6,16 @@ ms.date: 10/29/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 9ade10b4d5e2653eb214d93c2c9166e6a3e3defc
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: e784b14c30222a28a0e10f8ba0bcf96e6c7f9afd
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57661807"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66372316"
 ---
 # <a name="templatebinding-markup-extension"></a>{TemplateBinding} マークアップ拡張
 
-コントロール テンプレート内のプロパティの値を、template 宣言されたコントロールのその他の公開されているプロパティの値にリンクします。 XAML では、**TemplateBinding** は [**ControlTemplate**](https://msdn.microsoft.com/library/windows/apps/br209391) 定義内でのみ使用できます。
+コントロール テンプレート内のプロパティの値を、template 宣言されたコントロールのその他の公開されているプロパティの値にリンクします。 XAML では、**TemplateBinding** は [**ControlTemplate**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ControlTemplate) 定義内でのみ使用できます。
 
 ## <a name="xaml-attribute-usage"></a>XAML 属性の使用方法
 
@@ -38,13 +38,13 @@ ms.locfileid: "57661807"
 
 ## <a name="remarks"></a>注釈
 
-カスタム コントロールの作成者である場合でも、コントロール テンプレートを今あるコントロールに置き換える場合でも、コントロール テンプレートを定義するうえでは **TemplateBinding** を使うことが欠かせません。 詳細については、次を参照してください。[クイック スタート。コントロール テンプレート](https://msdn.microsoft.com/library/windows/apps/xaml/hh465374)します。
+カスタム コントロールの作成者である場合でも、コントロール テンプレートを今あるコントロールに置き換える場合でも、コントロール テンプレートを定義するうえでは **TemplateBinding** を使うことが欠かせません。 詳細については、次を参照してください。[クイック スタート。コントロール テンプレート](https://docs.microsoft.com/previous-versions/windows/apps/hh465374(v=win.10))します。
 
-*propertyName* と *targetProperty* では同じプロパティ名を使うことが一般的です。 この場合、コントロール自体でプロパティを定義し、プロパティを、そのいずれかのコンポーネントの直感的な名前を持つ既にあるプロパティに転送します。 たとえば、[**TextBlock**](https://msdn.microsoft.com/library/windows/apps/br209652) をコントロールの合成に組み込んでコントロール自体の **Text** プロパティの表示に使う場合は、コントロール テンプレートの一部として次の XAML を含めることができます。`<TextBlock Text="{TemplateBinding Text}" .... />`
+*propertyName* と *targetProperty* では同じプロパティ名を使うことが一般的です。 この場合、コントロール自体でプロパティを定義し、プロパティを、そのいずれかのコンポーネントの直感的な名前を持つ既にあるプロパティに転送します。 たとえば、[**TextBlock**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock) をコントロールの合成に組み込んでコントロール自体の **Text** プロパティの表示に使う場合は、コントロール テンプレートの一部として次の XAML を含めることができます。`<TextBlock Text="{TemplateBinding Text}" .... />`
 
 ソース プロパティとターゲット プロパティの値として使う型は一致する必要があります。 **TemplateBinding** を使うとコンバーターを導入する機会がありません。 値が一致しないと、XAML を解析したときにエラーが発生します。 コンバーターを必要とする場合は、次のようなテンプレート バインドの冗長な形式の構文を使うことができます。`{Binding RelativeSource={RelativeSource TemplatedParent}, Converter="..." ...}`
 
-XAML の [**ControlTemplate**](https://msdn.microsoft.com/library/windows/apps/br209391) 定義の外側で **TemplateBinding** を使うと、パーサー エラーが発生します。
+XAML の [**ControlTemplate**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ControlTemplate) 定義の外側で **TemplateBinding** を使うと、パーサー エラーが発生します。
 
 親のテンプレート値も別のバインドとして延期される場合は、**TemplateBinding** を使用できます。 **TemplateBinding** の評価は、必要な実行時バインドに値が設定されるまで待機することができます。
 
@@ -57,13 +57,13 @@ XAML の [**ControlTemplate**](https://msdn.microsoft.com/library/windows/apps/b
 ### <a name="xbind-in-controltemplate"></a>X:bind の ControlTemplate
 
 > [!NOTE]
-> Windows 10、バージョンは 1809 ControlTemplate に x: バインドを使用する必要があります ([SDK 17763](https://developer.microsoft.com/windows/downloads/windows-10-sdk)) またはそれ以降。 ターゲット バージョンについて詳しくは、「[バージョン アダプティブ コード](https://msdn.microsoft.com/windows/uwp/debug-test-perf/version-adaptive-code)」をご覧ください。
+> Windows 10、バージョンは 1809 ControlTemplate に x: バインドを使用する必要があります ([SDK 17763](https://developer.microsoft.com/windows/downloads/windows-10-sdk)) またはそれ以降。 ターゲット バージョンについて詳しくは、「[バージョン アダプティブ コード](https://docs.microsoft.com/windows/uwp/debug-test-perf/version-adaptive-code)」をご覧ください。
 
-使用できます Windows 10、バージョンは 1809、以降では、 **X:bind**マークアップ拡張機能使用する任意の場所**TemplateBinding**で、 [ **ControlTemplate** ](https://msdn.microsoft.com/library/windows/apps/br209391). 
+使用できます Windows 10、バージョンは 1809、以降では、 **X:bind**マークアップ拡張機能使用する任意の場所**TemplateBinding**で、 [ **ControlTemplate** ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ControlTemplate). 
 
-[TargetType](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.controltemplate.targettype)プロパティは (オプションではなく) が必要で[ControlTemplate](https://msdn.microsoft.com/library/windows/apps/br209391)を使用する場合**X:bind**します。
+[TargetType](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.controltemplate.targettype)プロパティは (オプションではなく) が必要で[ControlTemplate](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ControlTemplate)を使用する場合**X:bind**します。
 
-**X:bind**サポート、両方を使用することができます[関数バインド](../data-binding/function-bindings.md)で双方向のバインディングと、 [ControlTemplate](https://msdn.microsoft.com/library/windows/apps/br209391)します。
+**X:bind**サポート、両方を使用することができます[関数バインド](../data-binding/function-bindings.md)で双方向のバインディングと、 [ControlTemplate](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ControlTemplate)します。
 
 この例で、 **TextBlock.Text**にプロパティが評価される**Button.Content.ToString**します。 ControlTemplate の TargetType では、データ ソースとして機能し、TemplateBinding を親と同じ結果を実現します。
 
@@ -77,9 +77,9 @@ XAML の [**ControlTemplate**](https://msdn.microsoft.com/library/windows/apps/b
 
 ## <a name="related-topics"></a>関連トピック
 
-* [クイック スタート:コントロール テンプレート](https://msdn.microsoft.com/library/windows/apps/xaml/hh465374)
-* [データ バインディングの詳細](https://msdn.microsoft.com/library/windows/apps/mt210946)
-* [**ControlTemplate**](https://msdn.microsoft.com/library/windows/apps/br209391)
+* [クイック スタート:コントロール テンプレート](https://docs.microsoft.com/previous-versions/windows/apps/hh465374(v=win.10))
+* [データ バインディングの詳細](https://docs.microsoft.com/windows/uwp/data-binding/data-binding-in-depth)
+* [**ControlTemplate**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ControlTemplate)
 * [XAML の概要](xaml-overview.md)
 * [依存関係プロパティの概要](dependency-properties-overview.md)
  

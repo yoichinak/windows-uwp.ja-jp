@@ -6,17 +6,17 @@ ms.date: 10/26/2017
 ms.topic: article
 keywords: windows 10、uwp、3dprinting、3d 印刷
 ms.localizationpriority: medium
-ms.openlocfilehash: 5d0bfaa06c749567fb38254be06ac9e8fd01fe61
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 0f63ce967c2053da9addc77fba0eb738fff41b44
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57607307"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66370378"
 ---
 # <a name="3d-printing"></a>3D 印刷
 
 
-このセクションを利用する方法を説明します、 [Windows.Graphics.Printing3D 名前空間](https://msdn.microsoft.com/library/windows/apps/windows.graphics.printing3d.aspx)ユニバーサル Windows アプリに 3D 印刷機能を追加します。  
+このセクションを利用する方法を説明します、 [Windows.Graphics.Printing3D 名前空間](https://docs.microsoft.com/uwp/api/windows.graphics.printing3d)ユニバーサル Windows アプリに 3D 印刷機能を追加します。  
 
 Windows 10 3D 印刷の詳細については、ハードウェア パートナー、コミュニティのディスカッション フォーラム、および 3D の印刷機能の一般的な情報を参照してくださいにリソースを含む、 [Windows 10 3D 印刷](https://developer.microsoft.com/windows/hardware/3d-print-support-windows-10)ハードウェア上のサイトデベロッパー センター。
 
@@ -28,7 +28,7 @@ Windows 10 3D 印刷の詳細については、ハードウェア パートナ�
 ## <a name="related-topics"></a>関連トピック
 
 * [Windows 10 (ハードウェア デベロッパー センター) での 3D 印刷](https://developer.microsoft.com/windows/hardware/3d-print-support-windows-10)
-* [Windows.Graphics.Printing3D 名前空間](https://msdn.microsoft.com/library/windows/apps/windows.graphics.printing3d.aspx)
+* [Windows.Graphics.Printing3D 名前空間](https://docs.microsoft.com/uwp/api/windows.graphics.printing3d)
 * [3D 印刷サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/3DPrinting)
 * [Unity のサンプルの 3D 印刷](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/3DPrintingFromUnity)
 

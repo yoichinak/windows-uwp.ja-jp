@@ -6,12 +6,12 @@ ms.topic: article
 ms.assetid: 43ffd28c-c4df-405c-bf5c-29c94e0d142b
 keywords: Windows 10, UWP, タイマー, スレッド
 ms.localizationpriority: medium
-ms.openlocfilehash: f11207a774b1ffcebde95e316634592020e6ed49
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 3afa1720ede9728e9cc25af434a431300faf26d6
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57631217"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66371216"
 ---
 # <a name="using-windows-runtime-objects-in-a-multithreaded-environment"></a>マルチスレッド環境での Windows ランタイム オブジェクトの使用
 この記事では、C# および Visual Basic コードからオブジェクト (Windows ランタイム や Windows ランタイム コンポーネントによって提供されるオブジェクト) を呼び出すとき、.NET Framework がどのようにこの呼び出しを処理するかについて説明します。
@@ -20,7 +20,7 @@ ms.locfileid: "57631217"
 
 可能であれば、Windows ランタイム などの他のソースからのオブジェクトは共通言語ランタイム (CLR) によって処理されます。この場合、これらのオブジェクトは、.NET Framework オブジェクトであるかのように扱われます。
 
-- オブジェクトによって [IAgileObject](https://msdn.microsoft.com/library/Hh802476.aspx) インターフェイスが実装されるか、オブジェクトの [MarshalingBehaviorAttribute](https://go.microsoft.com/fwlink/p/?LinkId=256022) 属性の値が [MarshalingType.Agile](https://go.microsoft.com/fwlink/p/?LinkId=256023) である場合、CLR はこのオブジェクトをアジャイルとして処理します。
+- オブジェクトによって [IAgileObject](https://docs.microsoft.com/windows/desktop/api/objidl/nn-objidl-iagileobject) インターフェイスが実装されるか、オブジェクトの [MarshalingBehaviorAttribute](https://go.microsoft.com/fwlink/p/?LinkId=256022) 属性の値が [MarshalingType.Agile](https://go.microsoft.com/fwlink/p/?LinkId=256023) である場合、CLR はこのオブジェクトをアジャイルとして処理します。
 
 - ターゲット オブジェクトのスレッド コンテキストに対して行われるスレッドからの呼び出しを CLR がマーシャリングできる場合、それは透過的に行われます。
 
@@ -34,7 +34,7 @@ ms.locfileid: "57631217"
 > [!NOTE]
 >  アジャイルであるからといって、スレッド セーフでもあるというわけではありません。 Windows ランタイム および .NET Framework のどちらの場合も、ほとんどのクラスはスレッド セーフではありません。これは、スレッド セーフはパフォーマンス コストを伴うためです。また、ほとんどのオブジェクトは、複数のスレッドによってアクセスされることはありません。 必要な場合にのみ、個々のオブジェクトへのアクセスを同期する (またはスレッド セーフなクラスを使用する) ことがより効率的な方法です。
 
-Windows ランタイム コンポーネントを作成する場合、既定値をオーバーライドができます。 [ICustomQueryInterface](/dotnet/api/system.runtime.interopservices.icustomqueryinterface) インターフェイスと [IAgileObject](https://msdn.microsoft.com/library/Hh802476.aspx) インターフェイスをご覧ください。
+Windows ランタイム コンポーネントを作成する場合、既定値をオーバーライドができます。 [ICustomQueryInterface](/dotnet/api/system.runtime.interopservices.icustomqueryinterface) インターフェイスと [IAgileObject](https://docs.microsoft.com/windows/desktop/api/objidl/nn-objidl-iagileobject) インターフェイスをご覧ください。
 
 ## <a name="objects-from-the-windows-runtime"></a>Windows ランタイム からのオブジェクト
 Windows ランタイム のほとんどのクラスはアジャイルであり、CLR はこれらをアジャイルとして処理します。 これらのクラスに関するドキュメントでは、クラスの属性として "MarshalingBehaviorAttribute(Agile)" が示されています。 ただし、これらのアジャイル クラスの一部に属するメンバー (XAML コントロールなど) は、UI スレッド上で呼び出されない場合、例外をスローします。 たとえば、次のコードでは、バック グラウンド スレッドを使用して、クリックされたボタンのプロパティを設定しようとします。 ボタンの [Content](https://go.microsoft.com/fwlink/p/?LinkId=256025) プロパティは例外をスローします。

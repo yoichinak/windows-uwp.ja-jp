@@ -5,12 +5,12 @@ ms.date: 01/10/2017
 ms.topic: article
 keywords: windows 10、uwp、WinRT API では、インデクサー、検索
 localizationpriority: medium
-ms.openlocfilehash: b2ac43c9aa2d27f8745e9075abc13d8feaba2370
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 2a77bfc37d853efd28bde9bc3043d072888822f2
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57592687"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66369264"
 ---
 # <a name="using-supplemental-properties"></a>補足のプロパティを使用します。  
 
@@ -27,7 +27,7 @@ ms.locfileid: "57592687"
 数十年間、Windows 上の高速検索のソリューションが、インデクサーをされているし、Creators Update で更新が行われてこれらの新しいシナリオをサポートするためにします。 アプリでは、タグのファイル システムで抽出するもの以外の追加のプロパティでできますようになりました。 これらのプロパティは、ファースト クラスの市民として扱われます。  
 
 ## <a name="windows-properties"></a>Windows プロパティ 
-[Windows プロパティ システム](https://msdn.microsoft.com/library/windows/desktop/ff728898)年間のファイルとの対話のキーの一部となっています。 これにより、アプリのすべての異なるファイル形式や言語にファイルを表示できる内部構造を知らなくても、ファイルからプロパティを読み取るができます。 すべてが抽象化することが開発者として、行う必要があるものはリストの要求し、昇順または降順を指定します。  
+[Windows プロパティ システム](https://docs.microsoft.com/windows/desktop/properties/windows-properties-system)年間のファイルとの対話のキーの一部となっています。 これにより、アプリのすべての異なるファイル形式や言語にファイルを表示できる内部構造を知らなくても、ファイルからプロパティを読み取るができます。 すべてが抽象化することが開発者として、行う必要があるものはリストの要求し、昇順または降順を指定します。  
 
 プロパティ システムが Windows のインデクサーと絡まり合って – そのスコープ内のファイルからすべてのプロパティを読み取りに格納します。 後でときにアプリが要求を変更するには、日付で並べ替えられるフォルダー内のすべての .docx の一覧については、インデクサー John Smith が作成したものを除いてできる一覧を返します。 すぐにします。  
 

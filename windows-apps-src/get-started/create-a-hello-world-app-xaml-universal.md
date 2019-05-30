@@ -6,12 +6,12 @@ ms.date: 03/06/2017
 ms.topic: article
 keywords: windows 10, uwp, 初めてのアプリ, hello world
 ms.localizationpriority: medium
-ms.openlocfilehash: 433536673efb9d2f17d822599051030b219ed02f
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: d9a7f0302dfdc9f9fa980f0fe93a3371328f9e5c
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57642157"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66367432"
 ---
 # <a name="create-a-hello-world-app-xaml"></a>"Hello, world" アプリを作成する (XAML)
 
@@ -19,7 +19,7 @@ ms.locfileid: "57642157"
 
 ここでは、次の方法について説明します。
 
--   新規作成**Visual Studio 2017**を対象とするプロジェクト**Windows 10**と**UWP**します。
+-   新規作成**Visual Studio**を対象とするプロジェクト**Windows 10**と**UWP**します。
 -   スタート ページの UI を変更するように XAML を記述する。
 -   Visual Studio のローカル デスクトップでプロジェクトを実行する。
 -   SpeechSynthesizer を使って、ボタンが押されたときにアプリがコンテンツを読み上げるようにする。
@@ -29,7 +29,7 @@ ms.locfileid: "57642157"
 
 -   [ユニバーサル Windows アプリとは何ですか。](universal-application-platform-guide.md)
 -   [Visual Studio 2017 (および Windows 10) をダウンロードします](https://developer.microsoft.com/windows/downloads)。 サポートが必要な場合は、[セットアップする](get-set-up.md)方法をご覧ください。
--   また、Visual Studio の既定のウィンドウ レイアウトを使用することを前提としています。 既定のレイアウトを変更した場合は、**[ウィンドウ]** メニューの **[ウィンドウ レイアウトのリセット]** を使って、レイアウトをリセットできます。
+-   また、Visual Studio の既定のウィンドウ レイアウトを使用することを前提としています。 既定のレイアウトを変更した場合は、 **[ウィンドウ]** メニューの **[ウィンドウ レイアウトのリセット]** を使って、レイアウトをリセットできます。
 
 > [!NOTE]
 > このチュートリアルでは、Visual Studio Community 2017 を使います。 異なるバージョンの Visual Studio を使っている場合には、見た目が多少異なることがあります。
@@ -42,30 +42,30 @@ ms.locfileid: "57642157"
 
 ## <a name="step-1-create-a-new-project-in-visual-studio"></a>手順 1:Visual Studio で新しいプロジェクトを作成します。
 
-1.  Visual Studio 2017 を起動します。
+1.  Visual Studio を起動します。
 
 2.  **ファイル**メニューの **新規 > プロジェクト**を開く、*新しいプロジェクト*ダイアログ。
 
 3.  左側のテンプレートの一覧から選択**インストール済み > Visual C# > Windows ユニバーサル**UWP プロジェクト テンプレートの一覧を表示します。
 
-    ユニバーサル テンプレートが表示されない場合は、UWP アプリを作成するためのコンポーネントがない可能性があります。 インストール プロセスを繰り返して UWP サポートを追加することもできます (*[新しいプロジェクト]* ダイアログで **[Visual Studio インストーラーを開く]** をクリック)。 参照してください[設定](get-set-up.md))。
+    ユニバーサル テンプレートが表示されない場合は、UWP アプリを作成するためのコンポーネントがない可能性があります。 インストール プロセスを繰り返して UWP サポートを追加することもできます ( *[新しいプロジェクト]* ダイアログで **[Visual Studio インストーラーを開く]** をクリック)。 参照してください[設定](get-set-up.md))。
 
     ![インストール プロセスを繰り返す方法](images/win10-cs-install.png)
 
-4.  **[空白のアプリ (ユニバーサル Windows)]** テンプレートを選択し、**[名前]** に「HelloWorld」と入力します。 **[OK]** を選択します。
+4.  **[空白のアプリ (ユニバーサル Windows)]** テンプレートを選択し、 **[名前]** に「HelloWorld」と入力します。 **[OK]** を選択します。
 
     ![[新しいプロジェクト] ウィンドウ](images/win10-cs-01.png)
 
 > [!NOTE]
-> Visual Studio を初めて使う場合は、[設定] ダイアログ ボックスが表示され、**開発者モード**を有効にするよう求められることがあります。 開発者モードは、アプリをストアからだけではなく、直接実行するためのアクセス許可など、特定の機能を有効にする特別な設定です。 詳しくは、「[デバイスを開発用に有効にする](enable-your-device-for-development.md)」をご覧ください。 先に進むには、**[開発者モード]** を選択し、**[はい]** をクリックしてダイアログ ボックスを閉じます。
+> Visual Studio を初めて使う場合は、[設定] ダイアログ ボックスが表示され、**開発者モード**を有効にするよう求められることがあります。 開発者モードは、アプリをストアからだけではなく、直接実行するためのアクセス許可など、特定の機能を有効にする特別な設定です。 詳しくは、「[デバイスを開発用に有効にする](enable-your-device-for-development.md)」をご覧ください。 先に進むには、 **[開発者モード]** を選択し、 **[はい]** をクリックしてダイアログ ボックスを閉じます。
 
  ![開発者モードのアクティブ化ダイアログ](images/win10-cs-00.png)
 
-5.  ターゲット バージョンと最小バージョンのダイアログが表示されます。 このチュートリアルでは既定の設定で問題ないため、**[OK]** を選択してプロジェクトを作成します。
+5.  ターゲット バージョンと最小バージョンのダイアログが表示されます。 このチュートリアルでは既定の設定で問題ないため、 **[OK]** を選択してプロジェクトを作成します。
 
     ![ソリューション エクスプローラーのウィンドウ](images/win10-cs-02.png)
 
-6.  新しいプロジェクトが開き、そのプロジェクトのファイルが右側の**ソリューション エクスプローラー**のウィンドウに表示されます。 場合によっては、ファイルを表示するために **[ソリューション エクスプローラー]** タブを選択する必要があります (**[プロパティ]** タブではありません)。
+6.  新しいプロジェクトが開き、そのプロジェクトのファイルが右側の**ソリューション エクスプローラー**のウィンドウに表示されます。 場合によっては、ファイルを表示するために **[ソリューション エクスプローラー]** タブを選択する必要があります ( **[プロパティ]** タブではありません)。
 
     ![ソリューション エクスプローラーのウィンドウ](images/win10-cs-03.png)
 
@@ -76,7 +76,7 @@ ms.locfileid: "57642157"
 
 プロジェクトのファイルを表示して編集するには、**ソリューション エクスプローラー**でファイルをダブルクリックします。 フォルダーと同様、XAML ファイルを展開して、関連するコード ファイルを表示します。 XAML ファイルは、デザイン サーフェスと XAML エディターの両方を表示する分割ビューで開きます。
 > [!NOTE]
-> XAML とは Extensible Application Markup Language (XAML) は、アプリのユーザー インターフェイスを定義するための言語です。 XAML は、手動で入力することも、Visual Studio のデザイン ツールを使って作成することもできます。 .xaml ファイルには、ロジックが格納される .xaml.cs 分離コード ファイルがあります。 XAML と分離コードがまとまって、完全なクラスが作成されます。 詳しくは、「[XAML の概要](https://msdn.microsoft.com/library/windows/apps/Mt185595)」をご覧ください。
+> XAML とは Extensible Application Markup Language (XAML) は、アプリのユーザー インターフェイスを定義するための言語です。 XAML は、手動で入力することも、Visual Studio のデザイン ツールを使って作成することもできます。 .xaml ファイルには、ロジックが格納される .xaml.cs 分離コード ファイルがあります。 XAML と分離コードがまとまって、完全なクラスが作成されます。 詳しくは、「[XAML の概要](https://docs.microsoft.com/windows/uwp/xaml-platform/xaml-overview)」をご覧ください。
 
 *App.xaml と App.xaml.cs*
 
@@ -89,7 +89,7 @@ ms.locfileid: "57642157"
 
 -   MainPage.xaml は、アプリの UI を定義する場所です。 要素の追加は、XAML マークアップを使って直接行うことも、Visual Studio のデザイン ツールを使って行うこともできます。
 -   MainPage.xaml.cs は、MainPage.xaml のコード ビハインド ページです。 ここには、アプリのロジックとイベント ハンドラーを追加します。
--   これら 2 つのファイルで、[**Page**](https://msdn.microsoft.com/library/windows/apps/BR227503) から継承される `MainPage` という新しいクラスを `HelloWorld` 名前空間に定義します。
+-   これら 2 つのファイルで、[**Page**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Page) から継承される `MainPage` という新しいクラスを `HelloWorld` 名前空間に定義します。
 
 *Package.appxmanifest*
 -   名前、説明、タイル、開始ページなど、アプリを説明するマニフェスト ファイルです。
@@ -157,7 +157,7 @@ ms.locfileid: "57642157"
 
 **ローカル コンピューターでデバッグを開始するには**
 
-1.  **[標準]** ツール バーの [ターゲット デバイス] メニュー (![[デバッグの開始] メニュー](images/startdebug-full.png)) で、**[ローカル コンピューター]** が選択されていることを確認します  (既定で選択されています)。
+1.  **[標準]** ツール バーの [ターゲット デバイス] メニュー (![[デバッグの開始] メニュー](images/startdebug-full.png)) で、 **[ローカル コンピューター]** が選択されていることを確認します  (既定で選択されています)。
 2.  ツール バーの **[デバッグの開始]** ボタン (![[デバッグの開始] ボタン](images/startdebug-sm.png)) をクリックします。
 
    または
@@ -166,7 +166,7 @@ ms.locfileid: "57642157"
 
    または
 
-   F5 キーを押します。
+   F5 キーを押す。
 
 アプリがウィンドウで開かれ、最初に既定のスプラッシュ画面が表示されます。 スプラッシュ画面は、画像 (SplashScreen.png) と背景色によって定義されます (背景色はアプリのマニフェスト ファイルに指定します)。
 
@@ -174,7 +174,7 @@ ms.locfileid: "57642157"
 
 ![アプリの初期画面](images/win10-cs-08.png)
 
-Windows キーを押して **[スタート]** メニューを開き、すべてのアプリを表示します。 ローカルにデプロイしたアプリのタイルが **[スタート]** メニューに追加されています。 後でもう一度 (デバッグ モード以外で) アプリを実行するときは、**[スタート]** メニューでこのタイルをタップまたはクリックします。
+Windows キーを押して **[スタート]** メニューを開き、すべてのアプリを表示します。 ローカルにデプロイしたアプリのタイルが **[スタート]** メニューに追加されています。 後でもう一度 (デバッグ モード以外で) アプリを実行するときは、 **[スタート]** メニューでこのタイルをタップまたはクリックします。
 
 お疲れさまでした。これで、初めての UWP アプリの作成は完了です。
 
@@ -226,7 +226,7 @@ private async void Button_Click(object sender, RoutedEventArgs e)
 
 ### <a name="what-did-we-just-do"></a>ここで実行したこと
 
-このコードでは、いくつか Windows API を使用して音声合成オブジェクトを作成し、読み上げるテキストを指定します  (SpeechSynthesis の使い方について詳しくは、[SpeechSynthesis 名前空間](https://msdn.microsoft.com/library/windows/apps/windows.media.speechsynthesis.aspx)のドキュメントをご覧ください)。
+このコードでは、いくつか Windows API を使用して音声合成オブジェクトを作成し、読み上げるテキストを指定します  (SpeechSynthesis の使い方について詳しくは、[SpeechSynthesis 名前空間](https://docs.microsoft.com/uwp/api/windows.media.speechsynthesis)のドキュメントをご覧ください)。
 
 アプリを実行し、ボタンをクリックすると、コンピューター (または電話) が "Hello, World!" を文字どおりにしゃべります。
 

@@ -6,20 +6,20 @@ ms.date: 06/06/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: bfd617c3c08cdcb7815010648c6036a5f39ee3ab
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 15ea49ea0e8e334158000248caf26f662ee5bd35
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57623807"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66369643"
 ---
 # <a name="use-the-inclinometer"></a>傾斜計の使用
 
 
 **重要な API**
 
--   [**Windows.Devices.Sensors**](https://msdn.microsoft.com/library/windows/apps/BR206408)
--   [**傾斜計**](https://msdn.microsoft.com/library/windows/apps/BR225766)
+-   [**Windows.Devices.Sensors**](https://docs.microsoft.com/uwp/api/Windows.Devices.Sensors)
+-   [**傾斜計**](https://docs.microsoft.com/uwp/api/Windows.Devices.Sensors.Inclinometer)
 
 **サンプル**
 
@@ -136,11 +136,11 @@ Extensible Application Markup Language (XAML)、Microsoft Visual 知っておく
 
 元のスニペットのクラス名の最初の部分を、自分のアプリの名前空間に置き換える必要があります。 たとえば、作成したプロジェクトの名前が **InclinometerCS** だとすると、`x:Class="App1.MainPage"` を `x:Class="InclinometerCS.MainPage"` に置き換えます。 また、`xmlns:local="using:App1"` を `xmlns:local="using:InclinometerCS"` に置き換える必要があります。
 
--   アプリをビルド、展開、実行するには、F5 キーを押すか、**[デバッグ]** > **[デバッグの開始]** の順にクリックします。
+-   アプリをビルド、展開、実行するには、F5 キーを押すか、 **[デバッグ]**  >  **[デバッグの開始]** の順にクリックします。
 
 アプリを実行した後、デバイスを移動するか、エミュレーター ツールを使うことによって、傾斜計の値を変更できます。
 
--   アプリを停止するには、Visual Studio に戻り、Shift キーを押しながら F5 キーを押すか、**[デバッグ]** > **[デバッグの停止]** の順にクリックします。
+-   アプリを停止するには、Visual Studio に戻り、Shift キーを押しながら F5 キーを押すか、 **[デバッグ]**  >  **[デバッグの停止]** の順にクリックします。
 
 ###  <a name="explanation"></a>説明
 

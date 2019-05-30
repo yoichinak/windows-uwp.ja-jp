@@ -6,26 +6,26 @@ ms.date: 07/02/2018
 ms.topic: article
 keywords: Windows 10, UWP, ジオコーディング, 地図, 位置情報
 ms.localizationpriority: medium
-ms.openlocfilehash: a30ca89242b15866019fffc6972bdae7086f3f7e
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 88687f6e7074ff7c914927a81a08720336b3c60c
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57637627"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66371871"
 ---
 # <a name="perform-geocoding-and-reverse-geocoding"></a>ジオコーディングと逆ジオコーディングの実行
 
-このガイドは、住所を地理的な場所 (ジオコーディング) に変換しのメソッドを呼び出して、地理的な場所を住所 (逆ジオコーディング) に変換する方法を示します、 [ **MapLocationFinder**](https://msdn.microsoft.com/library/windows/apps/dn627550)クラス、 [ **Windows.Services.Maps** ](https://msdn.microsoft.com/library/windows/apps/dn636979)名前空間。
+このガイドは、住所を地理的な場所 (ジオコーディング) に変換しのメソッドを呼び出して、地理的な場所を住所 (逆ジオコーディング) に変換する方法を示します、 [ **MapLocationFinder**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapLocationFinder)クラス、 [ **Windows.Services.Maps** ](https://docs.microsoft.com/uwp/api/Windows.Services.Maps)名前空間。
 
 > [!TIP]
 > 詳細については、アプリでマップを使用して、ダウンロード、 [MapControl](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/MapControl)サンプルから、 [Windows ユニバーサル サンプル リポジトリ](h https://github.com/Microsoft/Windows-universal-samples)GitHub で。
 
 ジオコーディングと逆ジオコーディングに関連するクラスは、次のように編成されます。
 
--   [ **MapLocationFinder** ](https://msdn.microsoft.com/library/windows/apps/dn627550)クラスには、ジオコーディングを処理するメソッドが含まれています ([**FindLocationsAsync**](https://msdn.microsoft.com/library/windows/apps/dn636925)) とリバース ジオコーディング ([**FindLocationsAtAsync**](https://msdn.microsoft.com/library/windows/apps/dn636928))。
--   これらのメソッドは両方を返す、 [ **MapLocationFinderResult** ](https://msdn.microsoft.com/library/windows/apps/dn627551)インスタンス。
--   [**場所**](https://msdn.microsoft.com/library/windows/apps/dn627552)のプロパティ、 [ **MapLocationFinderResult** ](https://msdn.microsoft.com/library/windows/apps/dn627551)のコレクションを公開[ **MapLocation** ](https://msdn.microsoft.com/library/windows/apps/dn627549)オブジェクト。 
--   [**MapLocation** ](https://msdn.microsoft.com/library/windows/apps/dn627549)両方のオブジェクトがある、 [**アドレス**](https://msdn.microsoft.com/library/windows/apps/dn636929)プロパティを公開する、 [ **MapAddress** ](https://msdn.microsoft.com/library/windows/apps/dn627533)、番地を表すオブジェクト、 [**ポイント**](https://docs.microsoft.com/uwp/api/windows.services.maps.maplocation.point)プロパティを公開する、 [ **Geopoint** ](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geopoint)オブジェクト地理的な場所を表すです。
+-   [ **MapLocationFinder** ](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapLocationFinder)クラスには、ジオコーディングを処理するメソッドが含まれています ([**FindLocationsAsync**](https://docs.microsoft.com/uwp/api/windows.services.maps.maplocationfinder.findlocationsasync)) とリバース ジオコーディング ([**FindLocationsAtAsync**](https://docs.microsoft.com/uwp/api/windows.services.maps.maplocationfinder.findlocationsatasync))。
+-   これらのメソッドは両方を返す、 [ **MapLocationFinderResult** ](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapLocationFinderResult)インスタンス。
+-   [**場所**](https://docs.microsoft.com/uwp/api/windows.services.maps.maplocationfinderresult.locations)のプロパティ、 [ **MapLocationFinderResult** ](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapLocationFinderResult)のコレクションを公開[ **MapLocation** ](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapLocation)オブジェクト。 
+-   [**MapLocation** ](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapLocation)両方のオブジェクトがある、 [**アドレス**](https://docs.microsoft.com/uwp/api/windows.services.maps.maplocation.address)プロパティを公開する、 [ **MapAddress** ](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapAddress)、番地を表すオブジェクト、 [**ポイント**](https://docs.microsoft.com/uwp/api/windows.services.maps.maplocation.point)プロパティを公開する、 [ **Geopoint** ](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geopoint)オブジェクト地理的な場所を表すです。
 
 > [!IMPORTANT]
 > マップ サービスを使用する前に、マップの認証キーを指定する必要があります。 詳しくは、「[マップ認証キーの要求](authentication-key.md)」をご覧ください。
@@ -34,9 +34,9 @@ ms.locfileid: "57637627"
 
 このセクションでは、住所や場所名を地理的な場所 (ジオコーディング) に変換する方法を示します。
 
-1.  オーバー ロードの 1 つを呼び出して、 [ **FindLocationsAsync** ](https://msdn.microsoft.com/library/windows/apps/dn636925)のメソッド、 [ **MapLocationFinder** ](https://msdn.microsoft.com/library/windows/apps/dn627550)スポット名または住所を持つクラスアドレス。
-2.  [ **FindLocationsAsync** ](https://msdn.microsoft.com/library/windows/apps/dn636925)メソッドを返します。 を[ **MapLocationFinderResult** ](https://msdn.microsoft.com/library/windows/apps/dn627551)オブジェクト。
-3.  使用して、 [**場所**](https://msdn.microsoft.com/library/windows/apps/dn627552)のプロパティ、 [ **MapLocationFinderResult** ](https://msdn.microsoft.com/library/windows/apps/dn627551)コレクションを公開する[ **MapLocation** ](https://msdn.microsoft.com/library/windows/apps/dn627549)オブジェクト。 複数存在する可能性があります[ **MapLocation** ](https://msdn.microsoft.com/library/windows/apps/dn627549)オブジェクトをシステムが複数ありますので、指定された入力に対応する場所。
+1.  オーバー ロードの 1 つを呼び出して、 [ **FindLocationsAsync** ](https://docs.microsoft.com/uwp/api/windows.services.maps.maplocationfinder.findlocationsasync)のメソッド、 [ **MapLocationFinder** ](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapLocationFinder)スポット名または住所を持つクラスアドレス。
+2.  [ **FindLocationsAsync** ](https://docs.microsoft.com/uwp/api/windows.services.maps.maplocationfinder.findlocationsasync)メソッドを返します。 を[ **MapLocationFinderResult** ](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapLocationFinderResult)オブジェクト。
+3.  使用して、 [**場所**](https://docs.microsoft.com/uwp/api/windows.services.maps.maplocationfinderresult.locations)のプロパティ、 [ **MapLocationFinderResult** ](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapLocationFinderResult)コレクションを公開する[ **MapLocation** ](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapLocation)オブジェクト。 複数存在する可能性があります[ **MapLocation** ](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapLocation)オブジェクトをシステムが複数ありますので、指定された入力に対応する場所。
 
 ```csharp
 using Windows.Services.Maps;
@@ -82,10 +82,10 @@ result = (47.6406099647284,-122.129339994863)
 
 このセクションでは、地理的な場所を (逆ジオコーディング) アドレスに変換する方法を示します。
 
-1.  [  **MapLocationFinder**](https://msdn.microsoft.com/library/windows/apps/dn627550) クラスの [**FindLocationsAtAsync**](https://msdn.microsoft.com/library/windows/apps/dn636928) メソッドを呼び出します。
-2.  [  **FindLocationsAtAsync**](https://msdn.microsoft.com/library/windows/apps/dn636928) メソッドは、一致する [**MapLocation**](https://msdn.microsoft.com/library/windows/apps/dn627549) オブジェクトのコレクションを含む [**MapLocationFinderResult**](https://msdn.microsoft.com/library/windows/apps/dn627551) オブジェクトを返します。
-3.  使用して、 [**場所**](https://msdn.microsoft.com/library/windows/apps/dn627552)のプロパティ、 [ **MapLocationFinderResult** ](https://msdn.microsoft.com/library/windows/apps/dn627551)コレクションを公開する[ **MapLocation** ](https://msdn.microsoft.com/library/windows/apps/dn627549)オブジェクト。 複数存在する可能性があります[ **MapLocation** ](https://msdn.microsoft.com/library/windows/apps/dn627549)オブジェクトをシステムが複数ありますので、指定された入力に対応する場所。
-4.  アクセス[ **MapAddress** ](https://msdn.microsoft.com/library/windows/apps/dn627533)オブジェクトを通じて、 [**アドレス**](https://msdn.microsoft.com/library/windows/apps/dn636929)の各プロパティ[ **MapLocation**](https://msdn.microsoft.com/library/windows/apps/dn627549).
+1.  [  **MapLocationFinder**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapLocationFinder) クラスの [**FindLocationsAtAsync**](https://docs.microsoft.com/uwp/api/windows.services.maps.maplocationfinder.findlocationsatasync) メソッドを呼び出します。
+2.  [  **FindLocationsAtAsync**](https://docs.microsoft.com/uwp/api/windows.services.maps.maplocationfinder.findlocationsatasync) メソッドは、一致する [**MapLocation**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapLocation) オブジェクトのコレクションを含む [**MapLocationFinderResult**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapLocationFinderResult) オブジェクトを返します。
+3.  使用して、 [**場所**](https://docs.microsoft.com/uwp/api/windows.services.maps.maplocationfinderresult.locations)のプロパティ、 [ **MapLocationFinderResult** ](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapLocationFinderResult)コレクションを公開する[ **MapLocation** ](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapLocation)オブジェクト。 複数存在する可能性があります[ **MapLocation** ](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapLocation)オブジェクトをシステムが複数ありますので、指定された入力に対応する場所。
+4.  アクセス[ **MapAddress** ](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapAddress)オブジェクトを通じて、 [**アドレス**](https://docs.microsoft.com/uwp/api/windows.services.maps.maplocation.address)の各プロパティ[ **MapLocation**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapLocation).
 
 ```csharp
 using Windows.Services.Maps;
@@ -123,9 +123,9 @@ town = Redmond
 
 * [UWP の地図のサンプル](https://go.microsoft.com/fwlink/p/?LinkId=619977)
 * [UWP の交通情報アプリのサンプル](https://go.microsoft.com/fwlink/p/?LinkId=619982)
-* [地図の設計ガイドライン](https://msdn.microsoft.com/library/windows/apps/dn596102)
+* [地図の設計ガイドライン](https://docs.microsoft.com/windows/uwp/maps-and-location/controls-map)
 * [ビデオ:Windows アプリでの電話、タブレット、PC で使用できるマップと位置情報の活用](https://channel9.msdn.com/Events/Build/2015/2-757)
 * [Bing Maps Developer Center](https://www.bingmapsportal.com/)
-* [**MapLocationFinder**クラス](https://msdn.microsoft.com/library/windows/apps/dn627550)
-* [**FindLocationsAsync**メソッド](https://msdn.microsoft.com/library/windows/apps/dn636925)
-* [**FindLocationsAtAsync**メソッド](https://msdn.microsoft.com/library/windows/apps/dn636928)
+* [**MapLocationFinder**クラス](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapLocationFinder)
+* [**FindLocationsAsync**メソッド](https://docs.microsoft.com/uwp/api/windows.services.maps.maplocationfinder.findlocationsasync)
+* [**FindLocationsAtAsync**メソッド](https://docs.microsoft.com/uwp/api/windows.services.maps.maplocationfinder.findlocationsatasync)

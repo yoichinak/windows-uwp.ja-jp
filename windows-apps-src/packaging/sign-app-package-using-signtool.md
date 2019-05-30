@@ -6,28 +6,28 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 171f332d-2a54-4c68-8aa0-52975d975fb1
 ms.localizationpriority: medium
-ms.openlocfilehash: 7748ff7d5acf8a94c92e2b51953299131910d63e
-ms.sourcegitcommit: 46890e7f3c1287648631c5e318795f377764dbd9
+ms.openlocfilehash: 71544129480cb55432c222a0481c2a49934cb658
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58320575"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66372342"
 ---
 # <a name="sign-an-app-package-using-signtool"></a>SignTool を使ってアプリ パッケージに署名する
 
 **SignTool** は、アプリ パッケージへのデジタル署名や証明書のバンドルに使用するコマンド ライン ツールです。 証明書は、(テスト目的で) ユーザーが作成することも、(配布目的で) 企業が作成することもできます。 アプリ パッケージに署名すると、アプリのデータが署名後に変更されていないこと、また、アプリ パッケージに署名したユーザーまたは企業の ID が正しいことをユーザーに保証できます。 **SignTool** では、暗号化されているかどうかを問わずアプリ パッケージとアプリ バンドルに署名できます。
 
 > [!IMPORTANT] 
-> Visual Studio を使用してアプリを開発する場合は、Visual Studio のウィザードを使ってアプリ パッケージを作成し、署名することをお勧めします。 詳しくは、「[Visual Studio での UWP アプリのパッケージ化](https://msdn.microsoft.com/windows/uwp/packaging/packaging-uwp-apps)」をご覧ください。
+> Visual Studio を使用してアプリを開発する場合は、Visual Studio のウィザードを使ってアプリ パッケージを作成し、署名することをお勧めします。 詳しくは、「[Visual Studio での UWP アプリのパッケージ化](https://docs.microsoft.com/windows/uwp/packaging/packaging-uwp-apps)」をご覧ください。
 
-コード署名と証明書について詳しくは、「[Introduction to Code Signing](https://msdn.microsoft.com/library/windows/desktop/aa380259.aspx#introduction_to_code_signing)」(コード署名の概要) を参照してください。
+コード署名と証明書について詳しくは、「[Introduction to Code Signing](https://docs.microsoft.com/windows/desktop/SecCrypto/cryptography-tools)」(コード署名の概要) を参照してください。
 
 ## <a name="prerequisites"></a>前提条件
 - **パッケージ アプリ**  
-    手動でのアプリ パッケージの作成の詳細については、「[MakeAppx.exe ツールを使ったアプリ パッケージの作成](https://msdn.microsoft.com/windows/uwp/packaging/create-app-package-with-makeappx-tool)」を参照してください。 
+    手動でのアプリ パッケージの作成の詳細については、「[MakeAppx.exe ツールを使ったアプリ パッケージの作成](https://docs.microsoft.com/windows/uwp/packaging/create-app-package-with-makeappx-tool)」を参照してください。 
 
 - **有効な署名証明書**  
-    有効な署名証明書の作成またはインポートの詳細については、「[パッケージ署名用の証明書を作成する](https://msdn.microsoft.com/windows/uwp/packaging/create-certificate-package-signing)」を参照してください。
+    有効な署名証明書の作成またはインポートの詳細については、「[パッケージ署名用の証明書を作成する](https://docs.microsoft.com/windows/uwp/packaging/create-certificate-package-signing)」を参照してください。
 
 - **SignTool.exe**  
     SDK のインストール パスに基づき、**SignTool** は Windows 10 PC の以下の場所にあります。
@@ -36,12 +36,12 @@ ms.locfileid: "58320575"
 
 ## <a name="using-signtool"></a>SignTool の使用
 
-**SignTool** は、ファイルの署名、署名やタイプスタンプの確認、署名の削除などに使用できます。 ここでは、アプリ パッケージの署名に関連がある、**sign** コマンドについて説明します。 **SignTool** の詳細については、[SignTool](https://msdn.microsoft.com/library/windows/desktop/aa387764.aspx) のリファレンス ページを参照してください。 
+**SignTool** は、ファイルの署名、署名やタイプスタンプの確認、署名の削除などに使用できます。 ここでは、アプリ パッケージの署名に関連がある、**sign** コマンドについて説明します。 **SignTool** の詳細については、[SignTool](https://docs.microsoft.com/windows/desktop/SecCrypto/signtool) のリファレンス ページを参照してください。 
 
 ### <a name="determine-the-hash-algorithm"></a>ハッシュ アルゴリズムの特定
 **SignTool** を使用してアプリ パッケージやアプリ バンドルを署名するときは、**SignTool** で使用するハッシュ アルゴリズムとアプリのパッケージ作成に使用したアルゴリズムは同じである必要があります。 たとえば、**MakeAppx.exe** を使用して既定の設定でアプリ パッケージを作成した場合、**SignTool** を使用するときは、**MakeAppx.exe** によって使用される既定のアルゴリズムである SHA256 を使用する必要があります。
 
-アプリのパッケージ作成時に使用したハッシュ アルゴリズムを確認するには、アプリ パッケージのコンテンツを抽出し、AppxBlockMap.xml ファイルを調べます。 アプリ パッケージのアンパック方法や抽出方法については、「[パッケージまたはバンドルからファイルを抽出する](https://msdn.microsoft.com/windows/uwp/packaging/create-app-package-with-makeappx-tool#extract-files-from-a-package-or-bundle)」を参照してください。 hash メソッドは BlockMap 要素に含まれ、形式は次のとおりです。
+アプリのパッケージ作成時に使用したハッシュ アルゴリズムを確認するには、アプリ パッケージのコンテンツを抽出し、AppxBlockMap.xml ファイルを調べます。 アプリ パッケージのアンパック方法や抽出方法については、「[パッケージまたはバンドルからファイルを抽出する](https://docs.microsoft.com/windows/uwp/packaging/create-app-package-with-makeappx-tool)」を参照してください。 hash メソッドは BlockMap 要素に含まれ、形式は次のとおりです。
 
 ```xml
 <BlockMap xmlns="http://schemas.microsoft.com/appx/2010/blockmap" 
@@ -106,7 +106,7 @@ SignTool sign /fd <Hash Algorithm> /sha1 <SHA1 hash> <File Path>.msix
 
 証明書の中には、パスワードを使用しないものもあります。 証明書がパスワードを使用していない場合は、サンプル コマンドの "/p &lt;パスワード&gt;" を省略してください。
 
-アプリ パッケージが有効な証明書で署名されると、パッケージをストアにアップロードできます。 ストアへのアプリのアップロードと申請の詳しいガイダンスについては、「[アプリの申請](https://msdn.microsoft.com/windows/uwp/publish/app-submissions)」を参照してください。
+アプリ パッケージが有効な証明書で署名されると、パッケージをストアにアップロードできます。 ストアへのアプリのアップロードと申請の詳しいガイダンスについては、「[アプリの申請](https://docs.microsoft.com/windows/uwp/publish/app-submissions)」を参照してください。
 
 ## <a name="common-errors-and-troubleshooting"></a>一般的なエラーとトラブルシューティング
 **SignTool** の使用時に発生する最も一般的なエラーは内部エラーで、代表的なエラーは次の通りです。
@@ -137,4 +137,4 @@ SignTool sign /debug [options]
 |--------------|--------------------------|----------------|
 | 150          | エラー 0x8007000B:アプリ マニフェストの発行者名 (CN = Contoso)、署名証明書のサブジェクト名に一致する必要があります (CN = Contoso, C = u. s.)。 | アプリ マニフェストの発行元の名前は、署名のサブジェクト名と完全に一致する必要があります。               |
 | 151          | エラー 0x8007000B:署名のハッシュ メソッド (SHA512) を指定したアプリ パッケージ ブロック マップ (SHA256) で使用されるハッシュ メソッドと一致する必要があります。     | /fd パラメーターに指定されている hashAlgorithm が、正しくありません。 (アプリ パッケージの作成に使用した) アプリ パッケージのブロック マップと一致する hashAlgorithm を使用して **SignTool** を再実行してください。  |
-| 152          | エラー 0x8007000B:アプリ パッケージの内容は、そのブロック マップに対して検証する必要があります。                                                           | アプリ パッケージは破損しています。再ビルドして、新しいブロック マップを生成する必要があります。 アプリ パッケージの作成の詳細については、「[MakeAppx.exe ツールを使ったアプリ パッケージの作成](https://msdn.microsoft.com/windows/uwp/packaging/create-app-package-with-makeappx-tool)」を参照してください。 |
+| 152          | エラー 0x8007000B:アプリ パッケージの内容は、そのブロック マップに対して検証する必要があります。                                                           | アプリ パッケージは破損しています。再ビルドして、新しいブロック マップを生成する必要があります。 アプリ パッケージの作成の詳細については、「[MakeAppx.exe ツールを使ったアプリ パッケージの作成](https://docs.microsoft.com/windows/uwp/packaging/create-app-package-with-makeappx-tool)」を参照してください。 |

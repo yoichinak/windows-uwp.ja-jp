@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 2dde6ed3-7f53-48a6-aebe-2605230decb8
 ms.localizationpriority: medium
-ms.openlocfilehash: b56140f9a71c8233d2832c2b0da6ed927b5a19ac
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 0b6c3303950c29ffb88d13fb9bcecff4d43e304a
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57607717"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66372089"
 ---
 # <a name="introduction-to-multi-user-applications"></a>マルチ ユーザー アプリケーションの概要
 
@@ -33,7 +33,7 @@ UWP ゲームでは、Xbox One のマルチ ユーザー モデルを選択で�
 マルチ ユーザー モデルを選ぶには:   
 1. Visual Studio でプロジェクトを開きます。   
 2. package.appxmanifest.xml ファイルを選びます。   
-3. 右クリックして、**[コードの表示]** を選びます。   
+3. 右クリックして、 **[コードの表示]** を選びます。   
 4. 次の行を `<Properties></Properties>` セクションに追加します。
 
 ```
@@ -44,7 +44,7 @@ UWP ゲームでは、Xbox One のマルチ ユーザー モデルを選択で�
 開発者は、KeyUp および KeyDown ルーティング イベントで使用される KeyRoutedEventArgs.DeviceId を使用して、さまざまな入力によって生成されるイベントを区別できます。
 Windows.System.UserDeviceAssociation.FindUserFromDeviceId メソッドを使用すると、特定の入力に関連付けられたユーザーを特定することができます。
 
-詳しくは、[KeyRoutedEventArgs.DeviceId](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.input.keyroutedeventargs.deviceid) のトピックをご覧ください。
+詳しくは、[KeyRoutedEventArgs.DeviceId](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.keyroutedeventargs.deviceid) のトピックをご覧ください。
 
 
 ## <a name="guidance-on-which-model-to-choose"></a>モデルの選択に関するガイダンス

@@ -6,12 +6,12 @@ ms.date: 09/30/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 479c4410384613b22ba86bc976a360125bb73c3a
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 06107691a4551ae2af05e63c1db810485273dc9b
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57632807"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66372811"
 ---
 # <a name="install-apps-with-the-winappdeploycmdexe-tool"></a>WinAppDeployCmd.exe ツールを使ったアプリのインストール
 
@@ -20,7 +20,7 @@ Windows アプリケーションの展開 (WinAppDeployCmd.exe) は、任意の 
 
 コマンド プロンプトまたはスクリプト ファイルから WinAppDeployCmd ツールを実行する Windows 10 SDK で済みます。 WinAppDeployCmd.exe でアプリをインストールするときにこれは、使用.appx/.msix ファイルまたは AppxManifest (圧縮しないファイル) を Windows 10 デバイスにアプリをサイドローディングします。 このコマンドによって、アプリに必要な証明書はインストールされません。 アプリを実行するには、Windows 10 デバイスは開発者モードになってまたは、証明書をインストールを既にする必要があります。
 
-モバイル デバイスに展開するには、最初にパッケージを作成する必要があります。 詳しくは、[こちら](https://msdn.microsoft.com/windows/uwp/packaging/packaging-uwp-apps)をご覧ください。
+モバイル デバイスに展開するには、最初にパッケージを作成する必要があります。 詳しくは、[こちら](https://docs.microsoft.com/windows/uwp/packaging/packaging-uwp-apps)をご覧ください。
 
 **WinAppDeployCmd.exe**ツールは Windows 10 PC:**C:\\Program Files (x86)\\Windows キット\\10\\bin\\&lt;SDK バージョン&gt;\\x86\\WinAppDeployCmd.exe** (基づく、インストール パス、sdk)。 
 > [!NOTE]
@@ -60,7 +60,7 @@ WinAppDeployCmd deletecreds -credserver <server> -ip <address>
 次の表では、**WinAppDeployCmd.exe** のコマンドについて説明します。
 
 
-| **コマンド**  | **説明**                                                     |
+| **Command**  | **説明**                                                     |
 |--------------|---------------------------------------------------------------------|
 | デバイス      | 利用可能なネットワーク デバイスの一覧を表示します。                         |
 | インストール      | ターゲット デバイスに UWP アプリ パッケージをインストールします。                     |
@@ -77,7 +77,7 @@ WinAppDeployCmd deletecreds -credserver <server> -ip <address>
 次の表では、**WinAppDeployCmd.exe** のオプションについて説明します。
 
 
-| **コマンド**  | **説明**  |
+| **Command**  | **説明**  |
 |--------------|------------------|
 | -h (-help)       | コマンド、オプション、引数を表示します。 |
 | -ip              | ターゲット デバイスの IP アドレス。 |

@@ -6,19 +6,19 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, 地図, 位置情報, ジオフェンス, 通知
 ms.localizationpriority: medium
-ms.openlocfilehash: 7e00a3db8890183f50efad6caa31bd573707c6a6
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: b0f16b72e8dedd45a572562308d968d528393f70
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57606127"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66371582"
 ---
 # <a name="set-up-a-geofence"></a>ジオフェンスのセットアップ
 
 
 
 
-アプリで[**ジオフェンス**](https://msdn.microsoft.com/library/windows/apps/dn263587)をセットアップし、フォアグラウンドとバックグラウンドで通知を処理する方法について説明します。
+アプリで[**ジオフェンス**](https://docs.microsoft.com/uwp/api/Windows.Devices.Geolocation.Geofencing.Geofence)をセットアップし、フォアグラウンドとバックグラウンドで通知を処理する方法について説明します。
 
 **ヒント** アプリで位置情報にアクセスする方法について詳しくは、GitHub の [Windows-universal-samples リポジトリ](https://go.microsoft.com/fwlink/p/?LinkId=619979)から次のサンプルをダウンロードしてください。
 
@@ -27,8 +27,8 @@ ms.locfileid: "57606127"
 ## <a name="enable-the-location-capability"></a>位置情報機能を有効にする
 
 
-1.  **ソリューション エクスプローラー**で、**package.appxmanifest** をダブルクリックし、**[機能]** タブを選びます。
-2.  **[機能]** ボックスの一覧で、**[位置情報]** をオンにします。 これにより、`Location` デバイス機能がパッケージ マニフェスト ファイルに追加されます。
+1.  **ソリューション エクスプローラー**で、**package.appxmanifest** をダブルクリックし、 **[機能]** タブを選びます。
+2.  **[機能]** ボックスの一覧で、 **[位置情報]** をオンにします。 これにより、`Location` デバイス機能がパッケージ マニフェスト ファイルに追加されます。
 
 ```xml
   <Capabilities>
@@ -42,7 +42,7 @@ ms.locfileid: "57606127"
 
 ### <a name="step-1-request-access-to-the-users-location"></a>手順 1:ユーザーの場所へのアクセスを要求します。
 
-**重要:** ユーザーの位置情報にアクセスする前に、[**RequestAccessAsync**](https://msdn.microsoft.com/library/windows/apps/dn859152) メソッドを使って、ユーザーに位置情報へのアクセス許可を求める必要があります。 **RequestAccessAsync** メソッドは UI スレッドから呼び出す必要があり、アプリがフォアグラウンドで実行されている必要があります。 アプリがユーザーの位置情報にアクセスするには、先にユーザーがその情報へのアクセス許可をアプリに与える必要があります。
+**重要:** ユーザーの位置情報にアクセスする前に、[**RequestAccessAsync**](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geolocator.requestaccessasync) メソッドを使って、ユーザーに位置情報へのアクセス許可を求める必要があります。 **RequestAccessAsync** メソッドは UI スレッドから呼び出す必要があり、アプリがフォアグラウンドで実行されている必要があります。 アプリがユーザーの位置情報にアクセスするには、先にユーザーがその情報へのアクセス許可をアプリに与える必要があります。
 
 ```csharp
 using Windows.Devices.Geolocation;
@@ -50,13 +50,13 @@ using Windows.Devices.Geolocation;
 var accessStatus = await Geolocator.RequestAccessAsync();
 ```
 
-[  **RequestAccessAsync**](https://msdn.microsoft.com/library/windows/apps/dn859152) メソッドを使って、ユーザーに位置情報へのアクセス許可を求めます。 ユーザーに対するこの要求はアプリごとに 1 回だけ行われます。 アクセス許可の付与または拒否を行った後、このメソッドはユーザーにアクセス許可を求めなくなります。 ユーザーが位置情報へのアクセス許可を求められた後にそのアクセス許可を変更できるように、位置情報の設定へのリンクを用意することをお勧めします。これについては、このトピックの後半で紹介します。
+[  **RequestAccessAsync**](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geolocator.requestaccessasync) メソッドを使って、ユーザーに位置情報へのアクセス許可を求めます。 ユーザーに対するこの要求はアプリごとに 1 回だけ行われます。 アクセス許可の付与または拒否を行った後、このメソッドはユーザーにアクセス許可を求めなくなります。 ユーザーが位置情報へのアクセス許可を求められた後にそのアクセス許可を変更できるように、位置情報の設定へのリンクを用意することをお勧めします。これについては、このトピックの後半で紹介します。
 
 ### <a name="step-2-register-for-changes-in-geofence-state-and-location-permissions"></a>手順 2:ジオフェンスの状態と位置のアクセス許可の変更の登録します。
 
 この例では、**switch** ステートメントを (前の例で示した) **accessStatus** と共に使って、ユーザーの位置情報へのアクセス許可が与えられている場合にのみ動作するように指定します。 ユーザーの位置情報へのアクセスが許可された場合、コードによって現在のジオフェンスにアクセスされ、ジオフェンスの状態変更が登録されます。また、位置情報のアクセス許可の変更も登録されます。
 
-**ヒント** ジオフェンスを使うときは、Geolocator クラスの StatusChanged イベントではなく、GeofenceMonitor の [**StatusChanged**](https://msdn.microsoft.com/library/windows/apps/dn263646) イベントを使って、位置情報のアクセス許可の変更を監視します。 **Disabled** の [**GeofenceMonitorStatus**](https://msdn.microsoft.com/library/windows/apps/dn263599) は、無効になった [**PositionStatus**](https://msdn.microsoft.com/library/windows/apps/br225599) と同じです。どちらも、ユーザーの位置情報にアクセスするためのアクセス許可がアプリにないことを示します。
+**ヒント** ジオフェンスを使うときは、Geolocator クラスの StatusChanged イベントではなく、GeofenceMonitor の [**StatusChanged**](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geofencing.geofencemonitor.statuschanged) イベントを使って、位置情報のアクセス許可の変更を監視します。 **Disabled** の [**GeofenceMonitorStatus**](https://docs.microsoft.com/uwp/api/Windows.Devices.Geolocation.Geofencing.GeofenceMonitorStatus) は、無効になった [**PositionStatus**](https://docs.microsoft.com/uwp/api/Windows.Devices.Geolocation.PositionStatus) と同じです。どちらも、ユーザーの位置情報にアクセスするためのアクセス許可がアプリにないことを示します。
 
 ```csharp
 switch (accessStatus)
@@ -97,7 +97,7 @@ protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
 
 ### <a name="step-3-create-the-geofence"></a>手順 3:ジオフェンスを作成します。
 
-これで、[**Geofence**](https://msdn.microsoft.com/library/windows/apps/dn263587) オブジェクトを定義してセットアップする準備ができました。 必要に応じて、複数の異なるコンストラクター オーバーロードから選べます。 最も基本的なジオフェンスのコンストラクターで、次に示すように [**Id**](https://msdn.microsoft.com/library/windows/apps/dn263724) と [**Geoshape**](https://msdn.microsoft.com/library/windows/apps/dn263718) のみを指定します。
+これで、[**Geofence**](https://docs.microsoft.com/uwp/api/Windows.Devices.Geolocation.Geofencing.Geofence) オブジェクトを定義してセットアップする準備ができました。 必要に応じて、複数の異なるコンストラクター オーバーロードから選べます。 最も基本的なジオフェンスのコンストラクターで、次に示すように [**Id**](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geofencing.geofence.id) と [**Geoshape**](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geofencing.geofence.geoshape) のみを指定します。
 
 ```csharp
 // Set the fence ID.
@@ -120,11 +120,11 @@ Geofence geofence = new Geofence(fenceId, geocircle);
 
 他のコンストラクターのいずれかを使用して、ジオフェンスをさらに微調整できます。 次の例では、ジオフェンスのコンストラクターで次の追加のパラメーターを指定します。
 
--   [**MonitoredStates** ](https://msdn.microsoft.com/library/windows/apps/dn263728) -定義済みの領域、または、ジオフェンスの削除を離れること、定義済みの領域を入力するための通知を受信するジオフェンス イベントを示します。
--   [**SingleUse** ](https://msdn.microsoft.com/library/windows/apps/dn263732) -ジオフェンスが監視されているすべての状態を満たしていると、ジオフェンスが削除されます。
--   [**DwellTime** ](https://msdn.microsoft.com/library/windows/apps/dn263703) -どれくらいの時間、ユーザーがあります、定義済みの領域の内外で enter/終了イベントが発生する前にことを示します。
--   [**StartTime** ](https://msdn.microsoft.com/library/windows/apps/dn263735) -、ジオフェンスの監視を開始する日時を示します。
--   [**期間**](https://msdn.microsoft.com/library/windows/apps/dn263697) -、ジオフェンスを監視する期間を示します。
+-   [**MonitoredStates** ](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geofencing.geofence.monitoredstates) -定義済みの領域、または、ジオフェンスの削除を離れること、定義済みの領域を入力するための通知を受信するジオフェンス イベントを示します。
+-   [**SingleUse** ](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geofencing.geofence.singleuse) -ジオフェンスが監視されているすべての状態を満たしていると、ジオフェンスが削除されます。
+-   [**DwellTime** ](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geofencing.geofence.dwelltime) -どれくらいの時間、ユーザーがあります、定義済みの領域の内外で enter/終了イベントが発生する前にことを示します。
+-   [**StartTime** ](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geofencing.geofence.starttime) -、ジオフェンスの監視を開始する日時を示します。
+-   [**期間**](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geofencing.geofence.duration) -、ジオフェンスを監視する期間を示します。
 
 ```csharp
 // Set the fence ID.
@@ -175,7 +175,7 @@ try {
 
 ### <a name="step-4-handle-changes-in-location-permissions"></a>手順 4:場所のアクセス許可の変更を処理します。
 
-[  **GeofenceMonitor**](https://msdn.microsoft.com/library/windows/apps/dn263595) オブジェクトは [**StatusChanged**](https://msdn.microsoft.com/library/windows/apps/dn263646) イベントをトリガーして、ユーザーの位置情報設定が変化したことを示します。 このイベントは、引数の **sender.Status** プロパティ ([**GeofenceMonitorStatus**](https://msdn.microsoft.com/library/windows/apps/dn263599) 型) を使って、対応する状態を渡します。 このメソッドは UI スレッドから呼び出されず、[**Dispatcher**](https://msdn.microsoft.com/library/windows/apps/br208211) オブジェクトが UI の変更を呼び出します。
+[  **GeofenceMonitor**](https://docs.microsoft.com/uwp/api/Windows.Devices.Geolocation.Geofencing.GeofenceMonitor) オブジェクトは [**StatusChanged**](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geofencing.geofencemonitor.statuschanged) イベントをトリガーして、ユーザーの位置情報設定が変化したことを示します。 このイベントは、引数の **sender.Status** プロパティ ([**GeofenceMonitorStatus**](https://docs.microsoft.com/uwp/api/Windows.Devices.Geolocation.Geofencing.GeofenceMonitorStatus) 型) を使って、対応する状態を渡します。 このメソッドは UI スレッドから呼び出されず、[**Dispatcher**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreDispatcher) オブジェクトが UI の変更を呼び出します。
 
 ```csharp
 using Windows.UI.Core;
@@ -228,7 +228,7 @@ public async void OnGeofenceStatusChanged(GeofenceMonitor sender, object e)
 ## <a name="set-up-foreground-notifications"></a>フォアグラウンド通知のセットアップ
 
 
-ジオフェンスを作成した後で、ジオフェンス イベントが発生したときの処理ロジックを追加する必要があります。 セットアップした [**MonitoredStates**](https://msdn.microsoft.com/library/windows/apps/dn263728) に応じて、次の場合にイベントを受け取ります。
+ジオフェンスを作成した後で、ジオフェンス イベントが発生したときの処理ロジックを追加する必要があります。 セットアップした [**MonitoredStates**](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geofencing.geofence.monitoredstates) に応じて、次の場合にイベントを受け取ります。
 
 -   ユーザーが関心領域に入った。
 -   ユーザーが関心領域から離れた。
@@ -299,7 +299,7 @@ public async void OnGeofenceStateChanged(GeofenceMonitor sender, object e)
 ## <a name="set-up-background-notifications"></a>バックグラウンド通知のセットアップ
 
 
-ジオフェンスを作成した後で、ジオフェンス イベントが発生したときの処理ロジックを追加する必要があります。 セットアップした [**MonitoredStates**](https://msdn.microsoft.com/library/windows/apps/dn263728) に応じて、次の場合にイベントを受け取ります。
+ジオフェンスを作成した後で、ジオフェンス イベントが発生したときの処理ロジックを追加する必要があります。 セットアップした [**MonitoredStates**](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geofencing.geofence.monitoredstates) に応じて、次の場合にイベントを受け取ります。
 
 -   ユーザーが関心領域に入った。
 -   ユーザーが関心領域から離れた。
@@ -431,7 +431,7 @@ async private void OnCompleted(IBackgroundTaskRegistration sender, BackgroundTas
 </TextBlock>
 ```
 
-また、アプリで [**LaunchUriAsync**](https://msdn.microsoft.com/library/windows/apps/hh701476) メソッドを呼び出し、コードで**設定**アプリを起動することもできます。 詳しくは、「[Windows 設定アプリの起動](https://msdn.microsoft.com/library/windows/apps/mt228342)」をご覧ください。
+また、アプリで [**LaunchUriAsync**](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchuriasync) メソッドを呼び出し、コードで**設定**アプリを起動することもできます。 詳しくは、「[Windows 設定アプリの起動](https://docs.microsoft.com/windows/uwp/launch-resume/launch-settings-app)」をご覧ください。
 
 ```csharp
 using Windows.System;
@@ -456,7 +456,7 @@ bool result = await Launcher.LaunchUriAsync(new Uri("ms-settings:privacy-locatio
 
 1.  Visual Studio でアプリをビルドします。
 2.  Visual Studio エミュレーターでアプリを起動します。
-3.  これらのツールを使って、ジオフェンス領域の内外のさまざまな位置をシミュレートします。 [  **DwellTime**](https://msdn.microsoft.com/library/windows/apps/dn263703) プロパティで指定した時間が経過してイベントがトリガーされるまで、十分な時間、待ってください。 アプリに位置情報のアクセス許可を与えるというメッセージに同意する必要があります。 位置のシミュレーションについて詳しくは、「シミュレーターでの Windows ストア アプリの実行」の「[デバイスのシミュレートされる地理上の位置を設定する](https://go.microsoft.com/fwlink/p/?LinkID=325245)」をご覧ください。
+3.  これらのツールを使って、ジオフェンス領域の内外のさまざまな位置をシミュレートします。 [  **DwellTime**](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geofencing.geofence.dwelltime) プロパティで指定した時間が経過してイベントがトリガーされるまで、十分な時間、待ってください。 アプリに位置情報のアクセス許可を与えるというメッセージに同意する必要があります。 位置のシミュレーションについて詳しくは、「シミュレーターでの Windows ストア アプリの実行」の「[デバイスのシミュレートされる地理上の位置を設定する](https://go.microsoft.com/fwlink/p/?LinkID=325245)」をご覧ください。
 4.  また、さまざまな速度での検出に必要なおおよそのジオフェンスのサイズとドウェル時間を見積もるためにエミュレーターを使うこともできます。
 
 ### <a name="test-and-debug-a-geofencing-app-that-is-running-in-the-background"></a>バックグラウンドで実行中のジオフェンス アプリのテストとデバッグ
@@ -467,7 +467,7 @@ bool result = await Launcher.LaunchUriAsync(new Uri("ms-settings:privacy-locatio
 2.  最初に、アプリをローカルに展開します。
 3.  ローカルで実行中のアプリを閉じます。
 4.  Visual Studio エミュレーターでアプリを起動します。 バックグラウンドのジオフェンス シミュレーションは、エミュレーター内では一度に 1 つのアプリでしかサポートされていません。 エミュレーター内で複数のジオフェンス アプリを起動しないでください。
-5.  エミュレーターから、ジオフェンス領域の内外のさまざまな位置をシミュレートします。 [  **DwellTime**](https://msdn.microsoft.com/library/windows/apps/dn263703) の時間が経過してイベントがトリガーされるまで、十分な時間、待ってください。 アプリに位置情報のアクセス許可を与えるというメッセージに同意する必要があります。
+5.  エミュレーターから、ジオフェンス領域の内外のさまざまな位置をシミュレートします。 [  **DwellTime**](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geofencing.geofence.dwelltime) の時間が経過してイベントがトリガーされるまで、十分な時間、待ってください。 アプリに位置情報のアクセス許可を与えるというメッセージに同意する必要があります。
 6.  Visual Studio を使って、位置情報バックグラウンド タスクをトリガーします。 Visual Studio でのバックグラウンド タスクのトリガーについて詳しくは、「[Visual Studio で Windows ストア アプリの中断イベント、再開イベント、およびバックグラウンド イベントをトリガーする方法](https://go.microsoft.com/fwlink/p/?LinkID=325378)」をご覧ください。
 
 ## <a name="troubleshoot-your-app"></a>アプリのトラブルシューティング
@@ -482,5 +482,5 @@ bool result = await Launcher.LaunchUriAsync(new Uri("ms-settings:privacy-locatio
 ## <a name="related-topics"></a>関連トピック
 
 * [UWP の位置情報のサンプル](https://go.microsoft.com/fwlink/p/?linkid=533278)
-* [Geofencing 機能の設計ガイドライン](https://msdn.microsoft.com/library/windows/apps/dn631756)
-* [位置認識アプリの設計ガイドライン](https://msdn.microsoft.com/library/windows/apps/hh465148)
+* [Geofencing 機能の設計ガイドライン](https://docs.microsoft.com/windows/uwp/maps-and-location/guidelines-for-geofencing)
+* [位置認識アプリの設計ガイドライン](https://docs.microsoft.com/windows/uwp/maps-and-location/guidelines-and-checklist-for-detecting-location)

@@ -6,32 +6,32 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10、UWP、定期的な作業項目、スレッド、タイマー
 ms.localizationpriority: medium
-ms.openlocfilehash: 05ed3b4bc4fa6dbe1119dca40d22107e94cea576
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: cf3a5817e459c7089eafb8f2c38d58b0e8eef03c
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57636907"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66371561"
 ---
 # <a name="create-a-periodic-work-item"></a>定期的な作業項目の作成
 
 
 <b>重要な API</b>
 
--   [**CreatePeriodicTimer**](https://msdn.microsoft.com/library/windows/apps/Hh967915)
--   [**ThreadPoolTimer**](https://msdn.microsoft.com/library/windows/apps/BR230587)
+-   [**CreatePeriodicTimer**](https://docs.microsoft.com/uwp/api/windows.system.threading.threadpooltimer.createperiodictimer)
+-   [**ThreadPoolTimer**](https://docs.microsoft.com/uwp/api/Windows.System.Threading.ThreadPoolTimer)
 
 定期的に実行される作業項目の作成方法を説明します。
 
 ## <a name="create-the-periodic-work-item"></a>定期的な作業項目の作成
 
-定期的な作業項目を作成するには、[**CreatePeriodicTimer**](https://msdn.microsoft.com/library/windows/apps/Hh967915) メソッドを使います。 作業を実行するラムダを指定し、*period* パラメーターを使って送信の間隔を指定します。 period パラメーターは [**TimeSpan**](https://msdn.microsoft.com/library/windows/apps/BR225996) 構造体を使って指定します。 この期間が経過するたびに作業項目が再送信されるため、作業を完了できる十分な長さを確保してください。
+定期的な作業項目を作成するには、[**CreatePeriodicTimer**](https://docs.microsoft.com/uwp/api/windows.system.threading.threadpooltimer.createperiodictimer) メソッドを使います。 作業を実行するラムダを指定し、*period* パラメーターを使って送信の間隔を指定します。 period パラメーターは [**TimeSpan**](https://docs.microsoft.com/uwp/api/Windows.Foundation.TimeSpan) 構造体を使って指定します。 この期間が経過するたびに作業項目が再送信されるため、作業を完了できる十分な長さを確保してください。
 
-[**CreateTimer** ](https://msdn.microsoft.com/library/windows/apps/windows.system.threading.threadpooltimer.createtimer.aspx)を返します、 [ **ThreadPoolTimer** ](https://msdn.microsoft.com/library/windows/apps/BR230587)オブジェクト。 タイマーを取り消す必要が生じた場合は、このオブジェクトを格納します。
+[**CreateTimer** ](https://docs.microsoft.com/uwp/api/windows.system.threading.threadpooltimer.createtimer)を返します、 [ **ThreadPoolTimer** ](https://docs.microsoft.com/uwp/api/Windows.System.Threading.ThreadPoolTimer)オブジェクト。 タイマーを取り消す必要が生じた場合は、このオブジェクトを格納します。
 
 > **注**  ゼロの値を指定しないでください (または 1 ミリ秒未満の値) の間隔。 この場合、定期タイマーは 1 回限りのタイマーとして動作します。
 
-> **注**  を使用することができます[ **CoreDispatcher.RunAsync** ](https://msdn.microsoft.com/library/windows/apps/Hh750317)を UI にアクセスし、作業項目からの進行状況を表示します。
+> **注**  を使用することができます[ **CoreDispatcher.RunAsync** ](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.windows)を UI にアクセスし、作業項目からの進行状況を表示します。
 
 次の例では、60 秒ごとに 1 回実行される作業項目を作成します。
 
@@ -87,7 +87,7 @@ ms.locfileid: "57636907"
 
 ## <a name="handle-cancellation-of-the-periodic-work-item-optional"></a>定期的な作業項目の取り消しの処理 (オプション)
 
-必要であれば、[**TimerDestroyedHandler**](https://msdn.microsoft.com/library/windows/apps/Hh967926) を使って、定期タイマーの取り消しを処理できます。 定期的な作業項目の取り消しを処理するラムダを追加で指定するには、[**CreatePeriodicTimer**](https://msdn.microsoft.com/library/windows/apps/Hh967915) オーバーロードを使います。
+必要であれば、[**TimerDestroyedHandler**](https://docs.microsoft.com/uwp/api/windows.system.threading.timerdestroyedhandler) を使って、定期タイマーの取り消しを処理できます。 定期的な作業項目の取り消しを処理するラムダを追加で指定するには、[**CreatePeriodicTimer**](https://docs.microsoft.com/uwp/api/windows.system.threading.threadpooltimer.createperiodictimer) オーバーロードを使います。
 
 次の例では、60 秒ごとに実行される定期的な作業項目を作成します。ここでは取り消しハンドラーも指定しています。
 
@@ -186,7 +186,7 @@ ms.locfileid: "57636907"
 
 ## <a name="cancel-the-timer"></a>タイマーの取り消し
 
-必要に応じて [**Cancel**](https://msdn.microsoft.com/library/windows/apps/windows.system.threading.threadpooltimer.cancel.aspx) メソッドを呼び出し、定期的な作業項目の繰り返しを停止します。 定期タイマーが取り消されたときに作業項目が実行中だった場合には、完了するまで実行することができます。 定期的な作業項目のすべてのインスタンスが完了したときに、[**TimerDestroyedHandler**](https://msdn.microsoft.com/library/windows/apps/Hh967926) が呼び出されます (指定していた場合)。
+必要に応じて [**Cancel**](https://docs.microsoft.com/uwp/api/windows.system.threading.threadpooltimer.cancel) メソッドを呼び出し、定期的な作業項目の繰り返しを停止します。 定期タイマーが取り消されたときに作業項目が実行中だった場合には、完了するまで実行することができます。 定期的な作業項目のすべてのインスタンスが完了したときに、[**TimerDestroyedHandler**](https://docs.microsoft.com/uwp/api/windows.system.threading.timerdestroyedhandler) が呼び出されます (指定していた場合)。
 
 > [!div class="tabbedCodeSnippets"]
 > ``` csharp

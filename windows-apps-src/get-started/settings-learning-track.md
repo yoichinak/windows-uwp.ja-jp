@@ -6,12 +6,12 @@ ms.topic: article
 keywords: 概要, uwp, windows 10, 学習トラック, 設定, 設定の保存, 設定の読み込み
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 4aa56bf24d2dfa1fd4ae1947a5b0edf7f312ea2f
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 490dd8f0f3841fae089626ec9c283d54cc0d8cd9
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57614637"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66370494"
 ---
 # <a name="save-and-load-settings-in-a-uwp-app"></a>UWP アプリでの設定の保存と読み込み
 
@@ -86,7 +86,7 @@ API の簡単な概要と、アプリの設定の保存と読み込みを開始�
 
 | API | 説明 |
 |------|---------------|
-| [ApplicationData.LocalSettings](https://msdn.microsoft.com/library/windows/apps/windows.storage.applicationdata.temporaryfolder) | ローカル アプリ データ ストアからアプリケーション設定コンテナーを取得します。 |
+| [ApplicationData.LocalSettings](https://docs.microsoft.com/uwp/api/windows.storage.applicationdata.temporaryfolder) | ローカル アプリ データ ストアからアプリケーション設定コンテナーを取得します。 |
 | [ApplicationData.RoamingSettings](https://docs.microsoft.com/uwp/api/windows.storage.applicationdata.roamingsettings) | ローミング アプリ データ ストアからアプリケーション設定コンテナーを取得します。 |
 | [ApplicationDataContainer](https://docs.microsoft.com/uwp/api/windows.storage.applicationdatacontainer) | コンテナー階層の作成、削除、列挙、および移動をサポートするアプリの設定のコンテナーです。 |
 | [Windows.UI.ApplicationSettings Namespace](https://docs.microsoft.com/uwp/api/windows.ui.applicationsettings) | Windows シェルの設定ウィンドウに表示されるアプリの設定を定義するために使用するクラスを指定します。 |

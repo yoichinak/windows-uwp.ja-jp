@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: e7dee32d-3756-430d-a026-32c1ee288a85
 ms.localizationpriority: medium
-ms.openlocfilehash: 4cc1bafb90b20083d55a622873dea7be5efbf5b7
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 72e45f8ef0f5684b3a712056eb367975f8e6103a
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57633487"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66370350"
 ---
 # <a name="bluetooth-developer-faq"></a>Bluetooth に関する開発者向け FAQ
 
@@ -63,7 +63,7 @@ Windows 10 リリース 1511 以降では、開発者はこのペアリング処
 
 Bluetooth RFCOMM (クラシック) デバイスでは必要ありません。 Windows 10 リリース 1607 以降では、簡単に近くにあるデバイスを照会し、そのデバイスに接続できます。 更新された[RFCOMM チャット サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/dev/Samples/BluetoothRfcommChat)で、この機能について説明しています。 
 
-**(14393 以下)** この機能は、Bluetooth 低エネルギー (GATT クライアント) では使用できないため、これらのデバイスにアクセスするために、[設定] ページで、または [Windows.Devices.Enumeration](https://msdn.microsoft.com/en-us/library/windows/apps/windows.devices.enumeration.aspx) API を使ってペアリングを行う必要があります。
+**(14393 以下)** この機能は、Bluetooth 低エネルギー (GATT クライアント) では使用できないため、これらのデバイスにアクセスするために、[設定] ページで、または [Windows.Devices.Enumeration](https://docs.microsoft.com/uwp/api/windows.devices.enumeration) API を使ってペアリングを行う必要があります。
 
 **(15030 以上)** Bluetooth デバイスのペアリングは不要になりました。 リモート デバイスの現在の状態を照会するために、GetGattServicesAsync や GetCharacteristicsAsync のような新しい非同期 API を使います。 詳しくは、[クライアントのマニュアル](gatt-client.md)をご覧ください。 
 
@@ -77,10 +77,10 @@ Bluetooth RFCOMM (クラシック) デバイスでは必要ありません。 Wi
 ## <a name="can-i-access-these-apis-from-win32"></a>Win32 からこれらの API にアクセスできますか。
 
 はい。これらすべての API が機能します。 このブログでは、[デスクトップ アプリケーションから Windows API](https://blogs.windows.com/buildingapps/2017/01/25/calling-windows-10-apis-desktop-application/) を呼び出す方法の詳細を説明しています。 
-## <a name="is-this-functionality-supposed-to-exist-on--insert-sku-here-"></a>この機能は、*[-Insert SKU here-]* (ここに SKU を挿入) にも表示されますか。
+## <a name="is-this-functionality-supposed-to-exist-on--insert-sku-here-"></a>この機能は、 *[-Insert SKU here-]* (ここに SKU を挿入) にも表示されますか。
 
 **Bluetooth LE**:はい、すべての機能は OneCore であり、機能している Bluetooth LE スタックを使用した最新のデバイスで使用可能にする必要があります。 
 > 注意:周辺のロールは、ハードウェアに依存して、一部の Windows Server エディションは、Bluetooth をサポートしません。 
 
-**Bluetooth BR/EDR (クラシック)**:いくつかのバリエーションが存在しますが、プロファイル レベルのサポートとよく似ていますがあります。 [RFCOMM](send-or-receive-files-with-rfcomm.md) に関するドキュメントや、[PC](https://support.microsoft.com/en-us/help/10568/windows-10-supported-bluetooth-profiles) や[電話](https://support.microsoft.com/en-us/help/10569/windows-10-mobile-supported-bluetooth-profiles)でのこれらのサポートされるプロファイルに関するドキュメントをご覧ください。
+**Bluetooth BR/EDR (クラシック)** :いくつかのバリエーションが存在しますが、プロファイル レベルのサポートとよく似ていますがあります。 [RFCOMM](send-or-receive-files-with-rfcomm.md) に関するドキュメントや、[PC](https://support.microsoft.com/en-us/help/10568/windows-10-supported-bluetooth-profiles) や[電話](https://support.microsoft.com/en-us/help/10569/windows-10-mobile-supported-bluetooth-profiles)でのこれらのサポートされるプロファイルに関するドキュメントをご覧ください。
 

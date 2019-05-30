@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: b7e8be3a2c2f3d6d4ecf3ade708741fa323167fc
-ms.sourcegitcommit: 13fe5d04bdb43c75d0fc4de18c2c3d4ae58ff982
+ms.openlocfilehash: 7a8a9a4e5b79950cb15b5d364598c72b8a190d8c
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66221038"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66366644"
 ---
 # <a name="xaml-namespaces-and-namespace-mapping"></a>XAML 名前空間と名前空間マッピング
 
@@ -47,7 +47,7 @@ XAML プロセッサは、ランタイム オブジェクト表現を作成す�
 
 これらの宣言の関係としては、XAML が言語定義であること、および Windows ランタイムが言語として XAML を使用し、型が XAML で参照される特定のボキャブラリを定義する 1 つの実装であることが挙げられます。
 
-XAML 言語では、特定の言語要素を指定します。これらの各要素には、XAML 名前空間に対応する XAML プロセッサの実装を介してアクセスする必要があります。 XAML 言語の XAML 名前空間に通常マップする "x:" の後には、プロジェクト テンプレート、サンプル コード、および言語機能に関するドキュメントが続きます。 XAML 言語の名前空間では、C++、C#、または Visual Basic を使った基本的な Windows ランタイム アプリでも必要な、よく使われる複数の機能を定義します。 たとえば、部分クラスを介して XAML ファイルにコード ビハインドを追加するには、関連する XAML ファイルのルート要素における [x:Class 属性](x-class-attribute.md)としてそのクラスを指定する必要があります。 または、[ResourceDictionary と XAML リソースの参照](https://msdn.microsoft.com/library/windows/apps/mt187273)内のキーを持つリソースとして XAML ページで定義されている要素の該当するオブジェクト要素では、[x:Key](x-key-attribute.md) 属性を設定する必要があります。
+XAML 言語では、特定の言語要素を指定します。これらの各要素には、XAML 名前空間に対応する XAML プロセッサの実装を介してアクセスする必要があります。 XAML 言語の XAML 名前空間に通常マップする "x:" の後には、プロジェクト テンプレート、サンプル コード、および言語機能に関するドキュメントが続きます。 XAML 言語の名前空間では、C++、C#、または Visual Basic を使った基本的な Windows ランタイム アプリでも必要な、よく使われる複数の機能を定義します。 たとえば、部分クラスを介して XAML ファイルにコード ビハインドを追加するには、関連する XAML ファイルのルート要素における [x:Class 属性](x-class-attribute.md)としてそのクラスを指定する必要があります。 または、[ResourceDictionary と XAML リソースの参照](https://docs.microsoft.com/windows/uwp/controls-and-patterns/resourcedictionary-and-xaml-resource-references)内のキーを持つリソースとして XAML ページで定義されている要素の該当するオブジェクト要素では、[x:Key](x-key-attribute.md) 属性を設定する必要があります。
 
 ## <a name="code-namespaces-that-map-to-the-default-xaml-namespace"></a>既定の XAML 名前空間にマップするコードの名前空間
 
@@ -86,13 +86,13 @@ XAML 言語では、特定の言語要素を指定します。これらの各要
 
 「D:」XAML 名前空間は、Microsoft Visual Studio の XAML デザイン サーフェイスにデザイナー サポート具体的には、デザイナー サポートを対象としています。 「D:」XAML 名前空間には、デザイナーまたは XAML 要素のデザイン時属性ができるようにします。 このようなデザイナー属性は、XAML の動作の設計面にのみ影響します。 アプリの実行時に同じ XAML が Windows ランタイム XAML パーサーによって読み込まれると、デザイナー属性は無視されます。 一般に、デザイナー属性はすべての XAML 要素で有効ですが、実際のところ、デザイナー属性の適用が適しているのは特定のシナリオのみです。 特に、デザイナー属性の多くは、XAML とデータ バインディングを使うコードの開発時にデータ コンテキストやデータ ソースを操作しやすくすることを目的としています。
 
--   **d:DesignHeight と d:DesignWidth 属性:** これらの属性は、Visual Studio または別の XAML デザイナー画面を作成する XAML ファイルのルートに適用される場合があります。 この 2 つの属性は、たとえば、アプリ プロジェクトに新しく [**UserControl**](https://msdn.microsoft.com/library/windows/apps/br227647) を追加した場合に、作成される XAML の **UserControl** ルートに設定されます。 この属性はいずれも、XAML コンテンツの構成を設計しやすくするものであり、XAML コンテンツがコントロール インスタンスや、それより大きな UI ページの一部に使われた場合に生じるレイアウト面の制約がある程度予測できるようになります。
+-   **d:DesignHeight と d:DesignWidth 属性:** これらの属性は、Visual Studio または別の XAML デザイナー画面を作成する XAML ファイルのルートに適用される場合があります。 この 2 つの属性は、たとえば、アプリ プロジェクトに新しく [**UserControl**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.UserControl) を追加した場合に、作成される XAML の **UserControl** ルートに設定されます。 この属性はいずれも、XAML コンテンツの構成を設計しやすくするものであり、XAML コンテンツがコントロール インスタンスや、それより大きな UI ページの一部に使われた場合に生じるレイアウト面の制約がある程度予測できるようになります。
 
    **注**  Microsoft Silverlight から XAML を移行する場合は、UI ページ全体を表すルート要素にこれらの属性を必要があります。 この場合、この属性の削除が必要になります。 シミュレーターなどの XAML デザイナーの方が、拡大縮小やビュー状態の処理に優れた機能が備わっており、**d:DesignHeight** と **d:DesignWidth** を使った固定サイズのページ レイアウトよりも、ページのレイアウトを設計するうえで便利であると考えられます。
 
--   **d:DataContext 属性:** 任意の明示的または継承された、ページのルートまたはオーバーライドするコントロールにこの属性を設定することができます[ **DataContext** ](https://msdn.microsoft.com/library/windows/apps/br208713)そのオブジェクトがそれ以外の場合は。
--   **d:DesignSource 属性:** デザイン時のデータ ソースを指定します、 [ **CollectionViewSource**](https://msdn.microsoft.com/library/windows/apps/br209833)、オーバーライドする[**ソース**](https://msdn.microsoft.com/library/windows/apps/br209835)します。
--   **d:DesignInstance と d:DesignData マークアップ拡張機能:** これらのマークアップ拡張機能はいずれかのデザイン時のデータ リソースを提供するために使用**d:DataContext**または**d:DesignSource**します。 設計時のデータ リソースの使い方は、ここで説明した内容がすべてではありません。 詳しくは、「[デザイン時属性](https://go.microsoft.com/fwlink/p/?LinkId=272504)」をご覧ください。 使用例については、「[デザイン サーフェイス上のサンプル データとプロトタイプを作るためのサンプル データ](https://msdn.microsoft.com/library/windows/apps/mt517866)」をご覧ください。
+-   **d:DataContext 属性:** 任意の明示的または継承された、ページのルートまたはオーバーライドするコントロールにこの属性を設定することができます[ **DataContext** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.datacontext)そのオブジェクトがそれ以外の場合は。
+-   **d:DesignSource 属性:** デザイン時のデータ ソースを指定します、 [ **CollectionViewSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.CollectionViewSource)、オーバーライドする[**ソース**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.collectionviewsource.source)します。
+-   **d:DesignInstance と d:DesignData マークアップ拡張機能:** これらのマークアップ拡張機能はいずれかのデザイン時のデータ リソースを提供するために使用**d:DataContext**または**d:DesignSource**します。 設計時のデータ リソースの使い方は、ここで説明した内容がすべてではありません。 詳しくは、「[デザイン時属性](https://go.microsoft.com/fwlink/p/?LinkId=272504)」をご覧ください。 使用例については、「[デザイン サーフェイス上のサンプル データとプロトタイプを作るためのサンプル データ](https://docs.microsoft.com/windows/uwp/data-binding/displaying-data-in-the-designer)」をご覧ください。
 
 ### <a name="mc-httpschemasopenxmlformatsorgmarkup-compatibility2006"></a>**mc: (`http://schemas.openxmlformats.org/markup-compatibility/2006`)**
 
@@ -104,7 +104,7 @@ XAML 言語では、特定の言語要素を指定します。これらの各要
 
 ### <a name="vsm"></a>**vsm:**
 
-使わないでください。 "vsm:" は、他の Microsoft テクノロジからインポートされる従来の XAML テンプレートで使う場合のあるプレフィックスです。 従来の名前空間の作成に関する問題には、この名前空間を使って対応していました。 Windows ランタイムに使う XAML で "vsm:" の XAML 名前空間の定義を削除したうえで、[**VisualState**](https://msdn.microsoft.com/library/windows/apps/br209007)、[**VisualStateGroup**](https://msdn.microsoft.com/library/windows/apps/br209014)、関連オブジェクトのプレフィックスの使用法を変更して、代わりに既定の XAML 名前空間を使う必要があります。 XAML の移行について詳しくは、「[Silverlight または WPF XAML/コードの Windows ランタイム アプリへの移行](https://msdn.microsoft.com/library/windows/apps/br229571)」をご覧ください。
+使わないでください。 "vsm:" は、他の Microsoft テクノロジからインポートされる従来の XAML テンプレートで使う場合のあるプレフィックスです。 従来の名前空間の作成に関する問題には、この名前空間を使って対応していました。 Windows ランタイムに使う XAML で "vsm:" の XAML 名前空間の定義を削除したうえで、[**VisualState**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.VisualState)、[**VisualStateGroup**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.VisualStateGroup)、関連オブジェクトのプレフィックスの使用法を変更して、代わりに既定の XAML 名前空間を使う必要があります。 XAML の移行について詳しくは、「[Silverlight または WPF XAML/コードの Windows ランタイム アプリへの移行](https://docs.microsoft.com/previous-versions/windows/apps/br229571(v=win.10))」をご覧ください。
 
 ## <a name="mapping-custom-types-to-xaml-namespaces-and-prefixes"></a>XAML 名前空間およびプレフィックスへのカスタム型のマッピング
 
@@ -126,7 +126,7 @@ XAML で使うコードを定義するときに入れ子になった型を使わ
 
 ## <a name="custom-types-and-assemblies"></a>カスタム型およびカスタム アセンブリ
 
-マッピングでは、その XAML 名前空間のバッキング型を定義するアセンブリの名前は指定されません。 アセンブリを使うことができるロジックはアプリ定義のレベルで制御され、アプリの展開とセキュリティの基本原則に含まれます。 XAML のコード定義ソースとして含めるすべてのアセンブリを、依存アセンブリとしてプロジェクト設定で宣言します。 詳しくは、「[C# と Visual Basic での Windows ランタイム コンポーネントの作成](https://msdn.microsoft.com/library/windows/apps/xaml/hh441572.aspx)」をご覧ください。
+マッピングでは、その XAML 名前空間のバッキング型を定義するアセンブリの名前は指定されません。 アセンブリを使うことができるロジックはアプリ定義のレベルで制御され、アプリの展開とセキュリティの基本原則に含まれます。 XAML のコード定義ソースとして含めるすべてのアセンブリを、依存アセンブリとしてプロジェクト設定で宣言します。 詳しくは、「[C# と Visual Basic での Windows ランタイム コンポーネントの作成](https://docs.microsoft.com/previous-versions/windows/apps/hh441572(v=vs.140))」をご覧ください。
 
 主要なアプリのアプリケーション定義やページ定義のカスタム型を参照する場合は、それらの型を使うのにさらに依存アセンブリを構成する必要はありませんが、それらの型を含むコード名前空間をマップする必要はあります。 通常は、プレフィックス "local" を特定の XAML ページの既定のコード名前空間にマップします。 この方法は、XAML プロジェクトのプロジェクト開始テンプレートでよく使われています。
 
@@ -138,8 +138,8 @@ XAML で使うコードを定義するときに入れ子になった型を使わ
 
 * [XAML の概要](xaml-overview.md)
 * [XAML 構文のガイド](xaml-syntax-guide.md)
-* [Windows ランタイム コンポーネントを作成するC#および Visual Basic](https://msdn.microsoft.com/library/windows/apps/xaml/hh441572.aspx)
-* [C#、VB、C++ のプロジェクトの Windows ランタイム アプリのテンプレート](https://msdn.microsoft.com/library/windows/apps/hh768232)
-* [移行の Silverlight または WPF XAML/コードを Windows ランタイム アプリ](https://msdn.microsoft.com/library/windows/apps/br229571)
+* [Windows ランタイム コンポーネントを作成するC#および Visual Basic](https://docs.microsoft.com/previous-versions/windows/apps/hh441572(v=vs.140))
+* [C#、VB、C++ のプロジェクトの Windows ランタイム アプリのテンプレート](https://docs.microsoft.com/previous-versions/windows/apps/hh768232(v=win.10))
+* [移行の Silverlight または WPF XAML/コードを Windows ランタイム アプリ](https://docs.microsoft.com/previous-versions/windows/apps/br229571(v=win.10))
  
 

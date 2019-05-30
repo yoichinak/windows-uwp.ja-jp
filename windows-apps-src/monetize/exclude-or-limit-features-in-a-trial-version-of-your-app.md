@@ -6,19 +6,19 @@ keywords: Windows 10, UWP, 試用, アプリ内購入, IAP, Windows.ApplicationM
 ms.date: 08/25/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 38590282a95e29ab240486e9c4a3f9cb9afe229c
-ms.sourcegitcommit: 6a7dd4da2fc31ced7d1cdc6f7cf79c2e55dc5833
+ms.openlocfilehash: 868f9f5742122df861f5c7c62bc147372307033f
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58335100"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66371803"
 ---
 # <a name="exclude-or-limit-features-in-a-trial-version"></a>試用版での機能の除外または制限
 
 ユーザーがアプリを無料で使うことができる試用期間を設け、その期間中は一部の機能を除外または制限することで、アプリを通常版にアップグレードするようユーザーに促すことができます。 どのような機能を制限するかをコーディング開始前に決め、完全なライセンスが購入されたときにだけその機能が正しく動作するようにアプリを設定します。 また、ユーザーがアプリを購入する前の試用期間中にだけバナーや透かしなどを表示する機能を有効にすることもできます。
 
 > [!IMPORTANT]
-> この記事では、[Windows.ApplicationModel.Store](https://msdn.microsoft.com/library/windows/apps/windows.applicationmodel.store.aspx) 名前空間のメンバーを使って、試用版機能を実装する方法について説明します。 この名前空間は更新されなくなり、新機能も追加されないため、代わりに [Windows.Services.Store](https://msdn.microsoft.com/library/windows/apps/windows.services.store.aspx) 名前空間を使用することをお勧めします。 **Windows.Services.Store**名前空間が消耗アドオンの管理対象の Store や、サブスクリプションなど、最新のアドオン型をサポートしているしは将来の種類の製品とパートナーによってサポートされる機能に対応するように設計されていますCenter とストア。 **Windows.Services.Store** 名前空間は、Windows 10 バージョン 1607 で導入され、Visual Studio で、**Windows 10 Anniversary Edition (10.0、ビルド 14393)** 以降のリリースをターゲットとするプロジェクトでのみ使用できます。 **Windows.Services.Store** 名前空間を使用した試用版機能の実装について詳しくは、[この記事](implement-a-trial-version-of-your-app.md)をご覧ください。
+> この記事では、[Windows.ApplicationModel.Store](https://docs.microsoft.com/uwp/api/windows.applicationmodel.store) 名前空間のメンバーを使って、試用版機能を実装する方法について説明します。 この名前空間は更新されなくなり、新機能も追加されないため、代わりに [Windows.Services.Store](https://docs.microsoft.com/uwp/api/windows.services.store) 名前空間を使用することをお勧めします。 **Windows.Services.Store**名前空間が消耗アドオンの管理対象の Store や、サブスクリプションなど、最新のアドオン型をサポートしているしは将来の種類の製品とパートナーによってサポートされる機能に対応するように設計されていますCenter とストア。 **Windows.Services.Store** 名前空間は、Windows 10 バージョン 1607 で導入され、Visual Studio で、**Windows 10 Anniversary Edition (10.0、ビルド 14393)** 以降のリリースをターゲットとするプロジェクトでのみ使用できます。 **Windows.Services.Store** 名前空間を使用した試用版機能の実装について詳しくは、[この記事](implement-a-trial-version-of-your-app.md)をご覧ください。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -26,7 +26,7 @@ ms.locfileid: "58335100"
 
 ## <a name="step-1-pick-the-features-you-want-to-enable-or-disable-during-the-trial-period"></a>手順 1:有効にするか、試用期間中に無効にする機能を選択します。
 
-アプリの現時点でのライセンスの状態は、[LicenseInformation](https://msdn.microsoft.com/library/windows/apps/br225157) クラスのプロパティとして保存されています。 通常は、次の手順で説明するように、ライセンスの状態に依存する関数を条件ブロック内に記述します。 このような機能について検討するときには、ライセンスがどの状態であっても動作するように実装できることを確認してください。
+アプリの現時点でのライセンスの状態は、[LicenseInformation](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Store.LicenseInformation) クラスのプロパティとして保存されています。 通常は、次の手順で説明するように、ライセンスの状態に依存する関数を条件ブロック内に記述します。 このような機能について検討するときには、ライセンスがどの状態であっても動作するように実装できることを確認してください。
 
 また、アプリの実行中にライセンスが変更された場合の処理方法を決めておきます。 試用版のアプリでもすべての機能を使うことができるようにしながら、購入版では表示されない広告バナーを表示することができます。 また、試用版アプリでは一部の機能を無効にしたり、ユーザーに購入を勧めるメッセージを表示したりすることもできます。
 
@@ -61,9 +61,9 @@ ms.locfileid: "58335100"
 
 ## <a name="step-2-initialize-the-license-info"></a>手順 2:ライセンス情報を初期化します。
 
-アプリを初期化するときに、この例に示すように、アプリの [LicenseInformation](https://msdn.microsoft.com/library/windows/apps/br225157) オブジェクトを取得してください。 **licenseInformation** は、**LicenseInformation** 型のグローバル変数またはフィールドと仮定します。
+アプリを初期化するときに、この例に示すように、アプリの [LicenseInformation](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Store.LicenseInformation) オブジェクトを取得してください。 **licenseInformation** は、**LicenseInformation** 型のグローバル変数またはフィールドと仮定します。
 
-ここでは、[CurrentApp](https://msdn.microsoft.com/library/windows/apps/hh779765) ではなく [CurrentAppSimulator](https://msdn.microsoft.com/library/windows/apps/hh779766) を使って、シミュレートされたライセンス情報を取得します。 アプリのリリース バージョンを**ストア**に提出する前に、コード内のすべての **CurrentAppSimulator** の参照を **CurrentApp** と置き換える必要があります。
+ここでは、[CurrentApp](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Store.CurrentApp) ではなく [CurrentAppSimulator](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Store.CurrentAppSimulator) を使って、シミュレートされたライセンス情報を取得します。 アプリのリリース バージョンを**ストア**に提出する前に、コード内のすべての **CurrentAppSimulator** の参照を **CurrentApp** と置き換える必要があります。
 
 > [!div class="tabbedCodeSnippets"]
 [!code-csharp[TrialVersion](./code/InAppPurchasesAndLicenses/cs/TrialVersion.cs#InitializeLicenseTest)]
@@ -111,14 +111,14 @@ ms.locfileid: "58335100"
 
 アプリの動作でユーザーが驚くことがないように、無料試用版のアプリが試用期間中にどのように機能し、期間が過ぎるとどのようになるかを必ず説明してください。
 
-アプリの説明について詳しくは、「[アプリの説明の作成](https://msdn.microsoft.com/library/windows/apps/mt148529)」をご覧ください。
+アプリの説明について詳しくは、「[アプリの説明の作成](https://docs.microsoft.com/windows/uwp/publish/create-app-descriptions)」をご覧ください。
 
 ## <a name="related-topics"></a>関連トピック
 
 * [ストアのサンプル (試用版とアプリ内購入のデモンストレーション)](https://github.com/Microsoft/Windows-universal-samples/tree/win10-1507/Samples/Store)
-* [設定アプリの価格と可用性](https://msdn.microsoft.com/library/windows/apps/mt148548)
-* [CurrentApp](https://msdn.microsoft.com/library/windows/apps/hh779765)
-* [CurrentAppSimulator](https://msdn.microsoft.com/library/windows/apps/hh779766)
+* [設定アプリの価格と可用性](https://docs.microsoft.com/windows/uwp/publish/set-app-pricing-and-availability)
+* [CurrentApp](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Store.CurrentApp)
+* [CurrentAppSimulator](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Store.CurrentAppSimulator)
  
 
  

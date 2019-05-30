@@ -6,12 +6,12 @@ ms.date: 06/04/2018
 ms.topic: article
 keywords: Windows 10, UWP, Microsoft Store 申請 API
 ms.localizationpriority: medium
-ms.openlocfilehash: c2f2638e93ecbe346cc5dccb503d94d926ddcdae
-ms.sourcegitcommit: 6a7dd4da2fc31ced7d1cdc6f7cf79c2e55dc5833
+ms.openlocfilehash: e8e7653174eaf31f11341a5c8e21b69ec54a6189
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58335150"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66371279"
 ---
 # <a name="create-and-manage-submissions"></a>申請の作成と管理
 
@@ -46,15 +46,15 @@ Microsoft Store 申請 API を呼び出すコードの作成を開始する前�
 
 * Microsoft Store 申請 API で使うアプリを準備します。
 
-  * パートナー センターでも、アプリがまだ存在しない場合は、まず[パートナー センターで名前を予約して、アプリを作成する](https://msdn.microsoft.com/windows/uwp/publish/create-your-app-by-reserving-a-name)します。 Microsoft Store 送信 API を使用して、パートナー センターでアプリを作成することはできません。作成して、パートナー センターで作業する必要がありますし、その後することができます、API を使用してアプリにアクセスし、その申請をプログラムで作成します。 ただし、API を使うと、アプリの申請を作成する前に、アドオンとパッケージ フライトをプログラムで作成できます。
+  * パートナー センターでも、アプリがまだ存在しない場合は、まず[パートナー センターで名前を予約して、アプリを作成する](https://docs.microsoft.com/windows/uwp/publish/create-your-app-by-reserving-a-name)します。 Microsoft Store 送信 API を使用して、パートナー センターでアプリを作成することはできません。作成して、パートナー センターで作業する必要がありますし、その後することができます、API を使用してアプリにアクセスし、その申請をプログラムで作成します。 ただし、API を使うと、アプリの申請を作成する前に、アドオンとパッケージ フライトをプログラムで作成できます。
 
-  * この API を使用して、特定のアプリの提出を作成する前にする必要があります[パートナー センターでアプリの 1 つのサブミッションを作成する](https://msdn.microsoft.com/windows/uwp/publish/app-submissions)、応答を含む、[評価期間を表す](https://msdn.microsoft.com/windows/uwp/publish/age-ratings)アンケートです。 この操作の実行後、API を使ってこのアプリの新しい申請をプログラムで作成できるようになります。 アドオンの申請またはパッケージ フライトの申請を作成しなくても、このような申請に API を使うことができます。
+  * この API を使用して、特定のアプリの提出を作成する前にする必要があります[パートナー センターでアプリの 1 つのサブミッションを作成する](https://docs.microsoft.com/windows/uwp/publish/app-submissions)、応答を含む、[評価期間を表す](https://docs.microsoft.com/windows/uwp/publish/age-ratings)アンケートです。 この操作の実行後、API を使ってこのアプリの新しい申請をプログラムで作成できるようになります。 アドオンの申請またはパッケージ フライトの申請を作成しなくても、このような申請に API を使うことができます。
 
-  * アプリの申請を作成または更新するときにアプリ パッケージを追加する必要がある場合は、[アプリ パッケージを準備](https://msdn.microsoft.com/windows/uwp/publish/app-package-requirements)します。
+  * アプリの申請を作成または更新するときにアプリ パッケージを追加する必要がある場合は、[アプリ パッケージを準備](https://docs.microsoft.com/windows/uwp/publish/app-package-requirements)します。
 
-  * アプリの申請を作成または更新するときにストア登録情報用のスクリーンショットまたは画像を含める必要がある場合は、[アプリのスクリーンショットと画像を準備](https://msdn.microsoft.com/windows/uwp/publish/app-screenshots-and-images)します。
+  * アプリの申請を作成または更新するときにストア登録情報用のスクリーンショットまたは画像を含める必要がある場合は、[アプリのスクリーンショットと画像を準備](https://docs.microsoft.com/windows/uwp/publish/app-screenshots-and-images)します。
 
-  * アドオンの申請を作成または更新するときにアイコンを含める必要がある場合は、[アイコンを準備](https://msdn.microsoft.com/windows/uwp/publish/create-iap-descriptions#icon)します。
+  * アドオンの申請を作成または更新するときにアイコンを含める必要がある場合は、[アイコンを準備](https://docs.microsoft.com/windows/uwp/publish/create-iap-descriptions)します。
 
 <span id="associate-an-azure-ad-application-with-your-windows-partner-center-account" />
 
@@ -69,9 +69,9 @@ Microsoft Store 送信 API を使用する前に、Azure AD アプリケーシ�
 
 2.  [次へ]、**ユーザー**ページで、**アカウント設定**パートナー センターの「[して Azure AD アプリケーションを追加](../publish/add-users-groups-and-azure-ad-applications.md#add-azure-ad-applications-to-your-partner-center-account)アプリを使用してサービスを表すパートナー センター アカウント用のサブミッションにアクセスします。 このアプリケーションに必ず**マネージャー** ロールを割り当てます。 アプリケーションが存在しない場合、Azure AD ディレクトリで実行できます[を新規作成パートナー センターで Azure AD アプリケーション](../publish/add-users-groups-and-azure-ad-applications.md#create-a-new-azure-ad-application-account-in-your-organizations-directory-and-add-it-to-your-partner-center-account)します。  
 
-3.  **[ユーザー]** ページに戻り、Azure AD アプリケーションの名前をクリックしてアプリケーション設定に移動し、**[テナント ID]** と **[クライアント ID]** の値を書き留めます。
+3.  **[ユーザー]** ページに戻り、Azure AD アプリケーションの名前をクリックしてアプリケーション設定に移動し、 **[テナント ID]** と **[クライアント ID]** の値を書き留めます。
 
-4. **[新しいキーの追加]** をクリックします。 次の画面で、**[キー]** の値を書き留めます。 このページから離れると、この情報に再度アクセスすることはできません。 詳しくは、「[Azure AD アプリケーションのキーを管理する方法](../publish/add-users-groups-and-azure-ad-applications.md#manage-keys)」をご覧ください。
+4. **[新しいキーの追加]** をクリックします。 次の画面で、 **[キー]** の値を書き留めます。 このページから離れると、この情報に再度アクセスすることはできません。 詳しくは、「[Azure AD アプリケーションのキーを管理する方法](../publish/add-users-groups-and-azure-ad-applications.md#manage-keys)」をご覧ください。
 
 <span id="obtain-an-azure-ad-access-token" />
 
@@ -136,14 +136,14 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 
 | 問題      | 解決方法                                          |
 |---------------|---------------------------------------------|
-| PowerShell から Microsoft Store 申請 API を呼び出した後、[ConvertFrom-Json](https://technet.microsoft.com/library/hh849898.aspx) コマンドレットを使って API の応答データを JSON 形式から PowerShell オブジェクトに変換し、[ConvertTo-Json](https://technet.microsoft.com/library/hh849922.aspx) コマンドレットを使ってもう一度 JSON 形式に変換すると、応答データが破損します。 |  既定では、[ConvertTo-Json](https://technet.microsoft.com/library/hh849922.aspx) コマンドレットの *-Depth* パラメーターは、2 レベルのオブジェクトに設定されます。これは、Microsoft Store 申請 API から返される JSON オブジェクトの大半にとって浅すぎます。 [ConvertTo-Json](https://technet.microsoft.com/library/hh849922.aspx) コマンドレットを呼び出すときは、*-Depth* パラメーターを大きい値 (たとえば 20) に設定します。 |
+| PowerShell から Microsoft Store 申請 API を呼び出した後、[ConvertFrom-Json](https://technet.microsoft.com/library/hh849898.aspx) コマンドレットを使って API の応答データを JSON 形式から PowerShell オブジェクトに変換し、[ConvertTo-Json](https://technet.microsoft.com/library/hh849922.aspx) コマンドレットを使ってもう一度 JSON 形式に変換すると、応答データが破損します。 |  既定では、[ConvertTo-Json](https://technet.microsoft.com/library/hh849922.aspx) コマンドレットの *-Depth* パラメーターは、2 レベルのオブジェクトに設定されます。これは、Microsoft Store 申請 API から返される JSON オブジェクトの大半にとって浅すぎます。 [ConvertTo-Json](https://technet.microsoft.com/library/hh849922.aspx) コマンドレットを呼び出すときは、 *-Depth* パラメーターを大きい値 (たとえば 20) に設定します。 |
 
 ## <a name="additional-help"></a>追加のヘルプ
 
 Microsoft Store 申請 API について質問がある場合や、この API を使った申請の管理に関してサポートが必要な場合は、次のリソースを使ってください。
 
 * Microsoft の[フォーラム](https://social.msdn.microsoft.com/Forums/windowsapps/home?forum=wpsubmit)で質問します。
-* 参照してください、[サポート ページ](https://developer.microsoft.com/windows/support)とパートナー センターのサポート オプションのいずれかを要求します。 問題の種類とカテゴリを選択するよう求められた場合は、**[App submission and certification]** (アプリの申請と認定) と **[Submitting an app]** (アプリの申請) をそれぞれ選択します。  
+* 参照してください、[サポート ページ](https://developer.microsoft.com/windows/support)とパートナー センターのサポート オプションのいずれかを要求します。 問題の種類とカテゴリを選択するよう求められた場合は、 **[App submission and certification]** (アプリの申請と認定) と **[Submitting an app]** (アプリの申請) をそれぞれ選択します。  
 
 ## <a name="related-topics"></a>関連トピック
 

@@ -5,12 +5,12 @@ keywords: 新着情報, 新機能, 更新, 更新プログラム, 機能, 新規
 ms.date: 04/10/2018
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 7d880b2167e718b1ff66aa349c32329e6c19e5b5
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 9b7fe830e07c1daf95928ab747259cb57aaa7a9f
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57592987"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66371340"
 ---
 # <a name="whats-new-in-windows-10-for-developers-build-17134"></a>Windows 10 ビルド 17134 の開発者向け新着情報
 
@@ -42,7 +42,7 @@ Fluent Design の更新 | 多くの Fluent Design ページが新しい情報と
 機能 | 説明
  :------ | :------
 ゲーム開発の概要 | Windows 10 用のゲーム開発に関心をお持ちですか?  新しい[ゲーム開発の作業の概要](../gaming/getting-started.md)ページでは、セットアップ、登録、アプリとゲームの申請準備のために必要な作業全体の概要を示します。
-グラフィックス アダプター | 以下の DXGI API が追加されました。これらは、グラフィックス アダプターの基本設定と削除に関連しています。 </br> * [IDXGIFactory6](https://msdn.microsoft.com/library/windows/desktop/mt814823) インターフェイスでは、GPU 基本設定に基づいてグラフィックス アダプターを列挙する単一のメソッドが有効になります。 </br> * [DXGIDeclareAdapterRemovalSupport](https://msdn.microsoft.com/library/windows/desktop/mt814821) 関数を使用すると、グラフィックス デバイスの削除に対してプロセスで対応可能であると示すことができます。 </br> * [DXGI_GPU_PREFERENCE](https://msdn.microsoft.com/library/windows/desktop/mt814822) 列挙では、アプリを実行する GPU の基本設定を記述します。
+グラフィックス アダプター | 以下の DXGI API が追加されました。これらは、グラフィックス アダプターの基本設定と削除に関連しています。 </br> * [IDXGIFactory6](https://docs.microsoft.com/windows/desktop/api/dxgi1_6/nn-dxgi1_6-idxgifactory6) インターフェイスでは、GPU 基本設定に基づいてグラフィックス アダプターを列挙する単一のメソッドが有効になります。 </br> * [DXGIDeclareAdapterRemovalSupport](https://docs.microsoft.com/windows/desktop/api/dxgi1_6/nf-dxgi1_6-dxgideclareadapterremovalsupport) 関数を使用すると、グラフィックス デバイスの削除に対してプロセスで対応可能であると示すことができます。 </br> * [DXGI_GPU_PREFERENCE](https://docs.microsoft.com/windows/desktop/api/dxgi1_6/ne-dxgi1_6-dxgi_gpu_preference) 列挙では、アプリを実行する GPU の基本設定を記述します。
 
 ## <a name="develop-windows-apps"></a>Windows アプリを開発
 
@@ -114,7 +114,7 @@ Xbox Live クリエーターズ プログラムでは、開発者は、UWP ゲ�
 
 ### <a name="one-dev-question---why-was-docments-and-settings-renamed-users"></a>One Dev Question - "Documents and Settings" が "Users" という名前に変更された理由
 
-Documents and Settings ディレクトリの名前が変更された理由を知りたくありませんか?  [Raymond Chen が、名前の由来や変更された理由について説明します](https://www.youtube.com/watch?v=4vDHQewVmM8&index=1&list=PLWs4_NfqMtoxjy3LrIdf2oamq1coolpZ7)。 Windows やその歴史における開発の詳細については、[Raymond のブログ](https://blogs.msdn.microsoft.com/oldnewthing/)をご覧ください。
+Documents and Settings ディレクトリの名前が変更された理由を知りたくありませんか?  [Raymond Chen が、名前の由来や変更された理由について説明します](https://www.youtube.com/watch?v=4vDHQewVmM8&index=1&list=PLWs4_NfqMtoxjy3LrIdf2oamq1coolpZ7)。 Windows やその歴史における開発の詳細については、[Raymond のブログ](https://devblogs.microsoft.com/oldnewthing/)をご覧ください。
 
 
 ## <a name="samples"></a>サンプル
