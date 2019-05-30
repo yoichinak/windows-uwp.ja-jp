@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 4607280fd031fa556bfc5d1c719f4b4e1aeb928e
-ms.sourcegitcommit: f0f933d5cf0be734373a7b03e338e65000cc3d80
+ms.openlocfilehash: 7c61f6580039b9fe3da915491acd84c939088370
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65984100"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66361387"
 ---
 # <a name="visual-layer"></a>ビジュアル レイヤー
 
@@ -32,13 +32,13 @@ Windows UWP アプリは、いずれかの UI フレームワークを介して�
 
 ビジュアル レイヤーの主な機能は次のとおりです。
 
-1. **[コンテンツ]**:カスタムの描画コンテンツの軽量の複合
+1. **[コンテンツ]** :カスタムの描画コンテンツの軽量の複合
 1. **効果**:リアルタイム UI 効果システムが効果をアニメーション化、連鎖してカスタマイズできます。
 1. **アニメーション**:UI スレッドから独立して実行されているアニメーションの表現力豊かな、フレームワークに依存しません。
 
 ### <a name="content"></a>Content
 
-コンテンツは、ビジュアルを使用するアニメーションおよび効果システムで使用できるように、ホスト、変換、提供されます。 クラス階層の基底クラスは [**Visual**](https://msdn.microsoft.com/library/windows/apps/Dn706858) クラスで、コンポジターでビジュアル状態を処理するアプリ プロセスにおける、軽量でスレッド アジャイルなプロキシです。 ビジュアルのサブ クラスが含まれます  [**ContainerVisual** ](https://msdn.microsoft.com/library/windows/apps/Dn706810)子のビジュアル ツリーを作成するために、 [ **SpriteVisual** ](https://msdn.microsoft.com/library/windows/apps/Mt589433)ですコンテンツを含み、いずれかの純色、カスタムの描画コンテンツまたは視覚的効果を描画することができます。 また、これらの種類のビジュアルは 2D UI 用のビジュアル ツリー構造を構成し、多くの表示される XAML FrameworkElements を強化します。
+コンテンツは、ビジュアルを使用するアニメーションおよび効果システムで使用できるように、ホスト、変換、提供されます。 クラス階層の基底クラスは [**Visual**](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.Visual) クラスで、コンポジターでビジュアル状態を処理するアプリ プロセスにおける、軽量でスレッド アジャイルなプロキシです。 ビジュアルのサブ クラスが含まれます  [**ContainerVisual** ](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.ContainerVisual)子のビジュアル ツリーを作成するために、 [ **SpriteVisual** ](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.SpriteVisual)ですコンテンツを含み、いずれかの純色、カスタムの描画コンテンツまたは視覚的効果を描画することができます。 また、これらの種類のビジュアルは 2D UI 用のビジュアル ツリー構造を構成し、多くの表示される XAML FrameworkElements を強化します。
 
 詳しくは、[コンポジションのビジュアル](composition-visual-tree.md)の概要をご覧ください。
 
@@ -58,7 +58,7 @@ Windows UWP アプリは、いずれかの UI フレームワークを介して�
 
 ### <a name="working-with-your-xaml-uwp-app"></a>XAML UWP アプリの操作
 
-[  **Windows.UI.Xaml.Hosting**](https://msdn.microsoft.com/library/windows/apps/Hh701908) の [**ElementCompositionPreview**](https://msdn.microsoft.com/library/windows/apps/Mt608976) クラスを使用して、XAML フレームワークによってビジュアルを作成できるようになり、表示可能な FrameworkElement を強化することができます。 フレームワークによって作成されたビジュアルには、カスタマイズに関するいくつかの制限があることに注意してください。 これは、フレームワークがオフセット、変換、有効期間を管理するためです。 ただし、独自のビジュアルを作成し、ElementCompositionPreview によって、またはビジュアル ツリー構造内のどこかに既にある ContainerVisual に追加することにより、既存の XAML 要素にアタッチできます。
+[  **Windows.UI.Xaml.Hosting**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Hosting) の [**ElementCompositionPreview**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Hosting.ElementCompositionPreview) クラスを使用して、XAML フレームワークによってビジュアルを作成できるようになり、表示可能な FrameworkElement を強化することができます。 フレームワークによって作成されたビジュアルには、カスタマイズに関するいくつかの制限があることに注意してください。 これは、フレームワークがオフセット、変換、有効期間を管理するためです。 ただし、独自のビジュアルを作成し、ElementCompositionPreview によって、またはビジュアル ツリー構造内のどこかに既にある ContainerVisual に追加することにより、既存の XAML 要素にアタッチできます。
 
 詳しくは、[XAML でのビジュアル レイヤーの使用](using-the-visual-layer-with-xaml.md)の概要をご覧ください。
 
@@ -66,11 +66,11 @@ Windows UWP アプリは、いずれかの UI フレームワークを介して�
 
 ビジュアル層を使用するで、外観や、Windows フォーム、WPF の機能を強化するために、 C++ Win32 デスクトップ アプリ。 ビジュアル層を使用し、その既存のフレームワークで、UI の残りの部分へのコンテンツの島を移行できます。 これは、行うことができます重要な更新プログラムと機能強化、アプリケーションの UI に、既存のコードに広範な変更を加えることがなく基本ことを意味します。
 
-詳細については、次を参照してください。[ビジュアル レイヤーを使用して、デスクトップ アプリの近代化](/windows/apps/desktop/modernize/visual-layer-in-desktop-apps)します。
+詳しくは、「[Modernize your desktop app using the Visual layer (ビジュアル レイヤーを使用したデスクトップ アプリの現代化)](/windows/apps/desktop/modernize/visual-layer-in-desktop-apps)」をご覧ください。
 
 ## <a name="additional-resources"></a>その他の資料
 
-* [**API の完全なリファレンス ドキュメント**](https://msdn.microsoft.com/library/windows/apps/Dn706878)
+* [**API の完全なリファレンス ドキュメント**](https://docs.microsoft.com/uwp/api/Windows.UI.Composition)
 * [WindowsUIDevLabs GitHub](https://github.com/microsoft/windowsuidevlabs) にある高度な UI とコンポジションのサンプル
 * [Windows.UI.Composition サンプル ギャラリー](https://aka.ms/winuiapp)
 * [@windowsui Twitter フィード ](https://twitter.com/windowsui)

@@ -6,12 +6,12 @@ ms.date: 04/17/2018
 ms.topic: article
 keywords: Windows 10, UWP, Microsoft Store 申請 API, アプリの申請, 状態
 ms.localizationpriority: medium
-ms.openlocfilehash: c6fc7a3316cacf1ab6cbe246f7868096b75c538e
-ms.sourcegitcommit: 6a7dd4da2fc31ced7d1cdc6f7cf79c2e55dc5833
+ms.openlocfilehash: 30e3314f52ec39f9f262f274fcf2db70f0aad7d9
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58334440"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66358775"
 ---
 # <a name="get-the-status-of-an-app-submission"></a>アプリの申請の状態の取得
 
@@ -44,7 +44,7 @@ ms.locfileid: "58334440"
 
 | 名前        | 種類   | 説明                                                                 |
 |---------------|--------|-----------------------------------------------------------------------------|
-| applicationId | string | 必須。 状態を取得する申請が含まれているアプリのストア ID です。 ストア ID について詳しくは、「[アプリ ID の詳細の表示](https://msdn.microsoft.com/windows/uwp/publish/view-app-identity-details)」をご覧ください。  |
+| applicationId | string | 必須。 状態を取得する申請が含まれているアプリのストア ID です。 ストア ID について詳しくは、「[アプリ ID の詳細の表示](https://docs.microsoft.com/windows/uwp/publish/view-app-identity-details)」をご覧ください。  |
 | submissionId | string | 必須。 状態を取得する申請の ID です。 この ID は、[アプリの申請の作成](create-an-app-submission.md)要求に対する応答データで確認できます。 パートナー センターで作成された送信、この ID はパートナー センターでの送信 ページの URL で使用できるも。  |
 
 

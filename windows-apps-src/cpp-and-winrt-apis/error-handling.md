@@ -1,16 +1,16 @@
 ---
 description: このトピックでは、C++/WinRT でのプログラミング時にエラーを処理するための方法について説明します。
 title: C++/WinRT でのエラー処理
-ms.date: 05/21/2018
+ms.date: 04/23/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, エラー, 処理, 例外
 ms.localizationpriority: medium
-ms.openlocfilehash: c6f7135e85ab63ddfe92bd0de8c656b58fb1a020
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 3ec6feb34307e0b7c17387d0127cb7d29098e6a6
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57626577"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66361067"
 ---
 # <a name="error-handling-with-cwinrt"></a>C++/WinRT でのエラー処理
 
@@ -30,11 +30,16 @@ Windows レジストリにアクセスするためのシナリオを検討して
 ただし、より可能性の高いパフォーマンスの影響として、例外がスローされる万が一のイベントで適切なデストラクターが呼び出されるのを確認することによる実行時のオーバーヘッドがあります。 この保証に関する代償は、例外が実際にスローされるかどうかで決まります。 そのため、どの関数が例外をスローする可能性があるかをコンパイラで十分に把握していることを確認する必要があります。 コンパイラが特定の関数 (`noexcept` 仕様) からの例外が発生しないことを証明できれば、生成されるコードを最適化できます。
 
 ## <a name="catching-exceptions"></a>例外のキャッチ
-[Windows ランタイム ABI](interop-winrt-abi.md#what-is-the-windows-runtime-abi-and-what-are-abi-types) レイヤーで発生するエラー状態は、HRESULT 値の形式で返されます。 ただし、コードで HRESULT を処理する必要はありません。 使用する側で API のために生成された C++/WinRT プロジェクション コードにより、ABI レイヤーで HRESULT エラー コードが検出され、そのコードが [**winrt::hresult_error**](/uwp/cpp-ref-for-winrt/error-handling/hresult-error) 例外に変換されます。この例外はキャッチして処理できます。
+[Windows ランタイム ABI](interop-winrt-abi.md#what-is-the-windows-runtime-abi-and-what-are-abi-types) レイヤーで発生するエラー状態は、HRESULT 値の形式で返されます。 ただし、コードで HRESULT を処理する必要はありません。 使用する側で API のために生成された C++/WinRT プロジェクション コードにより、ABI レイヤーで HRESULT エラー コードが検出され、そのコードが [**winrt::hresult_error**](/uwp/cpp-ref-for-winrt/error-handling/hresult-error) 例外に変換されます。この例外はキャッチして処理できます。 場合する*は*HRESULT の処理を使用する、 **winrt::hresult**型。
 
 たとえば、アプリケーションによるそのコレクションの反復処理中に、ユーザーが画像ライブラリのイメージを削除してしまった場合、プロジェクションにより例外がスローされます。 また、このケースでは、その例外をキャッチして処理する必要があります。 このケースを示すコード例を次に示します。
 
 ```cppwinrt
+#include <winrt/Windows.Foundation.Collections.h>
+#include <winrt/Windows.Storage.h>
+#include <winrt/Windows.UI.Xaml.Media.Imaging.h>
+#include <winrt/coroutine.h>
+
 using namespace winrt;
 using namespace Windows::Foundation;
 using namespace Windows::Storage;
@@ -54,7 +59,7 @@ IAsyncAction MakeThumbnailsAsync()
         }
         catch (winrt::hresult_error const& ex)
         {
-            HRESULT hr = ex.to_abi(); // HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND).
+            winrt::hresult hr = ex.to_abi(); // HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND).
             winrt::hstring message = ex.message(); // The system cannot find the file specified.
         }
     }
@@ -64,7 +69,7 @@ IAsyncAction MakeThumbnailsAsync()
 `co_await` された関数を呼び出すときにコルーチンでこれと同じパターンを使用します。 この HRESULT から例外への変換の別の例として、コンポーネント API が E_OUTOFMEMORY を返すときに **std::bad_alloc** がスローされます。
 
 ## <a name="throwing-exceptions"></a>例外のスロー
-特定の関数への呼び出しが失敗した場合に、アプリケーションが回復できない (予想どおりに機能することを当てにできない) ように決定する場合があります。 次のコード例では、[**winrt::handle**](/uwp/cpp-ref-for-winrt/handle) 値を [**CreateEvent**](https://msdn.microsoft.com/library/windows/desktop/ms682396) から返された HANDLE 全体のラッパーとして使用します。 次にハンドルを (そこから `bool` 値を作成して) [**winrt::check_bool**](/uwp/cpp-ref-for-winrt/error-handling/check-bool) 関数テンプレートに渡します。 **winrt::check_bool** は、`bool` または `false` (エラーの状態) または `true` (成功の状態) と読み替えることができる任意の値と連携します。
+特定の関数への呼び出しが失敗した場合に、アプリケーションが回復できない (予想どおりに機能することを当てにできない) ように決定する場合があります。 次のコード例では、[**winrt::handle**](/uwp/cpp-ref-for-winrt/handle) 値を [**CreateEvent**](https://docs.microsoft.com/windows/desktop/api/synchapi/nf-synchapi-createeventa) から返された HANDLE 全体のラッパーとして使用します。 次にハンドルを (そこから `bool` 値を作成して) [**winrt::check_bool**](/uwp/cpp-ref-for-winrt/error-handling/check-bool) 関数テンプレートに渡します。 **winrt::check_bool** は、`bool` または `false` (エラーの状態) または `true` (成功の状態) と読み替えることができる任意の値と連携します。
 
 ```cppwinrt
 winrt::handle h{ ::CreateEvent(nullptr, false, false, nullptr) };
@@ -75,7 +80,7 @@ winrt::check_bool(::SetEvent(h.get()));
 [  **winrt::check_bool**](/uwp/cpp-ref-for-winrt/error-handling/check-bool) に渡す値が false である場合、次の一連の処理が実行されます。
 
 - **winrt::check_bool** が [**winrt::throw_last_error**](/uwp/cpp-ref-for-winrt/error-handling/throw-last-error) 関数を呼び出す。
-- **winrt::throw_last_error**呼び出し[ **GetLastError** ](https://msdn.microsoft.com/library/windows/desktop/ms679360)呼び出し元スレッドの最終エラー コード値を呼び出し、その後に取得する、 [ **winrt::throw_hresult** ](/uwp/cpp-ref-for-winrt/error-handling/throw-hresult)関数。
+- **winrt::throw_last_error**呼び出し[ **GetLastError** ](https://docs.microsoft.com/windows/desktop/api/errhandlingapi/nf-errhandlingapi-getlasterror)呼び出し元スレッドの最終エラー コード値を呼び出し、その後に取得する、 [ **winrt::throw_hresult** ](/uwp/cpp-ref-for-winrt/error-handling/throw-hresult)関数。
 - **winrt::throw_hresult** が、エラー コードを表す [**winrt::hresult_error**](/uwp/cpp-ref-for-winrt/error-handling/hresult-error) オブジェクト (または標準のオブジェクト) を使用して例外をスローする。
 
 Windows API では、さまざまな戻り値の型を使用して実行時エラーをレポートするため、**winrt::check_bool** 以外にも、値をチェックして例外をスローするためのその他の便利なヘルパー関数がいくつかあります。
@@ -133,7 +138,7 @@ WINRT_VERIFY_(TRUE, ::CloseHandle(value));
 * [winrt::hresult_error 構造体](/uwp/cpp-ref-for-winrt/error-handling/hresult-error)
 * [winrt::throw_hresult 関数](/uwp/cpp-ref-for-winrt/error-handling/throw-hresult)
 * [winrt::throw_last_error 関数](/uwp/cpp-ref-for-winrt/error-handling/throw-last-error)
-* [winrt::to_hresult 関数](/uwp/cpp-ref-for-winrt/error-handling/to-hresult)
+* [winrt::to_hresult function](/uwp/cpp-ref-for-winrt/error-handling/to-hresult)
 
 ## <a name="related-topics"></a>関連トピック
 * [エラーと例外の処理 (Modern C)](/cpp/cpp/errors-and-exception-handling-modern-cpp)

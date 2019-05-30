@@ -6,16 +6,16 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, OpenCV
 ms.localizationpriority: medium
-ms.openlocfilehash: d72a8d3fcaf337973f585ab19370140cd80f3826
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: HT
+ms.openlocfilehash: 5aee0ed5969d87cd5a9d8ef7a621b383d4078d38
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57640177"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66360593"
 ---
 # <a name="use-the-open-source-computer-vision-library-opencv-with-mediaframereader"></a>Open Source Computer Vision Library (OpenCV) と MediaFrameReader の使用
 
-この記事では、さまざまな画像処理アルゴリズムを提供するネイティブ コード ライブラリである Open Source Computer Vision Library (OpenCV) を、複数のソースから同時にメディア フレームを読み取ることができる [**MediaFrameReader**](https://msdn.microsoft.com/library/windows/apps/Windows.Media.Capture.Frames.MediaFrameReader) クラスと共に使用する方法について説明します。 この記事のコード例では、カラー センサーからフレームを取得し、OpenCV ライブラリを使用して各フレームをぼかして、処理された画像を XAML の **Image** コントロールに表示する方法を示します。 
+この記事では、さまざまな画像処理アルゴリズムを提供するネイティブ コード ライブラリである Open Source Computer Vision Library (OpenCV) を、複数のソースから同時にメディア フレームを読み取ることができる [**MediaFrameReader**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.Frames.MediaFrameReader) クラスと共に使用する方法について説明します。 この記事のコード例では、カラー センサーからフレームを取得し、OpenCV ライブラリを使用して各フレームをぼかして、処理された画像を XAML の **Image** コントロールに表示する方法を示します。 
 
 >[!NOTE]
 >OpenCV.Win.Core と OpenCV.Win.ImgProc は定期的に更新されていませんが、このページの説明に従って OpenCVHelper を作成することをお勧めします。
@@ -45,20 +45,20 @@ ms.locfileid: "57640177"
 > [!NOTE] 
 > 「[OpenCV でのソフトウェア ビットマップの処理](process-software-bitmaps-with-opencv.md)」で解説する OpenCVHelper コンポーネントで使用されている手法では、処理される画像データが GPU メモリではなく CPU メモリに格納されている必要があります。 そのため、**MediaCaptureInitializationSettings** の **[MemoryPreference](https://docs.microsoft.com/uwp/api/windows.media.capture.mediacaptureinitializationsettings.MemoryPreference)** フィールドに **MemoryPreference.CPU** を指定する必要があります。
 
-**MediaCapture** オブジェクトが初期化された後、**[MediaCapture.FrameSources](https://docs.microsoft.com/uwp/api/windows.media.capture.mediacapture.FrameSources)** プロパティにアクセスして、RGB フレーム ソースへの参照を取得します。
+**MediaCapture** オブジェクトが初期化された後、 **[MediaCapture.FrameSources](https://docs.microsoft.com/uwp/api/windows.media.capture.mediacapture.FrameSources)** プロパティにアクセスして、RGB フレーム ソースへの参照を取得します。
 
 [!code-cs[OpenCVInitMediaCapture](./code/Frames_Win10/Frames_Win10/MainPage.OpenCV.xaml.cs#SnippetOpenCVInitMediaCapture)]
 
 ## <a name="initialize-the-mediaframereader"></a>MediaFrameReader を初期化する
-次に、前の手順で取得した RGB フレーム ソースの [**MediaFrameReader**](https://msdn.microsoft.com/library/windows/apps/Windows.Media.Capture.Frames.MediaFrameReader) を作成します。 適切なフレーム レートを維持するために、センサーの解像度よりも低い解像度のフレームを処理する場合があります。 この例では、省略可能な **[BitmapSize](https://docs.microsoft.com/uwp/api/windows.graphics.imaging.bitmapsize)** 引数を、**[MediaCapture.CreateFrameReaderAsync](https://docs.microsoft.com/uwp/api/windows.media.capture.mediacapture.createframereaderasync)** メソッドに対して指定して、フレーム リーダーによって提供されるフレームのサイズを 640 x 480 ピクセルに変更するよう要求しています。
+次に、前の手順で取得した RGB フレーム ソースの [**MediaFrameReader**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.Frames.MediaFrameReader) を作成します。 適切なフレーム レートを維持するために、センサーの解像度よりも低い解像度のフレームを処理する場合があります。 この例では、省略可能な **[BitmapSize](https://docs.microsoft.com/uwp/api/windows.graphics.imaging.bitmapsize)** 引数を、 **[MediaCapture.CreateFrameReaderAsync](https://docs.microsoft.com/uwp/api/windows.media.capture.mediacapture.createframereaderasync)** メソッドに対して指定して、フレーム リーダーによって提供されるフレームのサイズを 640 x 480 ピクセルに変更するよう要求しています。
 
-フレーム リーダーを作成した後、**[FrameArrived](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.mediaframereader.FrameArrived)** イベントのハンドラーを登録します。 次に、新しい **[SoftwareBitmapSource](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.softwarebitmapsource)** オブジェクトを作成します。これは、**FrameRenderer** ヘルパー クラスが処理済みの画像を表示するために使用します。 次に、**FrameRenderer** のコンストラクターを呼び出します。 OpenCVBridge Windows ランタイム コンポーネントで定義されている **OpenCVHelper** クラスのインスタンスを初期化します。 このヘルパー クラスは、各フレームを処理するために **FrameArrived** ハンドラーで使用されます。 最後に、**[StartAsync](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.mediaframereader.StartAsync)** を呼び出して、フレーム リーダーを開始します。
+フレーム リーダーを作成した後、 **[FrameArrived](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.mediaframereader.FrameArrived)** イベントのハンドラーを登録します。 次に、新しい **[SoftwareBitmapSource](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.softwarebitmapsource)** オブジェクトを作成します。これは、**FrameRenderer** ヘルパー クラスが処理済みの画像を表示するために使用します。 次に、**FrameRenderer** のコンストラクターを呼び出します。 OpenCVBridge Windows ランタイム コンポーネントで定義されている **OpenCVHelper** クラスのインスタンスを初期化します。 このヘルパー クラスは、各フレームを処理するために **FrameArrived** ハンドラーで使用されます。 最後に、 **[StartAsync](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.mediaframereader.StartAsync)** を呼び出して、フレーム リーダーを開始します。
 
 [!code-cs[OpenCVFrameReader](./code/Frames_Win10/Frames_Win10/MainPage.OpenCV.xaml.cs#SnippetOpenCVFrameReader)]
 
 
 ## <a name="handle-the-framearrived-event"></a>FrameArrived イベントを処理する
-フレーム リーダーからの新しいフレームが利用可能になると、**FrameArrived** イベントが発生します。 フレームが存在する場合は、**[TryAcquireLatestFrame](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.mediaframereader.TryAcquireLatestFrame)** を呼び出してフレームを取得します。  **[MediaFrameReference](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.mediaframereference)** から **SoftwareBitmap** を取得します。 この例で使用されている **CVHelper** クラスでは、画像がプリマルチプライ済みアルファを含む  BRGA8 ピクセル形式を使用している必要があります。 イベントに渡されたフレームが別の形式である場合は、**SoftwareBitmap** を正しい形式に変換します。 次に、ぼかし操作のターゲットとして使用される **SoftwareBitmap** を作成します。 一致する形式のビットマップを作成するために、ソース画像のプロパティがコンストラクターの引数として使用されます。 ヘルパー クラスの **Blur** メソッドを呼び出してフレームを処理します。 最後に、ぼかし操作の出力画像を **PresentSoftwareBitmap** メソッドに渡します。これは、画像が初期化された XAML **Image** コントロールに画像を表示する **FrameRenderer** ヘルパー クラスのメソッドです。
+フレーム リーダーからの新しいフレームが利用可能になると、**FrameArrived** イベントが発生します。 フレームが存在する場合は、 **[TryAcquireLatestFrame](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.mediaframereader.TryAcquireLatestFrame)** を呼び出してフレームを取得します。  **[MediaFrameReference](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.mediaframereference)** から **SoftwareBitmap** を取得します。 この例で使用されている **CVHelper** クラスでは、画像がプリマルチプライ済みアルファを含む  BRGA8 ピクセル形式を使用している必要があります。 イベントに渡されたフレームが別の形式である場合は、**SoftwareBitmap** を正しい形式に変換します。 次に、ぼかし操作のターゲットとして使用される **SoftwareBitmap** を作成します。 一致する形式のビットマップを作成するために、ソース画像のプロパティがコンストラクターの引数として使用されます。 ヘルパー クラスの **Blur** メソッドを呼び出してフレームを処理します。 最後に、ぼかし操作の出力画像を **PresentSoftwareBitmap** メソッドに渡します。これは、画像が初期化された XAML **Image** コントロールに画像を表示する **FrameRenderer** ヘルパー クラスのメソッドです。
 
 [!code-cs[OpenCVFrameArrived](./code/Frames_Win10/Frames_Win10/MainPage.OpenCV.xaml.cs#SnippetOpenCVFrameArrived)]
 

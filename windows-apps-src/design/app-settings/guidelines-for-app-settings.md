@@ -8,12 +8,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: a31464d208e8d9abe68703560552c99e5d957463
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 0e5c5e19c6e23f4c0094220a735a0c2a48c1cc34
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57638237"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66362062"
 ---
 # <a name="guidelines-for-app-settings"></a>アプリ設定のガイドライン
 
@@ -30,7 +30,7 @@ ms.locfileid: "57638237"
 -   音楽、効果音、配色テーマなど、ユーザーの設定に基づくオプション。
 -   プライバシー ポリシー、ヘルプ、アプリのバージョン、著作権情報など、頻繁にはアクセスされないアプリ情報。
 
-アプリの通常のワークフローに含まれるコマンド (お絵かきアプリでのブラシ色の変更など) は設定ページに含めません。 コマンド配置について詳しくは、「[コマンド設計の基本](https://msdn.microsoft.com/library/windows/apps/dn958433)」をご覧ください。
+アプリの通常のワークフローに含まれるコマンド (お絵かきアプリでのブラシ色の変更など) は設定ページに含めません。 コマンド配置について詳しくは、「[コマンド設計の基本](https://docs.microsoft.com/windows/uwp/layout/commanding-basics)」をご覧ください。
 
 ## <a name="general-recommendations"></a>一般的な推奨事項
 
@@ -135,17 +135,17 @@ Detailed redlines showing preferred text strings for the "Choose a mode" section
     -   [ハイパーリンク](../controls-and-patterns/hyperlinks.md):アプリ内の別のページまたは外部の web サイトには、ユーザーを誘導します。 ユーザーがハイパーリンクをクリックすると、設定ポップアップは閉じられます。
     -   [ボタン](../controls-and-patterns/buttons.md):ユーザーが現在の設定のフライアウトを表示したまま、早急な対応を開始をできるようにします。
 -   使用できないコントロールがある場合は、説明用のメッセージを追加します。 使用できないコントロールの上に、このメッセージを配置します。
--   設定ポップアップとヘッダーがアニメーション化された後で、コンテンツとコントロールを単一のブロックとしてアニメーション化します。 [  **enterPage**](https://msdn.microsoft.com/library/windows/apps/br212672) または [**EntranceThemeTransition**](https://msdn.microsoft.com/library/windows/apps/br210288) アニメーションを使って、100 ピクセル左のオフセットでコンテンツをアニメーション化します。
+-   設定ポップアップとヘッダーがアニメーション化された後で、コンテンツとコントロールを単一のブロックとしてアニメーション化します。 [  **enterPage**](https://docs.microsoft.com/previous-versions/windows/apps/br212672(v=win.10)) または [**EntranceThemeTransition**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.EntranceThemeTransition) アニメーションを使って、100 ピクセル左のオフセットでコンテンツをアニメーション化します。
 -   必要に応じて、コンテンツの整理と明確化の助けになるように、セクション ヘッダー、段落、ラベルを使います。
 -   設定を繰り返し表示する必要がある場合は、UI の階層を追加するか、展開/折りたたみモデルを使います。階層の深さは 2 階層までに抑えます。 たとえば、天気予報アプリの都市別の設定では、都市の一覧を表示し、ユーザーが都市をタップしたときに、新しいポップアップを開くか、展開して設定オプションを表示できるようにします。
--   コントロールや Web コンテンツの読み込みに時間がかかる場合は、進行状況不定コントロールを使ってユーザーに読み込み中であることを示します。 詳しくは、「[プログレス コントロールのガイドライン](https://msdn.microsoft.com/library/windows/apps/hh465469)」をご覧ください。
+-   コントロールや Web コンテンツの読み込みに時間がかかる場合は、進行状況不定コントロールを使ってユーザーに読み込み中であることを示します。 詳しくは、「[プログレス コントロールのガイドライン](https://docs.microsoft.com/windows/uwp/controls-and-patterns/progress-controls)」をご覧ください。
 -   移動や変更をコミットするためのボタンは使いません。 別のページに移動するにはハイパーリンクを使います。また、ボタンを使って変更をコミットする代わりに、ユーザーが設定ポップアップを閉じたときにアプリ設定の変更を自動的に保存します。
 
 
 
 ## <a name="related-articles"></a>関連記事
 
-* [コマンドのデザインの基礎](https://msdn.microsoft.com/library/windows/apps/dn958433)
-* [プログレス コントロールのガイドライン](https://msdn.microsoft.com/library/windows/apps/hh465469)
-* [アプリ データの格納と取得](https://msdn.microsoft.com/library/windows/apps/mt299098)
-* [**EntranceThemeTransition**](https://msdn.microsoft.com/library/windows/apps/br210288)
+* [コマンドのデザインの基礎](https://docs.microsoft.com/windows/uwp/layout/commanding-basics)
+* [プログレス コントロールのガイドライン](https://docs.microsoft.com/windows/uwp/controls-and-patterns/progress-controls)
+* [アプリ データの格納と取得](https://docs.microsoft.com/windows/uwp/app-settings/store-and-retrieve-app-data)
+* [**EntranceThemeTransition**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.EntranceThemeTransition)

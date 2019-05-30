@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10、UWP、ゲーム、入力、サンプル
 ms.localizationpriority: medium
-ms.openlocfilehash: d545f696a93bfa8416e1a772ecc015867a3615c2
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 8daada2424dfc7a1bbe0a227449911f1fbb3b34d
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57611817"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66369182"
 ---
 # <a name="adding-input-and-interactivity-to-the-marble-maze-sample"></a>Marble Maze サンプルへの入力と対話機能の追加
 
@@ -28,7 +28,7 @@ ms.locfileid: "57611817"
 
 -   可能な限り、多様な入力デバイスをサポートし、ゲーム ユーザーの好みや技量に幅広く対応します。 ゲーム コントローラーやセンサーは、必ずしも使う必要はありませんが、プレーヤーのエクスペリエンスを高めるために使用を強くお勧めします。 ゲーム コントローラーとセンサー API は、これらの入力デバイスと容易に連携できるように設計されています。
 
--   タッチを初期化するには、ポインターがアクティブ化されたとき、離されたとき、移動されたときなどのウィンドウ イベントを登録する必要があります。 加速度計を初期化するには、アプリケーションの初期化時に [Windows::Devices::Sensors::Accelerometer](https://msdn.microsoft.com/library/windows/apps/br225687) オブジェクトを作成します。 Xbox コントローラーは初期化を必要としません。
+-   タッチを初期化するには、ポインターがアクティブ化されたとき、離されたとき、移動されたときなどのウィンドウ イベントを登録する必要があります。 加速度計を初期化するには、アプリケーションの初期化時に [Windows::Devices::Sensors::Accelerometer](https://docs.microsoft.com/uwp/api/Windows.Devices.Sensors.Accelerometer) オブジェクトを作成します。 Xbox コントローラーは初期化を必要としません。
 
 -   1 プレーヤーのゲームでは、接続されているすべての Xbox コントローラーからの入力を結合します。 このようにすることで、入力とその発生元となったコントローラーの関係をトラッキングする手間が省けます。 または、このサンプルで行っているように、最後に追加されたコントローラーからの入力のみを追跡します。
 
@@ -56,7 +56,7 @@ Marble Maze は、メニュー項目の選択に関して Xbox コントロー�
 ## <a name="initializing-input-devices"></a>入力デバイスの初期化
 
 
-Xbox コントローラーは初期化を必要としません。 タッチを初期化するには、ポインターがアクティブになったとき (たとえばプレイヤーがマウス ボタンを押すか画面に触れたとき)、離されたとき、移動されたときなどのウィンドウ イベントを登録する必要があります。 加速度計を初期化するには、アプリケーションの初期化時に [Windows::Devices::Sensors::Accelerometer](https://msdn.microsoft.com/library/windows/apps/br225687) オブジェクトを作成する必要があります。
+Xbox コントローラーは初期化を必要としません。 タッチを初期化するには、ポインターがアクティブになったとき (たとえばプレイヤーがマウス ボタンを押すか画面に触れたとき)、離されたとき、移動されたときなどのウィンドウ イベントを登録する必要があります。 加速度計を初期化するには、アプリケーションの初期化時に [Windows::Devices::Sensors::Accelerometer](https://docs.microsoft.com/uwp/api/Windows.Devices.Sensors.Accelerometer) オブジェクトを作成する必要があります。
 
 次の例は、**App::SetWindow** メソッドが [Windows::UI::Core::CoreWindow::PointerPressed](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.PointerPressed)、[Windows::UI::Core::CoreWindow::PointerReleased](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.PointerReleased)、[Windows::UI::Core::CoreWindow::PointerMoved](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.PointerMoved) の各ポインター イベントを登録する方法を示します。 これらのイベントは、アプリケーションの初期化中、ゲーム ループの前に登録されます。
 
@@ -490,7 +490,7 @@ for (TouchMap::const_iterator iter = m_touches.cbegin();
 
 ### <a name="processing-accelerometer-input"></a>加速度計の入力の処理
 
-加速度計の入力を処理するために、**MarbleMazeMain::Update** メソッドは [Windows::Devices::Sensors::Accelerometer::GetCurrentReading](https://msdn.microsoft.com/library/windows/apps/br225699) メソッドを呼び出します。 このメソッドは、加速度計の測定値を表す [Windows::Devices::Sensors::AccelerometerReading](https://msdn.microsoft.com/library/windows/apps/br225688) オブジェクトを返します。 **Windows::Devices::Sensors::AccelerometerReading::AccelerationX** プロパティと **Windows::Devices::Sensors::AccelerometerReading::AccelerationY** プロパティは、X 軸方向と Y 軸方向の重力加速度をそれぞれ保持します。
+加速度計の入力を処理するために、**MarbleMazeMain::Update** メソッドは [Windows::Devices::Sensors::Accelerometer::GetCurrentReading](https://docs.microsoft.com/uwp/api/windows.devices.sensors.accelerometer.getcurrentreading) メソッドを呼び出します。 このメソッドは、加速度計の測定値を表す [Windows::Devices::Sensors::AccelerometerReading](https://docs.microsoft.com/uwp/api/Windows.Devices.Sensors.AccelerometerReading) オブジェクトを返します。 **Windows::Devices::Sensors::AccelerometerReading::AccelerationX** プロパティと **Windows::Devices::Sensors::AccelerometerReading::AccelerationY** プロパティは、X 軸方向と Y 軸方向の重力加速度をそれぞれ保持します。
 
 次の例は、**MarbleMazeMain::Update** メソッドが加速度計をポーリングし、結合された入力値の更新を行う方法を示します。 デバイスを傾けると、重力によって大理石が速く移動します。
 
@@ -548,7 +548,7 @@ if ((oppositeSquared + adjacentSquared) > m_deadzoneSquared)
 
  
 
-入力を処理した後、**MarbleMazeMain::Update** メソッドは、大理石に対する迷路の傾きの影響を表すベクターを作成します。 次の例は、Marble Maze が [XMVector3Normalize](https://msdn.microsoft.com/library/windows/desktop/microsoft.directx_sdk.geometric.xmvector3normalize) 関数を使って正規化された重力ベクターを作成する方法を示します。 **maxTilt** 変数は迷路の傾きの量を制限し、迷路が横向きに傾けられるのを防ぎます。
+入力を処理した後、**MarbleMazeMain::Update** メソッドは、大理石に対する迷路の傾きの影響を表すベクターを作成します。 次の例は、Marble Maze が [XMVector3Normalize](https://docs.microsoft.com/windows/desktop/api/directxmath/nf-directxmath-xmvector3normalize) 関数を使って正規化された重力ベクターを作成する方法を示します。 **maxTilt** 変数は迷路の傾きの量を制限し、迷路が横向きに傾けられるのを防ぎます。
 
 ```cpp
 const float maxTilt = 1.0f / 8.0f;

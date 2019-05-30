@@ -6,22 +6,22 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 3293e91e-6888-4cc3-bad3-61e5a7a7ab4e
 ms.localizationpriority: medium
-ms.openlocfilehash: d62ce9abd84a0769a2393db169b8198d3d9f6cec
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: f542c76d879881af296351ce51a803aa9986ecbb
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57616407"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66359709"
 ---
 # <a name="version-adaptive-code"></a>バージョン アダプティブ コード
 
-アダプティブ コードの記述については、[アダプティブ UI の作成](https://msdn.microsoft.com/windows/uwp/layout/layouts-with-xaml)についての考え方と同じように考えることができます。 最小画面で実行するように基本 UI を設計し、より大きな画面でアプリが実行されていることを検出したときに要素を移動または追加できます。 アダプティブ コードの場合、最小の OS バージョンで実行するように基本コードを記述し、新機能が提供されているより高いバージョンでアプリが実行されていることを検出したときに、機能を手動で選んで追加できます。
+アダプティブ コードの記述については、[アダプティブ UI の作成](https://docs.microsoft.com/windows/uwp/layout/layouts-with-xaml)についての考え方と同じように考えることができます。 最小画面で実行するように基本 UI を設計し、より大きな画面でアプリが実行されていることを検出したときに要素を移動または追加できます。 アダプティブ コードの場合、最小の OS バージョンで実行するように基本コードを記述し、新機能が提供されているより高いバージョンでアプリが実行されていることを検出したときに、機能を手動で選んで追加できます。
 
 ApiInformation に関する重要な背景情報、API コントラクト、Visual Studio の構成については、「[バージョン アダプティブ アプリ](version-adaptive-apps.md)」をご覧ください。
 
 ### <a name="runtime-api-checks"></a>ランタイム API チェック
 
-呼び出す API が存在するかどうかをテストするには、コード内の条件で [Windows.Foundation.Metadata.ApiInformation](https://msdn.microsoft.com/library/windows/apps/windows.foundation.metadata.apiinformation.aspx) クラスを使います。 この条件は、アプリがどこで実行された場合でも評価されますが、API が存在して呼び出すことができるデバイスでのみ **true** と評価されます。 これにより、特定の OS バージョンでのみ利用できる API を使うアプリを作成するためのバージョン アダプティブ コードを記述できます。
+呼び出す API が存在するかどうかをテストするには、コード内の条件で [Windows.Foundation.Metadata.ApiInformation](https://docs.microsoft.com/uwp/api/windows.foundation.metadata.apiinformation) クラスを使います。 この条件は、アプリがどこで実行された場合でも評価されますが、API が存在して呼び出すことができるデバイスでのみ **true** と評価されます。 これにより、特定の OS バージョンでのみ利用できる API を使うアプリを作成するためのバージョン アダプティブ コードを記述できます。
 
 ここでは、Windows Insider Preview の新機能をターゲットにするための具体的な例を示します。 **ApiInformation** を使う場合の一般的な概要については、[デバイス ファミリの概要に関する記事](https://docs.microsoft.com/en-us/uwp/extension-sdks/device-families-overview#writing-code)と [API コントラクトを使った機能の動的な検出に関するブログの投稿](https://blogs.windows.com/buildingapps/2015/09/15/dynamically-detecting-features-with-api-contracts-10-by-10/)をご覧ください。
 
@@ -34,7 +34,7 @@ ApiInformation に関する重要な背景情報、API コントラクト、Visu
 
 アプリの最小バージョンを上げる必要があるのは、以下を使う場合です。
 - 以前のバージョンでは使うことができない機能を必要とする新しい API。 サポートされる最小バージョンを、その機能が含まれているバージョンに上げる必要があります。 詳しくは、「[アプリ機能の宣言](../packaging/app-capability-declarations.md)」をご覧ください。
-- generic.xaml に追加された新しいリソース キーのうち、以前のバージョンでは使うことができないリソース キー。 実行時に使われる generic.xaml のバージョンは、デバイスで実行されている OS バージョンによって決まります。 ランタイム API チェックを使って XAML リソースの有無を確認することはできません。 そのため、アプリがサポートする最小バージョンで利用できるリソース キーのみを使う必要があります。そうしないと、[XAMLParseException](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.markup.xamlparseexception.aspx) が原因で実行時にアプリがクラッシュします。
+- generic.xaml に追加された新しいリソース キーのうち、以前のバージョンでは使うことができないリソース キー。 実行時に使われる generic.xaml のバージョンは、デバイスで実行されている OS バージョンによって決まります。 ランタイム API チェックを使って XAML リソースの有無を確認することはできません。 そのため、アプリがサポートする最小バージョンで利用できるリソース キーのみを使う必要があります。そうしないと、[XAMLParseException](https://docs.microsoft.com/uwp/api/windows.ui.xaml.markup.xamlparseexception) が原因で実行時にアプリがクラッシュします。
 
 ### <a name="adaptive-code-options"></a>アダプティブ コードのオプション
 
@@ -73,14 +73,14 @@ ApiInformation に関する重要な背景情報、API コントラクト、Visu
 
 ### <a name="example-1-new-enum-value"></a>例 1:新しい列挙値
 
-Windows 10 バージョン 1607 を追加する新しい値を[InputScopeNameValue](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.input.inputscopenamevalue.aspx)列挙体。**ChatWithoutEmoji**します。 この新しい入力スコープの入力動作は、**Chat** 入力スコープ (スペルチェック、オートコンプリート、大文字の自動設定) と同じですが、絵文字ボタンのないタッチ キーボードにマップされます。 これは、独自の絵文字ピッカーを作成し、タッチ キーボードに組み込まれている絵文字ボタンを無効にする場合に便利です。 
+Windows 10 バージョン 1607 を追加する新しい値を[InputScopeNameValue](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.inputscopenamevalue)列挙体。**ChatWithoutEmoji**します。 この新しい入力スコープの入力動作は、**Chat** 入力スコープ (スペルチェック、オートコンプリート、大文字の自動設定) と同じですが、絵文字ボタンのないタッチ キーボードにマップされます。 これは、独自の絵文字ピッカーを作成し、タッチ キーボードに組み込まれている絵文字ボタンを無効にする場合に便利です。 
 
-次の例は、**ChatWithoutEmoji** 列挙値が存在するかどうかを確認し、存在する場合は **TextBox** の [InputScope](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.textbox.inputscope.aspx) プロパティを設定する方法を示しています。 アプリが実行されているシステムにこの列挙値が存在しない場合、**InputScope** は **Chat** に設定されます。 ここに示されているコードは、Page コンストラクターまたは Page.Loaded イベント ハンドラーに配置できます。
+次の例は、**ChatWithoutEmoji** 列挙値が存在するかどうかを確認し、存在する場合は **TextBox** の [InputScope](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.inputscope) プロパティを設定する方法を示しています。 アプリが実行されているシステムにこの列挙値が存在しない場合、**InputScope** は **Chat** に設定されます。 ここに示されているコードは、Page コンストラクターまたは Page.Loaded イベント ハンドラーに配置できます。
 
 > [!TIP]
 > API をチェックするときは、.NET 言語機能を使うのではなく静的な文字列を使います。そうしないと、アプリは定義されていない型にアクセスしようとして、実行時にクラッシュすることがあります。
 
-**(C#)**
+**C#**
 ```csharp
 // Create a TextBox control for sending messages 
 // and initialize an InputScope object.
@@ -125,7 +125,7 @@ rootGrid.Children.Add(messageBox);
          Loaded="messageBox_Loaded"/>
 ```
 
-**(C#)**
+**C#**
 ```csharp
 private void messageBox_Loaded(object sender, RoutedEventArgs e)
 {
@@ -156,20 +156,20 @@ XAML またはチェックを含まないコードで ChatWithoutEmoji 値を使
 
 ### <a name="example-2-new-control"></a>例 2:新しいコントロール
 
-通常、新しいバージョンの Windows では、プラットフォームに新機能をもたらす新しいコントロールが UWP API サーフェスに追加されています。 新しいコントロールを活用するには、[ApiInformation.IsTypePresent](https://msdn.microsoft.com/library/windows/apps/windows.foundation.metadata.apiinformation.istypepresent.aspx) メソッドを使います。
+通常、新しいバージョンの Windows では、プラットフォームに新機能をもたらす新しいコントロールが UWP API サーフェスに追加されています。 新しいコントロールを活用するには、[ApiInformation.IsTypePresent](https://docs.microsoft.com/uwp/api/windows.foundation.metadata.apiinformation.istypepresent) メソッドを使います。
 
-Windows 10 バージョン 1607 には、[**MediaPlayerElement**](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.mediaplayerelement.aspx) と呼ばれる新しいメディア コントロールが導入されています。 このコントロールは、[MediaPlayer](https://msdn.microsoft.com/library/windows/apps/windows.media.playback.mediaplayer.aspx) クラスに基づいて作成されているため、バックグラウンド オーディオに簡単に結び付けることができるような機能が追加され、メディア スタックの向上したアーキテクチャを活用しています。
+Windows 10 バージョン 1607 には、[**MediaPlayerElement**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement) と呼ばれる新しいメディア コントロールが導入されています。 このコントロールは、[MediaPlayer](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplayer) クラスに基づいて作成されているため、バックグラウンド オーディオに簡単に結び付けることができるような機能が追加され、メディア スタックの向上したアーキテクチャを活用しています。
 
-ただし、アプリが Windows 10 バージョン 1607 より古いバージョンを実行しているデバイスで実行される場合、新しい **MediaPlayerElement** コントロールではなく、[**MediaElement**](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.mediaelement.aspx) コントロールを使う必要があります。 [  **ApiInformation.IsTypePresent**](https://msdn.microsoft.com/library/windows/apps/windows.foundation.metadata.apiinformation.istypepresent.aspx) メソッドを使って実行時に MediaPlayerElement コントロールが存在するかどうかをチェックし、アプリが実行されているシステムに適しているコントロールを読み込むことができます。
+ただし、アプリが Windows 10 バージョン 1607 より古いバージョンを実行しているデバイスで実行される場合、新しい **MediaPlayerElement** コントロールではなく、[**MediaElement**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaelement) コントロールを使う必要があります。 [  **ApiInformation.IsTypePresent**](https://docs.microsoft.com/uwp/api/windows.foundation.metadata.apiinformation.istypepresent) メソッドを使って実行時に MediaPlayerElement コントロールが存在するかどうかをチェックし、アプリが実行されているシステムに適しているコントロールを読み込むことができます。
 
-この例は、新しい MediaPlayerElement または古い MediaElement を使うアプリを作成する方法を示しています。どちらを使うかは、MediaPlayerElement 型が存在するかどうかによって異なります。 このコードでは、[UserControl](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.usercontrol.aspx) クラスを使って、コントロール、およびそれに関連する UI とコードをコンポーネント化し、OS バージョンに基づいて切り替えることができるようにしています。 また、このシンプルな例に必要なものよりも機能的でカスタムの動作を提供するカスタム コントロールを使うこともできます。
+この例は、新しい MediaPlayerElement または古い MediaElement を使うアプリを作成する方法を示しています。どちらを使うかは、MediaPlayerElement 型が存在するかどうかによって異なります。 このコードでは、[UserControl](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.usercontrol) クラスを使って、コントロール、およびそれに関連する UI とコードをコンポーネント化し、OS バージョンに基づいて切り替えることができるようにしています。 また、このシンプルな例に必要なものよりも機能的でカスタムの動作を提供するカスタム コントロールを使うこともできます。
  
 **MediaPlayerUserControl** 
 
 `MediaPlayerUserControl` は、**MediaPlayerElement** と、フレーム単位でメディアを飛ばすために使われるいくつかのボタンをカプセル化します。 UserControl を使うと、これらのコントロールを単一のエンティティとして扱って、以前のシステムの MediaElement と簡単に切り替えることができます。 このユーザー コントロールは、MediaPlayerElement が存在するシステムでのみ使う必要があるため、このユーザー コントロール内のコードでは ApiInformation チェックを使いません。
 
 > [!NOTE]
-> この例をシンプルなままにし、集中して取り組むために、フレーム ステップ ボタンはメディア プレーヤーの外部に配置されています。 ユーザー エクスペリエンスを向上するためには、MediaTransportControls をカスタマイズしてカスタム ボタンを含める必要があります。 詳しくは、「[カスタム トランスポート コントロールを作成する](https://msdn.microsoft.com/windows/uwp/controls-and-patterns/custom-transport-controls)」をご覧ください。 
+> この例をシンプルなままにし、集中して取り組むために、フレーム ステップ ボタンはメディア プレーヤーの外部に配置されています。 ユーザー エクスペリエンスを向上するためには、MediaTransportControls をカスタマイズしてカスタム ボタンを含める必要があります。 詳しくは、「[カスタム トランスポート コントロールを作成する](https://docs.microsoft.com/windows/uwp/controls-and-patterns/custom-transport-controls)」をご覧ください。 
 
 **XAML**
 ```xaml
@@ -198,7 +198,7 @@ Windows 10 バージョン 1607 には、[**MediaPlayerElement**](https://msdn.m
 </UserControl>
 ```
 
-**(C#)**
+**C#**
 ```csharp
 using System;
 using Windows.Media.Core;
@@ -271,7 +271,7 @@ namespace MediaApp
 
 実行時に、**ApiInformation.IsTypePresent** を呼び出して、MediaPlayerElement の有無を確認します。 MediaPlayerElement が存在する場合は `MediaPlayerUserControl` を読み込み、存在しない場合は `MediaElementUserControl` を読み込みます。
 
-**(C#)**
+**C#**
 ```csharp
 public MainPage()
 {
@@ -305,9 +305,9 @@ public MainPage()
 
 ### <a name="example-1-new-property"></a>例 1:新しいプロパティ
 
-拡張可能な状態トリガーを設定する最初の手順は、[StateTriggerBase](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.statetriggerbase.aspx) クラスのサブクラスを作成して、API の有無に基づいてアクティブになるカスタム トリガーを作成することです。 この例は、プロパティの有無が XAML に設定されている `_isPresent` 変数に一致する場合にアクティブ化されるトリガーを示しています。
+拡張可能な状態トリガーを設定する最初の手順は、[StateTriggerBase](https://docs.microsoft.com/uwp/api/windows.ui.xaml.statetriggerbase) クラスのサブクラスを作成して、API の有無に基づいてアクティブになるカスタム トリガーを作成することです。 この例は、プロパティの有無が XAML に設定されている `_isPresent` 変数に一致する場合にアクティブ化されるトリガーを示しています。
 
-**(C#)**
+**C#**
 ```csharp
 class IsPropertyPresentTrigger : StateTriggerBase
 {
@@ -339,7 +339,7 @@ class IsPropertyPresentTrigger : StateTriggerBase
 
 次の手順は、XAML で表示状態トリガーを設定して、2 つの異なる表示状態が API の有無に基づいた結果になるようにします。 
 
-Windows 10 バージョン 1607 では、ユーザーがコントロールを操作するときにそのコントロールがフォーカスを取得するかどうかを判断する [AllowFocusOnInteraction](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.frameworkelement.allowfocusoninteraction.aspx) と呼ばれる [FrameworkElement](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.frameworkelement.aspx) クラスに新しいプロパティが導入されています。 これは、ユーザーがボタンをクリックしたときに、データ入力用のテキスト ボックスにフォーカスを保持する (タッチ キーボードを表示したままにする) のに役立ちます。
+Windows 10 バージョン 1607 では、ユーザーがコントロールを操作するときにそのコントロールがフォーカスを取得するかどうかを判断する [AllowFocusOnInteraction](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.allowfocusoninteraction) と呼ばれる [FrameworkElement](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement) クラスに新しいプロパティが導入されています。 これは、ユーザーがボタンをクリックしたときに、データ入力用のテキスト ボックスにフォーカスを保持する (タッチ キーボードを表示したままにする) のに役立ちます。
 
 この例のトリガーは、プロパティが存在するかどうかをチェックします。 プロパティが存在する場合、Button の **AllowFocusOnInteraction** プロパティが **false** に設定されます。プロパティが存在しない場合は、Button はその元の状態を保持します。 TextBox は、コードの実行時にこのプロパティの影響をわかりやすくするために含まれています。
 
@@ -375,7 +375,7 @@ Windows 10 バージョン 1607 では、ユーザーがコントロールを操
 
 次の例は、値が存在するかどうかに基づいてさまざまな列挙値を設定する方法を示しています。 カスタム状態トリガーを使って、前のチャットの例と同じ結果を実現します。 この例では、デバイスが Windows 10 バージョン 1607 を実行している場合に、新しい ChatWithoutEmoji 入力スコープを使います。それ以外の場合、**Chat** 入力スコープが使われます。 このトリガーを使う表示状態は、新しい列挙値の有無に基づいて入力スコープが選択される *if-else* スタイルで設定されます。
 
-**(C#)**
+**C#**
 ```csharp
 class IsEnumPresentTrigger : StateTriggerBase
 {

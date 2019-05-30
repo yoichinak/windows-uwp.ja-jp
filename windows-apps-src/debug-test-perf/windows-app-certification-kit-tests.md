@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10 は、uwp アプリの認定
 ms.localizationpriority: medium
-ms.openlocfilehash: ecb7cb68b57e3d9b30a25237a63410d3bfa319b3
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 0a7cf1e89c91f9ad53777aa21af1d43e070c4fc8
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57645087"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66362229"
 ---
 # <a name="windows-app-certification-kit-tests"></a>Windows アプリ認定キットのテスト
 
@@ -34,7 +34,7 @@ ms.locfileid: "57645087"
 
 認定テストを通じて、アプリの復元性や安定性をテストします。
 
-Windows アプリ認定キットで [**IApplicationActivationManager::ActivateApplication**](https://msdn.microsoft.com/library/windows/desktop/Hh706903) を呼び出し、アプリを起動します。 **ActivateApplication** でアプリを起動する場合は、ユーザー アカウント制御 (UAC) を有効にし、画面解像度を 1024 x 768 または 768 x 1024 以上にする必要があります。 どちらの条件も満たされない場合は、アプリはこのテストに合格しません。
+Windows アプリ認定キットで [**IApplicationActivationManager::ActivateApplication**](https://docs.microsoft.com/windows/desktop/api/shobjidl_core/nf-shobjidl_core-iapplicationactivationmanager-activateapplication) を呼び出し、アプリを起動します。 **ActivateApplication** でアプリを起動する場合は、ユーザー アカウント制御 (UAC) を有効にし、画面解像度を 1024 x 768 または 768 x 1024 以上にする必要があります。 どちらの条件も満たされない場合は、アプリはこのテストに合格しません。
 
 ### <a name="corrective-actions"></a>問題への対応
 
@@ -42,10 +42,10 @@ Windows アプリ認定キットで [**IApplicationActivationManager::ActivateAp
 
 十分な大きさの画面を備えたコンピューターでテストを実行していることを確認します。
 
-テスト プラットフォームが [**ActivateApplication**](https://msdn.microsoft.com/library/windows/desktop/Hh706903) の前提条件を満たしているにもかかわらずアプリの起動に失敗する場合は、アクティブ化イベント ログを確認して問題のトラブルシューティングを行うことができます。 イベント ログでこのようなエントリを見つけるには、次の手順を実行します。
+テスト プラットフォームが [**ActivateApplication**](https://docs.microsoft.com/windows/desktop/api/shobjidl_core/nf-shobjidl_core-iapplicationactivationmanager-activateapplication) の前提条件を満たしているにもかかわらずアプリの起動に失敗する場合は、アクティブ化イベント ログを確認して問題のトラブルシューティングを行うことができます。 イベント ログでこのようなエントリを見つけるには、次の手順を実行します。
 
 1.  Eventvwr.exe を開き、アプリケーションとサービス ログに移動します\\Microsoft\\Windows\\Immersive シェル フォルダー。
-2.  イベント Id を表示するビューをフィルター処理します。5900 ~ 6000 します。
+2.  イベント Id を表示するビューをフィルター処理します。5900-6000.
 3.  アプリが起動しなかった理由を説明している可能性のある情報のログ エントリを確認します。
 
 問題のあるファイルをトラブルシューティングして問題を特定し、修正します。 アプリをリビルドして再テストします。 また、ダンプ ファイルが Windows アプリ認定キットのログ フォルダーに生成されたかどうかを確認します。ダンプ ファイルもアプリのデバッグに使用できます。
@@ -62,9 +62,9 @@ Windows アプリを将来のバージョンの OS で実行できることを�
 
 Windows アプリ認定キットは、HighVersionLie を使って、アプリが OS のバージョンを確認する方法を検出します。 アプリがクラッシュした場合は、このテストに合格しません。
 
-### <a name="corrective-action"></a>問題への対応
+### <a name="corrective-action"></a>修正措置
 
-アプリは、バージョン API ヘルパー関数を使ってこれを確認する必要があります。 詳しくは、「[オペレーティング システムのバージョン](https://msdn.microsoft.com/library/windows/desktop/ms724832)」をご覧ください。
+アプリは、バージョン API ヘルパー関数を使ってこれを確認する必要があります。 詳しくは、「[オペレーティング システムのバージョン](https://docs.microsoft.com/windows/desktop/SysInfo/operating-system-version)」をご覧ください。
 
 ## <a name="background-tasks-cancellation-handler-validation"></a>バックグラウンド タスクの取り消しハンドラーの検証
 
@@ -78,9 +78,9 @@ Windows アプリ認定キットは、HighVersionLie を使って、アプリが
 
 アプリが起動して中断され、アプリの非バックグラウンド部分が終了します。 このアプリに関連付けられたバックグラウンド タスクは取り消されます。 アプリの状態が確認され、アプリがまだ実行中の場合はこのテストに合格しません。
 
-### <a name="corrective-action"></a>問題への対応
+### <a name="corrective-action"></a>修正措置
 
-アプリに取り消しハンドラーを追加します。 詳しくは、「[バックグラウンド タスクによるアプリのサポート](https://msdn.microsoft.com/library/windows/apps/Mt299103)」をご覧ください。
+アプリに取り消しハンドラーを追加します。 詳しくは、「[バックグラウンド タスクによるアプリのサポート](https://docs.microsoft.com/windows/uwp/launch-resume/support-your-app-with-background-tasks)」をご覧ください。
 
 ## <a name="app-count"></a>アプリ カウント
 
@@ -96,7 +96,7 @@ Windows Phone 8.1 アプリの場合は、テストにより、バンドル内�
 
 Windows 10 アプリの場合は、テストでは、バンドルのバージョンのリビジョン番号が 0 に設定されていることを確認します。
 
-### <a name="corrective-action"></a>問題への対応
+### <a name="corrective-action"></a>修正措置
 
 アプリ パッケージとバンドルが、テストの詳細で上記の要件を満たしていることを確認します。
 
@@ -110,7 +110,7 @@ Windows 10 アプリの場合は、テストでは、バンドルのバージョ
 
 ### <a name="test-details"></a>テストの詳細
 
-「[アプリ パッケージの要件](https://msdn.microsoft.com/library/windows/apps/Mt148525)」の説明に従って、アプリ マニフェストを調べてコンテンツが正しいかどうかを確認します。
+「[アプリ パッケージの要件](https://docs.microsoft.com/windows/uwp/publish/app-package-requirements)」の説明に従って、アプリ マニフェストを調べてコンテンツが正しいかどうかを確認します。
 
 -   **ファイル拡張子とプロトコル**
 
@@ -124,11 +124,11 @@ Windows 10 アプリの場合は、テストでは、バンドルのバージョ
 
 -   **プロセス間通信 (IPC) 検証**
 
-    このテストでは、UWP アプリはデスクトップのコンポーネントにアプリ コンテナーの外部通信しない要件を強制します。 プロセス間通信は、サイドローディングが行われたアプリのみを対象としています。 DesktopApplicationPath と同じ名前で [**ActivatableClassAttribute**](https://msdn.microsoft.com/library/windows/apps/BR211414) を指定しているアプリは、このテストに合格しません。
+    このテストでは、UWP アプリはデスクトップのコンポーネントにアプリ コンテナーの外部通信しない要件を強制します。 プロセス間通信は、サイドローディングが行われたアプリのみを対象としています。 DesktopApplicationPath と同じ名前で [**ActivatableClassAttribute**](https://docs.microsoft.com/uwp/schemas/appxpackage/appxmanifestschema/element-activatableclassattribute) を指定しているアプリは、このテストに合格しません。
 
-### <a name="corrective-action"></a>問題への対応
+### <a name="corrective-action"></a>修正措置
 
-「[アプリ パッケージの要件](https://msdn.microsoft.com/library/windows/apps/Mt148525)」で説明されている要件に照らして、アプリのマニフェストを確認します。
+「[アプリ パッケージの要件](https://docs.microsoft.com/windows/uwp/publish/app-package-requirements)」で説明されている要件に照らして、アプリのマニフェストを確認します。
 
 ## <a name="windows-security-features-test"></a>Windows のセキュリティ機能のテスト
 
@@ -224,11 +224,11 @@ DEP 対応の CPU でアプリをテストし、DEP の結果として見つか�
 
 **Windows アプリ認定キットのエラー メッセージ:** SharedSectionsCheck テストに失敗しました。
 
-共有されている書き込み可能なセクションがあるバイナリ ファイルは、セキュリティの脅威です。 共有する書き込み可能なセクションを含むアプリは、必須の場合を除き、ビルドしないでください。 [  **CreateFileMapping**](https://msdn.microsoft.com/library/windows/desktop/Aa366537) または [**MapViewOfFile**](https://msdn.microsoft.com/library/windows/desktop/Aa366761) を使って適切に保護された共有メモリ オブジェクトを作成します。
+共有されている書き込み可能なセクションがあるバイナリ ファイルは、セキュリティの脅威です。 共有する書き込み可能なセクションを含むアプリは、必須の場合を除き、ビルドしないでください。 [  **CreateFileMapping**](https://docs.microsoft.com/windows/desktop/api/winbase/nf-winbase-createfilemappinga) または [**MapViewOfFile**](https://docs.microsoft.com/windows/desktop/api/memoryapi/nf-memoryapi-mapviewoffile) を使って適切に保護された共有メモリ オブジェクトを作成します。
 
 **アプリには、このテストが失敗した場合の対処方法**
 
-アプリからすべての共有セクションを削除し、適切なセキュリティ属性を指定した [**CreateFileMapping**](https://msdn.microsoft.com/library/windows/desktop/Aa366537) または [**MapViewOfFile**](https://msdn.microsoft.com/library/windows/desktop/Aa366761) を呼び出して共有メモリ オブジェクトを作成し、アプリをリビルドします。
+アプリからすべての共有セクションを削除し、適切なセキュリティ属性を指定した [**CreateFileMapping**](https://docs.microsoft.com/windows/desktop/api/winbase/nf-winbase-createfilemappinga) または [**MapViewOfFile**](https://docs.microsoft.com/windows/desktop/api/memoryapi/nf-memoryapi-mapviewoffile) を呼び出して共有メモリ オブジェクトを作成し、アプリをリビルドします。
 
 **注釈**
 
@@ -254,7 +254,7 @@ AppContainerCheck は、実行可能なバイナリの PE (Portable Executable) 
 
 **Windows アプリ認定キットのエラー メッセージ:** ExecutableImportsCheck テストに失敗しました。
 
-移植可能な実行可能ファイル (PE) イメージで、実行可能コード セクションにインポート テーブルが置かれていると、このテストが不合格になります。 これは、Visual C++ リンカーの */merge* フラグを "*/merge:.rdata=.text*" に設定して、PE イメージの .rdata マージを有効にすると生じることがあります。
+移植可能な実行可能ファイル (PE) イメージで、実行可能コード セクションにインポート テーブルが置かれていると、このテストが不合格になります。 これは、Visual C++ リンカーの */merge* フラグを " */merge:.rdata=.text*" に設定して、PE イメージの .rdata マージを有効にすると生じることがあります。
 
 **アプリには、このテストが失敗した場合の対処方法**
 
@@ -315,9 +315,9 @@ AppContainerCheck は、実行可能なバイナリの PE (Portable Executable) 
 
 アプリが、デバッグ用のビルドではなくリリース用ビルドとしてコンパイルされていることを確認します。
 
-> **注**  アプリのデバッグ ビルドは、アプリのみ使用する場合でも、このテストは失敗[UWP アプリ用 Api](https://msdn.microsoft.com/library/windows/apps/xaml/bg124285.aspx)します。
+> **注**  アプリのデバッグ ビルドは、アプリのみ使用する場合でも、このテストは失敗[UWP アプリ用 Api](https://docs.microsoft.com/uwp/)します。
 
-API を識別するために、エラー メッセージを確認するには、アプリではない、 [UWP アプリ用 API](https://msdn.microsoft.com/library/windows/apps/xaml/bg124285.aspx)します。
+API を識別するために、エラー メッセージを確認するには、アプリではない、 [UWP アプリ用 API](https://docs.microsoft.com/uwp/)します。
 
 > **注**  C アプリのデバッグ構成で構築されたは、構成は、UWP アプリ用 Windows SDK からの Api を使用するだけ場合でも、このテストは失敗します。 参照してください、 [UWP アプリでの Windows Api の代替](https://go.microsoft.com/fwlink/p/?LinkID=244022)の詳細。
 
@@ -335,7 +335,7 @@ JavaScript の実行時間を短縮するパフォーマンスの最適化とし
 
 アプリの展開をチェックして、すべての .js ファイルがバイトコードに変換されたことをチェックします。
 
-### <a name="corrective-action"></a>問題への対応
+### <a name="corrective-action"></a>修正措置
 
 このテストに合格しなかった場合は、問題の対処に際して次の点を考慮します。
 
@@ -352,7 +352,7 @@ JavaScript の実行時間を短縮するパフォーマンスの最適化とし
 
 WinJS.Binding.optimizeBindingReferences の値を確認します。
 
-### <a name="corrective-action"></a>問題への対応
+### <a name="corrective-action"></a>修正措置
 
 アプリの JavaScript で WinJS.Binding.optimizeBindingReferences を "**true**" に設定します。
 
@@ -366,7 +366,7 @@ WinJS.Binding.optimizeBindingReferences の値を確認します。
 
 アプリ マニフェストで定義されているリソースを調べて、それらのリソースが存在し有効であることを確認します。
 
-### <a name="corrective-action"></a>問題への対応
+### <a name="corrective-action"></a>修正措置
 
 次の表をガイダンスとして使います。
 
@@ -412,7 +412,7 @@ WinJS.Binding.optimizeBindingReferences の値を確認します。
 <tr><td>
 <p>The image must define at least one variant without a TargetSize qualifier. (画像では、TargetSize 修飾子がないバージョンが少なくとも 1 つ定義されている必要があります。) It must define a Scale qualifier or leave Scale and TargetSize unspecified, which defaults to Scale-100. (Scale 修飾子が定義されているか、または Scale と TargetSize が指定されていないままである必要があり、既定では Scale-100 です。)</p>
 </td><td>
-<p>詳しくは、「<a href="https://msdn.microsoft.com/library/windows/apps/xaml/dn958435.aspx">UWP アプリ用レスポンシブ デザイン 101</a>」と「<a href="https://msdn.microsoft.com/library/windows/apps/xaml/hh465241.aspx">アプリ リソースのガイドライン</a>」をご覧ください。</p>
+<p>詳しくは、「<a href="https://docs.microsoft.com/windows/uwp/layout/screen-sizes-and-breakpoints-for-responsive-design">UWP アプリ用レスポンシブ デザイン 101</a>」と「<a href="https://docs.microsoft.com/windows/uwp/app-settings/store-and-retrieve-app-data">アプリ リソースのガイドライン</a>」をご覧ください。</p>
 </td></tr>
 <tr><td>
 <p>The package is missing a "resources.pri" file. (パッケージに "resources.pri" ファイルがありません。)</p>
@@ -434,7 +434,7 @@ WinJS.Binding.optimizeBindingReferences の値を確認します。
 <tr><td>
 <p>The string {string} failed the max length restriction of {number} characters. (文字列 {string} が {number} 文字の最大文字数の制限を満たしていません。)</p>
 </td><td>
-<p>「<a href="https://msdn.microsoft.com/library/windows/apps/xaml/mt148525.aspx">アプリ パッケージの要件</a>」をご覧ください。</p>
+<p>「<a href="https://docs.microsoft.com/windows/uwp/publish/app-package-requirements">アプリ パッケージの要件</a>」をご覧ください。</p>
 <p>実際のメッセージでは、{string} が問題の文字列に置き換わり、{number} に最大文字数が入ります。</p>
 </td></tr>
 <tr><td>
@@ -447,12 +447,12 @@ WinJS.Binding.optimizeBindingReferences の値を確認します。
 <tr><td>
 <p>The string must be non-empty (greater than zero in length) (文字列を空にすることはできません (文字数が 0 より大きい必要があります)。)</p>
 </td><td>
-<p>詳しくは、「<a href="https://msdn.microsoft.com/library/windows/apps/xaml/mt148525.aspx">アプリ パッケージの要件</a>」をご覧ください。</p>
+<p>詳しくは、「<a href="https://docs.microsoft.com/windows/uwp/publish/app-package-requirements">アプリ パッケージの要件</a>」をご覧ください。</p>
 </td></tr>
 <tr><td>
 <p>There is no default resource specified in the "resources.pri" file. ("resources.pri" ファイルで指定された既定のリソースがありません。)</p>
 </td><td>
-<p>詳しくは、「<a href="https://msdn.microsoft.com/library/windows/apps/xaml/hh465241.aspx">アプリ リソースのガイドライン</a>」をご覧ください。</p>
+<p>詳しくは、「<a href="https://docs.microsoft.com/windows/uwp/app-settings/store-and-retrieve-app-data">アプリ リソースのガイドライン</a>」をご覧ください。</p>
 <p>既定のビルド構成では、Visual Studio はバンドル生成時に 200% スケールの画像リソースのみをアプリ パッケージ内に組み込み、その他のリソースはリソース パッケージ内に配置します。 200% スケールの画像リソースを組み込むか、または持っているリソースを組み込むようにプロジェクトを構成してください。</p>
 </td></tr>
 <tr><td>
@@ -521,9 +521,9 @@ Microsoft Store の認定する場合にアプリする必要がありますが�
 
 アプリ パッケージのコンテンツをテストし、正しいファイル エンコードが使われていることを確認します。
 
-### <a name="corrective-action"></a>問題への対応
+### <a name="corrective-action"></a>修正措置
 
-Visual Studio で、影響を受けるファイルを開き、**[ファイル]** メニューの **[名前を付けて保存]** を選択します。 **[保存]** ボタンの横のドロップダウン コントロールを選び、**[エンコード付きで保存]** をクリックします。 **[保存オプションの詳細設定]** ダイアログ ボックスで、Unicode (シグネチャを含む UTF-8) オプションを選び、**[OK]** をクリックします。
+Visual Studio で、影響を受けるファイルを開き、 **[ファイル]** メニューの **[名前を付けて保存]** を選択します。 **[保存]** ボタンの横のドロップダウン コントロールを選び、 **[エンコード付きで保存]** をクリックします。 **[保存オプションの詳細設定]** ダイアログ ボックスで、Unicode (シグネチャを含む UTF-8) オプションを選び、 **[OK]** をクリックします。
 
 ## <a name="direct3d-feature-level-test"></a>Direct3D の機能レベルのテスト
 
@@ -541,7 +541,7 @@ Microsoft Store では、正しくレンダリングまたはで適切に失敗�
 
 9 の機能レベルでアプリを正確にレンダリングする場合は、テストを検証\-1。
 
-### <a name="corrective-action"></a>問題への対応
+### <a name="corrective-action"></a>修正措置
 
 アプリが Direct3D 機能レベル 9 を正常に表示されることを確認\-1、高い機能レベルで実行する場合でもです。 詳しくは、「[機能レベルが異なる Direct3D の開発](https://go.microsoft.com/fwlink/p/?LinkID=253575)」をご覧ください。
 
@@ -551,15 +551,15 @@ Microsoft Store では、正しくレンダリングまたはで適切に失敗�
 
 ### <a name="background"></a>背景
 
-アプリが Direct3D デバイスで [**Trim**](https://msdn.microsoft.com/library/windows/desktop/Dn280346) を呼び出さない場合は、アプリは前の 3D 作業に割り当てられたメモリを解放しません。 この結果、システムのメモリ不足のためにアプリが終了するリスクが増加します。
+アプリが Direct3D デバイスで [**Trim**](https://docs.microsoft.com/windows/desktop/api/dxgi1_3/nf-dxgi1_3-idxgidevice3-trim) を呼び出さない場合は、アプリは前の 3D 作業に割り当てられたメモリを解放しません。 この結果、システムのメモリ不足のためにアプリが終了するリスクが増加します。
 
 ### <a name="test-details"></a>テストの詳細
 
-アプリが d3d 要件を満たしているかどうか、そして中断コールバック時に新しい [**Trim**](https://msdn.microsoft.com/library/windows/desktop/Dn280346) API を呼び出すかどうかを確認します。
+アプリが d3d 要件を満たしているかどうか、そして中断コールバック時に新しい [**Trim**](https://docs.microsoft.com/windows/desktop/api/dxgi1_3/nf-dxgi1_3-idxgidevice3-trim) API を呼び出すかどうかを確認します。
 
-### <a name="corrective-action"></a>問題への対応
+### <a name="corrective-action"></a>修正措置
 
-アプリは中断されそうになった時は常に [**Trim**](https://msdn.microsoft.com/library/windows/desktop/Dn280345) インターフェイスで [**IDXGIDevice3**](https://msdn.microsoft.com/library/windows/desktop/Dn280346) API を呼び出す必要があります。
+アプリは中断されそうになった時は常に [**Trim**](https://docs.microsoft.com/windows/desktop/api/dxgi1_3/nn-dxgi1_3-idxgidevice3) インターフェイスで [**IDXGIDevice3**](https://docs.microsoft.com/windows/desktop/api/dxgi1_3/nf-dxgi1_3-idxgidevice3-trim) API を呼び出す必要があります。
 
 ## <a name="app-capabilities-test"></a>アプリ機能のテスト
 
@@ -616,7 +616,7 @@ Microsoft Store では、正しくレンダリングまたはで適切に失敗�
 
 アプリ パッケージのプロセッサ アーキテクチャ宣言と相互参照される場合に、各ファイルの PE ヘッダー内のビット "bitness" が適切かどうかを検証します。
 
-### <a name="corrective-action"></a>問題への対応
+### <a name="corrective-action"></a>修正措置
 
 アプリ マニフェストで指定されたアーキテクチャでサポートされるファイルのみをアプリ パッケージが含むことを確認するために、次のガイドラインに従ってください。
 
@@ -642,7 +642,7 @@ OS のコンポーネント (Trident、WWAHost などを含む) が最大に内�
 
 アプリのインストール ディレクトリ内のパスに最大値がないことを確認します。\-パス。
 
-### <a name="corrective-action"></a>問題への対応
+### <a name="corrective-action"></a>修正措置
 
 短いディレクトリ構造やファイル名にします。
 
@@ -660,7 +660,7 @@ JavaScript のバックグラウンド タスクがあるアプリは、バッ�
 
 マニフェストで指定されたバックグラウンド タスク ファイルがアプリにない場合、テストに合格します。 それ以外の場合は、テストはアプリ パッケージで指定された JavaScript バックグラウンド タスク ファイルを解析し、Close() ステートメントを探します。 見つかった場合はテストに合格します。見つからない場合はテストに合格しません。
 
-### <a name="corrective-action"></a>問題への対応
+### <a name="corrective-action"></a>修正措置
 
 バックグラウンドの JavaScript コードを更新して、Close() を正しく呼び出します。
 
@@ -668,5 +668,5 @@ JavaScript のバックグラウンド タスクがあるアプリは、バッ�
 ## <a name="related-topics"></a>関連トピック
 
 * [Windows デスクトップ ブリッジ アプリのテスト](windows-desktop-bridge-app-tests.md)
-* [Microsoft Store ポリシー](https://msdn.microsoft.com/library/windows/apps/Dn764944)
+* [Microsoft Store ポリシー](https://docs.microsoft.com/legal/windows/agreements/store-policies)
  

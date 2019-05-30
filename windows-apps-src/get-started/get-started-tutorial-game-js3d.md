@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: fb4249b2-f93c-4993-9e4d-57a62c04be66
 ms.localizationpriority: medium
-ms.openlocfilehash: 2c7d40765e0d12e3543f198aebd5acd15ed3aff3
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 2e1eba68d1046892a67d779d353fd9b2e6bf224e
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57595497"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66366941"
 ---
 # <a name="creating-a-3d-javascript-game-using-threejs"></a>three.js を使用して 3D JavaScript ゲームを作成する
 
@@ -1084,7 +1084,7 @@ function lockChange() {
 (これが最初に向上を想定)。 Microsoft Store に発行することは UWP アプリを作成したら、このプロセスにはいくつかの手順が必要になります。
 
 1.  Windows 開発者として[登録](https://developer.microsoft.com/store/register)する必要があります。
-2.  アプリの申請[チェックリスト](https://msdn.microsoft.com/windows/uwp/publish/app-submissions)を使用する必要があります。
-3.  [認定](https://msdn.microsoft.com/windows/uwp/publish/the-app-certification-process)を受けるために、アプリを提出する必要があります。
+2.  アプリの申請[チェックリスト](https://docs.microsoft.com/windows/uwp/publish/app-submissions)を使用する必要があります。
+3.  [認定](https://docs.microsoft.com/windows/uwp/publish/the-app-certification-process)を受けるために、アプリを提出する必要があります。
 詳細については、次を参照してください。 [UWP アプリの発行](https://developer.microsoft.com/store/publish-apps)します。
 

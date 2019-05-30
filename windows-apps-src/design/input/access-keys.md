@@ -11,12 +11,12 @@ design-contact: kimsea
 dev-contact: niallm
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: bd71e4715b26f9e06326690d3642b4d19e23d292
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 6c13ac8f1421fe785ebce70789c8ea6d0bf6c068
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57617267"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66364015"
 ---
 # <a name="access-keys"></a>アクセス キー
 
@@ -353,7 +353,7 @@ _キーのヒントのカスタマイズ オプション_
 
 XAML フレームワークには、UI オートメーション クライアントがユーザー インターフェイス内の要素に関する情報を検出できるようにするオートメーション プロパティが表示されます。
 
-UIElement または TextElement コントロールで AccessKey プロパティを指定する場合、[AutomationProperties.AccessKey](https://msdn.microsoft.com/library/windows/apps/hh759763) プロパティを使ってこの値を取得できます。 ナレーターなどのアクセシビリティ クライアントは、要素がフォーカスを取得するたびにこのプロパティの値を読み取ります。
+UIElement または TextElement コントロールで AccessKey プロパティを指定する場合、[AutomationProperties.AccessKey](https://docs.microsoft.com/dotnet/api/system.windows.automation.automationproperties.accesskey?view=netframework-4.8) プロパティを使ってこの値を取得できます。 ナレーターなどのアクセシビリティ クライアントは、要素がフォーカスを取得するたびにこのプロパティの値を読み取ります。
 
 ## <a name="related-articles"></a>関連記事
 

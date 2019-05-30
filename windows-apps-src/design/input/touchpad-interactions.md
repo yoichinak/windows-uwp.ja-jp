@@ -8,12 +8,12 @@ keywords: タッチパッド, PTP, タッチ, ポインター, 入力, ユーザ
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 895bf1ffe4fc79a65fdf452235ee9466e91b7215
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 7a4c3c5e2c3041aef3e2223e3bb45c1c3d3d37ad
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57593907"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66365270"
 ---
 # <a name="touchpad-design-guidelines"></a>タッチパッドの設計ガイドライン
 
@@ -42,7 +42,7 @@ ms.locfileid: "57593907"
 
 タッチパッドは、間接的なマルチタッチ入力と、マウスのようなポインティング デバイスの精密入力を組み合わせたものです。 この組み合わせにより、タッチパッドはタッチに最適化された UI にも、生産性アプリとデスクトップ環境で使用される一般的に小さなターゲットにも適しています。 UWP アプリの設計をタッチ入力用に最適化し、既定のタッチパッドのサポートを利用します。
 
-タッチパッドでサポートされている操作エクスペリエンスは複合的なので、[**PointerEntered**](https://msdn.microsoft.com/library/windows/apps/br208968) イベントを使って、タッチ入力の組み込みサポートの他にマウス スタイル UI コマンドも提供することをお勧めします。 たとえば、コンテンツをパンするだけでなく、"前へ" ボタンと "次へ" ボタンを使ってコンテンツのページをフリップできるようにします。
+タッチパッドでサポートされている操作エクスペリエンスは複合的なので、[**PointerEntered**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerentered) イベントを使って、タッチ入力の組み込みサポートの他にマウス スタイル UI コマンドも提供することをお勧めします。 たとえば、コンテンツをパンするだけでなく、"前へ" ボタンと "次へ" ボタンを使ってコンテンツのページをフリップできるようにします。
 
 このトピックで説明されているジェスチャとガイドラインを利用することで、アプリはタッチパッド入力を最小限のコードでシームレスにサポートできます。
 
@@ -119,7 +119,7 @@ ms.locfileid: "57593907"
 ## <a name="hardware"></a>ハードウェア
 
 
-マウス デバイス機能 ([**MouseCapabilities**](https://msdn.microsoft.com/library/windows/apps/br225626)) を照会して、タッチパッド ハードウェアから直接アクセスできるアプリ UI の要素を識別します。 タッチ入力とマウス入力の両方の UI を用意することをお勧めします。
+マウス デバイス機能 ([**MouseCapabilities**](https://docs.microsoft.com/uwp/api/Windows.Devices.Input.MouseCapabilities)) を照会して、タッチパッド ハードウェアから直接アクセスできるアプリ UI の要素を識別します。 タッチ入力とマウス入力の両方の UI を用意することをお勧めします。
 
 デバイス機能の照会について詳しくは、「[入力デバイスの識別](identify-input-devices.md)」をご覧ください。
 
@@ -132,22 +132,22 @@ ms.locfileid: "57593907"
 -   タッチパッド操作ではフォーカス用の四角形を使わないでください。 これはキーボード操作専用です。
 -   同じ入力対象を表すすべての要素に対して視覚的なフィードバックを同時に表示します。
 
-視覚的なフィードバックに関する一般的なガイダンスについては、「[視覚的なフィードバックのガイドライン](https://msdn.microsoft.com/library/windows/apps/hh465342)」をご覧ください。
+視覚的なフィードバックに関する一般的なガイダンスについては、「[視覚的なフィードバックのガイドライン](https://docs.microsoft.com/windows/uwp/input-and-devices/guidelines-for-visualfeedback)」をご覧ください。
 
 ## <a name="cursors"></a>カーソル
 
 
 タッチパッド ポインターとして利用できる標準のカーソル セットが用意されています。 これらが要素のプライマリ操作を示すために使われます。
 
-標準のカーソルには、それぞれ対応する既定の画像が関連付けられています。 ユーザーまたはアプリは、標準のカーソルに関連付けられている既定の画像をいつでも変更できます。 UWP アプリでは、[**PointerCursor**](https://msdn.microsoft.com/library/windows/apps/br208273) 関数を使用して、カーソル画像を指定します。
+標準のカーソルには、それぞれ対応する既定の画像が関連付けられています。 ユーザーまたはアプリは、標準のカーソルに関連付けられている既定の画像をいつでも変更できます。 UWP アプリでは、[**PointerCursor**](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.pointercursor) 関数を使用して、カーソル画像を指定します。
 
 マウス カーソルをカスタマイズする必要がある場合は、以下のガイドラインに従ってください。
 
 -   クリック可能な要素には常に矢印カーソル (![矢印カーソル](images/cursor-arrow.png)) を使います。 リンクなどのインタラクティブな要素には手の形のポインティング カーソル (![手の形のポインティング カーソル](images/cursor-pointinghand.png)) を使いません。 代わりに、前に説明したホバー効果を使います。
 -   選択可能なテキストにはテキスト カーソル (![テキスト カーソル](images/cursor-text.png)) を使います。
 -   ドラッグやトリミングなど、移動がメインの操作である場合は、移動カーソル (![移動カーソル](images/cursor-move.png)) を使います。 スタート画面のタイルなどでのナビゲーションがメインの操作である場合は、要素に対して移動カーソルを使いません。
--   サイズ変更ができるオブジェクトに対しては、横、縦、対角線のサイズ変更カーソル (![縦のサイズ変更カーソル](images/cursor-vertical.png), ![横のサイズ変更カーソル](images/cursor-horizontal.png), ![対角線のサイズ変更カーソル (左下、右上)](images/cursor-diagonal2.png), ![対角線のサイズ変更カーソル (左上、右下)](images/cursor-diagonal1.png)) を使います。
--   地図など、固定キャンバス内のコンテンツのパンを行うときは、手でつかむ形のカーソル (![手でつかむ形のカーソル (開いた状態)](images/cursor-pan1.png), ![手でつかむ形のカーソル (つかんだ状態)](images/cursor-pan2.png)) を使います。
+-   サイズ変更ができるオブジェクトに対しては、横、縦、対角線のサイズ変更カーソル (![縦のサイズ変更カーソル](images/cursor-vertical.png)、 ![横のサイズ変更カーソル](images/cursor-horizontal.png)、 ![対角線のサイズ変更カーソル (左下、右上)](images/cursor-diagonal2.png)、 ![対角線のサイズ変更カーソル (左上、右下)](images/cursor-diagonal1.png)) を使います。
+-   地図など、固定キャンバス内のコンテンツのパンを行うときは、手でつかむ形のカーソル (![手でつかむ形のカーソル (開いた状態)](images/cursor-pan1.png)、 ![手でつかむ形のカーソル (つかんだ状態)](images/cursor-pan2.png)) を使います。
 
 ## <a name="related-articles"></a>関連記事
 

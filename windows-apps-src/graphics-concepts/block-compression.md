@@ -7,12 +7,12 @@ keywords:
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 3f6a1277dbb2d756f0d3a4ffc1fd545f892a2096
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 2ac7f0785894849cffe09cd902f459015f1f7b6b
+ms.sourcegitcommit: ea15237291ae3ade0bf22e38bd292c3a23947a03
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57596507"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66377321"
 ---
 # <a name="block-compression"></a>ブロック圧縮
 
@@ -73,7 +73,7 @@ ms.locfileid: "57596507"
 
 図の左側は、圧縮されていない 60 x 40 のテクスチャに対して生成されるミップマップ レベル サイズを示しています。 最上位レベルのサイズは、テクスチャを生成する API 呼び出しから取得されます。後続の各レベルは、前のレベルのサイズの半分になります。 圧縮されていないテクスチャでは、仮想サイズ (宣言されたサイズ) と物理サイズ (実際のサイズ) との間で差はありません。
 
-図の右側は、圧縮された 60 x 40 のテクスチャに対して生成されるミップマップ レベル サイズを示しています。 2 番目と 3 番目のレベルにはどちらも、各レベルのサイズが 4 で割り切れるように、メモリ パディングが追加されていることに注意してください。 これは、アルゴリズムが 4 x 4 のテクセル ブロックで処理できるようにするために必要です。 4 x 4 よりも小さいミップマップ レベルを考慮する場合、これは特に明白です。これらの非常に小さいミップマップ レベルのサイズは、テクスチャ メモリが割り当てられる際、4 を因数とする最も近い数に切り上げられます。
+図の右側は、圧縮された 60 x 40 のテクスチャに対して生成されるミップマップ レベル サイズを示しています。 2 番目と 3 番目のレベルにはどちらも、各レベルのサイズが 4 で割り切れるように、メモリ パディングが追加されていることに注意してください。 これは、アルゴリズムが 4 x 4 のテクセル ブロックで処理できるようにするために必要です。 4 × 4; よりも小さい mipmap レベルを検討する場合に特に顕著になりますテクスチャのメモリを割り当てるときにこれらの非常に小さい mipmap レベルのサイズは最も近い係数として 4 に丸め。
 
 サンプリング ハードウェアは仮想サイズを使用します。テクスチャがサンプリングされる際、メモリ パディングは無視されます。 4 x 4 よりも小さいミップマップ レベルでは、最初の 4 つのテクセルのみが 2 x 2 のマップに使用され、最初のテクセルのみが 1 x 1 のブロックで使用されます。 ただし、物理サイズ (メモリ パディングを含む) を明らかにする API 構造はありません。
 
@@ -94,13 +94,13 @@ Direct3D は圧縮スキームをいくつか実装しています。それぞ�
 | 成分が 3 つの色およびアルファ | カラー (5:6:5)、アルファ (1) またはアルファなし  | [BC1](#bc1)                    |
 | 成分が 3 つの色およびアルファ | カラー (5:6:5)、アルファ (4)              | [BC2](#bc2)                    |
 | 成分が 3 つの色およびアルファ | カラー (5:6:5)、アルファ (8)              | [BC3](#bc3)                    |
-| 成分が 1 つの色             | 1 つの成分 (8)                     | [に対する BC4](#bc4)                    |
+| 成分が 1 つの色             | 1 つの成分 (8)                     | [BC4](#bc4)                    |
 | 成分が 2 つの色             | 2 つの成分 (8:8)                  | [BC5](#bc5)                    |
 
 - [BC1](#bc1)
 - [BC2](#bc2)
 - [BC3](#bc3)
-- [に対する BC4](#bc4)
+- [BC4](#bc4)
 - [BC5](#bc5)
 
 ### <a name="span-idbc1spanspan-idbc1spanbc1"></a><span id="BC1"></span><span id="bc1"></span>BC1
@@ -193,10 +193,10 @@ else
 
 このアルゴリズムでは、2 つの参照値を調べることで、補間されるカラー値の数を決定します。 赤\_0 が red よりも大きい\_1、しに対する BC4、6 つの色値を補間します。 4 がそれ以外の場合、補間します。 BC4 でカラー値を 4 つのみ補間するときは、追加のカラー値 (0.0f は完全に透明、1.0f は完全に不透明) を 2 つ設定します。 BC4 では、指定されたテクセルの元のアルファに最も近い補間アルファ値に対応するビット コードを保存することにより、4 x 4 のテクセル領域にアルファ値を圧縮します。
 
-- [に対する BC4\_UNORM](#bc4-unorm)
-- [に対する BC4\_SNORM](#bc4-snorm)
+- [BC4\_UNORM](#bc4-unorm)
+- [BC4\_SNORM](#bc4-snorm)
 
-### <a name="span-idbc4unormspanspan-idbc4unormspanspan-idbc4-unormspanbc4unorm"></a><span id="BC4_UNORM"></span><span id="bc4_unorm"></span><span id="bc4-unorm"></span>に対する BC4\_UNORM
+### <a name="span-idbc4unormspanspan-idbc4unormspanspan-idbc4-unormspanbc4unorm"></a><span id="BC4_UNORM"></span><span id="bc4_unorm"></span><span id="bc4-unorm"></span>BC4\_UNORM
 
 単一成分データの補間は、以下のコード サンプルのように行われます。
 
@@ -227,7 +227,7 @@ else
 
 参照カラーは 3 ビットのインデックス (8 つの値があるので 000 ～ 111) を割り当てられます。このインデックスは、圧縮時に red a ～ red p のブロックに保存されます。
 
-### <a name="span-idbc4snormspanspan-idbc4snormspanspan-idbc4-snormspanbc4snorm"></a><span id="BC4_SNORM"></span><span id="bc4_snorm"></span><span id="bc4-snorm"></span>に対する BC4\_SNORM
+### <a name="span-idbc4snormspanspan-idbc4snormspanspan-idbc4-snormspanbc4snorm"></a><span id="BC4_SNORM"></span><span id="bc4_snorm"></span><span id="bc4-snorm"></span>BC4\_SNORM
 
 DXGI\_形式\_に対する BC4\_SNORM がまったく同じで、色の値が補間 SNORM 範囲内でデータをエンコードする点を除いて、および 4 にするとします。 単一成分データの補間は、以下のコード サンプルのように行われます。
 
@@ -346,13 +346,13 @@ FLOAT32 f = 1.0f;
 UINT32 u;
 ```
 
-'f' を 'u' のタイプとして再解釈するため、[memcpy](https://msdn.microsoft.com/library/dswaw1wk.aspx) を使います。
+'f' を 'u' のタイプとして再解釈するため、[memcpy](https://docs.microsoft.com/cpp/c-runtime-library/reference/memcpy-wmemcpy) を使います。
 
 ```cpp
 memcpy( &u, &f, sizeof( f ) ); // 'u' becomes equal to 0x3F800000.
 ```
 
-上の再解釈では、基になるデータの値は変更されません。[memcpy](https://msdn.microsoft.com/library/dswaw1wk.aspx) は浮動小数点数を符号なし整数として再解釈します。
+上の再解釈では、基になるデータの値は変更されません。[memcpy](https://docs.microsoft.com/cpp/c-runtime-library/reference/memcpy-wmemcpy) は浮動小数点数を符号なし整数として再解釈します。
 
 より一般的な変換を実行するには、割り当てを使用します。
 

@@ -7,12 +7,12 @@ keywords:
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 63a77048bed3ad27f2040a672d93380d0250f9aa
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 177d5a8fed47396fa694bd8fb88baea8d8b7bbb3
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57641097"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66371182"
 ---
 # <a name="output-merger-om-stage"></a>出力マージャー (OM) ステージ
 
@@ -37,7 +37,7 @@ OM ステージでは、次のものを組み合わせて使用することで�
 
 ![データのブレンディングのしくみ](images/d3d10-blend-state.png)
 
-概念的には、このフロー チャートが出力結合 (OM) ステージで 2 回実行されると考えることができます。RGB データのブレンディングと、それと並行して実行されるアルファ データのブレンディングです。 API を使用してブレンディング ステートを作成および設定する方法については「[ブレンド機能の構成](https://msdn.microsoft.com/library/windows/desktop/bb205072)」を参照してください。
+概念的には、このフロー チャートが出力結合 (OM) ステージで 2 回実行されると考えることができます。RGB データのブレンディングと、それと並行して実行されるアルファ データのブレンディングです。 API を使用してブレンディング ステートを作成および設定する方法については「[ブレンド機能の構成](https://docs.microsoft.com/windows/desktop/direct3d11/d3d10-graphics-programming-guide-blend-state)」を参照してください。
 
 固定機能ブレンディングは、レンダー ターゲットごとに個別に有効にすることができます。 ただし、ブレンディング制御は 1 組しかないため、ブレンディングが有効なすべての RenderTargets に同じブレンディングが適用されます。 ブレンディング値 (BlendFactor を含む) は常に、ブレンディング前にレンダー ターゲット フォーマットの範囲にクランプされます。 クランプは、レンダー ターゲット タイプを考慮して、レンダー ターゲットごとに実行されます。 ただし、クランプされない float16、float11、および float10 フォーマットは例外で、これらのフォーマットのブレンディング処理は、少なくとも出力フォーマットと同じ精度/範囲で実行できます。 NaN および符号付きのゼロは、すべての場合について伝搬されます (0.0 のブレンドの重みを含みます)。
 

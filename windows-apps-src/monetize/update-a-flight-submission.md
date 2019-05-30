@@ -6,12 +6,12 @@ ms.date: 04/17/2018
 ms.topic: article
 keywords: Windows 10, UWP, Microsoft Store 申請 API, フライトの申請, 更新
 ms.localizationpriority: medium
-ms.openlocfilehash: fe1e88383d6562526d77aea8c75891216cd75ade
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: a06f341584c88be06e4f8c23a3b86bec9d1cec28
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57639027"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66360901"
 ---
 # <a name="update-a-package-flight-submission"></a>パッケージ フライトの申請の更新
 
@@ -48,7 +48,7 @@ ms.locfileid: "57639027"
 
 | 名前        | 種類   | 説明                                                                 |
 |---------------|--------|-----------------------------------------------------------------------------|
-| applicationId | string | 必須。 パッケージ フライト申請を更新するアプリのストア ID です。 ストア ID について詳しくは、「[アプリ ID の詳細の表示](https://msdn.microsoft.com/windows/uwp/publish/view-app-identity-details)」をご覧ください。  |
+| applicationId | string | 必須。 パッケージ フライト申請を更新するアプリのストア ID です。 ストア ID について詳しくは、「[アプリ ID の詳細の表示](https://docs.microsoft.com/windows/uwp/publish/view-app-identity-details)」をご覧ください。  |
 | flightId | string | 必須。 申請を更新するパッケージ フライトの ID です。 この ID は、[パッケージ フライトの作成](create-a-flight.md)要求と[アプリのパッケージ フライトの取得](get-flights-for-an-app.md)要求の応答データで確認できます。 パートナー センターで作成されたフライトはこの ID はパートナー センターでのフライトのページの URL で使用できるも。  |
 | submissionId | string | 必須。 更新する申請の ID です。 この ID は、[パッケージ フライトの申請の作成](create-a-flight-submission.md)要求に対する応答データで確認できます。 パートナー センターで作成された送信、この ID はパートナー センターでの送信 ページの URL で使用できるも。  |
 
@@ -63,7 +63,7 @@ ms.locfileid: "57639027"
 | packageDeliveryOptions    | オブジェクト  | 申請の段階的なパッケージのロールアウトと必須の更新の設定が含まれています。 詳しくは、「[パッケージの配信オプション オブジェクト](manage-flight-submissions.md#package-delivery-options-object)」をご覧ください。  |
 | targetPublishMode           | string  | 申請の公開モードです。 次のいずれかの値を使用できます。 <ul><li>即時</li><li>Manual</li><li>SpecificDate</li></ul> |
 | targetPublishDate           | string  | *targetPublishMode* が SpecificDate に設定されている場合、ISO 8601 形式での申請の公開日です。  |
-| notesForCertification           | string  |  テスト アカウントの資格情報や、機能のアクセスおよび検証手順など、審査担当者に対して追加情報を提供します。 詳しくは、「[認定の注意書き](https://msdn.microsoft.com/windows/uwp/publish/notes-for-certification)」をご覧ください。 |
+| notesForCertification           | string  |  テスト アカウントの資格情報や、機能のアクセスおよび検証手順など、審査担当者に対して追加情報を提供します。 詳しくは、「[認定の注意書き](https://docs.microsoft.com/windows/uwp/publish/notes-for-certification)」をご覧ください。 |
 
 
 ### <a name="request-example"></a>要求の例

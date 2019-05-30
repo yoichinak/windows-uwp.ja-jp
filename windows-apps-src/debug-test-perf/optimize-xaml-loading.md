@@ -6,12 +6,12 @@ ms.date: 08/10/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: ec88af01e46788ea9f24760af7f9a3b81281ba8d
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 7e177f4715d549ce3ef64534e0fc28d2fc3a9fe0
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57593127"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66359949"
 ---
 # <a name="optimize-your-xaml-markup"></a>XAML マークアップの最適化
 
@@ -124,7 +124,7 @@ ListView とその子はメモリに読み込まれていません。
 
 ### <a name="use-layout-panel-properties"></a>レイアウト パネルのプロパティを使う
 
-レイアウト パネルには [Background](https://msdn.microsoft.com/library/windows/apps/BR227512) プロパティが用意されているため、色を付ける目的でパネルの前面に [Rectangle](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle) を配置する必要はありません。
+レイアウト パネルには [Background](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.panel.background) プロパティが用意されているため、色を付ける目的でパネルの前面に [Rectangle](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle) を配置する必要はありません。
 
 **非効率的です**
 
@@ -238,7 +238,7 @@ ListView とその子はメモリに読み込まれていません。
 
 ### <a name="consolidate-multiple-brushes-that-look-the-same-into-one-resource"></a>同じように見える複数のブラシを 1 つのリソースに統合する
 
-XAML プラットフォームは、よく使われるオブジェクトをキャッシュして、何度も再利用できるようにします。 しかし、あるマークアップで宣言されているブラシが別のマークアップで宣言されているブラシと同じであるかどうかは簡単に判断できません。 ここでは、例として [SolidColorBrush](https://msdn.microsoft.com/library/windows/apps/BR242962) を使っていますが、より多く使われる可能性があって重要なのは [GradientBrush](https://msdn.microsoft.com/library/windows/apps/BR210068) です。 また、事前定義された色を使うブラシもチェックする必要があります。たとえば、`"Orange"` と `"#FFFFA500"` は同じ色です。
+XAML プラットフォームは、よく使われるオブジェクトをキャッシュして、何度も再利用できるようにします。 しかし、あるマークアップで宣言されているブラシが別のマークアップで宣言されているブラシと同じであるかどうかは簡単に判断できません。 ここでは、例として [SolidColorBrush](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.SolidColorBrush) を使っていますが、より多く使われる可能性があって重要なのは [GradientBrush](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.GradientBrush) です。 また、事前定義された色を使うブラシもチェックする必要があります。たとえば、`"Orange"` と `"#FFFFA500"` は同じ色です。
 
 **非効率的です。**
 
@@ -281,15 +281,15 @@ XAML プラットフォームは、よく使われるオブジェクトをキャ
 
 過剰な描画は、画面上の同じピクセルに複数のオブジェクトが描画される場合に発生します。 ただし、このガイダンスと要素数を最小限に抑えたいという要求は両立せず、トレードオフが必要になることがあります。
 
-視覚的な診断には、[**DebugSettings.IsOverdrawHeatMapEnabled**](https://msdn.microsoft.com/library/windows/apps/Hh701823) を使います。 シーンに存在するとは思わなかったオブジェクトが描画されていることに気付く場合があります。
+視覚的な診断には、[**DebugSettings.IsOverdrawHeatMapEnabled**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.debugsettings.isoverdrawheatmapenabled) を使います。 シーンに存在するとは思わなかったオブジェクトが描画されていることに気付く場合があります。
 
 ### <a name="transparent-or-hidden-elements"></a>透明または非表示の要素
 
-要素が透明であるか、他の要素の背後に隠れているために表示されず、レイアウトに関与していない場合は、その要素を削除することをお勧めします。 初期の表示状態では要素が表示されないものの、他の表示状態で表示される場合は、x:Load を使ってその状態を制御するか、要素自体の [Visibility](https://msdn.microsoft.com/library/windows/apps/BR208992) を **Collapsed** に設定しておいて、該当の状態になったら値を **Visible** に変更します。 このヒューリスティックには例外があります。一般に、要素にローカルに設定する表示状態は、プロパティに設定されていることが最も多い値にするのが最良です。
+要素が透明であるか、他の要素の背後に隠れているために表示されず、レイアウトに関与していない場合は、その要素を削除することをお勧めします。 初期の表示状態では要素が表示されないものの、他の表示状態で表示される場合は、x:Load を使ってその状態を制御するか、要素自体の [Visibility](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.visibility) を **Collapsed** に設定しておいて、該当の状態になったら値を **Visible** に変更します。 このヒューリスティックには例外があります。一般に、要素にローカルに設定する表示状態は、プロパティに設定されていることが最も多い値にするのが最良です。
 
 ### <a name="composite-elements"></a>複合要素
 
-複数の要素を重ねて効果を作成する代わりに、複合要素を使います。 次の例では、結果は 2 色の図形になり、上半分は黒 ([Grid](https://msdn.microsoft.com/library/windows/apps/BR242704) の背景)、下半分は灰色 (**Grid** の黒い背景の上にアルファ ブレンドされた半透明の白い [Rectangle](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle)) で表示されます。 この場合、結果を得るために必要なピクセルの 150% が塗りつぶされることになります。
+複数の要素を重ねて効果を作成する代わりに、複合要素を使います。 次の例では、結果は 2 色の図形になり、上半分は黒 ([Grid](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid) の背景)、下半分は灰色 (**Grid** の黒い背景の上にアルファ ブレンドされた半透明の白い [Rectangle](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle)) で表示されます。 この場合、結果を得るために必要なピクセルの 150% が塗りつぶされることになります。
 
 **非効率的です。**
 
@@ -346,11 +346,11 @@ XAML プラットフォームは、よく使われるオブジェクトをキャ
 </GridView>
 ```
 
-[Grid](https://msdn.microsoft.com/library/windows/apps/BR242704) のヒット テストを可能にするには、その背景の値を透明に設定します。
+[Grid](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid) のヒット テストを可能にするには、その背景の値を透明に設定します。
 
 ### <a name="borders"></a>境界線
 
-オブジェクトの周りに境界線を描画するには、[Border](https://msdn.microsoft.com/library/windows/apps/BR209253) 要素を使います。 次の例では、[TextBox](https://msdn.microsoft.com/library/windows/apps/BR209683) を囲む間に合わせの境界線として [Grid](https://msdn.microsoft.com/library/windows/apps/BR242704) を使用しています。 この方法では、中央のセル内のすべてのピクセルが複数回描画されます。
+オブジェクトの周りに境界線を描画するには、[Border](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.border.) 要素を使います。 次の例では、[TextBox](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox) を囲む間に合わせの境界線として [Grid](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid) を使用しています。 この方法では、中央のセル内のすべてのピクセルが複数回描画されます。
 
 **非効率的です。**
 
@@ -385,7 +385,7 @@ XAML プラットフォームは、よく使われるオブジェクトをキャ
 
 ### <a name="cache-static-content"></a>静的コンテンツのキャッシュ
 
-過剰な描画の別の原因として、多数の要素を重ね合わせて作成される図形があります。 複合図形を含む [UIElement](https://msdn.microsoft.com/library/windows/apps/BR208911) で [CacheMode](https://msdn.microsoft.com/library/windows/apps/BR228084) を **BitmapCache** に設定すると、プラットフォームによって要素がいったんビットマップにレンダリングされ、何度も描画する代わりに、そのビットマップが各フレームで使われます。
+過剰な描画の別の原因として、多数の要素を重ね合わせて作成される図形があります。 複合図形を含む [UIElement](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement) で [CacheMode](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.CacheMode) を **BitmapCache** に設定すると、プラットフォームによって要素がいったんビットマップにレンダリングされ、何度も描画する代わりに、そのビットマップが各フレームで使われます。
 
 **非効率的です。**
 
@@ -413,7 +413,7 @@ XAML プラットフォームは、よく使われるオブジェクトをキャ
 </Canvas>
 ```
 
-[CacheMode](https://msdn.microsoft.com/library/windows/apps/BR228084) を使っていることに注目してください。 サブ図形がアニメーション化されている場合は、この方法を使わないでください。その目的に反し、各フレームでビットマップ キャッシュを再生成することが必要になる可能性があるためです。
+[CacheMode](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.CacheMode) を使っていることに注目してください。 サブ図形がアニメーション化されている場合は、この方法を使わないでください。その目的に反し、各フレームでビットマップ キャッシュを再生成することが必要になる可能性があるためです。
 
 ## <a name="use-xbf2"></a>XBF2 の使用
 

@@ -5,12 +5,12 @@ ms.date: 07/07/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: d010816b1ba4c9941aea7bdcdb4bd4c50038aca6
-ms.sourcegitcommit: 681c1e3836d2a51cd3b31d824ece344281932bcd
+ms.openlocfilehash: 72bad5bff8092e63a73cc1e32f4424b70867d245
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59067837"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66366028"
 ---
 # <a name="choosing-the-right-push-notification-channel-type"></a>適切なプッシュ通知チャネルの種類を選択する
 
@@ -38,10 +38,10 @@ UWP アプリに通知を送信するために使用される、3 種類のプ�
 
 ### <a name="what-do-primary-channels-enable"></a>プライマリ チャネルで可能なこと
 
--   **プライマリ タイルへのタイルやバッジの更新を送信します。** ユーザーがスタート画面にタイルをピン留めした場合、プライマリ チャネルの効果を発揮できます。 アプリ内で、役に立つ情報の更新やエクスペリエンスのリマインダーを送信できます。 
+-   **タイルやバッジの更新プログラムをプライマリ タイルに送信します。** ユーザーがスタート画面にタイルをピン留めした場合、プライマリ チャネルの効果を発揮できます。 アプリ内で、役に立つ情報の更新やエクスペリエンスのリマインダーを送信できます。 
 -   **トースト通知を送信します。** トースト通知を使うと、ユーザーの前に直ちに情報を提供できます。 シェルによりほとんどのアプリの一番上に描画され、さらにアクション センターに残るため、ユーザーは後から参照して操作することができます。 
--   **バックグラウンド タスクをトリガーする直接通知を送信します。** 通知に基づいて、ユーザーに代わって作業を行うことができます。 直接通知を使うと、アプリのバックグラウンド タスクを実行できます。 
--   **Windows は TLS を使用して、転送中のメッセージを暗号化します。** ネットワーク上のメッセージは、WNS の受信メッセージとデバイスへの送信メッセージの両方が暗号化されます。  
+-   **バック グラウンド タスクをトリガーする生の通知を送信します。** 通知に基づいて、ユーザーに代わって作業を行うことができます。 直接通知を使うと、アプリのバックグラウンド タスクを実行できます。 
+-   **TLS を使用して Windows で提供される転送中のメッセージの暗号化。** ネットワーク上のメッセージは、WNS の受信メッセージとデバイスへの送信メッセージの両方が暗号化されます。  
 
 ### <a name="limitations-of-primary-channels"></a>プライマリ チャネルの制限事項
 
@@ -107,13 +107,13 @@ PushNotificationChannel webChannel =
 <table>
 
 <tr class="header">
-<th align="left"><b>種類</b></th>
-<th align="left"><b>トーストをプッシュする</b></th>
-<th align="left"><b>タイルバッジをプッシュする</b></th>
-<th align="left"><b>直接通知をプッシュする</b></th>
-<th align="left"><b>認証</b></th>
+<th align="left"><b>型</b></th>
+<th align="left"><b>トーストをプッシュしますか。</b></th>
+<th align="left"><b>タイルとバッジをプッシュしますか。</b></th>
+<th align="left"><b>生の通知をプッシュしますか。</b></th>
+<th align="left"><b>[認証]</b></th>
 <th align="left"><b>API</b></th>
-<th align="left"><b>ストアへの登録の必要性</b></th>
+<th align="left"><b>ストアの登録が必要ですか。</b></th>
 <th align="left"><b>チャネル</b></th>
 <th align="left"><b>暗号化</b></th>
 </tr>
@@ -132,9 +132,9 @@ PushNotificationChannel webChannel =
 </tr>
 <tr class="even">
 <td align="left">セカンダリ タイル</td>
-<td align="left">いいえ</td>
+<td align="left">X</td>
 <td align="left">〇 - セカンダリ タイルのみ</td>
-<td align="left">いいえ</td>
+<td align="left">X</td>
 <td align="left">OAuth</td>
 <td align="left">WNS REST API</td>
 <td align="left">〇</td>
@@ -148,7 +148,7 @@ PushNotificationChannel webChannel =
 <td align="left">〇</td>
 <td align="left">VAPID</td>
 <td align="left">WebPush W3C 標準</td>
-<td align="left">いいえ</td>
+<td align="left">X</td>
 <td align="left">アプリあたり 1,000</td>
 <td align="left">転送中 + ヘッダー パススルーによりエンドツーエンドの暗号化が可能 (アプリ コードが必要)</td>
 </tr>
@@ -167,11 +167,11 @@ PushNotificationChannel webChannel =
 
 * [ローカル タイル通知の送信](../tiles-and-notifications/sending-a-local-tile-notification.md)
 * [アダプティブ トースト通知と対話型トースト通知](../tiles-and-notifications/adaptive-interactive-toasts.md)
-* [クイック スタート: プッシュ通知を送信します。](https://msdn.microsoft.com/library/windows/apps/xaml/hh868252)
-* [プッシュ通知を使用してバッジを更新する方法](https://msdn.microsoft.com/library/windows/apps/hh465450)
-* [通知チャネルを要求、作成、保存する方法](https://msdn.microsoft.com/library/windows/apps/hh465412)
-* [実行中のアプリの通知を中断する方法](https://msdn.microsoft.com/library/windows/apps/hh465450)
-* [Windows プッシュ通知サービス (WNS) に対して認証する方法](https://msdn.microsoft.com/library/windows/apps/hh465407)
-* [プッシュ通知サービスの要求ヘッダーと応答ヘッダー](https://msdn.microsoft.com/library/windows/apps/hh465435)
-* [プッシュ通知のガイドラインとチェック リスト](https://msdn.microsoft.com/library/windows/apps/hh761462)
+* [クイック スタート:プッシュ通知を送信します。](https://docs.microsoft.com/previous-versions/windows/apps/hh868252(v=win.10))
+* [プッシュ通知でバッジを更新する方法](https://docs.microsoft.com/previous-versions/windows/apps/hh465450(v=win.10))
+* [要求、作成、および通知チャネルを保存する方法](https://docs.microsoft.com/previous-versions/windows/apps/hh465412(v=win.10))
+* [アプリケーションを実行するための通知をインターセプトする方法](https://docs.microsoft.com/previous-versions/windows/apps/hh465450(v=win.10))
+* [Windows プッシュ通知サービス (WNS) とを認証する方法](https://docs.microsoft.com/previous-versions/windows/apps/hh465407(v=win.10))
+* [プッシュ通知サービスの要求および応答ヘッダー](https://docs.microsoft.com/previous-versions/windows/apps/hh465435(v=win.10))
+* [プッシュ通知のガイドラインとチェックリスト](https://docs.microsoft.com/windows/uwp/controls-and-patterns/tiles-and-notifications-windows-push-notification-services--wns--overview)
 * [直接通知](raw-notification-overview.md)

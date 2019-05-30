@@ -6,12 +6,12 @@ ms.date: 05/07/2018
 ms.topic: article
 keywords: Windows 10, UWP, ユニバーサル
 ms.localizationpriority: medium
-ms.openlocfilehash: 1a43cdd5c16e4ab7ec254c263df75c182ce3faba
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 37207d4ce65551a7bdd33d57f72f3fa6a0a6185d
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57618177"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66370704"
 ---
 # <a name="whats-a-universal-windows-platform-uwp-app"></a>ユニバーサル Windows プラットフォーム (UWP) アプリとは
 
@@ -115,26 +115,26 @@ UWP アプリは、オペレーティング システムによって提供され
 
 Microsoft デザイン システムは Fluent と呼ばれます。 Fluent Design System は、すべての種類の Windows デバイスで適切に動作するアプリを作成するためのベスト プラクティスと組み合わされた、UWP 機能のセットです。 Fluent エクスペリエンスは、タブレット、ノート PC、デスクトップ、テレビから、仮想現実デバイスまで、さまざまなデバイスに対応し、自然に操作できます。 Fluent Design の概要については、[UWP アプリ向けの Fluent Design System に関するページ](https://docs.microsoft.com/windows/uwp/design/fluent-design-system)を参照してください。
 
-適切な[設計](https://go.microsoft.com/fwlink/?LinkId=258848)とは、アプリの外観や機能に加えて、ユーザーによるアプリの操作方法を決定するプロセスです。 ユーザー エクスペリエンスは、ユーザーがアプリでどの程度満足するかを判断する場合に大きな役割を果たします。そのため、この手順は必ず守ってください。 [設計の基本に関するページ](https://developer.microsoft.com/en-us/windows/apps/design)では、ユニバーサル Windows アプリの設計を紹介します。 ユーザーを楽しませる UWP アプリの設計の情報については、「[デザイナー向けユニバーサル Windows プラットフォーム (UWP) アプリの紹介](https://msdn.microsoft.com/library/windows/apps/dn958439)」をご覧ください。 コーディングを開始する前に、ターゲットにするすべての異なるフォーム ファクターについてのアプリの使用についての操作エクスペリエンスを検討するために役立つ「[デバイスの基本情報](../design/devices/index.md)」をご覧ください。
+適切な[設計](https://go.microsoft.com/fwlink/?LinkId=258848)とは、アプリの外観や機能に加えて、ユーザーによるアプリの操作方法を決定するプロセスです。 ユーザー エクスペリエンスは、ユーザーがアプリでどの程度満足するかを判断する場合に大きな役割を果たします。そのため、この手順は必ず守ってください。 [設計の基本に関するページ](https://developer.microsoft.com/en-us/windows/apps/design)では、ユニバーサル Windows アプリの設計を紹介します。 ユーザーを楽しませる UWP アプリの設計の情報については、「[デザイナー向けユニバーサル Windows プラットフォーム (UWP) アプリの紹介](https://docs.microsoft.com/windows/uwp/layout/design-and-ui-intro)」をご覧ください。 コーディングを開始する前に、ターゲットにするすべての異なるフォーム ファクターについてのアプリの使用についての操作エクスペリエンスを検討するために役立つ「[デバイスの基本情報](../design/devices/index.md)」をご覧ください。
 
-さまざまなデバイスでの操作に加えて、複数のデバイスで動作する利点を取り入れるように [アプリの計画](https://msdn.microsoft.com/library/windows/apps/hh465427) を行います。 次に、例を示します。
+さまざまなデバイスでの操作に加えて、複数のデバイスで動作する利点を取り入れるように [アプリの計画](https://docs.microsoft.com/windows/uwp/get-started/plan-your-app) を行います。 例:
 
-- モバイル、小型画面デバイス、大型画面デバイスに対応するには、「[UWP アプリのナビゲーション デザインの基本](https://msdn.microsoft.com/library/windows/apps/dn958438)」を使用してワークフローをデザインします。 [ユーザー インターフェイスをレイアウトする](https://msdn.microsoft.com/library/windows/apps/dn958435)さまざまな画面サイズと解像度に対応します。
+- モバイル、小型画面デバイス、大型画面デバイスに対応するには、「[UWP アプリのナビゲーション デザインの基本](https://docs.microsoft.com/windows/uwp/layout/navigation-basics)」を使用してワークフローをデザインします。 [ユーザー インターフェイスをレイアウトする](https://docs.microsoft.com/windows/uwp/layout/screen-sizes-and-breakpoints-for-responsive-design)さまざまな画面サイズと解像度に対応します。
 
-- 複数の入力の種類の対処方法を検討してください。 ユーザーが [Cortana](https://msdn.microsoft.com/library/windows/apps/dn974233)、[音声認識](https://msdn.microsoft.com/library/windows/apps/dn596121)、[タッチ操作](https://msdn.microsoft.com/library/windows/apps/hh465370)、[タッチ キーボード](https://msdn.microsoft.com/library/windows/apps/hh972345)などを使ってアプリを操作する方法については、「[操作のガイドライン](https://msdn.microsoft.com/library/windows/apps/dn611861)」をご覧ください。  または、従来の操作エクスペリエンスについて詳しくは、「[テキストとテキスト入力のガイドライン](https://msdn.microsoft.com/library/windows/apps/dn611864)」をご覧ください。
+- 複数の入力の種類の対処方法を検討してください。 ユーザーが [Cortana](https://docs.microsoft.com/windows/uwp/input-and-devices/cortana-design-guidelines)、[音声認識](https://docs.microsoft.com/windows/uwp/input-and-devices/speech-interactions)、[タッチ操作](https://docs.microsoft.com/windows/uwp/input-and-devices/guidelines-for-user-interaction)、[タッチ キーボード](https://docs.microsoft.com/windows/uwp/input-and-devices/keyboard-interactions)などを使ってアプリを操作する方法については、「[操作のガイドライン](https://developer.microsoft.com/windows/design/inputs-devices)」をご覧ください。  または、従来の操作エクスペリエンスについて詳しくは、「[テキストとテキスト入力のガイドライン](https://docs.microsoft.com/windows/uwp/controls-and-patterns/text-controls)」をご覧ください。
 
 ### <a name="add-services"></a>サービスの追加
 
 - [クラウド サービス](https://go.microsoft.com/fwlink/?LinkId=526377)を使用して、デバイス間で同期します。
-- アプリのエクスペリエンスをサポートするにあたって、[Web サービスに接続する](https://msdn.microsoft.com/library/windows/apps/xaml/hh761504)方法について説明します。
+- アプリのエクスペリエンスをサポートするにあたって、[Web サービスに接続する](https://docs.microsoft.com/previous-versions/windows/apps/hh761504(v=win.10))方法について説明します。
 - アプリで音声コマンドに応答できるようにするために、[アプリに Cortana を追加する](https://mva.microsoft.com/training-courses/integrating-cortana-in-your-apps-8487?l=20D3s5Xz_5904984382)方法について説明します。
-- [プッシュ通知](https://msdn.microsoft.com/library/windows/apps/mt187203)と[アプリ内購入](https://msdn.microsoft.com/library/windows/apps/mt219684)を計画に盛り込みます。 これらの機能はさまざまなデバイスで動作する必要があります。
+- [プッシュ通知](https://docs.microsoft.com/windows/uwp/controls-and-patterns/tiles-and-notifications-windows-push-notification-services--wns--overview)と[アプリ内購入](https://docs.microsoft.com/windows/uwp/monetize/enable-in-app-product-purchases)を計画に盛り込みます。 これらの機能はさまざまなデバイスで動作する必要があります。
 
 ### <a name="submit-your-app-to-the-store"></a>アプリをストアに提出する
 
 [パートナー センター](https://partner.microsoft.com/dashboard)を管理し、すべての 1 つの場所での Windows デバイス向けアプリを送信することができます。 参照してください[発行の Windows アプリやゲーム](../publish/index.md)を Microsoft Store でのパブリケーション用のアプリケーションを送信する方法について説明します。
 
-新しい機能が追加されたことで、より高度な管理が可能になった一方、プロセスは簡単になりました。 また、詳しい[分析レポート](https://msdn.microsoft.com/library/windows/apps/mt148522)に加えて、[支払いの詳細](https://msdn.microsoft.com/library/windows/apps/dn986925)も得られるようになりました。いずれも[アプリの宣伝と顧客エンゲージメントの獲得](https://msdn.microsoft.com/library/windows/apps/mt148526)に役立ちます。
+新しい機能が追加されたことで、より高度な管理が可能になった一方、プロセスは簡単になりました。 また、詳しい[分析レポート](https://docs.microsoft.com/windows/uwp/publish/analytics)に加えて、[支払いの詳細](https://docs.microsoft.com/windows/uwp/publish/payout-summary)も得られるようになりました。いずれも[アプリの宣伝と顧客エンゲージメントの獲得](https://docs.microsoft.com/windows/uwp/publish/app-promotion-and-customer-engagement)に役立ちます。
 
 別の入門資料については、「[Windows 10 デバイス向け Windows アプリのビルドの概要](https://msdn.microsoft.com/magazine/dn973012.aspx)」をご覧ください。
 
@@ -142,16 +142,16 @@ Microsoft デザイン システムは Fluent と呼ばれます。 Fluent Desig
 
 - アプリでのユーザー アクティビティが Windows タイムラインと Cortana の 前回終了した位置から再開機能に表示されるようにするには、[ユーザー アクティビティ](https://blogs.windows.com/buildingapps/2017/12/19/application-engagement-windows-timeline-user-activities/#tHuZ6tLPtCXqYKvw.97)の使用方法に関するページを参照してください。
 - [UWP アプリのタイル、バッジ、通知](https://docs.microsoft.com/windows/uwp/design/shell/tiles-and-notifications/)の使用方法に関するページを参照してください。
-- UWP アプリに利用可能な Win32 API の完全な一覧については、「[UWP アプリの API セット](https://msdn.microsoft.com/library/windows/desktop/mt186421)」と「[UWP アプリの DLL](https://msdn.microsoft.com/library/windows/desktop/mt186422)」をご覧ください。
-- .NET UWP アプリの作成の概要については、[.NET でのユニバーサル Windows アプリに関するページ](https://blogs.msdn.microsoft.com/dotnet/2015/07/30/universal-windows-apps-in-net)を参照してください。
-- UWP アプリで使用できる .NET 型の一覧については、「[UWP アプリの .NET](https://msdn.microsoft.com/library/mt185501.aspx)」を参照してください。
+- UWP アプリに利用可能な Win32 API の完全な一覧については、「[UWP アプリの API セット](https://docs.microsoft.com/previous-versions//mt186421(v=vs.85))」と「[UWP アプリの DLL](https://docs.microsoft.com/previous-versions//mt186422(v=vs.85))」をご覧ください。
+- .NET UWP アプリの作成の概要については、[.NET でのユニバーサル Windows アプリに関するページ](https://devblogs.microsoft.com/dotnet/universal-windows-apps-in-net/)を参照してください。
+- UWP アプリで使用できる .NET 型の一覧については、「[UWP アプリの .NET](https://docs.microsoft.com/dotnet/api/index?view=dotnet-uwp-10.0)」を参照してください。
 - [.NET ネイティブによるアプリのコンパイル](https://docs.microsoft.com/dotnet/framework/net-native/)
 - [デスクトップ ブリッジ](https://developer.microsoft.com/windows/bridges/desktop)を使用して、既存のデスクトップ アプリに Windows 10 ユーザー向けの最新のエクスペリエンスを追加し、Microsoft Store で配布する方法について説明しています。
 
 ## <a name="how-the-universal-windows-platform-relates-to-windows-runtime-apis"></a>ユニバーサル Windows プラットフォームを Windows ランタイム Api に関連付ける方法
 ユニバーサル Windows プラットフォーム (UWP) アプリをビルドしている場合は、多数の走行距離と外増減同義として"ユニバーサル Windows プラットフォーム (UWP)"と"Windows Runtime (WinRT)"という用語を扱うことの利便性を取得できます。 ですが、*は*テクノロジの内部で検索し、だけどのような違いがアイデアを判断することです。 について興味がある場合は、この最後のセクションでは、できます。
 
-Windows ランタイム、および WinRT Api は Windows Api の進化したものです。 最初に、フラット、C スタイルの Win32 Api を使用して Windows のプログラム。 COM Api が追加されました ([DirectX](https://msdn.microsoft.com/library/windows/desktop/ee663274)顕著な例をされている)。 Windows フォーム、WPF、.NET、およびマネージ言語は、Windows アプリと API のテクノロジの独自のフレーバーを記述するは独自の方法になります。 Windows ランタイムが、実際には、COM の次のステージ 実際のアプリケーション バイナリ インターフェイス (ABI) 層では、COM では、そのルートが表示されます。 さまざまなプログラミング言語の優れた範囲から呼び出し可能である Windows ランタイムが設計されました。 各言語に非常に自然な方法で呼び出し可能。 このために、Windows ランタイムへのアクセスは言語プロジェクションとして知られる仕組みを使用して利用可能になっています。 Windows ランタイム言語プロジェクションはC#、Visual basic、C++ の標準に、JavaScript、という具合にします。 さらに、1 回パッケージ適切に (を参照してください[デスクトップ ブリッジ](/windows/uwp/porting/desktop-to-uwp-root))、アプリケーション モデルの優れた範囲のいずれかでビルドされたアプリから WinRT Api を呼び出すことができます。Win32、.NET、WinForms、および WPF します。
+Windows ランタイム、および WinRT Api は Windows Api の進化したものです。 最初に、フラット、C スタイルの Win32 Api を使用して Windows のプログラム。 COM Api が追加されました ([DirectX](https://docs.microsoft.com/windows/desktop/directx)顕著な例をされている)。 Windows フォーム、WPF、.NET、およびマネージ言語は、Windows アプリと API のテクノロジの独自のフレーバーを記述するは独自の方法になります。 Windows ランタイムが、実際には、COM の次のステージ 実際のアプリケーション バイナリ インターフェイス (ABI) 層では、COM では、そのルートが表示されます。 さまざまなプログラミング言語の優れた範囲から呼び出し可能である Windows ランタイムが設計されました。 各言語に非常に自然な方法で呼び出し可能。 このために、Windows ランタイムへのアクセスは言語プロジェクションとして知られる仕組みを使用して利用可能になっています。 Windows ランタイム言語プロジェクションはC#、Visual basic、C++ の標準に、JavaScript、という具合にします。 さらに、1 回パッケージ適切に (を参照してください[デスクトップ ブリッジ](/windows/uwp/porting/desktop-to-uwp-root))、アプリケーション モデルの優れた範囲のいずれかでビルドされたアプリから WinRT Api を呼び出すことができます。Win32、.NET、WinForms、および WPF します。
 
 また、もちろん、UWP アプリから WinRT Api を呼び出すことができます。 UWP では、Windows ランタイムの上に構築されたアプリケーション モデルです。 技術的には、UWP のアプリケーション モデルの基に[CoreApplication](/uwp/api/windows.applicationmodel.core.coreapplication)、プログラミング言語の選択に応じて、ユーザーからその詳細が表示されないことができます。 値の提案の観点から、このトピックでは説明したよう、UWP に役立ち、選択する必要があります、Microsoft Store に発行して実行できる優れたさまざまなデバイス フォーム ファクターのいずれかにする 1 つのバイナリの書き込み。 UWP アプリのデバイスのリーチを呼び出すことで、アプリを制限することや、条件付きで呼び出すことに、UWP Api のサブセットに依存します。
 

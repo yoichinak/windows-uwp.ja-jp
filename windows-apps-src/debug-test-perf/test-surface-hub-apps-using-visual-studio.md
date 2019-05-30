@@ -6,12 +6,12 @@ ms.date: 10/26/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: db481fac1bdcb9e79762f52aee48574e987c4cbb
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 8a846aab77fad6f087057fe930d11ac781ed7171
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57601017"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66362197"
 ---
 # <a name="test-surface-hub-apps-using-visual-studio"></a>Visual Studio を使った Surface Hub アプリのテスト
 Visual Studio シミュレーターは、ユニバーサル Windows プラットフォーム (UWP) アプリの設計、開発、デバッグ、テストを行える環境を提供します。これには Microsoft Surface Hub 用に作成されたアプリを含みます。 シミュレーターが Surface Hub、として、同じユーザー インターフェイスを使用しないが、アプリの外観し、動作、Surface Hub の画面サイズと解像度をテストするために便利です。
@@ -90,12 +90,12 @@ Surface hub アプリの手動展開は、単純なプロセスです。
 3. **[開発者モード]** を選択し、警告メッセージに同意します。
 
 ### <a name="deploy-your-app-from-visual-studio"></a>Visual Studio からアプリを展開する
-一般に、表示、展開プロセスの詳細については[の展開と UWP アプリのデバッグ](https://msdn.microsoft.com/windows/uwp/debug-test-perf/deploying-and-debugging-uwp-apps)します。
+一般に、表示、展開プロセスの詳細については[の展開と UWP アプリのデバッグ](https://docs.microsoft.com/windows/uwp/debug-test-perf/deploying-and-debugging-uwp-apps)します。
 
    > [!NOTE]
    > この機能では、最新の最新バージョンの Visual Studio を使用することをお勧めします。 ただし、Visual Studio 2015 Update 1 以降が必要です。 最新の Visual Studio インスタンスには、する最新のすべての開発とセキュリティ更新プログラムを gibe は。
 
-1. **[デバッグの開始]** ボタンの横にあるデバッグ ターゲットのドロップダウンに移動し、**[リモート コンピューター]** を選択します。
+1. **[デバッグの開始]** ボタンの横にあるデバッグ ターゲットのドロップダウンに移動し、 **[リモート コンピューター]** を選択します。
 
     <!--lcap: in your screenshot, you have local machine selected-->
 

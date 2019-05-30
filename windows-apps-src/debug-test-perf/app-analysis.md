@@ -5,12 +5,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: f1d37446cb5f540cd77928cb8167d8d4319977d1
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 138bb762b9b1d424ac8f9c2148b43f230f096458
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57612007"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66362430"
 ---
 # <a name="app-analysis-overview"></a>App Analysis の概要
 
@@ -32,11 +32,11 @@ App Analysis の規則とは、それに基づいてアプリがチェックさ�
 
 #### <a name="image-is-not-being-set-asynchronously"></a>画像が非同期に設定されていない
 
-アプリで、SetSourceAsync() ではなく SetSource() が使用されています。 画像を非同期にデコードするようにストリームを設定する場合は、[**SetSource**](https://msdn.microsoft.com/library/windows/apps/BR243255) ではなく [**SetSourceAsync**](https://msdn.microsoft.com/library/windows/apps/JJ191522) を使います。 
+アプリで、SetSourceAsync() ではなく SetSource() が使用されています。 画像を非同期にデコードするようにストリームを設定する場合は、[**SetSource**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.bitmapsource.setsource) ではなく [**SetSourceAsync**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.bitmapsource.setsourceasync) を使います。 
 
 #### <a name="image-is-being-called-when-the-imagesource-is-not-in-the-live-tree"></a>ImageSource がライブ ツリーに存在しないときに画像を呼び出している
 
-BitmapImage は、SetSourceAsync または UriSource によってコンテンツを設定した後、ライブ XAML ツリーに接続されます。 ソースを設定する前に、常に [**BitmapImage**](https://msdn.microsoft.com/library/windows/apps/BR243235) をライブ ツリーにアタッチする必要があります。 画像要素またはブラシがマークアップで指定されているときは、常にこれが自動的に適用されます。 次に例を示します。 
+BitmapImage は、SetSourceAsync または UriSource によってコンテンツを設定した後、ライブ XAML ツリーに接続されます。 ソースを設定する前に、常に [**BitmapImage**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Imaging.BitmapImage) をライブ ツリーにアタッチする必要があります。 画像要素またはブラシがマークアップで指定されているときは、常にこれが自動的に適用されます。 次に例を示します。 
 
 **ライブ ツリーの例**
 
@@ -72,7 +72,7 @@ myImage.Source = bitmapImage;
 
 画像が四角形以外のブラシに使用されている場合、画像の拡大縮小が行われない、ソフトウェア ラスタライズ パスが使用されます。 さらに、ソフトウェアとハードウェアの両方のメモリに画像のコピーを保存して必要があります。 たとえば、画像が楕円形のブラシとして使われる場合、大きい可能性がある画像全体は内部で 2 回保存されます。 四角形以外のブラシを使用する場合は、アプリで画像を事前に拡大縮小し、レンダリング時のおよそのサイズにしておく必要があります。
 
-代わりに、[**DecodePixelWidth**](https://msdn.microsoft.com/library/windows/apps/BR243243) プロパティと [**DecodePixelHeight**](https://msdn.microsoft.com/library/windows/apps/BR243241) プロパティを使って、明示的にデコード サイズを設定することで、画面上に描画される正確なサイズのバージョンの画像を作成できます。
+代わりに、[**DecodePixelWidth**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.bitmapimage.decodepixelwidth) プロパティと [**DecodePixelHeight**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.bitmapimage.decodepixelheight) プロパティを使って、明示的にデコード サイズを設定することで、画面上に描画される正確なサイズのバージョンの画像を作成できます。
 
 ```xml
 <Image>
@@ -83,21 +83,21 @@ myImage.Source = bitmapImage;
 </Image>
 ```
 
-[  **DecodePixelWidth**](https://msdn.microsoft.com/library/windows/apps/BR243243) と [**DecodePixelHeight**](https://msdn.microsoft.com/library/windows/apps/BR243241) の単位は、既定では物理ピクセルです。 [  **DecodePixelType**](https://msdn.microsoft.com/library/windows/apps/Dn298545) プロパティを使って、この動作を変更できます。**DecodePixelType** を **Logical** に設定すると、他の XAML コンテンツと同様に、デコード サイズで自動的に現在の倍率が考慮されます。 したがって、一般的には、**DecodePixelType** を **Logical** に設定することをお勧めします。たとえば、**DecodePixelWidth** と **DecodePixelHeight** を、画像が表示される Image コントロールの Height プロパティと Width プロパティと一致させるような場合です。 物理ピクセルを使用する既定の動作では、システムの現在の倍率を自分で考慮する必要があります。また、ユーザーが表示設定を変更する場合に備えて、スケール変更通知をリッスンする必要があります。
+[  **DecodePixelWidth**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.bitmapimage.decodepixelwidth) と [**DecodePixelHeight**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.bitmapimage.decodepixelheight) の単位は、既定では物理ピクセルです。 [  **DecodePixelType**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.bitmapimage.decodepixeltype) プロパティを使って、この動作を変更できます。**DecodePixelType** を **Logical** に設定すると、他の XAML コンテンツと同様に、デコード サイズで自動的に現在の倍率が考慮されます。 したがって、一般的には、**DecodePixelType** を **Logical** に設定することをお勧めします。たとえば、**DecodePixelWidth** と **DecodePixelHeight** を、画像が表示される Image コントロールの Height プロパティと Width プロパティと一致させるような場合です。 物理ピクセルを使用する既定の動作では、システムの現在の倍率を自分で考慮する必要があります。また、ユーザーが表示設定を変更する場合に備えて、スケール変更通知をリッスンする必要があります。
 
 事前に適切なデコード サイズを特定できない場合には、明示的な DecodePixelWidth/DecodePixelHeight が指定されていないときに、適切なサイズでの画像のデコードをベスト エフォート形式で試行する、XAML の適切なサイズの自動デコードを遅延させる必要があります。
 
-事前に画像コンテンツのサイズがわかっている場合は、明示的にデコード サイズを設定する必要があります。 指定したデコード サイズが他の XAML 要素のサイズを基準としている場合は、併せて [**DecodePixelType**](https://msdn.microsoft.com/library/windows/apps/Dn298545) を **Logical** に設定することも必要です。 たとえば、Image.Width と Image.Height を使ってコンテンツのサイズを明示的に設定する場合、DecodePixelType を DecodePixelType.Logical に設定して Image コントロールと同じ論理ピクセル サイズを使用し、明示的に BitmapImage.DecodePixelWidth や BitmapImage.DecodePixelHeight を使って画像のサイズを制御することによって、大量のメモリ消費を抑えることができる可能性があります。
+事前に画像コンテンツのサイズがわかっている場合は、明示的にデコード サイズを設定する必要があります。 指定したデコード サイズが他の XAML 要素のサイズを基準としている場合は、併せて [**DecodePixelType**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.bitmapimage.decodepixeltype) を **Logical** に設定することも必要です。 たとえば、Image.Width と Image.Height を使ってコンテンツのサイズを明示的に設定する場合、DecodePixelType を DecodePixelType.Logical に設定して Image コントロールと同じ論理ピクセル サイズを使用し、明示的に BitmapImage.DecodePixelWidth や BitmapImage.DecodePixelHeight を使って画像のサイズを制御することによって、大量のメモリ消費を抑えることができる可能性があります。
 
 デコードされたコンテンツのサイズを決定するときに、Image.Stretch を考慮する必要があることに注意してください。
 
 #### <a name="images-used-inside-of-bitmapicons-fall-back-to-decoding-to-natural-size"></a>BitmapIcons 内で使用されている画像が、自然なサイズのデコードにフォール バックしている 
 
-[  **DecodePixelWidth**](https://msdn.microsoft.com/library/windows/apps/BR243243) プロパティと [**DecodePixelHeight**](https://msdn.microsoft.com/library/windows/apps/BR243241) プロパティを使って、明示的にデコード サイズを設定することで、画面上に描画される正確なサイズのバージョンの画像を作成できます。
+[  **DecodePixelWidth**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.bitmapimage.decodepixelwidth) プロパティと [**DecodePixelHeight**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.bitmapimage.decodepixelheight) プロパティを使って、明示的にデコード サイズを設定することで、画面上に描画される正確なサイズのバージョンの画像を作成できます。
 
 #### <a name="images-that-appear-extremely-large-on-screen-fall-back-to-decoding-to-natural-size"></a>画面上で極端に大きく表示されるイメージが、自然なサイズのデコードにフォールバックしている 
 
-画面上で極端に大きく表示されるイメージは、自然なサイズのデコードにフォールバックします。 [  **DecodePixelWidth**](https://msdn.microsoft.com/library/windows/apps/BR243243) プロパティと [**DecodePixelHeight**](https://msdn.microsoft.com/library/windows/apps/BR243241) プロパティを使って、明示的にデコード サイズを設定することで、画面上に描画される正確なサイズのバージョンの画像を作成できます。
+画面上で極端に大きく表示されるイメージは、自然なサイズのデコードにフォールバックします。 [  **DecodePixelWidth**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.bitmapimage.decodepixelwidth) プロパティと [**DecodePixelHeight**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.bitmapimage.decodepixelheight) プロパティを使って、明示的にデコード サイズを設定することで、画面上に描画される正確なサイズのバージョンの画像を作成できます。
 
 #### <a name="image-is-hidden"></a>画像が非表示になっている
 
@@ -105,7 +105,7 @@ myImage.Source = bitmapImage;
 
 #### <a name="image-is-using-ninegrid-property"></a>イメージで NineGrid プロパティが使用されている
 
-画像が [**NineGrid**](https://msdn.microsoft.com/library/windows/apps/BR242756) 用に使用されている場合、画像の拡大縮小が行われない、ソフトウェア ラスタライズ パスが使用されます。 さらに、ソフトウェアとハードウェアの両方のメモリに画像のコピーを保存して必要があります。 **NineGrid** を使用する場合は、アプリで画像を事前に拡大縮小し、レンダリング時のおよそのサイズにしておく必要があります。
+画像が [**NineGrid**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.image.ninegrid) 用に使用されている場合、画像の拡大縮小が行われない、ソフトウェア ラスタライズ パスが使用されます。 さらに、ソフトウェアとハードウェアの両方のメモリに画像のコピーを保存して必要があります。 **NineGrid** を使用する場合は、アプリで画像を事前に拡大縮小し、レンダリング時のおよそのサイズにしておく必要があります。
 
 NineGrid プロパティを使用しているイメージは、自然なサイズのデコードにフォールバックします。 元のイメージに ninegrid 効果を追加することを検討してください。
 
@@ -115,7 +115,7 @@ DecodePixelWidth/Height が画面に表示される画像よりも大きいサ�
 
 #### <a name="image-is-decoded-as-part-of-producing-a-drag-and-drop-image"></a>画像がドラッグ アンド ドロップ画像を生成する一部としてデコードされている
 
-[  **DecodePixelWidth**](https://msdn.microsoft.com/library/windows/apps/BR243243) プロパティと [**DecodePixelHeight**](https://msdn.microsoft.com/library/windows/apps/BR243241) プロパティを使って、明示的にデコード サイズを設定することで、画面上に描画される正確なサイズのバージョンの画像を作成できます。
+[  **DecodePixelWidth**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.bitmapimage.decodepixelwidth) プロパティと [**DecodePixelHeight**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.bitmapimage.decodepixelheight) プロパティを使って、明示的にデコード サイズを設定することで、画面上に描画される正確なサイズのバージョンの画像を作成できます。
 
 ## <a name="collapsed-elements-at-load-time"></a>要素が読み込み時に折りたたまれている
 
@@ -133,7 +133,7 @@ DecodePixelWidth/Height が画面に表示される画像よりも大きいサ�
 
 ### <a name="solution"></a>ソリューション
 
-[x:Load 属性](../xaml-platform/x-load-attribute.md)または [x:DeferLoadStrategy](https://msdn.microsoft.com/library/windows/apps/Mt204785) を使って、UI の要素の読み込みを遅らせて、必要に応じて読み込むことができます。 最初のフレームで表示しない UI について処理を延期する場合は、この方法をお勧めします。 要素は必要に応じてその都度読み込むか、後で実行する一連のロジックの一部として読み込むことができます。 読み込みをトリガーするには、読み込む要素に対して findName を呼び出します。 x:Load は x:DeferLoadStrategy の機能を拡張して、要素をアンロードできるようにしたり、読み込み状態を x:Bind によって制御できるようにしたりします。
+[x:Load 属性](../xaml-platform/x-load-attribute.md)または [x:DeferLoadStrategy](https://docs.microsoft.com/windows/uwp/xaml-platform/x-deferloadstrategy-attribute) を使って、UI の要素の読み込みを遅らせて、必要に応じて読み込むことができます。 最初のフレームで表示しない UI について処理を延期する場合は、この方法をお勧めします。 要素は必要に応じてその都度読み込むか、後で実行する一連のロジックの一部として読み込むことができます。 読み込みをトリガーするには、読み込む要素に対して findName を呼び出します。 x:Load は x:DeferLoadStrategy の機能を拡張して、要素をアンロードできるようにしたり、読み込み状態を x:Bind によって制御できるようにしたりします。
 
 場合によっては、findName を使って UI 要素を表示する方法では問題を解決できないことがあります。 たとえば、クリックによって多くの UI をきわめて短い遅延時間で表示する場合などです。 この場合、追加メモリのコストのために高速な UI 待機時間を妥協することもできます。そうするには、x:DeferLoadStrategy を使用し、実現する要素の Visibility を Collapsed に設定する必要があります。 これにより、ページが読み込まれ、UI スレッドが解放された後、必要に応じて findName を呼び出して要素を読み込むことができます。 要素は、その要素の Visibility を Visible に設定するまでユーザーには表示されません。
 
@@ -141,7 +141,7 @@ DecodePixelWidth/Height が画面に表示される画像よりも大きいサ�
 
 UI の仮想化は、コレクションのパフォーマンスを向上させることができる最も重要な機能です。 これは、項目を表す UI 要素がオンデマンドで作成されることを意味します。 1,000 項目のコレクションにバインドされている項目コントロールでは、すべての項目の UI を同時に作成しても、同時に全部を表示することはできないため、リソースを無駄に使うことになります。 UI の仮想化は、ListView と GridView (およびその他の ItemsControl から派生した標準コントロール) によって実行されます。 数ページ先にある項目がスクロールされて表示されそうになると、フレームワークがその項目用の UI を生成してキャッシュします。 項目がもう一度表示される可能性が低い場合、フレームワークはメモリを解放します。
 
-UI の仮想化は、コレクションのパフォーマンスを向上させる重要な複数の要因の 1 つに過ぎません。 コレクションのパフォーマンス向上には、この他に、コレクション項目の複雑さの軽減とデータ仮想化の 2 つの重要な側面があります。 ListView と GridView 内のコレクションのパフォーマンスを向上させる方法について詳しくは、「[ListView と GridView の UI の最適化](https://msdn.microsoft.com/windows/uwp/debug-test-perf/optimize-gridview-and-listview)」と「[ListView と GridView のデータ仮想化](https://msdn.microsoft.com/windows/uwp/debug-test-perf/listview-and-gridview-data-optimization)」に関する記事をご覧ください。
+UI の仮想化は、コレクションのパフォーマンスを向上させる重要な複数の要因の 1 つに過ぎません。 コレクションのパフォーマンス向上には、この他に、コレクション項目の複雑さの軽減とデータ仮想化の 2 つの重要な側面があります。 ListView と GridView 内のコレクションのパフォーマンスを向上させる方法について詳しくは、「[ListView と GridView の UI の最適化](https://docs.microsoft.com/windows/uwp/debug-test-perf/optimize-gridview-and-listview)」と「[ListView と GridView のデータ仮想化](https://docs.microsoft.com/windows/uwp/debug-test-perf/listview-and-gridview-data-optimization)」に関する記事をご覧ください。
 
 ### <a name="impact"></a>影響
 
@@ -159,7 +159,7 @@ UI の仮想化は、コレクションのパフォーマンスを向上させ�
 
 UI スレッドのブロックとは、オフスレッドで実行されて UI スレッドをブロックする関数への同期呼び出しを指します。  
 
-アプリ起動時のパフォーマンスを向上させるためのすべてのベスト プラクティスについては、「[アプリ起動時のパフォーマンスのベスト プラクティス](https://msdn.microsoft.com/windows/uwp/debug-test-perf/best-practices-for-your-app-s-startup-performance)」と」[UI スレッドの応答性の確保](https://msdn.microsoft.com/windows/uwp/debug-test-perf/keep-the-ui-thread-responsive)」をご覧ください。
+アプリ起動時のパフォーマンスを向上させるためのすべてのベスト プラクティスについては、「[アプリ起動時のパフォーマンスのベスト プラクティス](https://docs.microsoft.com/windows/uwp/debug-test-perf/best-practices-for-your-app-s-startup-performance)」と」[UI スレッドの応答性の確保](https://docs.microsoft.com/windows/uwp/debug-test-perf/keep-the-ui-thread-responsive)」をご覧ください。
 
 ### <a name="impact"></a>影響
 
@@ -213,7 +213,7 @@ x:Name が設定されたリソースは、ResourceDictionary が作成される
 
 UI の仮想化は、コレクションのパフォーマンスを向上させることができる最も重要な機能です。 これは、項目を表す UI 要素がオンデマンドで作成されることを意味します。 1,000 項目のコレクションにバインドされている項目コントロールでは、すべての項目の UI を同時に作成しても、同時に全部を表示することはできないため、リソースを無駄に使うことになります。 UI の仮想化は、ListView と GridView (およびその他の ItemsControl から派生した標準コントロール) によって実行されます。 数ページ先にある項目がスクロールされて表示されそうになると、フレームワークがその項目用の UI を生成してキャッシュします。 項目がもう一度表示される可能性が低い場合、フレームワークはメモリを解放します。
 
-UI の仮想化は、コレクションのパフォーマンスを向上させる重要な複数の要因の 1 つに過ぎません。 コレクションのパフォーマンス向上には、この他に、コレクション項目の複雑さの軽減とデータ仮想化の 2 つの重要な側面があります。 ListView と GridView 内のコレクションのパフォーマンスを向上させる方法について詳しくは、「[ListView と GridView の UI の最適化](https://msdn.microsoft.com/windows/uwp/debug-test-perf/optimize-gridview-and-listview)」と「[ListView と GridView のデータ仮想化](https://msdn.microsoft.com/windows/uwp/debug-test-perf/listview-and-gridview-data-optimization)」に関する記事をご覧ください。
+UI の仮想化は、コレクションのパフォーマンスを向上させる重要な複数の要因の 1 つに過ぎません。 コレクションのパフォーマンス向上には、この他に、コレクション項目の複雑さの軽減とデータ仮想化の 2 つの重要な側面があります。 ListView と GridView 内のコレクションのパフォーマンスを向上させる方法について詳しくは、「[ListView と GridView の UI の最適化](https://docs.microsoft.com/windows/uwp/debug-test-perf/optimize-gridview-and-listview)」と「[ListView と GridView のデータ仮想化](https://docs.microsoft.com/windows/uwp/debug-test-perf/listview-and-gridview-data-optimization)」に関する記事をご覧ください。
 
 ### <a name="impact"></a>影響
 

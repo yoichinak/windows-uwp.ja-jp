@@ -6,12 +6,12 @@ ms.date: 10/24/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, DirectX
 ms.localizationpriority: medium
-ms.openlocfilehash: 37deaabe2586391b0f0c93359133f10830558539
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 4e4d8f43893b5f2a9a58c2eb6209ecb7d8dd1c21
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57608857"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66367582"
 ---
 # <a name="game-flow-management"></a>ゲームのフロー管理
 
@@ -283,13 +283,13 @@ void GameMain::SetGameInfoOverlay(GameInfoOverlayState state)
 <tbody>
 <tr class="odd">
 <td align="left">OnActivated</td>
-<td align="left"><a href="https://msdn.microsoft.com/library/windows/apps/br225018">  <strong>CoreApplicationView::Activated</strong></a> を処理します。 ゲーム アプリがフォアグラウンドに表示されているため、メイン ウィンドウがアクティブ化されます。</td>
+<td align="left"><a href="https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplicationview.activated">  <strong>CoreApplicationView::Activated</strong></a> を処理します。 ゲーム アプリがフォアグラウンドに表示されているため、メイン ウィンドウがアクティブ化されます。</td>
 </tr>
 <tr class="even">
 <td align="left">OnDpiChanged</td>
 <td align="left"><a href="https://docs.microsoft.com/uwp/api/windows.graphics.display.displayinformation#Windows_Graphics_Display_DisplayInformation_DpiChanged">  <strong>Graphics::Display::DisplayInformation::DpiChanged</strong></a> を処理します。 ディスプレイの DPI が変更されていて、それに応じてゲームそのリソースを調整します。
 <div class="alert">
-<strong>注</strong> <a href="https://msdn.microsoft.com/library/windows/desktop/hh404559"><strong>CoreWindow</strong> </a>の座標は、Dip (デバイス非依存ピクセル) で<a href="https://msdn.microsoft.com/library/windows/desktop/dd370987">Direct2D</a>します。 このため、2D アセットまたはプリミティブを正しく表示するには、Direct2D に DPI の変更を通知する必要があります。
+<strong>注</strong> <a href="https://docs.microsoft.com/windows/desktop/api/dxgi1_2/nf-dxgi1_2-idxgifactory2-createswapchainforcorewindow"><strong>CoreWindow</strong> </a>の座標は、Dip (デバイス非依存ピクセル) で<a href="https://docs.microsoft.com/windows/desktop/Direct2D/direct2d-overview">Direct2D</a>します。 このため、2D アセットまたはプリミティブを正しく表示するには、Direct2D に DPI の変更を通知する必要があります。
 </div>
 <div>
 </div></td>
@@ -304,27 +304,27 @@ void GameMain::SetGameInfoOverlay(GameInfoOverlayState state)
 </tr>
 <tr class="odd">
 <td align="left">OnResuming</td>
-<td align="left"><a href="https://msdn.microsoft.com/library/windows/apps/br205859">  <strong>CoreApplication::Resuming</strong></a> を処理します。 ゲーム アプリがゲームを中断状態から復元します。</td>
+<td align="left"><a href="https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplication.resuming">  <strong>CoreApplication::Resuming</strong></a> を処理します。 ゲーム アプリがゲームを中断状態から復元します。</td>
 </tr>
 <tr class="even">
 <td align="left">OnSuspending</td>
-<td align="left"><a href="https://msdn.microsoft.com/library/windows/apps/br205860">  <strong>CoreApplication::Suspending</strong></a> を処理します。 ゲーム アプリがその状態をディスクに保存します。 ストレージへの状態の保存に使用できる時間は 5 秒です。</td>
+<td align="left"><a href="https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplication.suspending">  <strong>CoreApplication::Suspending</strong></a> を処理します。 ゲーム アプリがその状態をディスクに保存します。 ストレージへの状態の保存に使用できる時間は 5 秒です。</td>
 </tr>
 <tr class="odd">
 <td align="left">OnVisibilityChanged</td>
-<td align="left"><a href="https://msdn.microsoft.com/library/windows/apps/hh701591">  <strong>CoreWindow::VisibilityChanged</strong></a> を処理します。 ゲーム アプリの表示が切り替わり、表示されるようになったか、別のアプリが表示されたために非表示になったことを示します。</td>
+<td align="left"><a href="https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.visibilitychanged">  <strong>CoreWindow::VisibilityChanged</strong></a> を処理します。 ゲーム アプリの表示が切り替わり、表示されるようになったか、別のアプリが表示されたために非表示になったことを示します。</td>
 </tr>
 <tr class="even">
 <td align="left">OnWindowActivationChanged</td>
-<td align="left"><a href="https://msdn.microsoft.com/library/windows/apps/br208255">  <strong>CoreWindow::Activated</strong></a> を処理します。 ゲーム アプリのメイン ウィンドウが非アクティブ化またはアクティブ化されたため、フォーカスを動かしてゲームを一時停止するか、フォーカスを再取得する必要があります。 どちらの場合も、ゲームが一時停止されていることがオーバーレイに表示されます。</td>
+<td align="left"><a href="https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.activated">  <strong>CoreWindow::Activated</strong></a> を処理します。 ゲーム アプリのメイン ウィンドウが非アクティブ化またはアクティブ化されたため、フォーカスを動かしてゲームを一時停止するか、フォーカスを再取得する必要があります。 どちらの場合も、ゲームが一時停止されていることがオーバーレイに表示されます。</td>
 </tr>
 <tr class="odd">
 <td align="left">OnWindowClosed</td>
-<td align="left"><a href="https://msdn.microsoft.com/library/windows/apps/br208261">  <strong>CoreWindow::Closed</strong></a> を処理します。 ゲーム アプリがメイン ウィンドウを閉じ、ゲームを中断します。</td>
+<td align="left"><a href="https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.closed">  <strong>CoreWindow::Closed</strong></a> を処理します。 ゲーム アプリがメイン ウィンドウを閉じ、ゲームを中断します。</td>
 </tr>
 <tr class="even">
 <td align="left">OnWindowSizeChanged</td>
-<td align="left"><a href="https://msdn.microsoft.com/library/windows/apps/br208283">  <strong>CoreWindow::SizeChanged</strong></a> を処理します。 サイズ変更に応じてゲーム アプリがグラフィックス リソースとオーバーレイを再割り当てし、その後、レンダー ターゲットを更新します。</td>
+<td align="left"><a href="https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.sizechanged">  <strong>CoreWindow::SizeChanged</strong></a> を処理します。 サイズ変更に応じてゲーム アプリがグラフィックス リソースとオーバーレイを再割り当てし、その後、レンダー ターゲットを更新します。</td>
 </tr>
 </tbody>
 </table>

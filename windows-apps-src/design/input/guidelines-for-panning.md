@@ -8,19 +8,19 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 363ea5728b94d6b42f29299e8d240bcfc6242b4c
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 5fc43d5229ecd2bd9502fd74fef7f5197f758c62
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57625117"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66363589"
 ---
 # <a name="guidelines-for-panning"></a>パンのガイドライン
 
 
 パンとスクロールにより、ユーザーは単一ビュー内で移動し、ビューポートに収まらないビューのコンテンツを表示できます。 ビューの例として、コンピューターのフォルダー構造、ドキュメントのライブラリ、フォト アルバムなどがあります。
 
-> **重要な API**:[**Windows.UI.Input**](https://msdn.microsoft.com/library/windows/apps/br242084)、 [ **Windows.UI.Xaml.Input**](https://msdn.microsoft.com/library/windows/apps/br227994)
+> **重要な API**:[**Windows.UI.Input**](https://docs.microsoft.com/uwp/api/Windows.UI.Input)、 [ **Windows.UI.Xaml.Input**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input)
 
 
 ## <a name="dos-and-donts"></a>推奨と非推奨
@@ -79,10 +79,9 @@ ms.locfileid: "57625117"
 タッチでのパン (1 本または複数の指でのスワイプまたはスライド ジェスチャ) は、マウスでのスクロールと似ています。 パンはスクロール バーのクリックよりも、マウス ホイールの回転やスクロール ボックスのスライドに最も近い操作です。 単に区別が API で行われたか、デバイスに固有の Windows UI に必要なしない限りパンとして両方の相互作用を参照してください。
 
 > <div id="main">
-> <strong>Windows 10 Fall Creators Update の動作の変更</strong>
-> </div>
-> 既定では、UWP アプリでのアクティブ ペンは、テキストの選択ではなく、(タッチ、タッチパッド、パッシブ ペンなどと同様に) スクロール/パンを実行するようになりました。  
+> <strong>Windows 10 Fall Creators Update の動作の変更</strong>テキスト選択範囲ではなく、既定でアクティブのペン今すぐスクロール/パン (タッチ、タッチパッド、パッシブ ペンなど) の UWP アプリでします。  
 > アプリが以前の動作に依存している場合は、ペン スクロールを上書きして、以前の動作に戻すことができます。 詳細については、API リファレンスのトピックを参照してください、 <a href="https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.scrollviewer">ScrollViewer クラス</a>します。
+> </div>
 
 入力デバイスに応じて、ユーザーは次のいずれかを使って、パン対応領域内でパンを実行します。
 
@@ -172,9 +171,9 @@ Windows 8 には、3 種類のパンがサポートされています。
 ## <a name="related-articles"></a>関連記事
 
 
-* [カスタム ユーザー操作](https://msdn.microsoft.com/library/windows/apps/mt185599)
-* [ListView と GridView を最適化します。](https://msdn.microsoft.com/library/windows/apps/mt204776)
-* [キーボードのアクセシビリティ](https://msdn.microsoft.com/library/windows/apps/mt244347)
+* [カスタム ユーザー操作](https://developer.microsoft.com/windows/design/inputs-devices)
+* [ListView と GridView を最適化します。](https://docs.microsoft.com/windows/uwp/debug-test-perf/optimize-gridview-and-listview)
+* [キーボードのアクセシビリティ](https://docs.microsoft.com/windows/uwp/accessibility/keyboard-accessibility)
 
 **サンプル**
 * [基本的な入力サンプル](https://go.microsoft.com/fwlink/p/?LinkID=620302)

@@ -5,12 +5,12 @@ ms.date: 02/06/2019
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: e0fcb903bd272bd10d434a27d41e6e4558a624ea
-ms.sourcegitcommit: 6a7dd4da2fc31ced7d1cdc6f7cf79c2e55dc5833
+ms.openlocfilehash: a6a1d93b1deaad084ff25db946199b678b35703c
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58334900"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66369509"
 ---
 # <a name="best-practices-for-writing-to-files"></a>ファイルへの書き込みに関するベスト プラクティス
 
@@ -192,7 +192,7 @@ else
 
 ### <a name="synchronize-access-to-the-file"></a>ファイルへのアクセスを同期します。
 
-[.NET ブログでの並列プログラミング](https://blogs.msdn.microsoft.com/pfxteam/)ガイダンスについては、並列プログラミングに関する優れたリソースです。 具体的には、 [AsyncReaderWriterLock について投稿](https://blogs.msdn.microsoft.com/pfxteam/2012/02/12/building-async-coordination-primitives-part-7-asyncreaderwriterlock/)同時の読み取りアクセスを許可するときに書き込み、ファイルへの排他アクセスを維持する方法について説明します。 留意そのシリアル化は I/O に影響を与えるパフォーマンス。
+[.NET ブログでの並列プログラミング](https://devblogs.microsoft.com/pfxteam/)ガイダンスについては、並列プログラミングに関する優れたリソースです。 具体的には、 [AsyncReaderWriterLock について投稿](https://devblogs.microsoft.com/pfxteam/building-async-coordination-primitives-part-7-asyncreaderwriterlock/)同時の読み取りアクセスを許可するときに書き込み、ファイルへの排他アクセスを維持する方法について説明します。 留意そのシリアル化は I/O に影響を与えるパフォーマンス。
 
 ## <a name="see-also"></a>関連項目
 

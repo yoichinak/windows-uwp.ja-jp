@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: c598868610e42e0f2ad64ef2d4fedfb48c4d91e9
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: ad304d22fd1c519f7364ac69882eeaac9fa1a5c7
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57598617"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66360708"
 ---
 # <a name="playready-encrypted-media-extension"></a>PlayReady の Encrypted Media Extension
 
@@ -72,7 +72,7 @@ PlayReady ハードウェア DRM を使うには、JavaScript Web アプリは�
 一部のコンテンツは、ハードウェア DRM ではサポートされない場合があります。 Cocktail コンテンツがハードウェア DRM でサポートされることはありません。Cocktail コンテンツを再生する場合は、ハードウェア DRM を除外する必要があります。 一部のハードウェア DRM は HEVC をサポートしますが、サポートしないものもあります。HEVC コンテンツを再生したいが、ハードウェア DRM がサポートしていない場合も、これを除外してください。
 
 > [!NOTE]
-> HEVC コンテンツがサポートされているかどうかを判断するには、`com.microsoft.playready` をインスタンス化した後で、[**PlayReadyStatics.CheckSupportedHardware**](https://msdn.microsoft.com/library/windows/apps/dn986441) メソッドを使います。
+> HEVC コンテンツがサポートされているかどうかを判断するには、`com.microsoft.playready` をインスタンス化した後で、[**PlayReadyStatics.CheckSupportedHardware**](https://docs.microsoft.com/uwp/api/windows.media.protection.playready.playreadystatics.checksupportedhardware) メソッドを使います。
 
 ## <a name="add-secure-stop-to-your-web-app"></a>Web アプリにセキュア ストップを追加する
 

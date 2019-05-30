@@ -1,16 +1,16 @@
 ---
 description: このトピックでは、完全な Direct2D コードの例を使用し、C++/WinRT を使って COM クラスとインターフェイスを利用する方法を示します。
 title: C++/WinRT での COM コンポーネントの使用
-ms.date: 07/23/2018
+ms.date: 04/24/2019
 ms.topic: article
 keywords: windows 10、uwp、standard、c++、cpp、winrt、COM、コンポーネント、クラス、インターフェイス
 ms.localizationpriority: medium
-ms.openlocfilehash: 16425fd6d296a4abd4ed62c0c64cd23ef1f88891
-ms.sourcegitcommit: 9031a51f9731f0b675769e097aa4d914b4854e9e
+ms.openlocfilehash: dc4acd288496d83d5d91f1bdf206be19fe2fbb06
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58618409"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66361146"
 ---
 # <a name="consume-com-components-with-cwinrt"></a>C++/WinRT での COM コンポーネントの使用
 
@@ -30,7 +30,7 @@ COM をプログラムするオブジェクト (つまり、また、バック �
 winrt::com_ptr<ID2D1Factory1> factory;
 ```
 
-上記のコードに初期化されていないのスマート ポインターを宣言する方法を示しています、 [ **ID2D1Factory1** ](https://msdn.microsoft.com/library/Hh404596) COM インターフェイスです。 まだ指しているために、スマート ポインターに初期化されていません、 **ID2D1Factory1** (それが指していないインターフェイスで)、実際のオブジェクトに属しているインターフェイス。 。 これを行う可能性がありますが、COM 参照カウントを指す、インターフェイスの所有するオブジェクトの有効期間を管理し、そのインターフェイスの関数を呼び出すことで、メディアを使用して機能があります (スマート ポインターをされている)。
+上記のコードに初期化されていないのスマート ポインターを宣言する方法を示しています、 [ **ID2D1Factory1** ](https://docs.microsoft.com/windows/desktop/api/d2d1_1/nn-d2d1_1-id2d1factory1) COM インターフェイスです。 まだ指しているために、スマート ポインターに初期化されていません、 **ID2D1Factory1** (それが指していないインターフェイスで)、実際のオブジェクトに属しているインターフェイス。 。 これを行う可能性がありますが、COM 参照カウントを指す、インターフェイスの所有するオブジェクトの有効期間を管理し、そのインターフェイスの関数を呼び出すことで、メディアを使用して機能があります (スマート ポインターをされている)。
 
 ## <a name="com-functions-that-return-an-interface-pointer-as-void"></a>としてインターフェイス ポインターを返す COM 関数**void**
 
@@ -72,7 +72,7 @@ D2D1CreateFactory(
 
 ## <a name="com-functions-that-return-an-interface-pointer-as-iunknown"></a>としてインターフェイス ポインターを返す COM 関数**IUnknown**
 
-[ **DWriteCreateFactory** ](/windows/desktop/api/dwrite/nf-dwrite-dwritecreatefactory)関数では、DirectWrite ファクトリのインターフェイス ポインターを返しますが、最後のパラメーターを使用して[ **IUnknown** ](https://msdn.microsoft.com/library/windows/desktop/ms680509)型。 このような関数の場合、使用[ **com_ptr::put**](/uwp/cpp-ref-for-winrt/com-ptr#com_ptr_put-function)、解釈をキャストするが、 **IUnknown**します。
+[ **DWriteCreateFactory** ](/windows/desktop/api/dwrite/nf-dwrite-dwritecreatefactory)関数では、DirectWrite ファクトリのインターフェイス ポインターを返しますが、最後のパラメーターを使用して[ **IUnknown** ](https://docs.microsoft.com/windows/desktop/api/unknwn/nn-unknwn-iunknown)型。 このような関数の場合、使用[ **com_ptr::put**](/uwp/cpp-ref-for-winrt/com-ptr#com_ptr_put-function)、解釈をキャストするが、 **IUnknown**します。
 
 ```cppwinrt
 DWriteCreateFactory(
@@ -477,7 +477,7 @@ struct App : implements<App, IFrameworkViewSource, IFrameworkView>
 
 int __stdcall wWinMain(HINSTANCE, HINSTANCE, PWSTR, int)
 {
-    CoreApplication::Run(App());
+    CoreApplication::Run(winrt::make<App>());
 }
 ```
 

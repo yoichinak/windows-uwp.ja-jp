@@ -6,16 +6,16 @@ ms.date: 04/18/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: c78e16a50bdca09f474d5016fdc86b6d27702d5b
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 60abc29ad4f9e16dc9d37e99f94c9f30039c0087
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57598587"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66360698"
 ---
 # <a name="process-audio-frames-with-mediaframereader"></a>MediaFrameReader を使ったオーディオ フレームの処理
 
-この記事では、[**MediaFrameReader**](https://msdn.microsoft.com/library/windows/apps/Windows.Media.Capture.Frames.MediaFrameReader) で [**MediaCapture**](https://msdn.microsoft.com/library/windows/apps/Windows.Media.Capture.MediaCapture) を使用して、メディア フレーム ソースからオーディオ データを取得する方法を示します。 **MediaFrameReader** を使用して、カラー カメラ、赤外線カメラ、深度カメラなどから画像データを取得する方法については、「[MediaFrameReader を使ったメディア フレームの処理](process-media-frames-with-mediaframereader.md)」をご覧ください。 この記事では、フレーム リーダーの使用パターンの一般的な概要を示すと共に、**MediaFrameReader** クラスの追加機能として、**MediaFrameSourceGroup** を使用して複数のソースから同時にフレームを取得する方法などを説明します。 
+この記事では、[**MediaFrameReader**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.Frames.MediaFrameReader) で [**MediaCapture**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.MediaCapture) を使用して、メディア フレーム ソースからオーディオ データを取得する方法を示します。 **MediaFrameReader** を使用して、カラー カメラ、赤外線カメラ、深度カメラなどから画像データを取得する方法については、「[MediaFrameReader を使ったメディア フレームの処理](process-media-frames-with-mediaframereader.md)」をご覧ください。 この記事では、フレーム リーダーの使用パターンの一般的な概要を示すと共に、**MediaFrameReader** クラスの追加機能として、**MediaFrameSourceGroup** を使用して複数のソースから同時にフレームを取得する方法などを説明します。 
 
 > [!NOTE] 
 > この記事で説明している機能は、Windows 10 バージョン 1803 以降でのみ利用できます。
@@ -31,13 +31,13 @@ ms.locfileid: "57598587"
 1.  Microsoft Visual Studio の**ソリューション エクスプローラー**で、**package.appxmanifest** 項目をダブルクリックしてアプリケーション マニフェストのデザイナーを開きます。
 2.  **[機能]** タブをクリックします。
 3.  **[Web カメラ]** のボックスと **[マイク]** のボックスをオンにします。
-4.  画像ライブラリとビデオ ライブラリにアクセスするには、**[画像ライブラリ]** のボックスと **[ビデオ ライブラリ]** のボックスをオンにします。
+4.  画像ライブラリとビデオ ライブラリにアクセスするには、 **[画像ライブラリ]** のボックスと **[ビデオ ライブラリ]** のボックスをオンにします。
 
 
 
 ## <a name="select-frame-sources-and-frame-source-groups"></a>フレーム ソースとフレーム ソース グループを選択する
 
-オーディオ フレームをキャプチャするには、まず、マイクその他のオーディオ キャプチャ デバイスをはじめとする、オーディオ データのソースを表す [**MediaFrameSource**](https://msdn.microsoft.com/library/windows/apps/Windows.Media.Capture.Frames.MediaFrameSource) を初期化します。 これには、[**MediaCapture**](https://msdn.microsoft.com/library/windows/apps/Windows.Media.Capture.MediaCapture) オブジェクトの新しいインスタンスを作成する必要があります。 この例では、**MediaCapture** の唯一の初期化設定として、[**StreamingCaptureMode**](https://docs.microsoft.com/uwp/api/windows.media.capture.mediacaptureinitializationsettings.streamingcapturemode) を設定し、キャプチャ デバイスからオーディオをストリームすることを示します。 
+オーディオ フレームをキャプチャするには、まず、マイクその他のオーディオ キャプチャ デバイスをはじめとする、オーディオ データのソースを表す [**MediaFrameSource**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.Frames.MediaFrameSource) を初期化します。 これには、[**MediaCapture**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.MediaCapture) オブジェクトの新しいインスタンスを作成する必要があります。 この例では、**MediaCapture** の唯一の初期化設定として、[**StreamingCaptureMode**](https://docs.microsoft.com/uwp/api/windows.media.capture.mediacaptureinitializationsettings.streamingcapturemode) を設定し、キャプチャ デバイスからオーディオをストリームすることを示します。 
 
 [  **MediaCapture.InitializeAsync**](https://docs.microsoft.com/uwp/api/windows.media.capture.mediacapture.initializeasync) の呼び出し後は、アクセス可能なメディア フレーム ソースの一覧を [**FrameSources**](https://docs.microsoft.com/uwp/api/windows.media.capture.mediacapture.framesources) プロパティによって取得できます。 この例では、Linq クエリを使用して、フレームソースを記述する [**MediaFrameSourceInfo**](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesourceinfo) で [**MediaStreamType**](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesourceinfo.mediastreamtype) が **Audio** に設定されている (つまり、メディア ソースがオーディオ データを生成している) すべてのフレーム ソースを選択しています。
 

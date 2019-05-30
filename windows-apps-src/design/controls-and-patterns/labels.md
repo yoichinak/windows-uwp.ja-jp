@@ -11,12 +11,12 @@ pm-contact: miguelrb
 design-contact: ksulliv
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 4345daf5b879fed7ba9805e4a448c473299031d7
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 5996fb15c0d7302c7360c2e45613f0da2720d415
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57654147"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66364652"
 ---
 # <a name="labels"></a>ラベル
 
@@ -24,9 +24,9 @@ ms.locfileid: "57654147"
 
 ラベルは、コントロールまたは関連するコントロールのグループの名前やタイトルです。
 
-> **重要な API**:ヘッダーのプロパティ、 [TextBlock クラス](https://msdn.microsoft.com/library/windows/apps/br209652)
+> **重要な API**:ヘッダーのプロパティ、 [TextBlock クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock)
 
-XAML では、多くのコントロールに組み込みの Header プロパティがあり、これを使ってラベルを表示します。 Header プロパティがないコントロールの場合、またはコントロールのグループにラベルを付ける場合は、代わりに [TextBlock](https://msdn.microsoft.com/library/windows/apps/br209652) を使います。
+XAML では、多くのコントロールに組み込みの Header プロパティがあり、これを使ってラベルを表示します。 Header プロパティがないコントロールの場合、またはコントロールのグループにラベルを付ける場合は、代わりに [TextBlock](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock) を使います。
 
 ![標準的なラベル コントロールを示すスクリーンショット](images/label-standard.png)
 
@@ -43,15 +43,15 @@ XAML では、多くのコントロールに組み込みの Header プロパテ�
 
 ## <a name="related-topics"></a>関連トピック
 * [テキスト コントロール](text-controls.md)
-* [TextBox.Header プロパティ](https://msdn.microsoft.com/library/windows/apps/dn252861)
-* [PasswordBox.Header プロパティ](https://msdn.microsoft.com/library/windows/apps/dn299051)
-* [ToggleSwitch.Header プロパティ](https://msdn.microsoft.com/library/windows/apps/br209713)
-* [DatePicker.Header プロパティ](https://msdn.microsoft.com/library/windows/apps/dn279460)
-* [TimePicker.Header プロパティ](https://msdn.microsoft.com/library/windows/apps/dn299286)
-* [Slider.Header プロパティ](https://msdn.microsoft.com/library/windows/apps/dn252829)
-* [ComboBox.Header プロパティ](https://msdn.microsoft.com/library/windows/apps/dn279416)
-* [RichEditBox.Header プロパティ](https://msdn.microsoft.com/library/windows/apps/dn252726)
-* [TextBlock クラス](https://msdn.microsoft.com/library/windows/apps/br209652)
+* [TextBox.Header プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.header)
+* [PasswordBox.Header プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.passwordbox.header)
+* [ToggleSwitch.Header プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.toggleswitch.header)
+* [DatePicker.Header プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.datepicker.header)
+* [TimePicker.Header プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.timepicker.header)
+* [Slider.Header プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.slider.header)
+* [ComboBox.Header プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.combobox.header)
+* [RichEditBox.Header プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.richeditbox.header)
+* [TextBlock クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock)
 
  
 

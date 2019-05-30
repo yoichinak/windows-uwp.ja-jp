@@ -8,12 +8,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 6d3fee78f3608466f588a79d2811f1464e27a0ab
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 3d8642e911a3ad4275e0a7a0f147ca9d70f415b0
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57620417"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66366796"
 ---
 # <a name="fade-animations"></a>フェード アニメーション
 
@@ -21,7 +21,7 @@ ms.locfileid: "57620417"
 
 フェード アニメーションは、項目を画面に表示したり、項目を画面から非表示にするときに使います。 一般的なフェード アニメーションは、フェード インとフェード アウトの 2 つです。
 
-> **重要な API**:[**FadeInThemeAnimation クラス**](https://msdn.microsoft.com/library/windows/apps/br210298)、 [ **FadeOutThemeAnimation クラス**](https://msdn.microsoft.com/library/windows/apps/br210302)
+> **重要な API**:[**FadeInThemeAnimation クラス**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.FadeInThemeAnimation)、 [ **FadeOutThemeAnimation クラス**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.FadeOutThemeAnimation)
 
 
 ## <a name="dos-and-donts"></a>推奨と非推奨
@@ -34,11 +34,11 @@ ms.locfileid: "57620417"
 -   フェード アウトは要素を削除するための繊細な方法です。
 ## <a name="related-articles"></a>関連記事
 
-* [アニメーションの概要](https://msdn.microsoft.com/library/windows/apps/mt187350)
-* [フェード アニメーション化](https://msdn.microsoft.com/library/windows/apps/xaml/jj649429)
-* [クイック スタート:Library のアニメーションを使用して、UI をアニメーション化](https://msdn.microsoft.com/library/windows/apps/xaml/hh452703)
-* [**FadeInThemeAnimation クラス**](https://msdn.microsoft.com/library/windows/apps/br210298)
-* [**FadeOutThemeAnimation クラス**](https://msdn.microsoft.com/library/windows/apps/br210302)
+* [アニメーションの概要](https://docs.microsoft.com/windows/uwp/graphics/animations-overview)
+* [フェード アニメーション化](https://docs.microsoft.com/previous-versions/windows/apps/jj649429(v=win.10))
+* [クイック スタート:Library のアニメーションを使用して、UI をアニメーション化](https://docs.microsoft.com/previous-versions/windows/apps/hh452703(v=win.10))
+* [**FadeInThemeAnimation クラス**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.FadeInThemeAnimation)
+* [**FadeOutThemeAnimation クラス**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.FadeOutThemeAnimation)
 
  
 

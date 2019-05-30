@@ -7,12 +7,12 @@ ms.topic: article
 keywords: Windows 10, UWP, 連絡先, 連絡先カード, 注釈
 ms.assetid: 0edabd9c-ecfb-4525-bc38-53f219d744ff
 ms.localizationpriority: medium
-ms.openlocfilehash: 3a3485635a49b1690116e7cb271435e63bee2151
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 506f0d2c778a934c3f8861493f4a512a39fe66fc
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57616437"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66360460"
 ---
 # <a name="connect-your-app-to-actions-on-a-contact-card"></a>アプリを連絡先カードの操作に接続する
 
@@ -181,13 +181,13 @@ public async void OpenContactCard(object sender, RoutedEventArgs e)
 
 ## <a name="perform-operations-when-users-select-your-app-in-a-contact-card"></a>ユーザーが連絡先カードでアプリを選んだときに操作を実行する
 
-**App.cs** ファイル内の [Application.OnActivated](https://msdn.microsoft.com/library/windows/apps/br242330) メソッドをオーバーライドし、ユーザーをアプリ内のページに移動します。 それを行う方法の 1 つについては、[連絡先カードの統合のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/ContactCardIntegration)をご覧ください。
+**App.cs** ファイル内の [Application.OnActivated](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onactivated) メソッドをオーバーライドし、ユーザーをアプリ内のページに移動します。 それを行う方法の 1 つについては、[連絡先カードの統合のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/ContactCardIntegration)をご覧ください。
 
-ページのコード ビハインド ファイルで、[Page.OnNavigatedTo](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.page.onnavigatedto.aspx) メソッドをオーバーライドします。 連絡先カードは、このメソッドに操作の名前とユーザーの ID を渡します。
+ページのコード ビハインド ファイルで、[Page.OnNavigatedTo](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.page.onnavigatedto) メソッドをオーバーライドします。 連絡先カードは、このメソッドに操作の名前とユーザーの ID を渡します。
 
-ビデオまたはオーディオの呼び出しを開始するには、このサンプルを参照してください。[VoIP サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/VoIP)します。 [WIndows.ApplicationModel.Calls](https://msdn.microsoft.com/library/windows/apps/windows.applicationmodel.calls.aspx) 名前空間にすべての API が見つかります。
+ビデオまたはオーディオの呼び出しを開始するには、このサンプルを参照してください。[VoIP サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/VoIP)します。 [WIndows.ApplicationModel.Calls](https://docs.microsoft.com/uwp/api/windows.applicationmodel.calls) 名前空間にすべての API が見つかります。
 
-メッセージングを容易にするには、[Windows.ApplicationModel.Chat](https://msdn.microsoft.com/library/windows/apps/windows.applicationmodel.chat.aspx) 名前空間をご覧ください。
+メッセージングを容易にするには、[Windows.ApplicationModel.Chat](https://docs.microsoft.com/uwp/api/windows.applicationmodel.chat) 名前空間をご覧ください。
 
 別のアプリを起動することもできます。 これを行うのが次のコードです。
 

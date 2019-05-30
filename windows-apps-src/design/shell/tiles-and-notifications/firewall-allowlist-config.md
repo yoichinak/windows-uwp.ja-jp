@@ -11,12 +11,12 @@ ms.prod: windows
 ms.technology: uwp
 keywords: windows 10、uwp、WNS の場合、windows 通知サービス、通知、windows ファイアウォール、トラブルシューティング、IP、トラフィック、enterprise、ネットワーク、パブリック IP アドレス、IPv4、VIP、FQDN
 ms.localizationpriority: medium
-ms.openlocfilehash: 466463bfc984707af4cb30618f9cbfa47d78703c
-ms.sourcegitcommit: fd7d358aad3a5b7112f5a587bb6ea86805dc8a4d
+ms.openlocfilehash: 9ed4ad6ed828abda9d487ef96beca9b655c92421
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65976252"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66366677"
 ---
 # <a name="allowing-windows-notification-traffic-through-enterprise-firewalls"></a>エンタープライズ ファイアウォールを介した Windows の通知のトラフィックを許可します。
 
@@ -78,10 +78,10 @@ MPNS、従来の通知サービスを使用している場合は、許可一覧�
 
 ## <a name="related-topics"></a>関連トピック
 
-* [クイック スタート:プッシュ通知を送信します。](https://msdn.microsoft.com/library/windows/apps/xaml/hh868252)
-* [要求、作成、および通知チャネルを保存する方法](https://msdn.microsoft.com/library/windows/apps/hh465412)
-* [アプリケーションを実行するための通知をインターセプトする方法](https://msdn.microsoft.com/library/windows/apps/xaml/jj709907.aspx)
-* [Windows プッシュ通知サービス (WNS) とを認証する方法](https://msdn.microsoft.com/library/windows/apps/hh465407)
-* [プッシュ通知サービスの要求および応答ヘッダー](https://msdn.microsoft.com/library/windows/apps/hh465435)
-* [プッシュ通知のガイドラインとチェックリスト](https://msdn.microsoft.com/library/windows/apps/hh761462)
+* [クイック スタート:プッシュ通知を送信します。](https://docs.microsoft.com/previous-versions/windows/apps/hh868252(v=win.10))
+* [要求、作成、および通知チャネルを保存する方法](https://docs.microsoft.com/previous-versions/windows/apps/hh465412(v=win.10))
+* [アプリケーションを実行するための通知をインターセプトする方法](https://docs.microsoft.com/previous-versions/windows/apps/jj709907(v=win.10))
+* [Windows プッシュ通知サービス (WNS) とを認証する方法](https://docs.microsoft.com/previous-versions/windows/apps/hh465407(v=win.10))
+* [プッシュ通知サービスの要求および応答ヘッダー](https://docs.microsoft.com/previous-versions/windows/apps/hh465435(v=win.10))
+* [プッシュ通知のガイドラインとチェックリスト](https://docs.microsoft.com/windows/uwp/controls-and-patterns/tiles-and-notifications-windows-push-notification-services--wns--overview)
  

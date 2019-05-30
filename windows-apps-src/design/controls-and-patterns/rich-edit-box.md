@@ -11,12 +11,12 @@ pm-contact: miguelrb
 design-contact: ksulliv
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: fea636f78f4430d5bf8917c1ed720faeac7c4017
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 78f6fe36fb8955b6234cdf3cb42e4db02a602f4a
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57651737"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66364344"
 ---
 # <a name="rich-edit-box"></a>リッチ エディット ボックス
 
@@ -24,7 +24,7 @@ ms.locfileid: "57651737"
 
 書式付きテキスト、ハイパーリンク、イメージなどを含んだリッチ テキスト ドキュメントの入力と編集には、RichEditBox コントロールを使うことができます。 このコントロールの IsReadOnly プロパティを **true** に設定すると、RichEditBox を読み取り専用にできます。
 
-> **重要な API**:[RichEditBox クラス](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.richeditbox.aspx)、[ドキュメント プロパティ](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.richeditbox.document.aspx)、 [IsReadOnly プロパティ](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.richeditbox.isreadonly.aspx)、 [IsSpellCheckEnabled プロパティ](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.richeditbox.isspellcheckenabled.aspx)
+> **重要な API**:[RichEditBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RichEditBox)、[ドキュメント プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.richeditbox.document)、 [IsReadOnly プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.richeditbox.isreadonly)、 [IsSpellCheckEnabled プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.richeditbox.isspellcheckenabled)
 
 ## <a name="is-this-the-right-control"></a>適切なコントロールの選択
 
@@ -58,9 +58,9 @@ ms.locfileid: "57651737"
 
 ## <a name="create-a-rich-edit-box"></a>リッチ エディット ボックスを作成します。
 
-既定では、RichEditBox はスペル チェックをサポートします。 スペル チェックを無効にするには、[IsSpellCheckEnabled](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.richeditbox.isspellcheckenabled.aspx) プロパティを **false** に設定します。 詳しくは、「[スペル チェックのガイドライン](text-controls.md)」をご覧ください。
+既定では、RichEditBox はスペル チェックをサポートします。 スペル チェックを無効にするには、[IsSpellCheckEnabled](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.richeditbox.isspellcheckenabled) プロパティを **false** に設定します。 詳しくは、「[スペル チェックのガイドライン](text-controls.md)」をご覧ください。
 
-RichEditBox のコンテンツを取得するには、このコントロールの [Document](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.richeditbox.document.aspx) プロパティを使います。 RichTextBlock コントロールと異なり、RichEditBox のコンテンツは [Windows.UI.Text.ITextDocument](https://msdn.microsoft.com/library/windows/apps/xaml/bb774052.aspx) オブジェクトです。このコンテンツは、[Windows.UI.Xaml.Documents.Block](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.documents.block.aspx) オブジェクトをそのコンテンツとして使います。 ITextDocument インターフェイスは、ドキュメントの読み込みとストリームへの保存、テキスト範囲の取得、アクティブな選択内容の取得、変更の取り消しとやり直し、既定の書式設定属性の設定などに利用できます。
+RichEditBox のコンテンツを取得するには、このコントロールの [Document](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.richeditbox.document) プロパティを使います。 RichTextBlock コントロールと異なり、RichEditBox のコンテンツは [Windows.UI.Text.ITextDocument](https://docs.microsoft.com/windows/desktop/api/tom/nn-tom-itextdocument) オブジェクトです。このコンテンツは、[Windows.UI.Xaml.Documents.Block](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Documents.Block) オブジェクトをそのコンテンツとして使います。 ITextDocument インターフェイスは、ドキュメントの読み込みとストリームへの保存、テキスト範囲の取得、アクティブな選択内容の取得、変更の取り消しとやり直し、既定の書式設定属性の設定などに利用できます。
 
 この例では、RichEditBox でリッチ テキスト形式 (.rtf) ファイルの編集、読み込み、保存を行う方法を示します。
 
@@ -205,7 +205,7 @@ private void UnderlineButton_Click(object sender, RoutedEventArgs e)
 
 ユーザーがタッチ キーボード、つまりソフト入力パネル (SIP) でデータを入力できるように、ユーザーが入力すると予想されるデータの種類に合わせてテキスト コントロールの入力値の種類を設定できます。 通常、既定のキーボード レイアウトは、リッチ テキスト ドキュメントを扱う場合に適しています。
 
-入力値の種類の使い方について詳しくは、「[入力値の種類を使ったタッチ キーボードの変更](https://msdn.microsoft.com/library/windows/apps/mt280229)」をご覧ください。
+入力値の種類の使い方について詳しくは、「[入力値の種類を使ったタッチ キーボードの変更](https://docs.microsoft.com/windows/uwp/design/input/use-input-scope-to-change-the-touch-keyboard)」をご覧ください。
 
 ## <a name="dos-and-donts"></a>推奨と非推奨
 
@@ -226,5 +226,5 @@ private void UnderlineButton_Click(object sender, RoutedEventArgs e)
 - [スペル チェックするためのガイドライン](text-controls.md)
 - [検索の追加](search.md)
 - [テキスト入力するためのガイドライン](text-controls.md)
-- [TextBox クラス](https://msdn.microsoft.com/library/windows/apps/br209683)
-- [Windows.UI.Xaml.Controls PasswordBox クラス](https://msdn.microsoft.com/library/windows/apps/br227519)
+- [TextBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox)
+- [Windows.UI.Xaml.Controls PasswordBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.PasswordBox)

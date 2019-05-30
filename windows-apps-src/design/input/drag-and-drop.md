@@ -6,18 +6,18 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: e508feb8a530f29b40d5a3839df573cb2ce89896
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 60d713efd9deeffa0856a5d1dbc92688c229288e
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57634397"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66363578"
 ---
 # <a name="drag-and-drop"></a>ドラッグ アンド ドロップ
 
 ドラッグ アンド ドロップは、Windows デスクトップでアプリケーション内またはアプリケーション間でデータを転送するための直感的な方法です。 ドラッグ アンド ドロップを利用すると、ユーザーは、標準ジェスチャ (指で押したままパン、またはマウスやスタイラスでボタンを押したままパン) 使ってアプリケーション間やアプリケーション内でデータを転送できます。
 
-> **重要な API**:[CanDrag プロパティ](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Xaml.UIElement.CanDrag)、 [AllowDrop プロパティ](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Xaml.UIElement.AllowDrop) 
+> **重要な API**:[CanDrag プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.candrag)、 [AllowDrop プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.allowdrop) 
 
 ドラッグ ソース (ドラッグ ジェスチャがトリガーされたアプリケーションや領域) は、標準的なデータ形式 (テキスト、RTF、HTML、ビットマップ、ストレージ項目) やカスタム データ形式を含むことができるデータ パッケージ オブジェクトに入力することによって、転送されるデータを提供します。 ソースは、ソースがサポートする操作の種類 (コピー、移動、リンク) も示します。 ポインターが離されたときにドロップが発生します。 ドロップ ターゲット (ポインターの下にあるアプリケーションや領域) は、データ パッケージを処理し、実行される操作の種類を返します。
 
@@ -37,11 +37,11 @@ ms.locfileid: "57634397"
 
 ## <a name="enable-dragging"></a>ドラッグを有効にする
 
-要素に対してドラッグを有効にするには、要素の [**CanDrag**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Xaml.UIElement.CanDrag) プロパティを **true** に設定します。 これにより、要素 (およびその要素を含む要素 (ListView などのコレクションの場合)) をドラッグ可能にします。
+要素に対してドラッグを有効にするには、要素の [**CanDrag**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.candrag) プロパティを **true** に設定します。 これにより、要素 (およびその要素を含む要素 (ListView などのコレクションの場合)) をドラッグ可能にします。
 
 どの要素をドラッグ可能にするかを、明確にしておいてください。 ユーザーは、アプリ内にあるすべての項目をドラッグできるようにするのではなく、画像やテキストなどの特定の項目のみをドラッグすることを必要としています。 
 
-[  **CanDrag**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Xaml.UIElement.CanDrag) の設定方法を次に示します。
+[  **CanDrag**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.candrag) の設定方法を次に示します。
 
 [!code-xml[Main](./code/drag_drop/cs/MainPage.xaml#SnippetDragArea)]
 
@@ -50,27 +50,27 @@ UI をカスタマイズする場合 (この記事の後半で説明します) �
 ## <a name="construct-a-data-package"></a>データ パッケージを作成する 
 
 ほとんどの場合、システムによってデータ パッケージが自動的に作成されます。 システムでは、次のコンテンツが自動的に処理されます。
-* イメージ
+* 画像
 * Text 
 
 他のコンテンツについては、**DragStarted** イベントと **DragCompleted** イベントを手動で処理し、これらを使って独自の [DataPackage](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.datapackage) を作成する必要があります。
 
 ## <a name="enable-dropping"></a>ドロップを有効にする
 
-次のマークアップは、XAML で [**AllowDrop**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Xaml.UIElement.AllowDrop) を使って、アプリの特定の領域をドロップ操作に有効な領域として設定する方法を示しています。 ユーザーが他の場所へのドロップを試みても、ドロップすることはできません。 アプリ内のすべての領域でユーザーが項目をドロップできるようにする場合は、背景全体をドロップ先として設定します。
+次のマークアップは、XAML で [**AllowDrop**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.allowdrop) を使って、アプリの特定の領域をドロップ操作に有効な領域として設定する方法を示しています。 ユーザーが他の場所へのドロップを試みても、ドロップすることはできません。 アプリ内のすべての領域でユーザーが項目をドロップできるようにする場合は、背景全体をドロップ先として設定します。
 
 [!code-xml[Main](./code/drag_drop/cs/MainPage.xaml#SnippetDropArea)]
 
 
 ## <a name="handle-the-dragover-event"></a>DragOver イベントを処理する
 
-[  **DragOver**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Xaml.UIElement.DragOver) イベントは、ユーザーがアプリに項目をドラッグし、まだドロップしていないときに発生します。 このハンドラーでは、[**AcceptedOperation**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Xaml.DragEventArgs.AcceptedOperation) プロパティを使って、アプリがサポートしている操作の種類を指定する必要があります。 最も一般的な操作はコピーです。
+[  **DragOver**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.dragover) イベントは、ユーザーがアプリに項目をドラッグし、まだドロップしていないときに発生します。 このハンドラーでは、[**AcceptedOperation**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.drageventargs.acceptedoperation) プロパティを使って、アプリがサポートしている操作の種類を指定する必要があります。 最も一般的な操作はコピーです。
 
 [!code-cs[Main](./code/drag_drop/cs/MainPage.xaml.cs#SnippetGrid_DragOver)]
 
 ## <a name="process-the-drop-event"></a>Drop イベントを処理する
 
-[  **Drop**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Xaml.UIElement.Drop) イベントは、有効なドロップ領域内でユーザーが項目を放したときに発生します。 放した項目を処理するには [**DataView**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Xaml.DragEventArgs.DataView) プロパティを使います。
+[  **Drop**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.drop) イベントは、有効なドロップ領域内でユーザーが項目を放したときに発生します。 放した項目を処理するには [**DataView**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.drageventargs.dataview) プロパティを使います。
 
 次の例では、わかりやすくするために、ユーザーが単一の写真をドロップして直接それにアクセスしたとします。 実際には、ユーザーがさまざまな形式の複数の項目を同時にドロップすることもあります。 アプリで、ドロップされたファイルの種類とファイル数を確認することでこの状況を処理し、状況に応じてそれぞれを処理する必要があります。 また、ユーザーがアプリでサポートされていない処理を実行しようとしたときに、ユーザーに通知することを検討する必要があります。
 
@@ -78,13 +78,13 @@ UI をカスタマイズする場合 (この記事の後半で説明します) �
 
 ## <a name="customize-the-ui"></a>UI をカスタマイズする
 
-システムでは、ドラッグ アンド ドロップ用に既定の UI が提供されています。 ただし、カスタムのキャプションやグリフを設定して UI のさまざまな部分をカスタマイズすることも、UI をまったく表示しないこともできます。 UI をカスタマイズするには、[**DragEventArgs.DragUIOverride**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Xaml.DragEventArgs.DragUIOverride) プロパティを使います。
+システムでは、ドラッグ アンド ドロップ用に既定の UI が提供されています。 ただし、カスタムのキャプションやグリフを設定して UI のさまざまな部分をカスタマイズすることも、UI をまったく表示しないこともできます。 UI をカスタマイズするには、[**DragEventArgs.DragUIOverride**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.drageventargs.draguioverride) プロパティを使います。
 
 [!code-cs[Main](./code/drag_drop/cs/MainPage.xaml.cs#SnippetGrid_DragOverCustom)]
 
 ## <a name="open-a-context-menu-on-an-item-you-can-drag-with-touch"></a>タッチによるドラッグが可能な項目のコンテキスト メニューを開く
 
-タッチを使い、[**UIElement**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Xaml.UIElement) をドラッグして、コンテキスト メニューを開くには、類似したタッチ ジェスチャを使用します。それぞれ長押しから始まります。 アプリの要素が 2 つのアクションをサポートしている場合に、システムがそれを区別する方法を次に示します。 
+タッチを使い、[**UIElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement) をドラッグして、コンテキスト メニューを開くには、類似したタッチ ジェスチャを使用します。それぞれ長押しから始まります。 アプリの要素が 2 つのアクションをサポートしている場合に、システムがそれを区別する方法を次に示します。 
 
 * ユーザーがある項目を長押しし、500 ミリ秒以内にドラッグを開始した場合、項目はドラッグされ、コンテキスト メニューは表示されません。 
 * ユーザーが長押ししてから 500 ミリ秒以内にドラッグしなかった場合には、コンテキスト メニューが開きます。 
@@ -92,9 +92,9 @@ UI をカスタマイズする場合 (この記事の後半で説明します) �
 
 ## <a name="designate-an-item-in-a-listview-or-gridview-as-a-folder"></a>ListView または GridView の項目をフォルダーとして指定する
 
-[  **ListViewItem**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Xaml.Controls.ListViewItem) または [**GridViewItem**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Xaml.Controls.GridViewItem) をフォルダーとして指定できます。 これは、ツリー ビューとエクスプローラーのシナリオで特に便利です。 これを行うには、その項目で [**AllowDrop**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Xaml.UIElement.AllowDrop) プロパティを明示的に **True** に設定します。 
+[  **ListViewItem**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListViewItem) または [**GridViewItem**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.GridViewItem) をフォルダーとして指定できます。 これは、ツリー ビューとエクスプローラーのシナリオで特に便利です。 これを行うには、その項目で [**AllowDrop**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.allowdrop) プロパティを明示的に **True** に設定します。 
 
-(非フォルダー項目にではなく) フォルダーにドロップするための、適切なアニメーションが自動的に表示されます。 アプリのコードは、フォルダー項目の[**ドロップ**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Xaml.UIElement.Drop) イベントの処理 (および非フォルダー項目の処理) を継続し、データ ソースを更新して、ドロップ先のフォルダーにドロップされた項目を追加する必要があります。
+(非フォルダー項目にではなく) フォルダーにドロップするための、適切なアニメーションが自動的に表示されます。 アプリのコードは、フォルダー項目の[**ドロップ**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.drop) イベントの処理 (および非フォルダー項目の処理) を継続し、データ ソースを更新して、ドロップ先のフォルダーにドロップされた項目を追加する必要があります。
 
 ## <a name="implementing-custom-drag-and-drop"></a>カスタムのドラッグ アンド ドロップを実装する
 
@@ -112,11 +112,11 @@ UI をカスタマイズする場合 (この記事の後半で説明します) �
 ## <a name="see-also"></a>関連項目
 
 * [アプリ間通信](index.md)
-* [AllowDrop](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.uielement.allowdrop.aspx)
-* [CanDrag](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.uielement.candrag.aspx)
-* [DragOver](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.uielement.dragover.aspx)
-* [AcceptedOperation](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.drageventargs.acceptedoperation.aspx)
-* [DataView](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.drageventargs.dataview.aspx)
-* [DragUIOverride](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.drageventargs.draguioverride.aspx)
-* [ドロップ](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.uielement.drop.aspx)
-* [IsDragSource](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.listviewbase.isdragsource.aspx)
+* [AllowDrop](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.allowdrop)
+* [CanDrag](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.candrag)
+* [DragOver](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.dragover)
+* [AcceptedOperation](https://docs.microsoft.com/uwp/api/windows.ui.xaml.drageventargs.acceptedoperation)
+* [DataView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.drageventargs.dataview)
+* [DragUIOverride](https://docs.microsoft.com/uwp/api/windows.ui.xaml.drageventargs.draguioverride)
+* [ドロップ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.drop)
+* [IsDragSource](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase.isdragsource)

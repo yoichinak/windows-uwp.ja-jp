@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 06af6241bdd75efdd3ff71e02f74252d60540669
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: f94fcdf33267ab352f5cdc274e07373952b0939b
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57653657"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66362163"
 ---
 # <a name="optimize-suspendresume"></a>中断/再開の最適化
 
@@ -54,17 +54,17 @@ UWP のプロセス継続時間システムは、さまざまな理由でアプ�
 
 ### <a name="serialize-only-when-necessary"></a>必要最小限のシリアル化
 
-中断時にすべてのデータをシリアル化するアプリは少なくありません。 しかし、アプリの設定データのうち、保存する必要のあるデータがごくわずかであれば、シリアル化ではなく、[**LocalSettings**](https://msdn.microsoft.com/library/windows/apps/BR241622) ストアを使うことをお勧めします。 シリアル化は、もっと大量のデータや、設定以外のデータに使います。
+中断時にすべてのデータをシリアル化するアプリは少なくありません。 しかし、アプリの設定データのうち、保存する必要のあるデータがごくわずかであれば、シリアル化ではなく、[**LocalSettings**](https://docs.microsoft.com/uwp/api/windows.storage.applicationdata.localsettings) ストアを使うことをお勧めします。 シリアル化は、もっと大量のデータや、設定以外のデータに使います。
 
 データをシリアル化する際、変更されていないデータを再シリアル化することは避けてください。 データのシリアル化と保存に時間がかかるばかりか、アプリが再びアクティブ化されたときにもデータの読み取りと逆シリアル化に時間がかかります。 このような処理ではなく、アプリの状態が実際に変更されたかどうかをアプリが判定し、変更された場合にのみ変更データをシリアル化および逆シリアル化する処理をお勧めしています。 この処理を確実に行う良い方法は、データが変更された後にバックグラウンドでこまめにシリアル化することです。 この手法を使うと、中断時にシリアル化する必要があるすべてのデータが既に保存されているため、必要な作業がなく、アプリがすぐに中断されます。
 
 ### <a name="serializing-data-in-c-and-visual-basic"></a>C# と Visual Basic でのデータのシリアル化
 
-.NET アプリで使うことができるシリアル化技術には、[**System.Xml.Serialization.XmlSerializer**](https://msdn.microsoft.com/library/windows/apps/xaml/system.xml.serialization.xmlserializer.aspx) クラス、[**System.Runtime.Serialization.DataContractSerializer**](https://msdn.microsoft.com/library/windows/apps/xaml/system.runtime.serialization.datacontractserializer.aspx) クラス、[**System.Runtime.Serialization.Json.DataContractJsonSerializer**](https://msdn.microsoft.com/library/windows/apps/xaml/system.runtime.serialization.json.datacontractjsonserializer.aspx) クラスがあります。
+.NET アプリで使うことができるシリアル化技術には、[**System.Xml.Serialization.XmlSerializer**](https://docs.microsoft.com/dotnet/api/system.xml.serialization.xmlserializer?redirectedfrom=MSDN) クラス、[**System.Runtime.Serialization.DataContractSerializer**](https://docs.microsoft.com/dotnet/api/system.runtime.serialization.datacontractserializer?redirectedfrom=MSDN) クラス、[**System.Runtime.Serialization.Json.DataContractJsonSerializer**](https://docs.microsoft.com/dotnet/api/system.runtime.serialization.json.datacontractjsonserializer?redirectedfrom=MSDN) クラスがあります。
 
-パフォーマンスの観点から、[**XmlSerializer**](https://msdn.microsoft.com/library/windows/apps/xaml/system.xml.serialization.xmlserializer.aspx) クラスを使うことをお勧めします。 **XmlSerializer** は、シリアル化と逆シリアル化の処理時間が最も短く、メモリ使用量も低く抑えられます。 **XmlSerializer** と .NET Framework の間には依存関係が少ないため、他のシリアル化技術と比較して、**XmlSerializer** を使うためにアプリに読み込む必要があるモジュールが少なくて済みます。
+パフォーマンスの観点から、[**XmlSerializer**](https://docs.microsoft.com/dotnet/api/system.xml.serialization.xmlserializer?redirectedfrom=MSDN) クラスを使うことをお勧めします。 **XmlSerializer** は、シリアル化と逆シリアル化の処理時間が最も短く、メモリ使用量も低く抑えられます。 **XmlSerializer** と .NET Framework の間には依存関係が少ないため、他のシリアル化技術と比較して、**XmlSerializer** を使うためにアプリに読み込む必要があるモジュールが少なくて済みます。
 
-[**DataContractSerializer** ](https://msdn.microsoft.com/library/windows/apps/xaml/system.runtime.serialization.datacontractserializer.aspx)よりも大きい、パフォーマンスに影響がありますが、カスタムのクラスをシリアル化しやすくなります**XmlSerializer**します。 より高いパフォーマンスが必要な場合は、切り替えを検討してください。 通常、複数のシリアライザーを読み込むことは避け、できれば **XmlSerializer** を使うようにしてください (他のシリアライザーの機能を必要とする場合を除く)。
+[**DataContractSerializer** ](https://docs.microsoft.com/dotnet/api/system.runtime.serialization.datacontractserializer?redirectedfrom=MSDN)よりも大きい、パフォーマンスに影響がありますが、カスタムのクラスをシリアル化しやすくなります**XmlSerializer**します。 より高いパフォーマンスが必要な場合は、切り替えを検討してください。 通常、複数のシリアライザーを読み込むことは避け、できれば **XmlSerializer** を使うようにしてください (他のシリアライザーの機能を必要とする場合を除く)。
 
 ### <a name="reduce-memory-footprint"></a>メモリ使用量の削減
 
@@ -81,11 +81,11 @@ UWP のプロセス継続時間システムは、さまざまな理由でアプ�
 
 中断中のアプリは、ユーザーがフォアグラウンドにアプリを移動した場合、またはシステムが低電力状態から復帰した場合に再開することができます。 アプリを中断状態から再開すると、アプリは中断された時点から再開されます。 アプリが長時間中断されていた場合でも、アプリのデータはメモリに格納されているため失われることはありません。
 
-ほとんどのアプリでは、[**Resuming**](https://msdn.microsoft.com/library/windows/apps/BR205859) イベントを処理する必要はありません。 アプリ再開時の変数とオブジェクトは、アプリが中断された時とまったく同じ状態です。 アプリの中断と再開の間でデータまたはオブジェクトが変更されている可能性があり、それらの更新が必要な場合にのみ **Resuming** イベントを処理してください。この状況としては、コンテンツ (更新フィード データなど) やネットワーク接続が無効になった場合や、デバイス (Web カメラなど) へのアクセスを再取得する必要がある場合が考えられます。
+ほとんどのアプリでは、[**Resuming**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplication.resuming) イベントを処理する必要はありません。 アプリ再開時の変数とオブジェクトは、アプリが中断された時とまったく同じ状態です。 アプリの中断と再開の間でデータまたはオブジェクトが変更されている可能性があり、それらの更新が必要な場合にのみ **Resuming** イベントを処理してください。この状況としては、コンテンツ (更新フィード データなど) やネットワーク接続が無効になった場合や、デバイス (Web カメラなど) へのアクセスを再取得する必要がある場合が考えられます。
 
 ## <a name="related-topics"></a>関連トピック
 
-* [アプリに関するガイドラインの中断し、再開](https://msdn.microsoft.com/library/windows/apps/Hh465088)
+* [アプリに関するガイドラインの中断し、再開](https://docs.microsoft.com/windows/uwp/launch-resume/index)
  
 
  

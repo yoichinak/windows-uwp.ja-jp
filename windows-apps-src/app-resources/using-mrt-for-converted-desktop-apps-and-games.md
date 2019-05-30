@@ -5,18 +5,18 @@ ms.date: 10/25/2017
 ms.topic: article
 keywords: Windows 10、UWP、MRT、PRI。 リソース、ゲーム、Centennial、Desktop App Converter、MUI、サテライト アセンブリ
 ms.localizationpriority: medium
-ms.openlocfilehash: b17dffec37a5cadb450e93ea15508becfd7b9233
-ms.sourcegitcommit: 46890e7f3c1287648631c5e318795f377764dbd9
+ms.openlocfilehash: 82050c92311ce8bb7457637a486943a5fed3e334
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58320635"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66359327"
 ---
 # <a name="use-the-windows-10-resource-management-system-in-a-legacy-app-or-game"></a>レガシ アプリやゲームで Windows 10 のリソース管理システムを使用する
 
 .NET アプリや Win32 アプリは多くの場合、対象市場を拡大するため、さまざまな言語にローカライズされます。 アプリのローカライズの価値提案の詳細については、「[グローバリゼーションとローカライズ](../design/globalizing/globalizing-portal.md)」をご覧ください。 .NET や Win32 のアプリやゲーム MSIX または AppX パッケージとしてパッケージ化、実行時のコンテキストに合わせたアプリのリソースを読み込むリソース管理システムを活用できます。 この詳細なトピックでは、この手法について説明します。
 
-従来の Win32 アプリケーションをローカライズする方法はたくさんありますが、Windows 8 では[新しいリソース管理システム](https://msdn.microsoft.com/en-us/library/windows/apps/jj552947.aspx)が導入されました。このリソース管理システムは、さまざまなプログラミング言語やさまざまな種類のアプリケーションで動作し、ローカライズ機能を簡素化するだけでなく、さまざまな機能を提供します。 このトピックでは、このシステムを "MRT" と呼びます。 「モダン」という用語の使用は停止されましたが、MRT は従来 "Modern Resource Technology" を表していました。 リソース マネージャーは、MRM (モダン リソース マネージャー) または PRI (パッケージ リソース インデックス) としても知られています。
+従来の Win32 アプリケーションをローカライズする方法はたくさんありますが、Windows 8 では[新しいリソース管理システム](https://docs.microsoft.com/previous-versions/windows/apps/jj552947(v=win.10))が導入されました。このリソース管理システムは、さまざまなプログラミング言語やさまざまな種類のアプリケーションで動作し、ローカライズ機能を簡素化するだけでなく、さまざまな機能を提供します。 このトピックでは、このシステムを "MRT" と呼びます。 「モダン」という用語の使用は停止されましたが、MRT は従来 "Modern Resource Technology" を表していました。 リソース マネージャーは、MRM (モダン リソース マネージャー) または PRI (パッケージ リソース インデックス) としても知られています。
 
 (たとえば、Microsoft Store) から MSIX ベースまたは AppX ベースの展開と組み合わせると、MRT 自動的に提供できる、特定のユーザーのほとんどの適用可能なリソース/デバイス、ダウンロードを最小化して、アプリケーションのサイズをインストールします。 ローカライズ コンテンツのサイズが大きなアプリケーションでは、これによって大きなサイズ削減効果があり、高度なゲームの場合では、数*ギガバイト*にも及ぶ削減効果となることがあります。 さらに、Windows シェルと Microsoft Store でローカライズされて表示されることや、ユーザーの使用言語と利用可能なリソースが一致しない場合の自動フォールバック ロジックなども、MRT によるメリットの例です。
 
@@ -66,7 +66,7 @@ ms.locfileid: "58320635"
 
 この図で、アプリケーション コードは 3 つの論理リソース名を参照しています。 実行時に、擬似関数 `GetResource` は、MRT を使用して、リソース テーブル (PRI ファイルと呼ばれます) で、そのリソース名を検索し、環境条件 (ユーザーの言語とディスプレイのスケール ファクター) に基づいて、最適な候補を見つけます。 ラベルの場合は、文字列が直接使用されます。 ロゴ イメージの場合は、文字列がファイル名として解釈され、ファイルがディスクから読み取られます。 
 
-ユーザーが英語またはドイツ語以外の言語を話す場合、または 100% または 300% 以外、表示スケール ファクターが場合 MRT はフォールバック規則のセットに基づいて、「最も近い」一致する候補を取得 (を参照してください[リソース管理システム](https://msdn.microsoft.com/en-us/library/windows/apps/jj552947.aspx)詳細バック グラウンド)。
+ユーザーが英語またはドイツ語以外の言語を話す場合、または 100% または 300% 以外、表示スケール ファクターが場合 MRT はフォールバック規則のセットに基づいて、「最も近い」一致する候補を取得 (を参照してください[リソース管理システム](https://docs.microsoft.com/previous-versions/windows/apps/jj552947(v=win.10))詳細バック グラウンド)。
 
 ロゴのイメージにもローカライズするために必要な埋め込みのテキストが含まれている場合に、MRT がなどの 1 つ以上の修飾子に対応したリソースをサポートしているメモ、ロゴは、次の 4 つの候補があります。EN/スケール 100、DE/スケール 100、EN/スケール-300、300-DE/スケール。
 
@@ -150,7 +150,7 @@ ms.locfileid: "58320635"
 
 パッケージ マニフェスト ファイルとパッケージのレイアウトの詳細については、次を参照してください。[アプリ パッケージのマニフェスト](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/appx-package-manifest)します。
 
-最後に、Visual Studio を新しいプロジェクトを作成し、既存のコード間で移行を使用している場合について[作成「こんにちは, world」アプリ](https://msdn.microsoft.com/windows/uwp/get-started/create-a-hello-world-app-xaml-universal)します。 新しいプロジェクトの場合に、既存のコードを含めることができますが、純粋な UWP アプリとして実行するには、(特に、ユーザー インターフェイス) に大幅なコードの変更する必要があります可能性があります。 それらの変更は、このドキュメントの対象範囲外です。
+最後に、Visual Studio を新しいプロジェクトを作成し、既存のコード間で移行を使用している場合について[作成「こんにちは, world」アプリ](https://docs.microsoft.com/windows/uwp/get-started/create-a-hello-world-app-xaml-universal)します。 新しいプロジェクトの場合に、既存のコードを含めることができますが、純粋な UWP アプリとして実行するには、(特に、ユーザー インターフェイス) に大幅なコードの変更する必要があります可能性があります。 それらの変更は、このドキュメントの対象範囲外です。
 
 ## <a name="phase-1-localize-the-manifest"></a>フェーズ 1:マニフェストをローカライズします。
 

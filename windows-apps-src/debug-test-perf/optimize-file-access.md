@@ -6,21 +6,21 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: cacd915530bb599936730ec404a6e524fef0105d
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: bc42fecf0a29784c8abe6e61a328d6e5024cc532
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57597267"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66362268"
 ---
 # <a name="optimize-file-access"></a>ファイル アクセスの最適化
 
 
 ファイル システムに効率的にアクセスすることで、ディスクの待ち時間とメモリ/CPU サイクルによるパフォーマンスの問題を回避するユニバーサル Windows プラットフォーム (UWP) アプリを作成します。
 
-ファイルの大規模なコレクションにアクセスして、Name、FileType、Path のような一般的なプロパティ以外のプロパティ値にアクセスする場合は、[**QueryOptions**](https://msdn.microsoft.com/library/windows/apps/BR207995) を作成して、[**SetPropertyPrefetch**](https://msdn.microsoft.com/library/windows/apps/hh973319) を呼び出してアクセスします。 **SetPropertyPrefetch** メソッドによって、イメージ コレクションなど、項目のコレクションをファイル システムから取得して表示するアプリのパフォーマンスを大幅に向上できます。 次の一連の例では、複数のファイルにアクセスする方法をいくつか紹介します。
+ファイルの大規模なコレクションにアクセスして、Name、FileType、Path のような一般的なプロパティ以外のプロパティ値にアクセスする場合は、[**QueryOptions**](https://docs.microsoft.com/uwp/api/Windows.Storage.Search.QueryOptions) を作成して、[**SetPropertyPrefetch**](https://docs.microsoft.com/uwp/api/windows.storage.search.queryoptions.setpropertyprefetch) を呼び出してアクセスします。 **SetPropertyPrefetch** メソッドによって、イメージ コレクションなど、項目のコレクションをファイル システムから取得して表示するアプリのパフォーマンスを大幅に向上できます。 次の一連の例では、複数のファイルにアクセスする方法をいくつか紹介します。
 
-最初の例では、[**Windows.Storage.StorageFolder.GetFilesAsync**](https://msdn.microsoft.com/library/windows/apps/BR227273) を使って一連のファイルの名前情報を取得しています。 この例のように Name プロパティだけにアクセスすることで、この手法は高いパフォーマンスを実現しています。
+最初の例では、[**Windows.Storage.StorageFolder.GetFilesAsync**](https://docs.microsoft.com/uwp/api/windows.storage.storagefolder.getfilesasync) を使って一連のファイルの名前情報を取得しています。 この例のように Name プロパティだけにアクセスすることで、この手法は高いパフォーマンスを実現しています。
 
 > [!div class="tabbedCodeSnippets"]
 > ```csharp
@@ -44,7 +44,7 @@ ms.locfileid: "57597267"
 > Next i
 > ```
 
-2 番目の例では、[**Windows.Storage.StorageFolder.GetFilesAsync**](https://msdn.microsoft.com/library/windows/apps/BR227273) を使って、各ファイルのイメージ プロパティを取得しています。 この手法のパフォーマンスは高くありません。
+2 番目の例では、[**Windows.Storage.StorageFolder.GetFilesAsync**](https://docs.microsoft.com/uwp/api/windows.storage.storagefolder.getfilesasync) を使って、各ファイルのイメージ プロパティを取得しています。 この手法のパフォーマンスは高くありません。
 
 > [!div class="tabbedCodeSnippets"]
 > ```csharp
@@ -70,7 +70,7 @@ ms.locfileid: "57597267"
 > Next i
 > ```
 
-3 番目の例では、[**QueryOptions**](https://msdn.microsoft.com/library/windows/apps/BR207995) を使って、一連のファイルの情報を取得しています。 この手法のパフォーマンスは前の例よりもかなり高くなります。
+3 番目の例では、[**QueryOptions**](https://docs.microsoft.com/uwp/api/Windows.Storage.Search.QueryOptions) を使って、一連のファイルの情報を取得しています。 この手法のパフォーマンスは前の例よりもかなり高くなります。
 
 > [!div class="tabbedCodeSnippets"]
 > ```csharp
@@ -133,7 +133,7 @@ ms.locfileid: "57597267"
 
 ### <a name="buffering-between-uwp-and-net-streams"></a>UWP ストリームと .NET ストリーム間のバッファリング
 
-UWP ストリーム ([**Windows.Storage.Streams.IInputStream**](https://msdn.microsoft.com/library/windows/apps/BR241718)、[**IOutputStream**](https://msdn.microsoft.com/library/windows/apps/BR241728) など) から .NET ストリーム ([**System.IO.Stream**](https://msdn.microsoft.com/library/windows/apps/xaml/system.io.stream.aspx)) への変換が必要になるケースは少なくありません。 たとえば、UWP アプリを作成しているとき、ストリームを扱う従来の .NET コードを、UWP のファイル システムで利用する場合に活用できます。 これを有効にするためには、UWP アプリ用 .NET Api は、.NET と UWP のストリーム型の間で変換するための拡張メソッドを提供します。 詳しくは、「[**WindowsRuntimeStreamExtensions**](https://msdn.microsoft.com/library/windows/apps/xaml/system.io.windowsruntimestreamextensions.aspx)」をご覧ください。
+UWP ストリーム ([**Windows.Storage.Streams.IInputStream**](https://docs.microsoft.com/uwp/api/Windows.Storage.Streams.IInputStream)、[**IOutputStream**](https://docs.microsoft.com/uwp/api/Windows.Storage.Streams.IOutputStream) など) から .NET ストリーム ([**System.IO.Stream**](https://docs.microsoft.com/dotnet/api/system.io.stream?redirectedfrom=MSDN)) への変換が必要になるケースは少なくありません。 たとえば、UWP アプリを作成しているとき、ストリームを扱う従来の .NET コードを、UWP のファイル システムで利用する場合に活用できます。 これを有効にするためには、UWP アプリ用 .NET Api は、.NET と UWP のストリーム型の間で変換するための拡張メソッドを提供します。 詳しくは、「[**WindowsRuntimeStreamExtensions**](https://docs.microsoft.com/dotnet/api/system.io?redirectedfrom=MSDN)」をご覧ください。
 
 UWP のストリームを .NET のストリームに変換するとき、実質的には、基になる UWP ストリーム用のアダプターを作成することになります。 場合によっては、UWP ストリームのメソッド呼び出しに伴うコストが実行時に発生します。 このことがアプリの実行速度に影響を及ぼす可能性があり、特に、小規模な読み取り/書き込み操作を高頻度で何度も実行するケースにおいて顕著に表れます。
 
@@ -194,7 +194,7 @@ UWP のストリーム アダプターには、アプリの実行速度を高め
 
 ### <a name="working-with-large-data-sets"></a>大きなデータ セットの操作
 
-大きなデータ セットの読み取りまたは書き込みを行う場合、そのスループットを向上させるには、[**AsStreamForRead**](https://msdn.microsoft.com/library/windows/apps/xaml/system.io.windowsruntimestreamextensions.asstream.aspx)、[**AsStreamForWrite**](https://msdn.microsoft.com/library/windows/apps/xaml/system.io.windowsruntimestreamextensions.asstreamforwrite.aspx)、[**AsStream**](https://msdn.microsoft.com/library/windows/apps/xaml/system.io.windowsruntimestreamextensions.asstream.aspx) の各拡張メソッドに指定するバッファー サイズを増やします。 これによって、ストリーム アダプターに割り当てられる内部バッファーのサイズが大きくなります。 たとえば、大きなファイルから取得したストリームを XML パーサーに渡すと、パーサーが、ストリームから小刻みにデータを読み取り、多数の読み取りが連続して発生することがあります。 バッファーを大きくすると、基になる UWP ストリームに対する呼び出しの回数を減らし、パフォーマンスを大きく高めることができます。
+大きなデータ セットの読み取りまたは書き込みを行う場合、そのスループットを向上させるには、[**AsStreamForRead**](https://docs.microsoft.com/dotnet/api/system.io?redirectedfrom=MSDN)、[**AsStreamForWrite**](https://docs.microsoft.com/dotnet/api/system.io?redirectedfrom=MSDN)、[**AsStream**](https://docs.microsoft.com/dotnet/api/system.io?redirectedfrom=MSDN) の各拡張メソッドに指定するバッファー サイズを増やします。 これによって、ストリーム アダプターに割り当てられる内部バッファーのサイズが大きくなります。 たとえば、大きなファイルから取得したストリームを XML パーサーに渡すと、パーサーが、ストリームから小刻みにデータを読み取り、多数の読み取りが連続して発生することがあります。 バッファーを大きくすると、基になる UWP ストリームに対する呼び出しの回数を減らし、パフォーマンスを大きく高めることができます。
 
 > **注**  注意が必要、ガベージ コレクター ヒープの断片化が生じるとバッファー サイズの設定が約 80 KB より大きい場合 (を参照してください[ガベージ コレクションのパフォーマンスを向上させる](improve-garbage-collection-performance.md)). 次のコード例では、81,920 バイトのバッファーを持つマネージ ストリーム アダプターを作成しています。
 
@@ -208,7 +208,7 @@ Stream managedStream = nativeStream.AsStreamForRead(bufferSize: 81920);
 Dim managedStream As Stream = nativeStream.AsStreamForRead(bufferSize:=81920)
 ```
 
-[  **Stream.CopyTo**](https://msdn.microsoft.com/library/windows/apps/xaml/system.io.stream.copyto.aspx) メソッドと [**CopyToAsync**](https://msdn.microsoft.com/library/windows/apps/xaml/system.io.stream.copytoasync.aspx) メソッドでも、ストリーム間のコピー用にローカル バッファーが割り当てられます。 [  **AsStreamForRead**](https://msdn.microsoft.com/library/windows/apps/xaml/system.io.windowsruntimestreamextensions.asstreamforread.aspx) 拡張メソッドと同様、大きなストリームのコピーでは、既定のバッファー サイズをオーバーライドすることによってパフォーマンスを向上できる場合があります。 次のコード例では、**CopyToAsync** 呼び出しの既定のバッファー サイズを変更しています。
+[  **Stream.CopyTo**](https://docs.microsoft.com/dotnet/api/system.io.stream.copyto?redirectedfrom=MSDN#overloads) メソッドと [**CopyToAsync**](https://docs.microsoft.com/dotnet/api/system.io.stream.copytoasync?redirectedfrom=MSDN#overloads) メソッドでも、ストリーム間のコピー用にローカル バッファーが割り当てられます。 [  **AsStreamForRead**](https://docs.microsoft.com/dotnet/api/system.io?redirectedfrom=MSDN) 拡張メソッドと同様、大きなストリームのコピーでは、既定のバッファー サイズをオーバーライドすることによってパフォーマンスを向上できる場合があります。 次のコード例では、**CopyToAsync** 呼び出しの既定のバッファー サイズを変更しています。
 
 > [!div class="tabbedCodeSnippets"]
 > ```csharp
@@ -236,6 +236,6 @@ Dim managedStream As Stream = nativeStream.AsStreamForRead(bufferSize:=81920)
 
 バッファリングを回避した方がよいケースは他にもあります。読み取りと書き込みの待機時間を短くする必要があり、基になる UWP ストリームから大きなブロック単位で読み取ることが適していないケースが該当します。 たとえば、ネットワーク通信のストリームを使う場合、読み取りと書き込みの待機時間を短くする必要があります。
 
-チャット アプリでは、ネットワーク インターフェイス経由でストリームを使い、メッセージをやり取りすることが考えられます。 この場合、バッファーにメッセージが満たされるまで待機するのではなく、完成したメッセージをすぐに送信する必要があります。 [  **AsStreamForRead**](https://msdn.microsoft.com/library/windows/apps/xaml/system.io.windowsruntimestreamextensions.asstreamforread.aspx)、[**AsStreamForWrite**](https://msdn.microsoft.com/library/windows/apps/xaml/system.io.windowsruntimestreamextensions.asstreamforwrite.aspx)、[**AsStream**](https://msdn.microsoft.com/library/windows/apps/xaml/system.io.windowsruntimestreamextensions.asstream.aspx) の各拡張メソッドを呼び出す際にバッファー サイズを 0 に設定した場合、そのアダプターでは、バッファーが割り当てられず、すべての呼び出しについて、基になる UWP ストリームが直接操作されます。
+チャット アプリでは、ネットワーク インターフェイス経由でストリームを使い、メッセージをやり取りすることが考えられます。 この場合、バッファーにメッセージが満たされるまで待機するのではなく、完成したメッセージをすぐに送信する必要があります。 [  **AsStreamForRead**](https://docs.microsoft.com/dotnet/api/system.io?redirectedfrom=MSDN)、[**AsStreamForWrite**](https://docs.microsoft.com/dotnet/api/system.io?redirectedfrom=MSDN)、[**AsStream**](https://docs.microsoft.com/dotnet/api/system.io?redirectedfrom=MSDN) の各拡張メソッドを呼び出す際にバッファー サイズを 0 に設定した場合、そのアダプターでは、バッファーが割り当てられず、すべての呼び出しについて、基になる UWP ストリームが直接操作されます。
 
 

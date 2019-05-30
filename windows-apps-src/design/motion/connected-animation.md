@@ -9,12 +9,12 @@ pm-contact: stmoy
 design-contact: conrwi
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 21e7c026d336507b1a82badba770ac3bb50e19f8
-ms.sourcegitcommit: f0f933d5cf0be734373a7b03e338e65000cc3d80
+ms.openlocfilehash: d1d459ab10614ddf9186275b1a6b66e8fa5703ec
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65984116"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66364957"
 ---
 # <a name="connected-animation-for-uwp-apps"></a>UWP アプリ用の接続型アニメーション
 
@@ -63,7 +63,7 @@ ms.locfileid: "65984116"
 
 ## <a name="when-to-use-connected-animation"></a>接続型アニメーションを使用するタイミング
 
-一般に、接続型アニメーションはページを変更するとき使用されます。ただし、UI のコンテンツを変更するときに、そのコンテンツが維持されるようにユーザーに対して表示する必要がある場合は、接続型アニメーションをどのようなエクスペリエンスにでも適用できます。 ソース ビューと切り替え先のビューの間で UI の画像や他の UI の要素が共有されている場合は、必ず、[ドリル インによるナビゲーション切り替え](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.media.animation.navigationthemetransition.aspx)ではなく、接続型アニメーションの使用を検討してください。
+一般に、接続型アニメーションはページを変更するとき使用されます。ただし、UI のコンテンツを変更するときに、そのコンテンツが維持されるようにユーザーに対して表示する必要がある場合は、接続型アニメーションをどのようなエクスペリエンスにでも適用できます。 ソース ビューと切り替え先のビューの間で UI の画像や他の UI の要素が共有されている場合は、必ず、[ドリル インによるナビゲーション切り替え](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.NavigationThemeTransition)ではなく、接続型アニメーションの使用を検討してください。
 
 ## <a name="configure-connected-animation"></a>アニメーションの結び付けを構成します。
 

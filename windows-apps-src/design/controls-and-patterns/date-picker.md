@@ -13,12 +13,12 @@ design-contact: ksulliv
 dev-contact: joyate
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: a51705b1e74508d89328ce5ace3d7fd869aa0940
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 1b8e03683d38b382d74bd6defbf7732578878960
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57606397"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66362839"
 ---
 # <a name="date-picker"></a>日付の選択コントロール
 
@@ -26,7 +26,7 @@ ms.locfileid: "57606397"
 
 DatePicker は、ユーザーがタッチ、マウス、またはキーボード入力を使ってローカライズされた日付値を選択できる標準化された方法です。 
 
-> **重要な API**:[DatePicker クラス](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.datepicker.aspx)、[プロパティの日付](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.datepicker.date.aspx)
+> **重要な API**:[DatePicker クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.DatePicker)、[プロパティの日付](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.datepicker.date)
 
 
 ## <a name="is-this-the-right-control"></a>適切なコントロールの選択
@@ -71,7 +71,7 @@ birthDatePicker.Header = "Date of birth";
 
 ![日付の選択コントロールの例](images/date-picker-closed.png)
 
-> **注:**&nbsp;&nbsp;日付値の重要な情報については、「日付と時刻コントロール」の「[DateTime と Calendar の値](date-and-time.md#datetime-and-calendar-values)」をご覧ください。
+> **注:** &nbsp;&nbsp;日付値の重要な情報については、「日付と時刻コントロール」の「[DateTime と Calendar の値](date-and-time.md#datetime-and-calendar-values)」をご覧ください。
 
 ## <a name="get-the-sample-code"></a>サンプル コードを入手する
 

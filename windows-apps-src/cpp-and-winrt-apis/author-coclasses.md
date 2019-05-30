@@ -1,21 +1,21 @@
 ---
 description: C++/WinRT は、Windows Runtime クラスを作成するのに役立つのと同様に、従来の COM コンポーネントを作成するのに役立ちます。
 title: C++/WinRT での COM コンポーネントの作成
-ms.date: 09/06/2018
+ms.date: 04/24/2019
 ms.topic: article
 keywords: windows 10、uwp、standard、c++、cpp、winrt、プロジェクション、作成者は、COM、コンポーネント
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 27c55e94a4e11bbbf550c21fd61ee384c8b21f9c
-ms.sourcegitcommit: bad7ed6def79acbb4569de5a92c0717364e771d9
+ms.openlocfilehash: 3badcd59155bc4bb5ef8d9e29271b853c245c24e
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59244358"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66360323"
 ---
 # <a name="author-com-components-with-cwinrt"></a>C++/WinRT での COM コンポーネントの作成
 
-[C +/cli WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) Windows ランタイム クラスの作成に利用すると同様に、クラシック コンポーネント オブジェクト モデル (COM) コンポーネント (またはコクラス) を作成することができます。 ここでは、単純な図にコードを貼り付ける場合をテストすることができます、`pch.h`と`main.cpp`新しい**Visual C++**   >  **Windows デスクトップ** >  **Windows コンソール アプリケーション (C++/WinRT)** プロジェクト。
+[C +/cli WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) Windows ランタイム クラスの作成に利用すると同様に、クラシック コンポーネント オブジェクト モデル (COM) コンポーネント (またはコクラス) を作成することができます。 ここでは、単純な図にコードを貼り付ける場合をテストすることができます、`pch.h`と`main.cpp`新しい**Windows コンソール アプリケーション (C +/cli WinRT)** プロジェクト。
 
 ```cppwinrt
 // pch.h
@@ -74,7 +74,7 @@ int main()
 
 ## <a name="create-a-windows-console-application-project-toastandcallback"></a>Windows コンソール アプリケーション プロジェクト (ToastAndCallback) を作成します。
 
-まず、Microsoft Visual Studio で、新しいプロジェクトを作成します。 作成、 **Visual C** > **Windows デスクトップ** > **Windows コンソール アプリケーション (C +/cli WinRT)** プロジェクト、および名前を付けます*ToastAndCallback*します。
+まず、Microsoft Visual Studio で、新しいプロジェクトを作成します。 作成、 **Windows コンソール アプリケーション (C++/WinRT)** プロジェクト、および名前を付けます*ToastAndCallback*します。
 
 オープン`pch.h`、し、追加`#include <unknwn.h>`する前が含まれますすべて C +/cli WinRT ヘッダー。 結果を次に示します内容を置き換えることができます、`pch.h`この一覧にします。
 
@@ -89,7 +89,6 @@ int main()
 
 ```cppwinrt
 // main.cpp : Defines the entry point for the console application.
-//
 
 #include "pch.h"
 
@@ -173,7 +172,7 @@ struct callback_factory : implements<callback_factory, IClassFactory>
 };
 ```
 
-上記のコクラスの実装は」に示したのと同じパターンに従います[作成者 Api c++/cli WinRT](/windows/uwp/cpp-and-winrt-apis/author-apis#if-youre-not-authoring-a-runtime-class)します。 そのため、COM インターフェイスと Windows ランタイム インターフェイスを実装するために、同じ手法を使用できます。 COM コンポーネントと Windows ランタイム クラス、インターフェイスを使用してその機能を公開します。 すべての COM インターフェイスが最終的に派生、 [ **IUnknown インターフェイス**](https://msdn.microsoft.com/library/windows/desktop/ms680509)インターフェイス。 Windows ランタイムは COM に基づいて&mdash;から派生している Windows ランタイムが最終的にインターフェイス 1 つの違い、 [ **IInspectable インターフェイス**](/windows/desktop/api/inspectable/nn-inspectable-iinspectable) (と**IInspectable**から派生した**IUnknown**)。
+上記のコクラスの実装は」に示したのと同じパターンに従います[作成者 Api c++/cli WinRT](/windows/uwp/cpp-and-winrt-apis/author-apis#if-youre-not-authoring-a-runtime-class)します。 そのため、COM インターフェイスと Windows ランタイム インターフェイスを実装するために、同じ手法を使用できます。 COM コンポーネントと Windows ランタイム クラス、インターフェイスを使用してその機能を公開します。 すべての COM インターフェイスが最終的に派生、 [ **IUnknown インターフェイス**](https://docs.microsoft.com/windows/desktop/api/unknwn/nn-unknwn-iunknown)インターフェイス。 Windows ランタイムは COM に基づいて&mdash;から派生している Windows ランタイムが最終的にインターフェイス 1 つの違い、 [ **IInspectable インターフェイス**](/windows/desktop/api/inspectable/nn-inspectable-iinspectable) (と**IInspectable**から派生した**IUnknown**)。
 
 上記のコードでは、コクラスの実装、 **INotificationActivationCallback::Activate**メソッドは、ユーザーがトースト通知のコールバックのボタンをクリックしたときに呼び出される関数。 その関数を呼び出すことができます、前に、コクラスのインスタンスを作成する必要がありますの仕事です。 この、 **IClassFactory::CreateInstance**関数。
 
@@ -540,10 +539,10 @@ struct MyCoclass : winrt::implements<MyCoclass, IMyComInterface, winrt::Windows:
 
 ## <a name="important-apis"></a>重要な API
 * [IInspectable インターフェイス](/windows/desktop/api/inspectable/nn-inspectable-iinspectable)
-* [IUnknown インターフェイス](https://msdn.microsoft.com/library/windows/desktop/ms680509)
-* [winrt::implements 構造体テンプレート](/uwp/cpp-ref-for-winrt/implements)
+* [IUnknown インターフェイス](https://docs.microsoft.com/windows/desktop/api/unknwn/nn-unknwn-iunknown)
+* [winrt::implements 構造体のテンプレート](/uwp/cpp-ref-for-winrt/implements)
 
 ## <a name="related-topics"></a>関連トピック
-* [C++/WinRT での API の作成](/windows/uwp/cpp-and-winrt-apis/author-apis)
+* [C++/WinRT で API を作成する](/windows/uwp/cpp-and-winrt-apis/author-apis)
 * [C++/WinRT での COM コンポーネントの使用](consume-com.md)
 * [ローカル トースト通知の送信](/windows/uwp/design/shell/tiles-and-notifications/send-local-toast)

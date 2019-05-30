@@ -6,18 +6,18 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10 は、uwp アプリの認定
 ms.localizationpriority: medium
-ms.openlocfilehash: b480e96621e143e283a2556bdbef394aaf7dbc07
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: ea84d57fbfba9666a2553500dc94275bd8b4d209
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57597437"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66359748"
 ---
 # <a name="windows-app-certification-kit"></a>Windows アプリ認定キット
 
 
 
-アプリを取得する[Windows 認定](https://msdn.microsoft.com/windows/desktop/jj134964.aspx)の準備を行うまたは[Microsoft Store への発行](https://msdn.microsoft.com/library/windows/apps/Hh694062)、検証し、最初にテストがローカルにする必要があります。 このトピックでは、インストールして実行する方法、 [Windows アプリ認定キット](https://go.microsoft.com/fwlink/p/?LinkID=309666)アプリが安全で効率的なことを確認します。
+アプリを取得する[Windows 認定](https://msdn.microsoft.com/windows/desktop/jj134964.aspx)の準備を行うまたは[Microsoft Store への発行](https://docs.microsoft.com/windows/uwp/publish/app-submissions)、検証し、最初にテストがローカルにする必要があります。 このトピックでは、インストールして実行する方法、 [Windows アプリ認定キット](https://go.microsoft.com/fwlink/p/?LinkID=309666)アプリが安全で効率的なことを確認します。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -34,11 +34,11 @@ ms.locfileid: "57597437"
 
 ## <a name="validate-your-windows-app-using-the-windows-app-certification-kit-interactively"></a>Windows アプリ認定キットを使った Windows アプリをインタラクティブに検証する
 
-1.  **[スタート]** メニューから、**[アプリ]**、**[Windows キット]** の順に進み、**[Windows アプリ認定キット]** をクリックします。
+1.  **[スタート]** メニューから、 **[アプリ]** 、 **[Windows キット]** の順に進み、 **[Windows アプリ認定キット]** をクリックします。
 
 2.  [Windows アプリ認定キット] で、実行する検証のカテゴリを選びます。 次に、例を示します。Windows アプリを検証する場合は、選択**Windows アプリを検証**です。
 
-    テストするアプリを直接参照するか、UI で一覧からアプリを選ぶことができます。 Windows アプリ認定キットを初めて実行すると、UI にはコンピューターにインストールされているすべての Windows アプリが一覧表示されます。 以降の実行では、UI には検証済みの最新の Windows アプリが表示されます。 テストするアプリが表示されていない場合は、**[自分のアプリが表示されない]** をクリックして、システムにインストールされているすべてのアプリを一覧表示できます。
+    テストするアプリを直接参照するか、UI で一覧からアプリを選ぶことができます。 Windows アプリ認定キットを初めて実行すると、UI にはコンピューターにインストールされているすべての Windows アプリが一覧表示されます。 以降の実行では、UI には検証済みの最新の Windows アプリが表示されます。 テストするアプリが表示されていない場合は、 **[自分のアプリが表示されない]** をクリックして、システムにインストールされているすべてのアプリを一覧表示できます。
 
 3.  テストするアプリを入力するか選択したら **[次へ]** をクリックします。
 
@@ -52,7 +52,7 @@ ms.locfileid: "57597437"
 
 6.  レポート ファイルを開いて、テストの結果を確認します。
 
-**注**  Visual Studio を使用している場合、アプリ パッケージを作成するときに、Windows アプリ認定キットを実行できます。 方法については、「[UWP アプリのパッケージ化](https://msdn.microsoft.com/library/windows/apps/Mt627715)」をご覧ください。
+**注**  Visual Studio を使用している場合、アプリ パッケージを作成するときに、Windows アプリ認定キットを実行できます。 方法については、「[UWP アプリのパッケージ化](https://docs.microsoft.com/windows/uwp/packaging/packaging-uwp-apps)」をご覧ください。
 
  
 
@@ -86,14 +86,14 @@ ms.locfileid: "57597437"
 
 Windows アプリ認定キットで使用するパフォーマンス テストのしきい値は、低電力コンピューターのパフォーマンスに基づいて設定します。
 
-テストを実行するコンピューターの特性がテスト結果に影響することがあります。 アプリのパフォーマンスが満たしているかどうかを判断する、 [Microsoft Store ポリシー](https://msdn.microsoft.com/library/windows/apps/Dn764944)画面の解像度の 1366 x 768 (または以降)、Intel Atom プロセッサ ベース コンピュータなどの低電力コンピューターでアプリをテストすることをお勧めします。(ソリッドステート ドライブ) ではなく、回転のハード ドライブを選択します。
+テストを実行するコンピューターの特性がテスト結果に影響することがあります。 アプリのパフォーマンスが満たしているかどうかを判断する、 [Microsoft Store ポリシー](https://docs.microsoft.com/legal/windows/agreements/store-policies)画面の解像度の 1366 x 768 (または以降)、Intel Atom プロセッサ ベース コンピュータなどの低電力コンピューターでアプリをテストすることをお勧めします。(ソリッドステート ドライブ) ではなく、回転のハード ドライブを選択します。
 
-低電力コンピューターの進化に伴い、パフォーマンスの特性が時間の経過と共に変化する可能性があります。 最新を参照してください[Microsoft Store ポリシー](https://msdn.microsoft.com/library/windows/apps/Dn764944)し、アプリが最新のパフォーマンス要件に準拠しているかどうかを確認するには、Windows アプリ認定キットの最新バージョンを使用してアプリケーションをテストします。
+低電力コンピューターの進化に伴い、パフォーマンスの特性が時間の経過と共に変化する可能性があります。 最新を参照してください[Microsoft Store ポリシー](https://docs.microsoft.com/legal/windows/agreements/store-policies)し、アプリが最新のパフォーマンス要件に準拠しているかどうかを確認するには、Windows アプリ認定キットの最新バージョンを使用してアプリケーションをテストします。
 
 ## <a name="related-topics"></a>関連トピック
 
 * [Windows アプリ認定キット テスト](windows-app-certification-kit-tests.md)
-* [Microsoft Store ポリシー](https://msdn.microsoft.com/library/windows/apps/Dn764944)
+* [Microsoft Store ポリシー](https://docs.microsoft.com/legal/windows/agreements/store-policies)
  
 
  

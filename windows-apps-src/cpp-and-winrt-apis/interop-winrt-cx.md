@@ -5,12 +5,12 @@ ms.date: 10/09/2018
 ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、ポート、移行、相互運用、C++/CX
 ms.localizationpriority: medium
-ms.openlocfilehash: 558f3fa75e7dd599927a9d2ace256bf1feb98e77
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 5394443b4832864e5b46bfbf917c04f0af6d8a19
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57621647"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66360217"
 ---
 # <a name="interop-between-cwinrt-and-ccx"></a>C++/WinRT と C++/CX 間の相互運用
 
@@ -19,7 +19,7 @@ ms.locfileid: "57621647"
 このトピックでは、C + 間の変換を使用できる 2 つのヘルパー関数を示しています。/cli/CX および C++/cli、同じプロジェクト内の WinRT オブジェクト。 それらを使用するには、2 つの言語プロジェクションを使用するコードの間の相互運用または関数を使用するには、C + からコードを移植すると/cli CX c++/cli WinRT します。
 
 ## <a name="fromcx-and-tocx-functions"></a>from_cx and to_cx 関数
-以下のヘルパー関数では、C++/CX オブジェクトを同等の C++/WinRT オブジェクトに変換します。 この関数は、C++/CX オブジェクトを基礎となる [**IUnknown**](https://msdn.microsoft.com/library/windows/desktop/ms680509) インターフェイス ポインターにキャストします。 次に、このポインター上で [**QueryInterface**](https://msdn.microsoft.com/library/windows/desktop/ms682521) を呼び出し、C++/WinRT オブジェクトの既定のインターフェイスを照会します。 **QueryInterface**は、C++/CX safe_cast 拡張と同等の Windows ランタイム アプリケーション バイナリ インターフェイス (ABI) です。 [  **winrt::put_abi**](/uwp/cpp-ref-for-winrt/put-abi) 関数は、別の値に設定できるように C++/WinRT オブジェクトの基礎となる **IUnknown** インターフェイス ポインターのアドレスを取得します。
+以下のヘルパー関数では、C++/CX オブジェクトを同等の C++/WinRT オブジェクトに変換します。 この関数は、C++/CX オブジェクトを基礎となる [**IUnknown**](https://docs.microsoft.com/windows/desktop/api/unknwn/nn-unknwn-iunknown) インターフェイス ポインターにキャストします。 次に、このポインター上で [**QueryInterface**](https://docs.microsoft.com/windows/desktop/api/unknwn/nf-unknwn-iunknown-queryinterface(q_)) を呼び出し、C++/WinRT オブジェクトの既定のインターフェイスを照会します。 **QueryInterface**は、C++/CX safe_cast 拡張と同等の Windows ランタイム アプリケーション バイナリ インターフェイス (ABI) です。 [  **winrt::put_abi**](/uwp/cpp-ref-for-winrt/put-abi) 関数は、別の値に設定できるように C++/WinRT オブジェクトの基礎となる **IUnknown** インターフェイス ポインターのアドレスを取得します。
 
 ```cppwinrt
 template <typename T>
@@ -52,7 +52,7 @@ T^ to_cx(winrt::Windows::Foundation::IUnknown const& from)
 この例のプロジェクトも c++ の間でそれ以外の場合の潜在的な名前空間の競合に対処するために、コードの別の島を名前空間エイリアスを使用する方法を示しています/cli WinRT 投影および c++/cli CX 投影します。
 
 - 作成、 **Visual C** \> **Windows ユニバーサル** > **Core アプリ (C +/cli WinRT)** プロジェクト。
-- プロジェクトのプロパティで**C/C++** \> **全般** \> **Windows ランタイム拡張機能の使用** \> **はい (/ZW)**. C++ プロジェクトのサポートをオンにこの/cli CX します。
+- プロジェクトのプロパティで**C/C++** \> **全般** \> **Windows ランタイム拡張機能の使用** \> **はい (/ZW)** . C++ プロジェクトのサポートをオンにこの/cli CX します。
 - 内容を置き換える`App.cpp`をコードの下に一覧表示します。
 
 ```cppwinrt
@@ -253,8 +253,8 @@ int __stdcall wWinMain(HINSTANCE, HINSTANCE, PWSTR, int)
 ```
 
 ## <a name="important-apis"></a>重要な API
-* [IUnknown インターフェイス](https://msdn.microsoft.com/library/windows/desktop/ms680509)
-* [QueryInterface 関数](https://msdn.microsoft.com/library/windows/desktop/ms682521)
+* [IUnknown インターフェイス](https://docs.microsoft.com/windows/desktop/api/unknwn/nn-unknwn-iunknown)
+* [QueryInterface 関数](https://docs.microsoft.com/windows/desktop/api/unknwn/nf-unknwn-iunknown-queryinterface(q_))
 * [winrt::get_abi 関数](/uwp/cpp-ref-for-winrt/get-abi)
 * [winrt::put_abi 関数](/uwp/cpp-ref-for-winrt/put-abi)
 

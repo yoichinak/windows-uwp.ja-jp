@@ -12,12 +12,12 @@ dev-contact: llongley
 doc-status: Draft
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: cb87bea001492e39a0f60b96f884db70b5bd28ad
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: d5774b5301f7e8ce0616df72cfbf4fc81d0d0cf7
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57592527"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66363253"
 ---
 # <a name="command-bar-flyout"></a>コマンド バーのポップアップ
 
@@ -153,7 +153,7 @@ CommandBarFlyout コントロールには、コマンドとコンテンツを追
 
 ### <a name="app-bar-buttons"></a>アプリ バーのボタン
 
-PrimaryCommands と SecondaryCommands を直接読み込める[AppBarButton](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.appbarbutton.aspx)、 [AppBarToggleButton](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.appbartogglebutton.aspx)、および[AppBarSeparator](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.appbarseparator.aspx)コントロール。
+PrimaryCommands と SecondaryCommands を直接読み込める[AppBarButton](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.AppBarButton)、 [AppBarToggleButton](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.AppBarToggleButton)、および[AppBarSeparator](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.AppBarSeparator)コントロール。
 
 アプリ バーのボタン コントロールは、アイコンとテキスト ラベルによって特徴付けられます。 これらのコントロールがコマンド バーで使用するために最適化されたし、外観のコントロールがコマンド バーまたはオーバーフロー メニューに表示するかどうかに応じて変化します。
 
@@ -411,4 +411,4 @@ TextCommandBarFlyout はカスタマイズすることはできませんし、�
 ## <a name="related-articles"></a>関連記事
 
 - [UWP アプリのコマンド設計の基本](../basics/commanding-basics.md)
-- [コマンド バー クラス](https://msdn.microsoft.com/library/windows/apps/dn279427)
+- [コマンド バー クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CommandBar)

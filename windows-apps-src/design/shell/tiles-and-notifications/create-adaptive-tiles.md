@@ -8,18 +8,18 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 524cc15dbb7a3264d8476210f727508ea41ace87
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 08a7ca0b08a9df57d3c496f33f963fcd9d0ebfe2
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57639607"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66367029"
 ---
 # <a name="create-adaptive-tiles"></a>アダプティブ タイルの作成
 
 適応型タイル テンプレートは、さまざまな画面密度に適応できる簡単かつ柔軟なマークアップ言語を使用して、独自のタイル通知の内容をデザインできますが、Windows 10 の新機能です。 この記事では、ユニバーサル Windows プラットフォーム (UWP) アプリのアダプティブ ライブ タイルを作成する方法について説明します。 アダプティブ タイルのすべての要素と属性の一覧については、「[アダプティブ タイルのスキーマ](../tiles-and-notifications/tile-schema.md)」をご覧ください 
 
-(から既定のテンプレートを使用できます引き続き希望される場合、 [Windows 8 のタイル テンプレート カタログ](https://msdn.microsoft.com/library/windows/apps/hh761491)Windows 10 用の通知を設計するときにします)。
+(から既定のテンプレートを使用できます引き続き希望される場合、 [Windows 8 のタイル テンプレート カタログ](https://docs.microsoft.com/previous-versions/windows/apps/hh761491(v=win.10))Windows 10 用の通知を設計するときにします)。
 
 
 ## <a name="getting-started"></a>概要
@@ -414,11 +414,11 @@ new AdaptiveText()
 
 |                                |                           |             |
 |--------------------------------|---------------------------|-------------|
-| &lt;テキストのヒント-スタイル ="\*"/&gt; | フォントの高さ               | フォントの太さ |
-| caption                        | 12 epx (有効ピクセル) | 標準     |
-| body                           | 15 epx                    | 標準     |
+| &lt;text hint-style="\*" /&gt; | フォントの高さ               | フォントの太さ |
+| caption                        | 12 epx (有効ピクセル) | Regular     |
+| body                           | 15 epx                    | Regular     |
 | base                           | 15 epx                    | Semibold    |
-| subtitle                       | 20 epx                    | 標準     |
+| subtitle                       | 20 epx                    | Regular     |
 | title                          | 24 epx                    | Semilight   |
 | subheader                      | 34 epx                    | 明るい       |
 | header                         | 46 epx                    | 明るい       |
@@ -787,7 +787,7 @@ private static AdaptiveSubgroup CreateSubgroup(string day, string image, string 
 
 ![天気タイルの例](images/adaptive-tiles-weathertile.png)
 
-## <a name="images"></a>イメージ
+## <a name="images"></a>画像
 
 
 &lt;image&gt; 要素を使って、タイル通知に画像を表示します。 画像はタイル コンテンツ (既定) 内に、背景画像としてか、タイルでアニメーション化されるプレビュー画像として、インラインで配置できます。

@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 01af8254-b073-445e-af4c-e474528f8aa3
 ms.localizationpriority: medium
-ms.openlocfilehash: 4d10dbf52f0ed01d46f9e5cba83cd14d48bfc88d
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 9d4910a514c9fc1f16c29056319043393506a9e2
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57639177"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66366915"
 ---
 # <a name="create-a-uwp-game-in-javascript"></a>JavaScript で UWP ゲームを作成する
 
@@ -47,11 +47,11 @@ Microsoft Store にアプリを発行するには、アプリを UWP (ユニバ�
 
 アプリの完全なソース コードは、[GitHub](https://github.com/Microsoft/Windows-appsample-get-started-js2d) にあります。
 
-最も簡単に始める方法は、GitHub のページで、緑色の **[Clone or download]** (複製またはダウンロード) ボタンをクリックし、**[Open in Visual Studio]** (Visual Studio で開く) を選択することです。 
+最も簡単に始める方法は、GitHub のページで、緑色の **[Clone or download]** (複製またはダウンロード) ボタンをクリックし、 **[Open in Visual Studio]** (Visual Studio で開く) を選択することです。 
 
 ![リポジトリを複製する](images/JS2D_2.png)
 
-[GitHub プロジェクト](https://msdn.microsoft.com/en-us/windows/uwp/get-started/get-uwp-app-samples)は、zip ファイルとしてダウンロードすることも、その他の標準的な方法で操作することもできます。
+[GitHub プロジェクト](https://docs.microsoft.com/windows/uwp/get-started/get-uwp-app-samples)は、zip ファイルとしてダウンロードすることも、その他の標準的な方法で操作することもできます。
 
 ソリューションを Visual Studio に読み込むと、次のようなファイルが表示されます。
 
@@ -65,7 +65,7 @@ Microsoft Store にアプリを発行するには、アプリを UWP (ユニバ�
 
 ![ありふれた恐竜の背中に、ニンジャ キャットが乗っている](images/JS2D_3.png)
 
-**注:** うまくいかない場合は、 Web サポートを含めて Visual Studio がインストールされていることを確認してください。 これは、新しいプロジェクトを作成することで確認できます。JavaScript のサポートが含まれていない場合は、*[Microsoft Web Developer Tools]* ボックスをオンにして Visual Studio を再インストールする必要があります。
+**注:** うまくいかない場合は、 Web サポートを含めて Visual Studio がインストールされていることを確認してください。 これは、新しいプロジェクトを作成することで確認できます。JavaScript のサポートが含まれていない場合は、 *[Microsoft Web Developer Tools]* ボックスをオンにして Visual Studio を再インストールする必要があります。
 
 ## <a name="walkthough"></a>チュートリアル
 
@@ -261,8 +261,8 @@ Gamestate は、ゲームで一般的に使用される設計パターンです�
 このプロセスにはいくつかの手順が必要になります。
 
 1. Windows 開発者として[登録](https://developer.microsoft.com/en-us/store/register)する必要があります。
-2. アプリの申請[チェックリスト](https://msdn.microsoft.com/windows/uwp/publish/app-submissions)を使用する必要があります。
-3. [認定](https://msdn.microsoft.com/windows/uwp/publish/the-app-certification-process)を受けるために、アプリを提出する必要があります。
+2. アプリの申請[チェックリスト](https://docs.microsoft.com/windows/uwp/publish/app-submissions)を使用する必要があります。
+3. [認定](https://docs.microsoft.com/windows/uwp/publish/the-app-certification-process)を受けるために、アプリを提出する必要があります。
 
 詳細については、次を参照してください。 [UWP アプリの発行](https://developer.microsoft.com/en-us/store/publish-apps)します。
 

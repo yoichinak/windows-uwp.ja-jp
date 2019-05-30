@@ -8,12 +8,12 @@ ms.localizationpriority: medium
 ms.custom: RS5
 ms.author: mcleans
 author: mcleanbyron
-ms.openlocfilehash: 63e0cf18c2df28db22e79a057761996f9e8d679b
-ms.sourcegitcommit: d1c3e13de3da3f7dce878b3735ee53765d0df240
+ms.openlocfilehash: aa04337612efadde0b8ce47d2faed9d839b44c26
+ms.sourcegitcommit: a6b0c900d8b507c6747afc5ebedcd15d7333b572
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66215179"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66308409"
 ---
 # <a name="the-fluent-design-system-for-windows-app-creators"></a>Windows アプリ作成者用の Fluent Design System
 
@@ -72,11 +72,11 @@ Fluent Design 機能は UWP に組み込まれています。 これらの機能
         ![fpo image](images/fluent/thumbnail-size-classes.jpg)
     :::column-end:::
     :::column span="2":::
-        **Design for the right breakpoints**
+**適切なブレークポイントの設計**
 
-        Instead of designing for every individual screen size, focusing on a few key widths (also called "breakpoints") can greatly simplify your designs and code while still making your app look great on small to large screens.
+それぞれの画面サイズに合わせて設計する代わりに、いくつかの主要な幅 ("ブレークポイント" とも呼ばれる) に注目すると、設計とコードが非常に簡単になり、大小の画面に対応する魅力的なアプリを作成できます。
 
-        [Learn about screen sizes and breakpoints](/windows/uwp/design/layout/screen-sizes-and-breakpoints-for-responsive-design)
+[画面サイズとブレークポイントについて説明します](/windows/uwp/design/layout/screen-sizes-and-breakpoints-for-responsive-design)
     :::column-end:::
 :::row-end:::
 
@@ -85,11 +85,11 @@ Fluent Design 機能は UWP に組み込まれています。 これらの機能
         ![fpo image](images/fluent/rspd-resize.gif)
     :::column-end:::
     :::column span="2":::
-        **Create a responsive layout**
+**レスポンシブ レイアウトを作成します。**
 
-        For an app to feel natural, it should adapt its layout to different screen sizes and devices. You can use automatic sizing, layout panels, visual states, and even separate UI definitions in XAML to create a responsive UI.
+自然にアプリでは、さまざまな画面サイズとデバイスにそのレイアウトを適応させるする必要があります。 自動サイズ変更、レイアウト パネル、ビジュアルの状態を使用し、でも、レスポンシブ UI を作成する XAML の UI 定義を分離できます。
 
-        [Learn about responsive design](/windows/uwp/design/layout/responsive-design)
+[レスポンシブ デザインについて説明します](/windows/uwp/design/layout/responsive-design)
     :::column-end:::
 :::row-end:::
 
@@ -98,11 +98,11 @@ Fluent Design 機能は UWP に組み込まれています。 これらの機能
         ![fpo image](images/fluent/devices.jpg)
     :::column-end:::
     :::column span="2":::
-        **Design for a spectrum of devices**
+**さまざまなデバイス用の設計**
 
-        UWP apps can run on a wide variety of Windows-powered devices. It's helpful to understand which devices are available, what they're made for, and how users interact with them.
+UWP アプリはさまざまな Windows ベースのデバイスで実行できます。 これは、利用可能なデバイス、デバイスの利用目的、デバイスの操作方法を理解するのに役立ちます。
 
-        [Learn about UWP devices](/windows/uwp/design/devices/)
+[UWP デバイスについて説明します](/windows/uwp/design/devices/)
 :::row-end:::
 
 :::row:::
@@ -110,11 +110,11 @@ Fluent Design 機能は UWP に組み込まれています。 これらの機能
         ![fpo image](images/fluent/keyboard-shortcuts.jpg)
     :::column-end:::
     :::column span="2":::
-        **Optimize for the right input**
+**右側の入力に合わせて最適化します。**
 
-        UWP apps automatically support common mouse, keyboard, pen, and touch interactions&mdash;there's nothing extra you have to do. But you can enhance your app with optimized support for specific inputs, like pen and the Surface Dial.
+UWP アプリは自動的に共通のマウス、キーボード、ペンをサポートし、タッチ操作&mdash;何も行う必要がある余分なを使用する必要があります。 ただし、ペンや Surface Dial など、特定の入力方法に合わせてサポートを最適化することで、アプリの機能を強化することができます。
 
-        [Learn about inputs and interactions](/windows/uwp/design/input/input-primer)
+[入力との相互作用について説明します](/windows/uwp/design/input/input-primer)
 :::row-end:::
 
 ## <a name="make-it-intuitive"></a>直感的なものにする
@@ -130,11 +130,11 @@ Fluent エクスペリエンスは一貫性のあるコントロールとパタ�
         ![fpo image](images/fluent/thumbnail-navview.png)
     :::column-end:::
     :::column span="2":::
-        **Provide the right navigation**
+**右側のナビゲーションを提供します。**
 
-        Create an effortless experience by using the right app structure and navigation components.
+簡単な経験を作成するには、適切なアプリの構造とナビゲーションのコンポーネントを使用します。
 
-        [Learn about navigation](/windows/uwp/design/basics/navigation-basics/)
+[ナビゲーションについて説明します](/windows/uwp/design/basics/navigation-basics/)
 :::row-end:::
 
 :::row:::
@@ -142,11 +142,11 @@ Fluent エクスペリエンスは一貫性のあるコントロールとパタ�
         ![fpo image](images/fluent/thumbnail-commanding.png)
     :::column-end:::
     :::column span="2":::
-        **Be interactive**
+**対話形式にします。**
 
-        Buttons, command bars, keyboard shortcuts, and context menus enable users to interact with your app; they're the tools that change a static experience into something dynamic.
+ボタン、コマンド バー、ショートカット キー、およびコンテキスト メニューは、アプリと対話するユーザーを有効にします。動的なものに静的なエクスペリエンスを変更するツールです。
 
-        [Learn about commanding](/windows/uwp/design/basics/commanding-basics/)
+[コマンドの実行について説明します](/windows/uwp/design/basics/commanding-basics/)
 :::row-end:::
 
 :::row:::
@@ -154,11 +154,11 @@ Fluent エクスペリエンスは一貫性のあるコントロールとパタ�
         ![fpo image](images/fluent/thumbnail-controls-2.jpg)
     :::column-end:::
     :::column span="2":::
-        **Use the right control for the job**
+**ジョブの適切なコントロールを使用します。**
 
-        Controls are the building blocks of the user interface; using the right control helps you create a user interface that behaves the way users expect it to.  UWP provides more than 45 controls,ranging from simple buttons to powerful data controls.
+コントロールとはユーザー インターフェイスの構成要素です。最適なコントロールを使用すると、ユーザーの想像どおりに動作するユーザー インターフェイスを作成できます。  UWP では、単純なボタンから強力なデータ コントロールに至るまでの 45 を超えるコントロールを提供します。
 
-        [Learn about UWP controls](/windows/uwp/design/controls-and-patterns/)
+[UWP コントロールの概要について説明します](/windows/uwp/design/controls-and-patterns/)
 :::row-end:::
 
 :::row:::
@@ -166,10 +166,9 @@ Fluent エクスペリエンスは一貫性のあるコントロールとパタ�
         ![inclusive image](images/fluent/thumbnail-inclusive.png)
     :::column-end:::
     :::column span="2":::
-        **Be inclusive**
-        A well-design app is accessible to people with disabilities. With some extra coding, you can share your app with people around the world.
+**包括**アプリを適切に設計では、障碍を持つユーザーにアクセスできます。 いくつかのコーディングを追加すると、世界中のユーザーとアプリを共有できます。
 
-        [Learn about Usability](/windows/uwp/design/usability/)
+[使いやすさについて説明します](/windows/uwp/design/usability/)
 :::row-end:::
 
 ## <a name="be-engaging-and-immersive"></a>魅力と臨場感を実現する
@@ -187,9 +186,9 @@ UWP アプリにライトを追加する
         ![fpo image](images/fluent/Nav_Reveal_Animation.gif)
     :::column-end:::
     :::column span="2":::
-        **Reveal highlight**
+**強調表示を表示します。**
 
-        [Reveal highlight](/windows/uwp/design/style/reveal) uses light to make interactive elements stand out. Light illuminates the elements the user can interact with, revealing hidden borders. Reveal is automatically enabled on some controls, such as list view and grid view. You can enable it on other controls by applying our predefined Reveal highlight styles.
+[強調表示を表示](/windows/uwp/design/style/reveal)light を使用して対話型の要素を目立たせます。ライトは、ユーザーが使用すると、対話できる非表示の境界線を表示する要素を照射します。 表示は、リスト ビューやグリッド ビューなど、いくつかのコントロールで自動的に有効になります。 定義済みの表示ハイライト スタイルを適用すると、他のコントロールでも表示を有効にできます。
 :::row-end:::
 
 :::row:::
@@ -197,9 +196,9 @@ UWP アプリにライトを追加する
         ![fpo image](images/fluent/traveling-focus-fullscreen-light-rf.gif)
     :::column-end:::
     :::column span="2":::
-        **Reveal focus**
+**フォーカスを表示します。**
 
-        [Reveal focus](/windows/uwp/design/style/reveal-focus) uses light to call attention to the element that currently has input focus.
+[表示フォーカス](/windows/uwp/design/style/reveal-focus) はライトを使用して、入力フォーカスのある要素に注意を向けます。
 :::row-end:::
 
 ## <a name="create-a-sense-of-depth"></a>奥行きの作成
@@ -213,9 +212,9 @@ UWP アプリに奥行きを追加する
         ![fpo image](images/fluent/_parallax_v2.gif)
     :::column-end:::
     :::column span="2":::
-        **Parallax**
+**視差効果**
 
-        [Parallax](/windows/uwp/design/motion/parallax) creates the illusion of depth by making items in the foreground appear to move more quickly than items in the background.
+"[視差](/windows/uwp/design/motion/parallax)" は、前景にあるアイテムを背景にあるアイテムよりも速く動くように見せて、奥行き感を作り出します。
 :::row-end:::
 
 ## <a name="incorporate-motion"></a>モーションの組み込み
@@ -229,9 +228,9 @@ UWP アプリにモーションを追加する
         ![continuity gif](images/fluent/continuityXbox.gif)
     :::column-end:::
     :::column span="2":::
-        **Connected animations**
+**アニメーションの結び付け**
 
-        [Connected animations](/windows/uwp/design/motion/connected-animation) help the user maintain context by creating a seamless transition between scenes.
+"[接続型アニメーション](/windows/uwp/design/motion/connected-animation)" を使用すると、ユーザーはシームレスなシーンの切り替えを作成することでコンテキストを維持することができます。
 :::row-end:::
 
 ## <a name="build-it-with-the-right-material"></a>適切な素材を使用して作成する
@@ -245,9 +244,9 @@ UWP アプリに素材を追加する
         ![fpo image](images/fluent/acrylic_lighttheme_base.png)
     :::column-end:::
     :::column span="2":::
-        **Acrylic**
+**アクリル**
 
-        [Acrylic](/windows/uwp/design/style/acrylic) is a translucent material that lets the user see layers of content, establishing a hierarchy of UI elements.
+"[アクリル](/windows/uwp/design/style/acrylic)" は、ユーザーに対してコンテンツのレイヤーを表示する半透明な素材です。UI 要素の階層を確立します。
 :::row-end:::
 
 ## <a name="design-toolkits-and-code-samples"></a>設計ツールキットとコード サンプル
@@ -259,9 +258,9 @@ Fluent Design で独自アプリの作成を始めてみませんか。 Adobe XD
         ![fpo image](images/fluent/thumbnail-toolkits.jpg)
     :::column-end:::
     :::column span="2":::
-        **Design toolkits and samples page**
+**設計のツールキットとサンプルのページ**
 
-        Check out our [Design toolkits and samples page](/windows/uwp/design/downloads/)
+[設計ツールキットとサンプルのページ](/windows/uwp/design/downloads/)を確認してください。
 :::row-end:::
 
 

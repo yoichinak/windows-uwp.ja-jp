@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 24b2885597599607ca405e858a9f713f5a6af4c7
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 7fba78a619f18d7da2e190758d73ac7a56b12fb9
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57644877"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66360656"
 ---
 # <a name="display-the-camera-preview"></a>カメラ プレビューの表示
 
@@ -32,7 +32,7 @@ ms.locfileid: "57644877"
 
 ## <a name="add-a-captureelement-to-your-page"></a>ページに CaptureElement コントロールを追加する
 
-[  **CaptureElement**](https://msdn.microsoft.com/library/windows/apps/br209278) を使って、XAML ページ内にプレビュー ストリームを表示します。
+[  **CaptureElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CaptureElement) を使って、XAML ページ内にプレビュー ストリームを表示します。
 
 [!code-xml[CaptureElement](./code/SimpleCameraPreview_Win10/cs/MainPage.xaml#SnippetCaptureElement)]
 
@@ -40,7 +40,7 @@ ms.locfileid: "57644877"
 
 ## <a name="use-mediacapture-to-start-the-preview-stream"></a>MediaCapture を使ってプレビュー ストリームを開始する
 
-[  **MediaCapture**](https://msdn.microsoft.com/library/windows/apps/br241124) オブジェクトは、デバイスのカメラに対するアプリのインターフェイスです。 このクラスは、Windows.Media.Capture 名前空間のメンバーです。 この記事の例では、既定のプロジェクト テンプレートに含まれている API に加えて、[**Windows.ApplicationModel**](https://msdn.microsoft.com/library/windows/apps/br224691) 名前空間と [System.Threading.Tasks](https://msdn.microsoft.com/library/windows/apps/xaml/system.threading.tasks.aspx) 名前空間の API も使われます。
+[  **MediaCapture**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.MediaCapture) オブジェクトは、デバイスのカメラに対するアプリのインターフェイスです。 このクラスは、Windows.Media.Capture 名前空間のメンバーです。 この記事の例では、既定のプロジェクト テンプレートに含まれている API に加えて、[**Windows.ApplicationModel**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel) 名前空間と [System.Threading.Tasks](https://docs.microsoft.com/dotnet/api/system.threading.tasks?redirectedfrom=MSDN) 名前空間の API も使われます。
 
 ページの .cs ファイルに次の名前空間を含めるには using ディレクティブを追加します。
 
@@ -50,19 +50,19 @@ ms.locfileid: "57644877"
 
 [!code-cs[DeclareMediaCapture](./code/SimpleCameraPreview_Win10/cs/MainPage.xaml.cs#SnippetDeclareMediaCapture)]
 
-プレビューの実行中にディスプレイがオフになっていないことを確認するために使用する、[**DisplayRequest**](https://msdn.microsoft.com/library/windows/apps/Windows.System.Display.DisplayRequest) 型の変数を宣言します。
+プレビューの実行中にディスプレイがオフになっていないことを確認するために使用する、[**DisplayRequest**](https://docs.microsoft.com/uwp/api/Windows.System.Display.DisplayRequest) 型の変数を宣言します。
 
 [!code-cs[DeclareDisplayRequest](./code/SimpleCameraPreview_Win10/cs/MainPage.xaml.cs#SnippetDeclareDisplayRequest)]
 
 カメラのプレビューを起動するヘルパー メソッド (この例では **StartPreviewAsync**) を作成します。 アプリのシナリオによって、ページが読み込まれるときに呼び出される **OnNavigatedTo** イベント ハンドラーからこれを呼び出すことも、UI イベントへの応答でプレビューを待機して起動することもできます。
 
-**MediaCapture** クラスの新しいインスタンスを作成し、[**InitializeAsync**](https://msdn.microsoft.com/library/windows/apps/br226598) を呼び出してキャプチャ デバイスを初期化します。 カメラがないデバイスなどではこのメソッドが失敗することがあるため、**try** ブロック内から呼び出してください。 ユーザーがデバイスのプライバシー設定でカメラへのアクセスを無効にしている場合、カメラを初期化しようとすると **UnauthorizedAccessException** がスローされます。 この例外は、開発中、アプリ マニフェストに適切な機能を追加し忘れた場合も表示されます。
+**MediaCapture** クラスの新しいインスタンスを作成し、[**InitializeAsync**](https://docs.microsoft.com/uwp/api/windows.media.capture.mediacapture.initializeasync) を呼び出してキャプチャ デバイスを初期化します。 カメラがないデバイスなどではこのメソッドが失敗することがあるため、**try** ブロック内から呼び出してください。 ユーザーがデバイスのプライバシー設定でカメラへのアクセスを無効にしている場合、カメラを初期化しようとすると **UnauthorizedAccessException** がスローされます。 この例外は、開発中、アプリ マニフェストに適切な機能を追加し忘れた場合も表示されます。
 
-**重要:** 一部のデバイス ファミリでは、アプリがデバイスのカメラへのアクセスを付与される前に、ユーザー同意のプロンプトがユーザーに表示されます。 このため、[**MediaCapture.InitializeAsync**](https://msdn.microsoft.com/library/windows/apps/br226598) のみをメイン UI スレッドから呼び出す必要があります。 別のスレッドからカメラを初期化しようとすると、初期化エラーになる可能性があります。
+**重要:** 一部のデバイス ファミリでは、アプリがデバイスのカメラへのアクセスを付与される前に、ユーザー同意のプロンプトがユーザーに表示されます。 このため、[**MediaCapture.InitializeAsync**](https://docs.microsoft.com/uwp/api/windows.media.capture.mediacapture.initializeasync) のみをメイン UI スレッドから呼び出す必要があります。 別のスレッドからカメラを初期化しようとすると、初期化エラーになる可能性があります。
 
-[  **Source**](https://msdn.microsoft.com/library/windows/apps/br209280) プロパティを設定して、**MediaCapture** を **CaptureElement** に接続します。 [  **StartPreviewAsync**](https://msdn.microsoft.com/library/windows/apps/br226613) を呼び出してプレビューを開始します。 別のアプリがキャプチャ デバイスを排他的に制御している場合、このメソッドは **FileLoadException** をスローします。 排他的制御での変更をリッスンについては、次のセクションを参照してください。
+[  **Source**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.captureelement.source) プロパティを設定して、**MediaCapture** を **CaptureElement** に接続します。 [  **StartPreviewAsync**](https://docs.microsoft.com/uwp/api/windows.media.capture.mediacapture.startpreviewasync) を呼び出してプレビューを開始します。 別のアプリがキャプチャ デバイスを排他的に制御している場合、このメソッドは **FileLoadException** をスローします。 排他的制御での変更をリッスンについては、次のセクションを参照してください。
 
-[  **RequestActive**](https://msdn.microsoft.com/library/windows/apps/Windows.System.Display.DisplayRequest.RequestActive) を呼び出して、プレビューの実行中にデバイスがスリープ状態にならないことを確認します。 最後に、[**DisplayInformation.AutoRotationPreferences**](https://msdn.microsoft.com/library/windows/apps/Windows.Graphics.Display.DisplayInformation.AutoRotationPreferences) プロパティを [**Landscape**](https://msdn.microsoft.com/library/windows/apps/Windows.Graphics.Display.DisplayOrientations) に設定して、ユーザーがデバイスの向きを変更したときに UI と **CaptureElement** が回転することを防ぎます。 デバイスの向きの変更処理について詳しくは、「[**MediaCapture を使ってデバイスの向きを処理する**](handle-device-orientation-with-mediacapture.md)」をご覧ください。  
+[  **RequestActive**](https://docs.microsoft.com/uwp/api/windows.system.display.displayrequest.requestactive) を呼び出して、プレビューの実行中にデバイスがスリープ状態にならないことを確認します。 最後に、[**DisplayInformation.AutoRotationPreferences**](https://docs.microsoft.com/uwp/api/windows.graphics.display.displayinformation.autorotationpreferences) プロパティを [**Landscape**](https://docs.microsoft.com/uwp/api/Windows.Graphics.Display.DisplayOrientations) に設定して、ユーザーがデバイスの向きを変更したときに UI と **CaptureElement** が回転することを防ぎます。 デバイスの向きの変更処理について詳しくは、「[**MediaCapture を使ってデバイスの向きを処理する**](handle-device-orientation-with-mediacapture.md)」をご覧ください。  
 
 [!code-cs[StartPreviewAsync](./code/SimpleCameraPreview_Win10/cs/MainPage.xaml.cs#SnippetStartPreviewAsync)]
 
@@ -75,23 +75,23 @@ ms.locfileid: "57644877"
 
 プレビュー ストリームを使い終わったら、必ずストリームをシャットダウンして関連するリソースを適切に破棄し、デバイスで他のアプリがカメラを使うことができるようにしてください。 プレビュー ストリームをシャットダウンするために必要な手順は次のとおりです。
 
--   現在、カメラがプレビューを表示中の場合は、[**StopPreviewAsync**](https://msdn.microsoft.com/library/windows/apps/br226622) を呼び出してプレビュー ストリームを停止します。 プレビューが実行されていないときに **StopPreviewAsync** を呼び出すと、例外がスローされます。
--   **CaptureElement** の [**Source**](https://msdn.microsoft.com/library/windows/apps/br209280) プロパティを null に設定します。 [  **CoreDispatcher.RunAsync**](https://msdn.microsoft.com/library/windows/apps/windows.ui.core.coredispatcher.runasync.aspx) を使用して、この呼び出しが UI スレッドで実行されることを確認します。
--   **MediaCapture** オブジェクトの [**Dispose**](https://msdn.microsoft.com/library/windows/apps/dn278858) メソッドを呼び出してオブジェクトを解放します。 再度、[**CoreDispatcher.RunAsync**](https://msdn.microsoft.com/library/windows/apps/windows.ui.core.coredispatcher.runasync.aspx) を使用して、この呼び出しが UI スレッドで実行されることを確認します。
+-   現在、カメラがプレビューを表示中の場合は、[**StopPreviewAsync**](https://docs.microsoft.com/uwp/api/windows.media.capture.mediacapture.stoppreviewasync) を呼び出してプレビュー ストリームを停止します。 プレビューが実行されていないときに **StopPreviewAsync** を呼び出すと、例外がスローされます。
+-   **CaptureElement** の [**Source**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.captureelement.source) プロパティを null に設定します。 [  **CoreDispatcher.RunAsync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync) を使用して、この呼び出しが UI スレッドで実行されることを確認します。
+-   **MediaCapture** オブジェクトの [**Dispose**](https://docs.microsoft.com/uwp/api/windows.media.capture.mediacapture.dispose) メソッドを呼び出してオブジェクトを解放します。 再度、[**CoreDispatcher.RunAsync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync) を使用して、この呼び出しが UI スレッドで実行されることを確認します。
 -   **MediaCapture** メンバー変数を null に設定します。
--   [  **RequestRelease**](https://msdn.microsoft.com/library/windows/apps/Windows.System.Display.DisplayRequest.RequestRelease) を呼び出して、アクティブでないときに画面をオフにできるようにします。
+-   [  **RequestRelease**](https://docs.microsoft.com/uwp/api/windows.system.display.displayrequest.requestrelease) を呼び出して、アクティブでないときに画面をオフにできるようにします。
 
 [!code-cs[CleanupCameraAsync](./code/SimpleCameraPreview_Win10/cs/MainPage.xaml.cs#SnippetCleanupCameraAsync)]
 
-[  **OnNavigatedFrom**](https://msdn.microsoft.com/library/windows/apps/br227507) メソッドをオーバーライドすることで、ユーザーがページから離れるときにプレビュー ストリームをシャットダウンする必要があります。
+[  **OnNavigatedFrom**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.page.onnavigatedfrom) メソッドをオーバーライドすることで、ユーザーがページから離れるときにプレビュー ストリームをシャットダウンする必要があります。
 
 [!code-cs[OnNavigatedFrom](./code/SimpleCameraPreview_Win10/cs/MainPage.xaml.cs#SnippetOnNavigatedFrom)]
 
-アプリの中断中もプレビュー ストリームを適切にシャットダウンする必要があります。 これを行うには、ページのコンストラクターで [**Application.Suspending**](https://msdn.microsoft.com/library/windows/apps/br205860) イベントのハンドラーを登録します。
+アプリの中断中もプレビュー ストリームを適切にシャットダウンする必要があります。 これを行うには、ページのコンストラクターで [**Application.Suspending**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplication.suspending) イベントのハンドラーを登録します。
 
 [!code-cs[RegisterSuspending](./code/SimpleCameraPreview_Win10/cs/MainPage.xaml.cs#SnippetRegisterSuspending)]
 
-**Suspending** イベント ハンドラーで、まずページの種類と [**CurrentSourcePageType**](https://msdn.microsoft.com/library/windows/apps/hh702390) プロパティを比較することで、アプリケーションの [**Frame**](https://msdn.microsoft.com/library/windows/apps/br242682) にページが表示されることを確認します。 ページが現在表示されていない場合、**OnNavigatedFrom** イベントが既に発生しており、プレビュー ストリームはシャットダウンしています。 現在ページが表示されている場合、ハンドラーに渡されるイベント引数から [**SuspendingDeferral**](https://msdn.microsoft.com/library/windows/apps/br224684) オブジェクトを取得し、プレビュー ストリームがシャットダウンするまでシステムがアプリを中断しないことを確認します。 ストリームをシャットダウンした後、保留の [**Complete**](https://msdn.microsoft.com/library/windows/apps/br224685) メソッドを呼び出し、システムがアプリの中断を続行できるようにします。
+**Suspending** イベント ハンドラーで、まずページの種類と [**CurrentSourcePageType**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.frame.currentsourcepagetype) プロパティを比較することで、アプリケーションの [**Frame**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Frame) にページが表示されることを確認します。 ページが現在表示されていない場合、**OnNavigatedFrom** イベントが既に発生しており、プレビュー ストリームはシャットダウンしています。 現在ページが表示されている場合、ハンドラーに渡されるイベント引数から [**SuspendingDeferral**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.SuspendingDeferral) オブジェクトを取得し、プレビュー ストリームがシャットダウンするまでシステムがアプリを中断しないことを確認します。 ストリームをシャットダウンした後、保留の [**Complete**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.suspendingdeferral.complete) メソッドを呼び出し、システムがアプリの中断を続行できるようにします。
 
 [!code-cs[SuspendingHandler](./code/SimpleCameraPreview_Win10/cs/MainPage.xaml.cs#SnippetSuspendingHandler)]
 

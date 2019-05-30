@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 6b1c0b78ca45d98428f38518b337b5889f595c49
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: d6d150f2f882348bffb36dd2918f0f61ea1586c7
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57602437"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66360485"
 ---
 # <a name="composition-visual"></a>コンポジションのビジュアル
 
@@ -21,11 +21,11 @@ ms.locfileid: "57602437"
 
 ビジュアル オブジェクト ツリー構造には、3 種類のビジュアル オブジェクトが含まれ、加えて、ビジュアル オブジェクトの内容に影響を与える基本ブラシ クラスと複数のサブクラスがあります。
 
-- [**Visual** ](https://msdn.microsoft.com/library/windows/apps/Dn706858) – 基本オブジェクトのプロパティの大半はこことその他のビジュアル オブジェクトに継承します。
-- [**ContainerVisual** ](https://msdn.microsoft.com/library/windows/apps/Dn706810) – から派生した[ **Visual**](https://msdn.microsoft.com/library/windows/apps/Dn706858)子を作成する機能を追加します。
-- [**SpriteVisual** ](https://msdn.microsoft.com/library/windows/apps/Mt589433) – から派生した[ **ContainerVisual** ](https://msdn.microsoft.com/library/windows/apps/Dn706810)関連付けにブラシ効果のイメージを含めピクセルのビジュアルをレンダリングできるようにしたり、信頼性の高い機能を追加します。色。
+- [**Visual** ](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.Visual) – 基本オブジェクトのプロパティの大半はこことその他のビジュアル オブジェクトに継承します。
+- [**ContainerVisual** ](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.ContainerVisual) – から派生した[ **Visual**](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.Visual)子を作成する機能を追加します。
+- [**SpriteVisual** ](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.SpriteVisual) – から派生した[ **ContainerVisual** ](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.ContainerVisual)関連付けにブラシ効果のイメージを含めピクセルのビジュアルをレンダリングできるようにしたり、信頼性の高い機能を追加します。色。
 
-[  **CompositionBrush**](https://msdn.microsoft.com/library/windows/apps/Mt589398) とそのサブクラスである [**CompositionColorBrush**](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.CompositionColorBrush)、[**CompositionSurfaceBrush**](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.CompositionSurfaceBrush)、[**CompositionEffectBrush**](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.CompositionEffectBrush) を使用して、コンテンツと効果を SpriteVisual に適用できます。 ブラシについて詳しくは、「[**CompositionBrush の概要**](https://docs.microsoft.com/windows/uwp/composition/composition-brushes)」をご覧ください。
+[  **CompositionBrush**](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.CompositionBrush) とそのサブクラスである [**CompositionColorBrush**](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.CompositionColorBrush)、[**CompositionSurfaceBrush**](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.CompositionSurfaceBrush)、[**CompositionEffectBrush**](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.CompositionEffectBrush) を使用して、コンテンツと効果を SpriteVisual に適用できます。 ブラシについて詳しくは、「[**CompositionBrush の概要**](https://docs.microsoft.com/windows/uwp/composition/composition-brushes)」をご覧ください。
 
 ## <a name="the-compositionvisual-sample"></a>CompositionVisual のサンプル
 
@@ -44,7 +44,7 @@ ms.locfileid: "57602437"
 
 ## <a name="creating-a-compositor"></a>コンポジターの作成
 
-[  **Compositor**](https://msdn.microsoft.com/library/windows/apps/Dn706789) を作成し、ファクトリ用に変数に格納するのは簡単です。 次のスニペットでは、新しい **Compositor** の作成方法を示しています。
+[  **Compositor**](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.Compositor) を作成し、ファクトリ用に変数に格納するのは簡単です。 次のスニペットでは、新しい **Compositor** の作成方法を示しています。
 
 ```cs
 _compositor = new Compositor();
@@ -52,18 +52,18 @@ _compositor = new Compositor();
 
 ## <a name="creating-a-spritevisual-and-colorbrush"></a>SpriteVisual と ColorBrush の作成
 
-[  **Compositor**](https://msdn.microsoft.com/library/windows/apps/Dn706789) を使って、必要なときにオブジェクト、たとえば [**SpriteVisual**](https://msdn.microsoft.com/library/windows/apps/Mt589433) や [**CompositionColorBrush**](https://msdn.microsoft.com/library/windows/apps/Mt589399) を作成するのは簡単です。
+[  **Compositor**](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.Compositor) を使って、必要なときにオブジェクト、たとえば [**SpriteVisual**](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.SpriteVisual) や [**CompositionColorBrush**](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.CompositionColorBrush) を作成するのは簡単です。
 
 ```cs
 var visual = _compositor.CreateSpriteVisual();
 visual.Brush = _compositor.CreateColorBrush(Color.FromArgb(0xFF, 0xFF, 0xFF, 0xFF));
 ```
 
-これは、数行のコードのみですが、強力な概念を示します。[**SpriteVisual** ](https://msdn.microsoft.com/library/windows/apps/Mt589433)オブジェクトが、効果のシステムの中核です。 **SpriteVisual** を使うと、色、画像、効果の作成で高い柔軟性と関係性を得られます。 **SpriteVisual** は、ブラシで (この例では単色) で 2D 四角形を塗りつぶすことのできるビジュアル オブジェクトの一種です。
+これは、数行のコードのみですが、強力な概念を示します。[**SpriteVisual** ](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.SpriteVisual)オブジェクトが、効果のシステムの中核です。 **SpriteVisual** を使うと、色、画像、効果の作成で高い柔軟性と関係性を得られます。 **SpriteVisual** は、ブラシで (この例では単色) で 2D 四角形を塗りつぶすことのできるビジュアル オブジェクトの一種です。
 
 ## <a name="clipping-a-visual"></a>ビジュアル オブジェクトのクリップ
 
-[  **Compositor**](https://msdn.microsoft.com/library/windows/apps/Dn706789) は、[**Visual**](https://msdn.microsoft.com/library/windows/apps/Dn706858) に対するクリップを作成するためにも使えます。 次に示しているのは、ビジュアル オブジェクトの両側をトリミングする [**InsetClip**](https://msdn.microsoft.com/library/windows/apps/Dn706825) を使ったサンプルからの例です。
+[  **Compositor**](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.Compositor) は、[**Visual**](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.Visual) に対するクリップを作成するためにも使えます。 次に示しているのは、ビジュアル オブジェクトの両側をトリミングする [**InsetClip**](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.InsetClip) を使ったサンプルからの例です。
 
 ```cs
 var clip = _compositor.CreateInsetClip();
@@ -74,11 +74,11 @@ clip.BottomInset = 1.0f;
 _currentVisual.Clip = clip;
 ```
 
-API の他のオブジェクトと同様、[**InsetClip**](https://msdn.microsoft.com/library/windows/apps/Dn706825) のプロパティにもアニメーションを適用できます。
+API の他のオブジェクトと同様、[**InsetClip**](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.InsetClip) のプロパティにもアニメーションを適用できます。
 
 ## <a name="span-idrotatingaclipspanspan-idrotatingaclipspanspan-idrotatingaclipspanrotating-a-clip"></a><span id="Rotating_a_Clip"></span><span id="rotating_a_clip"></span><span id="ROTATING_A_CLIP"></span>画像を回転
 
-[  **Visual**](https://msdn.microsoft.com/library/windows/apps/Dn706858) は回転により変換できます。 [  **RotationAngle**](https://msdn.microsoft.com/library/windows/apps/windows.ui.composition.visual.rotationangle) では、ラジアンと度の両方がサポートされています。 既定ではラジアンになりますが、次のコードに示しているように、度を指定するのは簡単です。
+[  **Visual**](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.Visual) は回転により変換できます。 [  **RotationAngle**](https://docs.microsoft.com/uwp/api/windows.ui.composition.visual.rotationangle) では、ラジアンと度の両方がサポートされています。 既定ではラジアンになりますが、次のコードに示しているように、度を指定するのは簡単です。
 
 ```cs
 child.RotationAngleInDegrees = 45.0f;
@@ -94,13 +94,13 @@ Rotation は、変換が簡単になるように API に用意された一連の
 visual.Opacity = 0.8f;
 ```
 
-Rotation と同様、[**Opacity**](https://msdn.microsoft.com/library/windows/apps/windows.ui.composition.visual.opacity) のプロパティにもアニメーションを適用できます。
+Rotation と同様、[**Opacity**](https://docs.microsoft.com/uwp/api/windows.ui.composition.visual.opacity) のプロパティにもアニメーションを適用できます。
 
 ## <a name="changing-the-visuals-position-in-the-collection"></a>コレクション内のビジュアル オブジェクトの位置変更
 
-コンポジション API を使うと、[**VisualCollection**](https://msdn.microsoft.com/library/windows/apps/windows.ui.composition.visualcollection) でのビジュアルの位置を多くの方法で変更できます。 たとえば、[**InsertAbove**](https://msdn.microsoft.com/library/windows/apps/windows.ui.composition.visualcollection.insertabove) を使うと、別のビジュアルの上に、[**InsertBelow**](https://msdn.microsoft.com/library/windows/apps/windows.ui.composition.visualcollection.insertbelow) を使うと、下に配置できます。[**InsertAtTop**](https://msdn.microsoft.com/library/windows/apps/windows.ui.composition.visualcollection.insertattop) を使うと、先頭に、[**InsertAtBottom**](https://msdn.microsoft.com/library/windows/apps/windows.ui.composition.visualcollection.insertatbottom) を使うと、末尾に移動できます。
+コンポジション API を使うと、[**VisualCollection**](https://docs.microsoft.com/uwp/api/windows.ui.composition.visualcollection) でのビジュアルの位置を多くの方法で変更できます。 たとえば、[**InsertAbove**](https://docs.microsoft.com/uwp/api/windows.ui.composition.visualcollection.insertabove) を使うと、別のビジュアルの上に、[**InsertBelow**](https://docs.microsoft.com/uwp/api/windows.ui.composition.visualcollection.insertbelow) を使うと、下に配置できます。[**InsertAtTop**](https://docs.microsoft.com/uwp/api/windows.ui.composition.visualcollection.insertattop) を使うと、先頭に、[**InsertAtBottom**](https://docs.microsoft.com/uwp/api/windows.ui.composition.visualcollection.insertatbottom) を使うと、末尾に移動できます。
 
-このサンプルでは、クリックされた [**Visual**](https://msdn.microsoft.com/library/windows/apps/Dn706858) は先頭に並べ替えられています。
+このサンプルでは、クリックされた [**Visual**](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.Visual) は先頭に並べ替えられています。
 
 ```cs
 parent.Children.InsertAtTop(_currentVisual);
@@ -108,7 +108,7 @@ parent.Children.InsertAtTop(_currentVisual);
 
 ## <a name="full-example"></a>完全な例
 
-完全なサンプルでは、これまで説明した概念のすべてを一緒に使って、[**Visual**](https://msdn.microsoft.com/library/windows/apps/Dn706858) オブジェクトの単純なツリーを作成してたどり、XAML、WWA、または DirectX を使わずに不透明度を変更しています。 このサンプルでは、どのように子 **Visual** オブジェクトが作成されて追加され、プロパティが変更されるかを示しています。
+完全なサンプルでは、これまで説明した概念のすべてを一緒に使って、[**Visual**](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.Visual) オブジェクトの単純なツリーを作成してたどり、XAML、WWA、または DirectX を使わずに不透明度を変更しています。 このサンプルでは、どのように子 **Visual** オブジェクトが作成されて追加され、プロパティが変更されるかを示しています。
 
 ```cs
 using System;

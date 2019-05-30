@@ -6,12 +6,12 @@ ms.date: 10/24/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, セットアップ, DirectX
 ms.localizationpriority: medium
-ms.openlocfilehash: 789b235220e5d22b85f7b3038d5d468729439501
-ms.sourcegitcommit: 7a3d28472901edbe4ecdde7e1a01a505ee5bc028
+ms.openlocfilehash: ca91926ec374015eeb88be6d89d3e1741d8b9c6d
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58658768"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66367681"
 ---
 # <a name="set-up-the-game-project"></a>ゲーム プロジェクトのセットアップ
 
@@ -38,10 +38,10 @@ Visual Studio テンプレートは、優先する言語および技術に基づ
 このチュートリアルで使用するテンプレートは、**DirectX 11 アプリ (ユニバーサル Windows)** です。 
 
 Visual Studio で DirectX 11 ゲーム プロジェクトを作成する手順を以下に示します。
-1.  選択**ファイル.**&gt; **新しい**&gt; **プロジェクト.**
+1.  選択**ファイル.** &gt; **新しい**&gt; **プロジェクト.**
 2.  左側のウィンドウで次のように選択します**インストール済み** &gt; **テンプレート** &gt; **Visual c** &gt; **Windows ユニバーサル。**
-3.  中央のウィンドウで、**[DirectX 11 アプリ (ユニバーサル Windows)]** テンプレートを選びます。
-4.  ゲーム プロジェクトに名前を付けて、**[OK]** をクリックします。
+3.  中央のウィンドウで、 **[DirectX 11 アプリ (ユニバーサル Windows)]** テンプレートを選びます。
+4.  ゲーム プロジェクトに名前を付けて、 **[OK]** をクリックします。
 
 ![新しいゲーム プロジェクトを作成するための DirectX 11 テンプレートを選択する方法を示すスクリーン ショット](images/simple-dx-game-setup-new-project.png)
 
@@ -53,7 +53,7 @@ Visual Studio で DirectX 11 ゲーム プロジェクトを作成する手順�
 
 ### <a name="inspect-apph"></a>**App.h** を調べる
 
-短時間で 5 つの方法を見てみましょう**App.h** &mdash; [**初期化**](https://msdn.microsoft.com/library/windows/apps/hh700495)、 [ **SetWindow** ](https://msdn.microsoft.com/library/windows/apps/hh700509)、 [**ロード**](https://msdn.microsoft.com/library/windows/apps/hh700501)、 [**実行**](https://msdn.microsoft.com/library/windows/apps/hh700505)、および[**初期化**](https://msdn.microsoft.com/library/windows/apps/hh700523)を実装する場合、 [ **IFrameworkView** ](https://msdn.microsoft.com/library/windows/apps/hh700469)ビュー プロバイダーを定義するインターフェイス。 これらのメソッドはゲームの起動時に作成されるアプリ シングルトンによって実行され、適切なイベント ハンドラーに接続されて、アプリのすべてのリソースが読み込まれます。
+短時間で 5 つの方法を見てみましょう**App.h** &mdash; [**初期化**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.iframeworkview.initialize)、 [ **SetWindow** ](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.iframeworkview.setwindow)、 [**ロード**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.iframeworkview.load)、 [**実行**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.iframeworkview.run)、および[**初期化**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.iframeworkview.uninitialize)を実装する場合、 [ **IFrameworkView** ](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplication.run)ビュー プロバイダーを定義するインターフェイス。 これらのメソッドはゲームの起動時に作成されるアプリ シングルトンによって実行され、適切なイベント ハンドラーに接続されて、アプリのすべてのリソースが読み込まれます。
 
 ```cpp
     // Main entry point for our app. Connects the app with the Windows shell and handle application lifecycle events.
@@ -129,7 +129,7 @@ void App::Run()
 
 ![package.appxmanifest エディターのスクリーンショット。](images/simple-dx-game-setup-app-manifest.png)
 
-**package.appxmanifest** ファイルとパッケージ化について詳しくは、[マニフェスト デザイナー](https://msdn.microsoft.com/library/windows/apps/br230259.aspx)に関するページをご覧ください。 それでは、**[機能]** タブとそのオプションを見てみましょう。
+**package.appxmanifest** ファイルとパッケージ化について詳しくは、[マニフェスト デザイナー](https://docs.microsoft.com/previous-versions/br230259(v=vs.140))に関するページをご覧ください。 それでは、 **[機能]** タブとそのオプションを見てみましょう。
 
 ![Direct3D アプリの既定の機能のスクリーンショット。](images/simple-dx-game-setup-capabilities.png)
 

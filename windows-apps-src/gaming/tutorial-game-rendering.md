@@ -6,12 +6,12 @@ ms.date: 10/24/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, レンダリング
 ms.localizationpriority: medium
-ms.openlocfilehash: 108e9bf21b0552ac7f88721bf4b1ee72ca2a5e2c
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: HT
+ms.openlocfilehash: 2b44558232247de969f22d5767a16d921cfbf252
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57610507"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66367568"
 ---
 # <a name="rendering-framework-ii-game-rendering"></a>レンダリングのフレームワーク II:ゲームのレンダリング
 
@@ -37,7 +37,7 @@ ms.locfileid: "57610507"
 レンダラーは、ゲームの視覚効果を生成するために使用する、すべての D3D11 オブジェクトと D2D オブジェクトの作成と保守を担当します。 __GameRenderer__ クラスは、このサンプル ゲームのレンダラーであり、し、ゲームのレンダリングのニーズに合わせて設計されています。
 
 ゲームのレンダラーを設計する際に役立ついくつかの概念を以下に示します。
-* Direct3D 11 API は [COM](https://msdn.microsoft.com/library/windows/desktop/ms694363.aspx) API として定義されるため、これらの API で定義されたオブジェクトへの [ComPtr](https://docs.microsoft.com/cpp/windows/comptr-class) 参照を指定する必要があります。 これらのオブジェクトは、アプリ終了時に最後の参照がスコープ外になったときに自動的に解放されます。 詳細については、「[ComPtr](https://github.com/Microsoft/DirectXTK/wiki/ComPtr)」を参照してください。 このようなオブジェクトの例として、定数バッファー、シェーダー オブジェクト ([頂点シェーダー](tutorial--assembling-the-rendering-pipeline.md#vertex-shaders-and-pixel-shaders)、[ピクセル シェーダー](tutorial--assembling-the-rendering-pipeline.md#vertex-shaders-and-pixel-shaders))、シェーダー リソース オブジェクトがあります。
+* Direct3D 11 API は [COM](https://docs.microsoft.com/windows/desktop/com/the-component-object-model) API として定義されるため、これらの API で定義されたオブジェクトへの [ComPtr](https://docs.microsoft.com/cpp/windows/comptr-class) 参照を指定する必要があります。 これらのオブジェクトは、アプリ終了時に最後の参照がスコープ外になったときに自動的に解放されます。 詳細については、「[ComPtr](https://github.com/Microsoft/DirectXTK/wiki/ComPtr)」を参照してください。 このようなオブジェクトの例として、定数バッファー、シェーダー オブジェクト ([頂点シェーダー](tutorial--assembling-the-rendering-pipeline.md#vertex-shaders-and-pixel-shaders)、[ピクセル シェーダー](tutorial--assembling-the-rendering-pipeline.md#vertex-shaders-and-pixel-shaders))、シェーダー リソース オブジェクトがあります。
 * 定数バッファーは、レンダリングに必要なさまざまなデータを保持するために、このクラスで定義されます。
     * GPU に送信するデータの 1 フレームあたりの量を減らすために、更新頻度の異なる複数の定数バッファーを使用します。 このサンプルでは、更新する必要のある頻度に基づいて定数を異なるバッファーに分けています。 Direct3D プログラミングでは、このような処理をお勧めします。 
     * このゲームのサンプルでは、4 つの定数バッファーを定義します。
@@ -46,7 +46,7 @@ ms.locfileid: "57610507"
         3. __m\_constantBufferChangesEveryFrame__ view 行列が含まれています。 このマトリックスは、カメラ位置とルック方向 (標準はプロジェクション方向) に依存し、__Render__ メソッドで 1 フレームあたり 1 回変更されます。 先ほど説明したこの__レンダリング framework i:レンダリングの概要__下で、 [ __GameRenderer::Render__メソッド](tutorial--assembling-the-rendering-pipeline.md#gamerendererrender-method)します。
         4. __m\_constantBufferChangesEveryPrim__各プリミティブのモデルのマトリックスと素材のプロパティが含まれています。 モデル マトリックスは、頂点をローカル座標からワールド座標に変換します。 これらの定数は各プリミティブに固有で、描画呼び出しのたびに更新されます。 先ほど説明したこの__レンダリング framework i:レンダリングの概要__下で、[プリミティブのレンダリング](tutorial--assembling-the-rendering-pipeline.md#primitive-rendering)します。
 * プリミティブのテクスチャを保持するシェーダー リソース オブジェクトも、このクラスで定義されます。
-    * 一部のテクスチャは事前に定義されています ([DDS](https://msdn.microsoft.com/library/windows/desktop/bb943991.aspx) は、圧縮および非圧縮テクスチャを格納するために使用されるファイル形式です。 DDS テクスチャは、ワールドの壁や床、弾薬の球体に使用されます)。
+    * 一部のテクスチャは事前に定義されています ([DDS](https://docs.microsoft.com/windows/desktop/direct3ddds/dx-graphics-dds-pguide) は、圧縮および非圧縮テクスチャを格納するために使用されるファイル形式です。 DDS テクスチャは、ワールドの壁や床、弾薬の球体に使用されます)。
     * シェーダー リソース オブジェクトは、このゲームのサンプル: __m\_sphereTexture__、 __m\_cylinderTexture__、 __m\_ceilingTexture__、 __m\_floorTexture__、 __m\_wallsTexture__します。
 * シェーダー オブジェクトは、プリミティブやテクスチャを計算するために、このクラスで定義されます。 
     * このゲームのサンプルでは、シェーダー オブジェクトは__m\_vertexShader__、 __m\_vertexShaderFlat__、および__m\_pixelShader__、__m\_pixelShaderFlat__します。
@@ -241,7 +241,7 @@ GameMain::GameMain(const std::shared_ptr<DX::DeviceResources>& deviceResources) 
 
 ## <a name="creategamedeviceresourcesasync-method"></a>CreateGameDeviceResourcesAsync メソッド
 
-__CreateGameDeviceResourcesAsync__から呼び出される、 __GameMain__コンストラクター メソッドで、__作成\_タスク__ループにゲームのリソースを非同期的に読み込むしているためです。
+__CreateGameDeviceResourcesAsync__から呼び出される、 __GameMain__コンス トラクター メソッドで、__作成\_タスク__ループにゲームのリソースを非同期的に読み込むしているためです。
         
 __CreateDeviceResourcesAsync__ は、ゲームのリソースを読み込むための一連の非同期タスクとして別個に実行されるメソッドです。 個別のスレッドで実行されると想定されるので、Direct3D 11 デバイス メソッド (__ID3D11Device__ で定義されているメソッド) にのみアクセスでき、デバイス コンテキスト メソッド (__ID3D11DeviceContext__ で定義されているメソッド) にはアクセスできないため、レンダリングは実行されません。
 

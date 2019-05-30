@@ -5,12 +5,12 @@ ms.date: 11/30/2018
 ms.topic: article
 keywords: windows 10, UWP, SQLite, データベース
 ms.localizationpriority: medium
-ms.openlocfilehash: 552de1ccb8f8e69a4ad716e54557ae0b5cd3a3f4
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: HT
+ms.openlocfilehash: 465376214f1bf1b390ec6db8609783e4e7872196
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57635667"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66362785"
 ---
 # <a name="use-a-sqlite-database-in-a-uwp-app"></a>UWP アプリでの SQLite データベースの使用
 SQLite を使用すると、ユーザー デバイス上の軽量なデータベースにデータを保存し、取得することができます。 このガイドでその方法を示します。
@@ -39,7 +39,7 @@ Entity Framework (EF) は、ドメイン固有のオブジェクトを使って�
 
 ### <a name="sqlite-library"></a>SQLite ライブラリ
 
-[Microsoft.Data.Sqlite](https://docs.microsoft.com/dotnet/api/microsoft.data.sqlite?view=msdata-sqlite-2.0.0) ライブラリは、[System.Data.Common](https://msdn.microsoft.com/library/system.data.common.aspx) 名前空間内にインターフェイスを実装します。 Microsoft はこれらの実装をアクティブに保守します。これらは、低レベルのネイティブ SQLite API の直感的なラッパーを提供します。
+[Microsoft.Data.Sqlite](https://docs.microsoft.com/dotnet/api/microsoft.data.sqlite?view=msdata-sqlite-2.0.0) ライブラリは、[System.Data.Common](https://docs.microsoft.com/dotnet/api/system.data.common?redirectedfrom=MSDN) 名前空間内にインターフェイスを実装します。 Microsoft はこれらの実装をアクティブに保守します。これらは、低レベルのネイティブ SQLite API の直感的なラッパーを提供します。
 
 このガイドの残りの部分では、このライブラリーの使用について説明します。
 
@@ -55,17 +55,17 @@ UWP プロジェクトが対象とする Windows SDK の最小バージョンに
 
 ### <a name="the-minimum-version-of-your-project-does-not-target-the-fall-creators-update"></a>プロジェクトの最小バージョンが Fall Creators Update を対象としない場合
 
-Visual Studio 2015 を使用している場合は、**[ヘルプ]** -> **[Microsoft Visual Studio のバージョン情報]** の順にクリックします。 インストールされているプログラムの一覧で、NuGet パッケージ マネージャーのバージョンが **3.5** 以降であることを確認します。 バージョン番号がこれより低い場合は、3.5 以降のバージョンの NuGet [こちら](https://www.nuget.org/downloads)をインストールします。 このページで、見出し **[Visual Studio 2015]** の下にすべてのバージョンの Nuget が表示されます。
+Visual Studio 2015 を使用している場合は、 **[ヘルプ]** -> **[Microsoft Visual Studio のバージョン情報]** の順にクリックします。 インストールされているプログラムの一覧で、NuGet パッケージ マネージャーのバージョンが **3.5** 以降であることを確認します。 バージョン番号がこれより低い場合は、3.5 以降のバージョンの NuGet [こちら](https://www.nuget.org/downloads)をインストールします。 このページで、見出し **[Visual Studio 2015]** の下にすべてのバージョンの Nuget が表示されます。
 
 次に、クラス ライブラリをソリューションに追加します。 クラス ライブラリを使用してデータ アクセス コードを含める必要はありません。サンプルの 1 つを使用します。 ライブラリに **DataAccessLibrary** という名前を付け、ライブラリ内のクラスに **DataAccess** という名前を付けます。
 
 ![クラス ライブラリ](images/class-library.png)
 
-ソリューションを右クリックし、**[ソリューションの NuGet パッケージの管理]** をクリックします。
+ソリューションを右クリックし、 **[ソリューションの NuGet パッケージの管理]** をクリックします。
 
 ![NuGet パッケージの管理](images/manage-nuget.png)
 
-Visual Studio 2015 を使用している場合は、**[インストール済み]** タブを選択し、**Microsoft.NETCore.UniversalWindowsPlatform** パッケージのバージョン番号が **5.2.2** 以降であることを確認します。
+Visual Studio 2015 を使用している場合は、 **[インストール済み]** タブを選択し、**Microsoft.NETCore.UniversalWindowsPlatform** パッケージのバージョン番号が **5.2.2** 以降であることを確認します。
 
 ![.NETCore のバージョン](images/package-version.png)
 
@@ -95,7 +95,7 @@ UWP プロジェクトの最小バージョンを Fall Creators Update に上げ
 
 ![クラス ライブラリ](images/dot-net-standard.png)
 
-ソリューションを右クリックし、**[ソリューションの NuGet パッケージの管理]** をクリックします。
+ソリューションを右クリックし、 **[ソリューションの NuGet パッケージの管理]** をクリックします。
 
 ![NuGet パッケージの管理](images/manage-nuget-2.png)
 
@@ -115,7 +115,7 @@ UWP プロジェクトの最小バージョンを Fall Creators Update に上げ
 
 #### <a name="to-include-sqlite-with-your-app"></a>アプリと共に SQLite を含めるには
 
-これを行う必要はありませんが、 アプリと共に特定バージョンの SQLite を含める理由がある場合は、**[参照]** タブをクリックし、**Microsoft.Data.SQLite** パッケージを検索します。 そのパッケージのバージョン **2.0** (またはそれ以前) をインストールします。
+これを行う必要はありませんが、 アプリと共に特定バージョンの SQLite を含める理由がある場合は、 **[参照]** タブをクリックし、**Microsoft.Data.SQLite** パッケージを検索します。 そのパッケージのバージョン **2.0** (またはそれ以前) をインストールします。
 
 ![SQLite パッケージ](images/sqlite-package-v2.png)
 

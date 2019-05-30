@@ -7,12 +7,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 09647347134463c8dd2d93f6b869796c8def44e2
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 739abc139eabc9f773938f55c15d3e18aaf562ce
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57619807"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66365959"
 ---
 # <a name="special-tile-templates"></a>特別なタイル テンプレート
  
@@ -96,7 +96,7 @@ XML ペイロードのサンプル コードを次に示します。
 
 **手順 5:正規表現のまとめ**
 
-次の図は、さまざまな API やペイロードがアイコン タイル テンプレートの各要素とどのように関連しているかを示しています。 [タイル通知](https://msdn.microsoft.com/library/windows/apps/hh779724) (&lt;binding&gt; 要素が含まれています) を使って、アイコン テンプレートと画像アセットを指定します。[バッジ通知](https://msdn.microsoft.com/library/windows/apps/hh779719)では、数値を指定し、タイル プロパティによってタイルの表示名や色などを制御します。
+次の図は、さまざまな API やペイロードがアイコン タイル テンプレートの各要素とどのように関連しているかを示しています。 [タイル通知](https://docs.microsoft.com/previous-versions/windows/apps/hh779724(v=win.10)) (&lt;binding&gt; 要素が含まれています) を使って、アイコン テンプレートと画像アセットを指定します。[バッジ通知](https://docs.microsoft.com/previous-versions/windows/apps/hh779719(v=win.10))では、数値を指定し、タイル プロパティによってタイルの表示名や色などを制御します。
 
 ![アイコン タイル テンプレートに関連付けられている API とペイロード](images/iconic-template-properties-info.png)
 

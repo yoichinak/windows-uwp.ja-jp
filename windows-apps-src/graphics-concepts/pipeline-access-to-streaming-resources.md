@@ -7,12 +7,12 @@ keywords:
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 6d95ffc14e9ae6d4ea59a4b3bdc33fd215cb61be
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: b10ba23db301a675bf102fd8fb6e278dbba11da8
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57616377"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66371021"
 ---
 # <a name="pipeline-access-to-streaming-resources"></a>ストリーミング リソースへのパイプライン アクセス
 
@@ -60,7 +60,7 @@ ms.locfileid: "57616377"
 </tr>
 <tr class="even">
 <td align="left"><p><a href="hlsl-streaming-resources-exposure.md">HLSL ストリーミング リソース リスク</a></p></td>
-<td align="left"><p><a href="https://msdn.microsoft.com/library/windows/desktop/ff471356">シェーダー モデル 5</a> のストリーミング リソースをサポートするには、Microsoft 上位レベル シェーダー言語 (HLSL) の特定の構文が必要です。</p></td>
+<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/direct3dhlsl/d3d11-graphics-reference-sm5">シェーダー モデル 5</a> のストリーミング リソースをサポートするには、Microsoft 上位レベル シェーダー言語 (HLSL) の特定の構文が必要です。</p></td>
 </tr>
 </tbody>
 </table>

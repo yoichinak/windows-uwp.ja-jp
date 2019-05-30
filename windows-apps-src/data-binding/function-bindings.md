@@ -5,25 +5,25 @@ ms.date: 02/06/2019
 ms.topic: article
 keywords: windows 10、uwp、xBind
 ms.localizationpriority: medium
-ms.openlocfilehash: b85777c254c36cc7bf5b156569c7cef267a6c567
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 879be9591bae36a1dbcd485387fbb4ac7f502fea
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57626217"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66360081"
 ---
 # <a name="functions-in-xbind"></a>x:Bind の関数
 
 > [!NOTE]
-> 使用してアプリケーションにおけるデータ バインディングの使用に関する一般的な情報 **{X:bind}** (的な比較の詳細についてと **{X:bind}** と **{binding}**) を参照してください[データ深さでバインド](data-binding-in-depth.md)します。
+> 使用してアプリケーションにおけるデータ バインディングの使用に関する一般的な情報 **{X:bind}** (的な比較の詳細についてと **{X:bind}** と **{binding}** ) を参照してください[データ深さでバインド](data-binding-in-depth.md)します。
 
-Windows 10 バージョン 1607 以降、**{x:Bind}** はバインド パスのリーフ ステップとしての関数の使用をサポートします。 これにより、できます。
+Windows 10 バージョン 1607 以降、 **{x:Bind}** はバインド パスのリーフ ステップとしての関数の使用をサポートします。 これにより、できます。
 
 - 値の変換を実現するためのより簡単な方法
 - 複数のパラメーターに依存するようにバインディングする方法
 
 > [!NOTE]
-> **{x:Bind}** で関数を使うには、アプリの対象が SDK バージョン 14393 以降である必要があります。 アプリがそれよりも前のバージョンの Windows 10 を対象としている場合は、関数を使えません。 ターゲット バージョンについて詳しくは、「[バージョン アダプティブ コード](https://msdn.microsoft.com/windows/uwp/debug-test-perf/version-adaptive-code)」をご覧ください。
+> **{x:Bind}** で関数を使うには、アプリの対象が SDK バージョン 14393 以降である必要があります。 アプリがそれよりも前のバージョンの Windows 10 を対象としている場合は、関数を使えません。 ターゲット バージョンについて詳しくは、「[バージョン アダプティブ コード](https://docs.microsoft.com/windows/uwp/debug-test-perf/version-adaptive-code)」をご覧ください。
 
 次の例では、項目の背景と前景が、Color パラメーターに基づいて変換を行うために関数にバインドされています。
 
@@ -108,7 +108,7 @@ namespace MyNamespace
 - 引数の型は渡されるデータと一致する必要があります。縮小変換は行われません。
 - 関数の戻り値の型は、バインディングを使用しているプロパティの型と一致する必要があります。
 
-バインディング エンジンは、通知は、関数名で発生し、必要に応じてバインドを再評価するプロパティの変更に対応します。 次に、例を示します。
+バインディング エンジンは、通知は、関数名で発生し、必要に応じてバインドを再評価するプロパティの変更に対応します。 例:
 
 ```xaml
 <DataTemplate x:DataType="local:Person">

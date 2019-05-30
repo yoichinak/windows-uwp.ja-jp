@@ -8,30 +8,30 @@ keywords: デバイス, デジタイザー, 入力, 操作
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: d37a830ffd0735d69046aa7e9495cfe6fa943f97
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 982f787aaef05dabdc356af906e80b28085b5a2d
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57638527"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66363390"
 ---
 # <a name="identify-input-devices"></a>入力デバイスの識別
 
 
 ユニバーサル Windows プラットフォーム (UWP) デバイスに接続されている入力デバイスを識別し、その機能と属性を識別します。
 
-> **重要な API**:[**Windows.Devices.Input**](https://msdn.microsoft.com/library/windows/apps/br225648)、 [ **Windows.UI.Input**](https://msdn.microsoft.com/library/windows/apps/br208383)、 [ **Windows.UI.Xaml.Input**](https://msdn.microsoft.com/library/windows/apps/br242084)
+> **重要な API**:[**Windows.Devices.Input**](https://docs.microsoft.com/uwp/api/Windows.Devices.Input), [**Windows.UI.Input**](https://docs.microsoft.com/uwp/api/Windows.UI.Core), [**Windows.UI.Xaml.Input**](https://docs.microsoft.com/uwp/api/Windows.UI.Input)
 
 ## <a name="retrieve-mouse-properties"></a>マウスのプロパティの取得
 
 
-接続されているマウスによって公開されているプロパティを取得するには、[**Windows.Devices.Input**](https://msdn.microsoft.com/library/windows/apps/br225648) 名前空間の [**MouseCapabilities**](https://msdn.microsoft.com/library/windows/apps/br225626) クラスを使います。 新しい **MouseCapabilities** オブジェクトを作成し、目的のプロパティを取得するだけです。
+接続されているマウスによって公開されているプロパティを取得するには、[**Windows.Devices.Input**](https://docs.microsoft.com/uwp/api/Windows.Devices.Input) 名前空間の [**MouseCapabilities**](https://docs.microsoft.com/uwp/api/Windows.Devices.Input.MouseCapabilities) クラスを使います。 新しい **MouseCapabilities** オブジェクトを作成し、目的のプロパティを取得するだけです。
 
 **注**  ここで説明したプロパティによって返される値が検出されたすべてのマウスに基づきます。ブール型プロパティは、少なくとも 1 つのマウスが特定の機能をサポートしている数値プロパティは、任意の 1 つのマウスによって公開されている最大値を返す場合、0 以外を返します。
 
  
 
-次のコードでは、一連の [**TextBlock**](https://msdn.microsoft.com/library/windows/apps/br209652) 要素を使って、個別のマウスのプロパティと値を表示しています。
+次のコードでは、一連の [**TextBlock**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock) 要素を使って、個別のマウスのプロパティと値を表示しています。
 
 ```CSharp
 private void GetMouseProperties()
@@ -48,9 +48,9 @@ private void GetMouseProperties()
 ## <a name="retrieve-keyboard-properties"></a>キーボードのプロパティの取得
 
 
-キーボードが接続されているかどうかを取得するには、[**Windows.Devices.Input**](https://msdn.microsoft.com/library/windows/apps/br225648) 名前空間の [**KeyboardCapabilities**](https://msdn.microsoft.com/library/windows/apps/br225623) クラスを使います。 新しい **KeyboardCapabilities** オブジェクトを作成し、[**KeyboardPresent**](https://msdn.microsoft.com/library/windows/apps/br225625) プロパティを取得するだけです。
+キーボードが接続されているかどうかを取得するには、[**Windows.Devices.Input**](https://docs.microsoft.com/uwp/api/Windows.Devices.Input) 名前空間の [**KeyboardCapabilities**](https://docs.microsoft.com/uwp/api/Windows.Devices.Input.KeyboardCapabilities) クラスを使います。 新しい **KeyboardCapabilities** オブジェクトを作成し、[**KeyboardPresent**](https://docs.microsoft.com/uwp/api/windows.devices.input.keyboardcapabilities.keyboardpresent) プロパティを取得するだけです。
 
-次のコードでは、[**TextBlock**](https://msdn.microsoft.com/library/windows/apps/br209652) 要素を使って、キーボードのプロパティと値を表示しています。
+次のコードでは、[**TextBlock**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock) 要素を使って、キーボードのプロパティと値を表示しています。
 
 ```CSharp
 private void GetKeyboardProperties()
@@ -63,13 +63,13 @@ private void GetKeyboardProperties()
 ## <a name="retrieve-touch-properties"></a>タッチのプロパティの取得
 
 
-タッチ デジタイザーが接続されているかどうかを取得するには、[**Windows.Devices.Input**](https://msdn.microsoft.com/library/windows/apps/br225648) 名前空間の [**TouchCapabilities**](https://msdn.microsoft.com/library/windows/apps/br225644) クラスを使います。 新しい **TouchCapabilities** オブジェクトを作成し、目的のプロパティを取得するだけです。
+タッチ デジタイザーが接続されているかどうかを取得するには、[**Windows.Devices.Input**](https://docs.microsoft.com/uwp/api/Windows.Devices.Input) 名前空間の [**TouchCapabilities**](https://docs.microsoft.com/uwp/api/Windows.Devices.Input.TouchCapabilities) クラスを使います。 新しい **TouchCapabilities** オブジェクトを作成し、目的のプロパティを取得するだけです。
 
 **注**  ここで説明したプロパティによって返される値はすべての検出されたタッチ デジタイザーに基づきます。ブール型プロパティは、デジタイザーの少なくとも 1 つは、特定の機能をサポートしているし、数値プロパティは、任意の 1 つのデジタイザーによって公開されている最大値を返す場合、0 以外を返します。
 
  
 
-次のコードでは、一連の [**TextBlock**](https://msdn.microsoft.com/library/windows/apps/br209652) 要素を使って、タッチのプロパティと値を表示しています。
+次のコードでは、一連の [**TextBlock**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock) 要素を使って、タッチのプロパティと値を表示しています。
 
 ```CSharp
 private void GetTouchProperties()
@@ -83,7 +83,7 @@ private void GetTouchProperties()
 ## <a name="retrieve-pointer-properties"></a>ポインターのプロパティの取得
 
 
-検出されたデバイスがポインター入力 (タッチ、タッチパッド、マウス、ペン) をサポートしているかどうかを取得するには、[**Windows.Devices.Input**](https://msdn.microsoft.com/library/windows/apps/br225648) 名前空間の [**PointerDevice**](https://msdn.microsoft.com/library/windows/apps/br225633) クラスを使います。 新しい **PointerDevice** オブジェクトを作成し、目的のプロパティを取得するだけです。
+検出されたデバイスがポインター入力 (タッチ、タッチパッド、マウス、ペン) をサポートしているかどうかを取得するには、[**Windows.Devices.Input**](https://docs.microsoft.com/uwp/api/Windows.Devices.Input) 名前空間の [**PointerDevice**](https://docs.microsoft.com/uwp/api/Windows.Devices.Input.PointerDevice) クラスを使います。 新しい **PointerDevice** オブジェクトを作成し、目的のプロパティを取得するだけです。
 
 **注**  ここで説明したプロパティによって返される値はすべてのポインターが検出されたデバイスに基づきます。少なくとも 1 つのデバイスが特定の機能をサポートしている数値プロパティは、任意の 1 つのポインター デバイスによって公開されている最大値を返す場合、ブール型プロパティは 0 以外を返します。
 

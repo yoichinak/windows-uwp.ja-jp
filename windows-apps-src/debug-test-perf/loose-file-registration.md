@@ -5,12 +5,12 @@ ms.date: 6/1/2018
 ms.topic: article
 keywords: windows 10、uwp、デバイスのポータル、apps manager、デプロイ、sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 928c07bd23228f0fefd78be6019a0d116b2e6e4b
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: adc944f3e84e2ea7ba3dacd2021bc2e141bf8cdd
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57635427"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66362314"
 ---
 # <a name="deploy-an-app-through-loose-file-registration"></a>ルーズ ファイルの登録によるアプリの展開 
 
@@ -34,7 +34,7 @@ ms.locfileid: "57635427"
 Windows には、ローカルおよびリモート デバイスで圧縮しないファイルのレイアウトを登録する複数の開発者ツールが用意されています。 選択できます`WinDeployAppCmd`(Windows SDK ツール)、Windows Device Portal、PowerShell、および[Visual Studio](https://docs.microsoft.com/windows/uwp/debug-test-perf/deploying-and-debugging-uwp-apps#register-layout-from-network)します。 以下これらのツールを使用して圧縮しないファイルを登録する方法が変わります。 ただし、最初に、次のセットアップがあることを確認します。
 
 - デバイスは、Windows 10 Creators Update (ビルド 14965) 以降である必要があります。
-- 有効にする必要があります[開発者モード](https://msdn.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)と[デバイスの検出](https://docs.microsoft.com/en-us/windows/uwp/get-started/enable-your-device-for-development#device-discovery)すべてのデバイスでします。
+- 有効にする必要があります[開発者モード](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)と[デバイスの検出](https://docs.microsoft.com/en-us/windows/uwp/get-started/enable-your-device-for-development#device-discovery)すべてのデバイスでします。
 
 > [!IMPORTANT]
 > 圧縮しないファイルの登録では、ネットワーク共有 (SMB) プロトコルをサポートするデバイスで使用可能なのみです。デスクトップ、Xbox。 

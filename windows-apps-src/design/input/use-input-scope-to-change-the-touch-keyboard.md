@@ -9,25 +9,25 @@ template: detail.hbs
 keywords: キーボード, アクセシビリティ, ナビゲーション, フォーカス, テキスト, 入力, ユーザーの操作
 ms.date: 02/08/2017
 ms.topic: article
-ms.openlocfilehash: 1350c6e0eae057386fb721a358f71acb19c4efc1
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: HT
+ms.openlocfilehash: c522e21c45a3edd08a14b081cc227a83f19a3ea0
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57591767"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66365363"
 ---
 # <a name="use-input-scope-to-change-the-touch-keyboard"></a>入力値の種類を使ったタッチ キーボードの変更
 
 ユーザーがタッチ キーボード、つまりソフト入力パネル (SIP) でデータを入力できるように、ユーザーが入力すると予想されるデータの種類に合わせてテキスト コントロールの入力値の種類を設定できます。
 
 ### <a name="important-apis"></a>重要な API
-- [InputScope](https://msdn.microsoft.com/library/windows/apps/hh702632)
-- [inputScopeNameValue](https://msdn.microsoft.com/library/windows/apps/hh702028)
+- [InputScope](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.inputscope)
+- [inputScopeNameValue](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.InputScopeNameValue)
 
 
-タッチ キーボードは、アプリがタッチ スクリーン付きのデバイスで実行されているときにテキスト入力に使うことができます。 タッチ キーボードは、**[TextBox](https://msdn.microsoft.com/library/windows/apps/br209683)** または **[RichEditBox](https://msdn.microsoft.com/library/windows/apps/br227548)** などの編集可能な入力フィールドをユーザーがタップしたときに呼び出されます。 ユーザーが入力すると予想されるデータの種類と一致するようにテキスト コントロールの*入力値の種類*を設定することで、ユーザーはより速く簡単にアプリでデータを入力できるようになります。 入力値の種類は、システムに対してコントロールが予期しているテキスト入力の種類のヒントとなるため、システムはその入力の種類用の特殊なタッチ キーボード レイアウトを提供できます。
+タッチ キーボードは、アプリがタッチ スクリーン付きのデバイスで実行されているときにテキスト入力に使うことができます。 タッチ キーボードは、 **[TextBox](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox)** または **[RichEditBox](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RichEditBox)** などの編集可能な入力フィールドをユーザーがタップしたときに呼び出されます。 ユーザーが入力すると予想されるデータの種類と一致するようにテキスト コントロールの*入力値の種類*を設定することで、ユーザーはより速く簡単にアプリでデータを入力できるようになります。 入力値の種類は、システムに対してコントロールが予期しているテキスト入力の種類のヒントとなるため、システムはその入力の種類用の特殊なタッチ キーボード レイアウトを提供できます。
 
-たとえば、テキスト ボックスが 4 桁の PIN の入力専用である場合は、[**InputScope**](https://msdn.microsoft.com/library/windows/apps/hh702632) プロパティを **Number** に設定します。 これにより、システムに数字キーパッド レイアウトの表示が指示されるため、ユーザーは簡単に PIN を入力できます。
+たとえば、テキスト ボックスが 4 桁の PIN の入力専用である場合は、[**InputScope**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.inputscope) プロパティを **Number** に設定します。 これにより、システムに数字キーパッド レイアウトの表示が指示されるため、ユーザーは簡単に PIN を入力できます。
 
 > [!IMPORTANT]
 > - この情報は、SIP にのみ適用されます。 ハードウェア キーボードにも、Windows の簡単操作オプションで使用できるスクリーン キーボードにも適用されません。
@@ -35,19 +35,19 @@ ms.locfileid: "57591767"
 
 ## <a name="changing-the-input-scope-of-a-text-control"></a>テキスト コントロールの入力値の種類を変更する
 
-アプリで使用可能な入力値の種類は、**[InputScopeNameValue](https://msdn.microsoft.com/library/windows/apps/hh702028)** 列挙体のメンバーです。  **[TextBox](https://msdn.microsoft.com/library/windows/apps/br209683)** または **[RichEditBox](https://msdn.microsoft.com/library/windows/apps/br227548)** の **InputScope** プロパティを、これらの値のいずれかに設定できます。
+アプリで使用可能な入力値の種類は、 **[InputScopeNameValue](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.InputScopeNameValue)** 列挙体のメンバーです。  **[TextBox](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox)** または **[RichEditBox](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RichEditBox)** の **InputScope** プロパティを、これらの値のいずれかに設定できます。
 
 > [!IMPORTANT]
-> **[InputScope](https://msdn.microsoft.com/library/windows/apps/dn996570)** プロパティ **[PasswordBox](https://msdn.microsoft.com/library/windows/apps/br227519)** のみをサポート、 **パスワード** と **NumericPin** 値。 それ以外の値はすべて無視されます。
+> **[InputScope](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.passwordbox.inputscope)** プロパティ **[PasswordBox](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.PasswordBox)** のみをサポート、 **パスワード** と **NumericPin** 値。 それ以外の値はすべて無視されます。
 
 ここでは、各テキスト ボックスで予期されるデータと一致するように、いくつかのテキスト ボックスの入力値の種類を変更します。
 
 **入力 XAML にスコープを変更するには**
 
 1.  ページの XAML ファイルで、変更するテキスト コントロールのタグを見つけます。
-2.  [  **InputScope**](https://msdn.microsoft.com/library/windows/apps/hh702632) 属性をタグに追加し、予期される入力に一致する [**InputScopeNameValue**](https://msdn.microsoft.com/library/windows/apps/hh702028) 値を指定します。
+2.  [  **InputScope**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.inputscope) 属性をタグに追加し、予期される入力に一致する [**InputScopeNameValue**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.InputScopeNameValue) 値を指定します。
 
-    次に示すのは、一般的な顧客の連絡先フォームに表示されるテキスト ボックスです。 [  **InputScope**](https://msdn.microsoft.com/library/windows/apps/hh702632) を設定すると、各テキスト ボックスに、データに適切なレイアウトのタッチ キーボードが表示されます。
+    次に示すのは、一般的な顧客の連絡先フォームに表示されるテキスト ボックスです。 [  **InputScope**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.inputscope) を設定すると、各テキスト ボックスに、データに適切なレイアウトのタッチ キーボードが表示されます。
 
     ```xaml
     <StackPanel Width="300">
@@ -60,37 +60,37 @@ ms.locfileid: "57591767"
 
 **コードの入力スコープを変更するには**
 
-1.  ページの XAML ファイルで、変更するテキスト コントロールのタグを見つけます。 設定されていない場合は、[x: Name 属性](https://msdn.microsoft.com/library/windows/apps/mt204788) を設定します。これで、コード内でコントロールを参照できます。
+1.  ページの XAML ファイルで、変更するテキスト コントロールのタグを見つけます。 設定されていない場合は、[x: Name 属性](https://docs.microsoft.com/windows/uwp/xaml-platform/x-name-attribute) を設定します。これで、コード内でコントロールを参照できます。
 
     ```csharp
     <TextBox Header="Telephone Number" x:Name="phoneNumberTextBox"/>
     ```
 
-2.  新しい [**InputScope**](https://msdn.microsoft.com/library/windows/apps/hh702025) オブジェクトをインスタンス化します。
+2.  新しい [**InputScope**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.InputScope) オブジェクトをインスタンス化します。
 
     ```csharp
     InputScope scope = new InputScope();
     ```
 
-3.  新しい [**InputScopeName**](https://msdn.microsoft.com/library/windows/apps/hh702027) オブジェクトをインスタンス化します。
+3.  新しい [**InputScopeName**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.InputScopeName) オブジェクトをインスタンス化します。
     
     ```csharp
     InputScopeName scopeName = new InputScopeName();
     ```
 
-4.  [  **InputScopeName**](https://msdn.microsoft.com/library/windows/apps/hh702027) オブジェクトの [**NameValue**](https://msdn.microsoft.com/library/windows/apps/hh702032) プロパティを [**InputScopeNameValue**](https://msdn.microsoft.com/library/windows/apps/hh702028) 列挙体の値に設定します。
+4.  [  **InputScopeName**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.InputScopeName) オブジェクトの [**NameValue**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.inputscopename.namevalue) プロパティを [**InputScopeNameValue**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.InputScopeNameValue) 列挙体の値に設定します。
 
     ```csharp
     scopeName.NameValue = InputScopeNameValue.TelephoneNumber;
     ```
 
-5.  [  **InputScope**](https://msdn.microsoft.com/library/windows/apps/hh702025) オブジェクトの [**Names**](https://msdn.microsoft.com/library/windows/apps/hh702034) コレクションに [**InputScopeName**](https://msdn.microsoft.com/library/windows/apps/hh702027) オブジェクトを追加します。
+5.  [  **InputScope**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.InputScope) オブジェクトの [**Names**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.inputscope.names) コレクションに [**InputScopeName**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.InputScopeName) オブジェクトを追加します。
 
     ```csharp
     scope.Names.Add(scopeName);
     ```
 
-6.  [  **InputScope**](https://msdn.microsoft.com/library/windows/apps/hh702025) オブジェクトを、テキスト コントロールの [**InputScope**](https://msdn.microsoft.com/library/windows/apps/hh702632) プロパティの値として設定します。
+6.  [  **InputScope**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.InputScope) オブジェクトを、テキスト コントロールの [**InputScope**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.inputscope) プロパティの値として設定します。
 
     ```csharp
     phoneNumberTextBox.InputScope = scope;
@@ -117,17 +117,17 @@ phoneNumberTextBox.InputScope = new InputScope()
 
 ## <a name="text-prediction-spell-checking-and-auto-correction"></a>予測入力、スペル チェック、および自動修正
 
-[  **TextBox**](https://msdn.microsoft.com/library/windows/apps/br209683) コントロールと [**RichEditBox**](https://msdn.microsoft.com/library/windows/apps/br227548) コントロールには、SIP の動作に影響を与えるプロパティがいくつかあります。 ユーザーに最適なエクスペリエンスを提供するには、これらのプロパティが、タッチ操作を使用したテキスト入力に与える影響を理解しておく必要があります。
+[  **TextBox**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox) コントロールと [**RichEditBox**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RichEditBox) コントロールには、SIP の動作に影響を与えるプロパティがいくつかあります。 ユーザーに最適なエクスペリエンスを提供するには、これらのプロパティが、タッチ操作を使用したテキスト入力に与える影響を理解しておく必要があります。
 
--   [**IsSpellCheckEnabled**](https://msdn.microsoft.com/library/windows/apps/br209688): コントロールが、認識されない語をマークする、システムのスペル チェック エンジンと対話とき、テキスト コントロールでスペル チェックを有効にします。 単語をタップすると、修正候補の一覧を表示できます。 スペル チェック オプションは既定で有効になっています。
+-   [**IsSpellCheckEnabled**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.isspellcheckenabled): コントロールが、認識されない語をマークする、システムのスペル チェック エンジンと対話とき、テキスト コントロールでスペル チェックを有効にします。 単語をタップすると、修正候補の一覧を表示できます。 スペル チェック オプションは既定で有効になっています。
 
     入力値の種類が **Default** である場合、このプロパティを使用すると、文字列を入力するときに、文の最初の単語に対する大文字の自動設定および単語の自動修正が有効になります。 これらの自動修正機能は、他の入力値の種類では無効である場合があります。 詳しくは、このトピックの後半にある表をご覧ください。
 
--   [**IsTextPredictionEnabled**](https://msdn.microsoft.com/library/windows/apps/br209690)-システムが単語入力を開始する可能性があることの一覧を表示するテキスト コントロールのテキストの予測を有効にします。 一覧から選択できるため、単語全体を入力しなくても済みます。 予測入力は既定で有効になっています。
+-   [**IsTextPredictionEnabled**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.istextpredictionenabled)-システムが単語入力を開始する可能性があることの一覧を表示するテキスト コントロールのテキストの予測を有効にします。 一覧から選択できるため、単語全体を入力しなくても済みます。 予測入力は既定で有効になっています。
 
-    入力値の種類が **Default** 以外のとき、[**IsTextPredictionEnabled**](https://msdn.microsoft.com/library/windows/apps/br209690) プロパティが **true** であっても、予測入力が無効になる場合があります。 詳しくは、このトピックの後半にある表をご覧ください。
+    入力値の種類が **Default** 以外のとき、[**IsTextPredictionEnabled**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.istextpredictionenabled) プロパティが **true** であっても、予測入力が無効になる場合があります。 詳しくは、このトピックの後半にある表をご覧ください。
 
--   [**PreventKeyboardDisplayOnProgrammaticFocus**](https://msdn.microsoft.com/library/windows/apps/dn299273): このプロパティが**true**が原因でシステムのテキスト コントロールにフォーカスをプログラムで設定すると、SIP を表示します。 代わりに、ユーザーがコントロールで操作するときにだけ、キーボードが表示されます。
+-   [**PreventKeyboardDisplayOnProgrammaticFocus**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.preventkeyboarddisplayonprogrammaticfocus): このプロパティが**true**が原因でシステムのテキスト コントロールにフォーカスをプログラムで設定すると、SIP を表示します。 代わりに、ユーザーがコントロールで操作するときにだけ、キーボードが表示されます。
 
 ## <a name="touch-keyboard-index-for-windows"></a>Windows のタッチ キーボードのインデックス
 
@@ -168,8 +168,8 @@ phoneNumberTextBox.InputScope = new InputScope()
 
 ![URL 用 Windows タッチ キーボード](images/input-scopes/url.png)
 
-- **.com** キーと ![Go キー](images/input-scopes/kbdgokey.png) (Go) キーがあります。 長押しし、 **.com**追加のオプションを表示するキー (**.org**、 **.net**、およびリージョン固有のサフィックスを)
-- 含まれています、 **:**、 **-**、および **/** キー
+- **.com** キーと ![Go キー](images/input-scopes/kbdgokey.png) (Go) キーがあります。 長押しし、 **.com**追加のオプションを表示するキー ( **.org**、 **.net**、およびリージョン固有のサフィックスを)
+- 含まれています、 **:** 、 **-** 、および **/** キー
 - スペル チェック: 既定では無効だが、有効にすることも可能
 - 自動修正: 既定では無効だが、有効にすることも可能
 - 大文字の自動設定: 既定では無効だが、有効にすることも可能
@@ -181,8 +181,8 @@ phoneNumberTextBox.InputScope = new InputScope()
 `<TextBox InputScope="EmailSmtpAddress"/>`
 
 ![メール アドレス用の Windows タッチ キーボード](images/input-scopes/emailsmtpaddress.png)
-- **@**  キーと **.com** キーがあります。 長押しし、 **.com**追加のオプションを表示するキー (**.org**、 **.net**、およびリージョン固有のサフィックスを)
-- 含まれています、 **_** と**-** キー
+- **@**  キーと **.com** キーがあります。 長押しし、 **.com**追加のオプションを表示するキー ( **.org**、 **.net**、およびリージョン固有のサフィックスを)
+- 含まれています、 **_** と **-** キー
 - スペル チェック: 既定では無効だが、有効にすることも可能
 - 自動修正: 既定では無効だが、有効にすることも可能
 - 大文字の自動設定: 既定では無効だが、有効にすることも可能
@@ -231,13 +231,13 @@ phoneNumberTextBox.InputScope = new InputScope()
 - 大文字の自動設定: 常に無効
 - 予測入力: 常に無効
 
-### <a name="formula"></a>Formula
+### <a name="formula"></a>[数式]
 
 `<TextBox InputScope="Formula"/>`
 
 ![式の Windows のタッチ キーボード](images/input-scopes/formula.png)
 - 含まれています、 **=** キー
-- 含まれています、 **%**、 **$**、および**+** キー
+- 含まれています、 **%** 、 **$** 、および **+** キー
 - スペル チェック: 既定では有効だが、無効にすることも可能
 - 自動修正: 既定では有効だが、無効にすることも可能
 - 大文字の自動設定: 常に無効

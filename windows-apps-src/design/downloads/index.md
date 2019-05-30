@@ -7,12 +7,12 @@ ms.topic: article
 ms.assetid: 88da6d1a-379c-4173-a56d-d8b9a4eab5da
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 24e994435a2ff7a01e5c77a0043e7a3fb8bc3f33
-ms.sourcegitcommit: 09edf480f2224e29e190fad8518f680c16e21c6d
+ms.openlocfilehash: 2c7332a3e1097a8e62576ae5920eb82c2bd5d2a6
+ms.sourcegitcommit: 423ff8f1fd791445e21cca534bcefe407251acf1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65065407"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66251606"
 ---
 ![設計の基本](../images/downloads-2x.png)
 
@@ -27,44 +27,44 @@ Fluent Design/UWP アプリの設計と UI に関連するダウンロード。 
 
 :::row:::
     :::column:::
-        ![hero image](images/figma.png)
-        <b>Figma toolkit</b><br>
-        v1810, October 2018<br>
-        <a href="https://aka.ms/figmatoolkit">Download</a>
+![ヒーロー イメージ](images/figma.png)
+<b>Figma ツールキット</b><br>
+v1810、2018 年 10 月<br>
+<a href="https://aka.ms/figmatoolkit">ダウンロード</a>
     :::column-end:::
     :::column:::
-        ![hero image](images/sketch.png)
-        <b>Sketch toolkit</b><br>
-        v1810, October 2018<br>
-        <a href="https://aka.ms/sketchtoolkit">Download</a>
+![ヒーロー イメージ](images/sketch.png)
+<b>Sketch ツールキット</b><br>
+v1810、2018 年 10 月<br>
+<a href="https://aka.ms/sketchtoolkit">ダウンロード</a>
     :::column-end:::    
     :::column:::
-        ![hero image](images/adobe-xd.png)
-        <b>Adobe XD toolkit</b><br>
-        v1901, January 2019<br>
-        <a href="https://aka.ms/adobexdtoolkit">Download</a>
+![ヒーロー イメージ](images/adobe-xd.png)
+<b>Adobe XD ツールキット</b><br>
+v1901、2019 年 1 月<br>
+<a href="https://aka.ms/adobexdtoolkit">ダウンロード</a>
     :::column-end:::
 :::row-end:::
 
 :::row:::
     :::column:::
-        ![hero image](images/adobe-illustrator.png)
-        <b>Adobe Illustrator toolkit</b><br>
-        v1806, June 2018<br>
-        <a href="https://aka.ms/adobeillustratortoolkit">Download</a>
+![ヒーロー イメージ](images/adobe-illustrator.png)
+<b>Adobe Illustrator ツールキット</b><br>
+v1806、2018 年 6 月<br>
+<a href="https://aka.ms/adobeillustratortoolkit">ダウンロード</a>
     :::column-end:::
     :::column:::
-        ![hero image](images/adobe-photoshop.png)
-        <b>Adobe Photoshop toolkit</b><br>
-        v1705, May 2017<br>
-        <a href="https://aka.ms/adobephotoshoptoolkit">Download</a>
+![ヒーロー イメージ](images/adobe-photoshop.png)
+<b>Adobe Photoshop ツールキット</b><br>
+v1705、2017 年 5 月<br>
+<a href="https://aka.ms/adobephotoshoptoolkit">ダウンロード</a>
     :::column-end:::
     :::column:::
-        ![hero image](images/framer.png)
-        <b>Framer toolkit</b><br>
-        (This toolkit is no longer supported.)<br/>
-        v1806, June 2018<br>
-        <a href="https://aka.ms/framertoolkit">Download</a>
+![ヒーロー イメージ](images/framer.png)
+<b>Framer ツールキット</b><br>
+(このツールはサポートされなくなりました。)<br/>
+v1806、2018 年 6 月<br>
+<a href="https://aka.ms/framertoolkit">ダウンロード</a>
     :::column-end:::
 :::row-end:::
 
@@ -72,16 +72,16 @@ Fluent Design/UWP アプリの設計と UI に関連するダウンロード。 
 
 :::row:::
     :::column:::
-        ![WinUI library thumbnail](images/WinUI-library.png)
-        <b>Windows UI Library</b><br>
-        Controls and other UI elements for UWP apps.<br/>
-        <a href="/uwp/toolkits/winui/getting-started">Installation instructions</a><br/>
+![WinUI ライブラリ サムネイル](images/WinUI-library.png)
+<b>Windows UI ライブラリ</b><br>
+UWP アプリのコントロールと他の UI 要素。<br/>
+<a href="/uwp/toolkits/winui/getting-started">インストール手順</a><br/>
     :::column-end:::
     :::column:::
-        ![Windows community thumbnail](images/Windows-community-toolkit.png)
-        <b>Windows Community Toolkit</b><br>
-        Helper functions, custom controls, and app services.<br />
-        <a href="/windows/uwpcommunitytoolkit/getting-started">Installation instructions</a>
+![Windows コミュニティ サムネイル](images/Windows-community-toolkit.png)
+<b>Windows コミュニティ ツールキット</b><br>
+ヘルパー関数、カスタム コントロール、およびアプリ サービス。<br />
+<a href="/windows/uwpcommunitytoolkit/getting-started">インストール手順</a>
     :::column-end:::
     :::column:::
     :::column-end:::

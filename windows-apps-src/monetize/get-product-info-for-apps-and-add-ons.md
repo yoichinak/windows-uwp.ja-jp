@@ -6,47 +6,47 @@ ms.date: 02/08/2018
 ms.topic: article
 keywords: Windows 10, UWP, アプリ内購入, IAP, アドオン, Windows.Services.Store
 ms.localizationpriority: medium
-ms.openlocfilehash: 8ec9c64e3cffb55a674fcc19d3152de29ef6d988
-ms.sourcegitcommit: 6a7dd4da2fc31ced7d1cdc6f7cf79c2e55dc5833
+ms.openlocfilehash: 672435961c689d1596b52d4c96e1d1e91266268c
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58334890"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66358791"
 ---
 # <a name="get-product-info-for-apps-and-add-ons"></a>アプリとアドオンの製品情報の取得
 
-この記事では、[Windows.Services.Store](https://msdn.microsoft.com/library/windows/apps/windows.services.store.aspx) 名前空間の [StoreContext](https://msdn.microsoft.com/library/windows/apps/windows.services.store.storecontext.aspx) クラスのメソッドを使って、現在のアプリとそのアドオンの Microsoft Store に関連する情報を取得する方法について説明します。
+この記事では、[Windows.Services.Store](https://docs.microsoft.com/uwp/api/windows.services.store) 名前空間の [StoreContext](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext) クラスのメソッドを使って、現在のアプリとそのアドオンの Microsoft Store に関連する情報を取得する方法について説明します。
 
 完全なサンプル アプリケーションについては、[ストア サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Store)をご覧ください。
 
 > [!NOTE]
-> **Windows.Services.Store** 名前空間は、Windows 10 バージョン 1607 で導入され、Visual Studio で、**Windows 10 Anniversary Edition (10.0、ビルド 14393)** 以降のリリースをターゲットとするプロジェクトでのみ使用できます。 アプリが Windows 10 の以前のバージョンをターゲットする場合、**Windows.Services.Store** 名前空間の代わりに [Windows.ApplicationModel.Store](https://msdn.microsoft.com/library/windows/apps/windows.applicationmodel.store.aspx) 名前空間を使う必要があります。 詳しくは、[こちらの記事](in-app-purchases-and-trials-using-the-windows-applicationmodel-store-namespace.md)をご覧ください。
+> **Windows.Services.Store** 名前空間は、Windows 10 バージョン 1607 で導入され、Visual Studio で、**Windows 10 Anniversary Edition (10.0、ビルド 14393)** 以降のリリースをターゲットとするプロジェクトでのみ使用できます。 アプリが Windows 10 の以前のバージョンをターゲットする場合、**Windows.Services.Store** 名前空間の代わりに [Windows.ApplicationModel.Store](https://docs.microsoft.com/uwp/api/windows.applicationmodel.store) 名前空間を使う必要があります。 詳しくは、[こちらの記事](in-app-purchases-and-trials-using-the-windows-applicationmodel-store-namespace.md)をご覧ください。
 
 ## <a name="prerequisites"></a>前提条件
 
 これらの例には、次の前提条件があります。
 * **Windows 10 Anniversary Edition (10.0、ビルド 14393)** 以降のリリースをターゲットとするユニバーサル Windows プラットフォーム (UWP) アプリの Visual Studio プロジェクト。
-* ある[アプリの提出を作成した](https://msdn.microsoft.com/windows/uwp/publish/app-submissions)パートナー センターでこのアプリがストアで公開されています。 必要に応じで、テスト中にストアでアプリを検索できないようにアプリを構成することも可能です。 詳しくは、[テスト ガイダンス](in-app-purchases-and-trials.md#testing)をご覧ください。
+* ある[アプリの提出を作成した](https://docs.microsoft.com/windows/uwp/publish/app-submissions)パートナー センターでこのアプリがストアで公開されています。 必要に応じで、テスト中にストアでアプリを検索できないようにアプリを構成することも可能です。 詳しくは、[テスト ガイダンス](in-app-purchases-and-trials.md#testing)をご覧ください。
 * アプリ用のアドオンの製品情報を取得する場合は、する必要がありますも[パートナー センターで、アドオンの作成](../publish/add-on-submissions.md)です。
 
 これらの例のコードは、次の点を前提としています。
-* コードは、```workingProgressRing``` という名前の [ProgressRing](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.progressring.aspx) と ```textBlock``` という名前の [TextBlock](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.textblock.aspx) を含む [Page](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.page.aspx) のコンテキストで実行されます。 これらのオブジェクトは、それぞれ非同期操作が発生していることを示するためと、出力メッセージを表示するために使用されます。
+* コードは、```workingProgressRing``` という名前の [ProgressRing](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.progressring) と ```textBlock``` という名前の [TextBlock](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock) を含む [Page](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.page) のコンテキストで実行されます。 これらのオブジェクトは、それぞれ非同期操作が発生していることを示するためと、出力メッセージを表示するために使用されます。
 * コード ファイルには、**Windows.Services.Store** 名前空間の **using** ステートメントがあります。
 * アプリは、アプリを起動したユーザーのコンテキストでのみ動作するシングル ユーザー アプリです。 詳しくは、「[アプリ内購入と試用版](in-app-purchases-and-trials.md#api_intro)」をご覧ください。
 
 > [!NOTE]
-> [デスクトップ ブリッジ](https://developer.microsoft.com/windows/bridges/desktop)を使用するデスクトップ アプリケーションがある場合、これらの例には示されていないコードを追加して [StoreContext](https://msdn.microsoft.com/library/windows/apps/windows.services.store.storecontext.aspx) オブジェクトを構成することが必要になることがあります。 詳しくは、「[デスクトップ ブリッジを使用するデスクトップ アプリケーションでの StoreContext クラスの使用](in-app-purchases-and-trials.md#desktop)」をご覧ください。
+> [デスクトップ ブリッジ](https://developer.microsoft.com/windows/bridges/desktop)を使用するデスクトップ アプリケーションがある場合、これらの例には示されていないコードを追加して [StoreContext](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext) オブジェクトを構成することが必要になることがあります。 詳しくは、「[デスクトップ ブリッジを使用するデスクトップ アプリケーションでの StoreContext クラスの使用](in-app-purchases-and-trials.md#desktop)」をご覧ください。
 
 ## <a name="get-info-for-the-current-app"></a>現在のアプリの情報の取得
 
-現在のアプリに関するストア製品情報を取得するには、[GetStoreProductForCurrentAppAsync](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.getstoreproductforcurrentappasync) メソッドを使います。 これは、価格などの情報の取得に使うことができる [StoreProduct](https://msdn.microsoft.com/library/windows/apps/windows.services.store.storeproduct.aspx) オブジェクトを返す非同期メソッドです。
+現在のアプリに関するストア製品情報を取得するには、[GetStoreProductForCurrentAppAsync](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.getstoreproductforcurrentappasync) メソッドを使います。 これは、価格などの情報の取得に使うことができる [StoreProduct](https://docs.microsoft.com/uwp/api/windows.services.store.storeproduct) オブジェクトを返す非同期メソッドです。
 
 > [!div class="tabbedCodeSnippets"]
 [!code-csharp[GetProductInfo](./code/InAppPurchasesAndLicenses_RS1/cs/GetAppInfoPage.xaml.cs#GetAppInfo)]
 
 ## <a name="get-info-for-add-ons-with-known-store-ids-that-are-associated-with-the-current-app"></a>現在のアプリに関連付けられている既知の Store ID を持つアドオンの情報の取得
 
-現在のアプリに関連付けられていて、既に [Store ID](in-app-purchases-and-trials.md#store_ids) がわかっているアドオンの Store 製品情報を取得するには、[GetStoreProductsAsync](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.getstoreproductsasync) メソッドを使います。 これは、各アドオンを表す [StoreProduct](https://msdn.microsoft.com/library/windows/apps/windows.services.store.storeproduct.aspx) オブジェクトのコレクションを返す非同期メソッドです。 ストア ID に加えて、アドオンの種類を識別する文字列の一覧をこのメソッドに渡す必要があります。 サポートされている文字列値の一覧については[ProductKind](https://docs.microsoft.com/uwp/api/windows.services.store.storeproduct.productkind) プロパティをご覧ください。
+現在のアプリに関連付けられていて、既に [Store ID](in-app-purchases-and-trials.md#store_ids) がわかっているアドオンの Store 製品情報を取得するには、[GetStoreProductsAsync](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.getstoreproductsasync) メソッドを使います。 これは、各アドオンを表す [StoreProduct](https://docs.microsoft.com/uwp/api/windows.services.store.storeproduct) オブジェクトのコレクションを返す非同期メソッドです。 ストア ID に加えて、アドオンの種類を識別する文字列の一覧をこのメソッドに渡す必要があります。 サポートされている文字列値の一覧については[ProductKind](https://docs.microsoft.com/uwp/api/windows.services.store.storeproduct.productkind) プロパティをご覧ください。
 
 > [!NOTE]
 > **GetStoreProductsAsync** メソッドは、アドオンが現在購入可能かどうかにかかわらず、アプリに関連付けられている指定のアドオンの製品情報を返します。 現在のアプリで現在購入可能なすべてのアドオンの情報を取得するには、代わりに[次のセクション](#get-info-for-add-ons-that-are-available-for-purchase-from-the-current-app)で説明する **GetAssociatedStoreProductsAsync** メソッドを使います。
@@ -58,7 +58,7 @@ ms.locfileid: "58334890"
 
 ## <a name="get-info-for-add-ons-that-are-available-for-purchase-from-the-current-app"></a>現在のアプリから購入可能なアドオンの情報の取得
 
-現在のアプリから現在購入可能なアドオンの Store 製品情報を取得するには、[GetAssociatedStoreProductsAsync](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.getassociatedstoreproductsasync) メソッドを使います。 これは、利用可能な各アドオンを表す [StoreProduct](https://msdn.microsoft.com/library/windows/apps/windows.services.store.storeproduct.aspx) オブジェクトのコレクションを返す非同期メソッドです。 取得するアドオンの種類を識別する文字列の一覧をこのメソッドに渡す必要があります。 サポートされている文字列値の一覧については[ProductKind](https://docs.microsoft.com/uwp/api/windows.services.store.storeproduct.productkind) プロパティをご覧ください。
+現在のアプリから現在購入可能なアドオンの Store 製品情報を取得するには、[GetAssociatedStoreProductsAsync](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.getassociatedstoreproductsasync) メソッドを使います。 これは、利用可能な各アドオンを表す [StoreProduct](https://docs.microsoft.com/uwp/api/windows.services.store.storeproduct) オブジェクトのコレクションを返す非同期メソッドです。 取得するアドオンの種類を識別する文字列の一覧をこのメソッドに渡す必要があります。 サポートされている文字列値の一覧については[ProductKind](https://docs.microsoft.com/uwp/api/windows.services.store.storeproduct.productkind) プロパティをご覧ください。
 
 > [!NOTE]
 > アプリから購入可能なアドオンの数が多い場合は、代わりに [GetAssociatedStoreProductsWithPagingAsync](https://docs.microsoft.com/uwp/api/Windows.Services.Store.StoreContext.GetAssociatedStoreProductsWithPagingAsync) メソッドを使って、ページングを利用してアドオンの結果を返すこともできます。
@@ -71,7 +71,7 @@ ms.locfileid: "58334890"
 
 ## <a name="get-info-for-add-ons-for-the-current-app-that-the-user-has-purchased"></a>現在のアプリでユーザーが購入済みのアドオンの情報の取得
 
-現在のユーザーが購入したアドオンの Store 製品情報を取得するには、[GetUserCollectionAsync](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.getusercollectionasync) メソッドを使います。 これは、各アドオンを表す [StoreProduct](https://msdn.microsoft.com/library/windows/apps/windows.services.store.storeproduct.aspx) オブジェクトのコレクションを返す非同期メソッドです。 取得するアドオンの種類を識別する文字列の一覧をこのメソッドに渡す必要があります。 サポートされている文字列値の一覧については[ProductKind](https://msdn.microsoft.com/library/windows/apps/windows.services.store.storeproduct.productkind.aspx) プロパティをご覧ください。
+現在のユーザーが購入したアドオンの Store 製品情報を取得するには、[GetUserCollectionAsync](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.getusercollectionasync) メソッドを使います。 これは、各アドオンを表す [StoreProduct](https://docs.microsoft.com/uwp/api/windows.services.store.storeproduct) オブジェクトのコレクションを返す非同期メソッドです。 取得するアドオンの種類を識別する文字列の一覧をこのメソッドに渡す必要があります。 サポートされている文字列値の一覧については[ProductKind](https://docs.microsoft.com/uwp/api/windows.services.store.storeproduct.productkind) プロパティをご覧ください。
 
 > [!NOTE]
 > アプリのアドオンが多くある場合、代わりに [GetUserCollectionWithPagingAsync](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.getusercollectionwithpagingasync) メソッドを使ってページングを利用し、アドオンの結果を返すこともできます。

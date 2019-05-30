@@ -6,12 +6,12 @@ ms.topic: article
 keywords: Windows 10, UWP, Microsoft Store 申請 API, パッケージのロールアウト, フライトの申請
 ms.assetid: 397f1b99-2be7-4f65-bcf1-9433a3d496ad
 ms.localizationpriority: medium
-ms.openlocfilehash: 1afc53a6f798fa5a85ddb3ec329d6c6b3fbee8ed
-ms.sourcegitcommit: 6a7dd4da2fc31ced7d1cdc6f7cf79c2e55dc5833
+ms.openlocfilehash: ba1cfe5c1afbf807b401b734e3d4af449a16e30a
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58334460"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66358922"
 ---
 # <a name="get-rollout-info-for-a-flight-submission"></a>パッケージ フライトの申請に関するロールアウトの情報を取得する
 
@@ -46,7 +46,7 @@ ms.locfileid: "58334460"
 
 | 名前        | 種類   | 説明                                                                 |
 |---------------|--------|-----------------------------------------------------------------------------|
-| applicationId | string | 必須。 取得するパッケージのロールアウトの情報を持つパッケージ フライトの申請が含まれているアプリのストア ID です。 ストア ID について詳しくは、「[アプリ ID の詳細の表示](https://msdn.microsoft.com/windows/uwp/publish/view-app-identity-details)」をご覧ください。  |
+| applicationId | string | 必須。 取得するパッケージのロールアウトの情報を持つパッケージ フライトの申請が含まれているアプリのストア ID です。 ストア ID について詳しくは、「[アプリ ID の詳細の表示](https://docs.microsoft.com/windows/uwp/publish/view-app-identity-details)」をご覧ください。  |
 | flightId | string | 必須。 取得するパッケージのロールアウトの情報を持つ申請が含まれているパッケージ フライトの ID です。 この ID は、[パッケージ フライトの作成](create-a-flight.md)要求と[アプリのパッケージ フライトの取得](get-flights-for-an-app.md)要求の応答データで確認できます。 パートナー センターで作成されたフライトはこの ID はパートナー センターでのフライトのページの URL で使用できるも。    |
 | submissionId | string | 必須。 取得するパッケージのロールアウトの情報を持つ申請の ID です。 この ID は、[パッケージ フライトの申請の作成](create-a-flight-submission.md)要求に対する応答データで確認できます。 パートナー センターで作成された送信、この ID はパートナー センターでの送信 ページの URL で使用できるも。   |
 

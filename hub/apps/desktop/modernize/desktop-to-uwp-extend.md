@@ -7,12 +7,12 @@ keywords: windows 10, uwp
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: 10ad54dd485d7dbf5e7f4cb119c7700c09056017
-ms.sourcegitcommit: d1c3e13de3da3f7dce878b3735ee53765d0df240
+ms.openlocfilehash: 672485dd505227da0a59a220edaa9648e2521e63
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66215131"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66359632"
 ---
 # <a name="extend-your-desktop-app-with-modern-uwp-components"></a>最新の UWP コンポーネントを使ってデスクトップ アプリを拡張します。
 
@@ -175,7 +175,7 @@ XAML UI を UWP プロジェクトに追加します。 基本的なマップの
 
 ### <a name="start-the-uwp-app"></a>UWP アプリを起動する
 
-まず、デスクトップ アプリケーションから、プロトコル名と UWP アプリに渡すパラメーターが含まれた [URI](https://msdn.microsoft.com/library/system.uri.aspx) を作成します。 次に、[LaunchUriAsync](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchuriasync) メソッドを呼び出します。
+まず、デスクトップ アプリケーションから、プロトコル名と UWP アプリに渡すパラメーターが含まれた [URI](https://docs.microsoft.com/dotnet/api/system.uri?redirectedfrom=MSDN) を作成します。 次に、[LaunchUriAsync](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchuriasync) メソッドを呼び出します。
 
 ```csharp
 

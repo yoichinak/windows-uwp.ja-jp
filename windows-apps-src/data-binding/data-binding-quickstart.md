@@ -10,12 +10,12 @@ dev_langs:
 - csharp
 - cppwinrt
 - cppcx
-ms.openlocfilehash: cc8e4d1753333579b016a44adf9429d355d29fb6
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 48ba9bb410588b2c4b31f1bb0bb190aeeeb05edf
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57653877"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66360166"
 ---
 # <a name="data-binding-overview"></a>データ バインディングの概要
 
@@ -27,7 +27,7 @@ ms.locfileid: "57653877"
 
 ## <a name="create-the-project"></a>プロジェクトの作成
 
-最初に、**"新しいアプリケーション (Windows ユニバーサル)"** プロジェクトを新規作成します。 プロジェクトに "Quickstart" という名前を付けます。
+最初に、 **"新しいアプリケーション (Windows ユニバーサル)"** プロジェクトを新規作成します。 プロジェクトに "Quickstart" という名前を付けます。
 
 ## <a name="binding-to-a-single-item"></a>単一の項目へのバインド
 
@@ -324,11 +324,11 @@ MainPage::MainPage()
 
 ## <a name="binding-to-a-collection-of-items"></a>項目のコレクションへのバインド
 
-一般的なシナリオでは、ビジネス オブジェクトのコレクションにバインドします。 C# と Visual Basic では、データ バインディングのコレクションには汎用の [**ObservableCollection&lt;T&gt;**](https://msdn.microsoft.com/library/windows/apps/xaml/ms668604.aspx) クラスが適しています。このクラスは [**INotifyPropertyChanged**](https://msdn.microsoft.com/library/windows/apps/xaml/system.componentmodel.inotifypropertychanged.aspx) インターフェイスと [**INotifyCollectionChanged**](https://msdn.microsoft.com/library/windows/apps/xaml/system.collections.specialized.inotifycollectionchanged.aspx) インターフェイスを実装するためです。 これらのインターフェイスは、項目が追加または変更された場合や一覧自体のプロパティが変更された場合に、バインディングに変更を通知します。 コレクション内のオブジェクトのプロパティの変更をバインドされたコントロールに反映する場合は、ビジネス オブジェクトでも **INotifyPropertyChanged** を実装します。 詳しくは、「[データ バインディングの詳細](data-binding-in-depth.md)」をご覧ください。
+一般的なシナリオでは、ビジネス オブジェクトのコレクションにバインドします。 C# と Visual Basic では、データ バインディングのコレクションには汎用の [**ObservableCollection&lt;T&gt;** ](https://docs.microsoft.com/dotnet/api/system.collections.objectmodel.observablecollection-1?redirectedfrom=MSDN) クラスが適しています。このクラスは [**INotifyPropertyChanged**](https://docs.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged?redirectedfrom=MSDN) インターフェイスと [**INotifyCollectionChanged**](https://docs.microsoft.com/dotnet/api/system.collections.specialized.inotifycollectionchanged?redirectedfrom=MSDN) インターフェイスを実装するためです。 これらのインターフェイスは、項目が追加または変更された場合や一覧自体のプロパティが変更された場合に、バインディングに変更を通知します。 コレクション内のオブジェクトのプロパティの変更をバインドされたコントロールに反映する場合は、ビジネス オブジェクトでも **INotifyPropertyChanged** を実装します。 詳しくは、「[データ バインディングの詳細](data-binding-in-depth.md)」をご覧ください。
 
 使用する場合[C +/cli WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt)で observablecollection にバインドする方法の詳細については、その後[XAML コントロールの項目は、バインド C +/cli WinRT コレクション](/windows/uwp/cpp-and-winrt-apis/binding-collection)。 かどうかする読み取りをそのトピック最初に、目的の c++/cli の下に示す WinRT コード リストはより明確になります。
 
-次の例では、[**ListView**](https://msdn.microsoft.com/library/windows/apps/BR242878) を `Recording` オブジェクトのコレクションにバインドしています。 最初に、ビュー モデルにコレクションを追加します。 これらの新しいメンバーを **RecordingViewModel** クラスに追加します。
+次の例では、[**ListView**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView) を `Recording` オブジェクトのコレクションにバインドしています。 最初に、ビュー モデルにコレクションを追加します。 これらの新しいメンバーを **RecordingViewModel** クラスに追加します。
 
 ```csharp
 public class RecordingViewModel
@@ -352,6 +352,8 @@ public class RecordingViewModel
 // RecordingViewModel.idl
 // Add this property:
 ...
+#include <winrt/Windows.Foundation.Collections.h>
+...
 Windows.Foundation.Collections.IVector<IInspectable> Recordings{ get; };
 ...
 
@@ -366,7 +368,7 @@ private:
 ...
 
 // RecordingViewModel.cpp
-// Implement like this:
+// Update/add implementations like this:
 ...
 RecordingViewModel::RecordingViewModel()
 {
@@ -437,7 +439,7 @@ public:
 };
 ```
 
-次に、[**ListView**](https://msdn.microsoft.com/library/windows/apps/BR242878) を **ViewModel.Recordings** プロパティにバインドします。
+次に、[**ListView**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView) を **ViewModel.Recordings** プロパティにバインドします。
 
 ```xml
 <Page x:Class="Quickstart.MainPage" ... >
@@ -448,11 +450,11 @@ public:
 </Page>
 ```
 
-まだ **Recording** クラスのデータ テンプレートを用意していないため、UI フレームワークで [**ListView**](https://msdn.microsoft.com/library/windows/apps/BR242878) の各項目について [**ToString**](https://msdn.microsoft.com/library/windows/apps/system.object.tostring.aspx) を呼び出します。 **ToString** の既定の実装は、型名を返すことです。
+まだ **Recording** クラスのデータ テンプレートを用意していないため、UI フレームワークで [**ListView**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView) の各項目について [**ToString**](https://docs.microsoft.com/dotnet/api/system.object.tostring?redirectedfrom=MSDN#System_Object_ToString) を呼び出します。 **ToString** の既定の実装は、型名を返すことです。
 
 ![一覧ビューのバインド](images/xaml-databinding1.png)
 
-これを解決するか上書きできる[ **ToString** ](https://msdn.microsoft.com/library/windows/apps/system.object.tostring.aspx)の値を返す**OneLineSummary**、またはデータ テンプレートを提供します。 データ テンプレートのオプションとは、一般的なソリューションでは、ありより柔軟です。 データ テンプレートを指定するには、コンテンツ コントロールの [**ContentTemplate**](https://msdn.microsoft.com/library/windows/apps/BR209369) プロパティか、項目コントロールの [**ItemTemplate**](https://msdn.microsoft.com/library/windows/apps/BR242830) プロパティを使います。 **Recording** のデータ テンプレートをデザインするための 2 つの方法と結果の図を以下に示します。
+これを解決するか上書きできる[ **ToString** ](https://docs.microsoft.com/dotnet/api/system.object.tostring?redirectedfrom=MSDN#System_Object_ToString)の値を返す**OneLineSummary**、またはデータ テンプレートを提供します。 データ テンプレートのオプションとは、一般的なソリューションでは、ありより柔軟です。 データ テンプレートを指定するには、コンテンツ コントロールの [**ContentTemplate**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.contentcontrol.contenttemplate) プロパティか、項目コントロールの [**ItemTemplate**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemtemplate) プロパティを使います。 **Recording** のデータ テンプレートをデザインするための 2 つの方法と結果の図を以下に示します。
 
 ```xml
 <ListView ItemsSource="{x:Bind ViewModel.Recordings}"
@@ -486,23 +488,23 @@ HorizontalAlignment="Center" VerticalAlignment="Center">
 
 ![一覧ビューのバインド](images/xaml-databinding3.png)
 
-XAML 構文について詳しくは、「[XAML を使った UI の作成](https://msdn.microsoft.com/library/windows/apps/Mt228349)」をご覧ください。 コントロール レイアウトについて詳しくは、「[XAML を使ったレイアウトの定義](https://msdn.microsoft.com/library/windows/apps/Mt228350)」をご覧ください。
+XAML 構文について詳しくは、「[XAML を使った UI の作成](https://docs.microsoft.com/windows/uwp/design/basics/xaml-basics-ui)」をご覧ください。 コントロール レイアウトについて詳しくは、「[XAML を使ったレイアウトの定義](https://docs.microsoft.com/windows/uwp/layout/layouts-with-xaml)」をご覧ください。
 
 ## <a name="adding-a-details-view"></a>詳細ビューの追加
 
-[  **ListView**](https://msdn.microsoft.com/library/windows/apps/BR242878) 項目内の **Recording** オブジェクトの詳細をすべて表示することを選択できます。 ただし、多くの領域が占有されます。 代わりに、項目を識別するのに十分な項目内のデータのみを表示し、ユーザーが選択を行ったら、選択された項目のすべての詳細を、詳細ビューと呼ばれる独立した UI に表示できます。 この配置は、マスター/詳細ビューまたはリスト/詳細ビューとも呼ばれます。
+[  **ListView**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView) 項目内の **Recording** オブジェクトの詳細をすべて表示することを選択できます。 ただし、多くの領域が占有されます。 代わりに、項目を識別するのに十分な項目内のデータのみを表示し、ユーザーが選択を行ったら、選択された項目のすべての詳細を、詳細ビューと呼ばれる独立した UI に表示できます。 この配置は、マスター/詳細ビューまたはリスト/詳細ビューとも呼ばれます。
 
-これには 2 つの方法があります。 詳細ビューを、[**ListView**](https://msdn.microsoft.com/library/windows/apps/BR242878) の [**SelectedItem**](https://msdn.microsoft.com/library/windows/apps/BR209770) プロパティにバインドできます。 使用することができます、 [ **CollectionViewSource**](https://msdn.microsoft.com/library/windows/apps/BR209833)、両方をバインドする場合、 **ListView**詳細を表示して、 **CollectionViewSource**(行うのために任せ現在選択されている項目が)。 両方の手法は、以下に示します (図に示すように) 同じ結果が提供する.
+これには 2 つの方法があります。 詳細ビューを、[**ListView**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView) の [**SelectedItem**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.selector.selecteditem) プロパティにバインドできます。 使用することができます、 [ **CollectionViewSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.CollectionViewSource)、両方をバインドする場合、 **ListView**詳細を表示して、 **CollectionViewSource**(行うのために任せ現在選択されている項目が)。 両方の手法は、以下に示します (図に示すように) 同じ結果が提供する.
 
 > [!NOTE]
-> このトピックでは、これまで [{x:Bind} マークアップ拡張](https://msdn.microsoft.com/library/windows/apps/Mt204783)のみを使ってきましたが、以下に示す 2 つの手法ではより柔軟な (ただし効率は低下する) [{Binding} マークアップ拡張](https://msdn.microsoft.com/library/windows/apps/Mt204782)が必要です。
+> このトピックでは、これまで [{x:Bind} マークアップ拡張](https://docs.microsoft.com/windows/uwp/xaml-platform/x-bind-markup-extension)のみを使ってきましたが、以下に示す 2 つの手法ではより柔軟な (ただし効率は低下する) [{Binding} マークアップ拡張](https://docs.microsoft.com/windows/uwp/xaml-platform/binding-markup-extension)が必要です。
 
-C + を使用している場合/cli WinRT または Visual C コンポーネント拡張 (C +/cli CX) し、使用する、 [{binding}](https://msdn.microsoft.com/library/windows/apps/Mt204782)マークアップ拡張機能を追加する必要があります、 [ **BindableAttribute** ](https://msdn.microsoft.com/library/windows/apps/Hh701872)属性にバインドする任意のランタイム クラスをします。 使用する[{X:bind}](https://msdn.microsoft.com/library/windows/apps/Mt204783)、その属性は必要はありません。
+C + を使用している場合/cli WinRT または Visual C コンポーネント拡張 (C +/cli CX) し、使用する、 [{binding}](https://docs.microsoft.com/windows/uwp/xaml-platform/binding-markup-extension)マークアップ拡張機能を追加する必要があります、 [ **BindableAttribute** ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.BindableAttribute)属性にバインドする任意のランタイム クラスをします。 使用する[{X:bind}](https://docs.microsoft.com/windows/uwp/xaml-platform/x-bind-markup-extension)、その属性は必要はありません。
 
 > [!IMPORTANT]
-> 使用している場合[C +/cli WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt)、 [ **BindableAttribute** ](https://msdn.microsoft.com/library/windows/apps/Hh701872)属性は、Windows SDK バージョン (Windows 10、バージョンは 1809 10.0.17763.0 をインストールした場合に使用)、またはそれ以降。 その属性がない場合は、実装する必要があります、 [ICustomPropertyProvider](/uwp/api/windows.ui.xaml.data.icustompropertyprovider)と[ICustomProperty](/uwp/api/windows.ui.xaml.data.icustomproperty)インターフェイスを使用するには、 [{binding}](https://msdn.microsoft.com/library/windows/apps/Mt204782)マークアップ拡張機能。
+> 使用している場合[C +/cli WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt)、 [ **BindableAttribute** ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.BindableAttribute)属性は、Windows SDK バージョン (Windows 10、バージョンは 1809 10.0.17763.0 をインストールした場合に使用)、またはそれ以降。 その属性がない場合は、実装する必要があります、 [ICustomPropertyProvider](/uwp/api/windows.ui.xaml.data.icustompropertyprovider)と[ICustomProperty](/uwp/api/windows.ui.xaml.data.icustomproperty)インターフェイスを使用するには、 [{binding}](https://docs.microsoft.com/windows/uwp/xaml-platform/binding-markup-extension)マークアップ拡張機能。
 
-まず、[**SelectedItem**](https://msdn.microsoft.com/library/windows/apps/BR209770) の手法を示します。
+まず、[**SelectedItem**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.selector.selecteditem) の手法を示します。
 
 ```csharp
 // No code changes necessary for C#.
@@ -554,7 +556,7 @@ public ref class Recording sealed
 </Page>
 ```
 
-[  **CollectionViewSource**](https://msdn.microsoft.com/library/windows/apps/BR209833) の手法では、最初にページ リソースとして **CollectionViewSource** を追加します。
+[  **CollectionViewSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.CollectionViewSource) の手法では、最初にページ リソースとして **CollectionViewSource** を追加します。
 
 ```xml
 <Page.Resources>
@@ -562,7 +564,7 @@ public ref class Recording sealed
 </Page.Resources>
 ```
 
-次に、[**ListView**](https://msdn.microsoft.com/library/windows/apps/BR242878) (名前を付ける必要はない) と詳細ビューで、[**CollectionViewSource**](https://msdn.microsoft.com/library/windows/apps/BR209833) を使うようにバインディングを調整します。 詳細ビューを **CollectionViewSource** に直接バインドすることによって、コレクション自体ではパスが見つからない、バインディング内の現在の項目にバインドすることを意味します。 バインディングのパスとして **CurrentItem** プロパティを指定する必要はありませんが、あいまいさがある場合は指定することもできます。
+次に、[**ListView**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView) (名前を付ける必要はない) と詳細ビューで、[**CollectionViewSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.CollectionViewSource) を使うようにバインディングを調整します。 詳細ビューを **CollectionViewSource** に直接バインドすることによって、コレクション自体ではパスが見つからない、バインディング内の現在の項目にバインドすることを意味します。 バインディングのパスとして **CurrentItem** プロパティを指定する必要はありませんが、あいまいさがある場合は指定することもできます。
 
 ```xml
 ...
@@ -583,7 +585,7 @@ public ref class Recording sealed
 
 上記のレンダリングで問題があります。 **ReleaseDateTime**は、プロパティは、日付だけではありません、 [ **DateTime** ](/uwp/api/windows.foundation.datetime) (C++ を使用している場合は、 [**カレンダー**](/uwp/api/windows.globalization.calendar)). そのためでC#、必要がありますよりも高い精度で表示されています。 および C++ でレンダリングされる型名として。 1 つのソリューションが文字列プロパティを追加するには、**記録**クラスを返すのと同じ`this.ReleaseDateTime.ToString("d")`します。 そのプロパティの名前を付け**ReleaseDate**日付としない、日付と時刻が返されるを示します。 **ReleaseDateAsString** という名前を付けると、さらに文字列が返されることを示します。
 
-より柔軟な解決策は、値コンバーターと呼ばれるものを使うことです。 独自の値コンバーターを作成する方法の例を示します。 次のコードを Recording.cs ソース コード ファイルに追加します。
+より柔軟な解決策は、値コンバーターと呼ばれるものを使うことです。 独自の値コンバーターを作成する方法の例を示します。 使用している場合C#には、次のコードを追加し、`Recording.cs`ソース コード ファイル。 使用している場合C++/WinRT を追加し、新しい**Midl ファイル (.idl)** という名前のように、プロジェクトに項目、 C++WinRT コードの例の一覧が、以下を生成するプロジェクトのビルド/`StringFormatter.h`と`.cpp`、それらのファイルを追加プロジェクトにし、それらにコードの一覧を貼り付けます。 追加も`#include "StringFormatter.h"`に`MainPage.h`します。
 
 ```csharp
 public class StringFormatter : Windows.UI.Xaml.Data.IValueConverter
@@ -618,7 +620,7 @@ public class StringFormatter : Windows.UI.Xaml.Data.IValueConverter
 // StringFormatter.idl
 namespace Quickstart
 {
-    runtimeclass StringFormatter : Windows.UI.Xaml.Data.IValueConverter
+    runtimeclass StringFormatter : [default] Windows.UI.Xaml.Data.IValueConverter
     {
         StringFormatter();
     }
@@ -651,6 +653,7 @@ namespace winrt::Quickstart::factory_implementation
 // StringFormatter.cpp
 #include "pch.h"
 #include "StringFormatter.h"
+#include "StringFormatter.g.cpp"
 
 namespace winrt::Quickstart::implementation
 {
@@ -701,7 +704,9 @@ public:
 ...
 ```
 
-これで、**StringFormatter** のインスタンスをページ リソースとして追加し、バインドで使うことができます。
+> [注!]C++/WinRT コード上記に一覧表示で`StringFormatter.idl`、使用して、[既定属性](https://docs.microsoft.com/windows/desktop/midl/default)を宣言する**IValueConverter**既定のインターフェイスとして。 一覧で**StringFormatter**があり、コンス トラクターにのみ、メソッドのないため、その既定のインターフェイスは生成されません。 `default`属性はインスタンス メンバーを追加しない場合に最適な**StringFormatter**QueryInterface を呼び出す必要ありませんので、 **IValueConverter**メソッド。 または、既定値を求めることもできます**IStringFormatter** 、生成されるインターフェイスを行うことによって、実行時に注釈を付けるクラス自体で、 [default_interface 属性](https://docs.microsoft.com/uwp/midl-3/predefined-attributes#the-default_interface-attribute)します。 インスタンス メンバーを追加する場合に最適なオプションが**StringFormatter**のメソッドよりも頻繁に呼び出される**IValueConverter**のためは QueryInterface を呼び出す必要ありませんし、インスタンス メンバーです。
+
+インスタンスを追加することができますので**StringFormatter**ページ リソースとしてのバインドで使用して、 **TextBlock**を表示する、 **ReleaseDateTime**プロパティ。
 
 ```xml
 <Page.Resources>
@@ -721,7 +726,7 @@ public:
 ![カスタム形式での日付の表示](images/xaml-databinding5.png)
 
 > [!NOTE]
-> 以降では、Windows 10 version 1607 では、XAML フレームワークは、組み込みのブール値の表示コンバーターを提供します。 コンバーター マップ**true**を**Visibility.Visible**列挙値と**false**に**Visibility.Collapsed**をバインドできるように、ブール値コンバーターを作成せずに可視性プロパティ。 組み込みのコンバーターを使用するには、アプリの最小のターゲット SDK バージョンが 14393 以降である必要があります。 アプリがそれよりも前のバージョンの Windows 10 をターゲットとしている場合は使うことができません。 ターゲット バージョンの詳細については、次を参照してください。[バージョン アダプティブ コード](https://msdn.microsoft.com/windows/uwp/debug-test-perf/version-adaptive-code)します。
+> 以降では、Windows 10 version 1607 では、XAML フレームワークは、組み込みのブール値の表示コンバーターを提供します。 コンバーター マップ**true**を**Visibility.Visible**列挙値と**false**に**Visibility.Collapsed**をバインドできるように、ブール値コンバーターを作成せずに可視性プロパティ。 組み込みのコンバーターを使用するには、アプリの最小のターゲット SDK バージョンが 14393 以降である必要があります。 アプリがそれよりも前のバージョンの Windows 10 をターゲットとしている場合は使うことができません。 ターゲット バージョンの詳細については、次を参照してください。[バージョン アダプティブ コード](https://docs.microsoft.com/windows/uwp/debug-test-perf/version-adaptive-code)します。
 
 ## <a name="see-also"></a>関連項目
 * [データ バインディング](index.md)

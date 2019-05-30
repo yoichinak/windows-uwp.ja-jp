@@ -8,12 +8,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: bf89810f67e16bcfabfc80de48d2dee82c9e0f92
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 30aba6c796d86662795d1c1f86ef7d76cc62925c
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57631407"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66363368"
 ---
 # <a name="toast-content-schema"></a>トーストのコンテンツのスキーマ
 
@@ -46,7 +46,7 @@ ToastContent は、視覚効果、アクション、オーディオなどの通�
 | **オーディオ** | [ToastAudio](#toastaudio) | false | トースト通知のオーディオ部分について説明します。 |
 | **ActivationType** | [ToastActivationType](#toastactivationtype) | false | ユーザーがトーストの本文をクリックしたときに使用されるアクティブ化の種類を指定します。 |
 | **ActivationOptions** | [ToastActivationOptions](#toastactivationoptions) | false | Creators Update: 新機能トースト通知のアクティブ化に関連する追加オプション。 |
-| **シナリオ** | [ToastScenario](#toastscenario) | false | アラームやリマインダーなど、トーストが使用されるシナリオを宣言します。 |
+| **Scenario** | [ToastScenario](#toastscenario) | false | アラームやリマインダーなど、トーストが使用されるシナリオを宣言します。 |
 | **DisplayTimestamp** | DateTimeOffset? | false | Creators Update: 新機能通知の内容が実際に配信されると、Windows プラットフォームで、通知を受信した時点ではなく、カスタムのタイムスタンプの表すで既定のタイムスタンプをオーバーライドします。 |
 | **ヘッダー** | [ToastHeader](#toastheader) | false | Creators Update: 新機能アクション センター内の複数の通知をグループ化、通知にカスタム ヘッダーを追加します。 |
 
@@ -54,7 +54,7 @@ ToastContent は、視覚効果、アクション、オーディオなどの通�
 ### <a name="toastscenario"></a>ToastScenario
 トーストが表すシナリオを指定します。
 
-| 値 | 説明 |
+| Value | 説明 |
 |---|---|
 | **Default** | 通常のトーストの動作です。 |
 | **アラーム** | リマインダー通知です。 既に展開された状態で表示され、無視されるまでユーザーの画面に表示されます。 |
@@ -68,7 +68,7 @@ ToastContent は、視覚効果、アクション、オーディオなどの通�
 | プロパティ | 種類 | 必須 | 説明 |
 |---|---|---|---|
 | **BindingGeneric** | [ToastBindingGeneric](#toastbindinggeneric) | true | すべてのデバイスでレンダリングすることができる、汎用的なトーストのバインディングです。 このバインディングは必須で、null にすることはできません。 |
-| **baseUri** | Uri | false | 画像ソースの属性において相対 URL と組み合わされる、既定のベース URL です。 |
+| **BaseUri** | Uri | false | 画像ソースの属性において相対 URL と組み合わされる、既定のベース URL です。 |
 | **AddImageQuery** | bool? | false | true に設定すると、トースト通知で指定された画像 URL に Windows がクエリ文字列を追加できるようになります。 この属性は、サーバーが画像をホストしていてクエリ文字列を処理できる場合に使用します。サーバーがこのために、クエリ文字列に基づいて画像の変化形を取得しているか、またはクエリ文字列を無視して使わずに指定の画像を返しているかどうかは問いません。 このクエリ文字列は、スケール、コントラスト設定、および言語を指定するものです。たとえば、通知で指定されている値 "www.website.com/images/hello.png" は "www.website.com/images/hello.png?ms-scale=100&ms-contrast=standard&ms-lang=en-us" になります。 |
 | **言語**| string | false | ローカライズされたリソースを使用する際の視覚的なペイロードの対象ロケールです。"en-US" や "fr-FR" のように BCP-47 言語タグとして指定されます。 このロケールは、バインディングかテキストで指定されるあらゆるロケールによって上書きされます。 未指定の場合は、システム ロケールが代わりに使用されます。 |
 
@@ -82,7 +82,7 @@ ToastContent は、視覚効果、アクション、オーディオなどの通�
 | **AppLogoOverride** | [ToastGenericAppLogo](#toastgenericapplogo) | false | アプリ ロゴを上書きするロゴです (省略可能)。 |
 | **HeroImage** | [ToastGenericHeroImage](#toastgenericheroimage) | false | トーストとアクション センターで表示される、特色となるヒーロー画像です (省略可能)。 |
 | **属性** | [ToastGenericAttributionText](#toastgenericattributiontext) | false | トースト通知の下部に表示される属性のテキストです (省略可能)。 |
-| **baseUri** | Uri | false | 画像ソースの属性において相対 URL と組み合わされる、既定のベース URL です。 |
+| **BaseUri** | Uri | false | 画像ソースの属性において相対 URL と組み合わされる、既定のベース URL です。 |
 | **AddImageQuery** | bool? | false | true に設定すると、トースト通知で指定された画像 URL に Windows がクエリ文字列を追加できるようになります。 この属性は、サーバーが画像をホストしていてクエリ文字列を処理できる場合に使用します。サーバーがこのために、クエリ文字列に基づいて画像の変化形を取得しているか、またはクエリ文字列を無視して使わずに指定の画像を返しているかどうかは問いません。 このクエリ文字列は、スケール、コントラスト設定、および言語を指定するものです。たとえば、通知で指定されている値 "www.website.com/images/hello.png" は "www.website.com/images/hello.png?ms-scale=100&ms-contrast=standard&ms-lang=en-us" になります。 |
 | **言語**| string | false | ローカライズされたリソースを使用する際の視覚的なペイロードの対象ロケールです。"en-US" や "fr-FR" のように BCP-47 言語タグとして指定されます。 このロケールは、バインディングかテキストで指定されるあらゆるロケールによって上書きされます。 未指定の場合は、システム ロケールが代わりに使用されます。 |
 
@@ -103,7 +103,7 @@ ToastContent は、視覚効果、アクション、オーディオなどの通�
 
 | プロパティ | 種類 | 必須 |説明 |
 |---|---|---|---|
-| **テキスト** | string または [BindableString](#bindablestring) | false | 表示するテキストです。 Creators Update で追加されたデータ バインディングのサポートは、最上位のテキスト要素に対してのみ機能します。 |
+| **Text** | string または [BindableString](#bindablestring) | false | 表示するテキストです。 Creators Update で追加されたデータ バインディングのサポートは、最上位のテキスト要素に対してのみ機能します。 |
 | **HintStyle** | [AdaptiveTextStyle](#adaptivetextstyle) | false | このスタイルは、テキストのフォント サイズ、太さ、および不透明度を制御します。 グループ/サブグループ内のテキスト要素に対してのみ機能します。 |
 | **HintWrap** | bool? | false | true に設定すると、テキストの折り返しが有効になります。 最上位のテキスト要素はこのプロパティを無視し、常に折り返します (最上位のテキスト要素の折り返しを無効にするには HintMaxLines = 1 を使用します)。 グループ/サブグループ内のテキスト要素では、折り返しは既定で false に設定されています。 |
 | **HintMaxLines** | int? | false | 表示が許可される、テキスト要素の最大行数です。 |
@@ -117,13 +117,13 @@ ToastContent は、視覚効果、アクション、オーディオなどの通�
 
 | プロパティ | 種類 | 必須 | 説明 |
 |---|---|---|---|
-| **bindingName** | string | true | バインディング データ値に対してマップする名前を取得または設定します。 |
+| **BindingName** | string | true | バインディング データ値に対してマップする名前を取得または設定します。 |
 
 
 ### <a name="adaptivetextstyle"></a>AdaptiveTextStyle
 テキスト スタイルは、フォント サイズ、太さ、および不透明度を制御します。 "Subtle" の不透明度は 60% の不透明度になります。
 
-| 値 | 説明 |
+| Value | 説明 |
 |---|---|
 | **Default** | 既定値です。 スタイルがレンダラーによって決定されます。 |
 | **キャプション** | 段落のフォント サイズより小さいサイズです。 |
@@ -148,7 +148,7 @@ ToastContent は、視覚効果、アクション、オーディオなどの通�
 ### <a name="adaptivetextalign"></a>AdaptiveTextAlign
 テキストの水平方向の配置を制御します。
 
-| 値 | 説明 |
+| Value | 説明 |
 |---|---|
 | **Default** | 既定値です。 配置がレンダラーによって自動的に決定されます。 |
 | **自動** | 配置が現在の言語とカルチャによって決定されます。 |
@@ -173,7 +173,7 @@ ToastContent は、視覚効果、アクション、オーディオなどの通�
 ### <a name="adaptiveimagecrop"></a>AdaptiveImageCrop
 必要な画像トリミングを指定します。
 
-| 値 | 説明 |
+| Value | 説明 |
 |---|---|
 | **Default** | 既定値です。 トリミングの動作がレンダラーによって決定されます。 |
 | **None** | 画像がトリミングされません。 |
@@ -183,7 +183,7 @@ ToastContent は、視覚効果、アクション、オーディオなどの通�
 ### <a name="adaptiveimagealign"></a>AdaptiveImageAlign
 画像の水平方向の配置を指定します。
 
-| 値 | 説明 |
+| Value | 説明 |
 |---|---|
 | **Default** | 既定値です。 配置の動作がレンダラーによって決定されます。 |
 | **Stretch** | 利用可能な幅いっぱいに画像が拡大されます (また同時に、画像が配置される位置に応じて、利用可能な高さいっぱいに拡大されることもあります)。 |
@@ -238,7 +238,7 @@ Creators Update: 新機能進行状況バー。 デスクトップ版、ビル�
 | **Title** | string または [BindableString](#bindablestring) | false | タイトルの文字列 (オプション) を取得または設定します。 データ バインディングをサポートしています。 |
 | **値** | double または [AdaptiveProgressBarValue](#adaptiveprogressbarvalue) か [BindableProgressBarValue](#bindableprogressbarvalue) | false | 進行状況バーの値を取得または設定します。 データ バインディングをサポートしています。 既定値は 0 です。 |
 | **ValueStringOverride** | string または [BindableString](#bindablestring) | false | 割合を示す既定の文字列に代わって表示される文字列 (オプション) を取得または設定します。 これを指定しない場合は、"70%" などの文字が表示されます。 |
-| **ステータス** | string または [BindableString](#bindablestring) | true | 進行状況バーの下の左側に表示されるステータス文字列 (必須) を取得または設定します。 この文字列は、"ダウンロード中..." や "インストール中..." などのように、操作の状態を反映する必要があります。 |
+| **状態** | string または [BindableString](#bindablestring) | true | 進行状況バーの下の左側に表示されるステータス文字列 (必須) を取得または設定します。 この文字列は、"ダウンロード中..." や "インストール中..." などのように、操作の状態を反映する必要があります。 |
 
 
 ### <a name="adaptiveprogressbarvalue"></a>AdaptiveProgressBarValue
@@ -255,7 +255,7 @@ Creators Update: 新機能進行状況バー。 デスクトップ版、ビル�
 
 | プロパティ | 種類 | 必須 | 説明 |
 |---|---|---|---|
-| **bindingName** | string | true | バインディング データ値に対してマップする名前を取得または設定します。 |
+| **BindingName** | string | true | バインディング データ値に対してマップする名前を取得または設定します。 |
 
 
 ## <a name="toastgenericapplogo"></a>ToastGenericAppLogo
@@ -272,7 +272,7 @@ Creators Update: 新機能進行状況バー。 デスクトップ版、ビル�
 ### <a name="toastgenericapplogocrop"></a>ToastGenericAppLogoCrop
 アプリ ロゴの画像のトリミングを制御します。
 
-| 値 | 説明 |
+| Value | 説明 |
 |---|---|
 | **Default** | トリミングがレンダラーの既定の動作を使用します。 |
 | **None** | 画像がトリミングされず、正方形で表示されます。 |
@@ -294,7 +294,7 @@ Creators Update: 新機能進行状況バー。 デスクトップ版、ビル�
 
 | プロパティ | 種類 | 必須 | 説明 |
 |---|---|---|---|
-| **テキスト** | string | true | 表示するテキストです。 |
+| **Text** | string | true | 表示するテキストです。 |
 | **言語** | string | false | ローカライズされたリソースを使用する際の視覚的なペイロードの対象ロケールです。"en-US" や "fr-FR" のように BCP-47 言語タグとして指定されます。 未指定の場合は、システム ロケールが代わりに使用されます。 |
 
 
@@ -335,7 +335,7 @@ Creators Update: 新機能進行状況バー。 デスクトップ版、ビル�
 
 | プロパティ | 種類 | 必須 | 説明 |
 |---|---|---|---|
-| **id** | string | true | この Id は必須です。ユーザーが入力したテキストを、アプリが後に使用するキー/値のペアである id/値にマップします。 |
+| **Id** | string | true | この Id は必須です。ユーザーが入力したテキストを、アプリが後に使用するキー/値のペアである id/値にマップします。 |
 | **Title** | string | false | テキスト ボックスの上部に表示されるタイトル テキストです。 |
 | **PlaceholderContent** | string | false | ユーザーがまだテキストを入力していない場合にテキスト ボックスに表示されるプレースホルダー テキストです。 |
 | **DefaultInput** | string | false | テキスト ボックスに配置される最初のテキストです。 テキスト ボックスを空白にするには null のままにします。 |
@@ -348,7 +348,7 @@ Creators Update: 新機能進行状況バー。 デスクトップ版、ビル�
 
 | プロパティ | 種類 | 必須 | 説明 |
 |---|---|---|---|
-| **id** | string | true | この Id は必須です。 ユーザーがこの項目を選択すると、この Id がアプリのコードに戻されて、ユーザーが選択したものを表します。 |
+| **Id** | string | true | この Id は必須です。 ユーザーがこの項目を選択すると、この Id がアプリのコードに戻されて、ユーザーが選択したものを表します。 |
 | **コンテンツ** | string | true | Content は必須です。選択項目に表示される文字列です。 |
 
 
@@ -357,7 +357,7 @@ Creators Update: 新機能進行状況バー。 デスクトップ版、ビル�
 
 | プロパティ | 種類 | 必須 | 説明 |
 |---|---|---|---|
-| **id** | string | true | この Id は必須です。ユーザーが入力したテキストを、アプリが後に使用するキー/値のペアである id/値にマップします。 |
+| **Id** | string | true | この Id は必須です。ユーザーが入力したテキストを、アプリが後に使用するキー/値のペアである id/値にマップします。 |
 | **Title** | string | false | 選択ボックスの上部に表示されるタイトル テキストです。 |
 | **DefaultSelectionBoxItemId** | string | false | 既定で選択される項目を制御し、[ToastSelectionBoxItem](#toastselectionboxitem) の Id プロパティを参照します。 未指定の場合、既定の選択が空になります (ユーザーに何も表示されません)。 |
 | **項目** | IList<[ToastSelectionBoxItem](#toastselectionboxitem)> | false | この SelectionBox からユーザーが選択できる選択項目です。 追加できる項目数は 5 個のみです。 |
@@ -389,11 +389,11 @@ Creators Update: 新機能進行状況バー。 デスクトップ版、ビル�
 ### <a name="toastactivationtype"></a>ToastActivationType
 ユーザーが特定の操作を行った際に使用されるアクティブ化の種類を決定します。
 
-| 値 | 説明 |
+| Value | 説明 |
 |---|---|
 | **フォア グラウンド** | 既定値です。 フォアグラウンド アプリが起動します。 |
-| **バック グラウンド** | (すべての設定が完了したと想定して) 対応するバックグラウンド タスクがトリガーされ、ユーザーの作業を中断することなくバックグラウンドでコードを実行できます (ユーザーのクイック返信メッセージの送信など)。 |
-| **Protocol** | プロトコルのアクティブ化を使用して別のアプリを起動します。 |
+| **背景情報** | (すべての設定が完了したと想定して) 対応するバックグラウンド タスクがトリガーされ、ユーザーの作業を中断することなくバックグラウンドでコードを実行できます (ユーザーのクイック返信メッセージの送信など)。 |
+| **[プロトコル]** | プロトコルのアクティブ化を使用して別のアプリを起動します。 |
 
 
 ### <a name="toastactivationoptions"></a>ToastActivationOptions
@@ -408,7 +408,7 @@ Creators Update: 新機能アクティブ化に関連する追加オプション
 ### <a name="toastafteractivationbehavior"></a>ToastAfterActivationBehavior
 ユーザーがトーストに対して操作を行ったときに、トーストが使用する動作を指定します。
 
-| 値 | 説明 |
+| Value | 説明 |
 |---|---|
 | **Default** | 既定の動作。 ユーザーがトーストに対して操作を行うと、トーストが無視されます。 |
 | **PendingUpdate** | ユーザーがトースト上のボタンをクリックすると、通知が "更新の保留中" の表示状態で表示されたままになります。 この "更新の保留中" の表示状態が長時間続くことを避けるため、バックグラウンド タスクから即座にトーストを更新する必要があります。 |
@@ -470,14 +470,14 @@ Creators Update: 新機能アクション センターで複数の通知をグ�
 
 | プロパティ | 種類 | 必須 | 説明 |
 |---|---|---|---|
-| **id** | string | true | 開発者が作成した識別子です。このヘッダーを一意に識別します。 2 つの通知が同じヘッダー ID を持つ場合、アクション センターで同じヘッダーの下に表示されます。 |
+| **Id** | string | true | 開発者が作成した識別子です。このヘッダーを一意に識別します。 2 つの通知が同じヘッダー ID を持つ場合、アクション センターで同じヘッダーの下に表示されます。 |
 | **Title** | string | true | ヘッダーのタイトルです。 |
-| **引数**| string | true | ユーザーがこのヘッダーをクリックすると、アプリに返された引数の開発者によって定義された文字列を取得または設定します。 null に設定することはできません。 |
+| **引数**| string | true | ユーザーがこのヘッダーをクリックすると、アプリに返された引数の開発者によって定義された文字列を取得または設定します。 null にすることはできません。 |
 | **ActivationType** | [ToastActivationType](#toastactivationtype) | false | ユーザーがクリックしたときにこのヘッダーが使用するアクティブ化の種類を取得または設定します。 既定では Foreground に設定されます。 サポートされる値は、Foreground と Protocol のみです。 |
 | **ActivationOptions** | [ToastActivationOptions](#toastactivationoptions) | false | トースト ヘッダーのアクティブ化に関する追加オプションを取得または設定します。 |
 
 
 ## <a name="related-topics"></a>関連トピック
 
-* [クイック スタート:ローカル ハンドルとトーストのアクティブ化を送信します。](https://blogs.msdn.com/b/tiles_and_toasts/archive/2015/07/08/quickstart-sending-a-local-toast-notification-and-handling-activations-from-it-windows-10.aspx)
+* [クイック スタート:ローカル ハンドルとトーストのアクティブ化を送信します。](https://blogs.msdn.microsoft.com/tiles_and_toasts/2015/07/08/quickstart-sending-a-local-toast-notification-and-handling-activations-from-it-windows-10/)
 * [GitHub 上の通知ライブラリ](https://github.com/Microsoft/UWPCommunityToolkit/tree/dev/Notifications)

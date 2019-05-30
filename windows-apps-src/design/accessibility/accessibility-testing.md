@@ -8,12 +8,12 @@ ms.date: 05/18/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: d84683544628a9b6df0eafb2999fabb134465ea8
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 8af03b32453bcdacb3da95678cf23a988c375f1b
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57635567"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66359642"
 ---
 # <a name="accessibility-testing"></a>アクセシビリティ テスト  
 
@@ -23,7 +23,7 @@ ms.locfileid: "57635567"
 <span id="RUN_ACCESSIBILITY_TESTING_TOOLS"/>
 
 ## <a name="run-accessibility-testing-tools"></a>アクセシビリティ テスト ツールを実行する  
-Windows ソフトウェア開発キット (Windows SDK) には、[**AccScope**](https://msdn.microsoft.com/library/windows/desktop/Dn433239)、[**Inspect**](https://msdn.microsoft.com/library/windows/desktop/Dd318521)、[**UI Accessibility Checker**](https://msdn.microsoft.com/library/windows/desktop/Hh920985) などアクセシビリティのテスト ツールが複数用意されています。 これらのツールは、アプリのアクセシビリティを確認するのに役立ちます。 アプリのすべてのシナリオと UI 要素を確認してください。
+Windows ソフトウェア開発キット (Windows SDK) には、[**AccScope**](https://docs.microsoft.com/windows/desktop/WinAuto/accscope)、[**Inspect**](https://docs.microsoft.com/windows/desktop/WinAuto/inspect-objects)、[**UI Accessibility Checker**](https://docs.microsoft.com/windows/desktop/WinAuto/ui-accessibility-checker) などアクセシビリティのテスト ツールが複数用意されています。 これらのツールは、アプリのアクセシビリティを確認するのに役立ちます。 アプリのすべてのシナリオと UI 要素を確認してください。
 
 アクセシビリティ テスト ツールは、Microsoft Visual Studio のコマンド プロンプト、または Windows SDK のツール フォルダー (開発コンピューター上の Windows SDK のインストール ディレクトリの bin サブディレクトリ) から起動できます。
   
@@ -35,16 +35,16 @@ Windows ソフトウェア開発キット (Windows SDK) には、[**AccScope**](
 
 ### <a name="accscope"></a>**AccScope**  
 
-開発者やテスト担当者は、[**AccScope**](https://msdn.microsoft.com/library/windows/desktop/Dn433239) ツールを使って、アプリ開発サイクルの遅い段階のテスト フェーズではなく、アプリの開発フェーズ、設計フェーズ、場合によってはより早い段階のプロトタイプ フェーズで、アプリのアクセシビリティを評価できます。 このツールは、特にアプリのナレーター アクセシビリティ シナリオのテストを意図しています。
+開発者やテスト担当者は、[**AccScope**](https://docs.microsoft.com/windows/desktop/WinAuto/accscope) ツールを使って、アプリ開発サイクルの遅い段階のテスト フェーズではなく、アプリの開発フェーズ、設計フェーズ、場合によってはより早い段階のプロトタイプ フェーズで、アプリのアクセシビリティを評価できます。 このツールは、特にアプリのナレーター アクセシビリティ シナリオのテストを意図しています。
 
 <span id="inspect"/>
 <span id="INSPECT"/>
 
 ### <a name="inspect"></a>**Inspect**  
 
-[**検査**](https://msdn.microsoft.com/library/windows/desktop/Dd318521)任意の UI 要素を選択し、そのアクセシビリティ データを表示することができます。 Microsoft UI オートメーションのプロパティと制御パターンを表示し、UI オートメーション ツリー内のオートメーション要素のナビゲーション構造をテストできます。 UI の開発時に **Inspect** を使って、アクセシビリティ属性が UI オートメーションでどのように現れるか確認します。 属性は、既定の XAML コントロールに既に実装されている UI オートメーション サポートのものである場合や、 [  **AutomationProperties**](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.automation.automationproperties) 添付プロパティとして、XAML マークアップで設定した特定の値のものである場合があります。
+[**検査**](https://docs.microsoft.com/windows/desktop/WinAuto/inspect-objects)任意の UI 要素を選択し、そのアクセシビリティ データを表示することができます。 Microsoft UI オートメーションのプロパティと制御パターンを表示し、UI オートメーション ツリー内のオートメーション要素のナビゲーション構造をテストできます。 UI の開発時に **Inspect** を使って、アクセシビリティ属性が UI オートメーションでどのように現れるか確認します。 属性は、既定の XAML コントロールに既に実装されている UI オートメーション サポートのものである場合や、 [  **AutomationProperties**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.automationproperties) 添付プロパティとして、XAML マークアップで設定した特定の値のものである場合があります。
 
-次の図は、メモ帳の **[編集]** メニュー要素の UI オートメーション プロパティを照会する [**Inspect**](https://msdn.microsoft.com/library/windows/desktop/Dd318521) ツールを示しています。
+次の図は、メモ帳の **[編集]** メニュー要素の UI オートメーション プロパティを照会する [**Inspect**](https://docs.microsoft.com/windows/desktop/WinAuto/inspect-objects) ツールを示しています。
 
 ![Inspect ツールのスクリーン ショット。](./images/inspect.png)
 
@@ -52,7 +52,7 @@ Windows ソフトウェア開発キット (Windows SDK) には、[**AccScope**](
 <span id="UI_ACCESSIBILITY_CHECKER"/>
 
 ### <a name="ui-accessibility-checker"></a>**UI Accessibility Checker**  
-**UI Accessibility Checker (AccChecker)** は、実行時にアクセシビリティの問題を検出するのに役立ちます。 UI が完成したら、**AccChecker** を使って、さまざまなシナリオをテストし、実行時のアクセシビリティ情報が正しいことを確認して、実行時の問題を検出します。 **AccChecker** は UI モードまたはコマンド ライン モードで実行できます。 UI モード ツールを実行するには、Windows ソフトウェア開発キット (Windows SDK) の bin ディレクトリの **AccChecker** ディレクトリを開き、acccheckui.exe を実行し、**[ヘルプ]** メニューをクリックしてください。
+**UI Accessibility Checker (AccChecker)** は、実行時にアクセシビリティの問題を検出するのに役立ちます。 UI が完成したら、**AccChecker** を使って、さまざまなシナリオをテストし、実行時のアクセシビリティ情報が正しいことを確認して、実行時の問題を検出します。 **AccChecker** は UI モードまたはコマンド ライン モードで実行できます。 UI モード ツールを実行するには、Windows ソフトウェア開発キット (Windows SDK) の bin ディレクトリの **AccChecker** ディレクトリを開き、acccheckui.exe を実行し、 **[ヘルプ]** メニューをクリックしてください。
 
 <span id="ui_automation_verify"/>
 <span id="UI_AUTOMATION_VERIFY"/>
@@ -64,7 +64,7 @@ Windows ソフトウェア開発キット (Windows SDK) には、[**AccScope**](
 <span id="ACCESSIBLE_EVENT_WATCHER"/>
 
 ### <a name="accessible-event-watcher"></a>**Accessible Event Watcher**  
-[**アクセス可能なイベントの監視 (AccEvent)** ](https://msdn.microsoft.com/library/windows/desktop/Dd317979)アプリの UI 要素イベントを発生させる適切な UI オートメーションと Microsoft Active Accessibility UI の変更が行われるかどうかをテストします。 UI の変更は、フォーカスが移動したときや、UI 要素の呼び出しまたは選択が行われたとき、状態またはプロパティが変更された場合に発生することがあります。
+[**アクセス可能なイベントの監視 (AccEvent)** ](https://docs.microsoft.com/windows/desktop/WinAuto/accessible-event-watcher)アプリの UI 要素イベントを発生させる適切な UI オートメーションと Microsoft Active Accessibility UI の変更が行われるかどうかをテストします。 UI の変更は、フォーカスが移動したときや、UI 要素の呼び出しまたは選択が行われたとき、状態またはプロパティが変更された場合に発生することがあります。
 
 > [!NOTE]
 > ドキュメントで説明したほとんどのアクセシビリティ テスト ツールは、PC で動作し、電話では動作しません。 一部のツールは開発中にエミュレーターを使って実行できますが、それらのツールのほとんどはエミュレーターで UI オートメーション ツリーを表示できません。
@@ -95,7 +95,7 @@ Windows ソフトウェア開発キット (Windows SDK) には、[**AccScope**](
 
 ## <a name="verify-your-app-with-display-settings"></a>アプリの表示設定を確認する  
 
-ディスプレイの 1 インチあたりのドット数 (dpi) の値を調整するシステム ディスプレイ オプションを使い、DPI の値の変更に合わせてアプリの UI が正常に拡大縮小されることを確認します  (一部のユーザーは、dpi 値を変更から入手できますが、ユーザー補助のオプションとして**コンピューターの簡単操作**プロパティを表示と同様です)。次の問題を発見した場合、[レイアウトのスケーリングのガイドライン](https://msdn.microsoft.com/library/windows/apps/Dn611863)とは異なるスケーリング要因の他のリソースを提供します。
+ディスプレイの 1 インチあたりのドット数 (dpi) の値を調整するシステム ディスプレイ オプションを使い、DPI の値の変更に合わせてアプリの UI が正常に拡大縮小されることを確認します  (一部のユーザーは、dpi 値を変更から入手できますが、ユーザー補助のオプションとして**コンピューターの簡単操作**プロパティを表示と同様です)。次の問題を発見した場合、[レイアウトのスケーリングのガイドライン](https://developer.microsoft.com/windows/design)とは異なるスケーリング要因の他のリソースを提供します。
 
 <span id="verify_main_app_scenarios_by_using_narrator"/>
 <span id="VERIFY_MAIN_APP_SCENARIOS_BY_USING_NARRATOR"/>
@@ -142,9 +142,9 @@ Windows 10 バージョン 1607 以降では、ナレーターで新しい開発
 
     一部のコントロールには、その他の操作も用意されています。 すべての一覧を表示するには、4 本指で 1 回タップします。
 
-    マウスまたはキーボードに応答し、プライマリ タッチ操作またはセカンダリ タッチ操作に応答しないコントロールの場合、新しい [UI オートメーション](https://msdn.microsoft.com/library/windows/desktop/Ee684009) コントロール パターンを実装する必要があります。
+    マウスまたはキーボードに応答し、プライマリ タッチ操作またはセカンダリ タッチ操作に応答しないコントロールの場合、新しい [UI オートメーション](https://docs.microsoft.com/windows/desktop/WinAuto/entry-uiauto-win32) コントロール パターンを実装する必要があります。
 
-また、[**AccScope**](https://msdn.microsoft.com/library/windows/desktop/Dn433239) ツールを使ってアプリのナレーター アクセシビリティ シナリオをテストすることも検討してください。 「[**AccScope ツール トピック**](https://msdn.microsoft.com/library/windows/desktop/Dn433239)」では、ナレーター シナリオをテストするための **AccScope** の構成方法について説明しています。
+また、[**AccScope**](https://docs.microsoft.com/windows/desktop/WinAuto/accscope) ツールを使ってアプリのナレーター アクセシビリティ シナリオをテストすることも検討してください。 「[**AccScope ツール トピック**](https://docs.microsoft.com/windows/desktop/WinAuto/accscope)」では、ナレーター シナリオをテストするための **AccScope** の構成方法について説明しています。
 
 <span id="Examine_the_UI_Automation_representation_for_your_app"/>
 <span id="examine_the_ui_automation_representation_for_your_app"/>
@@ -153,15 +153,15 @@ Windows 10 バージョン 1607 以降では、ナレーターで新しい開発
 ## <a name="examine-the-ui-automation-representation-for-your-app"></a>アプリの UI オートメーションの表現を確認する  
 前述したいくつかの UI オートメーション テスト ツールでは、アプリがどのように見えるかを緩慢に考慮するのではなく、UI オートメーション要素の構造としてアプリを表現する方法についてアプリを確認する手段を提供しています。 この方法によって、UI オートメーション クライアント (主に支援技術) がアクセシビリティのシナリオでアプリを操作します。
 
-[  **AccScope**](https://msdn.microsoft.com/library/windows/desktop/Dn433239) ツールでは、視覚的な表現またはリストのいずれかとして UI オートメーション要素を表示できるので、アプリについて特に興味深いビューが得られます。 視覚エフェクトを使うと、アプリの UI の視覚的な外観に関連するように各部にドリルダウンできます。 すべてのロジックを UI に割り当てる前に、最初期の UI プロトタイプのアクセシビリティをテストすることさえ可能であり、アプリの視覚的な対話操作とアクセシビリティ シナリオのナビゲーションについて双方のバランスを確認できます。
+[  **AccScope**](https://docs.microsoft.com/windows/desktop/WinAuto/accscope) ツールでは、視覚的な表現またはリストのいずれかとして UI オートメーション要素を表示できるので、アプリについて特に興味深いビューが得られます。 視覚エフェクトを使うと、アプリの UI の視覚的な外観に関連するように各部にドリルダウンできます。 すべてのロジックを UI に割り当てる前に、最初期の UI プロトタイプのアクセシビリティをテストすることさえ可能であり、アプリの視覚的な対話操作とアクセシビリティ シナリオのナビゲーションについて双方のバランスを確認できます。
 
-テスト可能な側面の 1 つとして、表示したくない要素が UI オートメーション要素ビューに表示されるかどうかがあります。 ビューから除外したい要素、または反対に欠落する要素が見つかった場合に、アクセシビリティ ビューで XAML コントロールの表示を調整するために [**AutomationProperties.AccessibilityView XAML**](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.automation.automationproperties.accessibilityview) 添付プロパティを使用できます。 基本的なアクセシビリティ ビューを確認した後、コントロール ビューに公開される対話型の各部分にユーザーがアクセスできるかどうかについて、方向キーによって使用可能なタブ シーケンスまたは空間的なナビゲーションを再確認することもお勧めします。
+テスト可能な側面の 1 つとして、表示したくない要素が UI オートメーション要素ビューに表示されるかどうかがあります。 ビューから除外したい要素、または反対に欠落する要素が見つかった場合に、アクセシビリティ ビューで XAML コントロールの表示を調整するために [**AutomationProperties.AccessibilityView XAML**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.automationproperties.accessibilityview) 添付プロパティを使用できます。 基本的なアクセシビリティ ビューを確認した後、コントロール ビューに公開される対話型の各部分にユーザーがアクセスできるかどうかについて、方向キーによって使用可能なタブ シーケンスまたは空間的なナビゲーションを再確認することもお勧めします。
 
 <span id="related_topics"/>
 
 ## <a name="related-topics"></a>関連トピック  
-* [アクセシビリティ](accessibility.md)
+* [ユーザー補助](accessibility.md)
 * [避ける事項](practices-to-avoid.md)
-* [UI オートメーション](https://msdn.microsoft.com/library/windows/desktop/Ee684009)
+* [UI オートメーション](https://docs.microsoft.com/windows/desktop/WinAuto/entry-uiauto-win32)
 * [Windows のユーザー補助機能](https://go.microsoft.com/fwlink/p/?LinkId=320802)
 * [ナレーターを概要します。](https://support.microsoft.com/help/22798/windows-10-narrator-get-started)

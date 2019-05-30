@@ -6,74 +6,74 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 4d33a2bf1505618dca4e0e54c2bd9a534f58bcfc
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: d5d4e7b71ea0fcc6f18106ee1d11c3dead1438c7
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57628207"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66360668"
 ---
 # <a name="play-audio-and-video-with-mediaplayer"></a>MediaPlayer を使ったオーディオとビデオの再生
 
-この記事では、[**MediaPlayer**](https://msdn.microsoft.com/library/windows/apps/Windows.Media.Playback.MediaPlayer) クラスを使ってユニバーサル Windows アプリでメディアを再生する方法を示します。 Windows 10 バージョン 1607 で、メディア再生 API が大幅に強化されました。これには、バックグラウンド オーディオ向けの簡素化された単一プロセス設計、システム メディア トランスポート コントロール (SMTC) との自動統合、複数のメディア プレーヤーを同期する機能、Windows.UI.Composition サーフェスに対する機能、コンテンツでメディアの中断を作成およびスケジュールするための簡単なインターフェイスなどが含まれます。 これらの強化機能を活用できるように、メディアを再生するためのベスト プラクティスとして、メディア再生に **MediaElement** の代わりに **MediaPlayer** クラスを使うことが推奨されます。 軽量の XAML コントロールである [**MediaPlayerElement**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Xaml.Controls.MediaPlayerElement) が導入され、XAML ページのメディア コンテンツをレンダリングできるようになりました。 **MediaElement** によって提供される再生コントロールと状態 API の多くは、新しい [**MediaPlaybackSession**](https://msdn.microsoft.com/library/windows/apps/Windows.Media.Playback.MediaPlaybackSession) オブジェクトを通じて利用できるようになりました。 **MediaElement** は下位互換性をサポートするために今後も動作しますが、このクラスには新しい機能は追加されません。
+この記事では、[**MediaPlayer**](https://docs.microsoft.com/uwp/api/Windows.Media.Playback.MediaPlayer) クラスを使ってユニバーサル Windows アプリでメディアを再生する方法を示します。 Windows 10 バージョン 1607 で、メディア再生 API が大幅に強化されました。これには、バックグラウンド オーディオ向けの簡素化された単一プロセス設計、システム メディア トランスポート コントロール (SMTC) との自動統合、複数のメディア プレーヤーを同期する機能、Windows.UI.Composition サーフェスに対する機能、コンテンツでメディアの中断を作成およびスケジュールするための簡単なインターフェイスなどが含まれます。 これらの強化機能を活用できるように、メディアを再生するためのベスト プラクティスとして、メディア再生に **MediaElement** の代わりに **MediaPlayer** クラスを使うことが推奨されます。 軽量の XAML コントロールである [**MediaPlayerElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.MediaPlayerElement) が導入され、XAML ページのメディア コンテンツをレンダリングできるようになりました。 **MediaElement** によって提供される再生コントロールと状態 API の多くは、新しい [**MediaPlaybackSession**](https://docs.microsoft.com/uwp/api/Windows.Media.Playback.MediaPlaybackSession) オブジェクトを通じて利用できるようになりました。 **MediaElement** は下位互換性をサポートするために今後も動作しますが、このクラスには新しい機能は追加されません。
 
-この記事では、一般的なメディア再生アプリで使う **MediaPlayer** の機能について説明します。 **MediaPlayer** は、すべてのメディア項目のコンテナーとして [**MediaSource**](https://msdn.microsoft.com/library/windows/apps/Windows.Media.Core.MediaSource) クラスを使います。 このクラスを使うと、すべて同じインターフェイスを使って、ローカル ファイル、メモリ ストリーム、ネットワーク ソースなど、さまざまなソースからメディアを読み込んで再生できます。 [  **MediaPlaybackItem**](https://msdn.microsoft.com/library/windows/apps/Windows.Media.Playback.MediaPlaybackItem) や [**MediaPlaybackList**](https://msdn.microsoft.com/library/windows/apps/Windows.Media.Playback.MediaPlaybackList) など、**MediaSource** と共に使用できる上位レベルのクラスもあります。これらは、プレイリストや、複数のオーディオ、ビデオ、メタデータ トラックでメディア ソースを管理する機能など、より高度な機能を提供します。 **MediaSource** および関連 API について詳しくは、「[メディア項目、プレイリスト、トラック](media-playback-with-mediasource.md)」をご覧ください。
+この記事では、一般的なメディア再生アプリで使う **MediaPlayer** の機能について説明します。 **MediaPlayer** は、すべてのメディア項目のコンテナーとして [**MediaSource**](https://docs.microsoft.com/uwp/api/Windows.Media.Core.MediaSource) クラスを使います。 このクラスを使うと、すべて同じインターフェイスを使って、ローカル ファイル、メモリ ストリーム、ネットワーク ソースなど、さまざまなソースからメディアを読み込んで再生できます。 [  **MediaPlaybackItem**](https://docs.microsoft.com/uwp/api/Windows.Media.Playback.MediaPlaybackItem) や [**MediaPlaybackList**](https://docs.microsoft.com/uwp/api/Windows.Media.Playback.MediaPlaybackList) など、**MediaSource** と共に使用できる上位レベルのクラスもあります。これらは、プレイリストや、複数のオーディオ、ビデオ、メタデータ トラックでメディア ソースを管理する機能など、より高度な機能を提供します。 **MediaSource** および関連 API について詳しくは、「[メディア項目、プレイリスト、トラック](media-playback-with-mediasource.md)」をご覧ください。
 
 > [!NOTE] 
 > Windows 10 N および Windows 10 KN エディションには、再生用の **MediaPlayer** を使用するために必要なメディア機能が含まれません。 これらの機能は手動でインストールすることができます。 詳細については、「[Windows 10 N エディションおよび Windows 10 KN エディション用の Media Feature Pack](https://support.microsoft.com/en-us/help/3010081/media-feature-pack-for-windows-10-n-and-windows-10-kn-editions)」を参照してください。
 
 ## <a name="play-a-media-file-with-mediaplayer"></a>MediaPlayer でメディア ファイルを再生する  
-**MediaPlayer** を使った基本的なメディア再生は非常に簡単に実装できます。 まず、**MediaPlayer** クラスの新しいインスタンスを作成します。 アプリは、複数の **MediaPlayer** のインスタンスを同時にアクティブにすることができます。 次に、プレイヤーの [**Source**](https://msdn.microsoft.com/library/windows/apps/Windows.Media.Playback.MediaPlayer.Source) プロパティを、[**MediaSource**](https://msdn.microsoft.com/library/windows/apps/Windows.Media.Core.MediaSource)、[**MediaPlaybackItem**](https://msdn.microsoft.com/library/windows/apps/Windows.Media.Playback.MediaPlaybackItem)、[**MediaPlaybackList**](https://msdn.microsoft.com/library/windows/apps/Windows.Media.Playback.MediaPlaybackList) など、[**IMediaPlaybackSource**](https://msdn.microsoft.com/library/windows/apps/Windows.Media.Playback.IMediaPlaybackSource) を実装するオブジェクトに設定します。 この例では、アプリのローカル ストレージにあるファイルから **MediaSource** が作成された後、**MediaPlaybackItem** がソースから作成されて、プレイヤーの **Source** プロパティに割り当てられます。
+**MediaPlayer** を使った基本的なメディア再生は非常に簡単に実装できます。 まず、**MediaPlayer** クラスの新しいインスタンスを作成します。 アプリは、複数の **MediaPlayer** のインスタンスを同時にアクティブにすることができます。 次に、プレイヤーの [**Source**](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplayer.source) プロパティを、[**MediaSource**](https://docs.microsoft.com/uwp/api/Windows.Media.Core.MediaSource)、[**MediaPlaybackItem**](https://docs.microsoft.com/uwp/api/Windows.Media.Playback.MediaPlaybackItem)、[**MediaPlaybackList**](https://docs.microsoft.com/uwp/api/Windows.Media.Playback.MediaPlaybackList) など、[**IMediaPlaybackSource**](https://docs.microsoft.com/uwp/api/Windows.Media.Playback.IMediaPlaybackSource) を実装するオブジェクトに設定します。 この例では、アプリのローカル ストレージにあるファイルから **MediaSource** が作成された後、**MediaPlaybackItem** がソースから作成されて、プレイヤーの **Source** プロパティに割り当てられます。
 
-**MediaElement** とは異なり、**MediaPlayer** は既定では自動的に再生を開始しません。 再生を開始するには、[**Play**](https://msdn.microsoft.com/library/windows/apps/Windows.Media.Playback.MediaPlayer.Play) を呼び出すか、[**AutoPlay**](https://msdn.microsoft.com/library/windows/apps/Windows.Media.Playback.MediaPlayer.AutoPlay) プロパティを true に設定するか、またはユーザーが組み込みのメディア コントロールを使って再生を開始するのを待ちます。
+**MediaElement** とは異なり、**MediaPlayer** は既定では自動的に再生を開始しません。 再生を開始するには、[**Play**](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplayer.play) を呼び出すか、[**AutoPlay**](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplayer.autoplay) プロパティを true に設定するか、またはユーザーが組み込みのメディア コントロールを使って再生を開始するのを待ちます。
 
 [!code-cs[SimpleFilePlayback](./code/MediaPlayer_RS1/cs/MainPage.xaml.cs#SnippetSimpleFilePlayback)]
 
-アプリが **MediaPlayer** を使って実行されたときは、[**Close**](https://msdn.microsoft.com/library/windows/apps/Windows.Media.Playback.MediaPlayer.Close) メソッド (C# で **Dispose** に投影される) を呼び出して、プレーヤーで使われるリソースをクリーンアップしてください。
+アプリが **MediaPlayer** を使って実行されたときは、[**Close**](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplayer.close) メソッド (C# で **Dispose** に投影される) を呼び出して、プレーヤーで使われるリソースをクリーンアップしてください。
 
 [!code-cs[CloseMediaPlayer](./code/MediaPlayer_RS1/cs/MainPage.xaml.cs#SnippetCloseMediaPlayer)]
 
 ## <a name="use-mediaplayerelement-to-render-video-in-xaml"></a>MediaPlayerElement を使って XAML でビデオをレンダリングする
-メディアを XAML で表示せずに **MediaPlayer** で再生することはできますが、多くのメディア再生アプリは XAML ページでメディアをレンダリングします。 これを行うには、軽量な [**MediaPlayerElement**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Xaml.Controls.MediaPlayerElement) コントロールを使います。 **MediaElement** と同様に、**MediaPlayerElement** でも組み込みのトランスポート コントロールを表示するかどうかを指定することができます。
+メディアを XAML で表示せずに **MediaPlayer** で再生することはできますが、多くのメディア再生アプリは XAML ページでメディアをレンダリングします。 これを行うには、軽量な [**MediaPlayerElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.MediaPlayerElement) コントロールを使います。 **MediaElement** と同様に、**MediaPlayerElement** でも組み込みのトランスポート コントロールを表示するかどうかを指定することができます。
 
 [!code-xml[MediaPlayerElementXAML](./code/MediaPlayer_RS1/cs/MainPage.xaml#SnippetMediaPlayerElementXAML)]
 
-[  **SetMediaPlayer**](https://msdn.microsoft.com/library/windows/apps/mt708764) を呼び出して、要素がバインドされている **MediaPlayer** インスタンスを設定することができます。
+[  **SetMediaPlayer**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement.setmediaplayer) を呼び出して、要素がバインドされている **MediaPlayer** インスタンスを設定することができます。
 
 [!code-cs[SetMediaPlayer](./code/MediaPlayer_RS1/cs/MainPage.xaml.cs#SnippetSetMediaPlayer)]
 
-**MediaPlayerElement** での再生ソースを設定することもできます。その場合、要素は自動的に [**MediaPlayer**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Xaml.Controls.MediaPlayerElement.MediaPlayer) プロパティを使ってアクセスできる新しい **MediaPlayer** インスタンスを作成します。
+**MediaPlayerElement** での再生ソースを設定することもできます。その場合、要素は自動的に [**MediaPlayer**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement.mediaplayer) プロパティを使ってアクセスできる新しい **MediaPlayer** インスタンスを作成します。
 
 [!code-cs[GetPlayerFromElement](./code/MediaPlayer_RS1/cs/MainPage.xaml.cs#SnippetGetPlayerFromElement)]
 
 > [!NOTE] 
-> [  **IsEnabled**](https://msdn.microsoft.com/library/windows/apps/Windows.Media.Playback.MediaPlaybackCommandManager.IsEnabled) を false に設定して、[**MediaPlayer**](https://msdn.microsoft.com/library/windows/apps/Windows.Media.Playback.MediaPlayer) の [**MediaPlaybackCommandManager**](https://msdn.microsoft.com/library/windows/apps/Windows.Media.Playback.MediaPlaybackCommandManager) を無効にすると、**MediaPlayerElement** で提供される **MediaPlayer** と [**TransportControls**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Xaml.Controls.MediaPlayerElement.TransportControls) の間のリンクが解除されます。このため組み込みトランスポート コントロールはプレーヤーの再生を自動的に制御しなくなります。 代わりに、独自のコントロールを実装して、**MediaPlayer** を制御する必要があります。
+> [  **IsEnabled**](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplaybackcommandmanager.isenabled) を false に設定して、[**MediaPlayer**](https://docs.microsoft.com/uwp/api/Windows.Media.Playback.MediaPlayer) の [**MediaPlaybackCommandManager**](https://docs.microsoft.com/uwp/api/Windows.Media.Playback.MediaPlaybackCommandManager) を無効にすると、**MediaPlayerElement** で提供される **MediaPlayer** と [**TransportControls**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement.transportcontrols) の間のリンクが解除されます。このため組み込みトランスポート コントロールはプレーヤーの再生を自動的に制御しなくなります。 代わりに、独自のコントロールを実装して、**MediaPlayer** を制御する必要があります。
 
 ## <a name="common-mediaplayer-tasks"></a>MediaPlayer の一般的なタスク
 このセクションでは、**MediaPlayer** の一部の機能の使用方法を示します。
 
 ### <a name="set-the-audio-category"></a>オーディオ カテゴリの設定
-**MediaPlayer** の [**AudioCategory**](https://msdn.microsoft.com/library/windows/apps/Windows.Media.Playback.MediaPlayer.AudioCategory) プロパティを [**MediaPlayerAudioCategory**](https://msdn.microsoft.com/library/windows/apps/Windows.Media.Playback.MediaPlayerAudioCategory) 列挙値のいずれかの値に設定して、再生しているメディアの種類をシステムに知らせます。 ゲームでは、別のアプリケーションがバックグラウンドで音楽を再生する場合にゲームの音楽が自動的にミュートされるように、ゲームの音楽ストリームを **GameMedia** として分類してください。 音楽またはビデオ アプリケーションでは、ストリームの優先順位が **GameMedia** ストリームより高くなるように、ストリームを **Media** または **Movie** として分類してください。
+**MediaPlayer** の [**AudioCategory**](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplayer.audiocategory) プロパティを [**MediaPlayerAudioCategory**](https://docs.microsoft.com/uwp/api/Windows.Media.Playback.MediaPlayerAudioCategory) 列挙値のいずれかの値に設定して、再生しているメディアの種類をシステムに知らせます。 ゲームでは、別のアプリケーションがバックグラウンドで音楽を再生する場合にゲームの音楽が自動的にミュートされるように、ゲームの音楽ストリームを **GameMedia** として分類してください。 音楽またはビデオ アプリケーションでは、ストリームの優先順位が **GameMedia** ストリームより高くなるように、ストリームを **Media** または **Movie** として分類してください。
 
 [!code-cs[SetAudioCategory](./code/MediaPlayer_RS1/cs/MainPage.xaml.cs#SnippetSetAudioCategory)]
 
 ### <a name="output-to-a-specific-audio-endpoint"></a>特定のオーディオ エンドポイントへの出力
-既定では、**MediaPlayer** からのオーディオ出力はシステムの既定のオーディオ エンドポイントに送られますが、**MediaPlayer** が出力用に使う特定のオーディオ エンドポイントを指定することもできます。 下の例では、[**MediaDevice.GetAudioRenderSelector**](https://msdn.microsoft.com/library/windows/apps/Windows.Media.Devices.MediaDevice.GetAudioRenderSelector) がデバイスのオーディオ レンダリング カテゴリを一意に識別する文字列を返します。 次に、[**DeviceInformation**](https://msdn.microsoft.com/library/windows/apps/Windows.Devices.Enumeration.DeviceInformation) メソッドの [**FindAllAsync**](https://msdn.microsoft.com/library/windows/apps/Windows.Devices.Enumeration.DeviceInformation.FindAllAsync) を呼び出して、選択した種類の利用可能なデバイスの一覧を取得します。 プログラムを使ってどのデバイスを使うかを判断することも、返されたデバイスを [**ComboBox**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Xaml.Controls.ComboBox) に追加してユーザーにデバイスの選択をゆだねることもできます。
+既定では、**MediaPlayer** からのオーディオ出力はシステムの既定のオーディオ エンドポイントに送られますが、**MediaPlayer** が出力用に使う特定のオーディオ エンドポイントを指定することもできます。 下の例では、[**MediaDevice.GetAudioRenderSelector**](https://docs.microsoft.com/uwp/api/windows.media.devices.mediadevice.getaudiorenderselector) がデバイスのオーディオ レンダリング カテゴリを一意に識別する文字列を返します。 次に、[**DeviceInformation**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceInformation) メソッドの [**FindAllAsync**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformation.findallasync) を呼び出して、選択した種類の利用可能なデバイスの一覧を取得します。 プログラムを使ってどのデバイスを使うかを判断することも、返されたデバイスを [**ComboBox**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ComboBox) に追加してユーザーにデバイスの選択をゆだねることもできます。
 
 [!code-cs[SetAudioEndpointEnumerate](./code/MediaPlayer_RS1/cs/MainPage.xaml.cs#SnippetSetAudioEndpointEnumerate)]
 
-デバイス コンボ ボックスの [**SelectionChanged**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Xaml.Controls.Primitives.Selector.SelectionChanged) イベントで、**MediaPlayer** の [**AudioDevice**](https://msdn.microsoft.com/library/windows/apps/Windows.Media.Playback.MediaPlayer.AudioDevice) プロパティが選択されたデバイスに設定されます。これは、**ComboBoxItem** の [**Tag**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Xaml.FrameworkElement.Tag) プロパティに格納されていました。
+デバイス コンボ ボックスの [**SelectionChanged**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.selector.selectionchanged) イベントで、**MediaPlayer** の [**AudioDevice**](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplayer.audiodevice) プロパティが選択されたデバイスに設定されます。これは、**ComboBoxItem** の [**Tag**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.tag) プロパティに格納されていました。
 
 [!code-cs[SetAudioEndpontSelectionChanged](./code/MediaPlayer_RS1/cs/MainPage.xaml.cs#SnippetSetAudioEndpontSelectionChanged)]
 
 ### <a name="playback-session"></a>再生セッション
-この記事の前の方で説明したように、**MediaElement** クラスによって公開される関数の多くは [**MediaPlaybackSession**](https://msdn.microsoft.com/library/windows/apps/Windows.Media.Playback.MediaPlaybackSession) クラスに移されました。 これには、現在の再生位置、プレーヤーが一時停止しているか再生中か、現在の再生速度など、プレーヤーの再生状態に関する情報が含まれています。 **MediaPlaybackSession** は、再生中のコンテンツの現在のバッファリングおよびダウンロードの状態や、現在再生中のビデオ コンテンツの自然なサイズと縦横比などの状態が変わったときに通知するイベントもいくつか提供します。
+この記事の前の方で説明したように、**MediaElement** クラスによって公開される関数の多くは [**MediaPlaybackSession**](https://docs.microsoft.com/uwp/api/Windows.Media.Playback.MediaPlaybackSession) クラスに移されました。 これには、現在の再生位置、プレーヤーが一時停止しているか再生中か、現在の再生速度など、プレーヤーの再生状態に関する情報が含まれています。 **MediaPlaybackSession** は、再生中のコンテンツの現在のバッファリングおよびダウンロードの状態や、現在再生中のビデオ コンテンツの自然なサイズと縦横比などの状態が変わったときに通知するイベントもいくつか提供します。
 
-次の例は、コンテンツを 10 秒前にスキップするボタン クリック ハンドラーを実装する方法を示しています。 まず、プレイヤーの **MediaPlaybackSession** オブジェクトが [**PlaybackSession**](https://msdn.microsoft.com/library/windows/apps/Windows.Media.Playback.MediaPlayer.PlaybackSession) プロパティで取得されます。 次に、[**Position**](https://msdn.microsoft.com/library/windows/apps/Windows.Media.Playback.MediaPlaybackSession.Position) プロパティが現在の再生位置に 10 秒加えた位置に設定されます。
+次の例は、コンテンツを 10 秒前にスキップするボタン クリック ハンドラーを実装する方法を示しています。 まず、プレイヤーの **MediaPlaybackSession** オブジェクトが [**PlaybackSession**](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplayer.playbacksession) プロパティで取得されます。 次に、[**Position**](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplaybacksession.position) プロパティが現在の再生位置に 10 秒加えた位置に設定されます。
 
 [!code-cs[SkipForwardClick](./code/MediaPlayer_RS1/cs/MainPage.xaml.cs#SnippetSkipForwardClick)]
 
-次の例は、セッションの [**PlaybackRate**](https://msdn.microsoft.com/library/windows/apps/Windows.Media.Playback.MediaPlaybackSession.PlaybackRate) プロパティを設定して通常の再生速度と 2 倍の速度を切り替えるトグル ボタンを示しています。
+次の例は、セッションの [**PlaybackRate**](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplaybacksession.playbackrate) プロパティを設定して通常の再生速度と 2 倍の速度を切り替えるトグル ボタンを示しています。
 
 [!code-cs[SpeedChecked](./code/MediaPlayer_RS1/cs/MainPage.xaml.cs#SnippetSpeedChecked)]
 
@@ -82,13 +82,13 @@ Windows 10 バージョン 1803 以降では、**MediaPlayer** でビデオが�
 [!code-cs[SetRotation](./code/MediaPlayer_RS1/cs/MainPage.xaml.cs#SnippetSetRotation)]
 
 ### <a name="detect-expected-and-unexpected-buffering"></a>予期されたバッファー処理と予期しないバッファー処理の検出
-前のセクションで説明した **MediaPlaybackSession** オブジェクトでは、**[BufferingStarted](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplaybacksession.BufferingStarted)** と **[BufferingEnded](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplaybacksession.BufferingEnded)** という 2 つのイベントによって、現在再生中のメディアファイルが開始および停止した時点を検出します。 これにより、バッファー処理が行われていることを UI を更新の更新によってユーザーに表示できます。 初期バッファー処理は、メディア ファイルが最初に開かれたとき、またはユーザーが再生リスト内の新しい項目に切り替えたときに発生する予期されるバッファー処理です。 予期しないバッファー処理は、ネットワーク速度が低下したとき、またはコンテンツを提供するコンテンツ管理システムに、技術的な問題が起こった場合に発生する可能性があります。 RS3 以降では、**BufferingStarted** イベントを使用して、バッファー処理イベントが予期されたものか、それとも予期しないイベントであって、再生が中断されるのかを判断できます。 この情報は、アプリまたはメディア配信サービスのテレメトリ データとして使用できます。 
+前のセクションで説明した **MediaPlaybackSession** オブジェクトでは、 **[BufferingStarted](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplaybacksession.BufferingStarted)** と **[BufferingEnded](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplaybacksession.BufferingEnded)** という 2 つのイベントによって、現在再生中のメディアファイルが開始および停止した時点を検出します。 これにより、バッファー処理が行われていることを UI を更新の更新によってユーザーに表示できます。 初期バッファー処理は、メディア ファイルが最初に開かれたとき、またはユーザーが再生リスト内の新しい項目に切り替えたときに発生する予期されるバッファー処理です。 予期しないバッファー処理は、ネットワーク速度が低下したとき、またはコンテンツを提供するコンテンツ管理システムに、技術的な問題が起こった場合に発生する可能性があります。 RS3 以降では、**BufferingStarted** イベントを使用して、バッファー処理イベントが予期されたものか、それとも予期しないイベントであって、再生が中断されるのかを判断できます。 この情報は、アプリまたはメディア配信サービスのテレメトリ データとして使用できます。 
 
 バッファー処理の状態通知を受け取るには、**BufferingStarted** イベントと **BufferingEnded** イベントのハンドラーを登録します。
 
 [!code-cs[RegisterBufferingHandlers](./code/MediaPlayer_RS1/cs/MainPage.xaml.cs#SnippetRegisterBufferingHandlers)]
 
-**BufferingStarted**イベント ハンドラーで、このイベントに渡されたイベント引数を **[MediaPlaybackSessionBufferingStartedEventArgs](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplaybacksessionbufferingstartedeventargs)** オブジェクトにキャストし、**[IsPlaybackInterruption](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplaybacksessionbufferingstartedeventargs.IsPlaybackInterruption)** プロパティを確認します。 この値が true の場合、イベントをトリガーしたバッファー処理は予期しないものであり、再生が中断されます。 そうでない場合は、予想された初期バッファー処理です。 
+**BufferingStarted**イベント ハンドラーで、このイベントに渡されたイベント引数を **[MediaPlaybackSessionBufferingStartedEventArgs](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplaybacksessionbufferingstartedeventargs)** オブジェクトにキャストし、 **[IsPlaybackInterruption](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplaybacksessionbufferingstartedeventargs.IsPlaybackInterruption)** プロパティを確認します。 この値が true の場合、イベントをトリガーしたバッファー処理は予期しないものであり、再生が中断されます。 そうでない場合は、予想された初期バッファー処理です。 
 
 [!code-cs[BufferingHandlers](./code/MediaPlayer_RS1/cs/MainPage.xaml.cs#SnippetBufferingHandlers)]
 
@@ -96,7 +96,7 @@ Windows 10 バージョン 1803 以降では、**MediaPlayer** でビデオが�
 ### <a name="pinch-and-zoom-video"></a>ビデオのピンチおよびズーム
 **MediaPlayer** では、ビデオ コンテンツの中にレンダリングするソースの四角形を指定して、効果的にビデオを拡大することができます。 指定する四角形は、正規化された四角形 (0,0,1,1) を基準とします。0,0 はフレームの左上、1,1 はフレームの全幅と全高です。 たとえば、ビデオを 4 分割した右上の領域がレンダリングされるようにズーム四角形を設定するには、四角形 (.5,0,.5,.5) を指定します。  ソースの四角形が正規化された四角形 (0,0,1,1) の内部にあるように値を確認することが重要です。 この範囲外の値を設定しようとすると、例外がスローされます。
 
-マルチタッチ ジェスチャを使ってピンチおよびズームを実装するには、まずどのジェスチャをサポートするかを指定する必要があります。 この例では、拡大縮小と移動のジェスチャが要求されています。 サブスクライブしているジェスチャのいずれかが発生すると、[**ManipulationDelta**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Xaml.UIElement.ManipulationDelta) イベントが発生します。 ズームをフレーム全体にリセットするために、[**DoubleTapped**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Xaml.UIElement.DoubleTapped) イベントが使用されます。 
+マルチタッチ ジェスチャを使ってピンチおよびズームを実装するには、まずどのジェスチャをサポートするかを指定する必要があります。 この例では、拡大縮小と移動のジェスチャが要求されています。 サブスクライブしているジェスチャのいずれかが発生すると、[**ManipulationDelta**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.manipulationdelta) イベントが発生します。 ズームをフレーム全体にリセットするために、[**DoubleTapped**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.doubletapped) イベントが使用されます。 
 
 [!code-cs[RegisterPinchZoomEvents](./code/MediaPlayer_RS1/cs/MainPage.xaml.cs#SnippetRegisterPinchZoomEvents)]
 
@@ -108,11 +108,11 @@ Windows 10 バージョン 1803 以降では、**MediaPlayer** でビデオが�
 
 スケール値が 1 の場合、移動ジェスチャが処理されます。 四角形は、ジェスチャのピクセル数をコントロールの幅と高さで割った値だけ移動されます。 ここでも、結果の四角形がチェックされ、(0,0,1,1) の範囲内にあることが確認されます。
 
-最後に、**MediaPlaybackSession** の [**NormalizedSourceRect**](https://msdn.microsoft.com/library/windows/apps/Windows.Media.Playback.MediaPlaybackSession.NormalizedSourceRect) が新たに調整された四角形に設定され、レンダリングするビデオ フレーム内の領域が指定されます。
+最後に、**MediaPlaybackSession** の [**NormalizedSourceRect**](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplaybacksession.normalizedsourcerect) が新たに調整された四角形に設定され、レンダリングするビデオ フレーム内の領域が指定されます。
 
 [!code-cs[ManipulationDelta](./code/MediaPlayer_RS1/cs/MainPage.xaml.cs#SnippetManipulationDelta)]
 
-[  **DoubleTapped**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Xaml.UIElement.DoubleTapped) イベント ハンドラーで、ビデオ フレーム全体がレンダリングされるようにソースの四角形が (0,0,1,1) に戻されます。
+[  **DoubleTapped**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.doubletapped) イベント ハンドラーで、ビデオ フレーム全体がレンダリングされるようにソースの四角形が (0,0,1,1) に戻されます。
 
 [!code-cs[DoubleTapped](./code/MediaPlayer_RS1/cs/MainPage.xaml.cs#SnippetDoubleTapped)]
 
@@ -125,27 +125,27 @@ Windows 10 バージョン 1803 以降では、**MediaPlayer** でビデオが�
 [!code-cs[PolicyDegradation](./code/MediaPlayer_RS1/cs/MainPage.xaml.cs#SnippetPolicyDegradation)]
         
 ## <a name="use-mediaplayersurface-to-render-video-to-a-windowsuicomposition-surface"></a>MediaPlayerSurface を使って、Windows.UI.Composition サーフェスにビデオをレンダリングする
-Windows 10 バージョン 1607 からは、**MediaPlayer** を使って [**ICompositionSurface**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Composition.ICompositionSurface) にビデオをレンダリングできるため、プレイヤーは [**Windows.UI.Composition**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Composition) 名前空間で API と相互運用することができます。 コンポジション フレームワークを使うと、XAML と低レベルの DirectX グラフィックス API の間のビジュアル レイヤーでグラフィックスを操作することができます。 これにより、任意の XAML コントロールにビデオをレンダリングするようなシナリオが可能になります。 コンポジション API の使い方について詳しくは、「[ビジュアル レイヤー](https://msdn.microsoft.com/windows/uwp/composition/visual-layer)」をご覧ください。
+Windows 10 バージョン 1607 からは、**MediaPlayer** を使って [**ICompositionSurface**](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.ICompositionSurface) にビデオをレンダリングできるため、プレイヤーは [**Windows.UI.Composition**](https://docs.microsoft.com/uwp/api/Windows.UI.Composition) 名前空間で API と相互運用することができます。 コンポジション フレームワークを使うと、XAML と低レベルの DirectX グラフィックス API の間のビジュアル レイヤーでグラフィックスを操作することができます。 これにより、任意の XAML コントロールにビデオをレンダリングするようなシナリオが可能になります。 コンポジション API の使い方について詳しくは、「[ビジュアル レイヤー](https://docs.microsoft.com/windows/uwp/composition/visual-layer)」をご覧ください。
 
-次の例に、ビデオ プレーヤーのコンテンツを [**Canvas**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Xaml.Controls.Canvas) コントロールにレンダリングする方法を示します。 この例でのメディア プレーヤー固有の呼び出しは、[**SetSurfaceSize**](https://msdn.microsoft.com/library/windows/apps/mt489968) と [**GetSurface**](https://msdn.microsoft.com/library/windows/apps/mt489963) です。 **SetSurfaceSize** は、コンテンツのレンダリングに割り当てるバッファのサイズをシステムに伝えます。 **GetSurface** は、引数として [**Compositor**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Composition.Compositor) を受け取り、[**MediaPlayerSurface**](https://msdn.microsoft.com/library/windows/apps/Windows.Media.Playback.MediaPlayerSurface) クラスのインスタンスを取得します。 このクラスは、サーフェスを作成するために使われる **MediaPlayer** と **Compositor** へのアクセスを提供し、[**CompositionSurface**](https://msdn.microsoft.com/library/windows/apps/Windows.Media.Playback.MediaPlayerSurface.CompositionSurface) プロパティを通じてサーフェス自体を公開します。
+次の例に、ビデオ プレーヤーのコンテンツを [**Canvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Canvas) コントロールにレンダリングする方法を示します。 この例でのメディア プレーヤー固有の呼び出しは、[**SetSurfaceSize**](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplayer.setsurfacesize) と [**GetSurface**](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplayer.getsurface) です。 **SetSurfaceSize** は、コンテンツのレンダリングに割り当てるバッファのサイズをシステムに伝えます。 **GetSurface** は、引数として [**Compositor**](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.Compositor) を受け取り、[**MediaPlayerSurface**](https://docs.microsoft.com/uwp/api/Windows.Media.Playback.MediaPlayerSurface) クラスのインスタンスを取得します。 このクラスは、サーフェスを作成するために使われる **MediaPlayer** と **Compositor** へのアクセスを提供し、[**CompositionSurface**](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplayersurface.compositionsurface) プロパティを通じてサーフェス自体を公開します。
 
-この例の残りのコードでは、ビデオをレンダリングする [**SpriteVisual**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Composition.SpriteVisual) を作成し、そのサイズをビジュアルを表示するキャンバス要素のサイズに設定します。 次に、[**MediaPlayerSurface**](https://msdn.microsoft.com/library/windows/apps/Windows.Media.Playback.MediaPlayerSurface) から [**CompositionBrush**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Composition.CompositionBrush) が作成され、ビジュアルの [**Brush**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Composition.SpriteVisual.Brush) プロパティに割り当てられます。 そして、[**ContainerVisual**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Composition.ContainerVisual) が作成され、そのビジュアル ツリーの一番上に **SpriteVisual** が挿入されます。 最後に、[**SetElementChildVisual**](https://msdn.microsoft.com/library/windows/apps/mt608981) を呼び出してコンテナー ビジュアルを **Canvas** に割り当てます。
+この例の残りのコードでは、ビデオをレンダリングする [**SpriteVisual**](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.SpriteVisual) を作成し、そのサイズをビジュアルを表示するキャンバス要素のサイズに設定します。 次に、[**MediaPlayerSurface**](https://docs.microsoft.com/uwp/api/Windows.Media.Playback.MediaPlayerSurface) から [**CompositionBrush**](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.CompositionBrush) が作成され、ビジュアルの [**Brush**](https://docs.microsoft.com/uwp/api/windows.ui.composition.spritevisual.brush) プロパティに割り当てられます。 そして、[**ContainerVisual**](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.ContainerVisual) が作成され、そのビジュアル ツリーの一番上に **SpriteVisual** が挿入されます。 最後に、[**SetElementChildVisual**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.elementcompositionpreview.setelementchildvisual) を呼び出してコンテナー ビジュアルを **Canvas** に割り当てます。
 
 [!code-cs[Compositor](./code/MediaPlayer_RS1/cs/MainPage.xaml.cs#SnippetCompositor)]
         
 ## <a name="use-mediatimelinecontroller-to-synchronize-content-across-multiple-players"></a>MediaTimelineController を使って複数のプレイヤー全体でコンテンツを同期する
-この記事で前に説明したように、アプリは複数の **MediaPlayer** オブジェクトを一度にアクティブにすることができます。 既定では、作成する **MediaPlayer** はそれぞれ独立して動作します。 コメント トラックからビデオへの同期などの一部のシナリオでは、複数のプレーヤーの状態、再生位置、および再生速度を同期することもできます。 Windows 10 バージョン 1607 以降では、[**MediaTimelineController**](https://msdn.microsoft.com/library/windows/apps/Windows.Media.MediaTimelineController) クラスを使ってこの動作を実装できます。
+この記事で前に説明したように、アプリは複数の **MediaPlayer** オブジェクトを一度にアクティブにすることができます。 既定では、作成する **MediaPlayer** はそれぞれ独立して動作します。 コメント トラックからビデオへの同期などの一部のシナリオでは、複数のプレーヤーの状態、再生位置、および再生速度を同期することもできます。 Windows 10 バージョン 1607 以降では、[**MediaTimelineController**](https://docs.microsoft.com/uwp/api/Windows.Media.MediaTimelineController) クラスを使ってこの動作を実装できます。
 
 ### <a name="implement-playback-controls"></a>再生コントロールを実装する
-次の例は、**MediaTimelineController** を使って **MediaPlayer** の 2 つのインスタンスを制御する方法を示しています。 まず、**MediaPlayer** の各インスタンスがインスタンス化され、**Source** がメディア ファイルに設定されます。 次に、新しい **MediaTimelineController** が作成されます。 **MediaPlayer** ごとに、[**IsEnabled**](https://msdn.microsoft.com/library/windows/apps/Windows.Media.Playback.MediaPlaybackCommandManager.IsEnabled) プロパティを false に設定することで、各プレーヤー関連付けられている [**MediaPlaybackCommandManager**](https://msdn.microsoft.com/library/windows/apps/Windows.Media.Playback.MediaPlaybackCommandManager) が無効にされます。 次に、[**TimelineController**](https://msdn.microsoft.com/library/windows/apps/Windows.Media.Playback.MediaPlayer.TimelineController) プロパティがタイムライン コント ローラー オブジェクトに設定されます。
+次の例は、**MediaTimelineController** を使って **MediaPlayer** の 2 つのインスタンスを制御する方法を示しています。 まず、**MediaPlayer** の各インスタンスがインスタンス化され、**Source** がメディア ファイルに設定されます。 次に、新しい **MediaTimelineController** が作成されます。 **MediaPlayer** ごとに、[**IsEnabled**](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplaybackcommandmanager.isenabled) プロパティを false に設定することで、各プレーヤー関連付けられている [**MediaPlaybackCommandManager**](https://docs.microsoft.com/uwp/api/Windows.Media.Playback.MediaPlaybackCommandManager) が無効にされます。 次に、[**TimelineController**](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplayer.timelinecontroller) プロパティがタイムライン コント ローラー オブジェクトに設定されます。
 
 [!code-cs[DeclareMediaTimelineController](./code/MediaPlayer_RS1/cs/MainPage.xaml.cs#SnippetDeclareMediaTimelineController)]
 
 [!code-cs[SetTimelineController](./code/MediaPlayer_RS1/cs/MainPage.xaml.cs#SnippetSetTimelineController)]
 
-**注意**[**MediaPlaybackCommandManager**](https://msdn.microsoft.com/library/windows/apps/Windows.Media.Playback.MediaPlaybackCommandManager) は、**MediaPlayer** とシステム メディア トランスポート コントロール (SMTC) の間の自動統合を提供しますが、この自動統合は **MediaTimelineController** で制御されるメディア プレイヤーでは使うことはできません。 そのため、プレーヤーのタイムライン コント ローラーを設定する前に、メディア プレイヤーのコマンド マネージャーを無効にする必要があります。 そのためにはエラーは、次のメッセージがスローされる例外になります。「メディア タイムラインのコント ローラーのアタッチがブロックされているオブジェクトの現在の状態であるためです。」 メディア プレーヤーの SMTC との統合について詳しくは、「[システム メディア トランスポート コントロールとの統合](integrate-with-systemmediatransportcontrols.md)」をご覧ください。 **MediaTimelineController** 使っている場合は、SMTC を手動で制御できます。 詳しくは、「[システム メディア トランスポート コントロールの手動制御](system-media-transport-controls.md)」をご覧ください。
+**注意**[**MediaPlaybackCommandManager**](https://docs.microsoft.com/uwp/api/Windows.Media.Playback.MediaPlaybackCommandManager) は、**MediaPlayer** とシステム メディア トランスポート コントロール (SMTC) の間の自動統合を提供しますが、この自動統合は **MediaTimelineController** で制御されるメディア プレイヤーでは使うことはできません。 そのため、プレーヤーのタイムライン コント ローラーを設定する前に、メディア プレイヤーのコマンド マネージャーを無効にする必要があります。 そのためにはエラーは、次のメッセージがスローされる例外になります。「メディア タイムラインのコント ローラーのアタッチがブロックされているオブジェクトの現在の状態であるためです。」 メディア プレーヤーの SMTC との統合について詳しくは、「[システム メディア トランスポート コントロールとの統合](integrate-with-systemmediatransportcontrols.md)」をご覧ください。 **MediaTimelineController** 使っている場合は、SMTC を手動で制御できます。 詳しくは、「[システム メディア トランスポート コントロールの手動制御](system-media-transport-controls.md)」をご覧ください。
 
-1 つ以上のメディア プレーヤーに **MediaTimelineController** をアタッチしている場合は、コント ローラーによって公開されているメソッドを使って再生状態を制御できます。 次の例では、[**Start**](https://msdn.microsoft.com/library/windows/apps/Windows.Media.MediaTimelineController.Start) を呼び出して、メディアの開始部で関連付けられたすべてのメディア プレーヤーの再生を開始します。
+1 つ以上のメディア プレーヤーに **MediaTimelineController** をアタッチしている場合は、コント ローラーによって公開されているメソッドを使って再生状態を制御できます。 次の例では、[**Start**](https://docs.microsoft.com/uwp/api/windows.media.mediatimelinecontroller.start) を呼び出して、メディアの開始部で関連付けられたすべてのメディア プレーヤーの再生を開始します。
 
 [!code-cs[PlayButtonClick](./code/MediaPlayer_RS1/cs/MainPage.xaml.cs#SnippetPlayButtonClick)]
 
@@ -157,17 +157,17 @@ Windows 10 バージョン 1607 からは、**MediaPlayer** を使って [**ICom
 
 [!code-cs[FastForwardButtonClick](./code/MediaPlayer_RS1/cs/MainPage.xaml.cs#SnippetFastForwardButtonClick)]
 
-次の例は、**スライダー** コントロールを使って、接続されているメディア プレーヤーの 1 つのコンテンツの再生時間を基準としてタイムライン コント ローラーの現在の再生位置を表示する方法を示しています。 まず、新しい **MediaSource** が作成され、メディア ソースの [**OpenOperationCompleted**](https://msdn.microsoft.com/library/windows/apps/Windows.Media.Core.MediaSource.OpenOperationCompleted) のハンドラーが登録されます。 
+次の例は、**スライダー** コントロールを使って、接続されているメディア プレーヤーの 1 つのコンテンツの再生時間を基準としてタイムライン コント ローラーの現在の再生位置を表示する方法を示しています。 まず、新しい **MediaSource** が作成され、メディア ソースの [**OpenOperationCompleted**](https://docs.microsoft.com/uwp/api/windows.media.core.mediasource.openoperationcompleted) のハンドラーが登録されます。 
 
 [!code-cs[CreateSourceWithOpenCompleted](./code/MediaPlayer_RS1/cs/MainPage.xaml.cs#SnippetCreateSourceWithOpenCompleted)]
 
-**OpenOperationCompleted** ハンドラーは、メディア ソースのコンテンツの再生時間を検出する契機になります。 再生時間が決定されると、**Slider** コントロールの最大値がメディア項目の合計秒数に設定されます。 [  **RunAsync**](https://msdn.microsoft.com/library/windows/apps/hh750317) の呼び出しの中で値を設定して、UI スレッドで実行されていることを確認します。
+**OpenOperationCompleted** ハンドラーは、メディア ソースのコンテンツの再生時間を検出する契機になります。 再生時間が決定されると、**Slider** コントロールの最大値がメディア項目の合計秒数に設定されます。 [  **RunAsync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.windows) の呼び出しの中で値を設定して、UI スレッドで実行されていることを確認します。
 
 [!code-cs[DeclareDuration](./code/MediaPlayer_RS1/cs/MainPage.xaml.cs#SnippetDeclareDuration)]
 
 [!code-cs[OpenCompleted](./code/MediaPlayer_RS1/cs/MainPage.xaml.cs#SnippetOpenCompleted)]
 
-次に、タイムライン コント ローラーの [**PositionChanged**](https://msdn.microsoft.com/library/windows/apps/Windows.Media.MediaTimelineController.PositionChanged) イベントのハンドラーを登録します。 これは 1 秒間に 4 回程度、システムによって定期的に呼び出されます。
+次に、タイムライン コント ローラーの [**PositionChanged**](https://docs.microsoft.com/uwp/api/windows.media.mediatimelinecontroller.positionchanged) イベントのハンドラーを登録します。 これは 1 秒間に 4 回程度、システムによって定期的に呼び出されます。
 
 [!code-cs[RegisterPositionChanged](./code/MediaPlayer_RS1/cs/MainPage.xaml.cs#SnippetRegisterPositionChanged)]
 
@@ -176,11 +176,11 @@ Windows 10 バージョン 1607 からは、**MediaPlayer** を使って [**ICom
 [!code-cs[PositionChanged](./code/MediaPlayer_RS1/cs/MainPage.xaml.cs#SnippetPositionChanged)]
 
 ### <a name="offset-the-playback-position-from-the-timeline-position"></a>タイムラインの位置から再生位置をオフセットする
-場合によっては、タイムライン コント ローラーに関連付けられている 1 つ以上のメディア プレーヤーの再生位置に、他のプレーヤーからのオフセットを付けたいことがあります。 これを行うには、オフセットを付ける **MediaPlayer** オブジェクトの [**TimelineControllerPositionOffset**](https://msdn.microsoft.com/library/windows/apps/Windows.Media.Playback.MediaPlayer.TimelineControllerPositionOffset) プロパティを設定します。 次の例では、2 つのメディア プレーヤーのコンテンツの再生時間を使って、項目の長さを加えるか差し引くように 2 つのスライダー コントロールの最小値と最大値を設定しています。  
+場合によっては、タイムライン コント ローラーに関連付けられている 1 つ以上のメディア プレーヤーの再生位置に、他のプレーヤーからのオフセットを付けたいことがあります。 これを行うには、オフセットを付ける **MediaPlayer** オブジェクトの [**TimelineControllerPositionOffset**](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplayer.timelinecontrollerpositionoffset) プロパティを設定します。 次の例では、2 つのメディア プレーヤーのコンテンツの再生時間を使って、項目の長さを加えるか差し引くように 2 つのスライダー コントロールの最小値と最大値を設定しています。  
 
 [!code-cs[OffsetSliders](./code/MediaPlayer_RS1/cs/MainPage.xaml.cs#SnippetOffsetSliders)]
 
-各スライダーの [**ValueChanged**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Xaml.Controls.Primitives.RangeBase.ValueChanged) イベントで、各プレーヤーの **TimelineControllerPositionOffset** が対応する値に設定されます。
+各スライダーの [**ValueChanged**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.rangebase.valuechanged) イベントで、各プレーヤーの **TimelineControllerPositionOffset** が対応する値に設定されます。
 
 [!code-cs[TimelineOffset](./code/MediaPlayer_RS1/cs/MainPage.xaml.cs#SnippetTimelineOffset)]
 
@@ -189,7 +189,7 @@ Windows 10 バージョン 1607 からは、**MediaPlayer** を使って [**ICom
 ## <a name="play-spherical-video-with-mediaplayer"></a>MediaPlayer を使った球面ビデオの再生
 Windows 10 Version 1703 以降、**MediaPlayer** は、球面ビデオ再生のための正距円筒図法をサポートしています。 球面ビデオ コンテンツは、ビデオ エンコードがサポートされている限り、**MediaPlayer** がビデオを表示するという点において、通常の平面ビデオと同じです。 ビデオが正距円筒図法を使用することを指定するメタデータ タグを含む球面ビデオの場合、**MediaPlayer** は、指定された視野とビューの向きを使ってビデオを表示できます。 これにより、ヘッド マウント ディスプレイによる仮想現実ビデオの再生や、ユーザーがマウスまたはキーボード入力で球面ビデオ コンテンツ内でパンできるようにするなどのシナリオが実現されます。
 
-球面ビデオを再生するには、この記事で既に説明したビデオ コンテンツを再生するための手順を使用します。 1 つ追加される手順は、**[MediaPlayer.MediaOpened]**(https://docs.microsoft.com/uwp/api/Windows.Media.Playback.MediaPlayer#Windows_Media_Playback_MediaPlayer_MediaOpened) イベントのハンドラーを登録することです。 このイベントにより、球面ビデオの再生パラメーターが有効化され、制御できるようになります。
+球面ビデオを再生するには、この記事で既に説明したビデオ コンテンツを再生するための手順を使用します。 1 つ追加される手順は、 **[MediaPlayer.MediaOpened]** (https://docs.microsoft.com/uwp/api/Windows.Media.Playback.MediaPlayer#Windows_Media_Playback_MediaPlayer_MediaOpened) イベントのハンドラーを登録することです。 このイベントにより、球面ビデオの再生パラメーターが有効化され、制御できるようになります。
 
 [!code-cs[OpenSphericalVideo](./code/MediaPlayer_RS1/cs/MainPage.xaml.cs#SnippetOpenSphericalVideo)]
 
@@ -230,7 +230,7 @@ Win2D について詳しくは、[Win2D の GitHub リポジトリ](https://gith
 
 **効果プロジェクトに Win2D NuGet パッケージを追加するには**
 
-1.  **ソリューション エクスプローラー**で、プロジェクトを右クリックし、**[NuGet パッケージの管理]** をクリックします。
+1.  **ソリューション エクスプローラー**で、プロジェクトを右クリックし、 **[NuGet パッケージの管理]** をクリックします。
 2.  ウィンドウの上部で **[参照]** タブをクリックします。
 3.  検索ボックスに **「Win2D」** と入力します。
 4.  **[Win2D.uwp]** を選択し、右のウィンドウで **[インストール]** を選択します。

@@ -8,12 +8,12 @@ ms.date: 01/24/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: d81957c379bd948a50d08b980ff20debc6c223c5
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 28a1bd46646deae8f6e6519d72295d42ce2766db
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57611267"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66359560"
 ---
 # <a name="landmarks-and-headings"></a>ランドマークと見出し
 
@@ -25,15 +25,15 @@ ms.locfileid: "57611267"
 
 たとえば、タブ パネルを使用する際は、それをナビゲーション ランドマークと考えてください。 検索編集ボックスを使用する際は、それを検索ランドマークと考え、メイン コンテンツをメイン コンテンツランドマークとして設定することを検討してください。 ランドマークの内部でも外部でも、サブ要素を論理見出しレベルがある見出しとして設定することを検討してください。 
 
-Windows 設定アプリに、**[簡単操作]** ページを含めることを検討してください。 
+Windows 設定アプリに、 **[簡単操作]** ページを含めることを検討してください。 
 
 ![Windows 設定アプリの [簡単操作] ページ](images/EaseOfAccessSettings.png)  
 
-検索ランドマーク内にラップされた検索編集ボックスがあります。 左側のナビゲーション要素はナビゲーション ランドマーク内でラップされ、右側のメイン コンテンツはメイン コンテンツ ランドマーク内でラップされています。 さらに、ナビゲーション ランドマーク内に、見出しレベル 1 が **[簡単操作]** であるメイン グループの見出しがあります。 その下に、サブ オプションの **[視覚]**、**[聴覚]** などがあります。 これらの下に見出しレベル 2 があります。 見出しの設定はメイン コンテンツ内でも続き、メイン サブジェクトの **[表示]** を見出しレベル 1 として設定し、**[画面上のすべてのものを大きくする]** などのサブ グループを見出しレベル 2 として設定します。 
+検索ランドマーク内にラップされた検索編集ボックスがあります。 左側のナビゲーション要素はナビゲーション ランドマーク内でラップされ、右側のメイン コンテンツはメイン コンテンツ ランドマーク内でラップされています。 さらに、ナビゲーション ランドマーク内に、見出しレベル 1 が **[簡単操作]** であるメイン グループの見出しがあります。 その下に、サブ オプションの **[視覚]** 、 **[聴覚]** などがあります。 これらの下に見出しレベル 2 があります。 見出しの設定はメイン コンテンツ内でも続き、メイン サブジェクトの **[表示]** を見出しレベル 1 として設定し、 **[画面上のすべてのものを大きくする]** などのサブ グループを見出しレベル 2 として設定します。 
 
 ランドマークや見出しがなくても設定アプリにアクセスできますが、これらがある方がより使いやすくなります。 スクリーン リーダー ユーザーは、必要なグループ (ランドマーク) に迅速かつ簡単にアクセスでき、サブ グループ (見出し) にも同様にアクセスできます。 
 
-[AutomationProperties.LandmarkTypeProperty](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.automationproperties.LandmarkTypeProperty) を使用して、目的の[ランドマークの種類](https://msdn.microsoft.com/library/windows/desktop/mt759299)として UI 要素を設定します。 このランドマーク UI 要素は、そのランドマークに応じた他のすべての UI 要素をカプセル化します。 
+[AutomationProperties.LandmarkTypeProperty](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.automationproperties.LandmarkTypeProperty) を使用して、目的の[ランドマークの種類](https://docs.microsoft.com/windows/desktop/WinAuto/landmark-type-identifiers)として UI 要素を設定します。 このランドマーク UI 要素は、そのランドマークに応じた他のすべての UI 要素をカプセル化します。 
 
 [AutomationProperties.LocalizedLandmarkTypeProperty](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.automationproperties.LocalizedLandmarkTypeProperty) を使用して、ランドマークに具体的に名前を付けます。 メインやナビゲーションなど、定義済みのランドマークの種類を選択した場合は、それらの名前がランドマーク名に使用されます。 しかし、ランドマークの種類をカスタムに設定した場合は、このプロパティを使用してランドマークに具体的に名前を付ける必要があります。 このプロパティを使用して、カスタムでないランドマークの種類から設定される既定の名前を上書きすることもできます。 
 

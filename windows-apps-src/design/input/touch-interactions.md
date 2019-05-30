@@ -8,12 +8,12 @@ keywords: タッチ, ポインター, 入力, ユーザーの操作
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: b889fede67c7e32ff48c0e48a516f389afda820a
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: d5de2af483ca000909e60e94fc41d2a88a405219
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57649237"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66365180"
 ---
 # <a name="touch-interactions"></a>タッチ操作
 
@@ -22,7 +22,7 @@ ms.locfileid: "57649237"
 
 ただし、タッチ用に最適化された UI が従来の UI よりも常に優れているとは限らないことに留意してください。 どちらの UI にも、テクノロジとアプリに固有の長所と短所があります。 タッチ操作主体の UI に移行する際に、タッチ (タッチパッドを含む)、ペン/スタイラス、マウス、キーボードの各入力の主な違いを理解することが重要です。
 
-> **重要な API**:[**Windows.UI.Xaml.Input**](https://msdn.microsoft.com/library/windows/apps/br227994)、 [ **Windows.UI.Core**](https://msdn.microsoft.com/library/windows/apps/br208383)、 [ **Windows.Devices.Input**](https://msdn.microsoft.com/library/windows/apps/br225648)
+> **重要な API**:[**Windows.UI.Xaml.Input**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input)、 [ **Windows.UI.Core**](https://docs.microsoft.com/uwp/api/Windows.UI.Core)、 [ **Windows.Devices.Input**](https://docs.microsoft.com/uwp/api/Windows.Devices.Input)
 
 
 多くのデバイスに、1 本または複数の指 (つまりタッチ接触) を入力として使うことをサポートするマルチタッチ画面が搭載されています。 タッチ接触とその移動は、さまざまなユーザー操作をサポートするタッチ ジェスチャや操作として解釈されます。
@@ -57,7 +57,7 @@ ms.locfileid: "57649237"
 
 <table>
 <tbody><tr><th>要因</th><th>タッチ操作</th><th>マウス、キーボード、ペン/スタイラス操作</th><th>タッチパッド</th></tr>
-<tr><td rowspan="3">正確性</td><td>指先が接触する領域は単一の XY 座標よりも広いので、意図していないコマンドがアクティブ化される可能性が高くなります。</td><td>マウスとペン/スタイラスを使うと正確な XY 座標を指定できます。</td><td>マウスと同じです。</td></tr>
+<tr><td rowspan="3">有効桁数</td><td>指先が接触する領域は単一の XY 座標よりも広いので、意図していないコマンドがアクティブ化される可能性が高くなります。</td><td>マウスとペン/スタイラスを使うと正確な XY 座標を指定できます。</td><td>マウスと同じです。</td></tr>
 <tr><td>接触する領域の形は移動を通じて変化します。  </td><td>マウスの移動とペン/スタイラスのストロークによって正確な XY 座標を指定できます。 キーボード フォーカスは明示的です。</td><td>マウスと同じです。</td></tr>
 <tr><td>ターゲット設定に役立つマウス カーソルはありません。</td><td>マウス カーソル、ペン/スタイラス カーソル、キーボード フォーカスはすべてターゲット設定に役立ちます。</td><td>マウスと同じです。</td></tr>
 <tr><td rowspan="3">人体構造</td><td>1 本または複数の指で直線移動を行うのは困難なので、指先の動きは正確さに欠けます。 これは、手関節が曲がることや動きに関係する関節の数が原因です。</td><td>マウスまたはペン/スタイラスを制御する手の物理的な移動距離は、画面上のカーソルの移動距離よりも短いので、マウスまたはペン/スタイラスで直線移動を行う方が簡単です。</td><td>マウスと同じです。</td></tr>
@@ -163,30 +163,30 @@ ms.locfileid: "57649237"
 
 アプリのビューのパン/スクロールとズームの設定を使って、ユーザー操作エクスペリエンスを調整します。 アプリ ビューによって、ユーザーがアプリとそのコンテンツにアクセスして操作する方法が決まります。 ビューは、慣性、コンテンツ境界の跳ね返り、スナップ位置などの動作も提供します。
 
-[  **ScrollViewer**](https://msdn.microsoft.com/library/windows/apps/br209527) コントロールのパンとスクロールの設定により、ビューのコンテンツがビューポートに収まらない場合に、単一のビュー内でユーザーがどのように移動するかが決まります。 単一のビューは、たとえば雑誌や本のページ、コンピューターのフォルダー構造、ドキュメントのライブラリ、フォト アルバムなどです。
+[  **ScrollViewer**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ScrollViewer) コントロールのパンとスクロールの設定により、ビューのコンテンツがビューポートに収まらない場合に、単一のビュー内でユーザーがどのように移動するかが決まります。 単一のビューは、たとえば雑誌や本のページ、コンピューターのフォルダー構造、ドキュメントのライブラリ、フォト アルバムなどです。
 
-ズームの設定は、光学式ズーム ([**ScrollViewer**](https://msdn.microsoft.com/library/windows/apps/br209527) コントロールによってサポートされる) と [**Semantic Zoom**](https://msdn.microsoft.com/library/windows/apps/hh702601) コントロールの両方に適用されます。 セマンティック ズームは、タッチに最適化された手法の 1 つであり、関連する大量のデータやコンテンツを 1 つのビュー内に表示してナビゲートします。 この機能では、2 つの分類モード (ズーム レベル) が使われます。 これは、1 つのビュー内でのパンとスクロールに似ています。 パンとスクロールは、セマンティック ズームと組み合わせて使うことができます。
+ズームの設定は、光学式ズーム ([**ScrollViewer**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ScrollViewer) コントロールによってサポートされる) と [**Semantic Zoom**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.SemanticZoom) コントロールの両方に適用されます。 セマンティック ズームは、タッチに最適化された手法の 1 つであり、関連する大量のデータやコンテンツを 1 つのビュー内に表示してナビゲートします。 この機能では、2 つの分類モード (ズーム レベル) が使われます。 これは、1 つのビュー内でのパンとスクロールに似ています。 パンとスクロールは、セマンティック ズームと組み合わせて使うことができます。
 
 パン/スクロールとズーム動作を変更するには、アプリのビューとイベントを使います。 こうすることで、ポインターとジェスチャ イベントを処理する場合よりもスムーズな操作エクスペリエンスを提供できます。
 
-アプリ ビューについて詳しくは、「[コントロール、レイアウト、テキスト](https://msdn.microsoft.com/library/windows/apps/mt228348)」をご覧ください。
+アプリ ビューについて詳しくは、「[コントロール、レイアウト、テキスト](https://docs.microsoft.com/windows/uwp/design/basics/)」をご覧ください。
 
 ## <a name="custom-touch-interactions"></a>カスタム タッチ操作
 
 
 独自の対話式操作サポートを実装する場合は、ユーザーはアプリの UI 要素を直接操作できる直感的なエクスペリエンスを期待しているということを心に留めておいてください。 プラットフォーム コントロール ライブラリでカスタムの対話式操作をモデル化し、一貫性と見つけやすさを維持することをお勧めします。 これらのライブラリのコントロールでは、標準的な対話式操作、アニメーション化された物理的効果、視覚的フィードバック、アクセシビリティなど、完全なユーザー操作エクスペリエンスが提供されます。 はっきりとした明確に定義されている要件があり、基本的な対話式操作ではシナリオがサポートされない場合のみ、カスタムの対話式操作を作ってください。
 
-カスタマイズされたタッチ サポートを提供するために、さまざまな [**UIElement**](https://msdn.microsoft.com/library/windows/apps/br208911) イベントを処理できます。 これらのイベントは、次の 3 つのレベルのアブストラクションにグループ化されます。
+カスタマイズされたタッチ サポートを提供するために、さまざまな [**UIElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement) イベントを処理できます。 これらのイベントは、次の 3 つのレベルのアブストラクションにグループ化されます。
 
--   静的ジェスチャ イベントは、対話式操作が完了した後に発生します。 ジェスチャ イベントには、[**Tapped**](https://msdn.microsoft.com/library/windows/apps/br208985)、[**DoubleTapped**](https://msdn.microsoft.com/library/windows/apps/br208922)、[**RightTapped**](https://msdn.microsoft.com/library/windows/apps/br208984)、[**Holding**](https://msdn.microsoft.com/library/windows/apps/br208928) があります。
+-   静的ジェスチャ イベントは、対話式操作が完了した後に発生します。 ジェスチャ イベントには、[**Tapped**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.tapped)、[**DoubleTapped**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.doubletapped)、[**RightTapped**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.righttapped)、[**Holding**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.holding) があります。
 
-    [  **IsTapEnabled**](https://msdn.microsoft.com/library/windows/apps/br208939)、[**IsDoubleTapEnabled**](https://msdn.microsoft.com/library/windows/apps/br208931)、[**IsRightTapEnabled**](https://msdn.microsoft.com/library/windows/apps/br208937)、[**IsHoldingEnabled**](https://msdn.microsoft.com/library/windows/apps/br208935) を **false** に設定して、これらのジェスチャ イベントを無効にすることもできます。
+    [  **IsTapEnabled**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.istapenabled)、[**IsDoubleTapEnabled**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.isdoubletapenabled)、[**IsRightTapEnabled**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.isrighttapenabled)、[**IsHoldingEnabled**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.isholdingenabled) を **false** に設定して、これらのジェスチャ イベントを無効にすることもできます。
 
--   [  **PointerPressed**](https://msdn.microsoft.com/library/windows/apps/br208971) や [**PointerMoved**](https://msdn.microsoft.com/library/windows/apps/br208970) などのポインター イベントは、ポインター モーションや、押すイベントと離すイベントの識別機能などの下位レベルの詳細を提供します。
+-   [  **PointerPressed**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerpressed) や [**PointerMoved**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointermoved) などのポインター イベントは、ポインター モーションや、押すイベントと離すイベントの識別機能などの下位レベルの詳細を提供します。
 
     ポインターは、統合イベント メカニズムを持つ一般的な入力の種類です。 アクティブな入力ソース (タッチ、タッチパッド、マウス、またはペン) についての画面位置などの基本的な情報を公開します。
 
--   [  **ManipulationStarted**](https://msdn.microsoft.com/library/windows/apps/br208950) などの操作ジェスチャ イベントは継続的な対話式操作を示します。 操作ジェスチャ イベントはユーザーが要素にタッチしたときに発生し、ユーザーが指を離すか操作が取り消されるまで続きます。
+-   [  **ManipulationStarted**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.manipulationstarted) などの操作ジェスチャ イベントは継続的な対話式操作を示します。 操作ジェスチャ イベントはユーザーが要素にタッチしたときに発生し、ユーザーが指を離すか操作が取り消されるまで続きます。
 
     操作イベントには、ズーム、パン、回転などのマルチタッチ操作や、ドラッグなどの慣性と速度データを使った操作の場合は、操作イベントを使います。 操作イベントで提供される情報は、実行された操作のフォームを識別するのではなく、位置、変換デルタ、速度などのタッチ データを含みます。 このタッチ データを使って、実行された操作の種類を確認できます。
 
@@ -211,7 +211,7 @@ For more info about gestures, manipulations, and interactions, see [Custom user 
 ## <a name="gesture-events"></a>ジェスチャ イベント
 
 
-個々のコントロールについて詳しくは、「[コントロールの一覧](https://msdn.microsoft.com/library/windows/apps/mt185406)」をご覧ください。
+個々のコントロールについて詳しくは、「[コントロールの一覧](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/)」をご覧ください。
 
 ## <a name="pointer-events"></a>ポインター イベント
 
@@ -224,19 +224,19 @@ For more info about gestures, manipulations, and interactions, see [Custom user 
 
 | イベント/クラス                                                       | 説明                                                   |
 |----------------------------------------------------------------------|---------------------------------------------------------------|
-| [**PointerPressed**](https://msdn.microsoft.com/library/windows/apps/br208971)             | 1 本の指で画面をタッチしたときに発生します。               |
-| [**PointerReleased**](https://msdn.microsoft.com/library/windows/apps/br208972)           | その同じタッチによる接触が離れたときに発生します。                |
-| [**PointerMoved**](https://msdn.microsoft.com/library/windows/apps/br208970)                 | 画面上でポインターがドラッグされたときに発生します。         |
-| [**PointerEntered**](https://msdn.microsoft.com/library/windows/apps/br208968)             | ポインターが要素のヒット テスト領域内に入ったときに発生します。 |
-| [**PointerExited**](https://msdn.microsoft.com/library/windows/apps/br208969)               | ポインターが要素のヒット テスト領域から出たときに発生します。  |
-| [**PointerCanceled**](https://msdn.microsoft.com/library/windows/apps/br208964)           | タッチによる接触が異常に失われたときに発生します。               |
-| [**PointerCaptureLost**](https://msdn.microsoft.com/library/windows/apps/br208965)     | 別の要素でポインター キャプチャが行われたときに発生します。    |
-| [**PointerWheelChanged**](https://msdn.microsoft.com/library/windows/apps/br208973)   | マウス ホイールのデルタ値が変化すると発生します。         |
-| [**PointerRoutedEventArgs**](https://msdn.microsoft.com/library/windows/apps/hh943076) | すべてのポインター イベントのデータを提供します。                         |
+| [**PointerPressed**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerpressed)             | 1 本の指で画面をタッチしたときに発生します。               |
+| [**PointerReleased**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerreleased)           | その同じタッチによる接触が離れたときに発生します。                |
+| [**PointerMoved**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointermoved)                 | 画面上でポインターがドラッグされたときに発生します。         |
+| [**PointerEntered**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerentered)             | ポインターが要素のヒット テスト領域内に入ったときに発生します。 |
+| [**PointerExited**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerexited)               | ポインターが要素のヒット テスト領域から出たときに発生します。  |
+| [**PointerCanceled**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointercanceled)           | タッチによる接触が異常に失われたときに発生します。               |
+| [**PointerCaptureLost**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointercapturelost)     | 別の要素でポインター キャプチャが行われたときに発生します。    |
+| [**PointerWheelChanged**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerwheelchanged)   | マウス ホイールのデルタ値が変化すると発生します。         |
+| [**PointerRoutedEventArgs**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.PointerRoutedEventArgs) | すべてのポインター イベントのデータを提供します。                         |
 
  
 
-次の例に、[**PointerPressed**](https://msdn.microsoft.com/library/windows/apps/br208971)、[**PointerReleased**](https://msdn.microsoft.com/library/windows/apps/br208972)、[**PointerExited**](https://msdn.microsoft.com/library/windows/apps/br208969) の各イベントを使って [**Rectangle**](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle) オブジェクトに対するタップ操作を処理する方法を示します。
+次の例に、[**PointerPressed**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerpressed)、[**PointerReleased**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerreleased)、[**PointerExited**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerexited) の各イベントを使って [**Rectangle**](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle) オブジェクトに対するタップ操作を処理する方法を示します。
 
 最初に、XAML (Extensible Application Markup Language) で、`touchRectangle` という名前の [**Rectangle**](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle) コントロールが作成されます。
 
@@ -246,7 +246,7 @@ For more info about gestures, manipulations, and interactions, see [Custom user 
            Height="100" Width="200" Fill="Blue" />
 </Grid>
 ```
-次に、[**PointerPressed**](https://msdn.microsoft.com/library/windows/apps/br208971)、[**PointerReleased**](https://msdn.microsoft.com/library/windows/apps/br208972)、[**PointerExited**](https://msdn.microsoft.com/library/windows/apps/br208969) の各イベントのリスナーが指定されます。
+次に、[**PointerPressed**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerpressed)、[**PointerReleased**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerreleased)、[**PointerExited**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerexited) の各イベントのリスナーが指定されます。
 
 ```cpp
 MainPage::MainPage()
@@ -286,7 +286,7 @@ Public Sub New()
 End Sub
 ```
 
-最後に、[**PointerPressed**](https://msdn.microsoft.com/library/windows/apps/br208971) イベント ハンドラーが [**Rectangle**](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle) の [**Height**](/uwp/api/Windows.UI.Xaml.FrameworkElement.Height) と [**Width**](/uwp/api/Windows.UI.Xaml.FrameworkElement.Width) を大きくし、[**PointerReleased**](https://msdn.microsoft.com/library/windows/apps/br208972) と [**PointerExited**](https://msdn.microsoft.com/library/windows/apps/br208969) の各イベント ハンドラーは **Height** と **Width** を開始値に戻します。
+最後に、[**PointerPressed**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerpressed) イベント ハンドラーが [**Rectangle**](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle) の [**Height**](/uwp/api/Windows.UI.Xaml.FrameworkElement.Height) と [**Width**](/uwp/api/Windows.UI.Xaml.FrameworkElement.Width) を大きくし、[**PointerReleased**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerreleased) と [**PointerExited**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerexited) の各イベント ハンドラーは **Height** と **Width** を開始値に戻します。
 
 ```cpp
 // Handler for pointer exited event.
@@ -418,29 +418,29 @@ End Sub
 
 | イベント/クラス                                                                                               | 説明                                                                                                                               |
 |--------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
-| [**ManipulationStarting イベント**](https://msdn.microsoft.com/library/windows/apps/br208951)                                   | 操作プロセッサが最初に作成されると発生します。                                                                                  |
-| [**ManipulationStarted イベント**](https://msdn.microsoft.com/library/windows/apps/br208950)                                     | 入力デバイスが [**UIElement**](https://msdn.microsoft.com/library/windows/apps/br208911) に対する操作を開始すると発生します。                                            |
-| [**ManipulationDelta イベント**](https://msdn.microsoft.com/library/windows/apps/br208946)                                         | 入力デバイスが操作中に位置を変更すると発生します。                                                                      |
-| [**ManipulationInertiaStarting イベント**](https://msdn.microsoft.com/library/windows/apps/hh702425)                | 操作中に入力デバイスが [**UIElement**](https://msdn.microsoft.com/library/windows/apps/br208911) オブジェクトとのコンタクトを失ったときと慣性が開始したときに発生します。 |
-| [**ManipulationCompleted イベント**](https://msdn.microsoft.com/library/windows/apps/br208945)                                 | [  **UIElement**](https://msdn.microsoft.com/library/windows/apps/br208911) に対する操作と慣性が完了すると発生します。                                          |
-| [**ManipulationStartingRoutedEventArgs**](https://msdn.microsoft.com/library/windows/apps/hh702132)               | [  **ManipulationStarting**](https://msdn.microsoft.com/library/windows/apps/br208951) イベントのデータを指定します。                                         |
-| [**ManipulationStartedRoutedEventArgs**](https://msdn.microsoft.com/library/windows/apps/hh702101)                 | [  **ManipulationStarted**](https://msdn.microsoft.com/library/windows/apps/br208950) イベントのデータを指定します。                                           |
-| [**ManipulationDeltaRoutedEventArgs**](https://msdn.microsoft.com/library/windows/apps/hh702051)                     | [  **ManipulationDelta**](https://msdn.microsoft.com/library/windows/apps/br208946) イベントのデータを指定します。                                               |
-| [**ManipulationInertiaStartingRoutedEventArgs**](https://msdn.microsoft.com/library/windows/apps/hh702074) | [  **ManipulationInertiaStarting**](https://msdn.microsoft.com/library/windows/apps/br208947) イベントのデータを指定します。                           |
-| [**ManipulationVelocities**](https://msdn.microsoft.com/library/windows/apps/br242032)                                              | 操作の実行速度を指定します。                                                                                         |
-| [**ManipulationCompletedRoutedEventArgs**](https://msdn.microsoft.com/library/windows/apps/hh702035)             | [  **ManipulationCompleted**](https://msdn.microsoft.com/library/windows/apps/br208945) イベントのデータを指定します。                                       |
+| [**ManipulationStarting イベント**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.manipulationstarting)                                   | 操作プロセッサが最初に作成されると発生します。                                                                                  |
+| [**ManipulationStarted イベント**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.manipulationstarted)                                     | 入力デバイスが [**UIElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement) に対する操作を開始すると発生します。                                            |
+| [**ManipulationDelta イベント**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.manipulationdelta)                                         | 入力デバイスが操作中に位置を変更すると発生します。                                                                      |
+| [**ManipulationInertiaStarting イベント**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.manipulationinertiastartingevent)                | 操作中に入力デバイスが [**UIElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement) オブジェクトとのコンタクトを失ったときと慣性が開始したときに発生します。 |
+| [**ManipulationCompleted イベント**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.manipulationcompleted)                                 | [  **UIElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement) に対する操作と慣性が完了すると発生します。                                          |
+| [**ManipulationStartingRoutedEventArgs**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.ManipulationStartingRoutedEventArgs)               | [  **ManipulationStarting**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.manipulationstarting) イベントのデータを指定します。                                         |
+| [**ManipulationStartedRoutedEventArgs**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.ManipulationStartedRoutedEventArgs)                 | [  **ManipulationStarted**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.manipulationstarted) イベントのデータを指定します。                                           |
+| [**ManipulationDeltaRoutedEventArgs**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.ManipulationDeltaRoutedEventArgs)                     | [  **ManipulationDelta**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.manipulationdelta) イベントのデータを指定します。                                               |
+| [**ManipulationInertiaStartingRoutedEventArgs**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.ManipulationInertiaStartingRoutedEventArgs) | [  **ManipulationInertiaStarting**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.manipulationinertiastarting) イベントのデータを指定します。                           |
+| [**ManipulationVelocities**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.ManipulationVelocities)                                              | 操作の実行速度を指定します。                                                                                         |
+| [**ManipulationCompletedRoutedEventArgs**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.ManipulationCompletedRoutedEventArgs)             | [  **ManipulationCompleted**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.manipulationcompleted) イベントのデータを指定します。                                       |
 
  
 
-ジェスチャは、一連の操作イベントで構成されます。 ユーザーが画面をタッチしたときなど、各ジェスチャは [**ManipulationStarted**](https://msdn.microsoft.com/library/windows/apps/br208950) イベントから始まります。
+ジェスチャは、一連の操作イベントで構成されます。 ユーザーが画面をタッチしたときなど、各ジェスチャは [**ManipulationStarted**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.manipulationstarted) イベントから始まります。
 
-次に、1 つ以上の [**ManipulationDelta**](https://msdn.microsoft.com/library/windows/apps/br208946) イベントが発生します。 たとえば、画面をタッチして画面上で指をドラッグした場合です。 最後に、対話的操作が完了すると [**ManipulationCompleted**](https://msdn.microsoft.com/library/windows/apps/br208945) イベントが発生します。
+次に、1 つ以上の [**ManipulationDelta**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.manipulationdelta) イベントが発生します。 たとえば、画面をタッチして画面上で指をドラッグした場合です。 最後に、対話的操作が完了すると [**ManipulationCompleted**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.manipulationcompleted) イベントが発生します。
 
 **注**  タッチ スクリーン モニターを持っていない場合は、マウスとマウス ホイールのインターフェイスを使用してシミュレーター内で操作イベント コードをテストできます。
 
  
 
-次の例に、[**ManipulationDelta**](https://msdn.microsoft.com/library/windows/apps/br208946) イベントを使って、[**Rectangle**](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle) に対するスライド操作を処理し、画面上でオブジェクトを移動する方法を示します。
+次の例に、[**ManipulationDelta**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.manipulationdelta) イベントを使って、[**Rectangle**](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle) に対するスライド操作を処理し、画面上でオブジェクトを移動する方法を示します。
 
 まず、XAML で [**Height**](/uwp/api/Windows.UI.Xaml.FrameworkElement.Height) と [**Width**](/uwp/api/Windows.UI.Xaml.FrameworkElement.Width) が 200 の `touchRectangle` という名前の [**Rectangle**](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle) を作成します。
 
@@ -452,7 +452,7 @@ End Sub
 </Grid>
 ```
 
-次に、[**Rectangle**](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle) を移動するための `dragTranslation` という名前のグローバルな [**TranslateTransform**](https://msdn.microsoft.com/library/windows/apps/br243027) を作成します。 [  **Rectangle** で **ManipulationDelta**](https://msdn.microsoft.com/library/windows/apps/br208946) イベント リスナーが指定され、`dragTranslation` が [**Rectangle** の **RenderTransform**](https://msdn.microsoft.com/library/windows/apps/br208980) に追加されます。
+次に、[**Rectangle**](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle) を移動するための `dragTranslation` という名前のグローバルな [**TranslateTransform**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.TranslateTransform) を作成します。 [  **Rectangle** で **ManipulationDelta**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.manipulationdelta) イベント リスナーが指定され、`dragTranslation` が [**Rectangle** の **RenderTransform**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.rendertransform) に追加されます。
 
 ```cpp
 // Global translation transform used for changing the position of 
@@ -523,7 +523,7 @@ Public Sub New()
 End Sub
 ```
 
-最後に、[**ManipulationDelta**](https://msdn.microsoft.com/library/windows/apps/br208946) イベント ハンドラーで、[**TranslateTransform**](https://msdn.microsoft.com/library/windows/apps/br243027) を [**Delta**](https://msdn.microsoft.com/library/windows/apps/hh702058) プロパティで使って [**Rectangle**](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle) の位置を更新します。
+最後に、[**ManipulationDelta**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.manipulationdelta) イベント ハンドラーで、[**TranslateTransform**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.TranslateTransform) を [**Delta**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.manipulationdeltaroutedeventargs.delta) プロパティで使って [**Rectangle**](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle) の位置を更新します。
 
 ```cpp
 // Handler for the ManipulationDelta event.
@@ -570,7 +570,7 @@ End Sub
 ## <a name="routed-events"></a>ルーティング イベント
 
 
-ここに記載されたポインター イベント、ジェスチャ イベント、操作イベントはすべて、*ルーティング イベント*として実装されます。 つまりこのイベントは、最初にイベントを発生したオブジェクト以外のオブジェクトによって処理される可能性があります。 [  **UIElement**](https://msdn.microsoft.com/library/windows/apps/br208911) の親コンテナーや、アプリのルート [**Page**](https://msdn.microsoft.com/library/windows/apps/br227503) などのオブジェクト ツリーの一連の親は、元の要素が存在しなくても、これらのイベントを処理することを選択できます。 逆に、イベントを処理するどのオブジェクトも、親要素に達しないように、処理済みイベントをマークできます。 ルーティング イベントの概念について、およびそれがルーティング イベントのハンドラーの記述方法にどのように影響するかについて詳しくは、「[イベントとルーティング イベントの概要](https://msdn.microsoft.com/library/windows/apps/hh758286)」をご覧ください。
+ここに記載されたポインター イベント、ジェスチャ イベント、操作イベントはすべて、*ルーティング イベント*として実装されます。 つまりこのイベントは、最初にイベントを発生したオブジェクト以外のオブジェクトによって処理される可能性があります。 [  **UIElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement) の親コンテナーや、アプリのルート [**Page**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Page) などのオブジェクト ツリーの一連の親は、元の要素が存在しなくても、これらのイベントを処理することを選択できます。 逆に、イベントを処理するどのオブジェクトも、親要素に達しないように、処理済みイベントをマークできます。 ルーティング イベントの概念について、およびそれがルーティング イベントのハンドラーの記述方法にどのように影響するかについて詳しくは、「[イベントとルーティング イベントの概要](https://docs.microsoft.com/previous-versions/windows/apps/hh758286(v=win.10))」をご覧ください。
 
 ## <a name="dos-and-donts"></a>推奨と非推奨
 

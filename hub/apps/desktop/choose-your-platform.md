@@ -7,12 +7,12 @@ ms.date: 03/18/2019
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: 5ece6c5eea6cc05a966a7eae4cd16958dddee4d4
-ms.sourcegitcommit: d1c3e13de3da3f7dce878b3735ee53765d0df240
+ms.openlocfilehash: 996bbaf4dd05ce5b24e536459c6d7d009a53fa19
+ms.sourcegitcommit: f167775291cbc566b72b0859ae6b426d848c5c89
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66215050"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266404"
 ---
 # <a name="choose-your-app-platform"></a>アプリ プラットフォームの選択
 
@@ -29,7 +29,10 @@ Windows Pc の新しいデスクトップ アプリケーションを作成す�
 
 * **Win32 API**します。 (Windows API とも呼ばれます)、Win32 API は、元のプラットフォームのネイティブ C/C++ Windows とハードウェアに直接アクセスを必要とする Windows アプリケーション。 .NET および WinRT のようなマネージ ランタイム環境に応じてせずファースト クラスの開発エクスペリエンスを提供します。 これにより、Win32 API は、最高レベルのパフォーマンスとシステムのハードウェアに直接アクセスする必要があるアプリケーションに最適なプラットフォームです。
 
-この記事では、これらのプラットフォームについて詳しく説明し、アプリケーションの最適なものを決定するのに役立ちます。
+この記事では、これらのプラットフォームについて詳しく説明し、アプリケーションの最適なものを決定するのに役立ちます。 
+
+> [!NOTE]
+> 選択したアプリ プラットフォームに関係なく、Windows 10 上のアプリで、最新のエクスペリエンスを提供するのにユニバーサル Windows プラットフォーム (UWP) の多くの機能を使用できます。 たとえば、デスクトップ アプリでは、WPF、Windows フォーム、または Win32 API を使用してビルドされたが、たとえ MSIX パッケージの配置と UWP XAML コントロールなど、UWP で初めて導入された多くの機能を使用できます。 詳細については、次を参照してください。 [、デスクトップ アプリを最新化](modernize/index.md)します。
 
 ## <a name="uwp"></a>UWP
 

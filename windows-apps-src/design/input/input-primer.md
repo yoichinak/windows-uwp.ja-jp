@@ -8,12 +8,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: bae6e5b21369c30c8ed067fe7283c0a116d220b8
-ms.sourcegitcommit: 7676d4b4c323e665302c2dfca3c763751a47afa3
+ms.openlocfilehash: 55879c33e30564f4639b8880c3a12f4b4181245e
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58343291"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66365920"
 ---
 # <a name="interaction-primer"></a>操作の基本情報
 
@@ -135,7 +135,7 @@ Windows 10 で**Cortana**拡張機能では、ユーザーからの音声コマ�
 
 ### <a name="more-info"></a>詳細情報
 
-[音声認識のデザイン ガイドライン](https://msdn.microsoft.com/library/windows/apps/dn596121)
+[音声認識のデザイン ガイドライン](https://docs.microsoft.com/windows/uwp/input-and-devices/speech-interactions)
  
 
 ## <a name="pen"></a>ペン
@@ -168,7 +168,7 @@ Windows のインク プラットフォームでペンを使うと、自然な�
 
 ### <a name="more-info"></a>詳細情報
 
-[ペンの設計ガイドライン](https://msdn.microsoft.com/library/windows/apps/dn456352)
+[ペンの設計ガイドライン](https://docs.microsoft.com/windows/uwp/input-and-devices/pen-and-stylus-interactions)
  
 
 ## <a name="touch"></a>タッチ
@@ -203,7 +203,7 @@ Surface Hub デバイスは、100 か所の独自の同時タッチ接触を認�
 
 ### <a name="more-info"></a>詳細情報
 
-[タッチの設計ガイドライン](https://msdn.microsoft.com/library/windows/apps/hh465370)
+[タッチの設計ガイドライン](https://docs.microsoft.com/windows/uwp/input-and-devices/guidelines-for-user-interaction)
  
 
 ## <a name="touchpad"></a>タッチパッド
@@ -227,7 +227,7 @@ Surface Hub デバイスは、100 か所の独自の同時タッチ接触を認�
 
 ### <a name="more-info"></a>詳細情報
 
-[タッチパッドの設計ガイドライン](https://msdn.microsoft.com/library/windows/apps/dn456353)
+[タッチパッドの設計ガイドライン](https://docs.microsoft.com/windows/uwp/input-and-devices/touch-interactions)
  
 
 ## <a name="keyboard"></a>キーボード
@@ -267,7 +267,7 @@ OSK は、物理的なキーボードの代わりに使うことができる視�
 
 ### <a name="more-info"></a>詳細情報
 
-[キーボードの設計ガイドライン](https://msdn.microsoft.com/library/windows/apps/hh972345)
+[キーボードの設計ガイドライン](https://docs.microsoft.com/windows/uwp/input-and-devices/keyboard-interactions)
  
 
 ## <a name="mouse"></a>マウス
@@ -294,7 +294,7 @@ OSK は、物理的なキーボードの代わりに使うことができる視�
 
 ### <a name="more-info"></a>詳細情報
 
-[マウスの設計ガイドライン](https://msdn.microsoft.com/library/windows/apps/dn456351)
+[マウスの設計ガイドライン](https://docs.microsoft.com/windows/uwp/input-and-devices/mouse-interactions)
  
 
 ## <a name="gesture"></a>ジェスチャ

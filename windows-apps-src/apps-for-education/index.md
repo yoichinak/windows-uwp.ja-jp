@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp, 教育
 ms.assetid: 2431f253-efe3-4895-b131-34653b61f13c
 ms.localizationpriority: medium
-ms.openlocfilehash: 7696cd785b4a8720f6eefb7bc897d13ffb0c7115
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 8c2333d960ba91b1d1c3d3030481108407909594
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57583428"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66359205"
 ---
 # <a name="develop-universal-windows-apps-for-education"></a>教育用のユニバーサル Windows アプリの開発
 ![テスト アプリのスクリーンショット](images/take-a-test-screen-small.png)
@@ -38,7 +38,7 @@ Windows Ink プラットフォームの利用によって、学生が慣れ親�
 
 
 ### <a name="microsoft-store"></a>Microsoft Store
-教育用アプリは、多くの場合、特定の状況下の特定の組織にリリースされます。 これについて詳しくは、「[LOB アプリの企業への配布](https://msdn.microsoft.com/windows/uwp/publish/distribute-lob-apps-to-enterprises)」をご覧ください。
+教育用アプリは、多くの場合、特定の状況下の特定の組織にリリースされます。 これについて詳しくは、「[LOB アプリの企業への配布](https://docs.microsoft.com/windows/uwp/publish/distribute-lob-apps-to-enterprises)」をご覧ください。
 
 ## <a name="related-topics"></a>関連トピック
 - Windows IT センターの「[Windows 10 for Education](https://technet.microsoft.com/edu/windows/index)」

@@ -12,12 +12,12 @@ design-contact: ksulliv
 dev-contact: mitra
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: f01aec2a0dc6010eab53122d69e64c57fe4f5c3d
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 841903f9bc998af5ead2a3486c500487cb070855
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57589927"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66364300"
 ---
 # <a name="sliders"></a>スライダー
 
@@ -25,7 +25,7 @@ ms.locfileid: "57589927"
 
 スライダーはユーザーがトラックに沿って thumb コントロールを動かすことで値の範囲から選択できるようにするコントロールです。
 
-> **重要な API**:[Slider クラスは](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.slider.aspx)、 [Value プロパティ](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.primitives.rangebase.value.aspx)、 [ValueChanged イベント](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.primitives.rangebase.valuechanged.aspx)
+> **重要な API**:[Slider クラスは](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.slider)、 [Value プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.rangebase.value)、 [ValueChanged イベント](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.rangebase.valuechanged)
 
 ![スライダー コントロール](images/controls/slider.png)
 
@@ -100,7 +100,7 @@ volumeSlider.ValueChanged += Slider_ValueChanged;
 stackPanel1.Children.Add(volumeSlider);
 ```
 
-[Value](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.primitives.rangebase.value.aspx) プロパティからスライダーの値を取得および設定します。 値の変更に応答するには、Value プロパティにバインドするデータ バインディングを使うか、[ValueChanged](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.primitives.rangebase.valuechanged.aspx) イベントを処理します。
+[Value](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.rangebase.value) プロパティからスライダーの値を取得および設定します。 値の変更に応答するには、Value プロパティにバインドするデータ バインディングを使うか、[ValueChanged](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.rangebase.valuechanged) イベントを処理します。
 
 ```csharp
 private void Slider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
@@ -192,4 +192,4 @@ private void Slider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e
 
 ## <a name="related-topics"></a>関連トピック
 - [トグル スイッチ](toggles.md)
-- [Slider クラス](https://msdn.microsoft.com/library/windows/apps/br209614)
+- [Slider クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Slider)

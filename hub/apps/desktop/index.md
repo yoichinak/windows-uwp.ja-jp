@@ -8,12 +8,12 @@ keywords: windows win32, デスクトップ開発
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: 437ee2352eceb8776b79f05f77867ccffdea6521
-ms.sourcegitcommit: d1c3e13de3da3f7dce878b3735ee53765d0df240
+ms.openlocfilehash: c69c744684d05c3ad64d98fbda30a3ccfdc91080
+ms.sourcegitcommit: f167775291cbc566b72b0859ae6b426d848c5c89
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66215026"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266413"
 ---
 # <a name="build-desktop-apps-for-windows-pcs"></a>Windows PC 用のデスクトップ アプリの構築
 
@@ -30,7 +30,7 @@ ms.locfileid: "66215026"
                     </div>
                     <div class="cardText">
                         <h3>プラットフォームの選択</h3>
-                        <p></p>デスクトップ Windows アプリ (UWP、WPF、Windows フォーム、Win32 など) に適したアプリ プラットフォームについて説明します。</p>
+                        <p></p>アプリ プラットフォームを選択して新しいデスクトップ アプリの構築を開始します。UWP、WPF、Windows フォーム、または Win32。</p>
                     </div>
                 </div>
             </div>
@@ -76,19 +76,19 @@ ms.locfileid: "66215026"
       </a>
     </li>
 </ul>
-    <ul class="cardsY panelContent featuredContent">
+<ul class="cardsY panelContent featuredContent">
        <li>
-            <a href="/windows/desktop/appxpkg/windows-desktop-application-program">
+            <a href="https://developer.microsoft.com/windows/downloads">
                 <div class="cardSize">
                     <div class="cardPadding">
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img data-hoverimage="/media/common/i_code-performance.svg?branch=master" src="/media/common/i_code-performance.svg?branch=master" alt="Performance icon" />
+                                    <img data-hoverimage="/media/common/i_tools.svg?branch=master" src="/media/common/i_tools.svg?branch=master" alt="Tools icon" />
                                 </div>
                             </div>
                             <div class="cardText">
-                                <h3>Windows デスクトップ アプリケーション プログラム</h3>
+                                <h3>ツールのダウンロード</h3>
                             </div>
                         </div>
                     </div>
@@ -96,17 +96,17 @@ ms.locfileid: "66215026"
             </a>
         </li>
         <li>
-            <a href="https://developer.microsoft.com/windows/desktop/app-compatibility">
+            <a href="https://developer.microsoft.com/windows/samples">
                 <div class="cardSize">
                     <div class="cardPadding">
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img data-hoverimage="/media/common/i_code-quality.svg?branch=master" src="/media/common/i_code-quality.svg?branch=master" alt="App compatibility icon" />
+                                    <img data-hoverimage="/media/common/i_code-samples.svg?branch=master" src="/media/common/i_code-samples.svg?branch=master" alt="Samples icon" />
                                 </div>
                             </div>
                             <div class="cardText">
-                                <h3>Windows 10 との互換性の維持</h3>
+                                <h3>サンプル</h3>
                             </div>
                         </div>
                     </div>
@@ -114,24 +114,24 @@ ms.locfileid: "66215026"
             </a>
         </li>
        <li>
-            <a href="https://developer.microsoft.com/windows/enterprise">
+            <a href="/windows/desktop/apiindex/api-index-portal">
                 <div class="cardSize">
                     <div class="cardPadding">
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img data-hoverimage="/media/common/i_form.svg?branch=master" src="/media/common/i_form.svg?branch=master" alt="Enterprise icon" />
+                                    <img data-hoverimage="/media/common/i_api-reference.svg?branch=master" src="/media/common/i_api-reference.svg?branch=master" alt="API index icon" />
                                 </div>
                             </div>
                             <div class="cardText">
-                                <h3>エンタープライズ アプリケーション</h3>
+                                <h3>API インデックス</h3>
                             </div>
                         </div>
                     </div>
                 </div>
             </a>
         </li>
-    </ul>
+</ul>
 <hr />
 <h2>プラットフォームと機能</h2>
 <ul class="cardsK panelContent">
@@ -249,6 +249,62 @@ ms.locfileid: "66215026"
         </div>
       </a>
     </li>
+</ul>
+<ul class="cardsY panelContent featuredContent">
+       <li>
+            <a href="/windows/desktop/appxpkg/windows-desktop-application-program">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img data-hoverimage="/media/common/i_code-performance.svg?branch=master" src="/media/common/i_code-performance.svg?branch=master" alt="Performance icon" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Windows デスクトップ アプリケーション プログラム</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="https://developer.microsoft.com/windows/desktop/app-compatibility">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img data-hoverimage="/media/common/i_code-quality.svg?branch=master" src="/media/common/i_code-quality.svg?branch=master" alt="App compatibility icon" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Windows 10 との互換性の維持</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+       <li>
+            <a href="https://developer.microsoft.com/windows/enterprise">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img data-hoverimage="/media/common/i_form.svg?branch=master" src="/media/common/i_form.svg?branch=master" alt="Enterprise icon" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>エンタープライズ アプリケーション</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
 </ul>
 <hr/>
 </div>

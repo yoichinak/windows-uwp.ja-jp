@@ -7,12 +7,12 @@ ms.date: 09/28/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: b58eb4b6e3f3f02bb1f72fcba9da3710f08a72da
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: HT
+ms.openlocfilehash: c37ceb63a5d9d9f83d3f1ebca0b0584f1092b7f6
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57649007"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66359575"
 ---
 # <a name="high-contrast-themes"></a>ハイ コントラスト テーマ  
 
@@ -22,7 +22,7 @@ Windows では、OS やアプリでハイ コントラスト テーマがサポ�
 
 *ライト テーマとハイ コントラストの黒のテーマに示すように計算します。*
 
-ハイ コントラスト テーマに切り替えるには、*[設定]、[簡単操作]、[ハイ コントラスト]* の順に選択します。
+ハイ コントラスト テーマに切り替えるには、 *[設定]、[簡単操作]、[ハイ コントラスト]* の順に選択します。
 
 > [!NOTE]
 > ハイ コントラスト テーマは、淡色テーマおよび濃色テーマとは異なることに注意してください。淡色テーマと濃色テーマのカラー パレットは色の種類が豊富で、ハイ コントラストとは見なされません。 淡色テーマと濃色テーマについて詳しくは、「[色](../style/color.md)」をご覧ください。
@@ -39,14 +39,14 @@ Windows では、OS やアプリでハイ コントラスト テーマがサポ�
 
 最初の例で `#E6E6E6` をインラインで設定すると、グリッドはすべてのテーマでその背景色を保持します。 ユーザーが黒のハイ コントラスト テーマに切り替えたら、彼らはアプリの背景が黒で表示されることを期待します。 `#E6E6E6` はほぼ白一色であるため、ユーザーによってはアプリを操作できない場合があります。
 
-2 番目の例では、[**ResourceDictionary**](https://msdn.microsoft.com/library/windows/apps/BR208794) 要素の専用プロパティである [**ThemeDictionaries**](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.resourcedictionary.themedictionaries.aspx) コレクション内の色を参照するために [**{ThemeResource} マークアップ拡張**](../../xaml-platform/themeresource-markup-extension.md)を使っています。 **ThemeDictionaries** により、XAML はユーザーの現在のテーマに基づいて自動的に色を変えることができます。
+2 番目の例では、[**ResourceDictionary**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.ResourceDictionary) 要素の専用プロパティである [**ThemeDictionaries**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.resourcedictionary.themedictionaries) コレクション内の色を参照するために [ **{ThemeResource} マークアップ拡張**](../../xaml-platform/themeresource-markup-extension.md)を使っています。 **ThemeDictionaries** により、XAML はユーザーの現在のテーマに基づいて自動的に色を変えることができます。
 
 ## <a name="theme-dictionaries"></a>テーマ ディクショナリ
 
 システムの既定の色を変更する必要がある場合は、アプリの ThemeDictionaries コレクションを作成します。
 
 1. まず、適切なプラミングを作成します (プラミングがまだない場合)。 App.xaml で、少なくとも **Default** と **HighContrast** を含む **ThemeDictionaries** コレクションを作成します。
-2. **Default** では、必要な種類の [Brush](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.media.brush.aspx) を作成します。通常は、**SolidColorBrush** です。 このクラスに対して、具体的な使用目的を示す *x:Key* 名を指定します。
+2. **Default** では、必要な種類の [Brush](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Brush) を作成します。通常は、**SolidColorBrush** です。 このクラスに対して、具体的な使用目的を示す *x:Key* 名を指定します。
 3. 必要な **Color** を割り当てます。
 4. この **Brush** を **HighContrast** にコピーします。
 
@@ -154,7 +154,7 @@ Windows では、OS やアプリでハイ コントラスト テーマがサポ�
 <Grid Background="{ThemeResource BrandedPageBackgroundBrush}">
 ```
 
-注方法**\{ThemeResource\}** 2 回使用の参照を 1 回**SystemColorWindowColor**と参照 をもう一度**BrandedPageBackgroundBrush**. 実行時に正しいテーマを使うためには、両方の参照がアプリに必要です。 ここで、アプリでハイ コントラストの機能をテストすると良いでしょう。 ハイ コントラスト テーマに切り替えると、グリッドの背景が自動的に更新されます。 また、別のハイ コントラスト テーマに切り替えたときにも更新されます。
+注方法 **\{ThemeResource\}** 2 回使用の参照を 1 回**SystemColorWindowColor**と参照 をもう一度**BrandedPageBackgroundBrush**. 実行時に正しいテーマを使うためには、両方の参照がアプリに必要です。 ここで、アプリでハイ コントラストの機能をテストすると良いでしょう。 ハイ コントラスト テーマに切り替えると、グリッドの背景が自動的に更新されます。 また、別のハイ コントラスト テーマに切り替えたときにも更新されます。
 
 ## <a name="when-to-use-borders"></a>境界線を使う状況
 
@@ -167,7 +167,7 @@ Windows では、OS やアプリでハイ コントラスト テーマがサポ�
 
 ## <a name="list-items"></a>リスト項目
 
-ハイ コントラストでは、ポイント、押下、または選択時に [ListView](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.listview.aspx) の項目の背景が **SystemColorHighlightColor** に設定されます。 複雑なリスト項目では、項目のポイント、押下、選択時に色の反転に失敗するというバグがよく生じ、 項目が読めなくなってしまいます。
+ハイ コントラストでは、ポイント、押下、または選択時に [ListView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listview) の項目の背景が **SystemColorHighlightColor** に設定されます。 複雑なリスト項目では、項目のポイント、押下、選択時に色の反転に失敗するというバグがよく生じ、 項目が読めなくなってしまいます。
 
 ![単色テーマと黒のハイ コントラスト テーマの簡単なリスト](images/high-contrast-list1.png)
 
@@ -176,7 +176,7 @@ Windows では、OS やアプリでハイ コントラスト テーマがサポ�
 
 ### <a name="list-items-with-colored-text"></a>テキストに色が付いているリスト項目
 
-問題の原因の 1 つが、ListView の [DataTemplate](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.itemscontrol.itemtemplate.aspx) で TextBlock.Foreground を設定することです。 TextBlock.Foreground は一般的に、視覚的な階層を確立するために設定します。 Foreground プロパティは [ListViewItem](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.listviewitem.aspx) で設定され、DataTemplate 内の TextBlock は、項目がポイント、押下、または選択されたときに適切な Foreground 色を継承します。 ところが、Foreground を設定すると継承が中断されてしまいます。
+問題の原因の 1 つが、ListView の [DataTemplate](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemtemplate) で TextBlock.Foreground を設定することです。 TextBlock.Foreground は一般的に、視覚的な階層を確立するために設定します。 Foreground プロパティは [ListViewItem](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewitem) で設定され、DataTemplate 内の TextBlock は、項目がポイント、押下、または選択されたときに適切な Foreground 色を継承します。 ところが、Foreground を設定すると継承が中断されてしまいます。
 
 ![淡色テーマと黒のハイ コントラスト テーマの複雑なリスト](images/high-contrast-list2.png)
 
@@ -228,14 +228,14 @@ Windows では、OS やアプリでハイ コントラスト テーマがサポ�
 
 ## <a name="detecting-high-contrast"></a>ハイ コントラストを検出する
 
-[  **AccessibilitySettings**](https://msdn.microsoft.com/library/windows/apps/BR242237) クラスのメンバーを使えば、現在のテーマがハイ コントラストであるかどうかをプログラムで確認することができます。
+[  **AccessibilitySettings**](https://docs.microsoft.com/uwp/api/Windows.UI.ViewManagement.AccessibilitySettings) クラスのメンバーを使えば、現在のテーマがハイ コントラストであるかどうかをプログラムで確認することができます。
 
 > [!NOTE]
 > アプリが初期化され、既にコンテンツが表示されているスコープから **AccessibilitySettings** コンストラクターを呼び出すようにします。
 
 ## <a name="related-topics"></a>関連トピック  
-* [アクセシビリティ](accessibility.md)
+* [ユーザー補助](accessibility.md)
 * [UI のコントラストと設定のサンプル](https://go.microsoft.com/fwlink/p/?linkid=231539)
 * [XAML のアクセシビリティのサンプル](https://go.microsoft.com/fwlink/p/?linkid=238570)
 * [XAML のハイ コントラストのサンプル](https://go.microsoft.com/fwlink/p/?linkid=254993)
-* [**AccessibilitySettings**](https://msdn.microsoft.com/library/windows/apps/BR242237)
+* [**AccessibilitySettings**](https://docs.microsoft.com/uwp/api/Windows.UI.ViewManagement.AccessibilitySettings)

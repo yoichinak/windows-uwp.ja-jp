@@ -8,12 +8,12 @@ ms.date: 11/01/2017
 ms.topic: article
 keywords: Windows 10, UWP, リソース, 画像, アセット, MRT, 修飾子
 ms.localizationpriority: medium
-ms.openlocfilehash: 321f8efc1475bc153102f3f8157cd2d094b37077
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 71150df50a7c7e01293d4ec638f520239124e7cd
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57630137"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66359405"
 ---
 # <a name="localize-strings-in-your-ui-and-app-package-manifest"></a>UI とアプリ パッケージ マニフェスト内の文字列をローカライズする
 アプリのローカライズの価値提案の詳細については、「[グローバリゼーションとローカライズ](../design/globalizing/globalizing-portal.md)」をご覧ください。
@@ -69,7 +69,7 @@ Greeting.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name
 単純な文字列リソース識別子に基づいて、文字列リソースを明示的に読み込むことができます。
 
 > [!NOTE]
-> バックグラウンド/ワーカー スレッドで実行された*可能性のある*任意の **GetForCurrentView** メソッドの呼び出しがある場合、`if (Windows.UI.Core.CoreWindow.GetForCurrentThread() != null)` テストでその呼び出しを保護します。 バックグラウンド/ワーカー スレッドから **GetForCurrentView** を呼び出すと、"*&lt;typename&gt; が CoreWindow のないスレッドで作成されない可能性がある*" という例外が発生します。
+> バックグラウンド/ワーカー スレッドで実行された*可能性のある*任意の **GetForCurrentView** メソッドの呼び出しがある場合、`if (Windows.UI.Core.CoreWindow.GetForCurrentThread() != null)` テストでその呼び出しを保護します。 バックグラウンド/ワーカー スレッドから **GetForCurrentView** を呼び出すと、" *&lt;typename&gt; が CoreWindow のないスレッドで作成されない可能性がある*" という例外が発生します。
 
 ```csharp
 var resourceLoader = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView();
@@ -132,7 +132,7 @@ this.myXAMLTextBlockElement.Text = resourceLoader.GetString("Fare/Well"); // <da
 ![リソースを追加する (フランス語)](images/addresource-fr-fr.png)
 
 ## <a name="test-your-app"></a>アプリのテスト
-既定の表示言語に対してアプリをテストします。 **[設定]** > **[時刻と言語]** > **[地域と言語]** > **[言語]** で表示言語を変更し、アプリを再テストできます。 文字列、UI とシェルを見て (、タイトル バーなど&mdash;表示名である&mdash;とタイルの短い名前)。
+既定の表示言語に対してアプリをテストします。 **[設定]**  >  **[時刻と言語]**  >  **[地域と言語]**  >  **[言語]** で表示言語を変更し、アプリを再テストできます。 文字列、UI とシェルを見て (、タイトル バーなど&mdash;表示名である&mdash;とタイルの短い名前)。
 
 **注** 表示言語の設定に一致するフォルダー名が見つかった場合、そのフォルダー内のリソース ファイルが読み込まれます。 それ以外の場合、フォールバックが行われ、最終的にはアプリの既定の言語用のリソースになります。
 
@@ -152,7 +152,7 @@ this.myXAMLTextBlockElement.Text = resourceLoader.GetString("Fare/Well"); // <da
 次のコードの例では、`ErrorMessages.resw` にリソースが含まれており、その名前が "MismatchedPasswords" であり、その値がエラーの説明であることを想定しています。
 
 > [!NOTE]
-> バックグラウンド/ワーカー スレッドで実行された*可能性のある*任意の **GetForCurrentView** メソッドの呼び出しがある場合、`if (Windows.UI.Core.CoreWindow.GetForCurrentThread() != null)` テストでその呼び出しを保護します。 バックグラウンド/ワーカー スレッドから **GetForCurrentView** を呼び出すと、"*&lt;typename&gt; が CoreWindow のないスレッドで作成されない可能性がある*" という例外が発生します。
+> バックグラウンド/ワーカー スレッドで実行された*可能性のある*任意の **GetForCurrentView** メソッドの呼び出しがある場合、`if (Windows.UI.Core.CoreWindow.GetForCurrentThread() != null)` テストでその呼び出しを保護します。 バックグラウンド/ワーカー スレッドから **GetForCurrentView** を呼び出すと、" *&lt;typename&gt; が CoreWindow のないスレッドで作成されない可能性がある*" という例外が発生します。
 
 ```csharp
 var resourceLoader = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView("ErrorMessages");
@@ -282,7 +282,7 @@ var resourceLoader = Windows.ApplicationModel.Resources.ResourceLoader.GetForCur
 フレームワーク パッケージは、絶対リソース識別子 URI を使って独自のリソースにアクセスできます。 「[URI スキーム](uri-schemes.md)」もご覧ください。
 
 ## <a name="important-apis"></a>重要な API
-* [ApplicationModel.Resources.ResourceLoader](https://msdn.microsoft.com/library/windows/apps/br206014)
+* [ApplicationModel.Resources.ResourceLoader](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Resources.ResourceLoader)
 * [ResourceContext.SetGlobalQualifierValue](/uwp/api/windows.applicationmodel.resources.core.resourcecontext.setglobalqualifiervalue?branch=live#Windows_ApplicationModel_Resources_Core_ResourceContext_SetGlobalQualifierValue_System_String_System_String_Windows_ApplicationModel_Resources_Core_ResourceQualifierPersistence_)
 * [MapChanged](/uwp/api/windows.foundation.collections.iobservablemap-2.mapchanged?branch=live)
 
@@ -293,4 +293,4 @@ var resourceLoader = Windows.ApplicationModel.Resources.ResourceLoader.GetForCur
 * [ローカライズ可能なマニフェスト項目](/uwp/schemas/appxpackage/uapmanifestschema/localizable-manifest-items-win10?branch=live)
 * [Bcp-47 言語タグ](https://go.microsoft.com/fwlink/p/?linkid=227302)
 * [言語、スケール、およびその他の修飾子のためのリソースを調整します。](tailor-resources-lang-scale-contrast.md)
-* [文字列リソースを読み込む方法](https://msdn.microsoft.com/library/windows/apps/xaml/hh965323)
+* [文字列リソースを読み込む方法](https://docs.microsoft.com/previous-versions/windows/apps/hh965323(v=win.10))

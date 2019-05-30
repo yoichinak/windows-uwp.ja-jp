@@ -6,12 +6,12 @@ ms.date: 10/10/2017
 ms.topic: article
 keywords: Windows 10, UWP, リソース, 画像, アセット, MRT, 修飾子
 ms.localizationpriority: medium
-ms.openlocfilehash: 1ac80888019044beabc44335290bc6ad59cf377c
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 0e5ba7ddb6ef37b4aa54584602fc890bbabc8998
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57608137"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66359351"
 ---
 # <a name="tailor-your-resources-for-language-scale-high-contrast-and-other-qualifiers"></a>言語、スケール、ハイ コントラスト、その他の修飾子用にリソースを調整する
 
@@ -114,7 +114,7 @@ ms.locfileid: "57608137"
 
 ## <a name="alternateform"></a>AlternateForm
 
-特別な目的でリソースの代替フォームを提供するには、`alternateform` 修飾子を使います。 通常、日本のアプリ開発者によってふりがな文字列を提供する目的のみで使用されます。そのために、`msft-phonetic` という値が予約されています (「[ローカライズの準備をする方法](https://msdn.microsoft.com/en-us/library/windows/apps/xaml/hh967762)」の「並べ替えることができる日本語文字列のふりがなのサポート」をご覧ください)。
+特別な目的でリソースの代替フォームを提供するには、`alternateform` 修飾子を使います。 通常、日本のアプリ開発者によってふりがな文字列を提供する目的のみで使用されます。そのために、`msft-phonetic` という値が予約されています (「[ローカライズの準備をする方法](https://docs.microsoft.com/previous-versions/windows/apps/hh967762(v=win.10))」の「並べ替えることができる日本語文字列のふりがなのサポート」をご覧ください)。
 
 ターゲット システムとアプリのうちいずれかが、`alternateform` 修飾子と一致する値を提供する必要があります。 カスタムの `alternateform` 修飾子の値に `msft-` プレフィックスを使用しないでください。
 
@@ -250,7 +250,7 @@ Windows では、ディスプレイの DPI (1 インチあたりのドット数)
 
 ## <a name="targetsize"></a>TargetSize
 
-`targetsize` 修飾子は主に、エクスプローラーに表示される[ファイルの種類の関連付け](https://msdn.microsoft.com/en-us/library/windows/apps/xaml/hh127427)アイコンまたは[プロトコル アイコン](https://msdn.microsoft.com/en-us/library/windows/apps/xaml/bb266530)の指定に使用されます。 この修飾子の値は、正方形のイメージの辺の長さを RAW (物理) ピクセル単位で表します。 エクスプローラーの表示設定に値が一致するリソースが読み込まれます。正確に一致する対象が存在しない場合は、次に大きな値のリソースが読み込まれます。
+`targetsize` 修飾子は主に、エクスプローラーに表示される[ファイルの種類の関連付け](https://docs.microsoft.com/windows/desktop/shell/how-to-assign-a-custom-icon-to-a-file-type)アイコンまたは[プロトコル アイコン](https://docs.microsoft.com/windows/desktop/search/-search-3x-wds-ph-ui-extensions)の指定に使用されます。 この修飾子の値は、正方形のイメージの辺の長さを RAW (物理) ピクセル単位で表します。 エクスプローラーの表示設定に値が一致するリソースが読み込まれます。正確に一致する対象が存在しない場合は、次に大きな値のリソースが読み込まれます。
 
 アプリ パッケージ マニフェスト デザイナーの [ビジュアル資産] タブで、複数サイズのアプリ アイコン (`/Assets/Square44x44Logo.png`) に対応する `targetsize` 修飾子の値を表すアセットを定義できます。
 
@@ -259,6 +259,21 @@ Windows では、ディスプレイの DPI (1 インチあたりのドット数)
 ## <a name="theme"></a>Theme
 
 `theme` 修飾子は、既定のアプリ モード設定に最も一致するリソースか、[Application.RequestedTheme](/uwp/api/windows.ui.xaml.application.requestedtheme) を使用してアプリのオーバーライドを提供するために使用されます。
+
+
+## <a name="shell-light-theme-and-unplated-resources"></a>ライト テーマのシェルとプレートなしのリソース
+*2019 の更新が Windows 10* Windows シェルの新しい"light"テーマを導入します。 結果として、黒っぽい背景に表示されたいた一部のアプリケーション資産は、今すぐ明るい背景に表示されます。 アプリのアプリを提供する altform プレートなしの資産をタスク バーとウィンドウ スイッチャー (Alt + Tab キー、タスクの表示など)、明るい背景で許容可能なコントラストがあることを確認する必要があります。
+
+### <a name="providing-light-theme-specific-assets"></a>ライト テーマの特定の資産を提供します。
+ライト テーマのシェルは、新しい代替形式のリソース修飾子を使用できます、カスタマイズされたリソースを提供するアプリ:`altform-lightunplated`します。 この修飾子は、既存の altform プレートなしの修飾子をミラー化します。 
+
+### <a name="downlevel-considerations"></a>ダウンレベルの考慮事項
+アプリを使用する必要があります、`theme-light`修飾子を`altform-unplated`修飾子。 RS5 で予期しない動作がこうし、タスク バーのリソースにより Windows の以前のバージョンが読み込まれます。 以前のバージョンの windows では、テーマ light バージョンいない正しく使用可能性があります。 `altform-lightunplated`修飾子は、この問題を回避できます。 
+
+### <a name="compatibility-behavior"></a>互換性の動作
+下位互換性のため、Windows には、モノクロのアイコンを検出し、目的の背景とは対照的にするかどうかを確認するためのロジックが含まれています。 アイコンは、コントラストの要件を満たすために失敗した場合、Windows はコントラスト-白のバージョンの資産になります。 使用できない場合、Windows がフォールバック メッキされた資産のバージョンを使用します。
+
+
 
 ## <a name="important-apis"></a>重要な API
 
@@ -269,11 +284,11 @@ Windows では、ディスプレイの DPI (1 インチあたりのドット数)
 
 * [有効ピクセルとスケール ファクター](../design/layout/screen-sizes-and-breakpoints-for-responsive-design.md#effective-pixels-and-scale-factor)
 * [リソース管理システム](resource-management-system.md)
-* [ローカライズを準備する方法](https://msdn.microsoft.com/en-us/library/windows/apps/xaml/hh967762)
+* [ローカライズを準備する方法](https://docs.microsoft.com/previous-versions/windows/apps/hh967762(v=win.10))
 * [を検出、プラットフォーム、アプリを実行します。](../porting/wpsl-to-uwp-input-and-sensors.md#detecting-the-platform-your-app-is-running-on)
 * [デバイスのファミリの概要](https://docs.microsoft.com/uwp/extension-sdks/device-families-overview)
 * [UI 文字列をローカライズします。](localize-strings-ui-manifest.md)
-* [BCP 47](https://go.microsoft.com/fwlink/p/?linkid=227302)
+* [BCP-47](https://go.microsoft.com/fwlink/p/?linkid=227302)
 * [地域コードの United Nations 統計除算 M49 コンポジション](https://go.microsoft.com/fwlink/p/?linkid=247929)
 * [IANA 言語サブタグ レジストリ](https://go.microsoft.com/fwlink/p/?linkid=227303)
 * [レイアウトやフォントの調整と RTL のサポート](../design/globalizing/adjust-layout-and-fonts--and-support-rtl.md)

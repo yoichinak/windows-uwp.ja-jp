@@ -6,18 +6,18 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: ebf54e062ef2388562cc970a2f124f0ce1f978c7
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: b07ab7fa6b65e16f39d9e2a77a677d33d3c70254
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57653827"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66360508"
 ---
 # <a name="composition-effects"></a>コンポジション効果
 
-[  **Windows.UI.Composition**](https://msdn.microsoft.com/library/windows/apps/Dn706878) API により、アニメーション化可能な効果プロパティを持つ画像と UI にリアルタイムの効果を適用できます。 この概要では、コンポジションのビジュアルに効果を適用するために使用できる機能に目を通します。
+[  **Windows.UI.Composition**](https://docs.microsoft.com/uwp/api/Windows.UI.Composition) API により、アニメーション化可能な効果プロパティを持つ画像と UI にリアルタイムの効果を適用できます。 この概要では、コンポジションのビジュアルに効果を適用するために使用できる機能に目を通します。
 
-アプリケーションの効果を記述する開発者に対して [ユニバーサル Windows プラットフォーム (UWP)](https://msdn.microsoft.com/library/windows/apps/dn726767.aspx) との整合性をサポートするには、コンポジション効果で Win2D の IGraphicsEffect インターフェイスを活用し、[Microsoft.Graphics.Canvas.Effects](https://microsoft.github.io/Win2D/html/N_Microsoft_Graphics_Canvas_Effects.htm) 名前空間を介して効果記述子を使用します。
+アプリケーションの効果を記述する開発者に対して [ユニバーサル Windows プラットフォーム (UWP)](https://docs.microsoft.com/windows/uwp/get-started/whats-a-uwp) との整合性をサポートするには、コンポジション効果で Win2D の IGraphicsEffect インターフェイスを活用し、[Microsoft.Graphics.Canvas.Effects](https://microsoft.github.io/Win2D/html/N_Microsoft_Graphics_Canvas_Effects.htm) 名前空間を介して効果記述子を使用します。
 
 ブラシ効果は、一連の既存画像に効果を適用することでアプリケーションの領域をペイントするために使用されます。 Windows 10 のコンポジション効果 API ではスプライト ビジュアルが重視されます。 SpriteVisual を使うと、色、画像、効果の作成で柔軟性と関係性を得られます。 SpriteVisual は、2D の四角形をブラシで埋めることができるコンポジション ビジュアル タイプです。 ビジュアルは四角形の境界を定義し、ブラシは四角形のペイントに使用されるピクセルを定義します。
 
@@ -144,7 +144,7 @@ catEffect.Properties.StartAnimation("saturationEffect.Saturation", effectAnimati
 
 - サポートされている Visual Studio バージョンがインストールされていない場合は、「[Visual Studio ダウンロード](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)」ページをご覧ください。
 
-### <a name="creating-a-new-project"></a>新しいプロジェクトの作成
+### <a name="creating-a-new-project"></a>新しいプロジェクトを作成します。
 
 - [ファイル]、[新規]、[プロジェクト] の順にクリックします。
 - [Visual C#] を選択します。
@@ -235,10 +235,10 @@ LoadImage(surfaceBrush);
 
 ![彩度を下げた画像](images/composition-cat-desaturated.png)
 
-## <a name="more-information"></a>説明
+## <a name="more-information"></a>詳細情報
 
 - [Microsoft – コンポジション GitHub](https://github.com/Microsoft/composition)
-- [**Windows.UI.Composition**](https://msdn.microsoft.com/library/windows/apps/Dn706878)
+- [**Windows.UI.Composition**](https://docs.microsoft.com/uwp/api/Windows.UI.Composition)
 - [Windows 合成チーム twitter](https://twitter.com/wincomposition)
 - [構成の概要](https://blogs.windows.com/buildingapps/2015/12/08/awaken-your-creativity-with-the-new-windows-ui-composition/)
 - [ビジュアル ツリーの基礎](composition-visual-tree.md)

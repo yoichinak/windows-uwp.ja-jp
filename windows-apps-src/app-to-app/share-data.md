@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: c1c9b75599efe4566bc1783f68ff9752510d1d99
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 4bebd214f5f634e501f7a79bc57cc306f1b559e7
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57640567"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66359194"
 ---
 # <a name="share-data"></a>データの共有
 
@@ -20,11 +20,11 @@ ms.locfileid: "57640567"
 
 ## <a name="set-up-an-event-handler"></a>イベント ハンドラーのセットアップ
 
-ユーザーが共有を呼び出したときに呼び出される [**DataRequested**](https://msdn.microsoft.com/library/windows/apps/Windows.ApplicationModel.DataTransfer.DataTransferManager.DataRequested) イベント ハンドラーを追加します。 このイベントは、ユーザーがアプリ内のコントロール (ボタンやアプリ バー コマンドなど) をタップした場合に発生します。ユーザーがあるレベルをクリアしてハイ スコアを獲得した場合など、特定のシナリオで自動的に発生することもあります。
+ユーザーが共有を呼び出したときに呼び出される [**DataRequested**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.datatransfermanager.datarequested) イベント ハンドラーを追加します。 このイベントは、ユーザーがアプリ内のコントロール (ボタンやアプリ バー コマンドなど) をタップした場合に発生します。ユーザーがあるレベルをクリアしてハイ スコアを獲得した場合など、特定のシナリオで自動的に発生することもあります。
 
 [!code-cs[Main](./code/share_data/cs/MainPage.xaml.cs#SnippetPrepareToShare)]
 
-[  **DataRequested**](https://msdn.microsoft.com/library/windows/apps/Windows.ApplicationModel.DataTransfer.DataTransferManager.DataRequested) イベントが発生すると、アプリは [**DataRequest**](https://msdn.microsoft.com/library/windows/apps/Windows.ApplicationModel.DataTransfer.DataRequest) オブジェクトを受け取ります。 このオブジェクトに含まれている [**DataPackage**](https://msdn.microsoft.com/library/windows/apps/Windows.ApplicationModel.DataTransfer.DataPackage) を使って、ユーザーが共有するコンテンツを提供することができます。 共有するデータとタイトルを指定する必要があります。 説明は省略することもできますが、指定することをお勧めします。
+[  **DataRequested**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.datatransfermanager.datarequested) イベントが発生すると、アプリは [**DataRequest**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.DataTransfer.DataRequest) オブジェクトを受け取ります。 このオブジェクトに含まれている [**DataPackage**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.DataTransfer.DataPackage) を使って、ユーザーが共有するコンテンツを提供することができます。 共有するデータとタイトルを指定する必要があります。 説明は省略することもできますが、指定することをお勧めします。
 
 [!code-cs[Main](./code/share_data/cs/MainPage.xaml.cs#SnippetCreateRequest)]
 
@@ -34,19 +34,19 @@ ms.locfileid: "57640567"
 
 -   プレーンテキスト
 -   Uniform Resource Identifier (URI)
--   HTML
+-   HTML (HTML)
 -   書式付きテキスト
 -   ビットマップ
 -   ファイル
 -   開発者が定義したカスタム データ
 
-[  **DataPackage**](https://msdn.microsoft.com/library/windows/apps/Windows.ApplicationModel.DataTransfer.DataPackage) オブジェクトには、これらの 1 つ以上の形式を任意に組み合わせて格納することができます。 次の例は、テキストの共有を示しています。
+[  **DataPackage**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.DataTransfer.DataPackage) オブジェクトには、これらの 1 つ以上の形式を任意に組み合わせて格納することができます。 次の例は、テキストの共有を示しています。
 
 [!code-cs[Main](./code/share_data/cs/MainPage.xaml.cs#SnippetSetContent)]
 
 ## <a name="set-properties"></a>プロパティの設定
 
-共有用にデータをパッケージ化するときに、共有されるコンテンツの情報を追加で提供するさまざまなプロパティを指定できます。 これらのプロパティは、ターゲット アプリでのユーザー エクスペリエンスを高めるために役立ちます。 たとえば、ユーザーが複数のアプリでコンテンツを共有している場合に、説明があると便利です。 画像や Web ページへのリンクを共有する場合にサムネイルを追加すると、ユーザーが視覚的に確認できます。 詳しくは、「[**DataPackagePropertySet**](https://msdn.microsoft.com/library/windows/apps/Windows.ApplicationModel.DataTransfer.DataPackagePropertySet)」を参照してください。
+共有用にデータをパッケージ化するときに、共有されるコンテンツの情報を追加で提供するさまざまなプロパティを指定できます。 これらのプロパティは、ターゲット アプリでのユーザー エクスペリエンスを高めるために役立ちます。 たとえば、ユーザーが複数のアプリでコンテンツを共有している場合に、説明があると便利です。 画像や Web ページへのリンクを共有する場合にサムネイルを追加すると、ユーザーが視覚的に確認できます。 詳しくは、「[**DataPackagePropertySet**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.DataTransfer.DataPackagePropertySet)」を参照してください。
 
 タイトルを除くすべてのプロパティは任意です。 タイトルのプロパティは必須です。必ず設定してください。
 
@@ -54,7 +54,7 @@ ms.locfileid: "57640567"
 
 ## <a name="launch-the-share-ui"></a>共有 UI の起動
 
-共有用の UI は、システムによって提供されます。 起動するには、[**ShowShareUI**](https://msdn.microsoft.com/library/windows/apps/Windows.ApplicationModel.DataTransfer.DataTransferManager.ShowShareUI) メソッドを呼び出します。
+共有用の UI は、システムによって提供されます。 起動するには、[**ShowShareUI**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.datatransfermanager.showshareui) メソッドを呼び出します。
 
 [!code-cs[Main](./code/share_data/cs/MainPage.xaml.cs#SnippetShowUI)]
 
@@ -66,7 +66,7 @@ ms.locfileid: "57640567"
 
 場合によっては、ユーザーが共有するデータをすぐに準備しても効果的でないことがあります。 たとえば、複数の異なる形式の大きな画像ファイルの送信をサポートしているアプリの場合、ユーザーが選択する前にこれらの画像をすべて作成することは非効率的です。
 
-この問題を解決するために、[**DataPackage**](https://msdn.microsoft.com/library/windows/apps/Windows.ApplicationModel.DataTransfer.DataPackage) にはデリゲートも格納できます。デリゲートとは、受け取る側のアプリでデータを要求するときに呼び出される関数です。 リソースを大量に消費するデータを共有する場合はデリゲートを使うことをお勧めします。
+この問題を解決するために、[**DataPackage**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.DataTransfer.DataPackage) にはデリゲートも格納できます。デリゲートとは、受け取る側のアプリでデータを要求するときに呼び出される関数です。 リソースを大量に消費するデータを共有する場合はデリゲートを使うことをお勧めします。
 
 <!-- For some reason, this snippet was inline in the WDCML topic. Suggest moving to VS project with rest of snippets. -->
 ```cs
@@ -97,11 +97,11 @@ async void OnDeferredImageRequestedHandler(DataProviderRequest request)
 
 * [アプリ間通信](index.md)
 * [データの受信](receive-data.md)
-* [DataPackage](https://msdn.microsoft.com/library/windows/apps/windows.applicationmodel.datatransfer.datapackage.aspx)
-* [DataPackagePropertySet](https://msdn.microsoft.com/library/windows/apps/windows.applicationmodel.datatransfer.datapackagepropertyset.aspx)
-* [DataRequest](https://msdn.microsoft.com/library/windows/apps/windows.applicationmodel.datatransfer.datarequest.aspx)
-* [DataRequested](https://msdn.microsoft.com/library/windows/apps/windows.applicationmodel.datatransfer.datatransfermanager.datarequested.aspx)
-* [FailWithDisplayText](https://msdn.microsoft.com/library/windows/apps/windows.applicationmodel.datatransfer.datarequest.failwithdisplaytext.aspx)
-* [ShowShareUi](https://msdn.microsoft.com/library/windows/apps/windows.applicationmodel.datatransfer.datatransfermanager.showshareui.aspx)
+* [DataPackage](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.datapackage)
+* [DataPackagePropertySet](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.datapackagepropertyset)
+* [DataRequest](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.datarequest)
+* [DataRequested](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.datatransfermanager.datarequested)
+* [FailWithDisplayText](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.datarequest.failwithdisplaytext)
+* [ShowShareUi](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.datatransfermanager.showshareui)
  
 

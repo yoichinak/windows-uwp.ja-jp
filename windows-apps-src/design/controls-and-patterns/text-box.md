@@ -11,12 +11,12 @@ pm-contact: miguelrb
 design-contact: ksulliv
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 7e3faf82ab9786f6ba079e44d79b6ed49394b881
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 2db08cc577a82ddf6973cb33e41f9bdb39fdffde
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57602687"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66364231"
 ---
 # <a name="text-box"></a>テキスト ボックス
 
@@ -24,11 +24,11 @@ TextBox コントロールによって、ユーザーはアプリにテキスト
 
 TextBox には、テキスト入力を簡略化するための多くの機能があります。 テキストのコピーと貼り付けをサポートする、使い慣れた組み込みのコンテキスト メニューが付属しています。 [すべてクリア] ボタンによって、ユーザーは入力されているすべてのテキストを簡単に削除できます。 スペル チェック機能も組み込まれており、既定で有効になっています。
 
-> **重要な API**:[TextBox クラス](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.textbox.aspx)、[テキスト プロパティ](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.textbox.text.aspx)
+> **重要な API**:[TextBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox)、[テキスト プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.text)
 
 ## <a name="is-this-the-right-control"></a>適切なコントロールの選択
 
-ユーザーが書式設定されていないテキストを入力、編集できるようにするには、**TextBox** コントロールを使います。 TextBox 内のテキストの取得と設定には、[Text](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.textbox.text.aspx) プロパティを使います。
+ユーザーが書式設定されていないテキストを入力、編集できるようにするには、**TextBox** コントロールを使います。 TextBox 内のテキストの取得と設定には、[Text](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.text) プロパティを使います。
 
 TextBox を読み取り専用にすることはできますが、これは一時的な条件付きの状態である必要があります。 テキストを編集可能にしない場合は、代わりに [TextBlock](text-block.md) を使用することを検討してください。
 
@@ -81,7 +81,7 @@ rootGrid.Children.Add(textBox);
 
 ### <a name="use-a-text-box-for-data-input-in-a-form"></a>フォームでのデータ入力用のテキスト ボックスの使用
 
-テキスト ボックスを使用してフォームでデータ入力を受け付け、[Text](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.textbox.text.aspx) プロパティを使用してテキスト ボックスから完全なテキスト文字列を取得するのが一般的です。 通常、Text プロパティにアクセスするには、送信ボタンのクリックなどのイベントを使用しますが、テキストが変化したときに処理を実行する必要がある場合は、[TextChanged](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.textbox.textchanged.aspx) イベントや [TextChanging](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.textbox.textchanging.aspx) イベントを処理することができます。
+テキスト ボックスを使用してフォームでデータ入力を受け付け、[Text](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.text) プロパティを使用してテキスト ボックスから完全なテキスト文字列を取得するのが一般的です。 通常、Text プロパティにアクセスするには、送信ボタンのクリックなどのイベントを使用しますが、テキストが変化したときに処理を実行する必要がある場合は、[TextChanged](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.textchanged) イベントや [TextChanging](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.textchanging) イベントを処理することができます。
 
 この例では、取得し、テキスト ボックスの現在のコンテンツを設定する方法を示します。
 
@@ -95,9 +95,9 @@ string sampleText = SampleTextBox.Text;
 SampleTextBox.Text = "Sample text retrieved";
 ```
 
-[Header](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.textbox.header.aspx) (ラベル) [と PlaceholderText (透かし)](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.textbox.placeholdertext.aspx) をテキスト コントロールに追加すると、ユーザーに用途を示すことができます。 ヘッダーの外観をカスタマイズするには、Header ではなく [HeaderTemplate](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.textbox.headertemplate.aspx) プロパティを設定します。 *設計については、「ラベルのガイドライン」を参照してください。*
+[Header](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.header) (ラベル) [と PlaceholderText (透かし)](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.placeholdertext) をテキスト コントロールに追加すると、ユーザーに用途を示すことができます。 ヘッダーの外観をカスタマイズするには、Header ではなく [HeaderTemplate](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.headertemplate) プロパティを設定します。 *設計については、「ラベルのガイドライン」を参照してください。*
 
-[MaxLength](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.textbox.maxlength.aspx) プロパティを設定することによって、ユーザーが入力する文字数を制限できます。 ただし、MaxLength では、貼り付けられたテキストの長さは制限されません。 アプリでこれが重要である場合は、[Paste](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.textbox.paste.aspx) イベントを使って、貼り付けられたテキストを変更します。
+[MaxLength](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.maxlength) プロパティを設定することによって、ユーザーが入力する文字数を制限できます。 ただし、MaxLength では、貼り付けられたテキストの長さは制限されません。 アプリでこれが重要である場合は、[Paste](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.paste) イベントを使って、貼り付けられたテキストを変更します。
 
 テキスト ボックスには、テキストがボックスに入力されたときに表示されるすべてクリア ボタン ("X") が含まれています。 ユーザーが [X] をクリックすると、テキスト ボックス内のテキストがクリアされます。 次のようになります。
 
@@ -126,7 +126,7 @@ SampleTextBox.Text = "Sample text retrieved";
 
 ### <a name="make-a-text-box-read-only"></a>テキスト ボックスを読み取り専用にする
 
-[IsReadOnly](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.textbox.isreadonly.aspx) プロパティを **true** に設定すると、テキスト ボックスを読み取り専用にすることができます。 通常、アプリでの条件に基づいて、アプリ コードでこのプロパティを切り替えます。 テキストを常に読み取り専用にする必要がある場合は、代わりに TextBlock の使用を検討してください。
+[IsReadOnly](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.isreadonly) プロパティを **true** に設定すると、テキスト ボックスを読み取り専用にすることができます。 通常、アプリでの条件に基づいて、アプリ コードでこのプロパティを切り替えます。 テキストを常に読み取り専用にする必要がある場合は、代わりに TextBlock の使用を検討してください。
 
 IsReadOnly プロパティを true に設定すると、TextBox を読み取り専用にすることができます。 たとえば、ユーザーがコメントを入力するための TextBox が特定の条件下でのみ有効になるとします。 条件が満たされるまでは、TextBox を読み取り専用にすることができます。 テキストの表示のみが必要である場合は、代わりに TextBlock や RichTextBlock の使用を検討してください。
 
@@ -138,14 +138,14 @@ IsEnabled
 
 テキスト ボックスで複数行にテキストを表示するかどうかを制御するために使用できるプロパティが 2 つあります。 通常、両方のプロパティを設定して複数行テキスト ボックスを作成します。
 
-- テキスト ボックスで改行文字の入力を受け付けて表示するには、[AcceptsReturn](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.textbox.acceptsreturn.aspx) プロパティを **true** に設定します。
-- テキストの折り返しを有効にするには、[TextWrapping](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.textbox.textwrapping.aspx) プロパティを **Wrap** に設定します。 これにより、テキストはテキスト ボックスの端に達すると、行の区切り文字とは無関係に折り返されます。
+- テキスト ボックスで改行文字の入力を受け付けて表示するには、[AcceptsReturn](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.acceptsreturn) プロパティを **true** に設定します。
+- テキストの折り返しを有効にするには、[TextWrapping](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.textwrapping) プロパティを **Wrap** に設定します。 これにより、テキストはテキスト ボックスの端に達すると、行の区切り文字とは無関係に折り返されます。
 
 > **注**&nbsp;&nbsp;TextBox および RichEditBox は、TextWrapping プロパティの **WrapWholeWords** 値をサポートしていません。 TextBox.TextWrapping または RichEditBox.TextWrapping の値として WrapWholeWords を使用しようとすると、無効な引数の例外がスローされます。
 
-複数行のテキスト ボックスは、その [Height](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.frameworkelement.height.aspx) プロパティや [MaxHeight](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.frameworkelement.maxheight.aspx) プロパティ、または親コンテナーによって制約されていない場合、テキストを入力すると垂直方向に拡大し続けます。 複数行テキスト ボックスが、表示領域を越えて拡大しないことをテストし、表示領域を越える場合は拡大を制約する必要があります。 複数行テキスト ボックスの適切な高さを常に指定し、ユーザーが入力するときにテキスト ボックスの高さの拡大を許可しないことをお勧めします。
+複数行のテキスト ボックスは、その [Height](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.height) プロパティや [MaxHeight](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.maxheight) プロパティ、または親コンテナーによって制約されていない場合、テキストを入力すると垂直方向に拡大し続けます。 複数行テキスト ボックスが、表示領域を越えて拡大しないことをテストし、表示領域を越える場合は拡大を制約する必要があります。 複数行テキスト ボックスの適切な高さを常に指定し、ユーザーが入力するときにテキスト ボックスの高さの拡大を許可しないことをお勧めします。
 
-スクロール ホイールまたはタッチを使ったスクロールは、必要に応じて自動的に有効になります。 ただし、垂直方向のスクロール バーは、既定では表示されません。 垂直方向のスクロール バーを表示するには、次に示すように、[ScrollViewer.VerticalScrollBarVisibility](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.scrollviewer.verticalscrollbarvisibility.aspx) を **Auto** に設定します。
+スクロール ホイールまたはタッチを使ったスクロールは、必要に応じて自動的に有効になります。 ただし、垂直方向のスクロール バーは、既定では表示されません。 垂直方向のスクロール バーを表示するには、次に示すように、[ScrollViewer.VerticalScrollBarVisibility](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.scrollviewer.verticalscrollbarvisibility) を **Auto** に設定します。
 
 ```xaml
 <TextBox AcceptsReturn="True" TextWrapping="Wrap"
@@ -169,9 +169,9 @@ ScrollViewer.SetVerticalScrollBarVisibility(textBox, ScrollBarVisibility.Auto);
 
 ### <a name="format-the-text-display"></a>テキストの表示形式の設定
 
-テキスト ボックス内のテキストを整列するには、[TextAlignment](/uwp/api/windows.ui.xaml.controls.textbox.textalignment) プロパティを使います。 ページのレイアウト内のテキスト ボックスを整列するには、[HorizontalAlignment](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.frameworkelement.horizontalalignment.aspx) プロパティと [VerticalAlignment](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.frameworkelement.verticalalignment.aspx) プロパティを使います。
+テキスト ボックス内のテキストを整列するには、[TextAlignment](/uwp/api/windows.ui.xaml.controls.textbox.textalignment) プロパティを使います。 ページのレイアウト内のテキスト ボックスを整列するには、[HorizontalAlignment](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.horizontalalignment) プロパティと [VerticalAlignment](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.verticalalignment) プロパティを使います。
 
-テキスト ボックスが書式設定されていないテキストのみをサポートするときに、ブランド化と一致するようにテキスト ボックスにテキストを表示する方法をカスタマイズできます。 標準的な [Control](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.control.aspx) プロパティ ([FontFamily](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.control.fontfamily.aspx)、[FontSize](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.control.fontsize.aspx)、[FontStyle](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.control.fontstyle.aspx)、[Background](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.control.background.aspx)、[Foreground](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.control.foreground.aspx)、[CharacterSpacing](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.control.characterspacing.aspx) など) を設定して、テキストの外観を変更できます。 これらのプロパティが影響を与えるのは、テキスト ボックスがローカルでテキストを表示する方法だけです。したがって、テキストをコピーしてリッチ テキスト コントロールなどに貼り付けても、書式設定は適用されません。
+テキスト ボックスが書式設定されていないテキストのみをサポートするときに、ブランド化と一致するようにテキスト ボックスにテキストを表示する方法をカスタマイズできます。 標準的な [Control](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Control) プロパティ ([FontFamily](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.fontfamily)、[FontSize](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.fontsize)、[FontStyle](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.fontstyle)、[Background](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.background)、[Foreground](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.foreground)、[CharacterSpacing](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.characterspacing) など) を設定して、テキストの外観を変更できます。 これらのプロパティが影響を与えるのは、テキスト ボックスがローカルでテキストを表示する方法だけです。したがって、テキストをコピーしてリッチ テキスト コントロールなどに貼り付けても、書式設定は適用されません。
 
 この例では、テキストの外観をカスタマイズするためにいくつかのプロパティが設定された読み取り専用のテキスト ボックスを示します。
 
@@ -215,15 +215,15 @@ Paste | クリップボードにテキストが含まれている。
 すべて選択 | TextBox にテキストが含まれている。
 元に戻す | テキストが変更されている。
 
-ショートカット メニューに表示されるコマンドを変更するには、[ContextMenuOpening](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.textbox.contextmenuopening.aspx) イベントを処理します。 この処理の例については、[ContextMenu のサンプル](https://go.microsoft.com/fwlink/p/?linkid=234891)のシナリオ 2 をご覧ください。 デザインについて詳しくは、「ショートカット メニューのガイドライン」をご覧ください。
+ショートカット メニューに表示されるコマンドを変更するには、[ContextMenuOpening](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.contextmenuopening) イベントを処理します。 この処理の例については、[ContextMenu のサンプル](https://go.microsoft.com/fwlink/p/?linkid=234891)のシナリオ 2 をご覧ください。 デザインについて詳しくは、「ショートカット メニューのガイドライン」をご覧ください。
 
 ### <a name="select-copy-and-paste"></a>選択、コピー、貼り付け
 
-[SelectedText](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.textbox.selectedtext.aspx) プロパティを使って、テキスト ボックス内のテキストを取得または設定できます。 [SelectionStart](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.textbox.selectionstart.aspx) プロパティと [SelectionLength](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.textbox.selectionlength.aspx) プロパティ、[Select](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.textbox.select.aspx) メソッドと [SelectAll](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.textbox.selectall.aspx) メソッドを使って、テキストの選択を操作します。 ユーザーがテキストの選択または選択解除を行ったときに操作を実行するには、[SelectionChanged](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.textbox.selectionchanged.aspx) イベントを処理します。 選択したテキストを強調表示するために使用する色を変更するには、[SelectionHighlightColor](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.textbox.selectionhighlightcolor.aspx) プロパティを設定します。
+[SelectedText](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.selectedtext) プロパティを使って、テキスト ボックス内のテキストを取得または設定できます。 [SelectionStart](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.selectionstart) プロパティと [SelectionLength](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.selectionlength) プロパティ、[Select](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.select) メソッドと [SelectAll](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.selectall) メソッドを使って、テキストの選択を操作します。 ユーザーがテキストの選択または選択解除を行ったときに操作を実行するには、[SelectionChanged](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.selectionchanged) イベントを処理します。 選択したテキストを強調表示するために使用する色を変更するには、[SelectionHighlightColor](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.selectionhighlightcolor) プロパティを設定します。
 
-TextBox は、既定では、コピーと貼り付けをサポートしています。 アプリの編集可能なテキスト コントロールで、[Paste](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.textbox.paste.aspx) イベントのカスタム処理を行うことができます。 たとえば、複数行のアドレスから単一行の検索ボックスに貼り付けるときに、改行を削除できます。 または、貼り付けられたテキストの長さをチェックし、データベースに保存できる最大の長さを超えている場合はユーザーに警告することができます。 詳しい説明と例については、[Paste](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.textbox.paste.aspx) イベントに関するトピックをご覧ください。
+TextBox は、既定では、コピーと貼り付けをサポートしています。 アプリの編集可能なテキスト コントロールで、[Paste](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.paste) イベントのカスタム処理を行うことができます。 たとえば、複数行のアドレスから単一行の検索ボックスに貼り付けるときに、改行を削除できます。 または、貼り付けられたテキストの長さをチェックし、データベースに保存できる最大の長さを超えている場合はユーザーに警告することができます。 詳しい説明と例については、[Paste](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.paste) イベントに関するトピックをご覧ください。
 
-これらのプロパティとメソッドを使う例を次に示します。 1 つ目のテキスト ボックス内のテキストを選ぶと、選んだテキストが 2 つ目のテキスト ボックスに表示されます。2 つ目のテキスト ボックスは読み取り専用です。 [SelectionLength](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.textbox.selectionlength.aspx) プロパティと [SelectionStart](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.textbox.selectionstart.aspx) プロパティの値は、2 つのテキスト ブロックに表示されます。 この処理を実行するには、[SelectionChanged](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.textbox.selectionchanged.aspx) イベントを使います。
+これらのプロパティとメソッドを使う例を次に示します。 1 つ目のテキスト ボックス内のテキストを選ぶと、選んだテキストが 2 つ目のテキスト ボックスに表示されます。2 つ目のテキスト ボックスは読み取り専用です。 [SelectionLength](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.selectionlength) プロパティと [SelectionStart](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.selectionstart) プロパティの値は、2 つのテキスト ブロックに表示されます。 この処理を実行するには、[SelectionChanged](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.selectionchanged) イベントを使います。
 
 ```xaml
 <StackPanel>
@@ -257,13 +257,13 @@ private void TextBox1_SelectionChanged(object sender, RoutedEventArgs e)
 
 タッチ キーボードは、アプリがタッチ スクリーン付きのデバイスで実行されているときにテキスト入力に使うことができます。 タッチ キーボードは、TextBox または RichEditBox などの編集可能な入力フィールドをユーザーがタップしたときに呼び出されます。 ユーザーが入力すると予想されるデータの種類と一致するようにテキスト コントロールの入力値の種類を設定することで、ユーザーがより速く簡単にアプリにデータを入力できるようになります。 入力値の種類は、システムに対してコントロールが予期しているテキスト入力の種類のヒントとなるため、システムはその入力の種類用の特殊なタッチ キーボード レイアウトを提供できます。
 
-たとえば、テキスト ボックスが 4 桁の PIN の入力専用の場合は、[InputScope](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.textbox.inputscope.aspx) プロパティを **Number** に設定します。 これにより、システムに数字キーパッド レイアウトの表示が指示されるため、ユーザーは簡単に PIN を入力できます。
+たとえば、テキスト ボックスが 4 桁の PIN の入力専用の場合は、[InputScope](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.inputscope) プロパティを **Number** に設定します。 これにより、システムに数字キーパッド レイアウトの表示が指示されるため、ユーザーは簡単に PIN を入力できます。
 
 > **重要**&nbsp;&nbsp;入力値の種類の設定によって、入力の検証が実行されるわけではありません。また、ユーザーが、ハードウェア キーボードやその他の入力デバイスから入力できなくなることもありません。 必要に応じて、コードで入力を検証する必要があります。
 
-タッチ キーボードに影響するその他のプロパティとして、[IsSpellCheckEnabled](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.textbox.isspellcheckenabled.aspx)、[IsTextPredictionEnabled](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.textbox.istextpredictionenabled.aspx)、[PreventKeyboardDisplayOnProgrammaticFocus](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.textbox.preventkeyboarddisplayonprogrammaticfocus.aspx) があります  (IsSpellCheckEnabled は、ハードウェア キーボードを使用する場合にも TextBox に影響します)。
+タッチ キーボードに影響するその他のプロパティとして、[IsSpellCheckEnabled](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.isspellcheckenabled)、[IsTextPredictionEnabled](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.istextpredictionenabled)、[PreventKeyboardDisplayOnProgrammaticFocus](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.preventkeyboarddisplayonprogrammaticfocus) があります  (IsSpellCheckEnabled は、ハードウェア キーボードを使用する場合にも TextBox に影響します)。
 
-詳細な情報と例については、「[入力値の種類を使ったタッチ キーボードの変更](https://msdn.microsoft.com/library/windows/apps/mt280229)」とプロパティのドキュメントをご覧ください。
+詳細な情報と例については、「[入力値の種類を使ったタッチ キーボードの変更](https://docs.microsoft.com/windows/uwp/design/input/use-input-scope-to-change-the-touch-keyboard)」とプロパティのドキュメントをご覧ください。
 
 ## <a name="recommendations"></a>推奨事項
 
@@ -315,8 +315,8 @@ private void TextBox1_SelectionChanged(object sender, RoutedEventArgs e)
 
 - [テキスト コントロール](text-controls.md)
 - [スペル チェックするためのガイドライン](text-controls.md)
-- [検索の追加](https://msdn.microsoft.com/library/windows/apps/hh465231)
+- [検索の追加](https://docs.microsoft.com/previous-versions/windows/apps/hh465231(v=win.10))
 - [テキスト入力するためのガイドライン](text-controls.md)
-- [TextBox クラス](https://msdn.microsoft.com/library/windows/apps/br209683)
-- [PasswordBox クラス](https://msdn.microsoft.com/library/windows/apps/br227519)
+- [TextBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox)
+- [PasswordBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.PasswordBox)
 - [String.Length プロパティ](https://msdn.microsoft.com/library/system.string.length(v=vs.110).aspx)

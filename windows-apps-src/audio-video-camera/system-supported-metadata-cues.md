@@ -6,12 +6,12 @@ ms.date: 04/18/2017
 ms.topic: article
 keywords: Windows 10, UWP, メタデータ, キュー, 音声, チャプター
 ms.localizationpriority: medium
-ms.openlocfilehash: 2b3753e92524e300252930f48433f91e175353c9
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 92f8826729bb2374b87267d27b961d74eb72e928
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57635857"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66360549"
 ---
 # <a name="system-supported-timed-metadata-cues"></a>システムでサポートされているタイミングが設定されたメタデータのキュー
 この記事では、メディア ファイルやストリームに埋め込まれる可能性がある、タイミングが設定されたメタデータのいくつかの形式を活用する方法について説明します。 UWP アプリは、これらのメタデータ キューが発生したときに、メディア パイプラインで再生中に発生したイベントについて登録できます。 アプリでは、[**DataCue**](https://docs.microsoft.com/uwp/api/Windows.Media.Core.DataCue) クラスを使って独自のカスタム メタデータ キューを実装できますが、この記事ではメディア パイプラインで自動的に検出される、次のようなメタデータ標準に重点を置いて説明します。
@@ -24,7 +24,7 @@ ms.locfileid: "57635857"
 * Fragmented mp4 emsg ボックス
 
 
-この記事は、「[メディア項目、プレイリスト、トラック](media-playback-with-mediasource.md)」の記事で説明されている概念に基づいています。この概念には、[**MediaSource**](https://docs.microsoft.com/uwp/api/windows.media.core.mediasource)、[**MediaPlaybackItem**](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplaybackitem)、[**TimedMetadataTrack**](https://msdn.microsoft.com/library/windows/apps/dn956580) クラスの操作の基本や、アプリでタイミングが設定されたメタデータを使用するための一般的なガイダンスが含まれます。
+この記事は、「[メディア項目、プレイリスト、トラック](media-playback-with-mediasource.md)」の記事で説明されている概念に基づいています。この概念には、[**MediaSource**](https://docs.microsoft.com/uwp/api/windows.media.core.mediasource)、[**MediaPlaybackItem**](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplaybackitem)、[**TimedMetadataTrack**](https://docs.microsoft.com/uwp/api/Windows.Media.Core.TimedMetadataTrack) クラスの操作の基本や、アプリでタイミングが設定されたメタデータを使用するための一般的なガイダンスが含まれます。
 
 基本的な実装手順は、この記事で説明されている、さまざまな種類のタイミングが設定されたメタデータと同じです。
 
@@ -172,7 +172,7 @@ emsg ボックス メタデータ イベントに登録した後、[**MediaPlaye
 [!code-cs[RegisterMetadataHandlerForEmsgCues](./code/MediaSource_RS1/cs/MainPage_Cues.xaml.cs#SnippetRegisterMetadataHandlerForEmsgCues)]
 
 
-**CueEntered** イベントのハンドラーで、[**MediaCueEventArgs**](https://docs.microsoft.com/uwp/api/windows.media.core.mediacueeventargs) の **Cue** プロパティに含まれるデータ キューを、[**DataCue**](https://docs.microsoft.com/uwp/api/windows.media.core.datacue) にキャストします。  **DataCue** オブジェクトが null でないことを確認します。 emsg ボックスのプロパティは、メディア パイプラインによって、DataCue オブジェクトの [**Properties**](https://docs.microsoft.com/uwp/api/windows.media.core.datacue.Properties) コレクション内のカスタム プロパティとして提供されます。 この例では、**[TryGetValue](https://docs.microsoft.com/uwp/api/windows.foundation.collections.propertyset.trygetvalue)** メソッドを使用して、複数の異なるプロパティ値の抽出を試行します。 このメソッドが null を返す場合、要求したプロパティが emsg ボックス内に存在しないことを意味するため、代わりに既定値が設定されます。
+**CueEntered** イベントのハンドラーで、[**MediaCueEventArgs**](https://docs.microsoft.com/uwp/api/windows.media.core.mediacueeventargs) の **Cue** プロパティに含まれるデータ キューを、[**DataCue**](https://docs.microsoft.com/uwp/api/windows.media.core.datacue) にキャストします。  **DataCue** オブジェクトが null でないことを確認します。 emsg ボックスのプロパティは、メディア パイプラインによって、DataCue オブジェクトの [**Properties**](https://docs.microsoft.com/uwp/api/windows.media.core.datacue.Properties) コレクション内のカスタム プロパティとして提供されます。 この例では、 **[TryGetValue](https://docs.microsoft.com/uwp/api/windows.foundation.collections.propertyset.trygetvalue)** メソッドを使用して、複数の異なるプロパティ値の抽出を試行します。 このメソッドが null を返す場合、要求したプロパティが emsg ボックス内に存在しないことを意味するため、代わりに既定値が設定されます。
 
 この例の次の部分は、広告の再生がトリガーされるがシナリオを示しています。これに該当するのは、前の手順で取得した *scheme_id_uri* プロパティの値が "urn:scte:scte35:2013:xml" である場合です ([http://dashif.org/identifiers/event-schemes/](https://dashif.org/identifiers/event-schemes/) をご覧ください)。 標準では、冗長性のために、この emsg を複数回送信することを推奨しているため、この例では、処理済みの emsg ID のリストを保持し、新しいメッセージのみを処理していることに注意してください。 [  **DataReader.FromBuffer**](https://docs.microsoft.com/uwp/api/windows.storage.streams.datareader.FromBuffer) を呼び出してキュー データを読み取る新しい **DataReader** を作成し、[**UnicodeEncoding**](https://docs.microsoft.com/uwp/api/windows.storage.streams.datareader.UnicodeEncoding) プロパティを設定してエンコードを UTF-8 に設定した後、データを読み取ります。 この例では、メッセージ ペイロードがデバッグ出力に書き込まれます。 実際のアプリは、ペイロード データを使用して広告の再生をスケジュールします。
 

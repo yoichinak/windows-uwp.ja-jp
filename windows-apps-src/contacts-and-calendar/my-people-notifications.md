@@ -5,12 +5,12 @@ ms.date: 10/25/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 291c2a922e2b2df7111da8bfc6aefb57b87e84bb
-ms.sourcegitcommit: 4bad5f9427e7db27b57bedc6d7df19077c62e8c3
+ms.openlocfilehash: d4150e7296badd3d31a9aacc7becd3d849f6affd
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65535195"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66360421"
 ---
 # <a name="my-people-notifications"></a>マイ連絡先の通知
 
@@ -18,7 +18,7 @@ ms.locfileid: "65535195"
 
 ![ハート絵文字通知](images/heart-emoji-notification-small.gif)
 
-## <a name="requirements"></a>要件
+## <a name="requirements"></a>必要条件
 
 + Windows 10 と Microsoft Visual Studio 2017。 インストールについて詳しくは、「[Visual Studio のセットアップ](https://docs.microsoft.com/en-us/windows/uwp/get-started/get-set-up)」をご覧ください。
 + C# またはこれに類似するオブジェクト指向プログラミング言語に関する基本的な知識。 C# で作業を始めるには、「["Hello, world" アプリを作成する](https://docs.microsoft.com/en-us/windows/uwp/get-started/create-a-hello-world-app-xaml-universal)」をご覧ください。
@@ -126,7 +126,7 @@ experienceType=”shoulderTap”
 ![Spritesheet 通知](images/pizza-notification-small.gif)
 
 ## <a name="starting-the-notification"></a>通知を開始する
-マイ連絡先の通知を開始するには、トースト テンプレートを [XmlDocument](https://msdn.microsoft.com/en-us/library/windows/apps/windows.data.xml.dom.xmldocument.aspx) オブジェクトに変換する必要があります。 トーストを (ここでは "content.xml" という名前の) XML ファイル内で定義すると、次のコードを使用して開始できます。
+マイ連絡先の通知を開始するには、トースト テンプレートを [XmlDocument](https://docs.microsoft.com/uwp/api/windows.data.xml.dom.xmldocument) オブジェクトに変換する必要があります。 トーストを (ここでは "content.xml" という名前の) XML ファイル内で定義すると、次のコードを使用して開始できます。
 
 ```CSharp
 string xmlText = File.ReadAllText("content.xml");

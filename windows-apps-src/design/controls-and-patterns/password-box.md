@@ -12,12 +12,12 @@ pm-contact: miguelrb
 design-contact: ksulliv
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 43639ac22c07501da89e29419a226a8a3ce8af48
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: d41590914fb66cb8061298f77f24e5efcdd03bf5
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57613067"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66364625"
 ---
 # <a name="password-box"></a>パスワード ボックス
 
@@ -25,7 +25,7 @@ ms.locfileid: "57613067"
 
 パスワード ボックスは、プライバシーの目的で入力文字が非表示になるテキスト入力ボックスです。 パスワード ボックスは、入力されたテキストの代わりに代替文字が表示される点を除けば、テキスト ボックスに似ています。 この代替文字は、構成できます。
 
-> **重要な API**:[PasswordBox クラス](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.passwordbox.aspx)、[パスワード プロパティ](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.passwordbox.password.aspx)、 [PasswordChar プロパティ](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.passwordbox.passwordchar.aspx)、 [PasswordRevealMode プロパティ](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.passwordbox.passwordrevealmode.aspx)、 [PasswordChanged イベント](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.passwordbox.passwordchanged.aspx)
+> **重要な API**:[PasswordBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.PasswordBox)、[パスワード プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.passwordbox.password)、 [PasswordChar プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.passwordbox.passwordchar)、 [PasswordRevealMode プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.passwordbox.passwordrevealmode)、 [PasswordChanged イベント](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.passwordbox.passwordchanged)
 
 既定では、ユーザーは表示ボタンを押すことによってパスワード ボックスでパスワードを表示できます。 表示ボタンを無効にしたり、別の方法でパスワードを表示できるようにしたりすることもできます (チェック ボックスなど)。
 
@@ -67,7 +67,7 @@ ms.locfileid: "57613067"
 
 ## <a name="create-a-password-box"></a>パスワード ボックスの作成
 
-PasswordBox の内容を取得または設定するには [Password](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.passwordbox.password.aspx) プロパティを使います。 [PasswordChanged](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.passwordbox.passwordchanged.aspx) イベントのハンドラーでこの操作を実行すると、ユーザーがパスワードを入力している間に検証を実行できます。 ボタンの [Click](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.primitives.buttonbase.click.aspx) などの別のイベントを使って、ユーザーが入力を終えてから検証を実行することもできます。
+PasswordBox の内容を取得または設定するには [Password](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.passwordbox.password) プロパティを使います。 [PasswordChanged](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.passwordbox.passwordchanged) イベントのハンドラーでこの操作を実行すると、ユーザーがパスワードを入力している間に検証を実行できます。 ボタンの [Click](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.click) などの別のイベントを使って、ユーザーが入力を終えてから検証を実行することもできます。
 
 パスワード ボックス コントロールの XAML を次に示します。PasswordBox の既定の外観を確認してください。 ユーザーがパスワードを入力すると、リテラル値の "Password" であるかどうかが調べられます。 一致する場合、メッセージがユーザーに表示されます。
 
@@ -99,7 +99,7 @@ private void passwordBox_PasswordChanged(object sender, RoutedEventArgs e)
 
 ### <a name="password-character"></a>パスワード文字
 
-パスワードを隠すために使う文字を変更するには、[PasswordChar](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.passwordbox.passwordchar.aspx) プロパティを設定します。 ここでは、既定の記号をアスタリスクに置き換えています。
+パスワードを隠すために使う文字を変更するには、[PasswordChar](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.passwordbox.passwordchar) プロパティを設定します。 ここでは、既定の記号をアスタリスクに置き換えています。
 
 ```xaml
 <PasswordBox x:Name="passwordBox" Width="200" PasswordChar="*"/>
@@ -111,7 +111,7 @@ private void passwordBox_PasswordChanged(object sender, RoutedEventArgs e)
 
 ### <a name="headers-and-placeholder-text"></a>ヘッダーとプレースホルダー テキスト
 
-[Header](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.passwordbox.header.aspx) プロパティと [PlaceholderText](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.passwordbox.placeholdertext.aspx) プロパティを使って PasswordBox のコンテキストを提示することができます。 パスワードを変更するためのフォームなど、複数のボックスがある場合に特に便利です。
+[Header](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.passwordbox.header) プロパティと [PlaceholderText](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.passwordbox.placeholdertext) プロパティを使って PasswordBox のコンテキストを提示することができます。 パスワードを変更するためのフォームなど、複数のボックスがある場合に特に便利です。
 
 ```xaml
 <PasswordBox x:Name="passwordBox" Width="200" Header="Password" PlaceholderText="Enter your password"/>
@@ -121,7 +121,7 @@ private void passwordBox_PasswordChanged(object sender, RoutedEventArgs e)
 
 ### <a name="maximum-length"></a>最大長
 
-ユーザーが入力できる文字の最大数を指定するには、[MaxLength](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.passwordbox.maxlength.aspx) プロパティを設定します。 長さの最小値を指定するプロパティはありませんが、アプリのコードでパスワードの長さをチェックしたりその他の検証を実行したりできます。
+ユーザーが入力できる文字の最大数を指定するには、[MaxLength](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.passwordbox.maxlength) プロパティを設定します。 長さの最小値を指定するプロパティはありませんが、アプリのコードでパスワードの長さをチェックしたりその他の検証を実行したりできます。
 
 ## <a name="password-reveal-mode"></a>パスワード表示モード
 
@@ -133,19 +133,19 @@ PasswordBox には、ユーザーが押すとパスワード テキストを表�
 
 既定で表示されるパスワード表示ボタン ("プレビュー" ボタン) では、 ユーザーがパスワードを表示するにはボタンを押し続けなければならないため、高レベルのセキュリティが維持されます。
 
-[PasswordRevealMode](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.passwordbox.passwordrevealmode.aspx) プロパティの値は、ユーザーにパスワード表示ボタンが表示されるかどうかを決定する唯一の要因ではありません。 その他の要因には、コントロールの表示幅が最小幅を上回っているか、PasswordBox にフォーカスがあるか、テキスト入力フィールドに文字が含まれているか、などがあります。 パスワード表示ボタンが表示されるのは、PasswordBox が初めてフォーカスを受け取り、文字が入力されたときだけです。 いったん PasswordBox からフォーカスが移動すると、その後にフォーカスが戻っても、パスワードをクリアして入力し直さない限り、パスワード表示ボタンは表示されません。
+[PasswordRevealMode](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.passwordbox.passwordrevealmode) プロパティの値は、ユーザーにパスワード表示ボタンが表示されるかどうかを決定する唯一の要因ではありません。 その他の要因には、コントロールの表示幅が最小幅を上回っているか、PasswordBox にフォーカスがあるか、テキスト入力フィールドに文字が含まれているか、などがあります。 パスワード表示ボタンが表示されるのは、PasswordBox が初めてフォーカスを受け取り、文字が入力されたときだけです。 いったん PasswordBox からフォーカスが移動すると、その後にフォーカスが戻っても、パスワードをクリアして入力し直さない限り、パスワード表示ボタンは表示されません。
 
-> **注意:**&nbsp;&nbsp;Windows 10 より前のバージョンでは、パスワード表示ボタンは既定で表示されませんでした。 アプリのセキュリティにより、パスワードを必ず非表示にする必要がある場合は、PasswordRevealMode を Hidden に設定してください。
+> **注意:** &nbsp;&nbsp;Windows 10 より前のバージョンでは、パスワード表示ボタンは既定で表示されませんでした。 アプリのセキュリティにより、パスワードを必ず非表示にする必要がある場合は、PasswordRevealMode を Hidden に設定してください。
 
 ### <a name="hidden-and-visible-modes"></a>非表示モードと表示モード
 
-[PasswordRevealMode](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.passwordrevealmode.aspx) には、そのほかに **Hidden** と **Visible** という列挙値があります。これらの列挙値を使うと、パスワード表示ボタンを非表示にして、パスワードを非表示にするかどうかをプログラムで管理できます。
+[PasswordRevealMode](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.PasswordRevealMode) には、そのほかに **Hidden** と **Visible** という列挙値があります。これらの列挙値を使うと、パスワード表示ボタンを非表示にして、パスワードを非表示にするかどうかをプログラムで管理できます。
 
 パスワードを常に非表示にするには、PasswordRevealMode を Hidden に設定します。 パスワードを常に非表示にする必要がある場合以外は、カスタム UI を用意して、ユーザーが PasswordRevealMode の Hidden と Visible を切り替えられるようにすることができます。
 
-以前のバージョンの Windows Phone では、PasswordBox のパスワードの表示/非表示の切り替えにチェック ボックスが使われていました。 次の例に示すように、これと同様の UI をアプリで作成することもできます。 [ToggleButton](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.primitives.togglebutton.aspx) などのその他のコントロールを使ってユーザーがモードを切り替えられるようにすることもできます。
+以前のバージョンの Windows Phone では、PasswordBox のパスワードの表示/非表示の切り替えにチェック ボックスが使われていました。 次の例に示すように、これと同様の UI をアプリで作成することもできます。 [ToggleButton](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Primitives.ToggleButton) などのその他のコントロールを使ってユーザーがモードを切り替えられるようにすることもできます。
 
-次の例は、[CheckBox](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.checkbox.aspx) を使ってユーザーが PasswordBox の表示モードを切り替えられるようにする方法を示しています。
+次の例は、[CheckBox](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CheckBox) を使ってユーザーが PasswordBox の表示モードを切り替えられるようにする方法を示しています。
 
 ```xaml
 <StackPanel Width="200">
@@ -179,7 +179,7 @@ private void CheckBox_Changed(object sender, RoutedEventArgs e)
 
 ユーザーがタッチ キーボード、つまりソフト入力パネル (SIP) でデータを入力できるように、ユーザーが入力すると予想されるデータの種類に合わせてテキスト コントロールの入力値の種類を設定できます。 PasswordBox でサポートされている入力値の種類は **Password** と **NumericPin** だけです。 それ以外の値はすべて無視されます。
 
-入力値の種類の使い方について詳しくは、「[入力値の種類を使ったタッチ キーボードの変更](https://msdn.microsoft.com/library/windows/apps/mt280229)」をご覧ください。
+入力値の種類の使い方について詳しくは、「[入力値の種類を使ったタッチ キーボードの変更](https://docs.microsoft.com/windows/uwp/design/input/use-input-scope-to-change-the-touch-keyboard)」をご覧ください。
 
 ## <a name="recommendations"></a>推奨事項
 
@@ -199,8 +199,8 @@ private void CheckBox_Changed(object sender, RoutedEventArgs e)
 [テキスト コントロール](text-controls.md)
 
 - [スペル チェックするためのガイドライン](text-controls.md)
-- [検索の追加](https://msdn.microsoft.com/library/windows/apps/hh465231)
+- [検索の追加](https://docs.microsoft.com/previous-versions/windows/apps/hh465231(v=win.10))
 - [テキスト入力するためのガイドライン](text-controls.md)
-- [TextBox クラス](https://msdn.microsoft.com/library/windows/apps/br209683)
-- [Windows.UI.Xaml.Controls PasswordBox クラス](https://msdn.microsoft.com/library/windows/apps/br227519)
+- [TextBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox)
+- [Windows.UI.Xaml.Controls PasswordBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.PasswordBox)
 - [String.Length プロパティ](https://msdn.microsoft.com/library/system.string.length(v=vs.110).aspx)

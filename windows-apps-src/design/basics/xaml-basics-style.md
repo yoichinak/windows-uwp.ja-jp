@@ -5,14 +5,14 @@ keywords: XAML, UWP, 概要
 ms.date: 08/31/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: a1eacc42720e7bce4290476676b0864fbd8a3694
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: d540b41620110a41676d08f5e6239efd0ef4ca46
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57592957"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66361232"
 ---
-# <a name="tutorial-create-custom-styles"></a>チュートリアル: カスタム スタイルを作成する
+# <a name="tutorial-create-custom-styles"></a>チュートリアル:カスタム スタイルを作成する
 
 このチュートリアルでは、XAML アプリの UI をカスタマイズする方法を示します。 警告: このチュートリアルにユニコーンが登場するかどうかは保証できません。 (後で登場します!)  
 
@@ -30,7 +30,7 @@ PhotoLab アプリには、2 つのプライマリ ページがあります。
 **DetailPage.xaml:** 選択された単一の写真が表示されます。 ポップアップの編集メニューにより、写真の編集、名前変更、保存を行うことができます。
 ![DetailPage](../basics/images/xaml-basics/detailpage.png)
 
-## <a name="part-1-create-a-fancy-slider-control"></a>第 1 部:手の込んだスライダー コントロールを作成します。  
+## <a name="part-1-create-a-fancy-slider-control"></a>作業 1:手の込んだスライダー コントロールを作成します。  
 
 ユニバーサル Windows プラットフォーム (UWP) には、アプリの外観をカスタマイズするためのさまざまな方法が用意されています。 フォントや文字体裁設定から、色やグラデーション、ぼかし効果まで、多数のオプションがあります。 
 
@@ -60,9 +60,10 @@ PhotoLab アプリには、2 つのプライマリ ページがあります。
 
     [Windows.XAML.Ui.Shapes 名前空間](https://docs.microsoft.com/en-us/uwp/api/Windows.UI.Xaml.Shapes)には、7 つの図形が用意されており、ここから選ぶことができます。 楕円形、四角形のほか、パスと呼ばれるものを使うと、どのような図形でも (ユニコーンでも!) 作成できます。 
     
-    <!-- TODO reduce size --> ![ユニコーン](../basics/images/xaml-basics/unicorn.png)
+    <!-- TODO reduce size -->
+    ![ユニコーン](../basics/images/xaml-basics/unicorn.png)
     
-    > **これを読み取る。**[図形を描画](https://docs.microsoft.com/en-us/windows/uwp/graphics/drawing-shapes)記事ではすべての XAML の図形について知っておく必要があります。 
+    > **これを読み取る。** [図形を描画](https://docs.microsoft.com/en-us/windows/uwp/graphics/drawing-shapes)記事ではすべての XAML の図形について知っておく必要があります。 
     
     ここでは、ステレオのボリューム コントロールのような形をした、三角形のウィジェットを作成します。
     
@@ -179,7 +180,7 @@ PhotoLab アプリには、2 つのプライマリ ページがあります。
 
 XAML スタイルの利点の 1 つは、記述するコードの量を劇的に削減し、アプリの外観を更新する作業がずっと簡単になることです。
 
-スタイルを定義するには、スタイルの適用対象となるコントロールが含まれる要素の [Resources](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.frameworkelement.Resources) プロパティに [Style](https://msdn.microsoft.com/library/windows/apps/br208849) 要素を追加します。  スタイルを **Page.Resources**プロパティに追加すると、ページ全体で、そのスタイルにアクセスできるようになります。 App.xaml ファイル内で **Application.Resources** プロパティにスタイルを追加すると、ページ全体で、そのスタイルにアクセスできるようになります。
+スタイルを定義するには、スタイルの適用対象となるコントロールが含まれる要素の [Resources](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.frameworkelement.Resources) プロパティに [Style](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Style) 要素を追加します。  スタイルを **Page.Resources**プロパティに追加すると、ページ全体で、そのスタイルにアクセスできるようになります。 App.xaml ファイル内で **Application.Resources** プロパティにスタイルを追加すると、ページ全体で、そのスタイルにアクセスできるようになります。
 
 名前付きスタイルと一般スタイルを作成することができます。 名前付きスタイルは、特定のコントロールに明示的に適用する必要があります。一般スタイルは、指定された **TargetType** に一致するすべてのコントロールに適用されます。 
 
@@ -337,7 +338,8 @@ XAML スタイルの利点の 1 つは、記述するコードの量を劇的に
 
 6. アプリをコンパイルして実行します。 外観に変わりはないのですが、 効率的で保守性に優れたコードを記述したことによる、すばらしい満足感と達成感をかみしめてください。
 
-<!-- TODO add new start/end points --> これで、第 2 部を完了しました。
+<!-- TODO add new start/end points -->
+これで、パート 2 は終わりです。
 
 
 ## <a name="part-3-use-a-control-template-to-make-a-fancy-slider"></a>パート 3:コントロール テンプレートを使用して手の込んだスライダーの作成
@@ -858,4 +860,5 @@ XAML スタイルの利点の 1 つは、記述するコードの量を劇的に
     
     ここで行った更新により、多角形の配置が改善されました。多角形の下端がスライダーのつまみの下端と揃っています。
     
-<!-- TODO correct folder --> これで、チュートリアルを完了しました。 行き詰った場合や最終的なソリューションを確認したい場合は、完成したサンプル コードが [UWP アプリ サンプル リポジトリ](https://github.com/Microsoft/Windows-universal-samples)にあります。
+<!-- TODO correct folder -->
+これで、チュートリアルは終わりです。 行き詰った場合や最終的なソリューションを確認したい場合は、完成したサンプル コードが [UWP アプリ サンプル リポジトリ](https://github.com/Microsoft/Windows-universal-samples)にあります。

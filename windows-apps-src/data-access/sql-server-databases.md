@@ -1,19 +1,19 @@
 ---
 title: UWP アプリでの SQL Server データベースの使用
 description: UWP アプリでの SQL Server データベースの使用。
-ms.date: 11/13/2017
+ms.date: 3/28/2019
 ms.topic: article
 keywords: windows 10, UWP, SQL Server, データベース
 ms.localizationpriority: medium
-ms.openlocfilehash: 4fe215a593293ff91afb7f71a830512ac365093f
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: f8986f14872d4e5de2c45bba264de6619ef07141
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57621157"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66360148"
 ---
 # <a name="use-a-sql-server-database-in-a-uwp-app"></a>UWP アプリでの SQL Server データベースの使用
-アプリで [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient.aspx) 名前空間のクラスを使用して、SQL Server データベースに直接接続し、データを保存および取得することができます。
+アプリで [System.Data.SqlClient](https://docs.microsoft.com/dotnet/api/system.data.sqlclient?redirectedfrom=MSDN) 名前空間のクラスを使用して、SQL Server データベースに直接接続し、データを保存および取得することができます。
 
 このガイドでは、それを行う方法の 1 つを示します。 [Northwind](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/linq/downloading-sample-databases) サンプル データベースを SQL Server インスタンスにインストールし、ここで示すスニペットを使用して、Northwind サンプルのデータベースから取得した製品を表示する基本的な UI を作成します。
 
@@ -50,7 +50,7 @@ ms.locfileid: "57621157"
 : 5。製品と UI を設定します。
 
 >[!NOTE]
-> このセクションでは、データ アクセス コードを編成する方法の 1 つを示します。 つまり、[System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient.aspx) を使用して、SQL Server データベースのデータを保存および取得する方法の例を示すだけです。 アプリケーションの設計に最も適した方法でコードを編成してください。
+> このセクションでは、データ アクセス コードを編成する方法の 1 つを示します。 つまり、[System.Data.SqlClient](https://docs.microsoft.com/dotnet/api/system.data.sqlclient?redirectedfrom=MSDN) を使用して、SQL Server データベースのデータを保存および取得する方法の例を示すだけです。 アプリケーションの設計に最も適した方法でコードを編成してください。
 
 ### <a name="add-a-connection-string"></a>接続文字列を追加する
 
@@ -77,7 +77,7 @@ sealed partial class App : Application
 
 ### <a name="create-a-class-to-hold-product-data"></a>製品データを保持するクラスを作成する
 
-XAML UI でこのクラスのプロパティに属性をバインドできるように、[INotifyPropertyChanged](https://msdn.microsoft.com/library/system.componentmodel.inotifypropertychanged.aspx) イベントを実装するクラスを作成します。
+XAML UI でこのクラスのプロパティに属性をバインドできるように、[INotifyPropertyChanged](https://docs.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged?redirectedfrom=MSDN) イベントを実装するクラスを作成します。
 
 ```csharp
 public class Product : INotifyPropertyChanged
@@ -106,7 +106,7 @@ public class Product : INotifyPropertyChanged
 
 ### <a name="retrieve-products-from-the-sql-server-database"></a>SQL Server データベースから製品を取得する
 
-Northwind サンプル データベースから製品を取得し、``Product`` インスタンスの [ObservableCollection](https://msdn.microsoft.com/library/windows/apps/ms668604.aspx) コレクションとしてそれらを返すメソッドを作成します。
+Northwind サンプル データベースから製品を取得し、``Product`` インスタンスの [ObservableCollection](https://docs.microsoft.com/dotnet/api/system.collections.objectmodel.observablecollection-1?redirectedfrom=MSDN) コレクションとしてそれらを返すメソッドを作成します。
 
 ```csharp
 public ObservableCollection<Product> GetProducts(string connectionString)
@@ -208,7 +208,7 @@ public ObservableCollection<Product> GetProducts(string connectionString)
 
 ### <a name="show-products-in-the-listview"></a>ListView で製品を表示する
 
-**MainPage.xaml.cs** ファイルを開き、[ListView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listview) の **ItemSource** プロパティを ``Product`` インスタンスの [ObservableCollection](https://msdn.microsoft.com/library/windows/apps/ms668604.aspx) に設定するコードを、``MainPage`` クラスのコンストラクターに追加します。
+**MainPage.xaml.cs** ファイルを開き、[ListView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listview) の **ItemSource** プロパティを ``Product`` インスタンスの [ObservableCollection](https://docs.microsoft.com/dotnet/api/system.collections.objectmodel.observablecollection-1?redirectedfrom=MSDN) に設定するコードを、``MainPage`` クラスのコンストラクターに追加します。
 
 ```csharp
 public MainPage()
@@ -222,7 +222,7 @@ public MainPage()
 
 ![Northwind 製品](images/products-northwind.png)
 
-[System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient.aspx) 名前空間を調べて、SQL Server データベース内のデータを使用して他に何ができるかを確認してください。
+[System.Data.SqlClient](https://docs.microsoft.com/dotnet/api/system.data.sqlclient?redirectedfrom=MSDN) 名前空間を調べて、SQL Server データベース内のデータを使用して他に何ができるかを確認してください。
 
 ## <a name="trouble-connecting-to-your-database"></a>データベースへの接続で問題が発生した場合
 

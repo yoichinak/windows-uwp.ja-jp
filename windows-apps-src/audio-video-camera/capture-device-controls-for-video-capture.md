@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: f503910a46254f4e885dd2ded1d43b975d78f84e
-ms.sourcegitcommit: bad7ed6def79acbb4569de5a92c0717364e771d9
+ms.openlocfilehash: d20f2d372354cf7bbfa596318f165c424f08c8ee
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59244318"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66358859"
 ---
 # <a name="manual-camera-controls-for-video-capture"></a>ビデオ キャプチャのための手動カメラ制御
 
@@ -21,7 +21,7 @@ ms.locfileid: "59244318"
 
 この記事で説明するビデオ デバイス コントロールはすべて同じパターンを使ってアプリに追加されます。 まず、アプリが実行されている現在のデバイスで、コントロールがサポートされているかどうかを確認します。 コントロールがサポートされている場合は、コントロールに対して必要なモードを設定します。 一般的に、現在のデバイスで特定のコントロールがサポートされていない場合は、ユーザーがその機能を有効にできるような UI 要素を無効または非表示にする必要があります。
 
-この記事で説明するデバイス制御 API はすべて、[**Windows.Media.Devices**](https://msdn.microsoft.com/library/windows/apps/br206902) 名前空間のメンバーです。
+この記事で説明するデバイス制御 API はすべて、[**Windows.Media.Devices**](https://docs.microsoft.com/uwp/api/Windows.Media.Devices) 名前空間のメンバーです。
 
 [!code-cs[VideoControllersUsing](./code/BasicMediaCaptureWin10/cs/MainPage.xaml.cs#SnippetVideoControllersUsing)]
 
@@ -30,21 +30,21 @@ ms.locfileid: "59244318"
 
 ## <a name="hdr-video"></a>HDR ビデオ
 
-ハイ ダイナミック レンジ (HDR) ビデオ機能では、HDR 処理をキャプチャ デバイスのビデオ ストリームに適用します。 HDR ビデオがサポートされているかどうかを確認するには、[**HdrVideoControl.Supported**](https://msdn.microsoft.com/library/windows/apps/dn926682) プロパティを選びます。
+ハイ ダイナミック レンジ (HDR) ビデオ機能では、HDR 処理をキャプチャ デバイスのビデオ ストリームに適用します。 HDR ビデオがサポートされているかどうかを確認するには、[**HdrVideoControl.Supported**](https://docs.microsoft.com/uwp/api/windows.media.devices.hdrvideocontrol.supported) プロパティを選びます。
 
-HDR ビデオ コントロールでは、3 つのモード (オン、オフ、自動) がサポートされています。自動モードでは、HDR ビデオ処理によってメディア キャプチャが改善されるかどうかをデバイスが動的に判断し、改善される場合は HDR ビデオが有効になります。 現在のデバイスで特定のモードがサポートされているかどうかを確認するには、[**HdrVideoControl.SupportedModes**](https://msdn.microsoft.com/library/windows/apps/dn926683) コレクションに目的のモードが含まれているかどうかをチェックします。
+HDR ビデオ コントロールでは、3 つのモード (オン、オフ、自動) がサポートされています。自動モードでは、HDR ビデオ処理によってメディア キャプチャが改善されるかどうかをデバイスが動的に判断し、改善される場合は HDR ビデオが有効になります。 現在のデバイスで特定のモードがサポートされているかどうかを確認するには、[**HdrVideoControl.SupportedModes**](https://docs.microsoft.com/uwp/api/windows.media.devices.hdrvideocontrol.supportedmodes) コレクションに目的のモードが含まれているかどうかをチェックします。
 
-HDR ビデオ処理を有効または無効にするには、[**HdrVideoControl.Mode**](https://msdn.microsoft.com/library/windows/apps/dn926681) を目的のモードに設定します。
+HDR ビデオ処理を有効または無効にするには、[**HdrVideoControl.Mode**](https://docs.microsoft.com/uwp/api/windows.media.devices.hdrvideocontrol.mode) を目的のモードに設定します。
 
 [!code-cs[SetHdrVideoMode](./code/BasicMediaCaptureWin10/cs/MainPage.xaml.cs#SnippetSetHdrVideoMode)]
 
 ## <a name="exposure-priority"></a>露出の優先順位
 
-[  **ExposurePriorityVideoControl**](https://msdn.microsoft.com/library/windows/apps/dn926644) は、有効であれば、キャプチャ デバイスからのビデオ フレームを評価し、ローライト シーンのビデオがキャプチャされているかどうかを判断します。 その場合は、各フレームの露出時間を長くし、キャプチャしたビデオの画質を向上するために、キャプチャするビデオのフレーム レートが引き下げられます。
+[  **ExposurePriorityVideoControl**](https://docs.microsoft.com/uwp/api/Windows.Media.Devices.ExposurePriorityVideoControl) は、有効であれば、キャプチャ デバイスからのビデオ フレームを評価し、ローライト シーンのビデオがキャプチャされているかどうかを判断します。 その場合は、各フレームの露出時間を長くし、キャプチャしたビデオの画質を向上するために、キャプチャするビデオのフレーム レートが引き下げられます。
 
-[  **ExposurePriorityVideoControl.Supported**](https://msdn.microsoft.com/library/windows/apps/dn926647) プロパティをチェックして、現在のデバイスで露出の優先順位コントロールがサポートされているかどうかを確認してください。
+[  **ExposurePriorityVideoControl.Supported**](https://docs.microsoft.com/uwp/api/windows.media.devices.exposurepriorityvideocontrol.supported) プロパティをチェックして、現在のデバイスで露出の優先順位コントロールがサポートされているかどうかを確認してください。
 
-露出の優先順位コントロールを有効または無効にするには、[**ExposurePriorityVideoControl.Enabled**](https://msdn.microsoft.com/library/windows/apps/dn926646) を目的のモードに設定します。
+露出の優先順位コントロールを有効または無効にするには、[**ExposurePriorityVideoControl.Enabled**](https://docs.microsoft.com/uwp/api/windows.media.devices.exposurepriorityvideocontrol.enabled) を目的のモードに設定します。
 
 [!code-cs[EnableExposurePriority](./code/BasicMediaCaptureWin10/cs/MainPage.xaml.cs#SnippetEnableExposurePriority)]
 
@@ -86,9 +86,9 @@ Windows 10、バージョン 1803 以降では、デバイスでサポートさ�
 
 ## <a name="related-topics"></a>関連トピック
 
-* [Camera](camera.md)
-* [MediaCapture を使った基本的な写真、ビデオ、およびオーディオのキャプチャ](basic-photo-video-and-audio-capture-with-MediaCapture.md)
-* [MediaFrameReader を使ったメディア フレームの処理](process-media-frames-with-mediaframereader.md)
+* [カメラ](camera.md)
+* [MediaCapture で基本的な写真、ビデオ、およびオーディオのキャプチャします。](basic-photo-video-and-audio-capture-with-MediaCapture.md)
+* [プロセスのメディア MediaFrameReader フレーム](process-media-frames-with-mediaframereader.md)
 *  [**VideoTemporalDenoisingControl**](https://docs.microsoft.com/uwp/api/windows.media.devices.videotemporaldenoisingcontrol)
  
 

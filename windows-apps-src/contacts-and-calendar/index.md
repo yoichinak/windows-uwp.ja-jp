@@ -6,12 +6,12 @@ ms.date: 05/18/2018
 ms.topic: article
 keywords: windows 10, uwp, 連絡先, カレンダー, 予定, メール メッセージ
 ms.localizationpriority: medium
-ms.openlocfilehash: 239dbaa7799d9991a63223d1cd8706d34445a16b
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 6356e20966fc3899196e00ba5a99ebcf0104f8d6
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57583267"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66361258"
 ---
 # <a name="contacts-my-people-and-calendar"></a>連絡先、マイ連絡先、カレンダー
 
@@ -22,10 +22,10 @@ ms.locfileid: "57583267"
 
 | トピック | 説明 |
 |-------|-------------|
-| [連絡先の選択](selecting-contacts.md) | [  <strong>Windows.ApplicationModel.Contacts</strong>](https://msdn.microsoft.com/library/windows/apps/BR225002) 名前空間では、複数の方法で連絡先を選ぶことができます。 ここでは、1 つまたは複数の連絡先を選ぶ方法について説明します。また、アプリで必要な連絡先情報だけを取得するように連絡先ピッカーを構成する方法についても説明します。 |
+| [連絡先の選択](selecting-contacts.md) | [  <strong>Windows.ApplicationModel.Contacts</strong>](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Contacts) 名前空間では、複数の方法で連絡先を選ぶことができます。 ここでは、1 つまたは複数の連絡先を選ぶ方法について説明します。また、アプリで必要な連絡先情報だけを取得するように連絡先ピッカーを構成する方法についても説明します。 |
 | [メールの送信](sending-email.md) | メールの作成ダイアログを起動して、ユーザーがメール メッセージを送信できるようにする方法について説明します。 ダイアログを表示する前に、メールの各フィールドにデータを設定することができます。 メッセージは、ユーザーが送信ボタンをタップするまで送信されません。 |
 | [SMS メッセージの送信](sending-an-sms-message.md) | このトピックでは、SMS の作成ダイアログを起動して、ユーザーが SMS メッセージを送信できるようにする方法について説明します。 ダイアログを表示する前に、SMS の各フィールドにデータを設定することができます。 メッセージは、ユーザーが送信ボタンをタップするまで送信されません。 |
-| [予定の管理](managing-appointments.md) | [  <strong>Windows.ApplicationModel.Appointments</strong>](https://msdn.microsoft.com/library/windows/apps/Dn263359) 名前空間を使うと、ユーザーのカレンダー アプリで予定の作成と管理を行うことができます。 ここでは、予定を作成してカレンダー アプリに追加し、カレンダー アプリで置換して、カレンダー アプリから削除する方法を示します。 また、カレンダー アプリの一定の期間を表示し、予定の繰り返しオブジェクトを作る方法も示します。 |
+| [予定の管理](managing-appointments.md) | [  <strong>Windows.ApplicationModel.Appointments</strong>](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Appointments) 名前空間を使うと、ユーザーのカレンダー アプリで予定の作成と管理を行うことができます。 ここでは、予定を作成してカレンダー アプリに追加し、カレンダー アプリで置換して、カレンダー アプリから削除する方法を示します。 また、カレンダー アプリの一定の期間を表示し、予定の繰り返しオブジェクトを作る方法も示します。 |
 | [アプリを連絡先カードの操作に接続する](integrating-with-contacts.md) | アプリを連絡先カードまたはミニ連絡先カードの操作の横に表示する方法を説明します。 ユーザーは、プロファイル ページを開く、通話を行う、メッセージを送信するなど、操作を実行するアプリを選ぶことができます。 |
 | [アプリケーションにマイ連絡先のサポートを追加する](my-people-support.md) | アプリケーションにマイ連絡先のサポートを追加する方法と、タスク バーで連絡先をピン留めする方法およびピン留めを外す方法について説明します。 |
 | [マイ連絡先の共有](my-people-sharing.md) | マイ連絡先の共有のサポートを追加する方法について説明します。マイ連絡先の共有によりユーザーは、ファイルをエクスプローラーからピン留めされたマイ連絡先にドラッグして、ピン留めされた連絡先とコンテンツを共有できます。 |

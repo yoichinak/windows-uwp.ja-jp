@@ -7,12 +7,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 7a3bf2ce69105787b7ca9e83c7f7fe5db8ae1038
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 14f5fa06cfa0a6a7e393f3e2d513af0898d1f822
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57624857"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66360937"
 ---
 # <a name="periodic-notification-overview"></a>定期的な通知の概要
  
@@ -34,14 +34,14 @@ ms.locfileid: "57624857"
 
 定期的な通知では、アプリでクラウド サービスをホストする必要があります。 このサービスは、アプリをインストールしているすべてのユーザーによって定期的にポーリングされます。 Windows では、ポーリング間隔 (1 時間に 1 回など) に従って URI に HTTP GET 要求を送り、この要求に対する応答として提供される要求したタイルまたはバッジのコンテンツ (XML 形式) をダウンロードして、アプリのタイルにそのコンテンツを表示します。
 
-定期的な更新をトースト通知で使うことはできません。 トーストの配信には、[スケジュールされた通知](https://msdn.microsoft.com/library/windows/apps/hh465417)または[プッシュ通知](https://msdn.microsoft.com/library/windows/apps/xaml/hh868252)が適しています。
+定期的な更新をトースト通知で使うことはできません。 トーストの配信には、[スケジュールされた通知](https://docs.microsoft.com/previous-versions/windows/apps/hh465417(v=win.10))または[プッシュ通知](https://docs.microsoft.com/previous-versions/windows/apps/hh868252(v=win.10))が適しています。
 
 ## <a name="uri-location-and-xml-content"></a>URI の場所と XML コンテンツ
 
 
 ポーリングする URI には、HTTP や HTTPS の有効な Web アドレスを使うことができます。
 
-クラウド サーバーからの応答には、ダウンロードされたコンテンツが含まれます。 URI から返されるコンテンツは、[タイル](adaptive-tiles-schema.md)または[バッジ](https://msdn.microsoft.com/library/windows/apps/br212851)の XML スキーマの仕様に準拠し、UTF-8 の形式でエンコードされている必要があります。 仕様で規定されている HTTP ヘッダーを使うと、通知の[有効期限](#expiration-of-tile-and-badge-notifications)やタグを指定することができます。
+クラウド サーバーからの応答には、ダウンロードされたコンテンツが含まれます。 URI から返されるコンテンツは、[タイル](adaptive-tiles-schema.md)または[バッジ](https://docs.microsoft.com/uwp/schemas/tiles/badgeschema/schema-root)の XML スキーマの仕様に準拠し、UTF-8 の形式でエンコードされている必要があります。 仕様で規定されている HTTP ヘッダーを使うと、通知の[有効期限](#expiration-of-tile-and-badge-notifications)やタグを指定することができます。
 
 ## <a name="polling-behavior"></a>ポーリングの動作
 
@@ -84,13 +84,13 @@ URI がポーリングされるのは、デバイスがオンラインになっ�
 ## <a name="periodic-notifications-in-the-notification-queue"></a>通知キューでの定期的な通知
 
 
-定期的なタイルの更新は[通知の循環](https://msdn.microsoft.com/library/windows/apps/hh781199)と併用できます。 既定では、スタート画面のタイルには、新しい通知によって置き換えられるまで、1 つの通知のコンテンツが表示されます。 循環を有効にすると、最大で 5 つの通知がキューに入れられ、タイルに循環して表示されます。
+定期的なタイルの更新は[通知の循環](https://docs.microsoft.com/previous-versions/windows/apps/hh781199(v=win.10))と併用できます。 既定では、スタート画面のタイルには、新しい通知によって置き換えられるまで、1 つの通知のコンテンツが表示されます。 循環を有効にすると、最大で 5 つの通知がキューに入れられ、タイルに循環して表示されます。
 
-キューの通知の数が限度の 5 個になると、次の新しい通知によってキューの最も古い通知が置き換えられます。 ただし、通知にタグを設定することで、キューの置き換えポリシーを操作できます。 タグは大文字と小文字が区別されないアプリ固有の文字列 (最大 16 文字の英数字) で、応答のペイロードの [X-WNS-Tag](https://msdn.microsoft.com/library/windows/apps/hh465435.aspx#pncodes_x_wns_tag) HTTP ヘッダーで指定されます。 着信した通知のタグは、既にキューにあるすべての通知のタグと比較され、 一致するものが見つかると、キューにある同じタグを持つ通知が新しい通知に置き換えられます。 一致するものが見つからない場合は、既定の置き換え規則が適用され、キューの最も古い通知が新しい通知に置き換えられます。
+キューの通知の数が限度の 5 個になると、次の新しい通知によってキューの最も古い通知が置き換えられます。 ただし、通知にタグを設定することで、キューの置き換えポリシーを操作できます。 タグは大文字と小文字が区別されないアプリ固有の文字列 (最大 16 文字の英数字) で、応答のペイロードの [X-WNS-Tag](https://docs.microsoft.com/previous-versions/windows/apps/hh465435(v=win.10)) HTTP ヘッダーで指定されます。 着信した通知のタグは、既にキューにあるすべての通知のタグと比較され、 一致するものが見つかると、キューにある同じタグを持つ通知が新しい通知に置き換えられます。 一致するものが見つからない場合は、既定の置き換え規則が適用され、キューの最も古い通知が新しい通知に置き換えられます。
 
 通知のキューとタグを使うと、充実した通知シナリオを実装できます。 たとえば、株価アプリでは、それぞれの銘柄名をタグに使って異なる 5 銘柄の通知を送ることができます。 このようにすると、同じ銘柄の複数の通知がキューに入れられて、有効期限が切れた古い通知が表示されるようなことがなくなります。
 
-詳しくは、「[通知キューの使用](https://msdn.microsoft.com/library/windows/apps/hh781199)」をご覧ください。
+詳しくは、「[通知キューの使用](https://docs.microsoft.com/previous-versions/windows/apps/hh781199(v=win.10))」をご覧ください。
 
 ### <a name="enabling-the-notification-queue"></a>通知キューの有効化
 
@@ -103,7 +103,7 @@ Windows でダウンロードを行うタイルの通知ごとに、一意の UR
 ## <a name="related-topics"></a>関連トピック
 
 
-* [定期的な通知のガイドライン](https://msdn.microsoft.com/library/windows/apps/hh761461)
-* [バッジの定期的な通知を設定する方法](https://msdn.microsoft.com/library/windows/apps/hh761476)
-* [タイルの定期的な通知を設定する方法](https://msdn.microsoft.com/library/windows/apps/hh761476)
+* [定期的な通知のガイドライン](https://docs.microsoft.com/windows/uwp/controls-and-patterns/tiles-and-notifications-periodic-notification-overview)
+* [バッジの定期的な通知を設定する方法](https://docs.microsoft.com/previous-versions/windows/apps/hh761476(v=win.10))
+* [タイルの定期的な通知を設定する方法](https://docs.microsoft.com/previous-versions/windows/apps/hh761476(v=win.10))
  

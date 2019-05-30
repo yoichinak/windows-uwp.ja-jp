@@ -6,12 +6,12 @@ ms.date: 10/16/2017
 ms.topic: article
 keywords: Windows 10, UWP, リソース, 画像, アセット, MRT, 修飾子
 ms.localizationpriority: medium
-ms.openlocfilehash: 5d66d717d77d2797e8a483871b8d3369befb5b6b
-ms.sourcegitcommit: 46890e7f3c1287648631c5e318795f377764dbd9
+ms.openlocfilehash: f199d70fc9194f211533820a7b23e20de929752d
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58320585"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66359339"
 ---
 # <a name="uri-schemes"></a>URI スキーム
 
@@ -249,11 +249,11 @@ ms-resource://john:password@contoso.myapp:8080/Resources/String1
 
 ### <a name="path-ms-resource"></a>パス (ms-resource)
 
-パスでは、[ResourceMap](/uwp/api/Windows.ApplicationModel.Resources.Core.ResourceMap?branch=live) サブツリー (「[リソース管理システム](https://msdn.microsoft.com/library/windows/apps/jj552947)」をご覧ください) とサブツリー内の [NamedResource](/uwp/api/Windows.ApplicationModel.Resources.Core.NamedResource?branch=live) の階層の場所が特定されます (「リソース管理システム」をご覧ください)。 これは通常、リソース ファイル (.resw) のファイル名 (拡張子を除く) と、ファイル内の文字列リソースの識別子に対応しています。
+パスでは、[ResourceMap](/uwp/api/Windows.ApplicationModel.Resources.Core.ResourceMap?branch=live) サブツリー (「[リソース管理システム](https://docs.microsoft.com/previous-versions/windows/apps/jj552947(v=win.10))」をご覧ください) とサブツリー内の [NamedResource](/uwp/api/Windows.ApplicationModel.Resources.Core.NamedResource?branch=live) の階層の場所が特定されます (「リソース管理システム」をご覧ください)。 これは通常、リソース ファイル (.resw) のファイル名 (拡張子を除く) と、ファイル内の文字列リソースの識別子に対応しています。
 
 例と詳しい情報については、「[UI とアプリ パッケージ マニフェスト内の文字列をローカライズする](localize-strings-ui-manifest.md)」と「[言語、スケール、ハイ コントラストに合わせたタイルとトースト通知のサポート](../design/shell/tiles-and-notifications/tile-toast-language-scale-contrast.md)」をご覧ください。
 
-パス コンポーネント `ms-resource` では、一般的な URI と同様、大文字と小文字が区別されます。 ただし、基になる検索が、 [CompareStringOrdinal](https://msdn.microsoft.com/library/windows/apps/br224628)で*ignoreCase*設定`true`します。
+パス コンポーネント `ms-resource` では、一般的な URI と同様、大文字と小文字が区別されます。 ただし、基になる検索が、 [CompareStringOrdinal](https://docs.microsoft.com/windows/desktop/api/winstring/nf-winstring-windowscomparestringordinal)で*ignoreCase*設定`true`します。
 
 正規化された URI 形式では大文字と小文字が保持され、RFC 3986 の非予約文字がパーセントデコードされます ("%" 記号の後に 2 桁の 16 進数表現)。 "?"、"#"、"/"、"*"、'”' (二重引用符) の各文字は、ファイル名やフォルダー名などのデータを示すパス内でパーセントエンコードする必要があります。 パーセントエンコードされたすべての文字は、取得前にデコードされます。 したがって、という名前のリソース ファイルから文字列リソースを取得する`Hello#World.resw`、この URI を使用します。
 
@@ -274,5 +274,5 @@ ms-resource:///Hello%23World/String1
 * [XAML マークアップとコードから、イメージやその他の資産を参照します。](images-tailored-for-scale-theme-contrast.md#reference-an-image-or-other-asset-from-xaml-markup-and-code)
 * [設定と他のアプリ データを保存して取得する](../design/app-settings/store-and-retrieve-app-data.md)
 * [UI とアプリ パッケージ マニフェスト内の文字列をローカライズする](localize-strings-ui-manifest.md)
-* [リソース管理システム](https://msdn.microsoft.com/library/windows/apps/jj552947)
+* [リソース管理システム](https://docs.microsoft.com/previous-versions/windows/apps/jj552947(v=win.10))
 * [言語、スケール、およびハイ コントラストのタイルとトースト通知のサポート](../design/shell/tiles-and-notifications/tile-toast-language-scale-contrast.md)

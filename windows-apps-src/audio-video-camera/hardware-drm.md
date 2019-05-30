@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 5f0a53d0f725c134bbb7adecaa956000a53235b0
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 9c48cd52d69d13b61f059894cc0dbea89eecf913
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57600907"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66360869"
 ---
 # <a name="hardware-drm"></a>ハードウェア DRM
 
@@ -89,18 +89,18 @@ mediaProtectionManager.properties["Windows.Media.Protection.UseSoftwareProtectio
 
 このセクションでは、システムでサポートされているハードウェア DRM の種類を検出する方法について説明します。
 
-[  **PlayReadyStatics.CheckSupportedHardware**](https://msdn.microsoft.com/library/windows/apps/dn986441) メソッドを使って、システムが特定のハードウェア DRM 機能をサポートしているかどうかを判断できます。 例:
+[  **PlayReadyStatics.CheckSupportedHardware**](https://docs.microsoft.com/uwp/api/windows.media.protection.playready.playreadystatics.checksupportedhardware) メソッドを使って、システムが特定のハードウェア DRM 機能をサポートしているかどうかを判断できます。 次に、例を示します。
 
 ```csharp
 bool isFeatureSupported = PlayReadyStatics.CheckSupportedHardware(PlayReadyHardwareDRMFeatures.HEVC);
 ```
 
-[  **PlayReadyHardwareDRMFeatures**](https://msdn.microsoft.com/library/windows/apps/dn986265) 列挙体には、照会できるハードウェア DRM 機能の値の有効な一覧が含まれます。 ハードウェア DRM がサポートされているかどうかを判断するには、クエリで **HardwareDRM** メンバーを使います。 ハードウェアが高効率ビデオ コーディング (HEVC)/H.265 コーデックをサポートしているかどうかを判断するには、クエリで **HEVC** メンバーを使います。
+[  **PlayReadyHardwareDRMFeatures**](https://docs.microsoft.com/uwp/api/Windows.Media.Protection.PlayReady.PlayReadyHardwareDRMFeatures) 列挙体には、照会できるハードウェア DRM 機能の値の有効な一覧が含まれます。 ハードウェア DRM がサポートされているかどうかを判断するには、クエリで **HardwareDRM** メンバーを使います。 ハードウェアが高効率ビデオ コーディング (HEVC)/H.265 コーデックをサポートしているかどうかを判断するには、クエリで **HEVC** メンバーを使います。
 
-[  **PlayReadyStatics.PlayReadyCertificateSecurityLevel**](https://msdn.microsoft.com/library/windows/apps/windows.media.protection.playready.playreadystatics.playreadycertificatesecuritylevel.aspx) プロパティを使って、クライアント証明書のセキュリティ レベルを取得し、ハードウェア DRM がサポートされているかどうか判断することもできます。 返された証明書のセキュリティ レベルが 3000 以上でない限り、クライアントが個別化またはプロビジョニングされていないか (この場合、このプロパティは 0 を返します)、ハードウェア DRM が使われていません (この場合、このプロパティは 3000 未満の値を返します)。
+[  **PlayReadyStatics.PlayReadyCertificateSecurityLevel**](https://docs.microsoft.com/uwp/api/windows.media.protection.playready.playreadystatics.playreadycertificatesecuritylevel) プロパティを使って、クライアント証明書のセキュリティ レベルを取得し、ハードウェア DRM がサポートされているかどうか判断することもできます。 返された証明書のセキュリティ レベルが 3000 以上でない限り、クライアントが個別化またはプロビジョニングされていないか (この場合、このプロパティは 0 を返します)、ハードウェア DRM が使われていません (この場合、このプロパティは 3000 未満の値を返します)。
 
 ### <a name="detecting-support-for-aes128cbc-hardware-drm"></a>AES128CBC ハードウェア DRM のサポートの検出
-Windows 10、バージョン 1709 以降では、デバイス上での AES128CBC ハードウェア暗号化のサポート状況を検出できます。これには、**[PlayReadyStatics.CheckSupportedHardware](https://msdn.microsoft.com/library/windows/apps/dn986441)** を呼び出して、列挙値 [**PlayReadyHardwareDRMFeatures.Aes128Cbc**](https://msdn.microsoft.com/library/windows/apps/dn986265) を指定します。 以前のバージョンの Windows 10 では、この値を指定すると、例外がスローされます。 このため、**CheckSupportedHardware** を呼び出す前に、**[ApiInformation.IsApiContractPresent](https://docs.microsoft.com/uwp/api/windows.foundation.metadata.apiinformation.isapicontractpresent)** を呼び出して、メジャー コントラクト バージョン 5 を指定し、この列挙値が存在していることを確認します。
+Windows 10、バージョン 1709 以降では、デバイス上での AES128CBC ハードウェア暗号化のサポート状況を検出できます。これには、 **[PlayReadyStatics.CheckSupportedHardware](https://docs.microsoft.com/uwp/api/windows.media.protection.playready.playreadystatics.checksupportedhardware)** を呼び出して、列挙値 [**PlayReadyHardwareDRMFeatures.Aes128Cbc**](https://docs.microsoft.com/uwp/api/Windows.Media.Protection.PlayReady.PlayReadyHardwareDRMFeatures) を指定します。 以前のバージョンの Windows 10 では、この値を指定すると、例外がスローされます。 このため、**CheckSupportedHardware** を呼び出す前に、 **[ApiInformation.IsApiContractPresent](https://docs.microsoft.com/uwp/api/windows.foundation.metadata.apiinformation.isapicontractpresent)** を呼び出して、メジャー コントラクト バージョン 5 を指定し、この列挙値が存在していることを確認します。
 
 ```csharp
 bool supportsAes128Cbc = ApiInformation.IsApiContractPresent("Windows.Foundation.UniversalApiContract", 5);

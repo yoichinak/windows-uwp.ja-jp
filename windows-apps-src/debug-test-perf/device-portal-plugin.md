@@ -6,12 +6,12 @@ ms.date: 03/24/2017
 ms.topic: article
 keywords: windows 10、uwp、デバイス ポータル
 ms.localizationpriority: medium
-ms.openlocfilehash: d9e11445d77434320c8842608bf8183a078c0660
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: debc4572a26db9e849dd31f17b114f15aa9ef055
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57644467"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66362489"
 ---
 # <a name="write-a-custom-plugin-for-device-portal"></a>Device Portal 用のカスタム プラグインの作成
 
@@ -75,7 +75,7 @@ Microsoft Visual Studio 2017 で、新しい UWP アプリ プロジェクトを
 ```
 
 > [!NOTE]
-> "devicePortalProvider" 機能は制限された機能 ("rescap") であり、ストアでアプリを公開する前に、ストアから事前に承認を受ける必要があります。 ただし、これは、サイドローディングによって、アプリをローカルでテストすることを禁止するものではありません。 制限された機能について詳しくは、「[アプリ機能の宣言](https://msdn.microsoft.com/en-us/windows/uwp/packaging/app-capability-declarations#special-and-restricted-capabilities)」をご覧ください。
+> "devicePortalProvider" 機能は制限された機能 ("rescap") であり、ストアでアプリを公開する前に、ストアから事前に承認を受ける必要があります。 ただし、これは、サイドローディングによって、アプリをローカルでテストすることを禁止するものではありません。 制限された機能について詳しくは、「[アプリ機能の宣言](https://docs.microsoft.com/windows/uwp/packaging/app-capability-declarations)」をご覧ください。
 
 ## <a name="set-up-your-background-task-and-winrt-component"></a>バック グラウンド タスクと WinRT コンポーネントを設定する
 Device Portal の接続を設定するために、アプリでは、アプリ内で実行されている Device Portal のインスタンスを使用して、Device Portal サービスからアプリ サービスの接続をフックする必要があります。 これを行うには、[**IBackgroundTask**](https://docs.microsoft.com/en-us/uwp/api/windows.applicationmodel.background.ibackgroundtask) を実装するクラスを使用して、アプリケーションに新しい WinRT コンポーネントを追加します。

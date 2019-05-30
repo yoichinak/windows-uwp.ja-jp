@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 02d8c67c92a070fbeaaab81ef6c5145dec90e411
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 92511c1f5b7ad8991900d80d4ec52659d6e74f88
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57631357"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66361411"
 ---
 # <a name="supported-codecs"></a>サポートされるコーデック
 
@@ -1272,7 +1272,7 @@ ms.locfileid: "57631357"
 
  
 
-### <a name="xbox"></a>Xbox
+### <a name="xbox"></a>XBox
 
 <table>
 <colgroup>
@@ -2469,7 +2469,7 @@ ms.locfileid: "57631357"
 
  
 
-### <a name="xbox"></a>Xbox
+### <a name="xbox"></a>XBox
 
 <table>
 <colgroup>
@@ -2757,4 +2757,4 @@ ms.locfileid: "57631357"
 <sup>2</sup> 非 RAW 形式の埋め込みプレビューを含む DNG イメージがサポートされています。  
 <sup>3</sup> 特定のカメラの RAW 形式のみがサポートされています。  
 
-イメージ コーデックの詳細については、「[ネイティブ WIC コーデック](https://msdn.microsoft.com/library/windows/desktop/gg430027.aspx)」をご覧ください。
+イメージ コーデックの詳細については、「[ネイティブ WIC コーデック](https://docs.microsoft.com/windows/desktop/wic/native-wic-codecs)」をご覧ください。

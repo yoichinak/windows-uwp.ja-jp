@@ -3,7 +3,7 @@ description: ItemsSource を階層データ ソースにバインドすること
 title: ツリー ビュー
 label: Tree view
 template: detail.hbs
-ms.date: 01/03/2019
+ms.date: 04/19/2019
 ms.topic: article
 ms.localizationpriority: medium
 pm-contact: predavid
@@ -13,13 +13,13 @@ doc-status: Published
 dev_langs:
 - csharp
 - vb
-ms.custom: RS5
-ms.openlocfilehash: 7c666d417fb980cab72165681583ac83e9eaca00
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.custom: RS5, 19H1
+ms.openlocfilehash: d9f0396558186008430ccf1454e48f5e2194ee0e
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57628517"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66363998"
 ---
 # <a name="treeview"></a>TreeView
 
@@ -85,7 +85,7 @@ TreeView API は、以下の機能をサポートします。
 > [!IMPORTANT]
 > ItemsSource とその関連の Api は Windows 10、バージョンは 1809 が必要です ([SDK 17763](https://developer.microsoft.com/windows/downloads/windows-10-sdk)) またはそれ以降、または[Windows UI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)します。
 >
-> ItemsSource は TreeView.RootNodes する TreeView コントロールにコンテンツを配置するための代替手段です。 同時に ItemsSource と Rootnode の両方を設定することはできません。 ItemsSource を使用して、ノードが作成された TreeView.RootNodes プロパティからアクセスできます。
+> ItemsSource は TreeView.RootNodes する TreeView コントロールにコンテンツを配置するための代替手段です。 同時に ItemsSource と Rootnode の両方を設定することはできません。 ItemsSource を使用して、ノードが作成されます TreeView.RootNodes プロパティからアクセスできます。
 
 XAML で宣言された単純なツリー ビューの例を以下に示します。 通常は、コードにノードを追加しますが、ノードの階層を作成する方法を視覚化するうえで役立つため、XAML の階層をここに示します。
 
@@ -173,7 +173,7 @@ End Sub
 
 | **[ツリー ビュー](/uwp/api/windows.ui.xaml.controls.treeview)** | |
 | - | - |
-| [Rootnode](/uwp/api/windows.ui.xaml.controls.treeview.rootnodes) | ツリー ビューは、1 つまたは複数のルート ノードの場合があります。 TreeViewNode オブジェクトを RootNodes コレクションに追加し、ルート ノードを作成します。 ルート ノードの **Parent** は常に **null** です。 ルート ノードの**奥行き**は0です。 |
+| [RootNodes](/uwp/api/windows.ui.xaml.controls.treeview.rootnodes) | ツリー ビューは、1 つまたは複数のルート ノードの場合があります。 TreeViewNode オブジェクトを RootNodes コレクションに追加し、ルート ノードを作成します。 ルート ノードの **Parent** は常に **null** です。 ルート ノードの**奥行き**は0です。 |
 
 | **[TreeViewNode](/uwp/api/windows.ui.xaml.controls.treeviewnode)** | |
 | - | - |
@@ -181,7 +181,7 @@ End Sub
 | [HasChildren](/uwp/api/windows.ui.xaml.controls.treeviewnode.haschildren) | ノードが子を実体化した場合は **true**。 **false** は空のフォルダーまたは項目を示します。 |
 | [HasUnrealizedChildren](/uwp/api/windows.ui.xaml.controls.treeviewnode.hasunrealizedchildren) | ノードが展開されているときにノードに入力している場合は、このプロパティを使用します。 この記事の後半にある「_展開時にノードを入力する_」をご覧ください。 |
 | [深さ](/uwp/api/windows.ui.xaml.controls.treeviewnode.depth) | 子ノードとルート ノードの距離を示します。 |
-| [親](/uwp/api/windows.ui.xaml.controls.treeviewnode.parent) | このノードが含まれている **Children** コレクションを所有する TreeViewNode を取得します。 |
+| [Parent](/uwp/api/windows.ui.xaml.controls.treeviewnode.parent) | このノードが含まれている **Children** コレクションを所有する TreeViewNode を取得します。 |
 
 ツリー ビューは、**HasChildren** プロパティと **HasUnrealizedChildren** プロパティを使用して、開く/閉じるアイコンを表示するかどうかを確認します。 いずれかのプロパティが **true** である場合、アイコンが表示されます。それ以外の場合は表示されません。
 
@@ -932,5 +932,5 @@ End Sub
 ## <a name="related-articles"></a>関連記事
 
 - [TreeView クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.treeview)
-- [ListView クラス](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.listview.aspx)
+- [ListView クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listview)
 - [ListView と GridView](listview-and-gridview.md)

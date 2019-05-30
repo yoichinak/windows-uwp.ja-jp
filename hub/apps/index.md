@@ -8,12 +8,12 @@ ms.author: mcleans
 author: mcleanbyron
 keywords: windows win32, デスクトップ開発
 ms.localizationpriority: medium
-ms.openlocfilehash: 8cb104d873e810a9c5bedaa68675fd346cb3f33d
-ms.sourcegitcommit: d1c3e13de3da3f7dce878b3735ee53765d0df240
+ms.openlocfilehash: 31d1c81bbc5af932435860b55ebe5651a789eb6e
+ms.sourcegitcommit: f167775291cbc566b72b0859ae6b426d848c5c89
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66215056"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266426"
 ---
 # <a name="build-apps-for-windows"></a>Windows 向けアプリの構築
 
@@ -120,6 +120,25 @@ Windows 10 用に新しいアプリを構築する場合でも、最新の Windo
       </a>
     </li>
     <li>
+      <a href="/windows/msix/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage bgdAccent1">
+                            <img src="/media/illustrations/sql-get-started-download.svg?branch=master" alt="MSIX packaging illustration" data-linktype="external" class="x-hidden-focus">
+                        </div>
+                    </div>
+                    <div class="cardText">
+                    <h3>MSIX パッケージ化とデプロイ</h3>
+                    <p>安全で保護された信頼性の高いユニバーサル パッケージ エクスペリエンスで任意の Windows アプリをパッケージ化し、デプロイします。</p>
+                  </div>
+                </div>
+            </div>
+        </div>
+      </a>
+    </li>
+    <li>
       <a href="fluent-design-system.md">
         <div class="cardSize">
             <div class="cardPadding">
@@ -132,6 +151,25 @@ Windows 10 用に新しいアプリを構築する場合でも、最新の Windo
                     <div class="cardText">
                     <h3>Fluent Design System</h3>
                     <p>Fluent Design System を使用して Windows アプリのユーザー インターフェイスを設計してコーディングする方法について説明します。</p>
+                  </div>
+                </div>
+            </div>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a href="/uwp/toolkits/winui/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage bgdAccent1">
+                            <img src="/media/illustrations/virtualization-containers-samples.svg?branch=master" alt="Design illustration" data-linktype="external" class="x-hidden-focus">
+                        </div>
+                    </div>
+                    <div class="cardText">
+                    <h3>Windows UI ライブラリ</h3>
+                    <p>以前のバージョンの Windows 10 向けのアプリでネイティブの Windows UI コントロールとその他のユーザー インターフェイス要素を使用します。</p>
                   </div>
                 </div>
             </div>

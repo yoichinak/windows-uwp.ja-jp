@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, 移植, 頂点バッファー, データ, Direct3D
 ms.localizationpriority: medium
-ms.openlocfilehash: 4c961a8852fb1e03e4e86209f62bda821b980f8c
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 8445339d442fb740e9e2aba5e9d1cb0388c746ef
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57592817"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66368241"
 ---
 # <a name="port-the-vertex-buffers-and-data"></a>頂点バッファーと頂点データの移植
 
@@ -20,9 +20,9 @@ ms.locfileid: "57592817"
 
 **重要な API**
 
--   [**ID3DDevice::CreateBuffer**](https://msdn.microsoft.com/library/windows/desktop/ff476501)
--   [**ID3DDeviceContext::IASetVertexBuffers**](https://msdn.microsoft.com/library/windows/desktop/ff476456)
--   [**ID3D11DeviceContext::IASetIndexBuffer**](https://msdn.microsoft.com/library/windows/desktop/bb173588)
+-   [**ID3DDevice::CreateBuffer**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11device-createbuffer)
+-   [**ID3DDeviceContext::IASetVertexBuffers**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-iasetvertexbuffers)
+-   [**ID3D11DeviceContext::IASetIndexBuffer**](https://docs.microsoft.com/windows/desktop/api/d3d10/nf-d3d10-id3d10device-iasetindexbuffer)
 
 この手順では、シェーダーが指定された順番で頂点を走査できるようにするインデックス バッファーとメッシュを格納する頂点バッファーを定義します。
 
@@ -130,7 +130,7 @@ OpenGL ES 2.0 では、入力レイアウトは暗黙の型です。汎用 GL �
 
 Direct3D では、ジオメトリを描画する前ではなく、バッファーを作成するときに、頂点バッファー内の頂点データの構造体を記述した入力レイアウトを渡す必要があります。 そのためには、メモリ内の個々の頂点データのレイアウトに対応する入力レイアウトを使います。 これを正確に指定することが非常に重要です。
 
-ここでは、入力の説明の配列を作成する[ **D3D11\_入力\_要素\_DESC** ](https://msdn.microsoft.com/library/windows/desktop/ff476180)構造体。
+ここでは、入力の説明の配列を作成する[ **D3D11\_入力\_要素\_DESC** ](https://docs.microsoft.com/windows/desktop/api/d3d11/ns-d3d11-d3d11_input_element_desc)構造体。
 
 Direct3D:入力レイアウトの説明を定義します。
 
@@ -151,11 +151,11 @@ const D3D11_INPUT_ELEMENT_DESC vertexDesc[] =
 
 ```
 
-この入力の記述では、頂点を 2 つの 3 座標ベクトルのペアとして定義します。1 つの 3D ベクトルにはモデル座標内の頂点の位置を格納し、もう 1 つの 3D ベクトルには頂点に関連付けられている RGB 色値を格納します。 この場合は、3x32 ビットの浮動小数点形式を使います。コードではその要素を `XMFLOAT3(X.Xf, X.Xf, X.Xf)` として表します。 シェーダーで使われるデータを処理する場合は、必ず [DirectXMath](https://msdn.microsoft.com/library/windows/desktop/ee415574) ライブラリの型を使って、そのデータのパッキングとアラインメントが適切に行われるようにする必要があります  (たとえば、ベクトル データには [**XMFLOAT3**](https://msdn.microsoft.com/library/windows/desktop/ee419475) または [**XMFLOAT4**](https://msdn.microsoft.com/library/windows/desktop/ee419608) を使い、マトリックスには [**XMFLOAT4X4**](https://msdn.microsoft.com/library/windows/desktop/ee419621) を使います)。
+この入力の記述では、頂点を 2 つの 3 座標ベクトルのペアとして定義します。1 つの 3D ベクトルにはモデル座標内の頂点の位置を格納し、もう 1 つの 3D ベクトルには頂点に関連付けられている RGB 色値を格納します。 この場合は、3x32 ビットの浮動小数点形式を使います。コードではその要素を `XMFLOAT3(X.Xf, X.Xf, X.Xf)` として表します。 シェーダーで使われるデータを処理する場合は、必ず [DirectXMath](https://docs.microsoft.com/windows/desktop/dxmath/ovw-xnamath-reference) ライブラリの型を使って、そのデータのパッキングとアラインメントが適切に行われるようにする必要があります  (たとえば、ベクトル データには [**XMFLOAT3**](https://docs.microsoft.com/windows/desktop/api/directxmath/ns-directxmath-xmfloat3) または [**XMFLOAT4**](https://docs.microsoft.com/windows/desktop/api/directxmath/ns-directxmath-xmfloat4) を使い、マトリックスには [**XMFLOAT4X4**](https://docs.microsoft.com/windows/desktop/api/directxmath/ns-directxmath-xmfloat4x4) を使います)。
 
-すべての有効な形式の種類の一覧を参照してください[ **DXGI\_形式**](https://msdn.microsoft.com/library/windows/desktop/bb173059)します。
+すべての有効な形式の種類の一覧を参照してください[ **DXGI\_形式**](https://docs.microsoft.com/windows/desktop/api/dxgiformat/ne-dxgiformat-dxgi_format)します。
 
-頂点ごとの入力レイアウトを定義して、レイアウト オブジェクトを作成します。 次のコードで記述する**m\_inputLayout**、型の変数**ComPtr** (型のオブジェクトを指す[ **ID3D11InputLayout**](https://msdn.microsoft.com/library/windows/desktop/ff476575)). **fileData** には、前の手順の「[シェーダー オブジェクトの移植](port-the-shader-config.md)」のコンパイル済み頂点シェーダー オブジェクトが含まれています。
+頂点ごとの入力レイアウトを定義して、レイアウト オブジェクトを作成します。 次のコードで記述する**m\_inputLayout**、型の変数**ComPtr** (型のオブジェクトを指す[ **ID3D11InputLayout**](https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11inputlayout)). **fileData** には、前の手順の「[シェーダー オブジェクトの移植](port-the-shader-config.md)」のコンパイル済み頂点シェーダー オブジェクトが含まれています。
 
 Direct3D:頂点バッファーで使用される入力レイアウトを作成します。
 
@@ -188,11 +188,11 @@ glBindBuffer(GL_ARRAY_BUFFER, renderer->vertexBuffer);
 glBufferData(GL_ARRAY_BUFFER, sizeof(VERTEX) * CUBE_VERTICES, renderer->vertices, GL_STATIC_DRAW);   
 ```
 
-として、Direct3D のシェーダーにアクセス可能なバッファーが表される[ **D3D11\_SUBRESOURCE\_データ**](https://msdn.microsoft.com/library/windows/desktop/ff476220)構造体。 シェーダー オブジェクトには、このバッファーの場所をバインドするには、CD3D11 を作成する必要があります\_バッファー\_DESC 構造で各バッファーの[ **ID3DDevice::CreateBuffer**](https://msdn.microsoft.com/library/windows/desktop/ff476501)、し、設定set メソッドをなどでバッファーの種類に固有に呼び出すことによって、Direct3D デバイス コンテキストのバッファー [ **ID3DDeviceContext::IASetVertexBuffers**](https://msdn.microsoft.com/library/windows/desktop/ff476456)します。
+として、Direct3D のシェーダーにアクセス可能なバッファーが表される[ **D3D11\_SUBRESOURCE\_データ**](https://docs.microsoft.com/windows/desktop/api/d3d11/ns-d3d11-d3d11_subresource_data)構造体。 シェーダー オブジェクトには、このバッファーの場所をバインドするには、CD3D11 を作成する必要があります\_バッファー\_DESC 構造で各バッファーの[ **ID3DDevice::CreateBuffer**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11device-createbuffer)、し、設定set メソッドをなどでバッファーの種類に固有に呼び出すことによって、Direct3D デバイス コンテキストのバッファー [ **ID3DDeviceContext::IASetVertexBuffers**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-iasetvertexbuffers)します。
 
 バッファーを設定するときに、ストライド (個々の頂点のデータ要素のサイズ) とバッファーの先頭からのオフセット (実際に頂点データの配列が始まる位置) を設定する必要があります。
 
-ポインターを割り当てることに注意してください、 **vertexIndices**配列を**pSysMem**のフィールド、 [ **D3D11\_SUBRESOURCE\_データ**](https://msdn.microsoft.com/library/windows/desktop/ff476220)構造体。 これを正しく行わないと、メッシュの形が正しく表示されないか、空になります。
+ポインターを割り当てることに注意してください、 **vertexIndices**配列を**pSysMem**のフィールド、 [ **D3D11\_SUBRESOURCE\_データ**](https://docs.microsoft.com/windows/desktop/api/d3d11/ns-d3d11-d3d11_subresource_data)構造体。 これを正しく行わないと、メッシュの形が正しく表示されないか、空になります。
 
 Direct3D:作成し、頂点バッファーを設定します
 
@@ -248,7 +248,7 @@ glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, renderer->indexBuffer);
 glDrawElements (GL_TRIANGLES, renderer->numIndices, GL_UNSIGNED_INT, 0);
 ```
 
-Direct3D の場合、プロセスは非常に似ていますが、多少説明が必要です。 Direct3D を構成したときに作成した [**ID3D11DeviceContext**](https://msdn.microsoft.com/library/windows/desktop/ff476385) にインデックス バッファーを Direct3D サブリソースとして渡します。 これを行うには、次のように、インデックスの配列の構成済みのサブリソースを指定して [**ID3D11DeviceContext::IASetIndexBuffer**](https://msdn.microsoft.com/library/windows/desktop/bb173588) を呼び出します  (ここでもへのポインターを割り当てることに注意してください、 **cubeIndices**配列を**pSysMem**のフィールド、 [ **D3D11\_SUBRESOURCE\_データ**](https://msdn.microsoft.com/library/windows/desktop/ff476220)構造です)。
+Direct3D の場合、プロセスは非常に似ていますが、多少説明が必要です。 Direct3D を構成したときに作成した [**ID3D11DeviceContext**](https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11devicecontext) にインデックス バッファーを Direct3D サブリソースとして渡します。 これを行うには、次のように、インデックスの配列の構成済みのサブリソースを指定して [**ID3D11DeviceContext::IASetIndexBuffer**](https://docs.microsoft.com/windows/desktop/api/d3d10/nf-d3d10-id3d10device-iasetindexbuffer) を呼び出します  (ここでもへのポインターを割り当てることに注意してください、 **cubeIndices**配列を**pSysMem**のフィールド、 [ **D3D11\_SUBRESOURCE\_データ**](https://docs.microsoft.com/windows/desktop/api/d3d11/ns-d3d11-d3d11_subresource_data)構造です)。
 
 Direct3D:インデックス バッファーを作成します。
 
@@ -274,7 +274,7 @@ m_d3dContext->IASetIndexBuffer(
   0);
 ```
 
-その後、次のように、[**ID3D11DeviceContext::DrawIndexed**](https://msdn.microsoft.com/library/windows/desktop/ff476409) (インデックスなしの頂点の場合は [**ID3D11DeviceContext::Draw**](https://msdn.microsoft.com/library/windows/desktop/ff476407)) を呼び出して、三角形を描画します  (詳しくは、一足先に「[画面への描画](draw-to-the-screen.md)」をご覧ください)。
+その後、次のように、[**ID3D11DeviceContext::DrawIndexed**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-drawindexed) (インデックスなしの頂点の場合は [**ID3D11DeviceContext::Draw**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-draw)) を呼び出して、三角形を描画します  (詳しくは、一足先に「[画面への描画](draw-to-the-screen.md)」をご覧ください)。
 
 Direct3D:インデックス付きの頂点を描画します。
 
@@ -301,7 +301,7 @@ m_d3dContext->DrawIndexed(
 
 ## <a name="remarks"></a>注釈
 
-Direct3D を構築する場合は、[**ID3D11Device**](https://msdn.microsoft.com/library/windows/desktop/ff476379) のメソッドを呼び出すコードを切り離して、デバイス リソースを再作成する必要があるたびに呼び出されるメソッドに配置します  (Direct3D プロジェクト テンプレートでは、このコードはレンダラー オブジェクトの **CreateDeviceResource** メソッドに配置されています)。 また、デバイス コンテキスト ([**ID3D11DeviceContext**](https://msdn.microsoft.com/library/windows/desktop/ff476385)) を更新するコードは **Render** メソッドに配置されています。そこで実際にシェーダー ステージを作成し、データをバインドするためです。
+Direct3D を構築する場合は、[**ID3D11Device**](https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11device) のメソッドを呼び出すコードを切り離して、デバイス リソースを再作成する必要があるたびに呼び出されるメソッドに配置します  (Direct3D プロジェクト テンプレートでは、このコードはレンダラー オブジェクトの **CreateDeviceResource** メソッドに配置されています)。 また、デバイス コンテキスト ([**ID3D11DeviceContext**](https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11devicecontext)) を更新するコードは **Render** メソッドに配置されています。そこで実際にシェーダー ステージを作成し、データをバインドするためです。
 
 ## <a name="related-topics"></a>関連トピック
 

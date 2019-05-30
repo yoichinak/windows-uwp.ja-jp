@@ -10,12 +10,12 @@ pm-contact: miguelrb
 design-contact: ''
 doc-status: Draft
 ms.localizationpriority: medium
-ms.openlocfilehash: a984e30bbdc569522b04d328087775aa9e8ce2bc
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 3fc54662b29255b73e972bcfb0fa4b6bb2dcf968
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57648537"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66363057"
 ---
 # <a name="content-links-in-text-controls"></a>テキスト コントロールのコンテンツ リンク
 
@@ -47,8 +47,8 @@ RichEditBox でユーザーがアンパサンド (@) 記号を使用してエン
 | 機能   | RichEditBox | テキスト ブロック |
 | --------- | ----------- | ---------- |
 | 使用方法 | ContentLinkInfo インスタンス | ContentLink テキスト要素 |
-| Cursor | コンテンツ リンクの種類によって決まり、変更することはできません | Cursor プロパティによって決まります。既定では **null** です |
-| ToolTip | 表示されません | セカンダリ テキストを表示します |
+| カーソル | コンテンツ リンクの種類によって決まり、変更することはできません | Cursor プロパティによって決まります。既定では **null** です |
+| ヒント | 表示されません | セカンダリ テキストを表示します |
 
 ## <a name="enable-content-links-in-a-richeditbox"></a>RichEditBox でコンテンツ リンクを有効にします
 
@@ -303,7 +303,7 @@ private void Button_Click(object sender, RoutedEventArgs e)
 ```
 
 > [!TIP]
-> テキスト コントロールで ContentLink を XAML のその他のテキスト要素と一緒に使用する場合、[スパン](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.documents.span.aspx) コンテナーにコンテンツを配置してスパンに `xml:space="preserve"` 属性を適用すると、ContentLink とその他の要素間に空白を保持します。
+> テキスト コントロールで ContentLink を XAML のその他のテキスト要素と一緒に使用する場合、[スパン](https://docs.microsoft.com/uwp/api/windows.ui.xaml.documents.span) コンテナーにコンテンツを配置してスパンに `xml:space="preserve"` 属性を適用すると、ContentLink とその他の要素間に空白を保持します。
 
 ## <a name="examples"></a>例
 

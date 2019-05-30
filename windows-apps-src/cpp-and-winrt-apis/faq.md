@@ -1,16 +1,16 @@
 ---
 description: C++/WinRT での Windows ランタイム API の作成と使用に関する質問への回答です。
 title: C++/WinRT についてよく寄せられる質問
-ms.date: 10/26/2018
+ms.date: 04/23/2019
 ms.topic: article
 keywords: wwindows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 頻繁, 質問, 質問, faq
 ms.localizationpriority: medium
-ms.openlocfilehash: 70aedf4034ce433b0aa529375799cf45a18ca3e0
-ms.sourcegitcommit: 82edc63a5b3623abce1d5e70d8e200a58dec673c
+ms.openlocfilehash: 7ac7f8e46974b7c12b42f6d6f94052e61902b240
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58291890"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66360249"
 ---
 # <a name="frequently-asked-questions-about-cwinrt"></a>C++/WinRT についてよく寄せられる質問
 作成と使用の Windows ランタイム Api を利用する可能性がある質問の回答を[C +/cli WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt)します。
@@ -21,8 +21,11 @@ ms.locfileid: "58291890"
 ## <a name="how-do-i-retarget-my-cwinrt-project-to-a-later-version-of-the-windows-sdk"></a>方法は再ターゲット、C +/cli WinRT プロジェクトは、以降のバージョンの Windows SDK をでしょうか。
 参照してください[方法の再ターゲットすると、C +/cli WinRT プロジェクトは、以降のバージョンの Windows SDK を](news.md#how-to-retarget-your-cwinrt-project-to-a-later-version-of-the-windows-sdk)します。
 
+## <a name="why-wont-my-new-project-compile-now-that-ive-moved-to-cwinrt-20"></a>なぜ自分の新しいプロジェクトはコンパイルされませんに移動しているようになりましたC++WinRT 2.0 でしょうか。
+変更 (重大な変更を含む) の完全なセット、次を参照してください。[ニュース、および変更でC++WinRT 2.0](news.md#news-and-changes-in-cwinrt-20)します。 たとえば、コルーチンのサポート (ようコルーチンのヘルパーを含む**winrt::resume_background**、 **winrt::resume_foreground**、および**winrt::resume_on_signal**)、する必要があります`#include <winrt/coroutine.h>`します。 範囲ベースを使用している場合`for`Windows ランタイムで、今すぐする必要があります`#include <winrt/Windows.Foundation.Collections.h>`します。
+
 ## <a name="why-wont-my-new-project-compile-im-using-visual-studio-2017-version-1580-or-higher-and-sdk-version-17134"></a>新しいプロジェクトがコンパイルされません。 Visual Studio 2017 を使用している (15.8.0 バージョンまたはそれ以降)、および SDK version 17134
-Visual Studio 2017 を使用している場合 (バージョン 15.8.0 またはそれ以降)、し、新しく作成した Windows SDK バージョン 10.0.17134.0 (Windows 10、バージョン 1803) を対象としてC++WinRT プロジェクトがエラーでコンパイルに失敗する可能性があります/"*エラー C3861: 'from_abi'。識別子が見つかりません*"、発信元がその他のエラーの*base.h*します。 いずれかのターゲットに以降 (詳細について準拠) は、ソリューションのバージョンの Windows SDK、またはプロジェクトのプロパティを設定**C/C++** > **言語** > **準拠モード。いいえ**(また場合、 **/permissive -** プロジェクト プロパティに表示されます**C/C++** > **コマンド ライン****追加のオプション**から削除します)。
+Visual Studio 2017 を使用している場合 (バージョン 15.8.0 またはそれ以降)、し、新しく作成した Windows SDK バージョン 10.0.17134.0 (Windows 10、バージョン 1803) を対象としてC++WinRT プロジェクトがエラーでコンパイルに失敗する可能性があります/"*エラー C3861: 'from_abi'。識別子が見つかりません*"、発信元がその他のエラーの*base.h*します。 いずれかのターゲットに以降 (詳細について準拠) は、ソリューションのバージョンの Windows SDK、またはプロジェクトのプロパティを設定**C/C++**  > **言語** > **準拠モード。いいえ**(また場合、 **/permissive -** プロジェクト プロパティに表示されます**C/C++**  > **コマンド ライン** **追加のオプション**から削除します)。
 
 ## <a name="how-do-i-resolve-the-build-error-the-cwinrt-vsix-no-longer-provides-project-build-support--please-add-a-project-reference-to-the-microsoftwindowscppwinrt-nuget-package"></a>ビルド エラーを解決する方法"c++/cli WinRT VSIX プロジェクトのビルドのサポートは提供されなくなりました。  追加してください、Microsoft.Windows.CppWinRT Nuget パッケージへの参照をプロジェクト"でしょうか。
 インストール、 **Microsoft.Windows.CppWinRT**をプロジェクトに NuGet パッケージ。 詳細については、次を参照してください。 [VSIX 拡張機能の以前のバージョン](intro-to-using-cpp-with-winrt.md#earlier-versions-of-the-vsix-extension)します。
@@ -44,7 +47,7 @@ Windows ランタイム クラス (ランタイム クラス) を*使用*する�
 ## <a name="why-is-the-linker-giving-me-a-lnk2019-unresolved-external-symbol-error"></a>理由は、リンカーを与えてくれた、"LNK2019:未解決の外部シンボル"エラーでしょうか。
 未解決のシンボルが (**winrt** 名前空間内の) C++/WinRT プロジェクションの Windows 名前空間ヘッダーからの API である場合、その API は含まれているヘッダー内で事前宣言されていますが、その定義は含まれていないヘッダー内にあります。 API の名前空間で付けられた名前のヘッダーを含めてから、リビルドしてください。 詳細については、「[C++/WinRT プロジェクション ヘッダー](consume-apis.md#cwinrt-projection-headers)」を参照してください。
 
-未解決のシンボルなど、Windows ランタイムの free 関数は、かどうか[RoInitialize](https://msdn.microsoft.com/library/br224650)を明示的にリンクする必要があります、 [WindowsApp.lib](/uwp/win32-and-com/win32-apis)プロジェクトでの包括的なライブラリ。 C++/WinRT プロジェクションは、これらの一部の自由 (非メンバー) 関数とエントリ ポイントに依存します。 アプリケーションでいずれかの [C++/WinRT Visual Studio Extension (VSIX)](https://aka.ms/cppwinrt/vsix) プロジェクト テンプレートを使用する場合は、`WindowsApp.lib` が自動的にリンクされます。 それ以外の場合、プロジェクトのリンク設定を使用して含めるか、またはソース コードでそれを行うことができます。
+未解決のシンボルなど、Windows ランタイムの free 関数は、かどうか[RoInitialize](https://docs.microsoft.com/windows/desktop/api/roapi/nf-roapi-roinitialize)を明示的にリンクする必要があります、 [WindowsApp.lib](/uwp/win32-and-com/win32-apis)プロジェクトでの包括的なライブラリ。 C++/WinRT プロジェクションは、これらの一部の自由 (非メンバー) 関数とエントリ ポイントに依存します。 アプリケーションでいずれかの [C++/WinRT Visual Studio Extension (VSIX)](https://aka.ms/cppwinrt/vsix) プロジェクト テンプレートを使用する場合は、`WindowsApp.lib` が自動的にリンクされます。 それ以外の場合、プロジェクトのリンク設定を使用して含めるか、またはソース コードでそれを行うことができます。
 
 ```cppwinrt
 #pragma comment(lib, "windowsapp")
@@ -61,7 +64,7 @@ Windows ランタイム クラス (ランタイム クラス) を*使用*する�
 ## <a name="can-i-use-llvmclang-to-compile-with-cwinrt"></a>LLVM/Clang を使用して C++/WinRT でコンパイルすることはできますか。
 C++/WinRT の LLVM および Clang ツール チェーンはサポートしていませんが、C++/WinRT の標準への準拠を検証するためにそれを内部で使用します。 たとえば、マイクロソフトが内部で行っている内容をエミュレートする場合は、次に説明するような実験を試してみることができます。
 
-[LLVM ダウンロード ページ](https://releases.llvm.org/download.html)に移動し、**[Download LLVM 6.0.0] (LLVM 6.0.0 のダウンロード)** > **[Pre-Built Binaries] (事前ビルドされたバイナリ)** を探し、**[Clang for Windows (64-bit)] (Windows の Clang (64 ビット))** をダウンロードします。 インストール中に、コマンド プロンプトから起動できるように、PATH システム変数に LLVM を追加することを選択します。 この実験の目的上、"Failed to find MSBuild toolsets directory (MSBuild ツールセット ディレクトリの検索に失敗しました)" または "MSVC integration install failed (MSVC 統合インストールに失敗しました)" というエラーが表示された場合には無視できます。 LLVM/Clang を起動するさまざまな方法があります。次の例は、1 つの方法のみを示しています。
+[LLVM ダウンロード ページ](https://releases.llvm.org/download.html)に移動し、 **[Download LLVM 6.0.0] (LLVM 6.0.0 のダウンロード)**  >  **[Pre-Built Binaries] (事前ビルドされたバイナリ)** を探し、 **[Clang for Windows (64-bit)] (Windows の Clang (64 ビット))** をダウンロードします。 インストール中に、コマンド プロンプトから起動できるように、PATH システム変数に LLVM を追加することを選択します。 この実験の目的上、"Failed to find MSBuild toolsets directory (MSBuild ツールセット ディレクトリの検索に失敗しました)" または "MSVC integration install failed (MSVC 統合インストールに失敗しました)" というエラーが表示された場合には無視できます。 LLVM/Clang を起動するさまざまな方法があります。次の例は、1 つの方法のみを示しています。
 
 ```cmd
 C:\ExperimentWithLLVMClang>type main.cpp

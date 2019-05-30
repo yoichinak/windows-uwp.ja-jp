@@ -8,12 +8,12 @@ ms.date: 03/18/2019
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 5c05b6686d31606a9510b1433339dc8829a52893
-ms.sourcegitcommit: 7a1d5198345d114c58287d8a047eadc4fe10f012
+ms.openlocfilehash: 34f8d15b971cc9ed286471010a21d1b44b84af13
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59247180"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66363471"
 ---
 # <a name="guidelines-for-touch-targets"></a>タッチの対象とするためのガイドライン
 
@@ -25,7 +25,7 @@ UWP コントロールのすべてでは、タッチの既定のターゲット 
 
 このトピックでプラットフォーム コントロールとカスタム コントロールの両方を使用して (必要があります、アプリに) 最大の使いやすさのアプリを設計するためにこれらの既定の動作を説明します。
 
-> **重要な API**:[**Windows.UI.Core**](https://msdn.microsoft.com/library/windows/apps/br208383)、 [ **Windows.UI.Input**](https://msdn.microsoft.com/library/windows/apps/br242084)、 [ **Windows.UI.Xaml.Input**](https://msdn.microsoft.com/library/windows/apps/br227994)
+> **重要な API**:[**Windows.UI.Core**](https://docs.microsoft.com/uwp/api/Windows.UI.Core)、 [ **Windows.UI.Input**](https://docs.microsoft.com/uwp/api/Windows.UI.Input)、 [ **Windows.UI.Xaml.Input**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input)
 
 ## <a name="fluent-standard-sizing"></a>標準の Fluent のサイズ変更
 
@@ -83,8 +83,8 @@ Compact のサイズ変更は、ページまたはグリッド レベルで適�
 
 ### <a name="samples"></a>サンプル
 
-- [基本的な入力のサンプル](https://go.microsoft.com/fwlink/p/?LinkID=620302)
-- [待機時間が短い入力のサンプル](https://go.microsoft.com/fwlink/p/?LinkID=620304)
+- [基本的な入力サンプル](https://go.microsoft.com/fwlink/p/?LinkID=620302)
+- [低待機時間の入力サンプル](https://go.microsoft.com/fwlink/p/?LinkID=620304)
 - [ユーザー操作モードのサンプル](https://go.microsoft.com/fwlink/p/?LinkID=619894)
 - [フォーカスの視覚効果のサンプル](https://go.microsoft.com/fwlink/p/?LinkID=619895)
 
@@ -93,8 +93,8 @@ Compact のサイズ変更は、ページまたはグリッド レベルで適�
 - [入力:XAML ユーザー入力イベントのサンプル](https://go.microsoft.com/fwlink/p/?linkid=226855)
 - [入力:デバイス機能のサンプル](https://go.microsoft.com/fwlink/p/?linkid=231530)
 - [入力:タッチ ヒット テストのサンプル](https://go.microsoft.com/fwlink/p/?linkid=231590)
-- [XAML のスクロール、パン、ズームのサンプルに関するページ](https://go.microsoft.com/fwlink/p/?linkid=251717)
+- [XAML のスクロール、パン、ズームのサンプル](https://go.microsoft.com/fwlink/p/?linkid=251717)
 - [入力:簡略化されたインクのサンプル](https://go.microsoft.com/fwlink/p/?linkid=246570)
 - [入力:Windows 8 のジェスチャのサンプル](https://go.microsoft.com/fwlink/p/?LinkId=264995)
 - [入力:操作とジェスチャ (C++) のサンプル](https://go.microsoft.com/fwlink/p/?linkid=231605)
-- [DirectX タッチ入力のサンプル](https://go.microsoft.com/fwlink/p/?LinkID=231627)
+- [DirectX のタッチ入力サンプル](https://go.microsoft.com/fwlink/p/?LinkID=231627)

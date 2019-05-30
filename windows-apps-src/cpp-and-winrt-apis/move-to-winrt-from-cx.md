@@ -5,12 +5,12 @@ ms.date: 01/17/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 移植, 移行, C++/CX
 ms.localizationpriority: medium
-ms.openlocfilehash: fe988bffbf024308fb5d43da7ed538e5330b58de
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: HT
+ms.openlocfilehash: 7fbe10e41da1b330d6f5042bea109a8a0e04f8ad
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57635077"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66360159"
 ---
 # <a name="move-to-cwinrt-from-ccx"></a>C++/CX から C++/WinRT への移行
 
@@ -18,17 +18,17 @@ ms.locfileid: "57635077"
 
 ## <a name="porting-strategies"></a>移植の戦略
 
-場合は、徐々 に移植すると、C +/cli c++/CX コード/cli WinRT、しすることができます。 C + +/CX および C++/cli WinRT コードは、XAML コンパイラ サポートと Windows ランタイム コンポーネントの例外を使用して、同じプロジェクトで共存できます。 これら 2 つの例外は、C + いずれかをターゲットする必要があります/cli/CX または C++/cli、同じプロジェクト内の WinRT します。
+場合は、徐々 に移植すると、C +/cli c++/CX コード/cli WinRT、しすることができます。 C++/CX とC++/WinRT コードは、XAML コンパイラ サポートと Windows ランタイム コンポーネントの例外を使用して、同じプロジェクトで共存できます。 これら 2 つの例外は、C + いずれかをターゲットする必要があります/cli/CX または C++/cli、同じプロジェクト内の WinRT します。
 
 > [!IMPORTANT]
-> XAML アプリケーションをビルドするプロジェクトの場合、に、まず c++ のいずれかを使用して Visual Studio で新しいプロジェクトを作成する、推奨される 1 つのワークフローは/cli WinRT プロジェクト テンプレート (を参照してください[Visual Studio のサポートを c++/cli WinRT](intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package))。 C++ からソース コードとマークアップをコピーし、開始/cli CX プロジェクト。 新しい XAML ページを追加する**プロジェクト** \> **新しい項目の追加.**\> **Visual C** > **空白のページ (C +/cli WinRT)** します。
+> XAML アプリケーションをビルドするプロジェクトの場合、に、まず c++ のいずれかを使用して Visual Studio で新しいプロジェクトを作成する、推奨される 1 つのワークフローは/cli WinRT プロジェクト テンプレート (を参照してください[Visual Studio のサポートを c++/cli WinRT](intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package))。 C++ からソース コードとマークアップをコピーし、開始/cli CX プロジェクト。 新しい XAML ページを追加する**プロジェクト** \> **新しい項目の追加.** \> **Visual C** > **空白のページ (C +/cli WinRT)** します。
 >
 > 要素のコードから、XAML C + への Windows ランタイム コンポーネントを使用する代わりに、/cli CX プロジェクトのように移植します。 移動するか、ほど C +/cli CX コード、コンポーネントには c++ XAML プロジェクトを変更すると/cli WinRT します。 C + と XAML プロジェクトのままにそれ以外の場合、または/cli CX、作成するには新しい C +/cli WinRT コンポーネント、C + の移植を開始および/cli/CX コードを XAML プロジェクトとコンポーネントにします。 できます c++/cli CX コンポーネントのプロジェクトと共に C +/cli、同じソリューション内の WinRT コンポーネント プロジェクトがそれらの両方をアプリケーション プロジェクトから参照し、段階的に、他のいずれかからポートします。 参照してください[C + 間の相互運用/cli WinRT および C++/cli CX](interop-winrt-cx.md) 2 つの言語プロジェクションを使用して、同じプロジェクト内の詳細についてはします。
 
 > [!NOTE]
 > [C++/CX](/cpp/cppcx/visual-c-language-reference-c-cx) と Windows SDK の両方で、ルート名前空間 **Windows** で型を宣言します。 C++/WinRT に投影された Windows 型は Windows 型と同じ完全修飾名を持ちますが、 C++ **winrt** 名前空間に配置されます。 これらの異なる名前空間では、独自のペースで C++/CX から C++/WinRT へ移植できます。
 
-C++ の移植で最初の手順に注意してください、上記で説明した例外を方位、/cli C + CX プロジェクト/cli WinRT は、C + を手動で追加する/cli WinRT サポート (を参照してください[Visual Studio のサポートの C +/cli WinRT](intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package))。 インストール、 [Microsoft.Windows.CppWinRT NuGet パッケージ](https://www.nuget.org/packages/Microsoft.Windows.CppWinRT/)をプロジェクトにします。 開いている Visual Studio でプロジェクトをクリックして**プロジェクト** \> **NuGet パッケージの管理.**\> **[参照]** 入力するか貼り付けて**Microsoft.Windows.CppWinRT**検索ボックスに、検索結果の項目を選択し、順にクリックします**インストール**そのプロジェクトのパッケージをインストールします。 その変更による 1 つの効果は、C++/CX のサポートがプロジェクトで無効になることです。 C + のすべての依存関係のサポートを発見 (してポート) メッセージをビルドできるように、無効のままにことをお勧め/cli CX、または再度有効にできますサポート (プロジェクトのプロパティで**C/C++** \> **[全般]**\> **Windows ランタイム拡張機能の使用** \> **はい (/ZW)**)、およびポートを徐々 にします。
+C++ の移植で最初の手順に注意してください、上記で説明した例外を方位、/cli C + CX プロジェクト/cli WinRT は、C + を手動で追加する/cli WinRT サポート (を参照してください[Visual Studio のサポートの C +/cli WinRT](intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package))。 インストール、 [Microsoft.Windows.CppWinRT NuGet パッケージ](https://www.nuget.org/packages/Microsoft.Windows.CppWinRT/)をプロジェクトにします。 開いている Visual Studio でプロジェクトをクリックして**プロジェクト** \> **NuGet パッケージの管理.** \> **[参照]** 入力するか貼り付けて**Microsoft.Windows.CppWinRT**検索ボックスに、検索結果の項目を選択し、順にクリックします**インストール**そのプロジェクトのパッケージをインストールします。 その変更による 1 つの効果は、C++/CX のサポートがプロジェクトで無効になることです。 C + のすべての依存関係のサポートを発見 (してポート) メッセージをビルドできるように、無効のままにことをお勧め/cli CX、または再度有効にできますサポート (プロジェクトのプロパティで**C/C++** \> **[全般]** \> **Windows ランタイム拡張機能の使用** \> **はい (/ZW)** )、およびポートを徐々 にします。
 
 そのプロジェクトのプロパティを確認します。**全般** \> **ターゲット プラットフォーム バージョン**10.0.17134.0 (Windows 10、バージョン 1803) に設定されている以上。
 
@@ -81,7 +81,7 @@ if (userList != nullptr)
     ...
 ```
 
-既定のコンストラクターの c++/cli CX hat ポインターを null に初期化します。 ここでは、c++/cli CX のコード例が初期化されていないか、適切な型の変数/フィールドを作成します。 つまり、それを参照しない最初に、 **TextBlock**; 以降の参照を代入する予定です。
+既定のコンス トラクターの c++/cli CX hat ポインターを null に初期化します。 ここでは、c++/cli CX のコード例が初期化されていないか、適切な型の変数/フィールドを作成します。 つまり、それを参照しない最初に、 **TextBlock**; 以降の参照を代入する予定です。
 
 ```cppcx
 TextBlock^ textBlock;
@@ -138,7 +138,7 @@ record.UserState(newValue);
 ```
 
 ## <a name="creating-an-instance-of-a-class"></a>クラスのインスタンスの作成
-使用する c++/cli CX オブジェクト、hat とよく呼ばれることを識別するハンドルを使用して (\^) 参照。 `ref new` キーワードにより新しいオブジェクトを作成します。これにより、[**RoActivateInstance**](https://msdn.microsoft.com/library/br224646) が呼び出され、ランタイム クラスの新しいインスタンスがアクティブ化されます。
+使用する c++/cli CX オブジェクト、hat とよく呼ばれることを識別するハンドルを使用して (\^) 参照。 `ref new` キーワードにより新しいオブジェクトを作成します。これにより、[**RoActivateInstance**](https://docs.microsoft.com/windows/desktop/api/roapi/nf-roapi-roactivateinstance) が呼び出され、ランタイム クラスの新しいインスタンスがアクティブ化されます。
 
 ```cppcx
 using namespace Windows::Storage::Streams;
@@ -200,7 +200,7 @@ private:
 ```
 
 ## <a name="converting-from-a-base-runtime-class-to-a-derived-one"></a>ランタイムの基本クラスから派生の 1 つに変換します。
-参照を基本の派生型のオブジェクトを参照することがわかっているが一般的です。 C++/cli CX を使用する`dynamic_cast`に*キャスト*に、参照から derived へのベースの参照。 `dynamic_cast`を非表示の呼び出しにすぎません[ **QueryInterface**](https://msdn.microsoft.com/library/windows/desktop/ms682521)します。 典型的な例を次に示します&mdash;からキャストして、依存関係プロパティ変更イベントを処理している**DependencyObject**依存関係プロパティを所有する実際の型に戻します。
+参照を基本の派生型のオブジェクトを参照することがわかっているが一般的です。 C++/cli CX を使用する`dynamic_cast`に*キャスト*に、参照から derived へのベースの参照。 `dynamic_cast`を非表示の呼び出しにすぎません[ **QueryInterface**](https://docs.microsoft.com/windows/desktop/api/unknwn/nf-unknwn-iunknown-queryinterface(q_))します。 典型的な例を次に示します&mdash;からキャストして、依存関係プロパティ変更イベントを処理している**DependencyObject**依存関係プロパティを所有する実際の型に戻します。
 
 ```cppcx
 void BgLabelControl::OnLabelChanged(Windows::UI::Xaml::DependencyObject^ d, Windows::UI::Xaml::DependencyPropertyChangedEventArgs^ e)
@@ -214,7 +214,7 @@ void BgLabelControl::OnLabelChanged(Windows::UI::Xaml::DependencyObject^ d, Wind
 }
 ```
 
-同等の C +/cli WinRT コードで置き換えます、`dynamic_cast`を呼び出して、 [ **IUnknown::try_as** ](/uwp/cpp-ref-for-winrt/windows-foundation-iunknown#iunknowntryas-function)関数をカプセル化する**QueryInterface**します。 また、オプションを呼び出す、ある[ **IUnknown::as**](/uwp/cpp-ref-for-winrt/windows-foundation-iunknown#iunknownas-function)例外をスローする代わりに、必要なインターフェイス (要求している型の既定のインターフェイス) のクエリが返されない場合。 ここでは、c++/cli WinRT のコード例です。
+同じC++/WinRT コードで置き換えます、`dynamic_cast`への呼び出しで、 [ **IUnknown::try_as** ](/uwp/cpp-ref-for-winrt/windows-foundation-iunknown#iunknowntry_as-function)関数をカプセル化する**QueryInterface**します。 また、オプションを呼び出す、ある[ **IUnknown::as**](/uwp/cpp-ref-for-winrt/windows-foundation-iunknown#iunknownas-function)例外をスローする代わりに、必要なインターフェイス (要求している型の既定のインターフェイス) のクエリが返されない場合。 ここでは、c++/cli WinRT のコード例です。
 
 ```cppwinrt
 void BgLabelControl::OnLabelChanged(Windows::UI::Xaml::DependencyObject const& d, Windows::UI::Xaml::DependencyPropertyChangedEventArgs const& e)
@@ -277,19 +277,19 @@ myButton().Click(token);
 詳細とオプションについては、「[登録済みデリゲートの取り消し](handle-events.md#revoke-a-registered-delegate)」を参照してください。
 
 ## <a name="mapping-ccx-platform-types-to-cwinrt-types"></a>C++/WinRT 型への C++/CX **Platform** 型のマッピング
-C++/CX は **Platform** 名前空間でいくつかのデータ型を提供します。 これらの型は標準 C++ ではないため、Windows ランタイム言語拡張機能を有効にしたとき (Visual Studio プロジェクトのプロパティの **[C/C++]** > **[全般]** > **[Windows ランタイム拡張機能の使用]** > **[はい (/ZW)]**) にのみ使用できます。 下の表は、**Platform** 型を C++/WinRT の同等の型に移植するときに役立ちます。 完了したら、C++/WinRT は標準 C++ であるため、`/ZW` オプションをオフにすることができます。
+C++/CX は **Platform** 名前空間でいくつかのデータ型を提供します。 これらの型は標準 C++ ではないため、Windows ランタイム言語拡張機能を有効にしたとき (Visual Studio プロジェクトのプロパティの **[C/C++]**  >  **[全般]**  >  **[Windows ランタイム拡張機能の使用]**  >  **[はい (/ZW)]** ) にのみ使用できます。 下の表は、**Platform** 型を C++/WinRT の同等の型に移植するときに役立ちます。 完了したら、C++/WinRT は標準 C++ であるため、`/ZW` オプションをオフにすることができます。
 
 | C++/CX | C++/WinRT |
 | ---- | ---- |
 | **Platform::agile\^** | [**winrt::agile_ref**](/uwp/cpp-ref-for-winrt/agile-ref) |
-| **Platform::array\^** | 参照してください[ポート**platform::array\^**](#port-platformarray) |
+| **Platform::array\^** | 参照してください[ポート**platform::array\^** ](#port-platformarray) |
 | **Platform::exception\^** | [**winrt::hresult_error**](/uwp/cpp-ref-for-winrt/error-handling/hresult-error) |
 | **Platform::invalidargumentexception\^** | [**winrt::hresult_invalid_argument**](/uwp/cpp-ref-for-winrt/error-handling/hresult-invalid-argument) |
 | **Platform::object\^** | **winrt::Windows::Foundation::IInspectable** |
 | **Platform::string\^** | [**winrt::hstring**](/uwp/cpp-ref-for-winrt/hstring) |
 
 ### <a name="port-platformagile-to-winrtagileref"></a>ポート**platform::agile\^** に**winrt::agile_ref**
-**Platform::agile\^** 型 c++/cli CX は任意のスレッドからアクセスできる Windows ランタイム クラスを表します。 C++/cli では WinRT 相当[ **winrt::agile_ref**](/uwp/cpp-ref-for-winrt/agile-ref)します。
+**Platform::agile\^** 型 c++/cli CX は任意のスレッドからアクセスできる Windows ランタイム クラスを表します。 C++WinRT は/ [ **winrt::agile_ref**](/uwp/cpp-ref-for-winrt/agile-ref)します。
 
 C++/CX で、次の操作を行います。
 
@@ -309,7 +309,7 @@ winrt::agile_ref<Windows::UI::Core::CoreWindow> m_window;
 ### <a name="port-platformexception-to-winrthresulterror"></a>ポート**platform::exception\^** に**winrt::hresult_error**
 **Platform::exception\^**  c++ 型が生成される/cli CX、Windows ランタイム API に非 S が返されるときに\_OK HRESULT。 C++/WinRT の同等の型は [**winrt::hresult_error**](/uwp/cpp-ref-for-winrt/error-handling/hresult-error) です。
 
-C + に移植する/cli WinRT を使用するすべてのコードを変更**platform::exception\^** を使用する**winrt::hresult_error**します。
+移植するC++/WinRT を使用するすべてのコードを変更する**platform::exception\^** を使用する**winrt::hresult_error**します。
 
 C++/CX で、次の操作を行います。
 
@@ -327,7 +327,7 @@ C++/WinRT には、これらの例外クラスが用意されています。
 
 | 例外の型 | 基本クラス | HRESULT |
 | ---- | ---- | ---- |
-| [**winrt::hresult_error**](/uwp/cpp-ref-for-winrt/error-handling/hresult-error) | | [  **hresult_error::to_abi**](/uwp/cpp-ref-for-winrt/error-handling/hresult-error#hresulterrortoabi-function) 呼び出し |
+| [**winrt::hresult_error**](/uwp/cpp-ref-for-winrt/error-handling/hresult-error) | | [  **hresult_error::to_abi**](/uwp/cpp-ref-for-winrt/error-handling/hresult-error#hresult_errorto_abi-function) 呼び出し |
 | [**winrt::hresult_access_denied**](/uwp/cpp-ref-for-winrt/error-handling/hresult-access-denied) | **winrt::hresult_error** | E_ACCESSDENIED |
 | [**winrt::hresult_canceled**](/uwp/cpp-ref-for-winrt/error-handling/hresult-canceled) | **winrt::hresult_error** | ERROR_CANCELLED |
 | [**winrt::hresult_changed_state**](/uwp/cpp-ref-for-winrt/error-handling/hresult-changed-state) | **winrt::hresult_error** | E_CHANGED_STATE |
@@ -341,7 +341,7 @@ C++/WinRT には、これらの例外クラスが用意されています。
 | [**winrt::hresult_out_of_bounds**](/uwp/cpp-ref-for-winrt/error-handling/hresult-out-of-bounds) | **winrt::hresult_error** | E_BOUNDS |
 | [**winrt::hresult_wrong_thread**](/uwp/cpp-ref-for-winrt/error-handling/hresult-wrong-thread) | **winrt::hresult_error** | RPC_E_WRONG_THREAD |
 
-各クラスは (**hresult_error** 基本クラスを介して)、エラーの HRESULT を返す [**to_abi**](/uwp/cpp-ref-for-winrt/error-handling/hresult-error#hresulterrortoabi-function) 関数を指定し、その HRESULT の文字列表現を返す [**message**](/uwp/cpp-ref-for-winrt/error-handling/hresult-error#hresulterrormessage-function) 関数を指定します。
+各クラスは (**hresult_error** 基本クラスを介して)、エラーの HRESULT を返す [**to_abi**](/uwp/cpp-ref-for-winrt/error-handling/hresult-error#hresult_errorto_abi-function) 関数を指定し、その HRESULT の文字列表現を返す [**message**](/uwp/cpp-ref-for-winrt/error-handling/hresult-error#hresult_errormessage-function) 関数を指定します。
 
 C++/CX で例外をスローする例を次に示します。
 
@@ -365,7 +365,7 @@ winrt::Windows::Foundation::IInspectable var{ nullptr };
 ### <a name="port-platformstring-to-winrthstring"></a>ポート**platform::string\^** に**winrt::hstring**
 **Platform::string\^** は Windows ランタイム HSTRING ABI の型に相当します。 C++/WinRT では、同等の型は [**winrt::hstring**](/uwp/cpp-ref-for-winrt/hstring) です。 ただし、C++/WinRT では、**std::wstring** などの C++ 標準ライブラリのワイド文字列型、およびワイド文字列リテラルを使用して Windows ランタイム API を呼び出すことができます。 詳細とコード例については、「[C++/WinRT での文字列の処理](strings.md)」を参照してください。
 
-C++/cli CX にアクセスできます、 [ **Platform::String::Data** ](https://docs.microsoft.com/en-us/cpp/cppcx/platform-string-class#data) C スタイルとして文字列を取得するプロパティ**const wchar_t\***  (たとえば、通過するための配列**std::wcout**)。
+C++アクセスできる CX、/、 [ **Platform::String::Data** ](https://docs.microsoft.com/en-us/cpp/cppcx/platform-string-class#data) C スタイルとして文字列を取得するプロパティ**const wchar_t\*** 配列 (たとえば、渡します**std::wcout**)。
 
 ```cppcx
 auto var{ titleRecord->TitleName->Data() };
@@ -400,7 +400,7 @@ void LogWrapLine(winrt::hstring const& str);
 
 #### <a name="tostring"></a>ToString()
 
-C + + CX の提供、 [object::tostring](/cpp/cppcx/platform-object-class?view=vs-2017#tostring)メソッド。
+C++/CX の提供、 [object::tostring](/cpp/cppcx/platform-object-class?view=vs-2017#tostring)メソッド。
 
 ```cppcx
 int i{ 2 };

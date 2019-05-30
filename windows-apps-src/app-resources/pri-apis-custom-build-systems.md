@@ -6,15 +6,15 @@ ms.date: 05/07/2018
 ms.topic: article
 keywords: Windows 10, UWP, リソース, 画像, アセット, MRT, 修飾子
 ms.localizationpriority: medium
-ms.openlocfilehash: 617812415d3dcd00ec24d5f55971ae311265b61d
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: b300630ff4a9b6735cb7891444da4333532735c1
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57598517"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66359379"
 ---
 # <a name="package-resource-indexing-pri-apis-and-custom-build-systems"></a>パッケージ リソース インデックス (PRI) API とカスタム ビルド システム
-[パッケージ リソース インデックス (PRI) API](https://msdn.microsoft.com/library/windows/desktop/mt845690) を使用すると、UWP アプリのリソース用にカスタム ビルド システムを開発することができます。 ビルド システムでは、UWP アプリが必要とする複雑さのレベルにかかわらず、パッケージ リソース インデックス (PRI) ファイルを (XML として) 作成、バージョン管理、ダンプすることができます。 現在 MakePri.exe コマンド ライン ツールを使用しているカスタム ビルド システムがある場合 (「[MakePri.exe を使用して手動でリソースをコンパイルする](makepri-exe-command-options.md)」を参照)、パフォーマンスと制御を向上させるために、MakePri.exe の呼び出しではなく、PRI API の呼び出しに切り替えることをお勧めします。
+[パッケージ リソース インデックス (PRI) API](https://docs.microsoft.com/windows/desktop/menurc/pri-indexing-reference) を使用すると、UWP アプリのリソース用にカスタム ビルド システムを開発することができます。 ビルド システムでは、UWP アプリが必要とする複雑さのレベルにかかわらず、パッケージ リソース インデックス (PRI) ファイルを (XML として) 作成、バージョン管理、ダンプすることができます。 現在 MakePri.exe コマンド ライン ツールを使用しているカスタム ビルド システムがある場合 (「[MakePri.exe を使用して手動でリソースをコンパイルする](makepri-exe-command-options.md)」を参照)、パフォーマンスと制御を向上させるために、MakePri.exe の呼び出しではなく、PRI API の呼び出しに切り替えることをお勧めします。
 
 PRI API は、Windows 10 向け Windows SDK のバージョン 1803 で導入されました。 API は、Win32 Windows API の形式になります。つまり、それらを呼び出すオプションがいくつかあります。 Win32 アプリから直接それらを呼び出すか、または .NET アプリ、さらには UWP アプリからでも [platform invoke](/dotnet/framework/interop/consuming-unmanaged-dll-functions?branch=live) を介してそれらを呼び出すことができます。
 
@@ -28,10 +28,10 @@ PRI ファイルのサイズ制限は、64 キロバイトです。
 ## <a name="scenario-walkthroughs"></a>シナリオのチュートリアル
 |トピック|説明|
 |-|-|
-|[シナリオ 1:文字列リソースと資産ファイルからの PRI ファイルを生成します。](pri-apis-scenario-1.md)|このシナリオでは、カスタム ビルド システムを表す新しいアプリを作成します。 リソース インデクサーを作成し、文字列とその他の種類のリソースを追加します。 次に、PRI ファイルを生成してダンプします。|
+|[シナリオ 1: 文字列リソースと資産ファイルからの PRI ファイルを生成します。](pri-apis-scenario-1.md)|このシナリオでは、カスタム ビルド システムを表す新しいアプリを作成します。 リソース インデクサーを作成し、文字列とその他の種類のリソースを追加します。 次に、PRI ファイルを生成してダンプします。|
 
 ## <a name="important-apis"></a>重要な API
-* [パッケージのリソース インデックス (PRI) の参照](https://msdn.microsoft.com/library/windows/desktop/mt845690)
+* [パッケージのリソース インデックス (PRI) の参照](https://docs.microsoft.com/windows/desktop/menurc/pri-indexing-reference)
 
 ## <a name="related-topics"></a>関連トピック
 * [MakePri.exe を使用して手動でリソースをコンパイルする](makepri-exe-command-options.md)

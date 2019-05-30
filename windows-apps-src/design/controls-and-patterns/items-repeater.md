@@ -7,12 +7,12 @@ ms.date: 02/01/2019
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 3344230bc52013825d94cfbe3668acfa0d7a2e13
-ms.sourcegitcommit: c10d7843ccacb8529cb1f53948ee0077298a886d
+ms.openlocfilehash: 93a81501b524826484111419899675fbb99b86fa
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58914002"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66364756"
 ---
 # <a name="itemsrepeater"></a>ItemsRepeater
 
@@ -22,7 +22,7 @@ ms.locfileid: "58914002"
 
 考えることができます[ItemsRepeater](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater)よう ListView に完全に制御ではなく、データドリブンのパネルでは、概念的として。 表示するデータ項目のコレクション、各データ項目の UI 要素を生成する項目テンプレート、要素のサイズし、配置方法を決定するレイアウトを指定します。 次 ItemsRepeater は、データ ソースに基づいて子要素を生成し、レイアウトと項目テンプレートで指定したとおりに表示されます。 表示される項目を同種にする ItemsRepeater データ テンプレート セレクターで指定した条件に基づいてデータ項目を表すコンテンツを読み込むことができますので必要はありません。
 
-| **Windows UI ライブラリを入手する** |
+| **Windows の UI ライブラリを入手します。** |
 | - |
 | このコントロールは、Windows の UI ライブラリを新しいコントロール、および UWP アプリの UI 機能を含む NuGet パッケージの一部として含まれています。 インストール手順を含む詳細については、次を参照してください。、 [Windows UI ライブラリの概要](https://docs.microsoft.com/uwp/toolkits/winui/)します。 |
 
@@ -59,17 +59,30 @@ ItemsRepeater の組み込みアイテム コレクションではありませ�
 
 ## <a name="scrolling-with-itemsrepeater"></a>ItemsRepeater とスクロール
 
-[ItemsRepeater](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater)から派生していない[コントロール](/uwp/api/windows.ui.xaml.controls.control)コントロール テンプレートがあるないため、します。 したがって、スクロール、ListView などの組み込みが含まれていないか、コレクションの他のコントロールの操作を行います。
+[**ItemsRepeater** ](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater)から派生していない[**コントロール**](/uwp/api/windows.ui.xaml.controls.control)コントロール テンプレートがあるないため、します。 したがって、スクロール、ListView などの組み込みが含まれていないか、コレクションの他のコントロールの操作を行います。
 
-ラップしてスクロール機能を提供する必要があります、ItemsRepeater を使用すると、 [ScrollViewer](/uwp/api/windows.ui.xaml.controls.scrollviewer)コントロール。
+使用すると、 **ItemsRepeater**でラップしてスクロール機能を提供する必要があります、 [ **ScrollViewer** ](/uwp/api/windows.ui.xaml.controls.scrollviewer)コントロール。
+
+> [!NOTE]
+> -Windows の以前のバージョンで、アプリが実行される場合、リリースされた*する前に*Windows 10、バージョンは 1809 - も必要がありますをホストする、 **ScrollViewer**内で、 [ **ItemsRepeaterScrollHost**](/uwp/api/microsoft.ui.xaml.controls.itemsrepeaterscrollhost)します。 
+> ```xaml
+> <muxc:ItemsRepeaterScrollHost>
+>     <ScrollViewer>
+>         <muxc:ItemsRepeater ... />
+>     </ScrollViewer>
+> </muxc:ItemsRepeaterScrollHost>
+> ```
+> アプリは 1809 およびそれ以降のバージョンの Windows 10 の最新バージョンでのみ実行する場合、使用する必要はありません、 [ **ItemsRepeaterScrollHost**](/uwp/api/microsoft.ui.xaml.controls.itemsrepeaterscrollhost)します。
+>
+> Windows 10、バージョンは 1809、以前**ScrollViewer**を実装しなかったため、 [ **IScrollAnchorProvider** ](/uwp/api/windows.ui.xaml.controls.iscrollanchorprovider)インターフェイス、 **ItemsRepeater**必要があります。  **ItemsRepeaterScrollHost**により、 **ItemsRepeater**と連携する**ScrollViewer**で正しく表示される項目の場所を保持するために以前のリリースユーザーが表示されています。  それ以外の場合、項目が移動またはリスト内の項目が変更されたか、アプリのサイズが変更されたときに突然消える表示可能性があります。
 
 ## <a name="create-an-itemsrepeater"></a>作成、ItemsRepeater
 
-使用する、 [ItemsRepeater](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater)、ItemsSource プロパティを設定して表示するデータを指定する必要があります。 設定して項目を表示する方法を指示し、 [ItemTemplate](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater.itemtemplate)プロパティ。
+使用する、 [ **ItemsRepeater**](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater)を設定して表示するデータを指定する必要がある、 **ItemsSource**プロパティ。 設定して項目を表示する方法を指示し、 [ **ItemTemplate** ](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater.itemtemplate)プロパティ。
 
 ### <a name="itemssource"></a>ItemsSource
 
-ビューを設定するには、設定、 [ItemsSource](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater.itemssource)プロパティをデータ項目のコレクション。 ここでは、ItemsSource は、コレクションのインスタンスに直接コードで設定されます。
+ビューを設定するには、設定、 [ **ItemsSource** ](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater.itemssource)プロパティをデータ項目のコレクション。 ここでは、 **ItemsSource**コレクションのインスタンスに直接コードで設定されます。
 
 ```csharp
 ObservableCollection<string> Items = new ObservableCollection<string>();
@@ -78,21 +91,23 @@ ItemsRepeater itemsRepeater1 = new ItemsRepeater();
 itemsRepeater1.ItemsSource = Items;
 ```
 
-ItemsSource プロパティを、XAML でコレクションにバインドすることもできます。 データ バインディングについて詳しくは、「[データ バインディングの概要](https://msdn.microsoft.com/windows/uwp/data-binding/data-binding-quickstart)」をご覧ください。
+バインドすることも、 **ItemsSource**プロパティを XAML でのコレクション。 データ バインディングについて詳しくは、「[データ バインディングの概要](https://docs.microsoft.com/windows/uwp/data-binding/data-binding-quickstart)」をご覧ください。
 
 
 ```xaml
 <ItemsRepeater ItemsSource="{x:Bind Items}"/>
 ```
 
-### <a name="data-template"></a>データ テンプレート
+### <a name="itemtemplate"></a>ItemTemplate
+データ項目を視覚化する方法を指定するには、設定、 [ **ItemTemplate** ](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater.itemtemplate)プロパティを[ **DataTemplate** ](/uwp/api/windows.ui.xaml.datatemplate)または[ **DataTemplateSelector** ](/uwp/api/windows.ui.xaml.controls.datatemplateselector)を定義します。 データ テンプレートでは、データを視覚化する方法を定義します。 既定では、項目がビューでは、表示される、 **TextBlock**使用データ オブジェクトの文字列表現。
 
-項目のデータ テンプレートによって、データの表示方法を定義します。 既定では、項目は、これがバインドされている、TextBlock を使用してデータ オブジェクトの文字列表現としてビューに表示されます。 しかし、通常はもっとリッチな表現でデータを表示する必要があります。 定義するアイテムの表示方法だけを指定する、 [DataTemplate](/uwp/api/windows.ui.xaml.datatemplate)します。 DataTemplate の XAML では、個々の項目を表示するために使うコントロールのレイアウトと外観を定義します。 レイアウト内のコントロールでは、データ オブジェクトのプロパティにバインドすることも、静的コンテンツをインラインで定義することもできます。 割り当てるように、DataTemplate、 [ItemTemplate](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater.itemtemplate) ItemsRepeater のプロパティ。
+ただし、通常、個々 の項目の表示に使用する 1 つまたは複数のコントロールの外観とレイアウトを定義するテンプレートを使用して、データのより高度なプレゼンテーションを表示する必要があります。 テンプレートで使用するコントロールは、データ オブジェクトのプロパティにバインドすることができますも定義されている静的コンテンツをインラインです。
 
-この例では、データ オブジェクトは、単純な文字列です。 DataTemplate を使用して、テキストの左側にイメージを追加して、青緑に文字列を表示する TextBlock のスタイルを設定します。
+#### <a name="datatemplate"></a>DataTemplate
+この例では、データ オブジェクトは、単純な文字列です。 **DataTemplate**テキスト、およびスタイルの左側にイメージが含まれています、 **TextBlock**青緑色で文字列を表示します。
 
 > [!NOTE]
-> DataTemplate で [x:Bind markup extension](https://msdn.microsoft.com/windows/uwp/xaml-platform/x-bind-markup-extension) を使う場合、DataTemplate に DataType (`x:DataType`) を指定する必要があります。
+> 使用すると、 [X:bind マークアップ拡張機能](https://docs.microsoft.com/windows/uwp/xaml-platform/x-bind-markup-extension)で、 **DataTemplate**、データ型を指定する必要が (`x:DataType`)、DataTemplate にします。
 
 ```xaml
 <DataTemplate x:DataType="x:String">
@@ -109,23 +124,46 @@ ItemsSource プロパティを、XAML でコレクションにバインドする
 </DataTemplate>
 ```
 
-このデータ テンプレートを使用して表示されるときに、項目はどのように表示されるかを示します。
+ここではこれを表示するときの項目は表示**DataTemplate**します。
 
 ![データ テンプレートを使用して表示される項目](images/listview-itemstemplate.png)
 
-多数のアイテムを表示する場合、項目のデータ テンプレートで使用される要素の数のパフォーマンスに大きな影響を与えることができます。 詳細な情報とデータ テンプレートを使用して、リスト内の項目の外観を定義する方法の例については、次を参照してください。[項目コンテナーとテンプレート](item-containers-templates.md)します。
+使用される要素の数、 **DataTemplate**の項目は、多数のアイテムを表示する場合に、パフォーマンス上の大きな影響を与えることができます。 詳細な情報と使用方法の例の**DataTemplate**一覧で、項目の外観を定義する以下のように[項目コンテナーとテンプレート](item-containers-templates.md)します。
 
 > [!TIP]
-> ItemsRepeater は、ListView やその他のコントロールのコレクションのような項目コンテナーの DataTemplate の内容をラップしません。 代わりに、ItemsRepeater は、DataTemplate 内の定義のみを表示します。 アイテムとしてリスト ビュー アイテムを同じ見た目をしたい場合は、データ テンプレートで、ListViewItem のように、コンテナーを使用できます。 ItemsRepeater が ListViewItem のビジュアルが表示されますがなさない複数選択チェック ボックスを表示または選択範囲のように、その他の機能を使用します。
+> 便宜上、ときに指定できますを静的リソースとして参照されているのではなく、インラインのテンプレートを宣言する、 **DataTemplate**または**DataTemplateSelector** の直接の子として**ItemsRepeater**します。  値として割り当てられる、 **ItemTemplate**プロパティ。 たとえば、これは有効です。
+> ```xaml
+> <ItemsRepeater ItemsSource="{x:Bind Items}">
+>     <DataTemplate>
+>         <!-- ... -->
+>     </DataTemplate>
+> </ItemsRepeater>
+> ```
+
+> [!TIP]
+> 異なり**ListView**とコレクションの他のコントロール、 **ItemsRepeater**から要素をラップしません、 **DataTemplate**追加項目コンテナーが含まれる既定のポリシーなど、余白、パディング、ビジュアルの選択、またはビジュアルの状態の上のポインター。 代わりに、 **ItemsRepeater**内の定義を表示するだけ、 **DataTemplate**します。 アイテムとしてリスト ビュー アイテムを同じ見た目をする場合は、含めることができますに明示的に、コンテナーなど**ListViewItem**、データ テンプレート。 **ItemsRepeater**が表示されます、 **ListViewItem**ビジュアルがなさない自動的に複数選択チェック ボックスを表示または選択範囲のように、その他の機能を使用します。
 >
-> 同様に、実際のコントロールのコレクションの場合は、データの収集などのボタン (`List<Button>`)、コントロールを表示する、DataTemplate に ContentPresenter を配置することができます。
+> 同様に、実際のコントロールのコレクションの場合は、データの収集など**ボタン**(`List<Button>`) を配置することができます、 **ContentPresenter**で、 **DataTemplate**にコントロールを表示します。
 
 #### <a name="datatemplateselector"></a>DataTemplateSelector
 
-ビューに表示する項目は、同じ型である必要はありません。 [ItemsRepeater](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater)使用できる、 **DataTemplateSelector**を指定した条件に基づいてデータ項目を表すデータ テンプレートを読み込めません。 詳細と例については、次を参照してください。 [DataTemplateSelector](/uwp/api/windows.ui.xaml.controls.datatemplateselector)します。
+ビューに表示する項目は、同じ型である必要はありません。 行うことができます、 [ **ItemTemplate** ](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater.itemtemplate)プロパティを[ **DataTemplateSelector** ](/uwp/api/windows.ui.xaml.controls.datatemplateselector)を異なる選択**DataTemplate**s は、指定した条件に基づいています。
+
+この例では、 **DataTemplateSelector**が定義されている 2 つの異なる間を決定する**DataTemplate**大と小の項目を表す秒。
+
+```xaml
+<ItemsRepeater ...>
+    <ItemsRepeater.ItemTemplate>
+        <local:VariableSizeTemplateSelector Large="{StaticResource LargeItemTemplate}" 
+                                            Small="{StaticResource SmallItemTemplate}"/>
+    </ItemsRepeater.ItemTemplate>
+</ItemsRepeater>
+```
+
+定義するときに、 **DataTemplateSelector**で使用する**ItemsRepeater**のみのオーバーライドを実装する必要があります、 [ **SelectTemplateCore(Object)** ](/uwp/api/windows.ui.xaml.controls.datatemplateselector.selecttemplatecore#Windows_UI_Xaml_Controls_DataTemplateSelector_SelectTemplateCore_System_Object_)メソッド。 詳細と例については、次を参照してください。 [ **DataTemplateSelector**](/uwp/api/windows.ui.xaml.controls.datatemplateselector)します。
 
 > [!NOTE]
-> 派生した独自のクラスを実装するために DataTemplate または DataTemplateSelector を使用する代わりに、 [Microsoft.UI.Xaml.Controls.ElementFactory](/uwp/api/microsoft.ui.xaml.controls.elementfactory)が要求されたときにコンテンツを生成する責任を負います。
+> 代わりに**DataTemplate**独自に実装するためにはより高度なシナリオで要素を作成する方法を管理する[ **Windows.UI.Xaml.Controls.IElementFactory** ](/uwp/api/windows.ui.xaml.controls.ielementfactory)として使用する、 **ItemTemplate**します。  要求されたときにコンテンツを生成することができます。
 
 ## <a name="configure-the-data-source"></a>データ ソースを構成します。
 
@@ -262,7 +300,7 @@ private async void ScrollViewer_ViewChanged(object sender, ScrollViewerViewChang
 
 この一覧は、使用可能な値を示します。 定義には、既定値が前提としています**向き**の**水平**します。
 
-- **[なし]**:余分なスペースは、行の終わりに未使用のまま。 これが既定値です。
+- **[なし]** :余分なスペースは、行の終わりに未使用のまま。 これが既定値です。
 - **入力**:項目には、使用可能な領域 (垂直方向の場合は高さ) を使用する追加の幅が与えられます。
 - **Uniform**:項目が、使用可能な領域を使用する追加の幅を指定して、縦横比を維持するために余分な高さを指定 (高さと幅が切り替わった場合、垂直方向)。
 
@@ -632,6 +670,7 @@ public sealed class MediaCollectionView : Control
 
 ```xaml
 <!-- xmlns:muxc="using:Microsoft.UI.Xaml.Controls" -->
+<!-- Include the <muxc:ItemsRepeaterScrollHost> if targeting Windows 10 versions earlier than 1809. -->
 <ScrollViewer>
   <muxc:ItemsRepeater ItemsSource="{x:Bind Categories}"
                       Background="LightGreen">
@@ -639,6 +678,7 @@ public sealed class MediaCollectionView : Control
       <DataTemplate x:DataType="local:Category">
         <StackPanel Margin="12,0">
           <TextBlock Text="{x:Bind Name}" Style="{ThemeResource TitleTextBlockStyle}"/>
+          <!-- Include the <muxc:ItemsRepeaterScrollHost> if targeting Windows 10 versions earlier than 1809. -->
           <ScrollViewer HorizontalScrollMode="Enabled"
                                           VerticalScrollMode="Disabled"
                                           HorizontalScrollBarVisibility="Auto" >

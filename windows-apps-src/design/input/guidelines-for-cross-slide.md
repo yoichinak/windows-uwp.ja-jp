@@ -6,12 +6,12 @@ ms.date: 10/25/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: b2d402bca61fc271b6d1e2e972cca280693f9ce3
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 36ebabbfd8f7e5f40e31be44d6dc7e4483a199ee
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57658127"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66363713"
 ---
 # <a name="guidelines-for-cross-slide"></a>クロススライドのガイドライン
 
@@ -20,9 +20,9 @@ ms.locfileid: "57658127"
 
 **重要な API**
 
--   [**CrossSliding**](https://msdn.microsoft.com/library/windows/apps/br241942)
--   [**CrossSlideThresholds**](https://msdn.microsoft.com/library/windows/apps/br241941)
--   [**Windows.UI.Input**](https://msdn.microsoft.com/library/windows/apps/br242084)
+-   [**CrossSliding**](https://docs.microsoft.com/uwp/api/windows.ui.input.gesturerecognizer.crosssliding)
+-   [**CrossSlideThresholds**](https://docs.microsoft.com/uwp/api/windows.ui.input.gesturerecognizer.crossslidethresholds)
+-   [**Windows.UI.Input**](https://docs.microsoft.com/uwp/api/Windows.UI.Input)
 
 クロススライドは、スワイプ ジェスチャによる選択や、スライド ジェスチャによるドラッグ (移動) 操作をサポートするために使います。
 
@@ -54,7 +54,7 @@ ms.locfileid: "57658127"
 
 次に、クロススライド機能をアプリに含める際に考慮する必要がある、いくつかのガイドラインを示します。
 
-クロススライドは、単一の方向にスクロールするリストやコレクションに使います。 詳しくは、「[ListView コントロールの追加](https://msdn.microsoft.com/library/windows/apps/hh465382)」をご覧ください。
+クロススライドは、単一の方向にスクロールするリストやコレクションに使います。 詳しくは、「[ListView コントロールの追加](https://docs.microsoft.com/previous-versions/windows/apps/hh465382(v=win.10))」をご覧ください。
 
 **注**  場合、コンテンツ領域をパンして、web ブラウザーや電子書籍リーダーなどの 2 つの方向に、プレス アンド ホールド時間指定の相互作用をイメージとハイパーリンクなどのオブジェクトのコンテキスト メニューの呼び出しに使用する必要があります。
 

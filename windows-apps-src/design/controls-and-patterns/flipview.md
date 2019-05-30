@@ -11,12 +11,12 @@ pm-contact: predavid
 design-contact: kimsea
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: ac4e5bb7c761ad6661647cb88f831ffa652b6241
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 7942839b43739ca5fb15106abbfa1877ead81dc2
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57662427"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66362768"
 ---
 # <a name="flip-view"></a>フリップ ビュー
 
@@ -24,7 +24,7 @@ ms.locfileid: "57662427"
 
 コレクション内の画像やその他の項目 (アルバムの写真や製品の詳細ページの項目など) を一度に 1 つずつ表示するには、フリップ ビュー コントロールを使います。 タッチ デバイスでは、項目をスワイプしてコレクション内を移動します。 マウスでは、マウスをホバーするとナビゲーション ボタンが表示されます。 キーボードでは、方向キーを使ってコレクション内を移動します。
 
-> **重要な API**:[FlipView クラス](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.flipview.aspx)、 [ItemsSource プロパティ](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.itemscontrol.itemssource.aspx)、 [ItemTemplate プロパティ](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.itemscontrol.itemtemplate.aspx)
+> **重要な API**:[FlipView クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.flipview)、 [ItemsSource プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemssource)、 [ItemTemplate プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemtemplate)
 
 
 ## <a name="is-this-the-right-control"></a>適切なコントロールの選択
@@ -57,13 +57,13 @@ ms.locfileid: "57662427"
 
 ## <a name="create-a-flip-view"></a>フリップ ビューを作成する
 
-FlipView は [ItemsControl](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.itemscontrol.aspx) であるため、あらゆる種類の項目をコレクションを含めることができます。 ビューのデータを設定するには、項目を [**Items**](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.itemscontrol.items.aspx) コレクションに追加するか、[**ItemsSource**](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.itemscontrol.itemssource.aspx) プロパティをデータ ソースに設定します。
+FlipView は [ItemsControl](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol) であるため、あらゆる種類の項目をコレクションを含めることができます。 ビューのデータを設定するには、項目を [**Items**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.items) コレクションに追加するか、[**ItemsSource**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemssource) プロパティをデータ ソースに設定します。
 
-既定では、データ項目は、バインドされているデータ オブジェクトの文字列表現としてフリップ ビューに表示されます。 フリップ ビューでの項目の表示方法を正確に指定するには、[**DataTemplate**](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.datatemplate.aspx) を作成して、個々の項目を表示するために使うコントロールのレイアウトを定義します。 レイアウト内のコントロールは、データ オブジェクトのプロパティにバインドすることも、インラインでコンテンツを定義することもできます。 DataTemplate は、FlipView の [**ItemTemplate**](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.itemscontrol.itemtemplate.aspx) プロパティに割り当てます。
+既定では、データ項目は、バインドされているデータ オブジェクトの文字列表現としてフリップ ビューに表示されます。 フリップ ビューでの項目の表示方法を正確に指定するには、[**DataTemplate**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.datatemplate) を作成して、個々の項目を表示するために使うコントロールのレイアウトを定義します。 レイアウト内のコントロールは、データ オブジェクトのプロパティにバインドすることも、インラインでコンテンツを定義することもできます。 DataTemplate は、FlipView の [**ItemTemplate**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemtemplate) プロパティに割り当てます。
 
 ### <a name="add-items-to-the-items-collection"></a>Items コレクションへの項目の追加
 
-[  **Items**](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.itemscontrol.items.aspx) コレクションに項目を追加するには、XAML またはコードを使います。 通常、項目が少数で、その項目が変わらず、XAML で簡単に定義できる場合や、実行時にコードで項目を生成する場合は、この方法で項目を追加します。 項目をインラインで定義したフリップ ビューを次に示します。
+[  **Items**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.items) コレクションに項目を追加するには、XAML またはコードを使います。 通常、項目が少数で、その項目が変わらず、XAML で簡単に定義できる場合や、実行時にコードで項目を生成する場合は、この方法で項目を追加します。 項目をインラインで定義したフリップ ビューを次に示します。
 
 ```xaml
 <FlipView x:Name="flipView1">
@@ -84,13 +84,13 @@ flipView1.Items.Add("Item 2");
 stackPanel1.Children.Add(flipView1);
 ```
 
-フリップ ビューに項目を追加すると、追加した項目は [**FlipViewItem**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.flipviewitem.aspx) コンテナーに自動的に設定されます。 項目の表示方法を変更するには、[**ItemContainerStyle**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.itemscontrol.itemcontainerstyle.aspx) プロパティを設定して、項目コンテナーにスタイルを適用します。 
+フリップ ビューに項目を追加すると、追加した項目は [**FlipViewItem**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.FlipViewItem) コンテナーに自動的に設定されます。 項目の表示方法を変更するには、[**ItemContainerStyle**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemcontainerstyle) プロパティを設定して、項目コンテナーにスタイルを適用します。 
 
 XAML で項目を定義すると、定義した項目は Items コレクションに自動的に追加されます。
 
 ### <a name="set-the-items-source"></a>項目ソースの設定
 
-通常、フリップ ビューを使って、データベースやインターネットなどのソースからデータを表示します。 データ ソースからフリップ ビューのデータを設定するには、[**ItemsSource**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.itemscontrol.itemssource.aspx) プロパティをデータ項目のコレクションに設定します。
+通常、フリップ ビューを使って、データベースやインターネットなどのソースからデータを表示します。 データ ソースからフリップ ビューのデータを設定するには、[**ItemsSource**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemssource) プロパティをデータ項目のコレクションに設定します。
 
 以下の例では、コードでコレクションのインスタンスに直接フリップ ビューの ItemsSource を設定しています。
 
@@ -112,7 +112,7 @@ stackPanel1.Children.Add(flipView1);
 
 ItemsSource プロパティを、XAML でコレクションにバインドすることもできます。 詳しくは、「[XAML を使ったデータ バインディング](../../data-binding/data-binding-quickstart.md)」をご覧ください。
 
-ItemsSource が `itemsViewSource` という名前の [**CollectionViewSource**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.data.collectionviewsource.aspx) にバインドされている例を次に示します。 
+ItemsSource が `itemsViewSource` という名前の [**CollectionViewSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.CollectionViewSource) にバインドされている例を次に示します。 
 
 ```xaml
 <Page.Resources>
@@ -130,7 +130,7 @@ ItemsSource が `itemsViewSource` という名前の [**CollectionViewSource**](
 
 ### <a name="specify-the-look-of-the-items"></a>項目の表示方法の指定
 
-既定では、データ項目は、バインドされているデータ オブジェクトの文字列表現としてフリップ ビューに表示されます。 通常は、リッチな表現でデータを表示する必要があります。 フリップ ビューでの項目の表示方法を正確に指定するには、[**DataTemplate**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.datatemplate.aspx) を作成します。 DataTemplate の XAML では、個々の項目を表示するために使うコントロールのレイアウトと外観を定義します。 レイアウト内のコントロールは、データ オブジェクトのプロパティにバインドすることも、インラインでコンテンツを定義することもできます。 DataTemplate は、FlipView の [**ItemTemplate**](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.controls.itemscontrol.itemtemplate.aspx) プロパティに割り当てます。
+既定では、データ項目は、バインドされているデータ オブジェクトの文字列表現としてフリップ ビューに表示されます。 通常は、リッチな表現でデータを表示する必要があります。 フリップ ビューでの項目の表示方法を正確に指定するには、[**DataTemplate**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.DataTemplate) を作成します。 DataTemplate の XAML では、個々の項目を表示するために使うコントロールのレイアウトと外観を定義します。 レイアウト内のコントロールは、データ オブジェクトのプロパティにバインドすることも、インラインでコンテンツを定義することもできます。 DataTemplate は、FlipView の [**ItemTemplate**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemtemplate) プロパティに割り当てます。
 
 この例では、FlipView の ItemTemplate がインラインで定義されています。 画像名を表示するためにオーバーレイが画像に追加されます。 
 
@@ -159,7 +159,7 @@ ItemsSource が `itemsViewSource` という名前の [**CollectionViewSource**](
 
 ### <a name="set-the-orientation-of-the-flip-view"></a>フリップ ビューの向きの設定
 
-既定では、フリップ ビューは横方向にめくれます。 縦方向にめくれるようにするには、フリップ ビューの [**ItemsPanel**](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.itemscontrol.itemspanel.aspx) として縦方向のスタック パネルを使います。
+既定では、フリップ ビューは横方向にめくれます。 縦方向にめくれるようにするには、フリップ ビューの [**ItemsPanel**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemspanel) として縦方向のスタック パネルを使います。
 
 次の例は、FlipView の ItemsPanel として縦方向のスタック パネルを使う方法を示しています。
 
@@ -232,4 +232,4 @@ ItemsSource が `itemsViewSource` という名前の [**CollectionViewSource**](
 ## <a name="related-articles"></a>関連記事
 
 - [リストのガイドライン](lists.md)
-- [**FlipView クラス**](https://msdn.microsoft.com/library/windows/apps/br242678)
+- [**FlipView クラス**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.FlipView)
