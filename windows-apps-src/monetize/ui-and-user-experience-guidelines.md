@@ -6,12 +6,12 @@ ms.date: 05/11/2018
 ms.topic: article
 keywords: Windows 10, UWP, 広告, 宣伝, ガイドライン, ベスト プラクティス
 ms.localizationpriority: medium
-ms.openlocfilehash: 78f044890e49f4631abf710764bc2f9746a1306f
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 7bb187092158386c503b91973d8d63ce291b4760
+ms.sourcegitcommit: c62b260eecd373e57b19a623bae77e29180e0f3d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57639147"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66565514"
 ---
 # <a name="ui-and-user-experience-guidelines-for-ads"></a>広告の UI とユーザー エクスペリエンスのガイドライン
 
@@ -76,6 +76,8 @@ ms.locfileid: "57639147"
 * アプリのコンテキストで実行している Microsoft Advertising ライブラリ以外の手段で広告サービスを呼び出すコードを記述または配布する。
 
 * ドキュメントに記載されていないインターフェイスや、Microsoft Advertising ライブラリで作成された、**WebView** や **MediaElement** などの子オブジェクトを操作する。
+
+* 通常よりもページに広告を許可するには、広告のサイズを小さくための viewbox に広告を配置します。
 
 <span id="interstitialbestpractices10" />
 
