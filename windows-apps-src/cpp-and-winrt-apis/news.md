@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10、uwp、standard、c++、cpp、winrt、プロジェクション、ニュース、ものの新しい
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: a84e118d988d8bf6a7d26eba7d5dd009c7ad44f3
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 11249335f9d29d37bb0824fa779d3ae151c74799
+ms.sourcegitcommit: 1f39b67f2711b96c6b4e7ed7107a9a47127d4e8f
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66360142"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66721654"
 ---
 # <a name="whats-new-in-cwinrt"></a>新しい c++/cli WinRT
 
@@ -160,13 +160,17 @@ C++/WinRT 自体は、実装されているすべての API をこのパター�
 
 `module.g.cpp`今すぐファイルも、という名前の 2 つの追加構成可能なヘルパーを含む**winrt_can_unload_now**、および**winrt_get_activation_factory**します。 これらは、それぞれに独自のランタイム クラス ライブラリ、多数の DLL がここで構成されますが、大規模なプロジェクトの設計されています。 そのような状況で、DLL を手動で合成する必要があります。 **DllGetActivationFactory**と**DllCanUnloadNow**します。 これらのヘルパーを作成すると、見かけ上の実行元のエラーを回避することでは、はるかに簡単です。 `cppwinrt.exe`ツールの`-lib`フラグが、独自のプリアンブルごとの個々 の lib を提供することも可能性があります (なく`winrt_xxx`) できるように、各ライブラリの関数で個別に名前付きの場合、明確に組み合わせてしたがって可能性があります。
 
-#### <a name="new-winrtcoroutineh-header"></a>新しい`winrt/coroutine.h`ヘッダー
+#### <a name="coroutine-support"></a>コルーチンのサポート
 
-`winrt/coroutine.h`ヘッダーがすべての新しいホームC++/WinRT のコルーチンのサポート。 このサポート、いくつかの場所に存在していた以前とこれが限定的すぎます。 現在ある手作業で記述されたのではなく、Windows ランタイムの非同期インターフェイスが生成されるようになりましたので`winrt/Windows.Foundation.h`します。 サポート可能と保守が容易なであるとは別に意味するコルーチンなどのヘルパー [ **resume_foreground** ](/uwp/cpp-ref-for-winrt/resume-foreground)に数行の特定の名前空間のヘッダーの末尾が不要になった。 代わりに、その依存関係より自然含めることができます。 これにより、さらに**resume_foreground**だけでなくの再開をサポートするために、指定された[ **Windows::UI::Core::CoreDispatcher**](/uwp/api/windows.ui.core.coredispatcher)ができるようになりましたもサポートの再開を指定[ **Windows::System::DispatcherQueue**](/uwp/api/windows.system.dispatcherqueue)します。 以前は、1 つのみをサポートできます。両方ではなく、定義は、1 つの名前空間にのみ存在でしたので。
+コルーチンのサポートは、自動的に含まれています。 複数の場所で以前に、存在していた、サポートとこれが限定的すぎます。 V2.0 では、一時的にし、`winrt/coroutine.h`ヘッダー ファイルは、必要に応じてがする必要がなくなった。 現在ある手作業で記述されたのではなく、Windows ランタイムの非同期インターフェイスが生成されるようになりましたので`winrt/Windows.Foundation.h`します。 サポート可能と保守が容易なであるとは別に意味するコルーチンなどのヘルパー [ **resume_foreground** ](/uwp/cpp-ref-for-winrt/resume-foreground)に数行の特定の名前空間のヘッダーの末尾が不要になった。 代わりに、その依存関係より自然含めることができます。 これにより、さらに**resume_foreground**だけでなくの再開をサポートするために、指定された[ **Windows::UI::Core::CoreDispatcher**](/uwp/api/windows.ui.core.coredispatcher)ができるようになりましたもサポートの再開を指定[ **Windows::System::DispatcherQueue**](/uwp/api/windows.system.dispatcherqueue)します。 以前は、1 つのみをサポートできます。両方ではなく、定義は、1 つの名前空間にのみ存在でしたので。
 
 次の例に示します、 **DispatcherQueue**をサポートします。
 
 ```cppwinrt
+...
+#include <winrt/Windows.System.h>
+using namespace Windows::System;
+...
 fire_and_forget Async(DispatcherQueueController controller)
 {
     bool queued = co_await resume_foreground(controller.DispatcherQueue());

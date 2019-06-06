@@ -1,23 +1,23 @@
 ---
 description: C++/WinRT の使用をすぐに開始できるように、このトピックでは、単純なコード例について説明します。
 title: C++/WinRT の使用を開始する
-ms.date: 04/03/2019
+ms.date: 04/18/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 取得, 取得, 開始
 ms.localizationpriority: medium
-ms.openlocfilehash: 4928540d9b6e7e1c3df67f7c247aa3664618a65c
-ms.sourcegitcommit: c315ec3e17489aeee19f5095ec4af613ad2837e1
+ms.openlocfilehash: 64104124a6342da3f6963c61bafc871838fd00f6
+ms.sourcegitcommit: 1f39b67f2711b96c6b4e7ed7107a9a47127d4e8f
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58921688"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66721681"
 ---
 # <a name="get-started-with-cwinrt"></a>C++/WinRT の使用を開始する
 
 使用して短縮にするため[C +/cli WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt)、このトピックでは、新しいに基づいて単純なコード例によって説明**Windows コンソール アプリケーション (C +/cli WinRT)** プロジェクト。 このトピックで説明する方法[追加 C +/cli WinRT サポートし、Windows デスクトップ アプリケーション プロジェクトに](#modify-a-windows-desktop-application-project-to-add-cwinrt-support)します。
 
-> [!IMPORTANT]
-> Visual Studio 2017 を使用している場合 (バージョン 15.8.0 またはそれ以降)、し、新しく作成した Windows SDK バージョン 10.0.17134.0 (Windows 10、バージョン 1803) を対象としてC++WinRT プロジェクトがエラーでコンパイルに失敗する可能性があります/"*エラー C3861: 'from_abi'。識別子が見つかりません*"、発信元がその他のエラーの*base.h*します。 いずれかのターゲットに以降 (詳細について準拠) は、ソリューションのバージョンの Windows SDK、またはプロジェクトのプロパティを設定**C/C++** > **言語** > **準拠モード。いいえ**(また場合、 **/permissive -** プロジェクト プロパティに表示されます**C/C++** > **言語** > **コマンドライン** **追加オプション**から削除します)。
+> [!NOTE]
+> 推奨しています、最新バージョンの Visual Studio と、Windows SDK で開発する Visual Studio 2017 を使用している場合 (バージョン 15.8.0 またはそれ以降)、Windows SDK バージョン (Windows 10、バージョン 1803) 10.0.17134.0C++WinRT プロジェクトがエラーでコンパイルに失敗する可能性があります/"*エラー C3861: 'from_abi': 識別子が見つかりません*"、発信元がその他のエラーの*base.h*します。 いずれかのターゲットに以降 (詳細について準拠) は、ソリューションのバージョンの Windows SDK、またはプロジェクトのプロパティを設定**C/C++**  > **言語** > **準拠モード。いいえ**(また場合、 **/permissive -** プロジェクト プロパティに表示されます**C/C++**  > **言語** > **コマンドライン** **追加オプション**から削除します)。
 
 ## <a name="a-cwinrt-quick-start"></a>C++/WinRT のクイックスタート
 
@@ -30,11 +30,10 @@ ms.locfileid: "58921688"
 
 ```cppwinrt
 // pch.h
-...
-#include <iostream>
+#pragma once
 #include <winrt/Windows.Foundation.Collections.h>
 #include <winrt/Windows.Web.Syndication.h>
-...
+#include <iostream>
 ```
 
 ```cppwinrt
@@ -67,10 +66,12 @@ int main()
 #include <winrt/Windows.Web.Syndication.h>
 ```
 
-インクルードするヘッダーは SDK に含まれるもので、`%WindowsSdkDir%Include<WindowsTargetPlatformVersion>\cppwinrt\winrt` フォルダー内にあります。 Visual Studio には、その *IncludePath* マクロにそのパスが含まれています。 このヘッダーには、C++/WinRT に投影された Windows API が含まれます。 つまり、Windows の種類ごとに、C++/WinRT は C++ 対応の同等の型 (*投影された型*と呼ばれます) を定義します。 投影された型には Windows の型と同じ完全修飾名がありますが、C++ **winrt** 名前空間に配置されます。 これらのインクルードをプリコンパイル済みヘッダーに配置すると、段階的なビルド時間が短縮されます。
+プロジェクトの既定の設定に含まれるヘッダーはフォルダー内で、Windows SDK から取得`%WindowsSdkDir%Include<WindowsTargetPlatformVersion>\cppwinrt\winrt`します。 Visual Studio には、その *IncludePath* マクロにそのパスが含まれています。 ありません。 厳密な依存関係、Windows SDK には、プロジェクト (を使用して、`cppwinrt.exe`ツール) に、プロジェクトのこれらの同じヘッダーが生成されます *$(GeneratedFilesDir)* フォルダー。 他の場所で検出できない場合、またはプロジェクト設定を変更する場合は、そのフォルダーから読み込まれたはなります。
+
+このヘッダーには、C++/WinRT に投影された Windows API が含まれます。 つまり、Windows の種類ごとに、C++/WinRT は C++ 対応の同等の型 (*投影された型*と呼ばれます) を定義します。 投影された型には Windows の型と同じ完全修飾名がありますが、C++ **winrt** 名前空間に配置されます。 これらのインクルードをプリコンパイル済みヘッダーに配置すると、段階的なビルド時間が短縮されます。
 
 > [!IMPORTANT]
-> Windows 名前空間から型を使用する場合は、次に示すように、対応する C++/WinRT Windows 名前空間ヘッダー ファイルを含めます。 *対応する*ヘッダーは、その型の名前空間と同じ名前を持つヘッダーです。 たとえば、C++/WinRT プロジェクションを [**Windows::Foundation::Collections::PropertySet**](/uwp/api/windows.foundation.collections.propertyset) ランタイム クラスに使用するには、`#include <winrt/Windows.Foundation.Collections.h>` を指定します。
+> Windows 名前空間から型を使用する場合に、対応するC++WinRT Windows 名前空間のヘッダー ファイル、上記のようです。 *対応する*ヘッダーは、その型の名前空間と同じ名前を持つヘッダーです。 たとえば、C++/WinRT プロジェクションを [**Windows::Foundation::Collections::PropertySet**](/uwp/api/windows.foundation.collections.propertyset) ランタイム クラスに使用するには、`#include <winrt/Windows.Foundation.Collections.h>` を指定します。 含める場合`winrt/Windows.Foundation.Collections.h`、そうしないと、*も*を含める必要がある`winrt/Windows.Foundation.h`します。 各C++/WinRT プロジェクション ヘッダーには、その親名前空間のヘッダー ファイルには自動的が含まれていますないように*必要*を明示的に追加します。 ただし、含めてもエラーは発生しません。
 
 ```cppwinrt
 using namespace winrt;
@@ -84,7 +85,7 @@ using namespace Windows::Web::Syndication;
 winrt::init_apartment();
 ```
 
-**winrt::init_apartment** への呼び出しにより、既定では、マルチスレッド アパートメントで COM が初期化されます。
+呼び出し**winrt::init_apartment** Windows ランタイムでは、既定では、マルチ スレッド アパートメントにスレッドを初期化します。 呼び出しも COM を初期化します。
 
 ```cppwinrt
 Uri rssFeedUri{ L"https://blogs.windows.com/feed" };
@@ -103,7 +104,7 @@ SyndicationFeed syndicationFeed = syndicationClient.RetrieveFeedAsync(rssFeedUri
 for (const SyndicationItem syndicationItem : syndicationFeed.Items()) { ... }
 ```
 
-[**SyndicationFeed.Items** ](/uwp/api/windows.web.syndication.syndicationfeed.items)から返された反復子によって定義された範囲は、**開始**と**エンド**関数 (または、定数、反転、および定数反転のバリアント)。 このため、範囲ベースの `for` ステートメント、または **std::for_each** テンプレート関数とともに **Items** を列挙できます。
+[**SyndicationFeed.Items** ](/uwp/api/windows.web.syndication.syndicationfeed.items)から返された反復子によって定義された範囲は、**開始**と**エンド**関数 (または、定数、反転、および定数反転のバリアント)。 このため、範囲ベースの `for` ステートメント、または **std::for_each** テンプレート関数とともに **Items** を列挙できます。 このような Windows ランタイムのコレクションを反復処理するたびにする必要があります`#include <winrt/Windows.Foundation.Collections.h>`します。
 
 ```cppwinrt
 winrt::hstring titleAsHstring = syndicationItem.Title().Text();
@@ -128,11 +129,11 @@ HRESULT リターン コードを処理する必要もありません。 C++/Win
 
 発生していないを確認[自分の新しいプロジェクトがコンパイルされない理由ですか?](/windows/uwp/cpp-and-winrt-apis/faq)します。
 
-C++WinRT c++ 17 標準的な設定プロジェクト プロパティから機能を使用して**C/C++** > **言語** >   **C++言語標準**に*ISO c++ 17 標準 (//std:c + + 17)* します。
+C++WinRT c++ 17 標準的な設定プロジェクト プロパティから機能を使用して**C/C++**  > **言語** >   **C++言語標準**に*ISO c++ 17 標準 (//std:c + + 17)* します。
 
 ### <a name="the-precompiled-header"></a>プリコンパイル済みヘッダー
 
-既定のプロジェクト テンプレートがという名前のプリコンパイル済みヘッダーを作成します`framework.h`、または`stdafx.h`します。 名前を変更する`pch.h`します。 ある場合、`stdafx.cpp`ファイルをその名前を変更して`pch.cpp`します。 プロジェクトのプロパティを設定**C/C++** > **プリコンパイル済みヘッダー** > **プリコンパイル済みヘッダー ファイル**に*pch.h*します。
+既定のプロジェクト テンプレートがという名前のプリコンパイル済みヘッダーを作成します`framework.h`、または`stdafx.h`します。 名前を変更する`pch.h`します。 ある場合、`stdafx.cpp`ファイルをその名前を変更して`pch.cpp`します。 プロジェクトのプロパティを設定**C/C++**  > **プリコンパイル済みヘッダー** > **プリコンパイル済みヘッダーの**に*作成する (/Yc)* 、および**プリコンパイル済みヘッダー ファイル**に*pch.h*します。
 
 検索し、置換すべて`#include "framework.h"`(または`#include "stdafx.h"`) と`#include "pch.h"`します。
 
@@ -148,7 +149,7 @@ C++WinRT c++ 17 標準的な設定プロジェクト プロパティから機能
 
 C++/cli へのリンクは WinRT 言語プロジェクションは、特定の (メンバーではない) 関数の無料で Windows ランタイム、およびエントリ ポイントに依存するを必要と、 [WindowsApp.lib](/uwp/win32-and-com/win32-apis)包括的なライブラリ。 このセクションでは、リンカーが満たされる 3 つの方法について説明します。
 
-最初のオプションは、Visual Studio に追加するプロジェクトのすべての c++/cli WinRT MSBuild プロパティとターゲット。 これを行うには、インストール、 [Microsoft.Windows.CppWinRT NuGet パッケージ](https://www.nuget.org/packages/Microsoft.Windows.CppWinRT/)をプロジェクトにします。 開いている Visual Studio でプロジェクトをクリックして**プロジェクト** \> **NuGet パッケージの管理.**\> **[参照]** 入力するか貼り付けて**Microsoft.Windows.CppWinRT**検索ボックスに、検索結果の項目を選択し、順にクリックします**インストール**そのプロジェクトのパッケージをインストールします。
+最初のオプションは、Visual Studio に追加するプロジェクトのすべての c++/cli WinRT MSBuild プロパティとターゲット。 これを行うには、インストール、 [Microsoft.Windows.CppWinRT NuGet パッケージ](https://www.nuget.org/packages/Microsoft.Windows.CppWinRT/)をプロジェクトにします。 開いている Visual Studio でプロジェクトをクリックして**プロジェクト** \> **NuGet パッケージの管理.** \> **[参照]** 入力するか貼り付けて**Microsoft.Windows.CppWinRT**検索ボックスに、検索結果の項目を選択し、順にクリックします**インストール**そのプロジェクトのパッケージをインストールします。
 
 明示的にリンクするプロジェクト リンクの設定を使用することもできます。`WindowsApp.lib`します。 または、ソース コードで行うことができます (で`pch.h`など) のようです。
 
@@ -170,4 +171,4 @@ C++/cli へのリンクは WinRT 言語プロジェクションは、特定の (
 * [C++/WinRT と C++/CX 間の相互運用](interop-winrt-cx.md)
 * [C++/WinRT と ABI 間の相互運用](interop-winrt-abi.md)
 * [C++/CX から C++/WinRT への移行](move-to-winrt-from-cx.md)
-* [C++/WinRT での文字列の処理](strings.md)
+* [文字列処理 c++/cli WinRT](strings.md)

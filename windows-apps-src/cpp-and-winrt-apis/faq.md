@@ -5,12 +5,12 @@ ms.date: 04/23/2019
 ms.topic: article
 keywords: wwindows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 頻繁, 質問, 質問, faq
 ms.localizationpriority: medium
-ms.openlocfilehash: 7ac7f8e46974b7c12b42f6d6f94052e61902b240
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 914cf884b97d14af523cc61b0fcce719104783ba
+ms.sourcegitcommit: 1f39b67f2711b96c6b4e7ed7107a9a47127d4e8f
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66360249"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66721687"
 ---
 # <a name="frequently-asked-questions-about-cwinrt"></a>C++/WinRT についてよく寄せられる質問
 作成と使用の Windows ランタイム Api を利用する可能性がある質問の回答を[C +/cli WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt)します。
@@ -22,7 +22,7 @@ ms.locfileid: "66360249"
 参照してください[方法の再ターゲットすると、C +/cli WinRT プロジェクトは、以降のバージョンの Windows SDK を](news.md#how-to-retarget-your-cwinrt-project-to-a-later-version-of-the-windows-sdk)します。
 
 ## <a name="why-wont-my-new-project-compile-now-that-ive-moved-to-cwinrt-20"></a>なぜ自分の新しいプロジェクトはコンパイルされませんに移動しているようになりましたC++WinRT 2.0 でしょうか。
-変更 (重大な変更を含む) の完全なセット、次を参照してください。[ニュース、および変更でC++WinRT 2.0](news.md#news-and-changes-in-cwinrt-20)します。 たとえば、コルーチンのサポート (ようコルーチンのヘルパーを含む**winrt::resume_background**、 **winrt::resume_foreground**、および**winrt::resume_on_signal**)、する必要があります`#include <winrt/coroutine.h>`します。 範囲ベースを使用している場合`for`Windows ランタイムで、今すぐする必要があります`#include <winrt/Windows.Foundation.Collections.h>`します。
+変更 (重大な変更を含む) の完全なセット、次を参照してください。[ニュース、および変更でC++WinRT 2.0](news.md#news-and-changes-in-cwinrt-20)します。 たとえば、範囲ベースを使用している`for`Windows ランタイムで、今すぐする必要があります`#include <winrt/Windows.Foundation.Collections.h>`します。
 
 ## <a name="why-wont-my-new-project-compile-im-using-visual-studio-2017-version-1580-or-higher-and-sdk-version-17134"></a>新しいプロジェクトがコンパイルされません。 Visual Studio 2017 を使用している (15.8.0 バージョンまたはそれ以降)、および SDK version 17134
 Visual Studio 2017 を使用している場合 (バージョン 15.8.0 またはそれ以降)、し、新しく作成した Windows SDK バージョン 10.0.17134.0 (Windows 10、バージョン 1803) を対象としてC++WinRT プロジェクトがエラーでコンパイルに失敗する可能性があります/"*エラー C3861: 'from_abi'。識別子が見つかりません*"、発信元がその他のエラーの*base.h*します。 いずれかのターゲットに以降 (詳細について準拠) は、ソリューションのバージョンの Windows SDK、またはプロジェクトのプロパティを設定**C/C++**  > **言語** > **準拠モード。いいえ**(また場合、 **/permissive -** プロジェクト プロパティに表示されます**C/C++**  > **コマンド ライン** **追加のオプション**から削除します)。

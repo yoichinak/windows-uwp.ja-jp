@@ -5,12 +5,12 @@ ms.date: 04/24/2019
 ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、同時実行、非同期、非同期、非同期操作
 ms.localizationpriority: medium
-ms.openlocfilehash: 5dba97ede63b1bcb85c4ee1807d5558f4c93834a
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 910d7a7ca2aaebac6dd462d7104b26a989cf8814
+ms.sourcegitcommit: 1f39b67f2711b96c6b4e7ed7107a9a47127d4e8f
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66361211"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66721661"
 ---
 # <a name="concurrency-and-asynchronous-operations-with-cwinrt"></a>C++/WinRT を使用した同時実行操作と非同期操作
 
@@ -63,9 +63,6 @@ int main()
 
 ## <a name="write-a-coroutine"></a>コルーチンの作成
 
-> [!IMPORTANT]
-> としての[ C++WinRT 2.0](news.md#news-and-changes-in-cwinrt-20)、必ず`#include <winrt/coroutine.h>`たびに作成または、コルーチンを使用します。
-
 C++/WinRT は C++ コルーチンをプログラミング モデルに統合し、結果を連携して待機するための自然な方法を提供します。 コルーチンを作成すると、独自の Windows ランタイム非同期操作を作成することができます。 次のコード例で、**ProcessFeedAsync** はコルーチンします。
 
 > [!NOTE]
@@ -74,7 +71,6 @@ C++/WinRT は C++ コルーチンをプログラミング モデルに統合し�
 ```cppwinrt
 // main.cpp
 #include <iostream>
-#include <winrt/coroutine.h>
 #include <winrt/Windows.Foundation.Collections.h>
 #include <winrt/Windows.Web.Syndication.h>
 
@@ -121,7 +117,6 @@ int main()
 ```cppwinrt
 // main.cpp
 #include <iostream>
-#include <winrt/coroutine.h>
 #include <winrt/Windows.Foundation.Collections.h>
 #include <winrt/Windows.Web.Syndication.h>
 
@@ -161,9 +156,6 @@ Windows ランタイム型を非同期的に返す場合は、[**IAsyncOperation
 コルーチンに 1 つ以上の `co_await` ステートメントがない場合、コルーチンであると認められるために、1 つ以上の `co_return` または 1 つの `co_yield` ステートメントが必要です。 非同期操作を必要とせず、そのためにコンテキストのブロックや切り替えを行わずに、コルーチンが値を返すことができる場合があります。 値をキャッシュすることでそれを行う例を次に示します (2 回目以降は呼び出されます)。
 
 ```cppwinrt
-...
-#include <winrt/coroutine.h>
-...
 winrt::hstring m_cache;
 
 IAsyncOperation<winrt::hstring> ReadAsync()
@@ -227,9 +219,6 @@ void DoWork(Param const& value);
 ただし、コルーチンに参照パラメーターを渡した場合、問題が発生する可能性があります。
 
 ```cppwinrt
-...
-#include <winrt/coroutine.h>
-...
 // NOT the recommended way to pass a value to a coroutine!
 IASyncAction DoWorkAsync(Param const& value)
 {
@@ -266,9 +255,6 @@ IASyncAction DoWorkAsync(Param const value);
 実装で使用されているスレッド プールは低レベルの [Windows スレッド プール](https://docs.microsoft.com/windows/desktop/ProcThread/thread-pool-api)であるため、最適に効率化されます。
 
 ```cppwinrt
-...
-#include <winrt/coroutine.h>
-...
 IAsyncOperation<uint32_t> DoWorkOnThreadPoolAsync()
 {
     co_await winrt::resume_background(); // Return control; resume on thread pool.
@@ -288,9 +274,6 @@ IAsyncOperation<uint32_t> DoWorkOnThreadPoolAsync()
 このシナリオは、前のシナリオをさらに詳しく説明しています。 一部の処理をスレッド プールにオフロードするが、ユーザー インターフェイス (UI) で進行状況を表示したいとします。
 
 ```cppwinrt
-...
-#include <winrt/coroutine.h>
-...
 IAsyncAction DoWorkAsync(TextBlock textblock)
 {
     co_await winrt::resume_background();
@@ -303,9 +286,6 @@ IAsyncAction DoWorkAsync(TextBlock textblock)
 上のコードは、[**winrt::hresult_wrong_thread**](/uwp/cpp-ref-for-winrt/error-handling/hresult-wrong-thread) 例外をスローします。これは、**TextBlock** がそれを作成したスレッド (UI スレッド) から更新する必要があるためです。 1 つの解決方法は、コルーチンが最初に呼び出されたスレッド コンテキストをキャプチャする方法です。 インスタンス化、 [ **winrt::apartment_context** ](/uwp/cpp-ref-for-winrt/apartment-context)オブジェクト、バック グラウンド作業をし`co_await`、 **apartment_context**呼び出し元に戻すコンテキスト。
 
 ```cppwinrt
-...
-#include <winrt/coroutine.h>
-...
 IAsyncAction DoWorkAsync(TextBlock textblock)
 {
     winrt::apartment_context ui_thread; // Capture calling context.
@@ -324,9 +304,6 @@ IAsyncAction DoWorkAsync(TextBlock textblock)
 一般的なソリューションは、呼び出し元のスレッドが不明確していない場合を対象とする、UI を更新することができます`co_await`、 [ **winrt::resume_foreground** ](/uwp/cpp-ref-for-winrt/resume-foreground)スイッチを特定する関数フォア グラウンド スレッドです。 次のコード例では、([**Dispatcher**](/uwp/api/windows.ui.xaml.dependencyobject.dispatcher#Windows_UI_Xaml_DependencyObject_Dispatcher) プロパティにアクセスして) **TextBlock** に関連するディスパッチャー オブジェクトを渡すことでフォアグラウンド スレッドを指定しています。 **winrt::resume_foreground** の実装では、そのディスパッチャー オブジェクトで [**CoreDispatcher.RunAsync**](/uwp/api/windows.ui.core.coredispatcher.runasync) を呼び出し、コルーチンでその後に続く処理を実行しています。
 
 ```cppwinrt
-...
-#include <winrt/coroutine.h>
-...
 IAsyncAction DoWorkAsync(TextBlock textblock)
 {
     co_await winrt::resume_background();
@@ -345,9 +322,6 @@ IAsyncAction DoWorkAsync(TextBlock textblock)
 場合する`co_await`4 つの Windows ランタイムの非同期操作の種類のいずれか (**IAsyncXxx**)、し、C++/cli WinRT はポイントで呼び出し元のコンテキストをキャプチャする`co_await`します。 および継続タスクを再開したとき、そのコンテキストにまだ残っていることになります。 C +/cli WinRT は呼び出し元のコンテキストに既にいるかどうかをチェックし、そうでない場合は、これに切り替えることによって。 したかどうかは、前に、シングル スレッド アパートメント (STA) スレッドで`co_await`、ことと同じものに後で; したかどうかは、前に、マルチ スレッド アパートメント (MTA) スレッドで`co_await`、後でいずれかにあります。
 
 ```cppwinrt
-...
-#include <winrt/coroutine.h>
-...
 IAsyncAction ProcessFeedAsync()
 {
     Uri rssFeedUri{ L"https://blogs.windows.com/feed" };
@@ -362,9 +336,6 @@ IAsyncAction ProcessFeedAsync()
 この動作に依存できる理由は、ためには C +/cli WinRT C++ コルーチンの言語サポート (これらのコードは待機のアダプターで呼ばれます) に、Windows ランタイム非同期操作の種類を調整するためのコードを提供します。 残りの待機可能な型に C +/cli WinRT はスレッド プール ラッパーやヘルパー。そのため、スレッド プールで完了します。
 
 ```cppwinrt
-...
-#include <winrt/coroutine.h>
-...
 using namespace std::chrono;
 IAsyncOperation<int> return_123_after_5s()
 {
@@ -380,9 +351,6 @@ IAsyncOperation<int> return_123_after_5s()
 コンテキストの切り替えを最小値までを保持するには、このトピックで前述したよう手法の一部を使用できます。 これを行うのいくつかの図を見てみましょう。 この次の擬似コードの例では、イベント ハンドラー、イメージを読み込むための Windows ランタイム API を呼び出すし、そのイメージを処理するバック グラウンド スレッドにドロップし、UI でイメージを表示する UI スレッドに戻りますのアウトラインを説明します。
 
 ```cppwinrt
-...
-#include <winrt/coroutine.h>
-...
 IAsyncAction MainPage::ClickHandler(IInspectable /* sender */, RoutedEventArgs /* args */)
 {
     // We begin in the UI context.
@@ -408,9 +376,6 @@ IAsyncAction MainPage::ClickHandler(IInspectable /* sender */, RoutedEventArgs /
 このシナリオでは、少し呼び出しの周囲の ineffiency **StorageFile::OpenAsync**します。 背景に必要なコンテキスト スイッチがある (そのハンドラーは、実行を呼び出し元に戻すことができる) スレッド、再開後にどの C +/cli WinRT が UI スレッドのコンテキストを復元します。 しかし、ここでは、UI を更新しようとしていることになるまで、UI スレッド上に存在する必要はありません。 いわゆる複数の Windows ランタイム Api*する前に*への呼び出しを**winrt::resume_background**より不要な - 前後のコンテキスト スイッチが発生しています。 ソリューションは呼び出す*任意*その前に、Windows ランタイム Api です。 すべての後に移動、 **winrt::resume_background**します。
 
 ```cppwinrt
-...
-#include <winrt/coroutine.h>
-...
 IAsyncAction MainPage::ClickHandler(IInspectable /* sender */, RoutedEventArgs /* args */)
 {
     // We begin in the UI context.
@@ -437,9 +402,6 @@ IAsyncAction MainPage::ClickHandler(IInspectable /* sender */, RoutedEventArgs /
 > 教育目的のみで、次のコード例が提供されます。作業を開始するのには理解がどのアダプターの連携を待機します。 開発および、独自にテストすることをお勧めし、独自のコードベースでは、この手法を使用する場合は、アダプター struct(s) を待機します。 たとえば、作成する**complete_on_any**、 **complete_on_current**、および**complete_on(dispatcher)** します。 受け取るテンプレートにすることも検討、 **IAsyncXxx**型テンプレート パラメーターとして。
 
 ```cppwinrt
-...
-#include <winrt/coroutine.h>
-...
 struct no_switch
 {
     no_switch(Windows::Foundation::IAsyncAction const& async) : m_async(async)
@@ -472,9 +434,6 @@ private:
 使用する方法を理解する、**切り替え**await アダプター、することを確認する必要がありますのではまず、C++コンパイラが検出、`co_await`呼び出された関数が検索式**await_ready**、**await_suspend**、および**await_resume**します。 C++/cli WinRT ライブラリは、既定では、このような適切な動作を取得するためにこれらの関数を提供します。
 
 ```cppwinrt
-...
-#include <winrt/coroutine.h>
-...
 IAsyncAction async{ ProcessFeedAsync() };
 co_await async;
 ```
@@ -482,9 +441,6 @@ co_await async;
 使用する、**切り替え**await アダプター、その型を変更するだけ`co_await`から式**IAsyncXxx**に**切り替え**、次のようにします。
 
 ```cppwinrt
-...
-#include <winrt/coroutine.h>
-...
 IAsyncAction async{ ProcessFeedAsync() };
 co_await static_cast<no_switch>(async);
 ```
@@ -504,7 +460,6 @@ co_await static_cast<no_switch>(async);
 
 // MainPage.h
 ...
-#include <winrt/coroutine.h>
 #include <winrt/Windows.Foundation.Collections.h>
 #include <winrt/Windows.Storage.Search.h>
 
@@ -558,7 +513,6 @@ private:
 ```cppwinrt
 // main.cpp
 #include <iostream>
-#include <winrt/coroutine.h>
 #include <winrt/Windows.Foundation.h>
 
 using namespace winrt;
@@ -595,9 +549,6 @@ int main()
 そのため、別のオプションは、コルーチン内からのキャンセルを明示的にポーリングします。 以下のリスト内のコードでは、上記の例を更新します。 この新しい例では**ExplicitCancellationAsync**によって返されるオブジェクトを取得、 [ **winrt::get_cancellation_token** ](/uwp/cpp-ref-for-winrt/get-cancellation-token)関数は、オブジェクトを定期的に使用してコルーチンが取り消されたかどうかを確認します。 コルーチンが無制限にループ処理が取り消されない限り、キャンセルすると、ループ、関数は、通常どおりに終了します。 結果は、ここで終了するが、前の例では、明示的が行われるため、管理下にある同じです。
 
 ```cppwinrt
-...
-#include <winrt/coroutine.h>
-...
 IAsyncAction ExplicitCancellationAsync()
 {
     auto cancellation_token{ co_await winrt::get_cancellation_token() };
@@ -629,7 +580,6 @@ Windows ランタイムの取り消しは、その他の非同期オブジェク
 ```cppwinrt
 // main.cpp
 #include <iostream>
-#include <winrt/coroutine.h>
 #include <winrt/Windows.Foundation.h>
 
 using namespace winrt;
@@ -681,7 +631,6 @@ int main()
 ```cppwinrt
 // main.cpp
 #include <iostream>
-#include <winrt/coroutine.h>
 #include <winrt/Windows.Foundation.h>
 
 using namespace winrt;
@@ -757,7 +706,6 @@ double pi{ co_await async_op_with_progress };
 
 ```cppwinrt
 // main.cpp
-#include <winrt/coroutine.h>
 #include <winrt/Windows.Foundation.h>
 
 using namespace winrt;
