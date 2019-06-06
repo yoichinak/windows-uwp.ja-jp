@@ -5,12 +5,12 @@ ms.date: 04/23/2019
 ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、トラブルシューティング、HRESULT、エラー
 ms.localizationpriority: medium
-ms.openlocfilehash: 3fe67fd0593c9c1f605a5d1cc7418c348b6ca9c3
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 563545e8a819ab6af5bbc0604c18b4833d76bebb
+ms.sourcegitcommit: 1f39b67f2711b96c6b4e7ed7107a9a47127d4e8f
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66360096"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66721666"
 ---
 # <a name="troubleshooting-cwinrt-issues"></a>C++/WinRT に関する問題のトラブルシューティング
 
@@ -51,8 +51,7 @@ XAML 解析例外は診断が難しい場合があります。特に、わかり
 | C++ コンパイラは"*エラー C2039:'IUnknown': のメンバーではない '\`グローバル名前空間'* "。 | 参照してください[方法の再ターゲットすると、C +/cli WinRT プロジェクトは、以降のバージョンの Windows SDK を](news.md#how-to-retarget-your-cwinrt-project-to-a-later-version-of-the-windows-sdk)します。 |
 | C++ リンカーの生成"*エラー LNK2019: 未解決の外部シンボル_WINRT_CanUnloadNow@0関数で参照されている_VSDesignerCanUnloadNow@0* " | 参照してください[方法の再ターゲットすると、C +/cli WinRT プロジェクトは、以降のバージョンの Windows SDK を](news.md#how-to-retarget-your-cwinrt-project-to-a-later-version-of-the-windows-sdk)します。 |
 | ビルド プロセスには、エラー メッセージが生成される*C+/cli WinRT VSIX プロジェクトのビルドのサポートは提供されなくなりました。Microsoft.Windows.CppWinRT Nuget パッケージへの参照をプロジェクトに追加してください*します。 | インストール、 **Microsoft.Windows.CppWinRT**をプロジェクトに NuGet パッケージ。 詳細については、次を参照してください。 [VSIX 拡張機能の以前のバージョン](intro-to-using-cpp-with-winrt.md#earlier-versions-of-the-vsix-extension)します。 |
-| C++コンパイラに関するエラー メッセージを生成する *'std::experimental'* 、フォームのエラーや*エラー C3861: 'resume_background': 識別子が見つかりません*します。 | [ C++WinRT 2.0](news.md#news-and-changes-in-cwinrt-20)、コルーチンのサポートの (ようコルーチンのヘルパーを含む**winrt::resume_background**、 **winrt::resume_foreground**、および**winrt::resume_on_signal**)、する必要があります`#include <winrt/coroutine.h>`します。 |
-| C++リンカーは生成*エラー LNK2019: 未解決の外部シンボル*のメンションを*winrt::impl::consume_Windows_Foundation_Collections_IVector*します。 | [ C++WinRT 2.0](news.md#news-and-changes-in-cwinrt-20)範囲ベースを使用している場合は、 `for` Windows ランタイムで、[今すぐする必要があります`#include <winrt/Windows.Foundation.Collections.h>`します。 |
+| C++リンカーは生成*エラー LNK2019: 未解決の外部シンボル*のメンションを*winrt::impl::consume_Windows_Foundation_Collections_IVector*します。 | [ C++WinRT 2.0](news.md#news-and-changes-in-cwinrt-20)範囲ベースを使用している場合は、 `for` Windows ランタイムで、今すぐする必要があります`#include <winrt/Windows.Foundation.Collections.h>`します。 |
 
 > [!NOTE]
 > このトピックでは、質問に答えしていないかどうかを参照してくださいヘルプを見つけることがあります、[開発者コミュニティの Visual Studio C](https://developercommunity.visualstudio.com/spaces/62/index.html)、またはを使用して、 [ `c++-winrt` Stack Overflow でタグ付け](https://stackoverflow.com/questions/tagged/c%2b%2b-winrt)します。
