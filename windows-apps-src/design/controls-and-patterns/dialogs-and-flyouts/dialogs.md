@@ -12,12 +12,12 @@ design-contact: kimsea
 dev-contact: niallm
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: bee954cba446ac7dc7eb41622d9275b3b73af6ee
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 1277d9089e900451ac4c537805079ff479f808fa
+ms.sourcegitcommit: f47620e72ff8127fae9b024c70ddced3a5c45d91
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57621837"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66748454"
 ---
 # <a name="dialog-controls"></a>ダイアログ コントロール
 
@@ -250,9 +250,37 @@ private async void DisplaySubscribeDialog()
 
 > 一部のプラットフォームでは、左側ではなく、右側に確認ボタンが配置されます。 それでは、左側に確認ボタンを配置するのはなぜでしょうか。  ユーザーの大部分が右利きであり、右手でスマートフォンを保持すると想定した場合、実際に確認ボタンが左側にある方がボタンを押しやすくなります。これは、ボタンがユーザーの親指が描く円弧上にある可能性が高くなるためです。画面の右側にボタンがある場合、ユーザーは親指を内側に引いて操作しにくい位置に移動する必要があります。
 
+## <a name="contentdialog-in-appwindow-or-xaml-islands"></a>ContentDialog AppWindow または Xaml 諸島
 
+> 注: このセクションでは、Windows 10、バージョンが 1903 またはそれ以降を対象とするアプリにのみ適用されます。 AppWindow および XAML 諸島では、以前のバージョンでは使用できません。 バージョン管理の詳細については、次を参照してください。[バージョン アダプティブ アプリ](../../../debug-test-perf/version-adaptive-apps.md)します。
 
+既定では、コンテンツのルートに対する相対ダイアログがモーダルで表示して[ApplicationView](/uwp/api/windows.ui.viewmanagement.applicationview)します。 ContentDialog いずれかの内部で使用すると、 [AppWindow](/uwp/api/windows.ui.windowmanagement.appwindow)または[XAML 島](/apps/desktop/modernize/xaml-islands)、手動で設定する必要がある、 [XamlRoot](/uwp/api/windows.ui.xaml.uielement.xamlroot) XAML ホストのルートにダイアログ。
 
+これを行うには、次に示すように AppWindow または XAML の島で既に要素として同じ XamlRoot に ContentDialog の XamlRoot プロパティを設定します。
+
+```csharp
+private async void DisplayNoWifiDialog()
+{
+    ContentDialog noWifiDialog = new ContentDialog
+    {
+        Title = "No wifi connection",
+        Content = "Check your connection and try again.",
+        CloseButtonText = "Ok"
+    };
+
+    // Use this code to associate the dialog to the appropriate AppWindow by setting
+    // the dialog's XamlRoot to the same XamlRoot as an element that is already present in the AppWindow.
+    if (ApiInformation.IsApiContractPresent("Windows.Foundation.UniversalApiContract", 8))
+    {
+        noWifiDialog.XamlRoot = elementAlreadyInMyAppWindow.XamlRoot;
+    }
+
+    ContentDialogResult result = await noWifiDialog.ShowAsync();
+}
+```
+
+> [!WARNING]
+> 存在できる ContentDialog を同時に開くスレッドあたり 1 つです。 2 つの ContentDialogs を開こうとした場合は、個別の AppWindows で開くしようとしている場合でも、例外がスローされます。
 
 ## <a name="get-the-sample-code"></a>サンプル コードを入手する
 
