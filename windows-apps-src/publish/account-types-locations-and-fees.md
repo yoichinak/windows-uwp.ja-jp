@@ -6,12 +6,12 @@ ms.date: 10/31/2018
 ms.topic: article
 keywords: windows 10, uwp, 開発者アカウント, 個人, 会社, ビジネス
 ms.localizationpriority: medium
-ms.openlocfilehash: 2b35f95556a13d880992a12d7434af76feed4334
-ms.sourcegitcommit: fca0132794ec187e90b2ebdad862f22d9f6c0db8
+ms.openlocfilehash: 7556ca526ecfa28b1d97346501ec1875f938ca35
+ms.sourcegitcommit: 978df7dfd3813de51609b6a44aedcd402083a5fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63770883"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66826217"
 ---
 # <a name="account-types-locations-and-fees"></a>アカウントの種類、場所、料金
 
@@ -31,9 +31,9 @@ Windows プログラム[パートナー センター](https://partner.microsoft.
 
 | 個人のアカウント | 会社のアカウント |
 |--------------------|-----------------|
-| <ul><li>約 19 米ドルの費用がかかる (1 回限りの登録料。正確な金額は、国または地域によって異なる)</li><li>短いアカウント検証プロセス</li></ul> | <ul><li>約 99 米ドルの費用がかかる (1 回限りの登録料。正確な金額は、国または地域によって異なる)</li><li>より厳格なアカウントの確認が必要になる</li><li>所在地の国または地域で、その会社が会社として認識されている必要がある</li><li>機能が制限されたアプリを提出できる ([Microsoft Store ポリシー](https://docs.microsoft.com/legal/windows/agreements/store-policies#1014-account-type)の説明に従う)</li></ul> |
+| <ul><li>約 19 米ドルの費用がかかる (1 回限りの登録料。正確な金額は、国または地域によって異なる)</li><li>短いアカウント検証プロセス</li></ul> | <ul><li>約 99 米ドルの費用がかかる (1 回限りの登録料。正確な金額は、国または地域によって異なる)</li><li>より厳格なアカウントの確認が必要になる</li><li>所在地の国または地域で、その会社が会社として認識されている必要がある</li><li>機能が制限されたアプリを提出できる ([Microsoft Store ポリシー](store-policies.md#1014-account-type)の説明に従う)</li></ul> |
 
-会社のアカウントの方が費用が少し高くなる主な原因は、会社を代表してアカウントをセットアップする権限がユーザーにあることを確かめるために追加の手続きが必要になることにあります。 ごと、[ストア ポリシー](https://docs.microsoft.com/legal/windows/agreements/store-policies#1014-account-type)財務をアクセスするような特定の機能を使用したアプリはアカウント情報、または、(セキュリティで保護された専用のサード パーティ製を使用せずに主要な機能へのアクセスに認証を必要とします。認証プロバイダーの場合) は、会社のアカウントでのみ公開できます。
+会社のアカウントの方が費用が少し高くなる主な原因は、会社を代表してアカウントをセットアップする権限がユーザーにあることを確かめるために追加の手続きが必要になることにあります。 ごと、[ストア ポリシー](store-policies.md#1014-account-type)財務をアクセスするような特定の機能を使用したアプリはアカウント情報、または、(セキュリティで保護された専用のサード パーティ製を使用せずに主要な機能へのアクセスに認証を必要とします。認証プロバイダーの場合) は、会社のアカウントでのみ公開できます。
 
 ## <a name="account-verification"></a>アカウントの検証
 
@@ -252,4 +252,4 @@ Windows プログラム[パートナー センター](https://partner.microsoft.
 | ザンビア                            | 19 USD              | 99 USD           | 銀行 (ZMK) | X     |  
 | ジンバブエ                          | 19 USD              | 99 USD           | 銀行 (USD) | X     |
 
-\*  PayPal の支払いアカウントこの市場での支払方法として使用できますが、fo の支払いに使用することはできません、開発者アカウントの登録料。
+\*  PayPal では、この市場での支払いアカウントの支払方法として使用できますが、開発者アカウントの登録料金の支払いに使用することはできません。

@@ -6,12 +6,12 @@ keywords: チェックリスト, windows, uwp, 申請, 提出, ゲーム, アプ
 ms.date: 10/31/2018
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: b98ea7f1d28c4fcd63cd2d4706905578b240e126
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 24d3c99636009ebf65f3e24d39d657297b105150
+ms.sourcegitcommit: 978df7dfd3813de51609b6a44aedcd402083a5fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57643287"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66826122"
 ---
 # <a name="app-submissions"></a>アプリの申請
 
@@ -56,7 +56,7 @@ ms.locfileid: "57643287"
 | フィールド名                    | メモ                                       | 詳しい情報                                                             |
 |-------------------------------|---------------------------------------------|---------------------------------------------------------------------------|
 | **カテゴリとサブカテゴリ**  | 必須                                    | [Category と subcategory テーブル](category-and-subcategory-table.md)       |
-| **プライバシー ポリシー URL**            | 多くのアプリでは必須。 「[アプリ開発者契約](https://docs.microsoft.com/legal/windows/agreements/app-developer-agreement)」と「[Microsoft Store ポリシー](https://docs.microsoft.com/en-us/legal/windows/agreements/store-policies#105-personal-information)」をご覧ください | [プライバシー ポリシー URL](enter-app-properties.md#privacy-policy-url)        |
+| **プライバシー ポリシー URL**            | 多くのアプリでは必須。 「[アプリ開発者契約](https://docs.microsoft.com/legal/windows/agreements/app-developer-agreement)」と「[Microsoft Store ポリシー](store-policies.md#105-personal-information)」をご覧ください | [プライバシー ポリシー URL](enter-app-properties.md#privacy-policy-url)        |
 | **Web サイト**                   | 省略可能                                    | [Web サイト](enter-app-properties.md#website)                   |
 | **サポートの連絡先情報**      | 製品が Xbox で使用可能な場合は必須。それ以外の場合は省略可能 (ただし推奨)                                   | [サポートの連絡先情報](enter-app-properties.md#support-contact-info)              |
 | **ゲームの設定**             | 省略可能 (ゲームにのみ適用)         | [ゲームの設定](enter-app-properties.md#game-settings) |

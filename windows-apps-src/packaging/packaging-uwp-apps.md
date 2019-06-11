@@ -2,19 +2,19 @@
 ms.assetid: 96361CAF-C347-4671-9721-8208CE118CA4
 title: UWP アプリのパッケージ化
 description: ユニバーサル Windows プラットフォーム (UWP) アプリを配布または販売するには、そのアプリのアプリ パッケージを作成する必要があります。
-ms.date: 03/18/2019
+ms.date: 06/10/2019
 ms.topic: article
 keywords: windows 10, uwp
 f1_keywords:
 - vs.packagewizard
 - vs.storeassociationwizard
 ms.localizationpriority: medium
-ms.openlocfilehash: ba1e09a3819b2c22de52760519f352adc36d6362
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 265e034b264cf82bacfa5a32141eb5d999d57108
+ms.sourcegitcommit: aa5a055e3ff9ee9defc73ed9567196d59f59542a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66372371"
+ms.lasthandoff: 06/10/2019
+ms.locfileid: "66825033"
 ---
 # <a name="package-a-uwp-app-with-visual-studio"></a>Visual Studio で UWP アプリをパッケージ化する
 
@@ -54,7 +54,7 @@ ms.locfileid: "66372371"
 
 Visual Studio のマニフェスト デザイナーを使えば、生の XML を編集することなくマニフェスト ファイルを更新できます。
 
-**マニフェスト デザイナーを使用したパッケージを構成します。**
+### <a name="configure-a-package-with-the-manifest-designer"></a>マニフェスト デザイナーを使ってパッケージを構成する
 
 1.  **ソリューション エクスプローラー**で、UWP アプリのプロジェクト ノードを展開します。
 2.  **[Package.appxmanifest]** ファイルをダブルクリックします。 マニフェスト ファイルが既に XML コード ビューで開かれている場合は、ファイルを閉じるよう指示するプロンプトが Visual Studio で表示されます。
@@ -81,7 +81,7 @@ Microsoft Store からのアプリを配布するアプリ パッケージ (.app
 >[!NOTE]
 > アプリ パッケージ (.appx または .msix) またはアプリ バンドル (.appxbundle または .msixbundle) を手動で作成する場合を参照してください。 [MakeAppx.exe ツールを使用してアプリ パッケージの作成](https://docs.microsoft.com/windows/uwp/packaging/create-app-package-with-makeappx-tool)です。
 
-### <a name="to-create-your-app-package-upload-file-using-visual-studio"></a>Visual Studio を使用して、アプリ パッケージのアップロード ファイルを作成するには
+### <a name="create-your-app-package-upload-file-using-visual-studio"></a>Visual Studio を使用して、アプリ パッケージのアップロード ファイルを作成します。
 
 1.  **ソリューション エクスプローラー**で、UWP アプリ プロジェクトのソリューションを開きます。
 2.  プロジェクトを右クリックし、 **[Microsoft Store]** -> **[アプリ パッケージの作成]** の順に選択します。 このオプションが無効になっているか、まったく表示されない場合は、プロジェクトがユニバーサル Windows プロジェクトであることを確認します。  
@@ -100,11 +100,10 @@ Microsoft Store からのアプリを配布するアプリ パッケージ (.app
     ![示されているパッケージの構成とアプリ パッケージ ウィンドウを作成します。](images/packaging-screen5.jpg)
 7.  完全な PDB シンボル ファイルを含める[アプリのパフォーマンスを分析](https://docs.microsoft.com/windows/uwp/publish/analytics)アプリが公開された後に、パートナー センターから。 バージョンの番号付けやパッケージの出力場所など、他の詳細情報を構成します。
 8.  **[作成]** をクリックして、アプリ パッケージを生成します。 いずれかを選択した場合、 **Microsoft Store にアップロードするパッケージを作成したい**パッケージのアップロード (.appxupload または .msixupload) ファイルを作成する、オプションの手順 3 とパートナー センターの送信用のパッケージを作成します。 選択した場合**サイドロード用のパッケージを作成したい**手順 3 で作成する 1 つのアプリのパッケージまたは手順 6. で選択内容に基づいて、アプリ バンドルのいずれか。
-9. アプリが正常にパッケージ化するときは、このダイアログ ボックスが表示され、アプリ パッケージのアップロード ファイルを取得するには、指定した出力場所から。 この時点で実行できます[、ローカル コンピューターまたはリモート コンピューターでアプリ パッケージを検証](#validate-your-app-package)と[自動化ストアに提出](#automate-store-submission)します。
+9. アプリが正常にパッケージ化するときは、このダイアログ ボックスが表示され、アプリ パッケージのアップロード ファイルを取得するには、指定した出力場所から。 この時点で実行できます[、ローカル コンピューターまたはリモート コンピューターでアプリ パッケージを検証](#validate-your-app-package)と[ストアへの送信を自動化](#automate-store-submissions)します。
     ![パッケージの作成完了ウィンドウに表示される検証オプション](images/packaging-screen6.jpg)
 
-
-### <a name="to-create-your-app-package-upload-file-manually"></a>アプリ パッケージのアップロード ファイルを手動で作成するには
+### <a name="create-your-app-package-upload-file-manually"></a>アプリ パッケージのアップロード ファイルを手動で作成します。
 
 1. 次のファイルをフォルダーに配置します。
     - 1 つまたは複数のアプリ パッケージ (.msix または .appx) または (.msixbundle または .appxbundle)、アプリ バンドルします。
@@ -112,46 +111,74 @@ Microsoft Store からのアプリを配布するアプリ パッケージ (.app
 2. フォルダーを zip 圧縮します。
 3. Zip 形式フォルダーの拡張機能の名前を .zip から .msixupload または .appxupload に変更します。
 
-### <a name="validate-your-app-package"></a>アプリ パッケージを検証します。
+## <a name="validate-your-app-package"></a>アプリ パッケージを検証します。
 
 ローカルまたはリモート コンピューター上の認定資格のパートナー センターに送信する前に、アプリを検証します。 アプリ パッケージのデバッグ ビルドではなくリリース ビルドのみを検証できます。 パートナー センターへのアプリの送信についての詳細については、次を参照してください。[アプリを送信する](https://docs.microsoft.com/windows/uwp/publish/app-submissions)します。
 
-**ローカルでアプリケーション パッケージを検証するには**
+### <a name="validate-your-app-package-locally"></a>ローカルでアプリケーション パッケージを検証します。
 
 1. 最終的な**パッケージの作成が完了**のページ、**アプリ パッケージの作成**ウィザードのままにしてください、**ローカル マシン**オプションを選択し、**起動Windows アプリ認定キット**します。 Windows アプリ認定キットでアプリをテストする方法について詳しくは、「[Windows アプリ認定キット](https://docs.microsoft.com/windows/uwp/debug-test-perf/windows-app-certification-kit)」をご覧ください。
 
-    Windows アプリ認定キットはさまざまなテストを実行し、結果を返します。 より具体的な情報については、「[Windows アプリ認定キットのテスト](https://docs.microsoft.com/windows/uwp/debug-test-perf/windows-app-certification-kit-tests)」をご覧ください。
+    Windows アプリ認定キット (WACK) は、さまざまなテストを実行し、結果を返します。 より具体的な情報については、「[Windows アプリ認定キットのテスト](https://docs.microsoft.com/windows/uwp/debug-test-perf/windows-app-certification-kit-tests)」をご覧ください。
 
     テストに使用するリモートの Windows 10 デバイスがあれば、そのデバイスで、Windows アプリ認定キットを手動でインストールする必要があります。 この手順については、次のセクションで説明します。 その後、 **[リモート コンピューター]** を選び、 **[Windows アプリ認定キットを起動する]** をクリックしてリモート デバイスに接続し、検証テストを実行します。
 
 2. WACK が終了し、アプリが認定を渡されると、パートナー センターへのアプリ提出にする準備が整いました。 必ず正しいファイルをアップロードしてください。 ファイルの既定の場所は、ソリューションのルート フォルダーにあります`\[AppName]\AppPackages`末尾が .appxupload または .msixupload ファイル拡張子とします。 フォームの名前になります`[AppName]_[AppVersion]_x86_x64_arm_bundle.appxupload`または`[AppName]_[AppVersion]_x86_x64_arm_bundle.msixupload`すべて選択されているパッケージのアーキテクチャのアプリケーション バンドルを選択した場合。
 
-**リモート Windows 10 デバイスでアプリ パッケージを検証するには**
+### <a name="validate-your-app-package-on-a-remote-windows10-device"></a>リモート Windows 10 デバイスでアプリ パッケージを検証します。
 
-1.  次で開発用の Windows 10 デバイスを有効にする、[開発用にデバイスを有効にする](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)指示します。
+1. 次で開発用の Windows 10 デバイスを有効にする、[開発用にデバイスを有効にする](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)指示します。
     >[!IMPORTANT]
     > Windows 10 のリモート ARM デバイスでアプリ パッケージを検証することはできません。
-2.  Visual Studio のリモート ツールをダウンロードしてインストールします。 これらのツールを使って Windows アプリ認定キットをリモートで実行します。 これらのツールについてダウンロード場所など詳しくは、[リモート コンピューターでの UWP アプリの実行](https://docs.microsoft.com/visualstudio/debugger/run-windows-store-apps-on-a-remote-machine?view=vs-2015)に関するページをご覧ください。
-3.  必要なダウンロード[Windows アプリ認定キット](https://go.microsoft.com/fwlink/p/?LinkID=309666)してから、リモートの Windows 10 デバイスにインストールします。
-4.  **パッケージの作成が完了しました**ウィザードのページで、 **[リモート コンピューター]** オプション ボタンを選び、 **[テスト接続]** ボタンの横にある省略記号ボタンをクリックします。
+2. Visual Studio のリモート ツールをダウンロードしてインストールします。 これらのツールを使って Windows アプリ認定キットをリモートで実行します。 これらのツールについてダウンロード場所など詳しくは、[リモート コンピューターでの UWP アプリの実行](https://docs.microsoft.com/visualstudio/debugger/run-windows-store-apps-on-a-remote-machine?view=vs-2015)に関するページをご覧ください。
+3. 必要なダウンロード[Windows アプリ認定キット](https://go.microsoft.com/fwlink/p/?LinkID=309666)してから、リモートの Windows 10 デバイスにインストールします。
+4. **パッケージの作成が完了しました**ウィザードのページで、 **[リモート コンピューター]** オプション ボタンを選び、 **[テスト接続]** ボタンの横にある省略記号ボタンをクリックします。
     >[!NOTE]
     > **リモート マシン**オプション ボタンが検証をサポートするソリューション構成を少なくとも 1 つを選択した場合にのみ使用できます。 WACK でアプリをテストする方法について詳しくは、「[Windows アプリ認定キット](https://docs.microsoft.com/windows/uwp/debug-test-perf/windows-app-certification-kit)」をご覧ください。
-5.  サブネットの内部にあるデバイスの形式を指定するか、サブネットの外部にあるデバイスのドメイン ネーム サーバー (DNS) 名または IP アドレスを指定します。
-6.  Windows 資格情報を使ってデバイスにログオンする必要がない場合は、 **[認証モード]** ボックスの一覧で **[なし]** を選びます。
-7.  **[選択]** 、 **[Windows アプリ認定キットを起動する]** の順に選びます。 デバイスでリモート ツールが実行されていれば、Visual Studio がデバイスに接続されてから、検証テストが実行されます。 「[Windows アプリ認定キットのテスト](https://docs.microsoft.com/windows/uwp/debug-test-perf/windows-app-certification-kit-tests)」をご覧ください。
+5. サブネットの内部にあるデバイスの形式を指定するか、サブネットの外部にあるデバイスのドメイン ネーム サーバー (DNS) 名または IP アドレスを指定します。
+6. Windows 資格情報を使ってデバイスにログオンする必要がない場合は、 **[認証モード]** ボックスの一覧で **[なし]** を選びます。
+7. **[選択]** 、 **[Windows アプリ認定キットを起動する]** の順に選びます。 デバイスでリモート ツールが実行されていれば、Visual Studio がデバイスに接続されてから、検証テストが実行されます。 「[Windows アプリ認定キットのテスト](https://docs.microsoft.com/windows/uwp/debug-test-perf/windows-app-certification-kit-tests)」をご覧ください。
 
-### <a name="automate-store-submission"></a>ストアに提出を自動化します。
+## <a name="automate-store-submissions"></a>ストアへの送信を自動化します。
 
-Visual Studio 2019 以降に送信する、生成された .appxupload ファイル Microsoft Store、IDE から直接選択して、**自動的に Windows アプリ認定キットの検証後に Microsoft Store に提出**オプション。 送信用に使用する資格情報を指定する必要があります。 これらの資格情報は 3 つの部分で構成されます。 **Azure テナント ID**、**クライアント ID**と**クライアント シークレット**します。 取得する次の手順に従います。
+Visual Studio 2019 以降に送信する、生成された .appxupload ファイル Microsoft Store、IDE から直接選択して、**自動的に Windows アプリ認定キットの検証後に Microsoft Store に提出**オプションの最後に、[アプリ パッケージの作成ウィザード](#create-your-app-package-upload-file-using-visual-studio)します。 この機能は、アプリを発行するために必要なパートナー センター アカウントの情報にアクセスするための Azure Active Directory を活用します。 この機能を使用するには、必要があります、パートナー センター アカウントに Azure Active Directory を関連付けるし、送信に必要ないくつかの資格情報を取得します。
 
-1. パートナー センターに移動、**開発者設定が**、 をクリックして**ユーザー**、し、組織の Azure AD ディレクトリと、組織のデベロッパー センター アカウントに関連付けます。 詳しい手順については、「[アカウント ユーザーの管理](https://docs.microsoft.com/windows/uwp/publish/manage-account-users)」をご覧ください。
-2. **ユーザー** ] ページで [ **Azure AD アプリケーションを追加**アプリを表す Azure AD アプリケーションを追加またはサービスの送信、デベロッパー センター アカウントのアクセスを割り当てるため使用することは、マネージャーの役割。 このアプリケーションが既に存在する場合、Azure AD ディレクトリで、追加の Azure AD アプリケーション ページで、デベロッパー センター アカウントに追加することを選択できます。 それ以外の場合、 **[Azure AD アプリケーションの追加]** ページで新しい Azure AD アプリケーションを作成できます。 詳細については、次を参照してください。[ユーザー、グループ、およびパートナー センター アカウントに Azure AD アプリケーションを追加](/windows/uwp/publish/add-users-groups-and-azure-ad-applications)します。
-3. 戻り、**ユーザーを管理する** ページで、アプリケーションの設定、およびコピーに進むには、Azure AD アプリケーションの名前をクリックして、**テナント ID**と**クライアント ID**値。
-4. **[新しいキーの追加]** をクリックします。 次の画面では、クライアント シークレットに対応するキー値をコピーします。 このページから移動すると、この情報を再度アクセスすることはできませんが失われないようにします。 詳細については、内のキーの管理に関する情報を参照してください。[ユーザー、グループ、およびパートナー センター アカウントに Azure AD アプリケーションを追加](/windows/uwp/publish/add-users-groups-and-azure-ad-applications)します。
-    ![確認し、発行の進行状況](images/packaging-screen8.jpg)
-    > [!Important] 
+### <a name="associate-azure-active-directory-with-your-partner-center-account"></a>Azure Active Directory をパートナー センター アカウントに関連付ける
+
+ストアへの自動送信に必要な資格情報を取得するには、次の手順でを最初にする必要があります、[パートナー センター ダッシュ ボード](https://partner.microsoft.com/dashboard)を行っていない既に場合。
+
+1. [パートナー センター アカウントを組織の Azure Active Directory に関連付ける](https://docs.microsoft.com/windows/uwp/publish/associate-azure-ad-with-partner-center)します。 組織で Office 365 または Microsoft の他のビジネス サービスが既に使用されている場合は、既に Azure AD をお持ちです。 それ以外の場合、作成、新しい Azure AD テナントからパートナー センター内で無料になります。
+
+2. [パートナー センター アカウントに Azure AD アプリケーションを追加](https://docs.microsoft.com/windows/uwp/publish/add-users-groups-and-azure-ad-applications#add-azure-ad-applications-to-your-partner-center-account)します。 この Azure AD アプリケーションは、アプリや、デベロッパー センター アカウントの申請へのアクセスに使用するサービスを表します。 このアプリケーションを割り当てる必要があります、 **Manager**ロール。 このアプリケーションが既に Azure AD ディレクトリに存在する場合、 **[Azure AD アプリケーションの追加]** ページで選んでデベロッパー センター アカウントに追加できます。 それ以外の場合、 **[Azure AD アプリケーションの追加]** ページで新しい Azure AD アプリケーションを作成できます。
+
+### <a name="retrieve-the-credentials-required-for-submissions"></a>送信に必要な資格情報を取得します。
+
+次に、送信に必要なパートナー センターの資格情報を取得できます。 **Azure テナント ID**、**クライアント ID**と**クライアント キー**します。
+
+1. 移動して、[パートナー センター ダッシュ ボード](https://partner.microsoft.com/dashboard)し、Azure AD 資格情報でサインインします。
+
+2. パートナー センター ダッシュ ボードの右上隅のダッシュ ボード) の近くの歯車アイコンを選択し、選択**開発者設定が**します。
+
+3. **設定** メニューの左側のウィンドウでクリックして**ユーザー**します。
+
+4. アプリケーションの設定に進むには、Azure AD アプリケーションの名前をクリックします。 このページで、コピー、**テナント ID**と**クライアント ID**値。
+
+5. **キー**セクションで、**新しいキーの追加**します。 次の画面では、コピー、**キー**値で、クライアント シークレットに対応します。 このページから移動すると、この情報を再度アクセスすることはできませんが失われないようにします。 詳しくは、「[Azure AD アプリケーションのキーを管理する方法](https://docs.microsoft.com/windows/uwp/publish/add-users-groups-and-azure-ad-applications#manage-keys-for-an-azure-ad-application)」をご覧ください。
+
+### <a name="configure-automatic-store-submissions-in-visual-studio"></a>Visual Studio でのストアへの自動送信を構成します。
+
+前の手順を完了した後は、Visual Studio 2019 でストアへの自動送信を構成できます。
+
+1. 最後に、[アプリ パッケージの作成ウィザード](#create-your-app-package-upload-file-using-visual-studio)を選択します**Windows アプリ認定キットの検証後に、自動的に Microsoft Store に送信**クリック**を再構成**.
+
+2. **Microsoft Store の送信の構成の設定**ダイアログ ボックスで、Azure テナント ID、クライアント ID、およびクライアント キーを入力します。
+
+    ![Microsoft Store の送信の設定を構成します。](images/packaging-screen8.jpg)
+
+    > [!Important]
     > 資格情報は、将来の送信に使用するプロファイルに保存できます。
-5. **[OK]** をクリックします。
+
+3. **[OK]** をクリックします。
 
 WACK テストが完了した後、送信が開始されます。 送信の進行状況を追跡する、**検証および発行**ウィンドウ。
 

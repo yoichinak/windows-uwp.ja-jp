@@ -7,12 +7,12 @@ ms.topic: article
 keywords: windows 10, uwp, 公開する, 公開, 販売, 販売する, 配布, 配布する, store, ダッシュボード
 ms.assetid: 631d1e2d-e4da-4740-ace0-4c0ad78653fe
 ms.localizationpriority: medium
-ms.openlocfilehash: bb7792ee3fa0c6a9f0480e5fe3aaf98bb4b316f4
-ms.sourcegitcommit: 5030c4c636d6d7a46d416f03c78e1a711222f56b
+ms.openlocfilehash: ac003cd0931f0ff320ba2906451c5eaf448eac78
+ms.sourcegitcommit: 978df7dfd3813de51609b6a44aedcd402083a5fd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58197528"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66826123"
 ---
 # <a name="publish-windows-apps-and-games"></a>Windows アプリとゲームを公開する  
  
@@ -34,7 +34,7 @@ ms.locfileid: "58197528"
                         <ul>
                             <li><a href="app-submissions.md">アプリの提出用チェック リスト</a></li>
                             <li><a href="the-app-certification-process.md">認定プロセス</a></li>                      
-                            <li><a href="//docs.microsoft.com/legal/windows/agreements/store-policies">Microsoft Store ポリシー</a></li>   
+                            <li><a href="store-policies.md">Microsoft Store ポリシー</a></li>   
                         </ul>
                     </div>
                 </div>

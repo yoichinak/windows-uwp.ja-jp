@@ -6,12 +6,12 @@ ms.date: 10/31/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 2bab1d6bd629aa85351e28a907d4b5ad705fb377
-ms.sourcegitcommit: fca0132794ec187e90b2ebdad862f22d9f6c0db8
+ms.openlocfilehash: 47011a22353f26361a392690d857bde1fc180c03
+ms.sourcegitcommit: 978df7dfd3813de51609b6a44aedcd402083a5fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63788367"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66826109"
 ---
 # <a name="product-declarations"></a>製品の宣言
 
@@ -21,7 +21,7 @@ ms.locfileid: "63788367"
 
 ## <a name="this-app-allows-users-to-make-purchases-but-does-not-use-the-microsoft-store-commerce-system"></a>このアプリは、購入を行うことができますが、Microsoft Store コマース システムを使用できません。
 
-ほぼすべての送信では、このボックスをオフのままにする必要があります、購入する機会を提供するアプリ以降、または使用や、アプリ内で使用できる項目は、作成して、アドオンを送信する Microsoft Store アプリ内購入 API を使用する必要があります。 ごと、[アプリ開発者契約](https://docs.microsoft.com/legal/windows/agreements/app-developer-agreement)2015 年 6 月 29 日の前に送信され、作成されたアプリを購入機能として、Microsoft のコマース エンジンを限りを使用せずにアプリ内購入機能を提供する続行でした準拠している、 [Microsoft Store ポリシー](https://docs.microsoft.com/legal/windows/agreements/store-policies#108-financial-transactions)します。 アプリがこれに該当する場合、このチェック ボックスをオンにする必要があります。 それ以外の場合は、オフのままにします。
+ほぼすべての送信では、このボックスをオフのままにする必要があります、購入する機会を提供するアプリ以降、または使用や、アプリ内で使用できる項目は、作成して、アドオンを送信する Microsoft Store アプリ内購入 API を使用する必要があります。 ごと、[アプリ開発者契約](https://docs.microsoft.com/legal/windows/agreements/app-developer-agreement)2015 年 6 月 29 日の前に送信され、作成されたアプリを購入機能として、Microsoft のコマース エンジンを限りを使用せずにアプリ内購入機能を提供する続行でした準拠している、 [Microsoft Store ポリシー](store-policies.md#108-financial-transactions)します。 アプリがこれに該当する場合、このチェック ボックスをオンにする必要があります。 それ以外の場合は、オフのままにします。
 
 ## <a name="this-app-has-been-tested-to-meet-accessibility-guidelines"></a>このアプリは、アクセシビリティ ガイドラインを満していることがテストされました。
 
