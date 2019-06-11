@@ -8,12 +8,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 97eae5f3-c16b-4aa5-b4a1-dd892cf32ead
 ms.localizationpriority: medium
-ms.openlocfilehash: 0eb5a03a2a6de8624e8b414fa31c6eec51c04bbc
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 9b34f88d198ec80c67e5aac7b57001e42fe5c516
+ms.sourcegitcommit: aa5a055e3ff9ee9defc73ed9567196d59f59542a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66364888"
+ms.lasthandoff: 06/10/2019
+ms.locfileid: "66825022"
 ---
 # <a name="inking-controls"></a>インク コントロール
 
@@ -84,7 +84,7 @@ InkCanvas と InkToolbar は、**Windows Ink ワークスペース**の**スケ�
 ```
 
 > [!NOTE]
-> InkPresenter 使った InkCanvas のカスタマイズについて詳しくは、「["UWP アプリのペン操作とスタイラス操作"](https://windowsstyleguide/input/pen-and-stylus-interactions/)」をご覧ください。
+> 詳細な InkCanvas カスタマイズは、InkPresenter を使用して、次を参照してください。、 ["の相互作用と UWP アプリでの Windows の手描き入力をペン"](https://docs.microsoft.com/windows/uwp/design/input/pen-and-stylus-interactions)記事。
 
 InkToolbar コントロールは、InkCanvas と組み合わせて使う必要があります。 InkToolbar (組み込みのすべてのツールが含まれています) をアプリに組み込むには、さらに次の 1 行のマークアップを追加する必要があります。
 
@@ -137,13 +137,13 @@ InkToolbar は、次のような 2 つの異なるボタンの種類のグルー
 - カスタム トグル – アプリで定義された機能の状態をオンまたはオフに設定します。 オンにすると、機能はアクティブなツールと連携して動作します。
 
 > [!NOTE]
-> 組み込みのボタンの表示順序を変更することはできません。 既定の表示順序は次のとおりです。ボールペン、鉛筆、蛍光ペン、消しゴムをルーラー。 カスタム ペンは最後の既定のペンに追加され、カスタム ツール ボタンは最後のペン ボタンと消しゴム ボタンの間に追加され、カスタム トグル ボタンはルーラー ボタンの後に追加されます  (カスタム ボタンは、指定されている順序で追加されます)。
+> 組み込みのボタンの表示順序を変更することはできません。 既定の表示順序は次のとおりです。ボールペン、鉛筆、蛍光ペン、消しゴムをルーラー。 カスタム ペンは最後の既定のペンに追加され、カスタム ツール ボタンは最後のペン ボタンと消しゴム ボタンの間に追加され、カスタム トグル ボタンはルーラー ボタンの後に追加されます (カスタム ボタンは、指定されている順序で追加されます)。
 
 InkToolbar はトップ レベルの項目にすることもできますが、通常は "手書き入力" ボタンまたはコマンドを使って公開されます。 Segoe MLD2 アセット フォントの EE56 グリフをトップ レベルのアイコンとして使うことをお勧めします。
 
 ## <a name="inktoolbar-interaction"></a>InkToolbar の操作
 
-組み込みのすべてのペン ボタンとツール ボタンには、インクのプロパティと、ペン先の形状とサイズを設定できるポップアップ メニューが含まれています。 ポップアップがあることを示すために、ボタンには "拡張グリフ"  ![InkToolbar グリフ](images/ink-tools-glyph.png)  が表示されます。
+組み込みのすべてのペン ボタンとツール ボタンには、インクのプロパティと、ペン先の形状とサイズを設定できるポップアップ メニューが含まれています。 ポップアップがあることを示すために、ボタンには "拡張グリフ" ![InkToolbar グリフ](images/ink-tools-glyph.png) が表示されます。
 
 ポップアップは、アクティブなツールのボタンが再選択されたときに表示されます。 色やサイズが変更されると、ポップアップは自動的に閉じられ、手書き入力を再開できます。 カスタム ペンやカスタム ツールでは、既定のポップアップを使うことも、カスタム ポップアップを指定することもできます。
 
@@ -170,6 +170,6 @@ InkToolbar はトップ レベルの項目にすることもできますが、�
 
 ## <a name="related-articles"></a>関連記事
 
-- [UWP アプリでのペン、スタイラスの相互作用](https://windowsstyleguide/input/pen-and-stylus-interactions/)
-- [インク ストロークを認識します。](https://windowsstyleguide/input/convert-ink-to-text/)
-- [インク ストロークを格納および取得](https://windowsstyleguide/input/save-and-load-ink/)
+- [ペンの相互作用と UWP アプリでの Windows インク](https://docs.microsoft.com/windows/uwp/design/input/pen-and-stylus-interactions)
+- [テキストと図形として Windows インク ストロークを認識します。](https://docs.microsoft.com/windows/uwp/design/input/convert-ink-to-text)
+- [Windows のインク ストローク データ格納および取得](https://docs.microsoft.com/windows/uwp/design/input/save-and-load-ink)
