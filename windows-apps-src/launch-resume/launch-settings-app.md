@@ -7,12 +7,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: d720b256ae528192d694f98877126a6df087a18e
-ms.sourcegitcommit: 26bd7953ee5c5e625d4ed8f93df0391511c76f23
+ms.openlocfilehash: 9ce2024131035e77e7d8140c047e37979c6ac490
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66491141"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67040142"
 ---
 # <a name="launch-the-windows-settings-app"></a>Windows 設定アプリの起動
 
@@ -251,7 +251,7 @@ URI の起動について詳しくは、「[URI に応じた既定のアプリ�
 | 通知 | ms-settings:privacy-notifications |
 | その他のデバイス | ms-settings:privacy-customdevices |
 | 画像 | ms-settings:privacy-pictures |
-| 電話での通話 | ms-設定: プライバシー-phonecall (**1809 およびそれ以降のバージョンの Windows 10 で非推奨とされます**) |
+| 電話での通話 | ms-設定: プライバシー-電話 (**1809 およびそれ以降のバージョンの Windows 10 で非推奨とされます**) |
 | 無線 | ms-settings:privacy-radios |
 | 音声認識、手描き入力、入力の設定 |ms-settings:privacy-speechtyping |
 | 処理手順 | ms-settings:privacy-tasks |
