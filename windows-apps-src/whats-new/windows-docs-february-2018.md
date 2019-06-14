@@ -6,11 +6,11 @@ ms.date: 02/05/2018
 ms.topic: article
 ms.localizationpriority: medium
 ms.openlocfilehash: 421fb7c973c1aaa4e9e1924548d7f11439fd5350
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57632867"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "63780328"
 ---
 # <a name="whats-new-in-the-windows-developer-docs-in-february-2018"></a>Windows 開発者向けドキュメントの最新情報、2018 年 2 月
 
@@ -59,7 +59,7 @@ Windows 10 の[ツールと SDK をインストール](https://go.microsoft.com/
 
 ### <a name="getting-started-for-game-development"></a>ゲーム開発の概要
 
-Windows 10 用のゲーム開発に関心をお持ちですか?  新しい[ゲーム開発の作業の概要](../gaming/getting-started.md)ページでは、セットアップ、登録、アプリとゲームの申請準備のために必要な作業全体の概要を示します。
+Windows 10 用のゲーム開発に関心をお持ちですか? 新しい[ゲーム開発の作業の概要](../gaming/getting-started.md)ページでは、セットアップ、登録、アプリとゲームの申請準備のために必要な作業全体の概要を示します。
 
 ## <a name="videos"></a>ビデオ
 

@@ -7,11 +7,11 @@ ms.topic: article
 ms.localizationpriority: medium
 ms.custom: RS5
 ms.openlocfilehash: aaaf13c455d3d05d5ccfac6b2bd61418f3e8e5bb
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57662347"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "63820522"
 ---
 # <a name="writing-style"></a>記述スタイル
 

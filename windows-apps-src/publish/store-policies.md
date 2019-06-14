@@ -8,10 +8,10 @@ keywords: Microsoft Store ポリシー契約
 ms.localizationpriority: high
 ms.assetid: F02A720E-2899-4863-8945-9AB99158BCA1
 ms.openlocfilehash: 3511fb221e1e087f7ced5ce11aca8d53bd027079
-ms.sourcegitcommit: 978df7dfd3813de51609b6a44aedcd402083a5fd
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66826479"
 ---
 # <a name="microsoft-store-policies"></a>Microsoft Store ポリシー

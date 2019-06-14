@@ -8,10 +8,10 @@ keywords: Microsoft Store ポリシー契約
 ms.localizationpriority: high
 ms.assetid: 2B84B877-794A-468F-A478-DA09E4694513
 ms.openlocfilehash: a9e96431594cf1a046741659011e546807294f7a
-ms.sourcegitcommit: 978df7dfd3813de51609b6a44aedcd402083a5fd
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66826449"
 ---
 # <a name="developer-code-of-conduct"></a>開発者倫理規定

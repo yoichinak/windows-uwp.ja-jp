@@ -8,10 +8,10 @@ keywords: Microsoft Store ポリシー契約
 ms.localizationpriority: high
 ms.assetid: B15D4F19-4E6A-4C27-AD64-F03014D11BA9
 ms.openlocfilehash: 550ffeac8912769fc7e319d819f4de67f6d36cf1
-ms.sourcegitcommit: 978df7dfd3813de51609b6a44aedcd402083a5fd
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66826419"
 ---
 # <a name="app-quality"></a>アプリの品質
@@ -66,7 +66,7 @@ Store ページに掲載されたメタデータ (アイコン、タイトル、
 
 ダウンロードから収益を上げようとしている場合、魅力的なこと、楽しいこと、または役に立つことを提供する必要があります。
 
-- またその価値が持続する必要があります。 例:
+- またその価値が持続する必要があります。 次に、例を示します。
     - 料理アプリであれば、複数回使用できるだけの豊富なレシピが含まれていますか。
     - スポーツ チームアプリであれば、最新の成績を頻繁に更新していますか。それとも、確定した結果をまとめただけですか。
     - ゲームであれば、興味深いゲームプレイができ、そのたびに異なる結果が得られますか。
