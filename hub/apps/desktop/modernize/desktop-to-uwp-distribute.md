@@ -8,12 +8,12 @@ ms.assetid: edff3787-cecb-4054-9a2d-1fbefa79efc4
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: 2e1aa424fe038a50a5e29364c7f8246e324dc07c
-ms.sourcegitcommit: d1c3e13de3da3f7dce878b3735ee53765d0df240
+ms.openlocfilehash: 45d298aca60155915900f494654dce8e89fb1ee0
+ms.sourcegitcommit: b9e2cd5232ad98f4ef367881b92000a3ae610844
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66215009"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67131906"
 ---
 # <a name="distribute-your-packaged-desktop-app"></a>パッケージ化されたデスクトップ アプリを配布します。
 
@@ -57,12 +57,6 @@ Windows 10 S を実行しているデバイスにアプリケーションを配�
 アプリケーションへの署名証明書を使用してを参照してください。 [SignTool を使用して、アプリケーション パッケージに署名](/windows/uwp/packaging/sign-app-package-using-signtool)します。
 
 サイドローディングを行う他のデバイスにアプリケーションを参照してください[サイドローディングを行う基幹業務アプリと Windows 10 で](/windows/application-management/sideload-apps-in-windows-10)します。
-
-**動画**
-
-|Microsoft Store にアプリケーションを発行します。 |エンタープライズ アプリケーションを配布します。  |
-|---|---|
-|<iframe src="https://mva.microsoft.com/en-US/training-courses-embed/developers-guide-to-the-desktop-bridge-17373/Demo-Windows-Store-Publication-3cWyG5WhD_5506218965"      width="426" height="472" allowFullScreen frameBorder="0"></iframe>|<iframe src="https://mva.microsoft.com/en-US/training-courses-embed/developers-guide-to-the-desktop-bridge-17373/Video-Distribution-for-Enterprise-Apps-XJ5Hd5WhD_1106218965" width="426" height="472" allowFullScreen frameBorder="0"></iframe>|
 
 <a id="transition-users" />
 
@@ -167,10 +161,6 @@ private void RemoveDesktopApp()
 
 }
 ```
-
-### <a name="video"></a>Video
-
-<iframe src="https://mva.microsoft.com/en-US/training-courses-embed/developers-guide-to-the-desktop-bridge-17373/Demo-Transition-Taskbar-Pins-Start-Tiles-File-Type-Associations-and-Protocol-Handlers-MD5mv5WhD_2406218965" width="636" height="480" allowFullScreen frameBorder="0"></iframe>
 
 ## <a name="next-steps"></a>次のステップ
 

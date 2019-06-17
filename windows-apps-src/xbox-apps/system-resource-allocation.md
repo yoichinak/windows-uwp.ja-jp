@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 12e87019-4315-424e-b73c-426d565deef9
 ms.localizationpriority: medium
-ms.openlocfilehash: 40cf41df4ccf15206e5855f989bc46c599baa473
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 8cc6ca24453be83f5c10cc6c86c508a5a3f99c4c
+ms.sourcegitcommit: b9e2cd5232ad98f4ef367881b92000a3ae610844
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66372077"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67131928"
 ---
 # <a name="system-resources-for-uwp-apps-and-games-on-xbox-one"></a>Xbox One 上の UWP アプリとゲームのシステム リソース
 
@@ -24,9 +24,9 @@ Xbox One で実行されている UWP アプリは、システムやその他の
 バックグラウンドで実行されているアプリに利用可能なメモリは最大 128 MB です。 バックグラウンド モードは、バックグラウンド ミュージック プレーヤーなどの同時アプリケーションにのみ適用されます。  ゲームはバックグラウンドで一時停止および終了されます。
 
 これらの制限を超えると、メモリ割り当てエラーが発生します。 メモリ使用量の監視について詳しくは、[MemoryManager クラス](https://docs.microsoft.com/uwp/api/windows.system.memorymanager)のリファレンスをご覧ください。
-    
-    > [!NOTE]
-    > When running your app or game from the Visual Studio debugger, these memory constraints do not apply. This limit is only applicable when not running in debugging mode.
+
+> [!NOTE]
+> Visual Studio デバッガーからアプリやゲームを実行するときに、これらのメモリの制約は適用されません。 この制限は、デバッグ モードで実行されていないときにのみ適用されます。
 
 * CPU
     * アプリ: システムで実行されているアプリとゲームの数に応じて、2 ～ 4 個の CPU コアを共有します。
@@ -46,14 +46,7 @@ Xbox One で実行されている UWP アプリは、システムやその他の
 
 **ゲーム開発**の場合、Xbox One は、他のゲーム コンソールと同様に、その潜在的な機能を最大限に利用するために特定のハードウェア ベースの開発キットを必要とする、特殊なハードウェアです。 Xbox One のハードウェアの機能を最大限に利用する必要があるゲームを開発している場合、[ID@Xbox](https://www.xbox.com/Developers/id) プログラムに登録して Xbox One 開発キットにアクセスすることを検討してください。
 
-
-Xbox One での UWP アプリのシステム リソースについて詳しくは、次のビデオの最初の部分をご覧ください。
-</br>
-</br>
-<iframe src="https://mva.microsoft.com/en-US/training-courses-embed/developing-xbox-one-applications-16860/Video-What-s-Unique--vk0fOPf9C_2006218965" width="636" height="480" allowFullScreen frameBorder="0"></iframe>
-
 ## <a name="see-also"></a>関連項目
 - [Xbox One の UWP](index.md)
 - [Xbox Live クリエーターズ プログラムを概要します。](https://docs.microsoft.com/gaming/xbox-live/get-started-with-creators/creators-program)
 - [DirectX および Xbox One での UWP](https://walbourn.github.io/)
-
