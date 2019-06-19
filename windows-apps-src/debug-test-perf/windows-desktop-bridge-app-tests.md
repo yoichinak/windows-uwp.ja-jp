@@ -6,12 +6,12 @@ ms.date: 12/18/2017
 ms.topic: article
 keywords: windows 10 は、uwp アプリの認定
 ms.localizationpriority: medium
-ms.openlocfilehash: 3f979edbd49699447040880964dd1378bc7c94c0
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 38c9a40dbe1a46aa125c76cd1fcc88a84685c8cc
+ms.sourcegitcommit: 280193dfe5a106fc6b4c85df3ac40535547b855c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66362081"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67235172"
 ---
 # <a name="windows-desktop-bridge-app-tests"></a>Windows デスクトップ ブリッジ アプリのテスト
 
@@ -30,7 +30,7 @@ Windows デスクトップ ブリッジ アプリの省略可能なテストは�
 テストでは、パッケージ内のすべてのポータブル実行可能ファイルをスキャンし、そのヘッダーの署名を確認します。 すべての PE ファイルがデジタル署名されていることを推奨します。 PE ファイルのいずれかが署名されていない場合、警告が生成されます。
  
 **是正措置**  
-ファイルにデジタル署名することを常にお勧めします。 詳しくは、「[コード署名の概要](https://msdn.microsoft.com/en-us/library/ms537361(v=vs.85).aspx)」をご覧ください。
+ファイルにデジタル署名することを常にお勧めします。 詳しくは、「[コード署名の概要](https://docs.microsoft.com/previous-versions/windows/internet-explorer/ie-developer/platform-apis/ms537361(v=vs.85))」をご覧ください。
 
 ### <a name="2-file-association-verbs"></a>2. ファイルの関連付けの動詞 
 **背景情報**  
