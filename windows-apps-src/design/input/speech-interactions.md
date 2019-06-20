@@ -8,12 +8,12 @@ keywords: スピーチ, 音声, 音声認識, 自然言語, ディクテーシ�
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: fb292ad5cba892275709fbc89d5d53fa136144f3
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: ef8cdad247a57ce5fab461e70c2725fda4231efd
+ms.sourcegitcommit: ed32219e04f814a12ea018348e9cf678fcfd5e3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66365299"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67253063"
 ---
 # <a name="speech-interactions"></a>音声操作
 
@@ -46,7 +46,7 @@ Windows アプリケーションの **Cortana** ではカスタマイズした�
 
 ## <a name="text-input"></a>テキスト入力
 
-テキスト入力用の音声は、短い形式 (1 つの単語または語句) から長い形式 (継続的なディクテーション) までさまざまなものがあります。 短い形式の入力は 10 秒未満の長さにする必要があり、長い形式の入力セッションは最大で 2 分の長さにすることができます  (長い形式の入力はユーザーが操作しなくても再開でき、継続的なディクテーションのような印象を与えることができます)。
+テキスト入力用の音声は、短い形式 (1 つの単語または語句) から長い形式 (継続的なディクテーション) までさまざまなものがあります。 短い形式の入力は 10 秒未満の長さにする必要があり、長い形式の入力セッションは最大で 2 分の長さにすることができます (長い形式の入力はユーザーが操作しなくても再開でき、継続的なディクテーションのような印象を与えることができます)。
 
 音声認識がサポートされていて、利用可能になっていること、およびユーザーが音声認識を有効にする必要があるかどうかを示すために、視覚的な合図を使うことをお勧めします。 たとえば、マイクのグリフが表示されるコマンド バー ボタン (「[コマンド バー](../controls-and-patterns/app-bars.md)」をご覧ください) を使って、音声認識が利用可能になっていることやその状態を示すことができます。
 
@@ -116,7 +116,7 @@ SRGS で定義された制約を使う音声認識エンジンにおける組み
 
 音声認識がユーザーよって有効化される場合は、コマンド バーやメニュー コマンドを使って、現在のコンテキストでサポートされているすべての単語と語句を表示することを検討してください。
 
-音声認識が常に有効になっている場合は、すべてのページに "音声操作の項目"  という語句を追加することを検討してください。 ユーザーがこの語句を発声すると、現在のコンテキストでサポートされているすべての単語と語句が表示されます。 このフレーズを使うと、ユーザーは一貫した方法でシステムに実装されている音声機能を検出することができます。
+音声認識が常に有効になっている場合は、すべてのページに "音声操作の項目" という語句を追加することを検討してください。 ユーザーがこの語句を発声すると、現在のコンテキストでサポートされているすべての単語と語句が表示されます。 このフレーズを使うと、ユーザーは一貫した方法でシステムに実装されている音声機能を検出することができます。
 
 ## <a name="recognition-failures"></a>認識の失敗
 
@@ -200,7 +200,7 @@ TTS では、プレーンテキストまたは SSML から音声出力が生成�
 -   単語が不自然な順番で連続している場合や、文字列に含まれる数値や句読点を発声する場合に、語句が不明瞭になる可能性があります。
 -   韻律や抑揚がネイティブ スピーカーによる発声と異なると、音声が不自然に聞こえる場合があります。
 
-どちらの問題も、スピーチ シンセサイザーへの入力にプレーンテキストではなく SSML を使うことで対処できます。 SSML について詳しくは、「[SSML による合成音声の制御](https://docs.microsoft.com/previous-versions/office/developer/speech-technologies/hh378454(v=office.14))」と「[Speech Synthesis Markup Language (SSML) のリファレンス](https://docs.microsoft.com/previous-versions/office/developer/speech-technologies/hh378377(v=office.14))」をご覧ください。
+音声シンセサイザーへの入力として、プレーン テキストではなく SSML を使用して、両方の問題を解決できます。 SSML について詳しくは、「[SSML による合成音声の制御](https://docs.microsoft.com/previous-versions/office/developer/speech-technologies/hh378454(v=office.14))」と「[Speech Synthesis Markup Language (SSML) のリファレンス](https://docs.microsoft.com/previous-versions/office/developer/speech-technologies/hh378377(v=office.14))」をご覧ください。
 
 ## <a name="other-articles-in-this-section"></a>このセクションの他の記事 
 
