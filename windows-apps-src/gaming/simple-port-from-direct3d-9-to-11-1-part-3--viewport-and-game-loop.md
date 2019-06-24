@@ -33,7 +33,7 @@ Direct3D 9 のビューポートを使ってデスクトップ ウィンドウ�
 
 UWP 環境には、はるかに簡単なシステムが用意されています。 DirectX を使った Microsoft Store ゲームでは、従来のウィンドウを設定する代わりに、[**IFrameworkView**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Core.IFrameworkView) を実装します。 このインターフェイスは、アプリ コンテナー内の [**CoreWindow**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreWindow) で直接 DirectX アプリやゲームを実行するために存在します。
 
-> **注**   Windows がソース アプリケーション オブジェクトなどのリソースへのマネージ ポインターを提供し、 [ **CoreWindow**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreWindow)します。 参照してください **[オブジェクト演算子 (^) へのハンドル]** https://msdn.microsoft.com/library/windows/apps/yk97tc08.aspxします。
+> **注**   Windows がソース アプリケーション オブジェクトなどのリソースへのマネージ ポインターを提供し、 [**CoreWindow**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreWindow)します。 参照してください **[オブジェクト演算子 (^) へのハンドル]** https://msdn.microsoft.com/library/windows/apps/yk97tc08.aspx します。
 
  
 
