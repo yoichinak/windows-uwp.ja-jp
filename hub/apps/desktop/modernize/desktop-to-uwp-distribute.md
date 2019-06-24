@@ -8,12 +8,12 @@ ms.assetid: edff3787-cecb-4054-9a2d-1fbefa79efc4
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: 45d298aca60155915900f494654dce8e89fb1ee0
-ms.sourcegitcommit: b9e2cd5232ad98f4ef367881b92000a3ae610844
+ms.openlocfilehash: 2d10836da46cce4d862f7f727890b0c9c107df5a
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131906"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67317068"
 ---
 # <a name="distribute-your-packaged-desktop-app"></a>パッケージ化されたデスクトップ アプリを配布します。
 
@@ -26,7 +26,7 @@ ms.locfileid: "67131906"
 
 [Microsoft Store](https://www.microsoft.com/store/apps) は、お客様がアプリを取得する場合に最も便利な方法です。
 
-広範な対象ユーザーに到達する Microsoft Store にアプリケーションを発行します。 組織の顧客がを通じて、組織に内部的に配布するアプリケーションを取得することも、[ビジネス向け Microsoft Store](https://www.microsoft.com/business-store)します。
+広範な対象ユーザーに到達する Microsoft Store にアプリケーションを発行します。 組織の顧客がを通じて、組織に内部的に配布するアプリケーションを取得することも、[ビジネス向け Microsoft Store](https://businessstore.microsoft.com/store)します。
 
 Microsoft Store への公開を計画している場合は、申請プロセスの一部としていくつかの追加の質問をされます。 これは、パッケージ マニフェストが **runFullTrust** という名前の制限付き機能を宣言し、弊社でアプリケーションによるその機能の使用を承認する必要があるためです。 詳細については、ここで、この要件。[機能が制限されている](/windows/uwp/packaging/app-capability-declarations#restricted-capabilities)します。
 

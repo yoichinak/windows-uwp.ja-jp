@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 8554a50a7bca54aa2acca5129dc140995d7b3527
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 0e49bd31ff005799e1c3fc7f0bc44be8bd7c216c
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66361749"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67318423"
 ---
 # <a name="handle-device-orientation-with-mediacapture"></a>MediaCapture を使ってデバイスの向きを処理する
 アプリ外での表示を目的とする写真やビデオ (ユーザーのデバイスにファイルを保存する場合や、オンラインで共有する場合など) をアプリでキャプチャする際は、別のアプリやデバイスで画像を表示するときに正しい向きで表示されるよう、適切な向きのメタデータを使って画像をエンコーディングすることが重要です。 メディア ファイルにどの向きのデータを含めれば良いか特定するのは複雑な作業です。これは、デバイス シャーシの向き、ディスプレイの向き、シャーシ上のカメラの位置 (全面カメラか背面カメラか) など、考慮すべき変数が複数あるためです。 
@@ -65,13 +65,13 @@ ms.locfileid: "66361749"
 
 メタデータを設定するには [**VideoDeviceController.GetMediaStreamProperties**](https://docs.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.getmediastreamproperties) を呼び出して、プレビュー ストリームのプロパティを取得します。 次に、ビデオ ストリームの回転状態のメディア ファンデーション トランスフォーム (MFT) 属性を表す GUID を作成します。 C++ では [**MF_MT_VIDEO_ROTATION**](https://docs.microsoft.com/windows/desktop/medfound/mf-mt-video-rotation) 定数を使用できますが、C# では GUID 値を手動で指定する必要があります。 
 
-キーに GUID を、値にプレビューの回転を指定して、ストリーム プロパティ オブジェクトにプロパティ値を追加します。 このプロパティは、値が反時計回りの角度の単位であることを想定しているため、単なる向きの値を変換するのに **CameraRotationHelper** メソッドの **ConvertSimpleOrientationToClockwiseDegrees** を使用します。 最後に、[**SetEncodingPropertiesAsync**](https://msdn.microsoft.com/library/windows/apps/Windows.Media.Capture.MediaCapture.SetEncodingPropertiesAsync(Windows.Media.Capture.MediaStreamType,Windows.Media.MediaProperties.IMediaEncodingProperties,Windows.Media.MediaProperties.MediaPropertySet)) を呼び出して新しい回転プロパティをストリームに適用します。
+キーに GUID を、値にプレビューの回転を指定して、ストリーム プロパティ オブジェクトにプロパティ値を追加します。 このプロパティは、値が反時計回りの角度の単位であることを想定しているため、単なる向きの値を変換するのに **CameraRotationHelper** メソッドの **ConvertSimpleOrientationToClockwiseDegrees** を使用します。 最後に、[**SetEncodingPropertiesAsync**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.MediaCapture#Windows_Media_Capture_MediaCapture_SetEncodingPropertiesAsync_Windows_Media_Capture_MediaStreamType_Windows_Media_MediaProperties_IMediaEncodingProperties_Windows_Media_MediaProperties_MediaPropertySet_) を呼び出して新しい回転プロパティをストリームに適用します。
 
 [!code-cs[SetPreviewRotationAsync](./code/SimpleCameraPreview_Win10/cs/MainPage.xaml.cs#SnippetSetPreviewRotationAsync)]
 
 次に、**CameraRotationHelper.OrientationChanged** イベントのハンドラーを追加します。 このイベントは、プレビュー ストリームが回転する必要があるかどうかを通知する引数を渡します。 デバイスの向きが表向きまたは裏向きに変わった場合、この値は false になります。 プレビューを回転する必要がある場合は、先ほど定義した **SetPreviewRotationAsync** を呼び出します。
 
-次に、**OrientationChanged** イベント ハンドラーで、必要に応じて UI を更新します。 **GetUIOrientation** を呼び出して、現在推奨される UI の向きをヘルパー クラスから取得し、値を時計回りに変換します。この値は XAML の変換に使われます。 向きの値から [**RotateTransform**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.RotateTransform) を作成し、XAML コントロールの [**RenderTransform**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.rendertransform) プロパティを設定します。 UI レイアウトによっては、単なるコントロールの回転に加え、追加の調整が必要になる場合があります。 また、UI へのすべての更新は UI スレッドで実行される必要があるため、このコードを [**RunAsync**](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Core.CoreDispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority,Windows.UI.Core.DispatchedHandler)) の呼び出しの中に配置する必要があることに注意してください。  
+次に、**OrientationChanged** イベント ハンドラーで、必要に応じて UI を更新します。 **GetUIOrientation** を呼び出して、現在推奨される UI の向きをヘルパー クラスから取得し、値を時計回りに変換します。この値は XAML の変換に使われます。 向きの値から [**RotateTransform**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.RotateTransform) を作成し、XAML コントロールの [**RenderTransform**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.rendertransform) プロパティを設定します。 UI レイアウトによっては、単なるコントロールの回転に加え、追加の調整が必要になる場合があります。 また、UI へのすべての更新は UI スレッドで実行される必要があるため、このコードを [**RunAsync**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreDispatcher#Windows_UI_Core_CoreDispatcher_RunAsync_Windows_UI_Core_CoreDispatcherPriority_Windows_UI_Core_DispatchedHandler_) の呼び出しの中に配置する必要があることに注意してください。  
 
 [!code-cs[HelperOrientationChanged](./code/SimpleCameraPreview_Win10/cs/MainPage.xaml.cs#SnippetHelperOrientationChanged)]
 
@@ -80,16 +80,16 @@ ms.locfileid: "66361749"
 
 次の例では、[**CapturePhotoToStreamAsync**](https://docs.microsoft.com/uwp/api/windows.media.capture.mediacapture.capturephototostreamasync) を呼び出すことで写真を [**InMemoryRandomAccessStream**](https://docs.microsoft.com/uwp/api/Windows.Storage.Streams.InMemoryRandomAccessStream) にキャプチャし、ストリームから [**BitmapDecoder**](https://docs.microsoft.com/uwp/api/Windows.Graphics.Imaging.BitmapDecoder) を作成しています。 次に、[**StorageFile**](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageFile) を作成して、ファイルに書き込む [**IRandomAccessStream**](https://docs.microsoft.com/uwp/api/Windows.Storage.Streams.IRandomAccessStream) を取得するために開きます。 
 
-ファイルをコード変換する前に、**GetCameraCaptureOrientation** というヘルパー クラス メソッドから写真の向きを取得します。 このメソッドは、**ConvertSimpleOrientationToPhotoOrientation** というヘルパー メソッドによって [**PhotoOrientation**](https://docs.microsoft.com/uwp/api/Windows.Storage.FileProperties.PhotoOrientation) オブジェクトに変換される [**SimpleOrientation**](https://docs.microsoft.com/uwp/api/Windows.Devices.Sensors.SimpleOrientation) オブジェクトを返します。 次に、新しい **BitmapPropertySet** オブジェクトを作成し、キーが "System.Photo.Orientation" で、値が (**BitmapTypedValue** として表される) 写真の向きであるプロパティを追加します。 "System.Photo.Orientation" は、メタデータとして画像ファイルに追加できる多くの Windows プロパティのうちの 1 つです。 写真に関連するプロパティの全一覧については、「[**Windows プロパティ - 写真**](https://docs.microsoft.com/previous-versions//ff516600(v=vs.85))」をご覧ください。 画像のメタデータの使い方について詳しくは、「[**画像のメタデータ**](image-metadata.md)」をご覧ください。
+ファイルをコード変換する前に、**GetCameraCaptureOrientation** というヘルパー クラス メソッドから写真の向きを取得します。 このメソッドは、**ConvertSimpleOrientationToPhotoOrientation** というヘルパー メソッドによって [**PhotoOrientation**](https://docs.microsoft.com/uwp/api/Windows.Storage.FileProperties.PhotoOrientation) オブジェクトに変換される [**SimpleOrientation**](https://docs.microsoft.com/uwp/api/Windows.Devices.Sensors.SimpleOrientation) オブジェクトを返します。 次に、新しい **BitmapPropertySet** オブジェクトを作成し、キーが "System.Photo.Orientation" で、値が (**BitmapTypedValue** として表される) 写真の向きであるプロパティを追加します。 "System.Photo.Orientation" は、メタデータとして画像ファイルに追加できる多くの Windows プロパティのうちの 1 つです。 写真に関連するプロパティの全一覧については、「[**Windows プロパティ - 写真**](https://docs.microsoft.com/previous-versions/ff516600(v=vs.85))」をご覧ください。 画像のメタデータの使い方について詳しくは、「[**画像のメタデータ**](image-metadata.md)」をご覧ください。
 
-最後に、[**SetPropertiesAsync**](https://developer.microsoft.com/windows/apps/develop) を呼び出すことで、向きのデータを含むプロパティ セットをエンコーダーに設定し、[**FlushAsync**](https://docs.microsoft.com/uwp/api/windows.graphics.imaging.bitmapencoder.flushasync) を呼び出すことで、画像をコード変換します。
+最後に、[**SetPropertiesAsync**](https://docs.microsoft.com/windows/uwp/develop/) を呼び出すことで、向きのデータを含むプロパティ セットをエンコーダーに設定し、[**FlushAsync**](https://docs.microsoft.com/uwp/api/windows.graphics.imaging.bitmapencoder.flushasync) を呼び出すことで、画像をコード変換します。
 
 [!code-cs[CapturePhotoWithOrientation](./code/SimpleCameraPreview_Win10/cs/MainPage.xaml.cs#SnippetCapturePhotoWithOrientation)]
 
 ## <a name="capture-a-video-with-orientation-data"></a>向きのデータを使ってビデオをキャプチャする
 基本的なビデオ キャプチャについては、「[**MediaCapture を使った基本的な写真、ビデオ、およびオーディオのキャプチャ**](basic-photo-video-and-audio-capture-with-mediacapture.md)」で説明しています。 キャプチャしたビデオのエンコーディングに向きのデータを追加するには、向きのデータをプレビュー ストリームに追加するセクションで説明したのと同じ手法を用います。
 
-次の例では、キャプチャしたビデオを書き込むファイルを作成します。 [  **CreateMp4**](https://docs.microsoft.com/uwp/api/windows.media.mediaproperties.mediaencodingprofile.createmp4) という静的メソッドを使用して、MP4 エンコード プロファイルを作成します。 ビデオの正しい向きは、**GetCameraCaptureOrientation** を呼び出すことで **CameraRotationHelper** クラスから取得します。回転プロパティでは、向きを反時計回りの角度で表す必要があるため、**ConvertSimpleOrientationToClockwiseDegrees** ヘルパー メソッドを呼び出して向きの値を変換します。 次に、ビデオ ストリームの回転状態のメディア ファンデーション トランスフォーム (MFT) 属性を表す GUID を作成します。 C++ では [**MF_MT_VIDEO_ROTATION**](https://docs.microsoft.com/windows/desktop/medfound/mf-mt-video-rotation) 定数を使用できますが、C# では GUID 値を手動で指定する必要があります。 キーに GUID を、値に回転状態を指定して、ストリーム プロパティ オブジェクトにプロパティ値を追加します。 最後に、[**StartRecordToStorageFileAsync**](https://msdn.microsoft.com/library/windows/apps/Windows.Media.Capture.MediaCapture.StartRecordToStorageFileAsync(Windows.Media.MediaProperties.MediaEncodingProfile,Windows.Storage.IStorageFile)) を呼び出して、向きのデータによってエンコーディングされたビデオの録画を開始します。
+次の例では、キャプチャしたビデオを書き込むファイルを作成します。 [  **CreateMp4**](https://docs.microsoft.com/uwp/api/windows.media.mediaproperties.mediaencodingprofile.createmp4) という静的メソッドを使用して、MP4 エンコード プロファイルを作成します。 ビデオの正しい向きは、**GetCameraCaptureOrientation** を呼び出すことで **CameraRotationHelper** クラスから取得します。回転プロパティでは、向きを反時計回りの角度で表す必要があるため、**ConvertSimpleOrientationToClockwiseDegrees** ヘルパー メソッドを呼び出して向きの値を変換します。 次に、ビデオ ストリームの回転状態のメディア ファンデーション トランスフォーム (MFT) 属性を表す GUID を作成します。 C++ では [**MF_MT_VIDEO_ROTATION**](https://docs.microsoft.com/windows/desktop/medfound/mf-mt-video-rotation) 定数を使用できますが、C# では GUID 値を手動で指定する必要があります。 キーに GUID を、値に回転状態を指定して、ストリーム プロパティ オブジェクトにプロパティ値を追加します。 最後に、[**StartRecordToStorageFileAsync**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.MediaCapture#Windows_Media_Capture_MediaCapture_StartRecordToStorageFileAsync_Windows_Media_MediaProperties_MediaEncodingProfile_Windows_Storage_IStorageFile_) を呼び出して、向きのデータによってエンコーディングされたビデオの録画を開始します。
 
 [!code-cs[StartRecordingWithOrientationAsync](./code/SimpleCameraPreview_Win10/cs/MainPage.xaml.cs#SnippetStartRecordingWithOrientationAsync)]
 

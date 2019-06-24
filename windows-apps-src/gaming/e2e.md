@@ -6,12 +6,12 @@ ms.date: 04/16/2018
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム、ゲーム開発
 ms.localizationpriority: medium
-ms.openlocfilehash: 6729711a424bfdcf9af2da92d60f12a066500256
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 950f9415e63a31a5204a15f4f72b968535489cfa
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66368783"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67321241"
 ---
 # <a name="windows-10-game-development-guide"></a>Windows 10 ゲーム開発ガイド
 
@@ -50,15 +50,15 @@ Windows または Xbox で初めてゲームを開発する場合は、最初に
     </colgroup>
     <tr>
         <td>Windows デベロッパー センターのメイン ポータル</td>
-        <td><a href="https://dev.windows.com">Windows デベロッパー センター</a></td>
+        <td><a href="https://developer.microsoft.com/windows">Windows デベロッパー センター</a></td>
     </tr>
     <tr>
         <td>Windows アプリの開発</td>
-        <td><a href="https://dev.windows.com/develop">Windows アプリを開発します。</a></td>
+        <td><a href="https://developer.microsoft.com/windows/apps/develop">Windows アプリを開発します。</a></td>
     </tr>
     <tr>
         <td>ユニバーサル Windows プラットフォーム アプリの開発</td>
-        <td><a href="https://developer.microsoft.com/windows/apps/">Windows 10 アプリに関するハウツー ガイド</a></td>
+        <td><a href="https://developer.microsoft.com/windows/apps">Windows 10 アプリに関するハウツー ガイド</a></td>
     </tr>
     <tr>
         <td>UWP ゲームに関する使い方ガイド</td>
@@ -169,7 +169,7 @@ Xbox のツールおよびミドルウェア プログラムは、ゲームの�
 
 ### <a name="game-samples"></a>ゲームのサンプル
 
-Windows 10 ゲームとアプリのサンプルが数多く用意されており、Windows 10 のゲーム機能を理解して、ゲーム開発をすぐに始めることができます。 サンプルは次々と開発され、定期的に公開されるため、ときどきサンプル ポータルをチェックして、新機能を確認することを忘れないでください。 GitHub のリポジトリを[監視](https://help.github.com/articles/watching-repositories/)して、変更や追加についての通知を受け取ることもできます。
+Windows 10 ゲームとアプリのサンプルが数多く用意されており、Windows 10 のゲーム機能を理解して、ゲーム開発をすぐに始めることができます。 サンプルは次々と開発され、定期的に公開されるため、ときどきサンプル ポータルをチェックして、新機能を確認することを忘れないでください。 GitHub のリポジトリを[監視](https://help.github.com/en/articles/watching-and-unwatching-repositories)して、変更や追加についての通知を受け取ることもできます。
 
 <table>
     <colgroup>
@@ -306,7 +306,7 @@ Windows 10 ゲームとアプリのサンプルが数多く用意されており
     </tr>
     <tr>
         <td>Visual Studio 開発者ツールに関するブログ</td>
-        <td><a href="https://devblogs.microsoft.com/">開発者ツールのブログ</a></td>
+        <td><a href="https://devblogs.microsoft.com/visualstudio/">開発者ツールのブログ</a></td>
     </tr>
     <tr>
         <td>Somasegar の開発者ツールに関するブログ</td>
@@ -437,7 +437,7 @@ DirectX のさまざまな機能と緊密なプラットフォーム統合によ
     </tr>
     <tr>
         <td>Direct3D 12 プログラミング ガイドとリファレンス</td>
-        <td><a href="https://docs.microsoft.com/windows/desktop/direct3d12/direct3d-12-graphics">Direct3D 12 のグラフィックス</a></td>
+        <td><a href="https://docs.microsoft.com/windows/desktop/direct3d12/direct3d-12-graphics">Direct3D 12 グラフィックス</a></td>
     </tr>
     <tr>
         <td>グラフィックスおよび DirectX 12 開発に関するビデオ (YouTube チャンネル)</td>
@@ -599,7 +599,7 @@ Direct3D 11.3 は低レベル グラフィック API です。よく利用され
     </tr>
     <tr>
         <td>Direct3D 11 on 12 の概要</td>
-        <td><a href="https://docs.microsoft.com/windows/desktop/direct3d12/direct3d-11-on-12">12 で direct3d11</a></td>
+        <td><a href="https://docs.microsoft.com/windows/desktop/direct3d12/direct3d-11-on-12">Direct3D 11 on 12</a></td>
     </tr>
 </table>
 
@@ -619,11 +619,11 @@ Direct3D 11.3 は低レベル グラフィック API です。よく利用され
     </colgroup>
     <tr>
         <td>UWP ブリッジ</td>
-        <td><a href="https://dev.windows.com/bridges/">Windows に、コードを移動できます。</a></td>
+        <td><a href="https://developer.microsoft.com/windows/bridges">Windows に、コードを移動できます。</a></td>
     </tr>
     <tr>
         <td>Windows Bridge for iOS</td>
-        <td><a href="https://dev.windows.com/bridges/ios">Windows、iOS アプリを表示します。</a></td>
+        <td><a href="https://developer.microsoft.com/windows/bridges/ios">Windows、iOS アプリを表示します。</a></td>
     </tr>
     <tr>
         <td>デスクトップ アプリケーション用 Windows ブリッジ (.NET および Win32)</td>
@@ -688,11 +688,11 @@ Unity 5.4 以降では、Unity は Direct3D 12 の開発をサポートします
     </colgroup>
     <tr>
         <td>Unity ゲーム エンジン</td>
-        <td><a href="https://unity3d.com/">Unity のゲーム エンジン</a></td>
+        <td><a href="https://unity.com/">Unity のゲーム エンジン</a></td>
     </tr>
     <tr>
         <td>Unity を入手する</td>
-        <td><a href="https://unity3d.com/get-unity">Unity を入手する</a></td>
+        <td><a href="https://store.unity.com/">Unity を入手する</a></td>
     </tr>
     <tr>
         <td>Windows 向けの Unity に関するドキュメント</td>
@@ -756,7 +756,7 @@ Havok のモジュール化された一連のツールとテクノロジによ�
     </tr>
     <tr>
         <td>Havok サポート フォーラム</td>
-        <td><a href="https://support.havok.com">Havok</a></td>
+        <td><a href="https://www.havok.com/">Havok</a></td>
     </tr>
 </table>
  
@@ -957,7 +957,7 @@ Windows 10 ではユニバーサル Windows プラットフォーム (UWP) が�
     </colgroup>
     <tr>
         <td>UWP 開発の概要</td>
-        <td><a href="https://dev.windows.com/getstarted">Windows アプリの概要</a></td>
+        <td><a href="https://developer.microsoft.com/windows/apps/getstarted">Windows アプリの概要</a></td>
     </tr>
     <tr>
         <td>UWP 開発の準備</td>
@@ -991,7 +991,7 @@ UWP プログラミングについて "文字どおりの初心者" である場
     </colgroup>
     <tr>
         <td>ユニバーサル Windows プラットフォーム アプリの開発の概要</td>
-        <td><a href="https://dev.windows.com/develop">Windows アプリを開発します。</a></td>
+        <td><a href="https://developer.microsoft.com/windows/apps/develop">Windows アプリを開発します。</a></td>
     </tr>
     <tr>
         <td>UWP のネットワーク プログラミングの概要</td>
@@ -1200,7 +1200,7 @@ DirectX ゲーム開発用のガイドと参照情報を紹介します。
     </tr>
     <tr>
         <td>Direct3D 12 プログラミング ガイドとリファレンス</td>
-        <td><a href="https://docs.microsoft.com/windows/desktop/direct3d12/direct3d-12-graphics">Direct3D 12 のグラフィックス</a></td>
+        <td><a href="https://docs.microsoft.com/windows/desktop/direct3d12/direct3d-12-graphics">Direct3D 12 グラフィックス</a></td>
     </tr>
     <tr>
         <td>DirectX 12 の基本事項 (ビデオ)</td>
@@ -1223,7 +1223,7 @@ Direct3D 12 での変更点、および Direct3D 12 を使ってプログラミ�
     </tr>
     <tr>
         <td>基本的なコンポーネントを作成する方法</td>
-        <td><a href="https://docs.microsoft.com/windows/desktop/direct3d12/creating-a-basic-direct3d-12-component">Direct3d12 の基本的なコンポーネントを作成します。</a></td>
+        <td><a href="https://docs.microsoft.com/windows/desktop/direct3d12/creating-a-basic-direct3d-12-component">Direct3D 12 の基本的なコンポーネントの作成</a></td>
     </tr>
     <tr>
         <td>Direct3D 12 での変更点</td>
@@ -1235,11 +1235,11 @@ Direct3D 12 での変更点、および Direct3D 12 を使ってプログラミ�
     </tr>
     <tr>
         <td>リソース バインディングの概念 (対象となる記述子、記述子テーブル、記述子ヒープ、およびルート署名) </td>
-        <td><a href="https://docs.microsoft.com/windows/desktop/direct3d12/resource-binding">Direct3d12 でリソースのバインド</a></td>
+        <td><a href="https://docs.microsoft.com/windows/desktop/direct3d12/resource-binding">Direct3D 12 でのリソース バインディング</a></td>
     </tr>
     <tr>
         <td>メモリ管理</td>
-        <td><a href="https://docs.microsoft.com/windows/desktop/direct3d12/memory-management">Direct3d12 でのメモリ管理</a></td>
+        <td><a href="https://docs.microsoft.com/windows/desktop/direct3d12/memory-management">Direct3D 12 でのメモリ管理</a></td>
     </tr>
 </table>
  
@@ -1347,7 +1347,7 @@ DirectX ツール キット、DirectX テクスチャ処理ライブラリ、Dir
     </tr>
     <tr>
         <td>Visual Studio 用の UWP Tile Generator 拡張機能</td>
-        <td><a href="https://marketplace.visualstudio.com/vsgallery/09611e90-f3e8-44b7-9c83-18dba8275bb2">1 つのイメージを使用して必要なすべてのタイルを作成するためのツール</a></td>
+        <td><a href="https://marketplace.visualstudio.com/items?itemName=shenchauhan.UWPTileGenerator">1 つのイメージを使用して必要なすべてのタイルを作成するためのツール</a></td>
     </tr>
     <tr>
         <td>Visual Studio 用の UWP Tile Generator 拡張機能 (ブログの投稿)</td>
@@ -1397,7 +1397,7 @@ Windows Performance Toolkit (WPT) は、Windows オペレーティング シス�
     </colgroup>
     <tr>
         <td>コードのパフォーマンス テストを行う</td>
-        <td><a href="https://www.visualstudio.com/team-services/cloud-load-testing/">クラウド ベースのロード テスト</a></td>
+        <td><a href="https://azure.microsoft.com/services/devops/test-plans/">クラウド ベースのロード テスト</a></td>
     </tr>
     <tr>
         <td>ゲーム デバイス情報を使用して Xbox 本体のタイプを取得する</td>
@@ -1464,7 +1464,7 @@ DirectX の開発には微妙で複雑な部分があります。 運用環境�
     </tr>
     <tr>
         <td>Direct3D 12 プログラミング ガイド</td>
-        <td><a href="https://docs.microsoft.com/windows/desktop/direct3d12/direct3d-12-graphics">Direct3D 12 のプログラミング ガイド</a></td>
+        <td><a href="https://docs.microsoft.com/windows/desktop/direct3d12/direct3d-12-graphics">Direct3D 12 プログラミング ガイド</a></td>
     </tr>
     <tr>
         <td>DirectX と XAML の組み合わせ</td>
@@ -1530,7 +1530,7 @@ Windows プラットフォーム用の多言語対応ゲームを開発し、Mic
     </colgroup>
     <tr>
         <td>パートナー センターのアプリの発行</td>
-        <td><a href="https://dev.windows.com/publish">Windows アプリを発行します。</a></td>
+        <td><a href="https://developer.microsoft.com/store/publish-apps">Windows アプリを発行します。</a></td>
     </tr>
     <tr>
         <td>パートナー センターの詳細 (GDN) の発行</td>
@@ -1658,7 +1658,7 @@ Windows プラットフォーム用の多言語対応ゲームを開発し、Mic
     </tr>
     <tr>
         <td>ゲームの販売を促進する方法</td>
-        <td><a href="https://dev.windows.com/store-promotion">アプリの販売促進</a></td>
+        <td><a href="https://developer.microsoft.com/store/promote-your-apps">アプリの販売促進</a></td>
     </tr>
 </table>
  
@@ -1692,7 +1692,7 @@ Visual Studio Application Insights は、公開されたゲームのパフォー
     </colgroup>
     <tr>
         <td>GameAnalytics を使用してプレイヤーの動作を理解する</td>
-        <td><a href="https://www.gameanalytics.com/">GameAnalytics</a></td>
+        <td><a href="https://gameanalytics.com/">GameAnalytics</a></td>
     </tr>
     <tr>
         <td>UWP ゲームを Google Analytics に接続する</td>
@@ -1712,7 +1712,7 @@ Visual Studio Application Insights は、公開されたゲームのパフォー
     </tr>
     <tr>
         <td>Vungle を使用してゲームにビデオ広告を追加する</td>
-        <td><a href="https://v.vungle.com/sdk">Vungle の Windows SDK を取得します。</a></td>
+        <td><a href="https://publisher.vungle.com/sdk/">Vungle の Windows SDK を取得します。</a></td>
     </tr>
 </table>
  

@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10、uwp、3dprinting、3d 印刷
 ms.localizationpriority: medium
-ms.openlocfilehash: 712efde0293edff6134309ac2d6d9105413a2877
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: e2ed99720afdccef297d46853d4a2445b497195e
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66370425"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67321696"
 ---
 # <a name="3d-printing-from-your-app"></a>アプリからの 3D 印刷
 
@@ -54,7 +54,7 @@ UI フィードバック用に **TextBlock** を追加します。
 ## <a name="get-the-3d-data"></a>3D データの取得
 
 
-アプリでは、さまざまな方法で、3D 形状データを取得することができます。 たとえば、3D スキャンからデータを取得したり、Web リソースからのモデル データをダウンロードしたり、数式やユーザー入力を使ってプログラムによって 3D メッシュを生成したりできます。 ここでは簡単にするために、3D データ ファイル (一般的なファイルの種類のいずれか) をデバイスのストレージからプログラム メモリに読み込む方法を示します。 [3D Builder モデル ライブラリ](https://developer.microsoft.com/windows/hardware/3d-builder-model-library)には幅広いモデルが用意されており、デバイスに簡単にダウンロードできます。
+アプリでは、さまざまな方法で、3D 形状データを取得することができます。 たとえば、3D スキャンからデータを取得したり、Web リソースからのモデル データをダウンロードしたり、数式やユーザー入力を使ってプログラムによって 3D メッシュを生成したりできます。 ここでは簡単にするために、3D データ ファイル (一般的なファイルの種類のいずれか) をデバイスのストレージからプログラム メモリに読み込む方法を示します。 [3D Builder モデル ライブラリ](https://developer.microsoft.com/windows/hardware/3d-print/windows-3d-printing)には幅広いモデルが用意されており、デバイスに簡単にダウンロードできます。
 
 `OnLoadClick` メソッドで、[**FileOpenPicker**](https://docs.microsoft.com/uwp/api/Windows.Storage.Pickers.FileOpenPicker) クラスを使って、1 つのファイルをアプリのメモリに読み込みます。
 
@@ -70,8 +70,7 @@ UI フィードバック用に **TextBlock** を追加します。
 [3D Builder](https://www.microsoft.com/store/apps/3d-builder/9wzdncrfj3t6) アプリでは、一般的なほとんどの 3D 形式のファイルを開くことができ、それらを .3mf ファイル形式で保存することができます。 この例では、ファイルの種類が異なる場合に、簡単な解決策として、3D Builder アプリを開き、インポートしたデータを .3mf ファイルとして保存し再度読み込むようユーザーに求めます。
 
 > [!NOTE]  
-> 
-3D Builder には、ファイル形式の変換以外にも、モデルを編集したり色データを追加したりといった、印刷に固有の操作を行うための簡単なツールが用意されているため、多くの場合、3D 印刷を処理するアプリに統合するだけの価値があります。
+> 3D Builder には、ファイル形式の変換以外にも、モデルを編集したり色データを追加したりといった、印刷に固有の操作を行うための簡単なツールが用意されているため、多くの場合、3D 印刷を処理するアプリに統合するだけの価値があります。
 
 [!code-cs[FileCheck](./code/3dprinthowto/cs/MainPage.xaml.cs#SnippetFileCheck)]
 

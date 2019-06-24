@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: ac96354fa1752f655307a5dfd18678233e59c724
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: a72a4e7349a5d72b7081873814389c0924ca9308
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66372446"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67322282"
 ---
 #  <a name="porting-windowsphone-silverlight-xaml-and-ui-to-uwp"></a>Windows Phone Silverlight XAML と UI を UWP への移植
 
@@ -201,7 +201,7 @@ Windows Phone Silverlight アプリで定義されているコントロールを
 
 **注**   PointerOver 表示状態は、カスタム スタイルまたはテンプレートで Windows Phone Silverlight アプリではなく、Windows 10 アプリに関連します。 別の理由でなぜ既存のカスタム スタイルまたはテンプレートが適切でない Windows 10 を含む、アプリを使用しているシステム リソースのキーの使用、表示状態とパフォーマンスの改善に Windows 10 の既定のスタイルに加えられたセットへの変更/テンプレート。 Windows 10 用のコントロールの既定のテンプレートの新しいコピーを編集し、スタイルとテンプレートのカスタマイズを再適用するをお勧めします。
 
-UWP のコントロールについて詳しくは、「[機能別コントロール](https://docs.microsoft.com/windows/uwp/controls-and-patterns/controls-by-function)」、「[コントロールの一覧](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/)」、「[コントロールのガイドライン](https://developer.microsoft.com/windows/design/controls-patterns)」をご覧ください。
+UWP のコントロールについて詳しくは、「[機能別コントロール](https://docs.microsoft.com/windows/uwp/controls-and-patterns/controls-by-function)」、「[コントロールの一覧](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/)」、「[コントロールのガイドライン](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/index)」をご覧ください。
 
 ##  <a name="design-language-in-windows10"></a>Windows 10 でのデザイン言語
 
@@ -211,7 +211,7 @@ Windows Phone Silverlight アプリと Windows 10 アプリのデザイン言語
 
 ローカライズされた文字列の場合、UWP アプリ プロジェクトで、.resx ファイルを Windows Phone Silverlight プロジェクトから使用すること再ことができます。 ファイルをコピーしてプロジェクトに追加し、検索メカニズムによって既定で検索されるように名前を Resources.resw に変更します **[ビルド アクション]** を **[PRIResource]** に設定し、 **[出力ディレクトリにコピー]** を **[コピーしない]** に設定します。 次に、XAML 要素で **x:Uid** 属性を指定することにより、マークアップで文字列を使うことができます。 参照してください[クイック スタート。文字列リソースを使用して](https://docs.microsoft.com/previous-versions/windows/apps/hh965329(v=win.10))します。
 
-Windows Phone Silverlight アプリの使用、 **CultureInfo**アプリをグローバル化を支援するクラス。 UWP アプリは、MRT (Modern Resource Technology) を使います。これによって、実行時および Visual Studio デザイン サーフェイスで、アプリ リソース (ローカライズ、サイズ調整、テーマ) の動的な読み込みが可能になります。 詳しくは、「[ファイル、データ、グローバリゼーションのガイドライン](https://developer.microsoft.com/windows/design/usability)」をご覧ください。
+Windows Phone Silverlight アプリの使用、 **CultureInfo**アプリをグローバル化を支援するクラス。 UWP アプリは、MRT (Modern Resource Technology) を使います。これによって、実行時および Visual Studio デザイン サーフェイスで、アプリ リソース (ローカライズ、サイズ調整、テーマ) の動的な読み込みが可能になります。 詳しくは、「[ファイル、データ、グローバリゼーションのガイドライン](https://docs.microsoft.com/windows/uwp/design/usability/index)」をご覧ください。
 
 「[**ResourceContext.QualifierValues**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.resources.core.resourcecontext.qualifiervalues)」トピックでは、デバイス ファミリのリソースを選ぶ要因に基づいてデバイス ファミリ固有のリソースを読み込む方法について説明しています。
 

@@ -6,12 +6,12 @@ ms.date: 03/19/2018
 ms.topic: article
 keywords: Windows 10, UWP, 地図, 位置情報, マップ コントロール, マップ ビュー
 ms.localizationpriority: medium
-ms.openlocfilehash: 8c026fa0762e25421414ac66fc614625c0df6cd7
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 366a6212f8974ef3d3fedffa8f2d657e08a1b549
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66371906"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67318673"
 ---
 # <a name="display-maps-with-2d-3d-and-streetside-views"></a>2D、3D、Streetside ビューでの地図の表示
 
@@ -319,7 +319,7 @@ Streetside ビューを表示するには
 1.  [  **IsStreetsideSupported**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.isstreetsidesupported) を確認して、Streetside ビューがデバイスでサポートされているかどうかを調べます。
 2.  Streetside ビューがサポートされている場合は、[**FindNearbyAsync**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.streetsidepanorama.findnearbyasync) を呼び出し、指定した位置の近くに [**StreetsidePanorama**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.StreetsidePanorama) を作成します。
 3.  [  **StreetsidePanorama**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.StreetsidePanorama) が null でないかどうかを確認し、近隣のパノラマ写真があるかどうかを調べます。
-4.  近隣のパノラマ写真があった場合、[**StreetsideExperience**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.streetsideexperience.) を作成し、マップ コントロールの [**CustomExperience**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.customexperience) プロパティに設定します。
+4.  近隣のパノラマ写真があった場合、[**StreetsideExperience**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.streetsideexperience) を作成し、マップ コントロールの [**CustomExperience**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.customexperience) プロパティに設定します。
 
 次の例は、前掲の画像に似た Streetside ビューを表示する方法を示しています。
 

@@ -5,12 +5,12 @@ ms.date: 04/21/2017
 ms.topic: article
 keywords: windows 10、uwp、更新、バック グラウンド タスク、updatetask、バック グラウンド タスク
 ms.localizationpriority: medium
-ms.openlocfilehash: 3683595926f20fdd9f9af5929db65396b0001bcc
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: d943623a9978d39fd3930edc07e7524fe1cadf55
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66371485"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67321786"
 ---
 # <a name="run-a-background-task-when-your-uwp-app-is-updated"></a>UWP アプリが更新された際のバックグラウンド タスクの実行
 
@@ -27,7 +27,7 @@ ms.locfileid: "66371485"
 - ソリューションに Windows ランタイム コンポーネント プロジェクトを追加する。
 - アプリからコンポーネントへの参照を作成する。
 - [  **IBackgroundTask**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.IBackgroundTask) を実装するコンポーネント内の public sealed クラスを作成する。
-- 更新タスクの実行時に呼び出される必要なエントリ ポイントである [**Run**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtask.) メソッドを実装する。 バックグラウンド タスクからの非同期呼び出しを作成する場合は、「[アウトプロセス バックグラウンド タスクの作成と登録](https://docs.microsoft.com/windows/uwp/launch-resume/create-and-register-a-background-task)」で **Run** メソッドでの遅延の使用方法を説明しています。
+- 更新タスクの実行時に呼び出される必要なエントリ ポイントである [**Run**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtask.run) メソッドを実装する。 バックグラウンド タスクからの非同期呼び出しを作成する場合は、「[アウトプロセス バックグラウンド タスクの作成と登録](https://docs.microsoft.com/windows/uwp/launch-resume/create-and-register-a-background-task)」で **Run** メソッドでの遅延の使用方法を説明しています。
 
 更新タスクを使用するうえで、このバックグラウンド タスクの登録 ( **「アウトプロセス バックグラウンド タスクの作成と登録」** トピックの「実行するバックグラウンド タスクを登録する」セクション) は不要です。 更新タスクを使用する主な理由は、タスクを登録するためにコードをアプリに追加する必要がないこと、およびアプリの更新前にアプリを少なくとも 1 回実行してバックグラウンド タスクを登録する必要がないことです。
 

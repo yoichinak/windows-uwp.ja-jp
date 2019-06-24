@@ -8,12 +8,12 @@ ms.date: 07/13/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: f01c3faf115bc2bac29854462d3bd321ae48a8ec
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: d6100b68c66f72a619c7aad0beca488d7318182a
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66361947"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67317326"
 ---
 # <a name="custom-automation-peers"></a>カスタム オートメーション ピア  
 
@@ -402,7 +402,7 @@ protected override object GetPatternCore(PatternInterface patternInterface)
 
 * [**GetBoundingRectangleCore**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.peers.automationpeer.getboundingrectanglecore):返します、 [ **Rect** ](https://docs.microsoft.com/uwp/api/Windows.Foundation.Rect)既知のレイアウト特性に基づいて、構造体。 [  **IsOffscreen**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.peers.automationpeer.isoffscreen) が **true** の場合は、値が 0 の **Rect** を返します。
 * [**GetClickablePointCore**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.peers.automationpeer.getclickablepointcore):返します、 [**ポイント**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Point)構造体は、0 以外の場合がある限り、既知のレイアウト特性に基づく**BoundingRectangle**します。
-* [**GetNameCore**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.peers.automationpeer.getnamecore):ここでは集計することより広範な動作参照してください[ **GetNameCore**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.peers.automationpeer.getnamecore)します。 基本的には、[**ContentControl**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ContentControl) やコンテンツを持つ関連クラスの既知のコンテンツの文字列変換を試行します。 また、[**LabeledBy**](https://docs.microsoft.com/previous-versions/windows/silverlight/dotnet-windows-silverlight/ms591292(v%3Dvs.95)) の値がある場合は、その項目の **Name** の値が **Name** として使われます。
+* [**GetNameCore**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.peers.automationpeer.getnamecore):ここでは集計することより広範な動作参照してください[ **GetNameCore**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.peers.automationpeer.getnamecore)します。 基本的には、[**ContentControl**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ContentControl) やコンテンツを持つ関連クラスの既知のコンテンツの文字列変換を試行します。 また、[**LabeledBy**](https://docs.microsoft.com/previous-versions/windows/silverlight/dotnet-windows-silverlight/ms591292(v=vs.95)) の値がある場合は、その項目の **Name** の値が **Name** として使われます。
 * [**HasKeyboardFocusCore**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.peers.automationpeer.haskeyboardfocuscore):評価される、オーナーに基づく[ **FocusState** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.focusstate)と[ **IsEnabled** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.isenabled)プロパティ。 コントロールではない要素は常に **false** を返します。
 * [**IsEnabledCore**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.peers.automationpeer.isenabledcore):評価、所有者のに基づいて[ **IsEnabled** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.isenabled)プロパティがある場合、 [**コントロール**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Control)します。 コントロールではない要素は常に **true** を返します。 これは、従来の対話式操作の意味で所有者が有効であることを示すのではなく、所有者に **IsEnabled** プロパティがなくてもピアは有効であることを示します。
 * [**IsKeyboardFocusableCore**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.peers.automationpeer.iskeyboardfocusablecore):返します**true**所有者がある場合、 [**コントロール**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Control); それ以外の場合は**false**します。
@@ -422,7 +422,7 @@ protected override object GetPatternCore(PatternInterface patternInterface)
 
 [  **AutomationProperties**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Automation.AutomationProperties) 添付プロパティについて詳しくは、「[基本的なアクセシビリティ情報](basic-accessibility-information.md)」をご覧ください。
 
-[  **AutomationPeer**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Automation.Peers.AutomationPeer) メソッドの一部は、UI オートメーション プロバイダーがどのように情報を報告するかを定める一般的なコントラクトのために存在しています。ただし、通常これらのメソッドはコントロール ピアでは実装されません。 理由は、この情報が、特定の UI にあるコントロールを使ったアプリ コードに適用する [**AutomationProperties**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Automation.AutomationProperties) 値から提供されることを前提としているためです。 たとえば、大半のアプリでは、[**AutomationProperties.LabeledBy**](https://docs.microsoft.com/previous-versions/windows/silverlight/dotnet-windows-silverlight/ms591292(v%3Dvs.95)) 値を適用することにより、UI 内の異なる 2 つのコントロール間でラベル付けの関係を定義します。 ただし、コントロール中のデータや項目の関係を表す特定のピアでは [**LabeledByCore**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.peers.automationpeer.getlabeledbycore) が実装されています。たとえば、ヘッダー部分を使ってデータ フィールドの部分にラベルを付けたり、項目にコンテナーのラベルを付けたりする場合です。
+[  **AutomationPeer**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Automation.Peers.AutomationPeer) メソッドの一部は、UI オートメーション プロバイダーがどのように情報を報告するかを定める一般的なコントラクトのために存在しています。ただし、通常これらのメソッドはコントロール ピアでは実装されません。 理由は、この情報が、特定の UI にあるコントロールを使ったアプリ コードに適用する [**AutomationProperties**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Automation.AutomationProperties) 値から提供されることを前提としているためです。 たとえば、大半のアプリでは、[**AutomationProperties.LabeledBy**](https://docs.microsoft.com/previous-versions/windows/silverlight/dotnet-windows-silverlight/ms591292(v=vs.95)) 値を適用することにより、UI 内の異なる 2 つのコントロール間でラベル付けの関係を定義します。 ただし、コントロール中のデータや項目の関係を表す特定のピアでは [**LabeledByCore**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.peers.automationpeer.getlabeledbycore) が実装されています。たとえば、ヘッダー部分を使ってデータ フィールドの部分にラベルを付けたり、項目にコンテナーのラベルを付けたりする場合です。
 
 <span id="Implementing_patterns"/>
 <span id="implementing_patterns"/>

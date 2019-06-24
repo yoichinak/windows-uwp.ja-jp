@@ -6,12 +6,12 @@ ms.date: 4/9/2019
 ms.topic: article
 keywords: windows 10、uwp、デバイス ポータル
 ms.localizationpriority: medium
-ms.openlocfilehash: 39715dc3f4b88a2e9a91a7cb659208f8370f16f2
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 59e7e46ea68f6bb5fe7fd63e6ac35b9256103c38
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66362416"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67317898"
 ---
 # <a name="windows-device-portal-overview"></a>Windows Device Portal の概要
 
@@ -212,7 +212,7 @@ DNS-SD レコードでアドバタイズされる HTTP ポートですべての�
 
 ### <a name="csrf-protection-and-scripting"></a>CSRF に対する保護とスクリプト
 
-[CSRF 攻撃](https://wikipedia.org/wiki/Cross-site_request_forgery)に対する保護のために、すべての非 GET 要求に一意のトークンが必要です。 このトークン、X-CSRF-Token 要求ヘッダーは、セッション Cookie、CSRF-Token から派生します。 Device Portal の Web UI では、CSRF-Token Cookie が、各要求の X-CSRF-Token にコピーされます。
+[CSRF 攻撃](https://en.wikipedia.org/wiki/Cross-site_request_forgery)に対する保護のために、すべての非 GET 要求に一意のトークンが必要です。 このトークン、X-CSRF-Token 要求ヘッダーは、セッション Cookie、CSRF-Token から派生します。 Device Portal の Web UI では、CSRF-Token Cookie が、各要求の X-CSRF-Token にコピーされます。
 
 > [!IMPORTANT]
 > この保護は、(コマンド ライン ユーティリティ) などのスタンドアロン クライアントから REST Api の使用状況をできないようにします。 これは 3 つの方法で解決できます。

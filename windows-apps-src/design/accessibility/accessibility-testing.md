@@ -8,12 +8,12 @@ ms.date: 05/18/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 8af03b32453bcdacb3da95678cf23a988c375f1b
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 60be53bfcb351866a0cf124fe4ef6f21ff889f88
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66359642"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67318965"
 ---
 # <a name="accessibility-testing"></a>アクセシビリティ テスト  
 
@@ -95,7 +95,7 @@ Windows ソフトウェア開発キット (Windows SDK) には、[**AccScope**](
 
 ## <a name="verify-your-app-with-display-settings"></a>アプリの表示設定を確認する  
 
-ディスプレイの 1 インチあたりのドット数 (dpi) の値を調整するシステム ディスプレイ オプションを使い、DPI の値の変更に合わせてアプリの UI が正常に拡大縮小されることを確認します  (一部のユーザーは、dpi 値を変更から入手できますが、ユーザー補助のオプションとして**コンピューターの簡単操作**プロパティを表示と同様です)。次の問題を発見した場合、[レイアウトのスケーリングのガイドライン](https://developer.microsoft.com/windows/design)とは異なるスケーリング要因の他のリソースを提供します。
+ディスプレイの 1 インチあたりのドット数 (dpi) の値を調整するシステム ディスプレイ オプションを使い、DPI の値の変更に合わせてアプリの UI が正常に拡大縮小されることを確認します (一部のユーザーは、dpi 値を変更から入手できますが、ユーザー補助のオプションとして**コンピューターの簡単操作**プロパティを表示と同様です)。次の問題を発見した場合、[レイアウトのスケーリングのガイドライン](https://developer.microsoft.com/windows/apps/design)とは異なるスケーリング要因の他のリソースを提供します。
 
 <span id="verify_main_app_scenarios_by_using_narrator"/>
 <span id="VERIFY_MAIN_APP_SCENARIOS_BY_USING_NARRATOR"/>
@@ -164,4 +164,4 @@ Windows 10 バージョン 1607 以降では、ナレーターで新しい開発
 * [避ける事項](practices-to-avoid.md)
 * [UI オートメーション](https://docs.microsoft.com/windows/desktop/WinAuto/entry-uiauto-win32)
 * [Windows のユーザー補助機能](https://go.microsoft.com/fwlink/p/?LinkId=320802)
-* [ナレーターを概要します。](https://support.microsoft.com/help/22798/windows-10-narrator-get-started)
+* [ナレーターを概要します。](https://support.microsoft.com/help/22798/windows-10-complete-guide-to-narrator)

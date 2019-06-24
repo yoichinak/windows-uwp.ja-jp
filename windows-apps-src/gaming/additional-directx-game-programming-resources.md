@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10、UWP、ゲーム、プログラミング
 ms.localizationpriority: medium
-ms.openlocfilehash: b855bc9adc79b3ae5dd5ab7128be7035a78a4aa0
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 684180d9fc86c870475351ed8e429ea83f968735
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66369104"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67321368"
 ---
 # <a name="game-programming-resources"></a>ゲーム プログラミング リソース
 
@@ -29,7 +29,7 @@ Windows でのゲーム プログラミングについて詳しくは、次の�
 ## <a name="game-design-guidance"></a>ゲーム設計のガイダンス
 
 
--   [UWP アプリ用のインデックスの UX のガイドライン](https://developer.microsoft.com/windows/design)
+-   [UWP アプリ用のインデックスの UX のガイドライン](https://developer.microsoft.com/windows/apps/design)
 
 ## <a name="blogs"></a>ブログ
 

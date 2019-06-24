@@ -8,12 +8,12 @@ ms.date: 07/28/2017
 ms.topic: article
 keywords: Windows 10, UWP, タイル, タイル通知, タイルのコンテンツ, スキーマ, タイルのペイロード
 ms.localizationpriority: medium
-ms.openlocfilehash: f12f1c2b6ac158b6f8e837fd3d6a64f96939ed99
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 26dcfc992dfc7557b1a9d835111346588cd2431a
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57642987"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67320764"
 ---
 # <a name="tile-content-schema"></a>タイルのコンテンツのスキーマ
 
@@ -56,7 +56,7 @@ TileContent は、視覚効果などのタイル通知のコンテンツを説�
 | **LockDetailedStatus1** | string | false | これを指定する場合は、TileWide バインディングも指定する必要があります。 このプロパティは、ユーザーがタイルを状態の詳細を表示するアプリとして選択した場合に、ロック画面に表示されるテキストの最初の行に該当します。 |
 | **LockDetailedStatus2** | string | false | これを指定する場合は、TileWide バインディングも指定する必要があります。 このプロパティは、ユーザーがタイルを状態の詳細を表示するアプリとして選択した場合に、ロック画面に表示されるテキストの 2 行目に該当します。 |
 | **LockDetailedStatus3** | string | false | これを指定する場合は、TileWide バインディングも指定する必要があります。 このプロパティは、ユーザーがタイルを状態の詳細を表示するアプリとして選択した場合に、ロック画面に表示されるテキストの 3 行目に該当します。 |
-| **baseUri** | Uri | false | 画像ソースの属性において相対 URL と組み合わされる、既定のベース URL です。 |
+| **BaseUri** | Uri | false | 画像ソースの属性において相対 URL と組み合わされる、既定のベース URL です。 |
 | **AddImageQuery** | bool? | false | true に設定すると、トースト通知で指定された画像 URL に Windows がクエリ文字列を追加できるようになります。 この属性は、サーバーが画像をホストしていてクエリ文字列を処理できる場合に使用します。サーバーがこのために、クエリ文字列に基づいて画像の変化形を取得しているか、またはクエリ文字列を無視して使わずに指定の画像を返しているかどうかは問いません。 このクエリ文字列は、スケール、コントラスト設定、および言語を指定するものです。たとえば、通知で指定されている値 "www.website.com/images/hello.png" は "www.website.com/images/hello.png?ms-scale=100&ms-contrast=standard&ms-lang=en-us" になります。 |
 | **言語**| string | false | ローカライズされたリソースを使用する際の視覚的なペイロードの対象ロケールです。"en-US" や "fr-FR" のように BCP-47 言語タグとして指定されます。 このロケールは、バインディングかテキストで指定されるあらゆるロケールによって上書きされます。 未指定の場合は、システム ロケールが代わりに使用されます。 |
 
@@ -70,7 +70,7 @@ TileContent は、視覚効果などのタイル通知のコンテンツを説�
 | **ブランド化** | TileBranding | false | アプリのブランドを表示するためにタイルで使用されるフォームです。 既定では、既定のタイルからブランド化を継承します。 |
 | **DisplayName** | string | false | このタイルのサイズに対応したタイルの表示名を上書きする文字列です (オプション)。 |
 | **引数** | string | false | Anniversary Update: 新機能アプリで定義された渡されるデータをアプリに戻る TileActivatedInfo プロパティを使用して LaunchActivatedEventArgs で、ユーザーがライブ タイルからアプリを起動します。 これにより、ユーザーがライブ タイルをタップしたときに表示されたタイル通知がどれであるかがわかります。 Anniversary Update が適用されていないデバイスでは、このプロパティは無視されるだけです。 |
-| **baseUri** | Uri | false | 画像ソースの属性において相対 URL と組み合わされる、既定のベース URL です。 |
+| **BaseUri** | Uri | false | 画像ソースの属性において相対 URL と組み合わされる、既定のベース URL です。 |
 | **AddImageQuery** | bool? | false | true に設定すると、トースト通知で指定された画像 URL に Windows がクエリ文字列を追加できるようになります。 この属性は、サーバーが画像をホストしていてクエリ文字列を処理できる場合に使用します。サーバーがこのために、クエリ文字列に基づいて画像の変化形を取得しているか、またはクエリ文字列を無視して使わずに指定の画像を返しているかどうかは問いません。 このクエリ文字列は、スケール、コントラスト設定、および言語を指定するものです。たとえば、通知で指定されている値 "www.website.com/images/hello.png" は "www.website.com/images/hello.png?ms-scale=100&ms-contrast=standard&ms-lang=en-us" になります。 |
 | **言語**| string | false | ローカライズされたリソースを使用する際の視覚的なペイロードの対象ロケールです。"en-US" や "fr-FR" のように BCP-47 言語タグとして指定されます。 このロケールは、バインディングかテキストで指定されるあらゆるロケールによって上書きされます。 未指定の場合は、システム ロケールが代わりに使用されます。 |
 
@@ -103,7 +103,7 @@ TileContent は、視覚効果などのタイル通知のコンテンツを説�
 
 | プロパティ | 種類 | 必須 |説明 |
 |---|---|---|---|
-| **テキスト** | string | false | 表示するテキストです。 |
+| **Text** | string | false | 表示するテキストです。 |
 | **HintStyle** | [AdaptiveTextStyle](#adaptivetextstyle) | false | このスタイルは、テキストのフォント サイズ、太さ、および不透明度を制御します。 |
 | **HintWrap** | bool? | false | true に設定すると、テキストの折り返しが有効になります。 既定は false です。 |
 | **HintMaxLines** | int? | false | 表示が許可される、テキスト要素の最大行数です。 |
@@ -165,7 +165,7 @@ TileContent は、視覚効果などのタイル通知のコンテンツを説�
 ### <a name="adaptiveimagecrop"></a>AdaptiveImageCrop
 必要な画像トリミングを指定します。
 
-| 値 | 説明 |
+| Value | 説明 |
 |---|---|
 | **Default** | 既定値です。 トリミングの動作がレンダラーによって決定されます。 |
 | **None** | 画像がトリミングされません。 |
@@ -175,7 +175,7 @@ TileContent は、視覚効果などのタイル通知のコンテンツを説�
 ### <a name="adaptiveimagealign"></a>AdaptiveImageAlign
 画像の水平方向の配置を指定します。
 
-| 値 | 説明 |
+| Value | 説明 |
 |---|---|
 | **Default** | 既定値です。 配置の動作がレンダラーによって決定されます。 |
 | **Stretch** | 利用可能な幅いっぱいに画像が拡大されます (また同時に、画像が配置される位置に応じて、利用可能な高さいっぱいに拡大されることもあります)。 |
@@ -214,7 +214,7 @@ TileContent は、視覚効果などのタイル通知のコンテンツを説�
 ### <a name="adaptivesubgrouptextstacking"></a>AdaptiveSubgroupTextStacking
 TextStacking は、コンテンツの垂直方向の配置を指定します。
 
-| 値 | 説明 |
+| Value | 説明 |
 |---|---|
 | **Default** | 既定値です。 レンダラーが既定の垂直方向の配置を自動的に選択します。 |
 | **ページのトップへ** | 上に合わせて垂直に配置されます。 |
@@ -237,7 +237,7 @@ TextStacking は、コンテンツの垂直方向の配置を指定します。
 ### <a name="tilebackgroundimagecrop"></a>TileBackgroundImageCrop
 背景画像のトリミングを制御します。
 
-| 値 | 説明 |
+| Value | 説明 |
 |---|---|
 | **Default** | トリミングがレンダラーの既定の動作を使用します。 |
 | **None** | 画像がトリミングされず、正方形で表示されます。 |
@@ -269,7 +269,7 @@ TextStacking は、コンテンツの垂直方向の配置を指定します。
 ### <a name="tiletextstacking"></a>TileTextStacking
 テキストの積み重ねは、コンテンツの垂直方向の配置を指定します。
 
-| 値 | 説明 |
+| Value | 説明 |
 |---|---|
 | **Default** | 既定値です。 レンダラーが既定の垂直方向の配置を自動的に選択します。 |
 | **ページのトップへ** | 上に合わせて垂直に配置されます。 |
@@ -282,7 +282,7 @@ TextStacking は、コンテンツの垂直方向の配置を指定します。
 
 | プロパティ | 種類 | 必須 |説明 |
 |---|---|---|---|
-| **Icon** | [TileBasicImage](#tilebasicimage) | true | 少なくとも、デスクトップとモバイル、および小さいタイルと中型のタイルの両方をサポートするために、縦横比が正方形となる画像を、解像度 200 x 200、PNG 形式で指定します。また、不透明度と色 (白のみ) も指定します。 詳しくは、次のトピックをご覧ください。[特殊なタイル テンプレート](../tiles-and-notifications/special-tile-templates-catalog.md)します。 |
+| **アイコン** | [TileBasicImage](#tilebasicimage) | true | 少なくとも、デスクトップとモバイル、および小さいタイルと中型のタイルの両方をサポートするために、縦横比が正方形となる画像を、解像度 200 x 200、PNG 形式で指定します。また、不透明度と色 (白のみ) も指定します。 詳しくは、次のトピックをご覧ください。[特殊なタイル テンプレート](../tiles-and-notifications/special-tile-templates-catalog.md)します。 |
 
 
 ## <a name="tilebindingcontentcontact"></a>TileBindingContentContact
@@ -291,7 +291,7 @@ TextStacking は、コンテンツの垂直方向の配置を指定します。
 | プロパティ | 種類 | 必須 |説明 |
 |---|---|---|---|
 | **イメージ** | [TileBasicImage](#tilebasicimage) | true | 表示する画像です。 |
-| **テキスト** | [TileBasicText](#tilebasictext) | false | 表示されるテキストの行です。 小さいタイルには表示されません。 |
+| **Text** | [TileBasicText](#tilebasictext) | false | 表示されるテキストの行です。 小さいタイルには表示されません。 |
 
 
 ## <a name="tilebindingcontentpeople"></a>TileBindingContentPeople
@@ -325,11 +325,11 @@ TextStacking は、コンテンツの垂直方向の配置を指定します。
 
 | プロパティ | 種類 | 必須 |説明 |
 |---|---|---|---|
-| **テキスト** | string | false | 表示するテキストです。 |
+| **Text** | string | false | 表示するテキストです。 |
 | **言語** | string | false | XML ペイロードの対象ロケールです。"en-US" や "fr-FR" のように BCP-47 言語タグとして指定されます。 ここで指定されたロケールは、バインディングか視覚的な要素で指定されたその他のあらゆるロケールを上書きします。 この値がリテラル文字列の場合、この属性の既定値はユーザーの UI 言語になります。 この値が文字列リファレンスの場合、この属性の既定値は、文字列を解決する際に Windows ランタイムで選択されたロケールになります。 |
 
 
 ## <a name="related-topics"></a>関連トピック
 
 * [クイック スタート:ローカルのタイル通知を送信します。](../tiles-and-notifications/sending-a-local-tile-notification.md)
-* [GitHub 上の通知ライブラリ](https://github.com/Microsoft/UWPCommunityToolkit/tree/dev/Notifications)
+* [GitHub 上の通知ライブラリ](https://github.com/windows-toolkit/WindowsCommunityToolkit/tree/dev/Notifications)

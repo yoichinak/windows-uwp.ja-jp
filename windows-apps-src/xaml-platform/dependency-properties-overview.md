@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 6bdd859a922cf3252f5896da2652a0b73e20a079
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: a07fae7920bbcddd4c68b052aa82c072312b4995
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66371192"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67322151"
 ---
 # <a name="dependency-properties-overview"></a>依存関係プロパティの概要
 
@@ -47,7 +47,7 @@ ms.locfileid: "66371192"
 
 依存関係プロパティについて説明するときにこのドキュメントで使用する用語の概要を次に示します。
 
-| 用語 | 説明 |
+| 項目 | 説明 |
 |------|-------------|
 | 依存関係プロパティ | [  **DependencyProperty**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.DependencyProperty) 識別子上に存在するプロパティ (下記参照)。 この識別子は通常、定義する **DependencyObject** 派生クラスの静的メンバーとして使用できます。 |
 | 依存関係プロパティ識別子 | プロパティを識別する定数値です。通常はパブリックで、読み取り専用です。 |
@@ -188,13 +188,13 @@ Windows 10 では、[**RegisterPropertyChangedCallback**](https://docs.microsoft
 
 ### <a name="default-value-and-clearvalue"></a>既定値と **ClearValue**
 
-依存関係プロパティには、プロパティ メタデータの一部として既定値を定義できます。 依存関係プロパティの場合、その既定値は、プロパティが最初に設定された後も無効にはなりません。 既定値は、値の優先順位で他の決定要因がなくなるたびに、実行時に再び適用されることがあります  (依存関係プロパティの値の優先順位は、次のセクションで説明します。)たとえば、スタイルの値または、プロパティを適用するアニメーションを意図的に削除する可能性がありますが、これを行った後に妥当な既定値にします。 依存関係プロパティの既定値を使うと、各プロパティの値を余分な手間をかけて特に設定することなく、適切な値を適用することができます。
+依存関係プロパティには、プロパティ メタデータの一部として既定値を定義できます。 依存関係プロパティの場合、その既定値は、プロパティが最初に設定された後も無効にはなりません。 既定値は、値の優先順位で他の決定要因がなくなるたびに、実行時に再び適用されることがあります (依存関係プロパティの値の優先順位は、次のセクションで説明します。)たとえば、スタイルの値または、プロパティを適用するアニメーションを意図的に削除する可能性がありますが、これを行った後に妥当な既定値にします。 依存関係プロパティの既定値を使うと、各プロパティの値を余分な手間をかけて特に設定することなく、適切な値を適用することができます。
 
 既にローカル値を設定した後でも、意図的にプロパティを既定値に設定することができます。 値を既定値にリセットし、優先順位が既定値よりも高く、ローカル値よりも低い値を有効にするには、プロパティの [**ClearValue**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.dependencyobject.clearvalue) メソッドを呼び出します (メソッド パラメーターとしてクリアするプロパティを参照)。 プロパティで常に既定値がそのまま使われるようにしたくない場合、ローカル値をクリアして既定値に戻しても、コントロール テンプレートのスタイル setter に由来する値など、優先順位内の別の項目が有効になることがあります。
 
 ## <a name="dependencyobject-and-threading"></a>**DependencyObject** とスレッド
 
-すべての [**DependencyObject**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.DependencyObject) インスタンスは、Windows ランタイム アプリによって表示される現在の [**Window**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Window) と関連付けられている UI スレッド上で作成する必要があります。 それぞれの **DependencyObject** はメイン UI スレッド上で作成する必要がありますが、オブジェクトは、[**Dispatcher**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.dependencyobject.dispatcher) プロパティにアクセスすることにより、他のスレッドからディスパッチャー参照を使ってアクセスできます。 続いて、[**CoreDispatcher**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreDispatcher) オブジェクトの [**RunAsync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.windows) のようなメソッドを呼び出して、UI スレッドのスレッド制限の規則内でコードを実行します。
+すべての [**DependencyObject**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.DependencyObject) インスタンスは、Windows ランタイム アプリによって表示される現在の [**Window**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Window) と関連付けられている UI スレッド上で作成する必要があります。 それぞれの **DependencyObject** はメイン UI スレッド上で作成する必要がありますが、オブジェクトは、[**Dispatcher**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.dependencyobject.dispatcher) プロパティにアクセスすることにより、他のスレッドからディスパッチャー参照を使ってアクセスできます。 続いて、[**CoreDispatcher**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreDispatcher) オブジェクトの [**RunAsync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync) のようなメソッドを呼び出して、UI スレッドのスレッド制限の規則内でコードを実行します。
 
 [  **DependencyObject**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.DependencyObject) のスレッドの側面も問題となります。それは、通常、UI スレッド上で実行されるコードのみが依存関係プロパティの値を変更または読み取ることができることを意味するためです。 通常、**非同期**パターンとバックグラウンド ワーカー スレッドを適切に使う一般的な UI コードでは、スレッドの問題を回避できます。 独自に **DependencyObject** 型を定義し、それをデータ ソースや **DependencyObject** が必ずしも適切でないその他のシナリオで使おうとすると、通常は **DependencyObject** に関連するスレッドの問題が発生します。
 

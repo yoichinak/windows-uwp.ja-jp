@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 35eed8310b406a960334c90d6c359c0313b2660c
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: f23d80b4d2796b4d9c86648c09d6bece5e82d482
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66358895"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67317830"
 ---
 # <a name="capture-photos-and-video-with-windows-built-in-camera-ui"></a>Windows の組み込みカメラ UI を使った写真とビデオのキャプチャ
 
@@ -36,7 +36,7 @@ ms.locfileid: "66358895"
 > [!NOTE]
 > モバイル デバイス ファミリのデバイスでは、**CameraCaptureUI** での画像のトリミングはサポートされていません。 アプリがこれらのデバイスで実行されている場合、[**AllowCropping**](https://docs.microsoft.com/uwp/api/windows.media.capture.cameracaptureuiphotocapturesettings.allowcropping) プロパティの値は無視されます。
 
-写真をキャプチャすることを指定するには、[**CaptureFileAsync**](https://docs.microsoft.com/uwp/api/windows.media.capture.cameracaptureui.) を呼び出して、[**CameraCaptureUIMode.Photo**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.CameraCaptureUIMode) を指定します。 キャプチャに成功すると、このメソッドは、画像が格納された [**StorageFile**](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageFile) インスタンスを返します。 ユーザーがキャプチャを取り消した場合、返されるオブジェクトは null になります。
+写真をキャプチャすることを指定するには、[**CaptureFileAsync**](https://docs.microsoft.com/uwp/api/windows.media.capture.cameracaptureui.capturefileasync) を呼び出して、[**CameraCaptureUIMode.Photo**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.CameraCaptureUIMode) を指定します。 キャプチャに成功すると、このメソッドは、画像が格納された [**StorageFile**](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageFile) インスタンスを返します。 ユーザーがキャプチャを取り消した場合、返されるオブジェクトは null になります。
 
 [!code-cs[CapturePhoto](./code/CameraCaptureUIWin10/cs/MainPage.xaml.cs#SnippetCapturePhoto)]
 
@@ -62,7 +62,7 @@ XAML ページでソフトウェア ビットマップを使用するには、[*
 
 [!code-cs[UsingSoftwareBitmapSource](./code/CameraCaptureUIWin10/cs/MainPage.xaml.cs#SnippetUsingSoftwareBitmapSource)]
 
-**Image** コントロールでは、画像のソースが BGRA8 形式プリマルチプライ済みアルファまたはアルファなしであることが求められるため、静的メソッド [**SoftwareBitmap.Convert**](https://docs.microsoft.com/uwp/api/windows.graphics.imaging.softwarebitmap.windows) を呼び出して、目的の形式で新しいソフトウェア ビットマップを作成します。 次に、新しい [**SoftwareBitmapSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Imaging.SoftwareBitmapSource) オブジェクトを作成して [**SetBitmapAsync**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.softwarebitmapsource.setbitmapasync) を呼び出し、ソフトウェア ビットマップをソースに割り当てます。 最後に、キャプチャした写真を UI に表示できるように、**Image** コントロールの [**Source**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.image.source) プロパティを設定します。
+**Image** コントロールでは、画像のソースが BGRA8 形式プリマルチプライ済みアルファまたはアルファなしであることが求められるため、静的メソッド [**SoftwareBitmap.Convert**](/uwp/api/windows.graphics.imaging.softwarebitmap.convert) を呼び出して、目的の形式で新しいソフトウェア ビットマップを作成します。 次に、新しい [**SoftwareBitmapSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Imaging.SoftwareBitmapSource) オブジェクトを作成して [**SetBitmapAsync**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.softwarebitmapsource.setbitmapasync) を呼び出し、ソフトウェア ビットマップをソースに割り当てます。 最後に、キャプチャした写真を UI に表示できるように、**Image** コントロールの [**Source**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.image.source) プロパティを設定します。
 
 [!code-cs[SetImageSource](./code/CameraCaptureUIWin10/cs/MainPage.xaml.cs#SnippetSetImageSource)]
 
@@ -70,7 +70,7 @@ XAML ページでソフトウェア ビットマップを使用するには、[*
 
 ビデオをキャプチャするには、新しい [**CameraCaptureUI**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.CameraCaptureUI) オブジェクトを作成します。 オブジェクトの [**VideoSettings**](https://docs.microsoft.com/uwp/api/windows.media.capture.cameracaptureui.videosettings) プロパティを使うと、ビデオの形式など、返されるビデオのプロパティを指定することができます。
 
-ビデオをキャプチャすることを指定するには、[**CaptureFileAsync**](https://docs.microsoft.com/uwp/api/windows.media.capture.cameracaptureui.) を呼び出して、[**Video**](https://docs.microsoft.com/uwp/api/windows.media.capture.cameracaptureui.videosettings) を指定します。 キャプチャに成功すると、このメソッドは、ビデオが格納された [**StorageFile**](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageFile) インスタンスを返します。 ユーザーがキャプチャを取り消した場合、返されるオブジェクトは null になります。
+ビデオをキャプチャすることを指定するには、[**CaptureFileAsync**](https://docs.microsoft.com/uwp/api/windows.media.capture.cameracaptureui.capturefileasync) を呼び出して、[**Video**](https://docs.microsoft.com/uwp/api/windows.media.capture.cameracaptureui.videosettings) を指定します。 キャプチャに成功すると、このメソッドは、ビデオが格納された [**StorageFile**](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageFile) インスタンスを返します。 ユーザーがキャプチャを取り消した場合、返されるオブジェクトは null になります。
 
 [!code-cs[CaptureVideo](./code/CameraCaptureUIWin10/cs/MainPage.xaml.cs#SnippetCaptureVideo)]
 

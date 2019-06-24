@@ -5,15 +5,15 @@ ms.date: 03/19/2017
 ms.topic: article
 keywords: Windows 10, UWP, Bluetooth, Bluetooth LE, 低エネルギー, GATT, GAP, セントラル, ペリフェラル, クライアント, サーバー, ウォッチャー, パブリッシャー
 ms.localizationpriority: medium
-ms.openlocfilehash: 1714a4c21852a7582325fc26f7e6a1f0f969126e
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 3f23bdc658d2a82e3edeefd0a7be471ca9620d33
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57629037"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67321611"
 ---
 # <a name="bluetooth-low-energy"></a>Bluetooth 低エネルギー
-Bluetooth 低エネルギー (LE) は、検出と電力効率に優れたデバイス間の通信用のプロトコルを定義する仕様です。 デバイスの検出は、汎用アクセス プロファイル (GAP) プロトコルを使って行われます。 検出後、汎用属性 (GATT) プロトコルを使ってデバイス間の通信が行われます。 このトピックでは、UWP アプリでの Bluetooth LE の概要を示します。 Bluetooth LE の詳細については、Bluetooth LE が導入された [Bluetooth コア仕様](https://www.bluetooth.com/specifications/bluetooth-core-specification)バージョン 4.0 をご覧ください。 
+Bluetooth 低エネルギー (LE) は、検出と電力効率に優れたデバイス間の通信用のプロトコルを定義する仕様です。 デバイスの検出は、汎用アクセス プロファイル (GAP) プロトコルを使って行われます。 検出後、汎用属性 (GATT) プロトコルを使ってデバイス間の通信が行われます。 このトピックでは、UWP アプリでの Bluetooth LE の概要を示します。 Bluetooth LE の詳細については、Bluetooth LE が導入された [Bluetooth コア仕様](https://www.bluetooth.com/specifications/bluetooth-core-specification/)バージョン 4.0 をご覧ください。 
 
 ![Bluetooth LE の役割](images/gatt-roles.png)
 
@@ -42,4 +42,4 @@ Windows の Bluetooth API でよく使用される略語として GATT (汎用�
 ## <a name="see-also"></a>関連項目
 - [Windows.Devices.Bluetooth.GenericAttributeProfile](https://docs.microsoft.com/en-us/uwp/api/windows.devices.bluetooth.genericattributeprofile)
 - [Windows.Devices.Bluetooth.Advertisement](https://docs.microsoft.com/en-us/uwp/api/windows.devices.bluetooth.genericattributeprofile)
-- [Bluetooth のコア仕様](https://www.bluetooth.com/specifications/bluetooth-core-specification)
+- [Bluetooth のコア仕様](https://www.bluetooth.com/specifications/bluetooth-core-specification/)

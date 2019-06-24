@@ -5,17 +5,17 @@ ms.date: 02/15/2018
 ms.topic: article
 keywords: windows 10 s, 常時接続, ARM, ARM64, x86 エミュレーション
 ms.localizationpriority: medium
-ms.openlocfilehash: 47677cb2a9e8d62c76f10f932b142c4dba9752c6
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 24f33ffc1c5661c5450c24c6fa271e59788e5229
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57640997"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67319701"
 ---
 # <a name="windows-10-on-arm"></a>ARM 版 Windows 10
 もともと、Windows 10 (Windows 10 Mobile とは区別されます) は、x86 および x64 プロセッサを搭載した PC でのみ実行できました。 現在では、Fall Creators Update により、ARM64 プロセッサ搭載のコンピューターでも Windows 10 Desktop (Pro エディションおよび S エディション) を実行できるようになりました。 ARM CPU アーキテクチャが持つ省電力の性質により、これらの PC のバッテリーが終日持つようになり、モバイル データ ネットワークがサポートされるようになります。 これらの PC にはアプリケーションの互換性が十分に備わっており、既存の x86 win32 アプリケーションを変更せずに実行できます。 例: Adobe Reader。 詳細またはデモについては、[Always Connected PC に関する Channel 9 ビデオ](https://channel9.msdn.com/Events/Build/2017/P4171)をご覧ください。
 
-ここでは、*"ARM"* という用語を、ARM64 (一般に *AArch64* とも呼ばれます) プロセッサで Windows 10 のデスクトップ バージョンを実行する PC の省略形として使っています。  ここでは、*"ARM32"* という用語を、32 ビット ARM アーキテクチャ (他のドキュメントでは一般に *ARM* と呼ばれます) の省略形として使っています。
+ここでは、 *"ARM"* という用語を、ARM64 (一般に *AArch64* とも呼ばれます) プロセッサで Windows 10 のデスクトップ バージョンを実行する PC の省略形として使っています。  ここでは、 *"ARM32"* という用語を、32 ビット ARM アーキテクチャ (他のドキュメントでは一般に *ARM* と呼ばれます) の省略形として使っています。
 
 ## <a name="apps-and-experiences-on-arm"></a>ARM でのアプリとエクスペリエンス
 
@@ -26,7 +26,7 @@ Microsoft Edge、Cortana、スタート メニュー、エクスプローラー�
 ARM 上の Windows 10 の実行、ARM32、および ARM64 のすべての x86 [UWP アプリ](../get-started/universal-application-platform-guide.md)Microsoft Store から。 任意のエミュレーションではなくネイティブ実行 ARM32 および ARM64 のアプリでは、x86 エミュレーションでアプリが実行中にします。 UWP 開発者の場合、デバイスの最適なユーザー エクスペリエンスを提供するため、必ずアプリの ARM パッケージを提出してください。 詳しくは、「[アプリ パッケージのアーキテクチャ](../packaging/device-architecture.md)」をご覧ください。
 
 >[!NOTE]
-> ネイティブ ARM64 プラットフォームを対象とする UWP アプリケーションを構築するには、Visual Studio 2017 バージョン 15.9 以降が必要です。 詳細については、次を参照してください。[このブログの投稿](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development)します。
+> ネイティブ ARM64 プラットフォームを対象とする UWP アプリケーションを構築するには、Visual Studio 2017 バージョン 15.9 以降が必要です。 詳細については、次を参照してください。[このブログの投稿](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/)します。
 
 >[!IMPORTANT]
 > ユーザーが Microsoft Store から UWP アプリをダウンロードすると、x86 バージョンしか利用できない場合を除き、ARM32 バージョンが ARM64 デバイスにダウンロードされます。 アーキテクチャについて詳しくは、「[アプリ パッケージのアーキテクチャ](../packaging/device-architecture.md)」をご覧ください。

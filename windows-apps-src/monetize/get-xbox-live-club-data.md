@@ -5,19 +5,19 @@ ms.date: 06/04/2018
 ms.topic: article
 keywords: Windows 10, UWP, Store サービス, Microsoft Store 分析 API, Xbox Live 分析, クラブ
 ms.localizationpriority: medium
-ms.openlocfilehash: aef7f17a2c6371a13a2eeb57b5f3dc4ee4889435
-ms.sourcegitcommit: e63fbd7a63a7e8c03c52f4219f34513f4b2bb411
+ms.openlocfilehash: e5fc116c2b868ddf093aabea09d59934301f49ec
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58162675"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67321862"
 ---
 # <a name="get-xbox-live-club-data"></a>Xbox Live クラブのデータの取得
 
-[Xbox Live 対応ゲーム](https://docs.microsoft.com/gaming/xbox-live//index.md)のクラブ データを取得するには、Microsoft Store 分析 API の以下のメソッドを使います。 この情報も記載されて、 [Xbox analytics レポート](../publish/xbox-analytics-report.md)パートナー センターでします。
+[Xbox Live 対応ゲーム](https://docs.microsoft.com/gaming/xbox-live/index.md)のクラブ データを取得するには、Microsoft Store 分析 API の以下のメソッドを使います。 この情報も記載されて、 [Xbox analytics レポート](../publish/xbox-analytics-report.md)パートナー センターでします。
 
 > [!IMPORTANT]
-> このメソッドは、Xbox のゲームまたは Xbox Live サービスを使用するゲームのみサポートします。 これらのゲームは、[概念の承認プロセス](../gaming/concept-approval.md)を完了する必要があります。これには、[Microsoft パートナー](https://docs.microsoft.com/gaming/xbox-live//developer-program-overview.md#microsoft-partners)が発行したゲームと [ID@Xbox プログラム](https://docs.microsoft.com/gaming/xbox-live//developer-program-overview.md#id)を介して申請されたゲームが含まれます。 このメソッドでは、[Xbox Live クリエーターズ プログラム](https://docs.microsoft.com/gaming/xbox-live//get-started-with-creators/get-started-with-xbox-live-creators.md)を介して発行されたゲームは現在サポートされていません。
+> このメソッドは、Xbox のゲームまたは Xbox Live サービスを使用するゲームのみサポートします。 これらのゲームは、[概念の承認プロセス](../gaming/concept-approval.md)を完了する必要があります。これには、[Microsoft パートナー](https://docs.microsoft.com/gaming/xbox-live/developer-program-overview.md#microsoft-partners)が発行したゲームと [ID@Xbox プログラム](https://docs.microsoft.com/gaming/xbox-live/developer-program-overview.md#id)を介して申請されたゲームが含まれます。 このメソッドでは、[Xbox Live クリエーターズ プログラム](https://docs.microsoft.com/gaming/xbox-live/get-started-with-creators/get-started-with-xbox-live-creators.md)を介して発行されたゲームは現在サポートされていません。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -78,7 +78,7 @@ Authorization: Bearer <your access token>
 
 このリソースには、対象ゲームのクラブ データが含まれます。
 
-| 値           | 種類    | 説明        |
+| Value           | 種類    | 説明        |
 |-----------------|---------|------|
 | date            |  string |   クラブ データの日付です。   |
 |  applicationId               |    string     |  クラブ データを取得したゲームの [Store ID](in-app-purchases-and-trials.md#store-ids) です。   |

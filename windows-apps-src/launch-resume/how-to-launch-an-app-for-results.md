@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 23d4a4e0159fc18ac524937326e69d6fbc3a627e
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 64a093ddd8a53d72ccb6780b73f280e7b2874612
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66370711"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67320953"
 ---
 # <a name="launch-an-app-for-results"></a>結果を取得するためのアプリの起動
 
@@ -20,10 +20,10 @@ ms.locfileid: "66370711"
 
 **重要な API**
 
--   [**LaunchUriForResultsAsync**](https://docs.microsoft.com/uwp/api/windows.system.launcher.windows)
+-   [**LaunchUriForResultsAsync**](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchuriforresultsasync)
 -   [**ValueSet**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Collections.ValueSet)
 
-別のアプリからアプリを起動し、2 つのアプリの間でデータを交換する方法について説明します。 これは、"*結果を取得するためのアプリの起動*" と呼ばれます。 この例では、[**LaunchUriForResultsAsync**](https://docs.microsoft.com/uwp/api/windows.system.launcher.windows) を使って、結果を取得するためのアプリの起動方法を示しています。
+別のアプリからアプリを起動し、2 つのアプリの間でデータを交換する方法について説明します。 これは、"*結果を取得するためのアプリの起動*" と呼ばれます。 この例では、[**LaunchUriForResultsAsync**](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchuriforresultsasync) を使って、結果を取得するためのアプリの起動方法を示しています。
 
 新しいアプリへの通信では、Windows 10 Api を使うと Windows アプリ (および Windows Web アプリ) をアプリと exchange のデータ ファイルとファイルを起動できます。 このため、複数のアプリを基にマッシュアップ ソリューションを構築できます。 これらの新しい API を使うと、複数のアプリを使う必要のあった複雑な作業をシームレスに処理できるようになります。 たとえば、アプリでソーシャル ネットワーキング アプリを起動して連絡先を選んだり、チェックアウト アプリを起動して支払処理を実行したりすることができます。
 
@@ -36,8 +36,8 @@ ms.locfileid: "66370711"
 
 プロトコル拡張機能の **ReturnResults** 属性に指定できる値は、次の 3 つのうちいずれかです。
 
--   **optional**—結果を取得するためにアプリを起動する場合は、[**LaunchUriForResultsAsync**](https://docs.microsoft.com/uwp/api/windows.system.launcher.windows) メソッドを使います。結果を取得しない場合は、[**LaunchUriAsync**](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchuriasync) を使います。 **optional** を使うとき、起動アプリでは、結果を取得するためにアプリが起動されたかどうかを判別する必要があります。 これを行うには、[**OnActivated**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onactivated) イベント引数を調べます。 引数の [**IActivatedEventArgs.Kind**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.activation.iactivatedeventargs.kind) プロパティが [**ActivationKind.ProtocolForResults**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Activation.ActivationKind) を返した場合、またはイベント引数の型が [**ProtocolActivatedEventArgs**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Activation.ProtocolActivatedEventArgs) である場合は、アプリが **LaunchUriForResultsAsync** を介して起動されます。
--   **always**—アプリは、結果を取得するためにのみ起動することができます。つまり、[**LaunchUriForResultsAsync**](https://docs.microsoft.com/uwp/api/windows.system.launcher.windows) に対してのみ応答できます。
+-   **optional**—結果を取得するためにアプリを起動する場合は、[**LaunchUriForResultsAsync**](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchuriforresultsasync) メソッドを使います。結果を取得しない場合は、[**LaunchUriAsync**](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchuriasync) を使います。 **optional** を使うとき、起動アプリでは、結果を取得するためにアプリが起動されたかどうかを判別する必要があります。 これを行うには、[**OnActivated**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onactivated) イベント引数を調べます。 引数の [**IActivatedEventArgs.Kind**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.activation.iactivatedeventargs.kind) プロパティが [**ActivationKind.ProtocolForResults**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Activation.ActivationKind) を返した場合、またはイベント引数の型が [**ProtocolActivatedEventArgs**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Activation.ProtocolActivatedEventArgs) である場合は、アプリが **LaunchUriForResultsAsync** を介して起動されます。
+-   **always**—アプリは、結果を取得するためにのみ起動することができます。つまり、[**LaunchUriForResultsAsync**](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchuriforresultsasync) に対してのみ応答できます。
 -   **none**—アプリは、結果を取得するために起動することはできません。[**LaunchUriAsync**](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchuriasync) に対してのみ応答できます。
 
 次のプロトコル拡張機能の例では、アプリは結果を取得するためにのみ起動することができます。 以下で説明するように、この例では、**OnActivated** メソッド内部のロジックが簡素化されます。これは、"結果を取得するために起動する" ケースのみを処理し、アプリをアクティブ化する他の方法を処理する必要がないためです。
@@ -186,7 +186,7 @@ string familyName = Windows.ApplicationModel.Package.Current.Id.FamilyName;
 ## <a name="remarks"></a>注釈
 
 
-この方法の例については、結果を取得するためのアプリの起動の概要を説明した "hello world" アプリをご覧ください。 重要な注意点は、新しい [**LaunchUriForResultsAsync**](https://docs.microsoft.com/uwp/api/windows.system.launcher.windows) API を使うと、アプリを非同期的に起動し、[**ValueSet**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Collections.ValueSet) クラスを使って通信できるようになることです。 **ValueSet** を使って渡すデータは、100 KB に制限されます。 より多くのデータを渡す必要がある場合は、アプリ間で渡すことができるファイル トークンを作成するための、[**SharedStorageAccessManager**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.DataTransfer.SharedStorageAccessManager) クラスを使ってファイルを共有することができます。 たとえば、`inputData` という名前の **ValueSet** を指定し、起動アプリと共有するファイルのトークンを格納できます。
+この方法の例については、結果を取得するためのアプリの起動の概要を説明した "hello world" アプリをご覧ください。 重要な注意点は、新しい [**LaunchUriForResultsAsync**](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchuriforresultsasync) API を使うと、アプリを非同期的に起動し、[**ValueSet**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Collections.ValueSet) クラスを使って通信できるようになることです。 **ValueSet** を使って渡すデータは、100 KB に制限されます。 より多くのデータを渡す必要がある場合は、アプリ間で渡すことができるファイル トークンを作成するための、[**SharedStorageAccessManager**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.DataTransfer.SharedStorageAccessManager) クラスを使ってファイルを共有することができます。 たとえば、`inputData` という名前の **ValueSet** を指定し、起動アプリと共有するファイルのトークンを格納できます。
 
 ```cs
 inputData["ImageFileToken"] = SharedStorageAccessManager.AddFile(myFile);
@@ -198,7 +198,7 @@ inputData["ImageFileToken"] = SharedStorageAccessManager.AddFile(myFile);
 
 
 * [**LaunchUri**](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchuriasync)
-* [**LaunchUriForResultsAsync**](https://docs.microsoft.com/uwp/api/windows.system.launcher.windows)
+* [**LaunchUriForResultsAsync**](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchuriforresultsasync)
 * [**ValueSet**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Collections.ValueSet)
 
  

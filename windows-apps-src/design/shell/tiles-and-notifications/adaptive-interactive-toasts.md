@@ -8,12 +8,12 @@ ms.date: 11/20/2017
 ms.topic: article
 keywords: windows 10, uwp, トースト通知, 対話型トースト, アダプティブ トースト, トーストのコンテンツ, トースト ペイロード
 ms.localizationpriority: medium
-ms.openlocfilehash: 75e5ea7e83a1a274b90b14588f7d809a4aa91269
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 7bef6874b7855a321c4e5a9153faa96d432d2dea
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66366876"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67320930"
 ---
 # <a name="toast-content"></a>トーストのコンテンツ
 
@@ -880,5 +880,5 @@ ToastContent content = new ToastContent()
 ## <a name="related-topics"></a>関連トピック
 
 * [ローカル ハンドルとトーストのアクティブ化を送信します。](send-local-toast.md)
-* [GitHub (UWP Community Toolkit の一部) の通知ライブラリ](https://github.com/Microsoft/UWPCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.Notifications)
+* [GitHub (UWP Community Toolkit の一部) の通知ライブラリ](https://github.com/windows-toolkit/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.Notifications)
 * [言語、スケール、およびハイ コントラストのタイルとトースト通知のサポート](tile-toast-language-scale-contrast.md)

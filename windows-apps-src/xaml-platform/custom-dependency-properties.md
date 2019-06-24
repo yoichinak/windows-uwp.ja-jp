@@ -11,12 +11,12 @@ dev_langs:
 - vb
 - cppwinrt
 - cpp
-ms.openlocfilehash: c4aa46f38b7b98f8dc4963938082aa1dd9ed8973
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: ba56464cb30a8bacecae8a2347332c0c36be55ea
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66366464"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67322122"
 ---
 # <a name="custom-dependency-properties"></a>カスタム依存関係プロパティ
 
@@ -472,7 +472,7 @@ Windows ランタイムには、カスタム依存関係プロパティを読み
 
 ### <a name="registering-the-dependency-properties-for-ccx-apps"></a>C++/CX アプリの依存関係プロパティの登録
 
-C++/CX のプロパティ登録の実装は、C# より込み入っています。それは、ヘッダー ファイルと実装ファイルに分かれているためと、実装ファイルのルート スコープでの初期化が好ましくないためです  (Visual C コンポーネント拡張 (C +/cli CX) 静的初期化子コードでは、直接にルート スコープから**DllMain**であるのに対しC#コンパイラがクラスに静的初期化子を割り当てるし、なくなり**DllMain**ロックの問題をロードします。)。 ここでのベスト プラクティスは、クラスごとに 1 つ、そのクラスの依存関係プロパティの登録をすべて実行するヘルパー関数を宣言することです。 続いて、アプリで使う各カスタム クラスについて、使う各カスタム クラスが公開したヘルパー登録関数を参照する必要があります。 `InitializeComponent` の前に、[**Application constructor**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.) (`App::App()`) の一環として各ヘルパー登録関数を 1 回だけ呼び出します。 そのコンストラクターは、アプリが実際に初めて参照されたときにだけ実行され、たとえば中断されたアプリが再開された場合には実行されません。 また、前の C++ 登録の例に示すように、各 [**Register**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.dependencyproperty.register) 呼び出し時の **nullptr** チェックが重要です。これによって、関数の呼び出し元がプロパティを 2 回登録できないことが保証されます。 このようなチェックをしないで 2 回、登録を呼び出すと、プロパティ名が重複するためアプリはおそらくクラッシュします。 [XAML ユーザー コントロールとカスタム コントロールのサンプルに関するページ](https://go.microsoft.com/fwlink/p/?linkid=238581)でサンプルの C++/CX バージョンのコードを参照すると、この実装パターンを確認できます。
+C++/CX のプロパティ登録の実装は、C# より込み入っています。それは、ヘッダー ファイルと実装ファイルに分かれているためと、実装ファイルのルート スコープでの初期化が好ましくないためです (Visual C コンポーネント拡張 (C +/cli CX) 静的初期化子コードでは、直接にルート スコープから**DllMain**であるのに対しC#コンパイラがクラスに静的初期化子を割り当てるし、なくなり**DllMain**ロックの問題をロードします。)。 ここでのベスト プラクティスは、クラスごとに 1 つ、そのクラスの依存関係プロパティの登録をすべて実行するヘルパー関数を宣言することです。 続いて、アプリで使う各カスタム クラスについて、使う各カスタム クラスが公開したヘルパー登録関数を参照する必要があります。 `InitializeComponent` の前に、[**Application constructor**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.-ctor) (`App::App()`) の一環として各ヘルパー登録関数を 1 回だけ呼び出します。 そのコンストラクターは、アプリが実際に初めて参照されたときにだけ実行され、たとえば中断されたアプリが再開された場合には実行されません。 また、前の C++ 登録の例に示すように、各 [**Register**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.dependencyproperty.register) 呼び出し時の **nullptr** チェックが重要です。これによって、関数の呼び出し元がプロパティを 2 回登録できないことが保証されます。 このようなチェックをしないで 2 回、登録を呼び出すと、プロパティ名が重複するためアプリはおそらくクラッシュします。 [XAML ユーザー コントロールとカスタム コントロールのサンプルに関するページ](https://go.microsoft.com/fwlink/p/?linkid=238581)でサンプルの C++/CX バージョンのコードを参照すると、この実装パターンを確認できます。
 
 ## <a name="related-topics"></a>関連トピック
 

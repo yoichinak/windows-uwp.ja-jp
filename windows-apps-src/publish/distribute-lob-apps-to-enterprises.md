@@ -6,12 +6,12 @@ ms.date: 10/31/2018
 ms.topic: article
 keywords: Windows 10, UWP, LOB, 基幹業務, エンタープライズ アプリ, ビジネス向け Store, 教育機関向け Store, 企業
 ms.localizationpriority: medium
-ms.openlocfilehash: d44d2b248ddc2bff6ffa91860621fe315fb22c47
-ms.sourcegitcommit: 978df7dfd3813de51609b6a44aedcd402083a5fd
+ms.openlocfilehash: cf970c1812b4200cea4e4902ad883ef8b0b5e141
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66826150"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67319998"
 ---
 # <a name="distribute-lob-apps-to-enterprises"></a>LOB アプリの企業への配布
 
@@ -71,7 +71,7 @@ LOB アプリでの申請のプロセスの[年齢区分](age-ratings.md)の手�
 **[ストアに提出]** をクリックすると、アプリの認定プロセスが開始します。 準備ができたら、企業の管理者が、そのアプリをビジネス向け Microsoft ストアまたは教育機関向け Microsoft ストア ポータルのプライベート ストアに追加する必要があります。 その後、企業はそのアプリをユーザーに展開できます。
 
 > [!NOTE]
-> LOB アプリを取得するには、組織が[サポート対象の市場](https://technet.microsoft.com/itpro/windows/whats-new/windows-store-for-business-overview#supported-markets)に含まれている必要があります。また、アプリを提出する際に、その[市場を除外](define-pricing-and-market-selection.md)することはできません。 
+> LOB アプリを取得するには、組織が[サポート対象の市場](https://docs.microsoft.com/windows/whats-new/windows-store-for-business-overview#supported-markets)に含まれている必要があります。また、アプリを提出する際に、その[市場を除外](define-pricing-and-market-selection.md)することはできません。 
 
 詳しくは、[基幹業務アプリの操作](https://go.microsoft.com/fwlink/p/?LinkId=698846)に関するページ、および[プライベート ストアを使用したアプリの配布](https://go.microsoft.com/fwlink/p/?LinkId=698847)に関するページをご覧ください。
 

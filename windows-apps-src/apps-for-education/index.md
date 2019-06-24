@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp, 教育
 ms.assetid: 2431f253-efe3-4895-b131-34653b61f13c
 ms.localizationpriority: medium
-ms.openlocfilehash: 8c2333d960ba91b1d1c3d3030481108407909594
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 3d68fd78a7da3f1b98f61225f3aad8ca1590140e
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66359205"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67317605"
 ---
 # <a name="develop-universal-windows-apps-for-education"></a>教育用のユニバーサル Windows アプリの開発
 ![テスト アプリのスクリーンショット](images/take-a-test-screen-small.png)
@@ -23,7 +23,7 @@ ms.locfileid: "66359205"
 
 
 ### <a name="secure-assessments"></a>安全な評価
-評価/テストのアプリでは、多くの場合、学生がテスト中に他のコンピューターやインターネットのリソースを使用できないようにするための*ロックダウン*環境を作成する必要があります。 この機能は[テスト API](take-a-test-api.md) により利用できます。 安全なテストを行うためのオンライン アクセスのロックダウンを使ったテスト環境の例については、Windows IT センターの「[テスト](https://technet.microsoft.com/edu/windows/take-tests-in-windows-10)」Web アプリをご覧ください。
+評価/テストのアプリでは、多くの場合、学生がテスト中に他のコンピューターやインターネットのリソースを使用できないようにするための*ロックダウン*環境を作成する必要があります。 この機能は[テスト API](take-a-test-api.md) により利用できます。 安全なテストを行うためのオンライン アクセスのロックダウンを使ったテスト環境の例については、Windows IT センターの「[テスト](https://docs.microsoft.com/education/windows/take-tests-in-windows-10)」Web アプリをご覧ください。
 
 ### <a name="user-input"></a>ユーザー入力
 ユーザー入力は教育アプリにとって重要です。UI コントロールは、ユーザーの集中を妨げないように、応答性に優れ、直感的である必要があります。 ユニバーサル Windows アプリで利用可能な入力オプションの一般的な概要については、「[操作の基本情報](https://docs.microsoft.com/windows/uwp/design/input/input-primer)」およびその中のデザインと UI に関するセクションのトピックをご覧ください。 また、次のサンプル アプリでは、ユニバーサル Windows プラットフォームの基本的な UI 処理を利用しています。
@@ -41,4 +41,4 @@ Windows Ink プラットフォームの利用によって、学生が慣れ親�
 教育用アプリは、多くの場合、特定の状況下の特定の組織にリリースされます。 これについて詳しくは、「[LOB アプリの企業への配布](https://docs.microsoft.com/windows/uwp/publish/distribute-lob-apps-to-enterprises)」をご覧ください。
 
 ## <a name="related-topics"></a>関連トピック
-- Windows IT センターの「[Windows 10 for Education](https://technet.microsoft.com/edu/windows/index)」
+- Windows IT センターの「[Windows 10 for Education](https://docs.microsoft.com/education/windows/index)」

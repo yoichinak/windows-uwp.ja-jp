@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 4bebd214f5f634e501f7a79bc57cc306f1b559e7
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 08dbe9ed7aaa732172d488712aa47d6d3631508a
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66359194"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67317703"
 ---
 # <a name="share-data"></a>データの共有
 
@@ -60,7 +60,7 @@ ms.locfileid: "66359194"
 
 ## <a name="handle-errors"></a>エラーの処理
 
-ほとんどの場合、コンテンツの共有は難しいプロセスではありません。 しかし、どのような場合であっても、予期しない問題が発生することは必ずあります。 たとえば、共有するコンテンツをユーザーが選ぶ必要がある状況で、ユーザーが選んでいない場合などです。 このような状況を処理するには、[**FailWithDisplayText**](https://msdn.microsoft.com/library/windows/apps/Windows.ApplicationModel.DataTransfer.DataRequest.FailWithDisplayText(System.String)) メソッドを使います。このメソッドでは、問題が発生すると、ユーザーにメッセージが表示されます。
+ほとんどの場合、コンテンツの共有は難しいプロセスではありません。 しかし、どのような場合であっても、予期しない問題が発生することは必ずあります。 たとえば、共有するコンテンツをユーザーが選ぶ必要がある状況で、ユーザーが選んでいない場合などです。 このような状況を処理するには、[**FailWithDisplayText**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.DataTransfer.DataRequest#Windows_ApplicationModel_DataTransfer_DataRequest_FailWithDisplayText_System_String_) メソッドを使います。このメソッドでは、問題が発生すると、ユーザーにメッセージが表示されます。
 
 ## <a name="delay-share-with-delegates"></a>デリゲートによる共有の遅延
 

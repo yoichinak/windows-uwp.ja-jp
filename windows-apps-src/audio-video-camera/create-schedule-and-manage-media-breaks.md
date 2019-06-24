@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 68260cadd4322d51c528bf6c6af7f5c8472f2199
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 23cb51ec6b2c6c2560c0a1f6d583ba916768254c
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66361857"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67318558"
 ---
 # <a name="create-schedule-and-manage-media-breaks"></a>メディアの中断の作成、スケジュール、管理
 
@@ -66,7 +66,7 @@ ms.locfileid: "66361857"
 
 [!code-cs[RegisterMediaBreakEvents](./code/MediaBreaks_RS1/cs/MainPage.xaml.cs#SnippetRegisterMediaBreakEvents)]
 
-[  **BreakStarted**](https://docs.microsoft.com/uwp/api/windows.media.playback.mediabreakmanager.breakstarted) は、メディアの中断が開始すると発生します。 メディア コンテンツを再生していることがユーザーにわかるように UI を更新できます。 この例では、ハンドラーに渡された [**MediaBreakStartedEventArgs**](https://docs.microsoft.com/uwp/api/Windows.Media.Playback.MediaBreakStartedEventArgs) を使って、開始されたメディアの中断への参照を取得します。 次に、[**CurrentItemIndex**](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplaybacklist.currentitemindex) プロパティを使って、メディアの中断のプレイリストにある再生メディア アイテムが決定されます。 その後、UI が更新され、現在の広告インデックスと中断中の残りの広告数がユーザーに表示されます。 UI の更新は UI スレッドに加える必要があるため、[**RunAsync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.windows) の呼び出し内で呼び出しを行う必要がある点に注意してください。 
+[  **BreakStarted**](https://docs.microsoft.com/uwp/api/windows.media.playback.mediabreakmanager.breakstarted) は、メディアの中断が開始すると発生します。 メディア コンテンツを再生していることがユーザーにわかるように UI を更新できます。 この例では、ハンドラーに渡された [**MediaBreakStartedEventArgs**](https://docs.microsoft.com/uwp/api/Windows.Media.Playback.MediaBreakStartedEventArgs) を使って、開始されたメディアの中断への参照を取得します。 次に、[**CurrentItemIndex**](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplaybacklist.currentitemindex) プロパティを使って、メディアの中断のプレイリストにある再生メディア アイテムが決定されます。 その後、UI が更新され、現在の広告インデックスと中断中の残りの広告数がユーザーに表示されます。 UI の更新は UI スレッドに加える必要があるため、[**RunAsync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync) の呼び出し内で呼び出しを行う必要がある点に注意してください。 
 
 [!code-cs[BreakStarted](./code/MediaBreaks_RS1/cs/MainPage.xaml.cs#SnippetBreakStarted)]
 

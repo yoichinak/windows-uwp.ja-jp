@@ -8,12 +8,12 @@ keywords: Windows Ink, Windows の手書き入力, DirectInk, InkPresenter, InkC
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 5d60c85efe8f0a959ac66ffbd3dc8a05f312d0f2
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 427d359676bd064e577ab4f13f7b0a17f61d7e3e
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66365648"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67317162"
 ---
 # <a name="pen-interactions-and-windows-ink-in-uwp-apps"></a>UWP アプリでのペン操作と Windows Ink
 
@@ -64,8 +64,7 @@ Windows Ink UX のガイドラインについては、「[手描き入力コン�
 次の例では、[**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) を背景画像にオーバーレイしています。
 
 > [!NOTE]
-> InkCanvas は既定[**高さ**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.Height)と[**幅**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.Width)サイズを自動的に要素の子である場合を除き、0 のプロパティその子要素など[StackPanel](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.stackpanel
-)または[グリッド](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.grid)コントロール。
+> InkCanvas は既定[**高さ**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.Height)と[**幅**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.Width)サイズを自動的に要素の子である場合を除き、0 のプロパティその子要素など[StackPanel](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.stackpanel)または[グリッド](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.grid)コントロール。
 
 ```xaml
 <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -475,7 +474,7 @@ Windows Ink プラットフォームには、変更された入力を必要と�
 * [ポインター入力の処理](handle-pointer-input.md)
 * [入力デバイスの識別](identify-input-devices.md)
 
-**Api**
+**API**
 
 * [**Windows.Devices.Input**](https://docs.microsoft.com/uwp/api/Windows.Devices.Input)
 * [**Windows.UI.Input.Inking**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking)

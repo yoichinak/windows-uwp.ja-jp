@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: c00bf23a8539f7ee37974e16586a4477cc6b78bb
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 4d118633d9d0d9b7007c94ec4d5053db34b09e29
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66360401"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67318044"
 ---
 # <a name="using-the-visual-layer-with-xaml"></a>XAML でのビジュアル レイヤーの使用
 
@@ -25,7 +25,7 @@ XAML とビジュアル レイヤーの相互運用機能を使用すると、XA
 - ピクセル パーフェクトなドロップ シャドウ
 
 これらの効果やアニメーションは既存の XAML コンテンツに適用できます。このため、新しい機能を活用するために、XAML アプリを大幅に再構成する必要はありません。
-レイアウト アニメーション、シャドウ、ぼかし効果については、以下の「レシピ」セクションで説明しています。 視差効果を実装するコード サンプルについては、[ParallaxingListItems のサンプル](https://github.com/Microsoft/WindowsUIDevLabs/tree/master/SampleGallery/Samples/SDK%2010586/ParallaxingListItems)をご覧ください。 [WindowsUIDevLabs リポジトリ](https://github.com/Microsoft/WindowsUIDevLabs)にも、アニメーション、シャドウ、効果を実装するためのサンプルがいくつかあります。
+レイアウト アニメーション、シャドウ、ぼかし効果については、以下の「レシピ」セクションで説明しています。 視差効果を実装するコード サンプルについては、[ParallaxingListItems のサンプル](https://github.com/microsoft/WindowsCompositionSamples/tree/master/SampleGallery/Samples/SDK 10586/ParallaxingListItems)をご覧ください。 [WindowsUIDevLabs リポジトリ](https://github.com/microsoft/WindowsCompositionSamples)にも、アニメーション、シャドウ、効果を実装するためのサンプルがいくつかあります。
 
 ## <a name="the-xamlcompositionbrushbase-class"></a>XamlCompositionBrushBase クラス
 
@@ -364,6 +364,6 @@ private void InitializeFrostedGlass(UIElement glassHost)
 
 - [ビジュアル層の概要](https://docs.microsoft.com/windows/uwp/composition/visual-layer)
 - [**ElementCompositionPreview**クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Hosting.ElementCompositionPreview)
-- [WindowsUIDevLabs GitHub](https://github.com/microsoft/windowsuidevlabs) にある高度な UI とコンポジションのサンプル
-- [BasicXamlInterop サンプル](https://github.com/Microsoft/WindowsUIDevLabs/tree/master/SampleGallery/Samples/SDK%2010586/BasicXamlInterop)
-- [ParallaxingListItems サンプル](https://github.com/Microsoft/WindowsUIDevLabs/tree/master/SampleGallery/Samples/SDK%2010586/ParallaxingListItems)
+- [WindowsUIDevLabs GitHub](https://github.com/microsoft/WindowsCompositionSamples) にある高度な UI とコンポジションのサンプル
+- [BasicXamlInterop サンプル](https://github.com/microsoft/WindowsCompositionSamples/tree/master/SampleGallery/Samples/SDK 10586/BasicXamlInterop)
+- [ParallaxingListItems サンプル](https://github.com/microsoft/WindowsCompositionSamples/tree/master/SampleGallery/Samples/SDK 10586/ParallaxingListItems)

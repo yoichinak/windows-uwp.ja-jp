@@ -6,12 +6,12 @@ ms.date: 07/13/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: ebc87c685d92fa4dbc1a954e2fc6f0cf549a5554
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 62f603a6ff5aadc1c3e5342db6a7d771f8c37a7b
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66366075"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67320843"
 ---
 # <a name="storyboarded-animations"></a>ストーリーボードに設定されたアニメーション
 
@@ -70,7 +70,7 @@ Microsoft Silverlight または Windows Presentation Foundation (WPF) に慣れ�
 
 ### <a name="targeting-the-dependency-property-to-animate"></a>アニメーション化する依存関係プロパティの指定
 
-アニメーションの [**Storyboard.TargetProperty**](https://docs.microsoft.com/previous-versions/windows/silverlight/dotnet-windows-silverlight/ms616983(v%3Dvs.95)) の値を設定します。 これにより、アニメーション化するターゲット オブジェクトのプロパティが決まります。
+アニメーションの [**Storyboard.TargetProperty**](https://docs.microsoft.com/previous-versions/windows/silverlight/dotnet-windows-silverlight/ms616983(v=vs.95)) の値を設定します。 これにより、アニメーション化するターゲット オブジェクトのプロパティが決まります。
 
 ターゲット オブジェクトの直接のプロパティではないプロパティをターゲットにする必要があることもありますが、オブジェクトとプロパティの関係の中でより深い入れ子の状態になります。 アニメーション化できるプロパティの型 ([**Double**](https://docs.microsoft.com/dotnet/api/system.double?redirectedfrom=MSDN)、[**Point**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Point)、[**Color**](https://docs.microsoft.com/uwp/api/Windows.UI.Color)) を参照できるまで、関係する一連のオブジェクトとプロパティの値をドリルダウンするために、これが必要になることがよくあります。 この概念を *"間接的なターゲット設定"* と呼び、この方法でアニメーションの対象プロパティを設定する構文を *"プロパティ パス"* と呼びます。
 
@@ -101,7 +101,7 @@ Microsoft Silverlight または Windows Presentation Foundation (WPF) に慣れ�
 
 XAML 添付プロパティをアニメーション化することもできます。 `(Canvas.Left)` のように、必ず完全な添付プロパティの名前をかっこで囲んでください。 詳しくは、「[XAML 添付プロパティのアニメーション化](./storyboarded-animations.md#animating-xaml-attached-properties)」をご覧ください。
 
-アニメーション化するプロパティの間接的なターゲット設定をプロパティ パスで行う方法について詳しくは、「[プロパティ パス構文](https://docs.microsoft.com/windows/uwp/xaml-platform/property-path-syntax)」または「[**Storyboard.TargetProperty 添付プロパティ**](https://docs.microsoft.com/previous-versions/windows/silverlight/dotnet-windows-silverlight/ms616983(v%3Dvs.95))」をご覧ください。
+アニメーション化するプロパティの間接的なターゲット設定をプロパティ パスで行う方法について詳しくは、「[プロパティ パス構文](https://docs.microsoft.com/windows/uwp/xaml-platform/property-path-syntax)」または「[**Storyboard.TargetProperty 添付プロパティ**](https://docs.microsoft.com/previous-versions/windows/silverlight/dotnet-windows-silverlight/ms616983(v=vs.95))」をご覧ください。
 
 ### <a name="animation-types"></a>アニメーション型
 
@@ -258,7 +258,7 @@ UI スレッドの処理を遅くする可能性があると判断された各�
 </Storyboard>
 ```
 
-アニメーションがこれらの条件を満たしていない場合は、おそらく依存型アニメーションです。 既定では、アニメーション システムは依存型アニメーションを実行しません。 そのため、開発とテストのプロセス中に、アニメーションの実行を確認できない可能性もあります。 このアニメーションを使うことはできるものの、こうした各依存型アニメーションを明示的に有効にする必要があります。 アニメーションを有効にするには、アニメーション オブジェクトの **EnableDependentAnimation** プロパティを **true** に設定します  (アニメーションを表す [**Timeline**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.Timeline) サブクラスごとにプロパティの実装は異なりますが、いずれも名前は `EnableDependentAnimation` です)。
+アニメーションがこれらの条件を満たしていない場合は、おそらく依存型アニメーションです。 既定では、アニメーション システムは依存型アニメーションを実行しません。 そのため、開発とテストのプロセス中に、アニメーションの実行を確認できない可能性もあります。 このアニメーションを使うことはできるものの、こうした各依存型アニメーションを明示的に有効にする必要があります。 アニメーションを有効にするには、アニメーション オブジェクトの **EnableDependentAnimation** プロパティを **true** に設定します (アニメーションを表す [**Timeline**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.Timeline) サブクラスごとにプロパティの実装は異なりますが、いずれも名前は `EnableDependentAnimation` です)。
 
 アプリ開発者に課される依存型アニメーションを有効にするという要件は、開発経験を活かしたアニメーション システムにおける重要な設計の一側面です。 開発者は、アニメーションには UI の応答性の低下というパフォーマンス コストが存在することに注意しなければなりません。 パフォーマンスの低いアニメーションは、フルスケールのアプリでの分離とデバッグが困難です。 そのため、アプリの UI エクスペリエンスに実際に必要な依存型アニメーションだけを有効にする方が適切です。 多くのサイクルを使う装飾的なアニメーションによりアプリのパフォーマンスが低下しないように注意する必要があります。 アニメーションのパフォーマンスに関するヒントについて詳しくは、「[アニメーションとメディアの最適化](https://docs.microsoft.com/windows/uwp/debug-test-perf/optimize-animations-and-media)」をご覧ください。
 
@@ -323,7 +323,7 @@ XAML で完全に宣言できるアニメーションをある方法で開始で
 
 ## <a name="animating-xaml-attached-properties"></a>XAML 添付プロパティのアニメーション化
 
-一般的なシナリオではありませんが、アニメーション化された値を XAML 添付プロパティに適用できます。 添付プロパティの概要とその動作について詳しくは、「[添付プロパティの概要](https://docs.microsoft.com/windows/uwp/xaml-platform/attached-properties-overview)」をご覧ください。 添付プロパティをターゲットとして設定するには、プロパティ名をかっこで囲む[プロパティ パス構文](https://docs.microsoft.com/windows/uwp/xaml-platform/property-path-syntax)が必要です。 個別の整数値を適用する [**ObjectAnimationUsingKeyFrames**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.ObjectAnimationUsingKeyFrames) を使って、[**Canvas.ZIndex**](https://docs.microsoft.com/previous-versions/windows/silverlight/dotnet-windows-silverlight/cc190397(v%3Dvs.95)) などの組み込み添付プロパティをアニメーション化することができます。 ただし、Windows ランタイム XAML 実装の制限があるため、カスタム添付プロパティをアニメーション化することはできません。
+一般的なシナリオではありませんが、アニメーション化された値を XAML 添付プロパティに適用できます。 添付プロパティの概要とその動作について詳しくは、「[添付プロパティの概要](https://docs.microsoft.com/windows/uwp/xaml-platform/attached-properties-overview)」をご覧ください。 添付プロパティをターゲットとして設定するには、プロパティ名をかっこで囲む[プロパティ パス構文](https://docs.microsoft.com/windows/uwp/xaml-platform/property-path-syntax)が必要です。 個別の整数値を適用する [**ObjectAnimationUsingKeyFrames**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.ObjectAnimationUsingKeyFrames) を使って、[**Canvas.ZIndex**](https://docs.microsoft.com/previous-versions/windows/silverlight/dotnet-windows-silverlight/cc190397(v=vs.95)) などの組み込み添付プロパティをアニメーション化することができます。 ただし、Windows ランタイム XAML 実装の制限があるため、カスタム添付プロパティをアニメーション化することはできません。
 
 ## <a name="more-animation-types-and-next-steps-for-learning-about-animating-your-ui"></a>その他のアニメーションの種類、UI のアニメーション化に関する次の学習ステップ
 
@@ -337,7 +337,7 @@ XAML で完全に宣言できるアニメーションをある方法で開始で
 * [表示状態のアニメーションを再検討](https://docs.microsoft.com/previous-versions/windows/apps/jj819808(v=win.10))
 * [コントロール テンプレート](https://docs.microsoft.com/windows/uwp/controls-and-patterns/control-templates)
 * [**ストーリー ボード**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.Storyboard)
-* [**Storyboard.TargetProperty**](https://docs.microsoft.com/previous-versions/windows/silverlight/dotnet-windows-silverlight/ms616983(v%3Dvs.95))
+* [**Storyboard.TargetProperty**](https://docs.microsoft.com/previous-versions/windows/silverlight/dotnet-windows-silverlight/ms616983(v=vs.95))
  
 
  

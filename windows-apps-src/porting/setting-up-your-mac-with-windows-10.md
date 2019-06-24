@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: e4f7b0469ae8c50e6da40fb248678a69a2827931
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 5bdd090b380160952dfbb8b5f04b95b6c84b75b7
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57663827"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67322341"
 ---
 # <a name="setting-up-your-mac-with-windows-10"></a>Windows 10 を使用するための Mac のセットアップ
 
@@ -22,7 +22,7 @@ ms.locfileid: "57663827"
 
 ユニバーサル Windows アプリの開発を始める準備は整っているのに、PC が手元にない、そういう方でも 大丈夫です。Mac を使うことができます。 Apple Boot Camp、Oracle VirtualBox、VMware Fusion の場合は、Parallels Desktop などの人気のあるサード パーティ製のソリューションを Apple コンピューターに Windows 10 および Microsoft Visual Studio をインストールすることができます。
 
-**注**  ディスクまたは USB フラッシュ ドライブに Windows 10 の起動可能なイメージが必要です。 MSDN サブスクライバーである場合は、MSDN サブスクライバー ダウンロード センターからインストール イメージをダウンロードできます。 インストーラーから購入できる、サブスクライバーでない場合、 [Microsoft Store](https://apps.microsoft.com/windows/app)します。 [この場所](https://go.microsoft.com/fwlink/?LinkId=623906)からダウンロードすることもできます。これは、Windows を既に実行中でありアップグレードする場合に便利です。
+**注**  ディスクまたは USB フラッシュ ドライブに Windows 10 の起動可能なイメージが必要です。 MSDN サブスクライバーである場合は、MSDN サブスクライバー ダウンロード センターからインストール イメージをダウンロードできます。 インストーラーから購入できる、サブスクライバーでない場合、 [Microsoft Store](https://www.microsoft.com/store/apps)します。 [この場所](https://go.microsoft.com/fwlink/?LinkId=623906)からダウンロードすることもできます。これは、Windows を既に実行中でありアップグレードする場合に便利です。
 
 Visual Studio からの最新リリースをインストールできますし、Windows 実行したら、 [Windows 10 用の開発者向けダウンロード](https://developer.microsoft.com/en-us/windows/downloads)アプリの作成を開始!
 

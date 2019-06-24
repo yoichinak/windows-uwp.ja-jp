@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, OpenGL, Direct3D, シェーダー パイプライン
 ms.localizationpriority: medium
-ms.openlocfilehash: 8793ef8b44df1ca1d93133383666434f525f2d07
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: fc5e1eb9c261a4397d83c833591f2497521aa1c6
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66368975"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67321380"
 ---
 # <a name="compare-the-opengl-es-20-shader-pipeline-to-direct3d"></a>OpenGL ES 2.0 と Direct3D のシェーダー パイプラインの比較
 
@@ -21,8 +21,8 @@ ms.locfileid: "66368975"
 **重要な API**
 
 -   [入力アセンブラー ステージ](https://docs.microsoft.com/windows/desktop/direct3d11/d3d10-graphics-programming-guide-input-assembler-stage)
--   [頂点シェーダー ステージ](https://docs.microsoft.com/previous-versions//bb205146(v=vs.85))
--   [ピクセル シェーダーのステージ](https://docs.microsoft.com/previous-versions//bb205146(v=vs.85))
+-   [頂点シェーダー ステージ](https://docs.microsoft.com/previous-versions/bb205146(v=vs.85))
+-   [ピクセル シェーダーのステージ](https://docs.microsoft.com/previous-versions/bb205146(v=vs.85))
 
 概念的には、Direct3D 11 のシェーダー パイプラインは OpenGL ES 2.0 のそれとよく似ています。 ただし、API の設計という点では、シェーダー ステージを作成、管理するための主要コンポーネントは、[**ID3D11Device1**](https://docs.microsoft.com/windows/desktop/api/d3d11_1/nn-d3d11_1-id3d11device1) と [**ID3D11DeviceContext1**](https://docs.microsoft.com/windows/desktop/api/d3d11_1/nn-d3d11_1-id3d11devicecontext1) という 2 つのプライマリ インターフェイスに含まれています。 このトピックでは、OpenGL ES 2.0 の一般的なシェーダー パイプライン API パターンが、Direct3D 11 におけるこれらのインターフェイスの何に対応するかを説明します。
 
@@ -33,11 +33,11 @@ ms.locfileid: "66368975"
 
 Direct3D 11 グラフィックス パイプラインは、[**ID3D11DeviceContext1**](https://docs.microsoft.com/windows/desktop/api/d3d11_1/nn-d3d11_1-id3d11devicecontext1) インターフェイスのインスタンスで管理され、次のステージが含まれます。
 
--   [入力アセンブラー ステージ](https://docs.microsoft.com/windows/desktop/direct3d11/d3d10-graphics-programming-guide-input-assembler-stage):  入力アセンブラー ステージでは、パイプラインにデータ (三角形、線、点) を提供します。 [**ID3D11DeviceContext1** ](https://docs.microsoft.com/windows/desktop/api/d3d11_1/nn-d3d11_1-id3d11devicecontext1) "IA"ではこの段階をサポートするメソッドが付きます。
--   [頂点シェーダー ステージ](https://docs.microsoft.com/previous-versions//bb205146(v=vs.85)): 頂点シェーダー ステージでは頂点を処理し、通常は、変換、スキンの適用、照明の適用などの操作を実行します。 頂点シェーダーは常に 1 つの入力頂点を受け取り、1 つの出力頂点を生成します。 [**ID3D11DeviceContext1** ](https://docs.microsoft.com/windows/desktop/api/d3d11_1/nn-d3d11_1-id3d11devicecontext1) 「と」ではこの段階をサポートするメソッドが付きます。
+-   [入力アセンブラー ステージ](https://docs.microsoft.com/windows/desktop/direct3d11/d3d10-graphics-programming-guide-input-assembler-stage): 入力アセンブラー ステージでは、パイプラインにデータ (三角形、線、点) を提供します。 [**ID3D11DeviceContext1** ](https://docs.microsoft.com/windows/desktop/api/d3d11_1/nn-d3d11_1-id3d11devicecontext1) "IA"ではこの段階をサポートするメソッドが付きます。
+-   [頂点シェーダー ステージ](https://docs.microsoft.com/previous-versions/bb205146(v=vs.85)): 頂点シェーダー ステージでは頂点を処理し、通常は、変換、スキンの適用、照明の適用などの操作を実行します。 頂点シェーダーは常に 1 つの入力頂点を受け取り、1 つの出力頂点を生成します。 [**ID3D11DeviceContext1** ](https://docs.microsoft.com/windows/desktop/api/d3d11_1/nn-d3d11_1-id3d11devicecontext1) 「と」ではこの段階をサポートするメソッドが付きます。
 -   [ストリーム出力ステージ](https://docs.microsoft.com/windows/desktop/direct3d11/d3d10-graphics-programming-guide-output-stream-stage): ストリーム出力ステージでは、パイプラインからラスタライザーへの途中でメモリにプリミティブ データをストリーミングします。 データはラスタライザーにストリーミングするか、渡すことができます。 メモリにストリーミングされたデータは、CPU からの入力データまたはリード バックとして、パイプラインに再循環させることができます。 [**ID3D11DeviceContext1** ](https://docs.microsoft.com/windows/desktop/api/d3d11_1/nn-d3d11_1-id3d11devicecontext1) 「など」ではこの段階をサポートするメソッドが付きます。
 -   [ラスタライザー ステージ](https://docs.microsoft.com/windows/desktop/direct3d11/d3d10-graphics-programming-guide-rasterizer-stage): ラスタライザーは、プリミティブをトリミングし、ピクセル シェーダー用にプリミティブを準備して、ピクセル シェーダーを呼び出す方法を決定します。 ラスター化を無効にできますピクセル シェーダーは、パイプラインに指示して (ピクセル シェーダーのステージを NULL に設定[ **ID3D11DeviceContext::PSSetShader**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-pssetshader))、深度、ステンシル テスト (または無効にします。DepthEnable と StencilEnable で FALSE に設定[ **D3D11\_深さ\_ステンシル\_DESC**](https://docs.microsoft.com/windows/desktop/api/d3d11/ns-d3d11-d3d11_depth_stencil_desc))。 無効になっている間、ラスター化関連のパイプライン カウンターは更新されません。
--   [ピクセル シェーダー ステージ](https://docs.microsoft.com/previous-versions//bb205146(v=vs.85)): ピクセル シェーダー ステージがプリミティブの補間データを受信し、カラーなどのピクセル単位のデータを生成します。 [**ID3D11DeviceContext1** ](https://docs.microsoft.com/windows/desktop/api/d3d11_1/nn-d3d11_1-id3d11devicecontext1) "PS"ではこの段階をサポートするメソッドが付きます。
+-   [ピクセル シェーダー ステージ](https://docs.microsoft.com/previous-versions/bb205146(v=vs.85)): ピクセル シェーダー ステージがプリミティブの補間データを受信し、カラーなどのピクセル単位のデータを生成します。 [**ID3D11DeviceContext1** ](https://docs.microsoft.com/windows/desktop/api/d3d11_1/nn-d3d11_1-id3d11devicecontext1) "PS"ではこの段階をサポートするメソッドが付きます。
 -   [出力マージャー ステージ](https://docs.microsoft.com/windows/desktop/direct3d11/d3d10-graphics-programming-guide-output-merger-stage): 出力マージャー ステージでは、各種出力データ (ピクセル シェーダー値、深度とステンシルの情報) をレンダー ターゲットおよび深度/ステンシル バッファーのコンテンツと結合し、最終的なパイプラインの結果を生成します。 [**ID3D11DeviceContext1** ](https://docs.microsoft.com/windows/desktop/api/d3d11_1/nn-d3d11_1-id3d11devicecontext1) "OM"ではこの段階をサポートするメソッドが付きます。
 
 (ジオメトリ シェーダー、ハル シェーダー、テッセレーター、ドメイン シェーダーのステージもありますが、OpenGL ES 2.0 には類似するものがないので、ここでは説明しません)これらのステージのメソッドの詳しい一覧については、[**ID3D11DeviceContext**](https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11devicecontext) と [**ID3D11DeviceContext1**](https://docs.microsoft.com/windows/desktop/api/d3d11_1/nn-d3d11_1-id3d11devicecontext1) のリファレンス ページをご覧ください。 **ID3D11DeviceContext1** は Direct3D 11 向けに **ID3D11DeviceContext** を拡張したものです。
@@ -56,7 +56,7 @@ Direct3D では、シェーダー リソースは、コンパイルと読み込�
 ## <a name="compiling-a-shader"></a>シェーダーのコンパイル
 
 
-Direct3D のシェーダーは、ユニバーサル Windows プラットフォーム (UWP) アプリのコンパイル済みシェーダー オブジェクト (.cso) ファイルとしてプリコンパイルし、いずれかの Windows ランタイム ファイル API を使って読み込む必要があります  (デスクトップ アプリは、テキスト ファイルまたは実行時にこの文字列からシェーダーをコンパイルできます)CSO ファイルは、Microsoft Visual Studio プロジェクトの一部であり、.cso ファイルの拡張機能でのみ、同じ名前を保持 .hlsl ファイルからビルドされます。 出荷時に、これらがパッケージに含まれていることを確かめてください。
+Direct3D のシェーダーは、ユニバーサル Windows プラットフォーム (UWP) アプリのコンパイル済みシェーダー オブジェクト (.cso) ファイルとしてプリコンパイルし、いずれかの Windows ランタイム ファイル API を使って読み込む必要があります (デスクトップ アプリは、テキスト ファイルまたは実行時にこの文字列からシェーダーをコンパイルできます)CSO ファイルは、Microsoft Visual Studio プロジェクトの一部であり、.cso ファイルの拡張機能でのみ、同じ名前を保持 .hlsl ファイルからビルドされます。 出荷時に、これらがパッケージに含まれていることを確かめてください。
 
 | OpenGL ES 2.0                          | Direct3D 11                                                                                                                                                                   |
 |----------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

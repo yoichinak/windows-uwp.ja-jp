@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: d1f139ca4cf134ff8515a4da1134da16c338a4a8
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 1cc13470c1f07d1ee420253c8a147ff7a5c3fc40
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66371335"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67318766"
 ---
 # <a name="span-iddevlaunchresumeauto-launchingwithautoplayspanauto-launching-with-autoplay"></a><span id="dev_launch_resume.auto-launching_with_autoplay"></span>自動再生と自動起動
 
@@ -225,7 +225,7 @@ async internal void CopyImage(Windows.Storage.IStorageItem file,
 
 アプリを**自動再生**デバイス イベントのオプションとして登録できます。 **自動再生**デバイス イベントは、デバイスがコンピューターに接続されると発生します。
 
-ここでは、PC にカメラが接続されたときに**自動再生**オプションとしてアプリを識別する方法を示します。 ハンドラーとしてアプリを登録、 **WPD\\ImageSourceAutoPlay**イベント。 これは、カメラなどのイメージング デバイスが MTP を使う ImageSource であることを通知するときに Windows ポータブル デバイス (WPD) システムによって生成される一般的なイベントです。 詳しくは、「[Windows ポータブル デバイス](https://docs.microsoft.com/previous-versions//ff597729(v=vs.85))」をご覧ください。
+ここでは、PC にカメラが接続されたときに**自動再生**オプションとしてアプリを識別する方法を示します。 ハンドラーとしてアプリを登録、 **WPD\\ImageSourceAutoPlay**イベント。 これは、カメラなどのイメージング デバイスが MTP を使う ImageSource であることを通知するときに Windows ポータブル デバイス (WPD) システムによって生成される一般的なイベントです。 詳しくは、「[Windows ポータブル デバイス](https://docs.microsoft.com/previous-versions/ff597729(v=vs.85))」をご覧ください。
 
 **重要な**  、 [ **Windows.Devices.Portable.StorageDevice** ](https://docs.microsoft.com/uwp/api/Windows.Devices.Portable.StorageDevice) Api の一部である、[デスクトップ デバイス ファミリ](https://docs.microsoft.com/windows/uwp/get-started/universal-application-platform-guide)します。 アプリでは、Pc など、デスクトップ デバイス ファミリでの Windows 10 デバイスでのみこれらの Api を使用できます。
 

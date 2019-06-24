@@ -8,12 +8,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: c4b796c8af493508328730c2b958a0beb38bf60c
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: a50ca6eaeecd2528eaa0d8558ef70552ae49944a
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66361957"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67317289"
 ---
 # <a name="expose-basic-accessibility-information"></a>基本的なアクセシビリティ情報の開示  
 
@@ -97,7 +97,7 @@ XAML
 <span id="LABELS"/>
 
 ## <a name="labels-and-labeledby"></a>ラベルと LabeledBy  
-ラベルとフォーム要素を関連付けるときによく使われるのは、まずラベルのテキストに対して **x:Name** を指定した [**TextBlock**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock) を使い、フォーム要素上で [**AutomationProperties.LabeledBy**](https://docs.microsoft.com/previous-versions/windows/silverlight/dotnet-windows-silverlight/ms591292(v%3Dvs.95)) 添付プロパティを設定することにより、XAML 名によってラベル付けの **TextBlock** を参照するという方法です。 このパターンを使う場合は、ユーザーがラベルをクリックしたときに関連付けられているコントロールにフォーカスが移動し、支援技術でフォーム フィールドのアクセシビリティ対応の名前としてラベルのテキストを使うことができるようにする必要があります。 次の例は、この手法を示しています。
+ラベルとフォーム要素を関連付けるときによく使われるのは、まずラベルのテキストに対して **x:Name** を指定した [**TextBlock**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock) を使い、フォーム要素上で [**AutomationProperties.LabeledBy**](https://docs.microsoft.com/previous-versions/windows/silverlight/dotnet-windows-silverlight/ms591292(v=vs.95)) 添付プロパティを設定することにより、XAML 名によってラベル付けの **TextBlock** を参照するという方法です。 このパターンを使う場合は、ユーザーがラベルをクリックしたときに関連付けられているコントロールにフォーカスが移動し、支援技術でフォーム フィールドのアクセシビリティ対応の名前としてラベルのテキストを使うことができるようにする必要があります。 次の例は、この手法を示しています。
 
 XAML
 ```xml

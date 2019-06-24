@@ -6,19 +6,19 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 6dfdc0c8a888890d4052dda1ac7cbf0ed2b6a667
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 996cc797ff46bd7eb9a172d66ffbb1fd6fe621bc
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66362383"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67317538"
 ---
 # <a name="improve-garbage-collection-performance"></a>ガベージ コレクションのパフォーマンスの向上
 
 
 C# と Visual Basic で記述されたユニバーサル Windows プラットフォーム (UWP) アプリは、.NET ガベージ コレクターによって、自動的にメモリ管理が行われます。 このセクションでは、UWP アプリでの .NET ガーベジ コレクターの動作とパフォーマンスに関するベスト プラクティスについて説明します。 .NET ガーベジ コレクターのしくみと、ガーベジ コレクターのパフォーマンスをデバッグおよび分析するためのツールについて詳しくは、「[ガベージ コレクション](https://docs.microsoft.com/dotnet/standard/garbage-collection/index)」をご覧ください。
 
-**注**  ガベージ コレクターの既定の動作に介入する必要があるは、アプリの全般的なメモリの問題の厳密に示しています。 詳しくは、「[Memory Usage Tool while debugging in Visual Studio 2015 (Visual Studio でのユーザー モード デバッグの設定)](https://blogs.msdn.microsoft.com/devops/2014/11/13/memory-usage-tool-while-debugging-in-visual-studio-2015/)」をご覧ください。 このトピックは、C# と Visual Basic にのみ適用されます。
+**注**  ガベージ コレクターの既定の動作に介入する必要があるは、アプリの全般的なメモリの問題の厳密に示しています。 詳しくは、「[Memory Usage Tool while debugging in Visual Studio 2015 (Visual Studio でのユーザー モード デバッグの設定)](https://devblogs.microsoft.com/devops/memory-usage-tool-while-debugging-in-visual-studio-2015/)」をご覧ください。 このトピックは、C# と Visual Basic にのみ適用されます。
 
  
 

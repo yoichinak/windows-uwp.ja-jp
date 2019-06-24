@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 1fe9805bfd754c050371b41ff091b1b2edf47891
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: da0031dbb87bffb457786170494140dbee0b2a6e
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66364928"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67317118"
 ---
 # <a name="transforms-overview"></a>変換の概要
 
@@ -46,7 +46,7 @@ XAML レイアウトでは、変換はレイアウト パスの完了後に適�
 
 使用して変換を使用するたびに[ **UIElement.RenderTransform**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.rendertransform)に別のプロパティがあることに注意してください[ **UIElement** ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement)です。変換の動作方法に影響します。[**RenderTransformOrigin**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.rendertransformorigin)します。 **RenderTransformOrigin** で宣言するのは、変換全体を要素の既定点 (0,0) に適用するか、その要素の相対座標空間内のその他の原点に適用するかです。 一般的な要素の場合、(0,0) では変換が左上隅に適用されます。 求める効果によっては、変換の **CenterX** と **CenterY** の値を調整するのではなく、**RenderTransformOrigin** を変更することを選ぶこともできます。 **RenderTransformOrigin** と **CenterX** / **CenterY** の値の両方を適用する場合、まったく予期しない結果になる可能性があることに注意してください。特に、いずれかの値をアニメーション化している場合です。
 
-ヒット テストの目的で、変換が適用されたオブジェクトは、x-y スペースでのその外観と一貫した、予期された方法で入力に応答し続けます。 たとえば、[**TranslateTransform**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.TranslateTransform) を使って、UI で [**Rectangle**](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle) を横方向に 400 ピクセル移動した場合は、**Rectangle** が視覚的に表示される位置をユーザーが押すと、その [**Rectangle** が **PointerPressed**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerpressed) イベントに応答します。 平行移動前に **Rectangle** があった位置をユーザーが押した場合、false イベントが発生することはありません。 ヒット テストに影響を与える z インデックスについて考えた場合、変換の適用による違いはありません。x-y スペース内のある位置の入力イベントをどの要素が処理するかを制御する z インデックスは、コンテナー内での子の宣言順に従って評価されます。 その順序は、通常、XAML で要素を宣言する順序と同じです。ただし、[**Canvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Canvas) オブジェクトの子要素については、[**Canvas.ZIndex**](https://docs.microsoft.com/previous-versions/windows/silverlight/dotnet-windows-silverlight/cc190397(v%3Dvs.95)) 添付プロパティを子要素に適用して、順序を調整できます。
+ヒット テストの目的で、変換が適用されたオブジェクトは、x-y スペースでのその外観と一貫した、予期された方法で入力に応答し続けます。 たとえば、[**TranslateTransform**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.TranslateTransform) を使って、UI で [**Rectangle**](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle) を横方向に 400 ピクセル移動した場合は、**Rectangle** が視覚的に表示される位置をユーザーが押すと、その [**Rectangle** が **PointerPressed**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerpressed) イベントに応答します。 平行移動前に **Rectangle** があった位置をユーザーが押した場合、false イベントが発生することはありません。 ヒット テストに影響を与える z インデックスについて考えた場合、変換の適用による違いはありません。x-y スペース内のある位置の入力イベントをどの要素が処理するかを制御する z インデックスは、コンテナー内での子の宣言順に従って評価されます。 その順序は、通常、XAML で要素を宣言する順序と同じです。ただし、[**Canvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Canvas) オブジェクトの子要素については、[**Canvas.ZIndex**](https://docs.microsoft.com/previous-versions/windows/silverlight/dotnet-windows-silverlight/cc190397(v=vs.95)) 添付プロパティを子要素に適用して、順序を調整できます。
 
 ## <a name="span-idothertransformpropertiesspanspan-idothertransformpropertiesspanspan-idothertransformpropertiesspanother-transform-properties"></a><span id="Other_transform_properties"></span><span id="other_transform_properties"></span><span id="OTHER_TRANSFORM_PROPERTIES"></span>その他の変換プロパティ
 
@@ -95,7 +95,7 @@ void StartAnimation (object sender, RoutedEventArgs e) {
 
 ## <a name="span-idaccountingforcoordinateframesofreferenceatruntimespanspan-idaccountingforcoordinateframesofreferenceatruntimespanspan-idaccountingforcoordinateframesofreferenceatruntimespanaccounting-for-coordinate-frames-of-reference-at-run-time"></a><span id="Accounting_for_coordinate_frames_of_reference_at_run_time"></span><span id="accounting_for_coordinate_frames_of_reference_at_run_time"></span><span id="ACCOUNTING_FOR_COORDINATE_FRAMES_OF_REFERENCE_AT_RUN_TIME"></span>実行時に、座標の基準のアカウンティング
 
-[**UIElement** ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement)という名前のメソッドを持つ[ **TransformToVisual**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.)、生成することができます、 [**変換**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Transform)2 つの UI 要素の座標のフレームの参照を相互に関連付けます。 このメソッドを使って要素をアプリの既定の参照座標系に比較できます。この場合は最初のパラメーターとしてルート ビジュアルを渡します。 この方法が役立つことがあるのは、別の要素から入力イベントをキャプチャする場合や、実際にレイアウト パスを要求せずにレイアウト動作を予測しようとする場合です。
+[**UIElement** ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement)という名前のメソッドを持つ[ **TransformToVisual**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.transformtovisual)、生成することができます、 [**変換**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Transform)2 つの UI 要素の座標のフレームの参照を相互に関連付けます。 このメソッドを使って要素をアプリの既定の参照座標系に比較できます。この場合は最初のパラメーターとしてルート ビジュアルを渡します。 この方法が役立つことがあるのは、別の要素から入力イベントをキャプチャする場合や、実際にレイアウト パスを要求せずにレイアウト動作を予測しようとする場合です。
 
 ポインター イベントから取得したイベント データを使うと、[**GetCurrentPoint**](https://docs.microsoft.com/uwp/api/windows.ui.input.pointerpoint.getcurrentpoint) メソッドにアクセスできます。このメソッドで、参照座標系をアプリの既定のものではなく特定の要素のものに変更するように、*relativeTo* パラメーターを指定できます。 これにより、平行移動変換が内部で適用され、戻り値となる [**PointerPoint**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.PointerPoint) オブジェクトの作成時に x-y 座標データが変換されます。
 

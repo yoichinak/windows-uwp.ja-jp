@@ -6,19 +6,19 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: c9088f695fb70d171f0b9d5474a4a0f2a63cae05
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: d611c57ff6d8382a70bcc5078e04e9af8b6fd4ca
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66372423"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67322274"
 ---
 #  <a name="move-from-windowsphone-silverlight-to-uwp"></a>Windows Phone Silverlight から UWP への移行します。
 
 
 場合は、開発者、Windows Phone Silverlight アプリである Windows 10 への移行で、スキル セットと、ソース コードの優れた使用を行うことができます。 Windows 10 で、ユニバーサル Windows プラットフォーム (UWP) アプリは、これは、顧客がすべての種類のデバイスにインストールできる 1 つのアプリ パッケージを作成できます。 Windows 10、UWP アプリ、およびアダプティブ コードとこの移植のガイドで説明アダプティブ UI の概念の詳細については、次を参照してください。、[ユニバーサル Windows プラットフォーム (UWP) アプリに関するガイド](https://docs.microsoft.com/windows/uwp/get-started/universal-application-platform-guide)します。
 
-Windows 10 アプリを Windows Phone Silverlight アプリを移植するときに、遅れされてモバイル機能ができます[Windows Phone 8.1 で導入された](https://docs.microsoft.com/previous-versions/windows/apps/ff402535(v%3dvs.105))を画していますユニバーサル Windows プラットフォーム (UWP) を使用するようにアプリが、モデルと UI フレームワークは、すべての Windows 10 デバイスでユニバーサル。 これにより、1 つのコード ベースから、1 つのアプリ パッケージで、PC、タブレット、電話、その他の多くの種類のデバイスをサポートできます。 また、これによりアプリの潜在顧客が増加し、共有データ、購入コンシューマブルなどの可能性が高まります。 新機能に関する詳細については、次を参照してください。 [Windows 10 の開発者向け新機能については](https://dev.windows.com/getstarted/whats-new-windows-10)します。
+Windows 10 アプリを Windows Phone Silverlight アプリを移植するときに、遅れされてモバイル機能ができます[Windows Phone 8.1 で導入された](https://docs.microsoft.com/previous-versions/windows/apps/ff402535(v=vs.105))を画していますユニバーサル Windows プラットフォーム (UWP) を使用するようにアプリが、モデルと UI フレームワークは、すべての Windows 10 デバイスでユニバーサル。 これにより、1 つのコード ベースから、1 つのアプリ パッケージで、PC、タブレット、電話、その他の多くの種類のデバイスをサポートできます。 また、これによりアプリの潜在顧客が増加し、共有データ、購入コンシューマブルなどの可能性が高まります。 新機能に関する詳細については、次を参照してください。 [Windows 10 の開発者向け新機能については](https://docs.microsoft.com/windows/uwp/whats-new/windows-10-version-latest)します。
 
 場合は、Windows Phone の Silverlight バージョンのアプリと Windows 10 バージョンの両方が使用可能顧客と同時にします。
 
@@ -79,7 +79,7 @@ Windows 10 アプリに既存の .NET ソース コードを再コンパイル�
 ## <a name="related-topics"></a>関連トピック
 
 **ドキュメント**
-* [Windows 10 の開発者向け新機能については](https://dev.windows.com/getstarted/whats-new-windows-10)
+* [Windows 10 の開発者向け新機能については](https://docs.microsoft.com/windows/uwp/whats-new/windows-10-version-latest)
 * [ユニバーサル Windows プラットフォーム (UWP) アプリのガイド](https://docs.microsoft.com/windows/uwp/get-started/universal-application-platform-guide)
 * [使用してユニバーサル Windows プラットフォーム (UWP) アプリのためのロードマップC#または Visual Basic](https://docs.microsoft.com/previous-versions/windows/apps/br229583(v=win.10))
 * [Windows Phone 8 開発者にとっての選択肢](https://docs.microsoft.com/previous-versions/windows/apps/dn655121(v=vs.105))

@@ -9,12 +9,12 @@ ms.topic: article
 keywords: Windows 10, UWP, Windows 情報保護, 企業データ, エンタープライズ データ保護, EDP, 対応アプリ
 ms.assetid: 08f0cfad-f15d-46f7-ae7c-824a8b1c44ea
 ms.localizationpriority: medium
-ms.openlocfilehash: f6938118b3a9041eea27367c3916e94ce34d468e
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 42f08127567704b1c8623ac64857cc5afe0ef882
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57595477"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67321392"
 ---
 # <a name="windows-information-protection-wip"></a>Windows 情報保護 (WIP)
 
@@ -42,8 +42,8 @@ MDM または MAM を利用すると、管理者は、組織に属している�
 ![WIP のライフサイクル](images/wip-lifecycle.png)
 
 > **WIP についてもっと読む** <br>
-* [Windows Information Protection の概要](https://blogs.technet.microsoft.com/windowsitpro/2016/06/29/introducing-windows-information-protection/)
-* [Windows 情報保護 (WIP) を使用したエンタープライズ データを保護します。](https://technet.microsoft.com/library/dn985838(v=vs.85).aspx)
+* [Windows Information Protection の概要](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/bg-p/Windows10Blog)
+* [Windows 情報保護 (WIP) を使用したエンタープライズ データを保護します。](https://docs.microsoft.com/windows/whats-new/edp-whats-new-overview)
 
 アプリが許可リストに登録されている場合、アプリによって生成されたすべてのデータにはポリシーの制限が適用されます。 つまり、管理者が企業データへのユーザー アクセスを無効にすると、それらのユーザーは、アプリによって生成されたすべてのデータへアクセスできなくなります。
 

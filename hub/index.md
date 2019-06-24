@@ -9,12 +9,12 @@ ms.topic: hub-page
 title: Windows に関するドキュメント
 description: Windows ソリューションの構築とメンテナンスに役立つ、開発者、ハードウェア、および IT 技術者向けのドキュメントを検索します。
 localizationpriority: medium
-ms.openlocfilehash: 334689d399b5acb476c9592001e8068abc395659
-ms.sourcegitcommit: 6e60ed2d9ef5f0f7b3dca64fbfd54e24a51034c8
+ms.openlocfilehash: a58310793dd43f3c1970ced7d9365690670bb6a2
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67268476"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67317717"
 ---
 <div id="main" class="v2">
   <div class="container">
@@ -185,7 +185,7 @@ ms.locfileid: "67268476"
                             </a>
                         </li>
                         <li>
-                            <a href="https://developer.microsoft.com/web/platforms-tech/">
+                            <a href="https://developer.microsoft.com/web/platforms-tech">
                                 <div class="cardSize">
                                     <div class="cardPadding">
                                         <div class="card">
@@ -425,7 +425,7 @@ ms.locfileid: "67268476"
                             </a>
                         </li>
                         <li>
-                            <a href="https://docs.microsoft.com/en-us/education/windows">
+                            <a href="https://docs.microsoft.com/education/windows/">
                                 <div class="cardSize">
                                     <div class="cardPadding">
                                         <div class="card">
@@ -482,7 +482,7 @@ ms.locfileid: "67268476"
                             </a>
                         </li>
                         <li>
-                            <a href="https://docs.microsoft.com/en-us/windows/privacy">
+                            <a href="https://docs.microsoft.com/windows/privacy/">
                                 <div class="cardSize">
                                     <div class="cardPadding">
                                         <div class="card">

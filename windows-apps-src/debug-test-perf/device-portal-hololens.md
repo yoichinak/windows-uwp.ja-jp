@@ -6,12 +6,12 @@ ms.date: 01/3/2019
 ms.topic: article
 keywords: windows 10、uwp、デバイス ポータル
 ms.localizationpriority: medium
-ms.openlocfilehash: 2561f18e2ac054c8b378b0c7c0a9689bebcc4140
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 3b25283dbe8feff74ba994efba31c542f59171d9
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57611257"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67317878"
 ---
 # <a name="device-portal-for-hololens"></a>HoloLens 用 Device Portal
 
@@ -21,12 +21,12 @@ ms.locfileid: "57611257"
 ### <a name="enable-device-portal"></a>Device Portal を有効にする
 
 1. HoloLens の電源を入れ、デバイスを装着します。
-2. [ブルーム](https://dev.windows.com/holographic/Gestures.html#Bloom) ジェスチャを実行して、メイン メニューを開きます。
-3. **[Settings]** (設定) タイルを見つめて、[エア タップ](https://dev.windows.com/holographic/Gestures.html#Press_and_release) ジェスチャを実行します。 2 回目のエア タップを実行して、アプリを環境内に配置します。 配置すると、設定アプリが起動します。
+2. [ブルーム](https://developer.microsoft.com/mixed-reality#Bloom) ジェスチャを実行して、メイン メニューを開きます。
+3. **[Settings]** (設定) タイルを見つめて、[エア タップ](https://developer.microsoft.com/mixed-reality#Press_and_release) ジェスチャを実行します。 2 回目のエア タップを実行して、アプリを環境内に配置します。 配置すると、設定アプリが起動します。
 4. **[Update]** (更新) メニュー項目を選択します。
 5. **[For developers]** (開発者向け) メニュー項目を選択します。
 6. **[Developer Mode]** (開発者モード) を有効にします。
-7. [下へスクロール](https://dev.windows.com/holographic/Gestures.html#Navigation) し、Device Portal を有効にします。
+7. [下へスクロール](https://developer.microsoft.com/mixed-reality#Navigation) し、Device Portal を有効にします。
 
 
 ### <a name="pair-your-device"></a>デバイスをペアリングする
@@ -51,7 +51,7 @@ ms.locfileid: "57611257"
 #### <a name="connect-to-an-emulator"></a>エミュレーターに接続する 
 
 Device Portal はエミュレーターで使うこともできます。 Device Portal に接続するには、ツール バーを使います。 次のアイコンをクリックします。
-- デバイスのポータルを開きます。エミュレーターでの HoloLens os、Windows Device Portal を開きます。
+- デバイスのポータルを開きます。エミュレーターで HoloLens OS の Windows デバイス ポータルを開きます。
 
 #### <a name="create-a-username-and-password"></a>ユーザー名とパスワードを作成する 
 

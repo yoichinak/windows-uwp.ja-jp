@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10、uwp、接続されているデバイス、リモート システム、ローマ、プロジェクトのローマ
 ms.localizationpriority: medium
-ms.openlocfilehash: 665a40cf69b7518643390abddc3895be07c63c5c
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 83230e17548f022767dcdde6b17fa9a93d6d9304
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66366192"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67320963"
 ---
 # <a name="discover-remote-devices"></a>リモート デバイスの検出
 アプリは、ワイヤレス ネットワーク、Bluetooth、およびクラウド接続を使って、検出側デバイスと同じ Microsoft アカウントでサインインしている Windows デバイスを検出できます。 リモート デバイスを検出するために特別なソフトウェアをインストールする必要はありません。
@@ -48,7 +48,7 @@ ms.locfileid: "66366192"
 これ以降、イベントの処理、[**RemoteSystem**](https://docs.microsoft.com/uwp/api/Windows.System.RemoteSystems.RemoteSystem) オブジェクトの取得、リモート デバイスへの接続の手順は「[リモート アプリの起動](launch-a-remote-app.md)」とまったく同じ手順です。 つまり、**RemoteSystem** オブジェクトは、各 **RemoteSystemAdded** イベントで渡される [**RemoteSystemAddedEventArgs**](https://docs.microsoft.com/uwp/api/Windows.System.RemoteSystems.RemoteSystemAddedEventArgs) オブジェクトのプロパティとして格納されます。
 
 ## <a name="discover-devices-by-address-input"></a>アドレス入力によるデバイスの検出
-ユーザーに関連付けられていないか、スキャンで検出することができないデバイスでも、検出側のアプリが直接アドレスを使う場合はアクセスできます。 リモート デバイスのアドレスを表すには、[**HostName**](https://docs.microsoft.com/uwp/api/windows.networking.hostname) クラスを使います。 これは多くの場合 IP アドレスの形式で保存されますが、他のいくつかの形式も使うことができます (詳しくは、「[**HostName コンストラクター**](https://docs.microsoft.com/uwp/api/windows.networking.hostname.)」をご覧ください)。
+ユーザーに関連付けられていないか、スキャンで検出することができないデバイスでも、検出側のアプリが直接アドレスを使う場合はアクセスできます。 リモート デバイスのアドレスを表すには、[**HostName**](https://docs.microsoft.com/uwp/api/windows.networking.hostname) クラスを使います。 これは多くの場合 IP アドレスの形式で保存されますが、他のいくつかの形式も使うことができます (詳しくは、「[**HostName コンストラクター**](https://docs.microsoft.com/uwp/api/windows.networking.hostname.-ctor)」をご覧ください)。
 
 **RemoteSystem** オブジェクトは、有効な **HostName** オブジェクトが指定された場合に取得されます。 アドレス データが無効な場合、`null` オブジェクト参照が返されます。
 

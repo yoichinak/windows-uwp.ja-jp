@@ -5,12 +5,12 @@ ms.date: 05/17/2019
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 579f92cc51ed5f9eeea522d81cfdb030f85ef0da
-ms.sourcegitcommit: f282c906cddf0d57217484e61a5cbd2fe8469421
+ms.openlocfilehash: b947d0b6cc83dc6bca45efb7103a933e79972e3b
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65852273"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67317450"
 ---
 # <a name="version-adaptive-apps-use-new-apis-while-maintaining-compatibility-with-previous-versions"></a>アダプティブ アプリのバージョン:新しい Api を使用して、以前のバージョンとの互換性を維持しながら
 
@@ -59,9 +59,9 @@ Visual Studio で既に作成済みのプロジェクトの最小バージョン
 | 2018年 10 月 Update | 1809 | 17763 |
 | 2019 の月の更新 | 1903 | 18362 |
 
-SDK のすべてのリリース版は、「[Windows SDK とエミュレーターのアーカイブ](https://developer.microsoft.com/downloads/sdk-archive)」からダウンロードできます。 最新の Windows Insider Preview SDK は、[Windows Insider](https://insider.windows.com/Home/BuildWithWindows) サイトの「開発者向け」セクションからダウンロードできます。
+SDK のすべてのリリース版は、「[Windows SDK とエミュレーターのアーカイブ](https://developer.microsoft.com/windows/downloads/sdk-archive)」からダウンロードできます。 最新の Windows Insider Preview SDK は、[Windows Insider](https://insider.windows.com/for-developers/) サイトの「開発者向け」セクションからダウンロードできます。
 
- Windows 10 更新プログラムの詳細については、次を参照してください。 [Windows 10 のリリース情報](https://technet.microsoft.com/windows/release-info)します。 Windows 10 のサポート ライフ サイクルに関する重要な情報は、次を参照してください。、 [Windows ライフ サイクル ファクト シート](https://support.microsoft.com/help/13853/windows-lifecycle-fact-sheet)します。
+ Windows 10 更新プログラムの詳細については、次を参照してください。 [Windows 10 のリリース情報](https://www.microsoft.com/itpro/windows-10/release-information)します。 Windows 10 のサポート ライフ サイクルに関する重要な情報は、次を参照してください。、 [Windows ライフ サイクル ファクト シート](https://support.microsoft.com/help/13853/windows-lifecycle-fact-sheet)します。
 
 ## <a name="perform-api-checks"></a>API チェックの実行
 
@@ -90,11 +90,11 @@ API コントラクトとは何でしょうか。 基本的に、API コント�
 
 すべてのバージョンの Windows 10 では、コード内の条件式で ApiInformation クラスを使って、呼び出そうとしている API が存在するかどうかをテストできます。 IsTypePresent、IsEventPresent、IsMethodPresent、IsPropertyPresent など、このクラスのさまざまなメソッドをアダプティブ コードで使って、必要に応じた精度で API をテストできます。
 
-詳細と例については、「**[バージョン アダプティブ コード](version-adaptive-code.md)**」をご覧ください。
+詳細と例については、「 **[バージョン アダプティブ コード](version-adaptive-code.md)** 」をご覧ください。
 
 アプリの最小バージョンがビルド 15063 (Creators Update) 以降の場合は、*条件付き XAML* を使って、プロパティの設定やオブジェクトのインスタンス化をマークアップで行うことができます。この場合、分離コードを使う必要はありません。 条件付き XAML は、マークアップで ApiInformation.IsApiContractPresent メソッドを使う方法を提供するものです。
 
-詳しい説明と例については、「**[条件付き XAML](conditional-xaml.md)**」をご覧ください。
+詳しい説明と例については、「 **[条件付き XAML](conditional-xaml.md)** 」をご覧ください。
 
 ## <a name="test-your-version-adaptive-app"></a>バージョン アダプティブ アプリのテスト
 

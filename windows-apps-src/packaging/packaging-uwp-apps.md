@@ -9,12 +9,12 @@ f1_keywords:
 - vs.packagewizard
 - vs.storeassociationwizard
 ms.localizationpriority: medium
-ms.openlocfilehash: 265e034b264cf82bacfa5a32141eb5d999d57108
-ms.sourcegitcommit: aa5a055e3ff9ee9defc73ed9567196d59f59542a
+ms.openlocfilehash: 3f24d91231b4da1a4a456846faceb604d9ee450d
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/10/2019
-ms.locfileid: "66825033"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67319852"
 ---
 # <a name="package-a-uwp-app-with-visual-studio"></a>Visual Studio で UWP アプリをパッケージ化する
 
@@ -46,7 +46,7 @@ ms.locfileid: "66825033"
 
 1.  **アプリをテストします。** パートナー センター送信するアプリをパッケージ化する前に、サポートを計画しているすべてのデバイス ファミリで期待どおりに動作を確認します。 これらのデバイス ファミリには、デスクトップ、モバイル、Surface Hub、Xbox、IoT デバイスなどが含まれる場合があります。 展開して、Visual Studio を使用して、アプリのテストの詳細については、次を参照してください。[の展開と UWP アプリのデバッグ](../debug-test-perf/deploying-and-debugging-uwp-apps.md)します。
 2.  **アプリを最適化します。** Visual Studio のプロファイリングおよびデバッグ ツールを使って、UWP アプリのパフォーマンスを最適化できます。 たとえば、UI 応答のタイムライン ツール、メモリ使用率のツール、CPU 使用率のツールを使えます。 これらのコマンド ライン ツールについて詳しくは、[プロファイリング機能ツアーに関するページ](https://docs.microsoft.com/visualstudio/profiling/profiling-feature-tour)をご覧ください。
-3.  **.NET ネイティブの互換性を確認する (vb とC#アプリ)。** ユニバーサル Windows プラットフォームには、アプリの実行時のパフォーマンスを向上させるネイティブ コンパイラがあります。 この変更により、新しいコンパイル環境でアプリをテストする必要があります。 既定では、**リリース** ビルド構成により、.NET ネイティブ ツール チェーンが可能であるため、重要なのは、この**リリース**構成でアプリをテストし、想定どおりにアプリが動作することを確認することです。 .NET ネイティブで発生する可能性のあるいくつかの一般的なデバッグの問題について詳しくは、[.NET Native Windows ユニバーサル アプリのデバッグ](https://blogs.msdn.microsoft.com/devops/2015/07/29/debugging-net-native-windows-universal-apps/)に関するブログをご覧ください。
+3.  **.NET ネイティブの互換性を確認する (vb とC#アプリ)。** ユニバーサル Windows プラットフォームには、アプリの実行時のパフォーマンスを向上させるネイティブ コンパイラがあります。 この変更により、新しいコンパイル環境でアプリをテストする必要があります。 既定では、**リリース** ビルド構成により、.NET ネイティブ ツール チェーンが可能であるため、重要なのは、この**リリース**構成でアプリをテストし、想定どおりにアプリが動作することを確認することです。 .NET ネイティブで発生する可能性のあるいくつかの一般的なデバッグの問題について詳しくは、[.NET Native Windows ユニバーサル アプリのデバッグ](https://devblogs.microsoft.com/devops/debugging-net-native-windows-universal-apps/)に関するブログをご覧ください。
 
 ## <a name="configure-an-app-package"></a>アプリ パッケージを構成する
 

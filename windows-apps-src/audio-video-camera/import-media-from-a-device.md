@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 7ec16f9810a0802fc319b3ebac679cc4cb2f8334
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: a4302568b398c76198e241aeb37980165e1bb864
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66361722"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67318363"
 ---
 # <a name="import-media-from-a-device"></a>デバイスからのメディアのインポート
 
@@ -50,7 +50,7 @@ ms.locfileid: "66361722"
 
 一般的なメディア インポート シナリオでは、インポートできるメディア項目の一覧をユーザーに提示します。選択するメディア ファイルの数は非常に多い可能性があり、通常、各メディア項目のサムネイルを表示します。 このため、この例では 3 つのヘルパー クラスを使用して、ユーザーが一覧をスクロールしていくと ListView コントロールにエントリが段階的に読み込まれるようにします。
 
-* **IncrementalLoadingBase** クラス - [**IList**](https://docs.microsoft.com/dotnet/api/system.collections.ilist?redirectedfrom=MSDN)、[**ISupportIncrementalLoading**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.isupportincrementalloading)、および [**INotifyCollectionChanged**](https://msdn.microsoft.com/library/windows/apps/system.collections.specialized.inotifycollectionchanged(v=vs.105).aspx) を実装し、段階的な読み込みの基本動作を提供します。
+* **IncrementalLoadingBase** クラス - [**IList**](https://docs.microsoft.com/dotnet/api/system.collections.ilist?redirectedfrom=MSDN)、[**ISupportIncrementalLoading**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.isupportincrementalloading)、および [**INotifyCollectionChanged**](https://docs.microsoft.com/dotnet/api/system.collections.specialized.inotifycollectionchanged?redirectedfrom=MSDN) を実装し、段階的な読み込みの基本動作を提供します。
 * **GeneratorIncrementalLoadingClass** クラス - 段階的な読み込みの基底クラスの実装を提供します。
 * **ImportableItemWrapper** クラス - [**PhotoImportItem**](https://docs.microsoft.com/uwp/api/Windows.Media.Import.PhotoImportItem) クラスのシン ラッパーで、インポートされる各項目のサムネイル イメージに対するバインディング可能な [**BitmapImage**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Imaging.BitmapImage) プロパティを追加します。
 

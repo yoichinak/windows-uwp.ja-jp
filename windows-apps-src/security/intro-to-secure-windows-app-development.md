@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp, セキュリティ
 ms.localizationpriority: medium
-ms.openlocfilehash: ee386199fbee7d2f9b839d6b1805c6181e4d70a9
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: c9b4060fbd2e59a545451c9c8ebe103c9bb527a0
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66371393"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67320602"
 ---
 # <a name="intro-to-secure-windows-app-development"></a>安全な Windows アプリの開発について
 
@@ -175,7 +175,7 @@ Windows Hello は、従来の 2FA システムの単なる代替機能ではあ�
 
 収集する登録情報には、この単純なシナリオよりも多くの識別情報が含まれる場合があります。 たとえば、アプリが、バンキング用などのセキュリティで保護されたサービスにアクセスする場合、サインアップ プロセスの一部として ID やその他の項目の証明を要求する必要があります。 すべての条件が満たされると、ユーザーの公開キーがバックエンドに保存され、次回ユーザーがサービスを利用するときの検証でこの公開キーが使われます。
 
-Windows Hello について詳しくは、「[Windows Hello ガイド](https://technet.microsoft.com/itpro/windows/keep-secure/microsoft-passport-guide)」および「[Windows Hello 開発者向けガイド](microsoft-passport.md)」をご覧ください。
+Windows Hello について詳しくは、「[Windows Hello ガイド](https://docs.microsoft.com/windows/keep-secure/microsoft-passport-guide)」および「[Windows Hello 開発者向けガイド](microsoft-passport.md)」をご覧ください。
 
 ## <a name="3-data-in-flight-security-methods"></a>3 移動中データに関するセキュリティ保護の方法
 
@@ -478,14 +478,14 @@ Windows 10 のユニバーサル Windows プラットフォームには、オペ
 
 ### <a name="62-code-samples"></a>6.2 コード サンプル
 
--   [資格情報保管ボックス](https://github.com/Microsoft/Windows-universal-samples/blob/master/Samples/PasswordVault)
--   [資格情報の選択](https://github.com/Microsoft/Windows-universal-samples/blob/master/Samples/CredentialPicker)
--   [Azure のログインを持つデバイスのロックダウン](https://github.com/Microsoft/Windows-universal-samples/blob/master/Samples/DeviceLockdownAzureLogin)
--   [エンタープライズ データ保護](https://github.com/Microsoft/Windows-universal-samples/blob/master/Samples/EnterpriseDataProtection)
--   [KeyCredentialManager](https://github.com/Microsoft/Windows-universal-samples/blob/master/Samples/KeyCredentialManager)
--   [スマート カード](https://github.com/Microsoft/Windows-universal-samples/blob/master/Samples/SmartCard)
--   [Web アカウント管理](https://github.com/Microsoft/Windows-universal-samples/blob/master/Samples/WebAccountManagement)
--   [WebAuthenticationBroker](https://github.com/Microsoft/Windows-universal-samples/blob/master/Samples/WebAuthenticationBroker)
+-   [資格情報保管ボックス](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/PasswordVault)
+-   [資格情報の選択](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/CredentialPicker)
+-   [Azure のログインを持つデバイスのロックダウン](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/DeviceLockdownAzureLogin)
+-   [エンタープライズ データ保護](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/EnterpriseDataProtection)
+-   [KeyCredentialManager](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/KeyCredentialManager)
+-   [スマート カード](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/SmartCard)
+-   [Web アカウント管理](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/WebAccountManagement)
+-   [WebAuthenticationBroker](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/WebAuthenticationBroker)
 
 ### <a name="63-api-reference"></a>6.3 API リファレンス
 

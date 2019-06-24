@@ -5,12 +5,12 @@ ms.date: 4/8/2019
 ms.topic: article
 keywords: Windows 10, UWP, 店舗販売時点管理, POS
 ms.localizationpriority: medium
-ms.openlocfilehash: da0379109dcf56de505f2a56317258e0ab597f94
-ms.sourcegitcommit: bad7ed6def79acbb4569de5a92c0717364e771d9
+ms.openlocfilehash: 7db48b610d5bdf256d6a44d4786b8642d984c0b0
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59244368"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67321536"
 ---
 # <a name="enable-or-disable-the-software-decoder-that-ships-with-windows"></a>Windows に付属するソフトウェア デコーダーを有効または無効にします。
 
@@ -20,7 +20,7 @@ Windows 10 バージョン 1803 では、ソフトウェア デコーダーが�
 
 システム レジストリを使用して、Windows に付属するソフトウェア デコーダーを有効または無効にするには、*HKLM\Software\Microsoft\PointOfService\BarcodeScanner* の下にレジストリ キー *InboxDecoder* を追加し、*Enable* の値を以下に示すように設定します。
 
-| 値の名前  | 値の種類 | 値 | 状況 |
+| 値の名前  | 値の種類 | Value | 状況 |
 | ----------- | --------- | -------|--------|
 | Enable      | DWORD     | 1 (既定)<br/>0 |  Windows に付属するソフトウェア デコーダーを有効にします。 <br/> Windows に付属するソフトウェア デコーダーを無効にします。 |
 
@@ -43,7 +43,7 @@ Windows Registry Editor Version 5.00
 ```  
 
 > [!Warning]
-> 誤ってレジストリを変更すると、重大な問題が発生する可能性があります。  さらに安全を考慮して、レジストリのバックアップをとってから変更を行ってください。  バックアップがあれば、問題が生じた場合でもレジストリを復元できます。  バックアップおよび復元方法の詳細を参照するには、以下の Microsoft サポート技術情報番号をクリックしてください。 <br/><br/> [322756](https://support.microsoft.com/kb/322756) Windows でレジストリをバックアップおよび復元する方法
+> 誤ってレジストリを変更すると、重大な問題が発生する可能性があります。  さらに安全を考慮して、レジストリのバックアップをとってから変更を行ってください。  バックアップがあれば、問題が生じた場合でもレジストリを復元できます。  バックアップおよび復元方法の詳細を参照するには、以下の Microsoft サポート技術情報番号をクリックしてください。 <br/><br/> [322756](https://support.microsoft.com/help/322756/how-to-back-up-and-restore-the-registry-in-windows) Windows でレジストリをバックアップおよび復元する方法
 
 > [!NOTE]
 > Windows 10 に付属するソフトウェア デコーダーは、[**Digimarc Corporation**](https://www.digimarc.com/) から無料で提供されています。

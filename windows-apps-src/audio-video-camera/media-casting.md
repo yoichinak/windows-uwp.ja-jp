@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 2318d873a55b4134cf36eda91b57866e14b6b3a7
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 50f588caaf36d9a2a74222029e17785663cf3953
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66361726"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67318298"
 ---
 # <a name="media-casting"></a>メディアのキャスト
 
@@ -66,14 +66,14 @@ ms.locfileid: "66361726"
 
 [!code-xml[CastPickerButton](./code/MediaCasting_RS1/cs/MainPage.xaml#SnippetCastPickerButton)]
 
-ボタンの **Click** イベント ハンドラーで [**TransformToVisual**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.) を呼び出し、別の要素を基準とした UI 要素の変換を取得します。 この例の変換は、アプリケーション ウィンドウの表示ルートを基準としたキャスト ピッカー ボタンの位置です。 [  **CastingDevicePicker**](https://docs.microsoft.com/uwp/api/Windows.Media.Casting.CastingDevicePicker) オブジェクトの [**Show**](https://docs.microsoft.com/uwp/api/windows.media.casting.castingdevicepicker.show) メソッドを呼び出して、キャスト先の選択ダイアログを起動します。 ユーザーによって押されたボタンから飛び出すようにダイアログを表示させるため、キャスト ピッカー ボタンの位置とサイズを指定します。
+ボタンの **Click** イベント ハンドラーで [**TransformToVisual**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.transformtovisual) を呼び出し、別の要素を基準とした UI 要素の変換を取得します。 この例の変換は、アプリケーション ウィンドウの表示ルートを基準としたキャスト ピッカー ボタンの位置です。 [  **CastingDevicePicker**](https://docs.microsoft.com/uwp/api/Windows.Media.Casting.CastingDevicePicker) オブジェクトの [**Show**](https://docs.microsoft.com/uwp/api/windows.media.casting.castingdevicepicker.show) メソッドを呼び出して、キャスト先の選択ダイアログを起動します。 ユーザーによって押されたボタンから飛び出すようにダイアログを表示させるため、キャスト ピッカー ボタンの位置とサイズを指定します。
 
 [!code-cs[CastPickerButtonClick](./code/MediaCasting_RS1/cs/MainPage.xaml.cs#SnippetCastPickerButtonClick)]
 
 **CastingDeviceSelected** イベント ハンドラーで、イベント引数の [**SelectedCastingDevice**](https://docs.microsoft.com/uwp/api/windows.media.casting.castingdeviceselectedeventargs.selectedcastingdevice) プロパティ (ユーザーが選択したキャスト先デバイスを表す) の [**CreateCastingConnection**](https://docs.microsoft.com/uwp/api/windows.media.casting.castingdevice.createcastingconnection) メソッドを呼び出します。 [  **ErrorOccurred**](https://docs.microsoft.com/uwp/api/windows.media.casting.castingconnection.erroroccurred) イベントと [**StateChanged**](https://docs.microsoft.com/uwp/api/windows.media.casting.castingconnection.statechanged) イベントのハンドラーを登録します。 最後に、[**RequestStartCastingAsync**](https://docs.microsoft.com/uwp/api/windows.media.casting.castingconnection.requeststartcastingasync) を呼び出すとキャストが開始されます。キャストするメディアが **MediaPlayerElement** に関連付けられた **MediaPlayer** のコンテンツであることを指定するために、このメソッドの引数には、**MediaPlayerElement** コントロールの **MediaPlayer** オブジェクトの [**GetAsCastingSource**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaelement.getascastingsource) メソッドの結果を渡します。
 
 > [!NOTE] 
-> キャスト接続は UI スレッドで開始する必要があります。 **CastingDeviceSelected** は UI スレッドでは呼び出されないため、上に挙げた一連の呼び出しを、[**CoreDispatcher.RunAsync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.windows) の呼び出しの中に置いて、UI スレッドで呼び出されるようにする必要があります。
+> キャスト接続は UI スレッドで開始する必要があります。 **CastingDeviceSelected** は UI スレッドでは呼び出されないため、上に挙げた一連の呼び出しを、[**CoreDispatcher.RunAsync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync) の呼び出しの中に置いて、UI スレッドで呼び出されるようにする必要があります。
 
 [!code-cs[CastingDeviceSelected](./code/MediaCasting_RS1/cs/MainPage.xaml.cs#SnippetCastingDeviceSelected)]
 
@@ -112,7 +112,7 @@ ms.locfileid: "66361726"
 
 **Added** は、ウォッチャーで新しいデバイスが検出されたときに発生するイベントです。 このイベントのハンドラーで [**CastingDevice.FromIdAsync**](https://docs.microsoft.com/uwp/api/windows.media.casting.castingdevice.fromidasync) を呼び出して新しい [**CastingDevice**](https://docs.microsoft.com/uwp/api/Windows.Media.Casting.CastingDevice) オブジェクトを作成します。このメソッドの引数には、検出されたキャスト先デバイスの ID を指定します。ID は、ハンドラーに渡された **DeviceInformation** オブジェクトに格納されています。
 
-この **CastingDevice** をキャスト先デバイスの **ListBox** に追加して、ユーザーが選択できるようにします。 リスト ボックスの項目テキストには、XAML で定義した [**ItemTemplate**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemtemplate) により、[**FriendlyName**](https://docs.microsoft.com/uwp/api/windows.media.casting.castingdevice.friendlyname) プロパティが使われます。 このイベント ハンドラーは UI スレッドで呼び出されないため、UI の更新は、[**CoreDispatcher.RunAsync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.windows) の呼び出しの中で行う必要があります。
+この **CastingDevice** をキャスト先デバイスの **ListBox** に追加して、ユーザーが選択できるようにします。 リスト ボックスの項目テキストには、XAML で定義した [**ItemTemplate**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemtemplate) により、[**FriendlyName**](https://docs.microsoft.com/uwp/api/windows.media.casting.castingdevice.friendlyname) プロパティが使われます。 このイベント ハンドラーは UI スレッドで呼び出されないため、UI の更新は、[**CoreDispatcher.RunAsync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync) の呼び出しの中で行う必要があります。
 
 [!code-cs[WatcherAdded](./code/MediaCasting_RS1/cs/MainPage.xaml.cs#SnippetWatcherAdded)]
 
@@ -149,7 +149,7 @@ StateChanged ハンドラーで実行する操作は、キャスト接続の新�
 
 [!code-cs[ErrorOccurred](./code/MediaCasting_RS1/cs/MainPage.xaml.cs#SnippetErrorOccurred)]
 
-最後に、切断ボタンのハンドラーを実装します。 メディアのキャストを停止してキャスト先デバイスから切断するために、**CastingConnection** オブジェクトの [**DisconnectAsync**](https://docs.microsoft.com/uwp/api/windows.media.casting.castingconnection.disconnectasync) メソッドを呼び出します。 この呼び出しは、[**CoreDispatcher.RunAsync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.windows) を呼び出して UI スレッドにディスパッチする必要があります。
+最後に、切断ボタンのハンドラーを実装します。 メディアのキャストを停止してキャスト先デバイスから切断するために、**CastingConnection** オブジェクトの [**DisconnectAsync**](https://docs.microsoft.com/uwp/api/windows.media.casting.castingconnection.disconnectasync) メソッドを呼び出します。 この呼び出しは、[**CoreDispatcher.RunAsync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync) を呼び出して UI スレッドにディスパッチする必要があります。
 
 [!code-cs[DisconnectButton](./code/MediaCasting_RS1/cs/MainPage.xaml.cs#SnippetDisconnectButton)]
 

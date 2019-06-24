@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 9c133c77-fe9d-4b81-b4b3-462936333aa3
 ms.localizationpriority: medium
-ms.openlocfilehash: fae6caf73cb8a5b569193a17e65e5d8b4f582ff2
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 4b6bc87c4d1694b47823a92619e6ec9d1e91bb69
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57652227"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67319907"
 ---
 # <a name="how-to-use-fiddler-with-xbox-one-when-developing-for-uwp"></a>UWP を開発するときに、Xbox One で Fiddler を使用する方法
 
@@ -19,18 +19,18 @@ Fiddler は、Xbox One 開発機とインターネットの間のすべての HT
 
 通常の操作では、プロキシ経由で通信するコンソールは、プロキシによって通信内容が変更されるリスクがあり、プレイヤーによる不適切な行為が発生する可能性があります。 そのため、コンソールはプロキシ経由の通信を許可しないように設計されています。 Xbox One 開発機で Fiddler を使うには、Fiddler プロキシの使用を許可するように、開発機で特別な構成手順を実行する必要があります。 
 
-Fiddler はフリーウェアであり、[Fiddler の Web サイト](https://www.fiddler2.com/fiddler2/)からダウンロードできます。 
+Fiddler はフリーウェアであり、[Fiddler の Web サイト](https://www.telerik.com/download/fiddler)からダウンロードできます。 
 
 Fiddler は、コンソールで報告されるネットワーク ステータスに影響を与える場合があります。 Fiddler を実行しているコンピューターからのアップストリーム接続が無効になっている場合、コンソールの認証の有効期限が切れるまで、コンソールでこの切断が検出されない可能性があります。 Fiddler を使っている場合、Fiddler を使って切断をシミュレートするのではなく、必ずコンソールと Fiddler を実行しているコンピューターとの接続を切断してください。
 
 ### <a name="to-install-and-enable-fiddler-on-your-development-pc"></a>開発用 PC に Fiddler をインストールして有効にするには
 次の手順に従って、Fiddler をインストールし、有効にして、開発機からのトラフィックを監視します。
 
-1. [Fiddler の Web サイト](https://www.fiddler2.com/fiddler2/)に示されている手順に従って、開発用 PC に Fiddler をインストールします。 
-2. Fiddler を起動し、**[Tools]** メニューの **[Fiddler Options]** を選択します。 
-3. **[Connections]** タブを選択し、**[Allow remote computers to connect]** がオンになっていることを確認します。 
+1. [Fiddler の Web サイト](https://www.telerik.com/download/fiddler)に示されている手順に従って、開発用 PC に Fiddler をインストールします。 
+2. Fiddler を起動し、 **[Tools]** メニューの **[Fiddler Options]** を選択します。 
+3. **[Connections]** タブを選択し、 **[Allow remote computers to connect]** がオンになっていることを確認します。 
 4. **[OK]** をクリックして設定の変更を確認します。 ダイアログ ボックスが表示され、変更を有効にするには Fiddler を再起動する必要があり、ファイアウォールを手動で構成することが必要になる可能性があるというメッセージが表示されます。 このダイアログ ボックスで **[OK]** をクリックしますが、*まだ Fiddler を再起動しないでください*。
-5. リモート コンピューターに接続を許可するために必要なファイアウォール規則を構成します。 Windows ファイアウォール コントロール パネル アプレットを起動します。 **[詳細設定]**、**[受信の規則]** の順にクリックします。 "FiddlerProxy" という名前の規則を探し、右へスクロールして、この規則の各設定が次の表の設定と一致していることを確認します。
+5. リモート コンピューターに接続を許可するために必要なファイアウォール規則を構成します。 Windows ファイアウォール コントロール パネル アプレットを起動します。 **[詳細設定]** 、 **[受信の規則]** の順にクリックします。 "FiddlerProxy" という名前の規則を探し、右へスクロールして、この規則の各設定が次の表の設定と一致していることを確認します。
   
   | 設定           | 推奨値                |
   | ----              | ----                           |
@@ -52,8 +52,8 @@ Fiddler は、コンソールで報告されるネットワーク ステータ�
 
 6. 次の手順に従って、HTTPS トラフィックのキャプチャして暗号化を解除するように Fiddler を構成します。
   1. 最適なパフォーマンスを実現するために、ボタン バーの **[Stream]** ボタンをクリックして、ストリーミング モードを使用するように Fiddler を設定します。
-  2. Fiddler の **[Tools]** メニューで、**[Fiddler Options]** を選んで **[HTTPS]** をクリックします。
-  3. **[Decrypt HTTPS traffic]** チェック ボックスをオンにします。 Windows で CA 証明書を信頼するかどうかを確認するダイアログ ボックスが表示された場合は、**[No]** をクリックします。
+  2. Fiddler の **[Tools]** メニューで、 **[Fiddler Options]** を選んで **[HTTPS]** をクリックします。
+  3. **[Decrypt HTTPS traffic]** チェック ボックスをオンにします。 Windows で CA 証明書を信頼するかどうかを確認するダイアログ ボックスが表示された場合は、 **[No]** をクリックします。
   4. **[Export Root Certificate to Desktop]** をクリックします。
 7. Fiddler を終了して再起動します。
 

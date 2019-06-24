@@ -6,23 +6,23 @@ ms.date: 08/08/2018
 ms.topic: article
 keywords: windows 10, uwp, 教育
 ms.localizationpriority: medium
-ms.openlocfilehash: bee8a04e3b4d57caf7da3e21f2be3c789d83be90
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 31672ff989da7d72f751a33ec3df3d8d528e22ec
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57627597"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67317818"
 ---
 # <a name="take-a-test-javascript-api"></a>テスト JavaScript API
 
-[テスト](https://technet.microsoft.com/edu/windows/take-tests-in-windows-10)評価に集中する教育者、セキュリティで保護を提供する方法ではなくコンテンツを許可するハイステークス テストは、ロックされたオンラインの評価を表示するブラウザー ベースの UWP アプリは、環境をテストします。 これを実現するには、任意の Web アプリケーションで利用できる JavaScript API を使用します。 テスト API は、重要な共通学力テストの [SBAC ブラウザー API 標準](https://www.smarterapp.org/documents/SecureBrowserRequirementsSpecifications_0-3.pdf)に対応しています。
+[テスト](https://docs.microsoft.com/education/windows/take-tests-in-windows-10)評価に集中する教育者、セキュリティで保護を提供する方法ではなくコンテンツを許可するハイステークス テストは、ロックされたオンラインの評価を表示するブラウザー ベースの UWP アプリは、環境をテストします。 これを実現するには、任意の Web アプリケーションで利用できる JavaScript API を使用します。 テスト API は、重要な共通学力テストの [SBAC ブラウザー API 標準](https://www.smarterapp.org/documents/SecureBrowserRequirementsSpecifications_0-3.pdf)に対応しています。
 
-アプリ自体の詳細については、「[テスト アプリ技術リファレンス](https://technet.microsoft.com/edu/windows/take-a-test-app-technical?f=255&MSPPError=-2147217396)」を参照してください。 トラブルシューティングについては、「[イベント ビューアーを使用して、Microsoft テストをトラブルシューティングする](troubleshooting.md)」を参照してください。
+アプリ自体の詳細については、「[テスト アプリ技術リファレンス](https://docs.microsoft.com/education/windows/take-a-test-app-technical?f=255&MSPPError=-2147217396)」を参照してください。 トラブルシューティングについては、「[イベント ビューアーを使用して、Microsoft テストをトラブルシューティングする](troubleshooting.md)」を参照してください。
 
 ## <a name="reference-documentation"></a>リファレンス ドキュメント
 テスト API は、次の名前空間に存在します。 すべての API は、グローバルな `SecureBrowser` オブジェクトに依存する点に注意してください。
 
-| 名前空間 | 説明 |
+| Namespace | 説明 |
 |-----------|-------------|
 |[セキュリティ名前空間](#security-namespace)|テストのためにデバイスをロックダウンし、テスト環境を強化できるようにする API が含まれます。 |
 
@@ -32,17 +32,17 @@ ms.locfileid: "57627597"
 
 | メソッド | 説明   |
 |--------|---------------|
-|[ロックダウン](#lockDown) | テストのためにデバイスをロックダウンします。 |
+|[lockDown](#lockDown) | テストのためにデバイスをロックダウンします。 |
 |[isEnvironmentSecure](#isEnvironmentSecure) | ロックダウン コンテキストがデバイスにまだ適用されるかどうかを確認します。 |
-|[GetDeviceInfo](#getDeviceInfo) | テスト アプリケーションが実行されているプラットフォームの詳細を取得します。 |
+|[getDeviceInfo](#getDeviceInfo) | テスト アプリケーションが実行されているプラットフォームの詳細を取得します。 |
 |[examineProcessList](#examineProcessList)|実行中のユーザーとシステム プロセスの一覧を取得します。|
-|[閉じる](#close) | ブラウザーを閉じて、デバイスのロックを解除します。 |
+|[close](#close) | ブラウザーを閉じて、デバイスのロックを解除します。 |
 |[getPermissiveMode](#getPermissiveMode)|制限解除モードがオンまたはオフかどうかを確認します。|
 |[setPermissiveMode](#setPermissiveMode)|制限解除モードのオンとオフを切り替えます。|
 |[emptyClipBoard](#emptyClipBoard)|システム クリップボードがクリアされます。|
 |[getMACAddress](#getMACAddress)|デバイスの MAC アドレスの一覧を取得します。|
 |[getStartTime](#getStartTime) | テスト アプリが開始された時刻を取得します。 |
-|[GetCapability](#getCapability) | 機能が有効であるか、無効であるかを照会します。 |
+|[getCapability](#getCapability) | 機能が有効であるか、無効であるかを照会します。 |
 |[setCapability](#setCapability)|指定された機能を有効または無効にします。| 
 |[isRemoteSession](#isRemoteSession) | 現在のセッションがリモートからログインされているかどうかを確認します。 |
 |[isVMSession](#isVMSession) | 現在のセッションが、仮想マシンで実行されているかどうかを確認します。 |
@@ -58,7 +58,7 @@ ms.locfileid: "57627597"
 `void SecureBrowser.security.lockDown(Boolean enable, Function onSuccess, Function onError);`
 
 **Parameters**  
-* `enable` - **true**ロック画面、テスト アプリを実行し、これで説明したポリシーを適用する[ドキュメント](https://technet.microsoft.com/edu/windows/take-a-test-app-technical?f=255&MSPPError=-2147217396)します。 **false** は、アプリがロックダウンされていない場合は、ロック画面上で実行しているテスト アプリを停止して閉じます。アプリがロックダウンされている場合は、何も行われません。  
+* `enable` - **true**ロック画面、テスト アプリを実行し、これで説明したポリシーを適用する[ドキュメント](https://docs.microsoft.com/education/windows/take-a-test-app-technical?f=255&MSPPError=-2147217396)します。 **false** は、アプリがロックダウンされていない場合は、ロック画面上で実行しているテスト アプリを停止して閉じます。アプリがロックダウンされている場合は、何も行われません。  
 * `onSuccess` -[オプション]、ロックダウンが正常に有効または無効にした後に呼び出される関数。 `Function(Boolean currentlockdownstate)` という形式にする必要があります。  
 * `onError` -[省略可能] にロックダウン操作が失敗した場合に呼び出される関数。 `Function(Boolean currentlockdownstate)` という形式にする必要があります。  
 
@@ -184,7 +184,7 @@ Windows 10 バージョン 1709
 <span id="emptyClipBoard"/>
 
 ### <a name="emptyclipboard"></a>emptyClipBoard
-システム クリップボードがクリアされます。 テスト アプリケーションは、これを呼び出して、システム クリップボードに保存されている可能性があるデータを強制的にクリアする必要があります。  **[lockDown](#lockDown)** 関数もこの操作を実行します。
+システム クリップボードがクリアされます。 テスト アプリケーションは、これを呼び出して、システム クリップボードに保存されている可能性があるデータを強制的にクリアする必要があります。 **[lockDown](#lockDown)** 関数もこの操作を実行します。
 
 **構文**  
 `void SecureBrowser.security.emptyClipBoard();`

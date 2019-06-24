@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: e7dee32d-3756-430d-a026-32c1ee288a85
 ms.localizationpriority: medium
-ms.openlocfilehash: 72e45f8ef0f5684b3a712056eb367975f8e6103a
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: f61f2a0889cd5a2b2b95063e6009530951b49cbd
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66370350"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67321604"
 ---
 # <a name="bluetooth-developer-faq"></a>Bluetooth に関する開発者向け FAQ
 
@@ -82,5 +82,5 @@ Bluetooth RFCOMM (クラシック) デバイスでは必要ありません。 Wi
 **Bluetooth LE**:はい、すべての機能は OneCore であり、機能している Bluetooth LE スタックを使用した最新のデバイスで使用可能にする必要があります。 
 > 注意:周辺のロールは、ハードウェアに依存して、一部の Windows Server エディションは、Bluetooth をサポートしません。 
 
-**Bluetooth BR/EDR (クラシック)** :いくつかのバリエーションが存在しますが、プロファイル レベルのサポートとよく似ていますがあります。 [RFCOMM](send-or-receive-files-with-rfcomm.md) に関するドキュメントや、[PC](https://support.microsoft.com/en-us/help/10568/windows-10-supported-bluetooth-profiles) や[電話](https://support.microsoft.com/en-us/help/10569/windows-10-mobile-supported-bluetooth-profiles)でのこれらのサポートされるプロファイルに関するドキュメントをご覧ください。
+**Bluetooth BR/EDR (クラシック)** :いくつかのバリエーションが存在しますが、プロファイル レベルのサポートとよく似ていますがあります。 [RFCOMM](send-or-receive-files-with-rfcomm.md) に関するドキュメントや、[PC](https://support.microsoft.com/en-us/help/10568/windows-10-supported-bluetooth-profiles) や[電話](https://support.microsoft.com/products/windows?os=windows-10-mobile)でのこれらのサポートされるプロファイルに関するドキュメントをご覧ください。
 

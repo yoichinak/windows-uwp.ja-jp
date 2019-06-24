@@ -6,12 +6,12 @@ ms.topic: article
 keywords: Windows 10、UWP、広告ネットワーク、アプリのメタデータ
 ms.assetid: f0904086-d61f-4adb-82b6-25968cbec7f3
 ms.localizationpriority: medium
-ms.openlocfilehash: 0122c2fbe1e0e9905a8509694c4a589e04e33247
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: d47b1fb567c647ade6ae81373b391c42354f7d88
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57621137"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67318621"
 ---
 # <a name="app-metadata-api-for-advertising-networks"></a>広告ネットワーク用のアプリのメタデータ API
 
@@ -24,9 +24,9 @@ ms.locfileid: "57621137"
 広告ネットワークでは、次の手順に従って、アプリのメタデータ API へのアクセスを要求できます。
 
 1. アプリのメタデータ API ポータルの [https://admetadata.portal.azure-api.net/signup](https://admetadata.portal.azure-api.net/signup) ページに移動します。
-2. 必要な情報を入力し、**[サインアップ]** をクリックします。
-3. 同じサイトで、**[製品]** タブをクリックし、**[広告用のアプリの詳細]** をクリックします。
-4. 次のページで、**[サブスクライブ]** をクリックします。 これにより、アプリのメタデータ API へのアクセスの要求が Microsoft に送信されます。
+2. 必要な情報を入力し、 **[サインアップ]** をクリックします。
+3. 同じサイトで、 **[製品]** タブをクリックし、 **[広告用のアプリの詳細]** をクリックします。
+4. 次のページで、 **[サブスクライブ]** をクリックします。 これにより、アプリのメタデータ API へのアクセスの要求が Microsoft に送信されます。
 
 要求が送信されてから、約 24 時間以内に、要求が許可されたか、拒否されたかをメールで通知します。
 
@@ -37,17 +37,17 @@ ms.locfileid: "57621137"
 アプリのメタデータ API へのアクセスが許可されている場合は、次の手順に従ってサブスクリプション キーを取得します。 API の呼び出しの要求ヘッダーでこのキーを渡す必要があります。
 
 1. アプリのメタデータ API ポータルの [https://admetadata.portal.azure-api.net/signin](https://admetadata.portal.azure-api.net/signin) ページに移動し、メール アドレスとパスワードでサインインします。
-2. サイトの右上隅にある自分の名前をクリックし、**[プロファイル]** をクリックします。
-3. ページの **[サブスクリプション]** セクションで、**[主キー]** の横にある **[表示]** をクリックします。 これが自分のサブスクリプション キーです。 後で API を呼び出すときに使用できるように、このキーをコピーします。
+2. サイトの右上隅にある自分の名前をクリックし、 **[プロファイル]** をクリックします。
+3. ページの **[サブスクリプション]** セクションで、 **[主キー]** の横にある **[表示]** をクリックします。 これが自分のサブスクリプション キーです。 後で API を呼び出すときに使用できるように、このキーをコピーします。
 
 <span id="call-the-api" />
 
 ## <a name="call-the-api"></a>API を呼び出す
 
-サブスクリプション キーを確認したら、任意のプログラミング言語から、HTTP REST 構文を使用して、API を呼び出すことができます。 API の構文については、後の「[API 構文](#syntax)」をご覧ください。 C#、JavaScript、Python、およびその他のいくつかの言語でコード例を表示するには、アプリのメタデータ API ポータルの **[API]** タブをクリックし、**[アプリの詳細]** をクリックして、ページの下部にある **[コード サンプル]** セクションを参照します。
+サブスクリプション キーを確認したら、任意のプログラミング言語から、HTTP REST 構文を使用して、API を呼び出すことができます。 API の構文については、後の「[API 構文](#syntax)」をご覧ください。 C#、JavaScript、Python、およびその他のいくつかの言語でコード例を表示するには、アプリのメタデータ API ポータルの **[API]** タブをクリックし、 **[アプリの詳細]** をクリックして、ページの下部にある **[コード サンプル]** セクションを参照します。
 
 または、アプリのメタデータ API ポータルによって提供される UI を使って、API を呼び出すこともできます。
-  1. ポータルで、**[API]** タブをクリックして、**[アプリの詳細]** をクリックします。
+  1. ポータルで、 **[API]** タブをクリックして、 **[アプリの詳細]** をクリックします。
   2. 次のページで、メタデータを取得するアプリの [app_id](#request-parameters) を **[app_id]** フィールドに入力し、サブスクリプション キーを **[Ocp_Apim_Subscription-Key]** フィールドに入力します。
   3. **[送信]** をクリックします。 応答は、ページの下部に表示されます。
 
@@ -130,11 +130,11 @@ Ocp-Apim-Subscription-Key: <subscription key>
 |------------|--------|--------------------|
 | storeId           | string  | アプリケーションのストア ID です。 ストア ID の例は 9NBLGGH29DM8 です。     |  
 | name           | string  | アプリの名前。   |
-| 説明           | string  | アプリのストア登録情報にある説明。  |
+| description           | string  | アプリのストア登録情報にある説明。  |
 | phoneStoreGuid           | string  | アプリの製品 ID (Windows Phone 8.x)。 これは GUID です。  |
 | windowsStoreGuid           | string  | アプリの製品 ID (Windows 8.x)。 これは GUID です。 |
 | storeCategory           | string  | ストアでのアプリのカテゴリ。 サポートされる値については、ストア内のアプリの[カテゴリとサブカテゴリの一覧](../publish/category-and-subcategory-table.md)をご覧ください。  |
-| iabCategory           | string  | Interactive Advertising Bureau (IAB) によって定義されているアプリのコンテンツのカテゴリ。 たとえば、**News** や **Sports** です。 コンテンツのカテゴリの一覧については、IAB の Web サイトで [IAB Tech Lab のコンテンツ分類](https://www.iab.com/guidelines/iab-quality-assurance-guidelines-qag-taxonomy)のページをご覧ください。   |
+| iabCategory           | string  | Interactive Advertising Bureau (IAB) によって定義されているアプリのコンテンツのカテゴリ。 たとえば、**News** や **Sports** です。 コンテンツのカテゴリの一覧については、IAB の Web サイトで [IAB Tech Lab のコンテンツ分類](https://www.iab.com/guidelines/iab-quality-assurance-guidelines-qag-taxonomy/)のページをご覧ください。   |
 | iabCategoryId           | string  | アプリのコンテンツ カテゴリの ID。 たとえば、**IAB12** はニュース カテゴリの ID で、**IAB17** はスポーツ カテゴリの ID です。 コンテンツ カテゴリ ID の一覧については、[OpenRTB API 仕様](https://www.iab.com/wp-content/uploads/2015/05/OpenRTB_API_Specification_Version_2_3_1.pdf)のセクション 5.1 をご覧ください。 |
 | coppa           | ブール値  | アプリが 13 歳未満の子供を対象しており、児童オンライン プライバシー保護法 (COPPA) の義務がある場合は true。それ以外の場合は false です。  |
 | downloadUrl           | string  | ストア内のアプリの登録情報へのリンク。 このリンクは、```https://www.microsoft.com/store/apps/<Store ID>``` の形式で示されます。  |

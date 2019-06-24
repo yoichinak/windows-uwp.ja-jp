@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10 s, 常時接続, 制限事項, ARM 版 windows 10
 ms.localizationpriority: medium
 redirect_url: https://docs.microsoft.com/en-us/windows/uwp/porting/apps-on-arm-troubleshooting-x86
-ms.openlocfilehash: b282cda4e77533f5cf946e0d73121dffb1bcfd48
-ms.sourcegitcommit: fca0132794ec187e90b2ebdad862f22d9f6c0db8
+ms.openlocfilehash: ebca781ecfd3373d63185b0afb3d7bd0ecf84c0f
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63814979"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67319789"
 ---
 # <a name="limitations-of-apps-and-experiences-on-arm"></a>ARM でのアプリとエクスペリエンスの制限事項
 ARM 版 Windows 10 には、次の必須の制限事項があります。
@@ -34,7 +34,7 @@ ARM 版 Windows 10 には、次の必須の制限事項があります。
 |-----|--------|
 | アプリが ARM 用に設計されていないドライバーに依存している。 | x86 ドライバーを ARM64 に再コンパイルします。 「[WDK を使った ARM64 ドライバーのビルド](https://docs.microsoft.com/en-us/windows-hardware/drivers/develop/building-arm64-drivers)」をご覧ください。 |
 | アプリが x64 でしか使用できない。 | Microsoft Store 向けに開発する場合、ARM バージョンのアプリを提出します。 詳しくは、「[アプリ パッケージのアーキテクチャ](../packaging/device-architecture.md)」をご覧ください。 Win32 開発者の場合、x86 バージョンのアプリを配布します。 |
-| アプリで OpenGL バージョン 1.1 以降が使用されているか、ハードウェア アクセラレータによる OpenGL を必要としている。 | DirectX 9、DirectX 10、DirectX 11、DirectX 12 を使う x86 アプリは ARM で動作します。 詳しくは、「[DirectX のグラフィックスとゲーミング](https://msdn.microsoft.com/en-us/library/windows/desktop/ee663274(v=vs.85).aspx)」をご覧ください。 |
+| アプリで OpenGL バージョン 1.1 以降が使用されているか、ハードウェア アクセラレータによる OpenGL を必要としている。 | DirectX 9、DirectX 10、DirectX 11、DirectX 12 を使う x86 アプリは ARM で動作します。 詳しくは、「[DirectX のグラフィックスとゲーミング](https://docs.microsoft.com/windows/desktop/directx)」をご覧ください。 |
 | x86 アプリが期待どおりに動作しない。 | 「[プログラム互換性のトラブルシューティング ツール (ARM)](apps-on-arm-program-compat-troubleshooter.md)」のガイダンスに従って、互換性トラブルシューティング ツールを使ってみてください。 その他のトラブルシューティング手順については、「[ARM における x86 アプリのトラブルシューティング](apps-on-arm-troubleshooting-x86.md)」をご覧ください。 |
-| x86 アプリが、ARM で実行されていることを検出しない。 | [IsWow64Process2](https://msdn.microsoft.com/en-us/library/windows/desktop/mt804318(v=vs.85).aspx) を使って、アプリが ARM で実行されているかどうかを調べてください。 |
+| x86 アプリが、ARM で実行されていることを検出しない。 | [IsWow64Process2](https://docs.microsoft.com/windows/desktop/api/wow64apiset/nf-wow64apiset-iswow64process2) を使って、アプリが ARM で実行されているかどうかを調べてください。 |
 | UWP ARM32 アプリが期待どおりに動作しない。 | アプリを ARM で正しく実行する方法については、「[ARM における ARM32 アプリのトラブルシューティング](apps-on-arm-troubleshooting-arm32.md)」をご覧ください。 |

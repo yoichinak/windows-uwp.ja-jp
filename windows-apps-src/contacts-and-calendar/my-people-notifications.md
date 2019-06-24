@@ -5,12 +5,12 @@ ms.date: 10/25/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: d4150e7296badd3d31a9aacc7becd3d849f6affd
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 4cfd970b3ca070218adcea86612016e567df3879
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66360421"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67318018"
 ---
 # <a name="my-people-notifications"></a>マイ連絡先の通知
 
@@ -76,7 +76,7 @@ experienceType=”shoulderTap”
 
 > [!NOTE]
 > [ContactStore APIs](https://docs.microsoft.com/en-us/uwp/api/windows.applicationmodel.contacts.contactstore) を使ったアプリで [StoredContact.RemoteId](https://docs.microsoft.com/en-us/uwp/api/Windows.Phone.PersonalInformation.StoredContact.RemoteId) プロパティを使い、PC に保存されている連絡先とリモートに保存されている連絡先とを関連付ける場合、RemoteId プロパティの値は不変かつ一意であることが不可欠です。 つまり、リモート ID は、PC にある他の連絡先 (他のアプリが所有する連絡先も含む) のリモート ID と決して競合しないよう、常に同じユーザー アカウントを一意に識別し、固有のタグを保持している必要があります。
-> アプリで使われるリモート ID の不変性と一意性に確証がない場合、[RemoteIdHelper クラス](https://msdn.microsoft.com/en-us/library/windows/apps/jj207024(v=vs.105).aspx#BKMK_UsingtheRemoteIdHelperclass)を使うと、システムに追加するすべてのリモート ID にあらかじめ一意のタグを追加することができます。 または、RemoteId プロパティを一切使わない代わりに、カスタムの拡張プロパティを作成し、そこに連絡先のリモート ID を格納する方法もあります。
+> アプリで使われるリモート ID の不変性と一意性に確証がない場合、[RemoteIdHelper クラス](https://docs.microsoft.com/previous-versions/windows/apps/jj207024(v=vs.105)#BKMK_UsingtheRemoteIdHelperclass)を使うと、システムに追加するすべてのリモート ID にあらかじめ一意のタグを追加することができます。 または、RemoteId プロパティを一切使わない代わりに、カスタムの拡張プロパティを作成し、そこに連絡先のリモート ID を格納する方法もあります。
 
 2 番目のバインドとペイロードだけでなく、フォールバック トーストの最初のバインドに別のペイロードを含める必要があります。 標準のトーストに強制的に戻される場合に、通知でこれが使用されます (詳細については、[この記事の最後](/windows/uwp/contacts-and-calendar/my-people-notifications#falling-back-to-toast)を参照)。
 

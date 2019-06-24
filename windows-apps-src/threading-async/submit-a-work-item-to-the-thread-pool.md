@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, スレッド, スレッド プール
 ms.localizationpriority: medium
-ms.openlocfilehash: ff47115c228e3cf6530e12aa4686c88660f16fcd
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 0ff0eca18eeab72dbf0a2f9a539e452a5923392d
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66371557"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67322015"
 ---
 # <a name="submit-a-work-item-to-the-thread-pool"></a>スレッド プールへの作業項目の送信
 
@@ -31,7 +31,7 @@ ms.locfileid: "66371557"
 3 つのバージョンの [**RunAsync**](https://docs.microsoft.com/uwp/api/windows.system.threading.threadpool.runasync) を使うことができるため、必要に応じて作業項目の優先度を指定し、他の作業項目と同時に実行するかどうかを制御できます。
 
 >[!NOTE]
->使用[ **CoreDispatcher.RunAsync** ](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.windows)を UI スレッドにアクセスし、作業項目からの進行状況を表示します。
+>使用[ **CoreDispatcher.RunAsync** ](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync)を UI スレッドにアクセスし、作業項目からの進行状況を表示します。
 
 次の例では作業項目を作成し、作業を実行するラムダを指定します。
 
@@ -195,7 +195,7 @@ const unsigned int n = 9999;
 // A shared pointer to the result.
 // We use a shared pointer to keep the result alive until the
 // thread is done.
-std::shared_ptr<unsigned long> nthPrime = make_shared<unsigned long int>(0);
+std::shared_ptr<unsigned long> nthPrime = std::make_shared<unsigned long int>(0);
 
 // Simulates work by searching for the nth prime number. Uses a
 // naive algorithm and counts 2 as the first prime number.
@@ -275,7 +275,7 @@ m_workItem = asyncAction;
 
 ## <a name="handle-work-item-completion"></a>作業項目の完了の処理
 
-作業項目の [**IAsyncAction.Completed**](https://docs.microsoft.com/uwp/api/windows.foundation.iasyncaction.completed) プロパティを設定することで、完了ハンドラーを指定します。 作業項目の完了を処理するデリゲートを指定します (ラムダやデリゲート関数を使うことができます)。 たとえば、UI スレッドにアクセスしたり、結果を表示したりするには、[**CoreDispatcher.RunAsync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.windows) を使います。
+作業項目の [**IAsyncAction.Completed**](https://docs.microsoft.com/uwp/api/windows.foundation.iasyncaction.completed) プロパティを設定することで、完了ハンドラーを指定します。 作業項目の完了を処理するデリゲートを指定します (ラムダやデリゲート関数を使うことができます)。 たとえば、UI スレッドにアクセスしたり、結果を表示したりするには、[**CoreDispatcher.RunAsync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync) を使います。
 
 次の例では、手順 1. で送信した作業項目の結果を使って UI を更新します。
 

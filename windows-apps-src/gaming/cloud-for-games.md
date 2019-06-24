@@ -6,12 +6,12 @@ ms.date: 03/27/2018
 ms.topic: article
 keywords: Windows 10、UWP、ゲーム、クラウド サービス
 ms.localizationpriority: medium
-ms.openlocfilehash: 15a7e3bed746a31ce2d8f458045cdd1126b71b8c
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: b1b63c6eb3c803b26ead85332affe1fc4f20e314
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66368993"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67321332"
 ---
 #  <a name="using-cloud-services-for-uwp-games"></a>UWP ゲーム用のクラウド サービスの使用
 
@@ -111,7 +111,7 @@ Windows 10 のユニバーサル Windows プラットフォーム (UWP) では�
         </td>
     </tr>
     <tr>
-        <td><a href="https://www.crimecoast.com/">ピクセル大学の強豪</a></td>
+        <td><a href="http://www.crimecoast.com/">ピクセル大学の強豪</a></td>
         <td>Pixel Squad では、Unity ゲーム エンジンと Azure を使って <b>Crime Coast</b> を開発しました。 <b>Crime Coast</b> は、Android、iOS、Windows プラットフォームでプレイできるソーシャル戦略ゲームです。 このゲームでは、Azure BLOB ストレージ、Managed Azure Redis Cache、負荷分散された IIS VM アレイ、Microsoft 通知ハブが使用されています。 同社のスケーリングの管理方法や、同時接続プレイヤー数が 5,000 人にもなるプレイヤーの急増の処理方法を参考にしてください。
         </td>
         <td>
@@ -159,7 +159,7 @@ Windows 10 のユニバーサル Windows プラットフォーム (UWP) では�
 
 Azure のクラウド サービスをゲームに使用するためのいくつかの方法を以下に示します。 Azure は、Windows や Linux、および Ruby、Python、Java、PHP などのオープン ソース テクノロジと連携して動作します。 詳しくは、「[ゲームのための Azure](https://azure.microsoft.com/solutions/gaming/)」をご覧ください。
 
-| 必要条件                 | アクティビティのシナリオ                            | 提供されるサービス                      | サービスの機能                                    |
+| 要件                 | アクティビティのシナリオ                            | 提供されるサービス                      | サービスの機能                                    |
 |-----------------------------------|-----------------------------------------------|---------------------------------------|----------------------------------------------------|
 | クラウドでのドメインのホスティング     | 効率的に DNS クエリに応答する            | [Azure DNS](https://azure.microsoft.com/services/dns/) | 高パフォーマンスと高可用性を備えたドメインのホスティング  |
 | サインイン、本人確認      | ゲーマーがサインインし、ゲーマーの ID が認証される  | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) | 多要素認証を備えた、あらゆるクラウドとオンプレミス Web アプリへのシングル サインオン            | 
@@ -182,7 +182,7 @@ Azure のクラウド サービスをゲームに使用するためのいくつ�
 | ゲーム データの収集と分析| リレーショナル データベースと非リレーショナル データベースからのデータの大規模な並列処理 | [Azure Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/)| エンタープライズ クラスの機能を備えたサービスとしての柔軟なデータ ウェアハウス   |
 | ユーザー エンゲージメントにより使用と顧客維持を促進| あらゆるバック エンドからあらゆるプラットフォームにターゲット プッシュ通知を送信し、関心を引き出して特定のゲーム操作を促進する | [Azure Notification Hubs](https://azure.microsoft.com/services/notification-hubs/)| 高速にすべての主要なプラットフォーム上のモバイル デバイスの数百万のプッシュをブロードキャスト&mdash;iOS、Android、Windows、Kindle、Baidu します。 ゲームは、任意のバックエンドでホストできる&mdash;クラウドまたはオンプレミスにします。|
 | コンテンツを保護しながら、ローカルおよび世界中の対象ユーザーにメディア コンテンツをストリーミング| すべてのデバイスから視聴可能な高品質のゲーム トレーラーや動画クリップをブロードキャスト| [Azure Media Services](https://azure.microsoft.com/services/media-services/)| 組み込まれている Content Delivery Network 機能によるオンデマンドおよびライブのビデオ ストリーミング。 単一のプレーヤーで、コンテンツの保護と暗号化を含めたすべての再生ニーズに対応。| 
-| モバイル アプリの開発、配布、ベータ テスト | モバイル アプリをテストして配布する。 アプリ パフォーマンスとユーザー エクスペリエンスを管理する。 | [HockeyApp](https://azure.microsoft.com/services/hockeyapp/)| クラッシュ レポートとユーザー メトリックをアプリの配布とユーザー フィードバック プラットフォームに統合。 Android、Cordova、iOS、OS X、Unity、Windows、Xamarin のアプリをサポート。 また、検討[Visual Studio Mobile Center](https://www.visualstudio.com/vs/mobile-center/) &mdash;ミッション コントロールの豊富な分析を結合するアプリのクラッシュ レポート、プッシュ通知、アプリの配布。 |
+| モバイル アプリの開発、配布、ベータ テスト | モバイル アプリをテストして配布する。 アプリ パフォーマンスとユーザー エクスペリエンスを管理する。 | [HockeyApp](https://azure.microsoft.com/services/hockeyapp/)| クラッシュ レポートとユーザー メトリックをアプリの配布とユーザー フィードバック プラットフォームに統合。 Android、Cordova、iOS、OS X、Unity、Windows、Xamarin のアプリをサポート。 また、検討[Visual Studio Mobile Center](https://visualstudio.microsoft.com/app-center/) &mdash;ミッション コントロールの豊富な分析を結合するアプリのクラッシュ レポート、プッシュ通知、アプリの配布。 |
 | 使用と顧客維持を促進するマーケティング キャンペーンの作成  | データ分析に基づいて対象となるプレイヤーにプッシュ通知を送信し、特定のゲーム操作に対する関心を引き出して利用を促進する | [Mobile Engagement](https://azure.microsoft.com/services/mobile-engagement/) (現在は既存のお客様のみに提供中であり、2018 年 3 月に廃止) |  すべての主要なプラットフォーム (iOS、Android、Windows、Windows Phone) でのゲームプレイ時間とユーザー維持率を向上させる |
 
 
@@ -206,7 +206,7 @@ Azure のクラウド サービスをゲームに使用するためのいくつ�
 ## <a name="tools-and-other-useful-links"></a>ツールとその他の役立つリンク
 
 * [MSDN フォーラム&mdash;Azure プラットフォーム](https://social.msdn.microsoft.com/Forums/azure/home?category=windowsazureplatform)
-* [クラウド ベースのロード テスト ツール](https://www.visualstudio.com/team-services/cloud-load-testing/)
+* [クラウド ベースのロード テスト ツール](https://visualstudio.microsoft.com/team-services/cloud-load-testing/)
 * [Sdk とコマンド ライン ツール](https://azure.microsoft.com/downloads/)
     
 ## <a name="software-as-a-service-for-game-backend"></a>ゲームのバックエンド向けのサービスとしてのソフトウェア

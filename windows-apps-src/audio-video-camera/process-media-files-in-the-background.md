@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 6d3530861175c8d9b70683926393b5adfdd59407
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 992648c8c90a8ad62b772d417b2b1beeb6087c53
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66361558"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67318538"
 ---
 # <a name="process-media-files-in-the-background"></a>バックグラウンドでのメディア ファイルの処理
 
@@ -55,7 +55,7 @@ Microsoft Visual Studio で既存のソリューションにバックグラウ�
 
 [!code-cs[BackgroundMembers](./code/MediaProcessingTriggerWin10/cs/MediaProcessingBackgroundTask/MediaProcessingTask.cs#SnippetBackgroundMembers)]
 
-タスクが起動すると、システムはバックグラウンド タスクの [**Run**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtask.) メソッドを呼び出します。 メソッドに渡される [**IBackgroundTask**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.IBackgroundTask) オブジェクトを、対応するメンバー変数に設定します。 システムがバックグラウンド タスクをシャットダウンする必要がある場合に発生する [**Canceled**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtaskinstance.canceled) イベントのハンドラーを登録します。 次に、[**Progress**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtaskinstance.progress) プロパティを 0 に設定します。
+タスクが起動すると、システムはバックグラウンド タスクの [**Run**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtask.run) メソッドを呼び出します。 メソッドに渡される [**IBackgroundTask**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.IBackgroundTask) オブジェクトを、対応するメンバー変数に設定します。 システムがバックグラウンド タスクをシャットダウンする必要がある場合に発生する [**Canceled**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtaskinstance.canceled) イベントのハンドラーを登録します。 次に、[**Progress**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtaskinstance.progress) プロパティを 0 に設定します。
 
 次に、バックグラウンド タスク オブジェクトの [**GetDeferral**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtaskinstance.getdeferral) メソッドを呼び出して保留を取得します。 非同期操作の実行中のため、タスクをシャットダウンしないようにシステムに指示されます。
 

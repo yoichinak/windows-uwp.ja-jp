@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: efd024838194876532dc3a1925f9c43430513cda
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 03a994930e956cb3c2e775c32e77c6e62b526a17
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66370731"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67322312"
 ---
 #  <a name="porting-windowsphone-silverlight-to-uwp-for-form-factor-and-ux"></a>UWP への Windows Phone Silverlight のフォーム ファクターと UX の移植
 
@@ -30,7 +30,7 @@ Windows アプリは、PC、モバイル デバイス、その他の多くの種
 
 客観的には、画面はインチと物理的な (RAW) ピクセル単位で測定されます。 この両方のメトリックがわかれば、1 インチに適合するピクセル数がわかります。 これは、ピクセル密度、DPI (1 インチあたりのドット数)、または PPI (1 インチあたりのピクセル数) と呼ばれています。 また、DPI の逆数は、1 インチを分母とするピクセルの実際のサイズです。 ピクセル密度はまた、*解像度*とも呼ばれます。ただし解像度は、漠然とピクセル数を意味する用語として使われることも少なくありません。
 
-視聴距離が増加すると、それに伴ってこうしたすべての客観的なメトリックが小さく*見え*、また画面の*有効サイズ*と*有効解像度*に帰着します。 電話は通常、最も近くで目視されます。次にタブレット、PC モニター、そして最も遠くで見られるのが [Surface Hub](https://www.microsoft.com/microsoft-surface-hub) デバイスとテレビです。 補正のために、デバイスは視聴距離に対して客観的に大きくなる傾向があります。 UI 要素のサイズを設定する場合、有効ピクセル (epx) と呼ばれる単位でそのサイズを設定します。 Windows 10 が最適なエクスペリエンスを表示するための物理ピクセルに UI 要素の最適なサイズを計算するにアカウント DPI、およびデバイスからの一般的な表示距離になります。 詳しくは、「[表示/有効ピクセル、視聴距離、スケール ファクター](wpsl-to-uwp-porting-xaml-and-ui.md)」をご覧ください。
+視聴距離が増加すると、それに伴ってこうしたすべての客観的なメトリックが小さく*見え*、また画面の*有効サイズ*と*有効解像度*に帰着します。 電話は通常、最も近くで目視されます。次にタブレット、PC モニター、そして最も遠くで見られるのが [Surface Hub](https://www.microsoft.com/surface/devices/surface-hub) デバイスとテレビです。 補正のために、デバイスは視聴距離に対して客観的に大きくなる傾向があります。 UI 要素のサイズを設定する場合、有効ピクセル (epx) と呼ばれる単位でそのサイズを設定します。 Windows 10 が最適なエクスペリエンスを表示するための物理ピクセルに UI 要素の最適なサイズを計算するにアカウント DPI、およびデバイスからの一般的な表示距離になります。 詳しくは、「[表示/有効ピクセル、視聴距離、スケール ファクター](wpsl-to-uwp-porting-xaml-and-ui.md)」をご覧ください。
 
 ただし、多くの異なるデバイスでアプリをテストし、各エクスペリエンスを自分で確認することをお勧めします。
 

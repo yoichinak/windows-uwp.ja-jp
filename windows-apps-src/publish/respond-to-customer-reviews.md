@@ -6,19 +6,19 @@ ms.date: 10/31/2018
 ms.topic: article
 keywords: windows 10、uwp、応答して、応答を確認してください。
 ms.localizationpriority: medium
-ms.openlocfilehash: 0d45b5144bb13e66c506c4a55115bf252288064d
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: fa73c8f43c449e8cf7b1c5aa67574f6ff00e7a15
+ms.sourcegitcommit: 7effecb544952b493250337fc622848232fa5995
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57633967"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67325862"
 ---
 # <a name="respond-to-customer-reviews"></a>顧客のレビューに返信する
 
 
 フィードバックをリッスンしているお客様に知っていただけるようにするアプリのレビューに応答できます。 レビューへの返信機能を使えば、追加した機能や、顧客のコメントに基づいて修正したバグについて顧客に伝えたり、アプリを改善する方法についてさらに細かいフィードバックを得たりできます。 すべての Windows 10 のお客様に Microsoft Store では、応答が表示されます。 (これらは、オプトアウトしていないし、Windows 10、バージョン 1803 以降を実行するデバイスを使用している) 場合は、お客様に電子メールで、応答を送信することもできます。
 
-アプリのレビューを表示し、応答を行うため、検索では、app[パートナー センター](https://partner.microsoft.com/dashboard)します。 左側のナビゲーション メニューで  *Analytics** 順にクリックします**レビュー**を表示する、[レポートをレビュー](reviews-report.md)します。 選択**に確認応答**応答を提供します。
+アプリのレビューを表示し、応答を行うため、検索では、app[パートナー センター](https://partner.microsoft.com/dashboard)します。 左側のナビゲーション メニューで、 **[分析]** を展開し、 **[レビュー]** をクリックして [[レビュー] レポート](reviews-report.md)を表示します。 選択**に確認応答**応答を提供します。
 
 > [!TIP]
 > パートナー センターのレビューに応答するを使用する以外は、レビューに応答できる[プログラムで](../monetize/submit-responses-to-app-reviews.md)します。

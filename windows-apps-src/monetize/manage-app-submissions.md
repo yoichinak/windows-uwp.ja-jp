@@ -6,12 +6,12 @@ ms.date: 04/30/2018
 ms.topic: article
 keywords: Windows 10, UWP, Microsoft Store 申請 API, アプリの申請
 ms.localizationpriority: medium
-ms.openlocfilehash: 65e8599a73a196ebb72fe3cc45ea984f82057741
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 52aeb590e7672ccfd3fe74232575f008c132d9fd
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66371506"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67320173"
 ---
 # <a name="manage-app-submissions"></a>アプリの申請の管理
 
@@ -98,7 +98,7 @@ Microsoft Store 申請 API には、段階的なパッケージのロールア�
     応答本文には、新しい申請の ID、申請用の関連ファイル (アプリ パッケージ、登録情報の画像、トレーラー ファイルなど) を Azure Blob Storage にアップロードするための共有アクセス署名 (SAS) URI、および新しい申請のすべてのデータ (登録情報や価格情報など) が含まれた[アプリの申請](#app-submission-object)リソースが含まれています。
 
     > [!NOTE]
-    > SAS URI では、アカウント キーを必要とせずに、Azure Storage 内のセキュリティで保護されたリソースにアクセスできます。 SAS URI の背景情報と Azure Blob Storage での SAS URI の使用については、[Shared Access Signature 第 1 部: SAS モデルについて](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1)と[Shared Access Signature、第 2 部。作成し、Blob storage では、SAS を使用して](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-2/)します。
+    > SAS URI では、アカウント キーを必要とせずに、Azure Storage 内のセキュリティで保護されたリソースにアクセスできます。 SAS URI の背景情報と Azure Blob Storage での SAS URI の使用については、[Shared Access Signature 第 1 部: SAS モデルについて](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)と[Shared Access Signature、第 2 部。作成し、Blob storage では、SAS を使用して](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-2/)します。
 
 4. 申請用に新しいパッケージ、登録情報の画像、またはトレーラー ファイルを追加する場合は、[アプリのパッケージを準備](https://docs.microsoft.com/windows/uwp/publish/app-package-requirements)し、[アプリのスクリーンショット、画像、およびトレーラーを準備](https://docs.microsoft.com/windows/uwp/publish/app-screenshots-and-images)します。 これらのファイルをすべてまとめて ZIP アーカイブに追加します。
 
@@ -437,7 +437,7 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 |  shortTitle               |     string    |  製品の名前の短いバージョン。 指定した場合、Xbox One のさまざまな場所 (インストール時や [実績] など) で製品のフル タイトルの代わりにこの短い名前が表示されることがあります。    |  
 |  sortTitle               |     string    |   製品のアルファベット表記が複数ある場合、ここに別のバージョンを入力できます。 これにより、ユーザーが検索したときに製品がすばやく見つかるようになる可能性があります。    |  
 |  voiceTitle               |     string    |   Kinect やヘッドセットを使うときに Xbox One のオーディオ エクスペリエンスで使われる、製品の代替名 (ある場合)。    |  
-|  devStudio               |     string    |   登録情報に **[Developed by] (開発元)** フィールドを含める必要がある場合はこの値を指定します  (*devStudio* 値の指定とは関係なく、 **[公開元]** フィールドにはアカウントに関連付けられた発行者の表示名が示されます)。    |  
+|  devStudio               |     string    |   登録情報に **[Developed by] (開発元)** フィールドを含める必要がある場合はこの値を指定します (*devStudio* 値の指定とは関係なく、 **[公開元]** フィールドにはアカウントに関連付けられた発行者の表示名が示されます)。    |  
 
 <span id="image-object" />
 

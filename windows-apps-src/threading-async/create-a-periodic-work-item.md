@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10、UWP、定期的な作業項目、スレッド、タイマー
 ms.localizationpriority: medium
-ms.openlocfilehash: cf3a5817e459c7089eafb8f2c38d58b0e8eef03c
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 8e045c12f96cc9404abb4ba9be395eb49b1ab850
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66371561"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67321998"
 ---
 # <a name="create-a-periodic-work-item"></a>定期的な作業項目の作成
 
@@ -31,7 +31,7 @@ ms.locfileid: "66371561"
 
 > **注**  ゼロの値を指定しないでください (または 1 ミリ秒未満の値) の間隔。 この場合、定期タイマーは 1 回限りのタイマーとして動作します。
 
-> **注**  を使用することができます[ **CoreDispatcher.RunAsync** ](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.windows)を UI にアクセスし、作業項目からの進行状況を表示します。
+> **注**  を使用することができます[ **CoreDispatcher.RunAsync** ](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync)を UI にアクセスし、作業項目からの進行状況を表示します。
 
 次の例では、60 秒ごとに 1 回実行される作業項目を作成します。
 

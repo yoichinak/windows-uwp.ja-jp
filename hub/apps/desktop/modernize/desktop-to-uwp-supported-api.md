@@ -9,12 +9,12 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: e0ae94b0f8631c88f48098f8c2f3df000c25252c
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: e4b919d42cb113c6ec9f2710baec6c9aa1765840
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66359425"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67317587"
 ---
 # <a name="uwp-apis-available-to-desktop-apps"></a>デスクトップ アプリに利用可能な UWP Api
 
@@ -50,7 +50,7 @@ UWP アプリに完全に移行がない場合でも、デスクトップ アプ
 
 次にデスクトップ アプリでサポートされている UWP Api の一覧を示します。 表示することができます[パッケージ アプリでのみサポートされている Api](#new)または[パッケージ アプリとデスクトップ アプリケーションの両方でサポートされている Api](#both)します。
 
-UWP Api を使用する方法の例については、次を参照してください。、[デスクトップ ブリッジ サンプル](https://github.com/Microsoft/DesktopBridgeToUWP-Samples)と[ユニバーサル Windows プラットフォーム (UWP) アプリのサンプル](https://github.com/Microsoft/Windows-universal-samples)GitHub でします。 Windows 用アプリの構築に関するブログの[デスクトップ アプリケーションからの Windows 10 API の呼び出しに関する投稿](https://blogs.windows.com/buildingapps/2017/01/25/calling-windows-10-apis-desktop-application)もご覧ください。
+UWP Api を使用する方法の例については、次を参照してください。、[デスクトップ ブリッジ サンプル](https://github.com/Microsoft/DesktopBridgeToUWP-Samples)と[ユニバーサル Windows プラットフォーム (UWP) アプリのサンプル](https://github.com/Microsoft/Windows-universal-samples)GitHub でします。 Windows 用アプリの構築に関するブログの[デスクトップ アプリケーションからの Windows 10 API の呼び出しに関する投稿](https://blogs.windows.com/buildingapps/2017/01/25/calling-windows-10-apis-desktop-application/)もご覧ください。
 
 <a id="new" />
 

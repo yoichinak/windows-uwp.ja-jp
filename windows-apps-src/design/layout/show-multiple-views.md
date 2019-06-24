@@ -5,12 +5,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 097ff0bb9e2ac8d36780a692172afb0a7933fdd1
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 275dc6ab7cdb310dff817a3e0017568ad2fed80c
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66364972"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67317124"
 ---
 # <a name="show-multiple-views-for-an-app"></a>アプリの複数のビューの表示
 
@@ -83,7 +83,7 @@ private async void Button_Click(object sender, RoutedEventArgs e)
 
 3.  新しいスレッドで、ウィンドウにコンテンツを読み込みます。
 
-    [  **CoreDispatcher.RunAsync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.windows) メソッドを使って、UI スレッドでの新しいビューの操作をスケジュールします。 [ラムダ式](https://go.microsoft.com/fwlink/p/?LinkId=389615)を使って、**RunAsync** メソッドの引数として関数を渡します。 ラムダ関数による操作は新しいビューのスレッドで実行されます。
+    [  **CoreDispatcher.RunAsync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync) メソッドを使って、UI スレッドでの新しいビューの操作をスケジュールします。 [ラムダ式](https://go.microsoft.com/fwlink/p/?LinkId=389615)を使って、**RunAsync** メソッドの引数として関数を渡します。 ラムダ関数による操作は新しいビューのスレッドで実行されます。
 
     XAML では通常、[**Window**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Window) の [**Content**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.window.content) プロパティに [**Frame**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Frame) を追加した後、**Frame** から、アプリのコンテンツを定義した XAML [**Page**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Page) に移ります。 詳しくは、「[2 ページ間のピア ツー ピア ナビゲーション](../basics/navigate-between-two-pages.md)」をご覧ください。
 
@@ -117,7 +117,7 @@ private async void Button_Click(object sender, RoutedEventArgs e)
 
 アプリの起動時に最初に作成されるビューは、*メイン ビュー*と呼ばれます。 このビューは、[**CoreApplication.MainView**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplication.mainview) プロパティに格納され、その [**IsMain**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplicationview.ismain) プロパティは true です。 このビューは作成しません。アプリによって作成されます。 メイン ビューのスレッドはアプリのマネージャーとして機能し、すべてのアプリの起動イベントはこのスレッドに振り分けられます。
 
-セカンダリ ビューが開いている場合は、ウィンドウのタイトル バーの閉じるボタン (x) をクリックするなどして、メイン ビューのウィンドウを非表示にすることができます。ただし、そのスレッドはアクティブのままになります。 メイン ビューの [**Window**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Window) で [**Close**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.window.close) を呼び出すと、**InvalidOperationException** が発生します  (使用[ **Application.Exit** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.exit)アプリを閉じます)。メイン ビューのスレッドが終了した場合、アプリを閉じます。
+セカンダリ ビューが開いている場合は、ウィンドウのタイトル バーの閉じるボタン (x) をクリックするなどして、メイン ビューのウィンドウを非表示にすることができます。ただし、そのスレッドはアクティブのままになります。 メイン ビューの [**Window**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Window) で [**Close**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.window.close) を呼び出すと、**InvalidOperationException** が発生します (使用[ **Application.Exit** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.exit)アプリを閉じます)。メイン ビューのスレッドが終了した場合、アプリを閉じます。
 
 ## <a name="secondary-views"></a>セカンダリ ビュー
 
@@ -125,7 +125,7 @@ private async void Button_Click(object sender, RoutedEventArgs e)
 アプリのコードで [**CreateNewView**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplication.createnewview) を呼び出すことで作成するすべてのビューなど、その他のビューがセカンダリ ビューです。 メイン ビューとセカンダリ ビューの両方が [**CoreApplication.Views**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplication.views) コレクションに格納されます。 通常、ユーザーの操作に応じてセカンダリ ビューを作成します。 システムによってアプリのセカンダリ ビューが作成される場合もあります。
 
 > [!NOTE]
-> Windows の*割り当てられたアクセス*機能を使うと、[キオスク モード](https://technet.microsoft.com/library/mt219050.aspx)でアプリを実行できます。 この場合、システムによってロック画面に、アプリの UI を表示するセカンダリ ビューが作成されます。 アプリによるセカンダリ ビューの作成は許可されないため、キオスク モードで独自のセカンダリ ビューを表示しようとすると、例外がスローされます。
+> Windows の*割り当てられたアクセス*機能を使うと、[キオスク モード](https://docs.microsoft.com/windows/manage/set-up-a-device-for-anyone-to-use)でアプリを実行できます。 この場合、システムによってロック画面に、アプリの UI を表示するセカンダリ ビューが作成されます。 アプリによるセカンダリ ビューの作成は許可されないため、キオスク モードで独自のセカンダリ ビューを表示しようとすると、例外がスローされます。
 
 ## <a name="switch-from-one-view-to-another"></a>ビュー間の切り替え
 

@@ -5,12 +5,12 @@ ms.date: 06/28/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 08acb2972469a84e6a37d7293ed00cae8df94dfb
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 58bf8df4551c8bcfc663d2c832bef3a879ff6350
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57611537"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67317970"
 ---
 # <a name="adding-my-people-support-to-an-application"></a>アプリケーションにマイ連絡先のサポートを追加する
 
@@ -29,13 +29,13 @@ ms.locfileid: "57611537"
 
 1. [アプリケーション マニフェストで shareTarget アクティブ化コントラクトのサポートを宣言します。](https://docs.microsoft.com/en-us/windows/uwp/contacts-and-calendar/my-people-sharing#declaring-support-for-the-share-contract)
 2. [ユーザーがアプリを使用して共有できる連絡先の注釈を付けます。](https://docs.microsoft.com/en-us/windows/uwp/contacts-and-calendar/my-people-sharing#annotating-contacts)
-3.  アプリケーションの複数インスタンスの同時実行をサポートします。 ユーザーは、連絡先パネルでアプリケーションを使いながら、アプリケーションの通常版を操作できる必要があります。  ユーザーは複数の連絡先パネルを同時に使用することもできます。  これをサポートするには、アプリケーションが複数のビューを同時に実行できる必要があります。 これを行う方法については、「["アプリの複数のビューの表示](https://docs.microsoft.com/en-us/windows/uwp/layout/show-multiple-views)」の記事をご覧ください。
+3.  アプリケーションの複数インスタンスの同時実行をサポートします。 ユーザーは、連絡先パネルでアプリケーションを使いながら、アプリケーションの通常版を操作できる必要があります。  ユーザーは複数の連絡先パネルを同時に使用することもできます。  これをサポートするには、アプリケーションが複数のビューを同時に実行できる必要があります。 これを行う方法については、「["アプリの複数のビューの表示](https://docs.microsoft.com/windows/uwp/design/layout/show-multiple-views)」の記事をご覧ください。
 
 これを行うと、アプリケーションは、注釈付きの連絡先のための、連絡先のパネルに表示されます。
 
 ## <a name="declaring-support-for-the-contract"></a>コントラクトのサポートを宣言する
 
-マイ連絡先のコントラクトのサポートを宣言するには、Visual Studio でアプリケーションを開きます。 **ソリューション エクスプローラー** で **Package.appxmanifest** を右クリックして、**[プログラムから開く]** を選択します。 メニューをから **[XML (テキスト) エディター]** を選び、**[OK]** をクリックします。 マニフェストを次のように変更します。
+マイ連絡先のコントラクトのサポートを宣言するには、Visual Studio でアプリケーションを開きます。 **ソリューション エクスプローラー** で **Package.appxmanifest** を右クリックして、 **[プログラムから開く]** を選択します。 メニューをから **[XML (テキスト) エディター]** を選び、 **[OK]** をクリックします。 マニフェストを次のように変更します。
 
 **以前は**
 
@@ -179,7 +179,7 @@ ContactPanel オブジェクトを使うと、連絡先パネル ヘッダーの
 
 ## <a name="supporting-notification-badging"></a>通知バッジをサポートする
 
-ユーザーに関連する新しい通知がアプリから届いたときに、タスク バーにピン留めされた連絡先にバッジを表示する場合は、[トースト通知](https://docs.microsoft.com/en-us/windows/uwp/shell/tiles-and-notifications/adaptive-interactive-toasts)と表現力豊かな[マイ連絡先の通知](https://docs.microsoft.com/en-us/windows/uwp/contacts-and-calendar/my-people-notifications)に **hint-people** パラメーターを含める必要があります。
+ユーザーに関連する新しい通知がアプリから届いたときに、タスク バーにピン留めされた連絡先にバッジを表示する場合は、[トースト通知](https://docs.microsoft.com/windows/uwp/design/shell/tiles-and-notifications/adaptive-interactive-toasts)と表現力豊かな[マイ連絡先の通知](https://docs.microsoft.com/en-us/windows/uwp/contacts-and-calendar/my-people-notifications)に **hint-people** パラメーターを含める必要があります。
 
 ![連絡先の通知でのバッジの表示](images/my-people-badging.png)
 
@@ -246,7 +246,7 @@ async Task PinMultipleContacts(Contact[] contacts)
 > [!Note]
 > 現時点では、連絡先のピン留めを外すバッチ操作はありません。
 
-**注:**  
+**注:** 
 
 ## <a name="see-also"></a>関連項目
 + [マイ連絡先の共有](my-people-sharing.md)

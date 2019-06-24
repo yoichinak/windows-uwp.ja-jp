@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: c32fee5d9cbe5d40b9fe324eb8d6bad6d87eb9b3
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 4a6f182ab5f34f7bbb99e54626001126b3741522
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66371080"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67320277"
 ---
 # <a name="xbind-markup-extension"></a>{x:Bind} マークアップ拡張
 
@@ -29,7 +29,7 @@ XAML のコンパイル時に、 **{x:Bind}** は、データ ソースのプロ
 **{X:bind} を示すサンプル アプリ**
 
 -   [{X:bind} サンプル](https://go.microsoft.com/fwlink/p/?linkid=619989)
--   [QuizGame](https://github.com/Microsoft/Windows-appsample-quizgame)
+-   [QuizGame](https://github.com/microsoft/Windows-appsample-networkhelper)
 -   [XAML UI の基本サンプル](https://go.microsoft.com/fwlink/p/?linkid=619992)
 
 ## <a name="xaml-attribute-usage"></a>XAML 属性の使用方法
@@ -46,7 +46,7 @@ XAML のコンパイル時に、 **{x:Bind}** は、データ ソースのプロ
 <object property="{x:Bind pathToFunction.functionName(functionParameter1, functionParameter2, ...), bindingProperties}" .../>
 ```
 
-| 用語 | 説明 |
+| 項目 | 説明 |
 |------|-------------|
 | _propertyPath_ | バインドのプロパティ パスを指定する文字列。 詳しくは、以下の「[プロパティ パス](#property-path)」をご覧ください。 |
 | _bindingProperties_ |
@@ -115,7 +115,7 @@ Windows 10 バージョン 1607 以降、 **{x:Bind}** はバインド パスの
 
 ## <a name="event-binding"></a>イベント バインディング
 
-イベント バインディングは、コンパイル済みのバインドの固有の機能です。 これにより、バインディングを使用するイベントのハンドラーを指定でき、それをコード ビハインドのメソッドにする必要はありません。 例:**をクリックして"{X:bind rootFrame.GoForward}"を =** します。
+イベント バインディングは、コンパイル済みのバインドの固有の機能です。 これにより、バインディングを使用するイベントのハンドラーを指定でき、それをコード ビハインドのメソッドにする必要はありません。 次に、例を示します。**をクリックして"{X:bind rootFrame.GoForward}"を =** します。
 
 イベントの場合、対象のメソッドをオーバーロードしてはならず、以下の条件も満たしている必要があります。
 
@@ -127,7 +127,7 @@ Windows 10 バージョン 1607 以降、 **{x:Bind}** はバインド パスの
 
 プロパティ パスの文字列構文について詳しくは、ここで説明した **{x:Bind}** に対する違いに注意して、「[プロパティ パス構文](property-path-syntax.md)」をご覧ください。
 
-## <a name="properties-that-you-can-set-with-xbind"></a> {x:Bind} で設定できるプロパティ
+## <a name="properties-that-you-can-set-with-xbind"></a>{x:Bind} で設定できるプロパティ
 
 **{x:Bind}** は、*bindingProperties* プレースホルダー構文で示されます。これは、マークアップ拡張で設定可能な読み取り/書き込みプロパティが複数あるためです。 プロパティは、*propName*=*value* ペアをコンマで区切ることにより、任意の順序で設定できます。 バインド式に改行を含めることはできないことに注意してください。 プロパティによっては、型変換をサポートしていない型が必要なものがあります。そのため、これらのプロパティでは、 **{x:Bind}** 内で入れ子にされた独自のマークアップ拡張が必要です。
 
@@ -137,8 +137,8 @@ Windows 10 バージョン 1607 以降、 **{x:Bind}** はバインド パスの
 |----------|-------------|
 | **[パス]** | 上記の「[プロパティ パス](#property-path)」をご覧ください。 |
 | **コンバーター** | バインド エンジンによって呼び出されるコンバーター オブジェクトを指定します。 コンバーターは XAML で設定できますが、リソース ディクショナリ内のオブジェクトへの [{StaticResource} マークアップ拡張](staticresource-markup-extension.md) 参照で割り当てたオブジェクト インスタンスを参照する場合に限られます。 |
-| **ConverterLanguage** | コンバーターで使うカルチャを指定します  (設定している場合は、 **ConverterLanguage**を設定する必要がありますも**コンバーター**)。カルチャは、標準ベースの識別子として設定されます。 詳しくは、「[**ConverterLanguage**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.converterlanguage)」をご覧ください。 |
-| **ConverterParameter** | コンバーター ロジックで使うことができるコンバーター パラメーターを指定します  (設定している場合は、 **ConverterParameter**を設定する必要がありますも**コンバーター**)。ほとんどのコンバーターが変換すると、渡された値から必要なすべての情報を取得する単純なロジックを使用し、必要はありません、 **ConverterParameter**値。 **ConverterParameter** パラメーターは、**ConverterParameter** で渡された値を利用する複数のロジックを持つ、ある程度高度なコンバーターを実装するために存在します。 また、文字列以外の値を使うコンバーターも作成できますが、一般的ではありません。詳しくは、「[**ConverterParameter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.converterparameter)」の「注釈」をご覧ください。 |
+| **ConverterLanguage** | コンバーターで使うカルチャを指定します (設定している場合は、 **ConverterLanguage**を設定する必要がありますも**コンバーター**)。カルチャは、標準ベースの識別子として設定されます。 詳しくは、「[**ConverterLanguage**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.converterlanguage)」をご覧ください。 |
+| **ConverterParameter** | コンバーター ロジックで使うことができるコンバーター パラメーターを指定します (設定している場合は、 **ConverterParameter**を設定する必要がありますも**コンバーター**)。ほとんどのコンバーターが変換すると、渡された値から必要なすべての情報を取得する単純なロジックを使用し、必要はありません、 **ConverterParameter**値。 **ConverterParameter** パラメーターは、**ConverterParameter** で渡された値を利用する複数のロジックを持つ、ある程度高度なコンバーターを実装するために存在します。 また、文字列以外の値を使うコンバーターも作成できますが、一般的ではありません。詳しくは、「[**ConverterParameter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.converterparameter)」の「注釈」をご覧ください。 |
 | **fallbackValue** | ソースまたはパスを解決できない場合に表示する値を指定します。 |
 | **モード** | これらの文字列の 1 つとして、バインディング モードを指定します。"OneTime"、"OneWay"または"TwoWay"。 既定は "OneTime" です。 これは、 **{Binding}** の既定値 (ほとんどの場合は "OneWay") とは異なる点に注意してください。 |
 | **TargetNullValue** | ソース値が解決されるが、明示的に **null** である場合に表示する値を設定します。 |

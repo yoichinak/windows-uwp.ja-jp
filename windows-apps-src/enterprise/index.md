@@ -6,12 +6,12 @@ ms.date: 08/30/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: a44a1adb8685ad182620b4c68024176628b9204d
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 087192160fd098d63042f3d1ad16fe7a811de337
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66369664"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67321510"
 ---
 # <a name="enterprise"></a>エンタープライズ
 
@@ -156,8 +156,8 @@ Windows 10 には、一連のセキュリティ機能が用意されていま�
 | トピック | 説明 |
 |-------|-------------|
 | [企業に LOB アプリを配布する](https://docs.microsoft.com/windows/uwp/publish/distribute-lob-apps-to-enterprises) | 基幹業務アプリを、ボリューム購入できるように、ビジネス向け Microsoft Store で企業に直接公開できます。一般ユーザーが利用できるようにアプリを公開する必要はありません。 |
-| [アプリのサイドローディング](https://technet.microsoft.com/library/mt269549) | アプリをサイドローディングすると、署名されたアプリ パッケージをデバイスに展開します。 これらのアプリの署名、ホスティング、配置は維持されます。 アプリのサイドローディングのプロセスは、Windows 10 向けに簡素化されています。             |
-| [Microsoft Store にアプリを公開する](https://dev.windows.com/publish) | 統合された Microsoft Store では、すべての Windows デバイス向けのすべてのアプリを公開して管理することができます。 市場ごとの価格、配布と表示のコントロール、その他のオプションを使って、アプリの使用可能状況をカスタマイズできます。 |
+| [アプリのサイドローディング](https://docs.microsoft.com/windows/deploy/sideload-apps-in-windows-10) | アプリをサイドローディングすると、署名されたアプリ パッケージをデバイスに展開します。 これらのアプリの署名、ホスティング、配置は維持されます。 アプリのサイドローディングのプロセスは、Windows 10 向けに簡素化されています。             |
+| [Microsoft Store にアプリを公開する](https://developer.microsoft.com/store/publish-apps) | 統合された Microsoft Store では、すべての Windows デバイス向けのすべてのアプリを公開して管理することができます。 市場ごとの価格、配布と表示のコントロール、その他のオプションを使って、アプリの使用可能状況をカスタマイズできます。 |
 
 ## <a name="enterprise-uwp-samples"></a>エンタープライズ UWP のサンプル
 

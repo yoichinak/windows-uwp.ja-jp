@@ -6,12 +6,12 @@ ms.date: 10/10/2017
 ms.topic: article
 keywords: Windows 10, UWP, リソース, 画像, アセット, MRT, 修飾子
 ms.localizationpriority: medium
-ms.openlocfilehash: 57f8d7d57c016c015d01e80b07fc0e2c0260ef7f
-ms.sourcegitcommit: 46890e7f3c1287648631c5e318795f377764dbd9
+ms.openlocfilehash: f069899da69e4689e21fa578ff7124fbaf453ea3
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58320615"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67317726"
 ---
 # <a name="load-images-and-assets-tailored-for-scale-theme-high-contrast-and-others"></a>表示倍率、テーマ、ハイ コントラスト、その他の設定に合わせた画像とアセットの読み込み
 アプリで、[表示倍率](../design/layout/screen-sizes-and-breakpoints-for-responsive-design.md)、テーマ、ハイ コントラスト、その他の実行時のコンテキストに合わせた画像リソース ファイル (またはその他のアセット ファイル) を読み込むことができます。 これらの画像は、命令型コードや XAML マークアップ (**Image** の **Source** プロパティなど) から参照できます。 アプリ パッケージのマニフェストのソース ファイルにも表示できます (、`Package.appxmanifest`ファイル)&mdash;など、Visual Studio のマニフェスト デザイナーの [ビジュアル資産] タブでアプリのアイコンの値として&mdash;またはタイルとトーストにします。 画像のファイル名に修飾子を使用し、必要に応じて [**ResourceContext**](/uwp/api/windows.applicationmodel.resources.core.resourcecontext?branch=live) を使って動的に読み込むことによって、ユーザーの実行時の表示倍率、テーマ、ハイ コントラスト、言語、その他のコンテキストの設定に最も一致する最適な画像ファイルを読み込むことができます。
@@ -86,7 +86,7 @@ var storagefile = await Windows.Storage.StorageFile.GetFileFromApplicationUriAsy
 this.myXAMLWebViewElement.Source = new Uri("ms-appx-web:///Pages/default.html");
 ```
 
-これらの例に示されているどのシナリオの場合も、[UriKind](https://docs.microsoft.com/en-us/dotnet/api/system.urikind) を推測する [Uri コンストラクター](https://docs.microsoft.com/en-us/dotnet/api/system.uri.-ctor?view=netcore-2.0#System_Uri__ctor_System_String_)のオーバーロードを使用します。 スキームと機関を含む有効な絶対 URI を指定するか、上記の例のように、機関の既定をアプリのパッケージに自動的に設定します。
+これらの例に示されているどのシナリオの場合も、[UriKind](https://docs.microsoft.com/dotnet/api/system.urikind?view=netframework-4.8) を推測する [Uri コンストラクター](https://docs.microsoft.com/en-us/dotnet/api/system.uri.-ctor?view=netcore-2.0#System_Uri__ctor_System_String_)のオーバーロードを使用します。 スキームと機関を含む有効な絶対 URI を指定するか、上記の例のように、機関の既定をアプリのパッケージに自動的に設定します。
 
 これらの URI の例で、スキーム ("`ms-appx`" または "`ms-appx-web`") の後に "`://`" が続き、その後に絶対パスが続くことに注意してください。 絶対パスでは、先頭の "`/`" によって、パスはパッケージのルートからのパスとして解釈されます。
 
@@ -120,7 +120,7 @@ this.myXAMLWebViewElement.Source = new Uri("ms-appx-web:///Pages/default.html");
 </pre>
 </blockquote>
 
-ただし、次のバリエーションは有効ではありません。 
+ただし、次のバリエーションは有効ではありません。
 
 <blockquote>
 <pre>

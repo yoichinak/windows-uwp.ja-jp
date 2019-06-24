@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 63656fc545596fc045dc536167313c0c8e3f6ad2
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 57532c45bdf6c2b8feb2af1277be74a0f8b2c759
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66371159"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67320304"
 ---
 # <a name="property-path-syntax"></a>プロパティ パス構文
 
@@ -58,7 +58,7 @@ Windows ランタイムでは、任意の依存関係プロパティのターゲ
 
 ### <a name="attached-properties"></a>添付プロパティ
 
-プロパティ パスには、添付プロパティへの参照を含めることができます。 添付プロパティの識別名には既にドットが含まれているため、ドットがオブジェクトとプロパティのステップとして処理されないように、すべての添付プロパティ名をかっこで囲む必要があります。 たとえば、[**Canvas.ZIndex**](https://docs.microsoft.com/previous-versions/windows/silverlight/dotnet-windows-silverlight/cc190397(v%3Dvs.95)) をバインド パスとして使うことを指定する文字列は "(Canvas.ZIndex)" となります。 添付プロパティについて詳しくは、「[添付プロパティの概要](attached-properties-overview.md)」をご覧ください。
+プロパティ パスには、添付プロパティへの参照を含めることができます。 添付プロパティの識別名には既にドットが含まれているため、ドットがオブジェクトとプロパティのステップとして処理されないように、すべての添付プロパティ名をかっこで囲む必要があります。 たとえば、[**Canvas.ZIndex**](https://docs.microsoft.com/previous-versions/windows/silverlight/dotnet-windows-silverlight/cc190397(v=vs.95)) をバインド パスとして使うことを指定する文字列は "(Canvas.ZIndex)" となります。 添付プロパティについて詳しくは、「[添付プロパティの概要](attached-properties-overview.md)」をご覧ください。
 
 ### <a name="combining-property-path-syntax"></a>プロパティ パス構文の組み合わせ
 
@@ -70,7 +70,7 @@ Windows ランタイムでは、任意の依存関係プロパティのターゲ
 
 ## <a name="property-path-for-animation-targeting"></a>アニメーション ターゲット設定のためのプロパティ パス
 
-アニメーションは、アニメーションの実行時にストーリーボードに設定された値が適用される依存関係プロパティのターゲット設定に依存します。 アニメーション化されるプロパティが存在するオブジェクトを識別するために、アニメーションは、要素を名前 ([x:Name 属性](x-name-attribute.md)) でターゲット設定します。 通常、[**Storyboard.TargetName**](https://docs.microsoft.com/dotnet/api/system.windows.media.animation.storyboard.targetname?view=netframework-4.8) として識別されたオブジェクトで始まり、アニメーションが適用される特定の依存関係プロパティ値で終わるプロパティ パスを定義する必要があります。 このプロパティ パスは、[**Storyboard.TargetProperty**](https://docs.microsoft.com/previous-versions/windows/silverlight/dotnet-windows-silverlight/ms616983(v%3Dvs.95)) の値として使われます。
+アニメーションは、アニメーションの実行時にストーリーボードに設定された値が適用される依存関係プロパティのターゲット設定に依存します。 アニメーション化されるプロパティが存在するオブジェクトを識別するために、アニメーションは、要素を名前 ([x:Name 属性](x-name-attribute.md)) でターゲット設定します。 通常、[**Storyboard.TargetName**](https://docs.microsoft.com/dotnet/api/system.windows.media.animation.storyboard.targetname?view=netframework-4.8) として識別されたオブジェクトで始まり、アニメーションが適用される特定の依存関係プロパティ値で終わるプロパティ パスを定義する必要があります。 このプロパティ パスは、[**Storyboard.TargetProperty**](https://docs.microsoft.com/previous-versions/windows/silverlight/dotnet-windows-silverlight/ms616983(v=vs.95)) の値として使われます。
 
 XAML でアニメーションを定義する方法について詳しくは、「[ストーリーボードに設定されたアニメーション](https://docs.microsoft.com/windows/uwp/graphics/storyboarded-animations)」をご覧ください。
 
@@ -107,7 +107,7 @@ XAML でアニメーションを定義する方法について詳しくは、「
 
 ほとんどの場合、コードをまったく使わずに [**PropertyPath**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.PropertyPath) を XAML で適用できます。 しかし、場合によっては、コードを使って **PropertyPath** オブジェクトを定義し、実行時にプロパティに割り当てることができます。
 
-[**PropertyPath** ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.PropertyPath)が、 [ **PropertyPath(String)** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.propertypath.)コンス トラクター、および既定のコンス トラクターはありません。 このコンストラクターには、前に説明したプロパティ パス構文を使って定義した文字列を渡します。 これは、パスを [**Path**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.path) 属性として割り当てるために使うのと同じ文字列でもあります。 **PropertyPath** クラスの唯一の他の API は [**Path**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.propertypath.path) プロパティで、これは読み取り専用です。 このプロパティは、他の **PropertyPath** インスタンスの構成文字列として使うことができます。
+[**PropertyPath** ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.PropertyPath)が、 [ **PropertyPath(String)** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.propertypath.-ctor)コンス トラクター、および既定のコンス トラクターはありません。 このコンストラクターには、前に説明したプロパティ パス構文を使って定義した文字列を渡します。 これは、パスを [**Path**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.path) 属性として割り当てるために使うのと同じ文字列でもあります。 **PropertyPath** クラスの唯一の他の API は [**Path**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.propertypath.path) プロパティで、これは読み取り専用です。 このプロパティは、他の **PropertyPath** インスタンスの構成文字列として使うことができます。
 
 ## <a name="related-topics"></a>関連トピック
 
@@ -116,6 +116,6 @@ XAML でアニメーションを定義する方法について詳しくは、「
 * [{0} バインド} マークアップ拡張機能](binding-markup-extension.md)
 * [**propertyPath**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.PropertyPath)
 * [**バインド**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.Binding)
-* [**バインディングのコンス トラクター**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.)
+* [**バインディングのコンス トラクター**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.-ctor)
 * [**DataContext**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.datacontext)
 

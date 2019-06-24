@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, テクノロジ, DirectX
 ms.localizationpriority: medium
-ms.openlocfilehash: ba15a4f965dc582a8bd4eaeca211367ea1fcb5cb
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: c6d2b0bd04fd14804f65072c8a698e1a240ce00e
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66368689"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67321301"
 ---
 # <a name="game-technologies-for-uwp-apps"></a>UWP アプリのゲーム テクノロジ
 
@@ -323,7 +323,7 @@ Windows 10 では、ゲーム開発に役立つさまざまな API を利用で�
 
 [Xbox Live クリエーターズ プログラム](https://developer.microsoft.com/games/xbox/xboxlive/creator)により、開発者が Xbox Live の UWP ゲームに統合し、Xbox One、Windows 10 に発行します。 最小限の開発時間で、サインイン、プレゼンス、ランキングなどの Xbox Live ソーシャル エクスペリエンスをタイトルに統合できます。 Xbox Live のソーシャル機能では、5,500 万人以上のアクティブ ゲーマーに情報を発信して、オーディエンスを自然に増やすことができます。
 
-Xbox Live の他の機能にアクセスしたり、マーケティングと開発に関する専用のサポートを受けたり、Xbox One ストアのメイン ページで取り上げられたりすることを希望する場合は、[ID@Xbox](https://www.xbox.com/developers/id) プログラムへの登録を申し込んでください。 Xbox Live クリエーターズ プログラム、および ID@Xbox プログラムで利用できる機能については、[機能表](https://docs.microsoft.com/gaming/xbox-live//developer-program-overview.md#feature-table)をご覧ください。
+Xbox Live の他の機能にアクセスしたり、マーケティングと開発に関する専用のサポートを受けたり、Xbox One ストアのメイン ページで取り上げられたりすることを希望する場合は、[ID@Xbox](https://www.xbox.com/developers/id) プログラムへの登録を申し込んでください。 Xbox Live クリエーターズ プログラム、および ID@Xbox プログラムで利用できる機能については、[機能表](https://docs.microsoft.com/gaming/xbox-live/developer-program-overview.md#feature-table)をご覧ください。
 
 詳しくは、「[ゲームへの Xbox Live の追加](e2e.md#adding-xbox-live-to-your-game)」をご覧ください。
 

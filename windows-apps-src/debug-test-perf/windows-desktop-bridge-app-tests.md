@@ -6,16 +6,16 @@ ms.date: 12/18/2017
 ms.topic: article
 keywords: windows 10 は、uwp アプリの認定
 ms.localizationpriority: medium
-ms.openlocfilehash: 38c9a40dbe1a46aa125c76cd1fcc88a84685c8cc
-ms.sourcegitcommit: 280193dfe5a106fc6b4c85df3ac40535547b855c
+ms.openlocfilehash: a28c344ed7c8645f3788719185aac71c7a036d5c
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67235172"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67317413"
 ---
 # <a name="windows-desktop-bridge-app-tests"></a>Windows デスクトップ ブリッジ アプリのテスト
 
-[デスクトップ ブリッジ アプリ](https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-root)Windows デスクトップ アプリケーションを使用してユニバーサル Windows プラットフォーム (UWP) アプリに変換されて、[デスクトップ ブリッジ](https://developer.microsoft.com/en-us/windows/bridges/desktop)します。 Windows デスクトップ アプリケーションは、変換後、Windows 10 デスクトップをターゲットとする UWP アプリ パッケージ (.appx または .appxbundle) の形式でパッケージ化され、処理と展開が行われます。
+[デスクトップ ブリッジ アプリ](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-root)Windows デスクトップ アプリケーションを使用してユニバーサル Windows プラットフォーム (UWP) アプリに変換されて、[デスクトップ ブリッジ](https://developer.microsoft.com/en-us/windows/bridges/desktop)します。 Windows デスクトップ アプリケーションは、変換後、Windows 10 デスクトップをターゲットとする UWP アプリ パッケージ (.appx または .appxbundle) の形式でパッケージ化され、処理と展開が行われます。
 
 ## <a name="required-versus-optional-tests"></a>必須のテストとオプションのテスト
 Windows デスクトップ ブリッジ アプリの省略可能なテストは情報提供のみと、Microsoft Store オンボード中に、アプリを評価するには使用されません。 調査をお勧めします。 これらのテスト結果をより適切な品質のアプリを生成します。 ストアの配布準備の全体的な合格/不合格の基準は、これらのオプションのテストではなく、必須のテストで決定されます。
@@ -40,7 +40,7 @@ Windows デスクトップ ブリッジ アプリの省略可能なテストは�
 変換されたデスクトップ アプリケーションは、幅広いユニバーサル Windows プラットフォーム API を使用して拡張できます。 このテストでは、アプリ内の UWP バイナリが UWP 以外の API を呼び出していないことを確認します。 UWP バイナリでは、**AppContainer** フラグが設定されています。
 
 **是正措置**  
-参照してください[UWP ブリッジにデスクトップ。App エクス テンション](https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-extensions)これらの拡張機能と適切に使用する方法の詳細についてはします。 
+参照してください[UWP ブリッジにデスクトップ。App エクス テンション](https://docs.microsoft.com/windows/apps/desktop/modernize/desktop-to-uwp-extensions)これらの拡張機能と適切に使用する方法の詳細についてはします。 
 
 ### <a name="3-debug-configuration-test"></a>3.デバッグ構成のテスト
 このテストでは、appx がデバッグ ビルドではないことを確認します。
@@ -118,14 +118,14 @@ The image {image name} is missing from the package. (イメージ {image name} �
 The image {image name} is not a valid image file. (イメージ {image name} は有効なイメージ ファイルではありません。)  | すべてのアプリ画像が適切なファイルの種類の制限に従っていることを確認します。 実際のメッセージでは、{image name} に画像の色として無効な値が入ります。 
 The image "BadgeLogo" has an ABGR value {value} at position (x, y) that is not valid. (画像 "BadgeLogo" の位置 (x, y) の ABGR 値 {value} が無効です。) The pixel must be white (##FFFFFF) or transparent (00######) (このピクセルは、白 (##FFFFFF) または透明 (00######) である必要があります。)  | バッジ ロゴはロック画面でアプリを識別するためにバッジ通知の横に表示される画像です。 この画像はモノクロである必要があります (含めることができるのは白または透明のピクセルだけです)。 実際のメッセージでは、{value} に画像の色として無効な値が入ります。 
 The image “BadgeLogo” has an ABGR value {value} at position (x, y) that is not valid for a high-contrast white image. (画像 "BadgeLogo" の位置 (x, y) にハイコントラストの白い画像には無効な ABGR 値 {value} があります。) The pixel must be (##2A2A2A) or darker, or transparent (00######). (ピクセルは (##2A2A2A) か、それより暗いか、透明 (00######) である必要があります。)  | バッジ ロゴはロック画面でアプリを識別するためにバッジ通知の横に表示される画像です。 "ハイコントラスト 白" ではバッジ ロゴが白い背景に表示されるため、通常のバッジ ロゴの濃いバージョンを使う必要があります。 "ハイコントラスト 白" でバッジ ロゴに含めることができるピクセルは、(##2A2A2A) より濃い色か透明のピクセルだけです。 実際のメッセージでは、{value} に画像の色として無効な値が入ります。 
-The image must define at least one variant without a TargetSize qualifier. (画像では、TargetSize 修飾子がないバージョンが少なくとも 1 つ定義されている必要があります。) It must define a Scale qualifier or leave Scale and TargetSize unspecified, which defaults to Scale-100. (Scale 修飾子が定義されているか、または Scale と TargetSize が指定されていないままである必要があり、既定では Scale-100 です。)  | 詳しくは、[レスポンシブ デザイン](https://docs.microsoft.com/windows/uwp/layout/screen-sizes-and-breakpoints-for-responsive-design)と[アプリ リソース](https://docs.microsoft.com/en-us/windows/uwp/app-settings/store-and-retrieve-app-data)に関するガイドをご覧ください。 
+The image must define at least one variant without a TargetSize qualifier. (画像では、TargetSize 修飾子がないバージョンが少なくとも 1 つ定義されている必要があります。) It must define a Scale qualifier or leave Scale and TargetSize unspecified, which defaults to Scale-100. (Scale 修飾子が定義されているか、または Scale と TargetSize が指定されていないままである必要があり、既定では Scale-100 です。)  | 詳しくは、[レスポンシブ デザイン](https://docs.microsoft.com/windows/uwp/layout/screen-sizes-and-breakpoints-for-responsive-design)と[アプリ リソース](https://docs.microsoft.com/windows/uwp/design/app-settings/store-and-retrieve-app-data)に関するガイドをご覧ください。 
 The package is missing a "resources.pri" file. (パッケージに "resources.pri" ファイルがありません。)  | アプリ マニフェストにローカライズ可能なコンテンツがある場合は、アプリのパッケージに有効な resources.pri ファイルが含まれていることを確認します。 
 The "resources.pri" file must contain a resource map with a name that matches the package name {package full name} ("resources.pri" ファイルには、パッケージ名 {package full name} と名前が一致するリソース マップが含まれている必要があります。)  | このエラーが表示される場合は、マニフェストが変更され、resources.pri 内のリソース マップの名前がマニフェストのパッケージ名と一致しなくなった可能性があります。 実際のメッセージでは、{package full name} には resources.pri に含まれている必要があるパッケージ名が入ります。 この問題を解決するには、resources.pri をリビルドする必要があります。その場合は、アプリのパッケージをリビルドするのが最も簡単です。 
 The "resources.pri" file must not have AutoMerge enabled. ("resources.pri" ファイルは AutoMerge を有効にしないでください。)  | MakePRI.exe では、AutoMerge というオプションがサポートされています。 AutoMerge の規定値は "off" です。 オンにすると、AutoMerge が実行時にアプリの言語パックを単一の resources.pri にマージします。 これは、Microsoft Store から配布するアプリをお勧めしません。 Microsoft Store を通じて配布されるアプリの resources.pri は、アプリのパッケージのルート内にあり、アプリをサポートする言語のすべての参照を含めることが必要があります。 
 The string {string} failed the max length restriction of {number} characters. (文字列 {string} が {number} 文字の最大文字数の制限を満たしていません。)  | 「[アプリ パッケージの要件](https://docs.microsoft.com/en-us/windows/uwp/publish/app-package-requirements)」をご覧ください。 実際のメッセージでは、{string} が問題の文字列に置き換わり、{number} に最大文字数が入ります。 
 The string {string} must not have leading/trailing whitespace. (文字列 {string} の先頭または末尾を空白にすることはできません。)  | アプリ マニフェストの要素のスキーマでは、先頭および末尾の空白は許可されていません。 実際のメッセージでは、{string} が問題の文字列に置き換わります。 resources.pri のマニフェスト フィールドのローカライズされた値において、先頭または末尾にスペースが挿入されていないことを確認します。 
 The string must be non-empty (greater than zero in length) (文字列を空にすることはできません (文字数が 0 より大きい必要があります)。)  | 詳しくは、「[アプリ パッケージの要件](https://docs.microsoft.com/en-us/windows/uwp/publish/app-package-requirements)」をご覧ください。 
-There is no default resource specified in the "resources.pri" file. ("resources.pri" ファイルで指定された既定のリソースがありません。)  | 詳しくは、[アプリ リソース](https://docs.microsoft.com/en-us/windows/uwp/app-settings/store-and-retrieve-app-data)に関するガイドをご覧ください。 既定のビルド構成では、Visual Studio はバンドル生成時に 200% スケールの画像リソースのみをアプリ パッケージ内に組み込み、その他のリソースはリソース パッケージ内に配置します。 200% スケールの画像リソースを組み込むか、または持っているリソースを組み込むようにプロジェクトを構成してください。 
+There is no default resource specified in the "resources.pri" file. ("resources.pri" ファイルで指定された既定のリソースがありません。)  | 詳しくは、[アプリ リソース](https://docs.microsoft.com/windows/uwp/design/app-settings/store-and-retrieve-app-data)に関するガイドをご覧ください。 既定のビルド構成では、Visual Studio はバンドル生成時に 200% スケールの画像リソースのみをアプリ パッケージ内に組み込み、その他のリソースはリソース パッケージ内に配置します。 200% スケールの画像リソースを組み込むか、または持っているリソースを組み込むようにプロジェクトを構成してください。 
 There is no resource value specified in the "resources.pri" file. ("resources.pri" ファイルに指定されたリソース値がありません。)  | resources.pri でアプリ マニフェストの有効なリソースが定義されていることを確認します。 
 The image file {filename} must be smaller than 204800 bytes. (イメージ ファイル {filename} は、204,800 バイト未満である必要があります。)  | 指定の画像のサイズを小さくします。 
 The {filename} file must not contain a reverse map section. ({filename} ファイルには、リバース マップ セクションを含めることはできません。)  | 逆マップは Visual Studio の F5 デバッグ時に makepri.exe を呼び出すと生成されますが、pri ファイルの生成時に /m パラメーターなしで makepri.exe を実行すると削除することができます。 

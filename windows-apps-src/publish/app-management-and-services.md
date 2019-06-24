@@ -6,16 +6,16 @@ ms.date: 03/21/2019
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: ba28fb49accc213f570e470142e259c08122b704
-ms.sourcegitcommit: 6a7dd4da2fc31ced7d1cdc6f7cf79c2e55dc5833
+ms.openlocfilehash: e9567e06f80035bbcf811b5aaeaf8058ffee41a3
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58334580"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67320029"
 ---
 # <a name="app-management-and-services"></a>アプリの管理とサービス
 
-各でアプリに関連する詳細を管理および表示できます[パートナー センター](https://partner.microsoft.com/dashboard/)通知などのサービスを構成および B は、テスト、およびマップ/。
+各でアプリに関連する詳細を管理および表示できます[パートナー センター](https://partner.microsoft.com/dashboard)通知などのサービスを構成および B は、テスト、およびマップ/。
 
 パートナー センターでのアプリを使用する場合は、左側のナビゲーション メニューのセクションを確認します**サービス**と**アプリ管理**します。 これらのセクションを展開すると、次の機能にアクセスできます。
 
@@ -25,7 +25,7 @@ ms.locfileid: "58334580"
 
 ## <a name="xbox-live"></a>Xbox Live
 
-有効にできますが、ゲームを公開する場合、 [Xbox Live クリエーターズ プログラム](https://xbox.com/developers/creators-program)このページでします。 これにより、構成とテスト、Xbox Live 機能を起動し、最終的に、Xbox Live クリエーターズ プログラム ゲームを発行することができます。
+有効にできますが、ゲームを公開する場合、 [Xbox Live クリエーターズ プログラム](https://www.xbox.com/developers/creators-program)このページでします。 これにより、構成とテスト、Xbox Live 機能を起動し、最終的に、Xbox Live クリエーターズ プログラム ゲームを発行することができます。
 
 詳細については、次を参照してください。 [Xbox Live クリエーターズ プログラムの概要](https://docs.microsoft.com/gaming/xbox-live/get-started-with-creators/get-started-with-xbox-live-creators)と[新しい Xbox Live クリエーターズ プログラムのタイトルを作成し、テスト環境に公開](https://docs.microsoft.com/gaming/xbox-live/get-started-with-creators/create-and-test-a-new-creators-title)します。
 
@@ -51,7 +51,7 @@ Microsoft Store コレクション API と Microsoft Store 購入 API を使用�
 
 お使いの製品が Azure AD と連携し、いずれかを要求する Api を呼び出すかどうか[アプリケーションのアクセス許可または委任されたアクセス許可](https://developer.microsoft.com/graph/docs/concepts/permissions_reference)を管理者の同意が必要です、ここで、Azure AD のクライアント ID を入力します。 これにより、管理者がテナント内のすべてのユーザーの代理として機能するのには、製品の組織 grant 同意用アプリを取得します。
 
-詳細については、次を参照してください。[テナント全体の同意を要求する](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant)します。
+詳細については、次を参照してください。[テナント全体の同意を要求する](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#requesting-consent-for-an-entire-tenant)します。
 
 ## <a name="app-management"></a>アプリ管理
 
@@ -78,7 +78,7 @@ Microsoft Store コレクション API と Microsoft Store 購入 API を使用�
 
 各パッケージの名前、バージョン、およびアーキテクチャが表示されます。 **[詳細]** をクリックすると、サポートされる言語、アプリの機能、ファイル サイズなどの詳しい情報が表示されます。 パッケージごとに表示される情報は、対象となるオペレーティング システムとその他の要因によって異なることがあります。 
 
-OEM アクセス許可を持つ開発者は、**[現在のパッケージ]** ページから [プレインストール パッケージを生成](generate-preinstall-packages-for-oems.md) することもできます。
+OEM アクセス許可を持つ開発者は、 **[現在のパッケージ]** ページから [プレインストール パッケージを生成](generate-preinstall-packages-for-oems.md) することもできます。
 
 ## <a name="wnsmpns"></a>WNS または MPNS
 

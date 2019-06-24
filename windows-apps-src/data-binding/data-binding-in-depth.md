@@ -9,12 +9,12 @@ ms.localizationpriority: medium
 dev_langs:
 - csharp
 - cppwinrt
-ms.openlocfilehash: 972556a3d8d46dce11b251fc11d209fa96d3b751
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 150ea5fc9f5e91171f29cc985351856487e91d4a
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66362588"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67318755"
 ---
 # <a name="data-binding-in-depth"></a>データ バインディングの詳細
 
@@ -43,7 +43,7 @@ ms.locfileid: "66362588"
 **{X:bind} を示すサンプル アプリ**
 
 -   [{x:Bind} のサンプル](https://go.microsoft.com/fwlink/p/?linkid=619989)。
--   [QuizGame](https://github.com/Microsoft/Windows-appsample-quizgame)。
+-   [QuizGame](https://github.com/microsoft/Windows-appsample-networkhelper)。
 -   [XAML UI の基本のサンプル](https://go.microsoft.com/fwlink/p/?linkid=619992)。
 
 **{バインディング} を示すサンプル アプリ**
@@ -199,7 +199,7 @@ void HostViewModel::PropertyChanged(winrt::event_token const& token) noexcept
 
 これで、**NextButtonText** プロパティは監視可能です。 そのプロパティへの一方向または双方向のバインディングを作成する場合 (方法については後述)、作成したバインディング オブジェクトは **PropertyChanged** イベントを受信登録します。 そのイベントが発生すると、バインディング オブジェクトのハンドラーは、変更されたプロパティの名前を含む引数を受け取ります。 このようにして、バインディング オブジェクトはどのプロパティの値が残っており、再び読み取る必要があるかを識別します。
 
-使用している場合は、複数回、上記のパターンを実装する必要があるないようにC#だけから派生することができ、 **BindableBase**で低音のクラス、 [QuizGame](https://github.com/Microsoft/Windows-appsample-quizgame) (サンプル"Common"フォルダー)。 どのようになるかを示す例を以下に示します。
+使用している場合は、複数回、上記のパターンを実装する必要があるないようにC#だけから派生することができ、 **BindableBase**で低音のクラス、 [QuizGame](https://github.com/microsoft/Windows-appsample-networkhelper) (サンプル"Common"フォルダー)。 どのようになるかを示す例を以下に示します。
 
 ```csharp
 public class HostViewModel : BindableBase
@@ -604,7 +604,7 @@ Click="{x:Bind RootFrame.GoForward}"/>
 
 この方法では、オーバーロードされたメソッドを使ってイベントを処理することはできません。 また、イベントを処理するメソッドにパラメーターがある場合、すべてのパラメーターがそれぞれ、イベントのすべての型から代入できる必要があります。 この場合、[**Frame.GoForward**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.frame.goforward) はオーバーロードされておらず、パラメーターはありません (ただし、2 つの **object** パラメーターを取る場合でも有効です)。 [**Frame.GoBack** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.frame.goback)がオーバー ロードされて、そのメソッドを使用してこの方法ではできないようにします。
 
-イベント バインディングの手法は、コマンドの実装と使用に似ています (コマンドは [**ICommand**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.icommand) インターフェイスを実装するオブジェクトを返すプロパティです)。 [{x:Bind}](https://docs.microsoft.com/windows/uwp/xaml-platform/x-bind-markup-extension) と [{Binding}](https://docs.microsoft.com/windows/uwp/xaml-platform/binding-markup-extension) はいずれもコマンドで動作します。 コマンド パターンを何度も実装する必要はありません。[QuizGame](https://github.com/Microsoft/Windows-appsample-quizgame) サンプル (Common フォルダー) に含まれている **DelegateCommand** ヘルパー クラスを使うことができます。
+イベント バインディングの手法は、コマンドの実装と使用に似ています (コマンドは [**ICommand**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.icommand) インターフェイスを実装するオブジェクトを返すプロパティです)。 [{x:Bind}](https://docs.microsoft.com/windows/uwp/xaml-platform/x-bind-markup-extension) と [{Binding}](https://docs.microsoft.com/windows/uwp/xaml-platform/binding-markup-extension) はいずれもコマンドで動作します。 コマンド パターンを何度も実装する必要はありません。[QuizGame](https://github.com/microsoft/Windows-appsample-networkhelper) サンプル (Common フォルダー) に含まれている **DelegateCommand** ヘルパー クラスを使うことができます。
 
 ## <a name="binding-to-a-collection-of-folders-or-files"></a>フォルダーやファイルのコレクションへのバインド
 

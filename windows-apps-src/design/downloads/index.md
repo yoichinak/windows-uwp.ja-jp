@@ -7,18 +7,18 @@ ms.topic: article
 ms.assetid: 88da6d1a-379c-4173-a56d-d8b9a4eab5da
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 2c7332a3e1097a8e62576ae5920eb82c2bd5d2a6
-ms.sourcegitcommit: 423ff8f1fd791445e21cca534bcefe407251acf1
+ms.openlocfilehash: 20980562f73bca2087d4c0a6ee049c848404d6a6
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66251606"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67319413"
 ---
 ![設計の基本](../images/downloads-2x.png)
 
 # <a name="design-toolkits-and-samples-for-uwp-apps"></a>UWP アプリ用の設計ツールキットとサンプル
  
-Fluent Design/UWP アプリの設計と UI に関連するダウンロード。 Visual Studio など、その他のツールについては、<a href="https://developer.microsoft.com/downloads">メインのダウンロード ページ</a>をご覧ください。 
+Fluent Design/UWP アプリの設計と UI に関連するダウンロード。 Visual Studio など、その他のツールについては、<a href="https://developer.microsoft.com/windows/downloads">メインのダウンロード ページ</a>をご覧ください。 
 
 
 ## <a name="design-toolkits"></a>設計ツールキット
@@ -131,4 +131,4 @@ BuildCast は、Fluent Design System と UWP を示すために組み込まれ�
 
 ## <a name="want-more-code"></a>他のコードをお探しの場合は、
 
-Windows サンプル ページで UWP アプリ サンプルの一覧をご覧ください。 <a href="https://developer.microsoft.com/samples">サンプル ポータルに移動</a>
+Windows サンプル ページで UWP アプリ サンプルの一覧をご覧ください。 <a href="https://developer.microsoft.com/windows/samples">サンプル ポータルに移動</a>

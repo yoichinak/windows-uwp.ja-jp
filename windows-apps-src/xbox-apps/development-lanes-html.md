@@ -6,17 +6,17 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: edd40cc4-2604-4bc6-bd81-f671389a70fa
 ms.localizationpriority: medium
-ms.openlocfilehash: 019db8c93b61f84dde400f7be9f98bf82b1466e8
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: afebfd089b80b7402929bd85ea482b86aca0e694
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57660327"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67320217"
 ---
 # <a name="bringing-html-games-to-uwp-on-xbox"></a>HTML ゲームの Xbox での UWP への移行
-Xbox One は HTML 5 ゲーム用の優れたプラットフォームです。 HTML 5 ゲームは、[Microsoft Edge](https://developer.microsoft.com/microsoft-edge/) ブラウザー エンジンで実行されます。 Microsoft Edge は高速で、WebGL やキャンバスなど、HTML 5 と CSS 3 の機能を完全にサポートしています。
+Xbox One は HTML 5 ゲーム用の優れたプラットフォームです。 HTML 5 ゲームは、[Microsoft Edge](https://developer.microsoft.com/microsoft-edge) ブラウザー エンジンで実行されます。 Microsoft Edge は高速で、WebGL やキャンバスなど、HTML 5 と CSS 3 の機能を完全にサポートしています。
 
-[Construct 2](https://www.scirra.com/blog/176/announcing-xbox-one-export-beta) などの一般的なゲーム エンジンは Xbox One に対応しています。 すべての HTML のフレームワークとエンジンをテストしたわけではありませんが、これまでの状況を見ると、ほとんどが Xbox One で機能すると考えられます。
+[Construct 2](https://www.construct.net/en/blogs/construct-official-blog-1/announcing-xbox-one-export-beta-857) などの一般的なゲーム エンジンは Xbox One に対応しています。 すべての HTML のフレームワークとエンジンをテストしたわけではありませんが、これまでの状況を見ると、ほとんどが Xbox One で機能すると考えられます。
 
 HTML ゲームのプレイ フィールドは他の種類のゲームと同じレベルです。 開発者は、コント ローラーの入力や Kinect などのネイティブ API をすべて利用できます。
 

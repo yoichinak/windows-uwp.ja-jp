@@ -5,12 +5,12 @@ ms.date: 07/16/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 9541ea1c00d473bc4881a80d8597625592e278f9
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 4a47a5f8ffca1d9ca2ddab05fe0baf2f85977d7f
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57630837"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67318188"
 ---
 # <a name="shadows-in-windows-ui"></a>Windows UI のシャドウ
 
@@ -113,9 +113,9 @@ shadow.StartAnimation("BlurRadius", blurAnimation);
 
 複雑なフレームワーク要素に影を追加する場合は、XAML と合成の影付きの相互運用機能のいくつかの方法があります。
 
-1. 使用して、 [DropShadowPanel](https://github.com/Microsoft/UWPCommunityToolkit/blob/master/Microsoft.Toolkit.Uwp.UI.Controls/DropShadowPanel/DropShadowPanel.Properties.cs) Windows の Community Toolkit で使用できます。 参照してください、 [DropShadowPanel ドキュメント](https://docs.microsoft.com/windows/uwpcommunitytoolkit/controls/DropShadowPanel)それを使用する方法の詳細について。
+1. 使用して、 [DropShadowPanel](https://github.com/windows-toolkit/WindowsCommunityToolkit/blob/master/Microsoft.Toolkit.Uwp.UI.Controls/DropShadowPanel/DropShadowPanel.Properties.cs) Windows の Community Toolkit で使用できます。 参照してください、 [DropShadowPanel ドキュメント](https://docs.microsoft.com/windows/uwpcommunitytoolkit/controls/DropShadowPanel)それを使用する方法の詳細について。
 1. シャドウのホストとして使用して、& XAML 配布資料 Visual に関連付けることにビジュアルを作成します。
-1. 使用して、コンポジション サンプル ギャラリーの[SamplesCommon](https://github.com/Microsoft/WindowsUIDevLabs/tree/master/SamplesCommon/SamplesCommon)カスタム CompositionShadow コントロール。 使用状況の次の例を参照してください。
+1. 使用して、コンポジション サンプル ギャラリーの[SamplesCommon](https://github.com/microsoft/WindowsCompositionSamples/tree/master/SamplesCommon/SamplesCommon)カスタム CompositionShadow コントロール。 使用状況の次の例を参照してください。
 
 ## <a name="performance"></a>パフォーマンス
 
@@ -132,4 +132,4 @@ CompositionDropShadowSourcePolicy.InheritFromVisualContent | 高
 ## <a name="additional-resources"></a>その他のリソース
 
 - [コンポジション DropShadow API](/uwp/api/Windows.UI.Composition.DropShadow)
-- [WindowsUIDevLabs GitHub リポジトリ](https://github.com/Microsoft/WindowsUIDevLabs)
+- [WindowsUIDevLabs GitHub リポジトリ](https://github.com/microsoft/WindowsCompositionSamples)

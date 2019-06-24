@@ -6,12 +6,12 @@ ms.date: 08/01/2018
 ms.topic: article
 keywords: Windows 10, UWP, Microsoft Store コレクション API, Microsoft Store 購入 API, 製品の表示, 製品の付与
 ms.localizationpriority: medium
-ms.openlocfilehash: 0bf85a73cb35044b4be2282c9a13c1e65b836a92
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 184937133b85ae2cac7a21bb6002af70b06d34da
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57604007"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67319921"
 ---
 # <a name="manage-product-entitlements-from-a-service"></a>サービスによる製品の権利の管理
 
@@ -107,7 +107,7 @@ Microsoft Store コレクション API または購入 API で呼び出そうと
 
 ### <a name="create-the-tokens"></a>トークンの作成
 
-アクセス トークンを作成するには、「[クライアント資格情報を使用したサービス間の呼び出し](https://azure.microsoft.com/documentation/articles/active-directory-protocols-oauth-service-to-service)」の手順に従って OAuth 2.0 API をサービスで使用し、HTTP POST を ```https://login.microsoftonline.com/<tenant_id>/oauth2/token``` エンドポイントに送信します。 要求の例を次に示します。
+アクセス トークンを作成するには、「[クライアント資格情報を使用したサービス間の呼び出し](https://azure.microsoft.com/documentation/articles/active-directory-protocols-oauth-service-to-service/)」の手順に従って OAuth 2.0 API をサービスで使用し、HTTP POST を ```https://login.microsoftonline.com/<tenant_id>/oauth2/token``` エンドポイントに送信します。 要求の例を次に示します。
 
 ``` syntax
 POST https://login.microsoftonline.com/<tenant_id>/oauth2/token HTTP/1.1
@@ -122,7 +122,7 @@ grant_type=client_credentials
 
 各トークンについて、次のパラメーター データを指定します。
 
-* *クライアント\_id*と*クライアント\_シークレット*アプリケーション ID と、から取得したアプリケーションのクライアントシークレットを指定するパラメーター、[Azure 管理ポータル](https://manage.windowsazure.com)します。 これらのパラメーターはいずれも、Microsoft Store コレクション API または購入 API で必要とされる認証のレベルに基づいてアクセス トークンを生成するために必要です。
+* *クライアント\_id*と*クライアント\_シークレット*アプリケーション ID と、から取得したアプリケーションのクライアントシークレットを指定するパラメーター、[Azure 管理ポータル](https://portal.azure.com/)します。 これらのパラメーターはいずれも、Microsoft Store コレクション API または購入 API で必要とされる認証のレベルに基づいてアクセス トークンを生成するために必要です。
 
 * *resource* パラメーターには、作成するアクセス トークンの種類に応じて、[前のセクション](#access-tokens)に記載したいずれかのオーディエンス URI を指定します。
 

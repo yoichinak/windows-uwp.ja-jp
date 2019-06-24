@@ -6,12 +6,12 @@ ms.date: 05/14/2018
 ms.topic: article
 keywords: Windows 10、UWP、非同期
 ms.localizationpriority: medium
-ms.openlocfilehash: 26378473803b8963c0ca85eb414bae798f9607e4
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 63772a4ee9ea98ca6a45dde45b728d4fedd988d7
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66371575"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67320495"
 ---
 # <a name="asynchronous-programming"></a>非同期プログラミング
 このトピックでは、ユニバーサル Windows プラットフォーム (UWP) での非同期プログラミングとでの形式について説明します。 C#、Microsoft Visual Basic .NET、C++、および JavaScript。
@@ -71,5 +71,5 @@ promise オブジェクトは、将来取得されたときに値を表します
 
 ## <a name="related-topics"></a>関連トピック
 * [C# または Visual Basic での非同期 API の呼び出し](call-asynchronous-apis-in-csharp-or-visual-basic.md)
-* [非同期を使用した非同期プログラミングと Await (c# および Visual Basic)](https://msdn.microsoft.com/library/hh191443(vs.110).aspx)
+* [非同期を使用した非同期プログラミングと Await (c# および Visual Basic)](https://docs.microsoft.com/previous-versions/visualstudio/visual-studio-2012/hh191443(v=vs.110))
 * [リバーシ サンプル機能シナリオ: 非同期コード](https://docs.microsoft.com/previous-versions/windows/apps/jj712233(v=win.10))

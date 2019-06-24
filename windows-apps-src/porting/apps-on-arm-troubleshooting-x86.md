@@ -5,12 +5,12 @@ ms.date: 05/09/2018
 ms.topic: article
 keywords: windows 10 s, 常時接続, ARM での x86 エミュレーション, トラブルシューティング
 ms.localizationpriority: medium
-ms.openlocfilehash: 396bb0bf2c5ba5236e0e46e7b474867ffacb8c75
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 5f40c53c70a457057f678cdc227a98fc694e2273
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57589857"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67319667"
 ---
 # <a name="troubleshooting-x86-desktop-apps"></a>x86 デスクトップ アプリのトラブルシューティング
 >[!IMPORTANT]
@@ -22,7 +22,7 @@ x86 デスクトップ アプリが x86 コンピューターで実行したと�
 |-----|--------|
 | アプリが ARM 用に設計されていないドライバーに依存している。 | x86 ドライバーを ARM64 に再コンパイルします。 「[WDK を使った ARM64 ドライバーのビルド](https://docs.microsoft.com/en-us/windows-hardware/drivers/develop/building-arm64-drivers)」をご覧ください。 |
 | アプリが x64 でしか使用できない。 | Microsoft Store 向けに開発する場合、ARM バージョンのアプリを提出します。 詳しくは、「[アプリ パッケージのアーキテクチャ](../packaging/device-architecture.md)」をご覧ください。 Win32 開発者の場合、アプリを ARM64 に再コンパイルすることをお勧めします。 詳細については、「[ARM 開発での Windows 10 の Visual Studio サポートの初期プレビュー](https://blogs.windows.com/buildingapps/2018/05/08/visual-studio-support-for-windows-10-on-arm-development/)」に関するブログ記事を参照してください。 |
-| アプリで OpenGL バージョン 1.1 以降が使用されているか、ハードウェア アクセラレータによる OpenGL を必要としている。 | 利用可能な場合は、アプリの DirectX モードを使用します。 DirectX 9、DirectX 10、DirectX 11、DirectX 12 を使う x86 アプリは ARM で動作します。 詳しくは、「[DirectX のグラフィックスとゲーミング](https://msdn.microsoft.com/en-us/library/windows/desktop/ee663274(v=vs.85).aspx)」をご覧ください。 |
+| アプリで OpenGL バージョン 1.1 以降が使用されているか、ハードウェア アクセラレータによる OpenGL を必要としている。 | 利用可能な場合は、アプリの DirectX モードを使用します。 DirectX 9、DirectX 10、DirectX 11、DirectX 12 を使う x86 アプリは ARM で動作します。 詳しくは、「[DirectX のグラフィックスとゲーミング](https://docs.microsoft.com/windows/desktop/directx)」をご覧ください。 |
 | x86 アプリが期待どおりに動作しない。 | 「[プログラム互換性のトラブルシューティング ツール (ARM)](apps-on-arm-program-compat-troubleshooter.md)」のガイダンスに従って、互換性トラブルシューティング ツールを使ってみてください。 その他のトラブルシューティング手順については、「[ARM における x86 アプリのトラブルシューティング](apps-on-arm-troubleshooting-x86.md)」をご覧ください。 |
 
 ## <a name="best-practices-for-wow"></a>WOW のベスト プラクティス
@@ -34,7 +34,7 @@ x86 デスクトップ アプリが x86 コンピューターで実行したと�
 
 一般に、アプリは WOW で実行されていると判断された場合、ホスト システムに関する想定を行いません。 可能な限り OS のネイティブ コンポーネントを操作しないようにしてください。
 
-アプリは、ネイティブ レジストリ ビューにレジストリ キーを配置したり、WOW の存在に基づいて機能を実行したりする可能性があります。 元の **IsWow64Process** は、アプリが x64 コンピューターで実行されているかどうかのみ示しています。 アプリは [IsWow64Process2](https://msdn.microsoft.com/en-us/library/windows/desktop/mt804318(v=vs.85).aspx) を使って、WOW をサポートするシステムで実行されているかどうかを判断するようになりました。 
+アプリは、ネイティブ レジストリ ビューにレジストリ キーを配置したり、WOW の存在に基づいて機能を実行したりする可能性があります。 元の **IsWow64Process** は、アプリが x64 コンピューターで実行されているかどうかのみ示しています。 アプリは [IsWow64Process2](https://docs.microsoft.com/windows/desktop/api/wow64apiset/nf-wow64apiset-iswow64process2) を使って、WOW をサポートするシステムで実行されているかどうかを判断するようになりました。 
 
 ## <a name="drivers"></a>ドライバー 
 すべてのカーネル モード ドライバー、[ユーザー モード ドライバー フレームワーク (UMDF)](https://docs.microsoft.com/windows-hardware/drivers/wdf/overview-of-the-umdf) ドライバー、印刷ドライバーが OS のアーキテクチャと一致するようにコンパイルする必要があります。 x86 アプリにドライバーがある場合、そのドライバーを ARM64 用に再コンパイルする必要があります。 x86 アプリはエミュレーション下で適切に実行される可能性がありますが、そのドライバーは ARM64 用に再コンパイルする必要があり、ドライバーに依存するアプリ エクスペリエンスは利用できなくなります。 ARM64 用ドライバーのコンパイルについて詳しくは、「[WDK を使った ARM64 ドライバーのビルド](https://docs.microsoft.com/windows-hardware/drivers/develop/building-arm64-drivers)」をご覧ください。

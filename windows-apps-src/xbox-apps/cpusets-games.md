@@ -4,12 +4,12 @@ description: この記事では、ユニバーサル Windows プラットフォ�
 ms.topic: article
 ms.localizationpriority: medium
 ms.date: 02/08/2017
-ms.openlocfilehash: 49662d476d6d022ca05d53e9358fc547fda92a32
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 693abe68fcc7e4a341d773c6fa1af0d777c60c15
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57625667"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67322154"
 ---
 # <a name="cpusets-for-game-development"></a>ゲーム開発用の CPUSets
 
@@ -191,7 +191,7 @@ for (size_t i = 0; i < count; ++i)
 UWP 開発で使用できる CPUSets API によって、相当な量の情報が提供され、マルチスレッド オプションを制御できます。 Windows 開発用の以前のマルチスレッド API と比較して、複雑な部分が増えているため学習に時間が必要ですが、柔軟性が向上しているため、最終的にはさまざまなコンシューマー向け PC やその他のハードウェア ターゲットでパフォーマンスが向上します。
 
 ## <a name="additional-resources"></a>その他の資料
-- [CPU セット (MSDN)](https://msdn.microsoft.com/library/windows/desktop/mt186420(v=vs.85).aspx)
+- [CPU セット (MSDN)](https://docs.microsoft.com/windows/desktop/ProcThread/cpu-sets)
 - [ATG によって提供される CPUSets サンプル](https://github.com/Microsoft/Xbox-ATG-Samples/tree/master/Samples/System/CPUSets)
 - [Xbox One の UWP](index.md)
 

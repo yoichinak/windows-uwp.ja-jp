@@ -10,12 +10,12 @@ dev_langs:
 - csharp
 - cppwinrt
 - cppcx
-ms.openlocfilehash: 48ba9bb410588b2c4b31f1bb0bb190aeeeb05edf
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: dfe17fc64fd3e97f7562a7feca760b3a5d918f2e
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66360166"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67318008"
 ---
 # <a name="data-binding-overview"></a>データ バインディングの概要
 
@@ -23,7 +23,7 @@ ms.locfileid: "66360166"
 
 ## <a name="prerequisites"></a>前提条件
 
-このトピックでは、基本的な UWP アプリを作成できることを前提としています。 初めての UWP アプリを作成する方法について、詳しくは「[Windows アプリの概要](https://developer.microsoft.com/windows/getstarted)」をご覧ください。
+このトピックでは、基本的な UWP アプリを作成できることを前提としています。 初めての UWP アプリを作成する方法について、詳しくは「[Windows アプリの概要](https://docs.microsoft.com/windows/uwp/get-started/)」をご覧ください。
 
 ## <a name="create-the-project"></a>プロジェクトの作成
 

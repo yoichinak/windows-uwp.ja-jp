@@ -6,12 +6,12 @@ ms.date: 11/09/2017
 ms.topic: article
 keywords: Windows 10、UWP、アクセシビリティ、ゲーム
 ms.localizationpriority: medium
-ms.openlocfilehash: a3ef82db2d0ddb7883179279fd7e48c1acf38dd3
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 74ff2c25d38f20b94f50cc05a548778ee212bad0
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66369174"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67321363"
 ---
 #  <a name="making-games-accessible"></a>ゲームをアクセシビリティ対応にする
 
@@ -19,11 +19,11 @@ ms.locfileid: "66369174"
 
 ## <a name="gaming-for-everyone"></a>あらゆるユーザー向けのゲーム
 
-Microsoft では、あらゆるユーザーがゲームを楽しむことができる必要があると考えています。 「ゲームをあらゆるユーザーに受け入れられる包括的な環境にする努力をしなければならないと感じていました。 基本的には、Microsoft がファンのために構築しているものとそれを示す方法は (Microsoft の内部でも、外部でも)、自分たちの姿を反映したものであると信じています。 Microsoft では、組織として Microsoft が持っているコアの価値を反映するプログラムを設計し、そのプログラムがよい変化を起こすきっかけとなっていると信じています。それは職場の中だけでなく、対象とするゲーマーのために構築している製品に対してもです」 (Phil Spencer による[ブログの投稿](https://blogs.microsoft.com/blog/2016/06/13/gaming-for-everyone))
+Microsoft では、あらゆるユーザーがゲームを楽しむことができる必要があると考えています。 「ゲームをあらゆるユーザーに受け入れられる包括的な環境にする努力をしなければならないと感じていました。 基本的には、Microsoft がファンのために構築しているものとそれを示す方法は (Microsoft の内部でも、外部でも)、自分たちの姿を反映したものであると信じています。 Microsoft では、組織として Microsoft が持っているコアの価値を反映するプログラムを設計し、そのプログラムがよい変化を起こすきっかけとなっていると信じています。それは職場の中だけでなく、対象とするゲーマーのために構築している製品に対してもです」 (Phil Spencer による[ブログの投稿](https://blogs.microsoft.com/blog/2016/06/13/gaming-for-everyone/))
 
-Microsoft では、あらゆるユーザーが楽しめる、おもしろく、多様で、包括的な環境を創造したいと考えています。 「本当に持続的な影響を与えるには、カルチャーのシフトが必要であり、それは一晩で起こることではありません。 ただし、私たちのチームでは、毎日少しずつよくすることを約束し、互いに教え合い、意思決定プロセスでいったん立ち止まり、世界中のゲーマーの驚くほど多様なニーズ、能力、関心について考えています」 (Phil Spencer による[ブログの投稿](https://blogs.microsoft.com/blog/2016/06/13/gaming-for-everyone))
+Microsoft では、あらゆるユーザーが楽しめる、おもしろく、多様で、包括的な環境を創造したいと考えています。 「本当に持続的な影響を与えるには、カルチャーのシフトが必要であり、それは一晩で起こることではありません。 ただし、私たちのチームでは、毎日少しずつよくすることを約束し、互いに教え合い、意思決定プロセスでいったん立ち止まり、世界中のゲーマーの驚くほど多様なニーズ、能力、関心について考えています」 (Phil Spencer による[ブログの投稿](https://blogs.microsoft.com/blog/2016/06/13/gaming-for-everyone/))
 
-[あらゆるユーザー向けのゲーム](https://news.microsoft.com/gamingforeveryone)を実現するためのこの取り組みに、ぜひご参加いただけますようお願いいたします。 
+[あらゆるユーザー向けのゲーム](https://news.microsoft.com/gamingforeveryone/)を実現するためのこの取り組みに、ぜひご参加いただけますようお願いいたします。 
 
 ##  <a name="why-make-games-accessible"></a>ゲームをアクセシビリティ対応にする理由
 
@@ -69,7 +69,7 @@ Microsoft では、あらゆるユーザーが楽しめる、おもしろく、�
 
 ## <a name="defining-disability"></a>障碍の定義
 
-障碍とは、"個人のニーズと、提供されるサービス、製品、環境との不一致" と定義されます  ([包括的なビデオ](https://www.microsoft.com/design/inclusive)Microsoft.com)。つまり、障害が発生する可能性をすべてのユーザー、または短期的な状況の状態にできます。 このような状況のゲーマーがゲームをプレイするときに生じる可能性のある問題を想像し、どのようにゲームのデザインを改良できるかを検討しましょう。 考慮が必要な障碍として、次のようなものがあります。
+障碍とは、"個人のニーズと、提供されるサービス、製品、環境との不一致" と定義されます ([包括的なビデオ](https://www.microsoft.com/design/inclusive/)Microsoft.com)。つまり、障害が発生する可能性をすべてのユーザー、または短期的な状況の状態にできます。 このような状況のゲーマーがゲームをプレイするときに生じる可能性のある問題を想像し、どのようにゲームのデザインを改良できるかを検討しましょう。 考慮が必要な障碍として、次のようなものがあります。
 
 ### <a name="vision"></a>視覚
 
@@ -184,11 +184,11 @@ Microsoft では、あらゆるユーザーが楽しめる、おもしろく、�
 以下に、クローズド キャプションと字幕を設計する場合の基本的なガイドラインを示します。
 
 *   シンプルで読みやすいフォントを選びます。
-*   十分に大きいフォント サイズを選択するか、柔軟性を高めるために、フォント サイズを調整できるオプションを用意することを検討します  (適切なフォント サイズは、画面サイズ、画面から視聴位置までの距離、その他の要因によって異なります)。
-*   背景色とフォントの色のコントラストを高めます。 テキストには強いアウトラインとシャドウを使用します。 キャプションには濃い色の背景オーバーレイを使用し、有効または無効にするオプションを提供します  (詳しくは、[コントラスト比に関する情報](https://docs.microsoft.com/windows/uwp/accessibility/accessible-text-requirements)をご覧ください)。
-* 画面には短い文を表示します。1 行あたり最大 38 文字、一度に表示するのは最大 2 ～ 3 行にします  (イベントが発生する前にテキストを表示してゲームを台無しにしないように注意してください)。
-*   サウンドの発生元や話している人物を区別できるようにします  (例。"Daniel:こんにちは!")
-*   クローズド キャプションと字幕をオンまたはオフにするオプションを用意します  (追加の機能。サウンド情報の量が表示されるかを選択する機能に基づく重要度。)
+*   十分に大きいフォント サイズを選択するか、柔軟性を高めるために、フォント サイズを調整できるオプションを用意することを検討します (適切なフォント サイズは、画面サイズ、画面から視聴位置までの距離、その他の要因によって異なります)。
+*   背景色とフォントの色のコントラストを高めます。 テキストには強いアウトラインとシャドウを使用します。 キャプションには濃い色の背景オーバーレイを使用し、有効または無効にするオプションを提供します (詳しくは、[コントラスト比に関する情報](https://docs.microsoft.com/windows/uwp/accessibility/accessible-text-requirements)をご覧ください)。
+* 画面には短い文を表示します。1 行あたり最大 38 文字、一度に表示するのは最大 2 ～ 3 行にします (イベントが発生する前にテキストを表示してゲームを台無しにしないように注意してください)。
+*   サウンドの発生元や話している人物を区別できるようにします (例。"Daniel:こんにちは!")
+*   クローズド キャプションと字幕をオンまたはオフにするオプションを用意します (追加の機能。サウンド情報の量が表示されるかを選択する機能に基づく重要度。)
 
 ### <a name="game-chat-transcription"></a>ゲーム チャットのテキスト変換
 
@@ -196,7 +196,7 @@ Microsoft では、あらゆるユーザーが楽しめる、おもしろく、�
 
 ゲーム デバイスにマイクを接続いていないユーザーも、他のユーザーと音声でチャットすることができます。 チャット ウィンドウにテキストを入力して、それらのメッセージを音声に変換できます。 ボイス チャットをしているユーザーからの音声が聞き取りにくい場合は、変換されたテキスト メッセージの読むこともできます。
 
-ID@Xbox および対象パートナー向けプログラムの開発者の場合、Xbox Live サービスの[ゲーム チャット 2 のアクセシビリティ機能](https://docs.microsoft.com/gaming/xbox-live//multiplayer/chat/using-game-chat-2.md#accessibility)の一部として、音声合成とテキスト音声変換の機能を利用できます。 詳細については、「[ゲーム チャット 2 の概要](https://docs.microsoft.com/gaming/xbox-live//multiplayer/chat/game-chat-2-overview.md)」を参照してください。
+ID@Xbox および対象パートナー向けプログラムの開発者の場合、Xbox Live サービスの[ゲーム チャット 2 のアクセシビリティ機能](https://docs.microsoft.com/gaming/xbox-live/multiplayer/chat/using-game-chat-2.md#accessibility)の一部として、音声合成とテキスト音声変換の機能を利用できます。 詳細については、「[ゲーム チャット 2 の概要](https://docs.microsoft.com/gaming/xbox-live/multiplayer/chat/game-chat-2-overview.md)」を参照してください。
 
 ### <a name="sound-feedback"></a>サウンドによるフィードバック
 
@@ -204,7 +204,7 @@ ID@Xbox および対象パートナー向けプログラムの開発者の場合
 
 *   3D オーディオ キューを使って、追加の空間情報を提供します。
 * 音楽、音声、効果音のボリュームを別々に制御できるようにします。
-*   音声は、ゲーマーにとって意味のある情報を提供するように設計します  (例。「敵に近づいている」とします。「敵は入力バック ドアから。」)
+*   音声は、ゲーマーにとって意味のある情報を提供するように設計します (例。「敵に近づいている」とします。「敵は入力バック ドアから。」)
 *   音声の速度が適切であることを確認し、さらにアクセシビリティを高めるために、速度を制御できるようにします。
 
 ### <a name="fully-mappable-controls"></a>完全にマップ可能なコントロール
@@ -225,7 +225,7 @@ Xbox One の標準コントローラーと Xbox Elite コントローラーは�
 
 ### <a name="photosensitivity-epilepsy-testing"></a>光過敏性発作のテスト
 
-光過敏性発作 (PSE) とは、光の点滅、視覚的な形状やパターンの特定の動きなど、視覚的な刺激によって発作が引き起こされる症状のことです。 これは人口の約 3% で発症するとされ、幼少期から青年期に多く見られます。 数字で示すと、[5 ～ 24 歳の人口のおよそ 4000 人に 1 人](https://www.epilepsy.com/information/professionals/about-epilepsy-seizures/reflex-seizures-and-related-epileptic-syndromes-3)に相当します。
+光過敏性発作 (PSE) とは、光の点滅、視覚的な形状やパターンの特定の動きなど、視覚的な刺激によって発作が引き起こされる症状のことです。 これは人口の約 3% で発症するとされ、幼少期から青年期に多く見られます。 数字で示すと、[5 ～ 24 歳の人口のおよそ 4000 人に 1 人](https://www.epilepsy.com/learn/professionals/about-epilepsy-seizures/reflex-seizures-and-related-epileptic-syndromes-0)に相当します。
 
 ビデオ ゲームのプレイ中には、光過敏性反応を引き起こす可能性のある要因が多く出現します。これには、光の点滅の頻度、光の強度、背景と光のコントラスト、画面とゲーマーの間の距離、光の波長などが含まれます。
 
@@ -241,7 +241,7 @@ Xbox One の標準コントローラーと Xbox Elite コントローラーは�
 * 5 本を超える均等な間隔で繰り返されるハイ コントラスト ストライプ (グリッドやチェッカーボードなどの行または列)。これは、水玉など、小さく規則的な要素で構成される場合があります。
 * 大文字のみで書式設定され、文字間の間隔が狭く、行間が行自体の高さと同じであるため、事実上、ハイ コントラストで均等に繰り返される行に見える、5 行を超えるテキスト。
 
-自動システムを使って、光過敏性発作を引き起こす可能性のある刺激がゲームプレイ中に発生していないかどうかをチェックします  (例。[図表テスト](https://www.hardingtest.com/index.php?page=test)と[図表をフラッシュし、パターン アナライザー (FPA) G2](https://www.hardingfpa.com/harding-fpa-for-games/)ケンブリッジ Research システム Ltd and 教授 Graham 図表が開発した)。 
+自動システムを使って、光過敏性発作を引き起こす可能性のある刺激がゲームプレイ中に発生していないかどうかをチェックします (例。[図表テスト](https://www.hardingtest.com/index.php?page=test)と[図表をフラッシュし、パターン アナライザー (FPA) G2](https://www.hardingfpa.com/harding-fpa-for-games/)ケンブリッジ Research システム Ltd and 教授 Graham 図表が開発した)。 
 
 **点滅オン/オフ**を設定オプションとして含め、**点滅**を既定で**オフ**に設定します。 こうすることで、まだ自分が発作を起こしやすいと知らないプレイヤーを保護します。
 
@@ -253,7 +253,7 @@ Xbox One の標準コントローラーと Xbox Elite コントローラーは�
 
 ### <a name="game-accessibility-guidelines"></a>ゲームのアクセシビリティに関するガイドライン
 * [ゲームのアクセシビリティのガイドライン](https://gameaccessibilityguidelines.com/)
-* [AbleGamers Foundation ガイドライン](https://www.includification.com/)
+* [AbleGamers Foundation ガイドライン](https://accessible.games/accessible-player-experiences/)
 * [汎用アクセス可能な (UA) ゲームを設計します。](https://www.ics.forth.gr/hci/ua-games/index_main.php?l=e&c=555)
 
 ### <a name="custom-input-controllers"></a>カスタム入力コントローラー
@@ -262,14 +262,14 @@ Xbox One の標準コントローラーと Xbox Elite コントローラーは�
 
 ## <a name="references-used"></a>参考資料
 * [ゲームのアクセシビリティのガイドライン](https://gameaccessibilityguidelines.com/)
-* [AbleGamers Foundation ガイドライン](https://www.includification.com/)
+* [AbleGamers Foundation ガイドライン](https://accessible.games/accessible-player-experiences/)
 * [色視覚認識、コミュニティの利息会社](https://www.colourblindawareness.org/colour-blindness/types-of-colour-blindness/)
 * [実行する方法が字幕 well - Gamasutra によって Ian hamilton 氏のブログ記事](https://www.gamasutra.com/blogs/IanHamilton/20150715/248571/How_to_do_subtitles_well__basics_and_good_practices.php)
 * [すべてのプログラム向けにイノベーション](https://www.inclusivedesign.no/practical-tools/definitions-article56-127.html)
 * [癲癇 foundation](https://www.epilepsy.com/)
 
 ## <a name="related-links"></a>関連リンク
-* [包括的なデザイン](https://www.microsoft.com/design/inclusive)
+* [包括的なデザイン](https://www.microsoft.com/design/inclusive/)
 * [Microsoft アクセシビリティ開発者ハブ](https://developer.microsoft.com/windows/accessible-apps)
 * [アクセス可能な UWP アプリの開発](https://docs.microsoft.com/windows/uwp/accessibility/accessibility)
 * [エンジニア リング ソフトウェアのアクセシビリティの電子ブック](https://www.microsoft.com/download/details.aspx?id=19262)

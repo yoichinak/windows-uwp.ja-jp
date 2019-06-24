@@ -5,12 +5,12 @@ ms.date: 08/24/2017
 ms.topic: article
 keywords: Windows 10, UWP, アプリ内購入, IAP, アドオン, エラー コード
 ms.localizationpriority: medium
-ms.openlocfilehash: ba505b30076c356a39ae195e1d187cbc49d8a66a
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: e887e5fec2a2e04658332a25a3a6c8e23fe2550c
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57662877"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67321716"
 ---
 # <a name="error-codes-for-store-operations"></a>Microsoft Store の操作のエラー コード
 
@@ -46,14 +46,14 @@ ms.locfileid: "57662877"
 
 |  エラー コード  |  説明  |
 |--------------|---------------|
-| 0x803F700C   | デバイスは現在オフラインです。 デバイスがオフラインのときにこのアプリを使用するには、Microsoft Store の設定を開き、**[オフラインのアクセス許可]** の設定を切り替えます。            |
+| 0x803F700C   | デバイスは現在オフラインです。 デバイスがオフラインのときにこのアプリを使用するには、Microsoft Store の設定を開き、 **[オフラインのアクセス許可]** の設定を切り替えます。            |
 | 0x803F8001   | 製品の使用権がありません。 製品の購入に使用されたものとは別の Microsoft アカウントを使用している可能性があります。           |
 | 0x803F8002   | 製品の使用権の有効期限が切れています。           |
 | 0x803F8003   | 製品の使用権が無効な状態になっているため、ライセンスが作成されません。   |
 | 0x803F8009<br/>0x803F800A   | アプリの試用期間が終了しました。   |
 | 0x803F8190   |  このライセンスでは、デバイスの現在の国または地域で製品を使用することは許可されていません。  |
 | 0x803F81F5<br/>0x803F81F6<br/>0x803F81F7<br/>0x803F81F8<br/>0x803F81F9   |  Microsoft Store のゲームやアプリで使用できるデバイスの最大数に達しました。 現在のデバイスでこのゲームまたはアプリを使用するには、まず別のデバイスを自分のアカウントから削除します。  |
-| 0x803F9000<br/>0x803F9001    |  ライセンスは、有効期限が切れているか、または壊れています。 このエラーを解決するために実行してみてください、 [Windows アプリ用のトラブルシューティング ツール](https://support.microsoft.com/help/4027498/windows-run-the-troubleshooter-for-windows-apps)ストア キャッシュをリセットします。     |
+| 0x803F9000<br/>0x803F9001    |  ライセンスは、有効期限が切れているか、または壊れています。 このエラーを解決するために実行してみてください、 [Windows アプリ用のトラブルシューティング ツール](https://support.microsoft.com/help/4027498/microsoft-store-fix-problems-with-apps)ストア キャッシュをリセットします。     |
 | 0x803F9006    |  この製品の使用権があるユーザーが自分の Microsoft アカウントを使ってデバイスにサインインしていないため、操作を完了できませんでした。            |
 | 0x803F9008<br/>0x803F9009    |  デバイスがオフラインです。 この製品を使用するには、デバイスがオンラインになっている必要があります。            |
 | 0x803F900A    |  サブスクリプションは有効期限が切れています。            |

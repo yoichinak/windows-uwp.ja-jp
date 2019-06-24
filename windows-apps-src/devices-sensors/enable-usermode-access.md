@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, UWP, ACPI, GPIO, I2C, SPI, UEFI
 ms.assetid: 2fbdfc78-3a43-4828-ae55-fd3789da7b34
 ms.localizationpriority: medium
-ms.openlocfilehash: f41bf9f56b63f59844bec976e9d6e5e3d650b271
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 3dbb06f53f760724da312e00f545d799d6a24200
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66370270"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67321572"
 ---
 # <a name="enable-usermode-access-to-gpio-i2c-and-spi"></a>GPIO、I2C、SPI へのユーザー モード アクセスの有効化
 
@@ -614,7 +614,7 @@ Device(I2C1)
 * CLIENT_ConnectFunctionConfigPins – `GpioClx` によって呼び出され、ミニポート ドライバーが指定された多重化構成を適用するように指示を出します。
 * CLIENT_DisconnectFunctionConfigPins – `GpioClx` によって呼び出され、ミニポート ドライバーが多重化構成を戻すように指示を出します。
 
-これらのルーチンの説明については、「[GpioClx イベント コールバック関数](https://docs.microsoft.com/previous-versions//hh439464(v=vs.85))」をご覧ください。
+これらのルーチンの説明については、「[GpioClx イベント コールバック関数](https://docs.microsoft.com/previous-versions/hh439464(v=vs.85))」をご覧ください。
 
 これらの 2 つの新しい DDI に加えて、既存の DDI もピンの多重化の互換性の監査対象とする必要があります。
 
@@ -744,7 +744,7 @@ devcon status *msft8000
 
 rhproxy が実行されると、ユーザー モードからアクセスできるデバイス インターフェイスが作成されています。 いくつかのコマンド ライン ツールを使用してデバイスを列挙し、デバイスが存在していることを確認します。
 
-複製、 [ https://github.com/ms-iot/samples ](https://github.com/ms-iot/samples)リポジトリ、ビルド、 `GpioTestTool`、 `I2cTestTool`、 `SpiTestTool`、および`Mincomm`サンプル。 テスト対象デバイスにツールをコピーし、次のコマンドを使用してデバイスを列挙します。
+複製、 [ https://github.com/ms-iot/samples ](https://github.com/ms-iot/samples)リポジトリ、ビルド、 `GpioTestTool` 、 `I2cTestTool` 、 `SpiTestTool` 、および`Mincomm` サンプル。 テスト対象デバイスにツールをコピーし、次のコマンドを使用してデバイスを列挙します。
 
 ```ps
 I2cTestTool.exe -list

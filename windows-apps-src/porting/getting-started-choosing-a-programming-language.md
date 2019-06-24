@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: f5605c115c409771ce8dc9ddfeb1a4922e04aece
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 926c811c7ded47d0d97759a9c9658c5e0203d280
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66372842"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67319644"
 ---
 # <a name="getting-started-choosing-a-programming-language"></a>概要: プログラミング言語の選択
 
@@ -29,7 +29,7 @@ C++、C#、Microsoft Visual Basic、JavaScript を使って開発できます。
 -   [JavaScript を使用して、最初の UWP アプリを作成します。](../get-started/create-a-hello-world-app-js-uwp.md)
 
 **注**  3D グラフィックスを使用するアプリの場合は、OpenGL や OpenGL ES の標準は UWP アプリのネイティブに使用できません。 OpenGL ES のコードを Microsoft DirectX に書き換えない場合は、**Angle** に関心を持つかもしれません。 Angle は OpenGL API 呼び出しを DirectX API 呼び出しに翻訳することにより、OpenGL を DirectX に変換するように設計された進行中のプロジェクトです。 詳しくは、次のトピックをご覧ください。
--   [角度](https://code.google.com/p/angleproject/)
+-   [角度](https://bugs.chromium.org/p/angleproject/)
 -   [DirectX を使用して、最初の UWP アプリを作成します。](https://docs.microsoft.com/previous-versions/windows/apps/br229580(v=win.10))
 -   [DirectX を使用して UWP アプリのサンプル](https://go.microsoft.com/fwlink/p/?LinkId=263603)
 -   [DirectX SDK はどこにでしょうか。](https://docs.microsoft.com/windows/desktop/directx-sdk--august-2009-)

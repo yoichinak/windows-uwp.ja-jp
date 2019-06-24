@@ -4,12 +4,12 @@ title: 支払い要求 API で支払いを簡略化する
 ms.date: 09/26/2017
 ms.topic: article
 keywords: windows 10、uwp、支払い要求
-ms.openlocfilehash: a40b8265e3445319bd7baa530df0f9e9eaae0f31
-ms.sourcegitcommit: fca0132794ec187e90b2ebdad862f22d9f6c0db8
+ms.openlocfilehash: f055bacbddae88cdbd100b460d933682b3c78a13
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63804491"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67320059"
 ---
 # <a name="simplify-payments-with-the-payment-request-api"></a>支払い要求 API で支払いを簡略化する
 UWP アプリの支払い要求 API がに基づいて、 [W3C 支払い要求の API 仕様](https://w3c.github.io/browser-payment-api/)します。これは、UWP アプリでチェック アウト プロセスを効率化機能を提供します。 ユーザーには、チェック アウトをお支払い方法を使用して、送付先住所が既に Microsoft アカウントを使って保存の高速化できます。 コンバージョン率を向上し、支払情報をトークン化されたため、データ漏えいのリスクを軽減できます。 以降、Windows 10 Creators Update では、ユーザーは UWP アプリでのエクスペリエンス全体で簡単に支払いに、保存済みのお支払い方法を使用できます。
@@ -18,7 +18,7 @@ UWP アプリの支払い要求 API がに基づいて、 [W3C 支払い要求�
 支払い要求 API の使用を開始する前に、いくつかの点に注意してくださいまたは行う必要があります。
 
 ### <a name="getting-a-merchant-id"></a>マーチャント ID の取得
-支払い要求プロセスの一環として、Microsoft は、サービス プロバイダーから、あなたに代わって支払いトークンを要求します。 したがって、API を使用する前にそれらのトークンを要求するユーザーの承認が必要です。  販売者アカウントの登録を行い、必要な権限を提供する、いくつかの手順に従ってください。 移動するには、 [Microsoft 販売者 Center](https://seller.microsoft.com/en-us/dashboard/registration/seller/?accountprogram=uwp)します。 これを完了したら、コピー結果として得られる販売者から支払いの要求を構築するときに、アプリにパートナー センターの ID。 次に、アプリケーションでは、支払いの要求を送信するときに、お客様の支払いを送信する必要がありますプロセッサから支払トークンを受け取ります。
+支払い要求プロセスの一環として、Microsoft は、サービス プロバイダーから、あなたに代わって支払いトークンを要求します。 したがって、API を使用する前にそれらのトークンを要求するユーザーの承認が必要です。  販売者アカウントの登録を行い、必要な権限を提供する、いくつかの手順に従ってください。 移動するには、 [Microsoft 販売者 Center](https://partner.microsoft.com/dashboard/registration/seller?accountprogram=uwp)します。 これを完了したら、コピー結果として得られる販売者から支払いの要求を構築するときに、アプリにパートナー センターの ID。 次に、アプリケーションでは、支払いの要求を送信するときに、お客様の支払いを送信する必要がありますプロセッサから支払トークンを受け取ります。
 
 ### <a name="geographic-restrictions-and-language-support"></a>地理的な制限事項および言語のサポート
 支払いの要求の API は、米国の州のトランザクションの処理に米国の企業でのみ使用できます。
@@ -80,5 +80,5 @@ Microsoft アカウントでサインインを求められます。
 - [Windows.ApplicationModel.Payments リファレンス ドキュメント](https://docs.microsoft.com/en-us/uwp/api/windows.applicationmodel.payments)
 - [GitHub での UWP ショッピング アプリのサンプル](https://github.com/Microsoft/Windows-appsample-shopping)
 - [W3C 支払い要求の API 仕様](https://www.w3.org/TR/payment-request/)
-- [支払い要求 API ](https://docs.microsoft.com/en-us/microsoft-edge/dev-guide/device/payment-request-api)
+- [支払い要求 API ](https://docs.microsoft.com/microsoft-edge/dev-guide/windows-integration/payment-request-api)
 

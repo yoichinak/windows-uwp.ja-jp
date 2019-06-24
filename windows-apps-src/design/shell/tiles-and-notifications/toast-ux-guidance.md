@@ -7,12 +7,12 @@ ms.date: 05/18/2018
 ms.topic: article
 keywords: windows 10、uwp、通知、コレクション、グループ、ux、ux のガイダンスについては、ガイダンス、アクション、トースト、アクション センター、noninterruptive、効果的な通知、非侵入型の通知、実行可能な管理、整理
 ms.localizationpriority: medium
-ms.openlocfilehash: 878df85db9ab0e33db06a86ddb726f07dc28f013
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 327a2add84343be3b972f7bb1f232298e7ef92ad
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57615767"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67320727"
 ---
 # <a name="toast-notification-ux-guidance"></a>トースト通知の UX のガイダンス
 現代の暮らしにおいて; のために必要な一部である通知ユーザーの生産性とアプリと web サイト、すべての更新プログラムを最新に関与するのに役立ちます。 ただし、通知は一味に役立つ、侵入の場合は、ユーザー中心の方法で設計されていませんから簡単にできます。 通知は、無効にすることから 1 つを右クリックし、オフにするとはほとんどありません、もう一度には。  この engagement チャネルを開いたのままにしておくことができますが、通知、ユーザーの画面領域と時間、尊重を確認しておきます。
@@ -65,4 +65,4 @@ Windows 利用統計情報、およびその他の最初とサード パーテ�
 * [トーストのコンテンツ](adaptive-interactive-toasts.md)
 * [直接通知](raw-notification-overview.md)
 * [保留中の更新](toast-pending-update.md)
-* [GitHub (Windows の Community Toolkit の一部) の通知ライブラリ](https://github.com/Microsoft/UWPCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.Notifications)
+* [GitHub (Windows の Community Toolkit の一部) の通知ライブラリ](https://github.com/windows-toolkit/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.Notifications)

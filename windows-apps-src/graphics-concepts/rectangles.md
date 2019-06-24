@@ -7,12 +7,12 @@ keywords:
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 9d6a3b1eb64c89f231d0334a3cbe8e58d11c58ae
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 22aa6da9a26e3bd50fc5ff4fe4272f6da91cdd08
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66370954"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67320997"
 ---
 # <a name="rectangles"></a>四角形
 
@@ -21,7 +21,7 @@ Direct3D および Windows のプログラミングにおいて、画面上の�
 ## <a name="span-idboundingrectanglesspanspan-idboundingrectanglesspanspan-idboundingrectanglesspanbounding-rectangles"></a><span id="Bounding_rectangles"></span><span id="bounding_rectangles"></span><span id="BOUNDING_RECTANGLES"></span>外接する四角形
 
 
-ほとんどのアプリケーションは、画面に情報を伝えたり、ヒット検出を実行したりする場合、[**RECT**](https://docs.microsoft.com/previous-versions//dd162897(v=vs.85)) 構造体 (または typedef されているエイリアス) を使って、利用する境界矩形に関する情報を伝えます。 C++ の場合、**RECT** 構造体は次のように定義されます。
+ほとんどのアプリケーションは、画面に情報を伝えたり、ヒット検出を実行したりする場合、[**RECT**](https://docs.microsoft.com/previous-versions/dd162897(v=vs.85)) 構造体 (または typedef されているエイリアス) を使って、利用する境界矩形に関する情報を伝えます。 C++ の場合、**RECT** 構造体は次のように定義されます。
 
 ```cpp
 typedef struct tagRECT { 

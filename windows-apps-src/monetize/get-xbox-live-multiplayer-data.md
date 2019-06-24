@@ -5,20 +5,20 @@ ms.date: 06/04/2018
 ms.topic: article
 keywords: Windows 10, UWP, Store サービス, Microsoft Store 分析 API, Xbox Live 分析, マルチプレイヤー
 ms.localizationpriority: medium
-ms.openlocfilehash: 58f470abdf7cbf0770bf01dd123a8fdfd2c2cbea
-ms.sourcegitcommit: e63fbd7a63a7e8c03c52f4219f34513f4b2bb411
+ms.openlocfilehash: b80a9dc8828459e7734370061e960fad64ab7015
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58162997"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67321775"
 ---
 # <a name="get-xbox-live-multiplayer-data"></a>Xbox Live のマルチプレイヤー データの取得
 
 
-[Xbox Live 対応ゲーム](https://docs.microsoft.com/gaming/xbox-live//index.md)のマルチプレイヤー データを日単位または月単位で取得するには、Microsoft Store 分析 API の以下のメソッドを使います。 この情報も記載されて、 [Xbox analytics レポート](../publish/xbox-analytics-report.md)パートナー センターでします。
+[Xbox Live 対応ゲーム](https://docs.microsoft.com/gaming/xbox-live/index.md)のマルチプレイヤー データを日単位または月単位で取得するには、Microsoft Store 分析 API の以下のメソッドを使います。 この情報も記載されて、 [Xbox analytics レポート](../publish/xbox-analytics-report.md)パートナー センターでします。
 
 > [!IMPORTANT]
-> このメソッドは、Xbox のゲームまたは Xbox Live サービスを使用するゲームのみサポートします。 これらのゲームは、[概念の承認プロセス](../gaming/concept-approval.md)を完了する必要があります。これには、[Microsoft パートナー](https://docs.microsoft.com/gaming/xbox-live//developer-program-overview.md#microsoft-partners)が発行したゲームと [ID@Xbox プログラム](https://docs.microsoft.com/gaming/xbox-live//developer-program-overview.md#id)を介して申請されたゲームが含まれます。 このメソッドでは、[Xbox Live クリエーターズ プログラム](https://docs.microsoft.com/gaming/xbox-live//get-started-with-creators/get-started-with-xbox-live-creators.md)を介して発行されたゲームは現在サポートされていません。
+> このメソッドは、Xbox のゲームまたは Xbox Live サービスを使用するゲームのみサポートします。 これらのゲームは、[概念の承認プロセス](../gaming/concept-approval.md)を完了する必要があります。これには、[Microsoft パートナー](https://docs.microsoft.com/gaming/xbox-live/developer-program-overview.md#microsoft-partners)が発行したゲームと [ID@Xbox プログラム](https://docs.microsoft.com/gaming/xbox-live/developer-program-overview.md#id)を介して申請されたゲームが含まれます。 このメソッドでは、[Xbox Live クリエーターズ プログラム](https://docs.microsoft.com/gaming/xbox-live/get-started-with-creators/get-started-with-xbox-live-creators.md)を介して発行されたゲームは現在サポートされていません。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -51,7 +51,7 @@ ms.locfileid: "58162997"
 |---------------|--------|---------------|------|
 | applicationId | string | Xbox Live のマルチプレイヤー データを取得するゲームの [Store ID](in-app-purchases-and-trials.md#store-ids) です。  |  〇  |
 | metricType | string | 取得する Xbox Live 分析データの種類を指定する文字列です。 このメソッドでは、日単位のマルチプレイヤー データを取得するには値 **multiplayerdaily** を指定し、月単位のマルチプレイヤー データを取得するには **multiplayermonthly** を指定します。  |  〇  |
-| startDate | date | 取得するマルチプレイヤー データの日付範囲の開始日です。 **multiplayerdaily** の場合、既定値は現在の日付の 3 か月前になります。 **multiplayermonthly** の場合、既定値は現在の日付の 1 年前になります。 |  いいえ  |
+| startDate | date | 取得するマルチプレイヤー データの日付範囲の開始日です。 **multiplayerdaily** の場合、既定値は現在の日付の 3 か月前になります。 **multiplayermonthly** の場合、既定値は現在の日付の 1 年前になります。 |  X  |
 | endDate | date | 取得するマルチプレイヤー データの日付範囲終了日です。 既定値は現在の日付です。 |  X  |
 | top | int | 要求で返すデータの行数です。 最大値および指定しない場合の既定値は 10000 です。 クエリにこれを上回る行がある場合は、応答本文に次リンクが含まれ、そのリンクを使ってデータの次のページを要求できます。 |  X  |
 | skip | int | クエリでスキップする行数です。 大きなデータ セットを操作するには、このパラメーターを使用します。 たとえば、top=10000 と skip=0 を指定すると、データの最初の 10,000 行が取得され、top=10000 と skip=10000 を指定すると、データの次の 10,000 行が取得されます。 |  X  |
@@ -71,7 +71,7 @@ Authorization: Bearer <your access token>
 
 ## <a name="response"></a>応答
 
-| 値      | 種類   | 説明                  |
+| Value      | 種類   | 説明                  |
 |------------|--------|-------------------------------------------------------|
 | Value      | array  | マルチプレイヤー データを含むオブジェクトの配列です。各オブジェクトは、指定された日単位または月単位の期間のデータ セットを表し、指定された **filter** 値と **groupby** 値によって整理されます。 各オブジェクトに格納されるデータについて詳しくは、「[日単位のマルチプレイヤー分析](#daily-multiplayer-analytics)」と「[月単位のマルチプレイヤー分析](#monthly-multiplayer-analytics)」の各セクションをご覧ください。     |
 | @nextLink  | string | データの追加ページがある場合、この文字列には、データの次のページを要求するために使用できる URI が含まれます。 たとえば、要求の **top** パラメーターが 10000 に設定されていたとき、クエリに対して 10000 行を超えるデータが一致すると、この値が返されます。 |

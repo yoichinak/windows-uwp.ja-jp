@@ -6,12 +6,12 @@ ms.date: 10/31/2018
 ms.topic: article
 keywords: Windows 10、UWP、広告、キャンペーン、プロモーション
 ms.localizationpriority: medium
-ms.openlocfilehash: 0d38d47c1b5e228e984faa4657cd12735e98bcf9
-ms.sourcegitcommit: d1c3e13de3da3f7dce878b3735ee53765d0df240
+ms.openlocfilehash: 1dc06a2977832e659220b133ba42a99bad982291
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66215232"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67320092"
 ---
 # <a name="create-an-ad-campaign-for-your-app"></a>アプリの広告キャンペーンの作成
 
@@ -90,7 +90,7 @@ ms.locfileid: "66215232"
 
 12.  [プレミアム アカウント](common-questions.md#how-can-i-increase-the-maximum-monthly-budget-amount-allowed-for-my-ad-campaign)をお持ちの場合は、 **[宛先 URL]** ボックスを使用して、顧客が広告をクリックしたときの動作を制御できます。
     * このボックスを空白のままにした場合、顧客が広告をクリックすると、アプリのストア登録情報が表示されます。
-    * アプリのインストールの分析を測定する調整、Kochava、調整、または Vungle を使用している場合は、追跡 URL、インストールを入力します。 キャンペーンを保存するときに、トラッキング URL が検証され、Microsoft Store のアプリの登録情報ページに解決されるかどうかが確認されます。 これらのサービスのインストールの追跡の詳細については、次を参照してください、[調整](https://docs.adjust.com/en/)、 [Kochava](https://support.kochava.com/)、[チューニング](https://help.tune.com/)、および[Vungle](https://support.vungle.com/)ドキュメント.
+    * アプリのインストールの分析を測定する調整、Kochava、調整、または Vungle を使用している場合は、追跡 URL、インストールを入力します。 キャンペーンを保存するときに、トラッキング URL が検証され、Microsoft Store のアプリの登録情報ページに解決されるかどうかが確認されます。 これらのサービスのインストールの追跡の詳細については、次を参照してください、[調整](https://docs.adjust.com/en/)、 [Kochava](https://support.kochava.com/)、[チューニング](https://help.tune.com/hasoffers/)、および[Vungle](https://support.vungle.com/hc/en-us)ドキュメント.
     * キャンペーンの目的として **[アプリの利用率を引き上げる]** を選択した場合は、[ディープリンク URI](../launch-resume/handle-uri-activation.md) を指定して、選択したセグメントに該当する顧客をアプリ内の特定のページにリダイレクトできます。
     * アプリの説明ページでもアプリ内のページでもないページをリンク先に指定した場合、キャンペーンが自動的に一時停止されます。
 

@@ -7,12 +7,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: cb02e9c332ab1c27886520c0a9c95a312a8c395d
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: cc613177f7cdd57691fa261519127e8bbf03e3ad
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66372745"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67319887"
 ---
 # <a name="app-capability-declarations"></a>アプリ機能の宣言
 
@@ -51,7 +51,7 @@ ms.locfileid: "66372745"
 | **VoIP 呼び出し** | **VoipCall**機能により、VoIP 呼び出し Api にアクセスするアプリ、 [ **Windows.ApplicationModel.Calls** ](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Calls)名前空間。<br /><br />アプリのパッケージ マニフェストで宣言するとき、以下に示すように、**voipCall** 機能に **uap** 名前空間を含める必要があります。<br /><br />```<Capabilities><uap:Capability Name="voipCall"/></Capabilities>```
 | **3D オブジェクト** | **objects3D** 機能を使用すると、アプリは 3D オブジェクト ファイルにプログラムでアクセスできます。 通常、この機能は、3D オブジェクト ライブラリ全体にアクセスする必要がある 3D アプリやゲームで使用されます。<br /><br />[  **Windows.Storage**](https://docs.microsoft.com/uwp/api/Windows.Storage) 名前空間の API を使って 3D オブジェクトを含むフォルダーにアクセスする場合は、この機能が必要になります。<br /><br />アプリのパッケージ マニフェストで宣言するとき、以下に示すように、**objects3D** 機能に **uap** 名前空間を含める必要があります。<br /><br />```<Capabilities><uap:Capability Name="objects3D"/></Capabilities>```
 | **ブロックされているメッセージの読み取り**\* | **blockedChatMessages** 機能を使うと、アプリはスパム フィルター アプリでブロックされた SMS メッセージや MMS メッセージを読み取ることができます。<br /><br />[  **Windows.ApplicationModel.Chat**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Chat) 名前空間の API を使ってブロックされたメッセージにアクセスする場合は、この機能が必要になります。<br /><br />アプリのパッケージ マニフェストで宣言するとき、以下に示すように、**blockedChatMessages** 機能に **uap** 名前空間を含める必要があります。<br /><br />```<Capabilities><uap:Capability Name="blockedChatMessages"/></Capabilities>```
-| **カスタムのデバイス** | **LowLevelDevices**機能は、さまざまな追加の要件が満たされたときにカスタムのデバイスにアクセスするアプリを許可します。 この機能と混同しないで、**ローレベル**デバイスの機能は、GPIO、I2C、SPI、PWM およびデバイスへのアクセスを許可します。<br /><br /> 公開するカスタム ドライバーを開発する場合、[デバイス インターフェイス](https://docs.microsoft.com/windows-hardware/drivers/install/device-interface-classes)し、このデバイスを識別するハンドルを開くし、Ioctl を送信する必要があります。 <ul><li>有効にする、 **lowLevelDevices**アプリケーション マニフェストで機能します。 ```<Capabilities><iot:Capability Name="lowLevelDevices"/></Capabilities>```</li><li>有効にする[埋め込みモード](https://docs.microsoft.com/windows/iot-core/develop-your-app/EmbeddedMode)</li><li>デバイス インターフェイスとしてのマーク[制限](https://docs.microsoft.com/windows-hardware/drivers/install/devpkey-deviceinterface-restricted)、いずれかで、 [INF](https://msdn.microsoft.com/library/windows/desktop/hh404264(v=vs.85).aspx)または呼び出すことによって[WdfDeviceAssignInterfaceProperty()](https://docs.microsoft.com/windows-hardware/drivers/ddi/content/wdfdevice/nf-wdfdevice-wdfdeviceassigninterfaceproperty)ドライバー。</ul>使用することができますし、 [ **Windows.Devices.Custom.CustomDevice** ](https://docs.microsoft.com/uwp/api/Windows.Devices.Custom.CustomDevice)デバイスを識別するハンドルを開く。 詳細については、次を参照してください。[内部デバイス用の UWP デバイス アプリ](https://docs.microsoft.com/windows-hardware/drivers/devapps/uwp-device-apps-for-specialized-devices)します。
+| **カスタムのデバイス** | **LowLevelDevices**機能は、さまざまな追加の要件が満たされたときにカスタムのデバイスにアクセスするアプリを許可します。 この機能と混同しないで、**ローレベル**デバイスの機能は、GPIO、I2C、SPI、PWM およびデバイスへのアクセスを許可します。<br /><br /> 公開するカスタム ドライバーを開発する場合、[デバイス インターフェイス](https://docs.microsoft.com/windows-hardware/drivers/install/device-interface-classes)し、このデバイスを識別するハンドルを開くし、Ioctl を送信する必要があります。 <ul><li>有効にする、 **lowLevelDevices**アプリケーション マニフェストで機能します。 ```<Capabilities><iot:Capability Name="lowLevelDevices"/></Capabilities>```</li><li>有効にする[埋め込みモード](https://docs.microsoft.com/windows/iot-core/develop-your-app/EmbeddedMode)</li><li>デバイス インターフェイスとしてのマーク[制限](https://docs.microsoft.com/windows-hardware/drivers/install/devpkey-deviceinterface-restricted)、いずれかで、 [INF](https://docs.microsoft.com/previous-versions/windows/desktop/deviceaccess/register-the-device-interface-class-as-privileged)または呼び出すことによって[WdfDeviceAssignInterfaceProperty()](https://docs.microsoft.com/windows-hardware/drivers/ddi/content/wdfdevice/nf-wdfdevice-wdfdeviceassigninterfaceproperty)ドライバー。</ul>使用することができますし、 [ **Windows.Devices.Custom.CustomDevice** ](https://docs.microsoft.com/uwp/api/Windows.Devices.Custom.CustomDevice)デバイスを識別するハンドルを開く。 詳細については、次を参照してください。[内部デバイス用の UWP デバイス アプリ](https://docs.microsoft.com/windows-hardware/drivers/devapps/uwp-device-apps-for-specialized-devices)します。
 | **IoT システム管理** | **systemManagement** 機能を使うと、アプリは基本的なシステム管理者特権 (シャットダウン、再起動、ロケール、タイムゾーンなど) を持つことができます。<br /><br />[  **Windows.System**](https://docs.microsoft.com/uwp/api/Windows.System) 名前空間の一部の API にアクセスする場合は、この機能が必要になります。<br /><br />アプリのパッケージ マニフェストで宣言するとき、以下に示すように、**systemManagement** 機能に **iot** 名前空間を含める必要があります。<br /><br />```<Capabilities><iot:Capability Name="systemManagement"/></Capabilities>```
 | **バック グラウンド メディア再生** | **backgroundMediaPlayback** 機能は、[**MediaPlayer**](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplayer) クラスや [**AudioGraph**](https://docs.microsoft.com/uwp/api/windows.media.audio.audiograph) クラスなど、メディア固有の API の動作を変更して、アプリがバック グラウンドで実行されている間のメディアの再生を有効にします。 アプリがバックグラウンドに移行しても、アクティブなすべてのオーディオ ストリームはミュートせず、音声を発し続けます。 また再生が行われている間はアプリが有効に保たれるように、アプリの有効期間が自動的に延長されます。
 | **リモート システム** | **remoteSystem**機能を使うと、アプリがユーザーの Microsoft アカウントに関連付けられているデバイスの一覧にアクセスできるようになります。 デバイスの一覧へのアクセスは、実行した操作を複数のデバイス間で保持するために不可欠です。 この機能は、次の項目のすべてのメンバーにアクセスするために必要です。<ul><li>[Windows.System.RemoteSystems](https://docs.microsoft.com/uwp/api/windows.system.remotesystems)名前空間</li><li>[Windows.System.RemoteLauncher](https://docs.microsoft.com/uwp/api/Windows.System.RemoteLauncher)クラス</li><li>[AppServiceConnection.OpenRemoteAsync](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appservice.appserviceconnection.openremoteasync)メソッド</li></ul> |
@@ -110,7 +110,7 @@ ms.locfileid: "66372745"
 
 ### <a name="restricted-capability-approval-process"></a>制限付き機能の承認プロセス
 
-以前は、機能を使う承認を得るためにサポートに問い合わせる必要がありました。 この情報を指定することが今すぐできます[パートナー センター](https://partner.microsoft.com/dashboard/)の一部として、[送信プロセス](../publish/app-submissions.md)します。
+以前は、機能を使う承認を得るためにサポートに問い合わせる必要がありました。 この情報を指定することが今すぐできます[パートナー センター](https://partner.microsoft.com/dashboard)の一部として、[送信プロセス](../publish/app-submissions.md)します。
 
 お客様の提出のパッケージをアップロードするときに、制限付き機能が宣言されているかどうかが検出されます。 検出された場合、製品で各機能が使用されているかどうかに関する詳しい情報を[申請オプション](../publish/manage-submission-options.md#restricted-capabilities)ページで提供する必要があります。 製品が機能を宣言する必要がある理由を理解できるように、必ずできる限り詳しく入力してください。 これにより、申請が認定プロセスを完了するまでの時間がいくらか長くなる可能性があります。
 

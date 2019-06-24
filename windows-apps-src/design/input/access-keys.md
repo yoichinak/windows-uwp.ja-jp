@@ -11,12 +11,12 @@ design-contact: kimsea
 dev-contact: niallm
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 6c13ac8f1421fe785ebce70789c8ea6d0bf6c068
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: b27c5a0446bc9b329b09855f06d58a13723ece1c
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66364015"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67317381"
 ---
 # <a name="access-keys"></a>アクセス キー
 
@@ -241,7 +241,7 @@ _英語とスペイン語のリソース文字列フォルダー_
 
 _Resources.resw ファイルで指定されたアクセス キーのプロパティを指定します。_
 
-詳しくは、「[UI リソースの翻訳](https://msdn.microsoft.com/library/windows/apps/xaml/Hh965329(v=win.10).aspx)」をご覧ください。
+詳しくは、「[UI リソースの翻訳](https://docs.microsoft.com/previous-versions/windows/apps/hh965329(v=win.10))」をご覧ください。
 
 ## <a name="key-tip-positioning"></a>キーのヒントを配置する
 
@@ -257,18 +257,18 @@ _キーのヒントの自動配置の例_
 
 1.  **わかりやすい原則**:ユーザー キーのヒントでは、コントロールを簡単に関連付けることができます。
 
-    a.   キーのヒントは、アクセス キーを持つ要素 (オーナー) の**近く**に配置する必要があります。  
-    b.   キーのヒントは、アクセス キーを持つ**有効な要素を覆わないようにする**必要があります。   
+    a.  キーのヒントは、アクセス キーを持つ要素 (オーナー) の**近く**に配置する必要があります。  
+    b.  キーのヒントは、アクセス キーを持つ**有効な要素を覆わないようにする**必要があります。   
     c.  キーのヒントをそのオーナーの近くに配置できない場合、オーナーと重ねる必要があります。 
 
 2.  **探索可能性**:ユーザーは、キーのヒントを持つコントロールをすばやく検出できます。
 
-    a.   キーのヒントが他のキーのヒントと**重なる**のを回避してください。  
+    a.  キーのヒントが他のキーのヒントと**重なる**のを回避してください。  
 
 3.  **簡単にスキャンします。** ユーザー キーのヒントは簡単に読み飛ばしてかまいません。
 
-    a.   キーのヒントは、ヒント相互および UI 要素に**揃えて**配置する必要があります。
-    b.   キーのヒントはできる限り**グループ分け**する必要があります。 
+    a.  キーのヒントは、ヒント相互および UI 要素に**揃えて**配置する必要があります。
+    b.  キーのヒントはできる限り**グループ分け**する必要があります。 
 
 ### <a name="relative-position"></a>相対的な配置
 

@@ -5,12 +5,12 @@ ms.date: 10/10/2017
 ms.topic: article
 keywords: Windows 10, UWP, アニメーション
 ms.localizationpriority: medium
-ms.openlocfilehash: 834f631cd5c4b8696e75f83f194b95f809b1cf8a
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 87e4eb90b4801d01ecb85c91b5e64ccc9155d199
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57649867"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67318094"
 ---
 # <a name="pull-to-refresh-with-source-modifiers"></a>ソース修飾子を使用した引っ張って更新
 
@@ -48,7 +48,7 @@ InteractionTracker が対話状態になっているとき、InteractionTracker 
 
 ![引っ張って更新を使用するリスト](images/animation/city-list.gif)
 
-このエクスペリエンスで動作するコードについては、「[Window UI Dev Labs repo on GitHub](https://github.com/Microsoft/WindowsUIDevLabs)」(GitHub の Windows UI 開発ラボ リポジトリ) をご覧ください。 このエクスペリエンスを作成するためのステップ バイ ステップのチュートリアルを次に示します。
+このエクスペリエンスで動作するコードについては、「[Window UI Dev Labs repo on GitHub](https://github.com/microsoft/WindowsCompositionSamples)」(GitHub の Windows UI 開発ラボ リポジトリ) をご覧ください。 このエクスペリエンスを作成するためのステップ バイ ステップのチュートリアルを次に示します。
 XAML マークアップ コードを、次のように構成します。
 
 ```xaml
@@ -67,7 +67,7 @@ ScrollViewer.VerticalScrollMode="Enabled" ScrollViewer.IsScrollInertiaEnabled="F
 </StackPanel>
 ```
 
-ListView (`ThumbnailList`) は既にスクロールされる XAML コントロールであるため、一番上の項目に到達し、それ以上スクロールできなくなったときに親の (`ContentPanel`) までチェーンされるスクロールが必要になります  (ContentPanel はソース修飾子が適用されます) です。この ScrollViewer.IsVerticalScrollChainingEnabled に設定する必要があるため**true** ListView マークアップ。 また、VisualInteractionSource のチェーン モードを **Always** に設定する必要もあります。
+ListView (`ThumbnailList`) は既にスクロールされる XAML コントロールであるため、一番上の項目に到達し、それ以上スクロールできなくなったときに親の (`ContentPanel`) までチェーンされるスクロールが必要になります (ContentPanel はソース修飾子が適用されます) です。この ScrollViewer.IsVerticalScrollChainingEnabled に設定する必要があるため**true** ListView マークアップ。 また、VisualInteractionSource のチェーン モードを **Always** に設定する必要もあります。
 
 _handledEventsToo_ パラメーターを使用して、PointerPressedEvent ハンドラーを **true** に設定する必要があります。 このオプションを使用しないと、PointerPressedEvent は ListView コントロールとして ContentPanel にチェーンされず、これらのイベントは処理済みとしてマークされ、これらのイベントはビジュアル チェーンに送信されなくなります。
 

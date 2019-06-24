@@ -6,12 +6,12 @@ ms.date: 03/22/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 7c61a35f0ad35cf85afcba564eb676aa171b0243
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: c25fc09d606c0f143f357dd7f89026fa94b80922
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66360843"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67318356"
 ---
 # <a name="create-edit-and-save-bitmap-images"></a>ビットマップ画像の作成、編集、保存
 
@@ -65,7 +65,7 @@ ms.locfileid: "66360843"
 
 [!code-xml[ImageControl](./code/ImagingWin10/cs/MainPage.xaml#SnippetImageControl)]
 
-現時点では、**Image** コントロールは、BGRA8 エンコードを使用し、プリマルチプライ処理済みまたはアルファ チャネルなしの画像のみをサポートします。 画像を表示する前に、画像の形式が正しいことをテストしてください。形式が不適切な場合は、**SoftwareBitmap** の [**Convert**](https://docs.microsoft.com/uwp/api/windows.graphics.imaging.softwarebitmap.windows) メソッドを使用して、サポートされる形式に画像を変換してください。
+現時点では、**Image** コントロールは、BGRA8 エンコードを使用し、プリマルチプライ処理済みまたはアルファ チャネルなしの画像のみをサポートします。 画像を表示する前に、画像の形式が正しいことをテストしてください。形式が不適切な場合は、**SoftwareBitmap** の [**Convert**](https://docs.microsoft.com/uwp/api/windows.graphics.imaging.softwarebitmap.convert) メソッドを使用して、サポートされる形式に画像を変換してください。
 
 新しい [**SoftwareBitmapSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Imaging.SoftwareBitmapSource) オブジェクトを作ります。 [  **SetBitmapAsync**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.softwarebitmapsource.setbitmapasync) を呼び出し、**SoftwareBitmap** で渡して、ソース オブジェクトの内容を設定します。 その新しく作成した **SoftwareBitmapSource** を、**Image** コントロールの [**Source**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.image.source) プロパティに設定します。
 
@@ -89,7 +89,7 @@ COM 相互運用機能を使うには、**System.Runtime.InteropServices** 名�
 
 [!code-cs[InteropNamespace](./code/ImagingWin10/cs/MainPage.xaml.cs#SnippetInteropNamespace)]
 
-COM インターフェイス [**IMemoryBufferByteAccess**](https://docs.microsoft.com/previous-versions//mt297505(v=vs.85)) を初期化するには、対象の名前空間に以下のコードを追加します。
+COM インターフェイス [**IMemoryBufferByteAccess**](https://docs.microsoft.com/previous-versions/mt297505(v=vs.85)) を初期化するには、対象の名前空間に以下のコードを追加します。
 
 [!code-cs[COMImport](./code/ImagingWin10/cs/MainPage.xaml.cs#SnippetCOMImport)]
 
@@ -111,7 +111,7 @@ Direct3D サーフェスから **SoftwareBitmap** オブジェクトを作成す
 
 ## <a name="convert-a-softwarebitmap-to-a-different-pixel-format"></a>SoftwareBitmap を異なるピクセル形式に変換する
 
-**SoftwareBitmap** クラスの静的メソッド [**Convert**](https://docs.microsoft.com/uwp/api/windows.graphics.imaging.softwarebitmap.windows) を使うと、既にある **SoftwareBitmap** から、指定したピクセル形式とアルファ モードを使った新しい **SoftwareBitmap** を簡単に作成することができます。 新しく作成されたビットマップには、画像データのコピーが別に存在します。 新しいビットマップに変更を加えても、元のビットマップには一切影響しません。
+**SoftwareBitmap** クラスの静的メソッド [**Convert**](https://docs.microsoft.com/uwp/api/windows.graphics.imaging.softwarebitmap.convert) を使うと、既にある **SoftwareBitmap** から、指定したピクセル形式とアルファ モードを使った新しい **SoftwareBitmap** を簡単に作成することができます。 新しく作成されたビットマップには、画像データのコピーが別に存在します。 新しいビットマップに変更を加えても、元のビットマップには一切影響しません。
 
 [!code-cs[Convert](./code/ImagingWin10/cs/MainPage.xaml.cs#SnippetConvert)]
 

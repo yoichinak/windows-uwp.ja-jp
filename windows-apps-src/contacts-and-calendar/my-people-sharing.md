@@ -5,12 +5,12 @@ ms.date: 06/28/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 91d88dc78fd02ae3f16e1d980aa207d1dd458417
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 9d0f6cdf4818743e3b5a3cc7c5a6b13f69f40afa
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57597827"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67318458"
 ---
 # <a name="my-people-sharing"></a>マイ連絡先の共有
 
@@ -18,7 +18,7 @@ ms.locfileid: "57597827"
 
 ![マイ連絡先の共有パネル](images/my-people-sharing.png)
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>要件
 
 + Windows 10 と Microsoft Visual Studio 2017。 インストールについて詳しくは、「[Visual Studio のセットアップ](https://docs.microsoft.com/en-us/windows/uwp/get-started/get-set-up)」をご覧ください。
 + C# またはこれに類似するオブジェクト指向プログラミング言語に関する基本的な知識。 C# で作業を始めるには、「["Hello, world" アプリを作成する](https://docs.microsoft.com/en-us/windows/uwp/get-started/create-a-hello-world-app-xaml-universal)」をご覧ください。
@@ -29,7 +29,7 @@ ms.locfileid: "57597827"
 
 1. [アプリケーション マニフェストで shareTarget アクティブ化コントラクトのサポートを宣言します。](https://docs.microsoft.com/en-us/windows/uwp/contacts-and-calendar/my-people-sharing#declaring-support-for-the-share-contract)
 2. [ユーザーがアプリを使用して共有できる連絡先の注釈を付けます。](https://docs.microsoft.com/en-us/windows/uwp/contacts-and-calendar/my-people-sharing#annotating-contacts)
-3. アプリケーションの複数インスタンスの同時実行をサポートします。  ユーザーは、他のユーザーと共有するためにアプリケーションを使用しながら、アプリケーションの通常版を操作できる必要があります。 ユーザーは複数の共有ウィンドウで同時に使用できます。 これをサポートするには、アプリケーションが複数のビューを同時に実行できる必要があります。 これを行う方法については、「["アプリの複数のビューの表示](https://docs.microsoft.com/en-us/windows/uwp/layout/show-multiple-views)」の記事をご覧ください。
+3. アプリケーションの複数インスタンスの同時実行をサポートします。  ユーザーは、他のユーザーと共有するためにアプリケーションを使用しながら、アプリケーションの通常版を操作できる必要があります。 ユーザーは複数の共有ウィンドウで同時に使用できます。 これをサポートするには、アプリケーションが複数のビューを同時に実行できる必要があります。 これを行う方法については、「["アプリの複数のビューの表示](https://docs.microsoft.com/windows/uwp/design/layout/show-multiple-views)」の記事をご覧ください。
 
 これを行うと、アプリケーションがマイ連絡先の共有ウィンドウで共有ターゲットに表示されます。これは次の 2 つの方法で起動できます。
 1. 共有チャームで連絡先を選択します。
@@ -37,7 +37,7 @@ ms.locfileid: "57597827"
 
 ## <a name="declaring-support-for-the-share-contract"></a>共有コントラクトのサポートを宣言する
 
-アプリケーションでの共有ターゲットのサポートを宣言するには、まず Visual Studio でアプリケーションを開きます。 **ソリューション エクスプローラー** で **Package.appxmanifest** を右クリックして、**[プログラムから開く]** を選択します。 メニューをから **[XML (テキスト) エディター]** を選び、**[OK]** をクリックします。 マニフェストを次のように変更します。
+アプリケーションでの共有ターゲットのサポートを宣言するには、まず Visual Studio でアプリケーションを開きます。 **ソリューション エクスプローラー** で **Package.appxmanifest** を右クリックして、 **[プログラムから開く]** を選択します。 メニューをから **[XML (テキスト) エディター]** を選び、 **[OK]** をクリックします。 マニフェストを次のように変更します。
 
 
 **以前は**

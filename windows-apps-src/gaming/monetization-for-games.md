@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, 収益化
 ms.localizationpriority: medium
-ms.openlocfilehash: 9ef957700f6554ccece9d0c3bf51ccf4244a4b74
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 4c84c42da0e2653f0e5958583ad0ee9b9babe3bc
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66368414"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67318950"
 ---
 #  <a name="monetization-for-games"></a>ゲームの収益化
 
@@ -73,7 +73,7 @@ Microsoft Store が利用できるゲーム ダウンロード 200 台を超え�
 
 ### <a name="test-in-game-purchases-during-game-development"></a>ゲーム開発時のゲーム内購入のテスト
 
-アドオンはゲームと関連して作成する必要があるため、ゲームをストアで公開して提供する必要があります。 このセクションでは、まだ開発段階にあるゲームに対してアドオンを作成する手順を示します 
+アドオンはゲームと関連して作成する必要があるため、ゲームをストアで公開して提供する必要があります。 このセクションでは、まだ開発段階にあるゲームに対してアドオンを作成する手順を示します
 (完成したゲームを既にストアに公開している場合は、最初の 3 つのステップをスキップして、「[ストアでのアドオンの作成](#create-an-add-on-in-the-store)」に進むことができます)。
 
 開発中のゲームに対してアドオンを作成するには、次の手順を実行します。
@@ -195,7 +195,7 @@ UWP アプリおよび UWP ゲームへの広告提供のための SDK を提供
 
 #### <a name="vungle"></a>Vungle
 
-Vungle SDK for Windows は、アプリやゲームに表示するビデオ広告を提供します。 この SDK をダウンロードするには [Vungle SDK](https://v.vungle.com/sdk) にアクセスしてください。
+Vungle SDK for Windows は、アプリやゲームに表示するビデオ広告を提供します。 この SDK をダウンロードするには [Vungle SDK](https://publisher.vungle.com/sdk/) にアクセスしてください。
 
 #### <a name="smaato"></a>Smaato
 

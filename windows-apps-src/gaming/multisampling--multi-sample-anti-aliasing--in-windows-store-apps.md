@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, マルチサンプリング, Direct3D
 ms.localizationpriority: medium
-ms.openlocfilehash: b547e47b7d896ab818349dcc70ee9dc3c7078847
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 976cdfb5f1dc92f693f7296d6e33d7ccc4c4d6e7
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66368384"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67318943"
 ---
 # <a name="span-iddevgamingmultisamplingmulti-sampleantialiasinginwindowsstoreappsspan-multisampling-in-universal-windows-platform-uwp-apps"></a><span id="dev_gaming.multisampling__multi-sample_anti_aliasing__in_windows_store_apps"></span> マルチ サンプリングでは、ユニバーサル Windows プラットフォーム (UWP) アプリ
 
@@ -30,7 +30,7 @@ Direct3D 機能レベルは、特定の最小サンプル数機能のサポー�
 
 1.  [  **ID3D11Device::CheckFeatureSupport**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11device-checkfeaturesupport) を呼び出して、どの DXGI 形式をマルチサンプリングで使うことができるか確認します。 ゲームで使うことのできるレンダー ターゲット形式を指定します。 レンダー ターゲットおよび解決するターゲットの両方必要があります、同じ形式を使用して、両方のチェック[ **D3D11\_形式\_サポート\_マルチ サンプリング\_レンダリング ターゲット**](https://docs.microsoft.com/windows/desktop/api/d3d11/ne-d3d11-d3d11_format_support)と**D3D11\_形式\_サポート\_マルチ サンプリング\_解決**します。
 
-    **9 の機能レベル:  **機能レベルの 9 デバイスが[のマルチ サンプリングされたレンダー ターゲット形式のサポートを保証](https://docs.microsoft.com/previous-versions//ff471324(v=vs.85))、multisample 解決ターゲットにサポートが保証されていません。 そこで、このトピックで説明するマルチサンプリング技法を使おうとする前に、この確認が必要になります。
+    **9 の機能レベル:  **機能レベルの 9 デバイスが[のマルチ サンプリングされたレンダー ターゲット形式のサポートを保証](https://docs.microsoft.com/previous-versions/ff471324(v=vs.85))、multisample 解決ターゲットにサポートが保証されていません。 そこで、このトピックで説明するマルチサンプリング技法を使おうとする前に、この確認が必要になります。
 
     次のコードはすべて、DXGI のマルチ サンプリング サポートを確認します。\_形式の値。
 

@@ -5,19 +5,19 @@ ms.date: 06/04/2018
 ms.topic: article
 keywords: Windows 10, UWP, Store サービス, Microsoft Store 分析 API, Xbox Live 分析
 ms.localizationpriority: medium
-ms.openlocfilehash: dd10fadea415bd769061e198fcf29f8edf0f3124
-ms.sourcegitcommit: e63fbd7a63a7e8c03c52f4219f34513f4b2bb411
+ms.openlocfilehash: 5ab41001f7331defc6d37b0561e2844392ccca3c
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58162674"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67321848"
 ---
 # <a name="get-xbox-live-analytics-data"></a>Xbox Live の分析データの取得
 
-[Xbox Live 対応ゲーム](https://docs.microsoft.com/gaming/xbox-live//index.md)をプレイしているユーザーに関する過去 30 日間の一般的な分析データを取得するには、Microsoft Store 分析 API の次のメソッドを使います。取得できるデータには、デバイス アクセサリの使用状況、インターネット接続の種類、ゲーマースコアの分布、ゲームの統計情報、フレンドとフォロワーのデータが含まれます。 この情報も記載されて、 [Xbox analytics レポート](../publish/xbox-analytics-report.md)パートナー センターでします。
+[Xbox Live 対応ゲーム](https://docs.microsoft.com/gaming/xbox-live/index.md)をプレイしているユーザーに関する過去 30 日間の一般的な分析データを取得するには、Microsoft Store 分析 API の次のメソッドを使います。取得できるデータには、デバイス アクセサリの使用状況、インターネット接続の種類、ゲーマースコアの分布、ゲームの統計情報、フレンドとフォロワーのデータが含まれます。 この情報も記載されて、 [Xbox analytics レポート](../publish/xbox-analytics-report.md)パートナー センターでします。
 
 > [!IMPORTANT]
-> このメソッドは、Xbox のゲームまたは Xbox Live サービスを使用するゲームのみサポートします。 これらのゲームは、[概念の承認プロセス](../gaming/concept-approval.md)を完了する必要があります。これには、[Microsoft パートナー](https://docs.microsoft.com/gaming/xbox-live//developer-program-overview.md#microsoft-partners)が発行したゲームと [ID@Xbox プログラム](https://docs.microsoft.com/gaming/xbox-live//developer-program-overview.md#id)を介して申請されたゲームが含まれます。 このメソッドでは、[Xbox Live クリエーターズ プログラム](https://docs.microsoft.com/gaming/xbox-live//get-started-with-creators/get-started-with-xbox-live-creators.md)を介して発行されたゲームは現在サポートされていません。
+> このメソッドは、Xbox のゲームまたは Xbox Live サービスを使用するゲームのみサポートします。 これらのゲームは、[概念の承認プロセス](../gaming/concept-approval.md)を完了する必要があります。これには、[Microsoft パートナー](https://docs.microsoft.com/gaming/xbox-live/developer-program-overview.md#microsoft-partners)が発行したゲームと [ID@Xbox プログラム](https://docs.microsoft.com/gaming/xbox-live/developer-program-overview.md#id)を介して申請されたゲームが含まれます。 このメソッドでは、[Xbox Live クリエーターズ プログラム](https://docs.microsoft.com/gaming/xbox-live/get-started-with-creators/get-started-with-xbox-live-creators.md)を介して発行されたゲームは現在サポートされていません。
 
 Xbox Live 対応ゲームに関するその他の分析データは、次のメソッドを通じて取得できます。
 * [Xbox Live 成績データを取得します。](get-xbox-live-achievements-data.md)
@@ -82,7 +82,7 @@ Authorization: Bearer <your access token>
 
 このリソースには、過去 30 日間について、対象ゲームに関するデバイス使用状況データ、またはすべての Xbox Live ユーザーを対象とした平均的なデバイス使用状況データが格納されます。
 
-| 値           | 種類    | 説明        |
+| Value           | 種類    | 説明        |
 |-----------------|---------|------|
 |  applicationId               |    string     |  分析データを取得したゲームの [Store ID](in-app-purchases-and-trials.md#store-ids) です。   |
 |  connectionTypeDistribution               |    array     |   Xbox でワイヤード (有線) インターネット接続とワイヤレス インターネット接続を使っているユーザーの数を示すオブジェクトが含まれます。 各オブジェクトには、次の 2 つの文字列フィールドがあります。 <ul><li>**以下の通り:contype**:接続の種類を指定します。</li><li>**deviceCount**:**ProductData**オブジェクトでは、このフィールドは、接続の種類を使用して、ゲームの顧客の数を指定します。 **XboxwideData** オブジェクトの場合、このフィールドは、すべての Xbox Live ユーザーのうち、指定の接続の種類を使っているユーザーの割合を示します。</li></ul>   |     
@@ -95,7 +95,7 @@ Authorization: Bearer <your access token>
 
 このリソースには、過去 30 日間について、対象ゲームに関するユーザー データ、またはすべての Xbox Live ユーザーを対象とした平均的なユーザー データが格納されます。
 
-| 値           | 種類    | 説明        |
+| Value           | 種類    | 説明        |
 |-----------------|---------|------|
 |  applicationId               |    string     |   分析データを取得したゲームの [Store ID](in-app-purchases-and-trials.md#store-ids) です。  |
 |  userCount               |    string     |   **ProductData** オブジェクトの場合、このフィールドは、過去 30 日間に対象ゲームをプレイしたユーザーの数を示します。 **XboxwideData** オブジェクトの場合、このフィールドは常に 1 になり、すべての Xbox Live ユーザーを対象としたデータの開始パーセンテージである 100% を示します。   |     

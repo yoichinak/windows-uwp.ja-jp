@@ -6,18 +6,18 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp, セキュリティ
 ms.localizationpriority: medium
-ms.openlocfilehash: 1026bd153f43d5e956fbacdcc33728d890f34e34
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 6e69d3489bcc41f40eca07aff628425d34819c4b
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66371969"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67320590"
 ---
 # <a name="windows-hello"></a>Windows Hello
 
 この記事では、新しい Windows こんにちはテクノロジは、Windows 10 オペレーティング システムの一部として付属し、開発者が、ユニバーサル Windows プラットフォーム (UWP) アプリとバックエンド サービスを保護するには、このテクノロジを実装する方法について説明しますがについて説明します。 従来の資格情報を使用する際に生じる脅威を軽減するこれらのテクノロジの特定の機能に着目し、Windows 10 ロールアウトに含まれるこれらのテクノロジの設計と展開について説明します。
 
-この記事では、アプリの開発に焦点を当てていることに注意してください。 Windows Hello のアーキテクチャおよび実装について詳しくは、「[TechNet の Windows Hello ガイド](https://technet.microsoft.com/library/mt589441.aspx)」をご覧ください。
+この記事では、アプリの開発に焦点を当てていることに注意してください。 Windows Hello のアーキテクチャおよび実装について詳しくは、「[TechNet の Windows Hello ガイド](https://docs.microsoft.com/windows/keep-secure/microsoft-passport-guide)」をご覧ください。
 
 完全なコード サンプルについては、「[GitHub の Windows Hello コード サンプル](https://go.microsoft.com/fwlink/?LinkID=717812)」をご覧ください。
 
@@ -62,7 +62,7 @@ Windows Hello は、従来の 2FA システムの単なる代替機能ではあ�
 
 ### <a name="22-how-windows-hello-works"></a>2.2 Windows Hello のしくみ
 
-ユーザーがコンピューターで Windows Hello をセットアップするとき、デバイスの新しい公開/秘密キーのペアが生成されます。 [トラステッド プラットフォーム モジュール](https://technet.microsoft.com/itpro/windows/keep-secure/trusted-platform-module-overview) (TPM) はこの秘密キーを生成し、保護します。 デバイスに TPM チップが搭載されていない場合、秘密キーはソフトウェアによって暗号化され、保護されます。 また、TPM が有効なデバイスでは、キーが TPM にバインドされていることを証明する際に使われるデータ ブロックが生成されます。 この証明情報をソリューションで利用し、たとえば、さまざまな認証レベルをユーザーに付与するかどうかを決定することができます。
+ユーザーがコンピューターで Windows Hello をセットアップするとき、デバイスの新しい公開/秘密キーのペアが生成されます。 [トラステッド プラットフォーム モジュール](https://docs.microsoft.com/windows/keep-secure/trusted-platform-module-overview) (TPM) はこの秘密キーを生成し、保護します。 デバイスに TPM チップが搭載されていない場合、秘密キーはソフトウェアによって暗号化され、保護されます。 また、TPM が有効なデバイスでは、キーが TPM にバインドされていることを証明する際に使われるデータ ブロックが生成されます。 この証明情報をソリューションで利用し、たとえば、さまざまな認証レベルをユーザーに付与するかどうかを決定することができます。
 
 デバイスで Windows Hello を有効にするには、Azure Active Directory アカウントまたは Windows の設定で関連付けられた Microsoft アカウントが必要です。
 
@@ -344,7 +344,7 @@ Windows Hello を使うと、各デバイスで、固有の秘密キーと公開
 
 別のデバイスの登録は、ユーザーを初めて登録する方法とほとんど同じです。 デバイスを登録するユーザーが、登録を求めている本人であるかどうかを確認する必要がまだあります。 この確認は、現在使っている 2 要素認証メカニズムに基づいて行うことができます。 セキュリティで保護された手段を利用してこの確認を行う方法はいくつかありますが、 どの方法を採用するかは、シナリオによって異なります。
 
-たとえば、ログイン名とパスワードによる認証方法を使っている場合は、その方法を利用してユーザーを認証し、SMS やメールなどの検証方法の 1 つを使用するようユーザーに求めることができます。 ログイン名とパスワードを使っていない場合は、既に登録されているいずれかのデバイスを使い、そのデバイス上のアプリに通知を送信することもできます  その一例として MSA 認証アプリがあります。 つまり、一般的な 2FA メカニズムを使って、ユーザーの追加のデバイスを登録する必要があります。
+たとえば、ログイン名とパスワードによる認証方法を使っている場合は、その方法を利用してユーザーを認証し、SMS やメールなどの検証方法の 1 つを使用するようユーザーに求めることができます。 ログイン名とパスワードを使っていない場合は、既に登録されているいずれかのデバイスを使い、そのデバイス上のアプリに通知を送信することもできます その一例として MSA 認証アプリがあります。 つまり、一般的な 2FA メカニズムを使って、ユーザーの追加のデバイスを登録する必要があります。
 
 新しいデバイスを登録するコードは、(アプリ内から) ユーザーを初めて登録する場合とまったく同じになります。
 
@@ -407,8 +407,8 @@ Windows 10 には、簡単に実現できる、高いレベルのセキュリテ
 
 ### <a name="61-articles-and-sample-code"></a>6.1 記事とサンプル コード
 
-- [Windows こんにちはの概要](https://windows.microsoft.com/windows-10/getstarted-what-is-hello)
-- [Windows こんにちはの実装の詳細](https://technet.microsoft.com/itpro/windows/keep-secure/microsoft-passport-guide)
+- [Windows こんにちはの概要](https://support.microsoft.com/help/17215)
+- [Windows こんにちはの実装の詳細](https://docs.microsoft.com/windows/keep-secure/microsoft-passport-guide)
 - [Windows こんにちは GitHub コード サンプル](https://go.microsoft.com/fwlink/?LinkID=717812)
 
 ### <a name="62-terminology"></a>6.2 用語

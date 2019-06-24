@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: f1be694be412bbf0a4e076e8ac5753eefda74c55
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: be6780851c05f59abc373318f0746c8e436b74ac
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66360909"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67318406"
 ---
 # <a name="detect-faces-in-images-or-videos"></a>画像やビデオでの顔の検出
 
@@ -45,7 +45,7 @@ ms.locfileid: "66360909"
 
 [!code-cs[Decode](./code/FaceDetection_Win10/cs/MainPage.xaml.cs#SnippetDecode)]
 
-現在のバージョンでは、**FaceDetector** クラスでのみ Gray8 または Nv12 の画像がサポートされています。 **SoftwareBitmap** クラスには、ビットマップの形式を変換する [**Convert**](https://docs.microsoft.com/uwp/api/windows.graphics.imaging.softwarebitmap.windows) メソッドが用意されています。 この例では、ソース画像を Gray8 ピクセル形式に変換しています (まだその形式になっていない場合)。 必要に応じて、[**GetSupportedBitmapPixelFormats**](https://docs.microsoft.com/uwp/api/windows.media.faceanalysis.facedetector.getsupportedbitmappixelformats) および [**IsBitmapPixelFormatSupported**](https://docs.microsoft.com/uwp/api/windows.media.faceanalysis.facedetector.isbitmappixelformatsupported) メソッドを使って、ピクセル形式がサポートされているかどうかを実行時に調べることができます。これにより、サポートされている一連の形式が今後のバージョンで拡張される場合に備えることができます。
+現在のバージョンでは、**FaceDetector** クラスでのみ Gray8 または Nv12 の画像がサポートされています。 **SoftwareBitmap** クラスには、ビットマップの形式を変換する [**Convert**](/uwp/api/windows.graphics.imaging.softwarebitmap.convert) メソッドが用意されています。 この例では、ソース画像を Gray8 ピクセル形式に変換しています (まだその形式になっていない場合)。 必要に応じて、[**GetSupportedBitmapPixelFormats**](https://docs.microsoft.com/uwp/api/windows.media.faceanalysis.facedetector.getsupportedbitmappixelformats) および [**IsBitmapPixelFormatSupported**](https://docs.microsoft.com/uwp/api/windows.media.faceanalysis.facedetector.isbitmappixelformatsupported) メソッドを使って、ピクセル形式がサポートされているかどうかを実行時に調べることができます。これにより、サポートされている一連の形式が今後のバージョンで拡張される場合に備えることができます。
 
 [!code-cs[Format](./code/FaceDetection_Win10/cs/MainPage.xaml.cs#SnippetFormat)]
 
@@ -91,7 +91,7 @@ ms.locfileid: "66360909"
 
 **FaceDetector** と同様、**FaceTracker** でも、サポートされていないピクセル形式があります。 この例では、渡されたフレームが Nv12 形式でない場合は顔検出を破棄します。
 
-[  **ProcessNextFrameAsync**](https://docs.microsoft.com/uwp/api/windows.media.faceanalysis.facetracker.processnextframeasync) を呼び出して、フレーム内の顔を表す [**DetectedFace**](https://docs.microsoft.com/uwp/api/Windows.Media.FaceAnalysis.DetectedFace) オブジェクトの一覧を取得します。 顔の一覧を取得したら、顔検出について先ほど説明した同じ方法でそれらの顔を表示できます。 顔追跡ヘルパー メソッドは UI スレッドで呼び出されないため、[**CoredDispatcher.RunAsync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.windows) の呼び出し内で UI の更新をすべて行う必要があります。
+[  **ProcessNextFrameAsync**](https://docs.microsoft.com/uwp/api/windows.media.faceanalysis.facetracker.processnextframeasync) を呼び出して、フレーム内の顔を表す [**DetectedFace**](https://docs.microsoft.com/uwp/api/Windows.Media.FaceAnalysis.DetectedFace) オブジェクトの一覧を取得します。 顔の一覧を取得したら、顔検出について先ほど説明した同じ方法でそれらの顔を表示できます。 ヘルパー メソッドを追跡するフェイスが UI スレッドで呼び出されないため、呼び出し内の UI 更新プログラムを作成する必要があります、 [ **CoreDispatcher.RunAsync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync)します。
 
 [!code-cs[ProcessCurrentVideoFrame](./code/FaceDetection_Win10/cs/MainPage.xaml.cs#SnippetProcessCurrentVideoFrame)]
 

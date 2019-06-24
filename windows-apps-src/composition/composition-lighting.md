@@ -5,12 +5,12 @@ ms.date: 07/16/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 733ce75942a05482ade88c1510e788f1cbd515d4
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: c23de238a0004066b44cfe962e2de72216eb7a6d
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57602207"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67318465"
 ---
 # <a name="using-lights-in-windows-ui"></a>Windows の UI でのライトの使用
 
@@ -35,10 +35,10 @@ Windows.UI.Composition Api を使用すると、リアルタイムのアニメ�
 
 | 種類 | 説明 |
 | --- | --- |
-| [Ambientlight を組み合わせます](/uwp/api/windows.ui.composition.ambientlight) | シーン内のすべてが表示される方向性のない光を放射光源が反映されます。 |
+| [AmbientLight](/uwp/api/windows.ui.composition.ambientlight) | シーン内のすべてが表示される方向性のない光を放射光源が反映されます。 |
 | [DistantLight](/uwp/api/windows.ui.composition.distantlight) | 無限に大規模な光源を 1 つの方向に光を出力します。 太陽の。 |
 | [PointLight](/uwp/api/windows.ui.composition.pointlight) | すべての方向に光が放射される光のポイントのソース。 電球など。 |
-| [スポット ライト](/uwp/api/windows.ui.composition.spotlight) | 光の内側と外側の円錐を出力する光源を使用します。 懐中電灯など。 |
+| [SpotLight](/uwp/api/windows.ui.composition.spotlight) | 光の内側と外側の円錐を出力する光源を使用します。 懐中電灯など。 |
 
 ## <a name="targets"></a>ターゲット
 
@@ -63,7 +63,7 @@ Windows.UI.Composition Api を使用すると、リアルタイムのアニメ�
 _pointLight.Offset = new Vector3(-(float)TextBlock.ActualWidth, (float)TextBlock.ActualHeight / 2, (float)TextBlock.FontSize);
 ```
 
-参照してください[テキスト シマー](https://github.com/Microsoft/WindowsUIDevLabs/tree/master/SampleGallery/Samples/SDK%2014393/TextShimmer)詳しく WindowUIDevLabs サンプル ギャラリーにあるサンプル。
+参照してください[テキスト シマー](https://github.com/microsoft/WindowsCompositionSamples/tree/master/SampleGallery/Samples/SDK 14393/TextShimmer)詳しく WindowUIDevLabs サンプル ギャラリーにあるサンプル。
 
 ## <a name="restrictions"></a>制限
 
@@ -84,7 +84,7 @@ CompositionLight で点灯するコンテンツを決定する際に考慮する
 プロパティ | 説明
 --- | ---
 **色** | [色](/uwp/api/windows.ui.color)光の。 光の色の値がによって定義されている[D3D](https://docs.microsoft.com/windows/uwp/graphics-concepts/light-properties)拡散、アンビエント、および反射出力される色を定義します。 照明ライト; RGBA 値が使用されます。色のアルファ コンポーネントは使用されません。
-**方向** | 光の方向です。 に対して相対的な光が指している方向が指定されたその[CoordinateSpace](/uwp/api/windows.ui.composition.distantlight.coordinatespace)ビジュアル。
+**[方向]** | 光の方向です。 に対して相対的な光が指している方向が指定されたその[CoordinateSpace](/uwp/api/windows.ui.composition.distantlight.coordinatespace)ビジュアル。
 **座標空間** | すべてのビジュアルでは、暗黙の 3D 座標空間は。 X 方向は、左から右です。 Y 方向は、上から下です。 Z 方向は、平面からポイントです。 この座標の元のポイントは、ビジュアルの左上隅にあると、単位はデバイス独立ピクセル (DIP)。 この座標で定義されている光のオフセット。
 **内側と外側の円錐** | スポットライトは、明るい内部コーンと外部コーンの 2 つの部分を持つ光のコーンを放射します。 コンポジションは、内側と外側の円錐の角度と色を制御できます。
 **オフセット** | 座標空間 Visual 基準とした光の光源のオフセット。
@@ -167,4 +167,4 @@ CompositionBrush CreateNormalMapBrush(ICompositionSurface normalMapImage)
 - [CompositionCapabilities API](https://docs.microsoft.com/uwp/api/windows.ui.composition.compositioncapabilities)
 - [照明の計算](https://docs.microsoft.com/windows/uwp/graphics-concepts/mathematics-of-lighting)
 - [SceneLightingEffect](https://docs.microsoft.com/uwp/api/windows.ui.composition.effects.scenelightingeffect)
-- [WindowsUIDevLabs GitHub リポジトリ](https://github.com/Microsoft/WindowsUIDevLabs)
+- [WindowsUIDevLabs GitHub リポジトリ](https://github.com/microsoft/WindowsCompositionSamples)

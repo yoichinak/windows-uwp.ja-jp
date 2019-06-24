@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 7c61f6580039b9fe3da915491acd84c939088370
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: bf9cc4f97cdfcb02eb725b81163f215b22b259e4
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66361387"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67318055"
 ---
 # <a name="visual-layer"></a>ビジュアル レイヤー
 
@@ -71,7 +71,7 @@ Windows UWP アプリは、いずれかの UI フレームワークを介して�
 ## <a name="additional-resources"></a>その他の資料
 
 * [**API の完全なリファレンス ドキュメント**](https://docs.microsoft.com/uwp/api/Windows.UI.Composition)
-* [WindowsUIDevLabs GitHub](https://github.com/microsoft/windowsuidevlabs) にある高度な UI とコンポジションのサンプル
+* [WindowsUIDevLabs GitHub](https://github.com/microsoft/WindowsCompositionSamples) にある高度な UI とコンポジションのサンプル
 * [Windows.UI.Composition サンプル ギャラリー](https://aka.ms/winuiapp)
 * [@windowsui Twitter フィード ](https://twitter.com/windowsui)
 * この API の Kenny Kerr の MSDN 記事をご覧ください。[グラフィックスとアニメーション - Windows 合成に 10](https://msdn.microsoft.com/magazine/mt590968)

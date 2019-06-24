@@ -5,12 +5,12 @@ keywords: ユーザー アクティビティ、ユーザー アクティビテ�
 ms.date: 08/23/2018
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: e98f5d73cf2d1afb26a823ed417c8980d118485c
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 9b2ad2e68c21167df7b0210a04b62e161fd264ab
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57589907"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67318703"
 ---
 # <a name="user-activities-best-practices"></a>ユーザー アクティビティのベスト プラクティス
 
@@ -46,7 +46,7 @@ ms.locfileid: "57589907"
 ユーザーのアクティビティは、3 つのコンポーネントで構成されています。 アクティブ化の URI、ビジュアルのデータとコンテンツのメタデータ。
 * アクティブ化 URI は、特定のコンテキストでアプリケーションを再開するには、アプリケーションまたはエクスペリエンスに渡すことができる URI です。 通常、これらのリンクは、スキーム (たとえば、"my-app://page2?action=edit") のプロトコル ハンドラーの形をとります。 URI パラメーターをアプリによって処理する方法を決定する開発者の責任です。 参照してください[URI の処理のアクティブ化](https://docs.microsoft.com/windows/uwp/launch-resume/handle-uri-activation)詳細についてはします。
 * 必須および省略可能なプロパティのセットで構成される、ビジュアルのデータ (例: タイトル、説明、またはアダプティブ カード要素)、アクティビティを視覚的に識別できるようにします。 アクティビティのアダプティブ カード ビジュアルの作成に関するガイドラインについては以下をご覧ください。
-* コンテンツのメタデータは、JSON データをグループ化し、特定のコンテキスト内のアクティビティを取得するために使用できます。 通常、これのフォームをかかります http://schema.orgデータ。 このデータの入力に関するガイドラインについては以下をご覧ください。
+* コンテンツのメタデータは、JSON データをグループ化し、特定のコンテキスト内のアクティビティを取得するために使用できます。 通常、これのフォームをかかります http://schema.org データ。 このデータの入力に関するガイドラインについては以下をご覧ください。
 
 ### <a name="adaptive-card-design-guidelines"></a>アダプティブ カードのデザイン ガイドライン
 
@@ -104,4 +104,4 @@ ms.locfileid: "57589907"
 * [アダプティブ カード ビジュアライザー、サンプル](https://adaptivecards.io/)
 * [URI のアクティブ化の処理](https://docs.microsoft.com/windows/uwp/launch-resume/handle-uri-activation)
 * [お客様の Microsoft Graph、アクティビティ フィード、および Adaptive Cards を使用して任意のプラットフォームとの連携](https://channel9.msdn.com/Events/Connect/2017/B111)
-* [Microsoft Graph](https://developer.microsoft.com/graph/)
+* [Microsoft Graph](https://developer.microsoft.com/graph)

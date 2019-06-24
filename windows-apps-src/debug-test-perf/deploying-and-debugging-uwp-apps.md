@@ -6,12 +6,12 @@ ms.date: 4/8/2019
 ms.topic: article
 keywords: Windows 10, UWP, デバッグ, テスト, パフォーマンス
 ms.localizationpriority: medium
-ms.openlocfilehash: 3263f7a0f1c353cfd15bf83e6fe1b0004b3bcc94
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 96e6f712f1a9882a10cf0706452628329c0c085d
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66362681"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67317952"
 ---
 # <a name="deploying-and-debugging-uwp-apps"></a>UWP アプリの展開とデバッグ
 
@@ -41,7 +41,7 @@ Visual Studio では、 **[デバッグ]** 、 **[プロセスにアタッチ]**
 
 **[起動はしないが、開始時にコードをデバッグする]** を選択すると、Visual Studio デバッガーは、UWP アプリが独自のタイミングで起動したときに、UWP アプリにアタッチします。 これは、カスタム パラメーターを使ったプロトコルのアクティブ化など、[さまざまな起動方法](../xbox-apps/automate-launching-uwp-apps.md)からの制御パスをデバッグするのに効果的な方法です。  
 
-UWP アプリは、Windows 8.1 以降で開発してコンパイルすることができますが、実行するには Windows 10 が必要です。 Windows 8.1 PC で UWP アプリを開発している場合、別の Windows 10 デバイスで実行されている UWP アプリをリモートでデバッグできます。ただし、ホストとターゲットの両方のコンピューターが同じ LAN に接続されている必要があります。 これを行うには、両方のコンピューターに [Remote Tools for Visual Studio](https://www.visualstudio.com/downloads/) をダウンロードしてインストールします。 インストールするバージョンはインストール済みの Visual Studio の既存のバージョンと一致している必要があり、選択するアーキテクチャ (x86、x64) もターゲット アプリのアーキテクチャと一致している必要があります。
+UWP アプリは、Windows 8.1 以降で開発してコンパイルすることができますが、実行するには Windows 10 が必要です。 Windows 8.1 PC で UWP アプリを開発している場合、別の Windows 10 デバイスで実行されている UWP アプリをリモートでデバッグできます。ただし、ホストとターゲットの両方のコンピューターが同じ LAN に接続されている必要があります。 これを行うには、両方のコンピューターに [Remote Tools for Visual Studio](https://visualstudio.microsoft.com/downloads/) をダウンロードしてインストールします。 インストールするバージョンはインストール済みの Visual Studio の既存のバージョンと一致している必要があり、選択するアーキテクチャ (x86、x64) もターゲット アプリのアーキテクチャと一致している必要があります。
 
 ## <a name="package-layout"></a>パッケージのレイアウト
 
@@ -94,7 +94,7 @@ Creators Update より前のリモート PC に展開するには、ターゲッ
 
 変更する**認証なし**の**リモート デバッガー**に移動して、**ツール** - &gt; **オプション**と設定し、**認証なし**します。 リモート デバッガーを設定したら、ホスト デバイスが[開発者モード](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)に設定されていることを確認する必要があります。 その後、開発コンピューターから展開できます。
 
-詳しくは、[Visual Studio ダウンロード センター](https://www.visualstudio.com/downloads/)のページをご覧ください。
+詳しくは、[Visual Studio ダウンロード センター](https://visualstudio.microsoft.com/downloads/)のページをご覧ください。
 
 ## <a name="passing-command-line-debug-arguments"></a>デバッグのコマンド ライン引数を渡す
 

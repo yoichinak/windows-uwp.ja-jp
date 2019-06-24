@@ -5,12 +5,12 @@ ms.date: 10/04/2018
 ms.topic: article
 keywords: windows 10、uwp は、サービス、pos、磁気ストライプ リーダーのポイントします。
 ms.localizationpriority: medium
-ms.openlocfilehash: 1805213c7c30ccbc67fb96098f11480703589bb4
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 12b88d942e4b5a9c90880f6bd362ba9e7e011186
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57651607"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67321550"
 ---
 # <a name="obtain-and-understand-magnetic-stripe-data"></a>磁気ストライプ データの取得と理解
 
@@ -24,8 +24,7 @@ ms.locfileid: "57651607"
 * [BankCardDataReceived イベント](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.claimedmagneticstripereader.aamvacarddatareceived):銀行のカードが読み取られるときに発生します。
 * [VendorSpecificDataReceived イベント](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.claimedmagneticstripereader.vendorspecificdatareceived):ベンダー固有のカードが読み取られるときに発生します。
 
-のみ、アプリケーションは、磁気ストライプ リーダーでサポートされているイベントをサブスクライブする必要があります。 サポートされるカードの種類を参照してください[MagneticStripeReader.SupportedCardTypes](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.magneticstripereader.supportedcardtypes
-)します。
+のみ、アプリケーションは、磁気ストライプ リーダーでサポートされているイベントをサブスクライブする必要があります。 サポートされるカードの種類を参照してください[MagneticStripeReader.SupportedCardTypes](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.magneticstripereader.supportedcardtypes)します。
 
 次のコードは、3 つのサブスクライブ ***DataReceived**イベント。
 

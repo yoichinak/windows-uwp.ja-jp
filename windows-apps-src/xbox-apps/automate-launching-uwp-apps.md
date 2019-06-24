@@ -4,12 +4,12 @@ description: 開発者はプロトコルのアクティブ化および起動ア�
 ms.topic: article
 ms.localizationpriority: medium
 ms.date: 02/08/2017
-ms.openlocfilehash: f61fcfcef549295b8f3c9004572a74043a2917a2
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: abc0b40178dc9b7c386342af6a6d85c6fb61945a
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66365824"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67320266"
 ---
 # <a name="automate-launching-windows-10-uwp-apps"></a>Windows 10 UWP アプリの自動起動
 
@@ -136,7 +136,7 @@ C:\Program Files (x86)\Windows Kits\10\App Certification Kit\microsoft.windows.s
 
 ### <a name="launcher-application"></a>ランチャー アプリケーション
 
-COM の使用をサポートするアプリケーションを起動用に別途作成できます。 起動アクティブ化を使ってアプリを起動するランチャー プログラムの C++ コードの例を次に示します。 このコードでは、**ApplicationActivationManager** を作成して **ActivateApplication** を呼び出し、先ほど確認した AUMID と任意の引数を渡すことができます。 その他のパラメーターについて詳しくは、[MSDN の IApplicationActivationManager::ActivateApplication メソッドのトピック](https://msdn.microsoft.com/library/windows/desktop/hh706903(v=vs.85).aspx)をご覧ください。
+COM の使用をサポートするアプリケーションを起動用に別途作成できます。 起動アクティブ化を使ってアプリを起動するランチャー プログラムの C++ コードの例を次に示します。 このコードでは、**ApplicationActivationManager** を作成して **ActivateApplication** を呼び出し、先ほど確認した AUMID と任意の引数を渡すことができます。 その他のパラメーターについて詳しくは、[MSDN の IApplicationActivationManager::ActivateApplication メソッドのトピック](https://docs.microsoft.com/windows/desktop/api/shobjidl_core/nf-shobjidl_core-iapplicationactivationmanager-activateapplication)をご覧ください。
 
 ```
 #include <ShObjIdl.h>

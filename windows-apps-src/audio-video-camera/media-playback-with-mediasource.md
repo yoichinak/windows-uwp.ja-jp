@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 472e163344c8cc2fdea3dd639383bb1dac84a2f4
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 0ea4376b36d72da552da7269e691cfacb31fffd6
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66361586"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67318244"
 ---
 # <a name="media-items-playlists-and-tracks"></a>メディア項目、プレイリスト、トラック
 
@@ -96,7 +96,7 @@ Windows、バージョン 1803 以降では、**DownloadOperation** から **Med
 
 [!code-xml[VideoComboBox](./code/MediaSource_RS1/cs/MainPage.xaml#SnippetVideoComboBox)]
 
-**VideoTracksChanged** ハンドラーで、再生の項目の [**VideoTracks**](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplaybackitem.videotracks) のリストにあるすべてのトラックをループ処理します。 各トラックについて、新しい [**ComboBoxItem**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ComboBoxItem) が作成されます。 トラックにまだラベルがない場合、トラックのインデックスからラベルが生成されます。 コンボ ボックス項目の [**Tag**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.tag) プロパティが、後で識別できるようにトラックのインデックスに設定されます。 最後に、コンボ ボックスに項目が追加されます。 これらの処理は [**CoreDispatcher.RunAsync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.windows) の呼び出し内で実行されます。UI の変更はすべて UI スレッドで実行される必要があり、このイベントは別のスレッドで発生しているためです。
+**VideoTracksChanged** ハンドラーで、再生の項目の [**VideoTracks**](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplaybackitem.videotracks) のリストにあるすべてのトラックをループ処理します。 各トラックについて、新しい [**ComboBoxItem**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ComboBoxItem) が作成されます。 トラックにまだラベルがない場合、トラックのインデックスからラベルが生成されます。 コンボ ボックス項目の [**Tag**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.tag) プロパティが、後で識別できるようにトラックのインデックスに設定されます。 最後に、コンボ ボックスに項目が追加されます。 これらの処理は [**CoreDispatcher.RunAsync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync) の呼び出し内で実行されます。UI の変更はすべて UI スレッドで実行される必要があり、このイベントは別のスレッドで発生しているためです。
 
 [!code-cs[VideoTracksChanged](./code/MediaSource_RS1/cs/MainPage.xaml.cs#SnippetVideoTracksChanged)]
 
@@ -206,7 +206,7 @@ Windows 10 Version 1703 以降では、[MaxPlayedItemsToKeepOpen](https://docs.m
 
 [!code-cs[PlayMediaPlaybackList](./code/MediaSource_RS1/cs/MainPage.xaml.cs#SnippetPlayMediaPlaybackList)]
 
-**CurrentItemChanged** イベント ハンドラーで、UI を更新して現在再生中の項目を反映します。再生中の項目は、イベントに渡された [**CurrentMediaPlaybackItemChangedEventArgs**](https://docs.microsoft.com/uwp/api/Windows.Media.Playback.CurrentMediaPlaybackItemChangedEventArgs) オブジェクトの [**NewItem**](https://docs.microsoft.com/uwp/api/windows.media.playback.currentmediaplaybackitemchangedeventargs.newitem) プロパティを使って取得できます。 このイベントから UI を更新する場合は、更新が UI スレッドで行われるように、[**CoreDispatcher.RunAsync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.windows) の呼び出し内で実行する必要があります。
+**CurrentItemChanged** イベント ハンドラーで、UI を更新して現在再生中の項目を反映します。再生中の項目は、イベントに渡された [**CurrentMediaPlaybackItemChangedEventArgs**](https://docs.microsoft.com/uwp/api/Windows.Media.Playback.CurrentMediaPlaybackItemChangedEventArgs) オブジェクトの [**NewItem**](https://docs.microsoft.com/uwp/api/windows.media.playback.currentmediaplaybackitemchangedeventargs.newitem) プロパティを使って取得できます。 このイベントから UI を更新する場合は、更新が UI スレッドで行われるように、[**CoreDispatcher.RunAsync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync) の呼び出し内で実行する必要があります。
 
 Windows 10 Version 1703 以降では、[CurrentMediaPlaybackItemChangedEventArgs.Reason](https://docs.microsoft.com/uwp/api/windows.media.playback.currentmediaplaybackitemchangedeventargs.Reason) プロパティを調べて、項目が変更された理由 (アプリがプログラムによって項目を切り替えた、以前に再生していた項目の末尾に到達した、エラーが発生したなど) を示す値を取得できます。
 

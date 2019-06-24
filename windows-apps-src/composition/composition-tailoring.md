@@ -5,12 +5,12 @@ ms.date: 07/16/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: bcc9a6d89a143d8fd03d73dbd83b832ed9513ee2
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: HT
+ms.openlocfilehash: 9692a8ef21e9f62114b38c6bb5d15199b8c0e04a
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57644417"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67318149"
 ---
 # <a name="tailoring-effects--experiences-using-windows-ui"></a>効果 & Windows UI を使用してエクスペリエンスを調整すること
 
@@ -85,7 +85,7 @@ CompositionCapabilities 機能は既にアクリル素材を場所、マテリ�
 
 API は、いくつかの簡単な手順で既存のコードに追加できます。
 
-1. アプリケーションのコンストラクターで機能オブジェクトを取得します。
+1. アプリケーションのコンス トラクターで機能オブジェクトを取得します。
 
     ```cs
     _capabilities = CompositionCapabilities.GetForCurrentView();
@@ -112,13 +112,13 @@ API は、いくつかの簡単な手順で既存のコードに追加できま�
     }
     ```
 
-全体のコード例で確認できます、 [Windows UI の Github リポジトリ](https://github.com/Microsoft/WindowsUIDevLabs/tree/master/SampleGallery/Samples/SDK%2015063/CompCapabilities)します。
+全体のコード例で確認できます、 [Windows UI の Github リポジトリ](https://github.com/microsoft/WindowsCompositionSamples/tree/master/SampleGallery/Samples/SDK 15063/CompCapabilities)します。
 
 ## <a name="fast-vs-slow-effects"></a>低速の効果と高速
 
 提供されたフィードバックに基づく[AreEffectsSupported](/uwp/api/windows.ui.composition.compositioncapabilities.areeffectssupported)と[AreEffectsFast](/uwp/api/windows.ui.composition.compositioncapabilities.areeffectsfast) CompositionCapabilities API のメソッドは、アプリケーションは、のコストがかかったり、サポートされていない効果をスワップすることもできますその他の効果の任意のデバイス用に最適化されます。 効果をいくつかが明らかに一貫して他のユーザーよりもリソースを使用し、適度に使用する必要があり、その他の効果をより自由に使用できます。 すべての効果のただし、注意する必要があります使用効果グラフのパフォーマンス特性を変更することがありますチェーンといくつかのシナリオの組み合わせとアニメーション化するときに。 次には、個々 のエフェクトのいくつかの経験則パフォーマンス特性を示します。
 
-- 高パフォーマンスの影響を与えることがわかっている効果、次のように – ガウスぼかしシャドウ マスク、BackDropBrush、HostBackDropBrush、ビジュアル レイヤー。 これらは、ローエンド デバイスの場合は推奨されません[(機能レベル 9.1 9.3)](https://msdn.microsoft.com/library/windows/desktop/ff476876(v=vs.85).aspx)、ハイ エンド デバイスで慎重に使用する必要があります。
+- 高パフォーマンスの影響を与えることがわかっている効果、次のように – ガウスぼかしシャドウ マスク、BackDropBrush、HostBackDropBrush、ビジュアル レイヤー。 これらは、ローエンド デバイスの場合は推奨されません[(機能レベル 9.1 9.3)](https://docs.microsoft.com/windows/desktop/direct3d11/overviews-direct3d-11-devices-downlevel-intro)、ハイ エンド デバイスで慎重に使用する必要があります。
 - 中程度のパフォーマンスへの影響を効果にカラー行列を特定ブレンド効果 BlendModes (光度、色、鮮やかさ、および Hue) は、スポット ライト、SceneLightingEffect、および (シナリオによって異なる) BorderEffect します。 ローエンドのデバイスで特定のシナリオでこれらの効果が動作しますが、チェーンとアニメーション化するときに、注意を使用する必要があります。 以下に 2 つの使用を制限して、遷移のみをアニメーション化をお勧めします。
 - 他のすべての効果は、低パフォーマンスに影響し、アニメーション化すると、チェーンのすべての妥当なシナリオでは機能します。
 

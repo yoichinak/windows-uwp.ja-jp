@@ -5,19 +5,19 @@ ms.date: 06/13/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 865c95fe5453a038a73b397fdcf32f77f9e8defb
-ms.sourcegitcommit: fca0132794ec187e90b2ebdad862f22d9f6c0db8
+ms.openlocfilehash: aa8bec12ca3920b1e273d8f2d98186f62a340016
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63828080"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67321531"
 ---
 # <a name="supported-point-of-service-peripherals"></a>サポートされている POS 周辺機器
 
 ## <a name="barcode-scanner"></a>バーコード スキャナー
 | 接続 | サポート |
 | -------------|-------------|
-| USB          | <p>Windows には、によって定義された HID POS スキャナー使用量のテーブル (8. の c.) 仕様に基づいて USB 接続してバーコード スキャナのインボックス クラス ドライバーが含まれています[USB.org](https://www.usb.org/developers/hidpage/)します。既知の互換性のあるデバイスの一覧については、次の表を参照してください。  **USB.HID.POS Scanner** モードでスキャナーを構成する方法については、バーコード スキャナーのマニュアルを参照するか、製造元にお問い合わせください。 </p><p>Windows では、USB.HID.POS Scanner 標準をサポートしない追加のバーコード スキャナーをサポートするために、ベンダー固有のドライバーの実装をサポートしています。 ベンダー固有のドライバーの利用可能性については、バーコード スキャナーの製造元に確認してください。</p><p>バーコード スキャナーのメーカー様は、カスタム バーコード スキャナー ドライバーの作成については、[バーコード スキャナー ドライバー設計ガイド](https://aka.ms/pointofservice-drv)をご覧ください。</p> |
+| USB          | <p>Windows には、によって定義された HID POS スキャナー使用量のテーブル (8. の c.) 仕様に基づいて USB 接続してバーコード スキャナのインボックス クラス ドライバーが含まれています[USB.org](https://www.usb.org/hid)します。既知の互換性のあるデバイスの一覧については、次の表を参照してください。  **USB.HID.POS Scanner** モードでスキャナーを構成する方法については、バーコード スキャナーのマニュアルを参照するか、製造元にお問い合わせください。 </p><p>Windows では、USB.HID.POS Scanner 標準をサポートしない追加のバーコード スキャナーをサポートするために、ベンダー固有のドライバーの実装をサポートしています。 ベンダー固有のドライバーの利用可能性については、バーコード スキャナーの製造元に確認してください。</p><p>バーコード スキャナーのメーカー様は、カスタム バーコード スキャナー ドライバーの作成については、[バーコード スキャナー ドライバー設計ガイド](https://aka.ms/pointofservice-drv)をご覧ください。</p> |
 | Bluetooth    | <p>Windows では、Serial Port Protocol - Simple Serial Interface (SPP-SSI) ベースの Bluetooth バーコード スキャナーがサポートされています。 既知の互換性のあるデバイスの一覧については、次の表を参照してください。 **SPP-SSI** モードでスキャナーを構成する方法については、バーコード スキャナーのマニュアルを参照するか、製造元にお問い合わせください。</p> |
 | Web カメラ       | <p>Windows 10 バージョン 1803 以降では、ユニバーサル Windows アプリケーションから標準のカメラ レンズでバーコードを読み取ることができます。 オート フォーカスと 1920 x 1440 以上の解像度をサポートするカメラを使用することをお勧めします。  バーコードが十分な大きさで印刷されている場合、これより解像度の低いカメラでも標準的なバーコードを読み取ることができる可能性があります。  バーコードの要素が細い場合は、より高い解像度のカメラが必要になる可能性があります。</p>| 
 |
@@ -68,8 +68,8 @@ ms.locfileid: "63828080"
 
 
 ¹ Upgradable Honeywell で 2D のバーコードをサポートするには <br/>
-² 最小ファームウェア 009 (2018.07.09) が必要です。 Zebra を使用してアップグレード可能な[123Scan](http://www.zebra.com/123Scan)します。<br/>
-³ 最小ファームウェア 016 (2018.01.18) が必要です。 Zebra を使用してアップグレード可能な[123Scan](http://www.zebra.com/123Scan)します。 
+² 最小ファームウェア 009 (2018.07.09) が必要です。 Zebra を使用してアップグレード可能な[123Scan](http://www.zebra.com/123scan)します。<br/>
+³ 最小ファームウェア 016 (2018.01.18) が必要です。 Zebra を使用してアップグレード可能な[123Scan](http://www.zebra.com/123scan)します。 
 
 
 <hr>

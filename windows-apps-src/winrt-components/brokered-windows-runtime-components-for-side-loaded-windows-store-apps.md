@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 81b3930c-6af9-406d-9d1e-8ee6a13ec38a
 ms.localizationpriority: medium
-ms.openlocfilehash: a9b6c6fc7a7e3ddfab70fe289a41bb4d436e9722
-ms.sourcegitcommit: ea15237291ae3ade0bf22e38bd292c3a23947a03
+ms.openlocfilehash: 24878d3c63de7df9c55f48571984b7d60d1ea240
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66377312"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67320370"
 ---
 # <a name="brokered-windows-runtime-components-for-a-side-loaded-uwp-app"></a>サイド ローディングされた UWP アプリのための Windows ランタイム コンポーネント ブローカー
 
@@ -19,7 +19,7 @@ ms.locfileid: "66377312"
 
 ## <a name="introduction"></a>概要
 
->**注**  のこのホワイト ペーパーに付属するサンプル コードをダウンロードすることが [Visual Studio 2015 および 2017](https://aka.ms/brokeredsample)します。 Windows ランタイム コンポーネントの仲介型の構築に Microsoft Visual Studio テンプレートは、ここでダウンロードできます。[ユニバーサル Windows アプリの Windows 10 を対象とする visual Studio 2015 のテンプレート](https://marketplace.visualstudio.com/vsgallery/10be07b3-67ef-4e02-9243-01b78cd27935)
+>**注**  のこのホワイト ペーパーに付属するサンプル コードをダウンロードすることが [Visual Studio 2015 および 2017](https://aka.ms/brokeredsample)します。 Windows ランタイム コンポーネントの仲介型の構築に Microsoft Visual Studio テンプレートは、ここでダウンロードできます。[ユニバーサル Windows アプリの Windows 10 を対象とする visual Studio 2015 のテンプレート](https://marketplace.visualstudio.com/items?itemName=vs-publisher-713547.VS2015TemplateBrokeredComponents)
 
 Windows にはと呼ばれる新しい機能が含まれています *サイドロード アプリケーション用の Windows ランタイム コンポーネントの仲介型*します。 既存のデスクトップ ソフトウェア資産を 1 つのプロセス (デスクトップ コンポーネント) 内で実行しつつ、UWP アプリからこのコードとやり取りできるようにする機能は、IPC (プロセス間通信) と呼ばれます。 これはエンタープライズ開発者には馴染みのあるモデルです。同様のマルチプロセス アーキテクチャは、データベース アプリケーションや、Windows で NT サービスを利用するアプリケーションでも使用されているためです。
 
@@ -553,7 +553,7 @@ MyWinRTComponent.Proxies
 
 -   結果のバルク転送により、プロセス間の対話が減ります。 これは通常、Windows ランタイム配列を使って処理されます。
 
--   返す *一覧<T>*  場所 *T* 非同期操作またはプロパティのフェッチのオブジェクトは、多数のプロセス間の頻繁な通信が発生します。 たとえば、戻る、*一覧&lt;人&gt;*  オブジェクト。 このとき、各反復パスがプロセス間呼び出しになります。 各 *人* 返されるオブジェクトは、プロキシと各メソッドの呼び出しで表されるまたはプロセス間呼び出しでその個々 のオブジェクトのプロパティになります。 ように「無害」 *一覧&lt;人&gt;*  オブジェクト、 *数* が大きい低速な呼び出しの数が多いと。 パフォーマンスを改善するには、コンテンツの構造体を配列に格納してバルク転送します。 次に、例を示します。
+-   返す *一覧<T>*  場所 *T* 非同期操作またはプロパティのフェッチのオブジェクトは、多数のプロセス間の頻繁な通信が発生します。 たとえば、戻る、*一覧&lt;人&gt;*  オブジェクト。 このとき、各反復パスがプロセス間呼び出しになります。 各 *人* 返されるオブジェクトは、プロキシと各メソッドの呼び出しで表されるまたはプロセス間呼び出しでその個々 のオブジェクトのプロパティになります。 ように「無害」 *一覧&lt;人&gt;*  オブジェクト、 *数* が大きい低速な呼び出しの数が多いと。 パフォーマンスを改善するには、コンテンツの構造体を配列に格納してバルク転送します。 例:
 
 ```csharp
 struct PersonStruct
@@ -590,7 +590,7 @@ struct PersonStruct
 
 ## <a name="resources"></a>参考資料
 
--   [VS 2015 および Windows 10 用のプロジェクト テンプレートの仲介型の WinRT コンポーネント](https://marketplace.visualstudio.com/vsgallery/10be07b3-67ef-4e02-9243-01b78cd27935)
+-   [VS 2015 および Windows 10 用のプロジェクト テンプレートの仲介型の WinRT コンポーネント](https://marketplace.visualstudio.com/items?itemName=vs-publisher-713547.VS2015TemplateBrokeredComponents)
 
 -   [NorthwindRT は、WinRT コンポーネント サンプルの仲介型](https://go.microsoft.com/fwlink/p/?LinkID=397349)
 

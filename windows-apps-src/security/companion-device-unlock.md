@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp, セキュリティ
 ms.assetid: 89f3d331-20cd-457b-83e8-1a22aaab2658
 ms.localizationpriority: medium
-ms.openlocfilehash: 0ddadde2502e8512ba38dc30c6ac24d22631d62c
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: f653ebe874bfa4d4ad8bb608acf9495f02191de7
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66372643"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67320626"
 ---
 # <a name="windows-unlock-with-windows-hello-companion-iot-devices"></a>Windows Hello コンパニオン (IoT) デバイスを使った Windows のロック解除
 
@@ -38,7 +38,7 @@ Windows Hello コンパニオン デバイスは、ユーザー認証のエク�
 
 ### <a name="biometric-enabled-windows-hello-companion-devices"></a>生体認証対応 Windows Hello コンパニオン デバイス
 
-コンパニオン デバイスが生体認証をサポートしている場合は、Windows Hello コンパニオン デバイス フレームワークよりも [Windows 生体認証フレームワーク](https://msdn.microsoft.com/library/windows/hardware/mt608302(v=vs.85).aspx)の方が効果的なことがあります。 適切なアプローチについては、[cdfonboard@microsoft.com](mailto:cdfonboard@microsoft.com) にお問い合わせください。
+コンパニオン デバイスが生体認証をサポートしている場合は、Windows Hello コンパニオン デバイス フレームワークよりも [Windows 生体認証フレームワーク](https://msdn.microsoft.com/windows/hardware/commercialize/design/device-experiences/windows-hello)の方が効果的なことがあります。 適切なアプローチについては、[cdfonboard@microsoft.com](mailto:cdfonboard@microsoft.com) にお問い合わせください。
 
 ### <a name="components-of-the-solution"></a>ソリューションのコンポーネント
 
@@ -637,7 +637,7 @@ Windows Hello コンパニオン デバイス アプリは、ShowNotificationMes
 **ガイダンス**
 
 - "Swipe up or press space bar to sign in with *device name*." (デバイス名にサインインするには、上にスワイプするか Space キーを押してください。)
-- "Setting up your companion device.  Please wait or use another sign-in option." (コンパニオン デバイスをセットアップしています。しばらく待機するか、別のサインイン オプションを使用してください。)
+- "Setting up your companion device. Please wait or use another sign-in option." (コンパニオン デバイスをセットアップしています。しばらく待機するか、別のサインイン オプションを使用してください。)
 - "サインインするには、*デバイス名* を NFC リーダーにタップしてください。"
 - "*デバイス名* を探しています..."
 - "サインインするには、*デバイス名* を USB ポートに差し込んでください。"

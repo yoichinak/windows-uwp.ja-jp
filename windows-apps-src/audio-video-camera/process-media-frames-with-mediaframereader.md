@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 1e9db0960070c77485fbe8b2f3231f7ce8035b5c
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 2b77fb147ab614b19993700d5d99572f0247d54e
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66361493"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67318270"
 ---
 # <a name="process-media-frames-with-mediaframereader"></a>MediaFrameReader を使ったメディア フレームの処理
 
@@ -93,7 +93,7 @@ ms.locfileid: "66361493"
 ## <a name="set-the-preferred-format-for-the-frame-source"></a>フレーム ソースの優先形式を設定する
 フレーム ソースの優先形式を設定するには、ソースを表す [**MediaFrameSource**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.Frames.MediaFrameSource) オブジェクトを取得する必要があります。 このオブジェクトを取得するには、初期化した **MediaCapture** オブジェクトの [**Frames**](https://docs.microsoft.com/previous-versions/windows/apps/phone/jj207578(v=win.10)) ディクショナリにアクセスし、使用するフレーム ソースの識別子を指定します。 これは、フレーム ソース グループを選択していたときに [**MediaFrameSourceInfo**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.Frames.MediaFrameSourceInfo) オブジェクトを保存したからです。
 
-[  **MediaFrameSource.SupportedFormats**](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesource.supportedformats) プロパティには、フレーム ソースのサポートされている形式を記述する [**MediaFrameFormat**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.Frames.MediaFrameFormat) オブジェクトの一覧が含まれています。 **Where** Linq 拡張メソッドを使って、目的のプロパティに基づいて形式を選択します。 この例では、幅が 1080 ピクセルで、32 ビット RGB 形式のフレームを提供できる形式が選択されています。 **FirstOrDefault** 拡張メソッドは一覧内で最初のエントリを選択します。 選択された形式が null の場合、要求された形式はそのフレーム ソースでサポートされません。 形式がサポートされている場合は、[**SetFormatAsync**](https://developer.microsoft.com/windows/apps/develop) を呼び出すことでソースがこの形式を使うことを要求できます。
+[  **MediaFrameSource.SupportedFormats**](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesource.supportedformats) プロパティには、フレーム ソースのサポートされている形式を記述する [**MediaFrameFormat**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.Frames.MediaFrameFormat) オブジェクトの一覧が含まれています。 **Where** Linq 拡張メソッドを使って、目的のプロパティに基づいて形式を選択します。 この例では、幅が 1080 ピクセルで、32 ビット RGB 形式のフレームを提供できる形式が選択されています。 **FirstOrDefault** 拡張メソッドは一覧内で最初のエントリを選択します。 選択された形式が null の場合、要求された形式はそのフレーム ソースでサポートされません。 形式がサポートされている場合は、[**SetFormatAsync**](https://docs.microsoft.com/windows/uwp/develop/) を呼び出すことでソースがこの形式を使うことを要求できます。
 
 [!code-cs[GetPreferredFormat](./code/Frames_Win10/Frames_Win10/MainPage.xaml.cs#SnippetGetPreferredFormat)]
 
@@ -127,11 +127,11 @@ XAML でフレームを表示するときの最初の手順は、イメージ �
 
 ここで、**FrameArrived** イベント ハンドラーを実装します。 ハンドラーが呼び出されると、*sender* パラメーターにイベントを発生させた **MediaFrameReader** オブジェクトへの参照が含まれます。 このオブジェクトで [**TryAcquireLatestFrame**](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.mediaframereader.tryacquirelatestframe) を呼び出して、最新のフレームの取得を試みます。 名前からわかるように、**TryAcquireLatestFrame** はフレームを返すことに失敗することがあります。 そのため、VideoMediaFrame プロパティ、SoftwareBitmap プロパティの順にアクセスするときは、必ず null を検査してください。 この例では、null 条件演算子 ? を使って **SoftwareBitmap** にアクセスした後、取得したオブジェクトで null がチェックされています。
 
-**Image** コントロールは、プリマルチプライ処理済みまたはアルファなしの BRGA8 形式でのみイメージを表示できます。 到着するフレームがその形式でない場合は、静的メソッド [**Convert**](https://docs.microsoft.com/uwp/api/windows.graphics.imaging.softwarebitmap.windows) を使ってソフトウェア ビットマップを正しい形式に変換します。
+**Image** コントロールは、プリマルチプライ処理済みまたはアルファなしの BRGA8 形式でのみイメージを表示できます。 到着するフレームがその形式でない場合は、静的メソッド [**Convert**](https://docs.microsoft.com/uwp/api/windows.graphics.imaging.softwarebitmap.convert) を使ってソフトウェア ビットマップを正しい形式に変換します。
 
 次に、[**Interlocked.Exchange**](https://docs.microsoft.com/dotnet/api/system.threading.interlocked.exchange?redirectedfrom=MSDN#System_Threading_Interlocked_Exchange__1___0____0_) メソッドを使って、到着するビットマップの参照をバックバッファー ビットマップと交換します。 このメソッドは、スレッド セーフであるアトミック操作でこれらの参照を交換します。 交換後、*softwareBitmap* 変数に格納されている古いバックバッファー イメージは、リソースをクリーンアップするために破棄されます。
 
-次に、**Image** 要素に関連付けられている [**CoreDispatcher**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreDispatcher) を使って、[**RunAsync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.windows) を呼び出して UI スレッドで実行されるタスクを作成します。 非同期タスクはタスク内で実行されるため、**RunAsync** に渡されるラムダ式は *async* キーワードを付けて宣言されます。
+次に、**Image** 要素に関連付けられている [**CoreDispatcher**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreDispatcher) を使って、[**RunAsync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync) を呼び出して UI スレッドで実行されるタスクを作成します。 非同期タスクはタスク内で実行されるため、**RunAsync** に渡されるラムダ式は *async* キーワードを付けて宣言されます。
 
 タスク内で、 *_taskRunning* 変数をチェックして、タスクの 1 つのインスタンスだけが一度に実行されていることを確認します。 タスクが既に実行されていない場合は、タスクがもう一度実行されることを防ぐために *_taskRunning* を true に設定します。 *while* ループで、バックバッファー イメージが null になるまで、**Interlocked.Exchange** を呼び出してバックバッファーから一時的な **SoftwareBitmap** にコピーします。 一時的なビットマップが入力されるたびに、**Image** の **Source** プロパティを **SoftwareBitmapSource** にキャストし、[**SetBitmapAsync**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.softwarebitmapsource.setbitmapasync) を呼び出してイメージのソースを設定します。
 

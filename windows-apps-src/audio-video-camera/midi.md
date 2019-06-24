@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 2737713030d68dbc19aaad3df767cea103b53f35
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 73806735401f53a73b1051f37c72119b45b574be
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66361597"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67318287"
 ---
 # <a name="midi"></a>MIDI
 
@@ -73,7 +73,7 @@ MIDI デバイスのセレクター文字列を渡して [**DeviceInformation.Cr
 -   [**更新**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.devicewatcher.updated) -既存のデバイスに関連付けられている情報が更新されたときに発生します。
 -   [**EnumerationCompleted** ](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.devicewatcher.enumerationcompleted) -ウォッチャーには、要求されたデバイスの種類の列挙が完了したときに発生します。
 
-これらの各イベントのイベント ハンドラーで、ヘルパー メソッド **UpdateDevices** が呼び出され、現在のデバイスの一覧で **ListBox** が更新されます。 **UpdateDevices** は UI 要素を更新し、これらのイベント ハンドラーは UI スレッドでは呼び出されないため、各呼び出しを [**RunAsync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.windows) の呼び出しにラップすることで、指定したコードが UI スレッドで実行されるようにする必要があります。
+これらの各イベントのイベント ハンドラーで、ヘルパー メソッド **UpdateDevices** が呼び出され、現在のデバイスの一覧で **ListBox** が更新されます。 **UpdateDevices** は UI 要素を更新し、これらのイベント ハンドラーは UI スレッドでは呼び出されないため、各呼び出しを [**RunAsync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync) の呼び出しにラップすることで、指定したコードが UI スレッドで実行されるようにする必要があります。
 
 [!code-cs[WatcherEventHandlers](./code/MIDIWin10/cs/MyMidiDeviceWatcher.cs#SnippetWatcherEventHandlers)]
 

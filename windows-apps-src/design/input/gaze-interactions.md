@@ -11,12 +11,12 @@ dev-contact: Austin Hodges
 doc-status: Draft
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 77e39b9c7440fab491b3d7ef85baa757d299fff8
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 3fb07dd9aec475566940dbf98ae6bd1c5f9c1337
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57604397"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67317337"
 ---
 # <a name="gaze-interactions-and-eye-tracking-in-uwp-apps"></a>UWP アプリでの視線の操作と視線追跡
 
@@ -27,7 +27,7 @@ ms.locfileid: "57604397"
 > [!NOTE]
 > [Windows Mixed Reality](https://docs.microsoft.com/windows/mixed-reality/) での視線入力については、「[視線](https://docs.microsoft.com/windows/mixed-reality/gaze)」を参照してください。
 
-**重要な API**:[Windows.Devices.Input.Preview](https://docs.microsoft.com/uwp/api/windows.devices.input.preview)、 [GazeDevicePreview](https://docs.microsoft.com/uwp/api/windows.devices.input.preview.gazedevicepreview)、 [GazePointPreview](https://docs.microsoft.com/uwp/api/windows.devices.input.preview.gazepointpreview)、 [GazeInputSourcePreview](https://docs.microsoft.com/uwp/api/windows.devices.input.preview.gazeinputsourcepreview)
+**重要な API**:[Windows.Devices.Input.Preview](https://docs.microsoft.com/uwp/api/windows.devices.input.preview), [GazeDevicePreview](https://docs.microsoft.com/uwp/api/windows.devices.input.preview.gazedevicepreview), [GazePointPreview](https://docs.microsoft.com/uwp/api/windows.devices.input.preview.gazepointpreview), [GazeInputSourcePreview](https://docs.microsoft.com/uwp/api/windows.devices.input.preview.gazeinputsourcepreview)
 
 ## <a name="overview"></a>概要
 
@@ -66,7 +66,7 @@ UWP アプリで視線入力 API を使用するには、次の作業を行う�
 
 この例では、UWP アプリケーション内でユーザーの視線を追跡し、基本的なヒット テストでタイミング関数を使用して、ユーザーが特定の要素で視線のフォーカスをどの程度維持できるかを示す方法を示します。
 
-小さな楕円を使用して視線のポイントがアプリケーションのビューポート内のどこにあるかを示しますが、[Windows コミュニティ ツールキット](https://docs.microsoft.com/en-us/windows/uwpcommunitytoolkit/)の [RadialProgressBar](https://docs.microsoft.com/en-us/windows/uwpcommunitytoolkit/controls/radialprogressbar) はキャンバス上でランダムに配置されます。 進行状況バーで注視フォーカスが検出されると、タイマーが開始し、進行状況バーが 100% に達したときに、キャンバスで、進行状況バーがランダムに移動します。
+小さな楕円を使用して視線のポイントがアプリケーションのビューポート内のどこにあるかを示しますが、[Windows コミュニティ ツールキット](https://docs.microsoft.com/windows/communitytoolkit/)の [RadialProgressBar](https://docs.microsoft.com/windows/communitytoolkit/controls/radialprogressbar) はキャンバス上でランダムに配置されます。 進行状況バーで注視フォーカスが検出されると、タイマーが開始し、進行状況バーが 100% に達したときに、キャンバスで、進行状況バーがランダムに移動します。
 
 ![タイマーのサンプルを使用した視線追跡](images/gaze/gaze-input-timed2.gif)
 
@@ -405,7 +405,7 @@ UWP アプリで視線入力 API を使用するには、次の作業を行う�
 
     視線追跡の楕円を `GazeEntered` で表示し、`GazeExited` で非表示にします。
 
-    `GazeMoved` では、[GazeEnteredPreviewEventArgs](https://docs.microsoft.com/uwp/api/windows.devices.input.preview.gazeenteredprevieweventargs) の [CurrentPoint](https://docs.microsoft.com/uwp/api/windows.devices.input.preview.gazeenteredprevieweventargs.currentpoint) で提供される [EyeGazePosition](https://docs.microsoft.com/uwp/api/windows.devices.input.preview.gazepointpreview.eyegazeposition) に基づいて視線追跡の楕円を移動します。 また、[RadialProgressBar](https://docs.microsoft.com/en-us/windows/uwpcommunitytoolkit/controls/radialprogressbar) で視線フォーカスのタイマーを管理します。これにより進行状況バーの位置変更がトリガーされます。 詳細については、次の手順を参照してください。
+    `GazeMoved` では、[GazeEnteredPreviewEventArgs](https://docs.microsoft.com/uwp/api/windows.devices.input.preview.gazeenteredprevieweventargs) の [CurrentPoint](https://docs.microsoft.com/uwp/api/windows.devices.input.preview.gazeenteredprevieweventargs.currentpoint) で提供される [EyeGazePosition](https://docs.microsoft.com/uwp/api/windows.devices.input.preview.gazepointpreview.eyegazeposition) に基づいて視線追跡の楕円を移動します。 また、[RadialProgressBar](https://docs.microsoft.com/windows/communitytoolkit/controls/radialprogressbar) で視線フォーカスのタイマーを管理します。これにより進行状況バーの位置変更がトリガーされます。 詳細については、次の手順を参照してください。
 
     ```csharp
     /// <summary>
@@ -600,7 +600,7 @@ UWP アプリで視線入力 API を使用するには、次の作業を行う�
 
 ### <a name="resources"></a>参考資料
 
-- [Windows コミュニティ Toolkit 視線ライブラリ](https://docs.microsoft.com/en-us/windows/uwpcommunitytoolkit/gaze/gazeinteractionlibrary)
+- [Windows コミュニティ Toolkit 視線ライブラリ](https://docs.microsoft.com/windows/communitytoolkit/gaze/gazeinteractionlibrary)
 
 ### <a name="topic-samples"></a>トピックのサンプル
 

@@ -6,12 +6,12 @@ ms.date: 05/11/2018
 ms.topic: article
 keywords: Windows 10, UWP, 広告, 宣伝, ガイドライン, ベスト プラクティス
 ms.localizationpriority: medium
-ms.openlocfilehash: 7bb187092158386c503b91973d8d63ce291b4760
-ms.sourcegitcommit: c62b260eecd373e57b19a623bae77e29180e0f3d
+ms.openlocfilehash: cf7f61f427ef0b1a0ff5b6f3b66d02d13d02e4ab
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66565514"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67320684"
 ---
 # <a name="ui-and-user-experience-guidelines-for-ads"></a>広告の UI とユーザー エクスペリエンスのガイドライン
 
@@ -25,10 +25,10 @@ ms.locfileid: "66565514"
 この記事のさまざまな種類の広告のガイドラインを確認する前に、まずこれらの一般的なベスト プラクティスを確認し、広告収益を向上させてください。
 
 * [広告の配置を慎重に計画します](https://blogs.windows.com/buildingapps/2017/04/10/monetizing-app-advertisement-placement/)。 [広告ユニットのビューアビリティの最適化](optimize-ad-unit-viewability.md)に関する関連するガイダンスを参照してください。
-* [スポット ビデオ広告のフォールバックとしてスポット バナー広告を使用します](https://blogs.windows.com/buildingapps/2017/04/17/monetizing-app-use-interstitial-banner-fallback-interstitial-video)。
+* [スポット ビデオ広告のフォールバックとしてスポット バナー広告を使用します](https://blogs.windows.com/buildingapps/2017/04/17/monetizing-app-use-interstitial-banner-fallback-interstitial-video/)。
 * [ユーザーを把握して、より良いターゲット広告を提供します](https://blogs.windows.com/buildingapps/2017/05/17/monetize-app-know-user-serve-better-targeted-ads/)。
 * [最新の Advertising ライブラリを使用します](https://blogs.windows.com/buildingapps/2017/05/22/earn-money-moving-latest-advertising-libraries/)。
-* [アプリの適切な COPPA 設定を設定します](https://blogs.windows.com/buildingapps/2017/06/21/monetizing-app-set-coppa-settings-app)。
+* [アプリの適切な COPPA 設定を設定します](https://blogs.windows.com/buildingapps/2017/06/21/monetizing-app-set-coppa-settings-app/)。
 
 
 ## <a name="guidelines-for-banner-ads"></a>バナー広告のガイドライン
@@ -39,7 +39,7 @@ ms.locfileid: "66565514"
 
 アプリにバナー広告を実装するときは、以下のベスト プラクティスに従うことをお勧めします。
 
-* デバイスのレイアウトに適合する [Interactive Advertising Bureau のサイズを使用します](https://blogs.windows.com/buildingapps/2017/04/03/monetizing-app-use-interactive-advertising-bureau-ad-sizes)。
+* デバイスのレイアウトに適合する [Interactive Advertising Bureau のサイズを使用します](https://blogs.windows.com/buildingapps/2017/04/03/monetizing-app-use-interactive-advertising-bureau-ad-sizes/)。
 
 * アプリの UI のほとんどを機能するコントロールとコンテンツに充てます。
 

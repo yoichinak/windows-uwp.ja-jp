@@ -5,12 +5,12 @@ keywords: ユーザー アクティビティ、ユーザー アクティビテ�
 ms.date: 04/27/2018
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 2756231b067176da66c6dbcedf7a1452d5d109f4
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: ed268dd4ba07604db468ee24e5ea348acf806b39
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57641157"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67321811"
 ---
 # <a name="continue-user-activity-even-across-devices"></a>デバイス間でもユーザーのアクティビティを継続する
 
@@ -73,11 +73,11 @@ private async Task GenerateActivityAsync()
 
 **UserActivity** を取得または作成した後で、他の 2 つの必須フィールド、 `UserActivity.VisualElements.DisplayText` と `UserActivity.ActivationUri` を指定します。
 
-次に、[SaveAsync](https://docs.microsoft.com/uwp/api/windows.applicationmodel.useractivities.useractivity.saveasync) を呼び出して **UserActivity** を保存し、最後に [CreateSession](https://docs.microsoft.com/uwp/api/windows.applicationmodel.useractivities.useractivity.createsession) を保存します。これは [UserActivitySession](https://docs.microsoft.com/uwp/api/windows.applicationmodel.useractivities.useractivitysession) を返します。 **UserActivitySession** は、ユーザーが実際に **UserActivity** を使用しているときに、管理するために使用できるオブジェクトです。 たとえば、**UserActivitySession** 上でユーザーがページを離れるときに `Dispose()` を呼び出す必要があります。 上記の例では、`CreateSession()` を呼び出す前に `_currentActivity` で` `Dispose()` を呼び出しています。 これは、`_currentActivity` をページのメンバー フィールドにして、新しいものを開始する前に既存のアクティビティを停止したいからです (注:`?` は [null 条件演算子](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/null-conditional-operators) で、メンバー アクセスを実行する前に null をテストします)。
+次に、[SaveAsync](https://docs.microsoft.com/uwp/api/windows.applicationmodel.useractivities.useractivity.saveasync) を呼び出して **UserActivity** を保存し、最後に [CreateSession](https://docs.microsoft.com/uwp/api/windows.applicationmodel.useractivities.useractivity.createsession) を保存します。これは [UserActivitySession](https://docs.microsoft.com/uwp/api/windows.applicationmodel.useractivities.useractivitysession) を返します。 **UserActivitySession** は、ユーザーが実際に **UserActivity** を使用しているときに、管理するために使用できるオブジェクトです。 たとえば、**UserActivitySession** 上でユーザーがページを離れるときに `Dispose()` を呼び出す必要があります。 上記の例では、`CreateSession()` を呼び出す前に `_currentActivity` で` `Dispose()` を呼び出しています。 これは、`_currentActivity` をページのメンバー フィールドにして、新しいものを開始する前に既存のアクティビティを停止したいからです (注:`?` は [null 条件演算子](https://docs.microsoft.com/dotnet/csharp/language-reference/operators/member-access-operators#null-conditional-operators--and-) で、メンバー アクセスを実行する前に null をテストします)。
 
 この場合、`ActivationUri` はカスタム スキームであるため、アプリケーション マニフェストにプロトコルを登録する必要もあります。 これは、Package.appmanifest XML ファイルで、またはデザイナーを使用して行います。
 
-デザイナーで変更を加えるには、プロジェクトの Package.appmanifest ファイルをダブルクリックしてデザイナーを起動し、**[宣言]** タブを選択して、**[プロトコル]** 定義を追加します。 記入する必要がある唯一のプロパティは、現在、**名前**です。 上記で指定した URI の `my-app` と一致するはずです。
+デザイナーで変更を加えるには、プロジェクトの Package.appmanifest ファイルをダブルクリックしてデザイナーを起動し、 **[宣言]** タブを選択して、 **[プロトコル]** 定義を追加します。 記入する必要がある唯一のプロパティは、現在、**名前**です。 上記で指定した URI の `my-app` と一致するはずです。
 
 ここで、プロトコルによって起動されたときに何をすべきかをアプリに伝えるコードを記述する必要があります。 App.xaml.cs の `OnActivated` メソッドを上書きして、メイン ページに URI を渡します。
 
@@ -149,8 +149,8 @@ Windows.UI.Shell.AdaptiveCardBuilder.CreateAdaptiveCardFromJson(jsonCardText); /
 
 ## <a name="cross-platform-and-service-to-service-integration"></a>クロス プラットフォームとサービス間の統合
 
-アプリがクロスプラットフォーム (Android や iOS など) で稼働している場合や、クラウドにユーザーの状態を保持している場合は、[Microsoft Graph](https://developer.microsoft.com/graph/) で UserActivities を公開できます。
-アプリケーションまたはサービスが Microsoft アカウントで認証されると、上記と同じデータを使用して [アクティビティ](https://developer.microsoft.com/graph/docs/api-reference/beta/api/projectrome_put_activity) オブジェクトと [履歴](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/projectrome_historyitem) オブジェクトを生成するための 2 回の単純な REST 呼び出しが必要です。
+アプリがクロスプラットフォーム (Android や iOS など) で稼働している場合や、クラウドにユーザーの状態を保持している場合は、[Microsoft Graph](https://developer.microsoft.com/graph) で UserActivities を公開できます。
+アプリケーションまたはサービスが Microsoft アカウントで認証されると、上記と同じデータを使用して [アクティビティ](https://docs.microsoft.com/graph/api/resources/projectrome-activity) オブジェクトと [履歴](https://docs.microsoft.com/graph/api/resources/projectrome-historyitem) オブジェクトを生成するための 2 回の単純な REST 呼び出しが必要です。
 
 ## <a name="summary"></a>概要
 
@@ -158,7 +158,7 @@ Windows.UI.Shell.AdaptiveCardBuilder.CreateAdaptiveCardFromJson(jsonCardText); /
 * 詳細については、 [ **UserActivity** API](https://docs.microsoft.com/uwp/api/windows.applicationmodel.useractivities)
 * 「[sample code](https://github.com/Microsoft/project-rome)」をご覧ください。
 * 「[more sophisticated Adaptive Cards](https://adaptivecards.io/)」を参照してください。
-* [Microsoft Graph](https://developer.microsoft.com/graph/) を介して、iOS、Android、または Web サービスから **UserActivity** を公開します。
+* [Microsoft Graph](https://developer.microsoft.com/graph) を介して、iOS、Android、または Web サービスから **UserActivity** を公開します。
 * [Project Rome on GitHub](https://github.com/Microsoft/project-rome) について詳しく知る
 
 ## <a name="key-apis"></a>キー API
@@ -172,4 +172,4 @@ Windows.UI.Shell.AdaptiveCardBuilder.CreateAdaptiveCardFromJson(jsonCardText); /
 * [アダプティブ カード ビジュアライザー、サンプル](https://adaptivecards.io/)
 * [URI のアクティブ化の処理](https://docs.microsoft.com/windows/uwp/launch-resume/handle-uri-activation)
 * [お客様の Microsoft Graph、アクティビティ フィード、および Adaptive Cards を使用して任意のプラットフォームとの連携](https://channel9.msdn.com/Events/Connect/2017/B111)
-* [Microsoft Graph](https://developer.microsoft.com/graph/)
+* [Microsoft Graph](https://developer.microsoft.com/graph)

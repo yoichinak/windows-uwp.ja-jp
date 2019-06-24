@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 360faf3f-7e73-4db4-8324-3391f801d827
 ms.localizationpriority: medium
-ms.openlocfilehash: f34b2cdbb538d121c1c6182b2c02042d6c0047ed
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 6bebf9533ab045822902d44f87f68eec55c11074
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66360928"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67318573"
 ---
 # <a name="custom-audio-effects"></a>カスタムのオーディオ特殊効果
 
@@ -51,7 +51,7 @@ ms.locfileid: "66360928"
 
 ### <a name="setencodingproperties-method"></a>SetEncodingProperties メソッド
 
-[  **SetEncodingProperties**](https://docs.microsoft.com/uwp/api/windows.media.effects.ibasicvideoeffect.setencodingproperties.windows) は、効果の対象となるオーディオ ストリームのエンコード プロパティを示すために呼び出されます。 エコー効果を実装するため、この例では 1 秒間のオーディオ データを格納するバッファーを使用します。 このメソッドは、オーディオをエンコードするサンプル レートに基づいて、バッファーのサイズを 1 秒間のオーディオのサンプル数に初期化する機会を提供します。 遅延効果では、遅延バッファー内の現在位置を追跡する整数カウンターも使います。 オーディオ パイプラインに効果が追加されるたびに **SetEncodingProperties** 効果が呼び出されるため、これは値を 0 に初期化する良い機会です。 このメソッドに渡された **AudioEncodingProperties** オブジェクトをキャプチャして、効果の他の場所で使用することもできます。
+[  **SetEncodingProperties**](https://docs.microsoft.com/uwp/api/windows.media.effects.ibasicvideoeffect.setencodingproperties) は、効果の対象となるオーディオ ストリームのエンコード プロパティを示すために呼び出されます。 エコー効果を実装するため、この例では 1 秒間のオーディオ データを格納するバッファーを使用します。 このメソッドは、オーディオをエンコードするサンプル レートに基づいて、バッファーのサイズを 1 秒間のオーディオのサンプル数に初期化する機会を提供します。 遅延効果では、遅延バッファー内の現在位置を追跡する整数カウンターも使います。 オーディオ パイプラインに効果が追加されるたびに **SetEncodingProperties** 効果が呼び出されるため、これは値を 0 に初期化する良い機会です。 このメソッドに渡された **AudioEncodingProperties** オブジェクトをキャプチャして、効果の他の場所で使用することもできます。
 
 [!code-cs[DeclareEchoBuffer](./code/AudioGraph/AudioEffectComponent/ExampleAudioEffect.cs#SnippetDeclareEchoBuffer)]
 [!code-cs[SetEncodingProperties](./code/AudioGraph/AudioEffectComponent/ExampleAudioEffect.cs#SnippetSetEncodingProperties)]

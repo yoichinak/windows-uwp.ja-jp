@@ -6,12 +6,12 @@ ms.date: 08/25/2017
 ms.topic: article
 keywords: Windows 10, UWP, アプリ内購入, IAP, アドオン, カタログ, Windows.ApplicationModel.Store
 ms.localizationpriority: medium
-ms.openlocfilehash: b2292bbbe735d9121955d93407a53456176dbbee
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: e297c01aa19449691e775c4d7d2c33028b234cfa
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66371033"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67320182"
 ---
 # <a name="manage-a-large-catalog-of-in-app-products"></a>アプリ内製品の大規模なカタログの管理
 
@@ -32,7 +32,7 @@ ms.locfileid: "66371033"
 
 ## <a name="make-the-purchase-request-for-the-in-app-product"></a>アプリ内製品に対する購入要求
 
-大規模なカタログ内の特定の製品に対する購入要求は、他のアプリ内購入要求とほとんど同様に処理されます。 アプリが新しい [RequestProductPurchaseAsync](https://docs.microsoft.com/uwp/api/windows.applicationmodel.store.currentapp.requestproductpurchaseasync) メソッドのオーバーロードを呼び出すときに、アプリは *OfferId* と、アプリ内製品の名前が設定された [ProductPurchaseDisplayProperties](https://docs.microsoft.com/uwp/api/windows.applicationmodel.store.productpurchasedisplayproperties.) オブジェクトの両方を提供します。
+大規模なカタログ内の特定の製品に対する購入要求は、他のアプリ内購入要求とほとんど同様に処理されます。 アプリが新しい [RequestProductPurchaseAsync](https://docs.microsoft.com/uwp/api/windows.applicationmodel.store.currentapp.requestproductpurchaseasync) メソッドのオーバーロードを呼び出すときに、アプリは *OfferId* と、アプリ内製品の名前が設定された [ProductPurchaseDisplayProperties](https://docs.microsoft.com/uwp/api/windows.applicationmodel.store.productpurchasedisplayproperties) オブジェクトの両方を提供します。
 
 > [!div class="tabbedCodeSnippets"]
 [!code-csharp[ManageCatalog](./code/InAppPurchasesAndLicenses/cs/ManageCatalog.cs#MakePurchaseRequest)]
