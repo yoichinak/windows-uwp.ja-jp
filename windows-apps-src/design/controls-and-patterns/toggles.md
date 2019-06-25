@@ -13,19 +13,19 @@ dev-contact: mitra
 doc-status: Published
 ms.localizationpriority: medium
 ms.openlocfilehash: a23a7a7da9605c0ffb5a537c75d63e3f06705881
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57625467"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "63775169"
 ---
 # <a name="toggle-switches"></a>トグル スイッチ
 
-トグル スイッチでは、ユーザーをなどオンまたはオフ、ライトのスイッチをオンにできる物理スイッチを表します。 トグル スイッチ コントロールを使うと、ユーザーに 2 つの相互排他的なオプション (オン/オフのように) を表示できます。オプションの選択によって、即座に結果が提供されます。
+トグル スイッチは、ユーザーが項目をオンまたはオフに切り替えることができる、電気のスイッチのような物理的なスイッチを表します。 トグル スイッチ コントロールを使うと、ユーザーに 2 つの相互排他的なオプション (オン/オフのように) を表示できます。オプションの選択によって、即座に結果が提供されます。
 
 トグル スイッチ コントロールを作成するには、[ToggleSwitch クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.toggleswitch)を使用します。
 
-> **重要な API**:[ToggleSwitch クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.toggleswitch)、[プロパティをオンになっている](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.toggleswitch.ison)、 [Toggled イベント](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.toggleswitch.toggled)
+> **重要な API**: [ToggleSwitch クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.toggleswitch)、[IsOn プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.toggleswitch.ison)、[Toggled イベント](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.toggleswitch.toggled)
 
 ## <a name="is-this-the-right-control"></a>適切なコントロールの選択
 
@@ -35,7 +35,7 @@ ms.locfileid: "57625467"
 
 トグル スイッチは、デバイスの物理的な電源スイッチと考えることができます。スイッチをオンまたはオフにフリップして、デバイスが実行する操作を有効にしたり無効にしたりします。
 
-トグル スイッチをわかりやすくするには、制御対象の機能を説明する 1 ～ 2 単語 (できれば名詞) でラベルを付けます  (例: "WiFi" や "台所の電気" など)。 
+トグル スイッチをわかりやすくするには、制御対象の機能を説明する 1 ～ 2 単語 (できれば名詞) でラベルを付けます (例: "WiFi" や "台所の電気" など)。 
 
 ## <a name="examples"></a>例
 
@@ -67,7 +67,7 @@ ms.locfileid: "57625467"
 - 変更を有効にするためにユーザーが追加の手順を実行する必要があるときは、チェック ボックスを使います。 たとえば、ユーザーが [送信] や [次へ] などのボタンをクリックして変更を適用する必要がある場合は、チェック ボックスを使います。
 - 1 つの設定または機能に関連する複数の項目をユーザーが選択できるようにする場合、チェック ボックスを使います。
 
-## <a name="toggle-switches-in-the-windows-ui"></a>Windows の UI でトグル スイッチ
+## <a name="toggle-switches-in-the-windows-ui"></a>Windows UI のトグル スイッチ
 
 以下の画像に、Windows UI でのトグル スイッチの使用例を示します。 次に示すのは、スマート ストレージ設定画面でのトグル スイッチの使用例です。
 
@@ -176,6 +176,6 @@ private void ToggleSwitch_Toggled(object sender, RoutedEventArgs e)
 ## <a name="related-articles"></a>関連記事
 
 - [ToggleSwitch クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.toggleswitch)
-- [オプション ボタン](radio-button.md)
+- [ラジオ ボタン](radio-button.md)
 - [トグル スイッチ](toggles.md)
 - [チェック ボックス](checkbox.md)
