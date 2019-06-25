@@ -5,12 +5,12 @@ ms.date: 05/09/2018
 ms.topic: article
 keywords: windows 10 s, 常時接続, ARM での x86 エミュレーション, トラブルシューティング
 ms.localizationpriority: medium
-ms.openlocfilehash: 5f40c53c70a457057f678cdc227a98fc694e2273
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 3c29151ae2823aa70711bf002e8954148cc0861b
+ms.sourcegitcommit: f7e3782e24d46b2043023835c5b59d12d3b4ed4b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67319667"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67345674"
 ---
 # <a name="troubleshooting-x86-desktop-apps"></a>x86 デスクトップ アプリのトラブルシューティング
 >[!IMPORTANT]
@@ -47,3 +47,8 @@ Windows コンポーネントをフックしたり、DLL を Windows プロセ�
 
 ## <a name="virtual-machines"></a>仮想マシン
 Windows ハイパーバイザー プラットフォームは、Qualcomm の Snapdragon 835 モバイル PC プラットフォームでサポートされていません。 したがって、Hyper-V を使った仮想マシンの実行は機能しません。 将来の Qualcomm チップセットでは、これらのテクノロジへの投資が続けられます。 
+
+## <a name="dynamic-code-generation"></a>動的なコード生成
+デスクトップ アプリは実行時に、ARM64 命令を生成するシステムで ARM64 でエミュレーション X86。 つまり、x86 の場合はデスクトップ アプリは、動的なコード生成を防止または ARM64 で x86 として実行する、プロセスでは、そのアプリでの変更をサポートできません。 
+
+これは、セキュリティ リスク軽減策を使用して、プロセスの一部のアプリを有効にする[SetProcessMitigationPolicy](https://docs.microsoft.com/en-us/windows/desktop/api/processthreadsapi/nf-processthreadsapi-setprocessmitigationpolicy) API と、`ProcessDynamicCodePolicy`フラグ。 X86 として ARM64 で正常に実行するプロセスでは、この軽減ポリシーを無効にする必要があります。 

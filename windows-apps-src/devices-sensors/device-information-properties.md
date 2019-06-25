@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 3e26908839204c67a4746f602acc08c6776e889c
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 7223123ef6f71a45acc967aa60feffa1003b66d1
+ms.sourcegitcommit: 58d35b89662d4ad240650933e43fee0b00e9a962
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66370253"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67344526"
 ---
 # <a name="device-information-properties"></a>デバイス情報プロパティ
 
@@ -101,6 +101,15 @@ ms.locfileid: "66370253"
 
  
 
+## <a name="devicepanel-properties"></a>DevicePanel プロパティ
+
+| 名前                                            | 種類    | 説明                                                                                                      |
+|-------------------------------------------------|---------|------------------------------------------------------------------------------------------------------------------|
+| **System.Devices.Panel.PanelId**                | String  | 識別子、 **DevicePanel**オブジェクト。                                                                    |
+| **System.Devices.Panel.PanelGroup**             | String  | 親の識別子**PanelGroup**します。                                                                      |
+ 
+ 
+ 
 ## <a name="associationendpoint-properties"></a>AssociationEndpoint プロパティ
 
 | 名前                                  | 種類       | 説明                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
@@ -155,9 +164,3 @@ ms.locfileid: "66370253"
 | **System.Devices.AepService.ServiceClassId**    | GUID    | このデバイスで表されるサービスの ID。                                                             |
 | **System.Devices.AepService.ServiceId**         | String  | このサービスの ID。 これは [**DeviceInformation.Id**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformation.id) の値でもあります。 |
 | **System.ItemNameDisplay**                      | String  | このサービスに最適な表示名。                                                                           |
-
- 
-
- 
-
- 

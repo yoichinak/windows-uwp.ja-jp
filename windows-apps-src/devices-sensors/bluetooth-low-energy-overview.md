@@ -5,12 +5,12 @@ ms.date: 03/19/2017
 ms.topic: article
 keywords: Windows 10, UWP, Bluetooth, Bluetooth LE, 低エネルギー, GATT, GAP, セントラル, ペリフェラル, クライアント, サーバー, ウォッチャー, パブリッシャー
 ms.localizationpriority: medium
-ms.openlocfilehash: 3f23bdc658d2a82e3edeefd0a7be471ca9620d33
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 7921094c55944b4cfed4fdb3f3e6d895eb7fe0a4
+ms.sourcegitcommit: 58d35b89662d4ad240650933e43fee0b00e9a962
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67321611"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67344507"
 ---
 # <a name="bluetooth-low-energy"></a>Bluetooth 低エネルギー
 Bluetooth 低エネルギー (LE) は、検出と電力効率に優れたデバイス間の通信用のプロトコルを定義する仕様です。 デバイスの検出は、汎用アクセス プロファイル (GAP) プロトコルを使って行われます。 検出後、汎用属性 (GATT) プロトコルを使ってデバイス間の通信が行われます。 このトピックでは、UWP アプリでの Bluetooth LE の概要を示します。 Bluetooth LE の詳細については、Bluetooth LE が導入された [Bluetooth コア仕様](https://www.bluetooth.com/specifications/bluetooth-core-specification/)バージョン 4.0 をご覧ください。 
@@ -21,7 +21,7 @@ Bluetooth 低エネルギー (LE) は、検出と電力効率に優れたデバ�
 
 次の名前空間を使って、UWP アプリで GATT および GAP プロトコルを実装できます。
 - [Windows.Devices.Bluetooth.GenericAttributeProfile](https://docs.microsoft.com/en-us/uwp/api/windows.devices.bluetooth.genericattributeprofile)
-- [Windows.Devices.Bluetooth.Advertisement](https://docs.microsoft.com/en-us/uwp/api/windows.devices.bluetooth.genericattributeprofile)
+- [Windows.Devices.Bluetooth.Advertisement](https://docs.microsoft.com/en-us/uwp/api/windows.devices.bluetooth.advertisement)
 
 ## <a name="central-and-peripheral"></a>セントラルとペリフェラル
 検出での 2 つの主な役割は、セントラルおよびペリフェラルと呼ばれます。 一般に、Windows はセントラル モードで動作し、さまざまなペリフェラル (周辺機器) デバイスに接続します。 
@@ -41,5 +41,5 @@ Windows の Bluetooth API でよく使用される略語として GATT (汎用�
 
 ## <a name="see-also"></a>関連項目
 - [Windows.Devices.Bluetooth.GenericAttributeProfile](https://docs.microsoft.com/en-us/uwp/api/windows.devices.bluetooth.genericattributeprofile)
-- [Windows.Devices.Bluetooth.Advertisement](https://docs.microsoft.com/en-us/uwp/api/windows.devices.bluetooth.genericattributeprofile)
-- [Bluetooth のコア仕様](https://www.bluetooth.com/specifications/bluetooth-core-specification/)
+- [Windows.Devices.Bluetooth.Advertisement](https://docs.microsoft.com/en-us/uwp/api/windows.devices.bluetooth.advertisement)
+- [Bluetooth のコア仕様](https://www.bluetooth.com/specifications/bluetooth-core-specification)
