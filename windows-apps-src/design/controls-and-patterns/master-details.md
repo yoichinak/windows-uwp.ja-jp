@@ -9,11 +9,11 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: b9d8d8a381c0fce186b39853f57d35c1dce4b8f8
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57601257"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "63773313"
 ---
 # <a name="masterdetails-pattern"></a>マスター/詳細パターン
 
@@ -21,7 +21,7 @@ ms.locfileid: "57601257"
 
 マスター/詳細パターンには、コンテンツのマスター ウィンドウ (通常は[リスト ビュー](lists.md)も表示されます) と詳細ウィンドウがあります。 マスター リストの項目を選ぶと、詳細ウィンドウが更新されます。 このパターンは、メールやアドレス帳によく使われます。
 
-> **重要な API**:[ListView クラス](https://docs.microsoft.com/en-us/uwp/api/Windows.UI.Xaml.Controls.ListView)、 [SplitView クラス](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.splitview)
+> **重要な API**: [ListView クラス](https://docs.microsoft.com/en-us/uwp/api/Windows.UI.Xaml.Controls.ListView)、[SplitView クラス](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.splitview)
 
 ![マスター/詳細パターンの例](images/HIGSecOne_MasterDetail.png)
 
@@ -93,16 +93,16 @@ ms.locfileid: "57601257"
 ## <a name="get-the-sample-code"></a>サンプル コードを入手する
 
 次のサンプルでは、アダプティブ レイアウトを使用してマスター/詳細パターンを実装し、静的なリソース、データベース リソース、およびオンライン リソースに対するデータ バインディングを示します。 
-- [マスター/詳細サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlMasterDetail) 
-- [マスター/詳細とサンプルの選択](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlListView)
-- [Windows テンプレート Studio マスター/詳細サンプル](https://github.com/Microsoft/WindowsTemplateStudio/tree/master/templates/Uwp/Pages/MasterDetail)
-- [顧客注文データベース サンプル](https://github.com/Microsoft/Windows-appsample-customers-orders-database)
+- [マスター/詳細のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlMasterDetail) 
+- [マスター/詳細と選択のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlListView)
+- [Windows Template Studio マスター/詳細のサンプル](https://github.com/Microsoft/WindowsTemplateStudio/tree/master/templates/Uwp/Pages/MasterDetail)
+- [顧客注文データベースのサンプル](https://github.com/Microsoft/Windows-appsample-customers-orders-database)
 - [RSS リーダーのサンプル](https://github.com/Microsoft/Windows-appsample-rssreader)
 
 ## <a name="related-articles"></a>関連記事
 
 - [リスト](lists.md)
 - [検索](search.md)
-- [アプリとコマンド バー](app-bars.md)
+- [アプリ バーとコマンド バー](app-bars.md)
 - [ListView クラス](https://docs.microsoft.com/en-us/uwp/api/Windows.UI.Xaml.Controls.ListView)
 - [SplitView クラス](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.splitview)

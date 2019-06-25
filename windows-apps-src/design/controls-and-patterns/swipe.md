@@ -12,17 +12,17 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: 3d575eb25d9a013aa999cf304db6d83faeb87765
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57626657"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "63774704"
 ---
 # <a name="swipe"></a>スワイプ
 
 スワイプによるコマンド実行は、ユーザーがタッチ操作によってアプリ内の状態を変更することなく、一般的なメニュー アクションに簡単にアクセスできるようにするコンテキスト メニューのアクセラレータです。
 
-> **重要な API**:[SwipeControl](/uwp/api/windows.ui.xaml.controls.swipecontrol)、 [SwipeItem](/uwp/api/windows.ui.xaml.controls.swipeitem)、 [ListView クラス](/uwp/api/Windows.UI.Xaml.Controls.ListView)
+> **重要な API**: [SwipeControl](/uwp/api/windows.ui.xaml.controls.swipecontrol)、[SwipeItem](/uwp/api/windows.ui.xaml.controls.swipeitem)、[ListView class](/uwp/api/Windows.UI.Xaml.Controls.ListView)
 
 ![実行と表示の淡色テーマ](images/LightThemeSwipe.png)
 
@@ -59,7 +59,7 @@ ms.locfileid: "57626657"
 
 ## <a name="how-does-swipe-work"></a>スワイプの動作の仕組み
 
-UWP でスワイプ コマンドを実行すると、2 つのモードがあります。[表示](/uwp/api/windows.ui.xaml.controls.swipemode)と[実行](/uwp/api/windows.ui.xaml.controls.swipemode)します。 さらに、上、下、左、右の 4 つのスワイプの方向もサポートされています。
+UWP のスワイプによるコマンド実行には、[表示](/uwp/api/windows.ui.xaml.controls.swipemode) と[実行](/uwp/api/windows.ui.xaml.controls.swipemode) の 2 つのモードがあります。 さらに、上、下、左、右の 4 つのスワイプの方向もサポートされています。
 
 ### <a name="reveal-mode"></a>表示モード
 
@@ -96,7 +96,7 @@ UWP でスワイプ コマンドを実行すると、2 つのモードがあり�
 スワイプ コマンドでは、2 つのコンポーネントを定義する必要があります。
 
 - コンテンツを取り囲む [SwipeControl](/uwp/api/windows.ui.xaml.controls.swipecontrol)。 ListView などコレクションに含まれる場合は、DataTemplate 内にあります。
-- スワイプのメニュー項目、1 つまたは複数が[SwipeItem](/uwp/api/windows.ui.xaml.controls.swipeitem)オブジェクトはスワイプ コントロールの方向性のあるコンテナーに配置します。[LeftItems](/uwp/api/windows.ui.xaml.controls.swipecontrol.LeftItems)、 [RightItems](/uwp/api/windows.ui.xaml.controls.swipecontrol.RightItems)、 [TopItems](/uwp/api/windows.ui.xaml.controls.swipecontrol.TopItems)、または[BottomItems](/uwp/api/windows.ui.xaml.controls.swipecontrol.BottomItems)
+- スワイプ コントロールの方向コンテナー内に配置された 1 つまたは複数の [SwipeItem](/uwp/api/windows.ui.xaml.controls.swipeitem) オブジェクトであるスワイプ メニュー項目: [LeftItems](/uwp/api/windows.ui.xaml.controls.swipecontrol.LeftItems)、[RightItems](/uwp/api/windows.ui.xaml.controls.swipecontrol.RightItems)、[TopItems](/uwp/api/windows.ui.xaml.controls.swipecontrol.TopItems)、または [BottomItems](/uwp/api/windows.ui.xaml.controls.swipecontrol.BottomItems)
 
 スワイプ コンテンツは、インラインで配置するか、ページまたはアプリの [リソース] セクションで定義することができます。
 
@@ -182,7 +182,7 @@ SwipeControl がその項目の DataTemplate で適用されている ListView �
 
 ## <a name="handle-an-invoked-swipe-command"></a>呼び出されたスワイプ コマンドの処理
 
-スワイプ コマンドを処理するには、その [Invoked](/uwp/api/windows.ui.xaml.controls.swipeitem.Invoked) イベントを処理します。 (詳細については、方法の詳細について、ユーザーはコマンドの呼び出しで、確認、_スワイプの動作でしょうか_この記事の前半の「します。)。通常、スワイプ コマンドは、ListView または一覧のようなシナリオです。 その場合は、コマンドが呼び出されるた場合、そのスワイプされた項目で操作を実行する必要があります。
+スワイプ コマンドを処理するには、その [Invoked](/uwp/api/windows.ui.xaml.controls.swipeitem.Invoked) イベントを処理します。 (ユーザーがコマンドを呼び出す方法の詳細については、この記事の前半にある「_スワイプの動作の仕組み_」セクションをご覧ください。) 通常、スワイプ コマンドは、ListView または一覧のようなシナリオで使用されます。 その場合は、コマンドが呼び出されるた場合、そのスワイプされた項目で操作を実行する必要があります。
 
 以前に作成した_削除_スワイプ項目で Invoked イベントを処理する方法を以下に示します。
 
@@ -212,7 +212,7 @@ SwipeControl がその項目の DataTemplate で適用されている ListView �
   - 表示モードでは、開いたスワイプ項目は呼び出されると折りたたまれます。
 - **閉じる**
   - 項目が呼び出されると、スワイプ コントロールは常に折りたたまれ、モードに関係なく通常に戻ります。
-- **流れない**
+- **RemainOpen**
   - 項目が呼び出されると、スワイプ コントロールはモードに関係なく常に開いたままになります。
 
 ここでは、_返信_スワイプ項目は呼び出された後に閉じるように設定されます。
@@ -239,6 +239,6 @@ SwipeControl がその項目の DataTemplate で適用されている ListView �
 
 ## <a name="related-articles"></a>関連記事
 
-- [リスト ビューおよびグリッド ビュー](listview-and-gridview.md)
+- [リスト ビューとグリッド ビュー](listview-and-gridview.md)
 - [項目コンテナーとテンプレート](item-containers-templates.md)
 - [引っ張って更新](pull-to-refresh.md)
