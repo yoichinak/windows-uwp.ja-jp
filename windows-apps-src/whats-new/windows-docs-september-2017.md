@@ -6,11 +6,11 @@ ms.date: 09/06/2017
 ms.topic: article
 ms.localizationpriority: medium
 ms.openlocfilehash: 0ae5001e907d7d38cbf05fd6863b192337fe365f
-ms.sourcegitcommit: e63fbd7a63a7e8c03c52f4219f34513f4b2bb411
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58162888"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "63801083"
 ---
 # <a name="whats-new-in-the-windows-developer-docs-in-september-2017"></a>Windows 開発者向けドキュメントの最新情報、2017 年 9 月
 
@@ -36,10 +36,10 @@ Xbox Live クリエーターズ プログラムは現在実施中で、Windows 1
 
 新しい記事の簡単な概要を次に示します。
 
-+ [**ユーザー インターフェイスを作成**](https://docs.microsoft.com/en-us/windows/uwp/get-started/xaml-basics-ui)基本的な写真ギャラリー インターフェイスを作成する方法を示します。
-+ [**データ バインドを作成**](https://docs.microsoft.com/en-us/windows/uwp/get-started/xaml-basics-data-binding)実際のイメージ データを設定すること、フォト ギャラリーにデータ バインドを追加する方法を示します。
-+ [**カスタム スタイルを作成する**](https://docs.microsoft.com/en-us/windows/uwp/get-started/xaml-basics-style)写真編集メニューに手の込んだカスタム スタイルを追加する方法を示します。
-+ [**アダプティブ レイアウトを作成する**](https://docs.microsoft.com/en-us/windows/uwp/get-started/xaml-basics-adaptive-layout)のため、すべてのデバイスと画面サイズに問題がなければ、アダプティブ、ギャラリーのレイアウトを作成する方法を示しています。
++ [**ユーザー インターフェイスを作成する**](https://docs.microsoft.com/en-us/windows/uwp/get-started/xaml-basics-ui): 基本的なフォト ギャラリー インターフェイスの作成方法について説明します。
++ [**データ バインディングを作成する**](https://docs.microsoft.com/en-us/windows/uwp/get-started/xaml-basics-data-binding): フォト ギャラリーにデータ バインディングを追加し、実際のイメージ データを設定する方法について説明します。
++ [**カスタム スタイルを作成する**](https://docs.microsoft.com/en-us/windows/uwp/get-started/xaml-basics-style): 写真編集メニューに装飾的なカスタム スタイルを追加する方法について説明します。
++ [**アダプティブ レイアウト作成する**](https://docs.microsoft.com/en-us/windows/uwp/get-started/xaml-basics-adaptive-layout): すべてのデバイスおよび画面サイズで適切な表示になるように、ギャラリー レイアウトをアダプティブにする方法について説明します。
 
 ### <a name="get-started-tutorials"></a>入門チュートリアル
 

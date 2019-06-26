@@ -1,20 +1,20 @@
 ---
-title: 2018 年の 9 月に Windows Docs の新 - UWP アプリを開発します。
-description: Windows 10 の開発者向けドキュメント 2018 の年 9 月の新機能、ビデオ、サンプル、および開発者向けガイダンスが追加されました。
-keywords: 新機能については、更新、機能、開発者ガイド、Windows 10、9 月
+title: Windows ドキュメントの最新情報、2018 年 9 月 - UWP アプリの開発
+description: 2018 年 9 月版の Windows 10 開発者向けドキュメントには、新しい機能、ビデオ、サンプル、開発者向けガイダンスが追加されました。
+keywords: 最新情報, 更新, 機能, 開発者向けガイダンス, Windows 10, 9 月
 ms.date: 09/10/2018
 ms.topic: article
 ms.localizationpriority: medium
 ms.openlocfilehash: 0876b2d9b65143cde2387a42e221460cc617cf0b
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57618257"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "63800478"
 ---
-# <a name="whats-new-in-the-windows-developer-docs-in-september-2018"></a>新機能については、Windows 開発者向けドキュメントで 2018 の年 9 月です。
+# <a name="whats-new-in-the-windows-developer-docs-in-september-2018"></a>Windows 開発者向けドキュメントの最新情報、2018 年 9 月
 
-Windows 開発者向けドキュメントは、Windows プラットフォームで開発者に提供される新機能の情報を反映して継続的に更新されています。 次の機能の概要、開発者ガイド、およびビデオが 9 月の 1 か月間利用可能な加えられました。
+Windows 開発者向けドキュメントは、Windows プラットフォームで開発者に提供される新機能の情報を反映して継続的に更新されています。 次の機能概要、開発者向けガイダンス、ビデオは 9 月に使用可能になりました。
 
 Windows 10 の[ツールと SDK をインストール](https://go.microsoft.com/fwlink/?LinkId=821431)すると、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
 
@@ -22,46 +22,46 @@ Windows 10 の[ツールと SDK をインストール](https://go.microsoft.com/
 
 ### <a name="windows-machine-learning"></a>Windows Machine Learning
 
-[Windows Machine Learning docs](https://docs.microsoft.com/windows/ai/)今すぐ、自分のサイト上に存在し、最新の Windows Insider SDK 用に更新されます。 デスクトップと C++ の UWP チュートリアルがあるとC#に役立つ WinML アプリケーションへの追加を開始します。
+[Windows Machine Learning のドキュメント](https://docs.microsoft.com/windows/ai/)は現在、専用のサイトに置かれ、最新の Windows Insider SDK に対応するように更新されています。 C++ と C# でのデスクトップおよび UWP のチュートリアルが用意されており、ご利用のアプリケーションへの WinML の追加を容易に開始できます。
 
-[Windows.AI.MachineLearning API 参照](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning)の最新の Windows Insider SDK が更新されました。
+[Windows.AI.MachineLearning API リファレンス](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning)は、最新の Windows Insider SDK に対応するように更新されました。
 
-[Windows-Machine Learning の GitHub リポジトリ](https://github.com/Microsoft/Windows-Machine-Learning)最新の SDK を使用する新しいサンプルでは更新されました。
+[Windows Machine Learning GitHub リポジトリ](https://github.com/Microsoft/Windows-Machine-Learning)は更新され、最新の SDK で動作する新しいサンプルが掲載されています。
 
-![Windows Machine Learning グラフィック](images/winml-graphic.png)
+![Windows Machine Learning のグラフィックス](images/winml-graphic.png)
 
 ### <a name="windows-ui-library"></a>Windows UI ライブラリ
 
-[Windows の UI ライブラリ](https://aka.ms/winui-docs)コントロールとその他のユーザー インターフェイス要素を UWP アプリの提供する NuGet パッケージのセットです。 これらのパッケージは、ユーザーは最新の OS バージョンがあるない場合でも、アプリが動作するように以前のバージョンの Windows 10 と互換性があります。
+[Windows UI ライブラリ](https://aka.ms/winui-docs)は、UWP アプリ用のコントロールとその他のユーザー インターフェイス要素を提供する NuGet パッケージのセットです。 これらのパッケージは Windows 10 の以前のバージョンにも対応しているため、ユーザーが最新の OS を持っていない場合でも、アプリは動作します。
 
-Windows の UI ライブラリの詳細については、次を参照してください。[この NuGet パッケージに含まれる API 名前空間の一覧。](https://docs.microsoft.com/uwp/api/overview/winui/)
+Windows UI ライブラリの詳細については、[NuGet パッケージに含まれる API 名前空間を示すこちらの一覧](https://docs.microsoft.com/uwp/api/overview/winui/)を参照してください。
 
 ## <a name="developer-guidance"></a>開発者向けガイダンス
 
-### <a name="how-blur-effects-work"></a>作業の効果をぼかす方法
+### <a name="how-blur-effects-work"></a>ぼかし効果のしくみ
 
-当社のライター、過激の Mike Jacobs のいずれかには、一連の中アプリとゲームの設計に写真をビジョンからのぼかしについての記事が開始されました。 このユビキタスな視覚的効果の詳細に知りたい場合はチェック アウト[ビジョンと写真の最初の記事](https://medium.com/microsoft-design/science-in-the-system-how-blur-effects-work-8b0590996e09)と[グラフィックスにアンチエイリアシングで 1 秒間です。](https://medium.com/microsoft-design/science-in-the-system-how-blur-effects-work-part-2-c5589a738515)
+Microsoft のライターの一人で、高い評価を得ている Mike Jacobs は、写真に対するビジョンからアプリやゲーム デザインに対するビジョンに至るまで、ぼかしについての連載をメディアで開始しました。 この普遍的な視覚効果の詳細について関心がある場合は、[ビジョンと写真に関する最初の記事](https://medium.com/microsoft-design/science-in-the-system-how-blur-effects-work-8b0590996e09)と[グラフィックスでのアンチエイリアスに関する 2 番目の記事](https://medium.com/microsoft-design/science-in-the-system-how-blur-effects-work-part-2-c5589a738515)を参照してください。
 
-![ぼかしの動作](images/blur-example.jpg)
+![動作中のぼかし](images/blur-example.jpg)
 
-### <a name="contributing-guidance"></a>ガイダンスの貢献
+### <a name="contributing-guidance"></a>共同作成に関するガイダンス
 
-変更を加えました[関係しているガイダンス](https://github.com/MicrosoftDocs/windows-uwp/blob/docs/CONTRIBUTING.md)UWP ドキュメントについては、します。 ワークフローと、ドキュメントへの外部の投稿に対する期待を明確にこの新しいガイダンス。
+Microsoft の UWP ドキュメントを対象にした[共同作成のガイダンス](https://github.com/MicrosoftDocs/windows-uwp/blob/docs/CONTRIBUTING.md)を更新しました。 この新しいガイダンスでは、Microsoft のドキュメントに対する外部貢献のワークフローとその貢献に対して期待することを明確にしています。
 
 ## <a name="videos"></a>ビデオ
 
-### <a name="one-dev-question"></a>開発用の 1 つの質問
+### <a name="one-dev-question"></a>One Dev Question
 
-開発用の 1 つの質問のビデオ シリーズでは、マイクロソフトのベテランの開発者は、一連の Windows の開発、チームのカルチャ、および履歴に関する質問を説明します。 お答えした最新の質問を次に示します。
+One Dev Question ビデオ シリーズでは、ベテランの Microsoft 開発者が Windows 開発、チーム カルチャー、履歴に関する一連の質問に答えています。 最新の質問に対してお答えした内容を以下に示します。
 
-Aaron グスタフソン:
+Aaron Gustafson:
 
-* [プログレッシブ Web Apps で 6 つのビデオ](https://www.youtube.com/playlist?list=PLWs4_NfqMtoyPHoI-CIB71mEq-om6m35I)
+* [プログレッシブ Web アプリに関する 6 本のビデオ](https://www.youtube.com/playlist?list=PLWs4_NfqMtoyPHoI-CIB71mEq-om6m35I)
 
 Chris Heilmann
 
-* [webhint ツールで 4 本のビデオ](https://www.youtube.com/watch?v=eXfmxmiA00Y&list=PLWs4_NfqMtow00LM-vgyECAlMDxx84Q2v)
+* [webhint ツールに関する 4 本のビデオ](https://www.youtube.com/watch?v=eXfmxmiA00Y&list=PLWs4_NfqMtow00LM-vgyECAlMDxx84Q2v)
 
-Larry Osterman の場合:
+Larry Osterman:
 
-* [Windows ランタイムの COM のどの部分か?](https://youtu.be/_nsMjHqRn1w)
+* [Windows ランタイム内にあるのは COM のどの部分ですか?](https://youtu.be/_nsMjHqRn1w)

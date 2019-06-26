@@ -1,16 +1,16 @@
 ---
 title: ファイル システムの変更のバック グラウンドでの追跡
-description: システム内のユーザーを移動して、ファイルの変更と、バック グラウンドでフォルダーを追跡する方法について説明します。
+description: システム内でユーザーがファイルやフォルダーを移動したときに、それらの変更をバックグラウンドで追跡する方法を説明します。
 ms.date: 12/19/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: b0ec7762fd64f0f0b8de65faa1aaf079bdaba3a3
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57621577"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "63806999"
 ---
 # <a name="track-file-system-changes-in-the-background"></a>ファイル システムの変更のバック グラウンドでの追跡
 
@@ -21,32 +21,32 @@ ms.locfileid: "57621577"
 -   [**StorageLibraryChangedTrigger**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.StorageLibraryContentChangedTrigger)
 -   [**StorageLibrary**](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrary)
 
-[ **StorageLibraryChangeTracker** ](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageLibraryChangeTracker)クラスは、システム内のユーザーを移動して、ファイルとフォルダーの変更を追跡するためにアプリを使用できます。 使用して、 **StorageLibraryChangeTracker**クラス、アプリを追跡できます。
+アプリで [**StorageLibraryChangeTracker** ](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageLibraryChangeTracker) クラスを使用すると、システム内でユーザーがファイルやフォルダーを移動したときに、それらの変更を追跡することができます。 アプリでは、**StorageLibraryChangeTracker** クラスを使用して以下を追跡できます。
 
-- ファイル操作などの追加、削除、変更します。
-- 名前変更や削除などのフォルダーの操作。
-- ファイルとフォルダー、ドライブに移動します。
+- 追加、削除、変更を含むファイル操作。
+- 名前変更や削除などのフォルダー操作。
+- ドライブへのファイルやフォルダーの移動。
 
-このガイドを使用して、変更トラッカーを操作するためのプログラミング モデルについて説明します、いくつかのサンプル コードを表示し、によって追跡されるファイルの操作の種類を理解する**StorageLibraryChangeTracker**します。
+このガイドでは、変更トラッカーを操作するためのプログラミング モデルについて説明します。サンプル コードを参照し、**StorageLibraryChangeTracker** によって追跡されるさまざまなファイル操作の種類について理解してください。
 
-**StorageLibraryChangeTracker**ユーザー ライブラリ、または任意のフォルダーをローカル コンピューターで動作します。 これにより、セカンダリのドライブまたはリムーバブル ドライブが含まれていますが、NAS のドライブまたはネットワーク ドライブは含まれません。
+**StorageLibraryChangeTracker** は、ユーザー ライブラリに対して、またはローカル コンピューター上の任意のフォルダーに対して機能します。 これには、セカンダリ ドライブやリムーバブル ドライブが含まれますが、NAS ドライブやネットワーク ドライブは含まれません。
 
-## <a name="using-the-change-tracker"></a>変更の追跡ツールを使用します。
+## <a name="using-the-change-tracker"></a>変更トラッカーを使用する
 
-変更の追跡ツールは、最後に保存する循環バッファーとしてシステムに実装されて*N*ファイル システム操作。 アプリは、バッファーからの変更を読み取るし、それらを独自の経験に処理できます。 アプリが処理されるときに、変更をマークされことはありませんが、変更を完了すると再び表示されます。
+変更トラッカーは、直前の *N* 個のファイル システム操作を格納する循環バッファーとして、システム上に実装されます。 アプリでは、バッファーから変更が読み取られ、読み取られた変更を処理して独自のエクスペリエンスに取り込むことができます。 アプリでは、変更が終了すると、変更を処理済みとしてマークされ、それらが再び表示されることはありません。
 
-フォルダーの変更の追跡ツールを使用するには、次の手順に従います。
+変更トラッカーをフォルダーに対して使用するには、次の手順に従います。
 
-1. フォルダーの変更の追跡を有効にします。
-2. 変更を待ちます。
-3. 変更を読み取る。
+1. フォルダーに対して変更の追跡を有効にします。
+2. 変更の発生を待機します。
+3. 変更を読み取ります。
 4. 変更を受け入れます。
 
-次のセクションでは、各コード例をいくつかの手順説明します。 完全なコード サンプルは、この記事の最後で提供されます。
+次のセクションでは、いくつかのコード例を使用して各手順を説明します。 完全なコード サンプルをこの記事の最後に示します。
 
-### <a name="enable-the-change-tracker"></a>変更の追跡を有効にします。
+### <a name="enable-the-change-tracker"></a>変更トラッカーを有効にする
 
-変更の追跡、特定のライブラリを求めていることをシステムに通知する、アプリが実行する必要がある最初のことです。 これは、呼び出すことで、 [**を有効にする**](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrarychangetracker.enable)関心のあるライブラリの変更の追跡ツールのメソッド。
+アプリで最初に行う必要があるのは、特定のライブラリを変更追跡の対象にすることをシステムに指示することです。 これは、対象のライブラリに対して変更トラッカーの [**Enable**](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrarychangetracker.enable) メソッドを呼び出すことによって行います。
 
 ```csharp
 StorageLibrary videosLib = await StorageLibrary.GetLibraryAsync(KnownLibraryId.Videos);
@@ -54,22 +54,22 @@ StorageLibraryChangeTracker videoTracker = videosLib.ChangeTracker;
 videoTracker.Enable();
 ```
 
-いくつかの重要な注意事項:
+いくつかの重要な注意:
 
-- アプリが、マニフェストで適切なライブラリを作成する前に権限を持っているかどうかを確認、 [ **StorageLibrary** ](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrary)オブジェクト。 参照してください[ファイル アクセス許可](https://docs.microsoft.com/en-us/windows/uwp/files/file-access-permissions)の詳細。
-- [**有効にする**](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrarychangetracker.enable)がスレッド セーフや、ポインターはリセットされません (これについては後で) 必要な回数だけ呼び出すことができます。
+- [**StorageLibrary**](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrary) オブジェクトを作成する前に、アプリに正しいライブラリへのアクセス許可があることをマニフェスト内で確認してください。 詳しくは、「[ファイル アクセス許可](https://docs.microsoft.com/en-us/windows/uwp/files/file-access-permissions)」をご覧ください。
+- [**Enable**](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrarychangetracker.enable) はスレッド セーフであり、ポインターのリセットは発生せず、必要な回数だけ呼び出すことができます (これについての詳細は後述)。
 
-![空の変更の追跡ツールを有効にします。](images/changetracker-enable.png)
+![空の変更トラッカーを有効にする](images/changetracker-enable.png)
 
-### <a name="wait-for-changes"></a>変更の待機
+### <a name="wait-for-changes"></a>変更の発生を待機する
 
-変更の追跡ツールが初期化された後は、すべてのアプリが実行されていないときにも、ライブラリ内に発生する操作を記録する開始されます。 登録することによって変更がある任意の時間をアクティブにするアプリを登録できます、 [ **StorageLibraryChangedTrigger** ](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.StorageLibraryContentChangedTrigger)イベント。
+変更トラッカーが初期化された後、アプリが実行されていないときでも、ライブラリ内で発生するすべての操作の記録が開始されます。 [**StorageLibraryChangedTrigger**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.StorageLibraryContentChangedTrigger) イベントに登録することによって、変更があった場合にアプリをアクティブ化するように登録できます。
 
-![アプリを読み取ることがなく変更トラッカーに追加される変更](images/changetracker-waiting.png)
+![アプリによる変更の読み取りはなく、変更が変更トラッカーに追加される](images/changetracker-waiting.png)
 
 ### <a name="read-the-changes"></a>変更を読み取る
 
-アプリでは、変更の追跡ツールからの変更をポーリングし、し、最後にチェックしてから、変更の一覧を受信できます。 次のコードでは、変更の追跡ツールからの変更の一覧を取得する方法を示します。
+アプリでは、変更トラッカーに変更をポーリングし、最後のチェック以降の変更の一覧を受け取ることができます。 次のコードでは、変更トラッカーから変更の一覧を取得する方法を示します。
 
 ```csharp
 StorageLibrary videosLibrary = await StorageLibrary.GetLibraryAsync(KnownLibraryId.Videos);
@@ -78,58 +78,58 @@ StorageLibraryChangeReader videoChangeReader = videosLibrary.ChangeTracker.GetCh
 IReadOnlyList changeSet = await changeReader.ReadBatchAsync();
 ```
 
-アプリは、独自のエクスペリエンスまたは必要に応じて、データベースに変更の処理を担当し、
+その後アプリでは、変更を処理し、必要に応じて独自のエクスペリエンスまたはデータベースに取り込みます。
 
-![変更の追跡ツールから、アプリのデータベースへの変更の読み取り](images/changetracker-reading.png)
+![変更トラッカーからアプリのデータベースへの変更の読み込み](images/changetracker-reading.png)
 
 > [!TIP]
-> 有効にする 2 つ目の呼び出しは、アプリが変更を読み取り中に、ユーザーがライブラリに別のフォルダーを追加する場合は、競合状態に対する防御です。 余分な呼び出しなし**を有効にする**ユーザーが各自のライブラリ内のフォルダーを変更する場合は、コードを ecSearchFolderScopeViolation (0x80070490) で失敗
+> Enable の 2 回目の呼び出しは、アプリで変更を読み取り中にユーザーがライブラリに別のフォルダーを追加した場合に、競合状態が発生するのを防止するための呼び出しです。 **Enable** への追加呼び出しがない場合、ユーザーがライブラリ内でフォルダーを変更すると、コードは ecSearchFolderScopeViolation (0x80070490) で失敗します。
 
-### <a name="accept-the-changes"></a>変更を確定します。
+### <a name="accept-the-changes"></a>変更を受け入れる
 
-アプリが完了したら、変更を処理するを呼び出すことによってこれらの変更を今後表示しないシステムに通知が必要があります、 [ **AcceptChangesAsync** ](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrarychangereader.acceptchangesasync)メソッド。
+アプリでは、変更の処理が終了したら、[**AcceptChangesAsync**](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrarychangereader.acceptchangesasync) メソッドを呼び出して、それらの変更が再び表示されないようにシステムに指示する必要があります。
 
 ```csharp
 await changeReader.AcceptChangesAsync();
 ```
 
-![もう一度表示することは、読むとして変更をマークします。](images/changetracker-accepting.png)
+![変更を既読としてマークし二度と表示されないようにする](images/changetracker-accepting.png)
 
-アプリはようになりました変更の受信のみ新しい変更の追跡ツールの今後の読み取り時にします。
+今後アプリで変更トラッカーを読み取るときは、新しい変更のみを受け取ります。
 
-- 呼び出しの間の変更が生じた場合[ **ReadBatchAsync** ](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrarychangereader.readbatchasync)と[AcceptChangesAsync](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrarychangereader.acceptchangesasync)ポインターになります、アプリが表示される最新の変更に移すことのみです。 その他の変更は引き続き使用できます、次回呼び出し**ReadBatchAsync**します。
-- アプリの呼び出しに時間を次の変更の同じセットを返すシステムにより、変更を受け入れていません**ReadBatchAsync**します。
+- [ **ReadBatchAsync**](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrarychangereader.readbatchasync) と [AcceptChangesAsync](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrarychangereader.acceptchangesasync) の呼び出しの間に変更が発生した場合、ポインターは、アプリに表示された最新の変更にまでしか移されません。 その他の変更は、**ReadBatchAsync** を次回呼び出したときにまだ使用できます。
+- 変更を受け入れなかった場合、アプリでの **ReadBatchAsync** の次回呼び出し時に、システムから同じ変更セットが返されます。
 
 ## <a name="important-things-to-remember"></a>重要な注意点
 
-変更の追跡ツールを使用する場合は、すべてが正しく動作するかどうかを確認する点に注意する必要がありますをいくつかの点。
+変更トラッカーを使用する場合、すべてが正しく機能していることを確認するために注意が必要なことがいくつかあります。
 
-### <a name="buffer-overruns"></a>バッファー オーバーラン
+### <a name="buffer-overruns"></a>バッファーのオーバーラン
 
-アプリが読み取ることができるまでに、システムで発生したすべての操作を保持するために、変更トラッカーのための十分な領域を予約するようにしては、非常に簡単に循環バッファがそれ自体を上書きする前に、アプリでの変更に読み取るしないシナリオを考えてみましょう。 特に場合、ユーザーがバックアップからデータを復元または、電話のカメラから画像の大規模なコレクションを同期します。
+システム上で発生するすべての操作をアプリケーションで読み取り可能になるまで保持するために、変更トラッカーに十分なスペースを確保するようにしていますが、循環バッファーが上書きされる前にアプリで変更が読み取られなかったシナリオを想像するのは非常に簡単です。 特に、ユーザーがバックアップからデータを復元する場合や、カメラ付き携帯電話から大量の画像を同期する場合があります。
 
-この場合、 **ReadBatchAsync**はエラー コードを返します[ **StorageLibraryChangeType.ChangeTrackingLost**](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrarychangetype)します。 アプリでは、このエラー コードを受信する場合は、次の点が考えられます。
+この場合、**ReadBatchAsync** からエラー コード [**StorageLibraryChangeType.ChangeTrackingLost**](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrarychangetype) が返されます。 アプリでこのエラー コードを受け取った場合、次のようなことが考えられます。
 
-* バッファーでは、前回をもたらして上書き自体。 トラッカーからの情報は不完全になりますが、ライブラリの再クロールする最善のです。
-* 呼び出すまでは、変更の追跡ツールはそれ以上変更を返しません。 [**リセット**](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrarychangetracker.reset)します。 アプリでは、リセットを呼び出し、ポインターは最新の変更に移動して追跡が正常に再開されます。
+* 最後にバッファーを参照したとき以降にバッファーが上書きされました。 トラッカーからの情報はすべて不完全なものになるため、最善策はライブラリを再クロールすることです。
+* [**Reset**](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrarychangetracker.reset) を呼び出すまで、変更トラッカーからはそれ以上の変更は返されません。 アプリで Reset を呼び出すと、ポインターが最新の変更に移動し、追跡が正常に再開されます。
 
-まれに、これらのケースを取得する必要があるが、ユーザーに多数の周囲、ディスク上のファイルを移動のシナリオで、変更追跡が巨大になるし、大量の記憶域を占有したくないです。 これで Windows カスタマー エクスペリエンスを破壊しない中に大量のファイル システム操作に対応するためのアプリできるようにする必要があります。
+まれなケースですが、ユーザーがディスク上で大量の数のファイルを移動するシナリオにおいて、変更トラッカーが膨張して保存スペースを使い過ぎることは望ましくありません。 これにより、Windows の顧客エクスペリエンスを損なうことなく、アプリで大規模なファイル システム操作に対応できるようになります。
 
-### <a name="changes-to-a-storagelibrary"></a>StorageLibrary への変更
+### <a name="changes-to-a-storagelibrary"></a>StorageLibrary に対する変更
 
-[ **StorageLibrary** ](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrary)クラスが他のフォルダーを含むルート フォルダーの仮想グループとして存在します。 ファイル システムの変更の追跡ツールでは、これを調整、次の選択肢を行いました。
+[**StorageLibrary**](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrary) クラスは、他のフォルダーを含むルート フォルダーからなる仮想グループとして存在します。 これをファイル システム変更トラッカーと調整するために、Microsoft では次のように選択しました。
 
-- ライブラリのルート フォルダーの子孫に対する変更は、変更トラッカーで表現されます。 使用してライブラリのルート フォルダーを確認することができます、 [**フォルダー** ](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrary.folders)プロパティ。
-- 追加または削除からのルート フォルダー、 **StorageLibrary** (を通じて[ **RequestAddFolderAsync** ](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrary.requestaddfolderasync)と[ **RequestRemoveFolderAsync** ](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrary.requestremovefolderasync)) エントリを変更トラッカーが作成されません。 により、これらの変更を追跡できます、 [ **DefinitionChanged** ](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrary.definitionchanged)イベントまたはライブラリを使用して、ルート フォルダーを列挙することによって、 [**フォルダー** ](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrary.folders)プロパティ。
-- ライブラリに既に含まれているコンテンツのフォルダーを追加する場合がありますされません変更を生成された通知のほか、変更の追跡ツール エントリ。 そのフォルダーの子孫が変更されたは、通知を生成し、トラッカー エントリを変更します。
+- ルート ライブラリ フォルダーの下位で発生した変更は、変更トラッカーに表示されます。 ルート ライブラリ フォルダーは、[**Folders**](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrary.folders) プロパティを使用して見つけることができます。
+- **StorageLibrary** ([**RequestAddFolderAsync**](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrary.requestaddfolderasync) および [**RequestRemoveFolderAsync**](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrary.requestremovefolderasync) を介して) からルート フォルダーを追加または削除すると、変更トラッカーにエントリは作成されません。 これらの変更は、[**DefinitionChanged**](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrary.definitionchanged) イベントを介して、または[**Folders**](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrary.folders) プロパティを使用してライブラリ内のルート フォルダーを列挙することによって、追跡できます。
+- 既にその中に内容があるフォルダーがライブラリに追加された場合、変更通知または変更トラッカー エントリは生成されません。 そのフォルダーの下位で発生するその後のすべての変更によって、通知が生成されトラッカー エントリが変更されます。
 
-### <a name="calling-the-enable-method"></a>有効にするメソッドを呼び出す
+### <a name="calling-the-enable-method"></a>Enable メソッドを呼び出す
 
-アプリを呼び出す必要があります[**を有効にする**](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrarychangetracker.enable)ファイル システムの追跡を開始するとすぐに、変更のすべての列挙体の前にします。 これにより、すべての変更は、変更トラッカーによってキャプチャされますが保証されます。  
+アプリでは、ファイル システムの追跡を開始したらすぐに、変更のあらゆる列挙の前に、[**Enable**](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrarychangetracker.enable) を呼び出す必要があります。 これにより、すべての変更が変更トラッカーによって確実にキャプチャされます。  
 
-## <a name="putting-it-together"></a>これをまとめる
+## <a name="putting-it-together"></a>まとめる
 
-次のビデオ ライブラリからの変更の登録し、変更の追跡ツールからの変更のプルを開始するために使用するすべてのコードに示します。
+ビデオ ライブラリでの変更に登録し、変更トラッカーからの変更の取得を開始するために使用されるコード全体を次に示します。
 
 ```csharp
 private async void EnableChangeTracker()

@@ -1,25 +1,25 @@
 ---
 ms.assetid: 03A74239-D4B6-4E41-B2FA-6C04F225B844
 title: "\"Hello, world\" アプリを作成する方法 (XAML)"
-description: Extensible Application Markup Language (XAML) を使用して、C#簡単なこんにちは, world アプリを Windows 10 ユニバーサル Windows プラットフォーム (UWP) を対象とするを作成します。
+description: Windows 10 のユニバーサル Windows プラットフォーム (UWP) を対象にした単純な Hello, world アプリを Extensible Application Markup Language (XAML) を使って C# で作成します。
 ms.date: 03/06/2017
 ms.topic: article
 keywords: windows 10, uwp, 初めてのアプリ, hello world
 ms.localizationpriority: medium
 ms.openlocfilehash: d9a7f0302dfdc9f9fa980f0fe93a3371328f9e5c
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66367432"
 ---
 # <a name="create-a-hello-world-app-xaml"></a>"Hello, world" アプリを作成する (XAML)
 
-このチュートリアルには、XAML を使用する方法が説明しますとC#すると、単純な「こんにちは, world」アプリで Windows 10 ユニバーサル Windows プラットフォーム (UWP) の。 Microsoft Visual Studio での 1 つのプロジェクトでは、任意の Windows 10 デバイスで実行されているアプリを構築できます。
+このチュートリアルでは、Windows 10 のユニバーサル Windows プラットフォーム (UWP) 向けの単純な "Hello, world" アプリを XAML と C# で作る方法について説明します。 Microsoft Visual Studio プロジェクトを 1 つ開発すれば、あらゆる Windows 10 デバイスで動作するアプリを構築できます。
 
 ここでは、次の方法について説明します。
 
--   新規作成**Visual Studio**を対象とするプロジェクト**Windows 10**と**UWP**します。
+-   **Windows 10** と **UWP** を対象とする新しい **Visual Studio** プロジェクトを作る。
 -   スタート ページの UI を変更するように XAML を記述する。
 -   Visual Studio のローカル デスクトップでプロジェクトを実行する。
 -   SpeechSynthesizer を使って、ボタンが押されたときにアプリがコンテンツを読み上げるようにする。
@@ -27,7 +27,7 @@ ms.locfileid: "66367432"
 
 ## <a name="before-you-start"></a>はじめに...
 
--   [ユニバーサル Windows アプリとは何ですか。](universal-application-platform-guide.md)
+-   [ユニバーサル Windows アプリとは?](universal-application-platform-guide.md)
 -   [Visual Studio 2017 (および Windows 10) をダウンロードします](https://developer.microsoft.com/windows/downloads)。 サポートが必要な場合は、[セットアップする](get-set-up.md)方法をご覧ください。
 -   また、Visual Studio の既定のウィンドウ レイアウトを使用することを前提としています。 既定のレイアウトを変更した場合は、 **[ウィンドウ]** メニューの **[ウィンドウ レイアウトのリセット]** を使って、レイアウトをリセットできます。
 
@@ -40,15 +40,15 @@ ms.locfileid: "66367432"
 
 
 
-## <a name="step-1-create-a-new-project-in-visual-studio"></a>手順 1:Visual Studio で新しいプロジェクトを作成します。
+## <a name="step-1-create-a-new-project-in-visual-studio"></a>手順 1:Visual Studio で新しいプロジェクトを作る
 
 1.  Visual Studio を起動します。
 
-2.  **ファイル**メニューの **新規 > プロジェクト**を開く、*新しいプロジェクト*ダイアログ。
+2.  **[ファイル]** メニューで **[新規作成]、[プロジェクト]** の順に選択し、 *[新しいプロジェクト]* ダイアログを開きます。
 
-3.  左側のテンプレートの一覧から選択**インストール済み > Visual C# > Windows ユニバーサル**UWP プロジェクト テンプレートの一覧を表示します。
+3.  左側のテンプレートの一覧で、 **[インストール済み]、[Visual C#]、[Windows ユニバーサル]** の順に選択し、UWP プロジェクト テンプレートの一覧を表示します。
 
-    ユニバーサル テンプレートが表示されない場合は、UWP アプリを作成するためのコンポーネントがない可能性があります。 インストール プロセスを繰り返して UWP サポートを追加することもできます ( *[新しいプロジェクト]* ダイアログで **[Visual Studio インストーラーを開く]** をクリック)。 参照してください[設定](get-set-up.md))。
+    ユニバーサル テンプレートが表示されない場合は、UWP アプリを作成するためのコンポーネントがない可能性があります。 インストール プロセスを繰り返して UWP サポートを追加することもできます ( *[新しいプロジェクト]* ダイアログで **[Visual Studio インストーラーを開く]** をクリック)。 「[準備](get-set-up.md)」をご覧ください。
 
     ![インストール プロセスを繰り返す方法](images/win10-cs-install.png)
 
@@ -83,7 +83,7 @@ ms.locfileid: "66367432"
 -   App.xaml は、アプリ全体で使われるリソースを宣言するファイルです。
 -   App.xaml.cs は、App.xaml の分離コード ファイルです。 すべての分離コード ページと同じように、`InitializeComponent` メソッドを呼び出すコンストラクターが含まれています。 `InitializeComponent` メソッドは自分で記述する必要はありません。 Visual Studio によって生成されるこのメソッドの主な目的は、XAML ファイルに宣言された要素を初期化することです。
 -   App.xaml.cs は、アプリのエントリ ポイントです。
--   App.xaml.cs に処理するメソッドも含まれています[アクティベーション](../launch-resume/activate-an-app.md)と[中断](../launch-resume/suspend-an-app.md)アプリの。
+-   App.xaml.cs には、アプリの[アクティブ化](../launch-resume/activate-an-app.md)と[中断](../launch-resume/suspend-an-app.md)を処理するためのメソッドも含まれています。
 
 *MainPage.xaml*
 
@@ -93,20 +93,20 @@ ms.locfileid: "66367432"
 
 *Package.appxmanifest*
 -   名前、説明、タイル、開始ページなど、アプリを説明するマニフェスト ファイルです。
--   依存関係、リソースと、アプリが含まれているファイルの一覧が含まれています。
+-   アプリに含まれる依存関係、リソース、ファイルの一覧が含まれています。
 
-*ロゴのイメージのセット*
--   Assets/Square150x150Logo.scale-200.png と Wide310x150Logo.scale 200.png は、[スタート] メニューで、アプリ (サイズは Medium または全体のいずれか) を表します。
--   Assets/Square44x44Logo.png では、[スタート] メニューのタスク バー、およびタスク マネージャーのアプリの一覧でアプリを表します。
+*ロゴ画像のセット*
+-   Assets/Square150x150Logo.scale-200.png と Wide310x150Logo.scale-200.png は、スタート メニュー内でご自分のアプリを表します (中、または大のサイズ)。
+-   Assets/Square44x44Logo.png は、スタート メニュー、タスク バー、タスク マネージャーのアプリ一覧内でご自分のアプリを表します。
 -   Assets/StoreLogo.png は、Microsoft Store 内のアプリを表します。
 -   Assets/SplashScreen.scale-200.png は、アプリが起動したときに表示するスプラッシュ画面です。
--   システムがロックされているときに、ロック画面にアプリを表す Assets/LockScreenLogo.scale-200.png を使用できます。
+-   Assets/LockScreenLogo.scale-200.png は、システムがロックされているときのロック画面上でアプリを表すときに使用できます。
 
-## <a name="step-2-adding-a-button"></a>手順 2:ボタンの追加
+## <a name="step-2-adding-a-button"></a>手順 2:ボタンを追加する
 
 ### <a name="using-the-designer-view"></a>デザイナー ビューの使用
 
-ページにボタンを追加しましょう。 このチュートリアルで使用するファイルの一部にすぎません前の表にします。App.xaml、MainPage.xaml で、MainPage.xaml.cs
+ページにボタンを追加しましょう。 このチュートリアルでは、前に示した複数のファイルの一部のみを操作します: App.xaml、MainPage.xaml、MainPage.xaml.cs。
 
 1.  **MainPage.xaml** をダブルクリックしてデザイン ビューで開きます。
 
@@ -114,7 +114,7 @@ ms.locfileid: "66367432"
 
     ![ソリューション エクスプローラーのウィンドウ](images/win10-cs-04.png)
 
-2.  左側の縦方向に配置された **[ツールボックス]** タブをクリックして UI コントロールの一覧を開きます  (タイトル バーのピン アイコンをクリックすると、このウィンドウを表示したままにすることができます)。
+2.  左側の縦方向に配置された **[ツールボックス]** タブをクリックして UI コントロールの一覧を開きます (タイトル バーのピン アイコンをクリックすると、このウィンドウを表示したままにすることができます)。
 
     ![ソリューション エクスプローラーのウィンドウ](images/win10-cs-05.png)
 
@@ -140,7 +140,7 @@ ms.locfileid: "66367432"
 
 ![ソリューション エクスプローラーのウィンドウ](images/win10-cs-07.png)
 
-## <a name="step-3-start-the-app"></a>手順 3:アプリを起動します
+## <a name="step-3-start-the-app"></a>手順 3:アプリを起動する
 
 
 ここまでの操作で、非常に単純なアプリが作成されました。 ここで、アプリをビルド、デプロイ、起動してどうなるかを見てみましょう。 アプリは、ローカル コンピューター、シミュレーターかエミュレーター、またはリモート デバイスでデバッグできます。 Visual Studio の [ターゲット デバイス] メニューを示します。
@@ -157,7 +157,7 @@ ms.locfileid: "66367432"
 
 **ローカル コンピューターでデバッグを開始するには**
 
-1.  **[標準]** ツール バーの [ターゲット デバイス] メニュー (![[デバッグの開始] メニュー](images/startdebug-full.png)) で、 **[ローカル コンピューター]** が選択されていることを確認します  (既定で選択されています)。
+1.  **[標準]** ツール バーの [ターゲット デバイス] メニュー (![[デバッグの開始] メニュー](images/startdebug-full.png)) で、 **[ローカル コンピューター]** が選択されていることを確認します (既定で選択されています)。
 2.  ツール バーの **[デバッグの開始]** ボタン (![[デバッグの開始] ボタン](images/startdebug-sm.png)) をクリックします。
 
    または
@@ -166,7 +166,7 @@ ms.locfileid: "66367432"
 
    または
 
-   F5 キーを押す。
+   F5 キーを押します。
 
 アプリがウィンドウで開かれ、最初に既定のスプラッシュ画面が表示されます。 スプラッシュ画面は、画像 (SplashScreen.png) と背景色によって定義されます (背景色はアプリのマニフェスト ファイルに指定します)。
 
@@ -222,26 +222,26 @@ private async void Button_Click(object sender, RoutedEventArgs e)
 }
 ```
 
-メソッド シグネチャが含まれて かどうかを確認、 **async**アプリを実行しようとすると、キーワード、またはすると、エラーが発生します。
+メソッド シグネチャに**async** キーワードを含めるようにしてください。そうしないと、アプリを実行しようとしたときにエラーが表示されます。
 
 ### <a name="what-did-we-just-do"></a>ここで実行したこと
 
-このコードでは、いくつか Windows API を使用して音声合成オブジェクトを作成し、読み上げるテキストを指定します  (SpeechSynthesis の使い方について詳しくは、[SpeechSynthesis 名前空間](https://docs.microsoft.com/uwp/api/windows.media.speechsynthesis)のドキュメントをご覧ください)。
+このコードでは、いくつか Windows API を使用して音声合成オブジェクトを作成し、読み上げるテキストを指定します (SpeechSynthesis の使い方について詳しくは、[SpeechSynthesis 名前空間](https://docs.microsoft.com/uwp/api/windows.media.speechsynthesis)のドキュメントをご覧ください)。
 
 アプリを実行し、ボタンをクリックすると、コンピューター (または電話) が "Hello, World!" を文字どおりにしゃべります。
 
 
 ## <a name="summary"></a>概要
 
-これで、Windows 10 と UWP の最初のアプリを作成しました。
+これで、Windows 10 と UWP 用の初めてのアプリを作成しました。
 
 アプリで使うコントロールを XAML によってレイアウトする方法については、[グリッドに関するチュートリアル](../design/layout/grid-tutorial.md)で学習するか、直接[次のステップ](learn-more.md)に進んでください。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-* [最初のアプリ](your-first-app.md)
+* [初めてのアプリ](your-first-app.md)
 * [UWP アプリを公開する](https://developer.microsoft.com/store/publish-apps)
-* [UWP アプリの開発に関する how-to 記事](https://developer.microsoft.com/windows/apps/develop)
-* [UWP 開発者向けサンプル コード](https://developer.microsoft.com/windows/samples)
-* [ユニバーサル Windows アプリとは何ですか。](universal-application-platform-guide.md)
-* [Windows アカウントにサインアップします。](sign-up.md)
+* [UWP アプリの開発に関するハウツー記事](https://developer.microsoft.com/windows/apps/develop)
+* [UWP 開発者向けコード サンプル](https://developer.microsoft.com/windows/samples)
+* [ユニバーサル Windows アプリとは?](universal-application-platform-guide.md)
+* [Windows アカウントのサインアップ](sign-up.md)

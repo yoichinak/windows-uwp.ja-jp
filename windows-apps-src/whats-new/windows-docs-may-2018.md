@@ -1,135 +1,135 @@
 ---
-title: 2018 年 5 月 Windows Docs の新 - UWP アプリを開発します。
-description: 2018 年 5 月の Windows 10 開発者向けドキュメントを Microsoft Build カンファレンスの新機能、ビデオ、および開発者向けガイダンスが追加されました。
-keywords: 新機能については、更新、機能、開発者向けのガイダンスについては、Windows 10、月、ビルド
+title: Windows ドキュメントの最新情報、2018 年 5 月 - UWP アプリの開発
+description: 2018 年 5 月版および Microsoft Build カンファレンスの Windows 10 開発者向けドキュメントには、新しい機能、ビデオ、開発者向けガイダンスが追加されました。
+keywords: 最新情報, 更新, 機能, 開発者向けガイダンス, Windows 10, 5 月, build
 ms.date: 05/07/2018
 ms.topic: article
 ms.localizationpriority: medium
 ms.openlocfilehash: 69df2bbe8bc91fcf4a2631c0f257fc44851c24f2
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57598787"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "63805874"
 ---
-# <a name="whats-new-in-the-windows-developer-docs-in-may-2018"></a>新機能については、Windows 開発者向けドキュメントで 2018 年 5 月です。
+# <a name="whats-new-in-the-windows-developer-docs-in-may-2018"></a>Windows 開発者向けドキュメントの最新情報、2018 年 5 月
 
-Windows 開発者向けドキュメントは、Windows プラットフォームで開発者に提供される新機能の情報を反映して継続的に更新されています。 次の機能の概要、開発者ガイド、ビデオ、およびサンプル利用可能なと一致する月の 1 か月間、 [Microsoft Build 2018](https://www.microsoft.com/build)デベロッパー カンファレンス。
+Windows 開発者向けドキュメントは、Windows プラットフォームで開発者に提供される新機能の情報を反映して継続的に更新されています。 ここに示す機能概要、開発者向けガイダンス、ビデオ、サンプルは、[Microsoft Build 2018](https://www.microsoft.com/build) 開発者カンファレンスに合わせて 5 月に利用可能になりました。
 
 Windows 10 の[ツールと SDK をインストール](https://go.microsoft.com/fwlink/?LinkId=821431)すると、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
 
 ## <a name="features"></a>機能
 
-### <a name="motion-in-fluent-design"></a>Fluent デザインの動作
+### <a name="motion-in-fluent-design"></a>Fluent Design でのモーション
 
-タイミング、イージング、方向性、および重力の基礎の上に構築された、Fluent Design System のモーションのユーザーが進化しています。 これらの基本を適用する、アプリでは、ユーザーに役立ち、自然な世界を反映してデジタル エクスペリエンスを接続します。 この記事で詳細情報。
+Fluent Design System でのモーションの使用が進化しています。モーションを構築する基本要素は、タイミング、イージング、方向性、重力です。 これらの基本要素を適用すると、アプリ全体を通してユーザーを誘導することに役立ち、自然な世界を反映することでユーザーをデジタル エクスペリエンスに結び付けることができます。 詳細はこちらの記事をご覧ください。
 
-* [モーション概要](../design/motion/index.md)がこれらの基本を反映するように更新されました。
-* [モーションの実習で](../design/motion/motion-in-practice.md)アプリ内でこれらの基本を適用する方法の例を示します。
-* [方向性と重力](../design/motion/directionality-and-gravity.md)アプリのユーザーのメンタル モデルが塗りつぶされます。
-* [タイミングと、イージング](../design/motion/timing-and-easing.md)リアリティをアプリ内のモーションに追加します。
+* 「[モーションの概要](../design/motion/index.md)」は、これらの基本要素を反映するように更新されました。
+* 「[実践的なモーション](../design/motion/motion-in-practice.md)」では、アプリ内でこれらの基本要素を適用する方法の例が示されています。
+* 「[方向性と重力](../design/motion/directionality-and-gravity.md)」では、自作のアプリのユーザーのメンタル モデルを強固にします。
+* 「[タイミングとイージング](../design/motion/timing-and-easing.md)」では、自作のアプリ内のモーションに現実感を与えます。
 
-![アニメーションの動作](../design/motion/images/contextual.gif)
+![実際の動作を見る](../design/motion/images/contextual.gif)
 
-### <a name="fluent-design-updates"></a>Fluent デザインの更新
+### <a name="fluent-design-updates"></a>Fluent Design の更新
 
-次のページの Fluent デザイン、ビジュアルの更新と軽微な変更が加えられました。
+以下の Fluent Design のページに視覚的な更新と軽微な変更が加えられました。
 
-* [配置、余白のパディング](../design/layout/alignment-margin-padding.md)
+* [配置、埋め込み、余白](../design/layout/alignment-margin-padding.md)
 * [色](../design/style/color.md)
 * [コマンドの基本](../design/basics/commanding-basics.md)
-* [Windows アプリの Fluent デザイン](../design/fluent-design-system/index.md)
-* [アプリの設計の概要](../design/basics/design-and-ui-intro.md)
+* [Windows アプリ用の Fluent Design](../design/fluent-design-system/index.md)
+* [アプリ設計の概要](../design/basics/design-and-ui-intro.md)
 * [ナビゲーションの基本](../design/basics/navigation-basics.md)
-* [レスポンシブ デザイン手法](../design/layout/responsive-design.md)
+* [レスポンシブ デザインの手法](../design/layout/responsive-design.md)
 * [画面のサイズとブレークポイント](../design/layout/screen-sizes-and-breakpoints-for-responsive-design.md)
 * [スタイルの概要](../design/style/index.md)
-* [文書のスタイル](../design/style/writing-style.md)
+* [記述スタイル](../design/style/writing-style.md)
 
-さらに、すべて新しい情報のコンテンツ領域で、次のページを書き換えることしました。
+さらに、以下のページはコンテンツ領域に関するまったく新しい情報に書き換えられました。
 
-* [アイコン](../design/style/icons.md)アイコンを使用して、クリック可能にすることのようになりました実際的な推奨事項を提供します。
-* [文字体裁](../design/style/typography.md)更新されたガイダンスと図を 1 か所ですべて記述して、類似した記事からの情報を統合します。
+* 「[アイコン](../design/style/icons.md)」には、アイコンの使用とこれらをクリック可能にするための実践的な推奨事項が示されています。
+* 「[文字体裁](../design/style/typography.md)」では類似の記事からの情報を統合し、最新のガイダンスと図を使ってすべてを 1 か所にまとめました。
 
-![色パレットの画像](../design/style/images/color/accent-color-palette.svg)
+![カラー パレットの画像](../design/style/images/color/accent-color-palette.svg)
 
-### <a name="app-installer-files-in-visual-studio"></a>Visual Studio でアプリのインストーラー ファイル
+### <a name="app-installer-files-in-visual-studio"></a>Visual Studio でのアプリ インストーラー ファイル
 
-アプリのインストーラー ファイルは、Visual Studio 2017 を更新 15.7 で今すぐ作成できます。 [Visual Studio を使用して、アプリのインストーラー ファイルを作成する方法について説明します](../packaging/create-appinstallerfile-vs.md)アプリへの自動更新を有効にします。 問題に実行する場合は、次を参照してください。[アプリのインストーラー ファイルのインストールの問題のトラブルシューティング](../packaging/troubleshoot-appinstaller-issues.md)一般的な問題とソリューションを表示します。
+Visual Studio 2017 更新プログラム 15.7 でアプリ インストーラー ファイルを作成できるようになりました。 [Visual Studio を使ってアプリ インストーラー ファイルを作成する方法](../packaging/create-appinstallerfile-vs.md)と、自動更新を有効にする方法をご確認ください。 問題が発生した場合は、「[アプリ インストーラー ファイルを使ったインストールに関する問題のトラブルシューティング](../packaging/troubleshoot-appinstaller-issues.md)」を参照して一般的な問題と解決方法を確認してください。
 
-### <a name="edge-webview-control-for-windows-forms-and-wpf-applications"></a>Windows フォームおよび WPF アプリケーションの WebView コントロールをエッジします。
+### <a name="edge-webview-control-for-windows-forms-and-wpf-applications"></a>Windows フォームと WPF アプリケーション用の Edge の WebView コントロール
 
-以前は UWP アプリケーションにのみ使用、WebView コントロールを使用して、デスクトップ アプリケーションで web コンテンツを表示します。 このコントロールは、リモート web サーバー、動的に生成されたコード、またはコンテンツ ファイルからコンテンツを埋め込むレンダリングは、HTML を表現力豊かな書式設定されたビュー エンジンをレンダリングする Microsoft Edge を使用します。 最新のリリースでは、WebView コントロールを検索、 [Windows コミュニティ ツールキット。](https://docs.microsoft.com/windows/uwpcommunitytoolkit/)
+WebView コントロールを使用して、Web コンテンツをデスクトップ アプリケーションに表示できます (以前は UWP アプリケーションでのみ使用可能でした)。 このコントロールによって、Microsoft Edge レンダリング エンジンを使用して、リモート Web サーバーにあるリッチな書式設定の HTML コンテンツ、動的に生成されたコード、またはコンテンツ ファイルをレンダリングするビューを埋め込むことができます。 [Windows Community Toolkit](https://docs.microsoft.com/windows/uwpcommunitytoolkit/) の最新リリースで WebView コントロールを参照できます。
 
-Web ビューは、Windows の Community Toolkit の今後のリリースと同様に、その他のコントロールを探します。 詳細については、次を参照してください。 [WPF と Windows フォーム アプリケーションでホスト UWP を制御します。](https://docs.microsoft.com/windows/uwp/xaml-platform/xaml-host-controls)
+Windows Community Toolkit の今後のリリースで WebView のような他のコントロールを確認してください。 詳細については、[WPF および Windows フォーム アプリケーションでの UWP コントロールのホスト](https://docs.microsoft.com/windows/uwp/xaml-platform/xaml-host-controls)に関するページを参照してください。
 
-### <a name="gaze-input-and-interactions"></a>視線入力との相互作用
+### <a name="gaze-input-and-interactions"></a>視線入力と操作
 
-[ユーザーの視線の先、注意、および場所と娘の動きに基づいてプレゼンスを追跡します。](../design/input/gaze-interactions.md) 強力な新しい方法を使用して、UWP アプリと対話は、支援技術として特に便利です。 視線入力には、ゲーム (追跡とターゲットの取得を含む) と従来の入力デバイス (キーボード、マウス、タッチ) は使用できませんの他の対話型のシナリオの両方の説得力のある機会も提供します。
+[ユーザーの視線、注意、および場所とユーザーの目の動きに基づくプレゼンスを追跡します。](../design/input/gaze-interactions.md) UWP アプリの使用と操作のためのこの強力な新しい方法は、特に支援技術として有用です。 また、視線入力によって、ゲーム (ターゲットの取得や追跡など) と、従来の入力デバイス (キーボード、マウス、タッチ) を利用できない他の対話型シナリオの両方にとって魅力的な機会が提供されます。
 
-### <a name="msix-packaging-format"></a>MSIX パッケージの形式
+### <a name="msix-packaging-format"></a>MSIX パッケージ形式
 
-Microsoft Build 2018 conference で発表された、MSIX は、Win32、Windows フォーム、WPF、および UWP を含むすべての Windows アプリケーションに適用される、新しいパッケージのコンテナー化形式です。 この新しい形式では、UWP の優れた機能を継承します。
+Microsoft Build 2018 カンファレンスで発表された MSIX は、Win32、Windows フォーム、WPF、UWP を含むすべての Windows アプリケーションに適用される、新しいコンテナー化パッケージの形式です。 この新しい形式には、UWP の優れた機能が継承されています。
 
-* 堅牢なインストールおよび更新します。 
-* 柔軟な機能のシステムとセキュリティ モデルを管理します。
-* Microsoft Store、エンタープライズ管理、および多くのカスタムの配布モデルをサポートします。
+* 堅牢なインストールと更新。 
+* 柔軟な機能システムを持つマネージド セキュリティ モデル。
+* Microsoft Store、エンタープライズ管理、多くのカスタム配布モデルのサポート。
 
-これらのパッケージを作成するツールは、Visual Studio と Windows SDK の将来のリリースで使用できるになります。
+これらのパッケージを作成するためのツールは、Visual Studio と Windows SDK の将来のリリースで利用可能になる予定です。
 
-MSIX パッケージの形式は、簡単で、ツールやソリューション MSIX エコシステムをサポートするために、パートナーのオープン ソース形式です。 MSIX のパッケージ形式の詳細については、次を参照してください。 [MSIX SDK](https://github.com/Microsoft/msix-packaging)します。 
+MSIX パッケージ形式は、Microsoft のパートナーが自身のツールとソリューションで MSIX エコシステムをより簡単にサポートできるようにするオープン ソース形式です。 MSIX パッケージ形式の詳細については、[MSIX SDK](https://github.com/Microsoft/msix-packaging) をご覧ください。 
 
-![MSIX パッケージのイメージ](images/msix.png)
+![MSIX パッケージ作成の画像](images/msix.png)
 
 ### <a name="optional-packages-with-executable-code"></a>実行可能コードによるオプション パッケージ
 
-アプリでの省略可能なパッケージが実行可能ファイルを含めることができますようになりましたC#コード。 [Visual Studio を使用して、メイン アプリ パッケージをサポートするために省略可能なアドオン パッケージを構成する方法について説明します。](../packaging/optional-packages-with-executable-code.md)
+アプリ内のオプション パッケージに実行可能な C# コードを含めることができるようになりました。 [Visual Studio を使用して、メイン アプリ パッケージをサポートするオプションのアドオン パッケージを構成する方法については、こちらをご覧ください。](../packaging/optional-packages-with-executable-code.md)
 
 ### <a name="page-transitions"></a>ページ切り替え効果
 
-[ページの切り替え](../design/motion/page-transitions.md)ユーザー、アプリ内のページ間を移動します。 ユーザーが、ナビゲーション階層内を理解し、ページ間のリレーションシップに関するフィードバックを提供できます。
+[ページ切り替え効果](../design/motion/page-transitions.md)により、ユーザーはアプリ内のページ間を移動します。 ナビゲーション階層のどこにいるのかをユーザーが理解し、ページ間の関係についてフィードバックを提供するのに役立ちます。
 
 ### <a name="project-rome"></a>Project Rome
 
-プロジェクト ローマ チームは、iOS と Android Sdk、ユーザー アクティビティなどの新機能を追加して、各種の Sdk の間で一貫したプログラミング エクスペリエンスを提供するようにコードの多くをリファクタリングを一新しました。 [すべての新しい API のリファレンスと使い方 docs](https://docs.microsoft.com/windows/project-rome/) Build 2018 の開発者会議中にライブ移動します。
+Project Rome チームは、iOS と Android の SDK を徹底的に見直しました。ユーザー アクティビティなどの新機能を追加し、さまざまな SDK 間で一貫したプログラミング エクスペリエンスを提供するために、コードの大部分をリファクタリングしました。 [まったく新しい API リファレンスと使い方のドキュメント](https://docs.microsoft.com/windows/project-rome/)が、Build 2018 開発者カンファレンス中に公開されます。
 
-### <a name="sets"></a>セット
+### <a name="sets"></a>Sets
 
-セット機能は、Windows の Insider preview ビルドで使用できます。 セットの機能を使用する場合は、タイトル バー内に独自のタブを持つ各アプリでの他のアプリで共有されるウィンドウにアプリが描画されます。 
+Sets 機能は、Windows Insider のプレビュー ビルドで利用できます。 Sets 機能を使用すると、他のアプリと共有される可能性があるウィンドウにアプリが描画され、タイトル バーには各アプリの専用のタブが表示されます。 
 
 ## <a name="developer-guidance"></a>開発者向けガイダンス
 
 ### <a name="get-started"></a>はじめに
 
-Get revitalized した新しい学習トラックのコンテンツを開始します。 これらの新しいトピックは、開発者に提供する新しい Windows 10 を実行することがいくつかの一般的なタスクに関する情報を目指します。 携帯用チュートリアルを指定しないとが代わりに既存のドキュメントが存在し、その使用方法を指摘するチュートリアルがないです。 チェック アウト、刷新[コーディングを始める](../get-started/create-uwp-apps.md)ページ、または各個々 の学習トラックの詳細。
+「はじめに」の内容に新しい学習トラックを追加して更新しました。 これらの新しいトピックは、新たな Windows 10 開発者に、実現できる一般的なタスクに関する情報を提供することを目的としています。 これらはチュートリアルではなく、コンパクトな解説を提供するものでもありません。代わりに、既存のドキュメントがある場所とその使用方法を示しています。 改善された「[コーディングの開始](../get-started/create-uwp-apps.md)」ページを確認するか、個々の学習トラックをそれぞれ確認してください。
 
-* [フォームを作成します。](../get-started/construct-form-learning-track.md)
-* [一覧で顧客を表示](../get-started/display-customers-in-list-learning-track.md)
-* [保存し、読み込みの設定](../get-started/settings-learning-track.md)
-* [ファイルを使用します。](../get-started/fileio-learning-track.md)
+* [フォームの作成](../get-started/construct-form-learning-track.md)
+* [一覧での顧客の表示](../get-started/display-customers-in-list-learning-track.md)
+* [設定の保存と読み込み](../get-started/settings-learning-track.md)
+* [ファイルの操作](../get-started/fileio-learning-track.md)
 
-![起動イメージを取得します。](../get-started/images/build-your-app.png)
+![作業の開始アイコン](../get-started/images/build-your-app.png)
 
 ### <a name="advertising-performance-report"></a>広告パフォーマンス レポート
 
-[パフォーマンス レポートをアドバタイズ](../publish/advertising-performance-report.md)パートナー センターでの見やすさがメトリックを提供しますようになりました。 追加しました、 [ad ユニットの見やすさを最適化](../monetize/optimize-ad-unit-viewability.md)広告の見やすさを最適化するための推奨事項を提供する記事です。
+パートナー センターの [[広告パフォーマンス] レポート](../publish/advertising-performance-report.md)に、視認性のメトリックが含まれるようになりました。 また、「[広告ユニットの視認性の最適化](../monetize/optimize-ad-unit-viewability.md)」の記事を追加し、広告の視認性を最適化するための推奨事項を提供しています。
 
 ### <a name="targeted-push-notifications"></a>ターゲット プッシュ通知
 
-[通知](../publish/send-push-notifications-to-your-apps-customers.md)パートナー センターでのページは、グラフ、および世界中のマップ ビューのすべての通知の追加の分析データを提供するようになりました。
+パートナーセンターの[通知](../publish/send-push-notifications-to-your-apps-customers.md)ページに、すべての通知に関する追加の分析データが、グラフ ビューとワールド マップ ビューで表示されるようになりました。
 
 ## <a name="videos"></a>ビデオ
 
 ### <a name="cwinrt"></a>C++/WinRT
 
-C +/cli WinRT は、新しい方法を作成して、Windows ランタイム Api を使用します。 ヘッダー ファイルに唯一の実装は、最新のアプリの機能を最適にアクセスを提供するために設計されています。 [ビデオを見る](https://www.youtube.com/watch?v=TLSul1XxppA&feature=youtu.be)については、その動作し、[開発者向けドキュメントを読み取る](../cpp-and-winrt-apis/index.md)の詳細。
+C++/WinRT は、Windows ランタイム API を作成したり使用したりするための新しい方法です。 ヘッダー ファイルに単独で実装され、最新のアプリ機能への最適なアクセスを提供するように設計されています。 [ビデオを視聴して](https://www.youtube.com/watch?v=TLSul1XxppA&feature=youtu.be)そのしくみを確認したうえで、詳細については[開発者向けドキュメントをご覧ください](../cpp-and-winrt-apis/index.md)。
 
 ### <a name="multi-instance-uwp-apps"></a>マルチインスタンスの UWP アプリ
 
-Windows を使用して、それぞれに個別のプロセスで、UWP アプリの複数のインスタンスを実行することできるようになりました。 [ビデオを見る](https://www.youtube.com/watch?v=clnnf4cigd0&feature=youtu.be)し、この機能をサポートする新しいアプリを作成する方法について[開発者向けドキュメントを読み取る](../launch-resume/multi-instance-uwp.md)方法の詳細についてのガイダンスとこの機能を使用する理由。
+Windows で UWP アプリの複数のインスタンスを実行できるようになりました。各インスタンスは分離された個別のプロセスで実行されます。 この機能をサポートする新しいアプリの作成方法を[ビデオを見て](https://www.youtube.com/watch?v=clnnf4cigd0&feature=youtu.be)確認し、この機能を使用する方法と理由の詳細については、[開発者向けドキュメントをご覧ください](../launch-resume/multi-instance-uwp.md)。
 
 ## <a name="samples"></a>サンプル
 
-### <a name="customer-database-tutorial"></a>顧客データベースのチュートリアル
+### <a name="customer-database-tutorial"></a>顧客データベース チュートリアル
 
-このチュートリアルでは、顧客の一覧を管理するための基本的な UWP アプリを作成し、概念と実践についてエンタープライズ開発に便利ですが導入されています。 UI 要素を実装して、ローカルの SQLite データベースに対する操作を追加することを説明し、さらに移動する場合は、REST のリモート データベースに接続するための緩やかなガイダンスを提供します。 [ここでチュートリアルをご覧ください。](../enterprise/customer-database-tutorial.md)
+このチュートリアルでは、顧客の一覧を管理するための基本的な UWP アプリを作成し、エンタープライズ開発の概念と実践を紹介しています。 UI 要素の実装とローカル SQLite データベースに対する操作の追加を順番に説明し、さらに詳細を希望される方には、リモート REST データベースへの接続の大まかなガイダンスを示します。 [チュートリアルはこちらからご覧ください](../enterprise/customer-database-tutorial.md)

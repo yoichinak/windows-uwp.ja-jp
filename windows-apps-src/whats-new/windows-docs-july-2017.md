@@ -6,10 +6,10 @@ ms.date: 07/05/2017
 ms.topic: article
 ms.localizationpriority: medium
 ms.openlocfilehash: 03bc41ca76f6c6b20f06c98b0e71e2bc5a361992
-ms.sourcegitcommit: f0f933d5cf0be734373a7b03e338e65000cc3d80
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65984200"
 ---
 # <a name="whats-new-in-the-windows-developer-docs-in-july-2017"></a>Windows 開発者向けドキュメントの最新情報、2017 年 7 月
@@ -78,7 +78,7 @@ Windows 10 の[ツールと SDK をインストール](https://go.microsoft.com/
 
 ### <a name="my-people"></a>マイ連絡先
 
-[Windows Insider](https://insider.windows.com/) を対象に SDK Preview Build で提供されるマイ連絡先機能を使うと、アプリケーションからユーザーのタスク バーに連絡先を直接ピン留めすることができます。 [マイ ユーザー サポート、アプリケーションを追加する方法について説明します。](../contacts-and-calendar/my-people-support.md)
+[Windows Insider](https://insider.windows.com/) を対象に SDK Preview Build で提供されるマイ連絡先機能を使うと、アプリケーションからユーザーのタスク バーに連絡先を直接ピン留めすることができます。 [アプリケーションにマイ連絡先のサポートを追加する方法については、こちらをご覧ください。](../contacts-and-calendar/my-people-support.md)
 
 ![マイ連絡先の連絡先パネル](images/my-people.png)
 
