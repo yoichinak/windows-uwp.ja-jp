@@ -13,15 +13,15 @@ dev-contact: niallm
 doc-status: Published
 ms.localizationpriority: medium
 ms.openlocfilehash: 1277d9089e900451ac4c537805079ff479f808fa
-ms.sourcegitcommit: f47620e72ff8127fae9b024c70ddced3a5c45d91
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66748454"
 ---
 # <a name="dialog-controls"></a>ダイアログ コントロール
 
-ダイアログ コントロールは、アプリのコンテキスト情報を提供するモーダル UI オーバーレイです。 明示的に破棄されるまで、アプリ ウィンドウとの対話をブロックします。 多くの場合、ユーザーに何らかの操作を要求します。
+ダイアログ コントロールは、状況依存のアプリ情報を表示するモーダル UI オーバーレイです。 それらでは、明示的に閉じられるまで、アプリ ウィンドウの対話式操作がブロックされます。 多くの場合、ユーザーに何らかの操作を要求します。
 
 ![ダイアログの例](../images/dialogs/dialog_RS2_delete_file.png)
 
@@ -32,7 +32,7 @@ ms.locfileid: "66748454"
 
 重要な情報をユーザーに通知したり、アクションが完了する前に確認や追加情報を要求したりするには、ダイアログを使用します。
 
-フライアウト (のようなコントロール) を使用する場合と、ダイアログ ボックスを使用する場合の推奨事項を参照してください[ダイアログとフライアウト](index.md)します。 
+どのようなときにダイアログを使い、どのようなときにポップアップ (似たコントロール) を使うかに関する推奨事項については、「[ダイアログとポップアップ](index.md)」をご覧ください。 
 
 ## <a name="examples"></a>例
 
@@ -118,8 +118,8 @@ private async void DisplayDeleteFileDialog()
 }
 ```
 
-## <a name="provide-a-safe-action"></a>安全な操作を提供します。
-ダイアログでユーザー操作がブロックされたとき、ユーザーがダイアログを閉じる主な方法はボタンであるため、ダイアログに "閉じる" や "OK" などの安全で非破壊的なボタンが少なくとも 1 つは含まれるようにします。 **すべてのダイアログ ボックスでは、ダイアログ ボックスを閉じますの少なくとも 1 つの安全なアクション ボタンを含める必要があります。** これにより、ユーザーはアクションを実行することなく安心してダイアログを閉じることができます。<br>![1 つのボタンの ダイアログ](../images/dialogs/dialog_RS2_one_button.png)
+## <a name="provide-a-safe-action"></a>安全な操作を提供する
+ダイアログでユーザー操作がブロックされたとき、ユーザーがダイアログを閉じる主な方法はボタンであるため、ダイアログに "閉じる" や "OK" などの安全で非破壊的なボタンが少なくとも 1 つは含まれるようにします。 **すべてのダイアログには、ダイアログを閉じるための少なくとも 1 つの安全なアクション ボタンを含める必要があります。** これにより、ユーザーはアクションを実行することなく安心してダイアログを閉じることができます。<br>![ボタンを 1 つ備えたダイアログ](../images/dialogs/dialog_RS2_one_button.png)
 
 ```csharp
 private async void DisplayNoWifiDialog()
@@ -250,13 +250,13 @@ private async void DisplaySubscribeDialog()
 
 > 一部のプラットフォームでは、左側ではなく、右側に確認ボタンが配置されます。 それでは、左側に確認ボタンを配置するのはなぜでしょうか。  ユーザーの大部分が右利きであり、右手でスマートフォンを保持すると想定した場合、実際に確認ボタンが左側にある方がボタンを押しやすくなります。これは、ボタンがユーザーの親指が描く円弧上にある可能性が高くなるためです。画面の右側にボタンがある場合、ユーザーは親指を内側に引いて操作しにくい位置に移動する必要があります。
 
-## <a name="contentdialog-in-appwindow-or-xaml-islands"></a>ContentDialog AppWindow または Xaml 諸島
+## <a name="contentdialog-in-appwindow-or-xaml-islands"></a>AppWindow 内または XAML アイランド内の ContentDialog
 
-> 注: このセクションでは、Windows 10、バージョンが 1903 またはそれ以降を対象とするアプリにのみ適用されます。 AppWindow および XAML 諸島では、以前のバージョンでは使用できません。 バージョン管理の詳細については、次を参照してください。[バージョン アダプティブ アプリ](../../../debug-test-perf/version-adaptive-apps.md)します。
+> 注: このセクションは、Windows 10 バージョン 1903 以降をターゲットとするアプリにのみ適用されます。 それより前のバージョンでは、AppWindow および XAML アイランドは使用できません。 バージョンについて詳しくは、[バージョン アダプティブ アプリ](../../../debug-test-perf/version-adaptive-apps.md)に関する記事をご覧ください。
 
-既定では、コンテンツのルートに対する相対ダイアログがモーダルで表示して[ApplicationView](/uwp/api/windows.ui.viewmanagement.applicationview)します。 ContentDialog いずれかの内部で使用すると、 [AppWindow](/uwp/api/windows.ui.windowmanagement.appwindow)または[XAML 島](/apps/desktop/modernize/xaml-islands)、手動で設定する必要がある、 [XamlRoot](/uwp/api/windows.ui.xaml.uielement.xamlroot) XAML ホストのルートにダイアログ。
+既定では、コンテンツ ダイアログはルート [ApplicationView](/uwp/api/windows.ui.viewmanagement.applicationview) を基準としてモーダルに表示されます。 ContentDialog を [AppWindow](/uwp/api/windows.ui.windowmanagement.appwindow) または [XAML アイランド](/apps/desktop/modernize/xaml-islands)の内部で使うときは、ダイアログの [XamlRoot](/uwp/api/windows.ui.xaml.uielement.xamlroot) を XAML ホストのルートに手動で設定する必要があります。
 
-これを行うには、次に示すように AppWindow または XAML の島で既に要素として同じ XamlRoot に ContentDialog の XamlRoot プロパティを設定します。
+それを行うには、次に示すように、ContentDialog の XamlRoot プロパティを、AppWindow または XAML アイランドに既に存在する要素と同じ XamlRoot に設定します。
 
 ```csharp
 private async void DisplayNoWifiDialog()
@@ -280,7 +280,7 @@ private async void DisplayNoWifiDialog()
 ```
 
 > [!WARNING]
-> 存在できる ContentDialog を同時に開くスレッドあたり 1 つです。 2 つの ContentDialogs を開こうとした場合は、個別の AppWindows で開くしようとしている場合でも、例外がスローされます。
+> 1 つのスレッドで一度に開くことのできる ContentDialog は 1 つだけです。 2 つの ContentDialog を開こうとすると、個別の AppWindow で開く場合でも、例外がスローされます。
 
 ## <a name="get-the-sample-code"></a>サンプル コードを入手する
 
@@ -289,5 +289,5 @@ private async void DisplayNoWifiDialog()
 ## <a name="related-articles"></a>関連記事
 - [ヒント](../tooltips.md)
 - [メニューとコンテキスト メニュー](../menus.md)
-- [フライアウト クラス](/uwp/api/Windows.UI.Xaml.Controls.Flyout)
+- [Flyout クラス](/uwp/api/Windows.UI.Xaml.Controls.Flyout)
 - [ContentDialog クラス](/uwp/api/Windows.UI.Xaml.Controls.ContentDialog)

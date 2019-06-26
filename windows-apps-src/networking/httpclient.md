@@ -7,10 +7,10 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: bb098aae346c7a81771262793f5f6a042d62d5a3
-ms.sourcegitcommit: 1f39b67f2711b96c6b4e7ed7107a9a47127d4e8f
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/05/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66721610"
 ---
 # <a name="httpclient"></a>HttpClient
@@ -43,13 +43,13 @@ HTTP 2.0 プロトコルと HTTP 1.1 プロトコルを使って情報を送受�
 
 [  **Windows.Web.Http**](https://docs.microsoft.com/uwp/api/Windows.Web.Http) 名前空間は、クッキーを含む HTTP エンティティ ボディおよびヘッダーとして HTTP コンテンツを表します。 HTTP コンテンツは、HTTP 要求または HTTP 応答に関連付けることができます。 **Windows.Web.Http** 名前空間には、HTTP コンテンツを表す多数のさまざまなクラスが用意されています。
 
--   [**HttpBufferContent**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpBufferContent)します。 バッファーとしてのコンテンツ。
--   [**HttpFormUrlEncodedContent**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpFormUrlEncodedContent)します。 **application/x-www-form-urlencoded** MIME タイプでエンコードされた名前と値の組としてのコンテンツ。
--   [**HttpMultipartContent**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpMultipartContent)します。 コンテンツの形式で、**マルチパート/\***  MIME の種類。
--   [**HttpMultipartFormDataContent**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpMultipartFormDataContent)します。 **multipart/form-data** MIME タイプとしてエンコードされているコンテンツ。
--   [**HttpStreamContent**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpStreamContent)します。 ストリームとしてのコンテンツ (この内部タイプは、HTTP GET メソッドでのデータの受信、および HTTP POST メソッドでのデータのアップロードに使われます)。
--   [**HttpStringContent**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpStringContent)します。 文字列としてのコンテンツ。
--   [**IHttpContent** ](https://docs.microsoft.com/uwp/api/Windows.Web.Http.IHttpContent) -独自のコンテンツ オブジェクトを作成する開発者向けの基本インターフェイス
+-   [**HttpBufferContent**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpBufferContent)。 バッファーとしてのコンテンツ。
+-   [**HttpFormUrlEncodedContent**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpFormUrlEncodedContent)。 **application/x-www-form-urlencoded** MIME タイプでエンコードされた名前と値の組としてのコンテンツ。
+-   [**HttpMultipartContent**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpMultipartContent)。 **multipart/\*** MIME タイプ形式のコンテンツ。
+-   [**HttpMultipartFormDataContent**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpMultipartFormDataContent)。 **multipart/form-data** MIME タイプとしてエンコードされているコンテンツ。
+-   [**HttpStreamContent**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpStreamContent)。 ストリームとしてのコンテンツ (この内部タイプは、HTTP GET メソッドでのデータの受信、および HTTP POST メソッドでのデータのアップロードに使われます)。
+-   [**HttpStringContent**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpStringContent)。 文字列としてのコンテンツ。
+-   [**IHttpContent**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.IHttpContent) - 開発者が独自のコンテンツ オブジェクトを作成するための基本インターフェイス
 
 「HTTP 経由でシンプルな GET 要求を送信する」セクションのコード スニペットでは、[**HttpStringContent**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpStringContent) クラスを使って、HTTP GET 要求からの HTTP 応答を文字列として表しています。
 
@@ -57,7 +57,7 @@ HTTP 2.0 プロトコルと HTTP 1.1 プロトコルを使って情報を送受�
 
 ## <a name="send-a-simple-get-request-over-http"></a>HTTP 経由でシンプルな GET 要求を送信する
 
-この記事の中で既に説明したように、[**Windows.Web.Http**](https://docs.microsoft.com/uwp/api/Windows.Web.Http) 名前空間は、UWP アプリで GET 要求を送信できるようにします。 次のコード スニペットは、GET 要求を送信する方法を示します http://www.contoso.comを使用して、 [ **Windows.Web.Http.HttpClient** ](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpClient)クラスおよび[ **Windows.Web.Http.HttpResponseMessage** ](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpResponseMessage) GET 要求から応答を読み取るクラス。
+この記事の中で既に説明したように、[**Windows.Web.Http**](https://docs.microsoft.com/uwp/api/Windows.Web.Http) 名前空間は、UWP アプリで GET 要求を送信できるようにします。 次のコード スニペットでは、[**Windows.Web.Http.HttpClient**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpClient) クラスを使って http://www.contoso.com に GET 要求を送信し、[**Windows.Web.Http.HttpResponseMessage**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpResponseMessage) クラスを使って GET 要求から応答を読み取る方法を示します。
 
 ```csharp
 //Create an HTTP client object
@@ -156,12 +156,12 @@ int main()
 }
 ```
 
-## <a name="post-binary-data-over-http"></a>HTTP 経由で投稿のバイナリ データ
+## <a name="post-binary-data-over-http"></a>HTTP 経由でバイナリ データを POST する
 
-[C +/cli WinRT](/windows/uwp/cpp-and-winrt-apis)フォーム データと POST 要求を使用して、web サーバーにファイルのアップロードと少量のバイナリ データを送信する次のコード例を示しています。 コードを使用して、 [ **HttpBufferContent** ](/uwp/api/windows.web.http.httpbuffercontent)バイナリのデータを表すクラスと[ **HttpMultipartFormDataContent** ](/uwp/api/windows.web.http.httpmultipartformdatacontent)クラスマルチパート フォーム データを表します。
+次の [C++/WinRT](/windows/uwp/cpp-and-winrt-apis) コードでは、フォーム データと POST 要求を使って、少量のバイナリ データをファイルのアップロードとして Web サーバーに送信する例を示します。 そのコードでは、[**HttpBufferContent**](/uwp/api/windows.web.http.httpbuffercontent) クラスを使ってバイナリ データを表し、[**HttpMultipartFormDataContent**](/uwp/api/windows.web.http.httpmultipartformdatacontent) クラスを使ってマルチパートのフォーム データを表しています。
 
 > [!NOTE]
-> 呼び出す**取得**(として次のコード例でわかる) が適切でない UI スレッドにします。 その場合に使用する正しい方法を参照してください。[同時実行と非同期操作を C +/cli WinRT](/windows/uwp/cpp-and-winrt-apis/concurrency)します。
+> UI スレッドの場合は、(次のコード例で示されているように) **get** を呼び出すのは適切ではありません。 その場合に使用する正しい方法については、「[Concurrency and asynchronous operations with C++/WinRT](/windows/uwp/cpp-and-winrt-apis/concurrency)」(C++/WinRT を使用した同時実行操作と非同期操作) をご覧ください。
 
 ```cppwinrt
 // pch.h
@@ -226,13 +226,13 @@ int main()
 }
 ```
 
-(上記で使用する明示的なバイナリ データではなく) 実際のバイナリ ファイルの内容を投稿することがわかりますが使いやすく、 [HttpStreamContent](/uwp/api/windows.web.http.httpstreamcontent)オブジェクト。 構築して、そのコンス トラクターに引数として渡す呼び出しから返される値[StorageFile.OpenReadAsync](/uwp/api/windows.storage.storagefile.openreadasync)します。 そのメソッドは、バイナリ ファイル内のデータのストリームを返します。
+実際のバイナリ ファイルの内容を POST するには (上で使用した明示的なバイナリ データではなく)、[HttpStreamContent](/uwp/api/windows.web.http.httpstreamcontent) オブジェクトを使う方が簡単であることがわかります。 それを構築し、そのコンストラクターへの引数として、[StorageFile.OpenReadAsync](/uwp/api/windows.storage.storagefile.openreadasync) の呼び出しから返された値を渡します。 そのメソッドからは、バイナリ ファイル内のデータに対するストリームが返されます。
 
-また、大きなファイル (約 10 MB より大きい) をアップロードしている場合をお勧め、Windows ランタイムを使用すること[バック グラウンド転送](/uwp/api/windows.networking.backgroundtransfer)Api。
+また、大きいファイル (約 10 MB より大) をアップロードする場合は、Windows ランタイムの[バックグラウンド転送](/uwp/api/windows.networking.backgroundtransfer) API を使うことをお勧めします。
 
-## <a name="post-json-data-over-http"></a>HTTP 経由での POST JSON データ
+## <a name="post-json-data-over-http"></a>HTTP 経由で JSON データを POST する
 
-次の例は、エンドポイントをいくつかの JSON を投稿し、応答本文を書き込みます。
+次の例では、エンドポイントに JSON を POST した後、応答本文を書き出しています。
 
 ```cs
 using System;
@@ -277,7 +277,7 @@ private async Task TryPostJsonAsync()
 
 Uniform Resource Identifier (URI) として無効な文字列が、[**Windows.Foundation.Uri**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Uri) オブジェクトのコンストラクターに渡されると、例外がスローされます。
 
-**.NET:**   、 [ **Windows.Foundation.Uri** ](https://docs.microsoft.com/uwp/api/Windows.Foundation.Uri)種類[ **System.Uri** ](https://docs.microsoft.com/dotnet/api/system.uri?redirectedfrom=MSDN)でC#とVB.
+**.NET:**   [**Windows.Foundation.Uri**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Uri) 型は、C# や VB では [**System.Uri**](https://docs.microsoft.com/dotnet/api/system.uri?redirectedfrom=MSDN) と表示されます。
 
 C# や Visual Basic では、.NET 4.5 の [**System.Uri**](https://docs.microsoft.com/dotnet/api/system.uri?redirectedfrom=MSDN) クラスと、[**System.Uri.TryCreate**](https://docs.microsoft.com/dotnet/api/system.uri.trycreate?redirectedfrom=MSDN#overloads) メソッドの 1 つを使って、URI が作成される前にユーザーから受け取った文字列をテストすることによって、このエラーを回避できます。
 
@@ -285,9 +285,9 @@ C++ では、URI として渡される文字列を試行して解析するメソ
 
 [  **Windows.Web.Http**](https://docs.microsoft.com/uwp/api/Windows.Web.Http) には便利な関数がありません。 そのため、この名前空間の [**HttpClient**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpClient) と他のクラスを使うアプリは、**HRESULT** 値を使う必要があります。
 
-.NET Framework 4.5 を使用してアプリC#、VB.NET、 [System.Exception](https://docs.microsoft.com/dotnet/api/system.exception?redirectedfrom=MSDN)例外が発生したときに、アプリの実行中にエラーを表します。 [System.Exception.HResult](https://docs.microsoft.com/dotnet/api/system.exception.hresult?redirectedfrom=MSDN#System_Exception_HResult) プロパティは、特定の例外に割り当てられた **HRESULT** を返します。 [System.Exception.Message](https://docs.microsoft.com/dotnet/api/system.exception.message?redirectedfrom=MSDN#System_Exception_Message) プロパティは、例外を説明するメッセージを返します。 使うことができる **HRESULT** 値は、*Winerror.h* ヘッダー ファイルに記載されています。 アプリは特定の **HRESULT** 値に対するフィルター処理を行い、例外の原因に応じてアプリの動作を変更できます。
+C# と VB.NET で .NET Framework 4.5 を使うアプリでは、アプリの実行中に例外が発生した場合、[System.Exception](https://docs.microsoft.com/dotnet/api/system.exception?redirectedfrom=MSDN) でエラーが表されます。 [System.Exception.HResult](https://docs.microsoft.com/dotnet/api/system.exception.hresult?redirectedfrom=MSDN#System_Exception_HResult) プロパティは、特定の例外に割り当てられた **HRESULT** を返します。 [System.Exception.Message](https://docs.microsoft.com/dotnet/api/system.exception.message?redirectedfrom=MSDN#System_Exception_Message) プロパティは、例外を説明するメッセージを返します。 使うことができる **HRESULT** 値は、*Winerror.h* ヘッダー ファイルに記載されています。 アプリは特定の **HRESULT** 値に対するフィルター処理を行い、例外の原因に応じてアプリの動作を変更できます。
 
 Managed C++ を使うアプリでは、アプリの実行中に例外が発生したときに、[Platform::Exception](https://docs.microsoft.com/cpp/cppcx/platform-exception-class) がエラーを表します。 [Platform::Exception::HResult](https://docs.microsoft.com/cpp/cppcx/platform-exception-class#hresult) プロパティは、特定の例外に割り当てられた **HRESULT** を返します。 [Platform::Exception::Message](https://docs.microsoft.com/cpp/cppcx/platform-exception-class#message) プロパティは、**HRESULT** 値に関連付けられた、システムが提供する文字列を返します。 使うことができる **HRESULT** 値は、*Winerror.h* ヘッダー ファイルに記載されています。 アプリは特定の **HRESULT** 値に対するフィルター処理を行い、例外の原因に応じてアプリの動作を変更できます。
 
-ほとんどのパラメーター検証エラー、 **HRESULT**が返される**E\_INVALIDARG**します。 一部の無効なメソッド呼び出しの**HRESULT**が返される**E\_不正な\_メソッド\_呼び出す**。
+ほとんどのパラメーター検証エラーの場合、返される **HRESULT** は **E\_INVALIDARG** です。 一部の無効なメソッド呼び出しでは、返される **HRESULT** は **E\_ILLEGAL\_METHOD\_CALL** です。
 

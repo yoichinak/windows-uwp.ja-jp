@@ -7,10 +7,10 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: a9d3b4b9b404ab2c0828ea302f0c564ae1c8e7b4
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66372785"
 ---
 # <a name="rssatom-feeds"></a>RSS/Atom フィード
@@ -44,7 +44,7 @@ Web フィードは、テキストやリンク、画像といった個々のエ�
 
 ネットワーク分離は、ネットワーク アクセスを試みる [**Windows.Web.Syndication**](https://docs.microsoft.com/uwp/api/Windows.Web.Syndication) 名前空間と [**Windows.Web.AtomPub**](https://docs.microsoft.com/uwp/api/Windows.Web.AtomPub) 名前空間のすべてのクラス要素に影響します。 ネットワーク分離は、Windows によって能動的かつ強制的に適用されます。 適切なネットワーク機能が有効になっていなければ、ネットワーク アクセスを付随する **Windows.Web.Syndication** 名前空間や **Windows.Web.AtomPub** 名前空間のクラス要素の呼び出しは失敗する可能性があります。
 
-アプリのネットワーク機能は、アプリのビルド時にアプリ マニフェストで構成します。 ネットワーク機能は、通常は、Microsoft Visual Studio 2015 を使用してアプリを開発するときに追加されます。 アプリ マニフェスト ファイルをテキスト エディターで直接編集してネットワーク機能を設定することもできます。
+アプリのネットワーク機能は、アプリのビルド時にアプリ マニフェストで構成します。 通常、ネットワーク機能は、アプリの開発時に Microsoft Visual Studio 2015 を使用して追加します。 アプリ マニフェスト ファイルをテキスト エディターで直接編集してネットワーク機能を設定することもできます。
 
 ネットワーク分離とネットワーク機能について詳しくは、「[ネットワークの基本](networking-basics.md)」トピックの「機能」セクションをご覧ください。
 
@@ -56,7 +56,7 @@ Web フィードは、テキストやリンク、画像といった個々のエ�
 
 UWP アプリをネットワークに対応させるには、プロジェクトの **Package.appxmanifest** ファイルで必要なネットワーク機能を設定する必要があります。 アプリがクライアントとしてインターネット上のリモート サービスに接続する必要がある場合は、**internetClient** 機能が必要です。 詳しくは、「[ネットワークの基礎](networking-basics.md)」トピックの「機能」セクションをご覧ください。
 
-**Web フィードからシンジケート コンテンツを取得します。**
+**Web フィードからの概要コンテンツの取得**
 
 ここでは、フィードを取得し、そこに含まれている個々の項目を表示するコードを見ていきます。 要求を構成して送信する前に、操作で必要ないくつかの変数を定義し、[**SyndicationClient**](https://docs.microsoft.com/uwp/api/Windows.Web.Syndication.SyndicationClient) のインスタンスを初期化します。そうすることでフィードを取得して表示する際に必要なメソッドとプロパティを定義します。
 

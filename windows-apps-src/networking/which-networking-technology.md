@@ -7,10 +7,10 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: db2e444b9f13ba41127b362483774c92d45f1f77
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66372753"
 ---
 # <a name="which-networking-technology"></a>アプリに適したネットワーク テクノロジ
@@ -22,7 +22,7 @@ UWP 開発者が利用できるネットワーク テクノロジの概要と、
 
 別のデバイスとの通信を独自のプロトコルで実行する場合は、[ソケット](sockets.md)を使います。
 
-ユニバーサル Windows プラットフォーム (UWP) の開発者向けのソケットの 2 つの実装があります。[**Windows.Networking.Sockets**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets)、および[Winsock](https://docs.microsoft.com/windows/desktop/WinSock/windows-sockets-start-page-2)します。 新しいコードを記述するなら、Windows.Networking.Sockets には、UWP 開発者向けに設計された最新の API であるという利点があります。 クロスプラット フォームのネットワーク ライブラリや既存の Winsock コードを使う場合、または Winsock API の方が適している場合は、Winsock を使います。
+ユニバーサル Windows プラットフォーム (UWP) 開発者は、次の 2 つのソケットの実装を利用できます: [**Windows.Networking.Sockets**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets)、および [Winsock](https://docs.microsoft.com/windows/desktop/WinSock/windows-sockets-start-page-2)。 新しいコードを記述するなら、Windows.Networking.Sockets には、UWP 開発者向けに設計された最新の API であるという利点があります。 クロスプラット フォームのネットワーク ライブラリや既存の Winsock コードを使う場合、または Winsock API の方が適している場合は、Winsock を使います。
 
 ### <a name="when-to-use-sockets"></a>ソケットを使う状況
 
@@ -69,7 +69,7 @@ HTTP(S) を使って Web サービスまたは Web サーバーと通信する�
 
 ネットワーク経由でファイルを確実に転送する場合は、[バックグラウンド転送 API](background-transfers.md) を使います。 バックグラウンド転送 API には、アプリの一時停止中はバックグラウンドで実行され、アプリの終了後も実行が続行される高度なアップロード機能とダウンロード機能があります。 この API は、ネットワークの状態を監視し、接続が失われたときに転送の中断と再開を自動的に実行します。転送ではデータ センサーとバッテリー セーバーにも対応し、ダウンロード アクティビティは現在の接続とデバイスのバッテリー状態に基づいて調整されます。 アプリがモバイル デバイスやバッテリー駆動デバイスで実行されている場合、これらの機能は不可欠です。 この API は、アップロード HTTP(S) を使った大きなファイルのアップロードとダウンロードに適しています。 FTP もサポートされますが、その対象はダウンロードのみです。
 
-Windows 10 で、新しいバック グラウンド転送機能は、ファイル転送が完了したら、ローカルのカタログ更新、他のアプリをアクティブ化またはダウンロードが完了すると、ユーザーに通知するために後の処理をトリガーする機能です。
+Windows 10 の新しい機能であるバックグラウンド転送は、ファイル転送の完了時に後処理をトリガーする機能です。これにより、ローカル カタログの更新、他のアプリのアクティブ化、またはダウンロードが完了したときのユーザーへの通知を行うことができます。
 
 ### <a name="when-to-use-background-transfers"></a>バックグラウンド転送を使う状況
 
@@ -127,7 +127,7 @@ Windows 10 で、新しいバック グラウンド転送機能は、ファイ�
 
 ### <a name="mobile-operators"></a>携帯電話会社
 
-Windows 10 では、デバイスの製造元および携帯電話会社にのみ公開されていた一部の Api を対象となる幅広い開発者に公開されます。 これらの API は公開されましたが、アプリを発行する前に Microsoft の承認を得る必要がある特定のアプリの機能による管理の対象でもあります。 これらの API の実際の使用は、引き続き、主にデバイスの製造元と携帯電話会社によって制限されます。
+Windows 10 では、これまではデバイスの製造元と携帯電話会社に対してのみ公開されていた一部の API が幅広い開発者を対象として公開されています。 これらの API は公開されましたが、アプリを発行する前に Microsoft の承認を得る必要がある特定のアプリの機能による管理の対象でもあります。 これらの API の実際の使用は、引き続き、主にデバイスの製造元と携帯電話会社によって制限されます。
 
 ### <a name="network-operations"></a>ネットワーク操作
 
