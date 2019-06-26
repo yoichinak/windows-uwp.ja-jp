@@ -11,18 +11,20 @@ ms.prod: windows
 ms.technology: uwp
 keywords: windows 10、uwp、WNS の場合、windows 通知サービス、通知、windows ファイアウォール、トラブルシューティング、IP、トラフィック、enterprise、ネットワーク、パブリック IP アドレス、IPv4、VIP、FQDN
 ms.localizationpriority: medium
-ms.openlocfilehash: 9ed4ad6ed828abda9d487ef96beca9b655c92421
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 23a9b11cd961e03217aba8ca3d1d988447a2f80b
+ms.sourcegitcommit: b0edd3c09f931b9b62f9c2d17037fb58d826174f
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66366677"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67349855"
 ---
 # <a name="allowing-windows-notification-traffic-through-enterprise-firewalls"></a>エンタープライズ ファイアウォールを介した Windows の通知のトラフィックを許可します。
 
 ## <a name="background"></a>背景
 多くの企業では、ファイアウォールを使用して、不要なネットワーク トラフィックをブロックするには残念ながら、Windows 通知サービスの通信などの重要なブロックこれこともできます。 つまり、WNS から送信されるすべての通知は破棄されます。 これを回避するには、ネットワーク管理者は、ファイアウォールを通過する WNS トラフィックを許可するには、その除外リストに承認済みの WNS チャネルの一覧を追加できます。 方法の詳細および追加するものを次に示します。 
 
+> [!Note] 
+6/24/2019、Windows クライアントの時点で**しない**サポート プロキシ、WNS に接続は直接接続する必要があります。
 
 ## <a name="what-information-should-be-added-to-the-allowlist"></a>どのような情報は、許可リストに追加する必要があります。
 以下は、Fqdn、Vip、および IP を含むリスト アドレス範囲、Windows 通知サービスで使用します。 
@@ -63,7 +65,7 @@ ms.locfileid: "66366677"
 ### <a name="terms-and-notations"></a>用語との表記
 表記と上記の XML スニペットで使用される要素の説明を次に示します。
 
-| 用語 | 説明 |
+| 項目 | 説明 |
 |---|---|
 | **ドット数値記法 (つまり 64.4.28.0/26)** | ドット数値記法は、範囲の IP アドレスを記述する方法です。 たとえば、64.4.28.0/26 64.4.28.0 の最初の 26 のビットは定数、最後の 6 ビットは変数を意味します。  この場合は、IPv4 の範囲は、64.4.28.0 - 64.4.28.63 します。 |
 | **ClientDNS** | これらのクライアント デバイス (Windows Pc、デスクトップ) の完全修飾ドメイン名 (FQDN) フィルターは、WNS から通知を受信します。 これらは、WNS クライアント WNS 機能を使用するためにファイアウォールで許可する必要があります。  お勧め許可一覧に IP/VIP の範囲ではなく Fqdn によってこれらが変更されないためです。 |

@@ -5,12 +5,12 @@ ms.date: 01/10/2017
 ms.topic: article
 keywords: windows 10、uwp、WinRT API では、WNS
 localizationpriority: medium
-ms.openlocfilehash: 2719c3228c95075eb2a940d12b6c91049b67f524
-ms.sourcegitcommit: 82edc63a5b3623abce1d5e70d8e200a58dec673c
+ms.openlocfilehash: f5c4b9f1db58a091dc4f9389888ad3739c4439e5
+ms.sourcegitcommit: b0edd3c09f931b9b62f9c2d17037fb58d826174f
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58291790"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67349871"
 ---
 # <a name="wns-notification-priorities"></a>WNS 通知の優先順位
 WNS POST メッセージを通知の優先度が単純なヘッダーを設定して、バッテリの機密性の高い状況で通知を配信する方法を制御できます。
@@ -41,7 +41,7 @@ Windows では、システムは、通知の適切な優先順位を設定する
 
 ## <a name="setting-the-priority"></a>優先順位の設定
 
-通知要求の優先順位の設定は、POST 要求に追加のヘッダーによって行われます`X-WNS-PRIORITY`します。 これは、優先順位にマップする 0 ~ 3 の整数値です。 
+通知要求の優先順位の設定は、POST 要求に追加のヘッダーによって行われます`X-WNS-PRIORITY`します。 これは、優先順位にマップされる 1 から 4 までの整数値です。 
 
 | 優先度の名前 | 優先順位 WNS X の値 | 既定値: |
 |---------------|----------------------|------------------|
