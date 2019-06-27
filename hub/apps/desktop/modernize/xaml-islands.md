@@ -3,7 +3,7 @@ description: このガイドは、WPF および Windows フォーム アプリ�
 title: デスクトップ アプリでの UWP コントロール
 ms.date: 04/16/2019
 ms.topic: article
-keywords: windows 10、uwp、windows フォーム、wpf、xaml 諸島
+keywords: windows 10、uwp、windows フォーム、wpf、xaml islands
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
@@ -15,16 +15,16 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 05/24/2019
 ms.locfileid: "66215122"
 ---
-# <a name="host-uwp-xaml-controls-in-desktop-apps-xaml-islands"></a>デスクトップ アプリ (XAML 諸島) でホスト UWP XAML コントロールを使用します。
+# <a name="host-uwp-xaml-controls-in-desktop-apps-xaml-islands"></a>デスクトップ アプリ (XAML Islands) でホスト UWP XAML コントロールを使用します。
 
-Windows 10、バージョンが 1903 年以降と呼ばれる機能を使用してデスクトップ アプリケーションを UWP 以外に UWP コントロールをホストできる*XAML 諸島*します。 この機能では、外観、外観とのみ UWP コントロールを使用して利用できる最新の Windows 10 の UI 機能と既存のデスクトップ アプリケーションの機能を強化することができます。 つまり、UWP の機能をなど、使用できる[Windows インク](/windows/uwp/design/input/pen-and-stylus-interactions)サポートするコントロールと、 [Fluent Design System](/windows/uwp/design/fluent-design-system/index)既存の WPF、Windows フォーム、および C++ の Win32 アプリケーション。
+Windows 10、バージョンが 1903 年以降と呼ばれる機能を使用してデスクトップ アプリケーションを UWP 以外に UWP コントロールをホストできる*XAML Islands*します。 この機能では、外観、外観とのみ UWP コントロールを使用して利用できる最新の Windows 10 の UI 機能と既存のデスクトップ アプリケーションの機能を強化することができます。 つまり、UWP の機能をなど、使用できる[Windows インク](/windows/uwp/design/input/pen-and-stylus-interactions)サポートするコントロールと、 [Fluent Design System](/windows/uwp/design/fluent-design-system/index)既存の WPF、Windows フォーム、および C++ の Win32 アプリケーション。
 
 XAML 諸島で、Windows フォーム、WPF を使用するいくつかの方法を紹介し、C++テクノロジまたは使用しているフレームワークに応じて、Win32 アプリケーション。
 
 > [!NOTE]
-> XAML 諸島に関するフィードバックをした場合で新しい問題を作成、 [Microsoft.Toolkit.Win32 リポジトリ](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/issues)がコメントを残すとします。 プライベート フィードバックを送信する場合に送信できますXamlIslandsFeedback@microsoft.comします。 Insights とシナリオは弊社にとって非常に重要です。
+> XAML Islandsに関するフィードバックをした場合で新しい問題を作成、 [Microsoft.Toolkit.Win32 リポジトリ](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/issues)がコメントを残すとします。 プライベート フィードバックを送信する場合に送信できますXamlIslandsFeedback@microsoft.comします。 Insights とシナリオは弊社にとって非常に重要です。
 
-## <a name="how-do-xaml-islands-work"></a>XAML 諸島のしくみ
+## <a name="how-do-xaml-islands-work"></a>XAML Islandsのしくみ
 
 Windows フォーム、WPF の XAML 島々 を使用する 2 つの方法を説明する Windows 10、バージョンが 1903 年以降とC++Win32 アプリケーション。
 
@@ -41,7 +41,7 @@ WPF と Windows フォーム アプリケーションの Windows コミュニテ
 
 WPF と Windows フォーム アプリケーションは、ラップされた UWP コントロールの選択範囲を使用できます、 [Windows Community Toolkit](https://docs.microsoft.com/windows/uwpcommunitytoolkit/)します。 これらと呼ばれます*コントロールをラップ*インターフェイスと特定の UWP コントロールの機能をラップするためです。 これらのコントロールを WPF や Windows フォーム プロジェクトのデザイン画面に直接追加し、デザイナーで、他の WPF や Windows フォーム コントロールのように使用できます。
 
-XAML 諸島を実装するための次のラップされた UWP コントロールは WPF と Windows フォーム アプリケーションの現在使用できません。
+XAML Islandsを実装するための次のラップされた UWP コントロールは WPF と Windows フォーム アプリケーションの現在使用できません。
 
 | コントロール | サポートされている OS の最小値 | 説明 |
 |-----------------|-------------------------------|-------------|
@@ -78,7 +78,7 @@ Windows 10、バージョンが 1903 年のリリースの時点で、ラップ�
 
 ## <a name="requirements"></a>必要条件
 
-XAML 諸島では、Windows 10、バージョンが 1903、およびそれ以降が必要です。 XAML 諸島、アプリケーションを使用するには、は、まず、プロジェクトを設定する必要があります。
+XAML Islandsでは、Windows 10、バージョンが 1903、およびそれ以降が必要です。 XAML Islands、アプリケーションを使用するには、は、まず、プロジェクトを設定する必要があります。
 
 ### <a name="step-1-modify-your-project-to-use-windows-runtime-apis"></a>手順 1:Windows ランタイム Api を使用して、プロジェクトを変更します。
 
@@ -114,6 +114,6 @@ Windows 10、バージョン 1903 SDK (またはそれ以降のリリース) を
 
 ## <a name="additional-resources"></a>その他の資料
 
-詳細な背景情報と XAML 諸島を使用したチュートリアルについては、次の記事やリソースを参照してください。
+詳細な背景情報と XAML Islandsを使用したチュートリアルについては、次の記事やリソースを参照してください。
 
-* [XAML 諸島ラボ](https://github.com/Microsoft/Windows-AppConsult-XAMLIslandsLab/tree/microsoftlearn)します。 この包括的なラボには、既存の WPF 基幹業務アプリケーションに UWP コントロールを追加する Windows の Community Toolkit でラップされたコントロールとホスト コントロールを使用するための手順が説明します。 このラボに含まれる、[の WPF アプリケーションのコードを完成](https://github.com/Microsoft/Windows-AppConsult-XAMLIslandsLab/tree/microsoftlearn/Lab)だけでなく[詳細手順](https://github.com/Microsoft/Windows-AppConsult-XAMLIslandsLab/blob/microsoftlearn/Manual/README.md)プロセスの各手順の。
+* [XAML Islandsラボ](https://github.com/Microsoft/Windows-AppConsult-XAMLIslandsLab/tree/microsoftlearn)します。 この包括的なラボには、既存の WPF 基幹業務アプリケーションに UWP コントロールを追加する Windows の Community Toolkit でラップされたコントロールとホスト コントロールを使用するための手順が説明します。 このラボに含まれる、[の WPF アプリケーションのコードを完成](https://github.com/Microsoft/Windows-AppConsult-XAMLIslandsLab/tree/microsoftlearn/Lab)だけでなく[詳細手順](https://github.com/Microsoft/Windows-AppConsult-XAMLIslandsLab/blob/microsoftlearn/Manual/README.md)プロセスの各手順の。
