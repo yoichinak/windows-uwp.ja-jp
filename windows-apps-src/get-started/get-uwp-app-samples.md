@@ -7,20 +7,20 @@ keywords: Windows 10、UWP、サンプル コード、コード サンプル
 ms.assetid: 393c5a81-ee14-45e7-acd7-495e5d916909
 ms.localizationpriority: medium
 ms.openlocfilehash: 4cdf38a4bd77c4f6affb813c9e1de68463c43100
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57598537"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "63772246"
 ---
 # <a name="get-uwp-app-samples"></a>UWP アプリのサンプルを取得する
 
 ユニバーサル Windows プラットフォーム (UWP) アプリのサンプルは、GitHub のリポジトリを利用して入手できます。 検索可能な、カテゴリ別の一覧については、[サンプル](https://developer.microsoft.com/windows/samples "デベロッパー センターのサンプル")をご覧ください。または [Microsoft/Windows-universal-samples](https://github.com/Microsoft/Windows-universal-samples "ユニバーサル Windows プラットフォーム アプリのサンプルの GitHub リポジトリ") リポジトリには、UWP 機能のすべてと API の使用パターンを示すサンプルが含まれています。  
-![UWP の GitHub サンプル リポジトリ](images/GitHubUWPSamplesPage.png)
+![GitHub の UWP サンプルのリポジトリ](images/GitHubUWPSamplesPage.png)
 
 ## <a name="download-the-code"></a>コードのダウンロード
 
-サンプルをダウンロードするには、[リポジトリ](https://github.com/Microsoft/Windows-universal-samples "ユニバーサル Windows プラットフォーム アプリのサンプル GitHub リポジトリ")に移動し、**[Clone or download]**、**[Download ZIP]** の順に選択します。 または、[ここ](https://github.com/Microsoft/Windows-universal-samples/archive/master.zip "ユニバーサル Windows プラットフォーム アプリのサンプル zip ファイルのダウンロード")をクリックしてください。
+サンプルをダウンロードするには、[リポジトリ](https://github.com/Microsoft/Windows-universal-samples "ユニバーサル Windows プラットフォーム アプリのサンプル GitHub リポジトリ")に移動し、 **[Clone or download]** 、 **[Download ZIP]** の順に選択します。 または、[ここ](https://github.com/Microsoft/Windows-universal-samples/archive/master.zip "ユニバーサル Windows プラットフォーム アプリのサンプル zip ファイルのダウンロード")をクリックしてください。
 
 zip ファイルには、常に最新のサンプルが含まれています。 ダウンロードする際に GitHub のアカウントは必要ありません。 SDK の更新プログラムがリリースされた場合、または最新の変更内容や追加内容を選ぶ場合は、最新の zip ファイルを確認してください。
 
@@ -34,7 +34,7 @@ zip ファイルには、常に最新のサンプルが含まれています。 
 
 zip ファイルをダウンロードしたら、Visual Studio でサンプルを開きます。
 
-1.  アーカイブを解凍する前に、アーカイブを右クリックし、**[プロパティ]** > **[ブロックの解除]** > **[適用]** の順に選びます。 次に、アーカイブをコンピューター上のローカル フォルダーに展開します。
+1.  アーカイブを解凍する前に、アーカイブを右クリックし、 **[プロパティ]**  >  **[ブロックの解除]**  >  **[適用]** の順に選びます。 次に、アーカイブをコンピューター上のローカル フォルダーに展開します。
 
     ![解凍されたアーカイブ](images/SamplesUnzip1.png)
 2.  [Samples] フォルダーには多くのフォルダーが含まれており、各フォルダーには UWP 機能のサンプルが含まれています。
@@ -45,7 +45,7 @@ zip ファイルをダウンロードしたら、Visual Studio でサンプル�
 
     ![言語フォルダー](images/SamplesUnzip3.png)
 
-4.  C 用 CS など、使用する言語を選択します。\#、と Visual Studio で開くことができる、Visual Studio のソリューション ファイルが表示されます。
+4.  使用する言語 (C\# の場合は [CS]) を選ぶと、Visual Studio で開くことができる Visual Studio のソリューション ファイルが表示されます。
 
     ![VS ソリューション](images/SamplesUnzip4.png)
 

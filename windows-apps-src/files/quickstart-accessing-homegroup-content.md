@@ -7,10 +7,10 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: 07d94f5b11acfe14bf55392c5cbf2c1b7bcfbeef
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66369396"
 ---
 # <a name="accessing-homegroup-content"></a>ホームグループ コンテンツへのアクセス
@@ -25,22 +25,22 @@ ms.locfileid: "66369396"
 
 ## <a name="prerequisites"></a>前提条件
 
--   **ユニバーサル Windows プラットフォーム (UWP) アプリの非同期プログラミングを理解します。**
+-   **ユニバーサル Windows プラットフォーム (UWP) アプリの非同期プログラミングについての理解**
 
     C# や Visual Basic での非同期アプリの作成方法については、「[C# または Visual Basic での非同期 API の呼び出し](https://docs.microsoft.com/windows/uwp/threading-async/call-asynchronous-apis-in-csharp-or-visual-basic)」をご覧ください。 C++ での非同期アプリの作成方法については、「[C++ での非同期プログラミング](https://docs.microsoft.com/windows/uwp/threading-async/asynchronous-programming-in-cpp-universal-windows-platform-apps)」をご覧ください。
 
--   **アプリの capabilty 宣言**
+-   **アプリ機能の宣言**
 
     ホームグループ コンテンツにアクセスするには、ユーザーのコンピューターにホームグループがセットアップされ、アプリに **picturesLibrary**、**musicLibrary**、**videosLibrary** のうちの少なくとも 1 つの機能が備わっている必要があります。 アプリは、ホームグループ フォルダーにアクセスすると、アプリのマニフェストで宣言されている機能に対応するライブラリだけを参照します。 詳しくは、「[ファイル アクセス許可](file-access-permissions.md)」をご覧ください。
 
     > [!NOTE]
-    > ホーム グループのドキュメント ライブラリ内のコンテンツは、アプリのマニフェストで宣言されている機能に関係なく、ユーザーの共有設定に関係なく、アプリに表示されません。     
+    > ホームグループのドキュメント ライブラリのコンテンツは、アプリのマニフェストで宣言されている機能や、ユーザーの共有設定にかかわらず、アプリからは参照できません。     
 
--   **ファイル ピッカーを使用する方法を理解します。**
+-   **ファイル ピッカーの使い方についての理解**
 
     ホームグループのファイルやフォルダーにアクセスするには、通常、ファイル ピッカーを使います。 ファイル ピッカーの使い方については、「[ピッカーでファイルやフォルダーを開く](quickstart-using-file-and-folder-pickers.md)」をご覧ください。
 
--   **ファイルとフォルダーのクエリを理解します。**
+-   **ファイルとフォルダーのクエリについての理解**
 
     ホームグループのファイルやフォルダーを列挙するには、クエリを使うことができます。 ファイルとフォルダーのクエリについて詳しくは、「[ファイルとフォルダーの列挙と照会](quickstart-listing-files-and-folders.md)」をご覧ください。
 
@@ -48,7 +48,7 @@ ms.locfileid: "66369396"
 
 以下の手順に従って、ユーザーがホームグループのファイルとフォルダーを選ぶことができるファイル ピッカーのインスタンスを開きます。
 
-1.  **作成し、ファイル ピッカーをカスタマイズします。**
+1.  **ファイル ピッカーを作成してカスタマイズします。**
 
     [  **FileOpenPicker**](https://docs.microsoft.com/uwp/api/Windows.Storage.Pickers.FileOpenPicker) を使ってファイル ピッカーを作成し、ピッカーの [**SuggestedStartLocation**](https://docs.microsoft.com/uwp/api/windows.storage.pickers.fileopenpicker.suggestedstartlocation) を [**PickerLocationId.HomeGroup**](https://docs.microsoft.com/uwp/api/Windows.Storage.Pickers.PickerLocationId) に設定します。 または、ユーザーとアプリに関連するその他のプロパティを設定します。 ファイル ピッカーのカスタマイズ方法を判断するためのガイドラインについては、「[ファイル ピッカーのガイドラインとチェック リスト](https://docs.microsoft.com/windows/uwp/files/quickstart-using-file-and-folder-pickers)」をご覧ください。
 
@@ -61,7 +61,7 @@ ms.locfileid: "66369396"
     picker.FileTypeFilter.Add("*");
     ```
 
-2.  **ファイル ピッカーを表示し、選択されたファイルを処理します。**
+2.  **ファイル ピッカーを表示して、選ばれたファイルを処理します。**
 
     ファイル ピッカーを作成してカスタマイズしたら、ユーザーが 1 つのファイルを選べるように [**FileOpenPicker.PickSingleFileAsync**](https://docs.microsoft.com/uwp/api/windows.storage.pickers.fileopenpicker.picksinglefileasync) を呼び出すか、複数のファイルを選べるように [**FileOpenPicker.PickMultipleFilesAsync**](https://docs.microsoft.com/uwp/api/windows.storage.pickers.fileopenpicker.pickmultiplefilesasync) を呼び出します。
 
@@ -83,14 +83,14 @@ ms.locfileid: "66369396"
 
 このセクションでは、ユーザーが指定したクエリ語句に一致するホームグループ項目を見つける方法を示します。
 
-1.  **ユーザーから、クエリ用語を取得します。**
+1.  **ユーザーからクエリ語句を取得します。**
 
     ここでは、ユーザーが `searchQueryTextBox` という名前の [**TextBox**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox) コントロールに入力したクエリ語句を取得します。
     ```cs
     string queryTerm = this.searchQueryTextBox.Text;    
     ```
 
-2.  **検索フィルター クエリ オプションを設定します。**
+2.  **クエリ オプションと検索フィルターを設定します。**
 
     クエリ オプションは、検索結果をどのように並べ替えるかを決めます。検索フィルターは、どの項目が検索結果に含まれるかを決めます。
 
@@ -126,7 +126,7 @@ ms.locfileid: "66369396"
 
 このセクションでは、特定のユーザーによって共有されているホームグループ ファイルを見つける方法を示します。
 
-1.  **ホーム グループのユーザーのコレクションを取得します。**
+1.  **ホームグループ ユーザーのコレクションを取得します。**
 
     ホームグループの第 1 レベルのフォルダーは、それぞれが個々のホームグループ ユーザーを表しています。 そのため、ホームグループ ユーザーのコレクションを取得するには、[**GetFoldersAsync**](https://docs.microsoft.com/uwp/api/windows.storage.storagefolder.getfoldersasync) を呼び出し、第 1 レベルのホームグループ フォルダーを取得します。
     ```cs
@@ -134,7 +134,7 @@ ms.locfileid: "66369396"
         await Windows.Storage.KnownFolders.HomeGroup.GetFoldersAsync();    
     ```
 
-2.  **ターゲット ユーザーのフォルダーを見つけて、そのユーザーのフォルダーにスコープ設定ファイルのクエリを作成します。**
+2.  **目的のユーザーのフォルダーを見つけ、そのユーザーのフォルダーをスコープにしたファイル クエリを作成します。**
 
     次の例は、取得したフォルダーを反復処理して、目的のユーザーのフォルダーを見つけます。 次に、クエリ オプションを設定して、フォルダー内のすべてのファイルを検索し、まずは関連性で、次に更新日で並べ替えます。 この例では、見つかったファイルの数とファイルの名前を報告する文字列を作成します。
     ```cs
@@ -171,7 +171,7 @@ ms.locfileid: "66369396"
 
 ホームグループからビデオ コンテンツをストリーミングするには、次の手順を実行します。
 
-1.  **アプリ内に MediaElement を含めます。**
+1.  **アプリに MediaElement を含めます。**
 
     [  **MediaElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.MediaElement) は、アプリのオーディオ コンテンツとビデオ コンテンツを再生します。 オーディオとビデオの再生について詳しくは、「[カスタム トランスポート コントロールを作成する](https://docs.microsoft.com/windows/uwp/controls-and-patterns/custom-transport-controls)」と「[オーディオ、ビデオ、およびカメラ](https://docs.microsoft.com/windows/uwp/audio-video-camera/index)」をご覧ください。
     ```HTML
@@ -180,7 +180,7 @@ ms.locfileid: "66369396"
     </Grid>    
     ```
 
-2.  **ホーム グループにファイル ピッカーを開き、アプリでサポートされる形式でビデオ ファイルを含むフィルターを適用します。**
+2.  **ファイル ピッカーをホームグループで開き、アプリでサポートされている形式のビデオ ファイルを含めるフィルターを適用します。**
 
     次の例では、ファイル オープン ピッカーに .mp4 ファイルと .wmv ファイルが含まれます。
     ```cs
@@ -193,7 +193,7 @@ ms.locfileid: "66369396"
     Windows.Storage.StorageFile file = await picker.PickSingleFileAsync();   
     ```
 
-3.  **読み取りアクセス権をユーザーのファイルの選択を開いてのソースとしてファイル ストリームを設定して、** [ **MediaElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.MediaElement)、し、ファイルを再生します。
+3.  **ユーザーが選んだファイルを読み取りアクセスで開き、ファイル ストリームを** [**MediaElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.MediaElement) のソースとして設定して、ファイルを再生します。
     ```cs
     if (file != null)
     {

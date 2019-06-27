@@ -7,10 +7,10 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: 00cf409177ae077d5df9739321c4464c2c56843d
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66371414"
 ---
 # <a name="background-transfers"></a>バックグラウンド転送
@@ -28,7 +28,7 @@ ms.locfileid: "66371414"
 > [!NOTE]
 > アプリごとのリソースの制約により、常にアプリに 200 を超える転送 (DownloadOperations および UploadOperations) を含めてはなりません。 この制限を超過すると、アプリの転送キューが回復不能な状態になる可能性があります。
 
-アプリケーションが起動されるときに呼び出す必要があります[ **AttachAsync** ](/uwp/api/windows.networking.backgroundtransfer.downloadoperation.AttachAsync)既存のすべて[ **DownloadOperation** ](/uwp/api/windows.networking.backgroundtransfer.downloadoperation)と[ **UploadOperation** ](/uwp/api/windows.networking.backgroundtransfer.uploadoperation)オブジェクト。 これを行わない転送の完了済みのリークが発生して最終的にレンダリングされますバック グラウンド転送機能の使用を役に立ちません。
+アプリケーションの起動時に、既存のすべての [**DownloadOperation**](/uwp/api/windows.networking.backgroundtransfer.downloadoperation) および [**UploadOperation**](/uwp/api/windows.networking.backgroundtransfer.uploadoperation) オブジェクトに対して [**AttachAsync**](/uwp/api/windows.networking.backgroundtransfer.downloadoperation.AttachAsync) を呼び出す必要があります。 これを行わないと、すでに完了している転送のリークが発生し、最終的にバックグラウンド転送機能が使用できなくなります。
 
 ### <a name="performing-authenticated-file-requests-with-background-transfer"></a>バックグラウンド転送での認証されたファイル要求の実行
 バックグラウンド転送では、基本サーバーとプロキシの資格情報、Cookie をサポートするメソッドが用意されており、それぞれの転送操作で ([**SetRequestHeader**](https://docs.microsoft.com/uwp/api/windows.networking.backgroundtransfer.backgrounduploader.setrequestheader) を介して) カスタム HTTP ヘッダーを使うこともできます。
@@ -40,11 +40,11 @@ ms.locfileid: "66371414"
 
 バックグラウンド転送機能にはネットワーク ステータスの変化に対応する独自のメカニズムがありますが、ネットワーク接続されたアプリには他にも一般的な接続の考慮事項があります。 詳しくは、「[利用できるネットワーク接続情報の活用](https://docs.microsoft.com/previous-versions/windows/apps/hh452983(v=win.10))」をご覧ください。
 
-> **注**  アプリのモバイル デバイスで実行されている場合は、ユーザーが監視とローミングの状態、接続の種類に基づいて転送されるデータの量を制限できる機能と、ユーザーのデータを計画します。 このため、[**BackgroundTransferCostPolicy**](https://docs.microsoft.com/uwp/api/Windows.Networking.BackgroundTransfer.BackgroundTransferCostPolicy) が転送が継続中であることを示す場合でも、電話でバックグラウンド転送が一時停止される可能性があります。
+> **注:**    モバイル デバイスで実行されるアプリでは、接続の種類、ローミング状態、ユーザーのデータ通信プランに基づいて転送されるデータの量を、ユーザーが監視および制限できる機能が用意されています。 このため、[**BackgroundTransferCostPolicy**](https://docs.microsoft.com/uwp/api/Windows.Networking.BackgroundTransfer.BackgroundTransferCostPolicy) が転送が継続中であることを示す場合でも、電話でバックグラウンド転送が一時停止される可能性があります。
 
 次の表に、電話の現在の状態に応じて、[**BackgroundTransferCostPolicy**](https://docs.microsoft.com/uwp/api/Windows.Networking.BackgroundTransfer.BackgroundTransferCostPolicy) の各値に対して、電話でバックグラウンド転送が許可されるかどうかを示します。 [  **ConnectionCost**](https://docs.microsoft.com/uwp/api/Windows.Networking.Connectivity.ConnectionCost) クラスを使って、電話の現在の状態を判断できます。
 
-| デバイスの状態                                                                                                                      | UnrestrictedOnly | Default | 常に  |
+| デバイスの状態                                                                                                                      | UnrestrictedOnly | Default | 常に |
 |-----------------------------------------------------------------------------------------------------------------------------------|------------------|---------|--------|
 | WiFi 接続                                                                                                                 | 許可            | 許可   | 許可  |
 | 従量制課金接続、ローミング時以外、データ制限未満、制限内にとどまる見込み                                                   | 拒否             | 許可   | 許可  |
@@ -60,13 +60,13 @@ ms.locfileid: "66371414"
 ### <a name="uploading-a-single-file"></a>1 つのファイルのアップロード
 アップロードの作成は、[**BackgroundUploader**](https://docs.microsoft.com/uwp/api/Windows.Networking.BackgroundTransfer.BackgroundUploader) から始めます。 このクラスは、アプリで [**UploadOperation**](https://docs.microsoft.com/uwp/api/Windows.Networking.BackgroundTransfer.UploadOperation) を作成する前に、そのアップロードを構成できるようにするメソッドを提供するために使われます。 次の例は、必要な [**Uri**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Uri) オブジェクトと [**StorageFile**](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageFile) オブジェクトを使ってこれを行う方法を示しています。
 
-**ファイルと、アップロード先を識別します。**
+**アップロードするファイルと送信先の特定**
 
 [  **UploadOperation**](https://docs.microsoft.com/uwp/api/Windows.Networking.BackgroundTransfer.UploadOperation) の作成を始める前に、アップロード先となる場所の URI とアップロードされるファイルを識別する必要があります。 次の例では、UI 入力からの文字列を使って *uriString* の値が設定され、[**PickSingleFileAsync**](https://docs.microsoft.com/uwp/api/windows.storage.pickers.fileopenpicker.picksinglefileasync) 操作で返される [**StorageFile**](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageFile) オブジェクトを使って *file* の値が設定されます。
 
 [!code-js[uploadFile](./code/backgroundtransfer/upload_quickstart/js/main.js#Snippetupload_quickstart_B "Identify the file and destination for the upload")]
 
-**作成し、アップロード操作の初期化**
+**アップロード操作の作成と初期化**
 
 前の手順では、*uriString* と *file* の値が次に示す例の UploadOp のインスタンスに渡されました。これらの値は、新しいアップロード操作を構成し開始するために使われます。 まず、*uriString* が解析されて、要求された [**Uri**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Uri) オブジェクトが作成されます。
 
@@ -85,7 +85,7 @@ promise = upload.startAsync().then(complete, error, progress);
 非同期メソッドの後に then ステートメントが続いています。このステートメントでは、非同期メソッドの呼び出しの結果が返されたときに呼び出される、アプリで定義されたメソッドを指定しています。 このプログラミング パターンについて詳しくは、「[プロミスを使った JavaScript での非同期プログラミング](https://docs.microsoft.com/previous-versions/windows)」をご覧ください。
 
 ### <a name="uploading-multiple-files"></a>複数のファイルのアップロード
-**ファイルと、アップロード先を識別します。**
+**アップロードするファイルと送信先の特定**
 
 単一の [**UploadOperation**](https://docs.microsoft.com/uwp/api/Windows.Networking.BackgroundTransfer.UploadOperation) で複数のファイルを転送するシナリオでは、処理は通常どおり、最初に必要なアップロード先 URI とローカル ファイルの情報を指定することから始まります。 前のセクションの例と同様に、URI はエンド ユーザーが文字列で指定します。また、[**FileOpenPicker**](https://docs.microsoft.com/uwp/api/Windows.Storage.Pickers.FileOpenPicker) を使って、ユーザー インターフェイスからファイルを指定する機能も提供できます。 ただし、このシナリオでは、アプリで代わりに [**PickMultipleFilesAsync**](https://docs.microsoft.com/uwp/api/windows.storage.pickers.fileopenpicker.pickmultiplefilesasync) メソッドを呼び出して、UI から複数のファイルを選ぶことができるようにする必要があります。
 
@@ -110,7 +110,7 @@ function uploadFiles() {
     }
 ```
 
-**指定されたパラメーターのオブジェクトを作成します。**
+**指定されたパラメーターに基づくオブジェクトの作成**
 
 次の 2 つの例では、前の手順の最後に呼び出された単一のメソッド例 **startMultipart** に含まれているコードを使っています。 わかりやすくするために、[**BackgroundTransferContentPart**](https://docs.microsoft.com/uwp/api/Windows.Networking.BackgroundTransfer.BackgroundTransferContentPart) オブジェクトの配列を作るメソッドのコードは、結果の [**UploadOperation**](https://docs.microsoft.com/uwp/api/Windows.Networking.BackgroundTransfer.UploadOperation) を作るコードから分割されています。
 
@@ -130,7 +130,7 @@ function uploadFiles() {
             });
 ```
 
-**作成し、マルチパートのアップロード操作の初期化**
+**マルチパート アップロード操作の作成と初期化**
 
 contentParts 配列には、アップロード用の各 [**IStorageFile**](https://docs.microsoft.com/uwp/api/Windows.Storage.IStorageFile) を表す [**BackgroundTransferContentPart**](https://docs.microsoft.com/uwp/api/Windows.Networking.BackgroundTransfer.BackgroundTransferContentPart) オブジェクトがすべて含まれているため、要求の送信先を示す [**Uri**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Uri) を使って [**CreateUploadAsync**](https://docs.microsoft.com/uwp/api/windows.networking.backgroundtransfer.backgrounduploader.createuploadasync) を呼び出すことができます。
 
@@ -199,7 +199,7 @@ promise = download.startAsync().then(complete, error, progress);
 1.  これで、返された値の一覧を使って、保留中の操作を再開できます。
 
 ## <a name="post-processing"></a>後処理
-Windows 10 の新機能、アプリが実行されていない場合でも、バック グラウンド転送の完了時にアプリケーション コードを実行する機能があります。 たとえば、アプリが開始されるたびに新しいムービーをスキャンするのではなく、ムービーのダウンロードが完了した後で利用可能な映画の一覧を更新できます。 または、アプリでファイル転送が失敗した場合に、別のサーバーまたはポートを使ってもう一度転送し直すことができます。 後処理は成功した転送と失敗した転送の両方で呼び出されるため、これを使って、カスタム エラー処理と再試行ロジックを実装できます。
+Windows 10 の新機能は、アプリが実行されていない場合でも、バックグラウンド転送の完了時にアプリケーション コードを実行できる機能です。 たとえば、アプリが開始されるたびに新しいムービーをスキャンするのではなく、ムービーのダウンロードが完了した後で利用可能な映画の一覧を更新できます。 または、アプリでファイル転送が失敗した場合に、別のサーバーまたはポートを使ってもう一度転送し直すことができます。 後処理は成功した転送と失敗した転送の両方で呼び出されるため、これを使って、カスタム エラー処理と再試行ロジックを実装できます。
 
 後処理では、既存のバックグラウンド タスク インフラストラクチャを使います。 転送を開始する前に、バックグラウンド タスクを作成して転送に関連付けます。 転送はバックグラウンドで実行され、完了時にバックグラウンド タスクが呼び出されて後処理が実行されます。
 
@@ -260,7 +260,7 @@ public class BackgroundDownloadProcessingTask : IBackgroundTask
 
 -   接続が確立された後、2 分以内で応答を受け取らなかった HTTP 要求メッセージは中止されます。
 
-> **注**  いずれかのシナリオでは、インターネットに接続があると仮定するとバック グラウンド転送要求を 3 回まで自動的に再試行されます。 インターネット接続が検出されないと、検出されるまで別の要求は待機します。
+> **注:**    どちらのシナリオにおいても、バックグラウンド転送はインターネット接続があることを前提に、最高 3 回まで自動的に要求を再試行します。 インターネット接続が検出されないと、検出されるまで別の要求は待機します。
 
 ## <a name="debugging-guidance"></a>デバッグのガイダンス
 Microsoft Visual Studio でデバッグ セッションを停止することは、アプリを閉じることに相当します。PUT によるアップロードは一時停止され、POST によるアップロードは終了されます。 デバッグ時であっても、アプリでは、持続しているアップロードを列挙し、再実行や取り消しを行うことができる必要があります。 たとえば、そのデバッグ セッションで以前の操作が重要ではない場合、アプリの起動時に、列挙された持続しているアップロード操作をアプリで取り消すことができます。
@@ -282,7 +282,7 @@ Visual Studio を使う 4 つのシナリオで、この問題が発生する可
 ## <a name="exceptions-in-windowsnetworkingbackgroundtransfer"></a>Windows.Networking.BackgroundTransfer の例外
 Uniform Resource Identifier (URI) として無効な文字列が、[**Windows.Foundation.Uri**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Uri) オブジェクトのコンストラクターに渡されると、例外がスローされます。
 
-**.NET:** [ **Windows.Foundation.Uri** ](https://docs.microsoft.com/uwp/api/Windows.Foundation.Uri)種類[ **System.Uri** ](https://docs.microsoft.com/dotnet/api/system.uri?redirectedfrom=MSDN)でC#と VB.
+**.NET:** [**Windows.Foundation.Uri**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Uri) 型は、C# や VB では [**System.Uri**](https://docs.microsoft.com/dotnet/api/system.uri?redirectedfrom=MSDN) と表示されます。
 
 C# と Visual Basic では、.NET 4.5 の [**System.Uri**](https://docs.microsoft.com/dotnet/api/system.uri?redirectedfrom=MSDN) クラスと、いずれかの [**System.Uri.TryCreate**](https://docs.microsoft.com/dotnet/api/system.uri.trycreate?redirectedfrom=MSDN#overloads) メソッドを使って、URI が作成される前にアプリのユーザーから受け取った文字列をテストすることによって、このエラーを回避できます。
 
@@ -292,7 +292,7 @@ C++ では、URI として渡される文字列を試行して解析するメソ
 
 [  **Windows.Networking.backgroundTransfer**](https://docs.microsoft.com/uwp/api/Windows.Networking.BackgroundTransfer) 名前空間の非同期メソッドで発生したエラーは、**HRESULT** 値として返されます。 [  **BackgroundTransferError.GetStatus**](https://docs.microsoft.com/uwp/api/windows.networking.backgroundtransfer.backgroundtransfererror.getstatus) メソッドは、バックグラウンド転送操作からのネットワーク エラーを [**WebErrorStatus**](https://docs.microsoft.com/uwp/api/Windows.Web.WebErrorStatus) 列挙値に変換するために使われます。 **WebErrorStatus** 列挙値のほとんどは、ネイティブ HTTP または FTP クライアント操作から返されるエラーに対応しています。 アプリは特定の **WebErrorStatus** 列挙値に対するフィルター処理を行い、例外の原因に応じてアプリの動作を変更できます。
 
-パラメーター検証エラーの場合は、例外の **HRESULT** を使って、その例外の原因となったエラーの詳細情報を確認することもできます。 使うことができる **HRESULT** 値は、*Winerror.h* ヘッダー ファイルに記載されています。 ほとんどのパラメーター検証エラー、 **HRESULT**が返される**E\_INVALIDARG**します。
+パラメーター検証エラーの場合は、例外の **HRESULT** を使って、その例外の原因となったエラーの詳細情報を確認することもできます。 使うことができる **HRESULT** 値は、*Winerror.h* ヘッダー ファイルに記載されています。 ほとんどのパラメーター検証エラーの場合、返される **HRESULT** は **E\_INVALIDARG** です。
 
 ## <a name="important-apis"></a>重要な API
 * [**Windows.Networking.BackgroundTransfer**](/uwp/api/windows.networking.backgroundtransfer)

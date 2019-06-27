@@ -1,20 +1,20 @@
 ---
-title: 8 月の 2018 年に Windows Docs の新 - UWP アプリを開発します。
-description: Windows 10 の開発者向けドキュメント 2018 の年 8 月の新機能、ビデオ、サンプル、および開発者向けガイダンスが追加されました。
-keywords: 新機能については、更新、機能、開発者向けガイダンスについては、Windows 10、8 月
+title: Windows ドキュメントの最新情報、2018 年 8 月 - UWP アプリの開発
+description: 2018 年 8 月版の Windows 10 開発者向けドキュメントには、新しい機能、ビデオ、サンプル、開発者向けガイダンスが追加されました。
+keywords: 最新情報, 更新, 機能, 開発者向けガイダンス, Windows 10, 8 月
 ms.date: 08/14/2018
 ms.topic: article
 ms.localizationpriority: medium
 ms.openlocfilehash: 9922aa1ad2442153dcc2c13d05520c05c3b56d31
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57616487"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "63780236"
 ---
-# <a name="whats-new-in-the-windows-developer-docs-in-august-2018"></a>新機能については、Windows 開発者向けドキュメントで 2018 の年 8 月です。
+# <a name="whats-new-in-the-windows-developer-docs-in-august-2018"></a>Windows 開発者向けドキュメントの最新情報、2018 年 8 月
 
-Windows 開発者向けドキュメントは、Windows プラットフォームで開発者に提供される新機能の情報を反映して継続的に更新されています。 次の機能の概要、開発者ガイド、およびビデオが 8 月以降の月の使用可能な加えられました。
+Windows 開発者向けドキュメントは、Windows プラットフォームで開発者に提供される新機能の情報を反映して継続的に更新されています。 次の機能概要、開発者向けガイダンス、およびビデオは 8 月に公開されたものです。
 
 Windows 10 の[ツールと SDK をインストール](https://go.microsoft.com/fwlink/?LinkId=821431)すると、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
 
@@ -22,52 +22,52 @@ Windows 10 の[ツールと SDK をインストール](https://go.microsoft.com/
 
 ### <a name="design"></a>設計
 
-次の機能に加え、Windows Insider Preview ビルドの利用、 [Windows Insider](https://insider.windows.com/)プログラム。
+次の機能が Windows Insider Preview ビルドに追加されました。これらは、[Windows Insider](https://insider.windows.com/) プログラムを通じて使用できます。
 
-* [Windows UI ライブラリ](https://aka.ms/winui-docs)は UWP アプリ用、interfact 要素でコントロールおよびその他のユーザーが提供する NuGet パッケージのセットです。 これらのパッケージは以前のバージョンの Windows 10 では、プレリリースではも、ユーザーは最新の OS バージョンがあるない場合でも、アプリが動作するようにします。
+* [Windows UI ライブラリ](https://aka.ms/winui-docs)は、UWP アプリ用のコントロールとその他のユーザー インターフェイス要素を提供する NuGet パッケージのセットです。 これらのパッケージは Windows 10 の以前のバージョンにも対応しているため、ユーザーが最新の OS を持っていない場合でも、アプリは動作します。
 
-* [DropDownButton](../design/controls-and-patterns/buttons.md#create-a-drop-down-button)、 [SplitButton](../design/controls-and-patterns/buttons.md#create-a-split-button)、および[ToggleSplitButton](../design/controls-and-patterns/buttons.md#create-a-toggle-split-button)ボタン コントロールをアプリのユーザー インターフェイスを強化するために特別な機能を提供します。
+* [DropDownButton](../design/controls-and-patterns/buttons.md#create-a-drop-down-button)、[SplitButton](../design/controls-and-patterns/buttons.md#create-a-split-button)、および [ToggleSplitButton](../design/controls-and-patterns/buttons.md#create-a-toggle-split-button) は、アプリのユーザー インターフェイスを強化するための特別な機能を持つボタン コントロールを提供します。
 
 ![前景色を選択するための分割ボタン](../design/controls-and-patterns/images/split-button-rtb.png)
 
-* NavigationView ようになりました[トップ ナビゲーション](../design/controls-and-patterns/navigationview.md)、ケースをアプリが、少数のナビゲーション オプションと、アプリのコンテンツの空き領域が必要です。
+* NavigationView で[上部のナビゲーション](../design/controls-and-patterns/navigationview.md)がサポートされるようになり、アプリのナビゲーション オプションが少なく、アプリのコンテンツにより多くの領域が必要な場合に対応します。
 
-* ツリー ビューがサポートするために強化されました[データ バインディング、項目テンプレート、およびドラッグ アンド ドロップします。](../design/controls-and-patterns/tree-view.md)
+* TreeView が、[データ バインディング、項目テンプレート、ドラッグ アンド ドロップ](../design/controls-and-patterns/tree-view.md)をサポートするように拡張されました。
 
 ### <a name="package-support-framework"></a>パッケージ サポート フレームワーク
 
-パッケージのサポート、フレームワークは、修正プログラムを適用、win32 アプリケーションに、ソース コードへのアクセス権がないときに、MSIX コンテナーで実行できるようにするのに役立つオープン ソース キット。
+パッケージ サポート フレームワークは、ソース コードにアクセスできないときに win32 アプリケーションに修正を適用して、win32 アプリケーションが MSIX コンテナー内で実行できるようにするのに役立つオープン ソース キットです。
 
-詳細についてを参照してください。[パッケージ サポートのフレームワークを使用して、MSIX パッケージに修正プログラム適用ランタイム](../porting/package-support-framework.md)します。
+詳細については、[パッケージ サポート フレームワークを使用した MSIX パッケージへのランタイム修正の適用](../porting/package-support-framework.md)に関するページをご覧ください。
 
 ## <a name="developer-guidance"></a>開発者向けガイダンス
 
 ### <a name="web-api-extensions"></a>Web API の拡張機能
 
-一連の[従来の Microsoft API 拡張機能](https://developer.mozilla.org/docs/Web/API/Microsoft_API_extensions)クロスブラウザー web 開発用 Mozilla Developer Network のドキュメントに追加されました。 これらの API 拡張機能は Internet Explorer または Microsoft Edge、一意であり、MDN の web ドキュメントの互換性とブラウザーのサポートに関する既存の情報を補完します。レガシの Microsoft [CSS の拡張機能](https://developer.mozilla.org/docs/Web/CSS/Microsoft_Extensions)と[JavaScript 拡張](https://developer.mozilla.org/docs/Web/JavaScript/Microsoft_JavaScript_extensions)も利用してリッチな web API については、MDN の表示で直接を検索できます[Visual Studio Code。](https://code.visualstudio.com/updates/v1_25#_new-css-pseudo-selectors-and-pseudo-elements-from-mdn)
+クロスブラウザー Web 開発用の Mozilla Developer Network ドキュメントに、一連の[従来の Microsoft API 拡張機能](https://developer.mozilla.org/docs/Web/API/Microsoft_API_extensions)が追加されました。 これらの API 拡張機能は Internet Explorer または Microsoft Edge に固有のもので、MDN の Web ドキュメントの互換性とブラウザーのサポートに関する既存の情報を補完します。従来の Microsoft [CSS 拡張機能](https://developer.mozilla.org/docs/Web/CSS/Microsoft_Extensions)と [JavaScript 拡張機能](https://developer.mozilla.org/docs/Web/JavaScript/Microsoft_JavaScript_extensions)も利用でき、リッチな Web API 情報を、[Visual Studio Code](https://code.visualstudio.com/updates/v1_25#_new-css-pseudo-selectors-and-pseudo-elements-from-mdn) で直接表示される MDN から見つけることができます。
 
-### <a name="cwinrt-code-examples"></a>C +/cli WinRT のコード例
+### <a name="cwinrt-code-examples"></a>C++/WinRT コード例
 
-250 を追加しました[C +/cli WinRT](../cpp-and-winrt-apis/index.md)コード、既存の C + に付属する、ドキュメントのトピックを一覧/cli CX のコード例です。
+既存の C++/CX コード例に加えて、250 件の [C++/WinRT](../cpp-and-winrt-apis/index.md) コード リストをドキュメントのトピックに追加しました。
 
 ### <a name="project-rome"></a>Project Rome
 
-[プロジェクト ローマ docs](https://docs.microsoft.com/windows/project-rome/)機能優先のアプローチにサイトが再編成されました。 これは、ため、開発者が探しているものを検索して、複数のプラットフォームでの任意の機能を実装するために簡単に、必要があります。
+[Project Rome ドキュメント](https://docs.microsoft.com/windows/project-rome/) サイトが、機能ファーストの方式に再編成されました。 これにより、開発者は、自分が探しているものを見つけやすくなり、また選択した機能を複数のプラットフォームにわたって実装しやすくなります。
 
 ## <a name="videos"></a>ビデオ
 
-### <a name="xbox-live-unity-plugin"></a>Xbox Live の Unity プラグイン
+### <a name="xbox-live-unity-plugin"></a>Xbox Live Unity プラグイン
 
-Unity の Xbox Live プラグインには、タイトルを署名 Xbox Live、統計、フレンド リスト、クラウドの記憶域、およびスコアボードを追加するためのサポートが含まれています。 [ビデオを見る](https://youtu.be/fVQZ-YgwNpY)、詳細については、 [GitHub パッケージをダウンロード](https://aka.ms/UnityPlugin)を開始します。
+Unity 用の Xbox Live プラグインには、Xbox Live の署名、統計、フレンド リスト、クラウド ストレージ、およびランキングをタイトルに追加するためのサポートが含まれています。 [ビデオを見て](https://youtu.be/fVQZ-YgwNpY)詳細を確認したうえで、[GitHub パッケージをダウンロードして](https://aka.ms/UnityPlugin)開始してください。
 
-### <a name="one-dev-question"></a>開発用の 1 つの質問
+### <a name="one-dev-question"></a>One Dev Question
 
-開発用の 1 つの質問のビデオ シリーズでは、マイクロソフトのベテランの開発者は、一連の Windows の開発、チームのカルチャ、および履歴に関する質問を説明します。 お答えした最新の質問を次に示します。
+One Dev Question ビデオ シリーズでは、ベテランの Microsoft 開発者が Windows 開発、チーム カルチャ、および歴史に関する一連の質問に答えています。 最新の質問に対してお答えした内容を以下に示します。
 
 Raymond Chen:
 
-* [カーネルを認識する方法、ビデオ ドライバーを再起動するタイミングですか。](https://youtu.be/3SNAdyO1l5c)
+* [カーネルはビデオ ドライバーを再起動するタイミングをどのように認識しますか?](https://youtu.be/3SNAdyO1l5c)
 
-Larry Osterman の場合:
+Larry Osterman:
 
-* [Windows で Burgermaster オブジェクトの背後にあるストーリーとは何ですか。](https://youtu.be/0TDSbyAIvX0)
+* [Windows の Burgermaster オブジェクトの背景にあるストーリーを教えてください。](https://youtu.be/0TDSbyAIvX0)

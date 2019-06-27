@@ -7,19 +7,19 @@ ms.topic: article
 keywords: Windows 10, UWP, ユニバーサル
 ms.localizationpriority: medium
 ms.openlocfilehash: 37207d4ce65551a7bdd33d57f72f3fa6a0a6185d
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66370704"
 ---
 # <a name="whats-a-universal-windows-platform-uwp-app"></a>ユニバーサル Windows プラットフォーム (UWP) アプリとは
 
-![ユニバーサル Windows プラットフォーム アプリのさまざまなデバイスで実行、適応ユーザー インターフェイス、自然なユーザー入力、1 つのストア、パートナー センターのサポート、およびクラウド サービス](images/universalapps-overview.png)
+![ユニバーサル Windows プラットフォーム アプリは、さまざまなデバイスで実行でき、アダプティブ ユーザー インターフェイス、自然なユーザー入力、1 つのストア、パートナー センター、およびクラウド サービスをサポートしています。](images/universalapps-overview.png)
 
 UWP アプリには次のような特長があります。
 
-- セキュリティで保護します。UWP アプリでは、どのデバイスのリソースとデータにアクセスを宣言します。 ユーザーは、そのアクセスを承認する必要があります。
+- 高いセキュリティ。UWP アプリはアクセスするデバイス リソースとデータを宣言します。 ユーザーは、そのアクセスを承認する必要があります。
 - Windows 10 を実行しているすべてのデバイスで共通の API を使用できます。
 - デバイス固有の機能を使用して、異なるデバイスの画面サイズ、解像度、DPI に合わせて UI を調整することができます。
 - Windows 10 を実行するすべてのデバイス (または指定したデバイスのみ) で Microsoft Store から入手できます。 Microsoft Store では、アプリで収益を上げるいくつかの方法を提供します。
@@ -35,9 +35,9 @@ UWP アプリでは、マイク、位置情報、Web カメラ、USB デバイ�
 
 ## <a name="a-common-api-surface-across-all-devices"></a>すべてのデバイスに共通の API セット
 
-Windows 10 では、ユニバーサル Windows プラットフォーム (UWP)、Windows 10 を実行するすべてのデバイスで共通のアプリ プラットフォームを提供するについて説明します。 UWP のコア API は、すべての Windows デバイスで同じです。 アプリは、コア Api のみを使用する場合、デスクトップ PC、Xbox、Mixed reality ヘッドセットを対象にするかに関係なくあらゆる Windows 10 デバイスで実行されなど。
+Windows 10 ではユニバーサル Windows プラットフォーム (UWP) が導入され、Windows 10 を実行する各デバイスで共通のアプリ プラットフォームが提供されます。 UWP のコア API は、すべての Windows デバイスで同じです。 アプリがコア API のみを使う場合は、対象がデスクトップ PC、Xbox、Mixed Reality ヘッドセットなどのどれであるかに関係なく、そのアプリはどの Windows 10 デバイスでも動作します。
 
-C++/WinRT または C++/CX で記述された UWP アプリは UWP の一部である Win32 API にアクセスします。 これらの Win32 Api は、すべての Windows 10 デバイスで実装されます。
+C++/WinRT または C++/CX で記述された UWP アプリは UWP の一部である Win32 API にアクセスします。 これらの Win32 API は、すべての Windows 10 デバイスで実装されます。
 
 ## <a name="extension-sdks-expose-the-unique-capabilities-of-specific-device-types"></a>拡張 SDK が特定のデバイスの種類に固有の機能を公開する
 
@@ -66,7 +66,7 @@ Windows では、UI を次の機能を備えた複数のデバイスを対象と
 
 ## <a name="theres-one-store-for-all-devices"></a>1 つのストアですべてのデバイスに対応する
 
-統合アプリ ストアでは、PC、タブレット、Xbox、HoloLens、Surface Hub、モ ノのインターネット (IoT) デバイスなどの Windows 10 デバイスで使用可能なアプリをします。 開発者は、アプリをストアに提出し、すべての種類のデバイスまたは選択した種類のデバイス向けに販売できます。 Windows デバイス向けのすべてのアプリを 1 か所で提出、管理できます。 UWP の機能を使って最新化し、Microsoft Store での販売を希望する C++ デスクトップ アプリがある場合も 問題ありません。
+統一されたアプリ ストアによって、PC、タブレット、Xbox、HoloLens、Surface Hub、IoT (モノのインターネット) などの Windows 10 デバイスでアプリを入手できます。 開発者は、アプリをストアに提出し、すべての種類のデバイスまたは選択した種類のデバイス向けに販売できます。 Windows デバイス向けのすべてのアプリを 1 か所で提出、管理できます。 UWP の機能を使って最新化し、Microsoft Store での販売を希望する C++ デスクトップ アプリがある場合も 問題ありません。
 
 UWP アプリは、詳細なテレメトリや分析のために [Application Insights](https://azure.microsoft.com/services/application-insights/) に統合されています。これは、ユーザーを理解し、アプリの品質を向上させるために欠かせないツールです。
 
@@ -117,7 +117,7 @@ Microsoft デザイン システムは Fluent と呼ばれます。 Fluent Desig
 
 適切な[設計](https://go.microsoft.com/fwlink/?LinkId=258848)とは、アプリの外観や機能に加えて、ユーザーによるアプリの操作方法を決定するプロセスです。 ユーザー エクスペリエンスは、ユーザーがアプリでどの程度満足するかを判断する場合に大きな役割を果たします。そのため、この手順は必ず守ってください。 [設計の基本に関するページ](https://developer.microsoft.com/en-us/windows/apps/design)では、ユニバーサル Windows アプリの設計を紹介します。 ユーザーを楽しませる UWP アプリの設計の情報については、「[デザイナー向けユニバーサル Windows プラットフォーム (UWP) アプリの紹介](https://docs.microsoft.com/windows/uwp/layout/design-and-ui-intro)」をご覧ください。 コーディングを開始する前に、ターゲットにするすべての異なるフォーム ファクターについてのアプリの使用についての操作エクスペリエンスを検討するために役立つ「[デバイスの基本情報](../design/devices/index.md)」をご覧ください。
 
-さまざまなデバイスでの操作に加えて、複数のデバイスで動作する利点を取り入れるように [アプリの計画](https://docs.microsoft.com/windows/uwp/get-started/plan-your-app) を行います。 例:
+さまざまなデバイスでの操作に加えて、複数のデバイスで動作する利点を取り入れるように [アプリの計画](https://docs.microsoft.com/windows/uwp/get-started/plan-your-app) を行います。 次に、例を示します。
 
 - モバイル、小型画面デバイス、大型画面デバイスに対応するには、「[UWP アプリのナビゲーション デザインの基本](https://docs.microsoft.com/windows/uwp/layout/navigation-basics)」を使用してワークフローをデザインします。 [ユーザー インターフェイスをレイアウトする](https://docs.microsoft.com/windows/uwp/layout/screen-sizes-and-breakpoints-for-responsive-design)さまざまな画面サイズと解像度に対応します。
 
@@ -132,7 +132,7 @@ Microsoft デザイン システムは Fluent と呼ばれます。 Fluent Desig
 
 ### <a name="submit-your-app-to-the-store"></a>アプリをストアに提出する
 
-[パートナー センター](https://partner.microsoft.com/dashboard)を管理し、すべての 1 つの場所での Windows デバイス向けアプリを送信することができます。 参照してください[発行の Windows アプリやゲーム](../publish/index.md)を Microsoft Store でのパブリケーション用のアプリケーションを送信する方法について説明します。
+[パートナー センター](https://partner.microsoft.com/dashboard)を使うと、Windows デバイス向けのすべてのアプリの管理と申請を 1 か所で行うことができます。 Microsoft Store にアプリの公開を申請する方法については、「[Windows アプリとゲームを公開する](../publish/index.md)」をご覧ください。
 
 新しい機能が追加されたことで、より高度な管理が可能になった一方、プロセスは簡単になりました。 また、詳しい[分析レポート](https://docs.microsoft.com/windows/uwp/publish/analytics)に加えて、[支払いの詳細](https://docs.microsoft.com/windows/uwp/publish/payout-summary)も得られるようになりました。いずれも[アプリの宣伝と顧客エンゲージメントの獲得](https://docs.microsoft.com/windows/uwp/publish/app-promotion-and-customer-engagement)に役立ちます。
 
@@ -145,14 +145,14 @@ Microsoft デザイン システムは Fluent と呼ばれます。 Fluent Desig
 - UWP アプリに利用可能な Win32 API の完全な一覧については、「[UWP アプリの API セット](https://docs.microsoft.com/previous-versions//mt186421(v=vs.85))」と「[UWP アプリの DLL](https://docs.microsoft.com/previous-versions//mt186422(v=vs.85))」をご覧ください。
 - .NET UWP アプリの作成の概要については、[.NET でのユニバーサル Windows アプリに関するページ](https://devblogs.microsoft.com/dotnet/universal-windows-apps-in-net/)を参照してください。
 - UWP アプリで使用できる .NET 型の一覧については、「[UWP アプリの .NET](https://docs.microsoft.com/dotnet/api/index?view=dotnet-uwp-10.0)」を参照してください。
-- [.NET ネイティブによるアプリのコンパイル](https://docs.microsoft.com/dotnet/framework/net-native/)
+- [.NET Native によるアプリのコンパイル](https://docs.microsoft.com/dotnet/framework/net-native/)
 - [デスクトップ ブリッジ](https://developer.microsoft.com/windows/bridges/desktop)を使用して、既存のデスクトップ アプリに Windows 10 ユーザー向けの最新のエクスペリエンスを追加し、Microsoft Store で配布する方法について説明しています。
 
-## <a name="how-the-universal-windows-platform-relates-to-windows-runtime-apis"></a>ユニバーサル Windows プラットフォームを Windows ランタイム Api に関連付ける方法
-ユニバーサル Windows プラットフォーム (UWP) アプリをビルドしている場合は、多数の走行距離と外増減同義として"ユニバーサル Windows プラットフォーム (UWP)"と"Windows Runtime (WinRT)"という用語を扱うことの利便性を取得できます。 ですが、*は*テクノロジの内部で検索し、だけどのような違いがアイデアを判断することです。 について興味がある場合は、この最後のセクションでは、できます。
+## <a name="how-the-universal-windows-platform-relates-to-windows-runtime-apis"></a>ユニバーサル Windows プラットフォームと Windows ランタイム API の関連性
+ユニバーサル Windows プラットフォーム (UWP) アプリをビルドする場合は、"ユニバーサル Windows プラットフォーム (UWP)" と "Windows ランタイム (WinRT)" をほぼ同義と考えると便利です。 ただし、テクノロジの実体を明らかにして、この 2 つの概念の違いを確認しておくことも可能*です*。 この最後のセクションは、この点に興味があるユーザーを対象としています。
 
-Windows ランタイム、および WinRT Api は Windows Api の進化したものです。 最初に、フラット、C スタイルの Win32 Api を使用して Windows のプログラム。 COM Api が追加されました ([DirectX](https://docs.microsoft.com/windows/desktop/directx)顕著な例をされている)。 Windows フォーム、WPF、.NET、およびマネージ言語は、Windows アプリと API のテクノロジの独自のフレーバーを記述するは独自の方法になります。 Windows ランタイムが、実際には、COM の次のステージ 実際のアプリケーション バイナリ インターフェイス (ABI) 層では、COM では、そのルートが表示されます。 さまざまなプログラミング言語の優れた範囲から呼び出し可能である Windows ランタイムが設計されました。 各言語に非常に自然な方法で呼び出し可能。 このために、Windows ランタイムへのアクセスは言語プロジェクションとして知られる仕組みを使用して利用可能になっています。 Windows ランタイム言語プロジェクションはC#、Visual basic、C++ の標準に、JavaScript、という具合にします。 さらに、1 回パッケージ適切に (を参照してください[デスクトップ ブリッジ](/windows/uwp/porting/desktop-to-uwp-root))、アプリケーション モデルの優れた範囲のいずれかでビルドされたアプリから WinRT Api を呼び出すことができます。Win32、.NET、WinForms、および WPF します。
+Windows ランタイム (WinRT) API は、Windows API が進化したものです。 元々 Windows は、フラットな C スタイルの Win32 API でプログラミングされました。 そこに追加されたのが COM API です (主な例は [DirectX](https://docs.microsoft.com/windows/desktop/directx))。 Windows フォーム、WPF、.NET、およびマネージ言語は、Windows アプリの記述方法や API テクノロジの特徴がそれぞれに異なっていました。 COM の次の段階というのが Windows ランタイムの実体です。 実際のアプリケーション バイナリ インターフェイス (ABI) レイヤーで、COM におけるそのルーツが可視化されます。 ただし、Windows ランタイムはさまざまなプログラミング言語から呼び出すことができるように設計されています。 また、それぞれの言語にとってきわめて自然な方法で呼び出すことができます。 このために、Windows ランタイムは言語プロジェクションと呼ばれる仕組みを介してアクセスできるようになっています。 Windows ランタイムの言語プロジェクションは、C#、Visual Basic、標準 C++、JavaScript などに対応しています。 さらに、適切にパッケージ化すれば (「[デスクトップ ブリッジ](/windows/uwp/porting/desktop-to-uwp-root)」を参照)、次のような広範囲の言語モデルのいずれかでビルドされたアプリから WinRT API を呼び出すことができます:Win32、.NET、WinForms、WPF。
 
-また、もちろん、UWP アプリから WinRT Api を呼び出すことができます。 UWP では、Windows ランタイムの上に構築されたアプリケーション モデルです。 技術的には、UWP のアプリケーション モデルの基に[CoreApplication](/uwp/api/windows.applicationmodel.core.coreapplication)、プログラミング言語の選択に応じて、ユーザーからその詳細が表示されないことができます。 値の提案の観点から、このトピックでは説明したよう、UWP に役立ち、選択する必要があります、Microsoft Store に発行して実行できる優れたさまざまなデバイス フォーム ファクターのいずれかにする 1 つのバイナリの書き込み。 UWP アプリのデバイスのリーチを呼び出すことで、アプリを制限することや、条件付きで呼び出すことに、UWP Api のサブセットに依存します。
+もちろん、UWP アプリから WinRT API を呼び出すこともできます。 UWP は、Windows ランタイム上に構築されたアプリケーション モデルです。 技術的な UWP アプリケーション モデルのベースは [CoreApplication](/uwp/api/windows.applicationmodel.core.coreapplication) ですが、選択したプログラミング言語によっては、そうした詳細を意識することはありません。 このトピックで説明したように、提供する価値という観点で考えると、UWP は、必要に応じて Microsoft Store に公開でき、かつさまざまなデバイス フォーム ファクターで稼働する単一バイナリを作成するのに適しています。 UWP アプリが対応するデバイスの範囲は、アプリで呼び出す対象として限定した UWP API のサブセット、あるいは条件付きで呼び出す UWP API のサブセットによって異なります。
 
-うまくいけば、このセクションでは、Windows ランタイム Api、およびメカニズムとユニバーサル Windows プラットフォームのビジネス価値を基になるテクノロジ間の違いの説明で成功しています。
+Windows ランタイム API の基盤であるテクノロジと、ユニバーサル Windows プラットフォームのメカニズムおよびビジネス価値の違いを、このセクションで理解していただけたら幸いです。

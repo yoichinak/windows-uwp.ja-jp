@@ -1,31 +1,34 @@
 ---
 ms.assetid: 7D5EED8A-0742-4E12-A806-40FBAEFE6ABF
 title: 準備
-description: 準備は、思っているよりも簡単です。 次の手順に従って、Windows 10 用ユニバーサル Windows プラットフォーム (UWP) アプリの作成を開始します。
+description: 準備は、思っているよりも簡単です。 次の手順に従って、Windows 10 用のユニバーサル Windows プラットフォーム (UWP) アプリの作成を開始してください。
 ms.date: 05/07/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: a92b8d0f921bc747108b802d285b783e7f2bcaa8
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: MT
+ms.openlocfilehash: 5d0f3e7ca98f01750d7d05cc06b56783e3b32359
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57658647"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64564459"
 ---
 # <a name="get-set-up"></a>準備
 
 ![Visual Studio を使用する準備を行う](images/VisualStudio2017Hero_ImageXL-LG.png)
 
-準備は、思っているよりも簡単です。 次の手順に従って、Windows 10 用ユニバーサル Windows プラットフォーム (UWP) アプリの作成を開始します。
+準備は、思っているよりも簡単です。 次の手順に従って、Windows 10 用のユニバーサル Windows プラットフォーム (UWP) アプリの作成を開始してください。
 
-## <a name="1-download-or-update-visual-studio"></a>1. ダウンロード、または Visual Studio の更新
+## <a name="1-download-or-update-visual-studio"></a>1. Visual Studio のダウンロードまたは更新
 
-Microsoft Visual Studio 2017 を設計、コーディング、テスト、およびアプリをデバッグするのに役立ちます。
+> [!NOTE]
+> 新しいバージョンの Visual Studio は、次の手順で示すスクリーン ショットとは表示が異なる場合があります。 ご心配は不要です。 次の手順に従うことで設定できます。
 
-まだ Visual Studio 2017 を持っていない場合は、無料 Microsoft Visual Studio Community 2017 をインストールすることができます。 このダウンロードには、アプリのテスト用としてデバイスのシミュレーターが含まれています。
+Microsoft Visual Studio 2019 は、アプリの設計、コード化、テスト、デバッグに役立ちます。
 
--   [Windows 10 開発者ツールをダウンロードします。](https://go.microsoft.com/fwlink/p/?LinkID=534189)
+Visual Studio 2019 をまだお持ちでない場合は、Microsoft Visual Studio Community 2019 を無料でインストールできます。 このダウンロードには、アプリのテスト用としてデバイスのシミュレーターが含まれています。
+
+-   [Windows 10 開発者ツールをダウンロードする](https://go.microsoft.com/fwlink/p/?LinkID=534189)
 
 Visual Studio をインストールする場合は、次のように [ユニバーサル Windows アプリ開発ツール] オプションを必ず選択してください。
 
@@ -33,7 +36,7 @@ Visual Studio をインストールする場合は、次のように [ユニバ�
 
 Visual Studio に関するヘルプが必要な場合は、 [Visual Studio の概要に関するページ](https://www.visualstudio.com/vs/getting-started)をご覧ください。
 
-既に Visual Studio の使用を開始していて、一部のコンポーネントがないことがわかった場合は、*[新しいプロジェクト]* ダイアログ ボックスでインストーラーをもう一度起動できます。
+既に Visual Studio の使用を開始していて、一部のコンポーネントがないことがわかった場合は、 *[新しいプロジェクト]* ダイアログ ボックスでインストーラーをもう一度起動できます。
 
    ![インストール プロセスを繰り返す方法](images/win10-cs-install.png)
 
@@ -60,14 +63,14 @@ UWP アプリのテストは実際の PC と電話で行うことが重要です
 
 デバイスをカスタマイズして、他の機能やパッケージをインストールする場合は、このプロジェクトでシステム セットアップのスクリプトを確認してください。
 
-- [開発者のセットアップ スクリプト](https://github.com/Microsoft/windows-dev-box-setup-scripts)
+- [開発者向けセットアップ スクリプト](https://github.com/Microsoft/windows-dev-box-setup-scripts)
 
 ## <a name="want-more-tools-and-downloads"></a>その他のツールとダウンロード
 
 ツールとダウンロードの一覧については、[ダウンロード ページ](https://go.microsoft.com/fwlink/p/?linkid=285935)をご覧ください。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-* [UWP 開発者向けサンプル コード](https://developer.microsoft.com/windows/samples)
+* [UWP 開発者向けコード サンプル](https://developer.microsoft.com/windows/samples)
 * [UWP アプリとは](universal-application-platform-guide.md)
-* [Windows アカウントにサインアップします。](sign-up.md)
+* [Windows アカウントのサインアップ](sign-up.md)
