@@ -6,12 +6,12 @@ ms.date: 07/06/2018
 ms.topic: article
 keywords: windows 10、uwp、バック グラウンド タスク
 ms.localizationpriority: medium
-ms.openlocfilehash: 08f163fb660ad158694f925467711e4d62bf8217
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 4eaff7142c3c14f04b780b93a7e98e1447f068d8
+ms.sourcegitcommit: 4ca51472d0474be96fa3184e311b729f58998234
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66371453"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67399604"
 ---
 # <a name="run-a-background-task-on-a-timer"></a>タイマーでのバックグラウンド タスクの実行
 
@@ -33,7 +33,7 @@ ms.locfileid: "66371453"
 
 > [!NOTE]
 > 場合*FreshnessTime*がバック グラウンド タスクの登録を試みているときに例外がスローに未満、15 分に設定します。
- 
+
 たとえば、このトリガーでは、1 時間に 1 回実行するバック グラウンド タスクが発生します。
 
 ```cs
