@@ -269,9 +269,9 @@ Color LightBlue = Color.FromArgb(255,54,192,255);
 ColorPaletteResources は、どのリソースがどこにスコープされているかをシステムに通知する API です。 ColorPaletteResources は必ず [x:Key](https://docs.microsoft.com/windows/uwp/xaml-platform/x-key-attribute) を受け取ります。これは次の 3 つの選択肢のいずれかの可能性があります。
 - Default
   * 色の変化を[淡色](https://docs.microsoft.com/windows/uwp/design/style/color#light-theme)と[濃色](https://docs.microsoft.com/windows/uwp/design/style/color#dark-theme)の両方のテーマで表示します
-- 明るい
+- 淡色
   * 色の変化を[淡色テーマ](https://docs.microsoft.com/windows/uwp/design/style/color#light-theme)でのみ示します
-- 暗い
+- 濃色
   * 色の変化を[濃色テーマ](https://docs.microsoft.com/windows/uwp/design/style/color#dark-theme)でのみ示します
 
 x:Key を設定すると、どちらのテーマでも、異なるカスタムの外観が必要な場合に、システムまたはアプリのテーマに合わせて色が適切に変更されます。
