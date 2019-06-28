@@ -12,10 +12,10 @@ design-contact: ksulliv
 doc-status: Published
 ms.localizationpriority: medium
 ms.openlocfilehash: e671c61058ec1c048fbb1b547cc79060a7cd0d0a
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66364343"
 ---
 # <a name="rich-text-block"></a>リッチ テキスト ブロック
@@ -24,7 +24,7 @@ ms.locfileid: "66364343"
 
 リッチ テキスト ブロックは、段落、インライン UI 要素、複雑なテキスト レイアウトなどのサポートが必要な場合に使用できる、高度なテキスト レイアウト用のいくつかの機能を提供します。
 
-> **重要な API**:[RichTextBlock クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RichTextBlock)、 [RichTextBlockOverflow クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RichTextBlockOverflow)、[クラスを段落](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Documents.Paragraph)、[タイポグラフィ クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Documents.Typography)
+> **重要な API**:[RichTextBlock クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RichTextBlock)、[RichTextBlockOverflow クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RichTextBlockOverflow)、[Paragraph クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Documents.Paragraph)、[Typography クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Documents.Typography)
 
 ## <a name="is-this-the-right-control"></a>適切なコントロールの選択
 
@@ -158,14 +158,14 @@ RichTextBlock に格納されるのはプレーン テキストですが、各�
 [テキスト コントロール](text-controls.md)
 
 **デザイナー向け**
-- [スペル チェックするためのガイドライン](text-controls.md)
+- [スペル チェックのガイドライン](text-controls.md)
 - [検索の追加](https://docs.microsoft.com/previous-versions/windows/apps/hh465231(v=win.10))
-- [テキスト入力するためのガイドライン](text-controls.md)
+- [テキスト入力のガイドライン](text-controls.md)
 
 **開発者向け (XAML)**
 - [TextBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox)
 - [Windows.UI.Xaml.Controls PasswordBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.PasswordBox)
 
 
-**(その他) 開発者向け**
+**開発者向け (その他)**
 - [String.Length プロパティ](https://msdn.microsoft.com/library/system.string.length(v=vs.110).aspx)

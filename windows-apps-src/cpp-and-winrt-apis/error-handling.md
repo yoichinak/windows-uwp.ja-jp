@@ -6,20 +6,20 @@ ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, エラー, 処理, 例外
 ms.localizationpriority: medium
 ms.openlocfilehash: 1b72bb3cb2527585c114d386981e02d4730614a2
-ms.sourcegitcommit: 1f39b67f2711b96c6b4e7ed7107a9a47127d4e8f
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/05/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66721640"
 ---
 # <a name="error-handling-with-cwinrt"></a>C++/WinRT でのエラー処理
 
-このトピックでプログラミングする際にエラーを処理するための戦略をについて説明します[C +/cli WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt)します。 一般的な情報、および背景については、「[エラーと例外の処理 (最新の C++)](/cpp/cpp/errors-and-exception-handling-modern-cpp)」を参照してください。
+このトピックでは、[C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) でのプログラミング時にエラーを処理するための方法について説明します。 一般的な情報、および背景については、「[エラーと例外の処理 (最新の C++)](/cpp/cpp/errors-and-exception-handling-modern-cpp)」を参照してください。
 
 ## <a name="avoid-catching-and-throwing-exceptions"></a>例外のキャッチとスローの回避
 引き続き[例外安全なコード](/cpp/cpp/how-to-design-for-exception-safety)を記述することをお勧めしますが、可能な限り、例外のキャッチとスローを回避します。 例外のハンドラーがない場合、Windows は (クラッシュのミニダンプを含む) エラー レポートを自動的に生成します。このレポートは、問題のある場所を追跡するのに役立ちます。
 
-キャッチすることが予想される例外をスローしないでください。 また、予想されるエラーに対して例外を使用しないでください。 例外をスロー*に予期しない実行時エラーが発生時にのみ*、エラー/結果コードを持つ他のすべての処理と&mdash;直接、およびエラーのソースの近くにします。 これにより、例外がスロー*された*ときに、原因がコード内のバグであるか、またはシステム内の例外的なエラー状態のいずれかであることがわかります。
+キャッチすることが予想される例外をスローしないでください。 また、予想されるエラーに対して例外を使用しないでください。 *予期しないランタイム エラーが発生したときにのみ*例外をスローし、それ以外はすべてエラー コードまたは結果コードで、エラーの発生源に近いところで直接処理します。 これにより、例外がスロー*された*ときに、原因がコード内のバグであるか、またはシステム内の例外的なエラー状態のいずれかであることがわかります。
 
 Windows レジストリにアクセスするためのシナリオを検討してください。 アプリがレジストリから値を読み取ることができなかった場合は、それが予想されることであり、適切に処理する必要があります。 例外をスローしないで、その例外と、値が読み取られなかった理由を示す `bool` または `enum` の値を返します。 一方、レジストリへの値の*書き込み*に失敗すると、アプリケーションで適切に処理できないほどの大きな問題があることが示される可能性があります。 そのような場合は、アプリケーションを続行させたくないため、結果としてエラー レポートを生じさせる例外は、アプリケーションが問題を起こさないようにする最も速い方法です。
 
@@ -30,7 +30,7 @@ Windows レジストリにアクセスするためのシナリオを検討して
 ただし、より可能性の高いパフォーマンスの影響として、例外がスローされる万が一のイベントで適切なデストラクターが呼び出されるのを確認することによる実行時のオーバーヘッドがあります。 この保証に関する代償は、例外が実際にスローされるかどうかで決まります。 そのため、どの関数が例外をスローする可能性があるかをコンパイラで十分に把握していることを確認する必要があります。 コンパイラが特定の関数 (`noexcept` 仕様) からの例外が発生しないことを証明できれば、生成されるコードを最適化できます。
 
 ## <a name="catching-exceptions"></a>例外のキャッチ
-[Windows ランタイム ABI](interop-winrt-abi.md#what-is-the-windows-runtime-abi-and-what-are-abi-types) レイヤーで発生するエラー状態は、HRESULT 値の形式で返されます。 ただし、コードで HRESULT を処理する必要はありません。 使用する側で API のために生成された C++/WinRT プロジェクション コードにより、ABI レイヤーで HRESULT エラー コードが検出され、そのコードが [**winrt::hresult_error**](/uwp/cpp-ref-for-winrt/error-handling/hresult-error) 例外に変換されます。この例外はキャッチして処理できます。 場合する*は*HRESULT の処理を使用する、 **winrt::hresult**型。
+[Windows ランタイム ABI](interop-winrt-abi.md#what-is-the-windows-runtime-abi-and-what-are-abi-types) レイヤーで発生するエラー状態は、HRESULT 値の形式で返されます。 ただし、コードで HRESULT を処理する必要はありません。 使用する側で API のために生成された C++/WinRT プロジェクション コードにより、ABI レイヤーで HRESULT エラー コードが検出され、そのコードが [**winrt::hresult_error**](/uwp/cpp-ref-for-winrt/error-handling/hresult-error) 例外に変換されます。この例外はキャッチして処理できます。 HRESULTS を*処理したい*場合は、**winrt::hresult** 型を使用します。
 
 たとえば、アプリケーションによるそのコレクションの反復処理中に、ユーザーが画像ライブラリのイメージを削除してしまった場合、プロジェクションにより例外がスローされます。 また、このケースでは、その例外をキャッチして処理する必要があります。 このケースを示すコード例を次に示します。
 
@@ -79,15 +79,15 @@ winrt::check_bool(::SetEvent(h.get()));
 [  **winrt::check_bool**](/uwp/cpp-ref-for-winrt/error-handling/check-bool) に渡す値が false である場合、次の一連の処理が実行されます。
 
 - **winrt::check_bool** が [**winrt::throw_last_error**](/uwp/cpp-ref-for-winrt/error-handling/throw-last-error) 関数を呼び出す。
-- **winrt::throw_last_error**呼び出し[ **GetLastError** ](https://docs.microsoft.com/windows/desktop/api/errhandlingapi/nf-errhandlingapi-getlasterror)呼び出し元スレッドの最終エラー コード値を呼び出し、その後に取得する、 [ **winrt::throw_hresult** ](/uwp/cpp-ref-for-winrt/error-handling/throw-hresult)関数。
+- 呼び出しスレッドの最終エラー コード値を取得するために **winrt::throw_last_error** が [**GetLastError**](https://docs.microsoft.com/windows/desktop/api/errhandlingapi/nf-errhandlingapi-getlasterror) を呼び出し、次に [**winrt::throw_hresult**](/uwp/cpp-ref-for-winrt/error-handling/throw-hresult) 関数を呼び出す。
 - **winrt::throw_hresult** が、エラー コードを表す [**winrt::hresult_error**](/uwp/cpp-ref-for-winrt/error-handling/hresult-error) オブジェクト (または標準のオブジェクト) を使用して例外をスローする。
 
 Windows API では、さまざまな戻り値の型を使用して実行時エラーをレポートするため、**winrt::check_bool** 以外にも、値をチェックして例外をスローするためのその他の便利なヘルパー関数がいくつかあります。
 
-- [**winrt::check_hresult**](/uwp/cpp-ref-for-winrt/error-handling/check-hresult)します。 HRESULT コードがエラーを表すかどうかをチェックし、エラーを表す場合は **winrt::throw_hresult** を呼び出します。
-- [**winrt::check_nt**](/uwp/cpp-ref-for-winrt/error-handling/check-nt)します。 コードがエラーを表すかどうかをチェックし、エラーを表す場合は **winrt::throw_hresult** を呼び出します。
-- [**winrt::check_pointer**](/uwp/cpp-ref-for-winrt/error-handling/check-pointer)します。 ポインター が null かどうかをチェックし、null の場合は **winrt::throw_last_error** を呼び出します。
-- [**winrt::check_win32**](/uwp/cpp-ref-for-winrt/error-handling/check-win32)します。 コードがエラーを表すかどうかをチェックし、エラーを表す場合は **winrt::throw_hresult** を呼び出します。
+- [**winrt::check_hresult**](/uwp/cpp-ref-for-winrt/error-handling/check-hresult)。 HRESULT コードがエラーを表すかどうかをチェックし、エラーを表す場合は **winrt::throw_hresult** を呼び出します。
+- [**winrt::check_nt**](/uwp/cpp-ref-for-winrt/error-handling/check-nt)。 コードがエラーを表すかどうかをチェックし、エラーを表す場合は **winrt::throw_hresult** を呼び出します。
+- [**winrt::check_pointer**](/uwp/cpp-ref-for-winrt/error-handling/check-pointer)。 ポインター が null かどうかをチェックし、null の場合は **winrt::throw_last_error** を呼び出します。
+- [**winrt::check_win32**](/uwp/cpp-ref-for-winrt/error-handling/check-win32)。 コードがエラーを表すかどうかをチェックし、エラーを表す場合は **winrt::throw_hresult** を呼び出します。
 
 一般的なリターン コードの種類にこれらのヘルパー関数を使用するか、または任意のエラー状態に応答して、[**winrt::throw_last_error**](/uwp/cpp-ref-for-winrt/error-handling/throw-last-error) または [**winrt::throw_hresult**](/uwp/cpp-ref-for-winrt/error-handling/throw-hresult) を呼び出すことができます。 
 
@@ -109,7 +109,7 @@ HRESULT DoWork() noexcept
 }
 ```
 
-[**winrt::to_hresult** ](/uwp/cpp-ref-for-winrt/error-handling/to-hresult)から派生した例外を処理**std::exception**、および[ **winrt::hresult_error** ](/uwp/cpp-ref-for-winrt/error-handling/hresult-error)とその派生型。 実装では、API のユーザーが詳細なエラー情報を受け取るように、**winrt::hresult_error** または派生型を使用することをお勧めします。 (E_FAIL にマップされる) **std::exception** は、標準テンプレート ライブラリを使用したことで例外が発生した場合にサポートされます。
+[**winrt::to_hresult**](/uwp/cpp-ref-for-winrt/error-handling/to-hresult) では、**std::exception** から派生した例外、および [**winrt::hresult_error**](/uwp/cpp-ref-for-winrt/error-handling/hresult-error) とその派生型を処理します。 実装では、API のユーザーが詳細なエラー情報を受け取るように、**winrt::hresult_error** または派生型を使用することをお勧めします。 (E_FAIL にマップされる) **std::exception** は、標準テンプレート ライブラリを使用したことで例外が発生した場合にサポートされます。
 
 ## <a name="assertions"></a>アサーション
 アプリケーションの内部の前提として、アサーションが用意されています。 可能な限り、コンパイル時の検証に **static_assert** を使用することをお勧めします。 実行時条件には、ブール式による WINRT_ASSERT を使用します。
@@ -137,8 +137,8 @@ WINRT_VERIFY_(TRUE, ::CloseHandle(value));
 * [winrt::hresult_error 構造体](/uwp/cpp-ref-for-winrt/error-handling/hresult-error)
 * [winrt::throw_hresult 関数](/uwp/cpp-ref-for-winrt/error-handling/throw-hresult)
 * [winrt::throw_last_error 関数](/uwp/cpp-ref-for-winrt/error-handling/throw-last-error)
-* [winrt::to_hresult function](/uwp/cpp-ref-for-winrt/error-handling/to-hresult)
+* [winrt::to_hresult 関数](/uwp/cpp-ref-for-winrt/error-handling/to-hresult)
 
 ## <a name="related-topics"></a>関連トピック
-* [エラーと例外の処理 (Modern C)](/cpp/cpp/errors-and-exception-handling-modern-cpp)
-* 「[例外安全性のための設計](/cpp/cpp/how-to-design-for-exception-safety)
+* [エラーと例外処理 (最新の C++)](/cpp/cpp/errors-and-exception-handling-modern-cpp)
+* 「[方法: 例外の安全性の設計](/cpp/cpp/how-to-design-for-exception-safety)

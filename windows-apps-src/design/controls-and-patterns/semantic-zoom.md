@@ -12,10 +12,10 @@ design-contact: kimsea
 doc-status: Published
 ms.localizationpriority: medium
 ms.openlocfilehash: 6c8cc237dec082096eb235237490e4f5d29cc6dd
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66364316"
 ---
 # <a name="semantic-zoom"></a>セマンティック ズーム
@@ -29,7 +29,7 @@ ms.locfileid: "66364316"
 
 たとえば、アドレス帳を表示しているときに、表示を縮小して "W" の文字にすばやく移動したり、文字を拡大表示して、その文字に関連付けられた名前を調べたりすることができます。 
 
-> **重要な API**:[SemanticZoom クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.SemanticZoom)、 [ListView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView)、 [GridView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.GridView)
+> **重要な API**:[SemanticZoom クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.SemanticZoom)、[ListView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView)、[GridView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.GridView)
 
 **機能**:
 
@@ -59,7 +59,7 @@ ms.locfileid: "66364316"
 </tr>
 </table>
 
-**写真アプリ**
+**フォト アプリ**
 
 フォト アプリで使われるセマンティック ズームの例です。 写真は月ごとにグループ化されています。 既定のグリッド ビューで月ヘッダーを選択すると、月の一覧ビューにズームアウトして、すばやく移動できます。
 
@@ -80,9 +80,9 @@ ms.locfileid: "66364316"
 - 項目レベルのデータを表示する拡大表示ビュー。
 - グループ レベルのデータを表示する縮小表示ビュー。
 
-セマンティック ズームを使用する前に、グループ化されたデータに対してリスト ビューを使用する方法を理解する必要があります。 詳細については、次を参照してください。[ビューとグリッド ビューを一覧表示](listview-and-gridview.md)します。 
+セマンティック ズームを使用する前に、グループ化されたデータに対してリスト ビューを使用する方法を理解する必要があります。 詳細については、「[リスト ビューとグリッド ビュー](listview-and-gridview.md)」を参照してください。 
 
-> **注**&nbsp;&nbsp; SemanticZoom コントロールの拡大表示ビューと縮小表示ビューを定義するには、[ISemanticZoomInformation](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ISemanticZoomInformation) インターフェイスを実装する任意のコントロールを 2 つ使用できます。 XAML フレームワークでは、このインターフェイスを実装する 3 つのコントロールを提供します。ListView、GridView、およびハブ。
+> **注**&nbsp;&nbsp; SemanticZoom コントロールの拡大表示ビューと縮小表示ビューを定義するには、[ISemanticZoomInformation](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ISemanticZoomInformation) インターフェイスを実装する任意のコントロールを 2 つ使用できます。 XAML フレームワークには、このインターフェイスを実装する、ListView、GridView、Hub という 3 つのコントロールが用意されています。
  
  この XAML は、SemanticZoom コントロールの構造を示したものです。 ZoomedInView プロパティと ZoomedOutView プロパティに、他のコントロールを割り当てます。
  
@@ -100,7 +100,7 @@ ms.locfileid: "66364316"
  
 この例は、「[XAML UI の基本サンプル](https://go.microsoft.com/fwlink/p/?LinkId=619992)」の SemanticZoom ページから引用したものです。 データ ソースを含む完全なコードは、このサンプルをダウンロードして確認できます。 このセマンティック ズームでは、拡大表示ビューに GridView を使用し、縮小表示ビューに ListView を使用しています。
   
-**拡大ビューを定義します。**
+**拡大表示ビューの定義**
 
 ここでは、拡大表示ビューに GridView コントロールを使用する例を示します。 拡大表示ビューには、グループ内の個別のデータ項目が表示されます。 この例は、グリッド内の項目を画像とテキストで表示する方法を示したものです。 
 
@@ -140,7 +140,7 @@ ms.locfileid: "66364316"
 </DataTemplate>
 ```
 
-**縮小ビューを定義します。**
+**縮小表示ビューの定義**
 
 この XAML は、縮小表示用の ListView コントロールを定義したものです。 この例では、グループ ヘッダーをリスト内のテキストとして表示する方法を示しています。
 
@@ -161,7 +161,7 @@ ms.locfileid: "66364316"
 </DataTemplate>
 ```
 
-**ビューを同期します。**
+**表示の同期**
 
 拡大表示と縮小表示は同期する必要があります。したがって、ユーザーが縮小表示のグループを選択した場合、同じグループの詳細が拡大表示されることになります。 [CollectionViewSource](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.CollectionViewSource) を使うか、または表示を同期するためのコードを追加できます。
 
@@ -200,8 +200,8 @@ private void SemanticZoom_ViewChangeStarted(object sender, SemanticZoomViewChang
 
 ## <a name="related-articles"></a>関連記事
 
-- [ナビゲーションのデザインの基礎](../basics/navigation-basics.md)
-- [リスト ビューおよびグリッド ビュー](listview-and-gridview.md)
+- [ナビゲーション デザインの基本](../basics/navigation-basics.md)
+- [リスト ビューとグリッド ビュー](listview-and-gridview.md)
 - [項目コンテナーとテンプレート](item-containers-templates.md)
 
 

@@ -12,10 +12,10 @@ design-contact: ksulliv
 doc-status: Published
 ms.localizationpriority: medium
 ms.openlocfilehash: cdf361bfd993ce93e2c3b9eec4e66cb1417e36f8
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66364143"
 ---
 # <a name="text-controls"></a>テキスト コントロール
@@ -23,9 +23,9 @@ ms.locfileid: "66364143"
 テキスト コントロールは、テキスト入力ボックス、パスワード ボックス、自動提案ボックス、テキスト ブロックで構成されています。 XAML フレームワークには、テキストのレンダリング、入力、編集用のいくつかのコントロールと、テキストの書式設定用のプロパティのセットが用意されています。
 
 - 読み取り専用テキストを表示するためのコントロールは、[TextBlock](text-block.md) および [RichTextBlock](rich-text-block.md) です。
-- テキストを入力および編集するためのコントロールは次のとおりです。[テキスト ボックス](text-box.md)、 [RichEditBox](rich-edit-box.md)、 [AutoSuggestBox](auto-suggest-box.md)、および[PasswordBox](password-box.md)します。
+- テキストの入力および編集用のコントロールは次のとおりです:[TextBox](text-box.md)、[RichEditBox](rich-edit-box.md)、[AutoSuggestBox](auto-suggest-box.md)、[PasswordBox](password-box.md)。
 
-> **重要な API**:[TextBlock クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock)、 [RichTextBlock クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RichTextBlock)、 [TextBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox)、 [RichEditBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RichEditBox)、 [AutoSuggestBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.AutoSuggestBox)、[PasswordBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.PasswordBox)
+> **重要な API**:[TextBlock クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock)、[RichTextBlock クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RichTextBlock)、[TextBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox)、[RichEditBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RichEditBox)、[AutoSuggestBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.AutoSuggestBox)、[PasswordBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.PasswordBox)
 
 ## <a name="is-this-the-right-control"></a>適切なコントロールの選択
 
@@ -57,18 +57,18 @@ TextBox を読み取り専用にすることはできますが、これは一時
 
 **RichEditBox** を使用して、テキスト ファイルを表示および編集します。 その他の標準的なテキスト入力ボックスを使用するように、RichEditBox を使用してアプリにユーザー入力を行わないでください。 代わりに、アプリとは別のテキスト ファイルを操作するために使用します。 通常は、RichEditBox に入力されたテキストを .rtf ファイルに保存します。
 
-**テキスト入力を最適なオプションですか。**
+**テキスト入力は最適な選択肢か**
 
 アプリでユーザー入力を取得するには、さまざまな方法があります。 標準テキスト ボックスのいずれかまたは別のコントロールのどちらがユーザー入力を取得するのに最適であるかを決定する際には、次の点を考慮します。
 
--   **すべての有効な値を効率的に列挙するは実用的ですか。** そうである場合は、いずれかの選択コントロールを使うことを検討します。考えられる選択コントロールは、[チェック ボックス](checkbox.md)、[ドロップダウン リスト](lists.md)、リスト ボックス、[ラジオ ボタン](radio-button.md)、[スライダー](slider.md)、[トグル スイッチ](toggles.md)、[日付の選択コントロール](date-and-time.md)、または時刻の選択コントロールです。
--   **有効な値の小さいセットではありますか。** 少数の場合は、[ドロップダウン リスト](lists.md)またはリスト ボックス (値の文字数が多い場合) をお勧めします。
--   **有効なデータは完全に制約なしですか。または、有効なデータのみによって制限されます (制約付きの長さまたは文字の種類) の形式ですか。** これに該当する場合は、テキスト入力コントロールを使います。 入力できる文字数を制限したり、アプリ コードで形式を検証したりすることができます。
--   **値は特殊な一般的なコントロールがデータ型を表しているのか** そうである場合は、テキスト入力コントロールではなく、適切なコントロールを使います。 たとえば、データ入力を受け付けるには、テキスト入力コントロールの代わりに [DatePicker](https://docs.microsoft.com/previous-versions/windows/apps/br211681(v=win.10)) を使います。
+-   **有効なすべての値を効率的に列挙することは現実的か。** そうである場合は、いずれかの選択コントロールを使うことを検討します。考えられる選択コントロールは、[チェック ボックス](checkbox.md)、[ドロップダウン リスト](lists.md)、リスト ボックス、[ラジオ ボタン](radio-button.md)、[スライダー](slider.md)、[トグル スイッチ](toggles.md)、[日付の選択コントロール](date-and-time.md)、または時刻の選択コントロールです。
+-   **有効な値は比較的少数か。** 少数の場合は、[ドロップダウン リスト](lists.md)またはリスト ボックス (値の文字数が多い場合) をお勧めします。
+-   **有効なデータに、何も制約がないか。それとも、形式の制約 (長さや文字の種類の制約) だけがあるか。** これに該当する場合は、テキスト入力コントロールを使います。 入力できる文字数を制限したり、アプリ コードで形式を検証したりすることができます。
+-   **値は、専用の共通コントロールがあるデータ型を表しているか。** そうである場合は、テキスト入力コントロールではなく、適切なコントロールを使います。 たとえば、データ入力を受け付けるには、テキスト入力コントロールの代わりに [DatePicker](https://docs.microsoft.com/previous-versions/windows/apps/br211681(v=win.10)) を使います。
 -   数値データのみに制限されている場合:
-    -   **値入力されているおおよそや別の数量を基準と同じページにでしょうか。** そうである場合は、[スライダー](slider.md)を使います。
-    -   **ユーザーは、設定の変更の影響に関する即時フィードバックから特典は教えてください。** そうである場合は、 [スライダー](slider.md)を使い、必要であれば付随するコントロールも使います。
-    -   **調整後、結果は、観察されたこのようなボリュームまたは画面の明るさと同様には、値を可能性があります入力でしょうか。** そうである場合は、[スライダー](slider.md)を使います。
+    -   **入力される値は、同じページの別の数量の近似値および相対値、またはそのいずれかか。** そうである場合は、[スライダー](slider.md)を使います。
+    -   **設定の変更による効果をすぐに確認できると、ユーザーにとって便利か?** そうである場合は、 [スライダー](slider.md)を使い、必要であれば付随するコントロールも使います。
+    -   **入力された値は、結果が確認された後に調整される可能性が高いか (音量や画面の明るさなど)。** そうである場合は、[スライダー](slider.md)を使います。
 
 ## <a name="examples"></a>例
 
@@ -117,17 +117,17 @@ TextBox を読み取り専用にすることはできますが、これは一時
 
 ## <a name="pen-input"></a>ペン入力
 
-**適用対象:** テキスト ボックスに、RichEditBox、AutoSuggestBox
+**適用対象:** TextBox、RichEditBox、AutoSuggestBox
 
 Windows 10 バージョン 1803 以降では、XAML テキスト入力ボックスは、[Windows Ink](../input/pen-and-stylus-interactions.md) を使用したペン入力の埋め込みをサポートしています。 ユーザーが Windows ペンを使用してテキスト入力ボックスでタップすると、テキスト ボックスは変換され、ユーザーは別の入力パネルを開かなくても、ペンを使用して直接書き込むことができます。
 
 ![ペンでタップするとテキスト ボックスが展開する](images/handwritingview/handwritingview2.gif)
 
-詳細については、次を参照してください。[ビューを手書きのテキスト入力](text-handwriting-view.md)します。
+詳細については、「[手書きビューでのテキスト入力](text-handwriting-view.md)」をご覧ください。
 
 ## <a name="choose-the-right-keyboard-for-your-text-control"></a>テキスト コントロールに適切なキーボードの選択
 
-**適用対象:** テキスト ボックスに、PasswordBox RichEditBox
+**適用対象:** TextBox、PasswordBox RichEditBox
 
 ユーザーがタッチ キーボード、つまりソフト入力パネル (SIP) でデータを入力できるように、ユーザーが入力すると予想されるデータの種類に合わせてテキスト コントロールの入力値の種類を設定できます。
 
@@ -144,7 +144,7 @@ Windows 10 バージョン 1803 以降では、XAML テキスト入力ボック�
 
 ## <a name="color-fonts"></a>カラー フォント
 
-**適用対象:** TextBlock、RichTextBlock、テキスト ボックスに、RichEditBox
+**適用対象:** TextBlock、RichTextBlock、TextBox、RichEditBox
 
 Windows には、フォントに各グリフの複数の色付きレイヤーを含めるための機能があります。 たとえば、Segoe UI Emoji フォントは、顔文字とその他の絵文字のカラー バージョンを定義します。
 
@@ -162,7 +162,7 @@ Windows には、フォントに各グリフの複数の色付きレイヤーを
 
 ## <a name="guidelines-for-line-and-paragraph-separators"></a>行と段落の区切り記号のガイドライン
 
-**適用対象:** RichEditBox、TextBlock、RichTextBlock、複数行テキスト ボックス
+**適用対象:** TextBlock、RichTextBlock、複数行の TextBox、RichEditBox
 
 行の区切り文字 (0x2028) と段落の区切り文字 (0x2029) を使用すると、プレーンテキストを分割できます。 各行区切り文字の後に新しい行が開始されます。 各段落区切り文字の後に新しい段落が開始されます。
 
@@ -174,7 +174,7 @@ Windows には、フォントに各グリフの複数の色付きレイヤーを
 
 ## <a name="guidelines-for-spell-checking"></a>スペル チェックのガイドライン
 
-**適用対象:** テキスト ボックスに、RichEditBox
+**適用対象:** TextBox、RichEditBox
 
 テキストの入力と編集を行っているときに、スペル チェックは単語を赤い波線で強調表示してユーザーに単語のスペルの間違いを知らせ、それを修正する方法を提供します。
 
@@ -184,11 +184,11 @@ Windows には、フォントに各グリフの複数の色付きレイヤーを
 
 テキスト入力コントロールでのスペル チェックは、次の 2 つの目的で使います。
 
--   **スペルミスの自動修正するには**
+-   **スペル ミスを自動修正する**
 
     スペル チェック エンジンは、単語にスペルの間違いがあり、修正が確実であれば自動的に修正します。 たとえば、エンジンは自動的に "teh" を "the" に変更します。
 
--   **候補を表示するには**
+-   **代わりのスペルを示す**
 
     修正が確実でないとスペル チェック エンジンが判断した場合、スペル ミスのある単語には赤い下線が引かれ、ユーザーがその単語をタップするか右クリックすると、ショートカット メニューに修正候補が表示されます。
 

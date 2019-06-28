@@ -7,20 +7,20 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: 06f5ce8ad7576114137adb862f89720e27d3802b
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66364288"
 ---
 # <a name="draw-shapes"></a>図形の描画
 
 楕円形、長方形、多角形、パスなどの図形を描画する方法について説明します。 [  **Path**](/uwp/api/Windows.UI.Xaml.Shapes.Path) クラスは、きわめて複雑なベクター ベースの画像記述言語を XAML UI で視覚化するための手段です。たとえば、ベジエ曲線を描画することができます。
 
-> **重要な API**:[Path クラス](/uwp/api/Windows.UI.Xaml.Shapes.Path)、 [Windows.UI.Xaml.Shapes 名前空間](/uwp/api/Windows.UI.Xaml.Shapes)、 [Windows.UI.Xaml.Media 名前空間](/uwp/api/Windows.UI.Xaml.Media)
+> **重要な API**:[Path クラス](/uwp/api/Windows.UI.Xaml.Shapes.Path)、[Windows.UI.Xaml.Shapes 名前空間](/uwp/api/Windows.UI.Xaml.Shapes)、[Windows.UI.Xaml.Media 名前空間](/uwp/api/Windows.UI.Xaml.Media)
 
 
-2 つのクラスは、XAML UI の領域の領域を定義します。[**図形**](/uwp/api/Windows.UI.Xaml.Shapes.Shape)クラスと[ **Geometry** ](/uwp/api/Windows.UI.Xaml.Media.Geometry)クラス。 これらのクラス間の主な違いは、**Shape** にはブラシが関連付けられ、画面にレンダリングできますが、**Geometry** は単に空間領域を定義するだけで、レンダリングはされない (ただし、別の UI プロパティに情報を提供する働きはある) という点です。 **Shape** は、**Geometry** で境界線が定義される [**UIElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement) と考えることができます。 このトピックでは、主に **Shape** クラスについて説明します。
+XAML UI に空間領域を定義するクラスのセットには、[**Shape**](/uwp/api/Windows.UI.Xaml.Shapes.Shape) と [**Geometry**](/uwp/api/Windows.UI.Xaml.Media.Geometry) の 2 つがあります。 これらのクラス間の主な違いは、**Shape** にはブラシが関連付けられ、画面にレンダリングできますが、**Geometry** は単に空間領域を定義するだけで、レンダリングはされない (ただし、別の UI プロパティに情報を提供する働きはある) という点です。 **Shape** は、**Geometry** で境界線が定義される [**UIElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement) と考えることができます。 このトピックでは、主に **Shape** クラスについて説明します。
 
 [  **Shape**](/uwp/api/Windows.UI.Xaml.Shapes.Shape) クラスには、[**Line**](/uwp/api/Windows.UI.Xaml.Shapes.Line)、[**Ellipse**](/uwp/api/Windows.UI.Xaml.Shapes.Ellipse)、[**Rectangle**](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle)、[**Polygon**](/uwp/api/Windows.UI.Xaml.Shapes.Polygon)、[**Polyline**](/uwp/api/Windows.UI.Xaml.Shapes.Polyline)、[**Path**](/uwp/api/Windows.UI.Xaml.Shapes.Path) があります。 中でも **Path** は、任意のジオメトリを定義できる興味深いクラスです。また、[**Geometry**](/uwp/api/Windows.UI.Xaml.Media.Geometry) クラスは **Path** の構成要素を定義する方法の 1 つであるため、ここに関与します。
 
@@ -63,7 +63,7 @@ layoutRoot.Children.Add(ellipse1);
 
 一連の 6 つの [**Ellipse**](/uwp/api/Windows.UI.Xaml.Shapes.Ellipse) 要素は [**ProgressRing**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ProgressRing) コントロールのコントロール テンプレートの一部であり、2 つの同心の **Ellipse** 要素は [**RadioButton**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RadioButton) の一部です。
 
-## <a name="span-idrectanglespanspan-idrectanglespanspan-idrectanglespanrectangle"></a><span id="Rectangle"></span><span id="rectangle"></span><span id="RECTANGLE"></span>四角形
+## <a name="span-idrectanglespanspan-idrectanglespanspan-idrectanglespanrectangle"></a><span id="Rectangle"></span><span id="rectangle"></span><span id="RECTANGLE"></span>Rectangle
 
 [  **Rectangle**](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle) は、向かい合った辺の長さがそれぞれ等しい四辺形です。 基本的な **Rectangle** を作成するには、[**Width**](/uwp/api/Windows.UI.Xaml.FrameworkElement.Width)、[**Height**](/uwp/api/Windows.UI.Xaml.FrameworkElement.Height)、[**Fill**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.shape.fill) を指定します。
 
@@ -102,7 +102,7 @@ layoutRoot.Children.Add(rectangle1);
 
 ![レンダリングされた Rectangle。](images/shapes-rectangle.jpg)
 
-**ヒント:**   UI 定義の一部のシナリオがあるのではなくを使用して、 [**四角形**](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle)、 [**境界線**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Border)より適切な場合があります。 一般に、コンテンツの周囲に四角形の図形を作成することが目的であるときは、**Border** の方が適しています。子のコンテンツを設定できるほか、高さと幅によってサイズが固定されている **Rectangle** とは異なり、コンテンツに合わせてサイズが自動的に調整されるためです。 **Border** は、[**CornerRadius**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.border.cornerradius) プロパティを設定することによって、角に丸みを持たせることもできます。
+**ヒント**  UI の定義のシナリオで、[**Rectangle**](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle) よりも [**Border**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Border) を使った方が適している場合があります。 一般に、コンテンツの周囲に四角形の図形を作成することが目的であるときは、**Border** の方が適しています。子のコンテンツを設定できるほか、高さと幅によってサイズが固定されている **Rectangle** とは異なり、コンテンツに合わせてサイズが自動的に調整されるためです。 **Border** は、[**CornerRadius**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.border.cornerradius) プロパティを設定することによって、角に丸みを持たせることもできます。
 
 また、[**Rectangle**](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle) は、コントロールの合成に適したオプションであると考えられます。 **Rectangle** の図形は多くのコントロール テンプレートで使われます。これは、フォーカス対応コントロールの "FocusVisual" 部分としてこの図形が使われるためです。 コントロールが "Focused" の表示状態にある場合は常に、この四角形が表示されます。その他の状態にある場合は非表示です。
 
@@ -141,7 +141,7 @@ layoutRoot.Children.Add(polygon1);
 
 ![レンダリングされた Polygon。](images/shapes-polygon.jpg)
 
-**ヒント:**   A [**ポイント**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Point)図形の頂点を宣言する以外のシナリオの値がよく使用 XAML 内の型として。 たとえば、**Point** はタッチ イベントのイベント データの一部であるため、座標空間におけるタッチ操作が発生した位置を正確に認識することができます。 **Point** の詳しい情報と、それを XAML やコードで使う方法については、API リファレンスの [**Point**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Point) のトピックをご覧ください。
+**ヒント**  [**Point**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Point) の値は、図形の頂点を宣言する場合以外のシナリオで XAML の型としてよく使われます。 たとえば、**Point** はタッチ イベントのイベント データの一部であるため、座標空間におけるタッチ操作が発生した位置を正確に認識することができます。 **Point** の詳しい情報と、それを XAML やコードで使う方法については、API リファレンスの [**Point**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Point) のトピックをご覧ください。
 
 ## <a name="line"></a>直線
 
@@ -165,11 +165,11 @@ line1.X2 = 400;
 layoutRoot.Children.Add(line1);
 ```
 
-## <a name="span-idpolylinespanspan-idpolylinespanspan-idpolylinespan-polyline"></a><span id="_Polyline"></span><span id="_polyline"></span><span id="_POLYLINE"></span> ポリライン
+## <a name="span-idpolylinespanspan-idpolylinespanspan-idpolylinespan-polyline"></a><span id="_Polyline"></span><span id="_polyline"></span><span id="_POLYLINE"></span> Polyline
 
 [  **Polyline**](/uwp/api/Windows.UI.Xaml.Shapes.Polyline) は、[**Polygon**](/uwp/api/Windows.UI.Xaml.Shapes.Polygon) と同様に、図形の境界線を点のセットによって定義しますが、**Polyline** では最後の点が最初の点に接続されません。
 
-**注**   、同一の開始点と終点で明示的にあるでした、 [**ポイント**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.polyline.points)の設定、 [**ポリライン**](/uwp/api/Windows.UI.Xaml.Shapes.Polyline)が、その場合はおそらくを使用しても、 [**多角形**](/uwp/api/Windows.UI.Xaml.Shapes.Polygon)代わりにします。
+**注**   [**Polyline**](/uwp/api/Windows.UI.Xaml.Shapes.Polyline) の始点と終点が等しくなるように明示的に [**Points**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.polyline.points) を設定することもできますが、その場合は、[**Polygon**](/uwp/api/Windows.UI.Xaml.Shapes.Polygon) を使うのが一般的です。
 
 [  **Polyline**](/uwp/api/Windows.UI.Xaml.Shapes.Polyline) の [**Fill**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.shape.fill) を指定した場合、**Polyline** に対して設定された [**Points**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.polyline.points) の始点と終点が交わらなくても、図形の内部領域が **Fill** によって塗りつぶされます。 **Polyline** で **Fill** を指定しなかった場合のレンダリングは、複数の [**Line**](/uwp/api/Windows.UI.Xaml.Shapes.Line) 要素を個別に指定し、前の直線の終点が次の直線の始点と交わるようにした場合と同様の結果となります。
 
@@ -233,7 +233,7 @@ layoutRoot.Children.Add(polyline1);
 
 ![レンダリングされた Path。](images/shapes-path.jpg)
 
-次の例は、説明済みの手法である [**PathGeometry**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.PathGeometry) を使った [**GeometryGroup**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.geometrygroup) の使用方法を示しています。 この例の実行の一部として使用できる関係している geometry 型の一部を**PathGeometry**:[**PathFigure** ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.PathFigure)内のセグメントを使用可能なさまざまな要素と[ **PathFigure.Segments**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.pathfigure.segments)します。
+次の例は、説明済みの手法である [**PathGeometry**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.PathGeometry) を使った [**GeometryGroup**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.geometrygroup) の使用方法を示しています。 この例では、**PathGeometry** の一部として使うことができる関連ジオメトリ型の一部、つまり [**PathFigure**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.PathFigure) と、[**PathFigure.Segments**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.pathfigure.segments) のセグメントとなるさまざまな要素の演習を行います。
 
 ```xaml
 <Path Stroke="Black" StrokeThickness="1" Fill="#CCCCFF">

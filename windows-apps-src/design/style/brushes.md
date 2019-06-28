@@ -7,10 +7,10 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: 6e5f8dfc780b50e70f92fc388a04258ce7be11a4
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66366839"
 ---
 # <a name="using-brushes-to-paint-backgrounds-foregrounds-and-outlines"></a>ブラシを使用して背景、前景、輪郭を描画する
@@ -37,7 +37,7 @@ ms.locfileid: "66366839"
 
 ### <a name="predefined-color-names"></a>定義済みの色の名前
 
-[  **Yellow**](https://docs.microsoft.com/uwp/api/windows.ui.colors.yellow)、[**Magenta**](https://docs.microsoft.com/uwp/api/windows.ui.colors.magenta) など、定義済みの色の名前を使うことができます。 名前付きの色は 256 個存在します。 XAML パーサーは、色の名前を、正しいカラー チャネルを持つ [**Color**](https://docs.microsoft.com/uwp/api/Windows.UI.Color) 構造体に変換します。 256 の名前付きの色がに基づいて、 *X11*カスケード スタイル シート、レベル 3 (CSS3) 仕様は、既にされるこのリストの知識がありますから色の名前は、web 開発の経験がある場合に色をという名前またはデザインします。
+[  **Yellow**](https://docs.microsoft.com/uwp/api/windows.ui.colors.yellow)、[**Magenta**](https://docs.microsoft.com/uwp/api/windows.ui.colors.magenta) など、定義済みの色の名前を使うことができます。 名前付きの色は 256 個存在します。 XAML パーサーは、色の名前を、正しいカラー チャネルを持つ [**Color**](https://docs.microsoft.com/uwp/api/Windows.UI.Color) 構造体に変換します。 256 個の名前付きの色は、カスケード スタイル シート レベル 3 (CSS3) 仕様の *X11* の色名が基になっているため、過去に Web 開発や Web デザインの経験があれば、この一連の色について既にご存じの方も多いと思います。
 
 [  **Rectangle**](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle) の [**Fill**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.shape.fill) プロパティを定義済みの色 [**Red**](https://docs.microsoft.com/uwp/api/windows.ui.colors.red) に設定する例を次に示します。
 
@@ -53,9 +53,9 @@ XAML ではなくコードを使って [**SolidColorBrush**](https://docs.micros
 
 ### <a name="hexadecimal-color-values"></a>16 進数の色値
 
-16 進数形式の文字列を使い、[**SolidColorBrush**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.SolidColorBrush) に対して、8 ビットのアルファ チャネルを備えた厳密な 24 ビットの色値を宣言できます。 16 進数文字列は成分ごとに、0 ～ F の範囲の 2 文字で定義され、各成分の値がアルファ チャネル (不透明度)、赤色チャネル、緑色チャネル、青色チャネルの順に並びます (**ARGB**)。 たとえば、16 進値"\#FFFF0000"完全に不透明な赤を定義します (アルファ = red"FF"緑である"FF"= =「00」青 =「00」)。
+16 進数形式の文字列を使い、[**SolidColorBrush**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.SolidColorBrush) に対して、8 ビットのアルファ チャネルを備えた厳密な 24 ビットの色値を宣言できます。 16 進数文字列は成分ごとに、0 ～ F の範囲の 2 文字で定義され、各成分の値がアルファ チャネル (不透明度)、赤色チャネル、緑色チャネル、青色チャネルの順に並びます (**ARGB**)。 たとえば、16 進数値 "\#FFFF0000" は、完全に不透明な赤色 (アルファ = "FF"、赤 = "FF"、緑 = "00"、青 = "00") を定義します。
 
-この XAML 例の設定、 [**入力**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.shape.fill)のプロパティを[**四角形**](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle) 16 進数の値に"\#FFFF0000"、でき、名前付きの色を使用するのと同じ結果を[ **Colors.Red**](https://docs.microsoft.com/uwp/api/windows.ui.colors.red)します。
+以下の XAML では、名前付きの色 [**Colors.Red**](https://docs.microsoft.com/uwp/api/windows.ui.colors.red) とまったく同じ結果となるように、[**Rectangle**](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle) の [**Fill**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.shape.fill) プロパティを 16 進数値 "\#FFFF0000" に設定しています。
 
 ```xml
 <StackPanel>
@@ -77,7 +77,7 @@ XAML ではなくコードを使って [**SolidColorBrush**](https://docs.micros
 </Rectangle>
 ```
 
-## <a name="span-idlineargradientbrushesspanspan-idlineargradientbrushesspanspan-idlineargradientbrushesspanlinear-gradient-brushes"></a><span id="Linear_gradient_brushes_"></span><span id="linear_gradient_brushes_"></span><span id="LINEAR_GRADIENT_BRUSHES_"></span>線形グラデーション ブラシ
+## <a name="span-idlineargradientbrushesspanspan-idlineargradientbrushesspanspan-idlineargradientbrushesspanlinear-gradient-brushes"></a><span id="Linear_gradient_brushes_"></span><span id="linear_gradient_brushes_"></span><span id="LINEAR_GRADIENT_BRUSHES_"></span>線状グラデーション ブラシ
 
 [  **LinearGradientBrush**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.LinearGradientBrush) は、直線に沿って定義されたグラデーションを使って、領域を塗りつぶします。 この直線は*グラデーション軸*と呼ばれます。 [  **GradientStop**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.GradientStop) オブジェクトを使って、グラデーションの色とグラデーション軸に沿った位置を指定します。 既定では、ブラシで塗りつぶす領域の左上隅から右下隅に向かってグラデーション軸がとられているため、明暗は斜め方向に適用されます。
 
@@ -105,9 +105,9 @@ XAML ではなくコードを使って [**SolidColorBrush**](https://docs.micros
 
 グラデーション境界間の各点の色は、境界となる 2 つのグラデーション境界によって指定された色の組み合わせとして、直線的に補間されます。 この例の各グラデーション境界を次の図に示しています。 グラデーション境界の位置が円で示され、グラデーション軸が破線で示されています。
 
-![グラデーションの分岐点](images/linear-gradients-stops.png)を設定するグラデーションの分岐点が配置されている行を変更することができます、 [ **StartPoint** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.lineargradientbrush.startpoint)と[**エンドポイント**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.lineargradientbrush.endpoint)プロパティよりも異なる値である、`(0,0)`と`(1,1)`の既定値を開始します。 **StartPoint** と **EndPoint** の座標値を変更すると、水平方向や垂直方向のグラデーションを作成したり、グラデーション方向を反転したりできるほか、塗りつぶす領域全体よりも小さくなるようにグラデーションの適用範囲を狭めることができます。 グラデーションの領域を狭めるには、**StartPoint** または **EndPoint** (あるいはその両方) の値を 0 ～ 1 の範囲で変更します。 たとえば、フェード効果がブラシの左半分で完結し、右半分は、直近の [**GradientStop**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.GradientStop) に基づく単色であるような水平方向のグラデーションが必要な場合、**StartPoint** を `(0,0)` に、**EndPoint** を `(0.5,0)` に設定します。
+![グラデーション境界](images/linear-gradients-stops.png) グラデーション境界が配置される直線は、[**StartPoint**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.lineargradientbrush.startpoint) プロパティと [**EndPoint**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.lineargradientbrush.endpoint) プロパティを、開始の既定値である `(0,0)` と `(1,1)` 以外の値に設定することで変更できます。 **StartPoint** と **EndPoint** の座標値を変更すると、水平方向や垂直方向のグラデーションを作成したり、グラデーション方向を反転したりできるほか、塗りつぶす領域全体よりも小さくなるようにグラデーションの適用範囲を狭めることができます。 グラデーションの領域を狭めるには、**StartPoint** または **EndPoint** (あるいはその両方) の値を 0 ～ 1 の範囲で変更します。 たとえば、フェード効果がブラシの左半分で完結し、右半分は、直近の [**GradientStop**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.GradientStop) に基づく単色であるような水平方向のグラデーションが必要な場合、**StartPoint** を `(0,0)` に、**EndPoint** を `(0.5,0)` に設定します。
 
-### <a name="span-idusetoolstomakegradientsspanspan-idusetoolstomakegradientsspanspan-idusetoolstomakegradientsspanuse-tools-to-make-gradients"></a><span id="Use_tools_to_make_gradients"></span><span id="use_tools_to_make_gradients"></span><span id="USE_TOOLS_TO_MAKE_GRADIENTS"></span>ツールを使用してグラデーション
+### <a name="span-idusetoolstomakegradientsspanspan-idusetoolstomakegradientsspanspan-idusetoolstomakegradientsspanuse-tools-to-make-gradients"></a><span id="Use_tools_to_make_gradients"></span><span id="use_tools_to_make_gradients"></span><span id="USE_TOOLS_TO_MAKE_GRADIENTS"></span>ツールによるグラデーションの作成
 
 ここまで、線状グラデーションのしくみについて説明しました。次に、Visual Studio または Blend を使うと、これらのグラデーションの作成が簡単になります。 グラデーションを作成するには、デザイン サーフェイスまたは XAML ビューで、グラデーションを適用するオブジェクトを選択します。 **[ブラシ]** を展開し、 **[線状グラデーション]** タブをクリックします (次のスクリーンショットをご覧ください)。
 
@@ -137,7 +137,7 @@ XAML ではなくコードを使って [**SolidColorBrush**](https://docs.micros
 
 ![レンダリングされた ImageBrush。](images/brushes-imagebrush.jpg)
 
-[**ImageBrush** ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.ImageBrush)と[**イメージ**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Image)両方の参照イメージ ソース ファイルを (URI)、そのイメージのソース ファイルがいくつかの可能なイメージ形式を使用します。 これらのイメージ ソース ファイルは、URI として指定されます。 イメージ ソースの指定、使用できる画像形式、アプリへのパッケージ化について詳しくは、「[Image と ImageBrush](https://docs.microsoft.com/windows/uwp/controls-and-patterns/images-imagebrushes)」をご覧ください。
+[**ImageBrush**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.ImageBrush) と [**Image**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Image) は、どちらも Uniform Resource Identifier (URI) でイメージ ソース ファイルを参照します。また、イメージ ソース ファイルに使うことができる画像形式には、さまざまなものがあります。 これらのイメージ ソース ファイルは、URI として指定されます。 イメージ ソースの指定、使用できる画像形式、アプリへのパッケージ化について詳しくは、「[Image と ImageBrush](https://docs.microsoft.com/windows/uwp/controls-and-patterns/images-imagebrushes)」をご覧ください。
 
 ## <a name="brushes-and-text"></a>ブラシとテキスト
 
@@ -151,7 +151,7 @@ XAML ではなくコードを使って [**SolidColorBrush**](https://docs.micros
 
 ## <a name="xamlcompositionbrushbase"></a>XamlCompositionBrushBase
 
-[**XamlCompositionBrushBase** ](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.media.xamlcompositionbrushbase)はカスタム グループを作成するために使用する基本クラスのブラシを使用して[ **CompositionBrush** ](https://docs.microsoft.com/en-us/uwp/api/Windows.UI.Composition.CompositionBrush) XAML の UI 要素を描画します。
+[**XamlCompositionBrushBase**](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.media.xamlcompositionbrushbase) は、[**CompositionBrush**](https://docs.microsoft.com/en-us/uwp/api/Windows.UI.Composition.CompositionBrush) を使って XAML UI 要素を描画する、カスタム ブラシを作成するために使用する基底クラスです。
 
 これにより、Windows.UI.Xaml と Windows.UI.Composition レイヤー間の「ドロップ ダウン」相互運用を行えます。詳しくは、「[**ビジュアル レイヤーの概要**](/windows/uwp/composition/visual-layer)」をご覧ください。 
 
@@ -189,7 +189,7 @@ blueBrush = ref new SolidColorBrush(Windows::UI::Colors::Blue);
 
 [  **WebViewBrush**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.WebViewBrush) と [**ImageBrush**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.ImageBrush) を UI プロパティに使う場合、その前に既定のコンストラクターを使って他の API を呼び出してください。
 
--   [**ImageSource** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imagebrush.imagesourceproperty)が必要です、 [ **BitmapImage** ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Imaging.BitmapImage) (URI ではありません) を定義するとき、 [ **ImageBrush** ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.ImageBrush)を使用してコードです。 ソースがストリームである場合は、[**SetSourceAsync**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.bitmapsource.setsourceasync) メソッドを使って値を初期化します。 ソースが、**ms-appx**  スキームまたは **ms-resource** スキームを使うアプリ内のコンテンツを含む URI である場合は、URI を受け取る [**BitmapImage**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.bitmapimage.) コンストラクターを使います。 イメージ ソースが使えるようになるまで代替コンテンツを表示することが必要であるなど、イメージ ソースの取得やデコードについてタイミングの問題がある場合は、[**ImageOpened**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imagebrush.imageopened) イベントを処理することも検討してください。
+-   コードを使って [**ImageBrush**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.ImageBrush) を定義する場合、[**ImageSource**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imagebrush.imagesourceproperty) では [**BitmapImage**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Imaging.BitmapImage) (URI ではない) が必要です。 ソースがストリームである場合は、[**SetSourceAsync**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.bitmapsource.setsourceasync) メソッドを使って値を初期化します。 ソースが、**ms-appx**  スキームまたは **ms-resource** スキームを使うアプリ内のコンテンツを含む URI である場合は、URI を受け取る [**BitmapImage**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.bitmapimage.) コンストラクターを使います。 イメージ ソースが使えるようになるまで代替コンテンツを表示することが必要であるなど、イメージ ソースの取得やデコードについてタイミングの問題がある場合は、[**ImageOpened**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imagebrush.imageopened) イベントを処理することも検討してください。
 -   [  **WebViewBrush**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.WebViewBrush) については、[**SourceName**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webviewbrush.sourcename) プロパティを最近リセットした場合、または [**WebView**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.WebView) のコンテンツをコードを使って変更した場合に、[**Redraw**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webviewbrush.redraw) を呼び出す必要があります。
 
 コードの例については、[**WebViewBrush**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.WebViewBrush)、[**ImageBrush**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.ImageBrush)、[**XamlCompositionBrushBase**](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.media.xamlcompositionbrushbase) のリファレンス ページをご覧ください。
