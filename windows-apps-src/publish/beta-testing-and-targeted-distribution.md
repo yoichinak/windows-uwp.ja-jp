@@ -6,12 +6,12 @@ ms.date: 10/31/2018
 ms.topic: article
 keywords: windows 10, uwp, ベータ テスト, 限定配布, ベータ, ベータ版, テスト, テスター
 ms.localizationpriority: medium
-ms.openlocfilehash: 1c0a4d1053c35a831458c832131659b9cb888259
-ms.sourcegitcommit: fca0132794ec187e90b2ebdad862f22d9f6c0db8
+ms.openlocfilehash: 6cf7fb20129c0b616fcdb537ff8e612aec9b94a4
+ms.sourcegitcommit: 4aef8c01ba9321401d5729a1ec6d46452ee76faf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63787175"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67468925"
 ---
 # <a name="beta-testing-and-targeted-distribution"></a>ベータ テストとターゲット配布
 
@@ -55,9 +55,9 @@ ms.locfileid: "63787175"
 
 このオプションを使う方法は次のとおりです。
 
-- **[価格と使用可能状況]** ページの **[表示]** セクションにある [[Discoverability]](choose-visibility-options.md#discoverability) (見つけやすさ) で、**[この製品を Microsoft Store で提供しますが、検索はできないようにします]** を選択します。 オプションを選択**の取得を停止します。直接リンクを持つすべての顧客が製品のストアの一覧を確認できますが、前に、製品を所有しているが、プロモーション コードがあるし、Windows 10 デバイスを使用している場合のみダウンロードできます**します。 
+- **[価格と使用可能状況]** ページの **[表示]** セクションにある [[Discoverability]](choose-visibility-options.md#discoverability) (見つけやすさ) で、 **[この製品を Microsoft Store で提供しますが、検索はできないようにします]** を選択します。 オプションを選択**の取得を停止します。直接リンクを持つすべての顧客が製品のストアの一覧を確認できますが、前に、製品を所有しているが、プロモーション コードがあるし、Windows 10 デバイスを使用している場合のみダウンロードできます**します。 
 - アプリが認定に合格したら、アプリの[プロモーション コードを生成](generate-promotional-codes.md)し、テスターに配布します。 1 つのアプリに対して、6 か月間に最大 1,600 回分の引き換えを行うコードを生成できます。 これらのコードは、アプリの登録情報への直接リンクをテスターに提供します。申請の作成時にアプリに価格を設定していた場合でも、テスターは無料でアプリをダウンロードできます。
-- 一般ユーザーにアプリを提供する準備が整ったら、新しい申請を作成し、**[表示]** オプションを **[この製品を Microsoft Store で提供し、検索可能にします]** に変更します (他に必要な変更があれば実行します)。
+- 一般ユーザーにアプリを提供する準備が整ったら、新しい申請を作成し、 **[表示]** オプションを **[この製品を Microsoft Store で提供し、検索可能にします]** に変更します (他に必要な変更があれば実行します)。
 
 
 ## <a name="targeted-distribution-with-a-link-to-your-apps-listing"></a>アプリの登録情報へのリンクを使ったターゲット配布
@@ -65,12 +65,12 @@ ms.locfileid: "63787175"
 上記のオプションとは異なり、このオプションは Windows Phone 8.1 および Windows 10 (ただし、Windows 8 .x は除きます) を実行しているユーザーにのみ使うことができます。 Microsoft Store の検索や参照によってアプリを見つけることはできませんが、Store 登録情報への直接リンクを知っているユーザーであれば、Windows Phone 8.1 以前または Windows 10 を実行しているデバイスでアプリをダウンロードできます。 テスターが無料でアプリをダウンロードできるようにするためには、アプリの価格を **[無料]** に設定する必要がある点に注意してください。
 
 このオプションを使う方法は次のとおりです。
-- **[価格と使用可能状況]** ページの **[表示]** セクションにある [[Discoverability]](choose-visibility-options.md#discoverability) (見つけやすさ) で、**[この製品を Microsoft Store で提供しますが、検索はできないようにします]** を選択します。 オプションを選択**のみの直接リンク。製品のリストへの直接リンクを持つすべての顧客からダウンロードできますを除く Windows 8.x。** します。
+- **[価格と使用可能状況]** ページの **[表示]** セクションにある [[Discoverability]](choose-visibility-options.md#discoverability) (見つけやすさ) で、 **[この製品を Microsoft Store で提供しますが、検索はできないようにします]** を選択します。 オプションを選択**のみの直接リンク。製品のリストへの直接リンクを持つすべての顧客からダウンロードできますを除く Windows 8.x。** します。
 - 製品が公開されたら、リンク ([[アプリ ID] ページ](view-app-identity-details.md)の **URL**) をテスターに配布してテストできるようにします。
-- 一般ユーザーにアプリを提供する準備が整ったら、新しい申請を作成し、**[表示]** オプションを **[この製品を Microsoft Store で提供し、検索可能にします]** に変更します (他に必要な変更があれば実行します)。
+- 一般ユーザーにアプリを提供する準備が整ったら、新しい申請を作成し、 **[表示]** オプションを **[この製品を Microsoft Store で提供し、検索可能にします]** に変更します (他に必要な変更があれば実行します)。
 
 > [!IMPORTANT]
-> 2018 年 10 月 31 日の時点で、新しく作成された製品が Windows Phone を対象とするパッケージを含めることはできません 8.x 以前のバージョン。 詳細については、「この[ブログの投稿](https://blogs.windows.com/buildingapps/2018/08/20/important-dates-regarding-apps-with-windows-phone-8-x-and-earlier-and-windows-8-8-1-packages-submitted-to-microsoft-store/#SzKghBbqDMlmAO4c.97)します。
+> 2018 年 10 月 31 日の時点で、新しく作成された製品が Windows Phone を対象とするパッケージを含めることはできません 8.x 以前のバージョン。 詳細については、「この[ブログの投稿](https://blogs.windows.com/windowsdeveloper/2018/08/20/important-dates-regarding-apps-with-windows-phone-8-x-and-earlier-and-windows-8-8-1-packages-submitted-to-microsoft-store)します。
 
 ## <a name="targeted-distribution-to-windows-phone-customers-with-specified-email-addresses"></a>指定したメール アドレスを持つ Windows Phone ユーザーへのターゲット配布
 

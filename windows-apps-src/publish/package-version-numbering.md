@@ -6,12 +6,12 @@ ms.date: 10/31/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: bf71e5f6dd77da025a50866d32caca2870d3525b
-ms.sourcegitcommit: fca0132794ec187e90b2ebdad862f22d9f6c0db8
+ms.openlocfilehash: cfab93064cf2fa2edd91798167a2c2fbc368ecb1
+ms.sourcegitcommit: 4aef8c01ba9321401d5729a1ec6d46452ee76faf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63788429"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67468900"
 ---
 # <a name="package-version-numbering"></a>パッケージ バージョンの番号付け
 
@@ -50,7 +50,7 @@ Windows 10 をにより 1 つのコードベースを記述すること、どこ
 | 4          | パッケージ バージョン:2.0.0.0 <br> デバイス ファミリ:Windows.Universal, minVersion 10.0.10240.0   | -   Windows 10 ビルド v10.0.10240.0 以上のすべてのデバイス ファミリのすべてのユーザーはパッケージ 2.0.0.0 を取得。 | 
 
 > [!NOTE]
->  すべてのケースでは、お客様のデバイスは、対象となる最大の可能なバージョン番号を含むパッケージに表示されます。 たとえば、上記の 3 番目の申請では、OS バージョン 10.0.10250.0 以上で v1.1.5.0 を取得できる場合でも、すべてのデスクトップ デバイスが v1.1.10.0 を取得します。 1.1.10.0 は利用可能な最も大きいバージョン番号であるため、これが取得するパッケージになります。
+>  すべてのケースでは、お客様のデバイスは、対象となる最大の可能なバージョン番号を含むパッケージに表示されます。 たとえば、上記の 3 番目の申請では、OS バージョン 10.0.10250.0 以上で v1.1.5.0 を取得できる場合でも、すべてのデスクトップ デバイスが v1.1.10.0 を取得します。 1\.1.10.0 は利用可能な最も大きいバージョン番号であるため、これが取得するパッケージになります。
 
 ### <a name="using-version-numbering-to-roll-back-to-a-previously-shipped-package-for-new-acquisitions"></a>新規の取得のためにバージョン番号を使用して以前配布したパッケージにロールバックする
 
@@ -64,7 +64,7 @@ Windows 10 をにより 1 つのコードベースを記述すること、どこ
 ## <a name="version-numbering-for-windows81-and-earlier-and-windows-phone-81-packages"></a>バージョン番号を for Windows 8.1 (以降) および Windows Phone 8.1 パッケージ
 
 > [!IMPORTANT]
-> 2018 年 10 月 31 日の時点で、新しく作成された製品が Windows 8.x/Windows を対象とするパッケージを含めることはできません Phone 8.x 以前のバージョン。 詳細については、「この[ブログの投稿](https://blogs.windows.com/buildingapps/2018/08/20/important-dates-regarding-apps-with-windows-phone-8-x-and-earlier-and-windows-8-8-1-packages-submitted-to-microsoft-store/#SzKghBbqDMlmAO4c.97)します。
+> 2018 年 10 月 31 日の時点で、新しく作成された製品が Windows 8.x/Windows を対象とするパッケージを含めることはできません Phone 8.x 以前のバージョン。 詳細については、「この[ブログの投稿](https://blogs.windows.com/windowsdeveloper/2018/08/20/important-dates-regarding-apps-with-windows-phone-8-x-and-earlier-and-windows-8-8-1-packages-submitted-to-microsoft-store)します。
 
 Windows Phone 8.1 を対象とする .appx パッケージでは、新しい申請のパッケージのバージョン番号は最後の申請 (または、以前の申請) に含まれるパッケージの番号より常に大きい必要があります。
 
