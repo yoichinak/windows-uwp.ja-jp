@@ -17,7 +17,7 @@ ms.locfileid: "67399631"
 
 これは、従来のユーザー名とパスワードの認証システムの代わりに Windows Hello を使う Windows 10 UWP (ユニバーサル Windows プラットフォーム) アプリを作成する方法に関する詳しいチュートリアルのパート 1 です。 アプリでは、サインインにユーザー名を使い、アカウントごとに Hello キーを作成します。 これらのアカウントは、Windows Hello の構成時に Windows の設定でセットアップされた暗証番号 (PIN) によって保護されます。
 
-このチュートリアルは、アプリの作成とバックエンド サービスの接続の 2 つの部分に分かれています。 この記事で使用が終了したら、第 2 部に進みます。[Windows こんにちはログイン サービス](microsoft-passport-login-auth-service.md)します。
+このチュートリアルは、アプリの作成とバックエンド サービスの接続の 2 つの部分に分かれています。 この記事で使用が終了したら、第 2 部に進みます。[Windows Hello ログイン サービスの作成](microsoft-passport-login-auth-service.md)します。
 
 開始する前に、「[Windows Hello](microsoft-passport.md)」の概要を読んで、Windows Hello の全般的なしくみを理解してください。
 
@@ -876,7 +876,7 @@ ms.locfileid: "67399631"
 
     ![Windows Hello のユーザー選択用の一覧](images/passport-login-10.png)
 
-## <a name="exercise-3-registering-a-new-windows-hello-user"></a>手順 3:新しい Windows こんにちはユーザーを登録します。
+## <a name="exercise-3-registering-a-new-windows-hello-user"></a>手順 3:新しいWindows Helloユーザーを登録する
 
 
 この演習では、Windows Hello を使って新しいアカウントを作成する新しいページを作成します。 このページは、Login ページの動作と似ています。 Login ページは、Windows Hello の使用に移行する既存のユーザーのために実装されます。 PassportRegister ページでは、新しいユーザーの Windows Hello の登録が作成されます。
@@ -970,4 +970,4 @@ ms.locfileid: "67399631"
 ## <a name="related-topics"></a>関連トピック
 
 * [Windows Hello](microsoft-passport.md)
-* [Windows こんにちはログイン サービス](microsoft-passport-login-auth-service.md)
+* [Windows Hello ログイン サービスの作成](microsoft-passport-login-auth-service.md)
