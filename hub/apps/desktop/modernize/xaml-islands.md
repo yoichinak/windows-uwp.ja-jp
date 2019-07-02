@@ -3,7 +3,7 @@ description: このガイドは、WPF および Windows フォーム アプリ�
 title: デスクトップ アプリでの UWP コントロール
 ms.date: 04/16/2019
 ms.topic: article
-keywords: windows 10、uwp、windows フォーム、wpf、xaml 諸島
+keywords: windows 10、uwp、windows フォーム、wpf、xaml islands
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
@@ -17,7 +17,7 @@ ms.locfileid: "67414097"
 ---
 # <a name="host-uwp-xaml-controls-in-desktop-apps-xaml-islands"></a>デスクトップ アプリ (XAML Islands) でホスト UWP XAML コントロールを使用します。
 
-Windows 10 バージョン1903以降では、*XAML Islands* と呼ばれる機能を使用して、UWP 以外のデスクトップアプリケーションでUWPコントロールをホストできます。 この機能を使用すると、UWPコントロールを介してのみ利用可能な最新の Windows 10 UI機能を使用して、既存のデスクトップアプリケーションの外観、操作性、および機能性を向上させることができます。 つまり、既存の WPF、Windowsフォーム、およびC ++ Win32 アプリケーションで [Windows Ink](/windows/uwp/design/input/pen-and-stylus-interactions)などの UWP 機能と [Fluent Design System](/windows/uwp/design/fluent-design-system/index) をサポートするコントロールを使用できます。
+Windows 10 バージョン1903以降では、*XAML Islands* と呼ばれる機能を使用して、UWP 以外のデスクトップアプリケーションでUWPコントロールをホストできます。この機能を使用すると、UWPコントロールを介してのみ利用可能な最新の Windows 10 UI機能を使用して、既存のデスクトップアプリケーションの外観、操作性、および機能性を向上させることができます。つまり、既存の WPF、Windowsフォーム、およびC ++ Win32 アプリケーションで [Windows Ink](/windows/uwp/design/input/pen-and-stylus-interactions)などの UWP 機能と [Fluent Design System](/windows/uwp/design/fluent-design-system/index) をサポートするコントロールを使用できます。 
 
 XAML 諸島で、Windows フォーム、WPF を使用するいくつかの方法を紹介し、C++テクノロジまたは使用しているフレームワークに応じて、Win32 アプリケーション。 
 
@@ -70,7 +70,7 @@ Windows の Community Toolkit は XAML の島をラップされたコントロ�
 
 ## <a name="requirements"></a>要件
 
-XAML Islandsには、Windows 10、バージョン1903以降が必要です。 アプリケーションで XAML Islands を使用するには、まずプロジェクトを設定する必要があります。
+XAML Islandsには、Windows 10、バージョン1903以降が必要です。アプリケーションで XAML Islands を使用するには、まずプロジェクトを設定する必要があります。
 
 ### <a name="step-1-modify-your-project-to-use-windows-runtime-apis"></a>手順 1:Windows ランタイム Api を使用して、プロジェクトを変更します。
 
