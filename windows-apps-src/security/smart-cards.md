@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp, セキュリティ
 ms.localizationpriority: medium
-ms.openlocfilehash: 5498480e0dbe2c8be96d92df766b15676a3e6b7b
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: ff17facbb22e4e336b302415b0b64d0dffda93e0
+ms.sourcegitcommit: 68051d2adcf3facc036c9f4c76d82bb4d342a75f
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66371934"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67498884"
 ---
 # <a name="smart-cards"></a>スマート カード
 
@@ -82,6 +82,9 @@ SmartCardProvisioning provisioning = await
 ```
 
 関連付けられた [**SmartCardProvisioning**](https://docs.microsoft.com/uwp/api/Windows.Devices.SmartCards.SmartCardProvisioning) オブジェクトが [**RequestVirtualSmartCardCreationAsync**](https://docs.microsoft.com/uwp/api/windows.devices.smartcards.smartcardprovisioning.requestvirtualsmartcardcreationasync) から返されたら、仮想スマート カードのプロビジョニングが完了し、使う準備ができたことになります。
+
+>[!NOTE]
+>UWP アプリを使用して仮想スマート カードを作成するには、アプリを実行しているユーザーは、administrators グループのメンバーにある必要があります。 ユーザーが administrators グループのメンバーでない場合は、仮想スマート カードの作成は失敗します。
 
 ## <a name="handle-authentication-challenges"></a>認証チャレンジの処理
 

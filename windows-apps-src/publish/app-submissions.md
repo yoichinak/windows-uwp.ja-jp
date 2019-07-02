@@ -6,12 +6,12 @@ keywords: チェックリスト, windows, uwp, 申請, 提出, ゲーム, アプ
 ms.date: 10/31/2018
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 2fe5d44823821208a2384aec9d66037c4da3865f
-ms.sourcegitcommit: 4aef8c01ba9321401d5729a1ec6d46452ee76faf
+ms.openlocfilehash: 7c535b77c68f4375f70fe344165f96d66a551eaf
+ms.sourcegitcommit: d8ce1a25ac0373acafb394837eb5c0737f6efec8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67468928"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67486422"
 ---
 # <a name="app-submissions"></a>アプリの申請
 
@@ -96,10 +96,8 @@ ms.locfileid: "67468928"
 | **スクリーン ショット**               | 必須 (スクリーンショット 1 つ以上。4 つ以上を推奨)          | [スクリーン ショット](app-screenshots-and-images.md#screenshots)          |
 | **ストア ロゴ**               | 推奨。一部の OS バージョンで必須 | [ストア ロゴ](app-screenshots-and-images.md#store-logos)             |
 | **トレーラー**                  | 省略可能                                    | [トレーラー](app-screenshots-and-images.md#trailers)                | 
-| **Windows 10 と Xbox のイメージ (16:9 のスーパー ヒーロー アート)**     | 推奨        | [Windows 10 および Xbox イメージ (16:9 のスーパー ヒーロー アート)
-(app-screenshots-and-images.md#windows-10-and-xbox-image-169-super-hero-art) |
-| **Xbox のイメージ**     | Xbox を発行する場合に必要な適切な表示        | [Xbox イメージ
-(アプリのスクリーン ショット-images.md #xbox-イメージ) |
+| **Windows 10 と Xbox のイメージ (16:9 のスーパー ヒーロー アート)**     | 推奨        | [Windows 10 と Xbox のイメージ (16:9 のスーパー ヒーロー アート)](app-screenshots-and-images.md#windows-10-and-xbox-image-169-super-hero-art) |
+| **Xbox のイメージ**     | Xbox を発行する場合に必要な適切な表示        | [Xbox のイメージ](app-screenshots-and-images.md#xbox-images) |
 | **補足的なフィールド**  | 省略可能                                    | [補足的なフィールド](create-app-store-listings.md#supplemental-fields) 
 | **検索語句**              | 省略可能                                    | [検索語句](create-app-store-listings.md#search-terms)         |
 | **著作権と商標情報** | 省略可能                                 | [著作権と商標情報](create-app-store-listings.md#copyright-and-trademark-info) |
