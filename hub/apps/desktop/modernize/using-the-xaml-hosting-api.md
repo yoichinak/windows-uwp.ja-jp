@@ -22,7 +22,7 @@ ms.locfileid: "67317759"
 API をホストしている UWP XAML では、開発者がデスクトップ アプリケーションを UWP 以外に Fluent UI を表示できるようにするコントロールの広範なセットの基盤を提供します。 この機能は呼*XAML 諸島*します。 この機能の概要については、次を参照してください。[デスクトップ アプリケーションでの UWP コントロール](xaml-islands.md)します。
 
 > [!NOTE]
-> XAML 諸島に関するフィードバックをした場合で新しい問題を作成、 [Microsoft.Toolkit.Win32 リポジトリ](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/issues)がコメントを残すとします。 プライベート フィードバックを送信する場合に送信できますXamlIslandsFeedback@microsoft.comします。 Insights とシナリオは弊社にとって非常に重要です。
+> XAML Islands に関するフィードバックがある場合は、 [Microsoft.Toolkit.Win32 リポジトリ](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/issues)に新しい問題を作成し、そこにコメントを残してください。 個人的にフィードバックを送信したい場合は、XamlIslandsFeedback@microsoft.com に送信できます。 あなたの洞察とシナリオは弊社にとって非常に重要です。
 
 ## <a name="should-you-use-the-uwp-xaml-hosting-api"></a>API をホストしている UWP XAML を使用する必要がありますか。
 
@@ -39,9 +39,9 @@ API をホストしている UWP XAML は、デスクトップ アプリケー�
 API をホストしている UWP XAML では、これらの前提条件があります。
 
 * Windows 10、バージョンが 1903 (またはそれ以降) と、対応する Windows SDK のビルドします。
-* Windows ランタイム Api を使用し、次の XAML 諸島を有効にするプロジェクトを構成する[手順](xaml-islands.md#requirements)します。
+* Windows ランタイム Api を使用し、次の XAML Islands を有効にするプロジェクトを構成する[手順](xaml-islands.md#requirements)
 
-## <a name="architecture-of-xaml-islands"></a>XAML 諸島のアーキテクチャ
+## <a name="architecture-of-xaml-islands"></a>XAML Islands のアーキテクチャ
 
 API をホストしている UWP XAML には、これらのメインの Windows ランタイム型および COM インターフェイスが含まれています。
 
@@ -170,7 +170,7 @@ API をホストしている UWP XAML を使用して、アプリケーション
 
 ## <a name="handle-keyboard-input-and-focus-navigation"></a>キーボードの入力とフォーカスのナビゲーションを処理します。
 
-アプリで XAML 諸島をホストするときに、キーボードの入力とフォーカスのナビゲーションを正しく処理するために必要ないくつかの点があります。
+アプリで XAML Islands をホストするときに、キーボードの入力とフォーカスのナビゲーションを正しく処理するために必要ないくつかの点があります。
 
 ### <a name="keyboard-input"></a>キーボード入力
 
@@ -274,4 +274,4 @@ UWP XAML フレームワークは、(たとえば、さまざまな画面の DPI
 ## <a name="related-topics"></a>関連トピック
 
 * [デスクトップ アプリケーションでの UWP コントロール](xaml-islands.md)
-* [C++Win32 XAML 諸島サンプル](https://github.com/marb2000/XamlIslands/tree/master/19H1_Insider_Samples/CppWin32App_With_Island)
+* [C++Win32 XAML Islandsサンプル](https://github.com/marb2000/XamlIslands/tree/master/19H1_Insider_Samples/CppWin32App_With_Island)
