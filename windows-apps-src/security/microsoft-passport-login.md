@@ -876,7 +876,7 @@ ms.locfileid: "67399631"
 
     ![Windows Hello のユーザー選択用の一覧](images/passport-login-10.png)
 
-## <a name="exercise-3-registering-a-new-windows-hello-user"></a>手順 3:新しい Windows こんにちはユーザーを登録します。
+## <a name="exercise-3-registering-a-new-windows-hello-user"></a>手順 3:新しいWindows Helloユーザーを登録する
 
 
 この演習では、Windows Hello を使って新しいアカウントを作成する新しいページを作成します。 このページは、Login ページの動作と似ています。 Login ページは、Windows Hello の使用に移行する既存のユーザーのために実装されます。 PassportRegister ページでは、新しいユーザーの Windows Hello の登録が作成されます。
