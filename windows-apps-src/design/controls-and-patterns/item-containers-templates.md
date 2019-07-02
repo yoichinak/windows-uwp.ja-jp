@@ -1,5 +1,5 @@
 ---
-Description: ListView、GridView コントロール内の項目の外観を変更するのにには、テンプレートを使用します。
+Description: テンプレートを使って、ListView コントロールや GridView コントロールの項目の外観を変更します。
 title: 項目コンテナーやテンプレート
 label: Item containers and templates
 template: detail.hbs
@@ -13,10 +13,10 @@ dev-contact: ranjeshj
 doc-status: Published
 ms.localizationpriority: medium
 ms.openlocfilehash: 2402be26a14d2e57a482a68cf8d5b587f4e65dd1
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66364953"
 ---
 # <a name="item-containers-and-templates"></a>項目コンテナーやテンプレート
@@ -25,13 +25,13 @@ ms.locfileid: "66364953"
 
 **ListView** コントロールと **GridView** コントロールでは、項目の配置方法 (水平、垂直、折り返しなど) や、ユーザーが項目を操作する方法を管理しますが、画面に個別の項目を表示する方法については管理しません。 項目の視覚エフェクトは、項目コンテナーによって管理されます。 リスト ビューに項目を追加すると、追加した項目はコンテナーに自動的に設定されます。 ListView の既定の項目コンテナーは [ListViewItem](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListViewItem) であり、GridView の既定の項目コンテナーは [GridViewItem](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.GridViewItem) です。
 
-> **重要な API**:[ListView クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listview)、 [GridView クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.gridview)、 [ItemTemplate プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemtemplate)、 [ItemContainerStyle プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemcontainerstyle)
+> **重要な API**:[ListView クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listview)、[GridView クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.gridview)、[ItemTemplate プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemtemplate)、[ItemContainerStyle プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemcontainerstyle)
 
 
 > [!NOTE]
 > ListView と GridView はどちらも [ListViewBase](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase) クラスから派生しているため、同じ機能を持ちますが、データの表示方法が異なります。 この記事では、特に指定がない限り、リスト ビューについての説明は ListView コントロールにも GridView コントロールにも適用されます。 ListView や ListViewItem などのクラスの説明については、プレフィックスの *"List"* を *"Grid"* に置き換えることで、対応するグリッド クラス (GridView または GridViewItem) に適用できます。 
 
-これらのコンテナー コントロールは、"データ テンプレート" *と* "コントロール テンプレート" *という* 2 つの重要な部分から構成されており、これらを組み合わせることによって 1 つの項目で表示する最終的な外観が形成されます。
+これらのコンテナー コントロールは、 *"データ テンプレート"* と *"コントロール テンプレート"* という 2 つの重要な部分から構成されており、これらを組み合わせることによって 1 つの項目で表示する最終的な外観が形成されます。
 
 - **データ テンプレート** - [DataTemplate](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.DataTemplate) をリスト ビューの [ItemTemplate](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemtemplate) プロパティに割り当てて、個別のデータ項目の表示方法を指定します。
 - **コントロール テンプレート** - コントロール テンプレートは、表示状態など、フレームワークが担当する項目の視覚エフェクトの一部を提供します。 [ItemContainerStyle](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemcontainerstyle) プロパティを使って、コントロール テンプレートを変更できます。 通常では、ブランドに合うようにリスト ビューの色を変更したり、選択した項目の表示方法を変更する目的で、コントロール テンプレートを変更します。
@@ -262,7 +262,7 @@ GridView でデータを表示することが必要になる場合もありま�
 
 データ テンプレートは、リスト ビューの外観を定義する主要な方法です。 リストに多数の項目を表示した場合、パフォーマンスが大幅に低下することもあります。 
 
-データ テンプレートのすべての XAML 要素のインスタンスが、リスト ビューの各項目用に作成されます。 たとえば、前の例のグリッド テンプレートには、10 個の XAML 要素 (1 つの Grid、1 つの Rectangle、3 つの Border、5 つの Textblock) が含まれています。 このデータ テンプレートを使って 20 個の項目を表示する GridView は、少なくとも 200 個 (20*10=200) の要素を作成します。 データ テンプレートの要素数を減らすと、リスト ビューで作成する要素の総数が大幅に減少します。 詳細については、次を参照してください。 [ListView および GridView の UI の最適化。項目ごとの要素数の削減](https://docs.microsoft.com/windows/uwp/debug-test-perf/optimize-gridview-and-listview)します。
+データ テンプレートのすべての XAML 要素のインスタンスが、リスト ビューの各項目用に作成されます。 たとえば、前の例のグリッド テンプレートには、10 個の XAML 要素 (1 つの Grid、1 つの Rectangle、3 つの Border、5 つの Textblock) が含まれています。 このデータ テンプレートを使って 20 個の項目を表示する GridView は、少なくとも 200 個 (20*10=200) の要素を作成します。 データ テンプレートの要素数を減らすと、リスト ビューで作成する要素の総数が大幅に減少します。 詳しくは、[「ListView と GridView の UI の最適化」で項目ごとの要素数の削減](https://docs.microsoft.com/windows/uwp/debug-test-perf/optimize-gridview-and-listview)に関するセクションをご覧ください。
 
  このセクションのグリッド データ テンプレートについて考えてみます。 要素数を減らすための手法を確認しましょう。
 
@@ -333,14 +333,14 @@ ListViewItems プロパティにテンプレート バインドされていな�
 > [!NOTE]
 > ListViewItem と GridViewItem の既定のスタイルには、ListViewItemPresenter の多くのプロパティが設定されています。 常に既定のスタイルのコピーを作成し、必要なプロパティのみ変更することをお勧めします。 そうしなければ、一部のプロパティを正しく設定していないことが原因で、視覚効果が期待どおりに表示されない可能性があります。
 
-**Visual Studio で、既定のテンプレートのコピーを作成するには**
+**Visual Studio で既定のテンプレートのコピーを作成するには**
  
 1. [ドキュメント アウトライン] ウィンドウを開きます ( **[表示] > [その他のウィンドウ] > [ドキュメント アウトライン]** )。
 2. 変更するリストまたはグリッドの要素を選びます。 この例では、`colorsGridView` 要素を変更します。
 3. `colorsGridView` を右クリックし、 **[追加テンプレートの編集]、[生成されたアイテム コンテナーの編集 (ItemContainerStyle)]、[コピーして編集]** の順に選びます。
-    ![Visual Studio エディター](images/listview-itemcontainerstyle-vs.png)
-4. Style リソースの作成 ダイアログ ボックスで、スタイルの名前を入力します。 この例では、`colorsGridViewItemStyle` を使います。
-    ![Visual Studio Create Style Resource dialog(images/listview-style-resource-vs.png)
+    ![Visual Studio のエディター](images/listview-itemcontainerstyle-vs.png)
+4. [Style リソースの作成] ダイアログ ボックスで、スタイルの名前を入力します。 この例では、`colorsGridViewItemStyle` を使います。
+    ![Visual Studio の [Style リソースの作成] ダイアログ (images/listview-style-resource-vs.png)
 
 次の XAML で示すように、既定のスタイルのコピーをリソースとしてアプリに追加し、**GridView.ItemContainerStyle** プロパティをそのリソースに設定します。 
 
@@ -404,8 +404,8 @@ ListView と GridView では、コントロールや [SelectionMode](https://doc
 
 [CheckMode](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.listviewitempresenter.checkmode) プロパティを設定して、インライン スタイルまたはオーバーレイ スタイルのどちらを使ってチェック ボックスを表示するかを指定できます。
 
-- **インライン**:このスタイルは、コンテンツの左側にチェック ボックスを表示し、選択を示すため、項目コンテナーの背景の色します。 これは、ListView の既定のスタイルです。
-- **オーバーレイ**:このスタイルを使用して、コンテンツ上に、チェック ボックスを示しています、のみを選択範囲を示すために、項目コンテナーの境界線の色します。 これは、GridView の既定のスタイルです。
+- **インライン**:このスタイルは、コンテンツの左側にチェック ボックスを表示し、項目コンテナーの背景を色付けすることで、選択された状態を示します。 これは、ListView の既定のスタイルです。
+- **オーバーレイ**:このスタイルは、コンテンツの上部にチェック ボックスを表示し、項目コンテナーの境界線のみを色付けすることで、選択された状態を示します。 これは、GridView の既定のスタイルです。
 
 次の表は、選択された状態を示すために使用する既定の視覚効果を示しています。
 
@@ -430,13 +430,13 @@ SelectionMode: &nbsp;&nbsp; | Single/Extended | Multiple
 
 状態/ブラシの名前 | インライン スタイル | オーバーレイ スタイル
 ------------|--------------|--------------
-<b>標準</b><ul><li><b>CheckBoxBrush="Red"</b></li></ul> | ![インラインの項目の選択 (通常)](images/listview-item-normal.png) | ![オーバーレイの項目の選択 (通常)](images/gridview-item-normal.png)
+<b>Normal</b><ul><li><b>CheckBoxBrush="Red"</b></li></ul> | ![インラインの項目の選択 (通常)](images/listview-item-normal.png) | ![オーバーレイの項目の選択 (通常)](images/gridview-item-normal.png)
 <b>PointerOver</b><ul><li><b>PointerOverForeground="DarkOrange"</b></li><li><b>PointerOverBackground="MistyRose"</b></li><li>CheckBoxBrush="Red"</li></ul> | ![インラインの項目の選択 (ホバー)](images/listview-item-pointerover.png) | ![オーバーレイの項目の選択 (ホバー)](images/gridview-item-pointerover.png)
-<b>押されました。</b><ul><li><b>PressedBackground="LightCyan"</b></li><li>PointerOverForeground="DarkOrange"</li><li>CheckBoxBrush="Red"</li></ul> | ![インラインの項目の選択 (押す)](images/listview-item-pressed.png) | ![オーバーレイの項目の選択 (押す)](images/gridview-item-pressed.png)
-<b>選択されています。</b><ul><li><b>SelectedForeground="Navy"</b></li><li><b>SelectedBackground「カーキ」を =</b></li><li><b>CheckBrush="Green"</b></li><li>CheckBoxBrush="Red" (インラインのみ)</li></ul> | ![インラインの項目の選択 (選択)](images/listview-item-selected.png) | ![オーバーレイの項目の選択 (選択)](images/gridview-item-selected.png)
+<b>Pressed</b><ul><li><b>PressedBackground="LightCyan"</b></li><li>PointerOverForeground="DarkOrange"</li><li>CheckBoxBrush="Red"</li></ul> | ![インラインの項目の選択 (押す)](images/listview-item-pressed.png) | ![オーバーレイの項目の選択 (押す)](images/gridview-item-pressed.png)
+<b>Selected</b><ul><li><b>SelectedForeground="Navy"</b></li><li><b>SelectedBackground="Khaki"</b></li><li><b>CheckBrush="Green"</b></li><li>CheckBoxBrush="Red" (インラインのみ)</li></ul> | ![インラインの項目の選択 (選択)](images/listview-item-selected.png) | ![オーバーレイの項目の選択 (選択)](images/gridview-item-selected.png)
 <b>PointerOverSelected</b><ul><li><b>SelectedPointerOverBackground="Lavender"</b></li><li>SelectedForeground="Navy"</li><li>SelectedBackground="Khaki" (オーバーレイのみ)</li><li>CheckBrush="Green"</li><li>CheckBoxBrush="Red" (インラインのみ)</li></ul> | ![インラインの項目の選択 (ホバー、選択)](images/listview-item-pointeroverselected.png) | ![オーバーレイの項目の選択 (ホバー、選択)](images/gridview-item-pointeroverselected.png)
 <b>PressedSelected</b><ul><li><b>SelectedPressedBackground="MediumTurquoise"</b></li></li><li>SelectedForeground="Navy"</li><li>SelectedBackground="Khaki" (オーバーレイのみ)</li><li>CheckBrush="Green"</li><li>CheckBoxBrush="Red" (インラインのみ)</li></ul> | ![インラインの項目の選択 (押す、選択)](images/listview-item-pressedselected.png) | ![オーバーレイの項目の選択 (押す、選択)](images/gridview-item-pressedselected.png)
-<b>重点を置いています</b><ul><li><b>FocusBorderBrush="Crimson"</b></li><li><b>FocusSecondaryBorderBrush="Gold"</b></li><li>CheckBoxBrush="Red"</li></ul> | ![インラインの項目の選択 (フォーカス)](images/listview-item-focused.png) | ![オーバーレイの項目の選択 (フォーカス)](images/gridview-item-focused.png)
+<b>Focused</b><ul><li><b>FocusBorderBrush="Crimson"</b></li><li><b>FocusSecondaryBorderBrush="Gold"</b></li><li>CheckBoxBrush="Red"</li></ul> | ![インラインの項目の選択 (フォーカス)](images/listview-item-focused.png) | ![オーバーレイの項目の選択 (フォーカス)](images/gridview-item-focused.png)
 
 ListViewItemPresenter には、データのプレース ホルダーやドラッグ状態用のブラシ プロパティが他にもあります。 リスト ビューで段階的読み込みやドラッグ アンド ドロップを使用する場合は、このような追加のブラシ プロパティを変更する必要があるかについても検討することをお勧めします。 変更できるプロパティの完全な一覧については、ListViewItemPresenter クラスをご覧ください。 
 
@@ -451,14 +451,14 @@ ListViewItemPresenter には、データのプレース ホルダーやドラッ
 
 展開時の XAML テンプレートをカスタマイズするには、アプリでコピーを作成し、コピーに **ItemContainerStyle** プロパティを設定します。
 
-**展開テンプレートをコピーするには**
+**展開時のテンプレートをコピーするには**
 1. 次に示すように、ListView または GridView に ItemContainerStyle プロパティを設定します。
     ```xaml
     <ListView ItemContainerStyle="{StaticResource ListViewItemExpanded}"/>
     <GridView ItemContainerStyle="{StaticResource GridViewItemExpanded}"/>
     ```
 2. Visual Studio の [プロパティ] ウィンドウで、[その他] セクションを展開し、ItemContainerStyle プロパティを探します。 (ListView または GridView が選択されていることを確認します)。
-3. ItemContainerStyle プロパティのプロパティ マーカーをクリックします。 (TextBox の横にある小さなボックスです。 Coloreed 緑、StaticResource に設定されていることを説明します。)プロパティ メニューが開きます。
+3. ItemContainerStyle プロパティのプロパティ マーカーをクリックします。 (TextBox の横にある小さなボックスです。 StaticResource に設定されていることを示すために緑色で表示されています)。プロパティ メニューが開きます。
 4. プロパティ メニューで、 **[新しいリソースに変換]** をクリックします。 
     
     ![Visual Studio のプロパティ メニュー](images/listview-convert-resource-vs.png)

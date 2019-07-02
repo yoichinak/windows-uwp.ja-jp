@@ -7,10 +7,10 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: 8278e02de4d0f9a0efa301051a57bf59bce8d520
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66363298"
 ---
 # <a name="sockets"></a>ソケット
@@ -24,7 +24,7 @@ ms.locfileid: "66363298"
 ## <a name="build-a-basic-tcp-socket-client-and-server"></a>基本的な TCP ソケット クライアントおよびサーバーを構築する
 TCP (伝送制御プロトコル) ソケットは、有効期間が長い接続用にどちらの方向にも下位レベルのネットワーク データ転送機能を提供します。 TCP ソケットは、インターネットで使われるほとんどのネットワーク プロトコルのベースとなる機能です。 基本的な TCP 操作の方法を示すため、以下のコード例では、TCP 経由でデータを送受信してエコー クライアントおよびサーバーを形成する [**StreamSocket**](/uwp/api/Windows.Networking.Sockets.StreamSocket) と [**StreamSocketListener**](/uwp/api/Windows.Networking.Sockets.StreamSocketListener) を示しています。
 
-できるだけ少ない可動部分で始まる&mdash;と現在のネットワーク分離の問題を回避する&mdash;、新しいプロジェクトを作成し、クライアントと次のサーバー コードの両方を同じプロジェクトに配置します。
+できる限り少ない可変要素から始めるため (さらに、今のところはネットワーク分離の問題を回避するため)、新しいプロジェクトを作成し、以下のクライアント コードとサーバー コードの両方を同じプロジェクトを配置します。
 
 プロジェクトで[アプリの機能を宣言](../packaging/app-capability-declarations.md)する必要があります。 アプリ パッケージ マニフェストのソース ファイル (`Package.appxmanifest` ファイル) を開き、[機能] タブで **[プライベート ネットワーク (クライアントとサーバー)]** をオンにします。 `Package.appxmanifest` マークアップはこのようになります。
 
@@ -521,7 +521,7 @@ void StreamSocketListener_ConnectionReceived(Windows::Networking::Sockets::Strea
 }
 ```
 
-**StreamSocket** の観点では、完了ハンドラーは継続本文が実行される前に実行を完了します (およびソケットは破棄の対象となります)。 したがって、ソケットをその継続内で使用する場合はソケットが破棄されないようにするには、ソケットを直接参照 (ラムダ キャプチャを使用) して使うか、間接的に参照 (継続内の `args->Socket` にアクセスし続けることにより) するか、継続タスクを強制的にインラインにする必要があります。 [StreamSocket のサンプル](https://go.microsoft.com/fwlink/p/?LinkId=620609)では、最初の手法 (ラムダ キャプチャ) が実行される様子を確認できます。 C +/cli/CX コードで、[基本的な TCP ソケット クライアントおよびサーバーを作成](#build-a-basic-tcp-socket-client-and-server)前のセクションは、2 番目の手法を使用して&mdash;、要求、応答として返信をエコーしにアクセスする`args->Socket`から最も内側のいずれかの内側継続します。
+**StreamSocket** の観点では、完了ハンドラーは継続本文が実行される前に実行を完了します (およびソケットは破棄の対象となります)。 したがって、ソケットをその継続内で使用する場合はソケットが破棄されないようにするには、ソケットを直接参照 (ラムダ キャプチャを使用) して使うか、間接的に参照 (継続内の `args->Socket` にアクセスし続けることにより) するか、継続タスクを強制的にインラインにする必要があります。 [StreamSocket のサンプル](https://go.microsoft.com/fwlink/p/?LinkId=620609)では、最初の手法 (ラムダ キャプチャ) が実行される様子を確認できます。 上記の「[基本的な TCP ソケット クライアントおよびサーバーを構築する](#build-a-basic-tcp-socket-client-and-server)」の C++/CX コードでは、2 番目の手法を使っています。要求を応答としてエコーし、最も内側にあるいずれかの継続内から `args->Socket` にアクセスします。
 
 3 番目の手法は、応答をエコーしない場合に適しています。 PPL が継続本文をインラインで実行すること強制するには、`task_continuation_context::use_synchronous_execution()` オプションを使います。 この方法を示すコード例を次に示します。
 
@@ -1202,7 +1202,7 @@ private async void BatchedSendsCSharpOnly(Windows.Networking.Sockets.StreamSocke
 }
 ```
 
-次の例は、C# の場合だけでなくあらゆる UWP 言語に当てはまります。 送信をまとめてバッチ処理する [**StreamSocket.OutputStream**](/uwp/api/windows.networking.sockets.streamsocket.OutputStream) と [**DatagramSocket.OutputStream**](/uwp/api/windows.networking.sockets.datagramsocket.OutputStream) での動作に依存しています。 手法呼び出し[ **FlushAsync** ](/uwp/api/windows.storage.streams.ioutputstream.FlushAsync)時点では、Windows 10 を返す出力ストリームのすべての操作が完了した後にのみ保証される出力ストリームにします。
+次の例は、C# の場合だけでなくあらゆる UWP 言語に当てはまります。 送信をまとめてバッチ処理する [**StreamSocket.OutputStream**](/uwp/api/windows.networking.sockets.streamsocket.OutputStream) と [**DatagramSocket.OutputStream**](/uwp/api/windows.networking.sockets.datagramsocket.OutputStream) での動作に依存しています。 この手法は、出力ストリームでのすべての操作が完了した後にのみ返されることが保証される (Windows 10 の時点では) 出力ストリームで [**FlushAsync**](/uwp/api/windows.storage.streams.ioutputstream.FlushAsync) を呼び出します。
 
 ```csharp
 // An implementation of batched sends suitable for any UWP language.
@@ -1276,14 +1276,14 @@ private:
 
 -   書き込まれる **IBuffer** インスタンスの内容は、非同期書き込みが完了するまで変更できません。
 -   **FlushAsync**パターンは、**StreamSocket.OutputStream** と **DatagramSocket.OutputStream** のみで機能します。
--   **FlushAsync**パターンは、Windows 10 以降にのみ機能します。
+-   **FlushAsync** パターンは、Windows 10 以降でのみ機能します。
 -   状況によっては、**FlushAsync** パターンの代わりに [**Task.WaitAll**](https://docs.microsoft.com/en-us/dotnet/api/system.threading.tasks.task.waitall?view=netcore-2.0#System_Threading_Tasks_Task_WaitAll_System_Threading_Tasks_Task___) を使います。
 
 ## <a name="port-sharing-for-datagramsocket"></a>DatagramSocket でのポートの共有
 同じアドレス/ポートにバインドされた他の Win32 または UWP マルチキャスト ソケットと共存するように [**DatagramSocket**](/uwp/api/Windows.Networking.Sockets.DatagramSocket) を構成することができます。 これを行うには、ソケットをバインドまたは接続する前に [**DatagramSocketControl.MulticastOnly**](/uwp/api/Windows.Networking.Sockets.DatagramSocketControl.MulticastOnly) を `true` に設定します。 [  **DatagramSocket.Control**](/uwp/api/windows.networking.sockets.datagramsocket.Control) プロパティを通じて **DatagramSocket** オブジェクト自体から **DatagramSocketControl** のインスタンスにアクセスします。
 
 ## <a name="providing-a-client-certificate-with-the-streamsocket-class"></a>StreamSocket クラスによるクライアント証明書の提供
-[**StreamSocket** ](/uwp/api/Windows.Networking.Sockets.StreamSocket)クライアント アプリと対話しているサーバーの認証に SSL や TLS の使用をサポートします。 場合によっては、クライアント アプリは、SSL/TLS クライアント証明書を使って自身をサーバーに対して認証する必要があります。 ソケットをバインドまたは接続する前に (SSL/TLS ハンドシェイクが始まる前に設定する必要があります) [**StreamSocketControl.ClientCertificate**](/uwp/api/windows.networking.sockets.streamsocketcontrol.ClientCertificate) プロパティを使ってクライアント証明書を提供できます。 [  **StreamSocket.Control**](/uwp/api/windows.networking.sockets.streamsocket.Control) プロパティを通じて **StreamSocket** オブジェクト自体から **StreamSocketControl** のインスタンスにアクセスします。 サーバーがクライアント証明書を要求した場合、Windows が提供されたクライアント証明書を使って応答します。
+[**StreamSocket**](/uwp/api/Windows.Networking.Sockets.StreamSocket) は、クライアント アプリが通信しているサーバーに対する SSL/TLS による認証をサポートします。 場合によっては、クライアント アプリは、SSL/TLS クライアント証明書を使って自身をサーバーに対して認証する必要があります。 ソケットをバインドまたは接続する前に (SSL/TLS ハンドシェイクが始まる前に設定する必要があります) [**StreamSocketControl.ClientCertificate**](/uwp/api/windows.networking.sockets.streamsocketcontrol.ClientCertificate) プロパティを使ってクライアント証明書を提供できます。 [  **StreamSocket.Control**](/uwp/api/windows.networking.sockets.streamsocket.Control) プロパティを通じて **StreamSocket** オブジェクト自体から **StreamSocketControl** のインスタンスにアクセスします。 サーバーがクライアント証明書を要求した場合、Windows が提供されたクライアント証明書を使って応答します。
 
 この最小限のコード例に示すように、[**SocketProtectionLevel**](/uwp/api/windows.networking.sockets.socketprotectionlevel) を使う [**StreamSocket.ConnectAsync**](/uwp/api/windows.networking.sockets.streamsocket.connectasync) の上書きを使います。
 
@@ -1379,9 +1379,9 @@ Concurrency::create_task(Windows::Security::Cryptography::Certificates::Certific
 
 ## <a name="related-topics"></a>関連トピック
 * [アプリ間通信](/windows/uwp/app-to-app/index)
-* [同時実行と非同期操作を C +/cli WinRT](/windows/uwp/cpp-and-winrt-apis/concurrency)
+* [C++/WinRT を使用した同時実行操作と非同期操作](/windows/uwp/cpp-and-winrt-apis/concurrency)
 * [ネットワーク機能を設定する方法](https://docs.microsoft.com/previous-versions/windows/apps/hh770532(v=win.10))
-* [Windows ソケット (Winsock) 2](https://docs.microsoft.com/windows/desktop/WinSock/windows-sockets-start-page-2)
+* [Windows ソケット 2 (Winsock)](https://docs.microsoft.com/windows/desktop/WinSock/windows-sockets-start-page-2)
 
 ## <a name="samples"></a>サンプル
-* [StreamSocket サンプル](https://go.microsoft.com/fwlink/p/?LinkId=620609)
+* [StreamSocket のサンプル](https://go.microsoft.com/fwlink/p/?LinkId=620609)

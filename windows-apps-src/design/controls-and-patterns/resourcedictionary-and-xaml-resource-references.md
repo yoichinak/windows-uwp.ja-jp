@@ -12,10 +12,10 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: 317f373b64b1a15a9baa8310c06d6b8037ced745
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66364449"
 ---
 # <a name="resourcedictionary-and-xaml-resource-references"></a>ResourceDictionary と XAML リソースの参照
@@ -53,7 +53,7 @@ XAML リソースは、マークアップから 2 回以上参照されるオブ
 
 -   `<Page.Resources>…</Page.Resources>`: リソース ディクショナリを定義します。
 -   `<x:String>`: キー "greeting" を持つリソースを定義します。
--   `{StaticResource greeting}` -検索し、キー"greeting"を持つリソースに割り当てられる、[テキスト](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock.text)のプロパティ、 [TextBlock](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock)します。
+-   `{StaticResource greeting}` - [TextBlock](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock) の [Text](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock.text) プロパティに割り当てられた、キー "greeting" を持つリソースを検索します。
 
 > **注**&nbsp;&nbsp;[ResourceDictionary](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.ResourceDictionary) に関連する概念を、**リソース** ビルド アクション、リソース (.resw) ファイル、またはアプリ パッケージを生成するコード プロジェクトの構築のコンテキストで説明されるその他の "リソース" と混同しないでください。
 
@@ -79,8 +79,8 @@ XAML リソースは、マークアップから 2 回以上参照されるオブ
 
 すべてのリソースにはキーが必要です。 通常、そのキーは `x:Key=”myString”` を使って定義された文字列です。 ただし、キーを指定する方法は他にもいくつかあります。
 
--   [Style](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Style) と [ControlTemplate](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ControlTemplate) には **TargetType** が必要であり、[x:Key](https://docs.microsoft.com/windows/uwp/xaml-platform/x-key-attribute) が指定されていない場合は **TargetType** をキーとして使います。 この場合、キーは文字列ではなく実際の Type オブジェクトです  (以下の例をご覧ください)。
--   [x:Key](https://docs.microsoft.com/windows/uwp/xaml-platform/x-key-attribute) が指定されていない場合、**TargetType** を持つ [DataTemplate](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.DataTemplate) リソースはキーとして **TargetType** を使います。 この場合、キーは文字列ではなく実際の Type オブジェクトです 
+-   [Style](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Style) と [ControlTemplate](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ControlTemplate) には **TargetType** が必要であり、[x:Key](https://docs.microsoft.com/windows/uwp/xaml-platform/x-key-attribute) が指定されていない場合は **TargetType** をキーとして使います。 この場合、キーは文字列ではなく実際の Type オブジェクトです (以下の例をご覧ください)。
+-   [x:Key](https://docs.microsoft.com/windows/uwp/xaml-platform/x-key-attribute) が指定されていない場合、**TargetType** を持つ [DataTemplate](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.DataTemplate) リソースはキーとして **TargetType** を使います。 この場合、キーは文字列ではなく実際の Type オブジェクトです
 -   [x:Name](https://docs.microsoft.com/windows/uwp/xaml-platform/x-name-attribute) は [x:Key](https://docs.microsoft.com/windows/uwp/xaml-platform/x-key-attribute) の代わりに使うことができます。 ただし、x:Name はリソースのコード ビハインド フィールドも生成します。 この結果、ページの読み込み時にそのフィールドを初期化する必要があるため、x:Name は x:Key よりも効率が低下します。
 
 [StaticResource マークアップ拡張](../../xaml-platform/staticresource-markup-extension.md)は、文字列名 ([x:Key](https://docs.microsoft.com/windows/uwp/xaml-platform/x-key-attribute) または [x:Name](https://docs.microsoft.com/windows/uwp/xaml-platform/x-name-attribute)) を使ってのみリソースを取得できます。 ただし、[Style](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.style) プロパティと [ContentTemplate](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.contentcontrol.contenttemplate) プロパティまたは [ItemTemplate](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemtemplate) プロパティを設定していないコントロールに使うスタイルとテンプレートを決定する際に、XAML フレームワークは暗黙的なスタイル リソース (x:Key または x:Name ではなく **TargetType** を使うリソース) も探します。
@@ -112,7 +112,7 @@ XAML リソースは、マークアップから 2 回以上参照されるオブ
 その他のディクショナリなどのリソース ディクショナリのメンバーにアクセスします。
 
 > [!WARNING]
-> コード内のリソースだけで、リソースの検索を実行すると、`Page.Resources`の辞書が検索されます。 [StaticResource マークアップ拡張](../../xaml-platform/staticresource-markup-extension.md)とは異なり、最初のディクショナリでリソースが見つからない場合に、コードは `Application.Resources` ディクショナリにフォールバックしません。
+> コード内でこのリソース検索を実行すると、`Page.Resources` ディクショナリ内のリソースだけが検索されます。 [StaticResource マークアップ拡張](../../xaml-platform/staticresource-markup-extension.md)とは異なり、最初のディクショナリでリソースが見つからない場合に、コードは `Application.Resources` ディクショナリにフォールバックしません。
 
  
 
@@ -202,7 +202,7 @@ sealed partial class App : Application
 
 [FrameworkElement](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.FrameworkElement) は、コントロールの継承元の基底クラスであり、[Resources](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.resources) プロパティがあります。 そのため、任意の **FrameworkElement** にローカル リソース ディクショナリを追加できます。
 
-ここでは、[Page](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Page) と [Border](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Border) の両方にリソース ディクショナリがあり、どちらにも "greeting" というリソースがあります。 [TextBlock](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock)という名前 'textBlock2' は、内部では、**境界線**ので、そのリソースの検索では、最初に、**境界線**のリソース、**ページ**のリソースをクリックし、[アプリケーション](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Application)リソース。 **TextBlock** には、"Hola mundo" と表示されます。
+ここでは、[Page](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Page) と [Border](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Border) の両方にリソース ディクショナリがあり、どちらにも "greeting" というリソースがあります。 "textBlock2" という名前の [TextBlock](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock) は **Border** 内にあるため、そのリソース検索はまず **Border** のリソースを検索した後、**Page** のリソース、次に [Application](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Application) のリソースの順に検索します。 **TextBlock** には、"Hola mundo" と表示されます。
 
 コードからその要素のリソースにアクセスするには、その要素の [Resources](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.resources) プロパティを使います。 XAML ではなくコード内の [FrameworkElement](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.FrameworkElement) のリソースにアクセスすると、親要素のディクショナリではなくそのディクショナリのみ検索されます。
 
@@ -377,7 +377,7 @@ sealed partial class App : Application
 
 テーマ ディクショナリの場合、[ThemeResource マークアップ拡張](../../xaml-platform/themeresource-markup-extension.md)が参照のために使われ、システムによってテーマの変更が検出されるたびに、リソース検索に使われるアクティブなディクショナリは動的に変更されます。 システムによって実行される検索の動作は、アクティブなテーマから特定のテーマ ディクショナリの [x:Key](https://docs.microsoft.com/windows/uwp/xaml-platform/x-key-attribute) へのマッピングに基づきます。
 
-既定の XAML デザイン リソースでテーマ ディクショナリが構築される方法を調べることが役立つ場合があります。これは、Windows ランタイムでそのコントロール用に既定で使われるテンプレートと似ています。 XAML ファイルを開く\\(Program Files)\\Windows キット\\10\\DesignTime\\CommonConfiguration\\Neutral\\UAP\\&lt;SDKバージョン&gt;\\汎用テキスト エディターまたは IDE を使用します。 テーマ ディクショナリが generic.xaml に最初に定義される方法と、各テーマ ディクショナリが同じキーを定義する方法に注意してください。 このような各キーは、テーマ ディクショナリの外部にあり後で XAML で定義されるさまざまなキー付き要素の構成要素によって参照されます。 デザイン用に別の themeresources.xaml というファイルもあり、これには既定のコントロール テンプレートではなく、テーマ リソースと追加のテンプレートだけが含まれています。 このテーマ領域は、generic.xaml に記載されているものの複製です。
+既定の XAML デザイン リソースでテーマ ディクショナリが構築される方法を調べることが役立つ場合があります。これは、Windows ランタイムでそのコントロール用に既定で使われるテンプレートと似ています。 テキスト エディターか IDE を使用して、\\(Program Files)\\Windows Kits\\10\\DesignTime\\CommonConfiguration\\Neutral\\UAP\\&lt;SDK version&gt;\\Generic の XAML ファイルを開きます。 テーマ ディクショナリが generic.xaml に最初に定義される方法と、各テーマ ディクショナリが同じキーを定義する方法に注意してください。 このような各キーは、テーマ ディクショナリの外部にあり後で XAML で定義されるさまざまなキー付き要素の構成要素によって参照されます。 デザイン用に別の themeresources.xaml というファイルもあり、これには既定のコントロール テンプレートではなく、テーマ リソースと追加のテンプレートだけが含まれています。 このテーマ領域は、generic.xaml に記載されているものの複製です。
 
 XAML デザイン ツールを使ってスタイルとテンプレートのコピーを編集する際、デザイン ツールは、XAML デザイン リソース ディクショナリからセクションを抽出し、アプリとプロジェクトの一部である XAML ディクショナリ要素のローカル コピーとして配置します。
 
@@ -430,7 +430,7 @@ XAML リソース参照の検索の動作は、実際に使用が適用される
 -   [Matrix](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Matrix) および [Matrix3D](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Media3D.Matrix3D)
 -   [Point](https://docs.microsoft.com/uwp/api/Windows.Foundation.Point) 値
 -   [Thickness](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Thickness) や [CornerRadius](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.CornerRadius) など、その他の特定の UI 関連構造。
--   [XAML の組み込みのデータ型](https://docs.microsoft.com/windows/uwp/xaml-platform/xaml-intrinsic-data-types)
+-   [XAML 固有のデータ型](https://docs.microsoft.com/windows/uwp/xaml-platform/xaml-intrinsic-data-types)
 
 所定の実装パターンに従えば、カスタム型を共有可能なリソースとして使うこともできます。 こうしたクラスは、バッキング コード (または含めるランタイム コンポーネント) で定義し、XAML でリソースとしてインスタンス化します。 たとえば、オブジェクト データ ソースや、データ バインディングの [IValueConverter](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.IValueConverter) 実装などです。
 
@@ -449,7 +449,7 @@ XAML リソース参照の検索の動作は、実際に使用が適用される
 
 [ResourceDictionary](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.ResourceDictionary) のシナリオのほとんどが、XAML のみで処理されます。 UI 定義ファイルの XAML ノード セットまたは XAML ファイルとして **ResourceDictionary** コンテナーとリソースを宣言します。 次に、XAML リソース参照を使って、XAML の他の部分からリソースを要求します。 それでも、アプリの実行中にコードを実行して **ResourceDictionary** の内容を調整するというシナリオ、または、少なくとも **ResourceDictionary** の内容を照会して、リソースが定義済みかどうか確認するというシナリオもあります。 これらのコードは **ResourceDictionary** インスタンスで呼び出されるため、最初に [FrameworkElement.Resources](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.resources) を取得することでオブジェクト ツリー内のどこかにある即時 **ResourceDictionary** を取得するか、`Application.Current.Resources` を取得する必要があります。
 
-C で\#、Microsoft Visual Basic コード内のリソースを参照することも、指定された[ResourceDictionary](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.ResourceDictionary)インデクサーを使用して ([項目](https://docs.microsoft.com/dotnet/api/system.windows.resourcedictionary.item?view=netframework-4.8))。 **ResourceDictionary** は、文字列キーを持つディクショナリであるため、インデクサーは整数インデックスではなく文字列キーを使います。 Visual C component extensions (C +/cli CX) を使用して、コードは、[ルックアップ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.resourcedictionary.lookup)します。
+C\# または Microsoft Visual Basic コードでは、インデクサー ([Item](https://docs.microsoft.com/dotnet/api/system.windows.resourcedictionary.item?view=netframework-4.8)) を使って所定の [ResourceDictionary](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.ResourceDictionary) 内のリソースを参照できます。 **ResourceDictionary** は、文字列キーを持つディクショナリであるため、インデクサーは整数インデックスではなく文字列キーを使います。 Visual C++ コンポーネント拡張機能 (C++/CX) コードでは、[Lookup](https://docs.microsoft.com/uwp/api/windows.ui.xaml.resourcedictionary.lookup) を使います。
 
 コードを使って [ResourceDictionary](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.ResourceDictionary) を調査または変更するときは、[Lookup](https://docs.microsoft.com/uwp/api/windows.ui.xaml.resourcedictionary.lookup) や [Item](https://docs.microsoft.com/dotnet/api/system.windows.resourcedictionary.item?view=netframework-4.8) などの API の動作で、即時リソースからアプリ リソースまで走査することはありません。XAML ページを読み込むときにのみ実行される XAML パーサーの動作とは異なります。 実行時、キーのスコープはその時点で使っている **ResourceDictionary** インスタンスに対して自己完結しています。 ただし、そのスコープは [MergedDictionaries](https://docs.microsoft.com/uwp/api/windows.ui.xaml.resourcedictionary.mergeddictionaries) まで広がりません。
 
@@ -457,9 +457,9 @@ C で\#、Microsoft Visual Basic コード内のリソースを参照するこ�
 
 結合されたリソース ディクショナリは、実行時に結合されたディクショナリを参照するプライマリ リソース ディクショナリのインデックス スコープに含まれます。 つまり、プライマリ ディクショナリの **Item** または [Lookup](https://docs.microsoft.com/uwp/api/windows.ui.xaml.resourcedictionary.lookup) を使って、結合されたディクショナリに実際に定義されているオブジェクトを検索できます。 この場合、検索の動作は解析時の XAML 検索の動作に似ています。結合されたディクショナリに同じキーを持つオブジェクトが複数ある場合は、最後に追加されたディクショナリのオブジェクトが返されます。
 
-既存の項目を追加するのには許可されて[ResourceDictionary](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.ResourceDictionary)呼び出して**追加**(C\#または Visual Basic) または[挿入](https://docs.microsoft.com/uwp/api/windows.ui.xaml.resourcedictionary.insert)(C +/cli CX)。 即時リソースまたはアプリ リソースに項目を追加できます。 これらの API 呼び出しはどちらもキーを必要とします。これにより、**ResourceDictionary** の各項目にキーが必要という要件が満たされます。 ただし、実行時に **ResourceDictionary** に追加した項目は、XAML リソース参照に関係しません。 XAML リソース参照に必要な検索は、アプリの読み込み時にその XAML が最初に解析されるとき (またはテーマの変更が検出されたとき) に実行されます。 実行時にコレクションに追加されるリソースはその時点では使用できず、**ResourceDictionary** を変更しても、そこから取得済みのリソースは無効にはなりません。そのリソースの値を変更した場合でも同じです。
+**Add** (C\# または Visual Basic) または [Insert](https://docs.microsoft.com/uwp/api/windows.ui.xaml.resourcedictionary.insert) (C++/CX) を呼び出すことで、既にある [ResourceDictionary](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.ResourceDictionary) に項目を追加できます。 即時リソースまたはアプリ リソースに項目を追加できます。 これらの API 呼び出しはどちらもキーを必要とします。これにより、**ResourceDictionary** の各項目にキーが必要という要件が満たされます。 ただし、実行時に **ResourceDictionary** に追加した項目は、XAML リソース参照に関係しません。 XAML リソース参照に必要な検索は、アプリの読み込み時にその XAML が最初に解析されるとき (またはテーマの変更が検出されたとき) に実行されます。 実行時にコレクションに追加されるリソースはその時点では使用できず、**ResourceDictionary** を変更しても、そこから取得済みのリソースは無効にはなりません。そのリソースの値を変更した場合でも同じです。
 
-実行時に [ResourceDictionary](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.ResourceDictionary) から項目を削除したり、一部またはすべての項目のコピーを作るなどの操作も実行できます。 **ResourceDictionary** に対して一覧表示されるメンバーは、利用できる API を示します。 ため**ResourceDictionary**がその基になるコレクション インターフェイス、API のオプションをサポートするために予想される API を C を使用しているかどうかに応じて異なる\#または Visual Basic と C +/cli CX します。
+実行時に [ResourceDictionary](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.ResourceDictionary) から項目を削除したり、一部またはすべての項目のコピーを作るなどの操作も実行できます。 **ResourceDictionary** に対して一覧表示されるメンバーは、利用できる API を示します。 **ResourceDictionary** には基になるコレクション インターフェイスをサポートするプロジェクションされた API があるため、API オプションは、C\# または Visual Basic と C++/CX のどちらを使っているかによって異なります。
 
 ## <a name="resourcedictionary-and-localization"></a>ResourceDictionary とローカライズ
 
@@ -475,11 +475,11 @@ C で\#、Microsoft Visual Basic コード内のリソースを参照するこ�
 
 * [ResourceDictionary](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.ResourceDictionary)
 * [XAML の概要](https://docs.microsoft.com/windows/uwp/xaml-platform/xaml-overview)
-* [StaticResource のマークアップ拡張機能](../../xaml-platform/staticresource-markup-extension.md)
-* [ThemeResource マークアップ拡張機能](../../xaml-platform/themeresource-markup-extension.md)
-* [XAML のテーマのリソース](xaml-theme-resources.md)
+* [StaticResource マークアップ拡張](../../xaml-platform/staticresource-markup-extension.md)
+* [ThemeResource マークアップ拡張](../../xaml-platform/themeresource-markup-extension.md)
+* [XAML テーマ リソース](xaml-theme-resources.md)
 * [コントロールのスタイル指定](xaml-styles.md)
-* [X:key 属性](https://docs.microsoft.com/windows/uwp/xaml-platform/x-key-attribute)
+* [x:Key 属性](https://docs.microsoft.com/windows/uwp/xaml-platform/x-key-attribute)
 
  
 

@@ -6,12 +6,12 @@ keywords: チェックリスト, windows, uwp, 申請, 提出, ゲーム, アプ
 ms.date: 10/31/2018
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 24d3c99636009ebf65f3e24d39d657297b105150
-ms.sourcegitcommit: 978df7dfd3813de51609b6a44aedcd402083a5fd
+ms.openlocfilehash: 7c535b77c68f4375f70fe344165f96d66a551eaf
+ms.sourcegitcommit: d8ce1a25ac0373acafb394837eb5c0737f6efec8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66826122"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67486422"
 ---
 # <a name="app-submissions"></a>アプリの申請
 
@@ -29,7 +29,7 @@ ms.locfileid: "66826122"
 > ドキュメントのこのセクションでは、パートナー センターでアプリの提出を作成する方法について説明します。 ここで説明する方法以外に、[Microsoft Store 申請 API](../monetize/create-and-manage-submissions-using-windows-store-services.md) を使用してアプリ申請を自動化することもできます。
 
 > [!IMPORTANT]
-> 2018 年 10 月 31 日の時点で、新しく作成された製品が Windows 8.x/Windows を対象とするパッケージを含めることはできません Phone 8.x 以前のバージョン。 詳細については、「この[ブログの投稿](https://blogs.windows.com/buildingapps/2018/08/20/important-dates-regarding-apps-with-windows-phone-8-x-and-earlier-and-windows-8-8-1-packages-submitted-to-microsoft-store/#SzKghBbqDMlmAO4c.97)します。
+> 2018 年 10 月 31 日の時点で、新しく作成された製品が Windows 8.x/Windows を対象とするパッケージを含めることはできません Phone 8.x 以前のバージョン。 詳細については、「この[ブログの投稿](https://blogs.windows.com/windowsdeveloper/2018/08/20/important-dates-regarding-apps-with-windows-phone-8-x-and-earlier-and-windows-8-8-1-packages-submitted-to-microsoft-store)します。
 
 ## <a name="app-submission-checklist"></a>アプリの申請用チェック リスト
 
@@ -96,10 +96,8 @@ ms.locfileid: "66826122"
 | **スクリーン ショット**               | 必須 (スクリーンショット 1 つ以上。4 つ以上を推奨)          | [スクリーン ショット](app-screenshots-and-images.md#screenshots)          |
 | **ストア ロゴ**               | 推奨。一部の OS バージョンで必須 | [ストア ロゴ](app-screenshots-and-images.md#store-logos)             |
 | **トレーラー**                  | 省略可能                                    | [トレーラー](app-screenshots-and-images.md#trailers)                | 
-| **Windows 10 と Xbox のイメージ (16:9 のスーパー ヒーロー アート)**     | 推奨        | [Windows 10 および Xbox イメージ (16:9 のスーパー ヒーロー アート)
-(app-screenshots-and-images.md#windows-10-and-xbox-image-169-super-hero-art) |
-| **Xbox のイメージ**     | Xbox を発行する場合に必要な適切な表示        | [Xbox イメージ
-(アプリのスクリーン ショット-images.md #xbox-イメージ) |
+| **Windows 10 と Xbox のイメージ (16:9 のスーパー ヒーロー アート)**     | 推奨        | [Windows 10 と Xbox のイメージ (16:9 のスーパー ヒーロー アート)](app-screenshots-and-images.md#windows-10-and-xbox-image-169-super-hero-art) |
+| **Xbox のイメージ**     | Xbox を発行する場合に必要な適切な表示        | [Xbox のイメージ](app-screenshots-and-images.md#xbox-images) |
 | **補足的なフィールド**  | 省略可能                                    | [補足的なフィールド](create-app-store-listings.md#supplemental-fields) 
 | **検索語句**              | 省略可能                                    | [検索語句](create-app-store-listings.md#search-terms)         |
 | **著作権と商標情報** | 省略可能                                 | [著作権と商標情報](create-app-store-listings.md#copyright-and-trademark-info) |

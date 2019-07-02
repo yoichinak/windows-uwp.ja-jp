@@ -1,5 +1,5 @@
 ---
-Description: Pivot コントロールは、タッチ、スワイプ、少数のコンテンツ セクションの間で有効です。
+Description: Pivot コントロールを使用すると、少数のコンテンツ セクション間のタッチ スワイプが可能になります。
 title: Pivot
 template: detail.hbs
 ms.date: 06/19/2018
@@ -11,17 +11,17 @@ dev-contact: llongley
 doc-status: Published
 ms.localizationpriority: medium
 ms.openlocfilehash: 232da8afeccf5d82f65b51ae0a40905b3433d412
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66364542"
 ---
 # <a name="pivot"></a>Pivot
 
-[Pivot](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Pivot)コントロール タッチ、スワイプ、少数のコンテンツ セクションの間で有効にします。
+[Pivot](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Pivot) コントロールを使用すると、少数のコンテンツ セクション間のタッチ スワイプが可能になります。
 
-> **重要な API**:[クラスのピボット](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Pivot)、 [NavigationView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.NavigationView)
+> **重要な API**:[Pivot クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Pivot)、[NavigationView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.NavigationView)
 
 ## <a name="examples"></a>例
 
@@ -30,7 +30,7 @@ ms.locfileid: "66364542"
 <tr>
 <td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
 <td>
-    <p>ある場合、 <strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong>アプリをインストールするには、ここをクリックして<a href="xamlcontrolsgallery:/item/Pivot">アプリを開き、操作にピボット コントロールが表示</a>します。</p>
+    <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合は、こちらをクリックして<a href="xamlcontrolsgallery:/item/Pivot">アプリを開き、Pivot コントロールの動作を確認</a>してください。</p>
     <ul>
     <li><a href="https://www.microsoft.com/store/productId/9MSVH128X2ZT">XAML コントロール ギャラリー アプリを入手する (Microsoft Store)</a></li>
     <li><a href="https://github.com/Microsoft/Xaml-Controls-Gallery">ソース コード (GitHub) を入手する</a></li>
@@ -39,26 +39,26 @@ ms.locfileid: "66364542"
 </tr>
 </table>
 
-ピボット コントロールと同じように[NavigationView](navigationview.md)、選択した項目で下線を表示します。
+Pivot コントロールは、[NavigationView](navigationview.md) と同様に、選択した項目に下線を付けます。
 
 ![既定のフォーカスでは選択されたヘッダーが下線付きで表示される](images/pivot_focus_selectedHeader.png)
 
 ## <a name="is-this-the-right-control"></a>適切なコントロールの選択
 
-一般的な上部のナビゲーションとタブのパターンを実現する使用をお勧め[NavigationView](navigationview.md)、自動的にさまざまな画面サイズに適応し、より詳細にカスタマイズできます。
+一般的な上部ナビゲーションとタブのパターンを達成するには、自動的にさまざまな画面サイズに適合し、より多くのカスタマイズが可能な [NavigationView](navigationview.md) を使用することをお勧めします。
 
-ただし、タッチ、スワイプ、ナビゲーションを必要とする場合は、Pivot を使用してを勧めします。
+ただし、ナビゲーションでタッチ スワイプが必要な場合は、Pivot を使用することをお勧めします。
 
-NavigationView やピボット コントロール間の他の主な違いは、既定のオーバーフロー動作およびナビゲーションの API には。
+NavigationView コントロールと Pivot コントロールのその他の主な違いは、既定のオーバーフロー動作とナビゲーション API です。
 
-- カルーセルのオーバーフロー項目、NavigationView はメニューのドロップダウンを使用してすべての項目を表示するようにのオーバーフローをピボットします。
-- ピボット処理中に、NavigationView はナビゲーションの動作を細かく制御する場合、コンテンツのセクション間を移動します。
+- Pivot では、オーバーフロー項目はカルーセル表示されますが、NavigationView では、ユーザーがすべての項目を見られるように、メニュー ドロップダウン オーバーフローが使用されます。
+- Pivot ではコンテンツ セクション間のナビゲーションが処理されますが、NavigationView では、ナビゲーション動作をより厳密に制御することができます。
 
-## <a name="use-navigationview-instead-of-pivot"></a>NavigationView を使用して、ピボットではなく
+## <a name="use-navigationview-instead-of-pivot"></a>Pivot ではなく NavigationView を使用する
 
-アプリの UI は、Pivot コントロールを使用している場合は、次のコードでに、NavigationView にピボットを変換できます。
+アプリの UI で Pivot コントロールが使用されている場合は、以下のコードを使用して Pivot を NavigationView に変換することができます。
 
-この XAML ピボットの例のように、コンテンツの 3 つのセクション、NavigationView の作成で[ピボット コントロールを作成する](#create-a-pivot-control)します。
+この XAML は、「[ピボット コントロールの作成](#create-a-pivot-control)」の Pivot の例のように、3 つのコンテンツ セクションを持つ NavigationView を作成します。
 
 ```xaml
 <NavigationView x:Name="rootNavigationView" Header="Category Title"
@@ -83,7 +83,7 @@ NavigationView やピボット コントロール間の他の主な違いは、�
 </Page>
 ```
 
-NavigationView はナビゲーションのカスタマイズをより細かく制御し、対応する分離コードが必要です。 上記の XAML に付随するには、次のコード ビハインドを使用します。
+NavigationView ではナビゲーションのカスタマイズに対してより厳密な制御が提供され、また対応する分離コードが必要になります。 上記の XAML には、次の分離コードを使用します。
 
 ```csharp
 private void NavView_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
@@ -112,11 +112,11 @@ private void NavView_ItemInvoked(NavigationView sender, NavigationViewItemInvoke
 }
 ```
 
-このコードは、コンテンツ セクションの間のタッチ スワイプ エクスペリエンス マイナスのピボット コントロールの組み込みのナビゲーション エクスペリエンスを模倣します。 ただし、ご覧のとおり、アニメーションの切り替え、ナビゲーション パラメーターでは、スタックの機能など、いくつかのポイントもカスタマイズできます。
+このコードは、Pivot コントロールの組み込みナビゲーション エクスペリエンスを模倣し、そこからコンテンツ セクション間のタッチ スワイプ エクスペリエンスを差し引きます。 ただし、ご覧のとおり、アニメーション化された遷移、ナビゲーション パラメーター、スタック機能など、いくつかの点もカスタマイズできます。
 
 ## <a name="create-a-pivot-control"></a>ピボット コントロールの作成
 
-このコードでは、3 つのセクションのコンテンツの基本的なピボット コントロールを作成します。
+このコードは、3 つのコンテンツ セクションを持つ基本的な Pivot コントロールを作成します。
 
 ```xaml
 <Pivot x:Name="rootPivot" Title="Category Title">
@@ -172,7 +172,7 @@ Pivot は [ItemsControl](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Cont
 
 コントロールには次の 2 つのモードがあります。
 
-**静止しています。**
+**固定**
 
 - 許可されている領域内にすべてのピボット ヘッダーが収まる場合、ピボットは固定されます。
 - ピボット ラベルをタップすると、ピボット自体は移動しませんが、対応するページに移動します。 アクティブなピボットは強調表示されます。
@@ -196,4 +196,4 @@ Pivot は [ItemsControl](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Cont
 ## <a name="related-topics"></a>関連トピック
 
 - [Pivot クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Pivot)
-- [ナビゲーションのデザインの基礎](../basics/navigation-basics.md)
+- [ナビゲーション デザインの基本](../basics/navigation-basics.md)

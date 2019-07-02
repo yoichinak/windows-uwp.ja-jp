@@ -13,10 +13,10 @@ dev-contact: ranjeshj
 doc-status: Published
 ms.localizationpriority: medium
 ms.openlocfilehash: a574ff858f8eab3fa1984ecd883a786fa0e0f19c
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66364717"
 ---
 # <a name="lists"></a>リスト
@@ -30,14 +30,14 @@ ms.locfileid: "66364717"
 
 ここでは、各リスト パターンについて、設計のガイドライン、特徴、例を示します。
 
-> **重要な API**:[ListView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView)、 [GridView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.GridView)、 [ComboBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ComboBox)
+> **重要な API**:[ListView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView)、[GridView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.GridView)、[ComboBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ComboBox)
 
 
 > <div id="main">
-> <strong>Windows 10 Fall Creators Update の動作の変更</strong>
+> <strong>Windows 10 Fall Creators Update - 動作の変更</strong>
 > </div>
 > 既定では、UWP アプリでは、アクティブ ペンは、選択の実行ではなく、リストのスクロール/パン (タッチ、タッチパッド、パッシブ ペンなどと同様に) をするようになりました。
-> アプリが以前の動作に依存している場合は、ペン スクロールを上書きして、以前の動作に戻すことができます。 詳細については、API リファレンスのトピックを参照してください、 <a href="https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.scrollviewer">ScrollViewer クラス</a>します。
+> アプリが以前の動作に依存している場合は、ペン スクロールを上書きして、以前の動作に戻すことができます。 詳しくは、<a href="https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.scrollviewer">ScrollViewer クラス</a>の API リファレンス トピックをご覧ください。
 
 ## <a name="list-views"></a>リスト ビュー
 
@@ -76,7 +76,7 @@ ms.locfileid: "66364717"
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><p><a href="listview-and-gridview.md">リスト ビューおよびグリッド ビュー</a></p></td>
+<td align="left"><p><a href="listview-and-gridview.md">リスト ビューとグリッド ビュー</a></p></td>
 <td align="left"><p>アプリでリスト ビューやグリッド ビューを使用するための基本情報を提供します。</p></td>
 </tr>
 <tr class="even">
@@ -88,11 +88,11 @@ ms.locfileid: "66364717"
 <td align="left"><p>これらの ListView 用のサンプル項目テンプレートを使って、一般的な種類のアプリの外観を設定できます。</p></td>
 </tr>
 <tr class="even">
-<td align="left"><p><a href="inverted-lists.md">反転されたリスト</a></p></td>
+<td align="left"><p><a href="inverted-lists.md">反転リスト</a></p></td>
 <td align="left"><p>反転リストでは、チャット アプリのように、新しい項目が下部に追加されます。 アプリで反転リストを使用する場合は、こちらのガイダンスに従ってください。</p></td>
 </tr>
 <tr class="odd">
-<td align="left"><p><a href="pull-to-refresh.md">プルの更新</a></p></td>
+<td align="left"><p><a href="pull-to-refresh.md">引っ張って更新</a></p></td>
 <td align="left"><p>引っ張って更新パターンを使うと、より多くのデータを取得するためにタッチ操作でデータのリストを引き下げることができます。 リスト ビューに引っ張って更新を実装する場合は、こちらのガイダンスに従ってください。</p></td>
 </tr>
 <tr class="even">
@@ -143,7 +143,7 @@ ms.locfileid: "66364717"
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><p><a href="listview-and-gridview.md">リスト ビューおよびグリッド ビュー</a></p></td>
+<td align="left"><p><a href="listview-and-gridview.md">リスト ビューとグリッド ビュー</a></p></td>
 <td align="left"><p>アプリでリスト ビューやグリッド ビューを使用するための基本情報を提供します。</p></td>
 </tr>
 <tr class="even">
@@ -229,9 +229,9 @@ ms.locfileid: "66364717"
 
 選択モードには、次の 3 つがあります。
 
--   1 つ。ユーザーは、一度に 1 つだけの項目を選択できます。
--   複数。ユーザーは、修飾子を使用しても、複数の項目を選択できます。
--   拡張。ユーザーは、SHIFT キーを押しながらなどの修飾子を使って複数の項目を選択できます。
+-   単一:ユーザーは同時に 1 つの項目だけを選ぶことができます。
+-   複数:ユーザーは修飾キーを使わずに複数の項目を選ぶことができます。
+-   拡張:ユーザーは、Shift キーを押すなど修飾キーを使って複数の項目を選ぶことができます。
 
 項目の任意の場所をタップすると、項目が選ばれます。 コマンド バーの操作をタップすると、選択したすべての項目に影響します。 項目が選ばれていない場合、コマンド バーの操作は [すべて選択] を除いて非アクティブになります。
 
@@ -266,10 +266,10 @@ ms.locfileid: "66364717"
 - [ナビゲーション ウィンドウ](navigationview.md)
 - [セマンティック ズーム](semantic-zoom.md)
 - [ドラッグ アンド ドロップ](https://docs.microsoft.com/windows/uwp/app-to-app/drag-and-drop)
-- [縮小表示イメージ](../../files/thumbnails.md)
+- [サムネイル画像](../../files/thumbnails.md)
 
 **開発者向け**
 - [ListView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView)
 - [GridView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.GridView)
-- [コンボ ボックス クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ComboBox)
+- [ComboBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ComboBox)
 - [ListBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListBox)

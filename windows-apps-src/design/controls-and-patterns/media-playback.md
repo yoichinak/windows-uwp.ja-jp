@@ -10,10 +10,10 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: b212ff435e58bdb8766972d1832bbf0690db3ed1
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66364740"
 ---
 # <a name="media-player"></a>メディア プレーヤー
@@ -24,7 +24,7 @@ ms.locfileid: "66364740"
 
 ![トランスポート コントロールを含むメディア プレーヤー要素](images/controls/mtc_double_video_inprod.png)
 
-> **重要な API**:[MediaPlayerElement クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement)、 [MediaTransportControls クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediatransportcontrols)
+> **重要な API**:[MediaPlayerElement クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement)、[MediaTransportControls クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediatransportcontrols)
 
 
 > [!NOTE]
@@ -87,17 +87,17 @@ XAML で [MediaPlayerElement](https://docs.microsoft.com/uwp/api/windows.ui.xaml
 
 ![携帯電話に表示される 2 行の MTC コントロールの例](images/controls/mtc_double_inprod.png)
 
-**システムのメディアのトランスポート コントロール**
+**システム メディア トランスポート コントロール**
 
 [MediaPlayerElement](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement) は、システム メディア トランスポート コントロールと自動的に統合されます。 システム メディア トランスポート コントロールは、キーボードのメディア ボタンなどのハードウェア メディア キーを押すとポップアップするコントロールです。 詳しくは、[SystemMediaTransportControls](https://docs.microsoft.com/uwp/api/Windows.Media.SystemMediaTransportControls) をご覧ください。
 
-> **注**&nbsp; &nbsp; [MediaElement](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.MediaElement)はメディアの輸送コントロール自身に接続する必要がありますので、システムと自動的に統合されません。 詳しくは、「[システム メディア トランスポート コントロール](https://docs.microsoft.com/windows/uwp/audio-video-camera/system-media-transport-controls)」をご覧ください。
+> **注**&nbsp;&nbsp; [MediaElement](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.MediaElement) は、システム メディア トランスポート コントロールと自動的に統合されないため、自分で接続する必要があります。 詳しくは、「[システム メディア トランスポート コントロール](https://docs.microsoft.com/windows/uwp/audio-video-camera/system-media-transport-controls)」をご覧ください。
 
 
 ### <a name="set-the-media-source"></a>メディア ソースを設定する
 ネットワーク上のファイルまたはアプリに埋め込まれたファイルを再生する場合は、ファイルのパスを使用して [Source](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement.source) プロパティを [MediaSource](https://docs.microsoft.com/uwp/api/windows.media.core.mediasource) に設定します。
 
-**ヒント:**   、インターネットからファイルを開くには、宣言する必要があります、**インターネット (クライアント)** アプリのマニフェスト (Package.appxmanifest) で機能します。 機能の宣言について詳しくは、「[アプリ機能の宣言](https://docs.microsoft.com/windows/uwp/packaging/app-capability-declarations)」をご覧ください。
+**ヒント**  インターネットからファイルを開くには、アプリのマニフェスト (Package.appxmanifest) で **Internet (Client)** 機能を宣言する必要があります。 機能の宣言について詳しくは、「[アプリ機能の宣言](https://docs.microsoft.com/windows/uwp/packaging/app-capability-declarations)」をご覧ください。
 
  
 
@@ -173,7 +173,7 @@ private void LoadEmbeddedAppFile()
 
 ユーザーはどのファイルにアクセスしているかを完全に制御できるので、[FileOpenPicker](https://docs.microsoft.com/uwp/api/Windows.Storage.Pickers.FileOpenPicker) には、ユーザーの **Music** または **Video** フォルダーなど、ローカル ファイル システム上のファイルにアクセスするための特別な機能は必要ありません。 セキュリティとプライバシーの観点から、アプリで使用する機能の数は最小限にすることをお勧めします。
 
-**FileOpenPicker を使用してローカルのメディアを開く**
+**FileOpenPicker を使用してローカル メディア開くには**
 
 1.  ユーザーがメディア ファイルを選べるようにするには、[FileOpenPicker](https://docs.microsoft.com/uwp/api/Windows.Storage.Pickers.FileOpenPicker) を呼び出します。
 
@@ -246,7 +246,7 @@ async private System.Threading.Tasks.Task SetLocalMedia()
 
 > **注**&nbsp;&nbsp;[MediaPlayerElement.IsFullWindow](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement.IsFullWindow) が true に設定されていて、メディアが再生中である場合、ディスプレイは自動的に非アクティブ化されなくなります。
 
-**アクティブな画面を保持するには**
+**画面をアクティブに維持するには**
 
 1.  [DisplayRequest](https://docs.microsoft.com/uwp/api/Windows.System.Display.DisplayRequest) グローバル変数を作成します。 null に初期化します。
 ```csharp
@@ -303,7 +303,7 @@ private DisplayRequest appDisplayRequest = null;
 [MediaPlayerElement](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement) には、[MediaPlayerElement.MediaPlayer](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement.mediaplayer) プロパティを介してオーディオやビデオの再生を制御するプロパティ、メソッド、イベントが多数用意されています。 プロパティ、メソッド、イベントの完全な一覧については、[MediaPlayer](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplayer) のリファレンス ページをご覧ください。
 
 ### <a name="advanced-media-playback-scenarios"></a>高度なメディア再生のシナリオ
-プレイリストを再生するような複雑なメディア再生のシナリオでは、オーディオ言語間を切り替えたり、カスタム メタデータ トラックを作成したりするため、[MediaPlayerElement.Source](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement.source) を [MediaPlaybackItem](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplaybackitem) または [MediaPlaybackList](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplaybacklist) に設定します。 参照してください、[メディアの再生](https://docs.microsoft.com/windows/uwp/audio-video-camera/media-playback-with-mediasource)さまざまな高度なメディア機能を有効にする方法の詳細についてのページ。
+プレイリストを再生するような複雑なメディア再生のシナリオでは、オーディオ言語間を切り替えたり、カスタム メタデータ トラックを作成したりするため、[MediaPlayerElement.Source](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement.source) を [MediaPlaybackItem](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplaybackitem) または [MediaPlaybackList](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplaybacklist) に設定します。 さまざまな高度なメディア機能を有効にする方法について詳しくは、[メディアの再生](https://docs.microsoft.com/windows/uwp/audio-video-camera/media-playback-with-mediasource)に関するページをご覧ください。
 
 ### <a name="enable-full-window-video-rendering"></a>フル ウィンドウのビデオ レンダリングを有効にする
 
@@ -397,4 +397,4 @@ mp.MediaPlayer.RealTimePlayback = true;
 ## <a name="related-articles"></a>関連記事
 
 - [UWP アプリのコマンド設計の基本](https://docs.microsoft.com/windows/uwp/layout/commanding-basics)
-- [UWP アプリのコンテンツのデザインの基礎](https://docs.microsoft.com/windows/uwp/layout/content-basics)
+- [UWP アプリのコンテンツ デザインの基本](https://docs.microsoft.com/windows/uwp/layout/content-basics)

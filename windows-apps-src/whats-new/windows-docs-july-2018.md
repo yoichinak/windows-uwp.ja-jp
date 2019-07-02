@@ -1,100 +1,100 @@
 ---
-title: 2018 年 7 月の新 Windows ドキュメント - UWP アプリを開発します。
-description: 2018 年 7 月の Windows 10 開発者向けドキュメントの新機能、ビデオ、サンプル、および開発者向けガイダンスが追加されました。
-keywords: 新機能については、更新、機能、開発者ガイド、Windows 10、7 月
+title: Windows ドキュメントの最新情報、2018 年 7 月 - UWP アプリの開発
+description: 2018 年 7 月版の Windows 10 開発者向けドキュメントには、新しい機能、ビデオ、サンプル、開発者向けガイダンスが追加されました。
+keywords: 最新情報, 更新, 機能, 開発者向けガイダンス, Windows 10, 7 月
 ms.date: 07/11/2018
 ms.topic: article
 ms.localizationpriority: medium
 ms.openlocfilehash: 22a3a9614a4488791a36f81a3d4dedac572111b4
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57596837"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "63780274"
 ---
-# <a name="whats-new-in-the-windows-developer-docs-in-july-2018"></a>新機能については、Windows 開発者向けドキュメントで 2018 年 7 月です。
+# <a name="whats-new-in-the-windows-developer-docs-in-july-2018"></a>Windows 開発者向けドキュメントの最新情報、2018 年 7 月
 
-Windows 開発者向けドキュメントは、Windows プラットフォームで開発者に提供される新機能の情報を反映して継続的に更新されています。 次の機能の概要、開発者ガイド、ビデオ、およびサンプルが年 7 月の 1 か月間利用可能な加えられました。
+Windows 開発者向けドキュメントは、Windows プラットフォームで開発者に提供される新機能の情報を反映して継続的に更新されています。 次の機能概要、開発者向けガイダンス、ビデオ、およびサンプルは 7 月に公開されたものです。
 
 Windows 10 の[ツールと SDK をインストール](https://go.microsoft.com/fwlink/?LinkId=821431)すると、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
 
 ## <a name="features"></a>機能
 
-### <a name="progressive-web-apps-on-windows"></a>Windows 上のプログレッシブ Web アプリ
+### <a name="progressive-web-apps-on-windows"></a>Windows のプログレッシブ Web アプリ
 
-[プログレッシブ Web アプリ (Pwa)](https://developer.microsoft.com/windows/pwa)だけの web アプリでは、[プログレッシブ エンハンスメント](https://wikipedia.org/wiki/Progressive_enhancement)プラットフォーム、およびオフライン ホーム スクリーン-の起動からのインストールなど、ブラウザー エンジンをサポートする方法のネイティブ アプリのような機能を使用をサポートし、通知をプッシュします。 Microsoft Edge (EdgeHTML) エンジンと Windows 10 では、Pwa は、実行のメリットをお楽しみください[UWP アプリとブラウザーのウィンドウとは独立しています。](https://docs.microsoft.com/microsoft-edge/progressive-web-apps/windows-features)
+[プログレッシブ Web アプリ (PWA)](https://developer.microsoft.com/windows/pwa) は、サポートするプラットフォームおよびブラウザー エンジン上でネイティブ アプリのような機能 (ホーム画面からの起動、オフライン サポート、プッシュ通知など) を提供するように[プログレッシブに拡張された](https://wikipedia.org/wiki/Progressive_enhancement) Web アプリです。 Microsoft Edge (EdgeHTML) エンジンを搭載した Windows 10 では、PWA を [UWP アプリとしてブラウザー ウィンドウとは独立して実行できる](https://docs.microsoft.com/microsoft-edge/progressive-web-apps/windows-features)という利点があります。
 
-![動作には、Pwa の画像](images/progressive-web-apps.jpg)
+![動作中の PWA のイメージ](images/progressive-web-apps.jpg)
 
-PWA のガイドをご覧ください。
+次の項目については、PWA ガイドを確認してください。
 
-* [PWA として単純な web アプリを構築します。](https://docs.microsoft.com/microsoft-edge/progressive-web-apps/get-started)
-* [Windows ランタイムと、PWA を強化します。](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps/windows-features)
-* [Microsoft Store に、PWA を発行します。](https://docs.microsoft.com/microsoft-edge/progressive-web-apps/microsoft-store)
+* [単純な Web アプリを PWA として構築する](https://docs.microsoft.com/microsoft-edge/progressive-web-apps/get-started)
+* [Windows ランタイムで PWA を強化する](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps/windows-features)
+* [PWA を Microsoft Store で公開する](https://docs.microsoft.com/microsoft-edge/progressive-web-apps/microsoft-store)
 
 ### <a name="notepad"></a>メモ帳
 
-Windows 10 Insider Preview ビルド 17713 で使用できる[メモ帳が多くの新機能で更新された](https://aka.ms/ant-man)します。 ズーム、検索/置換、折り返してと改行 (LF) Unix または Linux と Mac (CR) のサポートが利用できるようになりました[Windows Insider](https://insider.windows.com/)します。 
+Windows 10 Insider Preview ビルド 17713 で提供されている[メモ帳は、多数の新機能で更新されています](https://aka.ms/ant-man)。 ズーム、折り返し検索/置換、および Unix/Linux と Mac の行の末尾 (それぞれ LF と CR) が、[Windows Insider](https://insider.windows.com/) でサポートされるようになりました。 
 
 ## <a name="developer-guidance"></a>開発者向けガイダンス
 
-### <a name="design-landing-page"></a>ランディング ページのデザイン
+### <a name="design-landing-page"></a>設計ランディング ページ
 
-チェック アウト、[ランディング ページ デザインの更新](https://developer.microsoft.com/windows/apps/design)UWP の概要については、概要デザイン領域、および Fluent デザインの最新機能に関する情報。
+[更新された設計ランディング ページ](https://developer.microsoft.com/windows/apps/design)で、一目でわかる UWP デザイン領域の概要情報と、Fluent Design への最新の追加機能に関する情報を確認してください。
 
 ### <a name="design-toolkits"></a>設計ツールキット
 
-新機能では、Adobe XD および Adobe Illustrator のツールキットが更新されました。 これらのデザイン ツールキットは、UWP アプリを設計するためのコントロールとレイアウトのテンプレートを提供します。 [ここでそれらを確認します。](../design/downloads/index.md)
+Adobe XD および Adobe Illustrator ツールキットが更新されて新機能が追加されました。 これらの設計ツールキットは、UWP アプリを設計するためのコントロールおよびレイアウト テンプレートを提供します。 [これらについてはこちらをご覧ください](../design/downloads/index.md)。
 
 ### <a name="webvr"></a>WebVR
 
-いくつかの新しいトピックが追加されました、 [WebVR ドキュメント](https://docs.microsoft.com/microsoft-edge/webvr/
-):
+[WebVR のドキュメント](https://docs.microsoft.com/microsoft-edge/webvr/
+)にいくつかの新しいトピックが追加されました。
 
-* [WebVR とは何ですか。](https://docs.microsoft.com/microsoft-edge/webvr/what-is-webvr
-) WebVR は、それを使用する理由およびその開発を開始する方法について説明します。
+* [WebVR とは](https://docs.microsoft.com/microsoft-edge/webvr/what-is-webvr
+): WebVR とは何か、それを使用する理由、およびその開発の始め方について説明します。
 
-* [プログレッシブ Web アプリで WebVR](https://docs.microsoft.com/microsoft-edge/webvr/webvr-in-pwas):WebVR にプログレッシブ Web App (PWA) を追加する方法について説明します。
+* [プログレッシブ Web アプリでの WebVR](https://docs.microsoft.com/microsoft-edge/webvr/webvr-in-pwas):プログレッシブ Web App (PWA) に WebVR を追加する方法について説明します。
 
-* [WebView の WebVR](https://docs.microsoft.com/microsoft-edge/webvr/webvr-in-webview):Windows 10 のアプリケーションで WebView コントロールを WebVR を追加する方法について説明します。
+* [WebView の WebVR](https://docs.microsoft.com/microsoft-edge/webvr/webvr-in-webview):Windows 10 のアプリケーションで WebView コントロールに WebVR を追加する方法について説明します。
 
-* [WebVR デモ](https://docs.microsoft.com/microsoft-edge/webvr/demos):Microsoft Edge と Windows Mixed Reality イマーシブ ヘッドセットを使用していくつかの WebVR デモをご覧ください。
+* [WebVR のデモ](https://docs.microsoft.com/microsoft-edge/webvr/demos):Microsoft Edge と Windows Mixed Reality イマーシブ ヘッドセットを使用して、WebVR のいくつかのデモをご覧ください。
 
-さらに、既存のページにいくつかの更新を行ったしました。
+また、既存のページが一部更新されています。
 
-* 目次の内容は次の 4 つの異なる最上位レベルのバケットにようになりましたより構成されています。**基礎**、**開発**、**リソース**、および**デモ**します。
+* 目次が次の 4 つの項目で構成されるように改良されました: **基本事項**、**開発**、**リソース**、**デモ**。
 
-* [WebVR Developer's Guide (ランディング ページ)](https://docs.microsoft.com/microsoft-edge/webvr/):更新されたルック アンド フィールより大きいイメージとアイコンと新しいデモします。
+* [WebVR 開発者向けガイド (ランディング ページ)](https://docs.microsoft.com/microsoft-edge/webvr/):外観が更新されて、画像とアイコンが大きくなり、新しいデモが追加されました。
 
-* [Microsoft Edge で WebVR を使用して](https://docs.microsoft.com/microsoft-edge/webvr/webvr-with-edge):Windows 情報を含めるように更新された 10 April 2018 Update。
+* [Microsoft Edge で WebVR を使用する](https://docs.microsoft.com/microsoft-edge/webvr/webvr-with-edge):Windows 10 April 2018 Update に関する情報が追加されました。
 
 ## <a name="videos"></a>ビデオ
 
-### <a name="get-started-for-devs-create-and-customize-a-form-on-windows-10"></a>開発者向け概要します。作成し、Windows 10 でのフォームをカスタマイズします。
+### <a name="get-started-for-devs-create-and-customize-a-form-on-windows-10"></a>開発者向けスタートアップ ガイド:Windows 10 でフォームを作成してカスタマイズする
 
-[開始 docs](../get-started/index.md) Windows の開発者実践的なエクスペリエンスを提供の基本的なアプリの開発タスク。 このビデオでは、これらのトピックのいずれかを説明し、アプリでのフォームの UI の作成の基本について説明します。 [ビデオを見る](https://www.youtube.com/watch?v=AgngKzq4hKI&feature=youtu.be)しアクションでコードを表示する[トピックを確認します。](https://aka.ms/CreateForms)
+Windows 開発者向けの[スタートアップ ガイド](../get-started/index.md)では、基本的なアプリ開発タスクを実際に体験できるようになりました。 このビデオは、これらのトピックの 1 つを順を追って説明するもので、アプリでのフォーム UI の作成の基本について扱います。 [ビデオを見て](https://www.youtube.com/watch?v=AgngKzq4hKI&feature=youtu.be)動作中のコードを理解したうえで、[トピックを自分で確認してください。](https://aka.ms/CreateForms)
 
-### <a name="enhance-your-bot-with-project-personality-chat"></a>プロジェクトのパーソナリティ チャット ボットを強化します。
+### <a name="enhance-your-bot-with-project-personality-chat"></a>Project Personality Chat でボットを強化する
 
-プロジェクト パーソナリティ チャットでは、チャット ボットにカスタマイズ可能なペルソナを追加できます。 Microsoft Bot Framework SDK を統合することで、顧客とやり取りする複数の会話方法の小さなトーク機能を追加できます。 [ビデオを見る](https://www.youtube.com/watch?v=5C_uD8g2QKg&feature=youtu.be)し、実装する方法について[対話型デモを試す](https://aka.ms/PersonalityChat)の実地体験について。
+Project Personality Chat により、カスタマイズ可能なペルソナをチャット ボットに追加することができます。 Microsoft Bot Framework SDK を統合することで、より会話的な方法で顧客と対話するための複数のスモールトーク機能を追加できます。 [ビデオを見て](https://www.youtube.com/watch?v=5C_uD8g2QKg&feature=youtu.be)これを実装する方法を理解したうえで、[対話的なデモを通して](https://aka.ms/PersonalityChat)実際に体験してみてください。
 
-### <a name="one-dev-question"></a>開発用の 1 つの質問
+### <a name="one-dev-question"></a>One Dev Question
 
-開発用の 1 つの質問のビデオ シリーズでは、マイクロソフトのベテランの開発者は、一連の Windows の開発、チームのカルチャ、および履歴に関する質問を説明します。 お答えした最新の質問を次に示します。
+One Dev Question ビデオ シリーズでは、ベテランの Microsoft 開発者が Windows 開発、チーム カルチャー、および履歴に関する一連の質問に答えています。 最新の質問に対してお答えした内容を以下に示します。
 
 Raymond Chen:
 
-* [Microsoft に理由を適用するでしたか。](https://www.youtube.com/watch?v=oL8ymamkEMU&feature=youtu.be)
+* [Microsoft に応募した理由](https://www.youtube.com/watch?v=oL8ymamkEMU&feature=youtu.be)
 
-Larry Osterman の場合:
+Larry Osterman:
 
-* [開発者が既定のオーディオ デバイスを変更しない理由お知らせするのでしょうか。](https://www.youtube.com/watch?v=6aNUoVfbnmg&feature=youtu.be)
-* [UWP の関数の非常に多くの非同期はなぜですか。](https://www.youtube.com/watch?v=5M724QIy1Mk&feature=youtu.be)
+* [開発者が既定のオーディオ デバイスを変更できない理由](https://www.youtube.com/watch?v=6aNUoVfbnmg&feature=youtu.be)
+* [多くの UWP 関数が非同期である理由](https://www.youtube.com/watch?v=5M724QIy1Mk&feature=youtu.be)
 
 ## <a name="samples"></a>サンプル
 
-### <a name="photo-editor-cwinrt"></a>C + フォト エディター/cli WinRT
+### <a name="photo-editor-cwinrt"></a>フォト エディター C++/WinRT
 
-フォト エディターのサンプル アプリを使用した開発の紹介、 [C +/cli WinRT](../cpp-and-winrt-apis/intro-to-using-cpp-with-winrt.md)言語プロジェクションです。 写真を取得することができます、アプリ、**画像**ライブラリ、および関連付けられている画像の効果を選択したイメージを編集します。 [複製するか、ここでサンプルをダウンロードします。](https://github.com/Microsoft/Windows-appsample-photo-editor)
+フォト エディター サンプル アプリは、[C++/WinRT](../cpp-and-winrt-apis/intro-to-using-cpp-with-winrt.md) 言語プロジェクションでの開発を紹介します。 このアプリを使用すると、**画像**ライブラリから写真を取得し、選択した画像を関連する写真効果を使って編集できます。 [サンプルはこちらで複製またはダウンロードできます。](https://github.com/Microsoft/Windows-appsample-photo-editor)
 
-![サンプルの動作の例](images/photo-editor-banner.png)
+![動作中のサンプルの例](images/photo-editor-banner.png)

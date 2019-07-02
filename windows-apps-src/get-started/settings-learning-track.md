@@ -7,10 +7,10 @@ keywords: 概要, uwp, windows 10, 学習トラック, 設定, 設定の保存, 
 ms.localizationpriority: medium
 ms.custom: RS5
 ms.openlocfilehash: 490dd8f0f3841fae089626ec9c283d54cc0d8cd9
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66370494"
 ---
 # <a name="save-and-load-settings-in-a-uwp-app"></a>UWP アプリでの設定の保存と読み込み
@@ -89,17 +89,17 @@ API の簡単な概要と、アプリの設定の保存と読み込みを開始�
 | [ApplicationData.LocalSettings](https://docs.microsoft.com/uwp/api/windows.storage.applicationdata.temporaryfolder) | ローカル アプリ データ ストアからアプリケーション設定コンテナーを取得します。 |
 | [ApplicationData.RoamingSettings](https://docs.microsoft.com/uwp/api/windows.storage.applicationdata.roamingsettings) | ローミング アプリ データ ストアからアプリケーション設定コンテナーを取得します。 |
 | [ApplicationDataContainer](https://docs.microsoft.com/uwp/api/windows.storage.applicationdatacontainer) | コンテナー階層の作成、削除、列挙、および移動をサポートするアプリの設定のコンテナーです。 |
-| [Windows.UI.ApplicationSettings Namespace](https://docs.microsoft.com/uwp/api/windows.ui.applicationsettings) | Windows シェルの設定ウィンドウに表示されるアプリの設定を定義するために使用するクラスを指定します。 |
+| [Windows.UI.ApplicationSettings 名前空間](https://docs.microsoft.com/uwp/api/windows.ui.applicationsettings) | Windows シェルの設定ウィンドウに表示されるアプリの設定を定義するために使用するクラスを指定します。 |
 
 ### <a name="useful-docs"></a>役立つドキュメント
 
 | トピック | 説明 |
 |-------|----------------|
-| [アプリの設定に関するガイドライン](https://docs.microsoft.com/windows/uwp/design/app-settings/guidelines-for-app-settings) | アプリ設定を作成し表示する際のベスト プラクティスについて説明します。 |
+| [アプリ設定のガイドライン](https://docs.microsoft.com/windows/uwp/design/app-settings/guidelines-for-app-settings) | アプリ設定を作成し表示する際のベスト プラクティスについて説明します。 |
 | [設定と他のアプリ データを保存して取得する](https://docs.microsoft.com/windows/uwp/design/app-settings/store-and-retrieve-app-data#create-and-read-a-local-file) | ローミング設定など、設定の保存と取得に関するチュートリアルです。 |
 
 ## <a name="useful-code-samples"></a>役立つコード サンプル
 
 | コード サンプル | 説明 |
 |-----------------|---------------|
-| [アプリケーション データのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/ApplicationData) | 設定に焦点を当てたシナリオ 2-4 |
+| [アプリケーション データ サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/ApplicationData) | 設定に焦点を当てたシナリオ 2-4 |

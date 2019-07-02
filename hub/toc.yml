@@ -43,6 +43,20 @@
               href: apps/desktop/modernize/desktop-to-uwp-extend.md
             - name: パッケージ アプリの配布
               href: apps/desktop/modernize/desktop-to-uwp-distribute.md
+        - name: 'チュートリアル: WPF アプリの現代化'
+          items:
+            - name: 概要
+              href: apps/desktop/modernize/modernize-wpf-tutorial.md
+            - name: Contoso Expenses　アプリの .NET Core 3 への移行
+              href: apps/desktop/modernize/modernize-wpf-tutorial-1.md
+            - name: XAML アイランドを使用した UWP InkCanvas コントロールの追加
+              href: apps/desktop/modernize/modernize-wpf-tutorial-2.md
+            - name: XAML アイランドを使用した UWP CalendarView コントロールの追加
+              href: apps/desktop/modernize/modernize-wpf-tutorial-3.md
+            - name: Windows 10 ユーザー アクティビティと通知の追加
+              href: apps/desktop/modernize/modernize-wpf-tutorial-4.md
+            - name: MSIX によるパッケージとデプロイ
+              href: apps/desktop/modernize/modernize-wpf-tutorial-5.md
     - name: Fluent Design System
       href: apps/fluent-design-system.md
     - name: アクセシビリティ

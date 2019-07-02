@@ -12,10 +12,10 @@ design-contact: ksulliv
 doc-status: Published
 ms.localizationpriority: medium
 ms.openlocfilehash: 2db08cc577a82ddf6973cb33e41f9bdb39fdffde
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66364231"
 ---
 # <a name="text-box"></a>テキスト ボックス
@@ -24,7 +24,7 @@ TextBox コントロールによって、ユーザーはアプリにテキスト
 
 TextBox には、テキスト入力を簡略化するための多くの機能があります。 テキストのコピーと貼り付けをサポートする、使い慣れた組み込みのコンテキスト メニューが付属しています。 [すべてクリア] ボタンによって、ユーザーは入力されているすべてのテキストを簡単に削除できます。 スペル チェック機能も組み込まれており、既定で有効になっています。
 
-> **重要な API**:[TextBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox)、[テキスト プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.text)
+> **重要な API**:[TextBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox)、[Text プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.text)
 
 ## <a name="is-this-the-right-control"></a>適切なコントロールの選択
 
@@ -83,7 +83,7 @@ rootGrid.Children.Add(textBox);
 
 テキスト ボックスを使用してフォームでデータ入力を受け付け、[Text](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.text) プロパティを使用してテキスト ボックスから完全なテキスト文字列を取得するのが一般的です。 通常、Text プロパティにアクセスするには、送信ボタンのクリックなどのイベントを使用しますが、テキストが変化したときに処理を実行する必要がある場合は、[TextChanged](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.textchanged) イベントや [TextChanging](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.textchanging) イベントを処理することができます。
 
-この例では、取得し、テキスト ボックスの現在のコンテンツを設定する方法を示します。
+この例では、テキスト ボックスの現在のコンテンツを取得して設定する方法を示します。
 
 ```xaml
 <TextBox name="SampleTextBox" Text="Sample Text"/>
@@ -95,7 +95,7 @@ string sampleText = SampleTextBox.Text;
 SampleTextBox.Text = "Sample text retrieved";
 ```
 
-[Header](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.header) (ラベル) [と PlaceholderText (透かし)](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.placeholdertext) をテキスト コントロールに追加すると、ユーザーに用途を示すことができます。 ヘッダーの外観をカスタマイズするには、Header ではなく [HeaderTemplate](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.headertemplate) プロパティを設定します。 *設計については、「ラベルのガイドライン」を参照してください。*
+[Header](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.header) (ラベル) と [PlaceholderText](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.placeholdertext) (透かし) をテキスト コントロールに追加すると、ユーザーに用途を示すことができます。 ヘッダーの外観をカスタマイズするには、Header ではなく [HeaderTemplate](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.headertemplate) プロパティを設定します。 *設計については、「ラベルのガイドライン」を参照してください。*
 
 [MaxLength](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.maxlength) プロパティを設定することによって、ユーザーが入力する文字数を制限できます。 ただし、MaxLength では、貼り付けられたテキストの長さは制限されません。 アプリでこれが重要である場合は、[Paste](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.paste) イベントを使って、貼り付けられたテキストを変更します。
 
@@ -111,7 +111,7 @@ SampleTextBox.Text = "Sample text retrieved";
 - **AcceptsReturn** が **true** である
 - **TextWrap** の値が **NoWrap** 以外である
 
-この例では、取得し、テキスト ボックスの現在のコンテンツを設定する方法を示します。
+この例では、テキスト ボックスの現在のコンテンツを取得して設定する方法を示します。
 
 ```xaml
 <TextBox name="SampleTextBox" Text="Sample Text"/>
@@ -261,7 +261,7 @@ private void TextBox1_SelectionChanged(object sender, RoutedEventArgs e)
 
 > **重要**&nbsp;&nbsp;入力値の種類の設定によって、入力の検証が実行されるわけではありません。また、ユーザーが、ハードウェア キーボードやその他の入力デバイスから入力できなくなることもありません。 必要に応じて、コードで入力を検証する必要があります。
 
-タッチ キーボードに影響するその他のプロパティとして、[IsSpellCheckEnabled](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.isspellcheckenabled)、[IsTextPredictionEnabled](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.istextpredictionenabled)、[PreventKeyboardDisplayOnProgrammaticFocus](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.preventkeyboarddisplayonprogrammaticfocus) があります  (IsSpellCheckEnabled は、ハードウェア キーボードを使用する場合にも TextBox に影響します)。
+タッチ キーボードに影響するその他のプロパティとして、[IsSpellCheckEnabled](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.isspellcheckenabled)、[IsTextPredictionEnabled](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.istextpredictionenabled)、[PreventKeyboardDisplayOnProgrammaticFocus](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.preventkeyboarddisplayonprogrammaticfocus) があります (IsSpellCheckEnabled は、ハードウェア キーボードを使用する場合にも TextBox に影響します)。
 
 詳細な情報と例については、「[入力値の種類を使ったタッチ キーボードの変更](https://docs.microsoft.com/windows/uwp/design/input/use-input-scope-to-change-the-touch-keyboard)」とプロパティのドキュメントをご覧ください。
 
@@ -314,9 +314,9 @@ private void TextBox1_SelectionChanged(object sender, RoutedEventArgs e)
 ## <a name="related-articles"></a>関連記事
 
 - [テキスト コントロール](text-controls.md)
-- [スペル チェックするためのガイドライン](text-controls.md)
+- [スペル チェックのガイドライン](text-controls.md)
 - [検索の追加](https://docs.microsoft.com/previous-versions/windows/apps/hh465231(v=win.10))
-- [テキスト入力するためのガイドライン](text-controls.md)
+- [テキスト入力のガイドライン](text-controls.md)
 - [TextBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox)
 - [PasswordBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.PasswordBox)
 - [String.Length プロパティ](https://msdn.microsoft.com/library/system.string.length(v=vs.110).aspx)

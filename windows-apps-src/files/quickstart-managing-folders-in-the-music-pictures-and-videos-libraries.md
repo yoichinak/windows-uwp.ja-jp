@@ -7,10 +7,10 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: f9dba57d8e75ba105a2154be5add5b101a4a6aa4
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66369334"
 ---
 # <a name="files-and-folders-in-the-music-pictures-and-videos-libraries"></a>ミュージック、画像、およびビデオ ライブラリのファイルとフォルダー
@@ -22,7 +22,7 @@ ms.locfileid: "66369334"
 ## <a name="prerequisites"></a>前提条件
 
 
--   **ユニバーサル Windows プラットフォーム (UWP) アプリの非同期プログラミングを理解します。**
+-   **ユニバーサル Windows プラットフォーム (UWP) アプリの非同期プログラミングについての理解**
 
     C# や Visual Basic での非同期アプリの作成方法については、「[C# または Visual Basic での非同期 API の呼び出し](https://docs.microsoft.com/windows/uwp/threading-async/call-asynchronous-apis-in-csharp-or-visual-basic)」をご覧ください。 C++ での非同期アプリの作成方法については、「[C++ での非同期プログラミング](https://docs.microsoft.com/windows/uwp/threading-async/asynchronous-programming-in-cpp-universal-windows-platform-apps)」をご覧ください。
 
@@ -31,7 +31,7 @@ ms.locfileid: "66369334"
     Visual Studio のマニフェスト デザイナーで、アプリ マニフェスト ファイルを開きます。 **[機能]** ページで、アプリで管理するライブラリを選択します。
 
     -   **音楽ライブラリ**
-    -   **ピクチャ ライブラリ**
+    -   **画像ライブラリ**
     -   **ビデオ ライブラリ**
 
     詳しくは、「[ファイル アクセス許可](file-access-permissions.md)」をご覧ください。
@@ -173,7 +173,7 @@ private async void getSongs()
 
 [カメラ ロール] フォルダーと [保存済みの写真] フォルダーでは、深いクエリがサポートされていません。
 
-**写真をキャプチャしているアプリで開く**
+**撮影に使ったアプリで写真を開く**
 
 ユーザーが撮影に使ったアプリで後から再び写真を表示できるようにするには、写真のメタデータと一緒に **CreatorAppId** を保存します。次のコード例を参考にしてください。 この例では、**testPhoto** は [**StorageFile**](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageFile) です。
 

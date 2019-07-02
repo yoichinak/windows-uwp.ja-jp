@@ -8,12 +8,12 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: 4846a29e914ffed15e4c3dea938cc51cefd566e0
-ms.sourcegitcommit: b9e2cd5232ad98f4ef367881b92000a3ae610844
+ms.openlocfilehash: 0545ea525b96d3a9310f3a761fd60a644f21baeb
+ms.sourcegitcommit: b8087f8b6cf8367f8adb7d6db4581d9aa47b4861
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131944"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67414082"
 ---
 # <a name="call-uwp-apis-in-desktop-apps"></a>デスクトップ アプリでの UWP Api を呼び出す
 
@@ -29,20 +29,46 @@ UWP API を使用するには、プロジェクトにいくつかの変更を加
 
 ### <a name="modify-a-net-project-to-use-windows-runtime-apis"></a>Windows ランタイム Api を使用する .NET プロジェクトを変更します。
 
+.NET プロジェクトの 2 つのオプションがあります。
+
+* アプリが Windows 10 バージョン 1803 以降を対象とする場合は、必要なすべての参照を提供する NuGet パッケージをインストールできます。
+* 参照を手動で追加することができます。
+
+#### <a name="to-use-the-nuget-option"></a>NuGet のオプションを使用するには
+
+1. 必ず[パッケージ参照](https://docs.microsoft.com/nuget/consume-packages/package-references-in-project-files)が有効になっています。
+
+    1. Visual Studio で、次のようにクリックします。**ツールが NuGet パッケージ マネージャー]-> [パッケージ マネージャー設定]-> [** します。
+    2. 必ず**PackageReference**が選択されている**既定のパッケージ管理形式**。
+
+2. Visual Studio で開いて、プロジェクトでプロジェクトを右クリックして**ソリューション エクスプ ローラー**選択**NuGet パッケージの管理**します。
+
+3. **NuGet パッケージ マネージャー**ウィンドウで、**参照**タブし、検索`Microsoft.Windows.SDK.Contracts`します。
+
+4. 後に、`Microsoft.Windows.SDK.Contracts`の右側のウィンドウで、パッケージが検出、 **NuGet パッケージ マネージャー**ウィンドウの選択、**バージョン**の対象とする Windows 10 のバージョンに基づくインストールするパッケージ。
+
+    * **10.0.18362.xxxx-preview**:Windows 10、バージョンが 1903 用に選択します。
+    * **10.0.17763.xxxx-preview**:Windows 10、バージョンは 1809 用に選択します。
+    * **10.0.17134.xxxx-preview**:Windows 10、バージョン 1803 には、これを選択します。
+
+5. **[インストール]** をクリックします。
+
+#### <a name="to-add-the-required-references-manually"></a>必要な参照を手動で追加するには
+
 1. **[参照マネージャー]** ダイアログ ボックスを開き、 **[参照]** ボタンを選択して、 **[すべてのファイル]** を選択します。
 
     ![[参照の追加] ダイアログ ボックス](images/desktop-to-uwp/browse-references.png)
 
 2. これらのファイルへの参照を追加します。
 
-  |ファイル|Location|
-  |--|--|
-  |System.Runtime.WindowsRuntime|C:\Windows\Microsoft.NET\Framework\v4.0.30319|
-  |System.Runtime.WindowsRuntime.UI.Xaml|C:\Windows\Microsoft.NET\Framework\v4.0.30319|
-  |System.Runtime.InteropServices.WindowsRuntime|C:\Windows\Microsoft.NET\Framework\v4.0.30319|
-  |windows.winmd|C:\Program Files (x86)\Windows Kits\10\UnionMetadata\\<*sdk version*>\Facade|
-  |Windows.Foundation.UniversalApiContract.winmd|C:\Program Files (x86)\Windows Kits\10\References\\<*sdk version*>\Windows.Foundation.UniversalApiContract\<*version*>|
-  |Windows.Foundation.FoundationContract.winmd|C:\Program Files (x86)\Windows Kits\10\References\\<*sdk version*>\Windows.Foundation.FoundationContract\<*version*>|
+    |ファイル|Location|
+    |--|--|
+    |System.Runtime.WindowsRuntime|C:\Windows\Microsoft.NET\Framework\v4.0.30319|
+    |System.Runtime.WindowsRuntime.UI.Xaml|C:\Windows\Microsoft.NET\Framework\v4.0.30319|
+    |System.Runtime.InteropServices.WindowsRuntime|C:\Windows\Microsoft.NET\Framework\v4.0.30319|
+    |windows.winmd|C:\Program Files (x86)\Windows Kits\10\UnionMetadata\\<*sdk version*>\Facade|
+    |Windows.Foundation.UniversalApiContract.winmd|C:\Program Files (x86)\Windows Kits\10\References\\<*sdk version*>\Windows.Foundation.UniversalApiContract\<*version*>|
+    |Windows.Foundation.FoundationContract.winmd|C:\Program Files (x86)\Windows Kits\10\References\\<*sdk version*>\Windows.Foundation.FoundationContract\<*version*>|
 
 3. **[プロパティ]** ウィンドウで、各 *.winmd* ファイルの **[ローカルにコピー]** フィールドを **[False]** に設定します。
 
@@ -75,7 +101,7 @@ C++ プロジェクトを構成する/cli WinRT を参照してください[C + 
 という用語*強化*(かどうかを選択した MSIX パッケージ内のアプリケーションをパッケージ化) デスクトップ アプリから直接呼び出すことができる Windows ランタイム Api を記述します。 Windows 10 エクスペリエンスを選択したら、識別を作成し、かどうか、その API に表示されます。 表示する必要のある Api[このリスト](desktop-to-uwp-supported-api.md)します。 これは、デスクトップ アプリから直接呼び出すことができる Api の一覧です。 API がこの一覧に表示されていない場合、その API に関連付けられている機能が UWP プロセス内でしか実行できないことが理由です。 多くの場合、UWP のマップ コントロールや Windows こんにちはセキュリティの確認など、UWP XAML をレンダリングする Api が含まれます。
 
 > [!NOTE]
-> 通常 UWP XAML をレンダリングする Api は、デスクトップから直接呼び出すことはできませんの代替アプローチを使用することができます。 UWP XAML コントロールまたはその他のカスタム ビジュアル エクスペリエンスをホストする場合は、使用[XAML 諸島](xaml-islands.md)(Windows 10、バージョンが 1903 以降) および[ビジュアル層](visual-layer-in-desktop-apps.md)(Windows 10、バージョン 1803 以降)。 これらの機能は、パッケージまたはパッケージ化されていないデスクトップ アプリで使用できます。
+> 通常 UWP XAML をレンダリングする Api は、デスクトップから直接呼び出すことはできませんが、他の方法を使用することができます。 UWP XAML コントロールまたはその他のカスタム ビジュアル エクスペリエンスをホストする場合は、[XAML Islands](xaml-islands.md)(Windows 10、バージョン 1903 以降) および[ビジュアル層](visual-layer-in-desktop-apps.md)(Windows 10、バージョン 1803 以降)を使用できます。 これらの機能は、パッケージまたはパッケージ化されていないデスクトップ アプリで使用できます。
 
 MSIX パッケージでデスクトップ アプリをパッケージ化することを選択した場合に、別のオプションが、*拡張*UWP プロジェクトをソリューションに追加することで、アプリケーション。 デスクトップ プロジェクトは、アプリケーションのエントリ ポイントですが、UWP プロジェクトにアクセスできるすべての Api で表示されない[このリスト](desktop-to-uwp-supported-api.md)します。 デスクトップ アプリが UWP のプロセスを使用して通信を app service とそれらをセットアップする方法のガイダンスの多くがあります。 UWP プロジェクトを必要とするエクスペリエンスを追加する場合を参照してください[UWP コンポーネントを持つ拡張](desktop-to-uwp-extend.md)します。
 

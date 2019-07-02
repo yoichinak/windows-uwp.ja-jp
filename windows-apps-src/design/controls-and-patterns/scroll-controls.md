@@ -13,10 +13,10 @@ dev-contact: regisb
 doc-status: Published
 ms.localizationpriority: medium
 ms.openlocfilehash: e401e700728e1d481fd2142281fe81524d146f94
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66364427"
 ---
 # <a name="scroll-viewer-controls"></a>スクロール ビューアー コントロール
@@ -25,7 +25,7 @@ ms.locfileid: "66364427"
 
 1 つの領域には収まらない UI コンテンツがある場合は、スクロール ビューアー コントロールを使用します。
 
-> **重要な API**:[ScrollViewer クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ScrollViewer)、 [ScrollBar クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.scrollbar)
+> **重要な API**:[ScrollViewer クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ScrollViewer)、[ScrollBar クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.scrollbar)
 
 スクロール ビューアーにより、ビューポート (表示可能な領域) の境界外のコンテンツを拡張表示できるようになります。 ユーザーはこのコンテンツを表示するために、タッチ、マウス ホイール、キーボード、ゲームパッドでスクロール ビューアーのサーフェスを操作します。またはマウスやペン カーソルでスクロール ビューアーのスクロールバーを操作します。 以下の画像に、スクロール ビューアー コントロールの例をいくつか示します。
 
@@ -87,7 +87,7 @@ See complete redlines in [UNI]http://uni/DesignDepot.FrontEnd/#/ProductNav/3378/
 </Page>
 ```
 
-この XAML は、水平スクロールを有効にする、スクロール ビューアーに画像を配置、およびズームを有効にする方法を示します。
+次の XAML は、水平スクロールを有効にし、スクロール ビューアーに画像を配置し、ズームを有効にする方法を示しています。
 
 ```xaml
 <ScrollViewer ZoomMode="Enabled" MaxZoomFactor="10"
@@ -105,7 +105,7 @@ ScrollViewer コントロールが他のコントロールの複合パートと�
 
 ScrollViewer を含むコントロールが ScrollViewer パーツ内の動作やプロパティの一部に影響を与えることができるように、ScrollViewer ではスタイルで設定でき、テンプレートのバインドで使用できる多数の XAML 添付プロパティを定義します。 添付プロパティについて詳しくは、「[添付プロパティの概要](../../xaml-platform/attached-properties-overview.md)」をご覧ください。
 
-**ScrollViewer の XAML の添付プロパティ**
+**ScrollViewer の XAML 添付プロパティ**
 
 ScrollViewer では、次の XAML 添付プロパティを定義します。
 

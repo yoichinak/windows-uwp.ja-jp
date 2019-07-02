@@ -1,5 +1,5 @@
 ---
-description: 半透明テクスチャを作成するブラシの種類。
+description: 半透明のテクスチャを作成するブラシの一種。
 title: アクリル素材
 template: detail.hbs
 ms.date: 08/09/2017
@@ -11,19 +11,19 @@ dev-contact: jevansa
 doc-status: Published
 ms.localizationpriority: medium
 ms.openlocfilehash: 4731ab089189a8a03656281d1a9a6da6e4d24e89
-ms.sourcegitcommit: f0f933d5cf0be734373a7b03e338e65000cc3d80
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65984260"
 ---
 # <a name="acrylic-material"></a>アクリル素材
 
 ![ヒーロー イメージ](images/header-acrylic.svg)
 
-アクリルは一種の[ブラシ](https://docs.microsoft.com/en-us/uwp/api/Windows.UI.Xaml.Media.Brush)半透明テクスチャを作成します。 アクリルをアプリ サーフェスに適用すると、奥行きを加えたり、視覚的な階層を確立したりすることができます。  <!-- By allowing user-selected wallpaper or colors to shine through, acrylic keeps users in touch with the OS personalization they've chosen. -->
+アクリルは、半透明のテクスチャを作成する[ブラシ](https://docs.microsoft.com/en-us/uwp/api/Windows.UI.Xaml.Media.Brush)の一種です。 アクリルをアプリ サーフェスに適用すると、奥行きを加えたり、視覚的な階層を確立したりすることができます。  <!-- By allowing user-selected wallpaper or colors to shine through, acrylic keeps users in touch with the OS personalization they've chosen. -->
 
-> **重要な API**:[AcrylicBrush クラス](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.media.acrylicbrush)、[プロパティをバック グラウンド](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.control.Background)
+> **重要な API**: [AcrylicBrush クラス](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.media.acrylicbrush)、[Background プロパティ](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.control.Background)
 
 :::row:::
     :::column:::
@@ -48,11 +48,11 @@ ms.locfileid: "65984260"
 
 :::row:::
     :::column span:::
-![一部の画像](images/XAML-controls-gallery-app-icon.png)
+![画像](images/XAML-controls-gallery-app-icon.png)
     :::column-end:::
     :::column span="2":::
 **XAML コントロール ギャラリー**<br>
-XAML コントロール ギャラリー アプリをインストールした場合にクリックします<a href="xamlcontrolsgallery:/item/Acrylic">ここ</a>をアプリを開き、アクションのアクリルを参照してください。
+XAML コントロール ギャラリー アプリがインストールされている場合、<a href="xamlcontrolsgallery:/item/Acrylic">こちら</a>をクリックしてアプリを開き、アクリルの動作を確認してください。
 
 <a href="https://www.microsoft.com/store/productId/9MSVH128X2ZT">XAML コントロール ギャラリー アプリを入手する (Microsoft Store)</a><br>
 <a href="https://github.com/Microsoft/Xaml-Controls-Gallery">ソース コード (GitHub) を入手する</a>
@@ -68,50 +68,50 @@ XAML コントロール ギャラリー アプリをインストールした場�
 
  ![アプリ内アクリル](images/AppAcrylic_DarkTheme.png)
 
- レイヤーの複数のアクリル サーフェスで注意が必要です: バック グラウンド アクリルの複数のレイヤーが注意をそらす光学フィルターを作成できます。
+ 複数のアクリル サーフェスを重ねる場合は注意が必要です。背景アクリルを何層にも重ねると、目の錯覚の原因となることがあります。
 
 ## <a name="when-to-use-acrylic"></a>アクリルを使用する状況
 
-* 重複するコンテンツがスクロールまたは操作したときに画面上など、UI をサポートするためには、アプリ内のアクリルを使用します。
-* コンテキスト メニュー、フライアウト、光 dismissable UI などの一時的な UI 要素の背景のアクリルを使用します。<br />一時的なシナリオでアクリルを使用すると、一時的な UI をトリガーするコンテンツで視覚的な関係を維持できます。
+* アプリ内アクリルは、スクロール時や操作時にコンテンツと重なる可能性のあるサーフェス上などで、UI をサポートするために使用します。
+* コンテキスト メニュー、ポップアップ、簡易非表示 UI など、一時的な UI 要素に対して背景アクリルを使用します。<br />一時的なシナリオでアクリルを使用すると、一時的な UI をトリガーしたコンテンツとの視覚的な関係を維持するのに役立ちます。
 
-ナビゲーション画面をアプリ内のアクリルを使用している場合は、アプリでフローを向上させるためにアクリル ペインの下にコンテンツを拡張することを検討します。 NavigationView を使用してはこの処理を自動実行します。 ただし、ストライピング効果の作成を回避するため、アクリル - エッジでの複数の部分を配置しないでくださいこのことができます、2 つのぼかしサーフェスの間で不要な継ぎ目を作成します。 アクリルは、設計を visual 調和を実現するツールですが、適切に使用されることが余計。
+ナビゲーション サーフェスでアプリ内アクリルを使用する場合、アプリでのフローを向上させるために、アクリル ウィンドウの下でコンテンツを拡張することを検討してください。 NavigationView を使用すると、これが自動的に行われます。 ただし、ストライプ効果が生成されないようにするには、複数のアクリルを端と端を接して配置しないでください。これを行うと、2 つのぼやけたサーフェス間に不要な継ぎ目が作成される場合があります。 アクリルは、デザインで視覚的な調和をとるためのツールですが、正しく使用しないと、視覚的なノイズになる場合があります。
 
-アプリにアクリルを組み込むことが最善の方法を次の使用パターンを検討してください。
+次の使用パターンを検討して、アクリルをアプリに組み込むのに最適な方法を決定してください。
 
-### <a name="horizontal-navigation-or-commanding"></a>水平方向のナビゲーション ウィンドウまたはコマンド実行
+### <a name="horizontal-navigation-or-commanding"></a>水平方向のナビゲーションまたはコマンド実行
 
-NavigationView を利用できるように、アプリは、アクリルを追加する場合は、比較的半透明のアクリルを使用して、60% 濃淡の不透明度をお勧めします。
+アプリでは NavigationView を利用できず、独自にアクリルを追加することを検討している場合は、比較的半透明なアクリル (濃淡の不透明度が 60%) を使用することをお勧めします。
  - ウィンドウが他のアプリ コンテンツ上でオーバーレイとして開くときは、[60% のアプリ内アクリル](#acrylic-theme-resources)にする必要があります
 
-![アプリで水平方向のコマンドを使用してマップ アプリ](images/Maps_In_App_Acrylic_1.png)
+![アプリ内での水平方向のコマンド実行を使用したマップ アプリ](images/Maps_In_App_Acrylic_1.png)
 
-さらに、上部にある、コンテンツの拡張またはアクリル、下のスクロールを持つは、アプリ、さらに魅力的なシームレスなエクスペリエンスです。
+また、コンテンツを上部のアクリルの下で広げたりスクロールさせたりすることで、アプリでよりイマーシブでシームレスなエクスペリエンスを実現できます。
 
 ### <a name="vertical-panes"></a>垂直方向のウィンドウ
 
-垂直方向のウィンドウまたはヘルプ、アプリのコンテンツのセクションで、サーフェスでは、不透明な背景を使用して、アクリルではなくをお勧めします。 NavigationView の内などの場合は、垂直方向のウィンドウ コンテンツの上に開くには、 **Compact**または**最小限**モードをお勧め、ユーザーがあるこのウィンドウを開いているときに、ページのコンテキストを維持するためにアプリ内のアクリルを使用します。
+アプリのコンテンツを分割するのに役立つ垂直方向のウィンドウまたはサーフェスの場合は、アクリルの代わりに不透明な背景を使用することをお勧めします。 NavigationView の **Compact** モードや **Minimal** モードのように、コンテンツの上部で垂直方向のウィンドウが開く場合、ユーザーがこのウィンドウを開いた状態にしているときにページのコンテンツを維持するために、アプリ内アクリルを使用することをお勧めします。
 
-### <a name="transient-surfaces"></a>一時的なサーフェイス
+### <a name="transient-surfaces"></a>一時的なサーフェス
 
-アプリのメニュー フライアウト、非モーダル ポップアップでは、ペイン の light 無視またはバック グラウンドのアクリルを使用することをお勧めします。
+メニュー ポップアップ、非モーダル ポップアップ、または簡易非表示ウィンドウを使用するアプリの場合、背景アクリルを使用することをお勧めします。
 
-![情報のポップアップを使用してメール アプリのパターン](images/Mail_TransientContextMenu.png)
+![情報のポップアップを使用したメール アプリのパターン](images/Mail_TransientContextMenu.png)
 
-コントロールの多くは、既定でアクリルを使用します。 [MenuFlyouts](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/menus)、 [AutoSuggestBox](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/auto-suggest-box)、 [ComboBox](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.combobox)およびのようなコントロールでは、ポップアップをライト-消去したり、すべて使用する一時的なアクリルときに呼び出されます。
+コントロールの多くは、既定でアクリルを使用します。 [MenuFlyouts](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/menus)、[AutoSuggestBox](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/auto-suggest-box)、[ComboBox](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.combobox)、および簡易非表示ポップアップを使用する類似のコントロールはすべて、呼び出されたときに一時的なアクリルを使用します。
 
 > [!Note]
-> GPU の負荷がデバイスの電力消費量を増やすことができますし、バッテリの寿命を短縮するにはアクリル サーフェスをレンダリングします。 Acrylic 効果は、選択した場合デバイスがバッテリー セーバー モードに入るし、ユーザーには、すべてのアプリのアクリル効果が無効にすることができます自動的に無効にします。
+> アクリル サーフェスのレンダリングでは GPU を集中的に使用するため、デバイスの電力消費が増加し、バッテリー残量が少なくなる可能性があります。 デバイスがバッテリー節約機能モードになると、アクリルの効果は自動的に無効になります。またユーザーは、必要に応じて、すべてのアプリでアクリルの効果を無効にすることができます。
 
 ## <a name="usability-and-adaptability"></a>使いやすさと適応性
 アクリルの外観は、さまざまなデバイスやコンテキストに合うように自動的に対応します。
 
-ハイ コントラスト モードでは、ユーザーが選んだ見慣れた背景色が、アクリルの代わりに引き続き表示されます。 さらに、バック グラウンド アクリルとアプリ内のアクリルの両方は、純色として表示されます。
- - ユーザーが設定での透過性をオフにする場合 > 個人用設定 > 色
- - バッテリー セーバー モードがアクティブにするタイミング
+ハイ コントラスト モードでは、ユーザーが選んだ見慣れた背景色が、アクリルの代わりに引き続き表示されます。 また次の場合には、背景アクリルとアプリ内アクリルはどちらも、単色として表示されます。
+ - ユーザーが [設定] > [個人用設定] > [色] で透明度をオフにした場合
+ - バッテリー節約機能モードがアクティブ化されている場合
  - アプリがローエンド ハードウェアで実行されている場合
 
-さらに、バック グラウンド アクリルのみは置換の透明度とテクスチャを純色。
+また次の場合には、背景アクリルのみ、その透明度とテクスチャを単色で置き換えることができます。
  - アプリ ウィンドウがデスクトップで非アクティブ化されている場合
  - UWP アプリが、電話、Xbox、HoloLens、またはタブレット モードで実行されている場合
 
@@ -137,7 +137,7 @@ NavigationView を利用できるように、アプリは、アクリルを追�
         <td> ChromeMedium <br/> ChromeLow <br/><br/> BaseHigh <br/><br/> BaseLow <br/><br/> AltHigh <br/><br/> AltLow </td>
     </tr>
     </tr>
-        <td> <b>推奨される使用法:</b>これらは、さまざまな使用法で問題なく動作する汎用のアクリル リソースです。 アプリで使用するセカンダリ テキストの色が AltMedium で、そのサイズが 18 ピクセルよりも小さい場合は、<a href="../accessibility/accessible-text-requirements.md">コントラスト比の要件を満たすように</a>、80% のアクリル リソースをテキストの背景に配置してください。 </td>
+        <td> <b>推奨される使用法:</b> これらは、汎用的なアクリルのリソースであり、さまざまな使用方法で適切に機能します。 アプリで使用するセカンダリ テキストの色が AltMedium で、そのサイズが 18 ピクセルよりも小さい場合は、<a href="../accessibility/accessible-text-requirements.md">コントラスト比の要件を満たすように</a>、80% のアクリル リソースをテキストの背景に配置してください。 </td>
     </tr>
     <tr>
         <td> SystemControlAcrylicWindowMediumHighBrush、SystemControlAcrylicElementMediumHighBrush <br/> SystemControlBaseHighAcrylicWindowMediumHighBrush、SystemControlBaseHighAcrylicElementMediumHighBrush </td>
@@ -145,7 +145,7 @@ NavigationView を利用できるように、アプリは、アクリルを追�
         <td> ChromeMedium <br/><br/> BaseHigh </td>
     </tr>
     <tr>
-        <td> <b>推奨される使用法:</b>アプリでは、18 px 以上のテキスト サイズを AltMedium 色のセカンダリ テキストを使用している場合は、これら複数の半透明 70% のテキストの背後にあるアクリル リソースを配置できます。 これらのリソースは、アプリの最上部にある水平方向のナビゲーション領域やコマンド実行領域で使用することをお勧めします。  </td>
+        <td> <b>推奨される使用法:</b> アプリで使用するセカンダリ テキストの色が AltMedium で、そのサイズが 18 ピクセル以上になる場合は、これらのより透過的な 70% のアクリル リソースをテキストの背景に配置できます。 これらのリソースは、アプリの最上部にある水平方向のナビゲーション領域やコマンド実行領域で使用することをお勧めします。  </td>
     </tr>
     <tr>
         <td> SystemControlChromeHighAcrylicWindowMediumBrush、SystemControlChromeHighAcrylicElementMediumBrush <br/> SystemControlChromeMediumAcrylicWindowMediumBrush、SystemControlChromeMediumAcrylicElementMediumBrush <br/> SystemControlChromeMediumLowAcrylicWindowMediumBrush、SystemControlChromeMediumLowAcrylicElementMediumBrush <br/> SystemControlBaseHighAcrylicWindowMediumBrush、SystemControlBaseHighAcrylicElementMediumBrush <br/> SystemControlBaseMediumLowAcrylicWindowMediumBrush、SystemControlBaseMediumLowAcrylicElementMediumBrush <br/> SystemControlAltMediumLowAcrylicWindowMediumBrush、SystemControlAltMediumLowAcrylicElementMediumBrush  </td>
@@ -153,7 +153,7 @@ NavigationView を利用できるように、アプリは、アクリルを追�
         <td> ChromeHigh <br/><br/> ChromeMedium <br/><br/> ChromeMediumLow <br/><br/> BaseHigh <br/><br/> BaseLow <br/><br/> AltMediumLow </td>
     </tr>
     <tr>
-        <td> <b>推奨される使用法:</b>AltHigh 色の主要なテキストのみアクリルの上に配置するときに、アプリは、これらの 60% リソースを利用できます。 アプリの<a href="../controls-and-patterns/navigationview.md">垂直方向のナビゲーション ウィンドウ</a> (ハンバーガー メニュー) を描画するときは、60% のアクリルを使用することをお勧めします。 </td>
+        <td> <b>推奨される使用法:</b> プライマリ テキストの色が AltHigh で、このテキストのみをアクリルの上に配置する場合は、これらの 60% のリソースをアプリで利用できます。 アプリの<a href="../controls-and-patterns/navigationview.md">垂直方向のナビゲーション ウィンドウ</a> (ハンバーガー メニュー) を描画するときは、60% のアクリルを使用することをお勧めします。 </td>
     </tr>
 </table>
 
@@ -162,7 +162,7 @@ NavigationView を利用できるように、アプリは、アクリルを追�
     <tr>
         <th align="center">リソース キー</th>
         <th align="center">濃淡の不透明度</th>
-        <th align="center"><a href="color.md">代替の濃淡の色</a> </th>
+        <th align="center"><a href="color.md">濃淡とフォールバックの色</a> </th>
     </tr>
     <tr>
         <td> SystemControlAccentAcrylicWindowAccentMediumHighBrush、SystemControlAccentAcrylicElementAccentMediumHighBrush  </td>
@@ -191,21 +191,21 @@ NavigationView を利用できるように、アプリは、アクリルを追�
 ## <a name="custom-acrylic-brush"></a>カスタム アクリル ブラシ
 色の濃淡をアプリのアクリルに加えて、ブランドを表示したり、ページ上にある他の要素と視覚的にバランスをとったりすることができます。 グレースケール以外の色を表示するには、次のプロパティを使って、独自のアクリル ブラシを定義する必要があります。
  - **TintColor**: 色/濃淡のオーバーレイ レイヤーです。 RGB の色の値とアルファ チャネルの不透明度の両方を指定することを検討してください。
- - **TintOpacity**: 濃淡レイヤーの不透明度です。 お勧め 80% の不透明度を出発点として他の translucencies で魅力的なさまざまな色に見える場合があります。
- - **TintLuminosityOpacity**: がバック グラウンドからアクリル画面によって許可される彩度の量を制御します。
+ - **TintOpacity**: 濃淡レイヤーの不透明度です。 開始点として 80% の不透明度をお勧めします。ただし、透明度が異なると、別の色を使用したほうがより魅力的に表示される可能性もあります。
+ - **TintLuminosityOpacity**: 背景からアクリル サーフェスの間で許容される彩度の量を制御します。
  - **BackgroundSource**: 背景アクリルまたはアプリ内アクリルのどちらを使用するかを指定するフラグです。
- - **FallbackColor**: 純色をバッテリー セーバーのアクリルを置換します。 背景アクリルでは、フォールバックの色は、アプリが作業中のデスクトップ ウィンドウにない場合、またはアプリが電話や Xbox 上で実行されている場合にもアクリルと置き換わります。
+ - **FallbackColor**: バッテリー節約機能でアクリルと置き換わる単色です。 背景アクリルでは、フォールバックの色は、アプリが作業中のデスクトップ ウィンドウにない場合、またはアプリが電話や Xbox 上で実行されている場合にもアクリルと置き換わります。
 
 ![淡色テーマのアクリルの見本](images/CustomAcrylic_Swatches_LightTheme.png)
 
 ![濃色テーマのアクリルの見本](images/CustomAcrylic_Swatches_DarkTheme.png)
 
-![濃淡の不透明度と比較して光度 opactity](images/LuminosityVersusTint.png)
+![明暗の不透明度と濃淡の不透明度の比較](images/LuminosityVersusTint.png)
 
 アクリル ブラシを追加するには、濃色テーマ、淡色テーマ、ハイ コントラスト テーマの 3 つのリソースを定義します。 ハイ コントラストでは、濃色/淡色の AcrylicBrush と同じ x:Key で SolidColorBrush を使用することをお勧めします。
 
 > [!Note] 
-> TintLuminosityOpacity 値を指定しない場合、システムは TintColor と TintOpacity に基づき、その値を自動的に調整します。
+> TintLuminosityOpacity 値を指定しない場合、その値は、TintColor および TintOpacity に基づいてシステムによって自動的に調整されます。
 
 ```xaml
 <ResourceDictionary.ThemeDictionaries>
@@ -319,16 +319,16 @@ protected override void OnLaunched(LaunchActivatedEventArgs e)
 ## <a name="dos-and-donts"></a>推奨と非推奨
 * アクリルは、ナビゲーション ウィンドウなど、アプリのプライマリ サーフェス以外のサーフェスで背景素材として使用してください。
 * シームレスなエクスペリエンスを実現するには、アプリの周囲とわずかにブレンドするようにして、アクリルをアプリの 1 つ以上の端にまで拡張してください。
-* アプリの大きな背景サーフェイスでデスクトップのアクリルを入れないでください - 一時的なサーフェイスの主に使用されているアクリルのメンタル モデルが破損します。
+* アプリの大きな背景サーフェスにデスクトップ アクリルを配置しないでください。これを行うと、一時的なサーフェスに対して主に使用されるアクリルのメンタル モデルが破損します。
 * アプリ内アクリルと背景アクリルは、継ぎ目部分での視覚的なテンションを回避するために、隣接するようには配置しないでください。
 * 複数のアクリル ウィンドウを、同じ濃淡や不透明度で隣接するように配置しないでください。このようにすると、望ましくない継ぎ目が表示されます。
 * アクリル サーフェスの上には、アクセント カラーのテキストを配置しないでください。
 
 ## <a name="how-we-designed-acrylic"></a>アクリルをどのように設計したか
 
-アクリルの主要なコンポーネントを微調整して、ユニークな外観とプロパティを作成しました。 透明度、ぼかしフラット サーフェスをビジュアルの深さとディメンションを追加するノイズと始めました。 除外ブレンド モード レイヤーを追加して、アクリルの背景に配置される UI のコントラストと見やすさを確保しました。 最後に、ユーザーの個性を反映できるように、色の濃淡を追加しました。 次のレイヤーを組み合わせることで、新しくて使いやすい素材が生みだされます。
+アクリルの主要なコンポーネントを微調整して、ユニークな外観とプロパティを作成しました。 設計の開始時には透明度、ぼかし、ノイズを使い、平坦なサーフェスに視覚的な奥行きとディメンションを追加しました。 除外ブレンド モード レイヤーを追加して、アクリルの背景に配置される UI のコントラストと見やすさを確保しました。 最後に、ユーザーの個性を反映できるように、色の濃淡を追加しました。 次のレイヤーを組み合わせることで、新しくて使いやすい素材が生みだされます。
 
-![Acrylic レシピ](images/AcrylicRecipe_Diagram.jpg)
+![アクリルのレシピ](images/AcrylicRecipe_Diagram.jpg)
 <br/>アクリルのレシピ: 背景、ぼかし、除外ブレンド、色/濃淡のオーバーレイ、ノイズ
 
 
@@ -338,4 +338,4 @@ protected override void OnLaunched(LaunchActivatedEventArgs e)
 
 ## <a name="related-articles"></a>関連記事
 
-[**強調表示を表示します。**](reveal.md)
+[**表示ハイライト**](reveal.md)

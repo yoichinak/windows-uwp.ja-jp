@@ -12,10 +12,10 @@ design-contact: ksulliv
 doc-status: Published
 ms.localizationpriority: medium
 ms.openlocfilehash: 78f6fe36fb8955b6234cdf3cb42e4db02a602f4a
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66364344"
 ---
 # <a name="rich-edit-box"></a>リッチ エディット ボックス
@@ -24,7 +24,7 @@ ms.locfileid: "66364344"
 
 書式付きテキスト、ハイパーリンク、イメージなどを含んだリッチ テキスト ドキュメントの入力と編集には、RichEditBox コントロールを使うことができます。 このコントロールの IsReadOnly プロパティを **true** に設定すると、RichEditBox を読み取り専用にできます。
 
-> **重要な API**:[RichEditBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RichEditBox)、[ドキュメント プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.richeditbox.document)、 [IsReadOnly プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.richeditbox.isreadonly)、 [IsSpellCheckEnabled プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.richeditbox.isspellcheckenabled)
+> **重要な API**:[RichEditBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RichEditBox)、[Document プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.richeditbox.document)、[IsReadOnly プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.richeditbox.isreadonly)、[IsSpellCheckEnabled プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.richeditbox.isspellcheckenabled)
 
 ## <a name="is-this-the-right-control"></a>適切なコントロールの選択
 
@@ -223,8 +223,8 @@ private void UnderlineButton_Click(object sender, RoutedEventArgs e)
 ## <a name="related-articles"></a>関連記事
 
 - [テキスト コントロール](text-controls.md)
-- [スペル チェックするためのガイドライン](text-controls.md)
+- [スペル チェックのガイドライン](text-controls.md)
 - [検索の追加](search.md)
-- [テキスト入力するためのガイドライン](text-controls.md)
+- [テキスト入力のガイドライン](text-controls.md)
 - [TextBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox)
 - [Windows.UI.Xaml.Controls PasswordBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.PasswordBox)

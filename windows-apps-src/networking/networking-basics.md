@@ -7,10 +7,10 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: a22b583f4da59af5694156b57ede3c6a353cef5a
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66371643"
 ---
 # <a name="networking-basics"></a>ネットワークの基本
@@ -31,12 +31,12 @@ ms.locfileid: "66371643"
 
 | 機能 | 説明 |
 |------------|-------------|
-| **enterpriseAuthentication** | ドメイン資格情報を必要とするネットワーク リソースにアプリが接続できるようにします。 たとえば、プライベート イントラネット上の SharePoint サーバーからデータを取得するアプリです。 この機能を使うと、資格情報を必要とするネットワーク上のリソースに、自分の資格情報を使ってアクセスすることができます。 この機能を持ったアプリは、ネットワーク上でユーザーを偽装することができます。 アプリに対して認証プロキシ経由でインターネットへのアクセスを許可するには、この機能は不要です。<br/><br/>詳細については、ドキュメントを参照してください、 *Enterprise*機能のシナリオで[機能に限定](/windows/uwp/packaging/app-capability-declarations#restricted-capabilities)します。 |
-| **近接** | コンピューターときわめて近い場所にあるデバイスとの近距離近接通信で必要となります。 近距離近接通信は、近くのデバイス上のアプリケーションに接続したりデータを送ったりするときに使われます。 <br/><br/> この機能を有効にすると、アプリは、ユーザーの同意に基づいて相手を招待したり招待に応じたりしながら、ネットワークにアクセスし、きわめて近い場所にあるデバイスに接続することができます。 |
+| **enterpriseAuthentication** | ドメイン資格情報を必要とするネットワーク リソースにアプリが接続できるようにします。 たとえば、プライベート イントラネットの SharePoint サーバーからデータを取得するアプリが該当します。 この機能を使うと、資格情報を必要とするネットワーク上のリソースに、自分の資格情報を使ってアクセスすることができます。 この機能を持ったアプリは、ネットワーク上でユーザーを偽装することができます。 認証プロキシ経由でのインターネットへのアクセスをアプリに許可する手段として、この機能は必要ありません。<br/><br/>詳細については、[制限付き機能](/windows/uwp/packaging/app-capability-declarations#restricted-capabilities)の *Enterprise* 機能のシナリオについてのドキュメントを参照してください。 |
+| **proximity** | コンピューターときわめて近い場所にあるデバイスとの近距離近接通信で必要となります。 近距離近接通信は、近くのデバイス上のアプリケーションに接続したりデータを送ったりするときに使われます。 <br/><br/> この機能を有効にすると、アプリは、ユーザーの同意に基づいて相手を招待したり招待に応じたりしながら、ネットワークにアクセスし、きわめて近い場所にあるデバイスに接続することができます。 |
 | **sharedUserCertificates** | ソフトウェア証明書とハードウェア証明書 (スマート カード証明書など) にアプリがアクセスできるようにします。 この機能が実行時に呼び出されると、ユーザーは、カードの挿入や証明書の選択などの行動をとる必要があります。 <br/><br/> この機能では、ソフトウェア証明書やハードウェア証明書、スマート カードが、アプリでの身分証明に使われます。 この機能は、企業や銀行、行政サービスで身分証明に使うことができます。 |
 
 ## <a name="communicating-when-your-app-is-not-in-the-foreground"></a>アプリがフォア グラウンドにないときの通信
-「[バックグラウンド タスクによるアプリのサポート](https://docs.microsoft.com/windows/uwp/launch-resume/support-your-app-with-background-tasks)」には、アプリがフォアグラウンドでないときにバックグラウンド タスクを使って処理を実行する方法に関する一般的な情報が含まれています。 具体的には、アプリがフォアグラウンド アプリでないときにネットワーク経由でそのアプリのデータが到着した場合は、到着通知を受け取るための特別な手順のコードを実行する必要があります。 Windows 8 では、この目的のコントロール チャネルのトリガーを使用して、Windows 10 で引き続きサポートされます。 コントロール チャネル トリガーの使い方について詳しくは[**ここ**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger)をご覧ください。 Windows 10 の新しいテクノロジがプッシュが有効なストリーム ソケットなどのシナリオのオーバーヘッドを軽減の優れた機能を提供します。 ソケット ブローカーとソケット アクティビティ トリガーします。
+「[バックグラウンド タスクによるアプリのサポート](https://docs.microsoft.com/windows/uwp/launch-resume/support-your-app-with-background-tasks)」には、アプリがフォアグラウンドでないときにバックグラウンド タスクを使って処理を実行する方法に関する一般的な情報が含まれています。 具体的には、アプリがフォアグラウンド アプリでないときにネットワーク経由でそのアプリのデータが到着した場合は、到着通知を受け取るための特別な手順のコードを実行する必要があります。 Windows 8 では、このためにコントロール チャネル トリガーを使っていました。これらのトリガーは、Windows 10 でも引き続きサポートされます。 コントロール チャネル トリガーの使い方について詳しくは[**ここ**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger)をご覧ください。 Windows 10 の新しいテクノロジでは、プッシュ対応ストリーム ソケットなどのいくつかのシナリオでオーバーヘッドが小さい優れた機能であるソケット ブローカーとソケット アクティビティ トリガーを利用できます。
 
 アプリで [**DatagramSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.DatagramSocket)、[**StreamSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamSocket)、または [**StreamSocketListener**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamSocketListener) を使っている場合は、開いているソケットの所有権をシステムが提供するソケット ブローカーに移譲した後、フォアグラウンドから離れるか、アプリを終了できます。 移譲されたソケットで接続が行われるか、そのソケットでトラフィックが到着すると、アプリまたは指定されたバックグラウンド タスクがアクティブ化します。 アプリが実行されていない場合は、開始されます。 その後、ソケット ブローカーは、[**SocketActivityTrigger**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.SocketActivityTrigger) を使って、新しいトラフィックが到着していることをアプリに通知します。 アプリは、ソケット ブローカーからソケットを取り戻し、そのソケットのトラフィックを処理します。 つまり、アプリがネットワーク トラフィックをアクティブに処理していないときに消費するシステム リソースが非常に少なくなります。
 
@@ -60,8 +60,8 @@ Secure Sockets Layer (SSL) とより新しいトランスポート層セキュ�
 
 [  **StreamSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamSocket) 接続のセキュリティを確保するには 2 つの方法があります。
 
--   [**ConnectAsync** ](https://docs.microsoft.com/uwp/api/windows.networking.sockets.streamsocket.connectasync) - ネットワーク サービスに最初に接続し、すべての通信に SSL や TLS を使用する、すぐにネゴシエートします。
--   [**UpgradeToSslAsync** ](https://docs.microsoft.com/uwp/api/windows.networking.sockets.streamsocket.upgradetosslasync) -暗号化なしのネットワーク サービスに最初に接続します。 アプリでデータが送受信される場合があります。 その後、以降のすべての通信で SSL/TLS を使うように接続をアップグレードします。
+-   [**ConnectAsync**](https://docs.microsoft.com/uwp/api/windows.networking.sockets.streamsocket.connectasync) - ネットワーク サービスへの最初の接続を確立してすぐに、すべての通信で SSL/TLS を使うようにネゴシエートします。
+-   [**UpgradeToSslAsync**](https://docs.microsoft.com/uwp/api/windows.networking.sockets.streamsocket.upgradetosslasync) - 最初に暗号化なしでネットワーク サービスに接続します。 アプリでデータが送受信される場合があります。 その後、以降のすべての通信で SSL/TLS を使うように接続をアップグレードします。
 
 SocketProtectionLevel は、アプリが接続を確立またはアップグレードする際に必要なソケット保護レベルを指定します。 ただし、確立される接続の最終的な保護レベルは接続の両方のエンドポイント間のネゴシエーション プロセスで決まります。 指定した保護レベルは、相手のエンドポイントでより低いレベルが要求されている場合、より低くなることがあります。 
 
@@ -71,10 +71,10 @@ SocketProtectionLevel は、アプリが接続を確立またはアップグレ�
 > コードでは、特定の保護レベルの使用に暗黙的に依存しないように、つまり特定のセキュリティ レベルの既定での使用を前提にしないようにしてください。 セキュリティ環境は変わり続けており、プロトコルと既定の保護レベルは、既知の弱点のあるプロトコルの使用を避けるように、刻々と変更されています。 既定値は、個々のコンピューターの構成、つまりインストールされているソフトウェアや適用されているパッチによって異なることがあります。 アプリが特定のセキュリティ レベルの使用に依存する場合は、明示的にそのレベルを指定したうえで、実際にそのレベルを使って接続が確立されたことを確認する必要があります。
 
 ### <a name="use-connectasync"></a>ConnectAsync の使用
-[**ConnectAsync** ](https://docs.microsoft.com/uwp/api/windows.networking.sockets.streamsocket.connectasync)のネットワーク サービスに最初の接続を確立するために使用でき、すべての通信に SSL や TLS を使用する、すぐにネゴシエートします。 *protectionLevel* パラメーターを渡すことができる **ConnectAsync** メソッドは 2 つあります。
+[**ConnectAsync**](https://docs.microsoft.com/uwp/api/windows.networking.sockets.streamsocket.connectasync) は、ネットワーク サービスへの最初の接続を確立して、すぐにすべての通信で SSL/TLS を使うようにネゴシエートするのに使えます。 *protectionLevel* パラメーターを渡すことができる **ConnectAsync** メソッドは 2 つあります。
 
--   [**ConnectAsync (EndpointPair、SocketProtectionLevel)** ](https://docs.microsoft.com/uwp/api/windows.networking.sockets.streamsocket.connectasync) -で、非同期操作を開始、 [ **StreamSocket** ](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamSocket)リモート ネットワークの宛先に接続するオブジェクトとして指定された、 [ **EndpointPair** ](https://docs.microsoft.com/uwp/api/Windows.Networking.EndpointPair)オブジェクトと[ **SocketProtectionLevel**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.SocketProtectionLevel)します。
--   [**ConnectAsync (ホスト名、文字列、SocketProtectionLevel)** ](https://docs.microsoft.com/uwp/api/windows.networking.sockets.streamsocket.connectasync) -で、非同期操作を開始、 [ **StreamSocket** ](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamSocket)リモート宛先に接続するオブジェクトリモートのホスト名、リモート サービス名で指定された、 [ **SocketProtectionLevel**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.SocketProtectionLevel)します。
+-   [**ConnectAsync(EndpointPair, SocketProtectionLevel)** ](https://docs.microsoft.com/uwp/api/windows.networking.sockets.streamsocket.connectasync) - [**StreamSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamSocket) オブジェクトで、[**EndpointPair**](https://docs.microsoft.com/uwp/api/Windows.Networking.EndpointPair) オブジェクトと [**SocketProtectionLevel**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.SocketProtectionLevel) で指定したリモート ネットワークの宛先に接続する非同期操作を開始します。
+-   [**ConnectAsync(HostName, String, SocketProtectionLevel)** ](https://docs.microsoft.com/uwp/api/windows.networking.sockets.streamsocket.connectasync) - [**StreamSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamSocket) オブジェクトで、リモート ホスト名、リモート サービス名、[**SocketProtectionLevel**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.SocketProtectionLevel) で指定したリモートの宛先に接続する非同期操作を開始します。
 
 先ほどのいずれかの [**ConnectAsync**](https://docs.microsoft.com/uwp/api/windows.networking.sockets.streamsocket.connectasync) メソッドを呼び出すときに *protectionLevel* パラメーターが **Windows.Networking.Sockets.SocketProtectionLevel.Ssl** に設定されていると、[**StreamSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamSocket) による通信の暗号化に SSL/TLS を使う必要があります。 この値を指定すると暗号化が必要になり、NULL 暗号を使うことはできません。
 
@@ -464,7 +464,7 @@ using Windows::Storage::Streams;
 ネットワーク経由で接続するときに、認証資格情報を提供する方法。
 
 ### <a name="providing-a-client-certificate-with-the-streamsocket-class"></a>StreamSocket クラスによるクライアント証明書の提供
-[  **Windows.Networking.StreamSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamSocket) クラスは、SSL/TLS を使ったアプリの接続先サーバーの認証をサポートします。 場合によっては、アプリは、TLS クライアント証明書を使って自身をサーバーに対して認証する必要があります。 Windows 10 では、クライアント証明書を行うことができます、 [ **StreamSocket.Control** ](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamSocketControl) (このする必要がありますが設定されるオブジェクト、TLS ハンドシェイクを開始する前に)。 サーバーがクライアント証明書を要求した場合、Windows が提供された証明書を使って応答します。
+[  **Windows.Networking.StreamSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamSocket) クラスは、SSL/TLS を使ったアプリの接続先サーバーの認証をサポートします。 場合によっては、アプリは、TLS クライアント証明書を使って自身をサーバーに対して認証する必要があります。 Windows 10 では、クライアント証明書を [**StreamSocket.Control**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamSocketControl) オブジェクトに提供できます (これは TLS ハンドシェイクが開始される前に設定する必要があります)。 サーバーがクライアント証明書を要求した場合、Windows が提供された証明書を使って応答します。
 
 これを実装する方法を示すコード スニペットを次に示します。
 
@@ -483,7 +483,7 @@ Networking API は、セキュリティが確保された Web サービスとア
 |  | [**MessageWebSocketControl.ProxyCredential**](https://docs.microsoft.com/uwp/api/windows.networking.sockets.messagewebsocketcontrol.proxycredential) |
 |  | [**StreamWebSocketControl.ServerCredential**](https://docs.microsoft.com/uwp/api/windows.networking.sockets.streamwebsocketcontrol.servercredential) |
 |  | [**StreamWebSocketControl.ProxyCredential**](https://docs.microsoft.com/uwp/api/windows.networking.sockets.streamwebsocketcontrol.proxycredential) |
-| **バック グラウンド転送サービス** | [**BackgroundDownloader.ServerCredential**](https://docs.microsoft.com/uwp/api/windows.networking.backgroundtransfer.backgrounddownloader.servercredential) |
+| **バックグラウンド転送** | [**BackgroundDownloader.ServerCredential**](https://docs.microsoft.com/uwp/api/windows.networking.backgroundtransfer.backgrounddownloader.servercredential) |
 |  | [**BackgroundDownloader.ProxyCredential**](https://docs.microsoft.com/uwp/api/windows.networking.backgroundtransfer.backgrounddownloader.proxycredential) |
 |  | [**BackgroundUploader.ServerCredential**](https://docs.microsoft.com/uwp/api/windows.networking.backgroundtransfer.backgrounduploader.servercredential) |
 |  | [**BackgroundUploader.ProxyCredential**](https://docs.microsoft.com/uwp/api/windows.networking.backgroundtransfer.backgrounduploader.proxycredential) |
@@ -507,4 +507,4 @@ Networking API は、例外の原因についての詳しい情報を取得す�
 -   その他の API には、実際の **HRESULT** 値を取得するメソッドがあります。
 
 ## <a name="related-topics"></a>関連トピック
-* [Windows 10 でのネットワーク API の機能強化](https://blogs.windows.com/buildingapps/2015/07/02/networking-api-improvements-in-windows-10/)
+* [Windows 10 での Networking API の機能強化](https://blogs.windows.com/buildingapps/2015/07/02/networking-api-improvements-in-windows-10/)

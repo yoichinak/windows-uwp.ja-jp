@@ -12,10 +12,10 @@ design-contact: kimsea
 doc-status: Published
 ms.localizationpriority: medium
 ms.openlocfilehash: aa672c99dc83e7955c4d4f91b5bc34620c48ed01
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66364550"
 ---
 # <a name="nested-ui-in-list-items"></a>リスト項目の入れ子になった UI
@@ -26,7 +26,7 @@ ms.locfileid: "66364550"
 
 入れ子になった UI を使用することで、重要な操作をスムーズに行うことができるようになる追加のオプションをユーザーに提供できます。 ただし、公開する操作の数が増えるにつれて、UI は複雑になります。 この UI パターンの使用を決めた場合は十分に注意することが必要です。 この記事では、特定の UI に最適な一連の操作の判断に役立つガイドラインを提供します。
 
-> **重要な API**:[ListView クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listview)、 [GridView クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.gridview)
+> **重要な API**:[ListView クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listview)、[GridView クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.gridview)
 
 この記事では、[ListView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listview) 項目および [GridView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.gridview) 項目の入れ子になった UI の作成について説明します。 このセクションでは、入れ子になった UI の他の例については取り上げませんが、これらの概念は他でも利用できます。 始める前に、UI における ListView コントロールまたは GridView コントロールの使用について、一般的なガイダンスを理解している必要があります。この一般的なガイダンスについては、「[リスト](lists.md)」と「[リスト ビューとグリッド ビュー](listview-and-gridview.md)」の記事をご覧ください。
 
@@ -109,7 +109,7 @@ UWP でサポートされているすべての入力にアプリが対応して�
 
 ![入れ子になった UI 部](images/nested-ui-navigation.png)
 
-**Gamepad**
+**ゲームパッド**
 
 ゲームパッドで入力された場合、次のユーザー エクスペリエンスを提供します。
 
@@ -123,7 +123,7 @@ UWP でサポートされているすべての入力にアプリが対応して�
 - リスト項目の左側の UI 要素では、右方向キーでフォーカスを **A** に設定します。
 - リスト項目の右側の UI 要素では、左方向キーでフォーカスを **A** に設定します。
 
-**[キーボード]**
+**キーボード**
 
 キーボードで入力された場合、ユーザー エクスペリエンスは次のようにします。
 
@@ -167,7 +167,7 @@ UWP でサポートされているすべての入力にアプリが対応して�
 
 リスト項目で操作が実行されない場合は、次のガイダンスに従ってゲームパッドまたはキーボードによる移動を処理することをお勧めします。
 
-**Gamepad**
+**ゲームパッド**
 
 ゲームパッドで入力された場合、次のユーザー エクスペリエンスを提供します。
 
@@ -176,7 +176,7 @@ UWP でサポートされているすべての入力にアプリが対応して�
 - リスト項目では、A ボタンで、上/左下/右の優先順位で、入れ子になった UI にフォーカスを設定します。
 - 入れ子になた UI 内部では、XY フォーカス ナビゲーション モデルに従います。  ユーザーが B ボタンを押すまで、フォーカスが移動できる対象を現在のリスト項目内にある入れ子になった UI に限定します。B ボタンを押したら、リスト項目にフォーカスを戻します。
 
-**[キーボード]**
+**キーボード**
 
 キーボードで入力された場合、ユーザー エクスペリエンスは次のようにします。
 

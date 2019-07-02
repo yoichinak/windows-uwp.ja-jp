@@ -8,18 +8,18 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: RS5, 19H1
-ms.openlocfilehash: 62dc89b9e17f1ae9c2394629100e0bd54606594b
-ms.sourcegitcommit: d1c3e13de3da3f7dce878b3735ee53765d0df240
+ms.openlocfilehash: e6074202a05c80a9dc759cdf81b2c20c7cc17d07
+ms.sourcegitcommit: b8087f8b6cf8367f8adb7d6db4581d9aa47b4861
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66215122"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67414097"
 ---
 # <a name="host-uwp-xaml-controls-in-desktop-apps-xaml-islands"></a>デスクトップ アプリ (XAML Islands) でホスト UWP XAML コントロールを使用します。
 
 Windows 10 バージョン1903以降では、*XAML Islands* と呼ばれる機能を使用して、UWP 以外のデスクトップアプリケーションでUWPコントロールをホストできます。この機能を使用すると、UWPコントロールを介してのみ利用可能な最新の Windows 10 UI機能を使用して、既存のデスクトップアプリケーションの外観、操作性、および機能性を向上させることができます。つまり、既存の WPF、Windowsフォーム、およびC ++ Win32 アプリケーションで [Windows Ink](/windows/uwp/design/input/pen-and-stylus-interactions)などの UWP 機能と [Fluent Design System](/windows/uwp/design/fluent-design-system/index) をサポートするコントロールを使用できます。 
 
-XAML 諸島で、Windows フォーム、WPF を使用するいくつかの方法を紹介し、C++テクノロジまたは使用しているフレームワークに応じて、Win32 アプリケーション。
+XAML 諸島で、Windows フォーム、WPF を使用するいくつかの方法を紹介し、C++テクノロジまたは使用しているフレームワークに応じて、Win32 アプリケーション。 
 
 > [!NOTE]
 > XAML Islands に関するフィードバックがある場合は、 [Microsoft.Toolkit.Win32 リポジトリ](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/issues) に新しい問題を作成し、そこにコメントを残してください。 個人的にフィードバックを送信したい場合は、XamlIslandsFeedback@microsoft.com に送信できます。 あなたの洞察とシナリオは弊社にとって非常に重要です。
@@ -35,7 +35,7 @@ Windows フォーム、WPF の XAML 島々 を使用する 2 つの方法を説�
 > [!NOTE]
 > C++ Win32 デスクトップ アプリケーションでは、UWP コントロールをホストする API をホストしている UWP XAML を使用する必要があります。 Windows コミュニティのツールキットで XAML 島コントロールは使用できませんC++Win32 デスクトップ アプリケーションです。
 
-WPF と Windows フォーム アプリケーションの Windows コミュニティのツールキットで提供される XAML 島コントロールの 2 種類があります:*コントロールをラップ*と*ホスト コントロール*します。
+WPF と Windows フォーム アプリケーションの Windows コミュニティのツールキットで提供される XAML 島コントロールの 2 種類があります:*コントロールをラップ*と*ホスト コントロール*します。 
 
 ### <a name="wrapped-controls"></a>ラップされたコントロール
 
@@ -68,15 +68,7 @@ Windows の Community Toolkit は XAML の島をラップされたコントロ�
 
 この図の下部に表示されている API は、Windows SDK に付属しています。 ラップされたコントロールとホスト コントロールは、Windows の Community Toolkit の Nuget パッケージから入手できます。
 
-## <a name="feature-roadmap"></a>機能のロードマップ
-
-Windows 10、バージョンが 1903 年のリリースの時点で、ラップされたコントロールとホスト コントロール Windows コミュニティのツールキットではまだ開発者プレビューの段階で、コントロールのバージョン 1.0 のリリースが利用可能になるまでです。
-
-* バージョン 1.0、.NET Framework 4.6.2 のコントロールの後にリリースされる予定と、[ツールキットの 6.0 リリース](https://github.com/windows-toolkit/WindowsCommunityToolkit/milestones)します。
-* 1.0 のバージョンの .NET Core 3 のコントロールは、toolkit の今後のリリースの予定です。
-* .NET Framework と .NET Core 3 をこれらのコントロールのバージョン 1.0 のリリースの最新のプレビューを試す場合を参照してください、 **6.0.0-preview3**で NuGet のパッケージ、 [UWP Community Toolkit](https://dotnet.myget.org/gallery/uwpcommunitytoolkit)ギャラリー。
-
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>要件
 
 XAML Islandsには、Windows 10、バージョン1903以降が必要です。アプリケーションで XAML Islands を使用するには、まずプロジェクトを設定する必要があります。
 
@@ -112,8 +104,19 @@ Windows 10、バージョン 1903 SDK (またはそれ以降のリリース) を
     </assembly>
     ```
 
+## <a name="feature-roadmap"></a>機能のロードマップ
+
+Windows 10、バージョンが 1903 年のリリースの時点で、ラップされたコントロールとホスト コントロール Windows コミュニティのツールキットではまだ開発者プレビューの段階で、コントロールのバージョン 1.0 のリリースが利用可能になるまでです。
+
+* バージョン 1.0、.NET Framework 4.6.2 のコントロールの後にリリースされる予定と、[ツールキットの 6.0 リリース](https://github.com/windows-toolkit/WindowsCommunityToolkit/milestones)します。
+* 1\.0 のバージョンの .NET Core 3 のコントロールは、toolkit の今後のリリースの予定です。
+* .NET Framework と .NET Core 3 をこれらのコントロールのバージョン 1.0 のリリースの最新のプレビューを試す場合を参照してください、 **6.0.0-preview3**で NuGet のパッケージ、 [UWP Community Toolkit](https://dotnet.myget.org/gallery/uwpcommunitytoolkit)ギャラリー。
+
+詳細については、[このブログの投稿](https://blogs.windows.com/windowsdeveloper/2019/06/13/xaml-islands-v1-updates-and-roadmap)を参照してください。
+
 ## <a name="additional-resources"></a>その他の資料
 
 詳細な背景情報と XAML Islandsを使用したチュートリアルについては、次の記事やリソースを参照してください。
 
-* この包括的な [XAML Islandsラボ](https://github.com/Microsoft/Windows-AppConsult-XAMLIslandsLab/tree/microsoftlearn) では、既存の WPF 基幹業務アプリケーションに UWP コントロールを追加する Windows の Community Toolkit でラップされたコントロールとホスト コントロールを使用するための手順を説明します。 このラボに含まれる、プロセスの各手順[WPF アプリケーションコードの完成](https://github.com/Microsoft/Windows-AppConsult-XAMLIslandsLab/tree/microsoftlearn/Lab)だけでなく[詳細手順](https://github.com/Microsoft/Windows-AppConsult-XAMLIslandsLab/blob/microsoftlearn/Manual/README.md) もご参照ください。
+* [WPF アプリのチュートリアルを最新化](modernize-wpf-tutorial.md):このチュートリアルでは、既存の WPF 基幹業務アプリケーションに UWP コントロールを追加する Windows の Community Toolkit でラップされたコントロールとホスト コントロールを使用して手順に沿って説明します。 このチュートリアルには、プロセスで、WPF アプリケーションの完全なコードおよび各手順の詳細な手順が含まれています。
+* [XAML 諸島 v1 - 更新プログラムとロードマップ](https://blogs.windows.com/windowsdeveloper/2019/06/13/xaml-islands-v1-updates-and-roadmap):このブログの投稿では、XAML 諸島に関する多くの一般的な質問を説明し、開発の詳細なロードマップを提供します。

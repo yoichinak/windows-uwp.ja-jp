@@ -12,10 +12,10 @@ design-contact: ksulliv
 doc-status: Published
 ms.localizationpriority: medium
 ms.openlocfilehash: 5996fb15c0d7302c7360c2e45613f0da2720d415
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66364652"
 ---
 # <a name="labels"></a>ラベル
@@ -24,7 +24,7 @@ ms.locfileid: "66364652"
 
 ラベルは、コントロールまたは関連するコントロールのグループの名前やタイトルです。
 
-> **重要な API**:ヘッダーのプロパティ、 [TextBlock クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock)
+> **重要な API**:Header プロパティ、[TextBlock クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock)
 
 XAML では、多くのコントロールに組み込みの Header プロパティがあり、これを使ってラベルを表示します。 Header プロパティがないコントロールの場合、またはコントロールのグループにラベルを付ける場合は、代わりに [TextBlock](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock) を使います。
 
@@ -39,7 +39,7 @@ XAML では、多くのコントロールに組み込みの Header プロパテ�
 
 
 ## <a name="get-the-sample-code"></a>サンプル コードを入手する
-* [XAML UI の基本サンプル](https://github.com/Microsoft/Windows-universal-samples/blob/master/Samples/XamlUIBasics)
+* [XAML UI の基本のサンプル](https://github.com/Microsoft/Windows-universal-samples/blob/master/Samples/XamlUIBasics)
 
 ## <a name="related-topics"></a>関連トピック
 * [テキスト コントロール](text-controls.md)

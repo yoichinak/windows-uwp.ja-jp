@@ -6,18 +6,18 @@ ms.date: 04/17/2019
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: 6153a0a094d03081388c15ec31696ef277ef7081
-ms.sourcegitcommit: d1c3e13de3da3f7dce878b3735ee53765d0df240
+ms.openlocfilehash: 47cb292b1f5aeed9473cac0f27074f449dc67032
+ms.sourcegitcommit: b8087f8b6cf8367f8adb7d6db4581d9aa47b4861
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66215212"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67414105"
 ---
 # <a name="modernize-your-desktop-apps"></a>デスクトップ アプリの現代化
 
 Windows 10 とユニバーサル Windows プラットフォーム (UWP) に用意された多数の機能を使用して、デスクトップ アプリでモダンなエクスペリエンスを実現できます。 これらのほとんどの機能は、独自のペースでデスクトップ アプリに採用できるモジュラー コンポーネントとして利用できます。別のプラットフォーム用にアプリケーションを書き換える必要がありません。 既存のデスクトップ アプリを拡張するには、Windows 10 と UWP のどの部分を採用するかを選択します。
 
-この記事では、今すぐデスクトップ アプリで使用できる Windows 10 および UWP 機能について説明します。
+この記事では、今すぐデスクトップ アプリで使用できる Windows 10 および UWP 機能について説明します。 既存のアプリを現代化してこの記事で説明されている多くの機能を使用する方法を説明したチュートリアルについては、「[WPF アプリの現代化](modernize-wpf-tutorial.md)」チュートリアルをご覧ください。
 
 > [!NOTE]
 > デスクトップ アプリを Windows 10 に移行するのにサポートが必要な場合 [Desktop App Assure](https://docs.microsoft.com/FastTrack/win-10-desktop-app-assure) サービスでは、自身のアプリを Windows 10 に移植する開発者に直接無償のサポートが提供されます。 このプログラムは、すべての ISV と条件に適合する企業が使用できます。 ご利用資格とプログラム自体について詳しくは、[https://aka.ms/DesktopAppAssure](https://aka.ms/DesktopAppAssure) をご覧ください。 すぐに開始するには、[リクエストを送信](https://aka.ms/DesktopAppAssureRequest)してください。

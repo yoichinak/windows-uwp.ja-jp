@@ -1,6 +1,6 @@
 ---
 Description: ダイアログとポップアップは、ユーザーが要求したとき、または通知や許可を必要とする状況が発生したときに表示される一時的な UI 要素です。
-title: Flyout コントロール
+title: ポップアップ コントロール
 template: detail.hbs
 ms.date: 05/19/2017
 ms.topic: article
@@ -12,11 +12,11 @@ dev-contact: niallm
 doc-status: Published
 ms.localizationpriority: medium
 ms.openlocfilehash: 52de0933bf51adaae6b0923868e12eb92ced4a1a
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57625017"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "63793776"
 ---
 # <a name="flyouts"></a>ポップアップ
 
@@ -24,13 +24,13 @@ ms.locfileid: "57625017"
 
 ![ポップアップ内で入れ子になったコンテキスト メニュー](../images/flyout-nested.png)
 
-> **重要な API**:[フライアウト クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Flyout)
+> **重要な API**:[Flyout クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Flyout)
 
 ## <a name="is-this-the-right-control"></a>適切なコントロールの選択
 
 * [ヒント](../tooltips.md)や[コンテキスト メニュー](../menus.md)の変わりにポップアップを使用しないようにします。 指定した時間が経過すると非表示になる短い説明を表示するには、ヒントを使います。 UI 要素に関連した状況依存の操作 (コピーや貼り付けなど) には、コンテキスト メニューを使います。
 
-(のようなコントロール) ダイアログ ボックスを使用する場合とポップアップを使用する場合の推奨事項を参照してください[ダイアログとフライアウト](index.md)します。 
+どのようなときにポップアップを使い、どのようなときにダイアログ (同様のコントロール) を使うかに関する推奨事項については、「[ダイアログとポップアップ](index.md)」をご覧ください。 
 
 ## <a name="examples"></a>例
 
@@ -51,7 +51,7 @@ ms.locfileid: "57625017"
 ##  <a name="how-to-create-a-flyout"></a>ポップアップの作成方法
 
 
-ポップアップは、特定のコントロールにアタッチされます。 使用することができます、[配置](/uwp/api/Windows.UI.Xaml.Controls.Primitives.FlyoutBase.Placement)フライアウトが表示される場所を指定するプロパティ。上、左、下、右、または完全な。 [完全配置モード](/uwp/api/Windows.UI.Xaml.Controls.Primitives.FlyoutPlacementMode)を選択した場合、アプリはポップアップを拡大し、アプリ ウィンドウ内の中央に配置します。 [Button](/uwp/api/Windows.UI.Xaml.Controls.Button)などの一部のコントロールは、ポップアップや[コンテキスト メニュー](../menus.md)を関連付けるために使用できる [Flyout](/uwp/api/Windows.UI.Xaml.Controls.Button.Flyout) プロパティを提供します。
+ポップアップは、特定のコントロールにアタッチされます。 [Placement](/uwp/api/Windows.UI.Xaml.Controls.Primitives.FlyoutBase.Placement) プロパティを使って、ポップアップが表示される場所を指定できます (上、左、下、右、またはフル)。 [完全配置モード](/uwp/api/Windows.UI.Xaml.Controls.Primitives.FlyoutPlacementMode)を選択した場合、アプリはポップアップを拡大し、アプリ ウィンドウ内の中央に配置します。 [Button](/uwp/api/Windows.UI.Xaml.Controls.Button)などの一部のコントロールは、ポップアップや[コンテキスト メニュー](../menus.md)を関連付けるために使用できる [Flyout](/uwp/api/Windows.UI.Xaml.Controls.Button.Flyout) プロパティを提供します。
 
 この例では、ボタンが押されたときに、いくつかのテキストを表示するシンプルなポップアップを作成します。
 ````xaml
@@ -145,7 +145,7 @@ private void Image_Tapped(object sender, TappedRoutedEventArgs e)
 </Flyout>
 ````
 
-## <a name="styling-flyouts-for-10-foot-experiences"></a>ある 10 フィート エクスペリエンスのフライアウトをスタイル設定
+## <a name="styling-flyouts-for-10-foot-experiences"></a>10 フィート エクスペリエンス向けのポップアップのスタイル指定
 
 ポップアップなどの簡易非表示コントロールは、閉じるまでの間、一時的な UI にキーボードのフォーカスやゲームパッドのフォーカスを捕捉します。 この動作に視覚的な合図を提供するために、Xbox の簡易非表示コントロールは、スコープ外の UI を暗く表示するオーバーレイを描画します。 この動作は、[`LightDismissOverlayMode`](/uwp/api/Windows.UI.Xaml.Controls.Primitives.FlyoutBase.LightDismissOverlayMode) プロパティを使用して変更できます。 既定では、ポップアウトは Xbox で簡易非表示オーバーレイを描画し、他のデバイス ファミリでは描画しませんが、アプリで強制的にオーバーレイを常に**オン**にするか、常に**オフ**にするかを選択できます。
 
@@ -215,5 +215,5 @@ private void Folder2_Click(object sender, RoutedEventArgs e)
 ## <a name="related-articles"></a>関連記事
 - [ヒント](../tooltips.md)
 - [メニューとコンテキスト メニュー](../menus.md)
-- [フライアウト クラス](/uwp/api/Windows.UI.Xaml.Controls.Flyout)
+- [Flyout クラス](/uwp/api/Windows.UI.Xaml.Controls.Flyout)
 - [ContentDialog クラス](/uwp/api/Windows.UI.Xaml.Controls.ContentDialog)

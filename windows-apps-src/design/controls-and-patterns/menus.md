@@ -14,43 +14,43 @@ dev-contact: llongley
 doc-status: Published
 ms.localizationpriority: medium
 ms.openlocfilehash: 10e91e8098f232d2875c802567674c9feacb2af9
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66364618"
 ---
 # <a name="menus-and-context-menus"></a>メニューとショートカット メニュー
 
-メニューとコンテキスト メニューは、ユーザーが要求するときにコマンドやオプションの一覧を表示します。 1 つ、インライン メニューを表示するには、メニュー フライアウトを使用します。 メニュー バーを使用して、アプリのウィンドウの上部にある通常の水平方向の行でメニューのセットを示します。 各メニューには、メニュー項目とサブメニューを持つことができます。
+メニューとコンテキスト メニューは、ユーザーが要求するときにコマンドやオプションの一覧を表示します。 1 つのインライン メニューを表示するには、メニュー ポップアップを使います。 横一列 (通常はアプリ ウィンドウの上部) に複数のメニューを表示するには、メニュー バーを使います。 各メニューにはメニュー項目とサブメニューが含まれることがあります。
 
 ![一般的なコンテキスト メニューの例](images/contextmenu_rs2_icons.png)
 
-| **Windows の UI ライブラリを入手します。** |
+| **Windows UI ライブラリを入手する** |
 | - |
-| このコントロールは、Windows の UI ライブラリを新しいコントロール、および UWP アプリの UI 機能を含む NuGet パッケージの一部として含まれています。 インストール手順を含む詳細については、次を参照してください。、 [Windows UI ライブラリの概要](https://docs.microsoft.com/uwp/toolkits/winui/)します。 |
+| このコントロールは、Windows UI ライブラリの NuGet　パッケージの一部として組み込まれており、パッケージには、UWP アプリの新しいコントロールと UI 機能が含まれています。 インストール手順などの詳細については、[Windows UI ライブラリの概要](https://docs.microsoft.com/uwp/toolkits/winui/)に関するページを参照してください。 |
 
-| **プラットフォームの Api** | **Windows UI ライブラリの Api** |
+| **プラットフォーム API** | **Windows UI ライブラリ API** |
 | - | - |
-| [MenuFlyout クラス](/uwp/api/windows.ui.xaml.controls.menuflyout)、[メニュー バー クラス](/uwp/api/windows.ui.xaml.controls.menubar)、 [ContextFlyout プロパティ](/uwp/api/windows.ui.xaml.uielement.contextflyout)、 [FlyoutBase.AttachedFlyout プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.flyoutbase.attachedflyout) | [メニュー バー クラス](/uwp/api/microsoft.ui.xaml.controls.menubar) |
+| [MenuFlyout クラス](/uwp/api/windows.ui.xaml.controls.menuflyout)、[MenuBar クラス](/uwp/api/windows.ui.xaml.controls.menubar)、[ContextFlyout プロパティ](/uwp/api/windows.ui.xaml.uielement.contextflyout)、[FlyoutBase.AttachedFlyout プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.flyoutbase.attachedflyout) | [MenuBar クラス](/uwp/api/microsoft.ui.xaml.controls.menubar) |
 
 ## <a name="is-this-the-right-control"></a>適切なコントロールの選択
 
 メニューとコンテキスト メニューは、コマンドを整理してユーザーに要求されるまで非表示にすることによって、スペースを節約します。 特定のコマンドを頻繁に使っていて、利用可能なスペースがある場合は、メニューを使って移動しなくてもよいように、メニュー内ではなく、独自の要素に直接配置することを検討してください。
 
-メニューとコンテキスト メニューは、コマンドを整理するため、します。通知または確認の要求などの任意のコンテンツを表示するには使用、[ダイアログまたはポップアップ](dialogs.md)します。
+メニューとコンテキスト メニューは、コマンドを整理する目的で使います。通知や確認要求などの任意のコンテンツを表示する場合は、[ダイアログまたはポップアップ](dialogs.md)を使います。
 
-### <a name="menubar-vs-menuflyout"></a>メニュー バーとします。MenuFlyout
+### <a name="menubar-vs-menuflyout"></a>MenuBar とMenuFlyout
 
-キャンバス上の UI 要素にアタッチされたフライアウトでメニューを表示するのにには、メニュー項目をホストするのに MenuFlyout コントロールを使用します。 通常のメニューまたはコンテキスト メニューのメニュー フライアウトを呼び出すことができます。 メニュー ポップアップでは、単一の最上位メニュー (およびサブメニューの省略可能) をホストします。
+キャンバス上の UI 要素にアタッチされたポップアップにメニューを表示するには、MenuFlyout コントロールを使ってメニュー項目をホストします。 メニュー ポップアップは、通常のメニューまたはコンテキスト メニューとして呼び出すことができます。 メニュー ポップアップは1 つのトップレベル メニュー (とオプションのサブメニュー) をホストします。
 
-水平方向の行では、一連の複数のトップレベル メニューを表示するには、メニュー バーを使用します。 通常、アプリ ウィンドウの上部にあるメニュー バーを配置します。
+横一列に複数のトップレベル メニューを表示するには、メニュー バーを使います。 通常、メニュー バーはアプリ ウィンドウの上部に配置します。
 
-### <a name="menubar-vs-commandbar"></a>メニュー バーとします。CommandBar
+### <a name="menubar-vs-commandbar"></a>MenuBar とCommandBar
 
-メニュー バーとコマンド バー両方をユーザーにコマンドを公開するために使用できるサーフェスを表します。 メニュー バーでは、一連のコマンドが、多くの組織や、コマンド バーで許可をグループ化に必要なアプリを公開する簡単な方法を提供します。
+MenuBar と CommandBar はどちらも、ユーザーにコマンドを公開するために使用できるサーフェスを表します。 MenuBar を使うと、CommandBar で許容されるよりも多くの組織またはグループ化が必要になる可能性があるアプリ用のコマンド セットをすばやく簡単に公開できます。
 
-コマンド バーを組み合わせて、メニュー バーを使用することもできます。 メニュー バーを使用すると、最も使用されているコマンドを強調表示するのにには、コマンドと、コマンド バーの大部分を提供します。
+MenuBar を CommandBar と組み合わせて使うこともできます。 MenuBar は、複数のコマンドを提供するために使い、CommandBar は、最も使用されるコマンドを強調表示するために使います。
 
 ## <a name="examples"></a>例
 
@@ -70,14 +70,14 @@ ms.locfileid: "66364618"
 
 ## <a name="menus-vs-context-menus"></a>メニューとコンテキスト メニュー
 
-メニューおよびコンテキスト メニューは、どのように表示されると、含めることができるのと似ています。 実際には、同じコントロールを使用することができます[MenuFlyout](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.MenuFlyout)、それらを作成します。 違いは、ユーザーがアクセスできるようにする方法です。
+メニューとコンテキスト メニューは、外観や、何を含めることができるかという点で似ています。 実際、これらは [MenuFlyout](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.MenuFlyout) という同じコントロールを使って作成できます。 違いは、ユーザーのアクセス方法です。
 
 メニューまたはコンテキスト メニューは、どのような場合に使えばよいでしょうか。
 
-- ホスト要素が、ボタンなどの主な役割がその他のコマンドを表示するにはいくつかのコマンド要素の場合は、メニューを使用します。
+- ホスト要素がボタンである場合や、追加のコマンドを表示することを主な役割とする他のコマンド要素である場合は、メニューを使います。
 - ホスト要素が、別の主な役割 (テキストまたは画像を表示するなど) を持つ他の種類の要素である場合は、コンテキスト メニューを使います。
 
-たとえば、ボタンに、メニューを使用して、フィルター処理および並べ替えのオプションの一覧。 このシナリオでは、ボタン コントロールの主な役割は、メニューへのアクセスを提供することです。
+たとえば、ボタンのメニューを使って、リストのフィルター処理および並べ替えのオプションを提供します。 このシナリオでは、ボタン コントロールの主な役割は、メニューへのアクセスを提供することです。
 
 ![[メール] メニューの例](images/Mail_Menu.png)
 
@@ -90,7 +90,7 @@ ms.locfileid: "66364618"
 - 常に表示される 1 つのエントリ ポイント (たとえば、画面上部の [ファイル] メニュー) があります。
 - 通常、ボタンまたは親のメニュー項目にアタッチされます。
 - 左クリック (または、指でタップするなどの同等の操作) によって呼び出されます。
-- 使用して、要素に関連付けられたその[フライアウト](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.button.flyout)または[FlyoutBase.AttachedFlyout](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.flyoutbase.attachedflyout)プロパティ、または、アプリ ウィンドウの上部にあるメニュー バーでグループ化します。
+- [Flyout](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.button.flyout) プロパティまたは [FlyoutBase.AttachedFlyout](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.flyoutbase.attachedflyout) プロパティを介して要素に関連付けられます。また、アプリ ウィンドウの上部のメニュー バーにグループ化されます。
 
 ### <a name="context-menus"></a>コンテキスト メニュー
 
@@ -102,9 +102,9 @@ ms.locfileid: "66364618"
 
 次のようなメニュー項目のアイコンを用意することを検討します。
 
-- 最もよく使用される項目。
-- メニュー項目がアイコンを含む、標準またはよく知られています。
-- メニュー項目がアイコンを含むが、コマンドが何を示しています。
+- 最もよく使われる項目。
+- アイコンが一般的またはよく知られているメニュー項目。
+- アイコンがコマンドの役割を適切に示すメニュー項目。
 
 標準的な視覚表現がないコマンドにアイコンを用意しなければならないと考える必要はありません。 わかりづらいアイコンは役に立たず、視覚的な混乱をもたらし、ユーザーが重要なメニュー項目に集中できなくなります。
 
@@ -126,21 +126,21 @@ ms.locfileid: "66364618"
 ````
 
 > [!TIP]
-> MenuFlyoutItem のアイコンのサイズは、16 x 16 ピクセルです。 SymbolIcon、FontIcon、または PathIcon を使用する場合、アイコンが忠実性の損失なしで適切なサイズに自動的にスケールされます。 BitmapIcon を使用すると、アセットは必ず 16 x 16 ピクセルになります。  
+> MenuFlyoutItems のアイコンのサイズは 16 x 16 ピクセルです。 SymbolIcon、FontIcon、または PathIcon を使用した場合、忠実さを失うことなく、アイコンが適切なサイズに自動的に拡大縮小されます。 BitmapIcon を使用すると、アセットは必ず 16 x 16 ピクセルになります。  
 
-## <a name="create-a-menu-flyout-or-a-context-menu"></a>フライアウト メニューまたはコンテキスト メニューを作成します。
+## <a name="create-a-menu-flyout-or-a-context-menu"></a>ポップアップ メニューまたはコンテキスト メニューの作成
 
-使用するメニュー フライアウトまたはコンテキスト メニューを作成する、 [MenuFlyout クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.menuflyout)します。 追加することで、メニューの内容を定義する[MenuFlyoutItem](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.menuflyoutitem)、 [MenuFlyoutSubItem](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.menuflyoutsubitem)、 [ToggleMenuFlyoutItem](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.togglemenuflyoutitem)、 [RadioMenuFlyoutItem](https://docs.microsoft.com/uwp/api/microsoft.ui.xaml.controls.radiomenuflyoutitem)と[MenuFlyoutSeparator](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.menuflyoutseparator) MenuFlyout するオブジェクト。
+ポップアップ メニューまたはコンテキスト メニューを作成するには、[MenuFlyout クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.menuflyout)を使います。 メニューのコンテンツを定義するには、[MenuFlyoutItem](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.menuflyoutitem)、[MenuFlyoutSubItem](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.menuflyoutsubitem)、[ToggleMenuFlyoutItem](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.togglemenuflyoutitem)、[RadioMenuFlyoutItem](https://docs.microsoft.com/uwp/api/microsoft.ui.xaml.controls.radiomenuflyoutitem)、[MenuFlyoutSeparator](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.menuflyoutseparator) の各オブジェクトを MenuFlyout に追加します。
 
 これらのオブジェクトの用途を次に説明します。
 
 - [MenuFlyoutItem](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.menuflyoutitem)—即座にアクションを実行します。
-- [MenuFlyoutSubItem](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.menuflyoutsubitem)— カスケード メニュー項目の一覧を格納しています。
+- [MenuFlyoutSubItem](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.menuflyoutsubitem) - メニュー項目のカスケード リストを含みます。
 - [ToggleMenuFlyoutItem](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.togglemenuflyoutitem)—オプションのオンとオフを切り替えます。
-- [RadioMenuFlyoutItem](https://docs.microsoft.com/uwp/api/microsoft.ui.xaml.controls.radiomenuflyoutitem)相互に排他的なメニュー項目間の切り替え。
+- [RadioMenuFlyoutItem](https://docs.microsoft.com/uwp/api/microsoft.ui.xaml.controls.radiomenuflyoutitem) - 相互に排他的なメニュー項目間を切り替えます。
 - [MenuFlyoutSeparator](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.menuflyoutseparator)—メニュー項目を視覚的に分割します。
 
-この例で作成、 [MenuFlyout](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.menuflyout)を使用して、 [ContextFlyout](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.contextflyout)プロパティ、コンテキスト メニューとして MenuFlyout を表示する、ほとんどのコントロールに使用可能なプロパティ。
+この例では、[MenuFlyout](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.menuflyout) を作成し、ほとんどのコントロールで利用できる [ContextFlyout](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.contextflyout) プロパティを使って、コンテキスト メニューとして MenuFlyout を表示します。
 
 ````xaml
 <Rectangle
@@ -208,25 +208,25 @@ private void ChangeColorItem_Click(object sender, RoutedEventArgs e)
 }
 ````
 
-### <a name="light-dismiss"></a>ライトを閉じる
+### <a name="light-dismiss"></a>簡易非表示
 
-ライト メニューのコンテキスト メニューのおよびその他の動的メニューなどのコントロールを閉じる、閉じられるまでの一時的な UI 内でキーボード、ゲームパッドのフォーカスをトラップします。 この動作に視覚的な合図を提供するために、Xbox の簡易非表示コントロールは、スコープ外の UI を暗く表示するオーバーレイを描画します。 この動作は、[LightDismissOverlayMode](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.flyoutbase.lightdismissoverlaymode) プロパティを使って変更できます。 既定では、一時的な Ui は、Xbox でライト dismiss オーバーレイを描画する (**自動**) が、その他のデバイス ファミリではありません。 常にオーバーレイを強制することもできます**で**または always**オフ**します。
+簡易非表示コントロール (メニュー、コンテキスト メニュー、その他のポップアップ) は、閉じられるまで一時的な UI にキーボードのフォーカスやゲームパッドのフォーカスを捕捉します。 この動作に視覚的な合図を提供するために、Xbox の簡易非表示コントロールは、スコープ外の UI を暗く表示するオーバーレイを描画します。 この動作は、[LightDismissOverlayMode](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.flyoutbase.lightdismissoverlaymode) プロパティを使って変更できます。 既定で、一時的な UI によって Xbox 上では簡易非表示オーバーレイが描画されます (**自動**) が、他のデバイス ファミリ上では描画されません。 オーバーレイは、常に **On** にするか、常に **Off** にするかを選択できます。
 
 ```xaml
 <MenuFlyout LightDismissOverlayMode="Off" />
 ```
 
-## <a name="create-a-menu-bar"></a>メニュー バーを作成します。
+## <a name="create-a-menu-bar"></a>メニュー バーの作成
 
 > [!IMPORTANT]
-> メニュー バーには、Windows 10、バージョンは 1809 が必要です ([SDK 17763](https://developer.microsoft.com/windows/downloads/windows-10-sdk)) またはそれ以降、または[Windows UI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)します。
+> MenuBar には、Windows 10 Version 1809 ([SDK 17763](https://developer.microsoft.com/windows/downloads/windows-10-sdk)) 以降、または [Windows UI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)が必要です。
 
-メニュー ポップアップのように、メニュー バーでメニューを作成するのにには、同じ要素を使用します。 ただしで、MenuFlyout MenuFlyoutItem オブジェクトをグループ化ではなくグループ化するそれら MenuBarItem 要素。 各 MenuBarItem は、トップ レベル メニューとしてのメニュー バーに追加されます。
+メニュー ポップアップと同じ要素を使ってメニュー バーにメニューを作成します。 ただし、MenuFlyoutItem オブジェクトは MenuFlyout でグループ化せずに、MenuBarItem 要素でグループ化します。 各 MenuBarItem はトップ レベル メニューとして MenuBar に追加されます。
 
 ![メニュー バーの例](images/menu-bar-submenu.png)
 
 > [!NOTE]
-> この例では、UI 構造を作成する方法のみを示していますが、コマンドのいずれかの実装は表示されません。
+> この例は、UI 構造の作成方法のみを示していますが、どのコマンドの実装も示していません。
 
 ```xaml
 <muxc:MenuBar>
@@ -269,9 +269,9 @@ private void ChangeColorItem_Click(object sender, RoutedEventArgs e)
 ## <a name="get-the-sample-code"></a>サンプル コードを入手する
 
 - [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - インタラクティブな形で XAML コントロールのすべてを参照できます。
-- [XAML のコンテキスト メニューのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlContextMenu)
+- [XAML コンテキスト メニューのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlContextMenu)
 
 ## <a name="related-articles"></a>関連記事
 
 - [MenuFlyout クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.menuflyout)
-- [メニュー バー クラス](https://docs.microsoft.com/uwp/api/microsoft.ui.xaml.controls.menubar)
+- [MenuBar クラス](https://docs.microsoft.com/uwp/api/microsoft.ui.xaml.controls.menubar)

@@ -7,20 +7,20 @@ keywords: windows 10, uwp
 design-contact: karenmui
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 49d891888e26b6ce4c9f94e92605eaf7d619b6f3
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: MT
+ms.openlocfilehash: 3177deb74085737531366f63e9f2e8bbecac06e6
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57654257"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67028458"
 ---
 # <a name="color"></a>色
 
 ![ヒーロー イメージ](images/header-color.svg)
 
-色は、アプリの中でユーザーに情報を伝える直感的な方法です。操作可能な要素の強調、ユーザー操作に対するフィードバックの提供、インターフェイスの連続感の演出を色によって行うことができます。 
+色は、アプリの中でユーザーに情報を伝える直感的な方法です。操作可能な要素の強調、ユーザー操作に対するフィードバックの提供、インターフェイスの連続感の演出を色によって行うことができます。
 
-UWP アプリでの色使いは、主にアクセント カラーとテーマによって指定します。 この記事では、アプリで色を使用する方法と、アクセント カラーとテーマ リソースを使用して、任意のテーマに対応して UWP アプリを使用できるように設定する方法について説明します。 
+UWP アプリでの色使いは、主にアクセント カラーとテーマによって指定します。 この記事では、アプリで色を使用する方法と、アクセント カラーとテーマ リソースを使用して、任意のテーマに対応して UWP アプリを使用できるように設定する方法について説明します。
 
 ## <a name="color-principles"></a>色使いの原則
 
@@ -54,11 +54,11 @@ UWP アプリでは、淡色または濃色のアプリケーション テーマ
 
 ![淡色テーマ](images/color/light-theme.svg)
 
-### <a name="dark-theme"></a>ダーク テーマ
+### <a name="dark-theme"></a>濃色テーマ
 
 ![濃色テーマ](images/color/dark-theme.svg)
 
-既定では、UWP アプリのテーマは、ユーザーが Windows の設定で選択したテーマか、デバイスの既定のテーマ (XBox では黒など) に設定されます。 ただし、開発者が UWP アプリのテーマを設定することもできます。 
+既定では、UWP アプリのテーマは、ユーザーが Windows の設定で選択したテーマか、デバイスの既定のテーマ (XBox では黒など) に設定されます。 ただし、開発者が UWP アプリのテーマを設定することもできます。
 
 ### <a name="changing-the-theme"></a>テーマの変更
 
@@ -82,7 +82,7 @@ UWP アプリでは、淡色または濃色のアプリケーション テーマ
 
 アプリのテーマを指定しない場合は、必ず淡色テーマと濃色テーマの両方でアプリをテストして、あらゆる条件でアプリが判読できることを確認します。
 
-**注意**:Visual Studio で、両方をテストするされている RequestedTheme を変更する必要がありますので既定されている RequestedTheme ライトでは。
+**注意**:Visual Studio では、RequestedTheme の既定値が淡色に設定されているため、両方をテストするには、RequestedTheme を変更する必要があります。
 
 ## <a name="theme-brushes"></a>テーマ ブラシ
 
@@ -186,7 +186,8 @@ Windows シェルのアクセント カラーのアルゴリズムによって�
 - `SystemAccentColorDark2`
 - `SystemAccentColorDark3`
 
-<!-- check this is true --> プログラムでアクセント カラー パレットをアクセスすることも、 [ **UISettings.GetColorValue** ](https://docs.microsoft.com/uwp/api/Windows.UI.ViewManagement.UISettings#Windows_UI_ViewManagement_UISettings_GetColorValue_Windows_UI_ViewManagement_UIColorType_)メソッドと[ **UIColorType** ](https://docs.microsoft.com/uwp/api/Windows.UI.ViewManagement.UIColorType)列挙型。
+<!-- check this is true -->
+また [**UISettings.GetColorValue**](https://docs.microsoft.com/uwp/api/Windows.UI.ViewManagement.UISettings#Windows_UI_ViewManagement_UISettings_GetColorValue_Windows_UI_ViewManagement_UIColorType_) メソッドと [**UIColorType**](https://docs.microsoft.com/uwp/api/Windows.UI.ViewManagement.UIColorType) 列挙型を使って、プログラムによってアクセント カラー パレットにアクセスすることもできます。
 
 アクセント カラー パレットを使用して、アプリの色のテーマを設定できます。 以下では、ボタンに対してアクセント カラー パレットを使用する方法の例を示します。
 
@@ -252,41 +253,41 @@ Color LightBlue = Color.FromArgb(255,54,192,255);
 
 ブラシの使用方法について詳しくは、[XAML ブラシに関するページを](brushes.md)ご覧ください。
 
-## <a name="scoping-system-colors"></a>スコープのシステム カラー
+## <a name="scoping-system-colors"></a>システムの色の範囲設定
 
-だけでなく、アプリの独自の色を定義するスコープこともできます、systematized 色目的のリージョンに、アプリ全体にわたってを使用して、 **ColorSchemeResources**タグ。 色分けして表示するだけでなく、独自のカスタム色を手動で定義するのには、一度にいくつかのプロパティも提供するその他の多くのシステムのメリットをそのを設定することによってコントロールのテーマの大規模なグループは表示されませんでした通常この API を使用できます。
+アプリで独自の色を定義するだけでなく、**ColorPaletteResources** タグを使用して、体系化された色の範囲をアプリ全体の目的の領域に設定することもできます。 この API を使用すると、いくつかのプロパティを設定して一度に多数のコントロールを色分けし、テーマを設定できるだけでなく、独自のカスタムの色を手動で定義する方法では通常得られないシステム上のメリットも数多く受けられます。
 
-- 任意の色を使用して設定**ColorSchemeResources**ハイ コントラストは影響を与えません
-  * つまり、アプリはより多くの人がその他のデザインや開発コストは一切アクセスできなくなります
-- 簡単に設定できます色ライト、暗色または広範囲に両方のテーマで、API の 1 つのプロパティを設定して
-- 色のセット**ColorSchemeResources**もそのシステム カラーを使用するすべてのようなコントロールに伝播されます
-  * これにより一貫した色のストーリー ブランドの外観を維持しながら、アプリ全体が、
-- 再テンプレート化することがなくすべてのビジュアル状態、アニメーション、不透明度のバリエーションを影響します。
+- **ColorPaletteResources** を使用して設定された色は、ハイ コントラストに影響しません。
+  * つまり、デザインや開発に追加コストをかけずに、より多くの人がアプリを利用できることを意味します。
+- API に 1 つのプロパティを設定することで、両方のテーマの色を淡色、濃色、または広範囲に簡単に設定できます。
+- 色を **ColorPaletteResources** に設定すると、そのシステム カラーも使用するすべての同様のコントロールにも反映されます。
+  * これにより、ブランドの外観を維持しながら、アプリ全体で一貫したカラー ストーリーを実現できます。
+- テンプレートを再作成することなく、すべての視覚的な状態、アニメーション、不透明度のバリエーションに影響します。
 
-### <a name="how-to-use-colorschemeresources"></a>ColorSchemeResources を使用する方法
+### <a name="how-to-use-colorpaletteresources"></a>ColorPaletteResources の使用方法
 
-ColorSchemeResources は、どのようなリソースがされているシステムは、where をスコープに指示する API です。 ColorSchemeResources を実行する必要があります、 [X:key](https://docs.microsoft.com/windows/uwp/xaml-platform/x-key-attribute)、3 つの選択肢のいずれかを指定することができます。
+ColorPaletteResources は、どのリソースがどこにスコープされているかをシステムに通知する API です。 ColorPaletteResources は必ず [x:Key](https://docs.microsoft.com/windows/uwp/xaml-platform/x-key-attribute) を受け取ります。これは次の 3 つの選択肢のいずれかの可能性があります。
 - Default
-  * 両方の色の変更を表示[Light](https://docs.microsoft.com/windows/uwp/design/style/color#light-theme)と[濃い](https://docs.microsoft.com/windows/uwp/design/style/color#dark-theme)テーマ
-- 明るい
-  * 色が表示されますでのみ変更[ライト テーマ](https://docs.microsoft.com/windows/uwp/design/style/color#light-theme) 
-- 暗い
-  * 色が表示されますでのみ変更[ダーク テーマ](https://docs.microsoft.com/windows/uwp/design/style/color#dark-theme)
+  * 色の変化を[淡色](https://docs.microsoft.com/windows/uwp/design/style/color#light-theme)と[濃色](https://docs.microsoft.com/windows/uwp/design/style/color#dark-theme)の両方のテーマで表示します
+- 淡色
+  * 色の変化を[淡色テーマ](https://docs.microsoft.com/windows/uwp/design/style/color#light-theme)でのみ示します
+- 濃色
+  * 色の変化を[濃色テーマ](https://docs.microsoft.com/windows/uwp/design/style/color#dark-theme)でのみ示します
 
-X: キーの設定により、システムまたはアプリのテーマに色を適切に変更するかテーマでさまざまなカスタムの外観をする必要があります。
+x:Key を設定すると、どちらのテーマでも、異なるカスタムの外観が必要な場合に、システムまたはアプリのテーマに合わせて色が適切に変更されます。
 
-### <a name="how-to-apply-scoped-colors"></a>スコープを持つ色を適用する方法
+### <a name="how-to-apply-scoped-colors"></a>範囲が指定された色を適用する方法
 
-使用したリソースのスコープ、 **ColorSchemeResources** XAML 内の API により、任意のシステム色またはブラシ内にある、[テーマ リソース](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/xaml-theme-resources)ライブラリ ページのスコープ内でそれらを再定義またはコンテナーです。
+XAML の **ColorPaletteResources** API を使用してリソースの範囲を指定すると、[テーマ リソース](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/xaml-theme-resources) ライブラリにあるシステム カラーまたはブラシを使って、ページまたはコンテナーの範囲内で再定義できます。
 
--2 つのシステム カラーを定義した場合など、 **SystemBaseLowColor**と**SystemBaseMediumLowColor**グリッド内でページに 2 つのボタンを配置および: そのグリッド内の 1 つ、1 つの外部。
+たとえば、グリッドの内側に **BaseLow** と **BaseMediumLow** の 2 つのシステム カラーを定義してから、そのグリッドの内側に 1 つ、外側に 1　つの　2　つのボタンをページに配置したとします。
 
 ```xaml
 <Grid x:Name="Grid_A">
     <Grid.Resources>
-        <ColorSchemeResources x:Key="Default" 
-        SystemBaseLowColor="LightGreen" 
-        SystemBaseMediumLowColor="DarkCyan"/>
+        <ColorPaletteResources x:Key="Default"
+        BaseLow="LightGreen"
+        BaseMediumLow="DarkCyan"/>
     </Grid.Resources>
 
     <Buton Content="Button_A"/>
@@ -294,45 +295,45 @@ X: キーの設定により、システムまたはアプリのテーマに色�
 <Buton Content="Button_B"/>
 ```
 
-得**Button_A**を新しい色の適用と**Button_B**システムの既定のボタンのような外観になります。
+**Button_A** には新しい色が適用され、**Button_B** はシステムの既定ボタンのままのように見えます。
 
-![ボタンの色のスコープを持つシステム](images/color/scopedcolors_cyan_button.png)
+![ボタンの範囲が指定されたシステム カラー](images/color/scopedcolors_cyan_button.png)
 
-ただし、ため、すべてのシステム カラーを他のコントロールまで連鎖すぎる、設定**SystemBaseLowColor**と**SystemBaseMediumLowColor**ボタンだけに影響されます。 この場合、コントロールのような**ToggleButton**、 **RadioButton**と**スライダー**も影響を受けるこれらのシステム カラーの変更によってそれらのコントロールを配置する exampl 上グリッドのスコープです。
-スコープのシステム カラーが変更する場合*のみコントロールするのには、1 つ*定義することで行うことができます**ColorSchemeResources**そのコントロールのリソース内。
+ただし、すべてのシステム カラーは他のコントロールにも反映されるため、**BaseLow** および **BaseMediumLow** の設定はボタン以外にも影響します。 この場合、**ToggleButton**、**RadioButton**、**Slider** のようなコントロールも、このようなシステム カラーの変更の影響を受けます　(これらのコントロールが上の例のグリッドの範囲に配置されている場合)。
+システム カラーの変化を "*1 つのコントロールのみ*" の範囲に指定する場合は、それを行うためにそのコントロールのリソース内で **ColorPaletteResources** を定義します。
 
 ```xaml
 <Grid x:Name="Grid_A">
     <Button Content="Button_A">
         <Button.Resources>
-            <ColorSchemeResources x:Key="Default" 
-                SystemBaseLowColor="LightGreen" 
-                SystemBaseMediumLowColor="DarkCyan"/>
+            <ColorPaletteResources x:Key="Default"
+                BaseLow="LightGreen"
+                BaseMediumLow="DarkCyan"/>
         </Button.Resources>
     </Button>
 </Grid>
 <Button Content="Button_B"/>
 ```
-基本的に前に、とまったく同じことがある場合も、色の変更をグリッドに追加された他のコントロールを選択して、ようになりました。 これは、これらのシステム カラーのスコープはため**Button_A**のみです。
+基本的には以前とまったく同じですが、グリッドに追加される他のコントロールでは、その色の変化が選択されなくなります。 これは、それらのシステム カラーの範囲が **Button_A** のみだからです。
 
-### <a name="nesting-scoped-resources"></a>スコープの入れ子のリソース
+### <a name="nesting-scoped-resources"></a>範囲が指定されたリソースを入れ子にする
 
-システム カラーを入れ子も可能ですし、配置することによって実行**ColorSchemeResources**でアプリのレイアウトのマークアップ内の入れ子になった要素のリソース。
+システム カラーを入れ子にとすることもできます。そのためには、アプリ レイアウトのマークアップ内で入れ子になった要素のリソースに **ColorPaletteResources** を配置します。
 
 ```xaml
 <Grid x:Name="Grid_A">
     <Grid.Resources>
-        <ColorSchemeResources x:Key="Default"
-            SystemBaseLowColor="LightGreen"
-            SystemBaseMediumLowColor="DarkCyan"/>
+        <ColorPaletteResources x:Key="Default"
+            BaseLow="LightGreen"
+            BaseMediumLow="DarkCyan"/>
     </Grid.Resources>
 
     <Button Content="Button_A"/>
     <Grid x:Name="Grid_B">
         <Grid.Resources>
-            <ColorSchemeResources x:Key="Default"
-                SystemBaseLowColor="Goldenrod"
-                SystemBaseMediumLowColor="DarkGoldenrod"/>
+            <ColorPaletteResources x:Key="Default"
+                BaseLow="Goldenrod"
+                BaseMediumLow="DarkGoldenrod"/>
         </Grid.Resources>
 
         <Button Content="Nested Button"/>
@@ -340,33 +341,33 @@ X: キーの設定により、システムまたはアプリのテーマに色�
 </Grid>
 ```
 
-この例で**Button_A**で継承する色が定義**Grid_A**のリソース、および**入れ子になったボタン**から色を継承している**Grid_B**のリソース。 拡張子、つまりその他のコントロール内に配置する**Grid_B**確認または適用は**Grid_B**のリソース最初に、前に確認または適用**Grid_A**のリソース、および最後に、ページまたはアプリ レベルで何も定義されている場合、既定の色を適用します。
+この例では、**Button_A** は **Grid_A** のリソースの色の定義を継承し、**入れ子になったボタン**は **Grid_B** のリソースから色を継承します。 その延長で話すと、**Grid_B** 内に配置されている他のすべてのコントロールでは、**Grid_A** のリソースがチェックまたは適用される前に、まず **Grid_B** のリソースがチェックまたは適用されます。また、ページやアプリのレベルで何も定義されていない場合は、最終的に既定の色が適用されます。
 
-これは、リソースは、色の定義を持つ入れ子になった要素の任意の数に適しています。
+これは、リソースに色の定義がある入れ子になった要素数がいくつでも機能します。
 
-### <a name="scoping-with-a-resourcedictionary"></a>ResourceDictionary をスコープ設定
+### <a name="scoping-with-a-resourcedictionary"></a>ResourceDictionary を使った範囲指定
 
-コンテナーまたはページのリソースに限定されないし、マージ可能なすべてのスコープでディクショナリ マージは通常の方法は、ResourceDictionary でこれらのシステム カラーを定義することもします。
+コンテナーやページのリソースに限定されず、ResourceDictionary でこのようなシステム カラーを定義することもできます。通常、これはディクショナリの統合と同じ方法で任意の範囲で統合できます。
 
 #### <a name="mycustomthemexaml"></a>MyCustomTheme.xaml
 
-まず、ResourceDictionary を作成します。 配置します。、 **ColorPaletteResources** 、ThemeDictionaries 内し、必要なシステム カラーをオーバーライドします。
+まず、ResourceDictionary を作成します。 次に、**ColorPaletteResources** を ThemeDictionaries 内に配置し、希望のシステム カラーをオーバーライドします。
 
 ```xaml
 <ResourceDictionary
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:TestApp">
 
     <ResourceDictionary.ThemeDictionaries>
         <ResourceDictionary x:Key="Default">
             <ResourceDictionary.MergedDictionaries>
-            
+
                 <ColorPaletteResources x:Key="Default"
-                    Accent="#FF0073CF" 
-                    AltHigh="#FF000000" 
+                    Accent="#FF0073CF"
+                    AltHigh="#FF000000"
                     AltLow="#FF000000"/>
-                    
+
             </ResourceDictionary>
         </ResourceDictionary.MergedDictionaries>        
     </ResourceDictionary.ThemeDictionaries>
@@ -375,7 +376,7 @@ X: キーの設定により、システムまたはアプリのテーマに色�
 
 #### <a name="mainpagexaml"></a>MainPage.xaml
 
-ページで、レイアウトを含むで目的のスコープでは、そのディクショナリを簡単にマージします。
+レイアウトを含むページで、目的の範囲でそのディクショナリを統合します。
 
 ```xaml
 <Grid x:Name="Grid_A">
@@ -386,21 +387,21 @@ X: キーの設定により、システムまたはアプリのテーマに色�
                 </ResourceDictionary.MergedDictionaries>
             </ResourceDictionary>
     </Grid.Resources>
-             
+
     <Button Content="Button_A"/>
 </Grid>
 ```
 
-すべてのリソース、テーマ、およびカスタムの色を配置して、1 つのようになりました、 **MyCustomTheme**リソース ディクショナリ、レイアウトのマークアップで余分な煩雑さを気にすることがなく、必要な箇所をスコープとします。
+これで、すべてのリソース、テーマ設定、およびカスタムの色を 1 つの **MyCustomTheme** リソース ディクショナリに配置し、レイアウトのマークアップを複雑にすることなく、必要に応じて範囲を指定できます。
 
-### <a name="other-ways-to-define-color-resources"></a>色リソースを定義する他の方法
+### <a name="other-ways-to-define-color-resources"></a>色のリソースを定義するその他の方法
 
-システム カラーを配置すると、行ではなく、ラッパーとして直接内で定義する ColorSchemeResources もできます。
+ColorPaletteResources では、システム カラーを配置して、インラインではなくラッパーとしてその中で直接定義することもできます。
 
 ``` xaml
-<ColorSchemeResources x:Key="Dark">
+<ColorPaletteResources x:Key="Dark">
     <Color x:Key="SystemBaseLowColor">Goldenrod</Color>
-</ColorSchemeResources>
+</ColorPaletteResources>
 ```
 
 ## <a name="usability"></a>ユーザビリティ
@@ -414,7 +415,7 @@ X: キーの設定により、システムまたはアプリのテーマに色�
 
         Make sure that elements and images have sufficient contrast to differentiate between them, regardless of the accent color or theme.
 
-        When considering what colors to use in your application, accessiblity should be a primary concern. Use the guidance below to make sure your application is accessible to as many users as possible.
+        When considering what colors to use in your application, accessibility should be a primary concern. Use the guidance below to make sure your application is accessible to as many users as possible.
     :::column-end:::
 :::row-end:::
 
@@ -425,7 +426,7 @@ X: キーの設定により、システムまたはアプリのテーマに色�
     :::column span="2":::
         **Lighting**
 
-        Be aware that variation in ambient lighting can affect the useability of your app. For example, a page with a black background might unreadable outside due to screen glare, while a page with a white background might be painful to look at in a dark room.
+        Be aware that variation in ambient lighting can affect the usability of your app. For example, a page with a black background might unreadable outside due to screen glare, while a page with a white background might be painful to look at in a dark room.
     :::column-end:::
 :::row-end:::
 
@@ -436,11 +437,11 @@ X: キーの設定により、システムまたはアプリのテーマに色�
     :::column span="2":::
         **Colorblindness**
 
-        Be aware of how colorblindness could affect the useability of your application. For example, a user with red-green colorblindness will have difficulty distinguishing red and green elements from each other. About **8 percent of men** and **0.5 percent of women** are red-green colorblind, so avoid using these color combinations as the sole differentiator between application elements.
+        Be aware of how colorblindness could affect the usability of your application. For example, a user with red-green colorblindness will have difficulty distinguishing red and green elements from each other. About **8 percent of men** and **0.5 percent of women** are red-green colorblind, so avoid using these color combinations as the sole differentiator between application elements.
     :::column-end:::
 :::row-end:::
 
 ## <a name="related-articles"></a>関連記事
 
 - [XAML スタイル](../controls-and-patterns/xaml-styles.md)
-- [XAML のテーマのリソース](../controls-and-patterns/xaml-theme-resources.md)
+- [XAML テーマ リソース](../controls-and-patterns/xaml-theme-resources.md)

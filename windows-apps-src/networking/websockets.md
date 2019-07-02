@@ -7,11 +7,11 @@ ms.topic: article
 keywords: windows 10, uwp, ネットワーク, websocket, messagewebsocket, streamwebsocket
 ms.localizationpriority: medium
 ms.openlocfilehash: 8af1f478bc466719eef3c5e19d055ac6073a0b11
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57615417"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "63777840"
 ---
 # <a name="websockets"></a>WebSocket
 WebSocket は、クライアントとサーバー間の高速で安全な双方向通信を、HTTP(S) を使った Web 経由で実現するメカニズムを提供し、UTF-8 メッセージとバイナリ メッセージの両方をサポートします。
@@ -67,9 +67,9 @@ IAsyncAction OnNavigatedTo(NavigationEventArgs /* e */)
 ```
 
 ## <a name="use-messagewebsocket-to-connect"></a>MessageWebSocket を使用した接続
-[**MessageWebSocket** ](/uwp/api/windows.networking.sockets.messagewebsocket) WebSocket メッセージ全体を 1 回の操作で読み取り/書き込みを許可します。 したがって、メッセージがあまり大きくない場合に適しています。 このクラスでは、UTF-8 とバイナリの両方のメッセージがサポートされます。
+[**MessageWebSocket**](/uwp/api/windows.networking.sockets.messagewebsocket) を使うと、WebSocket メッセージ全体の読み取りや書き込みを 1 回の操作で行うことができます。 したがって、メッセージがあまり大きくない場合に適しています。 このクラスでは、UTF-8 とバイナリの両方のメッセージがサポートされます。
 
-次のサンプル コードは WebSocket.org エコー サーバーを使用して&mdash;サービスに送信されたメッセージの送信者に送り返すエコーです。
+以下のコード例では、送信されたメッセージを送信元にエコー バックするサービス、WebSocket.org エコー サーバーを使っています。
 
 ```csharp
 private Windows.Networking.Sockets.MessageWebSocket messageWebSocket;
@@ -300,12 +300,12 @@ private:
 ### <a name="send-data-on-a-messagewebsocket"></a>MessageWebSocket でのデータの送信
 接続が確立されたら、サーバーにデータを送信できます。 これを行うには、[**MessageWebSocket.OutputStream**](https://docs.microsoft.com/en-us/uwp/api/Windows.Networking.Sockets.MessageWebSocket.OutputStream) プロパティと [**DataWriter**](/uwp/api/windows.storage.streams.datawriter) を使って、データを書き込みます。 
 
-**注:****DataWriter** が出力ストリームの所有権を取得します。 **DataWriter** がスコープ外になると、出力ストリームがそれにアタッチされている場合は **DataWriter** は出力ストリームの割り当てを解除します。 その後、出力ストリームを使おうとすると、HRESULT 値 0x80000013 のエラーが発生します。 ただし、[**DataWriter.DetachStream**](/uwp/api/windows.storage.streams.datawriter.DetachStream) を呼び出して **DataWriter** から出力ストリームをデタッチし、ストリームの所有権を **MessageWebSocket** に返すことができます。
+**注:** **DataWriter** が出力ストリームの所有権を取得します。 **DataWriter** がスコープ外になると、出力ストリームがそれにアタッチされている場合は **DataWriter** は出力ストリームの割り当てを解除します。 その後、出力ストリームを使おうとすると、HRESULT 値 0x80000013 のエラーが発生します。 ただし、[**DataWriter.DetachStream**](/uwp/api/windows.storage.streams.datawriter.DetachStream) を呼び出して **DataWriter** から出力ストリームをデタッチし、ストリームの所有権を **MessageWebSocket** に返すことができます。
 
 ## <a name="use-streamwebsocket-to-connect"></a>StreamWebSocket を使用した接続
-[**StreamWebSocket** ](/uwp/api/windows.networking.sockets.streamwebsocket)が各読み取り操作で読み取られるメッセージのセクションを許可します。 したがって、かなり大きなファイル (写真やビデオなど) を転送する場合に適しています。 このクラスでは、バイナリ メッセージのみサポートされます。
+[**StreamWebSocket**](/uwp/api/windows.networking.sockets.streamwebsocket) を使うと、メッセージを分割し、何回かに分けて読み取ることができます。 したがって、かなり大きなファイル (写真やビデオなど) を転送する場合に適しています。 このクラスでは、バイナリ メッセージのみサポートされます。
 
-次のサンプル コードは WebSocket.org エコー サーバーを使用して&mdash;サービスに送信されたメッセージの送信者に送り返すエコーです。
+以下のコード例では、送信されたメッセージを送信元にエコー バックするサービス、WebSocket.org エコー サーバーを使っています。
 
 ```csharp
 private Windows.Networking.Sockets.StreamWebSocket streamWebSocket;
@@ -603,14 +603,14 @@ streamWebSocket->Control->NoDelay = false;
 auto connectTask = Concurrency::create_task(streamWebSocket->ConnectAsync(ref new Uri(L"wss://echo.websocket.org")));
 ```
 
-**注****ConnectAsync** を呼び出した*後*に、コントロール プロパティを変更しようとしないでください。 ルールの唯一の例外は [MessageWebSocketControl.MessageType](/uwp/api/windows.networking.sockets.messagewebsocketcontrol.MessageType) です。
+**注** **ConnectAsync** を呼び出した*後*に、コントロール プロパティを変更しようとしないでください。 ルールの唯一の例外は [MessageWebSocketControl.MessageType](/uwp/api/windows.networking.sockets.messagewebsocketcontrol.MessageType) です。
 
 ## <a name="websocket-information-classes"></a>WebSocket の情報クラス
-[**MessageWebSocket** ](/uwp/api/windows.networking.sockets.messagewebsocket)と[ **StreamWebSocket** ](/uwp/api/windows.networking.sockets.streamwebsocket)オブジェクトに関する追加情報を提供する、対応するクラスがある各します。
+[**MessageWebSocket**](/uwp/api/windows.networking.sockets.messagewebsocket) と [**StreamWebSocket**](/uwp/api/windows.networking.sockets.streamwebsocket) には、オブジェクトについての追加情報を提供するクラスがそれぞれあります。
 
-[**MessageWebSocketInformation** ](/uwp/api/windows.networking.sockets.messagewebsocketinformation)に関する情報を提供する**MessageWebSocket**を使用してそのインスタンスを取得して、 [ **MessageWebSocket.Information**](/uwp/api/windows.networking.sockets.messagewebsocket.Information)プロパティ。
+[**MessageWebSocketInformation**](/uwp/api/windows.networking.sockets.messagewebsocketinformation) は、**MessageWebSocket** についての情報を提供します。情報クラスのインスタンスは、[**MessageWebSocket.Information**](/uwp/api/windows.networking.sockets.messagewebsocket.Information) プロパティを使って取得します。
 
-[**StreamWebSocketInformation** ](/uwp/api/Windows.Networking.Sockets.StreamWebSocketInformation)に関する情報を提供する**StreamWebSocket**を使用してそのインスタンスを取得して、 [ **StreamWebSocket.Information**](/uwp/api/Windows.Networking.Sockets.StreamWebSocket.Information)プロパティ。
+[**StreamWebSocketInformation**](/uwp/api/Windows.Networking.Sockets.StreamWebSocketInformation) は、**StreamWebSocket** についての情報を提供します。情報クラスのインスタンスは、[**StreamWebSocket.Information**](/uwp/api/Windows.Networking.Sockets.StreamWebSocket.Information) プロパティを使って取得します。
 
 これらの情報クラスのプロパティは読み取り専用ですが、WebSocket オブジェクトの有効期間中はいつでも現在の情報を取得するために使うことができます。
 
@@ -806,7 +806,7 @@ protected:
 
 ## <a name="important-apis"></a>重要な API
 * [DataReader](/uwp/api/Windows.Storage.Streams.DataReader)
-* [Datawriter の各](/uwp/api/Windows.Storage.Streams.DataWriter)
+* [DataWriter](/uwp/api/Windows.Storage.Streams.DataWriter)
 * [DataWriter.DetachStream](/uwp/api/windows.storage.streams.datawriter.DetachStream)
 * [MessageWebSocket](/uwp/api/windows.networking.sockets.messagewebsocket)
 * [MessageWebSocket.Closed](/uwp/api/Windows.Networking.Sockets.MessageWebSocket.Closed)

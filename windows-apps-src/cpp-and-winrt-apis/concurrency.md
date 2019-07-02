@@ -6,34 +6,34 @@ ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、同時実行、非同期、非同期、非同期操作
 ms.localizationpriority: medium
 ms.openlocfilehash: 910d7a7ca2aaebac6dd462d7104b26a989cf8814
-ms.sourcegitcommit: 1f39b67f2711b96c6b4e7ed7107a9a47127d4e8f
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/05/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66721661"
 ---
 # <a name="concurrency-and-asynchronous-operations-with-cwinrt"></a>C++/WinRT を使用した同時実行操作と非同期操作
 
-このトピックではどちらもできる方法を作成およびと Windows ランタイムの非同期オブジェクトを使用[C +/cli WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt)します。
+このトピックでは、[C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) を使用した Windows ランタイムの非同期オブジェクトの作成方法と利用方法について説明します。
 
 ## <a name="asynchronous-operations-and-windows-runtime-async-functions"></a>非同期操作と Windows ランタイムの "非同期" 関数
 
 完了までの時間が 50 ミリ秒を超える可能性がある Windows ランタイム API は、非同期の関数 (末尾が "Async") として実装されます。 非同期関数を実装すると、別のスレッドの作業が開始され、非同期操作を表すオブジェクトがすぐに返されます。 非同期操作が完了すると、作業結果が含まれるオブジェクトが返されます。 **Windows::Foundation** Windows ランタイムの名前空間には 4 種類の非同期操作オブジェクトが含まれます。
 
-- [**IAsyncAction**](/uwp/api/windows.foundation.iasyncaction),
-- [**IAsyncActionWithProgress&lt;TProgress&gt;** ](/uwp/api/windows.foundation.iasyncactionwithprogress_tprogress_)、
-- [**IAsyncOperation&lt;TResult&gt;** ](/uwp/api/windows.foundation.iasyncoperation_tresult_)と
-- [**IAsyncOperationWithProgress&lt;TResult, TProgress&gt;** ](/uwp/api/windows.foundation.iasyncoperationwithprogress_tresult_tprogress_)します。
+- [**IAsyncAction**](/uwp/api/windows.foundation.iasyncaction)
+- [**IAsyncActionWithProgress&lt;TProgress&gt;** ](/uwp/api/windows.foundation.iasyncactionwithprogress_tprogress_)
+- [**IAsyncOperation&lt;TResult&gt;** ](/uwp/api/windows.foundation.iasyncoperation_tresult_)
+- [**IAsyncOperationWithProgress&lt;TResult, TProgress&gt;** ](/uwp/api/windows.foundation.iasyncoperationwithprogress_tresult_tprogress_)
 
-各非同期操作は、**winrt::Windows::Foundation** C++/WinRT の名前空間で対応する型に投影されます。 また、C++/WinRT には内部 await アダプター構造体も含まれます。 記述できますを使用しないことを直接が、その構造体に協力してくれた、`co_await`協調的にこれらの非同期操作の種類のいずれかを返す任意の関数の結果を待機するステートメント。 その後、これらの型を返す独自のコルーチンを作成できます。
+各非同期操作は、**winrt::Windows::Foundation** C++/WinRT の名前空間で対応する型に投影されます。 また、C++/WinRT には内部 await アダプター構造体も含まれます。 これを直接使用することはありませんが、この構造体により、これらの非同期操作型のいずれかを返す関数の結果を一緒に待機するように `co_await` ステートメントを記述することができます。 その後、これらの型を返す独自のコルーチンを作成できます。
 
-たとえば、非同期の Windows 関数である [**SyndicationClient::RetrieveFeedAsync**](https://docs.microsoft.com/uwp/api/windows.web.syndication.syndicationclient.retrievefeedasync) は、[**IAsyncOperationWithProgress&lt;TResult, TProgress&gt;** ](/uwp/api/windows.foundation.iasyncoperationwithprogress_tresult_tprogress_) 型の非同期操作オブジェクトを返します。 いくつかの方法を見てみましょう&mdash;、最初のブロックとし、非ブロッキング&mdash;使用する C +/cli WinRT をなどの API を呼び出す。
+たとえば、非同期の Windows 関数である [**SyndicationClient::RetrieveFeedAsync**](https://docs.microsoft.com/uwp/api/windows.web.syndication.syndicationclient.retrievefeedasync) は、[**IAsyncOperationWithProgress&lt;TResult, TProgress&gt;** ](/uwp/api/windows.foundation.iasyncoperationwithprogress_tresult_tprogress_) 型の非同期操作オブジェクトを返します。 それでは、C++/WinRT を使用してそのような API を呼び出すためのいくつかの方法 (最初はブロック、次に非ブロック) を見てみましょう。
 
 ## <a name="block-the-calling-thread"></a>呼び出しスレッドのブロック
 
 次のコード例では、**RetrieveFeedAsync** から非同期操作オブジェクトを受け取り、非同期操作の結果が利用可能になるまで呼び出しスレッドをブロックするようにこのオブジェクトで **get** を呼び出します。
 
-メイン ソース コード ファイルに直接この例をコピー アンド ペーストする場合、 **Windows コンソール アプリケーション (C++/WinRT)** プロジェクト、その最初のセット**プリコンパイル済みヘッダーを使用しない**プロジェクトプロパティ。
+この例を **Windows コンソール アプリケーション (C++/WinRT)** プロジェクトのメイン ソース コード ファイルに直接コピーして貼り付ける場合は、最初にプロジェクト プロパティで **[プリコンパイル済みヘッダーを使用しない]** を設定します。
 
 ```cppwinrt
 // main.cpp
@@ -66,7 +66,7 @@ int main()
 C++/WinRT は C++ コルーチンをプログラミング モデルに統合し、結果を連携して待機するための自然な方法を提供します。 コルーチンを作成すると、独自の Windows ランタイム非同期操作を作成することができます。 次のコード例で、**ProcessFeedAsync** はコルーチンします。
 
 > [!NOTE]
-> **取得**関数が c++ に存在する/cli WinRT プロジェクション型**winrt::Windows::Foundation::IAsyncAction**すべて C + 内から関数を呼び出すことができますので、/cli WinRT プロジェクト。 メンバーとして記載されている関数は見つかりません、 [ **IAsyncAction** ](/uwp/api/windows.foundation.iasyncaction)で**取得**アプリケーション バイナリ インターフェイス (ABI) の表面の一部でない、実際の Windows ランタイム型**IAsyncAction**します。
+> **get** 関数は、C++/WinRT プロジェクション型 **winrt::Windows::Foundation::IAsyncAction** に存在するため、任意の C++/WinRT プロジェクト内からこの関数を呼び出すことができます。 **get** 関数が [**IAsyncAction**](/uwp/api/windows.foundation.iasyncaction) インターフェイスのメンバーとして一覧表示されないのは、この関数が実際の Windows ランタイム型 **IAsyncAction** のアプリケーション バイナリ インターフェイス (ABI) サーフェスの一部ではないからです。
 
 ```cppwinrt
 // main.cpp
@@ -248,9 +248,9 @@ IASyncAction DoWorkAsync(Param const value);
 
 ## <a name="offloading-work-onto-the-windows-thread-pool"></a>Windows スレッド プールへの処理のオフロード
 
-コルーチンは、関数に実行を返すまで、呼び出し元がブロックされていることなどの他の機能です。 返すコルーチンの最初のチャンスが 1 つ目とは、 `co_await`、 `co_return`、または`co_yield`します。
+コルーチンは、関数が呼び出し元に実行を返すまで呼び出し元がブロックされるという点で、他と同様の関数です。 コルーチンが最初に返すのは、最初の `co_await`、`co_return`、または `co_yield` です。
 
-そのため、実行する前にコルーチンでの作業を計算主体、実行を返す、呼び出し元にする必要があります (つまり、中断ポイントを導入する) 呼び出し元がブロックされないようにします。 をまだ行っている場合`co_await`- その他のいくつか操作してかまいません ing `co_await` 、 [ **winrt::resume_background** ](/uwp/cpp-ref-for-winrt/resume-background)関数。 これにより、呼び出し元に制御が返され、スレッド プールのスレッドですぐに実行が再開されます。
+そのため、コルーチンで計算処理にかかる処理を行う前に、呼び出し元がブロックされないように呼び出し元に実行を返す必要があります (つまり、一時停止ポイントを導入します)。 その他の操作を `co_await` することでこれをまだ行っていない場合は、[**winrt::resume_background**](/uwp/cpp-ref-for-winrt/resume-background) 関数を `co_await` できます。 これにより、呼び出し元に制御が返され、スレッド プールのスレッドですぐに実行が再開されます。
 
 実装で使用されているスレッド プールは低レベルの [Windows スレッド プール](https://docs.microsoft.com/windows/desktop/ProcThread/thread-pool-api)であるため、最適に効率化されます。
 
@@ -283,7 +283,7 @@ IAsyncAction DoWorkAsync(TextBlock textblock)
 }
 ```
 
-上のコードは、[**winrt::hresult_wrong_thread**](/uwp/cpp-ref-for-winrt/error-handling/hresult-wrong-thread) 例外をスローします。これは、**TextBlock** がそれを作成したスレッド (UI スレッド) から更新する必要があるためです。 1 つの解決方法は、コルーチンが最初に呼び出されたスレッド コンテキストをキャプチャする方法です。 インスタンス化、 [ **winrt::apartment_context** ](/uwp/cpp-ref-for-winrt/apartment-context)オブジェクト、バック グラウンド作業をし`co_await`、 **apartment_context**呼び出し元に戻すコンテキスト。
+上のコードは、[**winrt::hresult_wrong_thread**](/uwp/cpp-ref-for-winrt/error-handling/hresult-wrong-thread) 例外をスローします。これは、**TextBlock** がそれを作成したスレッド (UI スレッド) から更新する必要があるためです。 1 つの解決方法は、コルーチンが最初に呼び出されたスレッド コンテキストをキャプチャする方法です。 これを行うには、[**winrt::apartment_context**](/uwp/cpp-ref-for-winrt/apartment-context) オブジェクトをインスタンス化し、バックグラウンド処理を実行してから、**apartment_context** を `co_await` して呼び出し元コンテキストに切り替えて戻ります。
 
 ```cppwinrt
 IAsyncAction DoWorkAsync(TextBlock textblock)
@@ -301,7 +301,7 @@ IAsyncAction DoWorkAsync(TextBlock textblock)
 
 上のコルーチンが **TextBlock** を作成した UI スレッドから呼び出される限り、この手法は機能します。 アプリで多くの場合にそれを確信できます。
 
-一般的なソリューションは、呼び出し元のスレッドが不明確していない場合を対象とする、UI を更新することができます`co_await`、 [ **winrt::resume_foreground** ](/uwp/cpp-ref-for-winrt/resume-foreground)スイッチを特定する関数フォア グラウンド スレッドです。 次のコード例では、([**Dispatcher**](/uwp/api/windows.ui.xaml.dependencyobject.dispatcher#Windows_UI_Xaml_DependencyObject_Dispatcher) プロパティにアクセスして) **TextBlock** に関連するディスパッチャー オブジェクトを渡すことでフォアグラウンド スレッドを指定しています。 **winrt::resume_foreground** の実装では、そのディスパッチャー オブジェクトで [**CoreDispatcher.RunAsync**](/uwp/api/windows.ui.core.coredispatcher.runasync) を呼び出し、コルーチンでその後に続く処理を実行しています。
+スレッドの呼び出しがよくわからない場合を対象とした、UI の更新に対するより一般的な解決策として、[**winrt::resume_foreground**](/uwp/cpp-ref-for-winrt/resume-foreground) 関数を `co_await` して特定のフォアグラウンド スレッドに切り替えることができます。 次のコード例では、([**Dispatcher**](/uwp/api/windows.ui.xaml.dependencyobject.dispatcher#Windows_UI_Xaml_DependencyObject_Dispatcher) プロパティにアクセスして) **TextBlock** に関連するディスパッチャー オブジェクトを渡すことでフォアグラウンド スレッドを指定しています。 **winrt::resume_foreground** の実装では、そのディスパッチャー オブジェクトで [**CoreDispatcher.RunAsync**](/uwp/api/windows.ui.core.coredispatcher.runasync) を呼び出し、コルーチンでその後に続く処理を実行しています。
 
 ```cppwinrt
 IAsyncAction DoWorkAsync(TextBlock textblock)
@@ -317,9 +317,9 @@ IAsyncAction DoWorkAsync(TextBlock textblock)
 
 ## <a name="execution-contexts-resuming-and-switching-in-a-coroutine"></a>実行コンテキスト、再開、およびコルーチンでの切り替え
 
-大まかに言えば、コルーチンでの中断ポイントした後、元のスレッドの実行の終了してもよいし、再開に任意のスレッドで発生する可能性があります (つまり、任意のスレッドを呼び出すことができます、**完了**非同期操作のメソッド)。
+大まかに言えば、コルーチン内の一時停止ポイントの後に、実行の元のスレッドが消えて、いずれかのスレッドで再開が発生する場合があります (つまり、いずれかのスレッドで非同期操作のために**完了した**メソッドが呼び出されることがあります)。
 
-場合する`co_await`4 つの Windows ランタイムの非同期操作の種類のいずれか (**IAsyncXxx**)、し、C++/cli WinRT はポイントで呼び出し元のコンテキストをキャプチャする`co_await`します。 および継続タスクを再開したとき、そのコンテキストにまだ残っていることになります。 C +/cli WinRT は呼び出し元のコンテキストに既にいるかどうかをチェックし、そうでない場合は、これに切り替えることによって。 したかどうかは、前に、シングル スレッド アパートメント (STA) スレッドで`co_await`、ことと同じものに後で; したかどうかは、前に、マルチ スレッド アパートメント (MTA) スレッドで`co_await`、後でいずれかにあります。
+ただし、4 つの Windows ランタイムの非同期操作型 (**IAsyncXxx**) のいずれかを `co_await` する場合、`co_await` するポイントで呼び出し元コンテキストが C++/WinRT によってキャプチャされます。 また、継続が再開されたときに、引き続きそのコンテキストにいることが保証されます。 C++/WinRT では、ユーザーが呼び出し元コンテキストに既にいるかどうかが確認され、いない場合はそれに切り替えられることでこれが行われます。 `co_await` の前にシングル スレッド アパートメント (STA) スレッドにいた場合は、その後も同じスレッドにいることになり、`co_await` の前にマルチ スレッド アパートメント (MTA) スレッドにいた場合は、その後もそこにいることになります。
 
 ```cppwinrt
 IAsyncAction ProcessFeedAsync()
@@ -333,7 +333,7 @@ IAsyncAction ProcessFeedAsync()
 }
 ```
 
-この動作に依存できる理由は、ためには C +/cli WinRT C++ コルーチンの言語サポート (これらのコードは待機のアダプターで呼ばれます) に、Windows ランタイム非同期操作の種類を調整するためのコードを提供します。 残りの待機可能な型に C +/cli WinRT はスレッド プール ラッパーやヘルパー。そのため、スレッド プールで完了します。
+この動作に依存できるのは、C++WinRT で、これらの Windows ランタイムの非同期操作型を C++ コルーチンの言語サポートに適応させるコードが提供されているからです (これらのコードは待機アダプターと呼ばれます)。 C++/WinRT でその他の待機可能な型は、単純なスレッド プール ラッパーやヘルパーなので、これらはスレッド プールで完了します。
 
 ```cppwinrt
 using namespace std::chrono;
@@ -346,9 +346,9 @@ IAsyncOperation<int> return_123_after_5s()
 }
 ```
 
-場合する`co_await`他の何らかの種類&mdash;C + 内でも/cli WinRT コルーチンの実装&mdash;別のライブラリは、アダプターを提供し、再開とコンテキストの観点からこれらのアダプターが行う操作を理解する必要があります。
+(C++/WinRT のコルーチンの実装内であっても) 他の型を `co_await` する場合は、別のライブラリによってアダプターが提供されるので、再開とコンテキストの観点から、これらのアダプターで何が行われるかを理解する必要があります。
 
-コンテキストの切り替えを最小値までを保持するには、このトピックで前述したよう手法の一部を使用できます。 これを行うのいくつかの図を見てみましょう。 この次の擬似コードの例では、イベント ハンドラー、イメージを読み込むための Windows ランタイム API を呼び出すし、そのイメージを処理するバック グラウンド スレッドにドロップし、UI でイメージを表示する UI スレッドに戻りますのアウトラインを説明します。
+コンテキストの切り替えを最小限に保持するには、このトピックで既に説明した手法の一部を使用できます。 これを行う実例をいくつか見てみましょう。 次の擬似コードの例では、Windows ランタイム API を呼び出してイメージを読み込み、そのイメージをバックグラウンド スレッドにドロップして処理してから、UI スレッドに戻って UI でイメージを表示するイベント ハンドラーの概要を示します。
 
 ```cppwinrt
 IAsyncAction MainPage::ClickHandler(IInspectable /* sender */, RoutedEventArgs /* args */)
@@ -373,7 +373,7 @@ IAsyncAction MainPage::ClickHandler(IInspectable /* sender */, RoutedEventArgs /
 }
 ```
 
-このシナリオでは、少し呼び出しの周囲の ineffiency **StorageFile::OpenAsync**します。 背景に必要なコンテキスト スイッチがある (そのハンドラーは、実行を呼び出し元に戻すことができる) スレッド、再開後にどの C +/cli WinRT が UI スレッドのコンテキストを復元します。 しかし、ここでは、UI を更新しようとしていることになるまで、UI スレッド上に存在する必要はありません。 いわゆる複数の Windows ランタイム Api*する前に*への呼び出しを**winrt::resume_background**より不要な - 前後のコンテキスト スイッチが発生しています。 ソリューションは呼び出す*任意*その前に、Windows ランタイム Api です。 すべての後に移動、 **winrt::resume_background**します。
+このシナリオでは、**StorageFile::OpenAsync** の呼び出しが少々非効率的です。 C++/WinRT が UI スレッドのコンテキストを復元した後の再開時に、(ハンドラーが実行を呼び出し元に返せるように) バックグラウンド スレッドへの必要なコンテキスト スイッチがあります。 ただし、この場合は、UI を更新する寸前まで UI スレッド上に存在する必要はありません。 **winrt::resume_background** を呼び出す*前に*、呼び出す Windows ランタイム API の数が多くなるほど、不要な前後のコンテキスト スイッチが多く発生します。 解決策は、その前に、Windows ランタイム API を*一切*呼び出さないことです。 それらをすべて **winrt::resume_background** の後に移動します。
 
 ```cppwinrt
 IAsyncAction MainPage::ClickHandler(IInspectable /* sender */, RoutedEventArgs /* args */)
@@ -396,10 +396,10 @@ IAsyncAction MainPage::ClickHandler(IInspectable /* sender */, RoutedEventArgs /
 }
 ```
 
-独自に記述する可能性がありより高度なものを行いたい場合は、アダプターを待機します。 たい場合など、`co_await`で非同期操作が完了するのと同じスレッドで再開する (そのためがないコンテキストの切り替え) を記述して開始する可能性がありますし、await の次に示すようなアダプター。
+より高度なことを行いたい場合は、独自の await アダプターを記述できます。 たとえば、非同期操作が完了する (そのためコンテキスト スイッチがありません) のと同じスレッドで再開するために `co_await` が必要な場合は、次に示すような await アダプターを記述して開始することができます。
 
 > [!NOTE]
-> 教育目的のみで、次のコード例が提供されます。作業を開始するのには理解がどのアダプターの連携を待機します。 開発および、独自にテストすることをお勧めし、独自のコードベースでは、この手法を使用する場合は、アダプター struct(s) を待機します。 たとえば、作成する**complete_on_any**、 **complete_on_current**、および**complete_on(dispatcher)** します。 受け取るテンプレートにすることも検討、 **IAsyncXxx**型テンプレート パラメーターとして。
+> 次のコード例は、await アダプターのしくみを理解してもらうために、教育目的のみに提供されています。 独自のコードベースでこの手法を使用する場合は、独自の await アダプター構造体を開発してテストすることをお勧めします。 たとえば、**complete_on_any**、**complete_on_current**、**complete_on(dispatcher)** を記述できます。 また、**IAsyncXxx** 型を受け取るテンプレートをテンプレート パラメーターにすることも検討してください。
 
 ```cppwinrt
 struct no_switch
@@ -431,25 +431,25 @@ private:
 };
 ```
 
-使用する方法を理解する、**切り替え**await アダプター、することを確認する必要がありますのではまず、C++コンパイラが検出、`co_await`呼び出された関数が検索式**await_ready**、**await_suspend**、および**await_resume**します。 C++/cli WinRT ライブラリは、既定では、このような適切な動作を取得するためにこれらの関数を提供します。
+**no_switch** await アダプターの使用方法を理解するには、C++ コンパイラで、**await_ready**、**await_suspend**、**await_resume** と呼ばれる関数を探す `co_await` 式が検出されるタイミングをまず理解する必要があります。 C++/WinRT ライブラリでは、適切な動作が既定で得られるように、次のような関数が提供されています。
 
 ```cppwinrt
 IAsyncAction async{ ProcessFeedAsync() };
 co_await async;
 ```
 
-使用する、**切り替え**await アダプター、その型を変更するだけ`co_await`から式**IAsyncXxx**に**切り替え**、次のようにします。
+**no_switch** await アダプターを使用するには、次のように、その `co_await` 式の型を **IAsyncXxx** から **no_switch** に切り替えるだけです。
 
 ```cppwinrt
 IAsyncAction async{ ProcessFeedAsync() };
 co_await static_cast<no_switch>(async);
 ```
 
-次の 3 つの検索ではなく、 **await_xxx**関数と一致する**IAsyncXxx**、C++コンパイラと一致する関数を探します**切り替え**します。
+次に、**IAsyncXxx** と一致する 3 つの **await_xxx** 関数を検索する代わりに、C++ コンパイラで **no_switch** と一致する関数が検索されます。
 
-## <a name="canceling-an-asychronous-operation-and-cancellation-callbacks"></a>非同期操作、および取り消しのコールバックをキャンセル
+## <a name="canceling-an-asychronous-operation-and-cancellation-callbacks"></a>非同期操作の取り消しとキャンセル コールバック
 
-非同期プログラミング向けの Windows ランタイムの機能を使用すると、実行中の非同期アクションまたは操作をキャンセルできます。 呼び出す例を次に示します[ **StorageFolder::GetFilesAsync** ](/uwp/api/windows.storage.storagefolder.getfilesasync)が大きくなる可能性、ファイルのコレクションを取得するには、データ メンバーの非同期操作の結果のオブジェクトを格納します。 ユーザーには、操作をキャンセルするオプションがあります。
+非同期プログラミング向けの Windows ランタイムの機能を使用すると、実行中の非同期アクションまたは操作を取り消すことができます。 大きくなる可能性があるファイルのコレクションを取得する [**StorageFolder::GetFilesAsync**](/uwp/api/windows.storage.storagefolder.getfilesasync) を呼び出して、非同期操作の結果のオブジェクトをデータ メンバーに格納する例を次に示します。 ユーザーには、操作を取り消すオプションがあります。
 
 ```cppwinrt
 // MainPage.xaml
@@ -508,7 +508,7 @@ private:
 ...
 ```
 
-キャンセルの実装側では、簡単な例から始めましょう。
+取り消しの実装側については、簡単な例から始めましょう。
 
 ```cppwinrt
 // main.cpp
@@ -542,11 +542,11 @@ int main()
 }
 ```
 
-上記の例を実行するかどうかは、表示**ImplicitCancellationAsync** 3 秒間、その後に自動的に終了しますその結果れるキャンセルの 1 秒あたりの 1 つのメッセージを出力します。 発生したため、これは、機能、`co_await`が取り消されましたかどうか、式、コルーチンを確認します。 場合は、し、それを実行せずにアウトしてください。これに該当しない場合は、これを中断し、通常どおりです。
+上記の例を実行すると、**ImplicitCancellationAsync** によって 1 秒につき 1 つのメッセージが 3 秒間出力され、その後、取り消された結果として自動的に終了します。 これが機能するのは、`co_await` 式の検出時に、コルーチンでそれが取り消されているかどうかが確認されるからです。 取り消されている場合はすぐに出力し、されていない場合は通常どおり中断します。
 
-キャンセルは、コルーチンを中断している間、発生します。 コルーチンの再開時にのみヒット別または`co_await`、これは取り消し状態をチェックします。 問題では、キャンセルに応答する可能性のあるすぎる粗い-詳細の待機時間の 1 つです。
+当然ながら、取り消しはコルーチンが中断されている場合も発生する場合があります。 コルーチンは、再開時、または別の `co_await` がヒットしたときだけ取り消しを確認します。 問題は、取り消しへの応答で待機時間の粒度が荒すぎる可能性があることです。
 
-そのため、別のオプションは、コルーチン内からのキャンセルを明示的にポーリングします。 以下のリスト内のコードでは、上記の例を更新します。 この新しい例では**ExplicitCancellationAsync**によって返されるオブジェクトを取得、 [ **winrt::get_cancellation_token** ](/uwp/cpp-ref-for-winrt/get-cancellation-token)関数は、オブジェクトを定期的に使用してコルーチンが取り消されたかどうかを確認します。 コルーチンが無制限にループ処理が取り消されない限り、キャンセルすると、ループ、関数は、通常どおりに終了します。 結果は、ここで終了するが、前の例では、明示的が行われるため、管理下にある同じです。
+そのため、もう 1 つのオプションは、コルーチン内から取り消しを明示的にポーリングすることです。 上記の例を次に示すコードで更新します。 この新しい例では、**ExplicitCancellationAsync** が [**winrt::get_cancellation_token**](/uwp/cpp-ref-for-winrt/get-cancellation-token) 関数で返されたオブジェクトを取得し、それを使用してコルーチンが取り消されているかどうかを定期的に確認します。 取り消されない限り、コルーチンは無限にループします。取り消されると、ループと関数は正常に終了します。 結果は前の例と同じですが、ここでは終了が制御され、明示的に発生します。
 
 ```cppwinrt
 IAsyncAction ExplicitCancellationAsync()
@@ -569,13 +569,13 @@ IAsyncAction MainCoroutineAsync()
 ...
 ```
 
-待機している**winrt::get_cancellation_token**の知識があるキャンセル トークンを取得、 **IAsyncAction**コルーチンが自動的に生成します。 そのトークンに関数呼び出し演算子を使用するにはキャンセル状態を照会する&mdash;本質的に取り消し状態をポーリングします。 大規模なコレクションを反復し、これは、適切な手法によって計算バウンドの操作を実行している場合。
+**winrt::get_cancellation_token** を待機することで、コルーチンによって自動的に生成される **IAsyncAction** の情報を持つキャンセル トークンを取得します。 そのトークンに関数呼び出し演算子を使用して、キャンセル状態をクエリできます (実質的に取り消しのポーリング)。 いくつか計算処理がかかる操作を実行している場合、または大規模なコレクションを反復している場合、これは適切な手法です。
 
-### <a name="register-a-cancellation-callback"></a>キャンセル コールバックを登録します。
+### <a name="register-a-cancellation-callback"></a>キャンセル コールバックを登録する
 
-Windows ランタイムの取り消しは、その他の非同期オブジェクトを自動的に流れません。 &mdash;10.0.17763.0 (Windows 10、バージョンは 1809) のバージョンの Windows SDK で導入された&mdash;取り消しのコールバックを登録することができます。 これは、プリエンプティブなフックをキャンセルを伝えることができるし、同時実行の既存のライブラリと統合することになります。
+Windows ランタイムの取り消しは、他の非同期オブジェクトに自動的に流れません。 ただし、キャンセル コールバックを登録することができます (Windows SDK のバージョン 10.0.17763.0 (Windows 10、バージョン 1809) で導入されました)。 これは、取り消しを伝達できる先行フックで、既存の同時実行ライブラリとの統合を可能にします。
 
-この次のコード例では**NestedCoroutineAsync**作業が特別な取り消しロジックがありません。 **CancellationPropagatorAsync** ; 入れ子になったコルーチンのラッパーでは基本的には、ラッパーがにわかキャンセルを転送します。
+次のコード例では、**NestedCoroutineAsync** がこれを行いますが、特別な取り消しロジックはありません。 **CancellationPropagatorAsync** は、本質的に、入れ子になったコルーチンでのラッパーです。ラッパーは取り消しを先行的に転送します。
 
 ```cppwinrt
 // main.cpp
@@ -622,11 +622,11 @@ int main()
 }
 ```
 
-**CancellationPropagatorAsync**レジスタの独自のキャンセル コールバックし、ラムダ関数を待機 (が中断されます)、入れ子になった作業が完了するまでです。 場合、または**CancellationPropagatorAsync**が取り消されると、入れ子になったコルーチンにキャンセルを伝達します。 キャンセル; をポーリングする必要はありません。キャンセルは無限にブロックします。 このメカニズムはコルーチンまたは同時実行の何も認識しているライブラリとの相互運用に使用するための十分な柔軟性/cli WinRT します。
+**CancellationPropagatorAsync** は、独自のキャンセル コールバックのラムダ関数を登録してから、入れ子になった作業が完了するまで待機 (中断) します。 **CancellationPropagatorAsync** は、取り消されると、取り消しを入れ子になったコルーチンに伝達します。 取り消しをポーリングする必要はありません。また取り消しは無限にブロックされません。 このメカニズムは、コルーチンまたは C++/WinRT に関する情報が何もない同時実行ライブラリとの相互運用に使用するのに十分な柔軟性があります。
 
-## <a name="reporting-progress"></a>進行状況の報告
+## <a name="reporting-progress"></a>進行状況を報告する
 
-場合は、コルーチンでは、どちらかを返します[ **IAsyncActionWithProgress**](/uwp/api/windows.foundation.iasyncactionwithprogress_tprogress_)、または[ **IAsyncOperationWithProgress**](/uwp/api/windows.foundation.iasyncoperationwithprogress_tresult_tprogress_)、取得することができ、によって返されるオブジェクト、 [ **winrt::get_progress_token** ](/uwp/cpp-ref-for-winrt/get-progress-token)関数、および進行状況のハンドラーに進行状況の報告に使用します。 次にコード例を示します。
+コルーチンで [**IAsyncActionWithProgress**](/uwp/api/windows.foundation.iasyncactionwithprogress_tprogress_) または [**IAsyncOperationWithProgress**](/uwp/api/windows.foundation.iasyncoperationwithprogress_tresult_tprogress_) のいずれかを返す場合、[**winrt::get_progress_token**](/uwp/cpp-ref-for-winrt/get-progress-token) 関数によって返されるオブジェクトを取得し、それを使用して進行状況ハンドラーに進行状況を報告することができます。 次にコード例を示します。
 
 ```cppwinrt
 // main.cpp
@@ -683,7 +683,7 @@ int main()
 ```
 
 > [!NOTE]
-> 1 つ以上実装するために正しくない*完了ハンドラー*非同期アクションまたは操作します。 、Completed イベントの 1 つのデリゲートがあることもできます`co_await`こと。 両方がある場合は、2 つ目は失敗します。 いずれか適切な; 次の 2 種類の完了ハンドラーの 1 つです両方ではなく、同じ非同期オブジェクトの。
+> 非同期アクションまたは操作に、複数の*完了ハンドラー*を実装するのは誤りです。 完了したイベントに対して 1 つのデリゲートを持つか、それを `co_await` することができます。 両方ある場合、2 つ目は失敗します。 同じ非同期オブジェクトには次の 2 種類の完了ハンドラーの両方ではなく、いずれか 1 つが適切です。
 
 ```cppwinrt
 auto async_op_with_progress{ CalcPiTo5DPs() };
@@ -698,11 +698,11 @@ auto async_op_with_progress{ CalcPiTo5DPs() };
 double pi{ co_await async_op_with_progress };
 ```
 
-完了ハンドラーの詳細については、次を参照してください。[非同期アクションおよび操作の種類をデリゲート](handle-events.md#delegate-types-for-asynchronous-actions-and-operations)します。
+完了ハンドラーの詳細については、「[非同期アクションと非同期操作のデリゲート型](handle-events.md#delegate-types-for-asynchronous-actions-and-operations)」をご覧ください。
 
 ## <a name="fire-and-forget"></a>ファイア アンド フォーゲット
 
-場合によっては、他の作業と同時に実行できるタスクがあるし、そのタスクを完了するまで待機する必要はありません (その他の作業なしに依存)、その値を返す必要があるとします。 その場合は、タスクを起動し、忘れたできます。 コルーチンの戻り値の型を記述することができます[ **winrt::fire_and_forget** ](/uwp/cpp-ref-for-winrt/fire-and-forget) (Windows ランタイムの非同期操作の種類のいずれかではなくまたは**concurrency::task**).
+他の作業と同時に実行できるタスクがあり、そのタスクが完了するまで待機する必要も (それに依存する他の作業がない)、値が返される必要もない場合があります。 その場合、タスクを送信して忘れることができます。 これを行うには、戻り値の型が [**winrt::fire_and_forget**](/uwp/cpp-ref-for-winrt/fire-and-forget) (Windows ランタイムの非同期操作型のいずれか、または **concurrency::task** ではなく) のコルーチンを記述します。
 
 ```cppwinrt
 // main.cpp
@@ -727,9 +727,9 @@ int main()
 ## <a name="important-apis"></a>重要な API
 * [concurrency::task クラス](/cpp/parallel/concrt/reference/task-class)
 * [IAsyncAction インターフェイス](/uwp/api/windows.foundation.iasyncaction)
-* [IAsyncActionWithProgress&lt;TProgress&gt;インターフェイス](/uwp/api/windows.foundation.iasyncactionwithprogress_tprogress_)
-* [IAsyncOperation&lt;TResult&gt;インターフェイス](/uwp/api/windows.foundation.iasyncoperation_tresult_)
-* [IAsyncOperationWithProgress&lt;TResult, TProgress&gt;インターフェイス](/uwp/api/windows.foundation.iasyncoperationwithprogress_tresult_tprogress_)
+* [IAsyncActionWithProgress&lt;TProgress&gt; インターフェイス](/uwp/api/windows.foundation.iasyncactionwithprogress_tprogress_)
+* [IAsyncOperation&lt;TResult&gt; インターフェイス](/uwp/api/windows.foundation.iasyncoperation_tresult_)
+* [IAsyncOperationWithProgress&lt;TResult, TProgress&gt; インターフェイス](/uwp/api/windows.foundation.iasyncoperationwithprogress_tresult_tprogress_)
 * [SyndicationClient::RetrieveFeedAsync メソッド](/uwp/api/windows.web.syndication.syndicationclient.retrievefeedasync)
 * [SyndicationFeed クラス](/uwp/api/windows.web.syndication.syndicationfeed)
 * [winrt::get_cancellation_token](/uwp/cpp-ref-for-winrt/get-cancellation-token)
@@ -737,5 +737,5 @@ int main()
 * [winrt::fire_and_forget](/uwp/cpp-ref-for-winrt/fire-and-forget)
 
 ## <a name="related-topics"></a>関連トピック
-* [C + でデリゲートを使用してイベントを処理/cli WinRT](handle-events.md)
+* [C++/WinRT でのデリゲートを使用したイベントの処理](handle-events.md)
 * [標準的な C++ のデータ型と C++/WinRT](std-cpp-data-types.md)

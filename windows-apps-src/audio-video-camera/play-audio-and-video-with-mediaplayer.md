@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: d25cd3f8a963d85f704e32482475827462ddba58
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 3d2d95711196a9bf2ab113527e5fc8f44459dc3d
+ms.sourcegitcommit: d8ce1a25ac0373acafb394837eb5c0737f6efec8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67318263"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67486430"
 ---
 # <a name="play-audio-and-video-with-mediaplayer"></a>MediaPlayer を使ったオーディオとビデオの再生
 
@@ -189,7 +189,7 @@ Windows 10 バージョン 1607 からは、**MediaPlayer** を使って [**ICom
 ## <a name="play-spherical-video-with-mediaplayer"></a>MediaPlayer を使った球面ビデオの再生
 Windows 10 Version 1703 以降、**MediaPlayer** は、球面ビデオ再生のための正距円筒図法をサポートしています。 球面ビデオ コンテンツは、ビデオ エンコードがサポートされている限り、**MediaPlayer** がビデオを表示するという点において、通常の平面ビデオと同じです。 ビデオが正距円筒図法を使用することを指定するメタデータ タグを含む球面ビデオの場合、**MediaPlayer** は、指定された視野とビューの向きを使ってビデオを表示できます。 これにより、ヘッド マウント ディスプレイによる仮想現実ビデオの再生や、ユーザーがマウスまたはキーボード入力で球面ビデオ コンテンツ内でパンできるようにするなどのシナリオが実現されます。
 
-球面ビデオを再生するには、この記事で既に説明したビデオ コンテンツを再生するための手順を使用します。 1 つ追加される手順は、 **[MediaPlayer.MediaOpened]** (https://docs.microsoft.com/uwp/api/Windows.Media.Playback.MediaPlayer#Windows_Media_Playback_MediaPlayer_MediaOpened) イベントのハンドラーを登録することです。 このイベントにより、球面ビデオの再生パラメーターが有効化され、制御できるようになります。
+球面ビデオを再生するには、この記事で既に説明したビデオ コンテンツを再生するための手順を使用します。 ハンドラーを登録する 1 つの追加の手順では、 [ **MediaPlayer.MediaOpened** ](https://docs.microsoft.com/uwp/api/Windows.Media.Playback.MediaPlayer#Windows_Media_Playback_MediaPlayer_MediaOpened)イベント。 このイベントにより、球面ビデオの再生パラメーターが有効化され、制御できるようになります。
 
 [!code-cs[OpenSphericalVideo](./code/MediaPlayer_RS1/cs/MainPage.xaml.cs#SnippetOpenSphericalVideo)]
 
