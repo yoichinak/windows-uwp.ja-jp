@@ -60,7 +60,7 @@ Windows UI ライブラリは、UWP アプリ用のコントロールとその�
 
 ### <a name="uwp-controls-in-desktop-applications"></a>デスクトップ アプリケーションの UWP コントロール
 
-Windows 10 では、WPF、Windows フォーム、および C++ Win32 デスクトップ アプリケーションで UWP コントロールを使用できるようになりました。 つまり、Windows Ink や Fluent Design System をサポートするコントロールなど、UWP コントロールでのみ利用可能な最新の Windows 10 UI 機能で、既存のデスクトップ アプリケーションの外観、操作性、機能を拡張することができます。 この機能を XAML アイランドといいます。
+Windows 10 では、WPF、Windows フォーム、および C++ Win32 デスクトップ アプリケーションで UWP コントロールを使用できるようになりました。 つまり、Windows Ink や Fluent Design System をサポートするコントロールなど、UWP コントロールでのみ利用可能な最新の Windows 10 UI 機能で、既存のデスクトップ アプリケーションの外観、操作性、機能を拡張することができます。 この機能を XAML Islands といいます。
 
 「[デスクトップ アプリケーションの UWP コントロール](https://docs.microsoft.com/windows/uwp/xaml-platform/xaml-host-controls)」を参照してください。
 
