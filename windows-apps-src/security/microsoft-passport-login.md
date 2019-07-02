@@ -17,7 +17,7 @@ ms.locfileid: "67399631"
 
 これは、従来のユーザー名とパスワードの認証システムの代わりに Windows Hello を使う Windows 10 UWP (ユニバーサル Windows プラットフォーム) アプリを作成する方法に関する詳しいチュートリアルのパート 1 です。 アプリでは、サインインにユーザー名を使い、アカウントごとに Hello キーを作成します。 これらのアカウントは、Windows Hello の構成時に Windows の設定でセットアップされた暗証番号 (PIN) によって保護されます。
 
-このチュートリアルは、アプリの作成とバックエンド サービスの接続の 2 つの部分に分かれています。 この記事で使用が終了したら、第 2 部に進みます。[Windows こんにちはログイン サービス](microsoft-passport-login-auth-service.md)します。
+このチュートリアルは、アプリの作成とバックエンド サービスの接続の 2 つの部分に分かれています。 Windows Helloのアーキテクチャと実装の詳細については、。[Windows Hello ログイン サービスの作成](microsoft-passport-login-auth-service.md)を参照してください。
 
 開始する前に、「[Windows Hello](microsoft-passport.md)」の概要を読んで、Windows Hello の全般的なしくみを理解してください。
 
@@ -970,4 +970,4 @@ ms.locfileid: "67399631"
 ## <a name="related-topics"></a>関連トピック
 
 * [Windows Hello](microsoft-passport.md)
-* [Windows こんにちはログイン サービス](microsoft-passport-login-auth-service.md)
+* [Windows Hello ログイン サービスの作成](microsoft-passport-login-auth-service.md)
