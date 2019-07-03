@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, UWP, ACPI, GPIO, I2C, SPI, UEFI
 ms.assetid: 2fbdfc78-3a43-4828-ae55-fd3789da7b34
 ms.localizationpriority: medium
-ms.openlocfilehash: 3dbb06f53f760724da312e00f545d799d6a24200
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 991d86dd61c660553e5b0a3fdbbdec0336c7fb8b
+ms.sourcegitcommit: d63e5a4fd24434068067cae5b8fb3bed4931247e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67321572"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67515153"
 ---
 # <a name="enable-usermode-access-to-gpio-i2c-and-spi"></a>GPIO、I2C、SPI へのユーザー モード アクセスの有効化
 
@@ -268,7 +268,7 @@ GPIO 信号が公開されているヘッダーに到達する前にレベル �
 Windows は、2 つのピンの番号付けスキームをサポートしています。
 
 * 連番のピンの番号付け: 0、1、2 ... のように、公開されているピンの数までの番号がユーザーに表示されます。 0 は ASL で宣言されている最初の GpioIo リソース、1 は ASL で宣言されている 2 番目の GpioIo リソースなどのようになります。
-* ネイティブのピンの番号付け: 4、5、12、13 ... などの、GpioIo 記述子で指定されたピン番号がユーザーに表示されます。
+* ネイティブの Pin 番号 – 5, 12, 13、GpioIo 記述子、例: 4 つの pin 番号が指定されたユーザーに表示しています.
 
 ```cpp
 Package (2) { “GPIO-UseDescriptorPinNumbers”, 1 },
