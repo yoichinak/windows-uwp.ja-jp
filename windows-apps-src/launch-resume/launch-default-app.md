@@ -30,17 +30,17 @@ URI スキームでは、ハイパーリンクをクリックしてアプリを�
 
 | URI スキーム | 起動対象 |
 | ----------:|----------|
-|[bingmaps: ms でドライブを: および ms のウォーク-に。 ](#maps-app-uri-schemes) | マップ アプリ |
+|[bingmaps:, ms-drive-to:, and ms-walk-to: ](#maps-app-uri-schemes) | マップ アプリ |
 |[http:](#http-uri-scheme) | 既定の Web ブラウザー |
 |[mailto:](#email-uri-scheme) | 既定のメール アプリ |
 |[ms-call:](#call-app-uri-scheme) |  通話アプリ |
 |[ms-chat:](#messaging-app-uri-scheme) | メッセージング アプリ |
-|[ms ユーザー:](#people-app-uri-scheme) | People アプリ |
-|[ms 写真:](#photos-app-uri-scheme) | フォト アプリ |
-|[ms 設定:](#settings-app-uri-scheme) | 設定アプリ |
-|[ms ストア。](#store-app-uri-scheme)  | ストア アプリ |
-|[ms tonepicker:](#tone-picker-uri-scheme) | トーンの選択コントロール |
-|[ms yellowpage:](#nearby-numbers-app-uri-scheme) | 近隣の施設検索アプリ |
+|[ms-people:](#people-app-uri-scheme) | People アプリ |
+|[ms-photos:](#photos-app-uri-scheme) | フォト アプリ |
+|[ms-settings:](#settings-app-uri-scheme) | 設定アプリ |
+|[ms-store:](#store-app-uri-scheme)  | ストア アプリ |
+|[ms-tonepicker:](#tone-picker-uri-scheme) | トーンの選択コントロール |
+|[ms-yellowpage:](#nearby-numbers-app-uri-scheme) | 近隣の施設検索アプリ |
 |[msnweather:](#weather-app-uri-scheme) | 天気アプリ |
 
 <br>
@@ -136,7 +136,7 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriContoso, options);
 
 ### <a name="call-app-uri-scheme"></a>通話アプリの URI スキーム
 
-使用して、 **ms 呼び出し。** 呼び出しのアプリを起動する URI スキームです。
+使用して、 **ms-call:** 呼び出しのアプリを起動する URI スキームです。
 
 | URI スキーム       | 結果                   |
 |------------------|--------------------------|
@@ -171,7 +171,7 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriContoso, options);
 
 ### <a name="messaging-app-uri-scheme"></a>メッセージング アプリの URI スキーム
 
-使用して、 **ms チャット。** Windows メッセージング アプリを起動する URI スキームです。
+使用して、 **ms-chat:** Windows メッセージング アプリを起動する URI スキームです。
 
 | URI スキーム |結果 |
 |------------|--------|
@@ -183,7 +183,7 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriContoso, options);
 
 ### <a name="tone-picker-uri-scheme"></a>トーンの選択コントロールの URI スキーム
 
-使用して、 **ms tonepicker:** 着信音、警報、およびシステムのトーンを選択する URI スキームです。 また、新しいトーンを保存したり、トーンの名前を表示したりできます。
+使用して、 **ms-tonepicker:** 着信音、警報、およびシステムのトーンを選択する URI スキームです。 また、新しいトーンを保存したり、トーンの名前を表示したりできます。
 
 | URI スキーム | 結果 |
 |------------|---------|
@@ -193,20 +193,20 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriContoso, options);
 
 ### <a name="nearby-numbers-app-uri-scheme"></a>近隣の施設検索アプリの URI スキーム
 
-使用して、 **ms yellowpage:** 近くにある数字のアプリを起動する URI スキームです。
+使用して、 **ms-yellowpage:** 近くにある数字のアプリを起動する URI スキームです。
 
 | URI スキーム | 結果 |
 |------------|---------|
-| ms yellowpage: でしょうか入力 =\[キーワード\]& メソッド =\[文字列または T9。\] | 近隣の施設検索アプリを起動します。<br>`input` 検索するキーワードを指します。<br>`method` 検索 (文字列または T9 検索) の種類を参照します。<br>`method` が `T9` (キーボードの種類) である場合、`keyword` は T9 キーボードの文字にマップされた数字の検索文字列になります。<br>`method` が `String` の場合は、`keyword` は検索するキーワードになります。 |
+| ms-yellowpage: でしょうか入力 =\[キーワード\]& メソッド =\[文字列または T9。\] | 近隣の施設検索アプリを起動します。<br>`input` 検索するキーワードを指します。<br>`method` 検索 (文字列または T9 検索) の種類を参照します。<br>`method` が `T9` (キーボードの種類) である場合、`keyword` は T9 キーボードの文字にマップされた数字の検索文字列になります。<br>`method` が `String` の場合は、`keyword` は検索するキーワードになります。 |
 
 ### <a name="people-app-uri-scheme"></a>People アプリの URI スキーム
 
-使用して、 **ms ユーザー。** ユーザーのアプリを起動する URI スキーム。
+使用して、 **ms-people:** ユーザーのアプリを起動する URI スキーム。
 詳しくは、「[People アプリの起動](launch-people-apps.md)」をご覧ください。
 
 ### <a name="photos-app-uri-scheme"></a>フォト アプリの URI スキーム
 
-使用して、 **ms 写真。** 写真アプリ イメージを表示したり、動画の編集を起動する URI スキーム。 例:  
+使用して、 **ms-photos:** 写真アプリ イメージを表示したり、動画の編集を起動する URI スキーム。 例:  
 イメージを表示するには。 `ms-photos:viewer?fileName=c:\users\userName\Pictures\image.jpg`  
 または、ビデオを編集するのには。 `ms-photos:videoedit?InputToken=123abc&Action=Trim&StartTime=01:02:03`  
 
@@ -222,7 +222,7 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriContoso, options);
 
 ### <a name="settings-app-uri-scheme"></a>設定アプリの URI スキーム
 
-使用して、 **ms 設定。** URI スキームを[Windows 設定アプリを起動](launch-settings-app.md)します。 設定アプリの起動は、個人データにアクセスするアプリの開発の重要な部分です。 アプリが機密性の高いリソースにアクセスできない場合、そのリソースのプライバシー設定への便利なリンクをユーザーに提供することをお勧めします。 たとえば、次の URI は設定アプリを開き、カメラのプライバシー設定を表示します。
+使用して、 **ms-settings:** URI スキームを[Windows 設定アプリを起動](launch-settings-app.md)します。 設定アプリの起動は、個人データにアクセスするアプリの開発の重要な部分です。 アプリが機密性の高いリソースにアクセスできない場合、そのリソースのプライバシー設定への便利なリンクをユーザーに提供することをお勧めします。 たとえば、次の URI は設定アプリを開き、カメラのプライバシー設定を表示します。
 
 `ms-settings:privacy-webcam`
 
@@ -232,7 +232,7 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriContoso, options);
 
 ### <a name="store-app-uri-scheme"></a>ストア アプリの URI スキーム
 
-使用して、 **ms-windows ストア。** URI スキームを[UWP アプリを起動](launch-store-app.md)します。 製品詳細ページ、レビューの製品ページ、検索ページを開きます。たとえば、次の URI は、UWP アプリを開いたし、ストアのホーム ページを起動します。
+使用して、 **ms-windows-store:** URI スキームを[UWP アプリを起動](launch-store-app.md)します。 製品詳細ページ、レビューの製品ページ、検索ページを開きます。たとえば、次の URI は、UWP アプリを開いたし、ストアのホーム ページを起動します。
 
 `ms-windows-store://home/`
 
