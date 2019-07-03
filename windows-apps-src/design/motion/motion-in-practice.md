@@ -11,12 +11,12 @@ design-contact: jeffarn
 doc-status: Draft
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: bc879e43d7e117a4e61e8b6de4bb5437d126e84b
-ms.sourcegitcommit: 7effecb544952b493250337fc622848232fa5995
+ms.openlocfilehash: 8cf010533d2d62559bb8dc0d214e04ab917e62bd
+ms.sourcegitcommit: d534f81590d881a18d677a648c59913029837a84
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67325854"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67535434"
 ---
 # <a name="bringing-it-together"></a>まとめる
 
@@ -26,16 +26,13 @@ ms.locfileid: "67325854"
 
 :::row:::
     :::column:::
-        **Implicit animation**
-        Automatic tween and timing between values in a parameter change to achieve very simple Fluent motion using the standardized values.
+**暗黙のアニメーション**自動トゥイーンと標準化された値を使用して、非常にシンプルな Fluent モーションを実現するためにパラメーターの変更で値の間のタイミングです。
     :::column-end:::
     :::column:::
-        **Built-in animation**
-        System components, such as common controls and shared motion, are "Fluent by default". Fundamentals have been applied in a manner consistent with their implied usage.
+**組み込みのアニメーション**コモン コントロールと共有のモーションなどのシステム コンポーネントが"既定では Fluent"。 暗黙的な使用状況に従った方法で基本事項が適用されました。
     :::column-end:::
     :::column:::
-        **Custom animation following guidance recommendations**
-        There may be times when the system does not yet provide an exact motion solution for your scenario. In those cases, use the baseline fundamental recommendations as a starting point for your experiences.
+**ガイダンスの推奨事項に従うアニメーション**システムが提供しないときにまだモーションの正確なソリューションを自分のシナリオもあります。 その場合、お客様のエクスペリエンスの開始点としてベースラインの基本的な推奨事項を使用します。
     :::column-end:::
 :::row-end:::
 
@@ -45,16 +42,14 @@ ms.locfileid: "67325854"
 
 :::row:::
     :::column:::
-        <b>Direction Forward Out:</b><br>
-        Fade out: 150m; Easing: Default Accelerate
-        <b>Direction Forward In:</b><br>
-        Slide up 150px: 300ms; Easing: Default Decelerate
+<b>送信メール前方方向:</b><br>
+フェードアウトします。150 m です。簡略化します。既定で高速化<b>で進行方向。</b><br>
+150px をスライドします。300 です。簡略化します。既定の減速させる
     :::column-end:::
     :::column:::
-         <b>Direction Backward Out:</b><br>
-        Slide down 150px: 150ms; Easing: Default Accelerate
-        <b>Direction Backward In:</b><br>
-        Fade in: 300ms; Easing: Default Decelerate
+<b>旧バージョンと方向:</b><br>
+150px 下へスライドします。150ms;簡略化します。既定で高速化<b>で旧バージョンと方向。</b><br>
+フェードインします。300 です。簡略化します。既定の減速させる
     :::column-end:::
 :::row-end:::
 
@@ -64,12 +59,12 @@ ms.locfileid: "67325854"
 
 :::row:::
     :::column:::
-        <b>Direction Expand:</b><br>
-        Grow: 300ms; Easing: Standard
+<b>方向を展開します。</b><br>
+拡張します。300 です。簡略化します。Standard
     :::column-end:::
     :::column:::
-        <b>Direction Contract:</b><br>
-        Grow: 150ms; Easing: Default Accelerate
+<b>方向のコントラクト。</b><br>
+拡張します。150ms;簡略化します。既定で高速化します。
     :::column-end:::
 :::row-end:::
 
