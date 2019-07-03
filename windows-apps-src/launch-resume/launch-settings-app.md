@@ -22,7 +22,7 @@ ms.locfileid: "67040142"
 -   [**PreferredApplicationPackageFamilyName**](https://docs.microsoft.com/uwp/api/windows.system.launcheroptions.preferredapplicationpackagefamilyname)
 -   [**DesiredRemainingView**](https://docs.microsoft.com/uwp/api/windows.system.launcheroptions.desiredremainingview)
 
-Windows 設定アプリを起動する方法について説明します。 このトピックで説明します、 **ms 設定。** URI スキーム。 Windows 設定アプリを起動して特定の設定ページを表示するには、この URI スキームを使います。
+Windows 設定アプリを起動する方法について説明します。 このトピックで説明します、 **ms-settings:** URI スキーム。 Windows 設定アプリを起動して特定の設定ページを表示するには、この URI スキームを使います。
 
 設定アプリの起動は、個人データにアクセスするアプリの開発の重要な部分です。 アプリが機密性の高いリソースにアクセスできない場合、そのリソースのプライバシー設定への便利なリンクをユーザーに提供することをお勧めします。 詳しくは、「[個人データにアクセスするアプリのガイドライン](https://docs.microsoft.com/windows/uwp/security/index)」をご覧ください。
 
@@ -79,7 +79,7 @@ URI の起動について詳しくは、「[URI に応じた既定のアプリ�
 | 職場または学校にアクセスする | ms-settings:workplace |
 | メール & アプリのアカウント  | ms-settings:emailandaccounts |
 | 家族とその他のユーザー | ms-settings:otherusers |
-| キオスクを設定します。 | ms-assignedaccess 設定。 |
+| キオスクを設定します。 | ms-settings:assignedaccess |
 | サインイン オプション | ms-settings:signinoptions<br>ms-settings:signinoptions-dynamiclock |
 | 設定の同期 | ms-settings:sync |
 | Windows Hello セットアップ | ms-settings:signinoptions-launchfaceenrollment<br>ms-settings:signinoptions-launchfingerprintenrollment |
@@ -106,7 +106,7 @@ URI の起動について詳しくは、「[URI に応じた既定のアプリ�
 | 詳細 | ms-settings:cortana-moredetails |
 | アクセス許可と履歴 | ms-settings:cortana-permissions |
 | Windows の検索 | ms-settings:cortana-windowssearch |
-| Cortana に話す | ms-settings:cortana-language<br/>ms-settings:cortana<br/>ms-設定: cortana-talktocortana |
+| Cortana に話す | ms-settings:cortana-language<br/>ms-settings:cortana<br/>ms-settings:cortana-talktocortana |
 
 > [!NOTE] 
 > このデスクトップで [設定] セクションが、PC が、Cortana は現在利用できませんまたは Cortana が無効になっているリージョンに設定されているときに検索呼び出されます。 この場合、Cortana に固有のページ (自分のデバイス間での Cortana) と Cortana にお問い合わせは表示されません。 
@@ -135,7 +135,7 @@ URI の起動について詳しくは、「[URI に応じた既定のアプリ�
 | オーディオ | ms-settings:easeofaccess-audio |
 | クローズド キャプション | ms-settings:easeofaccess-closedcaptioning |
 | カラー フィルター | ms-settings:easeofaccess-colorfilter |
-| カーソル & ポインターのサイズ | ms-設定: easeofaccess-cursorandpointersize |
+| カーソル & ポインターのサイズ | ms-settings:easeofaccess-cursorandpointersize |
 | ディスプレイ | ms-settings:easeofaccess-display |
 | 視線制御 | ms-settings:easeofaccess-eyecontrol |
 | フォント | ms-settings:fonts |
@@ -179,9 +179,9 @@ URI の起動について詳しくは、「[URI に応じた既定のアプリ�
 | 設定ページ | URI |
 |---------------|-----|
 | オーディオと音声認識 | ms-settings:holographic-audio |
-| 環境 | ms-設定: プライバシー-holographic-環境 |
-| ヘッドセットの表示 | ms 設定: holographic ヘッドセット |
-| Uninstall | ms 設定: holographic の管理 |
+| 環境 | ms-settings:privacy-holographic-environment |
+| ヘッドセットの表示 | ms-settings:holographic-headset |
+| Uninstall | ms-settings:holographic-management |
 
 ## <a name="network--internet"></a>ネットワークとインターネット
 
@@ -256,7 +256,7 @@ URI の起動について詳しくは、「[URI に応じた既定のアプリ�
 | 音声認識、手描き入力、入力の設定 |ms-settings:privacy-speechtyping |
 | 処理手順 | ms-settings:privacy-tasks |
 | ビデオ | ms-settings:privacy-videos |
-| 音声をアクティブ化 | ms-設定: プライバシー-voiceactivation |
+| 音声をアクティブ化 | ms-settings:privacy-voiceactivation |
 
 ## <a name="surface-hub"></a>Surface Hub
 
@@ -297,7 +297,7 @@ URI の起動について詳しくは、「[URI に応じた既定のアプリ�
 | タスク バー | ms-settings:taskbar |
 | 通知とアクション | ms-settings:notifications |
 | リモート デスクトップ | ms-settings:remotedesktop |
-| Phone | ms-設定: 電話 (**1809 およびそれ以降のバージョンの Windows 10 で非推奨とされます**) |
+| Phone | ms-settings:phone (**1809 およびそれ以降のバージョンの Windows 10 で非推奨とされます**) |
 | 電源とスリープ | ms-settings:powersleep |
 | サウンド | ms-settings:sound |
 | ストレージ | ms-settings:storagesense |
