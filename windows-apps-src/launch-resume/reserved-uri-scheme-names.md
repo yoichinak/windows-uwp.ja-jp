@@ -35,7 +35,7 @@ URI の関連付けを使用すると、別のアプリで特定の URI スキ�
 <tr><td>.gif</td><td>.mp3</td><td>.tiff</td><td>.xml</td></tr>
 <tr><td>.hdp</td><td>.mp4</td><td>.txt</td><td>.xsl</td></tr>
 <tr><td>.htm</td><td>.one</td><td>.url</td><td>.zip</td></tr>
-<tr><td>.html を見ることができます。</td><td>.onetoc2</td><td>.vcf</td><td></td></tr>
+<tr><td>.html</td><td>.onetoc2</td><td>.vcf</td><td></td></tr>
 <tr><td>.ico</td><td>.p7b</td><td>.wav</td><td></td></tr>
 </table> 
 
@@ -92,7 +92,7 @@ URI の関連付けを使用すると、別のアプリで特定の URI スキ�
 <tr><td>blob</td><td>ldap</td><td>ms-settings:notifications</td><td>stickynotes</td></tr>
 <tr><td>callto</td><td>lnkfile</td><td>ms-settings:personalization</td><td>sysfile</td></tr>
 <tr><td>cerfile</td><td>mailto</td><td>ms-settings:privacy-calendar</td><td>tel</td></tr>
-<tr><td>chm.filecmdfilecomfile</td><td>マップ</td><td>ms-settings:privacy-contacts</td><td>telnet</td></tr>
+<tr><td>chm.filecmdfilecomfile</td><td>maps</td><td>ms-settings:privacy-contacts</td><td>telnet</td></tr>
 <tr><td>cplfile</td><td>microsoft.powershellscript.1</td><td>ms-settings:privacy-customdevices</td><td>tn3270</td></tr>
 <tr><td>dllfile</td><td>ms-accountpictureprovider</td><td>ms-settings:privacy-feedback</td><td>ttffile</td></tr>
 <tr><td>drvfile</td><td>ms-appdata</td><td>ms-settings:privacy-location</td><td>unknown</td></tr>
