@@ -8,7 +8,7 @@ ms.localizationpriority: medium
 ms.custom: RS5
 ms.openlocfilehash: 06e988387f574b74d511b14a2ebca24b0a149158
 ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/06/2019
 ms.locfileid: "57595387"
@@ -25,7 +25,7 @@ ms.locfileid: "57595387"
 
 | パラメーター | 種類 | 必須 | 説明 |
 | --- | --- | --- | --- |
-| ソース | string | no | URI を起動したソースを示す自由形式の文字列。 |
+| source | string | no | URI を起動したソースを示す自由形式の文字列。 |
 | delayInSeconds | int | no | 1 ~ 30 の整数値。 URI の呼び出しと snipping の開始時の間の完全な秒の遅延を指定します。 |
 | callbackformat | string | no | このパラメーターは使用できません。 |
 
@@ -39,7 +39,7 @@ ms.locfileid: "57595387"
 | --- | --- | --- | --- |
 | sharedAccessToken | string | no | 切り取り領域の & スケッチのアプリで開くファイルを識別するトークンです。 取得した[SharedStorageAccessManager.AddFile](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.sharedstorageaccessmanager.addfile)します。 このパラメーターを省略した場合は、開いているファイルを使用せず、アプリが起動されます。 |
 | secondarySharedAccessToken | string | no | 切り取り領域についてのメタデータを含む JSON ファイルを識別する文字列。 メタデータを含めることができます、 **clipPoints**フィールドに、x、y 座標の配列、または[userActivity](https://docs.microsoft.com/uwp/api/windows.applicationmodel.useractivities.useractivity)します。 |
-| ソース | string | no | URI を起動したソースを示す自由形式の文字列。 |
+| source | string | no | URI を起動したソースを示す自由形式の文字列。 |
 | IsTemporary | bool | no | 画面のスケッチを True に設定するが開いた後、ファイルを削除しようとするとします。 |
 
 次の例では、 [LaunchUriAsync](https://docs.microsoft.com/uwp/api/Windows.System.Launcher#Windows_System_Launcher_LaunchUriAsync_Windows_Foundation_Uri_)スケッチ (&)、切り取り領域に、ユーザーのアプリからイメージを送信する方法。

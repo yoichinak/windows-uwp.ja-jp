@@ -8,7 +8,7 @@ keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: 81bd9f699e899f895d55b2b2132681824ed40b7b
 ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/06/2019
 ms.locfileid: "57650627"
@@ -35,7 +35,7 @@ URI の関連付けを使用すると、別のアプリで特定の URI スキ�
 <tr><td>.gif</td><td>.mp3</td><td>.tiff</td><td>.xml</td></tr>
 <tr><td>.hdp</td><td>.mp4</td><td>.txt</td><td>.xsl</td></tr>
 <tr><td>.htm</td><td>.one</td><td>.url</td><td>.zip</td></tr>
-<tr><td>.html を見ることができます。</td><td>.onetoc2</td><td>.vcf</td><td></td></tr>
+<tr><td>.html</td><td>.onetoc2</td><td>.vcf</td><td></td></tr>
 <tr><td>.ico</td><td>.p7b</td><td>.wav</td><td></td></tr>
 </table> 
 
@@ -92,7 +92,7 @@ URI の関連付けを使用すると、別のアプリで特定の URI スキ�
 <tr><td>blob</td><td>ldap</td><td>ms-settings:notifications</td><td>stickynotes</td></tr>
 <tr><td>callto</td><td>lnkfile</td><td>ms-settings:personalization</td><td>sysfile</td></tr>
 <tr><td>cerfile</td><td>mailto</td><td>ms-settings:privacy-calendar</td><td>tel</td></tr>
-<tr><td>chm.filecmdfilecomfile</td><td>マップ</td><td>ms-settings:privacy-contacts</td><td>telnet</td></tr>
+<tr><td>chm.filecmdfilecomfile</td><td>maps</td><td>ms-settings:privacy-contacts</td><td>telnet</td></tr>
 <tr><td>cplfile</td><td>microsoft.powershellscript.1</td><td>ms-settings:privacy-customdevices</td><td>tn3270</td></tr>
 <tr><td>dllfile</td><td>ms-accountpictureprovider</td><td>ms-settings:privacy-feedback</td><td>ttffile</td></tr>
 <tr><td>drvfile</td><td>ms-appdata</td><td>ms-settings:privacy-location</td><td>unknown</td></tr>
@@ -108,7 +108,7 @@ URI の関連付けを使用すると、別のアプリで特定の URI スキ�
 <tr><td>explorer.closesession</td><td>ms-settings:batterysaver-usagedetails</td><td>ms-settings:windowsupdate</td><td>wmp11.assocprotocol.mms</td></tr>
 <tr><td>explorer.erasedisc</td><td>ms-settings:bluetooth</td><td>ms-settings:workplace</td><td>wsffile</td></tr>
 <tr><td>explorer.zipselection</td><td>ms-settings:connecteddevices</td><td>ms-windows-store</td><td>wsfile</td></tr>
-<tr><td>ファイル</td><td>ms-settings:cortanasearch</td><td>ms-word</td><td>wshfile</td></tr>
+<tr><td>file</td><td>ms-settings:cortanasearch</td><td>ms-word</td><td>wshfile</td></tr>
 <tr><td>fonfile</td><td>ms-settings:datasense</td><td>ocxfile</td><td>xbls</td></tr>
 <tr><td>hlpfile</td><td>ms-settings:dateandtime</td><td>office</td><td>zune</td></tr>
 <tr><td>htafile</td><td>ms-settings:display</td><td>onenote</td><td></td></tr>
