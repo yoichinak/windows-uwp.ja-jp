@@ -11,12 +11,12 @@ design-contact: jeffarn
 doc-status: Draft
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 3cdb20516d4f21933c7770f43701af322e09c886
-ms.sourcegitcommit: 7effecb544952b493250337fc622848232fa5995
+ms.openlocfilehash: 8f1e36f0febeeaac5a12d408d7be8a717f0ab398
+ms.sourcegitcommit: 7c3b88198178d6f6a535f35e1bf8665410d41d92
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67325869"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569121"
 ---
 # <a name="directionality-and-gravity"></a>方向性と重力
 
@@ -43,8 +43,8 @@ ms.locfileid: "67325869"
 
 :::row:::
     :::column:::
-        Direction of movement corresponds to physical motion. Just like in nature, objects can move in any world axis - X,Y,Z. This is how we think of the movement of objects on the screen.
-        When you move objects, avoid unnatural collisions. Keep in mind where objects come from and go to, and alway support higher level constructs that may be used in the scene, such as scroll direction or layout hierarchy.
+移動の方向は、物理運動に対応します。 自然界と同じように、オブジェクトは任意の x 軸、y 軸、z 軸で移動します。 このようにして、私たちは画面上のオブジェクトの動きを考えます。
+オブジェクトを移動するときに、不自然の競合を回避します。 場所オブジェクトからに進みとスクロールの方向やレイアウトの階層など、シーン内の使用可能性がある上位のコンストラクトを常にサポートに留意してください。
     :::column-end:::
     :::column:::
         ![direction backward in](images/Direction.gif)
@@ -75,8 +75,7 @@ ms.locfileid: "67325869"
 
 :::row:::
     :::column:::
-        **Forward-In**
-        Celebrate content entering the scene in a manner that does not collide with outgoing content. Content decelerates into the scene.
+**順方向で**得点でコンテンツが送信されるコンテンツと衝突しない方法で、シーンを入力します。 コンテンツは、シーンに減速します。
     :::column-end:::
     :::column:::
         ![direction forward in](images/forwardIN.gif)
@@ -84,8 +83,7 @@ ms.locfileid: "67325869"
 :::row-end:::
 :::row:::
     :::column:::
-        **Forward-Out**
-        Content exits quickly. Objects accelerate off screen.
+**順方向アウト**コンテンツがすぐに終了します。 オブジェクトは、画面外高速化します。
     :::column-end:::
     :::column:::
         ![direction forward out](images/forwardOUT.gif)
@@ -93,8 +91,7 @@ ms.locfileid: "67325869"
 :::row-end:::
 :::row:::
     :::column:::
-        **Backward-In**
-        Same as Forward-In, but reversed.
+**旧バージョンとの**と順方向では、同じが逆になります。
     :::column-end:::
     :::column:::
         ![direction backward in](images/backwardIN.gif)
@@ -102,8 +99,7 @@ ms.locfileid: "67325869"
 :::row-end:::
 :::row:::
     :::column:::
-        **Backward-Out**
-        Same as Forward-Out, but reversed.
+**旧バージョンとアウト**が逆に、転送すると同じです。
     :::column-end:::
     :::column:::
         ![direction backward out](images/backwardOUT.gif)
