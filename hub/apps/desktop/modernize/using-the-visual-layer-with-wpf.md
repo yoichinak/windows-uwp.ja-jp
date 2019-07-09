@@ -75,7 +75,7 @@ NuGet パッケージのこれらのニーズの両方のアドレスを利用�
 
 ## <a name="configure-the-project-to-be-per-monitor-dpi-aware"></a>あるモニターごとの DPI 対応のプロジェクトを構成します。
 
-表示されます。 画面の DPI 設定と一致するアプリに追加するビジュアル レイヤーのコンテンツは自動的に対応できません。 アプリの場合、モニターごとの DPI 対応を有効にすること、ビジュアル レイヤーのコンテンツの作成に使用するコード、現在の DPI スケールするときは考慮、アプリが実行されるかどうかを確認する必要があります。 ここでは、DPI 対応にするプロジェクトを構成します。 以降のセクションでは、DPI 情報を使用して、ビジュアル レイヤーのコンテンツを拡大縮小する方法を説明します。
+表示されます。 画面の DPI 設定と一致するアプリに追加するビジュアル層のコンテンツは自動的に対応できません。 アプリの場合、モニターごとの DPI 対応を有効にすること、ビジュアル層のコンテンツの作成に使用するコード、現在の DPI スケールするときは考慮、アプリが実行されるかどうかを確認する必要があります。 ここでは、DPI 対応にするプロジェクトを構成します。 以降のセクションでは、DPI 情報を使用して、ビジュアル層のコンテンツを拡大縮小する方法を説明します。
 
 WPF アプリは、システム DPI の既定では、認識がモニターごとの DPI 対応で app.manifest ファイルに対して自身を宣言する必要があります。 アプリ マニフェスト ファイルでモニターごとの DPI 認識を Windows レベル: オンにする
 
@@ -115,7 +115,7 @@ WPF アプリは、システム DPI の既定では、認識がモニターご�
 
 ## <a name="create-an-hwndhost-derived-class-to-host-composition-elements"></a>コンポジションのホスト要素に HwndHost が派生クラスを作成します。
 
-ビジュアル レイヤーで作成するコンテンツのホストにから派生するクラスを作成する必要があります。 [HwndHost](/dotnet/api/system.windows.interop.hwndhost)します。 これは、合成 Api をホストするための構成の大部分を実行します。 このクラスを使用して[プラットフォーム呼び出しサービス (PInvoke)](/cpp/dotnet/calling-native-functions-from-managed-code)と[COM 相互運用機能](/dotnet/api/system.runtime.interopservices.comimportattribute)WPF アプリに合成 Api を表示します。 PInvoke と COM 相互運用機能の詳細については、次を参照してください。[アンマネージ コードとの相互運用](/dotnet/framework/interop/index)します。
+ビジュアル層で作成するコンテンツのホストにから派生するクラスを作成する必要があります。 [HwndHost](/dotnet/api/system.windows.interop.hwndhost)します。 これは、合成 Api をホストするための構成の大部分を実行します。 このクラスを使用して[プラットフォーム呼び出しサービス (PInvoke)](/cpp/dotnet/calling-native-functions-from-managed-code)と[COM 相互運用機能](/dotnet/api/system.runtime.interopservices.comimportattribute)WPF アプリに合成 Api を表示します。 PInvoke と COM 相互運用機能の詳細については、次を参照してください。[アンマネージ コードとの相互運用](/dotnet/framework/interop/index)します。
 
 > [!TIP]
 > 必要がある場合は、すべてのコードは、チュートリアルを使用すると適切な場所にいるかどうかを確認するチュートリアルの最後に完全なコードを確認します。

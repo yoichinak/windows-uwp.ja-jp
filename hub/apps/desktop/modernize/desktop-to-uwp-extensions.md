@@ -60,7 +60,7 @@ http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabi
 
 完全なスキーマ リファレンスについては、[こちら](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-rescap3-desktopappmigration)をご覧ください。
 
-|名前 | 説明 |
+|Name | 説明 |
 |-------|-------------|
 |Category |常に ``windows.desktopAppMigration`` です。
 |AumID |パッケージ アプリのアプリケーション ユーザー モデル ID。 |
@@ -120,7 +120,7 @@ http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabi
 
 完全なスキーマ リファレンスについては、[こちら](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-uap-filetypeassociation)をご覧ください。
 
-|名前 |説明 |
+|Name |説明 |
 |-------|-------------|
 |Category |常に ``windows.fileTypeAssociation`` です。
 |Name |アプリの一意の ID。 この ID は、ファイルの種類の関連付けによって関連付けられたハッシュ対象の[プログラム識別子 (ProgID)](https://docs.microsoft.com/windows/desktop/shell/fa-progids) を生成するために内部で使用されます。 この ID を使って、アプリの今後のバージョンで変更を管理することができます。 |
@@ -179,7 +179,7 @@ http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabi
 
 完全なスキーマ リファレンスについては、[こちら](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-uap-filetypeassociation)をご覧ください。
 
-|名前 |説明 |
+|Name |説明 |
 |-------|-------------|
 |Category |常に ``windows.fileTypeAssociation`` です。
 |Name |アプリの一意の ID。 この ID は、ファイルの種類の関連付けによって関連付けられたハッシュ対象の[プログラム識別子 (ProgID)](https://docs.microsoft.com/windows/desktop/shell/fa-progids) を生成するために内部で使用されます。 この ID を使って、アプリの今後のバージョンで変更を管理することができます。   |
@@ -241,7 +241,7 @@ http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabi
 
 完全なスキーマ リファレンスについては、[こちら](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-uap-filetypeassociation)をご覧ください。
 
-|名前 |説明 |
+|Name |説明 |
 |-------|-------------|
 |Category | 常に ``windows.fileTypeAssociation`` です。
 |Name |アプリの一意の ID。 |
@@ -305,7 +305,7 @@ http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabi
 
 完全なスキーマ リファレンスについては、[こちら](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-uap-filetypeassociation)をご覧ください。
 
-|名前 |説明 |
+|Name |説明 |
 |-------|-------------|
 |Category |常に ``windows.fileTypeAssociation`` です。
 |Name |アプリの一意の ID。 |
@@ -371,7 +371,7 @@ http://schemas.microsoft.com/appx/manifest/desktop/windows10/2
 
 完全なスキーマ リファレンスについては、[こちら](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-desktop2-firewallrules)をご覧ください。
 
-|名前 |説明 |
+|Name |説明 |
 |-------|-------------|
 |Category |いつも ``windows.firewallRules``|
 |Executable |ファイアウォールの例外の一覧に追加する実行可能ファイルの名前。 |
@@ -431,7 +431,7 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
 
 ```
 
-|名前 | 説明 |
+|Name | 説明 |
 |-------|-------------|
 |Category |常に ``windows.loaderSearchPathOverride`` です。
 |FolderPath | dll ファイルが含まれているフォルダーのパス。 パッケージのルート フォルダーの相対パスを指定します。 1 つの拡張機能で最大 5 つのパスを指定できます。 システムがパッケージのルート フォルダーにあるファイルを検索するようにする場合、これらのパスのいずれかに空の文字列を使用します。 重複するパスを含めないでください。パスの先頭と末尾にスラッシュや円記号を使わないでください。 <br><br> システムはサブフォルダーを検索しないため、システムが読み込む DLL ファイルが含まれている各フォルダーを明示的に一覧表示してください。|
@@ -496,7 +496,7 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
 
 完全なスキーマ リファレンスについては、[こちら](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-uap-filetypeassociation)をご覧ください。
 
-|名前 |説明 |
+|Name |説明 |
 |-------|-------------|
 |Category |常に ``windows.fileTypeAssociation`` です。
 |Name |アプリの一意の ID。 |
@@ -571,7 +571,7 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
 
 完全なスキーマ リファレンスについては、[こちら](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-uap-filetypeassociation)をご覧ください。
 
-|名前 |説明 |
+|Name |説明 |
 |-------|-------------|
 |Category |常に ``windows.fileTypeAssociation`` です。
 |Name |アプリの一意の ID。 |
@@ -633,7 +633,7 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
 
 完全なスキーマ リファレンスについては、[こちら](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-uap-filetypeassociation)をご覧ください。
 
-|名前 |説明 |
+|Name |説明 |
 |-------|-------------|
 |Category |常に ``windows.fileTypeAssociation`` です。
 |Name |アプリの一意の ID。 |
@@ -698,7 +698,7 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
 
 完全なスキーマ リファレンスについては、[こちら](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-uap-filetypeassociation)をご覧ください。
 
-|名前 |説明 |
+|Name |説明 |
 |-------|-------------|
 |Category |常に ``windows.fileTypeAssociation`` です。
 |Name |アプリの一意の ID。 |
@@ -759,7 +759,7 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
 
 完全なスキーマ リファレンスについては、[こちら](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-uap-filetypeassociation)をご覧ください。
 
-|名前 |説明 |
+|Name |説明 |
 |-------|-------------|
 |Category |常に ``windows.fileTypeAssociation`` です。
 |Name |アプリの一意の ID。 |
@@ -915,7 +915,7 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
 
 ```
 
-|名前 |説明 |
+|Name |説明 |
 |-------|-------------|
 |Category |常に ``windows.cloudfiles`` です。
 |iconResource |クラウド ファイル プロバイダー サービスを表すアイコン。 このアイコンは、エクスプローラーのナビゲーション ウィンドウに表示されます。  ユーザーは、このアイコンを選んでクラウド サービスのファイルを表示します。 |
@@ -985,7 +985,7 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/3
 
 完全なスキーマ リファレンスについては、[こちら](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol)をご覧ください。
 
-|名前 |説明 |
+|Name |説明 |
 |-------|-------------|
 |Category |常に ``windows.protocol`` です。
 |Name |プロトコルの名前。 |
@@ -1038,7 +1038,7 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/3
 </Extension>
 ```
 
-|名前 |説明 |
+|Name |説明 |
 |-------|-------------|
 |Category |常に ``windows.appExecutionAlias`` です。
 |Executable |エイリアスが呼び出されたときに起動する実行可能ファイルの相対パス。 |
@@ -1103,7 +1103,7 @@ http://schemas.microsoft.com/appx/manifest/desktop/windows10
 </Extension>
 ```
 
-|名前 |説明 |
+|Name |説明 |
 |-------|-------------|
 |Category |常に ``windows.startupTask`` です。|
 |Executable |起動する実行可能ファイルへの相対パス。 |
@@ -1158,7 +1158,7 @@ http://schemas.microsoft.com/appx/manifest/desktop/windows10/3
   </AutoPlayHandler>
 ```
 
-|名前 |説明 |
+|Name |説明 |
 |-------|-------------|
 |Category |常に ``windows.autoPlayHandler`` です。
 |ActionDisplayName |ユーザーが PC に接続するデバイスで実行できるアクションを表す文字列です (例。「ファイルのインポート」または「ビデオを再生」)。 |
@@ -1245,7 +1245,7 @@ http://schemas.microsoft.com/appx/manifest/desktop/windows10/2
 
 完全なスキーマ リファレンスについては、[こちら](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-desktop2-appprinter)をご覧ください。
 
-|名前 |説明 |
+|Name |説明 |
 |-------|-------------|
 |Category |常に ``windows.appPrinter`` です。
 |DisplayName |アプリの印刷先一覧に表示する名前。 |
@@ -1295,7 +1295,7 @@ http://schemas.microsoft.com/appx/manifest/desktop/windows10/2
 
 完全なスキーマ リファレンスについては、[こちら](/uwp/schemas/appxpackage/uapmanifestschema/element-uap4-sharedfonts)をご覧ください。
 
-|名前 |説明 |
+|Name |説明 |
 |-------|-------------|
 |Category |常に ``windows.sharedFonts`` です。
 |File |共有するフォントが格納されたファイル。 |
@@ -1341,7 +1341,7 @@ http://schemas.microsoft.com/appx/manifest/desktop/windows10
 </Extension>
 ```
 
-|名前 |説明 |
+|Name |説明 |
 |-------|-------------|
 |Category |常に ``windows.fullTrustProcess`` です。
 |GroupID |実行可能ファイルに渡すパラメーターのセットを識別するための文字列。 |

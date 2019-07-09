@@ -10,7 +10,7 @@ ms.localizationpriority: medium
 ms.custom: 19H1
 ms.openlocfilehash: 16f61c1f950583ee0fef7f30b7e17939df7ea538
 ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 06/21/2019
 ms.locfileid: "67317759"

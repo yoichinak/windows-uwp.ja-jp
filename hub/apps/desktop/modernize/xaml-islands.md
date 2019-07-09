@@ -10,7 +10,7 @@ ms.localizationpriority: medium
 ms.custom: RS5, 19H1
 ms.openlocfilehash: e6074202a05c80a9dc759cdf81b2c20c7cc17d07
 ms.sourcegitcommit: b8087f8b6cf8367f8adb7d6db4581d9aa47b4861
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 06/27/2019
 ms.locfileid: "67414097"
@@ -28,7 +28,7 @@ XAML Islands で、Windows フォーム、WPF を使用するいくつかの方�
 
 Windows フォーム、WPF の XAML Islands を使用する 2 つの方法を説明する Windows 10、バージョンが 1903 年以降とC++Win32 アプリケーション。
 
-* Windows SDK には、いくつかの Windows ランタイム クラスと COM インターフェイスから派生した任意の UWP コントロールをホストするアプリケーションが使用できる[ **Windows.UI.Xaml.UIElement**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement)します。 総称して、これらのクラスとインターフェイスを呼び出す、 *API をホストしている UWP XAML*、関連するウィンドウ ハンドル (HWND) を含む、アプリケーションで任意の UI 要素に UWP コントロールをホストすることができるとします。 この API の詳細については、[API をホストしている XAML を使用](using-the-xaml-hosting-api.md)を参照してください。
+* Windows SDK には、いくつかの Windows ランタイム クラスと COM インターフェイスから派生した任意の UWP コントロールをホストするアプリケーションが使用できる[ **Windows.UI.Xaml.UIElement**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement)します。 総称して、これらのクラスとインターフェイスを呼び出す、 *API をホストしている UWP XAML*、関連するウィンドウ ハンドル (HWND) を含む、アプリケーションで任意の UI 要素に UWP コントロールをホストすることができるとします。 この API の詳細については、次を参照してください。 [API をホストしている XAML を使用して](using-the-xaml-hosting-api.md)します。
 
 * [Windows Community Toolkit](https://docs.microsoft.com/windows/uwpcommunitytoolkit/) WPF と Windows フォームの他の XAML 島コントロールも提供します。 これらのコントロールでは、内部的に API をホストしている UWP XAML を使用し、すべてのキーボード ナビゲーションとレイアウトの変更を含め、直接 API をホストしている UWP XAML を使用している場合、自分で処理する必要がなくなり、動作を実装します。 WPF と Windows フォーム アプリケーションでは、強くお勧め UWP XAML ではなく、これらのコントロールを使用していた多くの API を使用して実装の詳細の抽象化されため、直接 API をホストします。 Windows 10、バージョンが 1903 年の時点でこれらのコントロールは[開発者プレビューとして利用できる](#feature-roadmap)します。
 
@@ -119,4 +119,4 @@ Windows 10、バージョンが 1903 年のリリースの時点で、ラップ�
 詳細な背景情報と XAML Islandsを使用したチュートリアルについては、次の記事やリソースを参照してください。
 
 * [WPF アプリのチュートリアルを最新化](modernize-wpf-tutorial.md):このチュートリアルでは、既存の WPF 基幹業務アプリケーションに UWP コントロールを追加する Windows の Community Toolkit でラップされたコントロールとホスト コントロールを使用して手順に沿って説明します。 このチュートリアルには、プロセスで、WPF アプリケーションの完全なコードおよび各手順の詳細な手順が含まれています。
-* [XAML Islands v1 - 更新プログラムとロードマップ](https://blogs.windows.com/windowsdeveloper/2019/06/13/xaml-islands-v1-updates-and-roadmap):このブログの投稿では、XAML Islands に関する多くの一般的な質問を説明し、開発の詳細なロードマップを提供します。
+* [XAML 諸島 v1 - 更新プログラムとロードマップ](https://blogs.windows.com/windowsdeveloper/2019/06/13/xaml-islands-v1-updates-and-roadmap):このブログの投稿では、XAML 諸島に関する多くの一般的な質問を説明し、開発の詳細なロードマップを提供します。
