@@ -12,12 +12,12 @@ design-contact: kimsea
 dev-contact: niallm
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 0aac8f82f4dd6a40f5672af8c000905cfa9c747e
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 9ef2007648c21e015aa2ae692d28efa56c922bf5
+ms.sourcegitcommit: 7585bf66405b307d7ed7788d49003dc4ddba65e6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66365639"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67660194"
 ---
 # <a name="keyboard-events"></a>キーボード イベント
 
@@ -165,7 +165,8 @@ void MainPage::OnNavigatedTo(NavigationEventArgs^ e)
     (void) e;    // Unused parameter
     this->Loaded+=ref new RoutedEventHandler(this,&amp;MainPage::ProgrammaticFocus);
 }
-void MainPage::ProgrammaticFocus(Object^ sender, RoutedEventArgs^ e) {
+void MainPage::ProgrammaticFocus(Object^ sender, RoutedEventArgs^ e) 
+{
     this->Focus(Windows::UI::Xaml::FocusState::Programmatic);
 }
 
@@ -192,7 +193,8 @@ void KeyboardSupport::MainPage::Grid_KeyDown(Platform::Object^ sender, Windows::
 
 void KeyboardSupport::MainPage::Grid_KeyUp(Platform::Object^ sender, Windows::UI::Xaml::Input::KeyRoutedEventArgs^ e)
 {
-    if (IsCtrlKeyPressed()) {
+    if (IsCtrlKeyPressed()) 
+    {
         if (e->Key==VirtualKey::P) { DemoMovie->Play(); }
         if (e->Key==VirtualKey::A) { DemoMovie->Pause(); }
         if (e->Key==VirtualKey::S) { DemoMovie->Stop(); }
@@ -328,7 +330,7 @@ void StackPanel_KeyUp(object sender, KeyRoutedEventArgs e)
 次の例では、私たちのコントロールをサブクラス化とオーバーライド KeyDown 動作を GridView にフォーカスを移動するコンテンツの任意の方向キーが押されたときにします。
 
 ```csharp
-public class CustomGridView : GridView
+  public class CustomGridView : GridView
   {
     protected override void OnKeyDown(KeyRoutedEventArgs e)
     {

@@ -8,12 +8,12 @@ ms.assetid: 0a8cedac-172a-4efd-8b6b-67fd3667df34
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: 814d8c04943e32ff4d2f0c81bd847e78becd5ebb
-ms.sourcegitcommit: a4fe508e62827a10471e2359e81e82132dc2ac5a
+ms.openlocfilehash: 38a5a6fae3e6477321a8879a50dff21e10fd92e2
+ms.sourcegitcommit: 48ca9c99b52f93a805d5afeb7045ba4bf6597371
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66468324"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67622945"
 ---
 # <a name="integrate-your-packaged-desktop-app-with-windows-10-and-uwp"></a>Windows 10 と UWP パッケージ化されたデスクトップ アプリに統合します。
 
@@ -288,8 +288,8 @@ http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabi
 
 #### <a name="xml-namespaces"></a>XML 名前空間
 
-* http://schemas.microsoft.com/appx/manifest/uap/windows10
-* http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
+* http:\//schemas.microsoft.com/appx/manifest/uap/windows10
+* http:\//schemas.microsoft.com/appx/manifest/uap/windows10/3"
 
 #### <a name="elements-and-attributes-of-this-extension"></a>この拡張機能の要素と属性
 
