@@ -35,7 +35,7 @@ ms.locfileid: "66360593"
 「[OpenCV によるソフトウェア ビットマップの処理](process-software-bitmaps-with-opencv.md)」の手順に従って、OpenCV ヘルパー Windows ランタイム コンポーネントを作成し、UWP アプリのソリューションにコンポーネント プロジェクトへの参照を追加します。
 
 ## <a name="find-available-frame-source-groups"></a>利用可能なフレーム ソース グループを検索する
-最初に、メディア フレームを取得するメディア フレーム ソース グループを見つける必要があります。  **[MediaFrameSourceGroup.FindAllAsync](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesourcegroup.FindAllAsync)** を呼び出して、現在のデバイスで利用可能なソース グループの一覧を取得します。 アプリのシナリオに必要なセンサーの種類を指定するソース グループを選択します。 この例では、RGB カメラからのフレームを提供するソース グループのみが必要です。
+最初に、メディア フレームを取得するメディア フレーム ソース グループを見つける必要があります。 **[MediaFrameSourceGroup.FindAllAsync](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesourcegroup.FindAllAsync)** を呼び出して、現在のデバイスで利用可能なソース グループの一覧を取得します。 アプリのシナリオに必要なセンサーの種類を指定するソース グループを選択します。 この例では、RGB カメラからのフレームを提供するソース グループのみが必要です。
 
 [!code-cs[OpenCVFrameSourceGroups](./code/Frames_Win10/Frames_Win10/MainPage.OpenCV.xaml.cs#SnippetOpenCVFrameSourceGroups)]
 
@@ -58,7 +58,7 @@ ms.locfileid: "66360593"
 
 
 ## <a name="handle-the-framearrived-event"></a>FrameArrived イベントを処理する
-フレーム リーダーからの新しいフレームが利用可能になると、**FrameArrived** イベントが発生します。 フレームが存在する場合は、 **[TryAcquireLatestFrame](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.mediaframereader.TryAcquireLatestFrame)** を呼び出してフレームを取得します。  **[MediaFrameReference](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.mediaframereference)** から **SoftwareBitmap** を取得します。 この例で使用されている **CVHelper** クラスでは、画像がプリマルチプライ済みアルファを含む  BRGA8 ピクセル形式を使用している必要があります。 イベントに渡されたフレームが別の形式である場合は、**SoftwareBitmap** を正しい形式に変換します。 次に、ぼかし操作のターゲットとして使用される **SoftwareBitmap** を作成します。 一致する形式のビットマップを作成するために、ソース画像のプロパティがコンストラクターの引数として使用されます。 ヘルパー クラスの **Blur** メソッドを呼び出してフレームを処理します。 最後に、ぼかし操作の出力画像を **PresentSoftwareBitmap** メソッドに渡します。これは、画像が初期化された XAML **Image** コントロールに画像を表示する **FrameRenderer** ヘルパー クラスのメソッドです。
+フレーム リーダーからの新しいフレームが利用可能になると、**FrameArrived** イベントが発生します。 フレームが存在する場合は、 **[TryAcquireLatestFrame](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.mediaframereader.TryAcquireLatestFrame)** を呼び出してフレームを取得します。 **[MediaFrameReference](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.mediaframereference)** から **SoftwareBitmap** を取得します。 この例で使用されている **CVHelper** クラスでは、画像がプリマルチプライ済みアルファを含む  BRGA8 ピクセル形式を使用している必要があります。 イベントに渡されたフレームが別の形式である場合は、**SoftwareBitmap** を正しい形式に変換します。 次に、ぼかし操作のターゲットとして使用される **SoftwareBitmap** を作成します。 一致する形式のビットマップを作成するために、ソース画像のプロパティがコンストラクターの引数として使用されます。 ヘルパー クラスの **Blur** メソッドを呼び出してフレームを処理します。 最後に、ぼかし操作の出力画像を **PresentSoftwareBitmap** メソッドに渡します。これは、画像が初期化された XAML **Image** コントロールに画像を表示する **FrameRenderer** ヘルパー クラスのメソッドです。
 
 [!code-cs[OpenCVFrameArrived](./code/Frames_Win10/Frames_Win10/MainPage.OpenCV.xaml.cs#SnippetOpenCVFrameArrived)]
 

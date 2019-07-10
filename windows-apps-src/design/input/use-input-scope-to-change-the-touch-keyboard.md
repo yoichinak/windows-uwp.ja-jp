@@ -35,7 +35,7 @@ ms.locfileid: "66365363"
 
 ## <a name="changing-the-input-scope-of-a-text-control"></a>テキスト コントロールの入力値の種類を変更する
 
-アプリで使用可能な入力値の種類は、 **[InputScopeNameValue](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.InputScopeNameValue)** 列挙体のメンバーです。  **[TextBox](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox)** または **[RichEditBox](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RichEditBox)** の **InputScope** プロパティを、これらの値のいずれかに設定できます。
+アプリで使用可能な入力値の種類は、 **[InputScopeNameValue](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.InputScopeNameValue)** 列挙体のメンバーです。 **[TextBox](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox)** または **[RichEditBox](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RichEditBox)** の **InputScope** プロパティを、これらの値のいずれかに設定できます。
 
 > [!IMPORTANT]
 > **[InputScope](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.passwordbox.inputscope)** プロパティ **[PasswordBox](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.PasswordBox)** のみをサポート、 **パスワード** と **NumericPin** 値。 それ以外の値はすべて無視されます。
@@ -45,9 +45,9 @@ ms.locfileid: "66365363"
 **入力 XAML にスコープを変更するには**
 
 1.  ページの XAML ファイルで、変更するテキスト コントロールのタグを見つけます。
-2.  [  **InputScope**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.inputscope) 属性をタグに追加し、予期される入力に一致する [**InputScopeNameValue**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.InputScopeNameValue) 値を指定します。
+2.  [**InputScope**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.inputscope) 属性をタグに追加し、予期される入力に一致する [**InputScopeNameValue**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.InputScopeNameValue) 値を指定します。
 
-    次に示すのは、一般的な顧客の連絡先フォームに表示されるテキスト ボックスです。 [  **InputScope**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.inputscope) を設定すると、各テキスト ボックスに、データに適切なレイアウトのタッチ キーボードが表示されます。
+    次に示すのは、一般的な顧客の連絡先フォームに表示されるテキスト ボックスです。 [**InputScope**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.inputscope) を設定すると、各テキスト ボックスに、データに適切なレイアウトのタッチ キーボードが表示されます。
 
     ```xaml
     <StackPanel Width="300">
@@ -78,19 +78,19 @@ ms.locfileid: "66365363"
     InputScopeName scopeName = new InputScopeName();
     ```
 
-4.  [  **InputScopeName**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.InputScopeName) オブジェクトの [**NameValue**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.inputscopename.namevalue) プロパティを [**InputScopeNameValue**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.InputScopeNameValue) 列挙体の値に設定します。
+4.  [**InputScopeName**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.InputScopeName) オブジェクトの [**NameValue**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.inputscopename.namevalue) プロパティを [**InputScopeNameValue**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.InputScopeNameValue) 列挙体の値に設定します。
 
     ```csharp
     scopeName.NameValue = InputScopeNameValue.TelephoneNumber;
     ```
 
-5.  [  **InputScope**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.InputScope) オブジェクトの [**Names**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.inputscope.names) コレクションに [**InputScopeName**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.InputScopeName) オブジェクトを追加します。
+5.  [**InputScope**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.InputScope) オブジェクトの [**Names**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.inputscope.names) コレクションに [**InputScopeName**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.InputScopeName) オブジェクトを追加します。
 
     ```csharp
     scope.Names.Add(scopeName);
     ```
 
-6.  [  **InputScope**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.InputScope) オブジェクトを、テキスト コントロールの [**InputScope**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.inputscope) プロパティの値として設定します。
+6.  [**InputScope**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.InputScope) オブジェクトを、テキスト コントロールの [**InputScope**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.inputscope) プロパティの値として設定します。
 
     ```csharp
     phoneNumberTextBox.InputScope = scope;
@@ -117,7 +117,7 @@ phoneNumberTextBox.InputScope = new InputScope()
 
 ## <a name="text-prediction-spell-checking-and-auto-correction"></a>予測入力、スペル チェック、および自動修正
 
-[  **TextBox**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox) コントロールと [**RichEditBox**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RichEditBox) コントロールには、SIP の動作に影響を与えるプロパティがいくつかあります。 ユーザーに最適なエクスペリエンスを提供するには、これらのプロパティが、タッチ操作を使用したテキスト入力に与える影響を理解しておく必要があります。
+[**TextBox**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox) コントロールと [**RichEditBox**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RichEditBox) コントロールには、SIP の動作に影響を与えるプロパティがいくつかあります。 ユーザーに最適なエクスペリエンスを提供するには、これらのプロパティが、タッチ操作を使用したテキスト入力に与える影響を理解しておく必要があります。
 
 -   [**IsSpellCheckEnabled**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.isspellcheckenabled): コントロールが、認識されない語をマークする、システムのスペル チェック エンジンと対話とき、テキスト コントロールでスペル チェックを有効にします。 単語をタップすると、修正候補の一覧を表示できます。 スペル チェック オプションは既定で有効になっています。
 
