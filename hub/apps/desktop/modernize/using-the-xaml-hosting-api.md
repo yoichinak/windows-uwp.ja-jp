@@ -1,9 +1,9 @@
 ---
 description: この記事では、お客様のデスクトップ アプリケーションで UWP XAML の UI をホストする方法について説明します。
-title: デスクトップ アプリケーションで API をホストしている UWP XAML を使用します。
+title: デスクトップ アプリケーションで API をホストしている UWP XAML の使用
 ms.date: 04/16/2019
 ms.topic: article
-keywords: windows 10、uwp、windows フォーム、wpf、win32、xaml 諸島
+keywords: windows 10、uwp、windows フォーム、wpf、win32、xaml islands
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
@@ -15,7 +15,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 06/21/2019
 ms.locfileid: "67317759"
 ---
-# <a name="using-the-uwp-xaml-hosting-api-in-a-desktop-application"></a>デスクトップ アプリケーションで API をホストしている UWP XAML を使用します。
+# <a name="using-the-uwp-xaml-hosting-api-in-a-desktop-application"></a>デスクトップ アプリケーションで API をホストしている UWP XAML の使用
 
 以降では、Windows 10、バージョンが 1903、デスクトップ アプリケーションを UWP 以外 (WPF、Windows フォームなどとC++Win32 アプリケーション) を使用できます、 *API をホストしている UWP XAML*に関連付けられている任意の UI 要素に UWP コントロールをホストする、ウィンドウ ハンドル (HWND)。 この API は、のみ UWP コントロールを使用して利用できる最新の Windows 10 の UI 機能を使用するデスクトップ アプリケーションを UWP 以外を使用できます。 デスクトップ アプリケーションを UWP 以外が使用する UWP コントロールをホストするには、この API を使用するなど、 [Fluent Design System](/windows/uwp/design/fluent-design-system/index)と[Windows Ink](/windows/uwp/design/input/pen-and-stylus-interactions)をサポートします。
 
