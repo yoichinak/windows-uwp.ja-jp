@@ -5,19 +5,19 @@ ms.date: 05/30/2018
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 移植, 移行, WRL
 ms.localizationpriority: medium
-ms.openlocfilehash: 1d11d0dcdf13982e0754a84de00f22c02090e822
-ms.sourcegitcommit: 9031a51f9731f0b675769e097aa4d914b4854e9e
-ms.translationtype: MT
+ms.openlocfilehash: 2b987da5fb556d49953e462a5780290909734041
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58618389"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "63795713"
 ---
 # <a name="move-to-cwinrt-from-wrl"></a>WRL から C++/WinRT への移行
-このトピックでは、移植する方法を示しています。 [Windows ランタイム C++ テンプレート ライブラリ (WRL)](/cpp/windows/windows-runtime-cpp-template-library-wrl) 、それに対応するコードを[C +/cli WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt)します。
+このトピックでは、[Windows ランタイム C++ テンプレート ライブラリ (WRL)](/cpp/windows/windows-runtime-cpp-template-library-wrl) のコードを [C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) の同等のコードに移植する方法について説明します。
 
-C + への移植の最初の手順/cli WinRT は、C + を手動で追加する/cli WinRT のサポートをプロジェクトに (を参照してください[Visual Studio のサポートを c++/cli WinRT](intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package))。 インストール、 [Microsoft.Windows.CppWinRT NuGet パッケージ](https://www.nuget.org/packages/Microsoft.Windows.CppWinRT/)をプロジェクトにします。 開いている Visual Studio でプロジェクトをクリックして**プロジェクト** \> **NuGet パッケージの管理.**\> **[参照]** 入力するか貼り付けて**Microsoft.Windows.CppWinRT**検索ボックスに、検索結果の項目を選択し、順にクリックします**インストール**そのプロジェクトのパッケージをインストールします。 変更の 1 つの効果をサポートする[C +/cli CX](/cpp/cppcx/visual-c-language-reference-c-cx)は、プロジェクトでは無効になります。 プロジェクトで C++/CX を使用している場合は、サポートを無効にしたままにし、C++/CX コードを C++/WinRT に更新することもできます (「[C++/CX から C++/WinRT への移行](move-to-winrt-from-cx.md)」を参照してください)。 サポートを有効にすることができますか (プロジェクトのプロパティで**C/C++** \> **全般** \> **Windows ランタイム拡張機能の使用** \>**はい (/ZW)**)、WRL コードの移植に最初の注目します。 C +/cli/CX および C++/cli WinRT コードは、XAML コンパイラ サポート、および Windows ランタイム コンポーネントを除き、同じプロジェクトで共存できます (を参照してください[移動 C +/cli WinRT C +/cli CX](move-to-winrt-from-cx.md))。
+C++/WinRT への移植の最初の手順は、C++/WinRT サポートをプロジェクトに手動で追加することです ([Visual Studio support for C++/WinRT (Visual Studio での C++/WinRT のサポート)](intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package) に関する記事を参照)。 そのためには、[Microsoft.Windows.CppWinRT NuGet パッケージ](https://www.nuget.org/packages/Microsoft.Windows.CppWinRT/)をプロジェクトにインストールします。 Visual Studio でプロジェクションを開き、 **[プロジェクト]** \> **[NuGet パッケージの管理]** \> **[参照]** の順にクリックし、検索ボックスに「**Microsoft.Windows.CppWinRT**」を入力するか貼り付けます。検索結果の項目を選択し、 **[インストール]** をクリックしてそのプロジェクトのパッケージをインストールします。 その変更による 1 つの効果は、[C++/CX](/cpp/cppcx/visual-c-language-reference-c-cx) のサポートがプロジェクトで無効になることです。 プロジェクトで C++/CX を使用している場合は、サポートを無効にしたままにし、C++/CX コードを C++/WinRT に更新することもできます (「[C++/CX から C++/WinRT への移行](move-to-winrt-from-cx.md)」を参照してください)。 または、サポートをもう一度有効にし (プロジェクトのプロパティで、 **[C/C++]** \> **[全般]** \> **[Windows ランタイム拡張機能の使用]** \> **[はい (/ZW)]** の順に選択)、まず WRL コードを移植することに集中することもできます。 C++/CX コードと C++/WinRT コードは同じプロジェクト内に共存できます。ただし、XAML コンパイラのサポートと Windows ランタイム コンポーネントについては例外です (「[C++/CX から C++/WinRT への移行](move-to-winrt-from-cx.md)」を参照)。
 
-プロジェクトのプロパティを設定**全般** \> **ターゲット プラットフォーム バージョン**10.0.17134.0 (Windows 10、バージョン 1803) に以上。
+プロジェクトのプロパティ ( **[全般]** \> **[ターゲット プラットフォーム バージョン]** ) を 10.0.17134.0 (Windows 10 バージョン 1803) 以上に設定します。
 
 プリコンパイル済みヘッダー ファイル (通常は `pch.h`) で、`winrt/base.h` を含めます。
 
@@ -28,7 +28,7 @@ C + への移植の最初の手順/cli WinRT は、C + を手動で追加する/
 C++/WinRT の投影された Windows API ヘッダー (たとえば、`winrt/Windows.Foundation.h`) を含める場合は、それが自動的に含められるため、このように明示的に `winrt/base.h` を含める必要はありません。
 
 ## <a name="porting-wrl-com-smart-pointers-microsoftwrlcomptrcppwindowscomptr-class"></a>WRL COM スマート ポインター ([Microsoft::WRL::ComPtr](/cpp/windows/comptr-class)) の移植
-使用するコードを移植**Microsoft::WRL::ComPtr\<T\>** を使用する[ **winrt::com_ptr\<T\>**](/uwp/cpp-ref-for-winrt/com-ptr)します。 変更前と変更後のコード例を次に示します。 *変更後の*バージョンでは、[**com_ptr::put**](/uwp/cpp-ref-for-winrt/com-ptr#com_ptrput-function) メンバー関数は基になる生のポインターを取得して設定できるようにします。
+[**winrt::com_ptr\<T\>** ](/uwp/cpp-ref-for-winrt/com-ptr) を使うには、**Microsoft::WRL::ComPtr\<T\>** を使うコードを移植します。 変更前と変更後のコード例を次に示します。 *変更後の*バージョンでは、[**com_ptr::put**](/uwp/cpp-ref-for-winrt/com-ptr#com_ptrput-function) メンバー関数は基になる生のポインターを取得して設定できるようにします。
 
 ```cpp
 ComPtr<IDXGIAdapter1> previousDefaultAdapter;
@@ -41,7 +41,7 @@ winrt::check_hresult(m_dxgiFactory->EnumAdapters1(0, previousDefaultAdapter.put(
 ```
 
 > [!IMPORTANT]
-> ある場合、 [ **winrt::com_ptr** ](/uwp/cpp-ref-for-winrt/com-ptr)を既に接続されている (その内部の生のポインターは、ターゲットを既に持って) 再を別のオブジェクトを指す接続クライアント ライセンスするし、最初に割り当てる必要があります`nullptr`&mdash;次のコード例で示すようにします。 ない場合は、既に取り付けられていない**com_ptr**に対処する問題を描画 (を呼び出すと[ **com_ptr::put** ](/uwp/cpp-ref-for-winrt/com-ptr#com_ptrput-function)または[ **com_ptr:。put_void**](/uwp/cpp-ref-for-winrt/com-ptr#com_ptrput_void-function)) によって、その内部ポインターが null でないことをアサートします。
+> [**winrt::com_ptr**](/uwp/cpp-ref-for-winrt/com-ptr) が既に設定されていて (内部の生のポインターが既にターゲットを持っていて)、別のオブジェクトを指すように再設定する場合は、次のコード例に示すように、最初に `nullptr` をそれに割り当てる必要があります。 そうしない場合、([**com_ptr::put**](/uwp/cpp-ref-for-winrt/com-ptr#com_ptrput-function) または [**com_ptr::put_void**](/uwp/cpp-ref-for-winrt/com-ptr#com_ptrput_void-function) を呼び出すときに) 既に設定されている **com_ptr** によって内部ポインターが null ではないとアサートされるため、問題に気づきます。
 
 ```cppwinrt
 winrt::com_ptr<IDXGISwapChain1> m_pDXGISwapChain1;
@@ -87,7 +87,7 @@ m_d3dDevice->CreateDepthStencilView(m_depthStencil.Get(), &dsvDesc, m_dsvHeap->G
 m_d3dDevice->CreateDepthStencilView(m_depthStencil.get(), &dsvDesc, m_dsvHeap->GetCPUDescriptorHandleForHeapStart());
 ```
 
-ポインターを受け取る関数に基になる、生のポインターを渡す場合**IUnknown**を使用して、 [ **winrt::get_unknown** ](/uwp/cpp-ref-for-winrt/windows-foundation-iunknown#get_unknown-function)次に示すように、関数を無料例です。
+基になる生のポインターを **IUnknown** へのポインターを受け取る関数に渡す場合は、次の例に示すように、[**winrt::get_unknown**](/uwp/cpp-ref-for-winrt/windows-foundation-iunknown#get_unknown-function) 自由関数を使用します。
 
 ```cpp
 ComPtr<IDXGISwapChain1> swapChain;
@@ -210,7 +210,7 @@ HRESULT __stdcall DllCanUnloadNow(void)
 ```
 
 ## <a name="important-apis"></a>重要な API
-* [winrt::com_ptr 構造体のテンプレート](/uwp/cpp-ref-for-winrt/com-ptr)
+* [winrt::com_ptr 構造体テンプレート](/uwp/cpp-ref-for-winrt/com-ptr)
 * [winrt::Windows::Foundation::IUnknown 構造体](/uwp/cpp-ref-for-winrt/windows-foundation-iunknown)
 
 ## <a name="related-topics"></a>関連トピック

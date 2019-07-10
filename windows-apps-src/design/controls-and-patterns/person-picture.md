@@ -12,20 +12,20 @@ dev-contact: kefodero
 doc-status: Published
 ms.localizationpriority: medium
 ms.openlocfilehash: 1897eded4d18a00a3c11cf1926adb1ebec6ae69a
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57638937"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "63791719"
 ---
 # <a name="person-picture-control"></a>ユーザー画像コントロール
 
 ユーザー画像コントロールは、ユーザー画像を利用できる場合はユーザーのアバター画像を表示します。利用できない場合は、ユーザーの頭文字か汎用アイコンを表示します。 このコントロールを使うと、ユーザーの連絡先情報を管理するオブジェクトである [Contact オブジェクト](https://docs.microsoft.com/en-us/uwp/api/Windows.ApplicationModel.Contacts.Contact)を表示できます。また、表示名やプロフィール画像などの連絡先情報は手動で提供することもできます。  
 
-> **重要な API**:[PersonPicture クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.personpicture)、[クラスにお問い合わせください](https://docs.microsoft.com/en-us/uwp/api/Windows.ApplicationModel.Contacts.Contact)、 [ContactManager クラス](https://docs.microsoft.com/en-us/uwp/api/Windows.ApplicationModel.Contacts.ContactManager)
+> **重要な API**:[PersonPicture クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.personpicture)、[Contact クラス](https://docs.microsoft.com/en-us/uwp/api/Windows.ApplicationModel.Contacts.Contact)、[ContactManager クラス](https://docs.microsoft.com/en-us/uwp/api/Windows.ApplicationModel.Contacts.ContactManager)
 
 この図は、ユーザーの名前を表示する 2 つの[テキスト ブロック](text-block.md) 要素が付属している 2 つのユーザー画像コントロールを示しています。 
-![人物の画像コントロール](images/person-picture/person-picture_hero.png)
+![ユーザー画像コントロール](images/person-picture/person-picture_hero.png)
 
 
 ## <a name="is-this-the-right-control"></a>適切なコントロールの選択
@@ -36,7 +36,7 @@ ms.locfileid: "57638937"
 * メッセージの送信者を表示する 
 * ソーシャル メディアの連絡先を表示する
 
-図は、連絡先の一覧での画像コントロールをユーザーに示します。![人物の画像コントロール](images/person-picture/person-picture-control.png)
+この図では、連絡先リストのユーザー画像コントロールを示しています。![ユーザー画像コントロール](images/person-picture/person-picture-control.png)
 
 ## <a name="examples"></a>例
 

@@ -13,11 +13,11 @@ dev-contact: joyate
 doc-status: Published
 ms.localizationpriority: medium
 ms.openlocfilehash: f04d364aac79ed232f35cbdd8378bc50393d2c74
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57614377"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "63789042"
 ---
 # <a name="sound"></a>サウンド
 
@@ -33,7 +33,7 @@ UWP には使いやすいサウンド システムが用意されていて、「
 ```C#
 ElementSoundPlayer.State = ElementSoundPlayerState.On;
 ```
-**ElementSoundPlayer** 3 つの異なる状態があります。**オ** **フ**と**自動**します。
+**ElementSoundPlayer** には、次の 3 つの異なる状態があります: **On**、**Off**、**Auto**。
 
 **Off** に設定すると、アプリの実行環境に関わらず、サウンドが再生されることはありません。 **On** に設定すると、すべてのプラットフォームで、アプリのサウンドが再生されます。
 
@@ -44,9 +44,9 @@ ElementSoundPlayer.SpatialAudioMode = ElementSpatialAudioMode.Off
 ```
 
 **SpatialAudioMode** プロパティの有効な値は以下のとおりです。 
-- **自動**:サウンド空間オーディオは有効にするのには。 
-- **Off**: オーディオの空間は、常にサウンドの場合でも上です。
-- **[オン]**:空間オーディオは常に再生されます。
+- **自動**:サウンドがオンのときに、空間オーディオがオンになります。 
+- **Off**: サウンドがオンでも、空間オーディオは常にオフです。
+- **[オン]** :空間オーディオが常に再生されます。
 
 空間オーディオと XAML による空間オーディオの処理方法について詳しくは、[「オーディオ グラフ」の「空間オーディオ」](/windows/uwp/audio-video-camera/audio-graphs#spatial-audio)をご覧ください。
 
@@ -69,7 +69,7 @@ ElementSoundPlayer.Volume = 0.5;
 
 コントロールの既定のサウンドが望ましくない場合は、これを無効にできます。 サウンドを無効にするには、コントロールで **ElementSoundMode** を使います。
 
-**ElementSoundMode**が 2 つの状態。**オフ**と**既定**します。 設定しないと、**Default** になります。 **Off** に設定すると、コントロールが再生するすべてのサウンドはミュートされます (*フォーカスを除く*)。
+**ElementSoundMode** には、次の 2 つの状態があります: **Off** と **Default**。 設定しないと、**Default** になります。 **Off** に設定すると、コントロールが再生するすべてのサウンドはミュートされます (*フォーカスを除く*)。
 
 ```XAML
 <Button Name="ButtonName" Content="More Info" ElementSoundMode="Off"/>
@@ -118,7 +118,7 @@ ElementSoundPlayer.Play(ElementSoundKind.Hide);
 ```
 ### <a name="navigation-within-a-page"></a>ページ内でのナビゲーション
 
-パネルまたはアプリのページ内のビュー間を移動するときに (を参照してください[タブし、を切り替える](../controls-and-patterns/pivot.md))、通常は、双方向の移動。 つまり、現在表示しているアプリのページを離れずに、次のビュー/パネルまたは前のビュー/パネルに移動できます。
+アプリのページ内でパネルまたはビューの間を移動する場合 ([タブとピボット](../controls-and-patterns/pivot.md)に関するページを参照してください)、通常は双方向の移動になります。 つまり、現在表示しているアプリのページを離れずに、次のビュー/パネルまたは前のビュー/パネルに移動できます。
 
 このナビゲーションの概念に関するオーディオ エクスペリエンスは、**MovePrevious** サウンドと **MoveNext** サウンドに包含されています。
 

@@ -9,10 +9,10 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: c996b22395fc8186fb1b6dc786a73fa4a97ecf16
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66363992"
 ---
 # <a name="web-view"></a>Web ビュー
@@ -28,7 +28,7 @@ Web ビュー コントロールは、Microsoft Edge レンダリング エン�
 
 ## <a name="create-a-web-view"></a>Web ビューを作成する
 
-**Web ビューの外観を変更します。**
+**Web ビューの外観を変更する**
 
 [WebView](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.WebView) は、[Control](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Control) サブクラスではないため、コントロール テンプレートがありません。 ただし、さまざまなプロパティを設定して、Web ビューのビジュアル要素の一部を制御することはできます。
 - 表示領域を制限するには、[Width](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.width) プロパティと [Height](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.height) プロパティを設定します。 
@@ -36,7 +36,7 @@ Web ビュー コントロールは、Microsoft Edge レンダリング エン�
 - Web ビューの不透明度を調整するには、[Opacity](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.opacity) プロパティを設定します。
 - HTML コンテンツが色を指定していないときに、Web ページの背景として色を指定するには、[DefaultBackgroundColor](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.defaultbackgroundcolor) プロパティを設定します。 
 
-**Web ページのタイトルを取得します。**
+**Web ページのタイトルを取得する**
 
 [DocumentTitle](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.documenttitle) プロパティを使うと、現在 Web ビューに表示されている HTML ドキュメントのタイトルを取得することができます。 
 
@@ -48,7 +48,7 @@ WebView は Control サブクラスではありませんが、キーボードの
 
 ### <a name="navigating-to-content"></a>コンテンツに移動する
 
-Web ビューでは、基本的な操作をいくつかの Api を提供します。[GoBack](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.goback)、 [GoForward](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.goforward)、[停止](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.stop)、[更新](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.refresh)、 [CanGoBack](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.cangoback)、および[CanGoForward](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.cangoforward). これらの API を使うと、一般的な Web 閲覧機能をアプリに追加できます。 
+Web ビューには、基本的なナビゲーション用のいくつかの API が提供されています: [GoBack](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.goback)、[GoForward](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.goforward)、[Stop](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.stop)、[Refresh](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.refresh)、[CanGoBack](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.cangoback)、[CanGoForward](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.cangoforward)。 これらの API を使うと、一般的な Web 閲覧機能をアプリに追加できます。 
 
 Web ビューの初期コンテンツを設定するには、XAML の [Source](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.source) プロパティを使います。 XAML パーサーは文字列を [Uri](https://docs.microsoft.com/uwp/api/Windows.Foundation.Uri)に自動的に変換します。 
 
@@ -73,7 +73,7 @@ webView1.Navigate("http://www.contoso.com");
 
 POST 要求と HTTP ヘッダーを有する URI へと移動するには、[NavigateWithHttpRequestMessage](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.navigatewithhttprequestmessage) メソッドを使います。 このメソッドは、[HttpRequestMessage.Method](https://docs.microsoft.com/uwp/api/windows.web.http.httprequestmessage.method) プロパティの値として [HttpMethod.Post](https://docs.microsoft.com/uwp/api/windows.web.http.httpmethod.post) と [HttpMethod.Get](https://docs.microsoft.com/uwp/api/windows.web.http.httpmethod.get) のみをサポートします。 
 
-圧縮されておらず、暗号化もされていないコンテンツをアプリの [LocalFolder](/uwp/api/windows.storage.applicationdata.localfolder) データ ストアまたは [TemporaryFolder](/uwp/api/windows.storage.applicationdata.temporaryfolder) データ ストアから読み込むには、**Navigate** メソッドを、[ms-appdata](/windows/uwp/app-resources/uri-schemes) スキームを使う **Uri** と用います。 このスキームを Web ビューがサポートするには、ローカル フォルダーまたは一時フォルダーの下にサブフォルダーを設け、そこにコンテンツを配置する必要があります。 これにより、「ms-appdata:///local/*フォルダー*/*ファイル*.html」や「ms-appdata:///temp/*フォルダー*/*ファイル*.html」といった URI への移動が可能になります  (圧縮され、暗号化されたファイルを読み込む場合は、[NavigateToLocalStreamUri](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.navigatetolocalstreamuri) に関するページをご覧ください)。 
+圧縮されておらず、暗号化もされていないコンテンツをアプリの [LocalFolder](/uwp/api/windows.storage.applicationdata.localfolder) データ ストアまたは [TemporaryFolder](/uwp/api/windows.storage.applicationdata.temporaryfolder) データ ストアから読み込むには、**Navigate** メソッドを、[ms-appdata](/windows/uwp/app-resources/uri-schemes) スキームを使う **Uri** と用います。 このスキームを Web ビューがサポートするには、ローカル フォルダーまたは一時フォルダーの下にサブフォルダーを設け、そこにコンテンツを配置する必要があります。 これにより、「ms-appdata:///local/*フォルダー*/*ファイル*.html」や「ms-appdata:///temp/*フォルダー*/*ファイル*.html」といった URI への移動が可能になります (圧縮され、暗号化されたファイルを読み込む場合は、[NavigateToLocalStreamUri](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.navigatetolocalstreamuri) に関するページをご覧ください)。 
 
 これらの第 1 レベルのサブフォルダーは、他の第 1 レベルのサブフォルダー内のコンテンツから分離されます。 たとえば「ms-appdata:///temp/folder1/file.html」に移動はできますが、そのファイル内のリンクに「ms-appdata:///temp/folder2/file.html」は指定できません。 ただし、**ms-appx-web** スキームを使ってアプリ パッケージの HTML コンテンツにリンクしたり、**http** または **https** の URI スキームを使って Web コンテンツにリンクしたりはできます。
 
@@ -91,7 +91,7 @@ webView1.Navigate("ms-appx-web:///help/about.html");
 
 ### <a name="responding-to-navigation-events"></a>ナビゲーション イベントを処理する
 
-Web ビュー コントロールでは、ナビゲーションやコンテンツの読み込みの状態に対する処理に使うことができるイベントがいくつか用意されています。 イベントは、ルート web ビューのコンテンツの次の順序で発生します。[NavigationStarting](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.navigationstarting), [ContentLoading](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.contentloading), [DOMContentLoaded](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.domcontentloaded), [NavigationCompleted](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.navigationcompleted)
+Web ビュー コントロールでは、ナビゲーションやコンテンツの読み込みの状態に対する処理に使うことができるイベントがいくつか用意されています。 ルート Web ビューのコンテンツの場合、イベントは次の順序で発生します: [NavigationStarting](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.navigationstarting)、[ContentLoading](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.contentloading)、[DOMContentLoaded](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.domcontentloaded)、[NavigationCompleted](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.navigationcompleted)
 
 
 **NavigationStarting** - Web ビューが新しいコンテンツに移動する前に発生します。 WebViewNavigationStartingEventArgs.Cancel プロパティを "true" に設定することで、このイベントのハンドラーで移動をキャンセルできます。 
@@ -258,7 +258,7 @@ private async void Button_Click(object sender, RoutedEventArgs e)
 
 Web ビューのコンテンツのスクリプトは、文字列型パラメーターの **window.external.notify** を使えば、情報をアプリに戻せます。 これらのメッセージを受け取るには、[ScriptNotify](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.scriptnotify) イベントを処理します。 
 
-外部の Web ページを有効にして、window.external.notify を呼び出した際に **ScriptNotify** イベントを発するには、当該のページの URI をアプリの宣言の **ApplicationContentUriRules** セクションに含める必要があります  (で実行できるこの Microsoft Visual Studio で Package.appxmanifest デザイナーの [コンテンツ Uri] タブ。)この一覧に Uri が HTTPS を使用する必要があり、サブドメインのワイルドカードを含めることができます (たとえば、 `https://*.microsoft.com`) ドメインのワイルドカードを含めることはできませんが、(たとえば、`https://*.com`と`https://*.*`)。 マニフェスト要件は、アプリ パッケージから生成されたコンテンツには適用されず、ms-local-stream:// URI を使う、または [NavigateToString](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.navigatetostring) を使って読み込まれる、のいずれかです。 
+外部の Web ページを有効にして、window.external.notify を呼び出した際に **ScriptNotify** イベントを発するには、当該のページの URI をアプリの宣言の **ApplicationContentUriRules** セクションに含める必要があります (これは、Microsoft Visual Studio の Package.appxmanifest デザイナーにある [コンテンツ URI] タブで実行できます)。この一覧の URI には HTTPS を使用する必要があり、サブドメインのワイルドカード (たとえば `https://*.microsoft.com`) を含めることができますが、ドメインのワイルドカード (たとえば `https://*.com` や `https://*.*`) を含めることはできません。 マニフェスト要件は、アプリ パッケージから生成されたコンテンツには適用されず、ms-local-stream:// URI を使う、または [NavigateToString](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.navigatetostring) を使って読み込まれる、のいずれかです。 
 
 ### <a name="accessing-the-windows-runtime-in-a-web-view"></a>Web ビューの Windows ランタイムにアクセスする
 

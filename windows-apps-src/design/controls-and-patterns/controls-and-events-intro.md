@@ -9,10 +9,10 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: 671f33cf106eabf11b317b00d5c2a6cd9abcf3d0
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66363036"
 ---
 # <a name="intro-to-controls-and-patterns"></a>コントロールとパターンの概要
@@ -21,7 +21,7 @@ UWP アプリ開発では、*コントロール*は、コンテンツを表示�
 
 > **重要な API**:[Windows.UI.Xaml.Controls 名前空間](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls)
 
-*パターン*とは、コントロールを変更するか、いくつかのコントロールを組み合わせて、新しいものを作成するためのレシピです。 たとえば、[マスター/詳細](master-details.md)パターンが使用できる方法を[SplitView](split-view.md)のアプリのナビゲーション コントロール。 同様のテンプレートをカスタマイズすることができます、 [NavigationView](navigationview.md)タブ パターンを実装するコントロール。
+*パターン*とは、コントロールを変更するか、いくつかのコントロールを組み合わせて、新しいものを作成するためのレシピです。 たとえば、[マスター/詳細](master-details.md)パターンは、アプリのナビゲーションに [SplitView](split-view.md) コントロールを使用する方法です。 同様に、[NavigationView](navigationview.md) コントロールのテンプレートをカスタマイズして、タブ パターンを実装することもできます。
 
 多くの場合、コントロールはそのまま使用できます。 ただし、XAML コントロールでは、機能が構造や外観とは分離されているため、ニーズに合わせてさまざまなレベルで変更することができます。 [XAML スタイル](xaml-styles.md)と[コントロール テンプレート](control-templates.md)を使用してコントロールを変更する方法については、「[スタイル](../style/index.md)」セクションをご覧ください。
 

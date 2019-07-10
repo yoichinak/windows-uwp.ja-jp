@@ -6,10 +6,10 @@ ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、XAML、コントロール、ボックス化、スカラー、値
 ms.localizationpriority: medium
 ms.openlocfilehash: 1bd69e07f2285b6c05581a60ddbaf4b394d0b6d0
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66361203"
 ---
 # <a name="boxing-and-unboxing-scalar-values-to-iinspectable-with-cwinrt"></a>C++/WinRT を使用した IInspectable へのスカラー値のボックス化とボックス化解除
@@ -18,7 +18,7 @@ ms.locfileid: "66361203"
 
 つまり、**IInspectable** を想定している関数は、任意のランタイム クラスのインスタンスに渡すことができます。 ただし、数字やテキスト値などのスカラー値を、またはそのような関数へ、直接渡すことはできません。 代わりに、スカラー値を参照クラス オブジェクト内にラップする必要があります。 このラッピング プロセスは、値の*ボックス化*と呼ばれます。
 
-[C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt)提供、 [ **winrt::box_value** ](/uwp/cpp-ref-for-winrt/box-value)関数、スカラー値を取得しにボックス化された値を返します、 **IInspectable**します。 **IInspectable** をボックス化解除してスカラー値に戻すために、[**winrt::unbox_value**](/uwp/cpp-ref-for-winrt/unbox-value) および [**winrt::unbox_value_or**](/uwp/cpp-ref-for-winrt/unbox-value-or) 関数があります。
+[C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) では、スカラー値を取得してボックス化した値を **IInspectable** へ返す [**winrt::box_value**](/uwp/cpp-ref-for-winrt/box-value) 関数を提供します。 **IInspectable** をボックス化解除してスカラー値に戻すために、[**winrt::unbox_value**](/uwp/cpp-ref-for-winrt/unbox-value) および [**winrt::unbox_value_or**](/uwp/cpp-ref-for-winrt/unbox-value-or) 関数があります。
 
 ## <a name="examples-of-boxing-a-value"></a>値をボックス化する例
 [  **LaunchActivatedEventArgs::Arguments**](/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs.Arguments) アクセサー関数は、スカラー値である [**winrt::hstring**](/uwp/cpp-ref-for-winrt/hstring) を返します。 その **hstring** 値をボックス化し、次のように **IInspectable** を想定している関数に渡します。

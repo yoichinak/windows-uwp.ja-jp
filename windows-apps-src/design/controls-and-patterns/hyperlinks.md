@@ -13,10 +13,10 @@ dev-contact: stpete
 doc-status: Published
 ms.localizationpriority: medium
 ms.openlocfilehash: b17220a039612e0b13cd9842800c37c39bf194dd
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66362757"
 ---
 # <a name="hyperlinks"></a>ハイパーリンク
@@ -25,7 +25,7 @@ ms.locfileid: "66362757"
 
 ハイパーリンクはユーザーを、アプリの別の部分、別のアプリ、または別のブラウザー アプリを使って呼び出した URI (Uniform Resource Identifier) に誘導します。 XAML アプリにハイパーリンクを追加するには 2 つの方法、**ハイパーリンク** テキスト要素と **HyperlinkButton** コントロールがあります。
 
-> **重要な API**:[ハイパーリンクのテキスト要素](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Documents.Hyperlink)、 [HyperlinkButton コントロール](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.HyperlinkButton)
+> **重要な API**:[ハイパーリンク テキスト要素](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Documents.Hyperlink)、[HyperlinkButton コントロール](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.HyperlinkButton)
 
 ![ハイパーリンク ボタン](images/controls/hyperlink-button.png)
 
@@ -107,9 +107,9 @@ helpLinkButton.NavigateUri = new Uri("http://www.contoso.com");
 
 ## <a name="handle-navigation"></a>ナビゲーションの処理
 
-どちらの種類のハイパーリンクでも同様にナビゲーションを処理します。**NavigateUri** プロパティを設定するか、または**クリック**イベントを処理することができます。 
+どちらの種類のハイパーリンクでも同様にナビゲーションを処理します。**NavigateUri** プロパティを設定するか、または**クリック**イベントを処理することができます。
 
-**URI に移動します**
+**URI に移動**
 
 ハイパーリンクを使用して URI に移動するには、NavigateUri プロパティを設定します。 ユーザーがハイパーリンクをクリックしてまたはタップすると、指定された URI が既定のブラウザーで開きます。 既定のブラウザーは、アプリと別のプロセスで実行されます。
 
@@ -123,7 +123,7 @@ helpLinkButton.NavigateUri = new Uri("http://www.contoso.com");
 ハイパーリンクで、コンテンツを既定の Web ブラウザーで読み込む必要がない場合 (ブラウザーを表示しない場合) は、NavigateUri の値を設定しないでください。 代わりに、Click イベントを処理し、目的に合ったコードを記述します。
 
 
-**クリック イベントを処理します。**
+**Click イベントの処理**
 
 アプリ内のナビゲーションなど、ブラウザーの URI の起動以外の操作に Click イベントを使用します。 たとえば、ブラウザーを開くのではなく、新しいアプリのページを読み込む場合は、クリック イベント ハンドラー内で [Frame.Navigate](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.frame.navigate) メソッドを呼び出して新しいアプリのページに移動します。 同様にアプリ内にある [WebView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview) コントロール内で外部の絶対 URI を読み込む場合は、[WebView.Navigate](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.navigate) を Click ハンドラーのロジックの一部として呼び出します。
 
@@ -134,7 +134,7 @@ helpLinkButton.NavigateUri = new Uri("http://www.contoso.com");
 ## <a name="hyperlink-underlines"></a>ハイパーリンクの下線
 既定では、ハイパーリンクに下線が引かれます。 この下線は、アクセシビリティ要件を満たすために役立つので重要です。 色覚に障碍があるユーザーは、ハイパーリンクとその他のテキストを区別するために下線を使用します。 下線を無効にした場合は、ハイパーリンクを他のテキストと区別するために、FontWeight または FontStyle など、他の書式設定の違いを追加することを検討してください。
 
-**ハイパーリンクのテキスト要素**
+**ハイパーリンク テキスト要素**
 
 [UnderlineStyle](https://docs.microsoft.com/uwp/api/windows.ui.xaml.documents.hyperlink.underlinestyle) プロパティを設定すると下線の表示を無効にすることができます。 これを行う場合は、リンクを表すテキストを区別するために [FontWeight](https://docs.microsoft.com/uwp/api/windows.ui.xaml.documents.textelement.fontweight) または [FontStyle](https://docs.microsoft.com/uwp/api/windows.ui.xaml.documents.textelement.fontstyle) を使うことを検討します。
 
@@ -180,7 +180,7 @@ helpLinkButton.NavigateUri = new Uri("http://www.contoso.com");
 ## <a name="related-articles"></a>関連記事
 
 - [テキスト コントロール](text-controls.md)
-- [ツールヒントのガイドライン](tooltips.md)
+- [ヒントのガイドライン](tooltips.md)
 
 **開発者向け (XAML)**
 - [Windows.UI.Xaml.Documents.Hyperlink クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Documents.Hyperlink)

@@ -13,10 +13,10 @@ dev-contact: mitra
 doc-status: Published
 ms.localizationpriority: medium
 ms.openlocfilehash: 3905ef8786a06d4221ce42511f786927c3173ba6
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66363169"
 ---
 # <a name="check-boxes"></a>チェック ボックス
@@ -25,7 +25,7 @@ ms.locfileid: "66363169"
 
 チェック ボックスは、アクション項目の選択や選択解除を行うときに使います。 また、チェック ボックスはユーザーが選択する単一の項目や複数の項目の一覧に対して使うことができます。 コントロールには 3 つの選択状態 (選択されていない、選択されている、不確定) があります。 不確定状態は、選択されていない状態と選択されている状態の両方がサブ選択肢のコレクションに含まれている場合に使います。
 
-> **重要な API**:[チェック ボックスをオン クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CheckBox)、[チェック イベント](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.togglebutton.checked)、 [IsChecked プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.togglebutton.ischecked)
+> **重要な API**:[CheckBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CheckBox)、[Checked イベント](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.togglebutton.checked)、[IsChecked プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.togglebutton.ischecked)
 
 ![チェック ボックスの状態の例](images/templates-checkbox-states-default.png)
 
@@ -294,9 +294,9 @@ private void SetCheckedState()
 
     ![不確定状態のチェック ボックス](images/checkbox4_spicy.png)
 
-    代わりに、3 つのオプションがあるラジオ ボタン グループを使用します。いないスパイシー、スパイシー、および追加スパイシーします。
+    このような場合は、次の 3 つのオプションがあるラジオ ボタン グループを使います。[Not spicy]、[Spicy]、[Extra spicy] です。
 
-    ![3 つのオプションのラジオ ボタン グループ:いないスパイシー、スパイシー、および追加スパイシー](images/spicyoptions.png)
+    ![3 つのオプションがあるラジオ ボタン グループ: [Not spicy]、[Spicy]、[Extra spicy]](images/spicyoptions.png)
 
 ## <a name="get-the-sample-code"></a>サンプル コードを入手する
 
@@ -304,6 +304,6 @@ private void SetCheckedState()
 
 ## <a name="related-articles"></a>関連記事
 
-- [チェック ボックス クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CheckBox) 
-- [オプション ボタン](radio-button.md)
+- [CheckBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CheckBox) 
+- [ラジオ ボタン](radio-button.md)
 - [トグル スイッチ](toggles.md)

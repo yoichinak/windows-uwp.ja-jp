@@ -12,10 +12,10 @@ doc-status: Published
 ms.localizationpriority: medium
 ms.custom: RS5
 ms.openlocfilehash: 5e464251200812e79474d05d9d0a680b49167871
-ms.sourcegitcommit: 7da28cf4f4e8390bc9a21a9488b03af39271cbbe
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64564536"
 ---
 # <a name="icons-for-uwp-apps"></a>UWP アプリのアイコン
@@ -31,13 +31,13 @@ ms.locfileid: "64564536"
         **Icons inside the app**
 
         ![icons inside the app](images/icons/inside-icons.png)
-アプリ内では、アイコンを使用して、テキストのコピーの設定 ページに移動するなどの操作を表すため。
+アプリ内では、テキストのコピー、設定ページへの移動などのアクションを表すためにアイコンを使用します。
     :::column-end:::
     :::column:::
 **アプリ外部のアイコン**
 
         ![icons outside the app](images/icons/outside-icons.jpg)
-Windows では、アプリでは、外部、アイコンを使用して、アプリの [スタート] メニューとタスク バーを表します。 場合は、ユーザーの [スタート] メニューにアプリをピン留めを選択開始のアプリのタイルはアプリのアイコンを機能できます。 アプリのアイコン、タイトル バーに表示され、アプリのロゴとスプラッシュ スクリーンを作成することもできます。
+アプリ外部では、Windows のスタート メニューとタスクバーにアプリを表すアイコンが使用されます。 ユーザーがアプリをスタート メニューにピン留めすることを選択すると、アプリのスタート タイルにアプリのアイコンが表示されることがあります。 アプリのアイコンはタイトル バーに表示されます。アプリのロゴ付きのスプラッシュ画面を作成することもできます。
     :::column-end:::
 :::row-end:::
 
@@ -52,13 +52,13 @@ Windows では、アプリでは、外部、アイコンを使用して、アプ
         ![do](images/do.svg)
         ![icons standard image](images/icons/icons-standard.svg)<br>
 
-アクション、切り取り、コピー、貼り付けなどと、保存、またはナビゲーション メニューで、ナビゲーション項目のアイコンを使用します。
+アイコンは、切り取り、コピー、貼り付け、保存などの操作、またはナビゲーション メニューのナビゲーション項目に使用します。
     :::column-end:::
     :::column:::
         ![don't](images/dont.svg)
         ![icons concept image](images/icons/icons-concept.svg)<br>
 
-表現するという概念に既に存在する場合は、アイコンを使用します。 (アイコンが存在するかどうかを確認は、Segoe アイコンの一覧を確認します)。
+表現する概念のアイコンが既に存在する場合は、それを使用します (アイコンが存在するかどうかを確認するには、Segoe アイコン一覧を確認します)。
     :::column-end:::
 :::row-end:::
 
@@ -67,13 +67,13 @@ Windows では、アプリでは、外部、アイコンを使用して、アプ
         ![do](images/do.svg)
         ![icon shopping cart](images/icons/icon-shopping-cart.svg)<br>
 
-ユーザーが、アイコンの意味を理解するが簡単が小さなサイズのチェック ボックスをオフにするのに十分な単純な場合は、アイコンを使用します。
+アイコンが意味する内容をユーザーが理解しやすく、小さいサイズでもはっきりとわかるほどシンプルな場合は、アイコンを使用します。
     :::column-end:::
     :::column:::
         ![dont](images/dont.svg)
         ![icons concept image](images/icons/icon-bad-example.png)<br>
 
-その意味が明確でない場合、または複雑な図形を明確にする必要がある場合、アイコンを使用しないでください。
+アイコンの意味が明確でない場合、または明確にするには複雑な図形が必要な場合は、アイコンを使用しないでください。
     :::column-end:::
 :::row-end:::
 
@@ -81,12 +81,12 @@ Windows では、アプリでは、外部、アイコンを使用して、アプ
 
 ## <a name="using-the-right-type-of-icon"></a>適切な種類のアイコンの使用
 
-アイコンを作成する方法は数多くあります。 Segoe MDL2 アセットなどの記号フォントを使用できます。 ベクトルに基づくイメージを作成できます。 ビットマップ画像も使用できますが、お勧めしません。 アプリにアイコンを追加するさまざまな方法の概要を次に示します。 
+アイコンを作成する方法は数多くあります。 Segoe MDL2 アセットなどの記号フォントを使用できます。 独自のベクトルに基づく画像を作成できます。 ビットマップ画像も使用できますが、お勧めしません。 アプリにアイコンを追加するさまざまな方法の概要を次に示します。 
 
 ### <a name="use-a-predefined-icon"></a>定義済みのアイコンを使用します。
 :::row:::
     :::column:::
-Microsoft では、1000 以上のアイコン Segoe MDL2 資産のフォントの形式で提供します。 フォントからアイコンを取得するのは直感的ではない可能性がありますが、マイクロソフトのフォントの表示テクノロジでは、これらのアイコンが任意のディスプレイ、解像度、サイズではっきりと鮮明に表示されます。 手順については、次を参照してください。 [Segoe MDL2 アイコン](segoe-ui-symbol-font.md)します。
+Microsoft は、Segoe MDL2 アセット フォントの形式で 1,000 個を超えるアイコンを提供しています。 フォントからアイコンを取得するのは直感的ではない可能性がありますが、マイクロソフトのフォントの表示テクノロジでは、これらのアイコンが任意のディスプレイ、解像度、サイズではっきりと鮮明に表示されます。 手順については、「[Segoe MDL2 アイコン](segoe-ui-symbol-font.md)」を参照してください。
     :::column-end:::
     :::column:::
         ![pre-defined icon image](images/icons/predefined-icon.png)
@@ -96,7 +96,7 @@ Microsoft では、1000 以上のアイコン Segoe MDL2 資産のフォント�
 ### <a name="use-a-font"></a>フォントを使用します。
 :::row:::
     :::column:::
--Segoe MDL2 資産フォントを使用することも、ユーザーが Wingdings または Webdings などのシステムにインストールされている任意のフォントを使用することができます。
+Segoe MDL2 アセット フォントを使用する必要はありません。Wingdings や Webdings など、ユーザーがシステムにインストールしている任意のフォントを使用できます。
     :::column-end:::
     :::column:::
         ![wingdings image](images/icons/wingdings.png)
@@ -106,7 +106,7 @@ Microsoft では、1000 以上のアイコン Segoe MDL2 資産のフォント�
 ### <a name="use-a-scalable-vector-graphics-svg-file"></a>スケーラブル ベクター グラフィックス (SVG) ファイルを使用します。
 :::row:::
     :::column:::
-常に鮮明に任意のサイズまたは解像度であるために、SVG のリソースは、アイコンに最適です。 ほとんどの描画アプリケーションは、SVG にエクスポートできます。 手順については、次を参照してください。 [SVGImageSource](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.svgimagesource)します。
+SVG リソースは、任意のサイズや解像度で常に鮮明に表示されるため、アイコンに最適です。 ほとんどの描画アプリケーションは、SVG にエクスポートできます。 手順については、[SVGImageSource](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.svgimagesource)に関するページを参照してください。
     :::column-end:::
     :::column:::
         ![SVG image](images/icons/icon-scale.gif)
@@ -116,7 +116,7 @@ Microsoft では、1000 以上のアイコン Segoe MDL2 資産のフォント�
 ### <a name="use-geometry-objects"></a>ジオメトリ オブジェクトを使用します。
 :::row:::
     :::column:::
-、SVG ファイルと同様、ジオメトリは、ので、常にシャープなベクトル ベースのリソースです。 ただし、それぞれの点と曲線を個々に指定する必要があるため、ジオメトリの作成は複雑です。 実際にはアプリの実行中にアイコンを変更する必要がある場合のみ最適です (アプリをアニメーション化する場合など)。 手順については、「[ジオメトリのコマンドの移動と描画](../../xaml-platform/move-draw-commands-syntax.md)」を参照してください。 
+SVG ファイルのように、ジオメトリはベクトルに基づくリソースであるため、常に鮮明に表示されます。 ただし、それぞれの点と曲線を個々に指定する必要があるため、ジオメトリの作成は複雑です。 実際にはアプリの実行中にアイコンを変更する必要がある場合のみ最適です (アプリをアニメーション化する場合など)。 手順については、「[ジオメトリのコマンドの移動と描画](../../xaml-platform/move-draw-commands-syntax.md)」を参照してください。 
     :::column-end:::
     :::column:::
         ![Geometry objects image](images/icons/geometry-objects.png)
@@ -126,7 +126,7 @@ Microsoft では、1000 以上のアイコン Segoe MDL2 資産のフォント�
 ### <a name="you-can-also-use-a-bitmap-image-such-as-png-gif-or-jpeg-although-we-dont-recommend-it"></a>お勧めしませんが、PNG、GIF、JPEG などのビットマップ画像を使用することもできます。
 :::row:::
     :::column:::
-ビットマップ イメージは、ので、あるアイコンをクリックする大きさと画面の解像度に応じて拡大または縮小するのには、特定のサイズで作成されます。 画像を縮小すると、ぼやけて見えることがあります。画像を拡大すると、むらのあるピクセル化された外観になることがあります。 ビットマップ画像を使用する必要がある場合は、JPEG ではなく PNG または GIF を使用することをお勧めします。 
+ビットマップ画像は特定のサイズで作成されるため、希望するアイコンの大きさと画面の解像度に応じて拡大縮小する必要があります。 画像を縮小すると、ぼやけて見えることがあります。画像を拡大すると、むらのあるピクセル化された外観になることがあります。 ビットマップ画像を使用する必要がある場合は、JPEG ではなく PNG または GIF を使用することをお勧めします。 
     :::column-end:::
     :::column:::
         ![don't](images/dont.svg)
@@ -136,7 +136,7 @@ Microsoft では、1000 以上のアイコン Segoe MDL2 資産のフォント�
 
 ## <a name="make-the-icon-do-something"></a>アイコンで何かを行う
 
-アイコンを作成したら、次の手順はコマンドまたはナビゲーション操作に関連付けることで行うようにすることです。 これを行う最善の方法では、ボタンまたはコマンド バーにアイコンを追加します。 
+アイコンができたら、次の手順として、それをコマンドやナビゲーション操作に関連付けて、何かを行うようにすることです。 これを行う最も良い方法は、アイコンをボタンやコマンド バーに追加することです。 
 
 ![コマンド バーのイメージ](images/icons/app-bar-desktop.svg)
 
@@ -149,7 +149,7 @@ Microsoft では、1000 以上のアイコン Segoe MDL2 資産のフォント�
 :::row:::
     :::column span="2":::
         <b>Step 1</b><br>
-ボタンのフォント ファミリを設定`Segoe MDL2 Assets`と unicode の値を使用するグリフのコンテンツのプロパティ。
+ボタンのフォント ファミリを `Segoe MDL2 Assets` に設定し、そのコンテンツ プロパティを使用するグリフの Unicode 値に設定します。
     :::column-end:::
     :::column:::
         ![Create an icon button step 1](images/icons/create-icon-step-1.svg)
@@ -163,7 +163,7 @@ Microsoft では、1000 以上のアイコン Segoe MDL2 資産のフォント�
 :::row:::
     :::column span="2":::
         <b>Step 2</b><br>
-Icon 要素のオブジェクトのいずれかを使用できます。[BitmapIcon](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.bitmapicon)、 [FontIcon](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.fonticon)、 [PathIcon](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.pathicon)、または[SymbolIcon](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.symbolicon)します。 これは複数の種類のアイコンが、選択してする場合はアイコンと他の種類のテキストなどのコンテンツを結合することができます。
+次のアイコンの要素オブジェクトのいずれかを使用します。[BitmapIcon](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.bitmapicon)、[FontIcon](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.fonticon)、[PathIcon](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.pathicon)、または [SymbolIcon](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.symbolicon)。 これにより、選択するアイコンの種類が多くなり、必要に応じて、テキストなどのその他の種類のコンテンツとアイコンを組み合わせることができるようになります。
     :::column-end:::
     :::column:::
         ![Create an icon button step 2](images/icons/icon-text-step-2.svg)
@@ -183,7 +183,7 @@ Icon 要素のオブジェクトのいずれかを使用できます。[BitmapIc
 
 :::row:::
     :::column span:::
-切り取り/コピー/貼り付けまたは描画写真編集プログラムでは、コマンドのセットに追加するなど、一連の同時コマンドがある場合、[コマンド バー](../controls-and-patterns/app-bars.md)します。 コマンド バーは、1 つ以上のアプリ バーのボタンまたはアプリ バーのトグル ボタンを取得します。それぞれのボタンはアクションを表します。 それぞれのボタンには、表示されるアイコンを制御するために使用する[アイコン](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.appbarbutton#Windows_UI_Xaml_Controls_AppBarButton_Icon) プロパティがあります。 アイコンを指定するには、さまざまな方法があります。 
+切り取り/コピー/貼り付けや、写真編集プログラムの一連の描画コマンドなど、組み合わされる一連のコマンドがある場合は、それらを[コマンド バー](../controls-and-patterns/app-bars.md)にまとめます。 コマンド バーは、1 つ以上のアプリ バーのボタンまたはアプリ バーのトグル ボタンを取得します。それぞれのボタンはアクションを表します。 それぞれのボタンには、表示されるアイコンを制御するために使用する[アイコン](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.appbarbutton#Windows_UI_Xaml_Controls_AppBarButton_Icon) プロパティがあります。 アイコンを指定するには、さまざまな方法があります。 
     :::column-end:::
     :::column:::
         ![Example of a command bar with icons](images/icons/create-icon-command-bar.svg)
@@ -218,4 +218,4 @@ Icon 要素のオブジェクトのいずれかを使用できます。[BitmapIc
 
 ## <a name="related-articles"></a>関連記事
 
-* [タイルおよびアイコンのアセットのガイドライン](../shell/tiles-and-notifications/app-assets.md)
+* [タイルとアイコン アセットのガイドライン](../shell/tiles-and-notifications/app-assets.md)

@@ -6,10 +6,10 @@ ms.topic: article
 keywords: windows 10, UWP, SQLite, データベース
 ms.localizationpriority: medium
 ms.openlocfilehash: 465376214f1bf1b390ec6db8609783e4e7872196
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66362785"
 ---
 # <a name="use-a-sqlite-database-in-a-uwp-app"></a>UWP アプリでの SQLite データベースの使用
@@ -17,13 +17,13 @@ SQLite を使用すると、ユーザー デバイス上の軽量なデータベ
 
 ## <a name="some-benefits-of-using-sqlite-for-local-storage"></a>ローカル ストレージに SQLite を使用するメリット
 
-:heavy_check_mark:SQLite は、軽量と自己完結型です。 その他の依存関係がないコード ライブラリです。 構成する必要がありません。
+:heavy_check_mark:SQLite は軽量で自己完結型です。 その他の依存関係がないコード ライブラリです。 構成する必要がありません。
 
 :heavy_check_mark:データベース サーバーはありません。 クライアントとサーバーは、同じプロセスで実行されます。
 
-:heavy_check_mark:SQLite は、パブリック ドメインでは自由に使用し、アプリと共に配布できるようにします。
+:heavy_check_mark:SQLite はパブリック ドメインにあるため、アプリで自由に使用して配布できます。
 
-:heavy_check_mark:SQLite は、各種プラットフォームとアーキテクチャでは動作します。
+SQLite はプラットフォームやアーキテクチャにかかわらず動作します。
 
 SQLite について詳しくは、[こちら](https://sqlite.org/about.html)をご覧ください。
 
@@ -83,13 +83,13 @@ UWP プロジェクトの最小バージョンを Fall Creators Update に上げ
 
 まず、標準のクラス ライブラリの代わりに、.NET Standard 2.0 ライブラリを使用できます。 これによって、データ アクセス コードを WPF、Windows フォーム、Android、iOS、ASP.NET アプリなど、他の .NET ベースのアプリと共有することができます。
 
-次に、アプリは SQLite ライブラリをパッケージ化する必要はありません。 代わりに、アプリは Windows と共にインストールされるバージョンの SQLite を使用することができます。 これにより、次のような利点が得られます。
+2 つ目に、アプリで SQLite ライブラリをパッケージ化する必要はありません。 代わりに、アプリは Windows と共にインストールされるバージョンの SQLite を使用することができます。 これにより、次のような利点が得られます。
 
-:heavy_check_mark:SQLite バイナリをダウンロードして、アプリケーションの一部としてパッケージ化する必要がないため、アプリケーションのサイズが減ります。
+:heavy_check_mark:SQLite バイナリをダウンロードして、アプリの一部としてパッケージ化する必要がないため、アプリケーションのサイズが小さくなります。
 
-:heavy_check_mark:SQLite は、バグと SQLite でセキュリティの脆弱性に重要な修正プログラムを公開する、新しいバージョンのアプリをユーザーにプッシュしなくてできなくなります。 Windows 版の SQLite は、Microsoft が SQLite.org と連携して保守します。
+:heavy_check_mark:SQLite のバグやセキュリティの脆弱性に対する重要な修正プログラムが公開された場合でも、アプリの新しいバージョンをユーザーに勧める必要がありません。 Windows 版の SQLite は、Microsoft が SQLite.org と連携して保守します。
 
-:heavy_check_mark:アプリの読み込み時に、ほとんどの場合、SQLite の SDK のバージョンが既にメモリに読み込むため、高速である可能性があります。
+:heavy_check_mark:SQLite の SDK バージョンが既にメモリに読み込まれている可能性が高いため、アプリの読み込み時間が高速になる可能性があります。
 
 まず、.NET Standard 2.0 クラス ライブラリをソリューションに追加しましょう。 クラス ライブラリを使用してデータ アクセス コードを含める必要はありません。サンプルの 1 つを使用します。 ライブラリに **DataAccessLibrary** という名前を付け、ライブラリ内のクラスに **DataAccess** という名前を付けます。
 
@@ -125,15 +125,15 @@ UWP プロジェクトの最小バージョンを Fall Creators Update に上げ
 
 以下の作業を行います。
 
-: 1 つ。データ アクセス クラスを準備します。
+:1:データ アクセス クラスを準備します。
 
-: 2。SQLite データベースを初期化します。
+:2:SQLite データベースを初期化します。
 
-: 3。データを SQLite データベースに挿入します。
+:3:SQLite データベースにデータを挿入します。
 
-: 4。SQLite データベースからデータを取得します。
+:4:SQLite データベースからデータを取得します。
 
-: 5。基本的なユーザー インターフェイスを追加します。
+:5:基本的なユーザー インターフェイスを追加します。
 
 ### <a name="prepare-the-data-access-class"></a>データ アクセス クラスを準備する
 
@@ -163,7 +163,7 @@ namespace DataAccessLibrary
 
 ```
 
-次の追加をこのファイルの先頭にステートメントを使用します。
+このファイルの先頭に、次の using ステートメントを追加します。
 
 ```csharp
 using Microsoft.Data.Sqlite;
@@ -199,7 +199,7 @@ public static void InitializeDatabase()
 
 この例では、データベースに ``sqlliteSample.db`` という名前を付けますが、インスタンス化するすべての [SqliteConnection](https://docs.microsoft.com/dotnet/api/microsoft.data.sqlite.sqliteconnection?view=msdata-sqlite-2.0.0) オブジェクトでその名前を使用する限り、任意の名前を使用することができます。
 
-UWP プロジェクトの **App.xaml.cs** ファイルのコンストラクターで、**DataAccess** クラスの ``InitializeDatabase`` メソッドを呼び出します。
+UWP プロジェクトの **App.xaml.cs** ファイルのコンス トラクターで、**DataAccess** クラスの ``InitializeDatabase`` メソッドを呼び出します。
 
 ```csharp
 public App()
@@ -317,14 +317,14 @@ private void AddData(object sender, RoutedEventArgs e)
 
 ## <a name="next-steps"></a>次のステップ
 
-**SQL Server データベースに直接アプリを接続します。**
+**アプリを SQL Server データベースに直接接続する**
 
 「[UWP アプリでの SQL Server データベースの使用](sql-server-databases.md)」をご覧ください。
 
-**さまざまなプラットフォームで別のアプリ間でコードを共有します。**
+**異なるプラットフォームにわたる異なるアプリの間でコードを共有する**
 
 「[デスクトップと UWP でコードを共有する](https://docs.microsoft.com/windows/uwp/porting/desktop-to-uwp-migrate)」をご覧ください。
 
-**Azure SQL バック エンドでマスター詳細ページを追加します。**
+**Azure SQL バックエンドでマスター/詳細ページを追加する**
 
 「[顧客注文データベースのサンプル](https://github.com/Microsoft/Windows-appsample-customers-orders-database)」をご覧ください。
