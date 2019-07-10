@@ -17,7 +17,7 @@ ms.locfileid: "67317759"
 ---
 # <a name="using-the-uwp-xaml-hosting-api-in-a-desktop-application"></a>デスクトップ アプリケーションで API をホストしている UWP XAML を使用します。
 
-以降では、Windows 10、バージョンが 1903、デスクトップ アプリケーションを UWP 以外 (WPF、Windows フォームなどとC++Win32 アプリケーション) を使用できます、 *API をホストしている UWP XAML*に関連付けられている任意の UI 要素に UWP コントロールをホストする、ウィンドウ ハンドル (HWND)。 この API は、のみ UWP コントロールを使用して利用できる最新の Windows 10 の UI 機能を使用するデスクトップ アプリケーションを UWP 以外を使用できます。 デスクトップ アプリケーションを UWP 以外が使用する UWP コントロールをホストするには、この API を使用するなど、 [Fluent Design System](/windows/uwp/design/fluent-design-system/index)サポートと[Windows インク](/windows/uwp/design/pen-and-stylus-interactions)します。
+以降では、Windows 10、バージョンが 1903、デスクトップ アプリケーションを UWP 以外 (WPF、Windows フォームなどとC++Win32 アプリケーション) を使用できます、 *API をホストしている UWP XAML*に関連付けられている任意の UI 要素に UWP コントロールをホストする、ウィンドウ ハンドル (HWND)。 この API は、のみ UWP コントロールを使用して利用できる最新の Windows 10 の UI 機能を使用するデスクトップ アプリケーションを UWP 以外を使用できます。 デスクトップ アプリケーションを UWP 以外が使用する UWP コントロールをホストするには、この API を使用するなど、 [Fluent Design System](/windows/uwp/design/fluent-design-system/index)と[Windows Ink](/windows/uwp/design/input/pen-and-stylus-interactions)をサポートします。
 
 API をホストしている UWP XAML では、開発者がデスクトップ アプリケーションを UWP 以外に Fluent UI に表示できるようにするコントロールの広範なセットの基盤を提供します。 この機能は呼 *XAML Islands* と呼ばれます。 この機能の概要については、[デスクトップ アプリケーションでの UWP コントロール](xaml-islands.md) を参照してください。
 
