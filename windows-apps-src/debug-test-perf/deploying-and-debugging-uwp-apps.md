@@ -2,16 +2,16 @@
 ms.assetid: 9322B3A3-8F06-4329-AFCB-BE0C260C332C
 description: この記事では、さまざまな展開およびデバッグのターゲットを指定する手順について説明します。
 title: ユニバーサル Windows プラットフォーム (UWP) アプリの展開とデバッグ
-ms.date: 4/8/2019
+ms.date: 04/08/2019
 ms.topic: article
 keywords: Windows 10, UWP, デバッグ, テスト, パフォーマンス
 ms.localizationpriority: medium
-ms.openlocfilehash: 96e6f712f1a9882a10cf0706452628329c0c085d
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 0bd1c15a971beca0b0015e774865808310138fd0
+ms.sourcegitcommit: 139717a79af648a9231821bdfcaf69d8a1e6e894
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67317952"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67713816"
 ---
 # <a name="deploying-and-debugging-uwp-apps"></a>UWP アプリの展開とデバッグ
 

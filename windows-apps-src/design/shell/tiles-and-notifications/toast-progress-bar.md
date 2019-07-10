@@ -3,16 +3,16 @@ Description: トースト通知内での進行状況バーを使用する方法�
 title: トーストの進行状況バーとデータ バインディング
 label: Toast progress bar and data binding
 template: detail.hbs
-ms.date: 12/7/2017
+ms.date: 12/07/2017
 ms.topic: article
 keywords: windows 10, uwp, トースト, 進行状況バー, トーストの進行状況バー, 通知, トーストのデータ バインディング
 ms.localizationpriority: medium
-ms.openlocfilehash: f955f2a71fed6444c65f9550e1f4fa3baeabe092
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 742270a4cdc6cbbc9eed0879e30b3e7066722f05
+ms.sourcegitcommit: 139717a79af648a9231821bdfcaf69d8a1e6e894
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57624827"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67714110"
 ---
 # <a name="toast-progress-bar-and-data-binding"></a>トーストの進行状況バーとデータ バインディング
 
@@ -35,9 +35,9 @@ ms.locfileid: "57624827"
 | プロパティ | 種類 | 必須 | 説明 |
 |---|---|---|---|
 | **Title** | string または [BindableString](toast-schema.md#bindablestring) | false | タイトルの文字列 (オプション) を取得または設定します。 データ バインディングをサポートしています。 |
-| **値** | double または [AdaptiveProgressBarValue](toast-schema.md#adaptiveprogressbarvalue) か [BindableProgressBarValue](toast-schema.md#bindableprogressbarvalue) | false | 進行状況バーの値を取得または設定します。 データ バインディングをサポートしています。 既定値は 0 です。 0.0 ～ 1.0 の double 型または `AdaptiveProgressBarValue.Indeterminate` か `new BindableProgressBarValue("myProgressValue")` です。 |
+| **値** | double または [AdaptiveProgressBarValue](toast-schema.md#adaptiveprogressbarvalue) か [BindableProgressBarValue](toast-schema.md#bindableprogressbarvalue) | false | 進行状況バーの値を取得または設定します。 データ バインディングをサポートしています。 既定値は 0 です。 0\.0 ～ 1.0 の double 型または `AdaptiveProgressBarValue.Indeterminate` か `new BindableProgressBarValue("myProgressValue")` です。 |
 | **ValueStringOverride** | string または [BindableString](toast-schema.md#bindablestring) | false | 割合を示す既定の文字列に代わって表示される文字列 (オプション) を取得または設定します。 これを指定しない場合は、"70%" などの文字が表示されます。 |
-| **ステータス** | string または [BindableString](toast-schema.md#bindablestring) | true | 進行状況バーの下の左側に表示されるステータス文字列 (必須) を取得または設定します。 この文字列は、"ダウンロード中..." や "インストール中..." などのように、操作の状態を反映する必要があります。 |
+| **状態** | string または [BindableString](toast-schema.md#bindablestring) | true | 進行状況バーの下の左側に表示されるステータス文字列 (必須) を取得または設定します。 この文字列は、"ダウンロード中..." や "インストール中..." などのように、操作の状態を反映する必要があります。 |
 
 
 以下では、上に示した通知を生成する方法を示します。

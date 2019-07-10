@@ -2,16 +2,16 @@
 title: ゲーム コントローラーのレジストリ データ
 description: UWP ゲームで使用されるコントローラーを有効にするために、PC のレジストリに追加できるデータについて説明します。
 ms.assetid: 2DD0B384-8776-4599-9E52-4FC0AA682735
-ms.date: 4/8/2019
+ms.date: 04/08/2019
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, 入力, レジストリ, カスタム
 ms.localizationpriority: medium
-ms.openlocfilehash: 5578faeb5a35ae909e590741de759c2597b9c7ed
-ms.sourcegitcommit: bad7ed6def79acbb4569de5a92c0717364e771d9
+ms.openlocfilehash: 30c1f0d8c9fac09d071d158563c964c6a598e073
+ms.sourcegitcommit: 139717a79af648a9231821bdfcaf69d8a1e6e894
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59244398"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67714058"
 ---
 # <a name="registry-data-for-game-controllers"></a>ゲーム コントローラーのレジストリ データ
 
@@ -30,7 +30,7 @@ ms.locfileid: "59244398"
 
 <table>
     <tr>
-        <th>名前</th>
+        <th>Name</th>
         <th>種類</th>
         <th>必須/省略可能</th>
         <th>Info</th>
@@ -131,7 +131,7 @@ ms.locfileid: "59244398"
     </tr>
     <tr>
         <td>Paddle2</td>
-        <td>いいえ</td>
+        <td>X</td>
     </tr>
     <tr>
         <td>Paddle3</td>
@@ -220,7 +220,7 @@ ms.locfileid: "59244398"
     </tr>
     <tr>
         <td>Button4</td>
-        <td>いいえ</td>
+        <td>X</td>
     </tr>
     <tr>
         <td>Button5</td>
@@ -256,7 +256,7 @@ ms.locfileid: "59244398"
     </tr>
     <tr>
         <td>Button13</td>
-        <td>いいえ</td>
+        <td>X</td>
     </tr>
     <tr>
         <td>Button14</td>
@@ -276,7 +276,7 @@ ms.locfileid: "59244398"
     </tr>
     <tr>
         <td>SecondGear</td>
-        <td>いいえ</td>
+        <td>X</td>
     </tr>
     <tr>
         <td>ThirdGear</td>
@@ -284,7 +284,7 @@ ms.locfileid: "59244398"
     </tr>
     <tr>
         <td>FourthGear</td>
-        <td>いいえ</td>
+        <td>X</td>
     </tr>
     <tr>
         <td>FifthGear</td>
@@ -317,7 +317,7 @@ ms.locfileid: "59244398"
     </tr>
     <tr>
         <td>Clutch</td>
-        <td>いいえ</td>
+        <td>X</td>
     </tr>
     <tr>
         <td>Handbrake</td>
@@ -479,7 +479,7 @@ ms.locfileid: "59244398"
     </tr>
     <tr>
         <td>Context1</td>
-        <td>いいえ</td>
+        <td>X</td>
     </tr>
     <tr>
         <td>Context2</td>
@@ -487,7 +487,7 @@ ms.locfileid: "59244398"
     </tr>
     <tr>
         <td>Context3</td>
-        <td>いいえ</td>
+        <td>X</td>
     </tr>
     <tr>
         <td>Context4</td>
@@ -495,7 +495,7 @@ ms.locfileid: "59244398"
     </tr>
     <tr>
         <td>PageUp</td>
-        <td>いいえ</td>
+        <td>X</td>
     </tr>
     <tr>
         <td>PageDown</td>
@@ -511,15 +511,15 @@ ms.locfileid: "59244398"
     </tr>
     <tr>
         <td>ScrollUp</td>
-        <td>いいえ</td>
+        <td>X</td>
     </tr>
     <tr>
         <td>ScrollDown</td>
-        <td>いいえ</td>
+        <td>X</td>
     </tr>
     <tr>
         <td>ScrollLeft</td>
-        <td>いいえ</td>
+        <td>X</td>
     </tr>
     <tr>
         <td>ScrollRight</td>
@@ -527,7 +527,7 @@ ms.locfileid: "59244398"
     </tr>
     <tr>
         <td>SecondaryUp</td>
-        <td>いいえ</td>
+        <td>X</td>
     </tr>
     <tr>
         <td>SecondaryDown</td>
@@ -709,7 +709,7 @@ UI ナビゲーション コントローラーと上記のコマンドについ�
     <tr>
         <td>Invert</td>
         <td>DWORD</td>
-        <td>いいえ</td>
+        <td>X</td>
         <td>マッピングされた軸の値を返す前に反転するかどうかを示します。</td>
     </tr>
     <tr>
@@ -820,7 +820,7 @@ UI ナビゲーション コントローラーと上記のコマンドについ�
     <tr>
         <td>SwitchKind</td>
         <td>REG_SZ</td>
-        <td><b>TwoWay</b>、<b>FourWay</b>、または<b>EightWay</b>
+        <td><b>TwoWay</b>、 <b>FourWay</b>、または<b>EightWay</b>
     </tr>
     <tr>
         <td>UpButtonIndex</td>
@@ -1070,7 +1070,7 @@ RightBumper         // Index 9
 
 <table>
     <tr>
-        <th>名前</th>
+        <th>Name</th>
         <th>値 (型。REG_SZ)</th>
     </tr>
     <tr>
@@ -1136,7 +1136,7 @@ RightBumper         // Index 9
 
 <table>
     <tr>
-        <th>名前</th>
+        <th>Name</th>
         <th>値 (型。REG_SZ)</th>
     </tr>
     <tr>
@@ -1347,6 +1347,6 @@ Windows Registry Editor Version 5.00
 
 ## <a name="see-also"></a>関連項目
 
-* [Windows.Gaming.Input 名前空間](https://docs.microsoft.com/uwp/api/windows.gaming.input)
-* [Windows.Gaming.Input.Custom 名前空間](https://docs.microsoft.com/uwp/api/windows.gaming.input.custom)
+* [Windows.Gaming.Input Namespace](https://docs.microsoft.com/uwp/api/windows.gaming.input)
+* [Windows.Gaming.Input.Custom Namespace](https://docs.microsoft.com/uwp/api/windows.gaming.input.custom)
 * [INF ファイル](https://docs.microsoft.com/windows-hardware/drivers/install/inf-files)
