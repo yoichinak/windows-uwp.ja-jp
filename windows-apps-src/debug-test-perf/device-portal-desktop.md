@@ -2,16 +2,16 @@
 ms.assetid: 5c34c78e-9ff7-477b-87f6-a31367cd3f8b
 title: Windows デスクトップ用 Device Portal
 description: Windows デスクトップで Windows Device Portal の診断と自動化を利用する方法について説明します。
-ms.date: 02/6/2019
+ms.date: 02/06/2019
 ms.topic: article
 keywords: windows 10、uwp、デバイス ポータル
 ms.localizationpriority: medium
-ms.openlocfilehash: 4fe1f2a51199dd12cd1d285c17c5d48c9a25b969
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 00cf497d5d57f5a3cdc5c52ecfeead7885ff7d56
+ms.sourcegitcommit: 139717a79af648a9231821bdfcaf69d8a1e6e894
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57654527"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67713811"
 ---
 # <a name="device-portal-for-windows-desktop"></a>Windows デスクトップ用 Device Portal
 
@@ -80,7 +80,7 @@ Windows デスクトップの Device Portal では、標準のページのセッ
 
 デバイス ポータルのポート番号 (80、443 など) を選択する場合は、次のレジストリ キーを設定することができます。
 
--  `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WebManagement\Service`
+- `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WebManagement\Service`
     - `UseDynamicPorts` :必要な DWORD です。 選択したポート番号を保持するには、これを 0 に設定します。
     - `HttpPort` :必要な DWORD です。 Device Portal が HTTP 接続をリッスンするポート番号を指定します。    
     - `HttpsPort` :必要な DWORD です。 Device Portal が HTTPS 接続をリッスンするポート番号を指定します。
@@ -115,9 +115,9 @@ Windows 10 のプレリリース版のビルドに開発者パッケージをイ
 
 1. 移動します**設定 > 更新とセキュリティ > Windows Insider Program**いることを確認し、 **Windows Insider アカウント**セクションには、正しいアカウント情報。 そのセクションが表示されない場合は、選択**Windows Insider アカウント リンク**、電子メール アカウントを追加し、現れることを確認、 **Windows Insider アカウント**見出し (を選択する必要があります**Windows Insider アカウント リンク**実際にリンクする、新しく追加されたアカウント時間を秒)。
  
-2. **受信にどのような種類のコンテンツを指定しては?**、ことを確認します**Windows のアクティブな開発**が選択されています。
+2. **受信にどのような種類のコンテンツを指定しては?** 、ことを確認します**Windows のアクティブな開発**が選択されています。
  
-3. **新しいビルドを取得する速度ですか?**、ことを確認します**Windows Insider Fast**が選択されています。
+3. **新しいビルドを取得する速度ですか?** 、ことを確認します**Windows Insider Fast**が選択されています。
  
 4. 今すぐできる、FoDs をインストールします。 Windows Insider Fast にいるとまだことはできません、FoDs をインストール、くださいフィードバックを提供を下に、ログ ファイルのアタッチを確認したら場合**C:\Windows\Logs\CBS**します。
 
