@@ -1,11 +1,11 @@
 ---
 description: このチュートリアルでは、UWP XAML ユーザー インターフェイスを追加、MSIX パッケージを作成およびその他の最新コンポーネントを WPF アプリに組み込む方法を示します。
-title: Contoso の移行を .NET Core 3 経費アプリ
+title: Contoso Expenses アプリの .NET Core 3 への移行
 ms.topic: article
 ms.date: 06/27/2019
 ms.author: mcleans
 author: mcleanbyron
-keywords: windows 10、uwp、windows フォーム、wpf、xaml 諸島
+keywords: windows 10、uwp、windows フォーム、wpf、xaml islands
 ms.localizationpriority: medium
 ms.custom: RS5, 19H1
 ms.openlocfilehash: e718de7a22873ccf347e60c661f724ce3abdd2cf
@@ -15,7 +15,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 06/27/2019
 ms.locfileid: "67420133"
 ---
-# <a name="part-1-migrate-the-contoso-expenses-app-to-net-core-3"></a>作業 1:Contoso の移行を .NET Core 3 経費アプリ
+# <a name="part-1-migrate-the-contoso-expenses-app-to-net-core-3"></a>作業 1: Contoso Expenses アプリの .NET Core 3 への移行
 
 これは、Contoso の経費をという名前のサンプル WPF デスクトップ アプリの近代化する方法を説明するチュートリアルの最初の部分です。 チュートリアル、前提条件、およびサンプル アプリをダウンロードする手順の概要については、次を参照してください。[チュートリアル。WPF アプリの近代化](modernize-wpf-tutorial.md)します。
   
@@ -278,7 +278,7 @@ NuGet パッケージの構成を**ContosoExpenses.Core**プロジェクト。
 
 ## <a name="next-steps"></a>次のステップ
 
-この時点で、チュートリアルでは正常に移行されました、Contoso 経費アプリケーションを .NET Core の 3。 準備が整いました[第 2 部。XAML 諸島を使って UWP InkCanvas コントロールを追加](modernize-wpf-tutorial-2.md)します。
+チュートリアルのこの時点で、Contoso Expenses アプリは .NET Core 3 に正常に移行されました、これで、[第 2 部:XAML Islands を使って UWP InkCanvas コントロールを追加](modernize-wpf-tutorial-2.md) の準備が整いました。
 
 > [!NOTE]
 > 高解像度画面であれば、アプリが非常に小さいことに注意してください可能性があります。 このチュートリアルの次の手順では、この問題を取り上げます。
