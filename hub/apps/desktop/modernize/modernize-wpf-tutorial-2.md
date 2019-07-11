@@ -5,7 +5,7 @@ ms.topic: article
 ms.date: 06/27/2019
 ms.author: mcleans
 author: mcleanbyron
-keywords: windows 10、uwp、windows フォーム、wpf、xaml 諸島
+keywords: windows 10、uwp、windows フォーム、wpf、xaml islands
 ms.localizationpriority: medium
 ms.custom: RS5, 19H1
 ms.openlocfilehash: 2f8cf18bce7bec880a2cb0bef298c0b565e20208
@@ -19,7 +19,7 @@ ms.locfileid: "67420091"
 
 これは、Contoso の経費をという名前のサンプル WPF デスクトップ アプリの近代化する方法を説明するチュートリアルの 2 番目の部分です。 チュートリアル、前提条件、およびサンプル アプリをダウンロードする手順の概要については、次を参照してください。[チュートリアル。WPF アプリの近代化](modernize-wpf-tutorial.md)します。 この記事では、既に完了している前提としています。[パート 1](modernize-wpf-tutorial-1.md)します。
 
-このチュートリアルの架空のシナリオでは、contoso 社の開発チームが、Contoso 経費アプリにデジタル署名のサポートを追加します。 UWP **InkCanvas**デジタル インクおよびテキストや図形を認識する機能などの AI を利用した機能をサポートしているために、コントロールがこのシナリオで便利なオプションです。 これを行うには、使用して、 [InkCanvas](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/inkcanvas) Windows コミュニティ Toolkit で使用可能な UWP コントロールをラップします。 このコントロールは、インターフェイスと、UWP の機能をラップ**InkCanvas** WPF アプリで使用されるコントロール。 ラップされた UWP コントロールの詳細については、次を参照してください。[デスクトップ アプリ (XAML 諸島) でコントロールをホスト UWP XAML](xaml-islands.md)します。
+このチュートリアルの架空のシナリオでは、contoso 社の開発チームが、Contoso 経費アプリにデジタル署名のサポートを追加します。 UWP **InkCanvas**デジタル インクおよびテキストや図形を認識する機能などの AI を利用した機能をサポートしているために、コントロールがこのシナリオで便利なオプションです。 これを行うには、使用して、 [InkCanvas](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/inkcanvas) Windows コミュニティ Toolkit で使用可能な UWP コントロールをラップします。 このコントロールは、インターフェイスと、UWP の機能をラップ**InkCanvas** WPF アプリで使用されるコントロール。 ラップされた UWP コントロールの詳細については、次を参照してください。[デスクトップ アプリ (XAML Islands) でコントロールをホスト UWP XAML](xaml-islands.md)します。
 
 ## <a name="configure-the-project-to-use-xaml-islands"></a>XAML Islandsを使用するプロジェクトを構成します。
 
@@ -32,7 +32,7 @@ ms.locfileid: "67420091"
 2. **NuGet パッケージ マネージャー**ウィンドウで、をクリックして**参照**します。 選択、**プレリリースを含める**オプションで、検索、`Microsoft.Toolkit.Wpf.UI.Controls`パッケージ化、および結果に示すように、パッケージの最新のプレビュー リリースをインストールします。
 
     > [!NOTE]
-    > このパッケージには、WPF アプリケーションでは、UWP XAML 諸島をホストするためのすべての必要なインフラストラクチャが含まれています。 など、 **InkCanvas** UWP コントロールをラップします。 という名前のようなパッケージ`Microsoft.Toolkit.Forms.UI.Controls`は Windows フォーム アプリで利用できます。
+    > このパッケージには、WPF アプリケーションでは、UWP XAML Islandsをホストするためのすべての必要なインフラストラクチャが含まれています。 など、 **InkCanvas** UWP コントロールをラップします。 という名前のようなパッケージ`Microsoft.Toolkit.Forms.UI.Controls`は Windows フォーム アプリで利用できます。
 
 3. 右クリック**ContosoExpenses.Core**プロジェクト**ソリューション エクスプ ローラー**選択**追加]、[新しい項目の**します。
 
@@ -168,4 +168,4 @@ ms.locfileid: "67420091"
 
 ## <a name="next-steps"></a>次のステップ
 
-この時点で、チュートリアルでは正常に追加した、UWP **InkCanvas** Contoso 経費アプリケーションを制御します。 準備が整いました[パート 3。XAML 諸島を使用して、UWP の予定表ビュー コントロールを追加](modernize-wpf-tutorial-3.md)します。
+この時点で、チュートリアルでは正常に追加した、UWP **InkCanvas** Contoso 経費アプリケーションを制御します。 準備が整いました[パート 3。XAML Islandsを使用して、UWP の予定表ビュー コントロールを追加](modernize-wpf-tutorial-3.md)します。
