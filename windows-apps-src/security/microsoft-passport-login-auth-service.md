@@ -1174,4 +1174,4 @@ ms.locfileid: "66371228"
 ## <a name="related-topics"></a>関連トピック
 
 * [Windows Hello](microsoft-passport.md)
-* [Windows こんにちはの アプリのログイン](microsoft-passport-login.md)
+* [Windows Hello ログイン アプリ](microsoft-passport-login.md)
