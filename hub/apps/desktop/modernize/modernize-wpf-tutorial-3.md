@@ -1,11 +1,11 @@
 ---
 description: このチュートリアルでは、UWP XAML ユーザー インターフェイスを追加、MSIX パッケージを作成およびその他の最新コンポーネントを WPF アプリに組み込む方法を示します。
-title: XAML Islands を使用して、UWP の予定表ビュー コントロールを追加します。
+title: XAML 諸島を使用して、UWP の予定表ビュー コントロールを追加します。
 ms.topic: article
 ms.date: 06/27/2019
 ms.author: mcleans
 author: mcleanbyron
-keywords: windows 10、uwp、windows フォーム、wpf、xaml islands
+keywords: windows 10、uwp、windows フォーム、wpf、xaml 諸島
 ms.localizationpriority: medium
 ms.custom: RS5, 19H1
 ms.openlocfilehash: fce9135267461f61515c7dc04bbaf43b1e4c04ed
