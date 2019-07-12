@@ -5,19 +5,20 @@ ms.date: 01/03/2019
 ms.topic: article
 keywords: windows 10 s, 常時接続, ARM での ARM32 アプリ, ARM 版 windows 10, トラブルシューティング
 ms.localizationpriority: medium
-ms.openlocfilehash: b93a4a3bdf4a6abd12a0df8bfc1871cb38647f63
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 3ef6d521cc3f090179e816873fdaa0a4cdd8307e
+ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67319752"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67821060"
 ---
 # <a name="troubleshooting-arm-uwp-apps"></a>UWP アプリを ARM のトラブルシューティング
 
 場合は、ARM32 または ARM64 UWP アプリは、ARM で正しく機能していない、役立つ可能性のあるいくつかのガイダンスを示します。
 
 >[!NOTE]
-> ネイティブ ARM64 プラットフォームを対象とする UWP アプリケーションを構築するには、Visual Studio 2017 バージョン 15.9 以降が必要です。 詳細については、次を参照してください。[このブログの投稿](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/)します。
+> ネイティブ ARM64 プラットフォームを対象とする UWP アプリケーションのビルドするには、Visual Studio 2017 バージョン 15.9 またはそれ以降、または Visual Studio 2019 が必要です。 詳細については、次を参照してください。[このブログの投稿](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development)します。
+
 
 ## <a name="common-issues"></a>一般的な問題
 ここでは、一般的な問題がいくつか ARM32 および ARM64 のアプリのトラブルシューティングを行うときに注意してください。

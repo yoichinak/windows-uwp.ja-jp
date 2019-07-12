@@ -5,12 +5,12 @@ ms.date: 06/28/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 9d0f6cdf4818743e3b5a3cc7c5a6b13f69f40afa
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: f0549aa1e20d8ed787eed550f4a7e7171a812831
+ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67318458"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67820184"
 ---
 # <a name="my-people-sharing"></a>マイ連絡先の共有
 
@@ -18,9 +18,9 @@ ms.locfileid: "67318458"
 
 ![マイ連絡先の共有パネル](images/my-people-sharing.png)
 
-## <a name="requirements"></a>要件
+## <a name="requirements"></a>必要条件
 
-+ Windows 10 と Microsoft Visual Studio 2017。 インストールについて詳しくは、「[Visual Studio のセットアップ](https://docs.microsoft.com/en-us/windows/uwp/get-started/get-set-up)」をご覧ください。
++ Windows 10 と Microsoft Visual Studio 2019。 インストールについて詳しくは、「[Visual Studio のセットアップ](https://docs.microsoft.com/en-us/windows/uwp/get-started/get-set-up)」をご覧ください。
 + C# またはこれに類似するオブジェクト指向プログラミング言語に関する基本的な知識。 C# で作業を始めるには、「["Hello, world" アプリを作成する](https://docs.microsoft.com/en-us/windows/uwp/get-started/create-a-hello-world-app-xaml-universal)」をご覧ください。
 
 ## <a name="overview"></a>概要
@@ -40,7 +40,7 @@ ms.locfileid: "67318458"
 アプリケーションでの共有ターゲットのサポートを宣言するには、まず Visual Studio でアプリケーションを開きます。 **ソリューション エクスプローラー** で **Package.appxmanifest** を右クリックして、 **[プログラムから開く]** を選択します。 メニューをから **[XML (テキスト) エディター]** を選び、 **[OK]** をクリックします。 マニフェストを次のように変更します。
 
 
-**以前は**
+**変更前**
 ```xml
 <Applications>
     <Application Id="MyApp"
@@ -50,7 +50,7 @@ ms.locfileid: "67318458"
 </Applications>
 ```
 
-**後**
+**変更後**
 
 ```xml
 <Applications>

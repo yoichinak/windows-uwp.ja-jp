@@ -6,12 +6,12 @@ ms.date: 10/10/2017
 ms.topic: article
 keywords: Windows 10, UWP, リソース, 画像, アセット, MRT, 修飾子
 ms.localizationpriority: medium
-ms.openlocfilehash: 0e5ba7ddb6ef37b4aa54584602fc890bbabc8998
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: db5ba7fb6e13d2a5aab4b74014458073aa88e7f4
+ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66359351"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67820211"
 ---
 # <a name="tailor-your-resources-for-language-scale-high-contrast-and-other-qualifiers"></a>言語、スケール、ハイ コントラスト、その他の修飾子用にリソースを調整する
 
@@ -61,7 +61,7 @@ ms.locfileid: "66359351"
 
 ## <a name="reference-a-string-or-image-resource-by-name"></a>文字列または画像リソースを名前で参照する
 
-「[XAML マークアップから文字列リソース識別子を参照する](localize-strings-ui-manifest.md#refer-to-a-string-resource-identifier-from-xaml-markup)」、「[コードから文字列リソース識別子を参照する](localize-strings-ui-manifest.md#refer-to-a-string-resource-identifier-from-code)」、「[XAML マークアップとコードから画像やその他のアセットを参照する](images-tailored-for-scale-theme-contrast.md#reference-an-image-or-other-asset-from-xaml-markup-and-code)」をご覧ください。
+「[XAML マークアップから文字列リソース識別子を参照する](localize-strings-ui-manifest.md#refer-to-a-string-resource-identifier-from-xaml)」、「[コードから文字列リソース識別子を参照する](localize-strings-ui-manifest.md#refer-to-a-string-resource-identifier-from-code)」、「[XAML マークアップとコードから画像やその他のアセットを参照する](images-tailored-for-scale-theme-contrast.md#reference-an-image-or-other-asset-from-xaml-markup-and-code)」をご覧ください。
 
 ## <a name="actual-and-neutral-qualifier-matches"></a>修飾子の実際の一致と中立的な一致
 修飾子の値の*すべて*にリソース ファイルを指定する必要はありません。 たとえば、ハイ コントラスト用と標準コントラスト用にビジュアル アセットを各 1 つのみ必要とする場合は、これらのアセット名を次のように付けることができます。
@@ -193,7 +193,7 @@ public void SetLicenseLevel(BrandID brand)
 
 `homeregion` 修飾子は、国または地域のユーザー設定に対応します。 ユーザーが住んでいる地域の場所を表します。 値には、有効な [BCP-47 region タグ](https://go.microsoft.com/fwlink/p/?linkid=227302)が含まれます。 つまり、**ISO 3166-1 alpha-2** の 2 文字の地域番号に、構成地域用の **ISO 3166-1 numeric** の 3 桁の地域番号のセットを加えた値となります ([国連統計部 M49 地域番号構成に関するページ](https://go.microsoft.com/fwlink/p/?linkid=247929)をご覧ください)。 "Selected economic and other groupings" の番号は有効ではありません。
 
-## <a name="language"></a>言語
+## <a name="language"></a>[言語]
 
 `language` 修飾子は、表示言語設定に対応します。 値には、有効な [BCP 47 language タグ](https://go.microsoft.com/fwlink/p/?linkid=227302)が含まれます。 言語の一覧については、[IANA 言語サブタグ レジストリに関するページ](https://go.microsoft.com/fwlink/p/?linkid=227303)をご覧ください。
 
@@ -256,7 +256,7 @@ Windows では、ディスプレイの DPI (1 インチあたりのドット数)
 
 `scale` と `targetsize` でリソースを修飾する方法については、「[targetsize で画像リソースを修飾する](images-tailored-for-scale-theme-contrast.md#qualify-an-image-resource-for-targetsize)」をご覧ください。
 
-## <a name="theme"></a>Theme
+## <a name="theme"></a>テーマ
 
 `theme` 修飾子は、既定のアプリ モード設定に最も一致するリソースか、[Application.RequestedTheme](/uwp/api/windows.ui.xaml.application.requestedtheme) を使用してアプリのオーバーライドを提供するために使用されます。
 

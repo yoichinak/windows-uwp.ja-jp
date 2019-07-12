@@ -9,12 +9,12 @@ ms.date: 12/07/2018
 ms.topic: article
 keywords: Windows 10, UWP, グローバリゼーション, ローカライズの可否, ローカライズ
 ms.localizationpriority: medium
-ms.openlocfilehash: 91396051ec822f469e300f51217191fc4e704cac
-ms.sourcegitcommit: 139717a79af648a9231821bdfcaf69d8a1e6e894
+ms.openlocfilehash: 466747cbbfe6f599f42a39f0d2766f78775ec6c8
+ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67714049"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67820587"
 ---
 # <a name="globalization-and-localization"></a>グローバリゼーションとローカライズ
 
@@ -67,6 +67,6 @@ Windows は世界中で利用されており、言語、地域、文化の異な
 | [ローカライズ可能なアプリを作成します。](prepare-your-app-for-localization.md) | ローカライズされたアプリは、アプリで機能上の欠陥を生じさせることなく他の市場、言語、または地域にローカライズできるアプリです。 ローカライズ可能なアプリの最も重要な特性は、その実行可能コードが、アプリのローカライズ可能なリソースから明確に区別されていることです。 |
 | [国際対応フォント](loc-international-fonts.md) | このトピックには、米国以外の言語にローカライズされている UWP アプリの使用可能なフォントが表示されます。英語。 |
 | [双方向テキスト用のアプリを設計します。](design-for-bidi-text.md) | 左から右方向および右から左方向の書記体系のスクリプトを組み合わせることができるように、双方向テキスト サポート (BiDi) を備えたアプリを設計します。 |
-| [Multilingual App Toolkit 4.0 を使用して、](use-mat.md) | Microsoft Visual Studio 2017 には多言語アプリ ツールキット (MAT) 4.0 が統合されています。そのため、UWP アプリで翻訳がサポートされ、翻訳ファイルを管理したり、エディター ツールを利用したりできます。 |
+| [Multilingual App Toolkit 4.0 を使用して、](use-mat.md) | 多言語アプリ ツールキット (MAT) 4.0 は、翻訳サポート、翻訳ファイル管理、およびエディター ツールを使用して UWP アプリを提供する Microsoft Visual Studio 2017 以降のバージョンとを統合します。 |
 | [Multilingual App Toolkit 4.0 FAQ とトラブルシューティング](mat-faq-troubleshooting.md) | このトピックでは、多言語アプリ ツールキット (MAT) 4.0 に関連したよくある質問と問題の回答を示します。 |
 | [日本語の時代 (年号) の変更、アプリケーションを準備します。](japanese-era-change.md) | 2019 年 5 月に行われる改元と、アプリケーションでの対応方法について説明します。 |

@@ -5,12 +5,12 @@ ms.date: 06/28/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 58bf8df4551c8bcfc663d2c832bef3a879ff6350
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 67a96b8423d589036ef1c6896f056d097282dc33
+ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67317970"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67820226"
 ---
 # <a name="adding-my-people-support-to-an-application"></a>アプリケーションにマイ連絡先のサポートを追加する
 
@@ -20,7 +20,7 @@ ms.locfileid: "67317970"
 
 ## <a name="requirements"></a>必要条件
 
-+ Windows 10 と Microsoft Visual Studio 2017。 インストールについて詳しくは、「[Visual Studio のセットアップ](https://docs.microsoft.com/en-us/windows/uwp/get-started/get-set-up)」をご覧ください。
++ Windows 10 と Microsoft Visual Studio 2019。 インストールについて詳しくは、「[Visual Studio のセットアップ](https://docs.microsoft.com/en-us/windows/uwp/get-started/get-set-up)」をご覧ください。
 + C# またはこれに類似するオブジェクト指向プログラミング言語に関する基本的な知識。 C# で作業を始めるには、「["Hello, world" アプリを作成する](https://docs.microsoft.com/en-us/windows/uwp/get-started/create-a-hello-world-app-xaml-universal)」をご覧ください。
 
 ## <a name="overview"></a>概要
@@ -37,7 +37,7 @@ ms.locfileid: "67317970"
 
 マイ連絡先のコントラクトのサポートを宣言するには、Visual Studio でアプリケーションを開きます。 **ソリューション エクスプローラー** で **Package.appxmanifest** を右クリックして、 **[プログラムから開く]** を選択します。 メニューをから **[XML (テキスト) エディター]** を選び、 **[OK]** をクリックします。 マニフェストを次のように変更します。
 
-**以前は**
+**変更前**
 
 ```xml
 <Package
@@ -53,7 +53,7 @@ ms.locfileid: "67317970"
 
 ```
 
-**後**
+**変更後**
 
 ```xml
 <Package
@@ -107,7 +107,7 @@ if (ApiInformation.IsApiContractPresent("Windows.Foundation.UniversalApiContract
 
 既定では、アプリケーションは、具体的に注釈を付けた連絡先の連絡先パネルのみに表示されます。  これはアプリから操作を行えない連絡先との混同を避けるためです。  アプリケーションが認識していない連絡先にもアプリケーションが表示されるようにする (たとえば、アカウントに連絡先を追加するようにユーザーを招待するためなど) には、マニフェストに以下を追加することができます。
 
-**以前は**
+**変更前**
 
 ```Csharp
 <Applications>
@@ -121,7 +121,7 @@ if (ApiInformation.IsApiContractPresent("Windows.Foundation.UniversalApiContract
 </Applications>
 ```
 
-**後**
+**変更後**
 
 ```Csharp
 <Applications>

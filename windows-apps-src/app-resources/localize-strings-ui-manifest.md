@@ -8,14 +8,15 @@ ms.date: 11/01/2017
 ms.topic: article
 keywords: Windows 10, UWP, リソース, 画像, アセット, MRT, 修飾子
 ms.localizationpriority: medium
-ms.openlocfilehash: 71150df50a7c7e01293d4ec638f520239124e7cd
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: b6caf2de67b72c01391d47037150d76500a1cb42
+ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66359405"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67820305"
 ---
 # <a name="localize-strings-in-your-ui-and-app-package-manifest"></a>UI とアプリ パッケージ マニフェスト内の文字列をローカライズする
+
 アプリのローカライズの価値提案の詳細については、「[グローバリゼーションとローカライズ](../design/globalizing/globalizing-portal.md)」をご覧ください。
 
 アプリで複数の表示言語をサポートする必要があり、コード、XAML マークアップ、アプリ パッケージ マニフェスト内に文字列リテラルが含まれている場合は、その文字列をリソース ファイル (.resw) に移動します。 アプリでサポートする各言語用に、このリソース ファイルを翻訳したコピーを作成することができます。
@@ -24,7 +25,8 @@ ms.locfileid: "66359405"
 
 画像リソース ファイルに画像リソースが 1 つだけ含まれている画像リソースとは異なり、文字列リソース ファイルには*複数の*文字列リソースが含まれています。 文字列リソース ファイルはリソース ファイル (.resw) であり、通常、この種類のリソース ファイルはプロジェクトの \Strings フォルダー内に作成します。 リソース ファイル (.resw) の名前に修飾子を使用する方法の詳細については、「[言語、スケール、その他の修飾子用にリソースを調整する](tailor-resources-lang-scale-contrast.md)」をご覧ください。
 
-## <a name="create-a-resources-file-resw-and-put-your-strings-in-it"></a>リソース ファイル (.resw) を作成し、文字列を配置する
+## <a name="store-strings-in-a-resources-file"></a>文字列リソース ファイルに保存します。
+
 1. アプリの既定の言語を設定します。
     1. Visual Studio でソリューションを開いた状態で、`Package.appxmanifest` を開きます。
     2. [アプリケーション] タブで、既定の言語が適切に設定されている ("en"や "en-us" など) ことを確認します。 残りの手順では、既定の言語を "en-US" に設定していることを前提としています。
@@ -34,7 +36,7 @@ ms.locfileid: "66359405"
     2. `Strings` で、新しいサブフォルダーを作成し、"en-US" という名前を付けます。
     3. `en-US` で、新しいリソース ファイル (.resw) を作成し、その名前が "Resources.resw" になっていることを確認します。
     <br>**注** .NET リソース ファイル (.resx) ポートにする場合を参照してください。[移植 XAML と UI](../porting/wpsl-to-uwp-porting-xaml-and-ui.md#localization-and-globalization)します。
-3.  `Resources.resw` を開き、次の文字列リソースを追加します。
+3. `Resources.resw` を開き、次の文字列リソースを追加します。
 
     `Strings/en-US/Resources.resw`
 
@@ -46,7 +48,8 @@ ms.locfileid: "66359405"
 
     リソース識別子は大文字と小文字が区別されません。リソース識別子は、リソース ファイルごとに一意でなければなりません。 翻訳者に付加的なコンテキストを提供するために、必ず意味のあるリソース識別子を使ってください。 また、文字列リソースが翻訳に回された後は、リソース識別子を変更しないでください。 ローカライズ チームは、リソース識別子を使ってリソース内の追加、削除、更新を追跡します。 リソース識別子で変更&mdash;「リソース識別子シフト」であるとも呼ばれます&mdash;文字列が削除されたものとして表示されるため、数値を文字列とその他のユーザーを追加が必要です。
 
-## <a name="refer-to-a-string-resource-identifier-from-xaml-markup"></a>XAML マークアップから文字列リソース識別子を参照する
+## <a name="refer-to-a-string-resource-identifier-from-xaml"></a>XAML から文字列リソースの識別子を参照してください。
+
 [x:Uid ディレクティブ](../xaml-platform/x-uid-directive.md)を使用して、マークアップ内のコントロールやその他の要素を文字列リソース識別子に関連付けます。
 
 ```xaml
@@ -66,6 +69,7 @@ Greeting.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name
 ```
 
 ## <a name="refer-to-a-string-resource-identifier-from-code"></a>コードから文字列リソース識別子を参照する
+
 単純な文字列リソース識別子に基づいて、文字列リソースを明示的に読み込むことができます。
 
 > [!NOTE]
@@ -101,7 +105,8 @@ this.myXAMLTextBlockElement.Text = resourceLoader.GetString("Fare/Well"); // <da
 ```
 
 ## <a name="refer-to-a-string-resource-identifier-from-your-app-package-manifest"></a>アプリ パッケージ マニフェストから文字列リソース識別子を参照する
-1. アプリ パッケージ マニフェスト ソース ファイル (`Package.appxmanifest` ファイル) を開きます。既定では、アプリの表示名は文字列リテラルで表されます。
+
+1. アプリ パッケージのマニフェストのソース ファイルを開きます (、`Package.appxmanifest`ファイル) で既定のアプリの`Display name`はリテラル文字列として表されます。
 
    ![リソースの追加 (英語)](images/display-name-before.png)
 
@@ -114,6 +119,7 @@ this.myXAMLTextBlockElement.Text = resourceLoader.GetString("Fare/Well"); // <da
 4. マニフェスト内のローカライズする各文字列について、この手順を繰り返します。 たとえば、アプリの短い名前 (スタート画面でアプリのタイルに表示されるように構成できる) です。 アプリ パッケージ マニフェスト内で、ローカライズできるすべての項目の一覧については、「[マニフェストのローカライズ可能な項目](/uwp/schemas/appxpackage/uapmanifestschema/localizable-manifest-items-win10?branch=live)」をご覧ください。
 
 ## <a name="localize-the-string-resources"></a>文字列リソースをローカライズする
+
 1. 別の言語用にリソース ファイル (.resw) のコピーを作成します。
     1. "Strings" の下に新しいサブフォルダーを作成し、Deutsch (Deutschland) を表す "de-DE" という名前を付けます。
    <br>**注** 、フォルダー名のいずれかを使用できる[bcp-47 言語タグ](https://go.microsoft.com/fwlink/p/?linkid=227302)します。 言語修飾子の詳しい情報と共通の言語タグの一覧は、「[言語、スケール、その他の修飾子用にリソースを調整する](tailor-resources-lang-scale-contrast.md)」をご覧ください。
@@ -132,11 +138,13 @@ this.myXAMLTextBlockElement.Text = resourceLoader.GetString("Fare/Well"); // <da
 ![リソースを追加する (フランス語)](images/addresource-fr-fr.png)
 
 ## <a name="test-your-app"></a>アプリのテスト
+
 既定の表示言語に対してアプリをテストします。 **[設定]**  >  **[時刻と言語]**  >  **[地域と言語]**  >  **[言語]** で表示言語を変更し、アプリを再テストできます。 文字列、UI とシェルを見て (、タイトル バーなど&mdash;表示名である&mdash;とタイルの短い名前)。
 
 **注** 表示言語の設定に一致するフォルダー名が見つかった場合、そのフォルダー内のリソース ファイルが読み込まれます。 それ以外の場合、フォールバックが行われ、最終的にはアプリの既定の言語用のリソースになります。
 
 ## <a name="factoring-strings-into-multiple-resources-files"></a>文字列を複数のリソース ファイルにファクタリングする
+
 1 つのリソース ファイル (resw) にすべての文字列を保持することも、複数のリソース ファイルに文字列をファクタリングすることもできます。 たとえば、エラー メッセージを 1 つのリソース ファイルに、アプリ パッケージ マニフェストの文字列を別のリソース ファイルに、UI の文字列を第 3 のリソース ファイルに保持することができます。 この場合、フォルダー構造は次のようになります。
 
 ![リソースの追加 (英語)](images/manifest-resources.png)
@@ -184,6 +192,7 @@ var resourceLoader = Windows.ApplicationModel.Resources.ResourceLoader.GetForCur
 ```
 
 ## <a name="load-a-string-for-a-specific-language-or-other-context"></a>特定の言語または他のコンテキスト用の文字列を読み込む
+
 既定の [**ResourceContext**](/uwp/api/windows.applicationmodel.resources.core.resourcecontext?branch=live) ([**ResourceContext.GetForCurrentView**](/uwp/api/windows.applicationmodel.resources.core.resourcecontext.GetForCurrentView) から取得された) には、既定の実行時コンテキスト (つまり、現在のユーザーとコンピューターの設定) を表す、各修飾子名の修飾子の値が含まれています。 リソース ファイル (.resw) が一致する&mdash;、名前に修飾子に基づいて&mdash;ランタイム コンテキストでの修飾子の値と比較します。
 
 ただし、アプリでシステム設定を上書きし、読み込むリソース ファイルを検索するときに使用する言語、スケール、その他の修飾子の値を明示的に指定することが必要になる場合があります。 たとえば、ユーザーがヒントやエラー メッセージに別の言語を選ぶことができるように設定できます。
@@ -218,6 +227,7 @@ Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride = "de-DE";
 ```
 
 ## <a name="updating-strings-in-response-to-qualifier-value-change-events"></a>修飾子の値の変更イベントへの応答で文字列を更新する
+
 実行中のアプリは、既定の **ResourceContext** で修飾子の値に影響を与えるシステム設定の変更に応答できます。 これらのシステム設定のいずれかが、[**ResourceContext.QualifierValues**](/uwp/api/windows.applicationmodel.resources.core.resourcecontext.QualifierValues) の [**MapChanged**](/uwp/api/windows.foundation.collections.iobservablemap-2.mapchanged?branch=live) イベントを呼び出します。
 
 このイベントへの応答で、既定の **ResourceContext** から文字列を再読み込みすることができます。
@@ -254,7 +264,8 @@ private void RefreshUIText()
 }
 ```
 
-## <a name="loading-strings-from-a-class-library-or-a-windows-runtime-library"></a>クラス ライブラリまたは Windows ランタイム ライブラリから文字列を読み込む
+## <a name="load-strings-from-a-class-library-or-a-windows-runtime-library"></a>クラス ライブラリまたは Windows ランタイム ライブラリから文字列を読み込む
+
 参照されているクラス ライブラリ (ユニバーサル Windows) または [Windows ランタイム ライブラリ (ユニバーサル Windows)](../winrt-components/index.md) の文字列リソースは、通常、構築プロセス中にそれらが含まれているパッケージのサブフォルダーに追加されます。 このような文字列のリソース識別子は、通常、*LibraryName/ResourcesFileName/ResourceIdentifier* という形式になります。
 
 ライブラリは、独自のリソースについて、ResourceLoader を取得できます。 たとえば、次のコードでは、ライブラリまたはそれを参照するアプリのいずれかが、ResourceLoader のライブラリの文字列リソースを取得する方法を示しています。
@@ -270,16 +281,43 @@ Windows ランタイム ライブラリ (ユニバーサル Windows)、既定の
 var resourceLoader = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView("Contoso.Control/Resources");
 ```
 
-クラス ライブラリ (ユニバーサル Windows) に対応する必要はありません。 不明なを使用できる場合[MakePri.exe](makepri-exe-command-options.md)コンポーネントまたはライブラリの PRI ファイルにダンプします。 各リソースの`uri`ダンプ ファイルに表示されます。
+クラス ライブラリ (ユニバーサル Windows) に対応する必要はありません。 不明なを指定できる場合[MakePri.exe のコマンド ライン オプション](makepri-exe-command-options.md)コンポーネントまたはライブラリの PRI ファイルにダンプします。 各リソースの`uri`ダンプ ファイルに表示されます。
 
 ```xml
 <NamedResource name="exampleResourceName" uri="ms-resource://Contoso.Control/Contoso.Control/ReswFileName/exampleResourceName">...
 ```
 
 ## <a name="loading-strings-from-other-packages"></a>他のパッケージから文字列を読み込む
+
 リソースのアプリケーション パッケージの管理し、パッケージの経由でアクセスを所有して最上位 [**ResourceMap** ](/uwp/api/windows.applicationmodel.resources.core.resourcemap?branch=live)現在からアクセス可能である [**ResourceManager**](/uwp/api/windows.applicationmodel.resources.core.resourcemanager?branch=live). 各パッケージ内では、さまざまなコンポーネントが経由でアクセスできる、独自の ResourceMap サブツリーを持つことができます[ **ResourceMap.GetSubtree**](/uwp/api/windows.applicationmodel.resources.core.resourcemap.getsubtree?branch=live)します。
 
 フレームワーク パッケージは、絶対リソース識別子 URI を使って独自のリソースにアクセスできます。 「[URI スキーム](uri-schemes.md)」もご覧ください。
+
+## <a name="loading-strings-in-non-packaged-applications"></a>パッケージ化されたアプリケーションで文字列を読み込む
+
+Windows バージョン 1903 (2019 の更新の可能性があります) の時点にパッケージ化されたアプリケーションは、リソース管理システムにも活用できます。
+
+だけ、UWP ユーザー コントロールとライブラリを作成し、[リソース ファイル内の任意の文字列を格納](#store-strings-in-a-resources-file)します。 できます[XAML から文字列リソースの識別子を参照してください](#refer-to-a-string-resource-identifier-from-xaml)、[コードから文字列リソースの識別子を参照してください](#refer-to-a-string-resource-identifier-from-code)、または[クラス ライブラリまたは Windows ランタイム ライブラリから文字列を読み込む](#load-strings-from-a-class-library-or-a-windows-runtime-library).
+
+パッケージ化されたアプリケーションでリソースを使用するには、いくつかの点を行う必要があります。
+
+1. パッケージ化されたシナリオをサポートするために使用[GetForViewIndependentUse](https://docs.microsoft.com/uwp/api/windows.applicationmodel.resources.resourceloader.getforviewindependentuse)の代わりに[GetForCurrentView](https://docs.microsoft.com/uwp/api/windows.applicationmodel.resources.resourceloader.getforcurrentview)がない*現在のビュー*にパッケージ化されたシナリオでします。 呼び出す場合、次の例外が発生した[GetForCurrentView](https://docs.microsoft.com/uwp/api/windows.applicationmodel.resources.resourceloader.getforcurrentview)にパッケージ化されたシナリオで。*リソースのコンテキストは可能性があります、CoreWindow がないスレッドでは作成されません。*
+1. 使用[MakePri.exe](https://docs.microsoft.com/windows/uwp/app-resources/compile-resources-manually-with-makepri)を手動でアプリの resources.pri ファイルを生成します。
+    - `makepri new /pr <PROJECTROOT> /cf <PRICONFIG> /dq <DEFAULTLANGUAGEQUALIFIER> /of resources.pri`を実行します。
+    - <PRICONFIG>省略する必要があります、"<packaging>"セクションのすべてのリソースは単一 resources.pri ファイルにバンドルされています。 既定値を使用して場合[MakePri.exe 構成ファイル](https://docs.microsoft.com/windows/uwp/app-resources/makepri-exe-configuration)によって作成された[createconfig](https://docs.microsoft.com/windows/uwp/app-resources/makepri-exe-command-options#createconfig-command)、削除する必要がある、"<packaging>"手動で作成した後のセクションします。
+    - <PRICONFIG>プロジェクト内のすべてのリソースを 1 つ resources.pri ファイルにマージするために必要なすべての関連するインデクサーを含める必要があります。 既定の[MakePri.exe 構成ファイル](https://docs.microsoft.com/windows/uwp/app-resources/makepri-exe-configuration)によって作成された[createconfig](https://docs.microsoft.com/windows/uwp/app-resources/makepri-exe-command-options#createconfig-command)すべてのインデクサーが含まれています。
+    - 既定の構成を使用しない場合は、PRI インデクサーが有効になっていることを確認してください (これを行う方法の既定の構成を確認してください)、プロジェクトのルート内にある UWP プロジェクトの参照、NuGet 参照、およびから見つかった PRIs をマージします。
+        > [!NOTE]
+        > 省略して`/IndexName`、アプリケーション マニフェストがないプロジェクトによって、PRI ファイルの IndexName/ルート名前空間は自動的に設定し、*アプリケーション*にパッケージ化されたアプリのランタイムを理解しています (これを削除します、以前ハードの依存パッケージ ID)。 ただし、次のようにルート名前空間を明示的に指定できます。
+        > - ResourceLoader.GetForViewIndependentUse("ControlName\Resources").GetStringForUri(new Uri("ms-resource:///ManagedWinRT/Resources/Header"))
+        > - ResourceLoader.GetForViewIndependentUse("ControlName\Resources").GetStringForUri(new Uri("ms-resource://Application/ManagedWinRT/Resources/Header"))
+1. PRI ファイルを .exe のビルド出力ディレクトリにコピーします。
+1. .Exe を実行します。 
+    > [!NOTE]
+    > リソース管理システムは、アプリのパッケージ化以外の言語に基づいてリソースを解決するときに、ユーザーの好みの言語一覧ではなく、システムの表示言語を使用します。 ユーザーの好みの言語の一覧は、UWP アプリにのみ使用されます。
+
+> [!Important]
+> PRI ファイルを手動でリビルドする必要がありますを処理するビルド後のスクリプトなどのリソース ファイルの内容が変更された場合、 [MakePri.exe](https://docs.microsoft.com/windows/uwp/app-resources/compile-resources-manually-with-makepri)コマンド、.exe ディレクトリに resources.pri 出力をコピーします。
 
 ## <a name="important-apis"></a>重要な API
 * [ApplicationModel.Resources.ResourceLoader](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Resources.ResourceLoader)
