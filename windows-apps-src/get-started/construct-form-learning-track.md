@@ -6,12 +6,12 @@ ms.topic: article
 keywords: 概要, uwp, windows 10, 学習トラック, レイアウト, フォーム
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: cd3fb1c294ac81f42bb53c23d307eed49a6708fd
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 2e64392e1de5f6061b802acc0a2eed81c3e750fb
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64564583"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67318806"
 ---
 # <a name="create-and-customize-a-form"></a>フォームを作成してカスタマイズする
 
@@ -182,4 +182,4 @@ UWP には、アプリに追加して構成することができる明示的な�
 | [アダプティブ レイアウトのチュートリアル](../design/basics/xaml-basics-adaptive-layout.md) | アダプティブ レイアウトやレスポンシブ デザインの手順を説明したガイド付きエクスペリエンスです。 |
 | [顧客注文データベース](https://github.com/Microsoft/Windows-appsample-customers-orders-database) | マルチページのエンタープライズのサンプルで、レイアウトとフォームの動作を確認してください。 |
 | [XAML コントロール ギャラリー](https://github.com/Microsoft/Xaml-Controls-Gallery) | 一部の XAML コントロール、およびそれらの実装方法を参照してください。 |
-| [その他のコード サンプル](https://developer.microsoft.com//windows/samples) | [カテゴリ] ドロップダウン リストで **[コントロール、レイアウト、テキスト]** を選択し、関連するコード サンプルを参照してください。 |
+| [その他のコード サンプル](https://developer.microsoft.com/windows/samples) | [カテゴリ] ドロップダウン リストで **[コントロール、レイアウト、テキスト]** を選択し、関連するコード サンプルを参照してください。 |

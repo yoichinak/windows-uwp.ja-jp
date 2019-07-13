@@ -6,12 +6,12 @@ ms.topic: article
 keywords: 概要, uwp, windows 10, 学習トラック, ファイル, ファイル io, ファイルの読み取り, ファイルの書き込み, ファイルの作成, テキストの書き込み, テキストの読み取り
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 5480638e201dca8a5eb5363d7a5944422c626f67
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 29cfeef852f240548f1cd961f73766346da7afa4
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66366888"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67321130"
 ---
 # <a name="work-with-files"></a>ファイルの操作
 
@@ -145,4 +145,4 @@ API の簡単な概要と、ファイルやフォルダーの使用を開始す�
 | [ファイル アクセスのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/FileAccess) | ファイルを作成、読み取り、書き込み、コピー、および削除する方法を示します。 |
 | [ファイル ピッカーのサンプル](https://code.msdn.microsoft.com/windowsapps/File-picker-sample-9f294cba) | ユーザーが UI で選択できるようにしてファイルやフォルダーにアクセスする方法、ユーザーが保存するファイルの名前、ファイルの種類、場所を指定できるようにファイルを保存する方法を示します。 |
 | [JSON サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Json) | [Windows.Data.Json namespace](https://docs.microsoft.com/uwp/api/Windows.Data.Json) を使用して、JavaScript Object Notation (JSON) オブジェクト、配列、文字列、数値、ブール値をエンコードおよびデコードする方法を示します。 |
-| [その他のコード サンプル](https://developer.microsoft.com//windows/samples) | [カテゴリ] ドロップダウン リストで、 **[Files, folder, and libraries] (ファイル、フォルダー、およびライブラリ)** を選択します。 |
+| [その他のコード サンプル](https://developer.microsoft.com/windows/samples) | [カテゴリ] ドロップダウン リストで、 **[Files, folder, and libraries] (ファイル、フォルダー、およびライブラリ)** を選択します。 |

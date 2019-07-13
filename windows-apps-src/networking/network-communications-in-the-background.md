@@ -6,12 +6,12 @@ ms.date: 06/14/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: b0246e338c13027f8afc8da4aa919faa0911b39c
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 4fcf2e1fa39ae1e40edc07c9ca3df81386c17823
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66371624"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67319934"
 ---
 # <a name="network-communications-in-the-background"></a>バックグラウンドでのネットワーク通信
 フォアグラウンドでないときにネットワーク通信を続けるため、アプリはバックグラウンド タスクと次のいずれかのオプションを使うことができます。
@@ -169,7 +169,7 @@ WebSocket、[**IXMLHTTPRequest2**](https://docs.microsoft.com/previous-versions/
 
 いくつかの特別な注意事項は、[**StreamWebSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamWebSocket) でパケットを受け取る要求の処理方法にかかわってきます。 特に、[**ControlChannelTrigger**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) で **StreamWebSocket** を使うアプリは、読み取り処理に、**await** モデル (C# と VB.NET) やタスク (C++) ではなく、生の非同期パターンを使う必要があります。 生の非同期パターンは、このセクションで後述するサンプル コードに示しています。
 
-生の非同期パターンを使うことによって、Windows は、[**ControlChannelTrigger**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) のバックグラウンド タスクの [**IBackgroundTask.Run**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtask.) メソッドを、受信完了コールバックの戻りと同期させることができます。 **Run** メソッドは、完了コールバックから制御が戻った後に呼び出されます。 これによって、**Run** メソッドが呼び出される前に、アプリはデータ/エラーを確実に受け取ることができます。
+生の非同期パターンを使うことによって、Windows は、[**ControlChannelTrigger**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) のバックグラウンド タスクの [**IBackgroundTask.Run**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtask.run) メソッドを、受信完了コールバックの戻りと同期させることができます。 **Run** メソッドは、完了コールバックから制御が戻った後に呼び出されます。 これによって、**Run** メソッドが呼び出される前に、アプリはデータ/エラーを確実に受け取ることができます。
 
 アプリは、完了コールバックから制御を戻す前に別の読み取りをポストしなければならない点に注意してください。 また、[**MessageWebSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.MessageWebSocket) または [**StreamWebSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamWebSocket) トランスポートで [**DataReader**](https://docs.microsoft.com/uwp/api/Windows.Storage.Streams.DataReader) を直接使うことはできません。上で説明した同期に支障をきたします。 トランスポートで直接 [**DataReader.LoadAsync**](https://docs.microsoft.com/uwp/api/windows.storage.streams.datareader.loadasync) メソッドを使うことはサポートされません。 別の方法として、[**StreamWebSocket.InputStream**](https://docs.microsoft.com/uwp/api/windows.networking.sockets.streamwebsocket.inputstream) プロパティの [**IInputStream.ReadAsync**](https://docs.microsoft.com/uwp/api/windows.storage.streams.iinputstream.readasync) メソッドから返された [**IBuffer**](https://docs.microsoft.com/uwp/api/Windows.Storage.Streams.IBuffer) を後で [**DataReader.FromBuffer**](https://docs.microsoft.com/uwp/api/windows.storage.streams.datareader.frombuffer) メソッドに渡して処理することはできます。
 
@@ -216,7 +216,7 @@ void PostSocketRead(int length)
 }
 ```
 
-[  **ControlChannelTrigger**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) のバックグラウンド タスクの [**IBackgroundTask.Run**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtask.) メソッドが呼び出される前に確実に読み取り完了ハンドラーが呼び出されます。 Windows は、読み取り完了コールバックからのアプリの復帰を待機する内部的な同期機構を備えています。 通常、アプリは、[**MessageWebSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.MessageWebSocket) または [**StreamWebSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamWebSocket) からのデータやエラーを読み取り完了コールバックですぐに処理します。 メッセージそのものは、**IBackgroundTask.Run** メソッドのコンテキスト内で処理されます。 以下のサンプルでは、この点をメッセージ キューを使って示しています。メッセージは、読み取り完了ハンドラーによってメッセージ キューに挿入され、バックグラウンド タスクによって後から処理されます。
+[  **ControlChannelTrigger**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) のバックグラウンド タスクの [**IBackgroundTask.Run**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtask.run) メソッドが呼び出される前に確実に読み取り完了ハンドラーが呼び出されます。 Windows は、読み取り完了コールバックからのアプリの復帰を待機する内部的な同期機構を備えています。 通常、アプリは、[**MessageWebSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.MessageWebSocket) または [**StreamWebSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamWebSocket) からのデータやエラーを読み取り完了コールバックですぐに処理します。 メッセージそのものは、**IBackgroundTask.Run** メソッドのコンテキスト内で処理されます。 以下のサンプルでは、この点をメッセージ キューを使って示しています。メッセージは、読み取り完了ハンドラーによってメッセージ キューに挿入され、バックグラウンド タスクによって後から処理されます。
 
 次のサンプルは、[**StreamWebSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamWebSocket) の読み取りを処理するための生の非同期パターンで使う読み取り完了ハンドラーを示しています。
 
@@ -483,7 +483,7 @@ private void SetupHttpRequestAndSendToHttpServer()
 
 いくつかの特別な注意事項は、[HttpClient](https://go.microsoft.com/fwlink/p/?linkid=241637) で HTTP 要求を送信して応答の受け取りを開始するための要求の処理方法にかかわってきます。 特に、[**ControlChannelTrigger**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) で [HttpClient](https://go.microsoft.com/fwlink/p/?linkid=241637) を使うアプリは、送信処理に、**await** モデルではなく、Task を使う必要があります。
 
-[HttpClient](https://go.microsoft.com/fwlink/p/?linkid=241637) を使った場合、[**ControlChannelTrigger**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) のバックグラウンド タスクの [**IBackgroundTask.Run**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtask.) メソッドと、受信完了コールバックの戻りとの同期が生じません。 したがって、アプリは、ブロックする HttpResponseMessage を **Run** メソッドで使い、応答全体を受け取るまで待機するしかありません。
+[HttpClient](https://go.microsoft.com/fwlink/p/?linkid=241637) を使った場合、[**ControlChannelTrigger**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) のバックグラウンド タスクの [**IBackgroundTask.Run**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtask.run) メソッドと、受信完了コールバックの戻りとの同期が生じません。 したがって、アプリは、ブロックする HttpResponseMessage を **Run** メソッドで使い、応答全体を受け取るまで待機するしかありません。
 
 [  **ControlChannelTrigger**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) での [HttpClient](https://go.microsoft.com/fwlink/p/?linkid=241637) の使用は、[**StreamSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamSocket) や [**MessageWebSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.MessageWebSocket)、[**StreamWebSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamWebSocket) のトランスポートとは大きく異なります。 [HttpClient](https://go.microsoft.com/fwlink/p/?linkid=241637) 受信コールバックは、[HttpClient](https://go.microsoft.com/fwlink/p/?linkid=241637) コード以後、Task を介してアプリに送られます。 つまり、データまたはエラーがアプリにディスパッチされるとすぐに **ControlChannelTrigger** プッシュ通知タスクが作動します。 以下のサンプル コードは、[HttpClient.SendAsync](https://go.microsoft.com/fwlink/p/?linkid=241637) メソッドから返された responseTask をグローバルなストレージに格納します。プッシュ通知タスクがそれを取り出し、インラインで処理します。
 

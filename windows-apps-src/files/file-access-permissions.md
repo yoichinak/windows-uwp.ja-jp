@@ -11,12 +11,12 @@ dev_langs:
 - cppwinrt
 - cpp
 - javascript
-ms.openlocfilehash: 1473d93bc10f50bf361f92f753adb786e502fc3a
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 9adc872554e0823eb0a4e1fdbebef19b876b6198
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66369435"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67321411"
 ---
 # <a name="file-access-permissions"></a>ファイル アクセス許可
 
@@ -259,7 +259,7 @@ ms.locfileid: "66369435"
 
 | Location | 機能 | Windows.Storage API |
 |----------|------------|---------------------|
-| ユーザーがアクセス権を持つすべてのファイル。 例: ドキュメント、画像、写真、ダウンロード、デスクトップ、OneDrive などです。 | broadFileSystemAccess<br><br>これは、制限付き機能です。 アクセスは、 **[設定]**  >  **[プライバシー]**  >  **[ファイル システム]** で構成できます。 ユーザーは **[設定]** でいつでもアクセスを許可または拒否できるため、アプリがこれらの変更に対して回復力があることを確認する必要があります。 アプリでアクセスできないことがわかった場合は、「[Windows 10 ファイル システムへのアクセスとプライバシー](https://privacy.microsoft.com/en-US/windows-10-file-system-access-and-privacy)」の記事へのリンクを提供し、ユーザーに設定の変更を求めるように選択できます。 ユーザーはアプリを閉じ、設定を切り替え、アプリを再起動する必要があることに注意してください。 アプリの実行中に設定を切り替えると、状態を保存できるようにプラットフォームでアプリが中断され、その後、新しい設定を適用するためにアプリが強制的に終了されます。 2018 年 4 月の更新プログラムでは、アクセス許可の既定値はオンです。 2018 の年 10 月の更新プログラムでは、既定値はオフです。<br /><br />この機能を宣言するアプリを Microsoft Store に提出する場合、アプリでこの機能が必要となる理由およびこの機能の使用目的に関する追加の説明を提供する必要があります。<br>この機能は、[**Windows.Storage**](https://docs.microsoft.com/uwp/api/Windows.Storage) 名前空間の API で動作します。 アプリでこの機能を有効にする方法の例については、この記事の最後の「**例**」セクションを参照してください。 | なし |
+| ユーザーがアクセス権を持つすべてのファイル。 例: ドキュメント、画像、写真、ダウンロード、デスクトップ、OneDrive などです。 | broadFileSystemAccess<br><br>これは、制限付き機能です。 アクセスは、 **[設定]**  >  **[プライバシー]**  >  **[ファイル システム]** で構成できます。 ユーザーは **[設定]** でいつでもアクセスを許可または拒否できるため、アプリがこれらの変更に対して回復力があることを確認する必要があります。 アプリでアクセスできないことがわかった場合は、「[Windows 10 ファイル システムへのアクセスとプライバシー](https://support.microsoft.com/help/4468237/windows-10-file-system-access-and-privacy-microsoft-privacy)」の記事へのリンクを提供し、ユーザーに設定の変更を求めるように選択できます。 ユーザーはアプリを閉じ、設定を切り替え、アプリを再起動する必要があることに注意してください。 アプリの実行中に設定を切り替えると、状態を保存できるようにプラットフォームでアプリが中断され、その後、新しい設定を適用するためにアプリが強制的に終了されます。 2018 年 4 月の更新プログラムでは、アクセス許可の既定値はオンです。 2018 の年 10 月の更新プログラムでは、既定値はオフです。<br /><br />この機能を宣言するアプリを Microsoft Store に提出する場合、アプリでこの機能が必要となる理由およびこの機能の使用目的に関する追加の説明を提供する必要があります。<br>この機能は、[**Windows.Storage**](https://docs.microsoft.com/uwp/api/Windows.Storage) 名前空間の API で動作します。 アプリでこの機能を有効にする方法の例については、この記事の最後の「**例**」セクションを参照してください。 | なし |
 | ドキュメント | DocumentsLibrary <br><br>注:アプリ マニフェストにファイルの種類の関連付けを追加し、この場所でアプリからアクセスできるファイルの種類を具体的に宣言する必要があります。 <br><br>この機能は、アプリが次の条件を満たす場合に使います。<br>- 有効な OneDrive URL またはリソース ID を使った、特定の OneDrive コンテンツへのクロスプラットフォーム オフライン アクセスを容易にする<br>- オフライン時に、開いているファイルをユーザーの OneDrive に自動的に保存する | [KnownFolders.DocumentsLibrary](https://docs.microsoft.com/uwp/api/windows.storage.knownfolders.documentslibrary) |
 | 音楽     | MusicLibrary <br>「[ミュージック、画像、およびビデオ ライブラリのファイルとフォルダー](quickstart-managing-folders-in-the-music-pictures-and-videos-libraries.md)」もご覧ください。 | [KnownFolders.MusicLibrary](https://docs.microsoft.com/uwp/api/windows.storage.knownfolders.musiclibrary) |    
 | 画像  | PicturesLibrary<br> 「[ミュージック、画像、およびビデオ ライブラリのファイルとフォルダー](quickstart-managing-folders-in-the-music-pictures-and-videos-libraries.md)」もご覧ください。 | [KnownFolders.PicturesLibrary](https://docs.microsoft.com/uwp/api/windows.storage.knownfolders.pictureslibrary) |  

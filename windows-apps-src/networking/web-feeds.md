@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: a9d3b4b9b404ab2c0828ea302f0c564ae1c8e7b4
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: bc422f57cdc268ea517aff729a9c3e57c80acf69
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66372785"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67320612"
 ---
 # <a name="rssatom-feeds"></a>RSS/Atom フィード
 
@@ -60,7 +60,7 @@ UWP アプリをネットワークに対応させるには、プロジェクト�
 
 ここでは、フィードを取得し、そこに含まれている個々の項目を表示するコードを見ていきます。 要求を構成して送信する前に、操作で必要ないくつかの変数を定義し、[**SyndicationClient**](https://docs.microsoft.com/uwp/api/Windows.Web.Syndication.SyndicationClient) のインスタンスを初期化します。そうすることでフィードを取得して表示する際に必要なメソッドとプロパティを定義します。
 
-[  **Uri** ](https://docs.microsoft.com/uwp/api/windows.foundation.uri.) コンストラクターは、渡された *uriString* が有効な URI ではない場合は、例外をスローします。 そこで、try/catch ブロックを使って *uriString* を検証します。
+[  **Uri** ](https://docs.microsoft.com/uwp/api/windows.foundation.uri.-ctor#Windows_Foundation_Uri__ctor_System_String_) コンストラクターは、渡された *uriString* が有効な URI ではない場合は、例外をスローします。 そこで、try/catch ブロックを使って *uriString* を検証します。
 
 > [!div class="tabbedCodeSnippets"]
 ```csharp
@@ -93,13 +93,13 @@ try {
 }
 ```
 
-次に、必要なサーバーの資格情報 ([**ServerCredential**](https://docs.microsoft.com/uwp/api/windows.web.syndication.syndicationclient.servercredential) プロパティ)、プロキシの資格情報 ([**ProxyCredential**](https://docs.microsoft.com/uwp/api/windows.web.syndication.syndicationclient.proxycredential) プロパティ)、HTTP ヘッダー ([**SetRequestHeader**](https://docs.microsoft.com/uwp/api/windows.web.syndication.syndicationclient.setrequestheader) メソッド) を設定して要求を構成します。 基本的な要求パラメーターが構成されると、アプリによって指定されたフィード URI 文字列を使って有効な [**Uri**](https://docs.microsoft.com/uwp/api/windows.foundation.uri.) オブジェクトが作成されます。 すると、**Uri** オブジェクトが [**RetrieveFeedAsync**](https://docs.microsoft.com/uwp/api/windows.web.syndication.syndicationclient.retrievefeedasync) 関数に渡され、フィードが要求されます。
+次に、必要なサーバーの資格情報 ([**ServerCredential**](https://docs.microsoft.com/uwp/api/windows.web.syndication.syndicationclient.servercredential) プロパティ)、プロキシの資格情報 ([**ProxyCredential**](https://docs.microsoft.com/uwp/api/windows.web.syndication.syndicationclient.proxycredential) プロパティ)、HTTP ヘッダー ([**SetRequestHeader**](https://docs.microsoft.com/uwp/api/windows.web.syndication.syndicationclient.setrequestheader) メソッド) を設定して要求を構成します。 基本的な要求パラメーターが構成されると、アプリによって指定されたフィード URI 文字列を使って有効な [**Uri**](https://docs.microsoft.com/uwp/api/windows.foundation.uri) オブジェクトが作成されます。 すると、**Uri** オブジェクトが [**RetrieveFeedAsync**](https://docs.microsoft.com/uwp/api/windows.web.syndication.syndicationclient.retrievefeedasync) 関数に渡され、フィードが要求されます。
 
 目的のフィード コンテンツが返されたら、**displayCurrentItem** (以下で定義) が呼び出され、それぞれのフィード項目が反復処理されます。そして当該の UI を介して項目とそのコンテンツがリストとして表示されます。
 
 非同期ネットワーク メソッドの多くは、呼び出すとき、例外を処理するようにコードを記述する必要があります。 例外ハンドラーは例外の原因について詳細な情報を取得でき、エラーの理解と適切な判断に役立ちます。
 
-[  **RetrieveFeedAsync**](https://docs.microsoft.com/uwp/api/windows.web.syndication.syndicationclient.retrievefeedasync) メソッドは、ネットワーク サーバーとの接続が確立できなかった場合や、[**Uri**](https://docs.microsoft.com/uwp/api/windows.foundation.uri.) オブジェクトが有効な AtomPub や RSS フィードを指してない場合に、例外をスローします。 Javascript サンプル コードでは、**onError** 関数を使って、エラーが発生した場合に例外をキャッチし、例外に関する詳細な情報を出力するようにしています。
+[  **RetrieveFeedAsync**](https://docs.microsoft.com/uwp/api/windows.web.syndication.syndicationclient.retrievefeedasync) メソッドは、ネットワーク サーバーとの接続が確立できなかった場合や、[**Uri**](https://docs.microsoft.com/uwp/api/windows.foundation.uri) オブジェクトが有効な AtomPub や RSS フィードを指してない場合に、例外をスローします。 Javascript サンプル コードでは、**onError** 関数を使って、エラーが発生した場合に例外をキャッチし、例外に関する詳細な情報を出力するようにしています。
 
 > [!div class="tabbedCodeSnippets"]
 ```csharp

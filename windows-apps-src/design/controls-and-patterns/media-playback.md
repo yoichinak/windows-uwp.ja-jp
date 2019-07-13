@@ -9,12 +9,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: b212ff435e58bdb8766972d1832bbf0690db3ed1
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 5e93a1806d1d2add4b3b1c3ee02417a43d574d3c
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66364740"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67319388"
 ---
 # <a name="media-player"></a>メディア プレーヤー
 
@@ -143,7 +143,7 @@ private void LoadMediaFromString(string path)
 }
 ```
 
-メディア ソースをアプリに埋め込まれたメディア ファイルに設定するには、**ms-appx:///** で始まるパスで [Uri](https://docs.microsoft.com/uwp/api/windows.foundation.uri.) を初期化し、その Uri で [MediaSource](https://docs.microsoft.com/uwp/api/windows.media.core.mediasource) を作成してから、[Source](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement.source) をその Uri に設定します。 たとえば、**Videos** サブフォルダーにある **video1.mp4** というファイルのパスは、**ms-appx:///Videos/video1.mp4** のようになります。
+メディア ソースをアプリに埋め込まれたメディア ファイルに設定するには、**ms-appx:///** で始まるパスで [Uri](https://docs.microsoft.com/uwp/api/windows.foundation.uri) を初期化し、その Uri で [MediaSource](https://docs.microsoft.com/uwp/api/windows.media.core.mediasource) を作成してから、[Source](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement.source) をその Uri に設定します。 たとえば、**Videos** サブフォルダーにある **video1.mp4** というファイルのパスは、**ms-appx:///Videos/video1.mp4** のようになります。
 
 次のコードは、XAML で以前に定義した [MediaPlayerElement](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement) の [Source](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement.source) プロパティを **ms-appx:///Videos/video1.mp4** に設定します。
 

@@ -8,12 +8,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: c996b22395fc8186fb1b6dc786a73fa4a97ecf16
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: cad33c0f1b72bbd379be9b8f13ed648231f1a1ca
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66363992"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67319360"
 ---
 # <a name="web-view"></a>Web ビュー
  
@@ -306,7 +306,7 @@ Web ビューの現在のコンテンツに関するプレビュー イメージ
 
 ### <a name="threading-behavior"></a>スレッド処理の動作
 
-既定では、Web ビューのコンテンツは、デスクトップ デバイス ファミリのデバイス上の UI スレッドにホストされており、その他のデバイス上の UI スレッドからは分離されています。 [WebView.DefaultExecutionMode](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.defaultexecutionmode) 静的プロパティを使うと、現在のクライアントに対する既定のスレッド処理動作を照会できます。 必要であれば、[WebView(WebViewExecutionMode)](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.) コンストラクターを使ってその動作をオーバーライドすることもできます。 
+既定では、Web ビューのコンテンツは、デスクトップ デバイス ファミリのデバイス上の UI スレッドにホストされており、その他のデバイス上の UI スレッドからは分離されています。 [WebView.DefaultExecutionMode](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.defaultexecutionmode) 静的プロパティを使うと、現在のクライアントに対する既定のスレッド処理動作を照会できます。 必要であれば、[WebView(WebViewExecutionMode)](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.webview.-ctor#Windows_UI_Xaml_Controls_WebView__ctor_Windows_UI_Xaml_Controls_WebViewExecutionMode_) コンストラクターを使ってその動作をオーバーライドすることもできます。 
 
 > **注**&nbsp;&nbsp;モバイル デバイスの UI スレッドでコンテンツをホストしている場合は、パフォーマンス上の問題が発生する可能性があります。DefaultExecutionMode を変更するときは、対象となるすべてのデバイスを必ずテストしてください。
 

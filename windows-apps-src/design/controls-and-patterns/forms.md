@@ -5,12 +5,12 @@ template: detail.hbs
 ms.date: 11/07/2017
 ms.topic: article
 keywords: Windows 10, UWP, Fluent
-ms.openlocfilehash: 8a57f13e168a248569bca1beeceed7b4f6c89f69
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: ff071a2a98c533ad7c089b28165f026de00ba68f
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63794256"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67319094"
 ---
 # <a name="forms"></a>フォーム
 フォームは、ユーザーからデータを収集して送信するコントロールのグループです。 通常、フォームは、ページの設定、調査、アカウントの作成、その他に使われます。 
@@ -149,7 +149,7 @@ ms.locfileid: "63794256"
 ### <a name="additional-controls"></a>その他のコントロール 
 UWP コントロールの完全な一覧については、[機能別コントロールのインデックス](controls-by-function.md)に関する記事をご覧ください。
 
-さらに複雑な UI コントロールおよびカスタム UI コントロールについては、[Telerik](https://www.telerik.com/)、[SyncFusion](https://www.syncfusion.com/products/uwp)、[DevExpress](https://www.devexpress.com/Products/NET/Controls/Win10Apps/)、[Infragistics](https://www.infragistics.com/products/universal-windows-platform)、[ComponentOne](https://www.componentone.com/Studio/Platform/UWP)、[ActiPro](https://www.actiprosoftware.com/products/controls/universal) などの企業から入手できる UWP リソースをご覧ください。
+さらに複雑な UI コントロールおよびカスタム UI コントロールについては、[Telerik](https://www.telerik.com/)、[SyncFusion](https://www.syncfusion.com/uwp-ui-controls)、[DevExpress](https://www.devexpress.com/Products/NET/Controls/Win10Apps/)、[Infragistics](https://www.infragistics.com/products/universal-windows-platform)、[ComponentOne](https://www.componentone.com/Studio/Platform/UWP)、[ActiPro](https://www.actiprosoftware.com/products/controls/universal) などの企業から入手できる UWP リソースをご覧ください。
 
 ## <a name="one-column-form-example"></a>1 列のフォームの例
 この例では、Acrylic の[マスター/詳細](master-details.md)[リスト ビュー](lists.md)および [NavigationView](navigationview.md) コントロールを使います。

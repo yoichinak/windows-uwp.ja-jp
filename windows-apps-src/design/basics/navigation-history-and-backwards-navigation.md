@@ -3,16 +3,16 @@ Description: UWP アプリ内でのユーザーのナビゲーション履歴を
 title: ナビゲーション履歴と前に戻る移動 (Windows アプリ)
 template: detail.hbs
 op-migration-status: ready
-ms.date: 4/9/2019
+ms.date: 04/09/2019
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 8e3ab6760ed3eff1d284e51205de261796db0fb2
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: de2e70a09f75ed5380a47bed225c0689eb029e89
+ms.sourcegitcommit: 139717a79af648a9231821bdfcaf69d8a1e6e894
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63799133"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67713798"
 ---
 # <a name="navigation-history-and-backwards-navigation-for-uwp-apps"></a>UWP アプリのナビゲーション履歴と前に戻る移動
 
@@ -31,7 +31,17 @@ ms.locfileid: "63799133"
 ![アプリの UI の左上隅にある [戻る] ボタン](images/back-nav/BackEnabled.png)
 
 ```xaml
-<Button Style="{StaticResource NavigationBackButtonNormalStyle}"/>
+<Page>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Button Style="{StaticResource NavigationBackButtonNormalStyle}"/>
+
+    </Grid>
+</Page>
 ```
 
 アプリに上部 [CommandBar](../controls-and-patterns/app-bars.md) がある場合、高さ 44px の Button コントロールは 48px の AppBarButtons とはぴったり合いません。 不整合を避けるために、Button コントロールの最上部を 48px の境界内部に合わせてください。
@@ -39,8 +49,23 @@ ms.locfileid: "63799133"
 ![上部のコマンド バーの [戻る] ボタン](images/back-nav/CommandBar.png)
 
 ```xaml
-<Button VerticalAlignment="Top" HorizontalAlignment="Left" 
-Style="{StaticResource NavigationBackButtonNormalStyle}"/>
+<Page>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <CommandBar>
+            <CommandBar.Content>
+                <Button Style="{StaticResource NavigationBackButtonNormalStyle}" VerticalAlignment="Top"/>
+            </CommandBar.Content>
+        
+            <AppBarButton Icon="Delete" Label="Delete"/>
+            <AppBarButton Icon="Save" Label="Save"/>
+        </CommandBar>
+    </Grid>
+</Page>
 ```
 
 アプリ内で動き回る UI 要素を最小化するために、バックスタックに何もないときに、無効になった戻るボタンを表示します (以下のコード例を参照)。 ただし、アプリにバックスタックがないことが予想される場合は、戻るボタンを表示する必要はありません。
@@ -287,17 +312,6 @@ bool App::On_BackRequested()
 アプリで [AppViewBackButtonVisibility](https://docs.microsoft.com/uwp/api/windows.ui.core.appviewbackbuttonvisibility) の使用を続けた場合、システム UI では、タイトル バーの内部に戻るボタンがレンダリングされます。 (戻るボタンの外観とユーザー操作は以前のビルドと変わりありません。)
 
 ![タイトル バーの戻るボタン](images/nav-back-pc.png)
-
-### <a name="system-back-bar"></a>システムの戻るバー
-
-> [!NOTE]
-> "システムの戻るバー" は説明のみであり、正式な名前ではありません。
-
-システムの戻るバーは、タブ バンドとアプリのコンテンツ領域の間に挿入されている "バンド" です。 バンドは、アプリの幅に沿って表示され、左端に戻るボタンが配置されます。 バンドには、戻るボタンの適切なタッチ ターゲットのサイズを確保するために、32 ピクセルの高さがあります。
-
-システムの戻るバーは、戻るボタンの可視性に基づいて動的に表示されます。 戻るボタンが表示されている場合、システムの戻るバーが挿入され、アプリのコンテンツはタブ バンドの下まで 32 ピクセルだけ移動されます。 戻るボタンが非表示の場合、システムの戻るバーは動的に削除され、アプリのコンテンツはタブ バンドに合うように 32 ピクセル上に移動されます。 アプリの UI が上下に移動するのを避けるため、[アプリ内の戻るボタン](#back-button)を描画することをお勧めします。
-
-[タイトル バーのカスタマイズ](../shell/title-bar.md)は、アプリ タブとシステムの戻るバーの両方に引き継がれます。 アプリで [ApplicationViewTitleBar](https://docs.microsoft.com/uwp/api/windows.ui.viewmanagement.applicationviewtitlebar) の背景色と前景色のプロパティを指定した場合、色はタブとシステムの戻るバーに適用されます。
 
 ## <a name="guidelines-for-custom-back-navigation-behavior"></a>カスタムの "戻る" ナビゲーションの動作のガイドライン
 

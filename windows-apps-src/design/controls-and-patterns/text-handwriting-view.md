@@ -11,12 +11,12 @@ design-contact: minah.kim
 doc-status: Draft
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: f7b31898e6a90410e4edc73ee36f71a7e4d94155
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 262e033c8393544e3b5b8394d0e9a5be410cd080
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63774765"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67319477"
 ---
 # <a name="text-input-with-the-handwriting-view"></a>手書きビューでのテキスト入力
 
@@ -275,8 +275,7 @@ StackPanel が TextBox より大きくなったため、[HandwritingView](https:
 
 ![カスタム UI を含む TextBox](images/handwritingview/textbox-with-customui.png)
 
-次の例では、[ポップアップ](https://docs.microsoft.com/uwp/api/windows.ui.popups)の位置を設定するために、[HandwritingView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.handwritingview) の [Opened](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.handwritingview.opened)、[Closed](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.handwritingview.closed
-)、[SizeChanged](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.sizechanged) イベントをリッスンする方法を示します。
+次の例では、[ポップアップ](https://docs.microsoft.com/uwp/api/windows.ui.popups)の位置を設定するために、[HandwritingView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.handwritingview) の [Opened](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.handwritingview.opened)、[Closed](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.handwritingview.closed)、[SizeChanged](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.sizechanged) イベントをリッスンする方法を示します。
 
 ```csharp
 private void Search_HandwritingViewOpened(

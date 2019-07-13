@@ -5,12 +5,12 @@ keywords: 最新情報, 更新, 機能, 開発者向けガイダンス, Windows 
 ms.date: 09/06/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 0ae5001e907d7d38cbf05fd6863b192337fe365f
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 1312c55d98d3e1df2c9e583422df7938c994c2b5
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63801083"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67320379"
 ---
 # <a name="whats-new-in-the-windows-developer-docs-in-september-2017"></a>Windows 開発者向けドキュメントの最新情報、2017 年 9 月
 
@@ -24,22 +24,22 @@ Windows 10 の[ツールと SDK をインストール](https://go.microsoft.com/
 
 ### <a name="xbox-live-creators-program"></a>Xbox Live クリエーターズ プログラム
 
-Xbox Live クリエーターズ プログラムは現在実施中で、Windows 10 PC と Xbox One 本体上で実行できる UWP ゲームを簡単に作成して公開できます。 詳細については、「[Xbox Live クリエーターズ プログラムの概要](https://docs.microsoft.com/gaming/xbox-live//get-started-with-creators/get-started-with-xbox-live-creators.md)」をご覧ください。
+Xbox Live クリエーターズ プログラムは現在実施中で、Windows 10 PC と Xbox One 本体上で実行できる UWP ゲームを簡単に作成して公開できます。 詳細については、「[Xbox Live クリエーターズ プログラムの概要](https://docs.microsoft.com/gaming/xbox-live/get-started-with-creators/get-started-with-xbox-live-creators.md)」をご覧ください。
 
 ## <a name="developer-guidance"></a>開発者向けガイダンス
 
 ### <a name="xaml-basics-tutorials"></a>XAML の基本チュートリアル
 
-新しい [PhotoLab サンプル](https://github.com/Microsoft/Windows-appsample-photo-lab)を加え、4 つの [XAML の基本チュートリアル](https://docs.microsoft.com/en-us/windows/uwp/get-started/xaml-basics-intro)が作成され、XAML のプログラミングの重要な 4 つの側面である、ユーザー インターフェイス、データ バインディング、カスタム スタイル、およびアダプティブ レイアウトについて説明しています。 各チュートリアル トラックは、部分的に完成したバージョンの PhotoLab サンプルから始まり、ステップ バイ ステップで、最終的なアプリの不足しているコンポーネントを 1 つ作成します。 
+新しい [PhotoLab サンプル](https://github.com/Microsoft/Windows-appsample-photo-lab)を加え、4 つの [XAML の基本チュートリアル](https://docs.microsoft.com/windows/uwp/design/basics/xaml-basics-ui)が作成され、XAML のプログラミングの重要な 4 つの側面である、ユーザー インターフェイス、データ バインディング、カスタム スタイル、およびアダプティブ レイアウトについて説明しています。 各チュートリアル トラックは、部分的に完成したバージョンの PhotoLab サンプルから始まり、ステップ バイ ステップで、最終的なアプリの不足しているコンポーネントを 1 つ作成します。 
 
 ![PhotoLab サンプルのフォト ギャラリー ページのスクリーンショット](images/PhotoLab-gallery-page.png)  
 
 新しい記事の簡単な概要を次に示します。
 
-+ [**ユーザー インターフェイスを作成する**](https://docs.microsoft.com/en-us/windows/uwp/get-started/xaml-basics-ui): 基本的なフォト ギャラリー インターフェイスの作成方法について説明します。
-+ [**データ バインディングを作成する**](https://docs.microsoft.com/en-us/windows/uwp/get-started/xaml-basics-data-binding): フォト ギャラリーにデータ バインディングを追加し、実際のイメージ データを設定する方法について説明します。
-+ [**カスタム スタイルを作成する**](https://docs.microsoft.com/en-us/windows/uwp/get-started/xaml-basics-style): 写真編集メニューに装飾的なカスタム スタイルを追加する方法について説明します。
-+ [**アダプティブ レイアウト作成する**](https://docs.microsoft.com/en-us/windows/uwp/get-started/xaml-basics-adaptive-layout): すべてのデバイスおよび画面サイズで適切な表示になるように、ギャラリー レイアウトをアダプティブにする方法について説明します。
++ [**ユーザー インターフェイスを作成する**](https://docs.microsoft.com/windows/uwp/design/basics/xaml-basics-ui): 基本的なフォト ギャラリー インターフェイスの作成方法について説明します。
++ [**データ バインディングを作成する**](https://docs.microsoft.com/windows/uwp/data-binding/xaml-basics-data-binding): フォト ギャラリーにデータ バインディングを追加し、実際のイメージ データを設定する方法について説明します。
++ [**カスタム スタイルを作成する**](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/xaml-basics-style): 写真編集メニューに装飾的なカスタム スタイルを追加する方法について説明します。
++ [**アダプティブ レイアウト作成する**](https://docs.microsoft.com/windows/uwp/design/basics/xaml-basics-adaptive-layout): すべてのデバイスおよび画面サイズで適切な表示になるように、ギャラリー レイアウトをアダプティブにする方法について説明します。
 
 ### <a name="get-started-tutorials"></a>入門チュートリアル
 
