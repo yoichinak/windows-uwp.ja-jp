@@ -5,12 +5,12 @@ ms.date: 04/21/2017
 ms.topic: article
 keywords: windows 10、uwp、更新、バック グラウンド タスク、updatetask、バック グラウンド タスク
 ms.localizationpriority: medium
-ms.openlocfilehash: d943623a9978d39fd3930edc07e7524fe1cadf55
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: fa5420b14d3d73f370031eed917e0e7c367c41c7
+ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67321786"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67820953"
 ---
 # <a name="run-a-background-task-when-your-uwp-app-is-updated"></a>UWP アプリが更新された際のバックグラウンド タスクの実行
 
@@ -86,12 +86,12 @@ Visual Studio のソリューション エクスプローラーで、**Package.a
 
 ![バージョンの更新](images/bump-version.png)
 
-これで、Visual Studio 2017 で F5 キーを押すと、アプリが更新され、システムによってバックグラウンドで UpdateTask コンポーネントがアクティブ化されます。 デバッガーは自動的にバックグラウンド プロセスにアタッチします。 ブレークポイントに到達すると、更新コード ロジックをステップ実行できます。
+ここで、Visual Studio 2019 で f5 キーを押すと、アプリ更新され、システムが、バック グラウンドで UpdateTask コンポーネントをアクティブにします。 デバッガーは自動的にバックグラウンド プロセスにアタッチします。 ブレークポイントに到達すると、更新コード ロジックをステップ実行できます。
 
 バックグラウンド タスクが完了したら、同じデバッグ セッション内で Windows のスタート メニューからフォアグラウンド アプリを起動できます。 デバッガーが今回はフォアグラウンド プロセスに自動的にアタッチし、アプリのロジックをステップ実行できます。
 
 > [!NOTE]
-> Visual Studio 2015 のユーザー:上記の手順は、Visual Studio 2017 に適用されます。 Visual Studio 2015 を使用している場合、同じ手法を使用して UpdateTask をトリガーしてテストできますが、Visual Studio によってデバッガーがアタッチされることはありません。 VS 2015 での代替の手順は、UpdateTask をエントリ ポイントとして設定する [ApplicationTrigger](https://docs.microsoft.com/windows/uwp/launch-resume/trigger-background-task-from-app) をセットアップし、フォアグラウンド アプリから直接実行をトリガーすることです。
+> Visual Studio 2015 のユーザー:上記の手順は、Visual Studio 2017 または Visual Studio 2019 に適用されます。 Visual Studio 2015 を使用している場合、同じ手法を使用して UpdateTask をトリガーしてテストできますが、Visual Studio によってデバッガーがアタッチされることはありません。 VS 2015 での代替の手順は、UpdateTask をエントリ ポイントとして設定する [ApplicationTrigger](https://docs.microsoft.com/windows/uwp/launch-resume/trigger-background-task-from-app) をセットアップし、フォアグラウンド アプリから直接実行をトリガーすることです。
 
 ## <a name="see-also"></a>関連項目
 

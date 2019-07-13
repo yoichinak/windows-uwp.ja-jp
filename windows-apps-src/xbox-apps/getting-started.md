@@ -5,12 +5,12 @@ ms.date: 10/12/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: c94d27e87853b570268e3a39fe941c817b3eda6a
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 19756730177485c6d16ad9a42ff1174eba8ca3b9
+ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57590977"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67820310"
 ---
 # <a name="getting-started-with-uwp-app-development-on-xbox-one"></a>Xbox One の UWP アプリ開発の概要
 
@@ -20,20 +20,20 @@ ms.locfileid: "57590977"
 
 開始する前に、次の操作をする必要があります。
 -   インストールされた最新のバージョンの Windows 10 PC を設定します。
-<!-- -  Install Microsoft Visual Studio 2015 Update 3 or Microsoft Visual Studio 2017.
+<!-- -  Install Microsoft Visual Studio 2015 Update 3 or Microsoft Visual Studio 2019.
 
     > [!NOTE]
-    > Visual Studio 2017 is required if you are using the Windows 10, build 15063 SDK. -->
+    > Visual Studio 2019 is required if you are using the Windows 10, build 15063 SDK. -->
 
 - Xbox One 本体上に少なくとも 5 GB の空き領域が必要です。
 
 ## <a name="setting-up-your-development-pc"></a>開発用 PC のセットアップ
 
-1.  Visual Studio 2015 Update 3 または Visual Studio 2017 をインストールします。
+1.  Visual Studio 2015 Update 3、Visual Studio 2017 または Visual Studio 2019 をインストールします。
 
     Visual Studio 2015 Update 3 をインストールする場合は選択するように**カスタム**インストールし、選択、**ユニバーサル Windows アプリ開発ツール**– チェック ボックスは既定値の一部をインストールします。 C++ 開発者の場合は、**カスタム インストール**と **C++** を選択してください。
 
-    Visual Studio 2017 をインストールする場合、必ず**ユニバーサル Windows プラットフォーム開発**ワークロードを選択してください。 C++ の開発者の場合、**概要**、右側のペインで**ユニバーサル Windows プラットフォーム開発**を選択することを確認、 **C++ ユニバーサル Windows プラットフォーム ツール**チェック ボックスをオンします。 既定のインストールの一部ではありません。
+    Visual Studio 2017 または Visual Studio 2019 をインストールする場合は選択するように、**ユニバーサル Windows プラットフォーム開発**ワークロード。 C++ の開発者の場合、**概要**、右側のペインで**ユニバーサル Windows プラットフォーム開発**を選択することを確認、 **C++ ユニバーサル Windows プラットフォーム ツール**チェック ボックスをオンします。 既定のインストールの一部ではありません。
 
     詳細については、次を参照してください。 [Xbox 開発環境で、UWP 設定](development-environment-setup.md)します。
 

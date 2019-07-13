@@ -6,28 +6,29 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 8801c0d9-94a5-41a2-bec3-14f523d230df
 ms.localizationpriority: medium
-ms.openlocfilehash: 02c33e0dbe1209f3c31937df800ceecb354475f5
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 84818561e2f49827a1a76d446fa6a7cfcf2f9896
+ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67322133"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67820381"
 ---
 # <a name="set-up-your-uwp-on-xbox-development-environment"></a>Xbox の開発環境に UWP を設定する
 
 Xbox の開発環境のユニバーサル Windows プラットフォーム (UWP) は、ローカル ネットワークを介して Xbox One コンソールに接続されている開発用 PC で構成されます。
-開発用 PC には、Windows 10、Visual Studio 2017 または Visual Studio 2015 Update 3、Windows 10 SDK ビルド 14393 以降などの幅広いサポート ツールが必要です。
-
+開発用 PC には、Visual Studio 2015 Update 3、Visual Studio 2017 または Visual Studio 2019 が必要です。
+開発用 PC には、Windows 10、Windows 10 SDK ビルド 14393 またはそれ以降、およびさまざまなツールのサポートも必要です。
 
 この記事では、開発環境を設定およびテストする手順について説明します。
 
 ## <a name="visual-studio-setup"></a>Visual Studio のセットアップ
 
-1. Visual Studio 2017、Visual Studio 2015 Update 3、または Visual Studio の最新リリースをインストールします。 詳しい情報とインストール方法については、「[Windows 10 のダウンロードとツール](https://developer.microsoft.com/windows/downloads)」をご覧ください。 開発者とセキュリティの最新の更新プログラムを受信できるように、最新バージョンの Visual Studio を使用することをお勧めします。
+1. Visual Studio 2015 Update 3、Visual Studio 2017 または Visual Studio 2019 をインストールします。 詳しい情報とインストール方法については、「[Windows 10 のダウンロードとツール](https://dev.windows.com/downloads)」をご覧ください。 開発者とセキュリティの最新の更新プログラムを受信できるように、最新バージョンの Visual Studio を使用することをお勧めします。
 
-2. Visual Studio 2017 をインストールする場合、必ず**ユニバーサル Windows プラットフォーム開発**ワークロードを選択してください。 C++ 開発者の場合、必ず **[ユニバーサル Windows プラットフォーム開発]** の右側にある **[概要]** ウィンドウで **[C++ ユニバーサル Windows プラットフォーム ツール]** チェック ボックスもオンにしてください。 既定のインストールの一部ではありません。
 
-    ![Visual Studio 2017 のインストール](images/development-environment-setup-1.png)
+2. Visual Studio 2017 または Visual Studio 2019 をインストールする場合は選択するように、**ユニバーサル Windows プラットフォーム開発**ワークロード。 C++ 開発者の場合、必ず **[ユニバーサル Windows プラットフォーム開発]** の右側にある **[概要]** ウィンドウで **[C++ ユニバーサル Windows プラットフォーム ツール]** チェック ボックスもオンにしてください。 既定のインストールの一部ではありません。
+
+    ![Visual Studio 2019 をインストールする](images/development-environment-setup-1.png)
 
     Visual Studio 2015 Update 3 をインストールするときは、 **[ユニバーサル Windows アプリ開発ツール]** チェック ボックスがオンになっていることを確認します。
 
@@ -46,7 +47,7 @@ Xbox の開発環境のユニバーサル Windows プラットフォーム (UWP)
 
 Xbox One にアプリを展開する前に、ユーザーが本体にサインインする必要があります。 既存の Xbox Live アカウントを使用することも、開発者モードで本体の新しいアカウントを作成することもできます。 
 
-## <a name="create-your-first-app"></a>初めてのアプリの作成
+## <a name="create-your-first-app"></a>最初のアプリの作成
 
 1. 開発用 PC がターゲットの Xbox One コンソールと同じローカル ネットワーク上にあることを確認します。 通常、これらは同じルーターを使用し、同じサブネット上にある必要があります。 ワイヤード (有線) ネットワーク接続をお勧めします。
 

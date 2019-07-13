@@ -6,12 +6,12 @@ keywords: アプリへの通信、IPC、メッセージング、バック グラ
 ms.date: 01/16/2019
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 21e1b409406cf03d83ff10b04d96d7ff9f0413dd
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: d122a51c53fc7eb32ab79f6decc570238af22973
+ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66370747"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67821043"
 ---
 # <a name="create-and-consume-an-app-service"></a>アプリ サービスの作成と利用
 
@@ -27,10 +27,10 @@ Windows 10 バージョン 1607 以降では、ホスト アプリと同じプ�
 
 1. Visual Studio 2015 以降では、新しい UWP アプリ プロジェクトを作成し、名前**AppServiceProvider**します。
     1. 選択**ファイル > 新規 > プロジェクト.** 
-    2. **新しいプロジェクト**ダイアログ ボックスで、**インストール済み > Visual C# > 空のアプリ (ユニバーサル Windows)** します。 これは、他の UWP アプリがアプリ サービスを利用できるアプリとなります。
-    3. プロジェクトに名前を**AppServiceProvider**の場所の選択およびクリックして**OK**します。
+    2. **新しいプロジェクトを作成**ダイアログ ボックスで、**空のアプリ (ユニバーサル Windows) C#** します。 これは、他の UWP アプリがアプリ サービスを利用できるアプリとなります。
+    3. をクリックして**次**、プロジェクト名と**AppServiceProvider**、場所を選択し、をクリックし、**作成**します。
 
-2. 選択を求められたら、**ターゲット**と**最小バージョン**、プロジェクトの選択には少なくとも**10.0.14393**します。 新たに使用する場合**SupportsMultipleInstances**属性に、Visual Studio 2017 とターゲットを使用する必要があります**10.0.15063 追加されたため**(**Windows 10 Creators Update**) またはそれ以降。
+2. 選択を求められたら、**ターゲット**と**最小バージョン**、プロジェクトの選択には少なくとも**10.0.14393**します。 新たに使用する場合**SupportsMultipleInstances**属性、する必要がありますを使っている Visual Studio 2017 または Visual Studio 2019、およびターゲット**10.0.15063 追加されたため**(**Windows 10 Creators Update**)またはそれ以降。
 
 <span id="appxmanifest"/>
 
@@ -300,7 +300,7 @@ App services の使用[ValueSet](https://docs.microsoft.com/uwp/api/Windows.Foun
     > [!NOTE]
     > 必ず、文字列リテラルに配置し、変数に貼り付けます。 変数を使用する場合は機能しません。
 
-    最初に、コードによってアプリ サービスとの接続が確立されます。 接続は、`this.inventoryService` を破棄するまで開いたままになります。 App service の名前に一致する必要があります、`AppService`要素の`Name`に追加する属性、 **AppServiceProvider**プロジェクトの**Package.appxmanifest**ファイル。 この例では `<uap3:AppService Name="com.microsoft.inventory"/>` です。
+    最初に、コードによってアプリ サービスとの接続が確立されます。 接続は、`this.inventoryService` を破棄するまで開いたままになります。 App service の名前に一致する必要があります、`AppService`要素の`Name`に追加する属性、 **AppServiceProvider**プロジェクトの**Package.appxmanifest**ファイル。 この例では、 `<uap3:AppService Name="com.microsoft.inventory"/>`です。
 
     A [ValueSet](https://docs.microsoft.com/uwp/api/Windows.Foundation.Collections.ValueSet)という`message`を app service に送信するコマンドを指定するが作成されます。 この例のアプリ サービスでは、2 つのアクションのどちらを実行するかをコマンドが示すことを想定しています。 クライアント アプリでテキスト ボックスからインデックスを取得し、使用して、サービスを呼び出して、`Item`項目の説明を取得するコマンド。 その後、`Price` コマンドで呼び出しを行い、項目の価格を取得します。 ボタンのテキストは結果に設定されています。
 
@@ -351,7 +351,7 @@ App services の使用[ValueSet](https://docs.microsoft.com/uwp/api/Windows.Foun
 - アプリ サービス プロバイダー プロジェクトとアプリ サービス プロジェクトが展開されていることを確認します。 クライアントを実行する前に、両方が展開されている必要があります。 Visual Studio から **[ビルド]**  >  **[ソリューションの配置]** で展開できます。
 - デバッグするプロジェクトがスタートアップ プロジェクトとして設定されていると、プロジェクトを実行しない、そのプロジェクトのデバッグのプロパティが設定されていることを確認時に**F5**が押されました。 プロジェクトを右クリックし、 **[プロパティ]** 、 **[デバッグ]** (または C++ では **[デバッグ]** ) の順にクリックします。 C# では、 **[開始動作]** を **[起動しないが、開始時にマイ コードをデバッグする]** に設定します。 C++ では、 **[アプリケーションの起動]** を **[いいえ]** に設定します。
 
-## <a name="remarks"></a>注釈
+## <a name="remarks"></a>コメント
 
 この例では、バックグラウンド タスクとして実行されるアプリ サービスを作成して、それを別のアプリから呼び出す概要を示しています。 注意することは、次のとおりです。
 

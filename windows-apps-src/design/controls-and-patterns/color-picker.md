@@ -12,17 +12,17 @@ dev-contact: llongley
 doc-status: Published
 ms.localizationpriority: medium
 ms.openlocfilehash: 215a15e3a8e1b0264987adcf6228ec52a696f50c
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57654477"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "63801339"
 ---
 # <a name="color-picker"></a>カラー ピッカー
 
 カラー ピッカーは、色を参照し、選ぶために使用します。 既定では、ユーザーはカラー ピッカーを使って、カラー スペクトルで色を参照するか、Red-Green-Blue (RGB)、Hue-Saturation-Value (HSV)、または 16 進数のテキスト ボックスのいずれかで色を指定できます。
 
-> **重要な API**:[ColorPicker クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.colorpicker)、 [Color プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.colorpicker.Color)、 [ColorChanged イベント](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.colorpicker.ColorChanged)
+> **重要な API**:[ColorPicker クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.colorpicker)、[Color プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.colorpicker.Color)、[ColorChanged イベント](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.colorpicker.ColorChanged)
 
 ![既定のカラー ピッカー](images/color-picker-default.png)
 
@@ -213,8 +213,8 @@ ColorPicker コントロールの構成に使うことができるすべての�
 
 ## <a name="related-articles"></a>関連記事
 
-- [UWP アプリでのペン、スタイラスの相互作用](../input/pen-and-stylus-interactions.md)
-- [手描き入力機能](inking-controls.md)
+- [UWP アプリのペン操作とスタイラス操作](../input/pen-and-stylus-interactions.md)
+- [手描き入力](inking-controls.md)
 
 <!--
 <div class=”microsoft-internal-note”>

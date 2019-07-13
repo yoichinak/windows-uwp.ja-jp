@@ -7,11 +7,11 @@ keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.custom: RS5
 ms.openlocfilehash: 76196add0829dcfa0aa638a2d8ae6995fafce69e
-ms.sourcegitcommit: bad7ed6def79acbb4569de5a92c0717364e771d9
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59244388"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "63820600"
 ---
 # <a name="typography"></a>文字体裁
 
@@ -57,7 +57,7 @@ UWP アプリのフォント サイズは、すべてのデバイスで自動的
     :::column-end:::
 :::row-end:::
 
-## <a name="hierarchy"></a>Hieararchy
+## <a name="hierarchy"></a>階層
 
 :::row:::
     :::column:::
@@ -110,7 +110,7 @@ UWP 書体見本は、ユーザーがコンテンツを読みやすいように�
     :::column-end:::
 :::row-end:::
 
-## <a name="alignment"></a>Alignment
+## <a name="alignment"></a>配置
 
 既定の [TextAlignment](https://docs.microsoft.com/uwp/api/windows.ui.xaml.textalignment) (行揃え) は Left (左揃え) です。ほとんどの場合、左揃え、右不揃いの形式でコンテンツを一貫してアンカー設定することで、均一なレイアウトが実現します。 RTL 言語については、[グローバリゼーションをサポートするためのレイアウトとフォントの調整に関するページ](../globalizing/adjust-layout-and-fonts--and-support-rtl.md)をご覧ください。
 
@@ -154,7 +154,7 @@ UWP 書体見本は、ユーザーがコンテンツを読みやすいように�
     :::column-end:::
 :::row-end:::
 
-**注意**:コンテナーは適切に定義された場合 (例: 差別化の背景色なし)、またはその他のテキストを表示するリンクがある場合は、省略記号を使用しています。
+**注意**:表示領域が不明確な場合 (領域が異なる背景色によって明確に表示されていない場合など)、または詳細テキストへのリンクがある場合は、省略記号を使用します。
 
 ## <a name="languages"></a>言語 
 
@@ -171,7 +171,7 @@ Segoe UI は、英語、ヨーロッパの各言語、ギリシャ語、ヘブ�
 <tr class="header">
 <th align="left">フォント ファミリー</th>
 <th align="left">スタイル</th>
-<th align="left">メモ</th>
+<th align="left">説明</th>
 </tr>
 </thead>
 <tbody>
@@ -192,7 +192,7 @@ Segoe UI は、英語、ヨーロッパの各言語、ギリシャ語、ヘブ�
 </tr>
 <tr class="odd">
 <td align="left" style="font-family: Malgun Gothic;">Malgun Gothic</td>
-<td align="left">Regular</td>
+<td align="left">標準</td>
 <td align="left">韓国語用のユーザー インターフェイス フォント。</td>
 </tr>
 <tr class="even">
@@ -207,7 +207,7 @@ Segoe UI は、英語、ヨーロッパの各言語、ギリシャ語、ヘブ�
 </tr>
 <tr class="odd">
 <td align="left" style="font-family: Myanmar Text;">Myanmar Text</td>
-<td align="left">Regular</td>
+<td align="left">標準</td>
 <td align="left">ミャンマー文字のスクリプト用のフォールバック フォント。</td>
 </tr>
 <tr class="even">
@@ -217,7 +217,7 @@ Segoe UI は、英語、ヨーロッパの各言語、ギリシャ語、ヘブ�
 </tr>
 <tr class="odd">
 <td align="left" style="font-family: SimSun;">SimSun</td>
-<td align="left">Regular</td>
+<td align="left">標準</td>
 <td align="left">中国語繁体字の UI フォント。 </td>
 </tr>
 <tr class="even">
@@ -244,7 +244,7 @@ Segoe UI は、英語、ヨーロッパの各言語、ギリシャ語、ヘブ�
 <tr class="header">
 <th align="left">フォント ファミリー</th>
 <th align="left">スタイル</th>
-<th align="left">メモ</th>
+<th align="left">説明</th>
 </tr>
 </thead>
 <tbody>
@@ -287,13 +287,13 @@ Segoe UI は、英語、ヨーロッパの各言語、ギリシャ語、ヘブ�
 <tr class="header">
 <th align="left">フォント ファミリー</th>
 <th align="left">スタイル</th>
-<th align="left">メモ</th>
+<th align="left">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="font-family: Cambria;">Cambria</td>
-<td align="left">Regular</td>
+<td align="left">標準</td>
 <td align="left">ヨーロッパのスクリプト (ラテン文字、ギリシャ文字、キリル文字) をサポートするセリフ フォント。</td>
 </tr>
 <tr class="even">
@@ -323,23 +323,23 @@ Segoe UI は、英語、ヨーロッパの各言語、ギリシャ語、ヘブ�
 <tr class="header">
 <th align="left">フォント ファミリー</th>
 <th align="left">スタイル</th>
-<th align="left">メモ</th>
+<th align="left">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td align="left">Segoe MDL2 アセット</td>
-<td align="left">Regular</td>
+<td align="left">標準</td>
 <td align="left">アプリ アイコン用のユーザー インターフェイス フォント。 詳しくは、<a href="segoe-ui-symbol-font.md">Segoe MDL2 アセットの記事</a>をご覧ください。</td>
 </tr>
 <tr class="even">
 <td align="left">Segoe UI Emoji</td>
-<td align="left">Regular</td>
+<td align="left">標準</td>
 <td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Segoe UI Symbol</td>
-<td align="left">Regular</td>
+<td align="left">標準</td>
 <td align="left">記号用のフォールバック フォント</td>
 </tr>
 </tbody>

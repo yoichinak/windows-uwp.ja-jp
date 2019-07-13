@@ -11,10 +11,10 @@ template: detail.hbs
 ms.topic: article
 ms.localizationpriority: medium
 ms.openlocfilehash: cd11427ed1b53641a25c32742ca114b121efcfe8
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66363963"
 ---
 # <a name="xaml-styles"></a>XAML スタイル
@@ -111,7 +111,7 @@ XAML フレームワークを使って、さまざまな方法でアプリの外
 
 ![継承スタイルを使ってスタイルを適用したボタン。](images/styles-buttons-based-on.png)
 
-基本スタイルは [ContentControl](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ContentControl) をターゲットとし、[Height](/uwp/api/Windows.UI.Xaml.FrameworkElement.Height) プロパティと [Width](/uwp/api/Windows.UI.Xaml.FrameworkElement.Width) プロパティを設定します。 このスタイルに基づくスタイルは、**ContentControl** から派生した [CheckBox](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CheckBox) と [Button](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Button) をターゲットとします。 各継承スタイルでは、[BorderBrush](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.borderbrush) プロパティと [Foreground](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.foreground) プロパティに異なる色を設定しています  (通常、**CheckBox** の周囲には境界線を配置しません。 ここでは、スタイルの効果を示すためにこのように設定しています)。
+基本スタイルは [ContentControl](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ContentControl) をターゲットとし、[Height](/uwp/api/Windows.UI.Xaml.FrameworkElement.Height) プロパティと [Width](/uwp/api/Windows.UI.Xaml.FrameworkElement.Width) プロパティを設定します。 このスタイルに基づくスタイルは、**ContentControl** から派生した [CheckBox](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CheckBox) と [Button](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Button) をターゲットとします。 各継承スタイルでは、[BorderBrush](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.borderbrush) プロパティと [Foreground](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.foreground) プロパティに異なる色を設定しています (通常、**CheckBox** の周囲には境界線を配置しません。 ここでは、スタイルの効果を示すためにこのように設定しています)。
 
 ```XAML
 <Page.Resources>
@@ -165,7 +165,7 @@ XAML フレームワークを使って、さまざまな方法でアプリの外
 </Page.Resources>
 ```
 
-PointerOver (マウスがボタンの上に置かれている)、**PointerPressed** (ボタンが押された)、Disabled (ボタンが有効でない) などの状態に使用します。 元の簡易スタイル名には、これらの終わりが追加されます。**ButtonBackgroundPointerOver**、 **ButtonForegroundPointerPressed**、 **ButtonBorderBrushDisabled**など。それらの変更ブラシ同様に、確認コントロールは、アプリのテーマに一貫して表示します。
+PointerOver (マウスがボタンの上に置かれている)、**PointerPressed** (ボタンが押された)、Disabled (ボタンが有効でない) などの状態に使用します。 元の軽量なスタイル設定名にこれらの末尾が追加されます: **ButtonBackgroundPointerOver**、**ButtonForegroundPointerPressed**、**ButtonBorderBrushDisabled**。これらのブラシも変更することで、コントロールの色をアプリのテーマと統一できます。
 
 これらのブラシを配置すると、**App.Resources** レベルでオーバーライドし、(単一ページではなく) アプリ全体のすべてのボタンを変更します。
 

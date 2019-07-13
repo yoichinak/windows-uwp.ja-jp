@@ -1,16 +1,16 @@
 ---
 title: デバイス ポータル Xbox 情報 API リファレンス
 description: Xbox デバイス情報にアクセスする方法について説明します。
-ms.date: 11/072017
+ms.date: 04/18/2019
 ms.topic: article
 keywords: windows 10、uwp、xbox、デバイス ポータル
 ms.localizationpriority: medium
-ms.openlocfilehash: 7aa8b11bc439266d36fbb27a7eaa7b07e924a17c
-ms.sourcegitcommit: bad7ed6def79acbb4569de5a92c0717364e771d9
+ms.openlocfilehash: c6a8e595be9a0846df2af81ea0b7fc1605f62e5f
+ms.sourcegitcommit: 139717a79af648a9231821bdfcaf69d8a1e6e894
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59244038"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67714076"
 ---
 # <a name="xbox-info-api-reference"></a>Xbox 情報 API リファレンス   
 この API を使うと、Xbox One デバイス情報にアクセスすることができます。
@@ -59,6 +59,6 @@ HTTP 状態コード      | 説明
 4XX | エラー コード
 5XX | エラー コード
 
-**利用可能なデバイス ファミリ**
+**使用可能なデバイス ファミリ**
 
 * Windows Xbox

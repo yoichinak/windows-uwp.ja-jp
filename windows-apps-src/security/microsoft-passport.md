@@ -275,7 +275,7 @@ if (openKeyResult.Status == KeyCredentialStatus.Success)
 
 ![Windows Hello のチャレンジ応答](images/passport-challenge-response.png)
 
-次に、サーバーは署名を検証する必要があります。 公開キーを要求し、将来の検証に使用するサーバーに送信すると、publicKeyInfo の ASN.1 エンコードされた blob になります。 確認する場合、 [Windows こんにちは GitHub コード サンプル](https://go.microsoft.com/fwlink/?LinkID=717812)より一般的な使用は、CNG の blob への ASN.1 エンコードされた blob を変換する Crypt32 関数をラップするヘルパー クラスがあることが表示されます。 この BLOB には、RSA と RSA 公開キーに関する公開キー アルゴリズムが格納されています。
+次に、サーバーは署名を検証する必要があります。 公開キーを要求し、将来の検証に使用するサーバーに送信すると、publicKeyInfo の ASN.1 エンコードされた blob になります。 確認する場合、 [Windows Hello GitHub コード サンプル](https://go.microsoft.com/fwlink/?LinkID=717812)より一般的な使用は、CNG の blob への ASN.1 エンコードされた blob を変換する Crypt32 関数をラップするヘルパー クラスがあることが表示されます。 この BLOB には、RSA と RSA 公開キーに関する公開キー アルゴリズムが格納されています。
 
 サンプルでは、ASN.1 エンコードされた blob を CNG blob に変換する理由は、CNG で使用する (/windows/デスクトップ/SecCNG/cng-ポータル) できるように、BCrypt API。 CNG の blob を探す場合これを利用して、関連する[BCRYPT_KEY_BLOB 構造](/windows/desktop/api/bcrypt/ns-bcrypt-_bcrypt_key_blob)します。 この API サーフェスは認証と Windows アプリケーションでの暗号化に使用できます。 ASN.1 は、シリアル化できるデータ構造を通信するために文書化されている標準と証明書を使用して公開キー暗号化でよく使用されます。 その理由はこの方法で公開キー情報が返されます。 公開キーは RSA キーです。Windows こんにちはを使用するアルゴリズムのデータを署名することです。
 
@@ -407,9 +407,9 @@ Windows 10 には、簡単に実現できる、高いレベルのセキュリテ
 
 ### <a name="61-articles-and-sample-code"></a>6.1 記事とサンプル コード
 
-- [Windows こんにちはの概要](https://support.microsoft.com/help/17215)
-- [Windows こんにちはの実装の詳細](https://docs.microsoft.com/windows/keep-secure/microsoft-passport-guide)
-- [Windows こんにちは GitHub コード サンプル](https://go.microsoft.com/fwlink/?LinkID=717812)
+- [Windows Hello の概要](https://support.microsoft.com/help/17215)
+- [Windows Hello の実装の詳細](https://docs.microsoft.com/windows/keep-secure/microsoft-passport-guide)
+- [Windows Hello GitHub コード サンプル](https://go.microsoft.com/fwlink/?LinkID=717812)
 
 ### <a name="62-terminology"></a>6.2 用語
 

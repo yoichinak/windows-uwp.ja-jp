@@ -6,17 +6,17 @@ ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、XAML、コントロール、バインド、コレクション
 ms.localizationpriority: medium
 ms.openlocfilehash: 7669c6536f28d5f979567f5b433dbf614800bec3
-ms.sourcegitcommit: d23dab1533893b7fe0f01ca6eb273edfac4705e6
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/15/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65627676"
 ---
 # <a name="xaml-items-controls-bind-to-a-cwinrt-collection"></a>XAML アイテム コントロール: C++/WinRT コレクションへのバインド
 
-XAML アイテム コントロールに効果的にバインドできるコレクションは、*監視可能な*コレクションと呼ばれます。 この概念は、*オブザーバー パターン*と呼ばれるソフトウェアの設計パターンに基づいています。 このトピックでは、監視可能なコレクションを実装する方法を示します[C +/cli WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt)、および XAML をバインドする方法にコントロールの項目。
+XAML アイテム コントロールに効果的にバインドできるコレクションは、*監視可能な*コレクションと呼ばれます。 この概念は、*オブザーバー パターン*と呼ばれるソフトウェアの設計パターンに基づいています。 このトピックでは、[C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) で監視可能なコレクションを実装する方法と、これらに XAML アイテム コントロールをバインドする方法を示します。
 
-このトピックの手順に従うしたいかどうかは、最初に記載されているプロジェクトを作成することをお勧めします。 [XAML コントロール; にバインドをC++/WinRT プロパティ](binding-property.md)します。 このトピックでは、そのプロジェクトにより多くのコードを追加し、そのトピックで説明する概念に追加します。
+このトピックを理解するには、「[XAML コントロール: C++/WinRT プロパティへのバインド](binding-property.md)」に記載されているプロジェクトを最初に作成することをお勧めします。 このトピックでは、そのプロジェクトにさらにコードを追加し、そのトピックで説明されている概念が補足されます。
 
 > [!IMPORTANT]
 > C++/WinRT でランタイム クラスを使用および作成する方法についての理解をサポートするために重要な概念と用語については、「[C++/WinRT での API の使用](consume-apis.md)」と「[C++/WinRT での作成者 API](author-apis.md)」を参照してください。
@@ -25,11 +25,11 @@ XAML アイテム コントロールに効果的にバインドできるコレ�
 コレクションを表すランタイム クラスが、要素が追加されるまたは削除されるたびに [**IObservableVector&lt;T&gt;:: VectorChanged**](/uwp/api/windows.foundation.collections.iobservablevector-1.vectorchanged) イベントを発生することを選択する場合、そのランタイム クラスは監視可能なコレクションです。 XAML アイテム コントロールでは、更新されたコレクションを取得して、現在の要素を表示するためにそれ自体を更新することで、これらのイベントをバインドし、処理することができます。
 
 > [!NOTE]
-> インストールと使用について、 C++WinRT Visual Studio Extension (VSIX) と (をまとめてプロジェクト テンプレートを提供し、ビルドのサポート)、NuGet パッケージを参照してください。 [Visual Studio のサポートC++/WinRT](intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)します。
+> C++/WinRT Visual Studio Extension (VSIX) と NuGet パッケージ (両者が連携してプロジェクト テンプレートとビルドをサポート) のインストールと使用については、[Visual Studio での C++/WinRT のサポート](intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)に関する記事を参照してください。
 
 ## <a name="add-a-bookskus-collection-to-bookstoreviewmodel"></a>**BookSkus** コレクションを **BookstoreViewModel** に追加する
 
-「[XAML コントロール、C++/WinRT プロパティへのバインド](binding-property.md)」では、**BookSku** 型のプロパティをメイン ビュー モデルに追加しました。 この手順で使用して、 [ **winrt::single_threaded_observable_vector** ](/uwp/cpp-ref-for-winrt/single-threaded-observable-vector)の observablecollection を実装するためにファクトリ関数テンプレート**BookSku**で、同じビューのモデル。
+「[XAML コントロール、C++/WinRT プロパティへのバインド](binding-property.md)」では、**BookSku** 型のプロパティをメイン ビュー モデルに追加しました。 この手順では、[**winrt::single_threaded_observable_vector**](/uwp/cpp-ref-for-winrt/single-threaded-observable-vector) ファクトリ関数テンプレートを使用します。これは、同じビュー モデルに対して **BookSku** の監視可能なコレクションを実装するのに役に立ちます。
 
 `BookstoreViewModel.idl` で新しいプロパティを宣言します。
 
@@ -45,9 +45,9 @@ runtimeclass BookstoreViewModel
 ```
 
 > [!IMPORTANT]
-> 上の MIDL 3.0 一覧での種類、 **BookSkus**プロパティは[ **IObservableVector** ](/uwp/api/windows.foundation.collections.ivector_t_)の[ **IInspectable**](/windows/desktop/api/inspectable/nn-inspectable-iinspectable). 項目のソース、バインドがこのトピックの次のセクションで、 [ **ListBox** ](/uwp/api/windows.ui.xaml.controls.listbox)に**BookSkus**します。 リスト ボックスは、アイテム コントロールを正しく設定して、 [ **ItemsControl.ItemsSource** ](/uwp/api/windows.ui.xaml.controls.itemscontrol.itemssource)プロパティ、型の値に設定する必要があります**IObservableVector** (または**IVector**) の**IInspectable**、やなどの相互運用型の[ **IBindableObservableVector**](/uwp/api/windows.ui.xaml.interop.ibindableobservablevector)します。
+> 上記の MIDL 3.0 のリストでは、**BookSkus** プロパティの型が [**IInspectable**](/windows/desktop/api/inspectable/nn-inspectable-iinspectable) の [**IObservableVector**](/uwp/api/windows.foundation.collections.ivector_t_) であることに注意してください。 このトピックの次のセクションでは、[**ListBox**](/uwp/api/windows.ui.xaml.controls.listbox) の項目ソースを **BookSkus** にバインドします。 リスト ボックスは項目コントロールです。[**ItemsControl.ItemsSource**](/uwp/api/windows.ui.xaml.controls.itemscontrol.itemssource) プロパティを正しく設定するには、それを、**IInspectable** の型 **IObservableVector** (または **IVector**) の値に設定するか、または [**IBindableObservableVector**](/uwp/api/windows.ui.xaml.interop.ibindableobservablevector) などの相互運用性型の値に設定する必要があります。
 
-保存してビルドします。 コピーからアクセサー スタブ`BookstoreViewModel.h`と`BookstoreViewModel.cpp`で、`\Bookstore\Bookstore\Generated Files\sources`フォルダー (詳細については、前のトピックを参照してください。 [XAML コントロール; にバインドをC++/WinRT プロパティ](binding-property.md))。 次のようにこれらのアクセサー スタブを実装します。
+保存してビルドします。 `\Bookstore\Bookstore\Generated Files\sources` フォルダー内の `BookstoreViewModel.h` および `BookstoreViewModel.cpp` からアクセサー スタブをコピーします (詳細については、前のトピック「[XAML コントロール: C++/WinRT プロパティへのバインド](binding-property.md)」を参照してください)。 それらのアクセサー スタブを次のように実装します。
 
 ```cppwinrt
 // BookstoreViewModel.h
@@ -118,7 +118,7 @@ void MainPage::ClickHandler(IInspectable const&, RoutedEventArgs const&)
 ここでプロジェクトをビルドして実行します。 ボタンをクリックして**クリック** イベント ハンドラーを実行します。 **Append** の実装によりイベントが発生し、コレクションが変更されたことを UI が把握できるようにすることが分かります。**ListBox** はその独自の **Items** 値を更新するためにコレクションを再クエリします。 前と同様に、ブックのいずれかのタイトルが変わります。このタイトル変更は、ボタンとリスト ボックス内の両方に反映されます。
 
 ## <a name="important-apis"></a>重要な API
-* [IObservableVector&lt;T&gt;:: VectorChanged](/uwp/api/windows.foundation.collections.iobservablevector-1.vectorchanged)
+* [IObservableVector&lt;T&gt;::VectorChanged](/uwp/api/windows.foundation.collections.iobservablevector-1.vectorchanged)
 * [winrt::make 関数テンプレート](/uwp/cpp-ref-for-winrt/make)
 
 ## <a name="related-topics"></a>関連トピック

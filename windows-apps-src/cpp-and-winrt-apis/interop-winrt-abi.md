@@ -6,15 +6,15 @@ ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、ポート、移行、相互運用、ABI
 ms.localizationpriority: medium
 ms.openlocfilehash: a1745f9ad98ed8dac2e54e17d18467981eafdcec
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66360224"
 ---
 # <a name="interop-between-cwinrt-and-the-abi"></a>C++/WinRT と ABI 間の相互運用
 
-このトピックでは SDK アプリケーション バイナリ インターフェイス (ABI) 間で変換する方法と[C +/cli WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt)オブジェクト。 これらの手法を使用すると、Windows ランタイムでこれら 2 つの手法によるプログラミングを使用するコード間を相互運用するか、ABI から C++/WinRT にコードを徐々に移動することができます。
+このトピックでは、SDK アプリケーション バイナリ インターフェイス (ABI) と [C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) オブジェクト間の変換方法について説明します。 これらの手法を使用すると、Windows ランタイムでこれら 2 つの手法によるプログラミングを使用するコード間を相互運用するか、ABI から C++/WinRT にコードを徐々に移動することができます。
 
 ## <a name="what-is-the-windows-runtime-abi-and-what-are-abi-types"></a>Windows ランタイム ABI および ABI の種類とは何ですか。
 Windows ランタイム クラス (ランタイム クラス) は実際にはアブストラクションです。 このアブストラクションは、さまざまなプログラミング言語がオブジェクトと対話できるようにするバイナリ インターフェイス (アプリケーション バイナリ インターフェイス、または ABI) を定義します。 プログラミング言語に関係なく、クライアント コードと Windows ランタイム オブジェクトとの対話は最下位レベルで発生し、クライアントの言語の構成要素はオブジェクトの ABI への呼び出しに変換されます。
@@ -39,7 +39,7 @@ namespace ABI::Windows::Foundation
 }
 ```
 
-**IUriRuntimeClass** は COM インターフェイスです。 超える&mdash;ベースなので**IInspectable**&mdash;**IUriRuntimeClass**は Windows ランタイム インターフェイスです。 **HRESULT** は例外よりも型を返します。 **HSTRING** ハンドルなどのアーティファクトを使用します (完了したら、このハンドルを `nullptr` に戻すように設定することをお勧めします)。 これにより、アプリケーション バイナリ レベル、つまり、COM プログラミング レベルで Windows ランタイムの内容を把握できます。
+**IUriRuntimeClass** は COM インターフェイスです。 ただしそれ以上に、ベースは **IInspectable** であるため、**IUriRuntimeClass** は Windows ランタイム インターフェイスです。 **HRESULT** は例外よりも型を返します。 **HSTRING** ハンドルなどのアーティファクトを使用します (完了したら、このハンドルを `nullptr` に戻すように設定することをお勧めします)。 これにより、アプリケーション バイナリ レベル、つまり、COM プログラミング レベルで Windows ランタイムの内容を把握できます。
 
 Windows ランタイムはコンポーネント オブジェクト モデル (COM) API に基づいています。 この方法で Windows ランタイムにアクセスするか、*言語プロジェクション*を介してアクセスすることができます。 プロジェクションは、COM の詳細を隠し、特定の言語により自然なプログラミング エクスペリエンスを提供します。
 
@@ -247,10 +247,10 @@ int main()
 * [AddRef 関数](https://docs.microsoft.com/windows/desktop/api/unknwn/nf-unknwn-iunknown-addref)
 * [QueryInterface 関数](https://docs.microsoft.com/windows/desktop/api/unknwn/nf-unknwn-iunknown-queryinterface(q_))
 * [winrt::attach_abi 関数](/uwp/cpp-ref-for-winrt/attach-abi)
-* [winrt::com_ptr 構造体のテンプレート](/uwp/cpp-ref-for-winrt/com-ptr)
+* [winrt::com_ptr 構造体テンプレート](/uwp/cpp-ref-for-winrt/com-ptr)
 * [winrt::copy_from_abi 関数](/uwp/cpp-ref-for-winrt/copy-from-abi)
 * [winrt::copy_to_abi 関数](/uwp/cpp-ref-for-winrt/copy-to-abi)
 * [winrt::detach_abi 関数](/uwp/cpp-ref-for-winrt/detach-abi)
 * [winrt::get_abi 関数](/uwp/cpp-ref-for-winrt/get-abi)
-* [winrt::Windows::Foundation::IUnknown:: メンバー関数として](/uwp/cpp-ref-for-winrt/windows-foundation-iunknown#iunknownas-function)
+* [winrt::Windows::Foundation::IUnknown::as メンバー関数](/uwp/cpp-ref-for-winrt/windows-foundation-iunknown#iunknownas-function)
 * [winrt::Windows::Foundation::IUnknown::try_as メンバー関数](/uwp/cpp-ref-for-winrt/windows-foundation-iunknown#iunknowntry_as-function)

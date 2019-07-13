@@ -8,12 +8,12 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: RS5, 19H1
-ms.openlocfilehash: e6074202a05c80a9dc759cdf81b2c20c7cc17d07
-ms.sourcegitcommit: b8087f8b6cf8367f8adb7d6db4581d9aa47b4861
-ms.translationtype: HT
+ms.openlocfilehash: 8ceb314424ae2611e141ef866a84c08e55b0ba2d
+ms.sourcegitcommit: f9a30bfd1e8eab50d0b1db97dd2f650ce66b5d34
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67414097"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67690886"
 ---
 # <a name="host-uwp-xaml-controls-in-desktop-apps-xaml-islands"></a>デスクトップ アプリ でUWP XAMLコントロールをホストする(XAML Islands)
 
@@ -86,10 +86,10 @@ Windows 10、バージョン 1903 SDK (またはそれ以降のリリース) を
 
 #### <a name="option-2-set-the-maxversiontested-value-in-your-assembly-manifest"></a>オプション 2:アセンブリ マニフェストで maxVersionTested 値を設定します。
 
-追加できるかどうか MSIX パッケージ内のアプリケーションをパッケージ化したくない、[サイド バイ サイド アセンブリ マニフェスト](https://docs.microsoft.com/windows/desktop/SbsCs/application-manifests)をプロジェクトに追加し、 **maxVersionTested**値を指定するマニフェストをアプリケーションは、Windows 10、1903 またはそれ以降のバージョンとの互換性。
+追加できるかどうか MSIX パッケージ内のアプリケーションをパッケージ化したくない、[アプリケーション マニフェスト](https://docs.microsoft.com/windows/desktop/SbsCs/application-manifests)をプロジェクトに追加し、 **maxVersionTested**要素を指定するマニフェスト、アプリケーションは、Windows 10、1903 またはそれ以降のバージョンとの互換性。
 
-1. アセンブリ マニフェストのプロジェクトで、新しい XML ファイルをプロジェクトに追加およびという名前を付けますがあるまだない場合**app.manifest**します。 WPF や Windows フォーム アプリケーションの場合も割り当てることを確認します、**マニフェスト**プロパティを **. app.manifest**で、**アプリケーション**のページ、[プロジェクトプロパティ](https://docs.microsoft.com/visualstudio/ide/reference/application-page-project-designer-csharp?view=vs-2019#resources)します。
-2. アセンブリ マニフェストで含める、**互換性**要素と子要素を次の例に示すようにします。 置換、 **Id**の属性、 **maxVersionTested**対象としている Windows 10 のバージョン番号を持つ要素 (これは、Windows 10、バージョンが 1903 または今後のリリースをする必要があります)。 
+1. アプリケーション マニフェストのプロジェクトで、新しい XML ファイルをプロジェクトに追加およびという名前を付けますがまだしていない場合**app.manifest**します。 WPF や Windows フォーム アプリケーションの場合も割り当てることを確認します、**マニフェスト**プロパティを **. app.manifest**で、**アプリケーション**のページ、[プロジェクトプロパティ](https://docs.microsoft.com/visualstudio/ide/reference/application-page-project-designer-csharp?view=vs-2019#resources)します。
+2. アプリケーション マニフェストで含める、**互換性**要素と子要素を次の例に示すようにします。 置換、 **Id**の属性、 **maxVersionTested**対象としている Windows 10 のバージョン番号を持つ要素 (これは、Windows 10、バージョンが 1903 または今後のリリースをする必要があります)。
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -103,6 +103,9 @@ Windows 10、バージョン 1903 SDK (またはそれ以降のリリース) を
         </compatibility>
     </assembly>
     ```
+
+> [!NOTE]
+> 追加すると、 **maxVersionTested**要素内のアプリケーション マニフェストに、 C++ Win32 プロジェクト (Visual Studio では、Windows デスクトップ アプリケーション プロジェクト テンプレートを使用して)、プロジェクトで、次のビルド警告を表示可能性があります: `manifest authoring warning 81010002: Unrecognized Element "maxversiontested" in namespace "urn:schemas-microsoft-com:compatibility.v1"`. この警告は、プロジェクトで、間違いがあることと、無視することが示されません。
 
 ## <a name="feature-roadmap"></a>機能のロードマップ
 

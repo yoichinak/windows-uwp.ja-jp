@@ -822,6 +822,8 @@
           href: ../cpp-and-winrt-apis/binding-collection.md
         - name: XAML カスタム (テンプレート化) コントロール
           href: ../cpp-and-winrt-apis/xaml-cust-ctrl.md
+        - name: ABI 境界へのパラメーターの受け渡し
+          href: ../cpp-and-winrt-apis/pass-parms-to-abi.md
         - name: COM コンポーネントの使用
           href: ../cpp-and-winrt-apis/consume-com.md
         - name: COM コンポーネントの作成

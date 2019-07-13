@@ -6,12 +6,12 @@ keywords: ダイヤル, ラジアル, チュートリアル
 ms.date: 03/11/2019
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: a16b455d692eaf9f73b7dc90200bd0f021025e52
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 4cf27f6f9893b3d4cc68c899bf3ff1902320a910
+ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66365658"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67820560"
 ---
 # <a name="tutorial-support-the-surface-dial-and-other-wheel-devices-in-your-uwp-app"></a>チュートリアル:UWP アプリで Surface Dial (およびその他のホイール デバイス) をサポートする
 
@@ -38,10 +38,10 @@ Dial は、次の 3 つの基本的なジェスチャをサポートしていま
 - 回転させると、(メニューがアクティブな場合は) メニュー項目を強調表示します。(メニューがアクティブでない場合は) アプリの現在の動作を変更します。
 - クリックすると、(メニューがアクティブな場合は) 強調表示されたメニュー項目を選択します。(メニューがアクティブでない場合は) アプリのコマンドを起動します。
 
-## <a name="prerequisites"></a>前提条件
+## <a name="prerequisites"></a>必須コンポーネント
 
 * Windows 10 Creators Update またはそれ以降を実行しているコンピューター (または、仮想マシン)
-* [Visual Studio 2017 (10.0.15063.0)](https://developer.microsoft.com/windows/downloads)
+* [Visual Studio 2019](https://developer.microsoft.com/windows/downloads)
 * [Windows 10 SDK (10.0.15063.0)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * ホイール デバイス (現時点では [Surface Dial](https://aka.ms/purchasesurfacedial) のみ)
 * Visual Studio を使ってユニバーサル Windows プラットフォーム (UWP) アプリの開発を初めて行う場合は、このチュートリアルを開始する前に、次のトピックをご覧ください。  
@@ -85,12 +85,12 @@ Dial は、次の 3 つの基本的なジェスチャをサポートしていま
 
 これらのオブジェクトは、UWP アプリにホイール デバイスのさまざまなエクスペリエンスを提供します。
 
-| Component | 説明 |
+| コンポーネント | 説明 |
 | --- | --- |
 | [**RadialController**クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Input.RadialController)および関連します。 | Surface Dial などのホイール入力デバイスまたはアクセサリを表します。 |
 | [**IRadialControllerConfigurationInterop**](https://docs.microsoft.com/previous-versions/windows/desktop/api/radialcontrollerinterop/nn-radialcontrollerinterop-iradialcontrollerconfigurationinterop) / [**IRadialControllerInterop**](https://docs.microsoft.com/previous-versions/windows/desktop/api/radialcontrollerinterop/nn-radialcontrollerinterop-iradialcontrollerinterop)<br/>この機能はこのドキュメントの範囲外です。詳しくは、「[Windows クラシック デスクトップ サンプル](https://aka.ms/radialcontrollerclassicsample)」をご覧ください。 | UWP アプリとの相互運用性を提供します。 |
 
-## <a name="step-1-run-the-sample"></a>手順 1:サンプルを実行します。
+## <a name="step-1-run-the-sample"></a>手順 1:サンプルの実行
 
 RadialController サンプル アプリをダウンロードしたら、実行できることを確認します。
 1. Visual Studio でサンプル プロジェクトを開きます。
@@ -609,7 +609,7 @@ Surface Dial の接触位置と境界の両方を検出することにより、�
 
     <iframe src="https://channel9.msdn.com/Blogs/One-Dev-Minute/Programming-the-Microsoft-Surface-Dial/player" width="600" height="400" allowFullScreen frameBorder="0"></iframe>  
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>Summary
 
 これで、完了した、*チュートリアルを取得します。UWP アプリで Surface Dial (およびその他のホイール デバイス) をサポートする*! このチュートリアルでは、UWP アプリでホイール デバイスをサポートするために必要となる基本的なコードを示し、さらに **RadialController** API でサポートされる高度なユーザー エクスペリエンスを提供する方法について説明しました。
 
@@ -641,6 +641,6 @@ Surface Dial の接触位置と境界の両方を検出することにより、�
 #### <a name="other-samples"></a>その他のサンプル
 [書籍のサンプルを色分け表示](https://github.com/Microsoft/Windows-appsample-coloringbook)
 
-[ユニバーサル Windows プラットフォームのサンプル (C#および C++)](https://go.microsoft.com/fwlink/?linkid=832713)
+[ユニバーサル Windows プラットフォームのサンプル (C# と C++)](https://go.microsoft.com/fwlink/?linkid=832713)
 
 [Windows クラシック デスクトップ サンプル](https://aka.ms/radialcontrollerclassicsample)

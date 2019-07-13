@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: f8e74688d0f7048276b12680237b85663d7e2b81
-ms.sourcegitcommit: d1c3e13de3da3f7dce878b3735ee53765d0df240
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/24/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66214735"
 ---
 # <a name="contributing-to-uwp-conceptual-documentation"></a>UWP の概念に関するドキュメントへの投稿
@@ -12,48 +12,48 @@ ms.locfileid: "66214735"
 
 ## <a name="writing-content"></a>コンテンツの記述
 
-ドキュメントは、Markdown、軽量のテキスト形式の構文で記述されます。 場合は Markdown に慣れていない、 [GitHub の基本を学ぶ](https://guides.github.com/features/mastering-markdown/)します。 よくわからない場合に、ドキュメントの他のページから書式設定スタイルを常にコピーできます。
+Microsoft のドキュメントは Markdown という簡易なテキスト スタイル構文で記述されています。 Markdown に馴染みがない場合は、[GitHub 上で基本を学習](https://guides.github.com/features/mastering-markdown/)することができます。 よくわからない場合は、Microsoft のドキュメント内の他のページからいつでも書式スタイルをコピーできます。
 
 ## <a name="public-contributions"></a>公開投稿
 
-場合**いない**を投稿する Microsoft の社員で、[パブリック コンテンツ リポジトリ](https://github.com/MicrosoftDocs/windows-uwp)します。 公開投稿は、変更、既存のページを扱うに適しています。
+Microsoft の従業員**ではない**場合は、[パブリック コンテンツ リポジトリ](https://github.com/MicrosoftDocs/windows-uwp)から投稿することができます。 公開投稿は既存のページの変更および詳細説明に適しています。
 
-### <a name="editing-a-file"></a>ファイルを編集します。
+### <a name="editing-a-file"></a>ファイルの編集
 
-パブリック コンテンツ リポジトリで既に場合は、変更するファイルに移動して開始します。 そこから、編集を開始する表示されているコンテンツの上の鉛筆アイコンを選択します。
+あなたが既にパブリック コンテンツ リポジトリにいる場合、まずは、変更するファイルに移動します。 そこから、表示されたコンテンツの上にある鉛筆アイコンを選択して編集を開始します。
 
-または、docs.microsoft.com のページを表示する場合を選択、**編集**ページの右上部分でボタンをクリックします。 これで、リポジトリに関連付けられているソース ファイルにリダイレクトされます。
+または、docs.microsoft.com のページを表示している場合は、ページの右上部分にある **[編集]** ボタンをクリックします。 これにより、リポジトリ内にある関連付けされたソース ファイルにリダイレクトされます。
 
-編集を開始するときに GitHub は自動的に変更を行うことができます、個人の GitHub アカウントに公式のリポジトリをフォークします。 プル要求を送信したらに戻す、 **docs**分岐します。
+編集を開始すると、GitHub によって公式のリポジトリが個人用 GitHub アカウントに自動的にフォークされ、そのアカウントで変更を加えることができるようになります。 完了したら、**docs** ブランチに戻すプル要求を提出します。
 
 ### <a name="pull-requests"></a>プル要求
 
-プル要求を送信した後は、当社の基本的な基準を満たしていることを確認するコンテンツの品質チェックリストに対して評価されます。 合格した場合は、さらなるレビューの UWP ドキュメント チームのメンバーに割り当てられます。 失敗した場合、したが俊才の集まりに加えたどの変更します。
+ご自分のプル要求を送信すると、それはコンテンツ品質チェックリストに対して評価され、Microsoft の基本的な基準を満たしているかどうかが確認されます。 パスした場合は、それは、さらなるレビューのために、UWP ドキュメント チームのメンバーに割り当てられます。 パスしなかった場合、どのような変更を加えるべきかが示されます。
 
-割り当てられたレビュー担当者は、承認、PR を拒否または変更を加えると連携またはします。
+割り当てられたレビュー担当者は PR を承認または却下することも、あなたと協力してさらに変更を加えることもできます。
 
-## <a name="internal-contributions"></a>内部の投稿
+## <a name="internal-contributions"></a>内部投稿
 
-投稿する場合は、Microsoft の従業員、[プライベート コンテンツ リポジトリ](https://github.com/microsoftdocs/windows-uwp-pr)します。 このリポジトリでの使用に関するガイダンスを見つけることができます、 [Windows Authoring Guide](https://review.docs.microsoft.com/windows-authoring-guide/uwp/?branch=master)します。 プライベート リポジトリのみを使用して、今後の機能に関するドキュメントを提供する必要があります。
+Microsoft の従業員である場合は、[プライベート コンテンツ リポジトリ](https://github.com/microsoftdocs/windows-uwp-pr)から投稿することができます。 このリポジトリの使用に関するガイダンスは、[Windows オーサリング ガイド](https://review.docs.microsoft.com/windows-authoring-guide/uwp/?branch=master)にあります。 今後の機能に関するドキュメントには必ず、プライベート リポジトリを介して投稿する必要があります。
 
-### <a name="editing-a-file"></a>ファイルを編集します。
+### <a name="editing-a-file"></a>ファイルの編集
 
-パブリック リポジトリのように行うことができます小さな変更をプライベート リポジトリにブラウザーでローカル クローンを作成する必要はありません。 **する必要があります**適切なブランチを投稿することを確認します。 個人用ブランチの作成の詳細については、次を参照してください。 [Windows オーサリング ガイドの指示](https://review.docs.microsoft.com/windows-authoring-guide/uwp/conceptual/branches?branch=master)します。
+パブリック リポジトリと同様に、ローカルの複製を作成しなくても、ご利用のブラウザー内のプライベート リポジトリに小さな変更を加えることができます。 投稿は確実に正しいブランチに行う**必要があります**。 個人用ブランチの作成の詳細については、[Windows オーサリング ガイドの手順](https://review.docs.microsoft.com/windows-authoring-guide/uwp/conceptual/branches?branch=master)を参照してください。
 
 ### <a name="making-substantial-changes"></a>大幅な変更を加える
 
-既存のアーティクルをより広範な変更するには、追加またはのイメージを変更または新しい記事を投稿、プライベート コンテンツ リポジトリのローカル クローンを作成します。 詳細については、次の[Windows オーサリング ガイドの指示](https://review.docs.microsoft.com/windows-authoring-guide/uwp/conceptual/)します。
+既存の記事をより幅広く変更する、画像を追加または変更する、新しい記事を投稿する場合は、プライベート コンテンツ リポジトリのローカルの複製を作成します。 詳細については、[Windows オーサリング ガイドの手順](https://review.docs.microsoft.com/windows-authoring-guide/uwp/conceptual/)に従ってください。
 
 ### <a name="pull-requests"></a>プル要求
 
-内部リポジトリでプル要求を作成するときに、個人用ブランチから作成されたブランチにマージしていることを確認します。
+内部リポジトリ内でプル要求を作成する場合は、ご自分のブランチをその作成元のブランチに必ずマージしてください。
 
-に対して評価されますが、プル要求を送信した後、[コンテンツ品質チェックリスト](https://review.docs.microsoft.com/windows-authoring-guide/managing-contributions/editorial-checklist?branch=master)当社の基本的な基準を満たしていること確認します。 合格した場合は、さらなるレビューの UWP ドキュメント チームのメンバーに割り当てられます。 失敗した場合、したが俊才の集まりに加えたどの変更します。
+ご自分のプル要求を送信すると、それは[コンテンツ品質チェックリスト](https://review.docs.microsoft.com/windows-authoring-guide/managing-contributions/editorial-checklist?branch=master)に対して評価され、Microsoft の基本的な基準を満たしているかどうかが確認されます。 パスした場合は、それは、さらなるレビューのために、UWP ドキュメント チームのメンバーに割り当てられます。 パスしなかった場合、どのような変更を加えるべきかが示されます。
 
-割り当てられたレビュー担当者は、承認、PR を拒否または変更を加えると連携またはします。 自分が承認したまで、レビュー担当者は、PR をマージできません。
+割り当てられたレビュー担当者は PR を承認または却下することも、あなたと協力してさらに変更を加えることもできます。 ご自分で PR を承認するまで、レビュー担当者によって PR はマージされません。
 
 ## <a name="using-issues-to-provide-feedback-on-uwp-conceptual-documentation"></a>懸案事項を使用して UWP の概念に関するドキュメントへのフィードバックを提供する
 
-自分で行うの編集の代わりに、ドキュメントに関するフィードバックを提供する場合は、[パブリック リポジトリで問題を作成](https://github.com/MicrosoftDocs/windows-uwp/issues)です。 選択、**問題** タブで選択し、**新しい問題**ボタンをクリックします。 必ずトピックのタイトルとページの URL を含めてください。 問題は、確認のため、UWP ドキュメント チームのメンバーに割り当てられます。
+自分で編集するのではなくドキュメントに関するフィードバックを提供する場合は、[公開リポジトリ内に懸案事項を作成](https://github.com/MicrosoftDocs/windows-uwp/issues)することができます。 **[Issues]\(懸案事項\)** タブを選択し、 **[New issue]\(新しい懸案事項\)** ボタンを選択します。 必ずトピックのタイトルとページの URL を含めてください。 その懸案事項はレビューのために UWP ドキュメンテーション チームのメンバーに割り当てられます。
 
-* 内部の問題についてを使用して、 [WDG コンテンツ要求ツール](https://aka.ms/pubrequest)します。
+* 内部の懸案事項については、[WDG Content Request Tool](https://aka.ms/pubrequest) を使用してください。

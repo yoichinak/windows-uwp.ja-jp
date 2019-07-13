@@ -1,6 +1,6 @@
 ---
 description: このチュートリアルでは、UWP XAML ユーザー インターフェイスを追加、MSIX パッケージを作成およびその他の最新コンポーネントを WPF アプリに組み込む方法を示します。
-title: XAML 諸島を使用して、UWP の予定表ビュー コントロールを追加します。
+title: XAML Islands を使用して、UWP の予定表ビュー コントロールを追加します。
 ms.topic: article
 ms.date: 06/27/2019
 ms.author: mcleans
@@ -15,7 +15,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 06/27/2019
 ms.locfileid: "67420111"
 ---
-# <a name="part-3-add-a-uwp-calendarview-control-using-xaml-islands"></a>パート 3:XAML 諸島を使用して、UWP の予定表ビュー コントロールを追加します。
+# <a name="part-3-add-a-uwp-calendarview-control-using-xaml-islands"></a>パート 3:XAML Islands を使用して、UWP の予定表ビュー コントロールを追加します。
 
 これは、Contoso の経費をという名前のサンプル WPF デスクトップ アプリの近代化する方法を説明するチュートリアルの第 3 部です。 チュートリアル、前提条件、およびサンプル アプリをダウンロードする手順の概要については、次を参照してください。[チュートリアル。WPF アプリの近代化](modernize-wpf-tutorial.md)します。 この記事では、既に完了している前提としています。[パート 2](modernize-wpf-tutorial-2.md)します。
 

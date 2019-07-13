@@ -2,16 +2,16 @@
 ms.assetid: 9322B3A3-8F06-4329-AFCB-BE0C260C332C
 description: この記事では、さまざまな展開およびデバッグのターゲットを指定する手順について説明します。
 title: ユニバーサル Windows プラットフォーム (UWP) アプリの展開とデバッグ
-ms.date: 4/8/2019
+ms.date: 04/08/2019
 ms.topic: article
 keywords: Windows 10, UWP, デバッグ, テスト, パフォーマンス
 ms.localizationpriority: medium
-ms.openlocfilehash: 96e6f712f1a9882a10cf0706452628329c0c085d
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: c75eec01a41d31270e55b0da6f11ed38c971e8cb
+ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67317952"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67820330"
 ---
 # <a name="deploying-and-debugging-uwp-apps"></a>UWP アプリの展開とデバッグ
 
@@ -98,10 +98,10 @@ Creators Update より前のリモート PC に展開するには、ターゲッ
 
 ## <a name="passing-command-line-debug-arguments"></a>デバッグのコマンド ライン引数を渡す
 
-Visual Studio 2017 では、UWP アプリケーションのデバッグを開始するときに、デバッグのコマンド ライン引数を渡すことができます。 デバッグのコマンド ライン引数には、[**Application**](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.application) クラスの **OnLaunched** メソッドで *args* パラメーターからアクセスすることができます デバッグのコマンド ライン引数を指定するには、プロジェクトのプロパティを開き、 **[デバッグ]** タブに移動します。
+Visual Studio 2019 では、UWP アプリケーションのデバッグを開始するときにデバッグのコマンドライン引数を渡すことができます。 デバッグのコマンド ライン引数には、[**Application**](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.application) クラスの **OnLaunched** メソッドで *args* パラメーターからアクセスすることができます デバッグのコマンド ライン引数を指定するには、プロジェクトのプロパティを開き、 **[デバッグ]** タブに移動します。
 
 > [!NOTE]
-> これは、Visual Studio 2017 (Version 15.1) で C#、VB、C++ について利用できます。 JavaScript は、Visual Studio 2017 の将来のバージョンで利用できます。 デバッグのコマンド ライン引数は、シミュレーターを除くすべての種類の展開で利用できます。
+> これは、Visual Studio 2017 (Version 15.1) で C#、VB、C++ について利用できます。 JavaScript は、以降のバージョンで使用できます。 デバッグのコマンド ライン引数は、シミュレーターを除くすべての種類の展開で利用できます。
 
 C# と VB の UWP プロジェクトでは、 **[開始オプション]** に **[コマンド ライン引数]** フィールドが表示されます。
 
@@ -129,7 +129,7 @@ Visual Studio 2015 Update 3、および Windows 10 Anniversary Update のリリ�
 
 新しいプロパティには、次のものが含まれています。
 
-- 展開の種類
+- 配置の種類
 - パッケージの登録パス
 - レイアウトの一部でなくなっているものも含め、デバイスのすべてのファイルを保持する
 
@@ -197,7 +197,7 @@ Windows 10 で事前に起動することで UWP アプリの起動時のパフ�
 
 - **ローカル ネットワーク ループバックを許可します。**
 
-  セキュリティ上の理由で、標準的な方法でインストールされた UWP アプリでは、それがインストールされているデバイスに対してネットワーク呼び出しを実行することは許可されません。 既定では、Visual Studio の展開では、展開されたアプリについてこの規則が除外されます。 この除外により、単一コンピューター上で通信手順をテストできます。 Microsoft Store にアプリを送信する前に、この免除なしアプリをテストする必要があります。
+  セキュリティ上の理由で、標準的な方法でインストールされた UWP アプリでは、それがインストールされているデバイスに対してネットワーク呼び出しを実行することは許可されません。 既定では、Visual Studio による配置では、配置されたアプリに対するこの規則の適用は免除されます。 この免除によって、1 台のコンピューター上で通信プロシージャをテストできます。 Microsoft Store にアプリを送信する前に、この免除なしアプリをテストする必要があります。
 
   ネットワーク ループバックに関する除外をアプリから除去するには:
 

@@ -17,7 +17,7 @@
               href: apps/desktop/modernize/desktop-to-uwp-enhance.md
             - name: 利用可能なUWP API
               href: apps/desktop/modernize/desktop-to-uwp-supported-api.md
-        - name: UWP XAML コントロールのホスト (XAML アイランド)
+        - name: UWP XAML コントロールのホスト (XAML Islands)
           items:
             - name: 概要
               href: apps/desktop/modernize/xaml-islands.md
@@ -49,9 +49,9 @@
               href: apps/desktop/modernize/modernize-wpf-tutorial.md
             - name: Contoso Expenses　アプリの .NET Core 3 への移行
               href: apps/desktop/modernize/modernize-wpf-tutorial-1.md
-            - name: XAML アイランドを使用した UWP InkCanvas コントロールの追加
+            - name: XAML Islands を使用した UWP InkCanvas コントロールの追加
               href: apps/desktop/modernize/modernize-wpf-tutorial-2.md
-            - name: XAML アイランドを使用した UWP CalendarView コントロールの追加
+            - name: XAML Islands を使用した UWP CalendarView コントロールの追加
               href: apps/desktop/modernize/modernize-wpf-tutorial-3.md
             - name: Windows 10 ユーザー アクティビティと通知の追加
               href: apps/desktop/modernize/modernize-wpf-tutorial-4.md

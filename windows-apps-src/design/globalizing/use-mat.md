@@ -1,21 +1,21 @@
 ---
-Description: Microsoft Visual Studio 2017 には多言語アプリ ツールキット (MAT) 4.0 が統合されています。そのため、UWP アプリで翻訳がサポートされ、翻訳ファイルを管理したり、エディター ツールを利用したりできます。
+Description: 多言語アプリ ツールキット (MAT) 4.0 は、翻訳サポート、翻訳ファイル管理、およびエディター ツールを使用して UWP アプリを提供する、Microsoft Visual Studio 2019 と統合します。
 title: 多言語アプリ ツールキットの使用
 template: detail.hbs
 ms.date: 01/23/2018
 ms.topic: article
 keywords: Windows 10, UWP, グローバリゼーション, ローカライズの可否, ローカライズ
 ms.localizationpriority: medium
-ms.openlocfilehash: 49f03a1ae5ed0ea1a602103e2181c252c8c29c2f
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 428238f9d8a3468ab308841850ac13e8da22961f
+ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67319327"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67820582"
 ---
 # <a name="use-the-multilingual-app-toolkit-40"></a>多言語アプリ ツールキット 4.0 の使用
 
-Microsoft Visual Studio 2017 には多言語アプリ ツールキット (MAT) 4.0 が統合されています。そのため、UWP アプリで翻訳がサポートされ、翻訳ファイルを管理したり、エディター ツールを利用したりできます。 ツールキットの価値提案の一部を次に示します。
+多言語アプリ ツールキット (MAT) 4.0 は、翻訳サポート、翻訳ファイル管理、およびエディター ツールを使用して UWP アプリを提供する、Microsoft Visual Studio 2019 と統合します。 ツールキットの価値提案の一部を次に示します。
 
 - 開発時のリソースの変更や翻訳の状態を管理できます。
 - 構成済みの翻訳プロバイダーに基づいて言語を選ぶための UI を提供します。
@@ -38,10 +38,10 @@ Microsoft Visual Studio 2017 には多言語アプリ ツールキット (MAT) 4
 
 多言語アプリ ツールキット 4.0 (MAT 4.0) は 2 つの部分から構成され、それぞれ独自のインストーラーがあります。
 
-- [Microsoft Visual Studio 2017 向け多言語アプリ ツールキット 4.0](https://marketplace.visualstudio.com/items?itemName=MultilingualAppToolkit.MultilingualAppToolkit-18308). これにより、.vsix インストーラーの形式で、Visual Studio 2017 の MAT 4.0 の拡張子が含まれます。
+- [Multilingual App Toolkit 4.0 の拡張機能 for Visual Studio 2017 以降](https://marketplace.visualstudio.com/items?itemName=MultilingualAppToolkit.MultilingualAppToolkit-18308)します。 これには、.vsix インストーラーの形式での Visual Studio 2019 のマット 4.0 拡張機能が含まれます。
 - [多言語アプリ ツールキット 4.0 エディター](https://developer.microsoft.com/en-us/windows/develop/multilingual-app-toolkit). これには、.msi インストーラーの形式で、MAT 4.0 のスタンドアロン多言語エディター ツールが含まれています。 Visual Studio 2015 と Visual Studio 2013 の MAT 4.0 拡張機能も含まれます。
 
-Visual Studio 2017 を使用している場合は、両方のインストーラーをダウンロードし、1 つずつ実行します。 Visual Studio 2015 または Visual Studio 2013 を使用している場合は、.msi インストーラーをダウンロードして実行します。
+Visual Studio 2017 または Visual Studio 2019 を使用する場合は、ダウンロードして、1 つずつ両方のインストーラーを実行します。 Visual Studio 2015 または Visual Studio 2013 を使用している場合は、.msi インストーラーをダウンロードして実行します。
 
 ### <a name="step-3-enable-the-multilingual-app-toolkit-for-your-project"></a>手順 3. プロジェクトの多言語アプリ ツールキットを有効にします。
 

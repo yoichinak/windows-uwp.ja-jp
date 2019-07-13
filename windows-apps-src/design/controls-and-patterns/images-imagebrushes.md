@@ -9,17 +9,17 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: 61fa4f8afa0404591831be4136c16672503274f2
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66362783"
 ---
 # <a name="images-and-image-brushes"></a>画像とイメージ ブラシ
 
 画像を表示するには、**Image** オブジェクトまたは **ImageBrush** オブジェクトを使うことができます。 Image オブジェクトは、イメージのレンダリングに使います。ImageBrush オブジェクトは、特定のイメージを使って別のオブジェクトを描画するために使います。 
 
-> **重要な API**:[クラスをイメージ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Image)、[ソース プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.image.source)、 [ImageBrush クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.ImageBrush)、 [ImageSource プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imagebrush.imagesource)
+> **重要な API**:[Image クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Image)、[Source プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.image.source)、[ImageBrush クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.ImageBrush)、[ImageSource プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imagebrush.imagesource)
 
 ## <a name="are-these-the-right-elements"></a>これらの要素は適切か。
 **Image** 要素を使用して、アプリにスタンドアロンの画像を表示します。
@@ -44,7 +44,7 @@ ms.locfileid: "66362783"
 
 ## <a name="create-an-image"></a>画像を作成する
 
-### <a name="image"></a>イメージ
+### <a name="image"></a>Image
 [Image](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Image) オブジェクトを使ってイメージを作成する方法を次の例に示します。
 
 
@@ -56,7 +56,7 @@ ms.locfileid: "66362783"
 
 ![画像要素の例](images/Image_Licorice.jpg)
 
-この例の [Source](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.image.source) プロパティは、表示する画像がある場所を指定します。 絶対 URL を指定することで、ソースを設定することができます (たとえば、 http://contoso.com/myPicture.jpg)アプリ パッケージの構造体に対する相対的な URL を指定することで。 この例では、プロジェクトのルート フォルダーに "licorice.jpg" 画像ファイルを入れ、この画像ファイルをコンテンツとして含めるプロジェクト設定を宣言しています。
+この例の [Source](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.image.source) プロパティは、表示する画像がある場所を指定します。 ソースを設定するには、絶対 URL (http://contoso.com/myPicture.jpg) など) を指定するか、アプリのパッケージ化構造を基準とする相対 URL を指定します。 この例では、プロジェクトのルート フォルダーに "licorice.jpg" 画像ファイルを入れ、この画像ファイルをコンテンツとして含めるプロジェクト設定を宣言しています。
 
 ### <a name="imagebrush"></a>ImageBrush
 
@@ -80,10 +80,10 @@ ms.locfileid: "66362783"
 
 **Image** の [Width](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.width) 値または [Height](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.height) 値を設定しないと、**Source** で指定した画像の寸法で表示されます。 **Width** と **Height** を設定すると、画像を表示する領域を囲む四角形が作成されます。 この囲まれた領域に画像を描く方法は、[Stretch](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.image.stretch) プロパティを使って指定できます。 Stretch プロパティには、[Stretch](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Stretch) 列挙体で定義されている次の値を指定します。
 
--   **[なし]** :イメージは、出力サイズに拡張しません。 この Stretch の設定には注意してください。囲まれた領域よりもソース画像が大きいと、画像はクリップされます。ユーザーは意図的な [Clip](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.clip) で行うような制御をビューポートに対して行うことができないため、通常このことは望ましくありません。
--   **Uniform**:イメージは、出力サイズに合わせてスケーリングします。 ただし、コンテンツの縦横比は保たれます。 これが既定値です。
--   **UniformToFill**:イメージは、出力領域を塗りつぶしますが元の縦横比は維持されますが、完全にするためにスケーリングします。
--   **入力**:イメージは、出力サイズに合わせてスケーリングします。 コンテンツの高さと幅は個々に拡大されるので、元の画像の縦横比は保たれません。 つまり、出力領域を完全に塗りつぶすために、画像がゆがむことがあります。
+-   **なし**:画像は拡大されず、出力領域全体に描かれません。 この Stretch の設定には注意してください。囲まれた領域よりもソース画像が大きいと、画像はクリップされます。ユーザーは意図的な [Clip](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.clip) で行うような制御をビューポートに対して行うことができないため、通常このことは望ましくありません。
+-   **Uniform**: 画像は、出力領域の大きさに合わせて拡大されます。 ただし、コンテンツの縦横比は保たれます。 これが既定値です。
+-   **UniformToFill**: 画像は拡大され、出力領域を完全に塗りつぶすように描かれますが、元の縦横比は保たれます。
+-   **Fill**: 画像は、出力領域の大きさに合わせて拡大されます。 コンテンツの高さと幅は個々に拡大されるので、元の画像の縦横比は保たれません。 つまり、出力領域を完全に塗りつぶすために、画像がゆがむことがあります。
 
 ![ストレッチ設定の例。](images/Image_Stretch.jpg)
 
@@ -147,7 +147,7 @@ Windows 10 バージョン 1607 からは、**Image** 要素で、アニメー�
 
 ### <a name="image-sources-and-scaling"></a>画像ソースとスケーリング
 
-画像ソースは、Windows がスケールするときにアプリで適切に表示されるように、複数の推奨サイズで作る必要があります。 **Image** の **Source** を指定する際には、現在のスケーリングに対応したリソースを自動的に示す名前付け規則を利用できます。 名前付け規則の詳細については詳しくは、次を参照してください。[クイック スタート。ファイルまたはイメージ リソースを使用して](https://docs.microsoft.com/previous-versions/windows/apps/hh965325(v=win.10))します。
+画像ソースは、Windows がスケールするときにアプリで適切に表示されるように、複数の推奨サイズで作る必要があります。 **Image** の **Source** を指定する際には、現在のスケーリングに対応したリソースを自動的に示す名前付け規則を利用できます。 この名前付け規則の詳細や関連情報については、「[クイック スタート: ファイルまたは画像リソースの使用](https://docs.microsoft.com/previous-versions/windows/apps/hh965325(v=win.10))」をご覧ください。
 
 スケーリングの設計方法について詳しくは、「[レイアウトとスケーリングの UX ガイドライン](https://developer.microsoft.com/windows/design)」をご覧ください。
 

@@ -13,11 +13,11 @@ dev-contact: niallm
 doc-status: Published
 ms.localizationpriority: medium
 ms.openlocfilehash: 1d520f811c9929721bfcb9d1c83fbff6a4891091
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57658597"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "63801141"
 ---
 # <a name="contextual-commanding-for-collections-and-lists"></a>コレクションとリストのコンテキスト コマンドの実行
 
@@ -25,7 +25,7 @@ ms.locfileid: "57658597"
 
 多くのアプリに、リスト、グリッド、ツリーの形で、ユーザーが操作できるコンテンツのコレクションが含まれています。 たとえば、ユーザーは、項目の削除、名前の変更、フラグ付け、更新ができる可能性があります。 この記事では、どのような種類の入力でも、最善のエクスペリエンスが得られるように、そのような操作をコンテキスト コマンドを使って実装する方法を説明します。  
 
-> **重要な API**:[ICommand インターフェイス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.ICommand)、 [UIElement.ContextFlyout プロパティ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement.ContextFlyout)、 [INotifyPropertyChanged インターフェイス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.inotifypropertychanged)
+> **重要な API**:[ICommand インターフェイス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.ICommand)、[UIElement.ContextFlyout プロパティ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement.ContextFlyout)、[INotifyPropertyChanged インターフェイス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.inotifypropertychanged)
 
 ![各種入力方法で、お気に入りのコマンドを実行する](images/ContextualCommand_AddFavorites.png)
 
@@ -39,13 +39,13 @@ ms.locfileid: "57658597"
 | ---------------- | -------------- | ----------------- | -------------------- | ----------------- |
 | 項目の削除      | ショートカット メニュー   | ホバー ボタン      | DEL キー              | スワイプして削除   |
 | フラグの設定        | ショートカット メニュー   | ホバー ボタン      | Ctrl + Shift + G         | スワイプしてフラグを設定     |
-| データの更新     | ショートカット メニュー   | なし               | F5 キー               | 引っ張って更新   |
+| データの更新     | ショートカット メニュー   | 該当なし               | F5 キー               | 引っ張って更新   |
 | お気に入りに追加 | ショートカット メニュー   | ホバー ボタン      | F、Ctrl + S            | スワイプしてお気に入りに追加 |
 
 
-* **一般に、する必要があります項目のすべてのコマンドで使用できるように、項目の[コンテキスト メニュー](menus.md)します。** コンテキスト メニューには、入力の種類にかかわらず、ユーザーがアクセスでき、ユーザーが実行できるコンテキスト コマンドの全部を含めてください。
+* **通常は、特定の項目に対するすべてのコマンドをその項目の[コンテキスト メニュー](menus.md)から利用できるようにします。** コンテキスト メニューには、入力の種類にかかわらず、ユーザーがアクセスでき、ユーザーが実行できるコンテキスト コマンドの全部を含めてください。
 
-* **頻繁にアクセスされるコマンドは、入力のアクセラレータの使用を検討してください。** 入力アクセラレータを使うと、ユーザーの入力デバイスに応じて、すばやく操作を実行できます。 次のような入力アクセラレータがあります。
+* **頻繁にアクセスするコマンドについては、入力アクセラレータを使うことを検討してください。** 入力アクセラレータを使うと、ユーザーの入力デバイスに応じて、すばやく操作を実行できます。 次のような入力アクセラレータがあります。
     - スワイプして操作 (タッチ アクセラレータ)
     - 引っ張ってデータを更新 (タッチ アクセラレータ)
     - キーボード ショートカット (キーボード アクセラレータ)
@@ -143,7 +143,7 @@ favoriteCommand.Execute(PodcastObject);
 Visual Studio で UserControl を作る手順は次のとおりです。
 1. ソリューション エクスプローラーで、プロジェクトを右クリックします。 コンテキスト メニューが表示されます。
 2. **[追加]、[新しい項目]** の順に選びます。 <br />**[新しい項目の追加]** ダイアログが表示されます。 
-3. 項目の一覧から [UserControl] を選択します。 任意の名前を付けて、**[追加]** をクリックします。 Visual Studio によって UserControl のスタブが生成されます。 
+3. 項目の一覧から [UserControl] を選択します。 任意の名前を付けて、 **[追加]** をクリックします。 Visual Studio によって UserControl のスタブが生成されます。 
 
 この記事のポッドキャストの例では、各ポッドキャストはリストにまとめられて表示され、さまざまな方法でポッドキャストを ”お気に入り” に追加できるようになります。 ユーザーは次の操作によって、ポッドキャストを ”お気に入り” にすることができます。
 - コンテキスト メニューの呼び出し
@@ -242,7 +242,7 @@ public sealed partial class PodcastUserControl : UserControl
 | ペン      | バレル ボタンを押す、項目を長押し |
 | ゲームパッド  | メニュー ボタン                             |
 
-**入力の種類に関係なく、コンテキスト メニューを開くことがあるため、コンテキスト メニューはすべてのリスト項目に使用できるコンテキスト コマンドを含める必要があります。**
+**ユーザーはさまざまな種類の入力方法でコンテキスト メニューを開く可能性があるため、リストの項目に対して実行できるコンテキスト コマンドの全部をコンテキスト メニューに含めてください。**
 
 ### <a name="contextflyout"></a>ContextFlyout
 
@@ -376,7 +376,7 @@ protected override void OnPointerExited(PointerRoutedEventArgs e)
 
 スワイプによるコマンド実行は、タッチ デバイスを操作しているユーザーが、よく使われるセカンダリ操作をタッチを使って実行できるようにするタッチ アクセラレータです。 スワイプはタッチ ユーザーが、スワイプして削除やスワイプして呼び出すなどの一般的な操作を使って、コンテンツをすばやく自然に操作することを可能にします。 詳しくは、[スワイプによるコマンドの実行](swipe.md)についての記事をご覧ください。
 
-コレクションにスワイプを統合するためには、2 つのコンポーネントが必要です。SwipeItems のコマンドをホストします。SwipeControl には、項目をラップし、スワイプ操作では、これを選択します。
+コレクションにスワイプを組み込むためには、2 つのコンポーネントが必要です: コマンドをホストする SwipeItems と、項目をラップしてスワイプにより操作できるようにする SwipeControl。
 
 SwipeItems は、PodcastUserControl 内の Resource として定義できます。 次の例では、SwipeItems に、項目をお気に入りに追加するコマンドが含まれています。
 
@@ -452,8 +452,8 @@ private void SwipeItem_Invoked(SwipeItem sender, SwipeItemInvokedEventArgs args)
 
 ## <a name="related-topics"></a>関連トピック
 * [ICommand インターフェイス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.ICommand)
-* [メニューおよびコンテキスト メニュー](menus.md)
+* [メニューとコンテキスト メニュー](menus.md)
 * [スワイプ](swipe.md)
 * [引っ張って更新](pull-to-refresh.md)
-* [ペン、スタイラスの相互作用](../input/pen-and-stylus-interactions.md)
-* [ゲームパッドと Xbox アプリを調整します。](../devices/designing-for-tv.md)
+* [ペン操作とスタイラス操作](../input/pen-and-stylus-interactions.md)
+* [ゲームパッドと Xbox 向けにアプリを調整する](../devices/designing-for-tv.md)
