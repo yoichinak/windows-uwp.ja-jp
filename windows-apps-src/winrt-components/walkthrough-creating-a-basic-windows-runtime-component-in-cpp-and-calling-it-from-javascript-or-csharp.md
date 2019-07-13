@@ -479,7 +479,7 @@ MainPage.xaml 内の Grid 要素に次のコードをコピーします。
 ```
 
 ## <a name="to-add-the-event-handlers-for-the-buttons"></a>ボタンのイベント ハンドラーを追加するには
-ソリューション エクスプローラーで、MainPage.xaml.cs を開きます  (ファイルは MainPage.xaml の下で入れ子に可能性があります)。使用して、追加、System.Text のディレクティブを MainPage クラスで、対数の計算のイベント ハンドラーを追加します。
+ソリューション エクスプローラーで、MainPage.xaml.cs を開きます (ファイルは MainPage.xaml の下で入れ子に可能性があります)。使用して、追加、System.Text のディレクティブを MainPage クラスで、対数の計算のイベント ハンドラーを追加します。
 
 ```csharp
 private void Button1_Click_1(object sender, RoutedEventArgs e)
