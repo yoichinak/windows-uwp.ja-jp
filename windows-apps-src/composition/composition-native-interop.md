@@ -41,9 +41,9 @@ Windows.UI.Composition API には、コンテンツをコンポジターに直�
 
 次のコード例は、相互運用のシナリオを示しています。 DirectWrite の COM ベースと Direct2D Api を使用してテキストをレンダリングするコードと相互運用機能のヘッダーからの型と共に Windows 合成では、Windows ランタイム ベースのサーフェス領域からの型を組み合わせた例を示します。 この例では[ **BeginDraw** ](https://docs.microsoft.com/windows/desktop/api/windows.ui.composition.interop/nf-windows-ui-composition-interop-icompositiondrawingsurfaceinterop-begindraw)と[ **EndDraw** ](https://docs.microsoft.com/windows/desktop/api/windows.ui.composition.interop/nf-windows-ui-composition-interop-icompositiondrawingsurfaceinterop-enddraw)シームレスにこれらのテクノロジ間の相互運用することです。 この例では、DirectWrite を使用して、テキストのレイアウトし、Direct2D のレンダリングを使用しています。 コンポジション グラフィックス デバイスは初期化時に直接 Direct2D デバイスを受け取ります。 これにより、 **BeginDraw**を返す、 **ID2D1DeviceContext**インターフェイス ポインターは、返されるをラップする Direct2D のコンテキストを作成するアプリケーションよりもかなり効率各描画操作で ID3D11Texture2D インターフェイスです。
 
-以下の 2 つのコード例があります。 まず、 [C +/cli WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) (これは完全な) 例では、し、c++/cli CX のコード例 (この例では、DirectWrite と Direct2D の部分が省略されます)。
+以下の 2 つのコード例があります。 まず、 [C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) (これは完全な) 例では、し、C++/CX のコード例 (この例では、DirectWrite と Direct2D の部分が省略されます)。
 
-C + を使用する/cli WinRT 以下のコード例は最初を新規作成**Core アプリ (C +/cli WinRT)** Visual Studio でプロジェクト (要件については、次を参照してください。 [Visual Studio のサポートを c++/cli WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package))。 プロジェクトを作成するときに、ターゲット バージョンとして選択**Windows 10、バージョン 1803 (10.0;ビルドする 17134)** します。 対象となる次のコードがビルドおよびテストのバージョンです。 内容を置き換える、`App.cpp`を以下のコードのソース コード ファイルのビルドおよび実行します。 アプリケーションは、文字列の「こんにちは, World!」を表示します で、透明な背景に黒のテキスト。
+C + を使用する/cli WinRT 以下のコード例は最初を新規作成**Core アプリ (C +/cli WinRT)** Visual Studio でプロジェクト (要件については、次を参照してください。 [C++/WinRT の Visual Studio サポート](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package))。 プロジェクトを作成するときに、ターゲット バージョンとして選択**Windows 10、バージョン 1803 (10.0;ビルドする 17134)** します。 対象となる次のコードがビルドおよびテストのバージョンです。 内容を置き換える、`App.cpp`を以下のコードのソース コード ファイルのビルドおよび実行します。 アプリケーションは、文字列の"Hello, World!"を表示します で、透明な背景に黒のテキスト。
 
 ```cppwinrt
 // App.cpp
