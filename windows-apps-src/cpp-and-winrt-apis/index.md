@@ -5,12 +5,12 @@ ms.date: 04/18/2019
 ms.topic: article
 keywords: windows 10、uwp、標準、c++、cpp、winrt、プロジェクション
 ms.localizationpriority: medium
-ms.openlocfilehash: 8b3cb74e3b3613cf562af7b5290697f111722226
-ms.sourcegitcommit: 5d71c97b6129a4267fd8334ba2bfe9ac736394cd
+ms.openlocfilehash: a55f543aae5efae101590bd892278a30b3ca9907
+ms.sourcegitcommit: cba3ba9b9a9f96037cfd0e07d05bd4502753c809
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67800548"
+ms.lasthandoff: 07/14/2019
+ms.locfileid: "67870317"
 ---
 # <a name="cwinrt"></a>C++/WinRT
 
@@ -64,6 +64,7 @@ Windows ランタイムの他の言語オプションに比べて、C++/WinRT �
 | [C++/WinRT と ABI 間の相互運用](interop-winrt-abi.md) | このトピックでは、アプリケーション バイナリ インターフェイス (ABI) と C++/WinRT オブジェクト間の変換方法について説明します。 |
 | [C++/WinRT の強参照と弱参照](weak-references.md) | Windows ランタイムは参照カウント システムです。このようなシステムでは、強参照と弱参照の重要性とこれらの違いを認識することが重要です。 |
 | [アジャイル オブジェクト](agile-objects.md) | アジャイル オブジェクトは、いずれかのスレッドからアクセスできます。 お使いの C++/WinRT 型は既定ではアジャイルですが、オプトアウトできます。 |
+| [単純な C++/WinRT Windows UI ライブラリの例](simple-winui-example.md) | このトピックでは、C++/WinRT プロジェクト内に WinUI の単純なサポートを追加する処理を順を追って説明します。 |
 
 ### <a name="topics-about-the-c-language"></a>C++ 言語に関するトピック
 
