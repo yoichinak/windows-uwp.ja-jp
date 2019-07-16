@@ -8,12 +8,12 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: RS5, 19H1
-ms.openlocfilehash: 8ceb314424ae2611e141ef866a84c08e55b0ba2d
-ms.sourcegitcommit: f9a30bfd1e8eab50d0b1db97dd2f650ce66b5d34
+ms.openlocfilehash: 52338ef4d3850b5cf4a2caa0e2d6f93341897285
+ms.sourcegitcommit: 734aa941dc675157c07bdeba5059cb76a5626b39
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67690886"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68141817"
 ---
 # <a name="host-uwp-xaml-controls-in-desktop-apps-xaml-islands"></a>デスクトップ アプリ でUWP XAMLコントロールをホストする(XAML Islands)
 
@@ -28,7 +28,7 @@ XAML Islands で、Windows フォーム、WPF を使用するいくつかの方�
 
 Windows フォーム、WPF の XAML Islands を使用する 2 つの方法を説明する Windows 10、バージョンが 1903 年以降とC++Win32 アプリケーション。
 
-* Windows SDK には、いくつかの Windows ランタイム クラスと COM インターフェイスから派生した任意の UWP コントロールをホストするアプリケーションが使用できる[ **Windows.UI.Xaml.UIElement**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement)します。 総称して、これらのクラスとインターフェイスを呼び出す、 *API をホストしている UWP XAML*、関連するウィンドウ ハンドル (HWND) を含む、アプリケーションで任意の UI 要素に UWP コントロールをホストすることができるとします。 この API の詳細については、次を参照してください。 [API をホストしている XAML を使用して](using-the-xaml-hosting-api.md)します。
+* Windows SDK には、いくつかの Windows ランタイム クラスと COM インターフェイスから派生した任意の UWP コントロールをホストするアプリケーションが使用できる[ **Windows.UI.Xaml.UIElement**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement)します。 総称して、これらのクラスとインターフェイスを呼び出す、 *API をホストしている UWP XAML*、関連するウィンドウ ハンドル (HWND) を含む、アプリケーションで任意の UI 要素に UWP コントロールをホストすることができるとします。 この API の詳細については、[API をホストしている XAML を使用](using-the-xaml-hosting-api.md)を参照してください。
 
 * [Windows Community Toolkit](https://docs.microsoft.com/windows/uwpcommunitytoolkit/) WPF と Windows フォームの他の XAML 島コントロールも提供します。 これらのコントロールでは、内部的に API をホストしている UWP XAML を使用し、すべてのキーボード ナビゲーションとレイアウトの変更を含め、直接 API をホストしている UWP XAML を使用している場合、自分で処理する必要がなくなり、動作を実装します。 WPF と Windows フォーム アプリケーションでは、強くお勧め UWP XAML ではなく、これらのコントロールを使用していた多くの API を使用して実装の詳細の抽象化されため、直接 API をホストします。 Windows 10、バージョンが 1903 年の時点でこれらのコントロールは[開発者プレビューとして利用できる](#feature-roadmap)します。
 
@@ -84,12 +84,12 @@ XAML Islandsには、Windows 10、バージョン1903以降が必要です。 �
 
 Windows 10、バージョン 1903 SDK (またはそれ以降のリリース) をインストールします。 次に、MSIX パッケージ内のアプリケーションを追加することでパッケージを[Windows アプリケーション パッケージ プロジェクト](https:/docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)ソリューションと、WPF や Windows フォーム プロジェクトへの参照を追加します。
 
-#### <a name="option-2-set-the-maxversiontested-value-in-your-assembly-manifest"></a>オプション 2:アセンブリ マニフェストで maxVersionTested 値を設定します。
+#### <a name="option-2-set-the-maxversiontested-value-in-your-assembly-manifest"></a>オプション 2:アセンブリ マニフェストで maxversiontested 値を設定します。
 
-追加できるかどうか MSIX パッケージ内のアプリケーションをパッケージ化したくない、[アプリケーション マニフェスト](https://docs.microsoft.com/windows/desktop/SbsCs/application-manifests)をプロジェクトに追加し、 **maxVersionTested**要素を指定するマニフェスト、アプリケーションは、Windows 10、1903 またはそれ以降のバージョンとの互換性。
+追加できるかどうか MSIX パッケージ内のアプリケーションをパッケージ化したくない、[アプリケーション マニフェスト](https://docs.microsoft.com/windows/desktop/SbsCs/application-manifests)をプロジェクトに追加し、 **maxversiontested**要素を指定するマニフェスト、アプリケーションは、Windows 10、1903 またはそれ以降のバージョンとの互換性。
 
 1. アプリケーション マニフェストのプロジェクトで、新しい XML ファイルをプロジェクトに追加およびという名前を付けますがまだしていない場合**app.manifest**します。 WPF や Windows フォーム アプリケーションの場合も割り当てることを確認します、**マニフェスト**プロパティを **. app.manifest**で、**アプリケーション**のページ、[プロジェクトプロパティ](https://docs.microsoft.com/visualstudio/ide/reference/application-page-project-designer-csharp?view=vs-2019#resources)します。
-2. アプリケーション マニフェストで含める、**互換性**要素と子要素を次の例に示すようにします。 置換、 **Id**の属性、 **maxVersionTested**対象としている Windows 10 のバージョン番号を持つ要素 (これは、Windows 10、バージョンが 1903 または今後のリリースをする必要があります)。
+2. アプリケーション マニフェストで含める、**互換性**要素と子要素を次の例に示すようにします。 置換、 **Id**の属性、 **maxversiontested**対象としている Windows 10 のバージョン番号を持つ要素 (これは、Windows 10、バージョンが 1903 または今後のリリースをする必要があります)。
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -105,7 +105,7 @@ Windows 10、バージョン 1903 SDK (またはそれ以降のリリース) を
     ```
 
 > [!NOTE]
-> 追加すると、 **maxVersionTested**要素内のアプリケーション マニフェストに、 C++ Win32 プロジェクト (Visual Studio では、Windows デスクトップ アプリケーション プロジェクト テンプレートを使用して)、プロジェクトで、次のビルド警告を表示可能性があります: `manifest authoring warning 81010002: Unrecognized Element "maxversiontested" in namespace "urn:schemas-microsoft-com:compatibility.v1"`. この警告は、プロジェクトで、間違いがあることと、無視することが示されません。
+> 追加すると、 **maxversiontested**要素は、アプリケーション マニフェストを次のビルドのプロジェクトで警告を表示可能性があります:`manifest authoring warning 81010002: Unrecognized Element "maxversiontested" in namespace "urn:schemas-microsoft-com:compatibility.v1"`します。 この警告は、プロジェクトで、間違いがあることと、無視することが示されません。
 
 ## <a name="feature-roadmap"></a>機能のロードマップ
 
@@ -122,4 +122,4 @@ Windows 10、バージョンが 1903 年のリリースの時点で、ラップ�
 詳細な背景情報と XAML Islandsを使用したチュートリアルについては、次の記事やリソースを参照してください。
 
 * [WPF アプリのチュートリアルを最新化](modernize-wpf-tutorial.md):このチュートリアルでは、既存の WPF 基幹業務アプリケーションに UWP コントロールを追加する Windows の Community Toolkit でラップされたコントロールとホスト コントロールを使用して手順に沿って説明します。 このチュートリアルには、プロセスで、WPF アプリケーションの完全なコードおよび各手順の詳細な手順が含まれています。
-* [XAML 諸島 v1 - 更新プログラムとロードマップ](https://blogs.windows.com/windowsdeveloper/2019/06/13/xaml-islands-v1-updates-and-roadmap):このブログの投稿では、XAML 諸島に関する多くの一般的な質問を説明し、開発の詳細なロードマップを提供します。
+* [XAML Islands v1 - 更新プログラムとロードマップ](https://blogs.windows.com/windowsdeveloper/2019/06/13/xaml-islands-v1-updates-and-roadmap):このブログの投稿では、XAML Islands に関する多くの一般的な質問を説明し、開発の詳細なロードマップを提供します。
