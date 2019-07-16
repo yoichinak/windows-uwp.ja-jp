@@ -155,7 +155,7 @@ args.setPromise(WinJS.UI.processAll().then(function () {
 }));
 ```
 
-HTML コントロールにイベントを追加するときは、HTML でクリック イベント ハンドラーを直接追加するのではなく、この方法をお勧めします。 参照してください[「こんにちは, World」アプリ (JS) 作成](/windows/uwp/get-started/create-a-hello-world-app-js-uwp)です。
+HTML コントロールにイベントを追加するときは、HTML でクリック イベント ハンドラーを直接追加するのではなく、この方法をお勧めします。 ["Hello, world" アプリを作成する (JS)](/windows/uwp/get-started/create-a-hello-world-app-js-uwp)を参照してください。
 
 ## <a name="build-and-run-the-app"></a>アプリをビルドして実行する
 
