@@ -30,12 +30,12 @@ Windows フォーム、WPF の XAML Islands を使用する 2 つの方法を説
 
 * Windows SDK には、いくつかの Windows ランタイム クラスと COM インターフェイスから派生した任意の UWP コントロールをホストするアプリケーションが使用できる[ **Windows.UI.Xaml.UIElement**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement)します。 総称して、これらのクラスとインターフェイスを呼び出す、 *API をホストしている UWP XAML*、関連するウィンドウ ハンドル (HWND) を含む、アプリケーションで任意の UI 要素に UWP コントロールをホストすることができるとします。 この API の詳細については、次を参照してください。 [API をホストしている XAML を使用して](using-the-xaml-hosting-api.md)します。
 
-* [Windows Community Toolkit](https://docs.microsoft.com/windows/uwpcommunitytoolkit/) WPF と Windows フォームの他の XAML Island コントロールも提供します。 これらのコントロールでは、内部的に API をホストしている UWP XAML を使用し、すべてのキーボード ナビゲーションとレイアウトの変更を含め、直接 API をホストしている UWP XAML を使用している場合、自分で処理する必要がなくなり、動作を実装します。 WPF と Windows フォーム アプリケーションでは、強くお勧め UWP XAML ではなく、これらのコントロールを使用していた多くの API を使用して実装の詳細の抽象化されため、直接 API をホストします。 Windows 10、バージョンが 1903 年の時点でこれらのコントロールは[開発者プレビューとして利用できる](#feature-roadmap)します。
+* [Windows Community Toolkit](https://docs.microsoft.com/windows/uwpcommunitytoolkit/) には、WPF と Windows フォーム用の追加の XAML Island コントロールもあります。 これらのコントロールでは UWP XAML ホスティング API を内部的に使用し、すべてのキーボード ナビゲーションとレイアウトの変更を含め、UWP XAML ホスティング API を直接使用した場合に対処する必要がある動作を全て実装しています。WPF と Windows フォーム アプリケーションでは、UWP XAML ホスティング API の代わりにこれらのコントロールを直接使用することを強くお勧めします。これらのコントロールは、API の使用に関する実装の詳細の多くを抽象化しているためです。Windows 10、バージョン 1903 以降でのこれらのコントロールは [利用可能な開発者プレビュー](#feature-roadmap) をご参照ください。
 
 > [!NOTE]
-> C++ Win32 デスクトップ アプリケーションでは、UWP コントロールをホストする API をホストしている UWP XAML を使用する必要があります。 Windows コミュニティのツールキットで XAML Island コントロールは使用できませんC++Win32 デスクトップ アプリケーションです。
+> C++ Win32 デスクトップ アプリケーションでは、UWP コントロールをホストするために をホストしている UWP XAML ホスティング API を使用する必要があります。 Windows Community Toolkit の XAML Island コントロールは、C++Win32 デスクトップ アプリケーションでは使用できません。
 
-WPF と Windows フォーム アプリケーションの Windows コミュニティのツールキットで提供される XAML Island コントロールの 2 種類があります:*コントロールをラップ*と*ホスト コントロール*します。 
+WPF と Windows フォーム アプリケーション用の Windows Community Toolkit によって提供される XAML Island コントロールには *コントロールをラップ* と *ホスト コントロール* の2 種類があります。
 
 ### <a name="wrapped-controls"></a>ラップされたコントロール
 
@@ -76,9 +76,9 @@ XAML Islandsには、Windows 10、バージョン1903以降が必要です。 �
 
 手順については、次を参照してください。[今回](desktop-to-uwp-enhance.md#set-up-your-project)します。
 
-### <a name="step-2-enable-xaml-island-support-in-your-project"></a>手順 2:プロジェクトでサポートを有効にする XAML Island
+### <a name="step-2-enable-xaml-island-support-in-your-project"></a>手順 2:プロジェクトで XAML Island のサポートを有効にする 
 
-プロジェクトに XAML Island サポートを有効にすることを次の変更のいずれか。 詳細については、[このブログの投稿](https://techcommunity.microsoft.com/t5/Windows-Dev-AppConsult/Using-XAML-Islands-on-Windows-10-19H1-fixing-the-quot/ba-p/376330#M117)を参照してください。
+XAML Island のサポートを有効にするには、プロジェクトに次のいずれかの変更を加えます。 詳細については、[このブログの投稿](https://techcommunity.microsoft.com/t5/Windows-Dev-AppConsult/Using-XAML-Islands-on-Windows-10-19H1-fixing-the-quot/ba-p/376330#M117) を参照してください。
 
 #### <a name="option-1-package-your-application-in-an-msix-package"></a>オプション 1:MSIX パッケージ内のアプリケーションをパッケージ化します。  
 
