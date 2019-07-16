@@ -1,21 +1,21 @@
 ---
 description: このチュートリアルでは、UWP XAML ユーザー インターフェイスを追加、MSIX パッケージを作成およびその他の最新コンポーネントを WPF アプリに組み込む方法を示します。
-title: Contoso Expenses アプリの .NET Core 3 への移行
+title: Contoso Expenses　アプリの .NET Core 3 への移行
 ms.topic: article
 ms.date: 06/27/2019
 ms.author: mcleans
 author: mcleanbyron
-keywords: windows 10、uwp、windows フォーム、wpf、xaml 諸島
+keywords: windows 10、uwp、windows フォーム、wpf、xaml islands
 ms.localizationpriority: medium
 ms.custom: RS5, 19H1
-ms.openlocfilehash: e718de7a22873ccf347e60c661f724ce3abdd2cf
-ms.sourcegitcommit: 1eec0e4fd8a5ba82803fdce6e23fcd01b9488523
+ms.openlocfilehash: 6e303e7059edd72fcdeb5455f450e6ece9d58e02
+ms.sourcegitcommit: 734aa941dc675157c07bdeba5059cb76a5626b39
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67420133"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68141846"
 ---
-# <a name="part-1-migrate-the-contoso-expenses-app-to-net-core-3"></a>作業 1:Contoso Expenses アプリの .NET Core 3 への移行
+# <a name="part-1-migrate-the-contoso-expenses-app-to-net-core-3"></a>作業 1:Contoso Expenses　アプリの .NET Core 3 への移行
 
 これは、Contoso の経費をという名前のサンプル WPF デスクトップ アプリの近代化する方法を説明するチュートリアルの最初の部分です。 チュートリアル、前提条件、およびサンプル アプリをダウンロードする手順の概要については、次を参照してください。[チュートリアル。WPF アプリの近代化](modernize-wpf-tutorial.md)します。
   
@@ -162,7 +162,7 @@ NuGet パッケージの構成を**ContosoExpenses.Core**プロジェクト。
 
 5. 検索、`MvvmLightLibsStd10`パッケージを探してインストールします。 これは、.NET Standard のバージョン、`MvvmLightLibs`パッケージ。 このパッケージは、作成者は、.NET Standard のバージョンの .NET Framework のバージョンよりも別のパッケージ ライブラリをパッケージ化する選択しました。
 
-    !MvvmLightsLibs パッケージ[](images/wpf-modernize-tutorial/MvvmLightsLibsPackage.png)
+    ![MvvmLightsLibs パッケージ](images/wpf-modernize-tutorial/MvvmLightsLibsPackage.png)
 
 6. **ContosoExpenses.Core**プロジェクトを右クリックして、**依存関係**ノード選択**参照の追加**します。
 
@@ -276,7 +276,7 @@ NuGet パッケージの構成を**ContosoExpenses.Core**プロジェクト。
 
 9. 開始 f5 キーを押して、 **ContosoExpenses.Core**デバッガーでのプロジェクト。 アプリを今すぐ実行することを確認します。
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
 この時点で、チュートリアルでは正常に移行されました、Contoso 経費アプリケーションを .NET Core の 3。 準備が整いました[第 2 部。XAML 諸島を使って UWP InkCanvas コントロールを追加](modernize-wpf-tutorial-2.md)します。
 
