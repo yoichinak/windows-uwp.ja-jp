@@ -49,7 +49,7 @@ XAML Islands を実装するための次のラップされた UWP コントロ�
 | [MediaPlayerElement](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/mediaplayerelement) | Windows 10 バージョン 1903 | ストリームし、Windows フォームまたは WPF デスクトップ アプリケーションでのビデオなどのメディア コンテンツをレンダリングするビューを埋め込みます。 |
 | [MapControl](https://docs.microsoft.com/en-us/windows/communitytoolkit/controls/wpf-winforms/mapcontrol) | Windows 10 バージョン 1903 | Windows フォームまたは WPF デスクトップ アプリケーションでシンボリックまたは写実的なマップを表示できます。 |
 
-Windows の Community Toolkit は XAML の島をラップされたコントロールのほか、web コンテンツをホストするため、次のコントロールを提供します。
+Windows の Community Toolkit は XAML Islands をラップされたコントロールのほか、web コンテンツをホストするため、次のコントロールを提供します。
 
 | コントロール | サポートされている OS の最小値 | 説明 |
 |-----------------|-------------------------------|-------------|
