@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: f9b0d6bd-af12-4237-bc66-0c218859d2fd
 ms.localizationpriority: medium
-ms.openlocfilehash: 61525e2a4a088e37184bb93526722e0bf23fbd56
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 5837674f2cb20710a59eeac0af59498bf28b197e
+ms.sourcegitcommit: a86d0bd1c2f67e5986cac88a98ad4f9e667cfec5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67319810"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68229372"
 ---
 # <a name="set-up-automated-builds-for-your-uwp-app"></a>UWP アプリの自動ビルドを設定する
 
@@ -64,25 +64,40 @@ steps:
 
 既定のテンプレートは、.csproj ファイルで指定された証明書でパッケージに署名しようとします。 ビルド中に、パッケージに署名する場合は、秘密キーへのアクセスが必要です。 署名パラメーターを追加して無効にした場合は、`/p:AppxPackageSigningEnabled=false`を`msbuildArgs`YAML ファイルのセクション。
 
-## <a name="add-your-project-certificate-to-a-repository"></a>リポジトリに、プロジェクトの証明書を追加します。
+## <a name="add-your-project-certificate-to-the-secure-files-library"></a>プロジェクトの証明書をセキュリティで保護されたファイル ライブラリに追加します。
 
-パイプラインは、Azure リポジトリの Git と TFVC の両方のリポジトリで動作します。 Git リポジトリを使用する場合は、ビルド エージェントがアプリ パッケージに署名できるように、リポジトリにプロジェクトの証明書ファイルを追加します。 これを行わない場合、Git リポジトリは証明書ファイルを無視します。 証明書ファイルを右クリックし、リポジトリには、証明書ファイルを追加するに**ソリューション エクスプ ローラー**、ショートカット メニューの 、**無視ファイルをソース管理に追加**コマンド。
+可能であれば、リポジトリへの証明書の送信を回避する必要があり、git は既定では無視されます。 Azure DevOps をサポートする証明書のような機密性の高いファイルの安全な処理を管理するには、[ファイルを保護する](https://docs.microsoft.com/azure/devops/pipelines/library/secure-files?view=azure-devops)します。
 
-![証明書を含める方法](images/building-screen1.png)
+自動化されたビルド用の証明書をアップロードするには。
+
+1. Azure のパイプラインで展開**パイプライン**ナビゲーション ウィンドウをクリックします**ライブラリ**します。
+2. をクリックして、**ファイルを保護する** タブをクリックして **+ セキュリティで保護されたファイル**します。
+
+    ![セキュリティで保護されたファイルをアップロードする方法](images/secure-file1.png)
+
+3. 証明書ファイルを参照してクリックして**OK**します。
+4. 証明書をアップロードした後は、そのプロパティを表示することを選択します。 **アクセス許可をパイプライン**、有効にする、**すべてのパイプラインで使用するための承認**切り替え。
+
+    ![セキュリティで保護されたファイルをアップロードする方法](images/secure-file2.png)
 
 ## <a name="configure-the-build-solution-build-task"></a>ソリューションのビルドのビルド タスクを構成する
 
 このタスクは、バイナリを作業フォルダーにあり、出力アプリのパッケージ ファイルを生成するソリューションをコンパイルします。
 このタスクは、MSBuild 引数を使用します。 これらの引数の値を指定する必要があります。 次の表をガイドとして使用してください。
 
-|**MSBuild 引数**|**値**|**説明**|
+|**MSBuild 引数**|**[値]**|**[説明]**|
 |--------------------|---------|---------------|
 | AppxPackageDir | $(Build.ArtifactStagingDirectory)\AppxPackages | 生成された成果物を格納するフォルダーを定義します。 |
 | AppxBundlePlatforms | $(Build.BuildPlatform) | バンドルに含めるプラットフォームを定義できます。 |
 | AppxBundle | 常に | 指定されたプラットフォームの.msix/.appx ファイルで、.msixbundle/.appxbundle を作成します。 |
 | UapAppxPackageBuildMode | StoreUpload | .Msixupload/.appxupload ファイルを生成し、**テスト (_t)** サイドローディング用のフォルダー。 |
 | UapAppxPackageBuildMode | CI | .Msixupload/.appxupload ファイルのみを生成します。 |
-| UapAppxPackageBuildMode | SideloadOnly | 生成、**テスト (_t)** のみサイドローディング用のフォルダー |
+| UapAppxPackageBuildMode | SideloadOnly | 生成、**テスト (_t)** のみサイドローディング用のフォルダー。 |
+| AppxPackageSigningEnabled | true | パッケージに署名を使用できます。 |
+| PackageCertificateThumbprint | 証明書の拇印 | この値**する必要があります**署名証明書の拇印に一致または空の文字列を指定します。 |
+| PackageCertificateKeyFile | パス | 使用する証明書へのパス。 これは、セキュリティで保護されたファイルのメタデータから取得されます。 |
+
+### <a name="configure-the-build"></a>ビルドを構成します。
 
 またはその他のビルド システムを使用して、コマンドラインを使用して、ソリューションをビルドする場合は、これらの引数で MSBuild を実行します。
 
@@ -92,6 +107,41 @@ steps:
 /p:AppxBundlePlatforms="$(Build.BuildPlatform)"
 /p:AppxBundle=Always
 ```
+
+### <a name="configure-package-signing"></a>パッケージの署名を構成します。
+
+MSIX (または、APPX) のパッケージに署名するには、パイプラインは、署名証明書を取得する必要があります。 これを行うには、VSBuild タスクの前に DownloadSecureFile タスクを追加します。
+これによりアクセスを使用して署名証明書を```signingCert```します。
+
+```yml
+- task: DownloadSecureFile@1
+  name: signingCert
+  displayName: 'Download CA certificate'
+  inputs:
+    secureFile: '[Your_Pfx].pfx'
+```
+
+署名証明書を参照する VSBuild タスクを次に、更新するには。
+
+```yml
+- task: VSBuild@1
+  inputs:
+    platform: 'x86'
+    solution: '$(solution)'
+    configuration: '$(buildConfiguration)'
+    msbuildArgs: '/p:AppxBundlePlatforms="$(buildPlatform)" 
+                  /p:AppxPackageDir="$(appxPackageDir)" 
+                  /p:AppxBundle=Always 
+                  /p:UapAppxPackageBuildMode=StoreUpload 
+                  /p:AppxPackageSigningEnabled=true
+                  /p:PackageCertificateThumbprint="" 
+                  /p:PackageCertificateKeyFile="$(signingCert.secureFilePath)"'
+```
+
+> [!NOTE]
+> PackageCertificateThumbprint の引数は、念のための空の文字列に意図的に設定されます。 ビルドがエラーで失敗は、拇印は、プロジェクトに設定されていても、署名証明書と一致しません、:`Certificate does not match supplied signing thumbprint`します。
+
+### <a name="review-parameters"></a>パラメーターをレビューします
 
 定義されているパラメーター、`$()`構文は、ビルド定義で定義された変数とその他の変更がシステムを構築します。
 
@@ -131,9 +181,9 @@ steps:
 
 このエラーが表示されるのは、ソリューション レベルで、バンドルに含めるアプリが明確ではないためです。 この問題を解決するには、各プロジェクト ファイルを開くし、次のプロパティを 1 つ目の末尾に追加`<PropertyGroup>`要素。
 
-|**プロジェクト**|**[プロパティ]**|
+|**プロジェクト**|**Properties**|
 |-------|----------|
-|App|`<AppxBundle>Always</AppxBundle>`|
+|アプリ|`<AppxBundle>Always</AppxBundle>`|
 |UnitTests|`<AppxBundle>Never</AppxBundle>`|
 
 次に、削除、`AppxBundle`ビルド ステップの MSBuild 引数。
