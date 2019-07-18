@@ -5,12 +5,12 @@ ms.date: 04/23/2019
 ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、文字列
 ms.localizationpriority: medium
-ms.openlocfilehash: d66cdcff8eff8c620d58a5948cbcf081acea2f45
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 004aa3e267bab86527ac3d5c3fe0383ccd4ad904
+ms.sourcegitcommit: 8b4c1fdfef21925d372287901ab33441068e1a80
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66360182"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844306"
 ---
 # <a name="string-handling-in-cwinrt"></a>C++/WinRT での文字列の処理
 
@@ -137,6 +137,8 @@ void Print(winrt::hstring const& hstring)
 
 多くの C++ ライブラリが **std::string** を使用し、UTF-8 テキストでのみ動作することは認識されています。 利便性を考慮して、双方向に変換するための [**winrt::to_string**](/uwp/cpp-ref-for-winrt/to-string) や [**winrt::to_hstring**](/uwp/cpp-ref-for-winrt/to-hstring) などのヘルパーが提供されています。
 
+`WINRT_ASSERT` はマクロ定義であり、[_ASSERTE](/cpp/c-runtime-library/reference/assert-asserte-assert-expr-macros) に展開されます。
+
 ```cppwinrt
 winrt::hstring w{ L"Hello, World!" };
 
@@ -152,7 +154,7 @@ WINRT_ASSERT(w == L"Hello, World!");
 ## <a name="the-rationale-for-winrthstring-and-winrtparamhstring"></a>**winrt::hstring** および **winrt::param::hstring** の原理
 Windows ランタイムは **wchar_t** 文字によって実装されていますが、Windows ランタイムのアプリケーション バイナリ インターフェイス (ABI) は **std::wstring** や **std::wstring_view** が提供するもののサブセットではありません。 これらを使用すると、効率が大幅に低下します。 代わりに、C++/WinRT は **winrt::hstring** を提供します。これは、基礎となる [HSTRING](https://docs.microsoft.com/windows/desktop/WinRT/hstring) と互換性がある不変文字列を表し、**std::wstring** の場合と同様にインターフェイスの背後に実装されています。 
 
-論理的に **winrt::hstring** を受け入れるはずの C++/WinRT 入力パラメーターが、実際には **winrt::param::hstring** を予期している場合があります。 **param** 名前空間には、自然に C++ 標準ライブラリにバインドしてコピーやその他の非効率性を回避するために、入力パラメーターの最適化にのみ使用される一連の型が含まれています。 これらの型は直接使用しないでください。 独自の関数で最適化を使用する場合は、**std::wstring_view** を使用します。
+論理的に **winrt::hstring** を受け入れるはずの C++/WinRT 入力パラメーターが、実際には **winrt::param::hstring** を予期している場合があります。 **param** 名前空間には、自然に C++ 標準ライブラリにバインドしてコピーやその他の非効率性を回避するために、入力パラメーターの最適化にのみ使用される一連の型が含まれています。 これらの型は直接使用しないでください。 独自の関数で最適化を使用する場合は、**std::wstring_view** を使用します。 「[ABI 境界へのパラメーターの受け渡し](/windows/uwp/cpp-and-winrt-apis/pass-parms-to-abi)」もご覧ください。
 
 重要なことは、Windows ランタイムの文字列管理の詳細はほとんど無視して、自分が理解していることを効率的に操作することができるということです。 また、これは Windows ランタイムで文字列を大量に使用する場合は重要になります。
 
@@ -169,6 +171,22 @@ void OnPointerPressed(IInspectable const&, PointerEventArgs const& args)
     wstringstream << L"Pointer pressed at (" << point.x << L"," << point.y << L")" << std::endl;
     ::OutputDebugString(wstringstream.str().c_str());
 }
+```
+
+## <a name="the-correct-way-to-set-a-property"></a>プロパティを設定する正しい方法
+
+setter 関数に値渡しでプロパティを設定します。 次に例を示します。
+
+```cppwinrt
+// The right way to set the Text property.
+myTextBlock.Text(L"Hello!");
+```
+
+次のコードは正しくありません。 コンパイルはされますが、行われることは、**Text()** アクセサー関数によって返される一時的な **winrt::hstring** を変更した後、結果を破棄するだけです。
+
+```cppwinrt
+// *Not* the right way to set the Text property.
+myTextBlock.Text() = L"Hello!";
 ```
 
 ## <a name="important-apis"></a>重要な API

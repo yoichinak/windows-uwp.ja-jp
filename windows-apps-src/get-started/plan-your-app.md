@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 43423bc1475e446fcc0c6ab3f0d65b5a844d19d2
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 97407ec48eaac3415980b9313092b21e9532250a
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66370678"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67321109"
 ---
 #  <a name="building-a-complex-universal-windows-platform-uwp-app"></a>複雑なユニバーサル Windows プラットフォーム (UWP) アプリを作成する
 
@@ -109,7 +109,7 @@ Microsoft のデザイン チームのアプリ作成プロセスは、5 つの�
 
 プロトタイプは、*じょうご型設計* (既に説明した手法) における 1 つの段階です。ここでは、アイデアを表すアーティファクトが、スケッチ以上だが、完成したアプリほど複雑ではないレベルに進化します。 プロトタイプは、ユーザーに表示される画面を手書きで表したフローである場合があります。 テストの実行者は、実行中のアプリをシミュレートするために、さまざまな画面を下に配置したり、ページ上のいくつかの UI をくっつけたり離したりすることで、ユーザーのキューに応答する場合があります。 また、操作者がスクリプト最後まで実行して正しいボタンを押す場合、プロトタイプは複数のワークフローをシミュレートする非常にシンプルなアプリになります。 この段階で、アイデアは実際に実現性を帯び始め、これまで費やしてきた作業が本格的にテストされます。 アプリの領域のプロトタイプを作る場合、時間をかけて、最も必要なコンポーネントを調整して絞り込んでください。
 
-優れたアプリの作成とは反復プロセスであるということは、経験の少ない開発者にとっていくら強調してもしすぎることはありません。 初期段階から何度もプロトタイプを作ることをお勧めします。 創造力を養う努力と同様、最適なアプリは徹底的な試行錯誤による成果です。
+経験の少ない開発者に対しては、いくら強調してもしすぎることはありません: 優れたアプリの作成は、反復プロセスなのです。 初期段階から何度もプロトタイプを作ることをお勧めします。 創造力を養う努力と同様、最適なアプリは徹底的な試行錯誤による成果です。
 
 ## <a name="decide-what-features-to-include"></a>アプリに含める機能を決める
 
@@ -220,7 +220,7 @@ Microsoft のデザイン チームのアプリ作成プロセスは、5 つの�
 
 ![PC とモバイルにおけるアプリのデザイン](images/ux-budgettracker1-md-notablet.png)
 
-さまざまな画面サイズのための設計について詳しくは、「[画面のサイズとレスポンシブ デザインのブレークポイント](https://docs.microsoft.com/en-us/windows/uwp/layout/screen-sizes-and-breakpoints-for-responsive-design)」をご覧ください。
+さまざまな画面サイズのための設計について詳しくは、「[画面のサイズとレスポンシブ デザインのブレークポイント](https://docs.microsoft.com/windows/uwp/design/layout/screen-sizes-and-breakpoints-for-responsive-design)」をご覧ください。
 
 ## <a name="make-a-good-first-impression"></a>第一印象を良くする
 
@@ -238,4 +238,4 @@ Microsoft のデザイン チームのアプリ作成プロセスは、5 つの�
 
 設計のやり直しを避けるために、アプリの開発があまり進まないうちに、設計内容またはプロトタイプをガイドライン、ユーザーの印象、要件に照らして検証します。 それぞれの機能について、アプリの改善に役立つ UX ガイドラインと、Microsoft Store でアプリを公開するために必要なストア要件があります。 [Windows アプリ認定キット](https://developer.microsoft.com/windows/develop/app-certification-kit)を使って、ストア要件を技術的に満たすかどうかのテストを実行できます。 また、Microsoft Visual Studio のパフォーマンス ツールを使って、すべてのシナリオでユーザーに快適なエクスペリエンスを提供しているかどうかを確認できます。
 
-[UWP アプリの詳細な UX ガイドライン](https://developer.microsoft.com/windows/design)を使って、重要な機能に集中して取り組みます。 [Visual Studio パフォーマンス ツール](https://docs.microsoft.com/visualstudio/profiling/profiling-tools?view=vs-2015)を使って、各アプリのシナリオのパフォーマンスを分析します。
+[UWP アプリの詳細な UX ガイドライン](https://developer.microsoft.com/windows/apps/design)を使って、重要な機能に集中して取り組みます。 [Visual Studio パフォーマンス ツール](https://docs.microsoft.com/visualstudio/profiling/profiling-tools?view=vs-2015)を使って、各アプリのシナリオのパフォーマンスを分析します。

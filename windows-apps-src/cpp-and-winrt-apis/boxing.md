@@ -5,12 +5,12 @@ ms.date: 04/23/2019
 ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、XAML、コントロール、ボックス化、スカラー、値
 ms.localizationpriority: medium
-ms.openlocfilehash: 1bd69e07f2285b6c05581a60ddbaf4b394d0b6d0
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: b50a0d6b231b9c526fc619a98c37f81520db3ff2
+ms.sourcegitcommit: 7585bf66405b307d7ed7788d49003dc4ddba65e6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66361203"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67660112"
 ---
 # <a name="boxing-and-unboxing-scalar-values-to-iinspectable-with-cwinrt"></a>C++/WinRT を使用した IInspectable へのスカラー値のボックス化とボックス化解除
  
@@ -54,6 +54,8 @@ void Unbox(winrt::Windows::Foundation::IInspectable const& object)
 
 ## <a name="determine-the-type-of-a-boxed-value"></a>ボックス化された値の型の判別
 ボックス化された値を受け取って、その値に含まれる型が不明な場合は (型はボックス化解除するために知っておく必要があります)、その [**IPropertyValue**](/uwp/api/windows.foundation.ipropertyvalue) でボックス化された値を照会し、そこで **Type** を呼び出すことができます。 次にコード例を示します。
+
+`WINRT_ASSERT` はマクロ定義であり、[_ASSERTE](/cpp/c-runtime-library/reference/assert-asserte-assert-expr-macros) に展開されます。
 
 ```cppwinrt
 float pi = 3.14f;

@@ -9,12 +9,12 @@ ms.date: 12/07/2018
 ms.topic: article
 keywords: Windows 10, UWP, グローバリゼーション, ローカライズの可否, ローカライズ
 ms.localizationpriority: medium
-ms.openlocfilehash: 466747cbbfe6f599f42a39f0d2766f78775ec6c8
-ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
+ms.openlocfilehash: f57cc53eaea51c56e665660cfaf6ecdf6456b96b
+ms.sourcegitcommit: b0aea3c2061f7b9a87e7396e8e5f7735748718ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67820587"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68239502"
 ---
 # <a name="globalization-and-localization"></a>グローバリゼーションとローカライズ
 
@@ -69,4 +69,5 @@ Windows は世界中で利用されており、言語、地域、文化の異な
 | [双方向テキスト用のアプリを設計します。](design-for-bidi-text.md) | 左から右方向および右から左方向の書記体系のスクリプトを組み合わせることができるように、双方向テキスト サポート (BiDi) を備えたアプリを設計します。 |
 | [Multilingual App Toolkit 4.0 を使用して、](use-mat.md) | 多言語アプリ ツールキット (MAT) 4.0 は、翻訳サポート、翻訳ファイル管理、およびエディター ツールを使用して UWP アプリを提供する Microsoft Visual Studio 2017 以降のバージョンとを統合します。 |
 | [Multilingual App Toolkit 4.0 FAQ とトラブルシューティング](mat-faq-troubleshooting.md) | このトピックでは、多言語アプリ ツールキット (MAT) 4.0 に関連したよくある質問と問題の回答を示します。 |
+| [Utf-8 コード ページを使用します。](use-utf8-code-page.md) | Utf-8 は、国際化対応のユニバーサル コード ページです。 |
 | [日本語の時代 (年号) の変更、アプリケーションを準備します。](japanese-era-change.md) | 2019 年 5 月に行われる改元と、アプリケーションでの対応方法について説明します。 |

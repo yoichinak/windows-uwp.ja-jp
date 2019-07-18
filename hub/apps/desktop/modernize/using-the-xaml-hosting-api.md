@@ -174,7 +174,7 @@ API をホストしている UWP XAML を使用して、アプリケーション
 
 ### <a name="keyboard-input"></a>キーボード入力
 
-各 XAML 島のキーボード入力を正しく処理するには、アプリケーションは特定のメッセージを正しく処理できるように、UWP XAML フレームワークにすべての Windows メッセージを渡す必要があります。 メッセージ ループがアクセスできるアプリケーション内の場所、キャスト、 **DesktopWindowXamlSource**オブジェクトの各 XAML 島、 **IDesktopWindowXamlSourceNative2** COM インターフェイスです。 次に呼び出す、 **PreTranslateMessage**メソッドのこのインターフェイスと現在のメッセージを渡します。
+各 XAML Island のキーボード入力を正しく処理するには、アプリケーションは特定のメッセージを正しく処理できるように、UWP XAML フレームワークにすべての Windows メッセージを渡す必要があります。 これを行うには、メッセージ ループにアクセスできるアプリケーション内のある場所で、各 XAML Islandの **DesktopWindowXamlSource** オブジェクトを **IDesktopWindowXamlSourceNative2** COM インターフェイスにキャストします。 次に、このインターフェイスの **PreTranslateMessage** メソッドを呼び出して現在のメッセージを渡します。
 
   * A C++ Win32 アプリケーションで呼び出すことができます**PreTranslateMessage**メイン メッセージ ループで直接します。 例については、次を参照してください。、 [SampleApp.cpp](https://github.com/marb2000/XamlIslands/blob/master/19H1_Insider_Samples/CppWin32App_With_Island/SampleCppApp/SampleApp.cpp#L61)でコード ファイル、 [ C++ Win32 サンプル](https://github.com/marb2000/XamlIslands/tree/master/19H1_Insider_Samples/CppWin32App_With_Island)します。
 

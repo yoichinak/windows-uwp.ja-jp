@@ -8,12 +8,12 @@ ms.date: 11/01/2017
 ms.topic: article
 keywords: Windows 10, UWP, リソース, 画像, アセット, MRT, 修飾子
 ms.localizationpriority: medium
-ms.openlocfilehash: b6caf2de67b72c01391d47037150d76500a1cb42
-ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
+ms.openlocfilehash: 6412416fe2d73c4fc313a32fdc2929fff9dc51c4
+ms.sourcegitcommit: d37a543cfd7b449116320ccfee46a95ece4c1887
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67820305"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68270088"
 ---
 # <a name="localize-strings-in-your-ui-and-app-package-manifest"></a>UI とアプリ パッケージ マニフェスト内の文字列をローカライズする
 
@@ -301,23 +301,21 @@ Windows バージョン 1903 (2019 の更新の可能性があります) の時�
 
 パッケージ化されたアプリケーションでリソースを使用するには、いくつかの点を行う必要があります。
 
-1. パッケージ化されたシナリオをサポートするために使用[GetForViewIndependentUse](https://docs.microsoft.com/uwp/api/windows.applicationmodel.resources.resourceloader.getforviewindependentuse)の代わりに[GetForCurrentView](https://docs.microsoft.com/uwp/api/windows.applicationmodel.resources.resourceloader.getforcurrentview)がない*現在のビュー*にパッケージ化されたシナリオでします。 呼び出す場合、次の例外が発生した[GetForCurrentView](https://docs.microsoft.com/uwp/api/windows.applicationmodel.resources.resourceloader.getforcurrentview)にパッケージ化されたシナリオで。*リソースのコンテキストは可能性があります、CoreWindow がないスレッドでは作成されません。*
+1. 使用[GetForViewIndependentUse](https://docs.microsoft.com/uwp/api/windows.applicationmodel.resources.resourceloader.getforviewindependentuse)の代わりに[GetForCurrentView](https://docs.microsoft.com/uwp/api/windows.applicationmodel.resources.resourceloader.getforcurrentview)がコードからリソースを解決するときにない*現在のビュー*にパッケージ化されたシナリオでします。 呼び出す場合、次の例外が発生した[GetForCurrentView](https://docs.microsoft.com/uwp/api/windows.applicationmodel.resources.resourceloader.getforcurrentview)にパッケージ化されたシナリオで。*リソースのコンテキストは可能性があります、CoreWindow がないスレッドでは作成されません。*
 1. 使用[MakePri.exe](https://docs.microsoft.com/windows/uwp/app-resources/compile-resources-manually-with-makepri)を手動でアプリの resources.pri ファイルを生成します。
-    - `makepri new /pr <PROJECTROOT> /cf <PRICONFIG> /dq <DEFAULTLANGUAGEQUALIFIER> /of resources.pri`を実行します。
-    - <PRICONFIG>省略する必要があります、"<packaging>"セクションのすべてのリソースは単一 resources.pri ファイルにバンドルされています。 既定値を使用して場合[MakePri.exe 構成ファイル](https://docs.microsoft.com/windows/uwp/app-resources/makepri-exe-configuration)によって作成された[createconfig](https://docs.microsoft.com/windows/uwp/app-resources/makepri-exe-command-options#createconfig-command)、削除する必要がある、"<packaging>"手動で作成した後のセクションします。
-    - <PRICONFIG>プロジェクト内のすべてのリソースを 1 つ resources.pri ファイルにマージするために必要なすべての関連するインデクサーを含める必要があります。 既定の[MakePri.exe 構成ファイル](https://docs.microsoft.com/windows/uwp/app-resources/makepri-exe-configuration)によって作成された[createconfig](https://docs.microsoft.com/windows/uwp/app-resources/makepri-exe-command-options#createconfig-command)すべてのインデクサーが含まれています。
+    - `makepri new /pr <PROJECTROOT> /cf <PRICONFIG> /of resources.pri`を実行します。
+    - &lt;PRICONFIG&gt;省略する必要があります、"&lt;パッケージ&gt;"セクションのすべてのリソースは単一 resources.pri ファイルにバンドルされています。 既定値を使用して場合[MakePri.exe 構成ファイル](https://docs.microsoft.com/windows/uwp/app-resources/makepri-exe-configuration)によって作成された[createconfig](https://docs.microsoft.com/windows/uwp/app-resources/makepri-exe-command-options#createconfig-command)を削除する必要がある、"&lt;パッケージ&gt;"手動で作成した後のセクションします。
+    - &lt;PRICONFIG&gt;プロジェクト内のすべてのリソースを 1 つ resources.pri ファイルにマージするために必要なすべての関連するインデクサーを含める必要があります。 既定の[MakePri.exe 構成ファイル](https://docs.microsoft.com/windows/uwp/app-resources/makepri-exe-configuration)によって作成された[createconfig](https://docs.microsoft.com/windows/uwp/app-resources/makepri-exe-command-options#createconfig-command)すべてのインデクサーが含まれています。
     - 既定の構成を使用しない場合は、PRI インデクサーが有効になっていることを確認してください (これを行う方法の既定の構成を確認してください)、プロジェクトのルート内にある UWP プロジェクトの参照、NuGet 参照、およびから見つかった PRIs をマージします。
         > [!NOTE]
-        > 省略して`/IndexName`、アプリケーション マニフェストがないプロジェクトによって、PRI ファイルの IndexName/ルート名前空間は自動的に設定し、*アプリケーション*にパッケージ化されたアプリのランタイムを理解しています (これを削除します、以前ハードの依存パッケージ ID)。 ただし、次のようにルート名前空間を明示的に指定できます。
-        > - ResourceLoader.GetForViewIndependentUse("ControlName\Resources").GetStringForUri(new Uri("ms-resource:///ManagedWinRT/Resources/Header"))
-        > - ResourceLoader.GetForViewIndependentUse("ControlName\Resources").GetStringForUri(new Uri("ms-resource://Application/ManagedWinRT/Resources/Header"))
+        > 省略して`/IndexName`、アプリケーション マニフェストがないプロジェクトによって、PRI ファイルの IndexName/ルート名前空間は自動的に設定し、*アプリケーション*にパッケージ化されたアプリのランタイムを理解しています (これを削除します、以前ハードの依存パッケージ ID)。 リソース Uri を指定するときに ms リソース:///ルート名前空間を省略する参照を推測*アプリケーション*にパッケージ化されたアプリのルート名前空間として (または指定できます*アプリケーション*として明示的にで ms-resource://Application/)。
 1. PRI ファイルを .exe のビルド出力ディレクトリにコピーします。
 1. .Exe を実行します。 
     > [!NOTE]
     > リソース管理システムは、アプリのパッケージ化以外の言語に基づいてリソースを解決するときに、ユーザーの好みの言語一覧ではなく、システムの表示言語を使用します。 ユーザーの好みの言語の一覧は、UWP アプリにのみ使用されます。
 
 > [!Important]
-> PRI ファイルを手動でリビルドする必要がありますを処理するビルド後のスクリプトなどのリソース ファイルの内容が変更された場合、 [MakePri.exe](https://docs.microsoft.com/windows/uwp/app-resources/compile-resources-manually-with-makepri)コマンド、.exe ディレクトリに resources.pri 出力をコピーします。
+> PRI ファイルは、リソースが変更されるたびに手動でリビルドする必要があります。 処理するビルド後のスクリプトを使用することをお勧めします。、 [MakePri.exe](https://docs.microsoft.com/windows/uwp/app-resources/compile-resources-manually-with-makepri)コマンド、.exe ディレクトリに resources.pri 出力をコピーします。
 
 ## <a name="important-apis"></a>重要な API
 * [ApplicationModel.Resources.ResourceLoader](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Resources.ResourceLoader)

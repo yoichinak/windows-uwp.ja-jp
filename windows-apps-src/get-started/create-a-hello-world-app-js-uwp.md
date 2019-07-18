@@ -6,24 +6,24 @@ ms.date: 03/06/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 682a69726b20be52a3217f49bed4947b8b621230
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 0b5423c9aae607d4f6ffe14b755c8f73e013d8b6
+ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64564504"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67820976"
 ---
 # <a name="create-a-hello-world-app-js"></a>"Hello, world" アプリを作成する (JS)
 
 このチュートリアルでは、Windows 10 のユニバーサル Windows プラットフォーム (UWP) を対象にした単純な "Hello, world" アプリを JavaScript と HTML で作る方法について説明します。 Microsoft Visual Studio プロジェクトを 1 つ開発すれば、あらゆる Windows 10 デバイスで動作するアプリを構築できます。
 
 > [!NOTE]
-> このチュートリアルでは、Visual Studio Community 2017 を使います。 異なるバージョンの Visual Studio を使っている場合には、見た目が多少異なることがあります。
+> このチュートリアルでは、Visual Studio Community 2019 を使います。 異なるバージョンの Visual Studio を使っている場合には、見た目が多少異なることがあります。
 
 
 ここでは、次の方法について説明します。
 
--   **Windows 10** と **UWP** を対象とする新しい **Visual Studio** プロジェクトを作る。
+-   **Windows 10** と **UWP** を対象とする新しい **Visual Studio 2019** プロジェクトを作る。
 -   HTML と JavaScript のコンテンツを追加する
 -   Visual Studio のローカル デスクトップでプロジェクトを実行する
 
@@ -35,17 +35,15 @@ ms.locfileid: "64564504"
 
 ## <a name="step-1-create-a-new-project-in-visual-studio"></a>手順 1:Visual Studio で新しいプロジェクトを作る
 
-1.  Visual Studio を起動します。
+1.  Visual Studio 2019 を起動します。
 
-2.  **[ファイル]** メニューの **[新規作成]、[プロジェクト]** の順にクリックし、 *[新しいプロジェクト]* ダイアログを開きます。
+2.  **[ファイル]** メニューの **[新規作成] > [プロジェクト...]** の順にクリックし、 *[新しいプロジェクトの作成]* ダイアログを開きます。
 
-3.  左側のテンプレートの一覧で、 **[インストール済み] > [テンプレート] > [JavaScript]** の順に開いた後、 **[Windows ユニバーサル]** を選択して UWP プロジェクト テンプレートの一覧を表示します。
+3.  **[Blank App (Universal Windows) JavaScript]\(空のアプリ (ユニバーサル Windows) JavaScript\)** を選択し、 **[次へ]** を選択します。
 
-    ユニバーサル テンプレートが表示されない場合は、UWP アプリを作成するためのコンポーネントがない可能性があります。 インストール プロセスを繰り返して UWP サポートを追加することもできます ( *[新しいプロジェクト]* ダイアログで **[Visual Studio インストーラーを開く]** をクリック)。 「[準備](get-set-up.md)」をご覧ください。
+    ユニバーサル テンプレートが表示されない場合は、UWP アプリを作成するためのコンポーネントがない可能性があります。 インストール プロセスを繰り返して UWP サポートを追加することもできます ( *[新しいプロジェクトの作成]* ダイアログで **[Visual Studio インストーラーを開く]** をクリック)。 「[準備](get-set-up.md)」をご覧ください。
 
-4.  **[空白のアプリ (ユニバーサル Windows)]** テンプレートを選択し、 **[名前]** に「HelloWorld」と入力します。 **[OK]** を選択します。
-
-    ![[新しいプロジェクト] ウィンドウ](images/win10-js-01.png)
+4.  *[新しいプロジェクトの構成]* ダイアログで、 **[プロジェクト名]** として「HelloWorld」と入力し、 **[作成]** を選択します。
 
 > [!NOTE]
 > Visual Studio を初めて使う場合は、[設定] ダイアログ ボックスが表示され、**開発者モード**を有効にするよう求められることがあります。 開発者モードは、アプリをストアからだけではなく、直接実行するためのアクセス許可など、特定の機能を有効にする特別な設定です。 詳しくは、「[デバイスを開発用に有効にする](enable-your-device-for-development.md)」をご覧ください。 先に進むには、 **[開発者モード]** を選択し、 **[はい]** をクリックしてダイアログ ボックスを閉じます。

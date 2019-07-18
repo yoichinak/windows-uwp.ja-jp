@@ -5,12 +5,12 @@ ms.date: 04/24/2019
 ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、XAML、コントロール、バインド、コレクション
 ms.localizationpriority: medium
-ms.openlocfilehash: 7669c6536f28d5f979567f5b433dbf614800bec3
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 999238d72017b92f1eb64c2e3089305166f993f2
+ms.sourcegitcommit: bf32c7ea6ca94b60dbd01cae279b31c6e0e5f338
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65627676"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67348641"
 ---
 # <a name="xaml-items-controls-bind-to-a-cwinrt-collection"></a>XAML アイテム コントロール: C++/WinRT コレクションへのバインド
 
@@ -39,13 +39,16 @@ XAML アイテム コントロールに効果的にバインドできるコレ�
 runtimeclass BookstoreViewModel
 {
     BookSku BookSku{ get; };
-    Windows.Foundation.Collections.IObservableVector<IInspectable> BookSkus{ get; };
+    Windows.Foundation.Collections.IObservableVector<BookSku> BookSkus{ get; };
 }
 ...
 ```
 
-> [!IMPORTANT]
-> 上記の MIDL 3.0 のリストでは、**BookSkus** プロパティの型が [**IInspectable**](/windows/desktop/api/inspectable/nn-inspectable-iinspectable) の [**IObservableVector**](/uwp/api/windows.foundation.collections.ivector_t_) であることに注意してください。 このトピックの次のセクションでは、[**ListBox**](/uwp/api/windows.ui.xaml.controls.listbox) の項目ソースを **BookSkus** にバインドします。 リスト ボックスは項目コントロールです。[**ItemsControl.ItemsSource**](/uwp/api/windows.ui.xaml.controls.itemscontrol.itemssource) プロパティを正しく設定するには、それを、**IInspectable** の型 **IObservableVector** (または **IVector**) の値に設定するか、または [**IBindableObservableVector**](/uwp/api/windows.ui.xaml.interop.ibindableobservablevector) などの相互運用性型の値に設定する必要があります。
+> [!NOTE]
+> 上記の MIDL 3.0 のリストでは、**BookSkus** プロパティの型が **BookSku** の [**IObservableVector**](/uwp/api/windows.foundation.collections.ivector_t_) であることに注意してください。 このトピックの次のセクションでは、[**ListBox**](/uwp/api/windows.ui.xaml.controls.listbox) の項目ソースを **BookSkus** にバインドします。 リスト ボックスは項目コントロールです。[**ItemsControl.ItemsSource**](/uwp/api/windows.ui.xaml.controls.itemscontrol.itemssource) プロパティを正しく設定するには、それを **IObservableVector** 型の値、**IVector** 型の値、または [**IBindableObservableVector**](/uwp/api/windows.ui.xaml.interop.ibindableobservablevector) などの相互運用性型の値に設定する必要があります。
+
+> [!WARNING]
+> このトピックで示すコードの適用対象は、C++/WinRT バージョン 2.0.190530.8 以降です。 それより前のバージョンを使っている場合は、示されているコードを若干調整する必要があります。 上記の MIDL 3.0 のリストでは、**BookSkus** プロパティを [**IInspectable**](/windows/desktop/api/inspectable/nn-inspectable-iinspectable) の [**IObservableVector**](/uwp/api/windows.foundation.collections.ivector_t_) に変更します。 その後、実装でも (**BookSku** の代わりに) **IInspectable** を使います。
 
 保存してビルドします。 `\Bookstore\Bookstore\Generated Files\sources` フォルダー内の `BookstoreViewModel.h` および `BookstoreViewModel.cpp` からアクセサー スタブをコピーします (詳細については、前のトピック「[XAML コントロール: C++/WinRT プロパティへのバインド](binding-property.md)」を参照してください)。 それらのアクセサー スタブを次のように実装します。
 
@@ -58,11 +61,11 @@ struct BookstoreViewModel : BookstoreViewModelT<BookstoreViewModel>
 
     Bookstore::BookSku BookSku();
 
-    Windows::Foundation::Collections::IObservableVector<Windows::Foundation::IInspectable> BookSkus();
+    Windows::Foundation::Collections::IObservableVector<Bookstore::BookSku> BookSkus();
 
 private:
     Bookstore::BookSku m_bookSku{ nullptr };
-    Windows::Foundation::Collections::IObservableVector<Windows::Foundation::IInspectable> m_bookSkus;
+    Windows::Foundation::Collections::IObservableVector<Bookstore::BookSku> m_bookSkus;
 };
 ...
 ```
@@ -73,7 +76,7 @@ private:
 BookstoreViewModel::BookstoreViewModel()
 {
     m_bookSku = winrt::make<Bookstore::implementation::BookSku>(L"Atticus");
-    m_bookSkus = winrt::single_threaded_observable_vector<Windows::Foundation::IInspectable>();
+    m_bookSkus = winrt::single_threaded_observable_vector<Bookstore::BookSku>();
     m_bookSkus.Append(m_bookSku);
 }
 
@@ -82,7 +85,7 @@ Bookstore::BookSku BookstoreViewModel::BookSku()
     return m_bookSku;
 }
 
-Windows::Foundation::Collections::IObservableVector<Windows::Foundation::IInspectable> BookstoreViewModel::BookSkus()
+Windows::Foundation::Collections::IObservableVector<Bookstore::BookSku> BookstoreViewModel::BookSkus()
 {
     return m_bookSkus;
 }

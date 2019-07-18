@@ -5,12 +5,12 @@ ms.date: 04/23/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 作成者, イベント
 ms.localizationpriority: medium
-ms.openlocfilehash: 5a3c834a1696b65099549aa001338a8a02f60e50
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: fc3b07848215699afe971674acfa7606ffb21bce
+ms.sourcegitcommit: 7585bf66405b307d7ed7788d49003dc4ddba65e6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64745230"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67660174"
 ---
 # <a name="author-events-in-cwinrt"></a>C++/WinRT でのイベントの作成
 
@@ -91,7 +91,10 @@ namespace winrt::BankAccountWRC::implementation
 }
 ```
 
-イベント リボーカーのオーバーロードを実装する必要はありません (詳細については、「[登録済みデリゲートの取り消し](handle-events.md#revoke-a-registered-delegate)」を参照してください)。これは C++/WinRT プロジェクションで自動的に行われます。 別のオーバーロードは、開発者がシナリオに最適な方法で柔軟に実装できるようにするため、プロジェクションに書き込まれません。 このような [**event::add**](/uwp/cpp-ref-for-winrt/event#eventadd-function) および [**event::remove**](/uwp/cpp-ref-for-winrt/event#eventremove-function) の呼び出しは、効率的で同時実行の安全性を確保できるスレッド セーフな既定値です。 ただし、大量のイベントがある場合は、各イベントのイベント フィールドが必要ないことがあり、代わりに、ある種のスパース実装を選択します。
+> [!NOTE]
+> 自動イベント リボーカーについて詳しくは、「[登録済みデリゲートの取り消し](handle-events.md#revoke-a-registered-delegate)」をご覧ください。 イベント用の自動イベント リボーカーの実装は、無料で手に入ります。 つまり、C++/WinRT プロジェクションによって提供されているイベント リボーカーのオーバーロードを実装する必要はありません。
+
+他のオーバーロード (登録と手動取り消しのオーバーロード) は、プロジェクションには書き込まれて "*いません*"。 それは、シナリオに最適なように柔軟に実装できるようにするためです。 これらの実装で示されているような [**event::add**](/uwp/cpp-ref-for-winrt/event#eventadd-function) および [**event::remove**](/uwp/cpp-ref-for-winrt/event#eventremove-function) の呼び出しは、効率的で同時実行の安全性を確保できるスレッドセーフな既定値です。 ただし、大量のイベントがある場合は、各イベントのイベント フィールドが必要ないことがあり、代わりに、ある種のスパース実装を選択します。
 
 また、**AdjustBalance** 関数の実装によって、残高が負の値になった場合でも **AccountIsInDebit** イベントが発生することを上で確認できます。
 
@@ -112,6 +115,8 @@ namespace winrt::BankAccountWRC::implementation
 ```
 
 `App.cpp` でも、(投影型の既定のコンストラクターを使用して) BankAccount のインスタンスを作成するために次のコードを追加し、イベント ハンドラーを登録して、口座が借方に入るようにします。
+
+`WINRT_ASSERT` はマクロ定義であり、[_ASSERTE](/cpp/c-runtime-library/reference/assert-asserte-assert-expr-macros) に展開されます。
 
 ```cppwinrt
 struct App : implements<App, IFrameworkViewSource, IFrameworkView>

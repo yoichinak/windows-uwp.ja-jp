@@ -8,12 +8,12 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: RS5, 19H1
-ms.openlocfilehash: 8ceb314424ae2611e141ef866a84c08e55b0ba2d
-ms.sourcegitcommit: f9a30bfd1e8eab50d0b1db97dd2f650ce66b5d34
+ms.openlocfilehash: 52338ef4d3850b5cf4a2caa0e2d6f93341897285
+ms.sourcegitcommit: 734aa941dc675157c07bdeba5059cb76a5626b39
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67690886"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68141817"
 ---
 # <a name="host-uwp-xaml-controls-in-desktop-apps-xaml-islands"></a>デスクトップ アプリ でUWP XAMLコントロールをホストする(XAML Islands)
 
@@ -28,14 +28,15 @@ XAML Islands で、Windows フォーム、WPF を使用するいくつかの方�
 
 Windows フォーム、WPF の XAML Islands を使用する 2 つの方法を説明する Windows 10、バージョンが 1903 年以降とC++Win32 アプリケーション。
 
-* Windows SDK には、いくつかの Windows ランタイム クラスと COM インターフェイスから派生した任意の UWP コントロールをホストするアプリケーションが使用できる[ **Windows.UI.Xaml.UIElement**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement)します。 総称して、これらのクラスとインターフェイスを呼び出す、 *API をホストしている UWP XAML*、関連するウィンドウ ハンドル (HWND) を含む、アプリケーションで任意の UI 要素に UWP コントロールをホストすることができるとします。 この API の詳細については、 [API をホストしている UWP XAML の使用](using-the-xaml-hosting-api.md)を参照してください。
+* Windows SDK には、いくつかの Windows ランタイム クラスと COM インターフェイスから派生した任意の UWP コントロールをホストするアプリケーションが使用できる[ **Windows.UI.Xaml.UIElement**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement)します。 総称して、これらのクラスとインターフェイスを呼び出す、 *API をホストしている UWP XAML*、関連するウィンドウ ハンドル (HWND) を含む、アプリケーションで任意の UI 要素に UWP コントロールをホストすることができるとします。 この API の詳細については、[API をホストしている XAML を使用](using-the-xaml-hosting-api.md)を参照してください。
 
 * [Windows Community Toolkit](https://docs.microsoft.com/windows/uwpcommunitytoolkit/) WPF と Windows フォームの他の XAML Island コントロールも提供します。 これらのコントロールでは、内部的に API をホストしている UWP XAML を使用し、すべてのキーボード ナビゲーションとレイアウトの変更を含め、直接 API をホストしている UWP XAML を使用している場合、自分で処理する必要がなくなり、動作を実装します。 WPF と Windows フォーム アプリケーションでは、強くお勧め UWP XAML ではなく、これらのコントロールを使用していた多くの API を使用して実装の詳細の抽象化されため、直接 API をホストします。 Windows 10、バージョンが 1903 年の時点でこれらのコントロールは[開発者プレビューとして利用できる](#feature-roadmap)します。
 
 > [!NOTE]
-> C++ Win32 デスクトップ アプリケーションでは、UWP コントロールをホストする API をホストしている UWP XAML を使用する必要があります。 Windows コミュニティのツールキットで XAML Islands コントロールは使用できませんC++Win32 デスクトップ アプリケーションです。
 
-WPF と Windows フォーム アプリケーションの Windows コミュニティのツールキットで提供される XAML Islands コントロールの 2 種類があります:*コントロールをラップ*と*ホスト コントロール*します。 
+> C++ Win32 デスクトップ アプリケーションでは、UWP コントロールをホストするために  をホストしている UWP XAML ホスティング API を使用する必要があります。 Windows Community Toolkit の XAML Island コントロールは、C++Win32 デスクトップ アプリケーションでは使用できません。
+
+WPF と Windows フォーム アプリケーション用の Windows Community Toolkit によって提供される XAML Island コントロールには *コントロールをラップ* と *ホスト コントロール* の2 種類があります。 
 
 ### <a name="wrapped-controls"></a>ラップされたコントロール
 
@@ -78,18 +79,18 @@ XAML Islandsには、Windows 10、バージョン1903以降が必要です。 �
 
 ### <a name="step-2-enable-xaml-island-support-in-your-project"></a>手順 2:プロジェクトでサポートを有効にする XAML Island
 
-プロジェクトに XAML Island サポートを有効にすることを次の変更のいずれか。 詳細については、[このブログの投稿](https://techcommunity.microsoft.com/t5/Windows-Dev-AppConsult/Using-XAML-Islands-on-Windows-10-19H1-fixing-the-quot/ba-p/376330#M117)を参照してください。
+XAML Island のサポートを有効にするには、プロジェクトに次のいずれかの変更を加えます。 詳細については、[このブログの投稿](https://techcommunity.microsoft.com/t5/Windows-Dev-AppConsult/Using-XAML-Islands-on-Windows-10-19H1-fixing-the-quot/ba-p/376330#M117) を参照してください。
 
 #### <a name="option-1-package-your-application-in-an-msix-package"></a>オプション 1:MSIX パッケージ内のアプリケーションをパッケージ化します。  
 
 Windows 10、バージョン 1903 SDK (またはそれ以降のリリース) をインストールします。 次に、MSIX パッケージ内のアプリケーションを追加することでパッケージを[Windows アプリケーション パッケージ プロジェクト](https:/docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)ソリューションと、WPF や Windows フォーム プロジェクトへの参照を追加します。
 
-#### <a name="option-2-set-the-maxversiontested-value-in-your-assembly-manifest"></a>オプション 2:アセンブリ マニフェストで maxVersionTested 値を設定します。
+#### <a name="option-2-set-the-maxversiontested-value-in-your-assembly-manifest"></a>オプション 2:アセンブリ マニフェストで maxversiontested 値を設定します。
 
-追加できるかどうか MSIX パッケージ内のアプリケーションをパッケージ化したくない、[アプリケーション マニフェスト](https://docs.microsoft.com/windows/desktop/SbsCs/application-manifests)をプロジェクトに追加し、 **maxVersionTested**要素を指定するマニフェスト、アプリケーションは、Windows 10、1903 またはそれ以降のバージョンとの互換性。
+追加できるかどうか MSIX パッケージ内のアプリケーションをパッケージ化したくない、[アプリケーション マニフェスト](https://docs.microsoft.com/windows/desktop/SbsCs/application-manifests)をプロジェクトに追加し、 **maxversiontested**要素を指定するマニフェスト、アプリケーションは、Windows 10、1903 またはそれ以降のバージョンとの互換性。
 
 1. アプリケーション マニフェストのプロジェクトで、新しい XML ファイルをプロジェクトに追加およびという名前を付けますがまだしていない場合**app.manifest**します。 WPF や Windows フォーム アプリケーションの場合も割り当てることを確認します、**マニフェスト**プロパティを **. app.manifest**で、**アプリケーション**のページ、[プロジェクトプロパティ](https://docs.microsoft.com/visualstudio/ide/reference/application-page-project-designer-csharp?view=vs-2019#resources)します。
-2. アプリケーション マニフェストで含める、**互換性**要素と子要素を次の例に示すようにします。 置換、 **Id**の属性、 **maxVersionTested**対象としている Windows 10 のバージョン番号を持つ要素 (これは、Windows 10、バージョンが 1903 または今後のリリースをする必要があります)。
+2. アプリケーション マニフェストで含める、**互換性**要素と子要素を次の例に示すようにします。 置換、 **Id**の属性、 **maxversiontested**対象としている Windows 10 のバージョン番号を持つ要素 (これは、Windows 10、バージョンが 1903 または今後のリリースをする必要があります)。
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -105,7 +106,7 @@ Windows 10、バージョン 1903 SDK (またはそれ以降のリリース) を
     ```
 
 > [!NOTE]
-> 追加すると、 **maxVersionTested**要素内のアプリケーション マニフェストに、 C++ Win32 プロジェクト (Visual Studio では、Windows デスクトップ アプリケーション プロジェクト テンプレートを使用して)、プロジェクトで、次のビルド警告を表示可能性があります: `manifest authoring warning 81010002: Unrecognized Element "maxversiontested" in namespace "urn:schemas-microsoft-com:compatibility.v1"`. この警告は、プロジェクトで、間違いがあることと、無視することが示されません。
+> 追加すると、 **maxversiontested**要素は、アプリケーション マニフェストを次のビルドのプロジェクトで警告を表示可能性があります:`manifest authoring warning 81010002: Unrecognized Element "maxversiontested" in namespace "urn:schemas-microsoft-com:compatibility.v1"`します。 この警告は、プロジェクトで、間違いがあることと、無視することが示されません。
 
 ## <a name="feature-roadmap"></a>機能のロードマップ
 
@@ -115,7 +116,7 @@ Windows 10、バージョンが 1903 年のリリースの時点で、ラップ�
 * 1\.0 のバージョンの .NET Core 3 のコントロールは、toolkit の今後のリリースの予定です。
 * .NET Framework と .NET Core 3 をこれらのコントロールのバージョン 1.0 のリリースの最新のプレビューを試す場合を参照してください、 **6.0.0-preview3**で NuGet のパッケージ、 [UWP Community Toolkit](https://dotnet.myget.org/gallery/uwpcommunitytoolkit)ギャラリー。
 
-詳細については、[このブログの投稿](https://blogs.windows.com/windowsdeveloper/2019/06/13/xaml-islands-v1-updates-and-roadmap)を参照してください。
+詳細については、[このブログの投稿](https://blogs.windows.com/windowsdeveloper/2019/06/13/xaml-islands-v1-updates-and-roadmap) を参照してください。
 
 ## <a name="additional-resources"></a>その他の資料
 
