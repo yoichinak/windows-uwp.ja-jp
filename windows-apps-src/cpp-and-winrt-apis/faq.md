@@ -5,12 +5,12 @@ ms.date: 04/23/2019
 ms.topic: article
 keywords: wwindows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 頻繁, 質問, 質問, faq
 ms.localizationpriority: medium
-ms.openlocfilehash: 914cf884b97d14af523cc61b0fcce719104783ba
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 01ff6fb443550287330d6fe503c3d49d81e2142c
+ms.sourcegitcommit: a7a1e27b04f0ac51c4622318170af870571069f6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66721687"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67717639"
 ---
 # <a name="frequently-asked-questions-about-cwinrt"></a>C++/WinRT についてよく寄せられる質問
 [C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) での Windows ランタイム API の作成と使用に関する質問への回答です。
@@ -54,6 +54,24 @@ Windows ランタイム クラス (ランタイム クラス) を*使用*する�
 ```
 
 代替の静的リンク ライブラリではなく **WindowsApp.lib** をリンクしてリンカー エラーを解決することが重要です。そうしないと、アプリケーションは、Visual Studio および Microsoft Store で提出の検証に使用される [Windows アプリ認定キット](../debug-test-perf/windows-app-certification-kit.md) テストに合格しません (つまり、結果として、アプリケーションは Microsoft Store に正常に取り込まれません)。
+
+## <a name="why-am-i-getting-a-class-not-registered-exception"></a>"クラスが登録されていません" という例外が発生するのはなぜですか?
+
+この場合の現象としては、ランタイム クラスを構築するか、または静的メンバーにアクセスすると、実行時に HRESULT の値が REGDB_E_CLASSNOTREGISTERED である例外がスローされます。
+
+原因の 1 つは、Windows ランタイム コンポーネントを読み込むことができないことです。 コンポーネントの Windows ランタイム メタデータ ファイル (`.winmd`) の名前がコンポーネント バイナリ (`.dll`) の名前と同じであることを確認してください。この名前は、プロジェクトの名前、およびルート名前空間の名前でもあります。 また、Windows ランタイム メタデータとバイナリが、ビルド プロセスによって使用中のアプリの `Appx` フォルダに正しくコピーされていることを確認してください。 さらに、使用中のアプリの `AppxManifest.xml` (および `Appx` フォルダ内) に、アクティブ化可能なクラスとバイナリ名を正しく宣言している **&lt;InProcessServer&gt;** 要素が含まれていることを確認してください。
+
+### <a name="uniform-construction"></a>均一の構築
+
+このエラーは、投影された型のコンストラクターのいずれか (**std::nullptr_t** コンストラクター以外) を使ってローカルに実装されているランタイム クラスをインスタンス化しようとした場合にも、発生する可能性があります。 それを行うには、均一の構築と呼ばれることがよくある C++/WinRT 2.0 の機能が必要です。 一方、均一の構築を必要と "*しない*" でローカルに実装されたランタイム クラスをインスタンス化する方法については、「[XAML コントロール: C++/WinRT プロパティへのバインド](binding-property.md)」をご覧ください。
+
+均一の構築を "*行う*" 場合は、新しいプロジェクトに対しては既定で有効になります。 既存のプロジェクトの場合は、`cppwinrt.exe` ツールを構成することで、均一の構築をオプトインする必要があります。 Visual Studio で、プロジェクトのプロパティ **[共通プロパティ]**  >  **[C++/WinRT]**  >  **[最適化]** を *[はい]* に設定します。 その効果として、プロジェクト ファイルに `<CppWinRTOptimized>true</CppWinRTOptimized>` が追加されます。 また、コマンド ラインから `cppwinrt.exe` を呼び出すときに `-opt[imize]` スイッチを追加するのと同じ効果があります。
+
+それを設定 "*しないで*" プロジェクトをビルドすると、結果の C++/WinRT プロジェクションでは、ランタイム クラスのコンストラクターおよび静的メンバーにアクセスするために、[**RoGetActivationFactory**](/windows/win32/api/roapi/nf-roapi-rogetactivationfactory) が呼び出されます。 そして、そのためには、クラスを登録し、モジュールで [**DllGetActivationFactory**](/previous-versions/br205771(v=vs.85)) エントリ ポイントを実装する必要があります。
+
+`-opt[imize]`スイッチを "*指定して*" プロジェクトをビルドすると、プロジェクトではコンポーネント内のクラスの **RoGetActivationFactory** がバイパスされ、コンポーネントの外部にクラスがある場合とまったく同じ方法で (登録する必要なしに) クラスを構築できます。
+
+均一の構築を使うには、各実装の `.cpp` ファイルを編集し、実装ヘッダー ファイルをインクルードした後で `#include <Sub/Namespace/ClassName.g.cpp>` を行うようにする必要もあります。
 
 ## <a name="should-i-implement-windowsfoundationiclosableuwpapiwindowsfoundationiclosable-and-if-so-how"></a>[  **Windows::Foundation::IClosable**](/uwp/api/windows.foundation.iclosable) を実装するかどうかとその方法
 自身のデストラクターのリソースを解放するランタイム クラスを使用し、そのランタイム クラスが実装するコンパイル ユニット (Windows ランタイム クライアント アプリで一般的に使用するための Windows ランタイム コンポーネント) 以外で使用されるように設計されている場合、確定終了処理が不足する言語でランタイム クラスの使用をサポートするために、**IClosable** も実装することをお勧めします。 デストラクター、[**IClosable::Close**](/uwp/api/windows.foundation.iclosable.close)、または両方が呼び出されたときにリソースが解放されるようにしてください。 **IClosable::Close** は必要に応じて呼び出すことができます。
@@ -154,6 +172,25 @@ a.f();
 
 ## <a name="how-do-i-turn-a-string-into-a-typemdashfor-navigation-for-example"></a>(たとえばナビゲーションのために) 文字列を型に変換するにはどうすればよいですか?
 [ナビゲーション ビューのコード例](/windows/uwp/design/controls-and-patterns/navigationview#code-example) (主に C#) の末尾には、この実行方法を示す C++/WinRT コード スニペットがあります。
+
+## <a name="how-do-i-resolve-ambiguities-with-getcurrenttime-andor-try"></a>GetCurrentTime および TRY でのあいまいさを解決するにはどうすればよいですか?
+
+ヘッダー ファイル `winrt/Windows.UI.Xaml.Media.Animation.h` では **GetCurrentTime** という名前のメソッドが宣言されているのに対し、`windows.h` では (`winbase.h` を介して) **GetCurrentTime** という名前のマクロが定義されています。 その 2 つが競合すると、C++ コンパイラで次のエラーが発生します。"*エラー C4002: 関数に似たマクロ呼び出し 'GetCurrentTime' の引数が多すぎます*"。
+
+同様に、`winrt/Windows.Globalization.h` では **TRY** という名前のメソッドが宣言されているのに対し、`afx.h` では **GetCurrentTime** という名前のマクロが定義されています。 これらが競合すると、C++ コンパイラで次のエラーが発生します。"*エラー C2334: '{' の前に予期しないトークンがありました。関数の本体は無視されます*"。
+
+一方または両方の問題を解決するには、次のようにすることができます。
+
+```cppwinrt
+#pragma push_macro("GetCurrentTime")
+#pragma push_macro("TRY")
+#undef GetCurrentTime
+#undef TRY
+#include <winrt/include_your_cppwinrt_headers_here.h>
+#include <winrt/include_your_cppwinrt_headers_here.h>
+#pragma pop_macro("TRY")
+#pragma pop_macro("GetCurrentTime")
+```
 
 > [!NOTE]
 > このトピックで質問の答えが見つからなかった場合は、[Visual Studio C++ 開発者コミュニティ](https://developercommunity.visualstudio.com/spaces/62/index.html)にアクセスするか、[`c++-winrt` タグを Stack Overflow](https://stackoverflow.com/questions/tagged/c%2b%2b-winrt) で使用することでヘルプが得られる場合があります。

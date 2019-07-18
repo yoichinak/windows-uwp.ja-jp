@@ -11,12 +11,12 @@ pm-contact: miguelrb
 design-contact: ksulliv
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 3b69bc093fb9aae6e35618949bf6eebe8c36c893
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: b60fbe26de6a3400972bdd216f292a45cb89df9e
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66364168"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67319501"
 ---
 # <a name="text-block"></a>テキスト ブロック
 
@@ -70,7 +70,7 @@ textBlock1.Text = "Hello, world!";
 
 ### <a name="content-model"></a>コンテンツ モデル
 
-コンテンツを TextBlock に追加するために使用できるプロパティとして、[Text](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock.text) と [Inlines](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock.inlines) の 2 つがあります。
+コンテンツを TextBlock に追加するために使用できるプロパティとして、次の 2 つがあります: [Text](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock.text) と [Inlines](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock.inlines)。
 
 テキストを表示する最も一般的な方法は、前の例で示したように Text プロパティを文字列値に設定することです。
 
@@ -99,7 +99,7 @@ Inline クラスから派生した要素 (Bold、Italic、Run、Span、LineBreak
 
 デバッグ中に [DebugSettings.IsTextPerformanceVisualizationEnabled](https://docs.microsoft.com/uwp/api/windows.ui.xaml.debugsettings.istextperformancevisualizationenabled) プロパティを **true** に設定すると、テキストのレンダリングに高速パスが使用されているかどうかを特定できます。 このプロパティを true に設定すると、高速パスにあるテキストは明るい緑色で表示されます。
 
->**ヒント**&nbsp;&nbsp;この機能については、ビルド 2015 以降のこのセッション ([XAML パフォーマンス: XAML を使って構築されたユニバーサル Windows アプリのエクスペリエンスを最大化する手法](https://channel9.msdn.com/Events/Build/2015/3-698)) で説明します。
+>**ヒント**&nbsp;&nbsp;この機能については、Build 2015 の次のセッションで詳しく説明されています - [XAML Performance: Techniques for Maximizing Universal Windows App Experiences Built with XAML (XAML パフォーマンス: XAML で構築されたユニバーサル Windows アプリのエクスペリエンスを最大化する手法)](https://channel9.msdn.com/Events/Build/2015/3-698)。
 
 
 
@@ -200,4 +200,4 @@ Windows.UI.Xaml.Documents.Typography.SetStylisticSet4(textBlock1, true);
 - [テキスト入力のガイドライン](text-controls.md)
 - [TextBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox)
 - [Windows.UI.Xaml.Controls PasswordBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.PasswordBox)
-- [String.Length プロパティ](https://msdn.microsoft.com/library/system.string.length(v=vs.110).aspx)
+- [String.Length プロパティ](https://docs.microsoft.com/dotnet/api/system.string.length?redirectedfrom=MSDN#System_String_Length)

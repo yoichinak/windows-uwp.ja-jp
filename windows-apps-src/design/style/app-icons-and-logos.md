@@ -9,12 +9,12 @@ design-contact: Judysa
 doc-status: Published
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 31b90866a0f612fb8f488d11e7d989380f14da99
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 0352e01363fc077439325eba4f74fe97febac33c
+ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63784891"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67820547"
 ---
 # <a name="app-icons-and-logos"></a>アプリのアイコンとロゴ 
 
@@ -105,18 +105,18 @@ For more information, see [App screenshots, images, and trailers in the Microsof
 
 Visual Studio には、**マニフェスト デザイナー**と呼ばれるアプリ アイコンを管理するための便利なツールがあります。 
 
-> まだ Visual Studio 2017 を使用していない場合は、無料バージョン (Visual Studio 2017 Community Edition) を含むいくつかのバージョンを利用できます。また、それ以外のバージョンでも無料試用版が提供されています。 いずれも次の場所からダウンロードできます。[https://developer.microsoft.com/windows/downloads](https://developer.microsoft.com/windows/downloads)
+> まだ Visual Studio 2019 を使用していない場合は、無料バージョン (Visual Studio 2019 Community Edition) を含むいくつかのバージョンを利用できます。また、それ以外のバージョンでも無料試用版が提供されています。 いずれも次の場所からダウンロードできます。[https://developer.microsoft.com/windows/downloads](https://developer.microsoft.com/windows/downloads)
 
 
 マニフェスト デザイナーを起動するには、次の手順を実行します。
 <!-- 1. Use Visual Studio to open a UWP project.
 2. In the **Solution Explorer**, double-click the package.appmanifest file. 
 
-    ![The Visual Studio 2017 Solution Explorer](images/icons/vs-solution-explorer.png)
+    ![The Visual Studio 2019 Solution Explorer](images/icons/vs-solution-explorer.png)
 
     Visual Studio displays the manifest designer.
 
-    ![The Visual Studio 2017 manifest designer](images/icons/vs-manfiest-designer.png)
+    ![The Visual Studio 2019 manifest designer](images/icons/vs-manfiest-designer.png)
 3. Click the **Visual Assets** tab.
 
     ![The Visual Assets tab](images/icons/vs-manfiest-designer-visual-assets.png) -->
@@ -135,7 +135,7 @@ Visual Studio には、**マニフェスト デザイナー**と呼ばれるア�
         2. **[ソリューション エクスプローラー]** で Package.appxmanifest ファイルをダブルクリックします。
     :::column-end:::
     :::column:::
-        ![The Visual Studio 2017 Manifest Designer](images/icons/vs-solution-explorer.png)
+        ![The Visual Studio 2019 Manifest Designer](images/icons/vs-solution-explorer.png)
     :::column-end:::
 :::row-end:::
 :::row:::

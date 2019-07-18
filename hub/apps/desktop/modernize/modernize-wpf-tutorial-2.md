@@ -8,14 +8,14 @@ author: mcleanbyron
 keywords: windows 10、uwp、windows フォーム、wpf、xaml islands
 ms.localizationpriority: medium
 ms.custom: RS5, 19H1
-ms.openlocfilehash: 2f8cf18bce7bec880a2cb0bef298c0b565e20208
-ms.sourcegitcommit: 1eec0e4fd8a5ba82803fdce6e23fcd01b9488523
+ms.openlocfilehash: 35b6886389640c7960c4120772c169161779ab68
+ms.sourcegitcommit: 734aa941dc675157c07bdeba5059cb76a5626b39
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67420091"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68141836"
 ---
-# <a name="part-2-add-a-uwp-inkcanvas-control-using-xaml-islands"></a>パート 2:XAML Islandsを使って UWP InkCanvas コントロールを追加
+# <a name="part-2-add-a-uwp-inkcanvas-control-using-xaml-islands"></a>第 2 部: XAML Islandsを使って UWP InkCanvas コントロールを追加
 
 これは、Contoso の経費をという名前のサンプル WPF デスクトップ アプリの近代化する方法を説明するチュートリアルの 2 番目の部分です。 チュートリアル、前提条件、およびサンプル アプリをダウンロードする手順の概要については、次を参照してください。[チュートリアル。WPF アプリの近代化](modernize-wpf-tutorial.md)します。 この記事では、既に完了している前提としています。[パート 1](modernize-wpf-tutorial-1.md)します。
 
@@ -38,20 +38,20 @@ ms.locfileid: "67420091"
 
 4. 選択**アプリケーション マニフェスト ファイル**、名前を付けます**app.manifest**、 をクリック**追加**します。
 
-5. マニフェスト ファイルを開いたときに検索、**互換性**セクションし、次のコメントが付けられたエントリを識別します。
+5. マニフェスト ファイルを開いたときに検索、**互換性**セクションし、次のコメントを識別する**supportedOS** Windows 10 用の要素。
 
     ```xml
     <!-- Windows 10 -->
     <!--<supportedOS Id="{8e0f7a12-bfb3-4fe8-b9a5-48fd50a15a9a}" />-->
     ```
 
-6. このエントリを下には、次の項目を追加します。
+6. この要素の下には、次のコードを追加**maxversiontested**要素。
 
     ```xml
     <maxversiontested Id="10.0.18362.0"/>
     ```
 
-7. コメントを解除、 **supportedOS** Windows 10 用のエントリ。 このセクションでは、次のようになります。
+7. コメントを解除、 **supportedOS** Windows 10 用の要素。 このセクションでは、次のようになります。
 
     ```xml
     <!-- Windows 10 -->
@@ -60,7 +60,7 @@ ms.locfileid: "67420091"
     ```
 
     > [!NOTE]
-    > このエントリは、アプリが Windows 10 バージョン 1903 (ビルド 18362) が必要であるを指定しますまたはそれ以降。 これは、XAML Islandsをサポートする Windows 10 の最初のバージョンです。 アプリでは、アプリケーション マニフェストにこのエントリが、実行時に例外がスローされます。
+    > **Maxversiontested**要素では、アプリが Windows 10 バージョン 1903 (ビルド 18362) が必要であるかを指定します。 またはそれ以降。 これは、XAML Islandsをサポートする Windows 10 の最初のバージョンです。 アプリでは、アプリケーション マニフェストにこのエントリが、実行時に例外がスローされます。 この要素を追加した後、プロジェクトで次のビルド警告を表示する可能性があります:`manifest authoring warning 81010002: Unrecognized Element "maxversiontested" in namespace "urn:schemas-microsoft-com:compatibility.v1"`します。 この警告は、プロジェクトで、間違いがあることと、無視することが示されません。
 
 8. マニフェストのファイルで、次のコメントを探します**アプリケーション**セクション。
 
