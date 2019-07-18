@@ -1,16 +1,16 @@
 ---
 description: XAML コントロールに効果的にバインドできるプロパティは、*監視可能な*プロパティと呼ばれます。 このトピックでは、監視可能なプロパティを実装および使用する方法と、XAML コントロールをバインドする方法を示します。
 title: 'XAML コントロール: C++/WinRT プロパティへのバインド'
-ms.date: 04/24/2019
+ms.date: 06/21/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, XAML, コントロール, バインド, プロパティ
 ms.localizationpriority: medium
-ms.openlocfilehash: 2fe5c03eebd2b68e98ae908ea4624471fbd2b3d2
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 25ce3164ece443c8c1d95bccbc2bfb57e3347a55
+ms.sourcegitcommit: a7a1e27b04f0ac51c4622318170af870571069f6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65627668"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67717655"
 ---
 # <a name="xaml-controls-bind-to-a-cwinrt-property"></a>XAML コントロール: C++/WinRT プロパティへのバインド
 XAML コントロールに効果的にバインドできるプロパティは、*監視可能な*プロパティと呼ばれます。 この概念は、*オブザーバー パターン*と呼ばれるソフトウェアの設計パターンに基づいています。 このトピックでは、[C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) で監視可能なプロパティを実装する方法と、これらに XAML コントロールをバインドする方法を示します。
@@ -210,7 +210,7 @@ namespace Bookstore
 
 表示されると予想されるエラーを解決するには、生成されたファイル (`\Bookstore\Bookstore\Generated Files\sources\MainPage.h` および `MainPage.cpp`) から **MainViewModel** プロパティ用のアクセサ スタブを `\Bookstore\Bookstore\MainPage.h` および `MainPage.cpp` にコピーする必要があります。 その手順は次のとおりです。
 
-`\Bookstore\Bookstore\MainPage.h` で、**BookstoreViewModel** の実装型 (**winrt::Bookstore::implementation::BookstoreViewModel**) を宣言する `BookstoreViewModel.h` をインクルードします。 ビュー モデルを格納するプライベート メンバーを追加します。 プロパティ アクセサー関数 (およびメンバー m_mainViewModel) は、**BookstoreViewModel** の投影型 (**Bookstore::BookstoreViewModel**) について実装されていることに注意してください。 実装型はアプリケーションと同じプロジェクト (コンパイル ユニット) にあるため、`nullptr_t` を使うコンストラクターのオーバーロードによって m_mainViewModel を作成します。 **MyProperty** プロパティも削除します。
+`\Bookstore\Bookstore\MainPage.h` で、**BookstoreViewModel** の実装型 (**winrt::Bookstore::implementation::BookstoreViewModel**) を宣言する `BookstoreViewModel.h` をインクルードします。 ビュー モデルを格納するプライベート メンバーを追加します。 プロパティ アクセサー関数 (およびメンバー m_mainViewModel) は、**BookstoreViewModel** の投影型 (**Bookstore::BookstoreViewModel**) について実装されていることに注意してください。 実装型はアプリケーションと同じプロジェクト (コンパイル ユニット) にあるため、**std::nullptr_t** を使うコンストラクターのオーバーロードによって m_mainViewModel を作成します。 **MyProperty** プロパティも削除します。
 
 ```cppwinrt
 // MainPage.h
@@ -276,6 +276,28 @@ namespace winrt::Bookstore::implementation
 
 ## <a name="using-the-binding-markup-extension-with-cwinrt"></a>C++/WinRT で {Binding} マークアップ拡張を使用する
 現在リリースされている C++/WinRT のバージョンの場合、{Binding} マークアップ拡張を使用できるようにするには、[ICustomPropertyProvider](/uwp/api/windows.ui.xaml.data.icustompropertyprovider) および [ICustomProperty](/uwp/api/windows.ui.xaml.data.icustomproperty) インターフェイスを実装する必要があります。
+
+## <a name="element-to-element-binding"></a>要素間のバインド
+
+ある XAML 要素のプロパティを、別の XAML 要素のプロパティにバインドできます。 マークアップでどのようになるかを示す例を以下に示します。
+
+```xaml
+<TextBox x:Name="myTextBox" />
+<TextBlock Text="{x:Bind myTextBox.Text, Mode=OneWay}" />
+```
+
+Midl ファイル (.idl) で読み取り専用プロパティとして名前付き XAML エンティティ `myTextBox` を宣言する必要があります。
+
+```idl
+// MainPage.idl
+runtimeclass MainPage : Windows.UI.Xaml.Controls.Page
+{
+    MainPage();
+    Windows.UI.Xaml.Controls.TextBox myTextBox{ get; };
+}
+```
+
+これが必要な理由を次に示します。 XAML コンパイラで検証する必要があるすべての型は ([{X:bind}](https://docs.microsoft.com/windows/uwp/xaml-platform/x-bind-markup-extension) で使われるものを含みます)、Windows メタデータ (WinMD) から読み取られます。 開発者が行う必要があるのは、読み取り専用のプロパティを Midl ファイルに追加することだけです。 自動的に生成される XAML コードビハインドで実装が提供されるので、実装は行わないでください。
 
 ## <a name="important-apis"></a>重要な API
 * [INotifyPropertyChanged::PropertyChanged](/uwp/api/windows.ui.xaml.data.inotifypropertychanged.PropertyChanged)
