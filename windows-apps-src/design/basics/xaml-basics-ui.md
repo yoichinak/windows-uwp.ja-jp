@@ -5,12 +5,12 @@ keywords: XAML, UWP, 概要
 ms.date: 08/30/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 1bae8455f1062b3ad62aeac3807c6c58ae274a1b
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: d4da7e661b0a9c1f389ae93fe4da4782629014f4
+ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63794724"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67820521"
 ---
 # <a name="tutorial-create-a-user-interface"></a>チュートリアル: ユーザー インターフェイスの作成
 
@@ -32,7 +32,7 @@ ms.locfileid: "63794724"
 
 ## <a name="prerequisites"></a>前提条件
 
-* Visual Studio 2017: [Visual Studio 2017 Community のダウンロード (無料)](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15&campaign=WinDevCenter&ocid=wdgcx-windevcenter-community-download) 
+* Visual Studio 2019: [Visual Studio 2019 Community のダウンロード (無料)](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15&campaign=WinDevCenter&ocid=wdgcx-windevcenter-community-download) 
 * Windows 10 SDK (10.0.15063.468 以降): [最新の Windows SDK のダウンロード (無料)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 
 ## <a name="part-0-get-the-starter-code-from-github"></a>パート 0: GitHub からスタート コードを入手する
