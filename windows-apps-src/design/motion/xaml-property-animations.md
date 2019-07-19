@@ -84,13 +84,13 @@ button.Scale = new Vector3(2.0f,2.0f,1.0f);
 ### <a name="mutual-exclusivity-between-new-and-old-properties"></a>新規および既存のプロパティの間で相互に排他的
 
 > [!NOTE]
-> **不透明度**プロパティでは、このセクションで説明されている相互に排他的は強制されません。 XAML または合成アニメーションを使用するかどうかは、同じ不透明度プロパティを使用します。
+> **Opacity** プロパティでは、このセクションで説明されている相互排他性は強制されません。 XAML または合成アニメーションを使用するかどうかに関係なく、同じ Opacity プロパティを使用します。
 
 CompositionAnimation をアニメーション化できるプロパティは、いくつかの既存の UIElement プロパティの置き換えです。
 
 - [RenderTransform](/uwp/api/windows.ui.xaml.uielement.rendertransform)
 - [RenderTransformOrigin](/uwp/api/windows.ui.xaml.uielement.rendertransformorigin)
-- [射影](/uwp/api/windows.ui.xaml.uielement.projection)
+- [Projection](/uwp/api/windows.ui.xaml.uielement.projection)
 - [Transform3D](/uwp/api/windows.ui.xaml.uielement.transform3d)
 
 または設定すると (アニメーション化する)、新しいプロパティのいずれか、古いプロパティを使用することはできません。 逆に、設定 (またはアニメーション化する) 場合、古いプロパティのいずれかは、新しいプロパティを使用することはできません。
@@ -145,6 +145,6 @@ destinationButton.StartAnimation(animation);
 
 ## <a name="related-topics"></a>関連トピック
 
-- [アニメーションの再検討](storyboarded-animations.md)
-- [XAML でビジュアル層の使用](../../composition/using-the-visual-layer-with-xaml.md)
+- [ストーリーボードに設定されたアニメーション](storyboarded-animations.md)
+- [XAML でのビジュアル レイヤーの使用](../../composition/using-the-visual-layer-with-xaml.md)
 - [変換の概要](../layout/transforms.md)
