@@ -14,7 +14,7 @@ ms.locfileid: "67318188"
 ---
 # <a name="shadows-in-windows-ui"></a>Windows UI のシャドウ
 
-[DropShadow](/uwp/api/Windows.UI.Composition.DropShadow)クラスに適用できる構成可能なシャドウの作成方法を提供する、 [SpriteVisual](/uwp/api/windows.ui.composition.spritevisual)または[LayerVisual](/uwp/api/windows.ui.composition.layervisual) (ビジュアルのサブツリー)。 ビジュアル レイヤーでオブジェクトの慣習はでは、CompositionAnimations を使用して、DropShadow のすべてのプロパティをアニメーション化することができます。
+[DropShadow](/uwp/api/Windows.UI.Composition.DropShadow) クラスは、[SpriteVisual](/uwp/api/windows.ui.composition.spritevisual) または [LayerVisual](/uwp/api/windows.ui.composition.layervisual) (ビジュアルのサブツリー) に適用できる構成可能なシャドウの作成方法を提供します。一般的にビジュアル レイヤーのオブジェクトでは、DropShadow のすべてのプロパティは CompositionAnimations を使用してアニメーション化できます。
 
 ## <a name="basic-drop-shadow"></a>基本的なドロップ シャドウ
 
@@ -97,7 +97,7 @@ imageSpriteVisual.Shadow = shadow;
 
 ## <a name="animating"></a>アニメーション化
 
-ビジュアル レイヤーで標準では、合成アニメーションを使用して、DropShadow プロパティをアニメーション化することができます。 次の影のぼかしの半径をアニメーション化するのには、上の結び付けたりサンプルからコードを変更します。
+ビジュアル レイヤーでは標準として、合成アニメーションを使用して DropShadow プロパティをアニメーション化することができます。次の例では、上記のスプリンクル サンプルからコードを変更して、影のブラーの半径をアニメーション化しています。
 
 ```cs
 ScalarKeyFrameAnimation blurAnimation = _compositor.CreateScalarKeyFrameAnimation();
@@ -119,15 +119,15 @@ shadow.StartAnimation("BlurRadius", blurAnimation);
 
 ## <a name="performance"></a>パフォーマンス
 
-ビジュアル レイヤーは、多くの最適化を効率的かつ使用可能な効果を設定する場所には、影を生成すると、どのようなオプションを設定するによって比較的高価な操作を指定できます。 高レベル '' のコストの影のさまざまな種類を次に示します。 特定の影が高価な場合がありますが、ある可能性があります特定のシナリオで慎重に使用する適切なに注意してください。
+ビジュアル レイヤーには、効果を効率的かつ使用可能なものとするための多くの最適化がありますが、影を生成すると、設定するオプションによっては比較的高価な操作になります。以下は、'コスト' の高いさまざまな種類の影を示しています。特定の影は高価であっても、特定のシナリオにおいて慎重に使用するのに適切な場合があることに注意してください。
 
 シャドウの特性| コスト
 ------------- | -------------
-Rectangular    | 低
+四角形 | 低
 Shadow.Mask      | 高
 CompositionDropShadowSourcePolicy.InheritFromVisualContent | 高
-Static Blur Radius | 低
-Animating Blur Radius | 高
+静的ぼかしの半径 | 低
+アニメーション化しているぼかしの半径 | 高
 
 ## <a name="additional-resources"></a>その他のリソース
 
