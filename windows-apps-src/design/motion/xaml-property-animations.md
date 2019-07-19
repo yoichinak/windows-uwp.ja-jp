@@ -22,9 +22,10 @@ ms.locfileid: "65444155"
 Windows 10、バージョンは 1809、以前は、UWP アプリでのアニメーションを作成する 2 つの選択肢がありました。
 
 - などの XAML の構成要素を使用して、[アニメーションを再検討](storyboarded-animations.md)、または _* ThemeTransition_と _* ThemeAnimation_クラス、 [Windows.UI.Xaml.Media.Animation](/uwp/api/windows.ui.xaml.media.animation)名前空間。
-- 」の説明に従って、合成アニメーションを使用して[XAML でのビジュアル レイヤーの使用](../../composition/using-the-visual-layer-with-xaml.md)します。
+-「[XAML でのビジュアル レイヤーの使用](../../composition/using-the-visual-layer-with-xaml.md)」の説明に従って、合成アニメーションを使用する。
 
-ビジュアル レイヤーを使用して構築します、XAML を使用してより優れたパフォーマンスを提供します。 使用していますが[ElementCompositionPreview](/uwp/api/Windows.UI.Xaml.Hosting.ElementCompositionPreview)要素の取得の基になるコンポジション[Visual](/uwp/api/windows.ui.composition.visual)オブジェクト、および、合成アニメーションでビジュアルをアニメーション化し、使用するより複雑な。
+
+ビジュアル レイヤーを使用すると、XAML コンストラクトを使用した場合よりパフォーマンスが向上します。ただし、[ElementCompositionPreview](/uwp/api/Windows.UI.Xaml.Hosting.ElementCompositionPreview) を使用して要素の基になるコンポジションの [Visual](/uwp/api/windows.ui.composition.visual) オブジェクトを取得してから、合成アニメーションでビジュアルをアニメーション化する方が、使用が複雑になります。
 
 Windows 10、バージョンは 1809、以降のプロパティを基になる合成ビジュアルを取得する必要がなく、合成アニメーションを使用して直接 UIElement をアニメーション化できます。
 
@@ -54,10 +55,10 @@ Windows 10、バージョンは 1809、以降のプロパティを基になる�
 | プロパティ | 種類 | 説明 |
 | -- | -- | -- |
 | [Opacity](/uwp/api/windows.ui.xaml.uielement.opacity) | Double | オブジェクトの不透明度 |
-| [Translation](/uwp/api/windows.ui.xaml.uielement.translation) | Vector3 | 要素の X、Y、/Z 位置をシフトします。 |
+| [Translation](/uwp/api/windows.ui.xaml.uielement.translation) | Vector3 | 要素の X、Y、Z 位置をシフトします。|
 | [TransformMatrix](/uwp/api/windows.ui.xaml.uielement.transformmatrix) | Matrix4x4 | 要素に適用する変換行列 |
-| [Scale](/uwp/api/windows.ui.xaml.uielement.scale) | Vector3 | スケール、要素中心点の中央に配置 |
-| [Rotation](/uwp/api/windows.ui.xaml.uielement.rotation) | Float | RotationAxis および中心点を中心、要素を回転させる |
+| [Scale](/uwp/api/windows.ui.xaml.uielement.scale) | Vector3 | 中心点に配置されている要素のスケール |
+| [Rotation](/uwp/api/windows.ui.xaml.uielement.rotation) | Float | RotationAxis と CenterPoint の周りの要素を回転させる |
 | [RotationAxis](/uwp/api/windows.ui.xaml.uielement.rotationaxis) | Vector3 | 回転の軸 |
 | [CenterPoint](/uwp/api/windows.ui.xaml.uielement.centerpoint) | Vector3 | 拡大縮小や回転の中心点 |
 
@@ -84,7 +85,7 @@ button.Scale = new Vector3(2.0f,2.0f,1.0f);
 ### <a name="mutual-exclusivity-between-new-and-old-properties"></a>新規および既存のプロパティの間で相互に排他的
 
 > [!NOTE]
-> **Opacity**プロパティでは、このセクションで説明されている相互に排他的は強制されません。 XAML または合成アニメーションを使用するかどうかは、同じ不透明度プロパティを使用します。
+> **Opacity** プロパティでは、このセクションで説明されている相互排他性は強制されません。XAML または合成アニメーションを使用するかどうかに関係なく、同じ Opacity プロパティを使用します。
 
 CompositionAnimation をアニメーション化できるプロパティは、いくつかの既存の UIElement プロパティの置き換えです。
 
@@ -146,5 +147,5 @@ destinationButton.StartAnimation(animation);
 ## <a name="related-topics"></a>関連トピック
 
 - [ストーリーボードに設定されたアニメーション](storyboarded-animations.md)
-- [XAML でビジュアル レイヤーの使用](../../composition/using-the-visual-layer-with-xaml.md)
+- [XAML でのビジュアル レイヤーの使用](../../composition/using-the-visual-layer-with-xaml.md)
 - [変換の概要](../layout/transforms.md)
