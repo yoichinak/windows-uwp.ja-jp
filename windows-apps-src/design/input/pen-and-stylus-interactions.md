@@ -464,13 +464,13 @@ Windows Ink プラットフォームには、変更された入力を必要と�
 
 | トピック | 説明 |
 | --- | --- |
-| [インク ストロークを認識する](convert-ink-to-text.md) | インク ストロークを手書き認識によりテキストに変換したり、カスタム認識により図形に変換したりします。 |
-| [インク ストロークの保存と取得](save-and-load-ink.md) | 埋め込みの Ink Serialized Format (ISF) メタデータを使って、インク ストローク データをグラフィックス交換形式 (GIF) ファイルに保存します。 |
-| [InkToolbar を UWP 手描き入力アプリに追加する](ink-toolbar.md) | 既定の InkToolbar をユニバーサル Windows プラットフォーム (UWP) 手描き入力アプリに追加し、カスタム ペン ボタンを InkToolbar に追加して、カスタム ペン ボタンをカスタム ペン定義にバインドします。 |
+| [インク ストロークを認識します。](convert-ink-to-text.md) | インク ストロークを手書き認識によりテキストに変換したり、カスタム認識により図形に変換したりします。 |
+| [インク ストロークを格納および取得](save-and-load-ink.md) | 埋め込みの Ink Serialized Format (ISF) メタデータを使って、インク ストローク データをグラフィックス交換形式 (GIF) ファイルに保存します。 |
+| [UWP アプリを手描き入力機能に、InkToolbar を追加します。](ink-toolbar.md) | 既定の InkToolbar をユニバーサル Windows プラットフォーム (UWP) 手描き入力アプリに追加し、カスタム ペン ボタンを InkToolbar に追加して、カスタム ペン ボタンをカスタム ペン定義にバインドします。 |
 
 ## <a name="related-articles"></a>関連記事
 
-* [チュートリアル: UWP アプリで手書き入力をサポートする](../../get-started/ink-walkthrough.md)
+* [概要します。UWP アプリでのインクをサポートします。](../../get-started/ink-walkthrough.md)
 * [ポインター入力の処理](handle-pointer-input.md)
 * [入力デバイスの識別](identify-input-devices.md)
 
