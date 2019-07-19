@@ -402,7 +402,7 @@ public MainPage()
 
 ### <a name="specify-the-selected-button"></a>選択されるボタンを指定する  
 ![初期化時に選択した鉛筆ボタン](./images/ink/ink-tools-default-toolbar.png)  
-*初期化時に選択した鉛筆ボタンを使用して Windows Ink ツール バー*
+*初期化時に鉛筆ボタンが選択された状態の Windows Ink ツール バー*
 
 既定では、アプリが起動し、ツール バーが初期化されると、最初 (または左端) のボタンが選択されます。 既定の Windows Ink ツール バーでは、ボールペン ボタンが選択されます。
 
