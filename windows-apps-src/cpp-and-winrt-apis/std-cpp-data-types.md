@@ -5,16 +5,18 @@ ms.date: 04/23/2019
 ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、データ、型
 ms.localizationpriority: medium
-ms.openlocfilehash: 83d2c0c2c544d63d2806dc71bfc367613d34e23a
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: a87ba48a0853058ba1259e079c586b97af551656
+ms.sourcegitcommit: 8b4c1fdfef21925d372287901ab33441068e1a80
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64745285"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844331"
 ---
 # <a name="standard-c-data-types-and-cwinrt"></a>標準的な C++ のデータ型と C++/WinRT
 
 [C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) では、標準的な C++ データ型 (いくつかの C++ 標準ライブラリのデータ型を含む) を使用して Windows ランタイム API を呼び出すことができます。 API に標準文字列を渡すことができるほか (「[C++/WinRT での文字列の処理](strings.md)」を参照)、意味的に等価なコレクションを期待する API に初期化リストと標準コンテナーを渡すこともできます。
+
+「[ABI 境界へのパラメーターの受け渡し](/windows/uwp/cpp-and-winrt-apis/pass-parms-to-abi)」もご覧ください。
 
 ## <a name="standard-initializer-lists"></a>標準的な初期化子リスト
 初期化子リスト (**std::initializer_list**) は、C++ 標準ライブラリのコンストラクトです。 Windows ランタイムの特定のコンストラクターやメソッドを呼び出すときに初期化子リストを使用することができます。 たとえば、[**DataWriter::WriteBytes**](/uwp/api/windows.storage.streams.datawriter.writebytes) を呼び出すことができます。

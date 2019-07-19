@@ -5,22 +5,22 @@ keywords: XAML, UWP, 概要
 ms.date: 08/31/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: d540b41620110a41676d08f5e6239efd0ef4ca46
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 804f1994e187d3b09ed4dcb2186105cf615f5de0
+ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66361232"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67820499"
 ---
 # <a name="tutorial-create-custom-styles"></a>チュートリアル: カスタム スタイルを作成する
 
 このチュートリアルでは、XAML アプリの UI をカスタマイズする方法を示します。 警告: このチュートリアルにユニコーンが登場するかどうかは保証できません。 (後で登場します!)  
 
 ## <a name="prerequisites"></a>前提条件
-* [Visual Studio 2017、Windows 10 SDK (10.0.15063.468 以降)](https://developer.microsoft.com/windows/downloads)
+* [Visual Studio 2019、Windows 10 SDK (10.0.15063.468 以降)](https://developer.microsoft.com/windows/downloads)
 
 ## <a name="part-0-get-the-code"></a>パート 0: コードを入手する
-この演習の開始点は、PhotoLab サンプル リポジトリ ([xaml-basics-starting-points/style/ フォルダー](https://github.com/Microsoft/Windows-appsample-photo-lab/tree/master/xaml-basics-starting-points/style)) です。 このリポジトリを複製してダウンロードした後、Visual Studio 2017 で PhotoLab.sln を開くことによって、プロジェクトを編集できます。
+この演習の開始点は、PhotoLab サンプル リポジトリ ([xaml-basics-starting-points/style/ フォルダー](https://github.com/Microsoft/Windows-appsample-photo-lab/tree/master/xaml-basics-starting-points/style)) です。 このリポジトリを複製してダウンロードした後、Visual Studio 2019 で PhotoLab.sln を開くことによって、プロジェクトを編集できます。
 
 PhotoLab アプリには、2 つのプライマリ ページがあります。
 
@@ -54,7 +54,7 @@ PhotoLab アプリには、2 つのプライマリ ページがあります。
 
 2. [ソリューション エクスプローラー] パネルで、**DetailPage.xaml** をダブルクリックして開きます。 
 
-    ![Visual Studio 2017 のソリューション エクスプ ローラーに表示された DetailPage.xaml ファイル。](../basics/images/xaml-basics/style-detail-page-explorer.png)
+    ![Visual Studio 2019 のソリューション エクスプローラーに表示された DetailPage.xaml ファイル。](../basics/images/xaml-basics/style-detail-page-explorer.png)
 
 3. Polygon 要素を使用して、Exposure スライダーの背景用図形を作成します。
 
@@ -63,7 +63,7 @@ PhotoLab アプリには、2 つのプライマリ ページがあります。
     <!-- TODO reduce size -->
     ![ユニコーン](../basics/images/xaml-basics/unicorn.png)
     
-    > **参考情報:** 「[図形の描画](https://docs.microsoft.com/en-us/windows/uwp/graphics/drawing-shapes)」という記事には、XAML の図形について知っておく必要があるすべての情報が含まれています。 
+    > **参考情報:** 「[図形の描画](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/shapes)」という記事には、XAML の図形について知っておく必要があるすべての情報が含まれています。 
     
     ここでは、ステレオのボリューム コントロールのような形をした、三角形のウィジェットを作成します。
     

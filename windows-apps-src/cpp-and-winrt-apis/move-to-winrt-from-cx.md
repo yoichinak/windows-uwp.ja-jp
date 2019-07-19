@@ -5,12 +5,12 @@ ms.date: 01/17/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 移植, 移行, C++/CX
 ms.localizationpriority: medium
-ms.openlocfilehash: 7fbe10e41da1b330d6f5042bea109a8a0e04f8ad
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: d2b92bf5e265c2d596a7fc7eb54b127010cee897
+ms.sourcegitcommit: a7a1e27b04f0ac51c4622318170af870571069f6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66360159"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67717600"
 ---
 # <a name="move-to-cwinrt-from-ccx"></a>C++/CX から C++/WinRT への移行
 
@@ -181,7 +181,7 @@ private:
 };
 ```
 
-同じコードが C++/WinRT に移植されました。 `nullptr` コンストラクターを使っていることに注目してください。 コンストラクターの詳細については、「[C++/WinRT での API の使用](consume-apis.md)」を参照してください。
+同じコードが C++/WinRT に移植されました。 **std::nullptr_t** コンストラクターの使用に注意してください。 コンストラクターの詳細については、「[C++/WinRT での API の使用](consume-apis.md#delayed-initialization)」を参照してください。
 
 ```cppwinrt
 using namespace winrt::Windows::Storage::Streams;
@@ -365,7 +365,7 @@ winrt::Windows::Foundation::IInspectable var{ nullptr };
 ### <a name="port-platformstring-to-winrthstring"></a>**Platform::String\^** を **winrt::hstring** に移植する
 **Platform::String\^\^** は Windows ランタイム HSTRING ABI 型と同等です。 C++/WinRT では、同等の型は [**winrt::hstring**](/uwp/cpp-ref-for-winrt/hstring) です。 ただし、C++/WinRT では、**std::wstring** などの C++ 標準ライブラリのワイド文字列型、およびワイド文字列リテラルを使用して Windows ランタイム API を呼び出すことができます。 詳細とコード例については、「[C++/WinRT での文字列の処理](strings.md)」を参照してください。
 
-C++/CX では、[**Platform::String::Data**](https://docs.microsoft.com/en-us/cpp/cppcx/platform-string-class#data) プロパティにアクセスして、C スタイルの **const wchar_t\*** 配列 (たとえば、それを **std::wcout** に渡すために) として文字列を取得できます。
+C++/CX では、[**Platform::String::Data**](https://docs.microsoft.com/cpp/cppcx/platform-string-class?view=vs-2019#data) プロパティにアクセスして、C スタイルの **const wchar_t\*** 配列 (たとえば、それを **std::wcout** に渡すために) として文字列を取得できます。
 
 ```cppcx
 auto var{ titleRecord->TitleName->Data() };

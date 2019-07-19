@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 新機能
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 11249335f9d29d37bb0824fa779d3ae151c74799
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 537150f6fc000794b11ef9236bfd88469d3f6b19
+ms.sourcegitcommit: 5d71c97b6129a4267fd8334ba2bfe9ac736394cd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66721654"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67800583"
 ---
 # <a name="whats-new-in-cwinrt"></a>C++/WinRT の新機能
 
@@ -144,13 +144,13 @@ xlang メタデータ リーダーのため、C++/WinRT では、すべてのパ
 
 #### <a name="component-optimizations"></a>コンポーネントの最適化
 
-この更新では、以下のセクションで説明するように、C++/WinRT に対して複数の追加オプトイン最適化のサポートが追加されています。 これらの最適化は破壊的変更なので (サポートするために小さな変更を行う必要があります)、`cppwinrt.exe` ツールの `-opt` フラグを使って明示的に有効にする必要があります。
+この更新では、以下のセクションで説明するように、C++/WinRT に対して複数の追加オプトイン最適化のサポートが追加されています。 これらの最適化は破壊的変更なので (サポートするために小さな変更を行う必要があります)、明示的に有効にする必要があります。 Visual Studio で、プロジェクトのプロパティ **[共通プロパティ]**  >  **[C++/WinRT]**  >  **[最適化]** を *[はい]* に設定します。 その効果として、プロジェクト ファイルに `<CppWinRTOptimized>true</CppWinRTOptimized>` が追加されます。 また、コマンド ラインから `cppwinrt.exe` を呼び出すときに `-opt[imize]` スイッチを追加するのと同じ効果があります。
 
 (プロジェクト テンプレートからの) 新しいプロジェクトでは、`-opt` が既定で使われます。
 
 ##### <a name="uniform-construction-and-direct-implementation-access"></a>均一コンストラクション、実装への直接アクセス
 
-これら 2 つの最適化により、コンポーネントでは、プロジェクションが実行された型のみを使う場合であっても、独自の実装型に直接アクセスできます。 パブリック API サーフェスを使うだけの場合は、[**make**](/uwp/cpp-ref-for-winrt/make)、[**make_self**](/uwp/cpp-ref-for-winrt/make-self)、[**get_self**](/uwp/cpp-ref-for-winrt/get-self) を使う必要はありません。 呼び出しは実装の直接呼び出しにコンパイルされ、完全にインライン化される可能性さえあります。
+これら 2 つの最適化により、コンポーネントでは、プロジェクションが実行された型のみを使う場合であっても、独自の実装型に直接アクセスできます。 パブリック API サーフェスを使うだけの場合は、[**make**](/uwp/cpp-ref-for-winrt/make)、[**make_self**](/uwp/cpp-ref-for-winrt/make-self)、[**get_self**](/uwp/cpp-ref-for-winrt/get-self) を使う必要はありません。 呼び出しは実装の直接呼び出しにコンパイルされ、完全にインライン化される可能性さえあります。 均一の構築について詳しくは、FAQ の「["クラスが登録されていません" という例外が発生するのはなぜですか?](faq.md#why-am-i-getting-a-class-not-registered-exception)」をご覧ください。
 
 ##### <a name="type-erased-factories"></a>型消去されたファクトリ
 
@@ -198,9 +198,13 @@ fire_and_forget Async(DispatcherQueueController controller)
 
 #### <a name="support-for-deferred-destruction-and-safe-qi-during-destruction"></a>遅延破棄および破棄中の安全な QI のサポート
 
-XAML アプリケーションでは、階層の上位または下位にあるクリーンアップの実装を呼び出すために、デストラクター内で [**QueryInterface**](/windows/desktop/api/unknwn/nf-unknwn-iunknown-queryinterface(q_)) (QI) を実行する必要があるため、困難さが増す場合があります。 ただし、その呼び出しには、オブジェクトの参照カウントが既に 0 に達した後の QI が含まれています。 この更新には、0 に達した後で再実行されないようにする、参照カウントのデバウンスのサポートが追加されています。それでも、破棄中に必要な一時的な QI は許可されます。 この手順は特定の XAML アプリケーション/コントロールでは避けられず、C++/WinRT はそれに対する回復力を持つようになっています。
+ランタイム クラスのオブジェクトのデストラクターでは、参照カウントを一時的に増加させるメソッドが呼び出されることは珍しくありません。 参照カウントが 0 に戻ると、オブジェクトで 2 回目の破棄が行われます。 XAML アプリケーションでは、階層の上位または下位にあるクリーンアップの実装を呼び出すために、デストラクター内で [**QueryInterface**](/windows/desktop/api/unknwn/nf-unknwn-iunknown-queryinterface(q_)) (QI) を実行することが必要な場合があります。 しかし、オブジェクトの参照カウントは既に 0 になっているので、その QI も参照カウントのバウンスを構成します。
 
-静的な **final_release** 関数を提供し、**unique_ptr** の所有権を他のコンテキストに移動することにより、破棄を延期できます。
+この更新には、0 に達した後で再実行されないようにする、参照カウントのデバウンスのサポートが追加されています。それでも、破棄中に必要な一時的な QI は許可されます。 この手順は特定の XAML アプリケーション/コントロールでは避けられず、C++/WinRT はそれに対する回復力を持つようになっています。
+
+実装型で静的な **final_release** 関数を提供することにより、破棄を遅延できます。 最後に残ったオブジェクトへのポインターは、**std::unique_ptr** の形式で、**final_release** に渡されます。 その後、そのポインターの所有権を他のコンテキストに移動できます。 二重破棄をトリガーすることなくポインターに対して QI を行っても安全です。 ただし、オブジェクトを破棄する時点では、参照カウントに対する正味の変更が 0 になっている必要があります。
+
+**final_release** の戻り値は、`void`、[**IAsyncAction**](/uwp/api/windows.foundation.iasyncaction) などの非同期操作オブジェクト、または **winrt::fire_and_forget** にすることができます。
 
 ```cppwinrt
 struct Sample : implements<Sample, IStringable>
@@ -215,14 +219,16 @@ struct Sample : implements<Sample, IStringable>
         // Called when the unique_ptr below is reset.
     }
 
-    static void final_release(std::unique_ptr<Sample> ptr) noexcept
+    static void final_release(std::unique_ptr<Sample> self) noexcept
     {
-        // Move 'ptr' as needed to delay destruction.
+        // Move 'self' as needed to delay destruction.
     }
 };
 ```
 
-次の例では、**MainPage** が解放されると (最終回で)、**final_release** が呼び出されます。 その関数は (スレッド プールで) 5 秒間待機してから、ページの**ディスパッチャー**を使って再開します (動作するには QI/AddRef/Release が必要です)。 その後、**unique_ptr** がクリアされることで、**MainPage** のデストラクターが実際に呼び出されます。 ここでも、**DataContext** が呼び出され、**IFrameworkElement** に対する QI が必要です。 当然ながら、コルーチンとしてとして独自の **final_release** を実装する必要はありません。 しかし、それは動作し、非常に簡単に破棄を別のスレッドに移動できます。
+次の例では、**MainPage** が解放されると (最終回で)、**final_release** が呼び出されます。 その関数は (スレッド プールで) 5 秒間待機してから、ページの**ディスパッチャー**を使って再開します (動作するには QI/AddRef/Release が必要です)。 その後、その UI スレッドでリソースをクリーンアップします。 最後に、**unique_ptr** がクリアされることで、**MainPage** のデストラクターが実際に呼び出されます。 そのデストラクター内でも、**DataContext** が呼び出され、**IFrameworkElement** に対する QI が必要です。
+
+コルーチンとしてとして独自の **final_release** を実装する必要はありません。 しかし、それは動作し、非常に簡単に破棄を別のスレッドに移動できます。この例では、それが行われています。
 
 ```cppwinrt
 struct MainPage : PageT<MainPage>
@@ -236,13 +242,17 @@ struct MainPage : PageT<MainPage>
         DataContext(nullptr);
     }
 
-    static IAsyncAction final_release(std::unique_ptr<MainPage> ptr)
+    static IAsyncAction final_release(std::unique_ptr<MainPage> self)
     {
         co_await 5s;
 
-        co_await resume_foreground(ptr->Dispatcher());
+        co_await resume_foreground(self->Dispatcher());
+        co_await self->resource.CloseAsync();
 
-        ptr = nullptr;
+        // The object is destructed normally at the end of final_release,
+        // when the std::unique_ptr<MyClass> destructs. If you want to destruct
+        // the object earlier than that, then you can set *self* to `nullptr`.
+        self = nullptr;
     }
 };
 ```
@@ -279,10 +289,10 @@ Windows ランタイム プログラミングだけでなく、C++/WinRT は COM
 
 その他の変更点。
 
-- **破壊的変更**。 [**winrt::get_abi(winrt::hstring const&)** ](/uwp/cpp-ref-for-winrt/get-abi) で、`HSTRING` ではなく `void*` が返されるようになります。 `static_cast<HSTRING>(get_abi(my_hstring));` を使って HSTRING を取得できます。
-- **破壊的変更**。 [**winrt::put_abi(winrt::hstring&)** ](/uwp/cpp-ref-for-winrt/put-abi) で、`HSTRING*` ではなく `void**` が返されるようになります。 `reinterpret_cast<HSTRING*>(put_abi(my_hstring));` を使って HSTRING* を取得できます。
+- **破壊的変更**。 [**winrt::get_abi(winrt::hstring const&)** ](/uwp/cpp-ref-for-winrt/get-abi) で、`HSTRING` ではなく `void*` が返されるようになります。 `static_cast<HSTRING>(get_abi(my_hstring));` を使って HSTRING を取得できます。 「[ABI の HSTRING との相互運用](interop-winrt-abi.md#interoperating-with-the-abis-hstring)」をご覧ください。
+- **破壊的変更**。 [**winrt::put_abi(winrt::hstring&)** ](/uwp/cpp-ref-for-winrt/put-abi) で、`HSTRING*` ではなく `void**` が返されるようになります。 `reinterpret_cast<HSTRING*>(put_abi(my_hstring));` を使って HSTRING* を取得できます。 「[ABI の HSTRING との相互運用](interop-winrt-abi.md#interoperating-with-the-abis-hstring)」をご覧ください。
 - **破壊的変更**。 HRESULT が **winrt::hresult** として投影されるようになります。 HRESULT が必要な場合 (型チェックの実行または型の特徴のサポートのため)、**winrt::hresult** を `static_cast` できます。 それ以外の場合、C++/WinRT ヘッダーをインクルードする前に `unknwn.h` がインクルードされていると、**winrt::hresult** は HRESULT に変換されます。
-- **破壊的変更**。 GUID が **winrt::guid** として投影されるようになります。 実装する API の場合、GUID パラメーターに対して **winrt::guid** を使用する必要があります。 それ以外の場合、C++/WinRT ヘッダーをインクルードする前に `unknwn.h` がインクルードされていると、**winrt::guid** は GUID に変換されます。
+- **破壊的変更**。 GUID が **winrt::guid** として投影されるようになります。 実装する API の場合、GUID パラメーターに対して **winrt::guid** を使用する必要があります。 それ以外の場合、C++/WinRT ヘッダーをインクルードする前に `unknwn.h` がインクルードされていると、**winrt::guid** は GUID に変換されます。 「[ABI の GUID 構造体との相互運用](interop-winrt-abi.md#interoperating-with-the-abis-guid-struct)」をご覧ください。
 - **破壊的変更**。 [**winrt::handle_type コンストラクター**](/uwp/cpp-ref-for-winrt/handle-type#handle_typehandle_type-constructor) は、明示的にすることで強化されています (それで不適切なコードを記述することが難しくなっています)。 生のハンドル値を割り当てる必要がある場合は、代わりに [**handle_type::attach 関数**](/uwp/cpp-ref-for-winrt/handle-type#handle_typeattach-function) を呼び出します。
 - **破壊的変更**。 **WINRT_CanUnloadNow** と **WINRT_GetActivationFactory** のシグネチャが変更されています。 これらの関数は宣言しないでください。 代わりに、`winrt/base.h` をインクルードしてこれらの関数の宣言を含めます (いずれかの C++/WinRT Windows 名前空間ヘッダー ファイルをインクルードすると、自動的にインクルードされます)。
 - [**winrt::clock struct**](/uwp/cpp-ref-for-winrt/clock) では、**from_FILETIME/to_FILETIME** は非推奨になり、**from_file_time/to_file_time** を代わりに使用します。

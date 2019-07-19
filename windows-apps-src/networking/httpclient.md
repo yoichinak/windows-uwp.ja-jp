@@ -2,16 +2,16 @@
 description: HTTP 2.0 プロトコルと HTTP 1.1 プロトコルを使って情報を送受信するには、HttpClient とその他の Windows.Web.Http 名前空間 API を使います。
 title: HttpClient
 ms.assetid: EC9820D3-3A46-474F-8A01-AE1C27442750
-ms.date: 6/5/2019
+ms.date: 06/05/2019
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: bb098aae346c7a81771262793f5f6a042d62d5a3
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 877901deeec4da7674c6c8431e5b11f5eae075ed
+ms.sourcegitcommit: 139717a79af648a9231821bdfcaf69d8a1e6e894
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66721610"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67714129"
 ---
 # <a name="httpclient"></a>HttpClient
 
@@ -57,7 +57,7 @@ HTTP 2.0 プロトコルと HTTP 1.1 プロトコルを使って情報を送受�
 
 ## <a name="send-a-simple-get-request-over-http"></a>HTTP 経由でシンプルな GET 要求を送信する
 
-この記事の中で既に説明したように、[**Windows.Web.Http**](https://docs.microsoft.com/uwp/api/Windows.Web.Http) 名前空間は、UWP アプリで GET 要求を送信できるようにします。 次のコード スニペットでは、[**Windows.Web.Http.HttpClient**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpClient) クラスを使って http://www.contoso.com に GET 要求を送信し、[**Windows.Web.Http.HttpResponseMessage**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpResponseMessage) クラスを使って GET 要求から応答を読み取る方法を示します。
+この記事の中で既に説明したように、[**Windows.Web.Http**](https://docs.microsoft.com/uwp/api/Windows.Web.Http) 名前空間は、UWP アプリで GET 要求を送信できるようにします。 次のコード スニペットでは、[**Windows.Web.Http.HttpClient**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpClient) クラスを使って http:\//www.contoso.com に GET 要求を送信し、[**Windows.Web.Http.HttpResponseMessage**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpResponseMessage) クラスを使って GET 要求からの応答を読み取る方法を示します。
 
 ```csharp
 //Create an HTTP client object

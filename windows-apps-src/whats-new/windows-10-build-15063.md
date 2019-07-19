@@ -6,16 +6,16 @@ ms.date: 11/02/2017
 ms.topic: article
 ms.assetid: ea855480-874d-431f-94bf-13d81eacc010
 ms.localizationpriority: medium
-ms.openlocfilehash: dbf7c5d8d0f788fb37150ae348d60e61d34753d5
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 83c1952a3cb21945a3e4c22aaa6ffe9f7f55c8f8
+ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66372905"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67821091"
 ---
 # <a name="whats-new-in-windows-10-for-developers-build-15063"></a>Windows 10 ビルド 15063 の開発者向け新着情報
 
-Windows 10 ビルド 15063 (Creators Update またはバージョン 1703 とも呼ばれます) では、Visual Studio 2017 や更新された SDK と組み合わせて使うことで、優れたユニバーサル Windows プラットフォーム アプリを作成するためのツール、機能、エクスペリエンスが利用可能になります。 Windows 10 の[ツールと SDK をインストール](https://go.microsoft.com/fwlink/?LinkId=821431)すると、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
+Windows 10 ビルド 15063 (Creators Update またはバージョン 1703 とも呼ばれます) では、Visual Studio 2019 や更新された SDK と組み合わせて使うことで、優れたユニバーサル Windows プラットフォーム アプリを作成するためのツール、機能、エクスペリエンスが利用可能になります。 Windows 10 の[ツールと SDK をインストール](https://go.microsoft.com/fwlink/?LinkId=821431)すると、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
 
 ここには、開発者にとって重要な新機能や強化された機能を集めました。 Windows SDK に追加されたすべての新しい名前空間の一覧については、「[Windows 10 ビルド 15063 API の変更点](windows-10-build-15063-api-diff.md)」をご覧ください。 Windows 10 での注目すべき機能について詳しくは、「[Windows 10 の優れた機能](https://go.microsoft.com/fwlink/?LinkId=823181)」をご覧ください。 また、Windows プラットフォームに過去に追加された機能と今後追加される機能の概要については、[Windows 開発者向けプラットフォーム機能に関するページ](https://developer.microsoft.com/windows/platform/features)をご覧ください。
 
@@ -32,7 +32,7 @@ Bluetooth 低エネルギー | Generic Attributes (GATT) サービスの公開�
 Direct3D | [Direct3D 12](https://docs.microsoft.com/windows/desktop/direct3d12/direct3d-12-graphics) では、アトミック バッファー コピー (遅延ラッチ手法に対応)、プログラム可能なサンプル位置、深度境界のテスト、常駐優先順位などをサポートするための新しい API が追加されています。 </br></br> [Direct3D 11](https://docs.microsoft.com/windows/desktop/direct3d11/atoc-dx-graphics-direct3d-11) のマルチ デバイス シナリオと、Direct3D 11 と Direct3D 12 との間の相互運用のシナリオをサポートするために、Fence API が追加されました。 ランタイムでは、アプリケーションの読み込み時間とパフォーマンスを向上させるためにシェーダーの OS 管理キャッシュがサポートされるようになりました。
 EdgeHTML 15 | Microsoft Edge および JS ベースのユニバーサル Windows プラットフォーム アプリに対応する Web プラットフォームは、EdgeHTML 15 に更新され、支払い要求 API、WebVR、コンテンツ セキュリティ ポリシー 2 などのサポートが追加されました。 すべての変更内容については、[Microsoft Edge 開発者ガイド](https://docs.microsoft.com/microsoft-edge/dev-guide)をご覧ください。
 FlightStick と RawGameController | [Windows.Gaming.Input 名前空間](https://docs.microsoft.com/uwp/api/windows.gaming.input)に、新しい API が追加されました。これには、[フライト スティック](https://docs.microsoft.com/windows/uwp/gaming/flight-stick)や[未加工のゲーム コントローラー](https://docs.microsoft.com/windows/uwp/gaming/raw-game-controller) などのサポートが含まれています。これらを使用すると、あらゆるタイプのコントローラーから入力を取得でき、プレイヤーはカスタムの入力マッピングを選択できます。
-Win32 の高 DPI | デスクトップ アプリケーションに、[新しい "Per-Monitor v2" DPI 対応コンテキスト](https://msdn.microsoft.com/library/mt791579(v=vs.85))が追加されました。 Per Monitor v2 でも引き続き、関連する DPI が変化するたびにウィンドウの倍率が自動的に調整されますが、これに加えてトップレベル ウィンドウごとに、新しい DPI スケーリング動作にアプリケーションがアクセスできます。
+Win32 の高 DPI | デスクトップ アプリケーションに、[新しい "Per-Monitor v2" DPI 対応コンテキスト](https://docs.microsoft.com/windows/desktop/hidpi/dpi-awareness-context)が追加されました。 Per Monitor v2 でも引き続き、関連する DPI が変化するたびにウィンドウの倍率が自動的に調整されますが、これに加えてトップレベル ウィンドウごとに、新しい DPI スケーリング動作にアプリケーションがアクセスできます。
 インク | [Ink](https://docs.microsoft.com/uwp/api/windows.ui.input.inking) では、分度器と定規のステンシル、インク入力タイム スタンプ、改良されたハイ コントラストの蛍光ペン、プログラムによるインク ストローク作成などのサポートが追加されました。 </br></br> [Ink 分析](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.analysis)では、Windows Ink アプリのインク ストローク入力分析が提供されます。これには、図形の検出と認識、手書き認識、レイアウトの解釈/分類などが含まれます。 </br></br> また、[Ink ツール バー](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkToolbar)についても、ステンシル ボタン (定規と分度器用)、ポップアップ コントロールの種類、ポップアップの位置/向きなどを含めて全体的に改良されています。 </br></br> 手描き入力アプリを [Ink ワークスペース](https://docs.microsoft.com/uwp/api/windows.applicationmodel.preview.inkworkspace) で指定できるようになりました。
 入力の挿入 | [入力の挿入](https://docs.microsoft.com/uwp/api/windows.ui.input.preview.injection)では、さまざまなデバイスからの入力をプログラムで生成および自動化するためのサポートが提供されます。
 IoT | [Windows IoT Core](https://developer.microsoft.com/windows/iot/Explore/IoTCore) への更新内容には、Cortana のサポート、IoT ダッシュボードの機能強化、Azure Device Management のサポート、IoT 用 Device Guard などが含まれます。 最新機能を網羅した説明については、「[Windows 10 IoT Core の新着情報](https://developer.microsoft.com/windows/iot/Docs/WhatsNew)」をご覧ください。

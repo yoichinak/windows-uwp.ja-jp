@@ -1,37 +1,37 @@
 ---
 title: UWP アプリの自動ビルドを設定する
 description: サイドロード パッケージやストア パッケージを生成する自動ビルドを構成する方法について説明します。
-ms.date: 09/30/2018
+ms.date: 07/17/2019
 ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: f9b0d6bd-af12-4237-bc66-0c218859d2fd
 ms.localizationpriority: medium
-ms.openlocfilehash: 61525e2a4a088e37184bb93526722e0bf23fbd56
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 86e9b15ee71c3ed831a46e369e8feaef8641e714
+ms.sourcegitcommit: 2062d06567ef087ad73507a03ecc726a7d848361
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67319810"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68303583"
 ---
 # <a name="set-up-automated-builds-for-your-uwp-app"></a>UWP アプリの自動ビルドを設定する
 
-Azure のパイプラインを使用すると、UWP プロジェクトに対して自動ビルドを作成します。 この記事では、これを行うさまざまな方法を紹介します。 紹介しますが、他のビルド システムと統合できるように、コマンドラインを使用して、これらのタスクを実行する方法。
+Azure Pipelines を使用して、UWP プロジェクトの自動ビルドを作成できます。 この記事では、さまざまな方法を紹介します。 また、コマンドラインを使用してこれらのタスクを実行する方法についても説明します。これにより、他のビルドシステムと統合できます。
 
-## <a name="create-a-new-azure-pipeline"></a>新しい Azure パイプラインを作成します。
+## <a name="create-a-new-azure-pipeline"></a>新しい Azure パイプラインを作成する
 
-まず[パイプラインを Azure にサインアップ](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-sign-up)をまだ行っていない場合。
+まだサインアップしていない場合は、 [Azure Pipelines に](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-sign-up)サインアップすることから始めます。
 
-次に、ソース コードをビルドするのに使用できるパイプラインを作成します。 GitHub リポジトリを構築するためのパイプラインの構築に関するチュートリアルについては、次を参照してください。[最初のパイプラインを作成する](https://docs.microsoft.com/azure/devops/pipelines/get-started-yaml)します。 Azure のパイプラインが表示されているリポジトリの種類をサポートしています[今回](https://docs.microsoft.com/azure/devops/pipelines/repos)します。
+次に、ソースコードのビルドに使用できるパイプラインを作成します。 GitHub リポジトリを構築するためのパイプラインの構築に関するチュートリアルについては、[最初のパイプラインの作成](https://docs.microsoft.com/azure/devops/pipelines/get-started-yaml)に関するチュートリアルを参照してください。 Azure Pipelines は、[この記事に](https://docs.microsoft.com/azure/devops/pipelines/repos)記載されているリポジトリの種類をサポートしています。
 
 ## <a name="set-up-an-automated-build"></a>自動ビルドを設定する
 
-まず、既定値は、UWP は、Azure の開発運用で使用可能な定義を作成し、パイプラインを構成する方法を説明します。
+まず、Azure Dev Ops で利用できる既定の UWP ビルド定義から始めて、パイプラインの構成方法を説明します。
 
 ビルド定義テンプレートの一覧で、 **[ユニバーサル Windows プラットフォーム]** テンプレートを選択します。
 
-![UWP テンプレートを選択します。](images/select-yaml-template.png)
+![UWP テンプレートを選択します](images/select-yaml-template.png)
 
-このテンプレートには、UWP プロジェクトをビルドする基本的な構成が含まれています。
+このテンプレートには、UWP プロジェクトをビルドするための基本的な構成が含まれています。
 
 ```yml
 trigger:
@@ -62,29 +62,47 @@ steps:
 
 ```
 
-既定のテンプレートは、.csproj ファイルで指定された証明書でパッケージに署名しようとします。 ビルド中に、パッケージに署名する場合は、秘密キーへのアクセスが必要です。 署名パラメーターを追加して無効にした場合は、`/p:AppxPackageSigningEnabled=false`を`msbuildArgs`YAML ファイルのセクション。
+既定のテンプレートは、.csproj ファイルに指定されている証明書を使用してパッケージに署名しようとします。 ビルド中にパッケージに署名する場合は、秘密キーへのアクセス権を持っている必要があります。 それ以外の場合は、yaml ファイルの`/p:AppxPackageSigningEnabled=false` `msbuildArgs`セクションにパラメーターを追加することにより、署名を無効にすることができます。
 
-## <a name="add-your-project-certificate-to-a-repository"></a>リポジトリに、プロジェクトの証明書を追加します。
+## <a name="add-your-project-certificate-to-the-secure-files-library"></a>セキュリティで保護されたファイルライブラリにプロジェクト証明書を追加する
 
-パイプラインは、Azure リポジトリの Git と TFVC の両方のリポジトリで動作します。 Git リポジトリを使用する場合は、ビルド エージェントがアプリ パッケージに署名できるように、リポジトリにプロジェクトの証明書ファイルを追加します。 これを行わない場合、Git リポジトリは証明書ファイルを無視します。 証明書ファイルを右クリックし、リポジトリには、証明書ファイルを追加するに**ソリューション エクスプ ローラー**、ショートカット メニューの 、**無視ファイルをソース管理に追加**コマンド。
+可能な限り、リポジトリに証明書を送信することは避けてください。既定では、git はそれらを無視します。 証明書などの機密性の高いファイルの安全な処理を管理するために、Azure DevOps は[secure files](https://docs.microsoft.com/azure/devops/pipelines/library/secure-files?view=azure-devops)機能をサポートしています。
 
-![証明書を含める方法](images/building-screen1.png)
+自動ビルドの証明書をアップロードするには、次のようにします。
+
+1. Azure Pipelines で、ナビゲーションウィンドウの [**パイプライン**] を展開し、[**ライブラリ**] をクリックします。
+2. [**セキュリティで保護さ**れたファイル] タブをクリックし、[ **+ 保護されたファイル**] をクリックします。
+
+    ![セキュリティで保護されたファイルをアップロードする方法](images/secure-file1.png)
+
+3. 証明書ファイルを参照し、[ **OK]** をクリックします。
+4. 証明書をアップロードしたら、証明書を選択してプロパティを表示します。 [**パイプラインのアクセス許可**] で、[**すべてのパイプラインで使用することを承認**する] の切り替えを有効にします。
+
+    ![セキュリティで保護されたファイルをアップロードする方法](images/secure-file2.png)
+
+> [!NOTE]
+> Visual Studio 2019 以降では、UWP プロジェクトで一時的な証明書が生成されなくなりました。 証明書を作成またはエクスポートするには、[この記事](create-certificate-package-signing.md)で説明されている PowerShell コマンドレットを使用します。
 
 ## <a name="configure-the-build-solution-build-task"></a>ソリューションのビルドのビルド タスクを構成する
 
-このタスクは、バイナリを作業フォルダーにあり、出力アプリのパッケージ ファイルを生成するソリューションをコンパイルします。
-このタスクは、MSBuild 引数を使用します。 これらの引数の値を指定する必要があります。 次の表をガイドとして使用してください。
+このタスクは、作業フォルダー内のすべてのソリューションをバイナリにコンパイルし、出力アプリパッケージファイルを生成します。
+このタスクでは、MSBuild 引数を使用します。 これらの引数の値を指定する必要があります。 次の表をガイドとして使用してください。
 
-|**MSBuild 引数**|**値**|**説明**|
+|**MSBuild 引数**|**[値]**|**[説明]**|
 |--------------------|---------|---------------|
 | AppxPackageDir | $(Build.ArtifactStagingDirectory)\AppxPackages | 生成された成果物を格納するフォルダーを定義します。 |
 | AppxBundlePlatforms | $(Build.BuildPlatform) | バンドルに含めるプラットフォームを定義できます。 |
-| AppxBundle | 常に | 指定されたプラットフォームの.msix/.appx ファイルで、.msixbundle/.appxbundle を作成します。 |
-| UapAppxPackageBuildMode | StoreUpload | .Msixupload/.appxupload ファイルを生成し、**テスト (_t)** サイドローディング用のフォルダー。 |
-| UapAppxPackageBuildMode | CI | .Msixupload/.appxupload ファイルのみを生成します。 |
-| UapAppxPackageBuildMode | SideloadOnly | 生成、**テスト (_t)** のみサイドローディング用のフォルダー |
+| AppxBundle | 常に | 指定されたプラットフォームの .msixbundle/.appxbundle ファイルを持つ... を作成します。 |
+| UapAppxPackageBuildMode | StoreUpload | Msixupload/.appxupload ファイルと、サイドローディング用の**テスト**フォルダーを生成します。 |
+| UapAppxPackageBuildMode | CI | では、msixupload/. .appxupload ファイルのみが生成されます。 |
+| UapAppxPackageBuildMode | SideloadOnly | サイドローディング専用のテストフォルダーを生成します **(_d)** 。 |
+| AppxPackageSigningEnabled | true | パッケージの署名を有効にします。 |
+| PackageCertificateThumbprint | 証明書の拇印 | この値は、署名証明書の拇印と一致しているか、空の文字列で**ある必要があり**ます。 |
+| PackageCertificateKeyFile | パス | 使用する証明書へのパス。 これは、セキュリティで保護されたファイルのメタデータから取得されます。 |
 
-またはその他のビルド システムを使用して、コマンドラインを使用して、ソリューションをビルドする場合は、これらの引数で MSBuild を実行します。
+### <a name="configure-the-build"></a>ビルドを構成する
+
+コマンドラインまたは他のビルドシステムを使用してソリューションをビルドする場合は、これらの引数を指定して MSBuild を実行します。
 
 ```powershell
 /p:AppxPackageDir="$(Build.ArtifactStagingDirectory)\AppxPackages\\"
@@ -93,15 +111,50 @@ steps:
 /p:AppxBundle=Always
 ```
 
-定義されているパラメーター、`$()`構文は、ビルド定義で定義された変数とその他の変更がシステムを構築します。
+### <a name="configure-package-signing"></a>パッケージ署名の構成
+
+MSIX (または APPX) パッケージに署名するには、パイプラインで署名証明書を取得する必要があります。 これを行うには、VSBuild タスクの前に DownloadSecureFile タスクを追加します。
+これにより、を使用```signingCert```して署名証明書にアクセスできるようになります。
+
+```yml
+- task: DownloadSecureFile@1
+  name: signingCert
+  displayName: 'Download CA certificate'
+  inputs:
+    secureFile: '[Your_Pfx].pfx'
+```
+
+次に、VSBuild タスクを更新して、署名証明書を参照します。
+
+```yml
+- task: VSBuild@1
+  inputs:
+    platform: 'x86'
+    solution: '$(solution)'
+    configuration: '$(buildConfiguration)'
+    msbuildArgs: '/p:AppxBundlePlatforms="$(buildPlatform)" 
+                  /p:AppxPackageDir="$(appxPackageDir)" 
+                  /p:AppxBundle=Always 
+                  /p:UapAppxPackageBuildMode=StoreUpload 
+                  /p:AppxPackageSigningEnabled=true
+                  /p:PackageCertificateThumbprint="" 
+                  /p:PackageCertificateKeyFile="$(signingCert.secureFilePath)"'
+```
+
+> [!NOTE]
+> PackageCertificateThumbprint 引数は、意図的に空の文字列に設定されます。 拇印がプロジェクトで設定されていても、署名証明書と一致しない場合、ビルドは失敗`Certificate does not match supplied signing thumbprint`し、というエラーが表示されます。
+
+### <a name="review-parameters"></a>パラメーターの確認
+
+`$()`構文で定義されたパラメーターは、ビルド定義で定義された変数であり、他のビルドシステムでは変更されます。
 
 ![既定の変数](images/building-screen5.png)
 
-定義済みのすべての変数を表示するを参照してください。[ビルド変数の定義済み](https://docs.microsoft.com/azure/devops/pipelines/build/variables)します。
+定義済みの変数をすべて表示するには、「[定義済みのビルド変数](https://docs.microsoft.com/azure/devops/pipelines/build/variables)」を参照してください。
 
-## <a name="configure-the-publish-build-artifacts-task"></a>ビルド成果物の発行タスクを構成します。
+## <a name="configure-the-publish-build-artifacts-task"></a>ビルド成果物の発行タスクを構成する
 
-既定の UWP パイプラインは、生成された成果物を保存できません。 YAML 定義には、発行機能を追加するには、次のタスクを追加します。
+既定の UWP パイプラインでは、生成された成果物は保存されません。 発行機能を YAML 定義に追加するには、次のタスクを追加します。
 
 ```yml
 - task: CopyFiles@2
@@ -117,30 +170,30 @@ steps:
     PathtoPublish: '$(build.artifactstagingdirectory)'
 ```
 
-生成された成果物を表示できます、**成果物**オプション、ビルドの結果 ページ。
+生成された成果物は、[ビルド結果] ページの [**成果物**] オプションで確認できます。
 
 ![成果物](images/building-screen6.png)
 
-ご用意しましたので、`UapAppxPackageBuildMode`引数`StoreUpload`、成果物フォルダーには (.msixupload/.appxupload) ストアに送信するパッケージが含まれています。 送信する通常のアプリ パッケージ (.msix/.appx) またはアプリ バンドル (.msixbundle/.appxbundle/) ストアに注意してください。 この資料の目的上、.appxupload ファイルを使います。
+`UapAppxPackageBuildMode`引数をに`StoreUpload`設定したため、アーティファクトフォルダーには、ストアに送信するためのパッケージ (. msixupload/. .appxupload) が含まれています。 ストアには、標準のアプリ (パッケージ) またはアプリバンドル (. .msixbundle/.appxbundle/) を送信することもできます。 この資料の目的上、.appxupload ファイルを使います。
 
-## <a name="address-bundle-errors"></a>アドレスのバンドルのエラー
+## <a name="address-bundle-errors"></a>アドレスバンドルエラー
 
-1 つ以上の UWP プロジェクトをソリューションに追加してバンドルを作成しようとしは、次のようなエラーが発生します。
+複数の UWP プロジェクトをソリューションに追加した後でバンドルを作成しようとすると、次のようなエラーが表示されることがあります。
 
   `MakeAppx(0,0): Error : Error info: error 80080204: The package with file name "AppOne.UnitTests_0.1.2595.0_x86.appx" and package full name "8ef641d1-4557-4e33-957f-6895b122f1e6_0.1.2595.0_x86__scrj5wvaadcy6" is not valid in the bundle because it has a different package family name than other packages in the bundle`
 
-このエラーが表示されるのは、ソリューション レベルで、バンドルに含めるアプリが明確ではないためです。 この問題を解決するには、各プロジェクト ファイルを開くし、次のプロパティを 1 つ目の末尾に追加`<PropertyGroup>`要素。
+このエラーが表示されるのは、ソリューション レベルで、バンドルに含めるアプリが明確ではないためです。 この問題を解決するには、各プロジェクトファイルを開き、最初`<PropertyGroup>`の要素の末尾に次のプロパティを追加します。
 
-|**プロジェクト**|**[プロパティ]**|
+|**プロジェクト**|**Properties**|
 |-------|----------|
-|App|`<AppxBundle>Always</AppxBundle>`|
+|アプリ|`<AppxBundle>Always</AppxBundle>`|
 |UnitTests|`<AppxBundle>Never</AppxBundle>`|
 
-次に、削除、`AppxBundle`ビルド ステップの MSBuild 引数。
+次に、ビルド`AppxBundle`ステップから MSBuild 引数を削除します。
 
 ## <a name="related-topics"></a>関連トピック
 
-- [Windows の .NET アプリを構築します。](https://docs.microsoft.com/vsts/build-release/get-started/dot-net)
+- [Windows 用 .NET アプリをビルドする](https://docs.microsoft.com/vsts/build-release/get-started/dot-net)
 - [UWP アプリのパッケージ化](https://docs.microsoft.com/windows/uwp/packaging/packaging-uwp-apps)
-- [Windows 10 で LOB アプリのサイドロード](https://docs.microsoft.com/windows/deploy/sideload-apps-in-windows-10)
-- [パッケージに署名するための証明書を作成します。](https://docs.microsoft.com/windows/uwp/packaging/create-certificate-package-signing)
+- [Windows 10 のサイドロード LOB アプリ](https://docs.microsoft.com/windows/deploy/sideload-apps-in-windows-10)
+- [パッケージ署名用の証明書を作成する](https://docs.microsoft.com/windows/uwp/packaging/create-certificate-package-signing)

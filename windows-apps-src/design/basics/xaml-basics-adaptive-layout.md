@@ -5,12 +5,12 @@ keywords: XAML, UWP, 概要
 ms.date: 08/30/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 7b444a11ab032034976d2f1b269bd10a89bf339e
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 67d5861e65a85a07cdda486ddb9c9634c388e819
+ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63798621"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67820466"
 ---
 # <a name="tutorial-create-adaptive-layouts"></a>チュートリアル: アダプティブ レイアウト作成する
 
@@ -28,7 +28,7 @@ ms.locfileid: "63798621"
 
 ## <a name="prerequisites"></a>前提条件
 
-* Visual Studio 2017: [Visual Studio 2017 Community のダウンロード (無料)](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15&campaign=WinDevCenter&ocid=wdgcx-windevcenter-community-download) 
+* Visual Studio 2019: [Visual Studio 2019 Community のダウンロード (無料)](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15&campaign=WinDevCenter&ocid=wdgcx-windevcenter-community-download) 
 * Windows 10 SDK (10.0.15063.468 以降): [最新の Windows SDK のダウンロード (無料)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * Windows モバイル エミュレーター: [Windows 10 モバイル エミュレーターのダウンロード (無料)](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive)
 
@@ -321,8 +321,8 @@ Visual Studio ツール バーで、ターゲット デバイスを **Local Mach
 
 行き詰まった場合は、「[XAML を使ったページ レイアウトの定義](../layout/layouts-with-xaml.md)」の以下のセクションで、詳しいガイダンスを参照できます。
 
-+ [表示状態と状態トリガー](https://docs.microsoft.com/en-us/windows/uwp/layout/layouts-with-xaml#visual-states-and-state-triggers)
-+ [カスタマイズされたレイアウト](https://docs.microsoft.com/en-us/windows/uwp/layout/layouts-with-xaml#tailored-layouts)
++ [表示状態と状態トリガー](https://docs.microsoft.com/windows/uwp/design/layout/layouts-with-xaml#visual-states-and-state-triggers)
++ [カスタマイズされたレイアウト](https://docs.microsoft.com/windows/uwp/design/layout/layouts-with-xaml#tailored-layouts)
 
 当初の写真編集アプリの作成方法を学習するには、XAML の[ユーザー インターフェイス](../basics/xaml-basics-ui.md)と[データ バインディング](../../data-binding/xaml-basics-data-binding.md)に関するチュートリアルをご覧ください。
 

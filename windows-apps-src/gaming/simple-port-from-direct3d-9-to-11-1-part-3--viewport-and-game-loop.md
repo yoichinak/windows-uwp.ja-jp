@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, 移植, ゲーム ループ, Direct3D 9, DirectX 11
 ms.localizationpriority: medium
-ms.openlocfilehash: bd6a17b5e1684fbee21965158295dba123737bd6
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 9b3a18d9ee63a2ecded07f8b779195d5274b6210
+ms.sourcegitcommit: 734aa941dc675157c07bdeba5059cb76a5626b39
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66367912"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68141830"
 ---
 # <a name="port-the-game-loop"></a>ゲーム ループの移植
 
@@ -21,7 +21,7 @@ ms.locfileid: "66367912"
 
 -   [パート 1: Direct3D の初期化 11](simple-port-from-direct3d-9-to-11-1-part-1--initializing-direct3d.md)
 -   [パート 2: レンダリングのフレームワークを変換します。](simple-port-from-direct3d-9-to-11-1-part-2--rendering.md)
--   パート 3:ゲーム ループの移植
+-   第 3 部:ゲーム ループの移植
 
 
 [  **IFrameworkView**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Core.IFrameworkView) を作成して、全画面表示の [**CoreWindow**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreWindow) を制御する方法など、ユニバーサル Windows プラットフォーム (UWP) ゲームのウィンドウを実装する方法とゲーム ループを移植する方法について説明します。 「[チュートリアル: DirectX 11 とユニバーサル Windows プラットフォーム (UWP) への簡単な Direct3D 9 アプリの移植](walkthrough--simple-port-from-direct3d-9-to-11-1.md)」のパート 3 です。
@@ -33,7 +33,7 @@ Direct3D 9 のビューポートを使ってデスクトップ ウィンドウ�
 
 UWP 環境には、はるかに簡単なシステムが用意されています。 DirectX を使った Microsoft Store ゲームでは、従来のウィンドウを設定する代わりに、[**IFrameworkView**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Core.IFrameworkView) を実装します。 このインターフェイスは、アプリ コンテナー内の [**CoreWindow**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreWindow) で直接 DirectX アプリやゲームを実行するために存在します。
 
-> **注**   Windows がソース アプリケーション オブジェクトなどのリソースへのマネージ ポインターを提供し、 [**CoreWindow**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreWindow)します。 参照してください **[オブジェクト演算子 (^) へのハンドル]** https://msdn.microsoft.com/library/windows/apps/yk97tc08.aspx します。
+> **注**   Windows がソース アプリケーション オブジェクトなどのリソースへのマネージ ポインターを提供し、 [**CoreWindow**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreWindow)します。 参照してください[**オブジェクト演算子 (^) へのハンドル**](https://msdn.microsoft.com/library/windows/apps/yk97tc08.aspx)します。
 
  
 

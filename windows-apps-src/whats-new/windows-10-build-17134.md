@@ -5,16 +5,16 @@ keywords: 新着情報, 新機能, 更新, 更新プログラム, 機能, 新規
 ms.date: 04/10/2018
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 9b7fe830e07c1daf95928ab747259cb57aaa7a9f
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: dc35dc50b8dc523aff5478b3ec19c3daeed9dafb
+ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66371340"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67820447"
 ---
 # <a name="whats-new-in-windows-10-for-developers-build-17134"></a>Windows 10 ビルド 17134 の開発者向け新着情報
 
-Windows 10 ビルド 17134 (April Update またはバージョン 1803 とも呼ばれます) では、Visual Studio 2017 や更新された SDK と組み合わせて使うことで、優れたユニバーサル Windows プラットフォーム アプリを作成するためのツール、機能、エクスペリエンスが利用可能になります。 Windows 10 の[ツールと SDK をインストール](https://go.microsoft.com/fwlink/?LinkId=821431)すると、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
+Windows 10 ビルド 17134 (April Update またはバージョン 1803 とも呼ばれます) では、Visual Studio 2019 や更新された SDK と組み合わせて使うことで、優れたユニバーサル Windows プラットフォーム アプリを作成するためのツール、機能、エクスペリエンスが利用可能になります。 Windows 10 の[ツールと SDK をインストール](https://go.microsoft.com/fwlink/?LinkId=821431)すると、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
 
 ここには、Windows 開発者にとって重要なこのリリースの新機能、強化された機能、ガイダンスを集めました。 Windows SDK に追加されたすべての新しい名前空間の一覧については、「[Windows 10 ビルド 17134 API の変更点](windows-10-build-17134-api-diff.md)」をご覧ください。 Windows 10 での注目すべき機能について詳しくは、「[Windows 10 の優れた機能](https://go.microsoft.com/fwlink/?LinkId=823181)」をご覧ください。 また、Windows プラットフォームに過去に追加された機能と今後追加される機能の概要については、[Windows 開発者向けプラットフォーム機能に関するページ](https://developer.microsoft.com/windows/platform/features)をご覧ください。
 
@@ -102,7 +102,7 @@ Windows Machine Learning を使用すると、ローカルの事前学習済み�
 
 ### <a name="motion-controller-tracking"></a>モーション コントローラーの追跡
 
-Windows Mixed Reality では、モーション コントローラーがユーザーの手を表します。 モーション コントローラーが Mixed Reality ヘッドセットの視野の内外にあるときの動作については、[ビデオをご覧ください](https://www.youtube.com/watch?v=rkDpRllbLII)。[コントローラーのトラッキングについて詳しくは、こちらをご覧ください。](https://developer.microsoft.com/windows/mixed-reality/motion_controllers#controller_tracking_state%E2%80%9D)
+Windows Mixed Reality では、モーション コントローラーがユーザーの手を表します。 モーション コントローラーが Mixed Reality ヘッドセットの視野の内外にあるときの動作については、[ビデオをご覧ください](https://www.youtube.com/watch?v=rkDpRllbLII)。[コントローラーのトラッキングについて詳しくは、こちらをご覧ください。](https://docs.microsoft.com/windows/mixed-reality/motion-controllers#controller_tracking_state%E2%80%9D)
 
 ### <a name="package-a-net-app-in-visual-studio"></a>Visual Studio で .NET アプリをパッケージ化する
 

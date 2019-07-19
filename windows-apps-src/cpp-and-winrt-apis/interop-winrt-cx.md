@@ -5,12 +5,12 @@ ms.date: 10/09/2018
 ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、ポート、移行、相互運用、C++/CX
 ms.localizationpriority: medium
-ms.openlocfilehash: 5394443b4832864e5b46bfbf917c04f0af6d8a19
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: a6b57627cbf9021732a8a66818250ffc1fca915f
+ms.sourcegitcommit: 7585bf66405b307d7ed7788d49003dc4ddba65e6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66360217"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67660122"
 ---
 # <a name="interop-between-cwinrt-and-ccx"></a>C++/WinRT と C++/CX 間の相互運用
 
@@ -54,6 +54,8 @@ C++/CX プロジェクトのコードを徐々に C++/WinRT に移植するシ�
 - **[Visual C++]** \> **[Windows ユニバーサル]**  > **Core アプリ (C++/WinRT)** プロジェクトを作成します。
 - プロジェクトのプロパティで、 **[C/C++]** \> **[全般]** \> **[Windows ランタイム拡張機能の使用]** \> **[はい (/ZW)]** を選択します。 これにより、C++/CX に対するプロジェクトのサポートがオンになります。
 - `App.cpp` の内容を、以下に示すコード リストで置き換えます。
+
+`WINRT_ASSERT` はマクロ定義であり、[_ASSERTE](/cpp/c-runtime-library/reference/assert-asserte-assert-expr-macros) に展開されます。
 
 ```cppwinrt
 // App.cpp
