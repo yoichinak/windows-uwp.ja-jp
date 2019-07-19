@@ -5,12 +5,12 @@ ms.date: 04/23/2019
 ms.topic: article
 keywords: windows 10、uwp、標準、c++、cpp、winrt、投影、プロジェクション、実装、ランタイム クラス、ライセンス認証
 ms.localizationpriority: medium
-ms.openlocfilehash: e6bf1e7fb32533aa9d7b865ac7c8afc374290e54
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 88a4c65b20c2fb805baecb8a90498e8e4ec9b229
+ms.sourcegitcommit: a7a1e27b04f0ac51c4622318170af870571069f6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66360346"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67717627"
 ---
 # <a name="consume-apis-with-cwinrt"></a>C++/WinRT での API の使用
 
@@ -79,6 +79,8 @@ Windows 名前空間 API を C++/WinRT から使用するには、`%WindowsSdkDi
 ## <a name="accessing-members-via-the-object-via-an-interface-or-via-the-abi"></a>オブジェクト、インターフェイス、ABI を介したメンバーへのアクセス
 C++/WinRT プロジェクションでは、Windows ランタイム クラスのランタイム表現は、基になる ABI インターフェイスに過ぎません。 ただし、必要に応じて、その作成者が意図した方法でクラスに対してコードを記述することができます。 たとえば、[**Uri**](/uwp/api/windows.foundation.uri) の **ToString** メソッドをクラスのメソッドのように呼び出すことができます (実際、バックグラウンドでは、それは別の **IStringable** インターフェイスのメソッドです)。
 
+`WINRT_ASSERT` はマクロ定義であり、[_ASSERTE](/cpp/c-runtime-library/reference/assert-asserte-assert-expr-macros) に展開されます。
+
 ```cppwinrt
 Uri contosoUri{ L"http://www.contoso.com" };
 WINRT_ASSERT(contosoUri.ToString() == L"http://www.contoso.com/"); // QueryInterface is called at this point.
@@ -107,15 +109,17 @@ int main()
     winrt::init_apartment();
     Uri contosoUri{ L"http://www.contoso.com" };
 
-    int port = contosoUri.Port(); // Access the Port "property" accessor via C++/WinRT.
+    int port{ contosoUri.Port() }; // Access the Port "property" accessor via C++/WinRT.
 
-    winrt::com_ptr<ABI::Windows::Foundation::IUriRuntimeClass> abiUri = contosoUri.as<ABI::Windows::Foundation::IUriRuntimeClass>();
+    winrt::com_ptr<ABI::Windows::Foundation::IUriRuntimeClass> abiUri{
+        contosoUri.as<ABI::Windows::Foundation::IUriRuntimeClass>() };
     HRESULT hr = abiUri->get_Port(&port); // Access the get_Port ABI function.
 }
 ```
 
 ## <a name="delayed-initialization"></a>初期化の遅延
-投影された型の既定のコンストラクターでも、Windows ランタイムのバッキング オブジェクトが作成されます。 作業を後に遅らせることができるように、Windows ランタイム オブジェクトを作成しないで投影された型の変数を作成する場合は、これを実行できます。 投影された型の特別な C++/WinRT `nullptr_t` コンストラクターを使用して変数またはフィールドを宣言します。
+
+投影された型の既定のコンストラクターでも、Windows ランタイムのバッキング オブジェクトが作成されます。 作業を後に遅らせることができるように、Windows ランタイム オブジェクトを作成しないで投影された型の変数を作成する場合は、これを実行できます。 投影された型の特別な C++/WinRT **std::nullptr_t** コンストラクターを使用して変数またはフィールドを宣言します。 C++/WinRT のプロジェクションでは、すべてのランタイム クラスにこのコンストラクターが挿入されます。
 
 ```cppwinrt
 #include <winrt/Windows.Storage.Streams.h>
@@ -144,7 +148,7 @@ int main()
 }
 ```
 
-`nullptr_t` コンストラクターを*除く*投影された型のすべてのコンストラクターにより、Windows ランタイムのバッキング オブジェクトが作成されます。 `nullptr_t` コンストラクターは、基本的には何もしません。 投影されたオブジェクトがそれ以降に初期化されることが想定されます。 そのため、ランタイム クラスに既定のコンストラクターがあるかどうかに関係なく、効率的な初期化の遅延にこの方法を使用することができます。
+**std::nullptr_t** コンストラクターを "*除く*" 投影された型のすべてのコンストラクターにより、Windows ランタイムのバッキング オブジェクトが作成されます。 **std::nullptr_t** コンストラクターは、基本的には何もしません。 投影されたオブジェクトがそれ以降に初期化されることが想定されます。 そのため、ランタイム クラスに既定のコンストラクターがあるかどうかに関係なく、効率的な初期化の遅延にこの方法を使用することができます。
 
 この考慮事項は、ベクトルやマップ内など、既定のコンストラクターを呼び出す他の場所に影響します。 **空のアプリ (C++/WinRT)** プロジェクトが必要な、このコード例を検討します。
 
@@ -158,6 +162,98 @@ lookup[2] = value;
 ```cppwinrt
 std::map<int, TextBlock> lookup;
 lookup.insert_or_assign(2, value);
+```
+
+### <a name="dont-delay-initialize-by-mistake"></a>誤って遅延初期化しない
+
+誤って **std::nullptr_t** コンストラクターを呼び出さないように注意してください。 コンパイラの競合解決では、ファクトリ コンストラクターよりそれが優先されます。 たとえば、次のような 2 つのランタイム クラスの定義について考えます。
+
+```idl
+// GiftBox.idl
+runtimeclass GiftBox
+{
+    GiftBox();
+}
+
+// Gift.idl
+runtimeclass Gift
+{
+    Gift(GiftBox giftBox); // You can create a gift inside a box.
+}
+```
+
+ここで、ボックス内にない **Gift** を構築したいものとします (初期化されていない **GiftBox** で構築された **Gift**)。 最初に、それを行う "*間違った*" 方法を見てみましょう。 **GiftBox** を受け取る **Gift** コンストラクターがあることはわかっています。 しかし、null **GiftBox** を渡すと (以下で行うような同一の初期化で **Gift** コンストラクターを呼び出す)、目的の結果は "*得られません*"。
+
+```cppwinrt
+// These are *not* what you intended. Doing it in one of these two ways
+// actually *doesn't* create the intended backing Windows Runtime Gift object;
+// only an empty smart pointer.
+
+Gift gift{ nullptr };
+auto gift{ Gift(nullptr) };
+```
+
+ここで得られるのは、初期化されていない **Gift** です。 **GiftBox** が初期化されていない **Gift** は得られません。 次に示すのは、それを行う "*正しい*" 方法です。
+
+```cppwinrt
+// Doing it in one of these two ways creates an initialized
+// Gift with an uninitialized GiftBox.
+
+Gift gift{ GiftBox{ nullptr } };
+auto gift{ Gift(GiftBox{ nullptr }) };
+```
+
+正しくない例では、`nullptr` リテラルを渡しすことで、遅延初期化コンストラクター優先で解決されます。 ファクトリ コンストラクター優先で解決するには、パラメーターの型が **GiftBox** である必要があります。 それでも、正しい例で示されているように、明示的に遅延初期化される **GiftBox** を渡すオプションがあります。
+
+この次の例は、パラメーターの型が GiftBox であり、**std::nullptr_t** ではないので、"*やはり*" 正しい方法です。
+
+```cppwinrt
+GiftBox giftBox{ nullptr };
+Gift gift{ giftBox }; // Calls factory constructor.
+```
+
+あいまいさが発生するのは、`nullptr` リテラルを渡したときだけです。
+
+## <a name="dont-copy-construct-by-mistake"></a>誤ってコピー コンストラクトしない
+
+この注意は、上の「[誤って遅延初期化しない](#dont-delay-initialize-by-mistake)」セクションで説明したものと似ています。
+
+遅延初期化コンストラクターだけでなく、C++/WinRT プロジェクションではすべてのランタイム クラスにコピー コンストラクターも挿入されます。 それは、構築されているオブジェクトと同じ型を受け取る、単一パラメーターのコンストラクターです。 結果のスマート ポインターでは、そのコンストラクター パラメーターでポイントされるのと同じバッキング Windows ランタイム オブジェクトがポイントされます。 結果は、同じバッキング オブジェクトをポイントする 2 つのスマート ポインター オブジェクトになります。
+
+次に示すのは、コード例で使用するランタイム クラスの定義です。
+
+```idl
+// GiftBox.idl
+runtimeclass GiftBox
+{
+    GiftBox(GiftBox biggerBox); // You can place a box inside a bigger box.
+}
+```
+
+大きい **GiftBox** の内部に **GiftBox** を構築したいものとします。
+
+```cppwinrt
+GiftBox bigBox{ ... };
+
+// These are *not* what you intended. Doing it in one of these two ways
+// copies bigBox's backing-object-pointer into smallBox.
+// The result is that smallBox == bigBox.
+
+GiftBox smallBox{ bigBox };
+auto smallBox{ GiftBox(bigBox) };
+```
+
+それを行う "*正しい*" 方法は、アクティベーション ファクトリを明示的に呼び出すことです。
+
+```cppwinrt
+GiftBox bigBox{ ... };
+
+// These two ways call the activation factory explicitly.
+
+GiftBox smallBox{
+    winrt::get_activation_factory<GiftBox, IGiftBoxFactory>().CreateInstance(bigBox) };
+auto smallBox{
+    winrt::get_activation_factory<GiftBox, IGiftBoxFactory>().CreateInstance(bigBox) };
 ```
 
 ## <a name="if-the-api-is-implemented-in-a-windows-runtime-component"></a>API が Windows ランタイム コンポーネントに実装されている場合
@@ -185,7 +281,7 @@ struct App : implements<App, IFrameworkViewSource, IFrameworkView>
 ## <a name="if-the-api-is-implemented-in-the-consuming-project"></a>API が使用中のプロジェクトに実装される場合
 XAML UI で使用する型が XAML と同じプロジェクト内にある場合でも、ランタイム クラスを指定する必要があります。
 
-このシナリオでは、ランタイム クラスの Windows ランタイム メタデータ (`.winmd`) から投影される型を生成します。 この場合も、ヘッダーを含めますが、自身の `nullptr` コンストラクターを介して投影される型を作成します。 このコンストラクターは初期化されないため、[**winrt::make**](/uwp/cpp-ref-for-winrt/make) ヘルパー関数を介してインスタンスに値を割り当て、必要なコンストラクター引数を渡す必要があります。 使用中のコードと同じプロジェクトに実装されるランタイム クラスは、Windows ランタイム/COM のアクティブ化を介して登録またはインスタンス化する必要がありません。
+このシナリオでは、ランタイム クラスの Windows ランタイム メタデータ (`.winmd`) から投影される型を生成します。 この場合も、ヘッダーを含めますが、今度はその **std::nullptr_t** コンストラクターを介して投影される型を作成します。 このコンストラクターは初期化されないため、[**winrt::make**](/uwp/cpp-ref-for-winrt/make) ヘルパー関数を介してインスタンスに値を割り当て、必要なコンストラクター引数を渡す必要があります。 使用中のコードと同じプロジェクトに実装されるランタイム クラスは、Windows ランタイム/COM のアクティブ化を介して登録またはインスタンス化する必要がありません。
 
 このコード例には、**空のアプリ (C++/WinRT)** プロジェクトが必要です。
 

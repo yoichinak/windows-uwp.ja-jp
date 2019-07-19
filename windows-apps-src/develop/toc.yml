@@ -834,12 +834,16 @@
           href: ../cpp-and-winrt-apis/interop-winrt-cx.md
         - name: WRL から C++/WinRT への移行
           href: ../cpp-and-winrt-apis/move-to-winrt-from-wrl.md
+        - name: 'C# から C++/WinRT への移行'
+          href: ../cpp-and-winrt-apis/move-to-winrt-from-csharp.md
         - name: ABI との相互運用
           href: ../cpp-and-winrt-apis/interop-winrt-abi.md
         - name: 強参照と弱参照
           href: ../cpp-and-winrt-apis/weak-references.md
         - name: アジャイル オブジェクト
           href: ../cpp-and-winrt-apis/agile-objects.md
+        - name: 単純な C++/WinRT WinUI の例
+          href: ../cpp-and-winrt-apis/simple-winui-example.md
         - name: C++ 言語
           items:
             - name: 値のカテゴリと参照

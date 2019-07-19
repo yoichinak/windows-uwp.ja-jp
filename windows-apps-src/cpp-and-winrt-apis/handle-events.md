@@ -5,12 +5,12 @@ ms.date: 04/23/2019
 ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、プロジェクション、処理、イベント、デリゲート
 ms.localizationpriority: medium
-ms.openlocfilehash: 00870a196517f975d2736298513be7567f3dd29e
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 194fd9041b76acb1ef76288fed21c8098462b406
+ms.sourcegitcommit: 8b4c1fdfef21925d372287901ab33441068e1a80
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64745049"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844342"
 ---
 # <a name="handle-events-by-using-delegates-in-cwinrt"></a>C++/WinRT でのデリゲートを使用したイベントの処理
 
@@ -18,6 +18,15 @@ ms.locfileid: "64745049"
 
 > [!NOTE]
 > C++/WinRT Visual Studio Extension (VSIX) と NuGet パッケージ (両者が連携してプロジェクト テンプレートとビルドをサポート) のインストールと使用については、[Visual Studio での C++/WinRT のサポート](intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)に関する記事を参照してください。
+
+## <a name="using-visual-studio-2019-to-add-an-event-handler"></a>Visual Studio 2019 を使用してイベント ハンドラーを追加する
+
+プロジェクトにイベント ハンドラーを追加する便利な方法は、Visual Studio 2019 の XAML デザイナーのユーザー インターフェイス (UI) を使用することです。 XAML デザイナーで XAML ページを開き、イベントを処理するコントロールを選択します。 そのコントロールのプロパティ ページで、稲妻アイコンをクリックして、そのコントロールが発生元のすべてのイベントを一覧表示します。 その後、処理するイベントをダブルクリックします (たとえば *OnClicked*)。
+
+XAML デザイナーにより、適切なイベント ハンドラー関数のプロトタイプ (およびスタブの実装) がソース ファイルに追加され、独自の実装に置き換えることができるようになります。
+
+> [!NOTE]
+> 通常、イベント ハンドラーを Midl ファイル (`.idl`) で記述する必要はありません。 そのため、XAML デザイナーでは、Midl ファイルにイベント ハンドラー関数のプロトタイプが追加されることはありません。 `.h` ファイルと `.cpp` ファイルにだけ追加されます。
 
 ## <a name="register-a-delegate-to-handle-an-event"></a>デリゲートを登録してイベントを処理する
 
@@ -49,7 +58,7 @@ MainPage::MainPage()
 ```
 
 > [!IMPORTANT]
-> デリゲートを登録するとき、上のコード例では (現在のオブジェクトを指す) 生の *this* ポインターが渡されます。 現在のオブジェクトへの強参照または弱参照を確立する方法については、「[イベント処理デリゲートで *this* ポインターに安全にアクセスする](weak-references.md#safely-accessing-the-this-pointer-with-an-event-handling-delegate)」セクションの「**デリゲートとしてメンバー関数を使用する場合**」サブセクションを参照してください。
+> デリゲートを登録するとき、上のコード例では (現在のオブジェクトを指す) 生の *this* ポインターが渡されます。 現在のオブジェクトに対する強い参照または弱い参照を確立する方法については、「[デリゲートとしてメンバー関数を使用する場合](weak-references.md#if-you-use-a-member-function-as-a-delegate)」をご覧ください。
 
 **RoutedEventHandler** の作成には他の方法もあります。 次に、[**RoutedEventHandler**](/uwp/api/windows.ui.xaml.routedeventhandler) のドキュメント内にある構文ブロックを示します (Web ページの右上の **[言語]** ドロップダウンから [*C++/WinRT*] を選択します)。 さまざまなコンストラクターがあることに注意してください。ラムダ、自由関数、メンバー関数へのオブジェクトとポインター (上記で使用したもの) を受け取ります。
 
@@ -177,8 +186,11 @@ Button::Click_revoker Click(winrt::auto_revoke_t,
 > [!NOTE]
 > 上記のコード例では、`Button::Click_revoker` は `winrt::event_revoker<winrt::Windows::UI::Xaml::Controls::Primitives::IButtonBase>` の型エイリアスです。 同じようなパターンがすべての C++/WinRT イベントに適用されます。 各 Windows ランタイム イベントには、イベント リボーカーを返す失効関数オーバーロードがあり、そのリボーカーの型はイベント ソースのメンバーです。 そのため、別の例を挙げると、[**CoreWindow:: SizeChanged**](/uwp/api/windows.ui.core.corewindow.sizechanged) イベントには、型 **CoreWindow::SizeChanged_revoker** の値を返す登録関数オーバーロードがあります。
 
-
 ページのナビゲーションのシナリオでハンドラーの取り消しを検討します。 あるページへの移動を繰り返す場合、そのページから移動する際にハンドラーを取り消すことができます。 または、同じページ インスタンスを再使用しているときは、トークンの値を確認し、(`if (!m_token){ ... }`) がまだ設定されていない場合のみ登録します。 3 番目のオプションでは、ページにイベント リボーカーをデータ メンバーとして格納します。 このトピック後半で紹介する 4 番目のオプションでは、ラムダ関数内の*この*オブジェクトの強参照または弱参照をキャプチャします。
+
+### <a name="if-your-auto-revoke-delegate-fails-to-register"></a>自動取り消しのデリゲートの登録が失敗する場合
+
+デリゲートを登録するときに [**winrt::auto_revoke**](/uwp/cpp-ref-for-winrt/auto-revoke-t) を指定しようとして、結果が [**winrt::hresult_no_interface**](/uwp/cpp-ref-for-winrt/error-handling/hresult-no-interface) 例外である場合、通常それはイベント ソースで弱い参照がサポートされていないことを意味します。 たとえば、[**Windows.UI.Composition** ](/uwp/api/windows.ui.composition) 名前空間ではよくあることです。 このような場合は、自動取り消し機能を使用できません。 イベント ハンドラーの手動取り消しにフォールバックする必要があります。
 
 ## <a name="delegate-types-for-asynchronous-actions-and-operations"></a>非同期アクションと非同期操作のデリゲート型
 

@@ -5,16 +5,16 @@ keywords: 最新情報, 更新, 機能, 開発者向けガイダンス, Windows 
 ms.date: 05/07/2018
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 69df2bbe8bc91fcf4a2631c0f257fc44851c24f2
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 9adf5a80595e00a30098044536d1ecfe4fd62279
+ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63805874"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67820491"
 ---
 # <a name="whats-new-in-the-windows-developer-docs-in-may-2018"></a>Windows 開発者向けドキュメントの最新情報、2018 年 5 月
 
-Windows 開発者向けドキュメントは、Windows プラットフォームで開発者に提供される新機能の情報を反映して継続的に更新されています。 ここに示す機能概要、開発者向けガイダンス、ビデオ、サンプルは、[Microsoft Build 2018](https://www.microsoft.com/build) 開発者カンファレンスに合わせて 5 月に利用可能になりました。
+Windows 開発者向けドキュメントは、Windows プラットフォームで開発者に提供される新機能の情報を反映して継続的に更新されています。 ここに示す機能概要、開発者向けガイダンス、ビデオ、サンプルは、[Microsoft Build 2018](https://www.microsoft.com/build/) 開発者カンファレンスに合わせて 5 月に利用可能になりました。
 
 Windows 10 の[ツールと SDK をインストール](https://go.microsoft.com/fwlink/?LinkId=821431)すると、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
 
@@ -55,7 +55,7 @@ Fluent Design System でのモーションの使用が進化しています。�
 
 ### <a name="app-installer-files-in-visual-studio"></a>Visual Studio でのアプリ インストーラー ファイル
 
-Visual Studio 2017 更新プログラム 15.7 でアプリ インストーラー ファイルを作成できるようになりました。 [Visual Studio を使ってアプリ インストーラー ファイルを作成する方法](../packaging/create-appinstallerfile-vs.md)と、自動更新を有効にする方法をご確認ください。 問題が発生した場合は、「[アプリ インストーラー ファイルを使ったインストールに関する問題のトラブルシューティング](../packaging/troubleshoot-appinstaller-issues.md)」を参照して一般的な問題と解決方法を確認してください。
+Visual Studio 2017 Update 15.7 以降のバージョンでは、アプリ インストーラー ファイルを作成できるようになりました。 [Visual Studio を使ってアプリ インストーラー ファイルを作成する方法](../packaging/create-appinstallerfile-vs.md)と、自動更新を有効にする方法をご確認ください。 問題が発生した場合は、「[アプリ インストーラー ファイルを使ったインストールに関する問題のトラブルシューティング](../packaging/troubleshoot-appinstaller-issues.md)」を参照して一般的な問題と解決方法を確認してください。
 
 ### <a name="edge-webview-control-for-windows-forms-and-wpf-applications"></a>Windows フォームと WPF アプリケーション用の Edge の WebView コントロール
 

@@ -5,12 +5,12 @@ keywords: 最新情報, 更新, 機能, 開発者向けガイダンス, Windows 
 ms.date: 08/03/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 53bd11950d30e3924d6d196e911fa05208d0f5ec
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 52b929f2b6f95c2be2feb68a6221a606ca3715e5
+ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66371916"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67821131"
 ---
 # <a name="whats-new-in-the-windows-developer-docs-in-august-2017"></a>Windows 開発者向けドキュメントの最新情報、2017 年 8 月
 
@@ -22,7 +22,7 @@ Windows 10 の[ツールと SDK をインストール](https://go.microsoft.com/
 
 ### <a name="windows-template-studio"></a>Windows Template Studio
 
-Visual Studio 2017 用の新しい [Windows Template Studio](https://aka.ms/wtsinstall) 拡張機能を使うと、必要なページ、フレームワーク、機能を組み込んだ UWP アプリをすばやく作成できます。 このウィザード ベースのエクスペリエンスには、実証済みのパターンとベスト プラクティスが実装されています。これにより、アプリに機能を追加するときにかかる時間を短縮し、よくある問題を避けることができます。
+Visual Studio 2019 用の新しい [Windows Template Studio](https://aka.ms/wtsinstall) 拡張機能を使うと、必要なページ、フレームワーク、機能が組み込まれた UWP アプリをすばやく作成できます。 このウィザード ベースのエクスペリエンスには、実証済みのパターンとベスト プラクティスが実装されています。これにより、アプリに機能を追加するときにかかる時間を短縮し、よくある問題を避けることができます。
 
 ![Windows Template Studio](images/template-studio.png)
 
@@ -63,11 +63,11 @@ Windows 10 ユーザーの利便性を高める最新のエクスペリエンス
 
 Xbox Live 開発者向けに、UWP ゲームと Xbox 開発キット (XDK) のゲームの両方に関するドキュメントが追加されました。
 
-「[Xbox Live 開発者向けガイド](https://docs.microsoft.com/en-us/windows/uwp/xbox-live/)」では、Xbox Live API を使ってゲームを Xbox Live ソーシャル ゲーミング ネットワークに接続する方法について説明します。
+「[Xbox Live 開発者向けガイド](https://docs.microsoft.com//gaming/xbox-live/index)」では、Xbox Live API を使ってゲームを Xbox Live ソーシャル ゲーミング ネットワークに接続する方法について説明します。
 
-[Xbox Live クリエーターズ プログラム](https://docs.microsoft.com/en-us/windows/uwp/xbox-live/get-started-with-creators/get-started-with-xbox-live-creators)を利用すると、UWP ゲーム開発者はだれでも、PC と Xbox One の両方で Xbox Live 対応ゲームを開発して公開できます。
+[Xbox Live クリエーターズ プログラム](https://docs.microsoft.com//gaming/xbox-live/get-started-with-creators/get-started-with-xbox-live-creators)を利用すると、UWP ゲーム開発者はだれでも、PC と Xbox One の両方で Xbox Live 対応ゲームを開発して公開できます。
 
-Xbox Live 開発者向けに提供されているプログラムと機能については、「[Xbox Live 開発者プログラムの概要](https://docs.microsoft.com/en-us/windows/uwp/xbox-live/developer-program-overview)」をご覧ください。
+Xbox Live 開発者向けに提供されているプログラムと機能については、「[Xbox Live 開発者プログラムの概要](https://docs.microsoft.com//gaming/xbox-live/developer-program-overview)」をご覧ください。
 
 ## <a name="videos"></a>ビデオ
 
@@ -77,7 +77,7 @@ Xbox Live 開発者向けに提供されているプログラムと機能につ�
 
 ### <a name="narrator-and-dev-mode"></a>ナレーターと開発者モード
 
-[ナレーター](https://support.microsoft.com/help/22798/windows-10-narrator-get-started)を使うと、アプリの読み上げをテストできます。 ナレーターには開発者モードもあり、このモードでは、ナレーターに公開されている情報が視覚的にわかりやすく表示されます。 [ビデオ](https://channel9.msdn.com/Blogs/One-Dev-Minute/Using-Narrator-and-Dev-Mode)をご覧になってから、[ナレーター開発者モード](https://channel9.msdn.com/Blogs/One-Dev-Minute/Using-Narrator-and-Dev-Mode)の詳細を確認してください。
+[ナレーター](https://support.microsoft.com/help/22798/windows-10-complete-guide-to-narrator)を使うと、アプリの読み上げをテストできます。 ナレーターには開発者モードもあり、このモードでは、ナレーターに公開されている情報が視覚的にわかりやすく表示されます。 [ビデオ](https://channel9.msdn.com/Blogs/One-Dev-Minute/Using-Narrator-and-Dev-Mode)をご覧になってから、[ナレーター開発者モード](https://channel9.msdn.com/Blogs/One-Dev-Minute/Using-Narrator-and-Dev-Mode)の詳細を確認してください。
 
 ### <a name="windows-template-studio"></a>Windows Template Studio
 
