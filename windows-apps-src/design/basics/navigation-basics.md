@@ -10,12 +10,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 1c764eeb57ec8046a93e7fb58e156fa68daea8df
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 6290b142eee4aff7287b9542b645df89164d173b
+ms.sourcegitcommit: 34671182c26f5d0825c216a6cededc02b0059a9e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64564525"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67286940"
 ---
 # <a name="navigation-design-basics-for-uwp-apps"></a>UWP アプリのナビゲーション デザインの基本
 
@@ -150,7 +150,7 @@ ms.locfileid: "64564525"
     :::column span="2":::
         ### Combining structures
 
-1 つの構造のみを選択する必要はありません。優れた設計のアプリの多くは両方を使用しています。 アプリでは、トップレベルのページにはフラット構造を使って、任意の順序で参照できるようにし、複雑な関係のあるページには階層構造を使うことができます。
+1 つの構造のみを選択する必要はありません。優れた設計のアプリの多くでは両方が使われています。 アプリでは、トップレベルのページにはフラット構造を使って、任意の順序で参照できるようにし、複雑な関係のあるページには階層構造を使うことができます。
 
 ナビゲーション構造に複数のレベルがある場合は、現在のサブツリー内のピアにのみリンクするピア ツー ピアのナビゲーション要素を使うことをお勧めします。 2 つのレベルを持つナビゲーション構造を示す横の図について考えてみましょう。
 

@@ -5,16 +5,18 @@ ms.date: 11/30/2018
 ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、ポート、移行、相互運用、ABI
 ms.localizationpriority: medium
-ms.openlocfilehash: a1745f9ad98ed8dac2e54e17d18467981eafdcec
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: d1def649772f94a03d5a1f352dcec1d32c7b0868
+ms.sourcegitcommit: 5d71c97b6129a4267fd8334ba2bfe9ac736394cd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66360224"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67800574"
 ---
 # <a name="interop-between-cwinrt-and-the-abi"></a>C++/WinRT と ABI 間の相互運用
 
 このトピックでは、SDK アプリケーション バイナリ インターフェイス (ABI) と [C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) オブジェクト間の変換方法について説明します。 これらの手法を使用すると、Windows ランタイムでこれら 2 つの手法によるプログラミングを使用するコード間を相互運用するか、ABI から C++/WinRT にコードを徐々に移動することができます。
+
+一般に、C++/WinRT では ABI 型は **void\*** として公開されるので、プラットフォームのヘッダー ファイルをインクルードする必要はありません。
 
 ## <a name="what-is-the-windows-runtime-abi-and-what-are-abi-types"></a>Windows ランタイム ABI および ABI の種類とは何ですか。
 Windows ランタイム クラス (ランタイム クラス) は実際にはアブストラクションです。 このアブストラクションは、さまざまなプログラミング言語がオブジェクトと対話できるようにするバイナリ インターフェイス (アプリケーション バイナリ インターフェイス、または ABI) を定義します。 プログラミング言語に関係なく、クライアント コードと Windows ランタイム オブジェクトとの対話は最下位レベルで発生し、クライアントの言語の構成要素はオブジェクトの ABI への呼び出しに変換されます。
@@ -141,6 +143,8 @@ int main()
 
 下位レベルの変換の場合、アドレスをコピーするだけで、[**winrt::get_abi**](/uwp/cpp-ref-for-winrt/get-abi)、[**winrt::detach_abi**](/uwp/cpp-ref-for-winrt/detach-abi)、[**winrt::attach_abi**](/uwp/cpp-ref-for-winrt/attach-abi) の各ヘルパー関数を使用できます。
 
+`WINRT_ASSERT` はマクロ定義であり、[_ASSERTE](/cpp/c-runtime-library/reference/assert-asserte-assert-expr-macros) に展開されます。
+
 ```cppwinrt
     // The code in main() already shown above remains here.
 
@@ -242,6 +246,111 @@ int main()
     WINRT_ASSERT(uri == uri_from_abi);
 }
 ```
+
+## <a name="interoperating-with-abi-com-interface-pointers"></a>ABI の COM インターフェイス ポインターとの相互運用
+
+次のヘルパー関数テンプレートでは、特定の型の ABI COM インターフェイス ポインターを、それと同等の C++/WinRT 投影スマート ポインター型にコピーする方法を示します。
+
+```cppwinrt
+template<typename To, typename From>
+To to_winrt(From* ptr)
+{
+    To result{ nullptr };
+    winrt::check_hresult(ptr->QueryInterface(winrt::guid_of<To>(), winrt::put_abi(result)));
+    return result;
+}
+...
+ID2D1Factory1* com_ptr{ ... };
+auto cppwinrt_ptr {to_winrt<winrt::com_ptr<ID2D1Factory1>>(com_ptr)};
+```
+
+この次のヘルパー関数テンプレートも同等のものですが、[Windows 実装ライブラリ (WIL)](https://github.com/Microsoft/wil) のスマート ポインター型からコピーする点が異なります。
+
+```cppwinrt
+template<typename To, typename From, typename ErrorPolicy>
+To to_winrt(wil::com_ptr_t<From, ErrorPolicy> const& ptr)
+{
+    To result{ nullptr };
+    if constexpr (std::is_same_v<typename ErrorPolicy::result, void>)
+    {
+        ptr.query_to(winrt::guid_of<To>(), winrt::put_abi(result));
+    }
+    else
+    {
+        winrt::check_result(ptr.query_to(winrt::guid_of<To>(), winrt::put_abi(result)));
+    }
+    return result;
+}
+```
+
+「[C++/WinRT での COM コンポーネントの使用](/windows/uwp/cpp-and-winrt-apis/consume-com)」も参照してください。
+
+### <a name="unsafe-interop-with-abi-com-interface-pointers"></a>ABI の COM インターフェイス ポインターとの安全でない相互運用
+
+この後の表では、(他の操作に加えて) 特定の型の ABI COM インターフェイス ポインターと、それに相当する C++/WinRT 投影スマート ポインター型の間での、安全でない変換を示します。 表のコードでは、次の宣言が想定されています。
+
+```cppwinrt
+winrt::Sample s;
+ISample* p;
+
+void GetSample(_Out_ ISample** pp);
+```
+
+さらに、**ISample** は **Sample** の既定のインターフェイスとします。
+
+コンパイル時に次のコードでそれをアサートできます。
+
+```cppwinrt
+static_assert(std::is_same_v<winrt::default_interface<winrt::Sample>, winrt::ISample>);
+```
+
+| 操作 | 方法 | 説明 |
+|-|-|-|
+| **winrt::Sample** から **ISample\*** を抽出する | `p = reinterpret_cast<ISample*>(get_abi(s));` | *s* はオブジェクトをまだ所有しています。 |
+| **winrt::Sample** から **ISample\*** をデタッチする | `p = reinterpret_cast<ISample*>(detach_abi(s));` | *s* はオブジェクトを所有しなくなります。 |
+| **ISample\*** を新しい **winrt::Sample** に転送する | `winrt::Sample s{ p, winrt::take_ownership_from_abi };` | *s* はオブジェクトの所有権を取得します。 |
+| **ISample\*** を **winrt::Sample** に設定する | `*put_abi(s) = p;` | *s* はオブジェクトの所有権を取得します。 *s* によって前に所有されていたすべてのオブジェクトはリークされます (デバッグではアサートします)。 |
+| **ISample\*** を **winrt::Sample** に受け取る | `GetSample(reinterpret_cast<ISample**>(put_abi(s)));` | *s* はオブジェクトの所有権を取得します。 *s* によって前に所有されていたすべてのオブジェクトはリークされます (デバッグではアサートします)。 |
+| **winrt::Sample** 内の **ISample\*** を置き換える | `attach_abi(s, p);` | *s* はオブジェクトの所有権を取得します。 *s* によって前に所有されていたオブジェクトは解放されます。 |
+| **ISample\*** を **winrt::Sample** にコピーする | `copy_from_abi(s, p);` | *s* ではオブジェクトへの新しい参照が作成されます。 *s* によって前に所有されていたオブジェクトは解放されます。 |
+| **winrt::Sample** を **ISample\*** にコピーする | `copy_to_abi(s, reinterpret_cast<void*&>(p));` | *p* はオブジェクトのコピーを受け取ります。 *s* によって前に所有されていたすべてのオブジェクトはリークされます。 |
+
+## <a name="interoperating-with-the-abis-guid-struct"></a>ABI の GUID 構造体との相互運用
+
+[**GUID**](/previous-versions/aa373931(v%3Dvs.80)) は **winrt::guid** として投影されます。 実装する API の場合、GUID パラメーターに対して **winrt::guid** を使用する必要があります。 それ以外の場合は、C++/WinRT のヘッダーをインクルードする前に、`unknwn.h` をインクルードしている限り (<windows.h> および他の多くのヘッダー ファイルによって暗黙的にインクルードされます)、**winrt::guid** と **GUID** の間はは自動的に変換されます。
+
+それを行わない場合は、それらの間でハード `reinterpret_cast` を行うことができます。 以下の表では、次の宣言が想定されています。
+
+```cppwinrt
+winrt::guid winrtguid;
+GUID abiguid;
+```
+
+| 変換 | `#include <unknwn.h>` あり | `#include <unknwn.h>` なし |
+|-|-|-|
+| **winrt::guid** から **GUID** に | `abiguid = winrtguid;` | `abiguid = reinterpret_cast<GUID&>(winrtguid);` |
+| **GUID** から **winrt::guid** に | `winrtguid = abiguid;` | `winrtguid = reinterpret_cast<winrt::guid&>(abiguid);` |
+
+## <a name="interoperating-with-the-abis-hstring"></a>ABI の HSTRING との相互運用
+
+次の表では、**winrt::hstring** と [**HSTRING**](/windows/win32/winrt/hstring) の間の変換、およびその他の操作を示します。 表のコードでは、次の宣言が想定されています。
+
+```cppwinrt
+winrt::hstring s;
+HSTRING h;
+
+void GetString(_Out_ HSTRING* value);
+```
+
+| 操作 | 方法 | 説明 |
+|-|-|-|
+| **hstring** から **HSTRING** を抽出する | `h = static_cast<HSTRING>(get_abi(s));` | *s* は文字列をまだ所有しています。 |
+| **hstring** から **HSTRING** をデタッチする | `h = reinterpret_cast<HSTRING>(detach_abi(s));` | *s* は文字列を所有しなくなります。 |
+| **HSTRING** を **hstring** に設定する | `*put_abi(s) = h;` | *s* は文字列の所有権を取得します。 *s* によって前に所有されていたすべての文字列はリークされます (デバッグではアサートします)。 |
+| **HSTRING** を **hstring** に受け取る | `GetString(reinterpret_cast<HSTRING*>(put_abi(s)));` | *s* は文字列の所有権を取得します。 *s* によって前に所有されていたすべての文字列はリークされます (デバッグではアサートします)。 |
+| **hstring** 内の **HSTRING** を置き換える | `attach_abi(s, h);` | *s* は文字列の所有権を取得します。 *s* によって前に所有されていた文字列は解放されます。 |
+| **HSTRING** を **hstring** にコピーする | `copy_from_abi(s, h);` | *s* では文字列のプライベート コピーが作成されます。 *s* によって前に所有されていた文字列は解放されます。 |
+| **hstring** を **HSTRING** にコピーする | `copy_to_abi(s, reinterpret_cast<void*&>(h));` | *h* は文字列のコピーを受け取ります。 *h* によって前に所有されていたすべての文字列はリークされます。 |
 
 ## <a name="important-apis"></a>重要な API
 * [AddRef 関数](https://docs.microsoft.com/windows/desktop/api/unknwn/nf-unknwn-iunknown-addref)

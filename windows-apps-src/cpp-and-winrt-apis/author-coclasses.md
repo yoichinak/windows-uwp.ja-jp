@@ -6,16 +6,64 @@ ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 作成者, COM, コンポーネント
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 3badcd59155bc4bb5ef8d9e29271b853c245c24e
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 7e3101147f31f630ed6d7d23916eb675f8bc2d21
+ms.sourcegitcommit: 5d71c97b6129a4267fd8334ba2bfe9ac736394cd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66360323"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67800527"
 ---
 # <a name="author-com-components-with-cwinrt"></a>C++/WinRT での COM コンポーネントの作成
 
-[C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) は、Windows Runtime クラスを作成するのに役立つのと同様に、従来のコンポーネント オブジェクト モデル (COM) コンポーネント (またはコクラス) を作成するのに役立ちます。 ここに簡単な例を示します。この例は、新しい **Windows コンソール アプリケーション (C++/WinRT)** プロジェクトの `pch.h` と `main.cpp` にコードを貼り付けてテストすることができます。
+[C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) は、Windows Runtime クラスを作成するのに役立つのと同様に、従来のコンポーネント オブジェクト モデル (COM) コンポーネント (またはコクラス) を作成するのに役立ちます。 このトピックでは方法を説明します。
+
+## <a name="how-cwinrt-behaves-by-default-with-respect-to-com-interfaces"></a>COM インターフェイスに関する C++/WinRT の既定の動作
+
+C++/WinRT の [**winrt::implements**](/uwp/cpp-ref-for-winrt/implements) テンプレートは、ランタイム クラスとアクティベーション ファクトリの直接的または間接的な派生元です。
+
+既定では、**winrt::implements** では [**IInspectable**](/windows/win32/api/inspectable/nn-inspectable-iinspectable) ベースのインターフェイスのみがサポートされ、従来の COM インターフェイスは警告なしで無視されます。 したがって、従来の COM インターフェイスに対するすべての **QueryInterface** (QI) の呼び出しは、**E_NOINTERFACE** で失敗します。
+
+そのような状況に対処する方法は後で説明しますが、次に示すのは既定での動作を示すコード例です。
+
+```idl
+// Sample.idl
+runtimeclass Sample
+{
+    Sample();
+    void DoWork();
+}
+
+// Sample.h
+#include "pch.h"
+#include <shobjidl.h> // Needed only for this file.
+
+namespace winrt::MyProject
+{
+    struct Sample : implements<Sample, IInitializeWithWindow>
+    {
+        IFACEMETHOD(Initialize)(HWND hwnd);
+        void DoWork();
+    }
+}
+```
+
+次に示すのは、**Sample** クラスを使用するクライアントのコードです。
+
+```cppwinrt
+// Client.cpp
+Sample sample; // Construct a Sample object via its projection.
+
+// This next line crashes, because the QI for IInitializeWithWindow fails.
+sample.as<IInitializeWithWindow>()->Initialize(hwnd); 
+```
+
+さいわい、**winrt::implements** で従来の COM インターフェイスをサポートするために必要なのは、C++/WinRT のヘッダーをインクルードする前に `unknwn.h` をインクルードすることだけです。
+
+それを明示的に行うことも、`ole2.h` などの他のヘッダー ファイルをインクルードすることで間接的に行うこともできます。 推奨される 1 つの方法は、`wil\cppwinrt.h` ヘッダー ファイルをインクルードすることです。これは、[Windows 実装ライブラリ (WIL)](https://github.com/Microsoft/wil) に含まれます。 `wil\cppwinrt.h` ヘッダー ファイルを使うと、`winrt/base.h` の前に `unknwn.h` が確実にインクルードされるだけでなく、C++/WinRT と WIL が相互の例外とエラー コードを認識するように設定されます。
+
+## <a name="a-simple-example-of-a-com-component"></a>COM コンポーネントの簡単な例
+
+C++/WinRT を使って記述された COM コンポーネントの簡単な例を次に示します。 これは小さいアプリケーションの完全なリストなので、新しい **Windows コンソール アプリケーション (C++/WinRT)** プロジェクトの `pch.h` と `main.cpp` に貼り付けて、コードを作成することができます。
 
 ```cppwinrt
 // pch.h

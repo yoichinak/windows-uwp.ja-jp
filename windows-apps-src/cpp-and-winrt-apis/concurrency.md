@@ -1,16 +1,16 @@
 ---
 description: このトピックでは、C++/WinRT を使用した Windows ランタイムの非同期オブジェクトの作成方法と利用方法について説明します。
 title: C++/WinRT を使用した同時実行操作と非同期操作
-ms.date: 04/24/2019
+ms.date: 07/08/2019
 ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、同時実行、非同期、非同期、非同期操作
 ms.localizationpriority: medium
-ms.openlocfilehash: 910d7a7ca2aaebac6dd462d7104b26a989cf8814
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: cbabf38f41ae940f5c92944154638eae7016e043
+ms.sourcegitcommit: 7585bf66405b307d7ed7788d49003dc4ddba65e6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66721661"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67660097"
 ---
 # <a name="concurrency-and-asynchronous-operations-with-cwinrt"></a>C++/WinRT を使用した同時実行操作と非同期操作
 
@@ -230,12 +230,16 @@ IASyncAction DoWorkAsync(Param const& value)
 }
 ```
 
-コルーチンでは、最初の一時停止ポイントまで実行は同期であり、ここでは、コントロールは呼び出し元に返されます。 コルーチンが再開するまで、参照パラメーターが参照するソース値に何かが発生している可能性があります。 コルーチンの観点からは、参照パラメーターには管理されていない有効期間があります。 そのため、上記の例では、`co_await` まで*値*に安全にアクセスできますが、それ以降は安全ではありません。 また、その後その関数が中断し、再開した後で*値*を使用しようとするリスクがある場合、**DoOtherWorkAsync** に安全に*値*を渡すこともできません。 中断して再開した後で、パラメーターを安全に使用できるようにするには、コルーチンは既定で値渡しを使用し、値でキャプチャして有効期間の問題を回避できるようにする必要があります。 それを行うことが安全であると確信できるためにそのガイダンスから逸脱できる場合は稀です。
+コルーチンでは、最初の一時停止ポイントまで実行は同期であり、ここでは、コントロールは呼び出し元に返されます。 コルーチンが再開するまで、参照パラメーターが参照するソース値に何かが発生している可能性があります。 コルーチンの観点からは、参照パラメーターには管理されていない有効期間があります。 そのため、上記の例では、`co_await` まで*値*に安全にアクセスできますが、それ以降は安全ではありません。 呼び出し元によって "*値*" が破棄された場合、その後にコルーチン内で値にアクセスしようとすると、メモリが破損する結果になります。 また、その後その関数が中断し、再開した後で*値*を使用しようとするリスクがある場合、**DoOtherWorkAsync** に安全に*値*を渡すこともできません。
+
+中断して再開した後で、パラメーターを安全に使用できるようにするには、コルーチンでは値渡しを既定で使用し、値によってキャプチャされて有効期間の問題が回避されるようにする必要があります。 それを行うことが安全であると確信できるためにそのガイダンスから逸脱できる場合は稀です。
 
 ```cppwinrt
 // Coroutine
-IASyncAction DoWorkAsync(Param value);
+IASyncAction DoWorkAsync(Param value); // not const&
 ```
+
+値で渡すには、引数の移動またはコピーが低コストである必要があり、通常はスマート ポインターを使用します。
 
 (値を移動しない限り) 定数値を渡すことが良い方法であるということにも議論の余地があります。 コピー元のソース値に影響はありませんが、意図が明確になり、誤ってコピーを変更した場合に役立ちます。
 
@@ -245,6 +249,38 @@ IASyncAction DoWorkAsync(Param const value);
 ```
 
 非同期の呼び出し先に標準ベクターを渡す方法について説明した「[標準的な配列とベクトル](std-cpp-data-types.md#standard-arrays-and-vectors)」も参照してください。
+
+コルーチンのシグネチャを変更することはできなくても、実装は変更できる場合は、最初の `co_await` の前にローカル コピーを作成することができます。
+
+```cppwinrt
+IASyncAction DoWorkAsync(Param const& value)
+{
+    auto safe_value = value;
+    // It's ok to access both safe_value and value here.
+
+    co_await DoOtherWorkAsync();
+
+    // It's ok to access only safe_value here (not value).
+}
+```
+
+`Param` のコピーが高コストの場合は、最初の `co_await` の前に、必要な部分だけを抽出します。
+
+```cppwinrt
+IASyncAction DoWorkAsync(Param const& value)
+{
+    auto safe_data = value.data;
+    // It's ok to access safe_data, value.data, and value here.
+
+    co_await DoOtherWorkAsync();
+
+    // It's ok to access only safe_data here (not value.data, nor value).
+}
+```
+
+## <a name="safely-accessing-the-this-pointer-in-a-class-member-coroutine"></a>class-member コルーチンで *this* ポインターに安全にアクセスする
+
+「[C++/WinRT の強参照と弱参照](/windows/uwp/cpp-and-winrt-apis/weak-references#safely-accessing-the-this-pointer-in-a-class-member-coroutine)」をご覧ください。
 
 ## <a name="offloading-work-onto-the-windows-thread-pool"></a>Windows スレッド プールへの処理のオフロード
 
@@ -723,6 +759,23 @@ int main()
     // Do other work here.
 }
 ```
+
+**winrt::fire_and_forget** は、イベント ハンドラーの中で非同期操作を実行する必要があるときのイベント ハンドラーの戻り値の型としても役に立ちます。 次に例を示します (「[C++/WinRT の強参照と弱参照](/windows/uwp/cpp-and-winrt-apis/weak-references#safely-accessing-the-this-pointer-in-a-class-member-coroutine)」もご覧ください)。
+
+```cppwinrt
+winrt::fire_and_forget MyClass::MyMediaBinder_OnBinding(MediaBinder const&, MediaBindingEventArgs args)
+{
+    auto lifetime{ get_strong() }; // Prevent *this* from prematurely being destructed.
+    auto ensure_completion{ unique_deferral(args.GetDeferral()) }; // Take a deferral, and ensure that we complete it.
+
+    auto file{ co_await StorageFile::GetFileFromApplicationUriAsync(Uri(L"ms-appx:///video_file.mp4")) };
+    args.SetStorageFile(file);
+
+    // The destructor of unique_deferral completes the deferral here.
+}
+```
+
+最初の引数 (*sender*) は、使わないので名前を付けてありません。 そのため、参照のままにしても安全です。 ただし、*args* が値によって渡されていることに注意してください。 前の「[パラメーターの引き渡し](#parameter-passing)」セクションをご覧ください。
 
 ## <a name="important-apis"></a>重要な API
 * [concurrency::task クラス](/cpp/parallel/concrt/reference/task-class)

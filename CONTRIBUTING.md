@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: f8e74688d0f7048276b12680237b85663d7e2b81
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: a91c080805bca5d536aad3755ca7edf052d1fe0e
+ms.sourcegitcommit: b8087f8b6cf8367f8adb7d6db4581d9aa47b4861
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66214735"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67414057"
 ---
 # <a name="contributing-to-uwp-conceptual-documentation"></a>UWP の概念に関するドキュメントへの投稿
 
@@ -48,7 +48,7 @@ Microsoft の従業員である場合は、[プライベート コンテンツ �
 
 内部リポジトリ内でプル要求を作成する場合は、ご自分のブランチをその作成元のブランチに必ずマージしてください。
 
-ご自分のプル要求を送信すると、それは[コンテンツ品質チェックリスト](https://review.docs.microsoft.com/windows-authoring-guide/managing-contributions/editorial-checklist?branch=master)に対して評価され、Microsoft の基本的な基準を満たしているかどうかが確認されます。 パスした場合は、それは、さらなるレビューのために、UWP ドキュメント チームのメンバーに割り当てられます。 パスしなかった場合、どのような変更を加えるべきかが示されます。
+送信されたプル要求は、[PR Merger](https://review.docs.microsoft.com/help/contribute/prmerger-overview?branch=master) で評価され、Microsoft の基本的な基準を満たしているかどうかが確認されます。 パスした場合は、コメント `#sign-off` を付けて、さらなるレビューのために、UWP ドキュメント チームのメンバーに渡すことができます。 パスしなかった場合は、サインオフする前に行う必要がある変更が示されます。
 
 割り当てられたレビュー担当者は PR を承認または却下することも、あなたと協力してさらに変更を加えることもできます。 ご自分で PR を承認するまで、レビュー担当者によって PR はマージされません。
 

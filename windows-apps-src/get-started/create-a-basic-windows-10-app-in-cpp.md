@@ -1,17 +1,17 @@
 ---
 ms.assetid: DC235C16-8DAF-4078-9365-6612A10F3EC3
 title: C++/CX を使った Hello World アプリの作成 (Windows 10)
-description: Microsoft Visual Studio 2017 では、C++/CX を使って、Windows 10 (Windows 10 を実行するスマートフォンも含む) で実行されるアプリを開発できます。 これらのアプリでは、Extensible Application Markup Language (XAML) で定義された UI を使います。
+description: Microsoft Visual Studio 2019 では、C++/CX を使って、Windows 10 (Windows 10 を実行するスマートフォンも含む) で実行されるアプリを開発できます。 これらのアプリでは、Extensible Application Markup Language (XAML) で定義された UI を使います。
 ms.date: 06/11/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: cf7e2c56f7d059a164d94bd608fbb8c179d5125f
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 65436d7efd1de6e9c3649ad27b29b925bc632d95
+ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66367386"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67820657"
 ---
 # <a name="create-a-hello-world-app-in-ccx"></a>"Hello world" アプリを C++/CX で作成する
 
@@ -21,7 +21,7 @@ ms.locfileid: "66367386"
 Microsoft Visual Studio では、Extensible Application Markup Language (XAML) で定義されている UI を使い、Windows 10 で動作するアプリを C++/CX で開発できます。
 
 > [!NOTE]
-> このチュートリアルでは、Visual Studio Community 2017 を使います。 異なるバージョンの Visual Studio を使っている場合には、見た目が多少異なることがあります。
+> このチュートリアルでは、Visual Studio Community 2019 を使います。 異なるバージョンの Visual Studio を使っている場合には、見た目が多少異なることがあります。
 
 ## <a name="before-you-start"></a>開始前の作業
 
@@ -73,22 +73,15 @@ C++ を使った Windows デスクトップのプログラミングに関する�
 
 **まず Visual Studio でソリューションを作成する**
 
-1.  Visual Studio のメニュー バーから **[ファイル]**  >  **[新規作成]**  >  **[プロジェクト]** の順に選択します。
+1.  Visual Studio のメニュー バーから **[ファイル]**  >  **[新規作成]**  >  **[プロジェクト...]** の順に選択します。
 
-2.  **[新しいプロジェクト]** ダイアログ ボックスの左側のウィンドウで、 **[インストール済み]**  >  **[Visual C++]**  >  **[Windows ユニバーサル]** の順に展開します。
+2.  **[新しいプロジェクトの作成]** ダイアログ ボックスで、 **[空のアプリ (ユニバーサル Windows - C++/CX)]** を選択します。  このオプションが見つからない場合は、ユニバーサル Windows アプリ開発ツールがインストールされていることを確認します。 詳しくは、「[準備](get-set-up.md)」をご覧ください。
 
-> [!NOTE]
-> C++ での開発用に Windowsユニバーサル ツールをインストールするように求められることもあります。
+![[新しいプロジェクトの作成] ダイアログ ボックスの C++/CX プロジェクト テンプレート ](images/vs2019-uwp-01.png)
 
-3.  中央のウィンドウで、 **[空のアプリ (Windows ユニバーサル)]** テンプレートを選びます。
+3.  **[次へ]** を選択し、プロジェクトの名前を入力します。 ここでは、名前を "HelloWorld" とします。
 
-   これらのオプションが見つからない場合は、ユニバーサル Windows アプリ開発ツールがインストールされていることを確認します。 詳しくは、「[準備](get-set-up.md)」をご覧ください。
-
-4.  プロジェクトの名前を入力します。 ここでは、名前を "HelloWorld" とします。
-
- ![[新しいプロジェクト] ダイアログ ボックスの C++/CX プロジェクト テンプレート ](images/vs2017-uwp-01.png)
-
-5.  **[OK]** ボタンをクリックします。
+4.  **[作成]** を選択します。
 
 > [!NOTE]
 > Visual Studio を初めて使う場合は、[設定] ダイアログ ボックスが表示され、**開発者モード**を有効にするよう求められることがあります。 開発者モードは、アプリをストアからだけではなく、直接実行するためのアクセス許可など、特定の機能を有効にする特別な設定です。 詳しくは、「[デバイスを開発用に有効にする](enable-your-device-for-development.md)」をご覧ください。 先に進むには、 **[開発者モード]** を選択し、 **[はい]** をクリックしてダイアログ ボックスを閉じます。
