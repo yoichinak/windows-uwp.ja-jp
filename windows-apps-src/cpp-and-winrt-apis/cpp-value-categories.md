@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 移動, 転送, 値のカテゴリ, 移動セマンティクス, 完全転送, lvalue, rvalue, glvalue, prvalue, xvalue
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 1860f562233ceefa6d9ebb3741378b3265b4c3a9
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: a11d7763c33df6733a8dbf78392d27417e7cf18d
+ms.sourcegitcommit: d37a543cfd7b449116320ccfee46a95ece4c1887
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63797081"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68270207"
 ---
 # <a name="value-categories-and-references-to-them"></a>値のカテゴリと、その参照
 このトピックでは、C++ に存在する値のさまざまなカテゴリ (および値の参照) について説明します。 *lvalue* と *value* については聞いたことがあると思いますが、このトピックで説明するような観点でそれらを考えたことはないかもしれません。 また、値には他の種類もあります。
