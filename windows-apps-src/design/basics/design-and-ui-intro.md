@@ -64,7 +64,7 @@ UWP アプリは、すべてのデバイスに合わせて自動的に拡大縮�
 
 :::row:::
     :::column:::
-        When a UWP app is launched on any Windows 10 device, it launches in a [Window](/uwp/api/windows.ui.xaml.window) with a [Frame](/uwp/api/windows.ui.xaml.controls.frame), which can navigate between [Page](/uwp/api/windows.ui.xaml.controls.page) instances.
+        UWPアプリが起動される時はどのWindows 10デバイスであれ、[Window](/uwp/api/windows.ui.xaml.window)に[Frame](/uwp/api/windows.ui.xaml.controls.frame)が付いて、[Page](/uwp/api/windows.ui.xaml.controls.page)のインスタンス間をナビゲーションできるよう起動します。
     :::column-end:::
     :::column:::
         ![Frame](images/frame.svg)
@@ -73,9 +73,9 @@ UWP アプリは、すべてのデバイスに合わせて自動的に拡大縮�
 
 :::row:::
     :::column:::
-        You can think of your app's UI as a collection of pages. It's up to you to decide what should go on each page, and the relationships between pages.
+        アプリのUIはページの集合体であると捉えることができます。各ページで起きるべきことやページ間の関係性はあなたが決めることができます。
 
-        To learn how you can organize your pages, see [Navigation basics](navigation-basics.md).
+        ページの設計について詳しくは、[UWP アプリのナビゲーション デザインの基本](navigation-basics.md)を参照してください。
     :::column-end:::
     :::column:::
         ![Frame](images/collection-pages.svg)
