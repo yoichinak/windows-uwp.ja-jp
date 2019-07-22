@@ -176,7 +176,7 @@ API をホストしている UWP XAML を使用して、アプリケーション
 
 各 XAML Island のキーボード入力を正しく処理するには、アプリケーションは特定のメッセージを正しく処理できるように、UWP XAML フレームワークにすべての Windows メッセージを渡す必要があります。 これを行うには、メッセージ ループにアクセスできるアプリケーション内のある場所で、各 XAML Islandの **DesktopWindowXamlSource** オブジェクトを **IDesktopWindowXamlSourceNative2** COM インターフェイスにキャストします。 次に、このインターフェイスの **PreTranslateMessage** メソッドを呼び出して現在のメッセージを渡します。
 
-  * A C++ Win32 アプリケーションで呼び出すことができます**PreTranslateMessage**メイン メッセージ ループで直接します。 例については、次を参照してください。、 [SampleApp.cpp](https://github.com/marb2000/XamlIslands/blob/master/19H1_Insider_Samples/CppWin32App_With_Island/SampleCppApp/SampleApp.cpp#L61)でコード ファイル、 [ C++ Win32 サンプル](https://github.com/marb2000/XamlIslands/tree/master/19H1_Insider_Samples/CppWin32App_With_Island)します。
+  * C++ Win32 アプリケーションは、メイン メッセージ ループ内で **PreTranslateMessage** を直接呼び出すことができます。 例については、[C++ Win32 サンプル](https://github.com/marb2000/XamlIslands/tree/master/19H1_Insider_Samples/CppWin32App_With_Island) の [SampleApp.cpp](https://github.com/marb2000/XamlIslands/blob/master/19H1_Insider_Samples/CppWin32App_With_Island/SampleCppApp/SampleApp.cpp#L61) コード ファイルを参照してください。
 
   * WPF アプリケーションを呼び出すことができます**PreTranslateMessage**のイベント ハンドラーから、 [ **ComponentDispatcher.ThreadFilterMessage** ](https://docs.microsoft.com/dotnet/api/system.windows.interop.componentdispatcher.threadfiltermessage?view=netframework-4.7.2)イベント。 例については、次を参照してください。、 [WindowsXamlHostBase.Focus.cs](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/blob/master/Microsoft.Toolkit.Wpf.UI.XamlHost/WindowsXamlHostBase.Focus.cs#L177) Windows コミュニティのツールキットでのファイル。
 
@@ -202,7 +202,7 @@ API をホストしている UWP XAML では、これらのタスクを達成す
 
 ユーザーが親の UI 要素のサイズを変更した UWP コントロールが期待どおりに表示していることを確認するために必要なレイアウト変更を処理する必要があります。 考慮すべき重要なシナリオを以下に示します。
 
-* C++ Win32 アプリケーション、アプリケーションを使用してホストされている XAML 島を再配置できますが、WM_SIZE メッセージを処理する際に、 [SetWindowPos](https://docs.microsoft.com/windows/desktop/api/winuser/nf-winuser-setwindowpos)関数。 例については、次を参照してください。、 [SampleApp.cpp](https://github.com/marb2000/XamlIslands/blob/master/19H1_Insider_Samples/CppWin32App_With_Island/SampleCppApp/SampleApp.cpp#L191)でコード ファイル、 [ C++ Win32 サンプル](https://github.com/marb2000/XamlIslands/tree/master/19H1_Insider_Samples/CppWin32App_With_Island)します。
+* C++ Win32 アプリケーションでは、アプリケーションが WM_SIZE メッセージを処理する際に、[SetWindowPos](https://docs.microsoft.com/windows/desktop/api/winuser/nf-winuser-setwindowpos) 関数を使用してホストされている XAML Island を再配置できます。 例については、[C++ Win32 サンプル](https://github.com/marb2000/XamlIslands/tree/master/19H1_Insider_Samples/CppWin32App_With_Island) の [SampleApp.cpp](https://github.com/marb2000/XamlIslands/blob/master/19H1_Insider_Samples/CppWin32App_With_Island/SampleCppApp/SampleApp.cpp#L191) コード ファイルを参照してください。
 
 * 親の UI 要素が収まる四角形領域のサイズを取得する必要がある場合、 **Windows.UI.Xaml.UIElement**でホストしている、 **DesktopWindowXamlSource**を呼び出し、 [**メジャー** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.measure)のメソッド、 **Windows.UI.Xaml.UIElement**します。 次に、例を示します。
 
