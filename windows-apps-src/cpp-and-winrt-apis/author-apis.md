@@ -444,17 +444,17 @@ MySpecializedToggleButtonAutomationPeer::MySpecializedToggleButtonAutomationPeer
 |機能|受け入れられる型|説明|
 |-|-|-|
 |`T` (スマート ポインターを表す)|投影|誤った実装型の使用については、「[名前空間: 投影型、実装型、ファクトリ](#namespaces-projected-types-implementation-types-and-factories)」の注意をご覧ください。|
-|`agile_ref<T>`|どちらもオン|実装型を使う場合は、コンストラクターの引数を `com_ptr<T>` にする必要があります。|
+|`agile_ref<T>`|Both|実装型を使う場合は、コンストラクターの引数を `com_ptr<T>` にする必要があります。|
 |`com_ptr<T>`|実装|投影型を使うと、次のエラーが発生します: `'Release' is not a member of 'T'`。|
-|`default_interface<T>`|どちらもオン|実装型を使った場合、最初に実装されたインターフェイスが返されます。|
+|`default_interface<T>`|Both|実装型を使った場合、最初に実装されたインターフェイスが返されます。|
 |`get_self<T>`|実装|投影型を使うと、次のエラーが発生します: `'_abi_TrustLevel': is not a member of 'T'`。|
-|`guid_of<T>()`|どちらもオン|既定のインターフェイスの GUID が返されます。|
+|`guid_of<T>()`|Both|既定のインターフェイスの GUID が返されます。|
 |`IWinRTTemplateInterface<T>`<br>|投影|実装型を使ってもコンパイルされますが、それは誤りです。「[名前空間: 投影型、実装型、ファクトリ](#namespaces-projected-types-implementation-types-and-factories)」の注意をご覧ください。|
 |`make<T>`|実装|投影型を使うと、次のエラーが発生します: `'implements_type': is not a member of any direct or indirect base class of 'T'`|
-| `make_agile(T const&amp;)`|どちらもオン|実装型を使う場合は、引数を `com_ptr<T>` にする必要があります。|
+| `make_agile(T const&amp;)`|Both|実装型を使う場合は、引数を `com_ptr<T>` にする必要があります。|
 | `make_self<T>`|実装|投影型を使うと、次のエラーが発生します: `'Release': is not a member of any direct or indirect base class of 'T'`|
 | `name_of<T>`|投影|実装型を使った場合、既定のインターフェイスの文字列化された GUID が返されます。|
-| `weak_ref<T>`|どちらもオン|実装型を使う場合は、コンストラクターの引数を `com_ptr<T>` にする必要があります。|
+| `weak_ref<T>`|Both|実装型を使う場合は、コンストラクターの引数を `com_ptr<T>` にする必要があります。|
 
 ## <a name="important-apis"></a>重要な API
 * [winrt::com_ptr 構造体テンプレート](/uwp/cpp-ref-for-winrt/com-ptr)

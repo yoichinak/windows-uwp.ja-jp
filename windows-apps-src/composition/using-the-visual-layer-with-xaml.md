@@ -6,17 +6,17 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 4d118633d9d0d9b7007c94ec4d5053db34b09e29
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: c11a812aaa62e9fa4d27fddc1d55739fe491bd20
+ms.sourcegitcommit: 04683376dbdbff987601f546f058748442170068
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67318044"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68340846"
 ---
 # <a name="using-the-visual-layer-with-xaml"></a>XAML でのビジュアル レイヤーの使用
 
 ビジュアル レイヤーの機能を利用するほとんどのアプリは、XAML を使用して、メイン UI コンテンツを定義します。 Windows 10 Anniversary Update では、XAML フレームワークやビジュアル レイヤーの新しい機能を利用し、これら 2 つのテクノロジを組み合わせて、魅力的なユーザー エクスペリエンスを簡単に作成することができます。
-XAML とビジュアル レイヤーの相互運用機能を使用すると、XAML API 単独では実現できない、高度なアニメーションや効果を作成できます。 たとえば、次のようなアニメーションや効果を作成できます。
+XAML とビジュアル レイヤーの相互運用機能を使用すると、XAML API 単独では実現できない、高度なアニメーションや効果を作成できます。 この機能には、次が含まれます。
 
 - ぼかしやすりガラスなどのブラシ効果
 - 動的な照明効果
@@ -25,7 +25,7 @@ XAML とビジュアル レイヤーの相互運用機能を使用すると、XA
 - ピクセル パーフェクトなドロップ シャドウ
 
 これらの効果やアニメーションは既存の XAML コンテンツに適用できます。このため、新しい機能を活用するために、XAML アプリを大幅に再構成する必要はありません。
-レイアウト アニメーション、シャドウ、ぼかし効果については、以下の「レシピ」セクションで説明しています。 視差効果を実装するコード サンプルについては、[ParallaxingListItems のサンプル](https://github.com/microsoft/WindowsCompositionSamples/tree/master/SampleGallery/Samples/SDK 10586/ParallaxingListItems)をご覧ください。 [WindowsUIDevLabs リポジトリ](https://github.com/microsoft/WindowsCompositionSamples)にも、アニメーション、シャドウ、効果を実装するためのサンプルがいくつかあります。
+レイアウト アニメーション、シャドウ、ぼかし効果については、以下の「レシピ」セクションで説明しています。 視差効果を実装するコード サンプルについては、[ParallaxingListItems のサンプル](https://github.com/microsoft/WindowsCompositionSamples/tree/master/SampleGallery/Samples/SDK%2010586/ParallaxingListItems)をご覧ください。 [WindowsUIDevLabs リポジトリ](https://github.com/microsoft/WindowsCompositionSamples)にも、アニメーション、シャドウ、効果を実装するためのサンプルがいくつかあります。
 
 ## <a name="the-xamlcompositionbrushbase-class"></a>XamlCompositionBrushBase クラス
 
@@ -45,12 +45,12 @@ XAML UI 要素の照明など、ライトの使い方について詳しくは、
 
 ## <a name="the-elementcompositionpreview-class"></a>ElementCompositionPreview クラス
 
-[**ElementCompositionPreview** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.elementcompositionpreview)は XAML とビジュアル層の相互運用機能を提供する静的クラスです。 ビジュアル レイヤーとその機能の概要については、「[ビジュアル レイヤー](https://docs.microsoft.com/windows/uwp/graphics/visual-layer)」をご覧ください。 **ElementCompositionPreview** クラスには、次のメソッドが用意されています。
+[**ElementCompositionPreview**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.elementcompositionpreview)は、XAML とビジュアル層の相互運用機能を提供する静的クラスです。 ビジュアル レイヤーとその機能の概要については、「[ビジュアル レイヤー](https://docs.microsoft.com/windows/uwp/graphics/visual-layer)」をご覧ください。 **ElementCompositionPreview** クラスには、次のメソッドが用意されています。
 
--   [**GetElementVisual**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.elementcompositionpreview.getelementvisual):この要素を表示するために使用される Visual「配布資料」を取得します。
--   [**SetElementChildVisual**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.elementcompositionpreview.setelementchildvisual):"Handin"最後の子としてのビジュアルのこの要素のビジュアル ツリーを設定します。 この Visual は、他の要素の上に描画されます。 
--   [**GetElementChildVisual**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.elementcompositionpreview.getelementvisual):ビジュアルのセットを使用して取得**SetElementChildVisual**
--   [**GetScrollViewerManipulationPropertySet**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.elementcompositionpreview.getelementvisual):スクロールのオフセットに基づく 60 fps のアニメーションを作成するために使用できるオブジェクトを取得、 **ScrollViewer**
+-   [**GetElementVisual**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.elementcompositionpreview.getelementvisual):この要素のレンダリングに使用される "配付資料" ビジュアルを取得します
+-   [**Setelementchildvisual**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.elementcompositionpreview.setelementchildvisual):この要素のビジュアルツリーの最後の子として "アドイン" ビジュアルを設定します。 この Visual は、他の要素の上に描画されます。 
+-   [**GetElementChildVisual**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.elementcompositionpreview.getelementvisual):**Setelementchildvisual**を使用してビジュアルセットを取得する
+-   [**GetScrollViewerManipulationPropertySet**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.elementcompositionpreview.getelementvisual):**ScrollViewer**内のスクロールオフセットに基づいて60fps アニメーションを作成するために使用できるオブジェクトを取得します。
 
 ## <a name="remarks-on-elementcompositionpreviewgetelementvisual"></a>ElementCompositionPreview.GetElementVisual の解説
 
@@ -96,7 +96,7 @@ ElementCompositionPreview.GetElementVisual(MyImage).StartAnimation("Offset", par
 
 ## <a name="getalphamask-methods"></a>**GetAlphaMask** メソッド
 
-[**イメージ**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Image)、 [ **TextBlock**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock)、および[**図形**](/uwp/api/Windows.UI.Xaml.Shapes.Shape)と呼ばれるメソッドを実装する各**GetAlphaMask**を返す、 **CompositionBrush**要素の形状を持つ、グレースケール イメージを表します。 この **CompositionBrush** は、コンポジション **DropShadow** の入力として使用できます。そのため、シャドウでは、四角形ではなく要素の形状を反映することができます。 これにより、テキスト、アルファを含む画像、図形に対して、ピクセル パーフェクトで輪郭ベースのシャドウを使用することができます。 この API の例については、以下の「*ドロップ シャドウ*」をご覧ください。
+[**Image**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Image)、 [**TextBlock**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock)、 [**shape**](/uwp/api/Windows.UI.Xaml.Shapes.Shape)はそれぞれ、 **GetAlphaMask**という名前のメソッドを実装します。このメソッドは、要素の形状を持つグレースケールイメージを表す**CompositionBrush**を返します。 この **CompositionBrush** は、コンポジション **DropShadow** の入力として使用できます。そのため、シャドウでは、四角形ではなく要素の形状を反映することができます。 これにより、テキスト、アルファを含む画像、図形に対して、ピクセル パーフェクトで輪郭ベースのシャドウを使用することができます。 この API の例については、以下の「*ドロップ シャドウ*」をご覧ください。
 
 ## <a name="recipes"></a>レシピ
 
@@ -362,8 +362,8 @@ private void InitializeFrostedGlass(UIElement glassHost)
 
 ## <a name="additional-resources"></a>その他のリソース
 
-- [ビジュアル層の概要](https://docs.microsoft.com/windows/uwp/composition/visual-layer)
+- [ビジュアルレイヤーの概要](https://docs.microsoft.com/windows/uwp/composition/visual-layer)
 - [**ElementCompositionPreview**クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Hosting.ElementCompositionPreview)
 - [WindowsUIDevLabs GitHub](https://github.com/microsoft/WindowsCompositionSamples) にある高度な UI とコンポジションのサンプル
-- [BasicXamlInterop サンプル](https://github.com/microsoft/WindowsCompositionSamples/tree/master/SampleGallery/Samples/SDK 10586/BasicXamlInterop)
-- [ParallaxingListItems サンプル](https://github.com/microsoft/WindowsCompositionSamples/tree/master/SampleGallery/Samples/SDK 10586/ParallaxingListItems)
+- [BasicXamlInterop サンプル](https://github.com/microsoft/WindowsCompositionSamples/tree/master/SampleGallery/Samples/SDK%2010586/BasicXamlInterop)
+- [ParallaxingListItems サンプル](https://github.com/microsoft/WindowsCompositionSamples/tree/master/SampleGallery/Samples/SDK%2010586/ParallaxingListItems)

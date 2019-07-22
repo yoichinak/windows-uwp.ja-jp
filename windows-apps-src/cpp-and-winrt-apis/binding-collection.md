@@ -5,12 +5,12 @@ ms.date: 04/24/2019
 ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、XAML、コントロール、バインド、コレクション
 ms.localizationpriority: medium
-ms.openlocfilehash: 999238d72017b92f1eb64c2e3089305166f993f2
-ms.sourcegitcommit: bf32c7ea6ca94b60dbd01cae279b31c6e0e5f338
+ms.openlocfilehash: 258ec5e0690753c8ad9c3b0648867666397039a5
+ms.sourcegitcommit: d37a543cfd7b449116320ccfee46a95ece4c1887
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67348641"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68270173"
 ---
 # <a name="xaml-items-controls-bind-to-a-cwinrt-collection"></a>XAML アイテム コントロール: C++/WinRT コレクションへのバインド
 
