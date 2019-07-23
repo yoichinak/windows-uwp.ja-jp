@@ -18,7 +18,7 @@ ms.locfileid: "66371735"
 
 
 
-アプリから Windows マップ アプリを起動する方法について説明します。 このトピックで説明、**bingmaps: *ms でドライブを:、ms-チュートリアル-を:* * と**ms 設定。** Uniform Resource Identifier (URI) スキーム。 これらの URI スキームを使って、Windows マップ アプリを起動し、特定の地図、ルート案内、検索結果を表示したり、設定アプリから Windows マップ オフライン マップをダウンロードしたりします。
+アプリから Windows マップ アプリを起動する方法について説明します。 このトピックで説明、**bingmaps: *ms でドライブを:、ms-チュートリアル-を:** と**ms 設定。** Uniform Resource Identifier (URI) スキーム。 これらの URI スキームを使って、Windows マップ アプリを起動し、特定の地図、ルート案内、検索結果を表示したり、設定アプリから Windows マップ オフライン マップをダウンロードしたりします。
 
 **ヒント** アプリから Windows マップ アプリを起動する方法について詳しくは、GitHub の [Windows-universal-samples リポジトリ](https://go.microsoft.com/fwlink/p/?LinkId=619979)から[ユニバーサル Windows プラットフォーム (UWP) の地図サンプル](https://go.microsoft.com/fwlink/p/?LinkId=619977)をダウンロードしてください。
 
@@ -28,7 +28,7 @@ URI スキームを使うと、ハイパーリンクのクリックによって 
 
 -   **Bingmaps:** URI は、場所、検索結果、方向、およびトラフィックのマップを提供します。
 -   **Ms-ドライブ-します。** URI は、現在の場所から有効にする-めくり、道案内情報を提供します。
--   **Ms-チュートリアル-します。** URI、現在の場所から有効にする-めくり、徒歩方法をについて説明します。
+-   **ms-walk-to:** URI、現在の場所から有効にする-めくり、徒歩方法をについて説明します。
 
 たとえば、次の URI は、Windows マップ アプリを開き、ニューヨークを中心とした地図を表示します。
 
@@ -51,7 +51,7 @@ URI スキームについて次に説明します。
 ## <a name="launch-a-uri-from-your-app"></a>アプリからの URI の起動
 
 
-アプリから Windows マップ アプリを起動するには、呼び出し、 [ **LaunchUriAsync** ](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchuriasync)メソッドを**bingmaps:** 、 **ms でドライブを:** 、または**ms-チュートリアル-します。** URI。 次の例では、前の例と同じ URI を起動します。 URI によるアプリの起動について詳しくは、「[URI に応じた既定のアプリの起動](launch-default-app.md)」をご覧ください。
+アプリから Windows マップ アプリを起動するには、呼び出し、 [ **LaunchUriAsync** ](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchuriasync)メソッドを**bingmaps:** 、 **ms-drive-to:** 、または**ms-walk-to:** URI。 次の例では、前の例と同じ URI を起動します。 URI によるアプリの起動について詳しくは、「[URI に応じた既定のアプリの起動](launch-default-app.md)」をご覧ください。
 
 ```cs
 // Center on New York City
@@ -136,9 +136,9 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriNewYork, launcherO
 ## <a name="display-turn-by-turn-directions"></a>ターン バイ ターン方式のルート案内の表示
 
 
-**Ms でドライブを:** と**ms-チュートリアル-します。** URI スキームを使用して、ルートを有効にする-めくりによってビューに直接起動できます。 これらの URI スキームでは、ユーザーの現在の場所からのルート案内のみを提供できます。 場合は、ユーザーの現在の場所が含まれていない点の間の方向を指定する必要がありますを使用して、 **bingmaps:** URI のスキーム、前のセクションで説明されているとします。 これらの URI スキームについて詳しくは、[ms-drive-to:](#ms-drive-to-param-reference) と [ms-walk-to:](#ms-walk-to-param-reference) のパラメーター リファレンスをご覧ください。
+**ms-drive-to:** と**ms-walk-to:** URI スキームを使用して、ルートを有効にする-めくりによってビューに直接起動できます。 これらの URI スキームでは、ユーザーの現在の場所からのルート案内のみを提供できます。 場合は、ユーザーの現在の場所が含まれていない点の間の方向を指定する必要がありますを使用して、 **bingmaps:** URI のスキーム、前のセクションで説明されているとします。 これらの URI スキームについて詳しくは、[ms-drive-to:](#ms-drive-to-param-reference) と [ms-walk-to:](#ms-walk-to-param-reference) のパラメーター リファレンスをご覧ください。
 
-> **重要な**ときに、 **ms でドライブを:** または**ms-チュートリアル-します。** URI スキームを開始すると、マップ アプリは、かどうか、デバイスが修正 GPS の位置をしたかを確認します。 行われたことがある場合は、ターン バイ ターン方式のルート案内に進みます。 行われたことがない場合は、「[ルート案内と交通情報の表示](#display-directions-and-traffic)」で説明したルートの概要を表示します。
+> **重要な**ときに、 **ms-drive-to:** または**ms-walk-to:** URI スキームを開始すると、マップ アプリは、かどうか、デバイスが修正 GPS の位置をしたかを確認します。 行われたことがある場合は、ターン バイ ターン方式のルート案内に進みます。 行われたことがない場合は、「[ルート案内と交通情報の表示](#display-directions-and-traffic)」で説明したルートの概要を表示します。
 
 ![ターン バイ ターン方式のルート案内の例](images/windowsmapsappdirections.png)
 
