@@ -9,12 +9,12 @@ ms.topic: hub-page
 title: Windows に関するドキュメント
 description: Windows ソリューションの構築とメンテナンスに役立つ、開発者、ハードウェア、および IT 技術者向けのドキュメントを検索します。
 localizationpriority: medium
-ms.openlocfilehash: a58310793dd43f3c1970ced7d9365690670bb6a2
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 8bd9a7e4e9575c725830481339438912af193ee3
+ms.sourcegitcommit: afb5157ec4bcb6588ac4cf74352688b30ed32257
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67317717"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68349195"
 ---
 <div id="main" class="v2">
   <div class="container">
@@ -222,7 +222,49 @@ ms.locfileid: "67317717"
                                 </div>
                             </a>
                         </li>
-                       <li>
+                        <li>
+                            <div class="container">
+                                <p>Windows でビルドする</p>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="/windows/python/index">
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage bgdAccent1">
+                                                    <img data-scaleimage="/media/hubs/windows/win_developer-uwp.svg?branch=master" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>Python を使った開発</h3>
+                                                <p>クロスプラットフォームの Web アプリを構築する場合でも、スクリプトを使用して一般的なタスクを自動化する場合でも、初めて Python を学習する教育環境にいる場合でも、Windows 上で Python を使用して開発するために必要なすべてのものをセットアップできるようにお手伝いします。</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <!-- <li>
+                            <a href="/windows/nodejs/index">
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage bgdAccent1">
+                                                    <img data-scaleimage="/media/hubs/windows/win_developer-desktop.svg?branch=master" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>Develop with NodeJS<</h3>
+                                                <p>If you love JavaScript and want to build a quick web app with Express, a server-side app with Meteor, a data-heavy enterprise app with Sails, a desktop app with Electron, or an online multi-player game with Socket.io, we'll help you get set up to develop using Node.js on Windows.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li> -->
                     </ul>
                 </li>
             </ul>
@@ -376,7 +418,7 @@ ms.locfileid: "67317717"
             </ul>
         </li>
         <li>
-            <a href="#it-pro">IT プロフェッショナル</a>
+            <a href="#it-pro">IT 技術者</a>
             <ul id="it-pro">
                 <li>
                     <a href="#it-pro1"></a>

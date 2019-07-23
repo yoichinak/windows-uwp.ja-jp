@@ -1,6 +1,7 @@
 - name: Windows 向けアプリの構築
-  href: apps/index.md
   items:
+    - name: 概要
+      href: apps/index.md
     - name: デスクトップ アプリの構築
       items:
         - name: 概要
@@ -63,3 +64,19 @@
       href: apps/accessibility.md
     - name: 機能とテクノロジ
       href: apps/features-and-technologies.md
+- name: Windows でビルドする
+  items:
+    - name: Python を使った開発
+      items:
+        - name: 概要
+          href: python/index.md
+        - name: 初心者向けスタートアップ ガイド
+          href: python/get-started/python-for-education.md
+        - name: Web 開発の概要
+          href: python/get-started/python-for-web.md
+        - name: 自動化の概要
+          href: python/get-started/python-for-scripting.md
+        - name: よく寄せられる質問
+          href: python/faqs.md
+        - name: 参考資料
+          href: python/resources.md
