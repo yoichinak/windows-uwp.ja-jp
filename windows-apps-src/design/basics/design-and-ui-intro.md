@@ -47,9 +47,9 @@ UWP は、すべてのデバイスと画面サイズで読みやすく、操作�
 
 :::row:::
     :::column span:::
-        The sizes, margins, and positions of UI elements should always be in **multiples of 4 epx** in your UWP apps.
+        UWPアプリでは、サイズ・マージン・位置は常に **4 epxの倍数** になるようにしてください。
 
-        UWP scales across a range of devices with scaling plateaus of 100%, 125%, 150%, 175%, 200%, 225%, 250%, 300%, 350%, and 400%. The base unit is 4 because it's the only integer that can be scaled by non-whole numbers (e.g. 4*1.5 = 6). Using multiples of four aligns all UI elements with whole pixels and ensures UI elements have crisp, sharp edges. (Note that text doesn't have this requirement; text can have any size and position.)
+        UWPは 100%, 125%, 150%, 175%, 200%, 225%, 250%, 300%, 350%, 400%といったスケールを持つデバイスを横断的にスケーリングします。基本単位が 4 なのは、自然数ではない数字でもスケーリングできる唯一の整数だからです(例：4 × 1.5 = 6)。4 の倍数を使うことは、すべてのUI要素がピクセル全体に揃えられ、UI要素が明快でシャープな輪郭を持つことを保証します。（テキストにこの要件はありません。テキストには任意のサイズと位置を指定できます）
     :::column-end:::
     :::column:::
         ![grid](images/4epx.svg)
