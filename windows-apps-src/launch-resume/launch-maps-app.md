@@ -18,7 +18,7 @@ ms.locfileid: "66371735"
 
 
 
-アプリから Windows マップ アプリを起動する方法について説明します。 このトピックで説明、**bingmaps: *ms でドライブを:、ms-チュートリアル-を:** と**ms 設定。** Uniform Resource Identifier (URI) スキーム。 これらの URI スキームを使って、Windows マップ アプリを起動し、特定の地図、ルート案内、検索結果を表示したり、設定アプリから Windows マップ オフライン マップをダウンロードしたりします。
+アプリから Windows マップ アプリを起動する方法について説明します。 このトピックで説明、**bingmaps: *ms-drive-to:、ms-walk-to:** と**ms-settings:** Uniform Resource Identifier (URI) スキーム。 これらの URI スキームを使って、Windows マップ アプリを起動し、特定の地図、ルート案内、検索結果を表示したり、設定アプリから Windows マップ オフライン マップをダウンロードしたりします。
 
 **ヒント** アプリから Windows マップ アプリを起動する方法について詳しくは、GitHub の [Windows-universal-samples リポジトリ](https://go.microsoft.com/fwlink/p/?LinkId=619979)から[ユニバーサル Windows プラットフォーム (UWP) の地図サンプル](https://go.microsoft.com/fwlink/p/?LinkId=619977)をダウンロードしてください。
 
@@ -27,7 +27,7 @@ ms.locfileid: "66371735"
 URI スキームを使うと、ハイパーリンクのクリックによって (またはアプリでプログラム的に) アプリを開くことができます。 **mailto:** を使って新しいメールの作成を開始したり、**http:** を使って既定の Web ブラウザーを開いたりできるのと同様に、**bingmaps:** 、**ms-drive-to:** 、**ms-walk-to:** を使って Windows マップ アプリを開くことができます。
 
 -   **Bingmaps:** URI は、場所、検索結果、方向、およびトラフィックのマップを提供します。
--   **Ms-ドライブ-します。** URI は、現在の場所から有効にする-めくり、道案内情報を提供します。
+-   **ms-drive-to:** URI は、現在の場所から有効にする-めくり、道案内情報を提供します。
 -   **ms-walk-to:** URI、現在の場所から有効にする-めくり、徒歩方法をについて説明します。
 
 たとえば、次の URI は、Windows マップ アプリを開き、ニューヨークを中心とした地図を表示します。
@@ -410,7 +410,7 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriNewYork, launcherO
 
 ## <a name="ms-settings-parameter-reference"></a>ms-settings: のパラメーター リファレンス
 
-構文は、アプリの特定のパラメーターのマップ、 **ms 設定。** URI スキームは、以下に定義されます。 **マップ downloadmaps**と共に指定、 **ms 設定。** URI の形式で**ms-設定: マップ-downloadmaps でしょうか。** をオフライン マップの設定 ページを示します。 
+構文は、アプリの特定のパラメーターのマップ、 ms-settings:** URI スキームは、以下に定義されます。 **maps-downloadmaps**と共に指定、 **ms-settings:** URI の形式で**ms-settings:maps-downloadmaps?** をオフライン マップの設定 ページを示します。 
 
 | パラメーター | 定義 | 例 | 詳細 |
 |-----------|------------|---------|----------|
