@@ -10,12 +10,12 @@ ms.technology: hub
 keywords: python, microsoft, windows 10, チュートリアル, オンラインコース, ブログ, イベント
 ms.localizationpriority: medium
 ms.date: 07/19/2019
-ms.openlocfilehash: ffcb2b280077d96b0405691976e04fc82959cf4c
-ms.sourcegitcommit: afb5157ec4bcb6588ac4cf74352688b30ed32257
+ms.openlocfilehash: a987043735dd433288fd53090cf3623b035fad7d
+ms.sourcegitcommit: 210034519678ba1a59744bc3a0b613b000921537
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68349442"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68473634"
 ---
 # <a name="resources-for-developing-with-python-on-windows"></a>Windows での Python を使用した開発に関するリソース
 
@@ -24,6 +24,8 @@ Windows 10 を実行するコンピューターで動作する Python 開発者�
 ## <a name="general"></a>全般
 
 - [Microsoft 開発者向けブログ:Python](https://devblogs.microsoft.com/python/):Microsoft のすべての Python に関する最新の更新プログラムをお読みください。
+
+- [WSL と Visual Studio Code を使用した Windows での Linux 開発に関する詳細なチュートリアル](https://devblogs.microsoft.com/commandline/an-in-depth-tutorial-on-linux-development-on-windows-with-wsl-and-visual-studio-code/):Dev 環境を設定し、Python アプリを作成して、いくつかのデバッグを実行する方法のチュートリアルです。
 
 - [Windows での Python の使用](https://docs.python.org/3/using/windows.html):この Python.org のドキュメントでは、Microsoft Windows で Python を使用するときに理解しておく必要がある Windows 固有の動作の概要を説明します。
 

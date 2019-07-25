@@ -10,12 +10,12 @@ ms.technology: hub
 keywords: python、windows 10、microsoft、python システム管理、python ファイルオートメーション、windows 上の python スクリプト、windows での python 開発環境、windows 上の python 開発環境、windows 上の python 開発環境、powershell を使用した python、python スクリプトファイルシステムタスク
 ms.localizationpriority: medium
 ms.date: 07/19/2019
-ms.openlocfilehash: 0571d442d17cdac8989df10d7c11f3e762ab6fb6
-ms.sourcegitcommit: afb5157ec4bcb6588ac4cf74352688b30ed32257
+ms.openlocfilehash: b34bf61f4ce4d2157df572cfbbc9337fced6cf2f
+ms.sourcegitcommit: 210034519678ba1a59744bc3a0b613b000921537
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68349433"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68473665"
 ---
 # <a name="get-started-using-python-on-windows-for-scripting-and-automation"></a>Windows での Python を使用したスクリプト作成と自動化の概要
 
@@ -23,10 +23,9 @@ ms.locfileid: "68349433"
 
 ## <a name="set-up-your-development-environment"></a>開発環境の設定
 
-Python を使用してファイルシステム操作を実行するスクリプトを記述する場合[は、Microsoft Store から python をインストール](https://www.microsoft.com/en-us/p/python-37/9nj46sx7x90p?activetab=pivot:overviewtab)することをお勧めします。 
+Python を使用してファイルシステム操作を実行するスクリプトを記述する場合[は、Microsoft Store から python をインストール](https://www.microsoft.com/en-us/p/python-37/9nj46sx7x90p?activetab=pivot:overviewtab)することをお勧めします。 Microsoft Store を介してをインストールすると、基本的な Python3 インタープリターが使用されますが、自動更新を提供するだけでなく、現在のユーザーのパス設定 (管理者アクセス権の必要性を回避する) の設定が処理されます。
 
-> [!IMPORTANT]
-> Windows で**web 開発**用に Python を使用している場合は、開発環境用に別の設定を行うことをお勧めします。 Windows に直接インストールするのではなく、Windows Subsystem for Linux を使用して Python をインストールします。 このガイドのチュートリアルを検索します。[Windows での web 開発用の Python の使用を開始](./python-for-web.md)します。 Python を初めて使用する場合は、次のガイドをお試しください。[初心者向け Windows での Python の使用を開始しましょう](./python-for-education.md)。 <br>一部の高度なシナリオでは、 [python.org](https://www.python.org/downloads/windows/)から特定の Python リリースを直接ダウンロードすることを検討するか、Anaconda、Jython、PyPy、Winpython、IronPython などの[代替](https://www.python.org/download/alternatives)のインストールを検討することをお勧めします。これは、別の実装を選択する具体的な理由を持つより高度な Python プログラマの場合にのみお勧めします。
+Windows での**web 開発**に Python を使用している場合は、windows Subsystem for Linux を使用して別のセットアップを行うことをお勧めします。 このガイドのチュートリアルを検索します。[Windows での web 開発用の Python の使用を開始](./python-for-web.md)します。 Python を初めて使用する場合は、次のガイドをお試しください。[初心者向け Windows での Python の使用を開始しましょう](./python-for-education.md)。 いくつかの高度なシナリオ (Python のインストールされたファイルにアクセスして変更する、バイナリのコピーを作成する、Python Dll を直接使用するなど) については、 [python.org](https://www.python.org/downloads/)から特定の Python リリースを直接ダウンロードすることを検討するか、インストールを検討することをお勧めします。Anaconda、Jython、PyPy、WinPython、IronPython などの[代替手段](https://www.python.org/download/alternatives)。これは、別の実装を選択する具体的な理由を持つより高度な Python プログラマの場合にのみお勧めします。
 
 ## <a name="install-python"></a>Python をインストールする
 
