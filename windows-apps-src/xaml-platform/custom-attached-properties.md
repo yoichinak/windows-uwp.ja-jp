@@ -209,7 +209,7 @@ GameService::RegisterDependencyProperties() {
 ## <a name="setting-your-custom-attached-property-from-xaml-markup"></a>XAML マークアップからカスタム添付プロパティの設定
 
 > [!NOTE]
-> C + を使用している場合/cli WinRT をクリックし、次のセクションに進みます ([強制的に、カスタム添付プロパティを設定するには C +/cli WinRT](#setting-your-custom-attached-property-imperatively-with-cwinrt))。
+> C++/WinRT を使用している場合は、次のセクション ([C++/WinRT を使用してカスタム添付プロパティを強制的に設定する](#setting-your-custom-attached-property-imperatively-with-cwinrt))に進みます。
 
 添付プロパティを定義し、そのサポート メンバーをカスタム型の一部として含めたら、定義を XAML で利用できるようにする必要があります。 そのためには、関連クラスを含むコード名前空間を参照する XAML 名前空間をマップする必要があります。 添付プロパティをライブラリの一部として定義した場合は、そのライブラリをアプリのアプリ パッケージの一部として含める必要があります。
 
@@ -237,7 +237,7 @@ XAML の XML 名前空間マッピングは、通常は XAML ページのルー�
 > [!NOTE]
 > C + と XAML の UI を作成するかどうかは/cli CX、しを含める必要があります、添付プロパティを任意の時点を定義するカスタム型のヘッダー XAML ページがその型を使用します。 各 XAML ページは、関連付けられているコード ビハインド ヘッダー (. xaml.h)。 これは、含める必要がある (を使用して **\#含める**) 添付プロパティの所有者の種類の定義のヘッダー。
 
-## <a name="setting-your-custom-attached-property-imperatively-with-cwinrt"></a>C + 強制的に、カスタム添付プロパティを設定/cli WinRT
+## <a name="setting-your-custom-attached-property-imperatively-with-cwinrt"></a>C++/WinRT を使用してカスタム添付プロパティを強制的に設定
 
 C + を使用している場合/cli は XAML マークアップからではなく、命令型コードからは、WinRT 後からカスタム添付プロパティにアクセスすることができます。 次のコード方法。
 
