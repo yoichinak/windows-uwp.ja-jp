@@ -5,12 +5,12 @@ ms.date: 07/08/2019
 ms.topic: article
 keywords: windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、プロジェクション、実装、インプリメント、ランタイム クラス、ライセンス認証
 ms.localizationpriority: medium
-ms.openlocfilehash: 74d15b517c5ec6547115bc8ffdb44a2b742c68d6
-ms.sourcegitcommit: a7a1e27b04f0ac51c4622318170af870571069f6
+ms.openlocfilehash: e6b1b443a847fd8d7af3ad46d5263fd6ae2675a4
+ms.sourcegitcommit: ba4a046793be85fe9b80901c9ce30df30fc541f9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67717662"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68328892"
 ---
 # <a name="author-apis-with-cwinrt"></a>C++/WinRT での API の作成
 
@@ -126,12 +126,11 @@ int __stdcall wWinMain(HINSTANCE, HINSTANCE, PWSTR, int)
 
 ## <a name="if-youre-authoring-a-runtime-class-in-a-windows-runtime-component"></a>Windows ランタイム コンポーネントでランタイム クラスを作成する場合
 
-型が、アプリケーションから使用する Windows ランタイム コンポーネントにパッケージ化されている場合は、ランタイム クラスである必要があります。
+型が、アプリケーションから使用する Windows ランタイム コンポーネントにパッケージ化されている場合は、ランタイム クラスである必要があります。 ランタイム クラスは Microsoft インターフェイス定義言語 (IDL) (.idl) ファイルに宣言します (「[ランタイム クラスを Midl ファイル (.idl) にファクタリングする](#factoring-runtime-classes-into-midl-files-idl)」を参照)。
 
-> [!TIP]
-> インターフェイス定義言語 (IDL) ファイルを編集するときに、ビルドのパフォーマンスを最適化するために、また IDL からその生成されたソース コード ファイルへの論理的な通信手段のために、各ランタイム クラスを独自の IDL (.idl) ファイル内で宣言することをお勧めします。 Visual Studio では、生成されるすべての `.winmd` ファイルをルート名前空間と同じ名前の単一のファイルにマージします。 その最終的な `.winmd` ファイルが、コンポーネントのユーザーが参照するファイルになります。
+結果として各 IDL ファイルが `.winmd` ファイルになり、Visual Studio では、それらのすべてのファイルをルート名前空間と同じ名前の単一のファイルにマージします。 その最終的な `.winmd` ファイルが、コンポーネントのユーザーが参照するファイルになります。
 
-次に例を示します。
+ランタイム クラスを IDL ファイルに宣言する例を次に示します。
 
 ```idl
 // MyRuntimeClass.idl
@@ -211,6 +210,12 @@ namespace winrt::MyProject
 ランタイム クラスで **INotifyPropertyChanged** インターフェイスを実装する例のチュートリアルについては、「[XAML コントロール、C++/WinRT プロパティへのバインド](binding-property.md)」を参照してください。
 
 このシナリオでランタイム クラスを使用するための手順は、「[C++/WinRT での API の使用](consume-apis.md#if-the-api-is-implemented-in-the-consuming-project)」で説明しています。
+
+## <a name="factoring-runtime-classes-into-midl-files-idl"></a>ランタイム クラスを Midl ファイル (.idl) にファクタリングする
+
+Visual Studio プロジェクトと項目テンプレートでは、ランタイム クラスごとに個別の IDL ファイルが生成されます。 これにより、IDL ファイルとその生成されたソース コード ファイルとの間に論理的な通信手段が提供されます。
+
+ただし、プロジェクトのすべてのランタイム クラスを 1 つの IDL ファイルに統合すると、ビルド時間が大幅に短縮されます。 これらの間に複雑な (またはわかりにくい) `import` 依存関係があると、統合が実際に必要になる場合があります。 また、まとまっていればランタイム クラスをより簡単に作成、レビューできることがわかります。
 
 ## <a name="runtime-class-constructors"></a>ランタイム クラスのコンストラクター
 
@@ -455,6 +460,49 @@ MySpecializedToggleButtonAutomationPeer::MySpecializedToggleButtonAutomationPeer
 | `make_self<T>`|実装|投影型を使うと、次のエラーが発生します: `'Release': is not a member of any direct or indirect base class of 'T'`|
 | `name_of<T>`|投影|実装型を使った場合、既定のインターフェイスの文字列化された GUID が返されます。|
 | `weak_ref<T>`|Both|実装型を使う場合は、コンストラクターの引数を `com_ptr<T>` にする必要があります。|
+
+## <a name="overriding-base-class-virtual-methods"></a>基底クラスの仮想メソッドのオーバーライド
+
+基底クラスと派生クラスが両方ともアプリで定義されたクラスであっても、仮想メソッドが祖父母 Windows ランタイム クラスに定義されている場合、派生クラスは仮想メソッドで問題を発生する可能性があります。 実際には、これは XAML クラスから派生した場合に発生します。 このセクションの残りの部分は、[派生クラス](/windows/uwp/cpp-and-winrt-apis/move-to-winrt-from-cx#derived-classes)の例から続きます。
+
+```cppwinrt
+namespace winrt::MyNamespace::implementation
+{
+    struct BasePage : BasePageT<BasePage>
+    {
+        void OnNavigatedFrom(Windows::UI::Xaml::Navigation::NavigationEventArgs const& e);
+    };
+
+    struct DerivedPage : DerivedPageT<DerivedPage>
+    {
+        void OnNavigatedFrom(Windows::UI::Xaml::Navigation::NavigationEventArgs const& e);
+    };
+}
+```
+
+階層は [**Windows::UI::Xaml::Controls::Page**](/uwp/api/windows.ui.xaml.controls.page) \<- **BasePage** \<- **DerivedPage** です。 **BasePage::OnNavigatedFrom** メソッドは [**Page::OnNavigatedFrom**](/uwp/api/windows.ui.xaml.controls.page.onnavigatedfrom) を適切にオーバーライドしますが、**DerivedPage::OnNavigatedFrom** は **BasePage::OnNavigatedFrom** をオーバーライドしません。
+
+ここでは、**DerivedPage** は **BasePage** から **IPageOverrides** vtable を再利用します。これは、**IPageOverrides::OnNavigatedFrom** メソッドをオーバーライドできないことを意味します。 考えられる 1 つの解決策では、**BasePage** 自体をテンプレート クラスにし、その実装をヘッダー ファイルに完全に含める必要がありますが、これでは受け入れがたいほど物事が複雑になります。
+
+回避策として、**OnNavigatedFrom** メソッドを基底クラスに明示的な仮想として宣言します。 このようにして、**DerivedPage::IPageOverrides::OnNavigatedFrom** の vtable エントリが **BasePage::IPageOverrides::OnNavigatedFrom** を呼び出すと、producer が **BasePage::OnNavigatedFrom** を呼び出し、最終的にこれが (その仮想性が原因で) **DerivedPage::OnNavigatedFrom** を呼び出します。
+
+```cppwinrt
+namespace winrt::MyNamespace::implementation
+{
+    struct BasePage : BasePageT<BasePage>
+    {
+        // Note the `virtual` keyword here.
+        virtual void OnNavigatedFrom(Windows::UI::Xaml::Navigation::NavigationEventArgs const& e);
+    };
+
+    struct DerivedPage : DerivedPageT<DerivedPage>
+    {
+        void OnNavigatedFrom(Windows::UI::Xaml::Navigation::NavigationEventArgs const& e);
+    };
+}
+```
+
+これには、クラス階層のすべてのメンバーが、**OnNavigatedFrom** メソッドの戻り値とパラメーター型に同意する必要があります。 同意しない場合は、上記のバージョンを仮想メソッドとして使用し、代替をラップする必要があります。
 
 ## <a name="important-apis"></a>重要な API
 * [winrt::com_ptr 構造体テンプレート](/uwp/cpp-ref-for-winrt/com-ptr)

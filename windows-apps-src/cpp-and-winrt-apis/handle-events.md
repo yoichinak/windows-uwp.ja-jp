@@ -5,12 +5,12 @@ ms.date: 04/23/2019
 ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、プロジェクション、処理、イベント、デリゲート
 ms.localizationpriority: medium
-ms.openlocfilehash: 194fd9041b76acb1ef76288fed21c8098462b406
-ms.sourcegitcommit: 8b4c1fdfef21925d372287901ab33441068e1a80
+ms.openlocfilehash: b64fbe93198af95402161873c1d68d0da41f33f7
+ms.sourcegitcommit: d37a543cfd7b449116320ccfee46a95ece4c1887
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844342"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68270111"
 ---
 # <a name="handle-events-by-using-delegates-in-cwinrt"></a>C++/WinRT でのデリゲートを使用したイベントの処理
 
@@ -126,7 +126,9 @@ MainPage::MainPage()
 
 ## <a name="revoke-a-registered-delegate"></a>登録済みデリゲートの取り消し
 
-デリゲートを登録すると、通常、トークンがユーザーに返されます。 その後、このトークンを使用してデリゲートを取り消すことができます。つまり、このトークンはイベントから登録解除され、イベントが再び発生しても呼び出されることはありません。 説明を簡単にするために、上記の例にはその方法を示すコードは含まれていません。 ただし、次のコード例では、トークンを構造体のプライベート データ メンバーに格納し、デストラクターの該当するハンドラーを取り消しています。
+デリゲートを登録すると、通常、トークンがユーザーに返されます。 その後、このトークンを使用してデリゲートを取り消すことができます。つまり、このトークンはイベントから登録解除され、イベントが再び発生しても呼び出されることはありません。
+
+説明を簡単にするために、上記の例にはその方法を示すコードは含まれていません。 ただし、次のコード例では、トークンを構造体のプライベート データ メンバーに格納し、デストラクターの該当するハンドラーを取り消しています。
 
 ```cppwinrt
 struct Example : ExampleT<Example>
@@ -150,6 +152,9 @@ private:
 ```
 
 上の例のような強参照の代わりに、弱参照をボタンに格納することができます (「[C++/WinRT の強参照と弱参照](weak-references.md)」を参照してください)。
+
+> [!NOTE]
+> イベント ソースでそのイベントが同期的に生成される場合は、ハンドラーを取り消して、それ以上イベントを受け取ることはないという確信を持つことができます。 ただし、非同期イベントの場合は、取り消し後 (特にデストラクター内で取り消す場合) でも、破棄が開始された後に実行中のイベントがオブジェクトに到着する可能性があります。 破棄の前に登録を解除する場所を見つけることで、問題が軽減される可能性があります。または、堅牢なソリューションについて、「[イベント処理デリゲートで *this* ポインターに安全にアクセスする](weak-references.md#safely-accessing-the-this-pointer-with-an-event-handling-delegate)」を参照してください。
 
 または、デリゲートを登録する場合、**winrt::auto_revoke** (型 [**winrt::auto_revoke_t**](/uwp/cpp-ref-for-winrt/auto-revoke-t) の値) を指定して ([**winrt::event_revoker**](/uwp/cpp-ref-for-winrt/event-revoker) 型の) イベント リボーカーを要求できます。 イベント リボーカーにより、イベント ソース (イベントを発生させるオブジェクト) への弱参照が保持されます。 **event_revoker::revoke** メンバー関数を呼び出して手動で取り消すことができますが、イベント リボーカーは参照が範囲外になったときに自動的にその関数自体を呼び出します。 **revoke** 関数は、イベント ソースがまだ存在するかどうかを確認し、存在する場合は、デリケートを取り消します。 次の例では、イベント ソースを格納する必要がないため、デストラクターは必要ありません。
 

@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 新機能
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 537150f6fc000794b11ef9236bfd88469d3f6b19
-ms.sourcegitcommit: 5d71c97b6129a4267fd8334ba2bfe9ac736394cd
+ms.openlocfilehash: 524d0f2d9e428e87187ca27747fbd1c54406d345
+ms.sourcegitcommit: 6cc8b231c1b970112d26a7696cc3e907082ef2be
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67800583"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68308436"
 ---
 # <a name="whats-new-in-cwinrt"></a>C++/WinRT の新機能
 
@@ -28,7 +28,7 @@ ms.locfileid: "67800583"
 
 - 必要に応じてプロジェクトごとにプラットフォーム プロジェクション ヘッダーを生成する `cppwinrt.exe` ツールは、Microsoft.Windows.CppWinRT NuGet パッケージに含まれるようになります。 その結果、`cppwinrt.exe` ツールは Windows SDK に依存しなくなります (ただし、互換性の理由から、ツールには引き続き SDK が付属しています)。
 - 並列ビルドを有効にするため、`cppwinrt.exe` では各プラットフォーム/構成固有の中間フォルダー ($IntDir) の下に、プロジェクション ヘッダーが生成されるようになりました。
-- プロジェクト ファイルを手動でカスタマイズする場合のため、C++/WinRT のビルドのサポート (プロパティ/ターゲット) が完全にドキュメント化されるようになりました。 「[Microsoft.Windows.CppWinRT NuGet Package](https://github.com/Microsoft/xlang/blob/master/src/package/cppwinrt/nuget/readme.md)」(Microsoft.Windows.CppWinRT NuGet パッケージ) をご覧ください。
+- プロジェクト ファイルを手動でカスタマイズする場合のため、C++/WinRT のビルドのサポート (プロパティ/ターゲット) が完全にドキュメント化されるようになりました。 Microsoft.Windows.CppWinRT NuGet パッケージの [readme](https://github.com/microsoft/xlang/tree/master/src/package/cppwinrt/nuget/readme.md#customizing) をご覧ください。
 - 多くのバグ修正が行われました。
 
 ### <a name="changes-to-cwinrt-for-version-20"></a>バージョン 2.0 での C++/WinRT の変更点

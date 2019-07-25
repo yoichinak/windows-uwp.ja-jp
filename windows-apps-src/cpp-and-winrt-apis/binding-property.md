@@ -5,12 +5,12 @@ ms.date: 06/21/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, XAML, コントロール, バインド, プロパティ
 ms.localizationpriority: medium
-ms.openlocfilehash: 25ce3164ece443c8c1d95bccbc2bfb57e3347a55
-ms.sourcegitcommit: a7a1e27b04f0ac51c4622318170af870571069f6
+ms.openlocfilehash: 5ff15e9b86d90aa14fd56e4e7015e949e2742bf6
+ms.sourcegitcommit: ba4a046793be85fe9b80901c9ce30df30fc541f9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67717655"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68328880"
 ---
 # <a name="xaml-controls-bind-to-a-cwinrt-property"></a>XAML コントロール: C++/WinRT プロパティへのバインド
 XAML コントロールに効果的にバインドできるプロパティは、*監視可能な*プロパティと呼ばれます。 この概念は、*オブザーバー パターン*と呼ばれるソフトウェアの設計パターンに基づいています。 このトピックでは、[C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) で監視可能なプロパティを実装する方法と、これらに XAML コントロールをバインドする方法を示します。
@@ -127,7 +127,7 @@ namespace winrt::Bookstore::implementation
 ## <a name="declare-and-implement-bookstoreviewmodel"></a>**BookstoreViewModel** を宣言および実装する
 メイン XAML ページが、メイン ビュー モデルにバインドします。 またそのビュー モデルは、**BookSku** 型のいずれかを含む、いくつかのプロパティを持つようになります。 この手順では、メイン ビュー モデル ランタイム クラスを宣言および実装します。
 
-`BookstoreViewModel.idl` という名前の新しい **Midl ファイル (.idl)** 項目を追加します。
+`BookstoreViewModel.idl` という名前の新しい **Midl ファイル (.idl)** 項目を追加します。 ただし、「[ランタイム クラスを Midl ファイル (.idl) にファクタリングする](/windows/uwp/cpp-and-winrt-apis/author-apis#factoring-runtime-classes-into-midl-files-idl)」も参照してください。
 
 ```idl
 // BookstoreViewModel.idl
@@ -298,6 +298,55 @@ runtimeclass MainPage : Windows.UI.Xaml.Controls.Page
 ```
 
 これが必要な理由を次に示します。 XAML コンパイラで検証する必要があるすべての型は ([{X:bind}](https://docs.microsoft.com/windows/uwp/xaml-platform/x-bind-markup-extension) で使われるものを含みます)、Windows メタデータ (WinMD) から読み取られます。 開発者が行う必要があるのは、読み取り専用のプロパティを Midl ファイルに追加することだけです。 自動的に生成される XAML コードビハインドで実装が提供されるので、実装は行わないでください。
+
+## <a name="consuming-objects-from-xaml-markup"></a>XAML マークアップからのオブジェクトの使用
+
+XAML [ **{x:Bind} マークアップ拡張**](/windows/uwp/xaml-platform/x-bind-markup-extension)の使用によって使用されるすべてのエンティティは、IDL で公開されている必要があります。 さらに、XAML マークアップに、マークアップにも含まれる別の要素への参照が含まれている場合は、そのマークアップの getter が IDL に存在する必要があります。
+
+```xaml
+<Page x:Name="MyPage">
+    <StackPanel>
+        <CheckBox x:Name="UseCustomColorCheckBox" Content="Use custom color"
+             Click="UseCustomColorCheckBox_Click" />
+        <Button x:Name="ChangeColorButton" Content="Change color"
+            Click="{x:Bind ChangeColorButton_OnClick}"
+            IsEnabled="{x:Bind UseCustomColorCheckBox.IsChecked.Value, Mode=OneWay}"/>
+    </StackPanel>
+</Page>
+```
+
+*ChangeColorButton* 要素は、バインディングによって *UseCustomColorCheckBox* 要素を参照します。 したがって、このページの IDL は、バインディングにアクセスできるようにするためには *UseCustomColorCheckBox* という名前の読み取り専用プロパティを宣言する必要があります。
+
+*UseCustomColorCheckBox* の Click イベント ハンドラー デリゲートは従来の XAML デリゲート構文を使用するため、IDL のエントリは必要ありません。実装クラスでパブリックにする必要があるだけです。 一方、*ChangeColorButton* には `{x:Bind}` Click イベント ハンドラーもあり、これは IDL に移動する必要もあります。
+
+```idl
+runtimeclass MyPage : Windows.UI.Xaml.Controls.Page
+{
+    MyPage();
+
+    // These members are consumed by binding.
+    void ChangeColorButton_OnClick();
+    Windows.UI.Xaml.Controls.CheckBox UseCustomColorCheckBox{ get; };
+}
+```
+
+**UseCustomColorCheckBox** プロパティの実装を指定する必要はありません。 これは XAML コード ジェネレーターによって行われます。
+
+### <a name="binding-to-boolean"></a>ブール値へのバインド
+
+これは診断モードで行うことができます。
+
+<syntaxhighlight lang="xml">
+<TextBlock Text="{Binding CanPair}"/>
+</syntaxhighlight>
+
+これにより C++/CX では `true` または `false` が表示されますが、C++/WinRT では **Windows.Foundation.IReference`1<Boolean>** が表示されます。
+
+ブール値にバインドするときは、`x:Bind` を使用します。
+
+```xaml
+<TextBlock Text="{x:Bind CanPair}"/>
+```
 
 ## <a name="important-apis"></a>重要な API
 * [INotifyPropertyChanged::PropertyChanged](/uwp/api/windows.ui.xaml.data.inotifypropertychanged.PropertyChanged)
