@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: f9b0d6bd-af12-4237-bc66-0c218859d2fd
 ms.localizationpriority: medium
-ms.openlocfilehash: 86e9b15ee71c3ed831a46e369e8feaef8641e714
-ms.sourcegitcommit: 2062d06567ef087ad73507a03ecc726a7d848361
+ms.openlocfilehash: de623240e275dda5b6fc4df9afee31e1adf9fd4f
+ms.sourcegitcommit: 04683376dbdbff987601f546f058748442170068
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68303583"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68340853"
 ---
 # <a name="set-up-automated-builds-for-your-uwp-app"></a>UWP アプリの自動ビルドを設定する
 
@@ -80,13 +80,14 @@ steps:
 
     ![セキュリティで保護されたファイルをアップロードする方法](images/secure-file2.png)
 
+5. 証明書にパスワードが含まれている場合は、パスワードを[Azure Key Vault](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates)に保存し、パスワードを[変数グループ](https://docs.microsoft.com/azure/devops/pipelines/library/variable-groups)にリンクすることをお勧めします。 変数を使用すると、パイプラインからパスワードにアクセスできます。
+
 > [!NOTE]
 > Visual Studio 2019 以降では、UWP プロジェクトで一時的な証明書が生成されなくなりました。 証明書を作成またはエクスポートするには、[この記事](create-certificate-package-signing.md)で説明されている PowerShell コマンドレットを使用します。
 
 ## <a name="configure-the-build-solution-build-task"></a>ソリューションのビルドのビルド タスクを構成する
 
-このタスクは、作業フォルダー内のすべてのソリューションをバイナリにコンパイルし、出力アプリパッケージファイルを生成します。
-このタスクでは、MSBuild 引数を使用します。 これらの引数の値を指定する必要があります。 次の表をガイドとして使用してください。
+このタスクは、作業フォルダー内のすべてのソリューションをバイナリにコンパイルし、出力アプリパッケージファイルを生成します。 このタスクでは、MSBuild 引数を使用します。 これらの引数の値を指定する必要があります。 次の表をガイドとして使用してください。
 
 |**MSBuild 引数**|**[値]**|**[説明]**|
 |--------------------|---------|---------------|
@@ -99,6 +100,7 @@ steps:
 | AppxPackageSigningEnabled | true | パッケージの署名を有効にします。 |
 | PackageCertificateThumbprint | 証明書の拇印 | この値は、署名証明書の拇印と一致しているか、空の文字列で**ある必要があり**ます。 |
 | PackageCertificateKeyFile | パス | 使用する証明書へのパス。 これは、セキュリティで保護されたファイルのメタデータから取得されます。 |
+| PackageCertificatePassword | Password | 証明書のパスワード。 パスワードを[Azure Key Vault](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates)に保存し、パスワードを[変数グループ](https://docs.microsoft.com/azure/devops/pipelines/library/variable-groups)にリンクすることをお勧めします。 この引数に変数を渡すことができます。 |
 
 ### <a name="configure-the-build"></a>ビルドを構成する
 
