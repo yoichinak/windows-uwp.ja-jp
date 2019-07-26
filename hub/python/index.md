@@ -7,17 +7,17 @@ ms.author: mattwoj
 manager: jken
 ms.topic: landing-page
 ms.date: 07/19/2019
-keywords: Windows, Python 開発
-ms.openlocfilehash: efaa587578fef891f9b870c9f357f19c5f8e5bb7
-ms.sourcegitcommit: afb5157ec4bcb6588ac4cf74352688b30ed32257
+keywords: Windows, Python 開発, Windows でのPython の始め方, Windows Subystem for Linux での Python, WSL と Python, Windows での Python 用の開発環境の設定, Windows 上の Python 用の IDE, Windows 上の Python のインストール場所, Windows での Python の実行, Windows での初心者向けの Python
+ms.openlocfilehash: 7711230b141c57135e1cda3f68416f0ed5287eac
+ms.sourcegitcommit: 210034519678ba1a59744bc3a0b613b000921537
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68349333"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68473647"
 ---
 # <a name="develop-with-python-on-windows"></a>Windows での Python を使用した開発
 
-経験豊富な開発者でも、初めての方でも、必要な最も重要な決定の 1 つは、使用するハードウェアと開発環境の種類です。 Windows は、Python 開発者のサポートを強化するために大幅に進歩しています。 ここでは、開発環境のセットアップ方法、ネイティブ Windows または Windows Subsystem for Linux のどちらにツールをインストールするか、VS Code や Git などのツールを統合する方法についてのガイダンスを参照できます。
+経験豊富な開発者でも、Python のコーディングが初めての方でも、決定する必要がある最も重要なことの 1 つは、どの開発環境を使用するかです。 ここでは、開発環境のセットアップ、ネイティブ Windows または Windows Subsystem for Linux のどちらにツールをインストールするか、VS Code や Git などのツールを統合する方法についてのガイダンスを参照できます。 Windows は Python 開発者をサポートするために大幅に改善されおり、作業を開始するための情報をこちらで紹介します。
 
 <ul class="cardsK panelContent">
     <li>
