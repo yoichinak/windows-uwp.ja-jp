@@ -12,12 +12,12 @@ design-contact: mattben
 dev-contact: joyate
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: f04d364aac79ed232f35cbdd8378bc50393d2c74
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: d0955e7a018472141b137935c5bc87a9f75a5c6d
+ms.sourcegitcommit: 0c5f81100986cc4b74b54cd1ca2debd283c5b7f6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63789042"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68375274"
 ---
 # <a name="sound"></a>サウンド
 
@@ -91,7 +91,6 @@ ButtonName.ElementSoundState = ElementSoundMode.Off;
 
 通常このサウンドは、ユーザーが[入力デバイス](../input/index.md)を介して明示的に単純なコントロールまたはコントロールの一部を対象としたときにのみ再生されます。
 
-<SelectButtonClick.mp3 サウンド クリップ>
 
 任意のコントロール イベントからこのサウンドを再生するには、シンプルに **ElementSoundPlayer** から Play メソッドを呼び出し、**ElementSound.Invoke** に渡します。
 ```C#
@@ -104,14 +103,10 @@ XAML には多くのポップアップやダイアログ、閉じることがで
 
 オーバーレイのコンテンツ ウィンドウをビューに読み込むときに、**Show** サウンドを呼び出す必要があります。
 
-<OverlayIn.mp3 サウンド クリップ>
-
 ```C#
 ElementSoundPlayer.Play(ElementSoundKind.Show);
 ```
 逆に、オーバーレイのコンテンツ ウィンドウを閉じる (または簡易非表示にする) ときに、**Hide** サウンドを呼び出す必要があります。
-
-<OverlayOut.mp3 サウンド クリップ>
 
 ```C#
 ElementSoundPlayer.Play(ElementSoundKind.Hide);
@@ -124,14 +119,10 @@ ElementSoundPlayer.Play(ElementSoundKind.Hide);
 
 リストの*次の項目*と考えられるビュー/パネルに移動するときは、次のように呼び出します。
 
-<PageTransitionRight.mp3 サウンド クリップ>
-
 ```C#
 ElementSoundPlayer.Play(ElementSoundKind.MoveNext);
 ```
 リストの*前の項目*と考えられるビュー/パネルに移動するときは、次のように呼び出します。
-
-<PageTransitionLeft.mp3 サウンド クリップ>
 
 ```C#
 ElementSoundPlayer.Play(ElementSoundKind.MovePrevious);
@@ -139,8 +130,6 @@ ElementSoundPlayer.Play(ElementSoundKind.MovePrevious);
 ### <a name="back-navigation"></a>戻るナビゲーション
 
 アプリ内で現在のページから前のページにナビゲーションするときは、**GoBack** サウンドを呼び出す必要があります。
-
-<BackButtonClick.mp3 サウンド クリップ>
 
 ```C#
 ElementSoundPlayer.Play(ElementSoundKind.GoBack);
@@ -153,8 +142,6 @@ ElementSoundPlayer.Play(ElementSoundKind.GoBack);
 
 コントロールがフォーカスされたときに **Focus** サウンドを再生するように設定するには、次のように呼び出します。
 
-<ElementFocus1.mp3 サウンド クリップ>
-
 ```C#
 ElementSoundPlayer.Play(ElementSoundKind.Focus);
 ```
@@ -166,5 +153,5 @@ ElementSoundPlayer.Play(ElementSoundKind.Focus);
 
 ## <a name="related-articles"></a>関連記事
 
-* [Xbox およびテレビ向け設計](https://go.microsoft.com/fwlink/?LinkId=760736)
-* [ElementSoundPlayer クラスのドキュメント](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.elementsoundplayer)
+* [Xbox およびテレビ向け設計](/windows/uwp/design/devices/designing-for-tv)
+* [ElementSoundPlayer クラスのドキュメント](/uwp/api/windows.ui.xaml.elementsoundplayer)
