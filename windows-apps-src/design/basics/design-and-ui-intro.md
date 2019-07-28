@@ -131,7 +131,7 @@ UWP コントロールとコントロールに基づいて作成できるパタ�
 
 :::row:::
     :::column:::
-        UWP apps rely on smart interactions. You can design around a click interaction without having to know or define whether the click comes from a mouse, a stylus, or a tap of a finger. However, you can also design your apps for [specific input modes](../input/input-primer.md).
+        UWPアプリはスマートインタラクションに従います。クリックが、マウス・スタイラス・指によるタップのどれで行われたか認識や定義をする必要なく、クリックのインタラクションまわりを設計できます。また一方で、[特定の入力モード](../input/input-primer.md)用にアプリを設計することもできます。
     :::column-end:::
     :::column:::
         ![inputs](images/inputs.svg)
