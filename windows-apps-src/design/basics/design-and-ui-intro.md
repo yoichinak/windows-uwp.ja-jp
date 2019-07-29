@@ -116,11 +116,11 @@ UWP コントロールとコントロールに基づいて作成できるパタ�
 
 :::row:::
     :::column:::
-        Your UWP app will interact with the broader Windows experience with tiles and notifications in the Windows [Shell](../shell/tiles-and-notifications/creating-tiles.md).
+        あなたの UWP アプリは、Windows [Shell](../shell/tiles-and-notifications/creating-tiles.md) のタイルや通知といった幅広い Windows のエクスペリエンスと作用します。
 
-        Tiles are displayed in the Start menu and when your app launches, and they provide a glimpse of what's going on in your app. Their power comes from the content behind them, and the intelligence and craft with which they're offered up.
+        タイルはスタートメニューとアプリの起動時に表示され、アプリで何が起きているか垣間見ることができます。この能力はタイルの背後にあるコンテンツと、タイルが提示するインテリジェンスや技巧に起因します。
 
-        UWP apps have four tile sizes (small, medium, wide, and large) that can be customized with the app's icon and identity. For guidance on designing tiles for your UWP app, see [Guidelines for tile and icon assets](../shell/tiles-and-notifications/app-assets.md).
+        UWPアプリは4つのタイルサイズ(small, medium, wide, large)を持ち、アプリのアイコンや識別情報をカスタマイズできます。UWPアプリのタイルのデザインについて詳しくは、 [Guidelines for tile and icon assets](../shell/tiles-and-notifications/app-assets.md) を参照してください。
     :::column-end:::
     :::column:::
         ![tiles on start menu](images/shell.svg)
