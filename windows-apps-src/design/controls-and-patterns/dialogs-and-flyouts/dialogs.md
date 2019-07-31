@@ -254,7 +254,7 @@ private async void DisplaySubscribeDialog()
 
 > 注: このセクションは、Windows 10 バージョン 1903 以降をターゲットとするアプリにのみ適用されます。 それより前のバージョンでは、AppWindow および XAML アイランドは使用できません。 バージョンについて詳しくは、[バージョン アダプティブ アプリ](../../../debug-test-perf/version-adaptive-apps.md)に関する記事をご覧ください。
 
-既定では、コンテンツ ダイアログはルート [ApplicationView](/uwp/api/windows.ui.viewmanagement.applicationview) を基準としてモーダルに表示されます。 ContentDialog を [AppWindow](/uwp/api/windows.ui.windowmanagement.appwindow) または [XAML Islands](/windows/apps/desktop/modernize/xaml-islands)の内部で使うときは、ダイアログの [XamlRoot](/uwp/api/windows.ui.xaml.uielement.xamlroot) を XAML ホストのルートに手動で設定する必要があります。
+既定では、コンテンツ ダイアログはルート [ApplicationView](/uwp/api/windows.ui.viewmanagement.applicationview) を基準としてモーダルに表示されます。 ContentDialog を [AppWindow](/uwp/api/windows.ui.windowmanagement.appwindow) または [XAML アイランド](/windows/apps/desktop/modernize/xaml-islands)の内部で使うときは、ダイアログの [XamlRoot](/uwp/api/windows.ui.xaml.uielement.xamlroot) を XAML ホストのルートに手動で設定する必要があります。
 
 それを行うには、次に示すように、ContentDialog の XamlRoot プロパティを、AppWindow または XAML アイランドに既に存在する要素と同じ XamlRoot に設定します。
 

@@ -7,7 +7,7 @@ keywords: Windows 10、UWP、MRT、PRI。 リソース、ゲーム、Centennial�
 ms.localizationpriority: medium
 ms.openlocfilehash: 82050c92311ce8bb7457637a486943a5fed3e334
 ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 05/29/2019
 ms.locfileid: "66359327"
@@ -108,7 +108,7 @@ ms.locfileid: "66359327"
 
 使用する場合、 [Desktop App Converter](https://aka.ms/converter)を参照してください[、Desktop App Converter を使用してデスクトップ アプリケーションをパッケージ化](https://aka.ms/converterdocs)変換プロセスの詳細についてはします。 デスクトップ コンバーター サンプルの完全なセットが見つかります[UWP にデスクトップ ブリッジ サンプル GitHub リポジトリ](https://github.com/Microsoft/DesktopBridgeToUWP-Samples)します。
 
-パッケージを手動で作成する場合は、アプリケーションのすべてのファイル (実行可能ファイルとコンテンツ、ただしソース コードを含まない) とパッケージ マニフェスト ファイル (.appxmanifest) が含まれるディレクトリ構造を作成する必要があります。例が、[Hello, World GitHub サンプル](https://github.com/Microsoft/DesktopBridgeToUWP-Samples/blob/master/Samples/HelloWorldSample/CentennialPackage/AppxManifest.xml)に記載されていますが、`ContosoDemo.exe` という名前のデスクトップ実行可能ファイルを実行する基本パッケージ マニフェスト ファイルは次のとおりです。ここではハイライト表示されたテキストが独自の値に置き換えられます。
+パッケージを手動で作成する場合は、アプリケーションのすべてのファイル (実行可能ファイルと、コンテンツがソース コードではなく) とパッケージ マニフェスト ファイル (.appxmanifest) が含まれるディレクトリ構造を作成する必要があります。 例が記載されて[こんにちは, World GitHub サンプル](https://github.com/Microsoft/DesktopBridgeToUWP-Samples/blob/master/Samples/HelloWorldSample/CentennialPackage/AppxManifest.xml)、という名前の実行可能ファイルのデスクトップを実行する基本的なパッケージ マニフェスト ファイルが、`ContosoDemo.exe`は次のように、場所、<span style="background-color: yellow">テキストを強調表示されている</span>なります独自の値で置き換えられます。
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -148,9 +148,9 @@ ms.locfileid: "66359327"
 </Package>
 ```
 
-パッケージ マニフェスト ファイルとパッケージのレイアウトの詳細については、[アプリ パッケージのマニフェスト](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/appx-package-manifest)を参照してください。
+パッケージ マニフェスト ファイルとパッケージのレイアウトの詳細については、次を参照してください。[アプリ パッケージのマニフェスト](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/appx-package-manifest)します。
 
-最後に、新しいプロジェクトを作成し、既存のコード間で移行するのに Visual Studio を使用している場合は、「["Hello, world" アプリを作成する](https://docs.microsoft.com/windows/uwp/get-started/create-a-hello-world-app-xaml-universal)」を参照してください。新しいプロジェクトに既存のコードを含めることができますが、純粋な UWP アプリとして実行するには、(特にユーザー インターフェイス対して) 大幅なコードの変更が必要になる場合があります。それらの変更は、このドキュメントの対象範囲外です。
+最後に、新しいプロジェクトを作成し、既存のコード間で移行するのに Visual Studio を使用している場合は、["Hello, world" アプリを作成する](https://docs.microsoft.com/windows/uwp/get-started/create-a-hello-world-app-xaml-universal) を参照してください。 新しいプロジェクトに既存のコードを含めることができますが、純粋な UWP アプリとして実行するには、(特にユーザー インターフェイス対して) 大幅なコードの変更が必要になる場合があります。 それらの変更は、このドキュメントの対象範囲外です。
 
 ## <a name="phase-1-localize-the-manifest"></a>フェーズ 1:マニフェストをローカライズします。
 
@@ -799,7 +799,7 @@ Visual Studio を使用している場合を参照してください[リソー�
 
 ### <a name="step-32-signing-the-bundle"></a>手順 3.2:バンドルの署名
 
-(Bundle Generator ツールを使うか、または手動で) `.appxbundle` を作成したら、メイン パッケージとすべてのリソース パッケージを含む、1 つのファイルが作成されます。  最後の手順は、ファイルに署名を行い、Windows がインストールできるようにすることです。
+(Bundle Generator ツールを使うか、または手動で) `.appxbundle` を作成したら、メイン パッケージとすべてのリソース パッケージを含む、1 つのファイルが作成されます。 最後の手順は、ファイルに署名を行い、Windows がインストールできるようにすることです。
 
 ```CMD
 signtool sign /fd SHA256 /a /f ..\contoso_demo_key.pfx ..\contoso_demo.appxbundle
