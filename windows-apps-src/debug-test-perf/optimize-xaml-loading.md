@@ -6,12 +6,12 @@ ms.date: 08/10/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: aacf51cc320a0835f906e91806b686a88907640e
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: f46967cd26f10510e2620229fee0eec13ca7f52a
+ms.sourcegitcommit: 7bbc24d770bf23a8d7e2b234503aad743eb354f3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67317619"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67852056"
 ---
 # <a name="optimize-your-xaml-markup"></a>XAML マークアップの最適化
 
@@ -159,7 +159,7 @@ ListView とその子はメモリに読み込まれていません。
 
 ### <a name="resourcedictionary-in-a-usercontrol"></a>UserControl 内の ResourceDictionary
 
-[UserControl](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.usercontrol) の内部に定義された ResourceDictionary にはペナルティが発生します。 プラットフォームは、UserControl のすべてのインスタンスに対して、このような ResourceDictionary のコピーを作成します。 よく使われる UserControl を使っている場合、UserControl から ResourceDictionary を移動し、ページ レベルに配置します。
+[UserControl](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.usercontrol) の内部に定義された ResourceDictionary にはペナルティが発生します。 プラットフォームは、UserControl のすべてのインスタンスに対して、このような ResourceDictionary のコピーを作成します。 です。 よく使用する UserControl があれば、UserControl から ResourceDictionary に移動され、ページ レベルで配置されます。
 
 ### <a name="resource-and-resourcedictionary-scope"></a>リソースと ResourceDictionary のスコープ
 

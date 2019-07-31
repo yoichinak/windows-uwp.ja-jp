@@ -135,7 +135,7 @@ URI の起動について詳しくは、「[URI に応じた既定のアプリ�
 | オーディオ | ms-settings:easeofaccess-audio |
 | クローズド キャプション | ms-settings:easeofaccess-closedcaptioning |
 | カラー フィルター | ms-settings:easeofaccess-colorfilter |
-| カーソル & ポインターのサイズ | ms-settings:easeofaccess-cursorandpointersize |
+| カーソルとポインターのサイズ | ms-settings:easeofaccess-cursorandpointersize |
 | ディスプレイ | ms-settings:easeofaccess-display |
 | 視線制御 | ms-settings:easeofaccess-eyecontrol |
 | フォント | ms-settings:fonts |

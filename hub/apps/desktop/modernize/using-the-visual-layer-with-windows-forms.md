@@ -1,6 +1,6 @@
 ---
-title: Windows フォームでのビジュアル層の使用
-description: 既存の Windows フォームのコンテンツと組み合わせてビジュアル層の Api を使用して、高度なアニメーションや効果を作成するための手法について説明します。
+title: Windows フォームでのビジュアル レイヤーの使用
+description: 既存の Windows フォームのコンテンツと組み合わせてビジュアル レイヤーの Api を使用して、高度なアニメーションや効果を作成するための手法について説明します。
 ms.date: 03/18/2019
 ms.topic: article
 keywords: windows 10, uwp
@@ -14,9 +14,9 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 05/24/2019
 ms.locfileid: "66215160"
 ---
-# <a name="using-the-visual-layer-with-windows-forms"></a>Windows フォームでのビジュアル層の使用
+# <a name="using-the-visual-layer-with-windows-forms"></a>Windows フォームでのビジュアル レイヤーの使用
 
-Windows ランタイムの合成 Api を使用することができます (とも呼ばれる、[ビジュアル層](/windows/uwp/composition/visual-layer)) で、Windows フォーム アプリで Windows 10 のユーザー用に光を最新のエクスペリエンスを作成します。
+Windows ランタイムの合成 Api を使用することができます (とも呼ばれる、[ビジュアル レイヤー](/windows/uwp/composition/visual-layer)) で、Windows フォーム アプリで Windows 10 のユーザー用に光を最新のエクスペリエンスを作成します。
 
 このチュートリアルの完成したコードは GitHub で入手できます。[Windows フォーム HelloComposition サンプル](https://github.com/Microsoft/Windows.UI.Composition-Win32-Samples/tree/master/dotnet/WinForms/HelloComposition)します。
 
@@ -73,7 +73,7 @@ NuGet パッケージのこれらのニーズの両方のアドレスを利用�
 
 ## <a name="create-a-custom-control-to-manage-interop"></a>相互運用機能を管理するカスタム コントロールを作成します。
 
-派生したカスタム コントロールを作成するビジュアル層で作成するコンテンツのホストに[コントロール](/dotnet/api/system.windows.forms.control)します。 このコントロールでは、ウィンドウにアクセスする[処理](/dotnet/api/system.windows.forms.control.handle)、ビジュアル層コンテンツのコンテナーを作成するために必要があります。
+派生したカスタム コントロールを作成するビジュアル レイヤーで作成するコンテンツのホストに[コントロール](/dotnet/api/system.windows.forms.control)します。 このコントロールでは、ウィンドウにアクセスする[処理](/dotnet/api/system.windows.forms.control.handle)、ビジュアル レイヤーコンテンツのコンテナーを作成するために必要があります。
 
 これは、合成 Api をホストするための構成の大部分を実行します。 このコントロールで使用する[プラットフォーム呼び出しサービス (PInvoke)](/cpp/dotnet/calling-native-functions-from-managed-code)と[COM 相互運用機能](/dotnet/api/system.runtime.interopservices.comimportattribute)合成 Api を Windows フォーム アプリに取り込む。 PInvoke と COM 相互運用機能の詳細については、次を参照してください。[アンマネージ コードとの相互運用](/dotnet/framework/interop/index)します。
 
@@ -212,7 +212,7 @@ NuGet パッケージのこれらのニーズの両方のアドレスを利用�
 
     今すぐディスパッチャー キューの準備ができているし、初期化し、合成コンテンツの作成を開始できます。
 
-1. 初期化、[コンポジター](/uwp/api/windows.ui.composition.compositor)します。 コンポジターがさまざまな型を作成するファクトリを[Windows.UI.Composition](/uwp/api/windows.ui.composition)ビジュアル層、効果のシステム、およびアニメーション システムにまたがる名前空間。 コンポジター クラスには、ファクトリから作成されたオブジェクトの有効期間も管理します。
+1. 初期化、[コンポジター](/uwp/api/windows.ui.composition.compositor)します。 コンポジターがさまざまな型を作成するファクトリを[Windows.UI.Composition](/uwp/api/windows.ui.composition)ビジュアル レイヤー、効果のシステム、およびアニメーション システムにまたがる名前空間。 コンポジター クラスには、ファクトリから作成されたオブジェクトの有効期間も管理します。
 
     ```csharp
     private void InitComposition(IntPtr hwndHost)
@@ -413,7 +413,7 @@ NuGet パッケージのこれらのニーズの両方のアドレスを利用�
 
 ## <a name="next-steps"></a>次のステップ
 
-同じインフラストラクチャ上に構築するより詳細な例については、 [Windows フォームのビジュアル層の統合サンプル](https://github.com/Microsoft/Windows.UI.Composition-Win32-Samples/tree/master/dotnet/WinForms/VisualLayerIntegration)GitHub でします。
+同じインフラストラクチャ上に構築するより詳細な例については、 [Windows フォームのビジュアル レイヤーの統合サンプル](https://github.com/Microsoft/Windows.UI.Composition-Win32-Samples/tree/master/dotnet/WinForms/VisualLayerIntegration)GitHub でします。
 
 ## <a name="additional-resources"></a>その他の資料
 

@@ -1,5 +1,5 @@
 ---
-Description: さまざまなデバイスで申し分スケール アプリをビルドするすべての UWP アプリのヘルプに含まれるユニバーサル デザイン機能。
+Description: すべての UWP アプリに含まれているユニバーサル デザイン機能は、さまざまなデバイス間で美しく拡大縮小されるアプリを構築するのに役立ちます。
 title: ユニバーサル Windows プラットフォーム (UWP) アプリ設計の概要 (Windows アプリ)
 ms.assetid: 50A5605E-3A91-41DB-800A-9180717C1E86
 ms.date: 05/05/2018
@@ -8,10 +8,10 @@ keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.custom: RS5
 ms.openlocfilehash: 25dc7118fcb7d9c6e997fae458ef7846777b1262
-ms.sourcegitcommit: f0f933d5cf0be734373a7b03e338e65000cc3d80
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65983924"
 ---
 # <a name="introduction-to-uwp-app-design"></a>UWP アプリ設計の概要
@@ -26,11 +26,11 @@ ms.locfileid: "65983924"
 
 ## <a name="effective-pixels-and-scaling"></a>有効ピクセルとスケーリング
 
-UWP アプリですべて実行[Windows 10 デバイス](../devices/index.md)タブレットや PC をテレビから。 次のさまざまなデバイスや画面サイズで適切な UI を設計するにはどのように必要でしょうか。
+UWP アプリは、テレビからタブレットまたは PC まで、すべての [Windows 10 デバイス](../devices/index.md)で実行されます。 それでは、さまざまなデバイスや画面サイズで見栄えの良い UI をどのように設計しますか?
 
 ![さまざまなデバイス上にある同じアプリ](images/universal-image-1.jpg)
 
-UWP は、判読しやすいものでは、すべてのデバイスや画面サイズとの対話になるように UI 要素を自動的に調整することで役立ちます。
+UWP は、すべてのデバイスと画面サイズで読みやすく、操作しやすいように、UI 要素のサイズを自動的に調整するのに役立ちます。
 
 デバイスでアプリを実行するとき、システムでは、UI 要素を画面に表示する方法を正規化するアルゴリズムを使います。 このスケーリング アルゴリズムでは、視聴距離と画面の密度 (ピクセル/インチ) を考慮して、体感的なサイズを最適化します (物理的なサイズではありません)。 スケーリング アルゴリズムによって、10 フィート離れた Surface Hub における 24 ピクセルのフォントが、数インチ離れた 5 インチ サイズの電話における 24 ピクセルのフォントと同じようにユーザーに読みやすい状態で表示されます。
 
@@ -47,9 +47,9 @@ UWP は、判読しやすいものでは、すべてのデバイスや画面サ�
 
 :::row:::
     :::column span:::
-        The sizes, margins, and positions of UI elements should always be in **multiples of 4 epx** in your UWP apps.
+        UWPアプリでは、サイズ・マージン・位置は常に **4 epxの倍数** になるようにしてください。
 
-        UWP scales across a range of devices with scaling plateaus of 100%, 125%, 150%, 175%, 200%, 225%, 250%, 300%, 350%, and 400%. The base unit is 4 because it's the only integer that can be scaled by non-whole numbers (e.g. 4*1.5 = 6). Using multiples of four aligns all UI elements with whole pixels and ensures UI elements have crisp, sharp edges. (Note that text doesn't have this requirement; text can have any size and position.)
+        UWPは 100%, 125%, 150%, 175%, 200%, 225%, 250%, 300%, 350%, 400%といったスケールを持つデバイスを横断的にスケーリングします。基本単位が 4 なのは、自然数ではない数字でもスケーリングできる唯一の整数だからです(例：4 × 1.5 = 6)。4 の倍数を使うことは、すべてのUI要素がピクセル全体に揃えられ、UI要素が明快でシャープな輪郭を持つことを保証します。（テキストにこの要件はありません。テキストには任意のサイズと位置を指定できます）
     :::column-end:::
     :::column:::
         ![grid](images/4epx.svg)
@@ -116,11 +116,11 @@ UWP コントロールとコントロールに基づいて作成できるパタ�
 
 :::row:::
     :::column:::
-        Your UWP app will interact with the broader Windows experience with tiles and notifications in the Windows [Shell](../shell/tiles-and-notifications/creating-tiles.md).
+        あなたの UWP アプリは、Windows [Shell](../shell/tiles-and-notifications/creating-tiles.md) のタイルや通知といった幅広い Windows のエクスペリエンスと作用します。
 
-        Tiles are displayed in the Start menu and when your app launches, and they provide a glimpse of what's going on in your app. Their power comes from the content behind them, and the intelligence and craft with which they're offered up.
+        タイルはスタートメニューとアプリの起動時に表示され、アプリで何が起きているか垣間見ることができます。この能力はタイルの背後にあるコンテンツと、タイルが提示するインテリジェンスや技巧に起因します。
 
-        UWP apps have four tile sizes (small, medium, wide, and large) that can be customized with the app's icon and identity. For guidance on designing tiles for your UWP app, see [Guidelines for tile and icon assets](../shell/tiles-and-notifications/app-assets.md).
+        UWPアプリは4つのタイルサイズ(small, medium, wide, large)を持ち、アプリのアイコンや識別情報をカスタマイズできます。UWPアプリのタイルのデザインについて詳しくは、 [Guidelines for tile and icon assets](../shell/tiles-and-notifications/app-assets.md) を参照してください。
     :::column-end:::
     :::column:::
         ![tiles on start menu](images/shell.svg)
@@ -131,7 +131,7 @@ UWP コントロールとコントロールに基づいて作成できるパタ�
 
 :::row:::
     :::column:::
-        UWP apps rely on smart interactions. You can design around a click interaction without having to know or define whether the click comes from a mouse, a stylus, or a tap of a finger. However, you can also design your apps for [specific input modes](../input/input-primer.md).
+        UWPアプリはスマートインタラクションに従います。クリックが、マウス・スタイラス・指によるタップのどれで行われたか認識や定義をする必要なく、クリックのインタラクションまわりを設計できます。また一方で、[特定の入力モード](../input/input-primer.md)用にアプリを設計することもできます。
     :::column-end:::
     :::column:::
         ![inputs](images/inputs.svg)
@@ -162,7 +162,7 @@ UWP コントロールとコントロールに基づいて作成できるパタ�
 
 - [設計ツールキットのページ](../downloads/index.md)をご覧ください。XD、Illustrator、Photoshop、Framer、Sketch の各ツールキット、および追加の設計ツールやフォントのダウンロードが提供されています。
 
-- UWP アプリのコードを記述するように設定するコンピューターを取得するを参照してください。、[開始&gt;設定](../../get-started/get-set-up.md)記事。
+- コンピューターを設定して UWP アプリのコードを記述できるようにするには、[「はじめに」 &gt; 「準備」](../../get-started/get-set-up.md)の記事をご覧ください。
 
 - UWP の UI を実装する方法については、エンド ツー エンドの「[サンプル UWP アプリ](https://developer.microsoft.com/windows/samples)」をご覧ください。
 
@@ -170,7 +170,7 @@ UWP コントロールとコントロールに基づいて作成できるパタ�
 
 > [!VIDEO https://channel9.msdn.com/Blogs/One-Dev-Minute/Designing-Universal-Windows-Platform-apps/player]
 
-## <a name="next-fluent-design-system"></a>次に：Fluent Design System
+## <a name="next-fluent-design-system"></a>次へ: Fluent Design System
 
 Fluent Design (Microsoft のデザイン システム) の背後にある原則や、UWP アプリに組み込むことができる多くの機能について確認する場合は、引き続き「[Fluent Design System](/windows/apps/fluent-design-system)」をご覧ください。
 

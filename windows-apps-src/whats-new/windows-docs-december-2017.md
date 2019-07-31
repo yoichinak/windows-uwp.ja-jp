@@ -5,12 +5,12 @@ keywords: 最新情報, 更新, 機能, 開発者向けガイダンス, Windows 
 ms.date: 12/14/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: a79edb39cc4bfa5794d79d68f4fb8d5b0e976105
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: c715a48e0f9d6dea5939e6363441b0300544c252
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63806068"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67321906"
 ---
 # <a name="whats-new-in-the-windows-developer-docs-in-december-2017"></a>Windows 開発者向けドキュメントの最新情報、2017 年 12 月
 
@@ -44,7 +44,7 @@ Mixed Reality の世界に入ろうとしている技術者を対象とした[�
 
 ### <a name="microsoft-collaborate"></a>Microsoft Collaborate
 
-Microsoft Collaborate ポータルには、エンジニアリング システムの作業項目 (バグ、機能に関するご要望など) の共有とコンテンツ (ビルド、ドキュメント、仕様) の配布を可能にすることで、Microsoft エコシステム内でのエンジニアリング コラボレーションを簡素化するツールとサービスが用意されています。 [詳しくはこちらをご覧ください](https://docs.microsoft.com/en-us/collaborate)。
+Microsoft Collaborate ポータルには、エンジニアリング システムの作業項目 (バグ、機能に関するご要望など) の共有とコンテンツ (ビルド、ドキュメント、仕様) の配布を可能にすることで、Microsoft エコシステム内でのエンジニアリング コラボレーションを簡素化するツールとサービスが用意されています。 [詳しくはこちらをご覧ください](https://docs.microsoft.com/collaborate/)。
 
 ![パートナー センターでの Microsoft Collaborate](images/microsoft_collaborate_screenshot.PNG)
 
@@ -52,7 +52,7 @@ Microsoft Collaborate ポータルには、エンジニアリング システム
 
 Visual Studio 2017 バージョン 15.5 では、**Windows アプリケーション パッケージ プロジェクト** テンプレートが更新されており、UWP プロジェクトがかなり追加しやすくなっています。 JavaScript ベースのパッケージ プロジェクトを使い、パッケージ マニフェストを手動で調整する必要がなくなりました。  
 
-この新しいテンプレートを使ってデスクトップ アプリケーションをパッケージ化する方法については、[Visual Studio を使ったアプリのパッケージ化に関するページ](https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-packaging-dot-net)をご覧ください。
+この新しいテンプレートを使ってデスクトップ アプリケーションをパッケージ化する方法については、[Visual Studio を使ったアプリのパッケージ化に関するページ](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)をご覧ください。
 
 UWP プロジェクトをパッケージに追加する方法については、「[最新の UWP コンポーネントによるデスクトップ アプリケーションの拡張](https://docs.microsoft.com/windows/uwp/porting/desktop-to-uwp-extend)」をご覧ください。
 

@@ -1,5 +1,5 @@
 ---
-title: Win32 でのビジュアル層の使用
+title: Win32 でのビジュアル レイヤーの使用
 description: Win32 デスクトップ アプリの UI を強化するために、ビジュアル レイヤーを使用します。
 template: detail.hbs
 ms.date: 03/18/2019
@@ -15,9 +15,9 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 05/24/2019
 ms.locfileid: "66215195"
 ---
-# <a name="using-the-visual-layer-with-win32"></a>Win32 でのビジュアル層の使用
+# <a name="using-the-visual-layer-with-win32"></a>Win32 でのビジュアル レイヤーの使用
 
-Windows ランタイムの合成 Api を使用することができます (とも呼ばれる、[ビジュアル層](/windows/uwp/composition/visual-layer)) Win32 アプリを Windows 10 のユーザー用に光を最新のエクスペリエンスを作成します。
+Windows ランタイムの合成 Api を使用することができます (とも呼ばれる、[ビジュアル レイヤー](/windows/uwp/composition/visual-layer)) Win32 アプリを Windows 10 のユーザー用に光を最新のエクスペリエンスを作成します。
 
 このチュートリアルの完成したコードは GitHub で入手できます。[Win32 HelloComposition サンプル](https://github.com/Microsoft/Windows.UI.Composition-Win32-Samples/tree/master/cpp/HelloComposition)します。
 
@@ -68,7 +68,7 @@ UWP API をホストしているが、これらの前提条件です。
 
     ![SDK バージョンを設定](images/visual-layer-interop/sdk-version.png)
 
-    - **C/C++** > **言語** >   **C++言語標準** = _ISO C++ 17 標準 (/stf:c + + 17)_
+    - **C/C++**  > **言語** >   **C++言語標準** = _ISO C++ 17 標準 (/stf:c + + 17)_
 
     ![標準的な言語を設定します。](images/visual-layer-interop/language-standard.png)
 
@@ -79,7 +79,7 @@ UWP API をホストしているが、これらの前提条件です。
 1. プリコンパイル済みヘッダーを更新します。
 
     - 名前を変更`stdafx.h`と`stdafx.cpp`に`pch.h`と`pch.cpp`、それぞれします。
-    - プロジェクトのプロパティを設定**C/C++** > **プリコンパイル済みヘッダー** > **プリコンパイル済みヘッダー ファイル**に*pch.h*します。
+    - プロジェクトのプロパティを設定**C/C++**  > **プリコンパイル済みヘッダー** > **プリコンパイル済みヘッダー ファイル**に*pch.h*します。
     - 検索し、置換`#include "stdafx.h"`で`#include "pch.h"`ですべてのファイル。
 
         (**編集** > **検索し、置換** > **ファイル内の検索**)
@@ -98,7 +98,7 @@ UWP API をホストしているが、これらの前提条件です。
 
 ## <a name="create-a-class-to-host-composition-elements"></a>ホストの合成要素のクラスを作成します。
 
-コンテンツのホストにビジュアル層で作成、クラスを作成 (_CompositionHost_) を相互運用機能を管理し、合成要素を作成します。 これは、構成などの合成 Api をホストするための大部分を実行します。
+コンテンツのホストにビジュアル レイヤーで作成、クラスを作成 (_CompositionHost_) を相互運用機能を管理し、合成要素を作成します。 これは、構成などの合成 Api をホストするための大部分を実行します。
 
 - 取得、[コンポジター](/uwp/api/windows.ui.composition.compositor)が作成され、オブジェクトを管理、 [Windows.UI.Composition](/uwp/api/windows.ui.composition)名前空間。
 - 作成、 [DispatcherQueueController](/uwp/api/windows.system.dispatcherqueuecontroller)/[DispatcherQueue](/uwp/api/windows.system.dispatcherqueue) WinRT Api のタスクを管理します。
@@ -267,7 +267,7 @@ UWP API をホストしているが、これらの前提条件です。
 
 エラーがないかどうかを確認するには、現在のプロジェクトをビルドします。
 
-これらのメソッドは、ビジュアル層の UWP と Win32 Api の間の相互運用機能に必要なコンポーネントを設定します。 これで、アプリにコンテンツを追加できます。
+これらのメソッドは、ビジュアル レイヤーの UWP と Win32 Api の間の相互運用機能に必要なコンポーネントを設定します。 これで、アプリにコンテンツを追加できます。
 
 ### <a name="add-composition-elements"></a>合成要素を追加します。
 

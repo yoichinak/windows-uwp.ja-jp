@@ -5,12 +5,12 @@ ms.date: 04/23/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, エラー, 処理, 例外
 ms.localizationpriority: medium
-ms.openlocfilehash: 1b72bb3cb2527585c114d386981e02d4730614a2
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 37819d1626d3adc6f5647f447567a9273e72668d
+ms.sourcegitcommit: d37a543cfd7b449116320ccfee46a95ece4c1887
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66721640"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68270130"
 ---
 # <a name="error-handling-with-cwinrt"></a>C++/WinRT でのエラー処理
 
@@ -92,7 +92,9 @@ Windows API では、さまざまな戻り値の型を使用して実行時エ�
 一般的なリターン コードの種類にこれらのヘルパー関数を使用するか、または任意のエラー状態に応答して、[**winrt::throw_last_error**](/uwp/cpp-ref-for-winrt/error-handling/throw-last-error) または [**winrt::throw_hresult**](/uwp/cpp-ref-for-winrt/error-handling/throw-hresult) を呼び出すことができます。 
 
 ## <a name="throwing-exceptions-when-authoring-an-api"></a>API を作成するときの例外のスロー
-例外が [Windows ランタイム ABI](interop-winrt-abi.md#what-is-the-windows-runtime-abi-and-what-are-abi-types) の境界を越えることは無効であるため、実装で発生するエラー状態は、HRESULT エラー コードの形式で ABI レイヤーを介して返されます。 C++/WinRT を使用して API を作成している場合、実装でスロー*する*例外を HRESULT に変換するためのコードが生成されます。 このようなパターンで生成されたコードで [**winrt::to_hresult**](/uwp/cpp-ref-for-winrt/error-handling/to-hresult) 関数が使用されます。
+[Windows ランタイム アプリケーション バイナリ インターフェイス](interop-winrt-abi.md#what-is-the-windows-runtime-abi-and-what-are-abi-types)の境界 (ABI の境界) はすべて *noexcept*&mdash; である必要があります。これは、例外がここで絶対にエスケープされないことを意味します。 API を作成するときは、常に、ABI の境界を C++ `noexcept` キーワードでマークしてください。 `noexcept` には C++ で固有の動作があります。 C++ の例外で `noexcept` 境界がヒットした場合、プロセスは **std::terminate** でフェイル ファストします。 ハンドルされない例外はほとんどの場合プロセスの不明な状態を意味するので、この動作は通常は望ましい動作です。
+
+例外は ABI の境界を越えてはならないため、実装で発生するエラー状態は、HRESULT エラー コードの形式で ABI レイヤーを介して返されます。 C++/WinRT を使用して API を作成している場合、実装でスロー*する*例外を HRESULT に変換するためのコードが生成されます。 このようなパターンで生成されたコードで [**winrt::to_hresult**](/uwp/cpp-ref-for-winrt/error-handling/to-hresult) 関数が使用されます。
 
 ```cppwinrt
 HRESULT DoWork() noexcept
@@ -111,8 +113,50 @@ HRESULT DoWork() noexcept
 
 [**winrt::to_hresult**](/uwp/cpp-ref-for-winrt/error-handling/to-hresult) では、**std::exception** から派生した例外、および [**winrt::hresult_error**](/uwp/cpp-ref-for-winrt/error-handling/hresult-error) とその派生型を処理します。 実装では、API のユーザーが詳細なエラー情報を受け取るように、**winrt::hresult_error** または派生型を使用することをお勧めします。 (E_FAIL にマップされる) **std::exception** は、標準テンプレート ライブラリを使用したことで例外が発生した場合にサポートされます。
 
+### <a name="debuggability-with-noexcept"></a>noexcept によるデバッグ容易性
+前述のように、C++ の例外で `noexcept` 境界がヒットすると、**std::terminate** でフェイル ファストします。 これはデバッグには適していません。**std:: terminate** では、コルーチンが関係する場合は、多くの、またはすべてのエラーやスローされた例外コンテキストが失われることがよくあるためです。
+
+そのため、このセクションでは、ABI メソッド (`noexcept` で適切に注釈が付けられています) で `co_await` を使用して非同期 C++/WinRT プロジェクション コードを呼び出すケースについて説明します。 C++/WinRT プロジェクション コードへの呼び出しは、**winrt::fire_and_forget** 内にラップすることをお勧めします。 これにより、ハンドルされない例外を格納された例外として適切に記録するための場所が提供され、デバッグ容易性が大幅に増加します。
+
+```cppwinrt
+HRESULT MyWinRTObject::MyABI_Method() noexcept
+{
+    winrt::com_ptr<Foo> foo{ get_a_foo() };
+
+    [/*no captures*/](winrt::com_ptr<Foo> foo) -> winrt::fire_and_forget
+    {
+        co_await winrt::resume_background();
+
+        foo->ABICall();
+
+        AnotherMethodWithLotsOfProjectionCalls();
+    }(foo);
+
+    return S_OK;
+}
+```
+
+**winrt:: fire_and_forget** には組み込みの `unhandled_exception` メソッド ヘルパーがあります。これは **winrt::terminate** を呼び出し、さらにこれが **RoFailFastWithErrorContext** を呼び出します。 これにより、すべてのコンテキスト (格納された例外、エラー コード、エラー メッセージ、スタック バックトレースなど) がライブ デバッグ用または事後検証ダンプ用に保持されることが保証されます。 便宜上、fire-and-forget の部分を、**winrt::fire_and_forget** を返してからそれを呼び出す別の関数に組み入れることができます。
+
+### <a name="synchronous-code"></a>同期コード
+場合によっては、ABI メソッド (この場合も、`noexcept` で適切に注釈が付けられています) は同期コードだけを呼び出します。 つまり、非同期 Windows ランタイムメソッドを呼び出したり、フォアグラウンド スレッドとバックグラウンド スレッドを切り替えたりするために、`co_await` を使用することはありません。 その場合でも、fire_and_forget 手法は引き続き機能しますが、効率的ではありません。 代わりに、次のように処理できます。
+
+```cppwinrt
+HRESULT abi() noexcept try
+{
+    // ABI code goes here.
+} catch (...) { winrt::terminate(); }
+```
+
+### <a name="fail-fast"></a>フェイル ファスト
+前のセクションのコードでは、引き続きフェイル ファストします。 記載されているように、そのコードは例外を処理しません。 ハンドルされない例外が発生すると、プログラムは終了します。
+
+しかし、この形式によりデバッグ容易性が確保されるため、より優れています。 まれに、`try/catch` で、特定の例外を処理することが必要になる場合があります。 しかし、これはまれなケースです。このトピックで説明するように、予想される条件のフロー制御メカニズムとして例外を使用することをお勧めします。
+
+ハンドルされない例外によってネイキッド `noexcept` コンテキストをエスケープできるようにすることは、適切な方法ではありません。 その条件下では C++ ランタイムは **std::terminate** でプロセスを呼び出し、これにより、C++/WinRT で慎重に記録された格納済みの例外情報が失われます。
+
 ## <a name="assertions"></a>アサーション
-アプリケーションの内部の前提として、アサーションが用意されています。 可能な限り、コンパイル時の検証に **static_assert** を使用することをお勧めします。 実行時条件には、ブール式による WINRT_ASSERT を使用します。
+アプリケーションの内部の前提として、アサーションが用意されています。 可能な限り、コンパイル時の検証に **static_assert** を使用することをお勧めします。 実行時の条件には、ブール式で `WINRT_ASSERT` を使います。 `WINRT_ASSERT` はマクロ定義であり、[_ASSERTE](/cpp/c-runtime-library/reference/assert-asserte-assert-expr-macros) に展開されます。
 
 ```cppwinrt
 WINRT_ASSERT(pos < size());

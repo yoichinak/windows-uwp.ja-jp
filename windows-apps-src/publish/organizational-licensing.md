@@ -6,12 +6,12 @@ ms.date: 10/31/2018
 ms.topic: article
 keywords: windows 10, uwp, ビジネス向け Store, 教育機関向け Store, 組織, ボリューム ライセンス, 企業, 教育機関 Store, ビジネス Store, ボリューム購入, 一括
 localizationpriority: high
-ms.openlocfilehash: b7f0ecc1eb7faec39eaad925ccd6c9d501d39749
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 8cfa4d4a18112ef1cad793048399d04835ff4633
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63788401"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67320581"
 ---
 # <a name="organizational-licensing-options"></a>組織のライセンス オプション
 
@@ -59,7 +59,7 @@ ms.locfileid: "63788401"
 現在、特定の市場の開発者アカウントでは、有料アプリをビジネス向け Microsoft ストアでボリューム取得用に提供することができます。 
 
 > [!NOTE]
-> 一部の市場では、ビジネス向け Microsoft Store や教育機関向け Microsoft Store に表示されるアプリの価格が、Microsoft Store の同じ価格帯で小売顧客に表示される価格と異なる場合があります。 組織による購入の収益の支払いは、コンシューマーによるアプリの購入の場合と同様に機能します。 詳しくは、「[支払いの受け取り](getting-paid-apps.md)」と「[アプリ開発者契約](https://docs.microsoft.com/legal/windows/agreements/app-developer-agreement)」をご覧ください。 ビジネス向け Microsoft ストアと教育機関向け Microsoft ストアを利用できる市場の一覧については、「[ビジネス向け Microsoft ストアと教育機関向け Microsoft ストアの概要](https://technet.microsoft.com/itpro/windows/manage/windows-store-for-business-overview#supported-markets)」をご覧ください。
+> 一部の市場では、ビジネス向け Microsoft Store や教育機関向け Microsoft Store に表示されるアプリの価格が、Microsoft Store の同じ価格帯で小売顧客に表示される価格と異なる場合があります。 組織による購入の収益の支払いは、コンシューマーによるアプリの購入の場合と同様に機能します。 詳しくは、「[支払いの受け取り](getting-paid-apps.md)」と「[アプリ開発者契約](https://docs.microsoft.com/legal/windows/agreements/app-developer-agreement)」をご覧ください。 ビジネス向け Microsoft ストアと教育機関向け Microsoft ストアを利用できる市場の一覧については、「[ビジネス向け Microsoft ストアと教育機関向け Microsoft ストアの概要](https://docs.microsoft.com/windows/manage/windows-store-for-business-overview#supported-markets)」をご覧ください。
 
 お住まいの国または地域が以下の一覧にない場合は、現在、有料アプリをビジネス向け Microsoft ストアと教育機関向け Microsoft ストアで提供することはできません。 この場合、有料アプリ用に選択した組織のライセンスの設定は後で適用されることがあります。Microsoft ストアでは、他の開発者アカウント市場からの申請に対するサポートを将来追加することがあるためです。
 

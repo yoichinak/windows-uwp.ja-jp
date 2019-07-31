@@ -5,12 +5,12 @@ keywords: ホストされた Web アプリ、HWA、REST API、単一ページ �
 ms.date: 05/10/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: c38a7182cd27abcfb0de66c721f0e06b95b695d5
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: b1b837d6585507311dc2246d42f3094ce8b07421
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66366986"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67321175"
 ---
 # <a name="create-a-single-page-web-app-with-rest-api-backend"></a>REST API のバックエンドを使った単一ページの Web アプリを作成する
 
@@ -233,7 +233,7 @@ Swagger ファイル (config\swagger.json) では、定義されている各 URL
  - この [guess.js](https://raw.githubusercontent.com/Microsoft/Windows-tutorials-web/master/Single-Page-App-with-REST-API/backend/data/guess.js?token=ACEfkvY69Zr1AZQ4iXgfCgDxeinT21bBks5ZFhYBwA%3D%3D) コードを **data\guess.js** ファイルに使います
  - この [new.js](https://raw.githubusercontent.com/Microsoft/Windows-tutorials-web/master/Single-Page-App-with-REST-API/backend/data/new.js?token=ACEfkiqeDN0HjZ4-gIKRh3wfVZPSlEmgks5ZFhYPwA%3D%3D) コードを **data\new.js** ファイルに使います
 
-ここでは簡単のため、ゲーム ボードを Node サーバーのグローバル変数 (`global.board`) に保存します。 同時に複数のプレイヤーによる複数のゲームをサポートする、実際に使えるメモリ ゲーム API サービスとするためには、クラウド ストレージ (Google [Cloud Datastore](https://cloud.google.com/datastore/) や Azure [DocumentDB](https://azure.microsoft.com/en-us/services/documentdb/) など) を使用します。
+ここでは簡単のため、ゲーム ボードを Node サーバーのグローバル変数 (`global.board`) に保存します。 同時に複数のプレイヤーによる複数のゲームをサポートする、実際に使えるメモリ ゲーム API サービスとするためには、クラウド ストレージ (Google [Cloud Datastore](https://cloud.google.com/datastore/) や Azure [DocumentDB](https://azure.microsoft.com/services/cosmos-db/) など) を使用します。
 
 VS Code ですべての変更を保存したことを確認し、サーバーを再度起動 (VS Code で F5 キーを押すか、またはシェルから `npm start` を実行して、次に [https://localhost:8000](https://localhost:8000) に移動する) して、ゲームの API をテストします。
 
@@ -284,7 +284,7 @@ for (var i=0; i < board.length; i++){
 
 ### <a name="going-further"></a>追加情報
 
-メモリ ゲーム API を実稼働アプリ用のバックエンド サービスとするためには、複数のプレイヤーとゲームをサポートするようにコードを拡張する必要があります。 そのためには、[認証](https://swagger.io/docs/specification/authentication/) (プレイヤーの ID を管理する)、[NoSQL データベース](https://docs.microsoft.com/en-us/azure/documentdb/) (ゲームとプレイヤーを管理する)、API の基本的な[単体テスト](https://apigee.com/about/blog/developer/swagger-test-templates-test-your-apis)について調べる必要があります。
+メモリ ゲーム API を実稼働アプリ用のバックエンド サービスとするためには、複数のプレイヤーとゲームをサポートするようにコードを拡張する必要があります。 そのためには、[認証](https://swagger.io/docs/specification/authentication/) (プレイヤーの ID を管理する)、[NoSQL データベース](https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/) (ゲームとプレイヤーを管理する)、API の基本的な[単体テスト](https://apigee.com/about/blog/api-technology/swagger-test-templates-test-your-apis)について調べる必要があります。
 
 そのために役立つ追加情報を次に示します。
 
@@ -292,7 +292,7 @@ for (var i=0; i < board.length; i++){
 
  - [Azure Web + モバイル ドキュメント](https://docs.microsoft.com/en-us/azure/#pivot=services&panel=web)
 
- - [Azure DocumentDB ドキュメント](https://docs.microsoft.com/en-us/azure/documentdb/index)
+ - [Azure DocumentDB ドキュメント](https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/)
 
 ## <a name="part-ii-build-a-single-page-web-application"></a>パート 2:単一ページの Web アプリケーションを構築する
 
@@ -575,7 +575,7 @@ Bootstrap のグリッド システムを使うと、モバイル デバイス�
 ### <a name="5-add-a-card-flip-animation-with-css-transforms"></a>5。CSS 変換を使ってカードの反転のアニメーションを追加する
 memory\public\stylesheets の style.css ファイルを、Start フォルダーの style.css ファイルで置き換えます。
 
-[CSS 変換](https://docs.microsoft.com/en-us/microsoft-edge/dev-guide/css/transforms)を使って、反転モーションを追加し、カードにリアルな 3D の反転モーションを追加します。 ゲームのカードは次の HTML 構造を使用して作成され、(先述の `drawGameBoard()`関数により) プログラムによってゲーム ボードに追加されています。
+[CSS 変換](https://developer.mozilla.org/docs/Web/CSS/CSS_Transforms)を使って、反転モーションを追加し、カードにリアルな 3D の反転モーションを追加します。 ゲームのカードは次の HTML 構造を使用して作成され、(先述の `drawGameBoard()`関数により) プログラムによってゲーム ボードに追加されています。
 
 ``` html
 <div class="flipContainer">
@@ -642,6 +642,6 @@ Microsoft Store に公開するための基本的な手順は次のとおりで�
 
  - [アプリケーション開発プロジェクトを Azure Web サイトにデプロイする](https://docs.microsoft.com/azure/cosmos-db/documentdb-nodejs-application#_Toc395783182)
 
- - [Web アプリケーションをユニバーサル Windows プラットフォーム (UWP) アプリに変換する](https://docs.microsoft.com/en-us/windows/uwp/porting/hwa-create-windows)
+ - [Web アプリケーションをユニバーサル Windows プラットフォーム (UWP) アプリに変換する](https://docs.microsoft.com/microsoft-edge/progressive-web-apps)
 
- - [Windows アプリを公開する](https://developer.microsoft.com/en-us/store/publish-apps)
+ - [Windows アプリを公開する](https://docs.microsoft.com/windows/uwp/publish/)

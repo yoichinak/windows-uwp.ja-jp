@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: fb4249b2-f93c-4993-9e4d-57a62c04be66
 ms.localizationpriority: medium
-ms.openlocfilehash: 2e1eba68d1046892a67d779d353fd9b2e6bf224e
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: b4ce91e32b14bdf81b40b24e810e0bd86bcaa99b
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66366941"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67321084"
 ---
 # <a name="creating-a-3d-javascript-game-using-threejs"></a>three.js を使用して 3D JavaScript ゲームを作成する
 
@@ -1086,5 +1086,5 @@ UWP アプリを作成できたため、(一番先に改善すれば) Microsoft 
 1.  Windows 開発者として[登録](https://developer.microsoft.com/store/register)する必要があります。
 2.  アプリの申請[チェックリスト](https://docs.microsoft.com/windows/uwp/publish/app-submissions)を使用する必要があります。
 3.  [認定](https://docs.microsoft.com/windows/uwp/publish/the-app-certification-process)を受けるために、アプリを提出する必要があります。
-詳しくは、[UWP アプリの公開](https://developer.microsoft.com/store/publish-apps)に関する記事をご覧ください。
+詳しくは、[UWP アプリの公開](https://docs.microsoft.com/windows/uwp/publish/)に関する記事をご覧ください。
 

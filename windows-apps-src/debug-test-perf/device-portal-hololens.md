@@ -2,16 +2,16 @@
 ms.assetid: bf0a8b01-79f1-4944-9d78-9741e235dbe9
 title: HoloLens 用 Device Portal
 description: HoloLens 用 Windows Device Portal を使って、リモートから HoloLens デバイスの構成と管理を行う方法について説明します。
-ms.date: 01/3/2019
+ms.date: 01/03/2019
 ms.topic: article
 keywords: windows 10、uwp、デバイス ポータル
 ms.localizationpriority: medium
-ms.openlocfilehash: 3b25283dbe8feff74ba994efba31c542f59171d9
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 92f4cc44f93348e1dba0f45b780e2efdda6949a7
+ms.sourcegitcommit: 139717a79af648a9231821bdfcaf69d8a1e6e894
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67317878"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67713886"
 ---
 # <a name="device-portal-for-hololens"></a>HoloLens 用 Device Portal
 

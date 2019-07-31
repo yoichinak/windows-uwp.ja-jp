@@ -6,17 +6,17 @@ ms.date: 11/03/2017
 ms.topic: article
 keywords: Windows 10, UWP, Fluent
 ms.openlocfilehash: f1cc576bbc7fe7fc326d86072e22b7a385cfeb8b
-ms.sourcegitcommit: c10d7843ccacb8529cb1f53948ee0077298a886d
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58913952"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "63794486"
 ---
 # <a name="item-templates-for-grid-view"></a>グリッド ビューの項目テンプレート
 
 このセクションでは、[**GridView**](https://docs.microsoft.com/en-us/uwp/api/Windows.UI.Xaml.Controls.GridView) コントロールで使用できる項目テンプレートについて説明します。 これらのテンプレートを使って、一般的な種類のアプリの外観を設定できます。
 
-データ バインディングを示すためには、これらのテンプレートがバインド**GridViewItems**から記録クラスの例に、[データ バインディングの概要](../../data-binding/data-binding-quickstart.md)します。
+データ バインディングのデモのため、これらのテンプレートでは、**GridViewItems** が「[データ バインディングの概要](../../data-binding/data-binding-quickstart.md)」の Recording クラスのサンプルにバインドされます。
 
 > [!NOTE] 
 > 現在、**DataTemplate** に複数のコントロール (例: 複数の **TextBlock**) が含まれている場合、スクリーン リーダー用のアクセシビリティに対応する既定の名前は、項目の .ToString() から取得されます。 また利便性を考慮し、**DataTemplate** のルート要素に [**AutomationProperties.Name**](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.automation.automationproperties) を設定することもできます。 アクセシビリティについて詳しくは、[「アクセシビリティの概要」](../accessibility/accessibility-overview.md)をご覧ください。

@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 5d5f7af2-41a9-4749-ad16-4503c64bb80c
 ms.localizationpriority: medium
-ms.openlocfilehash: 64a00c1c281c8cc7ddf427449c92e560668cccad
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 01ddc46c80c0ed9a9999ec7c8e67ab9034803a3d
+ms.sourcegitcommit: deb1cdecf34feaa92b0342adc61a5d08f3f10687
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64564531"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332828"
 ---
 # <a name="create-a-uwp-game-in-monogame-2d"></a>MonoGame 2D で UWP ゲームを作成する
 
@@ -698,4 +698,4 @@ Windows 開発者として[登録](https://developer.microsoft.com/en-us/store/r
 
 [認定](https://docs.microsoft.com/en-us/windows/uwp/publish/the-app-certification-process)を受けるために、アプリを提出する必要があります。
 
-詳しくは、[UWP アプリの公開](https://developer.microsoft.com/en-us/store/publish-apps)に関する記事をご覧ください。
+詳しくは、[UWP アプリの公開](https://docs.microsoft.com/windows/uwp/publish/)に関する記事をご覧ください。

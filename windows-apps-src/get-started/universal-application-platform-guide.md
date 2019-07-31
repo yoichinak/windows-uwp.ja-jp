@@ -6,12 +6,12 @@ ms.date: 05/07/2018
 ms.topic: article
 keywords: Windows 10, UWP, ユニバーサル
 ms.localizationpriority: medium
-ms.openlocfilehash: 37207d4ce65551a7bdd33d57f72f3fa6a0a6185d
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 8b1f6e0e04cdf81512918e0cd3e33ec0f93e2245
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66370704"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67320998"
 ---
 # <a name="whats-a-universal-windows-platform-uwp-app"></a>ユニバーサル Windows プラットフォーム (UWP) アプリとは
 
@@ -121,13 +121,12 @@ Microsoft デザイン システムは Fluent と呼ばれます。 Fluent Desig
 
 - モバイル、小型画面デバイス、大型画面デバイスに対応するには、「[UWP アプリのナビゲーション デザインの基本](https://docs.microsoft.com/windows/uwp/layout/navigation-basics)」を使用してワークフローをデザインします。 [ユーザー インターフェイスをレイアウトする](https://docs.microsoft.com/windows/uwp/layout/screen-sizes-and-breakpoints-for-responsive-design)さまざまな画面サイズと解像度に対応します。
 
-- 複数の入力の種類の対処方法を検討してください。 ユーザーが [Cortana](https://docs.microsoft.com/windows/uwp/input-and-devices/cortana-design-guidelines)、[音声認識](https://docs.microsoft.com/windows/uwp/input-and-devices/speech-interactions)、[タッチ操作](https://docs.microsoft.com/windows/uwp/input-and-devices/guidelines-for-user-interaction)、[タッチ キーボード](https://docs.microsoft.com/windows/uwp/input-and-devices/keyboard-interactions)などを使ってアプリを操作する方法については、「[操作のガイドライン](https://developer.microsoft.com/windows/design/inputs-devices)」をご覧ください。  または、従来の操作エクスペリエンスについて詳しくは、「[テキストとテキスト入力のガイドライン](https://docs.microsoft.com/windows/uwp/controls-and-patterns/text-controls)」をご覧ください。
+- 複数の入力の種類の対処方法を検討してください。 ユーザーが [Cortana](https://docs.microsoft.com/windows/uwp/input-and-devices/cortana-design-guidelines)、[音声認識](https://docs.microsoft.com/windows/uwp/input-and-devices/speech-interactions)、[タッチ操作](https://docs.microsoft.com/windows/uwp/input-and-devices/guidelines-for-user-interaction)、[タッチ キーボード](https://docs.microsoft.com/windows/uwp/input-and-devices/keyboard-interactions)などを使ってアプリを操作する方法については、「[操作のガイドライン](https://docs.microsoft.com/windows/uwp/design/layout/index)」をご覧ください。  または、従来の操作エクスペリエンスについて詳しくは、「[テキストとテキスト入力のガイドライン](https://docs.microsoft.com/windows/uwp/controls-and-patterns/text-controls)」をご覧ください。
 
 ### <a name="add-services"></a>サービスの追加
 
 - [クラウド サービス](https://go.microsoft.com/fwlink/?LinkId=526377)を使用して、デバイス間で同期します。
 - アプリのエクスペリエンスをサポートするにあたって、[Web サービスに接続する](https://docs.microsoft.com/previous-versions/windows/apps/hh761504(v=win.10))方法について説明します。
-- アプリで音声コマンドに応答できるようにするために、[アプリに Cortana を追加する](https://mva.microsoft.com/training-courses/integrating-cortana-in-your-apps-8487?l=20D3s5Xz_5904984382)方法について説明します。
 - [プッシュ通知](https://docs.microsoft.com/windows/uwp/controls-and-patterns/tiles-and-notifications-windows-push-notification-services--wns--overview)と[アプリ内購入](https://docs.microsoft.com/windows/uwp/monetize/enable-in-app-product-purchases)を計画に盛り込みます。 これらの機能はさまざまなデバイスで動作する必要があります。
 
 ### <a name="submit-your-app-to-the-store"></a>アプリをストアに提出する
@@ -142,7 +141,7 @@ Microsoft デザイン システムは Fluent と呼ばれます。 Fluent Desig
 
 - アプリでのユーザー アクティビティが Windows タイムラインと Cortana の 前回終了した位置から再開機能に表示されるようにするには、[ユーザー アクティビティ](https://blogs.windows.com/buildingapps/2017/12/19/application-engagement-windows-timeline-user-activities/#tHuZ6tLPtCXqYKvw.97)の使用方法に関するページを参照してください。
 - [UWP アプリのタイル、バッジ、通知](https://docs.microsoft.com/windows/uwp/design/shell/tiles-and-notifications/)の使用方法に関するページを参照してください。
-- UWP アプリに利用可能な Win32 API の完全な一覧については、「[UWP アプリの API セット](https://docs.microsoft.com/previous-versions//mt186421(v=vs.85))」と「[UWP アプリの DLL](https://docs.microsoft.com/previous-versions//mt186422(v=vs.85))」をご覧ください。
+- UWP アプリに利用可能な Win32 API の完全な一覧については、「[UWP アプリの API セット](https://docs.microsoft.com/previous-versions/mt186421(v=vs.85))」と「[UWP アプリの DLL](https://docs.microsoft.com/previous-versions/mt186422(v=vs.85))」をご覧ください。
 - .NET UWP アプリの作成の概要については、[.NET でのユニバーサル Windows アプリに関するページ](https://devblogs.microsoft.com/dotnet/universal-windows-apps-in-net/)を参照してください。
 - UWP アプリで使用できる .NET 型の一覧については、「[UWP アプリの .NET](https://docs.microsoft.com/dotnet/api/index?view=dotnet-uwp-10.0)」を参照してください。
 - [.NET Native によるアプリのコンパイル](https://docs.microsoft.com/dotnet/framework/net-native/)

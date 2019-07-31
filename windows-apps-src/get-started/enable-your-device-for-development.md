@@ -3,15 +3,15 @@ ms.assetid: 54973C62-9669-4988-934E-9273FB0425FD
 title: デバイスを開発用に有効にする
 description: 開発およびデバッグ用に Windows 10 デバイスを構成します。
 keywords: 開発者用 Visual Studio での作業の開始, 開発者用ライセンス対応デバイス
-ms.date: 4/9/2019
+ms.date: 04/09/2019
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: f927d8bce1e59ba9a8ed9b0f3f08ce3575c6d7bd
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 9c1979f8e8232ee3bfd2e2961307608bf8da7836
+ms.sourcegitcommit: 139717a79af648a9231821bdfcaf69d8a1e6e894
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66367022"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67714146"
 ---
 # <a name="enable-your-device-for-development"></a>デバイスを開発用に有効にする
 
@@ -56,7 +56,7 @@ ms.locfileid: "66367022"
 
 ### <a name="sideload-apps"></a>アプリのサイドローディング
 
-アプリのサイドロード設定は、通常、Microsoft Store を使わずにカスタム アプリを管理対象デバイスにインストールする必要がある会社や学校によって、または Microsoft 以外のソースからアプリを実行する必要があるユーザーによって、使用されます。 この場合、設定ページのイメージで以前に示したように、*UWP アプリ*設定を無効にするポリシーを組織が適用していることはよくあります。 また、組織は、必要な証明書と、アプリをサイドローディングするインストール場所を提供します。 詳しくは、TechNet の記事「[Windows 10 でのアプリのサイド ローディング](https://technet.microsoft.com/library/mt269549.aspx)」と「[Microsoft Intune でのアプリ展開の開始](https://technet.microsoft.com/library/dn646955.aspx)」をご覧ください。
+アプリのサイドロード設定は、通常、Microsoft Store を使わずにカスタム アプリを管理対象デバイスにインストールする必要がある会社や学校によって、または Microsoft 以外のソースからアプリを実行する必要があるユーザーによって、使用されます。 この場合、設定ページのイメージで以前に示したように、*UWP アプリ*設定を無効にするポリシーを組織が適用していることはよくあります。 また、組織は、必要な証明書と、アプリをサイドローディングするインストール場所を提供します。 詳しくは、TechNet の記事「[Windows 10 でのアプリのサイド ローディング](https://docs.microsoft.com/windows/deploy/sideload-apps-in-windows-10)」と「[Microsoft Intune でのアプリ展開の開始](https://docs.microsoft.com/intune/deploy-use/add-apps)」をご覧ください。
 
 デバイス ファミリ固有の情報
 
@@ -94,7 +94,7 @@ Device Portal について詳しくは、「[Windows Device Portal の概要](..
 
 デバイス固有のセットアップ手順については、以下をご覧ください。
 - [デスクトップ用 Device Portal](https://docs.microsoft.com/windows/uwp/debug-test-perf/device-portal-desktop)
-- [HoloLens 用 Device Portal](https://developer.microsoft.com/windows/holographic/using_the_windows_device_portal)
+- [HoloLens 用 Device Portal](https://developer.microsoft.com/mixed-reality)
 - [IoT 用 Device Portal](https://developer.microsoft.com/windows/iot/docs/DevicePortal)
 - [モバイル用 Device Portal](../debug-test-perf/device-portal-mobile.md)
 - [Xbox 向けのデバイス ポータル](../xbox-apps/device-portal-xbox.md)
@@ -238,8 +238,8 @@ Windows 8.1 デバイスでアプリを作成またはサイドローディン�
 ## <a name="see-also"></a>参照
 
 * [初めてのアプリ](your-first-app.md)
-* [UWP アプリを公開する](https://developer.microsoft.com/store/publish-apps)
-* [UWP アプリの開発に関するハウツー記事](https://developer.microsoft.com/windows/apps/develop)
+* [UWP アプリを公開する](https://docs.microsoft.com/windows/uwp/publish/)
+* [UWP アプリの開発に関するハウツー記事](https://docs.microsoft.com/windows/uwp/develop/)
 * [UWP 開発者向けコード サンプル](https://developer.microsoft.com/windows/samples)
 * [UWP アプリとは](universal-application-platform-guide.md)
 * [Windows アカウントのサインアップ](sign-up.md)

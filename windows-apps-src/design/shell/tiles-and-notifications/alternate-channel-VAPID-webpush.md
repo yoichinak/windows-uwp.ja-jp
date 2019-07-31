@@ -1,26 +1,29 @@
 ---
-title: UWP で Webpush と VAPID を使用して代替のプッシュ チャネル
+title: UWP で VAPID を使用して代替のプッシュ チャネル
 description: UWP アプリから VAPID プロトコルを使用した代替のプッシュ チャネルを使用して、手順
 ms.date: 01/10/2017
 ms.topic: article
 keywords: windows 10、uwp、WinRT API では、WNS
 localizationpriority: medium
-ms.openlocfilehash: bf224b6c0997ce8af86ab2919a1d0513f619a8a3
-ms.sourcegitcommit: 681c1e3836d2a51cd3b31d824ece344281932bcd
+ms.openlocfilehash: 6512eb891967b6c17bc4845d5e47639ae3c97d31
+ms.sourcegitcommit: 0c97c025d751082db3424cb9941bf6688d9b7381
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59067827"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835019"
 ---
-# <a name="alternate-push-channels-using-webpush-and-vapid-in-uwp"></a>UWP で Webpush と VAPID を使用して代替のプッシュ チャネル 
-以降、Fall Creators Update では、UWP アプリを使用できます web プッシュ VAPID 認証を使用したプッシュ通知を送信します。  
+# <a name="alternate-push-channels-using-vapid-in-uwp"></a>UWP で VAPID を使用して代替のプッシュ チャネル 
+以降、Fall Creators Update では、UWP アプリはプッシュ通知を送信するのに VAPID 認証を使用できます。  
+
+> [!NOTE]
+> これらの Api は、他の web サイトをホストしている、自分でチャネルを作成する web ブラウザーを対象としています。  Web アプリに webpush 通知を追加しようとする場合は、サービスのワーカーを作成すると、通知を送信する W3C および WhatWG 標準に準拠するをお勧めします。
 
 ## <a name="introduction"></a>概要
 Web 標準のプッシュの導入により、web サイトは、アプリ、web サイトにユーザーが登録されていない場合でも、通知を送信するようにより機能できます。
 
 仕入先でのプッシュのサーバーで認証する web サイト作成された VAPID 認証プロトコルに依存しない方法です。 VAPID プロトコルを使用して、すべてのベンダーと web サイトが実行されているブラウザーを知らなくてもプッシュ通知を送信することができます。 これは、各プラットフォームのプッシュのさまざまなプロトコルの実装を大幅に強化です。 
 
-UWP アプリでは、こうしたメリットを使用したプッシュ通知を送信するのに webpush と VAPID を使用できます。 これらのプロトコルでは、新しいアプリの開発時間を節約でき、既存のアプリのクロス プラットフォーム サポートを簡略化することができます。 さらに、エンタープライズ アプリまたはアプリのサイドロードできますようになりましたなく通知を送信 Microsoft Store での登録します。 うまくいけば、これがすべてのプラットフォームでユーザーと交流する新しい方法を開きます。  
+UWP アプリは、VAPID を使用してもこれらの利点を使用したプッシュ通知を送信します。 これらのプロトコルでは、新しいアプリの開発時間を節約でき、既存のアプリのクロス プラットフォーム サポートを簡略化することができます。 さらに、エンタープライズ アプリまたはアプリのサイドロードできますようになりましたなく通知を送信 Microsoft Store での登録します。 うまくいけば、これがすべてのプラットフォームでユーザーと交流する新しい方法を開きます。  
 
 ## <a name="alternate-channels"></a>代替チャネル 
 UWP では、これらの VAPID チャネルは代替チャネルと呼ばれ、web のプッシュ チャネルと同様の機能を提供します。 1 つのアプリから複数のチャネルを許可して、アプリのバック グラウンド タスクを実行して、メッセージの暗号化を有効にするトリガーできます。 別のチャネルの種類の違いの詳細についてを参照してください[適切なチャネルを選択する](channel-types.md)します。
@@ -106,7 +109,7 @@ protected override void OnBackgroundActivated(BackgroundActivatedEventArgs args)
 別の形式の暗号化を使用する場合は、キー、生の使用です。ヘッダーのプロパティです。 すべてのプッシュのサーバーに POST 要求に含まれていた暗号化ヘッダーが含まれています。 そこから、アプリは、メッセージを解読するのにキーを使用できます。  
 
 ## <a name="related-topics"></a>関連トピック
-- [通知チャンネルの種類](channel-types.md)
+- [通知チャネルの種類](channel-types.md)
 - [Windows プッシュ通知サービス (WNS)](windows-push-notification-services--wns--overview.md)
 - [PushNotificationChannel クラス](https://docs.microsoft.com/uwp/api/windows.networking.pushnotifications.pushnotificationchannel)
 - [PushNotificationChannelManager クラス](https://docs.microsoft.com/uwp/api/windows.networking.pushnotifications.pushnotificationchannelmanager)

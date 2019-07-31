@@ -6,12 +6,12 @@ ms.date: 09/30/2018
 ms.topic: article
 keywords: Windows 10, UWP, コンテンツ グループ マップ, ストリーミング インストール, UWP アプリ ストリーミング インストール, ソース コンテンツ グループ マップ
 ms.localizationpriority: medium
-ms.openlocfilehash: 882db0a6a97c5ee203a072156ca3eb82615607bb
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 7e25f30a2288f6be76ce108de2056ab6407187de
+ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57647947"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67821033"
 ---
 # <a name="create-and-convert-a-source-content-group-map"></a>ソース コンテンツ グループ マップの作成と変換
 
@@ -71,7 +71,7 @@ UWP アプリ ストリーミング インストールが適した簡単なシ�
 
 いくつか重要な点があります。
 
-- `<Required>` 要素内の `<ContentGroup>` は **、**"Required" という名前にする必要があります。 この名前は、必須コンテンツ グループ用だけに使用するために予約されており、最終的なコンテンツ グループ マップに含まれる他の `<ContentGroup>` には使用できません。
+- `<Required>` 要素内の `<ContentGroup>` は **、** "Required" という名前にする必要があります。 この名前は、必須コンテンツ グループ用だけに使用するために予約されており、最終的なコンテンツ グループ マップに含まれる他の `<ContentGroup>` には使用できません。
 - ここにある `<ContentGroup>` は 1 つだけです。 必須ファイルのグループは 1 つだけにする必要があるため、これは意図どおりです。
 - この例では、`.exe` ファイルは 1 つです。 必須コンテンツ グループは、1 つのファイルに限定せず、複数のファイルにすることもできます。 
 
@@ -143,7 +143,7 @@ Visual Studio でアプリを開発した場合は、必須コンテンツ グ�
 
 ## <a name="convert-sourceappxcontentgroupmapxml-to-appxcontentgroupmapxml"></a>SourceAppxContentGroupMap.xml を AppxContentGroupMap.xml に変換する
 
-`SourceAppxContentGroupMap.xml` を最終的なバージョンである `AppxContentGroupMap.xml` に変換するには、Visual Studio 2017 または **MakeAppx.exe** コマンド ライン ツールを使うことができます。
+変換する、 `SourceAppxContentGroupMap.xml` 、最終バージョンに`AppxContentGroupMap.xml`、Visual Studio 2019 を使用する、または**MakeAppx.exe**コマンド ライン ツール。
 
 Visual Studio を使ってコンテンツ グループのマップを変換するには:
 1. `SourceAppxContentGroupMap.xml` をプロジェクト フォルダーに追加します。

@@ -1,5 +1,5 @@
 ---
-Description: ページの一般的なパターンと、UWP アプリでコンテンツを表示するための UI 要素の概要。
+Description: UWP アプリでコンテンツを表示するための一般的なページ パターンと UI 要素の概要。
 title: ユニバーサル Windows プラットフォーム (UWP) アプリのコンテンツ デザインの基本
 ms.assetid: 3102530A-E0D1-4C55-AEFF-99443D39D567
 label: Content design basics
@@ -10,11 +10,11 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: 0e5b46223ea7dfa5e43b5a50a04a4c3f31307d49
-ms.sourcegitcommit: c10d7843ccacb8529cb1f53948ee0077298a886d
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58913962"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "63796314"
 ---
 # <a name="content-design-basics-for-uwp-apps"></a>UWP アプリのコンテンツ デザインの基本
 

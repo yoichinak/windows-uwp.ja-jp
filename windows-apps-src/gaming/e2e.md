@@ -6,12 +6,12 @@ ms.date: 04/16/2018
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム、ゲーム開発
 ms.localizationpriority: medium
-ms.openlocfilehash: 950f9415e63a31a5204a15f4f72b968535489cfa
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 53e977e07337c11036916c2087a00e9ec7a95118
+ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67321241"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67821125"
 ---
 # <a name="windows-10-game-development-guide"></a>Windows 10 ゲーム開発ガイド
 
@@ -521,7 +521,7 @@ C++/CX はオーバーヘッドの低い高パフォーマンスな言語であ�
     </tr>
     <tr>
         <td>Visual C++ のプログラミング ガイドとリファレンス</td>
-        <td><a href="https://docs.microsoft.com/cpp/visual-cpp-in-visual-studio">Visual Studio 2017 の visual C</a></td>
+        <td><a href="https://docs.microsoft.com/cpp/visual-cpp-in-visual-studio">VisualC++で Visual Studio 2019</a></td>
     </tr>
 </table>
  
@@ -645,7 +645,7 @@ Microsoft ファミリの一部となった PlayFab は、ライブ ゲームの
         <td><a href="https://playfab.com/">ツールとサービスの概要</a></td>
     </tr>
     <tr>
-        <td>概要</td>
+        <td>作業の開始</td>
         <td><a href="https://api.playfab.com/docs/general-getting-started">一般的な作業の開始ガイド</a></td>
     </tr>
     <tr>
@@ -1018,7 +1018,7 @@ Windows デスクトップ ゲームを UWP に移行する際に役立つリン
     </colgroup>
     <tr>
         <td>既存の C++ コードを使った UWP ゲーム開発</td>
-        <td>「<a href="https://docs.microsoft.com/cpp/porting/how-to-use-existing-cpp-code-in-a-universal-windows-platform-app">UWP アプリで既存の C++ コードを使用します。</a></td>
+        <td><a href="https://docs.microsoft.com/cpp/porting/how-to-use-existing-cpp-code-in-a-universal-windows-platform-app">方法:UWP アプリで既存の C++ コードを使用します。</a></td>
     </tr>
     <tr>
         <td>Win32 API と COM API 用の UWP API</td>
@@ -1026,7 +1026,7 @@ Windows デスクトップ ゲームを UWP に移行する際に役立つリン
     </tr>
     <tr>
         <td>UWP でサポートされない CRT 関数</td>
-        <td><a href="https://docs.microsoft.com/cpp/cppcx/crt-functions-not-supported-in-universal-windows-platform-apps">ユニバーサル Windows プラットフォーム アプリでサポートされない CRT 関数</a></td>
+        <td><a href="https://docs.microsoft.com/cpp/cppcx/crt-functions-not-supported-in-universal-windows-platform-apps">ユニバーサル Windows プラットフォーム アプリでサポートされていない CRT 関数</a></td>
     </tr>
     <tr>
         <td>Windows API の代替</td>
@@ -1103,7 +1103,7 @@ UX デザインとは別に、レベルのデザイン、ペース配分、世�
 </table>
  
 
-#### <a name="typography"></a>文字体裁
+#### <a name="typography"></a>タイポグラフィ
 
 文字体裁を適切に使うと、UI のレイアウト、ナビゲーション、読みやすさ、雰囲気、ブランド、プレイヤーの熱中度など、多くの側面が向上します。
 
@@ -1311,7 +1311,7 @@ DirectX ツール キット、DirectX テクスチャ処理ライブラリ、Dir
 </table>
 
 
-## <a name="production"></a>実稼働
+## <a name="production"></a>Production
 
 
 制作スタジオの準備が整ったら、チーム全体に作業を分散して制作サイクルに移行します。 プロトタイプの調整、リファクタリング、拡張によって、ゲームの完成品に仕上げていきます。
@@ -1519,7 +1519,7 @@ Windows プラットフォーム用の多言語対応ゲームを開発し、Mic
 
 次のガイドと情報は、公開と申請のプロセスをできるだけスムーズに進めるために役立ちます。
 
-### <a name="publishing"></a>公開
+### <a name="publishing"></a>置換
 
 使用して[パートナー センター](https://partner.microsoft.com/dashboard)発行して、ゲームのパッケージを管理します。
 
@@ -1530,7 +1530,7 @@ Windows プラットフォーム用の多言語対応ゲームを開発し、Mic
     </colgroup>
     <tr>
         <td>パートナー センターのアプリの発行</td>
-        <td><a href="https://developer.microsoft.com/store/publish-apps">Windows アプリを発行します。</a></td>
+        <td><a href="https://developer.microsoft.com/store/publish-apps">Windows アプリを公開する</a></td>
     </tr>
     <tr>
         <td>パートナー センターの詳細 (GDN) の発行</td>

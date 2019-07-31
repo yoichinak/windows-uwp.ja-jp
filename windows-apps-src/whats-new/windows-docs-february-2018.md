@@ -5,12 +5,12 @@ keywords: 最新情報, 更新, 機能, 開発者向けガイダンス, Windows 
 ms.date: 02/05/2018
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 421fb7c973c1aaa4e9e1924548d7f11439fd5350
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: e02c253e9fe2e3bd25485c8af0429b19a65886cf
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63780328"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67320402"
 ---
 # <a name="whats-new-in-the-windows-developer-docs-in-february-2018"></a>Windows 開発者向けドキュメントの最新情報、2018 年 2 月
 
@@ -73,4 +73,4 @@ Xbox Live クリエーターズ プログラムでは、開発者が UWP ゲー�
 
 ### <a name="motion-controller-tracking"></a>モーション コントローラーの追跡
 
-Windows Mixed Reality では、モーション コントローラーがユーザーの手を表します。 モーション コントローラーが Mixed Reality ヘッドセットの視野の内外にあるときの動作については、[ビデオをご覧ください](https://www.youtube.com/watch?v=rkDpRllbLII)。[コントローラーのトラッキングについて詳しくは、こちらをご覧ください。](https://developer.microsoft.com/windows/mixed-reality/motion_controllers#controller_tracking_state%E2%80%9D)
+Windows Mixed Reality では、モーション コントローラーがユーザーの手を表します。 モーション コントローラーが Mixed Reality ヘッドセットの視野の内外にあるときの動作については、[ビデオをご覧ください](https://www.youtube.com/watch?v=rkDpRllbLII)。[コントローラーのトラッキングについて詳しくは、こちらをご覧ください。](https://docs.microsoft.com/windows/mixed-reality/motion-controllers#controller_tracking_state%E2%80%9D)

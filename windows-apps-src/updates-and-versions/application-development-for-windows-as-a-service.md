@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: f384ca56-f2b2-4793-b251-f7f5735376bb
 ms.localizationpriority: medium
-ms.openlocfilehash: 0629201b695f6df6f7f3e2084a73d72b10b82be5
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 478c4a16902329e1dd9267e0339dca0e0dcf3539
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63813607"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67321967"
 ---
 # <a name="application-development-for-windows-as-a-service"></a>サービスとしての Windows アプリケーション開発
 
@@ -160,4 +160,4 @@ Windows Insider に登録する前に、参加するユーザーについて次�
 [Ready for Windows](https://go.microsoft.com/fwlink/?LinkID=780580) の Web サイトには、Windows 10 に対応したソフトウェアが登録されています。 Windows 10 の導入を検討している世界中の企業や組織の IT 管理者向けです。 IT 管理者はこのサイトをチェックして、エンタープライズに導入したソフトウェアが Windows 10 でサポートされているかどうかを確認できます。
 
 ## <a name="related-topics"></a>関連トピック
-[更新プログラムおよびアップグレードに関する Windows 10 のサービス オプション](https://technet.microsoft.com/itpro/windows/manage/introduction-to-windows-10-servicing)
+[更新プログラムおよびアップグレードに関する Windows 10 のサービス オプション](https://docs.microsoft.com/windows/manage/introduction-to-windows-10-servicing)

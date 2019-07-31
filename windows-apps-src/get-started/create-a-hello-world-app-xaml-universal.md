@@ -6,12 +6,12 @@ ms.date: 03/06/2017
 ms.topic: article
 keywords: windows 10, uwp, 初めてのアプリ, hello world
 ms.localizationpriority: medium
-ms.openlocfilehash: d9a7f0302dfdc9f9fa980f0fe93a3371328f9e5c
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 65dfc7b5f9a870f3ccdd5c0c046b996a01c06a00
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66367432"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67321206"
 ---
 # <a name="create-a-hello-world-app-xaml"></a>"Hello, world" アプリを作成する (XAML)
 
@@ -240,8 +240,8 @@ private async void Button_Click(object sender, RoutedEventArgs e)
 ## <a name="see-also"></a>参照
 
 * [初めてのアプリ](your-first-app.md)
-* [UWP アプリを公開する](https://developer.microsoft.com/store/publish-apps)
-* [UWP アプリの開発に関するハウツー記事](https://developer.microsoft.com/windows/apps/develop)
+* [UWP アプリを公開する](https://docs.microsoft.com/windows/uwp/publish/)
+* [UWP アプリの開発に関するハウツー記事](https://docs.microsoft.com/windows/uwp/develop/)
 * [UWP 開発者向けコード サンプル](https://developer.microsoft.com/windows/samples)
 * [ユニバーサル Windows アプリとは?](universal-application-platform-guide.md)
 * [Windows アカウントのサインアップ](sign-up.md)

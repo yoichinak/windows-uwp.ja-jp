@@ -6,16 +6,16 @@ ms.date: 10/03/2018
 ms.topic: article
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 2b172844e75d9af3d0112e03f155708af3ca6bed
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: d393ee92be8768861da0fb0783372c8bafc6f815
+ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63780356"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67821109"
 ---
 # <a name="whats-new-in-windows-10-for-developers-build-17763"></a>Windows 10 ビルド 17763 の開発者向け新着情報
 
-Windows 10 ビルド 17763 (October 2018 Update またはバージョン 1809 とも呼ばれます) では、Visual Studio 2017 や更新された SDK と組み合わせて使うことで、優れたユニバーサル Windows プラットフォーム アプリを作成するためのツール、機能、エクスペリエンスが利用可能になります。 Windows 10 の[ツールと SDK をインストール](https://go.microsoft.com/fwlink/?LinkId=821431)すると、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
+Windows 10 ビルド 17763 (October 2018 Update またはバージョン 1809 とも呼ばれます) では、Visual Studio 2019 や更新された SDK と組み合わせて使うことで、優れたユニバーサル Windows プラットフォーム アプリを作成するためのツール、機能、エクスペリエンスが利用可能になります。 Windows 10 の[ツールと SDK をインストール](https://go.microsoft.com/fwlink/?LinkId=821431)すると、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
 
 ここには、Windows 開発者にとって重要なこのリリースの新機能、強化された機能、ガイダンスを集めました。 Windows SDK に追加されたすべての新しい名前空間の一覧については、「[Windows 10 ビルド 17763 API の変更点](windows-10-build-17763-api-diff.md)」をご覧ください。 Windows 10 での注目すべき機能について詳しくは、「[Windows 10 の優れた機能](https://go.microsoft.com/fwlink/?LinkId=823181)」をご覧ください。 また、Windows プラットフォームに過去に追加された機能と今後追加される機能の概要については、[Windows 開発者向けプラットフォーム機能に関するページ](https://developer.microsoft.com/windows/platform/features)をご覧ください。
 
@@ -143,4 +143,4 @@ One Dev Question ビデオ シリーズでは、ベテランの Microsoft 開発
 
 ### <a name="xaml-hosting-api"></a>XAML ホスティング API
 
-[XAML ホスティング API サンプル](https://github.com/Microsoft/Windows-appsample-Xaml-Hosting)は、UWP XAML ホスティング API (XAML アイランドとも呼ばれる) を使用したさまざまなシナリオにスポットを当てる Win32 デスクトップ アプリです。 プロジェクトには、Windows Ink、Media Player、およびナビゲーション ビューのコントロールがギャラリー スタイル表示で組み込まれています。 一般的なコントロールの使用のほかに、サンプルでは XAML とネイティブの Windows イベント/メッセージの処理、および基本的な XAML データ バインディングも例示します。
+[XAML ホスティング API サンプル](https://github.com/Microsoft/Windows-appsample-Xaml-Hosting)は、UWP XAML ホスティング API (XAML Islands とも呼ばれる) を使用したさまざまなシナリオにスポットを当てる Win32 デスクトップ アプリです。 プロジェクトには、Windows Ink、Media Player、およびナビゲーション ビューのコントロールがギャラリー スタイル表示で組み込まれています。 一般的なコントロールの使用のほかに、サンプルでは XAML とネイティブの Windows イベント/メッセージの処理、および基本的な XAML データ バインディングも例示します。

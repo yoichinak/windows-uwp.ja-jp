@@ -12,12 +12,12 @@ design-contact: kimsea
 dev-contact: niallm
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 1277d9089e900451ac4c537805079ff479f808fa
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 67ba9f5c9bc4a5e723eb2696d88804df5300eda0
+ms.sourcegitcommit: 4aef8c01ba9321401d5729a1ec6d46452ee76faf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66748454"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67468987"
 ---
 # <a name="dialog-controls"></a>ダイアログ コントロール
 
@@ -250,13 +250,13 @@ private async void DisplaySubscribeDialog()
 
 > 一部のプラットフォームでは、左側ではなく、右側に確認ボタンが配置されます。 それでは、左側に確認ボタンを配置するのはなぜでしょうか。  ユーザーの大部分が右利きであり、右手でスマートフォンを保持すると想定した場合、実際に確認ボタンが左側にある方がボタンを押しやすくなります。これは、ボタンがユーザーの親指が描く円弧上にある可能性が高くなるためです。画面の右側にボタンがある場合、ユーザーは親指を内側に引いて操作しにくい位置に移動する必要があります。
 
-## <a name="contentdialog-in-appwindow-or-xaml-islands"></a>AppWindow 内または XAML Islands内の ContentDialog
+## <a name="contentdialog-in-appwindow-or-xaml-islands"></a>AppWindow 内または XAML アイランド内の ContentDialog
 
-> 注: このセクションは、Windows 10 バージョン 1903 以降をターゲットとするアプリにのみ適用されます。 それより前のバージョンでは、AppWindow および XAML Islandsは使用できません。 バージョンについて詳しくは、[バージョン アダプティブ アプリ](../../../debug-test-perf/version-adaptive-apps.md)に関する記事をご覧ください。
+> 注: このセクションは、Windows 10 バージョン 1903 以降をターゲットとするアプリにのみ適用されます。 それより前のバージョンでは、AppWindow および XAML アイランドは使用できません。 バージョンについて詳しくは、[バージョン アダプティブ アプリ](../../../debug-test-perf/version-adaptive-apps.md)に関する記事をご覧ください。
 
 既定では、コンテンツ ダイアログはルート [ApplicationView](/uwp/api/windows.ui.viewmanagement.applicationview) を基準としてモーダルに表示されます。 ContentDialog を [AppWindow](/uwp/api/windows.ui.windowmanagement.appwindow) または [XAML Islands](/windows/apps/desktop/modernize/xaml-islands)の内部で使うときは、ダイアログの [XamlRoot](/uwp/api/windows.ui.xaml.uielement.xamlroot) を XAML ホストのルートに手動で設定する必要があります。
 
-それを行うには、次に示すように、ContentDialog の XamlRoot プロパティを、AppWindow または XAML Islandsに既に存在する要素と同じ XamlRoot に設定します。
+それを行うには、次に示すように、ContentDialog の XamlRoot プロパティを、AppWindow または XAML アイランドに既に存在する要素と同じ XamlRoot に設定します。
 
 ```csharp
 private async void DisplayNoWifiDialog()

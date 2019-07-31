@@ -9,12 +9,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 076e4b0ddf30a23271bbb6b488f235f7233b28c2
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: MT
+ms.openlocfilehash: a615e00513bba0ba21f2f9a18fa0c8cdda31cb3f
+ms.sourcegitcommit: b8087f8b6cf8367f8adb7d6db4581d9aa47b4861
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57649057"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67414130"
 ---
 # <a name="segoe-mdl2-icons"></a>Segoe MDL2 アイコン
 
@@ -22,11 +22,11 @@ ms.locfileid: "57649057"
 
 この記事では、Segoe MDL2 アセット フォントによって提供されるアイコンの一覧を示します。 
 
-> **重要な API**:[**列挙型のシンボル**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.symbol)、 [ **FontIcon クラス**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.fonticon)
+> **重要な API**:[**Symbol 列挙型**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.symbol)、[**FontIcon クラス**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.fonticon)
 
 ## <a name="about-segoe-mdl2-assets"></a>Segoe MDL2 アセットについて
 
-Windows 10 のリリースにより、従来の Windows 8/8.1 Segoe UI Symbol アイコン フォントが、Segoe MDL2 アセット フォントに置き換えられました。 <!-- It can be used in much the same manner as the older font, but many glyphs have been redrawn in the Windows 10 icon style with the font’s metrics set so that icons are aligned within the font’s em-square instead of on a typographic baseline. --> (**Segoe UI Symbol**は引き続き「レガシ」のリソースとして使用できますが、新しいアプリの更新をお勧めします**Segoe MDL2 資産**。)。
+Windows 10 のリリースにより、従来の Windows 8/8.1 Segoe UI Symbol アイコン フォントが、Segoe MDL2 アセット フォントに置き換えられました。 <!-- It can be used in much the same manner as the older font, but many glyphs have been redrawn in the Windows 10 icon style with the font’s metrics set so that icons are aligned within the font’s em-square instead of on a typographic baseline. --> (**Segoe UI Symbol** も「レガシ」リソースとして利用できますが、アプリを更新して新しい **Segoe MDL2 アセット**を使用することをお勧めします。)
 
 **Segoe MDL2 アセット** フォントに含まれるアイコンや UI コントロールのほとんどは、Unicode の私用領域 (PUA) にマップされます。 フォント開発者は PUA を使って、既にあるコード ポイントにマップされないグリフにプライベート Unicode 値を割り当てることができます。 これは、記号フォントを作成するときに役立ちますが、相互運用性の問題が生じます。 フォントが利用できない場合、グリフは表示されません。 これらのグリフは、 **Segoe MDL2 アセット** フォントを明示的に指定できる場合にのみ使います。
 
@@ -43,7 +43,7 @@ Windows 10 のリリースにより、従来の Windows 8/8.1 Segoe UI Symbol �
 また、アイコンの多くは、アラビア語、ペルシア語、ヘブライ語などの右から左に書く文字を使う言語でも利用できるように、左右が反転した形式も作成されています。
 
 ## <a name="using-the-icons"></a>アイコンの使用
-アプリを開発している場合C#Segoe MDL2 資産から指定したグリフを使用するには VB と C++ と XAML では、/、[列挙型のシンボル](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.symbol)します。 
+C#/VB/C++ と XAML を使ってアプリを開発している場合、[Symbol 列挙型](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.symbol)で Segoe MDL2 Assets のグリフを指定できます。 
 
 ```xaml
 <SymbolIcon Symbol="GlobalNavigationButton"/>
@@ -55,24 +55,25 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
 <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE700;"/>
 ```
 
-静的リソースを使用することもできます。`SymbolThemeFontFamily`にアクセスする**Segoe MDL2 資産**、名前で、フォントを指定する代わりにします。
+名前でフォントを指定する代わりに、静的リソース `SymbolThemeFontFamily` を使って **Segoe MDL2 Assets** にアクセスすることもできます。
 ```xaml
 <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE700;"/>
 ```
 
 
 ## <a name="how-do-i-get-this-font"></a>このフォントの入手方法
-* Windows 10 の場合。何も行う必要があるを使用する必要がある、Windows に付属のフォント。
-* Mac では、ダウンロードして、フォントをインストールする必要があります。<a href="https://aka.ms/SegoeFonts">Segoe UI と MDL2 アイコンのフォントを取得します。</a>
+* Windows 10 の場合: 何も行う必要はありません。フォントは Windows に付属しています。
+* Mac の場合: フォントをダウンロードしてインストールする必要があります。<a href="https://aka.ms/SegoeFonts">Segoe UI と MDL2 のアイコン フォントを入手する</a>
 
 ## <a name="icon-list"></a>アイコン一覧
 **Segoe MDL2 アセット** フォントには、以下に示すアイコンもあります。 ここで紹介するアイコンの多くは、特殊な目的のために使用されるもので、それ以外の場合は通常使用しません。
 
 
+
 <table style="background-color: white; color: black">
 
  <tr>
-  <td>シンボル</td>
+  <td>記号</td>
   <td>Unicode ポイント</td>
   <td>説明</td>
  </tr>
@@ -280,6 +281,10 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
   <td>E735</td>
   <td>FavoriteStarFill</td>
  </tr>
+ <tr><td><img src="images/segoe-mdl/E736.png" width="32" height="32" alt="ReadingMode" /></td>
+  <td>E736</td>
+  <td>ReadingMode</td>
+</tr>
 <tr><td><img src="images/segoe-mdl/E737.png" width="32" height="32" alt="Favicon" /></td>
   <td>E737</td>
   <td>Favicon</td>
@@ -370,7 +375,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E74D.png" width="32" height="32" alt="Delete" /></td>
   <td>E74D</td>
-  <td>DELETE</td>
+  <td>削除</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E74E.png" width="32" height="32" alt="Save" /></td>
   <td>E74E</td>
@@ -548,6 +553,10 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
   <td>E77C</td>
   <td>Memo</td>
  </tr>
+ <tr><td><img src="images/segoe-mdl/E77E.png" width="32" height="32" alt="IncomingCall" /></td>
+  <td>E77E</td>
+  <td>IncomingCall</td>
+</tr>
 <tr><td><img src="images/segoe-mdl/E77F.png" width="32" height="32" alt="Paste" /></td>
   <td>E77F</td>
   <td>Paste</td>
@@ -662,7 +671,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E7BA.png" width="32" height="32" alt="Warning" /></td>
   <td>E7BA</td>
-  <td>警告</td>
+  <td>Warning</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E7BC.png" width="32" height="32" alt="ReadingList" /></td>
   <td>E7BC</td>
@@ -840,6 +849,10 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
   <td>E80A</td>
   <td>TiltDown</td>
  </tr>
+ <tr><td><img src="images/segoe-mdl/E80B.png" width="32" height="32" alt="CallControl" /></td>
+  <td>E80B</td>
+  <td>CallControl</td>
+</tr>
 <tr><td><img src="images/segoe-mdl/E80C.png" width="32" height="32" alt="RotateMapRight" /></td>
   <td>E80C</td>
   <td>RotateMapRight</td>
@@ -2056,6 +2069,10 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
   <td>E95E</td>
   <td>Health</td>
  </tr>
+ <tr><td><img src="images/segoe-mdl/E95F.png" width="32" height="32" alt="Wire" /></td>
+  <td>E95F</td>
+  <td>Wire</td>
+</tr>
 <tr><td><img src="images/segoe-mdl/E960.png" width="32" height="32" alt="Webcam2" /></td>
   <td>E960</td>
   <td>Webcam2</td>
@@ -2362,7 +2379,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E9D5.png" width="32" height="32" alt="CheckList" /></td>
   <td>E9D5</td>
-  <td>チェックリスト</td>
+  <td>CheckList</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E9D9.png" width="32" height="32" alt="Diagnostic" /></td>
   <td>E9D9</td>
@@ -2370,7 +2387,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E9E9.png" width="32" height="32" alt="Equalizer" /></td>
   <td>E9E9</td>
-  <td>イコライザー</td>
+  <td>Equalizer</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E9F3.png" width="32" height="32" alt="Process" /></td>
   <td>E9F3</td>
@@ -2388,13 +2405,17 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
   <td>EA0C</td>
   <td>VideoSolid</td>
  </tr>
+ <tr><td><img src="images/segoe-mdl/EA0D.png" width="32" height="32" alt="MixedMediaBadge" /></td>
+  <td>EA0D</td>
+  <td>MixedMediaBadge</td>
+</tr>
 <tr><td><img src="images/segoe-mdl/EA14.png" width="32" height="32" alt="DisconnectDisplay" /></td>
   <td>EA14</td>
   <td>DisconnectDisplay</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/EA18.png" width="32" height="32" alt="Shield" /></td>
   <td>EA18</td>
-  <td>シールド</td>
+  <td>Shield</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/EA1F.png" width="32" height="32" alt="Info2" /></td>
   <td>EA1F</td>
@@ -2432,6 +2453,18 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
   <td>EA3B</td>
   <td>CircleFill</td>
  </tr>
+ <tr><td><img src="images/segoe-mdl/EA3C.png" width="32" height="32" alt="MergeCall" /></td>
+  <td>EA3C</td>
+  <td>MergeCall</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/EA3D.png" width="32" height="32" alt="PrivateCall" /></td>
+  <td>EA3D</td>
+  <td>PrivateCall</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/EA3F.png" width="32" height="32" alt="Record2" /></td>
+  <td>EA3F</td>
+  <td>Record2</td>
+</tr>
 <tr><td><img src="images/segoe-mdl/EA40.png" width="32" height="32" alt="AllAppsMirrored" /></td>
   <td>EA40</td>
   <td>AllAppsMirrored</td>
@@ -2628,6 +2661,10 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
   <td>EA8F</td>
   <td>Ringer</td>
  </tr>
+ <tr><td><img src="images/segoe-mdl/EA90.png" width="32" height="32" alt="PDF" /></td>
+  <td>EA90</td>
+  <td>PDF</td>
+</tr>
 <tr><td><img src="images/segoe-mdl/EA91.png" width="32" height="32" alt="ThoughtBubble" /></td>
   <td>EA91</td>
   <td>ThoughtBubble</td>
@@ -2660,10 +2697,18 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
   <td>EA99</td>
   <td>Broom</td>
  </tr>
+ <tr><td><img src="images/segoe-mdl/EAC2.png" width="32" height="32" alt="ForwardCall" /></td>
+  <td>EAC2</td>
+  <td>ForwardCall</td>
+</tr>
 <tr><td><img src="images/segoe-mdl/EADF.png" width="32" height="32" alt="Trackers" /></td>
   <td>EADF</td>
   <td>Trackers</td>
  </tr>
+ <tr><td><img src="images/segoe-mdl/EAFC.png" width="32" height="32" alt="Market" /></td>
+  <td>EAFC</td>
+  <td>市場</td>
+</tr>
 <tr><td><img src="images/segoe-mdl/EB05.png" width="32" height="32" alt="PieSingle" /></td>
   <td>EB05</td>
   <td>PieSingle</td>
@@ -2690,7 +2735,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/EB44.png" width="32" height="32" alt="Radar" /></td>
   <td>EB44</td>
-  <td>レーダー チャート</td>
+  <td>Radar</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/EB47.png" width="32" height="32" alt="BusSolid" /></td>
   <td>EB47</td>
@@ -3094,7 +3139,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/EBE8.png" width="32" height="32" alt="Bug" /></td>
   <td>EBE8</td>
-  <td>バグ</td>
+  <td>Bug</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/EBFC.png" width="32" height="32" alt="TabletMode" /></td>
   <td>EBFC</td>
@@ -3210,7 +3255,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/EC32.png" width="32" height="32" alt="Cafe" /></td>
   <td>EC32</td>
-  <td>カフェ</td>
+  <td>Cafe</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/EC37.png" width="32" height="32" alt="MobSignal1" /></td>
   <td>EC37</td>
@@ -3356,6 +3401,10 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
   <td>EC64</td>
   <td>CompanionApp</td>
  </tr>
+ <tr><td><img src="images/segoe-mdl/EC6C.png" width="32" height="32" alt="Favicon2" /></td>
+  <td>EC6C</td>
+  <td>Favicon2</td>
+</tr>
 <tr><td><img src="images/segoe-mdl/EC6D.png" width="32" height="32" alt="SwipeRevealArt" /></td>
   <td>EC6D</td>
   <td>SwipeRevealArt</td>
@@ -3438,7 +3487,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/ECAD.png" width="32" height="32" alt="Calories" /></td>
   <td>ECAD</td>
-  <td>カロリー</td>
+  <td>Calories</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/ECB9.png" width="32" height="32" alt="BandBattery0" /></td>
   <td>ECB9</td>
@@ -3504,6 +3553,10 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
   <td>ECCD</td>
   <td>ExploreContent</td>
  </tr>
+ <tr><td><img src="images/segoe-mdl/ECE4.png" width="32" height="32" alt="Blocked2" /></td>
+  <td>ECE4</td>
+  <td>Blocked2</td>
+</tr>
 <tr><td><img src="images/segoe-mdl/ECE7.png" width="32" height="32" alt="ScrollMode" /></td>
   <td>ECE7</td>
   <td>ScrollMode</td>
@@ -3536,10 +3589,22 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
   <td>ED0D</td>
   <td>ActionCenterMirrored</td>
  </tr>
+ <tr><td><img src="images/segoe-mdl/ED0E.png" width="32" height="32" alt="SubscriptionAdd" /></td>
+  <td>ED0E</td>
+  <td>SubscriptionAdd</td>
+</tr>
 <tr><td><img src="images/segoe-mdl/ED10.png" width="32" height="32" alt="ResetDevice" /></td>
   <td>ED10</td>
   <td>ResetDevice</td>
  </tr>
+ <tr><td><img src="images/segoe-mdl/ED11.png" width="32" height="32" alt="SubscriptionAddMirrored" /></td>
+  <td>ED11</td>
+  <td>SubscriptionAddMirrored</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/ED14.png" width="32" height="32" alt="QRCode" /></td>
+  <td>ED14</td>
+  <td>QRCode</td>
+</tr>
 <tr><td><img src="images/segoe-mdl/ED15.png" width="32" height="32" alt="Feedback" /></td>
   <td>ED15</td>
   <td>Feedback</td>
@@ -3842,7 +3907,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/EDE3.png" width="32" height="32" alt="ButtonMenu" /></td>
   <td>EDE3</td>
-  <td>ボタン</td>
+  <td>ButtonMenu</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/EDE4.png" width="32" height="32" alt="CloudSeach" /></td>
   <td>EDE4</td>
@@ -3892,6 +3957,10 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
   <td>EE65</td>
   <td>LockScreenGlance</td>
  </tr>
+ <tr><td><img src="images/segoe-mdl/EE6F.png" width="32" height="32" alt="GenericScan" /></td>
+  <td>EE6F</td>
+  <td>GenericScan</td>
+</tr>
 <tr><td><img src="images/segoe-mdl/EE71.png" width="32" height="32" alt="ImageExport " /></td>
   <td>EE71</td>
   <td>ImageExport </td>
@@ -3920,6 +3989,10 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
   <td>EE94</td>
   <td>Wheel</td>
  </tr>
+ <tr><td><img src="images/segoe-mdl/EEA3.png" width="32" height="32" alt="VirtualMachineGroup" /></td>
+  <td>EEA3</td>
+  <td>VirtualMachineGroup</td>
+</tr>
 <tr><td><img src="images/segoe-mdl/EECA.png" width="32" height="32" alt="ButtonView2" /></td>
   <td>EECA</td>
   <td>ButtonView2</td>
@@ -3974,11 +4047,11 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/EF3B.png" width="32" height="32" alt="Replay" /></td>
   <td>EF3B</td>
-  <td>再生</td>
+  <td>Replay</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/EF3C.png" width="32" height="32" alt="Eyedropper" /></td>
   <td>EF3C</td>
-  <td>スポイト ツール</td>
+  <td>Eyedropper</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/EF3D.png" width="32" height="32" alt="LineDisplay" /></td>
   <td>EF3D</td>
@@ -4004,6 +4077,10 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
   <td>EF6B</td>
   <td>LandscapeOrientation</td>
  </tr>
+ <tr><td><img src="images/segoe-mdl/EF90.png" width="32" height="32" alt="Flow" /></td>
+  <td>EF90</td>
+  <td>フロー</td>
+</tr>
 <tr><td><img src="images/segoe-mdl/EFA5.png" width="32" height="32" alt="Touchpad" /></td>
   <td>EFA5</td>
   <td>タッチパッド</td>
@@ -4556,6 +4633,10 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
   <td>F210</td>
   <td>KeyboardSettings</td>
  </tr>
+ <tr><td><img src="images/segoe-mdl/F211.png" width="32" height="32" alt="NetworkPhysical" /></td>
+  <td>F211</td>
+  <td>NetworkPhysical</td>
+</tr>
 <tr><td><img src="images/segoe-mdl/F22C.png" width="32" height="32" alt="IOT" /></td>
   <td>F22C</td>
   <td>IOT</td>
@@ -4608,6 +4689,10 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
   <td>F272</td>
   <td>Bullseye</td>
  </tr>
+ <tr><td><img src="images/segoe-mdl/F2B7.png" width="32" height="32" alt="LocaleLanguage" /></td>
+  <td>F2B7</td>
+  <td>LocaleLanguage</td>
+</tr>
 <tr><td><img src="images/segoe-mdl/F32A.png" width="32" height="32" alt="PassiveAuthentication" /></td>
   <td>F32A</td>
   <td>PassiveAuthentication</td>
@@ -4624,6 +4709,10 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
   <td>F386</td>
   <td>NetworkConnectedCheckmark</td>
  </tr>
+ <tr><td><img src="images/segoe-mdl/F3B1.png" width="32" height="32" alt="SignOut" /></td>
+  <td>F3B1</td>
+  <td>SignOut</td>
+</tr>
 <tr><td><img src="images/segoe-mdl/F3CC.png" width="32" height="32" alt="StatusInfo" /></td>
   <td>F3CC</td>
   <td>StatusInfo</td>
@@ -4716,6 +4805,10 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
   <td>F476</td>
   <td>MobWifiWarning4</td>
  </tr>
+ <tr><td><img src="images/segoe-mdl/F49A.png" width="32" height="32" alt="Globe2" /></td>
+  <td>F49A</td>
+  <td>Globe2</td>
+</tr>
 <tr><td><img src="images/segoe-mdl/F4A9.png" width="32" height="32" alt="GIF" /></td>
   <td>F4A9</td>
   <td>GIF</td>
@@ -4734,7 +4827,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/F4C0.png" width="32" height="32" alt="Earbud" /></td>
   <td>F4C0</td>
-  <td>イヤホン</td>
+  <td>Earbud</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/F4C3.png" width="32" height="32" alt="MixVolumes" /></td>
   <td>F4C3</td>
@@ -4992,6 +5085,10 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
   <td>F5A9</td>
   <td>StaplingLandscapeBookBinding</td>
  </tr>
+ <tr><td><img src="images/segoe-mdl/F5AA.png" width="32" height="32" alt="StatusDataTransferRoaming" /></td>
+  <td>F5AA</td>
+  <td>StatusDataTransferRoaming</td>
+</tr>
 <tr><td><img src="images/segoe-mdl/F5AB.png" width="32" height="32" alt="MobSIMError" /></td>
   <td>F5AB</td>
   <td>MobSIMError</td>
@@ -5012,9 +5109,13 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
   <td>F5B0</td>
   <td>PlaySolid</td>
  </tr>
+ <tr><td><img src="images/segoe-mdl/F5E7.png" width="32" height="32" alt="RepeatOff" /></td>
+  <td>F5E7</td>
+  <td>RepeatOff</td>
+</tr>
 <tr><td><img src="images/segoe-mdl/F5ED.png" width="32" height="32" alt="Set" /></td>
   <td>F5ED</td>
-  <td>Set</td>
+  <td>設定</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/F5EE.png" width="32" height="32" alt="SetSolid" /></td>
   <td>F5EE</td>
@@ -5116,6 +5217,22 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
   <td>F608</td>
   <td>VerticalBatteryUnknown</td>
  </tr>
+ <tr><td><img src="images/segoe-mdl/F614.png" width="32" height="32" alt="DoublePortrait" /></td>
+  <td>F614</td>
+  <td>DoublePortrait</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F615.png" width="32" height="32" alt="DoubleLandscape" /></td>
+  <td>F615</td>
+  <td>DoubleLandscape</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F616.png" width="32" height="32" alt="SinglePortrait" /></td>
+  <td>F616</td>
+  <td>SinglePortrait</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F617.png" width="32" height="32" alt="SingleLandscape" /></td>
+  <td>F617</td>
+  <td>SingleLandscape</td>
+</tr>
 <tr><td><img src="images/segoe-mdl/F618.png" width="32" height="32" alt="SIMError" /></td>
   <td>F618</td>
   <td>SIMError</td>
@@ -5160,6 +5277,243 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
   <td>F624</td>
   <td>MusicSharingOff</td>
  </tr>
+<tr><td><img src="images/segoe-mdl/F63C.png" width="32" height="32" alt="CircleShapeSolid" /></td>
+  <td>F63C</td>
+  <td>CircleShapeSolid</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F657.png" width="32" height="32" alt="WifiCallBars" /></td>
+  <td>F657</td>
+  <td>WifiCallBars</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F658.png" width="32" height="32" alt="WifiCall0" /></td>
+  <td>F658</td>
+  <td>WifiCall0</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F659.png" width="32" height="32" alt="WifiCall1" /></td>
+  <td>F659</td>
+  <td>WifiCall1</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F65A.png" width="32" height="32" alt="WifiCall2" /></td>
+  <td>F65A</td>
+  <td>WifiCall2</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F65B.png" width="32" height="32" alt="WifiCall3" /></td>
+  <td>F65B</td>
+  <td>WifiCall3</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F65C.png" width="32" height="32" alt="WifiCall4" /></td>
+  <td>F65C</td>
+  <td>WifiCall4</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F69E.png" width="32" height="32" alt="CHTLanguageBar" /></td>
+  <td>F69E</td>
+  <td>CHTLanguageBar</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F6BA.png" width="32" height="32" alt="EmojiTabMoreSymbols" /></td>
+  <td>F6BA</td>
+  <td>EmojiTabMoreSymbols</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F6FA.png" width="32" height="32" alt="WebSearch" /></td>
+  <td>F6FA</td>
+  <td>WebSearch</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F712.png" width="32" height="32" alt="Kiosk" /></td>
+  <td>F712</td>
+  <td>Kiosk</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F714.png" width="32" height="32" alt="RTTLogo" /></td>
+  <td>F714</td>
+  <td>RTTLogo</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F715.png" width="32" height="32" alt="VoiceCall" /></td>
+  <td>F715</td>
+  <td>VoiceCall</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F716.png" width="32" height="32" alt="GoToMessage" /></td>
+  <td>F716</td>
+  <td>GoToMessage</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F71A.png" width="32" height="32" alt="ReturnToCall" /></td>
+  <td>F71A</td>
+  <td>ReturnToCall</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F71C.png" width="32" height="32" alt="StartPresenting" /></td>
+  <td>F71C</td>
+  <td>StartPresenting</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F71D.png" width="32" height="32" alt="StopPresenting" /></td>
+  <td>F71D</td>
+  <td>StopPresenting</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F71E.png" width="32" height="32" alt="ProductivityMode" /></td>
+  <td>F71E</td>
+  <td>ProductivityMode</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F738.png" width="32" height="32" alt="SetHistoryStatus" /></td>
+  <td>F738</td>
+  <td>SetHistoryStatus</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F739.png" width="32" height="32" alt="SetHistoryStatus2" /></td>
+  <td>F739</td>
+  <td>SetHistoryStatus2</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F73D.png" width="32" height="32" alt="Keyboardsettings20" /></td>
+  <td>F73D</td>
+  <td>Keyboardsettings20</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F73E.png" width="32" height="32" alt="OneHandedRight20" /></td>
+  <td>F73E</td>
+  <td>OneHandedRight20</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F73F.png" width="32" height="32" alt="OneHandedLeft20" /></td>
+  <td>F73F</td>
+  <td>OneHandedLeft20</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F740.png" width="32" height="32" alt="Split20" /></td>
+  <td>F740</td>
+  <td>Split20</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F741.png" width="32" height="32" alt="Full20" /></td>
+  <td>F741</td>
+  <td>Full20</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F742.png" width="32" height="32" alt="Handwriting20" /></td>
+  <td>F742</td>
+  <td>Handwriting20</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F743.png" width="32" height="32" alt="CheveronLeft20" /></td>
+  <td>F743</td>
+  <td>CheveronLeft20</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F744.png" width="32" height="32" alt="CheveronLeft32" /></td>
+  <td>F744</td>
+  <td>CheveronLeft32</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F745.png" width="32" height="32" alt="CheveronRight20" /></td>
+  <td>F745</td>
+  <td>CheveronRight20</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F746.png" width="32" height="32" alt="CheveronRight32" /></td>
+  <td>F746</td>
+  <td>CheveronRight32</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F781.png" width="32" height="32" alt="MicOff2" /></td>
+  <td>F781</td>
+  <td>MicOff2</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F785.png" width="32" height="32" alt="DeliveryOptimization" /></td>
+  <td>F785</td>
+  <td>DeliveryOptimization</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F78A.png" width="32" height="32" alt="CancelMedium" /></td>
+  <td>F78A</td>
+  <td>CancelMedium</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F78B.png" width="32" height="32" alt="SearchMedium" /></td>
+  <td>F78B</td>
+  <td>SearchMedium</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F78C.png" width="32" height="32" alt="AcceptMedium" /></td>
+  <td>F78C</td>
+  <td>AcceptMedium</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F78D.png" width="32" height="32" alt="RevealPasswordMedium" /></td>
+  <td>F78D</td>
+  <td>RevealPasswordMedium</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F7AD.png" width="32" height="32" alt="DeleteWord" /></td>
+  <td>F7AD</td>
+  <td>DeleteWord</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F7AE.png" width="32" height="32" alt="DeleteWordFill" /></td>
+  <td>F7AE</td>
+  <td>DeleteWordFill</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F7AF.png" width="32" height="32" alt="DeleteLines" /></td>
+  <td>F7AF</td>
+  <td>DeleteLines</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F7B0.png" width="32" height="32" alt="DeleteLinesFill" /></td>
+  <td>F7B0</td>
+  <td>DeleteLinesFill</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F7B1.png" width="32" height="32" alt="InstertWords" /></td>
+  <td>F7B1</td>
+  <td>InstertWords</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F7B2.png" width="32" height="32" alt="InstertWordsFill" /></td>
+  <td>F7B2</td>
+  <td>InstertWordsFill</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F7B3.png" width="32" height="32" alt="JoinWords" /></td>
+  <td>F7B3</td>
+  <td>JoinWords</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F7B4.png" width="32" height="32" alt="JoinWordsFill" /></td>
+  <td>F7B4</td>
+  <td>JoinWordsFill</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F7B5.png" width="32" height="32" alt="OverwriteWords" /></td>
+  <td>F7B5</td>
+  <td>OverwriteWords</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F7B6.png" width="32" height="32" alt="OverwriteWordsFill" /></td>
+  <td>F7B6</td>
+  <td>OverwriteWordsFill</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F7B7.png" width="32" height="32" alt="AddNewLine" /></td>
+  <td>F7B7</td>
+  <td>AddNewLine</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F7B8.png" width="32" height="32" alt="AddNewLineFill" /></td>
+  <td>F7B8</td>
+  <td>AddNewLineFill</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F7B9.png" width="32" height="32" alt="OverwriteWordsKorean" /></td>
+  <td>F7B9</td>
+  <td>OverwriteWordsKorean</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F7BA.png" width="32" height="32" alt="OverwriteWordsFillKorean" /></td>
+  <td>F7BA</td>
+  <td>OverwriteWordsFillKorean</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F7BB.png" width="32" height="32" alt="EducationIcon" /></td>
+  <td>F7BB</td>
+  <td>EducationIcon</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F7ED.png" width="32" height="32" alt="WindowSnipping" /></td>
+  <td>F7ED</td>
+  <td>WindowSnipping</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F7EE.png" width="32" height="32" alt="VideoCapture" /></td>
+  <td>F7EE</td>
+  <td>VideoCapture</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F809.png" width="32" height="32" alt="StatusSecured" /></td>
+  <td>F809</td>
+  <td>StatusSecured</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F83B.png" width="32" height="32" alt="NarratorApp" /></td>
+  <td>F83B</td>
+  <td>NarratorApp</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F83D.png" width="32" height="32" alt="PowerButtonUpdate" /></td>
+  <td>F83D</td>
+  <td>PowerButtonUpdate</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F83E.png" width="32" height="32" alt="RestartUpdate" /></td>
+  <td>F83E</td>
+  <td>RestartUpdate</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F83F.png" width="32" height="32" alt="UpdateStatusDot" /></td>
+  <td>F83F</td>
+  <td>UpdateStatusDot</td>
+</tr>
+<tr><td><img src="images/segoe-mdl/F847.png" width="32" height="32" alt="Eject" /></td>
+  <td>F847</td>
+  <td>Eject</td>
+</tr>
+
 </table>
 
 

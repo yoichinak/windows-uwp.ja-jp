@@ -5,12 +5,12 @@ ms.date: 07/13/2017
 ms.topic: article
 keywords: Windows 10, UWP, パッケージ化, アーキテクチャ, パッケージの構成
 ms.localizationpriority: medium
-ms.openlocfilehash: c691605ad121ee1e218bfe7947a9026a46fc5234
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 12de19b78c3aab27a7fbc29dd5e8183de1a0c0be
+ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67319801"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67821017"
 ---
 # <a name="app-package-architectures"></a>アプリ パッケージのアーキテクチャ
 
@@ -44,7 +44,8 @@ x86 はほぼすべてのデバイスで実行されるため、一般的に、�
 ARM 版 Windows 10 構成には、デスクトップ PC、モバイル デバイス、および一部の IoT Core デバイス (Rasperry Pi 2、Raspberry Pi 3、および DragonBoard) が含まれます。 ARM 版 Windows 10 デスクトップ PC が Windows ファミリに新たに加わりました。そのため、UWP アプリ開発者がこれらの PC で最適なエクスペリエンスを実現するには ARM パッケージをストアに提出する必要があります。
 
 >[!NOTE]
-> ネイティブ ARM64 プラットフォームを対象とする UWP アプリケーションを構築するには、Visual Studio 2017 バージョン 15.9 以降が必要です。 詳細については、次を参照してください。[このブログの投稿](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/)します。
+> ネイティブ ARM64 プラットフォームを対象とする UWP アプリケーションのビルドするには、Visual Studio 2017 バージョン 15.9 またはそれ以降、または Visual Studio 2019 が必要です。 詳細については、次を参照してください。[このブログの投稿](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development)します。
+
 
 詳細については、次を参照してください。 [ARM 上の Windows 10](../porting/apps-on-arm.md)します。 [ARM 版 Windows 10](https://channel9.msdn.com/Events/Build/2017/P4171) のデモを確認し、そのしくみを詳しく知るには、この //Build トークをご覧ください。
 

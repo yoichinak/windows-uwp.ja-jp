@@ -1,6 +1,7 @@
 - name: Windows 向けアプリの構築
-  href: apps/index.md
   items:
+    - name: 概要
+      href: apps/index.md
     - name: デスクトップ アプリの構築
       items:
         - name: 概要
@@ -17,7 +18,7 @@
               href: apps/desktop/modernize/desktop-to-uwp-enhance.md
             - name: 利用可能なUWP API
               href: apps/desktop/modernize/desktop-to-uwp-supported-api.md
-        - name: UWP XAML コントロールのホスト (XAML アイランド)
+        - name: UWP XAML コントロールのホスト (XAML Islands)
           items:
             - name: 概要
               href: apps/desktop/modernize/xaml-islands.md
@@ -49,9 +50,9 @@
               href: apps/desktop/modernize/modernize-wpf-tutorial.md
             - name: Contoso Expenses　アプリの .NET Core 3 への移行
               href: apps/desktop/modernize/modernize-wpf-tutorial-1.md
-            - name: XAML アイランドを使用した UWP InkCanvas コントロールの追加
+            - name: XAML Islands を使用した UWP InkCanvas コントロールの追加
               href: apps/desktop/modernize/modernize-wpf-tutorial-2.md
-            - name: XAML アイランドを使用した UWP CalendarView コントロールの追加
+            - name: XAML Islands を使用した UWP CalendarView コントロールの追加
               href: apps/desktop/modernize/modernize-wpf-tutorial-3.md
             - name: Windows 10 ユーザー アクティビティと通知の追加
               href: apps/desktop/modernize/modernize-wpf-tutorial-4.md
@@ -63,3 +64,19 @@
       href: apps/accessibility.md
     - name: 機能とテクノロジ
       href: apps/features-and-technologies.md
+- name: Windows でビルドする
+  items:
+    - name: Python を使った開発
+      items:
+        - name: 概要
+          href: python/index.md
+        - name: 初心者向けスタートアップ ガイド
+          href: python/get-started/python-for-education.md
+        - name: Web 開発の概要
+          href: python/get-started/python-for-web.md
+        - name: 自動化の概要
+          href: python/get-started/python-for-scripting.md
+        - name: よく寄せられる質問
+          href: python/faqs.md
+        - name: 参考資料
+          href: python/resources.md

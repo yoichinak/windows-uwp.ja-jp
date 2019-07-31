@@ -6,12 +6,12 @@ ms.date: 10/31/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 1df93195578c1e7c6fd87ab7403375a1a3dcc825
-ms.sourcegitcommit: 4aef8c01ba9321401d5729a1ec6d46452ee76faf
+ms.openlocfilehash: 8ec2b10b402db7398dad6643355e064c26318170
+ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67468910"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67820597"
 ---
 # <a name="resolve-submission-errors"></a>申請エラーの解決
 
@@ -25,7 +25,7 @@ UWP アプリを送信する場合、パッケージ ファイル ストアの V
 
 ## <a name="desktop-application"></a>デスクトップ アプリケーション
 
-UWP と Win32 の両方のバイナリを含むパッケージを送信する場合は、Visual Studio 2017 Update 4 で使用できる Windows パッケージ プロジェクトを使用して、そのパッケージを作成することを確認します。 UWP のプロジェクト テンプレートを使用してパッケージを作成する場合を送信するパッケージをストアまたはサイドローディングを行う他の Pc にすることができません。 パッケージが正常にパブリッシュする場合でも、ユーザーの PC で予期しない方法でその動作は可能性があります。 詳細については、次を参照してください。 [Visual Studio (デスクトップ ブリッジ) を使用してアプリをパッケージ化]( https://docs.microsoft.com/windows/uwp/porting/desktop-to-uwp-packaging-dot-net)します。
+UWP と Win32 の両方のバイナリを含むパッケージを送信する場合は、Visual Studio 2017 Update 4 およびそれ以降のバージョンで使用できる Windows パッケージ プロジェクトを使用して、そのパッケージを作成することを確認します。 UWP のプロジェクト テンプレートを使用してパッケージを作成する場合を送信するパッケージをストアまたはサイドローディングを行う他の Pc にすることができません。 パッケージが正常にパブリッシュする場合でも、ユーザーの PC で予期しない方法でその動作は可能性があります。 詳細については、次を参照してください。 [Visual Studio (デスクトップ ブリッジ) を使用してアプリをパッケージ化]( https://docs.microsoft.com/windows/uwp/porting/desktop-to-uwp-packaging-dot-net)します。
 
 ## <a name="windows-phone-8x-and-earlier"></a>Windows Phone 8.x 以前のバージョン
 

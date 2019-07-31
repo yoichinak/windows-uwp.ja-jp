@@ -6,12 +6,12 @@ ms.date: 07/13/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 62f603a6ff5aadc1c3e5342db6a7d771f8c37a7b
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: cc5b3598f2d50a49aa9d51721c2c1eb1261c8aa8
+ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67320843"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67820511"
 ---
 # <a name="storyboarded-animations"></a>ストーリーボードに設定されたアニメーション
 
@@ -265,7 +265,7 @@ UI スレッドの処理を遅くする可能性があると判断された各�
 アプリ開発者は、**EnableDependentAnimation** が **true** でも、依存型アニメーションを常に無効にするアプリ全体の設定を適用することもできます。 「[**Timeline.AllowDependentAnimations**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.timeline.allowdependentanimations)」をご覧ください。
 
 > [!TIP]
-> Blend for Visual Studio 2017 では、アニメーション ウィンドウを使用しているは、visual state プロパティに依存するアニメーションを適用しようとしたときに場合、は、デザイナーで警告が表示されます。 ビルド出力またはエラーの一覧で、警告は表示されません。 XAML を手動で、編集する場合、デザイナーでは、警告が表示されません。 出力ウィンドウのデバッグ出力時のデバッグ時に、警告が表示されます、アニメーションは独立していないはスキップされます。
+> Blend for Visual Studio 2019 のアニメーション ウィンドウを使用しているは、visual state プロパティに依存するアニメーションを適用しようとしたときに場合、は、デザイナーで警告が表示されます。 ビルド出力またはエラーの一覧で、警告は表示されません。 XAML を手動で、編集する場合、デザイナーでは、警告が表示されません。 出力ウィンドウのデバッグ出力時のデバッグ時に、警告が表示されます、アニメーションは独立していないはスキップされます。
 
 
 ## <a name="starting-and-controlling-an-animation"></a>アニメーションの開始と制御

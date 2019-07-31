@@ -1,5 +1,5 @@
 ---
-Description: テキスト コントロールの豊富なデータを埋め込むにはコンテンツのリンクを使用します。
+Description: コンテンツ リンクを使用してテキスト コントロールの豊富なデータを埋め込むことができます。
 title: テキスト コントロールのコンテンツ リンク
 label: Content links
 template: detail.hbs
@@ -11,10 +11,10 @@ design-contact: ''
 doc-status: Draft
 ms.localizationpriority: medium
 ms.openlocfilehash: 3fc54662b29255b73e972bcfb0fa4b6bb2dcf968
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66363057"
 ---
 # <a name="content-links-in-text-controls"></a>テキスト コントロールのコンテンツ リンク
@@ -23,10 +23,10 @@ ms.locfileid: "66363057"
 
 RichEditBox でユーザーがアンパサンド (@) 記号を使用してエントリにプレフィックスを付けると、そのエントリに一致する人々および/または場所の候補のリストが表示されます。 次に、たとえば、ユーザーが場所を選択すると、その場所の ContentLink がテキストに挿入されます。 ユーザーが RichEditBox からコンテンツ リンクを呼び出すと、その場所に関する地図と追加情報を示したポップアップが表示されます。
 
-> **重要な API**:[ContentLink クラス](/uwp/api/windows.ui.xaml.documents.contentlink)、 [ContentLinkInfo クラス](/uwp/api/windows.ui.text.contentlinkinfo)、 [RichEditTextRange クラス](/uwp/api/windows.ui.text.richedittextrange)
+> **重要な API**:[ContentLink クラス](/uwp/api/windows.ui.xaml.documents.contentlink)、[ContentLinkInfo クラス](/uwp/api/windows.ui.text.contentlinkinfo)、[RichEditTextRange クラス](/uwp/api/windows.ui.text.richedittextrange)
 
 > [!NOTE]
-> コンテンツ リンクの Api は、次の名前空間に分散されます。Windows.UI.Xaml.Controls、Windows.UI.Xaml.Documents、および Windows.UI.Text です。
+> コンテンツ リンク用の API は、次の名前空間にまたがっています。Windows.UI.Xaml.Controls、Windows.UI.Xaml.Documents、Windows.UI.Text。
 
 
 
@@ -39,16 +39,16 @@ RichEditBox でユーザーがアンパサンド (@) 記号を使用してエン
 
 既定でコンテンツ リンクが RichEditBox と TextBlock でどのように表示されるかを示します。
 
-![リッチ コンテンツ リンクの編集ボックス](images/content-link-default-richedit.png)
-![テキスト ブロック内のコンテンツのリンク](images/content-link-default-textblock.png)
+![リッチ エディット ボックスでのコンテンツ リンク](images/content-link-default-richedit.png)
+![テキスト ブロックでのコンテンツ リンク](images/content-link-default-textblock.png)
 
 使用状況、レンダリング、および動作の相違点については、次のセクションで詳しく説明します。 次の表は、RichEditBox のコンテンツ リンクとテキスト ブロックの主な相違点を比較した早見表です。
 
 | 機能   | RichEditBox | テキスト ブロック |
 | --------- | ----------- | ---------- |
 | 使用方法 | ContentLinkInfo インスタンス | ContentLink テキスト要素 |
-| カーソル | コンテンツ リンクの種類によって決まり、変更することはできません | Cursor プロパティによって決まります。既定では **null** です |
-| ヒント | 表示されません | セカンダリ テキストを表示します |
+| Cursor | コンテンツ リンクの種類によって決まり、変更することはできません | Cursor プロパティによって決まります。既定では **null** です |
+| ToolTip | 表示されません | セカンダリ テキストを表示します |
 
 ## <a name="enable-content-links-in-a-richeditbox"></a>RichEditBox でコンテンツ リンクを有効にします
 
@@ -129,7 +129,7 @@ ContentLinkInfo オブジェクトには、コンテンツ リンクを表示、
 - **SecondaryText** – この文字列は、表示されたコンテンツ リンクのヒントに表示されます。
   - ピッカーによって作成された Place コンテンツ リンクでは、使用可能な場合、この文字列に場所の住所が含まれます。
 - **Uri** – コンテンツ リンクのサブジェクトの詳細へのリンク。 この Uri は、インストール済みのアプリまたは Web サイトを開くことができます。
-- **Id** - これは、RichEditBox コントロールによって作成されたコントロールごとの読み取り専用カウンタです。 これは、削除または編集などの操作中にこの ContentLinkInfo を追跡するために使用します。 新しい id を取得、ContentLinkInfo は切り取られますが、コントロールに貼り付けると、Id の値は増分です。
+- **Id** - これは、RichEditBox コントロールによって作成されたコントロールごとの読み取り専用カウンタです。 これは、削除または編集などの操作中にこの ContentLinkInfo を追跡するために使用します。 ContentLinkInfo が切り取られてコントロールに貼り付けられると、新しい Id が取得されます。Id の値は増分されます。
 - **LinkContentKind** – コンテンツ リンクの種類を説明する文字列。 組み込みのコンテンツの種類は_場所_と_連絡先_です。 この値では、大文字と小文字を区別します。
 
 #### <a name="link-content-kind"></a>リンク コンテンツの種類
@@ -162,7 +162,7 @@ People ピッカーは、**ms-people** プロトコルを使用する Uri で Co
 - LinkContentKind が "People" でない場合、**People** アプリが開きます。 たとえば、これは ContentLinkChanged イベント ハンドラーで LinkContentKind を変更した場合に発生する可能性があります。
 
 > [!TIP]
-> アプリから他のアプリや web サイトを開く方法の詳細については、下にあるトピックを参照してください。 [Uri を使用してアプリを起動](/windows/uwp/launch-resume/launch-app-with-uri)します。
+> アプリから他のアプリや Web サイトを開く方法の詳細については、「[URI を使ったアプリの起動](/windows/uwp/launch-resume/launch-app-with-uri)」の下にあるトピックを参照してください。
 
 #### <a name="invoked"></a>Invoked
 

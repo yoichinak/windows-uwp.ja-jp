@@ -658,7 +658,7 @@ Windows Hello コンパニオン デバイス アプリは、ShowNotificationMes
 - "やり直してください。"
 - "*デバイス名*に向かって音声パスフレーズを言ってください。"
 - "*デバイス名* にサインインする準備ができています。"
-- "Use another sign-in option first, then you can use *device name* to sign in." (別のサインイン オプションを使うと、デバイス名* にサインインできます。)
+- "を使用することができますし、最初に、別のサインイン オプションを使用して *デバイス名* にサインインします"。
 
 ### <a name="enumerating-registered-devices"></a>登録されているデバイスの列挙
 

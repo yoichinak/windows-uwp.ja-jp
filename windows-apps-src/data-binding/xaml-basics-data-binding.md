@@ -5,12 +5,12 @@ keywords: XAML, UWP, 概要
 ms.date: 08/30/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 21a053934d7391d12f7cd987026524b9ff4c279d
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: HT
+ms.openlocfilehash: 707c2ed110498f4ef18fea31ace87d1fd2434112
+ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57639987"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67820343"
 ---
 # <a name="create-data-bindings"></a>データ バインディングを作成する
 
@@ -20,12 +20,12 @@ ms.locfileid: "57639987"
 
 まず、PhotoLab サンプルの簡易バージョンから開始します。 このスターター バージョンには、完全なデータ レイヤーと基本的な XAML ページ レイアウトが含まれています。ただしこのバージョンでは、コードを見やすくするために多くの機能が除外されています。 このチュートリアルで完全なアプリは作成されません。必ず最終バージョンでカスタム アニメーションやスマートフォン サポートなどの機能を確認してください。 最終バージョンは、[Windows-appsample-photo-lab](https://github.com/Microsoft/Windows-appsample-photo-lab) リポジトリのルート フォルダーにあります。 
 
-## <a name="prerequisites"></a>前提条件
+## <a name="prerequisites"></a>必須コンポーネント
 
-* [Visual Studio 2017 と Windows 10 SDK の最新バージョン](https://developer.microsoft.com/windows/downloads)。
+* [Visual Studio 2019 と Windows 10 SDK の最新バージョン](https://developer.microsoft.com/windows/downloads)します。
 
-## <a name="part-0-get-the-code"></a>Part 0:コードを入手する
-この演習の開始点は、PhotoLab サンプル リポジトリ ([xaml-basics-starting-points/data-binding](https://github.com/Microsoft/Windows-appsample-photo-lab/tree/master/xaml-basics-starting-points/data-binding) フォルダー) です。 このリポジトリを複製またはダウンロードした後、Visual Studio 2017 で PhotoLab.sln を開くことによって、プロジェクトを編集できます。
+## <a name="part-0-get-the-code"></a>パート 0: コードを入手する
+この演習の開始点は、PhotoLab サンプル リポジトリ ([xaml-basics-starting-points/data-binding](https://github.com/Microsoft/Windows-appsample-photo-lab/tree/master/xaml-basics-starting-points/data-binding) フォルダー) です。 複製またはリポジトリをダウンロードしたら後で Visual Studio 2019 PhotoLab.sln を開いて、プロジェクトを編集できます。
 
 PhotoLab アプリには、2 つのプライマリ ページがあります。
 
@@ -35,7 +35,7 @@ PhotoLab アプリには、2 つのプライマリ ページがあります。
 **DetailPage.xaml:** 選択された単一の写真が表示されます。 ポップアップの編集メニューにより、写真の編集、名前変更、保存を行うことができます。
 ![DetailPage](../design/basics/images/xaml-basics/detailpage.png)
 
-## <a name="part-1-replace-the-placeholders"></a>第 1 部:プレース ホルダーを置き換えます
+## <a name="part-1-replace-the-placeholders"></a>作業 1:プレース ホルダーを置き換えます
 
 ここでは、データ テンプレートの XAML で 1 回限りのバインディングを作成し、プレースホルダー コンテンツの代わりに実際のイメージとイメージ メタデータを表示します。 
 
@@ -122,9 +122,9 @@ PhotoLab アプリには、2 つのプライマリ ページがあります。
 > [!Note]
 > もっと試してみたい場合は、新しい TextBlock をデータ テンプレートに追加し、x:Bind で IntelliSense を使用して、表示するプロパティを見つけてください。 
 
-## <a name="part-2-use-binding-to-connect-the-gallery-ui-to-the-images"></a>パート 2:バインディングを使用して、イメージ ギャラリー UI に接続
+## <a name="part-2-use-binding-to-connect-the-gallery-ui-to-the-images"></a>第 2 部: バインディングを使用して、イメージ ギャラリー UI に接続
 
-ここでは、ページ XAML に 1 回限りのバインディングを作成してギャラリー ビューをイメージ コレクションに接続し、分離コードでこの操作を行う既存の手続き型コードを置き換えます。 また、イメージをコレクションから削除した場合にギャラリー ビューがどのように変化するかを見るために、**[Delete]** ボタンを作成します。 同時に、従来のイベント ハンドラーより柔軟性を高めるためにイベントをイベント ハンドラーにバインドする方法についても学習します。 
+ここでは、ページ XAML に 1 回限りのバインディングを作成してギャラリー ビューをイメージ コレクションに接続し、分離コードでこの操作を行う既存の手続き型コードを置き換えます。 また、イメージをコレクションから削除した場合にギャラリー ビューがどのように変化するかを見るために、 **[Delete]** ボタンを作成します。 同時に、従来のイベント ハンドラーより柔軟性を高めるためにイベントをイベント ハンドラーにバインドする方法についても学習します。 
 
 ここまでに説明したすべてのバインディングはデータ テンプレート内にあり、**x:DataType** 値で示されたクラスのプロパティを指しています。 では、ページ内の残りの部分の XAML を見てみましょう。 
 
@@ -171,9 +171,9 @@ private ObservableCollection<ImageFileInfo> Images { get; }
     = new ObservableCollection<ImageFileInfo>();
 ```
 
-**イメージ**プロパティの値が変更ことはありませんが、プロパティの型は**ObservableCollection\<T\>**、*内容*のコレクションは変更と、バインドは自動的に変更を確認し、UI を更新します。 
+**イメージ**プロパティの値が変更ことはありませんが、プロパティの型は**ObservableCollection\<T\>** 、*内容*のコレクションは変更と、バインドは自動的に変更を確認し、UI を更新します。 
 
-これをテストするために、現在選択されているイメージを削除するボタンを一時的に追加します。 イメージを選択すると詳細ページに移動するため、このボタンは最終バージョンではありません。 ただしの動作**ObservableCollection\<T\>**  、XAML は、ページのコンストラクターで初期化される最終的な PhotoLab サンプルでは重要です (を通じて、 **InitializeComponent**メソッドの呼び出し) が、**イメージ**コレクションは後で、 **OnNavigatedTo**メソッド。 
+これをテストするために、現在選択されているイメージを削除するボタンを一時的に追加します。 イメージを選択すると詳細ページに移動するため、このボタンは最終バージョンではありません。 ただしの動作**ObservableCollection\<T\>**  、XAML は、ページのコンス トラクターで初期化される最終的な PhotoLab サンプルでは重要です (を通じて、 **InitializeComponent**メソッドの呼び出し) が、**イメージ**コレクションは後で、 **OnNavigatedTo**メソッド。 
 
 **[削除] ボタンを追加します。**
 
@@ -203,7 +203,7 @@ private ObservableCollection<ImageFileInfo> Images { get; }
 > [!Note]
 > チャレンジとして、選択されたイメージを一覧内で上下に移動する 2 つのボタンを追加し、これらのボタンの Click イベントを (DeleteSelectedImage のような) 2 つの新しいメソッドに x:Bind でバインドしてみてください。
  
-## <a name="part-3-set-up-the-zoom-slider"></a>パート 3:ズーム スライダーを設定します。 
+## <a name="part-3-set-up-the-zoom-slider"></a>第 3 部:ズーム スライダーを設定します。 
 
 このパートでは、データ テンプレート内のコントロールから、テンプレート外にあるズーム スライダーへの一方向のバインディングを作成します。 データ バインディングを **TextBlock.Text** や **Image.Source** などの明白なもの以外に多数のコントロール プロパティと組み合わせて使用する方法についても学習します。 
 
@@ -211,7 +211,7 @@ private ObservableCollection<ImageFileInfo> Images { get; }
 
 * **ImageGridView_DefaultItemTemplate** という名前の **DataTemplate** を見つけ、テンプレートの先頭にある **Grid** コントロールの **Height** 値と **Width** 値を置き換えます。
 
-    **以前は**
+    **変更前**
     ```xaml
     <DataTemplate x:Key="ImageGridView_DefaultItemTemplate" 
                   x:DataType="local:ImageFileInfo">
@@ -220,7 +220,7 @@ private ObservableCollection<ImageFileInfo> Images { get; }
               Margin="{StaticResource LargeItemMargin}">
     ```
     
-    **後**
+    **変更後**
     ```xaml
     <DataTemplate x:Key="ImageGridView_DefaultItemTemplate" 
                   x:DataType="local:ImageFileInfo">
@@ -231,7 +231,7 @@ private ObservableCollection<ImageFileInfo> Images { get; }
     
     <!-- TODO talk about dependency properties --> 
     
-    これらは **x:Bind** 式ではなく **Binding** 式であることにお気づきですか?  これは、データ バインディングの従来の方法であり、現在はほとんど使用されていません。 **x:Bind** では、**Binding** で行われるほとんどすべての処理と、それ以上のことが行われます。 ただし、データ テンプレートで **x:Bind** を使用した場合は、**x:DataType** 値で宣言されている型にバインドされます。 では、テンプレート内の項目をページ XAML 内または分離コード内の項目にバインドするには、どのようにすればよいでしょうか?  この場合は、従来のスタイルの **Binding** 式を使用する必要があります。 
+    これらは **x:Bind** 式ではなく **Binding** 式であることにお気づきですか? これは、データ バインディングの従来の方法であり、現在はほとんど使用されていません。 **x:Bind** では、**Binding** で行われるほとんどすべての処理と、それ以上のことが行われます。 ただし、データ テンプレートで **x:Bind** を使用した場合は、**x:DataType** 値で宣言されている型にバインドされます。 では、テンプレート内の項目をページ XAML 内または分離コード内の項目にバインドするには、どのようにすればよいでしょうか? この場合は、従来のスタイルの **Binding** 式を使用する必要があります。 
     
     **Binding** 式では **x:DataType** 値が認識されませんが、**Binding** 式には、同様の役割を果たす **ElementName** 値があります。 これらの値は、**Binding Value** はページ上にある指定された要素 (つまり、**x:Name** 値を持つ要素) の **Value** プロパティに対するバインディングであることをバインディング エンジンに伝えます。 分離コード内のプロパティにバインドする場合は、```{Binding MyCodeBehindProperty, ElementName=page}``` のようになります (**page** は、XAML の **Page** 要素で設定されている **x:Name** 値)。 
     
@@ -249,9 +249,9 @@ private ObservableCollection<ImageFileInfo> Images { get; }
 > [!NOTE]
 > チャレンジとして、他の UI プロパティをズーム スライダーの **Value** プロパティか、ズーム スライダーの後に追加する他のスライダーにバインドしてみてください。 たとえば、**TitleTextBlock** の **FontSize** プロパティを新しいスライダーに、既定値の **24** でバインドすることができます。 適切な最小値と最大値を必ず設定してください。
 
-## <a name="part-4-improve-the-zoom-experience"></a>パート 4:ズームのエクスペリエンスを向上します。 
+## <a name="part-4-improve-the-zoom-experience"></a>第 4 部:ズームのエクスペリエンスを向上します。 
 
-このパートでは、カスタムの **ItemSize** プロパティを分離コードに追加し、イメージ テンプレートから新しいプロパティへの一方向のバインディングを作成します。 **ItemSize** 値は、快適なエクスペリエンスのために、ズーム スライダーのほか、**[Fit to screen]** スイッチやウィンドウ サイズなどの要因によって更新されます。 
+このパートでは、カスタムの **ItemSize** プロパティを分離コードに追加し、イメージ テンプレートから新しいプロパティへの一方向のバインディングを作成します。 **ItemSize** 値は、快適なエクスペリエンスのために、ズーム スライダーのほか、 **[Fit to screen]** スイッチやウィンドウ サイズなどの要因によって更新されます。 
 
 組み込みコントロールのプロパティとは異なり、カスタム プロパティでは、一方向または双方向のバインディングが設定されていても UI が自動更新されません。 カスタム プロパティには **1 回限り**のバインディングを設定できますが、プロパティを変更して実際の UI に反映させるには、多少の作業が必要になります。 
 
@@ -303,7 +303,7 @@ private ObservableCollection<ImageFileInfo> Images { get; }
 
 4. MainPage.xaml で、**ImageGridView_DefaultItemTemplate** という名前の **DataTemplate** を見つけ、テンプレートの先頭にある **Grid** コントロールの **Height** 値と **Width** 値を置き換えます。 (このチュートリアルの前のパートでコントロール間のバインディングを行った場合は、**Value** を **ItemSize** に、**ZoomSlider** を **page** に置き換えるだけです。 これを Height と Width の両方に行ってください。)
 
-    **以前は**
+    **変更前**
     ```xaml
     <DataTemplate x:Key="ImageGridView_DefaultItemTemplate" 
                   x:DataType="local:ImageFileInfo">
@@ -312,7 +312,7 @@ private ObservableCollection<ImageFileInfo> Images { get; }
             Margin="{StaticResource LargeItemMargin}">
     ```
     
-    **後**
+    **変更後**
     ```xaml
     <DataTemplate x:Key="ImageGridView_DefaultItemTemplate" 
                   x:DataType="local:ImageFileInfo">
@@ -415,7 +415,7 @@ UI が **ItemSize** の変化に対応できるようになったため、実際
 > チャレンジとして、**ZoomSlider** の後に **TextBlock** を追加し、**Text** プロパティを **ItemSize** プロパティにバインドしてみてください。 これはデータ テンプレートではないため、前の **ItemSize** バインディングのように、**Binding** の代わりに **x:Bind** を使用できます。  
 }
 
-## <a name="part-5-enable-user-edits"></a>パート 5:ユーザーによる編集内容を有効にします。
+## <a name="part-5-enable-user-edits"></a>第 5 部:ユーザーによる編集内容を有効にします。
 
 ここでは、イメージ タイトル、評価、さまざまな視覚効果などの値をユーザーが更新できるように、双方向のバインディングを作成します。 
 
@@ -583,7 +583,7 @@ public string ImageTitle
 }
 ```
 
-ご覧のように、setter が **ImageProperties.Title** プロパティを更新してから、新しい値をファイルに書き込むために **SavePropertiesAsync** を呼び出しています  (これは非同期のメソッドですが、プロパティに **await** キーワードを使うことはできません。プロパティの getter と setter を直ちに完了する必要があるため、このキーワードの使用は不適切です。 代わりに、メソッドを呼び出して、返される **Task** オブジェクトを無視します)。 
+ご覧のように、setter が **ImageProperties.Title** プロパティを更新してから、新しい値をファイルに書き込むために **SavePropertiesAsync** を呼び出しています (これは非同期のメソッドですが、プロパティに **await** キーワードを使うことはできません。プロパティの getter と setter を直ちに完了する必要があるため、このキーワードの使用は不適切です。 代わりに、メソッドを呼び出して、返される **Task** オブジェクトを無視します)。 
 
 <!-- TODO more screenshots? -->
 
@@ -591,7 +591,7 @@ public string ImageTitle
 
 これで、この演習は終わりです。自身で問題に取り組むために必要な、バインディングに関する知識を身につけることができました。
 
-お気付きのように、詳細ページでズーム レベルを変更しても、前に戻って同じイメージをもう一度選択すると、ズーム レベルが自動的にリセットされます。 各イメージのズーム レベルを保存して個別に復元する方法はわかりますか?  幸運をお祈りします!
+お気付きのように、詳細ページでズーム レベルを変更しても、前に戻って同じイメージをもう一度選択すると、ズーム レベルが自動的にリセットされます。 各イメージのズーム レベルを保存して個別に復元する方法はわかりますか? 幸運をお祈りします!
     
 必要な情報はすべてこのチュートリアルにありますが、さらにガイダンスが必要な場合は、データ バインディングに関するドキュメントをご覧ください。 以下のリンクから参照できます。
 

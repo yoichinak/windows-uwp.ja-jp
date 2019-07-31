@@ -1,16 +1,16 @@
 ---
 title: UWP アプリでの SQL Server データベースの使用
 description: UWP アプリでの SQL Server データベースの使用。
-ms.date: 3/28/2019
+ms.date: 03/28/2019
 ms.topic: article
 keywords: windows 10, UWP, SQL Server, データベース
 ms.localizationpriority: medium
-ms.openlocfilehash: f8986f14872d4e5de2c45bba264de6619ef07141
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
-ms.translationtype: MT
+ms.openlocfilehash: 487497fd3b715f6d497eb76b8da6a3e60903772a
+ms.sourcegitcommit: 139717a79af648a9231821bdfcaf69d8a1e6e894
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66360148"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67713777"
 ---
 # <a name="use-a-sql-server-database-in-a-uwp-app"></a>UWP アプリでの SQL Server データベースの使用
 アプリで [System.Data.SqlClient](https://docs.microsoft.com/dotnet/api/system.data.sqlclient?redirectedfrom=MSDN) 名前空間のクラスを使用して、SQL Server データベースに直接接続し、データを保存および取得することができます。
@@ -29,7 +29,7 @@ ms.locfileid: "66360148"
 
 マニフェスト デザイナーで、UWP プロジェクトの **Package.appxmanifest** ファイルを開きます。
 
-**機能**] タブで、[、**エンタープライズ認証**SQL Server の認証に Windows 認証を使用している場合にチェック ボックスをオンします。
+Windows 認証を使用してご利用の SQL Server を認証する場合は、 **[機能]** タブで **[エンタープライズ認証]** チェックボックスを選択します。
 
 ![エンタープライズ認証機能](images/enterprise-authentication.png)
 
@@ -39,15 +39,15 @@ ms.locfileid: "66360148"
 
 このセクションでは、以下のことを行います。
 
-: 1 つ。接続文字列を追加します。
+:1:接続文字列を追加します。
 
-: 2。製品データを保持するクラスを作成します。
+:2:製品データを保持するクラスを作成します。
 
-: 3。SQL Server データベースから製品を取得します。
+:3:SQL Server データベースから製品を取得します。
 
-: 4。基本的なユーザー インターフェイスを追加します。
+:4:基本的なユーザー インターフェイスを追加します。
 
-: 5。製品と UI を設定します。
+:5:UI に製品を追加します。
 
 >[!NOTE]
 > このセクションでは、データ アクセス コードを編成する方法の 1 つを示します。 つまり、[System.Data.SqlClient](https://docs.microsoft.com/dotnet/api/system.data.sqlclient?redirectedfrom=MSDN) を使用して、SQL Server データベースのデータを保存および取得する方法の例を示すだけです。 アプリケーションの設計に最も適した方法でコードを編成してください。
@@ -236,14 +236,14 @@ public MainPage()
 
 ## <a name="next-steps"></a>次のステップ
 
-**軽量のデータベースを使用して、ユーザーのデバイスでのデータの格納**
+**簡易データベースを使用して、ユーザー デバイスにデータを保存する**
 
 「[UWP アプリでの SQLite データベースの使用](sqlite-databases.md)」をご覧ください。
 
-**さまざまなプラットフォームで別のアプリ間でコードを共有します。**
+**異なるプラットフォームにわたる異なるアプリの間でコードを共有する**
 
 「[デスクトップと UWP でコードを共有する](https://docs.microsoft.com/windows/uwp/porting/desktop-to-uwp-migrate)」をご覧ください。
 
-**Azure SQL バック エンドでマスター詳細ページを追加します。**
+**Azure SQL バックエンドでマスター/詳細ページを追加する**
 
 「[顧客注文データベースのサンプル](https://github.com/Microsoft/Windows-appsample-customers-orders-database)」をご覧ください。

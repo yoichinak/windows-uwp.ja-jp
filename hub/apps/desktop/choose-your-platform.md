@@ -7,12 +7,12 @@ ms.date: 03/18/2019
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: 996bbaf4dd05ce5b24e536459c6d7d009a53fa19
-ms.sourcegitcommit: f167775291cbc566b72b0859ae6b426d848c5c89
+ms.openlocfilehash: 2a4de1a43e60250e7efc2faf70f3c49e8253beb3
+ms.sourcegitcommit: 734aa941dc675157c07bdeba5059cb76a5626b39
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266404"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68141797"
 ---
 # <a name="choose-your-app-platform"></a>アプリ プラットフォームの選択
 
@@ -62,9 +62,9 @@ Windows フォームの詳細については、次を参照してください。
 |--------|--------|--------|--------|
 | **サポートされているバージョン**      |  Windows 10   |  Windows 7 以降 |  Windows 7 以降  |
 | **言語**      |   C\#、 C++/WinRT、 C++/CX、VB、JavaScript   |  C\#、 C++/CLI (のマネージ拡張C++)、F\#、VB |  C\#、 C++/CLI (のマネージ拡張C++)、F\#、VB   |
-| **UI のランタイム** |    ネイティブ (C++/WinRT とC++/CX) および管理 (.NET ネイティブ)  |  マネージ (.NET Framework)<br/><br/>.NET Core 3 のサポートは近日公開予定  |   マネージ (.NET Framework)<br/><br/>.NET Core 3 のサポートは近日公開予定    |
+| **UI のランタイム** |    ネイティブ (C++/WinRT とC++/CX) および管理 (.NET ネイティブ)  |  マネージド (.NET Framework)<br/><br/>.NET Core 3 のサポートは近日公開予定  |   マネージド (.NET Framework)<br/><br/>.NET Core 3 のサポートは近日公開予定    |
 | **オープン ソース** | [[はい] (Windows UI ライブラリのみ)](https://github.com/Microsoft/microsoft-ui-xaml)  |  [[はい] (.NET Core のみ)](https://github.com/dotnet/wpf) | [[はい] (.NET Core のみ)](https://github.com/dotnet/winforms)  |
-| **XAML をサポートしています** |   〇   |  〇  |   X   |
+| **XAML をサポートしています** |   [はい]   |  [はい]  |   いいえ   |
 | **長所**  |  <ul><li>UI の XAML マークアップ</li><li>機能が豊富でカスタマイズ可能なユーザー エクスペリエンス</li><li>既存のコード ベースは .NET Standard 準拠</li><li>高 DPI のサポート</li><li>Windows のデバイス (タッチ、ペン、ゲームパッド、マウス、キーボードを含む) の間で複数の入力型のサポート</li><li>Xbox、HoloLens、IoT、または Surface Hub のサポート</li><li>ネイティブのサポートC++</li><li>最適化されたバッテリの寿命</li><li>スクリーン リーダー) などの最新のユーザー補助のサポート</li><li>(組み込みのスペル チェック機能) などのリッチ テキスト データの機能</li><li>手描き入力のサポート</li><li>アプリケーション コンテナーを使用して実行をセキュリティで保護された (コンテンツがセキュリティで保護された信頼されていないなど)</li></ul>  |  <ul><li>UI の XAML マークアップ</li><li>機能が豊富でカスタマイズ可能なユーザー エクスペリエンス</li><li>Microsoft とパートナーからのコントロールの大規模なコレクション</li><li>高密度の UI</li><li>Windows 7 のサポート</li><li>プラットフォームは、入力の検証をサポートします。</li></ul> | <ul><li>迅速なアプリケーション開発</li><li>UI を構築するための WYSIWYG エディター</li><li>Microsoft とパートナーからのコントロールの大規模なコレクション</li><li>高密度の UI</li><li>Windows 7 のサポート</li><li>キーボードとマウス入力</li></ul>          |
 | **サポートが限られているシナリオ** |  <ul><li>密度の高い UI (密度の高い UI の作成、カスタム スタイルが必要です)<sup>1</sup></li><li>複数のウィンドウのサポート<sup>1</sup></li><li>入力の検証のプラットフォーム サポート<sup>1</sup></li><li>Windows 7 はサポートされていません</li><li>一部の UWP Api が特定の最小バージョンの Windows 10 が必要です。</li><li>完全なプラットフォームのサポートとシェル統合 (たとえば、UWP 現在サポートしていませんシステム トレイの統合またはすべてのデバイスへのフル アクセス)</li><li>ディスク上のすべてのファイルに直接アクセスします。</li><li>ADO.NET</li><li>.NET Standard 以外を使用して、既存のコード ベースのクラス ライブラリまたは以外の Windows アプリ認定キットの準拠している Api</li><li>ローカル ネットワーク ループバックのサポート (アプリは、ターゲット デバイスでループバックの免除を作成せずに localhost と通信する必要があります) の場合は、</li><li>処理を要するファイル I/O</li></ul>     |  <ul><li>高 DPI のサポート<sup>2</sup></li><li>タッチ入力<sup>2</sup></li></ul>  |  <ul><li>高 DPI のサポート<sup>2</sup></li><li>タッチ入力<sup>2</sup></li><li>カスタマイズ可能な UI</li><li>(タッチやアニメーション) などのリッチ グラフィックスとユーザー エクスペリエンスします。</li><li>ビューとデータ モデルの高度な抽象化</li></ul>    |   |
 

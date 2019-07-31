@@ -12,12 +12,12 @@ design-contact: mattben
 dev-contact: joyate
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: f04d364aac79ed232f35cbdd8378bc50393d2c74
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: MT
+ms.openlocfilehash: d0955e7a018472141b137935c5bc87a9f75a5c6d
+ms.sourcegitcommit: 0c5f81100986cc4b74b54cd1ca2debd283c5b7f6
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57614377"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68375274"
 ---
 # <a name="sound"></a>サウンド
 
@@ -33,7 +33,7 @@ UWP には使いやすいサウンド システムが用意されていて、「
 ```C#
 ElementSoundPlayer.State = ElementSoundPlayerState.On;
 ```
-**ElementSoundPlayer** 3 つの異なる状態があります。**オ** **フ**と**自動**します。
+**ElementSoundPlayer** には、次の 3 つの異なる状態があります: **On**、**Off**、**Auto**。
 
 **Off** に設定すると、アプリの実行環境に関わらず、サウンドが再生されることはありません。 **On** に設定すると、すべてのプラットフォームで、アプリのサウンドが再生されます。
 
@@ -44,9 +44,9 @@ ElementSoundPlayer.SpatialAudioMode = ElementSpatialAudioMode.Off
 ```
 
 **SpatialAudioMode** プロパティの有効な値は以下のとおりです。 
-- **自動**:サウンド空間オーディオは有効にするのには。 
-- **Off**: オーディオの空間は、常にサウンドの場合でも上です。
-- **[オン]**:空間オーディオは常に再生されます。
+- **自動**:サウンドがオンのときに、空間オーディオがオンになります。 
+- **Off**: サウンドがオンでも、空間オーディオは常にオフです。
+- **[オン]** :空間オーディオが常に再生されます。
 
 空間オーディオと XAML による空間オーディオの処理方法について詳しくは、[「オーディオ グラフ」の「空間オーディオ」](/windows/uwp/audio-video-camera/audio-graphs#spatial-audio)をご覧ください。
 
@@ -69,7 +69,7 @@ ElementSoundPlayer.Volume = 0.5;
 
 コントロールの既定のサウンドが望ましくない場合は、これを無効にできます。 サウンドを無効にするには、コントロールで **ElementSoundMode** を使います。
 
-**ElementSoundMode**が 2 つの状態。**オフ**と**既定**します。 設定しないと、**Default** になります。 **Off** に設定すると、コントロールが再生するすべてのサウンドはミュートされます (*フォーカスを除く*)。
+**ElementSoundMode** には、次の 2 つの状態があります: **Off** と **Default**。 設定しないと、**Default** になります。 **Off** に設定すると、コントロールが再生するすべてのサウンドはミュートされます (*フォーカスを除く*)。
 
 ```XAML
 <Button Name="ButtonName" Content="More Info" ElementSoundMode="Off"/>
@@ -91,7 +91,6 @@ ButtonName.ElementSoundState = ElementSoundMode.Off;
 
 通常このサウンドは、ユーザーが[入力デバイス](../input/index.md)を介して明示的に単純なコントロールまたはコントロールの一部を対象としたときにのみ再生されます。
 
-<SelectButtonClick.mp3 サウンド クリップ>
 
 任意のコントロール イベントからこのサウンドを再生するには、シンプルに **ElementSoundPlayer** から Play メソッドを呼び出し、**ElementSound.Invoke** に渡します。
 ```C#
@@ -104,34 +103,26 @@ XAML には多くのポップアップやダイアログ、閉じることがで
 
 オーバーレイのコンテンツ ウィンドウをビューに読み込むときに、**Show** サウンドを呼び出す必要があります。
 
-<OverlayIn.mp3 サウンド クリップ>
-
 ```C#
 ElementSoundPlayer.Play(ElementSoundKind.Show);
 ```
 逆に、オーバーレイのコンテンツ ウィンドウを閉じる (または簡易非表示にする) ときに、**Hide** サウンドを呼び出す必要があります。
-
-<OverlayOut.mp3 サウンド クリップ>
 
 ```C#
 ElementSoundPlayer.Play(ElementSoundKind.Hide);
 ```
 ### <a name="navigation-within-a-page"></a>ページ内でのナビゲーション
 
-パネルまたはアプリのページ内のビュー間を移動するときに (を参照してください[タブし、を切り替える](../controls-and-patterns/pivot.md))、通常は、双方向の移動。 つまり、現在表示しているアプリのページを離れずに、次のビュー/パネルまたは前のビュー/パネルに移動できます。
+アプリのページ内でパネルまたはビューの間を移動する場合 ([タブとピボット](../controls-and-patterns/pivot.md)に関するページを参照してください)、通常は双方向の移動になります。 つまり、現在表示しているアプリのページを離れずに、次のビュー/パネルまたは前のビュー/パネルに移動できます。
 
 このナビゲーションの概念に関するオーディオ エクスペリエンスは、**MovePrevious** サウンドと **MoveNext** サウンドに包含されています。
 
 リストの*次の項目*と考えられるビュー/パネルに移動するときは、次のように呼び出します。
 
-<PageTransitionRight.mp3 サウンド クリップ>
-
 ```C#
 ElementSoundPlayer.Play(ElementSoundKind.MoveNext);
 ```
 リストの*前の項目*と考えられるビュー/パネルに移動するときは、次のように呼び出します。
-
-<PageTransitionLeft.mp3 サウンド クリップ>
 
 ```C#
 ElementSoundPlayer.Play(ElementSoundKind.MovePrevious);
@@ -139,8 +130,6 @@ ElementSoundPlayer.Play(ElementSoundKind.MovePrevious);
 ### <a name="back-navigation"></a>戻るナビゲーション
 
 アプリ内で現在のページから前のページにナビゲーションするときは、**GoBack** サウンドを呼び出す必要があります。
-
-<BackButtonClick.mp3 サウンド クリップ>
 
 ```C#
 ElementSoundPlayer.Play(ElementSoundKind.GoBack);
@@ -153,8 +142,6 @@ ElementSoundPlayer.Play(ElementSoundKind.GoBack);
 
 コントロールがフォーカスされたときに **Focus** サウンドを再生するように設定するには、次のように呼び出します。
 
-<ElementFocus1.mp3 サウンド クリップ>
-
 ```C#
 ElementSoundPlayer.Play(ElementSoundKind.Focus);
 ```
@@ -166,5 +153,5 @@ ElementSoundPlayer.Play(ElementSoundKind.Focus);
 
 ## <a name="related-articles"></a>関連記事
 
-* [Xbox およびテレビ向け設計](https://go.microsoft.com/fwlink/?LinkId=760736)
-* [ElementSoundPlayer クラスのドキュメント](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.elementsoundplayer)
+* [Xbox およびテレビ向け設計](/windows/uwp/design/devices/designing-for-tv)
+* [ElementSoundPlayer クラスのドキュメント](/uwp/api/windows.ui.xaml.elementsoundplayer)

@@ -8,12 +8,12 @@ ms.assetid: 0a8cedac-172a-4efd-8b6b-67fd3667df34
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: 814d8c04943e32ff4d2f0c81bd847e78becd5ebb
-ms.sourcegitcommit: a4fe508e62827a10471e2359e81e82132dc2ac5a
+ms.openlocfilehash: 38a5a6fae3e6477321a8879a50dff21e10fd92e2
+ms.sourcegitcommit: 48ca9c99b52f93a805d5afeb7045ba4bf6597371
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66468324"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67622945"
 ---
 # <a name="integrate-your-packaged-desktop-app-with-windows-10-and-uwp"></a>Windows 10 と UWP パッケージ化されたデスクトップ アプリに統合します。
 
@@ -60,9 +60,9 @@ http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabi
 
 完全なスキーマ リファレンスについては、[こちら](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-rescap3-desktopappmigration)をご覧ください。
 
-|名前 | 説明 |
+|Name | 説明 |
 |-------|-------------|
-|カテゴリ |常に ``windows.desktopAppMigration`` です。
+|Category |常に ``windows.desktopAppMigration`` です。
 |AumID |パッケージ アプリのアプリケーション ユーザー モデル ID。 |
 |ShortcutPath |アプリのデスクトップ バージョンを起動する .lnk ファイルへのパス。 |
 
@@ -120,10 +120,10 @@ http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabi
 
 完全なスキーマ リファレンスについては、[こちら](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-uap-filetypeassociation)をご覧ください。
 
-|名前 |説明 |
+|Name |説明 |
 |-------|-------------|
-|カテゴリ |常に ``windows.fileTypeAssociation`` です。
-|名前 |アプリの一意の ID。 この ID は、ファイルの種類の関連付けによって関連付けられたハッシュ対象の[プログラム識別子 (ProgID)](https://docs.microsoft.com/windows/desktop/shell/fa-progids) を生成するために内部で使用されます。 この ID を使って、アプリの今後のバージョンで変更を管理することができます。 |
+|Category |常に ``windows.fileTypeAssociation`` です。
+|Name |アプリの一意の ID。 この ID は、ファイルの種類の関連付けによって関連付けられたハッシュ対象の[プログラム識別子 (ProgID)](https://docs.microsoft.com/windows/desktop/shell/fa-progids) を生成するために内部で使用されます。 この ID を使って、アプリの今後のバージョンで変更を管理することができます。 |
 |MigrationProgId |[プログラム識別子 (ProgID)](https://docs.microsoft.com/windows/desktop/shell/fa-progids)アプリケーション、コンポーネント、およびファイルの関連付けを継承するデスクトップ アプリケーションのバージョンをについて説明します。|
 
 #### <a name="example"></a>例
@@ -179,10 +179,10 @@ http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabi
 
 完全なスキーマ リファレンスについては、[こちら](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-uap-filetypeassociation)をご覧ください。
 
-|名前 |説明 |
+|Name |説明 |
 |-------|-------------|
-|カテゴリ |常に ``windows.fileTypeAssociation`` です。
-|名前 |アプリの一意の ID。 この ID は、ファイルの種類の関連付けによって関連付けられたハッシュ対象の[プログラム識別子 (ProgID)](https://docs.microsoft.com/windows/desktop/shell/fa-progids) を生成するために内部で使用されます。 この ID を使って、アプリの今後のバージョンで変更を管理することができます。   |
+|Category |常に ``windows.fileTypeAssociation`` です。
+|Name |アプリの一意の ID。 この ID は、ファイルの種類の関連付けによって関連付けられたハッシュ対象の[プログラム識別子 (ProgID)](https://docs.microsoft.com/windows/desktop/shell/fa-progids) を生成するために内部で使用されます。 この ID を使って、アプリの今後のバージョンで変更を管理することができます。   |
 |FileType |アプリでサポートされているファイル拡張子。 |
 
 #### <a name="example"></a>例
@@ -241,13 +241,13 @@ http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabi
 
 完全なスキーマ リファレンスについては、[こちら](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-uap-filetypeassociation)をご覧ください。
 
-|名前 |説明 |
+|Name |説明 |
 |-------|-------------|
-|カテゴリ | 常に ``windows.fileTypeAssociation`` です。
-|名前 |アプリの一意の ID。 |
-|動詞 |エクスプローラーのコンテキスト メニューに表示される名前です。 この文字列は、```ms-resource``` を使用してローカライズできます。|
-|ID |動詞の一意の ID。 アプリケーションが UWP アプリの場合、ユーザーの選択を適切に処理できるように、アクティブ化イベントの引数の一部としてアプリに渡されます。 アプリケーションが完全に信頼されているパッケージ アプリの場合は、パラメーターを受け取った代わりに (次の箇条書きを参照してください)。 |
-|パラメーター |動詞に関連付けられている引数のパラメーターと値のリスト。 アプリケーションが完全に信頼されているパッケージ アプリの場合は、これらのパラメーターは、アプリケーションがアクティブになるイベント引数としてアプリケーションに渡されます。 複数のアクティブ化の動詞に基づくアプリケーションの動作をカスタマイズすることができます。 変数にファイル パスが含まれる可能性がある場合は、パラメーター値を引用符で囲みます。 これにより、パスにスペースが含まれている場合に発生する問題を回避できます。 アプリケーションが UWP アプリの場合は、パラメーターを渡すことはできません。 アプリは、代わりに ID を受け取ります (前の項目を参照してください)。|
+|Category | 常に ``windows.fileTypeAssociation`` です。
+|Name |アプリの一意の ID。 |
+|Verb |エクスプローラーのコンテキスト メニューに表示される名前です。 この文字列は、```ms-resource``` を使用してローカライズできます。|
+|Id |動詞の一意の ID。 アプリケーションが UWP アプリの場合、ユーザーの選択を適切に処理できるように、アクティブ化イベントの引数の一部としてアプリに渡されます。 アプリケーションが完全に信頼されているパッケージ アプリの場合は、パラメーターを受け取った代わりに (次の箇条書きを参照してください)。 |
+|Parameters |動詞に関連付けられている引数のパラメーターと値のリスト。 アプリケーションが完全に信頼されているパッケージ アプリの場合は、これらのパラメーターは、アプリケーションがアクティブになるイベント引数としてアプリケーションに渡されます。 複数のアクティブ化の動詞に基づくアプリケーションの動作をカスタマイズすることができます。 変数にファイル パスが含まれる可能性がある場合は、パラメーター値を引用符で囲みます。 これにより、パスにスペースが含まれている場合に発生する問題を回避できます。 アプリケーションが UWP アプリの場合は、パラメーターを渡すことはできません。 アプリは、代わりに ID を受け取ります (前の項目を参照してください)。|
 |Extended |ユーザーが **Shift** キーを押しながらファイルを右クリックすることでコンテキスト メニューを表示した場合にのみ表示される動詞を指定します。 この属性は省略可能であり、指定されていない場合の既定値は **False** (常に動詞を表示する) です。 この動作は各動詞について個別に指定します ("開く" は例外で、常に **False**)。|
 
 #### <a name="example"></a>例
@@ -288,8 +288,8 @@ http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabi
 
 #### <a name="xml-namespaces"></a>XML 名前空間
 
-* http://schemas.microsoft.com/appx/manifest/uap/windows10
-* http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
+* http:\//schemas.microsoft.com/appx/manifest/uap/windows10
+* http:\//schemas.microsoft.com/appx/manifest/uap/windows10/3"
 
 #### <a name="elements-and-attributes-of-this-extension"></a>この拡張機能の要素と属性
 
@@ -305,12 +305,12 @@ http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabi
 
 完全なスキーマ リファレンスについては、[こちら](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-uap-filetypeassociation)をご覧ください。
 
-|名前 |説明 |
+|Name |説明 |
 |-------|-------------|
-|カテゴリ |常に ``windows.fileTypeAssociation`` です。
-|名前 |アプリの一意の ID。 |
+|Category |常に ``windows.fileTypeAssociation`` です。
+|Name |アプリの一意の ID。 |
 |UseUrl |URL ターゲットから直接ファイルを開くかどうかを示します。 この値を設定しない場合は、システムを使用して URL 原因、最初のダウンロード ファイルをローカル ファイルを開くアプリケーションでしようとします。 |
-|パラメーター |省略可能なパラメーター。 |
+|Parameters |省略可能なパラメーター。 |
 |FileType |関連するファイル拡張子。 |
 
 #### <a name="example"></a>例
@@ -371,10 +371,10 @@ http://schemas.microsoft.com/appx/manifest/desktop/windows10/2
 
 完全なスキーマ リファレンスについては、[こちら](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-desktop2-firewallrules)をご覧ください。
 
-|名前 |説明 |
+|Name |説明 |
 |-------|-------------|
-|カテゴリ |いつも ``windows.firewallRules``|
-|実行可能ファイル |ファイアウォールの例外の一覧に追加する実行可能ファイルの名前。 |
+|Category |いつも ``windows.firewallRules``|
+|Executable |ファイアウォールの例外の一覧に追加する実行可能ファイルの名前。 |
 |Direction |規則が受信規則か送信規則かを示します。 |
 |IPProtocol |通信プロトコル。 |
 |LocalPortMin |ローカル ポート番号の範囲を示すポート番号の下限。 |
@@ -431,9 +431,9 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
 
 ```
 
-|名前 | 説明 |
+|Name | 説明 |
 |-------|-------------|
-|カテゴリ |常に ``windows.loaderSearchPathOverride`` です。
+|Category |常に ``windows.loaderSearchPathOverride`` です。
 |FolderPath | dll ファイルが含まれているフォルダーのパス。 パッケージのルート フォルダーの相対パスを指定します。 1 つの拡張機能で最大 5 つのパスを指定できます。 システムがパッケージのルート フォルダーにあるファイルを検索するようにする場合、これらのパスのいずれかに空の文字列を使用します。 重複するパスを含めないでください。パスの先頭と末尾にスラッシュや円記号を使わないでください。 <br><br> システムはサブフォルダーを検索しないため、システムが読み込む DLL ファイルが含まれている各フォルダーを明示的に一覧表示してください。|
 
 #### <a name="example"></a>例
@@ -496,10 +496,10 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
 
 完全なスキーマ リファレンスについては、[こちら](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-uap-filetypeassociation)をご覧ください。
 
-|名前 |説明 |
+|Name |説明 |
 |-------|-------------|
-|カテゴリ |常に ``windows.fileTypeAssociation`` です。
-|名前 |アプリの一意の ID。 |
+|Category |常に ``windows.fileTypeAssociation`` です。
+|Name |アプリの一意の ID。 |
 |MultiSelectModel |下を参照 |
 |FileType |関連するファイル拡張子。 |
 
@@ -571,10 +571,10 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
 
 完全なスキーマ リファレンスについては、[こちら](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-uap-filetypeassociation)をご覧ください。
 
-|名前 |説明 |
+|Name |説明 |
 |-------|-------------|
-|カテゴリ |常に ``windows.fileTypeAssociation`` です。
-|名前 |アプリの一意の ID。 |
+|Category |常に ``windows.fileTypeAssociation`` です。
+|Name |アプリの一意の ID。 |
 |FileType |関連するファイル拡張子。 |
 |Clsid   |アプリのクラス ID。 |
 
@@ -633,10 +633,10 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
 
 完全なスキーマ リファレンスについては、[こちら](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-uap-filetypeassociation)をご覧ください。
 
-|名前 |説明 |
+|Name |説明 |
 |-------|-------------|
-|カテゴリ |常に ``windows.fileTypeAssociation`` です。
-|名前 |アプリの一意の ID。 |
+|Category |常に ``windows.fileTypeAssociation`` です。
+|Name |アプリの一意の ID。 |
 |FileType |関連するファイル拡張子。 |
 |Clsid   |アプリのクラス ID。 |
 
@@ -698,10 +698,10 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
 
 完全なスキーマ リファレンスについては、[こちら](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-uap-filetypeassociation)をご覧ください。
 
-|名前 |説明 |
+|Name |説明 |
 |-------|-------------|
-|カテゴリ |常に ``windows.fileTypeAssociation`` です。
-|名前 |アプリの一意の ID。 |
+|Category |常に ``windows.fileTypeAssociation`` です。
+|Name |アプリの一意の ID。 |
 |FileType |関連するファイル拡張子。 |
 |value |有効な [Kind 値](https://docs.microsoft.com/windows/desktop/properties/building-property-handlers-user-friendly-kind-names)。 |
 
@@ -759,10 +759,10 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
 
 完全なスキーマ リファレンスについては、[こちら](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-uap-filetypeassociation)をご覧ください。
 
-|名前 |説明 |
+|Name |説明 |
 |-------|-------------|
-|カテゴリ |常に ``windows.fileTypeAssociation`` です。
-|名前 |アプリの一意の ID。 |
+|Category |常に ``windows.fileTypeAssociation`` です。
+|Name |アプリの一意の ID。 |
 |FileType |関連するファイル拡張子。 |
 |Clsid  |アプリのクラス ID。 |
 
@@ -915,15 +915,15 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
 
 ```
 
-|名前 |説明 |
+|Name |説明 |
 |-------|-------------|
-|カテゴリ |常に ``windows.cloudfiles`` です。
+|Category |常に ``windows.cloudfiles`` です。
 |iconResource |クラウド ファイル プロバイダー サービスを表すアイコン。 このアイコンは、エクスプローラーのナビゲーション ウィンドウに表示されます。  ユーザーは、このアイコンを選んでクラウド サービスのファイルを表示します。 |
 |CustomStateHandler Clsid |CustomStateHandler を実装するアプリケーションのクラス ID。 システムは、このクラス ID を使ってクラウド ファイルのカスタム状態と列を要求します。 |
 |ThumbnailProviderHandler Clsid |ThumbnailProviderHandler を実装するアプリケーションのクラス ID。 システムは、このクラス ID を使ってクラウド ファイルの縮小版イメージを要求します。 |
 |ExtendedPropertyHandler Clsid |ExtendedPropertyHandler を実装するアプリケーションのクラス ID。  システムは、このクラス ID を使ってクラウド ファイルの拡張プロパティを要求します。 |
-|動詞 |クラウド サービスによって提供されるファイルのエクスプローラー コンテキスト メニューに表示される名前です。 |
-|ID |動詞の一意の ID。 |
+|Verb |クラウド サービスによって提供されるファイルのエクスプローラー コンテキスト メニューに表示される名前です。 |
+|Id |動詞の一意の ID。 |
 
 #### <a name="example"></a>例
 
@@ -985,11 +985,11 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/3
 
 完全なスキーマ リファレンスについては、[こちら](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol)をご覧ください。
 
-|名前 |説明 |
+|Name |説明 |
 |-------|-------------|
-|カテゴリ |常に ``windows.protocol`` です。
-|名前 |プロトコルの名前。 |
-|パラメーター |パラメーターと、アプリケーションがアクティブになるイベントの引数として、アプリケーションに渡す値の一覧。 変数にファイル パスが含まれる可能性がある場合は、パラメーター値を引用符で囲みます。 これにより、パスにスペースが含まれている場合に発生する問題を回避できます。 |
+|Category |常に ``windows.protocol`` です。
+|Name |プロトコルの名前。 |
+|Parameters |パラメーターと、アプリケーションがアクティブになるイベントの引数として、アプリケーションに渡す値の一覧。 変数にファイル パスが含まれる可能性がある場合は、パラメーター値を引用符で囲みます。 これにより、パスにスペースが含まれている場合に発生する問題を回避できます。 |
 
 ### <a name="example"></a>例
 
@@ -1038,10 +1038,10 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/3
 </Extension>
 ```
 
-|名前 |説明 |
+|Name |説明 |
 |-------|-------------|
-|カテゴリ |常に ``windows.appExecutionAlias`` です。
-|実行可能ファイル |エイリアスが呼び出されたときに起動する実行可能ファイルの相対パス。 |
+|Category |常に ``windows.appExecutionAlias`` です。
+|Executable |エイリアスが呼び出されたときに起動する実行可能ファイルの相対パス。 |
 |Alias |アプリの短い名前。 常に、拡張子 ".exe" で終わっている必要があります。 パッケージ内のアプリケーションごとにアプリの実行エイリアスは 1 つだけ指定できます。 複数のアプリで同じエイリアスが登録されている場合、システムは最後に登録されたアプリを呼び出します。したがって、他のアプリが上書きする可能性が低い一意のエイリアスを選んでください。
 |
 
@@ -1103,10 +1103,10 @@ http://schemas.microsoft.com/appx/manifest/desktop/windows10
 </Extension>
 ```
 
-|名前 |説明 |
+|Name |説明 |
 |-------|-------------|
-|カテゴリ |常に ``windows.startupTask`` です。|
-|実行可能ファイル |起動する実行可能ファイルへの相対パス。 |
+|Category |常に ``windows.startupTask`` です。|
+|Executable |起動する実行可能ファイルへの相対パス。 |
 |TaskId |タスクの一意の識別子。 この識別子を使用して、アプリケーション Api を呼び出すこと、 [Windows.ApplicationModel.StartupTask](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.StartupTask)クラスをプログラムで有効または、スタートアップ タスクを無効にします。 |
 |有効 |初めて起動したタスクを有効にするか、無効にするかを指定します。 有効になっているタスクは、(ユーザーが無効にしていない限り) 次回ユーザーがログオンするときに実行されます。 |
 |DisplayName |タスク マネージャーに表示されるタスクの名前。 この文字列は、```ms-resource``` を使用してローカライズできます。 |
@@ -1158,15 +1158,15 @@ http://schemas.microsoft.com/appx/manifest/desktop/windows10/3
   </AutoPlayHandler>
 ```
 
-|名前 |説明 |
+|Name |説明 |
 |-------|-------------|
-|カテゴリ |常に ``windows.autoPlayHandler`` です。
+|Category |常に ``windows.autoPlayHandler`` です。
 |ActionDisplayName |ユーザーが PC に接続するデバイスで実行できるアクションを表す文字列です (例。「ファイルのインポート」または「ビデオを再生」)。 |
 |ProviderDisplayName | アプリケーションまたはサービスを表す文字列です (例。「Contoso ビデオ プレーヤー」)。 |
 |ContentEvent |ユーザーに ``ActionDisplayName`` と ``ProviderDisplayName`` をプロンプト表示する原因となるコンテンツ イベントの名前。 コンテンツ イベントは、カメラのメモリ カード、サム ドライブ、DVD などのボリューム デバイスが PC に挿入されたときに発生します。 これらのイベントの詳しい一覧については、[ここ](https://docs.microsoft.com/windows/uwp/launch-resume/auto-launching-with-autoplay#autoplay-event-reference)をご覧ください。  |
-|動詞 |動詞の設定は、選択したオプションのアプリケーションに渡される値を識別します。 自動再生のイベントの起動アクションは複数指定できます。また、[動詞] 設定を使って、ユーザーがアプリで選んだアクションを確認できます。 アプリに渡される起動イベント引数の verb プロパティを調べることでユーザーが選んだオプションを確認できます。 [動詞] 設定には任意の値を使うことができます。ただし、予約されている open を除きます。 |
+|Verb |動詞の設定は、選択したオプションのアプリケーションに渡される値を識別します。 自動再生のイベントの起動アクションは複数指定できます。また、[動詞] 設定を使って、ユーザーがアプリで選んだアクションを確認できます。 アプリに渡される起動イベント引数の verb プロパティを調べることでユーザーが選んだオプションを確認できます。 [動詞] 設定には任意の値を使うことができます。ただし、予約されている open を除きます。 |
 |DropTargetHandler |実装するアプリケーションのクラス ID、 [IDropTarget](https://docs.microsoft.com/dotnet/api/microsoft.visualstudio.ole.interop.idroptarget?view=visualstudiosdk-2017)インターフェイス。 リムーバブル メディアのファイルは、[IDropTarget](https://docs.microsoft.com/dotnet/api/microsoft.visualstudio.ole.interop.idroptarget?view=visualstudiosdk-2017) 実装の [Drop](https://docs.microsoft.com/dotnet/api/microsoft.visualstudio.ole.interop.idroptarget.drop?view=visualstudiosdk-2017#Microsoft_VisualStudio_OLE_Interop_IDropTarget_Drop_Microsoft_VisualStudio_OLE_Interop_IDataObject_System_UInt32_Microsoft_VisualStudio_OLE_Interop_POINTL_System_UInt32__) メソッドに渡されます。  |
-|パラメーター |すべてのコンテンツ イベントで [IDropTarget](https://docs.microsoft.com/dotnet/api/microsoft.visualstudio.ole.interop.idroptarget?view=visualstudiosdk-2017) インターフェイスを実装する必要はありません。 どのコンテンツ イベントにも、[IDropTarget](https://docs.microsoft.com/dotnet/api/microsoft.visualstudio.ole.interop.idroptarget?view=visualstudiosdk-2017) インターフェイスを実装する代わりにコマンド ライン パラメーターを指定することができます。 これらのイベントでは、自動再生がこれらのコマンド ライン パラメーターを使用してアプリケーションを起動します。 アプリの初期化コードでそれらのパラメーターを解析して、自動再生によって起動したかどうかを判断し、カスタム実装を提供することができます。 |
+|Parameters |すべてのコンテンツ イベントで [IDropTarget](https://docs.microsoft.com/dotnet/api/microsoft.visualstudio.ole.interop.idroptarget?view=visualstudiosdk-2017) インターフェイスを実装する必要はありません。 どのコンテンツ イベントにも、[IDropTarget](https://docs.microsoft.com/dotnet/api/microsoft.visualstudio.ole.interop.idroptarget?view=visualstudiosdk-2017) インターフェイスを実装する代わりにコマンド ライン パラメーターを指定することができます。 これらのイベントでは、自動再生がこれらのコマンド ライン パラメーターを使用してアプリケーションを起動します。 アプリの初期化コードでそれらのパラメーターを解析して、自動再生によって起動したかどうかを判断し、カスタム実装を提供することができます。 |
 |DeviceEvent |ユーザーに ``ActionDisplayName`` と ``ProviderDisplayName`` をプロンプト表示する原因となるデバイス イベントの名前。 デバイス イベントは、デバイスが PC に接続されると発生します。 デバイス イベントの先頭は文字列 ``WPD`` です。一覧については[ここ](https://docs.microsoft.com/windows/uwp/launch-resume/auto-launching-with-autoplay#autoplay-event-reference)をご覧ください。 |
 |HWEventHandler |実装するアプリケーションのクラス ID、 [IHWEventHandler](https://docs.microsoft.com/windows/desktop/api/shobjidl/nn-shobjidl-ihweventhandler)インターフェイス。 |
 |InitCmdLine |[IHWEventHandler](https://docs.microsoft.com/windows/desktop/api/shobjidl/nn-shobjidl-ihweventhandler) インターフェイスの [Initialize](https://docs.microsoft.com/windows/desktop/api/shobjidl/nf-shobjidl-ihweventhandler-initialize) メソッドに渡す文字列パラメーター。 |
@@ -1245,11 +1245,11 @@ http://schemas.microsoft.com/appx/manifest/desktop/windows10/2
 
 完全なスキーマ リファレンスについては、[こちら](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-desktop2-appprinter)をご覧ください。
 
-|名前 |説明 |
+|Name |説明 |
 |-------|-------------|
-|カテゴリ |常に ``windows.appPrinter`` です。
+|Category |常に ``windows.appPrinter`` です。
 |DisplayName |アプリの印刷先一覧に表示する名前。 |
-|パラメーター |アプリケーションに要求を正しく処理するために必要な任意のパラメーター。 |
+|Parameters |アプリケーションに要求を正しく処理するために必要な任意のパラメーター。 |
 
 #### <a name="example"></a>例
 
@@ -1295,10 +1295,10 @@ http://schemas.microsoft.com/appx/manifest/desktop/windows10/2
 
 完全なスキーマ リファレンスについては、[こちら](/uwp/schemas/appxpackage/uapmanifestschema/element-uap4-sharedfonts)をご覧ください。
 
-|名前 |説明 |
+|Name |説明 |
 |-------|-------------|
-|カテゴリ |常に ``windows.sharedFonts`` です。
-|ファイル |共有するフォントが格納されたファイル。 |
+|Category |常に ``windows.sharedFonts`` です。
+|File |共有するフォントが格納されたファイル。 |
 
 #### <a name="example"></a>例
 
@@ -1341,11 +1341,11 @@ http://schemas.microsoft.com/appx/manifest/desktop/windows10
 </Extension>
 ```
 
-|名前 |説明 |
+|Name |説明 |
 |-------|-------------|
-|カテゴリ |常に ``windows.fullTrustProcess`` です。
+|Category |常に ``windows.fullTrustProcess`` です。
 |GroupID |実行可能ファイルに渡すパラメーターのセットを識別するための文字列。 |
-|パラメーター |実行可能ファイルに渡すパラメーター。 |
+|Parameters |実行可能ファイルに渡すパラメーター。 |
 
 #### <a name="example"></a>例
 

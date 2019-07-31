@@ -5,12 +5,12 @@ keywords: 最新情報, 更新, 機能, 開発者向けガイダンス, Windows 
 ms.date: 07/11/2018
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 22a3a9614a4488791a36f81a3d4dedac572111b4
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 4030796e942c76ccf32e04dbf951cac68718a6a5
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63780274"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67320393"
 ---
 # <a name="whats-new-in-the-windows-developer-docs-in-july-2018"></a>Windows 開発者向けドキュメントの最新情報、2018 年 7 月
 
@@ -22,7 +22,7 @@ Windows 10 の[ツールと SDK をインストール](https://go.microsoft.com/
 
 ### <a name="progressive-web-apps-on-windows"></a>Windows のプログレッシブ Web アプリ
 
-[プログレッシブ Web アプリ (PWA)](https://developer.microsoft.com/windows/pwa) は、サポートするプラットフォームおよびブラウザー エンジン上でネイティブ アプリのような機能 (ホーム画面からの起動、オフライン サポート、プッシュ通知など) を提供するように[プログレッシブに拡張された](https://wikipedia.org/wiki/Progressive_enhancement) Web アプリです。 Microsoft Edge (EdgeHTML) エンジンを搭載した Windows 10 では、PWA を [UWP アプリとしてブラウザー ウィンドウとは独立して実行できる](https://docs.microsoft.com/microsoft-edge/progressive-web-apps/windows-features)という利点があります。
+[プログレッシブ Web アプリ (PWA)](https://developer.microsoft.com/windows/pwa) は、サポートするプラットフォームおよびブラウザー エンジン上でネイティブ アプリのような機能 (ホーム画面からの起動、オフライン サポート、プッシュ通知など) を提供するように[プログレッシブに拡張された](https://www.wikipedia.org/wiki/Progressive_enhancement) Web アプリです。 Microsoft Edge (EdgeHTML) エンジンを搭載した Windows 10 では、PWA を [UWP アプリとしてブラウザー ウィンドウとは独立して実行できる](https://docs.microsoft.com/microsoft-edge/progressive-web-apps/windows-features)という利点があります。
 
 ![動作中の PWA のイメージ](images/progressive-web-apps.jpg)
 
@@ -48,11 +48,9 @@ Adobe XD および Adobe Illustrator ツールキットが更新されて新機�
 
 ### <a name="webvr"></a>WebVR
 
-[WebVR のドキュメント](https://docs.microsoft.com/microsoft-edge/webvr/
-)にいくつかの新しいトピックが追加されました。
+[WebVR のドキュメント](https://docs.microsoft.com/microsoft-edge/webvr/)にいくつかの新しいトピックが追加されました。
 
-* [WebVR とは](https://docs.microsoft.com/microsoft-edge/webvr/what-is-webvr
-): WebVR とは何か、それを使用する理由、およびその開発の始め方について説明します。
+* [WebVR とは](https://docs.microsoft.com/microsoft-edge/webvr/what-is-webvr): WebVR とは何か、それを使用する理由、およびその開発の始め方について説明します。
 
 * [プログレッシブ Web アプリでの WebVR](https://docs.microsoft.com/microsoft-edge/webvr/webvr-in-pwas):プログレッシブ Web App (PWA) に WebVR を追加する方法について説明します。
 
@@ -72,7 +70,7 @@ Adobe XD および Adobe Illustrator ツールキットが更新されて新機�
 
 ### <a name="get-started-for-devs-create-and-customize-a-form-on-windows-10"></a>開発者向けスタートアップ ガイド:Windows 10 でフォームを作成してカスタマイズする
 
-Windows 開発者向けの[スタートアップ ガイド](../get-started/index.md)では、基本的なアプリ開発タスクを実際に体験できるようになりました。 このビデオは、これらのトピックの 1 つを順を追って説明するもので、アプリでのフォーム UI の作成の基本について扱います。 [ビデオを見て](https://www.youtube.com/watch?v=AgngKzq4hKI&feature=youtu.be)動作中のコードを理解したうえで、[トピックを自分で確認してください。](https://aka.ms/CreateForms)
+Windows 開発者向けの[スタートアップ ガイド](../get-started/index.md)では、基本的なアプリ開発タスクを実際に体験できるようになりました。 このビデオは、これらのトピックの 1 つを順を追って説明するもので、アプリでのフォーム UI 作成の基本について扱います。 [ビデオを見て](https://www.youtube.com/watch?v=AgngKzq4hKI&feature=youtu.be)動作中のコードを理解したうえで、[トピックを自分で確認してください。](https://aka.ms/CreateForms)
 
 ### <a name="enhance-your-bot-with-project-personality-chat"></a>Project Personality Chat でボットを強化する
 
@@ -80,7 +78,7 @@ Project Personality Chat により、カスタマイズ可能なペルソナを�
 
 ### <a name="one-dev-question"></a>One Dev Question
 
-One Dev Question ビデオ シリーズでは、ベテランの Microsoft 開発者が Windows 開発、チーム カルチャー、および履歴に関する一連の質問に答えています。 最新の質問に対してお答えした内容を以下に示します。
+One Dev Question ビデオ シリーズでは、ベテランの Microsoft 開発者が Windows 開発、チーム カルチャ、および歴史に関する一連の質問に答えています。 最新の質問に対してお答えした内容を以下に示します。
 
 Raymond Chen:
 

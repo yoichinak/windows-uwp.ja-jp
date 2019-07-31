@@ -6,12 +6,12 @@ ms.date: 01/25/2017
 ms.topic: article
 keywords: windows 10, uwp, 初めてのアプリ, c#, c++, JavaScript
 ms.localizationpriority: medium
-ms.openlocfilehash: 9e42f627624cb559a84b7da73958f7aa93b0fee2
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: c6f66d90e96b0dfe941e4311ebf79cd3b9b5f4ae
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64564552"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67318750"
 ---
 # <a name="create-your-first-app"></a>初めてのアプリの作成
 
@@ -65,7 +65,7 @@ UWP の域を超えて JavaScript と HTML のスキルを拡張し、Web アプ
 
 Web アプリは、ホストされた Web アプリとして UWP フレームワークに簡単にパッケージ化し、Microsoft Store で販売促進できます。
 
-* [ホストされた Web アプリ](https://developer.microsoft.com/windows/bridges/hosted-web-apps)
+* [ホストされた Web アプリ](https://developer.microsoft.com/windows/pwa)
 * [Web アプリケーションを UWP アプリに変換する](../porting/hwa-create-windows.md)
 
 

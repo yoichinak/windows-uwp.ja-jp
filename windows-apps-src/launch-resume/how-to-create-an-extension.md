@@ -5,12 +5,12 @@ keywords: アプリの拡張機能, アプリ サービス, バック グラウ�
 ms.date: 10/05/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 6a7bb6f719f95766c07c1e5f92b50148cf0f2cce
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 2cfb3be556cb681bc9ed2d9d46bb86304182e5ca
+ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57642367"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67821027"
 ---
 # <a name="create-and-host-an-app-extension"></a>アプリ拡張機能の作成とホスト
 
@@ -18,7 +18,7 @@ ms.locfileid: "57642367"
 
 この記事には、コード サンプルが付属しています。
 - [Math Extension コード サンプル](https://github.com/MicrosoftDocs/windows-topic-specific-samples/archive/MathExtensionSample.zip)をダウンロードして解凍します。
-- Visual Studio 2017 で MathExtensionSample.sln ファイルを開きます。 ビルドの種類を x86 に設定します (両方のプロジェクトで、**[ビルド]** > **[構成マネージャー]** を選択し、**[プラットフォーム]** を **[x86]** に変更します)。
+- Visual Studio 2019、MathExtensionSample.sln を開きます。 ビルドの種類を x86 に設定します (両方のプロジェクトで、 **[ビルド]**  >  **[構成マネージャー]** を選択し、 **[プラットフォーム]** を **[x86]** に変更します)。
 - ソリューションをデプロイします。**ビルド** > **ソリューションの配置**します。
 
 ## <a name="introduction-to-app-extensions"></a>アプリ拡張機能の概要
@@ -41,7 +41,7 @@ UWP アプリ拡張機能は、コンテンツと展開イベントをホスト 
 4. ホストと拡張機能の通信方法を定義します。
 5. ホスト アプリ内で拡張機能にアクセスするために、[Windows.ApplicationModel.AppExtensions](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.AppExtensions) API を使用します。
 
-これがどのように行われるのか、[Math Extension コード サンプル](https://github.com/MicrosoftDocs/windows-topic-specific-samples/archive/MathExtensionSample.zip)で見てみましょう。このコードでは仮想計算機を実装していますが、拡張機能を使用してこの計算機に新しい関数を追加できます。 Microsoft Visual Studio 2017 で、コード サンプルから **MathExtensionSample.sln** を読み込みます。
+これがどのように行われるのか、[Math Extension コード サンプル](https://github.com/MicrosoftDocs/windows-topic-specific-samples/archive/MathExtensionSample.zip)で見てみましょう。このコードでは仮想計算機を実装していますが、拡張機能を使用してこの計算機に新しい関数を追加できます。 Microsoft Visual Studio 2019 で読み込む**MathExtensionSample.sln**コード サンプルから。
 
 ![Math Extension コード サンプル](images/mathextensionhost-calctab.png)
 
@@ -125,8 +125,8 @@ _Package.appxmanifest MathExtension プロジェクトで:_
 |**名前**|これは、拡張機能コントラクト名です。 ホストで宣言されている **Name** と一致すれば、ホストがこの拡張機能を検出できます。| :heavy_check_mark: |
 |**ID**| このアプリを拡張機能を一意に識別します。 複数の拡張機能で同じ拡張機能コントラクト名が使用されることも考えられるため (たとえば、ペイント アプリでは複数の拡張機能がサポートされています)、ID を使用して区別できます。 アプリ拡張機能のホストは、ID を使用して拡張機能の種類を推測できます。 たとえば、1 つ目の拡張機能がデスクトップ用、2 つ目の拡張機能がモバイル用に設計されている場合に、これらを ID で区別できます。 この目的で **Properties** 要素を使用することもできます (以下をご覧ください)。| :heavy_check_mark: |
 |**DisplayName**| ユーザーが拡張機能を識別できるように、ホスト アプリから使用できます。 照会が可能であり、ローカライズ用に[新しいリソース管理システム](https://docs.microsoft.com/windows/uwp/app-resources/using-mrt-for-converted-desktop-apps-and-games) (`ms-resource:TokenName`) を使用できます。 ローカライズされたコンテンツは、ホスト アプリからではなく、アプリ拡張機能から読み込まれます。 | |
-|**説明** | ユーザーに対して拡張機能を説明するために、ホスト アプリから使用できます。 照会が可能であり、ローカライズ用に[新しいリソース管理システム](https://docs.microsoft.com/windows/uwp/app-resources/using-mrt-for-converted-desktop-apps-and-games) (`ms-resource:TokenName`) を使用できます。 ローカライズされたコンテンツは、ホスト アプリからではなく、アプリ拡張機能から読み込まれます。 | |
-|**パブリック フォルダー**|パッケージのルートを基準としたフォルダーの名前です。このフォルダーでは、コンテンツを拡張機能のホストと共有できます。 この名前は、慣例では "Public" ですが、拡張機能内のフォルダーと一致する名前であれば、任意の名前を使用できます。| :heavy_check_mark: |
+|**[説明]** | ユーザーに対して拡張機能を説明するために、ホスト アプリから使用できます。 照会が可能であり、ローカライズ用に[新しいリソース管理システム](https://docs.microsoft.com/windows/uwp/app-resources/using-mrt-for-converted-desktop-apps-and-games) (`ms-resource:TokenName`) を使用できます。 ローカライズされたコンテンツは、ホスト アプリからではなく、アプリ拡張機能から読み込まれます。 | |
+|**PublicFolder**|パッケージのルートを基準としたフォルダーの名前です。このフォルダーでは、コンテンツを拡張機能のホストと共有できます。 この名前は、慣例では "Public" ですが、拡張機能内のフォルダーと一致する名前であれば、任意の名前を使用できます。| :heavy_check_mark: |
 
 `<uap3:Properties>` ホストが実行時に読み取ることができるカスタム メタデータを含む省略可能な要素です。 コード サンプルでは拡張機能がアプリ サービスとして実装されるため、ホストでは、そのアプリ サービスを呼び出すことができるように、名前を取得する方法が必要になります。 アプリ サービスの名前は、<Service> 要素で定義されています (任意の名前を定義できます)。 コード サンプルのホストは、実行時にこのプロパティを探して、アプリ サービスの名前を取得します。
 
@@ -337,21 +337,21 @@ public ExtensionManager(string extensionContractName)
 1. Visual Studio の 1 つ目のインスタンスでホスト プロジェクトを読み込みます。
 2. Visual Studio の 2 つ目のインスタンスで拡張機能を読み込みます。
 3. デバッガーでホスト アプリを起動します。
-4. デバッガーで拡張機能アプリを起動します  (拡張機能のデバッグではなく展開を行う場合、ホストのパッケージ インストール イベントをテストするには、**[ビルド] &gt; [ソリューションの配置]** を選択します)。
+4. デバッガーで拡張機能アプリを起動します (拡張機能のデバッグではなく展開を行う場合、ホストのパッケージ インストール イベントをテストするには、 **[ビルド] &gt; [ソリューションの配置]** を選択します)。
 
 これで、ホスト内と拡張機能内のブレークポイントにヒットできます。
-拡張機能アプリ自体のデバッグを開始すると、アプリ用に空白のウィンドウが表示されます。 空白のウィンドウが表示されないようにするには、拡張機能プロジェクトのデバッグ設定で、開始時にアプリが起動ではなくデバッグされるように変更できます (拡張機能プロジェクトを右クリックし、**[プロパティ]** > **[デバッグ]** > **[起動しないが、開始時にコードをデバッグ]** を選択)。この場合も拡張機能プロジェクトのデバッグを開始 (**F5**) する必要がありますが、開始は、ホストが拡張機能をアクティブ化し、拡張機能内のブレークポイントがヒットした後になります。
+拡張機能アプリ自体のデバッグを開始すると、アプリ用に空白のウィンドウが表示されます。 空白のウィンドウが表示されないようにするには、拡張機能プロジェクトのデバッグ設定で、開始時にアプリが起動ではなくデバッグされるように変更できます (拡張機能プロジェクトを右クリックし、 **[プロパティ]**  >  **[デバッグ]** > **[起動しないが、開始時にコードをデバッグ]** を選択)。この場合も拡張機能プロジェクトのデバッグを開始 (**F5**) する必要がありますが、開始は、ホストが拡張機能をアクティブ化し、拡張機能内のブレークポイントがヒットした後になります。
 
 **サンプル コードをデバッグします。**
 
 コード サンプルでは、ホストと拡張機能が同じソリューションに属しています。 デバッグを行うには、以下の手順に従います。
 
-1. **MathExtensionHost** がスタートアップ プロジェクトに設定されていることを確認します (**MathExtensionHost** プロジェクトを右クリックし、**[スタートアップ プロジェクトに設定]** をクリック)。
+1. **MathExtensionHost** がスタートアップ プロジェクトに設定されていることを確認します (**MathExtensionHost** プロジェクトを右クリックし、 **[スタートアップ プロジェクトに設定]** をクリック)。
 2. **MathExtensionHost** プロジェクトに含まれる ExtensionManager.cs 内で、`Invoke` にブレークポイントを設定します。
 3. **F5** キーを押して **MathExtensionHost** プロジェクトを実行します。
 4. **MathExtension** プロジェクトに含まれる App.xaml.cs 内で、`OnAppServiceRequestReceived` にブレークポイントを設定します。
-5. **MathExtension** プロジェクトのデバッグを開始します (**MathExtension** プロジェクトで右クリックし、**[デバッグ] > [新しいインスタンスを開始]** を選択)。これにより、プロジェクトが展開され、ホスト内のパッケージ インストール イベントがトリガーされます。
-6. **MathExtensionHost** アプリで、**[Calculation]** (計算) ページに移動し、**[x^y]** をクリックして拡張機能を有効化します。 最初に `Invoke()` ブレークポイントがヒットし、拡張機能のアプリ サービス呼び出しが行われたことを確認できます。 次に、拡張機能内の `OnAppServiceRequestReceived()` メソッドがヒットし、アプリ サービスによって結果が計算され、返されることを確認できます。
+5. **MathExtension** プロジェクトのデバッグを開始します (**MathExtension** プロジェクトで右クリックし、 **[デバッグ] > [新しいインスタンスを開始]** を選択)。これにより、プロジェクトが展開され、ホスト内のパッケージ インストール イベントがトリガーされます。
+6. **MathExtensionHost** アプリで、 **[Calculation]** (計算) ページに移動し、 **[x^y]** をクリックして拡張機能を有効化します。 最初に `Invoke()` ブレークポイントがヒットし、拡張機能のアプリ サービス呼び出しが行われたことを確認できます。 次に、拡張機能内の `OnAppServiceRequestReceived()` メソッドがヒットし、アプリ サービスによって結果が計算され、返されることを確認できます。
 
 **アプリ サービスとして実装された拡張機能のトラブルシューティング**
 
@@ -413,7 +413,7 @@ _Package.appxmanifest MathExtension プロジェクトで:_
 
 このゲームにカスタマイズ可能な UI アドオンまたはテーマがある場合は、アプリ拡張機能の使用をお勧めします。拡張機能を提供するアプリは単独で実行でき、どのサード パーティでもそのようなアプリを作成できます。
 
-## <a name="remarks"></a>注釈
+## <a name="remarks"></a>コメント
 
 このトピックでは、アプリ拡張機能を紹介します。 重要な点として、ホストを作成して Package.appxmanifest ファイル内でホストとしてマークすること、拡張機能を作成して Package.appxmanifest ファイル内で拡張機能としてマークすること、拡張機能の実装方法 (アプリ サービス、バックグラウンド タスク、その他の方法) を決定すること、ホストと拡張機能との間の通信方法を定義すること、拡張機能へのアクセスと管理に [AppExtensions API](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appextensions) を使用することが挙げられます。
 

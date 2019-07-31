@@ -12,21 +12,21 @@ keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.custom: RS5
 ms.openlocfilehash: ac2bd55d1cea25359c3c609148c7098532d76c46
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: MT
+ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57654057"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "63796405"
 ---
 # <a name="command-design-basics-for-uwp-apps"></a>UWP アプリのコマンド設計の基本
 
-ユニバーサル Windows プラットフォーム (UWP) アプリで*コマンド要素*ユーザーが電子メールを送信する、項目の削除、フォームの送信などの操作を実行できるようにする対話型の UI 要素を示します。 *インターフェイスをコマンド*コマンドの共通の要素、それをホストするコマンド サーフェス、対話をサポートしているエクスペリエンスを提供するは構成されています。
+ユニバーサル Windows プラットフォーム (UWP) アプリでは、"*コマンド要素*" は、ユーザーがメール送信、項目の削除、フォームの送信などのアクションを実行できる対話型の UI 要素です。 "*コマンド インターフェイス*" は、共通のコマンド要素、それをホストするコマンド サーフェス、サポートされている対話、提供されているエクスペリエンスで構成されます。
 
-## <a name="provide-the-best-command-experience"></a>コマンドの最善のエクスペリエンスを提供します。
+## <a name="provide-the-best-command-experience"></a>最善のコマンド エクスペリエンスを提供する
 
-コマンド インターフェイスの最も重要な側面は、ユーザーが実行可能にしています。 アプリの機能を計画するときは、これらのタスクと有効にするユーザー エクスペリエンスを実現するための手順を検討してください。 これらのエクスペリエンスの最初のドラフトが完了するとそれらを実装するツールとの相互作用に意思決定を行うことができます。
+コマンド インターフェイスの最も重要な側面は、ユーザーが実行できるようにすることです。 アプリの機能を計画するときは、それらのタスクを実現するために必要な手順と、有効にするユーザー エクスペリエンスを検討します。 これらのエクスペリエンスの最初のドラフトが完成した後は、それらを実装するためのツールと相互作用を決定できます。
 
-いくつかの一般的なコマンド エクスペリエンスを次に示します。
+一般的なコマンド エクスペリエンスを次に示します。
 
 - 情報の送信または提出
 - 設定とオプションの選択
@@ -34,7 +34,7 @@ ms.locfileid: "57654057"
 - ファイルを開く、保存する、削除する
 - コンテンツの編集または作成
 
-クリエイティブ、コマンドのエクスペリエンスの設計にあります。 どの入力デバイス、アプリの選択をサポートし、各デバイスにアプリの反応します。 広範な機能と設定をサポートすると、アプリで使用できる、ポータブル コンピューター、およびアクセス可能な限り (を参照してください[コマンド実行のユニバーサル Windows プラットフォーム (UWP) アプリのデザイン](../controls-and-patterns/commanding.md)詳細)。
+クリエイティブにコマンド エクスペリエンスを設計してください。 アプリでサポートする入力デバイスと、各デバイスに対するアプリでの対応方法を選択します。 最大限の範囲の機能と設定をサポートすることにより、アプリの使いやすさ、移植性、アクセシビリティが最大になります (詳しくは [Commanding design for Universal Windows Platform (UWP) apps (ユニバーサル Windows プラットフォーム (UWP) アプリ向けのコマンドのデザイン)](../controls-and-patterns/commanding.md) に関する記事を参照)。
 
 
 
@@ -42,9 +42,9 @@ ms.locfileid: "57654057"
 When designing a command interface, the most important decision is choosing what a user can do. To plan the right type of interactions, focus on your app - consider the user experiences you want to enable, and what steps users will need to take. Once you decide what you want users to accomplish, then you can provide them the tools to do so.
 -->
 
-## <a name="choose-the-right-command-elements"></a>適切なコマンド要素を選択します。
+## <a name="choose-the-right-command-elements"></a>適切なコマンド要素を選択する
 
-コマンド インターフェイスの右の要素を使用すると、直感的で使いやすいアプリと、はるかに困難で混乱を招くアプリ間の差ことできます。 コマンド要素の包括的なセットでは、ユニバーサル Windows プラットフォーム (UWP) で使用することができます。 いくつかの最も一般的な UWP コマンド要素の一覧を示します。
+適切な要素をコマンド インターフェイスで使うことが、直感的で使いやすいアプリとなるか、使いにくくてややこしいアプリとなるかの分かれ目になります。 ユニバーサル Windows プラットフォーム (UWP) では、包括的なコマンド要素のセットを使用できます。 最も一般的な UWP のコマンド要素を次に示します。
 
 :::row:::
     :::column:::
@@ -100,11 +100,11 @@ When designing a command interface, the most important decision is choosing what
 
 ## <a name="place-commands-on-the-right-surface"></a>適切なサーフェスへのコマンドの配置
 
-アプリ キャンバスまたはコマンド バー、コマンド バーのフライアウト、メニュー バーやダイアログなどの特殊なコマンドのコンテナーを含む、アプリでさまざまな画面にコマンド要素を配置できます。
+アプリのキャンバスや、コマンド バー、コマンド バー ポップアップ、メニュー バー、ダイアログといった特殊なコマンド コンテナーなど、アプリ内の多くのサーフェスに、コマンド要素を配置できます。
 
-常にユーザーがコンテンツを直接操作できるようにしようとすることではなくコマンド、コマンド ボタンと下矢印ではなく、リストのアイテムの再構成にドラッグ アンド ドロップなどのコンテンツに対して作用します。 
+常に、コンテンツに対して作用するコマンドを介してではなく、コンテンツを直接ユーザーが操作できるようにします。たとえば、リストのアイテムの並べ替えは、上下のコマンド ボタンではなく、ドラッグ アンド ドロップで行えるようにします。 
 
-ただし、この可能性がありますできません入力の特定のデバイスまたは特定のユーザーの能力と基本設定を考慮に入れるためとき。 このような場合、できるだけ多くのコマンド実行アフォーを提供し、アプリでのコマンドの画面でこれらのコマンド要素を配置します。
+ただし、特定の入力デバイスの場合、または特定のユーザー機能や設定に対応するときは、これが不可能なことがあります。 このような場合は、できるだけ多くのコマンド アフォーダンスを提供し、これらのコマンド要素をアプリのコマンド サーフェスに配置します。
 
 最も一般的ないくつかのコマンド サーフェスの一覧を次に示します。
 
@@ -142,12 +142,12 @@ When designing a command interface, the most important decision is choosing what
         <p>UWP also provides a set of traditional menus and context menus; for more info, see the <a href="../controls-and-patterns/menus.md">menus and context menus overview</a>.</p>
 :::row-end:::
 
-## <a name="provide-command-feedback"></a>コマンドのフィードバックを提供します。 
+## <a name="provide-command-feedback"></a>コマンドのフィードバックを提供する 
 
-コマンドのフィードバックは、操作やコマンドが検出されました、コマンドが解釈され、処理する方法と、コマンドが成功したかどうかをユーザーに通信します。 これにより、ユーザーのところ、次に操作できる内容を理解できます。 フィードバックが UI に自然に統合されていて、ユーザーの介在が不要であるか、どうしても必要な場合以外は他の操作が不要であることが理想的です。
+コマンドのフィードバックでは、操作やコマンドが検出されたこと、コマンドがどのように解釈および処理されたか、コマンドが成功したかどうかを、ユーザーに伝えます。 これは、自分が実行したこと、そして次に実行できることを、ユーザーが理解するのに役立ちます。 フィードバックが UI に自然に統合されていて、ユーザーの介在が不要であるか、どうしても必要な場合以外は他の操作が不要であることが理想的です。
 
 > [!NOTE]
-> 必要な場合にのみ、およびそれが他の場所で使用できない場合にのみ、フィードバックを提供します。 値を追加する場合を除き、クリーンですっきりアプリケーション UI を保持します。
+> 必要なときにのみ、そして他の場所では得られない場合にだけ、フィードバックを提供します。 価値が加わる場合を除き、アプリケーションの UI は無駄がなく整然としたものに保ちます。
 
 アプリでフィードバックを提供する方法をいくつか示します。
 
@@ -168,7 +168,7 @@ When designing a command interface, the most important decision is choosing what
     :::column span="2":::
         <b>Flyouts</b>
 
-       <a href="../controls-and-patterns/dialogs-and-flyouts/index.md">フライアウト</a>は軽量のコンテキスト ポップアップをタップするか、フライアウトの外部どこかクリックして消去できます。
+       <a href="../controls-and-patterns/dialogs-and-flyouts/index.md">フライアウト</a>は、その外側をタップまたはクリックして閉じることができる、軽量な状況依存のポップアップです。
 :::row-end:::
 
 :::row:::
@@ -187,7 +187,7 @@ When designing a command interface, the most important decision is choosing what
 
 ### <a name="when-to-confirm-or-undo-actions"></a>アクションを確認または元に戻すタイミング
 
-適切に設計された方法に関係なく、アプリケーションの UI は、すべてのユーザーですかそれらを希望するアクションを実行します。 または最近の操作を元に戻す方法を提供することで、アクションの確認を要求することで、アプリはこのような状況に役立ちます。
+アプリケーションの UI がどれほど適切に設計されていたとしても、すべてのユーザーが望んだとおりにアクションを実行できることはありません。 アクションの確認を求めたり、最近のアクションを元に戻す方法を用意したりすることにより、アプリでこのような状況に対処できます。
 
 :::row:::
     :::column:::

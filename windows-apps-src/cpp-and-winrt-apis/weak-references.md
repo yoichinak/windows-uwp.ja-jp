@@ -6,18 +6,20 @@ ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 強, 弱, 参照
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 46a0e21295ba430671be4e36ab213e182c2b1737
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 3ad6bb9a98b0fe2a699580001698740e44cea14f
+ms.sourcegitcommit: cba3ba9b9a9f96037cfd0e07d05bd4502753c809
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66721633"
+ms.lasthandoff: 07/14/2019
+ms.locfileid: "67870311"
 ---
 # <a name="strong-and-weak-references-in-cwinrt"></a>C++/WinRT の強参照と弱参照
 
 Windows ランタイムは参照カウント システムです。このようなシステムでは、強参照と弱参照 (および、暗黙的 *this* ポインターのように、いずれでもない参照) の重要性とこれらの違いを認識することが重要です。 このトピックで説明しますが、このような参照を正しく扱う方法を知ることは、円滑に動作する安定したシステムと突然クラッシュするシステムの違いを意味することがあります。 [C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) により言語プロジェクションを広範囲で支えるヘルパー関数が提供され、複雑なシステムを簡単かつ正しく構築する作業が半分まで片付きます。
 
 ## <a name="safely-accessing-the-this-pointer-in-a-class-member-coroutine"></a>class-member コルーチンで *this* ポインターに安全にアクセスする
+
+コルーチンの詳細とコード例については、「[C++/WinRT を使用した同時実行操作と非同期操作](/windows/uwp/cpp-and-winrt-apis/concurrency)」を参照してください。
 
 下のコード一覧では、あるクラスのメンバー関数であるコルーチンの典型的な例を確認できます。 新しい **Windows コンソール アプリケーション (C++/WinRT)** プロジェクトで、この例をコピーし、指定のファイルに貼り付けることができます。
 
@@ -59,16 +61,18 @@ int main()
 
 **MyClass::RetrieveValueAsync** はしばらくの間動作し、最終的に `MyClass::m_value` データ メンバーのコピーを返します。 **RetrieveValueAsync** を呼び出すと、非同期オブジェクトが作成されます。そのオブジェクトには、暗黙的 *this* ポインターが含まれます (これを経由し、最終的に `m_value` にアクセスします)。
 
+コルーチンでは、最初の一時停止ポイントまで実行は同期であり、そこで呼び出し元に制御が返されることを思い出してください。 **RetrieveValueAsync** では、最初の `co_await` は最初の中断ポイントです。 コルーチンが再開されるまで (この場合は約 5 秒後)、`m_value` にアクセスするために使用している暗黙の *this* ポインターに対して何かが発生している可能性があります。
+
 イベントは次のように進行します。
 
 1. **main** で、**MyClass** のインスタンスが作成されます (`myclass_instance`)。
 2. `async` オブジェクトが作成されます。これは (その *this* を介して) `myclass_instance` を指します。
-3. **winrt::Windows::Foundation::IAsyncAction::get** 関数のところで数秒間ブロックされますが、その後、**RetrieveValueAsync** の結果が返されます。
+3. **winrt::Windows::Foundation::IAsyncAction::get** 関数では、その最初の中断ポイントに達し、数秒間ブロックしてから、**RetrieveValueAsync** の結果が返されます。
 4. **RetrieveValueAsync** から値 `this->m_value` が返されます。
 
-手順 4 は、*this* が有効な限りは安全です。
+手順 4 は、*this* が有効である間だけ安全です。
 
-しかし、非同期操作の完了前にクラス インスタンスが破棄された場合はどうなるでしょうか? 非同期メソッドの完了前にクラス インスタンスが範囲から外れることは、あらゆる形でありえます。 しかしながら、クラス インスタンスを `nullptr` に設定することでそれをシミュレートできます。
+しかし、非同期操作の完了前にクラス インスタンスが破棄された場合はどうなるでしょうか。 非同期メソッドの完了前にクラス インスタンスが範囲から外れることは、あらゆる形でありえます。 しかし、クラス インスタンスを `nullptr` に設定することでそれをシミュレートできます。
 
 ```cppwinrt
 int main()
@@ -193,10 +197,13 @@ int main()
 }
 ```
 
-パターンは、その *this* ポインターに依存するラムダ イベント ハンドラーがイベントの受信側に与えられるというものです。 イベントの受信側がイベント ソースより長く残るときは必ず、その依存関係よりも長く残ります。 その場合、共通して、このパターンが問題なく機能します。 UI ページでそのページ上にあるコントロールで発生したイベントを処理するときなど、明らかな場合があります。 ページの有効期間がボタンより長いため、ハンドラーの有効期間もボタンより長くなります。 これは、受信側がソースを所有する場合 (データ メンバーとしてなど)、または受信側とソースが兄弟関係にあり、他のオブジェクトによって直接所有されている場合に当てはまります。 ハンドラーが依存する*このオブジェクト*に表示されない場合、有効期間の強弱を気にしなくても、通常どおり*このオブジェクト*をキャプチャできます。
+パターンは、その *this* ポインターに依存するラムダ イベント ハンドラーがイベントの受信側に与えられるというものです。 イベントの受信側がイベント ソースより長く残るときは必ず、その依存関係よりも長く残ります。 その場合、共通して、このパターンが問題なく機能します。 UI ページでそのページ上にあるコントロールで発生したイベントを処理するときなど、明らかな場合があります。 ページの有効期間がボタンより長いため、ハンドラーの有効期間もボタンより長くなります。 これは、受信側がソースを所有する場合 (データ メンバーとしてなど)、または受信側とソースが兄弟関係にあり、他のオブジェクトによって直接所有されている場合に当てはまります。
+
+ハンドラーの有効期間が、ハンドラーが依存する *this* より長くない場合があることが確実なときは、有効期間の強弱を気にしなくても、通常どおり *this* をキャプチャできます。
 
 ただし、*this* がハンドラー内の自身の用途に表示されない場合などもあります (非同期アクションと非同期操作によって発生する完了イベントと進行状況イベントのハンドラーなど)。それに対処する方法を知ることは重要です。
 
+- イベント ソースでそのイベントが*同期的*に生成される場合は、ハンドラーを取り消して、それ以上イベントを受け取ることはないという確信を持つことができます。 ただし、非同期イベントの場合は、取り消し後 (特にデストラクター内で取り消す場合) でも、破棄が開始された後に実行中のイベントがオブジェクトに到着する可能性があります。 破棄の前に登録を解除する場所を見つけることで問題を軽減できますが、引き続き堅牢なソリューションについて判断してください。
 - 非同期メソッドを実装するためにコルーチンを作成する場合は可能です。
 - 特定の XAML UI フレームワーク オブジェクト ([**SwapChainPanel**](/uwp/api/windows.ui.xaml.controls.swapchainpanel) など) を使用するまれなケースで、イベント ソースから登録解除しなくても、受信側が最終処理される場合は可能です。
 
@@ -246,7 +253,7 @@ event_source.Event([this](auto&& ...)
 
 ### <a name="the-solution"></a>解決策
 
-解決策は強参照をキャプチャすることです。 強参照は参照カウントをインクリメント*します*。また、現在のオブジェクトの有効な状態を維持*します*。 キャプチャ変数 (この例では `strong_this`) を宣言し、[**implements.get_strong**](/uwp/cpp-ref-for-winrt/implements#implementsget_strong-function) を呼び出すことでそれを初期化します。結果、*this* ポインターの強参照が取得されます。
+解決策は、強参照 (または、ここで説明するように、より適切な場合は弱参照) をキャプチャすることです。 強参照は参照カウントをインクリメント*します*。また、現在のオブジェクトの有効な状態を維持*します*。 キャプチャ変数 (この例では `strong_this`) を宣言し、[**implements.get_strong**](/uwp/cpp-ref-for-winrt/implements#implementsget_strong-function) を呼び出すことでそれを初期化します。結果、*this* ポインターの強参照が取得されます。
 
 > [!IMPORTANT]
 > **get_strong** は **winrt::implements** 構造体テンプレートのメンバー関数であるため、C++/WinRT クラスなど、**winrt::implements** から直接的または間接的に派生するクラスからのみ呼び出すことができます。 **winrt::implements** から派生されるものに関する詳細と例については、「[C++/WinRT での API の作成](/windows/uwp/cpp-and-winrt-apis/author-apis)」を参照してください。
@@ -267,7 +274,7 @@ event_source.Event([strong_this { get_strong()}](auto&& ...)
 });
 ```
 
-強参照が適切でない場合、代わりに [**implements::get_weak**](/uwp/cpp-ref-for-winrt/implements#implementsget_weak-function) を呼び出し、*this* の弱参照を取得できます。 それから強参照を取得してからメンバーにアクセスできることを確認してください。
+強参照が適切でない場合、代わりに [**implements::get_weak**](/uwp/cpp-ref-for-winrt/implements#implementsget_weak-function) を呼び出し、*this* の弱参照を取得できます。 弱参照では、現在のオブジェクトは存続*しません*。 そのため、メンバーにアクセスする前に、引き続き弱参照から強参照を取得できることを確認してください。
 
 ```cppwinrt
 event_source.Event([weak_this{ get_weak() }](auto&& ...)
@@ -278,6 +285,8 @@ event_source.Event([weak_this{ get_weak() }](auto&& ...)
     }
 });
 ```
+
+生ポインターをキャプチャする場合は、参照先のオブジェクトが存続することを確認する必要があります。
 
 ### <a name="if-you-use-a-member-function-as-a-delegate"></a>デリゲートとしてメンバー関数を使用する場合
 
@@ -308,11 +317,15 @@ struct EventRecipient : winrt::implements<EventRecipient, IInspectable>
 event_source.Event({ get_strong(), &EventRecipient::OnEvent });
 ```
 
+強参照をキャプチャすることは、ハンドラーが登録解除されてすべての未処理のコールバックが返された後にのみ、オブジェクトが破棄の対象になることを意味します。 ただし、その保証はイベントが発生した時点でのみ有効です。 イベント ハンドラーが非同期の場合は、最初の中断ポイントの前に、コルーチンにクラス インスタンスへの強参照を与える必要があります (詳細とコードについては、このトピックで前述した「[class-member コルーチンで *this* ポインターに安全にアクセスする](#safely-accessing-the-this-pointer-in-a-class-member-coroutine)」を参照してください)。 ただし、これにより、イベント ソースとオブジェクトの間に循環参照が作成されるため、イベントを取り消すことによって明示的に中断する必要があります。
+
 弱参照の場合、[**get_weak**](/uwp/cpp-ref-for-winrt/implements#implementsget_weak-function) を呼び出します。 C++/WinRT によって。結果的に生成されるデリゲートでは、弱参照が保持されます。 最後の瞬間、舞台裏では、弱参照を強参照に解決するよう、デリゲートによって試行されます。解決できた場合、そのメンバー関数のみが呼び出されます。
 
 ```cppwinrt
 event_source.Event({ get_weak(), &EventRecipient::OnEvent });
 ```
+
+デリゲートがメンバー関数を*呼び出す*場合、C++/WinRT ではそのハンドラーが返されるまでオブジェクトが存続します。 ただし、ハンドラーが非同期の場合は中断ポイントで返されるため、最初の中断ポイントの前に、コルーチンにクラス インスタンスへの強参照を与える必要があります。 この場合も、詳細については、このセクションで前述した「[class-member コルーチンで *this* ポインターに安全にアクセスする](#safely-accessing-the-this-pointer-in-a-class-member-coroutine)」を参照してください。
 
 ### <a name="a-weak-reference-example-using-swapchainpanelcompositionscalechanged"></a>**SwapChainPanel::CompositionScaleChanged** を使用する弱参照の例
 

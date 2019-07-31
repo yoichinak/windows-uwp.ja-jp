@@ -1,5 +1,5 @@
 ---
-Description: プルして更新コントロールを使用して、一覧に新しいコンテンツを取得します。
+Description: 引っ張って更新コントロールを使用して、新しいコンテンツを一覧に入れます。
 title: 引っ張って更新
 label: Pull-to-refresh
 template: detail.hbs
@@ -12,18 +12,18 @@ design-contact: kimsea
 dev-contact: stpete
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 2efd091d90a856e45d76c0b1357f30417812160a
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: MT
+ms.openlocfilehash: 8fdde696a0bc1dc7706f89ede5d525194e5d2830
+ms.sourcegitcommit: f0e539359b9766db0339ddbae3f7ccf0069011e8
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57659257"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67885665"
 ---
 # <a name="pull-to-refresh"></a>引っ張って更新
 
 引っ張って更新を使うと、タッチ操作でデータの一覧を引き下げることで、より多くのデータを取得できます。 引っ張って更新は、タッチ スクリーンを備えたデバイスで広く使用されます。 ここに表示されている API を使用して、アプリに引っ張って更新を実装できます。
 
-> **重要な API**:[RefreshContainer](/uwp/api/windows.ui.xaml.controls.refreshcontainer)、 [RefreshVisualizer](/uwp/api/windows.ui.xaml.controls.refreshvisualizer)
+> **重要な API**:[RefreshContainer](/uwp/api/windows.ui.xaml.controls.refreshcontainer)、[RefreshVisualizer](/uwp/api/windows.ui.xaml.controls.refreshvisualizer)
 
 ![引っ張って更新 gif](images/Pull-To-Refresh.gif)
 
@@ -101,7 +101,7 @@ ms.locfileid: "57659257"
 
 既定では、ユーザーはリストを上から下へプルして更新を開始します。 リストまたはグリッドの方向が異なる場合は、更新コンテナーのプル方向を変更して一致させる必要があります。
 
-[PullDirection](/uwp/api/windows.ui.xaml.controls.refreshcontainer.PullDirection)プロパティにはこれらのいずれか[RefreshPullDirection](/uwp/api/windows.ui.xaml.controls.refreshpulldirection)値。**BottomToTop**、**に加えて**、 **RightToLeft**、または**LeftToRight**します。
+[PullDirection](/uwp/api/windows.ui.xaml.controls.refreshcontainer.PullDirection) プロパティでは、これらの [RefreshPullDirection](/uwp/api/windows.ui.xaml.controls.refreshpulldirection) 値のいずれかを取得します: **BottomToTop**、**TopToBottom**、**RightToLeft**、または **LeftToRight**。
 
 プルの方向を変更すると、ビジュアライザーの進行スピンの開始位置は、プルの方向に適した位置で矢印が起動するように自動的に回転します。 必要に応じて、[RefreshVisualizer.Orientation](/uwp/api/windows.ui.xaml.controls.refreshvisualizer.Orientation) プロパティを変更して自動の動作をオーバーライドできます。 ほとんどの場合、既定値の**自動**のままにしておくことをお勧めします。
 
@@ -116,7 +116,7 @@ ms.locfileid: "57659257"
 > [!NOTE]
 > 単体で RefreshVisualizer をインスタンス化することができます。 ただし、タッチ非対応シナリオに対しても、コンテンツを RefreshContainer で折り返し、RefreshContainer.Visualizer プロパティによって提供される RefreshVisualizer を使用することをお勧めします。 この記事では、ビジュアライザーが常に更新コンテナーから取得されることを前提としています。
 
-> さらに便宜上、更新コンテナーの RequestRefresh と RefreshRequested メンバーを使用します。 `refreshContainer.RequestRefresh()` 等価`refreshContainer.Visualizer.RequestRefresh()`、RefreshContainer.RefreshRequested イベントと RefreshVisualizer.RefreshRequested イベントの両方が発生するかとします。
+> さらに便宜上、更新コンテナーの RequestRefresh と RefreshRequested メンバーを使用します。 `refreshContainer.RequestRefresh()` は `refreshContainer.Visualizer.RequestRefresh()` に相当し、いずれかで RefreshContainer.RefreshRequested イベントと RefreshVisualizer.RefreshRequested イベントの両方が発生します。
 
 ### <a name="request-a-refresh"></a>更新の要求
 
@@ -183,6 +183,8 @@ private void Visualizer_RefreshStateChanged(RefreshVisualizer sender, RefreshSta
 ## <a name="examples"></a>例
 
 ### <a name="using-a-scrollviewer-in-a-refreshcontainer"></a>RefreshContainer での ScrollViewer の使用
+> [!NOTE]
+> RefreshContainer のコンテンツは、ScrollViewer、GridView、ListView などのスクロール可能なコントロールである必要があります。コントロールに Grid などのコンテンツを設定すると、未定義の動作が発生します。
 
 この例では、スクロール ビューアーで引っ張って更新を使用する方法を示します。
 
@@ -334,6 +336,6 @@ public class ListItemData
 ## <a name="related-articles"></a>関連記事
 
 - [タッチ操作](../input/touch-interactions.md)
-- [リスト ビューおよびグリッド ビュー](listview-and-gridview.md)
-- [項目コンテナーとテンプレート](item-containers-templates.md)
-- [式アニメーション](../../composition/composition-animation.md)
+- [リスト ビューとグリッド ビュー](listview-and-gridview.md)
+- [項目コンテナーやテンプレート](item-containers-templates.md)
+- [数式アニメーション](../../composition/composition-animation.md)

@@ -5,12 +5,12 @@ ms.date: 11/13/2017
 ms.topic: article
 keywords: windows 10, uwp, 試験的, api
 ms.localizationpriority: medium
-ms.openlocfilehash: 9d6e236368134086081141e220088358f4897033
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 0e564d0bf7dc2acb3ffa05eaaf70def63a0908cd
+ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63788149"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67321984"
 ---
 # <a name="experimental-apis"></a>試験的な API
 
@@ -31,4 +31,4 @@ Intellisense を利用すると、API が試験的なものであるかどうか
 
 ## <a name="providing-feedback"></a>フィードバックの提供
 
-試験的な API を試し、フィードバックを提供する場合は、[Windows フィードバック Hub](https://support.microsoft.com/en-us/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app) の **"開発者向けプラットフォーム"** カテゴリをご利用ください。
+試験的な API を試し、フィードバックを提供する場合は、[Windows フィードバック Hub](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub) の **"開発者向けプラットフォーム"** カテゴリをご利用ください。

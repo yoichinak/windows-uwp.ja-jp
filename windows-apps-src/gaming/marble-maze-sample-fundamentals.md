@@ -6,12 +6,12 @@ ms.date: 08/22/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, サンプル, DirectX, 基礎
 ms.localizationpriority: medium
-ms.openlocfilehash: 21dcbbcc1fde25877592fafe9e8372e269a72a42
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: f04c17609976e8bd8f6c1c6143ed7b992b0bb3c5
+ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66368492"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67820613"
 ---
 # <a name="marble-maze-sample-fundamentals"></a>Marble Maze サンプルの基礎
 
@@ -25,7 +25,7 @@ ms.locfileid: "66368492"
 
 このドキュメントでは、ユニバーサル Windows プラットフォーム (UWP) ゲームの計画と開発の際に重要となるいくつかの事柄について説明します。取り上げる内容は次のとおりです。
 
--   DirectX UWP ゲームを作るために、Visual Studio で **DirectX 11 アプリ (ユニバーサル Windows)** Visual C++ テンプレートを使います。
+-   使用して、 **DirectX 11 アプリ (ユニバーサル Windows - C++/CX)** Visual Studio で DirectX の UWP ゲームを作成するテンプレート。
 -   より新しい、オブジェクト指向に沿った方法で UWP アプリを開発できるようなクラスとインターフェイスが、Windows ランタイムには用意されています。
 -   ハット (^) 記号でオブジェクト参照を使用して、Windows ランタイム変数の有効期間を管理[Microsoft::WRL::ComPtr](https://docs.microsoft.com/cpp/windows/comptr-class) 、COM オブジェクトの有効期間を管理および[std::shared\_ptr](https://docs.microsoft.com/cpp/standard-library/shared-ptr-class)または[std::unique\_ptr](https://docs.microsoft.com/cpp/standard-library/unique-ptr-class)ヒープに割り当てられたは他のすべての有効期間を管理するC++オブジェクト。
 -   ほとんどの場合、予期しないエラーを処理するには、結果コードではなく例外処理を使います。
@@ -36,19 +36,19 @@ ms.locfileid: "66368492"
 
 サンプルをダウンロードおよび展開してある場合は、Visual Studio で **MarbleMaze_VS2017.sln** ファイル (**C++** フォルダー内) を開くと、コードが表示されます。
 
-Marble Maze の Visual Studio プロジェクトを作ったときには、既にあるプロジェクトを利用しました。 しかし、DirectX UWP ゲームで必要となる基本的な機能を持つプロジェクトがまだない場合は、Visual Studio **DirectX 11 アプリ (ユニバーサル Windows)** テンプレートに基づくプロジェクトを作ることをお勧めします。このテンプレートには、基本的な機能を備えた 3D アプリケーションが用意されているためです。 これを行うには、次の手順に従います。
+Marble Maze の Visual Studio プロジェクトを作ったときには、既にあるプロジェクトを利用しました。 ただし、DirectX の UWP ゲームで必要な基本的な機能を提供する既存のプロジェクトがいない場合をお勧め、Visual Studio に基づくプロジェクトを作成する**DirectX 11 アプリ (ユニバーサル Windows - C++/CX)** テンプレート作業の基本的な 3D アプリケーションを提供するためです。 これを行うには、次の手順を実行します。
 
-1. Visual Studio 2017 で、 **[ファイル]、[新規]、[プロジェクト]** の順に選びます。
+1. Visual Studio 2019、選択**ファイル > 新規 > プロジェクト.**
 
-2. **[新しいプロジェクト]** ウィンドウの左側のサイド バーで、 **[インストール済み] > [テンプレート] > [Visual C++]** の順に選びます。
+2. **新しいプロジェクトを作成**ウィンドウで、 **DirectX 11 アプリ (ユニバーサル Windows - C++/CX)** します。 インストールされている必須コンポーネントがない場合、このオプションが表示されない、&mdash;を参照してください[を追加または削除のワークロードとコンポーネントの Visual Studio 2019 の変更](https://docs.microsoft.com/visualstudio/install/modify-visual-studio)追加コンポーネントをインストールする方法について.
 
-3. 中央の一覧で、 **[DirectX 11 アプリ (ユニバーサル Windows)]** を選びます。 インストールされている必須コンポーネントがない場合、このオプションが表示されない、&mdash;を参照してください[を追加または削除のワークロードとコンポーネントの Visual Studio 2017 の変更](https://docs.microsoft.com/visualstudio/install/modify-visual-studio)追加コンポーネントをインストールする方法について.
+![新しいプロジェクト](images/vs2019-marble-maze-sample-fundamentals-1.png)
 
-4. プロジェクトの **[名前]** 、ファイルの保存先の **[場所]** 、 **[ソリューション名]** を指定して、 **[OK]** をクリックします。
+3. 選択 **[次へ]** 、し、入力、**プロジェクト名**、**場所**格納されるファイルの**ソリューション名**、しを選択します**作成**です。
 
-![新しいプロジェクト](images/marble-maze-sample-fundamentals-1.png)
 
-**DirectX 11 アプリ (ユニバーサル Windows)** テンプレートで重要なプロジェクト設定の 1 つは、プログラムが Windows ランタイム言語拡張機能を使えるようにする **/ZW** オプションです。 Visual Studio テンプレートを使う場合、このオプションは既定で有効になっています。 Visual Studio でコンパイラ オプションを設定する方法について詳しくは、「[コンパイラ オプションの設定](https://docs.microsoft.com/cpp/build/reference/setting-compiler-options)」をご覧ください。
+
+重要なプロジェクト設定の 1 つ、 **DirectX 11 アプリ (ユニバーサル Windows - C++/CX)** テンプレートは、 **/ZW**オプションは、Windows ランタイム言語拡張機能を使用することができます。 Visual Studio テンプレートを使う場合、このオプションは既定で有効になっています。 Visual Studio でコンパイラ オプションを設定する方法について詳しくは、「[コンパイラ オプションの設定](https://docs.microsoft.com/cpp/build/reference/setting-compiler-options)」をご覧ください。
 
 > **注意**   、 **/ZW**オプションと互換性がないオプションなど **/clr**します。 **/clr** の場合は、同じ Visual C++ プロジェクトで .NET Framework と Windows ランタイムの両方をターゲットにすることはできないことを意味します。
 
@@ -135,7 +135,7 @@ void LoadMesh(
 
 利用できる注釈の完全なリストは、sal.h で定義されています。 詳しくは、「[SAL 注釈](https://docs.microsoft.com/cpp/c-runtime-library/sal-annotations)」をご覧ください。
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
 
 Marble Maze アプリケーション コードの構造と、DirectX UWP アプリの構造と従来のデスクトップ アプリケーションの構造の違いについての情報を、「[Marble Maze のアプリケーション構造](marble-maze-application-structure.md)」で読みます。
