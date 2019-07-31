@@ -46,7 +46,7 @@ Dial は、次の 3 つの基本的なジェスチャをサポートしていま
 * ホイール デバイス (現時点では [Surface Dial](https://aka.ms/purchasesurfacedial) のみ)
 * Visual Studio を使ってユニバーサル Windows プラットフォーム (UWP) アプリの開発を初めて行う場合は、このチュートリアルを開始する前に、次のトピックをご覧ください。  
     * [準備](https://docs.microsoft.com/windows/uwp/get-started/get-set-up)
-    * [作成「こんにちは, world」アプリ (XAML)](https://docs.microsoft.com/windows/uwp/get-started/create-a-hello-world-app-xaml-universal)
+    * ["Hello, world" アプリを作成する (XAML)](https://docs.microsoft.com/windows/uwp/get-started/create-a-hello-world-app-xaml-universal)
 
 ## <a name="set-up-your-devices"></a>デバイスをセットアップする
 

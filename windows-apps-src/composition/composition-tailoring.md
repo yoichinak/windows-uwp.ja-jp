@@ -22,7 +22,7 @@ Windows UI は、差別化要因の多くの美しい効果、アニメーショ
 - アニメーションのユーザー設定への対応
 - 特定のハードウェア機能の UI を最適化します。
 
-ここでは、上記の領域でビジュアル レイヤーを使用して効果とアニメーションを調整する方法について説明します。優れたエンド ユーザー エクスペリエンスを保証するためにアプリケーションを調整する方法は他にも多くあります。さまざまなデバイスに合わせて [UI を調整](/windows/uwp/design/layout/screen-sizes-and-breakpoints-for-responsive-design) し、[レスポンシブな UI を作成](/windows/uwp/design/layout/responsive-design) する方法に関するガイダンス ドキュメントを参照できます。
+ここでは、上記の領域でビジュアル レイヤーを使用して効果とアニメーションを調整する方法について説明します。優れたエンド ユーザー エクスペリエンスを保証するためにアプリケーションを調整する方法は他にも多くあります。 さまざまなデバイスに合わせて [、UI を調整](/windows/uwp/design/layout/screen-sizes-and-breakpoints-for-responsive-design) し、[レスポンシブな UI を作成](/windows/uwp/design/layout/responsive-design) する方法に関するガイダンス ドキュメントを参照できます。
 
 ## <a name="user-effects-settings"></a>ユーザー設定の効果
 
