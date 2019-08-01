@@ -5,12 +5,12 @@ keywords: アプリの拡張機能, アプリ サービス, バック グラウ�
 ms.date: 10/05/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 2cfb3be556cb681bc9ed2d9d46bb86304182e5ca
-ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
+ms.openlocfilehash: bdd6d3fb875e95f251e02f07e7af563c95a400a6
+ms.sourcegitcommit: 350d6e6ba36800df582f9715c8d21574a952aef1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67821027"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68682783"
 ---
 # <a name="create-and-host-an-app-extension"></a>アプリ拡張機能の作成とホスト
 
@@ -18,8 +18,8 @@ ms.locfileid: "67821027"
 
 この記事には、コード サンプルが付属しています。
 - [Math Extension コード サンプル](https://github.com/MicrosoftDocs/windows-topic-specific-samples/archive/MathExtensionSample.zip)をダウンロードして解凍します。
-- Visual Studio 2019、MathExtensionSample.sln を開きます。 ビルドの種類を x86 に設定します (両方のプロジェクトで、 **[ビルド]**  >  **[構成マネージャー]** を選択し、 **[プラットフォーム]** を **[x86]** に変更します)。
-- ソリューションをデプロイします。**ビルド** > **ソリューションの配置**します。
+- Visual Studio 2019 で MathExtensionSample を開きます。 ビルドの種類を x86 に設定します (両方のプロジェクトで、 **[ビルド]**  >  **[構成マネージャー]** を選択し、 **[プラットフォーム]** を **[x86]** に変更します)。
+- ソリューションをデプロイします。 ビルド > **配置ソリューション**。
 
 ## <a name="introduction-to-app-extensions"></a>アプリ拡張機能の概要
 
@@ -29,7 +29,7 @@ UWP アプリ拡張機能は、コンテンツと展開イベントをホスト 
 
 アプリ拡張機能も UWP アプリであるため、別のアプリ パッケージを作成することなく、これらは完全に機能するアプリとして使用でき、拡張機能をホストすることも、他のアプリに拡張機能を提供することもできます。
 
-アプリ拡張機能のホストを作成することは、アプリ周辺のエコシステムを構築するチャンスであり、自分では予測しなかった形態または用意できないリソースによって他の開発者にアプリを強化してもらうことも可能になります。 Microsoft Office 拡張機能、Visual Studio 拡張機能、ブラウザーの拡張機能などを検討してください。これらは、付属する機能だけでなく、それらのアプリのより豊かな体験を作成します。 拡張機能を利用すると、アプリに価値を付加し、アプリの寿命を延ばすことができます。
+アプリ拡張機能のホストを作成することは、アプリ周辺のエコシステムを構築するチャンスであり、自分では予測しなかった形態または用意できないリソースによって他の開発者にアプリを強化してもらうことも可能になります。 Microsoft Office 拡張機能、Visual Studio 拡張機能、ブラウザー拡張機能などを検討してください。これらのアプリでは、これらのアプリに対して、出荷された機能を超えるエクスペリエンスが充実しています。 拡張機能を利用すると、アプリに価値を付加し、アプリの寿命を延ばすことができます。
 
 **概要**
 
@@ -41,7 +41,7 @@ UWP アプリ拡張機能は、コンテンツと展開イベントをホスト 
 4. ホストと拡張機能の通信方法を定義します。
 5. ホスト アプリ内で拡張機能にアクセスするために、[Windows.ApplicationModel.AppExtensions](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.AppExtensions) API を使用します。
 
-これがどのように行われるのか、[Math Extension コード サンプル](https://github.com/MicrosoftDocs/windows-topic-specific-samples/archive/MathExtensionSample.zip)で見てみましょう。このコードでは仮想計算機を実装していますが、拡張機能を使用してこの計算機に新しい関数を追加できます。 Microsoft Visual Studio 2019 で読み込む**MathExtensionSample.sln**コード サンプルから。
+これがどのように行われるのか、[Math Extension コード サンプル](https://github.com/MicrosoftDocs/windows-topic-specific-samples/archive/MathExtensionSample.zip)で見てみましょう。このコードでは仮想計算機を実装していますが、拡張機能を使用してこの計算機に新しい関数を追加できます。 Microsoft Visual Studio 2019 で、コードサンプルから**MathExtensionSample**を読み込みます。
 
 ![Math Extension コード サンプル](images/mathextensionhost-calctab.png)
 
@@ -49,7 +49,7 @@ UWP アプリ拡張機能は、コンテンツと展開イベントをホスト 
 
 アプリの Package.appxmanifest ファイル内で `<AppExtensionHost>` 要素を宣言すると、そのアプリは自身をアプリ拡張機能のホストとして認識します。 その方法については、**MathExtensionHost** プロジェクトの **Package.appxmanifest** ファイルをご覧ください。
 
-_MathExtensionHost プロジェクトの Package.appxmanifest_
+_MathExtensionHost プロジェクトの package.appxmanifest_
 ```xml
 <Package
   ...
@@ -74,7 +74,7 @@ _MathExtensionHost プロジェクトの Package.appxmanifest_
 
 `xmlns:uap3="http://..."` という記述があり、`IgnorableNamespaces` に `uap3` が指定されています。 これらは、uap3 名前空間を使用するために必要な記述です。
 
-`<uap3:Extension Category="windows.appExtensionHost">` 拡張機能ホストとしてこのアプリを識別します。
+`<uap3:Extension Category="windows.appExtensionHost">`このアプリを拡張ホストとして識別します。
 
 `<uap3:AppExtensionHost>` の **Name** 要素は、_拡張機能コントラクト_名です。 拡張機能が同じ拡張機能コントラクト名を指定していれば、ホストからの検出が可能になります。 慣例として、他の拡張機能コントラクト名との競合を回避するため、アプリ名または発行元の名前を使用して拡張機能コントラクト名を作成するようお勧めします。
 
@@ -84,7 +84,7 @@ _MathExtensionHost プロジェクトの Package.appxmanifest_
 
 アプリの **Package.appxmanifest** ファイル内で `<uap3:AppExtension>` 要素を宣言すると、そのアプリは自身をアプリ拡張機能のホストとして認識します。 その方法については、**MathExtension** プロジェクトの **Package.appxmanifest** ファイルをご覧ください。
 
-_Package.appxmanifest MathExtension プロジェクトで:_
+_MathExtension プロジェクトの package.appxmanifest:_
 ```xml
 <Package
   ...
@@ -116,7 +116,7 @@ _Package.appxmanifest MathExtension プロジェクトで:_
 
 ここでも、`xmlns:uap3="http://..."` という記述があり、`IgnorableNamespaces` に `uap3` が指定されています。 これらは、`uap3` 名前空間を使用するために必要な記述です。
 
-`<uap3:Extension Category="windows.appExtension">` 拡張機能としては、このアプリを識別します。
+`<uap3:Extension Category="windows.appExtension">`このアプリを拡張機能として識別します。
 
 `<uap3:AppExtension>` 属性の意味は次のとおりです。
 
@@ -128,7 +128,7 @@ _Package.appxmanifest MathExtension プロジェクトで:_
 |**[説明]** | ユーザーに対して拡張機能を説明するために、ホスト アプリから使用できます。 照会が可能であり、ローカライズ用に[新しいリソース管理システム](https://docs.microsoft.com/windows/uwp/app-resources/using-mrt-for-converted-desktop-apps-and-games) (`ms-resource:TokenName`) を使用できます。 ローカライズされたコンテンツは、ホスト アプリからではなく、アプリ拡張機能から読み込まれます。 | |
 |**PublicFolder**|パッケージのルートを基準としたフォルダーの名前です。このフォルダーでは、コンテンツを拡張機能のホストと共有できます。 この名前は、慣例では "Public" ですが、拡張機能内のフォルダーと一致する名前であれば、任意の名前を使用できます。| :heavy_check_mark: |
 
-`<uap3:Properties>` ホストが実行時に読み取ることができるカスタム メタデータを含む省略可能な要素です。 コード サンプルでは拡張機能がアプリ サービスとして実装されるため、ホストでは、そのアプリ サービスを呼び出すことができるように、名前を取得する方法が必要になります。 アプリ サービスの名前は、<Service> 要素で定義されています (任意の名前を定義できます)。 コード サンプルのホストは、実行時にこのプロパティを探して、アプリ サービスの名前を取得します。
+`<uap3:Properties>`は、ホストが実行時に読み取ることができるカスタムメタデータを含む、省略可能な要素です。 コード サンプルでは拡張機能がアプリ サービスとして実装されるため、ホストでは、そのアプリ サービスを呼び出すことができるように、名前を取得する方法が必要になります。 アプリ サービスの名前は、<Service> 要素で定義されています (任意の名前を定義できます)。 コード サンプルのホストは、実行時にこのプロパティを探して、アプリ サービスの名前を取得します。
 
 ## <a name="decide-how-you-will-implement-the-extension"></a>拡張機能の実装方法を決定する
 
@@ -145,7 +145,7 @@ _Package.appxmanifest MathExtension プロジェクトで:_
 
 拡張機能のアプリ サービスを呼び出すホスト コードを次に示します。
 
-_ExtensionManager.cs MathExtensionHost プロジェクト_
+_MathExtensionHost プロジェクトの ExtensionManager.cs_
 ```cs
 public async Task<double> Invoke(ValueSet message)
 {
@@ -195,7 +195,7 @@ public async Task<double> Invoke(ValueSet message)
 
 1 点、呼び出すアプリ サービスの名前の決定方法に注意が必要です。 ホストは、拡張機能の実装に関する情報を持っていないため、拡張機能が自身のアプリ サービスの名前を提供する必要があります。 コード サンプルでは、拡張機能がアプリ サービスの名前を自身のファイル内の `<uap3:Properties>` 要素で宣言しています。
 
-_MathExtension プロジェクトの Package.appxmanifest_
+_MathExtension プロジェクトの package.appxmanifest_
 ```xml
     ...
     <uap3:Extension Category="windows.appExtension">
@@ -211,7 +211,7 @@ _MathExtension プロジェクトの Package.appxmanifest_
 
 ホストが拡張機能を読み込むと、このようなコードによって、拡張機能の Package.appxmanifest で定義されているプロパティから、サービスの名前が抽出されます。
 
-_`Update()` ExtensionManager.cs、MathExtensionHost プロジェクト内で_
+_`Update()`ExtensionManager.cs の MathExtensionHost プロジェクト_
 ```cs
 ...
 var properties = await ext.GetExtensionPropertiesAsync() as PropertySet;
@@ -233,7 +233,7 @@ if (_properties != null)
 
 アプリ サービスの名前が `_serviceName` に格納されていれば、ホストはこれを使用して、アプリ サービスを起動できます。
 
-アプリ サービスを呼び出すには、そのアプリ サービスが含まれるパッケージのファミリ名も必要です。 さいわい、API アプリの拡張機能は、行の取得はこの情報を提供します。 `connection.PackageFamilyName = AppExtension.Package.Id.FamilyName;`
+アプリ サービスを呼び出すには、そのアプリ サービスが含まれるパッケージのファミリ名も必要です。 幸い、アプリ拡張 API は、次の行で取得された情報を提供します。`connection.PackageFamilyName = AppExtension.Package.Id.FamilyName;`
 
 ### <a name="define-how-the-host-and-the-extension-will-communicate"></a>ホストと拡張機能の通信方法を定義する
 
@@ -247,7 +247,7 @@ if (_properties != null)
 
 アプリ サービスが有効になると、`OnBackgroundActivate()` が呼び出されます。 このコードでは、`OnAppServiceRequestReceived()` に到達すると実際のアプリ サービスの呼び出しを処理すると共にハウスキーピング イベントを扱う (取り消しイベントや終了イベントを処理する保留オブジェクトの取得など) ためのイベント ハンドラーをセットアップします。
 
-_MathExtension プロジェクトで App.xaml.cs します。_
+_MathExtension プロジェクトの App.xaml.cs。_
 ```cs
 protected override void OnBackgroundActivated(BackgroundActivatedEventArgs args)
 {
@@ -271,7 +271,7 @@ protected override void OnBackgroundActivated(BackgroundActivatedEventArgs args)
 
 拡張機能の作業を行うコードは、`OnAppServiceRequestReceived()` に記述されています。 この関数は、アプリ サービスの起動時に呼び出され、計算を実行します。 必要な値を **ValueSet** から抽出し、 計算を実行できる場合は、ホストから返される **ValueSet** の中で、**Result** というキーを使用して結果を出力します。 このホストと拡張機能の通信方法について定義されているプロトコルにより、**Result** キーがあれば成功、それ以外の場合は失敗を示します。
 
-_MathExtension プロジェクトで App.xaml.cs します。_
+_MathExtension プロジェクトの App.xaml.cs。_
 ```cs
 private async void OnAppServiceRequestReceived(AppServiceConnection sender, AppServiceRequestReceivedEventArgs args)
 {
@@ -303,7 +303,7 @@ Microsoft Store では、拡張機能がパッケージとして提供されま�
 
 `ExtensionManager` コンストラクターは `AppExtensionCatalog` を使用して、ホストと同じ拡張機能コントラクト名を持つアプリ拡張機能をシステム上で検出します。
 
-_ExtensionManager.cs MathExtensionHost プロジェクト。_
+_MathExtensionHost プロジェクトの ExtensionManager.cs。_
 ```cs
 public ExtensionManager(string extensionContractName)
 {
@@ -342,7 +342,7 @@ public ExtensionManager(string extensionContractName)
 これで、ホスト内と拡張機能内のブレークポイントにヒットできます。
 拡張機能アプリ自体のデバッグを開始すると、アプリ用に空白のウィンドウが表示されます。 空白のウィンドウが表示されないようにするには、拡張機能プロジェクトのデバッグ設定で、開始時にアプリが起動ではなくデバッグされるように変更できます (拡張機能プロジェクトを右クリックし、 **[プロパティ]**  >  **[デバッグ]** > **[起動しないが、開始時にコードをデバッグ]** を選択)。この場合も拡張機能プロジェクトのデバッグを開始 (**F5**) する必要がありますが、開始は、ホストが拡張機能をアクティブ化し、拡張機能内のブレークポイントがヒットした後になります。
 
-**サンプル コードをデバッグします。**
+**コードサンプルのデバッグ**
 
 コード サンプルでは、ホストと拡張機能が同じソリューションに属しています。 デバッグを行うには、以下の手順に従います。
 
@@ -353,11 +353,11 @@ public ExtensionManager(string extensionContractName)
 5. **MathExtension** プロジェクトのデバッグを開始します (**MathExtension** プロジェクトで右クリックし、 **[デバッグ] > [新しいインスタンスを開始]** を選択)。これにより、プロジェクトが展開され、ホスト内のパッケージ インストール イベントがトリガーされます。
 6. **MathExtensionHost** アプリで、 **[Calculation]** (計算) ページに移動し、 **[x^y]** をクリックして拡張機能を有効化します。 最初に `Invoke()` ブレークポイントがヒットし、拡張機能のアプリ サービス呼び出しが行われたことを確認できます。 次に、拡張機能内の `OnAppServiceRequestReceived()` メソッドがヒットし、アプリ サービスによって結果が計算され、返されることを確認できます。
 
-**アプリ サービスとして実装された拡張機能のトラブルシューティング**
+**App service として実装されている拡張機能のトラブルシューティング**
 
 拡張機能のホストが拡張機能のアプリ サービスに接続できない場合は、`<uap:AppService Name="...">` 属性が `<Service>` 要素の設定に一致しているか確認してください。 これらが一致していないと、拡張機能からホストに渡されるサービス名が、実装されているサービス名に一致せず、ホストは拡張機能を有効化できません。
 
-_Package.appxmanifest MathExtension プロジェクトで:_
+_MathExtension プロジェクトの package.appxmanifest:_
 ```xml
 <Extensions>
    <uap:Extension Category="windows.appService">
@@ -403,7 +403,7 @@ _Package.appxmanifest MathExtension プロジェクトで:_
 
 ## <a name="how-app-extensions-differ-from-optional-packages"></a>アプリ拡張機能とオプション パッケージの相違点
 
-[オプション パッケージ](https://docs.microsoft.com/windows/uwp/packaging/optional-packages)とアプリ拡張機能との大きな相違点は、エコシステムが開いているか閉じているかという点と、パッケージが従属しているか独立しているかという点です。
+[オプション パッケージ](/windows/msix/package/optional-packages)とアプリ拡張機能との大きな相違点は、エコシステムが開いているか閉じているかという点と、パッケージが従属しているか独立しているかという点です。
 
 アプリ拡張機能は、開いたエコシステムに属しています。 アプリでアプリ拡張機能をホストできる場合、拡張機能からの情報の請け渡し方法に従って、そのホストに対する拡張機能をだれでも作成できます。 この点が、閉じたエコシステムに属しているオプション パッケージと異なります。閉じたエコシステムでは、そのアプリと連携できるオプション パッケージをだれが作成できるのかを発行元が決定します。
 
@@ -420,9 +420,9 @@ _Package.appxmanifest MathExtension プロジェクトで:_
 ## <a name="related-topics"></a>関連トピック
 
 * [アプリ拡張機能の概要](https://blogs.msdn.microsoft.com/appinstaller/2017/05/01/introduction-to-app-extensions/)
-* [アプリ拡張機能についての build 2016 セッション](https://channel9.msdn.com/Events/Build/2016/B808)
-* [Build 2016 アプリ拡張機能のコード サンプル](https://github.com/Microsoft/App-Extensibility-Sample)
+* [アプリ拡張機能に関するビルド2016セッション](https://channel9.msdn.com/Events/Build/2016/B808)
+* [ビルド2016アプリ拡張機能のコードサンプル](https://github.com/Microsoft/App-Extensibility-Sample)
 * [バックグラウンド タスクによるアプリのサポート](support-your-app-with-background-tasks.md)
 * [アプリ サービスの作成と利用の方法](how-to-create-and-consume-an-app-service.md)
 * [AppExtensions 名前空間](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appextensions)
-* [サービス、拡張機能、およびパッケージを使用してアプリケーションを拡張します。](https://docs.microsoft.com/windows/uwp/launch-resume/extend-your-app-with-services-extensions-packages)
+* [サービス、拡張機能、およびパッケージを使用してアプリを拡張する](https://docs.microsoft.com/windows/uwp/launch-resume/extend-your-app-with-services-extensions-packages)

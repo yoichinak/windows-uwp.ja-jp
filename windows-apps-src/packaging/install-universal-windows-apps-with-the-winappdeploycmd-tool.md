@@ -1,32 +1,32 @@
 ---
 ms.assetid: 6AA037C0-35ED-4B9C-80A3-5E144D7EE94B
 title: WinAppDeployCmd.exe ツールを使ったアプリのインストール
-description: Windows アプリケーションの展開 (WinAppDeployCmd.exe) は、任意の Windows 10 デバイスに Windows 10 PC からユニバーサル Windows プラットフォーム (UWP) アプリをデプロイするために使用できるコマンド ライン ツールです。
+description: Windows アプリケーションの展開 (WinAppDeployCmd) は、windows 10 PC から任意の Windows 10 デバイスにユニバーサル Windows プラットフォーム (UWP) アプリを展開するために使用できるコマンドラインツールです。
 ms.date: 09/30/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 06107691a4551ae2af05e63c1db810485273dc9b
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 79e92cd781a83295a8cbbee4fe4b25022295568a
+ms.sourcegitcommit: 350d6e6ba36800df582f9715c8d21574a952aef1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66372811"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68682649"
 ---
 # <a name="install-apps-with-the-winappdeploycmdexe-tool"></a>WinAppDeployCmd.exe ツールを使ったアプリのインストール
 
 
-Windows アプリケーションの展開 (WinAppDeployCmd.exe) は、任意の Windows 10 デバイスに Windows 10 PC からユニバーサル Windows プラットフォーム (UWP) アプリをデプロイするために使用できるコマンド ライン ツールです。 このツールを使用すると、そのアプリの Microsoft Visual Studio や、ソリューションがなくても、Windows 10 デバイスが USB で接続されているか、同じサブネットと、アプリ パッケージを展開します。 最初にパッケージ化することなく、リモート PC や Xbox One にアプリを展開することもできます。 この記事では、このツールを使って UWP アプリをインストールする方法について説明します。
+Windows アプリケーションの展開 (WinAppDeployCmd) は、windows 10 PC から任意の Windows 10 デバイスにユニバーサル Windows プラットフォーム (UWP) アプリを展開するために使用できるコマンドラインツールです。 このツールを使用すると、Windows 10 デバイスが USB によって接続されている場合、または同じサブネットで使用可能な場合に、Microsoft Visual Studio またはそのアプリのソリューションを必要とせずに、アプリパッケージを展開できます。 最初にパッケージ化することなく、リモート PC や Xbox One にアプリを展開することもできます。 この記事では、このツールを使って UWP アプリをインストールする方法について説明します。
 
-コマンド プロンプトまたはスクリプト ファイルから WinAppDeployCmd ツールを実行する Windows 10 SDK で済みます。 WinAppDeployCmd.exe でアプリをインストールするときにこれは、使用.appx/.msix ファイルまたは AppxManifest (圧縮しないファイル) を Windows 10 デバイスにアプリをサイドローディングします。 このコマンドによって、アプリに必要な証明書はインストールされません。 アプリを実行するには、Windows 10 デバイスは開発者モードになってまたは、証明書をインストールを既にする必要があります。
+WinAppDeployCmd ツールをコマンドプロンプトまたはスクリプトファイルから実行するには、Windows 10 SDK がインストールされている必要があります。 WinAppDeployCmd を使用してアプリをインストールする場合、これは .appx/. msix ファイルまたは Package.appxmanifest (ルースファイルの場合) を使用して、Windows 10 デバイスにアプリをサイドロードします。 このコマンドによって、アプリに必要な証明書はインストールされません。 アプリを実行するには、Windows 10 デバイスが開発者モードであるか、または証明書が既にインストールされている必要があります。
 
-モバイル デバイスに展開するには、最初にパッケージを作成する必要があります。 詳しくは、[こちら](https://docs.microsoft.com/windows/uwp/packaging/packaging-uwp-apps)をご覧ください。
+モバイル デバイスに展開するには、最初にパッケージを作成する必要があります。 詳しくは、[こちら](/windows/msix/package/packaging-uwp-apps)をご覧ください。
 
-**WinAppDeployCmd.exe**ツールは Windows 10 PC:**C:\\Program Files (x86)\\Windows キット\\10\\bin\\&lt;SDK バージョン&gt;\\x86\\WinAppDeployCmd.exe** (基づく、インストール パス、sdk)。 
+**Winappdeploycmd**ツールは、WINDOWS 10 PC にあります。**C:\\Program Files (x86)\\Windows kit\\10\\bin\\SDKVersion&gt;x86\\winappdeploycmd(に基づく)\\&lt;** SDK のインストールパス。 
 > [!NOTE]
 > SDK のバージョン 15063 以降では、SDK はバージョン固有のフォルダー内にサイド バイ サイドでインストールされます。  以前の SDK (14393 以前) は、親フォルダーに直接書き込まれます。
 
-最初に、同じサブネットに、Windows 10 デバイスを接続または USB 接続で Windows 10 コンピューターに直接接続します。 この記事ではその後、このコマンドの次の構文と例を使って UWP アプリを展開します。
+まず、Windows 10 デバイスを同じサブネットに接続するか、USB 接続を使用して Windows 10 コンピューターに直接接続します。 この記事ではその後、このコマンドの次の構文と例を使って UWP アプリを展開します。
 
 ## <a name="winappdeploycmd-syntax-and-options"></a>WinAppDeployCmd の構文とオプション
 
@@ -60,7 +60,7 @@ WinAppDeployCmd deletecreds -credserver <server> -ip <address>
 次の表では、**WinAppDeployCmd.exe** のコマンドについて説明します。
 
 
-| **Command**  | **説明**                                                     |
+| **Command**  | **[説明]**                                                     |
 |--------------|---------------------------------------------------------------------|
 | デバイス      | 利用可能なネットワーク デバイスの一覧を表示します。                         |
 | インストール      | ターゲット デバイスに UWP アプリ パッケージをインストールします。                     |
@@ -77,14 +77,14 @@ WinAppDeployCmd deletecreds -credserver <server> -ip <address>
 次の表では、**WinAppDeployCmd.exe** のオプションについて説明します。
 
 
-| **Command**  | **説明**  |
+| **Command**  | **[説明]**  |
 |--------------|------------------|
 | -h (-help)       | コマンド、オプション、引数を表示します。 |
 | -ip              | ターゲット デバイスの IP アドレス。 |
 | -g (-guid)       | ターゲット デバイスの一意の識別子。|
 | -d (-dependency) | (省略可能) パッケージの依存関係のそれぞれの依存パスを指定します。 パスを指定しない場合、ツールはアプリ パッケージのルート ディレクトリと SDK のディレクトリで依存関係を探します。|
 | -f (-file)       | インストール、更新、またはアンインストールするアプリ パッケージのファイル パス。|
-| -p (-package)    | アンインストールするアプリ パッケージの完全なパッケージ名  (list コマンドを使って、デバイスに既にインストールされているパッケージの完全な名前を見つけることができます)。 |
+| -p (-package)    | アンインストールするアプリ パッケージの完全なパッケージ名 (list コマンドを使って、デバイスに既にインストールされているパッケージの完全な名前を見つけることができます)。 |
 | -pin             | ターゲット デバイスとの接続を確立するために求められた場合に指定する PIN。 (認証が必要な場合に -pin オプションを指定して再試行するように求められます) |
 | -credserver      | ターゲットが使用するネットワーク資格情報のサーバー名。 |
 | -credusername    | ターゲットが使用するネットワーク資格情報のユーザー名。 |
@@ -96,13 +96,13 @@ WinAppDeployCmd deletecreds -credserver <server> -ip <address>
 
 次の表では、**WinAppDeployCmd.exe** のオプションについて説明します。
 
-| **引数**           | **説明**                                                              |
+| **引数**           | **[説明]**                                                              |
 |------------------------|------------------------------------------------------------------------------|
-| &lt;x&gt;              | タイムアウト (秒単位)  (既定値は 10 です)                                          |
+| &lt;x&gt;              | タイムアウト (秒単位) (既定値は 10 です)                                          |
 | &lt;address&gt;        | ターゲット デバイスの IP アドレスと一意の識別子。                        |
 | &lt;a&gt;&lt;b&gt; ... | アプリ パッケージの依存関係のそれぞれの依存パス。                    |
 | &lt;p&gt;              | 接続を確立するためのデバイス設定に示されている、英数字 PIN。 |
-| &lt;パス&gt;           | ファイル システム パス。                                                            |
+| &lt;path&gt;           | ファイル システム パス。                                                            |
 | &lt;name&gt;           | アンインストールするアプリ パッケージの完全なパッケージ名。                          |
 | &lt;server&gt;         | ファイル ネットワーク上のサーバー。                                                  |
 | &lt;username&gt;       | ファイル ネットワーク上のサーバーにアクセスできる資格情報のユーザー名。      |
@@ -120,7 +120,7 @@ WinAppDeployCmd deletecreds -credserver <server> -ip <address>
 WinAppDeployCmd devices 3
 ```
 
-お客様の PC のダウンロード ディレクトリに、IP アドレス 192.168.0.1 デバイスとの接続を確立するために A1B2C3 暗証番号 (pin) の使用の Windows 10 デバイスである MyApp.appx パッケージから、アプリをインストールします。
+PC のダウンロードディレクトリにある MyApp パッケージから、デバイスとの接続を確立するために A1B2C3 の PIN を使用して、IP アドレス192.168.0.1 の Windows 10 デバイスにアプリをインストールします。
 
 ``` syntax
 WinAppDeployCmd install -file "Downloads\MyApp.appx" -ip 192.168.0.1 -pin A1B2C3
@@ -132,7 +132,7 @@ WinAppDeployCmd install -file "Downloads\MyApp.appx" -ip 192.168.0.1 -pin A1B2C3
 WinAppDeployCmd uninstall -package Company.MyApp_1.0.0.1_x64__qwertyuiop -ip 192.168.0.1
 ```
 
-IP アドレス 192.168.0.1 が指定されたアプリ パッケージを使用して Windows 10 デバイスに既にインストールされているアプリを更新します。
+指定されたアプリパッケージを使用して、Windows 10 デバイスに既にインストールされているアプリを、IP アドレス192.168.0.1 で更新します。
 
 ``` syntax
 WinAppDeployCmd update -file "Downloads\MyApp.appx" -ip 192.168.0.1

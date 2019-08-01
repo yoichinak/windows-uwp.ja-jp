@@ -6,23 +6,23 @@ ms.date: 04/10/2018
 ms.topic: article
 keywords: Windows 10, UWP, リソース, 画像, アセット, MRT, 修飾子
 ms.localizationpriority: medium
-ms.openlocfilehash: bc08376dafec8aad9d65ef5acd8d19943d242eed
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 24326c19688a0fa6f2300da50e6d13308b79ee2e
+ms.sourcegitcommit: 350d6e6ba36800df582f9715c8d21574a952aef1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57603397"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68682468"
 ---
 # <a name="makepriexe-command-line-options"></a>MakePri.exe のコマンド ライン オプション
 
 [MakePri.exe](compile-resources-manually-with-makepri.md) には、`createconfig`、`dump`、`new`、`resourcepack`、`versioned` コマンドのセットが含まれます。 このトピックでは、コマンド ライン オプションの使用について説明します。
 
 > [!NOTE]
-> チェックするときに MakePri.exe がインストールされている、**管理されているアプリの UWP 用 Windows SDK** Windows ソフトウェア開発キットのインストール中にオプション。 パスにインストールされて`%WindowsSdkDir%bin\<WindowsTargetPlatformVersion>\x64\makepri.exe`(およびその他のアーキテクチャのという名前のフォルダーの)。 たとえば、`C:\Program Files (x86)\Windows Kits\10\bin\10.0.17713.0\x64\makepri.exe` と記述します。
+> Windows ソフトウェア開発キットのインストール時に **[UWP 管理対象アプリの Windows SDK]** オプションをオンにすると、makepri がインストールされます。 パス`%WindowsSdkDir%bin\<WindowsTargetPlatformVersion>\x64\makepri.exe` (および他のアーキテクチャ用に指定されたフォルダー) にインストールされます。 たとえば、`C:\Program Files (x86)\Windows Kits\10\bin\10.0.17713.0\x64\makepri.exe` のようにします。
 
-## <a name="getting-help-from-the-command-line"></a>コマンドラインからのヘルプ
+## <a name="getting-help-from-the-command-line"></a>コマンドラインからのヘルプの取得
 
-実行することができます`MakePri.exe help`または`MakePri.exe /?`MakePri.exe で使用できるコマンドを表示します。 発行することもできます`MakePri.exe <command> /?`コマンドに関すると非常にまれなケースの詳細を表示するには、偶数`MakePri.exe <command> <option>`オプションの詳細を確認します。
+または`MakePri.exe help` `MakePri.exe /?`を実行して、makepri で使用できるコマンドを確認できます。 また、コマンドに`MakePri.exe <command> /?`関する詳細情報を表示するためにを発行することもでき`MakePri.exe <command> <option>`ます。また、ごくまれに、オプションの詳細を確認することもできます。
 
 ## <a name="makepri-commands"></a>MakePri のコマンド
 
@@ -115,7 +115,7 @@ Help:
 `dump` コマンドは、指定された PRI ファイル内のすべてのリソースの一覧を含む、ダンプされた xml ファイルを出力します。 `MakePri.exe dump /?` を実行すると、このコマンドの詳しいヘルプが表示されます。
 
 > [!NOTE]
-> スキーマのないリソース パックは、PRI 構成ファイルで *omitSchemaFromResourcePacks* スイッチを使用して作成されたものです。 スキーマのないリソース パックを出力するには、`/es <main_package_PRI_file>` スイッチを使用します。 メイン ファイルを指定しない場合、エラー メッセージが表示されます"*パッケージ resources.pri が破損していたため、暗号化に失敗しました (エラー PRI222:0xdef0000f - 特定できないエラーが発生しました)*"。
+> スキーマのないリソース パックは、PRI 構成ファイルで *omitSchemaFromResourcePacks* スイッチを使用して作成されたものです。 スキーマのないリソース パックを出力するには、`/es <main_package_PRI_file>` スイッチを使用します。 メインファイルを指定しなかった場合、"*パッケージ内のリソースが壊れているため、暗号化に失敗しました (エラー PRI222:0xdef0000f-特定できないエラー*が発生しました) "。
 
 ```console
 C:\>makepri dump /?
@@ -416,22 +416,22 @@ MakePri は、インデクサーのメタデータ ファイルにリソース �
 
 **FILEPATH** は、入力 PRI ファイルまたは PRI スキーマ ファイルの場所を指定するトークンです。
 
-## <a name="47indexoptionsio-option"></a>&#47;IndexOptions(io) オプション
+## <a name="47indexoptionsio-option"></a>&#47;IndexOptions (io) オプション
 
-インデックス オプションのオプションを使用する (/io) と`new`、 `resourcepack`、および`versioned`リソース インデクサーの動作をより詳細な制御を提供するオプションを指定します。 既定では、インデックス オプションが無効になります。
+インデックスオプションのオプション (/io) を、 `new` `resourcepack`、および`versioned`で使用して、リソースインデクサーの動作を詳細に制御できるオプションを指定します。 既定では、インデックスオプションは無効になっています。
 
 ```console
 /IndexOptions(io) <OPTIONS>
 ```
 
-**オプション**は、次のオプションから構成されるコンマ区切りのリスト。
+**オプション**は、次のオプションで構成されるコンマ区切りのリストです。
 
-- HiddenFiles(hf) +/。 (+) をインデックスまたは (-) を無視するファイルとフォルダーを非表示します。
-- LinkedFiles(lf) +/。 (+) をインデックスまたは (-) を無視するファイルとフォルダーをリンクします。
+- +/-HiddenFiles (hf)。 インデックス (+)、または非表示のファイルとフォルダーを無視します。
+- +/-LinkedFiles (lf)。 インデックス (+) を作成するか、(-) リンクされたファイルとフォルダーを無視します。
 
 ## <a name="47mappingfilemf-option"></a>&#47;MappingFile(mf) オプション
 
-マッピング ファイル オプション (/mf) を、`new`、`resourcepack`、`versioned` と共に使用して、マッピング ファイルを生成します。 [MakeAppx.exe](../packaging/create-app-package-with-makeappx-tool.md) は、マッピング ファイルを使ってアプリ パッケージを生成します。
+マッピング ファイル オプション (/mf) を、`new`、`resourcepack`、`versioned` と共に使用して、マッピング ファイルを生成します。 [MakeAppx.exe](/windows/msix/package/create-app-package-with-makeappx-tool) は、マッピング ファイルを使ってアプリ パッケージを生成します。
 
 ```console
 /MappingFile(mf) <MAPPINGFILETYPE>
@@ -501,7 +501,7 @@ Overwrite these file(s)? [Y]es (any other key to cancel):
 
 | エラー状況 | エラー メッセージ |
 | --------------- | ------------- |
-| 構成に含まれるリソース パック名の 1 つと同じ出力ファイル名が指定された。 | 構成が無効です。リソース パック名<resource pack name>< outputfilename.pri > 出力ファイルと同じにすることはできません。 |
+| 構成に含まれるリソース パック名の 1 つと同じ出力ファイル名が指定された。 | 無効な構成:リソースパック名<resource pack name>を出力ファイル < outputfilename > と同じにすることはできません。 |
 
 ## <a name="reversemaprm-option"></a>/ReverseMap(rm) オプション
 
@@ -551,4 +551,4 @@ Overwrite these file(s)? [Y]es (any other key to cancel):
 
 ## <a name="related-topics"></a>関連トピック
 
-* [MakePri.exe](compile-resources-manually-with-makepri.md)
+* [MakePri .exe](compile-resources-manually-with-makepri.md)
