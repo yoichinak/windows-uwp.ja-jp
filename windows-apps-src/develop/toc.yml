@@ -738,45 +738,15 @@
         - name: 支払い要求 API で支払いを簡略化する
           href: ../monetize/payment-request.md
     - name: アプリのパッケージ化
-      href: ../packaging/index.md
       items:
-        - name: Visual Studio で UWP アプリをパッケージ化する
-          href: ../packaging/packaging-uwp-apps.md
-        - name: 手動でのアプリのパッケージ化
-          href: ../packaging/manual-packaging-root.md
-          items:
-            - name: MakeAppx.exe ツールを使ったアプリ パッケージの作成
-              href: ../packaging/create-app-package-with-makeappx-tool.md
-            - name: パッケージ署名用証明書を作成する
-              href: ../packaging/create-certificate-package-signing.md
-            - name: SignTool を使ってアプリ パッケージに署名する
-              href: ../packaging/sign-app-package-using-signtool.md
-            - name: アセット パッケージとパッケージ圧縮を使った開発
-              href: ../packaging/package-folding.md
-            - name: フラット バンドル アプリ パッケージ
-              href: ../packaging/flat-bundles.md
-            - name: アセット パッケージの概要
-              href: ../packaging/asset-packages.md
-            - name: パッケージ レイアウトを使ったパッケージの作成
-              href: ../packaging/packaging-layout.md
-        - name: アプリ パッケージのアーキテクチャ
-          href: ../packaging/device-architecture.md
-        - name: UWP アプリ ストリーミング インストール
-          href: ../packaging/streaming-install.md
-          items:
-            - name: ソース コンテンツ グループ マップの作成と変換
-              href: ../packaging/create-cgm.md
-        - name: オプション パッケージと関連セットの作成
-          href: ../packaging/optional-packages.md
-          items:
-            - name: 実行可能コードによるオプション パッケージ
-              href: ../packaging/optional-packages-with-executable-code.md
-        - name: WinAppDeployCmd.exe ツールを使ったアプリのインストール
-          href: ../packaging/install-universal-windows-apps-with-the-winappdeploycmd-tool.md
+        - name: 概要
+          href: ../packaging/index.md
         - name: アプリ機能の宣言
           href: ../packaging/app-capability-declarations.md
         - name: UWP アプリの自動ビルドを設定する
           href: ../packaging/auto-build-package-uwp-apps.md
+        - name: WinAppDeployCmd.exe ツールを使ったアプリのインストール
+          href: ../packaging/install-universal-windows-apps-with-the-winappdeploycmd-tool.md
         - name: パッケージの更新プログラムを Microsoft Store からダウンロードしてインストールする
           href: ../packaging/self-install-package-updates.md
 - name: プラットフォーム
