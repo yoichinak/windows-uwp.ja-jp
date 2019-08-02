@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: f9b0d6bd-af12-4237-bc66-0c218859d2fd
 ms.localizationpriority: medium
-ms.openlocfilehash: de623240e275dda5b6fc4df9afee31e1adf9fd4f
-ms.sourcegitcommit: 04683376dbdbff987601f546f058748442170068
+ms.openlocfilehash: 838bd9cb790893ea24b57bb2b0bad49aa262fdbc
+ms.sourcegitcommit: 350d6e6ba36800df582f9715c8d21574a952aef1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68340853"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68682528"
 ---
 # <a name="set-up-automated-builds-for-your-uwp-app"></a>UWP アプリの自動ビルドを設定する
 
@@ -83,7 +83,7 @@ steps:
 5. 証明書にパスワードが含まれている場合は、パスワードを[Azure Key Vault](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates)に保存し、パスワードを[変数グループ](https://docs.microsoft.com/azure/devops/pipelines/library/variable-groups)にリンクすることをお勧めします。 変数を使用すると、パイプラインからパスワードにアクセスできます。
 
 > [!NOTE]
-> Visual Studio 2019 以降では、UWP プロジェクトで一時的な証明書が生成されなくなりました。 証明書を作成またはエクスポートするには、[この記事](create-certificate-package-signing.md)で説明されている PowerShell コマンドレットを使用します。
+> Visual Studio 2019 以降では、UWP プロジェクトで一時的な証明書が生成されなくなりました。 証明書を作成またはエクスポートするには、[この記事](/windows/msix/package/create-certificate-package-signing)で説明されている PowerShell コマンドレットを使用します。
 
 ## <a name="configure-the-build-solution-build-task"></a>ソリューションのビルドのビルド タスクを構成する
 
@@ -196,6 +196,6 @@ MSIX (または APPX) パッケージに署名するには、パイプライン�
 ## <a name="related-topics"></a>関連トピック
 
 - [Windows 用 .NET アプリをビルドする](https://docs.microsoft.com/vsts/build-release/get-started/dot-net)
-- [UWP アプリのパッケージ化](https://docs.microsoft.com/windows/uwp/packaging/packaging-uwp-apps)
+- [UWP アプリのパッケージ化](/windows/msix/package/packaging-uwp-apps)
 - [Windows 10 のサイドロード LOB アプリ](https://docs.microsoft.com/windows/deploy/sideload-apps-in-windows-10)
-- [パッケージ署名用の証明書を作成する](https://docs.microsoft.com/windows/uwp/packaging/create-certificate-package-signing)
+- [パッケージ署名用の証明書を作成する](/windows/msix/package/create-certificate-package-signing)
