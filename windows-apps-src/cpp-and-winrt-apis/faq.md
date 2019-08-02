@@ -5,12 +5,12 @@ ms.date: 04/23/2019
 ms.topic: article
 keywords: wwindows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 頻繁, 質問, 質問, faq
 ms.localizationpriority: medium
-ms.openlocfilehash: 01ff6fb443550287330d6fe503c3d49d81e2142c
-ms.sourcegitcommit: a7a1e27b04f0ac51c4622318170af870571069f6
+ms.openlocfilehash: 6bac3fec34467f29d9cf2cc3f1ce4e3754187745
+ms.sourcegitcommit: 7ece8a9a9fa75e2e92aac4ac31602237e8b7fde5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67717639"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68485149"
 ---
 # <a name="frequently-asked-questions-about-cwinrt"></a>C++/WinRT についてよく寄せられる質問
 [C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) での Windows ランタイム API の作成と使用に関する質問への回答です。
@@ -63,15 +63,9 @@ Windows ランタイム クラス (ランタイム クラス) を*使用*する�
 
 ### <a name="uniform-construction"></a>均一の構築
 
-このエラーは、投影された型のコンストラクターのいずれか (**std::nullptr_t** コンストラクター以外) を使ってローカルに実装されているランタイム クラスをインスタンス化しようとした場合にも、発生する可能性があります。 それを行うには、均一の構築と呼ばれることがよくある C++/WinRT 2.0 の機能が必要です。 一方、均一の構築を必要と "*しない*" でローカルに実装されたランタイム クラスをインスタンス化する方法については、「[XAML コントロール: C++/WinRT プロパティへのバインド](binding-property.md)」をご覧ください。
+このエラーは、投影された型のコンストラクターのいずれか (**std::nullptr_t** コンストラクター以外) を使ってローカルに実装されているランタイム クラスをインスタンス化しようとした場合にも、発生する可能性があります。 それを行うには、均一の構築と呼ばれることがよくある C++/WinRT 2.0 の機能が必要です。 その機能にオプトインする場合は、詳細とコード例について、「[均一コンストラクション、実装への直接アクセス](/windows/uwp/cpp-and-winrt-apis/author-apis#opt-in-to-uniform-construction-and-direct-implementation-access)」を参照してください。
 
-均一の構築を "*行う*" 場合は、新しいプロジェクトに対しては既定で有効になります。 既存のプロジェクトの場合は、`cppwinrt.exe` ツールを構成することで、均一の構築をオプトインする必要があります。 Visual Studio で、プロジェクトのプロパティ **[共通プロパティ]**  >  **[C++/WinRT]**  >  **[最適化]** を *[はい]* に設定します。 その効果として、プロジェクト ファイルに `<CppWinRTOptimized>true</CppWinRTOptimized>` が追加されます。 また、コマンド ラインから `cppwinrt.exe` を呼び出すときに `-opt[imize]` スイッチを追加するのと同じ効果があります。
-
-それを設定 "*しないで*" プロジェクトをビルドすると、結果の C++/WinRT プロジェクションでは、ランタイム クラスのコンストラクターおよび静的メンバーにアクセスするために、[**RoGetActivationFactory**](/windows/win32/api/roapi/nf-roapi-rogetactivationfactory) が呼び出されます。 そして、そのためには、クラスを登録し、モジュールで [**DllGetActivationFactory**](/previous-versions/br205771(v=vs.85)) エントリ ポイントを実装する必要があります。
-
-`-opt[imize]`スイッチを "*指定して*" プロジェクトをビルドすると、プロジェクトではコンポーネント内のクラスの **RoGetActivationFactory** がバイパスされ、コンポーネントの外部にクラスがある場合とまったく同じ方法で (登録する必要なしに) クラスを構築できます。
-
-均一の構築を使うには、各実装の `.cpp` ファイルを編集し、実装ヘッダー ファイルをインクルードした後で `#include <Sub/Namespace/ClassName.g.cpp>` を行うようにする必要もあります。
+均一の構築を必要と "*しない*" ローカルに実装されたランタイム クラスをインスタンス化する方法については、「[XAML コントロール: C++/WinRT プロパティへのバインド](binding-property.md)」をご覧ください。
 
 ## <a name="should-i-implement-windowsfoundationiclosableuwpapiwindowsfoundationiclosable-and-if-so-how"></a>[  **Windows::Foundation::IClosable**](/uwp/api/windows.foundation.iclosable) を実装するかどうかとその方法
 自身のデストラクターのリソースを解放するランタイム クラスを使用し、そのランタイム クラスが実装するコンパイル ユニット (Windows ランタイム クライアント アプリで一般的に使用するための Windows ランタイム コンポーネント) 以外で使用されるように設計されている場合、確定終了処理が不足する言語でランタイム クラスの使用をサポートするために、**IClosable** も実装することをお勧めします。 デストラクター、[**IClosable::Close**](/uwp/api/windows.foundation.iclosable.close)、または両方が呼び出されたときにリソースが解放されるようにしてください。 **IClosable::Close** は必要に応じて呼び出すことができます。

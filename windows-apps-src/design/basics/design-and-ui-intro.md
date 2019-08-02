@@ -7,12 +7,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 25dc7118fcb7d9c6e997fae458ef7846777b1262
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 2b0f5918b240bf5c28e49f2ede6f10dbeefcbbfc
+ms.sourcegitcommit: e13f06042a28a8455a211b8693a009098e150cd1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65983924"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68522090"
 ---
 # <a name="introduction-to-uwp-app-design"></a>UWP アプリ設計の概要
 
@@ -47,12 +47,12 @@ UWP は、すべてのデバイスと画面サイズで読みやすく、操作�
 
 :::row:::
     :::column span:::
-        UWPアプリでは、サイズ・マージン・位置は常に **4 epxの倍数** になるようにしてください。
+UWP アプリでは、UI 要素のサイズ、余白、および位置は、必ず **4 epx の倍数**にする必要があります。
 
-        UWPは 100%, 125%, 150%, 175%, 200%, 225%, 250%, 300%, 350%, 400%といったスケールを持つデバイスを横断的にスケーリングします。基本単位が 4 なのは、自然数ではない数字でもスケーリングできる唯一の整数だからです(例：4 × 1.5 = 6)。4 の倍数を使うことは、すべてのUI要素がピクセル全体に揃えられ、UI要素が明快でシャープな輪郭を持つことを保証します。（テキストにこの要件はありません。テキストには任意のサイズと位置を指定できます）
+UWP のスケールはデバイスによって異なり、100%、125%、150%、175%、200%、225%、250%、300%、350%、および 400% のスケール プラトーがあります。 基本単位は 4 になりますが、これは、整数以外の数値によってスケーリングできる唯一の整数であるためです (例: 4*1.5 = 6)。 4 の倍数の使用によってすべての UI 要素のピクセル全体が整列し、UI 要素のエッジがすっきりとシャープになります (この要件はテキストには適用されません。テキストのサイズと位置に制限はありません)。
     :::column-end:::
     :::column:::
-        ![grid](images/4epx.svg)
+![グリッド](images/4epx.svg)
     :::column-end:::
 :::row-end:::
 
@@ -64,21 +64,21 @@ UWP アプリは、すべてのデバイスに合わせて自動的に拡大縮�
 
 :::row:::
     :::column:::
-        When a UWP app is launched on any Windows 10 device, it launches in a [Window](/uwp/api/windows.ui.xaml.window) with a [Frame](/uwp/api/windows.ui.xaml.controls.frame), which can navigate between [Page](/uwp/api/windows.ui.xaml.controls.page) instances.
+Windows 10 デバイスで UWP アプリが起動されると、[フレーム](/uwp/api/windows.ui.xaml.controls.frame)がある[ウィンドウ](/uwp/api/windows.ui.xaml.window)で起動し、[ページ](/uwp/api/windows.ui.xaml.controls.page) インスタンス間を移動できます。
     :::column-end:::
     :::column:::
-        ![Frame](images/frame.svg)
+![Frame](images/frame.svg)
     :::column-end:::
 :::row-end:::
 
 :::row:::
     :::column:::
-        You can think of your app's UI as a collection of pages. It's up to you to decide what should go on each page, and the relationships between pages.
+アプリの UI は、ページのコレクションとして考えることができます。 各ページに配置する項目や、ページ間の関係は、開発者が自由に決めることができます。
 
-        To learn how you can organize your pages, see [Navigation basics](navigation-basics.md).
+ページを整理する方法については、[ナビゲーションの基本](navigation-basics.md)に関する記事を参照してください。
     :::column-end:::
     :::column:::
-        ![Frame](images/collection-pages.svg)
+![Frame](images/collection-pages.svg)
     :::column-end:::
 :::row-end:::
 
@@ -116,14 +116,14 @@ UWP コントロールとコントロールに基づいて作成できるパタ�
 
 :::row:::
     :::column:::
-        あなたの UWP アプリは、Windows [Shell](../shell/tiles-and-notifications/creating-tiles.md) のタイルや通知といった幅広い Windows のエクスペリエンスと作用します。
+UWP アプリでは、Windows [シェル](../shell/tiles-and-notifications/creating-tiles.md)のタイルと通知を使用して、幅広い Windows エクスペリエンスとの対話が実行されます。
 
-        タイルはスタートメニューとアプリの起動時に表示され、アプリで何が起きているか垣間見ることができます。この能力はタイルの背後にあるコンテンツと、タイルが提示するインテリジェンスや技巧に起因します。
+タイルは、[スタート] メニューとアプリの起動時に表示され、アプリで何が行われるのかを簡単に示します。 タイルのパワーは、背後にあるコンテンツ、および提供するインテリジェンスと技術によるものです。
 
-        UWPアプリは4つのタイルサイズ(small, medium, wide, large)を持ち、アプリのアイコンや識別情報をカスタマイズできます。UWPアプリのタイルのデザインについて詳しくは、 [Guidelines for tile and icon assets](../shell/tiles-and-notifications/app-assets.md) を参照してください。
+UWP アプリには 4 つのタイル サイズ (小、中、横長、大) があり、アプリのアイコンと ID でカスタマイズできます。 UWP アプリのタイルのデザインに関するガイダンスについては、「[タイルとアイコン アセットのガイドライン](../shell/tiles-and-notifications/app-assets.md)」をご覧ください。
     :::column-end:::
     :::column:::
-        ![tiles on start menu](images/shell.svg)
+![スタート メニューのタイル](images/shell.svg)
     :::column-end:::
 :::row-end:::
 
@@ -131,10 +131,10 @@ UWP コントロールとコントロールに基づいて作成できるパタ�
 
 :::row:::
     :::column:::
-        UWPアプリはスマートインタラクションに従います。クリックが、マウス・スタイラス・指によるタップのどれで行われたか認識や定義をする必要なく、クリックのインタラクションまわりを設計できます。また一方で、[特定の入力モード](../input/input-primer.md)用にアプリを設計することもできます。
+UWP アプリではスマート操作が使用されます。 クリックの発生元がマウスか、スタイラスか、指によるタップかを認識または定義しなくても、クリック操作に対応したデザインを行うことができます。 ただし、[特定の入力モード](../input/input-primer.md)向けにアプリを設計することもできます。
     :::column-end:::
     :::column:::
-        ![inputs](images/inputs.svg)
+![入力](images/inputs.svg)
     :::column-end:::
 :::row-end:::
 

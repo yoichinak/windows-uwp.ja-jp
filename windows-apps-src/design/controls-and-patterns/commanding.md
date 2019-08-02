@@ -4,13 +4,13 @@ description: XamlUICommand クラスと StandardUICommand クラスを (ICommand
 author: Karl-Bridge-Microsoft
 ms.service: ''
 ms.topic: overview
-ms.date: 03/11/2019
-ms.openlocfilehash: a85a101cd529bf487cbc97b93bb3905f28213c19
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.date: 07/23/2019
+ms.openlocfilehash: 338cae7b6238c3c773f409322600c8bee8c193f5
+ms.sourcegitcommit: 401c8ecaf74eee247f1ed0093028cc6558b4a605
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63793851"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68446378"
 ---
 # <a name="commanding-in-universal-windows-platform-uwp-apps-using-standarduicommand-xamluicommand-and-icommand"></a>StandardUICommand、XamlUICommand、ICommand を使用するユニバーサル Windows プラットフォーム (UWP) アプリのコマンド処理
 
@@ -36,9 +36,11 @@ ms.locfileid: "63793851"
 
 コマンドは、テキストを削除する、アクションを元に戻すなど、アプリ内の特定のコンテキストで操作できます。あるいは、音声を消す、明るさを調整するなど、コンテキストがない場合もあります。
 
-次の画像で確認できる 2 つのコマンド インターフェイス ([CommandBar](app-bars.md) とフローティング コンテキスト [CommandBarFlyout](command-bar-flyout.md)) では、同じコマンドがたくさん共有されています。
+次の画像で確認できる 2 つのコマンド インターフェイス ([CommandBar](app-bars.md) とフローティング コンテキスト [CommandBarFlyout](command-bar-flyout.md)) では、同じコマンドがいくつか共有されています。
 
-![コマンド インターフェイスの例](images/commanding/command-interface-example.png)
+![Microsoft フォトのコマンドバー](images/control-examples/command-bar-photos.png)<br>*Microsoft フォトのコマンドバー*
+
+![Microsoft フォト ギャラリーのコンテキスト メニュー](images/ContextMenu_example.png)<br>*Microsoft フォト ギャラリーのコンテキスト メニュー*
 
 ## <a name="command-interactions"></a>コマンド操作
 

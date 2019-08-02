@@ -6,14 +6,16 @@ ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 新機能
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 524d0f2d9e428e87187ca27747fbd1c54406d345
-ms.sourcegitcommit: 6cc8b231c1b970112d26a7696cc3e907082ef2be
+ms.openlocfilehash: e1fd738435b8622a2db2e849abf1c4984bb7ae64
+ms.sourcegitcommit: fccefde61a155a4a5a866acd1c4c9de42a14ddfd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308436"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68507725"
 ---
 # <a name="whats-new-in-cwinrt"></a>C++/WinRT の新機能
+
+C++/WinRT の後続バージョンがリリースされると、このトピックに新機能と変更点が記載されます。
 
 ## <a name="news-and-changes-in-cwinrt-20"></a>C++/WinRT 2.0 の新機能と変更点
 
@@ -49,22 +51,14 @@ xlang メタデータ リーダーにより、`cppwinrt.exe` ツール自体の�
  
 `cppwinrt.exe` 2.0 での依存関係は次のとおりです。
  
-- api-ms-win-core-processenvironment-l1-1-0.dll
-- api-ms-win-core-libraryloader-l1-2-0.dll
-- XmlLite.dll
-- api-ms-win-core-memory-l1-1-0.dll
-- api-ms-win-core-handle-l1-1-0.dll
-- api-ms-win-core-file-l1-1-0.dll
-- SHLWAPI.dll
 - ADVAPI32.dll
 - KERNEL32.dll
-- api-ms-win-core-rtlsupport-l1-1-0.dll
-- api-ms-win-core-processthreads-l1-1-0.dll
-- api-ms-win-core-heap-l1-1-0.dll
-- api-ms-win-core-console-l1-1-0.dll
-- api-ms-win-core-localization-l1-2-0.dll
+- SHLWAPI.dll
+- XmlLite.dll
 
-これらの依存関係とは対照的に、`cppwinrt.exe` 1.0 では次のとおりです。
+Windows 10 だけでなく、Windows 7 までの旧バージョンや Windows Vista でも、これらの DLL をすべて利用できます。 そうしたければ、Windows 7 を実行中の古いビルド サーバーでも、`cppwinrt.exe` を実行して、プロジェクトの C++ ヘッダーを生成できるようになりました。 関心がある場合は、手間はかかりますが、[Windows 7 上で C++/WinRT を実行する](https://github.com/kennykerr/win7)こともできます。
+
+上記の一覧を、次の `cppwinrt.exe` 1.0 の依存関係と比べてください。
 
 - ADVAPI32.dll
 - SHELL32.dll
@@ -150,7 +144,9 @@ xlang メタデータ リーダーのため、C++/WinRT では、すべてのパ
 
 ##### <a name="uniform-construction-and-direct-implementation-access"></a>均一コンストラクション、実装への直接アクセス
 
-これら 2 つの最適化により、コンポーネントでは、プロジェクションが実行された型のみを使う場合であっても、独自の実装型に直接アクセスできます。 パブリック API サーフェスを使うだけの場合は、[**make**](/uwp/cpp-ref-for-winrt/make)、[**make_self**](/uwp/cpp-ref-for-winrt/make-self)、[**get_self**](/uwp/cpp-ref-for-winrt/get-self) を使う必要はありません。 呼び出しは実装の直接呼び出しにコンパイルされ、完全にインライン化される可能性さえあります。 均一の構築について詳しくは、FAQ の「["クラスが登録されていません" という例外が発生するのはなぜですか?](faq.md#why-am-i-getting-a-class-not-registered-exception)」をご覧ください。
+これら 2 つの最適化により、コンポーネントでは、プロジェクションが実行された型のみを使う場合であっても、独自の実装型に直接アクセスできます。 パブリック API サーフェスを使うだけの場合は、[**make**](/uwp/cpp-ref-for-winrt/make)、[**make_self**](/uwp/cpp-ref-for-winrt/make-self)、[**get_self**](/uwp/cpp-ref-for-winrt/get-self) を使う必要はありません。 呼び出しは実装の直接呼び出しにコンパイルされ、完全にインライン化される可能性さえあります。
+
+詳細とコード例については、[均一の構築と実装への直接アクセスへのオプトイン](/windows/uwp/cpp-and-winrt-apis/author-apis#opt-in-to-uniform-construction-and-direct-implementation-access)に関する記事を参照してください。
 
 ##### <a name="type-erased-factories"></a>型消去されたファクトリ
 
@@ -186,9 +182,11 @@ fire_and_forget Async(DispatcherQueueController controller)
 
 コルーチン ヘルパーも `[[nodiscard]]` で修飾されるようになったため、使いやすさが向上しています。 それらが動作するための `co_await` を忘れた (または、必要であることを知らなかった) 場合、`[[nodiscard]]` のため、このような誤りではコンパイラの警告が発生します。
 
-#### <a name="help-with-diagnosing-stack-allocations"></a>スタック割り当ての診断でのヘルプ
+#### <a name="help-with-diagnosing-direct-stack-allocations"></a>直接 (スタック) 割り当ての診断でのヘルプ
 
 投影されたクラスと実装クラスの名前は (既定では) 同じで、名前空間のみが異なるため、間違えることがあり、ヘルパーの [**make**](/uwp/cpp-ref-for-winrt/make) ファミリではなく、スタック上に実装を誤って作成する可能性があります。 これは、未解決の参照がまだ処理中にオブジェクトが破棄される可能性があるため、場合によっては診断が困難です。 デバッグ ビルドでは、アサーションによってこれが選択されるようになりました。 アサーションではコルーチン内のスタック割り当ては検出されませんが、それでもそのような誤りのほとんどを把握するのに役立ちます。
+
+詳細については、「[直接割当ての診断](/windows/uwp/cpp-and-winrt-apis/diag-direct-alloc)」を参照してください。
 
 #### <a name="improved-capture-helpers-and-variadic-delegates"></a>強化されたキャプチャ ヘルパーと可変個引数デリゲート
 
@@ -257,6 +255,8 @@ struct MainPage : PageT<MainPage>
 };
 ```
 
+詳細については、「[デストラクターに関する詳細情報](/windows/uwp/cpp-and-winrt-apis/details-about-destructors)」を参照してください。
+
 #### <a name="improved-support-for-com-style-single-interface-inheritance"></a>COM スタイルの単一インターフェイス継承に対するサポートの向上
 
 Windows ランタイム プログラミングだけでなく、C++/WinRT は COM 専用 API の作成と使用にも使われます。 この更新では、インターフェイス階層が存在する COM サーバーを実装できるようになります。 これには Windows ランタイムには必要ありませんが、一部の COM 実装には必要です。
@@ -283,7 +283,7 @@ Windows ランタイム プログラミングだけでなく、C++/WinRT は COM
 | Visual Studio プロジェクト システムの形式が変更されました。 | 後の「[C++/WinRT プロジェクトのターゲットを Windows SDK の後のバージョンに変更する方法](#how-to-retarget-your-cwinrt-project-to-a-later-version-of-the-windows-sdk)」をご覧ください。 |
 | Windows ランタイム関数にコレクション オブジェクトを渡すため、または独自のコレクション プロパティとコレクション型を実装するための、新しい関数と基底クラスがあります。 | 「[C++/WinRT でのコレクション](collections.md)」をご覧ください。 |
 | C++/WinRT ランタイム クラスで [{binding}](/windows/uwp/xaml-platform/binding-markup-extension) マークアップ拡張機能を使用できます。 | 詳細とコード例については、「[データ バインディングの概要](/windows/uwp/data-binding/data-binding-quickstart)」をご覧ください。 |
-| コルーチンの取り消しのサポートにより、取り消しコールバックを登録できます。 | 詳細とコード例については、「[非同期操作の取り消しとキャンセル コールバック](concurrency.md#canceling-an-asychronous-operation-and-cancellation-callbacks)」をご覧ください。 |
+| コルーチンの取り消しのサポートにより、取り消しコールバックを登録できます。 | 詳細とコード例については、「[非同期操作の取り消しとキャンセル コールバック](concurrency-2.md#canceling-an-asychronous-operation-and-cancellation-callbacks)」をご覧ください。 |
 | メンバー関数を指し示すデリゲートを作成するとき、ハンドラーを登録する時点で、現在のオブジェクト (生の *this* ポインターのインスタンス) に対する強い参照または弱い参照を確立できます。 | 詳細およびコード例については、「[イベント処理デリゲートで *this* ポインターに安全にアクセスする](weak-references.md#safely-accessing-the-this-pointer-with-an-event-handling-delegate)」セクションの「**デリゲートとしてメンバー関数を使用する場合**」サブセクションをご覧ください。 |
 | Visual Studio の C++ 標準への適合性が向上することによって発見されたバグが修正されました。 C++/WinRT の標準準拠の検証に対する LLVM および Clang ツールチェーンの利用も向上しています。 | 次の記事で説明されいている問題が発生しなくなります。[Why won't my new project compile?I'm using Visual Studio 2017 (version 15.8.0 or higher), and SDK version 17134 (新しいプロジェクトがコンパイルされない理由: Visual Studio 2017 (バージョン 15.8.0 以降) と SDK バージョン 17134 を使用している場合)](faq.md#why-wont-my-new-project-compile-im-using-visual-studio-2017-version-1580-or-higher-and-sdk-version-17134) |
 
