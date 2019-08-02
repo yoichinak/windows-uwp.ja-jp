@@ -5,12 +5,12 @@ ms.date: 07/08/2019
 ms.topic: article
 keywords: windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、プロジェクション、実装、インプリメント、ランタイム クラス、ライセンス認証
 ms.localizationpriority: medium
-ms.openlocfilehash: e6b1b443a847fd8d7af3ad46d5263fd6ae2675a4
-ms.sourcegitcommit: ba4a046793be85fe9b80901c9ce30df30fc541f9
+ms.openlocfilehash: 18dc65198d476204cfd54bd241fbd3c9ac401155
+ms.sourcegitcommit: 7ece8a9a9fa75e2e92aac4ac31602237e8b7fde5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68328892"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68485176"
 ---
 # <a name="author-apis-with-cwinrt"></a>C++/WinRT での API の作成
 
@@ -425,7 +425,7 @@ MySpecializedToggleButtonAutomationPeer::MySpecializedToggleButtonAutomationPeer
 このトピックで前に説明したように、C++/WinRT のランタイム クラスは、複数の名前空間に複数の C++ クラスの形式で存在します。 したがって、名前 **MyRuntimeClass** の意味は、**winrt::MyProject** 名前空間内と **winrt::MyProject::implementation** 名前空間内では異なります。 現在のコンテキストがどちらの名前空間かを認識し、別の名前空間の名前が必要な場合は名前空間プレフィックスを使います。 問題になる名前空間についてさらに詳しく見てみましょう。
 
 - **winrt::MyProject**。 この名前空間には投影型が含まれます。 投影型のオブジェクトはプロキシです。基本的に基になるオブジェクトへのスマート ポインターであり、基になるオブジェクトは自分のプロジェクト内で実装されている場合も、別のコンパイル単位内で実装されている場合もあります。
-- **winrt::MyProject::implementation**。 この名前空間には、実装型が含まれます。 実装型のオブジェクトはポインターではありません。値であり、完全な C++ スタック オブジェクトです。 実装型を直接構築しないでください。代わりに、[**winrt::make**](/uwp/cpp-ref-for-winrt/make) を呼び出し、テンプレート パラメーターとして実装型を渡します。 このトピックでは前に動作する **winrt::make** の例を示しました。別の例については、「[XAML コントロール: C++/WinRT プロパティへのバインド](binding-property.md#add-a-property-of-type-bookstoreviewmodel-to-mainpage)」をご覧ください。
+- **winrt::MyProject::implementation**。 この名前空間には、実装型が含まれます。 実装型のオブジェクトはポインターではありません。値であり、完全な C++ スタック オブジェクトです。 実装型を直接構築しないでください。代わりに、[**winrt::make**](/uwp/cpp-ref-for-winrt/make) を呼び出し、テンプレート パラメーターとして実装型を渡します。 このトピックでは前に動作する **winrt::make** の例を示しました。別の例については、「[XAML コントロール: C++/WinRT プロパティへのバインド](binding-property.md#add-a-property-of-type-bookstoreviewmodel-to-mainpage)」をご覧ください。 「[直接割当ての診断](/windows/uwp/cpp-and-winrt-apis/diag-direct-alloc)」もご覧ください。
 - **winrt::MyProject::factory_implementation**。 この名前空間にはファクトリが含まれます。 この名前空間のオブジェクトでは、[ **IActivationFactory**](/windows/win32/api/activation/nn-activation-iactivationfactory) がサポートされています。
 
 次の表では、異なるコンテキストで使う必要がある最小限の名前空間の修飾を示します。
@@ -440,7 +440,7 @@ MySpecializedToggleButtonAutomationPeer::MySpecializedToggleButtonAutomationPeer
 >
 > そのシナリオでの `MyRuntimeClass myRuntimeClass;` に関する問題は、スタック上に **winrt::MyProject::implementation::MyRuntimeClass** オブジェクトが作成されることです。 その (実装型の) オブジェクトは、いくつかの点で投影型のように動作します。同じ方法でそのオブジェクトのメソッドを呼び出すことができ、投影型に変換することさえできます。 ただし、スコープが終了すると、C++ の通常のルールに従って、オブジェクトは破棄されます。 そのため、そのオブジェクトへの投影型 (スマート ポインター) を返した場合、そのポインターは中ぶらりんになります。
 >
-> この種のメモリ破損のバグを診断するのは困難です。 したがって、デバッグ ビルドの場合は、C++/WinRT アサーションでスタック検出機能を使ってこの誤りをキャッチすると役に立ちます。 ただし、コルーチンはヒープ上に割り当てられるので、誤りがコルーチン内にある場合、この誤りに関するヘルプは得られません。
+> この種のメモリ破損のバグを診断するのは困難です。 したがって、デバッグ ビルドの場合は、C++/WinRT アサーションでスタック検出機能を使ってこの誤りをキャッチすると役に立ちます。 ただし、コルーチンはヒープ上に割り当てられるので、誤りがコルーチン内にある場合、この誤りに関するヘルプは得られません。 詳細については、「[直接割当ての診断](/windows/uwp/cpp-and-winrt-apis/diag-direct-alloc)」を参照してください。
 
 ## <a name="using-projected-types-and-implementation-types-with-various-cwinrt-features"></a>さまざまな C++/WinRT 機能での投影型と実装型の使用
 
@@ -460,6 +460,199 @@ MySpecializedToggleButtonAutomationPeer::MySpecializedToggleButtonAutomationPeer
 | `make_self<T>`|実装|投影型を使うと、次のエラーが発生します: `'Release': is not a member of any direct or indirect base class of 'T'`|
 | `name_of<T>`|投影|実装型を使った場合、既定のインターフェイスの文字列化された GUID が返されます。|
 | `weak_ref<T>`|Both|実装型を使う場合は、コンストラクターの引数を `com_ptr<T>` にする必要があります。|
+
+## <a name="opt-in-to-uniform-construction-and-direct-implementation-access"></a>均一コンストラクションのオプトインと、実装への直接アクセス
+
+ここでは、オプトインされる C++/WinRT 2.0 の機能について説明します。ただし、新しいプロジェクトでは既定で有効になります。 既存のプロジェクトの場合は、`cppwinrt.exe` ツールを構成することでオプトインする必要があります。 Visual Studio で、プロジェクトのプロパティ **[共通プロパティ]**  >  **[C++/WinRT]**  >  **[最適化]** を *[はい]* に設定します。 その効果として、プロジェクト ファイルに `<CppWinRTOptimized>true</CppWinRTOptimized>` が追加されます。 また、コマンド ラインから `cppwinrt.exe` を呼び出すときにスイッチを追加するのと同じ効果があります。
+
+`-opt[imize]` スイッチを使用すると、一般に "*均一コンストラクション*" と呼ばれる機能が有効になります。 均一 (または "*統合*") コンストラクションでは、C++/WinRT 言語プロジェクション自体を使用して、実装型 (アプリケーションで使用するためにコンポーネントによって実装された型) が効率的に作成され、使用されます。ローダーの問題はありません。
+
+この機能について説明する前に、まず均一コンストラクションが "*ない*" 状況を見てみましょう。 説明のために、このサンプル Windows ランタイム クラスから始めます。
+
+```idl
+// MyClass.idl
+namespace MyProject
+{
+    runtimeclass MyClass
+    {
+        MyClass();
+        void Method();
+        static void StaticMethod();
+    }
+}
+```
+
+C++/WinRT ライブラリを使い慣れている開発者は、次のようなクラスを使用できます。
+
+```cppwinrt
+using namespace winrt::MyProject;
+
+MyClass c;
+c.Method();
+MyClass::StaticMethod();
+```
+
+また、示されている使用中のコードがこのクラスを実装する同じコンポーネント内に存在しなかった場合、これは完全に合理的です。 言語プロジェクションとして、C++/WinRT では開発者が ABI (Windows ランタイムで定義される COM ベースのアプリケーション バイナリ インターフェイス) から遮蔽されます。 C++/WinRT では、実装が直接呼び出されず、ABI を経由します。
+
+その結果、**MyClass** オブジェクト (`MyClass c;`) を構築しているコード行で、C++/WinRT プロジェクションによってクラスまたはアクティベーション ファクトリを取得するために [**RoGetActivationFactory**](/windows/win32/api/roapi/nf-roapi-rogetactivationfactory) が呼び出され、そのファクトリを使用してオブジェクトが作成されます。 最後の行でも同様にファクトリを使用して、静的なメソッド呼び出しのように見えるものが作成されます。 このすべてにおいて、クラスを登録し、モジュールで [**DllGetActivationFactory**](/previous-versions/br205771(v=vs.85)) エントリ ポイントを実装する必要があります。 C++/WinRT にはとても高速なファクトリ キャッシュがあるので、このいずれもコンポーネントを使用するアプリケーションの問題の原因にはなりません。 問題は、コンポーネント内で若干問題のある処理を行ったことだけです。
+
+まず、C++/WinRT ファクトリ キャッシュの速度に関係なく、**RoGetActivationFactory** (またはファクトリ キャッシュを経由する後続の呼び出し) を通じた呼び出しは、実装を直接呼び出すよりも時間がかかります。 **RoGetActivationFactory** に続いて [**IActivationFactory::ActivateInstance**](/windows/win32/api/activation/nf-activation-iactivationfactory-activateinstance)、さらに [**QueryInterface**](/windows/win32/api/unknwn/nf-unknwn-iunknown-queryinterface(refiid_void)) を呼び出すことは、明らかに、ローカルに定義された型に対して C++ `new` 式を使用する場合ほど効率的ではありません。 その結果、経験豊富な C++/WinRT 開発者は、コンポーネント内にオブジェクトを作成するときの [**winrt::make**](/uwp/cpp-ref-for-winrt/make) または [**winrt::make_self**](/uwp/cpp-ref-for-winrt/make-self) ヘルパー関数の使用に慣れています。
+
+```cppwinrt
+// MyClass c;
+MyProject::MyClass c{ winrt::make<implementation::MyClass>() };
+```
+
+しかし、ご覧のとおり、これはあまり便利でも簡潔でもありません。 オブジェクトを作成するにはヘルパー関数を使用する必要があります。また、実装型と投影型を明確に区別する必要もあります。
+
+次に、プロジェクションを使用してクラスを作成することは、そのアクティベーション ファクトリがキャッシュされることを意味します。 通常、これは目的どおりですが、呼び出しを行っているのと同じモジュール (DLL) 内にファクトリが存在する場合は、事実上 DLL を固定し、アンロードされないようにしています。 多くの場合、これは問題になりませんが、一部のシステム コンポーネントではアンロードをサポートする "*必要があります*"。
+
+ここで、"*均一コンストラクション*" という用語が登場します。 作成コードが、クラスを使用しているだけのプロジェクト内に存在するのか、それとも実際にクラスを "*実装*" しているプロジェクト内に存在するのかにかかわらず、同じ構文を自由に使用してオブジェクトを自由に作成できます。
+
+```cppwinrt
+// MyProject::MyClass c{ winrt::make<implementation::MyClass>() };
+MyClass c;
+```
+
+`-opt[imize]` スイッチを使用してコンポーネント プロジェクトをビルドすると、言語プロジェクションを使用した呼び出しは、実装型を直接作成する **winrt::make** 関数の同じ効率的な呼び出しにコンパイルされます。 これにより、構文が単純で予測可能になり、ファクトリを使用した呼び出しによるパフォーマンスの低下が回避され、プロセス内のコンポーネントの固定が回避されます。 コンポーネント プロジェクトに加えて、これは XAML アプリケーションにも役立ちます。 同じアプリケーション内に実装されたクラスの **RoGetActivationFactory** をバイパスすることで、コンポーネントの外部にクラスがある場合とまったく同じ方法で (登録する必要なしに) クラスを構築できます。
+
+均一コンストラクションは、ファクトリによって内部的に処理される "*任意*" の呼び出しに適用されます。 実際には、これは最適化がコンストラクターと静的メンバーの両方に対して機能することを意味します。 次に、元の例をもう一度示します。
+
+```cppwinrt
+MyClass c;
+c.Method();
+MyClass::StaticMethod();
+```
+
+`-opt[imize]` がない場合、最初のステートメントと最後のステートメントでは、ファクトリ オブジェクトを介した呼び出しが必要になります。 `-opt[imize]` が "*ある*" 場合、どちらも当てはまりません。 これらの呼び出しは、実装に対して直接コンパイルされ、インライン化される可能性もあります。 `-opt[imize]` (つまり "*直接実装*" アクセス) について話すときによく使用される他の用語にも言及しています。
+
+言語プロジェクションは便利ですが、実装に直接アクセスできる場合は、それを利用すれば可能な範囲で最も効率的なコードを生成することができるので、そうするべきです。 C++/WinRT でこれを行うことができます。プロジェクションの安全性と生産性から離れることは強制されません。
+
+言語プロジェクションがその実装型に到達して直接アクセスできるようにするにはコンポーネントが連携する必要があるので、これは破壊的変更です。 C++/WinRT はヘッダーのみのライブラリなので、内部を参照して何が行われているかを確認できます。 `-opt[imize]` がない場合、**MyClass** コンストラクターと **StaticMethod** メンバーは、このようなプロジェクションによって定義されます。
+
+```cppwinrt
+namespace winrt::MyProject
+{
+    inline MyClass::MyClass() :
+        MyClass(impl::call_factory<MyClass>([](auto&& f){
+            return f.template ActivateInstance<MyClass>(); }))
+    {
+    }
+    inline void MyClass::StaticMethod()
+    {
+        impl::call_factory<MyClass, MyProject::IClassStatics>([&](auto&& f) {
+            return f.StaticMethod(); });
+    }
+}
+```
+
+上記のすべてに追従する必要はありません。目的は、両方の呼び出しに **call_factory** という名前の関数の呼び出しが含まれていることを示すことです。 これは、これらの呼び出しにファクトリ キャッシュが含まれており、実装に直接アクセスしていないことを示す手掛かりです。 `-opt[imize]` が "*ある*" 場合、これらの同じ関数はまったく定義されていません。 代わりに、プロジェクションによって宣言され、その定義はコンポーネントに委ねられます。
+
+その後、コンポーネントでは実装を直接呼び出す定義を提供できます。 これで、破壊的変更に到達しました。 これらの定義は `-component` と `-opt[imize]` の両方を使用する場合に生成され、`Type.g.cpp` という名前のファイルに表示されます。ここで、*Type* は実装されているランタイム クラスの名前です。 そのため、既存のプロジェクト内で `-opt[imize]` を初めて有効にしたときに、さまざまなリンカー エラーが発生する可能性があります。 物事をまとめるには、生成されたファイルを実装に含める必要があります。
+
+この例では、(`-opt[imize]` が使用されているかどうかに関係なく) `MyClass.h` はこのようになります。
+
+```cppwinrt
+// MyClass.h
+#pragma once
+#include "MyClass.g.h"
+ 
+namespace winrt::MyProject::implementation
+{
+    struct MyClass : ClassT<MyClass>
+    {
+        MyClass() = default;
+ 
+        static void StaticMethod();
+        void Method();
+    };
+}
+namespace winrt::MyProject::factory_implementation
+{
+    struct MyClass : ClassT<MyClass, implementation::MyClass>
+    {
+    };
+}
+```
+
+`MyClass.cpp` にすべてがまとめられています。
+
+```cppwinrt
+#include "pch.h"
+#include "MyClass.h"
+#include "MyClass.g.cpp" // !!It's important that you add this line!!
+ 
+namespace winrt::MyProject::implementation
+{
+    void MyClass::StaticMethod()
+    {
+    }
+ 
+    void MyClass::Method()
+    {
+    }
+}
+```
+
+したがって、既存のプロジェクト内で均一コンストラクションを使用するには、各実装の `.cpp` ファイルを編集して、実装クラスの包含 (および定義) の後に `#include <Sub/Namespace/Type.g.cpp>` を含める必要があります。 このファイルでは、プロジェクションが未定義のままの関数の定義が提供されます。 `MyClass.g.cpp` ファイル内で、これらの定義は次のようになります。
+
+```cppwinrt
+namespace winrt::MyProject
+{
+    MyClass::MyClass() :
+        MyClass(make<MyProject::implementation::MyClass>())
+    {
+    }
+    void MyClass::StaticMethod()
+    {
+        return MyProject::implementation::MyClass::StaticMethod();
+    }
+}
+```
+
+また、実装の効率的な直接呼び出しによってプロジェクションを正常に完了して、ファクトリ キャッシュの呼び出しを回避し、リンカーに適合させます。
+
+`-opt[imize]` によって最後に行われることは、C++/WinRT 1.0 に必要だった厳密な型の結合を排除することで増分ビルドがはるかに高速になるような方法で、プロジェクトの `module.g.cpp` (DLL の **DllGetActivationFactory** と **DllCanUnloadNow** のエクスポートを実装するのに役立つファイル) の実装を変更することです。 これは通常、"*型消去されたファクトリ*" と呼ばれます。 `-opt[imize]` がない場合、コンポーネントに対して生成される `module.g.cpp` ファイルでは、最初にご自身のすべての実装クラス (この例では `MyClass.h`) の定義をインクルードします。 その後、このような各クラス用の実装ファクトリが直接作成されます。
+
+```cppwinrt
+if (requal(name, L"MyProject.MyClass"))
+{
+    return winrt::detach_abi(winrt::make<winrt::MyProject::factory_implementation::MyClass>());
+}
+```
+
+この場合も、すべての詳細に追従する必要はありません。 確認しておくと役立つのは、これにはコンポーネントによって実装されているすべてのクラスに完全な定義が必要であるということです。 1 つの実装に対する変更が原因で `module.g.cpp` が再コンパイルされるので、これは内部ループに大きな影響を与える可能性があります。 `-opt[imize]` では、これが適用されません。 代わりに、生成された `module.g.cpp` ファイルに対して 2 つの処理が行われます。 1 つ目は、実装クラスがインクルードされなくなったことです。 この例では、`MyClass.h` がまったくインクルードされません。 代わりに、実装についての知識なしで実装ファクトリが作成されます。
+
+```cppwinrt
+void* winrt_make_MyProject_MyClass();
+ 
+if (requal(name, L"MyProject.MyClass"))
+{
+    return winrt_make_MyProject_MyClass();
+}
+```
+
+当然ながら、定義を含める必要はありません。また、**winrt_make_Component_Class** 関数の定義の解決はリンカーによって行われる必要があります。 もちろん、生成された (および均一コンストラクションをサポートするために以前に追加した) `MyClass.g.cpp` ファイルでもこの関数が定義されているので、これについて考える必要はありません。 この例に対して生成される `MyClass.g.cpp` ファイルの全体を次に示します。
+
+```cppwinrt
+void* winrt_make_MyProject_MyClass()
+{
+    return winrt::detach_abi(winrt::make<winrt::MyProject::factory_implementation::MyClass>());
+}
+namespace winrt::MyProject
+{
+    MyClass::MyClass() :
+        MyClass(make<MyProject::implementation::MyClass>())
+    {
+    }
+    void MyClass::StaticMethod()
+    {
+        return MyProject::implementation::MyClass::StaticMethod();
+    }
+}
+```
+
+ご覧のように、**winrt_make_MyProject_MyClass** 関数では、実装のファクトリが直接作成されます。 これはすべて、特定の実装を適切に変更でき、`module.g.cpp` の再コンパイルはまったく不要であることを意味します。 `module.g.cpp` が更新されるのは Windows ランタイム クラスを追加または削除したときだけで、再コンパイルが必要です。
 
 ## <a name="overriding-base-class-virtual-methods"></a>基底クラスの仮想メソッドのオーバーライド
 
