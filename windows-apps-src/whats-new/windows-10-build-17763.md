@@ -6,12 +6,12 @@ ms.date: 10/03/2018
 ms.topic: article
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: d393ee92be8768861da0fb0783372c8bafc6f815
-ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
+ms.openlocfilehash: faf3cdc1a3fab3bd0332b995c25b081d296a55bb
+ms.sourcegitcommit: 350d6e6ba36800df582f9715c8d21574a952aef1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67821109"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68682778"
 ---
 # <a name="whats-new-in-windows-10-for-developers-build-17763"></a>Windows 10 ビルド 17763 の開発者向け新着情報
 
@@ -51,7 +51,7 @@ Microsoft Learn | 新しい [Microsoft Learn サイト](https://www.microsoft.co
 メモ帳 | [メモ帳が更新](https://aka.ms/ant-man)されており、ズーム、折り返し検索/置換、および Unix/Linux と Mac の行の末尾 (それぞれ LF および CR) のサポートが追加されました。
 Project Rome | [Project Rome](https://docs.microsoft.com/windows/project-rome/) では、サポートされるすべてのプラットフォームおよび SDK にわたって一貫性のあるプログラミング エクスペリエンスが提供されるようになりました。 </br>  新しい [Microsoft Graph 通知](https://developer.microsoft.com/graph/docs/concepts/notifications-concept-overview)では、Project Rome を使用して、アプリのためのユーザーを中心としたクロスプラットフォーム通知プラットフォームが提供されます。
 画面切り取り | 新しい [URI スキーム](../launch-resume/launch-screen-snipping.md)によって、アプリで新しい切り取り領域をプログラムで開いたり、注釈用の特定のイメージとともに切り取り & スケッチ アプリを起動したりできます。
-デスクトップ アプリケーションの UWP コントロール | Windows 10 では、WPF、Windows フォーム、および C++ Win32 デスクトップ アプリケーションで UWP コントロールを使用できるようになりました。 つまり、Windows Ink や Fluent Design System をサポートするコントロールなど、UWP コントロールでのみ利用可能な最新の Windows 10 UI 機能で、既存のデスクトップ アプリケーションの外観、操作性、機能を拡張することができます。 この機能を *XAML Islands*といいます。 </br> お使いのアプリケーション プラットフォームに応じて、アプリケーションで XAML Islands を使用するいくつかの方法を紹介します。 WPF および Windows Forms アプリケーションでは、デザイナー指向の開発エクスペリエンスを提供する[Windows コミュニティ ツールキット](https://docs.microsoft.com/windows/uwpcommunitytoolkit/)内の一連のコントロールを使用できます。 C++ Win32 アプリケーションは、[Windows.UI.Xaml.Hosting](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting) 名前空間の *UWP XAML ホスティング API* を使用する必要があります。 詳細については、[デスクトップ アプリケーションでの UWP コントロール](../xaml-platform/xaml-host-controls.md)に関するページを参照してください。 </br> **注:** XAML Islands を有効にする API およびコントロールは、開発者プレビューとして現在使用できます。 ご自身のプロトタイプ コードでこれらを試すことはお勧めしますが、現時点では運用コードで使用することはお勧めしません。
+デスクトップ アプリケーションの UWP コントロール | Windows 10 では、WPF、Windows フォーム、および C++ Win32 デスクトップ アプリケーションで UWP コントロールを使用できるようになりました。 つまり、Windows Ink や Fluent Design System をサポートするコントロールなど、UWP コントロールでのみ利用可能な最新の Windows 10 UI 機能で、既存のデスクトップ アプリケーションの外観、操作性、機能を拡張することができます。 この機能を *XAML アイランド*といいます。 </br> お使いのアプリケーション プラットフォームに応じて、アプリケーションで XAML アイランドを使用するいくつかの方法を紹介します。 WPF および Windows Forms アプリケーションでは、デザイナー指向の開発エクスペリエンスを提供する[Windows コミュニティ ツールキット](https://docs.microsoft.com/windows/uwpcommunitytoolkit/)内の一連のコントロールを使用できます。 C++ Win32 アプリケーションは、[Windows.UI.Xaml.Hosting](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting) 名前空間の *UWP XAML ホスティング API* を使用する必要があります。 詳細については、[デスクトップ アプリケーションでの UWP コントロール](../xaml-platform/xaml-host-controls.md)に関するページを参照してください。 </br> **注:** XAML アイランドを有効にする API およびコントロールは、開発者プレビューとして現在使用できます。 ご自身のプロトタイプ コードでこれらを試すことはお勧めしますが、現時点では運用コードで使用することはお勧めしません。
 Windows Machine Learning | [Windows Machine Learning](https://docs.microsoft.com/windows/ai/) が正式に発表され、最先端の機械学習モデルのサポートと高速な評価などの機能が提供されます。 これをアプリケーションに統合する開発者をサポートするために、いくつかの新規および更新リソースが含まれた、新しいドキュメント サイトが作成されました。 </br> * [チュートリアル:Windows Machine Learning のデスクトップ アプリケーションの作成 (C++)](https://docs.microsoft.com/windows/ai/get-started-desktop):このチュートリアルでは、デスクトップ向けの単純な Windows ML アプリケーションを構築する方法を示します。 </br> * [チュートリアル:Windows Machine Learning の UWP アプリケーションの作成 (C#)](https://docs.microsoft.com/windows/ai/get-started-uwp):このステップ バイ ステップ チュートリアルを使って、Windows ML で初めての UWP アプリケーションを作成します。 </br> * [Windows.AI.MachineLearning 名前空間](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning):API リファレンスが Windows 10 SDK の最新リリース用に更新され、開発者は Win32 と UWP の両方のアプリケーションに対してこの API を使用できるようになりました。
 Windows Mixed Reality | ディスプレイ ハードウェアでサポートされている場合、開発者はハードウェアで保護されているバックバッファー テクスチャを要求できるようになりました。これによりアプリケーションは PlayReady などのソースから、ハードウェアで保護されているコンテンツを使用することができます。 ハードウェア保護のサポートおよび設定は、一次レイヤーの場合は新しいプロパティ [Windows.Graphics.Holographic.HolographicCamera](https://docs.microsoft.com/uwp/api/windows.graphics.holographic.holographiccamera) を使用して、クアッド レイヤーの場合は [Windows.Graphics.Holographic.HolographicQuadLayerUpdateParameters](https://docs.microsoft.com/uwp/api/windows.graphics.holographic.holographicquadlayerupdateparameters) を介して利用できます。
 
@@ -83,7 +83,7 @@ WebVR | 「[WebVR Developer's Guide](https://docs.microsoft.com/microsoft-edge/w
 MSIX | [MSIX](https://docs.microsoft.com/windows/msix/overview) は、あらゆる Windows アプリに最新のパッケージ化エクスペリエンスを提供する新しい Windows アプリ パッケージ形式です。 オープン ソースの MSIX 形式により、既存のパッケージ機能を維持しつつ、最新の展開機能を有効にすることができます。
 MSIX パッケージ作成ツール | 新しい [MSIX パッケージ化ツール](https://docs.microsoft.com/windows/msix/mpt-overview)を使用すると、既存のデスクトップ アプリケーションを、そのソース コードにアクセスできない場合でも、MSIX 形式で再パッケージ化することができます。 これはコマンドラインまたはその対話型 UI を使用して実行できます。
 MSIX のための Desktop App Converter サポート | [Desktop App Converter](https://docs.microsoft.com/windows/uwp/porting/desktop-to-uwp-root) で、`-MakeMSIX` パラメーターを使用することによって、MSIX パッケージを出力できます。
-MSIX のための MakeAppx.exe ツール サポート | MakeAppx.exe ツールを使用して、UWP アプリまたは従来のデスクトップ アプリケーションの MSIX パッケージを作成できます。 このツールは、Windows 10 SDK に含まれており、コマンド プロンプトまたはスクリプト ファイルから使用できます。 </br> UWP アプリの場合は、「[MakeAppx.exe ツールを使ったアプリ パッケージの作成](https://docs.microsoft.com/windows/uwp/packaging/create-app-package-with-makeappx-tool)」をご覧ください。 </br> デスクトップ アプリケーションの場合は、「[デスクトップ アプリケーションを手動でパッケージ化する](https://docs.microsoft.com/windows/uwp/porting/desktop-to-uwp-manual-conversion)」をご覧ください。
+MSIX のための MakeAppx.exe ツール サポート | MakeAppx.exe ツールを使用して、UWP アプリまたは従来のデスクトップ アプリケーションの MSIX パッケージを作成できます。 このツールは、Windows 10 SDK に含まれており、コマンド プロンプトまたはスクリプト ファイルから使用できます。 </br> UWP アプリの場合は、「[MakeAppx.exe ツールを使ったアプリ パッケージの作成](/windows/msix/package/create-app-package-with-makeappx-tool)」をご覧ください。 </br> デスクトップ アプリケーションの場合は、「[デスクトップ アプリケーションを手動でパッケージ化する](https://docs.microsoft.com/windows/uwp/porting/desktop-to-uwp-manual-conversion)」をご覧ください。
 パッケージ サポート フレームワーク | [パッケージ サポート フレームワーク](https://docs.microsoft.com/windows/msix/package-support-framework-overview)は、ソース コードにアクセスできない場合に既存のデスクトップ アプリケーションに修正を適用して MSIX コンテナー内で実行できるようにするのに役立つオープン ソース キットです。
 Store 分析 API | [Microsoft Store 分析 API](../monetize/access-analytics-data-using-windows-store-services.md) には以下の新しいメソッドが含まれています。 </br> * [UWP アプリのインサイト データの取得](../monetize/get-insights-data-for-your-app.md) </br> * [デスクトップ アプリケーションのインサイト データの取得](../monetize/get-insights-data-for-your-desktop-app.md) </br>* [デスクトップ アプリケーションのアップグレード ブロックの取得](../monetize/get-desktop-block-data.md) </br> * [デスクトップ アプリケーションのアップグレード ブロックの詳細情報の取得](../monetize/get-desktop-block-data-details.md)
 

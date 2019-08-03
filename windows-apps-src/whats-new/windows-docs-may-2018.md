@@ -5,12 +5,12 @@ keywords: 最新情報, 更新, 機能, 開発者向けガイダンス, Windows 
 ms.date: 05/07/2018
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 9adf5a80595e00a30098044536d1ecfe4fd62279
-ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
+ms.openlocfilehash: d8b72501c298f3814092ec4567a5fb608c4bb88f
+ms.sourcegitcommit: 350d6e6ba36800df582f9715c8d21574a952aef1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67820491"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68682762"
 ---
 # <a name="whats-new-in-the-windows-developer-docs-in-may-2018"></a>Windows 開発者向けドキュメントの最新情報、2018 年 5 月
 
@@ -83,7 +83,7 @@ MSIX パッケージ形式は、Microsoft のパートナーが自身のツー�
 
 ### <a name="optional-packages-with-executable-code"></a>実行可能コードによるオプション パッケージ
 
-アプリ内のオプション パッケージに実行可能な C# コードを含めることができるようになりました。 [Visual Studio を使用して、メイン アプリ パッケージをサポートするオプションのアドオン パッケージを構成する方法については、こちらをご覧ください。](../packaging/optional-packages-with-executable-code.md)
+アプリ内のオプション パッケージに実行可能な C# コードを含めることができるようになりました。 [Visual Studio を使用して、メイン アプリ パッケージをサポートするオプションのアドオン パッケージを構成する方法については、こちらをご覧ください。](/windows/msix/package/optional-packages)
 
 ### <a name="page-transitions"></a>ページ切り替え効果
 
