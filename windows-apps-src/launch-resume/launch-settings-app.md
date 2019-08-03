@@ -94,7 +94,7 @@ URI の起動について詳しくは、「[URI に応じた既定のアプリ�
 | Web サイト用のアプリ | ms-settings:appsforwebsites |
 | 既定のアプリ | ms-settings:defaultapps |
 | オプション機能の管理 | ms-settings:optionalfeatures |
-| オフライン マップ | ms-settings:maps<br/>ms-設定: マップ-downloadmaps (ダウンロード マップ) |
+| オフライン マップ | ms-settings:maps<br/>ms-settings:maps-downloadmaps (ダウンロード マップ) |
 | スタートアップ アプリ | ms-settings:startupapps |
 | ビデオ再生 | ms-settings:videoplayback |
 
@@ -118,7 +118,7 @@ URI の起動について詳しくは、「[URI に応じた既定のアプリ�
 | 自動再生 | ms-settings:autoplay |
 | Bluetooth | ms-settings:bluetooth |
 | 接続されたデバイス | ms-settings:connecteddevices |
-| 既定のカメラ | ms-設定: カメラ (**1809 およびそれ以降のバージョンの Windows 10 で非推奨とされます**) |
+| 既定のカメラ | ms-settings:camera (**1809 およびそれ以降のバージョンの Windows 10 で非推奨とされます**) |
 | マウスとタッチパッド | ms-settings:mousetouchpad (タッチパット設定は、タッチパッドが搭載されているデバイスでのみ利用可能) |
 | ペンと Windows Ink | ms-settings:pen |
 | プリンターとスキャナー | ms-settings:printers |
@@ -144,7 +144,7 @@ URI の起動について詳しくは、「[URI に応じた既定のアプリ�
 | 拡大鏡 | ms-settings:easeofaccess-magnifier |
 | マウス | ms-settings:easeofaccess-mouse |
 | Narrator | ms-settings:easeofaccess-narrator |
-| その他のオプション | ms-設定: easeofaccess-行われる (**1809 およびそれ以降のバージョンの Windows 10 で非推奨とされます**) |
+| その他のオプション | ms-settings:easeofaccess-otheroptions (**1809 およびそれ以降のバージョンの Windows 10 で非推奨とされます**) |
 | 音声認識 | ms-settings:easeofaccess-speechrecognition |
 
 ## <a name="extras"></a>Extras
@@ -162,7 +162,7 @@ URI の起動について詳しくは、「[URI に応じた既定のアプリ�
 | ゲーム DVR | ms-settings:gaming-gamedvr |
 | ゲーム モード | ms-settings:gaming-gamemode |
 | ゲームの全画面表示の再生 | ms-settings:quietmomentsgame |
-| TruePlay | ms、ゲームの設定:-trueplay (**1809 およびそれ以降のバージョンの Windows 10 で非推奨とされます**) |
+| TruePlay | ms-settings:gaming-trueplay (**1809 およびそれ以降のバージョンの Windows 10 で非推奨とされます**) |
 | Xbox ネットワーク | ms-settings:gaming-xboxnetworking |
 
 ## <a name="home-page"></a>ホーム ページ
@@ -208,10 +208,10 @@ URI の起動について詳しくは、「[URI に応じた既定のアプリ�
 |-------------|-----|
 | 背景 | ms-settings:personalization-background |
 | スタート時にどのフォルダを表示するかを選択する | ms-settings:personalization-start-places |
-| 色 | ms-settings:personalization-colors<br/>ms-設定の色。 |
-| 概要 | ms-設定: パーソナル化の概要 (**1809 およびそれ以降のバージョンの Windows 10 で非推奨とされます**) |
+| 色 | ms-settings:personalization-colors<br/>ms-settings:colors |
+| 概要 | ms-settings:personalization-glance (**1809 およびそれ以降のバージョンの Windows 10 で非推奨とされます**) |
 | ロック画面 | ms-settings:lockscreen |
-| ナビゲーション バー | ms-設定: パーソナル化のナビゲーション バー (**1809 およびそれ以降のバージョンの Windows 10 で非推奨とされます**) |
+| ナビゲーション バー | ms-settings:personalization-navbar (**1809 およびそれ以降のバージョンの Windows 10 で非推奨とされます**) |
 | 個人用設定 (カテゴリ) | ms-settings:personalization |
 | 開始 | ms-settings:personalization-start |
 | タスク バー | ms-settings:taskbar |
@@ -221,16 +221,16 @@ URI の起動について詳しくは、「[URI に応じた既定のアプリ�
 
 |設定ページ| URI |
 |-------------|-----|
-| 同期電話 | ms-settings:mobile-devices<br/>ms-設定: mobile-デバイス-addphone<br/>ms-設定: mobile-デバイス-addphone-直接 (開きます**Your Phone**アプリ) |
+| 同期電話 | ms-settings:mobile-devices<br/>ms-settings:mobile-devices-addphone<br/>ms-settings:mobile-devices-addphone-direct  (開きます**Your Phone**アプリ) |
 
 ## <a name="privacy"></a>プライバシー
 
 |設定ページ| URI |
 |-------------|-----|
-| アクセサリ用アプリ | ms-設定: プライバシー-accessoryapps (**1809 およびそれ以降のバージョンの Windows 10 で非推奨とされます**) |
+| アクセサリ用アプリ | ms-settings:privacy-accessoryapps (**1809 およびそれ以降のバージョンの Windows 10 で非推奨とされます**) |
 | アカウント情報 | ms-settings:privacy-accountinfo |
 | アクティビティの履歴 | ms-settings:privacy-activityhistory |
-| 広告識別子 | ms-設定: プライバシー-advertisingid (**1809 およびそれ以降のバージョンの Windows 10 で非推奨とされます**) |
+| 広告識別子 | ms-settings:privacy-advertisingid (**1809 およびそれ以降のバージョンの Windows 10 で非推奨とされます**) |
 | アプリの診断 | ms-settings:privacy-appdiagnostics |
 | ファイルの自動ダウンロード | ms-settings:privacy-automaticfiledownloads |
 | バックグラウンド アプリ | ms-settings:privacy-backgroundapps |
@@ -251,7 +251,7 @@ URI の起動について詳しくは、「[URI に応じた既定のアプリ�
 | 通知 | ms-settings:privacy-notifications |
 | その他のデバイス | ms-settings:privacy-customdevices |
 | 画像 | ms-settings:privacy-pictures |
-| 電話での通話 | ms-設定: プライバシー-電話 (**1809 およびそれ以降のバージョンの Windows 10 で非推奨とされます**) |
+| 電話での通話 | ms-settings:privacy-phonecalls (**1809 およびそれ以降のバージョンの Windows 10 で非推奨とされます**) |
 | 無線 | ms-settings:privacy-radios |
 | 音声認識、手描き入力、入力の設定 |ms-settings:privacy-speechtyping |
 | 処理手順 | ms-settings:privacy-tasks |
@@ -274,11 +274,11 @@ URI の起動について詳しくは、「[URI に応じた既定のアプリ�
 |-------------|-----|
 | バージョン情報 | ms-settings:about |
 | ディスプレイの詳細設定 | ms-settings:display-advanced (詳細オプションをサポートするデバイスでのみ利用可能) |
-| アプリのボリュームとデバイスの設定 | ms-設定アプリ:-ボリューム (**で Windows 10、バージョンが 1903 追加**)|
+| アプリのボリュームとデバイスの設定 | ms-settings:apps-volume (**で Windows 10、バージョンが 1903 追加**)|
 | バッテリー節約機能 | ms-settings:batterysaver (タブレットなど、バッテリーを搭載したデバイスでのみ利用可能) |
 | バッテリー節約機能の設定 | ms-settings:batterysaver-settings (タブレットなど、バッテリーを搭載したデバイスでのみ利用可能) |
 | バッテリーの使用状況 | ms-settings:batterysaver-usagedetails (タブレットなど、バッテリーを搭載したデバイスでのみ利用可能) |
-| クリップボード | ms-クリップボードの設定。 |
+| クリップボード | ms-settings:clipboard |
 | ディスプレイ | ms-settings:display |
 | 既定の保存場所 | ms-settings:savelocations |
 | ディスプレイ | ms-settings:screenrotation |
@@ -309,7 +309,7 @@ URI の起動について詳しくは、「[URI に応じた既定のアプリ�
 |-------------|-----|
 | 日付と時刻 | ms-settings:dateandtime |
 | 日本 IME の設定 | ms-settings:regionlanguage-jpnime (Microsoft 日本語入力方式エディターがインストールされている場合に利用可能) |
-| 言語 | ms-キーボード設定。<br/>ms-settings:regionlanguage<br/>ms-settings:regionlanguage-bpmfime<br/>ms-settings:regionlanguage-cangjieime<br/>ms-settings:regionlanguage-chsime-pinyin-domainlexicon<br/>ms-settings:regionlanguage-chsime-pinyin-keyconfig<br/>ms-settings:regionlanguage-chsime-pinyin-udp<br/>ms-settings:regionlanguage-chsime-wubi-udp<br/>ms-settings:regionlanguage-quickime |
+| 言語 | ms-settings:keyboard<br/>ms-settings:regionlanguage<br/>ms-settings:regionlanguage-bpmfime<br/>ms-settings:regionlanguage-cangjieime<br/>ms-settings:regionlanguage-chsime-pinyin-domainlexicon<br/>ms-settings:regionlanguage-chsime-pinyin-keyconfig<br/>ms-settings:regionlanguage-chsime-pinyin-udp<br/>ms-settings:regionlanguage-chsime-wubi-udp<br/>ms-settings:regionlanguage-quickime |
 | Pinyin IME の設定 | ms-settings:regionlanguage-chsime-pinyin (Microsoft Pinyin 入力方式エディターがインストールされている場合に利用可能) |
 | 音声認識 | ms-settings:speech |
 | Wubi IME の設定  | ms-settings:regionlanguage-chsime-wubi (Microsoft Wubi 入力方式エディターがインストールされている場合に利用可能) |
