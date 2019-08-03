@@ -97,7 +97,7 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriNewYork, launcherO
 | bingmaps:?q=1600%20Pennsylvania%20Ave,%20Washington,%20DC     | 地図を表示し、ワシントンD.C. のホワイト ハウスの住所を検索します。 |
 | bingmaps:?q=coffee&where=Seattle                              | シアトルでコーヒーを検索します。                                                    |
 | bingmaps:?cp=40.726966~-74.006076&where=New%20York            | 指定した中心点の近くのニューヨークを検索します。                             |
-| bingmaps:? bb = 39.719\_-74.52 ~ 41.71\_-73.5 (& q) ピザを =              | 指定した境界ボックス (ニューヨーク市) の中でピザを検索します。      |
+| bingmaps:?bb=39.719\_-74.52~41.71\_-73.5&q=pizza              | 指定した境界ボックス (ニューヨーク市) の中でピザを検索します。      |
 
  
 ## <a name="display-multiple-points"></a>複数のポイントの表示
@@ -107,10 +107,10 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriNewYork, launcherO
 
 | サンプル URI | 結果                                                                                                                   |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
-| bingmaps:?collection=point.36.116584\_-115.176753\_Caesars %20palace                                                                                                | ラスベガスのシーザーズ パレスを検索し、その結果を地図に表示します (最適な地図のビューで表示されます)。                         |
-| bingmaps:?collection=point.36.116584\_-115.176753\_Caesars %20palace & lvl = 16                                                                                         | ラスベガスにあるシーザーズ パレスという名前のプッシュピンを表示し、ズーム レベルを 16 に設定します。                                               |
-| bingmaps:?collection=point.36.116584\_-115.176753\_Caesars%20Palace~point.36.113126\_-115.175188\_%20bellagio & lvl = 16 & cp = 36.114902 ~-115.176669                   | ラスベガスにあるシーザーズ パレスおよびベラジオという名前のプッシュピンを表示し、ズーム レベルを 16 に設定します。              |
-| bingmaps:?collection=point.40.726966\_-74.006076\_偽の % 255fbusiness% 255Fwith %255funderscore                                                                        | ニューヨークをフェイクをという名前のプッシュピンが表示されます\_ビジネス\_で\_アンダー スコアします。                                                  |
+| bingmaps:?collection=point.36.116584\_-115.176753\_Caesars%20Palace                                                                                                 | ラスベガスのシーザーズ パレスを検索し、その結果を地図に表示します (最適な地図のビューで表示されます)。                         |
+| bingmaps:?collection=point.36.116584\_-115.176753\_Caesars%20Palace&lvl=16                                                                                         | ラスベガスにあるシーザーズ パレスという名前のプッシュピンを表示し、ズーム レベルを 16 に設定します。                                               |
+| bingmaps:?collection=point.36.116584\_-115.176753\_Caesars%20Palace~point.36.113126\_-115.175188\_The%20Bellagio&lvl=16&cp=36.114902~-115.176669                   | ラスベガスにあるシーザーズ パレスおよびベラジオという名前のプッシュピンを表示し、ズーム レベルを 16 に設定します。              |
+| bingmaps:?collection=point.40.726966\_-74.006076\_Fake%255FBusiness%255Fwith%255FUnderscore                                                                        | ニューヨークをフェイクをという名前のプッシュピンが表示されます\_ビジネス\_で\_アンダー スコアします。                                                  |
 | bingmaps: でしょうか。 コレクション名を = です。Hotel%20List~point.36.116584\_-115.176753\_Caesars%20Palace~point.36.113126\_-115.175188\_%20bellagio & lvl = 16 & cp = 36.114902 ~-115.176669 | Hotel List という名前の一覧、およびラスベガスにあるシーザーズ パレスとベラジオの 2 つのプッシュピンを表示し、ズーム レベルを 16 に設定します。 |
 
  
@@ -124,10 +124,10 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriNewYork, launcherO
 
 | サンプル URI                                                                                                              | 結果                                                                                                                                                         |
 |-------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| bingmaps:?rtp=pos.44.9160\_-110.4158 ~ pos. 45 0475\_-109.4187。                                                             | ポイント ツー ポイントのルート案内と共に地図を表示します。 *mode* が指定されていないため、ルート案内は、ユーザーの交通手段の設定のモードを使って提供されます。 |
+| bingmaps:?rtp=pos.44.9160\_-110.4158~pos.45.0475\_-109.4187                                                             | ポイント ツー ポイントのルート案内と共に地図を表示します。 *mode* が指定されていないため、ルート案内は、ユーザーの交通手段の設定のモードを使って提供されます。 |
 | bingmaps:?cp=43.0332~-87.9167&trfc=1                                                                                    | ウィスコンシン州のミルウォーキーを中心とした地図と交通情報を表示します。                                                                                                        |
-| bingmaps: でしょうか。 rtp adr を = です。1 つ Microsoft 方法, Redmond, WA 98052~pos.39.0731\_-108.7238                                           | 指定した住所から指定した場所までのルート案内と共に地図を表示します。                                                                            |
-| bingmaps:?rtp=adr.1%20Microsoft%20Way,%20Redmond,%20WA,%2098052~pos.36.1223\_-111.9495\_総計 % 20canyon% 20northern %20rim | 1 Microsoft Way, Redmond, WA、98052 からグランドキャニオンの北端までのルート案内を表示します。                                                                |
+| bingmaps:?rtp=adr.One Microsoft Way, Redmond, WA 98052~pos.39.0731\_-108.7238                                           | 指定した住所から指定した場所までのルート案内と共に地図を表示します。                                                                            |
+| bingmaps:?rtp=adr.1%20Microsoft%20Way,%20Redmond,%20WA,%2098052~pos.36.1223\_-111.9495\_Grand%20Canyon%20northern%20rim | 1 Microsoft Way, Redmond, WA、98052 からグランドキャニオンの北端までのルート案内を表示します。                                                                |
 | bingmaps:?rtp=adr.Davenport, CA~adr.Yosemite Village                                                                    | 指定した場所から指定したランドマークまでの自動車ルート案内と共に地図を表示します。                                                                   |
 | bingmaps:?rtp=adr.Mountain%20View,%20CA~adr.San%20Francisco%20International%20Airport,%20CA&mode=d                      | カリフォルニア州のマウンテンビューからカリフォルニア州のサンフランシスコ国際空港までの自動車ルート案内を表示します。                                                                  |
 | bingmaps:?rtp=adr.Mountain%20View,%20CA~adr.San%20Francisco%20International%20Airport,%20CA&mode=w                      | カリフォルニア州のマウンテンビューからカリフォルニア州のサンフランシスコ国際空港までの徒歩ルート案内を表示します。                                                                  |
