@@ -39,7 +39,13 @@
     - name: XAML を使ったレイアウト
       href: layout/layouts-with-xaml.md
     - name: 複数のビューの表示
-      href: layout/show-multiple-views.md
+      items:
+        - name: 複数のビューの表示
+          href: layout/show-multiple-views.md
+        - name: AppWindow の使用
+          href: layout/app-window.md
+        - name: ApplicationView の使用
+          href: layout/application-view.md
     - name: 配置、余白、およびパディング
       href: layout/alignment-margin-padding.md
     - name: パネル
