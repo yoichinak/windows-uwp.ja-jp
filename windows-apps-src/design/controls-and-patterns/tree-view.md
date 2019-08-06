@@ -3,7 +3,7 @@ description: ItemsSource を階層データ ソースにバインドして展開
 title: ツリー ビュー
 label: Tree view
 template: detail.hbs
-ms.date: 06/14/2019
+ms.date: 07/24/2019
 ms.topic: article
 ms.localizationpriority: medium
 pm-contact: predavid
@@ -14,12 +14,12 @@ dev_langs:
 - csharp
 - vb
 ms.custom: RS5, 19H1
-ms.openlocfilehash: 4c29e8f2f88469dfbf260268682cf18e0399e327
-ms.sourcegitcommit: 81cb0b597bedfed8a54ac8b7e84089ef057fa9e3
+ms.openlocfilehash: 8e18455a39441d46e13e5a9a72291c9cd379c310
+ms.sourcegitcommit: 9effd88952bd26611f7b0a0e7baa68aba7d0ee8d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514128"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68616532"
 ---
 # <a name="treeview"></a>TreeView
 
@@ -99,7 +99,7 @@ Imports muxc = Microsoft.UI.Xaml.Controls
 [ListView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listview) の **ItemsSource** の場合と同様に、階層データ ソースを [ItemsSource](/uwp/api/windows.ui.xaml.controls.treeview.itemssource) プロパティにバインドしてツリー ビューのコンテンツを提供することができます。 同様に、[ItemTemplate](/uwp/api/windows.ui.xaml.controls.treeview.itemtemplate) (および省略可能な [ItemTemplateSelector](/uwp/api/windows.ui.xaml.controls.treeview.itemtemplate)) を使用して、項目をレンダリングする [DataTemplate](https://docs.microsoft.com/uwp/api/windows.ui.xaml.datatemplate) を提供します。
 
 > [!IMPORTANT]
-> **ItemsSource** およびその関連 API には、Windows 10 Version 1809 ([SDK 17763](https://developer.microsoft.com/windows/downloads/windows-10-sdk)) 以降、または [Windows UI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)が必要です。
+> **ItemsSource** およびその関連 API には、Windows 10 Version 1809 ([SDK 17763 以降](https://developer.microsoft.com/windows/downloads/windows-10-sdk))、または [Windows UI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)が必要です。
 >
 > **ItemsSource** は、**TreeView** コントロール内にコンテンツを配置するための、**TreeView.RootNodes** の代替手段です。 **ItemsSource** と **RootNodes** の両方を同時に設定することはできません。 **ItemsSource** を使用すると、ノードは自動的に作成され、**TreeView.RootNodes** プロパティからアクセスできます。
 
