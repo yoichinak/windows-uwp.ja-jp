@@ -6,12 +6,12 @@ ms.date: 10/03/2018
 ms.topic: article
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: d393ee92be8768861da0fb0783372c8bafc6f815
-ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
+ms.openlocfilehash: faf3cdc1a3fab3bd0332b995c25b081d296a55bb
+ms.sourcegitcommit: 350d6e6ba36800df582f9715c8d21574a952aef1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67821109"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68682778"
 ---
 # <a name="whats-new-in-windows-10-for-developers-build-17763"></a>Windows 10 ビルド 17763 の開発者向け新着情報
 
@@ -83,7 +83,7 @@ WebVR | 「[WebVR Developer's Guide](https://docs.microsoft.com/microsoft-edge/w
 MSIX | [MSIX](https://docs.microsoft.com/windows/msix/overview) は、あらゆる Windows アプリに最新のパッケージ化エクスペリエンスを提供する新しい Windows アプリ パッケージ形式です。 オープン ソースの MSIX 形式により、既存のパッケージ機能を維持しつつ、最新の展開機能を有効にすることができます。
 MSIX パッケージ作成ツール | 新しい [MSIX パッケージ化ツール](https://docs.microsoft.com/windows/msix/mpt-overview)を使用すると、既存のデスクトップ アプリケーションを、そのソース コードにアクセスできない場合でも、MSIX 形式で再パッケージ化することができます。 これはコマンドラインまたはその対話型 UI を使用して実行できます。
 MSIX のための Desktop App Converter サポート | [Desktop App Converter](https://docs.microsoft.com/windows/uwp/porting/desktop-to-uwp-root) で、`-MakeMSIX` パラメーターを使用することによって、MSIX パッケージを出力できます。
-MSIX のための MakeAppx.exe ツール サポート | MakeAppx.exe ツールを使用して、UWP アプリまたは従来のデスクトップ アプリケーションの MSIX パッケージを作成できます。 このツールは、Windows 10 SDK に含まれており、コマンド プロンプトまたはスクリプト ファイルから使用できます。 </br> UWP アプリの場合は、「[MakeAppx.exe ツールを使ったアプリ パッケージの作成](https://docs.microsoft.com/windows/uwp/packaging/create-app-package-with-makeappx-tool)」をご覧ください。 </br> デスクトップ アプリケーションの場合は、「[デスクトップ アプリケーションを手動でパッケージ化する](https://docs.microsoft.com/windows/uwp/porting/desktop-to-uwp-manual-conversion)」をご覧ください。
+MSIX のための MakeAppx.exe ツール サポート | MakeAppx.exe ツールを使用して、UWP アプリまたは従来のデスクトップ アプリケーションの MSIX パッケージを作成できます。 このツールは、Windows 10 SDK に含まれており、コマンド プロンプトまたはスクリプト ファイルから使用できます。 </br> UWP アプリの場合は、「[MakeAppx.exe ツールを使ったアプリ パッケージの作成](/windows/msix/package/create-app-package-with-makeappx-tool)」をご覧ください。 </br> デスクトップ アプリケーションの場合は、「[デスクトップ アプリケーションを手動でパッケージ化する](https://docs.microsoft.com/windows/uwp/porting/desktop-to-uwp-manual-conversion)」をご覧ください。
 パッケージ サポート フレームワーク | [パッケージ サポート フレームワーク](https://docs.microsoft.com/windows/msix/package-support-framework-overview)は、ソース コードにアクセスできない場合に既存のデスクトップ アプリケーションに修正を適用して MSIX コンテナー内で実行できるようにするのに役立つオープン ソース キットです。
 Store 分析 API | [Microsoft Store 分析 API](../monetize/access-analytics-data-using-windows-store-services.md) には以下の新しいメソッドが含まれています。 </br> * [UWP アプリのインサイト データの取得](../monetize/get-insights-data-for-your-app.md) </br> * [デスクトップ アプリケーションのインサイト データの取得](../monetize/get-insights-data-for-your-desktop-app.md) </br>* [デスクトップ アプリケーションのアップグレード ブロックの取得](../monetize/get-desktop-block-data.md) </br> * [デスクトップ アプリケーションのアップグレード ブロックの詳細情報の取得](../monetize/get-desktop-block-data-details.md)
 
