@@ -5,12 +5,12 @@ ms.date: 07/19/2019
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: f9b247a4a8eb69fa390a9e250e0f88deff9311bf
-ms.sourcegitcommit: 3cc6eb3bab78f7e68c37226c40410ebca73f82a9
+ms.openlocfilehash: 9b89d9100157cf40266bb983e258aa187f65dc93
+ms.sourcegitcommit: 789bfe3756c5c47f7324b96f482af636d12c0ed3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68730520"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68867464"
 ---
 # <a name="show-multiple-views-with-appwindow"></a>AppWindow での複数のビューの表示
 
