@@ -5,7 +5,7 @@ ms.topic: article
 ms.date: 06/27/2019
 ms.author: mcleans
 author: mcleanbyron
-keywords: windows 10、uwp、windows フォーム、wpf、xaml 諸島
+keywords: windows 10、uwp、windows フォーム、wpf、xaml Islands
 ms.localizationpriority: medium
 ms.custom: RS5, 19H1
 ms.openlocfilehash: fce9135267461f61515c7dc04bbaf43b1e4c04ed

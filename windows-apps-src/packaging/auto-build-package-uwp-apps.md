@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: f9b0d6bd-af12-4237-bc66-0c218859d2fd
 ms.localizationpriority: medium
-ms.openlocfilehash: 9df150d4a8873630a371fa2ad02e8c88bed7f42e
-ms.sourcegitcommit: 789bfe3756c5c47f7324b96f482af636d12c0ed3
+ms.openlocfilehash: 08ad21d3ddc73499bb2b97b300e635fe0a6c148d
+ms.sourcegitcommit: 698a86640b365dc1ca772fb6f53ca556dc284ed6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 08/09/2019
-ms.locfileid: "68867742"
+ms.locfileid: "68935775"
 ---
 # <a name="set-up-automated-builds-for-your-uwp-app"></a>UWP アプリの自動ビルドを設定する
 
@@ -176,7 +176,7 @@ MSIX (または APPX) パッケージに署名するには、パイプライン�
 
 ![成果物](images/building-screen6.png)
 
-`UapAppxPackageBuildMode`引数をに`StoreUpload`設定したため、アーティファクトフォルダーには、ストアに送信するためのパッケージ (. msixupload/. .appxupload) が含まれています。 ストアには、標準のアプリ (パッケージ) またはアプリバンドル (. .msixbundle/.appxbundle/) を送信することもできます。 この資料の目的上、.appxupload ファイルを使います。
+`UapAppxPackageBuildMode`引数をに`StoreUpload`設定したため、アーティファクトフォルダーには、ストアに送信するためのパッケージ (. msixupload/. .appxupload) が含まれています。 ストアには、通常のアプリケーションパッケージ (msix/.appx) またはアプリバンドル (. .msixbundle/.appxbundle/) を送信することもできます。 この資料の目的上、.appxupload ファイルを使います。
 
 ## <a name="address-bundle-errors"></a>アドレスバンドルエラー
 
