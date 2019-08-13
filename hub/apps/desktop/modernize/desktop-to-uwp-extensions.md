@@ -8,12 +8,12 @@ ms.assetid: 0a8cedac-172a-4efd-8b6b-67fd3667df34
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: c47eba0e0f5969e978cde5575cf8ab05e589350e
-ms.sourcegitcommit: 350d6e6ba36800df582f9715c8d21574a952aef1
+ms.openlocfilehash: 87483c5d34cfb2b0bb266fb3d903e15d1b492187
+ms.sourcegitcommit: a28a32fff9d15ecf4a9d172cd0a04f4d993f9d76
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68682479"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959050"
 ---
 # <a name="integrate-your-packaged-desktop-app-with-windows-10-and-uwp"></a>パッケージ化されたデスクトップアプリを Windows 10 および UWP と統合する
 
@@ -110,7 +110,7 @@ http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabi
 
 ```XML
 <Extension Category="windows.fileTypeAssociation">
-<FileTypeAssociation Name="[AppID]">
+<FileTypeAssociation Name="[Name]">
          <MigrationProgIds>
             <MigrationProgId>"[ProgID]"</MigrationProgId>
         </MigrationProgIds>
@@ -123,7 +123,7 @@ http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabi
 |Name |説明 |
 |-------|-------------|
 |Category |常に ``windows.fileTypeAssociation`` です。
-|Name |アプリの一意の ID。 この ID は、ファイルの種類の関連付けによって関連付けられたハッシュ対象の[プログラム識別子 (ProgID)](https://docs.microsoft.com/windows/desktop/shell/fa-progids) を生成するために内部で使用されます。 この ID を使って、アプリの今後のバージョンで変更を管理することができます。 |
+|名前 |ファイルの種類の関連付けの名前。 この名前を使用して、ファイルの種類を整理およびグループ化することができます。 名前は、すべて小文字で、スペースを使用しないようにする必要があります。 |
 |MigrationProgId |ファイルの関連付けを継承するデスクトップアプリケーションのアプリケーション、コンポーネント、およびバージョンを記述する[プログラム識別子 (ProgID)](https://docs.microsoft.com/windows/desktop/shell/fa-progids) 。|
 
 #### <a name="example"></a>例
@@ -137,7 +137,7 @@ http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabi
     <Application>
       <Extensions>
         <uap:Extension Category="windows.fileTypeAssociation">
-          <uap3:FileTypeAssociation Name="Contoso">
+          <uap3:FileTypeAssociation Name="myfiletypes">
             <rescap3:MigrationProgIds>
               <rescap3:MigrationProgId>Foo.Bar.1</rescap3:MigrationProgId>
               <rescap3:MigrationProgId>Foo.Bar.2</rescap3:MigrationProgId>
@@ -169,7 +169,7 @@ http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabi
 
 ```XML
 <Extension Category="windows.fileTypeAssociation">
-    <FileTypeAssociation Name="[AppID]">
+    <FileTypeAssociation Name="[Name]">
         <SupportedFileTypes>
             <FileType>"[file extension]"</FileType>
         </SupportedFileTypes>
@@ -182,7 +182,7 @@ http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabi
 |Name |説明 |
 |-------|-------------|
 |Category |常に ``windows.fileTypeAssociation`` です。
-|Name |アプリの一意の ID。 この ID は、ファイルの種類の関連付けによって関連付けられたハッシュ対象の[プログラム識別子 (ProgID)](https://docs.microsoft.com/windows/desktop/shell/fa-progids) を生成するために内部で使用されます。 この ID を使って、アプリの今後のバージョンで変更を管理することができます。   |
+|名前 | ファイルの種類の関連付けの名前。 この名前を使用して、ファイルの種類を整理およびグループ化することができます。 名前は、すべて小文字で、スペースを使用しないようにする必要があります。   |
 |FileType |アプリでサポートされているファイル拡張子。 |
 
 #### <a name="example"></a>例
@@ -196,9 +196,8 @@ http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabi
     <Application>
       <Extensions>
         <uap:Extension Category="windows.fileTypeAssociation">
-          <uap3:FileTypeAssociation Name="Contoso">
+          <uap3:FileTypeAssociation Name="mediafiles">
             <uap:SupportedFileTypes>
-            <uap:FileType>.txt</uap:FileType>
             <uap:FileType>.avi</uap:FileType>
             </uap:SupportedFileTypes>
           </uap3:FileTypeAssociation>
@@ -231,7 +230,7 @@ http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabi
 
 ```XML
 <Extension Category="windows.fileTypeAssociation">
-    <FileTypeAssociation Name="[AppID]">
+    <FileTypeAssociation Name="[Name]">
         <SupportedVerbs>
            <Verb Id="[ID]" Extended="[Extended]" Parameters="[parameters]">"[verb label]"</Verb>
         </SupportedVerbs>
@@ -244,7 +243,7 @@ http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabi
 |Name |説明 |
 |-------|-------------|
 |Category | 常に ``windows.fileTypeAssociation`` です。
-|Name |アプリの一意の ID。 |
+|名前 |ファイルの種類の関連付けの名前。 この名前を使用して、ファイルの種類を整理およびグループ化することができます。 名前は、すべて小文字で、スペースを使用しないようにする必要があります。 |
 |Verb |エクスプローラーのコンテキスト メニューに表示される名前です。 この文字列は、```ms-resource``` を使用してローカライズできます。|
 |Id |動詞の一意の ID。 アプリケーションが UWP アプリである場合、これはアクティブ化イベントの引数の一部としてアプリに渡されるので、ユーザーの選択を適切に処理できます。 アプリケーションが完全に信頼されたパッケージアプリである場合は、代わりにパラメーターを受け取ります (次の箇条書きを参照)。 |
 |Parameters |動詞に関連付けられている引数のパラメーターと値のリスト。 アプリケーションが完全に信頼されたパッケージアプリである場合、これらのパラメーターは、アプリケーションがアクティブ化されるときにイベント引数としてアプリケーションに渡されます。 さまざまなアクティベーション動詞に基づいて、アプリケーションの動作をカスタマイズできます。 変数にファイル パスが含まれる可能性がある場合は、パラメーター値を引用符で囲みます。 これにより、パスにスペースが含まれている場合に発生する問題を回避できます。 アプリケーションが UWP アプリの場合、パラメーターを渡すことはできません。 アプリは、代わりに ID を受け取ります (前の項目を参照してください)。|
@@ -263,7 +262,7 @@ http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabi
     <Application>
       <Extensions>
         <uap:Extension Category="windows.fileTypeAssociation">
-          <uap3:FileTypeAssociation Name="Contoso">
+          <uap3:FileTypeAssociation Name="myfiletypes">
             <uap2:SupportedVerbs>
               <uap3:Verb Id="Edit" Parameters="/e &quot;%1&quot;">Edit</uap3:Verb>
               <uap3:Verb Id="Print" Extended="true" Parameters="/p &quot;%1&quot;">Print</uap3:Verb>
@@ -295,7 +294,7 @@ http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabi
 
 ```XML
 <Extension Category="windows.fileTypeAssociation">
-    <FileTypeAssociation Name="[AppID]" UseUrl="true" Parameters="%1">
+    <FileTypeAssociation Name="[Name]" UseUrl="true" Parameters="%1">
         <SupportedFileTypes>
             <FileType>"[FileExtension]"</FileType>
         </SupportedFileTypes>
@@ -308,9 +307,9 @@ http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabi
 |Name |説明 |
 |-------|-------------|
 |Category |常に ``windows.fileTypeAssociation`` です。
-|Name |アプリの一意の ID。 |
+|名前 |ファイルの種類の関連付けの名前。 この名前を使用して、ファイルの種類を整理およびグループ化することができます。 名前は、すべて小文字で、スペースを使用しないようにする必要があります。 |
 |UseUrl |URL ターゲットから直接ファイルを開くかどうかを示します。 この値を設定しなかった場合、URL を使用してアプリケーションがファイルを開こうとすると、システムは最初にファイルをローカルにダウンロードします。 |
-|Parameters |省略可能なパラメーター。 |
+|パラメーター | 省略可能なパラメーター。 |
 |FileType |関連するファイル拡張子。 |
 
 #### <a name="example"></a>例
@@ -324,7 +323,7 @@ http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabi
       <Application>
         <Extensions>
           <uap:Extension Category="windows.fileTypeAssociation">
-            <uap3:FileTypeAssociation Name="documenttypes" UseUrl="true" Parameters="%1">
+            <uap3:FileTypeAssociation Name="myfiletypes" UseUrl="true" Parameters="%1">
               <uap:SupportedFileTypes>
                 <uap:FileType>.txt</uap:FileType>
                 <uap:FileType>.doc</uap:FileType>
@@ -484,7 +483,7 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
 
 ```XML
 <Extension Category="windows.fileTypeAssociation">
-    <FileTypeAssociation Name="[AppID]" MultiSelectModel="[SelectionModel]">
+    <FileTypeAssociation Name="[Name]" MultiSelectModel="[SelectionModel]">
         <SupportedVerbs>
             <Verb Id="Edit" MultiSelectModel="[SelectionModel]">Edit</Verb>
         </SupportedVerbs>
@@ -499,7 +498,7 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
 |Name |説明 |
 |-------|-------------|
 |Category |常に ``windows.fileTypeAssociation`` です。
-|Name |アプリの一意の ID。 |
+|名前 |ファイルの種類の関連付けの名前。 この名前を使用して、ファイルの種類を整理およびグループ化することができます。 名前は、すべて小文字で、スペースを使用しないようにする必要があります。 |
 |MultiSelectModel |下を参照 |
 |FileType |関連するファイル拡張子。 |
 
@@ -525,7 +524,7 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
     <Application>
       <Extensions>
         <uap:Extension Category="windows.fileTypeAssociation">
-          <uap3:FileTypeAssociation Name="myapp" MultiSelectModel="Document">
+          <uap3:FileTypeAssociation Name="myfiletypes" MultiSelectModel="Document">
             <uap2:SupportedVerbs>
               <uap3:Verb Id="Edit" MultiSelectModel="Player">Edit</uap3:Verb>
               <uap3:Verb Id="Preview" MultiSelectModel="Document">Preview</uap3:Verb>
@@ -559,7 +558,7 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
 
 ```XML
 <Extension Category="windows.fileTypeAssociation">
-    <FileTypeAssociation Name="[AppID]">
+    <FileTypeAssociation Name="[Name]">
         <SupportedFileTypes>
             <FileType>"[FileExtension]"</FileType>
         </SupportedFileTypes>
@@ -574,7 +573,7 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
 |Name |説明 |
 |-------|-------------|
 |Category |常に ``windows.fileTypeAssociation`` です。
-|Name |アプリの一意の ID。 |
+|名前 |ファイルの種類の関連付けの名前。 この名前を使用して、ファイルの種類を整理およびグループ化することができます。 名前は、すべて小文字で、スペースを使用しないようにする必要があります。 |
 |FileType |関連するファイル拡張子。 |
 |Clsid   |アプリのクラス ID。 |
 
@@ -591,7 +590,7 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
     <Application>
       <Extensions>
         <uap:Extension Category="windows.fileTypeAssociation">
-          <uap3:FileTypeAssociation Name="Contoso">
+          <uap3:FileTypeAssociation Name="myfiletypes">
             <uap2:SupportedFileTypes>
               <uap:FileType>.bar</uap:FileType>
             </uap2:SupportedFileTypes>
@@ -622,7 +621,7 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
 
 ```XML
 <Extension Category="windows.fileTypeAssociation">
-    <FileTypeAssociation Name="[AppID]">
+    <FileTypeAssociation Name="[Name]">
         <SupportedFileTypes>
             <FileType>"[FileExtension]"</FileType>
         </SupportedFileTypes>
@@ -636,7 +635,7 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
 |Name |説明 |
 |-------|-------------|
 |Category |常に ``windows.fileTypeAssociation`` です。
-|Name |アプリの一意の ID。 |
+|名前 |ファイルの種類の関連付けの名前。 この名前を使用して、ファイルの種類を整理およびグループ化することができます。 名前は、すべて小文字で、スペースを使用しないようにする必要があります。 |
 |FileType |関連するファイル拡張子。 |
 |Clsid   |アプリのクラス ID。 |
 
@@ -653,7 +652,7 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
     <Application>
       <Extensions>
         <uap:Extension Category="windows.fileTypeAssociation">
-          <uap3:FileTypeAssociation Name="Contoso">
+          <uap3:FileTypeAssociation Name="myfiletypes">
             <uap2SupportedFileTypes>
               <uap:FileType>.bar</uap:FileType>
                 </uap2SupportedFileTypes>
@@ -685,7 +684,7 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
 
 ```XML
 <Extension Category="windows.fileTypeAssociation">
-    <FileTypeAssociation Name="[AppID]">
+    <FileTypeAssociation Name="[Name]">
         <SupportedFileTypes>
             <FileType>"[FileExtension]"</FileType>
         </SupportedFileTypes>
@@ -701,7 +700,7 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
 |Name |説明 |
 |-------|-------------|
 |Category |常に ``windows.fileTypeAssociation`` です。
-|Name |アプリの一意の ID。 |
+|名前 |ファイルの種類の関連付けの名前。 この名前を使用して、ファイルの種類を整理およびグループ化することができます。 名前は、すべて小文字で、スペースを使用しないようにする必要があります。 |
 |FileType |関連するファイル拡張子。 |
 |value |有効な [Kind 値](https://docs.microsoft.com/windows/desktop/properties/building-property-handlers-user-friendly-kind-names)。 |
 
@@ -716,7 +715,7 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
     <Application>
       <Extensions>
         <uap:Extension Category="windows.fileTypeAssociation">
-           <uap:FileTypeAssociation Name="Contoso">
+           <uap:FileTypeAssociation Name="mediafiles">
              <uap:SupportedFileTypes>
                <uap:FileType>.m4a</uap:FileType>
                <uap:FileType>.mta</uap:FileType>
@@ -748,7 +747,7 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
 
 ```XML
 <uap:Extension Category="windows.fileTypeAssociation">
-    <uap:FileTypeAssociation Name="[AppID]">
+    <uap:FileTypeAssociation Name="[Name]">
         <SupportedFileTypes>
             <FileType>.bar</FileType>
         </SupportedFileTypes>
@@ -762,7 +761,7 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
 |Name |説明 |
 |-------|-------------|
 |Category |常に ``windows.fileTypeAssociation`` です。
-|Name |アプリの一意の ID。 |
+|名前 |ファイルの種類の関連付けの名前。 この名前を使用して、ファイルの種類を整理およびグループ化することができます。 名前は、すべて小文字で、スペースを使用しないようにする必要があります。 |
 |FileType |関連するファイル拡張子。 |
 |Clsid  |アプリのクラス ID。 |
 
@@ -778,7 +777,7 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
     <Application>
       <Extensions>
         <uap:Extension Category="windows.fileTypeAssociation">
-          <uap3:FileTypeAssociation Name="Contoso">
+          <uap3:FileTypeAssociation Name="myfiletypes">
             <uap:SupportedFileTypes>
               <uap:FileType>.bar</uap:FileType>
             </uap:SupportedFileTypes>
