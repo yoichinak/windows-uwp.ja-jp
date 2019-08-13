@@ -278,7 +278,7 @@ NuGet パッケージの構成を**ContosoExpenses.Core**プロジェクト。
 
 ## <a name="next-steps"></a>次の手順
 
-この時点で、チュートリアルでは正常に移行されました、Contoso 経費アプリケーションを .NET Core の 3。 準備が整いました[第 2 部。XAML 諸島を使って UWP InkCanvas コントロールを追加](modernize-wpf-tutorial-2.md)します。
+チュートリアルのこの時点で、Contoso Expenses アプリは .NET Core 3 に正常に移行されました、これで、[第 2 部:XAML Islands を使って UWP InkCanvas コントロールを追加](modernize-wpf-tutorial-2.md) の準備が整いました。
 
 > [!NOTE]
 > 高解像度画面であれば、アプリが非常に小さいことに注意してください可能性があります。 このチュートリアルの次の手順では、この問題を取り上げます。

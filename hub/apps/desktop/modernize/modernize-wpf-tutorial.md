@@ -5,7 +5,7 @@ ms.topic: article
 ms.date: 06/27/2019
 ms.author: mcleans
 author: mcleanbyron
-keywords: windows 10、uwp、windows フォーム、wpf、xaml 諸島
+keywords: windows 10、uwp、windows フォーム、wpf、xaml islands
 ms.localizationpriority: medium
 ms.custom: RS5, 19H1
 ms.openlocfilehash: 5e7179d4aeb66cad547e31e2456da2e8264ebbcd
@@ -107,9 +107,9 @@ Microsoft、Windows 10 で導入された、[ユニバーサル Windows プラ�
 
 ### <a name="xaml-islands"></a>XAML 諸島
 
-Windows 10、バージョンが 1903 年以降と呼ばれる機能を使用してデスクトップ アプリを UWP 以外に UWP コントロールをホストできる*XAML 諸島*します。 この機能では、外観、外観とのみ UWP コントロールを使用して利用できる最新の Windows 10 の UI 機能と既存のデスクトップ アプリの機能を強化することができます。 つまり、Windows のインクで、既存の WPF、Windows フォームでは、Fluent Design System をサポートするコントロールなどの UWP 機能を使用することができますとC++Win32 アプリ。
+Windows 10 バージョン 1903 以降では、*XAML Islands* と呼ばれる機能を使用して UWP 以外のデスクトップ アプリで UWP コントロールをホストできます。 この機能では、UWP コントロールを介してのみ使用できる最新の Windows 10 の UI 機能を使用して既存のデスクトップ アプリの外観、操作性、および機能性を向上させることができます。 つまり、既存のWPF、Windowsフォーム、およびC++Win32アプリでは、Windows Ink などの UWP 機能と Fluent Design System をサポートするコントロールを使用できます。
 
-詳細については、次を参照してください。[デスクトップ アプリケーション (XAML 諸島) に UWP コントロール](/windows/uwp/xaml-platform/xaml-host-controls)します。 このチュートリアルでは、2 つの異なるタイプの XAML 島コントロールを使用するプロセスを案内します。
+詳細については、[デスクトップ アプリケーション (XAML Islands) の UWP コントロール](/windows/uwp/xaml-platform/xaml-host-controls) をご参照ください。 このチュートリアルでは、2 つの異なるタイプの XAML Islandsコントロールを使用するプロセスを案内します。
 
 * [InkCanvas](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/inkcanvas)と[MapControl](https://docs.microsoft.com/en-us/windows/communitytoolkit/controls/wpf-winforms/mapcontrol) Windows コミュニティ ツールキット。 これらの WPF コントロールでは、インターフェイスとの対応する UWP コントロールの機能をラップして、Visual Studio デザイナーでその他の WPF コントロールのように使用できます。
 
