@@ -79,10 +79,10 @@ Visual Studio 2019 で、次のワークロードと省略可能な機能をイ�
 後、Contoso の支出のサンプル アプリのソース コードがあり、Visual Studio で構築することを確認するには、チュートリアルを開始する準備ができました。
 
 * [パート 1: Contoso の移行を .NET Core 3 経費アプリ](modernize-wpf-tutorial-1.md)
-* [パート 2: XAML 諸島を使って UWP InkCanvas コントロールを追加します。](modernize-wpf-tutorial-2.md)
-* [パート 3:XAML 諸島を使用して、UWP の予定表ビュー コントロールを追加します。](modernize-wpf-tutorial-3.md)
-* [パート 4:Windows 10 ユーザーのアクティビティと通知を追加します。](modernize-wpf-tutorial-4.md)
-* [パート 5:パッケージ化し、MSIX とデプロイ](modernize-wpf-tutorial-5.md)
+* [パート 2: XAML Islands を使用した UWP InkCanvas コントロールの追加](modernize-wpf-tutorial-2.md)
+* [パート 3:XAML Islands を使用した UWP CalendarView コントロールの追加](modernize-wpf-tutorial-3.md)
+* [パート 4:Windows 10 ユーザー アクティビティと通知の追加](modernize-wpf-tutorial-4.md)
+* [パート 5:MSIX によるパッケージとデプロイ](modernize-wpf-tutorial-5.md)
 
 ## <a name="important-concepts"></a>重要な概念
 

@@ -56,7 +56,7 @@ Windows 10、バージョンは 1809、以降のプロパティを基になる�
 | [不透明度](/uwp/api/windows.ui.xaml.uielement.opacity) | Double | オブジェクトの不透明度 |
 | [翻訳](/uwp/api/windows.ui.xaml.uielement.translation) | Vector3 | 要素の X、Y、/Z 位置をシフトします。 |
 | [TransformMatrix](/uwp/api/windows.ui.xaml.uielement.transformmatrix) | Matrix4x4 | 要素に適用する変換行列 |
-| [スケール](/uwp/api/windows.ui.xaml.uielement.scale) | Vector3 | スケール、要素中心点の中央に配置 |
+| [Scale](/uwp/api/windows.ui.xaml.uielement.scale) | Vector3 | 中心点に配置されている要素のスケール |
 | [Rotation](/uwp/api/windows.ui.xaml.uielement.rotation) | Float | RotationAxis と CenterPoint の周りの要素を回転させる |
 | [RotationAxis](/uwp/api/windows.ui.xaml.uielement.rotationaxis) | Vector3 | 回転の軸 |
 | [CenterPoint](/uwp/api/windows.ui.xaml.uielement.centerpoint) | Vector3 | 拡大縮小や回転の中心点 |
