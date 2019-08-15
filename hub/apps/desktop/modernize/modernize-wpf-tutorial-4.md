@@ -5,7 +5,7 @@ ms.topic: article
 ms.date: 06/27/2019
 ms.author: mcleans
 author: mcleanbyron
-keywords: windows 10、uwp、windows フォーム、wpf、xaml 諸島
+keywords: windows 10、uwp、windows フォーム、wpf、xaml islands
 ms.localizationpriority: medium
 ms.custom: RS5, 19H1
 ms.openlocfilehash: 8443ac25ba678986046b967a90a8899eaffb76aa
@@ -19,7 +19,7 @@ ms.locfileid: "67420121"
 
 これは、Contoso の経費をという名前のサンプル WPF デスクトップ アプリの近代化する方法を説明するチュートリアルの第 4 部です。 チュートリアル、前提条件、およびサンプル アプリをダウンロードする手順の概要については、次を参照してください。[チュートリアル。WPF アプリの近代化](modernize-wpf-tutorial.md)します。 この記事では、既に完了している前提としています。[パート 3](modernize-wpf-tutorial-3.md)します。
 
-このチュートリアルの前のパートで UWP XAML コントロールを XAML 諸島を使用してアプリを追加しました。 として、この製品は、有効にしても、アプリをあらゆる WinRT API を呼び出します。 これは、UWP XAML コントロールだけでなく、Windows 10 で提供されるその他の多くの機能を使用するアプリの営業案件を開きます。
+このチュートリアルの前のパートで UWP XAML コントロールを XAML Islands を使用してアプリを追加しました。 として、この製品は、有効にしても、アプリをあらゆる WinRT API を呼び出します。 これは、UWP XAML コントロールだけでなく、Windows 10 で提供されるその他の多くの機能を使用するアプリの営業案件を開きます。
 
 このチュートリアルのシナリオでは、架空の contoso 社の開発チームをアプリに 2 つの新しい機能を追加する決定が: アクティビティと通知します。 このチュートリアルのこの部分は、これらの機能を実装する方法を示します。
 
