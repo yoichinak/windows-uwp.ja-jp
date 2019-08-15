@@ -53,7 +53,7 @@ API をホストしている UWP XAML には、これらのメインの Windows 
     > [!NOTE]
     > これらのインターフェイスが宣言されている、 **windows.ui.xaml.hosting.desktopwindowxamlsource.h** Windows sdk ヘッダー ファイル。 既定では、このファイルは、%programfiles (x86) %\Windows Kits\10\Include で\\< ビルド番号\>\um します。 C++ Win32 プロジェクトでは、このヘッダー ファイルを直接参照することができます。 WPF や Windows フォーム プロジェクトでは、アプリケーション コードを使用してインターフェイスを宣言する必要があります、 [ **ComImport** ](https://docs.microsoft.com/dotnet/api/system.runtime.interopservices.comimportattribute)属性。 インターフェイスの宣言内の宣言を正確に一致するかどうかを確認**windows.ui.xaml.hosting.desktopwindowxamlsource.h**します。
 
-次の図は、デスクトップ アプリケーションでホストされている XAML アイランド内のオブジェクトの階層を示します。
+次の図は、デスクトップ アプリケーションでホストされている XAML Islands 内のオブジェクトの階層を示します。
 
 ![DesktopWindowXamlSource アーキテクチャ](images/xaml-islands/xaml-hosting-api-rev2.png)
 
