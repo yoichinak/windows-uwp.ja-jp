@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 76196add0829dcfa0aa638a2d8ae6995fafce69e
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 1d162fcf9a0f1023c58792e8c9f7a0e22fac4440
+ms.sourcegitcommit: 789bfe3756c5c47f7324b96f482af636d12c0ed3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63820600"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68867752"
 ---
 # <a name="typography"></a>文字体裁
 
@@ -25,16 +25,14 @@ ms.locfileid: "63820600"
 
 ![Segoe UI フォントのサンプル テキスト](images/type/segoe-sample.svg)
 
-アプリで英語以外の言語を表示する場合、または異なるフォントを選択する場合は、「[言語](#Languages)」と「[フォント](#Fonts)」のセクションで、弊社が UWP アプリ向けに推奨するフォントを確認してください。
+アプリで英語以外の言語を表示する場合、または異なるフォントを選択する場合は、「[言語](#languages)」と「[フォント](#fonts)」のセクションで、弊社が UWP アプリ向けに推奨するフォントを確認してください。
 
 :::row:::
     :::column:::
-        ![do](images/do.svg)
-        Pick one font for your UI.
+![推奨](images/do.svg) UI のフォントを統一してください。
     :::column-end:::
     :::column:::
-        ![don't](images/dont.svg)
-        Don't mix multiple fonts.
+![非推奨](images/dont.svg) 複数のフォントを混在させないでください。
     :::column-end:::
 :::row-end:::
 
@@ -48,12 +46,10 @@ UWP アプリのフォント サイズは、すべてのデバイスで自動的
 
 :::row:::
     :::column:::
-        ![do](images/do.svg)
-        Follow the UWP [type ramp](#type-ramp) sizing.
+![推奨](images/do.svg) UWP の[書体見本](#type-ramp)に従います。
     :::column-end:::
     :::column:::
-        ![don't](images/dont.svg)
-        Use a font size smaller than 12 px.
+![非推奨](images/dont.svg) 12 ピクセルよりも小さいフォント サイズを使用しないでください。
     :::column-end:::
 :::row-end:::
 
@@ -61,10 +57,10 @@ UWP アプリのフォント サイズは、すべてのデバイスで自動的
 
 :::row:::
     :::column:::
-        Users rely on visual hierarchy when scanning a page: headers summarize content, and body text provides more detail. To create a clear visual hierarchy in your app, follow the UWP type ramp.
+ユーザーはページを斜め読みするとき、視覚的な階層を手掛かりにしています。見出しは内容を要約し、本文は詳細を説明するものと想定されます。 アプリでわかりやすい視覚的階層を作成するためには、UWP 書体見本に従ってください。
     :::column-end:::
     :::column:::
-        ![text block styles](images/type/type-hierarchy.svg)
+![テキスト ブロック スタイル](images/type/type-hierarchy.svg)
     :::column-end:::
 :::row-end:::
 
@@ -78,10 +74,10 @@ UWP 書体見本は、ユーザーがコンテンツを読みやすいように�
 
 :::row:::
     :::column:::
-        You can access levels of the type ramp as XAML [static resources](../controls-and-patterns/xaml-theme-resources.md#the-xaml-type-ramp). The styles follow the `*TextBlockStyle` naming convention.
+各レベルの書体見本は、XAML の[静的リソース](../controls-and-patterns/xaml-theme-resources.md#the-xaml-type-ramp)としてアクセスできます。 これらのスタイルは、`*TextBlockStyle` 名前付け規則に従っています。
     :::column-end:::
     :::column:::
-        ![text block styles](images/type/text-block-type-ramp.svg)
+![テキスト ブロック スタイル](images/type/text-block-type-ramp.svg)
     :::column-end:::
 :::row-end:::
 
@@ -97,16 +93,14 @@ UWP 書体見本は、ユーザーがコンテンツを読みやすいように�
 
 :::row:::
     :::column:::
-        ![do](images/do.svg)
-        Use "Body" for most text.
+![推奨](images/do.svg) ほとんどのテキストには "Body" を使用します。
 
-        Use "Base" for titles when space is constrained.
+スペースに制約がある場合はタイトルに "Base" を使用します。
     :::column-end:::
     :::column:::
-        ![don't](images/dont.svg)
-        Use "Caption" for primary action or any long strings.
+![非推奨](images/dont.svg) プライマリ操作や長い文字列に "Caption" を使用する。
 
-        Use "Header" or "Subheader" if text needs to wrap.
+テキストを折り返す必要がある場合に "Header" や "Subheader" を使用する。
     :::column-end:::
 :::row-end:::
 
@@ -124,12 +118,10 @@ UWP 書体見本は、ユーザーがコンテンツを読みやすいように�
 
 :::row:::
     :::column:::
-        ![do](images/do.svg)
-        Keep to 50–60 letters per line for ease of reading.
+![推奨](images/do.svg) 読みやすさを確保するため、1 行当たり 50 ～ 60 文字の文字カウントを維持します。
     :::column-end:::
     :::column:::
-        ![don't](images/dont.svg)
-        Less than 20 characters or more than 60 characters per line is difficult to read.
+![非推奨](images/dont.svg) 1 行当たりの文字カウントが 20 文字を下回るか 60 文字を超えると読みにくくなります。
     :::column-end:::
 :::row-end:::
 
@@ -145,12 +137,10 @@ UWP 書体見本は、ユーザーがコンテンツを読みやすいように�
 
 :::row:::
     :::column:::
-        ![do](images/do.svg)
-        Clip text, and wrap if multiple lines are enabled.
+![推奨](images/do.svg) テキストをクリップし、複数行を使用できる場合は、行を折り返します。
     :::column-end:::
     :::column:::
-        ![don't](images/dont.svg)
-        Use ellipses to avoid visual clutter.
+![非推奨](images/dont.svg) すっきりと表示するため、省略記号は使用しないでください。
     :::column-end:::
 :::row-end:::
 

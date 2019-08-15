@@ -6,12 +6,12 @@ keywords: 開発者用 Visual Studio での作業の開始, 開発者用ライ�
 ms.date: 04/09/2019
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 09f115cad236582ccb0008c2274a7472ed4c0d55
-ms.sourcegitcommit: 350d6e6ba36800df582f9715c8d21574a952aef1
+ms.openlocfilehash: 705ff7fab00d13123211feb747ea9a9f95b0cc43
+ms.sourcegitcommit: 789bfe3756c5c47f7324b96f482af636d12c0ed3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68682664"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68867610"
 ---
 # <a name="enable-your-device-for-development"></a>デバイスを開発用に有効にする
 
@@ -46,6 +46,9 @@ ms.locfileid: "68682664"
 
 ## <a name="which-setting-should-i-choose-sideload-apps-or-developer-mode"></a>選ぶ必要がある設定: アプリのサイドローディングか開発者モードか
 
+> [!NOTE]
+> Windows Insider Build 18956 の時点では、サイドローディング オプションは削除されており、開発者モードは切り替えになりました。 次のセクションでサイドローディングの詳細を参照してください。 
+
  デバイスでは、開発者モードを有効にすることも、サイドローディングのみを有効にすることもできます。
 
 -   既定の設定は、 *[Microsoft ストア アプリ]* です。 アプリの開発中でない場合や、組織から配布された特殊な内部アプリを使っている場合は、この設定を有効にしておきます。
@@ -55,6 +58,9 @@ ms.locfileid: "68682664"
 既定では、Microsoft Store からのみユニバーサル Windows プラットフォーム (UWP) アプリをインストールできます。 開発者向け機能を使用するように設定を変更すると、デバイスのセキュリティ レベルが変わる場合があります。 未検証のソースからはアプリをインストールしないでください。
 
 ### <a name="sideload-apps"></a>アプリのサイドローディング
+
+> [!NOTE]
+> Windows Insider Build 18956 の時点で、サイドローディングは既定で有効になっています。 これにより、特別な構成を行わずに、署名済みの MSIX パッケージをデバイスに展開できるようになりました。 
 
 アプリのサイドロード設定は、通常、Microsoft Store を使わずにカスタム アプリを管理対象デバイスにインストールする必要がある会社や学校によって、または Microsoft 以外のソースからアプリを実行する必要があるユーザーによって、使用されます。 この場合、設定ページのイメージで以前に示したように、*UWP アプリ*設定を無効にするポリシーを組織が適用していることはよくあります。 また、組織は、必要な証明書と、アプリをサイドローディングするインストール場所を提供します。 詳しくは、TechNet の記事「[Windows 10 でのアプリのサイド ローディング](https://docs.microsoft.com/windows/deploy/sideload-apps-in-windows-10)」と「[Microsoft Intune でのアプリ展開の開始](https://docs.microsoft.com/intune/deploy-use/add-apps)」をご覧ください。
 

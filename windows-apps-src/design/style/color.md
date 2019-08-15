@@ -7,12 +7,12 @@ keywords: windows 10, uwp
 design-contact: karenmui
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: e5cd8ecafd3557719e70c50890da4c3eade18f52
-ms.sourcegitcommit: 139717a79af648a9231821bdfcaf69d8a1e6e894
+ms.openlocfilehash: 5f040060b1c3931e9ef1634fddd65febb1be7dbc
+ms.sourcegitcommit: 789bfe3756c5c47f7324b96f482af636d12c0ed3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67714135"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68867728"
 ---
 # <a name="color"></a>色
 
@@ -26,23 +26,23 @@ UWP アプリでの色使いは、主にアクセント カラーとテーマに
 
 :::row:::
     :::column:::
-        **Use color meaningfully.**
-        When color is used sparingly to highlight important elements, it can help create a user interface that is fluid and intuitive.
+**色が意味を持つように使用します。**
+重要な要素が強調されるように控え目に色を使用すると、柔軟で直感的なユーザー インターフェイスの作成に役立ちます。
     :::column-end:::
     :::column:::
-        **Use color to indicate interactivity.**
-        It's a good idea to choose one color to indicate elements of your application that are interactive. For example, many web pages use blue text to denote a hyperlink.
+**操作対象の要素を示すために色を使用します。**
+アプリケーションの中で、操作の対象要素を示す色を 1 つ決めておくことをお勧めします。 たとえば、多くの Web ページでは、ハイパーリンクを示すために青色のテキストを使用しています。
     :::column-end:::
 :::row-end:::
 
 :::row:::
     :::column:::
-        **Color is personal.**
-        In Windows, users can choose an accent color and a light or dark theme, which are reflected throughout their experience. You can choose how to incorporate the user's accent color and theme into your application, personalizing their experience.
+**色は個々のユーザーが設定できます。**
+Windows では、ユーザーがアクセント カラーや淡色/濃色のテーマを選んで、各自のエクスペリエンス全体に適用できます。 開発者は、ユーザーが選んだアクセント カラーとテーマをどのようにアプリケーションに組み込んで、個人に応じたエクスペリエンスを提供するかを選択できます。
     :::column-end:::
     :::column:::
-        **Color is cultural.**
-        Consider how the colors you use will be interpreted by people from different cultures. For example, in some cultures the color blue is associated with virtue and protection, while in others it represents mourning.
+**色の解釈は文化によって異なります。**
+アプリで使用する色が、異なる文化圏のユーザーにどのように解釈されるかを考慮してください。 たとえば、文化によっては、青が美徳と保護を表すこともあれば、服喪を連想させることもあります。
     :::column-end:::
 :::row-end:::
 
@@ -105,12 +105,12 @@ UWP アプリでは、淡色または濃色のアプリケーション テーマ
 
 :::row:::
     :::column:::
-        When creating templates for custom controls, use theme brushes rather than hard code color values. This way, your app can easily adapt to any theme.
+カスタム コントロールのテンプレートを作成する際は、ハード コードで色の値を設定するのではなく、テーマ ブラシを使用することをお勧めします。 これにより、アプリがあらゆるテーマに容易に適応できるようになります。
 
-        For example, these [item templates for ListView](../controls-and-patterns/item-templates-listview.md) demonstrate how to use theme brushes in a custom template.
+たとえば、これらの [ListView 用の項目テンプレート](../controls-and-patterns/item-templates-listview.md)は、カスタム テンプレートでテーマ ブラシを使用する方法を示しています。
     :::column-end:::
     :::column:::
-         ![double line list item with icon example](images/color/list-view.svg)
+ ![アイコンが付いた 2 行のリスト項目の例](images/color/list-view.svg)
     :::column-end:::
 :::row-end:::
 
@@ -144,12 +144,12 @@ UWP アプリでは、淡色または濃色のアプリケーション テーマ
 
 :::row:::
     :::column:::
-        ![user-selected accent header](images/color/user-accent.svg)
-        ![user-selected accent color](images/color/user-selected-accent.svg)
+![ユーザーが選択したアクセント ヘッダー](images/color/user-accent.svg)
+![ユーザーが選択したアクセント カラー](images/color/user-selected-accent.svg)
     :::column-end:::
     :::column:::
-        ![custom accent header](images/color/custom-accent.svg)
-        ![custom brand accent color](images/color/brand-color.svg)
+![カスタムのアクセント ヘッダー](images/color/custom-accent.svg)
+![カスタムのブランド アクセント カラー](images/color/brand-color.svg)
     :::column-end:::
 :::row-end:::
 
@@ -408,36 +408,36 @@ ColorPaletteResources では、システム カラーを配置して、インラ
 
 :::row:::
     :::column:::
-        ![contrast illustration](images/color/illo-contrast.svg)
+![コントラストの図](images/color/illo-contrast.svg)
     :::column-end:::
     :::column span="2":::
-        **Contrast**
+**コントラスト**
 
-        Make sure that elements and images have sufficient contrast to differentiate between them, regardless of the accent color or theme.
+アクセント カラーやテーマに関係なく、要素とイメージに、それぞれを区別するのに十分なコントラストがあることを確認してください。
 
-        When considering what colors to use in your application, accessibility should be a primary concern. Use the guidance below to make sure your application is accessible to as many users as possible.
+アプリケーションで使用する色を検討するときは、アクセシビリティが主要な考慮事項になります。 以下のガイダンスを使用して、できるだけ多くのユーザーがアプリケーションにアクセスできるようにしてください。
     :::column-end:::
 :::row-end:::
 
 :::row:::
     :::column:::
-        ![contrast illustration](images/color/illo-lighting.svg)
+![コントラストの図](images/color/illo-lighting.svg)
     :::column-end:::
     :::column span="2":::
-        **Lighting**
+**照明**
 
-        Be aware that variation in ambient lighting can affect the usability of your app. For example, a page with a black background might unreadable outside due to screen glare, while a page with a white background might be painful to look at in a dark room.
+環境光の変化がアプリのユーザビリティに影響する可能性があることに注意してください。 たとえば、背景が黒のページは、画面の輝きによって外で読めなくなる可能性があり、背景が白のページは、暗い部屋では見づらくなる可能性があります。
     :::column-end:::
 :::row-end:::
 
 :::row:::
     :::column:::
-        ![contrast illustration](images/color/illo-colorblindness.svg)
+![コントラストの図](images/color/illo-colorblindness.svg)
     :::column-end:::
     :::column span="2":::
-        **Colorblindness**
+**色覚障碍**
 
-        Be aware of how colorblindness could affect the usability of your application. For example, a user with red-green colorblindness will have difficulty distinguishing red and green elements from each other. About **8 percent of men** and **0.5 percent of women** are red-green colorblind, so avoid using these color combinations as the sole differentiator between application elements.
+色覚障碍によるアプリケーションのユーザビリティへの影響に注意してください。 たとえば、赤と緑の色覚障碍のあるユーザーは、赤と緑の要素をそれぞれ区別するのが困難になります。 **男性の約 8%** 、**女性の約 0.5%** に赤と緑の色覚障碍があるため、これらの色の組み合わせをアプリケーション要素の唯一の差別化要因として使用することは避けてください。
     :::column-end:::
 :::row-end:::
 

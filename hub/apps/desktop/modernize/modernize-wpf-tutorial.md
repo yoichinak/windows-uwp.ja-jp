@@ -105,7 +105,7 @@ Microsoft、Windows 10 で導入された、[ユニバーサル Windows プラ�
 * [デスクトップ アプリケーションをパッケージ化](/windows/uwp/porting/desktop-to-uwp-root)
 * [バック グラウンドでのパッケージ化されたデスクトップ アプリケーション](/windows/uwp/porting/desktop-to-uwp-behind-the-scenes)
 
-### <a name="xaml-islands"></a>XAML 諸島
+### <a name="xaml-islands"></a>XAML Islands
 
 Windows 10 バージョン 1903 以降では、*XAML Islands* と呼ばれる機能を使用して UWP 以外のデスクトップ アプリで UWP コントロールをホストできます。 この機能では、UWP コントロールを介してのみ使用できる最新の Windows 10 の UI 機能を使用して既存のデスクトップ アプリの外観、操作性、および機能性を向上させることができます。 つまり、既存のWPF、Windowsフォーム、およびC++Win32アプリでは、Windows Ink などの UWP 機能と Fluent Design System をサポートするコントロールを使用できます。
 
