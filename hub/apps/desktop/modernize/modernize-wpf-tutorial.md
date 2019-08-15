@@ -121,7 +121,7 @@ Windows 10 バージョン 1903 以降では、*XAML Islands* と呼ばれる機
 
 最初のいくつかのリリースでは、.NET Core のフォーカスは、web アプリやバックエンド アプリをサポートするためでした。 .NET Core では、スケーラブルな web アプリまたは Windows、Linux、または Docker コンテナーなどのマイクロ サービス アーキテクチャでホストされる Api を簡単に作成できます。
 
-.NET Core 3 は、.NET Core の次期メジャー リリースです。 このリリースのハイライトは、Windows フォーム、WPF アプリを含む Windows デスクトップ アプリのサポートです。 .NET Core 3 で新規および既存の Windows デスクトップ アプリを実行し、.NET Core で提供するすべての特典を利用できます。 [XAML アイランド](xaml-islands.md)でホストされている UWP コントロールを、.NET Core 3 を対象とする Windows フォームや WPF アプリでも使用できます。
+.NET Core 3 は、.NET Core の次期メジャー リリースです。 このリリースのハイライトは、Windows フォーム、WPF アプリを含む Windows デスクトップ アプリのサポートです。 .NET Core 3 で新規および既存の Windows デスクトップ アプリを実行し、.NET Core で提供するすべての特典を利用できます。 [XAML Islands](xaml-islands.md)でホストされている UWP コントロールを、.NET Core 3 を対象とする Windows フォームや WPF アプリでも使用できます。
 
 > [!NOTE]
 > WPF と Windows フォームがないクロス プラットフォームになることと、WPF や Windows フォームは、Linux と MacOS で実行することはできません。 WPF と Windows フォームの UI コンポーネントは、Windows レンダリング システムに依存関係があります。
