@@ -20,7 +20,7 @@ ms.locfileid: "67420076"
 さまざまな方法がある[最新化](index.md)既存に最新の Windows 機能を統合することで、既存のデスクトップ アプリのソース コードを最初からアプリの書き換えの代わりにします。 このチュートリアルではこれらの機能を使用して既存の WPF 基幹業務アプリを最新化するいくつかの方法について説明します。
 
 * .NET Core 3
-* XAML 諸島での UWP XAML コントロール
+* XAML Islands での UWP XAML コントロール
 * Adaptive Cards および Windows 10 通知
 * MSIX の展開
 
