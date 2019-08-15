@@ -50,7 +50,7 @@ MSIX パッケージにデスクトップ Windows アプリをパッケージ化
 
 ## <a name="host-uwp-controls-xaml-islands"></a>UWP コントロールのホスト (XAML Islands)
 
-Windows 10、バージョン 1903 以降では、ウィンドウ ハンドル (HWND) に関連付けられた WPF、Windows フォーム、または C++ Win32 アプリ内の任意の UI 要素に直接 [UWP XAML コントロール](/windows/uwp/design/controls-and-patterns/controls-by-function)を追加できます。 つまり、[Windows Ink](/windows/uwp/design/input/pen-and-stylus-interactions)、[Fluent Design System](/windows/uwp/design/fluent-design-system/index) をサポートするコントロールなど最新の UWP 機能を、デスクトップ アプリのウィンドウやその他のディスプレイ サーフェスに完全に統合できます。 この開発者シナリオは "*XAML アイランド*" とも呼ばれます。
+Windows 10、バージョン 1903 以降では、ウィンドウ ハンドル (HWND) に関連付けられた WPF、Windows フォーム、または C++ Win32 アプリ内の任意の UI 要素に直接 [UWP XAML コントロール](/windows/uwp/design/controls-and-patterns/controls-by-function)を追加できます。 つまり、[Windows Ink](/windows/uwp/design/input/pen-and-stylus-interactions)、[Fluent Design System](/windows/uwp/design/fluent-design-system/index) をサポートするコントロールなど最新の UWP 機能を、デスクトップ アプリのウィンドウやその他のディスプレイ サーフェスに完全に統合できます。 この開発者シナリオは "*XAML Islands*" とも呼ばれます。
 
 詳細については、「[UWP controls in desktop apps (デスクトップ アプリでの UWP コントロール)](xaml-islands.md)」を参照してください。
 
