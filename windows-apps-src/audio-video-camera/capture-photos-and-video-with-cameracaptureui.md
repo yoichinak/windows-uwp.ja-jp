@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 4fb8132e7b382ee801d83986261bf71d8fef490f
-ms.sourcegitcommit: 04a6e60c3b24d6efae0f0e2ada1d66a369471fb3
+ms.openlocfilehash: d582d4815b4fb2168b187a1efff3795cc98aca02
+ms.sourcegitcommit: 99595e4938213aafdb49635d684d8ba8eb3f697a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68830417"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69487805"
 ---
 # <a name="capture-photos-and-video-with-the-windows-built-in-camera-ui"></a>Windows ビルトインカメラ UI を使用して写真とビデオをキャプチャする
 
@@ -46,7 +46,7 @@ MediaCapture を使用してオーディオ、写真、またはビデオをプ�
 
 アプリで写真を使用するために、[**SoftwareBitmap**](https://docs.microsoft.com/uwp/api/Windows.Graphics.Imaging.SoftwareBitmap)オブジェクトを作成できます。このオブジェクトは、ユニバーサル Windows アプリのさまざまな機能で使用できます。
 
-まず、プロジェクトに、 [**Windows**](https://docs.microsoft.com/uwp/api/Windows.Graphics.Imaging)の画像の名前空間を含める必要があります。
+最初に、プロジェクトに[**Windows**](https://docs.microsoft.com/uwp/api/Windows.Graphics.Imaging)の画像の名前空間を含めます。
 
 [!code-cs[UsingSoftwareBitmap](./code/CameraCaptureUIWin10/cs/MainPage.xaml.cs#SnippetUsingSoftwareBitmap)]
 
