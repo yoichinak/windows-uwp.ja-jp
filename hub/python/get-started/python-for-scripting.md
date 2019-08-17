@@ -5,17 +5,15 @@ author: mattwojo
 ms.author: mattwoj
 manager: jken
 ms.topic: article
-ms.prod: windows
-ms.technology: hub
 keywords: python、windows 10、microsoft、python システム管理、python ファイルオートメーション、windows 上の python スクリプト、windows での python 開発環境、windows 上の python 開発環境、windows 上の python 開発環境、powershell を使用した python、python スクリプトファイルシステムタスク
 ms.localizationpriority: medium
 ms.date: 07/19/2019
-ms.openlocfilehash: b34bf61f4ce4d2157df572cfbbc9337fced6cf2f
-ms.sourcegitcommit: 210034519678ba1a59744bc3a0b613b000921537
+ms.openlocfilehash: 93fdea3347cc15aa6231ff90fb18eb2f7defb201
+ms.sourcegitcommit: a28a32fff9d15ecf4a9d172cd0a04f4d993f9d76
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68473665"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959068"
 ---
 # <a name="get-started-using-python-on-windows-for-scripting-and-automation"></a>Windows での Python を使用したスクリプト作成と自動化の概要
 
@@ -41,7 +39,7 @@ Microsoft Store を使用して Python をインストールするには:
 
 ## <a name="install-visual-studio-code"></a>Visual Studio Code のインストール
 
-テキストエディター/統合開発環境 (IDE) として VS Code を使用すると、 [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) (コード補完機能) を利用して[(コード](https://code.visualstudio.com/docs/python/linting)のエラーを回避するのに役立ちます)、[デバッグサポート](https://code.visualstudio.com/docs/python/debugging)(エラーの検出に役立ちます) を利用できます。実行後のコード)、[コードスニペット](https://code.visualstudio.com/docs/editor/userdefinedsnippets)(小さい再利用可能なコードブロック用のテンプレート)、[単体テスト](https://code.visualstudio.com/docs/python/unit-testing)(さまざまな種類の入力によるコードのインターフェイスのテスト) があります。
+テキストエディター/統合開発環境 (IDE) として VS Code を使用すると、 [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) (コード補完機能) を利用して[リンティング](https://code.visualstudio.com/docs/python/linting) (コードのエラーを回避するのに役立ちます)、[デバッグサポート](https://code.visualstudio.com/docs/python/debugging)(エラーの検出に役立ちます) を利用できます。実行後のコード)、[コードスニペット](https://code.visualstudio.com/docs/editor/userdefinedsnippets)(小さい再利用可能なコードブロック用のテンプレート)、[単体テスト](https://code.visualstudio.com/docs/python/unit-testing)(さまざまな種類の入力によるコードのインターフェイスのテスト) があります。
 
 Windows の VS Code をダウンロードし、インストール手順[https://code.visualstudio.com](https://code.visualstudio.com)に従います。
 
