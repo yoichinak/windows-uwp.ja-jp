@@ -5,17 +5,15 @@ author: mattwojo
 ms.author: mattwoj
 manager: jken
 ms.topic: article
-ms.prod: windows
-ms.technology: hub
 keywords: python、windows 10、microsoft、python on windows、python web with wsl、windows subsystem for linux を使用した python web アプリ、windows 上の python web 開発、windows 上の flask アプリ、django app on windows、python web、flask web dev on windows、django web dev on windows、windows web dev with python、vs code python web dev、remote wsl extension、ubuntu、wsl、ベンダー、pip、microsoft python extension、windows での python の実行、windows での python の使用、windows での python のビルド
 ms.localizationpriority: medium
 ms.date: 07/19/2019
-ms.openlocfilehash: eafe85ac7e954d1a76708b059a191c14526afff8
-ms.sourcegitcommit: 210034519678ba1a59744bc3a0b613b000921537
+ms.openlocfilehash: fa6da9f5151d9457aafd255c9d10c91e3d219cee
+ms.sourcegitcommit: a28a32fff9d15ecf4a9d172cd0a04f4d993f9d76
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68473692"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959085"
 ---
 # <a name="get-started-using-python-for-web-development-on-windows"></a>Windows での web 開発用の Python の使用を開始する
 
@@ -51,7 +49,7 @@ WSL で実行できる Linux ディストリビューションがいくつかあ
 
 ## <a name="set-up-visual-studio-code"></a>Visual Studio Code の設定
 
-VS Code を使用して、 [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense)、インライン[処理、](https://code.visualstudio.com/docs/python/linting)[デバッグサポート](https://code.visualstudio.com/docs/python/debugging)、[コードスニペット](https://code.visualstudio.com/docs/editor/userdefinedsnippets)、[単体テスト](https://code.visualstudio.com/docs/python/unit-testing)を活用できます。 VS Code は、Windows Subsystem for Linux に適切に統合されており、[組み込みのターミナル](https://code.visualstudio.com/docs/editor/integrated-terminal)を使用して、コードエディターとコマンドラインの間でシームレスなワークフローを確立します。また、共通の git による[バージョン管理のために git](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)をサポートしています。コマンド (追加、コミット、プッシュ、プル) が UI に組み込まれています。
+VS Code を使用して、[IntelliSense](https://code.visualstudio.com/docs/editor/intellisense)、[インライン処理](https://code.visualstudio.com/docs/python/linting)、[デバッグサポート](https://code.visualstudio.com/docs/python/debugging)、[コードスニペット](https://code.visualstudio.com/docs/editor/userdefinedsnippets)、[単体テスト](https://code.visualstudio.com/docs/python/unit-testing)を活用できます。 VS Code は、Windows Subsystem for Linux に適切に統合されており、[組み込みのターミナル](https://code.visualstudio.com/docs/editor/integrated-terminal)を使用して、コードエディターとコマンドラインの間でシームレスなワークフローを確立します。また、共通の git による[バージョン管理のために git](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)をサポートしています。コマンド (追加、コミット、プッシュ、プル) が UI に組み込まれています。
 
 1. [Windows 用の VS Code をダウンロードしてインストール](https://code.visualstudio.com)します。 VS Code は Linux でも使用できますが、Windows Subsystem for Linux は GUI アプリをサポートしていないため、Windows にインストールする必要があります。 心配しなくても、リモートの WSL 拡張機能を使用して Linux コマンドラインやツールと統合できます。
 
@@ -94,7 +92,7 @@ Python 開発プロジェクトのベストプラクティスとして、仮想�
     ![仮想環境を作成する](../../images/wsl-venv.png)
 
 > [!TIP]
-> プロジェクトを作成するディレクトリ内に仮想環境を作成することをお勧めします。 各プロジェクトは個別のディレクトリにする必要があるため、それぞれに独自の仮想環境があるため、一意の名前を付ける必要はありません。 ここでは、Python 規則に従うために、と**いう名前を**使用することを提案します。 プロジェクトディレクトリにをインストールすると、一部のツール (pipenv など) も既定でこの名前になります。 環境変数の定義ファイルと競合するため、 **env**は使用しません。 通常、ディレクトリが存在することを常に示す必要が`ls`ないため、ドットではない名前を使用することはお勧めしません。 また、お使いの gifile**に追加する**ことをお勧めします。 (ここでは、 [Python 用の GitHub の既定の .gitignore](https://github.com/github/gitignore/blob/50e42aa1064d004a5c99eaa72a2d8054a0d8de55/Python.gitignore#L99-L106) for リファレンスを示しています)。VS Code での仮想環境の操作の詳細については、「 [VS Code での Python 環境の使用](https://code.visualstudio.com/docs/python/environments)」を参照してください。
+> プロジェクトを作成するディレクトリ内に仮想環境を作成することをお勧めします。 各プロジェクトは個別のディレクトリにする必要があるため、それぞれに独自の仮想環境があるため、一意の名前を付ける必要はありません。 ここでは、Python 規則に従うために、という名前を使用することを提案します。 プロジェクトディレクトリにをインストールすると、一部のツール (pipenv など) も既定でこの名前になります。 環境変数の定義ファイルと競合するため、 **env**は使用しません。 通常、ディレクトリが存在することを常に示す必要が`ls`ないため、ドットではない名前を使用することはお勧めしません。 また、お使いの gifile に追加することをお勧めします。 (ここでは、 [Python 用の GitHub の既定の .gitignore](https://github.com/github/gitignore/blob/50e42aa1064d004a5c99eaa72a2d8054a0d8de55/Python.gitignore#L99-L106) for リファレンスを示しています)。VS Code での仮想環境の操作の詳細については、「 [VS Code での Python 環境の使用](https://code.visualstudio.com/docs/python/environments)」を参照してください。
 
 ## <a name="open-a-wsl---remote-window"></a>WSL-リモートウィンドウを開く
 
