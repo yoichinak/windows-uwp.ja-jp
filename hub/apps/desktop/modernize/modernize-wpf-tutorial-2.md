@@ -2,18 +2,18 @@
 description: このチュートリアルでは、UWP XAML ユーザーインターフェイスを追加する方法、MSIX パッケージを作成する方法、およびその他の最新のコンポーネントを WPF アプリに組み込む方法について説明します。
 title: XAML Islandsを使って UWP InkCanvas コントロールを追加
 ms.topic: article
-ms.date: 07/17/2019
+ms.date: 08/15/2019
 ms.author: mcleans
 author: mcleanbyron
 keywords: windows 10、uwp、windows フォーム、wpf、xaml islands
 ms.localizationpriority: medium
 ms.custom: RS5, 19H1
-ms.openlocfilehash: 4d504686e2ff50700e3f4bf242ef5d16be814894
-ms.sourcegitcommit: 3cc6eb3bab78f7e68c37226c40410ebca73f82a9
+ms.openlocfilehash: fb7bb6d4e5af8992571f9740c1321e271b2e1672
+ms.sourcegitcommit: 6bb794c6e309ba543de6583d96627fbf1c177bef
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68729483"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69643426"
 ---
 # <a name="part-2-add-a-uwp-inkcanvas-control-using-xaml-islands"></a>第 2 部: XAML Islandsを使って UWP InkCanvas コントロールを追加
 
@@ -25,18 +25,18 @@ ms.locfileid: "68729483"
 
 追加する前に、 **InkCanvas** UWP XAML Islandsをサポートするためにプロジェクトを構成する最初必要である Contoso 経費アプリを制御します。
 
-1. Visual Studio 2019 で**ソリューションエクスプローラー**で**ContosoExpenses**プロジェクトを右クリックし、[ **NuGet パッケージの管理**] を選択します。
+1. Visual Studio 2019 で**ソリューションエクスプローラー**で**ContosoExpenses**プロジェクトを右クリックし、 **[NuGet パッケージの管理]** を選択します。
 
     ![Visual Studio の [NuGet パッケージの管理] メニュー](images/wpf-modernize-tutorial//ManageNuGetPackages.png)
 
-2. [ **NuGet パッケージマネージャー** ] ウィンドウで、[**参照**] をクリックします。 [**プレリリースを含める**] オプションを選択`Microsoft.Toolkit.Wpf.UI.Controls`し、パッケージを検索して、結果に示されているパッケージの最新のプレビューリリースをインストールします。 バージョン 6.0.0-preview7 以降のバージョンをインストールしていることを確認してください。
+2. **[NuGet パッケージマネージャー]** ウィンドウで、 **[参照]** をクリックします。 **[プレリリースを含める]** オプションを選択`Microsoft.Toolkit.Wpf.UI.Controls`し、パッケージを検索して、結果に示されているパッケージの最新のプレビューリリースをインストールします。 バージョン 6.0.0-preview7 以降のバージョンをインストールしていることを確認してください。
 
     > [!NOTE]
     > このパッケージには、WPF アプリケーションでは、UWP XAML Islandsをホストするためのすべての必要なインフラストラクチャが含まれています。 など、 **InkCanvas** UWP コントロールをラップします。 という名前`Microsoft.Toolkit.Forms.UI.Controls`のパッケージは、Windows フォームアプリでも使用できます。
 
-3. **ソリューションエクスプローラー**で [ **ContosoExpenses**プロジェクト] を右クリックし、[**追加] > [新しい項目**] の順に選択します。
+3. **ソリューションエクスプローラー**で **[ContosoExpenses]** プロジェクト を右クリックし、[**追加] > [新しい項目**] の順に選択します。
 
-4. [**アプリケーションマニフェストファイル**] を選択し、「 **app.xaml**」という名前を指定して、[**追加**] をクリックします。 アプリケーションマニフェストの詳細については、こちらの[記事](https://docs.microsoft.com/windows/desktop/SbsCs/application-manifests)を参照してください。
+4. **[アプリケーションマニフェストファイル]** を選択し、「 **app.xaml**」という名前を指定して、 **[追加]** をクリックします。 アプリケーションマニフェストの詳細については、こちらの[記事](https://docs.microsoft.com/windows/desktop/SbsCs/application-manifests)を参照してください。
 
 5. マニフェストファイルで、Windows 10 の次`<supportedOS>`の要素をコメント解除します。
 
@@ -70,9 +70,9 @@ ms.locfileid: "68729483"
 
 8. `app.manifest`ファイルを保存して閉じます。
 
-9. **ソリューションエクスプローラー**で、 **ContosoExpenses**プロジェクトを右クリックし、[**プロパティ**] を選択します。
+9. **ソリューションエクスプローラー**で、 **ContosoExpenses**プロジェクトを右クリックし、 **[プロパティ]** を選択します。
 
-10. [**アプリケーション**] タブの [**リソース**] セクションで、[**マニフェスト**] ドロップダウンが [ **app.xaml**] に設定されていることを確認します。
+10. **[アプリケーション]** タブの **[リソース]** セクションで、 **[マニフェスト]** ドロップダウンが **[app.xaml]** に設定されていることを確認します。
 
     ![.NET Core アプリケーションマニフェスト](images/wpf-modernize-tutorial/NetCoreAppManifest.png)
 
@@ -82,7 +82,7 @@ ms.locfileid: "68729483"
 
 追加する準備ができました UWP XAML Islandsを使用するプロジェクトを構成したところ、 [InkCanvas](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/inkcanvas)をアプリに UWP コントロールをラップします。
 
-1. **ソリューションエクスプローラー**で、ContosoExpenses プロジェクト**の Views**フォルダーを展開し、[ **] ファイルを**ダブルクリックします。
+1. **ソリューションエクスプローラー**で、ContosoExpenses プロジェクトの**Views**フォルダーを展開し、[ ] ファイルをダブルクリックします。
 
 2. XAML ファイルの先頭付近にある**ウィンドウ**要素に、次の属性を追加します。 これは、 [system.windows.controls.inkcanvas>](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/inkcanvas)ラップされた UWP コントロールの XAML 名前空間を参照します。
 
@@ -107,7 +107,7 @@ ms.locfileid: "68729483"
             Background="{StaticResource HorizontalBackground}">
     ```
 
-4. 配置ファイル**で**、コメントの`</Grid>` `<!-- Chart -->`直前にある終了タグを探します。 次の XAML を終了`</Grid>`タグの直前に追加します。 この XAML は、 **system.windows.controls.inkcanvas>** コントロール (前に名前空間として定義した**toolkit**キーワードで始まります) と、コントロールのヘッダーとして機能する単純な**TextBlock**を追加します。
+4. 配置ファイルで、コメントの`</Grid>` `<!-- Chart -->`直前にある終了タグを探します。 次の XAML を終了`</Grid>`タグの直前に追加します。 この XAML は、 **system.windows.controls.inkcanvas>** コントロール (前に名前空間として定義した**toolkit**キーワードで始まります) と、コントロールのヘッダーとして機能する単純な**TextBlock**を追加します。
 
     ```xml
     <TextBlock Text="Signature:" FontSize="16" FontWeight="Bold" Grid.Row="5" />
@@ -115,7 +115,7 @@ ms.locfileid: "68729483"
     <toolkit:InkCanvas x:Name="Signature" Grid.Row="6" />
     ```
 
-5. このファイル**を**保存します。
+5. このファイルを保存します。
 
 6. F5 キーを押して、デバッガーでアプリを実行します。
 
