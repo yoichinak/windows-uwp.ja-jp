@@ -52,7 +52,7 @@ Windows アプリで音声の相互作用を使用するさまざまな方法の
 
 Windows アプリケーションを強化するために使用できるさまざまな AI ソリューションをいくつか提供しています。 Windows Machine Learning では、トレーニング済みのマシン学習モデルをアプリに統合し、デバイス上でローカルに実行できます。 Windows Vision Skills を使用すると、構築済みのライブラリを使用して一般的なイメージ処理タスクを実行するか、独自のカスタム ソリューションを作成できます。 DirectML は、ハードウェアを十分に活用するための低レベルの DirectX スタイル API を提供します。
 
-Windows アプリに AI を統合するさまざまな方法の詳細については、[Windows AI](https://docs.microsoft.com/windows/ai/)参照してください。
+Windows アプリに AI を統合するさまざまな方法の詳細については、[Windows AI](https://docs.microsoft.com/windows/ai/)を参照してください。
 
 ## <a name="features-and-technologies-by-platform"></a>機能とプラットフォームでのテクノロジ
 
