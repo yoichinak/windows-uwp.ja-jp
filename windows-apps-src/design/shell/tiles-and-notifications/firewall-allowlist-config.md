@@ -9,20 +9,25 @@ ms.date: 05/20/2019
 ms.topic: article
 keywords: windows 10、uwp、WNS、windows notification service、通知、windows、ファイアウォール、トラブルシューティング、IP、トラフィック、エンタープライズ、ネットワーク、IPv4、VIP、FQDN、パブリック IP アドレス
 ms.localizationpriority: medium
-ms.openlocfilehash: 1f8a72eec46971fa27a4bd0dec112430f2eb3535
-ms.sourcegitcommit: 789bfe3756c5c47f7324b96f482af636d12c0ed3
+ms.openlocfilehash: 817dec616a88f0b374bc019cbbf23f56fad94484
+ms.sourcegitcommit: 820704a73174e81da3dc00cf0603c0c82471cdfe
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68867306"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69908450"
 ---
-# <a name="allowing-windows-notification-traffic-through-enterprise-firewalls"></a>エンタープライズファイアウォールを介した Windows 通知トラフィックの許可
+# <a name="enterprise-firewall-and-proxy-configurations-to-support-wns-traffic"></a>WNS トラフィックをサポートするためのエンタープライズファイアウォールとプロキシ構成
 
 ## <a name="background"></a>背景情報
-多くの企業ではファイアウォールを使用して、不要なネットワークトラフィックをブロックしています。残念ながら、これは Windows Notification Service の通信などの重要な機能もブロックする可能性があります。 これは、WNS 経由で送信されたすべての通知が削除されることを意味します。 これを回避するために、ネットワーク管理者は、承認された WNS チャネルの一覧を除外リストに追加して、WNS トラフィックがファイアウォールを通過できるようにすることができます。 次に、を追加する方法とその方法について詳しく説明します。 
+多くの企業ではファイアウォールを使用して、不要なネットワークトラフィックをブロックしています。残念ながら、これは Windows Notification Service の通信などの重要な機能もブロックする可能性があります。 つまり、WNS を介して送信されるすべての通知は、特定のネットワーク構成で削除されます。 これを回避するために、ネットワーク管理者は、承認された WNS チャネルの一覧を除外リストに追加して、WNS トラフィックがファイアウォールを通過できるようにすることができます。 次に、さまざまなプロキシの種類のサポートに加え、追加の方法と用途について詳しく説明します。
+
+## <a name="proxy-support"></a>プロキシのサポート
 
 > [!Note] 
-6/24/2019 のうち、Windows クライアントではプロキシがサポート**されていない**ため、WNS への接続は直接接続である必要があります。
+Windows クライアントは、すべてのプロキシをサポートし**ていません**。 WNS への接続は直接接続である必要があります。
+
+**もうすぐです！** さまざまなネットワーク構成、プロキシ、およびファイアウォールを積極的に調査しています。 このページは、一般的なエンタープライズシナリオと WNS サポートについて、さらに詳しく説明します。
+
 
 ## <a name="what-information-should-be-added-to-the-allowlist"></a>許可リストに追加する必要がある情報
 Windows Notification Service によって使用される Fqdn、Vip、および IP アドレスの範囲を含む一覧を次に示します。 

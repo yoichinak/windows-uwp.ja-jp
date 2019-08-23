@@ -8,16 +8,19 @@ ms.topic: article
 keywords: python、windows 10、microsoft、python システム管理、python ファイルオートメーション、windows 上の python スクリプト、windows での python 開発環境、windows 上の python 開発環境、windows 上の python 開発環境、powershell を使用した python、python スクリプトファイルシステムタスク
 ms.localizationpriority: medium
 ms.date: 07/19/2019
-ms.openlocfilehash: 93fdea3347cc15aa6231ff90fb18eb2f7defb201
-ms.sourcegitcommit: a28a32fff9d15ecf4a9d172cd0a04f4d993f9d76
+ms.openlocfilehash: dbb7a60103c27f648ca8bf23f87dee06923f0cd9
+ms.sourcegitcommit: e9dc2711f0a0758727468f7ccd0d0f0eee3363e3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959068"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69979327"
 ---
 # <a name="get-started-using-python-on-windows-for-scripting-and-automation"></a>Windows での Python を使用したスクリプト作成と自動化の概要
 
 次に示すのは、開発環境を設定し、Windows でのファイルシステム操作のスクリプト作成と自動化を行うための Python の使用を開始するためのステップバイステップガイドです。
+
+> [!NOTE]
+> この記事では、Python の便利なライブラリの一部を使用するように環境をセットアップする方法について説明します。これにより、ファイルシステムの検索、インターネットへのアクセス、ファイルの種類の解析など、プラットフォーム間でのタスクを自動化することができます。 Windows 固有の操作の場合は、 [ctypes](https://docs.python.org/3/library/ctypes.html)、python 用の C 互換の外部関数ライブラリ、 [winreg](https://docs.python.org/3/library/winreg.html)、Windows レジストリ API を python に公開する関数、および[python/WinRT](https://pypi.org/project/winrt/)を使用してアクセス Windows ランタイム api からPython.
 
 ## <a name="set-up-your-development-environment"></a>開発環境の設定
 
