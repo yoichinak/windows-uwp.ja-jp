@@ -41,7 +41,7 @@ Windows Ink を使うと、ユーザーに、ペンと紙の体験とほぼ同�
 * 構成によっては、インストールする必要があります、 [Microsoft.NETCore.UniversalWindowsPlatform](https://www.nuget.org/packages/Microsoft.NETCore.UniversalWindowsPlatform) NuGet のパッケージ化し、有効にする**開発者モード**(設定)、[更新プログラム、システム設定(& A) の開発者が使用して開発者向けの機能]-> [セキュリティ] の順)。
 * Visual Studio を使ってユニバーサル Windows プラットフォーム (UWP) アプリの開発を初めて行う場合は、このチュートリアルを開始する前に、次のトピックをご覧ください。  
     * [準備](https://docs.microsoft.com/windows/uwp/get-started/get-set-up)
-    * [作成「こんにちは, world」アプリ (XAML)](https://docs.microsoft.com/windows/uwp/get-started/create-a-hello-world-app-xaml-universal)
+    * ["Hello, world" アプリを作成する (XAML)](https://docs.microsoft.com/windows/uwp/get-started/create-a-hello-world-app-xaml-universal)
 * **[オプション]** デジタル ペンと、そのデジタル ペンからの入力をサポートしているディスプレイを搭載したコンピューター。
 
 > [!NOTE] 
