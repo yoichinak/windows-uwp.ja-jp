@@ -55,11 +55,11 @@ UWP コンテンツは、アプリ内でホストできるさまざまな方法�
 
     > [!NOTE]
     > AppWindow は現在プレビューの段階です。 これは、AppWindow を使用するアプリをストアに送信できることを意味しますが、一部のプラットフォームおよびフレームワークコンポーネントは AppWindow で動作しないことがわかっています (「[制限事項](/uwp/api/windows.ui.windowmanagement.appwindow#limitations)」を参照してください)。
-- [Desktopwindowxamlsource](/uwp/api/windows.ui.xaml.hosting.desktopwindowxamlsource)(XAML アイランド)
+- [Desktopwindowxamlsource](/uwp/api/windows.ui.xaml.hosting.desktopwindowxamlsource)(XAML Islands)
 
-     Win32 アプリ内の UWP XAML コンテンツ (HWND を使用) は、XAML アイランドとも呼ばれ、DesktopWindowXamlSource でホストされます。
+     Win32 アプリ内の UWP XAML コンテンツ (HWND を使用) は、XAML Islands とも呼ばれ、DesktopWindowXamlSource でホストされます。
 
-    XAML アイランドの詳細については、「[デスクトップアプリケーションでの UWP XAML ホスティング API の使用](/windows/apps/desktop/modernize/using-the-xaml-hosting-api)」を参照してください。
+    XAML Islands の詳細については、「[デスクトップアプリケーションでの UWP XAML ホスティング API の使用](/windows/apps/desktop/modernize/using-the-xaml-hosting-api)」を参照してください。
 
 ### <a name="make-code-portable-across-windowing-hosts"></a>ウィンドウ内のホスト間でコードの移植性を確保する
 
@@ -86,7 +86,7 @@ XamlRoot クラスは、XAML コンテンツのツリー、および XAML コン
 | Window. Current.[境界](/uwp/api/windows.ui.xaml.window.bounds) | _uiElement_。XamlRoot。[サイズ](/uwp/api/windows.ui.xaml.xamlroot.size) |
 | Window. Current.[コンテンツ](/uwp/api/windows.ui.xaml.window.content) | UIElement root = _uielement_。XamlRoot。[コンテンツ](/uwp/api/windows.ui.xaml.xamlroot.content) |
 | Window. Current.[コンポジター](/uwp/api/windows.ui.xaml.window.compositor) | Unchanged. これは、AppWindow と DesktopWindowXamlSource でサポートされています。 |
-| VisualTreeHelper.[GetOpenPopups](/uwp/api/windows.ui.xaml.media.visualtreehelper.getopenpopups)<br/>XAML アイランドアプリでは、これによってエラーがスローされます。 AppWindow アプリでは、メインウィンドウに開いているポップアップが返されます。 | VisualTreeHelper.[GetOpenPopupsForXamlRoot](/uwp/api/windows.ui.xaml.media.visualtreehelper.getopenpopupsforxamlroot)(_uiElement_。XamlRoot) |
+| VisualTreeHelper.[GetOpenPopups](/uwp/api/windows.ui.xaml.media.visualtreehelper.getopenpopups)<br/>XAML Islands アプリでは、これによってエラーがスローされます。 AppWindow アプリでは、メインウィンドウに開いているポップアップが返されます。 | VisualTreeHelper.[GetOpenPopupsForXamlRoot](/uwp/api/windows.ui.xaml.media.visualtreehelper.getopenpopupsforxamlroot)(_uiElement_。XamlRoot) |
 | System.windows.input.focusmanager>.[System.windows.input.focusmanager.getfocusedelement](/uwp/api/windows.ui.xaml.input.focusmanager.getfocusedelement) | System.windows.input.focusmanager>.[System.windows.input.focusmanager.getfocusedelement](/uwp/api/windows.ui.xaml.input.focusmanager.getfocusedelement#Windows_UI_Xaml_Input_FocusManager_GetFocusedElement_Windows_UI_Xaml_XamlRoot_)(_uiElement_。XamlRoot) |
 | contentDialog. ShowAsync () | contentDialog。[Xamlroot](/uwp/api/windows.ui.xaml.uielement.xamlroot) =  _uiElement_。XamlRoot;<br/>contentDialog. ShowAsync (); |
 | menuFlyout イン (null、新しいポイント (10、10))。 | menuFlyout アウト。[Xamlroot](/uwp/api/windows.ui.xaml.controls.primitives.flyoutbase.xamlroot) =  _uiElement_。XamlRoot;<br/>menuFlyout イン (null、新しいポイント (10、10))。 |
