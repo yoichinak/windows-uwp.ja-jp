@@ -11,12 +11,12 @@ dev-contact: ''
 doc-status: Published
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: e00c9860ca2aa8661581de265fff106c45b30ab5
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 7431e9e41c008471fccdb955a64d44316855de0d
+ms.sourcegitcommit: 77df36d2a7391cbc588d44c47ac02d0701092264
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67319398"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69976215"
 ---
 # <a name="navigation-view"></a>ナビゲーション ビュー
 
@@ -709,6 +709,29 @@ void MainPage::NavView_ItemInvoked(Windows::Foundation::IInspectable const & /* 
     </Application.Resources>
 </Application>
 ```
+
+### <a name="top-whitespace"></a>先頭の空白
+一部のアプリでは、[そのウィンドウのタイトル バーをカスタマイズ](https://docs.microsoft.com/windows/uwp/design/shell/title-bar)するように選択できるため、そのアプリのコンテンツがタイトル バー領域に拡張される可能性があります。 NavigationView が、 **[ExtendViewIntoTitleBar](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplicationviewtitlebar.extendviewintotitlebar) API を使用**してタイトル バーに拡張されるアプリ内のルート要素である場合、[ドラッグ可能な領域](https://docs.microsoft.com/windows/uwp/design/shell/title-bar#draggable-regions)との重なりを避けるためその対話型要素の位置が自動的に調整されます。 
+![アプリのタイトル バーへの拡張](images/navigation-view-with-titlebar-padding.png)
+
+[Window.SetTitleBar](https://docs.microsoft.com/uwp/api/windows.ui.xaml.window.settitlebar) メソッドを呼び出して、ドラッグ可能な領域がアプリによって指定され、戻るボタンやメニュー ボタンをアプリ ウィンドウの上部近くに配置したい場合は、`IsTitleBarAutoPaddingEnabled` を False に設定します。
+
+![余白なしのアプリのタイトル バーへの拡張](images/navigation-view-no-titlebar-padding.png)
+
+```Xaml
+<muxc:NavigationView x:Name="NavView" IsTitleBarAutoPaddingEnabled="False">
+```
+
+#### <a name="remarks"></a>注釈
+NavigationView のヘッダー領域の位置をさらに調整するには、Page リソース内などの *NavigationViewHeaderMargin* XAML テーマ リソースをオーバーライドします。
+
+```Xaml
+<Page.Resources>
+    <Thickness x:Key="NavigationViewHeaderMargin">12,0</Thickness>
+</Page.Resources>
+```
+
+このテーマ リソースによって、[NavigationView.Header](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.navigationview.header) の周囲の余白が変更されます。
 
 ## <a name="related-topics"></a>関連トピック
 
