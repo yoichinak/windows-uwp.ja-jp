@@ -76,20 +76,20 @@ XamlRoot クラスは、XAML コンテンツのツリー、および XAML コン
 
 | 使用した場合... | 置換後の文字列... |
 | - | - |
-| CoreWindow。 GetForCurrentThread ()。[境界](/uwp/api/windows.ui.core.corewindow.bounds) | _uiElement_。XamlRoot。[サイズ](/uwp/api/windows.ui.xaml.xamlroot.size) |
-| CoreWindow。 GetForCurrentThread ()。[Sizechanged](/uwp/api/windows.ui.core.corewindow.sizechanged) | _uiElement_。XamlRoot。[変更](/uwp/api/windows.ui.xaml.xamlroot.changed)済み |
-| CoreWindow.[表示](/uwp/api/windows.ui.core.corewindow.visible) | _uiElement_。XamlRoot。[Ishostvisible](/uwp/api/windows.ui.xaml.xamlroot.ishostvisible) |
-| CoreWindow.[VisibilityChanged](/uwp/api/windows.ui.core.corewindow.visibilitychanged) | _uiElement_。XamlRoot。[変更](/uwp/api/windows.ui.xaml.xamlroot.changed)済み |
-| CoreWindow。 GetForCurrentThread ()。[Getkeystate](/uwp/api/windows.ui.core.corewindow.getkeystate) | Unchanged. これは、AppWindow と DesktopWindowXamlSource でサポートされています。 |
-| CoreWindow。 GetForCurrentThread ()。[GetAsyncKeyState](/uwp/api/windows.ui.core.corewindow.getasynckeystate) | Unchanged. これは、AppWindow と DesktopWindowXamlSource でサポートされています。 |
-| Windows.[現在の](/uwp/api/windows.ui.xaml.window.current) | 現在の CoreWindow に密接にバインドされているメイン XAML ウィンドウオブジェクトを返します。 この表の後の注を参照してください。 |
-| Window. Current.[境界](/uwp/api/windows.ui.xaml.window.bounds) | _uiElement_。XamlRoot。[サイズ](/uwp/api/windows.ui.xaml.xamlroot.size) |
-| Window. Current.[コンテンツ](/uwp/api/windows.ui.xaml.window.content) | UIElement root = _uielement_。XamlRoot。[コンテンツ](/uwp/api/windows.ui.xaml.xamlroot.content) |
-| Window. Current.[コンポジター](/uwp/api/windows.ui.xaml.window.compositor) | Unchanged. これは、AppWindow と DesktopWindowXamlSource でサポートされています。 |
-| VisualTreeHelper.[GetOpenPopups](/uwp/api/windows.ui.xaml.media.visualtreehelper.getopenpopups)<br/>XAML Islands アプリでは、これによってエラーがスローされます。 AppWindow アプリでは、メインウィンドウに開いているポップアップが返されます。 | VisualTreeHelper.[GetOpenPopupsForXamlRoot](/uwp/api/windows.ui.xaml.media.visualtreehelper.getopenpopupsforxamlroot)(_uiElement_。XamlRoot) |
+| CoreWindow.GetForCurrentThread().[Bounds](/uwp/api/windows.ui.core.corewindow.bounds) | _uiElement_.XamlRoot.[Size](/uwp/api/windows.ui.xaml.xamlroot.size) |
+| CoreWindow.GetForCurrentThread().[SizeChanged](/uwp/api/windows.ui.core.corewindow.sizechanged) | _uiElement_.XamlRoot.[Changed](/uwp/api/windows.ui.xaml.xamlroot.changed) |
+| CoreWindow.[Visible](/uwp/api/windows.ui.core.corewindow.visible) | _uiElement_.XamlRoot.[IsHostVisible](/uwp/api/windows.ui.xaml.xamlroot.ishostvisible) |
+| CoreWindow.[VisibilityChanged](/uwp/api/windows.ui.core.corewindow.visibilitychanged) | _uiElement_.XamlRoot.[Changed](/uwp/api/windows.ui.xaml.xamlroot.changed) |
+| CoreWindow.GetForCurrentThread().[GetKeyState](/uwp/api/windows.ui.core.corewindow.getkeystate) | Unchanged. これは、AppWindow と DesktopWindowXamlSource でサポートされています。 |
+| CoreWindow.GetForCurrentThread().[GetAsyncKeyState](/uwp/api/windows.ui.core.corewindow.getasynckeystate) | Unchanged. これは、AppWindow と DesktopWindowXamlSource でサポートされています。 |
+| Window.[Current](/uwp/api/windows.ui.xaml.window.current) | 現在の CoreWindow に密接にバインドされているメイン XAML ウィンドウオブジェクトを返します。 この表の後の注を参照してください。 |
+| Window.Current.[Bounds](/uwp/api/windows.ui.xaml.window.bounds) | _uiElement_.XamlRoot.[Size](/uwp/api/windows.ui.xaml.xamlroot.size) |
+| Window.Current.[Content](/uwp/api/windows.ui.xaml.window.content) | UIElement root =  _uiElement_.XamlRoot.[Content](/uwp/api/windows.ui.xaml.xamlroot.content) |
+| Window.Current.[Compositor](/uwp/api/windows.ui.xaml.window.compositor) | Unchanged. これは、AppWindow と DesktopWindowXamlSource でサポートされています。 |
+| VisualTreeHelper.[GetOpenPopups](/uwp/api/windows.ui.xaml.media.visualtreehelper.getopenpopups)<br/>XAML Islands アプリでは、これによってエラーがスローされます。 AppWindow アプリでは、メインウィンドウに開いているポップアップが返されます。 | VisualTreeHelper.[GetOpenPopupsForXamlRoot](/uwp/api/windows.ui.xaml.media.visualtreehelper.getopenpopupsforxamlroot)(_uiElement_.XamlRoot) |
 | System.windows.input.focusmanager>.[System.windows.input.focusmanager.getfocusedelement](/uwp/api/windows.ui.xaml.input.focusmanager.getfocusedelement) | System.windows.input.focusmanager>.[System.windows.input.focusmanager.getfocusedelement](/uwp/api/windows.ui.xaml.input.focusmanager.getfocusedelement#Windows_UI_Xaml_Input_FocusManager_GetFocusedElement_Windows_UI_Xaml_XamlRoot_)(_uiElement_。XamlRoot) |
-| contentDialog. ShowAsync () | contentDialog。[Xamlroot](/uwp/api/windows.ui.xaml.uielement.xamlroot) =  _uiElement_。XamlRoot;<br/>contentDialog. ShowAsync (); |
-| menuFlyout イン (null、新しいポイント (10、10))。 | menuFlyout アウト。[Xamlroot](/uwp/api/windows.ui.xaml.controls.primitives.flyoutbase.xamlroot) =  _uiElement_。XamlRoot;<br/>menuFlyout イン (null、新しいポイント (10、10))。 |
+| contentDialog.ShowAsync() | contentDialog.[XamlRoot](/uwp/api/windows.ui.xaml.uielement.xamlroot) = _uiElement_.XamlRoot;<br/>contentDialog. ShowAsync (); |
+| menuFlyout.ShowAt(null, new Point(10, 10)); | menuFlyout.[XamlRoot](/uwp/api/windows.ui.xaml.controls.primitives.flyoutbase.xamlroot) = _uiElement_.XamlRoot;<br/>menuFlyout.ShowAt(null, new Point(10, 10)); |
 
 > [!NOTE]
 > DesktopWindowXamlSource の XAML コンテンツの場合、スレッドに CoreWindow/Window が存在しますが、常に非表示になり、サイズが1x1 になります。 アプリには引き続きアクセスできますが、意味のある境界や可視性は返されません。
