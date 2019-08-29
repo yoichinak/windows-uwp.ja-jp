@@ -76,10 +76,10 @@ XamlRoot クラスは、XAML コンテンツのツリー、および XAML コン
 
 | 使用した場合... | 置換後の文字列... |
 | - | - |
-| CoreWindow。 GetForCurrentThread ()。[境界](/uwp/api/windows.ui.core.corewindow.bounds) | _uiElement_。XamlRoot。[サイズ](/uwp/api/windows.ui.xaml.xamlroot.size) |
-| CoreWindow。 GetForCurrentThread ()。[Sizechanged](/uwp/api/windows.ui.core.corewindow.sizechanged) | _uiElement_。XamlRoot。[変更](/uwp/api/windows.ui.xaml.xamlroot.changed)済み |
-| CoreWindow.[表示](/uwp/api/windows.ui.core.corewindow.visible) | _uiElement_。XamlRoot。[Ishostvisible](/uwp/api/windows.ui.xaml.xamlroot.ishostvisible) |
-| CoreWindow.[VisibilityChanged](/uwp/api/windows.ui.core.corewindow.visibilitychanged) | _uiElement_。XamlRoot。[変更](/uwp/api/windows.ui.xaml.xamlroot.changed)済み |
+| CoreWindow.GetForCurrentThread().[Bounds](/uwp/api/windows.ui.core.corewindow.bounds) | _uiElement_.XamlRoot.[Size](/uwp/api/windows.ui.xaml.xamlroot.size) |
+| CoreWindow.GetForCurrentThread().[SizeChanged](/uwp/api/windows.ui.core.corewindow.sizechanged) | _uiElement_.XamlRoot.[Changed](/uwp/api/windows.ui.xaml.xamlroot.changed) |
+| CoreWindow.[Visible](/uwp/api/windows.ui.core.corewindow.visible) | _uiElement_.XamlRoot.[IsHostVisible](/uwp/api/windows.ui.xaml.xamlroot.ishostvisible) |
+| CoreWindow.[VisibilityChanged](/uwp/api/windows.ui.core.corewindow.visibilitychanged) | _uiElement_.XamlRoot.[Changed](/uwp/api/windows.ui.xaml.xamlroot.changed) |
 | CoreWindow。 GetForCurrentThread ()。[Getkeystate](/uwp/api/windows.ui.core.corewindow.getkeystate) | Unchanged. これは、AppWindow と DesktopWindowXamlSource でサポートされています。 |
 | CoreWindow。 GetForCurrentThread ()。[GetAsyncKeyState](/uwp/api/windows.ui.core.corewindow.getasynckeystate) | Unchanged. これは、AppWindow と DesktopWindowXamlSource でサポートされています。 |
 | Windows.[現在の](/uwp/api/windows.ui.xaml.window.current) | 現在の CoreWindow に密接にバインドされているメイン XAML ウィンドウオブジェクトを返します。 この表の後の注を参照してください。 |

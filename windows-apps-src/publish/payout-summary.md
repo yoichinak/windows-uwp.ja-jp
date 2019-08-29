@@ -6,12 +6,12 @@ ms.date: 08/02/2019
 ms.topic: article
 keywords: windows 10, uwp, 入金状況, ステートメントの, 支払い額, 売り上げ, 入金い, 支払い, 収益
 ms.localizationpriority: medium
-ms.openlocfilehash: 777ee4201b435f17cdc4fc3650a2d33645ff56b9
-ms.sourcegitcommit: 769ec7811aaaa79fe521e3e984a2e1a2a9671caf
+ms.openlocfilehash: 68a7de0692d05ffe8d1b489e75a58c16b3c826df
+ms.sourcegitcommit: 9779be4a1075e924dca7585808722d95cda99aff
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70057824"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70118065"
 ---
 # <a name="payout-summary"></a>支払いの概要
 
@@ -75,7 +75,6 @@ Azure Marketplace で製品を販売する場合、 **[入金状況]** に正常
 
 注:
 
-- [支払い] ページまたは [トランザクションの履歴] ページからこのページにアクセスした場合、フィルターは実行されません。 [データのエクスポート] ページで再実行する必要があります。
 - [データのエクスポート] ページは、それ自体では更新されません。 最新のデータを表示するには、手動でページを更新することが必要になる場合があります。
 - フィルターを使用すると、データを使用できないというエラーが発生する可能性があります。 これは、既定の期間を3か月で選択したままにしてから、その期間外の前払いの支払い ID を選択したことを意味します。 期間を拡大して、もう一度やり直してください。
 
@@ -83,124 +82,98 @@ Azure Marketplace で製品を販売する場合、 **[入金状況]** に正常
 
 このオプションを使用すると、特定のプログラム、関連付けられた税金、および集計された使用量について、銀行で受け取った支払いをダウンロードできます。 このレポートは多くのパートナーセンタープログラムに使用されるため、一部の列はレポートには該当しない可能性があります。 これらの列は次のようにマークされています。
 
-| 列名              | 説明                                                                                                                             |
-|--------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
-| participantID            | プログラムの下でパートナーが獲得するプライマリ id                                                                           |
-| participantIDType        | 一般に、ストアプログラムのインセンティブプログラムと販売者 ID のプログラム id                                                              |
-| participantName          | 取引先の名前                                                                                                             |
-| programName              | インセンティブ/店舗プログラム名                                                                                                            |
-| 獲得                   | そのプログラム/participantID の支払先通貨で獲得された金額                                                                     |
-| earnedUSD                | プログラム/参加者 ID の獲得金額 (USD)                                                                                    |
-| Withtax              | プログラム/participantID の支払先通貨で源泉徴収される税額                                                             |
-| salesTax                 | プログラム/participantID の支払先通貨における売上税の合計金額                                                          |
-| totalPayment             | 源泉徴収税を除く現地通貨での支払い額と、プログラム/participantID の売上税 (該当する場合) を含む合計支払額 |
-| currencyCode             | 通貨コードに支払う                                                                                                                    |
-| paymentMethod            | パートナーの支払いに使用する方法 (電子銀行の譲渡、クレジットメモ)                                                              |
-| paymentID                | 支払いの一意の識別子。 通常、この数値は銀行の明細書に表示されます。                                               |
-| paymentStatus            | 入金状況                                                                                                                          |
-| paymentStatusDescription | 支払い状態のわかりやすい説明                                                                                                  |
-| paymentDate              | Microsoft から支払いが送信された日付                                                                                                    |
+| 列名              | 説明                                                                                                                               |
+|--------------------------|-----------------------------------------------------------------------------------------------------------------------------------------  |
+| participantID            | プログラムの下でパートナーが獲得するプライマリ id                                                                             |
+| participantIDType        | 一般に、ストアプログラムのインセンティブプログラムと販売者 ID のプログラム id                                                                |
+| participantName          | 取引先の名前                                                                                                               |
+| programName              | インセンティブ/店舗プログラム名                                                                                                              |
+| 獲得                   | そのプログラム/participantID の支払先通貨で獲得された金額                                                                       |
+| earnedUSD                | プログラム/参加者 ID の獲得金額 (USD)                                                                                      |
+| Withtax              | プログラム/participantID の支払先通貨で源泉徴収される税額                                                               |
+| salesTax                 | Program/participantID の [従量課金通貨] の売上税の合計金額 (インセンティブプログラムにのみ適用可能)                   |
+| serviceFeeTax            | Program/participantID の serviceFeeTax の合計金額 (店舗プログラムと Azure Marketplace のみに適用可能) |
+| totalPayment             | 源泉徴収税を除く現地通貨での支払い額と、プログラム/participantID の売上税 (該当する場合) を含む合計支払額   |
+| currencyCode             | 通貨コードに支払う                                                                                                                      |
+| paymentMethod            | パートナーの支払いに使用される方法 (電子銀行の譲渡、クレジットメモなど)                                                             |
+| paymentID                | 支払いの一意の識別子。 通常、この数値は銀行の明細書に表示されます。 (SAP 支払いにのみ適用)              |
+| paymentStatus            | 入金状況                                                                                                                            |
+| paymentStatusDescription | 支払い状態のわかりやすい説明                                                                                                    |
+| paymentDate              | Microsoft から支払いが送信された日付                                                                                                      |
 
 ## <a name="transaction-history-download-export"></a>トランザクション履歴のダウンロードエクスポート
 
 このオプションを選択すると、[トランザクションの履歴] ページに表示される各明細項目、[処理の種類]、[日付]、[関連付けられたトランザクションの金額]、[顧客]、[製品]、およびプログラムに適用されるその他のトランザクションの詳細がダウンロードされます。
 
-| 列名                    | 説明                                                                                                                              |
-|--------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| earningId                      | 各収益の一意識別子                                                                                                       |
-| participantId                  | プログラムの下でパートナーが獲得するプライマリ id                                                                            |
-| participantIdType              | 販売者 ID                                                                                                                                |
-| participantName                | 取引先の名前                                                                                                              |
-| partnerCountryCode             | 取引先の国/地域                                                                                                  |
-| programName                    | インセンティブ/店舗プログラム名                                                                                                             |
-| transactionId                  | トランザクションの一意の識別子                                                                                                    |
-| transactionCurrency            | 元の顧客トランザクションが発生した通貨                                                                             |
-| transactionDate                | トランザクションの日付。 多数のトランザクションが1つの収益に寄与するプログラムに便利です。                                           |
-| transactionExchangeRate        | 対応する USD の金額を表示するために使用する換算レートの日付                                                                             |
-| transactionAmount              | 収益が生成された元のトランザクション通貨のトランザクション金額                                              |
-| transactionAmountUSD           | トランザクションの金額 (米国ドル)                                                                                                                |
-| レバー                          | 収益のビジネスルールを示します。                                                                                                  |
-| earningRate                    | 獲得を生成するためにトランザクション量に適用されたインセンティブ率                                                                      |
-| quantity                       | プログラムによって異なります。 トランザクションプログラムの請求数量を示します                                                            |
-| earningType                    | 手数料、リベート、co-op、販売などであるかどうかを示します。                                                                                          |
-| earningAmount                  | 元のトランザクション通貨での金額                                                                                      |
-| earningAmountUSD               | USD の数量                                                                                                                    |
-| earningDate                    | 収益の日付                                                                                                                      |
-| 計算 Ationdate                | システムで計算が計算された日付                                                                                            |
-| earningExchangeRate            | 対応する USD の金額を示すために使用される換算レート                                                                                  |
-| exchangeRateDate               | EarningAmount USD の計算に使用される為替レートの日付                                                                                   |
-| claimId                        | 常に空白になります                                                                                                                     |
-| paymentId                      | 支払いの一意の識別子。 この数値は通常、銀行の明細書に表示されます。                                                 |
-| paymentStatus                  | 入金状況                                                                                                                           |
-| paymentStatusDescription       | 支払い状態のわかりやすい説明                                                                                                   |
-| 顧客                     | 常に空白になります                                                                                                                     |
-| おける                   | 常に空白になります                                                                                                                     |
-| partNumber                     | 常に空白になります                                                                                                                     |
-| productName                    | トランザクションにリンクされた製品名                                                                                                       |
-| productId                      | 一意の製品識別子                                                                                                                |
-| parentProductId                | 一意の親製品識別子。 注意: トランザクションの親製品がない場合、親製品 ID = 製品 ID です。 |
-| parentProductName              | 親製品の名前。 注意: トランザクションの親製品がない場合、親製品名 = 製品名です。   |
-| productType                    | 製品の種類 (アプリ、アドオン、ゲームなど)                                                                                        |
-| invoiceNumber                  | 常に空白になります                                                                                                                     |
-| subscriptionId                 | 常に空白になります                                                                                                                     |
-| And subscription.subscriptionstartdate          | 常に空白になります                                                                                                                     |
-| Subscription.subscriptionenddate            | 常に空白になります                                                                                                                     |
-| resellerId                     | 常に空白になります                                                                                                                     |
-| resellerName                   | 常に空白になります                                                                                                                     |
-| distributorId                  | 常に空白になります                                                                                                                     |
-| distributorName                | 常に空白になります                                                                                                                     |
-| agreementNumber                | 常に空白になります                                                                                                                     |
-| agreementStartDate             | 常に空白になります                                                                                                                     |
-| agreementEndDate               | 常に空白になります                                                                                                                     |
-| ワークロード                       | 常に空白になります                                                                                                                     |
-| transactionType                | 取引の種類 (購入、払戻し、取り消し、支払取り消しなど)                                                               |
-| localProviderSeller            | 登録のあるローカル プロバイダーまたは販売元                                                                                                          |
-| taxRemitted                    | 徴収された税額 (売上税、使用税、または VAT/GST 税)。                                                                                   |
-| taxRemitModel                  | 徴収される税金の種類 (売上税、使用税、または VAT/GST 税)。                                                                    |
-| storeFee                       | ストアでアプリまたはアドオンを利用できるようにするための料金として、Microsoft によって保持される金額。                                           |
-| transactionPaymentMethod       | 取引にユーザーが使用した支払い方法 (クレジット カード、携帯電話会社による課金、PayPal など)                                |
-| tpan                           | サードパーティの ad ネットワークを示します。                                                                                                     |
-| purchaseTypeCode               | 常に空白になります                                                                                                                     |
-| purchaseOrderType              | 常に空白になります                                                                                                                     |
-| purchaseOrderCoverageStartDate | 常に空白になります                                                                                                                     |
-| purchaseOrderCoverageEndDate   | 常に空白になります                                                                                                                     |
-| externalReferenceId            | 常に空白になります                                                                                                                     |
-| externalReferenceIdLabel       | 常に空白になります                                                                                                                     |
-
-## <a name="payout-statement-download-export-legacy"></a>支払明細書のダウンロードエクスポート (レガシ)
-
-[古い支払いの概要] ページで期間を限定して、支払い明細書をダウンロードできるようになります。 このレポートには、次のフィールドが含まれています。
-
-> [!NOTE]
-> 従来のトランザクション履歴には、"予約済み" という列があります。これは、最新の履歴の "収益" 列に対応しています。ただし、status = "支払い Sent" のすべての利益は除外されます。
-
-| [フィールド名]              | 説明                                                                                                                                                             |
-|-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 収益源          | 収益の発生元です。トランザクションがどこで行われたかに基づいています (Microsoft Store、Windows Phone Store、Windows Store 8、広告など)。                  |
-| Order ID                | 注文の一意の識別子です。 この ID を使って、購入トランザクションと購入以外の各トランザクション (払戻しや支払取り消しなど) を結び付けることができます。 どちらのトランザクションも、同じ注文 ID になります。 また、分割請求の場合 (1 つの購入に対して複数の支払方法が使われている場合)、注文 ID によって購入トランザクションにリンクすることもできます。 |
-| お取引 ID          | 一意のトランザクション識別子。                                                                                                                                          |
-| お取引日時   | 取引が行われた日時 (UTC)。                                                                                                                       |
-| 親製品 ID       | 一意の親製品識別子。 注意: トランザクションの親製品がない場合、親製品 ID = 製品 ID です。                                |
-| 製品 ID              | 一意の製品識別子。                                                                                                                                              |
-| 親製品名     | 親製品の名前。 注意: トランザクションの親製品がない場合、親製品名 = 製品名です。                                  |
-| 製品名            | 製品の名前。                                                                                                                                                    |
-| 製品の種類            | 製品の種類 (アプリ、アドオン、ゲームなど)                                                                                                                       |
-| Quantity                | 収益源がビジネス向け Microsoft Store である場合、数量は購入されたライセンスの数を表します。 その他のすべての収益源については、数量は常に 1 です。 注: 2 つの異なるお支払い方法が使用されていたために、1 つの取引が 2 つの行項目に分割された場合でも、個々の行項目の数量は 1 と表示されます。 |
-| 取引の種類        | 取引の種類 (購入、払戻し、取り消し、支払取り消しなど)                                                                                              |
-| 入金方法          | 取引にユーザーが使用した支払い方法 (クレジット カード、携帯電話会社による課金、PayPal など)                                                               |
-| 国/地域        | 取引が行われた国/地域。                                                                                                                          |
-| ローカル プロバイダー/販売者 | 登録のあるローカル プロバイダーまたは販売元。                                                                                                                                        |
-| 取引通貨    | 取引に使われた通貨。                                                                                                                                            |
-| お取引金額      | お取引の金額。                                                                                                                                              |
-| 税送金済み            | 徴収された税額 (売上税、使用税、または VAT/GST 税)。                                                                                                                  |
-| 純収益            | 取引金額から税額を差し引いた金額。                                                                                                                                   |
-| ストアの手数料               | アプリまたはアドオンをストアで入手できるようにするために Microsoft が確保する手数料の純収益に対する割合。                                                      |
-| アプリの収益            | 純収益からストアの手数料を引いた額。                                                                                                                                       |
-| 源泉徴収税額          | 源泉徴収の税額 (**予約済み** の .csv ファイルには含まれません)。                                                                                                |
-| 支払い                 | 所得税源泉徴収を差し引いたアプリの収益 (金額は [お取引の通貨] に表示されます)。 (**予約済み** の .csv ファイルには含まれません)。                               |
-| 外国為替レート                 | 取引通貨を支払い通貨に換算するために使われた外国為替レート。                                                                                         |
-| 入金する通貨        | 支払いに使われる通貨。                                                                                                                                       |
-| 入金 (換算済み)       | 外国為替レートを使って支払い通貨に換算した後の支払い額。                                                                                                         |
-| 免税モデル         | 徴収される税金の種類 (売上税、使用税、または VAT/GST 税)。                                                                                                   |
-| Eligibility Date Time (対象となる日時)   | トランザクションの収益が支払いの対象になる日付と時刻 (UTC)。 支払いが作成されると、支払いには支払い作成日以前の Eligibility Date Time (対象となる日時) を持つトランザクションの収益が含まれます (**予約済み** の .csv ファイルにのみ含まれます)。 |
-| 請求額                 | お取引金額の列で集計されたすべての請求額の内訳を表示します (Azure Marketplace の場合にのみ含まれます。**予約済み** の .csv ファイルには含まれません)。 |
+| 列名                    | 説明                                                                                                                              | インセンティブ/店舗/Azure Marketplace の適用性           |
+|--------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|
+| earningId                      | 各収益の一意識別子                                                                                                       | All                                                            |
+| participantId                  | プログラムの下でパートナーが獲得するプライマリ id                                                                            | All                                                            |
+| participantIdType              | 製品ストアプログラムおよび Azure Marketplace の場合、ほとんどの場合、インセンティブプログラムと販売者のプログラム ID                                          | All                                                            |
+| participantName                | 取引先の名前                                                                                                              | All                                                            |
+| partnerCountryCode             | 取引先の国/地域                                                                                                  | All                                                            |
+| programName                    | インセンティブ/店舗プログラム名                                                                                                             | All                                                            |
+| transactionId                  | トランザクションの一意の識別子                                                                                                    | All                                                            |
+| transactionCurrency            | 元の顧客トランザクションが発生した通貨 (取引先の場所の通貨ではない)                                     | All                                                            |
+| transactionDate                | トランザクションの日付。 多数のトランザクションが1つの収益に寄与するプログラムに便利です。                                           | All                                                            |
+| transactionExchangeRate        | 対応するトランザクションの USD amount を示すために使用する換算レートの日付                                                                 | All                                                            |
+| transactionAmount              | 収益が生成された元のトランザクション通貨のトランザクション金額                                              | All                                                            |
+| transactionAmountUSD           | トランザクションの金額 (米国ドル)                                                                                                                | All                                                            |
+| レバー                          | 収益のビジネスルールを示します。                                                                                                  | All                                                            |
+| earningRate                    | 獲得を生成するためにトランザクション量に適用されたインセンティブ率                                                                      | All                                                            |
+| quantity                       | プログラムによって異なります。 トランザクションプログラムの請求数量を示します                                                            | All                                                            |
+| quantityType                   | 数量の種類 (請求数量、MAU など) を示します。                                                                                     | All                                                            |
+| earningType                    | 手数料、リベート、co-op、販売などであるかどうかを示します。                                                                                          | All                                                            |
+| earningAmount                  | 元のトランザクション通貨での金額                                                                                      | All                                                            |
+| earningAmountUSD               | USD の数量                                                                                                                    | All                                                            |
+| earningDate                    | 収益の日付                                                                                                                      | All                                                            |
+| 計算 Ationdate                | システムで計算が計算された日付                                                                                            | All                                                            |
+| earningExchangeRate            | 対応する USD の金額を示すために使用される換算レート                                                                                  | All                                                            |
+| exchangeRateDate               | EarningAmount USD の計算に使用される為替レートの日付                                                                                   | All                                                            |
+| paymentAmountWOTax             | "送信済み" の支払いに対してのみ、[支払額に対して支払う] の金額 (税金なし)                                                                 | All                                                            |
+| paymentCurrency                | 支払いプロファイルでパートナーによって選択された通貨に対して支払います。 送信した支払いにのみ表示されます                                                   | All                                                            |
+| paymentExchangeRate            | ExchangeRateDate を使用して支払い通貨の paymentAmountWOTax を計算するために使用される換算レート                                            | All                                                            |
+| claimId                        | 要求の一意の識別子                                                                                                              | インセンティブ-一部のプログラムのみ                                |
+| planId                         | プランの一意識別子                                                                                                               | インセンティブ-一部のプログラムのみ                                |
+| paymentId                      | 支払いの一意の識別子。 この数値は通常、銀行の明細書に表示されます。                                                 | SAP 支払いのみ                                              |
+| paymentStatus                  | 入金状況                                                                                                                           | All                                                            |
+| paymentStatusDescription       | 支払い状態のわかりやすい説明                                                                                                   | All                                                            |
+| 顧客                     | 常に空白になります                                                                                                                     | インセンティブプログラムのみ (例外:OEM) と Azure Marketplace |
+| おける                   | 常に空白になります                                                                                                                     | インセンティブプログラムのみ (例外:OEM) と Azure Marketplace |
+| partNumber                     | 常に空白になります                                                                                                                     | 一部のインセンティブおよびストアプログラムと Azure Marketplace        |
+| productName                    | トランザクションにリンクされた製品名                                                                                                       | All                                                            |
+| productId                      | 一意の製品識別子                                                                                                                | ストアと Azure Marketplace                                    |
+| parentProductId                | 一意の親製品識別子。 注意: トランザクションの親製品がない場合、親製品 ID = 製品 ID です。 | ストアと Azure Marketplace                                    |
+| parentProductName              | 親製品の名前。 注意: トランザクションの親製品がない場合、親製品名 = 製品名です。   | ストアと Azure Marketplace                                    |
+| productType                    | 製品の種類 (アプリ、アドオン、ゲームなど)                                                                                        | ストアと Azure Marketplace                                    |
+| invoiceNumber                  | 請求書番号 (EA のみに適用)                                                                                                  | インセンティブと Azure Marketplace-一部のプログラムのみ           |
+| subscriptionId                 | 顧客に関連付けられているサブスクリプション識別子                                                                                         | インセンティブ-一部のプログラムのみ                                 |
+| And subscription.subscriptionstartdate          | サブスクリプション開始日                                                                                                                  | インセンティブ-一部のプログラムのみ                                 |
+| Subscription.subscriptionenddate            | サブスクリプション終了日                                                                                                                    | インセンティブ-一部のプログラムのみ                                 |
+| resellerId                     | 再販業者識別子                                                                                                                      | インセンティブ-一部のプログラムのみ                                 |
+| resellerName                   | 販売店名                                                                                                                            | インセンティブ-一部のプログラムのみ                                 |
+| distributorId                  | ディストリビューター識別子                                                                                                                   | インセンティブ-一部のプログラムのみ                                 |
+| distributorName                | ディストリビューター名                                                                                                                         | インセンティブ-一部のプログラムのみ                                 |
+| agreementNumber                | 契約番号                                                                                                                         | インセンティブ-一部のプログラムのみ                                 |
+| agreementStartDate             | 契約開始日                                                                                                                     | インセンティブ-一部のプログラムのみ                                 |
+| agreementEndDate               | 契約終了日                                                                                                                       | インセンティブ-一部のプログラムのみ                                 |
+| ワークロード                       | ワークロード                                                                                                                                 | インセンティブ-一部のプログラムのみ                                 |
+| transactionType                | 取引の種類 (購入、払戻し、取り消し、支払取り消しなど)                                                               | ストアと Azure Marketplace                                    |
+| localProviderSeller            | 登録のあるローカル プロバイダーまたは販売元                                                                                                          | ストアのみ                                                     |
+| taxRemitted                    | 徴収された税額 (売上税、使用税、または VAT/GST 税)。                                                                                   | ストアと Azure Marketplace                                    |
+| taxRemitModel                  | 徴収される税金の種類 (売上税、使用税、または VAT/GST 税)。                                                                    | ストアのみ                                                     |
+| storeFee                       | ストアでアプリまたはアドオンを利用できるようにするための料金として、Microsoft によって保持される金額。                                           | ストアのみ                                                     |
+| transactionPaymentMethod       | 取引にユーザーが使用した支払い方法 (クレジット カード、携帯電話会社による課金、PayPal など)                                | ストアと Azure Marketplace                                    |
+| tpan                           | サードパーティの ad ネットワークを示します。                                                                                                     | ストア広告のみ                                               |
+| 顧客の国                | Customer country                                                                                                                         | ストアと Azure Marketplace                                    |
+| 顧客の市区町村                   | お客様の市区町村                                                                                                                            | ストアと Azure Marketplace                                    |
+| 顧客の状態                  | 顧客の状態                                                                                                                           | ストアと Azure Marketplace                                    |
+| 顧客の郵便番号                    | お客様の郵便番号                                                                                                                 | ストアと Azure Marketplace                                    |
+| purchaseTypeCode               | 常に空白になります                                                                                                                     | インセンティブプログラム-CRI                                        |
+| purchaseOrderType              | 常に空白になります                                                                                                                     | インセンティブプログラム-CRI                                        |
+| purchaseOrderCoverageStartDate | 常に空白になります                                                                                                                     | インセンティブプログラム-CRI                                        |
+| purchaseOrderCoverageEndDate   | 常に空白になります                                                                                                                     | インセンティブプログラム-CRI                                        |
+| programOfferingLevel           |                                                                                                                                          | インセンティブプログラム-CRI                                        |
+| テナント                       |                                                                                                                                          | インセンティブプログラム                                             |
+| externalReferenceId            | プログラムの一意の識別子                                                                                                        | 直接支払いプログラム (インセンティブおよびストア)                      |
+| externalReferenceIdLabel       | 一意識別子ラベル                                                                                                                  | 直接支払いプログラム (インセンティブおよびストア)                      |
