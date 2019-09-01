@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp, セキュリティ
 ms.assetid: ec9293a1-237d-47b4-bcde-18112586241a
 ms.localizationpriority: medium
-ms.openlocfilehash: 5c1a7de0e9e6817fc4b0bf1ada113f49e798641e
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: f567637f3d38ce80c320bfe92fff392efadeda8d
+ms.sourcegitcommit: 7803f11ba4c9194c350217cc06069a4707f15ed6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67320546"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69017430"
 ---
 # <a name="web-account-manager"></a>Web アカウント マネージャー
 
@@ -116,7 +116,7 @@ private async void BuildPaneAsync(AccountsSettingsPane s,
 }
 ```
 
-次に、WebAuthenticationCoreManager.FindAccountProviderAsync メソッドを使ってプロバイダーを取得します。 プロバイダーの URL はプロバイダーによって異なり、プロバイダーのドキュメントに記載されています。 Microsoft アカウントと Azure Active Directory では、"https://login.microsoft.com" です。 
+次に、WebAuthenticationCoreManager.FindAccountProviderAsync メソッドを使ってプロバイダーを取得します。 プロバイダーの URL はプロバイダーによって異なり、プロバイダーのドキュメントに記載されています。 Microsoft アカウントと Azure Active Directory の場合、"https\://login.microsoft.com" になります。 
 
 ```csharp
 private async void BuildPaneAsync(AccountsSettingsPane s,
@@ -178,7 +178,7 @@ private async void GetMsaTokenAsync(WebAccountProviderCommand command)
 * OneDrive のスコープについては、「[OneDrive の認証とサインイン](https://dev.onedrive.com/auth/msa_oauth.htm#authentication-scopes)」をご覧ください。 
 
 > [!TIP]
-> (既定の電子メール アドレスを持つユーザー フィールドを設定するには) へのログイン ヒントまたはサインイン エクスペリエンスに関連するその他の特殊なプロパティをアプリを使用する場合一覧で、必要に応じて、 **[WebTokenRequest.AppProperties](https://docs.microsoft.com/uwp/api/windows.security.authentication.web.core.webtokenrequest.appproperties#Windows_Security_Authentication_Web_Core_WebTokenRequest_AppProperties)** プロパティ。 これは、結果、システムは、キャッシュ アカウントの不一致を実行できなくなります。 web アカウントをキャッシュする場合、プロパティを無視します。
+> 必要に応じて、アプリでログインヒント (既定の電子メールアドレスをユーザーフィールドに設定するため) またはサインインエクスペリエンスに関連するその他の特殊なプロパティを使用する場合は、 **[Webtokenrequest. AppProperties](https://docs.microsoft.com/uwp/api/windows.security.authentication.web.core.webtokenrequest.appproperties#Windows_Security_Authentication_Web_Core_WebTokenRequest_AppProperties)** プロパティに一覧表示します。 これにより、システムは web アカウントをキャッシュするときにプロパティを無視するため、キャッシュ内のアカウントの不一致を防ぐことができます。
 
 企業向けのアプリを開発している場合は、Azure Active Directory (AAD) インスタンスに接続し、通常の MSA サービスではなく Microsoft Graph API を使用します。 このシナリオでは、次のコードを代わりに使います。 
 
@@ -338,7 +338,7 @@ private void LoginButton_Click(object sender, RoutedEventArgs e)
 
 ## <a name="remove-a-stored-account"></a>保存されたアカウントの削除
 
-Web アカウントを保持するとき、場合によっては、ユーザーが自分のアカウントとアプリの関連付けを解除できるようにする必要があります。 これにより、実質的に「ログイン」アプリの: 起動すると、アカウント情報が自動的に読み込まれますは不要になった。 これを行うには、まず保存されたアカウントとプロバイダーの情報を記憶域から削除します。 次に、 **[SignOutAsync](https://docs.microsoft.com/uwp/api/windows.security.credentials.webaccount.SignOutAsync)** を呼び出してキャッシュをクリアし、アプリが保持している可能性がある既存のトークンをすべて無効にします。 
+Web アカウントを保持するとき、場合によっては、ユーザーが自分のアカウントとアプリの関連付けを解除できるようにする必要があります。 こうすることで、アプリを効果的に "ログアウト" できます。アカウント情報は、起動時に自動的に読み込まれなくなります。 これを行うには、まず保存されたアカウントとプロバイダーの情報を記憶域から削除します。 次に、 **[SignOutAsync](https://docs.microsoft.com/uwp/api/windows.security.credentials.webaccount.SignOutAsync)** を呼び出してキャッシュをクリアし、アプリが保持している可能性がある既存のトークンをすべて無効にします。 
 
 ```csharp
 private async Task SignOutAccountAsync(WebAccount account)
@@ -422,9 +422,9 @@ private async void BuildPaneAsync(AccountsSettingsPane s, AccountsSettingsPaneCo
 
 ## <a name="see-also"></a>関連項目
 
-[Windows.Security.Authentication.Web.Core 名前空間](https://docs.microsoft.com/uwp/api/windows.security.authentication.web.core)
+[Windows. Security. Web.config 名前空間](https://docs.microsoft.com/uwp/api/windows.security.authentication.web.core)
 
-[Windows.Security.Credentials 名前空間](https://docs.microsoft.com/uwp/api/windows.security.credentials)
+[Windows. Security. Credentials 名前空間](https://docs.microsoft.com/uwp/api/windows.security.credentials)
 
 [AccountsSettingsPane クラス](https://docs.microsoft.com/uwp/api/windows.ui.applicationsettings.accountssettingspane)
 
@@ -432,4 +432,4 @@ private async void BuildPaneAsync(AccountsSettingsPane s, AccountsSettingsPaneCo
 
 [Web アカウント管理のサンプル](https://go.microsoft.com/fwlink/p/?LinkId=620621)
 
-[昼食スケジューラ アプリ](https://github.com/Microsoft/Windows-appsample-lunch-scheduler)
+[ランチスケジューラアプリ](https://github.com/Microsoft/Windows-appsample-lunch-scheduler)

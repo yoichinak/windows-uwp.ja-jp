@@ -25,4 +25,4 @@ ms.locfileid: "68623387"
 | [添付プロパティの概要](attached-properties-overview.md) | XAML での添付プロパティの概念を説明し、例をいくつか紹介します。 |
 | [カスタム添付プロパティ](custom-attached-properties.md) | XAML 添付プロパティを依存関係プロパティとして実装する方法と、添付プロパティを XAML で使うために必要なアクセサー変換を定義する方法を説明します。 |
 | [イベントとルーティング イベントの概要](events-and-routed-events-overview.md) | Windows ランタイム アプリで、プログラミング言語に C#、Visual Basic、または C++/CX を、UI 定義に XAML を使う場合のイベントのプログラミングの概念について説明します。 イベントのハンドラーは、UI 要素の宣言の一部として XAML で割り当てることも、コードで追加することもできます。 Windows ランタイムは*ルーティング イベント*をサポートしており、特定の入力イベントとデータ イベントを、その発生元オブジェクト以外のオブジェクトで処理できます。 ルーティング イベントは、コントロール テンプレートを定義する際や、ページまたはレイアウト コンテナーを使う際に役立ちます。 |
-|[デスクトップ アプリケーションの UWP コントロール (XAML アイランド)](/windows/apps/desktop/modernize/xaml-islands)| UWP XAML コントロールを使用して、Windows フォーム、WPF、または Win32 デスクトップ アプリケーションの UI を強化する方法について説明します。|
+|[デスクトップ アプリケーションの UWP コントロール (XAML Islands)](/windows/apps/desktop/modernize/xaml-islands)| UWP XAML コントロールを使用して、Windows フォーム、WPF、または Win32 デスクトップ アプリケーションの UI を強化する方法について説明します。|

@@ -10,12 +10,12 @@ pm-contact: chigy
 design-contact: miguelrb
 doc-status: Draft
 ms.localizationpriority: medium
-ms.openlocfilehash: 9cc696746de837c4883ae4a9ee8ebcf42cb78b12
-ms.sourcegitcommit: e63fbd7a63a7e8c03c52f4219f34513f4b2bb411
+ms.openlocfilehash: 8bbff4553dc4ad540f0d9afa2507ad763fa96744
+ms.sourcegitcommit: 789bfe3756c5c47f7324b96f482af636d12c0ed3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57822887"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68867582"
 ---
 # <a name="keyboard-accelerators"></a>キーボード アクセラレータ
 
@@ -37,18 +37,18 @@ ms.locfileid: "57822887"
 
 キーボード アクセラレータは、すべてのアクションに用意されるのではなく、多くの場合はメニューで公開されているコマンドに関連付けられています (メニュー項目コンテンツにも示されています)。 アクセラレータは、対応するメニュー項目がない操作に関連付けることもできます。 ただし、ユーザーはアプリケーションのメニューを使用して、利用可能なコマンド セットを見つけ、その機能を理解するため、アクセラレータができるだけ簡単に検出されるようにする必要があります (ラベルの使用や、決まったパターンの使用が役立ちます)。
 
-![メニュー項目のラベルで説明されているキーボード アクセラレータ](images/accelerators/accelerators_menuitemlabel.png)  
-*メニュー項目のラベルで説明されているキーボード アクセラレータ*
+![メニュー項目ラベルに記述されているキーボードアクセラレータ](images/accelerators/accelerators_menuitemlabel.png)  
+*メニュー項目ラベルに記述されているキーボードアクセラレータ*
 
 ## <a name="when-to-use-keyboard-accelerators"></a>キーボード アクセラレータの使用に適したケース
 
 UI に適切な場合は必ずキーボード アクセラレータを指定し、すべてのカスタム コントロールでアクセラレータをサポートすることをお勧めします。
 
-- キーボード アクセラレータより使いやすく、アプリ、一度に 1 つのキーを押してしたり、苦労 mouse.* * を使用してユーザーを含む、自動車の障碍を持つユーザー
+- キーボードアクセラレータを使用すると、1つのキーだけを押すか、マウスを使用するのが困難なユーザーを含め、ユーザーがモータ障碍を持つユーザーに対してアプリをより使いやすくすることができます。 * *
 
   適切に設計されたキーボード UI はソフトウェアのアクセシビリティの重要な要素であり、 視覚に障碍のあるユーザーや特定の運動障碍のあるユーザーによるアプリ内の移動や、その機能の操作を実現します。 このようなユーザーはマウスを操作できない場合があるため、代わりにさまざまな支援技術 (キーボード強化ツール、スクリーン キーボード、スクリーン拡大機能、スクリーン リーダー、音声入力ユーティリティなど) が不可欠になる可能性があります。 このようなユーザーにとっては、コマンドを包括的にカバーすることが重要です。
 
-- キーボード アクセラレータでは、パワー ユーザーがキーボードから操作する場合により使いやすく、アプリを作成します。
+- キーボードアクセラレータを使用すると、キーボードを使用して対話することを希望するパワーユーザーにアプリをより使いやすくすることができます。
 
   多くの経験豊富なユーザーには、キーボードの使用の方がはるかに好まれます。キーボード ベースのコマンドであれば、すばやく入力することができ、キーボードから手を離す必要がないためです。 このようなユーザーにとっては、効率性と一貫性が重要です。包括性が重要になるのは、特に頻繁に使用するコマンドに対してのみです。
 
@@ -126,14 +126,14 @@ UWP アプリのキーボード アクセラレータを作成するには、[Ke
 </CommandBar>
 ```
 
-![ツールヒントに説明されているキーボード アクセラレータ](images/accelerators/accelerators_tooltip.png)  
-***ツールヒントに説明されているキーボード アクセラレータ***
+![ツールヒントに記述されているキーボードアクセスキー](images/accelerators/accelerators_tooltip.png)  
+***ツールヒントに記述されているキーボードアクセスキー***
 
 [UIElement](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement) オブジェクトには、[KeyboardAccelerator](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.keyboardaccelerator) コレクションおよび [KeyboardAccelerators](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.KeyboardAccelerators) があり、カスタムの KeyboardAccelerator オブジェクトを指定して、キーボード アクセラレータのキー入力を定義できます。
 
--   **[キー](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.keyboardaccelerator.Key)**  - [VirtualKey](https://docs.microsoft.com/uwp/api/windows.system.virtualkey)キーボード アクセス キーを使用します。
+-   **[キー](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.keyboardaccelerator.Key)** -キーボードアクセラレータに使用される[virtualkey](https://docs.microsoft.com/uwp/api/windows.system.virtualkey) 。
 
--   **[修飾子](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.keyboardaccelerator.Modifiers)** – [VirtualKeyModifiers](https://docs.microsoft.com/uwp/api/windows.system.virtualkeymodifiers)キーボード アクセス キーを使用します。 Modifiers が設定されていない場合、既定値は None です。
+-   **[Modifiers](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.keyboardaccelerator.Modifiers)** –キーボードアクセラレータに使用される[virtualkeymodifiers](https://docs.microsoft.com/uwp/api/windows.system.virtualkeymodifiers)です。 Modifiers が設定されていない場合、既定値は None です。
 
 > [!NOTE]
 > 単一キーのアクセラレータ (A、Del、F2、Space キー、Esc キー、マルチメディア キー) と複数キーのアクセラレータ (Ctrl + Shift + M) がサポートされます。 ただし、ゲームパッドの仮想キーはサポートされていません。
@@ -195,7 +195,7 @@ MenuFlyoutItem.KeyboardAccelerators 要素の ScopeOwner 属性は、アクセ�
 
 [KeyboardAccelerator](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.keyboardaccelerator) オブジェクトは、[UI オートメーション (UIA) コントロール パターン](https://docs.microsoft.com/windows/desktop/WinAuto/uiauto-controlpatternsoverview)を使用して、アクセラレータが呼び出されたときにアクションを実行します。
 
-UIA [コントロール パターン] では、一般的なコントロール機能が公開されます。 たとえば、ボタン コントロールを実装する、 [Invoke](https://docs.microsoft.com/windows/desktop/WinAuto/uiauto-implementinginvoke)クリック イベントをサポートするコントロール パターン (通常はコントロールによって呼び出される順にクリック、ダブルクリック、または差し迫った」と入力、定義済みのキーボード ショートカット、またはその他のキーボード操作の組み合わせ)。 キーボード アクセラレータでコントロールが呼び出されると、XAML フレームワークは、コントロールに Invoke コントロール パターンが実装されているかどうかを調べ、その場合は、コントロールをアクティブ化します (KeyboardAcceleratorInvoked イベントをリッスンする必要はありません)。
+UIA [コントロール パターン] では、一般的なコントロール機能が公開されます。 たとえば、ボタンコントロールは、Click イベントをサポートする[Invoke](https://docs.microsoft.com/windows/desktop/WinAuto/uiauto-implementinginvoke)コントロールパターンを実装します (通常、コントロールは、クリック、ダブルクリック、または enter、定義済みのキーボードショートカット、またはその他のキーストロークの組み合わせによって呼び出されます)。 キーボード アクセラレータでコントロールが呼び出されると、XAML フレームワークは、コントロールに Invoke コントロール パターンが実装されているかどうかを調べ、その場合は、コントロールをアクティブ化します (KeyboardAcceleratorInvoked イベントをリッスンする必要はありません)。
 
 次の例では、ボタンに Invoke パターンが実装されているため、Ctrl + S によって Click イベントがトリガーされます。
 
@@ -219,11 +219,11 @@ UIA [コントロール パターン] では、一般的なコントロール機
 
 [KeyboardAccelerator](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.keyboardaccelerator) オブジェクトの Invoked イベントは、アクセラレータが実行されたときに発生します。 [KeyboardAcceleratorInvokedEventArgs](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.keyboardacceleratorinvokedeventargs) イベント オブジェクトには、次のプロパティが含まれています。
 
-- [**処理**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.keyboardacceleratorinvokedeventargs.handled) (ブール値)。これを true に設定して、コントロール パターンをトリガーするイベントを防止、アクセラレータ イベントのバブリングを停止します。 既定値は false です。
-- [**要素**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.keyboardacceleratorinvokedeventargs.element) (DependencyObject)。アクセラレータに関連付けられているオブジェクト。
-- [**KeyboardAccelerator**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.keyboardacceleratorinvokedeventargs.keyboardaccelerator):キーボード アクセス キー Invoked イベントを発生させるために使用します。
+- [**処理**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.keyboardacceleratorinvokedeventargs.handled)済み(ブール値):これを true に設定すると、イベントによってコントロールパターンがトリガーされ、アクセラレータイベントバブルが停止します。 既定値は false です。
+- [**要素**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.keyboardacceleratorinvokedeventargs.element)(DependencyObject):アクセラレータに関連付けられているオブジェクト。
+- [**キーボードアクセス**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.keyboardacceleratorinvokedeventargs.keyboardaccelerator):呼び出されたイベントを発生させるために使用されるキーボードアクセラレータ。
 
-ここで、ListView では、キーボード アクセラレータの項目のコレクションを定義する方法と各アクセラレータに Invoked イベントを処理する方法について説明します。
+ここでは、ListView の項目に対してキーボードアクセラレータのコレクションを定義する方法と、各アクセラレータで呼び出されるイベントを処理する方法について説明します。
 
 ``` xaml
 <ListView x:Name="MyListView">
@@ -249,9 +249,26 @@ void RefreshInvoked(KeyboardAccelerator sender, KeyboardAcceleratorInvokedEventA
 }
 ```
 
-## <a name="override-default-keyboard-behavior"></a>既定のキーボード動作をオーバーライドします。
+## <a name="override-default-keyboard-behavior"></a>既定のキーボード動作のオーバーライド
 
-場合によっては、Backspace キーまたは Enter キーなどの特定のキーの既定の動作をオーバーライドする必要もあります。 以下に例を示します。 
+一部のコントロールにフォーカスがある場合、アプリ定義のアクセラレータをオーバーライドする組み込みのキーボードアクセラレータがサポートされます。 たとえば、[テキストボックス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox)にフォーカスがある場合、コントロール + C アクセラレータは現在選択されているテキストのみをコピーします (アプリ定義のアクセラレータは無視され、他の機能は実行されません)。
+
+ユーザーの理解と期待に応じて既定のコントロール動作をオーバーライドすることはお勧めしませんが、コントロールの組み込みのキーボードアクセラレータをオーバーライドできます。 次の例は、[プレビューの keydown](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.previewkeydown)イベントハンドラーを使用して、 [TextBox](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox)のコントロール + C キーボードアクセラレータをオーバーライドする方法を示しています。 
+
+``` csharp
+ private void TextBlock_PreviewKeyDown(object sender, KeyRoutedEventArgs e)
+ {
+    var ctrlState = CoreWindow.GetForCurrentThread().GetKeyState(Windows.System.VirtualKey.Control);
+    var isCtrlDown = ctrlState == CoreVirtualKeyStates.Down || ctrlState 
+        ==  (CoreVirtualKeyStates.Down | CoreVirtualKeyStates.Locked);
+    if (isCtrlDown && e.Key == Windows.System.VirtualKey.C)
+    {
+        // Your custom keyboard accelerator behavior.
+        
+        e.Handled = true;
+    }
+ }
+```  
 
 ## <a name="disable-a-keyboard-accelerator"></a>キーボード アクセラレータを無効にする 
 
@@ -314,7 +331,7 @@ void RefreshInvoked(KeyboardAccelerator sender, KeyboardAcceleratorInvokedEventA
 
 このことは、アプリによる機能の相違のため実現できないこともあります。
 
-| **編集** | **一般的なキーボード アクセラレータ** |
+| **編集** | **一般的なキーボードアクセスキー** |
 | ------------- | ----------------------------------- |
 | 編集モードを開始する | Ctrl + E |
 | フォーカスのあるコントロール内またはウィンドウ内のすべての項目を選択する | Ctrl + A |
@@ -330,9 +347,9 @@ void RefreshInvoked(KeyboardAccelerator sender, KeyboardAcceleratorInvokedEventA
 | 新しいセカンダリ項目を追加する | Ctrl + Shift + N |
 | 選択した項目を削除する (元に戻すオプションあり) | Del、Ctrl+D |
 | 選択した項目を削除する (元に戻すオプションなし) | Shift + Del |
-| Bold | Ctrl + B |
+| [太字] | Ctrl + B |
 | Underline | Ctrl + U |
-| Italic | Ctrl + I |
+| [斜体] | Ctrl + I |
 
 | **ナビゲーション** | |
 | ------------- | ----------------------------------- |
@@ -344,35 +361,35 @@ void RefreshInvoked(KeyboardAccelerator sender, KeyboardAcceleratorInvokedEventA
 | お気に入りに追加する | Ctrl + D | 
 | Refresh | F5 または Ctrl + R | 
 | 拡大 | Ctrl + + | 
-| 縮小 | Ctrl + - | 
+| ズーム アウト | Ctrl + - | 
 | 既定の表示倍率に拡大縮小 | Ctrl + 0 | 
-| Save | Ctrl + S | 
-| Close | Ctrl + W | 
-| 印刷 | Ctrl + P | 
+| 保存 | Ctrl + S | 
+| 閉じる | Ctrl + W | 
+| の | Ctrl + P | 
 
 ローカライズされたバージョンの Windows では使用できない組み合わせもあります。 たとえば、スペイン語バージョンの Windows では、太字の指定には Ctrl + B ではなく Ctrl + N が使用されます。 アプリがローカライズされている場合は、ローカライズされたキーボード アクセラレータを用意することをお勧めします。
 
 ## <a name="usability-affordances-for-keyboard-accelerators"></a>キーボード アクセラレータのユーザビリティ アフォーダンス
 
-### <a name="tooltips"></a>ヒント
+### <a name="tooltips"></a>ツールヒント
 
 通常、キーボード アクセラレータは UWP アプリケーションの UI で直接説明されるものではありません。ユーザーがフォーカスをコントロールに移動したり、コントロールを長押ししたり、マウス ポインターをコントロール上にホバーしたりするときに自動的に表示される、[ヒント](../controls-and-patterns/tooltips.md)を使用すると、キーボード アクセラレータが見つけやすくなります。 ヒントによって、コントロールにキーボード アクセラレータが関連付けられているかどうかを識別でき、関連付けられている場合は、アクセラレータ キーの組み合わせを識別することができます。
 
-**Windows 10、バージョン 1803 (2018 年 4 月の更新プログラム) 以降**
+**Windows 10 バージョン 1803 (4 月2018更新) 以降**
 
-既定でキーボード アクセラレータの宣言時に、すべてのコントロール (を除く[MenuFlyoutItem](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.MenuFlyoutItem)と[ToggleMenuFlyoutItem](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.togglemenuflyoutitem))、ツールヒントに、対応するキーの組み合わせを表示します。
+既定では、キーボードアクセラレータが宣言されている場合、すべてのコントロール ( [Menuflare titem](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.MenuFlyoutItem)と[ToggleMenuFlyoutItem](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.togglemenuflyoutitem)を除く) が、対応するキーの組み合わせをツールヒントに提示します。
 
 > [!NOTE] 
-> コントロールには、複数のアクセラレータが定義されている場合、最初のメッセージだけが表示されます。
+> コントロールに複数のアクセラレータが定義されている場合は、最初のアクセラレータのみが表示されます。
 
 ![アクセラレータ キーのヒント](images/accelerators/accelerators_tooltip_savebutton_small.png)
 
-*ツールヒントにアクセラレータ キーの組み合わせ*
+*ヒントのアクセラレータキーコンボ*
 
-[ボタン](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.button)、 [AppBarButton](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.appbarbutton)、および[AppBarToggleButton](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.appbartogglebutton)オブジェクト、コントロールの既定のヒントに、キーボード アクセス キーが追加されます。 [MenuFlyoutItem](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.appbarbutton)と[ToggleMenuFlyoutItem](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.togglemenuflyoutitem)) オブジェクトの場合、ポップアップ テキストで、キーボード アクセス キーが表示されます。
+[Button](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.button)、 [appbarbutton](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.appbarbutton)、および[appbarbutton](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.appbartogglebutton)オブジェクトでは、キーボードアクセスキーがコントロールの既定のツールヒントに追加されます。 [Menuflyoutitem](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.appbarbutton)および[ToggleMenuFlyoutItem](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.togglemenuflyoutitem)) オブジェクトの場合、キーボードアクセスキーがポップアップテキストと共に表示されます。
 
 > [!NOTE]
-> ツールヒントを指定する (次の例では Button1 を参照) は、この動作をオーバーライドします。
+> ツールヒント (次の例では Button1 を参照) を指定すると、この動作がオーバーライドされます。
 
 ```xaml
 <StackPanel x:Name="Container" Grid.Row="0" Background="AliceBlue">
@@ -403,7 +420,7 @@ void RefreshInvoked(KeyboardAccelerator sender, KeyboardAcceleratorInvokedEventA
 
 ![アクセラレータ キーのヒント](images/accelerators/accelerators-button-small.png)
 
-*ボタンの既定のヒントに追加されたアクセラレータ キーの組み合わせ*
+*ボタンの既定のツールヒントに追加されたアクセラレータキーコンボ*
 
 ```xaml
 <AppBarButton Icon="Save" Label="Save">
@@ -415,7 +432,7 @@ void RefreshInvoked(KeyboardAccelerator sender, KeyboardAcceleratorInvokedEventA
 
 ![アクセラレータ キーのヒント](images/accelerators/accelerators-appbarbutton-small.png)
 
-*AppBarButton の既定のヒントに追加されたアクセラレータ キーの組み合わせ*
+*AppBarButton の既定のツールヒントに追加されたアクセラレータキーコンボ*
 
 ```xaml
 <AppBarButton AccessKey="R" Icon="Refresh" Label="Refresh" IsAccessKeyScope="True">
@@ -441,9 +458,9 @@ void RefreshInvoked(KeyboardAccelerator sender, KeyboardAcceleratorInvokedEventA
 
 ![アクセラレータ キーのヒント](images/accelerators/accelerators-appbar-menuflyoutitem-small.png)
 
-*MenuFlyoutItem のテキストに追加されたアクセラレータ キーの組み合わせ*
+*Menufl's Titem のテキストに追加されたアクセラレータキーコンボ*
 
-使用して、プレゼンテーションの動作を制御、 [KeyboardAcceleratorPlacementMode](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.KeyboardAcceleratorPlacementMode)プロパティで、2 つの値を受け入れます。[自動](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.keyboardacceleratorplacementmode)または[隠し](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.keyboardacceleratorplacementmode)します。    
+次の2つの値を受け取る[KeyboardAcceleratorPlacementMode](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.KeyboardAcceleratorPlacementMode)プロパティを使用して、プレゼンテーションの動作を制御します。[Auto](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.keyboardacceleratorplacementmode)または[Hidden](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.keyboardacceleratorplacementmode)。    
 
 ```xaml
 <Button Content="Save" Click="OnSave" KeyboardAcceleratorPlacementMode="Auto">
@@ -476,8 +493,8 @@ void RefreshInvoked(KeyboardAccelerator sender, KeyboardAcceleratorInvokedEventA
 
 一部のプラットフォームのコントロールでは、既定でこの識別が行われます。具体的には、[MenuFlyoutItem](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.MenuFlyoutItem) オブジェクトと [ToggleMenuFlyoutItem](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.togglemenuflyoutitem) オブジェクトで実行されます。これに対して、[AppBarButton](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.appbarbutton) と [AppBarToggleButton](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.appbartogglebutton) は、[CommandBar](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.commandbar) のオーバーフロー メニューにこれらが表示されたときに、この識別が行われます。
 
-![メニュー項目のラベルで説明されているキーボード アクセラレータ](images/accelerators/accelerators_menuitemlabel.png)  
-*メニュー項目のラベルで説明されているキーボード アクセラレータ*
+![メニュー項目ラベルに記述されているキーボードアクセラレータ](images/accelerators/accelerators_menuitemlabel.png)  
+*メニュー項目ラベルに記述されているキーボードアクセラレータ*
 
 [MenuFlyoutItem](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.MenuFlyoutItem)、[ToggleMenuFlyoutItem](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.togglemenuflyoutitem)、[AppBarButton](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.appbarbutton)、[AppBarToggleButton](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.appbartogglebutton) の各コントロールの [KeyboardAcceleratorTextOverride](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.appbarbutton.KeyboardAcceleratorTextOverride) プロパティを使用して、ラベルの既定のアクセラレータ テキストを上書きすることができます。 
 
@@ -513,8 +530,8 @@ TextBox などのテキスト コントロールに対する [KeyDown](https://d
 プレビュー入力イベントは、他のイベントの前に発生します。 これらのイベントを処理しない場合は、フォーカスのある要素のアクセラレータが呼び出され、これに続いて KeyDown イベントが発生します。 処理されるまで、両方のイベントのバブルが発生します。
 
 
-![イベントのシーケンスをキー](images/accelerators/accelerators_keyevents.png)
-***イベント シーケンスをキー***
+![キーイベントシーケンス](images/accelerators/accelerators_keyevents.png)
+***キーイベントシーケンス***
 
 イベントの順序:
 
@@ -559,8 +576,8 @@ protected override void OnProcessKeyboardAccelerators(
 
 キーボード アクセラレータは、すべてローカライズすることをお勧めします。 これを行うには、標準的な UWP リソース (.resw) ファイルと XAML 宣言の x:Uid 属性を使用します。 この例では、Windows ランタイムによってリソースが自動的に読み込まれます。
 
-![UWP のリソース ファイルを使用してアクセラレータのローカライズをキーボード](images/accelerators/accelerators_localization.png)
-***UWP リソース ファイルを使用してキーボードのアクセラレータのローカライズ***
+![Uwp リソース](images/accelerators/accelerators_localization.png)
+を使用したキーボードアクセスのローカライズ***uwp リソースファイルでのキーボードアクセラレータのローカライズ***
 
 ``` xaml
 <Button x:Uid="myButton" Click="OnSave">
@@ -618,8 +635,8 @@ public class MyListView : ListView
 
 ## <a name="related-articles"></a>関連記事
 
-- [キーボードの相互作用](keyboard-interactions.md)
-- [アクセス キー](access-keys.md)
+- [キーボード操作](keyboard-interactions.md)
+- [アクセスキー](access-keys.md)
 
 ### <a name="samples"></a>サンプル
 

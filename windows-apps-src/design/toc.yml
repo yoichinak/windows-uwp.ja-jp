@@ -533,13 +533,11 @@
           href: accessibility/practices-to-avoid.md
         - name: カスタム オートメーション ピア
           href: accessibility/custom-automation-peers.md
-          items:
-            - name: コントロール パターンとインターフェイス
-              href: accessibility/control-patterns-and-interfaces.md
+        - name: コントロール パターンとインターフェイス
+          href: accessibility/control-patterns-and-interfaces.md
     - name: アプリの設定
-      href: app-settings/app-settings-and-data.md
       items:
-        - name: ガイドライン
+        - name: アプリ設定のガイドライン
           href: app-settings/guidelines-for-app-settings.md
         - name: アプリの設定とデータを保存して取得する
           href: app-settings/store-and-retrieve-app-data.md
@@ -572,9 +570,10 @@
           href: globalizing/use-utf8-code-page.md
         - name: アプリケーションの新元号対応
           href: globalizing/japanese-era-change.md
-    - name: アプリのヘルプのガイドライン
-      href: in-app-help/guidelines-for-app-help.md
+    - name: アプリ内ヘルプ
       items:
+        - name: アプリのヘルプのガイドライン
+          href: in-app-help/guidelines-for-app-help.md
         - name: 説明 UI
           href: in-app-help/instructional-ui.md
         - name: アプリ内ヘルプ

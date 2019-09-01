@@ -5,17 +5,15 @@ author: mattwojo
 ms.author: mattwoj
 manager: jken
 ms.topic: article
-ms.prod: windows
-ms.technology: hub
 keywords: python、windows 10、microsoft、pip、.py、ファイルパス、python パス、python デプロイ、python パッケージ
 ms.localizationpriority: medium
 ms.date: 07/19/2019
-ms.openlocfilehash: fd08061858fc97f1427e94c6a92a4c3a9511967d
-ms.sourcegitcommit: 210034519678ba1a59744bc3a0b613b000921537
+ms.openlocfilehash: f2dbc455578a3fbe79c2558e2ba16c8f82cea522
+ms.sourcegitcommit: a28a32fff9d15ecf4a9d172cd0a04f4d993f9d76
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68473655"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959045"
 ---
 # <a name="frequently-asked-questions-about-using-python-on-windows"></a>Windows での Python の使用に関してよく寄せられる質問
 
@@ -29,11 +27,21 @@ ms.locfileid: "68473655"
 
 [StackOverflow に関する説明に従っ](https://stackoverflow.com/questions/4750806/how-do-i-install-pip-on-windows/12476379)てください。
 
-### <a name="what-is-pyexe"></a>.Py とは何ですか。
+## <a name="what-is-pyexe"></a>.Py とは何ですか。
 
 さまざまな種類の Python プロジェクトで作業しているため、コンピューターに複数のバージョンの Python がインストールされている可能性があります。 これらはすべて`python`コマンドを使用するため、使用している Python のバージョンがわからないことがあります。 標準として、 `python3`コマンド (または`python3.7`特定のバージョンの選択) を使用することをお勧めします。
 
 [.Py ランチャー](https://docs.python.org/3/using/windows.html#launcher)によって、インストールした Python の最新バージョンが自動的に選択されます。 `py -3.7` また`py --list` 、などのコマンドを使用して特定のバージョンを選択したり、使用できるバージョンを確認したりすることもできます。 **ただし**、.py ランチャーは、 [python.org](https://www.python.org/downloads/windows/)からインストールされたバージョンの Python を使用している場合にのみ機能します。Microsoft Store `py`から Python をインストールする場合、コマンドは**含まれません**。 Linux、macOS、wsl、および Microsoft Store バージョンの Python では、 `python3` (または`python3.7`) コマンドを使用する必要があります。
+
+## <a name="why-does-running-pythonexe-open-the-microsoft-store"></a>Microsoft Store を開いているのはなぜですか。
+
+新しいユーザーが適切に Python をインストールできるように、Windows へのショートカットを追加しました。これにより、Microsoft Store で公開されているコミュニティのパッケージの最新バージョンに直接移動できます。 このパッケージは、管理者のアクセス許可がなくても簡単にインストール`python`でき`python3` 、既定のとコマンドは実際のものに置き換えられます。
+
+コマンドライン引数を指定してショートカット実行可能ファイルを実行すると、Python がインストールされていないことを示すエラーコードが返されます。 これは、意図していない場合に、バッチファイルやスクリプトがストアアプリを開けないようにするためです。
+
+[Python.org](https://www.python.org/downloads/windows/)のインストーラーを使用して Python をインストールし、[パスに追加] オプションを選択する`python`と、新しいコマンドがショートカットよりも優先されます。 他のインストーラーは、組み込み`python`のショートカットよりも_低い_優先順位で追加される場合があることに注意してください。
+
+Python をインストールせずにショートカットを無効にするには、スタートから "アプリの実行エイリアスの管理" を開き、"アプリインストーラー" Python エントリを検索して "Off" に切り替えます。
 
 ## <a name="why-dont-file-paths-work-in-python-when-i-copy-paste-them"></a>コピーして貼り付けると Python でファイルパスが動作しないのはなぜですか。
 

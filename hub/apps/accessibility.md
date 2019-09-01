@@ -1,26 +1,26 @@
 ---
 title: Windows 10 のユーザー補助機能
-description: このページは、アクセス可能な Windows アプリの開発を開始するための情報を提供します。
+description: このページでは、ユーザー補助 Windows アプリの開発を開始するための情報を提供します。
 ms.topic: article
 ms.date: 04/03/2019
 ms.localizationpriority: medium
 ms.author: kbridge
 author: Karl-Bridge-Microsoft
-keywords: Windows 10、アクセシビリティ、アクセシビリティを備えた WinForms アプリを構築、アクセスの WPF アプリの構築、アクセスの UWP アプリの構築、アクセス可能な win32 アプリの構築のユーザー補助機能
-ms.openlocfilehash: b818b99ebf896b2d2de219d2eedbfd101f3a5caa
-ms.sourcegitcommit: d1c3e13de3da3f7dce878b3735ee53765d0df240
+keywords: Windows 10 のアクセシビリティ, アクセシビリティ, アクセス可能な win32 アプリの構築, アクセス可能な UWP アプリのビルド, アクセス可能な WPF アプリのビルド, アクセス可能な WinForms アプリの構築
+ms.openlocfilehash: bb82103c030c436655630a37678bbec11e588f61
+ms.sourcegitcommit: 789bfe3756c5c47f7324b96f482af636d12c0ed3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66214993"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68867423"
 ---
 # <a name="accessibility-in-windows-10"></a>Windows 10 のユーザー補助機能
 
-![hero-accessibility-bar-smaller.png](images/hero-accessibility-bar-smaller.png)
+![hero-accessibility-bar-smaller](images/hero-accessibility-bar-smaller.png)
 
-多くの人の (運転料理、まぶしく、やなどの) 状況、または可能であれば、障害、個人的な好み、特定の作業スタイルでは、これらの制約として使いやすさを向上し、包括的には、アクセシビリティ対応アプリが設計されています。
+アクセス可能なアプリは、可能な限り多くの人にとって使いやすさを向上させることによって設計されています。これには、障碍のあるユーザー、個人設定、特定の作業スタイル、状況に関する制約 (運転、料理、光など) などがあります。
 
-このページは、さまざまな Windows 開発フレームワークが、スクリーン リーダーと情報を読み上げたり、ソフトウェア テストなどのツールを構築する開発者を支援技術である Windows アプリケーションを構築する開発者のユーザー補助をサポートする方法の情報を提供しますエンジニアはアプリケーションのテストの自動化されたスクリプトを作成します。
+このページでは、さまざまな Windows 開発フレームワークが Windows アプリケーションを構築する開発者のためのユーザー補助をサポートしています。スクリーンリーダーや拡大鏡などのツールを作成する支援技術の開発者、ソフトウェアテストアプリケーションをテストするための自動化されたスクリプトを作成するエンジニア。
 
 ## <a name="platform-specific-documentation"></a>プラットフォーム固有ドキュメント
 
@@ -28,7 +28,7 @@ ms.locfileid: "66214993"
     :::column:::
         ![Universal Windows Platform (UWP)](images/platform-uwp.png)
 
-        ### Universal Windows Platform (UWP)
+        **Universal Windows Platform (UWP)**
 
         Develop accessible apps and tools on the modern platform for Windows 10 applications and games on any Windows device (including PCs, phones, Xbox One, HoloLens, and more), and publish them to the Microsoft Store.
 
@@ -43,7 +43,7 @@ ms.locfileid: "66214993"
     :::column:::
         ![Win32 platform apps](images/platform-win32.png)
 
-        ### Win32 platform
+        **Win32 platform**
 
         Develop accessible apps and tools on the original platform for C/C++ Windows applications.
 
@@ -68,7 +68,7 @@ ms.locfileid: "66214993"
     :::column:::
         ![WPF platform](images/platform-wpf.png)
 
-        ### Windows Presentation Foundation (WPF)
+        **Windows Presentation Foundation (WPF)**
 
         Develop accessible apps and tools on the established platform for managed Windows applications with a XAML UI model and the .NET Framework.
 
@@ -91,7 +91,7 @@ ms.locfileid: "66214993"
     :::column:::
         ![Windows Forms platform apps](images/platform-winforms.png)
 
-        ### Windows Forms (WinForms)
+        **Windows Forms (WinForms)**
 
         Develop accessible apps and tools for managed Windows applications with a XAML UI model and the .NET Framework.
 

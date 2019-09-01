@@ -13,12 +13,12 @@ dev-contact: mitra
 doc-status: Published
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 8f8d4172389fc2778fda4e335a29b3bae7d90fd0
-ms.sourcegitcommit: 5fcd3a595efd3686009505602c34e10163fd0aa5
+ms.openlocfilehash: e454bed6dc1a9429fe313e305dc9ba818d86e765
+ms.sourcegitcommit: 802699ce8d21e7fa4639f0b19b1c5b6c46c2c727
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67558760"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835643"
 ---
 # <a name="buttons"></a>ボタン
 
@@ -36,6 +36,7 @@ ms.locfileid: "67558760"
 [DropDownButton](/uwp/api/windows.ui.xaml.controls.dropdownbutton) | アタッチされたポップアップを開くシェブロンが付いたボタン。
 [SplitButton](/uwp/api/windows.ui.xaml.controls.splitbutton) | 2 つの側面を持つボタン。 一方の側に操作を示し、もう一方の側でメニューを開きます。
 [ToggleSplitButton](/uwp/api/windows.ui.xaml.controls.togglesplitbutton) | 2 つの側面を持つトグル ボタン。 一方の側でオンとオフを切り替え、もう一方の側でメニューを開きます。
+[ToggleButton](/uwp/api/windows.ui.xaml.controls.primitives.togglebutton) | オンまたはオフにできるボタン。
 
 | **Windows UI ライブラリを入手する** |
 | - |
@@ -59,6 +60,8 @@ ms.locfileid: "67558760"
 ボタンに追加のオプションを含むポップアップがある場合は、**DropDownButton** コントロールを使用します。 既定のシェブロンにより、ボタンにポップアップが含まれていることが視覚的に示されます。
 
 ユーザーが直ちに操作を開始できるようにする場合や、追加のオプションから独立して選択できるようにする場合は、**SplitButton** コントロールを使用します。
+
+ユーザーが相互に排他的な 2 つの状態をすぐに切り替えることができるようにする場合に、UI の要件にボタンが最も適している場合は、**ToggleButton** コントロールを使用します。 UI がボタンのメリットを得られない場合は、[AppBarToggleButton](/uwp/api/windows.ui.xaml.controls.appbartogglebutton)、[CheckBox](checkbox.md)、[RadioButton](radio-button.md)、または [ToggleSwitch](toggles.md) を使用するほうが良い場合があります。
 
 ## <a name="examples"></a>例
 

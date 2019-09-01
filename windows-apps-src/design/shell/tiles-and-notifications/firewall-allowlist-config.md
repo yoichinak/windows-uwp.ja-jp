@@ -1,43 +1,46 @@
 ---
 author: mijacobs
-Description: 多くの企業では、不要なトラフィックをブロックするのにファイアウォールを使用します。 このドキュメントでは、ファイアウォールを通過する WNS トラフィックを許可する方法について説明します。
-title: WNS のトラフィックをファイアウォールの許可リストに追加します。
+Description: 多くの企業では、ファイアウォールを使用して不要なトラフィックをブロックしています。 このドキュメントでは、WNS トラフィックがファイアウォールを通過することを許可する方法について説明します。
+title: ファイアウォール許可リストへの WNS トラフィックの追加
 ms.assetid: 2125B09F-DB90-4515-9AA6-516C7E9ACCCD
 template: detail.hbs
 ms.author: mijacobs
 ms.date: 05/20/2019
 ms.topic: article
-ms.prod: windows
-ms.technology: uwp
-keywords: windows 10、uwp、WNS の場合、windows 通知サービス、通知、windows ファイアウォール、トラブルシューティング、IP、トラフィック、enterprise、ネットワーク、パブリック IP アドレス、IPv4、VIP、FQDN
+keywords: windows 10、uwp、WNS、windows notification service、通知、windows、ファイアウォール、トラブルシューティング、IP、トラフィック、エンタープライズ、ネットワーク、IPv4、VIP、FQDN、パブリック IP アドレス
 ms.localizationpriority: medium
-ms.openlocfilehash: 23a9b11cd961e03217aba8ca3d1d988447a2f80b
-ms.sourcegitcommit: b0edd3c09f931b9b62f9c2d17037fb58d826174f
+ms.openlocfilehash: 817dec616a88f0b374bc019cbbf23f56fad94484
+ms.sourcegitcommit: 820704a73174e81da3dc00cf0603c0c82471cdfe
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67349855"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69908450"
 ---
-# <a name="allowing-windows-notification-traffic-through-enterprise-firewalls"></a>エンタープライズ ファイアウォールを介した Windows の通知のトラフィックを許可します。
+# <a name="enterprise-firewall-and-proxy-configurations-to-support-wns-traffic"></a>WNS トラフィックをサポートするためのエンタープライズファイアウォールとプロキシ構成
 
-## <a name="background"></a>背景
-多くの企業では、ファイアウォールを使用して、不要なネットワーク トラフィックをブロックするには残念ながら、Windows 通知サービスの通信などの重要なブロックこれこともできます。 つまり、WNS から送信されるすべての通知は破棄されます。 これを回避するには、ネットワーク管理者は、ファイアウォールを通過する WNS トラフィックを許可するには、その除外リストに承認済みの WNS チャネルの一覧を追加できます。 方法の詳細および追加するものを次に示します。 
+## <a name="background"></a>背景情報
+多くの企業ではファイアウォールを使用して、不要なネットワークトラフィックをブロックしています。残念ながら、これは Windows Notification Service の通信などの重要な機能もブロックする可能性があります。 つまり、WNS を介して送信されるすべての通知は、特定のネットワーク構成で削除されます。 これを回避するために、ネットワーク管理者は、承認された WNS チャネルの一覧を除外リストに追加して、WNS トラフィックがファイアウォールを通過できるようにすることができます。 次に、さまざまなプロキシの種類のサポートに加え、追加の方法と用途について詳しく説明します。
+
+## <a name="proxy-support"></a>プロキシのサポート
 
 > [!Note] 
-6/24/2019、Windows クライアントの時点で**しない**サポート プロキシ、WNS に接続は直接接続する必要があります。
+Windows クライアントは、すべてのプロキシをサポートし**ていません**。 WNS への接続は直接接続である必要があります。
 
-## <a name="what-information-should-be-added-to-the-allowlist"></a>どのような情報は、許可リストに追加する必要があります。
-以下は、Fqdn、Vip、および IP を含むリスト アドレス範囲、Windows 通知サービスで使用します。 
+**もうすぐです！** さまざまなネットワーク構成、プロキシ、およびファイアウォールを積極的に調査しています。 このページは、一般的なエンタープライズシナリオと WNS サポートについて、さらに詳しく説明します。
+
+
+## <a name="what-information-should-be-added-to-the-allowlist"></a>許可リストに追加する必要がある情報
+Windows Notification Service によって使用される Fqdn、Vip、および IP アドレスの範囲を含む一覧を次に示します。 
 
 > [!IMPORTANT]
-> 強くお勧め fqdn を一覧できるようにすることため、これらは変更されません。 Fqdn ボックスの一覧を許可する場合も IP アドレスの範囲を許可する必要はありません。
+> FQDN でリストを許可することを強くお勧めします。これは変更されないためです。 FQDN で一覧表示することを許可する場合は、IP アドレス範囲も許可する必要はありません。
 
 > [!IMPORTANT]
-> IP アドレスの範囲が定期的に変更されます。このため、このページは含まれません。 IP 範囲の一覧を表示する場合は、ダウンロード センターからファイルをダウンロードできます。[Windows 通知サービス (WNS) の VIP と IP の範囲は](https://www.microsoft.com/download/details.aspx?id=44238)します。 確認してください、最新の情報があるかどうかを確認するには、定期的にバックアップします。 
+> IP アドレス範囲は定期的に変更されます。このため、このページには含まれていません。 IP 範囲の一覧を表示するには、ダウンロードセンターからファイルをダウンロードします。[Windows Notification Service (WNS) の VIP と IP の範囲](https://www.microsoft.com/download/details.aspx?id=44238)。 最新の情報があることを確認するために、定期的に確認してください。 
 
 
-### <a name="fqdns-vips-and-ips"></a>Fqdn、Vip、および ip アドレス
-それに続くテーブルで各次の XML ドキュメント内の要素の説明 (で[用語と表記](#terms-and-notations)します。 IP の範囲は、Fqdn を一定に保たれます Fqdn のみを使用することを促すには、このドキュメントから意図的にありました。 ただし、ダウンロード センターから完全な一覧を含む XML ファイルをダウンロードすることができます。[Windows 通知サービス (WNS) の VIP と IP の範囲は](https://www.microsoft.com/download/details.aspx?id=44238)します。 新しい Vip または IP 範囲がある**1 つの日の週はアップロード後**します。
+### <a name="fqdns-vips-and-ips"></a>Fqdn、Vip、Ip
+次の XML ドキュメントに記載されている各要素は、その後の表で説明しています ([用語と表記](#terms-and-notations))。 このドキュメントから除外された IP 範囲は、Fqdn が不変であるため、Fqdn のみを使用することをお勧めします。 ただし、ダウンロードセンターから完全な一覧を含む XML ファイルをダウンロードできます。[Windows Notification Service (WNS) の VIP と IP の範囲](https://www.microsoft.com/download/details.aspx?id=44238)。 新しい Vip または IP 範囲は **、アップロードされてから1週間後に有効**になります。
 
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
@@ -62,28 +65,28 @@ ms.locfileid: "67349855"
 
 ```
 
-### <a name="terms-and-notations"></a>用語との表記
-表記と上記の XML スニペットで使用される要素の説明を次に示します。
+### <a name="terms-and-notations"></a>用語と表記
+次に、上記の XML スニペットで使用される表記法と要素について説明します。
 
 | 項目 | 説明 |
 |---|---|
-| **ドット数値記法 (つまり 64.4.28.0/26)** | ドット数値記法は、範囲の IP アドレスを記述する方法です。 たとえば、64.4.28.0/26 64.4.28.0 の最初の 26 のビットは定数、最後の 6 ビットは変数を意味します。  この場合は、IPv4 の範囲は、64.4.28.0 - 64.4.28.63 します。 |
-| **ClientDNS** | これらのクライアント デバイス (Windows Pc、デスクトップ) の完全修飾ドメイン名 (FQDN) フィルターは、WNS から通知を受信します。 これらは、WNS クライアント WNS 機能を使用するためにファイアウォールで許可する必要があります。  お勧め許可一覧に IP/VIP の範囲ではなく Fqdn によってこれらが変更されないためです。 |
-| **ClientIPsIPv4** | これらは、クライアント デバイス (Windows Pc、デスクトップ) からアクセスされるサーバーの IPv4 アドレス WNS から通知を受信します。 |
-| **CloudServiceDNS** | これらは、WNS に notificatios を送信する、クラウド サービスと対話する WNS サーバーの完全修飾ドメイン名 (FQDN) のフィルターです。 これらは、WNS 通知を送信するサービスのためにファイアウォールで許可する必要があります。  お勧め許可一覧に IP/VIP の範囲ではなく Fqdn によってこれらが変更されないためです。|
-| **CloudServiceIPs** | CloudServiceIPs は cloud services に WNS 通知を送信するために使用するサーバーの IPv4 アドレスです。  |
+| **ドット小数点表記 (64.4.28.0/26)** | ドット10進数表記は、IP アドレスの範囲を記述する方法です。 たとえば、64.4.28.0/26 は、64.4.28.0 の最初の26ビットが定数であり、最後の6ビットは変数であることを意味します。  この場合、IPv4 の範囲は 64.4.28.0-64.4.28.63 です。 |
+| **ClientDNS** | これらは、WNS から通知を受け取るクライアントデバイス (Windows Pc、デスクトップ) の完全修飾ドメイン名 (FQDN) フィルターです。 WNS クライアントで WNS 機能を使用するためには、ファイアウォールを通過する必要があります。  IP/VIP 範囲ではなく Fqdn によってリストを許可することをお勧めします。これは変更されないためです。 |
+| **ClientIPsIPv4** | これらは、WNS から通知を受け取るクライアントデバイス (Windows Pc、デスクトップ) によってアクセスされるサーバーの IPv4 アドレスです。 |
+| **CloudServiceDNS** | これらは、通知を WNS に送信するためにクラウドサービスが通信する WNS サーバーの完全修飾ドメイン名 (FQDN) フィルターです。 これらは、サービスが WNS 通知を送信するために、ファイアウォール経由で許可されている必要があります。  IP/VIP 範囲ではなく Fqdn によってリストを許可することをお勧めします。これは変更されないためです。|
+| **CloudServiceIPs** | CloudServiceIPs は、クラウドサービスが WNS に通知を送信するために使用するサーバーの IPv4 アドレスです。  |
 
 
-## <a name="microsoft-push-notifications-service-mpns-public-ip-ranges"></a>Microsoft プッシュ通知サービス (MPNS) パブリック IP 範囲
-MPNS、従来の通知サービスを使用している場合は、許可一覧に追加する必要があります IP アドレスの範囲は使用可能なダウンロード センターから。[Microsoft プッシュ通知サービス (MPNS) のパブリック IP の範囲は](https://www.microsoft.com/download/details.aspx?id=44535)します。
+## <a name="microsoft-push-notifications-service-mpns-public-ip-ranges"></a>Microsoft プッシュ通知サービス (MPNS) のパブリック IP 範囲
+従来の notification service (MPNS) を使用している場合、許可リストに追加する必要がある IP アドレス範囲は、ダウンロードセンターから入手できます。[Microsoft プッシュ通知サービス (MPNS) のパブリック IP 範囲](https://www.microsoft.com/download/details.aspx?id=44535)。
 
 
 ## <a name="related-topics"></a>関連トピック
 
-* [クイック スタート:プッシュ通知を送信します。](https://docs.microsoft.com/previous-versions/windows/apps/hh868252(v=win.10))
-* [要求、作成、および通知チャネルを保存する方法](https://docs.microsoft.com/previous-versions/windows/apps/hh465412(v=win.10))
-* [アプリケーションを実行するための通知をインターセプトする方法](https://docs.microsoft.com/previous-versions/windows/apps/jj709907(v=win.10))
-* [Windows プッシュ通知サービス (WNS) とを認証する方法](https://docs.microsoft.com/previous-versions/windows/apps/hh465407(v=win.10))
-* [プッシュ通知サービスの要求および応答ヘッダー](https://docs.microsoft.com/previous-versions/windows/apps/hh465435(v=win.10))
+* [クイック スタート:プッシュ通知の送信](https://docs.microsoft.com/previous-versions/windows/apps/hh868252(v=win.10))
+* [通知チャネルを要求、作成、および保存する方法](https://docs.microsoft.com/previous-versions/windows/apps/hh465412(v=win.10))
+* [実行中のアプリケーションの通知をインターセプトする方法](https://docs.microsoft.com/previous-versions/windows/apps/jj709907(v=win.10))
+* [Windows プッシュ通知サービス (WNS) を使用して認証する方法](https://docs.microsoft.com/previous-versions/windows/apps/hh465407(v=win.10))
+* [プッシュ通知サービスの要求と応答のヘッダー](https://docs.microsoft.com/previous-versions/windows/apps/hh465435(v=win.10))
 * [プッシュ通知のガイドラインとチェックリスト](https://docs.microsoft.com/windows/uwp/controls-and-patterns/tiles-and-notifications-windows-push-notification-services--wns--overview)
  

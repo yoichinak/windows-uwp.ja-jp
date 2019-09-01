@@ -2,6 +2,23 @@
   "build_entry_point": "op",
   "docsets_to_publish": [
     {
+      "docset_name": "windows-uwp-arm",
+      "build_source_folder": "landing/arm-docs",
+      "build_output_subfolder": "arm",
+      "locale": "ja-jp",
+      "monikers": [],
+      "moniker_ranges": [],
+      "open_to_public_contributors": false,
+      "type_mapping": {
+        "Conceptual": "Content",
+        "ManagedReference": "Content",
+        "RestApi": "Content"
+      },
+      "build_entry_point": "docs",
+      "template_folder": "_themes",
+      "xref_query_tags": [ "/uwp/api" ]
+    },
+    {
       "docset_name": "windows-uwp-hub",
       "build_source_folder": "hub",
       "build_output_subfolder": "hub",
@@ -13,15 +30,16 @@
         "RestApi": "Content"
       },
       "build_entry_point": "docs",
-      "template_folder": "_themes"
+      "template_folder": "_themes",
+      "is_dynamic_rendering": false,
+      "version": 0,
+      "xref_query_tags": [ "/uwp/api" ]
     },
     {
       "docset_name": "windows-uwp",
       "build_source_folder": "windows-apps-src",
       "build_output_subfolder": "windows-apps-src",
       "locale": "ja-jp",
-      "monikers": [],
-      "moniker_ranges": [],
       "open_to_public_contributors": false,
       "type_mapping": {
         "Conceptual": "Content",
@@ -29,12 +47,13 @@
         "RestApi": "Content"
       },
       "build_entry_point": "docs",
-      "template_folder": "_themes"
+      "template_folder": "_themes",
+      "is_dynamic_rendering": false,
+      "version": 0,
+      "xref_query_tags": [ "/uwp/api" ]
     }
   ],
-  "notification_subscribers": [
-    "v-mikmat@microsoft.com"
-  ],
+  "notification_subscribers": [],
   "sync_notification_subscribers": [],
   "branches_to_filter": [
     "live",
@@ -44,7 +63,11 @@
   "git_repository_branch_open_to_public_contributors": "live",
   "continue_with_document_error": true,
   "skip_source_output_uploading": false,
-  "contribution_branch_mappings": {},
+  "need_preview_pull_request": true,
+  "resolve_user_profile_using_github": true,
+  "contribution_branch_mappings": {
+    "live-sxs": "live"
+  },
   "dependent_repositories": [
     {
       "path_to_root": "_themes",
@@ -55,6 +78,18 @@
     {
       "path_to_root": "_themes.pdf",
       "url": "https://github.com/Microsoft/templates.docs.msft.pdf",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "samples-xaml-gallery",
+      "url": "https://github.com/microsoft/Xaml-Controls-Gallery",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "snippets-windows",
+      "url": "https://github.com/MicrosoftDocs/windows-code-snippets-pr",
       "branch": "master",
       "branch_mapping": {}
     },

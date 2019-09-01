@@ -43,7 +43,7 @@ Windows.UI.Composition API には、コンテンツをコンポジターに直�
 
 以下の 2 つのコード例があります。 まず、 [C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) (これは完全な) 例では、し、C++/CX のコード例 (この例では、DirectWrite と Direct2D の部分が省略されます)。
 
-以下の C++/WinRT コード例を使用するには、まず Visual Studio で新規の **Core アプリ (C++/WinRT)** プロジェクトを作成してください (要件については、[C++/WinRT の Visual Studio サポート](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)を参照してください)。プロジェクトを作成するときには、ターゲット バージョンとして **Windows 10、バージョン 1803 (10.0;ビルド 17134)** を選択します。それは、このコードがビルドされ、テストされたバージョンです。`App.cpp` ソース コード ファイルのコンテンツを以下のコードリストに置き換えてからビルドして実行します。アプリケーションは、文字列の 「Hello, world!」 を透明な背景に黒のテキストでレンダリングします。
+以下の C++/WinRT コード例を使用するには、まず Visual Studio で新規の **Core アプリ (C++/WinRT)** プロジェクトを作成してください (要件については、[C++/WinRT の Visual Studio サポート](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)を参照してください)。 プロジェクトを作成するときには、ターゲット バージョンとして **Windows 10、バージョン 1803 (10.0;ビルド 17134)** を選択します。 それは、このコードがビルドされ、テストされたバージョンです。 内容を置き換える、`App.cpp`を以下のコードのソース コード ファイルのビルドおよび実行します。 アプリケーションは、文字列の"Hello, World!"を表示します で、透明な背景に黒のテキスト。 で、透明な背景に黒のテキスト。
 
 ```cppwinrt
 // App.cpp

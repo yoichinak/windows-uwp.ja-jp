@@ -12,12 +12,12 @@ design-contact: jeffarn
 doc-status: Published
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 1096bdab340c3f0fef24b5815423f72b0f5c8219
-ms.sourcegitcommit: cc0ef75f314658b14376eb60ef8e5bb4d7726e04
+ms.openlocfilehash: 31cf2134fb8f77809b75a5abf3e6980443452059
+ms.sourcegitcommit: 789bfe3756c5c47f7324b96f482af636d12c0ed3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65444169"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68867405"
 ---
 # <a name="motion-for-uwp-apps"></a>UWP アプリのモーション
 
@@ -74,21 +74,21 @@ Fluent モーションはアプリで目的を果たします。 これは、ユ
 
 :::row:::
     :::column:::
-        ### [Timing and easing](timing-and-easing.md)
-        Timing and easing are important elements that make motion feel natural for objects entering, exiting, or moving within the UI.
+### <a name="timing-and-easingtiming-and-easingmd"></a>[タイミングとイージング](timing-and-easing.md)
+タイミングとイージングは、UI 内で出入りしたり、移動したりするオブジェクトのモーションを自然に感じさせる重要な要素です。
     :::column-end:::
     :::column:::
-        ### [Directionality and gravity](directionality-and-gravity.md)
-        Directional signals help provide a solid mental model of the journey a user takes across experiences. Directional movement is subject to forces like gravity, which reinforces the natural feel of the movement.
+### <a name="directionality-and-gravitydirectionality-and-gravitymd"></a>[方向性と重力](directionality-and-gravity.md)
+方向指示は、ユーザーがエクスペリエンス全体を通じて行う取り組みの強固な概念的モデルを提供するのに役立ちます。 方向性は、重力などのエネルギーの影響を受け、これにより移動の自然な感覚が強化されます。
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-        ### [Page transitions](page-transitions.md)
-        Page transitions navigate users between pages in an app, providing feedback about the relationship between pages. They help users understand where they are in the navigation hierarchy.
+### <a name="page-transitionspage-transitionsmd"></a>[ページ切り替え効果](page-transitions.md)
+ページ切り替え効果により、ユーザーがアプリ内のページ間を移動するため、ページ間の関係がフィードバックされます。 ユーザーがナビゲーション階層内の場所を理解するのに役立ちます。
     :::column-end:::
     :::column:::
-        ### [Connected animation](connected-animation.md)
-        Connected animations let you create a dynamic and compelling navigation experience by animating the transition of an element between two different views.
+### <a name="connected-animationconnected-animationmd"></a>[接続型アニメーション](connected-animation.md)
+接続型アニメーションを使用すると、2 つの異なるビューの間で要素が切り替わる様子をアニメーション化することによって、動的で魅力的なナビゲーション エクスペリエンスを作成できます。
     :::column-end:::
 :::row-end:::

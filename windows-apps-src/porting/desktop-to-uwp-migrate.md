@@ -12,7 +12,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 06/21/2019
 ms.locfileid: "67319710"
 ---
-# <a name="move-from-a-desktop-application-to-uwp"></a>UWP へのデスクトップ アプリケーションからの移動します。
+# <a name="move-from-a-desktop-application-to-uwp"></a>デスクトップ アプリケーションから UWP への移行
 
 .NET Framework (WPF と Windows フォームを含む) を使用して構築された既存のデスクトップ アプリケーションがある場合またはC++Win32 Api では、Windows 10 とユニバーサル Windows プラットフォーム (UWP) に移動するためのいくつかのオプションがあります。
 

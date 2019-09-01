@@ -185,7 +185,7 @@ ContactPanel オブジェクトを使うと、連絡先パネル ヘッダーの
 
 連絡先にバッジを表示するには、トップ レベルのトースト ノードに hint-people パラメーターを含めて、送信連絡先を指定する必要があります。 このパラメーターには次の値を指定できます。
 + **電子メール アドレス** 
-    + 例: mailto:johndoe@mydomain.com
+    + 例: [mailto:johndoe@mydomain.com](mailto:johndoe@mydomain.com)
 + **電話番号** 
     + 例: tel:888-888-8888
 + **リモート ID** 

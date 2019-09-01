@@ -34,7 +34,7 @@ ms.locfileid: "66215113"
 
 Windows Ink プラットフォームでペン デバイスを使うと、自然な形でデジタルの手書きノート、描画、コメントを作れます。 このプラットフォームは、デジタイザー入力のインク データとしてのキャプチャ、インク データの生成、インク データの管理、出力デバイスのインク ストロークとしてのインク データのレンダリング、手書き認識によるインクからテキストへの変換をサポートします。
 
-Windows アプリで Windows のインクを使用するさまざまな方法の詳細については、次を参照してください。 [Windows インク](/windows/uwp/design/input/pen-and-stylus-interactions)します。
+Windows アプリで Windows Ink を使用するさまざまな方法の詳細については、[Windows Ink](/windows/uwp/design/input/pen-and-stylus-interactions) を参照してください。
 
 ### <a name="speech-interactions"></a>音声操作
 
@@ -44,7 +44,7 @@ Windows アプリで Windows のインクを使用するさまざまな方法の
 
 Windows では、アプリのユーザー エクスペリエンスに直接音声認識と音声合成 (TTS、または音声合成とも呼ばれます) を統合するさまざまな方法を提供します。 音声は、アプリ、補完するものとして、または偶数の置換では、キーボード、マウス、タッチとジェスチャと対話するための堅牢で楽しい方法です。
 
-Windows アプリで音声の相互作用を使用するさまざまな方法の詳細については、次を参照してください。[音声の相互作用](/windows/uwp/design/input/speech-interactions)します。
+Windows アプリで音声の相互作用を使用するさまざまな方法の詳細については、「[音声の相互作用](/windows/uwp/design/input/speech-interactions)」を参照してください。
 
 ### <a name="windows-ai"></a>Windows AI
 
@@ -52,7 +52,7 @@ Windows アプリで音声の相互作用を使用するさまざまな方法の
 
 Windows アプリケーションを強化するために使用できるさまざまな AI ソリューションをいくつか提供しています。 Windows Machine Learning では、トレーニング済みのマシン学習モデルをアプリに統合し、デバイス上でローカルに実行できます。 Windows Vision Skills を使用すると、構築済みのライブラリを使用して一般的なイメージ処理タスクを実行するか、独自のカスタム ソリューションを作成できます。 DirectML は、ハードウェアを十分に活用するための低レベルの DirectX スタイル API を提供します。
 
-Windows アプリに AI を統合するさまざまな方法の詳細については、[Windows AI](https://docs.microsoft.com/windows/ai/)参照してください。
+Windows アプリに AI を統合するさまざまな方法の詳細については、[Windows AI](https://docs.microsoft.com/windows/ai/)を参照してください。
 
 ## <a name="features-and-technologies-by-platform"></a>機能とプラットフォームでのテクノロジ
 

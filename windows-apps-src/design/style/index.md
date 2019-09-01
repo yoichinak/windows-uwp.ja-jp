@@ -7,12 +7,12 @@ ms.topic: article
 ms.assetid: 4df395d2-f10e-4e0e-9bf2-660f82b8a9fa
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 7d5da19fc9fdab324db2c162a3cb6792fa91f120
-ms.sourcegitcommit: 09edf480f2224e29e190fad8518f680c16e21c6d
+ms.openlocfilehash: f7cf1001333c1df2cd7e1906f57444b982814d25
+ms.sourcegitcommit: 789bfe3756c5c47f7324b96f482af636d12c0ed3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65065366"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68867689"
 ---
 # <a name="style-for-uwp-apps"></a>UWP アプリのスタイル
 
@@ -22,60 +22,60 @@ ms.locfileid: "65065366"
 
 :::row:::
     :::column:::
-        ![hero image](images/header-color.svg)
-        ### [Color](color.md)
-        Color provides intuitive wayfinding through an app's various levels of information and serves as a crucial tool for reinforcing the interaction model.
+![ヒーロー イメージ](images/header-color.svg)
+### <a name="colorcolormd"></a>[色](color.md)
+色により、アプリのさまざまな情報レベルで直感的に移動先を見つけることができます。また、色は操作モデルを強化するための重要なツールとして機能します。
     :::column-end:::
     :::column:::
-        ![hero image](images/header-typography.svg)
-        ### [Typography](typography.md)
-       言語の視覚的な表現として、文字体裁の主な役割は明確であることです。 スタイルによってその目的が邪魔されてはなりません。 次のガイドラインでは、コンテンツをユーザーに理解しやすくするための文字体裁の使用方法について説明します。 
-    :::column-end:::
-:::row-end:::
-
-:::row:::
-    :::column:::
-        ![hero image](images/header-icons.svg)
-        ### [Icons](icons.md)
-        Good icons harmonize with typography and with the rest of the design language. They don’t mix metaphors, and they communicate only what’s needed, as speedily and simply as possible.
-    :::column-end:::
-    :::column:::
-        ![hero image](images/header-acrylic.svg)
-        ### [Acrylic](acrylic.md)
-        Create a sense of depth with acrylic, a brush that creates stunning, translucent surfaces.
+![ヒーロー イメージ](images/header-typography.svg)
+### <a name="typographytypographymd"></a>[文字体裁](typography.md)
+言語の視覚的な表現として、文字体裁の主な役割は明確であることです。 スタイルによってその目的が邪魔されてはなりません。 次のガイドラインでは、コンテンツをユーザーに理解しやすくするための文字体裁の使用方法について説明します。 
     :::column-end:::
 :::row-end:::
 
 :::row:::
     :::column:::
-        ![hero image](images/header-reveal-highlight.svg)
-        ### [Reveal highlight](reveal.md)
-        Use light to illuminate important elements.
+![ヒーロー イメージ](images/header-icons.svg)
+### <a name="iconsiconsmd"></a>[アイコン](icons.md)
+優れたアイコンは、文字の体裁やその他のデザイン言語と調和するものです。 アイコンは比喩と混用しないようにします。優れたアイコンは、できるだけすばやくシンプルに、必要なことのみを伝えます。
     :::column-end:::
     :::column:::
-        ![hero image](images/header-reveal-focus.svg)
-        ### [Reveal focus](reveal-focus.md)
-        Reveal focus is a lighting effect for 10 foot experiences, such as Xbox One and television screens, and animates the border of focusable elements.
-    :::column-end:::
-:::row-end:::
-
-:::row:::
-    :::column:::
-        ![hero image](images/header-sound.svg)
-        ### [Sound](sound.md)
-        Sound helps complete an application's user experience, and gives them that extra audio edge they need to match the feel of Windows across all platforms.
-    :::column-end:::
-    :::column:::
-        ![hero image](images/header-writing-style.gif)
-        ### [Writing style](writing-style.md)
-        Writing style can make a big difference between an awful user experience and a better one.
+![ヒーロー イメージ](images/header-acrylic.svg)
+### <a name="acrylicacrylicmd"></a>[Acrylic](acrylic.md)
+アクリル (美しい半透明のサーフェスを作成するブラシ) を使用して、奥行きを感じさせます。
     :::column-end:::
 :::row-end:::
 
 :::row:::
     :::column:::
-        ### [XAML styles](../controls-and-patterns/xaml-styles.md)
-        You can customize the appearance of your apps in many ways by using the XAML framework. Styles let you set control properties and reuse those settings for a consistent appearance across multiple controls.
+![ヒーロー イメージ](images/header-reveal-highlight.svg)
+### <a name="reveal-highlightrevealmd"></a>[表示ハイライト](reveal.md)
+光源を使用して、重要な要素が目立つように表示します。
+    :::column-end:::
+    :::column:::
+![ヒーロー イメージ](images/header-reveal-focus.svg)
+### <a name="reveal-focusreveal-focusmd"></a>[表示フォーカス](reveal-focus.md)
+表示フォーカスは、Xbox One やテレビ画面などの 10 フィート エクスペリエンスを想定した発光効果で、フォーカス可能な要素の境界をアニメーション化します。
+    :::column-end:::
+:::row-end:::
+
+:::row:::
+    :::column:::
+![ヒーロー イメージ](images/header-sound.svg)
+### <a name="soundsoundmd"></a>[サウンド](sound.md)
+サウンドは、アプリケーションのユーザー エクスペリエンスの完成をサポートし、アプリケーションのオーディオ面の特徴を際立たせます。オーディオは、すべてのプラットフォームで Windows の使い勝手を一致させるために必要なものです。
+    :::column-end:::
+    :::column:::
+![ヒーロー イメージ](images/header-writing-style.gif)
+### <a name="writing-stylewriting-stylemd"></a>[記述スタイル](writing-style.md)
+記述スタイルによって、ユーザー エクスペリエンスが不快にも快適にもなる大きな違いが生まれます。
+    :::column-end:::
+:::row-end:::
+
+:::row:::
+    :::column:::
+### <a name="xaml-stylescontrols-and-patternsxaml-stylesmd"></a>[XAML スタイル](../controls-and-patterns/xaml-styles.md)
+XAML フレームワークを使って、さまざまな方法でアプリの外観をカスタマイズできます。 スタイルを使うと、コントロールのプロパティに値を設定し、その設定を再利用することで、複数のコントロールの外観を統一できます。
     :::column-end:::
     :::column:::
     :::column-end:::

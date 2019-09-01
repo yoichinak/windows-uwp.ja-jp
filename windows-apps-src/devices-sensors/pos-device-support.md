@@ -5,94 +5,94 @@ ms.date: 06/13/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: aa8bec12ca3920b1e273d8f2d98186f62a340016
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 6d67dd7bc7d2f6323679dd7c69a98df841b2848c
+ms.sourcegitcommit: 769ec7811aaaa79fe521e3e984a2e1a2a9671caf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67321531"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70057815"
 ---
 # <a name="supported-point-of-service-peripherals"></a>サポートされている POS 周辺機器
 
 ## <a name="barcode-scanner"></a>バーコード スキャナー
 | 接続 | サポート |
 | -------------|-------------|
-| USB          | <p>Windows には、によって定義された HID POS スキャナー使用量のテーブル (8. の c.) 仕様に基づいて USB 接続してバーコード スキャナのインボックス クラス ドライバーが含まれています[USB.org](https://www.usb.org/hid)します。既知の互換性のあるデバイスの一覧については、次の表を参照してください。  **USB.HID.POS Scanner** モードでスキャナーを構成する方法については、バーコード スキャナーのマニュアルを参照するか、製造元にお問い合わせください。 </p><p>Windows では、USB.HID.POS Scanner 標準をサポートしない追加のバーコード スキャナーをサポートするために、ベンダー固有のドライバーの実装をサポートしています。 ベンダー固有のドライバーの利用可能性については、バーコード スキャナーの製造元に確認してください。</p><p>バーコード スキャナーのメーカー様は、カスタム バーコード スキャナー ドライバーの作成については、[バーコード スキャナー ドライバー設計ガイド](https://aka.ms/pointofservice-drv)をご覧ください。</p> |
+| USB          | <p>Windows には、USB 接続バーコードスキャナー用のインボックスクラスドライバーが含まれています。これは、 [USB.org](https://www.usb.org/hid)で定義されている HID POS Scanner Usage Table (8c) 仕様に基づいています。既知の互換性のあるデバイスの一覧については、次の表を参照してください。  **USB.HID.POS Scanner** モードでスキャナーを構成する方法については、バーコード スキャナーのマニュアルを参照するか、製造元にお問い合わせください。 </p><p>Windows では、USB.HID.POS Scanner 標準をサポートしない追加のバーコード スキャナーをサポートするために、ベンダー固有のドライバーの実装をサポートしています。 ベンダー固有のドライバーの利用可能性については、バーコード スキャナーの製造元に確認してください。</p><p>バーコード スキャナーのメーカー様は、カスタム バーコード スキャナー ドライバーの作成については、[バーコード スキャナー ドライバー設計ガイド](https://aka.ms/pointofservice-drv)をご覧ください。</p> |
 | Bluetooth    | <p>Windows では、Serial Port Protocol - Simple Serial Interface (SPP-SSI) ベースの Bluetooth バーコード スキャナーがサポートされています。 既知の互換性のあるデバイスの一覧については、次の表を参照してください。 **SPP-SSI** モードでスキャナーを構成する方法については、バーコード スキャナーのマニュアルを参照するか、製造元にお問い合わせください。</p> |
 | Web カメラ       | <p>Windows 10 バージョン 1803 以降では、ユニバーサル Windows アプリケーションから標準のカメラ レンズでバーコードを読み取ることができます。 オート フォーカスと 1920 x 1440 以上の解像度をサポートするカメラを使用することをお勧めします。  バーコードが十分な大きさで印刷されている場合、これより解像度の低いカメラでも標準的なバーコードを読み取ることができる可能性があります。  バーコードの要素が細い場合は、より高い解像度のカメラが必要になる可能性があります。</p>| 
 |
 
 
-| 製造元  | モデル                          | 機能 | 接続    | 種類         | Mode                      |
+| 製造元  | モデル                          | 機能 | 接続    | 種類         | モード                      |
 |---------------|--------------------------------|------------|--------------|--------------|---------------------------|
-| コード          | Reader™ 950                    | 2D         | USB          | ハンドヘルド     | HID の POS スキャナー           |
-| コード          | Reader™ 1021                   | 2D         | USB          | ハンドヘルド     | HID の POS スキャナー           |
-| コード          | Reader™ 1421                   | 2D         | USB          | ハンドヘルド     | HID の POS スキャナー           |
-| コード          | Reader™ 5000                   | 2D         | USB          | 効果 | HID の POS スキャナー           |
-| Honeywell     | Genesis 7580g                  | 2D         | USB          | 効果 | HID の POS スキャナー           |
-| Honeywell     | Granit 198Xi                   | 2D         | USB          | ハンドヘルド     | HID の POS スキャナー           |
-| Honeywell     | Granit 191Xi                   | 2D         | USB          | ハンドヘルド     | HID の POS スキャナー           |
-| Honeywell     | N5680                          | 2D         | 内部     | Component    | HID の POS スキャナー           |
-| Honeywell     | N3680                          | 2D         | 内部     | Component    | HID の POS スキャナー           |
-| Honeywell     | 軌道 7190 g                    | 2D         | USB          | 効果 | HID の POS スキャナー           |
-| Honeywell     | Stratos 2700                   | 2D         | USB          | カウンターの   | HID の POS スキャナー           |
-| Honeywell     | ボイジャー 1200 g                  | 1D         | USB          | ハンドヘルド     | HID の POS スキャナー           |
-| Honeywell     | ボイジャー 1202 g                  | 1D         | USB          | ハンドヘルド     | HID の POS スキャナー           |
-| Honeywell     | ボイジャーの 1202 bf                | 1D         | USB          | ハンドヘルド     | HID の POS スキャナー           |
-| Honeywell     | ボイジャー 145Xg                  | 1D/2 D ¹   | USB          | ハンドヘルド     | HID の POS スキャナー           |
-| Honeywell     | ボイジャー 1602 g                  | 2D         | USB          | ハンドヘルド     | HID の POS スキャナー           |
-| Honeywell     | Xenon 1900 g                    | 2D         | USB          | ハンドヘルド     | HID の POS スキャナー           |
-| Honeywell     | Xenon 1902 g                    | 2D         | USB          | ハンドヘルド     | HID の POS スキャナー           |
-| Honeywell     | Xenon 1902 g-bf                 | 2D         | USB          | ハンドヘルド     | HID の POS スキャナー           |
-| Honeywell     | Xenon 1900 h                    | 2D         | USB          | ハンドヘルド     | HID の POS スキャナー           |
-| Honeywell     | Xenon 1902 h                    | 2D         | USB          | ハンドヘルド     | HID の POS スキャナー           |
-| HP            | バーコード スキャナー (HR2150) の値します。 | 2D         | USB          | ハンドヘルド     | HID の POS スキャナー           |
-| Intermec      | SG20                           | 2D         | USB          | ハンドヘルド     | HID の POS スキャナー           |
-| Socket Mobile | CHS 7Ci                        | 1D         | Bluetooth    | ハンドヘルド     | シリアル ポート プロファイル (SPP) |
-| Socket Mobile | CHS 7Di                        | 1D         | Bluetooth    | ハンドヘルド     | シリアル ポート プロファイル (SPP) |
-| Socket Mobile | CHS 7 Mi                        | 1D         | Bluetooth    | ハンドヘルド     | シリアル ポート プロファイル (SPP) |
-| Socket Mobile | CHS 7Pi                        | 1D         | Bluetooth    | ハンドヘルド     | シリアル ポート プロファイル (SPP) |
-| Socket Mobile | CHS 8Ci                        | 1D         | Bluetooth    | ハンドヘルド     | シリアル ポート プロファイル (SPP) |
-| Socket Mobile | DuraScan D700                  | 1D         | Bluetooth    | ハンドヘルド     | シリアル ポート プロファイル (SPP) |
-| Socket Mobile | DuraScan D730                  | 1D         | Bluetooth    | ハンドヘルド     | シリアル ポート プロファイル (SPP) |
-| Socket Mobile | DuraScan D740                  | 2D         | Bluetooth    | ハンドヘルド     | シリアル ポート プロファイル (SPP) |
-| Socket Mobile | SocketScan S700                | 1D         | Bluetooth    | ハンドヘルド     | シリアル ポート プロファイル (SPP) |
-| Socket Mobile | SocketScan S730                | 1D         | Bluetooth    | ハンドヘルド     | シリアル ポート プロファイル (SPP) |
-| Socket Mobile | SocketScan S740                | 2D         | Bluetooth    | ハンドヘルド     | シリアル ポート プロファイル (SPP) |
-| Socket Mobile | SocketScan S800                | 1D         | Bluetooth    | ハンドヘルド     | シリアル ポート プロファイル (SPP) |
-| Socket Mobile | SocketScan S850                | 2D         | Bluetooth    | ハンドヘルド     | シリアル ポート プロファイル (SPP) |
-| Zebra         | DS2208²                        | 2D         | USB          | ハンドヘルド     | HID の POS スキャナー           |
-| Zebra         | DS2278                         | 2D         | USB          | ハンドヘルド     | HID の POS スキャナー           |
-| Zebra         | DS8108³                        | 2D         | USB          | ハンドヘルド     | HID の POS スキャナー           |
-|
+| コード          | リーダー™950                    | 断面         | USB          | ハンドヘルド     | HID POS スキャナー           |
+| コード          | リーダー™1021                   | 断面         | USB          | ハンドヘルド     | HID POS スキャナー           |
+| コード          | リーダー™1421                   | 断面         | USB          | ハンドヘルド     | HID POS スキャナー           |
+| コード          | リーダー™5000                   | 断面         | USB          | 効果 | HID POS スキャナー           |
+| Honeywell     | Genesis 7580g                  | 断面         | USB          | 効果 | HID POS スキャナー           |
+| Honeywell     | Granit 198Xi                   | 断面         | USB          | ハンドヘルド     | HID POS スキャナー           |
+| Honeywell     | Granit 191Xi                   | 断面         | USB          | ハンドヘルド     | HID POS スキャナー           |
+| Honeywell     | N5680                          | 断面         | Internal     | コンポーネント    | HID POS スキャナー           |
+| Honeywell     | N3680                          | 断面         | Internal     | コンポーネント    | HID POS スキャナー           |
+| Honeywell     | 軌道7190g                    | 断面         | USB          | 効果 | HID POS スキャナー           |
+| Honeywell     | Stratos 2700                   | 断面         | USB          | カウンター内   | HID POS スキャナー           |
+| Honeywell     | Voyager 1200g                  | 1D         | USB          | ハンドヘルド     | HID POS スキャナー           |
+| Honeywell     | Voyager 1202g                  | 1D         | USB          | ハンドヘルド     | HID POS スキャナー           |
+| Honeywell     | Voyager 1202-bf                | 1D         | USB          | ハンドヘルド     | HID POS スキャナー           |
+| Honeywell     | Voyager 145Xg                  | 1D/2D<sup>1</sup>   | USB          | ハンドヘルド     | HID POS スキャナー           |
+| Honeywell     | Voyager 1602g                  | 断面         | USB          | ハンドヘルド     | HID POS スキャナー           |
+| Honeywell     | Xenon 1900g                    | 断面         | USB          | ハンドヘルド     | HID POS スキャナー           |
+| Honeywell     | Xenon 1902g                    | 断面         | USB          | ハンドヘルド     | HID POS スキャナー           |
+| Honeywell     | Xenon 1902g-bf                 | 断面         | USB          | ハンドヘルド     | HID POS スキャナー           |
+| Honeywell     | Xenon 1900h                    | 断面         | USB          | ハンドヘルド     | HID POS スキャナー           |
+| Honeywell     | Xenon 1902h                    | 断面         | USB          | ハンドヘルド     | HID POS スキャナー           |
+| HP            | 値バーコードスキャナー (HR2150) | 断面         | USB          | ハンドヘルド     | HID POS スキャナー           |
+| Intermec      | SG20                           | 断面         | USB          | ハンドヘルド     | HID POS スキャナー           |
+| Socket Mobile | CHS 7 Ci                        | 1D         | Bluetooth    | ハンドヘルド     | シリアルポートプロファイル (SPP) |
+| Socket Mobile | CHS 7Di                        | 1D         | Bluetooth    | ハンドヘルド     | シリアルポートプロファイル (SPP) |
+| Socket Mobile | CHS 7Mi                        | 1D         | Bluetooth    | ハンドヘルド     | シリアルポートプロファイル (SPP) |
+| Socket Mobile | CHS 7Pi                        | 1D         | Bluetooth    | ハンドヘルド     | シリアルポートプロファイル (SPP) |
+| Socket Mobile | CHS 8Ci                        | 1D         | Bluetooth    | ハンドヘルド     | シリアルポートプロファイル (SPP) |
+| Socket Mobile | DuraScan D700                  | 1D         | Bluetooth    | ハンドヘルド     | シリアルポートプロファイル (SPP) |
+| Socket Mobile | DuraScan D730                  | 1D         | Bluetooth    | ハンドヘルド     | シリアルポートプロファイル (SPP) |
+| Socket Mobile | DuraScan D740                  | 断面         | Bluetooth    | ハンドヘルド     | シリアルポートプロファイル (SPP) |
+| Socket Mobile | ソケットスキャン S700                | 1D         | Bluetooth    | ハンドヘルド     | シリアルポートプロファイル (SPP) |
+| Socket Mobile | ソケットスキャン S730                | 1D         | Bluetooth    | ハンドヘルド     | シリアルポートプロファイル (SPP) |
+| Socket Mobile | ソケットスキャン S740                | 断面         | Bluetooth    | ハンドヘルド     | シリアルポートプロファイル (SPP) |
+| Socket Mobile | ソケットスキャン S800                | 1D         | Bluetooth    | ハンドヘルド     | シリアルポートプロファイル (SPP) |
+| Socket Mobile | ソケットスキャン S850                | 断面         | Bluetooth    | ハンドヘルド     | シリアルポートプロファイル (SPP) |
+| ゼブラ         | DS2208<sup>2</sup>                        | 断面         | USB          | ハンドヘルド     | HID POS スキャナー           |
+| ゼブラ         | DS2278                         | 断面         | USB          | ハンドヘルド     | HID POS スキャナー           |
+| ゼブラ         | DS8108<sup>3</sup>                        | 断面         | USB          | ハンドヘルド     | HID POS スキャナー           |
+| ゼブラ         | DS8178<sup>4</sup>                         | 断面         | USB          | ハンドヘルド     | HID POS スキャナー           | 
 
 
-¹ Upgradable Honeywell で 2D のバーコードをサポートするには <br/>
-² 最小ファームウェア 009 (2018.07.09) が必要です。 Zebra を使用してアップグレード可能な[123Scan](http://www.zebra.com/123scan)します。<br/>
-³ 最小ファームウェア 016 (2018.01.18) が必要です。 Zebra を使用してアップグレード可能な[123Scan](http://www.zebra.com/123scan)します。 
-
+<sup>1</sup> Honeywell を通じて2d バーコードをサポートするためにアップグレード可能 <br/>
+<sup>2</sup>最小ファームウェア 009 (2018.07.09) が必要です。 ゼブラ[123Scan](http://www.zebra.com/123scan)を使用してアップグレード可能。<br/>
+<sup>3</sup>最小ファームウェア 016 (2018.01.18) が必要です。 ゼブラ[123Scan](http://www.zebra.com/123scan)を使用してアップグレード可能。<br/> 
+<sup>4</sup>最小ファームウェア 023 (2019.03.11) が必要です。 ゼブラ[123Scan](http://www.zebra.com/123scan)を使用してアップグレード可能。<br/>
 
 <hr>
 
-### <a name="windows-devices-with-built-in-barcode-scanner"></a>組み込みのバーコード スキャナーを使用して Windows デバイス
+### <a name="windows-devices-with-built-in-barcode-scanner"></a>組み込みのバーコードスキャナーがある Windows デバイス
 | 製造元   | モデル | オペレーティング システム |
 |----------------|-------|------------------|
-| Innowi         | ChecOut M | Windows 10   |
+| Innowi         | ChecOut-M | Windows 10   |
 
-### <a name="windows-mobile-devices-with-built-in-barcode-scanner"></a>組み込みのバーコード スキャナーと Windows Mobile デバイス
+### <a name="windows-mobile-devices-with-built-in-barcode-scanner"></a>組み込みのバーコードスキャナーを備えた Windows Mobile デバイス
 | 製造元   | モデル | オペレーティング システム |
 |----------------|-------|------------------|
-| ときは、マクロ       | EF400 | Windows Mobile   |
-| ときは、マクロ       | EF500 | Windows Mobile   |
-| ときは、マクロ       | EF500R | Windows Mobile   |
+| Bluebird       | EF400 | Windows Mobile   |
+| Bluebird       | EF500 | Windows Mobile   |
+| Bluebird       | EF500R | Windows Mobile   |
 | Honeywell      | CT50   | Windows Mobile   |
 | Honeywell      | D75e | Windows Mobile   |
 | Janam          | XT2      | Windows Mobile   |
-| Panasonic      | FZ E1 | Windows Mobile   |
+| Panasonic      | FZ-E1 | Windows Mobile   |
 | Panasonic      | FZ-F1 |Windows Mobile   |
 | PointMobile    | PM80 | Windows Mobile   |
-| Zebra          | TC700j | Windows Mobile   |
-| HP             | エリート X3 ・ ジャケット | Windows Mobile   |
+| ゼブラ          | TC700j | Windows Mobile   |
+| HP             | エリート X3 ジャケット | Windows Mobile   |
 
 
 
@@ -100,7 +100,7 @@ ms.locfileid: "67321531"
 ## <a name="cash-drawer"></a>キャッシュ ドロワー
 | 接続 | サポート |
 | -------------|-------------|
-| ネットワーク/Bluetooth | <p> キャッシュ ドロワー ユニットの機能に応じて、ネットワーク経由または Bluetooth によって、キャッシュ ドロワーに直接接続できます。 </p><p>APG 現金引き出し:NetPRO、BluePRO</p> |
+| ネットワーク/Bluetooth | <p> キャッシュ ドロワー ユニットの機能に応じて、ネットワーク経由または Bluetooth によって、キャッシュ ドロワーに直接接続できます。 </p><p>APG キャッシュドロワー:NetPRO、BluePRO</p> |
 | DK ポート | <p> ネットワーク機能や Bluetooth 機能を持たないキャッシュ ドロワーは、サポートされているレシート プリンター上の DK ポートまたは Star Micronics DK-AirCash アクセサリ経由で接続できます。 </p>
 | OPOS    | <p> 製造元から提供される OPOS サービス オブジェクトを介して、すべての OPOS 互換キャッシュ ドロワーをサポートします。 デバイスの製造元のインストール手順に従って、OPOS ドライバーをインストールします。 </p> |
 
