@@ -410,7 +410,7 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriNewYork, launcherO
 
 ## <a name="ms-settings-parameter-reference"></a>ms-settings: のパラメーター リファレンス
 
-構文は、アプリの特定のパラメーターのマップ、 ms-settings:** URI スキームは次のように定義されています。 **maps-downloadmaps**と共に指定、 **ms-settings:** URI の形式で**ms-settings:maps-downloadmaps?** をオフライン マップの設定 ページを示します。 
+構文は、アプリの特定のパラメーターのマップ、 **ms-settings:** URI スキームは次のように定義されています。 **maps-downloadmaps**と共に指定、 **ms-settings:** URI の形式で**ms-settings:maps-downloadmaps?** をオフライン マップの設定 ページを示します。 
 
 | パラメーター | 定義 | 例 | 詳細 |
 |-----------|------------|---------|----------|
