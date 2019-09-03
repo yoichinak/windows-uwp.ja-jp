@@ -5,12 +5,12 @@ ms.date: 04/18/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 概要
 ms.localizationpriority: medium
-ms.openlocfilehash: 87ab033ddd9de92922f043a069b793ca101307d0
-ms.sourcegitcommit: 6cc8b231c1b970112d26a7696cc3e907082ef2be
+ms.openlocfilehash: 197f53df200026541a15120dfc97c187e5aa2e5b
+ms.sourcegitcommit: b186f70f0b1601b6b6a5db91d87d034f6b155e3b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308452"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70063791"
 ---
 # <a name="introduction-to-cwinrt"></a>C++/WinRT の概要
 &nbsp;
@@ -33,7 +33,7 @@ Windows ランタイムは、コンポーネント オブジェクト モデル 
 [Windows UWP API](https://docs.microsoft.com/uwp/api/) の閲覧中に、右上隅の **[言語] (Language)** コンボ ボックスをクリックして **[C++/WinRT]** を選択し、API 構文ブロックを C++/WinRT 言語プロジェクションで表示されるように表示します。
 
 ## <a name="visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package"></a>C++/WinRT、XAML、VSIX 拡張機能、NuGet パッケージの Visual Studio のサポート
-Visual Studio のサポートでは、Visual Studio 2019 または Visual Studio 2017 が必要になります (バージョン 15.6 以上、Microsoft では 15.7 以上をお勧めします)。 まだ行っていない場合は、Visual Studio インストーラー内から、( **[インストールの詳細]**  >  **[ユニバーサル Windows プラットフォーム開発]** で) **[C++ (v14x) ユニバーサル Windows プラットフォーム ツール]** オプションをインストールする必要もあります。 また、Windows の **[設定]**  >  **[更新 \& セキュリティ]**  >  **[開発者向け]** で、 **[アプリのサイドロード]** オプションではなく、 **[開発者モード]** オプションを選びます。
+Visual Studio のサポートでは、Visual Studio 2019 または Visual Studio 2017 が必要になります (バージョン 15.6 以上、Microsoft では 15.7 以上をお勧めします)。 Visual Studio インストーラーから、**ユニバーサル Windows プラットフォーム開発** ワークロードをインストールします。 まだ行っていない場合は、 **[インストールの詳細]**  >  **[ユニバーサル Windows プラットフォーム開発]** で **[C++ (v14x) ユニバーサル Windows プラットフォーム ツール]** オプションを選択します。 また、Windows の **[設定]**  >  **[更新 \& セキュリティ]**  >  **[開発者向け]** で、 **[アプリのサイドロード]** オプションではなく、 **[開発者モード]** オプションを選びます。
 
 最新バージョンの Visual Studio と Windows SDK で開発することをお勧めしますが、10.0.17763.0 (Windows 10、バージョン 1809) より前の Windows SDK に付属する C++/WinRT のバージョンを使用している場合、上記で示した Windows 名前空間ヘッダーを使用するには、10.0.17134.0 (Windows 10、バージョン 1803) のプロジェクトで最小の Windows SDK ターゲット バージョンが必要になります。
 
