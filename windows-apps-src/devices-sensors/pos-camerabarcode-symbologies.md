@@ -5,15 +5,15 @@ ms.date: 05/02/2018
 ms.topic: article
 keywords: Windows 10, UWP, 店舗販売時点管理, POS
 ms.localizationpriority: medium
-ms.openlocfilehash: 14cb42e0bd0f1bac307a9dfc1ac188d8b11d8cb8
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: cc2aaaf4e9779cb2be712119fb1dacdf946952c5
+ms.sourcegitcommit: 0dec04de501a3db6b22dfd4a320fc09b5c4a21b5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57610327"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70243324"
 ---
 # <a name="symbologies"></a>シンボル体系
-このトピックでは、Windows など、10 に同梱されているソフトウェアのバーコード デコーダーによってサポートされている記号の各サンプルのバーコードを示します。UPC/ean 協会、39 コード、コード、128 インターリーブド 2 of 5 は、全方向データ バー、縦棒積み上げ、QR コードと GS1DWCode。
+このトピックでは、Windows 10 に付属するソフトウェアバーコードデコーダーでサポートされている各 symbologies のサンプルバーコードを示します。次に例を示します。UPC/EAN、コード39、コード128、インターリーブ 2 of 5、縦棒全方向、縦棒積み上げ、QR コード、および GS1DWCode。
 
 ## <a name="1d-symbologies"></a>1D シンボル体系
 
@@ -56,3 +56,9 @@ ms.locfileid: "57610327"
 
 > [!NOTE]
 > Windows 10 に付属するソフトウェア デコーダーは、[*Digimarc Corporation*](https://www.digimarc.com/) から無料で提供されています。
+
+## <a name="see-also"></a>関連項目
+
+### <a name="samples"></a>サンプル
+
+- [バーコードスキャナーのサンプル](https://github.com/microsoft/Windows-universal-samples/tree/master/Samples/BarcodeScanner)
