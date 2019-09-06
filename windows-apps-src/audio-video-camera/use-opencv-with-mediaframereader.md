@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, OpenCV
 ms.localizationpriority: medium
-ms.openlocfilehash: 5aee0ed5969d87cd5a9d8ef7a621b383d4078d38
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: e5a1993ea4808cabf9f82640f03f0187d431f3d2
+ms.sourcegitcommit: d38e2f31c47434cd6dbbf8fe8d01c20b98fabf02
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66360593"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70393509"
 ---
 # <a name="use-the-open-source-computer-vision-library-opencv-with-mediaframereader"></a>Open Source Computer Vision Library (OpenCV) と MediaFrameReader の使用
 
@@ -24,15 +24,15 @@ ms.locfileid: "66360593"
 
 * [MediaFrameReader を使ったメディア フレームの処理](process-media-frames-with-mediaframereader.md): この記事では、**MediaFrameReader** を使用して 1 つまたは複数のメディア フレーム ソースからフレームを取得する方法について詳細な情報を提供し、この記事のサンプル コードの多くについて詳しく説明しています。 具体的には、「**MediaFrameReader を使ったメディア フレームの処理**」では、ヘルパー クラス **FrameRenderer** のコード一覧を示します。このクラスは、XAML の **Image** 要素でのメディア フレームのプレゼンテーションを処理します。 この記事のサンプル コードでもこのヘルパー クラスを使用します。
 
-* [OpenCV でのソフトウェア ビットマップの処理](process-software-bitmaps-with-opencv.md): この記事では、ネイティブ コードの Windows ランタイム コンポーネントである、**OpenCVBridge** を作成する手順を示します。これは、**MediaFrameReader** によって使用される **SoftwareBitmap** オブジェクトと、OpenCV ライブラリで使用される **Mat** 型との変換に役立ちます。 この記事のサンプル コードでは、**OpenCVBridge**コンポーネントを UWP アプリ ソリューションに追加する手順を実行していることを前提としています。
+* [OpenCV でソフトウェアビットマップを処理](process-software-bitmaps-with-opencv.md)する-この記事では、ネイティブコード Windows ランタイムコンポーネント**OpenCVBridge**を作成する手順について説明します。これは、MediaFrameReader によって使用される、software **bitmap**オブジェクト間の変換に役立ちます。、および OpenCV ライブラリによって使用される**台紙**の種類。 この記事のサンプル コードでは、**OpenCVBridge**コンポーネントを UWP アプリ ソリューションに追加する手順を実行していることを前提としています。
 
 これらの記事に加えて、この記事で説明したシナリオの完全でエンド ツー エンドの実用的なサンプルを表示およびダウンロードするには、Windows ユニバーサル サンプル GitHub リポジトリにある[カメラ フレームと OpenCV のサンプル](https://go.microsoft.com/fwlink/?linkid=854003)をご覧ください。
 
-迅速に開発を開始する、OpenCV ライブラリに組み込める UWP アプリ プロジェクトを NuGet のパッケージを使用してがため OpenCV をダウンロードすることをお勧め、ストアへのアプリを送信するときに、これらのパッケージはアプリ certficication のプロセスを渡していない可能性があります。ライブラリは、ソース コードと、アプリを送信する前に自分でバイナリをビルドします。 OpenCV を使った開発に関する情報については、[https://opencv.org](https://opencv.org) をご覧ください。
+すばやく開発を開始するには、NuGet パッケージを使用して UWP アプリプロジェクトに OpenCV ライブラリを含めることができますが、ストアにアプリを送信するときに、これらのパッケージがアプリのアプリケーションを通過しないことがあります。したがって、OpenCV をダウンロードすることをお勧めします。ライブラリのソースコードを作成し、アプリを送信する前に自分でバイナリをビルドします。 OpenCV を使った開発に関する情報については、[https://opencv.org](https://opencv.org) をご覧ください。
 
 
-## <a name="implement-the-opencvhelper-native-windows-runtime-component"></a>OpenCVHelper ネイティブ Windows ランタイム コンポーネントを実装する
-「[OpenCV によるソフトウェア ビットマップの処理](process-software-bitmaps-with-opencv.md)」の手順に従って、OpenCV ヘルパー Windows ランタイム コンポーネントを作成し、UWP アプリのソリューションにコンポーネント プロジェクトへの参照を追加します。
+## <a name="implement-the-opencvhelper-native-windows-runtime-component"></a>OpenCVHelper ネイティブ Windows ランタイムコンポーネントを実装する
+「 [Opencv でソフトウェアビットマップを処理](process-software-bitmaps-with-opencv.md)する」の手順に従って、opencv ヘルパー Windows ランタイムコンポーネントを作成し、コンポーネントプロジェクトへの参照を UWP アプリソリューションに追加します。
 
 ## <a name="find-available-frame-source-groups"></a>利用可能なフレーム ソース グループを検索する
 最初に、メディア フレームを取得するメディア フレーム ソース グループを見つける必要があります。 **[MediaFrameSourceGroup.FindAllAsync](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesourcegroup.FindAllAsync)** を呼び出して、現在のデバイスで利用可能なソース グループの一覧を取得します。 アプリのシナリオに必要なセンサーの種類を指定するソース グループを選択します。 この例では、RGB カメラからのフレームを提供するソース グループのみが必要です。
@@ -52,7 +52,7 @@ ms.locfileid: "66360593"
 ## <a name="initialize-the-mediaframereader"></a>MediaFrameReader を初期化する
 次に、前の手順で取得した RGB フレーム ソースの [**MediaFrameReader**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.Frames.MediaFrameReader) を作成します。 適切なフレーム レートを維持するために、センサーの解像度よりも低い解像度のフレームを処理する場合があります。 この例では、省略可能な **[BitmapSize](https://docs.microsoft.com/uwp/api/windows.graphics.imaging.bitmapsize)** 引数を、 **[MediaCapture.CreateFrameReaderAsync](https://docs.microsoft.com/uwp/api/windows.media.capture.mediacapture.createframereaderasync)** メソッドに対して指定して、フレーム リーダーによって提供されるフレームのサイズを 640 x 480 ピクセルに変更するよう要求しています。
 
-フレーム リーダーを作成した後、 **[FrameArrived](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.mediaframereader.FrameArrived)** イベントのハンドラーを登録します。 次に、新しい **[SoftwareBitmapSource](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.softwarebitmapsource)** オブジェクトを作成します。これは、**FrameRenderer** ヘルパー クラスが処理済みの画像を表示するために使用します。 次に、**FrameRenderer** のコンストラクターを呼び出します。 OpenCVBridge Windows ランタイム コンポーネントで定義されている **OpenCVHelper** クラスのインスタンスを初期化します。 このヘルパー クラスは、各フレームを処理するために **FrameArrived** ハンドラーで使用されます。 最後に、 **[StartAsync](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.mediaframereader.StartAsync)** を呼び出して、フレーム リーダーを開始します。
+フレーム リーダーを作成した後、 **[FrameArrived](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.mediaframereader.FrameArrived)** イベントのハンドラーを登録します。 次に、新しい **[SoftwareBitmapSource](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.softwarebitmapsource)** オブジェクトを作成します。これは、**FrameRenderer** ヘルパー クラスが処理済みの画像を表示するために使用します。 次に、**FrameRenderer** のコンストラクターを呼び出します。 OpenCVBridge Windows ランタイムコンポーネントで定義されている**OpenCVHelper**クラスのインスタンスを初期化します。 このヘルパー クラスは、各フレームを処理するために **FrameArrived** ハンドラーで使用されます。 最後に、 **[StartAsync](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.mediaframereader.StartAsync)** を呼び出して、フレーム リーダーを開始します。
 
 [!code-cs[OpenCVFrameReader](./code/Frames_Win10/Frames_Win10/MainPage.OpenCV.xaml.cs#SnippetOpenCVFrameReader)]
 
@@ -65,11 +65,11 @@ ms.locfileid: "66360593"
 ## <a name="related-topics"></a>関連トピック
 
 * [カメラ](camera.md)
-* [MediaCapture で基本的な写真、ビデオ、およびオーディオのキャプチャします。](basic-photo-video-and-audio-capture-with-MediaCapture.md)
-* [プロセスのメディア MediaFrameReader フレーム](process-media-frames-with-mediaframereader.md)
-* [OpenCV プロセス ソフトウェア ビットマップ](process-software-bitmaps-with-opencv.md)
-* [カメラのフレームのサンプル](https://go.microsoft.com/fwlink/?LinkId=823230)
-* [カメラのフレーム + OpenCV サンプル](https://go.microsoft.com/fwlink/?linkid=854003)
+* [MediaCapture を使用した基本的な写真、ビデオ、オーディオキャプチャ](basic-photo-video-and-audio-capture-with-MediaCapture.md)
+* [MediaFrameReader を使用してメディアフレームを処理する](process-media-frames-with-mediaframereader.md)
+* [OpenCV でソフトウェアビットマップを処理する](process-software-bitmaps-with-opencv.md)
+* [カメラフレームのサンプル](https://go.microsoft.com/fwlink/?LinkId=823230)
+* [カメラフレーム + OpenCV サンプル](https://go.microsoft.com/fwlink/?linkid=854003)
  
 
  

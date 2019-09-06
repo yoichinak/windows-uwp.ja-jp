@@ -8,12 +8,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 5e0148e1a997cf97942fbbb80eff2b42b1c71d4e
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 5fd8fa2b5264328619619df862d21f02f70f52e0
+ms.sourcegitcommit: d38e2f31c47434cd6dbbf8fe8d01c20b98fabf02
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66359530"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70393760"
 ---
 # <a name="keyboard-accessibility"></a>キーボードのアクセシビリティ  
 
@@ -103,7 +103,7 @@ XAML
 
 スクリーン リーダーやその他の支援技術を使うユーザーがアプリのショートカット キーを簡単に見つけることができることが重要です。 ヒント、アクセシビリティ対応の名前、アクセシビリティ対応の説明、またはその他の画面上の伝達形式を使ってショートカットが確認できるようにします。 少なくとも、アプリのヘルプ コンテンツにはショートカット キーについて十分な説明を用意しておく必要があります。
 
-スクリーン リーダーでアクセス キーを文書化するには、[**AutomationProperties.AccessKey**](https://docs.microsoft.com/dotnet/api/system.windows.automation.automationproperties.accesskey?view=netframework-4.8) 添付プロパティでショートカット キーを示す文字列を設定します。 また、[**AutomationProperties.AcceleratorKey**](https://docs.microsoft.com/dotnet/api/system.windows.automation.automationproperties.acceleratorkey?view=netframework-4.8) 添付プロパティでニーモニック以外のショートカット キーを文書化することもできます。ただし、スクリーン リーダーでは通常、どちらのプロパティも同じ方法で扱われます。 ショートカット キーの文書化は、ヒント、オートメーションのプロパティ、ヘルプ ドキュメントなど、複数の方法で行います。
+スクリーン リーダーでアクセス キーを文書化するには、[**AutomationProperties.AccessKey**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.automationproperties.accesskeyproperty) 添付プロパティでショートカット キーを示す文字列を設定します。 また、[**AutomationProperties.AcceleratorKey**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.automationproperties.acceleratorkeyproperty) 添付プロパティでニーモニック以外のショートカット キーを文書化することもできます。ただし、スクリーン リーダーでは通常、どちらのプロパティも同じ方法で扱われます。 ショートカット キーの文書化は、ヒント、オートメーションのプロパティ、ヘルプ ドキュメントなど、複数の方法で行います。
 
 次の例では、メディアを再生、一時停止、停止するボタンのショートカット キーを文書化する方法を示しています。
 
@@ -144,7 +144,7 @@ XAML
 ```
 
 > [!IMPORTANT]
-> [  **AutomationProperties.AcceleratorKey**](https://docs.microsoft.com/dotnet/api/system.windows.automation.automationproperties.acceleratorkey?view=netframework-4.8) または [**AutomationProperties.AccessKey**](https://docs.microsoft.com/dotnet/api/system.windows.automation.automationproperties.accesskey?view=netframework-4.8) を設定しても、キーボード機能は有効になりません。 使用する必要があるキーなどの情報を支援技術によってユーザーに渡すことができるように、そのような情報が UI オートメーション フレームワークに通知されるだけです。 キー処理の実装は、XAML ではなくコードで行う必要があります。 アプリに対して実際にキーボード ショートカットの動作を実装するには、関連するコントロールに [**KeyDown**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.keydown) イベントや [**KeyUp**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.keyup) イベントのハンドラーをアタッチする必要があります。 また、アクセス キーの下線も自動的には追加されません。 UI で下線付きのテキストを表示する場合は、インラインの [**Underline**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Documents.Underline) 書式設定として、ニーモニックの特定のキーのテキストに明示的に下線を表示する必要があります。
+> [**Automationproperties.automationid AcceleratorKey**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.automationproperties.acceleratorkeyproperty)または[**automationproperties.automationid**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.automationproperties.accesskeyproperty)を設定しても、キーボード機能は有効になりません。 使用する必要があるキーなどの情報を支援技術によってユーザーに渡すことができるように、そのような情報が UI オートメーション フレームワークに通知されるだけです。 キー処理の実装は、XAML ではなくコードで行う必要があります。 アプリに対して実際にキーボード ショートカットの動作を実装するには、関連するコントロールに [**KeyDown**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.keydown) イベントや [**KeyUp**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.keyup) イベントのハンドラーをアタッチする必要があります。 また、アクセス キーの下線も自動的には追加されません。 UI で下線付きのテキストを表示する場合は、インラインの [**Underline**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Documents.Underline) 書式設定として、ニーモニックの特定のキーのテキストに明示的に下線を表示する必要があります。
 
 わかりやすくするために、上の例では "Ctrl + A" などの文字列に対するリソースは使っていません。 ただし、ローカライズ時にはショートカット キーについても考慮する必要があります。 ショートカット キーとして使うキーは通常、要素の表示テキスト ラベルに基づいて選ぶため、ショートカット キーをローカライズすることは適切な作業です。
 
@@ -175,7 +175,7 @@ Ctrl キーなどの修飾キーのチェックを含むキー イベント ハ�
 ## <a name="an-example-of-a-visual-state-for-a-focus-indicator"></a>フォーカス インジケーターの表示状態の例  
 これまで説明したように、ユーザーがフォーカスを合わせることができるカスタム コントロールには視覚的なフォーカス インジケーターが必要です。 一般に、フォーカス インジケーターは、コントロールを囲む通常の四角形の境界線のすぐ外側に、四角形を描画するだけの簡単なものです。 視覚的なフォーカスに使う [**Rectangle**](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle) は、コントロール テンプレートにおけるコントロールの合成の他の部分に対するピア要素ですが、最初はコントロールにフォーカスがないため、[**Visibility**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.visibility) の値には **Collapsed** が設定されています。 コントロールがフォーカスを取得すると、表示状態が呼び出され、フォーカス表示の **Visibility** が **Visible** に設定されます。 フォーカスが別の場所に移動すると、他の表示状態が呼び出され、**Visibility** が **Collapsed** になります。
 
-既定の XAML コントロールはいずれも、フォーカスを設定できるものであれば、フォーカスを受け取ったときに視覚的なフォーカス インジケーターを適切に表示します。 ユーザーの選択したテーマに応じて外観が異なる可能性があります (特に、ユーザーが使用してハイ コントラスト モード。)UI コントロール テンプレートを置き換えない場合に、XAML コントロールを使用する場合は、動作し、正しく表示するコントロールのビジュアル フォーカス インジケーターを取得する余分な何もする必要はありません。 ただし、コントロールを再テンプレート化する必要がある場合、または XAML コントロールで視覚的なフォーカス インジケーターがどのように実現されているかを理解したい場合のために、このセクションの残りの部分では、XAML とコントロール ロジックにおけるフォーカス インジケーターの処理方法について説明します。
+既定の XAML コントロールはいずれも、フォーカスを設定できるものであれば、フォーカスを受け取ったときに視覚的なフォーカス インジケーターを適切に表示します。 また、ユーザーが選択したテーマによって、外観が異なる場合もあります (特に、ユーザーがハイコントラストモードを使用している場合)。UI で XAML コントロールを使用していて、コントロールテンプレートを置き換えない場合は、動作して正しく表示されるコントロールに対して視覚的なフォーカスインジケーターを取得するために余分な操作を行う必要はありません。 ただし、コントロールを再テンプレート化する必要がある場合、または XAML コントロールで視覚的なフォーカス インジケーターがどのように実現されているかを理解したい場合のために、このセクションの残りの部分では、XAML とコントロール ロジックにおけるフォーカス インジケーターの処理方法について説明します。
 
 次に示す XAML の例は、[**Button**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Button) の既定の XAML テンプレートに含まれています。
 
@@ -203,7 +203,7 @@ XAML
 </ControlTemplate>
 ```
 
-ここまでのところでは、これは単なる合成です。 フォーカス インジケーターの表示を制御するには、[**Visibility**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.visibility) プロパティを切り替える表示状態を定義します。 それには、[**VisualStateManager.VisualStateGroups**](https://docs.microsoft.com/dotnet/api/system.windows.visualstatemanager?view=netframework-4.8) 添付プロパティを使います。これは合成を定義するルート要素に適用されます。
+ここまでのところでは、これは単なる合成です。 フォーカス インジケーターの表示を制御するには、[**Visibility**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.visibility) プロパティを切り替える表示状態を定義します。 これを行うには、 [VisualStateManager](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.VisualStateManager)および VisualStateManager 添付プロパティを使用します。これは、合成を定義するルート要素に適用されます。
 
 XAML
 ```xml
@@ -245,9 +245,9 @@ SIP には Ctrl キーや Alt キーがないため、キーボード ショー�
 
 <span id="related_topics"/>
 
-## <a name="related-topics"></a>関連トピック  
-* [ユーザー補助](accessibility.md)
-* [キーボードの相互作用](https://docs.microsoft.com/windows/uwp/input-and-devices/keyboard-interactions)
-* [タッチ キーボードのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/TouchKeyboard)
-* [XAML のアクセシビリティのサンプル](https://go.microsoft.com/fwlink/p/?linkid=238570)
+## <a name="related-topics"></a>関連トピック
 
+* [アクセシビリティ](accessibility.md)
+* [キーボード操作](https://docs.microsoft.com/windows/uwp/input-and-devices/keyboard-interactions)
+* [タッチキーボードのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/TouchKeyboard)
+* [XAML アクセシビリティのサンプル](https://go.microsoft.com/fwlink/p/?linkid=238570)

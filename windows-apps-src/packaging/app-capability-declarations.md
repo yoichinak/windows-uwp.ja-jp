@@ -7,12 +7,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: 2a846fee7f72242d9e3becc19cf5be71128dbd9e
-ms.sourcegitcommit: 81e29e66f0cb1e13c3daa3a239e4dcc4dd674a66
+ms.openlocfilehash: bc591f66505fa6e7019cb37fed636700d8dec709
+ms.sourcegitcommit: d38e2f31c47434cd6dbbf8fe8d01c20b98fabf02
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68796728"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70393595"
 ---
 # <a name="app-capability-declarations"></a>アプリ機能の宣言
 
@@ -206,7 +206,7 @@ Windows アプリの[パッケージマニフェスト](https://docs.microsoft.c
 | **エンタープライズクラウドシングルサインオン** | **enterpriseCloudSSO** 機能を使用すると、アプリはホスト型 Web 表示コントロール内で Azure Active Director (AAD) リソースによってシングル サインオンを使用できます。 |
 | **自動的に VoIP 通話を受け入れる** | **Backgroundvoip**機能を使用すると、ユーザーが明示的に呼び出しを受け入れなくても、着信 voip 通話を自動的に受信して受け入れることができます。 この機能を利用するアプリは、カメラとマイクのフル制御が許可され、これらのリソースをバックグラウンドで使用することができます。<br /><br />Microsoft Store に送信されたアプリでは、この機能を宣言しないことをお勧めします。 ほとんどの開発者にとって、この機能の使用は承認されません。 |
 | **VoIP 通話用にリソースを予約する** | **Oneprocessvoip**機能を使用すると、シングルプロセスアプリケーションで VoIP 呼び出しに必要な CPU リソースとメモリリソースを予約できます。<br /><br />Microsoft Store に送信されたアプリでは、この機能を宣言しないことをお勧めします。 ほとんどの開発者にとって、この機能の使用は承認されません。 |
-| **開発モードネットワーク** | **developmentModeNetwork** 機能を使用すると、C++/CX の UWP アプリまたは C++ の Windows ランタイム コンポーネントで OpenFile Win32 API を呼び出す際に、サインイン済みユーザーの資格情報を使用してネットワーク パスにアクセスできます。 <br /><br />Microsoft Store に送信するアプリケーションでこの機能を宣言することはお勧めしません。 ほとんどの場合、この機能の使用は承認されません。 |
+| **開発モードネットワーク** | **DevelopmentModeNetwork**機能により、アプリは、 C++/cx UWP アプリまたはC++ Windows ランタイムコンポーネントで OpenFile Win32 API を呼び出すときに、サインインしたユーザーの資格情報を使用してネットワークパスにアクセスできます。 <br /><br />Microsoft Store に送信するアプリケーションでこの機能を宣言することはお勧めしません。 ほとんどの場合、この機能の使用は承認されません。 |
 | **広範なファイルシステムアクセス** | **broadFileSystemAccess** 機能を使用すると、実行時にファイル ピッカー スタイルのプロンプトを追加使用しなくても、アプリはファイル システムに対して、アプリを実行中のユーザーと同じアクセス許可を獲得できます。 この機能は、ユーザーが FilePicker または FolderPicker を使用して既に選択したファイルにアクセスするためには必要ないことに注意してください。<br/><br/>この機能は、[Windows.Storage](https://docs.microsoft.com/uwp/api/windows.storage) API で動作します。 ユーザーは、[設定] でいつでもアクセス許可を付与または拒否できるため、これらの変更に対してアプリが回復可能であることを確認する必要があります。 2018 年 4 月の更新プログラムでは、アクセス許可の既定値はオンです。 2018 の年 10 月の更新プログラムでは、既定値はオフです。 さらに、この機能では**ドキュメント**、**ピクチャ**、**ビデオ**などの特殊なフォルダー機能を宣言できない点にも注意してください。 **BroadFileSystemAccess**をマニフェストに追加することで、アプリでこの機能を有効にすることができます。 例については、「[ファイルアクセス許可](/windows/uwp/files/file-access-permissions)」を参照してください。 |
 | **システムファームウェアと BIOS** | **smbios** 機能を使うと、アプリは BIOS データとシステム ファームウェア データにアクセスできます。 |
 | **完全信頼のアクセス許可レベル** | **Runfulltrust** restricted 機能を使用すると、アプリはユーザーのコンピューターの完全信頼のアクセス許可レベルで実行できます。 [Fulltrustprocesslauncher](https://docs.microsoft.com/uwp/api/windows.applicationmodel.fulltrustprocesslauncher) API を使用するには、この機能が必要です。<br /><br />この機能は、appx または .msix パッケージ ([デスクトップブリッジ](https://developer.microsoft.com/windows/bridges/desktop)と同様) として配信されるすべてのデスクトップアプリケーションでも必要となります。デスクトップアプリコンバーター (DAC) を使用してこれらのアプリをパッケージ化すると、マニフェストに自動的に表示されます。Visual Studio。 |
@@ -220,7 +220,7 @@ Windows アプリの[パッケージマニフェスト](https://docs.microsoft.c
 | **変更可能なアプリ** | **modifiableApp** の制限付き機能を使用すると、アプリケーションでパッケージマニフェスト内の [windows.mutablePackageDirectories](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-desktop6-package-extension) 拡張機能を宣言できます。 これにより、アプリケーションが変更または追加する必要があるフォルダーの名前を指定できます。 OS はこのフォルダーを作成し、アプリケーションによって最初にインストールされたファイルではなく、このフォルダー内のファイルをアプリケーションで使用できるようにします。<br /><br />この機能は、Microsoft およびパートナーによって発行された特定の種類のデスクトップ PC ゲーム向けに設計されています。 他のシナリオでは、署名されていないコードの実行を許可することができるため、これは許可されません。 |
 | **パッケージ書き込みリダイレクト互換性 Shim** | **Packagewriteredirection 互換 shim**制限付き機能は、ユーザーごとの場所にすべての新しいファイルを作成するようにアプリケーションを構成します。 書き込み用に開かれた既存のファイルは、最初にユーザーごとの場所にコピーされ、その場所にあるファイルに対して変更が行われます。 この機能は、インストールフォルダー内のファイルを作成または変更するアプリケーションに役立ちます。<br /><br />この機能は、Microsoft およびパートナーによって発行された特定の種類のデスクトップ PC ゲーム向けに設計されています。 ただし、他のアプリにも適用される場合があります。 |
 | **カスタムインストールアクション** | **Custominstallactions**の制限付き機能を使用すると、アプリケーションはパッケージマニフェストで[Windows の custominstall](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-desktop6-package-extension)拡張機能を宣言して、実行される追加のインストーラーファイル (.exe または .msi) を1つ以上指定できるようになります。アプリケーションを使用します。 これにより、インストール、更新、修復、またはアンインストールのいずれかの標準的な展開シナリオでカスタムアクションを指定できます。 たとえば、サードパーティの再頒布可能コンポーネントをバンドルするアプリケーションの場合に便利です。<br /><br />この機能は、Microsoft およびパートナーによって発行された特定の種類のデスクトップ PC ゲーム向けに設計されています。 他のシナリオでは許可されません。 |
-| **パッケージサービス** | パッケージマニフェストでは、Microsoft パートナーや企業によって作成されたアプリケーションを使用して、1つまたは複数のサービスをインストールすることができ[ます。](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-desktop6-extension)アプリケーション. これらのサービスは、ローカルサービス、ネットワークサービス、またはローカルシステムアカウントで実行するように構成できます。 Local Service と Network Service サービスには、**パッケージ**の機能のみが必要です。 ローカルシステムサービスには、"**パッケージ**の提供" 機能と " **localsystemservices** " 機能の両方が必要です。<br /><br />Microsoft Store に送信するアプリケーションでこの機能を宣言することはお勧めしません。 ほとんどの場合、この機能の使用は承認されません。  |
+| **パッケージサービス** | パッケージマニフェストでは、Microsoft パートナーや企業によって作成されたアプリケーションを**使用して**、1つまたは複数のサービスをインストールすることができ[ます。](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-desktop6-extension)アプリケーション. これらのサービスは、ローカルサービス、ネットワークサービス、またはローカルシステムアカウントで実行するように構成できます。 Local Service と Network Service サービスには、**パッケージ**の機能のみが必要です。 ローカルシステムサービスには、"**パッケージ**の提供" 機能と " **localsystemservices** " 機能の両方が必要です。<br /><br />Microsoft Store に送信するアプリケーションでこの機能を宣言することはお勧めしません。 ほとんどの場合、この機能の使用は承認されません。  |
 | **ローカルシステムサービス** | **Localsystemservices**の制限された機能を使用すると、Microsoft のパートナーおよび企業が作成したアプリケーションで1つ以上のローカルシステムサービスをアプリと共にインストールできます (つまり、アプリケーションでは、サービスは LocalSystem になります)。 このシナリオでは、**パッケージサービス**機能も必要です。 <br /><br />Microsoft Store に送信するアプリケーションでこの機能を宣言することはお勧めしません。 ほとんどの場合、この機能の使用は承認されません。 |
 | **背景空間の認識** | **BackgroundSpatialPerception**の制限付き機能を使用すると、アプリケーションは、バックグラウンドでアプリを実行しているときに、ユーザーのヘッド、ハンド、モーションコントローラー、およびその他の追跡対象オブジェクトの動きにアクセスできます。 |
 

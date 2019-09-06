@@ -6,12 +6,12 @@ ms.date: 07/12/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 9150fd34653e2beeeb8d8c1557cf9f77e95791e3
-ms.sourcegitcommit: e0ae346eadda864dcad1453cd1644668549e66e1
+ms.openlocfilehash: 0c5acc7d0d891785a7abd4f8976b0fb82bb3323b
+ms.sourcegitcommit: d38e2f31c47434cd6dbbf8fe8d01c20b98fabf02
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68603436"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70393629"
 ---
 # <a name="events-and-routed-events-overview"></a>イベントとルーティング イベントの概要
 
@@ -147,7 +147,7 @@ Private Sub textBlock1_PointerEntered(ByVal sender As Object, ByVal e As Pointer
 End Sub
 ```
 
-**注 Visual Studio**とその XAML デザインサーフェイスでは、通常、Handles キーワードではなくインスタンス処理の手法が昇格されます。     その理由は、XAML でのイベント ハンドラーの関連付けがデザイナーと開発者が対処する一般的なワークフローに含まれるだけでなく、**Handles** キーワードを使用する手法に XAML でのイベント ハンドラーの関連付けとの互換性がないためです。
+**注 Visual Studio**とその XAML デザインサーフェイスでは、通常、Handles キーワードではなくインスタンス処理の手法が昇格されます。    その理由は、XAML でのイベント ハンドラーの関連付けがデザイナーと開発者が対処する一般的なワークフローに含まれるだけでなく、**Handles** キーワードを使用する手法に XAML でのイベント ハンドラーの関連付けとの互換性がないためです。
 
 /Cx C++でも **+=** 構文を使用しますが、基本的なC#形式とは異なる点があります。
 
@@ -299,7 +299,7 @@ Windows ランタイムと C#、Microsoft Visual Basic、または C++/CX では
 - C# と Visual Basic では、CLR のイベントを定義します。 カスタム アクセサー (**add**/**remove**) を使っていない限り、標準の .NET イベントのパターンを使うことができます。 次の点にも注意してください。
     - イベント ハンドラーには、Windows ランタイムの汎用イベント デリゲート [**EventHandler<T>** ](https://docs.microsoft.com/uwp/api/windows.foundation.eventhandler) への組み込みの変換がある [**System.EventHandler<TEventArgs>** ](https://docs.microsoft.com/dotnet/api/system.eventhandler-1?redirectedfrom=MSDN) を使うことをお勧めします。
     - Windows ランタイムに変換されないため、イベント データ クラスが [**System.EventArgs**](https://docs.microsoft.com/dotnet/api/system.eventargs?redirectedfrom=MSDN) に基づくことのないようにしてください。 既にあるイベント データ クラスを使うか、基底クラスをまったく使わないかのいずれかにします。
-    - カスタム アクセサーを使う場合は、「[Windows ランタイム コンポーネントのカスタム イベントとイベント アクセサー](https://docs.microsoft.com/previous-versions/windows/apps/hh972883(v=vs.140))」をご覧ください。
+    - カスタムアクセサーを使用している場合は、「 [Windows ランタイムコンポーネント」の「カスタムイベントとイベントアクセサー](https://docs.microsoft.com/previous-versions/windows/apps/hh972883(v=vs.140))」を参照してください。
     - 標準の .NET イベントのパターンがよくわからない場合には、「[Silverlight のカスタム クラスのイベントの定義](https://docs.microsoft.com/previous-versions/windows/)」をご覧ください。 これは、Microsoft Silverlight 向けに書かれたものですが、.NET イベントのパターンのコードと概念がよくまとまっています。
 - C++/CX については、「[イベント (C++/CX)](https://docs.microsoft.com/cpp/cppcx/events-c-cx)」をご覧ください。
     - カスタム イベントを自ら使う場合であっても、名前付き参照を使ってください。 カスタム イベントにラムダは使えません。ラムダを使うと、循環参照が作られることになります。

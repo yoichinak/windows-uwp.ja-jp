@@ -1,20 +1,20 @@
 ---
 title: マルチスレッド環境での Windows ランタイム オブジェクトの使用 | Microsoft Docs
-description: この記事では、C# および Visual Basic コードからオブジェクト (Windows ランタイム や Windows ランタイム コンポーネントによって提供されるオブジェクト) を呼び出すとき、.NET Framework がどのようにこの呼び出しを処理するかについて説明します。
+description: この記事では、.NET Framework が Windows ランタイムまたはC# Windows ランタイムコンポーネントによって提供されるオブジェクトへのコードの呼び出し Visual Basic を処理する方法について説明します。
 ms.date: 01/14/2017
 ms.topic: article
 ms.assetid: 43ffd28c-c4df-405c-bf5c-29c94e0d142b
 keywords: Windows 10, UWP, タイマー, スレッド
 ms.localizationpriority: medium
-ms.openlocfilehash: 3afa1720ede9728e9cc25af434a431300faf26d6
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 4fc4f704d8e9f53282ab09dbc61bc5e625d00da9
+ms.sourcegitcommit: d38e2f31c47434cd6dbbf8fe8d01c20b98fabf02
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66371216"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70393526"
 ---
 # <a name="using-windows-runtime-objects-in-a-multithreaded-environment"></a>マルチスレッド環境での Windows ランタイム オブジェクトの使用
-この記事では、C# および Visual Basic コードからオブジェクト (Windows ランタイム や Windows ランタイム コンポーネントによって提供されるオブジェクト) を呼び出すとき、.NET Framework がどのようにこの呼び出しを処理するかについて説明します。
+この記事では、.NET Framework が Windows ランタイムまたはC# Windows ランタイムコンポーネントによって提供されるオブジェクトへのコードの呼び出し Visual Basic を処理する方法について説明します。
 
 .NET Framework では、既定で、特別な処理をせずに、複数のスレッドからどのようなオブジェクトにでもアクセスできます。 必要なものは、オブジェクトへの参照だけです。 Windows ランタイム では、このようなオブジェクトは*アジャイル*と呼ばれます。 ほとんどの Windows ランタイム クラスはアジャイルですが、アジャイルでないクラスもいくつかあります。またアジャイル クラスであっても、特別な処理が必要となる場合があります。
 
@@ -163,4 +163,4 @@ UI スレッドで実行され、UI スレッド以外のスレッドから呼�
 ## <a name="see-also"></a>関連項目
 [C# ガイド](/dotnet/csharp/)
 
-[Visual Basic のガイド](/dotnet/visual-basic/)
+[Visual Basic ガイド](/dotnet/visual-basic/)

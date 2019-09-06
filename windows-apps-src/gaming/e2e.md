@@ -6,12 +6,12 @@ ms.date: 04/16/2018
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム、ゲーム開発
 ms.localizationpriority: medium
-ms.openlocfilehash: 8a4e151851ef663055a4199b7ec9b8c1b168b578
-ms.sourcegitcommit: 350d6e6ba36800df582f9715c8d21574a952aef1
+ms.openlocfilehash: db510c1dc084fd1af986d618716854ed09cfc618
+ms.sourcegitcommit: d38e2f31c47434cd6dbbf8fe8d01c20b98fabf02
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68682606"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70393610"
 ---
 # <a name="windows-10-game-development-guide"></a>Windows 10 ゲーム開発ガイド
 
@@ -560,9 +560,9 @@ Windows JavaScript アプリは、ユニバーサル Windows プラットフォ�
 </table>
 
 
-#### <a name="use-windows-runtime-components-to-combine-languages"></a>Windows ランタイム コンポーネントを使って言語を組み合わせる
+#### <a name="use-windows-runtime-components-to-combine-languages"></a>Windows ランタイムコンポーネントを使用した言語の結合
 
-ユニバーサル Windows プラットフォームでは、異なる言語で記述されたコンポーネントを簡単に組み合わせることができます。 C++、C#、Visual Basic で Windows ランタイム コンポーネントを作成した後、JavaScript、C#、C++、Visual Basic から呼び出すことができます。 これは、好みの言語でゲームの一部をプログラミングする場合に最適な方法です。 コンポーネントにより、特定の言語でのみ使用可能な外部ライブラリや、既に記述しているレガシ コードを使うこともできるようになります。
+ユニバーサル Windows プラットフォームでは、異なる言語で記述されたコンポーネントを簡単に組み合わせることができます。 、 C++ C#、または Visual Basic に Windows ランタイムコンポーネントを作成し、JavaScript、 C#、 C++、または Visual Basic からそれらを呼び出します。 これは、好みの言語でゲームの一部をプログラミングする場合に最適な方法です。 コンポーネントにより、特定の言語でのみ使用可能な外部ライブラリや、既に記述しているレガシ コードを使うこともできるようになります。
 
 <table>
     <colgroup>
@@ -570,8 +570,8 @@ Windows JavaScript アプリは、ユニバーサル Windows プラットフォ�
     <col width="50%" />
     </colgroup>
     <tr>
-        <td>Windows ランタイム コンポーネントを作成する方法</td>
-        <td><a href="https://docs.microsoft.com/windows/uwp/winrt-components/creating-windows-runtime-components-in-cpp">Windows ランタイムコンポーネントの作成</a></td>
+        <td>Windows ランタイムコンポーネントを作成する方法</td>
+        <td><a href="https://docs.microsoft.com/windows/uwp/winrt-components/creating-windows-runtime-components-in-cpp">/Cx を使用C++したコンポーネントの Windows ランタイム</a></td>
     </tr>
 </table>
 
@@ -1018,7 +1018,7 @@ Windows デスクトップ ゲームを UWP に移行する際に役立つリン
     </colgroup>
     <tr>
         <td>既存の C++ コードを使った UWP ゲーム開発</td>
-        <td><a href="https://docs.microsoft.com/cpp/porting/how-to-use-existing-cpp-code-in-a-universal-windows-platform-app">方法:UWP アプリC++での既存のコードの使用</a></td>
+        <td><a href="https://docs.microsoft.com/cpp/porting/how-to-use-existing-cpp-code-in-a-universal-windows-platform-app">2 つのオブジェクトが等しいかどうかをテストする方法UWP アプリC++での既存のコードの使用</a></td>
     </tr>
     <tr>
         <td>Win32 API と COM API 用の UWP API</td>
@@ -1855,7 +1855,7 @@ Xbox Live は、世界中の何百万ものゲーマーを結びつける最高�
 </table>
 
 
-## <a name="additional-resources"></a>その他の資料
+## <a name="additional-resources"></a>その他の技術情報
 
 <table>
     <colgroup>

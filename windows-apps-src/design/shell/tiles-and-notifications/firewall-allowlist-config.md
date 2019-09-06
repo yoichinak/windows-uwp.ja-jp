@@ -9,12 +9,12 @@ ms.date: 05/20/2019
 ms.topic: article
 keywords: windows 10、uwp、WNS、windows notification service、通知、windows、ファイアウォール、トラブルシューティング、IP、トラフィック、エンタープライズ、ネットワーク、IPv4、VIP、FQDN、パブリック IP アドレス
 ms.localizationpriority: medium
-ms.openlocfilehash: 817dec616a88f0b374bc019cbbf23f56fad94484
-ms.sourcegitcommit: 820704a73174e81da3dc00cf0603c0c82471cdfe
+ms.openlocfilehash: 0ba6d2e678eee0d851b4f2e3897f9fc067b74580
+ms.sourcegitcommit: 3360db6bc975516e01913d3d73599c964a411052
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69908450"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70296981"
 ---
 # <a name="enterprise-firewall-and-proxy-configurations-to-support-wns-traffic"></a>WNS トラフィックをサポートするためのエンタープライズファイアウォールとプロキシ構成
 
@@ -23,8 +23,8 @@ ms.locfileid: "69908450"
 
 ## <a name="proxy-support"></a>プロキシのサポート
 
-> [!Note] 
-Windows クライアントは、すべてのプロキシをサポートし**ていません**。 WNS への接続は直接接続である必要があります。
+> [!Note]
+> Windows クライアントは、すべてのプロキシをサポートし**ていません**。 WNS への接続は直接接続である必要があります。
 
 **もうすぐです！** さまざまなネットワーク構成、プロキシ、およびファイアウォールを積極的に調査しています。 このページは、一般的なエンタープライズシナリオと WNS サポートについて、さらに詳しく説明します。
 

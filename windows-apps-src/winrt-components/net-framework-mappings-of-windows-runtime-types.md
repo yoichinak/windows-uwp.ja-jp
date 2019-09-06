@@ -1,86 +1,101 @@
 ---
-title: .NET Framework での Windows ランタイム型の対応付け
-description: 次の表は、.NET Framework での、ユニバーサル Windows プラットフォーム (UWP) 型と .NET Framework 型の間の対応付けを示しています。
+title: Windows ランタイム型の .NET マッピング
+description: 次の表は、.NET がユニバーサル Windows プラットフォーム (UWP) 型と .NET 型の間で行うマッピングを示しています。
 ms.assetid: 5317D771-808D-4B97-8063-63492B23292F
 ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: dc9d71f6f02ec62fdf96161c397f7d2d7363b506
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: c035db58fc6aa484f9d47a9af61176a2b05d55ee
+ms.sourcegitcommit: d38e2f31c47434cd6dbbf8fe8d01c20b98fabf02
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66372511"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70393657"
 ---
-# <a name="net-framework-mappings-of-windows-runtime-types"></a>.NET Framework での Windows ランタイム型の対応付け
+# <a name="net-mappings-of-windows-runtime-types"></a>Windows ランタイム型の .NET マッピング
 
+次の表は、.NET がユニバーサル Windows プラットフォーム (UWP) 型と .NET 型の間で行うマッピングを示しています。 マネージコードで記述されたユニバーサル Windows アプリでは、Visual Studio IntelliSense は UWP 型ではなく .NET 型を表示します。 たとえば、Windows ランタイム&lt;メソッドが ivector 文字列&gt;型のパラメーターを受け取る場合、IntelliSense は IList&lt;string&gt;型のパラメーターを表示します。 同様に、マネージコードで記述された Windows ランタイムコンポーネントでは、メンバーシグネチャで .NET 型を使用します。 [Windows ランタイムメタデータのエクスポートツール (Winmdexp)](/dotnet/framework/tools/winmdexp-exe-windows-runtime-metadata-export-tool)によって Windows ランタイムコンポーネントが生成されると、.net 型は対応する UWP 型に変換されます。
 
+UWP と .NET の両方で同じ名前空間名と型名を持つほとんどの型は、構造体 (または、列挙型などの構造体に関連付けられた型) です。 UWP では、構造体はフィールド以外のメンバーを持ちません。また、.NET によって隠ぺいされるヘルパー型を必要とします。 これらの構造体の .NET バージョンには、非表示のヘルパー型の機能を提供するプロパティとメソッドがあります。
 
-次の表は、.NET Framework での、ユニバーサル Windows プラットフォーム (UWP) 型と .NET Framework 型の間の対応付けを示しています。 マネージ コードで記述されたユニバーサル Windows アプリでは、IntelliSense は UWP 型ではなく .NET Framework 型を表示します。 たとえば、Windows ランタイム メソッドが IVector&lt;string&gt; 型のパラメーターを受け取る場合、IntelliSense は IList&lt;string&gt; 型のパラメーターを表示します。 同様に、マネージ コードで記述された Windows ランタイム コンポーネントでは、.NET Framework 型をメンバーのシグネチャ内で使います。 [Windows ランタイム メタデータ エクスポート ツール (Winmdexp.exe)](https://docs.microsoft.com/dotnet/framework/tools/winmdexp-exe-windows-runtime-metadata-export-tool) で Windows ランタイム コンポーネントを生成すると、.NET Framework 型は、対応する UWP 型になります。
+## <a name="uwp-types-that-map-to-net-types-with-the-same-name-and-namespace"></a>同じ名前と名前空間を持つ .NET 型にマップされる UWP 型
 
-## <a name="mapping-tables"></a>対応表
+### <a name="in-net-assembly-systemobjectmodeldll"></a>.NET アセンブリシステムの場合
 
+| Namespace | 種類 |
+|-|-|
+| Windows.UI.Xaml.Input | ICommand |
 
-UWP と .NET Framework の両方で同じ名前空間名と型名を持つ型の大部分は、構造体です (または列挙体など、構造体に関連付けられている型)。 UWP では、構造体にはフィールド以外にメンバーがなく、.NET Framework では非表示になるヘルパー型が必要です。 これらの構造体の .NET Framework バージョンには、非表示のヘルパー型の機能を提供するプロパティとメソッドがあります。
+### <a name="in-net-assembly-systemruntimewindowsruntimedll"></a>.NET アセンブリの WindowsRuntime で、
 
-表 1:UWP は、別の名前や名前空間の .NET Framework 型にマップする型します。
+| Namespace | 種類 |
+|-|-|
+| Windows.Foundation | ポイント |
+| Windows.Foundation | Rect |
+| Windows.Foundation | サイズ |
+| Windows.UI | 色 |
 
-| UWP 型/名前空間                                            | .NET Framework 型/名前空間                                          | .NET Framework アセンブリ                           |
-|---------------------------------------------------------------|------------------------------------------------------------------------|---------------------------------------------------|
-| AttributeUsageAttribute (Windows.Foundation.Metadata)         | AttributeUsageAttribute (System)                                       | System.Runtime.dll                                |
-| AttributeTargets (Windows.Foundation.Metadata)                | AttributeTargets (System)                                              | System.Runtime.dll                                |
-| DateTime (Windows.Foundation)                                 | DateTimeOffset (System)                                                | System.Runtime.dll                                |
-| EventHandler&lt;T&gt; (Windows.Foundation)                    | EventHandler&lt;T&gt; (System)                                         | System.Runtime.dll                                |
-| EventRegistrationToken (Windows.Foundation)                   | EventRegistrationToken (System.Runtime.InteropServices.WindowsRuntime) | System.Runtime.InteropServices.WindowsRuntime.dll |
-| HResult (Windows.Foundation)                                  | Exception (System)                                                     | System.Runtime.dll                                |
-| IReference&lt;T&gt; (Windows.Foundation)                      | Nullable&lt;T&gt; (System)                                             | System.Runtime.dll                                |
-| TimeSpan (Windows.Foundation)                                 | TimeSpan (System)                                                      | System.Runtime.dll                                |
-| Uri (Windows.Foundation)                                      | Uri (System)                                                           | System.Runtime.dll                                |
-| IClosable (Windows.Foundation)                                | IDisposable (System)                                                   | System.Runtime.dll                                |
-| IIterable&lt;T&gt; (Windows.Foundation.Collections)           | IEnumerable&lt;T&gt; (System.Collections.Generic)                      | System.Runtime.dll                                |
-| IVector&lt;T&gt; (Windows.Foundation.Collections)             | IList&lt;T&gt; (System.Collections.Generic)                            | System.Runtime.dll                                |
-| IVectorView&lt;T&gt; (Windows.Foundation.Collections)         | IReadOnlyList&lt;T&gt; (System.Collections.Generic)                    | System.Runtime.dll                                |
-| IMap&lt;K,V&gt; (Windows.Foundation.Collections)              | IDictionary&lt;TKey,TValue&gt; (System.Collections.Generic)            | System.Runtime.dll                                |
-| IMapView&lt;K,V&gt; (Windows.Foundation.Collections)          | IReadOnlyDictionary&lt;TKey,TValue&gt; (System.Collections.Generic)    | System.Runtime.dll                                |
-| IKeyValuePair&lt;K,V&gt; (Windows.Foundation.Collections)     | KeyValuePair&lt;TKey,TValue&gt; (System.Collections.Generic)           | System.Runtime.dll                                |
-| IBindableIterable (Windows.UI.Xaml.Interop)                   | IEnumerable (System.Collections)                                       | System.Runtime.dll                                |
-| IBindableVector (Windows.UI.Xaml.Interop)                     | IList (System.Collections)                                             | System.Runtime.dll                                |
-| INotifyCollectionChanged (Windows.UI.Xaml.Interop)            | INotifyCollectionChanged (System.Collections.Specialized)              | System.ObjectModel.dll                            |
-| NotifyCollectionChangedEventHandler (Windows.UI.Xaml.Interop) | NotifyCollectionChangedEventHandler (System.Collections.Specialized)   | System.ObjectModel.dll                            |
-| NotifyCollectionChangedEventArgs (Windows.UI.Xaml.Interop)    | NotifyCollectionChangedEventArgs (System.Collections.Specialized)      | System.ObjectModel.dll                            |
-| NotifyCollectionChangedAction (Windows.UI.Xaml.Interop)       | NotifyCollectionChangedAction (System.Collections.Specialized)         | System.ObjectModel.dll                            |
-| INotifyPropertyChanged (Windows.UI.Xaml.Data)                 | INotifyPropertyChanged (System.ComponentModel)                         | System.ObjectModel.dll                            |
-| PropertyChangedEventHandler (Windows.UI.Xaml.Data)            | PropertyChangedEventHandler (System.ComponentModel)                    | System.ObjectModel.dll                            |
-| PropertyChangedEventArgs (Windows.UI.Xaml.Data)               | PropertyChangedEventArgs (System.ComponentModel)                       | System.ObjectModel.dll                            |
-| TypeName (Windows.UI.Xaml.Interop)                            | Type (System)                                                          | System.Runtime.dll                                |
+### <a name="in-net-assembly-systemruntimewindowsruntimeuixamldll"></a>.NET アセンブリの WindowsRuntime に含まれています。
 
- 
+| Namespace | 種類 |
+|-|-|
+| Windows.UI.Xaml | CornerRadius |
+| Windows.UI.Xaml | Duration |
+| Windows.UI.Xaml | DurationType |
+| Windows.UI.Xaml | GridLength |
+| Windows.UI.Xaml | GridUnitType |
+| Windows.UI.Xaml | 太さ |
+| Windows.UI.Xaml.Controls.Primitives | GeneratorPosition |
+| Windows.UI.Xaml.Media | マトリックス |
+| Windows.UI.Xaml.Media.Animation | KeyTime |
+| Windows.UI.Xaml.Media.Animation | RepeatBehavior |
+| Windows.UI.Xaml.Media.Animation | RepeatBehaviorType |
+| Windows.UI.Xaml.Media.Media3D | Matrix3D |
 
-表 2:UWP は、同じ名前と名前空間の .NET Framework 型にマップする型します。
+## <a name="uwp-types-that-map-to-net-types-with-a-different-name-andor-namespace"></a>異なる名前または名前空間を持つ .NET 型にマップされる UWP 型
 
-| Namespace                           | 種類               | .NET Framework アセンブリ                   |
-|-------------------------------------|--------------------|-------------------------------------------|
-| Windows.UI                          | 色              | System.Runtime.WindowsRuntime.dll         |
-| Windows.Foundation                  | ポイント              | System.Runtime.WindowsRuntime.dll         |
-| Windows.Foundation                  | Rect               | System.Runtime.WindowsRuntime.dll         |
-| Windows.Foundation                  | サイズ               | System.Runtime.WindowsRuntime.dll         |
-| Windows.UI.Xaml.Input               | ICommand           | System.ObjectModel.dll                    |
-| Windows.UI.Xaml                     | CornerRadius       | System.Runtime.WindowsRuntime.UI.Xaml.dll |
-| Windows.UI.Xaml                     | Duration           | System.Runtime.WindowsRuntime.UI.Xaml.dll |
-| Windows.UI.Xaml                     | DurationType       | System.Runtime.WindowsRuntime.UI.Xaml.dll |
-| Windows.UI.Xaml                     | GridLength         | System.Runtime.WindowsRuntime.UI.Xaml.dll |
-| Windows.UI.Xaml                     | GridUnitType       | System.Runtime.WindowsRuntime.UI.Xaml.dll |
-| Windows.UI.Xaml                     | 太さ          | System.Runtime.WindowsRuntime.UI.Xaml.dll |
-| Windows.UI.Xaml.Controls.Primitives | GeneratorPosition  | System.Runtime.WindowsRuntime.UI.Xaml.dll |
-| Windows.UI.Xaml.Media               | マトリックス             | System.Runtime.WindowsRuntime.UI.Xaml.dll |
-| Windows.UI.Xaml.Media.Animation     | KeyTime            | System.Runtime.WindowsRuntime.UI.Xaml.dll |
-| Windows.UI.Xaml.Media.Animation     | RepeatBehavior     | System.Runtime.WindowsRuntime.UI.Xaml.dll |
-| Windows.UI.Xaml.Media.Animation     | RepeatBehaviorType | System.Runtime.WindowsRuntime.UI.Xaml.dll |
-| Windows.UI.Xaml.Media.Media3D       | Matrix3D           | System.Runtime.WindowsRuntime.UI.Xaml.dll |
+### <a name="in-net-assembly-systemobjectmodeldll"></a>.NET アセンブリシステムの場合
 
- 
+| UWP 型/名前空間 | .NET 型/名前空間 |
+|-|-|
+| INotifyCollectionChanged (Windows.UI.Xaml.Interop) | INotifyCollectionChanged (System.Collections.Specialized) | 
+| NotifyCollectionChangedEventHandler (Windows.UI.Xaml.Interop) | NotifyCollectionChangedEventHandler (System.Collections.Specialized) | 
+| NotifyCollectionChangedEventArgs (Windows.UI.Xaml.Interop) | NotifyCollectionChangedEventArgs (System.Collections.Specialized) | 
+| NotifyCollectionChangedAction (Windows.UI.Xaml.Interop) | NotifyCollectionChangedAction (System.Collections.Specialized) | 
+| INotifyPropertyChanged (Windows.UI.Xaml.Data) | INotifyPropertyChanged (System.ComponentModel) | 
+| PropertyChangedEventHandler (Windows.UI.Xaml.Data) | PropertyChangedEventHandler (System.ComponentModel) | 
+| PropertyChangedEventArgs (Windows.UI.Xaml.Data) | PropertyChangedEventArgs (System.ComponentModel) | 
+
+### <a name="in-net-assembly-systemruntimedll"></a>.NET アセンブリシステムの .dll
+
+| UWP 型/名前空間 | .NET 型/名前空間 |
+|-|-|
+| AttributeUsageAttribute (Windows.Foundation.Metadata) | AttributeUsageAttribute (System) |
+| AttributeTargets (Windows.Foundation.Metadata) | AttributeTargets (System) |
+| DateTime (Windows.Foundation) | DateTimeOffset (System) |
+| EventHandler&lt;T&gt; (Windows.Foundation) | EventHandler&lt;T&gt; (System) |
+| HResult (Windows.Foundation) | Exception (System) |
+| IReference&lt;T&gt; (Windows.Foundation) | Nullable&lt;T&gt; (System) |
+| TimeSpan (Windows.Foundation) | TimeSpan (System) |
+| Uri (Windows.Foundation) | Uri (System) |
+| IClosable (Windows.Foundation) | IDisposable (System) |
+| IIterable&lt;T&gt; (Windows.Foundation.Collections) | IEnumerable&lt;T&gt; (System.Collections.Generic) |
+| IVector&lt;T&gt; (Windows.Foundation.Collections) | IList&lt;T&gt; (System.Collections.Generic) |
+| IVectorView&lt;T&gt; (Windows.Foundation.Collections) | IReadOnlyList&lt;T&gt; (System.Collections.Generic) |
+| IMap&lt;K,V&gt; (Windows.Foundation.Collections) | IDictionary&lt;TKey,TValue&gt; (System.Collections.Generic) |
+| IMapView&lt;K,V&gt; (Windows.Foundation.Collections) | IReadOnlyDictionary&lt;TKey,TValue&gt; (System.Collections.Generic) |
+| IKeyValuePair&lt;K,V&gt; (Windows.Foundation.Collections) | KeyValuePair&lt;TKey,TValue&gt; (System.Collections.Generic) |
+| IBindableIterable (Windows.UI.Xaml.Interop) | IEnumerable (System.Collections) |
+| IBindableVector (Windows.UI.Xaml.Interop) | IList (System.Collections) |
+| TypeName (Windows.UI.Xaml.Interop) | Type (System) |
+
+### <a name="in-net-assembly-systemruntimeinteropserviceswindowsruntimedll"></a>.NET アセンブリ InteropServices で、WindowsRuntime を実行します。
+
+| UWP 型/名前空間 | .NET 型/名前空間 |
+|-|-|
+| EventRegistrationToken (Windows.Foundation) | EventRegistrationToken (System.Runtime.InteropServices.WindowsRuntime) |
 
 ## <a name="related-topics"></a>関連トピック
 
-* [C# および Visual Basic での Windows ランタイム コンポーネントの作成](creating-windows-runtime-components-in-csharp-and-visual-basic.md)
+* [と Visual Basic をC#使用したコンポーネントの Windows ランタイム](creating-windows-runtime-components-in-csharp-and-visual-basic.md)
