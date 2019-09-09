@@ -933,11 +933,11 @@
     - name: Windows ランタイム コンポーネント
       href: ../winrt-components/index.md
       items:
-        - name: C++/CX での Windows ランタイム コンポーネントの作成
+        - name: C++/CX を使用した Windows ランタイム コンポーネント
           href: ../winrt-components/creating-windows-runtime-components-in-cpp.md
-        - name: 'チュートリアル:C++/CX での基本的な Windows ランタイム コンポーネントの作成と JavaScript または C# からの呼び出し'
+        - name: C++/CX Windows ランタイム コンポーネントのチュートリアル
           href: ../winrt-components/walkthrough-creating-a-basic-windows-runtime-component-in-cpp-and-calling-it-from-javascript-or-csharp.md
-        - name: 'C# と Visual Basic での Windows ランタイム コンポーネントの作成'
+        - name: 'C# および Visual Basic を使用した Windows ランタイム コンポーネント'
           href: ../winrt-components/creating-windows-runtime-components-in-csharp-and-visual-basic.md
           items:
             - name: Windows ランタイム コンポーネントのカスタム イベントおよびイベント アクセサー
@@ -948,9 +948,9 @@
               href: ../winrt-components/diagnosing-windows-runtime-component-error-conditions.md
             - name: マネージ Windows ランタイム コンポーネントの配布
               href: ../winrt-components/distributing-a-managed-windows-runtime-component.md
-            - name: .NET Framework での Windows ランタイム型の対応付け
+            - name: .NET での Windows ランタイム型の対応付け
               href: ../winrt-components/net-framework-mappings-of-windows-runtime-types.md
-        - name: 'チュートリアル:単純な Windows ランタイム コンポーネントの作成と JavaScript からの呼び出し'
+        - name: 'C# または Visual Basic Windows ランタイム コンポーネントのチュートリアル'
           href: ../winrt-components/walkthrough-creating-a-simple-windows-runtime-component-and-calling-it-from-javascript.md
         - name: Windows ランタイム コンポーネントでイベントを生成する
           href: ../winrt-components/raising-events-in-windows-runtime-components.md
