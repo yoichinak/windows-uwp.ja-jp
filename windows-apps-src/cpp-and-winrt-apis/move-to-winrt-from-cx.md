@@ -5,12 +5,12 @@ ms.date: 01/17/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 移植, 移行, C++/CX
 ms.localizationpriority: medium
-ms.openlocfilehash: 404a6985c95718363f3dbbc3b8f27a7793b28e86
-ms.sourcegitcommit: ba4a046793be85fe9b80901c9ce30df30fc541f9
+ms.openlocfilehash: 92088906078a3a705e5fae052a50fc914561c77c
+ms.sourcegitcommit: d38e2f31c47434cd6dbbf8fe8d01c20b98fabf02
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68328854"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70393454"
 ---
 # <a name="move-to-cwinrt-from-ccx"></a>C++/CX から C++/WinRT への移行
 
@@ -471,11 +471,11 @@ C++/CX は Windows ランタイム文字列を参照型として表しますが�
 | 操作 | C++/CX | C++/WinRT|
 |-|-|-|
 | 文字列型のカテゴリ | 参照型 | 値の種類 |
-| null **HSTRING** による投影 | `(String^)nullptr` | `hstring{ nullptr }` |
+| null **HSTRING** による投影 | `(String^)nullptr` | `hstring{}` |
 | null と `""` が同一かどうか | 〇 | 〇 |
 | null の有効性 | `s = nullptr;`<br>`s->Length == 0` (有効) | `s = nullptr;`<br>`s.size() == 0` (有効) |
 | 文字列をボックス化する | `o = s;` | `o = box_value(s);` |
-| `s` が `null` の場合 | `o = (String^)nullptr;`<br>`o == nullptr` | `o = box_value(hstring{nullptr});`<br>`o != nullptr` |
+| `s` が `null` の場合 | `o = (String^)nullptr;`<br>`o == nullptr` | `o = box_value(hstring{});`<br>`o != nullptr` |
 | `s` が `""` の場合 | `o = "";`<br>`o == nullptr` | `o = box_value(hstring{L""});`<br>`o != nullptr;` |
 | null を保持する文字列をボックス化する | `o = s;` | `o = s.empty() ? nullptr : box_value(s);` |
 | 文字列を強制的にボックス化する | `o = PropertyValue::CreateString(s);` | `o = box_value(s);` |
@@ -514,7 +514,7 @@ C++/CX は **Platform** 名前空間でいくつかのデータ型を提供し�
 | **Platform::Object\^** | **winrt::Windows::Foundation::IInspectable** |
 | **Platform::String\^** | [**winrt::hstring**](/uwp/cpp-ref-for-winrt/hstring) |
 
-### <a name="port-platformagile-to-winrtagileref"></a>**Platform::Agile\^** を **winrt::agile_ref** に移植する
+### <a name="port-platformagile-to-winrtagile_ref"></a>**Platform::Agile\^** を **winrt::agile_ref** に移植する
 
 C++/CX の **Platform::agile\^** 型は、任意のスレッドからアクセスできる Windows ランタイム クラスとなります。 C++/WinRT の同等の型は [**winrt::agile_ref**](/uwp/cpp-ref-for-winrt/agile-ref) です。
 
@@ -534,7 +534,7 @@ winrt::agile_ref<Windows::UI::Core::CoreWindow> m_window;
 
 オプションには、初期化子リスト、**std::array**、または **std::vector** の使用が含まれます。 詳細およびコード例については、「[標準的な初期化子リスト](/windows/uwp/cpp-and-winrt-apis/std-cpp-data-types#standard-initializer-lists)」および「[標準的な配列とベクトル](/windows/uwp/cpp-and-winrt-apis/std-cpp-data-types#standard-arrays-and-vectors)」を参照してください。
 
-### <a name="port-platformexception-to-winrthresulterror"></a>**Platform::Exception\^** を **winrt::hresult_error** に移植する
+### <a name="port-platformexception-to-winrthresult_error"></a>**Platform::Exception\^** を **winrt::hresult_error** に移植する
 
 Windows ランタイム API から S\_OK HRESULT 以外が返された場合、**Platform::Exception\^** 型が C++/CX で生成されます。 C++/WinRT の同等の型は [**winrt::hresult_error**](/uwp/cpp-ref-for-winrt/error-handling/hresult-error) です。
 

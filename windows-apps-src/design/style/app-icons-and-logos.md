@@ -9,12 +9,12 @@ design-contact: Judysa
 doc-status: Published
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 760beb6b9baf63b23efb531567f4b5319f95845c
-ms.sourcegitcommit: e9dc2711f0a0758727468f7ccd0d0f0eee3363e3
+ms.openlocfilehash: 0801ba9036f69aef340881b9c92807e80af6b09f
+ms.sourcegitcommit: e43bc20c2f6e9375f61931c2fce95f06fd1f31df
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69979362"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70212072"
 ---
 # <a name="app-icons-and-logos"></a>アプリのアイコンとロゴ 
 
@@ -59,14 +59,13 @@ Visual Studio では、既定でアイコン アセットがアセット サブ�
 倍率によって、テキストなどの UI 要素のサイズが決まります。 倍率の範囲は 100% から 400% までです。 値が大きいほど UI 要素も大きくなり、高解像度ディスプレイで見やすくなります。 
 
 :::row:::
-    :::column:::
-        Windows automatically sets the scale factor for each display based on its DPI (dots-per-inch) and the viewing distance of the device. 
-
-        (Users can override the default value by going to the **Settings &gt; Display &gt; Scale and layout** page.)
-    :::column-end:::
-    :::column:::
-        ![](images/icons/display-settings-screen.png)
-    :::column-end:::
+   :::column:::
+      Windows では、ディスプレイの DPI (1 インチあたりのドット数) と、デバイスの視聴距離に基づいて各ディスプレイの倍率が自動的に設定されます 
+      (ユーザーは、 **[設定] &gt; [ディスプレイ] &gt; [拡大縮小とレイアウト]** のページに移動して既定値を上書きできます)。
+   :::column-end:::
+   :::column:::
+      ![](images/icons/display-settings-screen.png)
+   :::column-end:::
 :::row-end:::  
 
 
