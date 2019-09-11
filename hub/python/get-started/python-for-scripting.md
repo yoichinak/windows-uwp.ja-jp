@@ -8,12 +8,12 @@ ms.topic: article
 keywords: python、windows 10、microsoft、python システム管理、python ファイルオートメーション、windows 上の python スクリプト、windows での python 開発環境、windows 上の python 開発環境、windows 上の python 開発環境、powershell を使用した python、python スクリプトファイルシステムタスク
 ms.localizationpriority: medium
 ms.date: 07/19/2019
-ms.openlocfilehash: dbb7a60103c27f648ca8bf23f87dee06923f0cd9
-ms.sourcegitcommit: e9dc2711f0a0758727468f7ccd0d0f0eee3363e3
+ms.openlocfilehash: 7ca9d5023a74610d6daa78f98ce03abf2a38e375
+ms.sourcegitcommit: 06bb87839fec26afd5d3a05c03d77b2cf1fb46e0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69979327"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70887319"
 ---
 # <a name="get-started-using-python-on-windows-for-scripting-and-automation"></a>Windows での Python を使用したスクリプト作成と自動化の概要
 
@@ -96,20 +96,20 @@ Python コードで他のユーザーと共同作業を行う場合、または�
 3. サンプルスクリプトで使用するディレクトリをいくつか作成します。
 
     ```powershell
-    mkdir food, food/fruits, food/fruits/apples, food/fruits/oranges, food/vegetables
+    mkdir food, food\fruits, food\fruits\apples, food\fruits\oranges, food\vegetables
     ```
 
 4. 次のスクリプトで使用するために、これらのディレクトリ内にいくつかのファイルを作成します。
 
     ```powershell
-    new-item food/fruits/banana.txt, food/fruits/strawberry.txt, food/fruits/blueberry.txt, food/fruits/apples/honeycrisp.txt, food/fruits/oranges/mandarin.txt, food/vegetables/carrot.txt
+    new-item food\fruits\banana.txt, food\fruits\strawberry.txt, food\fruits\blueberry.txt, food\fruits\apples\honeycrisp.txt, food\fruits\oranges\mandarin.txt, food\vegetables\carrot.txt
     ```
 
 5. Python スクリプトディレクトリに新しい python ファイルを作成します。
 
     ```powershell
     mkdir src
-    new-item src/list-directory-contents.py
+    new-item src\list-directory-contents.py
     ```
 
 6. 次のように入力して、VS Code でプロジェクトを開きます。`code .`
@@ -126,14 +126,14 @@ Python コードで他のユーザーと共同作業を行う場合、または�
     ```python
     import os
 
-    root = '%s%s%s' % ('..', os.path.sep, 'food')
+    root = os.path.join('..', 'food')
     for directory, subdir_list, file_list in os.walk(root):
-        print('Directory: ' + directory)
+        print('Directory:', directory)
         for name in subdir_list:
-            print ('Subdirectory: ' + name)
+            print('Subdirectory:', name)
         for name in file_list:
-            print('File: ' + name)
-        print(os.linesep)
+            print('File:', name)
+        print()
     ```
 
 9. VS Code 統合ターミナル (**Ctrl + '** 、バックティック文字) を開き、Python スクリプトを保存した場所の src ディレクトリを入力します。
@@ -151,24 +151,24 @@ Python コードで他のユーザーと共同作業を行う場合、または�
     次のような出力が表示されます。
 
     ```powershell
-    Directory: ../food
+    Directory: ..\food
     Subdirectory: fruits
     Subdirectory: vegetables
 
-    Directory: ../food\fruits
+    Directory: ..\food\fruits
     Subdirectory: apples
     Subdirectory: oranges
     File: banana.txt
     File: blueberry.txt
     File: strawberry.txt
 
-    Directory: ../food\fruits\apples
+    Directory: ..\food\fruits\apples
     File: honeycrisp.txt
 
-    Directory: ../food\fruits\oranges
+    Directory: ..\food\fruits\oranges
     File: mandarin.txt
 
-    Directory: ../food\vegetables
+    Directory: ..\food\vegetables
     File: carrot.txt
     ```
 
@@ -195,15 +195,15 @@ Python コードで他のユーザーと共同作業を行う場合、または�
     import datetime
     import os
 
-    root = '%s%s%s' % ('..', os.path.sep, 'food')
+    root = os.path.join('..', 'food')
     for directory, subdir_list, file_list in os.walk(root):
         for name in file_list:
-            source_name = '%s%s%s' % (directory, os.path.sep, name)
+            source_name = os.path.join(directory, name)
             timestamp = os.path.getmtime(source_name)
             modified_date = str(datetime.datetime.fromtimestamp(timestamp)).replace(':', '.')
-            target_name = '%s%s%s_%s' % (directory, os.path.sep, modified_date, name)
+            target_name = os.path.join(directory, f'{modified_date}_{name}')
 
-            print ('Renaming: %s to: %s' % (source_name, target_name))
+            print(f'Renaming: {source_name} to: {target_name}')
 
             os.rename(source_name, target_name)
     ```
@@ -220,7 +220,7 @@ Python コードで他のユーザーと共同作業を行う場合、または�
     Renaming: ..\food\fruits\oranges\mandarin.txt to: ..\food\fruits\oranges\2019-07-18 12.24.46.398151_mandarin.txt
     Renaming: ..\food\vegetables\carrot.txt to: ..\food\vegetables\2019-07-18 12.24.46.402496_carrot.txt
 
-    ~/src/python-scripting/src$ python3 .\list-directory-contents.py
+    PS C:\src\python-scripting\src> python3 .\list-directory-contents.py
     ..\food\
     Directory: ..\food
     Subdirectory: fruits
