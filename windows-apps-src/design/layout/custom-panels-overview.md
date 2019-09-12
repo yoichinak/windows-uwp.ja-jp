@@ -85,12 +85,12 @@ XAML パーサーがこのマークアップを読み取るときに、[**Childr
 
 -   [**DesiredSize** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.desiredsize) (実際には、 [ **UIElement** ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement)プロパティ)
 -   [**ActualHeight** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.actualheight)と[ **ActualWidth**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.actualwidth)
--   [**高さ**](/uwp/api/Windows.UI.Xaml.FrameworkElement.Height)と[**幅**](/uwp/api/Windows.UI.Xaml.FrameworkElement.Width)
--   [**余白**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.margin)
+-   [**Height**](/uwp/api/Windows.UI.Xaml.FrameworkElement.Height)と[**Width**](/uwp/api/Windows.UI.Xaml.FrameworkElement.Width)
+-   [**Margin**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.margin)
 -   [**LayoutUpdated** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.layoutupdated)イベント
 -   [**HorizontalAlignment** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.horizontalalignment)と[ **[verticalalignment]** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.verticalalignment)
 -   [**ArrangeOverride** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.arrangeoverride)と[ **MeasureOverride** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.measureoverride)メソッド
--   [**配置**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.arrange)と[**メジャー** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.measure)メソッド: で定義されているネイティブの実装を持つこれら、 [ **FrameworkElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.FrameworkElement)レベルで、要素レベルのレイアウト アクションの処理
+-   [**Arrange**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.arrange)と[**Measure** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.measure)メソッド: で定義されているネイティブの実装を持つこれら、 [**FrameworkElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.FrameworkElement)レベルで、要素レベルのレイアウト アクションの処理
 
 ## <a name="measureoverride"></a>**MeasureOverride**
 
