@@ -7,12 +7,12 @@ ms.topic: article
 keywords: windows 10, uwp, タイトル バー
 doc-status: Draft
 ms.localizationpriority: medium
-ms.openlocfilehash: 88c613456525648883735850fe831cb3b67f145c
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 323b9b80a7d0087a07faf34d598f51d643e1324c
+ms.sourcegitcommit: 5687e5340f8d78da95c3ac28304d1c9b8960c47d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57648817"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70930337"
 ---
 # <a name="title-bar-customization"></a>タイトル バーのカスタマイズ
 
@@ -20,7 +20,7 @@ ms.locfileid: "57648817"
 
 アプリをデスクトップ ウィンドウで実行する場合は、アプリの個性に合わせてタイトル バーをカスタマイズできます。 タイトル バーのカスタマイズ用 API を使用すると、タイトル バーの要素に色を指定することも、アプリ コンテンツをタイトル バーの領域に拡張して完全に制御することもできます。
 
-> **重要な API**:[ApplicationView.TitleBar プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.viewmanagement.applicationview)、 [ApplicationViewTitleBar クラス](https://docs.microsoft.com/uwp/api/windows.ui.viewmanagement.applicationviewtitlebar)、 [CoreApplicationViewTitleBar クラス](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplicationviewtitlebar)
+> **重要な API**:[Applicationview. タイトルプロパティ](https://docs.microsoft.com/uwp/api/windows.ui.viewmanagement.applicationview)、 [applicationviewタイトルクラス](https://docs.microsoft.com/uwp/api/windows.ui.viewmanagement.applicationviewtitlebar)、 [coreapplicationviewtitlebar バークラス](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplicationviewtitlebar)
 
 ## <a name="how-much-to-customize-the-title-bar"></a>タイトル バーのカスタマイズ レベル
 
@@ -72,7 +72,7 @@ titleBar.ButtonInactiveBackgroundColor = Windows.UI.Colors.SeaGreen;
 タイトル バーの色を設定する際には注意する点がいくつかあります。
 
 - ボタンの背景色は、[閉じる] ボタンのホバー時および押下時の状態に適用されません。 [閉じる] ボタンがこれらの状態の場合は、常にシステム定義の色が使用されます。
-- システムの [戻る] ボタンにはボタンの色のプロパティが適用されます (使用時)  (「[ナビゲーション履歴と前に戻る移動](../basics/navigation-history-and-backwards-navigation.md)」をご覧ください)。
+- システムの [戻る] ボタンにはボタンの色のプロパティが適用されます (使用時) (「[ナビゲーション履歴と前に戻る移動](../basics/navigation-history-and-backwards-navigation.md)」をご覧ください)。
 - 色のプロパティを **null** に設定すると、既定のシステム色にリセットされます。
 - 透明色を設定することはできません。 色のアルファ チャネルは無視されます。
 
@@ -99,7 +99,7 @@ coreTitleBar.ExtendViewIntoTitleBar = true;
 
 ### <a name="draggable-regions"></a>ドラッグ可能領域
 
-タイトル バーのドラッグ可能領域は、クリックしてドラッグすることでユーザーが (アプリのキャンバス内でコンテンツをドラッグするのではなく) ウィンドウを移動できる場所を定義します。 ドラッグ可能領域を指定するには、[Window.SetTitleBar](https://docs.microsoft.com/uwp/api/windows.ui.xaml.window.settitlebar) メソッドを呼び出し、ドラッグ可能領域を定義する UIElement を渡します  (UIElement は多くの場合、他の要素も含むパネルです)。
+タイトル バーのドラッグ可能領域は、クリックしてドラッグすることでユーザーが (アプリのキャンバス内でコンテンツをドラッグするのではなく) ウィンドウを移動できる場所を定義します。 ドラッグ可能領域を指定するには、[Window.SetTitleBar](https://docs.microsoft.com/uwp/api/windows.ui.xaml.window.settitlebar) メソッドを呼び出し、ドラッグ可能領域を定義する UIElement を渡します (UIElement は多くの場合、他の要素も含むパネルです)。
 
 ドラッグ可能なタイトル バー領域としてコンテンツの Grid を設定する方法を以下に示します。 このコードは、アプリの最初のページの XAML と分離コードに使用します。 完全なコードについては、「[全面的なカスタマイズの例](./title-bar.md#full-customization-example)」セクションをご覧ください。
 
@@ -130,16 +130,20 @@ public MainPage()
 
     var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
     coreTitleBar.ExtendViewIntoTitleBar = true;
-
+    coreTitleBar.LayoutMetricsChanged += CoreTitleBar_LayoutMetricsChanged;
     // Set XAML element as a draggable region.
-    AppTitleBar.Height = coreTitleBar.Height;
     Window.Current.SetTitleBar(AppTitleBar);
+}
+
+private void CoreTitleBar_LayoutMetricsChanged(CoreApplicationViewTitleBar sender, object args)
+{
+    AppTitleBar.Height = sender.Height;
 }
 ```
 
 UIElement (`AppTitleBar`) は、アプリの XAML の一部です。 変化しないルート ページでタイトル バーを宣言して設定することも、アプリで表示される各ページでタイトル バー領域を宣言して設定することもできます。 各ページで設定した場合は、ユーザーがアプリ内を移動しても違和感を持たないように、ドラッグ可能領域の一貫性を維持する必要があります。
 
-SetTitleBar を呼び出すと、アプリの実行中に新しいタイトル バー要素に切り替えることができます。 パラメーターとして **null** を SetTitleBar に渡し、既定のドラッグ動作に戻すこともできます  (詳しくは、「既定のドラッグ可能領域」をご覧ください)。
+SetTitleBar を呼び出すと、アプリの実行中に新しいタイトル バー要素に切り替えることができます。 パラメーターとして **null** を SetTitleBar に渡し、既定のドラッグ動作に戻すこともできます (詳しくは、「既定のドラッグ可能領域」をご覧ください)。
 
 > [!IMPORTANT]
 > 指定するドラッグ可能領域は、ヒット テストを可能にしておく必要があります。つまり、一部の要素では、透明な背景ブラシを設定する必要があります。 詳しくは、[VisualTreeHelper.FindElementsInHostCoordinates](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.visualtreehelper.findelementsinhostcoordinates) の「解説」をご覧ください。
@@ -166,7 +170,7 @@ SetTitleBar を呼び出すと、アプリの実行中に新しいタイトル �
 
 タイトル ボタンのサイズ変化に応答するには、[LayoutMetricsChanged](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplicationviewtitlebar.LayoutMetricsChanged) イベントを処理します。 たとえば、システムの [戻る] ボタンが表示または非表示になったときなどに、このイベントが発生します。 このイベントを処理し、タイトル バーのサイズに基づく UI 要素の位置を確認および更新します。
 
-以下の例では、システムの [戻る] ボタンの表示や非表示などの変化に対応して、タイトル バーのレイアウトを調整する方法を示します。 `AppTitleBar`、 `LeftPaddingColumn`、および`RightPaddingColumn`前に示した XAML で宣言されます。
+以下の例では、システムの [戻る] ボタンの表示や非表示などの変化に対応して、タイトル バーのレイアウトを調整する方法を示します。 `AppTitleBar`、 `LeftPaddingColumn`、および`RightPaddingColumn`は、前に示した XAML で宣言されています。
 
 ```csharp
 private void CoreTitleBar_LayoutMetricsChanged(CoreApplicationViewTitleBar sender, object args)
@@ -189,7 +193,7 @@ private void UpdateTitleBarLayout(CoreApplicationViewTitleBar coreTitleBar)
 
 ### <a name="interactive-content"></a>対話型コンテンツ
 
-ボタン、メニュー、検索ボックスなどの対話型のコントロールをアプリの上部に配置して、タイトル バーに表示することもできます。 ただし、対話型要素でユーザー入力を受信するには、以下の規則に従う必要があります。
+ボタン、メニュー、検索ボックスなどの対話型のコントロールをアプリの上部に配置して、タイトル バーに表示することもできます。 ただし、対話型の要素がユーザー入力を確実に受信できるようにするには、いくつかの規則に従う必要があります。
 - SetTitleBar を呼び出し、領域をドラッグ可能なタイトル バー領域として定義する必要があります。 この操作を行わなかった場合は、システムによって、ページの上部に既定のドラッグ可能領域が設定されます。 その場合、この領域へのユーザー入力がすべてシステムによって処理されるため、独自のコントロールには入力が届きません。
 - 対話型コントロールは、SetTitleBar の呼び出しによって定義されたドラッグ可能領域より上部 (z オーダーでの上位) に配置します。 対話型コントロールは、SetTitleBar に渡される UIElement の子にしないでください。 SetTitleBar に渡した要素は、システムのタイトル バーと同様に扱われ、その要素へのポインター入力がすべてシステムによって処理されます。
 
@@ -275,7 +279,7 @@ private void CoreTitleBar_IsVisibleChanged(CoreApplicationViewTitleBar sender, o
 ```
 
 >[!NOTE]
->_全画面表示_モードは、アプリでサポートされている場合にのみ使用できます。 詳しくは、[ApplicationView.IsFullScreenMode](https://docs.microsoft.com/uwp/api/windows.ui.viewmanagement.applicationview.IsFullScreenMode) をご覧ください。 [_タブレット モード_](https://support.microsoft.com/help/17210/windows-10-use-your-pc-like-a-tablet) 、サポートされているハードウェア上のユーザー オプションは、すべてのアプリをタブレット モードで実行するユーザーが選択できるようにします。
+>_全画面表示_モードは、アプリでサポートされている場合にのみ使用できます。 詳しくは、[ApplicationView.IsFullScreenMode](https://docs.microsoft.com/uwp/api/windows.ui.viewmanagement.applicationview.IsFullScreenMode) をご覧ください。 [_タブレットモード_](https://support.microsoft.com/help/17210/windows-10-use-your-pc-like-a-tablet)は、サポートされているハードウェアのユーザーオプションであるため、ユーザーは任意のアプリをタブレットモードで実行することを選択できます。
 
 ## <a name="full-customization-example"></a>全面的なカスタマイズの例
 
@@ -375,11 +379,11 @@ private void CoreTitleBar_IsVisibleChanged(CoreApplicationViewTitleBar sender, o
 
 ## <a name="dos-and-donts"></a>推奨と非推奨
 
-- ウィンドウがアクティブまたは非アクティブであるときには、それをわかりやすく示してください。 少なくとも、タイトル バーのテキスト、アイコン、ボタンの色を変更してください。
+- ウィンドウがアクティブか非アクティブかを明確にしてください。 少なくとも、タイトル バーのテキスト、アイコン、ボタンの色を変更してください。
 - ドラッグ可能領域は、アプリ キャンバスの上端に沿って定義してください。 システム タイトル バーの配置に合わせると、ユーザーから見つけやすくなります。
 - ドラッグ可能領域は、アプリ キャンバス上に表示されるタイトル バー (ある場合) に合わせて定義してください。
 
 ## <a name="related-articles"></a>関連記事
 
-- [アクリル](../style/acrylic.md)
-- [色](../style/color.md)
+- [Acrylic](../style/acrylic.md)
+- [Color](../style/color.md)

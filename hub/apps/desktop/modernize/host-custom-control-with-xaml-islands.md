@@ -8,16 +8,16 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: a22846c2b0499b990a27b1c445ad36f2ff1a0437
-ms.sourcegitcommit: e9dc2711f0a0758727468f7ccd0d0f0eee3363e3
+ms.openlocfilehash: ab9bff69ac9ac0eaf1f02c943229829e726a0b9d
+ms.sourcegitcommit: 8cbc9ec62a318294d5acfea3dab24e5258e28c52
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69979306"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70911571"
 ---
 # <a name="host-a-custom-uwp-control-in-a-wpf-app-using-xaml-islands"></a>XAML アイランドを使用した WPF アプリでのカスタム UWP コントロールのホスト
 
-この記事では、Windows Community Toolkit の[Windowsxamlhost](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost)コントロールを使用して、.net Core 3 を対象とする WPF アプリでカスタム UWP コントロールをホストする方法について説明します。 カスタムコントロールには、いくつかのファーストパーティ UWP コントロールが含まれており、UWP コントロールの1つのプロパティを WPF アプリ内の文字列にバインドします。
+この記事では、Windows Community Toolkit の[Windowsxamlhost](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost)コントロールを使用して、.net Core 3 を対象とする WPF アプリでカスタム UWP コントロールをホストする方法について説明します。 カスタムコントロールには、Windows SDK からのいくつかのファーストパーティ UWP コントロールが含まれており、UWP コントロールの1つのプロパティを WPF アプリの文字列にバインドします。 この記事では、 [WinUI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)からファーストパーティの UWP コントロールをホストする方法についても説明します。
 
 この記事では、WPF アプリでこれを行う方法について説明しますが、プロセスは Windows フォームアプリに似ています。 WPF と Windows フォームアプリで UWP コントロールをホストする方法の概要については、こちらの[記事](xaml-islands.md#wpf-and-windows-forms-applications)を参照してください。
 
@@ -106,7 +106,7 @@ WPF アプリでカスタム UWP コントロールをホストするには、�
 
 WPF アプリでカスタム UWP コントロールをホストするには、アプリでコンパイルできるように、コントロールのソースコードが必要です。 通常、カスタムコントロールは、簡単な移植性を確保するために UWP クラスライブラリプロジェクトで定義されています。
 
-このセクションでは、新しいクラスライブラリプロジェクトで単純なカスタム UWP コントロールを定義します。 または、前のセクションで作成した UWP アプリプロジェクトでカスタム UWP コントロールを定義することもできます。 ただし、この手順では、この方法を説明するために別のクラスライブラリプロジェクトで行います。これは、通常、カスタムコントロールを移植性のために実装する方法です。 
+このセクションでは、新しいクラスライブラリプロジェクトで単純なカスタム UWP コントロールを定義します。 または、前のセクションで作成した UWP アプリプロジェクトでカスタム UWP コントロールを定義することもできます。 ただし、この手順では、この方法を説明するために別のクラスライブラリプロジェクトで行います。これは、通常、カスタムコントロールを移植性のために実装する方法です。
 
 カスタムコントロールが既にある場合は、ここに表示されているコントロールの代わりに使用できます。 ただし、次の手順に示すように、コントロールを含むプロジェクトを構成する必要があります。
 
@@ -195,6 +195,60 @@ WPF アプリでカスタム UWP コントロールをホストするには、�
     ```
 
 6. アプリをビルドして実行し、UWP ユーザーコントロールが想定どおりに表示されることを確認します。
+
+## <a name="add-a-control-from-the-winui-library-to-the-custom-control"></a>コントロールを WinUI ライブラリからカスタムコントロールに追加する
+
+従来、UWP コントロールは Windows 10 OS の一部としてリリースされ、Windows SDK を通じて開発者が使用できるようになりました。 [WinUI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)は、Windows SDK からのファーストパーティ UWP コントロールの更新バージョンが Windows SDK リリースに関連付けられていない NuGet パッケージで配布される、別の方法です。 このライブラリには、Windows SDK と既定の UWP プラットフォームの一部ではない新しいコントロールも含まれています。 詳細については、「 [WinUI ライブラリのロードマップ](https://github.com/microsoft/microsoft-ui-xaml/blob/master/docs/roadmap.md)」を参照してください。
+
+このセクションでは、WPF アプリでこのコントロールをホストできるように、WinUI ライブラリからユーザーコントロールに UWP コントロールを追加する方法について説明します。 
+
+1. UWP アプリプロジェクトで、最新のプレリリース版の NuGet パッケージをインストール[します。](https://www.nuget.org/packages/Microsoft.UI.Xaml)
+    > [!NOTE]
+    > 最新の*プレリリース*版がインストールされていることを確認してください。 現時点では、アプリを[Msix パッケージ](https://docs.microsoft.com/windows/msix)に配置するようにパッケージ化する場合、このパッケージのプレリリース版のみが機能します。
+
+2. このプロジェクトの app.xaml ファイルで、次の子要素を`<xaml:Application>`要素に追加します。
+
+    ```xml
+    <Application.Resources>
+        <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
+    </Application.Resources>
+    ```
+
+    この要素を追加すると、このファイルの内容は次のようになります。
+
+    ```xml
+    <xaml:XamlApplication
+        x:Class="MyUWPApp.App"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:xaml="using:Microsoft.Toolkit.Win32.UI.XamlHost"
+        xmlns:local="using:MyUWPApp">
+        <Application.Resources>
+            <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
+        </Application.Resources>
+    </xaml:XamlApplication>
+    ```
+
+3. UWP クラスライブラリプロジェクトで、最新バージョンの[UI](https://www.nuget.org/packages/Microsoft.UI.Xaml) NuGet パッケージ (uwp アプリプロジェクトにインストールしたものと同じバージョン) の最新のプレリリースバージョンをインストールします。
+
+4. 同じプロジェクトで、ユーザーコントロールの XAML ファイルを開き、次の名前空間宣言を`<UserControl>`要素に追加します。
+
+    ```xml
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
+    ```
+
+5. 同じファイル内で、 `<winui:RatingControl />` `<StackPanel>`要素をの子として追加します。 この要素は、WinUI ライブラリから[RatingControl](https://docs.microsoft.com/uwp/api/microsoft.ui.xaml.controls.ratingcontrol?view=winui-2.2)クラスのインスタンスを追加します。 この要素を追加すると`<StackPanel>` 、は次のようになります。
+
+    ```xml
+    <StackPanel Background="LightCoral">
+        <TextBlock>This is a simple custom UWP control</TextBlock>
+        <Rectangle Fill="Blue" Height="100" Width="100"/>
+        <TextBlock Text="{x:Bind XamlIslandMessage}" FontSize="50"></TextBlock>
+        <winui:RatingControl />
+    </StackPanel>
+    ```
+
+6. アプリをビルドして実行し、新しい評価コントロールが想定どおりに表示されることを確認します。
 
 ## <a name="package-the-app"></a>アプリのパッケージ化
 

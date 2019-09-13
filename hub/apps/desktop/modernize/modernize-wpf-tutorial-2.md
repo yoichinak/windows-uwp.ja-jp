@@ -8,18 +8,21 @@ author: mcleanbyron
 keywords: windows 10、uwp、windows フォーム、wpf、xaml islands
 ms.localizationpriority: medium
 ms.custom: RS5, 19H1
-ms.openlocfilehash: fb7bb6d4e5af8992571f9740c1321e271b2e1672
-ms.sourcegitcommit: 6bb794c6e309ba543de6583d96627fbf1c177bef
+ms.openlocfilehash: 943b2d90564dc059ed487c1f7fb7b89e689681bb
+ms.sourcegitcommit: 8cbc9ec62a318294d5acfea3dab24e5258e28c52
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69643426"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70911587"
 ---
 # <a name="part-2-add-a-uwp-inkcanvas-control-using-xaml-islands"></a>第 2 部: XAML Islandsを使って UWP InkCanvas コントロールを追加
 
 これは、Contoso の支出という名前の WPF デスクトップアプリのサンプルを最新化する方法を示すチュートリアルの2番目の部分です。 サンプルアプリをダウンロードするためのチュートリアル、前提条件、および手順の概要につい[ては、「チュートリアル:WPF アプリ](modernize-wpf-tutorial.md)を最新化します。 この記事では、既に[パート 1](modernize-wpf-tutorial-1.md)を完了していることを前提としています。
 
 このチュートリアルの架空のシナリオでは、Contoso 開発チームは、デジタル署名のサポートを Contoso の経費アプリに追加する必要があります。 UWP **system.windows.controls.inkcanvas>** コントロールは、テキストと図形を認識する機能のようなデジタルインクと AI を使用した機能をサポートするため、このシナリオに適したオプションです。 これを行うには、Windows Community Toolkit で使用可能な[system.windows.controls.inkcanvas>](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/inkcanvas)ラップされた UWP コントロールを使用します。 このコントロールは、WPF アプリで使用する UWP **system.windows.controls.inkcanvas>** コントロールのインターフェイスと機能をラップします。 ラップされた UWP コントロールの詳細については、次を参照してください。[デスクトップ アプリ (XAML Islands) でコントロールをホスト UWP XAML](xaml-islands.md)します。
+
+> [!NOTE]
+> このチュートリアルでは、WPF アプリは Windows SDK からのファーストパーティ UWP コントロールのみをホストします。 カスタム UWP コントロールを含む他の XAML アイランドのシナリオをサポートするには、アプリプロジェクトが、Windows `Microsoft.Toolkit.Win32.UI.XamlHost.XamlApplication` Community Toolkit によって提供されるクラスのインスタンスにアクセスできる必要があります。 これを行うには、WPF (または Windows フォーム) プロジェクトと同じソリューションに**空のアプリ (ユニバーサル Windows)** プロジェクトを追加し、このプロジェクトの既定`App`のクラスを変更する方法をお勧めします。 Windows SDK からファーストパーティの UWP コントロールをホストする基本的なシナリオでは、この手順は必要ありません。このチュートリアルでは、この手順を省略します。 詳細については、こちらの[記事](host-standard-control-with-xaml-islands.md)を参照してください。
 
 ## <a name="configure-the-project-to-use-xaml-islands"></a>XAML Islandsを使用するプロジェクトを構成します。
 
@@ -82,7 +85,7 @@ ms.locfileid: "69643426"
 
 追加する準備ができました UWP XAML Islandsを使用するプロジェクトを構成したところ、 [InkCanvas](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/inkcanvas)をアプリに UWP コントロールをラップします。
 
-1. **ソリューションエクスプローラー**で、ContosoExpenses プロジェクトの**Views**フォルダーを展開し、[ ] ファイルをダブルクリックします。
+1. **ソリューションエクスプローラー**で、ContosoExpenses プロジェクト**の Views**フォルダーを展開し、[ **] ファイルを**ダブルクリックします。
 
 2. XAML ファイルの先頭付近にある**ウィンドウ**要素に、次の属性を追加します。 これは、 [system.windows.controls.inkcanvas>](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/inkcanvas)ラップされた UWP コントロールの XAML 名前空間を参照します。
 
@@ -107,7 +110,7 @@ ms.locfileid: "69643426"
             Background="{StaticResource HorizontalBackground}">
     ```
 
-4. 配置ファイルで、コメントの`</Grid>` `<!-- Chart -->`直前にある終了タグを探します。 次の XAML を終了`</Grid>`タグの直前に追加します。 この XAML は、 **system.windows.controls.inkcanvas>** コントロール (前に名前空間として定義した**toolkit**キーワードで始まります) と、コントロールのヘッダーとして機能する単純な**TextBlock**を追加します。
+4. 配置ファイル**で**、コメントの`</Grid>` `<!-- Chart -->`直前にある終了タグを探します。 次の XAML を終了`</Grid>`タグの直前に追加します。 この XAML は、 **system.windows.controls.inkcanvas>** コントロール (前に名前空間として定義した**toolkit**キーワードで始まります) と、コントロールのヘッダーとして機能する単純な**TextBlock**を追加します。
 
     ```xml
     <TextBlock Text="Signature:" FontSize="16" FontWeight="Bold" Grid.Row="5" />
@@ -115,7 +118,7 @@ ms.locfileid: "69643426"
     <toolkit:InkCanvas x:Name="Signature" Grid.Row="6" />
     ```
 
-5. このファイルを保存します。
+5. このファイル**を**保存します。
 
 6. F5 キーを押して、デバッガーでアプリを実行します。
 
