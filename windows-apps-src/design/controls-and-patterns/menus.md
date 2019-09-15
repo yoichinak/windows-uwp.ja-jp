@@ -13,12 +13,12 @@ design-contact: kimsea
 dev-contact: llongley
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 5e3465d108fc725c45999782eff80593832208b5
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 31371c2b2a4826939de428fb6d7c082b78d05843
+ms.sourcegitcommit: 6951827b7d0948618e1fbb082c28794c7f23f83c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67319511"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70923152"
 ---
 # <a name="menus-and-context-menus"></a>メニューとショートカット メニュー
 
@@ -32,7 +32,7 @@ ms.locfileid: "67319511"
 
 | **プラットフォーム API** | **Windows UI ライブラリ API** |
 | - | - |
-| [MenuFlyout クラス](/uwp/api/windows.ui.xaml.controls.menuflyout)、[MenuBar クラス](/uwp/api/windows.ui.xaml.controls.menubar)、[ContextFlyout プロパティ](/uwp/api/windows.ui.xaml.uielement.contextflyout)、[FlyoutBase.AttachedFlyout プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.flyoutbase.attachedflyout) | [MenuBar クラス](/uwp/api/microsoft.ui.xaml.controls.menubar) |
+| [MenuFlyout クラス](/uwp/api/windows.ui.xaml.controls.menuflyout)、[MenuBar クラス](/uwp/api/windows.ui.xaml.controls.menubar)、[ContextFlyout プロパティ](/uwp/api/windows.ui.xaml.uielement.contextflyout)、[FlyoutBase.AttachedFlyout プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.flyoutbase#xaml-attached-properties) | [MenuBar クラス](/uwp/api/microsoft.ui.xaml.controls.menubar) |
 
 ## <a name="is-this-the-right-control"></a>適切なコントロールの選択
 
@@ -90,7 +90,7 @@ MenuBar を CommandBar と組み合わせて使うこともできます。 MenuB
 - 常に表示される 1 つのエントリ ポイント (たとえば、画面上部の [ファイル] メニュー) があります。
 - 通常、ボタンまたは親のメニュー項目にアタッチされます。
 - 左クリック (または、指でタップするなどの同等の操作) によって呼び出されます。
-- [Flyout](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.button.flyout) プロパティまたは [FlyoutBase.AttachedFlyout](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.flyoutbase.attachedflyout) プロパティを介して要素に関連付けられます。また、アプリ ウィンドウの上部のメニュー バーにグループ化されます。
+- [Flyout](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.button.flyout) プロパティまたは [FlyoutBase.AttachedFlyout](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.flyoutbase#xaml-attached-properties) プロパティを介して要素に関連付けられます。また、アプリ ウィンドウの上部のメニュー バーにグループ化されます。
 
 ### <a name="context-menus"></a>コンテキスト メニュー
 
