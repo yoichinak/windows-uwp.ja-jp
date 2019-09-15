@@ -8,12 +8,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp, トースト通知の送信, 通知, 通知の送信, トースト通知, 方法, クイックスタート, 作業の開始, コード サンプル, チュートリアル
 ms.localizationpriority: medium
-ms.openlocfilehash: 654c063b7c377023fef4b2dab3ddf5d7a755cb2d
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: ddb00ebc029ccbb15640938f01d14382e8fa273a
+ms.sourcegitcommit: 6e7665b457ec4585db19b70acfa2554791ad6e10
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67320806"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70987200"
 ---
 # <a name="send-a-local-toast-notification"></a>ローカル トースト通知の送信
 
@@ -39,14 +39,14 @@ ms.locfileid: "67320806"
 * フォアグラウンドのアクティブ化を処理する
 * バックグラウンドのアクティブ化を処理する
 
-> **重要な API**:[ToastNotification クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Notifications.ToastNotification)、 [ToastNotificationActivatedEventArgs クラス](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Activation.ToastNotificationActivatedEventArgs)
+> **重要な API**:[Toastnotification クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Notifications.ToastNotification)、 [ToastNotificationActivatedEventArgs クラス](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Activation.ToastNotificationActivatedEventArgs)
 
 
 ## <a name="prerequisites"></a>前提条件
 
 このトピックを十分に理解するには、次のものが役立ちます。
 
-* トースト通知に関する用語と概念についての実用的知識。 詳細については、次を参照してください。 [トーストおよびアクション センターの概要](https://blogs.msdn.microsoft.com/tiles_and_toasts/2015/07/08/toast-notification-and-action-center-overview-for-windows-10/)します。
+* トースト通知に関する用語と概念についての実用的知識。 詳細については、「 [トーストとアクションセンターの概要](https://blogs.msdn.microsoft.com/tiles_and_toasts/2015/07/08/toast-notification-and-action-center-overview-for-windows-10/)」を参照してください。
 * Windows 10 のトースト通知のコンテンツに関する知識。 詳しくは、[トースト コンテンツのドキュメント](adaptive-interactive-toasts.md)をご覧ください。
 * Windows 10 UWP アプリ プロジェクト
 
@@ -54,20 +54,20 @@ ms.locfileid: "67320806"
 > Windows 8/8.1 とは異なり、アプリがトースト通知を表示できることをアプリのマニフェストで宣言する必要はなくなりました。 すべてのアプリがトースト通知を送信して表示できます。
 
 > [!NOTE]
-> **Windows 8 または 8.1 アプリ**:使用してください、[アーカイブされたドキュメント](https://docs.microsoft.com/previous-versions/windows/apps/hh868254(v=win.10))します。
+> **Windows 8/8.1 アプリ**:アーカイブされた[ドキュメント](https://docs.microsoft.com/previous-versions/windows/apps/hh868254(v=win.10))を使用してください。
 
 
 ## <a name="install-nuget-packages"></a>NuGet パッケージをインストールする
 
 プロジェクトに次の 2 つの NuGet パッケージをインストールすることをお勧めします。 今回のコード サンプルではそれらのパッケージを使います。 このページの最後に、NuGet パッケージを使わない "古典的な" コード スニペットを示します。
 
-* [Microsoft.Toolkit.Uwp.Notifications](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/):生の XML ではなくオブジェクトを使用して、トースト ペイロードを生成します。
-* [QueryString.NET](https://www.nuget.org/packages/QueryString.NET/):生成し、使用したクエリ文字列の解析C#
+* [Microsoft. Toolkit. 通知](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/):未加工の XML ではなく、オブジェクトを使用してトーストペイロードを生成します。
+* [QueryString.NET](https://www.nuget.org/packages/QueryString.NET/):クエリ文字列の生成と解析C#
 
 
 ## <a name="add-namespace-declarations"></a>名前空間宣言を追加する
 
-`Windows.UI.Notifications` トースト Api が含まれています。
+`Windows.UI.Notifications`トースト Api が含まれています。
 
 ```csharp
 using Windows.UI.Notifications;
@@ -84,7 +84,7 @@ Windows 10 では、トースト通知のコンテンツは、通知の外観に
 
 まずは、コンテンツの視覚的に訴える部分を作成しましょう。これには、ユーザーに表示するテキストと画像が含まれます。
 
-通知ライブラリに協力してくれた XML コンテンツの生成は簡単です。 NuGet から Notifications ライブラリをインストールしていない場合は、XML を手動で作成する必要があるので、エラーが残ってしまう可能性があります。
+通知ライブラリを利用すると、XML コンテンツを簡単に生成できます。 NuGet から Notifications ライブラリをインストールしていない場合は、XML を手動で作成する必要があるので、エラーが残ってしまう可能性があります。
 
 > [!NOTE]
 > 画像は、アプリのパッケージ、アプリのローカル ストレージ、または Web から使用できます。 Fall Creators Update の時点で、Web 画像の上限は通常の接続で 3 MB、従量制課金接続で 1 MB です。 まだ Fall Creators Update を実行していないデバイスでは、Web イメージは 200 KB を上限とします。
@@ -238,9 +238,9 @@ toast.ExpirationTime = DateTime.Now.AddDays(2);
 
 送信した通知をプログラムで削除するか差し替える必要がある場合、Tag プロパティ (および必要に応じて Group プロパティ) を使って通知の主キーを提供する必要があります。 そうすると、今後この主キーを使って、通知の削除や差し替えができるようになります。
 
-置換/削除既にについて詳しくは、トースト通知を配信を表示するには、次を参照してください[クイック スタート。アクション センター (XAML) でのトースト通知を管理する](https://docs.microsoft.com/previous-versions/windows/apps/dn631260(v=win.10))します。
+既に配信されているトースト通知の置換/削除の詳細[については、クイックスタートを参照してください。アクションセンター (XAML)](https://docs.microsoft.com/previous-versions/windows/apps/dn631260(v=win.10))でのトースト通知の管理。
 
-Tag と Group を組み合わせると、復号主キーとして機能します。 グループより汎用的な識別子では、"wallPosts"、"messages"、"friendRequests"などのようなグループを割り当てることができます。タグは、グループ内の通知自体から一意に識別します。 汎用グループを使うことで、[RemoveGroup API](https://docs.microsoft.com/uwp/api/Windows.UI.Notifications.ToastNotificationHistory#Windows_UI_Notifications_ToastNotificationHistory_RemoveGroup_System_String_) を使ってそのグループからすべての通知を削除できます。
+Tag と Group を組み合わせると、復号主キーとして機能します。 Group は、より汎用的な識別子であり、"wallPosts"、"messages"、"friendRequests" などのグループを割り当てることができます。次に、タグはグループ内から通知自体を一意に識別する必要があります。 汎用グループを使うことで、[RemoveGroup API](https://docs.microsoft.com/uwp/api/Windows.UI.Notifications.ToastNotificationHistory#Windows_UI_Notifications_ToastNotificationHistory_RemoveGroup_System_String_) を使ってそのグループからすべての通知を削除できます。
 
 ```csharp
 toast.Tag = "18365";
@@ -270,10 +270,10 @@ Windows では、ユーザーが明示的に通知をクリックした場合の
 3. アプリが会話を開き、その会話のすべてのトーストを消去する (その会話用にアプリが提供するグループで [RemoveGroup](https://docs.microsoft.com/uwp/api/Windows.UI.Notifications.ToastNotificationHistory#Windows_UI_Notifications_ToastNotificationHistory_RemoveGroup_System_String_) を使う)
 4. ユーザーのアクション センターが通知の状態を正しく反映して、その会話の古い通知がアクション センターに残らないように処理する
 
-すべての通知をクリアするか、特定の通知を削除する詳細については、次を参照してください。[クイック スタート。アクション センター (XAML) でのトースト通知を管理する](https://docs.microsoft.com/previous-versions/windows/apps/dn631260(v=win.10))します。
+すべての通知をクリアするか、特定の通知を[削除する方法については、「クイックスタート:アクションセンター (XAML)](https://docs.microsoft.com/previous-versions/windows/apps/dn631260(v=win.10))でのトースト通知の管理。
 
 
-## <a name="handling-activation"></a>アクティブ化の処理
+## <a name="activation-handling"></a>ライセンス認証の処理
 
 Windows 10 では、ユーザーがトーストをクリックしたときに、次の 2 つの方法でトーストにアプリをアクティブ化させることができます。
 
@@ -501,7 +501,7 @@ var toast = new ToastNotification(toastXml);
 
 ## <a name="resources"></a>参考資料
 
-* [GitHub の完全なコード サンプル](https://github.com/WindowsNotifications/quickstart-sending-local-toast-win10)
-* [トーストのコンテンツのドキュメント](adaptive-interactive-toasts.md)
+* [GitHub の完全なコードサンプル](https://github.com/WindowsNotifications/quickstart-sending-local-toast-win10)
+* [トーストコンテンツのドキュメント](adaptive-interactive-toasts.md)
 * [ToastNotification クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Notifications.ToastNotification)
 * [ToastNotificationActivatedEventArgs クラス](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Activation.ToastNotificationActivatedEventArgs)
