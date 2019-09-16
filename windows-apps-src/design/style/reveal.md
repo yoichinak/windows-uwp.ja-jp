@@ -10,12 +10,12 @@ design-contact: conrwi
 dev-contact: jevansa
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 5cb076de6cd9c44280bf7030a59c645f601487bd
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 0810365eeb0023a31862d31213862e2b3bce8db8
+ms.sourcegitcommit: 5687e5340f8d78da95c3ac28304d1c9b8960c47d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66370432"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70930346"
 ---
 # <a name="reveal-highlight"></a>表示ハイライト
 
@@ -88,7 +88,7 @@ ms.locfileid: "66370432"
 これらのスタイルを適用するには、コントロールの [Style](/uwp/api/Windows.UI.Xaml.Style) プロパティを次のように設定します。
 
 ```xaml
-<Button Content="Button Content" Style="{StaticResource ButtonRevealStyle}"/>
+<Button Content="Button Content" Style="{ThemeResource ButtonRevealStyle}"/>
 ```
 
 ### <a name="reveal-in-themes"></a>テーマ内の表示効果
@@ -290,5 +290,5 @@ ms.locfileid: "66370432"
 - [Acrylic](acrylic.md)
 - [コンポジション効果](https://docs.microsoft.com/windows/uwp/graphics/composition-effects)
 - [UWP 用 Fluent Design](/windows/apps/fluent-design-system)
-- [システムの科学: Fluent Design と奥行き](https://medium.com/microsoft-design/science-in-the-system-fluent-design-and-depth-fb6d0f23a53f)
-- [システムの科学: Fluent Design と明るさ](https://medium.com/microsoft-design/the-science-in-the-system-fluent-design-and-light-94a17e0b3a4f)
+- [システムの科学:Fluent Design と奥行き](https://medium.com/microsoft-design/science-in-the-system-fluent-design-and-depth-fb6d0f23a53f)
+- [システムの科学:Fluent Design と明るさ](https://medium.com/microsoft-design/the-science-in-the-system-fluent-design-and-light-94a17e0b3a4f)
