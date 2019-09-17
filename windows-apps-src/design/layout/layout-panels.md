@@ -5,12 +5,12 @@ ms.date: 04/02/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 9b1d663c0d4c4ff86650f015e5e428d6505af156
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 154271e455996bee15ac01c2e41f55b0d9c08fe0
+ms.sourcegitcommit: 61194375c0889b73ee2b978c444c4b90a576b3e4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67317144"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71039141"
 ---
 # <a name="layout-panels"></a>レイアウト パネル
 
@@ -21,6 +21,22 @@ ms.locfileid: "67317144"
 - パネルで子要素のサイズがどのように変更されるか。
 - 重複する子要素をお互いに重ねる方法 (z オーダー)。
 - 目的のレイアウトの作成に必要な、入れ子になったパネル要素の数と複雑さ。
+
+## <a name="examples"></a>使用例
+
+<table>
+<th align="left">XAML コントロール ギャラリー<th>
+<tr>
+<td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td>
+    <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合、こちらをクリックして<a href="xamlcontrolsgallery:/item/RatingControl">アプリを開き、RatingControl の動作を確認</a>してください。</p>
+    <ul>
+    <li><a href="https://www.microsoft.com/store/productId/9MSVH128X2ZT">XAML コントロール ギャラリー アプリを入手する (Microsoft Store)</a></li>
+    <li><a href="https://github.com/Microsoft/Xaml-Controls-Gallery">ソース コード (GitHub) を入手する</a></li>
+    </ul>
+</td>
+</tr>
+</table>
 
 ## <a name="panel-properties"></a>パネル プロパティ
 
@@ -58,7 +74,7 @@ Grid で境界線プロパティを設定する例を以下に示します。
 
 ## <a name="relativepanel"></a>RelativePanel
 
-[**RelativePanel** ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RelativePanel)がどこで関連するその他の要素と、パネルとの関連を指定することでレイアウトの UI 要素を使用します。 既定では、要素はパネルの左上隅に配置されます。 RelativePanel を、[**VisualStateManager**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.VisualStateManager) や [**AdaptiveTrigger**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.AdaptiveTrigger) と共に使用して、さまざまなウィンドウ サイズに合わせて UI を配置し直すことができます。
+[**RelativePanel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RelativePanel)を使用すると、他の要素に対する相対的な位置を指定して、UI 要素をレイアウトできます。 既定では、要素はパネルの左上隅に配置されます。 RelativePanel を、[**VisualStateManager**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.VisualStateManager) や [**AdaptiveTrigger**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.AdaptiveTrigger) と共に使用して、さまざまなウィンドウ サイズに合わせて UI を配置し直すことができます。
 
 次の表に、パネルまたは他の要素を基準として要素を揃えて配置するために使用できる添付プロパティを示します。
 
@@ -67,7 +83,7 @@ Grid で境界線プロパティを設定する例を以下に示します。
 [**AlignTopWithPanel**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.relativepanel.aligntopwithpanelproperty) | [**AlignTopWith**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.relativepanel.aligntopwithproperty) | [**Above**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.relativepanel)  
 [**AlignBottomWithPanel**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.relativepanel.alignbottomwithpanelproperty) | [**AlignBottomWith**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.relativepanel.alignbottomwithproperty) | [**Below**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.relativepanel.belowproperty)  
 [**AlignLeftWithPanel**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.relativepanel) | [**AlignLeftWith**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.relativepanel.getalignleftwith) | [**LeftOf**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.relativepanel.leftofproperty)  
-[**AlignRightWithPanel**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.relativepanel.alignrightwithpanelproperty) | [**AlignRightWith**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.relativepanel.alignrightwithproperty) | [**RightOf**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.relativepanel.setrightof)  
+[**AlignRightWithPanel**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.relativepanel.alignrightwithpanelproperty) | [**AlignRightWith**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.relativepanel.alignrightwithproperty) | [**右上**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.relativepanel.setrightof)  
 [**AlignHorizontalCenterWithPanel**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.relativepanel.alignhorizontalcenterwithpanelproperty) | [**AlignHorizontalCenterWith**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.relativepanel.alignhorizontalcenterwithproperty) | &nbsp;   
 [**AlignVerticalCenterWithPanel**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.relativepanel.alignverticalcenterwithpanelproperty) | [**AlignVerticalCenterWith**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.relativepanel.alignverticalcenterwithproperty) | &nbsp;   
 
@@ -105,7 +121,7 @@ Grid で境界線プロパティを設定する例を以下に示します。
 
 ## <a name="stackpanel"></a>StackPanel
 
-[**StackPanel** ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.StackPanel)その子要素を水平方向または垂直方向に配置することができますの単一行に配置します。 StackPanel は通常、ページ上に UI の小さいサブセクションを配置するために使用されます。
+[**StackPanel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.StackPanel)は、その子要素を水平方向または垂直方向の単一行に配置します。 StackPanel は通常、ページ上に UI の小さいサブセクションを配置するために使用されます。
 
 子要素を並べる向きを指定するには、[**Orientation**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.stackpanel.orientation) プロパティを使います。 既定の向きは [**Vertical**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Orientation) です。
 
@@ -123,7 +139,7 @@ Grid で境界線プロパティを設定する例を以下に示します。
 
 結果は次のようになります。
 
-![スタック パネル](images/layout-panel-stack-panel.png)
+![StackPanel](images/layout-panel-stack-panel.png)
 
 StackPanel では、子要素のサイズを明示的に設定しない場合、利用可能な幅 (Orientation が **Horizontal** の場合は高さ) いっぱいに拡大されます。 この例では、長方形の幅は設定されていません。 長方形は、StackPanel の幅いっぱいに拡張されています。
 
@@ -166,7 +182,7 @@ StackPanel では、子要素のサイズを明示的に設定しない場合、
 
 **Auto** サイズ変更またはスター サイズ指定を使うと、列または行内でスペースを分散できます。 UI 要素がコンテンツや親コンテナーに合わせてサイズ変更できるようにするには、自動サイズ変更を使います。 グリッドの行と列を使って、自動サイズ変更を行うこともできます。 自動サイズ変更を使うには、UI 要素の Height や Width を **Auto** に設定します。
 
-比例サイズ変更 (*スター サイズ指定*とも呼ばれる) を使うと、使用可能なスペースが加重比率によりグリッドの行と列の間で分散されます。 XAML、星型の値として表されます\*(または*n* \*スターのサイズ変更の加重計算される)。 たとえば、2 段組レイアウトで 1 つの列と、幅が 5 倍の列とを指定するには、[**ColumnDefinition**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ColumnDefinition) 要素の [**Width**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.columndefinition.width) プロパティで "5\*" と "\*" を使います。
+比例サイズ変更 (*スター サイズ指定*とも呼ばれる) を使うと、使用可能なスペースが加重比率によりグリッドの行と列の間で分散されます。 XAML では、スター値はと\*して表現されます (重み付けスターサイズ変更の場合は*n* \* )。 たとえば、2 段組レイアウトで 1 つの列と、幅が 5 倍の列とを指定するには、[**ColumnDefinition**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ColumnDefinition) 要素の [**Width**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.columndefinition.width) プロパティで "5\*" と "\*" を使います。
 
 次の例では、4 つの列を含む [**Grid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid) で、固定、自動、比例サイズ指定を組み合わせています。
 
@@ -197,7 +213,7 @@ Visual Studio の XAML デザイナーでは、結果は次のように表示さ
 
 ## <a name="variablesizedwrapgrid"></a>VariableSizedWrapGrid
 
-[**VariableSizedWrapGrid** ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.VariableSizedWrapGrid) 、新しい行または列に自動的に折り返さ行または列グリッド スタイルのレイアウト パネルは、ときに、 [ **MaximumRowsOrColumns** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.variablesizedwrapgrid.maximumrowsorcolumns)値に達した. 
+[**VariableSizedWrapGrid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.VariableSizedWrapGrid)は、 [**Maximumrowsorcolumns**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.variablesizedwrapgrid.maximumrowsorcolumns)値に達したときに、行または列が新しい行または列に自動的に折り返されるグリッドスタイルのレイアウトパネルです。 
 
 [  **Orientation**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.variablesizedwrapgrid.orientation) プロパティは、折り返す前にグリッドの行と列のどちらの向きに項目を追加するかを指定します。 既定の向きは **Vertical** で、グリッドの項目は上から下へ列がいっぱいになるまで追加された後、新しい列に折り返されます。 この値が **Horizontal** の場合は、グリッドの項目は左から右に追加され、新しい行に折り返されます。
 
@@ -256,3 +272,6 @@ Canvas パネルは慎重に使用する必要があります。 UI 要素の位
 
 [  **ItemsControl**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ItemsControl) に項目を表示するための [**ItemsPanel**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemspanel) としてのみ使用できる特殊な用途のパネルがいくつかあります。 このようなパネルには、[**ItemsStackPanel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ItemsStackPanel)、[**ItemsWrapGrid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ItemsWrapGrid)、[**VirtualizingStackPanel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.VirtualizingStackPanel)、[**WrapGrid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.WrapGrid) があります。 一般的な UI のレイアウトに、これらのパネルを使うことはできません。
 
+## <a name="get-the-sample-code"></a>サンプル コードを入手する
+
+- [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - インタラクティブな形で XAML コントロールのすべてを参照できます。
