@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 2b77fb147ab614b19993700d5d99572f0247d54e
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 3f2442647d39c4142b50c0a2a9b1fbc2c0eb66ca
+ms.sourcegitcommit: be519a7ecff53696b853754c879db32be9a53289
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67318270"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544915"
 ---
 # <a name="process-media-frames-with-mediaframereader"></a>MediaFrameReader を使ったメディア フレームの処理
 
@@ -32,7 +32,7 @@ ms.locfileid: "67318270"
 ## <a name="setting-up-your-project"></a>プロジェクトの設定
 **MediaCapture** を使う他のアプリと同様に、カメラ デバイスにアクセスする前にアプリが *webcam* 機能を使うことを宣言する必要があります。 アプリがオーディオ デバイスからキャプチャする場合は、*microphone* デバイス機能も宣言する必要があります。 
 
-**アプリケーション マニフェストに機能を追加します。**
+**アプリマニフェストに機能を追加する**
 
 1.  Microsoft Visual Studio の**ソリューション エクスプローラー**で、**package.appxmanifest** 項目をダブルクリックしてアプリケーション マニフェストのデザイナーを開きます。
 2.  **[機能]** タブをクリックします。
@@ -44,11 +44,11 @@ ms.locfileid: "67318270"
 [!code-cs[FramesUsing](./code/Frames_Win10/Frames_Win10/MainPage.xaml.cs#SnippetFramesUsing)]
 
 ## <a name="select-frame-sources-and-frame-source-groups"></a>フレーム ソースとフレーム ソース グループを選択する
-メディア フレームを処理する多くのアプリは、デバイスの色、深度カメラなど、複数のソースからフレームを一度に取得する必要があります。 [ **MediaFrameSourceGroup** ](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.Frames.MediaFrameSourceGroup)オブジェクトが同時に使用できるメディアのフレームのソースのセットを表します。 静的メソッド [**MediaFrameSourceGroup.FindAllAsync**](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesourcegroup.findallasync) を呼び出して、現在のデバイスでサポートされているフレーム ソースのすべてのグループの一覧を取得します。
+メディア フレームを処理する多くのアプリは、デバイスの色、深度カメラなど、複数のソースからフレームを一度に取得する必要があります。 [**Mediaframesourcegroup**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.Frames.MediaFrameSourceGroup)オブジェクトは、同時に使用できる一連のメディアフレームソースを表します。 静的メソッド [**MediaFrameSourceGroup.FindAllAsync**](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesourcegroup.findallasync) を呼び出して、現在のデバイスでサポートされているフレーム ソースのすべてのグループの一覧を取得します。
 
 [!code-cs[FindAllAsync](./code/Frames_Win10/Frames_Win10/MainPage.xaml.cs#SnippetFindAllAsync)]
 
-作成することも、 [ **DeviceWatcher** ](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceWatcher)を使用して[ **DeviceInformation.CreateWatcher** ](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformation.createwatcher) から返される値と[ **MediaFrameSourceGroup.GetDeviceSelector** ](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesourcegroup.getdeviceselector)使用可能なフレームのソース外部のカメラを接続するときなど、デバイスのグループ化すると、通知を受信します。 詳しくは、「[**デバイスの列挙**](https://docs.microsoft.com/windows/uwp/devices-sensors/enumerate-devices)」をご覧ください。
+[**DeviceWatcher**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceWatcher) を作成することもできます。これには、デバイス上で使用可能なフレームソースグループがあるときに通知を受信するために、[**Devicewatcher. Createwatcher**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformation.createwatcher)と、 [**Mediaframesourcegroup. getdeviceselector**](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesourcegroup.getdeviceselector)から返された値を使用します。外部カメラが電源に接続されている場合などの変更。 詳しくは、「[**デバイスの列挙**](https://docs.microsoft.com/windows/uwp/devices-sensors/enumerate-devices)」をご覧ください。
 
 [  **MediaFrameSourceGroup**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.Frames.MediaFrameSourceGroup) には、グループに含まれるフレーム ソースを記述する [**MediaFrameSourceInfo**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.Frames.MediaFrameSourceInfo) オブジェクトのコレクションがあります。 デバイスで利用可能なフレーム ソース グループを取得した後、目的のフレーム ソースを公開するグループを選択できます。
 
@@ -79,12 +79,12 @@ ms.locfileid: "67318270"
 
 [!code-cs[DeclareMediaCapture](./code/Frames_Win10/Frames_Win10/MainPage.xaml.cs#SnippetDeclareMediaCapture)]
 
-コンストラクターを呼び出して、**MediaCapture** オブジェクトのインスタンスを作成します。 次に、**MediaCapture** オブジェクトの初期化に使われる [**MediaCaptureSettings**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.MediaCaptureSettings) オブジェクトを作成します。 この例では、次の設定を使用しています。
+コンストラクターを呼び出して、**MediaCapture** オブジェクトのインスタンスを作成します。 次に、 **MediaCapture**オブジェクトを初期化するために使用される[**MediaCaptureInitializationSettings**](https://docs.microsoft.com/uwp/api/windows.media.capture.mediacaptureinitializationsettings)オブジェクトを作成します。 この例では、次の設定を使用しています。
 
-* [**SourceGroup** ](https://docs.microsoft.com/uwp/api/windows.media.capture.mediacaptureinitializationsettings.sourcegroup) -これにより、システムのフレームを取得するを使用して、ソース グループ。 ソース グループは、同時に使用できるメディア フレーム ソースのセットを定義することに注意してください。
-* [**SharingMode** ](https://docs.microsoft.com/uwp/api/windows.media.capture.mediacaptureinitializationsettings.sharingmode) -これにより、システムのキャプチャのソース デバイスを排他的に制御する必要があるかどうか。 これを [**ExclusiveControl**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.MediaCaptureSharingMode) に設定すると、生成するフレームの形式など、キャプチャ デバイスの設定を変更することができますが、別のアプリが既に排他的制御を持っている場合、自分のアプリはメディア キャプチャ デバイスを初期化しようとすると失敗します。 これを [**SharedReadOnly**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.MediaCaptureSharingMode) に設定すると、別のアプリで使われてもフレーム ソースからフレームを受け取ることができますが、デバイスの設定を変更することはできません。
-* [**MemoryPreference** ](https://docs.microsoft.com/uwp/api/windows.media.capture.mediacaptureinitializationsettings.memorypreference) - 指定した場合[ **CPU**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.MediaCaptureMemoryPreference)、フレームが到着したときに必ず CPU メモリの使用は、システム、として使用できる[ **SoftwareBitmap** ](https://docs.microsoft.com/uwp/api/Windows.Graphics.Imaging.SoftwareBitmap)オブジェクト。 [  **Auto**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.MediaCaptureMemoryPreference) を指定すると、システムはフレームを格納するのに最適なメモリの場所を動的に選択します。 システムが GPU メモリの使用を選択した場合、メディア フレームは **SoftwareBitmap** としてではなく、[**IDirect3DSurface**](https://docs.microsoft.com/uwp/api/Windows.Graphics.DirectX.Direct3D11.IDirect3DSurface) オブジェクトとして到着します。
-* [**StreamingCaptureMode** ](https://docs.microsoft.com/uwp/api/windows.media.capture.mediacaptureinitializationsettings.streamingcapturemode) -これを設定[**ビデオ**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.StreamingCaptureMode)を示すオーディオ ストリーミングする必要はありません。
+* [**Sourcegroup**](https://docs.microsoft.com/uwp/api/windows.media.capture.mediacaptureinitializationsettings.sourcegroup) -フレームを取得するために使用するソースグループをシステムに指示します。 ソース グループは、同時に使用できるメディア フレーム ソースのセットを定義することに注意してください。
+* [**Sharingmode**](https://docs.microsoft.com/uwp/api/windows.media.capture.mediacaptureinitializationsettings.sharingmode) -キャプチャソースデバイスを排他的に制御する必要があるかどうかをシステムに伝えます。 これを [**ExclusiveControl**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.MediaCaptureSharingMode) に設定すると、生成するフレームの形式など、キャプチャ デバイスの設定を変更することができますが、別のアプリが既に排他的制御を持っている場合、自分のアプリはメディア キャプチャ デバイスを初期化しようとすると失敗します。 これを [**SharedReadOnly**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.MediaCaptureSharingMode) に設定すると、別のアプリで使われてもフレーム ソースからフレームを受け取ることができますが、デバイスの設定を変更することはできません。
+* [**MemoryPreference**](https://docs.microsoft.com/uwp/api/windows.media.capture.mediacaptureinitializationsettings.memorypreference) - [**cpu**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.MediaCaptureMemoryPreference)を指定した場合、システムは cpu メモリを使用します。これにより、フレームが到着したときに、これらのオブジェクトを[**ソフトウェアビットマップ**](https://docs.microsoft.com/uwp/api/Windows.Graphics.Imaging.SoftwareBitmap)オブジェクトとして使用できるようになります。 [  **Auto**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.MediaCaptureMemoryPreference) を指定すると、システムはフレームを格納するのに最適なメモリの場所を動的に選択します。 システムが GPU メモリの使用を選択した場合、メディア フレームは **SoftwareBitmap** としてではなく、[**IDirect3DSurface**](https://docs.microsoft.com/uwp/api/Windows.Graphics.DirectX.Direct3D11.IDirect3DSurface) オブジェクトとして到着します。
+* [**StreamingCaptureMode**](https://docs.microsoft.com/uwp/api/windows.media.capture.mediacaptureinitializationsettings.streamingcapturemode) -オーディオをストリーミングする必要がないことを示すために、これを[**Video**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.StreamingCaptureMode)に設定します。
 
 [  **InitializeAsync**](https://docs.microsoft.com/uwp/api/windows.media.capture.mediacapture.initializeasync) を呼び出して、目的の設定で **MediaCapture** を初期化します。 初期化が失敗する場合は、必ず *try* ブロック内でこれを呼び出してください。
 
@@ -252,8 +252,8 @@ Windows、バージョン 1709 以降では、**MediaFrameReader** から取得�
 ## <a name="related-topics"></a>関連トピック
 
 * [カメラ](camera.md)
-* [MediaCapture で基本的な写真、ビデオ、およびオーディオのキャプチャします。](basic-photo-video-and-audio-capture-with-MediaCapture.md)
-* [カメラのフレームのサンプル](https://go.microsoft.com/fwlink/?LinkId=823230)
+* [MediaCapture を使用した基本的な写真、ビデオ、オーディオキャプチャ](basic-photo-video-and-audio-capture-with-MediaCapture.md)
+* [カメラフレームのサンプル](https://go.microsoft.com/fwlink/?LinkId=823230)
  
 
  
