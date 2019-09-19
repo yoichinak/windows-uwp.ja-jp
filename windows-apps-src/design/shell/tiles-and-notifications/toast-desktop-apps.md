@@ -7,12 +7,12 @@ ms.date: 05/01/2018
 ms.topic: article
 keywords: windows 10, uwp, win32, デスクトップ, トースト通知, デスクトップ ブリッジ, トーストの送信のオプション, com サーバー, com アクティベーター, com, 偽の com, com なし, com なし, トーストの送信
 ms.localizationpriority: medium
-ms.openlocfilehash: ef4810ec594173f3cc4da35d63143909f4859e3c
-ms.sourcegitcommit: 04683376dbdbff987601f546f058748442170068
+ms.openlocfilehash: 030f8b1380dc28a41e65989ccbda688523fad965
+ms.sourcegitcommit: bac5574a1f47a5b38c984a5482272c9e49a9c91e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68340815"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71100818"
 ---
 # <a name="toast-notifications-from-desktop-apps"></a>デスクトップ アプリからのトースト通知
 
@@ -54,7 +54,7 @@ COM アクティベーター オプションでは、アプリで次の通知テ
 > [!NOTE]
 > COM アクティベーターを既存のデスクトップ ブリッジ アプリに追加すると、フォアグラウンド/バックグラウンドおよび従来の通知のアクティブ化により、コマンド ラインではなく COM アクティベーターがアクティブ化されます。
 
-このオプションを使用する方法については、「[デスクトップ C# アプリからのローカル トースト通知の送信](send-local-toast-desktop.md)」または「[デスクトップ C++ WRL アプリからのローカル トースト通知の送信](send-local-toast-desktop-cpp-wrl.md)」を参照してください。
+このオプションを使用する方法については、「[デスクトップC#アプリからローカルトースト通知を送信](send-local-toast-desktop.md)する」または「[デスクトップC++ Wrl アプリからローカルトースト通知を送信](send-local-toast-desktop-cpp-wrl.md)する」を参照してください。
 
 
 ## <a name="alternative-option---no-com--stub-clsid"></a>代替オプション - COM なし / Stub CLSID
