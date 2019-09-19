@@ -5,12 +5,12 @@ ms.date: 04/02/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 154271e455996bee15ac01c2e41f55b0d9c08fe0
-ms.sourcegitcommit: 61194375c0889b73ee2b978c444c4b90a576b3e4
+ms.openlocfilehash: 4fbda33e044880b263feafbcf88b041abdadc310
+ms.sourcegitcommit: bf95c8b29145a224957a940512394e6aa97cb90f
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 09/17/2019
-ms.locfileid: "71039141"
+ms.locfileid: "71061960"
 ---
 # <a name="layout-panels"></a>レイアウト パネル
 
@@ -29,7 +29,7 @@ ms.locfileid: "71039141"
 <tr>
 <td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
 <td>
-    <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合、こちらをクリックして<a href="xamlcontrolsgallery:/item/RatingControl">アプリを開き、RatingControl の動作を確認</a>してください。</p>
+    <p><strong style="font-weight: semi-bold">XAML コントロールギャラリー</strong>アプリがインストールされている場合は、「 <a href="xamlcontrolsgallery:/item/RelativePanel">RelativePanel</a>、 <a href="xamlcontrolsgallery:/item/StackPanel">StackPanel</a>、 <a href="xamlcontrolsgallery:/item/Grid">Grid</a>、 <a href="xamlcontrolsgallery:/item/VariableSizedWrapGrid">VariableSizedWrapGrid</a>、 <a href="xamlcontrolsgallery:/item/Canvas">Canvas</a> in action」を参照してください。</p>
     <ul>
     <li><a href="https://www.microsoft.com/store/productId/9MSVH128X2ZT">XAML コントロール ギャラリー アプリを入手する (Microsoft Store)</a></li>
     <li><a href="https://github.com/Microsoft/Xaml-Controls-Gallery">ソース コード (GitHub) を入手する</a></li>
@@ -139,7 +139,7 @@ Grid で境界線プロパティを設定する例を以下に示します。
 
 結果は次のようになります。
 
-![StackPanel](images/layout-panel-stack-panel.png)
+![スタック パネル](images/layout-panel-stack-panel.png)
 
 StackPanel では、子要素のサイズを明示的に設定しない場合、利用可能な幅 (Orientation が **Horizontal** の場合は高さ) いっぱいに拡大されます。 この例では、長方形の幅は設定されていません。 長方形は、StackPanel の幅いっぱいに拡張されています。
 
