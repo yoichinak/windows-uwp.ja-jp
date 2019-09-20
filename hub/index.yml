@@ -1,0 +1,69 @@
+### YamlMime:Hub
+title: Windows に関するドキュメント
+summary: ソフトウェア開発者、ハードウェア エンジニア、および IT 担当者向けの情報です。
+brand: windows
+metadata:
+  title: Windows に関するドキュメント | Microsoft Docs
+  titleSuffix: ''
+  author: tedhudek
+  ms.author: tedhudek
+  ms.topic: hub-page
+  uhfHeaderId: MSDocsHeader-DocsL1
+  ms.openlocfilehash: 0cdab14a7301cdb20ca6986854523c5b6e834b21
+  ms.sourcegitcommit: bac5574a1f47a5b38c984a5482272c9e49a9c91e
+  ms.translationtype: HT
+  ms.contentlocale: ja-JP
+  ms.lasthandoff: 09/18/2019
+  ms.locfileid: "71100827"
+highlightedContent:
+  items:
+  - title: Visual Studio と Windows SDK を入手する
+    itemType: download
+    url: https://developer.microsoft.com/windows/downloads
+  - title: WDK をダウンロードする
+    itemType: download
+    url: https://docs.microsoft.com/windows-hardware/drivers/download-the-wdk
+  - title: Insider Program に参加する
+    itemType: overview
+    url: https://docs.microsoft.com/windows-insider
+  - title: スキルを向上させる
+    itemType: learn
+    url: https://docs.microsoft.com/learn/browse/?products=m365%2Cwindows
+additionalContent:
+  sections:
+  - items:
+    - title: アプリの開発
+      links:
+      - text: Windows 10 アプリの作成を開始する
+        url: https://docs.microsoft.com/windows/apps
+      - text: Windows 10 機能をアプリに追加する
+        url: https://docs.microsoft.com/windows/apps/desktop/modernize/
+      - text: Windows での Python を使用した開発
+        url: https://docs.microsoft.com/windows/python/index
+      - text: Windows Subsystem for Linux のセットアップ
+        url: https://docs.microsoft.com/windows/wsl/about
+      - text: コード サンプルを探す
+        url: https://developer.microsoft.com/windows/samples
+    - title: ハードウェア デベロッパー
+      links:
+      - text: デバイスの構築の詳細
+        url: https://docs.microsoft.com/windows-hardware/get-started/index
+      - text: デバイス ドライバーの開発
+        url: https://docs.microsoft.com/windows-hardware/drivers
+      - text: Windows イメージの作成
+        url: https://docs.microsoft.com/windows-hardware/manufacture/
+      - text: パフォーマンスと互換性のテスト
+        url: https://docs.microsoft.com/windows-hardware/test
+      - text: ドライバー サンプルを探す
+        url: https://docs.microsoft.com/samples/browse/?products=windows-wdk
+    - title: IT 管理者
+      links:
+      - text: Windows 10 の構成とデプロイ
+        url: https://docs.microsoft.com/windows/windows-10/
+      - text: Windows 10 のリリース情報を検索する
+        url: https://docs.microsoft.com/windows/release-information/
+      - text: Windows Server の管理
+        url: https://docs.microsoft.com/windows-server/
+      - text: ビジネス向け Microsoft Store を使ってみる
+        url: https://docs.microsoft.com/microsoft-store/
+  footer: '[ブログ](https://blogs.windows.com/) - [Twitter](https://twitter.com/windowsdocs) - [Stack Overflow](https://stackoverflow.com/questions/tagged/windows) - [開発者コミュニティ](https://social.msdn.microsoft.com/Forums/windowsdesktop)'
