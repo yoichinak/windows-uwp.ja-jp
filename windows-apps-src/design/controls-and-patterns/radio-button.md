@@ -12,12 +12,12 @@ design-contact: kimsea
 dev-contact: mitra
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 91903365a258d54804b420cd217dd7c25d79406a
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: f623c18db5af8e503965c0c4518e35e263791a51
+ms.sourcegitcommit: 61194375c0889b73ee2b978c444c4b90a576b3e4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63813692"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71039154"
 ---
 # <a name="radio-buttons"></a>ラジオ ボタン
 
@@ -187,14 +187,20 @@ private void BorderRadioButton_Checked(object sender, RoutedEventArgs e)
 
 ![ラジオ ボタンの間隔ガイドライン](images/radiobutton-redlines.png)
 
+## <a name="get-the-sample-code"></a>サンプル コードを入手する
+
+- [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - インタラクティブな形で XAML コントロールのすべてを参照できます。
+
 ## <a name="related-topics"></a>関連トピック
 
-**デザイナー向け**
+### <a name="for-designers"></a>デザイナー向け
+
 - [ボタン](buttons.md)
 - [トグル スイッチ](toggles.md)
 - [チェック ボックス](checkbox.md)
 - [リストとコンボ ボックス](lists.md)
 - [スライダー](slider.md)
 
-**開発者向け (XAML)**
+### <a name="for-developers-xaml"></a>開発者向け (XAML)
+
 - [RadioButton クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.radiobutton)

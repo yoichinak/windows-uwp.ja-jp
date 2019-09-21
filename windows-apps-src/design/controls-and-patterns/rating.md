@@ -10,20 +10,18 @@ design-contact: kimsea
 dev-contact: mitra
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 3c5736e917d77415eeb6df53b3fd92f7ab584884
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 348d563322baf03aabc0e30fd9b39ee11673f271
+ms.sourcegitcommit: 61194375c0889b73ee2b978c444c4b90a576b3e4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63787437"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71039113"
 ---
 # <a name="rating-control"></a>評価コントロール
 
 評価コントロールでは、ユーザーが評価の確認と設定を行うことができます。評価には、コンテンツやサービスに関する満足度が反映されます。 ユーザーはタッチ、ペン、マウス、ゲームパッド、キーボードで評価コントロールを操作できます。 次のガイダンスでは、評価コントロールの機能を使用して、柔軟性とカスタマイズを提供する方法を示します。
 
 > **重要な API**:[RatingControl クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.ratingcontrol)
-
-![評価コントロールの例](images/rating_rs2_doc_ratings_intro.png)
 
 ## <a name="examples"></a>例
 
@@ -40,6 +38,8 @@ ms.locfileid: "63787437"
 </td>
 </tr>
 </table>
+
+![評価コントロールの例](images/rating_rs2_doc_ratings_intro.png)
 
 ### <a name="editable-rating-with-placeholder-value"></a>編集可能な評価とプレースホルダーの値
 

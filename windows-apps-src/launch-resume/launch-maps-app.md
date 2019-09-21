@@ -7,10 +7,10 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: 3c85eaacd62de9a2efe380197ba467c5009cd0c5
-ms.sourcegitcommit: 9f8f431fcacdb519126a0d831ba93baab21459f8
+ms.sourcegitcommit: f0588a086cf2499968bf03b10c6bce5f518e90cb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/03/2019
+ms.lasthandoff: 09/20/2019
 ms.locfileid: "68757438"
 ---
 # <a name="launch-the-windows-maps-app"></a>Windows マップ アプリの起動
@@ -72,7 +72,7 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriNewYork, launcherO
 ビューの種類を制御するには、*sty* (スタイル) パラメーターと *ss* (Streetside) パラメーターを使います。 *sty* パラメーターは、道路図と航空写真表示を切り替えます。 *ss* パラメーターは、Streetside ビューに地図を配置します。 これらのパラメーターやその他のパラメーターについて詳しくは、[bingmaps: のパラメーター リファレンス](#bingmaps-param-reference)をご覧ください。
 
 
-| サンプル URI                                                                 | [結果]                                                                                                                                                                                        |
+| サンプル URI                                                                 | 結果                                                                                                                                                                                        |
 |----------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | bingmaps:?                                                                 | マップ アプリを開きます。                                                                                                                                                                            |
 | bingmaps:?cp=40.726966~-74.006076                                          | ニューヨークを中心とした地図を表示します。                                                                                                                                                    |
@@ -92,7 +92,7 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriNewYork, launcherO
 *q* パラメーターを使って場所を検索する場合には、検索語句をできるだけ具体的に示すこと、また *cp*、*bb*、または *where* の各パラメーターを使って、検索場所を指定することをお勧めします。 検索場所が指定されず、ユーザーの現在の場所が利用できない場合は、検索が意味のある結果を返さない場合があります。 検索結果は、最も適切な地図のビューに表示されます。 これらのパラメーターやその他のパラメーターについて詳しくは、[bingmaps: のパラメーター リファレンス](#bingmaps-param-reference)をご覧ください。
 
 
-| サンプル URI                                                    | [結果]                                                                            |
+| サンプル URI                                                    | 結果                                                                            |
 |---------------------------------------------------------------|------------------------------------------------------------------------------------|
 | bingmaps:?q=1600%20Pennsylvania%20Ave,%20Washington,%20DC     | 地図を表示し、ワシントンD.C. のホワイト ハウスの住所を検索します。 |
 | bingmaps:?q=coffee&where=Seattle                              | シアトルでコーヒーを検索します。                                                    |
@@ -105,7 +105,7 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriNewYork, launcherO
 
 地図上のポイントのカスタム セットを表示するには、*collection* パラメーターを使います。 ポイントが複数ある場合は、ポイントの一覧が表示されます。 コレクションには 25 個までポイントを含めることができます。これらのポイントは指定された順序で表示されます。 コレクションは、検索要求やルート案内の要求よりも優先されます。 このパラメーターやその他のパラメーターについて詳しくは、[bingmaps: のパラメーター リファレンス](#bingmaps-param-reference)をご覧ください。
 
-| サンプル URI | [結果]                                                                                                                   |
+| サンプル URI | 結果                                                                                                                   |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
 | bingmaps:?collection=point.36.116584\_-115.176753\_Caesars%20Palace                                                                                                | ラスベガスのシーザーズ パレスを検索し、その結果を地図に表示します (最適な地図のビューで表示されます)。                         |
 | bingmaps:?collection=point.36.116584\_-115.176753\_Caesars%20Palace&lvl=16                                                                                         | ラスベガスにあるシーザーズ パレスという名前のプッシュピンを表示し、ズーム レベルを 16 に設定します。                                               |
@@ -122,7 +122,7 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriNewYork, launcherO
 
 ![ルート案内の例](images/windowsmapgcdirections.png)
 
-| サンプル URI                                                                                                              | [結果]                                                                                                                                                         |
+| サンプル URI                                                                                                              | 結果                                                                                                                                                         |
 |-------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | bingmaps:?rtp=pos.44.9160\_-110.4158~pos.45.0475\_-109.4187                                                             | ポイント ツー ポイントのルート案内と共に地図を表示します。 *mode* が指定されていないため、ルート案内は、ユーザーの交通手段の設定のモードを使って提供されます。 |
 | bingmaps:?cp=43.0332~-87.9167&trfc=1                                                                                    | ウィスコンシン州のミルウォーキーを中心とした地図と交通情報を表示します。                                                                                                        |
@@ -142,7 +142,7 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriNewYork, launcherO
 
 ![ターン バイ ターン方式のルート案内の例](images/windowsmapsappdirections.png)
 
-| サンプル URI                                                                                                | [結果]                                                                                       |
+| サンプル URI                                                                                                | 結果                                                                                       |
 |-----------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
 | ms-drive-to:?destination.latitude=47.680504&destination.longitude=-122.328262&destination.name=Green Lake | 現在の場所からグリーン湖までのターン バイ ターン方式の自動車ルート案内と共に地図を表示します。 |
 | ms-walk-to:?destination.latitude=47.680504&destination.longitude=-122.328262&destination.name=Green Lake  | 現在の場所からグリーン湖までのターン バイ ターン方式の徒歩ルート案内と共に地図を表示します。 |
@@ -152,7 +152,7 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriNewYork, launcherO
 
 **Ms の設定:** URI スキームを使用すると、設定アプリ内の特定のページに直接起動できます。 Ms の**設定は次のとおりです。** URI スキームは、Maps アプリでは起動されません。設定アプリの [オフラインマップ] ページを直接起動し、Maps アプリで使用されるオフラインマップをダウンロードするための確認ダイアログを表示できます。 URI スキームは、緯度と経度で指定されたポイントを受け取り、そのポイントが含まれる地域のオフライン マップが利用できるかどうかを自動的に判定します。  渡された緯度と経度が複数のダウンロード地域内にある場合、ユーザーは、確認ダイアログ ボックスでダウンロードする地域を選択できます。 そのポイントが含まれる地域のオフライン マップが利用できない場合、設定アプリのオフライン マップ ページがエラー ダイアログと共に表示されます。
 
-| サンプル URI  | [結果] |
+| サンプル URI  | 結果 |
 |-------------|---------|
 | ms-settings:maps-downloadmaps?latlong=47.6,-122.3 | 設定アプリで、確認ダイアログ ボックスが表示されたオフライン マップ ページを開き、緯度と経度で指定されたポイントが含まれた地域のマップをダウンロードします。 |
 
@@ -335,7 +335,7 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriNewYork, launcherO
 </div></td>
 </tr>
 <tr class="odd">
-<td align="left"><p><b>モード</b></p></td>
+<td align="left"><p><b>mode</b></p></td>
 <td align="left"><p>交通手段モード</p></td>
 <td align="left"><p>mode = "mode=" ("d" / "t" / "w")</p>
 <p>例:</p>
@@ -351,7 +351,7 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriNewYork, launcherO
 
 <tr class="even">
 <td align="left"><p><b>collection</b></p></td>
-<td align="left"><p>Collection</p></td>
+<td align="left"><p>コレクション</p></td>
 <td align="left"><p>collection = "collection="(name"~"/)point["~"point]</p>
 <p>name = "name." whereval </p>
 <p>whereval = 1( ALPHA / DIGIT / "-" / "." / "_" / pct-encoded / "!" / "$" / "'" / "(" / ")" / "" / "+" / "," / ";" / ":" / "@" / "/" / "?") </p>
