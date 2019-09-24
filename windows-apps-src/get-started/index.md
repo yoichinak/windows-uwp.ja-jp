@@ -6,15 +6,15 @@ ms.date: 03/23/2018
 ms.topic: article
 keywords: 概要, windows 10, uwp, xaml, c#
 ms.localizationpriority: medium
-ms.openlocfilehash: c3f34d6ff8b23d23589d6899984f53fd6be34aca
-ms.sourcegitcommit: b9e2cd5232ad98f4ef367881b92000a3ae610844
+ms.openlocfilehash: 106e85fc0bd74740d99d5de6cb34c8b5a6e75e0f
+ms.sourcegitcommit: 7791596c25baf9d222729e057ecdf81b45a59f0c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131931"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71205911"
 ---
-# <a name="get-started-with-windows-10-apps"></a>Windows 10 アプリの概要 
- 
+# <a name="get-started-with-windows-10-apps"></a>Windows 10 アプリの概要
+
 <p>すべての Windows 10 デバイスで動作するアプリを作成したり、新機能や更新された機能で既存のアプリを強化したりします。</p>  
 <ul class="cardsK panelContent">
     <li>
@@ -222,8 +222,7 @@ ms.locfileid: "67131931"
                 <div class="card">
                     <div class="cardText">
                         <h3>初めての開発</h3>
-                        <p><a href="//docs.microsoft.com/learn">Microsoft Learn</a></p>
-                        <p><a href="//www.linkedin.com/learning/learning-universal-windows-app-development/welcome">LinkedIn Learning</a></p>
+                        <p><a href="//docs.microsoft.com/en-us/learn/browse/?products=windows&resource_type=module">Microsoft Learn の Windows</a></p>
                         </div>
                     </div>
                 </div>
@@ -235,7 +234,7 @@ ms.locfileid: "67131931"
                 <div class="card">
                     <div class="cardText">
                         <h3>関連ドキュメントについて</h3>
-                        <p><a href="//docs.microsoft.com/dotnet/csharp/index">C# ガイド</a></p>
+                        <p><a href="//docs.microsoft.com/dotnet/csharp/">C# ガイド</a></p>
                         <p><a href="//docs.microsoft.com/visualstudio/ide/">Visual Studio</a></p>
                     </div>
                 </div>
