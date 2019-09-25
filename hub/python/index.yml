@@ -1,0 +1,87 @@
+### YamlMime:Landing
+title: Windows での Python に関するドキュメント
+summary: 開発環境のセットアップ、スクリプト作成と自動化、Web アプリのビルド、および FAQ など、Windows を使用した Python による開発を始めましょう。
+metadata:
+  author: mattwojo
+  description: Windows での Python を使用した開発を始めましょう。
+  manager: jken
+  ms.author: mattwoj
+  ms.date: 09/15/2019
+  ms.prod: dev-environment
+  ms.technology: windows-python
+  ms.topic: landing-page
+  ms.openlocfilehash: 60c0905a87d5089cccf5a525a6d29f87c327fd62
+  ms.sourcegitcommit: 7104ad5d01ad1c69a4ea0b3ba6732c1b2a98ec09
+  ms.translationtype: HT
+  ms.contentlocale: ja-JP
+  ms.lasthandoff: 09/25/2019
+  ms.locfileid: "71251119"
+landingContent:
+- title: 初心者向けスタートアップ ガイド
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 開発環境を設定する
+      url: get-started/python-for-education.md#set-up-your-development-environment
+  - linkListType: tutorial
+    links:
+    - text: 基本的な Python コードをいくつか実行する
+      url: get-started/python-for-education.md#hello-world-tutorial-for-some-python-basics
+    - text: VS Code を使用した HelloWorld
+      url: get-started/python-for-education.md#hello-world-tutorial-for-using-python-with-vs-code
+    - text: Pygame を使用してシンプルなゲームを作成する
+      url: get-started/python-for-education.md#create-a-simple-game-with-pygame
+- title: Web 開発を始める
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 開発環境を設定する
+      url: get-started/python-for-web.md#set-up-your-development-environment
+  - linkListType: tutorial
+    links:
+    - text: Flask を使用した HelloWorld
+      url: get-started/python-for-web.md#hello-world-tutorial-for-flask
+    - text: Django を使用した HelloWorld
+      url: get-started/python-for-web.md#hello-world-tutorial-for-django
+- title: 自動化スクリプトの概要
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 開発環境を設定する
+      url: get-started/python-for-scripting.md#set-up-your-development-environment
+  - linkListType: tutorial
+    links:
+    - text: スクリプトの例 - ファイル システムを表示する
+      url: get-started/python-for-scripting.md#example-script-to-display-the-structure-of-your-file-system-directory
+    - text: スクリプトの例 - ディレクトリ内のすべてのファイルを変更する
+      url: get-started/python-for-scripting.md#example-script-to-modify-all-files-in-a-directory
+- title: その他の資料
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: よく寄せられる質問
+      url: faqs.md
+  - linkListType: learn
+    links:
+    - text: この入門コースで (何もインストールせずに) Python を試してみる
+      url: https://docs.microsoft.com/learn/modules/intro-to-python/
+    - text: 推奨リンク
+      url: resources.md
+    - text: 推奨されるオンライン コース
+      url: resources.md#online-courses
+    - text: 推奨される Web 開発リンク
+      url: resources.md#web-development
+- title: Mac-to-Windows サポート ガイド
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: 開発環境の変更
+      url: ../mac-to-windows.md
+    - text: キーボード ショートカット
+      url: ../mac-to-windows.md#keyboard-shortcuts
+    - text: トラックパッドのショートカット
+      url: ../mac-to-windows.md#trackpad-shortcuts
+    - text: ターミナルとシェル
+      url: ../mac-to-windows.md#terminal-and-shell
+    - text: アプリとユーティリティ
+      url: ../mac-to-windows.md#apps-and-utilities

@@ -6,12 +6,12 @@ ms.topic: article
 keywords: 概要, uwp, windows 10, 学習トラック, データ バインディング, 一覧
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: c4d339a1eedb798f11d5567be6a48ec2269cf8ac
-ms.sourcegitcommit: 280193dfe5a106fc6b4c85df3ac40535547b855c
+ms.openlocfilehash: a63bcc73be0146a9f580ae3afe3684f85e51d00e
+ms.sourcegitcommit: 88431e67d282d9a2a4fe4afcb254310f90c7cd7e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67235156"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71127450"
 ---
 # <a name="display-customers-in-a-list"></a>一覧での顧客の表示
 
@@ -102,7 +102,7 @@ public sealed partial class MainPage : Page
 
 ## <a name="edit-your-customers-through-the-ui"></a>UI を通じた Customers の編集
 
-一覧で顧客を表示しましたが、データ B バインディングではより多くのことを行うことができます。 UI から直接データを編集できるとしたらどうでしょうか。 これを行うには、まずデータ バインディングの 3 つのモデルについて説明しましょう。
+一覧で顧客を表示しましたが、データ バインディングではさらに多くのことができます。 UI から直接データを編集できるとしたらどうでしょうか。 これを行うには、まずデータ バインディングの 3 つのモデルについて説明しましょう。
 
 * *1 回限り*:このデータ バインディングは一度だけアクティブ化され、変更に対応しません。
 * *一方向*:このデータ バインディングは、データ ソースに対して行われた変更で UI を更新します。

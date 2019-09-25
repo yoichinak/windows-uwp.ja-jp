@@ -5,12 +5,12 @@ ms.date: 07/23/2019
 ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、同時実行、非同期、非同期、非同期操作
 ms.localizationpriority: medium
-ms.openlocfilehash: 4a275d5c91e03f9eb5b6348cda673d93e7132d7a
-ms.sourcegitcommit: 7ece8a9a9fa75e2e92aac4ac31602237e8b7fde5
+ms.openlocfilehash: 1170b8e1291afd166f210feb291b644d1c7ed546
+ms.sourcegitcommit: e5a154c7b6c1b236943738febdb17a4815853de5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68485145"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71164824"
 ---
 # <a name="more-advanced-concurrency-and-asynchrony-with-cwinrt"></a>C++/WinRT でのより高度な同時実行操作と非同期操作
 
@@ -219,7 +219,7 @@ co_await static_cast<no_switch>(async);
 
 次に、**IAsyncXxx** と一致する 3 つの **await_xxx** 関数を検索する代わりに、C++ コンパイラで **no_switch** と一致する関数が検索されます。
 
-## <a name="a-deeper-dive-into-winrtresumeforeground"></a>**winrt::resume_foreground** の詳細
+## <a name="a-deeper-dive-into-winrtresume_foreground"></a>**winrt::resume_foreground** の詳細
 
 [C++/WinRT 2.0](/windows/uwp/cpp-and-winrt-apis/newsnews#news-and-changes-in-cwinrt-20) では、[**winrt::resume_foreground**](/uwp/cpp-ref-for-winrt/resume-foreground) 関数は、ディスパッチャー スレッドから呼び出された場合でも中断されます (前のバージョンでは、既にディスパッチャー スレッド上に存在していない場合のみ中断されるため、一部のシナリオではデッドロックが発生する可能性がありました)。
 
@@ -745,6 +745,9 @@ int main()
     }
 }
 ```
+
+> [!NOTE]
+> **wait_for** ではインターフェイスで **std::chrono::duration** が使用されますが、それは **std::chrono::duration** で提供する値 (約 49.7 日) より小さい範囲に制限されています。
 
 次の例の **wait_for** では、約 5 秒間待機した後、完了をチェックします。 比較が好ましければ、非同期オブジェクトが正常に完了したことがわかり、操作は完了します。 何らかの結果を待っている場合は、結果を取得する **get** 関数の呼び出しを続けて実行できます。
 

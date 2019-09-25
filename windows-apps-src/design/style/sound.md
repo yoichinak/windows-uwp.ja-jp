@@ -12,18 +12,34 @@ design-contact: mattben
 dev-contact: joyate
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: d0955e7a018472141b137935c5bc87a9f75a5c6d
-ms.sourcegitcommit: 0c5f81100986cc4b74b54cd1ca2debd283c5b7f6
+ms.openlocfilehash: ce81088495716e43a32dab94d1d47d399dd6a309
+ms.sourcegitcommit: bf95c8b29145a224957a940512394e6aa97cb90f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68375274"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71061918"
 ---
 # <a name="sound"></a>サウンド
 
 ![ヒーロー イメージ](images/header-sound.svg)
 
 サウンドを使ってアプリを向上させるには、さまざまな方法があります。 ユーザーがイベントを音声で認識できるように、サウンドを使って他の UI 要素を補完できます。 視覚障碍のあるユーザーにとって、サウンドは効果的なユーザー インターフェイスの要素となる可能性があります。 サウンドを使ってユーザーを釘づけにするような雰囲気を作ることができます。たとえば、パズル ゲームのバックグラウンドで風変わりなサウンドトラックを再生したり、ホラー ゲームやサバイバル ゲームで不気味なサウンド効果を使う可能性があります。
+
+## <a name="examples"></a>例
+
+<table>
+<th align="left">XAML コントロール ギャラリー<th>
+<tr>
+<td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td>
+    <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合、こちらをクリックして<a href="xamlcontrolsgallery:/item/Sound">アプリを開き、サウンドの動作を確認</a>してください。</p>
+    <ul>
+    <li><a href="https://www.microsoft.com/store/productId/9MSVH128X2ZT">XAML コントロール ギャラリー アプリを入手する (Microsoft Store)</a></li>
+    <li><a href="https://github.com/Microsoft/Xaml-Controls-Gallery">ソース コード (GitHub) を入手する</a></li>
+    </ul>
+</td>
+</tr>
+</table>
 
 ## <a name="sound-global-api"></a>サウンドのグローバル API
 
@@ -150,6 +166,10 @@ ElementSoundPlayer.Play(ElementSoundKind.Focus);
 **ElementSound.Focus** 呼び出しの追加機能として、サウンド システムは、既定で、ナビゲーション トリガーごとに 4 つの異なるサウンドを循環させます。 つまり、2 つの同じフォーカス サウンドが前後して再生されることはありません。
 
 この循環機能の目的は、フォーカス サウンドが単調になることを防ぎ、ユーザーの注意をひかない状態を保つことです。フォーカス サウンドは、最もよく再生されるため、最も繊細なサウンドにする必要があります。
+
+## <a name="get-the-sample-code"></a>サンプル コードを入手する
+
+- [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - インタラクティブな形で XAML コントロールのすべてを参照できます。
 
 ## <a name="related-articles"></a>関連記事
 

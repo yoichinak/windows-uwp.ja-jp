@@ -6,12 +6,12 @@ ms.date: 04/19/2019
 ms.topic: article
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: ff88332e0b44749bcd86e06adafeb596ca8678b3
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 1c535e4ea4ad3c93acb048de2050d5ae7a9c2c2b
+ms.sourcegitcommit: bf95c8b29145a224957a940512394e6aa97cb90f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63820629"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71061934"
 ---
 # <a name="control-size-and-density"></a>コントロールのサイズと密度
 
@@ -20,6 +20,22 @@ ms.locfileid: "63820629"
 既定では、UWP アプリは低密度 (または `Standard`) のレイアウトでレンダリングされます。 ただし、WinUI 2.1 以降では、情報量の多い UI や同様の特殊なシナリオのための高密度 (または`Compact`) レイアウト オプションもサポートされます。 これは、基本的なスタイル リソースで指定できます (次の例を参照)。
 
 機能と動作は変わらず、サイズと密度の 2 つのオプション間で一貫性が保たれていますが、既定の本文フォント サイズは、これら 2 つの密度オプションをサポートするため、すべてのコントロールで 14 ピクセルに更新されました。 このフォント サイズは領域やデバイスが異なっても機能し、アプリケーションのバランスが取れたユーザーに使いやすい状態を保ちます。
+
+## <a name="examples"></a>例
+
+<table>
+<th align="left">XAML コントロール ギャラリー<th>
+<tr>
+<td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td>
+    <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合、こちらをクリックして<a href="xamlcontrolsgallery:/item/Compact Sizing">アプリを開き、Compact サイズの動作を確認</a>してください。</p>
+    <ul>
+    <li><a href="https://www.microsoft.com/store/productId/9MSVH128X2ZT">XAML コントロール ギャラリー アプリを入手する (Microsoft Store)</a></li>
+    <li><a href="https://github.com/Microsoft/Xaml-Controls-Gallery">ソース コード (GitHub) を入手する</a></li>
+    </ul>
+</td>
+</tr>
+</table>
 
 ## <a name="fluent-standard-sizing"></a>Fluent Standard サイズ
 
@@ -77,6 +93,10 @@ Compact サイズは、アプリケーションにおいてページ レベル�
     </Grid.Resources>
 </Grid>
 ```
+
+## <a name="get-the-sample-code"></a>サンプル コードを入手する
+
+- [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - インタラクティブな形で XAML コントロールのすべてを参照できます。
 
 ## <a name="related-articles"></a>関連記事
 

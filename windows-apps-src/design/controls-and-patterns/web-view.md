@@ -8,15 +8,14 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: cad33c0f1b72bbd379be9b8f13ed648231f1a1ca
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 799913688f04421cae6b47f0d4b7db2fb1074ed4
+ms.sourcegitcommit: bf95c8b29145a224957a940512394e6aa97cb90f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67319360"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71061925"
 ---
 # <a name="web-view"></a>Web ビュー
- 
 
 Web ビュー コントロールは、Microsoft Edge レンダリング エンジンを使って、Web コンテンツをレンダリングするアプリにビューを埋め込みます。 また、Web ビュー コントロールでは、ハイパーリンクの表示と動作が可能です。
 
@@ -25,6 +24,22 @@ Web ビュー コントロールは、Microsoft Edge レンダリング エン�
 ## <a name="is-this-the-right-control"></a>適切なコントロールの選択
 
 リモート Web サーバー、動的に生成されたコード、またはアプリ パッケージのコンテンツ ファイルの、書式がリッチな HTML コンテンツを表示するには、Web ビュー コントロールを使います。 また、リッチ コンテンツは、スクリプト コードを含めることができ、さらに、スクリプトとアプリのコード間で通信を行うこともできます。
+
+## <a name="examples"></a>例
+
+<table>
+<th align="left">XAML コントロール ギャラリー<th>
+<tr>
+<td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td>
+    <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合、こちらをクリックして<a href="xamlcontrolsgallery:/item/WebView">アプリを開き、WebView の動作を確認</a>してください。</p>
+    <ul>
+    <li><a href="https://www.microsoft.com/store/productId/9MSVH128X2ZT">XAML コントロール ギャラリー アプリを入手する (Microsoft Store)</a></li>
+    <li><a href="https://github.com/Microsoft/Xaml-Controls-Gallery">ソース コード (GitHub) を入手する</a></li>
+    </ul>
+</td>
+</tr>
+</table>
 
 ## <a name="create-a-web-view"></a>Web ビューを作成する
 
@@ -319,15 +334,10 @@ UI スレッドから外れてコンテンツをホストしている Web ビュ
 -   入力フィールドのサイズを適切に調整する必要があります。 テキストを入力する際にズームインできることにユーザーが気付かない場合があります。
 -   Web ビューがアプリの他の部分とは異なって見える場合は、関連タスクを実行するための代替のコントロールまたは手段を検討します。 Web ビューがアプリの他の部分にマッチしていると、すべてが 1 つのシームレスなエクスペリエンスとしてユーザーに認識してもらえます。
 
+## <a name="get-the-sample-code"></a>サンプル コードを入手する
 
+- [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - インタラクティブな形で XAML コントロールのすべてを参照できます。
 
 ## <a name="related-topics"></a>関連トピック
 
-* [WebView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.WebView)
- 
-
- 
-
-
-
-
+- [WebView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.WebView)
