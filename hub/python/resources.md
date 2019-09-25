@@ -8,12 +8,12 @@ ms.topic: article
 keywords: python, microsoft, windows 10, チュートリアル, オンラインコース, ブログ, イベント
 ms.localizationpriority: medium
 ms.date: 07/19/2019
-ms.openlocfilehash: 28a77b9e936acddb6158d865aef933f27444c5c9
-ms.sourcegitcommit: a28a32fff9d15ecf4a9d172cd0a04f4d993f9d76
+ms.openlocfilehash: 3320cef0d3aaf48a2f93d65d93bf8876f1f997d6
+ms.sourcegitcommit: 7104ad5d01ad1c69a4ea0b3ba6732c1b2a98ec09
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959060"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71249243"
 ---
 # <a name="resources-for-developing-with-python-on-windows"></a>Windows での Python を使用した開発に関するリソース
 
@@ -45,8 +45,7 @@ Windows 10 を実行するコンピューターで動作する Python 開発者�
 
 - [Python と Visual Studio Code](https://code.visualstudio.com/docs/languages/python):VS Code での Python の使用の概要について説明します。
 
-
-### <a name="online-courses"></a>オンラインコース
+## <a name="online-courses"></a>オンラインコース
 
 - [Microsoft Learn での Python の概要](https://docs.microsoft.com/en-us/learn/modules/intro-to-python/):対話型 Microsoft Learn プラットフォームを試して、このモジュールを完成させるためのエクスペリエンスポイントを獲得してください。基本的な Python コードを記述し、変数を宣言し、コンソールの入力と出力を操作する方法の基本について説明します。 対話型サンドボックス環境を使用すると、Python 開発環境がセットアップされていない人にとって、この作業を開始することができます。
 

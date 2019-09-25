@@ -73,7 +73,7 @@
     - name: Python を使った開発
       items:
         - name: 概要
-          href: python/index.md
+          href: python/index.yml
         - name: 初心者向けスタートアップ ガイド
           href: python/get-started/python-for-education.md
         - name: Web 開発の概要
