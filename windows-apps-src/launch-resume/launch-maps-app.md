@@ -7,10 +7,10 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: 3c85eaacd62de9a2efe380197ba467c5009cd0c5
-ms.sourcegitcommit: f0588a086cf2499968bf03b10c6bce5f518e90cb
+ms.sourcegitcommit: ad2940a12a7ee59ee7696cd23a03743eef84ca31
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/20/2019
+ms.lasthandoff: 09/26/2019
 ms.locfileid: "68757438"
 ---
 # <a name="launch-the-windows-maps-app"></a>Windows マップ アプリの起動
@@ -171,7 +171,7 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriNewYork, launcherO
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">引き</th>
+<th align="left">パラメーター</th>
 <th align="left">定義</th>
 <th align="left">ABNF での定義と例</th>
 <th align="left">詳細</th>
