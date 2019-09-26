@@ -6,12 +6,12 @@ ms.date: 12/14/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 1827f24e467c113034c5d0303aaebce0e603da2a
-ms.sourcegitcommit: 68121f21c899975f3634456a651ae8e1e53c19f7
+ms.openlocfilehash: 974d96f6ba2daf275ffd346f50571787d4eee925
+ms.sourcegitcommit: ad2940a12a7ee59ee7696cd23a03743eef84ca31
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70841866"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71275751"
 ---
 # <a name="set-up-your-payout-account-and-tax-forms"></a>受取りアカウントの設定と税関連の書類
 
@@ -95,6 +95,9 @@ Microsoft Store のアプリの売上から金額を受け取るには、支払�
     ![支払い勘定科目の種類の選択](images/payout-account-type-selection.png)
 
 4. 既存の支払いプロファイルを選択するか、 **[新しい支払いプロファイルの作成]** をクリックして、選択した支払い方法の新しいプロファイルを作成します。
+
+> [!NOTE]
+> 何らかの理由で、お客様のアカウントが Microsoft からの資金を受け取る準備ができていない場合、 **[支払いを保留**する] チェックボックスをオンにすることができます。 引き続き販売からの処理を継続しますが、支払いを無効にしない限り、支払いは行われません **。**
 
 ### <a name="create-a-bank-based-payment-profile"></a>銀行ベースの支払いプロファイルを作成する
 
