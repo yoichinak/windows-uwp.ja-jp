@@ -6,12 +6,12 @@ ms.date: 04/17/2019
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: 47cb292b1f5aeed9473cac0f27074f449dc67032
-ms.sourcegitcommit: b8087f8b6cf8367f8adb7d6db4581d9aa47b4861
+ms.openlocfilehash: b8ad9726397671bcb2b641d6769f014721a27a72
+ms.sourcegitcommit: f34deba1d4460d85ed08fe9648999fe03ff6a3dd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67414105"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71317097"
 ---
 # <a name="modernize-your-desktop-apps"></a>デスクトップ アプリの現代化
 
@@ -32,15 +32,9 @@ MSIX パッケージにデスクトップ Windows アプリをパッケージ化
 
 ## <a name="net-core-3"></a>.NET Core 3
 
-.NET Core 3 は、.NET Core の次期メジャー リリースです。 このリリースのハイライトは、Windows フォーム、WPF アプリを含む Windows デスクトップ アプリのサポートです。 .NET Core 3 で新規および既存の Windows デスクトップ アプリを実行し、.NET Core で提供されるすべての特典を利用することができます。 [XAML Islands](xaml-islands.md)でホストされている UWP コントロールを、.NET Core 3 を対象とする Windows フォームや WPF アプリでも使用できます。
+.NET Core 3 は、.NET Core の最新のメジャー リリースです。 このリリースのハイライトは、Windows フォーム、WPF アプリを含む Windows デスクトップ アプリのサポートです。 .NET Core 3 で新規および既存の Windows デスクトップ アプリを実行し、.NET Core で提供されるすべての特典を利用することができます。 [XAML Islands](xaml-islands.md)でホストされている UWP コントロールを、.NET Core 3 を対象とする Windows フォームや WPF アプリでも使用できます。
 
-詳しくは、次の記事をご覧ください。
-
-* [.NET Core 3.0 Preview 1 のお知らせ](https://devblogs.microsoft.com/dotnet/announcing-net-core-3-preview-1-and-open-sourcing-windows-desktop-frameworks/)
-* [.NET Core 3.0 Preview 2 のお知らせ](https://devblogs.microsoft.com/dotnet/announcing-net-core-3-preview-2/)
-* [.NET Core 3.0 Preview 2 のお知らせ](https://devblogs.microsoft.com/dotnet/announcing-net-core-3-preview-3/)
-* [.NET Core 3.0 Preview 4 のお知らせ](https://devblogs.microsoft.com/dotnet/announcing-net-core-3-preview-4/)
-* [.NET Core 3.0 の新着情報](https://docs.microsoft.com/dotnet/core/whats-new/dotnet-core-3-0)
+詳細については、「[.NET Core 3.0 の新機能](https://docs.microsoft.com/dotnet/core/whats-new/dotnet-core-3-0)」をご覧ください。
 
 ## <a name="uwp-apis"></a>UWP API
 

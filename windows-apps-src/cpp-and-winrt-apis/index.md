@@ -5,12 +5,12 @@ ms.date: 04/18/2019
 ms.topic: article
 keywords: windows 10、uwp、標準、c++、cpp、winrt、プロジェクション
 ms.localizationpriority: medium
-ms.openlocfilehash: 7554b635f76f7d00901ecb7936fdd0351d8dee75
-ms.sourcegitcommit: d38e2f31c47434cd6dbbf8fe8d01c20b98fabf02
+ms.openlocfilehash: 61a54edc236f94bec44420471a176a2014fcdb0d
+ms.sourcegitcommit: 50b0b6d6571eb80aaab3cc36ab4e8d84ac4b7416
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70393471"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329575"
 ---
 # <a name="cwinrt"></a>C++/WinRT
 
@@ -67,7 +67,7 @@ Windows ランタイムの他の言語オプションに比べて、C++/WinRT �
 | [C++/WinRT の強参照と弱参照](weak-references.md) | Windows ランタイムは参照カウント システムです。このようなシステムでは、強参照と弱参照の重要性とこれらの違いを認識することが重要です。 |
 | [アジャイル オブジェクト](agile-objects.md) | アジャイル オブジェクトは、いずれかのスレッドからアクセスできます。 お使いの C++/WinRT 型は既定ではアジャイルですが、オプトアウトできます。 |
 | [直接割当ての診断](diag-direct-alloc.md) | このトピックでは、ヘルパーの [**winrt::make**](/uwp/cpp-ref-for-winrt/make) ファミリを使用するのではなく、スタック上に実装型のオブジェクトを作成するという間違いを診断するのに役立つ C++/WinRT 2.0 機能について詳しく説明します。 |
-| [デストラクターに関する詳細情報](details-about-destructors.md) | C++/WinRT 2.0 を使用すると、実装型の破棄を延期したり、破棄中に安全にクエリを実行したりすることができます。 このトピックでは、それらの機能についてと、それらをいつ使用するかについて説明します。 |
+| [実装の種類の拡張ポイント](details-about-destructors.md) | C++/WinRT 2.0 のこれらの拡張ポイントを使用すると、実装の種類の破棄を延期したり、破棄中に安全にクエリを実行したり、プロジェクションが実行された方法に対してエントリをフックしたりすることができます。 |
 | [単純な C++/WinRT Windows UI ライブラリの例](simple-winui-example.md) | このトピックでは、C++/WinRT プロジェクト内に WinUI の単純なサポートを追加する処理を順を追って説明します。 |
 
 ### <a name="topics-about-the-c-language"></a>C++ 言語に関するトピック
