@@ -1,6 +1,6 @@
 ---
-description: この記事では、XAML Islands を使用して WPF アプリでカスタム UWP コントロールをホストする方法について説明します。
-title: XAML Islands を使用した WPF アプリでのカスタム UWP コントロールのホスト
+description: この記事では、XAML アイランドを使用して WPF アプリでカスタム UWP コントロールをホストする方法について説明します。
+title: XAML アイランドを使用した WPF アプリでのカスタム UWP コントロールのホスト
 ms.date: 08/20/2019
 ms.topic: article
 keywords: windows 10、uwp、windows フォーム、wpf、xaml アイランド、カスタムコントロール、ユーザーコントロール、ホストコントロール
@@ -8,14 +8,14 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: ab9bff69ac9ac0eaf1f02c943229829e726a0b9d
-ms.sourcegitcommit: 8cbc9ec62a318294d5acfea3dab24e5258e28c52
+ms.openlocfilehash: 3c14cfaefcf10aa051e3054d5df2e6da9fd77602
+ms.sourcegitcommit: f34deba1d4460d85ed08fe9648999fe03ff6a3dd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70911571"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71317063"
 ---
-# <a name="host-a-custom-uwp-control-in-a-wpf-app-using-xaml-islands"></a>XAML Islands を使用した WPF アプリでのカスタム UWP コントロールのホスト
+# <a name="host-a-custom-uwp-control-in-a-wpf-app-using-xaml-islands"></a>XAML アイランドを使用した WPF アプリでのカスタム UWP コントロールのホスト
 
 この記事では、Windows Community Toolkit の[Windowsxamlhost](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost)コントロールを使用して、.net Core 3 を対象とする WPF アプリでカスタム UWP コントロールをホストする方法について説明します。 カスタムコントロールには、Windows SDK からのいくつかのファーストパーティ UWP コントロールが含まれており、UWP コントロールの1つのプロパティを WPF アプリの文字列にバインドします。 この記事では、 [WinUI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)からファーストパーティの UWP コントロールをホストする方法についても説明します。
 
@@ -31,16 +31,16 @@ WPF アプリでカスタム UWP コントロールをホストするには、�
 
 * **XamlApplication オブジェクトを定義する UWP アプリプロジェクト**。 WPF (または Windows フォーム) プロジェクトは、Windows Community Toolkit によって`Microsoft.Toolkit.Win32.UI.XamlHost.XamlApplication`提供されるクラスのインスタンスにアクセスできる必要があります。 このオブジェクトは、アプリケーションの現在のディレクトリにあるアセンブリ内のカスタム UWP XAML 型のメタデータを読み込むためのルートメタデータプロバイダーとして機能します。 これを行うには、WPF (または Windows フォーム) プロジェクトと同じソリューションに**空のアプリ (ユニバーサル Windows)** プロジェクトを追加し、このプロジェクトの既定`App`のクラスを変更する方法をお勧めします。
   > [!NOTE]
-  > ソリューションには、オブジェクトを`XamlApplication`定義するプロジェクトを1つだけ含めることができます。 アプリ内のすべてのカスタム UWP コントロールは、 `XamlApplication`同じオブジェクトを共有します。 `XamlApplication`オブジェクトを定義するプロジェクトには、XAML Islands でホスト uwp コントロールを使用する他のすべての uwp ライブラリおよびプロジェクトへの参照が含まれている必要があります。
+  > ソリューションには、オブジェクトを`XamlApplication`定義するプロジェクトを1つだけ含めることができます。 アプリ内のすべてのカスタム UWP コントロールは、 `XamlApplication`同じオブジェクトを共有します。 `XamlApplication`オブジェクトを定義するプロジェクトには、XAML アイランドでホスト uwp コントロールを使用する他のすべての uwp ライブラリおよびプロジェクトへの参照が含まれている必要があります。
 
 ## <a name="create-a-wpf-project"></a>WPF プロジェクトを作成する
 
-作業を開始する前に、次の手順に従って WPF プロジェクトを作成し、XAML Islands をホストするように構成します。 既存の WPF プロジェクトがある場合は、プロジェクトのこれらの手順とコード例を調整できます。
+作業を開始する前に、次の手順に従って WPF プロジェクトを作成し、XAML アイランドをホストするように構成します。 既存の WPF プロジェクトがある場合は、プロジェクトのこれらの手順とコード例を調整できます。
 
 > [!NOTE]
 > .NET Framework を対象とする既存のプロジェクトがある場合は、.NET Core 3 にプロジェクトを移行する必要があります。 詳細については、[このブログシリーズ](https://devblogs.microsoft.com/dotnet/migrating-a-sample-wpf-app-to-net-core-3-part-1/)を参照してください。
 
-1. [.Net Core 3 PREVIEW SDK](https://dotnet.microsoft.com/download/dotnet-core/3.0)の最新のプレビューバージョンをまだインストールしていない場合はインストールします。
+1. [.Net Core 3 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.0)の最新バージョンをまだインストールしていない場合は、インストールします。
 
 2. Visual Studio 2019 で、新しい**WPF アプリ (.Net Core)** プロジェクトを作成します。
 
@@ -260,7 +260,7 @@ WPF アプリでカスタム UWP コントロールをホストするには、�
 
 2. パッケージプロジェクトで、 **[アプリケーション]** ノードを右クリックし、 **[参照の追加]** を選択します。 プロジェクトの一覧で、ソリューション内の WPF プロジェクトを選択し、[ **OK]** をクリックします。
 
-3. パッケージプロジェクトファイルを編集します。 これらの変更は、現在、.NET Core 3 を対象とし、XAML Islands をホストする WPF アプリをパッケージ化するために必要です。
+3. パッケージプロジェクトファイルを編集します。 これらの変更は、現在、.NET Core 3 を対象とし、XAML アイランドをホストする WPF アプリをパッケージ化するために必要です。
 
     1. ソリューションエクスプローラーで、パッケージプロジェクト ノードを右クリックし、**プロジェクトファイルの編集** を選択します。
     2. ファイル内の `<Import Project="$(WapProjPath)\Microsoft.DesktopBridge.targets" />` 要素を見つけます。 この要素を次の XML に置き換えます。 これらの変更は、現在、.NET Core 3 を対象とする WPF アプリをパッケージ化し、UWP コントロールをホストするために必要です。

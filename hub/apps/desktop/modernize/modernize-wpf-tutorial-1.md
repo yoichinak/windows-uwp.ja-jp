@@ -8,21 +8,18 @@ author: mcleanbyron
 keywords: windows 10、uwp、windows フォーム、wpf、xaml islands
 ms.localizationpriority: medium
 ms.custom: RS5, 19H1
-ms.openlocfilehash: 97488a913605916c067861b5941d7aa127b00917
-ms.sourcegitcommit: 6bb794c6e309ba543de6583d96627fbf1c177bef
+ms.openlocfilehash: 6a52e12f9d60ee4abb4b1aed3043a69c25845267
+ms.sourcegitcommit: f34deba1d4460d85ed08fe9648999fe03ff6a3dd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69643411"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71317103"
 ---
 # <a name="part-1-migrate-the-contoso-expenses-app-to-net-core-3"></a>作業 1:Contoso Expenses　アプリの .NET Core 3 への移行
 
 これは、Contoso の支出という名前の WPF デスクトップアプリのサンプルを最新化する方法を示すチュートリアルの最初の部分です。 サンプルアプリをダウンロードするためのチュートリアル、前提条件、および手順の概要につい[ては、「チュートリアル:WPF アプリ](modernize-wpf-tutorial.md)を最新化します。
   
-チュートリアルのこの部分では、.NET Framework 4.7.2 から[.Net Core 3](modernize-wpf-tutorial.md#net-core-3)に Contoso の経費アプリ全体を移行します。 チュートリアルのこの部分を開始する前に、次のことを確認してください。
-
-* Visual Studio 2019 で[ContosoExpenses サンプルを開き、ビルド](modernize-wpf-tutorial.md#get-the-contoso-expenses-sample-app)します。
-* Visual Studio 2019 のリリース版を使用している場合は、.NET Core SDK のプレビューバージョンを有効にします。 Visual Studio で、[**ツール] > [オプション**] にアクセスし、検索ボックスに「Preview」と入力して、 **[.NET Core SDK のプレビューを使用する]** を選択します。 [プレビューバージョンの Visual Studio 2019](https://visualstudio.microsoft.com/vs/preview/)を使用している場合は、.net Core のプレビューが既定で有効になっているため、このオプションを選択する必要はありません。
+チュートリアルのこの部分では、.NET Framework 4.7.2 から[.Net Core 3](modernize-wpf-tutorial.md#net-core-3)に Contoso の経費アプリ全体を移行します。 チュートリアルのこの部分を開始する前に、Visual Studio 2019 で[ContosoExpenses サンプルを開いてビルド](modernize-wpf-tutorial.md#get-the-contoso-expenses-sample-app)してください。
 
 > [!NOTE]
 > WPF アプリケーションを .NET Framework から .NET Core 3 に移行する方法の詳細については、[このブログシリーズ](https://devblogs.microsoft.com/dotnet/migrating-a-sample-wpf-app-to-net-core-3-part-1/)を参照してください。
