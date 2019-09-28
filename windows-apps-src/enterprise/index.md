@@ -6,12 +6,12 @@ ms.date: 08/30/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: baac4498fcc6dd65d106166f73ca89db89cbfc6b
-ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
+ms.openlocfilehash: eec1de013efce7b23cd89e81f659a5cc530638c4
+ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67821005"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71339967"
 ---
 # <a name="enterprise"></a>エンタープライズ
 
@@ -78,7 +78,7 @@ Windows 10 では、WPF、Windows フォーム、および C++ Win32 デスク�
 
 ### <a name="sql-server-connectivity"></a>SQL Server の接続
 
-アプリで [System.Data.SqlClient](https://docs.microsoft.com/dotnet/api/system.data.sqlclient?redirectedfrom=MSDN&view=netframework-4.7.2) 名前空間のクラスを使用して、SQL Server データベースに直接接続し、データを保存および取得することができます。
+アプリで [System.Data.SqlClient](https://docs.microsoft.com/dotnet/api/system.data.sqlclient) 名前空間のクラスを使用して、SQL Server データベースに直接接続し、データを保存および取得することができます。
 
 「[UWP アプリでの SQL Server データベースの使用](https://docs.microsoft.com/en-us/windows/uwp/data-access/sql-server-databases)」をご覧ください。
 
@@ -125,7 +125,7 @@ Windows 10 には、一連のセキュリティ機能が用意されていま�
 |-------|-------------|
 | [ネットワークの基本](https://docs.microsoft.com/windows/uwp/networking/networking-basics) | このチュートリアルでは、使用する通信プロトコルに関係なく、すべての UWP アプリに関連する基本的なネットワークの概念について説明します。  |
 | [アプリに適したネットワーク テクノロジ](https://docs.microsoft.com/windows/uwp/networking/which-networking-technology) | UWP アプリで利用できるネットワーク テクノロジの概要と、アプリに適したテクノロジの選び方に関する推奨事項について説明します。 |
-| [XML シリアル化および SOAP シリアル化](https://docs.microsoft.com/dotnet/framework/serialization/xml-and-soap-serialization) | XML シリアル化では、オブジェクトが、特定の XML スキーマ定義言語 (XSD) に準拠する XML ストリームに変換されます。 XML と厳密に型指定されたクラス間の変換を行うには、ネイティブの [XDocument](https://docs.microsoft.com/dotnet/api/system.xml.linq.xdocument?redirectedfrom=MSDN) クラスまたは外部ライブラリを使用します。 |
+| [XML シリアル化および SOAP シリアル化](https://docs.microsoft.com/dotnet/framework/serialization/xml-and-soap-serialization) | XML シリアル化では、オブジェクトが、特定の XML スキーマ定義言語 (XSD) に準拠する XML ストリームに変換されます。 XML と厳密に型指定されたクラス間の変換を行うには、ネイティブの [XDocument](https://docs.microsoft.com/dotnet/api/system.xml.linq.xdocument) クラスまたは外部ライブラリを使用します。 |
 | [JSON シリアル化](https://docs.microsoft.com/uwp/api/Windows.Data.Json) | JSON (JavaScript Object Notation) シリアル化は、REST API と通信するための一般的な形式です。 [Newtonsoft Json.NET](https://www.newtonsoft.com/json) は、UWP アプリで完全にサポートされています。 |
 
 ## <a name="devices"></a>デバイス

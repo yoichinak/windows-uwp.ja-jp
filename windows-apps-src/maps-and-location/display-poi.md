@@ -6,18 +6,18 @@ ms.date: 08/11/2017
 ms.topic: article
 keywords: Windows 10, UWP, 地図, 位置情報, プッシュピン
 ms.localizationpriority: medium
-ms.openlocfilehash: 2aca8f4daea39a190af4dd1007a6b961198994dd
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: b8e14693dd6ef23714da53d652b9083f202cd62d
+ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66370542"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340432"
 ---
 # <a name="display-points-of-interest-on-a-map"></a>関心のあるポイントの地図への表示
 
 プッシュピン、画像、図形、XAML UI 要素を使って、関心のあるポイント (POI) を地図に追加します。 POI は、地図上の特定のポイントであり、関心のあるものを表します。 たとえば、企業、市区町村、友人の所在地を示すことができます。
 
-詳細については、アプリでの POI の表示から次の例をダウンロード、 [Windows 用ユニバーサル サンプル リポジトリ](https://go.microsoft.com/fwlink/p/?LinkId=619979)GitHub で。[ユニバーサル Windows プラットフォーム (UWP) のマップ サンプル](https://go.microsoft.com/fwlink/p/?LinkId=619977)します。
+アプリでの POI の表示の詳細については、GitHub の[Windows-universal samples リポジトリ](https://go.microsoft.com/fwlink/p/?LinkId=619979)から次のサンプルをダウンロードしてください。[ユニバーサル Windows プラットフォーム (UWP) マップのサンプル](https://go.microsoft.com/fwlink/p/?LinkId=619977)です。
 
 地図にプッシュピン、画像、図形を表示するには、[**MapIcon**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapIcon)、[**MapBillboard**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapbillboard)、[**MapPolygon**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapPolygon)、[**MapPolyline**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapPolyline) の各オブジェクトを、[**MapElementsLayer**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapelementslayer) オブジェクトの **MapElements** コレクションに追加します。 次に、そのレイヤー オブジェクトをマップ コントロールの **Layers** コレクションに追加します。
 
@@ -163,7 +163,7 @@ public void AddLandmarkPhoto()
 }
 ```
 
-このコードを詳しく調べる価値の 3 つの部分があります。イメージ、参照、カメラ、 [ **NormalizedAnchorPoint** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapbillboard.NormalizedAnchorPoint)プロパティ。
+このコードの3つの部分は、もう少し詳しく調べてみる価値があります。イメージ、参照カメラ、および[**NormalizedAnchorPoint**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapbillboard.NormalizedAnchorPoint)プロパティ。
 
 ### <a name="image"></a>イメージ
 
@@ -352,7 +352,7 @@ public Geopoint BellevueLocation { get; set; }
 </maps:MapControl>
 ```
 
-上の例の ``ItemsSource`` プロパティは、分離コード ファイルで [IList](https://docs.microsoft.com/dotnet/api/system.collections.ilist?view=netframework-4.70) 型のプロパティにバインドされます。
+上の例の ``ItemsSource`` プロパティは、分離コード ファイルで [IList](https://docs.microsoft.com/dotnet/api/system.collections.ilist) 型のプロパティにバインドされます。
 
 ```csharp
 public sealed partial class Scenario1 : Page

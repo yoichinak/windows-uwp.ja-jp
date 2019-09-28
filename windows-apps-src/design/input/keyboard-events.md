@@ -12,12 +12,12 @@ design-contact: kimsea
 dev-contact: niallm
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 9ef2007648c21e015aa2ae692d28efa56c922bf5
-ms.sourcegitcommit: 7585bf66405b307d7ed7788d49003dc4ddba65e6
+ms.openlocfilehash: 89257a4ec64458f5734c2b04c1e654a7c0c44f27
+ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67660194"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71339903"
 ---
 # <a name="keyboard-events"></a>キーボード イベント
 
@@ -25,7 +25,7 @@ ms.locfileid: "67660194"
 
 次のキーボード イベントは、ハードウェア キーボードとタッチ キーボードの両方で発生します。
 
-| event                                      | 説明                    |
+| イベント                                      | 説明                    |
 |--------------------------------------------|--------------------------------|
 | [**KeyDown**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.keydown) | キーが押されると発生します。  |
 | [**KeyUp**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.keyup)     | キーが離されると発生します。 |
@@ -50,7 +50,7 @@ UI のコントロールに入力フォーカスがあるときにだけ、キ�
 
 -   イベントのセンダー。 センダーは、イベント ハンドラーがアタッチされているオブジェクトを報告します。
 -   イベント データ。 キーボード イベントの場合、イベント データは [**KeyRoutedEventArgs**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.KeyRoutedEventArgs) のインスタンスです。 ハンドラーのデリゲートは [**KeyEventHandler**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.keyeventhandler) です。 ハンドラーに関するほとんどのシナリオで、最もよく使われる **KeyRoutedEventArgs** のプロパティは、[**Key**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.keyroutedeventargs.key) です。場合によっては、[**KeyStatus**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.keyroutedeventargs.keystatus) も使われます。
--   [**OriginalSource**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.routedeventargs.originalsource)します。 キーボード イベントはルーティング イベントであるため、イベント データには **OriginalSource** があります。 イベントがオブジェクト ツリーをバブルアップするように意図的に設定した場合、**OriginalSource** がセンダーではなく対象のオブジェクトとなる場合があります。 ただし、この動作は設計によって異なります。 センダーではなく **OriginalSource** を使う方法について詳しくは、このトピックの「キーボード ルーティング イベント」または「[イベントとルーティング イベントの概要](https://docs.microsoft.com/windows/uwp/xaml-platform/events-and-routed-events-overview)」をご覧ください。
+-   [**Originalsource**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.routedeventargs.originalsource)。 キーボード イベントはルーティング イベントであるため、イベント データには **OriginalSource** があります。 イベントがオブジェクト ツリーをバブルアップするように意図的に設定した場合、**OriginalSource** がセンダーではなく対象のオブジェクトとなる場合があります。 ただし、この動作は設計によって異なります。 センダーではなく **OriginalSource** を使う方法について詳しくは、このトピックの「キーボード ルーティング イベント」または「[イベントとルーティング イベントの概要](https://docs.microsoft.com/windows/uwp/xaml-platform/events-and-routed-events-overview)」をご覧ください。
 
 ### <a name="attaching-a-keyboard-event-handler"></a>キーボード イベント ハンドラーのアタッチ
 
@@ -94,12 +94,12 @@ void MyProject::MainPage::Grid_KeyUp(
 
 キーボード イベントはいずれもイベント データに [**KeyRoutedEventArgs**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.KeyRoutedEventArgs) を使います。**KeyRoutedEventArgs** には次のプロパティがあります。
 
--   [**キー**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.keyroutedeventargs.key)
+-   [**レジストリ**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.keyroutedeventargs.key)
 -   [**KeyStatus**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.keyroutedeventargs.keystatus)
--   [**処理**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.keyroutedeventargs.handled)
--   [**OriginalSource** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.routedeventargs.originalsource) (から継承された[ **RoutedEventArgs**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.RoutedEventArgs))
+-   [**対応**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.keyroutedeventargs.handled)
+-   [**Originalsource**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.routedeventargs.originalsource) ( [**system.windows.routedeventargs.handled**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.RoutedEventArgs)から継承)
 
-### <a name="key"></a>Key
+### <a name="key"></a>キー
 
 キーが押されると、[**KeyDown**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.keydown) イベントが発生します。 同様に、キーが離されると、[**KeyUp**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.keyup) イベントが発生します。 通常、特定のキー値を処理するにはイベントをリッスンします。 押されたキーまたは離されたキーを特定するには、イベント データの [**Key**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.keyroutedeventargs.key) 値を調べます。 **Key** は [**VirtualKey**](https://docs.microsoft.com/uwp/api/Windows.System.VirtualKey) 値を返します。 **VirtualKey** 列挙体には、サポートされているすべてのキーが含まれています。
 
@@ -277,7 +277,7 @@ End Sub
 ```
 
 > [!NOTE]
-> XAML で [**AutomationProperties.AcceleratorKey**](https://docs.microsoft.com/dotnet/api/system.windows.automation.automationproperties.acceleratorkey?view=netframework-4.8) または [**AutomationProperties.AccessKey**](https://docs.microsoft.com/dotnet/api/system.windows.automation.automationproperties.accesskey?view=netframework-4.8) を設定すると、(その特定の操作を呼び出すためのショートカット キーを説明する) 文字列情報が提供されます。 この情報は、ナレーターなどの Microsoft UI オートメーション クライアントによってキャプチャされ、通常は、直接ユーザーに提供されます。
+> XAML で [**AutomationProperties.AcceleratorKey**](https://docs.microsoft.com/dotnet/api/system.windows.automation.automationproperties.acceleratorkey) または [**AutomationProperties.AccessKey**](https://docs.microsoft.com/dotnet/api/system.windows.automation.automationproperties.accesskey) を設定すると、(その特定の操作を呼び出すためのショートカット キーを説明する) 文字列情報が提供されます。 この情報は、ナレーターなどの Microsoft UI オートメーション クライアントによってキャプチャされ、通常は、直接ユーザーに提供されます。
 >
 > **AutomationProperties.AcceleratorKey** または **AutomationProperties.AccessKey** を設定しても、それだけでは操作は実行されません。 実際にアプリにキーボード ショートカットの動作を実装するには、[**KeyDown**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.keydown) イベントまたは [**KeyUp**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.keyup) イベントのハンドラーをアタッチする必要があります。 また、アクセス キーの下線も自動的には追加されません。 UI で下線付きのテキストを表示する場合は、インラインの [**Underline**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Documents.Underline) 書式設定として、ニーモニックの特定のキーのテキストに明示的に下線を表示する必要があります。
 
@@ -319,7 +319,7 @@ void StackPanel_KeyUp(object sender, KeyRoutedEventArgs e)
 
 ### <a name="addhandler-and-already-handled-keyboard-events"></a>AddHandler イベントと処理済みキーボード イベント
 
-特殊な方法を利用して、既に処理済みとしてマークされているイベントに対して処理を実行できるハンドラーをアタッチすることができます。 この手法を使用して、 [ **AddHandler** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.addhandler) XAML 属性または言語固有の構文を使用して、c + = などのハンドラーを追加するためのではなく、ハンドラーを登録するメソッド\#します。
+特殊な方法を利用して、既に処理済みとしてマークされているイベントに対して処理を実行できるハンドラーをアタッチすることができます。 この手法では、 [**AddHandler**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.addhandler)メソッドを使用してハンドラーを登録します。これには、XAML 属性や、c++ を追加するための言語固有の構文 (C @ no__t の + = など) は使用しません。
 
 一般的に、この方法には、**AddHandler** API が [**RoutedEvent**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.RoutedEvent) 型のパラメーターを受け取るという制限があります。このパラメーターで対象のルーティング イベントを識別します。 一部のルーティング イベントには **RoutedEvent** 識別子がないため、[**Handled**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.keyroutedeventargs.handled) の状態でも処理できるルーティング イベントを識別する場合に考慮する必要があります。 [  **UIElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement) の [**KeyDown**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.keydown) イベントと [**KeyUp**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.keyup) イベントには、ルーティング イベント識別子 ([**KeyDownEvent**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.keydownevent) と [**KeyUpEvent**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.keyupevent)) があります。 これに対し、[**TextBox.TextChanged**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.textchanged) などのイベントにはルーティング イベント識別子がないため、**AddHandler** を使う手法には利用できません。
 
@@ -327,7 +327,7 @@ void StackPanel_KeyUp(object sender, KeyRoutedEventArgs e)
 
 特定のコントロールのキー イベント (たとえば [**GridView**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.GridView) など) をオーバーライドして、キーボードとゲームパッドを含むさまざまな入力デバイスに一貫したフォーカス ナビゲーションを提供できます。
 
-次の例では、私たちのコントロールをサブクラス化とオーバーライド KeyDown 動作を GridView にフォーカスを移動するコンテンツの任意の方向キーが押されたときにします。
+次の例では、コントロールをサブクラス化し、KeyDown 動作をオーバーライドして、矢印キーが押されたときに GridView の内容にフォーカスを移動します。
 
 ```csharp
   public class CustomGridView : GridView
@@ -384,24 +384,24 @@ UI 要素でコマンド実行を使うことができる場合は、個々の�
 ## <a name="related-articles"></a>関連記事
 
 **開発者向け**
-* [キーボードの相互作用](keyboard-interactions.md)
+* [キーボード操作](keyboard-interactions.md)
 * [入力デバイスの識別](identify-input-devices.md)
-* [タッチ キーボードの存在に応答します。](respond-to-the-presence-of-the-touch-keyboard.md)
+* [タッチキーボードの存在に応答する](respond-to-the-presence-of-the-touch-keyboard.md)
 
 **デザイナー向け**
 * [キーボードの設計ガイドライン](https://docs.microsoft.com/windows/uwp/input-and-devices/keyboard-interactions)
 
 **サンプル**
-* [タッチ キーボードのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/TouchKeyboard)
+* [タッチキーボードのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/TouchKeyboard)
 * [基本的な入力サンプル](https://go.microsoft.com/fwlink/p/?LinkID=620302)
-* [低待機時間の入力サンプル](https://go.microsoft.com/fwlink/p/?LinkID=620304)
+* [低待機時間入力サンプル](https://go.microsoft.com/fwlink/p/?LinkID=620304)
 * [フォーカスの視覚効果のサンプル](https://go.microsoft.com/fwlink/p/?LinkID=619895)
 
 **サンプルのアーカイブ**
 * [入力サンプル](https://go.microsoft.com/fwlink/p/?linkid=226855)
-* [入力:デバイス機能のサンプル](https://go.microsoft.com/fwlink/p/?linkid=231530)
-* [入力:タッチ キーボードのサンプル](https://go.microsoft.com/fwlink/p/?linkid=246019)
-* [外観に応答して、スクリーン キーボードのサンプル](https://go.microsoft.com/fwlink/p/?linkid=231633)
+* [Input:デバイス機能のサンプル @ no__t-0
+* [Input:タッチキーボードサンプル @ no__t-0
+* [スクリーンキーボードサンプルの外観への対応](https://go.microsoft.com/fwlink/p/?linkid=231633)
 * [XAML テキスト編集のサンプル](https://go.microsoft.com/fwlink/p/?LinkID=251417)
  
 

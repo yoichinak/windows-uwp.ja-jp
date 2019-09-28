@@ -1,5 +1,5 @@
 ---
-Description: UWP アプリとの対話が検出された、解釈、および処理時にユーザーを表示するのにには、視覚的なフィードバックを使用します。
+Description: 視覚的なフィードバックを使用して、UWP アプリとの対話が検出、解釈、および処理されるときにユーザーを表示します。
 title: 視覚的なフィードバック
 ms.assetid: bf2f3672-95f0-4c8c-9a72-0934f2d3b767
 label: Visual feedback
@@ -8,18 +8,18 @@ keywords: 視覚的なフィードバック, フォーカス フィードバッ�
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 9ab5d8b12539b7669f3459e62159177bfd95269d
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 56260eb09bc834b2a71e9889b91f0bc439edaa30
+ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67317156"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340465"
 ---
 # <a name="guidelines-for-visual-feedback"></a>視覚的なフィードバックのガイドライン
 
 視覚的なフィードバックは、対話式操作が検出、解釈、処理されていることをユーザーに示すために使います。 視覚的なフィードバックは、対話式操作を促進することによってユーザーを支援します。 対話式操作の成功を示すことによって、ユーザーのコントロール感を向上させます。 また、システム状態の中継やエラーの削減も可能になります。
 
-> **重要な API**:[**Windows.Devices.Input**](https://docs.microsoft.com/uwp/api/Windows.Devices.Input)、 [ **Windows.UI.Input**](https://docs.microsoft.com/uwp/api/Windows.UI.Input)、 [ **Windows.UI.Core**](https://docs.microsoft.com/uwp/api/Windows.UI.Core)
+> **重要な API**:[**Windows. デバイス. input**](https://docs.microsoft.com/uwp/api/Windows.Devices.Input)、WINDOWS. [**ui**](https://docs.microsoft.com/uwp/api/Windows.UI.Input) [ **. [...]** ](https://docs.microsoft.com/uwp/api/Windows.UI.Core)
 
 ## <a name="recommendations"></a>推奨事項
 
@@ -40,7 +40,7 @@ ms.locfileid: "67317156"
 > [!Important]
 > 組み込みジェスチャの操作の動作を変更することはお勧めしません。
 
-**複数のデバイスからのフィードバック**
+**デバイス間のフィードバック**
 
 視覚的なフィードバックは、一般に入力デバイス (タッチ、タッチバッド、マウス、ペン/スタイラス、キーボードなど) に依存します。 たとえば、マウスの組み込みフィードバックには、通常はカーソルの移動と変化が伴います。一方、タッチとペンの場合は接触の視覚エフェクトが必要です。キーボードによる入力とナビゲーションの場合は、フォーカス用の四角形と強調表示を使います。
 
@@ -65,7 +65,7 @@ Xbox とテレビの使用で一般的な **10 フィート エクスペリエ�
 **罫線のプロパティ**
 
 視認性の高いフォーカスの視覚効果は、プライマリ境界線とセカンダリ境界線という 2 つの部分で構成されます。 プライマリ境界線は、**2 px** の幅があり、セカンダリ境界線の*外側*に描画されます。 セカンダリ境界線は、**1 px** の幅があり、プライマリ境界線の*内側*に描画されます。
-![可視性の高いフォーカス ビジュアルの赤線します。](images/FocusRectRedlines.png)
+![High 可視性フォーカス visual redlines @ no__t-1
 
 それぞれの境界線 (プライマリおよびセカンダリ) の太さを変更するには、**FocusVisualPrimaryThickness** をプライマリ境界線に対して使用し、 **FocusVisualSecondaryThickness** をセカンダリ境界線に対して使用します。
 ```XAML
@@ -73,7 +73,7 @@ Xbox とテレビの使用で一般的な **10 フィート エクスペリエ�
 ```
 ![視認性の高いフォーカスの視覚効果における余白部分の太さ](images/FocusMargin.png)
 
-余白は [**Thickness**](https://docs.microsoft.com/dotnet/api/system.windows.thickness?redirectedfrom=MSDN) という種類のプロパティで指定されます。このため、コントロールの特定の側にのみ表示されるように、余白をカスタマイズすることができます。 以下に例を示します。![可視性の高いフォーカス ビジュアルの余白の厚み下端のみ](images/FocusThicknessSide.png)
+余白は [**Thickness**](https://docs.microsoft.com/dotnet/api/system.windows.thickness) という種類のプロパティで指定されます。このため、コントロールの特定の側にのみ表示されるように、余白をカスタマイズすることができます。 以下に例を示します。@no__t 0High 可視性フォーカスの視覚的な余白の幅の下限のみ @ no__t
 
 余白は、コントロールの視覚的な境界線と、フォーカスの視覚効果で示される*セカンダリ境界線*の開始点との間にあるスペースです。 既定の余白は、コントロールの境界線から **1 px** の幅で描画されます。 この余白はコントロールごとに変更できます。それには、**FocusVisualMargin** プロパティを変更します。
 ```XAML
@@ -81,7 +81,7 @@ Xbox とテレビの使用で一般的な **10 フィート エクスペリエ�
 ```
 ![視認性の高いフォーカスの視覚効果における余白の違い](images/FocusPlusMinusMargin.png)
 
-*負の値の余白は、コントロールの中央から離れて、境界線をプッシュし、正の余白が境界線の近くをコントロールの中央に移動します。*
+*負の余白は、コントロールの中央から境界線を離し、正の余白によってコントロールの中心に向かって境界線を近づけます。*
 
 コントロールでフォーカスの視覚効果を完全に無効にするには、**UseSystemFocusVisuals** を無効にするだけです。
 ```XAML
@@ -116,19 +116,19 @@ Xbox とテレビの使用で一般的な **10 フィート エクスペリエ�
 
 **サンプル**
 * [基本的な入力サンプル](https://go.microsoft.com/fwlink/p/?LinkID=620302)
-* [低待機時間の入力サンプル](https://go.microsoft.com/fwlink/p/?LinkID=620304)
+* [低待機時間入力サンプル](https://go.microsoft.com/fwlink/p/?LinkID=620304)
 * [ユーザー操作モードのサンプル](https://go.microsoft.com/fwlink/p/?LinkID=619894)
 * [フォーカスの視覚効果のサンプル](https://go.microsoft.com/fwlink/p/?LinkID=619895)
 
 **サンプルのアーカイブ**
-* [入力:XAML ユーザー入力イベントのサンプル](https://go.microsoft.com/fwlink/p/?linkid=226855)
-* [入力:デバイス機能のサンプル](https://go.microsoft.com/fwlink/p/?linkid=231530)
-* [入力:タッチ ヒット テストのサンプル](https://go.microsoft.com/fwlink/p/?linkid=231590)
+* [Input:XAML ユーザー入力イベントのサンプル @ no__t-0
+* [Input:デバイス機能のサンプル @ no__t-0
+* [Input:タッチヒットテストのサンプル @ no__t-0
 * [XAML のスクロール、パン、ズームのサンプル](https://go.microsoft.com/fwlink/p/?linkid=251717)
-* [入力:簡略化されたインクのサンプル](https://go.microsoft.com/fwlink/p/?linkid=246570)
-* [入力:Windows 8 のジェスチャのサンプル](https://go.microsoft.com/fwlink/p/?LinkId=264995)
-* [入力:操作とジェスチャ (C++) のサンプル](https://go.microsoft.com/fwlink/p/?linkid=231605)
-* [DirectX のタッチ入力サンプル](https://go.microsoft.com/fwlink/p/?LinkID=231627)
+* [Input:簡略化されたインクのサンプル @ no__t-0
+* [Input:Windows 8 のジェスチャのサンプル @ no__t-0
+* [Input:操作とジェスチャ (C++) のサンプル @ no__t
+* [DirectX タッチ入力のサンプル](https://go.microsoft.com/fwlink/p/?LinkID=231627)
  
 
  

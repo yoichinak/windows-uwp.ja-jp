@@ -7,12 +7,12 @@ keywords: windows 10, uwp
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: 2f1cc0e932a1dd413ed94e1fe5d9a3d1e6b0870c
-ms.sourcegitcommit: d38e2f31c47434cd6dbbf8fe8d01c20b98fabf02
+ms.openlocfilehash: 7359d28d968a2948e9f4049e2acc3c655edcfcb3
+ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70393580"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71339204"
 ---
 # <a name="extend-your-desktop-app-with-modern-uwp-components"></a>最新の UWP コンポーネントでデスクトップアプリを拡張する
 
@@ -175,7 +175,7 @@ XAML UI を UWP プロジェクトに追加します。 基本的なマップの
 
 ### <a name="start-the-uwp-app"></a>UWP アプリを起動する
 
-まず、デスクトップ アプリケーションから、プロトコル名と UWP アプリに渡すパラメーターが含まれた [URI](https://docs.microsoft.com/dotnet/api/system.uri?redirectedfrom=MSDN) を作成します。 次に、[LaunchUriAsync](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchuriasync) メソッドを呼び出します。
+まず、デスクトップ アプリケーションから、プロトコル名と UWP アプリに渡すパラメーターが含まれた [URI](https://docs.microsoft.com/dotnet/api/system.uri) を作成します。 次に、[LaunchUriAsync](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchuriasync) メソッドを呼び出します。
 
 ```csharp
 
@@ -220,7 +220,7 @@ protected override void OnActivated(Windows.ApplicationModel.Activation.IActivat
 }
 ```
 
-XAML ページの背後にあるコードで、 ``OnNavigatedTo``メソッドをオーバーライドして、ページに渡されたパラメーターを使用します。 この場合、このページに渡された緯度と経度を使用してマップに場所を表示します。
+XAML ページの背後にあるコードで、``OnNavigatedTo`` メソッドをオーバーライドして、ページに渡されたパラメーターを使用します。 この場合、このページに渡された緯度と経度を使用してマップに場所を表示します。
 
 ```csharp
 protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -295,9 +295,9 @@ protected override void OnNavigatedTo(NavigationEventArgs e)
 </Extensions>  
 ```
 
-UWP プロジェクトによって生成された実行可能ファイルの名前と、エントリ ポイント クラスの名前を指定します。 このマークアップは、UWP アプリの実行可能ファイルの名前が`ShareTarget.exe`であることを前提としています。
+UWP プロジェクトによって生成された実行可能ファイルの名前と、エントリ ポイント クラスの名前を指定します。 このマークアップは、UWP アプリの実行可能ファイルの名前が `ShareTarget.exe` であることを前提としています。
 
-アプリとの間で共有できるようにするファイルの種類を指定することも必要です。 この例では、 [WPF photostoredemo](https://github.com/Microsoft/WPF-Samples/tree/master/Sample%20Applications/PhotoStoreDemo)デスクトップアプリケーションをビットマップイメージの共有ターゲットにして、サポートさ`Bitmap`れているファイルの種類にを指定します。
+アプリとの間で共有できるようにするファイルの種類を指定することも必要です。 この例では、 [WPF PhotoStoreDemo](https://github.com/Microsoft/WPF-Samples/tree/master/Sample%20Applications/PhotoStoreDemo)デスクトップアプリケーションをビットマップイメージの共有ターゲットとしています。そのため、サポートされているファイルの種類に対して `Bitmap` を指定します。
 
 <a id="override" />
 
@@ -366,7 +366,7 @@ Uwp 拡張機能**の Windows デスクトップ拡張**機能を uwp アプリ�
 Photos.Path = Windows.Storage.ApplicationData.Current.LocalFolder.Path;
 ```
 
-ユーザーによって既に開かれているデスクトップアプリケーションのインスタンスの場合は、 [FileSystemWatcher](https://docs.microsoft.com/dotnet/api/system.io.filesystemwatcher?view=netframework-4.7.2)イベントを処理し、ファイルの場所へのパスを渡すこともできます。 これにより、デスクトップアプリケーションの開いているインスタンスで共有写真が表示されます。
+ユーザーによって既に開かれているデスクトップアプリケーションのインスタンスの場合は、 [FileSystemWatcher](https://docs.microsoft.com/dotnet/api/system.io.filesystemwatcher)イベントを処理し、ファイルの場所へのパスを渡すこともできます。 これにより、デスクトップアプリケーションの開いているインスタンスで共有写真が表示されます。
 
 ```csharp
 ...

@@ -5,12 +5,12 @@ ms.date: 04/02/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 4fbda33e044880b263feafbcf88b041abdadc310
-ms.sourcegitcommit: bf95c8b29145a224957a940512394e6aa97cb90f
+ms.openlocfilehash: 9322ba847aeb7eb64c2654e1105582478a0d3b47
+ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71061960"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340122"
 ---
 # <a name="layout-panels"></a>レイアウト パネル
 
@@ -46,7 +46,7 @@ ms.locfileid: "71061960"
 
 多くの XAML レイアウト パネルでは添付プロパティを使用して、子要素がどのように UI に表示される必要があるかについて親パネルに通知できるようにしています。 添付プロパティでは、*AttachedPropertyProvider.PropertyName* という構文が使用されます。 パネルを他のパネルに入れ子にする場合、親に対するレイアウト属性を指定する UI 要素の添付プロパティは、最も近い親パネルによってのみ解釈されます。
 
-XAML で Button コントロールの [**Canvas.Left**](https://docs.microsoft.com/dotnet/api/system.windows.controls.canvas.left?view=netframework-4.8) 添付プロパティを設定する方法の例を以下に示します。 これにより、親 Canvas に、Button を Canvas の左端から 50 有効ピクセルの位置に配置する必要があることを通知します。
+XAML で Button コントロールの [**Canvas.Left**](https://docs.microsoft.com/dotnet/api/system.windows.controls.canvas.left) 添付プロパティを設定する方法の例を以下に示します。 これにより、親 Canvas に、Button を Canvas の左端から 50 有効ピクセルの位置に配置する必要があることを通知します。
 
 ```xaml
 <Canvas>
@@ -147,9 +147,9 @@ StackPanel では、子要素のサイズを明示的に設定しない場合、
 
 [  **Grid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid) パネルは、柔軟なレイアウトをサポートし、複数行および段組レイアウトでのコントロールの配置を可能にします。 [  **RowDefinitions**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.grid.rowdefinitions) プロパティと [**ColumnDefinitions**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.grid.columndefinitions) プロパティを使うことによって、グリッドの行と列を指定します。
 
-オブジェクトをグリッドの特定のセルに配置するには、[**Grid.Column**](https://docs.microsoft.com/dotnet/api/system.windows.controls.grid.column?view=netframework-4.8) 添付プロパティと [**Grid.Row**](https://docs.microsoft.com/dotnet/api/system.windows.controls.grid.row?view=netframework-4.8) 添付プロパティを使います。
+オブジェクトをグリッドの特定のセルに配置するには、[**Grid.Column**](https://docs.microsoft.com/dotnet/api/system.windows.controls.grid.column) 添付プロパティと [**Grid.Row**](https://docs.microsoft.com/dotnet/api/system.windows.controls.grid.row) 添付プロパティを使います。
 
-複数の行や列をまたいでコンテンツを表示するには、[**Grid.RowSpan**](https://docs.microsoft.com/previous-versions/windows/silverlight/dotnet-windows-silverlight/ms605035(v=vs.95)) 添付プロパティと [**Grid.ColumnSpan**](https://docs.microsoft.com/dotnet/api/system.windows.controls.grid.columnspan?view=netframework-4.8) 添付プロパティを使います。
+複数の行や列をまたいでコンテンツを表示するには、[**Grid.RowSpan**](https://docs.microsoft.com/previous-versions/windows/silverlight/dotnet-windows-silverlight/ms605035(v=vs.95)) 添付プロパティと [**Grid.ColumnSpan**](https://docs.microsoft.com/dotnet/api/system.windows.controls.grid.columnspan) 添付プロパティを使います。
 
 次の XAML の例では、2 つの行と 2 つの列を持つ Grid を作成する方法を示しています。
 
@@ -245,7 +245,7 @@ XAML での VariableSizedWrapGrid の使い方を以下に示します。
 
 ## <a name="canvas"></a>キャンバス
 
-[  **Canvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Canvas) パネルでは、その子要素が固定座標点を使って配置されます。柔軟なレイアウトはサポートされません。 個々の子要素の位置を指定するには、要素ごとに [**Canvas.Left**](https://docs.microsoft.com/dotnet/api/system.windows.controls.canvas.left?view=netframework-4.8) 添付プロパティと [**Canvas.Top**](https://docs.microsoft.com/dotnet/api/system.windows.controls.canvas.top?view=netframework-4.8) 添付プロパティを設定します。 親 Canvas は、レイアウトの [Arrange](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.arrange) パス時に子のこれらの添付プロパティ値を読み取ります。
+[  **Canvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Canvas) パネルでは、その子要素が固定座標点を使って配置されます。柔軟なレイアウトはサポートされません。 個々の子要素の位置を指定するには、要素ごとに [**Canvas.Left**](https://docs.microsoft.com/dotnet/api/system.windows.controls.canvas.left) 添付プロパティと [**Canvas.Top**](https://docs.microsoft.com/dotnet/api/system.windows.controls.canvas.top) 添付プロパティを設定します。 親 Canvas は、レイアウトの [Arrange](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.arrange) パス時に子のこれらの添付プロパティ値を読み取ります。
 
 Canvas 内のオブジェクトは重ね合わせることができます。この場合、1 つのオブジェクトが別のオブジェクトの上に描画されます。 既定では、Canvas は、宣言されている順序で子要素をレンダリングするため、最後の子が一番上に表示されます (各要素の既定の z-index は 0 です)。 これは他の組み込みパネルでも同じです。 ただし、Canvas では、子要素にそれぞれ設定できる [**Canvas.ZIndex**](https://docs.microsoft.com/previous-versions/windows/silverlight/dotnet-windows-silverlight/cc190397(v=vs.95)) 添付プロパティもサポートされています。 コードでこのプロパティを設定することにより。実行時に要素の描画順序を変更することができます。 Canvas.ZIndex 値が最大である要素は最後に描画されるため、同じ領域を共有するか、重なり合っている他の要素の上に描画されます。 アルファ値 (透明度) が優先されるため、要素が重なる場合でも、一番上の要素のアルファ値が最大でないと、重なる領域に表示されるコンテンツがブレンドされることがあります。
 

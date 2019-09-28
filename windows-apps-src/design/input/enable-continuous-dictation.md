@@ -8,12 +8,12 @@ keywords: スピーチ, 音声, 音声認識, 自然言語, ディクテーシ�
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 646f4ad98e6c914c2318a164629d31ce7b67dab4
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: ad23831372b638e6afb36355e3ea8ca322e5d91d
+ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67317303"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340270"
 ---
 # <a name="continuous-dictation"></a>継続的なディクテーション
 
@@ -26,7 +26,7 @@ ms.locfileid: "67317303"
 ディクテーションまたはメールなど、より長い継続的な音声認識セッションの場合は、[**SpeechRecognizer**](https://docs.microsoft.com/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognizer) の [**ContinuousRecognitionSession**](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechrecognizer.continuousrecognitionsession) プロパティを使って [**SpeechContinuousRecognitionSession**](https://docs.microsoft.com/uwp/api/Windows.Media.SpeechRecognition.SpeechContinuousRecognitionSession) オブジェクトを取得します。
 
 > [!NOTE]
-> 音声入力言語のサポートによって異なります、[デバイス](https://docs.microsoft.com/windows/uwp/design/devices/)アプリが実行されています。 Pc とラップトップの場合は、EN-US のみは認識、音声認識でサポートされているすべての言語を認識できる Xbox や携帯電話中に。 詳細については、次を参照してください。[音声認識エンジンの言語を指定](specify-the-speech-recognizer-language.md)します。
+> ディクテーション言語のサポートは、アプリが実行されている[デバイス](https://docs.microsoft.com/windows/uwp/design/devices/)によって異なります。 Pc とラップトップの場合は en-us のみが認識され、Xbox と携帯電話は音声認識によってサポートされるすべての言語を認識できます。 詳細については、「[音声認識エンジンの言語を指定](specify-the-speech-recognizer-language.md)する」を参照してください。
 
 ## <a name="set-up"></a>設定
 
@@ -55,7 +55,7 @@ private CoreDispatcher dispatcher;
 
 ユーザーが発声した内容を追跡するには、音声認識エンジンによって生成された認識イベントを処理する必要があります。 これらのイベントは、ユーザーの発声のチャンクを認識した結果を提供します。
 
-ここでは、[**StringBuilder**](https://docs.microsoft.com/dotnet/api/system.text.stringbuilder?redirectedfrom=MSDN) オブジェクトを使って、セッション中に取得したすべての認識結果を保持します。 新しい検索結果は、処理されるに従って **StringBuilder** に追加されます。
+ここでは、[**StringBuilder**](https://docs.microsoft.com/dotnet/api/system.text.stringbuilder) オブジェクトを使って、セッション中に取得したすべての認識結果を保持します。 新しい検索結果は、処理されるに従って **StringBuilder** に追加されます。
 
 ```CSharp
 private StringBuilder dictatedTextBuilder;
@@ -68,12 +68,12 @@ private StringBuilder dictatedTextBuilder;
 - 連続的な認識のイベント ハンドラーでアプリの UI を更新する場合は、UI スレッドのディスパッチャーを取得します。
 - 音声認識エンジンを初期化します。
 - 組み込みのディクテーション文法をコンパイルします。
-    **注**  音声認識が認識可能なボキャブラリを定義するには少なくとも 1 つの制約が必要です。 制約が指定されていない場合は、定義済みのディクテーション文法が使われます。 「[音声認識](speech-recognition.md)」をご覧ください。
+    **注**   音声認識では、認識可能なボキャブラリを定義するために少なくとも1つの制約が必要です。 制約が指定されていない場合は、定義済みのディクテーション文法が使われます。 「[音声認識](speech-recognition.md)」をご覧ください。
 - 認識イベントのイベント リスナーをセットアップします。
 
 この例では、[**OnNavigatedTo**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.page.onnavigatedto) ページ イベントで音声認識を初期化します。
 
-1. 音声認識エンジンが生成するイベントはバックグラウンド スレッドで発生するため、UI スレッドを更新するためのディスパッチャーへの参照を作成します。 [**OnNavigatedTo** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.page.onnavigatedto)が UI スレッドで常に呼び出されます。
+1. 音声認識エンジンが生成するイベントはバックグラウンド スレッドで発生するため、UI スレッドを更新するためのディスパッチャーへの参照を作成します。 [**OnNavigatedTo**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.page.onnavigatedto)は、常に UI スレッドで呼び出されます。
 ```csharp
 this.dispatcher = CoreWindow.GetForCurrentThread().Dispatcher;
 ```
@@ -105,15 +105,15 @@ SpeechRecognitionCompilationResult result =
 
 特に、次の 2 つのイベントが重要です。
 
-- [**ResultGenerated**](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechcontinuousrecognitionsession.resultgenerated)、認識エンジンがいくつかの結果を生成されたときに発生します。
-- [**完了した**](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechcontinuousrecognitionsession.completed)、継続的な認識セッションが終了した場合に発生します。
+- [**Resultgenerated**](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechcontinuousrecognitionsession.resultgenerated)。認識エンジンが結果を生成したときに発生します。
+- [**Completed**](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechcontinuousrecognitionsession.completed)。これは、連続認識セッションが終了したときに発生します。
 
 [  **ResultGenerated**](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechcontinuousrecognitionsession.resultgenerated) イベントは、ユーザーが発声すると発生します。 認識エンジンは、ユーザーの発声を聞き続け、音声入力のチャンクを渡すイベントを定期的に生成します。 音声入力は、イベントの引数の [**Result**](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechcontinuousrecognitionresultgeneratedeventargs.result) プロパティを使って確認し、イベント ハンドラーで適切な処置を行う必要があります。たとえば、StringBuilder オブジェクトにテキストを追加します。
 
 [  **SpeechRecognitionResult**](https://docs.microsoft.com/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognitionResult) のインスタンスである [**Result**](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechcontinuousrecognitionresultgeneratedeventargs.result) プロパティは、音声入力を受け入れるかどうかを決定するために役立ちます。 [  **SpeechRecognitionResult**](https://docs.microsoft.com/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognitionResult) には、このための 2 つのプロパティが用意されています。
 
-- [**ステータス**](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechrecognitionresult.status)認識が成功したかどうかを示します。 さまざまな原因により、認識できない場合もあります。
-- [**信頼度**](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechrecognitionresult.confidence)相対の信頼性、認識エンジンに正しい単語が理解されていることを示します。
+- [**Status**](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechrecognitionresult.status)は、認識が成功したかどうかを示します。 さまざまな原因により、認識できない場合もあります。
+- [**信頼度**](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechrecognitionresult.confidence)は、認識エンジンが正しい単語を認識した相対的な信頼度を示します。
 
 継続的な認識をサポートするための基本的な手順は次のとおりです。  
 
@@ -125,7 +125,7 @@ speechRecognizer.ContinuousRecognitionSession.ResultGenerated +=
 
 2.  そして、[**Confidence**](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechrecognitionresult.confidence) プロパティを確認します。 Confidence の値が [**Medium**](https://docs.microsoft.com/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognitionConfidence) 以上である場合は、StringBuilder にテキストを追加します。 入力の収集時に UI も更新します。
 
-    **注**  、 [ **ResultGenerated** ](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechcontinuousrecognitionsession.resultgenerated) UI を直接更新することはできませんが、バック グラウンド スレッドでイベントが発生します。 ハンドラーは、UI を更新する必要がある場合 (として、\[音声認識と音声合成のサンプル\]は)、を通じて UI スレッドへの更新をディスパッチする必要があります、 [ **RunAsync** ](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync)ディスパッチャーのメソッド。
+    **注**  The [**resultgenerated**](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechcontinuousrecognitionsession.resultgenerated)イベントは、UI を直接更新できないバックグラウンドスレッドで発生します。 ハンドラーが UI を更新する必要がある場合 (@no__t 0Speech および TTS サンプル @ no__t のように)、ディスパッチャーの[**Runasync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync)メソッドを使用して ui スレッドに更新をディスパッチする必要があります。
 ```csharp
 private async void ContinuousRecognitionSession_ResultGenerated(
       SpeechContinuousRecognitionSession sender,
@@ -165,7 +165,7 @@ speechRecognizer.ContinuousRecognitionSession.Completed +=
 
 4.  イベント ハンドラーは Status プロパティを確認して、正常に認識できたかどうかを判断します。 また、ユーザーが発声を停止した場合の処理も行います。 多くの場合、[**TimeoutExceeded**](https://docs.microsoft.com/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognitionResultStatus) によって、正常に認識されたと見なされます。これは、ユーザーの発声が終了したことを意味するためです。 快適に使えるように、このケースをコード内で処理する必要があります。
 
-    **注**  、 [ **ResultGenerated** ](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechcontinuousrecognitionsession.resultgenerated) UI を直接更新することはできませんが、バック グラウンド スレッドでイベントが発生します。 ハンドラーは、UI を更新する必要がある場合 (として、\[音声認識と音声合成のサンプル\]は)、を通じて UI スレッドへの更新をディスパッチする必要があります、 [ **RunAsync** ](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync)ディスパッチャーのメソッド。
+    **注**  The [**resultgenerated**](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechcontinuousrecognitionsession.resultgenerated)イベントは、UI を直接更新できないバックグラウンドスレッドで発生します。 ハンドラーが UI を更新する必要がある場合 (@no__t 0Speech および TTS サンプル @ no__t のように)、ディスパッチャーの[**Runasync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync)メソッドを使用して ui スレッドに更新をディスパッチする必要があります。
 ```csharp
 private async void ContinuousRecognitionSession_Completed(
       SpeechContinuousRecognitionSession sender,
@@ -244,8 +244,8 @@ if (speechRecognizer.State == SpeechRecognizerState.Idle)
 
 認識を停止するには、次の 2 つの方法があります。
 
--   [**StopAsync** ](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechcontinuousrecognitionsession.stopasync)認識イベントの完全な保留中のことができます ([**ResultGenerated** ](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechcontinuousrecognitionsession.resultgenerated)続けますが、認識保留中のすべての操作が完了するまでに発生します)。
--   [**CancelAsync** ](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechcontinuousrecognitionsession.cancelasync)がすぐに認識セッションを終了し、保留中の結果を破棄します。
+-   [**Stopasync**](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechcontinuousrecognitionsession.stopasync)は、保留中の認識イベントの完了を許可します ([**resultgenerated**](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechcontinuousrecognitionsession.resultgenerated)は、保留中のすべての認識操作が完了するまで発生し続けます)。
+-   [**CancelAsync**](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechcontinuousrecognitionsession.cancelasync)は、認識セッションを直ちに終了し、保留中の結果を破棄します。
 
 音声認識エンジンの状態を確認したら、音声認識エンジンの [**ContinuousRecognitionSession**](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechrecognizer.continuousrecognitionsession) プロパティの [**CancelAsync**](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechcontinuousrecognitionsession.cancelasync) メソッドを呼び出してセッションを停止します。
 

@@ -7,12 +7,12 @@ ms.date: 05/25/2017
 ms.topic: article
 keywords: Windows 10、デスクトップ ブリッジ、セカンダリ タイル、ピン留め、クイックスタート、コード サンプル、例、デスクトップ アプリケーション、Win32、WinForms、WPF
 ms.localizationpriority: medium
-ms.openlocfilehash: 7ca6471122ee1870a94ef0834a5eed8f83a4d4a7
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: cd6debb076aac4286c8cb9a33730ade4942b5030
+ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66362616"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340407"
 ---
 # <a name="pin-secondary-tiles-from-desktop-application"></a>デスクトップ アプリケーションからセカンダリ タイルをピン留めする
 
@@ -22,7 +22,7 @@ ms.locfileid: "66362616"
 ![セカンダリ タイルのスクリーン ショット](images/secondarytiles.png)
 
 > [!IMPORTANT]
-> **Fall Creators Update が必要です**:。SDK 16299 を対象にして、ビルド 16299 または後にセカンダリ タイルをピン留めを搭載しているデスクトップ ブリッジ アプリから。
+> **フォール作成者の更新が必要**:デスクトップブリッジアプリからセカンダリタイルをピン留めするには、SDK 16299 を対象とし、ビルド16299以降を実行している必要があります。
 
 WPF または WinForms アプリケーションからのセカンダリ タイルの追加は、純粋な UWP アプリとよく似ています。 唯一の違いは、メイン ウィンドウのハンドル (HWND) を指定する必要があることです。 これは、タイルをピン留めするときに、モーダル ダイアログが表示され、タイルをピン留めするかどうかをユーザーに確認するためです。 デスクトップ アプリケーションが、SecondaryTile オブジェクトのオーナー ウィンドウを構成しない場合、ダイアログ ボックスを描画する位置を認識することができず、操作は失敗します。
 
@@ -34,7 +34,7 @@ WPF または WinForms アプリケーションからのセカンダリ タイ�
 
 ## <a name="enable-access-to-iinitializewithwindow-interface"></a>IInitializeWithWindow インターフェイスへのアクセスを有効にする
 
-アプリケーションが C# や Visual Basic などのマネージ言語で記述されている場合、次の C# の例に示すように、アプリのコードで [ComImport](https://docs.microsoft.com/dotnet/api/system.runtime.interopservices.comimportattribute?redirectedfrom=MSDN) と GUID 属性を使用して IInitializeWithWindow インターフェイスを宣言します。 この例では、コード ファイルに System.Runtime.InteropServices 名前空間の using ステートメントが指定されていることを前提としています。
+アプリケーションが C# や Visual Basic などのマネージ言語で記述されている場合、次の C# の例に示すように、アプリのコードで [ComImport](https://docs.microsoft.com/dotnet/api/system.runtime.interopservices.comimportattribute) と GUID 属性を使用して IInitializeWithWindow インターフェイスを宣言します。 この例では、コード ファイルに System.Runtime.InteropServices 名前空間の using ステートメントが指定されていることを前提としています。
 
 ```csharp
 [ComImport]
@@ -90,15 +90,15 @@ bool isPinned = await tile.RequestCreateAsync();
 ## <a name="send-tile-notifications"></a>タイル通知を送信する
 
 > [!IMPORTANT]
-> **2018 年 4 月 17134.81 またはそれ以降のバージョンを必要と**:17134.81 以降セカンダリ タイルにデスクトップ ブリッジ アプリからタイルやバッジ通知を送信する現在のビルドを実行する必要があります。 この.81 サービス更新プログラムの前に、デスクトップ ブリッジ アプリからセカンダリ タイルにタイル通知またはバッジ通知を送信するときに a 0x80070490 *要素が見つかりません*という例外が発生します。
+> **2018 年4月バージョン17134.81 以降が必要**です。デスクトップブリッジアプリからセカンダリタイルにタイルまたはバッジ通知を送信するには、ビルド17134.81 以降を実行している必要があります。 この.81 サービス更新プログラムの前に、デスクトップ ブリッジ アプリからセカンダリ タイルにタイル通知またはバッジ通知を送信するときに a 0x80070490 *要素が見つかりません*という例外が発生します。
 
 タイル通知またはバッジ通知の送信は UWP アプリと同じです。 手順については、「[ローカル タイル通知の送信](sending-a-local-tile-notification.md)」を参照してください。
 
 
-## <a name="resources"></a>参考資料
+## <a name="resources"></a>リソース
 
-* [完全なコード サンプル](https://github.com/Microsoft/DesktopBridgeToUWP-Samples/tree/master/Samples/SecondaryTileSample)
-* [セカンダリ タイルの概要](secondary-tiles.md)
-* [セカンダリ タイルをピン留めする (UWP)](secondary-tiles-pinning.md)
+* [完全なコードサンプル](https://github.com/Microsoft/DesktopBridgeToUWP-Samples/tree/master/Samples/SecondaryTileSample)
+* [セカンダリタイルの概要](secondary-tiles.md)
+* [セカンダリタイルのピン留め (UWP)](secondary-tiles-pinning.md)
 * [Desktop Bridge](https://developer.microsoft.com/windows/bridges/desktop)
-* [デスクトップ ブリッジ コード サンプル](https://github.com/Microsoft/DesktopBridgeToUWP-Samples)
+* [デスクトップブリッジのコードサンプル](https://github.com/Microsoft/DesktopBridgeToUWP-Samples)

@@ -11,12 +11,12 @@ dev_langs:
 - vb
 - cppwinrt
 - cpp
-ms.openlocfilehash: ebfbfdd0e8d55fa0118fe33868946e673a594427
-ms.sourcegitcommit: e0ae346eadda864dcad1453cd1644668549e66e1
+ms.openlocfilehash: f23d66acc9371fd7b23b6770a0c7be6d16f86be4
+ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68603406"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340614"
 ---
 # <a name="custom-attached-properties"></a>カスタム添付プロパティ
 
@@ -28,7 +28,7 @@ ms.locfileid: "68603406"
 
 ## <a name="scenarios-for-attached-properties"></a>添付プロパティのシナリオ
 
-定義クラス以外のクラスで利用できるプロパティ設定メカニズムが必要な場合は、添付プロパティを作成できます。 その最も一般的なシナリオは、レイアウトとサービス サポートです。 既にあるレイアウト プロパティの例として、[**Canvas.ZIndex**](https://docs.microsoft.com/previous-versions/windows/silverlight/dotnet-windows-silverlight/cc190397(v=vs.95)) と [**Canvas.Top**](https://docs.microsoft.com/dotnet/api/system.windows.controls.canvas.top?view=netframework-4.8) があります。 レイアウトのシナリオでは、レイアウト制御要素の子要素として存在する要素は親要素に対するレイアウト要件を個別に表現でき、それぞれ、親が添付プロパティとして定義するプロパティ値を設定します。 Windows ランタイム API のサービス サポートのシナリオの例は、[**ScrollViewer.IsZoomChainingEnabled**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.scrollviewer.iszoomchainingenabled) など、[**ScrollViewer**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ScrollViewer) の添付プロパティのセットです。
+定義クラス以外のクラスで利用できるプロパティ設定メカニズムが必要な場合は、添付プロパティを作成できます。 その最も一般的なシナリオは、レイアウトとサービス サポートです。 既にあるレイアウト プロパティの例として、[**Canvas.ZIndex**](https://docs.microsoft.com/previous-versions/windows/silverlight/dotnet-windows-silverlight/cc190397(v=vs.95)) と [**Canvas.Top**](https://docs.microsoft.com/dotnet/api/system.windows.controls.canvas.top) があります。 レイアウトのシナリオでは、レイアウト制御要素の子要素として存在する要素は親要素に対するレイアウト要件を個別に表現でき、それぞれ、親が添付プロパティとして定義するプロパティ値を設定します。 Windows ランタイム API のサービス サポートのシナリオの例は、[**ScrollViewer.IsZoomChainingEnabled**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.scrollviewer.iszoomchainingenabled) など、[**ScrollViewer**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ScrollViewer) の添付プロパティのセットです。
 
 > [!WARNING]
 > Windows ランタイムの XAML 実装の既存の制限事項として、カスタム添付プロパティをアニメーション化することはできません。
@@ -42,7 +42,7 @@ ms.locfileid: "68603406"
 カスタム添付プロパティを定義する主要領域は、アクセサーまたはラッパーを定義する方法の点でカスタム依存関係プロパティとは異なります。 「[カスタム依存関係プロパティ](custom-dependency-properties.md)」で説明しているラッパー手法を使う代わりに、静的な **Get**_PropertyName_ メソッドと **Set**_PropertyName_ メソッドを添付プロパティのアクセサーとして提供する必要もあります。 アクセサーは主に XAML パーサーで使われますが、XAML 以外のシナリオでは他の任意の呼び出し元もこれらを使って値を設定できます。
 
 > [!IMPORTANT]
-> アクセサーを正しく定義しないと、XAML プロセッサは添付プロパティにアクセスできず、使用しようとするすべてのユーザーが XAML パーサーエラーを受け取ることがあります。 また、設計およびコーディングツールは、参照され\*たアセンブリでカスタム依存関係プロパティを検出するときに、識別子の名前付けに "プロパティ" 規則を使用することがよくあります。
+> アクセサーを正しく定義しないと、XAML プロセッサは添付プロパティにアクセスできず、使用しようとするすべてのユーザーが XAML パーサーエラーを受け取ることがあります。 また、設計およびコーディングツールは、参照されたアセンブリでカスタム依存関係プロパティを検出するときに、識別子の名前付けに "@no__t 0Property" 規則を使用することがよくあります。
 
 ## <a name="accessors"></a>アクセサー
 
@@ -52,22 +52,22 @@ ms.locfileid: "68603406"
 
 Microsoft Visual Basic の場合は、次のようになります。
 
-`Public Shared Function Get`_PropertyName_valueType`(ByVal target As DependencyObject) As ``)`
+`Public Shared Function Get`_PropertyName_`(ByVal target As DependencyObject) As `_valueType_`)`
 
 *target* オブジェクトは実装でより具体的な型にすることができますが、[**DependencyObject**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.DependencyObject) から派生する必要があります。 *valueType* 戻り値も、実装でより具体的な型にすることができます。 基本的な **Object** 型が受け入れられますが、多くの場合、添付プロパティにタイプ セーフを適用します。 タイプ セーフ手法として、getter シグネチャと setter シグネチャで型指定を使うことをお勧めします。
 
 **Set**_PropertyName_ アクセサーのシグネチャは次のようにする必要があります。
 
-`public static void Set`_PropertyName_valueType` (DependencyObject target , `` value)`
+`public static void Set`_PropertyName_` (DependencyObject target , `_valueType_` value)`
 
 Visual Basic の場合は、次のようになります。
 
-`Public Shared Sub Set`_PropertyName_valueType` (ByVal target As DependencyObject, ByVal value As ``)`
+`Public Shared Sub Set`_PropertyName_` (ByVal target As DependencyObject, ByVal value As `_valueType_`)`
 
 *target* オブジェクトは実装でより具体的な型にすることができますが、[**DependencyObject**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.DependencyObject) から派生する必要があります。 *value* オブジェクトとその *valueType* は、実装でより具体的な型にすることができます。 添付プロパティがマークアップに検出された場合、このメソッドの値は XAML プロセッサからの入力であることに注意してください。 属性値 (最終的には単なる文字列) から適切な型を作成できるように、使う型の型変換または既存のマークアップ拡張サポートが必要です。 基本的な **Object** 型が受け入れられますが、多くの場合、さらにタイプ セーフにします。 これを実現するには、アクセサーに型を適用します。
 
 > [!NOTE]
-> また、プロパティ要素の構文を通じて使用する場合に、添付プロパティを定義することもできます。 その場合、値の型変換は必要ではありませんが、意図した値を XAML で確実に作成できるようにする必要があります。 [**VisualStateManager**](https://docs.microsoft.com/dotnet/api/system.windows.visualstatemanager?view=netframework-4.8)は、プロパティ要素の使用のみをサポートする既存の添付プロパティの例です。
+> また、プロパティ要素の構文を通じて使用する場合に、添付プロパティを定義することもできます。 その場合、値の型変換は必要ではありませんが、意図した値を XAML で確実に作成できるようにする必要があります。 [**VisualStateManager**](https://docs.microsoft.com/dotnet/api/system.windows.visualstatemanager)は、プロパティ要素の使用のみをサポートする既存の添付プロパティの例です。
 
 ## <a name="code-example"></a>コードの例
 
@@ -235,7 +235,7 @@ XAML の XML 名前空間マッピングは、通常は XAML ページのルー�
 ```
 
 > [!NOTE]
-> /Cx を使用してC++xaml UI を作成する場合は、xaml ページでその型が使用されるたびに、添付プロパティを定義するカスタム型のヘッダーを含める必要があります。 各 XAML ページには、関連付けられた分離コードヘッダー (.xaml .h) があります。 ここで、添付プロパティの所有者の種類の定義のヘッダーを (  **\#include**を使用して) 含める必要があります。
+> /Cx を使用してC++xaml UI を作成する場合は、xaml ページでその型が使用されるたびに、添付プロパティを定義するカスタム型のヘッダーを含める必要があります。 各 XAML ページには、関連付けられた分離コードヘッダー (.xaml .h) があります。 ここでは、添付プロパティの所有者の種類の定義のヘッダーを ( **\#include**を使用して) 含める必要があります。
 
 ## <a name="setting-your-custom-attached-property-imperatively-with-cwinrt"></a>カスタム添付プロパティを強制的に/ C++WinRT で設定する
 
@@ -273,7 +273,7 @@ MainPage::MainPage()
 
 ## <a name="more-about-the-canvasleft-example"></a>**Canvas.Left** の例に関する詳細
 
-添付プロパティの使用法として前に挙げた例では、[**Canvas.Left**](https://docs.microsoft.com/dotnet/api/system.windows.controls.canvas.left?view=netframework-4.8) 添付プロパティを設定するさまざまな方法を説明しました。 しかし、それによって [**Canvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Canvas) がオブジェクトとやり取りする方法やタイミングがどのように変わるのでしょうか。 ここでは、この例をさらに詳しく検討します。添付プロパティを実装しており、他のオブジェクトで添付プロパティの値が検出された場合に、典型的な添付プロパティの所有者クラスが添付プロパティの値に対して実行する処理を理解するのは意味のあることだからです。
+添付プロパティの使用法として前に挙げた例では、[**Canvas.Left**](https://docs.microsoft.com/dotnet/api/system.windows.controls.canvas.left) 添付プロパティを設定するさまざまな方法を説明しました。 しかし、それによって [**Canvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Canvas) がオブジェクトとやり取りする方法やタイミングがどのように変わるのでしょうか。 ここでは、この例をさらに詳しく検討します。添付プロパティを実装しており、他のオブジェクトで添付プロパティの値が検出された場合に、典型的な添付プロパティの所有者クラスが添付プロパティの値に対して実行する処理を理解するのは意味のあることだからです。
 
 [  **Canvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Canvas) の主な機能は、UI で絶対位置の決まったレイアウト コンテナーとなることです。 **Canvas** の子は、基底クラスの定義済みプロパティ [**Children**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.panel.children) に格納されます。 パネルのうち、**Canvas** だけが絶対配置を使います。 **Canvas** や特定の **UIElement** が **UIElement** の子要素になっている場合にのみ関係するプロパティを追加した場合には、共通の [**UIElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement) 型のオブジェクト モデルが大きくなっていたおそれがあります。 **Canvas** のレイアウト コントロールのプロパティを、どの **UIElement** でも使用できる添付プロパティに定義すると、オブジェクト モデルをすっきりした状態に保つことができます。
 

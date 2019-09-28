@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: d93e3f681d271fe9914b122896fdaedfd3e08868
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 579772bba55c93de38c3c43538ad14253dbc2572
+ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66362329"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71339897"
 ---
 # <a name="optimize-animations-media-and-images"></a>アニメーション、メディア、画像の最適化
 
@@ -30,15 +30,15 @@ UWP アプリの重要な側面は、スムーズな対話式操作です。 こ
 
 -   キー フレームを使ったオブジェクト アニメーション
 -   再生時間が 0 のアニメーション
--   [  **Canvas.Left**](https://docs.microsoft.com/dotnet/api/system.windows.controls.canvas.left?view=netframework-4.8) プロパティと [**Canvas.Top**](https://docs.microsoft.com/dotnet/api/system.windows.controls.canvas.top?view=netframework-4.8) プロパティに対するアニメーション
+-   [  **Canvas.Left**](https://docs.microsoft.com/dotnet/api/system.windows.controls.canvas.left) プロパティと [**Canvas.Top**](https://docs.microsoft.com/dotnet/api/system.windows.controls.canvas.top) プロパティに対するアニメーション
 -   [  **UIElement.Opacity**](/uwp/api/Windows.UI.Xaml.UIElement.Opacity) プロパティに対するアニメーション
 -   [  **SolidColorBrush.Color**](/uwp/api/Windows.UI.Xaml.Media.SolidColorBrush.Color) サブプロパティをターゲット設定した場合の、[**Brush**](/uwp/api/Windows.UI.Xaml.Media.Brush) 型のプロパティに対するアニメーション
 -   これらの戻り値の型のサブプロパティをターゲット設定した場合の、次の [**UIElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement) プロパティに対するアニメーション
 
-    -   [**RenderTransform**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.rendertransform)
+    -   [**System.windows.uielement.rendertransform**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.rendertransform)
     -   [**Transform3D**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.transform3d)
-    -   [**射影**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.projection)
-    -   [**クリップ**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.clip)
+    -   [**アイソメトリック**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.projection)
+    -   [**C-clip**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.clip)
 
 依存型アニメーションはレイアウトに影響するため、計算に UI スレッドからの追加の入力が必要です。 依存型アニメーションには、[**Width**](/uwp/api/Windows.UI.Xaml.FrameworkElement.Width) や [**Height**](/uwp/api/Windows.UI.Xaml.FrameworkElement.Height) などのプロパティへの変更があります。 依存型アニメーションは、既定では実行されず、アプリ開発者からのオプトインが必要です。 有効になると、UI スレッドがブロックされない限りスムーズに実行されますが、フレームワークやアプリの UI スレッドで他の作業が大量に行われると引っかかりが発生します。
 
@@ -54,7 +54,7 @@ XAML フレームワーク内のほぼすべてのアニメーションは、既
 
 [  **MediaPlayerElement**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement) のアニメーション化も同様に適切ではない方法です。 パフォーマンスが低下するだけでなく、再生中のビデオ コンテンツに裂け目のようなアーティファクトが発生することがあります。
 
-> **注**  は、この記事の推奨事項**MediaPlayerElement**にも適用[ **MediaElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.MediaElement)します。 **MediaPlayerElement** は Windows 10 バージョン 1607 でのみ利用できます。以前のバージョンの Windows 用のアプリを作成する場合は、**MediaElement** を使う必要があります。
+> **注**   この記事の**MediaPlayerElement**に関する推奨事項は、 [**MediaElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.MediaElement)にも適用されます。 **MediaPlayerElement** は Windows 10 バージョン 1607 でのみ利用できます。以前のバージョンの Windows 用のアプリを作成する場合は、**MediaElement** を使う必要があります。
 
 ### <a name="use-infinite-animations-sparingly"></a>無限アニメーションは慎重に使う
 
@@ -66,7 +66,7 @@ XAML フレームワーク内のほぼすべてのアニメーションは、既
 
 [  **Windows.UI.Xaml.Media.Animation**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation) 名前空間には、他の Windows アニメーションとの一貫性を備えた外観を持つ、高パフォーマンスかつスムーズなアニメーションのライブラリが含まれています。 関連クラスは名前に "Theme" が含まれています。関連クラスについては、「[アニメーションの概要](https://docs.microsoft.com/windows/uwp/graphics/animations-overview)」をご覧ください。 このライブラリは、アプリの最初の表示や、状態とコンテンツの切り替えにアニメーションを設定するなど、一般的なアニメーション シナリオの多くに対応しています。 パフォーマンスを高め UWP UI との一貫性を強化するために、できるだけこのアニメーション ライブラリを使うことをお勧めします。
 
-> **注**  アニメーション ライブラリには、すべての可能なプロパティがアニメーション化することはできません。 アニメーション ライブラリが適用されない XAML シナリオについては、「[ストーリーボードに設定されたアニメーション](https://docs.microsoft.com/windows/uwp/graphics/storyboarded-animations)」を参照してください。
+> **@No__t-** 1 アニメーションライブラリでは、使用可能なすべてのプロパティをアニメーション化することはできません。 アニメーション ライブラリが適用されない XAML シナリオについては、「[ストーリーボードに設定されたアニメーション](https://docs.microsoft.com/windows/uwp/graphics/storyboarded-animations)」を参照してください。
 
 
 ### <a name="animate-compositetransform3d-properties-independently"></a>CompositeTransform3D のプロパティを個別にアニメーション化する
@@ -197,7 +197,7 @@ DecodePixelWidth/DecodePixelHeight が明示的に画面に表示される画像
 
 ソースを設定する前に、常に [**BitmapImage**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Imaging.BitmapImage) をライブ ツリーにアタッチする必要があります。 画像要素またはブラシがマークアップで指定されているときは、常にこれが自動的に適用されます。 例については、後の「ライブ ツリーの例」という見出しのトピックをご覧ください。 ストリーム ソースを設定する場合は、常に [**SetSource**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.bitmapsource.setsource) を使わずに、代わりに [**SetSourceAsync**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.bitmapsource.setsourceasync) を使います。 [  **ImageOpened**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.bitmapimage.imageopened) イベントの発生を待機している間、画像コンテンツを非表示にする (不透明度を 0 にしたり、表示を折りたたむ) ことを回避することをお勧めします。 これを行うかどうかは議論の余地があります。これを行った場合、自動的に適切なサイズに調整されたデコードのメリットが得られません。 アプリで最初に画像コンテンツを非表示にする必要がある場合、可能であれば、明示的にデコード サイズも設定してください。
 
-**ライブ ツリーの例**
+**ライブツリーの例**
 
 例 1 (良い例): マークアップで指定された Uniform Resource Identifier (URI)。
 
@@ -219,7 +219,7 @@ myImage.Source = bitmapImage;
 bitmapImage.UriSource = new URI("ms-appx:///Assets/cool-image.png", UriKind.RelativeOrAbsolute);
 ```
 
-例 2 のコードビハ (無効): BitmapImage の UriSource をツリーに接続する前に設定します。
+例 2: System.windows.media.imaging.bitmapimage> の UriSource をツリーに接続する前に設定します。
 
 ```csharp
 var bitmapImage = new BitmapImage();
@@ -263,7 +263,7 @@ XAML には内部の最適化機能があり、ソフトウェア メモリ内�
 
 ### <a name="use-getthumbnailasync-for-thumbnails"></a>GetThumbnailAsync を使ったサムネイル
 
-画像を縮小する使用事例として、サムネイルの作成があります。 [  **DecodePixelWidth**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.bitmapimage.decodepixelwidth) と [**DecodePixelHeight**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.bitmapimage.decodepixelheight) を使って画像の縮小版を作ることができますが、UWP には、サムネイルを取得するためのもっと効率的な API が用意されています。 [**GetThumbnailAsync** ](https://docs.microsoft.com/uwp/api/windows.storage.storagefile.getthumbnailasync)既にキャッシュされているファイル システムのイメージのサムネイルを提供します。 この方法では、画像を開いたり、デコードしたりする必要がないため、XAML の API よりもパフォーマンスが向上します。
+画像を縮小する使用事例として、サムネイルの作成があります。 [  **DecodePixelWidth**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.bitmapimage.decodepixelwidth) と [**DecodePixelHeight**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.bitmapimage.decodepixelheight) を使って画像の縮小版を作ることができますが、UWP には、サムネイルを取得するためのもっと効率的な API が用意されています。 [**GetThumbnailAsync**](https://docs.microsoft.com/uwp/api/windows.storage.storagefile.getthumbnailasync)は、ファイルシステムが既にキャッシュされているイメージのサムネイルを提供します。 この方法では、画像を開いたり、デコードしたりする必要がないため、XAML の API よりもパフォーマンスが向上します。
 
 > [!div class="tabbedCodeSnippets"]
 > ```csharp

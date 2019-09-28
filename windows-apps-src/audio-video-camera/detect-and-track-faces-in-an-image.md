@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: be6780851c05f59abc373318f0746c8e436b74ac
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 2f9a253d8470407141c9ae56367d123d638d12c6
+ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67318406"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71339827"
 ---
 # <a name="detect-faces-in-images-or-videos"></a>画像やビデオでの顔の検出
 
@@ -77,7 +77,7 @@ ms.locfileid: "67318406"
 
 [!code-cs[FaceTrackingUsing](./code/FaceDetection_Win10/cs/MainPage.xaml.cs#SnippetFaceTrackingUsing)]
 
-**FaceTracker** オブジェクトのクラス変数を宣言します。 この例では、[**ThreadPoolTimer**](https://docs.microsoft.com/uwp/api/Windows.System.Threading.ThreadPoolTimer) を使って、定義した間隔で顔追跡を開始します。 [SemaphoreSlim](https://docs.microsoft.com/dotnet/api/system.threading.semaphoreslim?redirectedfrom=MSDN) を使って、同時に 1 つの顔追跡処理のみが実行されるようにします。
+**FaceTracker** オブジェクトのクラス変数を宣言します。 この例では、[**ThreadPoolTimer**](https://docs.microsoft.com/uwp/api/Windows.System.Threading.ThreadPoolTimer) を使って、定義した間隔で顔追跡を開始します。 [SemaphoreSlim](https://docs.microsoft.com/dotnet/api/system.threading.semaphoreslim) を使って、同時に 1 つの顔追跡処理のみが実行されるようにします。
 
 [!code-cs[ClassVariables3](./code/FaceDetection_Win10/cs/MainPage.xaml.cs#SnippetClassVariables3)]
 
@@ -91,15 +91,15 @@ ms.locfileid: "67318406"
 
 **FaceDetector** と同様、**FaceTracker** でも、サポートされていないピクセル形式があります。 この例では、渡されたフレームが Nv12 形式でない場合は顔検出を破棄します。
 
-[  **ProcessNextFrameAsync**](https://docs.microsoft.com/uwp/api/windows.media.faceanalysis.facetracker.processnextframeasync) を呼び出して、フレーム内の顔を表す [**DetectedFace**](https://docs.microsoft.com/uwp/api/Windows.Media.FaceAnalysis.DetectedFace) オブジェクトの一覧を取得します。 顔の一覧を取得したら、顔検出について先ほど説明した同じ方法でそれらの顔を表示できます。 ヘルパー メソッドを追跡するフェイスが UI スレッドで呼び出されないため、呼び出し内の UI 更新プログラムを作成する必要があります、 [ **CoreDispatcher.RunAsync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync)します。
+[  **ProcessNextFrameAsync**](https://docs.microsoft.com/uwp/api/windows.media.faceanalysis.facetracker.processnextframeasync) を呼び出して、フレーム内の顔を表す [**DetectedFace**](https://docs.microsoft.com/uwp/api/Windows.Media.FaceAnalysis.DetectedFace) オブジェクトの一覧を取得します。 顔の一覧を取得したら、顔検出について先ほど説明した同じ方法でそれらの顔を表示できます。 Face tracking ヘルパーメソッドは UI スレッドで呼び出されないため、 [**CoreDispatcher**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync)の呼び出し内で ui 更新を行う必要があります。
 
 [!code-cs[ProcessCurrentVideoFrame](./code/FaceDetection_Win10/cs/MainPage.xaml.cs#SnippetProcessCurrentVideoFrame)]
 
 ## <a name="related-topics"></a>関連トピック
 
-* [メディアのキャプチャのシーンの分析](scene-analysis-for-media-capture.md)
-* [顔検出の基本的なサンプル](https://go.microsoft.com/fwlink/p/?LinkId=620512&clcid=0x409)
-* [基本的な面の追跡のサンプル](https://go.microsoft.com/fwlink/p/?LinkId=620513&clcid=0x409)
+* [メディアキャプチャのシーン分析](scene-analysis-for-media-capture.md)
+* [基本的な顔検出サンプル](https://go.microsoft.com/fwlink/p/?LinkId=620512&clcid=0x409)
+* [基本的な顔追跡のサンプル](https://go.microsoft.com/fwlink/p/?LinkId=620513&clcid=0x409)
 * [カメラ](camera.md)
-* [MediaCapture で基本的な写真、ビデオ、およびオーディオのキャプチャします。](basic-photo-video-and-audio-capture-with-MediaCapture.md)
+* [MediaCapture を使用した基本的な写真、ビデオ、オーディオキャプチャ](basic-photo-video-and-audio-capture-with-MediaCapture.md)
 * [メディア再生](media-playback.md)

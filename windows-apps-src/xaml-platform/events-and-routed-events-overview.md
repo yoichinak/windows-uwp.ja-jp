@@ -6,12 +6,12 @@ ms.date: 07/12/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 0c5acc7d0d891785a7abd4f8976b0fb82bb3323b
-ms.sourcegitcommit: d38e2f31c47434cd6dbbf8fe8d01c20b98fabf02
+ms.openlocfilehash: 2615988f40fd14cab920ad52e490c4992dbb5f4a
+ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70393629"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340492"
 ---
 # <a name="events-and-routed-events-overview"></a>イベントとルーティング イベントの概要
 
@@ -27,7 +27,7 @@ ms.locfileid: "70393629"
 
 プログラミング言語として C#、Visual Basic、または C++/CX を使用する場合、UI はマークアップ (XAML) で定義されます。 XAML マークアップの構文で、マークアップ要素とランタイム コード エンティティの間でイベントを関連付けるときの原則の一部は、他の Web テクノロジ (ASP.NET、HTML5 など) と似ています。
 
-XAML で定義された UI のランタイムロジックを提供するコードは、多くの場合、*分離コード*ファイルまたは分離コードファイルと呼ばれます。   Microsoft Visual Studio のソリューション ビューでは、コード ビハインド ファイルが参照先の XAML ページに対して依存する入れ子のファイルとして表示されて、この関係がグラフィカルに示されます。
+**注**@no__t-XAML で定義された UI のランタイムロジックを提供する1The コードは、多くの場合、*分離コード*ファイルまたは分離コードファイルと呼ばれます。 Microsoft Visual Studio のソリューション ビューでは、コード ビハインド ファイルが参照先の XAML ページに対して依存する入れ子のファイルとして表示されて、この関係がグラフィカルに示されます。
 
 ## <a name="buttonclick-an-introduction-to-events-and-xaml"></a>Button.Click: イベントと XAML の概要
 
@@ -80,13 +80,13 @@ void MyNamespace::BlankPage::ShowUpdatesButton_Click(Platform::Object^ sender, W
 
 この例では、`ShowUpdatesButton_Click` メソッドは [**RoutedEventHandler**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.routedeventhandler) デリゲートに基づいています。 MSDN のリファレンス ページで、[**Click**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.click) メソッドの構文にこのデリゲートが指定されているため、このデリゲートを使います。
 
-**ヒント: Visual**Studio では、XAML を編集するときに、イベントハンドラーに名前を指定し、ハンドラーメソッドを定義する便利な方法が提供されます。   XAML テキスト エディターでイベントの属性名を入力する際には、Microsoft IntelliSense リストが表示されるまで少し待ってください。 リストの **[&lt;新しいイベント ハンドラー&gt;]** をクリックすると、要素の **x:Name** (または型名) に基づいて、メソッド名、イベント名、数値サフィックスの候補が表示されます。 その後、選択したイベント ハンドラー名を右クリックし、 **[イベント ハンドラーへ移動]** をクリックできます。 そうすると、新たに挿入されたイベント ハンドラー定義に直接移動します。これは、XAML ページのコード ビハインド ファイルのコード エディター ビューで確認できます。 イベント ハンドラーには既に正しいシグネチャが設定されています (*sender* パラメーターや、イベントが使う特定のイベント データ クラスなど)。 また、正しいシグネチャを持つハンドラー メソッドが既にコード ビハインド内に存在する場合は、メソッドの名前が **[&lt;新しいイベント ハンドラー&gt;]** オプションと共にオート コンプリート ドロップダウンに表示されます。 また、IntelliSense のリスト項目をクリックする代わりに、ショートカットとして Tab キーを押すこともできます。
+**ヒント**   visual Studio は、XAML を編集するときに、イベントハンドラーに名前を指定し、ハンドラーメソッドを定義する便利な方法を提供します。 XAML テキスト エディターでイベントの属性名を入力する際には、Microsoft IntelliSense リストが表示されるまで少し待ってください。 リストの **[&lt;新しいイベント ハンドラー&gt;]** をクリックすると、要素の **x:Name** (または型名) に基づいて、メソッド名、イベント名、数値サフィックスの候補が表示されます。 その後、選択したイベント ハンドラー名を右クリックし、 **[イベント ハンドラーへ移動]** をクリックできます。 そうすると、新たに挿入されたイベント ハンドラー定義に直接移動します。これは、XAML ページのコード ビハインド ファイルのコード エディター ビューで確認できます。 イベント ハンドラーには既に正しいシグネチャが設定されています (*sender* パラメーターや、イベントが使う特定のイベント データ クラスなど)。 また、正しいシグネチャを持つハンドラー メソッドが既にコード ビハインド内に存在する場合は、メソッドの名前が **[&lt;新しいイベント ハンドラー&gt;]** オプションと共にオート コンプリート ドロップダウンに表示されます。 また、IntelliSense のリスト項目をクリックする代わりに、ショートカットとして Tab キーを押すこともできます。
 
 ## <a name="defining-an-event-handler"></a>イベント ハンドラーの定義
 
 オブジェクトが UI 要素であり、XAML で宣言される場合、イベント ハンドラー コードは、XAML ページのコード ビハインドとなる部分クラスに定義します。 イベント ハンドラーは、XAML に関連付けられた部分クラスの一部として記述するメソッドです。 これらのイベント ハンドラーは、特定のイベントが使用するデリゲートに基づきます。 イベント ハンドラー メソッドは、public と private のどちらでもかまいません。 アクセス レベルを private に設定できるのは、XAML によって作成されるハンドラーとインスタンスが最終的にコード生成によって結合されるためです。 通常は、イベント ハンドラー メソッドをクラス内で private にすることをお勧めします。
 
-**メモ部分クラス**でC++は、のイベントハンドラーが定義されていません。これらは、ヘッダーでプライベートクラスメンバーとして宣言されています。   C++ プロジェクトのビルド アクションでは、XAML の型システムと C++ のコード ビハインド モデルをサポートするコードが生成されます。
+**注**   のイベントハンドラー C++が部分クラスで定義されていないため、ヘッダーでプライベートクラスメンバーとして宣言されています。 C++ プロジェクトのビルド アクションでは、XAML の型システムと C++ のコード ビハインド モデルをサポートするコードが生成されます。
 
 ### <a name="the-sender-parameter-and-event-data"></a>*sender* パラメーターとイベント データ
 
@@ -127,7 +127,7 @@ void LayoutRoot_Loaded(object sender, RoutedEventArgs e)
 }
 ```
 
-  詳細な構文が存在することに注意してください。 2005 年に、コンパイラで新しいデリゲート インスタンスを推論できるようにするデリゲートの推論という機能が C# に追加されて、上のより単純な形式の構文を使えるようになりました。 冗長な構文は、機能的には上の例と同じですが、新しいデリゲート インスタンスを登録する前に明示的に作成します。したがって、デリゲートの推論は使用されません。 この明示的な構文は、あまり一般的ではありませんが、コード例で使わることがあります。
+**注**  a より詳細な構文が存在します。 2005 年に、コンパイラで新しいデリゲート インスタンスを推論できるようにするデリゲートの推論という機能が C# に追加されて、上のより単純な形式の構文を使えるようになりました。 冗長な構文は、機能的には上の例と同じですが、新しいデリゲート インスタンスを登録する前に明示的に作成します。したがって、デリゲートの推論は使用されません。 この明示的な構文は、あまり一般的ではありませんが、コード例で使わることがあります。
 
 ```csharp
 void LayoutRoot_Loaded(object sender, RoutedEventArgs e)
@@ -147,9 +147,9 @@ Private Sub textBlock1_PointerEntered(ByVal sender As Object, ByVal e As Pointer
 End Sub
 ```
 
-**注 Visual Studio**とその XAML デザインサーフェイスでは、通常、Handles キーワードではなくインスタンス処理の手法が昇格されます。    その理由は、XAML でのイベント ハンドラーの関連付けがデザイナーと開発者が対処する一般的なワークフローに含まれるだけでなく、**Handles** キーワードを使用する手法に XAML でのイベント ハンドラーの関連付けとの互換性がないためです。
+**@No__t-** 1 visual Studio とその XAML デザインサーフェイスでは、通常、 **Handles**キーワードではなくインスタンス処理の手法が昇格されます。 その理由は、XAML でのイベント ハンドラーの関連付けがデザイナーと開発者が対処する一般的なワークフローに含まれるだけでなく、**Handles** キーワードを使用する手法に XAML でのイベント ハンドラーの関連付けとの互換性がないためです。
 
-/Cx C++でも **+=** 構文を使用しますが、基本的なC#形式とは異なる点があります。
+/Cx C++では、 **@no__t 2**構文も使用しますが、基本的なC#形式とは異なる点があります。
 
 - デリゲートの推論は行われないため、**ref new** でデリゲート インスタンスを作成する必要があります。
 - デリゲート コンストラクターにパラメーターが 2 つあり、最初のパラメーターでターゲット オブジェクトを指定する必要があります。 通常は **this** を指定します。
@@ -178,7 +178,7 @@ ref new PointerEventHandler(this, &BlankPage::textBlock1_PointerEntered);
 
 [**FrameworkElement. アンロード**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.unloaded)または[**NavigatedFrom**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.page.onnavigatedfrom)は、他のイベントのハンドラーを削除するために使用できる、状態管理とオブジェクトの有効期間の適切な位置を持つイベントトリガーです。
 
-たとえば、このコードを使用して、ターゲットオブジェクト**textBlock1**から入力され **\_た textBlock1 ポインター**という名前のイベントハンドラーを削除できます。
+たとえば、このコードを使用して、ターゲットオブジェクト**textBlock1**から入力され**た textBlock1 @ No__t-1ポインター**という名前のイベントハンドラーを削除できます。
 
 ```csharp
 textBlock1.PointerEntered -= textBlock1_PointerEntered;
@@ -246,7 +246,7 @@ Windows ランタイムと C#、Microsoft Visual Basic、または C++/CX では
 
 場合によっては、注目されるのは *sender* ではなく、ポインター イベントが発生したときにどの子オブジェクトにポインターが置かれているかや、ユーザーがキーボードのキーを押したときに上位の UI のどのオブジェクトにフォーカスがあったかなどの情報です。 そのような場合には、[**OriginalSource**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.routedeventargs.originalsource) プロパティの値を利用できます。 **OriginalSource** は、ルートのすべての位置で、ハンドラーがアタッチされているオブジェクトではなく、イベントを発生させた元のオブジェクトを報告します。 ただし、[**UIElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement) の入力イベントでは、そのイベント発生元のオブジェクトはページ レベルの UI 定義 XAML ですぐに見つかるオブジェクトではありません。 コントロールのテンプレート パーツである場合もよくあります。 たとえば、ユーザーが [**Button**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Button) の端にポインターをホバーした場合、ほとんどのポインター イベントでは、**OriginalSource** は **Button** そのものではなく、[**Template**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.template) の [**Border**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Border) テンプレート パーツになります。
 
-**ヒント入力イベント**バブルは、テンプレートコントロールを作成する場合に特に便利です。   テンプレート化されたすべてのコントロールでは、ユーザーによって新しいテンプレートが適用される可能性があるためです。 作業テンプレートを再作成しようとしているユーザーによって、既定のテンプレートで宣言されているイベント処理が誤って削除される可能性もあるためです。 そのような場合でも、クラス定義内でオーバーライドした [**OnApplyTemplate**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.onapplytemplate) の一部としてハンドラーをアタッチすることで、コントロール レベルのイベント処理を提供できます。 これにより、インスタンス化時にコントロールのルートまでバブル ルーティングされる入力イベントをキャッチできます。
+**ヒント**   入力イベントバブルは、テンプレートコントロールを作成する場合に特に便利です。 テンプレート化されたすべてのコントロールでは、ユーザーによって新しいテンプレートが適用される可能性があるためです。 作業テンプレートを再作成しようとしているユーザーによって、既定のテンプレートで宣言されているイベント処理が誤って削除される可能性もあるためです。 そのような場合でも、クラス定義内でオーバーライドした [**OnApplyTemplate**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.onapplytemplate) の一部としてハンドラーをアタッチすることで、コントロール レベルのイベント処理を提供できます。 これにより、インスタンス化時にコントロールのルートまでバブル ルーティングされる入力イベントをキャッチできます。
 
 ### <a name="the-handled-property"></a>**Handled** プロパティ
 
@@ -297,8 +297,8 @@ Windows ランタイムと C#、Microsoft Visual Basic、または C++/CX では
 カスタム イベントを定義するにあたっては、使われるプログラミング言語に応じて、イベントの追加方法や、それがクラスの設計でどのような意味を帯びるのかが大きく異なります。
 
 - C# と Visual Basic では、CLR のイベントを定義します。 カスタム アクセサー (**add**/**remove**) を使っていない限り、標準の .NET イベントのパターンを使うことができます。 次の点にも注意してください。
-    - イベント ハンドラーには、Windows ランタイムの汎用イベント デリゲート [**EventHandler<T>** ](https://docs.microsoft.com/uwp/api/windows.foundation.eventhandler) への組み込みの変換がある [**System.EventHandler<TEventArgs>** ](https://docs.microsoft.com/dotnet/api/system.eventhandler-1?redirectedfrom=MSDN) を使うことをお勧めします。
-    - Windows ランタイムに変換されないため、イベント データ クラスが [**System.EventArgs**](https://docs.microsoft.com/dotnet/api/system.eventargs?redirectedfrom=MSDN) に基づくことのないようにしてください。 既にあるイベント データ クラスを使うか、基底クラスをまったく使わないかのいずれかにします。
+    - イベント ハンドラーには、Windows ランタイムの汎用イベント デリゲート [**EventHandler<T>** ](https://docs.microsoft.com/uwp/api/windows.foundation.eventhandler) への組み込みの変換がある [**System.EventHandler<TEventArgs>** ](https://docs.microsoft.com/dotnet/api/system.eventhandler-1) を使うことをお勧めします。
+    - Windows ランタイムに変換されないため、イベント データ クラスが [**System.EventArgs**](https://docs.microsoft.com/dotnet/api/system.eventargs) に基づくことのないようにしてください。 既にあるイベント データ クラスを使うか、基底クラスをまったく使わないかのいずれかにします。
     - カスタムアクセサーを使用している場合は、「 [Windows ランタイムコンポーネント」の「カスタムイベントとイベントアクセサー](https://docs.microsoft.com/previous-versions/windows/apps/hh972883(v=vs.140))」を参照してください。
     - 標準の .NET イベントのパターンがよくわからない場合には、「[Silverlight のカスタム クラスのイベントの定義](https://docs.microsoft.com/previous-versions/windows/)」をご覧ください。 これは、Microsoft Silverlight 向けに書かれたものですが、.NET イベントのパターンのコードと概念がよくまとまっています。
 - C++/CX については、「[イベント (C++/CX)](https://docs.microsoft.com/cpp/cppcx/events-c-cx)」をご覧ください。
@@ -311,7 +311,7 @@ Windows ランタイムでカスタム ルーティング イベントは宣言�
 ## <a name="related-topics"></a>関連トピック
 
 * [XAML の概要](xaml-overview.md)
-* [クイック スタート:タッチ入力](https://docs.microsoft.com/previous-versions/windows/apps/hh465387(v=win.10))
+* [クイック スタート:タッチ入力 @ no__t-0
 * [キーボード操作](https://docs.microsoft.com/windows/uwp/input-and-devices/keyboard-interactions)
 * [.NET のイベントとデリゲート](https://go.microsoft.com/fwlink/p/?linkid=214364)
 * [Windows ランタイムコンポーネントの作成](https://docs.microsoft.com/previous-versions/windows/apps/hh441572(v=vs.140))

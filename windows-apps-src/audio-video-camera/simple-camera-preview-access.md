@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 7fba78a619f18d7da2e190758d73ac7a56b12fb9
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 1f35cbab511912bd9cf6616330f3e9e7737189fd
+ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66360656"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71339741"
 ---
 # <a name="display-the-camera-preview"></a>カメラ プレビューの表示
 
@@ -24,7 +24,7 @@ ms.locfileid: "66360656"
 
 アプリからデバイスのカメラにアクセスするには、アプリでデバイス機能 (*webcam* と *microphone*) の使用を宣言する必要があります。 
 
-**アプリケーション マニフェストに機能を追加します。**
+**アプリマニフェストに機能を追加する**
 
 1.  Microsoft Visual Studio の**ソリューション エクスプローラー**で、**package.appxmanifest** 項目をダブルクリックしてアプリケーション マニフェストのデザイナーを開きます。
 2.  **[機能]** タブをクリックします。
@@ -40,7 +40,7 @@ ms.locfileid: "66360656"
 
 ## <a name="use-mediacapture-to-start-the-preview-stream"></a>MediaCapture を使ってプレビュー ストリームを開始する
 
-[  **MediaCapture**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.MediaCapture) オブジェクトは、デバイスのカメラに対するアプリのインターフェイスです。 このクラスは、Windows.Media.Capture 名前空間のメンバーです。 この記事の例では、既定のプロジェクト テンプレートに含まれている API に加えて、[**Windows.ApplicationModel**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel) 名前空間と [System.Threading.Tasks](https://docs.microsoft.com/dotnet/api/system.threading.tasks?redirectedfrom=MSDN) 名前空間の API も使われます。
+[  **MediaCapture**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.MediaCapture) オブジェクトは、デバイスのカメラに対するアプリのインターフェイスです。 このクラスは、Windows.Media.Capture 名前空間のメンバーです。 この記事の例では、既定のプロジェクト テンプレートに含まれている API に加えて、[**Windows.ApplicationModel**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel) 名前空間と [System.Threading.Tasks](https://docs.microsoft.com/dotnet/api/system.threading.tasks) 名前空間の API も使われます。
 
 ページの .cs ファイルに次の名前空間を含めるには using ディレクティブを追加します。
 
@@ -99,5 +99,5 @@ ms.locfileid: "66360656"
 ## <a name="related-topics"></a>関連トピック
 
 * [カメラ](camera.md)
-* [MediaCapture で基本的な写真、ビデオ、およびオーディオのキャプチャします。](basic-photo-video-and-audio-capture-with-MediaCapture.md)
-* [プレビュー フレームを取得します。](get-a-preview-frame.md)
+* [MediaCapture を使用した基本的な写真、ビデオ、オーディオキャプチャ](basic-photo-video-and-audio-capture-with-MediaCapture.md)
+* [プレビューフレームを取得する](get-a-preview-frame.md)

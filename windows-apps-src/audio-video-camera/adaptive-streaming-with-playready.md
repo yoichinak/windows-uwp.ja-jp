@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: f87ecf0c3c90976295d85c1a995f1de091491974
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: e0f6ef206dc836e48bfc904767ff8c8c7bdca9db
+ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66359175"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340044"
 ---
 # <a name="adaptive-streaming-with-playready"></a>PlayReady を使ったアダプティブ ストリーミング
 
@@ -274,7 +274,7 @@ async void LicenseAcquisitionRequest(
 
 ## <a name="initializing-the-adaptivemediasource"></a>AdaptiveMediaSource の初期化
 
-最後に、特定の [Uri](https://docs.microsoft.com/dotnet/api/system.uri?redirectedfrom=MSDN) と [MediaElement](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.MediaElement) から作成された [AdaptiveMediaSource](https://docs.microsoft.com/uwp/api/Windows.Media.Streaming.Adaptive.AdaptiveMediaSource) を初期化するための関数が必要になります。 **Uri** は、メディア ファイル (HLS または DASH) へのリンクです。**MediaElement** は、XAML で定義されます。
+最後に、特定の [Uri](https://docs.microsoft.com/dotnet/api/system.uri) と [MediaElement](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.MediaElement) から作成された [AdaptiveMediaSource](https://docs.microsoft.com/uwp/api/Windows.Media.Streaming.Adaptive.AdaptiveMediaSource) を初期化するための関数が必要になります。 **Uri** は、メディア ファイル (HLS または DASH) へのリンクです。**MediaElement** は、XAML で定義されます。
 
 ```csharp
 async private void InitializeAdaptiveMediaSource(System.Uri uri, MediaElement m)
