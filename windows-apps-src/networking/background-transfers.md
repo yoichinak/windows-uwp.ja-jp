@@ -6,12 +6,12 @@ ms.date: 03/23/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 00cf409177ae077d5df9739321c4464c2c56843d
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 7d06d91d2195c483f5453aeadbc5523a8935003c
+ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66371414"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340575"
 ---
 # <a name="background-transfers"></a>バックグラウンド転送
 ネットワーク経由でファイルを確実にコピーするには、バックグラウンド転送 API を使います。 バックグラウンド転送 API には、アプリの一時停止中はバックグラウンドで実行され、アプリの終了後も実行が続行される高度なアップロード機能とダウンロード機能があります。 この API は、ネットワークの状態を監視し、接続が失われたときに転送の中断と再開を自動的に実行します。転送ではデータ センサーとバッテリー セーバーにも対応し、ダウンロード アクティビティは現在の接続とデバイスのバッテリー状態に基づいて調整されます。 この API は、アップロード HTTP(S) を使った大きなファイルのアップロードとダウンロードに適しています。 FTP もサポートされますが、その対象はダウンロードのみです。
@@ -282,9 +282,9 @@ Visual Studio を使う 4 つのシナリオで、この問題が発生する可
 ## <a name="exceptions-in-windowsnetworkingbackgroundtransfer"></a>Windows.Networking.BackgroundTransfer の例外
 Uniform Resource Identifier (URI) として無効な文字列が、[**Windows.Foundation.Uri**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Uri) オブジェクトのコンストラクターに渡されると、例外がスローされます。
 
-**.NET:** [**Windows.Foundation.Uri**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Uri) 型は、C# や VB では [**System.Uri**](https://docs.microsoft.com/dotnet/api/system.uri?redirectedfrom=MSDN) と表示されます。
+**.NET:** [**Windows.Foundation.Uri**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Uri) 型は、C# や VB では [**System.Uri**](https://docs.microsoft.com/dotnet/api/system.uri) と表示されます。
 
-C# と Visual Basic では、.NET 4.5 の [**System.Uri**](https://docs.microsoft.com/dotnet/api/system.uri?redirectedfrom=MSDN) クラスと、いずれかの [**System.Uri.TryCreate**](https://docs.microsoft.com/dotnet/api/system.uri.trycreate?redirectedfrom=MSDN#overloads) メソッドを使って、URI が作成される前にアプリのユーザーから受け取った文字列をテストすることによって、このエラーを回避できます。
+C# と Visual Basic では、.NET 4.5 の [**System.Uri**](https://docs.microsoft.com/dotnet/api/system.uri) クラスと、いずれかの [**System.Uri.TryCreate**](https://docs.microsoft.com/dotnet/api/system.uri.trycreate#overloads) メソッドを使って、URI が作成される前にアプリのユーザーから受け取った文字列をテストすることによって、このエラーを回避できます。
 
 C++ では、URI として渡される文字列を試行して解析するメソッドはありません。 アプリがユーザーから [**Windows.Foundation.Uri**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Uri) の入力を取得する場合、このコンストラクターを try/catch ブロックに配置する必要があります。 例外がスローされた場合、アプリは、ユーザーに通知し、新しいホスト名を要求することができます。
 

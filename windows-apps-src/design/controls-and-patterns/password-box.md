@@ -12,12 +12,12 @@ pm-contact: miguelrb
 design-contact: ksulliv
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 7e0106782f9667b372069b8aca248e58850552b5
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: dfa010d3e50208df31dad9d838486e72f38787c2
+ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67319350"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340243"
 ---
 # <a name="password-box"></a>パスワード ボックス
 
@@ -203,4 +203,4 @@ private void CheckBox_Changed(object sender, RoutedEventArgs e)
 - [テキスト入力のガイドライン](text-controls.md)
 - [TextBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox)
 - [Windows.UI.Xaml.Controls PasswordBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.PasswordBox)
-- [String.Length プロパティ](https://docs.microsoft.com/dotnet/api/system.string.length?redirectedfrom=MSDN#System_String_Length)
+- [String.Length プロパティ](https://docs.microsoft.com/dotnet/api/system.string.length)

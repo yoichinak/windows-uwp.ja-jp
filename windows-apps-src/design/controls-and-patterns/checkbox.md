@@ -12,12 +12,12 @@ design-contact: kimsea
 dev-contact: mitra
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 3905ef8786a06d4221ce42511f786927c3173ba6
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: c69c5e64d75e03ce5bb2ef0d82c3b816fe78a770
+ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66363169"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71339424"
 ---
 # <a name="check-boxes"></a>チェック ボックス
 
@@ -85,7 +85,7 @@ checkBox1.Content = "I agree to the terms of service.";
 
 ### <a name="bind-to-ischecked"></a>IsChecked にバインドする
 
-チェック ボックスがオンになっているかオフになっているかを判断するには、[IsChecked](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.togglebutton.ischecked) プロパティを使います。 IsChecked プロパティの値を他のバイナリ値にバインドできます。 ただし、IsChecked は [null 許容](https://docs.microsoft.com/dotnet/api/system.nullable-1?redirectedfrom=MSDN)のブール値であるため、値コンバーターを使ってブール値にバインドする必要があります。
+チェック ボックスがオンになっているかオフになっているかを判断するには、[IsChecked](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.togglebutton.ischecked) プロパティを使います。 IsChecked プロパティの値を他のバイナリ値にバインドできます。 ただし、IsChecked は [null 許容](https://docs.microsoft.com/dotnet/api/system.nullable-1)のブール値であるため、値コンバーターを使ってブール値にバインドする必要があります。
 
 次の例では、サービス条件に同意するためのチェック ボックスの **IsChecked** プロパティが送信ボタンの [IsEnabled](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.isenabled) プロパティにバインドされます。 送信ボタンは、サービス条件に同意した場合にのみ有効です。
 

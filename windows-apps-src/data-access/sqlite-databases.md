@@ -5,12 +5,12 @@ ms.date: 11/30/2018
 ms.topic: article
 keywords: windows 10, UWP, SQLite, データベース
 ms.localizationpriority: medium
-ms.openlocfilehash: 465376214f1bf1b390ec6db8609783e4e7872196
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 1cc8cfe696d35872469d97dba24f5388ff6833b5
+ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66362785"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71339788"
 ---
 # <a name="use-a-sqlite-database-in-a-uwp-app"></a>UWP アプリでの SQLite データベースの使用
 SQLite を使用すると、ユーザー デバイス上の軽量なデータベースにデータを保存し、取得することができます。 このガイドでその方法を示します。
@@ -23,7 +23,7 @@ SQLite を使用すると、ユーザー デバイス上の軽量なデータベ
 
 :heavy_check_mark:SQLite はパブリック ドメインにあるため、アプリで自由に使用して配布できます。
 
-SQLite はプラットフォームやアーキテクチャにかかわらず動作します。
+:heavy_check_mark:SQLite はプラットフォームやアーキテクチャにかかわらず動作します。
 
 SQLite について詳しくは、[こちら](https://sqlite.org/about.html)をご覧ください。
 
@@ -39,7 +39,7 @@ Entity Framework (EF) は、ドメイン固有のオブジェクトを使って�
 
 ### <a name="sqlite-library"></a>SQLite ライブラリ
 
-[Microsoft.Data.Sqlite](https://docs.microsoft.com/dotnet/api/microsoft.data.sqlite?view=msdata-sqlite-2.0.0) ライブラリは、[System.Data.Common](https://docs.microsoft.com/dotnet/api/system.data.common?redirectedfrom=MSDN) 名前空間内にインターフェイスを実装します。 Microsoft はこれらの実装をアクティブに保守します。これらは、低レベルのネイティブ SQLite API の直感的なラッパーを提供します。
+[Microsoft.Data.Sqlite](https://docs.microsoft.com/dotnet/api/microsoft.data.sqlite?view=msdata-sqlite-2.0.0) ライブラリは、[System.Data.Common](https://docs.microsoft.com/dotnet/api/system.data.common) 名前空間内にインターフェイスを実装します。 Microsoft はこれらの実装をアクティブに保守します。これらは、低レベルのネイティブ SQLite API の直感的なラッパーを提供します。
 
 このガイドの残りの部分では、このライブラリーの使用について説明します。
 

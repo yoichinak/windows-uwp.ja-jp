@@ -12,12 +12,12 @@ design-contact: ksulliv
 dev-contact: joyate
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 0c980acc3b9887dac68712bd65de96e8f3a327a5
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 1e489aa8cbf8b63885f039847b291404393444e9
+ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67319062"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71339389"
 ---
 # <a name="calendar-date-and-time-controls"></a>カレンダー、日付、および時刻コントロール
 
@@ -114,12 +114,12 @@ XAML の日付のコントロールでは、Windows でサポートされる各�
 ### <a name="datetime-and-calendar-values"></a>DateTime と Calendar の値
 
 XAML の日付および時刻コントロールで使用される日付オブジェクトでは、プログラミング言語によって表現方法が異なります。 
-- C# および Visual Basic では、.NET の一部である [System.DateTimeOffset](https://docs.microsoft.com/dotnet/api/system.datetimeoffset?redirectedfrom=MSDN) 構造体が使用されます。 
+- C# および Visual Basic では、.NET の一部である [System.DateTimeOffset](https://docs.microsoft.com/dotnet/api/system.datetimeoffset) 構造体が使用されます。 
 - C++/CX では、[Windows::Foundation::DateTime](https://docs.microsoft.com/windows/desktop/api/windows.foundation/ns-windows-foundation-datetime) 構造体が使用されます。 
 
-関連する概念として Calendar クラスがあります。Calendar クラスは、コンテキストでの日付の解釈方法に影響を及ぼします。 すべての Windows ランタイム アプリで、[Windows.Globalization.Calendar](https://docs.microsoft.com/uwp/api/Windows.Globalization.Calendar) クラスを使用することができます。 C# および Visual Basic アプリでは、代わりに機能が非常によく似た [System.Globalization.Calendar](https://docs.microsoft.com/dotnet/api/system.globalization.calendar?redirectedfrom=MSDN) クラスを使用することができます (Windows ランタイム アプリでは、基本の .NET Calendar クラスを使用することはできますが、GregorianCalendar などの具体的な実装を使用することはできません)。
+関連する概念として Calendar クラスがあります。Calendar クラスは、コンテキストでの日付の解釈方法に影響を及ぼします。 すべての Windows ランタイム アプリで、[Windows.Globalization.Calendar](https://docs.microsoft.com/uwp/api/Windows.Globalization.Calendar) クラスを使用することができます。 C# および Visual Basic アプリでは、代わりに機能が非常によく似た [System.Globalization.Calendar](https://docs.microsoft.com/dotnet/api/system.globalization.calendar) クラスを使用することができます (Windows ランタイム アプリでは、基本の .NET Calendar クラスを使用することはできますが、GregorianCalendar などの具体的な実装を使用することはできません)。
 
-.NET では、[DateTime](https://docs.microsoft.com/dotnet/api/system.datetime?redirectedfrom=MSDN) という名前の型もサポートされます。これは、暗黙的に [DateTimeOffset](https://docs.microsoft.com/dotnet/api/system.datetimeoffset?redirectedfrom=MSDN) と読み替えることができます。 したがって、.NET コードで値を設定するために "DateTime" 型が使用されていた場合、それは実際には DateTimeOffset です。 DateTime と DateTimeOffset の違いについて詳しくは、「[DateTimeOffset](https://docs.microsoft.com/dotnet/api/system.datetimeoffset?redirectedfrom=MSDN)クラス」の「注釈」をご覧ください。
+.NET では、[DateTime](https://docs.microsoft.com/dotnet/api/system.datetime) という名前の型もサポートされます。これは、暗黙的に [DateTimeOffset](https://docs.microsoft.com/dotnet/api/system.datetimeoffset) と読み替えることができます。 したがって、.NET コードで値を設定するために "DateTime" 型が使用されていた場合、それは実際には DateTimeOffset です。 DateTime と DateTimeOffset の違いについて詳しくは、「[DateTimeOffset](https://docs.microsoft.com/dotnet/api/system.datetimeoffset)クラス」の「注釈」をご覧ください。
 
 > **注:** &nbsp;&nbsp;日付オブジェクトを受け取るプロパティは、XAML 属性文字列として設定することはできません。これは、Windows ランタイム XAML パーサーには、文字列を DateTime/DateTimeOffset オブジェクトとして日付に変換する変換ロジックがないためです。 通常、それらの値はコードで設定します。 考えられる別の方法として、データ オブジェクトとして (またはデータ コンテキストで) 利用可能な日付を定義し、その日付をデータとしてアクセスできる [\{Binding\} マークアップ拡張](../../xaml-platform/binding-markup-extension.md)表現を参照する XAML 属性をプロパティとして設定することができます。
 

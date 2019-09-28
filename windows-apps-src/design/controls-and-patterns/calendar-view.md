@@ -12,12 +12,12 @@ design-contact: ksulliv
 dev-contact: joyate
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 02206d1f237eeeb113910aece7345ae35f22a80b
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 716f785ff6b2151913f57208068e783320292613
+ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66363084"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71339456"
 ---
 # <a name="calendar-view"></a>カレンダー ビュー
 
@@ -71,7 +71,7 @@ ms.locfileid: "66363084"
 
 既定では、[SelectionMode](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.calendarview.selectionmode) プロパティは **Single** に設定されています。 このため、ユーザーはカレンダー内の 1 つの日付を選ぶことができます。 日付の選択を無効にするには、SelectionMode を **None** に設定します。 
 
-ユーザーが複数の日付を選べるようにするには、SelectionMode を **Multiple** に設定します。 次のように [SelectedDates](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.calendarview.selecteddates) コレクションに [DateTime](https://docs.microsoft.com/dotnet/api/system.datetime?redirectedfrom=MSDN)/[DateTimeOffset](https://docs.microsoft.com/dotnet/api/system.datetimeoffset?redirectedfrom=MSDN) オブジェクトを追加すると、プログラムから複数の日付を選ぶことができます。
+ユーザーが複数の日付を選べるようにするには、SelectionMode を **Multiple** に設定します。 次のように [SelectedDates](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.calendarview.selecteddates) コレクションに [DateTime](https://docs.microsoft.com/dotnet/api/system.datetime)/[DateTimeOffset](https://docs.microsoft.com/dotnet/api/system.datetimeoffset) オブジェクトを追加すると、プログラムから複数の日付を選ぶことができます。
 
 ```csharp
 calendarView1.SelectedDates.Add(DateTimeOffset.Now);
