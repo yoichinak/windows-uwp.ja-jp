@@ -485,7 +485,7 @@ IAsyncAction MainCoroutineAsync()
 
 ### <a name="register-a-cancellation-callback"></a>キャンセル コールバックを登録する
 
-Windows ランタイムの取り消しは、他の非同期オブジェクトに自動的に流れません。 ただし、キャンセル コールバックを登録することができます (Windows SDK のバージョン 10.0.17763.0 (Windows 10、バージョン 1809) で導入されました)。 これは、取り消しを伝達できる先行フックで、既存の同時実行ライブラリとの統合を可能にします。
+Windows ランタイムの取り消しは、他の非同期オブジェクトに自動的に流れません。 ただし、キャンセル コールバックを登録することができます (Windows SDK のバージョン 10.0.17763.0 (Windows 10、バージョン 1809) で導入されました)。 これは、取り消しを伝達できる先行フックで、既存の同時開催ライブラリとの統合を可能にします。
 
 次のコード例では、**NestedCoroutineAsync** がこれを行いますが、特別な取り消しロジックはありません。 **CancellationPropagatorAsync** は、本質的に、入れ子になったコルーチンでのラッパーです。ラッパーは取り消しを先行的に転送します。
 
@@ -534,7 +534,7 @@ int main()
 }
 ```
 
-**CancellationPropagatorAsync** は、独自のキャンセル コールバックのラムダ関数を登録してから、入れ子になった作業が完了するまで待機 (中断) します。 **CancellationPropagatorAsync** は、取り消されると、取り消しを入れ子になったコルーチンに伝達します。 取り消しをポーリングする必要はありません。また取り消しは無限にブロックされません。 このメカニズムは、コルーチンまたは C++/WinRT に関する情報が何もない同時実行ライブラリとの相互運用に使用するのに十分な柔軟性があります。
+**CancellationPropagatorAsync** は、独自のキャンセル コールバックのラムダ関数を登録してから、入れ子になった作業が完了するまで待機 (中断) します。 **CancellationPropagatorAsync** は、取り消されると、取り消しを入れ子になったコルーチンに伝達します。 取り消しをポーリングする必要はありません。また取り消しは無限にブロックされません。 このメカニズムは、コルーチンまたは C++/WinRT に関する情報が何もない同時開催ライブラリとの相互運用に使用するのに十分な柔軟性があります。
 
 ## <a name="reporting-progress"></a>進行状況を報告する
 
@@ -800,5 +800,5 @@ case AsyncStatus::Started:
 * [winrt::resume_foreground](/uwp/cpp-ref-for-winrt/resume-foreground)
 
 ## <a name="related-topics"></a>関連トピック
-* [同時実行操作と非同期操作](concurrency.md)
+* [同時開催操作と非同期操作](concurrency.md)
 * [C++/WinRT でのデリゲートを使用したイベントの処理](handle-events.md)

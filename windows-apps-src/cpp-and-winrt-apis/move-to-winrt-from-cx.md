@@ -491,7 +491,7 @@ C++/CX は Windows ランタイム文字列を参照型として表しますが�
 
 並列パターン ライブラリ (PPL) ([**concurrency::task**](/cpp/parallel/concrt/reference/task-class) など) は、C++/CS ハット参照をサポートするように更新されました。
 
-C++/WinRT の場合は、代わりにコルーチンと `co_await` を使用する必要があります。 詳細とコード例については、「[C++/WinRT を使用した同時実行操作と非同期操作](/windows/uwp/cpp-and-winrt-apis/concurrency)」を参照してください。
+C++/WinRT の場合は、代わりにコルーチンと `co_await` を使用する必要があります。 詳細とコード例については、「[C++/WinRT を使用した同時開催操作と非同期操作](/windows/uwp/cpp-and-winrt-apis/concurrency)」を参照してください。
 
 ## <a name="consuming-objects-from-xaml-markup"></a>XAML マークアップからのオブジェクトの使用
 
@@ -716,7 +716,7 @@ C++/CX と C++/WinRT は、文字列の作成には標準 **std::wstringstream**
 ## <a name="related-topics"></a>関連トピック
 * [C++/CX](/cpp/cppcx/visual-c-language-reference-c-cx)
 * [C++/WinRT でのイベントの作成](author-events.md)
-* [C++/WinRT を使用した同時実行操作と非同期操作](concurrency.md)
+* [C++/WinRT を使用した同時開催操作と非同期操作](concurrency.md)
 * [C++/WinRT で API を使用する](consume-apis.md)
 * [C++/WinRT でのデリゲートを使用したイベントの処理](handle-events.md)
 * [C++/WinRT と C++/CX 間の相互運用](interop-winrt-cx.md)
