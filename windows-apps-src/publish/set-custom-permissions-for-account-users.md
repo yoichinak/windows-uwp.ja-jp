@@ -7,10 +7,10 @@ ms.topic: article
 keywords: Windows 10, uwp, ユーザー ロール, ユーザーのアクセス許可, カスタム ロール, ユーザー アクセス, アクセス許可のカスタマイズ, 標準ロール
 ms.localizationpriority: medium
 ms.openlocfilehash: ead8012c6d4b9243e70dcc09f7ef174a3d907356
-ms.sourcegitcommit: afb5157ec4bcb6588ac4cf74352688b30ed32257
+ms.sourcegitcommit: 035b03f1247eae4e9359ee7db66429d4e1c1d09b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/19/2019
+ms.lasthandoff: 09/30/2019
 ms.locfileid: "68349219"
 ---
 # <a name="set-roles-or-custom-permissions-for-account-users"></a>アカウント ユーザーの役割またはカスタムのアクセス許可の設定
@@ -157,7 +157,7 @@ ms.locfileid: "68349219"
 <table>
     <thead>
     <tr class="header">
-    <th align="left">アクセス&nbsp;許可名</th>
+    <th align="left">アクセス許可名&nbsp;</th>
     <th align="left">読み取り専用&nbsp;</th>
     <th align="left">読み取り/書き込み</th>
     <th align="left">読み取り専用&nbsp;(アドオン)&nbsp; </th>
@@ -178,7 +178,7 @@ ms.locfileid: "68349219"
 <table>
     <thead>
     <tr class="header">
-    <th align="left">アクセス&nbsp;許可名</th>
+    <th align="left">アクセス許可名&nbsp;</th>
     <th align="left">読み取り専用&nbsp;</th>
     <th align="left">読み取り/書き込み</th>
     <th align="left">読み取り専用&nbsp;(アドオン)&nbsp; </th>
@@ -194,12 +194,12 @@ ms.locfileid: "68349219"
     </tbody>
     </table>
 
-### <a name="publishing"></a>置換 
+### <a name="publishing"></a>公開 
 
 <table>
     <thead>
     <tr class="header">
-    <th align="left">アクセス&nbsp;許可名</th>
+    <th align="left">アクセス許可名&nbsp;</th>
     <th align="left">読み取り専用&nbsp;</th>
     <th align="left">読み取り/書き込み</th>
     <th align="left">読み取り専用&nbsp;(アドオン)&nbsp; </th>
@@ -227,7 +227,7 @@ ms.locfileid: "68349219"
 <table>
     <thead>
     <tr class="header">
-    <th align="left">アクセス&nbsp;許可名</th>
+    <th align="left">アクセス許可名&nbsp;</th>
     <th align="left">読み取り専用&nbsp;</th>
     <th align="left">読み取り/書き込み</th>
     <th align="left">読み取り専用&nbsp;(アドオン)&nbsp; </th>
@@ -239,7 +239,7 @@ ms.locfileid: "68349219"
     <tr><td align="left">    <b>パートナーサービス</b>&nbsp;*</td><td>    アカウントの Web サービスページを表示できます。  </td><td>    アカウントの Web サービスページを表示および編集できます。      </td><td>    なし    </td><td>    なし                      </td></tr>
     <tr><td align="left">    <b>Xbox テストアカウント</b>&nbsp;*</td><td>    アカウントの [Xbox テストアカウント] ページを表示できます。  </td><td>    アカウントの [Xbox テストアカウント] ページを表示および編集できます。    </td><td>    なし    </td><td>    なし                      </td></tr>
     <tr><td align="left">    <b>サンドボックスごとの Xbox テストアカウント</b>&nbsp;*</td><td>    指定されたアカウントのサンドボックスに対してのみ、[Xbox テストアカウント] ページを表示できます。  </td><td>    Xbox テストを表示および編集できます。   <tr><td align="left">    <b>アカウントの指定したサンドボックスのみの [アカウント] ページ    </td><td>    なし    </td><td>    なし                      </td></tr>
-    <tr><td align="left">    <b>Xbox デバイス</b>&nbsp;*</td><td>    アカウントの Xbox one 開発コンソールページを表示できます。  </td><td>    アカウントの Xbox one 開発コンソールページを表示および編集できます。    </td><td>    なし    </td><td>    なし                      </td></tr>
+    <tr><td align="left"> の<b>Xbox デバイス</b>&nbsp; @ no__t</td><td>    アカウントの Xbox one 開発コンソールページを表示できます。  </td><td>    アカウントの Xbox one 開発コンソールページを表示および編集できます。    </td><td>    なし    </td><td>    なし                      </td></tr>
     <tr><td align="left">    <b>Xbox デバイス (サンドボックスあたり)</b>&nbsp;*</td><td>    指定されたアカウントのサンドボックスに対してのみ、Xbox one の開発コンソールページを表示できます。  </td><td>    アカウントの指定したサンドボックスに対してのみ、Xbox one 開発コンソールページを表示および編集できます。    </td><td>    なし    </td><td>    なし                      </td></tr>
     <tr><td align="left">    <b>アプリチャネル</b>&nbsp;*</td><td>    なし  </td><td>    OneGuide を通じて表示するために、Xbox コンソールにプロモーション用のビデオ チャンネルを公開できます。    </td><td>    なし    </td><td>    なし                      </td></tr>
     <tr><td align="left">    <b>サービスの構成</b>&nbsp;*</td><td>    製品の Xbox Live サービス構成ページを表示できます。  </td><td>    製品の Xbox Live サービス構成ページを表示および編集できます。    </td><td>    なし    </td><td>    なし                      </td></tr>
