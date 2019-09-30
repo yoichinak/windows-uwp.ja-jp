@@ -8,12 +8,12 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: 6c1f45b4bd3da74ea150c05800eba7ec10568894
-ms.sourcegitcommit: 6bb794c6e309ba543de6583d96627fbf1c177bef
+ms.openlocfilehash: cdcef66dc1f0026ff369eeb3f3c7881385d6e5ba
+ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69643401"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71339294"
 ---
 # <a name="using-the-uwp-xaml-hosting-api-in-a-c-win32-app"></a>UWP XAML を使用した C++ Win32 アプリでの API のホスト
 
@@ -146,7 +146,7 @@ XAML ホスティング API を使用して UWP コントロールをホスト�
 
     1. **Desktopwindowxamlsource**オブジェクトを作成し、 **Idesktopwindowxamlsourcenative**または**IDesktopWindowXamlSourceNative2** COM インターフェイスにキャストします。
         > [!NOTE]
-        > これらのインターフェイスは、Windows SDK 内の、 **windows の ui. .xaml. .h**ヘッダーファイルで宣言されています。 既定では、このファイルは% programfiles (x86)% \ Windows Kits\10\Include\\< ビルド番号\>\ umにあります。
+        > これらのインターフェイスは、Windows SDK 内の、 **windows の ui. .xaml. .h**ヘッダーファイルで宣言されています。 既定では、このファイルは% programfiles (x86)% \ Windows Kits\10\Include @ no__t-0 < ビルド番号 @ no__t-1\um. にあります。
 
     2. **Idesktopwindowxamlsourcenative**または**IDesktopWindowXamlSourceNative2**インターフェイスの**attachtowindow**メソッドを呼び出し、アプリケーションの親 UI 要素のウィンドウハンドルを渡します。
 
@@ -358,7 +358,7 @@ C++ Win32 アプリでカスタム UWP コントロール (自分で定義した
 
 * **カスタム UWP コントロール**。 アプリを使用してコンパイルできるように、ホストするカスタム UWP コントロールのソースコードが必要になります。 通常、カスタムコントロールは、 C++ Win32 プロジェクトと同じソリューションで参照する UWP クラスライブラリプロジェクトで定義されます。
 
-* **XamlApplication オブジェクトを定義する UWP アプリプロジェクト**。 C++ Win32 プロジェクトは、Windows Community Toolkit によって提供`Microsoft.Toolkit.Win32.UI.XamlHost.XamlApplication`されるクラスのインスタンスにアクセスできる必要があります。 この型は、アプリケーションの現在のディレクトリ内のアセンブリにカスタム UWP XAML 型のメタデータを読み込むためのルートメタデータプロバイダーとして機能します。 これを行うには、 C++ Win32 プロジェクトと同じソリューションに**空のアプリ (ユニバーサル Windows)** プロジェクトを追加し、このプロジェクトの既定`App`のクラスを変更する方法をお勧めします。
+* **XamlApplication オブジェクトを定義する UWP アプリプロジェクト**。 C++ Win32 プロジェクトは、Windows Community Toolkit によって提供`Microsoft.Toolkit.Win32.UI.XamlHost.XamlApplication`されるクラスのインスタンスにアクセスできる必要があります。 この型は、アプリケーションの現在のディレクトリ内のアセンブリにカスタム UWP XAML 型のメタデータを読み込むためのルートメタデータプロバイダーとして機能します。 これを行うには、 C++ Win32 プロジェクトと同じソリューションに空の**アプリ (ユニバーサル Windows)** プロジェクトを追加し、このプロジェクトの既定の `App` クラスを修正する方法をお勧めします。
   > [!NOTE]
   > ソリューションには、オブジェクトを`XamlApplication`定義するプロジェクトを1つだけ含めることができます。 アプリ内のすべてのカスタム UWP コントロールは、 `XamlApplication`同じオブジェクトを共有します。 `XamlApplication`オブジェクトを定義するプロジェクトには、XAML アイランドでホスト uwp コントロールを使用する他のすべての uwp ライブラリおよびプロジェクトへの参照が含まれている必要があります。
 
@@ -376,7 +376,7 @@ C++ Win32 アプリでカスタム UWP コントロールをホストするに�
 
 C++ Win32 アプリケーションの完全な例については、「[カスタムコントロールのサンプルを使用した XAML アイランド](https://github.com/marb2000/XamlIslands/tree/master/1903_Samples/CppWinRT_Win32_App)の次のプロジェクト」を参照してください。
 
-* [Sampleusercontrol](https://github.com/marb2000/XamlIslands/tree/master/1903_Samples/CppWinRT_Win32_App/SampleUserControl):このプロジェクトは、という名前`MyUserControl`のカスタム UWP XAML コントロールを実装します。このコントロールには、テキストボックス、いくつかのボタン、およびコンボボックスが含まれています。
+* [Sampleusercontrol](https://github.com/marb2000/XamlIslands/tree/master/1903_Samples/CppWinRT_Win32_App/SampleUserControl):このプロジェクトは、テキストボックス、いくつかのボタン、およびコンボボックスを含む `MyUserControl` という名前のカスタム UWP XAML コントロールを実装します。
 * [MyApp](https://github.com/marb2000/XamlIslands/tree/master/1903_Samples/CppWinRT_Win32_App/MyApp):これは、上記で説明した変更を含む UWP アプリプロジェクトです。
 * [SampleCppApp](https://github.com/marb2000/XamlIslands/tree/master/1903_Samples/CppWinRT_Win32_App/SampleCppApp):これは、 C++ xaml アイランドでカスタム UWP XAML コントロールをホストする Win32 アプリプロジェクトです。
 
@@ -395,9 +395,9 @@ C++ Win32 アプリケーションの完全な例については、「[カスタ
 
   * **C++ Win32:** :アプリは、メインメッセージループで**PreTranslateMessage**を直接呼び出すことができます。 例については、 [ C++ Win32 サンプル](https://github.com/marb2000/XamlIslands/tree/master/1903_Samples/CppWinRT_Win32_App)の[xamlbridge .cpp](https://github.com/marb2000/XamlIslands/blob/master/1903_Samples/CppWinRT_Win32_App/SampleCppApp/XamlBridge.cpp#L6)ファイルを参照してください。
 
-  * **WPF**アプリは、 [Componentdispatcher. ThreadFilterMessage](https://docs.microsoft.com/dotnet/api/system.windows.interop.componentdispatcher.threadfiltermessage?view=netframework-4.7.2)イベントのイベントハンドラーから**PreTranslateMessage**を呼び出すことができます。 例については、Windows Community Toolkit の[WindowsXamlHostBase.Focus.cs](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/blob/master/Microsoft.Toolkit.Wpf.UI.XamlHost/WindowsXamlHostBase.Focus.cs#L177)ファイルを参照してください。
+  * **WPF**アプリは、 [Componentdispatcher. ThreadFilterMessage](https://docs.microsoft.com/dotnet/api/system.windows.interop.componentdispatcher.threadfiltermessage)イベントのイベントハンドラーから**PreTranslateMessage**を呼び出すことができます。 例については、Windows Community Toolkit の[WindowsXamlHostBase.Focus.cs](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/blob/master/Microsoft.Toolkit.Wpf.UI.XamlHost/WindowsXamlHostBase.Focus.cs#L177)ファイルを参照してください。
 
-  * **Windows フォーム:** アプリは[system.windows.forms.control.preprocessmessage](https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.control.preprocessmessage?view=netframework-4.7.2)メソッドのオーバーライドから**PreTranslateMessage**を呼び出すことができます。 例については、Windows Community Toolkit の[WindowsXamlHostBase.KeyboardFocus.cs](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/blob/master/Microsoft.Toolkit.Forms.UI.XamlHost/WindowsXamlHostBase.KeyboardFocus.cs#L100)ファイルを参照してください。
+  * **Windows フォーム:** アプリは[system.windows.forms.control.preprocessmessage](https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.control.preprocessmessage)メソッドのオーバーライドから**PreTranslateMessage**を呼び出すことができます。 例については、Windows Community Toolkit の[WindowsXamlHostBase.KeyboardFocus.cs](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/blob/master/Microsoft.Toolkit.Forms.UI.XamlHost/WindowsXamlHostBase.KeyboardFocus.cs#L100)ファイルを参照してください。
 
 ### <a name="keyboard-focus-navigation"></a>キーボードフォーカスのナビゲーション
 
@@ -423,7 +423,7 @@ UWP XAML ホスティング API は、これらのタスクを実行するのに
 
 * C++ Win32 アプリケーションでは、アプリケーションが WM_SIZE メッセージを処理する際に、[SetWindowPos](https://docs.microsoft.com/windows/desktop/api/winuser/nf-winuser-setwindowpos) 関数を使用してホストされている XAML Island を再配置できます。 例については、[C++ Win32 サンプル](https://github.com/marb2000/XamlIslands/tree/master/19H1_Insider_Samples/CppWin32App_With_Island) の [SampleApp.cpp](https://github.com/marb2000/XamlIslands/blob/master/19H1_Insider_Samples/CppWin32App_With_Island/SampleCppApp/SampleApp.cpp#L191) コード ファイルを参照してください。
 
-* 親 UI 要素が、 **Desktopwindowxamlsource**でホストしている、 **windows の ui. .xaml. uielement**に適合させるために必要な四角形の領域のサイズを取得する必要がある場合は、Windows. ui の[Measure](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.measure)メソッドを呼び出します。 以下に例を示します。
+* 親 UI 要素が、 **Desktopwindowxamlsource**でホストしている、 **windows の ui. xaml. uielement**に適合させるために必要な四角形の領域のサイズを取得する必要がある場合は、Windows. ui の[Measure](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.measure)メソッドを呼び出します。 以下に例を示します。
 
     * WPF アプリケーションでは、 **Desktopwindowxamlsource**をホストする[HwndHost](https://docs.microsoft.com/dotnet/api/system.windows.interop.hwndhost)の[measureoverride](https://docs.microsoft.com/dotnet/api/system.windows.frameworkelement.measureoverride)メソッドからこの操作を実行できます。 例については、Windows Community Toolkit の[WindowsXamlHostBase.Layout.cs](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/blob/master/Microsoft.Toolkit.Wpf.UI.XamlHost/WindowsXamlHostBase.Layout.cs)ファイルを参照してください。
 
@@ -439,7 +439,7 @@ UWP XAML ホスティング API は、これらのタスクを実行するのに
 
 UWP XAML フレームワークは、ホストされている UWP コントロールの DPI 変更を自動的に処理します (たとえば、画面の DPI が異なるモニター間でユーザーがウィンドウをドラッグした場合など)。 最適なエクスペリエンスを得るには、Windows フォーム、WPF、またはC++ Win32 アプリケーションをモニターごとの DPI 対応に構成することをお勧めします。
 
-モニターごとの DPI に対応するようにアプリケーションを構成するには、 [side-by-side アセンブリマニフェスト](https://docs.microsoft.com/windows/desktop/SbsCs/application-manifests)をプロジェクトに追加し、  **\<\> dpiawareness**要素を**PerMonitorV2**に設定します。 この値の詳細については、 [DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2](https://docs.microsoft.com/windows/desktop/hidpi/dpi-awareness-context)の説明を参照してください。
+モニターごとの DPI に対応するようにアプリケーションを構成するには、[サイドバイサイドのアセンブリマニフェスト](https://docs.microsoft.com/windows/desktop/SbsCs/application-manifests)をプロジェクトに追加し、 **2dpiAwareness @ No__t**要素を**PerMonitorV2**に @no__t 設定します。 この値の詳細については、 [DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2](https://docs.microsoft.com/windows/desktop/hidpi/dpi-awareness-context)の説明を参照してください。
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
