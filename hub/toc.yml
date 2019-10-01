@@ -68,6 +68,8 @@
       href: apps/accessibility.md
     - name: 機能とテクノロジ
       href: apps/features-and-technologies.md
+    - name: 最新のドキュメントの更新
+      href: apps/whats-new/latest-doc-updates.md
 - name: Windows でビルドする
   items:
     - name: Python を使った開発

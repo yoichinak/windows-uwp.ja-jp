@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 新機能
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: e1fd738435b8622a2db2e849abf1c4984bb7ae64
-ms.sourcegitcommit: fccefde61a155a4a5a866acd1c4c9de42a14ddfd
+ms.openlocfilehash: fb869f4705210ab1fec28186b377ad68068b5877
+ms.sourcegitcommit: 50b0b6d6571eb80aaab3cc36ab4e8d84ac4b7416
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68507725"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329578"
 ---
 # <a name="whats-new-in-cwinrt"></a>C++/WinRT の新機能
 
@@ -255,7 +255,7 @@ struct MainPage : PageT<MainPage>
 };
 ```
 
-詳細については、「[デストラクターに関する詳細情報](/windows/uwp/cpp-and-winrt-apis/details-about-destructors)」を参照してください。
+詳細については、[遅延破棄](/windows/uwp/cpp-and-winrt-apis/details-about-destructors#deferred-destruction)に関する記事を参照してください。
 
 #### <a name="improved-support-for-com-style-single-interface-inheritance"></a>COM スタイルの単一インターフェイス継承に対するサポートの向上
 

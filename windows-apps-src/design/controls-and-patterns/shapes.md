@@ -6,12 +6,12 @@ ms.date: 11/16/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 06f5ce8ad7576114137adb862f89720e27d3802b
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: e78fddf1a0dae39d4479a4a1786a36687337c75e
+ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66364288"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340236"
 ---
 # <a name="draw-shapes"></a>図形の描画
 
@@ -20,7 +20,7 @@ ms.locfileid: "66364288"
 > **重要な API**:[Path クラス](/uwp/api/Windows.UI.Xaml.Shapes.Path)、[Windows.UI.Xaml.Shapes 名前空間](/uwp/api/Windows.UI.Xaml.Shapes)、[Windows.UI.Xaml.Media 名前空間](/uwp/api/Windows.UI.Xaml.Media)
 
 
-XAML UI に空間領域を定義するクラスのセットには、[**Shape**](/uwp/api/Windows.UI.Xaml.Shapes.Shape) と [**Geometry**](/uwp/api/Windows.UI.Xaml.Media.Geometry) の 2 つがあります。 これらのクラス間の主な違いは、**Shape** にはブラシが関連付けられ、画面にレンダリングできますが、**Geometry** は単に空間領域を定義するだけで、レンダリングはされない (ただし、別の UI プロパティに情報を提供する働きはある) という点です。 **Shape** は、**Geometry** で境界線が定義される [**UIElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement) と考えることができます。 このトピックでは、主に **Shape** クラスについて説明します。
+XAML UI に空間領域を定義するクラスのセットには、[**Shape**](/uwp/api/Windows.UI.Xaml.Shapes.Shape) クラスと [**Geometry**](/uwp/api/Windows.UI.Xaml.Media.Geometry) クラスの 2 つがあります。 これらのクラス間の主な違いは、**Shape** にはブラシが関連付けられ、画面にレンダリングできますが、**Geometry** は単に空間領域を定義するだけで、レンダリングはされない (ただし、別の UI プロパティに情報を提供する働きはある) という点です。 **Shape** は、**Geometry** で境界線が定義される [**UIElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement) と考えることができます。 このトピックでは、主に **Shape** クラスについて説明します。
 
 [  **Shape**](/uwp/api/Windows.UI.Xaml.Shapes.Shape) クラスには、[**Line**](/uwp/api/Windows.UI.Xaml.Shapes.Line)、[**Ellipse**](/uwp/api/Windows.UI.Xaml.Shapes.Ellipse)、[**Rectangle**](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle)、[**Polygon**](/uwp/api/Windows.UI.Xaml.Shapes.Polygon)、[**Polyline**](/uwp/api/Windows.UI.Xaml.Shapes.Polyline)、[**Path**](/uwp/api/Windows.UI.Xaml.Shapes.Path) があります。 中でも **Path** は、任意のジオメトリを定義できる興味深いクラスです。また、[**Geometry**](/uwp/api/Windows.UI.Xaml.Media.Geometry) クラスは **Path** の構成要素を定義する方法の 1 つであるため、ここに関与します。
 
@@ -147,7 +147,7 @@ layoutRoot.Children.Add(polygon1);
 
 [  **Line**](/uwp/api/Windows.UI.Xaml.Shapes.Line) は、座標空間において 2 点間に描画される単純な直線です。 **Line** は内部領域を持たないため、[**Fill**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.shape.fill) に何か値を指定してもすべて無視されます。 **Line** には、[**Stroke**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.shape.stroke) プロパティと [**StrokeThickness**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.shape.strokethickness) プロパティの値を必ず指定してください。指定しないと、**Line** はレンダリングされません。
 
-[  **Line**](/uwp/api/Windows.UI.Xaml.Shapes.Line) 図形を指定する際、[**Point**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Point) 値は使いません。[**X1**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.line.x1)、[**Y1**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.line.y1)、[**X2**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.line.x2)、[**Y2**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.line.y2) のそれぞれに対して個別に [**Double**](https://docs.microsoft.com/dotnet/api/system.double?redirectedfrom=MSDN) 値を指定します。 これで、水平方向または垂直方向の直線に対する最低限のマークアップは完成します。 たとえば、長さ 400 ピクセルの水平方向の直線を定義するには、`<Line Stroke="Red" X2="400"/>` とします。 その他の X,Y プロパティは既定で 0 に設定されるため、点で見た場合、この XAML は `(0,0)` から `(400,0)` に直線を描画していることになります。 (0,0) 以外の点から開始する必要がある場合は、[**TranslateTransform**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.TranslateTransform) を使って **Line** 全体を移動することができます。
+[  **Line**](/uwp/api/Windows.UI.Xaml.Shapes.Line) 図形を指定する際、[**Point**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Point) 値は使いません。[**X1**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.line.x1)、[**Y1**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.line.y1)、[**X2**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.line.x2)、[**Y2**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.line.y2) のそれぞれに対して個別に [**Double**](https://docs.microsoft.com/dotnet/api/system.double) 値を指定します。 これで、水平方向または垂直方向の直線に対する最低限のマークアップは完成します。 たとえば、長さ 400 ピクセルの水平方向の直線を定義するには、`<Line Stroke="Red" X2="400"/>` とします。 その他の X,Y プロパティは既定で 0 に設定されるため、点で見た場合、この XAML は `(0,0)` から `(400,0)` に直線を描画していることになります。 (0,0) 以外の点から開始する必要がある場合は、[**TranslateTransform**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.TranslateTransform) を使って **Line** 全体を移動することができます。
 
 ```xaml
 <Line Stroke="Red" X2="400"/>
@@ -165,7 +165,7 @@ line1.X2 = 400;
 layoutRoot.Children.Add(line1);
 ```
 
-## <a name="span-idpolylinespanspan-idpolylinespanspan-idpolylinespan-polyline"></a><span id="_Polyline"></span><span id="_polyline"></span><span id="_POLYLINE"></span> Polyline
+## <a name="span-id_polylinespanspan-id_polylinespanspan-id_polylinespan-polyline"></a><span id="_Polyline"></span><span id="_polyline"></span><span id="_POLYLINE"></span> Polyline
 
 [  **Polyline**](/uwp/api/Windows.UI.Xaml.Shapes.Polyline) は、[**Polygon**](/uwp/api/Windows.UI.Xaml.Shapes.Polygon) と同様に、図形の境界線を点のセットによって定義しますが、**Polyline** では最後の点が最初の点に接続されません。
 
@@ -233,7 +233,7 @@ layoutRoot.Children.Add(polyline1);
 
 ![レンダリングされた Path。](images/shapes-path.jpg)
 
-次の例は、説明済みの手法である [**PathGeometry**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.PathGeometry) を使った [**GeometryGroup**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.geometrygroup) の使用方法を示しています。 この例では、**PathGeometry** の一部として使うことができる関連ジオメトリ型の一部、つまり [**PathFigure**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.PathFigure) と、[**PathFigure.Segments**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.pathfigure.segments) のセグメントとなるさまざまな要素の演習を行います。
+次の例は、説明済みの手法である [**PathGeometry**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.PathGeometry) を使った [**GeometryGroup**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.geometrygroup) の使用方法を示しています。 この例では、**PathGeometry** の一部として使うことができる関連ジオメトリ型の一部、つまり[**PathFigure**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.PathFigure) と、[**PathFigure.Segments**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.pathfigure.segments) のセグメントとなるさまざまな要素の演習を行います。
 
 ```xaml
 <Path Stroke="Black" StrokeThickness="1" Fill="#CCCCFF">
