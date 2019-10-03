@@ -131,7 +131,7 @@ Windows ランタイム コンポーネントの型には、名前空間と同�
 <tr class="odd">
 <td align="left">WME1039</td>
 <td align="left"><p>メソッド ' {0} ' のシグネチャには、型 ' {1} ' のパラメーターが指定されています。 このジェネリック型は有効な Windows ランタイム型ではありませんが、この型またはそのジェネリック パラメーターは、有効な Windows ランタイム型であるインターフェイスを実装します。 [mailto:johndoe@mydomain.com]({2})</p>
-> **Note @ no__t @ no__t @no__t の場合は、Winmdexp の場合は、次のように、メソッドシグネチャ内の型 ' system.string @ no__t-4T @ no__t-5 ' を代わりに、次のいずれかの型に変更することを検討してください (例:)。' System.string. IList @ no__t-0T @ no__t, IReadOnlyList @ no__t-2T @ no__t-4 t @ no__t-5 '. "というようになりました。このような場合は、" "というようになります。
+> **Note **  の場合は {2}、Winmdexp の場合は、次のように、メソッドシグネチャ内の型 ' system.string &lt;T&gt; ' を代わりに、次のいずれかの型に変更することを検討してください (例:)。'System.Collections.Generic.IList&lt;T&gt;, System.Collections.Generic.IReadOnlyList&lt;T&gt;, System.Collections.Generic.IEnumerable&lt;T&gt;'."
 </td>
 </tr>
 <tr class="even">
