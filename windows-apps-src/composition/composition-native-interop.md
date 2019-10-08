@@ -6,12 +6,12 @@ ms.date: 06/22/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 21477938b584e4fa66c815224f25af1f6e2a160c
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 51fc077342694b9ddbdbc03863c0db3b8cd9e1c5
+ms.sourcegitcommit: 3f7432afaa73083cb9b8331e30c885068c6f6dbf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66360518"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72023268"
 ---
 # <a name="composition-native-interoperation-with-directx-and-direct2d"></a>コンポジションでの DirectX と Direct2D のネイティブ相互運用
 
@@ -39,11 +39,11 @@ Windows.UI.Composition API には、コンテンツをコンポジターに直�
 
 ## <a name="usage-example"></a>使用例
 
-次のコード例は、相互運用のシナリオを示しています。 DirectWrite の COM ベースと Direct2D Api を使用してテキストをレンダリングするコードと相互運用機能のヘッダーからの型と共に Windows 合成では、Windows ランタイム ベースのサーフェス領域からの型を組み合わせた例を示します。 この例では[ **BeginDraw** ](https://docs.microsoft.com/windows/desktop/api/windows.ui.composition.interop/nf-windows-ui-composition-interop-icompositiondrawingsurfaceinterop-begindraw)と[ **EndDraw** ](https://docs.microsoft.com/windows/desktop/api/windows.ui.composition.interop/nf-windows-ui-composition-interop-icompositiondrawingsurfaceinterop-enddraw)シームレスにこれらのテクノロジ間の相互運用することです。 この例では、DirectWrite を使用して、テキストのレイアウトし、Direct2D のレンダリングを使用しています。 コンポジション グラフィックス デバイスは初期化時に直接 Direct2D デバイスを受け取ります。 これにより、 **BeginDraw**を返す、 **ID2D1DeviceContext**インターフェイス ポインターは、返されるをラップする Direct2D のコンテキストを作成するアプリケーションよりもかなり効率各描画操作で ID3D11Texture2D インターフェイスです。
+次のコード例は、相互運用のシナリオを示しています。 この例では、Windows コンポジションの Windows ランタイムベースの領域からの型と、相互運用機能ヘッダーの型、および COM ベースの DirectWrite Api と Direct2D Api を使用してテキストをレンダリングするコードを結合しています。 この例では、 [**begindraw**](https://docs.microsoft.com/windows/desktop/api/windows.ui.composition.interop/nf-windows-ui-composition-interop-icompositiondrawingsurfaceinterop-begindraw)と[**enddraw**](https://docs.microsoft.com/windows/desktop/api/windows.ui.composition.interop/nf-windows-ui-composition-interop-icompositiondrawingsurfaceinterop-enddraw)を使用して、これらのテクノロジ間でシームレスに相互運用できるようにします。 この例では、DirectWrite を使用してテキストをレイアウトし、Direct2D を使用してそれをレンダリングします。 コンポジション グラフィックス デバイスは初期化時に直接 Direct2D デバイスを受け取ります。 これにより、 **Begindraw**は**ID2D1DeviceContext**インターフェイスポインターを返すことができます。これは、各描画操作で返された ID3D11Texture2D インターフェイスをラップする Direct2D コンテキストをアプリケーションが作成するよりもはるかに効率的です。
 
-以下の 2 つのコード例があります。 まず、 [C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) (これは完全な) 例では、し、C++/CX のコード例 (この例では、DirectWrite と Direct2D の部分が省略されます)。
+次の2つのコード例があります。 1つ目の例 (完成した)、次にC++/cx コード例 (例の DirectWrite と Direct2D の部分を省略しています)。 [ C++](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt)
 
-以下の C++/WinRT コード例を使用するには、まず Visual Studio で新規の **Core アプリ (C++/WinRT)** プロジェクトを作成してください (要件については、[C++/WinRT の Visual Studio サポート](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)を参照してください)。 プロジェクトを作成するときには、ターゲット バージョンとして **Windows 10、バージョン 1803 (10.0;ビルド 17134)** を選択します。 それは、このコードがビルドされ、テストされたバージョンです。 内容を置き換える、`App.cpp`を以下のコードのソース コード ファイルのビルドおよび実行します。 アプリケーションは、文字列の"Hello, World!"を表示します で、透明な背景に黒のテキスト。 で、透明な背景に黒のテキスト。
+以下の C++/WinRT コード例を使用するには、まず Visual Studio で新規の **Core アプリ (C++/WinRT)** プロジェクトを作成してください (要件については、[C++/WinRT の Visual Studio サポート](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)を参照してください)。 プロジェクトを作成するときには、ターゲット バージョンとして **Windows 10、バージョン 1803 (10.0;ビルド 17134)** を選択します。 それは、このコードがビルドされ、テストされたバージョンです。 @No__t 0 のソースコードファイルの内容を以下のコードリストに置き換え、ビルドして実行します。 アプリケーションは、文字列の"Hello, World!"を表示します で、透明な背景に黒のテキスト。 透明な背景の黒のテキスト。
 
 ```cppwinrt
 // App.cpp
@@ -248,7 +248,7 @@ struct DeviceLostHelper
         m_onDeviceLostHandler = ::CreateThreadpoolWait(DeviceLostHelper::OnDeviceLost, (PVOID)this, nullptr);
 
         // Create a handle and a cookie.
-        m_eventHandle = ::CreateEvent(nullptr, false, false, nullptr);
+        m_eventHandle.attach(::CreateEvent(nullptr, false, false, nullptr));
         winrt::check_bool(bool{ m_eventHandle });
         m_cookie = 0;
 
@@ -523,7 +523,7 @@ private:
 
 int __stdcall wWinMain(HINSTANCE, HINSTANCE, PWSTR, int)
 {
-    CoreApplication::Run(SampleApp());
+    CoreApplication::Run(winrt::make<SampleApp>());
 }
 ```
 

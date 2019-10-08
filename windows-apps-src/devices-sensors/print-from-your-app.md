@@ -6,12 +6,12 @@ ms.date: 01/29/2018
 ms.topic: article
 keywords: windows 10、uwp、印刷
 ms.localizationpriority: medium
-ms.openlocfilehash: 1a60def61e974bca493fb932cc0fb8716ba521f0
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 13b927d3e596db83a2b5cf3f51f93d5eb6c87547
+ms.sourcegitcommit: 7e8ff8c94bd09a201c8ed25fc947e3571caa1031
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67321490"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71999927"
 ---
 # <a name="print-from-your-app"></a>アプリからの印刷
 
@@ -19,21 +19,21 @@ ms.locfileid: "67321490"
 
 **重要な API**
 
--   [**Windows.Graphics.Printing**](https://docs.microsoft.com/uwp/api/Windows.Graphics.Printing)
--   [**Windows.UI.Xaml.Printing**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Printing)
+-   [**Windows. Graphics. 印刷**](https://docs.microsoft.com/uwp/api/Windows.Graphics.Printing)
+-   [**Windows. UI. .Xaml. 印刷**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Printing)
 -   [**PrintDocument**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Printing.PrintDocument)
 
 ユニバーサル Windows アプリからドキュメントを印刷する方法について説明します。 また、このトピックでは特定のページを印刷する方法も示します。 印刷プレビュー UI の高度な変更については、「[印刷プレビュー UI のカスタマイズ](customize-the-print-preview-ui.md)」を参照してください。
 
 > [!TIP]
-> このトピックの例のほとんどは、印刷のサンプルに基づいています。 完全なコードを確認するには、GitHub の [Windows-universal-samples リポジトリ](https://go.microsoft.com/fwlink/p/?LinkId=619984)から[ユニバーサル Windows プラットフォーム (UWP) 印刷サンプル](https://go.microsoft.com/fwlink/p/?LinkId=619979)をダウンロードしてください。
+>@no__t このトピックのほとんどの例は、GitHub の[ユニバーサル Windows プラットフォーム (uwp) アプリサンプル](https://github.com/Microsoft/Windows-universal-samples)リポジトリの一部である[ユニバーサル Windows プラットフォーム (uwp) print サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Printing)に基づいています。
 
 ## <a name="register-for-printing"></a>印刷の登録
 
 アプリに印刷機能を追加する最初の手順は、印刷コントラクトへの登録です。 アプリは、ユーザーによる印刷を可能にするすべての画面でこの処理を行う必要があります。 ユーザーに表示される画面のみ、印刷登録を行うことができます。 アプリの画面を印刷登録した場合は、画面終了時に印刷登録を解除する必要があります。 別の画面で置き換えられる場合は、その画面が開いたときに画面を新しい印刷コントラクトに登録する必要があります。
 
 > [!TIP]
-> アプリでは、複数のページからの印刷をサポートする必要がある場合は、一般的なヘルパー クラスにこのプリントのコードを配置し、アプリ ページを再利用できます。 この方法の例については、[UWP 印刷サンプル](https://go.microsoft.com/fwlink/p/?LinkId=619984)に挙げられている `PrintHelper` クラスをご覧ください。
+>@no__t アプリ内の複数のページからの印刷をサポートする必要がある場合は、この印刷コードを共通のヘルパークラスに配置し、アプリページで再利用することができます。 この方法の例については、[UWP 印刷サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Printing)に挙げられている `PrintHelper` クラスをご覧ください。
 
 まず、[**PrintManager**](https://docs.microsoft.com/uwp/api/Windows.Graphics.Printing.PrintManager) と [**PrintDocument**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Printing.PrintDocument) を宣言します。 他の Windows 印刷機能をサポートするタイプと共に、**PrintManager** タイプが [**Windows.Graphics.Printing**](https://docs.microsoft.com/uwp/api/Windows.Graphics.Printing) 名前空間内に指定されています。 XAML コンテンツの印刷準備をサポートする他のタイプと共に、**PrintDocument** タイプが [**Windows.UI.Xaml.Printing**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Printing) 名前空間内に指定されています。 次の **using** ステートメントまたは **Imports** ステートメントをページに追加することで、印刷コードを簡単に記述できます。
 
@@ -44,7 +44,7 @@ using Windows.UI.Xaml.Controls;
 
 [  **PrintDocument**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Printing.PrintDocument) クラスはアプリと [**PrintManager**](https://docs.microsoft.com/uwp/api/Windows.Graphics.Printing.PrintManager) 間の多くの対話を処理しますが、独自のコールバックがいくつか公開されます。 登録中に **PrintManager** と **PrintDocument** のインスタンスを作成し、それらの印刷イベントのハンドラーを登録します。
 
-[UWP 印刷サンプル](https://go.microsoft.com/fwlink/p/?LinkId=619984)では、登録は `RegisterForPrinting` メソッドによって実行されます。
+[UWP 印刷サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Printing)では、登録は `RegisterForPrinting` メソッドによって実行されます。
 
 ```csharp
 public virtual void RegisterForPrinting()
@@ -77,7 +77,29 @@ protected override void OnNavigatedTo(NavigationEventArgs e)
 }
 ```
 
-ユーザーがページから離れた時点で、印刷イベント ハンドラーを切り離します。 複数ページ アプリが存在し、印刷を切断しないと、ユーザーがページからいったん移動してそのページに戻ってきたときに例外がスローされます。
+このサンプルでは、イベントハンドラーが @no__t 0 メソッドで登録解除されます。
+
+```csharp
+public virtual void UnregisterForPrinting()
+{
+    if (printDocument == null)
+    {
+        return;
+    }
+
+    printDocument.Paginate -= CreatePrintPreviewPages;
+    printDocument.GetPreviewPage -= GetPrintPreviewPage;
+    printDocument.AddPages -= AddPrintPages;
+
+    PrintManager printMan = PrintManager.GetForCurrentView();
+    printMan.PrintTaskRequested -= PrintTaskRequested;
+}
+```
+
+印刷をサポートするページをユーザーが離れたときに、イベントハンドラーが `OnNavigatedFrom` メソッド内で登録解除されます。 
+
+> [!NOTE]
+> 複数ページのアプリがあり、印刷を切断していない場合は、ユーザーがページを離れてからそのページに戻ると、例外がスローされます。
 
 ```csharp
 protected override void OnNavigatedFrom(NavigationEventArgs e)
@@ -88,6 +110,7 @@ protected override void OnNavigatedFrom(NavigationEventArgs e)
    }
 }
 ```
+
 ## <a name="create-a-print-button"></a>印刷ボタンの作成
 
 アプリの画面の任意の場所に印刷ボタンを追加します。 印刷するコンテンツの妨げにならないようにします。
@@ -97,6 +120,8 @@ protected override void OnNavigatedFrom(NavigationEventArgs e)
 ```
 
 次に、クリック イベントを処理するイベント ハンドラーをアプリのコードに追加します。 [  **ShowPrintUIAsync**](https://docs.microsoft.com/uwp/api/windows.graphics.printing.printmanager.showprintuiasync) メソッドを使用してアプリからの印刷を開始します。 **ShowPrintUIAsync** は適切な印刷ウィンドウを表示する非同期メソッドです。 印刷をサポートするデバイス上でアプリが実行されていることを確認する (およびサポートされていないケースに対処する) ために、先に [**IsSupported**](https://docs.microsoft.com/uwp/api/windows.graphics.printing.printmanager.issupported) メソッドを呼び出すことをお勧めします。 その時点でなんらかの理由で印刷を実行できない場合は、**ShowPrintUIAsync** は例外をスローします。 印刷を続行できない場合は、これらの例外をキャッチして、ユーザーに知らせることをお勧めします。
+
+この例では、ボタン クリックのイベント ハンドラーに印刷ウィンドウが表示されます。 メソッドによって例外がスローされる場合 (その時点で印刷を実行することができないため)、[**ContentDialog**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ContentDialog) コントロールによってその状況がユーザーに通知されます。
 
 ```csharp
 async private void OnPrintButtonClick(object sender, RoutedEventArgs e)
@@ -133,8 +158,6 @@ async private void OnPrintButtonClick(object sender, RoutedEventArgs e)
 }
 ```
 
-この例では、ボタン クリックのイベント ハンドラーに印刷ウィンドウが表示されます。 メソッドによって例外がスローされる場合 (その時点で印刷を実行することができないため)、[**ContentDialog**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ContentDialog) コントロールによってその状況がユーザーに通知されます。
-
 ## <a name="format-your-apps-content"></a>アプリのコンテンツの書式設定
 
 **ShowPrintUIAsync** が呼び出されると、[**PrintTaskRequested**](https://docs.microsoft.com/uwp/api/Windows.Foundation.IAsyncOperationWithProgress_TResult_TProgress_#Windows_Foundation_IAsyncOperationWithProgress_2_Progress) イベントが発生します。 この手順に示す **PrintTaskRequested** イベント ハンドラーは、[**PrintTaskRequest.CreatePrintTask**](https://docs.microsoft.com/uwp/api/windows.graphics.printing.printtaskrequest.createprinttask) メソッドを呼び出して [**PrintTask**](https://docs.microsoft.com/uwp/api/Windows.Graphics.Printing.PrintTask) を作成し、印刷ページのタイトルと [**PrintTaskSourceRequestedHandler**](https://docs.microsoft.com/uwp/api/windows.graphics.printing.printtask.source) デリゲートの名前を渡します。 この例では、**PrintTaskSourceRequestedHandler** がインラインで定義されています。 **PrintTaskSourceRequestedHandler** は、印刷用の書式付きコンテンツを用意します (後述)。
@@ -168,7 +191,7 @@ protected virtual void PrintTaskRequested(PrintManager sender, PrintTaskRequeste
 印刷タスクが作られた後、[**PrintManager**](https://docs.microsoft.com/uwp/api/Windows.Graphics.Printing.PrintManager) は [**Paginate**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.printing.printdocument.paginate) イベントを発生させることによって、印刷プレビュー UI に表示するために印刷ページのコレクションを要求します。 これは、**IPrintPreviewPageCollection** インターフェイスの **Paginate** メソッドに対応します。 登録時に作成したイベント ハンドラーは、この時点で呼び出されます。
 
 > [!IMPORTANT]
-> ユーザーの変更は、設定を印刷する場合ページ設定のイベント ハンドラーがコンテンツをリフローすることができるようにもう一度呼び出されます。 優良なユーザー エクスペリエンスのため、マイクロソフトではコンテンツを再配置する前に設定を確認し、ページ付けされたコンテンツの不必要な再初期化を避けることをお勧めします。
+> If が印刷設定を変更すると、改ページイベントハンドラーが再度呼び出され、コンテンツのリフローを可能にします。 優良なユーザー エクスペリエンスのため、マイクロソフトではコンテンツを再配置する前に設定を確認し、ページ付けされたコンテンツの不必要な再初期化を避けることをお勧めします。
 
 [  **Paginate**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.printing.printdocument.paginate) イベント ハンドラー ([UWP 印刷サンプル](https://go.microsoft.com/fwlink/p/?LinkId=619984)内の `CreatePrintPreviewPages` メソッド) で、印刷プレビュー UI に表示されてプリンターに送信されるページを作ります。 アプリのコンテンツの印刷準備のために使うコードは、アプリと印刷するコンテンツに固有です。 コンテンツを印刷用に書式設定する方法については、[UWP 印刷サンプル](https://go.microsoft.com/fwlink/p/?LinkId=619984)のソース コードを参照してください。
 
@@ -252,10 +275,10 @@ protected virtual void AddPrintPages(object sender, AddPagesEventArgs e)
 
 この手順では、新しい印刷オプションを作成し、オプションがサポートする値の一覧を定義して、印刷プレビュー UI にオプションを追加します。 ページ範囲オプションでは次の設定を指定できます。
 
-| オプション名          | アクション |
+| オプション名          | 操作 |
 |----------------------|--------|
-| **すべての印刷**        | ドキュメントのすべてのページを印刷します。|
-| **選択したを印刷します。**  | ユーザーが選んだ内容のみを印刷します。|
+| **すべて印刷**        | ドキュメントのすべてのページを印刷します。|
+| **印刷の選択**  | ユーザーが選んだ内容のみを印刷します。|
 | **印刷範囲**      | ユーザーが印刷するページを入力できる編集コントロールを表示します。|
 
 まず、[**PrintTaskRequested**](https://docs.microsoft.com/uwp/api/Windows.Foundation.IAsyncOperationWithProgress_TResult_TProgress_#Windows_Foundation_IAsyncOperationWithProgress_2_Progress) イベント ハンドラーを変更し、[**PrintTaskOptionDetails**](https://docs.microsoft.com/uwp/api/Windows.Graphics.Printing.OptionDetails.PrintTaskOptionDetails) オブジェクトを取得するコードを追加します。
@@ -267,7 +290,7 @@ PrintTaskOptionDetails printDetailedOptions = PrintTaskOptionDetails.GetFromPrin
 印刷プレビュー UI に表示されるオプションの一覧をクリアし、ユーザーがアプリから印刷する場合に表示するオプションを追加します。
 
 > [!NOTE]
-> ウィンドウの上部に表示する最初のオプションの追加と同じ順序で印刷プレビュー UI で、オプションが表示されます。
+> The preview UI には、ウィンドウの上部に表示される最初のオプションと同じ順序でオプションが表示されます。
 
 ```csharp
 IList<string> displayedOptions = printDetailedOptions.DisplayedOptions;
@@ -307,7 +330,7 @@ printDetailedOptions.OptionChanged += printDetailedOptions_OptionChanged;
 
 **OptionChanged** イベント ハンドラーは主に次の 2 つを実行します。 まず、ユーザーが選んだページ範囲オプションに応じて、ページ範囲のテキスト編集フィールドの表示/非表示を切り替えます。 そして、ページ範囲ボックスに入力されたテキストをテストして、ドキュメントの有効ページ範囲であるかどうかを確認します。
 
-この例は、[UWP 印刷サンプル](https://go.microsoft.com/fwlink/p/?LinkId=619984)による変更イベントの処理方法を示します。
+この例は、 [UWP print サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Printing)で印刷オプションの変更イベントを処理する方法を示しています。
 
 ```csharp
 async void printDetailedOptions_OptionChanged(PrintTaskOptionDetails sender, PrintTaskOptionChangedEventArgs args)
@@ -384,13 +407,13 @@ async void printDetailedOptions_OptionChanged(PrintTaskOptionDetails sender, Pri
 ```
 
 > [!TIP]
-> 参照してください、`GetPagesInRange`メソッドで、 [UWP 印刷サンプル](https://go.microsoft.com/fwlink/p/?LinkId=619984)ページを解析する方法の詳細については、ユーザーを範囲に対しては、範囲のテキスト ボックスに入力します。
+>@no__t、ユーザーが [範囲] ボックスに入力したページ範囲を解析する方法の詳細については、 [UWP 印刷サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Printing)の `GetPagesInRange` メソッドを参照してください。
 
 ## <a name="preview-selected-pages"></a>選んだページのプレビュー
 
-アプリのコンテンツ印刷用の書式設定は、アプリの特性とコンテンツによって異なります。 [UWP 印刷サンプル](https://go.microsoft.com/fwlink/p/?LinkId=619984)では、印刷ヘルパー クラスを使ってそのコンテンツの書式を印刷用に設定しています。
+アプリのコンテンツ印刷用の書式設定は、アプリの特性とコンテンツによって異なります。 印刷用にコンテンツを書式設定するために[UWP print サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Printing)で使用される印刷ヘルパークラス。
 
-ページのサブセットを印刷するとき、印刷プレビューでコンテンツを表示する方法はいくつかあります。 指定されたページ範囲をどのような方法で印刷プレビューに表示するかに関係なく、印刷出力には、選ばれたページだけが含まれている必要があります。
+ページのサブセットを印刷する場合、印刷プレビューでコンテンツを表示するにはいくつかの方法があります。 指定されたページ範囲をどのような方法で印刷プレビューに表示するかに関係なく、印刷出力には、選ばれたページだけが含まれている必要があります。
 
 -   ページ範囲が指定されているかどうかに関係なく印刷プレビューにすべてのページを表示し、実際にどのページを印刷するかはユーザーの判断に委ねます。
 -   ユーザーがページ範囲で選んだページだけを印刷プレビューに表示し、ページ範囲が変更されるたびに、表示を最新の情報に更新します。
@@ -398,6 +421,6 @@ async void printDetailedOptions_OptionChanged(PrintTaskOptionDetails sender, Pri
 
 ## <a name="related-topics"></a>関連トピック
 
-* [印刷のデザイン ガイドライン](https://docs.microsoft.com/windows/uwp/devices-sensors/printing-and-scanning)
-* [Build 2015 ビデオ:Windows 10 で印刷するアプリの開発](https://channel9.msdn.com/Events/Build/2015/2-94)
-* [UWP 印刷サンプル](https://go.microsoft.com/fwlink/p/?LinkId=619984)
+* [印刷のデザインガイドライン](https://docs.microsoft.com/windows/uwp/devices-sensors/printing-and-scanning)
+* [//ビルド2015ビデオ:Windows 10 @ no__t で印刷するアプリの開発-0
+* [UWP 印刷のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Printing)
