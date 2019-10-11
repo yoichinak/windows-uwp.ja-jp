@@ -5,22 +5,22 @@ ms.date: 02/15/2018
 ms.topic: article
 keywords: windows 10 s, 常時接続, ARM, ARM64, x86 エミュレーション
 ms.localizationpriority: medium
-ms.openlocfilehash: 740956480323d7c201e81071a444026b8d155462
-ms.sourcegitcommit: 350d6e6ba36800df582f9715c8d21574a952aef1
+ms.openlocfilehash: 7450b469f77fec4288ad6dff01ee7673affc8dd9
+ms.sourcegitcommit: f3c1a81b50f4a372a15996ac71b3f408a8ee1409
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68682730"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72237531"
 ---
 # <a name="windows-10-on-arm"></a>ARM 版 Windows 10
-もともと、Windows 10 (Windows 10 Mobile とは区別されます) は、x86 および x64 プロセッサを搭載した PC でのみ実行できました。 現在では、Fall Creators Update により、ARM64 プロセッサ搭載のコンピューターでも Windows 10 Desktop (Pro エディションおよび S エディション) を実行できるようになりました。 ARM CPU アーキテクチャが持つ省電力の性質により、これらの PC のバッテリーが終日持つようになり、モバイル データ ネットワークがサポートされるようになります。 これらの PC にはアプリケーションの互換性が十分に備わっており、既存の x86 win32 アプリケーションを変更せずに実行できます。 例: Adobe Reader。 詳細またはデモについては、[Always Connected PC に関する Channel 9 ビデオ](https://channel9.msdn.com/Events/Build/2017/P4171)をご覧ください。
+もともと、Windows 10 (Windows 10 Mobile とは区別されます) は、x86 および x64 プロセッサを搭載した PC でのみ実行できました。 現在、Windows 10 desktop は、ARM64 プロセッサを搭載したコンピューターで実行できます。 ARM CPU アーキテクチャが持つ省電力の性質により、これらの PC のバッテリーが終日持つようになり、モバイル データ ネットワークがサポートされるようになります。 これらの PC にはアプリケーションの互換性が十分に備わっており、既存の x86 win32 アプリケーションを変更せずに実行できます。 詳細やデモについては、「[常時接続されている PC の Channel 9 ビデオ](https://channel9.msdn.com/Events/Build/2017/P4171)」を参照してください。
 
 ここでは、 *"ARM"* という用語を、ARM64 (一般に *AArch64* とも呼ばれます) プロセッサで Windows 10 のデスクトップ バージョンを実行する PC の省略形として使っています。  ここでは、 *"ARM32"* という用語を、32 ビット ARM アーキテクチャ (他のドキュメントでは一般に *ARM* と呼ばれます) の省略形として使っています。
 
 ## <a name="apps-and-experiences-on-arm"></a>ARM でのアプリとエクスペリエンス
 
 ### <a name="built-in-windows-10-experiences-apps-and-drivers"></a>組み込みの Windows 10 エクスペリエンス, アプリとドライバー
-Microsoft Edge、Cortana、スタート メニュー、エクスプローラーなどの組み込みの Windows 10 エクスペリエンスは、すべてネイティブであり、ARM64 (または ARM32) として実行されます。 これには、グラフィックス、ネットワーク、ハード ディスクなどのすべてのデバイス ドライバーも含まれます。 これにより、Qualcomm Snapdragon プロセッサのフル ネイティブ速度で実行されるデバイスにおけるユーザー エクスペリエンスとバッテリー寿命が最適化されます。
+Edge、Cortana、スタートメニュー、エクスプローラーなどの組み込みの Windows 10 エクスペリエンスはすべてネイティブで、ARM64 として実行されます。 これには、グラフィックス、ネットワーク、ハードディスクなど、すべてのデバイスドライバーも含まれます。 これにより、Qualcomm Snapdragon プロセッサの完全なネイティブ速度で実行されているデバイスから、最適なユーザーエクスペリエンスとバッテリ寿命を得ることができます。
 
 ### <a name="universal-windows-platform-uwp-apps"></a>ユニバーサル Windows プラットフォーム (UWP) アプリ
 ARM 上の Windows 10 は、Microsoft Store からすべての x86、ARM32、および ARM64 [UWP アプリ](../get-started/universal-application-platform-guide.md)を実行します。 ARM32 アプリと ARM64 アプリはエミュレーションなしでネイティブに実行されますが、x86 アプリはエミュレーションで実行されます。 UWP 開発者の場合、デバイスの最適なユーザー エクスペリエンスを提供するため、必ずアプリの ARM パッケージを提出してください。 詳しくは、「[アプリ パッケージのアーキテクチャ](/windows/msix/package/device-architecture)」をご覧ください。
@@ -33,7 +33,7 @@ ARM 上の Windows 10 は、Microsoft Store からすべての x86、ARM32、お
 > ユーザーが Microsoft Store から UWP アプリをダウンロードすると、x86 バージョンしか利用できない場合を除き、ARM32 バージョンが ARM64 デバイスにダウンロードされます。 アーキテクチャについて詳しくは、「[アプリ パッケージのアーキテクチャ](/windows/msix/package/device-architecture)」をご覧ください。
 
 ### <a name="win32-apps"></a>Win32 アプリ
-UWP アプリに加えて、ARM 上の Windows 10 では、PC と同じように、パフォーマンスとシームレスなユーザーエクスペリエンスを向上させることで、x86 Win32 アプリ (Adobe Reader など) を変更せずに実行することもできます。 これらの x86 Win32 アプリは ARM 用に再コンパイルする必要がなく、ARM プロセッサで実行されていることを認識していません。 64 ビット x64 Win32 アプリはサポートされていませんが、ほぼすべてのアプリに x86 バージョンがあるため、ユーザーの観点からは 32 ビット x86 インストーラーを選ぶだけで ARM PC の Windows で実行できます。
+UWP アプリに加えて、ARM 上の Windows 10 では、PC と同じように、優れたパフォーマンスとシームレスなユーザーエクスペリエンスで、x86 Win32 アプリを変更せずに実行することもできます。 これらの x86 Win32 アプリは ARM 用に再コンパイルする必要がなく、ARM プロセッサで実行されていることを認識していません。 64ビットの x64 Win32 アプリはサポートされていませんが、ほとんどのアプリには x86 バージョンが用意されています。  アプリのアーキテクチャを選択した場合は、ARM PC 上の Windows 10 でアプリを実行するために、32ビットの x86 バージョンを選択するだけです。
 
 ## <a name="in-this-section"></a>このセクションの内容
 |トピック | 説明 |

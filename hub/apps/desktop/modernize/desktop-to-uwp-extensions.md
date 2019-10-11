@@ -8,12 +8,12 @@ ms.assetid: 0a8cedac-172a-4efd-8b6b-67fd3667df34
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: 87483c5d34cfb2b0bb266fb3d903e15d1b492187
-ms.sourcegitcommit: a28a32fff9d15ecf4a9d172cd0a04f4d993f9d76
+ms.openlocfilehash: 316682ba136b5b3249d26abd0a5c5a877abbcf12
+ms.sourcegitcommit: 76357092f90b70bdb21ee43a5a416fe1fbfd9b89
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959050"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72257936"
 ---
 # <a name="integrate-your-packaged-desktop-app-with-windows-10-and-uwp"></a>パッケージ化されたデスクトップアプリを Windows 10 および UWP と統合する
 
@@ -110,7 +110,7 @@ http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabi
 
 ```XML
 <Extension Category="windows.fileTypeAssociation">
-<FileTypeAssociation Name="[Name]">
+    <FileTypeAssociation Name="[Name]">
          <MigrationProgIds>
             <MigrationProgId>"[ProgID]"</MigrationProgId>
         </MigrationProgIds>
@@ -123,7 +123,7 @@ http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabi
 |Name |説明 |
 |-------|-------------|
 |Category |常に ``windows.fileTypeAssociation`` です。
-|Name |ファイルの種類の関連付けの名前。 この名前を使用して、ファイルの種類を整理およびグループ化することができます。 名前は、すべて小文字で、スペースを使用しないようにする必要があります。 |
+|名前 |ファイルの種類の関連付けの名前。 この名前を使用して、ファイルの種類を整理およびグループ化することができます。 名前は、すべて小文字で、スペースを使用しないようにする必要があります。 |
 |MigrationProgId |ファイルの関連付けを継承するデスクトップアプリケーションのアプリケーション、コンポーネント、およびバージョンを記述する[プログラム識別子 (ProgID)](https://docs.microsoft.com/windows/desktop/shell/fa-progids) 。|
 
 #### <a name="example"></a>例
@@ -182,7 +182,7 @@ http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabi
 |Name |説明 |
 |-------|-------------|
 |Category |常に ``windows.fileTypeAssociation`` です。
-|Name | ファイルの種類の関連付けの名前。 この名前を使用して、ファイルの種類を整理およびグループ化することができます。 名前は、すべて小文字で、スペースを使用しないようにする必要があります。   |
+|名前 | ファイルの種類の関連付けの名前。 この名前を使用して、ファイルの種類を整理およびグループ化することができます。 名前は、すべて小文字で、スペースを使用しないようにする必要があります。   |
 |FileType |アプリでサポートされているファイル拡張子。 |
 
 #### <a name="example"></a>例
@@ -243,7 +243,7 @@ http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabi
 |Name |説明 |
 |-------|-------------|
 |Category | 常に ``windows.fileTypeAssociation`` です。
-|Name |ファイルの種類の関連付けの名前。 この名前を使用して、ファイルの種類を整理およびグループ化することができます。 名前は、すべて小文字で、スペースを使用しないようにする必要があります。 |
+|名前 |ファイルの種類の関連付けの名前。 この名前を使用して、ファイルの種類を整理およびグループ化することができます。 名前は、すべて小文字で、スペースを使用しないようにする必要があります。 |
 |Verb |エクスプローラーのコンテキスト メニューに表示される名前です。 この文字列は、```ms-resource``` を使用してローカライズできます。|
 |Id |動詞の一意の ID。 アプリケーションが UWP アプリである場合、これはアクティブ化イベントの引数の一部としてアプリに渡されるので、ユーザーの選択を適切に処理できます。 アプリケーションが完全に信頼されたパッケージアプリである場合は、代わりにパラメーターを受け取ります (次の箇条書きを参照)。 |
 |Parameters |動詞に関連付けられている引数のパラメーターと値のリスト。 アプリケーションが完全に信頼されたパッケージアプリである場合、これらのパラメーターは、アプリケーションがアクティブ化されるときにイベント引数としてアプリケーションに渡されます。 さまざまなアクティベーション動詞に基づいて、アプリケーションの動作をカスタマイズできます。 変数にファイル パスが含まれる可能性がある場合は、パラメーター値を引用符で囲みます。 これにより、パスにスペースが含まれている場合に発生する問題を回避できます。 アプリケーションが UWP アプリの場合、パラメーターを渡すことはできません。 アプリは、代わりに ID を受け取ります (前の項目を参照してください)。|
@@ -287,8 +287,8 @@ http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabi
 
 #### <a name="xml-namespaces"></a>XML 名前空間
 
-* http:\//schemas.microsoft.com/appx/manifest/uap/windows10
-* http:\//schemas.microsoft.com/appx/manifest/uap/windows10/3 "
+* http: \//スキーマ。 microsoft .com/appx/manifest/uap/windows10
+* http: \//スキーマ。 microsoft .com/appx/manifest/uap/windows10/3 "
 
 #### <a name="elements-and-attributes-of-this-extension"></a>この拡張機能の要素と属性
 
@@ -307,9 +307,9 @@ http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabi
 |Name |説明 |
 |-------|-------------|
 |Category |常に ``windows.fileTypeAssociation`` です。
-|Name |ファイルの種類の関連付けの名前。 この名前を使用して、ファイルの種類を整理およびグループ化することができます。 名前は、すべて小文字で、スペースを使用しないようにする必要があります。 |
+|名前 |ファイルの種類の関連付けの名前。 この名前を使用して、ファイルの種類を整理およびグループ化することができます。 名前は、すべて小文字で、スペースを使用しないようにする必要があります。 |
 |UseUrl |URL ターゲットから直接ファイルを開くかどうかを示します。 この値を設定しなかった場合、URL を使用してアプリケーションがファイルを開こうとすると、システムは最初にファイルをローカルにダウンロードします。 |
-|Parameters | 省略可能なパラメーター。 |
+|パラメーター | 省略可能なパラメーター。 |
 |FileType |関連するファイル拡張子。 |
 
 #### <a name="example"></a>例
@@ -372,7 +372,7 @@ http://schemas.microsoft.com/appx/manifest/desktop/windows10/2
 
 |Name |説明 |
 |-------|-------------|
-|Category |いつも``windows.firewallRules``|
+|Category |常に ``windows.firewallRules``|
 |Executable |ファイアウォールの例外の一覧に追加する実行可能ファイルの名前。 |
 |Direction |規則が受信規則か送信規則かを示します。 |
 |IPProtocol |通信プロトコル。 |
@@ -498,7 +498,7 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
 |Name |説明 |
 |-------|-------------|
 |Category |常に ``windows.fileTypeAssociation`` です。
-|Name |ファイルの種類の関連付けの名前。 この名前を使用して、ファイルの種類を整理およびグループ化することができます。 名前は、すべて小文字で、スペースを使用しないようにする必要があります。 |
+|名前 |ファイルの種類の関連付けの名前。 この名前を使用して、ファイルの種類を整理およびグループ化することができます。 名前は、すべて小文字で、スペースを使用しないようにする必要があります。 |
 |MultiSelectModel |下を参照 |
 |FileType |関連するファイル拡張子。 |
 
@@ -573,7 +573,7 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
 |Name |説明 |
 |-------|-------------|
 |Category |常に ``windows.fileTypeAssociation`` です。
-|Name |ファイルの種類の関連付けの名前。 この名前を使用して、ファイルの種類を整理およびグループ化することができます。 名前は、すべて小文字で、スペースを使用しないようにする必要があります。 |
+|名前 |ファイルの種類の関連付けの名前。 この名前を使用して、ファイルの種類を整理およびグループ化することができます。 名前は、すべて小文字で、スペースを使用しないようにする必要があります。 |
 |FileType |関連するファイル拡張子。 |
 |Clsid   |アプリのクラス ID。 |
 
@@ -635,7 +635,7 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
 |Name |説明 |
 |-------|-------------|
 |Category |常に ``windows.fileTypeAssociation`` です。
-|Name |ファイルの種類の関連付けの名前。 この名前を使用して、ファイルの種類を整理およびグループ化することができます。 名前は、すべて小文字で、スペースを使用しないようにする必要があります。 |
+|名前 |ファイルの種類の関連付けの名前。 この名前を使用して、ファイルの種類を整理およびグループ化することができます。 名前は、すべて小文字で、スペースを使用しないようにする必要があります。 |
 |FileType |関連するファイル拡張子。 |
 |Clsid   |アプリのクラス ID。 |
 
@@ -700,7 +700,7 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
 |Name |説明 |
 |-------|-------------|
 |Category |常に ``windows.fileTypeAssociation`` です。
-|Name |ファイルの種類の関連付けの名前。 この名前を使用して、ファイルの種類を整理およびグループ化することができます。 名前は、すべて小文字で、スペースを使用しないようにする必要があります。 |
+|名前 |ファイルの種類の関連付けの名前。 この名前を使用して、ファイルの種類を整理およびグループ化することができます。 名前は、すべて小文字で、スペースを使用しないようにする必要があります。 |
 |FileType |関連するファイル拡張子。 |
 |value |有効な [Kind 値](https://docs.microsoft.com/windows/desktop/properties/building-property-handlers-user-friendly-kind-names)。 |
 
@@ -761,7 +761,7 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
 |Name |説明 |
 |-------|-------------|
 |Category |常に ``windows.fileTypeAssociation`` です。
-|Name |ファイルの種類の関連付けの名前。 この名前を使用して、ファイルの種類を整理およびグループ化することができます。 名前は、すべて小文字で、スペースを使用しないようにする必要があります。 |
+|名前 |ファイルの種類の関連付けの名前。 この名前を使用して、ファイルの種類を整理およびグループ化することができます。 名前は、すべて小文字で、スペースを使用しないようにする必要があります。 |
 |FileType |関連するファイル拡張子。 |
 |Clsid  |アプリのクラス ID。 |
 
@@ -995,17 +995,16 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/3
 ```XML
 <Package
   xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
-  IgnorableNamespaces="uap3">
+  xmlns:desktop="http://schemas.microsoft.com/appx/manifest/desktop/windows10"
+  IgnorableNamespaces="uap3, desktop">
   <Applications>
     <Application>
       <Extensions>
-         <uap3:Extension
-                Category="windows.appExecutionAlias"
-                Executable="exes\launcher.exe"
-                EntryPoint="Windows.FullTrustApplication">
-            <uap3:AppExecutionAlias>
-                <desktop:ExecutionAlias Alias="Contoso.exe" />
-            </uap3:AppExecutionAlias>
+        <uap3:Extension
+          Category="windows.protocol">
+          <uap3:Protocol
+            Name="myapp-cmd"
+            Parameters="/p &quot;%1&quot;" />
         </uap3:Extension>
       </Extensions>
     </Application>
@@ -1049,23 +1048,21 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/3
 ```XML
 <Package
   xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
-  xmlns:desktop="http://schemas.microsoft.com/appx/manifest/desktop/windows10"
-  IgnorableNamespaces="uap3, desktop">
+  IgnorableNamespaces="uap3">
   <Applications>
     <Application>
       <Extensions>
-        <uap3:Extension
-          Category="windows.protocol">
-          <uap3:Protocol
-            Name="myapp-cmd"
-            Parameters="/p &quot;%1&quot;" />
+         <uap3:Extension
+                Category="windows.appExecutionAlias"
+                Executable="exes\launcher.exe"
+                EntryPoint="Windows.FullTrustApplication">
+            <uap3:AppExecutionAlias>
+                <desktop:ExecutionAlias Alias="Contoso.exe" />
+            </uap3:AppExecutionAlias>
         </uap3:Extension>
       </Extensions>
     </Application>
   </Applications>
-</Package>
- 
-...
 </Package>
 ```
 

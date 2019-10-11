@@ -5,12 +5,12 @@ ms.date: 07/23/2019
 ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、同時実行、非同期、非同期、非同期操作
 ms.localizationpriority: medium
-ms.openlocfilehash: 1170b8e1291afd166f210feb291b644d1c7ed546
-ms.sourcegitcommit: e5a154c7b6c1b236943738febdb17a4815853de5
+ms.openlocfilehash: 9484b61aae91ae426efb1963cd37ebf276ef7c6c
+ms.sourcegitcommit: f8634aad3a3675c2f0eac62f56df3def4285a7b0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71164824"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720433"
 ---
 # <a name="more-advanced-concurrency-and-asynchrony-with-cwinrt"></a>C++/WinRT でのより高度な同時実行操作と非同期操作
 
@@ -787,6 +787,51 @@ case AsyncStatus::Started:
 - **AsyncStatus::Canceled** は、非同期オブジェクトが取り消されたことを意味します。 取り消しは、通常は呼び出し元によって要求されるため、この状態を処理することはめったにありません。 通常、取り消された非同期オブジェクトは破棄されるだけです。
 - **Asyncstatus:: Error** は、非同期オブジェクトが何らかの方法で失敗したことを意味します。 必要な場合は、例外を再スローするために **get** できます。
 - **AsyncStatus::Started** は、非同期オブジェクトがまだ実行されていることを意味します。 Windows ランタイムの非同期パターンでは、複数の待機も待機処理も許可されません。 これは、ループ内で **wait_for** を呼び出せないことを意味します。 待機が有効にタイムアウトしている場合は、いくつかの選択肢があります。 オブジェクトを破棄するか、**get** を呼び出して結果を取得する前にその状態をポーリングできます。 ただし、最善なのは、この時点で単にオブジェクトを破棄することです。
+
+## <a name="returning-an-array-asynchronously"></a>配列を非同期的に返す
+
+次に示すのは、*エラー MIDL2025: [msg]syntax error [context]: expecting > or, near "["* を生成する [MIDL 3.0](/uwp/midl-3/) の例です。
+
+```idl
+Windows.Foundation.IAsyncOperation<Int32[]> RetrieveArrayAsync();
+```
+
+これは、パラメーター化されたインターフェイスのパラメーター型引数として配列を使用することが無効であるためです。 そのため、ランタイム クラスのメソッドから非同期的に配列を渡すことを目的とする明確さの低い方法が必要になります。 
+
+配列は、[PropertyValue](/uwp/api/windows.foundation.propertyvalue) オブジェクトにボックス化して返すことができます。 その後、呼び出し元のコードでボックス化を解除します。 コード例を次に示します。これを試すには、**Windows ランタイム コンポーネント (C++/WinRT)** プロジェクトに **SampleComponent** ランタイム クラスを追加し、それを (たとえば) **Core アプリ (C++/WinRT)** プロジェクトから利用します。
+
+```cppwinrt
+// SampleComponent.idl
+namespace MyComponentProject
+{
+    runtimeclass SampleComponent
+    {
+        Windows.Foundation.IAsyncOperation<IInspectable> RetrieveCollectionAsync();
+    };
+}
+
+// SampleComponent.h
+...
+struct SampleComponent : SampleComponentT<SampleComponent>
+{
+    ...
+    Windows::Foundation::IAsyncOperation<Windows::Foundation::IInspectable> RetrieveCollectionAsync()
+    {
+        co_return Windows::Foundation::PropertyValue::CreateInt32Array({ 99, 101 }); // Box an array into a PropertyValue.
+    }
+}
+...
+
+// SampleCoreApp.cpp
+...
+MyComponentProject::SampleComponent m_sample_component;
+...
+auto boxed_array{ co_await m_sample_component.RetrieveCollectionAsync() };
+auto property_value{ boxed_array.as<winrt::Windows::Foundation::IPropertyValue>() };
+winrt::com_array<int32_t> my_array;
+property_value.GetInt32Array(my_array); // Unbox back into an array.
+...
+```
 
 ## <a name="important-apis"></a>重要な API
 * [IAsyncAction インターフェイス](/uwp/api/windows.foundation.iasyncaction)

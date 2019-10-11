@@ -86,7 +86,7 @@
           href: controls-and-patterns/buttons.md
         - name: チェック ボックス
           href: controls-and-patterns/checkbox.md
-        - name: コンボ ボックス
+        - name: コンボ ボックスとリスト ボックス
           href: controls-and-patterns/combo-box.md
         - name: ハイパーリンク
           href: controls-and-patterns/hyperlinks.md
@@ -102,16 +102,15 @@
       items:
         - name: 概要
           href: controls-and-patterns/lists.md
-        - name: コレクションのコマンド実行
-          href: controls-and-patterns/collection-commanding.md
-        - name: カスタム コレクション ビュー
-          href: controls-and-patterns/items-repeater.md
-        - name: フリップ ビュー
-          href: controls-and-patterns/flipview.md
-        - name: 反転リスト
-          href: controls-and-patterns/inverted-lists.md
         - name: リスト ビューとグリッド ビュー
           href: controls-and-patterns/listview-and-gridview.md
+        - name: フリップ ビュー
+          href: controls-and-patterns/flipview.md
+        - name: ツリー ビュー
+          href: controls-and-patterns/tree-view.md
+        - name: ItemsRepeater
+          href: controls-and-patterns/items-repeater.md
+        - name: 項目コンテナーやテンプレート
           items:
             - name: 項目コンテナーやテンプレート
               href: controls-and-patterns/item-containers-templates.md
@@ -119,14 +118,22 @@
               href: controls-and-patterns/item-templates-listview.md
             - name: グリッド ビューの項目テンプレート
               href: controls-and-patterns/item-templates-gridview.md
-        - name: 入れ子になった UI
-          href: controls-and-patterns/nested-ui.md
-        - name: 引っ張って更新
-          href: controls-and-patterns/pull-to-refresh.md
-        - name: スワイプ
-          href: controls-and-patterns/swipe.md
-        - name: ツリー ビュー
-          href: controls-and-patterns/tree-view.md
+        - name: 選択と操作
+          items:
+            - name: コレクションのコマンド実行
+              href: controls-and-patterns/collection-commanding.md
+            - name: 選択モードの概要
+              href: controls-and-patterns/selection-modes.md
+            - name: スワイプ
+              href: controls-and-patterns/swipe.md
+            - name: 引っ張って更新
+              href: controls-and-patterns/pull-to-refresh.md
+        - name: 追加のコレクション オプションとカスタマイズ
+          items:
+            - name: 反転リスト
+              href: controls-and-patterns/inverted-lists.md
+            - name: 入れ子になった UI
+              href: controls-and-patterns/nested-ui.md
     - name: ダイアログとポップアップ
       items:
         - name: 概要
