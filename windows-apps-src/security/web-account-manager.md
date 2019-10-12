@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp, セキュリティ
 ms.assetid: ec9293a1-237d-47b4-bcde-18112586241a
 ms.localizationpriority: medium
-ms.openlocfilehash: f567637f3d38ce80c320bfe92fff392efadeda8d
-ms.sourcegitcommit: 7803f11ba4c9194c350217cc06069a4707f15ed6
+ms.openlocfilehash: 557f5c03bda68d11507ba3b3b3b12823dbe6fd9f
+ms.sourcegitcommit: 445320ff0ee7323d823194d4ec9cfa6e710ed85d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69017430"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72282401"
 ---
 # <a name="web-account-manager"></a>Web アカウント マネージャー
 
@@ -76,11 +76,11 @@ private void LoginButton_Click(object sender, RoutedEventArgs e)
 システムは UI シェルのみを提供するため、このウィンドウは空になっています。開発者がこのウィンドウに ID プロバイダーをプログラムで入力します。 
 
 > [!TIP]
-> 必要に応じて、使用 **[ShowAddAccountAsync](https://docs.microsoft.com/uwp/api/windows.ui.applicationsettings.accountssettingspane.showaddaccountasync)** の代わりに **[表示](https://docs.microsoft.com/uwp/api/windows.ui.applicationsettings.accountssettingspane.show#Windows_UI_ApplicationSettings_AccountsSettingsPane_Show)** が返されます、 **[IAsyncAction](https://docs.microsoft.com/uwp/api/Windows.Foundation.IAsyncAction)** 操作の状態を照会します。 
+> 必要に応じて、 **[Show](https://docs.microsoft.com/uwp/api/windows.ui.applicationsettings.accountssettingspane.show#Windows_UI_ApplicationSettings_AccountsSettingsPane_Show)** ではなく **[ShowAddAccountAsync](https://docs.microsoft.com/uwp/api/windows.ui.applicationsettings.accountssettingspane.showaddaccountasync)** を使用して、操作の状態を照会する **[iasyncaction](https://docs.microsoft.com/uwp/api/Windows.Foundation.IAsyncAction)** を返します。 
 
 ## <a name="register-for-accountcommandsrequested"></a>AccountCommandsRequested への登録
 
-ウィンドウにコマンドを追加するには、まず AccountCommandsRequested イベント ハンドラーに登録します。 これにより、ユーザーがウィンドウを表示するよう求めたとき (XAML ボタンのクリックなど) に構築したロジックをシステムが実行するようにできます。 
+ウィンドウにコマンドを追加するには、まず AccountCommandsRequested イベント ハンドラーに登録します。 これにより、ユーザーがペインを表示するように求められたとき (たとえば、XAML ボタンをクリックしたとき) に、ビルドロジックを実行するようシステムに指示します。 
 
 コードビハインドで、OnNavigatedTo イベントと OnNavigatedFrom イベントを上書きし、次のコードを追加します。 
 
@@ -116,7 +116,7 @@ private async void BuildPaneAsync(AccountsSettingsPane s,
 }
 ```
 
-次に、WebAuthenticationCoreManager.FindAccountProviderAsync メソッドを使ってプロバイダーを取得します。 プロバイダーの URL はプロバイダーによって異なり、プロバイダーのドキュメントに記載されています。 Microsoft アカウントと Azure Active Directory の場合、"https\://login.microsoft.com" になります。 
+次に、WebAuthenticationCoreManager.FindAccountProviderAsync メソッドを使ってプロバイダーを取得します。 プロバイダーの URL はプロバイダーによって異なり、プロバイダーのドキュメントに記載されています。 Microsoft アカウントと Azure Active Directory の場合は、"https @ no__t-0//login. microsoft .com" になります。 
 
 ```csharp
 private async void BuildPaneAsync(AccountsSettingsPane s,

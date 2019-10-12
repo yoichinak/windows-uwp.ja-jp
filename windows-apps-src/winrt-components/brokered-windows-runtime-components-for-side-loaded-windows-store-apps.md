@@ -6,18 +6,18 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 81b3930c-6af9-406d-9d1e-8ee6a13ec38a
 ms.localizationpriority: medium
-ms.openlocfilehash: 16996a8706018bde89d3eb08249ee496d7e25bb9
-ms.sourcegitcommit: e7c95c156f970fe9fdf7ff98ea81508360a64c12
+ms.openlocfilehash: f6eda179a3fea0c24f3a9de0d674800bd3d2015c
+ms.sourcegitcommit: 445320ff0ee7323d823194d4ec9cfa6e710ed85d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72172840"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72282319"
 ---
 # <a name="brokered-windows-runtime-components-for-a-side-loaded-uwp-app"></a>サイドロードされた UWP アプリ用の仲介型 Windows ランタイムコンポーネント
 
 この記事では、Windows 10 でサポートされているエンタープライズ向けの機能について説明します。これにより、タッチ対応の .NET アプリで主要なビジネスクリティカルな操作を担当する既存のコードを使用できるようになります。
 
-## <a name="introduction"></a>概要
+## <a name="introduction"></a>はじめに
 
 >**注**@no__t-このホワイトペーパーに付属する1The サンプルコードは、 [Visual Studio 2015 & 2017](https://aka.ms/brokeredsample)用にダウンロードできます。 ブローカー Windows ランタイムコンポーネントを構築するための Microsoft Visual Studio テンプレートは、次の場所でダウンロードできます。[Windows 10 用のユニバーサル Windows アプリを対象とする Visual Studio 2015 テンプレート](https://marketplace.visualstudio.com/items?itemName=vs-publisher-713547.VS2015TemplateBrokeredComponents)
 
@@ -181,7 +181,7 @@ namespace Fabrikam
 
 <ActivatableClass> セクションは、アプリ パッケージ内の Windows ランタイム コンポーネントによって優先される実際のインプロセス RuntimeClass と同じです。 <ActivatableClassAttribute> は新しい要素で、属性 Name = "DesktopApplicationPath" と Type = "string" は必須かつ不変です。 Value 属性では、デスクトップ コンポーネントの実装用の winmd の場所を指定します (詳しくは、次のセクションを参照)。 デスクトップ コンポーネントによって優先される各 RuntimeClass には、独自の <ActivatableClass> 要素ツリーが必要です。 ActivatableClassId は、RuntimeClass の完全な名前空間修飾名と一致する必要があります。
 
-「コントラクトの定義」で説明したように、プロジェクトの参照先は、デスクトップ コンポーネントの参照用の winmd にする必要があります。 Visual Studio のプロジェクト システムでは、通常、同じ名前で 2 レベルのディレクトリ構造が作成されます。 このサンプルでは、EnterpriseIPCApplication @ no__t-0EnterpriseIPCApplication です。 参照用の **winmd** は、この第 2 レベルのディレクトリに手動でコピーされます。その後、[プロジェクトの参照] ダイアログを使って ( **[参照]** ボタンをクリック)、この **winmd** を見つけて参照します。 完了すると、デスクトップ コンポーネントの最上位の名前空間 (たとえば Fabrikam) が、プロジェクトの [参照] 部分の最上位ノードとして表示されます。
+「コントラクトの定義」で説明したように、プロジェクトの参照先は、デスクトップ コンポーネントの参照用の winmd にする必要があります。 Visual Studio のプロジェクト システムでは、通常、同じ名前で 2 レベルのディレクトリ構造が作成されます。 このサンプルでは、EnterpriseIPCApplication @ no__t-0EnterpriseIPCApplication です。 参照用の **winmd** は、この第 2 レベルのディレクトリに手動でコピーされます。その後、[プロジェクトの参照] ダイアログを使って ( **[参照]** ボタンをクリック)、この **winmd** を見つけて参照します。 その後、デスクトップコンポーネントの最上位レベルの名前空間 (たとえば、Fabrikam) は、プロジェクトの参照部分の最上位ノードとして表示されます。
 
 >**注** サイドロード アプリケーションでは、**参照用の winmd** を使うことが非常に重要です。 誤って**実装用の winmd** をサイドロード アプリのディレクトリに配置して参照すると、"IStringable が見つからない" などのエラーが発生する可能性があります。 これは、不適切な **winmd** が参照されていることを示す明らかな兆候の 1 つです。 IPC サーバー アプリのビルド後の規則 (詳しくは次のセクションで説明) では、これらの 2 つの **winmd** が慎重に分離されます。
 
@@ -491,11 +491,11 @@ IPC アプローチには 2 つのプロセス間の Windows ランタイム イ
 
 a) Dlldata.c
 
-b) ヘッダー ファイル (例: MyWinRTComponent.h)
+b) ヘッダーファイル (例、MyWinRTComponent .h)
 
-c) \* @ no__t-1i ファイル (例: MyWinRTComponent @ no__t. c)
+c) \* @ no__t ファイル (たとえば、MyWinRTComponent @ no__t) を使用します。
 
-d) \* @ no__t-1p ファイル (例: MyWinRTComponent @ no__t-2p)
+d) \* @ no__t-1p ファイル (たとえば、MyWinRTComponent @ no__t-2p)。
 
 **手順 5:** これら4つの生成されたファイルを "MyWinRTProxy" プロジェクトに追加します。
 

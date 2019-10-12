@@ -5,12 +5,12 @@ ms.date: 05/09/2018
 ms.topic: article
 keywords: windows 10 s, 常時接続, ARM での x86 エミュレーション, トラブルシューティング
 ms.localizationpriority: medium
-ms.openlocfilehash: 480d9cd6508b149e0d4966bae8835c05d30db7af
-ms.sourcegitcommit: 350d6e6ba36800df582f9715c8d21574a952aef1
+ms.openlocfilehash: 20aa5943fc1f3f0176cde33983da1fceca8a49ba
+ms.sourcegitcommit: 445320ff0ee7323d823194d4ec9cfa6e710ed85d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68682741"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72282350"
 ---
 # <a name="troubleshooting-x86-desktop-apps"></a>x86 デスクトップ アプリのトラブルシューティング
 >[!IMPORTANT]
@@ -18,7 +18,7 @@ ms.locfileid: "68682741"
 
 x86 デスクトップ アプリが x86 コンピューターで実行したときのように動作しない場合、トラブルシューティングに役立つガイダンスを次に示します。
 
-|問題|ソリューション|
+|懸案事項|ソリューション|
 |-----|--------|
 | アプリが ARM 用に設計されていないドライバーに依存している。 | x86 ドライバーを ARM64 に再コンパイルします。 「[WDK を使った ARM64 ドライバーのビルド](https://docs.microsoft.com/en-us/windows-hardware/drivers/develop/building-arm64-drivers)」をご覧ください。 |
 | アプリが x64 でしか使用できない。 | Microsoft Store 向けに開発する場合、ARM バージョンのアプリを提出します。 詳しくは、「[アプリ パッケージのアーキテクチャ](/windows/msix/package/device-architecture)」をご覧ください。 Win32 開発者の場合、アプリを ARM64 に再コンパイルすることをお勧めします。 詳細については、「[ARM 開発での Windows 10 の Visual Studio サポートの初期プレビュー](https://blogs.windows.com/buildingapps/2018/05/08/visual-studio-support-for-windows-10-on-arm-development/)」に関するブログ記事を参照してください。 |
@@ -40,7 +40,7 @@ x86 デスクトップ アプリが x86 コンピューターで実行したと�
 すべてのカーネル モード ドライバー、[ユーザー モード ドライバー フレームワーク (UMDF)](https://docs.microsoft.com/windows-hardware/drivers/wdf/overview-of-the-umdf) ドライバー、印刷ドライバーが OS のアーキテクチャと一致するようにコンパイルする必要があります。 x86 アプリにドライバーがある場合、そのドライバーを ARM64 用に再コンパイルする必要があります。 x86 アプリはエミュレーション下で適切に実行される可能性がありますが、そのドライバーは ARM64 用に再コンパイルする必要があり、ドライバーに依存するアプリ エクスペリエンスは利用できなくなります。 ARM64 用ドライバーのコンパイルについて詳しくは、「[WDK を使った ARM64 ドライバーのビルド](https://docs.microsoft.com/windows-hardware/drivers/develop/building-arm64-drivers)」をご覧ください。
 
 ## <a name="shell-extensions"></a>シェル拡張 
-Windows コンポーネントをフックしたり、DLL を Windows プロセスに読み込んだりしようとするアプリは、それらの DLL を再コンパイルしてシステムのアーキテクチャ (つまり、ARM64) と一致させる必要があります。 通常、これらは入力方式エディター (IME)、支援技術、シェル拡張アプリによって使用されます (例: エクスプローラーでクラウド記憶域アイコンを表示したり、コンテキスト メニューを右クリックしたりするなど)。 アプリを DLL または ARM64 に再コンパイルする方法については、「[ARM 開発での Windows 10 の Visual Studio サポートの初期プレビュー](https://blogs.windows.com/buildingapps/2018/05/08/visual-studio-support-for-windows-10-on-arm-development/)」に関するブログ記事を参照してください。 
+Windows コンポーネントをフックしたり、DLL を Windows プロセスに読み込んだりしようとするアプリは、それらの DLL を再コンパイルしてシステムのアーキテクチャ (つまり、ARM64) と一致させる必要があります。 通常、これらは、入力方式エディター (Ime)、支援技術、およびシェル拡張機能アプリによって使用されます (たとえば、エクスプローラーまたは右クリックコンテキストメニューでクラウドストレージアイコンを表示する場合など)。 アプリを DLL または ARM64 に再コンパイルする方法については、「[ARM 開発での Windows 10 の Visual Studio サポートの初期プレビュー](https://blogs.windows.com/buildingapps/2018/05/08/visual-studio-support-for-windows-10-on-arm-development/)」に関するブログ記事を参照してください。 
 
 ## <a name="debugging"></a>デバッグ
 アプリの動作をより詳しく調査するには、[ARM でのデバッグに関するページ](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/debugging-arm64)で、ARM でデバッグするためのツールと戦略についてご覧ください。
@@ -51,4 +51,4 @@ Windows ハイパーバイザー プラットフォームは、Qualcomm の Snap
 ## <a name="dynamic-code-generation"></a>動的なコード生成
 X86 デスクトップアプリは、実行時に ARM64 命令を生成するシステムによって ARM64 でエミュレートされます。 つまり、x86 デスクトップアプリでプロセスの動的なコードの生成や変更ができない場合は、そのアプリを ARM64 で x86 として実行することはできません。 
 
-これは、 [SetProcessMitigationPolicy](https://docs.microsoft.com/en-us/windows/desktop/api/processthreadsapi/nf-processthreadsapi-setprocessmitigationpolicy) API と`ProcessDynamicCodePolicy`フラグを使用して、プロセスで有効にする一部のアプリのセキュリティを軽減するものです。 ARM64 で x86 プロセスとして正常に実行するには、この軽減ポリシーを無効にする必要があります。 
+これは、`ProcessDynamicCodePolicy` フラグを使用して[SetProcessMitigationPolicy](https://docs.microsoft.com/en-us/windows/desktop/api/processthreadsapi/nf-processthreadsapi-setprocessmitigationpolicy) API を使用してプロセスで有効にする、一部のアプリのセキュリティを軽減するものです。 ARM64 で x86 プロセスとして正常に実行するには、この軽減ポリシーを無効にする必要があります。 

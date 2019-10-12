@@ -6,12 +6,12 @@ ms.date: 08/02/2019
 ms.topic: article
 keywords: windows 10, uwp, 入金状況, ステートメントの, 支払い額, 売り上げ, 入金い, 支払い, 収益
 ms.localizationpriority: medium
-ms.openlocfilehash: 68a7de0692d05ffe8d1b489e75a58c16b3c826df
-ms.sourcegitcommit: 9779be4a1075e924dca7585808722d95cda99aff
+ms.openlocfilehash: 89cb689f0dce4f7dbaec96e9ce109e60d4292f92
+ms.sourcegitcommit: 445320ff0ee7323d823194d4ec9cfa6e710ed85d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70118065"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72282484"
 ---
 # <a name="payout-summary"></a>支払いの概要
 
@@ -60,7 +60,7 @@ Azure Marketplace で製品を販売する場合、 **[入金状況]** に正常
 | 保留中の税金請求書      | 税金請求書が不完全または無効です。                                                                                                  | 支払いを行うには、税金請求書を更新する必要があります |
 | レビュー中に拒否   | 確認中に支払いが拒否されました。                                                                                                     | 詳細については、 [Microsoft サポート](https://developer.microsoft.com/en-us/windows/support)にお問い合わせください                      |
 | Failed                   | Microsoft システムエラーが発生したため、支払いに失敗しました。                                                                                         | 詳細については、 [Microsoft サポート](https://developer.microsoft.com/en-us/windows/support)にお問い合わせください                      |
-| 処理中              | 支払いが進行中です。                                                                                                                 | いいえ                                                         |
+| 進行中              | 支払いが進行中です。                                                                                                                 | いいえ                                                         |
 | 支払いが間違っています        | 支払い recouping が進行中です。                                                                                                       | いいえ                                                         |
 | 送信済み                     | お支払いが銀行に送信されました。                                                                                                     | いいえ                                                         |
 | 再             | Microsoft システムエラーが発生したため、支払いを再処理しています。                                                                  | いいえ                                                         |
@@ -95,7 +95,7 @@ Azure Marketplace で製品を販売する場合、 **[入金状況]** に正常
 | serviceFeeTax            | Program/participantID の serviceFeeTax の合計金額 (店舗プログラムと Azure Marketplace のみに適用可能) |
 | totalPayment             | 源泉徴収税を除く現地通貨での支払い額と、プログラム/participantID の売上税 (該当する場合) を含む合計支払額   |
 | currencyCode             | 通貨コードに支払う                                                                                                                      |
-| paymentMethod            | パートナーの支払いに使用される方法 (電子銀行の譲渡、クレジットメモなど)                                                             |
+| paymentMethod            | 取引先の支払いに使用される方法 (例: 電子銀行の譲渡、クレジットメモ)                                                             |
 | paymentID                | 支払いの一意の識別子。 通常、この数値は銀行の明細書に表示されます。 (SAP 支払いにのみ適用)              |
 | paymentStatus            | 入金状況                                                                                                                            |
 | paymentStatusDescription | 支払い状態のわかりやすい説明                                                                                                    |
@@ -122,7 +122,7 @@ Azure Marketplace で製品を販売する場合、 **[入金状況]** に正常
 | レバー                          | 収益のビジネスルールを示します。                                                                                                  | All                                                            |
 | earningRate                    | 獲得を生成するためにトランザクション量に適用されたインセンティブ率                                                                      | All                                                            |
 | quantity                       | プログラムによって異なります。 トランザクションプログラムの請求数量を示します                                                            | All                                                            |
-| quantityType                   | 数量の種類 (請求数量、MAU など) を示します。                                                                                     | All                                                            |
+| quantityType                   | 請求数量、MAU などの数量の種類を示します。                                                                                     | All                                                            |
 | earningType                    | 手数料、リベート、co-op、販売などであるかどうかを示します。                                                                                          | All                                                            |
 | earningAmount                  | 元のトランザクション通貨での金額                                                                                      | All                                                            |
 | earningAmountUSD               | USD の数量                                                                                                                    | All                                                            |

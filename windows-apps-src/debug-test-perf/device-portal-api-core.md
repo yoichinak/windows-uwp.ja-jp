@@ -5,14 +5,14 @@ description: Windows Device Portal コア REST API について説明します�
 ms.custom: 19H1
 ms.date: 04/19/2019
 ms.topic: article
-keywords: windows 10、uwp、デバイス ポータル
+keywords: windows 10、uwp、デバイスポータル
 ms.localizationpriority: medium
-ms.openlocfilehash: b2e1e2dfdb1dd52e1dd07a146badd78a6bb809fa
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 2e6b505dfd24a57f03169df3ed38402e7b3e9bb0
+ms.sourcegitcommit: 445320ff0ee7323d823194d4ec9cfa6e710ed85d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66359929"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72282121"
 ---
 # <a name="device-portal-core-api-reference"></a>デバイス ポータル コア API リファレンス
 
@@ -22,7 +22,7 @@ ms.locfileid: "66359929"
 
 ### <a name="install-an-app"></a>アプリをインストールする
 
-**要求**
+**申請**
 
 次の要求形式を使用して、アプリをインストールできます。
 
@@ -59,7 +59,7 @@ ms.locfileid: "66359929"
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop
@@ -71,7 +71,7 @@ ms.locfileid: "66359929"
 
 ### <a name="install-a-related-set"></a>関連セットをインストールする
 
-**要求**
+**申請**
 
 次の要求形式を使用して、[関連セット](https://blogs.msdn.microsoft.com/appinstaller/2017/05/12/tooling-to-create-a-related-set/)をインストールできます。
 
@@ -108,7 +108,7 @@ ms.locfileid: "66359929"
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop
@@ -120,7 +120,7 @@ ms.locfileid: "66359929"
 
 ### <a name="register-an-app-in-a-loose-folder"></a>アプリをルース フォルダーに登録する
 
-**要求**
+**申請**
 
 次の要求形式を使用して、アプリをルース フォルダーに登録できます。
 
@@ -161,7 +161,7 @@ ms.locfileid: "66359929"
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Desktop
 * Xbox
@@ -172,7 +172,7 @@ ms.locfileid: "66359929"
 
 ### <a name="register-a-related-set-in-loose-file-folders"></a>関連セットをルース ファイル フォルダーに登録する
 
-**要求**
+**申請**
 
 次の要求形式を使用して、[関連セット](https://blogs.msdn.microsoft.com/appinstaller/2017/05/12/tooling-to-create-a-related-set/)をルース フォルダーに登録できます。
 
@@ -222,7 +222,7 @@ ms.locfileid: "66359929"
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Desktop
 * Xbox
@@ -233,7 +233,7 @@ ms.locfileid: "66359929"
 
 ### <a name="get-app-installation-status"></a>アプリのインストール状態を取得する
 
-**要求**
+**申請**
 
 次の要求形式を使用して、現在進行中のアプリのインストールの状態を取得できます。
  
@@ -265,7 +265,7 @@ ms.locfileid: "66359929"
 | 204 | インストールは実行中です |
 | 404 | インストール操作は見つかりませんでした |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop
@@ -277,13 +277,13 @@ ms.locfileid: "66359929"
 
 ### <a name="uninstall-an-app"></a>アプリをアンインストールする
 
-**要求**
+**申請**
 
 次の要求形式を使用して、アプリをアンインストールできます。
  
 | メソッド      | 要求 URI |
 | :------     | :----- |
-| Del | /api/app/packagemanager/package |
+| DELETE | /api/app/packagemanager/package |
 
 **URI パラメーター**
 
@@ -311,7 +311,7 @@ ms.locfileid: "66359929"
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop
@@ -323,7 +323,7 @@ ms.locfileid: "66359929"
 
 ### <a name="get-installed-apps"></a>インストールされたアプリを取得する
 
-**要求**
+**申請**
 
 次の要求形式を使用して、システムにインストールされているアプリの一覧を取得できます。
  
@@ -381,7 +381,7 @@ ms.locfileid: "66359929"
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop
@@ -397,9 +397,9 @@ ms.locfileid: "66359929"
 
 ### <a name="get-the-bluetooth-radios-on-the-machine"></a>コンピューターの Bluetooth 無線を取得する
 
-**要求**
+**申請**
 
-次の要求形式を使用して、コンピューターにインストールされている Bluetooth 無線の一覧を取得できます。 これは、同じ JSON データを同様に、WebSocket 接続にアップグレードできます。
+次の要求形式を使用して、コンピューターにインストールされている Bluetooth 無線の一覧を取得できます。 これは、同じ JSON データを使用して、WebSocket 接続にもアップグレードできます。
  
 | メソッド        | 要求 URI |
 | :------          | :------ |
@@ -445,7 +445,7 @@ ms.locfileid: "66359929"
 | 4XX              | エラー コード |
 | 5XX              | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Desktop
 * HoloLens
@@ -455,7 +455,7 @@ ms.locfileid: "66359929"
 
 ### <a name="turn-the-bluetooth-radio-on-or-off"></a>Bluetooth 無線をオンまたはオフにします。
 
-**要求**
+**申請**
 
 特定の Bluetooth 無線をオンまたはオフに設定します。
  
@@ -470,7 +470,7 @@ ms.locfileid: "66359929"
 | URI パラメーター | 説明 |
 | :------          | :------ |
 | ID            | (**必須**) Bluetooth 無線のデバイス ID であり、base 64 でエンコードされている必要があります。 |
-| 状態         | (**必要**) これは、`"On"`または`"Off"`します。 |
+| 状態         | (**必須**)これには、-1 または @no__t @no__t を指定できます。 |
 
 **要求ヘッダー**
 
@@ -492,18 +492,18 @@ ms.locfileid: "66359929"
 | 4XX              | エラー コード |
 | 5XX              | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Desktop
 * HoloLens
 * IoT
 
 ---
-### <a name="get-a-list-of-paired-bluetooth-devices"></a>ペアリングされた Bluetooth デバイスの一覧を取得します。
+### <a name="get-a-list-of-paired-bluetooth-devices"></a>ペアリングした Bluetooth デバイスの一覧を取得する
 
-**要求**
+**申請**
 
-次の要求形式を使用して、ペアになっている現在の Bluetooth デバイスの一覧を取得できます。 これは、同じ JSON データで WebSocket 接続にアップグレードできます。 WebSocket 接続の有効期間中、デバイスの一覧を変更できます。 デバイスの完全な一覧は、更新プログラムがあるたびに WebSocket 接続経由で送信されます。
+現在ペアリングされている Bluetooth デバイスの一覧を取得するには、次の要求形式を使用します。 これは、同じ JSON データを使用して WebSocket 接続にアップグレードできます。 WebSocket 接続の有効期間中は、デバイスの一覧が変更される可能性があります。 更新が行われるたびに、WebSocket 接続を介してデバイスの完全な一覧が送信されます。
 
 | メソッド        | 要求 URI       |
 | :---          | :---              |
@@ -524,7 +524,7 @@ ms.locfileid: "66359929"
 
 **応答**
 
-応答には、現在はペアになっている Bluetooth デバイスの JSON 配列が含まれています。
+応答には、現在ペアリングされている Bluetooth デバイスの JSON 配列が含まれています。
 ```json
 {"PairedDevices": [
     {
@@ -534,14 +534,14 @@ ms.locfileid: "66359929"
     },...
 ]}
 ```
-*AudioConnectionStatus*フィールドが存在するは、このシステムでのオーディオ デバイスを使用できる場合になります。 (ポリシーと省略可能なコンポーネントが影響。)*AudioConnectionStatus* 「接続済み」または「切断」のいずれかになります。
+デバイスをこのシステムのオーディオに使用できる場合は、 *Audioconnectionstatus*フィールドが表示されます。 (ポリシーとオプションのコンポーネントがこの影響を受ける可能性があります)。*Audioconnectionstatus*は、"Connected" または "Disconnected" になります。
 
 ---
-### <a name="get-a-list-of-available-bluetooth-devices"></a>使用可能な Bluetooth デバイスの一覧を取得します。
+### <a name="get-a-list-of-available-bluetooth-devices"></a>利用可能な Bluetooth デバイスの一覧を取得する
 
-**要求**
+**申請**
 
-次の要求形式を使用してペアリングの Bluetooth デバイスの一覧を取得することができます。 これは、同じ JSON データで WebSocket 接続にアップグレードできます。 WebSocket 接続の有効期間中、デバイスの一覧を変更できます。 デバイスの完全な一覧は、更新プログラムがあるたびに WebSocket 接続経由で送信されます。
+ペアリングに使用できる Bluetooth デバイスの一覧を取得するには、次の要求形式を使用します。 これは、同じ JSON データを使用して WebSocket 接続にアップグレードできます。 WebSocket 接続の有効期間中は、デバイスの一覧が変更される可能性があります。 更新が行われるたびに、WebSocket 接続を介してデバイスの完全な一覧が送信されます。
 
 | メソッド        | 要求 URI          |
 | :---          | :---                 |
@@ -562,7 +562,7 @@ ms.locfileid: "66359929"
 
 **応答**
 
-応答には、ペアリングには現在使用できる Bluetooth デバイスの JSON 配列が含まれています。
+応答には、現在ペアリングに使用できる Bluetooth デバイスの JSON 配列が含まれています。
 ```json
 {"AvailableDevices": [
     {
@@ -573,21 +573,21 @@ ms.locfileid: "66359929"
 ```
 
 ---
-### <a name="connect-a-bluetooth-device"></a>Bluetooth デバイスを接続します。
+### <a name="connect-a-bluetooth-device"></a>Bluetooth デバイスの接続
 
-**要求**
+**申請**
 
-このシステムでのオーディオ デバイスを使用できる場合、デバイスに接続されます。 (ポリシーと省略可能なコンポーネントが影響。)
+デバイスをこのシステムのオーディオに使用できる場合、はデバイスに接続します。 (ポリシーとオプションのコンポーネントがこの影響を受ける可能性があります)。
 
 | メソッド       | 要求 URI           |
 | :---         | :---                  |
-| POST         | /api/bt/connectdevice |
+| POST         | /apidevice |
 
 **URI パラメーター**
 
 | URI パラメーター | 説明 |
 | :---          | :--- |
-| ID            | (**必要**)、Bluetooth デバイスの関連付けのエンドポイント ID と Base64 でエンコードする必要があります。 |
+| ID            | (**必須**)Bluetooth デバイスのアソシエーションエンドポイント ID。 Base64 でエンコードされている必要があります。 |
 
 **要求ヘッダー**
 
@@ -609,7 +609,7 @@ ms.locfileid: "66359929"
 | 4XX              | エラー コード |
 | 5XX              | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Desktop
 * HoloLens
@@ -617,21 +617,21 @@ ms.locfileid: "66359929"
 
 
 ---
-### <a name="disconnect-a-bluetooth-device"></a>Bluetooth デバイスを切断します。
+### <a name="disconnect-a-bluetooth-device"></a>Bluetooth デバイスの切断
 
-**要求**
+**申請**
 
-このシステムでのオーディオ デバイスを使用できる場合、デバイスが切断されます。 (ポリシーと省略可能なコンポーネントが影響。)
+デバイスをこのシステムのオーディオに使用できる場合は、デバイスが切断されます。 (ポリシーとオプションのコンポーネントがこの影響を受ける可能性があります)。
 
 | メソッド       | 要求 URI              |
 | :---         | :---                     |
-| POST         | /api/bt/disconnectdevice |
+| POST         | //またはデバイスを切断する |
 
 **URI パラメーター**
 
 | URI パラメーター | 説明 |
 | :---          | :--- |
-| ID            | (**必要**)、Bluetooth デバイスの関連付けのエンドポイント ID と Base64 でエンコードする必要があります。 |
+| ID            | (**必須**)Bluetooth デバイスのアソシエーションエンドポイント ID。 Base64 でエンコードされている必要があります。 |
 
 **要求ヘッダー**
 
@@ -653,7 +653,7 @@ ms.locfileid: "66359929"
 | 4XX              | エラー コード |
 | 5XX              | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Desktop
 * HoloLens
@@ -665,7 +665,7 @@ ms.locfileid: "66359929"
 
 ### <a name="get-the-installed-devices-on-the-machine"></a>コンピューターにインストールされているデバイスを取得する
 
-**要求**
+**申請**
 
 次の要求形式を使用して、コンピューターにインストールされているデバイスの一覧を取得できます。
 
@@ -712,7 +712,7 @@ ms.locfileid: "66359929"
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop
@@ -722,7 +722,7 @@ ms.locfileid: "66359929"
 
 ### <a name="get-data-on-connected-usb-deviceshubs"></a>接続された USB デバイス/ハブのデータを取得する
 
-**要求**
+**申請**
 
 次の要求形式を使用して、接続された USB デバイスおよびハブの USB 記述子の一覧を取得できます。
 
@@ -762,7 +762,7 @@ ms.locfileid: "66359929"
 }
 ```
 
-**サンプル データを返す**
+**返されるデータのサンプル**
 ```json
 {
     "DeviceList": [{
@@ -798,7 +798,7 @@ ms.locfileid: "66359929"
 |  200 | OK | 
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Desktop
 * IoT
@@ -811,7 +811,7 @@ ms.locfileid: "66359929"
 
 ### <a name="get-the-list-of-all-crash-dumps-for-apps"></a>アプリのすべてのクラッシュ ダンプの一覧を取得する
 
-**要求**
+**申請**
 
 次の要求形式を使用して、サイドローディングされたすべてのアプリについて、利用可能なすべてのクラッシュ ダンプの一覧を取得できます。
  
@@ -846,7 +846,7 @@ ms.locfileid: "66359929"
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Window Mobile (Windows Insider Program のみ)
 * Windows Desktop
@@ -857,7 +857,7 @@ ms.locfileid: "66359929"
 
 ### <a name="get-the-crash-dump-collection-settings-for-an-app"></a>アプリのクラッシュ ダンプ収集設定を取得する
 
-**要求**
+**申請**
 
 次の要求形式を使用して、サイドローディングされたアプリのクラッシュ ダンプ収集設定を取得できます。
  
@@ -899,7 +899,7 @@ ms.locfileid: "66359929"
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Window Mobile (Windows Insider Program のみ)
 * Windows Desktop
@@ -910,13 +910,13 @@ ms.locfileid: "66359929"
 
 ### <a name="delete-a-crash-dump-for-a-sideloaded-app"></a>サイドローディングされたアプリのクラッシュ ダンプを削除する
 
-**要求**
+**申請**
 
 次の要求形式を使用して、サイドローディングされたアプリのクラッシュ ダンプを削除できます。
  
 | メソッド      | 要求 URI |
 | :------     | :----- |
-| Del | /api/debug/dump/usermode/crashdump |
+| DELETE | /api/debug/dump/usermode/crashdump |
 
 
 **URI パラメーター**
@@ -948,7 +948,7 @@ ms.locfileid: "66359929"
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Window Mobile (Windows Insider Program のみ)
 * Windows Desktop
@@ -959,13 +959,13 @@ ms.locfileid: "66359929"
 
 ### <a name="disable-crash-dumps-for-a-sideloaded-app"></a>サイドローディングされたアプリのクラッシュ ダンプを無効にする
 
-**要求**
+**申請**
 
 次の要求形式を使用して、サイドローディングされたアプリのクラッシュ ダンプを無効にすることができます。
  
 | メソッド      | 要求 URI |
 | :------     | :----- |
-| Del | /api/debug/dump/usermode/crashcontrol |
+| DELETE | /api/debug/dump/usermode/crashcontrol |
 
 
 **URI パラメーター**
@@ -996,7 +996,7 @@ ms.locfileid: "66359929"
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Window Mobile (Windows Insider Program のみ)
 * Windows Desktop
@@ -1007,7 +1007,7 @@ ms.locfileid: "66359929"
 
 ### <a name="download-the-crash-dump-for-a-sideloaded-app"></a>サイドローディングされたアプリのクラッシュ ダンプをダウンロードする
 
-**要求**
+**申請**
 
 次の要求形式を使用して、サイドローディングされたアプリのクラッシュ ダンプをダウンロードできます。
  
@@ -1047,7 +1047,7 @@ ms.locfileid: "66359929"
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Window Mobile (Windows Insider Program のみ)
 * Windows Desktop
@@ -1058,7 +1058,7 @@ ms.locfileid: "66359929"
 
 ### <a name="enable-crash-dumps-for-a-sideloaded-app"></a>サイドローディングされたアプリのクラッシュ ダンプを有効にする
 
-**要求**
+**申請**
 
 次の要求形式を使用して、サイドローディングされたアプリのクラッシュ ダンプを有効にすることができます。
  
@@ -1093,7 +1093,7 @@ ms.locfileid: "66359929"
 | :------     | :----- |
 |  200 | OK | 
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Window Mobile (Windows Insider Program のみ)
 * Windows Desktop
@@ -1104,7 +1104,7 @@ ms.locfileid: "66359929"
 
 ### <a name="get-the-list-of-bugcheck-files"></a>バグチェック ファイルの一覧を取得する
 
-**要求**
+**申請**
 
 次の要求形式を使用して、バグチェックのミニダンプ ファイルの一覧を取得できます。
  
@@ -1145,7 +1145,7 @@ ms.locfileid: "66359929"
 | :------     | :----- |
 |  200 | OK | 
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Desktop
 * IoT
@@ -1154,7 +1154,7 @@ ms.locfileid: "66359929"
 
 ### <a name="download-a-bugcheck-dump-file"></a>バグチェックのダンプ ファイルをダウンロードする
 
-**要求**
+**申請**
 
 次の要求形式を使用して、バグチェックのダンプ ファイルをダウンロードできます。
  
@@ -1194,7 +1194,7 @@ ms.locfileid: "66359929"
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Desktop
 * IoT
@@ -1203,7 +1203,7 @@ ms.locfileid: "66359929"
 
 ### <a name="get-the-bugcheck-crash-control-settings"></a>バグチェックのクラッシュ制御の設定を取得する
 
-**要求**
+**申請**
 
 次の要求形式を使用して、バグチェックのクラッシュ制御の設定を取得できます。
  
@@ -1238,13 +1238,13 @@ ms.locfileid: "66359929"
 
 **ダンプの種類**
 
-0:Disabled
+0Disabled
 
-1:完全メモリ ダンプを (すべての使用中のメモリを収集します)
+1:完全なメモリダンプ (すべての使用中メモリを収集)
 
-2:カーネル メモリ ダンプが (ユーザー モードのメモリは無視されます)
+2:カーネルメモリダンプ (ユーザーモードのメモリは無視されます)
 
-3:制限付きのカーネルのミニダンプ
+3:制限付きカーネルミニダンプ
 
 **状態コード**
 
@@ -1256,7 +1256,7 @@ ms.locfileid: "66359929"
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Desktop
 * IoT
@@ -1265,7 +1265,7 @@ ms.locfileid: "66359929"
 
 ### <a name="get-a-live-kernel-dump"></a>ライブ カーネル ダンプを取得する
 
-**要求**
+**申請**
 
 次の要求形式を使用して、ライブ カーネル ダンプを取得できます。
  
@@ -1300,7 +1300,7 @@ ms.locfileid: "66359929"
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Desktop
 * IoT
@@ -1309,7 +1309,7 @@ ms.locfileid: "66359929"
 
 ### <a name="get-a-dump-from-a-live-user-process"></a>ライブ ユーザー プロセスからダンプを取得する
 
-**要求**
+**申請**
 
 次の要求形式を使用して、ライブ ユーザー プロセスのダンプを取得できます。
  
@@ -1348,7 +1348,7 @@ ms.locfileid: "66359929"
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Desktop
 * IoT
@@ -1357,7 +1357,7 @@ ms.locfileid: "66359929"
 
 ### <a name="set-the-bugcheck-crash-control-settings"></a>バグチェックのクラッシュ制御の設定を行う
 
-**要求**
+**申請**
 
 次の要求形式を使用して、バグチェック データの収集に関する設定を行うことができます。
  
@@ -1397,7 +1397,7 @@ ms.locfileid: "66359929"
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Desktop
 * IoT
@@ -1410,7 +1410,7 @@ ms.locfileid: "66359929"
 
 ### <a name="create-a-realtime-etw-session-over-a-websocket"></a>websocket 経由でリアルタイムの ETW セッションを作成する
 
-**要求**
+**申請**
 
 次の要求形式を使用して、リアルタイムの ETW セッションを作成できます。 これは、websocket 経由で管理されます。  ETW イベントは、サーバーで一括処理され、1 秒に 1 回クライアントに送信されます。 
  
@@ -1445,7 +1445,7 @@ ms.locfileid: "66359929"
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop
@@ -1480,7 +1480,7 @@ ms.locfileid: "66359929"
 
 payload objects は、追加のキーと値のペア (文字列: 文字列) で、元の ETW イベントから提供されます。
 
-以下に例を示します。
+例:
 ```json
 {
     "ID" : 42, 
@@ -1505,7 +1505,7 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 
 ### <a name="enumerate-the-registered-etw-providers"></a>登録済みの ETW プロバイダーを列挙する
 
-**要求**
+**申請**
 
 次の要求形式を使用して、登録済みプロバイダーを列挙できます。
  
@@ -1546,7 +1546,7 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 | :------     | :----- |
 |  200 | OK | 
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop
@@ -1557,7 +1557,7 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 
 ### <a name="enumerate-the-custom-etw-providers-exposed-by-the-platform"></a>プラットフォームによって公開されているカスタム ETW プロバイダーを列挙します。
 
-**要求**
+**申請**
 
 次の要求形式を使用して、登録済みプロバイダーを列挙できます。
  
@@ -1595,7 +1595,7 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 
 - 標準の状態コード。
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop
@@ -1610,7 +1610,7 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 
 ### <a name="get-location-override-mode"></a>場所の上書きモードを取得する
 
-**要求**
+**申請**
 
 次の要求型式を使用して、デバイスの場所スタック上書き状態を取得できます。 この呼び出しを成功させるには、開発者モードを有効にしておく必要があります。
  
@@ -1649,7 +1649,7 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop
@@ -1659,7 +1659,7 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 
 ### <a name="set-location-override-mode"></a>場所の上書きモードを設定する
 
-**要求**
+**申請**
 
 次の要求型式を使用して、デバイスの場所スタック上書き状態を設定できます。 有効になっている場合は、場所スタックによって位置挿入が許可されます。 この呼び出しを成功させるには、開発者モードを有効にしておく必要があります。
 
@@ -1700,7 +1700,7 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop
@@ -1710,7 +1710,7 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 
 ### <a name="get-the-injected-position"></a>挿入された位置を取得する
 
-**要求**
+**申請**
 
 次の要求型式を使用して、デバイスの挿入 (スプーフィング) された場所を取得できます。 挿入された場所を設定する必要があります。設定されなかった場合は、エラーがスローされます。
  
@@ -1752,7 +1752,7 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop
@@ -1762,7 +1762,7 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 
 ### <a name="set-the-injected-position"></a>挿入された位置を設定する
 
-**要求**
+**申請**
 
 次の要求型式を使用して、デバイスの挿入 (スプーフィング) された場所を設定できます。 あらかじめデバイス上で場所の上書きモードが有効になっており、設定される場所も有効である必要があります。それ以外の場合はエラーがスローされます。
 
@@ -1809,7 +1809,7 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop
@@ -1825,7 +1825,7 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 
 ### <a name="get-the-machine-name"></a>コンピューター名を取得する
 
-**要求**
+**申請**
 
 次の要求形式を使用して、コンピューターの名前を取得できます。
  
@@ -1864,7 +1864,7 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop
@@ -1876,7 +1876,7 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 
 ### <a name="get-the-operating-system-information"></a>オペレーティング システムの情報を取得する
 
-**要求**
+**申請**
 
 次の要求形式を使用して、コンピューターの OS 情報を取得できます。
  
@@ -1921,7 +1921,7 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop
@@ -1933,7 +1933,7 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 
 ### <a name="get-the-device-family"></a>デバイス ファミリを取得する 
 
-**要求**
+**申請**
 
 次の要求形式を使用して、デバイス ファミリ (Xbox、携帯電話、デスクトップなど) を取得できます。
  
@@ -1976,7 +1976,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop
@@ -1988,7 +1988,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="set-the-machine-name"></a>コンピューター名を設定する
 
-**要求**
+**申請**
 
 次の要求形式を使用して、コンピューターの名前を設定できます。
  
@@ -2003,7 +2003,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | URI パラメーター | 説明 |
 | :------          | :------ |
-| name | (**必須**) コンピューターの新しい名前。 |
+| NAME | (**必須**) コンピューターの新しい名前。 |
 
 **要求ヘッダー**
 
@@ -2023,7 +2023,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | :------     | :----- |
 | 200 | OK |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop
@@ -2039,7 +2039,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="get-the-active-user"></a>アクティブ ユーザーを取得する
 
-**要求**
+**申請**
 
 次の要求形式を使用して、デバイスのアクティブ ユーザーの名前を取得できます。
  
@@ -2091,7 +2091,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Desktop
 * HoloLens
@@ -2105,7 +2105,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="get-the-list-of-running-processes"></a>実行中のプロセスの一覧を取得する
 
-**要求**
+**申請**
 
 次の要求形式を使用して、現在実行中のプロセスの一覧を取得できます。  これは、WebSocket 接続にアップグレードすることもでき、1 秒に 1 度クライアントにプッシュされる同じ JSON データを取得できます。 
  
@@ -2156,7 +2156,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop
@@ -2167,7 +2167,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="get-the-system-performance-statistics"></a>システム パフォーマンスの統計情報を取得する
 
-**要求**
+**申請**
 
 次の要求形式を使用して、システム パフォーマンスの統計情報を取得できます。 これには、読み取りと書き込みのサイクルや、使用されているメモリの量などの情報が含まれます。
  
@@ -2235,7 +2235,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop
@@ -2251,7 +2251,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="get-the-current-battery-state"></a>現在のバッテリ状態を取得する
 
-**要求**
+**申請**
 
 次の要求形式を使用して、バッテリの現在の状態を取得できます。
  
@@ -2298,7 +2298,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop
@@ -2309,7 +2309,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="get-the-active-power-scheme"></a>アクティブな電源設定を取得する
 
-**要求**
+**申請**
 
 次の要求形式を使用して、アクティブな電源設定を取得できます。
  
@@ -2347,7 +2347,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Desktop
 * IoT
@@ -2356,7 +2356,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="get-the-sub-value-for-a-power-scheme"></a>電源設定のサブ値を取得する
 
-**要求**
+**申請**
 
 次の要求形式を使用して、電源設定のサブ値を取得できます。
  
@@ -2391,7 +2391,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Desktop
 * IoT
@@ -2400,7 +2400,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="get-the-power-state-of-the-system"></a>システムの電源状態を取得する
 
-**要求**
+**申請**
 
 次の要求形式を使用して、システムの電源状態を確認できます。 これによって、低電力状態になっているかどうかを確認できます。
  
@@ -2438,7 +2438,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Desktop
 * HoloLens
@@ -2448,7 +2448,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="set-the-active-power-scheme"></a>アクティブな電源設定を行う
 
-**要求**
+**申請**
 
 次の要求形式を使用して、アクティブな電源設定を設定できます。
  
@@ -2485,7 +2485,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Desktop
 * IoT
@@ -2494,7 +2494,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="set-the-sub-value-for-a-power-scheme"></a>電源設定のサブ値を設定する
 
-**要求**
+**申請**
 
 次の要求形式を使用して、電源設定のサブ値を設定できます。
  
@@ -2530,7 +2530,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | :------     | :----- |
 | 200 | OK |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Desktop
 * IoT
@@ -2539,7 +2539,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="get-a-sleep-study-report"></a>SleepStudy レポートを取得する
 
-**要求**
+**申請**
 
 | メソッド      | 要求 URI |
 | :------     | :----- |
@@ -2574,7 +2574,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Desktop
 * IoT
@@ -2583,7 +2583,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="enumerate-the-available-sleep-study-reports"></a>利用可能な SleepStudy レポートを列挙する
 
-**要求**
+**申請**
 
 次の要求形式を使用して、利用可能な SleepStudy レポートを列挙できます。
  
@@ -2626,7 +2626,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Desktop
 * IoT
@@ -2635,7 +2635,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="get-the-sleep-study-transform"></a>スリープ スタディ変換を取得する
 
-**要求**
+**申請**
 
 次の要求形式を使用して、スリープ スタディ変換を取得できます。 この変換は、SleepStudy レポートを、ユーザーが読み取ることができる XML 形式に変換する XSLT です。
  
@@ -2670,7 +2670,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Desktop
 * IoT
@@ -2683,7 +2683,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="restart-the-target-computer"></a>ターゲット コンピューターを再起動する
 
-**要求**
+**申請**
 
 次の要求形式を使用して、ターゲット コンピューターを再起動できます。
  
@@ -2714,7 +2714,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | :------     | :----- |
 | 200 | OK |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop
@@ -2726,7 +2726,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="shut-down-the-target-computer"></a>ターゲット コンピューターをシャットダウンする
 
-**要求**
+**申請**
 
 次の要求形式を使用して、ターゲット コンピューターをシャット ダウンできます。
  
@@ -2759,7 +2759,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop
@@ -2775,7 +2775,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="start-a-modern-app"></a>最新のアプリを起動する
 
-**要求**
+**申請**
 
 次の要求形式を使用して、最新のアプリを起動できます。
  
@@ -2813,7 +2813,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop
@@ -2825,13 +2825,13 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="stop-a-modern-app"></a>最新のアプリを停止する
 
-**要求**
+**申請**
 
 次の要求形式を使用して、最新のアプリを停止できます。
  
 | メソッド      | 要求 URI |
 | :------     | :----- |
-| Del | /api/taskmanager/app |
+| DELETE | /api/taskmanager/app |
 
 
 **URI パラメーター**
@@ -2863,7 +2863,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop
@@ -2875,13 +2875,13 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="kill-process-by-pid"></a>PID でプロセスを強制終了する
 
-**要求**
+**申請**
 
 次の要求形式を使用して、プロセスを強制終了できます。
  
 | メソッド      | 要求 URI |
 | :------     | :----- |
-| Del | /api/taskmanager/process |
+| DELETE | /api/taskmanager/process |
 
 
 **URI パラメーター**
@@ -2912,7 +2912,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Desktop
 * HoloLens
@@ -2926,7 +2926,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="get-the-current-ip-configuration"></a>現在の IP 構成を取得する
 
-**要求**
+**申請**
 
 次の要求形式を使用して、現在の IP 構成を取得できます。
  
@@ -3001,7 +3001,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop
@@ -3011,11 +3011,11 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 <hr>
 
-### <a name="set-a-static-ip-address-ipv4-configuration"></a>静的 IP アドレス (IPV4 構成) の設定します。
+### <a name="set-a-static-ip-address-ipv4-configuration"></a>静的 IP アドレスを設定する (IPV4 構成)
 
-**要求**
+**申請**
 
-静的 IP と DNS で IPV4 構成を設定します。 静的 IP が指定されていない場合は、DHCP が使用できます。 静的 IP が指定されている場合は、DNS も指定する必要があります。
+静的 IP と DNS を使用して IPV4 構成を設定します。 静的 IP が指定されていない場合は、DHCP が有効になります。 静的 IP を指定する場合は、DNS も指定する必要があります。
  
 | メソッド      | 要求 URI |
 | :------     | :----- |
@@ -3026,14 +3026,14 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | URI パラメーター | 説明 |
 | :---          | :--- |
-| AdapterName | (**必要**) ネットワーク インターフェイスの GUID。 |
+| AdapterName | (**必須**)ネットワークインターフェイスの GUID。 |
 | IPAddress | 設定する静的 IP アドレス。 |
-| サブネット マスク | (**必要**場合*IPAddress*が null でない)、静的なサブネット マスク。 |
-| DefaultGateway | (**必要**場合*IPAddress*が null でない)、静的な既定ゲートウェイ。 |
-| PrimaryDNS | (**必要**場合*IPAddress*が null でない) を設定する静的なプライマリ DNS。 |
-| SecondayDNS | (**必要**場合*PrimaryDNS*が null でない) を設定する静的セカンダリ DNS。 |
+| ネット | ( *IPAddress*が null でない場合は**必須**)静的サブネットマスク。 |
+| DefaultGateway | ( *IPAddress*が null でない場合は**必須**)静的なデフォルトゲートウェイ。 |
+| PrimaryDNS | ( *IPAddress*が null でない場合は**必須**)設定する静的プライマリ DNS。 |
+| セカンダリ Dns | ( *Primarydns*が null でない場合は**必須**)設定する静的セカンダリ DNS。 |
 
-わかりやすくするため、DHCP にインターフェイスを設定するシリアル化、`AdapterName`ネットワーク上で。
+わかりやすくするために、インターフェイスを DHCP に設定するには、ネットワーク上の `AdapterName` のみをシリアル化します。
 
 ```json
 {
@@ -3061,7 +3061,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop
@@ -3073,7 +3073,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="enumerate-wireless-network-interfaces"></a>ワイヤレス ネットワーク インターフェイスを列挙する
 
-**要求**
+**申請**
 
 次の要求形式を使用して、利用可能なワイヤレス ネットワーク インターフェイスを列挙できます。
  
@@ -3124,7 +3124,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop
@@ -3136,7 +3136,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="enumerate-wireless-networks"></a>ワイヤレス ネットワークを列挙する
 
-**要求**
+**申請**
 
 次の要求形式を使用して、指定されたインターフェイスのワイヤレス ネットワークの一覧を列挙できます。
  
@@ -3171,7 +3171,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
         "AlreadyConnected": bool,
         "AuthenticationAlgorithm": string, (WPA2, etc)
         "Channel": int,
-        "CipherAlgorithm": string, (e.g. AES)
+        "CipherAlgorithm": string, (for example, AES)
         "Connectable": int, (0 | 1)
         "InfrastructureType": string,
         "ProfileAvailable": bool,
@@ -3195,7 +3195,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop
@@ -3207,7 +3207,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="connect-and-disconnect-to-a-wi-fi-network"></a>Wi-Fi ネットワークを接続および切断する
 
-**要求**
+**申請**
 
 次の要求形式を使用して、Wi-Fi ネットワークを接続および切断できます。
  
@@ -3225,7 +3225,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | インターフェイス   | (**必須**) ネットワークへの接続に使用するネットワーク インターフェイスの GUID。 |
 | op   | (**必須**) 実行するアクションを示します。 設定可能な値は、connect または disconnect です。|
 | ssid   | ( ***op* == connect の場合は必須**) 接続先 SSID。 |
-| key   | ( ***op* == connect で、ネットワークで認証が必要な場合は必須**) 共有キー。 |
+| キー (key)   | ( ***op* == connect で、ネットワークで認証が必要な場合は必須**) 共有キー。 |
 | createprofile | (**必要**) デバイスでネットワークのプロファイルを作成します。  これにより、今後、デバイスはネットワークに自動接続されます。 **yes** または **no** を指定できます。 |
 
 **要求ヘッダー**
@@ -3246,7 +3246,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | :------     | :----- |
 | 200 | OK |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop
@@ -3258,13 +3258,13 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="delete-a-wi-fi-profile"></a>Wi-Fi のプロファイルを削除する
 
-**要求**
+**申請**
 
 次の要求形式を使用して、特定のインターフェイス上のネットワークに関連付けられたプロファイルを削除できます。
  
 | メソッド      | 要求 URI |
 | :------     | :----- |
-| Del | /api/wifi/profile |
+| DELETE | /api/wifi/profile |
 
 
 **URI パラメーター**
@@ -3294,7 +3294,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | :------     | :----- |
 | 200 | OK |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop
@@ -3310,7 +3310,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="download-a-windows-error-reporting-wer-file"></a>Windows エラー報告 (WER) ファイルをダウンロードする
 
-**要求**
+**申請**
 
 次の要求形式を使用して、WER 関連のファイルをダウンロードできます。
  
@@ -3327,7 +3327,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | :------          | :------ |
 | ユーザー   | (**必須**) レポートに関連付けられたユーザー名。 |
 | type   | (**必須**) レポートの種類。 これは **queried** または **archived** のいずれかになります。 |
-| name   | (**必須**) レポートの名前。 base64 でエンコードされている必要があります。 |
+| NAME   | (**必須**) レポートの名前。 base64 でエンコードされている必要があります。 |
 | ファイル   | (**必須**) レポートからダウンロードするファイルの名前。 base64 でエンコードされている必要があります。 |
 
 **要求ヘッダー**
@@ -3352,7 +3352,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Desktop
 * HoloLens
@@ -3362,7 +3362,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="enumerate-files-in-a-windows-error-reporting-wer-report"></a>Windows エラー報告 (WER) レポート内のファイルを列挙する
 
-**要求**
+**申請**
 
 次の要求形式を使用して、WER レポート内のファイルを列挙できます。
  
@@ -3379,7 +3379,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | :------          | :------ |
 | ユーザー   | (**必須**) レポートに関連付けられたユーザー。 |
 | type   | (**必須**) レポートの種類。 これは **queried** または **archived** のいずれかになります。 |
-| name   | (**必須**) レポートの名前。 base64 でエンコードされている必要があります。 |
+| NAME   | (**必須**) レポートの名前。 base64 でエンコードされている必要があります。 |
 
 **要求ヘッダー**
 
@@ -3408,7 +3408,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Desktop
 * HoloLens
@@ -3418,7 +3418,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="list-the-windows-error-reporting-wer-reports"></a>Windows エラー報告 (WER) レポートを一覧表示する
 
-**要求**
+**申請**
 
 次の要求形式を使用して、WER レポートを取得できます。
  
@@ -3467,7 +3467,7 @@ WER 報告の形式は次のとおりです。
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Desktop
 * HoloLens
@@ -3481,7 +3481,7 @@ WER 報告の形式は次のとおりです。
 
 ### <a name="start-tracing-with-a-custom-profile"></a>カスタム プロファイルを使用してトレースを開始する
 
-**要求**
+**申請**
 
 次の要求形式を使用して、WPR プロファイルをアップロードし、そのプロファイルを使用してトレースを開始できます。  一度に実行できるトレースは 1 つのみです。 プロファイルはデバイス上に残りません。 
  
@@ -3523,7 +3523,7 @@ WPR セッション状態の形式は次のとおりです。
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop
@@ -3534,7 +3534,7 @@ WPR セッション状態の形式は次のとおりです。
 
 ### <a name="start-a-boot-performance-tracing-session"></a>起動パフォーマンス トレース セッションを開始する
 
-**要求**
+**申請**
 
 次の要求形式を使用して、WPR の起動トレース セッションを開始できます。 これは、パフォーマンス トレース セッションとも呼びます。
  
@@ -3580,7 +3580,7 @@ WPR セッション状態の形式は次のとおりです。
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop
@@ -3591,7 +3591,7 @@ WPR セッション状態の形式は次のとおりです。
 
 ### <a name="stop-a-boot-performance-tracing-session"></a>起動パフォーマンス トレース セッションを停止する
 
-**要求**
+**申請**
 
 次の要求形式を使用して、WPR の起動トレース セッションを停止できます。 これは、パフォーマンス トレース セッションとも呼びます。
  
@@ -3614,7 +3614,7 @@ WPR セッション状態の形式は次のとおりです。
 
 **応答**
 
--  なし。  **注:** これは、実行時間の長い操作です。  ETL のディスクへの書き込みが終了すると、制御が戻ります。
+-  [なし] :  **注:** これは、実行時間の長い操作です。  ETL のディスクへの書き込みが終了すると、制御が戻ります。
 
 **状態コード**
 
@@ -3626,7 +3626,7 @@ WPR セッション状態の形式は次のとおりです。
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop
@@ -3637,7 +3637,7 @@ WPR セッション状態の形式は次のとおりです。
 
 ### <a name="start-a-performance-tracing-session"></a>パフォーマンス トレース セッションを開始する
 
-**要求**
+**申請**
 
 次の要求形式を使用して、WPR のトレース セッションを開始できます。 これは、パフォーマンス トレース セッションとも呼びます。  一度に実行できるトレースは 1 つのみです。 
  
@@ -3683,7 +3683,7 @@ WPR セッション状態の形式は次のとおりです。
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop
@@ -3694,7 +3694,7 @@ WPR セッション状態の形式は次のとおりです。
 
 ### <a name="stop-a-performance-tracing-session"></a>パフォーマンスのトレース セッションを停止する
 
-**要求**
+**申請**
 
 次の要求形式を使用して、WPR のトレース セッションを停止できます。 これは、パフォーマンス トレース セッションとも呼びます。
  
@@ -3717,7 +3717,7 @@ WPR セッション状態の形式は次のとおりです。
 
 **応答**
 
-- なし。  **注:** これは、実行時間の長い操作です。  ETL のディスクへの書き込みが終了すると、制御が戻ります。  
+- [なし] :  **注:** これは、実行時間の長い操作です。  ETL のディスクへの書き込みが終了すると、制御が戻ります。  
 
 **状態コード**
 
@@ -3729,7 +3729,7 @@ WPR セッション状態の形式は次のとおりです。
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop
@@ -3740,7 +3740,7 @@ WPR セッション状態の形式は次のとおりです。
 
 ### <a name="retrieve-the-status-of-a-tracing-session"></a>トレース セッションの状態を取得する
 
-**要求**
+**申請**
 
 次の要求形式を使用して、現在の WPR セッションの状態を取得できます。
  
@@ -3782,7 +3782,7 @@ WPR トレース セッションの状態の形式は次のとおりです。
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop
@@ -3793,7 +3793,7 @@ WPR トレース セッションの状態の形式は次のとおりです。
 
 ### <a name="list-completed-tracing-sessions-etls"></a>完了したトレース セッション (ETL) を一覧表示する
 
-**要求**
+**申請**
 
 次の要求形式を使用して、デバイス上の ETL トレースの一覧を取得できます。 
 
@@ -3840,7 +3840,7 @@ WPR トレース セッションの状態の形式は次のとおりです。
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop
@@ -3851,7 +3851,7 @@ WPR トレース セッションの状態の形式は次のとおりです。
 
 ### <a name="download-a-tracing-session-etl"></a>トレース セッション (ETL) をダウンロードする
 
-**要求**
+**申請**
 
 次の要求形式を使用して、トレースファイル (ブート トレースまたはユーザー モード トレース) をダウンロードできます。 
 
@@ -3890,7 +3890,7 @@ WPR トレース セッションの状態の形式は次のとおりです。
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop
@@ -3901,13 +3901,13 @@ WPR トレース セッションの状態の形式は次のとおりです。
 
 ### <a name="delete-a-tracing-session-etl"></a>トレース セッション (ETL) を削除する
 
-**要求**
+**申請**
 
 次の要求形式を使用して、トレースファイル (ブート トレースまたはユーザー モード トレース) を削除できます。 
 
 | メソッド      | 要求 URI |
 | :------     | :----- |
-| Del | /api/wpr/tracefile |
+| DELETE | /api/wpr/tracefile |
 
 
 **URI パラメーター**
@@ -3940,7 +3940,7 @@ WPR トレース セッションの状態の形式は次のとおりです。
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop
@@ -3955,7 +3955,7 @@ WPR トレース セッションの状態の形式は次のとおりです。
 
 ### <a name="view-tags"></a>タグを表示する
 
-**要求**
+**申請**
 
 デバイスに現在適用されているタグを表示します。  これらのタグは、T キー内の DNS-SD TXT レコードを使用してアドバタイズされます。  
  
@@ -3997,7 +3997,7 @@ WPR トレース セッションの状態の形式は次のとおりです。
 | 5XX | サーバー エラー |
 
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop
@@ -4009,13 +4009,13 @@ WPR トレース セッションの状態の形式は次のとおりです。
 
 ### <a name="delete-tags"></a>タグを削除する
 
-**要求**
+**申請**
 
 DNS-SD によって現在アドバタイズされているすべてのタグを削除します。   
  
 | メソッド      | 要求 URI |
 | :------     | :----- |
-| Del | /api/dns-sd/tags |
+| DELETE | /api/dns-sd/tags |
 
 
 **URI パラメーター**
@@ -4043,7 +4043,7 @@ DNS-SD によって現在アドバタイズされているすべてのタグを�
 | 5XX | サーバー エラー |
 
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop
@@ -4055,13 +4055,13 @@ DNS-SD によって現在アドバタイズされているすべてのタグを�
 
 ### <a name="delete-tag"></a>タグを削除する
 
-**要求**
+**申請**
 
 DNS-SD によって現在アドバタイズされている 1 つのタグを削除します。   
  
 | メソッド      | 要求 URI |
 | :------     | :----- |
-| Del | /api/dns-sd/tag |
+| DELETE | /api/dns-sd/tag |
 
 
 **URI パラメーター**
@@ -4090,7 +4090,7 @@ DNS-SD によって現在アドバタイズされている 1 つのタグを削�
 | 200 | OK |
 
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop
@@ -4102,7 +4102,7 @@ DNS-SD によって現在アドバタイズされている 1 つのタグを削�
 
 ### <a name="add-a-tag"></a>タグを追加する
 
-**要求**
+**申請**
 
 DNS-SD アドバタイズにタグを追加します。   
  
@@ -4138,7 +4138,7 @@ DNS-SD アドバタイズにタグを追加します。
 | 401 | タグ領域のオーバーフロー。  提供されたタグが、結果として生成される DNS-SD サービス レコードに対して長すぎます。 |
 
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop
@@ -4152,7 +4152,7 @@ DNS-SD アドバタイズにタグを追加します。
 
 ### <a name="get-known-folders"></a>既知のフォルダーを取得する
 
-**要求**
+**申請**
 
 アクセス可能なトップ レベル フォルダーの一覧を取得します。
 
@@ -4191,7 +4191,7 @@ DNS-SD アドバタイズにタグを追加します。
 | 5XX | エラー コード |
 
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop
@@ -4203,7 +4203,7 @@ DNS-SD アドバタイズにタグを追加します。
 
 ### <a name="get-files"></a>ファイルを取得する
 
-**要求**
+**申請**
 
 フォルダー内のファイルの一覧を取得します。
 
@@ -4252,7 +4252,7 @@ DNS-SD アドバタイズにタグを追加します。
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop
@@ -4264,7 +4264,7 @@ DNS-SD アドバタイズにタグを追加します。
 
 ### <a name="download-a-file"></a>ファイルをダウンロードする
 
-**要求**
+**申請**
 
 既知のフォルダーまたは appLocalData からファイルを取得します。
 
@@ -4301,7 +4301,7 @@ DNS-SD アドバタイズにタグを追加します。
 | 404 | ファイルが見つからない |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop
@@ -4313,7 +4313,7 @@ DNS-SD アドバタイズにタグを追加します。
 
 ### <a name="rename-a-file"></a>ファイルの名前の変更
 
-**要求**
+**申請**
 
 フォルダー内のファイルの名前を変更します。
 
@@ -4354,7 +4354,7 @@ DNS-SD アドバタイズにタグを追加します。
 | 404 | ファイルが見つからない |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop
@@ -4366,13 +4366,13 @@ DNS-SD アドバタイズにタグを追加します。
 
 ### <a name="delete-a-file"></a>ファイルを削除する
 
-**要求**
+**申請**
 
 フォルダー内のファイルを削除します。
 
 | メソッド      | 要求 URI |
 | :------     | :----- |
-| Del | /api/filesystem/apps/file |
+| DELETE | /api/filesystem/apps/file |
 
 **URI パラメーター**
 
@@ -4405,7 +4405,7 @@ DNS-SD アドバタイズにタグを追加します。
 | 404 | ファイルが見つからない |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop
@@ -4417,7 +4417,7 @@ DNS-SD アドバタイズにタグを追加します。
 
 ### <a name="upload-a-file"></a>ファイルをアップロードする
 
-**要求**
+**申請**
 
 フォルダーにファイルをアップロードします。  この場合、同じ名前を持つ既存のファイルは上書きされますが、新しいフォルダーは作成されません。 
 
@@ -4453,7 +4453,7 @@ DNS-SD アドバタイズにタグを追加します。
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**使用可能なデバイスファミリ**
 
 * Windows Mobile
 * Windows Desktop

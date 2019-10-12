@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 082736c8-2ac3-41b3-b246-e705edc23f34
 ms.localizationpriority: medium
-ms.openlocfilehash: ebfaab1c8fe3ec3cf8893022a8f4e8dae7deac63
-ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
+ms.openlocfilehash: f8ace0d56e6e647ed5f977cbe6860d8f91bb2b5f
+ms.sourcegitcommit: 445320ff0ee7323d823194d4ec9cfa6e710ed85d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71340586"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72282358"
 ---
 # <a name="windows-apps-concept-mapping-for-android-and-ios-developers"></a>Android と iOS 開発者向けの Windows アプリ概念マッピング
 
@@ -87,7 +87,7 @@ ms.locfileid: "71340586"
 <td align="left">再利用可能な<strong><a href="https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Style">スタイル</a></strong>を作成して複数のコントロールに適用したり、簡単に再利用できるように <strong><a href="https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.ResourceDictionary">ResourceDictionary</a></strong> に格納したりできます。<br/><br/><a href="https://docs.microsoft.com/previous-versions/windows/apps/hh465381(v=win.10)">クイック スタート:スタイルコントロール @ no__t-0</td>
 </tr>
 <tr class="odd" style="background-color: #f2f2f2">
-<td align="left"><strong>コントロールの視覚的な構造を編集する。</strong> <br><br>チェックボックスの下にあるチェックボックスのテキストの移動など、プロパティまたは属性を変更する以外の、コントロールの視覚的構造をカスタマイズします。</td>
+<td align="left"><strong>コントロールの視覚的な構造を編集する。</strong> <br><br>プロパティまたは属性を変更するだけでなく、コントロールのビジュアル構造をカスタマイズします。たとえば、チェックボックスの下のテキストを移動できます。</td>
 <td align="left">Android では、コントロールの視覚的構造を編集する簡単な方法は存在しません。</td>
 <td align="left">iOS では、コントロールの視覚的構造を編集する簡単な方法は存在しません。</td>
 <td align="left">コントロールの視覚的な構造をカスタマイズするには、XAML マークアップで<strong><a href="https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ControlTemplate">コントロール テンプレート</a></strong>をコピーして編集します。<br/><br/><a href="https://docs.microsoft.com/previous-versions/windows/apps/hh465374(v=win.10)">クイック スタート:コントロールテンプレート @ no__t</td>
@@ -348,7 +348,7 @@ ms.locfileid: "71340586"
 <td align="left"><strong>非同期プログラミング。</strong> <br><br>UI スレッドの応答性を確保するために、非同期プログラミング パターンを利用してスレッドが複雑にならないようにします。</td>
 <td align="left">独自の非同期クラスを作成するには<strong>スレッド処理を使う必要があります</strong>。 一部の組み込みクラスは非同期です。</td>
 <td align="left">独自の非同期クラスを作成するには<strong>スレッド処理を使う必要があります</strong>。 一部の組み込みクラスは非同期です。</td>
-<td align="left">独自の API を作成するときにメイン スレッドをブロックしないように、非同期パターンを使うことができます。たとえば、C# と Visual Basic で <strong>async</strong> や <strong>await</strong> を使うことができます。 語が <strong>Async</strong> で終わる非同期の組み込み API を使うことができます。<br/><br/><a href="https://docs.microsoft.com/windows/uwp/threading-async/asynchronous-programming-universal-windows-platform-apps">非同期プログラミング</a><br/><br/><a href="https://docs.microsoft.com/windows/uwp/threading-async/call-asynchronous-apis-in-csharp-or-visual-basic">C# または Visual Basic での非同期 API の呼び出し</a></td>
+<td align="left">非同期パターンを使用すると、独自の Api を作成するときにメインスレッドがブロックされないようにすることC#ができます。たとえば、と Visual Basic で<strong>async</strong>と await を使用します。 語が <strong>Async</strong> で終わる非同期の組み込み API を使うことができます。<br/><br/><a href="https://docs.microsoft.com/windows/uwp/threading-async/asynchronous-programming-universal-windows-platform-apps">非同期プログラミング</a><br/><br/><a href="https://docs.microsoft.com/windows/uwp/threading-async/call-asynchronous-apis-in-csharp-or-visual-basic">C# または Visual Basic での非同期 API の呼び出し</a></td>
 </tr>
 <tr class="odd" style="background-color: #f2f2f2">
 <td align="left"><strong>リストビューの最適化。</strong> <br><br>大量のデータを表示する必要がある場合にパフォーマンスを低下させることが多い、データの一覧の最適化を支援する組み込みのパターン</td>

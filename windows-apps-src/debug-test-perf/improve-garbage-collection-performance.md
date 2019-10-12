@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: fdb4e80d7f8da022e2ceb5496cbad592d7d22716
-ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
+ms.openlocfilehash: f9e7cc16b65f4ee2727fae5a711da9372ee91c01
+ms.sourcegitcommit: 445320ff0ee7323d823194d4ec9cfa6e710ed85d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71339629"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72282188"
 ---
 # <a name="improve-garbage-collection-performance"></a>ガベージ コレクションのパフォーマンスの向上
 
@@ -74,7 +74,7 @@ C# と Visual Basic で記述されたユニバーサル Windows プラットフ
 
 ### <a name="avoid-reference-rich-objects"></a>参照の多いオブジェクトの回避
 
-ガーベジ コレクターは、オブジェクト間の参照の追跡をアプリのルートから開始して、有効なオブジェクトを特定します。 詳しくは、「[ガベージ コレクションの実行時の動作](https://docs.microsoft.com/dotnet/standard/garbage-collection/fundamentals)」をご覧ください。 オブジェクトに参照がたくさん含まれていると、ガーベジ コレクターの処理が増えます。 一般的な手法としては (特に大きなオブジェクトの場合)、参照の多いオブジェクトを参照のないオブジェクトに変換します (たとえば、参照を保存する代わりに、インデックスを保存します)。 当然、この手法を使うことができるのは、論理的に可能な場合に限られます。
+ガーベジ コレクターは、オブジェクト間の参照の追跡をアプリのルートから開始して、有効なオブジェクトを特定します。 詳しくは、「[ガベージ コレクションの実行時の動作](https://docs.microsoft.com/dotnet/standard/garbage-collection/fundamentals)」をご覧ください。 オブジェクトに参照がたくさん含まれていると、ガーベジ コレクターの処理が増えます。 一般的な手法 (特にラージオブジェクトの場合) では、参照の豊富なオブジェクトを参照を含まないオブジェクトに変換します (たとえば、参照を格納するのではなく、インデックスを格納します)。 当然、この手法を使うことができるのは、論理的に可能な場合に限られます。
 
 オブジェクト参照をインデックスに置き換えると、アプリに複雑な変更が加わり、混乱を招く可能性があります。また、この手法は、大きなオブジェクトに多数の参照が含まれている場合が最も効果的です。 アプリでのガベージ コレクションの実行時間の長さが、参照の多いオブジェクトに関連していることがわかっている場合にのみ行ってください。
 

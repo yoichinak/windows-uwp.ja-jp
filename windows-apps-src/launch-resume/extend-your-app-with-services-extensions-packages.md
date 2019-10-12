@@ -5,12 +5,12 @@ ms.date: 05/07/2018
 ms.topic: article
 keywords: Windows 10, UWP, 拡張, コンポーネント化, アプリ サービス, パッケージ, 拡張機能
 ms.localizationpriority: medium
-ms.openlocfilehash: 038f78182095546219152298b043fe876c2c18c8
-ms.sourcegitcommit: 350d6e6ba36800df582f9715c8d21574a952aef1
+ms.openlocfilehash: a72b175e672b44d0dace0b4bf04956792edfadd0
+ms.sourcegitcommit: 445320ff0ee7323d823194d4ec9cfa6e710ed85d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68682713"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72282514"
 ---
 # <a name="extend-your-app-with-services-extensions-and-packages"></a>サービス、拡張機能、パッケージでアプリを拡張する
 
@@ -21,7 +21,7 @@ Windows 10 には、アプリを拡張して componentizing するためのさ�
 | サードパーティコードプラグイン            |                    |                    |                    |                    | :heavy_check_mark: |                    |                    |
 | インプロセス コード プラグイン              |                    |                    | :heavy_check_mark: |                    |                    |                    |                    |
 | UX アセット (文字列/画像)         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    | :heavy_check_mark: |                    | :heavy_check_mark: |
-| オンデマンド コンテンツ <br/> (例: 追加の階層) |      |                    | :heavy_check_mark: |                    | :heavy_check_mark: |                    | :heavy_check_mark: |
+| オンデマンド コンテンツ <br/> (たとえば、追加のレベル) |      |                    | :heavy_check_mark: |                    | :heavy_check_mark: |                    | :heavy_check_mark: |
 | ライセンスと取得の分離 |                    |                    | :heavy_check_mark: |                    | :heavy_check_mark: | :heavy_check_mark: |                    |
 | アプリ内取得                 |                    |                    | :heavy_check_mark: |                    | :heavy_check_mark: |                    |                    |
 | インストール時間の最適化              | :heavy_check_mark: |                    | :heavy_check_mark: |                    | :heavy_check_mark: |                    | :heavy_check_mark: |

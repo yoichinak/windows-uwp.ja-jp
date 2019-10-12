@@ -8,12 +8,12 @@ ms.assetid: 0a8cedac-172a-4efd-8b6b-67fd3667df34
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: 316682ba136b5b3249d26abd0a5c5a877abbcf12
-ms.sourcegitcommit: 76357092f90b70bdb21ee43a5a416fe1fbfd9b89
+ms.openlocfilehash: c99d05a701f41e24663d116773b000017b805d81
+ms.sourcegitcommit: 445320ff0ee7323d823194d4ec9cfa6e710ed85d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72257936"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72281804"
 ---
 # <a name="integrate-your-packaged-desktop-app-with-windows-10-and-uwp"></a>パッケージ化されたデスクトップアプリを Windows 10 および UWP と統合する
 
@@ -247,7 +247,7 @@ http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabi
 |Verb |エクスプローラーのコンテキスト メニューに表示される名前です。 この文字列は、```ms-resource``` を使用してローカライズできます。|
 |Id |動詞の一意の ID。 アプリケーションが UWP アプリである場合、これはアクティブ化イベントの引数の一部としてアプリに渡されるので、ユーザーの選択を適切に処理できます。 アプリケーションが完全に信頼されたパッケージアプリである場合は、代わりにパラメーターを受け取ります (次の箇条書きを参照)。 |
 |Parameters |動詞に関連付けられている引数のパラメーターと値のリスト。 アプリケーションが完全に信頼されたパッケージアプリである場合、これらのパラメーターは、アプリケーションがアクティブ化されるときにイベント引数としてアプリケーションに渡されます。 さまざまなアクティベーション動詞に基づいて、アプリケーションの動作をカスタマイズできます。 変数にファイル パスが含まれる可能性がある場合は、パラメーター値を引用符で囲みます。 これにより、パスにスペースが含まれている場合に発生する問題を回避できます。 アプリケーションが UWP アプリの場合、パラメーターを渡すことはできません。 アプリは、代わりに ID を受け取ります (前の項目を参照してください)。|
-|Extended |ユーザーが **Shift** キーを押しながらファイルを右クリックすることでコンテキスト メニューを表示した場合にのみ表示される動詞を指定します。 この属性は省略可能であり、指定されていない場合の既定値は **False** (常に動詞を表示する) です。 この動作は各動詞について個別に指定します ("開く" は例外で、常に **False**)。|
+|Extended |ユーザーが **Shift** キーを押しながらファイルを右クリックすることでコンテキスト メニューを表示した場合にのみ表示される動詞を指定します。 この属性は省略可能であり、既定値は**False**に設定されています (たとえば、常に動詞を表示します)。 この動作は各動詞について個別に指定します ("開く" は例外で、常に **False**)。|
 
 #### <a name="example"></a>例
 
