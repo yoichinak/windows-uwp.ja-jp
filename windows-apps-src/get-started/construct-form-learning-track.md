@@ -6,12 +6,12 @@ ms.topic: article
 keywords: 概要, uwp, windows 10, 学習トラック, レイアウト, フォーム
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 2e64392e1de5f6061b802acc0a2eed81c3e750fb
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 9542151a8104ade77d8311ed1f16eba2809ecf7a
+ms.sourcegitcommit: 9625f8fb86ff6473ac2851e600bc02e996993660
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67318806"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72163685"
 ---
 # <a name="create-and-customize-a-form"></a>フォームを作成してカスタマイズする
 
@@ -51,7 +51,7 @@ UWP には、アプリに追加して構成することができる明示的な�
 * [ToggleSwitch](../design/controls-and-patterns/toggles.md) では、ユーザーが 2 つのオプションから選択できます。
 * [DatePicker](../design/controls-and-patterns/date-picker.md) では、ユーザーが日付値を選択できます。
 * [TimePicker](../design/controls-and-patterns/time-picker.md) では、ユーザーが時刻値を選択できます。
-* [ComboBox](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ComboBox) は、選択可能な項目の一覧を表示するために展開します。 これらの詳細については、[こちら](../design/controls-and-patterns/lists.md#drop-down-lists)を参照してください。
+* [ComboBox](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ComboBox) は、選択可能な項目の一覧を表示するために展開します。 これらの詳細については、[こちら](../design/controls-and-patterns/combo-box.md)を参照してください。
 
 また、ユーザーが保存やキャンセルを行うことができるように、[ボタン](../design/controls-and-patterns/buttons.md)を追加することができます。
 
