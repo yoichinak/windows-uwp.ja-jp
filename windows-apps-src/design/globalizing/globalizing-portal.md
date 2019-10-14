@@ -1,5 +1,5 @@
 ---
-Description: グローバライズとローカライズ、アプリと正確にこれらの用語の意味の利点について説明します。
+Description: アプリのグローバライズとローカライズの利点、およびこれらの用語の意味について説明します。
 Search.SourceType: Video
 title: グローバリゼーションとローカライズ
 ms.assetid: c0791eec-5bb8-4a13-8977-61d7d98e35ce
@@ -9,18 +9,18 @@ ms.date: 12/07/2018
 ms.topic: article
 keywords: Windows 10, UWP, グローバリゼーション, ローカライズの可否, ローカライズ
 ms.localizationpriority: medium
-ms.openlocfilehash: f57cc53eaea51c56e665660cfaf6ecdf6456b96b
-ms.sourcegitcommit: b0aea3c2061f7b9a87e7396e8e5f7735748718ab
+ms.openlocfilehash: 8c2d05c87f4f7b6164afe1fcbcb62323eef3bdf1
+ms.sourcegitcommit: 5f80bfc3ba04ad0a0853f83917d6a0ef3da24fa3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68239502"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72302252"
 ---
 # <a name="globalization-and-localization"></a>グローバリゼーションとローカライズ
 
 Windows は世界中で利用されており、言語、地域、文化の異なる多様なユーザーを対象としています。 アプリはさまざまな言語を使用するユーザーによって、さまざまな国や地域で使用されます。 中には複数の言語を話すユーザーもいます。 そのため、言語、地域、文化のシステム設定の多くの組み合わせを含む構成でアプリが実行されます。 *グローバリゼーション*と*ローカライズ*によってアプリの適応性を高めることにより、潜在的な市場を拡大することができます。
 
-このビデオでは、世界中のアプリを準備する方法の概要を提供します。[グローバリゼーションとローカリゼーションの概要](https://channel9.msdn.com/Blogs/One-Dev-Minute/Introduction-to-globalization-and-localization)します。
+このビデオでは、アプリを世界中に準備する方法を簡単に紹介します。[グローバリゼーションとローカリゼーションの概要](https://channel9.msdn.com/Blogs/One-Dev-Minute/Introduction-to-globalization-and-localization)。
 
 **グローバリゼーション**とは、カルチャ固有の変更やカスタマイズを必要とせずに、さまざまなグローバル市場 (言語やカルチャ構成が異なるシステム上) で適切に動作するようにアプリを設計および開発するプロセスです。
 
@@ -38,8 +38,7 @@ Windows は世界中で利用されており、言語、地域、文化の異な
 - 並べ替え規則
 
 >[!NOTE]
-> Microsoft で使用される標準の国/地域コードの一覧は、次を参照してください。、[公式の国/地域一覧](https://globalready.azurewebsites.net/marketreadiness/OfficialCountryregion)します。
-
+> Windows オペレーティングシステムのバージョン別のサポートされているロケール名の一覧については、[Appendix A の表の言語タグ列を参照してください。[Windows 言語コード識別子 (LCID) のリファレンス](https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-lcid/70feba9f-294e-491e-b6eb-56532684c37f)で、製品の動作 @ no__t-0。
 
 **ローカライズの可否**は、ローカライズ用にグローバル化したアプリを準備し、そのアプリがローカライズできる状態であることを検証するプロセスです。 適切にアプリをローカライズ可能にすることは、後続のローカライズ プロセスでアプリの機能上の欠陥が発生しないことを意味します。 ローカライズ可能なアプリの最も重要な特性は、その実行可能コードが、アプリのローカライズ可能なリソースから明確に区別されていることです。
 
@@ -58,16 +57,16 @@ Windows は世界中で利用されており、言語、地域、文化の異な
 
 | 記事 | 説明 |
 |---------|-------------|
-| [グローバル化するためのガイドライン](guidelines-and-checklist-for-globalizing-your-app.md) | 言語とカルチャの構成が異なるシステムで適切に機能するようにアプリを設計して開発します。 |
-| [ユーザー プロファイルの言語とアプリ マニフェストの言語を理解します。](manage-language-and-region.md) | このトピックでは、"ユーザー プロファイルの言語の一覧"、"アプリ マニフェストの言語の一覧"、"アプリの実行時の言語の一覧" という用語を定義します。 これらの用語は、この機能領域のこのトピックおよびその他のトピックで使用しますので、意味を把握しておくことが重要です。 |
-| [日付/時間/数字形式をグローバル化します。](use-global-ready-formats.md) | 日付、時刻、数値、電話番号、通貨を適切に書式設定することで、グローバル対応のアプリを設計します。 これを行うと、後でアプリを世界市場の他のカルチャ、地域、言語に適応させることができます。 |
-| [テンプレートとする形式の日付と時刻のパターンを使用します。](use-patterns-to-format-dates-and-times.md) | [  **Windows.Globalization.DateTimeFormatting**](/uwp/api/windows.globalization.datetimeformatting?branch=live) 名前空間のクラスでカスタムのテンプレートとパターンを使うと、日付と時刻を好みの形式で表示できます。 |
+| [グローバリゼーションのガイドライン](guidelines-and-checklist-for-globalizing-your-app.md) | 言語とカルチャの構成が異なるシステムで適切に機能するようにアプリを設計して開発します。 |
+| [ユーザープロファイルの言語とアプリマニフェストの言語について](manage-language-and-region.md) | このトピックでは、"ユーザー プロファイルの言語の一覧"、"アプリ マニフェストの言語の一覧"、"アプリの実行時の言語の一覧" という用語を定義します。 これらの用語は、この機能領域のこのトピックおよびその他のトピックで使用しますので、意味を把握しておくことが重要です。 |
+| [日付/時刻/数値形式をグローバライズする](use-global-ready-formats.md) | 日付、時刻、数値、電話番号、通貨を適切に書式設定することで、グローバル対応のアプリを設計します。 これを行うと、後でアプリを世界市場の他のカルチャ、地域、言語に適応させることができます。 |
+| [テンプレートとパターンを使用して日付と時刻の書式を設定する](use-patterns-to-format-dates-and-times.md) | [  **Windows.Globalization.DateTimeFormatting**](/uwp/api/windows.globalization.datetimeformatting?branch=live) 名前空間のクラスでカスタムのテンプレートとパターンを使うと、日付と時刻を好みの形式で表示できます。 |
 | [レイアウトやフォントの調整と RTL のサポート](adjust-layout-and-fonts--and-support-rtl.md) | RTL (右から左) のテキストの方向を含め、複数の言語のレイアウトやフォントをサポートするアプリを設計します。 |
-| [NumeralSystem 値](glob-numeralsystem-values.md) | ここでは、[**Windows.Globalization**](/uwp/api/windows.globalization?branch=live) 名前空間のさまざまなクラスの **NumeralSystem** プロパティに使用できる値を示します。 |
-| [ローカライズ可能なアプリを作成します。](prepare-your-app-for-localization.md) | ローカライズされたアプリは、アプリで機能上の欠陥を生じさせることなく他の市場、言語、または地域にローカライズできるアプリです。 ローカライズ可能なアプリの最も重要な特性は、その実行可能コードが、アプリのローカライズ可能なリソースから明確に区別されていることです。 |
-| [国際対応フォント](loc-international-fonts.md) | このトピックには、米国以外の言語にローカライズされている UWP アプリの使用可能なフォントが表示されます。英語。 |
-| [双方向テキスト用のアプリを設計します。](design-for-bidi-text.md) | 左から右方向および右から左方向の書記体系のスクリプトを組み合わせることができるように、双方向テキスト サポート (BiDi) を備えたアプリを設計します。 |
-| [Multilingual App Toolkit 4.0 を使用して、](use-mat.md) | 多言語アプリ ツールキット (MAT) 4.0 は、翻訳サポート、翻訳ファイル管理、およびエディター ツールを使用して UWP アプリを提供する Microsoft Visual Studio 2017 以降のバージョンとを統合します。 |
-| [Multilingual App Toolkit 4.0 FAQ とトラブルシューティング](mat-faq-troubleshooting.md) | このトピックでは、多言語アプリ ツールキット (MAT) 4.0 に関連したよくある質問と問題の回答を示します。 |
-| [Utf-8 コード ページを使用します。](use-utf8-code-page.md) | Utf-8 は、国際化対応のユニバーサル コード ページです。 |
-| [日本語の時代 (年号) の変更、アプリケーションを準備します。](japanese-era-change.md) | 2019 年 5 月に行われる改元と、アプリケーションでの対応方法について説明します。 |
+| [NumeralSystem の値](glob-numeralsystem-values.md) | ここでは、[**Windows.Globalization**](/uwp/api/windows.globalization?branch=live) 名前空間のさまざまなクラスの **NumeralSystem** プロパティに使用できる値を示します。 |
+| [アプリをローカライズ可能にする](prepare-your-app-for-localization.md) | ローカライズされたアプリは、アプリで機能上の欠陥を生じさせることなく他の市場、言語、または地域にローカライズできるアプリです。 ローカライズ可能なアプリの最も重要な特性は、その実行可能コードが、アプリのローカライズ可能なリソースから明確に区別されていることです。 |
+| [国際対応フォント](loc-international-fonts.md) | このトピックでは、米国以外の言語にローカライズされた UWP アプリで使用できるフォントを示します。英語。 |
+| [双方向テキスト用にアプリを設計する](design-for-bidi-text.md) | 左から右方向および右から左方向の書記体系のスクリプトを組み合わせることができるように、双方向テキスト サポート (BiDi) を備えたアプリを設計します。 |
+| [多言語アプリツールキット4.0 を使用する](use-mat.md) | 多言語アプリツールキット (台紙) 4.0 は Microsoft Visual Studio 2017 以降と統合されており、UWP アプリに翻訳サポート、翻訳ファイル管理、およびエディターツールを提供します。 |
+| [多言語アプリ Toolkit 4.0 FAQ & トラブルシューティング](mat-faq-troubleshooting.md) | このトピックでは、多言語アプリ ツールキット (MAT) 4.0 に関連したよくある質問と問題の回答を示します。 |
+| [UTF-8 コードページを使用する](use-utf8-code-page.md) | UTF-8 は、国際化のためのユニバーサルコードページです。 |
+| [日本語時代 (年号) の変更に備えてアプリケーションを準備する](japanese-era-change.md) | 2019 年 5 月に行われる改元と、アプリケーションでの対応方法について説明します。 |
