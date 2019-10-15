@@ -72,17 +72,65 @@
       href: apps/whats-new/latest-doc-updates.md
 - name: Windows でビルドする
   items:
+    - name: 概要
+      href: dev-environment/index.yml
     - name: Python を使った開発
       items:
         - name: 概要
           href: python/index.yml
         - name: 初心者向けスタートアップ ガイド
-          href: python/get-started/python-for-education.md
+          href: python/beginners.md
         - name: Web 開発の概要
-          href: python/get-started/python-for-web.md
+          href: python/web-frameworks.md
         - name: 自動化の概要
-          href: python/get-started/python-for-scripting.md
+          href: python/scripting.md
+        - name: データベースの概要
+          href: python/databases.md
         - name: よく寄せられる質問
           href: python/faqs.md
         - name: 参考資料
           href: python/resources.md
+    - name: Node.js を使った開発
+      items:
+        - name: 概要
+          href: nodejs/index.yml
+        - name: 開発環境のセットアップ
+          href: nodejs/setup-on-wsl2.md
+        - name: 初心者向けスタートアップ ガイド
+          href: nodejs/beginners.md
+        - name: Web フレームワークの概要
+          href: nodejs/web-frameworks.md
+        - name: データベースの概要
+          href: nodejs/databases.md
+        - name: コンテナーの概要
+          href: nodejs/containers.md
+    - name: Mac-to-Windows ガイド
+      items:
+        - name: 開発環境の変更
+          href: dev-environment/mac-to-windows.md
+        - name: キーボード ショートカット
+          href: 'dev-environment/mac-to-windows.md#keyboard-shortcuts'
+        - name: トラックパッドのショートカット
+          href: 'dev-environment/mac-to-windows.md#trackpad-shortcuts'
+        - name: ターミナルとシェル
+          href: 'dev-environment/mac-to-windows.md#terminal-and-shell'
+        - name: アプリとユーティリティ
+          href: 'dev-environment/mac-to-windows.md#apps-and-utilities'
+    - name: Windows Subsystem for Linux
+      items:
+        - name: WSL について
+          href: 'https://docs.microsoft.com/windows/wsl/about?context=/windows/dev-environment/dev-environment-context'
+        - name: WSL 2 について
+          href: 'https://docs.microsoft.com/windows/wsl/wsl2-about?context=/windows/dev-environment/dev-environment-context'
+        - name: WSL 1 と WSL 2
+          href: 'https://docs.microsoft.com/windows/wsl/wsl2-ux-changes?context=/windows/dev-environment/dev-environment-context'
+        - name: ユーザー アカウントとアクセス許可
+          href: 'https://docs.microsoft.com/windows/wsl/user-support?context=/windows/dev-environment/dev-environment-context'
+    - name: Windows ターミナル
+      items:
+        - name: 概要
+          href: 'https://github.com/microsoft/terminal#terminal--console-overview'
+        - name: ユーザー ガイド
+          href: 'https://github.com/microsoft/terminal/blob/master/doc/user-docs/index.md'
+        - name: カスタム設定
+          href: 'https://github.com/microsoft/terminal/blob/master/doc/user-docs/UsingJsonSettings.md'
