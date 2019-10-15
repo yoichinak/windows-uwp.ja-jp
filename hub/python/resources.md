@@ -8,12 +8,12 @@ ms.topic: article
 keywords: python, microsoft, windows 10, チュートリアル, オンラインコース, ブログ, イベント
 ms.localizationpriority: medium
 ms.date: 07/19/2019
-ms.openlocfilehash: 3320cef0d3aaf48a2f93d65d93bf8876f1f997d6
-ms.sourcegitcommit: 7104ad5d01ad1c69a4ea0b3ba6732c1b2a98ec09
+ms.openlocfilehash: 64d4fc1c85ae4056da02f987ca654305a883d2c6
+ms.sourcegitcommit: 13faf9dab9946295986f8edd79b5fae0db4ed0f6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71249243"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72313407"
 ---
 # <a name="resources-for-developing-with-python-on-windows"></a>Windows での Python を使用した開発に関するリソース
 
@@ -21,7 +21,7 @@ Windows 10 を実行するコンピューターで動作する Python 開発者�
 
 ## <a name="general"></a>全般
 
-- [Microsoft 開発者向けブログ:Python](https://devblogs.microsoft.com/python/):Microsoft のすべての Python に関する最新の更新プログラムをお読みください。
+- @no__t 0Microsoft Dev ブログ:Python @ no__t-0:Microsoft のすべての Python に関する最新の更新プログラムをお読みください。
 
 - [WSL と Visual Studio Code を使用した Windows での Linux 開発に関する詳細なチュートリアル](https://devblogs.microsoft.com/commandline/an-in-depth-tutorial-on-linux-development-on-windows-with-wsl-and-visual-studio-code/):Dev 環境を設定し、Python アプリを作成して、いくつかのデバッグを実行する方法のチュートリアルです。
 
@@ -49,7 +49,7 @@ Windows 10 を実行するコンピューターで動作する Python 開発者�
 
 - [Microsoft Learn での Python の概要](https://docs.microsoft.com/en-us/learn/modules/intro-to-python/):対話型 Microsoft Learn プラットフォームを試して、このモジュールを完成させるためのエクスペリエンスポイントを獲得してください。基本的な Python コードを記述し、変数を宣言し、コンソールの入力と出力を操作する方法の基本について説明します。 対話型サンドボックス環境を使用すると、Python 開発環境がセットアップされていない人にとって、この作業を開始することができます。
 
-- [Pluralsight 上の Python:8コース、29時間](https://app.pluralsight.com/paths/skills/python):Pluralsight の Python learning パスでは、スキルを測定してギャップを見つけるためのツールなど、Python に関連するさまざまなトピックを網羅したオンラインコースを提供しています。
+- Pluralsight での @no__t 0Python:8コース、29時間 @ no__t:Pluralsight の Python learning パスでは、スキルを測定してギャップを見つけるためのツールなど、Python に関連するさまざまなトピックを網羅したオンラインコースを提供しています。
 
 - [LearnPython.org のチュートリアル](https://www.learnpython.org/):DataCamp のスタッフから、これらの無料の対話型 Python チュートリアルをインストールしたり設定したりしなくても、Python の学習を開始できます。
 
@@ -65,7 +65,7 @@ Windows 10 を実行するコンピューターで動作する Python 開発者�
 
 - [その他の Python web フレームワーク](https://wiki.python.org/moin/WebFrameworks):Python.org の簡単な説明を含む Python web フレームワークの一覧。
 
-- [チュートリアル: Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis)で flask アプリを作成します。Azure Cognitive Services を使用してテキストの翻訳、センチメントの分析、翻訳されたテキストを音声に合成する Flask web アプリを作成します。
+- [チュートリアル: Azure Cognitive Services @ no__t: 0 を使用して Flask アプリをビルドします。Azure Cognitive Services を使用してテキストの翻訳、センチメントの分析、翻訳されたテキストを音声に合成する Flask web アプリを作成します。
 
 - [Azure Stack 内の VM に Python web アプリをデプロイ](https://docs.microsoft.com/azure-stack/user/azure-stack-dev-start-howto-vm-python)します。Azure Stack で Python web アプリをホストする VM を作成します。
 
@@ -75,21 +75,4 @@ Windows 10 を実行するコンピューターで動作する Python 開発者�
 
 - [Microsoft Graph を使用して Python Django アプリをビルド](https://docs.microsoft.com/graph/tutorials/python)します。Microsoft Graph API を使用してユーザーの予定表情報を取得する Python Django web アプリをビルドします。
 
-- [チュートリアル: Python](https://docs.microsoft.com/advertising/guides/walkthrough-web-application-python?view=bingads-13)の Bing Ads API Web アプリケーション:Bing Ads Python SDK、Visual Studio Code IDE、Django web フレームワークを使用して Microsoft Advertising web アプリケーションの実行を開始します。
-
-<!-- ## Data Science and Machine Learning
-
-- Anaconda - brief description
-- Canopy - brief description
-- TensorFlow - brief description
-- Scikit-Learn, Keras, PyTorch, etc - brief descriptions
-
-## Desktop GUI app and IoT development
-
-- PyQT - brief description
-- PyJs - brief description
-- PyGUI - brief descriptio
-- Kivy - brief descriptio
-- PyGTK - brief descriptio
-- WxPython - brief description
-- PyGame - brief description (with links to our internal games once they're done?) -->
+- [チュートリアル: Python の Bing Ads API Web アプリケーション @ no__t:Bing Ads Python SDK、Visual Studio Code IDE、Django web フレームワークを使用して Microsoft Advertising web アプリケーションの実行を開始します。
