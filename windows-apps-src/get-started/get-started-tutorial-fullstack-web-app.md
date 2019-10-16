@@ -5,12 +5,12 @@ keywords: ホストされた Web アプリ、HWA、REST API、単一ページ �
 ms.date: 05/10/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: b1b837d6585507311dc2246d42f3094ce8b07421
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 3f5195cc3ed84116797c0b424a637c255b082386
+ms.sourcegitcommit: 445320ff0ee7323d823194d4ec9cfa6e710ed85d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67321175"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72281857"
 ---
 # <a name="create-a-single-page-web-app-with-rest-api-backend"></a>REST API のバックエンドを使った単一ページの Web アプリを作成する
 

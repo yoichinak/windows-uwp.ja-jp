@@ -1,36 +1,42 @@
 ---
 Description: リストでは、コレクション ベースのコンテンツを表示して対話式で操作できます。
-title: リスト
+title: コレクションとリスト
 ms.assetid: C73125E8-3768-46A5-B078-FDDF42AB1077
-label: Lists
+label: Collections and Lists
 template: detail.hbs
-ms.date: 05/19/2017
+ms.date: 10/08/2019
 ms.topic: article
 keywords: windows 10, uwp
-pm-contact: predavid
+pm-contact: anawish
 design-contact: kimsea
 dev-contact: ranjeshj
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 8f45edc213d8abdfc43e834d023993b89249844d
-ms.sourcegitcommit: 98343e851f25a11ae02fc739477f5316fe8fcb95
+ms.openlocfilehash: e1167a57da6a3f54cabcc946cfbf7a592f301d2c
+ms.sourcegitcommit: 9625f8fb86ff6473ac2851e600bc02e996993660
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71061951"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72163738"
 ---
-# <a name="lists"></a>リスト
+# <a name="collections-and-lists"></a>コレクションとリスト
 
-リストでは、コレクション ベースのコンテンツを表示して対話式で操作できます。 この記事では、次に示す 4 種類のリスト パターンについて説明します。
+コレクションとリストは、どちらも、まとめて表示される複数の関連データ項目の表現を指します。 コレクションは、さまざまなコレクション コントロール (コレクション ビューと呼ばれる場合もあります) によって、複数の方法で表現できます。 コレクション コントロールを使用して、連絡先リスト、日付リスト、画像コレクションなど、コレクションベースのコンテンツを表示して操作できるようにします。  この記事で説明するコントロールには、以下が含まれます。
 
 - リスト ビュー: 主に、テキストの多いコンテンツのコレクションを表示するために使います。
 - グリッド ビュー: 主に、画像の多いコンテンツのコレクションを表示するために使います。
-- ドロップダウン リスト: 拡張可能なリストから、ユーザーが 1 つの項目を選択できます。
-- リスト ボックス: スクロール可能なボックスから、ユーザーが 1 つまたは複数の項目を選択できます。
+- フリップ ビュー: 主に、一度に 1 つの項目のみに注目する必要がある画像の多いコンテンツのコレクションを表示するために使います。
+- ツリー ビュー: 主に、テキストの多いコンテンツのコレクションを特定の階層で表示するために使います。
+- ItemsRepeater: これは、カスタム コレクション コントロールを作成するためのカスタマイズ可能な構成要素です。
 
-ここでは、各リスト パターンについて、設計のガイドライン、特徴、例を示します。
 
-> **重要な API**:[ListView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView)、[GridView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.GridView)、[ComboBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ComboBox)
+この後、各コントロールについて、設計のガイドライン、特徴、および例を示します。
+
+これらの (ItemsRepeater を除く) 各コントロールには、組み込みのスタイル設定と操作が用意されています。 ただし、コレクション ビューとその中の項目の視覚的な外観をカスタマイズするには、[DataTemplate](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.DataTemplate) を使用します。 データ テンプレートの詳細とコレクション ビューの外観のカスタマイズについては、「[項目コンテナーやテンプレート](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/item-containers-templates)」を参照してください。
+
+これらの (ItemsRepeater を除く) 各コントロールには、1 つまたは複数の項目を選択できるようにするための組み込みの動作も含まれています。 詳細については、「[選択モードの概要](selection-modes.md)」を参照してください。
+
+> **重要な API**:[ListView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView)、[GridView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.GridView)、[FlipView クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.flipview)、[TreeView クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.treeview)、[ItemsRepeater クラス](https://docs.microsoft.com/uwp/api/microsoft.ui.xaml.controls.itemsrepeater?view=winui-2.2)
 
 > <div id="main">
 > <strong>Windows 10 Fall Creators Update - 動作の変更</strong>
@@ -45,7 +51,7 @@ ms.locfileid: "71061951"
 <tr>
 <td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
 <td>
-    <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合、<a href="xamlcontrolsgallery:/item/ListView">ListView</a>、<a href="xamlcontrolsgallery:/item/GridView">GridView</a>、<a href="xamlcontrolsgallery:/item/ComboBox">ComboBox</a>、<a href="xamlcontrolsgallery:/item/ListBox">ListBox</a> の動作を確認してください。</p>
+    <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合は、<a href="xamlcontrolsgallery:/item/ListView">ListView</a>、<a href="xamlcontrolsgallery:/item/GridView">GridView</a>、<a href="xamlcontrolsgallery:/item/FlipView">FlipView</a>、<a href="xamlcontrolsgallery:/item/TreeView">TreeView</a>、および <a href="xamlcontrolsgalley:/item/ItemsRepeater">ItemsRepeater</a> の動作を確認してください。</p>
     <ul>
     <li><a href="https://www.microsoft.com/store/productId/9MSVH128X2ZT">XAML コントロール ギャラリー アプリを入手する (Microsoft Store)</a></li>
     <li><a href="https://github.com/Microsoft/Xaml-Controls-Gallery">ソース コード (GitHub) を入手する</a></li>
@@ -56,28 +62,31 @@ ms.locfileid: "71061951"
 
 ## <a name="list-views"></a>リスト ビュー
 
-リスト ビューでは、項目の分類、グループ ヘッダーの割り当て、項目のドラッグ アンド ドロップ、コンテンツの管理、項目の順序変更を行うことができます。
+リスト ビューは、通常、単一列の垂直方向に並べられたレイアウトで、テキストの多い項目を表現します。 それらを使用して、項目の分類、グループ ヘッダーの割り当て、項目のドラッグ アンド ドロップ、コンテンツの管理、および項目の順序変更を行うことができます。
 
 ### <a name="is-this-the-right-control"></a>適切なコントロールの選択
 
-グリッド ビューは、次の用途で使います。
+リスト ビューは、次の用途で使います。
 
-- 主にテキストで構成されるコンテンツのコレクションを表示する。
-- コンテンツの単一のコレクションまたはカテゴリ別コレクションをナビゲートする。
-- [マスター/詳細パターン](master-details.md)のマスター ウィンドウを作成する。 マスター/詳細パターンは、メール アプリによく使われます。このパターンでは、選択できる項目の一覧を一方のウィンドウ (マスター) に表示し、選択された項目の詳細ビューをもう一方のウィンドウ (詳細) に表示します。
+- 主にテキストベースの項目で構成され、すべての項目のビジュアルと対話動作を同じにする必要があるコレクションを表示する。
+- コンテンツの単一のコレクションまたはカテゴリ別のコレクションを表現する。
+- 次の一般的なケースを含むさまざまなユース ケースに対応する。
+    - メッセージまたはメッセージ ログの一覧を作成する。
+    - 連絡先リストを作成する。
+    - [マスター/詳細パターン](master-details.md)のマスター ウィンドウを作成する。 マスター/詳細パターンは、メール アプリによく使われます。このパターンでは、選択できる項目の一覧を一方のウィンドウ (マスター) に表示し、選択された項目の詳細ビューをもう一方のウィンドウ (詳細) に表示します。
+    
 
 ### <a name="examples"></a>例
 
-これは、電話での単純なリスト ビューの例で、グループ化されたデータを表示しています。
+連絡先リストを表示する単純なリスト ビューを次に示します。データ項目はアルファベット順にグループ化されています。 グループ ヘッダー (この例ではアルファベットの各文字) をカスタマイズして、ListView のスクロール中に常に上部に表示されるように "固定" することもできます。
 
-![グループ化されたデータを表示するリスト ビュー](images/simple-list-view-phone.png)
+![グループ化されたデータを表示するリスト ビュー](images/listview-grouped-example-resized-final.png)
 
-### <a name="recommendations"></a>推奨事項
+これは、メッセージのログを表示するための反転 ListView であり、最新のメッセージが最後に表示されます。 反転 ListView では、項目は、組み込みのアニメーションを使用して画面の下部に表示されます。
 
-- 同じリストに含まれる各項目の動作は同じにする必要があります。
-- リストがグループに分割されている場合、グループ化されたコンテンツ内をユーザーが移動しやすくなるように、[セマンティック ズーム](semantic-zoom.md)を使うことができます。
+![反転リスト ビュー](images/listview-inverted-2.png)
 
-### <a name="list-view-articles"></a>リスト ビューに関する記事
+### <a name="related-articles"></a>関連資料
 <table>
 <colgroup>
 <col width="50%" />
@@ -95,8 +104,8 @@ ms.locfileid: "71061951"
 <td align="left"><p>アプリでリスト ビューやグリッド ビューを使用するための基本情報を提供します。</p></td>
 </tr>
 <tr class="even">
-<td align="left"><p><a href="item-containers-templates.md">項目コンテナーとテンプレート</a></p></td>
-<td align="left"><p>リストやグリッドに表示される項目は、アプリの全体的な見た目を左右する要素になる場合があります。 コントロール テンプレートとデータ テンプレートを変更して、項目の外観を定義し、アプリの見栄えをよくします。</p></td>
+<td align="left"><p><a href="item-containers-templates.md">項目コンテナーやテンプレート</a></p></td>
+<td align="left"><p>リスト ビューまたはグリッド ビューに表示される項目は、アプリの全体的な見た目を左右する要素になる可能性があります。 コントロール テンプレートとデータ テンプレートを変更してコレクション項目の外観をカスタマイズすることで、アプリの見栄えをよくすることができます。</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p><a href="item-templates-listview.md">リスト ビューの項目テンプレート</a></p></td>
@@ -104,11 +113,11 @@ ms.locfileid: "71061951"
 </tr>
 <tr class="even">
 <td align="left"><p><a href="inverted-lists.md">反転リスト</a></p></td>
-<td align="left"><p>反転リストでは、チャット アプリのように、新しい項目が下部に追加されます。 アプリで反転リストを使用する場合は、こちらのガイダンスに従ってください。</p></td>
+<td align="left"><p>反転リストでは、チャット アプリのように、新しい項目が下部に追加されます。 アプリで反転リストを使用する場合は、この記事のガイダンスに従ってください。</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p><a href="pull-to-refresh.md">引っ張って更新</a></p></td>
-<td align="left"><p>引っ張って更新パターンを使うと、より多くのデータを取得するためにタッチ操作でデータのリストを引き下げることができます。 リスト ビューに引っ張って更新を実装する場合は、こちらのガイダンスに従ってください。</p></td>
+<td align="left"><p>引っ張って更新メカニズムを使うと、ユーザーは、タッチ操作でデータのリストを下に引っ張ることで、より多くのデータを取得できるようになります。 リスト ビューで引っ張って更新を実装する場合は、この記事を使用してください。</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p><a href="nested-ui.md">入れ子になった UI</a></p></td>
@@ -119,15 +128,18 @@ ms.locfileid: "71061951"
 
 ## <a name="grid-views"></a>グリッド ビュー
 
-グリッド ビューは、画像ベースのコンテンツのコレクションを配置および閲覧する場合に適しています。 グリッド ビュー レイアウトでは、スクロールが垂直方向、パンが水平方向で行われます。 項目は、左から右、上から下の読み取り順序で配置されます。
+グリッド ビューは、画像ベースのコンテンツのコレクションを配置および閲覧する場合に適しています。 グリッド ビュー レイアウトでは、スクロールが垂直方向、パンが水平方向で行われます。 項目はラップされたレイアウトで表示され、左から右、上から下への読み取り順序で表示されます。
 
 ### <a name="is-this-the-right-control"></a>適切なコントロールの選択
 
 グリッド ビューは、次の用途で使います。
 
-- 主に画像で構成されるコンテンツのコレクションを表示する。
+- 各項目の焦点が画像であり、各項目のビジュアルと対話動作が同じである必要があるコンテンツ コレクションを表示する。
 - コンテンツ ライブラリを表示する。
 - [セマンティック ズーム](semantic-zoom.md)に関連付けられた 2 つのコンテンツ ビューの形式を設定する。
+- 次の一般的なケースを含むさまざまなユース ケースに対応する。
+    - ネットショップ型のユーザー インターフェイス (アプリ、曲、製品を閲覧する)
+    - 対話型フォト ライブラリ
 
 ### <a name="examples"></a>例
 
@@ -137,14 +149,9 @@ ms.locfileid: "71061951"
 
 グリッド ビューは、写真やビデオなどのメディアを表示するためによく使用される、コンテンツ ライブラリに最適なソリューションです。 コンテンツ ライブラリでは、ユーザーが項目をタップして動作を開始します。
 
-![コンテンツ ライブラリの例](images/controls_list_contentlibrary.png)
+![コンテンツ ライブラリの例](images/gridview-simple-example-final.png)
 
-### <a name="recommendations"></a>推奨事項
-
-- 同じリストに含まれる各項目の動作は同じにする必要があります。
-- リストがグループに分割されている場合、グループ化されたコンテンツ内をユーザーが移動しやすくなるように、[セマンティック ズーム](semantic-zoom.md)を使うことができます。
-
-### <a name="grid-view-articles"></a>グリッド ビューの記事
+### <a name="related-articles"></a>関連記事
 <table>
 <colgroup>
 <col width="50%" />
@@ -162,8 +169,8 @@ ms.locfileid: "71061951"
 <td align="left"><p>アプリでリスト ビューやグリッド ビューを使用するための基本情報を提供します。</p></td>
 </tr>
 <tr class="even">
-<td align="left"><p><a href="item-containers-templates.md">項目コンテナーとテンプレート</a></p></td>
-<td align="left"><p>リストやグリッドに表示される項目は、アプリの全体的な見た目を左右する要素になる場合があります。 コントロール テンプレートとデータ テンプレートを変更して、項目の外観を定義し、アプリの見栄えをよくします。</p></td>
+<td align="left"><p><a href="item-containers-templates.md">項目コンテナーやテンプレート</a></p></td>
+<td align="left"><p>リスト ビューまたはグリッド ビューに表示する項目は、アプリの全体的な見た目を左右する要素になる可能性があります。 コントロール テンプレートとデータ テンプレートを変更してコレクション項目の外観をカスタマイズすることで、アプリの見栄えをよくすることができます。</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p><a href="item-templates-gridview.md">グリッド ビューの項目テンプレート</a></p></td>
@@ -171,94 +178,131 @@ ms.locfileid: "71061951"
 </tr>
 <tr class="even">
 <td align="left"><p><a href="nested-ui.md">入れ子になった UI</a></p></td>
-<td align="left"><p>入れ子になった UI は、ユーザーも操作が可能なコンテナー内部に囲まれた、操作できるコントロールを公開するユーザー インターフェイス (UI) です。 たとえば、ボタンを含むリスト ビュー項目があるとします。ユーザーはそのリスト項目を選択することも、項目内に入れ子になっているボタンを押すこともできます。 以下のベスト プラクティスに従って、ユーザーにとって最適な入れ子になった UI のエクスペリエンスを提供してください。</p></td>
+<td align="left"><p>入れ子になった UI は、ユーザーも操作が可能なコンテナー内部に囲まれた、操作できるコントロールを公開するユーザー インターフェイス (UI) です。 たとえば、ボタンを含むグリッド ビュー項目があるとします。ユーザーはグリッド項目を選択することも、項目内の入れ子になっているボタンを押すこともできます。 以下のベスト プラクティスに従って、ユーザーにとって最適な入れ子になった UI のエクスペリエンスを提供してください。</p></td>
 </tr>
 </tbody>
 </table>
 
-## <a name="drop-down-lists"></a>ドロップダウン リスト
+## <a name="flip-views"></a>フリップ ビュー
 
-ドロップダウン リストはコンボ ボックスとも呼ばれます。最初はコンパクトな状態ですが、拡張して、選択可能な項目の一覧を表示することができます。 選ばれた項目は常に表示されます。表示されていない項目は、コンボ ボックスをタップして拡張すると表示されます。
+フリップ ビューは、画像ベースのコンテンツ コレクションの閲覧に適しています。特に、一度に 1 つの画像のみを表示することを目的とするエクスペリエンスに適しています。 フリップ ビューでは、ユーザーがコレクション項目を (垂直方向または水平方向に) 移動させて "ページをめくるように表示" することができ、ユーザーの操作後に各項目が 1 つずつ表示されます。
 
 ### <a name="is-this-the-right-control"></a>適切なコントロールの選択
 
-- 1 行のテキストで十分に表すことができる項目のセットから、ユーザーが単一の値を選ぶことができるようにするには、ドロップダウン リストを使います。
-- 複数のテキスト行や画像が含まれる項目を表示するには、コンボ ボックスではなくリスト ビューまたはグリッド ビューを使います。
-- 項目が 5 個より少ない場合は、[ラジオ ボタン](radio-button.md) (1 つの項目だけを選ぶことができる場合)、または[チェック ボックス](checkbox.md) (複数の項目を選ぶことができる場合) の使用を検討します。
-- 選択項目がアプリのフローにおいて二次的な重要性しか持たない場合は、コンボ ボックスを使います。 多くの状況でほとんどのユーザーに対して既定のオプションが推奨されている場合、リスト ビューを使ってすべての項目を表示すると、既定以外のオプションに必要以上の注意を引いてしまう可能性があります。 コンボ ボックスを使うことで、領域を節約し、無駄な情報を最小限にすることができます。
+フリップ ビューは、次の用途で使います。
+
+- メタデータをほとんど含まない画像で構成される小規模から中規模 (25 項目未満) のコレクションを表示する。
+- 項目を一度に 1 つずつ表示し、エンドユーザーが自分のペースで項目を表示できるようにする。
+- 次の一般的なケースを含むさまざまなユース ケースに対応する。
+    - フォト ギャラリー
+    - 製品ギャラリーやショーケース
 
 ### <a name="examples"></a>例
 
-コンパクトな状態のコンボ ボックスには、ヘッダーを表示できます。
+次の 2 つの例は、それぞれが水平方向と垂直方向に反転する FlipView を示しています。
 
-![コンパクトな状態のドロップダウン リストの例](images/combo_box_collapsed.png)
+![水平方向のフリップ ビュー](images/controls_flipview_horizonal.jpg)
 
-コンボ ボックスは、長い文字列の幅をサポートするために拡張できますが、読みづらくなるような長すぎる文字列は使わないでください。
+![垂直方向のフリップ ビュー](images/controls_flipview_vertical.jpg)
 
-![長い文字列のドロップダウン リストの例](images/combo_box_listitemstate.png)
+### <a name="related-articles"></a>関連記事
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">トピック</th>
+<th align="left">説明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><p><a href="flipview.md">FlipView</a></p></td>
+<td align="left"><p>アプリでフリップ ビューを使用する際の要点と、フリップ ビュー内の項目の外観をカスタマイズする方法について説明します。</p></td>
+</tr>
+</tbody>
+</table>
 
-コンボ ボックス内のコレクションが一定の長さに達すると、対応できるようにスクロール バーが表示されます。 リスト内の項目は論理的にグループ化します。
+## <a name="tree-views"></a>ツリー ビュー
 
-![ドロップダウン リストに表示されたスクロール バーの例](images/combo_box_scroll.png)
-
-### <a name="recommendations"></a>推奨事項
-
-- コンボ ボックス項目のテキストのコンテンツは、単一行に制限します。
-- コンボ ボックス内の項目は、最も論理的な順序に並べ替えます。 関連するオプションをグループ化し、最も一般的なオプションを先頭に配置します。 名前はアルファベット順、数値は数値順、日付は時系列順に並べ替えます。
-- ユーザーが方向キーを押している間にライブ更新するコンボ ボックスを作成するには (フォント選択ドロップダウン リストなど)、SelectionChangedTrigger を Always に設定します。  
-
-### <a name="text-search"></a>テキスト検索
-
-コンボ ボックスでは、コレクション内を自動的に検索できます。 開かれた状態または閉じた状態のコンボ ボックスにフォーカスがあるときに、物理的なキーボードで文字を入力すると、ユーザーが入力した文字列に一致する候補がビューに表示されます。 この機能は、長いリストを操作するときに特に役立ちます。 たとえば、州のリストが含まれているドロップダウンを操作するとき、“w” キーを押すと、“Washington” (ワシントン) がビューに表示され、すばやく選ぶことができます。
-
-
-## <a name="list-boxes"></a>リスト ボックス
-
-リスト ボックスを使うと、ユーザーはコレクションから 1 つまたは複数の項目を選択できます。 リスト ボックスはドロップダウン リストと似ていますが、常に開いている点がドロップダウン リストと異なります。リスト ボックスには、コンパクトな (展開されていない) 状態がありません。 すべての項目を表示する領域がない場合には、リスト内の項目をスクロールできます。
+ツリー ビューは、はっきりと示す必要がある重要な階層が存在するテキストベースのコレクションを表示する場合に適しています。 ツリー ビューの項目は折りたたみ/展開可能であるビジュアル階層で表示されます。アイコンを使用して補完でき、ツリー ビュー間でドラッグ アンド ドロップできます。 ツリー ビューでは、N レベルの入れ子が可能です。
 
 ### <a name="is-this-the-right-control"></a>適切なコントロールの選択
 
-- リスト ボックスは、リスト内の項目が重要であるため目立つように表示する場合や、項目一式を表示するための十分な画面領域がある場合に便利です。
-- リスト ボックスでは、重要な選択で完全な代替セットにユーザーの注意を向ける必要があります。 ドロップダウン リストの場合はまず、選択した項目にユーザーの注意を引き付けます。
-- 次のような場合はリスト ボックスの使用を避けてください。
-    - リスト内の項目が非常に少ない場合。 単一選択のリスト ボックスで常に同じ 2 つのオプションを提示するのであれば、[オプション ボタン](radio-button.md)の方が適している可能性があります。 3 ～ 4 個の静的な項目を提示する場合もオプション ボタンの使用を検討してください。
-    - リスト ボックスが単一選択であり、リスト内のオプションが常に同じ 2 項目で、その一方が他方の否定を意味している場合 ("オン" と "オフ" など)。 このような場合は、単一のチェック ボックスまたはトグル スイッチを使用してください。
-    - 項目数が非常に多い場合。 長いリストには、グリッド ビューまたはリスト ビューの方が適しています。 グループ化されたデータの非常に長いリストの場合はセマンティック ズームの使用をお勧めします。
-    - 項目が連続する数値である場合。 このような場合は、[スライダー](slider.md)の使用を検討してください。
-    - 選択項目がアプリのフローで二次的な重要性しか持たないか、または大半の状況で大半のユーザーに既定のオプションが推奨される場合。 このような場合は、ドロップダウン リストを使用してください。
+ツリー ビューは、次の用途で使います。
 
-### <a name="recommendations"></a>推奨事項
+- コンテキストと意味が階層または特定の組織チェーンに依存している入れ子になった項目のコレクションを表示する。
+- 次の一般的なケースを含むさまざまなユース ケースに対応する。
+    - ファイル ブラウザー
+    - 会社の組織図
 
-- リスト ボックス内の項目数の最適な範囲は 3 ～ 9 です。
-- リスト ボックスは、項目が動的に変化する可能性がある場合に適しています。
-- 可能であれば、項目のリストのパンまたはスクロールが必要にならないように、リスト ボックスのサイズを設定します。
-- リスト ボックスの目的、および現在選択されている項目が明確であることを確認します。
-- タッチ フィードバックおよび項目の選択状態の視覚効果とアニメーションを予約します。
-- リスト ボックス項目のテキストのコンテンツは、単一行に制限します。 項目がビジュアルである場合、サイズをカスタマイズできます。 項目に複数行のテキストまたは画像が含まれる場合は、グリッド ビューまたはリスト ビューを使用してください。
-- ブランドのガイドラインで別のフォントが指示されていない限り、既定のフォントを使います。
-- コマンドの実行または他のコントロールの動的な表示と非表示の切り替えのためにリスト ボックスを使わないでください。
+### <a name="examples"></a>例
 
-## <a name="selection-mode"></a>選択モード
+ファイル エクスプローラーを表現するツリー ビューの例を次に示します。アイコンによって補完された複数の入れ子になった項目が示されています。
 
-選択モードでは、単一の項目または複数の項目を選択して、それらの項目に対して操作を実行できます。 選択モードは、コンテキスト メニュー、Crtl キーまたは Shift キーを押しながらの項目のクリック、またはギャラリー ビューでの項目に対するターゲットのロールオーバーによって起動できます。 選択モードがアクティブであるとき、各リスト項目の横にチェック ボックスを表示し、画面の上部または下部に操作を表示できます。
+![アイコン付きのツリー ビュー](images/treeview-icons.png)
 
-選択モードには、次の 3 つがあります。
+### <a name="related-articles"></a>関連記事
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">トピック</th>
+<th align="left">説明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><p><a href="tree-view.md">ツリー ビュー</a></p></td>
+<td align="left"><p>アプリでツリー ビューを使用する際の要点と、ツリー ビュー内の項目の外観をカスタマイズする方法について説明します。</p></td>
+</tr>
+</tbody>
+</table>
 
-- 単一:ユーザーは同時に 1 つの項目だけを選ぶことができます。
-- 複数:ユーザーは修飾キーを使わずに複数の項目を選ぶことができます。
-- 拡張:ユーザーは、Shift キーを押すなど修飾キーを使って複数の項目を選ぶことができます。
+## <a name="itemsrepeater"></a>ItemsRepeater
 
-項目の任意の場所をタップすると、項目が選ばれます。 コマンド バーの操作をタップすると、選択したすべての項目に影響します。 項目が選ばれていない場合、コマンド バーの操作は [すべて選択] を除いて非アクティブになります。
+ItemsRepeater は、このページに示された他のコレクション コントロールとは異なり、プロパティを定義せずに単にページに配置するだけでスタイルや対話機能が提供されることはありません。 ItemsRepeater は、どちらかといえば、開発者が独自のカスタム コレクション コントロールを作成するために使用できる構成要素であり、特にこの記事の他のコントロールの使用では実現できないコントロールを作成するために使用できます。 ItemsRepeater は、ニーズに合わせて調整できるデータ主導のハイパフォーマンス パネルです。
 
-選択モードには簡易非表示モデルがありません。選択モードがアクティブなフレームの外側をタップしても、モードを取り消すことはできません。 これにより、モードが誤って非アクティブ化されることを防止できます。 戻るボタンをクリックすると、複数選択モードが終了します。
+### <a name="is-this-the-right-control"></a>適切なコントロールの選択
 
-操作が選択されているときは、確認できるように視覚的に示します。 特定の操作に対して (特に破棄を伴う削除などの操作に対して)、確認ダイアログを表示することを検討します。
+ItemsRepeater は、次に該当する場合に使用します。
 
-選択モードは、選択モードをアクティブにしたページに限定され、そのページ以外の項目に影響を与えることはできません。
+- 既存のコレクション コントロールの使用では作成できない固有のユーザー インターフェイスとユーザー エクスペリエンスを考えている。
+- 項目用の既存のデータ ソース (インターネット、データベース、分離コード内の既存のコレクションから引き出されるデータなど) がある。
 
-選択モードへのエントリ ポイントは、そのモードが影響を与えるコンテンツに対して並置する必要があります。
+### <a name="examples"></a>例
 
-コマンド バーの推奨事項については、「[コマンド バーのガイドライン](app-bars.md)」をご覧ください。
+次の 3 つの例は、すべてが同じデータ ソース (数値のコレクション) にバインドされている ItemsRepeater コントロールです。 数値のコレクションが、3 つの方法で表現されています。それぞれの ItemsRepeater で、異なるカスタム [Layout](https://docs.microsoft.com/uwp/api/microsoft.ui.xaml.controls.layout) と異なるカスタム [ItemTemplate](https://docs.microsoft.com/uwp/api/microsoft.ui.xaml.controls.itemsrepeater.itemtemplate?view=winui-2.2) が使用されています。
+
+![水平バーを使用した ItemsRepeater](images/itemsrepeater-1.png)
+![垂直バーを使用した ItemsRepeater](images/itemsrepeater-2.png)
+![円表現を使用した ItemsRepeater](images/itemsrepeater-3.png)
+
+### <a name="related-articles"></a>関連記事
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">トピック</th>
+<th align="left">説明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><p><a href="items-repeater.md">ItemsRepeater</a></p></td>
+<td align="left"><p>アプリで ItemsRepeater を使用する際の要点と、コレクション ビューで必要なすべての操作とビジュアル コンポーネントを実装する方法について説明します。</p></td>
+</tr>
+</tbody>
+</table>
+
 
 ## <a name="globalization-and-localization-checklist"></a>グローバリゼーションとローカライズのチェックリスト
 
@@ -267,7 +311,7 @@ ms.locfileid: "71061951"
 <th>折り返し</th><td>一覧のラベルを 2 行にできます。</td>
 </tr>
 <tr>
-<th>水平方向の拡張</th><td>フィールドがテキストの伸張とスクロールに対応できるようにします。</td>
+<th>水平方向の拡張</th><td>フィールドでテキストの伸張とスクロールに対応できるようにします。</td>
 </tr>
 <tr>
 <th>垂直方向の間隔</th><td>垂直方向の間隔に非ラテン文字を使用し、非ラテン文字が適切に表示されるようにします。</td>
@@ -280,13 +324,14 @@ ms.locfileid: "71061951"
 
 ## <a name="related-articles"></a>関連記事
 
+**設計と UX のガイドライン**
 - [マスター/詳細](master-details.md)
 - [ナビゲーション ウィンドウ](navigationview.md)
 - [セマンティック ズーム](semantic-zoom.md)
 - [ドラッグ アンド ドロップ](https://docs.microsoft.com/windows/uwp/app-to-app/drag-and-drop)
 - [サムネイル画像](../../files/thumbnails.md)
 
-**開発者向け**
+**API リファレンス**
 - [ListView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView)
 - [GridView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.GridView)
 - [ComboBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ComboBox)
