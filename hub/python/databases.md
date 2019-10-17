@@ -8,16 +8,16 @@ ms.topic: article
 keywords: python、windows 10、postgresql、mongodb、postgres、mongo、microsoft、windows での python、windows での postgresql のインストール、windows への postgresql のインストール、python での postgresql の使用、python での postgresql の使用、wsl 上の postgresql の使用
 ms.localizationpriority: medium
 ms.date: 07/19/2019
-ms.openlocfilehash: 42a257361cffec974d060a6518dfdf5254d62082
-ms.sourcegitcommit: 13faf9dab9946295986f8edd79b5fae0db4ed0f6
+ms.openlocfilehash: 9b1bdea86739f3d58b39cf7f0e6b8090474886f3
+ms.sourcegitcommit: 60d2d15dd0d365f82e4e90e4bc34b40cf5b4a247
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72314856"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72517779"
 ---
-# <a name="get-started-using-databases-with-python-on-windows"></a>Windows での Python を使用したデータベースの使用の概要
+# <a name="get-started-using-postgresql-or-mongodb-with-python-on-windows"></a>Windows 上の Python で PostgreSQL または MongoDB の使用を開始する
 
-Python アプリケーションでは、多くの場合、ファイル、ローカルストレージ、クラウドサービス、またはデータベースを使用してデータを永続化する必要があります。 このステップバイステップガイドでは、データベースへの Python アプリの接続を開始する方法について説明します。 次の2つの一般的なオプションに焦点を当てることを選択しました。PostgreSQL と MongoDB。
+このステップバイステップガイドでは、データベースへの Python アプリの接続を開始する方法について説明します。 PostgreSQL と MongoDB の2つの一般的なオプションに焦点を当てることを選択しました。
 
 ## <a name="differences-between-mongodb-and-postgresql"></a>MongoDB と PostgreSQL の違い
 
@@ -42,7 +42,7 @@ Postgresql[拡張](https://marketplace.visualstudio.com/items?itemName=ms-ossdat
 
 VS Code は、 [Azure CosmosDB 拡張機能](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)を使用した mongodb データベースの操作をサポートしており、VS Code 内から mongodb データベースを作成、接続、管理、照会することができます。
 
-詳細については、VS Code のドキュメントを参照してください。[MongoDB の使用](https://code.visualstudio.com/docs/azure/mongodb)。
+詳細については、「VS Code ドキュメント: [MongoDB の](https://code.visualstudio.com/docs/azure/mongodb)使用」を参照してください。
 
 ## <a name="set-up-profile-aliases"></a>プロファイルのエイリアスを設定する
 
