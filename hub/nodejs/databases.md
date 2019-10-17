@@ -8,16 +8,16 @@ ms.topic: article
 keywords: NodeJS、node.js、windows 10、microsoft、learning NodeJS、windows 上のノード、wsl のノード、windows 上の linux 上のノード、windows 上のノードのインストール、windows 上のノードのインストール、windows 上の NodeJS を使用した開発、windows 上のノードのインストール、WSL へのノードのインストール、Windows 上の NodeJSLinux 用サブシステム
 ms.localizationpriority: medium
 ms.date: 09/19/2019
-ms.openlocfilehash: bdc3e3c944c4aeb25f5cf880fc4d31df1019da5a
-ms.sourcegitcommit: 13faf9dab9946295986f8edd79b5fae0db4ed0f6
+ms.openlocfilehash: 63c47107538d8744201f83ea1be24cfaf3193f4f
+ms.sourcegitcommit: 60d2d15dd0d365f82e4e90e4bc34b40cf5b4a247
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72315116"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72517815"
 ---
-# <a name="get-started-connecting-nodejs-apps-to-a-database"></a>データベースへの node.js アプリの接続の概要
+# <a name="get-started-using-mongodb-or-postgresql-with-nodejs-on-windows"></a>Windows 上の node.js で MongoDB または PostgreSQL を使ってみる
 
-Node.js アプリケーションでは、多くの場合、ファイル、ローカルストレージ、クラウドサービス、またはデータベースを通じてデータを永続化する必要があります。 このステップバイステップガイドでは、node.js アプリをデータベースに接続する方法について説明します。 次の2つの一般的なオプションに焦点を当てることを選択しました。MongoDB と PostgreSQL。
+Node.js アプリケーションでは、多くの場合、ファイル、ローカルストレージ、クラウドサービス、またはデータベースを通じてデータを永続化する必要があります。 このステップバイステップガイドでは、node.js アプリをデータベースに接続する方法について説明します。 ここでは、MongoDB と PostgreSQL という2つの一般的なオプションに注目します。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -41,14 +41,14 @@ Node.js アプリケーションでは、多くの場合、ファイル、ロー
 
 VS Code は、 [Azure CosmosDB 拡張機能](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)を使用した mongodb データベースの操作をサポートしており、VS Code 内から mongodb データベースを作成、管理、クエリできます。
 
-詳細については、VS Code のドキュメントを参照してください。[MongoDB の使用](https://code.visualstudio.com/docs/azure/mongodb)。
+詳細については、「VS Code ドキュメント: [MongoDB の](https://code.visualstudio.com/docs/azure/mongodb)使用」を参照してください。
 
 詳細については、MongoDB のドキュメントを参照してください。
 
 - [MongoDB の使用の概要](https://docs.mongodb.com/manual/introduction/)
 - [ユーザーの作成](https://docs.mongodb.com/manual/tutorial/create-users/)
 - [リモートホスト上の MongoDB インスタンスに接続する](https://docs.mongodb.com/manual/mongo/#mongodb-instance-on-a-remote-host)
-- [CRUD:Create、Read、Update、Delete @ no__t-0
+- [CRUD: 作成、読み取り、更新、削除](https://docs.mongodb.com/manual/crud/)
 - [リファレンスドキュメント](https://docs.mongodb.com/manual/reference/)
 
 ## <a name="install-postgresql"></a>PostgreSQL のインストール

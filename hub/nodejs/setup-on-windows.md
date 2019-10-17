@@ -8,12 +8,12 @@ ms.topic: article
 keywords: Node.js、windows 10、ネイティブウィンドウ、windows 上で直接
 ms.localizationpriority: medium
 ms.date: 09/19/2019
-ms.openlocfilehash: eaeee6e2d55bcb9221d88bd87ebeafc7c45d0a5d
-ms.sourcegitcommit: 13faf9dab9946295986f8edd79b5fae0db4ed0f6
+ms.openlocfilehash: 18a8d07f790c391a6e10577ff512347106e1cf21
+ms.sourcegitcommit: 60d2d15dd0d365f82e4e90e4bc34b40cf5b4a247
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72315086"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72517827"
 ---
 # <a name="set-up-your-nodejs-development-environment-directly-on-windows"></a>Node.js 開発環境を Windows 上に直接セットアップする
 
@@ -70,30 +70,19 @@ Volta を使用して Windows に複数のバージョンの node.js をイン�
 
 ## <a name="install-your-favorite-code-editor"></a>お気に入りのコードエディターをインストールする
 
-Windows で node.js を使用して開発する場合は、VS Code、および[Node.js 拡張パック](https://marketplace.visualstudio.com/items?itemName=waderyan.nodejs-extension-pack)を[インストール](https://code.visualstudio.com)することをお勧めします。
-
-Node.js 拡張パックには次のものが含まれます。
-
-- 私は、コードの "linting ツールです。 コードを分析して、潜在的なエラーを警告します。
-- npm-コマンドパレットから npm スクリプトを実行し、パッケージに定義されているインストール済みモジュールを検証します。
-- JavaScript (ES6) スニペット-ES6 構文で JavaScript 開発用のコードスニペットを追加します。
-- 検索 node_modules-プロジェクト内のノードモジュールをすばやく検索します。
-- NPM IntelliSense-NPM モジュール用の IntelliSense をコードに追加します。
-- Path IntelliSense-コード内のファイル名をオートコンプリートします。
-
-これらのすべてをインストールするか、最も役に立つと思われるものを選択して選択します。
+Windows で node.js を使用して開発する場合は、VS Code、および[Node.js 拡張パック](https://marketplace.visualstudio.com/items?itemName=waderyan.nodejs-extension-pack)を[インストール](https://code.visualstudio.com)することをお勧めします。 これらのすべてをインストールするか、最も役に立つと思われるものを選択して選択します。
 
 Node.js 拡張パックをインストールするには:
 
 1. VS Code で **[拡張]** ウィンドウ (Ctrl + Shift + X) を開きます。
-2. [拡張機能] ウィンドウの上部にある [検索] ボックスに、次のように入力します。"Node Extension Pack" (または、お探しの拡張機能の名前)。
+2. [拡張機能] ウィンドウの上部にある [検索] ボックスに、「Node Extension Pack」 (または目的の拡張機能の名前) と入力します。
 3. **[インストール]** を選択します。 インストールが完了すると、拡張機能が **拡張機能** ウィンドウの 有効 フォルダーに表示されます。 新しい拡張機能の説明の横にある歯車アイコンを選択して、設定を無効にしたり、アンインストールしたり、構成したりすることができます。
 
 さらに、次のような拡張機能を使用することもできます。
 
-- [Chrome 用のデバッガー](https://code.visualstudio.com/blogs/2016/02/23/introducing-chrome-debugger-for-vs-code):Node.js を使用してサーバー側で開発を完了したら、クライアント側を開発してテストする必要があります。 この拡張機能により、VS Code エディターと Chrome ブラウザーのデバッグサービスが統合され、さらに効率的になります。
-- [他のエディターからの Keymaps](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Downloads):これらの拡張機能を使用すると、別のテキストエディター (Atom、Sublime、Vim、eMacs、メモ帳 + + など) から移行している場合に、環境をホームにすることができます。
-- [設定の同期](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync):GitHub を使用して、複数のインストール間で VS Code 設定を同期できます。 別のコンピューターで作業している場合は、これによって環境の整合性を保つことができます。
+- [Chrome のデバッガー](https://code.visualstudio.com/blogs/2016/02/23/introducing-chrome-debugger-for-vs-code): node.js を使用してサーバー側で開発を完了すると、クライアント側を開発してテストする必要があります。 この拡張機能により、VS Code エディターと Chrome ブラウザーのデバッグサービスが統合され、さらに効率的になります。
+- [他のエディターからの Keymaps](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Downloads): これらの拡張機能は、別のテキストエディター (Atom、Sublime、Vim、EMacs、メモ帳 + + など) から移行している場合に、環境を自宅で使用しやすくするために役立ちます。
+- [設定の同期](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync): GitHub を使用して、複数のインストール間で VS Code 設定を同期できます。 別のコンピューターで作業している場合は、これによって環境の整合性を保つことができます。
 
 ## <a name="install-git-optional"></a>Git のインストール (省略可能)
 
