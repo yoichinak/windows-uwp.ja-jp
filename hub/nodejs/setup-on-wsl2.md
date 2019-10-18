@@ -8,12 +8,12 @@ ms.topic: article
 keywords: NodeJS、node.js、windows 10、microsoft、learning NodeJS、windows 上のノード、wsl のノード、windows 上の linux 上のノード、windows 上のノードのインストール、windows 上のノードのインストール、windows 上の NodeJS を使用した開発、windows 上のノードのインストール、WSL へのノードのインストール、Windows 上の NodeJSLinux 用サブシステム
 ms.localizationpriority: medium
 ms.date: 09/19/2019
-ms.openlocfilehash: 917192d782e0a44c6de7e549960161a003c646e5
-ms.sourcegitcommit: 13faf9dab9946295986f8edd79b5fae0db4ed0f6
+ms.openlocfilehash: e5875f0bf7ce73d3615aa131d57c2384c73dd8a1
+ms.sourcegitcommit: 60d2d15dd0d365f82e4e90e4bc34b40cf5b4a247
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72315066"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72517842"
 ---
 # <a name="set-up-your-nodejs-development-environment-with-wsl-2"></a>WSL 2 を使用して node.js 開発環境を設定する
 
@@ -24,15 +24,15 @@ Windows Subsystem for Linux (WSL) を使用して node.js 開発環境をセッ�
 
 ## <a name="install-windows-10-insider-preview-build"></a>Windows 10 Insider Preview ビルドをインストールする
 
-1. **[Windows 10 の最新バージョンをインストールし](https://www.microsoft.com/software-download/windows10)** ます。更新アシスタントをダウンロードするには、 **[今すぐ更新]** を選択します。 ダウンロードが完了したら、update assistant を開いて、最新バージョンの Windows を現在実行しているかどうかを確認します。それ以外の場合は、アシスタントウィンドウ内で **[今すぐ更新]** を選択して、コンピューターを更新します。 *(Windows 10 の最新バージョンを実行している場合、この手順は省略可能です)。*
+1. **[最新バージョンの Windows 10 をインストール](https://www.microsoft.com/software-download/windows10)** する: 更新アシスタントをダウンロードするには、 **[今すぐ更新]** を選択します。 ダウンロードが完了したら、update assistant を開いて、最新バージョンの Windows を現在実行しているかどうかを確認します。それ以外の場合は、アシスタントウィンドウ内で **[今すぐ更新]** を選択して、コンピューターを更新します。 *(Windows 10 の最新バージョンを実行している場合、この手順は省略可能です)。*
 
     ![Windows Update アシスタント](../images/windows-update-assistant2019.png)
 
-2. **[Windows Insider program > [スタート > 設定] にアクセスし](ms-settings:windowsinsider)** ます。[Windows Insider Program] ウィンドウで、[**はじめ**に] を選択し、**アカウントをリンク**します。
+2. Windows insider program ウィンドウ内の [ **[Start > Settings >](ms-settings:windowsinsider)** windows insider program] の順に移動し、 **[開始]** 、 **[アカウントのリンク]** の順に選択します。
 
     ![Windows Insider プログラムの設定](../images/windows-insider-program-settings.png)
 
-3. **[Windows Insider として登録する](https://insider.windows.com/getting-started/#register)** :Insider プログラムに登録されていない場合は、 [Microsoft アカウント](https://account.microsoft.com/account)で実行する必要があります。
+3. **[Windows insider として登録](https://insider.windows.com/getting-started/#register)** する: insider プログラムに登録していない場合は、 [Microsoft アカウント](https://account.microsoft.com/account)で登録する必要があります。
 
     ![Windows Insider の登録](../images/windows-insider-account.png)
 
@@ -96,11 +96,15 @@ Node.js をインストールするには、複数の方法があります。 �
 
     ![LTS と現在のノードバージョンを示す NVM リスト](../images/nvm-node-installed.png)
 
-9. Node.js がインストールされており、現在の既定のバージョンが: `node --version` であることを確認します。 次のように、npm も使用していることを確認します。`npm --version` (`which node` または `which npm` を使用して、既定のバージョンで使用されているパスを確認することもできます)。
+9. Node.js がインストールされており、現在の既定のバージョンが: `node --version` であることを確認します。 次のように、npm も使用していることを確認します。 `npm --version` (`which node` または `which npm` を使用して、既定のバージョンで使用されているパスを確認することもできます)。
 10. プロジェクトに使用する node.js のバージョンを変更するには、新しいプロジェクトディレクトリを作成し `mkdir NodeTest` というディレクトリを作成し `cd NodeTest` を入力します。次に `nvm use node` を入力して現在のバージョンに切り替えるか、または `nvm use --lts` を指定して LTS バージョンに切り替えます。 また、`nvm use v8.2.1` のように、インストールしたその他のバージョンには特定の番号を使用することもできます。 (使用可能な node.js のすべてのバージョンを一覧表示するには、コマンド `nvm ls-remote`) を使用します。
 
 > [!TIP]
 > NVM を使用して node.js と NVM をインストールする場合は、SUDO コマンドを使用して新しいパッケージをインストールする必要はありません。
+
+> [!NOTE]
+> 発行時に、NVM v 0.34.0 が使用可能な最新バージョンでした。 [GitHub プロジェクトページで NVM の最新リリース](https://github.com/nvm-sh/nvm)を確認し、上記のコマンドを調整して最新バージョンを含めることができます。
+CURL を使用して新しいバージョンの NVM をインストールすると、古いものが置き換えられ、NVM で使用したノードのバージョンはそのまま残ります。 たとえば次のようになります。`curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash`
 
 ## <a name="alternative-version-managers"></a>代替バージョンマネージャー
 
@@ -114,7 +118,7 @@ Nvm は現在最も人気のあるノードのバージョンマネージャー�
 
 ## <a name="install-your-favorite-code-editor"></a>お気に入りのコードエディターをインストールする
 
-Node.js dev プロジェクトでは、 **[Visual Studio Code]** を**Remote Wsl 拡張機能**と共に使用することをお勧めします。 これにより、VS Code が "クライアント-サーバー" アーキテクチャに分割され、Windows コンピューター上で実行されるクライアント (ユーザーインターフェイス) とサーバー (コード、Git、プラグインなど) がリモートで実行されます。
+Node.js プロジェクト用の**リモート WSL 拡張機能**で**Visual Studio Code**を使用することをお勧めします。 これにより、VS Code が "クライアント-サーバー" アーキテクチャに分割され、Windows コンピューター上で実行されるクライアント (ユーザーインターフェイス) とサーバー (コード、Git、プラグインなど) がリモートで実行されます。
 
 - Linux ベースの Intellisense とインライン作成がサポートされています。
 - プロジェクトは、Linux で自動的にビルドされます。
@@ -132,47 +136,38 @@ VS Code とリモート WSL 拡張機能をインストールするには、次�
 2. VS Code に[リモート WSL 拡張機能](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl)をインストールします。 これにより、統合開発環境として WSL を使用し、互換性とパスを処理することができます。 [詳しくはこちらをご覧ください](https://code.visualstudio.com/docs/remote/remote-overview)。
 
 > [!IMPORTANT]
-> 既に VS Code がインストールされている場合は、[リモート WSL 拡張機能](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl)をインストールするために、 [1.35 がリリース](https://code.visualstudio.com/updates/v1_35)以降であることを確認する必要があります。 リモート WSL 拡張機能を使用せずに VS Code で WSL を使用することはお勧めしません。オートコンプリート、デバッグ、インライン処理などのサポートが失われるためです。おもしろい事実:この WSL 拡張機能は $HOME/.vscode-server/extensions. にインストールされています
+> 既に VS Code がインストールされている場合は、[リモート WSL 拡張機能](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl)をインストールするために、 [1.35 がリリース](https://code.visualstudio.com/updates/v1_35)以降であることを確認する必要があります。 リモート WSL 拡張機能を使用せずに VS Code で WSL を使用することはお勧めしません。オートコンプリート、デバッグ、インライン処理などのサポートが失われるためです。楽しい事実: この WSL 拡張機能は $HOME/.vscode-server/extensions. にインストールされます。
 
 ### <a name="helpful-vs-code-extensions"></a>便利な VS Code 拡張機能
 
-VS Code には、node.js の開発に関する多くの機能が用意されていますが、 [Node.js 拡張パック](https://marketplace.visualstudio.com/items?itemName=waderyan.nodejs-extension-pack)でのインストールを検討すると便利な拡張機能がいくつかあります。 これには次が含まれます。
-
-- 私は、コードの "linting ツールです。 コードを分析して、潜在的なエラーを警告します。
-- npm-コマンドパレットから npm スクリプトを実行し、パッケージに定義されているインストール済みモジュールを検証します。
-- JavaScript (ES6) スニペット-ES6 構文で JavaScript 開発用のコードスニペットを追加します。
-- 検索 node_modules-プロジェクト内のノードモジュールをすばやく検索します。
-- NPM IntelliSense-NPM モジュール用の IntelliSense をコードに追加します。
-- Path IntelliSense-コード内のファイル名をオートコンプリートします。
-
-これらのすべてをインストールするか、最も役に立つと思われるものを選択して選択します。
+VS Code には、node.js の開発に関する多くの機能が用意されていますが、 [Node.js 拡張パック](https://marketplace.visualstudio.com/items?itemName=waderyan.nodejs-extension-pack)でのインストールを検討すると便利な拡張機能がいくつかあります。 これらのすべてをインストールするか、最も役に立つと思われるものを選択して選択します。
 
 Node.js 拡張パックをインストールするには:
 
 1. VS Code で **[拡張]** ウィンドウ (Ctrl + Shift + X) を開きます。
 
     [拡張] ウィンドウが3つのセクションに分割されました (リモート WSL 拡張機能がインストールされているため)。
-    - "ローカルインストール":Windows オペレーティングシステムで使用するためにインストールされる拡張機能。
-    - "WSL: Ubuntu-18.04-Installed":Ubuntu オペレーティングシステム (WSL) で使用するためにインストールされる拡張機能。
-    - "推奨":VS Code によって推奨される拡張機能は、現在のプロジェクト内のファイルの種類に基づいています。
+    - "Local Installed": Windows オペレーティングシステムで使用するためにインストールされる拡張機能。
+    - "WSL: Ubuntu-18.04-Installed": Ubuntu オペレーティングシステム (WSL) で使用するためにインストールされる拡張機能。
+    - "推奨": 現在のプロジェクトのファイルの種類に基づいて、VS Code によって推奨される拡張機能。
 
     ![VS Code 拡張機能のローカルとリモートの比較](../images/vscode-extensions-local-remote.png)
 
-2. [拡張機能] ウィンドウの上部にある [検索] ボックスに、次のように入力します。**ノード拡張パック**(または任意の拡張機能の名前)。 現在のプロジェクトを開いている場所に応じて、VS Code のローカルインスタンスまたは WSL インスタンスのいずれかに、拡張機能 (またはパックの場合は拡張機能) がインストールされます。 VS Code ウィンドウの左下隅にある [リモート] リンク (緑色) を選択するとわかります。 リモート接続を開いたり閉じたりするためのオプションが表示されます。 Node.js 拡張機能を "WSL: Ubuntu-18.04" 環境にインストールします。
+2. [拡張機能] ウィンドウの上部にある [検索] ボックスに、**ノード拡張パック**(または目的の拡張機能の名前) を入力します。 この拡張機能は、現在のプロジェクトを開いている場所に応じて、VS Code のローカルインスタンスまたは WSL インスタンスのいずれかにインストールされます。 VS Code ウィンドウの左下隅にある [リモート] リンク (緑色) を選択するとわかります。 リモート接続を開いたり閉じたりするためのオプションが表示されます。 Node.js 拡張機能を "WSL: Ubuntu-18.04" 環境にインストールします。
 
     ![リモートリンクの VS Code](../images/wsl-remote-extension.png)
 
 さらに、次のような拡張機能を使用することもできます。
 
-- [Chrome 用のデバッガー](https://code.visualstudio.com/blogs/2016/02/23/introducing-chrome-debugger-for-vs-code):Node.js を使用してサーバー側で開発を完了したら、クライアント側を開発してテストする必要があります。 この拡張機能により、VS Code エディターと Chrome ブラウザーのデバッグサービスが統合され、さらに効率的になります。
-- [他のエディターからの Keymaps](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Downloads):これらの拡張機能を使用すると、別のテキストエディター (Atom、Sublime、Vim、eMacs、メモ帳 + + など) から移行している場合に、環境をホームにすることができます。
-- [設定の同期](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync):GitHub を使用して、複数のインストール間で VS Code 設定を同期できます。 別のコンピューターで作業している場合は、これによって環境の整合性を保つことができます。
+- [Chrome のデバッガー](https://code.visualstudio.com/blogs/2016/02/23/introducing-chrome-debugger-for-vs-code): node.js を使用してサーバー側で開発を完了すると、クライアント側を開発してテストする必要があります。 この拡張機能により、VS Code エディターと Chrome ブラウザーのデバッグサービスが統合され、さらに効率的になります。
+- [他のエディターからの Keymaps](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Downloads): これらの拡張機能は、別のテキストエディター (Atom、Sublime、Vim、EMacs、メモ帳 + + など) から移行している場合に、環境を自宅で使用しやすくするために役立ちます。
+- [設定の同期](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync): GitHub を使用して、複数のインストール間で VS Code 設定を同期できます。 別のコンピューターで作業している場合は、これによって環境の整合性を保つことができます。
 
 ## <a name="install-windows-terminal-optional"></a>Windows ターミナルをインストールする (省略可能)
 
 新しい Windows ターミナルでは、複数のタブが有効になります (コマンドプロンプト、PowerShell、または複数の Linux ディストリビューションをすばやく切り替えることができます)。カスタムキーバインド (タブを開いたり閉じたりするための独自のショートカットキーを作成する、コピーと貼り付けなど)、絵文字☺、カスタムテーマ (配色、フォントのスタイルとサイズ、背景画像、ぼかし、透明度などです。 [詳しくはこちらをご覧ください](https://devblogs.microsoft.com/commandline/)。
 
-1. [Microsoft Store で Windows ターミナル (プレビュー) を取得し](https://www.microsoft.com/store/apps/9n0dx20hk701)ます。ストアを使用してをインストールすると、更新プログラムが自動的に処理されます。
+1. [Microsoft Store で Windows ターミナル (プレビュー)](https://www.microsoft.com/store/apps/9n0dx20hk701)を取得する: ストアを使用してをインストールすることにより、更新プログラムは自動的に処理されます。
 
 2. インストールが完了したら、Windows ターミナルを開き、 **[設定]** を選択して、`profile.json` ファイルを使用してターミナルをカスタマイズします。 [詳細については、「Windows ターミナル設定の編集](https://github.com/microsoft/terminal/blob/master/doc/user-docs/UsingJsonSettings.md)」を参照してください。
 
@@ -186,11 +181,11 @@ Node.js 拡張パックをインストールするには:
 
 2. ノードプロジェクトには、ファイルを追加することをお勧めし[ます](https://help.github.com/en/articles/ignoring-files)。 [Node.js の GitHub の既定のテンプレート](https://github.com/github/gitignore/blob/master/Node.gitignore)は次のとおりです。 [Github web サイトを使用して新しいリポジトリを作成](https://help.github.com/articles/create-a-repo)することを選択した場合は、リポジトリを初期化するためのチェックボックスがあります。このファイルは、node.js プロジェクト用にセットアップされています。また、必要に応じてライセンスを追加するためのオプションもあります。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 これで、node.js 開発環境がセットアップされました。 Node.js 環境の使用を開始するには、次のチュートリアルのいずれかを試すことを検討してください。
 
-- [初心者向け node.js の概要](./beginners.md):Node.js 開発を初めてご利用になる場合に役立つステップバイステップガイドです。
-- [Windows での node.js web フレームワークの概要](./web-frameworks.md):Node.js、Nuxt、Gatsby など、Windows での node.js web framworks の使用を開始するためのステップバイステップガイドを紹介します。
-- [データベースへの node.js アプリの接続の概要](./databases.md):MongoDB や Postgres などのデータベースへの node.js アプリの接続を開始するためのステップバイステップガイドです。
-- [Node.js で Docker コンテナーの使用を開始する](./containers.md):Docker コンテナーを node.js アプリで使い始める際に役立つステップバイステップガイドです。
+- [初心者向け node.js を使ってみる](./beginners.md)
+- [Windows での node.js web フレームワークの概要](./web-frameworks.md)
+- [データベースへの node.js アプリの接続の概要](./databases.md)
+- [Node.js で Docker コンテナーを使ってみる](./containers.md)
