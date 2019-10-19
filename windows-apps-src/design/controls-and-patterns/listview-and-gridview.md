@@ -12,12 +12,12 @@ design-contact: kimsea
 dev-contact: ranjeshj
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 2ff5d0831e918c0399bccb1dac9bb4fca8a6d408
-ms.sourcegitcommit: c079388634cbd328d0d43e7a6185e09bb4bca65b
+ms.openlocfilehash: a85edf0caa429d95d376af6fbc93bc7e8134340c
+ms.sourcegitcommit: 00cd8a6616e358479a63e56126c62ef02b8da75b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71939647"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72548459"
 ---
 # <a name="list-view-and-grid-view"></a>リスト ビューとグリッド ビュー
 
@@ -604,7 +604,7 @@ private void DeselectAllButton_Click(object sender, RoutedEventArgs e)
 
 ### <a name="drag-and-drop"></a>ドラッグ アンド ドロップ
 
-ListView コントロールと GridView コントロールは、項目内、項目間、および他の ListView コントロールと GridView コントロール間での項目のドラッグ アンド ドロップをサポートします。 ドラッグ アンド ドロップのパターンの実装について詳しくは、「[ドラッグ アンド ドロップ](https://docs.microsoft.com/windows/uwp/design/input/drag-and-drop)」をご覧ください。 
+ListView コントロールと GridView コントロールは、項目内、項目間、および他の ListView コントロールと GridView コントロール間での項目のドラッグ アンド ドロップをサポートします。 ドラッグ アンド ドロップのパターンの実装について詳しくは、「[ドラッグ アンド ドロップ](../input/drag-and-drop.md)」をご覧ください。
 
 ## <a name="get-the-sample-code"></a>サンプル コードを入手する
 
@@ -616,4 +616,4 @@ ListView コントロールと GridView コントロールは、項目内、項�
 
 - [リスト](lists.md)
 - [項目コンテナーとテンプレート](item-containers-templates.md)
-- [ドラッグ アンド ドロップ](https://docs.microsoft.com/windows/uwp/app-to-app/drag-and-drop)
+- [ドラッグ アンド ドロップ](../input/drag-and-drop.md)
