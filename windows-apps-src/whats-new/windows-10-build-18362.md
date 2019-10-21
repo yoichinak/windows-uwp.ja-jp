@@ -6,12 +6,12 @@ ms.date: 04/19/2019
 ms.topic: article
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: 935d7f787d0cc23965c0fd51747b7687adb80a3f
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 4e92afd112ce7600bcfa650e0bb3bbeffabd7bd0
+ms.sourcegitcommit: f120968069702a7210756b508dabc4a1a8c20d53
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66468316"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72438219"
 ---
 # <a name="whats-new-in-windows-10-for-developers-build-18362"></a>Windows 10 ビルド 18362 の開発者向け新着情報
 
@@ -30,7 +30,7 @@ Items Repeater | [ItemsRepeater](../design/controls-and-patterns/items-repeater.
 UI コマンド処理 | [UWP アプリでのコマンド処理](../design/controls-and-patterns/commanding.md)では、使用しているデバイスおよび入力の種類に関係なく、[XamlUICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.standarduicommand) クラスおよび [StandardUICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.standarduicommand) クラスを (ICommand インターフェイスと共に) 使用してさまざまなコントロール型にわたりコマンドを共有および管理します。
 Windows UI ライブラリ | Windows UI ライブラリの最新の公式バージョンである [WinUI 2.1](https://docs.microsoft.com/uwp/toolkits/winui/release-notes/winui-2.1) には、ご利用の Windows アプリ向けにさまざまな新しい XAML コントロールが用意されています。 WinUI ライブラリの API は以前のバージョンの Windows 10 で実行できるため、最新 OS を使用していないユーザーのサポート用にバージョン チェックや条件付き XAML を含める必要はありません。
 デスクトップ アプリでのビジュアル レイヤー | [デスクトップ アプリケーションで UWP ビジュアル レイヤー API を使用](../composition/visual-layer-in-desktop-apps.md)できるようになりました。 これらの API は、グラフィックス、効果、およびアニメーション用の高パフォーマンスの保持モード API を提供し、Windows デバイス間で UI の基盤となります。
-Z 深度とシャドウ | ご利用の UWP アプリで昇格を作成するには、[Z 深度とシャドウ](../design/layout/depth-shadow.md)を使用します。 この新機能を使用すると、ご利用のアプリの UI を見やすくし、ユーザーが集中すべき重要なこととは何かを適切に伝えることができます。
+Z 深度とシャドウ | ご利用の UWP アプリで昇格を作成するには、[Z 深度とシャドウ](../design/layout/depth-shadow.md)を使用します。 これらの新機能を使用すると、ご利用のアプリの UI を見やすくし、ユーザーが集中すべき重要なこととは何かを適切に伝えることができます。
 
 ## <a name="develop-windows-apps"></a>Windows アプリを開発
 
@@ -48,7 +48,7 @@ DirectX HLSL | [HLSL Shader Model 6.4](https://docs.microsoft.com/windows/deskto
 ファイル システムの操作 | この[ベスト プラクティス ガイド](../files/best-practices-for-writing-to-files.md)は、お客様が Windows.Storage.FileIO クラスおよび Windows.Storage.PathIO クラスを使用してファイル システム I/O 操作を実行するのに役立ちます。
 ゲームパッドとリモコンの操作 | [ゲームパッドとリモコンの操作](../design/input/gamepad-and-remote-interactions.md)を使用すれば、使いやすくアクセスしやすい操作エクスペリエンスを構築できます。 これらの操作により、ご利用のアプリケーションを、2 ft (60 cm) 離れた場所からでも 10 ft (3 m) 離れた場所からでも同様に直感的で使いやすいものとすることができます。
 日本の年号の変更 | 2019 年 5 月 1 日に実施された日本の年号の変更にご利用の Windows アプリケーションが確実に対応できるようにする方法を示すために、[こちらの手順](../design/globalizing/japanese-era-change.md)を用意しました。 [このページは日本語でもご覧いただけます](https://docs.microsoft.com/ja-jp/windows/uwp/design/globalizing/japanese-era-change)。
-WPF、Windows フォーム、および WinUI のオープン ソース | WPF、Windows フォーム、WinUI UX フレームワークを、GitHub 上のオープンソース共同作成者が利用できるようになりました。 詳細とリンクについては、[Windows アプリの作成](https://blogs.windows.com/buildingapps/2018/12/04/announcing-open-source-of-wpf-windows-forms-and-winui-at-microsoft-connect-2018/#OKZjJs1VVTrMMtkL.97)に関するブログ記事を参照してください。
+WPF、Windows フォーム、および WinUI のオープン ソース | WPF、Windows フォーム、WinUI UX フレームワークを、GitHub 上でのオープンソース共同作成に利用できるようになりました。 詳細とリンクについては、[Windows アプリの作成](https://blogs.windows.com/buildingapps/2018/12/04/announcing-open-source-of-wpf-windows-forms-and-winui-at-microsoft-connect-2018/#OKZjJs1VVTrMMtkL.97)に関するブログ記事を参照してください。
 Xbox 用のプログレッシブ Web アプリ | [Xbox One 用のプログレッシブ Web アプリ](https://docs.microsoft.com/microsoft-edge/progressive-web-apps/xbox-considerations)を使用すれば、既存のフレームワーク、CDN、およびサーバー バックエンドを引き続き使用しながら、Web アプリケーションを拡張してそれを Microsoft Store 経由で Xbox One アプリとして使用可能にすることができます。 ほとんどのパーツについては、Windows の場合と同じ方法で、ご自分の Xbox One 用 PWA をパッケージ化することができます。 このガイドでは、そのプロセスについて順を追って説明し、主な違いを強調表示します。
 Project Rome | Project Rome SDK が Android および iOS で利用できるようになりました。 Graph 通知を次の各プラットフォームに統合する方法について説明します: [Android](https://docs.microsoft.com/windows/project-rome/notifications/how-to-guide-for-android) および [iOS](https://docs.microsoft.com/windows/project-rome/notifications/how-to-guide-for-ios)。
 リモート カメラ | DeviceWatcher クラスを使用すれば、[リモート カメラに接続](../audio-video-camera/connect-to-remote-cameras.md)し、そのカメラからのフレームをご利用の Windows アプリに読み込むことができます。
@@ -87,7 +87,7 @@ Microsoft Learn は、新しい実践的な学習とトレーニングの機会�
 
 ### <a name="progressive-web-apps"></a>プログレッシブ Web アプリ
 
-プログレッシブ Web アプリは、さまざまなブラウザおよび各種 Windows 10 デバイスでネイティブ アプリのように機能する Web サイトです。 [ビデオをご覧になって](https://youtu.be/ugAewC3308Y)詳細を学習してから、[ドキュメントを参照](https://aka.ms/Windows-PWA)して使用を開始してください。
+プログレッシブ Web アプリは、さまざまなブラウザーおよび各種 Windows 10 デバイスでネイティブ アプリのように機能する Web サイトです。 [ビデオをご覧になって](https://youtu.be/ugAewC3308Y)詳細を学習してから、[ドキュメントを参照](https://aka.ms/Windows-PWA)して使用を開始してください。
 
 ### <a name="vs-code-series"></a>VS Code シリーズ
 
@@ -101,7 +101,7 @@ HoloLens 2 が最近発表されました。 最新の情報および開発に�
 
 One Dev Question ビデオ シリーズでは、ベテランの Microsoft 開発者が Windows 開発、チーム カルチャー、および歴史に関する一連の質問に答えています。
 
-* [Raymond Chen: Windows 開発および歴史](https://www.youtube.com/playlist?list=PLWs4_NfqMtoxjy3LrIdf2oamq1coolpZ7)
+* [Raymond Chen: Windows 開発および歴史 ](https://www.youtube.com/playlist?list=PLWs4_NfqMtoxjy3LrIdf2oamq1coolpZ7)
 
 * [Larry Osterman: Windows 開発および歴史](https://www.youtube.com/playlist?list=PLWs4_NfqMtoyPUkYGpJU0RzvY6PBSEA4K)
 
