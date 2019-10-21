@@ -12,12 +12,12 @@ design-contact: kimsea
 dev-contact: ranjeshj
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 2402be26a14d2e57a482a68cf8d5b587f4e65dd1
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 761cd9e6d1fc92b4919f701fdd9f8f62078faedf
+ms.sourcegitcommit: b8a4b0d5a65da297290b93d73c641df3c135a086
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66364953"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72531665"
 ---
 # <a name="item-containers-and-templates"></a>項目コンテナーやテンプレート
 
@@ -25,13 +25,20 @@ ms.locfileid: "66364953"
 
 **ListView** コントロールと **GridView** コントロールでは、項目の配置方法 (水平、垂直、折り返しなど) や、ユーザーが項目を操作する方法を管理しますが、画面に個別の項目を表示する方法については管理しません。 項目の視覚エフェクトは、項目コンテナーによって管理されます。 リスト ビューに項目を追加すると、追加した項目はコンテナーに自動的に設定されます。 ListView の既定の項目コンテナーは [ListViewItem](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListViewItem) であり、GridView の既定の項目コンテナーは [GridViewItem](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.GridViewItem) です。
 
-> **重要な API**:[ListView クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listview)、[GridView クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.gridview)、[ItemTemplate プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemtemplate)、[ItemContainerStyle プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemcontainerstyle)
+> **重要な API**:[ListView クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listview)、[GridView クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.gridview)、[ListViewItem クラス](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.listviewitem)、[GridViewItem クラス](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.gridviewitem)、[ItemTemplate プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemtemplate)、[ItemContainerStyle プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemcontainerstyle)
 
 
 > [!NOTE]
-> ListView と GridView はどちらも [ListViewBase](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase) クラスから派生しているため、同じ機能を持ちますが、データの表示方法が異なります。 この記事では、特に指定がない限り、リスト ビューについての説明は ListView コントロールにも GridView コントロールにも適用されます。 ListView や ListViewItem などのクラスの説明については、プレフィックスの *"List"* を *"Grid"* に置き換えることで、対応するグリッド クラス (GridView または GridViewItem) に適用できます。 
+> ListView と GridView はどちらも [ListViewBase](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase) クラスから派生しているため、同じ機能を持ちますが、データの表示方法が異なります。 この記事では、特に指定がない限り、リスト ビューについての説明は ListView コントロールにも GridView コントロールにも適用されます。 ListView や ListViewItem などのクラスの説明については、プレフィックスの "List" を "Grid" に置き換えることで、対応するグリッド クラス (GridView または GridViewItem) に適用できます。 ** ** 
 
-これらのコンテナー コントロールは、 *"データ テンプレート"* と *"コントロール テンプレート"* という 2 つの重要な部分から構成されており、これらを組み合わせることによって 1 つの項目で表示する最終的な外観が形成されます。
+## <a name="listview-items-and-gridview-items"></a>ListView 項目と GridView 項目
+前述のように、ListView 項目は ListViewItem コンテナーに自動的に配置され、GridView 項目は GridViewItem コンテナーに配置されます。 これらの項目コンテナーは、独自の組み込みスタイルと対話機能を備えたコントロールですが、高度にカスタマイズすることもできます。 ただし、カスタマイズする前に、ListViewItem と GridViewItem の推奨されるスタイルとガイドラインを良く確認してください。
+
+- **ListViewItems** - 主にテキストに重点をおいた項目で、細長い形状です。 テキストの左側にアイコンまたは画像が表示されることがあります。
+- **GridViewItems** - 通常、項目は正方形であるか、または少なくともそれほど細長くない四角形です。 項目は画像に重点をおいており、画像の周囲またはその上にテキストが表示される場合があります。 
+
+## <a name="introduction-to-customization"></a>カスタマイズの概要
+コンテナー コントロール (ListViewItem や GridViewItem など) は、 *"データ テンプレート"* と *"コントロール テンプレート"* という 2 つの重要な部分から構成されており、これらを組み合わせることによって 1 つの項目で表示する最終的な外観が形成されます。
 
 - **データ テンプレート** - [DataTemplate](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.DataTemplate) をリスト ビューの [ItemTemplate](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemtemplate) プロパティに割り当てて、個別のデータ項目の表示方法を指定します。
 - **コントロール テンプレート** - コントロール テンプレートは、表示状態など、フレームワークが担当する項目の視覚エフェクトの一部を提供します。 [ItemContainerStyle](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemcontainerstyle) プロパティを使って、コントロール テンプレートを変更できます。 通常では、ブランドに合うようにリスト ビューの色を変更したり、選択した項目の表示方法を変更する目的で、コントロール テンプレートを変更します。
@@ -72,6 +79,9 @@ ms.locfileid: "66364953"
     <x:String>Item 5</x:String>
 </ListView>
 ```
+
+> [!IMPORTANT]
+> データ テンプレートとコントロール テンプレートは、ListView と GridView 以外の多くのコントロールのスタイルをカスタマイズするために使用されます。 これには、FlipView などの独自の組み込みスタイルを持つコントロールや、ItemsRepeater などのカスタム作成されたコントロールが含まれます。 次の例は ListView/GridView に固有のものですが、その概念は他の多くのコントロールに適用できます。 
  
 ## <a name="prerequisites"></a>前提条件
 
@@ -177,7 +187,7 @@ namespace ColorsListApp
 > DataTemplate で [x:Bind markup extension](https://docs.microsoft.com/windows/uwp/xaml-platform/x-bind-markup-extension) を使う場合、DataTemplate に DataType (`x:DataType`) を指定する必要があります。
 
 **XAML**
-```XAML
+```xaml
 <ListView x:Name="colorsListView">
     <ListView.ItemTemplate>
         <DataTemplate x:DataType="local:NamedColor">
@@ -207,6 +217,19 @@ namespace ColorsListApp
 このデータ テンプレートを使ってデータ項目を表示すると、次のようになります。
 
 ![データ テンプレートを使ったリスト ビュー項目](images/listview-data-template-0.png)
+
+> [!IMPORTANT]
+> 既定では、Listviewitem の内容は左揃えになっています。つまり、[HorizontalContentAlignmentProperty ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.horizontalcontentalignment#Windows_UI_Xaml_Controls_Control_HorizontalContentAlignment) は Left に設定されています。 水平方向に積み上げられた要素や、同じグリッド行に配置された要素など、水平方向に隣接する複数の要素が ListViewItem 内にある場合、それらはすべて左揃えになり、定義された余白で区切られます。 
+<br/><br/> 要素が ListItem の本体全体に収まるようにするためには、ListView 内で [Setter](https://docs.microsoft.com/uwp/api/windows.ui.xaml.setter) を使用して、HorizontalContentAlignmentProperty を [Stretch](https://docs.microsoft.com/uwp/api/windows.ui.xaml.horizontalalignment) に設定する必要があります。
+
+```xaml
+<ListView.ItemContainerStyle>
+    <Style TargetType="ListViewItem">
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+    </Style>
+</ListView.ItemContainerStyle>
+```
+
 
 GridView でデータを表示することが必要になる場合もあります。 グリッド レイアウトにより適した方法でデータを表示する、その他のデータ テンプレートを次に示します。 今回は、GridView 用に XAML 内ではなく、リソースとしてデータ テンプレートを定義します。
 
@@ -282,6 +305,9 @@ GridView でデータを表示することが必要になる場合もありま�
  - 次に、Border コントロールを使って、Border 要素内に実際に項目を配置することなく背景をレンダリングできます。 Border 要素には子要素を 1 つしか配置できないため、他のレイアウト パネルを追加して、XAML の Border 要素内で 3 つの TextBlock 要素をホストする必要があります。 TextBlock を Border 要素の子要素にしないようにすれば、パネルで TextBlock を保持する必要がなくなります。
  - 最後に、StackPanel 内に TextBlock を配置して、明示的な Border 要素を使用する代わりに、StackPanel で border プロパティを設定できます。 ただし、Border 要素は StackPanel よりも軽量なコントロールであるため、何度もレンダリングするときのパフォーマンスの影響は少なくなります。
 
+### <a name="using-different-layouts-for-different-items"></a>さまざまな項目ごとに異なるレイアウトを使用する
+
+
 ## <a name="control-template"></a>コントロール テンプレート
 項目のコントロール テンプレートには、選択、ホバー、フォーカスなどの状態を表示する視覚効果が含まれています。 これらの視覚効果は、データ テンプレートの上または下にレンダリングされます。 ListView コントロール テンプレートによって描画される一般的な既定の視覚効果を次に示します。
 
@@ -340,7 +366,7 @@ ListViewItems プロパティにテンプレート バインドされていな�
 3. `colorsGridView` を右クリックし、 **[追加テンプレートの編集]、[生成されたアイテム コンテナーの編集 (ItemContainerStyle)]、[コピーして編集]** の順に選びます。
     ![Visual Studio のエディター](images/listview-itemcontainerstyle-vs.png)
 4. [Style リソースの作成] ダイアログ ボックスで、スタイルの名前を入力します。 この例では、`colorsGridViewItemStyle` を使います。
-    ![Visual Studio の [Style リソースの作成] ダイアログ (images/listview-style-resource-vs.png)
+    ![Visual Studio の [Style リソースの作成] ダイアログ](images/listview-style-resource-vs.png)
 
 次の XAML で示すように、既定のスタイルのコピーをリソースとしてアプリに追加し、**GridView.ItemContainerStyle** プロパティをそのリソースに設定します。 
 
