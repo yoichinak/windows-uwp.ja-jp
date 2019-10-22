@@ -4,18 +4,18 @@ title: xBind マークアップ拡張
 ms.assetid: 529FBEB5-E589-486F-A204-B310ACDC5C06
 ms.date: 02/08/2017
 ms.topic: article
-keywords: windows 10, uwp
+keywords: Windows 10, UWP
 ms.localizationpriority: medium
-ms.openlocfilehash: eeb56dce1984afd67e7a44bbfce1453a1d9f531a
-ms.sourcegitcommit: 3360db6bc975516e01913d3d73599c964a411052
+ms.openlocfilehash: a25797f50ee76542b8f9543cb76453d2916368ac
+ms.sourcegitcommit: 82d202478ab4d3011c5ddd2e852958c34336830d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70296996"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72715858"
 ---
 # <a name="xbind-markup-extension"></a>{x:Bind} マークアップ拡張
 
-メモ   **{x:Bind}** を使用してアプリでデータバインディングを使用する方法に関する一般的な情報 (と **{x:Bind}** と **{binding}** のすべての比較) については、「[データバインディングの詳細](https://docs.microsoft.com/windows/uwp/data-binding/data-binding-in-depth)」を参照してください。
+**注** For **{x:Bind}** を使用してアプリでデータバインディングを使用する方法に関する一般的な情報 (と **{x:Bind}** と **{binding}** のすべての比較) については、「[データバインディングの詳細](https://docs.microsoft.com/windows/uwp/data-binding/data-binding-in-depth)」を参照してください。
 
 { **X:Bind}** markup Extension (Windows 10 用の新機能) は、 **{Binding}** の代わりに使用できます。 **{x:Bind}** は、より短い時間で実行され、メモリが **{Binding}** より少ないため、デバッグがより適切にサポートされます。
 
@@ -46,15 +46,15 @@ XAML のコンパイル時に、 **{x:Bind}** は、データ ソースのプロ
 <object property="{x:Bind pathToFunction.functionName(functionParameter1, functionParameter2, ...), bindingProperties}" .../>
 ```
 
-| 項目 | 説明 |
+| 用語 | 説明 |
 |------|-------------|
 | _propertyPath_ | バインドのプロパティ パスを指定する文字列。 詳しくは、以下の「[プロパティ パス](#property-path)」をご覧ください。 |
 | _bindingProperties_ |
-| _propName_ value、 _propName_value\[==\]* | 名前と値のペアの構文を使って指定する、1 つ以上のバインド プロパティ。 |
+| _propName_ =_値_\[、 _propName_ =_値_\] * | 名前と値のペアの構文を使って指定する、1 つ以上のバインド プロパティ。 |
 | _propName_ | Binding オブジェクトで設定するプロパティの文字列名。 たとえば、"Converter" です。 |
 | _value_ | プロパティに設定する値。 引数の構文は、設定されているプロパティによって異なります。 値がそれ自体マークアップ拡張である _propName_=_value_ の使用例を示します: `Converter={StaticResource myConverterClass}`。 詳しくは、以下の「[{x:Bind} で設定できるプロパティ](#properties-that-you-can-set-with-xbind)」をご覧ください。 |
 
-## <a name="examples"></a>使用例
+## <a name="examples"></a>例
 
 ```XAML
 <Page x:Class="QuizGame.View.HostView" ... >
@@ -75,7 +75,7 @@ XAML のコンパイル時に、 **{x:Bind}** は、データ ソースのプロ
 
 ## <a name="property-path"></a>プロパティ パス
 
-*PropertyPath* は **{x:Bind}** 式の **Path** です。 **Path** は、バインド先のプロパティ、サブプロパティ、フィールド、またはメソッドの値 (ソース) を指定するプロパティ パスです。 **Path** プロパティの名前は、`{x:Bind Path=...}` のように明示的に指定することができます。 または、`{x:Bind ...}` のように省略することもできます。
+*PropertyPath* は **{x:Bind}** 式の **Path** です。 **Path** は、バインディング先のプロパティ、サブプロパティ、フィールド、またはメソッドの値 (ソース) を指定するプロパティ パスです。 **Path** プロパティの名前は、`{x:Bind Path=...}` のように明示的に指定することができます。 または、`{x:Bind ...}` のように省略することもできます。
 
 ### <a name="property-path-resolution"></a>プロパティのパスの解決
 
@@ -83,31 +83,31 @@ XAML のコンパイル時に、 **{x:Bind}** は、データ ソースのプロ
 
 たとえば、あるページで、**Text="{x:Bind Employee.FirstName}"** を指定すると、そのページの **Employee** メンバーが検索され、次に、**Employee** が返したオブジェクトの **FirstName** メンバーが検索されます。 従業員の扶養家族を含むプロパティに項目コントロールをバインドする場合、プロパティ パスは "Employee.Dependents" となり、"Dependents" の項目の表示には項目コントロールの項目テンプレートが使われます。
 
-C++/CX の場合、 **{x:Bind}** はページまたはデータ モデルのプライベート フィールドおよびプロパティにバインドできません。バインドできるようにするには、パブリック プロパティが必要です。 バインド用のサーフェス領域を CX クラス/インターフェイスとして公開し、関連するメタデータを取得できるようにする必要があります。 バインド可能な属性は必要ありません。 **\[\]**
+C++/CX の場合、 **{x:Bind}** はページまたはデータ モデルのプライベート フィールドおよびプロパティにバインドできません。バインドできるようにするには、パブリック プロパティが必要です。 バインディング用のサーフェス領域を CX クラス/インターフェイスとして公開し、関連するメタデータを取得できるようにする必要があります。 **@No__t_1Bindable \]** 属性は必要ありません。
 
 **x:Bind** では、**ElementName=xxx** をバインド式の一部として使用する必要はありません。 代わりに、要素の名前をバインドのパスの最初の部分として使用できます。名前付き要素は、ルートバインディングソースを表すページ内のフィールドまたはユーザーコントロールになります。 
 
 
 ### <a name="collections"></a>コレクション
 
-データ ソースがコレクションである場合、プロパティ パスには、位置またはインデックスによりコレクション内の項目を指定できます。 たとえば、"Teams\[0\]" のようになります。プレーヤー "。ここで、リテラル\["\]"は、0から始まるコレクション内の最初の項目を要求する" 0 "を囲みます。
+データ ソースがコレクションである場合、プロパティ パスには、位置またはインデックスによりコレクション内の項目を指定できます。 たとえば、"Teams \[0 \]" です。ここで、リテラル "\[ \]" は、0から始まるコレクション内の最初の項目を要求する "0" を囲みます。
 
-インデクサーを使うには、インデックス化されるプロパティの型に基づいて、モデルで **IList&lt;T&gt;** または **IVector&lt;T&gt;** を実装する必要があります。 (IReadOnlyList&lt;t&gt;と IVectorView&lt;t&gt;はインデクサー構文をサポートしていないことに注意してください)。インデックス付きプロパティの型が **INotifyCollectionChanged** または **IObservableVector** をサポートしており、バインディングが OneWay または TwoWay の場合、そのプロパティは登録され、それらのインターフェイスで変更通知をリッスンします。 変更検出ロジックは、特定のインデックス付きの値に影響を与えない場合でも、すべてのコレクションの変更に基づいて更新されます。 これは、リッスンしているロジックがコレクションのすべてのインスタンス間で共通であるためです。
+インデクサーを使うには、インデックス化されるプロパティの型に基づいて、モデルで **IList&lt;T&gt;** または **IVector&lt;T&gt;** を実装する必要があります。 (IReadOnlyList &lt;T &gt; と IVectorView &lt;T &gt; では、インデクサー構文はサポートされていないことに注意してください)。インデックス付きプロパティの型が**INotifyCollectionChanged**または**IObservableVector**をサポートし、バインドが OneWay または TwoWay の場合は、これらのインターフェイスに対する変更通知を登録してリッスンします。 変更検出ロジックは、特定のインデックス付きの値に影響を与えない場合でも、すべてのコレクションの変更に基づいて更新されます。 これは、リッスンしているロジックがコレクションのすべてのインスタンス間で共通であるためです。
 
-データ ソースがディクショナリまたはマップである場合、プロパティ パスには、文字列名によりコレクション内の項目を指定できます。 たとえば **&lt;TextBlock の Text ="{X:bind プレーヤー\["John smith"という\]"/&gt;** は"John Smith"という名前のディクショナリ内の項目を検索します。 名前は引用符で囲む必要があり、単一引用符と二重引用符のどちらでも使用できます。 文字列で引用符をエスケープするにはハット (^) を使用できます。 XAML 属性に使用されるものから代替引用符を使用するのが最も簡単です。 (Ireadonlydictionary<&lt;t&gt;と IMapView&lt;t&gt;はインデクサー構文をサポートしていないことに注意してください)。
+データ ソースがディクショナリまたはマップである場合、プロパティ パスには、文字列名によりコレクション内の項目を指定できます。 たとえば **&lt;TextBlock Text = "{X:Bind Players \[ ' John smith ' \]"/&gt;** は、"john smith" という名前の辞書内の項目を検索します。 名前は引用符で囲む必要があり、単一引用符と二重引用符のどちらでも使用できます。 文字列で引用符をエスケープするにはハット (^) を使用できます。 XAML 属性に使用されるものから代替引用符を使用するのが最も簡単です。 (Ireadonlydictionary< &lt;T &gt; と IMapView &lt;T &gt; では、インデクサー構文はサポートされていないことに注意してください)。
 
 文字列インデクサーを使うには、インデックス化されるプロパティの型に基づいて、モデルで **IDictionary&lt;string, T&gt;** または **IMap&lt;string, T&gt;** を実装する必要があります。 インデックス付きプロパティの型が **IObservableMap** をサポートしており、バインディングが OneWay または TwoWay の場合、そのプロパティは登録され、それらのインターフェイスで変更通知をリッスンします。 変更検出ロジックは、特定のインデックス付きの値に影響を与えない場合でも、すべてのコレクションの変更に基づいて更新されます。 これは、リッスンしているロジックがコレクションのすべてのインスタンス間で共通であるためです。
 
-### <a name="attached-properties"></a>アタッチされるプロパティ
+### <a name="attached-properties"></a>添付プロパティ
 
 [アタッチされたプロパティ](./attached-properties-overview.md)にバインドするには、クラスとプロパティ名をドットの後にかっこで囲んで指定する必要があります。 たとえば、**Text="{x:Bind Button22.(Grid.Row)}"** などです。 プロパティが Xaml 名前空間で宣言されていない場合は、そのプロパティの前に xml 名前空間を付ける必要があります。これはドキュメントの先頭でコード名前空間にマップする必要があります。
 
 ### <a name="casting"></a>キャスト
 
 コンパイル済みのバインドは、厳密に型指定され、パスの各ステップの型を解決します。 返される型にメンバーがない場合は、コンパイル時に失敗します。 キャストを指定して、オブジェクトの実際の型をバインディングに通知することができます。 次の場合、**obj** は型オブジェクトのプロパティですが、テキスト ボックスを含んでいます。したがって、**Text="{x:Bind ((TextBox)obj).Text}"** または **Text="{x:Bind obj.(TextBox.Text)}"** を使用できます。
-**Text = "{x:Bind ((data: SampleDataGroup) groups3\[0\]) の groups3 フィールド。Title} "** はオブジェクトの辞書であるため、 **Data: SampleDataGroup**にキャストする必要があります。 既定の XAML 名前空間の一部ではないコード名前空間にオブジェクトの型をマップするための xml **data:** 名前空間のプレフィックスの使用法に注意してください。
+**Text = "{x:Bind ((data: SampleDataGroup) groups3 \[0 \]) の groups3 フィールド。Title} "** はオブジェクトの辞書であるため、 **Data: SampleDataGroup**にキャストする必要があります。 既定の XAML 名前空間の一部ではないコード名前空間にオブジェクトの型をマップするための xml **data:** 名前空間のプレフィックスの使用法に注意してください。
 
-_注:スタイルC#のキャスト構文は、添付プロパティの構文よりも柔軟であり、今後推奨される構文です。_
+_注: スタイルC#のキャスト構文は、添付プロパティの構文よりも柔軟であり、今後推奨される構文です。_
 
 ## <a name="functions-in-binding-paths"></a>バインディング パス内の関数
 
@@ -115,7 +115,7 @@ Windows 10 バージョン 1607 以降、 **{x:Bind}** はバインド パスの
 
 ## <a name="event-binding"></a>イベント バインディング
 
-イベント バインディングは、コンパイル済みのバインドの固有の機能です。 これにより、バインディングを使用するイベントのハンドラーを指定でき、それをコード ビハインドのメソッドにする必要はありません。 以下に例を示します。 **= "{X:Bind rootFrame. GoForward}" をクリックし**ます。
+イベント バインディングは、コンパイル済みのバインドの固有の機能です。 これにより、バインディングを使用するイベントのハンドラーを指定でき、それをコード ビハインドのメソッドにする必要はありません。 たとえば、**Click="{x:Bind rootFrame.GoForward}"** などです。
 
 イベントの場合、対象のメソッドをオーバーロードしてはならず、以下の条件も満たしている必要があります。
 
@@ -135,22 +135,21 @@ Windows 10 バージョン 1607 以降、 **{x:Bind}** はバインド パスの
 
 | プロパティ | 説明 |
 |----------|-------------|
-| **[パス]** | 上記の「[プロパティ パス](#property-path)」をご覧ください。 |
+| **Path** | 上記の「[プロパティ パス](#property-path)」をご覧ください。 |
 | **修復** | バインド エンジンによって呼び出されるコンバーター オブジェクトを指定します。 コンバーターは XAML で設定できますが、リソース ディクショナリ内のオブジェクトへの [{StaticResource} マークアップ拡張](staticresource-markup-extension.md) 参照で割り当てたオブジェクト インスタンスを参照する場合に限られます。 |
-| **収束 Terlanguage** | コンバーターで使うカルチャを指定します (変換**言語**を設定している場合は、**コンバーター**も設定する必要があります)。カルチャは、標準ベースの識別子として設定されます。 詳しくは、「[**ConverterLanguage**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.converterlanguage)」をご覧ください。 |
-| **ConverterParameter** | コンバーター ロジックで使うことができるコンバーター パラメーターを指定します (変換**Terparameter**を設定している場合は、**コンバーター**も設定する必要があります)。ほとんどのコンバーターは、渡された値から必要なすべての情報を取得して変換する単純なロジックを使用します。また、変換**Terparameter**値は必要ありません。 **ConverterParameter** パラメーターは、**ConverterParameter** で渡された値を利用する複数のロジックを持つ、ある程度高度なコンバーターを実装するために存在します。 また、文字列以外の値を使うコンバーターも作成できますが、一般的ではありません。詳しくは、「[**ConverterParameter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.converterparameter)」の「注釈」をご覧ください。 |
+| **収束 Terlanguage** | コンバーターで使うカルチャを指定します (**ConverterLanguage** を設定する場合は **Converter** も設定する必要があります)。カルチャは、標準ベースの識別子として設定できます。 詳しくは、「[**ConverterLanguage**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.converterlanguage)」をご覧ください。 |
+| **ConverterParameter** | コンバーター ロジックで使うことができるコンバーター パラメーターを指定します (**ConverterParameter** を設定する場合は **Converter** も設定する必要があります)。 ほとんどのコンバーターは、渡された値から変換に必要なすべての情報を取得するという単純なロジックを使っており、**ConverterParameter** 値を必要としません。 **ConverterParameter** パラメーターは、**ConverterParameter** で渡された値を利用する複数のロジックを持つ、ある程度高度なコンバーターを実装するために存在します。 また、文字列以外の値を使うコンバーターも作成できますが、一般的ではありません。詳しくは、「[**ConverterParameter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.converterparameter)」の「注釈」をご覧ください。 |
 | **FallbackValue** | ソースまたはパスを解決できない場合に表示する値を指定します。 |
-| **Mode** | バインドモードを次のいずれかの文字列として指定します。"OneTime"、"OneWay"、または "TwoWay"。 既定は "OneTime" です。 これは、 **{Binding}** の既定値 (ほとんどの場合は "OneWay") とは異なる点に注意してください。 |
+| **モード** | "OneTime"、"OneWay"、"TwoWay" のいずれかの文字列として、バインド モードを指定します。 既定は "OneTime" です。 これは、 **{Binding}** の既定値 (ほとんどの場合は "OneWay") とは異なる点に注意してください。 |
 | **TargetNullValue** | ソース値が解決されるが、明示的に **null** である場合に表示する値を設定します。 |
 | **バインド** | 双方向バインディングの逆方向に使う関数を指定します。 |
 | **System.windows.data.binding.updatesourcetrigger** | コントロールから双方向バインディングのモデルに変更を戻すタイミングを指定します。 TextBox 以外のすべてのプロパティの既定値は PropertyChanged です。TextBox。テキストは LostFocus です。|
 
 > [!NOTE]
 > マークアップを **{Binding}** から **{x:Bind}** に変換する場合は、**Mode** プロパティの既定値の違いに注意してください。
- 
-> [**x:DefaultBindMode**](https://docs.microsoft.com/windows/uwp/xaml-platform/x-defaultbindmode-attribute) X:bind のマークアップ ツリーの特定のセグメントの既定のモードを変更するために使用できます。 選択されたモードは、バインドの一部として明示的にモードが指定されている場合を除いて、対象の要素とその子に対するすべての x:Bind 式に適用されます。 OneTime は、OneWay より重要です。OneWay を使うと、接続して変更検出を処理するために生成されるコードが多くなるためです。
+> [**x:DefaultBindMode**](https://docs.microsoft.com/windows/uwp/xaml-platform/x-defaultbindmode-attribute)は、マークアップツリーの特定のセグメントについて、x:Bind の既定のモードを変更するために使用できます。 選択されたモードは、バインドの一部として明示的にモードが指定されている場合を除いて、対象の要素とその子に対するすべての x:Bind 式に適用されます。 OneTime は、OneWay より重要です。OneWay を使うと、接続して変更検出を処理するために生成されるコードが多くなるためです。
 
-## <a name="remarks"></a>コメント
+## <a name="remarks"></a>注釈
 
 **{x:Bind}** は、その利点を得るために、生成されたコードを使用するので、コンパイル時に型情報が必要です。 つまり、型が事前にわかっていない場合は、プロパティにバインドできません。 このため、 **{x:Bind}** は、型が **Object** で、実行時に変更されることもある **DataContext** プロパティと共に使用することはできません。
 
@@ -167,7 +166,7 @@ Windows 10 バージョン 1607 以降、 **{x:Bind}** はバインド パスの
 > [!NOTE]
 > Windows 10、バージョン1607 以降では、XAML フレームワークにブール値と Visibility 値のコンバーターが組み込まれています。 コンバーターは、**Visible** 列挙値に対して **true** を、**Collapsed** に対して **false** をマッピングします。これにより、コンバーターを作成せずに Visibility プロパティをブール値にバインドできます。 これは、関数バインドの機能ではないことに注意してください。プロパティのバインドにすぎません。 組み込みのコンバーターを使用するには、アプリの最小のターゲット SDK バージョンが 14393 以降である必要があります。 アプリがそれよりも前のバージョンの Windows 10 をターゲットとしている場合は使うことができません。 ターゲット バージョンについて詳しくは、「[バージョン アダプティブ コード](https://docs.microsoft.com/windows/uwp/debug-test-perf/version-adaptive-code)」をご覧ください。
 
-ヒント   in [**Path**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.path)または[**収束 terparameter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.converterparameter)など、値に単一の中かっこを指定する必要がある場合は、の前に円`\{`記号 () を付けます。 別の方法として、エスケープする必要がある中かっこを含む文字列全体を `ConverterParameter='{Mix}'` のように別の種類の引用符で囲みます。
+**ヒント**  in [**Path**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.path)や[**収束 terparameter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.converterparameter)など、値に単一の中かっこを指定する必要がある場合は、その前に円記号 (`\{`) を付けてください。 別の方法として、エスケープする必要がある中かっこを含む文字列全体を `ConverterParameter='{Mix}'` のように別の種類の引用符で囲みます。
 
 [**コンバーター**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.converter)、変換[**Terlanguage**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.converterlanguage)および変換**terlanguage**は、バインディングソースの値または型を、バインディングターゲットプロパティと互換性のある型または値に変換するシナリオに関連しています。 例や詳しい情報については、「[データ バインディングの詳細](https://docs.microsoft.com/windows/uwp/data-binding/data-binding-in-depth)」の「データの変換」をご覧ください。
 
