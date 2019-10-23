@@ -1,5 +1,5 @@
 ### YamlMime:Landing
-title: Windows を使ったアプリの作成
+title: Windows でビルドする
 summary: Python、Node.js、Windows Subsystem for Linux、Windows ターミナル、Docker、MongoDB、PostgreSQL などを使用できるように開発環境をセットアップします。
 metadata:
   author: mattwojo
@@ -9,12 +9,12 @@ metadata:
   ms.date: 09/15/2019
   ms.prod: dev-environment
   ms.topic: landing-page
-  ms.openlocfilehash: 7a81abbac1ec6ec2d26c4897d3a04ba5993e39f0
-  ms.sourcegitcommit: 13faf9dab9946295986f8edd79b5fae0db4ed0f6
+  ms.openlocfilehash: aaeb8b3818baf9b02d767222c2144a9066079362
+  ms.sourcegitcommit: 860e8303da3e36624f603ce3273d68911c696e5d
   ms.translationtype: HT
   ms.contentlocale: ja-JP
-  ms.lasthandoff: 10/15/2019
-  ms.locfileid: "72314826"
+  ms.lasthandoff: 10/22/2019
+  ms.locfileid: "72777271"
 landingContent:
 - title: Python の概要
   linkLists:
