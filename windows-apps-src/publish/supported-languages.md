@@ -8,7 +8,7 @@ keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: 716a6e86e03feb6edcbc5cde5aa37d0282df6aca
 ms.sourcegitcommit: bad7ed6def79acbb4569de5a92c0717364e771d9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/08/2019
 ms.locfileid: "59244288"
@@ -43,7 +43,7 @@ ms.locfileid: "59244288"
 | ブルガリア語             | bg、bg-bg                                                                                                                                                                                             |
 | カタルニア語               | ca、ca-es、ca-es-valencia                                                                                                                                                                             |
 | チェロキー語              | chr-cher、chr-cher-us、chr-latn                                                                                                                                                                       |
-| 中国語 (簡体字)  | Zh-hans、zh cn、hans zh-cn、zh sg、zh hans sg                                                                                                                                                     |
+| 簡体中国語  | Zh-hans、zh cn、hans zh-cn、zh sg、zh hans sg                                                                                                                                                     |
 | 中国語 (繁体字) | zh-Hant、zh-hk、zh-mo、zh-tw、zh-hant-hk、zh-hant-mo、zh-hant-tw                                                                                                                                      |
 | クロアチア語              | hr、hr-hr、hr-ba                                                                                                                                                                                      |
 | チェコ語                 | cs、cs-cz                                                                                                                                                                                             |

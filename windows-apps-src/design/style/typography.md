@@ -193,7 +193,7 @@ Segoe UI は、英語、ヨーロッパの各言語、ギリシャ語、ヘブ�
 <tr class="odd">
 <td align="left" style="font-family: Microsoft YaHei UI;">Microsoft YaHei UI</td>
 <td align="left">標準、太字、細字</td>
-<td align="left">簡体字中国語用のユーザー インターフェイス フォント。</td>
+<td align="left">簡体中国語用のユーザー インターフェイス フォント。</td>
 </tr>
 <tr class="odd">
 <td align="left" style="font-family: Myanmar Text;">Myanmar Text</td>

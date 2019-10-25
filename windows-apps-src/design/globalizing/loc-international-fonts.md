@@ -37,7 +37,7 @@ ms.locfileid: "72237525"
 | カタロニア語 | ca-ES | Segoe UI |
 | 中央クルド語 (アラビア) | ku-ARAB-IQ | Segoe UI |
 | チェロキー語 (チェロキー) | chr-CHER-US | Gadugi |
-| 簡体字中国語 | zh-CN | Microsoft YaHei UI |
+| 簡体中国語 | zh-CN | Microsoft YaHei UI |
 | 繁体字中国語 (香港特別行政区) | zh-HK | Microsoft JhengHei UI |
 | 繁体字中国語 (台湾) | zh-TW | Microsoft JhengHei UI |
 | クロアチア語 | hr-HR | Segoe UI |
