@@ -5,12 +5,12 @@ ms.date: 07/23/2019
 ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、同時実行、非同期、非同期、非同期操作
 ms.localizationpriority: medium
-ms.openlocfilehash: 9484b61aae91ae426efb1963cd37ebf276ef7c6c
-ms.sourcegitcommit: f8634aad3a3675c2f0eac62f56df3def4285a7b0
+ms.openlocfilehash: 4a671a319be49e07d3a8fcdacb569c4ae76e299b
+ms.sourcegitcommit: 6fbf645466278c1f014c71f476408fd26c620e01
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720433"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72816675"
 ---
 # <a name="more-advanced-concurrency-and-asynchrony-with-cwinrt"></a>C++/WinRT でのより高度な同時実行操作と非同期操作
 
@@ -359,7 +359,7 @@ winrt::fire_and_forget RunAsync(DispatcherQueue queue)
 
 このように、C++/WinRT とコルーチンを組み合わせると、多大なパワーを簡単に手に入れられ、これは古い Petzold スタイルのデスクトップ アプリケーション開発を行うときに特に役立ちます。
 
-## <a name="canceling-an-asychronous-operation-and-cancellation-callbacks"></a>非同期操作の取り消しとキャンセル コールバック
+## <a name="canceling-an-asynchronous-operation-and-cancellation-callbacks"></a>非同期操作の取り消しとキャンセル コールバック
 
 非同期プログラミング向けの Windows ランタイムの機能を使用すると、実行中の非同期アクションまたは操作を取り消すことができます。 大きくなる可能性があるファイルのコレクションを取得する [**StorageFolder::GetFilesAsync**](/uwp/api/windows.storage.storagefolder.getfilesasync) を呼び出して、非同期操作の結果のオブジェクトをデータ メンバーに格納する例を次に示します。 ユーザーには、操作を取り消すオプションがあります。
 

@@ -10,12 +10,12 @@ design-contact: kimsea
 dev-contact: mitra
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 348d563322baf03aabc0e30fd9b39ee11673f271
-ms.sourcegitcommit: 61194375c0889b73ee2b978c444c4b90a576b3e4
+ms.openlocfilehash: bb6cc29260f5891cda74879618b59bb3762b7f18
+ms.sourcegitcommit: f561efbda5c1d47b85601d91d70d86c5332bbf8c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71039113"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72690419"
 ---
 # <a name="rating-control"></a>評価コントロール
 
@@ -86,7 +86,7 @@ private void RatingChanged(RatingControl sender, object args)
 
 ## <a name="additional-functionality"></a>追加機能
 
-評価コントロールでは、多くの追加機能が使用できます。 これらの機能の使用方法について詳しくは、MSDN のリファレンス ドキュメントをご覧ください。
+評価コントロールでは、多くの追加機能が使用できます。 これらの機能の使用方法について詳しくは、リファレンス ドキュメントをご覧ください。
 追加機能の一部を次に示します。
 -   長い一覧での優れたパフォーマンス
 -   狭い UI シナリオにおけるコンパクト サイズでの表示

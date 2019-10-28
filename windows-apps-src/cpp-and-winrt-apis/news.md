@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 新機能
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: fb869f4705210ab1fec28186b377ad68068b5877
-ms.sourcegitcommit: 50b0b6d6571eb80aaab3cc36ab4e8d84ac4b7416
+ms.openlocfilehash: 525110a09c56f48f9f9ce3d2521c98e2297a8372
+ms.sourcegitcommit: 6fbf645466278c1f014c71f476408fd26c620e01
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329578"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72816709"
 ---
 # <a name="whats-new-in-cwinrt"></a>C++/WinRT の新機能
 
@@ -283,7 +283,7 @@ Windows ランタイム プログラミングだけでなく、C++/WinRT は COM
 | Visual Studio プロジェクト システムの形式が変更されました。 | 後の「[C++/WinRT プロジェクトのターゲットを Windows SDK の後のバージョンに変更する方法](#how-to-retarget-your-cwinrt-project-to-a-later-version-of-the-windows-sdk)」をご覧ください。 |
 | Windows ランタイム関数にコレクション オブジェクトを渡すため、または独自のコレクション プロパティとコレクション型を実装するための、新しい関数と基底クラスがあります。 | 「[C++/WinRT でのコレクション](collections.md)」をご覧ください。 |
 | C++/WinRT ランタイム クラスで [{binding}](/windows/uwp/xaml-platform/binding-markup-extension) マークアップ拡張機能を使用できます。 | 詳細とコード例については、「[データ バインディングの概要](/windows/uwp/data-binding/data-binding-quickstart)」をご覧ください。 |
-| コルーチンの取り消しのサポートにより、取り消しコールバックを登録できます。 | 詳細とコード例については、「[非同期操作の取り消しとキャンセル コールバック](concurrency-2.md#canceling-an-asychronous-operation-and-cancellation-callbacks)」をご覧ください。 |
+| コルーチンの取り消しのサポートにより、取り消しコールバックを登録できます。 | 詳細とコード例については、「[非同期操作の取り消しとキャンセル コールバック](concurrency-2.md#canceling-an-asynchronous-operation-and-cancellation-callbacks)」をご覧ください。 |
 | メンバー関数を指し示すデリゲートを作成するとき、ハンドラーを登録する時点で、現在のオブジェクト (生の *this* ポインターのインスタンス) に対する強い参照または弱い参照を確立できます。 | 詳細およびコード例については、「[イベント処理デリゲートで *this* ポインターに安全にアクセスする](weak-references.md#safely-accessing-the-this-pointer-with-an-event-handling-delegate)」セクションの「**デリゲートとしてメンバー関数を使用する場合**」サブセクションをご覧ください。 |
 | Visual Studio の C++ 標準への適合性が向上することによって発見されたバグが修正されました。 C++/WinRT の標準準拠の検証に対する LLVM および Clang ツールチェーンの利用も向上しています。 | 次の記事で説明されいている問題が発生しなくなります。[Why won't my new project compile?I'm using Visual Studio 2017 (version 15.8.0 or higher), and SDK version 17134 (新しいプロジェクトがコンパイルされない理由: Visual Studio 2017 (バージョン 15.8.0 以降) と SDK バージョン 17134 を使用している場合)](faq.md#why-wont-my-new-project-compile-im-using-visual-studio-2017-version-1580-or-higher-and-sdk-version-17134) |
 
