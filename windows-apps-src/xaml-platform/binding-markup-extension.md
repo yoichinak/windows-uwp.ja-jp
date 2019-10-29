@@ -4,24 +4,26 @@ title: Binding マークアップ拡張
 ms.assetid: 3BAFE7B5-AF33-487F-9AD5-BEAFD65D04C3
 ms.date: 02/08/2017
 ms.topic: article
-keywords: windows 10, uwp
+keywords: Windows 10, UWP
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: c2d54e9077429c6526168492c31a9d24a43a1be8
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 6f11aae7d08f25e9dffaee12e24d1486cf9de581
+ms.sourcegitcommit: 5dfa98a80eee41d97880dba712673168070c4ec8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66366531"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72998610"
 ---
 # <a name="binding-markup-extension"></a>{Binding} マークアップ拡張
 
 
-**注**  パフォーマンスと開発者の生産性を最適化されている Windows 10 の新しいバインド メカニズムがあります。 「[{x:Bind} マークアップ拡張](x-bind-markup-extension.md)」をご覧ください。
+> [!NOTE]
+> Windows 10 では、パフォーマンスと開発者の生産性を最適化するために最適化された新しいバインドメカニズムを使用できます。 「[{x:Bind} マークアップ拡張](x-bind-markup-extension.md)」をご覧ください。
 
-**注**  を使用してアプリケーションにおけるデータ バインディングの使用に関する一般的な情報 **{binding}** (と的な比較について **{X:bind}** と **{binding}** ) を参照してください[深さでのデータ バインディング](https://docs.microsoft.com/windows/uwp/data-binding/data-binding-in-depth)します。
+> [!NOTE]
+> **{Binding}** を使用してアプリでデータバインディングを使用する方法に関する一般的な情報 (および **{X:Bind}** と **{binding}** 間のすべての比較) については、「[データバインディングの詳細](https://docs.microsoft.com/windows/uwp/data-binding/data-binding-in-depth)」を参照してください。
 
-**{Binding}** マークアップ拡張機能はコードなどのデータ ソースからの値をコントロールのデータ バインド プロパティを使用します。 **{Binding}** マークアップ拡張は、XAML の読み込み時に [**Binding**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.Binding) クラスのインスタンスに変換されます。 このバインド オブジェクトは、データ ソースのプロパティから値を取得し、その値をコントロールのプロパティにプッシュします。 必要な場合、バインディング オブジェクトは、データ ソース プロパティの値の変化を監視し、その変化に基づいて自分自身を更新するように構成できます。 また、そのコントロールの値の変化をソース プロパティにプッシュするように構成することもできます。 データ バインディングのターゲットとなるプロパティは、依存関係プロパティである必要があります。 詳しくは、「[依存関係プロパティの概要](dependency-properties-overview.md)」をご覧ください。
+**{Binding}** マークアップ拡張機能は、コードなどのデータソースからの値にコントロールのプロパティをデータバインドするために使用されます。 **{Binding}** マークアップ拡張は、XAML の読み込み時に [**Binding**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.Binding) クラスのインスタンスに変換されます。 このバインド オブジェクトは、データ ソースのプロパティから値を取得し、その値をコントロールのプロパティにプッシュします。 必要な場合、バインディング オブジェクトは、データ ソース プロパティの値の変化を監視し、その変化に基づいて自分自身を更新するように構成できます。 また、そのコントロールの値の変化をソース プロパティにプッシュするように構成することもできます。 データ バインディングのターゲットとなるプロパティは、依存関係プロパティである必要があります。 詳しくは、「[依存関係プロパティの概要](dependency-properties-overview.md)」をご覧ください。
 
 **{Binding}** には、ローカル値と同じ依存関係プロパティの優先順位があります。命令型コードにローカル値を設定すると、マークアップに設定されたすべての **{Binding}** の影響がなくなります。
 
@@ -41,19 +43,19 @@ ms.locfileid: "66366531"
 | 用語 | 説明 |
 |------|-------------|
 | *propertyPath* | バインドのプロパティ パスを指定する文字列。 詳しくは、以下の「[プロパティ パス](#property-path)」をご覧ください。 |
-| *bindingProperties* | *propname パラメーター*=*値*\[、 *propname パラメーター*=*値*\]*<br/>名前と値のペアの構文を使って指定する、1 つ以上のバインド プロパティ。 |
+| *bindingProperties* | *propName*=*値*\[、 *propName*=*値*\]*<br/>名前と値のペアの構文を使って指定する、1 つ以上のバインド プロパティ。 |
 | *propName* | [  **Binding**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.Binding) オブジェクトで設定するプロパティの文字列名。 たとえば、"Converter" です。 |
 | *value* | プロパティに設定する値。 引数の構文は、下記の「[{Binding} で設定できる Binding クラスのプロパティ](#properties-of-the-binding-class-that-can-be-set-with-binding)」セクションで示しているプロパティによって異なります。 |
 
 ## <a name="property-path"></a>プロパティ パス
 
-[**パス**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.path) (ソースのプロパティ) にバインドするプロパティについて説明します。 Path は位置パラメーターであるため、パラメーター名を明示的に使用する (`{Binding Path=EmployeeID}`) ことも、最初の無名パラメーターとして指定する (`{Binding EmployeeID}`) こともできます。
+[[**パス**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.path)] バインド先のプロパティ ([ソース] プロパティ) を記述します。 Path は位置パラメーターであるため、パラメーター名を明示的に使用する (`{Binding Path=EmployeeID}`) ことも、最初の無名パラメーターとして指定する (`{Binding EmployeeID}`) こともできます。
 
 [  **Path**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.path) の型はプロパティ パスであり、この文字列は、カスタム型または framework 型のプロパティまたはサブプロパティに評価されます。 型は [**DependencyObject**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.DependencyObject) にすることができますが、そうしなければならないわけではありません。 プロパティ パスのステップは、ドット (.) で区切ります。複数の区切り記号を指定することで、連続するサブプロパティを走査できます。 バインドされているオブジェクトを実装するために使用するプログラミング言語に関係なく、ドット区切り記号を使います。
 
 たとえば、UI を従業員オブジェクトの名プロパティにバインドする場合、プロパティ パスは "Employee.FirstName" のようになります。 従業員の扶養家族を含むプロパティに項目コントロールをバインドする場合、プロパティ パスは "Employee.Dependents" となり、"Dependents" の項目の表示には項目コントロールの項目テンプレートが使われます。
 
-データ ソースがコレクションである場合、プロパティ パスには、位置またはインデックスによりコレクション内の項目を指定できます。 たとえば、"チーム\[0\]します。プレーヤー"、場所、リテラル"\[\]"「0」を囲むコレクション内の最初の項目を指定します。
+データ ソースがコレクションである場合、プロパティ パスには、位置またはインデックスによりコレクション内の項目を指定できます。 たとえば、"Teams\[0\]です。"\[\]" というリテラルは、コレクション内の最初の項目を指定する "0" を囲みます。
 
 既にある [**DependencyObject**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.DependencyObject) への [**ElementName**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.elementname) バインドを使う場合は、プロパティ パスの一部として添付プロパティを使うことができます。 添付プロパティの名前に含まれるドットがプロパティ パスへのステップとは見なされないように、添付プロパティを明確に示すには、所有者で修飾された添付プロパティの名前を、`(AutomationProperties.Name)` のようにかっこで囲みます。
 
@@ -68,28 +70,28 @@ ms.locfileid: "66366531"
 
 | プロパティ | 説明 |
 |----------|-------------|
-| [**パス**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.path) | 上記の「[プロパティ パス](#property-path)」をご覧ください。 |
-| [**コンバーター**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.converter) | バインド エンジンによって呼び出されるコンバーター オブジェクトを指定します。 コンバーターは、[{StaticResource} マークアップ拡張](staticresource-markup-extension.md)を使ってリソース ディクショナリのそのオブジェクトを参照するマークアップで設定できます。 |
-| [**ConverterLanguage**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.converterlanguage) | コンバーターで使うカルチャを指定します  (設定している場合は、 [**コンバーター**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.converter))。カルチャは、標準ベースの識別子として設定されます。 詳しくは、「[**ConverterLanguage**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.converterlanguage)」をご覧ください。 |
-| [**ConverterParameter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.converterparameter) | コンバーター ロジックで使うことができるコンバーター パラメーターを指定します  (設定している場合は、 [**コンバーター**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.converter))。ほとんどのコンバーターが変換すると、渡された値から必要なすべての情報を取得する単純なロジックを使用し、必要はありません、 **ConverterParameter**値。 **ConverterParameter** パラメーターは、**ConverterParameter** で渡された値を利用する条件付きロジックを持つ、より複雑なコンバーターを実装するために存在します。 また、文字列以外の値を使うコンバーターも作成できますが、一般的ではありません。詳しくは、「**ConverterParameter**」の「注釈」をご覧ください。 |
+| [**道**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.path) | 上記の「[プロパティ パス](#property-path)」をご覧ください。 |
+| [**修復**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.converter) | バインド エンジンによって呼び出されるコンバーター オブジェクトを指定します。 コンバーターは、[{StaticResource} マークアップ拡張](staticresource-markup-extension.md)を使ってリソース ディクショナリのそのオブジェクトを参照するマークアップで設定できます。 |
+| [**収束 Terlanguage**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.converterlanguage) | コンバーターで使うカルチャを指定します ([**Converter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.converter) を設定する場合)。カルチャは、標準ベースの識別子として設定できます。 詳しくは、「[**ConverterLanguage**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.converterlanguage)」をご覧ください。 |
+| [**ConverterParameter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.converterparameter) | コンバーター ロジックで使うことができるコンバーター パラメーターを指定します ([**Converter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.converter) を設定する場合)。ほとんどのコンバーターは、渡された値から変換に必要なすべての情報を取得するという単純なロジックを使っており、**ConverterParameter** 値を必要としません。 **ConverterParameter** パラメーターは、**ConverterParameter** で渡された値を利用する条件付きロジックを持つ、より複雑なコンバーターを実装するために存在します。 また、文字列以外の値を使うコンバーターも作成できますが、一般的ではありません。詳しくは、「**ConverterParameter**」の「注釈」をご覧ください。 |
 | [**ElementName**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.elementname) | **Name** プロパティまたは [x:Name 属性](x-name-attribute.md) がある別の要素を同じ XAML コンストラクトで参照して、データ ソースを指定します。 通常は、関連する値を共有するか、1 つの UI 要素のサブプロパティを使って別の要素の特定の値を指定するために使われます (XAML コントロール テンプレートなどで)。 |
 | [**FallbackValue**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.fallbackvalue) | ソースまたはパスを解決できない場合に表示する値を指定します。 |
-| [**モード**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.mode) | これらの値の 1 つとして、バインディング モードを指定します。"OneTime"、"OneWay"または"TwoWay"。 これらは、[**BindingMode**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.BindingMode) 列挙体の定数名に対応します。 既定は "OneWay" です。 これは、 **{x:Bind}** の既定値 (OneTime) とは異なる点に注意してください。 | 
+| [**Mode**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.mode) | バインド モードを、"OneTime"、"OneWay"、"TwoWay" のいずれかの値で指定します。 これらは、[**BindingMode**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.BindingMode) 列挙体の定数名に対応します。 既定は "OneWay" です。 これは、 **{x:Bind}** の既定値 (OneTime) とは異なる点に注意してください。 | 
 | [**RelativeSource**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.relativesource) | バインディング ターゲットの位置に対するバインド ソースの位置を記述することで、データ ソースを指定します。 これは、XAML コントロール テンプレート内のバインドで最もよく使われます。 [{RelativeSource} マークアップ拡張](relativesource-markup-extension.md) を設定します。 |
-| [**ソース**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.source) | オブジェクトのデータ ソースを指定します。 **Binding** マークアップ拡張では、[**Source**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.source) プロパティに [{StaticResource} マークアップ拡張](staticresource-markup-extension.md)参照などのオブジェクト参照を指定する必要があります。 このプロパティを指定しない場合、実行中のデータ コンテキストによりソースが指定されます。 個々のバインドで Source 値を指定する代わりに、複数のバインドで共有 **DataContext** を利用する方が一般的です。 詳しくは、「[**DataContext**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.datacontext)」または「[データ バインディングの詳細](https://docs.microsoft.com/windows/uwp/data-binding/data-binding-in-depth)」を参照してください。 |
+| [**電源**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.source) | オブジェクトのデータ ソースを指定します。 **Binding** マークアップ拡張では、[**Source**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.source) プロパティに [{StaticResource} マークアップ拡張](staticresource-markup-extension.md)参照などのオブジェクト参照を指定する必要があります。 このプロパティを指定しない場合、実行中のデータ コンテキストによりソースが指定されます。 個々のバインドで Source 値を指定する代わりに、複数のバインドで共有 **DataContext** を利用する方が一般的です。 詳しくは、「[**DataContext**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.datacontext)」または「[データ バインディングの詳細](https://docs.microsoft.com/windows/uwp/data-binding/data-binding-in-depth)」を参照してください。 |
 | [**TargetNullValue**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.targetnullvalue) | ソース値が解決されるが、明示的に **null** である場合に表示する値を設定します。 |
-| [**UpdateSourceTrigger**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.updatesourcetrigger) | バインド ソースの更新のタイミングを指定します。 指定されていない場合は、既定値は **Default** です。 |
+| [**System.windows.data.binding.updatesourcetrigger**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.updatesourcetrigger) | バインド ソースの更新のタイミングを指定します。 指定されていない場合は、既定値は **Default** です。 |
 
-**注**  からマークアップを変換する場合 **{X:bind}** に **{binding}** 、しの既定値の違いを認識する、**モード**プロパティ。
+**注**  マークアップを **{X:Bind}** から **{Binding}** に変換する場合は、 **Mode**プロパティの既定値の違いに注意してください。
 
-[**コンバーター**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.converter)、 [ **ConverterLanguage** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.converterlanguage)と**ConverterLanguage**の値を変換のシナリオに関連するすべてかから入力しますソースの型またはバインディング ターゲット プロパティと互換性がある値にバインドします。 例や詳しい情報については、「[データ バインディングの詳細](https://docs.microsoft.com/windows/uwp/data-binding/data-binding-in-depth)」の「データの変換」をご覧ください。
+[**コンバーター**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.converter)、変換[**Terlanguage**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.converterlanguage)および変換**terlanguage**は、バインディングソースの値または型を、バインディングターゲットプロパティと互換性のある型または値に変換するシナリオに関連しています。 例や詳しい情報については、「[データ バインディングの詳細](https://docs.microsoft.com/windows/uwp/data-binding/data-binding-in-depth)」の「データの変換」をご覧ください。
 
 > [!NOTE]
 > Windows 10、バージョン1607 以降では、XAML フレームワークにブール値と Visibility 値のコンバーターが組み込まれています。 コンバーターは、**Visible** 列挙値に対して **true** を、**Collapsed** に対して **false** をマッピングします。これにより、コンバーターを作成せずに Visibility プロパティをブール値にバインドできます。 組み込みのコンバーターを使用するには、アプリの最小のターゲット SDK バージョンが 14393 以降である必要があります。 アプリがそれよりも前のバージョンの Windows 10 をターゲットとしている場合は使うことができません。 ターゲット バージョンについて詳しくは、「[バージョン アダプティブ コード](https://docs.microsoft.com/windows/uwp/debug-test-perf/version-adaptive-code)」をご覧ください。
 
-[**ソース**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.source)、 [ **RelativeSource**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.relativesource)、および[ **ElementName** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.elementname)されるため、バインディング ソースの指定相互に排他的です。
+[**Source**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.source)、 [**RelativeSource**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.relativesource)、 [**ElementName**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.elementname)はバインドソースを指定するため、相互に排他的です。
 
-**ヒント:**   などで、値の 1 つの中かっこを指定する必要がある場合[**パス**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.path)または[ **ConverterParameter** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.converterparameter)、円記号を付けます:`\{`します。 別の方法として、エスケープする必要がある中かっこを含む文字列全体を `ConverterParameter='{Mix}'` のように別の種類の引用符で囲みます。
+**ヒント**  in [**Path**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.path)や[**収束 terparameter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.converterparameter)などの値に対して単一の中かっこを指定する必要がある場合は、その前に円記号: `\{`を付けます。 別の方法として、エスケープする必要がある中かっこを含む文字列全体を `ConverterParameter='{Mix}'` のように別の種類の引用符で囲みます。
 
 ## <a name="examples"></a>例
 
@@ -118,7 +120,7 @@ ms.locfileid: "66366531"
 </Page>
 ```
 
-2 番目の例を設定する 4 つ異なる[**バインド**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.Binding)プロパティ。[**ElementName**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.elementname)、 [**パス**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.path)、 [**モード**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.mode)と[**コンバーター**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.converter). **Path** はここで、**Binding** プロパティであることが明示的に示された状態で表示されています。 **Path** は、データ バインド ソースに評価されます。このデータ バインド ソースは、同じランタイム オブジェクト ツリーにある別のオブジェクト、具体的には `sliderValueConverter` という名前の [**Slider**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Slider) です。
+2 番目の例では、[**ElementName**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.elementname)、[**Path**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.path)、[**Mode**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.mode)、[**Converter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.converter) の 4 種類の [**Binding**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.Binding) プロパティを設定します。 **Path** はここで、**Binding** プロパティであることが明示的に示された状態で表示されています。 **Path** は、データ バインド ソースに評価されます。このデータ バインド ソースは、同じランタイム オブジェクト ツリーにある別のオブジェクト、具体的には `sliderValueConverter` という名前の [**Slider**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Slider) です。
 
 [  **Converter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.converter) プロパティの値が別のマークアップ拡張 [{StaticResource} マークアップ拡張](staticresource-markup-extension.md) を使っていることに注意してください。つまり、ここでは入れ子になったマークアップ拡張が 2 つ使われています。 内側のものが最初に評価されます。このため、リソースが取得されると、バインドに使える実用的な [**IValueConverter**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.IValueConverter) (リソースの `local:S2Formatter` 要素によってインスタンス化されるカスタム クラス) が存在することになります。
 
