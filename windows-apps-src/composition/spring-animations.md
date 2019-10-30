@@ -5,12 +5,12 @@ ms.date: 10/10/2017
 ms.topic: article
 keywords: Windows 10, UWP, アニメーション
 ms.localizationpriority: medium
-ms.openlocfilehash: 9e00aa383bcce17b7cd6b67514647c2f6137cc32
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: f86ab8b3e55b7680c5ba3e47c37d1cda8c42cebb
+ms.sourcegitcommit: 05be6929cd380a9dd241cc1298fd53f11c93d774
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57601947"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73062004"
 ---
 # <a name="spring-animations"></a>ばねアニメーション
 
@@ -20,14 +20,14 @@ ms.locfileid: "57601947"
 
 ここでは、以下の記事で説明されている概念を理解していることを前提とします。
 
-- [自然な動きのアニメーション](natural-animations.md)
+- [自然モーションアニメーション](natural-animations.md)
 
 ## <a name="why-springs"></a>ばねの動きを使用する理由
 
 ばねの動きは、生活の中で人々が経験したことがある一般的なモーション エクスペリエンスです。おもちゃのスリンキーから、ばねでつながれたブロックを使った物理の授業までさまざまなものがあります。 ばねによる振動のモーションは、その動きを見ている人から楽しい感情や愉快な感情の反応を引き起こすことがあります。 このため、ばねのモーションは、躍動感のあるモーション エクスペリエンスの作成を考えているユーザー向けのアプリケーション UI に利用することが適しています。このようなモーション エクスペリエンスは、従来の 3 次ベジエよりもエンド ユーザーに "強い印象" を与えます。 このような場合、ばねのモーションは、躍動感のあるモーション エクスペリエンスを作成するだけでなく、アニメーション化された新しいコンテンツや現在のコンテンツに興味を惹き付ける際にも役立ちます。 アプリケーションのブランド化やモーションの言語によっては、振動をより目立たせ、はっきりと表現する場合がありますが、あまり目立たない表現が必要になることもあります。
 
-![スプリングのアニメーションでモーションを](images/animation/offset-spring.gif)
-![3 次ベジエ アニメーションでモーションを](images/animation/offset-cubic-bezier.gif)
+spring animation を使用したモーションの ![、3次ベジエアニメーションを使用した![モーション](images/animation/offset-spring.gif)
+](images/animation/offset-cubic-bezier.gif)
 
 ## <a name="using-springs-in-your-ui"></a>UI でばねの動きを使用する
 
@@ -35,7 +35,7 @@ ms.locfileid: "57601947"
 
 | ばねの使用に関する説明 | 表示例 |
 | ------------------------ | -------------- |
-| モーション エクスペリエンスに "飛び出す" ような効果と躍動感を与える  (スケールのアニメーション化) | ![ばねアニメーションを使用した拡大/縮小モーション](images/animation/scale-spring.gif) |
+| モーション エクスペリエンスに "飛び出す" ような効果と躍動感を与える (スケールのアニメーション化) | ![ばねアニメーションを使用した拡大/縮小モーション](images/animation/scale-spring.gif) |
 | モーション エクスペリエンスで動きをさりげなく感じさせる (オフセットのアニメーション化) | ![ばねアニメーションをオフセット モーション](images/animation/offset-spring.gif) |
 
 これらどちらの場合でも、ばねのモーションは、新しい値まで "ばねを伸ばし" その値を中心に振動すること、または現在の値を中心にして初期速度に基づいて振動することによってトリガーできます。
@@ -92,12 +92,12 @@ private void Button_Clicked(object sender, RoutedEventArgs e)
  {
  _expanded = true;
  _propSet.InsertBoolean("expanded", true);
- _springAnimation.InitialValueExpression[“FinalValue”] = “this.StartingValue + 250”;
+ _springAnimation.InitialValueExpression["FinalValue"] = "this.StartingValue + 250";
  } else
  {
  _expanded = false;
  _propSet.InsertBoolean("expanded", false);
-_springAnimation.InitialValueExpression[“FinalValue”] = “this.StartingValue - 250”;
+_springAnimation.InitialValueExpression["FinalValue"] = "this.StartingValue - 250";
  }
  _naviPane.StartAnimation("Offset.X", _springAnimation);
 }
