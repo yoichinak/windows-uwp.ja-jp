@@ -48,6 +48,8 @@
               href: apps/desktop/modernize/desktop-to-uwp-extend.md
             - name: パッケージ アプリの配布
               href: apps/desktop/modernize/desktop-to-uwp-distribute.md
+        - name: パッケージ化されていないデスクトップ アプリに ID を付与する
+          href: apps/desktop/modernize/grant-identity-to-nonpackaged-apps.md
         - name: 'チュートリアル: WPF アプリの現代化'
           items:
             - name: 概要

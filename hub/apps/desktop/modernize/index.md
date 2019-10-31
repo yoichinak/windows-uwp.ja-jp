@@ -6,12 +6,12 @@ ms.date: 04/17/2019
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: b8ad9726397671bcb2b641d6769f014721a27a72
-ms.sourcegitcommit: f34deba1d4460d85ed08fe9648999fe03ff6a3dd
+ms.openlocfilehash: 7403c0a3fd9f822ee24411aa88d8fd91994748dd
+ms.sourcegitcommit: d7eccdb27c22bccac65bd014e62b6572a6b44602
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71317097"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73142518"
 ---
 # <a name="modernize-your-desktop-apps"></a>デスクトップ アプリの現代化
 
@@ -54,11 +54,14 @@ UWP 以外のデスクトップ アプリで UWP API を使用して WPF、Windo
 
 詳しくは、「[Modernize your desktop app using the Visual layer (ビジュアル レイヤーを使用したデスクトップ アプリの現代化)](visual-layer-in-desktop-apps.md)」をご覧ください。
 
-## <a name="additional-features-available-to-packaged-apps"></a>パッケージ アプリで利用できる追加機能
+## <a name="additional-features-available-to-apps-with-package-identity"></a>パッケージ ID を持つアプリで利用できる追加機能
 
-一部のモダン Windows 10 エクスペリエンスは、[MSIX パッケージ](/windows/msix/desktop/desktop-to-uwp-root)でパッケージ化されているデスクトップ アプリでのみ利用可能です。 MSIX パッケージでデスクトップ アプリをパッケージ化する場合は、パッケージ アプリ内にパッケージ ID、パッケージ拡張機能、および UWP コンポーネントを必要とする UWP API を使用できます。
+一部の最新の Windows 10 エクスペリエンスは、[パッケージ ID](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-identity) を持つデスクトップ アプリでのみ利用可能です。 これらの機能には、特定の UWP API、パッケージ拡張機能、UWP コンポーネントなどがあります。 詳しくは、「[パッケージ ID が必要な機能](modernize-packaged-apps.md)」を参照してください。
 
-詳しくは、「[パッケージ ID が必要な機能](modernize-packaged-apps.md)」を参照してください。
+デスクトップ アプリに ID を付与する方法はいくつかあります。
+
+* [MSIX パッケージ](/windows/msix/desktop/desktop-to-uwp-root)でパッケージ化します。 MSIX は、すべての Windows アプリ、WPF、Windows フォーム、Win32 アプリ用のユニバーサルなパッケージ化エクスペリエンスを提供するモダンなアプリ パッケージ形式です。 これは、堅牢なインストールと更新のエクスペリエンス、柔軟な機能システムによる管理されたセキュリティ モデル、Microsoft Store のサポート、エンタープライズ管理、および多くのカスタム配布モデルを提供します。 詳しくは、MSIX ドキュメントの「[デスクトップ アプリケーションのパッケージ化](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-root)」をご覧ください。
+* デスクトップ アプリを配置するために MSIX パッケージを導入できない場合、Windows 10 Insider Preview Build 10.0.19000.0 以降では、パッケージ マニフェストのみを含む "*スパース MSIX パッケージ*" を作成することでパッケージ ID を付与できます。 詳細については、「[パッケージ化されていないデスクトップ アプリに ID を付与する](grant-identity-to-nonpackaged-apps.md)」を参照してください。
 
 <a id="desktop-uwp-controls"/>
 
