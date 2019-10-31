@@ -3,58 +3,55 @@ Description: パッケージ デスクトップ アプリは、UWP アプリに�
 title: パッケージ デスクトップ アプリで利用可能な UWP API (デスクトップ ブリッジ)
 ms.date: 04/19/2019
 ms.topic: article
-keywords: windows 10, uwp
+keywords: Windows 10, UWP
 ms.assetid: 142b9c9b-3f7d-41b6-80da-1505de2810f9
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: 3deb89a8eba60e5c4f67b18091d78d24d9179aa3
-ms.sourcegitcommit: e9dc2711f0a0758727468f7ccd0d0f0eee3363e3
+ms.openlocfilehash: 481b326c3f4b3608d0d3f5f7a8cec943f1d6c437
+ms.sourcegitcommit: d7eccdb27c22bccac65bd014e62b6572a6b44602
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69979341"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73142530"
 ---
 # <a name="uwp-apis-available-to-desktop-apps"></a>デスクトップアプリで使用できる UWP Api
 
 デスクトップアプリは、UWP アプリに完全に移行していない場合でも、さまざまなユニバーサル Windows プラットフォーム (UWP) Api を使用できます。 この記事では、デスクトップアプリで使用できるクラスの一覧を示します。
 
-> [!NOTE]
-> 多くの UWP Api では、デスクトップアプリで[パッケージ id](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-identity)を使用する必要があります。 パッケージ id は、デスクトップアプリが[Msix パッケージ](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-root)にパッケージ化されている場合に使用できます。 この記事では、これらのアプリを*パッケージアプリ*と呼びます。
-
-ほとんどの UWP Api は、パッケージアプリで適切に動作します。 ただし、一部の機能領域はまだ十分にテストされていないか、現在のところは意図したとおりに機能しません。
+多くの UWP Api では、デスクトップアプリで[パッケージ id](modernize-packaged-apps.md)を使用する必要があります。 ほとんどの UWP Api は、パッケージ id を持つ優れたアプリに対応しています。 ただし、一部の機能領域はまだ十分にテストされていないか、現在のところは意図したとおりに機能しません。
 
 | Feature area (機能領域) | 詳細 |
 |--------------|---------|
-| 予定、連絡先、メール | 現在のところ、すべての API がパッケージ アプリでサポートされているわけではありません。 |
-| 認証とユーザー ID | 現在のところ、すべての API がパッケージ アプリでサポートされているわけではありません。 |
-| バックグラウンド タスク | パッケージ アプリはバックグラウンド タスクを登録できますが、完全な UWP アプリのみバックグラウンド タスク<i>として</i>実行できます。 詳しくは、[GitHub のバックグラウンド タスク サンプル](https://github.com/Microsoft/DesktopBridgeToUWP-Samples/tree/master/Samples/BackgroundTasksSample)をご覧ください。 |
-| Bluetooth | 現在のところ、すべての API がパッケージ アプリでサポートされているわけではありません。 |
-| チャットと電話 | パッケージ アプリは、UWP に完全に移植するまでモバイルで実行できません。 |
+| 予定、連絡先、メール | 一部の Api は現在サポートされていません。 |
+| 認証とユーザー ID | 一部の Api は現在サポートされていません。 |
+| バックグラウンド タスク | デスクトップアプリではバックグラウンドタスクを登録できますが、バックグラウンドタスク<i>として</i>実行できるのは完全な UWP アプリだけです。 詳しくは、[GitHub のバックグラウンド タスク サンプル](https://github.com/Microsoft/DesktopBridgeToUWP-Samples/tree/master/Samples/BackgroundTasksSample)をご覧ください。 |
+| [Bluetooth] | 一部の Api は現在サポートされていません。 |
+| チャットと電話 | デスクトップアプリは、UWP に完全に移植されるまで、モバイルでは実行できません。 |
 | コントラクトによるアクティブ化 | コントラクトによってアクティブにできるのは、完全な UWP アプリだけです。 |
-| 暗号化 | 現在のところ、すべての API がパッケージ アプリでサポートされているわけではありません。 |
-| 位置情報 | 現在のところ、すべての API がパッケージ アプリでサポートされているわけではありません。 |
-| ファイルおよびフォルダー ピッカー | パッケージ アプリは、ファイル システムにフル アクセスでき、UWP ピッカーは必要ありません。 |
-| メディア | 現在のところ、すべての API がパッケージ アプリでサポートされているわけではありません。 |
-| 店舗販売時点管理 | 現在のところ、すべての API がパッケージ アプリでサポートされているわけではありません。 |
-| スマート カード | 現在のところ、すべての API がパッケージ アプリでサポートされているわけではありません。 |
-| PlayReady | 現在のところ、すべての API がパッケージ アプリでサポートされているわけではありません。 |
-| VPN | 現在のところ、すべての API がパッケージ アプリでサポートされているわけではありません。 |
-| ウォレット | パッケージ アプリは、UWP に完全に移植するまでモバイルで実行できません。 |
+| 暗号化 | 一部の Api は現在サポートされていません。 |
+| 位置情報 | 一部の Api は現在サポートされていません。 |
+| ファイルおよびフォルダー ピッカー | Id を持つアプリは、完全なファイルシステムアクセス権を持っており、UWP ピッカーを必要としません。 |
+| [Media] | 一部の Api は現在サポートされていません。 |
+| Point of Service | 一部の Api は現在サポートされていません。 |
+| スマート カード | 一部の Api は現在サポートされていません。 |
+| PlayReady | 一部の Api は現在サポートされていません。 |
+| [VPN] | 一部の Api は現在サポートされていません。 |
+| ウォレット | デスクトップアプリは、UWP に完全に移植されるまで、モバイルでは実行できません。 |
 | XAML UI | Windows 10、バージョン1809、およびそれ以前のリリースでは、デスクトップアプリでの UWP XAML コンテンツのホストはサポートされていません。 Windows 10 バージョン1903以降では、 [Xaml アイランド](xaml-islands.md)を使用して UWP xaml コンテンツをホストできます。  |
 
 場合によっては、これらの領域の API が正常に機能しているように見えることがあります。 ただし、API がサポート対象と明示されていない場合、予想外の副作用や動作が生じる可能性があるため使わないでください。 これらの API は、今後のリリースでサポートされる可能性があります。 それまでの間、代わりに関連する Win32 または .NET API をアプリに使ってください。
 
 ## <a name="list-of-apis"></a>API の一覧
 
-デスクトップアプリでサポートされている UWP Api の完全な一覧を次に示します。 パッケージアプリ[でサポートされている api](#new)または[パッケージアプリとデスクトップアプリケーションの両方でサポート](#both)されている api のみを表示できます。
+デスクトップアプリでサポートされている UWP Api の完全な一覧を次に示します。 パッケージ id を持つアプリまたは[すべてのデスクトップアプリでサポートさ](#both)れている api[を使用して、サポートされている api のみ](#new)を表示できます。
 
 UWP Api の使用方法の例については、GitHub の[デスクトップブリッジのサンプル](https://github.com/Microsoft/DesktopBridgeToUWP-Samples)と[ユニバーサル Windows プラットフォーム (uwp) アプリのサンプル](https://github.com/Microsoft/Windows-universal-samples)を参照してください。 Windows 用アプリの構築に関するブログの[デスクトップ アプリケーションからの Windows 10 API の呼び出しに関する投稿](https://blogs.windows.com/buildingapps/2017/01/25/calling-windows-10-apis-desktop-application/)もご覧ください。
 
 <a id="new" />
 
-### <a name="apis-supported-only-in-packaged-apps"></a>パッケージアプリでのみサポートされている Api
+### <a name="apis-supported-only-in-apps-with-package-identity"></a>パッケージ id を持つアプリでのみサポートされている Api
 
 * [DataTransfer です。 DataProviderHandler](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.dataproviderhandler)
 * [DataTransfer です。 DataRequest](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.DataTransfer.DataRequest)
@@ -134,7 +131,7 @@ UWP Api の使用方法の例については、GitHub の[デスクトップブ�
 * [Windows. Devices. スマートカード接続](https://docs.microsoft.com/uwp/api/Windows.Devices.SmartCards.SmartCardConnection)
 * [Windows. スマートカード (SmartCardReader)](https://docs.microsoft.com/uwp/api/Windows.Devices.SmartCards.SmartCardReader)
 * [AsyncActionCompletedHandler](https://docs.microsoft.com/uwp/api/windows.foundation.asyncactioncompletedhandler)
-* [Windows. Foundation. AsyncActionProgressHandler<TProgress>](https://msdn.microsoft.com/library/windows/apps/Windows.Foundation.AsyncActionProgressHandler<TProgress>)
+* [Windows. Foundation. AsyncActionProgressHandler](https://msdn.microsoft.com/library/windows/apps/Windows.Foundation.AsyncActionProgressHandler<TProgress>)
 * [AsyncActionWithProgressCompletedHandler<TProgress>](https://msdn.microsoft.com/library/windows/apps/Windows.Foundation.AsyncActionWithProgressCompletedHandler<TProgress>)
 * [AsyncOperationCompletedHandler<TResult>](https://msdn.microsoft.com/library/windows/apps/Windows.Foundation.AsyncOperationCompletedHandler<TResult>)
 * [VectorChangedEventHandler (Windows の基本コレクション)<T>](https://docs.microsoft.com/uwp/api/windows.foundation.collections.vectorchangedeventhandler)
@@ -380,11 +377,11 @@ UWP Api の使用方法の例については、GitHub の[デスクトップブ�
 
 <a id="both" />
 
-### <a name="apis-supported-in-both-packaged-apps-and-desktop-applications"></a>パッケージ アプリとデスクトップ アプリケーションの両方でサポートされている API
+### <a name="apis-supported-in-all-desktop-applications"></a>すべてのデスクトップアプリケーションでサポートされている Api
 
-[DualApiPartition](https://docs.microsoft.com/uwp/api/Windows.Foundation.Metadata.DualApiPartitionAttribute)がある api は、パッケージアプリとパッケージ化されていないデスクトップアプリケーションの両方でサポートされています。 デスクトップアプリケーションから呼び出す API がサポートされているかどうかを判断するには、 [WinRT 名前空間のリファレンスドキュメント](https://docs.microsoft.com/uwp/api/)で目的のクラスまたはメンバーの参照記事を見つけます。 次に、参照記事の**Attributes**セクションに[DualApiPartition](https://docs.microsoft.com/uwp/api/Windows.Foundation.Metadata.DualApiPartitionAttribute)属性が含まれているかどうかを確認します。
+[DualApiPartition](https://docs.microsoft.com/uwp/api/Windows.Foundation.Metadata.DualApiPartitionAttribute)がある api は、すべてのデスクトップアプリでサポートされています。これには、パッケージ id を持つ api や、パッケージ id のない api が含まれます。 デスクトップアプリケーションから呼び出す API がサポートされているかどうかを判断するには、 [WinRT 名前空間のリファレンスドキュメント](https://docs.microsoft.com/uwp/api/)で目的のクラスまたはメンバーの参照記事を見つけます。 次に、参照記事の**Attributes**セクションに[DualApiPartition](https://docs.microsoft.com/uwp/api/Windows.Foundation.Metadata.DualApiPartitionAttribute)属性が含まれているかどうかを確認します。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 **質問に対する回答を検索する**
 

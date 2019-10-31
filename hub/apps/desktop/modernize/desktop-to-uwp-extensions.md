@@ -3,28 +3,28 @@ Description: 拡張機能を使用すると、あらかじめ定義された方�
 title: パッケージ化されたデスクトップアプリケーションと Windows 10 および UWP (デスクトップブリッジ) を統合する
 ms.date: 04/18/2018
 ms.topic: article
-keywords: windows 10, uwp
+keywords: Windows 10, UWP
 ms.assetid: 0a8cedac-172a-4efd-8b6b-67fd3667df34
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: c99d05a701f41e24663d116773b000017b805d81
-ms.sourcegitcommit: 445320ff0ee7323d823194d4ec9cfa6e710ed85d
+ms.openlocfilehash: f51fc081c5cc18132a386197feb2ae76a22d2088
+ms.sourcegitcommit: d7eccdb27c22bccac65bd014e62b6572a6b44602
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72281804"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73142501"
 ---
-# <a name="integrate-your-packaged-desktop-app-with-windows-10-and-uwp"></a>パッケージ化されたデスクトップアプリを Windows 10 および UWP と統合する
+# <a name="integrate-your-desktop-app-with-windows-10-and-uwp"></a>デスクトップアプリを Windows 10 および UWP と統合する
 
-[デスクトップアプリケーションを MSIX コンテナーにパッケージ化](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-root)する場合は、[アプリパッケージマニフェスト](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/schema-root)の定義済みの拡張機能を使用して、パッケージ化されたデスクトップアプリケーションと Windows 10 を統合する拡張機能を使用できます。
+デスクトップアプリに[パッケージ id](modernize-packaged-apps.md)がある場合は、[パッケージマニフェスト](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/schema-root)で定義済みの拡張機能を使用して、拡張機能を使用してアプリを Windows 10 と統合できます。
 
-たとえば、拡張機能を使用して、ファイアウォールの例外を作成したり、アプリケーションをファイルの種類の既定のアプリケーションにしたり、アプリのパッケージ化されたバージョンに対してタイルをポイントしたりすることができます。 拡張機能は、アプリのパッケージ マニフェスト ファイルに XML を追加するだけで使用できます。 コードは必要ありません。
+たとえば、拡張機能を使用して、ファイアウォールの例外を作成したり、アプリをファイルの種類の既定のアプリケーションにしたり、アプリへのタイルを開始したりすることができます。 拡張機能は、アプリのパッケージ マニフェスト ファイルに XML を追加するだけで使用できます。 コードは必要ありません。
 
 この記事では、これらの拡張機能と、それらを使用して実行できるタスクについて説明します。
 
 > [!NOTE]
-> この記事で説明されている機能を使用するには、デスクトップアプリケーション用の Windows アプリパッケージを作成する必要があります。 まだ行っていない場合は、「[デスクトップアプリケーションのパッケージ化](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-root)」を参照してください。
+> この記事で説明されている機能を使用するには、デスクトップアプリに[パッケージ id](modernize-packaged-apps.md)があることが必要です。これには、[デスクトップアプリを msix パッケージでパッケージ化](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-root)するか、[スパースパッケージを使用してアプリ id を付与](grant-identity-to-nonpackaged-apps.md)します。
 
 ## <a name="transition-users-to-your-app"></a>ユーザーをアプリに移行する
 
@@ -44,7 +44,7 @@ ms.locfileid: "72281804"
 
 #### <a name="xml-namespace"></a>XML 名前空間
 
-http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities/3
+`http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities/3`
 
 #### <a name="elements-and-attributes-of-this-extension"></a>この拡張機能の要素と属性
 
@@ -60,9 +60,9 @@ http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabi
 
 完全なスキーマ リファレンスについては、[こちら](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-rescap3-desktopappmigration)をご覧ください。
 
-|Name | 説明 |
+|名前 | 説明 |
 |-------|-------------|
-|Category |常に ``windows.desktopAppMigration`` です。
+|カテゴリ |常に ``windows.desktopAppMigration`` です。
 |AumID |パッケージ アプリのアプリケーション ユーザー モデル ID。 |
 |ShortcutPath |アプリのデスクトップ バージョンを起動する .lnk ファイルへのパス。 |
 
@@ -103,8 +103,8 @@ http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabi
 
 #### <a name="xml-namespaces"></a>XML 名前空間
 
-* http://schemas.microsoft.com/appx/manifest/uap/windows10/3
-* http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities/3
+* `http://schemas.microsoft.com/appx/manifest/uap/windows10/3`
+* `http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities/3`
 
 #### <a name="elements-and-attributes-of-this-extension"></a>この拡張機能の要素と属性
 
@@ -120,9 +120,9 @@ http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabi
 
 完全なスキーマ リファレンスについては、[こちら](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-uap-filetypeassociation)をご覧ください。
 
-|Name |説明 |
+|名前 |説明 |
 |-------|-------------|
-|Category |常に ``windows.fileTypeAssociation`` です。
+|カテゴリ |常に ``windows.fileTypeAssociation`` です。
 |名前 |ファイルの種類の関連付けの名前。 この名前を使用して、ファイルの種類を整理およびグループ化することができます。 名前は、すべて小文字で、スペースを使用しないようにする必要があります。 |
 |MigrationProgId |ファイルの関連付けを継承するデスクトップアプリケーションのアプリケーション、コンポーネント、およびバージョンを記述する[プログラム識別子 (ProgID)](https://docs.microsoft.com/windows/desktop/shell/fa-progids) 。|
 
@@ -160,10 +160,10 @@ http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabi
 
 パッケージ化されたアプリケーションをファイルの種類の拡張子に関連付けることができます。 ユーザーがファイルを右クリックし、[ファイルを**開く**アプリケーションの選択] オプションを選択すると、アプリケーションが候補の一覧に表示されます。
 
-#### <a name="xml-namespace"></a>XML 名前空間
+#### <a name="xml-namespaces"></a>XML 名前空間
 
-* http://schemas.microsoft.com/appx/manifest/uap/windows10
-* http://schemas.microsoft.com/appx/manifest/uap/windows10/3
+* `http://schemas.microsoft.com/appx/manifest/uap/windows10`
+* `http://schemas.microsoft.com/appx/manifest/uap/windows10/3`
 
 #### <a name="elements-and-attributes-of-this-extension"></a>この拡張機能の要素と属性
 
@@ -179,9 +179,9 @@ http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabi
 
 完全なスキーマ リファレンスについては、[こちら](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-uap-filetypeassociation)をご覧ください。
 
-|Name |説明 |
+|名前 |説明 |
 |-------|-------------|
-|Category |常に ``windows.fileTypeAssociation`` です。
+|カテゴリ |常に ``windows.fileTypeAssociation`` です。
 |名前 | ファイルの種類の関連付けの名前。 この名前を使用して、ファイルの種類を整理およびグループ化することができます。 名前は、すべて小文字で、スペースを使用しないようにする必要があります。   |
 |FileType |アプリでサポートされているファイル拡張子。 |
 
@@ -222,9 +222,9 @@ http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabi
 
 #### <a name="xml-namespaces"></a>XML 名前空間
 
-* http://schemas.microsoft.com/appx/manifest/uap/windows10
-* http://schemas.microsoft.com/appx/manifest/uap/windows10/2
-* http://schemas.microsoft.com/appx/manifest/uap/windows10/3
+* `http://schemas.microsoft.com/appx/manifest/uap/windows10`
+* `http://schemas.microsoft.com/appx/manifest/uap/windows10/2`
+* `http://schemas.microsoft.com/appx/manifest/uap/windows10/3`
 
 #### <a name="elements-and-attributes-of-this-extension"></a>この拡張機能の要素と属性
 
@@ -240,13 +240,13 @@ http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabi
 
 完全なスキーマ リファレンスについては、[こちら](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-uap-filetypeassociation)をご覧ください。
 
-|Name |説明 |
+|名前 |説明 |
 |-------|-------------|
-|Category | 常に ``windows.fileTypeAssociation`` です。
+|カテゴリ | 常に ``windows.fileTypeAssociation`` です。
 |名前 |ファイルの種類の関連付けの名前。 この名前を使用して、ファイルの種類を整理およびグループ化することができます。 名前は、すべて小文字で、スペースを使用しないようにする必要があります。 |
-|Verb |エクスプローラーのコンテキスト メニューに表示される名前です。 この文字列は、```ms-resource``` を使用してローカライズできます。|
+|動詞 |エクスプローラーのコンテキスト メニューに表示される名前です。 この文字列は、```ms-resource``` を使用してローカライズできます。|
 |Id |動詞の一意の ID。 アプリケーションが UWP アプリである場合、これはアクティブ化イベントの引数の一部としてアプリに渡されるので、ユーザーの選択を適切に処理できます。 アプリケーションが完全に信頼されたパッケージアプリである場合は、代わりにパラメーターを受け取ります (次の箇条書きを参照)。 |
-|Parameters |動詞に関連付けられている引数のパラメーターと値のリスト。 アプリケーションが完全に信頼されたパッケージアプリである場合、これらのパラメーターは、アプリケーションがアクティブ化されるときにイベント引数としてアプリケーションに渡されます。 さまざまなアクティベーション動詞に基づいて、アプリケーションの動作をカスタマイズできます。 変数にファイル パスが含まれる可能性がある場合は、パラメーター値を引用符で囲みます。 これにより、パスにスペースが含まれている場合に発生する問題を回避できます。 アプリケーションが UWP アプリの場合、パラメーターを渡すことはできません。 アプリは、代わりに ID を受け取ります (前の項目を参照してください)。|
+|パラメーター |動詞に関連付けられている引数のパラメーターと値のリスト。 アプリケーションが完全に信頼されたパッケージアプリである場合、これらのパラメーターは、アプリケーションがアクティブ化されるときにイベント引数としてアプリケーションに渡されます。 さまざまなアクティベーション動詞に基づいて、アプリケーションの動作をカスタマイズできます。 変数にファイル パスが含まれる可能性がある場合は、パラメーター値を引用符で囲みます。 これにより、パスにスペースが含まれている場合に発生する問題を回避できます。 アプリケーションが UWP アプリの場合、パラメーターを渡すことはできません。 アプリは、代わりに ID を受け取ります (前の項目を参照してください)。|
 |Extended |ユーザーが **Shift** キーを押しながらファイルを右クリックすることでコンテキスト メニューを表示した場合にのみ表示される動詞を指定します。 この属性は省略可能であり、既定値は**False**に設定されています (たとえば、常に動詞を表示します)。 この動作は各動詞について個別に指定します ("開く" は例外で、常に **False**)。|
 
 #### <a name="example"></a>例
@@ -287,8 +287,8 @@ http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabi
 
 #### <a name="xml-namespaces"></a>XML 名前空間
 
-* http: \//スキーマ。 microsoft .com/appx/manifest/uap/windows10
-* http: \//スキーマ。 microsoft .com/appx/manifest/uap/windows10/3 "
+* `http://schemas.microsoft.com/appx/manifest/uap/windows10`
+* `http://schemas.microsoft.com/appx/manifest/uap/windows10/3`
 
 #### <a name="elements-and-attributes-of-this-extension"></a>この拡張機能の要素と属性
 
@@ -304,9 +304,9 @@ http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabi
 
 完全なスキーマ リファレンスについては、[こちら](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-uap-filetypeassociation)をご覧ください。
 
-|Name |説明 |
+|名前 |説明 |
 |-------|-------------|
-|Category |常に ``windows.fileTypeAssociation`` です。
+|カテゴリ |常に ``windows.fileTypeAssociation`` です。
 |名前 |ファイルの種類の関連付けの名前。 この名前を使用して、ファイルの種類を整理およびグループ化することができます。 名前は、すべて小文字で、スペースを使用しないようにする必要があります。 |
 |UseUrl |URL ターゲットから直接ファイルを開くかどうかを示します。 この値を設定しなかった場合、URL を使用してアプリケーションがファイルを開こうとすると、システムは最初にファイルをローカルにダウンロードします。 |
 |パラメーター | 省略可能なパラメーター。 |
@@ -349,7 +349,7 @@ http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabi
 
 #### <a name="xml-namespace"></a>XML 名前空間
 
-http://schemas.microsoft.com/appx/manifest/desktop/windows10/2
+`http://schemas.microsoft.com/appx/manifest/desktop/windows10/2`
 
 #### <a name="elements-and-attributes-of-this-extension"></a>この拡張機能の要素と属性
 
@@ -370,10 +370,10 @@ http://schemas.microsoft.com/appx/manifest/desktop/windows10/2
 
 完全なスキーマ リファレンスについては、[こちら](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-desktop2-firewallrules)をご覧ください。
 
-|Name |説明 |
+|名前 |説明 |
 |-------|-------------|
-|Category |常に ``windows.firewallRules``|
-|Executable |ファイアウォールの例外の一覧に追加する実行可能ファイルの名前。 |
+|カテゴリ |常に ``windows.firewallRules``|
+|実行可能ファイル |ファイアウォールの例外の一覧に追加する実行可能ファイルの名前。 |
 |Direction |規則が受信規則か送信規則かを示します。 |
 |IPProtocol |通信プロトコル。 |
 |LocalPortMin |ローカル ポート番号の範囲を示すポート番号の下限。 |
@@ -415,7 +415,7 @@ http://schemas.microsoft.com/appx/manifest/desktop/windows10/2
 
 #### <a name="xml-namespace"></a>XML 名前空間
 
-http://schemas.microsoft.com/appx/manifest/uap/windows10/6
+`http://schemas.microsoft.com/appx/manifest/uap/windows10/6`
 
 #### <a name="elements-and-attributes-of-this-extension"></a>この拡張機能の要素と属性
 
@@ -430,9 +430,9 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
 
 ```
 
-|Name | 説明 |
+|名前 | 説明 |
 |-------|-------------|
-|Category |常に ``windows.loaderSearchPathOverride`` です。
+|カテゴリ |常に ``windows.loaderSearchPathOverride`` です。
 |FolderPath | dll ファイルが含まれているフォルダーのパス。 パッケージのルート フォルダーの相対パスを指定します。 1 つの拡張機能で最大 5 つのパスを指定できます。 システムがパッケージのルート フォルダーにあるファイルを検索するようにする場合、これらのパスのいずれかに空の文字列を使用します。 重複するパスを含めないでください。パスの先頭と末尾にスラッシュや円記号を使わないでください。 <br><br> システムはサブフォルダーを検索しないため、システムが読み込む DLL ファイルが含まれている各フォルダーを明示的に一覧表示してください。|
 
 #### <a name="example"></a>例
@@ -475,9 +475,9 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
 
 #### <a name="xml-namespaces"></a>XML 名前空間
 
-* http://schemas.microsoft.com/appx/manifest/uap/windows10
-* http://schemas.microsoft.com/appx/manifest/uap/windows10/2
-* http://schemas.microsoft.com/appx/manifest/uap/windows10/3
+* `http://schemas.microsoft.com/appx/manifest/uap/windows10`
+* `http://schemas.microsoft.com/appx/manifest/uap/windows10/2`
+* `http://schemas.microsoft.com/appx/manifest/uap/windows10/3`
 
 #### <a name="elements-and-attributes-of-this-extension"></a>この拡張機能の要素と属性
 
@@ -495,9 +495,9 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
 
 完全なスキーマ リファレンスについては、[こちら](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-uap-filetypeassociation)をご覧ください。
 
-|Name |説明 |
+|名前 |説明 |
 |-------|-------------|
-|Category |常に ``windows.fileTypeAssociation`` です。
+|カテゴリ |常に ``windows.fileTypeAssociation`` です。
 |名前 |ファイルの種類の関連付けの名前。 この名前を使用して、ファイルの種類を整理およびグループ化することができます。 名前は、すべて小文字で、スペースを使用しないようにする必要があります。 |
 |MultiSelectModel |下を参照 |
 |FileType |関連するファイル拡張子。 |
@@ -506,9 +506,9 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
 
 パッケージ デスクトップ アプリには、通常のデスクトップ アプリと同じ 3 つのオプションがあります。
 
-* ``Player`` :アプリケーションが1回だけアクティブ化されます。 選択したファイルはすべて、引数パラメーターとしてアプリケーションに渡されます。
-* ``Single`` :最初に選択したファイルに対してアプリケーションが1回アクティブ化されます。 その他のファイルは無視されます。
-* ``Document`` :選択したファイルごとに、アプリケーションの新しい個別のインスタンスがアクティブ化されます。
+* ``Player``: アプリケーションは1回だけアクティブ化されます。 選択したファイルはすべて、引数パラメーターとしてアプリケーションに渡されます。
+* ``Single``: 最初に選択したファイルに対してアプリケーションが1回アクティブ化されます。 その他のファイルは無視されます。
+* ``Document``: 選択したファイルごとに、アプリケーションの新しい個別のインスタンスがアクティブ化されます。
 
  ファイルの種類やアクションごとに、さまざまな環境設定項目を設定できます。 たとえば、*Documents* は *Document* モードで開き、*Images* は *Player* モードで開くことができます。
 
@@ -549,10 +549,10 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
 
 #### <a name="xml-namespace"></a>XML 名前空間
 
-* http://schemas.microsoft.com/appx/manifest/uap/windows10
-* http://schemas.microsoft.com/appx/manifest/uap/windows10/2
-* http://schemas.microsoft.com/appx/manifest/uap/windows10/3
-* http://schemas.microsoft.com/appx/manifest/desktop/windows10/2
+* `http://schemas.microsoft.com/appx/manifest/uap/windows10`
+* `http://schemas.microsoft.com/appx/manifest/uap/windows10/2`
+* `http://schemas.microsoft.com/appx/manifest/uap/windows10/3`
+* `http://schemas.microsoft.com/appx/manifest/desktop/windows10/2`
 
 #### <a name="elements-and-attributes-of-this-extension"></a>この拡張機能の要素と属性
 
@@ -570,9 +570,9 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
 
 完全なスキーマ リファレンスについては、[こちら](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-uap-filetypeassociation)をご覧ください。
 
-|Name |説明 |
+|名前 |説明 |
 |-------|-------------|
-|Category |常に ``windows.fileTypeAssociation`` です。
+|カテゴリ |常に ``windows.fileTypeAssociation`` です。
 |名前 |ファイルの種類の関連付けの名前。 この名前を使用して、ファイルの種類を整理およびグループ化することができます。 名前は、すべて小文字で、スペースを使用しないようにする必要があります。 |
 |FileType |関連するファイル拡張子。 |
 |Clsid   |アプリのクラス ID。 |
@@ -612,10 +612,10 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
 
 #### <a name="xml-namespace"></a>XML 名前空間
 
-* http://schemas.microsoft.com/appx/manifest/uap/windows10
-* http://schemas.microsoft.com/appx/manifest/uap/windows10/2
-* http://schemas.microsoft.com/appx/manifest/uap/windows10/3
-* http://schemas.microsoft.com/appx/manifest/desktop/windows10/2
+* `http://schemas.microsoft.com/appx/manifest/uap/windows10`
+* `http://schemas.microsoft.com/appx/manifest/uap/windows10/2`
+* `http://schemas.microsoft.com/appx/manifest/uap/windows10/3`
+* `http://schemas.microsoft.com/appx/manifest/desktop/windows10/2`
 
 #### <a name="elements-and-attributes-of-this-extension"></a>この拡張機能の要素と属性
 
@@ -632,9 +632,9 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
 
 完全なスキーマ リファレンスについては、[こちら](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-uap-filetypeassociation)をご覧ください。
 
-|Name |説明 |
+|名前 |説明 |
 |-------|-------------|
-|Category |常に ``windows.fileTypeAssociation`` です。
+|カテゴリ |常に ``windows.fileTypeAssociation`` です。
 |名前 |ファイルの種類の関連付けの名前。 この名前を使用して、ファイルの種類を整理およびグループ化することができます。 名前は、すべて小文字で、スペースを使用しないようにする必要があります。 |
 |FileType |関連するファイル拡張子。 |
 |Clsid   |アプリのクラス ID。 |
@@ -677,8 +677,8 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
 
 #### <a name="xml-namespaces"></a>XML 名前空間
 
-* http://schemas.microsoft.com/appx/manifest/uap/windows10
-* http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities/3
+* `http://schemas.microsoft.com/appx/manifest/uap/windows10`
+* `http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities/3`
 
 #### <a name="elements-and-attributes-of-this-extension"></a>この拡張機能の要素と属性
 
@@ -697,9 +697,9 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
 
 完全なスキーマ リファレンスについては、[こちら](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-uap-filetypeassociation)をご覧ください。
 
-|Name |説明 |
+|名前 |説明 |
 |-------|-------------|
-|Category |常に ``windows.fileTypeAssociation`` です。
+|カテゴリ |常に ``windows.fileTypeAssociation`` です。
 |名前 |ファイルの種類の関連付けの名前。 この名前を使用して、ファイルの種類を整理およびグループ化することができます。 名前は、すべて小文字で、スペースを使用しないようにする必要があります。 |
 |FileType |関連するファイル拡張子。 |
 |value |有効な [Kind 値](https://docs.microsoft.com/windows/desktop/properties/building-property-handlers-user-friendly-kind-names)。 |
@@ -739,9 +739,9 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
 
 #### <a name="xml-namespace"></a>XML 名前空間
 
-* http://schemas.microsoft.com/appx/manifest/uap/windows10
-* http://schemas.microsoft.com/appx/manifest/uap/windows10/3
-* http://schemas.microsoft.com/appx/manifest/desktop/windows10/2
+* `http://schemas.microsoft.com/appx/manifest/uap/windows10`
+* `http://schemas.microsoft.com/appx/manifest/uap/windows10/3`
+* `http://schemas.microsoft.com/appx/manifest/desktop/windows10/2`
 
 #### <a name="elements-and-attributes-of-this-extension"></a>この拡張機能の要素と属性
 
@@ -758,9 +758,9 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
 
 完全なスキーマ リファレンスについては、[こちら](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-uap-filetypeassociation)をご覧ください。
 
-|Name |説明 |
+|名前 |説明 |
 |-------|-------------|
-|Category |常に ``windows.fileTypeAssociation`` です。
+|カテゴリ |常に ``windows.fileTypeAssociation`` です。
 |名前 |ファイルの種類の関連付けの名前。 この名前を使用して、ファイルの種類を整理およびグループ化することができます。 名前は、すべて小文字で、スペースを使用しないようにする必要があります。 |
 |FileType |関連するファイル拡張子。 |
 |Clsid  |アプリのクラス ID。 |
@@ -798,8 +798,8 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
 
 #### <a name="xml-namespaces"></a>XML 名前空間
 
-* http://schemas.microsoft.com/appx/manifest/foundation/windows10
-* http://schemas.microsoft.com/appx/manifest/desktop/windows10/4
+* `http://schemas.microsoft.com/appx/manifest/foundation/windows10`
+* `http://schemas.microsoft.com/appx/manifest/desktop/windows10/4`
 
 #### <a name="elements-and-attributes-of-this-extension"></a>この拡張機能の要素と属性
 
@@ -896,7 +896,7 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
 
 #### <a name="xml-namespace"></a>XML 名前空間
 
-* http://schemas.microsoft.com/appx/manifest/desktop/windows10
+* `http://schemas.microsoft.com/appx/manifest/desktop/windows10`
 
 #### <a name="elements-and-attributes-of-this-extension"></a>この拡張機能の要素と属性
 
@@ -914,14 +914,14 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
 
 ```
 
-|Name |説明 |
+|名前 |説明 |
 |-------|-------------|
-|Category |常に ``windows.cloudfiles`` です。
+|カテゴリ |常に ``windows.cloudfiles`` です。
 |iconResource |クラウド ファイル プロバイダー サービスを表すアイコン。 このアイコンは、エクスプローラーのナビゲーション ウィンドウに表示されます。  ユーザーは、このアイコンを選んでクラウド サービスのファイルを表示します。 |
 |CustomStateHandler Clsid |CustomStateHandler を実装するアプリケーションのクラス ID。 システムは、このクラス ID を使ってクラウド ファイルのカスタム状態と列を要求します。 |
 |ThumbnailProviderHandler Clsid |ThumbnailProviderHandler を実装するアプリケーションのクラス ID。 システムは、このクラス ID を使ってクラウド ファイルの縮小版イメージを要求します。 |
 |ExtendedPropertyHandler Clsid |ExtendedPropertyHandler を実装するアプリケーションのクラス ID。  システムは、このクラス ID を使ってクラウド ファイルの拡張プロパティを要求します。 |
-|Verb |クラウド サービスによって提供されるファイルのエクスプローラー コンテキスト メニューに表示される名前です。 |
+|動詞 |クラウド サービスによって提供されるファイルのエクスプローラー コンテキスト メニューに表示される名前です。 |
 |Id |動詞の一意の ID。 |
 
 #### <a name="example"></a>例
@@ -969,7 +969,7 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/6
 
 #### <a name="xml-namespace"></a>XML 名前空間
 
-http://schemas.microsoft.com/appx/manifest/uap/windows10/3
+`http://schemas.microsoft.com/appx/manifest/uap/windows10/3`
 
 #### <a name="elements-and-attributes-of-this-extension"></a>この拡張機能の要素と属性
 
@@ -984,11 +984,11 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/3
 
 完全なスキーマ リファレンスについては、[こちら](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol)をご覧ください。
 
-|Name |説明 |
+|名前 |説明 |
 |-------|-------------|
-|Category |常に ``windows.protocol`` です。
-|Name |プロトコルの名前。 |
-|Parameters |アプリケーションがアクティブ化されるときに、イベント引数としてアプリケーションに渡すパラメーターと値の一覧。 変数にファイル パスが含まれる可能性がある場合は、パラメーター値を引用符で囲みます。 これにより、パスにスペースが含まれている場合に発生する問題を回避できます。 |
+|カテゴリ |常に ``windows.protocol`` です。
+|名前 |プロトコルの名前。 |
+|パラメーター |アプリケーションがアクティブ化されるときに、イベント引数としてアプリケーションに渡すパラメーターと値の一覧。 変数にファイル パスが含まれる可能性がある場合は、パラメーター値を引用符で囲みます。 これにより、パスにスペースが含まれている場合に発生する問題を回避できます。 |
 
 ### <a name="example"></a>例
 
@@ -1020,8 +1020,8 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/3
 
 #### <a name="xml-namespaces"></a>XML 名前空間
 
-* http://schemas.microsoft.com/appx/manifest/uap/windows10/3
-* http://schemas.microsoft.com/appx/manifest/desktop/windows10
+* `http://schemas.microsoft.com/appx/manifest/uap/windows10/3`
+* `http://schemas.microsoft.com/appx/manifest/desktop/windows10`
 
 #### <a name="elements-and-attributes-of-this-extension"></a>この拡張機能の要素と属性
 
@@ -1036,10 +1036,10 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/3
 </Extension>
 ```
 
-|Name |説明 |
+|名前 |説明 |
 |-------|-------------|
-|Category |常に ``windows.appExecutionAlias`` です。
-|Executable |エイリアスが呼び出されたときに起動する実行可能ファイルの相対パス。 |
+|カテゴリ |常に ``windows.appExecutionAlias`` です。
+|実行可能ファイル |エイリアスが呼び出されたときに起動する実行可能ファイルの相対パス。 |
 |Alias |アプリの短い名前。 常に、拡張子 ".exe" で終わっている必要があります。 パッケージ内のアプリケーションごとにアプリの実行エイリアスは 1 つだけ指定できます。 複数のアプリで同じエイリアスが登録されている場合、システムは最後に登録されたアプリを呼び出します。したがって、他のアプリが上書きする可能性が低い一意のエイリアスを選んでください。
 |
 
@@ -1083,7 +1083,7 @@ http://schemas.microsoft.com/appx/manifest/uap/windows10/3
 
 #### <a name="xml-namespace"></a>XML 名前空間
 
-http://schemas.microsoft.com/appx/manifest/desktop/windows10
+`http://schemas.microsoft.com/appx/manifest/desktop/windows10`
 
 #### <a name="elements-and-attributes-of-this-extension"></a>この拡張機能の要素と属性
 
@@ -1099,10 +1099,10 @@ http://schemas.microsoft.com/appx/manifest/desktop/windows10
 </Extension>
 ```
 
-|Name |説明 |
+|名前 |説明 |
 |-------|-------------|
-|Category |常に ``windows.startupTask`` です。|
-|Executable |起動する実行可能ファイルへの相対パス。 |
+|カテゴリ |常に ``windows.startupTask`` です。|
+|実行可能ファイル |起動する実行可能ファイルへの相対パス。 |
 |TaskId |タスクの一意の識別子。 この識別子を使用して、アプリケーションは、プログラムによってスタートアップタスクを有効または無効にするために、 [Windows](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.StartupTask)の api を呼び出すことができます。 |
 |有効 |初めて起動したタスクを有効にするか、無効にするかを指定します。 有効になっているタスクは、(ユーザーが無効にしていない限り) 次回ユーザーがログオンするときに実行されます。 |
 |DisplayName |タスク マネージャーに表示されるタスクの名前。 この文字列は、```ms-resource``` を使用してローカライズできます。 |
@@ -1139,7 +1139,7 @@ http://schemas.microsoft.com/appx/manifest/desktop/windows10
 
 #### <a name="xml-namespace"></a>XML 名前空間
 
-http://schemas.microsoft.com/appx/manifest/desktop/windows10/3
+`http://schemas.microsoft.com/appx/manifest/desktop/windows10/3`
 
 #### <a name="elements-and-attributes-of-this-extension"></a>この拡張機能の要素と属性
 
@@ -1154,15 +1154,15 @@ http://schemas.microsoft.com/appx/manifest/desktop/windows10/3
   </AutoPlayHandler>
 ```
 
-|Name |説明 |
+|名前 |説明 |
 |-------|-------------|
-|Category |常に ``windows.autoPlayHandler`` です。
-|ActionDisplayName |PC に接続しているデバイスでユーザーが実行できるアクションを表す文字列 (例:[ファイルのインポート] または [ビデオの再生])。 |
-|ProviderDisplayName | アプリケーションまたはサービスを表す文字列 (例:"Contoso video player")。 |
+|カテゴリ |常に ``windows.autoPlayHandler`` です。
+|ActionDisplayName |ユーザーが PC に接続したときにデバイスで実行できるアクションを表す文字列 (例: "ファイルのインポート" や "ビデオの再生")。 |
+|ProviderDisplayName | アプリケーションまたはサービスを表す文字列 (例: "Contoso video player")。 |
 |ContentEvent |ユーザーに ``ActionDisplayName`` と ``ProviderDisplayName`` をプロンプト表示する原因となるコンテンツ イベントの名前。 コンテンツ イベントは、カメラのメモリ カード、サム ドライブ、DVD などのボリューム デバイスが PC に挿入されたときに発生します。 これらのイベントの詳しい一覧については、[ここ](https://docs.microsoft.com/windows/uwp/launch-resume/auto-launching-with-autoplay#autoplay-event-reference)をご覧ください。  |
-|Verb |動詞の設定は、選択したオプションのアプリケーションに渡される値を識別します。 自動再生のイベントの起動アクションは複数指定できます。また、[動詞] 設定を使って、ユーザーがアプリで選んだアクションを確認できます。 アプリに渡される起動イベント引数の verb プロパティを調べることでユーザーが選んだオプションを確認できます。 [動詞] 設定には任意の値を使うことができます。ただし、予約されている open を除きます。 |
+|動詞 |動詞の設定は、選択したオプションのアプリケーションに渡される値を識別します。 自動再生のイベントの起動アクションは複数指定できます。また、[動詞] 設定を使って、ユーザーがアプリで選んだアクションを確認できます。 アプリに渡される起動イベント引数の verb プロパティを調べることでユーザーが選んだオプションを確認できます。 [動詞] 設定には任意の値を使うことができます。ただし、予約されている open を除きます。 |
 |DropTargetHandler |[IDropTarget](https://docs.microsoft.com/dotnet/api/microsoft.visualstudio.ole.interop.idroptarget?view=visualstudiosdk-2017)インターフェイスを実装するアプリケーションのクラス ID。 リムーバブル メディアのファイルは、[IDropTarget](https://docs.microsoft.com/dotnet/api/microsoft.visualstudio.ole.interop.idroptarget?view=visualstudiosdk-2017) 実装の [Drop](https://docs.microsoft.com/dotnet/api/microsoft.visualstudio.ole.interop.idroptarget.drop?view=visualstudiosdk-2017#Microsoft_VisualStudio_OLE_Interop_IDropTarget_Drop_Microsoft_VisualStudio_OLE_Interop_IDataObject_System_UInt32_Microsoft_VisualStudio_OLE_Interop_POINTL_System_UInt32__) メソッドに渡されます。  |
-|Parameters |すべてのコンテンツ イベントで [IDropTarget](https://docs.microsoft.com/dotnet/api/microsoft.visualstudio.ole.interop.idroptarget?view=visualstudiosdk-2017) インターフェイスを実装する必要はありません。 どのコンテンツ イベントにも、[IDropTarget](https://docs.microsoft.com/dotnet/api/microsoft.visualstudio.ole.interop.idroptarget?view=visualstudiosdk-2017) インターフェイスを実装する代わりにコマンド ライン パラメーターを指定することができます。 これらのイベントについては、自動再生によって、これらのコマンドラインパラメーターを使用してアプリケーションが起動されます。 アプリの初期化コードでそれらのパラメーターを解析して、自動再生によって起動したかどうかを判断し、カスタム実装を提供することができます。 |
+|パラメーター |すべてのコンテンツ イベントで [IDropTarget](https://docs.microsoft.com/dotnet/api/microsoft.visualstudio.ole.interop.idroptarget?view=visualstudiosdk-2017) インターフェイスを実装する必要はありません。 どのコンテンツ イベントにも、[IDropTarget](https://docs.microsoft.com/dotnet/api/microsoft.visualstudio.ole.interop.idroptarget?view=visualstudiosdk-2017) インターフェイスを実装する代わりにコマンド ライン パラメーターを指定することができます。 これらのイベントについては、自動再生によって、これらのコマンドラインパラメーターを使用してアプリケーションが起動されます。 アプリの初期化コードでそれらのパラメーターを解析して、自動再生によって起動したかどうかを判断し、カスタム実装を提供することができます。 |
 |DeviceEvent |ユーザーに ``ActionDisplayName`` と ``ProviderDisplayName`` をプロンプト表示する原因となるデバイス イベントの名前。 デバイス イベントは、デバイスが PC に接続されると発生します。 デバイス イベントの先頭は文字列 ``WPD`` です。一覧については[ここ](https://docs.microsoft.com/windows/uwp/launch-resume/auto-launching-with-autoplay#autoplay-event-reference)をご覧ください。 |
 |HWEventHandler |[IHWEventHandler](https://docs.microsoft.com/windows/desktop/api/shobjidl/nn-shobjidl-ihweventhandler)インターフェイスを実装するアプリケーションのクラス ID。 |
 |InitCmdLine |[IHWEventHandler](https://docs.microsoft.com/windows/desktop/api/shobjidl/nn-shobjidl-ihweventhandler) インターフェイスの [Initialize](https://docs.microsoft.com/windows/desktop/api/shobjidl/nf-shobjidl-ihweventhandler-initialize) メソッドに渡す文字列パラメーター。 |
@@ -1227,7 +1227,7 @@ XML Paper Specification (XPS) 形式で印刷データを受信するように�
 
 #### <a name="xml-namespaces"></a>XML 名前空間
 
-http://schemas.microsoft.com/appx/manifest/desktop/windows10/2
+`http://schemas.microsoft.com/appx/manifest/desktop/windows10/2`
 
 #### <a name="elements-and-attributes-of-this-extension"></a>この拡張機能の要素と属性
 
@@ -1241,11 +1241,11 @@ http://schemas.microsoft.com/appx/manifest/desktop/windows10/2
 
 完全なスキーマ リファレンスについては、[こちら](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-desktop2-appprinter)をご覧ください。
 
-|Name |説明 |
+|名前 |説明 |
 |-------|-------------|
-|Category |常に ``windows.appPrinter`` です。
+|カテゴリ |常に ``windows.appPrinter`` です。
 |DisplayName |アプリの印刷先一覧に表示する名前。 |
-|Parameters |要求を適切に処理するためにアプリケーションで必要なすべてのパラメーター。 |
+|パラメーター |要求を適切に処理するためにアプリケーションで必要なすべてのパラメーター。 |
 
 #### <a name="example"></a>例
 
@@ -1277,7 +1277,7 @@ http://schemas.microsoft.com/appx/manifest/desktop/windows10/2
 
 #### <a name="xml-namespaces"></a>XML 名前空間
 
-http://schemas.microsoft.com/appx/manifest/desktop/windows10/2
+`http://schemas.microsoft.com/appx/manifest/desktop/windows10/2`
 
 #### <a name="elements-and-attributes-of-this-extension"></a>この拡張機能の要素と属性
 
@@ -1291,10 +1291,10 @@ http://schemas.microsoft.com/appx/manifest/desktop/windows10/2
 
 完全なスキーマ リファレンスについては、[こちら](/uwp/schemas/appxpackage/uapmanifestschema/element-uap4-sharedfonts)をご覧ください。
 
-|Name |説明 |
+|名前 |説明 |
 |-------|-------------|
-|Category |常に ``windows.sharedFonts`` です。
-|File |共有するフォントが格納されたファイル。 |
+|カテゴリ |常に ``windows.sharedFonts`` です。
+|ファイル |共有するフォントが格納されたファイル。 |
 
 #### <a name="example"></a>例
 
@@ -1325,7 +1325,7 @@ http://schemas.microsoft.com/appx/manifest/desktop/windows10/2
 
 #### <a name="xml-namespaces"></a>XML 名前空間
 
-http://schemas.microsoft.com/appx/manifest/desktop/windows10
+`http://schemas.microsoft.com/appx/manifest/desktop/windows10`
 
 #### <a name="elements-and-attributes-of-this-extension"></a>この拡張機能の要素と属性
 
@@ -1337,11 +1337,11 @@ http://schemas.microsoft.com/appx/manifest/desktop/windows10
 </Extension>
 ```
 
-|Name |説明 |
+|名前 |説明 |
 |-------|-------------|
-|Category |常に ``windows.fullTrustProcess`` です。
+|カテゴリ |常に ``windows.fullTrustProcess`` です。
 |GroupID |実行可能ファイルに渡すパラメーターのセットを識別するための文字列。 |
-|Parameters |実行可能ファイルに渡すパラメーター。 |
+|パラメーター |実行可能ファイルに渡すパラメーター。 |
 
 #### <a name="example"></a>例
 
