@@ -1,61 +1,59 @@
-items:
-- name: Windows 10 ビルド 17763 の開発者向け新着情報
-  href: ../whats-new/windows-10-build-17763.md
+- name: Windows 10 ビルド 18362 の開発者向け新着情報
+  href: ../whats-new/windows-10-build-18362.md
   items:
-  - name: Windows 10 ビルド 17763 での API の追加
-    href: ../whats-new/windows-10-build-17763-api-diff.md
+    - name: Windows 10 ビルド 18362 での API の追加
+      href: ../whats-new/windows-10-build-18362-api-diff.md
 - name: Windows ドキュメントの最新情報、2019 月 1 月
   href: ../whats-new/windows-docs-january-2019.md
   items:
-  - name: Windows ドキュメントの最新情報、2018 年 9 月
-    href: ../whats-new/windows-docs-september-2018.md
-  - name: Windows ドキュメントの最新情報、2018 年 8 月
-    href: ../whats-new/windows-docs-august-2018.md
-  - name: Windows ドキュメントの最新情報、2018 年 7 月
-    href: ../whats-new/windows-docs-july-2018.md
-  - name: Windows ドキュメントの最新情報、2018 年 5 月
-    href: ../whats-new/windows-docs-may-2018.md
-  - name: Windows ドキュメントの最新情報、2018 年 2 月
-    href: ../whats-new/windows-docs-february-2018.md
-  - name: Windows ドキュメントの最新情報、2017 年 12 月
-    href: ../whats-new/windows-docs-december-2017.md
-  - name: Windows ドキュメントの最新情報、2017 年 9 月
-    href: ../whats-new/windows-docs-september-2017.md
-  - name: Windows ドキュメントの最新情報、2017 年 8 月
-    href: ../whats-new/windows-docs-august-2017.md
-  - name: Windows ドキュメントの最新情報、2017 年 7 月
-    href: ../whats-new/windows-docs-july-2017.md
+    - name: Windows ドキュメントの最新情報、2018 年 9 月
+      href: ../whats-new/windows-docs-september-2018.md
+    - name: Windows ドキュメントの最新情報、2018 年 8 月
+      href: ../whats-new/windows-docs-august-2018.md
+    - name: Windows ドキュメントの最新情報、2018 年 7 月
+      href: ../whats-new/windows-docs-july-2018.md
+    - name: Windows ドキュメントの最新情報、2018 年 5 月
+      href: ../whats-new/windows-docs-may-2018.md
+    - name: Windows ドキュメントの最新情報、2018 年 2 月
+      href: ../whats-new/windows-docs-february-2018.md
+    - name: Windows ドキュメントの最新情報、2017 年 12 月
+      href: ../whats-new/windows-docs-december-2017.md
+    - name: Windows ドキュメントの最新情報、2017 年 9 月
+      href: ../whats-new/windows-docs-september-2017.md
+    - name: Windows ドキュメントの最新情報、2017 年 8 月
+      href: ../whats-new/windows-docs-august-2017.md
+    - name: Windows ドキュメントの最新情報、2017 年 7 月
+      href: ../whats-new/windows-docs-july-2017.md
 - name: Windows 10 の以前のバージョン
   items:
-  - name: Windows 10 ビルド 17134 の開発者向け新着情報
-    href: ../whats-new/windows-10-build-17134.md
-    items:
-    - name: Windows 10 ビルド 17134 での API の追加
-      href: ../whats-new/windows-10-build-17134-api-diff.md
-  - name: Windows 10 ビルド 16299 の開発者向け新着情報
-    href: ../whats-new/windows-10-build-16299.md
-    items:
-    - name: Windows 10 ビルド 16299 での API の追加
-      href: ../whats-new/windows-10-build-16299-api-diff.md
-  - name: Windows 10 ビルド 15063 の新着情報
-    href: ../whats-new/windows-10-build-15063.md
-    items:
-    - name: Windows 10 ビルド 15063 での API の追加
-      href: ../whats-new/windows-10-build-15063-api-diff.md
-  - name: Windows 10 ビルド 14393 の新着情報
-    href: ../whats-new/windows-10-build-14393.md
-    items:
-    - name: Windows 10 ビルド 14393 での API の追加
-      href: ../whats-new/windows-10-build-14393-api-diff.md
-  - name: Windows 10 ビルド 10586 の新着情報
-    href: ../whats-new/windows-10-build-10586.md
-  - name: Windows 10 ビルド 10240 の新着情報
-    href: ../whats-new/windows-10-build-10240.md
+    - name: Windows 10 ビルド 17763 の開発者向け新着情報
+      href: ../whats-new/windows-10-build-17763.md
+      items:
+        - name: Windows 10 ビルド 17763 での API の追加
+          href: ../whats-new/windows-10-build-17763-api-diff.md
+    - name: Windows 10 ビルド 17134 の開発者向け新着情報
+      href: ../whats-new/windows-10-build-17134.md
+      items:
+        - name: Windows 10 ビルド 17134 での API の追加
+          href: ../whats-new/windows-10-build-17134-api-diff.md
+    - name: Windows 10 ビルド 16299 の開発者向け新着情報
+      href: ../whats-new/windows-10-build-16299.md
+      items:
+        - name: Windows 10 ビルド 16299 での API の追加
+          href: ../whats-new/windows-10-build-16299-api-diff.md
+    - name: Windows 10 ビルド 15063 の新着情報
+      href: ../whats-new/windows-10-build-15063.md
+      items:
+        - name: Windows 10 ビルド 15063 での API の追加
+          href: ../whats-new/windows-10-build-15063-api-diff.md
+    - name: Windows 10 ビルド 14393 の新着情報
+      href: ../whats-new/windows-10-build-14393.md
+      items:
+        - name: Windows 10 ビルド 14393 での API の追加
+          href: ../whats-new/windows-10-build-14393-api-diff.md
+    - name: Windows 10 ビルド 10586 の新着情報
+      href: ../whats-new/windows-10-build-10586.md
+    - name: Windows 10 ビルド 10240 の新着情報
+      href: ../whats-new/windows-10-build-10240.md
 - name: 試験的な API
   href: ../whats-new/experimental-apis.md
-ms.openlocfilehash: 136c6bd34dd3358d3f089aa06a664029a446b368
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57582994"
