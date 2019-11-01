@@ -5,12 +5,12 @@ ms.date: 05/07/2018
 ms.topic: article
 keywords: Windows 10, UWP, 拡張, コンポーネント化, アプリ サービス, パッケージ, 拡張機能
 ms.localizationpriority: medium
-ms.openlocfilehash: a72b175e672b44d0dace0b4bf04956792edfadd0
-ms.sourcegitcommit: 445320ff0ee7323d823194d4ec9cfa6e710ed85d
+ms.openlocfilehash: d9a98ef8e0ec53668277face05d83c08f6421cb7
+ms.sourcegitcommit: c7e10793cbef55ace959ac8fc6ddd08e683602bd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72282514"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73329509"
 ---
 # <a name="extend-your-app-with-services-extensions-and-packages"></a>サービス、拡張機能、パッケージでアプリを拡張する
 
@@ -37,7 +37,7 @@ Windows 10 には、アプリを拡張して componentizing するためのさ�
 
 **インプロセスコードプラグイン**  
 
-アプリのプロセス内で実行されるコードです。 C++ でのみサポートされています。 コンテンツが含まれる場合もあります。 コードはプロセス内で実行されるため、より高いレベルの信頼が想定されます。 このような拡張機能をサードパーティに公開しないように選択することもできます。
+アプリのプロセス内で実行されるコードです。 コンテンツが含まれる場合もあります。 コードはプロセス内で実行されるため、より高いレベルの信頼が想定されます。 このような拡張機能をサードパーティに公開しないように選択することもできます。
 
 **UX アセット (文字列/イメージ)**  
 
@@ -98,7 +98,7 @@ Windows アプリサービスは、UWP アプリが別のユニバーサル Wind
 
 ストリーミング インストールは、ユーザーにアプリを配信する方法を最適化する手段です。 アプリ全体がダウンロードされるのを待ってからユーザーが使用できるようになるのではなく、必要な部分がダウンロードされた時点で、そのアプリを利用できます。 基本的なライセンス認証と起動に必要なセクションと、アプリの他の部分の追加コンテンツにアプリを分割するかどうかは、開発者の任意です。 詳しい情報と実装の詳細については、「[UWP アプリ ストリーミング インストール](/windows/msix/package/streaming-install)」を参照してください。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 [App Service の作成と利用](https://docs.microsoft.com/windows/uwp/launch-resume/how-to-create-and-consume-an-app-service)  
 [資産パッケージの概要](/windows/msix/package/asset-packages)  

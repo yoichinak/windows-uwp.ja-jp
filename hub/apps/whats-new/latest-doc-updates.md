@@ -6,42 +6,39 @@ ms.date: 10/13/2019
 ms.localizationpriority: medium
 ms.author: quradic
 author: QuinnRadich
-ms.openlocfilehash: e90d1239b48c91583dbe47f1e345a4acd7fa629c
-ms.sourcegitcommit: 8923daa8b930f4d01c772c14a1f159332c4a5ba5
+ms.openlocfilehash: 19028ca868c05ac0a1de39b3187a30f95567d915
+ms.sourcegitcommit: c7e10793cbef55ace959ac8fc6ddd08e683602bd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72303915"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73329501"
 ---
 # <a name="latest-updates-to-the-windows-developer-docs"></a>Windows 開発者向けドキュメントの最新の更新プログラム
 
 
-Windows 開発者ドキュメントは、新機能と強化された情報やコンテンツによって定期的に更新されます。 次のドキュメントでは、2019年10月11日を終了する前に、大幅な更新が行われています。
+Windows 開発者ドキュメントは、新機能と強化された情報やコンテンツによって定期的に更新されます。 次のドキュメントでは、過去1か月のうち、2019年10月31日を終了する重要な更新を示しています。
 
 
-## <a name="uwp-conceptual"></a>UWP の概念
+## <a name="winrt-conceptual"></a>WinRT 概念
 
 <ul>
-<li><a href="https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/author-apis">C++/WinRT で API を作成する</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/faq">/WinRT に関してC++よく寄せられる質問</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/index">C++/WinRT</a></li>
+<li><a href="https://docs.microsoft.com/windows/uwp/app-resources/uri-schemes">URI スキーム</a></li>
+<li><a href="https://docs.microsoft.com/windows/uwp/composition/inertia-modifiers">慣性修飾子を使用してスナップポイントを作成する</a></li>
+<li><a href="https://docs.microsoft.com/windows/uwp/composition/spring-animations">Spring アニメーション</a></li>
+<li><a href="https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/concurrency">C++/WinRT を使用した同時開催操作と非同期操作</a></li>
 <li><a href="https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/news">C++/WinRT の新機能</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/data-access/index">データ アクセス</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/data-access/sqlite-databases">UWP アプリでの SQLite データベースの使用</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/input/access-keys">アクセスキーの設計ガイドライン</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/input/keyboard-events">キーボードイベント</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/layout/layout-panels">ユニバーサル Windows プラットフォーム (UWP) アプリ用のレイアウトパネル</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/layout/transforms">変換の概要</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/devices-sensors/generate-3mf">3MF パッケージの生成</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/enterprise/index">エンタープライズ</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/maps-and-location/display-poi">関心のあるポイント (POI) の地図への表示</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/networking/httpclient">HttpClient</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/porting/android-ios-uwp-map">Android と iOS 開発者向けの Windows アプリ概念マッピング</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/publish/store-policies">Microsoft Store ポリシー</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/xaml-platform/xaml-overview">XAML の概要</a></li>
+<li><a href="https://docs.microsoft.com/windows/uwp/debug-test-perf/app-analysis">アプリの分析</a></li>
+<li><a href="https://docs.microsoft.com/windows/uwp/debug-test-perf/pgo-for-uwp">ユニバーサル Windows プラットフォーム (UWP) アプリでのガイド付き最適化のプロファイル (PGO) の実行</a></li>
 </ul>
 
 
+
+## <a name="winrt-api-reference"></a>WinRT API リファレンス
+
+<ul>
+<li><a href="https://docs.microsoft.com/windows/win32/api/d3d12/nn-d3d12-id3d12fence">ID3D12Fence (d3d12)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/d3d12/nn-d3d12-id3d12fence1">ID3D12Fence1 (d3d12)</a></li>
+</ul>
 
 ## <a name="win32-conceptual"></a>Win32 の概念
 
@@ -64,7 +61,7 @@ Windows 開発者ドキュメントは、新機能と強化された情報やコ
 <li><a href="https://docs.microsoft.com/windows/desktop/Power/wm-powerbroadcast">WM_POWERBROADCAST メッセージ</a></li>
 <li><a href="https://docs.microsoft.com/windows/desktop/Sync/interlocked-variable-access">インタロックの変数アクセス</a></li>
 <li><a href="https://docs.microsoft.com/windows/desktop/desktop-app-technologies">デスクトップアプリのテクノロジ</a></li>
-<li><a href="https://docs.microsoft.com/windows/desktop/desktop-programming">開始するには</a></li>
+<li><a href="https://docs.microsoft.com/windows/desktop/desktop-programming">開始する</a></li>
 <li><a href="https://docs.microsoft.com/windows/desktop/direct3d12/directx-12-glossary">Direct3D 12 用語集</a></li>
 <li><a href="https://docs.microsoft.com/windows/desktop/direct3d12/multi-engine">マルチアダプターシステム</a></li>
 <li><a href="https://docs.microsoft.com/windows/desktop/direct3d12/new-releases">新しいリリース</a></li>
@@ -89,19 +86,10 @@ Windows 開発者ドキュメントは、新機能と強化された情報やコ
 ## <a name="win32-api-reference"></a>Win32 API リファレンス
 
 <ul>
-<li><a href="https://docs.microsoft.com/windows/win32/api/d3d12/nn-d3d12-id3d12fence">ID3D12Fence (d3d12)</a></li>
-<li><a href="https://docs.microsoft.com/windows/win32/api/d3d12/nn-d3d12-id3d12fence1">ID3D12Fence1 (d3d12)</a></li>
-<li><a href="https://docs.microsoft.com/windows/win32/api/index_bkp">Windows API のプログラミングリファレンス</a></li>
-</ul>
-
-## <a name="winrt-api-reference"></a>WinRT API リファレンス
-
-<ul>
 <li><a href="https://docs.microsoft.com/uwp/api/windows.devices.lights.lamparraykind">Windows. LampArrayKind</a></li>
 <li><a href="https://docs.microsoft.com/uwp/api/windows.devices.lights.lamppurposes">Windows. LampPurposes</a></li>
+<li><a href="https://docs.microsoft.com/uwp/api/windows.devices.usb.usbdeviceclass">Windows. Devices. UsbDeviceClass</a></li>
 <li><a href="https://docs.microsoft.com/uwp/api/windows.foundation.numerics.matrix3x2">Windows. Matrix3x2</a></li>
-<li><a href="https://docs.microsoft.com/uwp/api/windows.graphics.directx.direct3d11.idirect3ddevice">IDirect3DDevice (Direct3D11. DirectX.</a></li>
 <li><a href="https://docs.microsoft.com/uwp/api/windows.graphics.directx.directxpixelformat">Windows. Graphics. DirectX. Directxpixel 形式</a></li>
-<li><a href="https://docs.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesourcegetpropertystatus">Windows.Media.Capture.Frames.MediaFrameSourceGetPropertyStatus</a></li>
-
+<li><a href="https://docs.microsoft.com/uwp/api/windows.ui.xaml.textreadingorder">Windows. TextReadingOrder</a></li>
 </ul>
