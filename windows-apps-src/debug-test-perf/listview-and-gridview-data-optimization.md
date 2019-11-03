@@ -36,7 +36,7 @@ ms.locfileid: "71339617"
 段階的なデータ仮想化では、データを連続的にダウンロードします。 段階的なデータ仮想化を実行する [**ListView**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView) を使って、数百万の項目のコレクションを表示できますが、最初は 50 個の項目だけが読み込まれます。 ユーザーがパン/スクロールすると、次の 50 個の項目が読み込まれます。 項目が読み込まれると、スクロール バーのサムはサイズが小さくなります。 この種のデータ仮想化では、次のインターフェイスを実装するデータ ソース クラスを記述します。
 
 -   [**IList**](https://docs.microsoft.com/dotnet/api/system.collections.ilist)
--   [INotifyCollectionChanged](https://docs.microsoft.com/dotnet/api/system.collections.specialized.inotifycollectionchanged) (C#/VB) または[IObservableVector @ no__t-5t @ no__t](https://docs.microsoft.com/uwp/api/Windows.Foundation.Collections.IObservableVector_T_) (C++/cx)
+-   [INotifyCollectionChanged](https://docs.microsoft.com/dotnet/api/system.collections.specialized.inotifycollectionchanged) (C#/VB) または[**IObservableVector&lt;T&gt;**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Collections.IObservableVector_T_) (C++/cx)
 -   [**ISupportIncrementalLoading**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.ISupportIncrementalLoading)
 
 このようなデータ ソースは、継続的に拡張できるメモリ内リストです。 項目コントロールは、標準的な [**IList**](https://docs.microsoft.com/dotnet/api/system.collections.ilist) インデクサーとカウント プロパティを使って項目を要求します。 カウントは、データセットの実際のサイズではなく、ローカルでの項目の数を表す必要があります。
@@ -48,11 +48,11 @@ ms.locfileid: "71339617"
 ランダム アクセスのデータ仮想化を使うと、データ セット内の任意の位置からデータを読み込むことができます。 ランダム アクセスのデータ仮想化を実行する [**ListView**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView) を、100 万の項目があるコレクションを表示するために使うと、100,000 番目から 100,050 番目の項目を読み込むことができます。 ユーザーが一覧の先頭に移動すると、コントロールは 1 番目から 50 番目の項目を読み込みます。 スクロール バーのサムは、常に **ListView** に 100 万の項目が含まれていることを示します。 スクロール バーのサムの位置は、表示されている項目がコレクションのデータ セット全体で相対的にどこに位置しているかを示します。 この種のデータ仮想化は、必要なメモリを大幅に減らし、コレクションの読み込み時間を大きく短縮します。 これを有効にするには、データをオンデマンドで取得し、ローカル キャッシュを管理し、次のインターフェイスを実装するデータ ソース クラスを記述する必要があります。
 
 -   [**IList**](https://docs.microsoft.com/dotnet/api/system.collections.ilist)
--   [INotifyCollectionChanged](https://docs.microsoft.com/dotnet/api/system.collections.specialized.inotifycollectionchanged) (C#/VB) または[IObservableVector @ no__t-5t @ no__t](https://docs.microsoft.com/uwp/api/Windows.Foundation.Collections.IObservableVector_T_) (C++/cx)
+-   [**INotifyCollectionChanged**](https://docs.microsoft.com/dotnet/api/system.collections.specialized.inotifycollectionchanged) (C#/VB) または[**IObservableVector&lt;T&gt;**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Collections.IObservableVector_T_) (C++/cx)
 -   (必要に応じて) [**IItemsRangeInfo**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.IItemsRangeInfo)
 -   (必要に応じて) [**ISelectionInfo**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.ISelectionInfo)
 
-[**Iitemsrangeinfo**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.IItemsRangeInfo)は、コントロールがアクティブに使用している項目に関する情報を提供します。 項目コントロールはビューが変更されるたびにこのメソッドを呼び出し、その中には 次の 2 つの範囲のセットが含まれます。
+[**IItemsRangeInfo**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.IItemsRangeInfo)は、コントロールがアクティブに使用している項目に関する情報を提供します。 項目コントロールはビューが変更されるたびにこのメソッドを呼び出し、その中には 次の 2 つの範囲のセットが含まれます。
 
 -   ビューポート内の項目のセット。
 -   項目コントロールが使う項目で、ビューポートに表示されない可能性がある、仮想化されていない項目のセット。
@@ -60,7 +60,7 @@ ms.locfileid: "71339617"
     -   フォーカスが置かれている項目。
     -   先頭の項目。
 
-[  **IItemsRangeInfo**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.IItemsRangeInfo) を実装することで、データ ソースは、どの項目をフェッチしてキャッシュする必要があり、不要になったキャッシュ データをいつ除去するかがわかります。 **IItemsRangeInfo** は、[**ItemIndexRange**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.ItemIndexRange) オブジェクトを使って、コレクション内のインデックスに基づいてオブジェクトのセットを記述します。 これは、正しくないか安定していない可能性がある項目ポインターを使わないようにするためです。 **IItemsRangeInfo** は、項目コントロールの状態情報に頼っているため、項目コントロールの 1 つのインスタンスでのみ使われるように設計されています。 複数の項目コントロールが同じデータにアクセスする必要がある場合は、それぞれに対してデータ ソースの個別のインスタンスが必要です。 それらは共通のキャッシュを共有できますが、キャッシュから消去するためのロジックはもっと複雑です。
+[**IItemsRangeInfo**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.IItemsRangeInfo) を実装することで、データ ソースは、どの項目をフェッチしてキャッシュする必要があり、不要になったキャッシュ データをいつ除去するかがわかります。 **IItemsRangeInfo** は、[**ItemIndexRange**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.ItemIndexRange) オブジェクトを使って、コレクション内のインデックスに基づいてオブジェクトのセットを記述します。 これは、正しくないか安定していない可能性がある項目ポインターを使わないようにするためです。 **IItemsRangeInfo** は、項目コントロールの状態情報に頼っているため、項目コントロールの 1 つのインスタンスでのみ使われるように設計されています。 複数の項目コントロールが同じデータにアクセスする必要がある場合は、それぞれに対してデータ ソースの個別のインスタンスが必要です。 それらは共通のキャッシュを共有できますが、キャッシュから消去するためのロジックはもっと複雑です。
 
 ランダム アクセスのデータ仮想化データ ソースのための基本的な戦略を次に示します。
 
