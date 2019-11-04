@@ -63,7 +63,7 @@ Windows 10 Insider Preview Build 10.0.19000.0 以降では、アプリに*スパ
 * [ **\<TargetDeviceFamily\>** ](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-targetdevicefamily)要素の**MinVersion**属性は `10.0.19000.0` 以降のバージョンに設定する必要があります。
 * [ **\<アプリケーション\>** ](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-application)要素宣言の**TrustLevel = MediumIL**属性と**runtimebehavior = Win32App**属性は、スパースパッケージに関連付けられたデスクトップアプリが、標準のアンランデスクトップと同様に実行されることを宣言します。アプリケーション。レジストリとファイルシステムの仮想化やその他の実行時の変更はありません。
 
-次の例は、スパースパッケージマニフェスト (Package.appxmanifest) の完全な内容を示しています。 このマニフェストには、パッケージ id を必要とする `windows.sharetarget` の拡張機能が含まれています。
+次の例は、スパースパッケージマニフェスト (AppxManifest.xml) の完全な内容を示しています。 このマニフェストには、パッケージ id を必要とする `windows.sharetarget` の拡張機能が含まれています。
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -162,9 +162,9 @@ Side-by-side アプリケーションマニフェストは、デスクトップ�
 
 ## <a name="register-your-sparse-package-at-run-time"></a>実行時にスパースパッケージを登録する
 
-アプリでパッケージ id をデスクトップアプリに付与するには、アプリで、整理[emanager](https://docs.microsoft.com/uwp/api/windows.management.deployment.packagemanager)クラスを使用してスパースパッケージを登録する必要があります。 アプリを初めて実行するときにスパースパッケージを登録するコードをアプリに追加したり、デスクトップアプリのインストール中にパッケージを登録するコードを実行したりすることができます (たとえば、MSI を使用してデスクトップアプリをインストールする場合など)。では、このコードをカスタムアクションから実行できます)。
+アプリでパッケージ id をデスクトップアプリに付与するには、アプリで、整理[PackageManager](https://docs.microsoft.com/uwp/api/windows.management.deployment.packagemanager)クラスを使用してスパースパッケージを登録する必要があります。 アプリを初めて実行するときにスパースパッケージを登録するコードをアプリに追加したり、デスクトップアプリのインストール中にパッケージを登録するコードを実行したりすることができます (たとえば、MSI を使用してデスクトップアプリをインストールする場合など)。では、このコードをカスタムアクションから実行できます)。
 
-次の例では、スパースパッケージを登録する方法を示します。 このコードは、パッケージマニフェストがパッケージ外部のコンテンツを参照できる外部の場所へのパスを含む**Addpackageoptions**オブジェクトを作成します。 次に、このオブジェクトを**AddPackageByUriAsync**メソッドに渡してスパースパッケージを登録します。 また、このメソッドは、署名されたスパースパッケージの場所を URI として受け取ります。 詳細な例については、関連する[サンプル](#sample)の `StartUp.cs` コードファイルを参照してください。
+次の例では、スパースパッケージを登録する方法を示します。 このコードは、パッケージマニフェストがパッケージ外部のコンテンツを参照できる外部の場所へのパスを含む**AddPackageOptions**オブジェクトを作成します。 次に、このオブジェクトを**PackageManager.AddPackageByUriAsync**メソッドに渡してスパースパッケージを登録します。 また、このメソッドは、署名されたスパースパッケージの場所を URI として受け取ります。 詳細な例については、関連する[サンプル](#sample)の `StartUp.cs` コードファイルを参照してください。
 
 ```csharp
 private static bool registerSparsePackage(string externalLocation, string sparsePkgPath)
