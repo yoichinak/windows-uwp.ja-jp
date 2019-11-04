@@ -8,12 +8,12 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: bcdeafc3f30f5b385c6feeddee78cf31635177a0
-ms.sourcegitcommit: d7eccdb27c22bccac65bd014e62b6572a6b44602
+ms.openlocfilehash: ca9e91233206f0e97d17fdbdd7b0fd09a2897cd8
+ms.sourcegitcommit: 3710117f24adb8555aa94b372db814e5d30ae45a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73142538"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73427087"
 ---
 # <a name="call-uwp-apis-in-desktop-apps"></a>デスクトップアプリで UWP Api を呼び出す
 
@@ -43,7 +43,7 @@ UWP API を使用するには、プロジェクトにいくつかの変更を加
 
 2. Visual Studio でプロジェクトを開き、**ソリューションエクスプローラー**でプロジェクトを右クリックし、 **[NuGet パッケージの管理]** を選択します。
 
-3. **[NuGet パッケージマネージャー]** ウィンドウで、 **[プレリリースを含める]** が選択されていることを確認します。 次に、 **[参照]** タブを選択し、`Microsoft.Windows.SDK.Contracts`を検索します。
+3. **[NuGet パッケージマネージャー]** ウィンドウで、 **[参照]** タブを選択し、`Microsoft.Windows.SDK.Contracts`を検索します。
 
 4. `Microsoft.Windows.SDK.Contracts` パッケージが見つかったら、 **[NuGet パッケージマネージャー]** ウィンドウの右側のウィンドウで、ターゲットにする Windows 10 のバージョンに基づいて、インストールするパッケージの**バージョン**を選択します。
 
