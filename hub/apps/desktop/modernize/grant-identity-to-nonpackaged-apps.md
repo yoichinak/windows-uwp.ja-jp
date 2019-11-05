@@ -58,7 +58,7 @@ Windows 10 Insider Preview Build 10.0.19000.0 以降では、アプリに*スパ
 
 パッケージマニフェストに次の項目が含まれていることを確認してください。
 
-* デスクトップアプリの id 属性を記述する[ **\<id\>** ](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-identity)要素。
+* デスクトップアプリの id 属性を記述する[ **\<Identity\>** ](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-identity)要素。
 * [ **\<プロパティ\>** ](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-properties)要素の下に **\<allowexternalcontent\>** 要素。 この要素には `true`値を割り当てる必要があります。これにより、パッケージマニフェストは、ディスク上の特定の場所で、パッケージの外部のコンテンツを参照できます。 後の手順で、インストーラーまたはアプリで実行されるコードからスパースパッケージを登録するときに、外部の場所のパスを指定します。 マニフェスト内で参照するコンテンツは、パッケージ自体には存在しないため、外部の場所にインストールする必要があります。
 * [ **\<TargetDeviceFamily\>** ](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-targetdevicefamily)要素の**MinVersion**属性は `10.0.19000.0` 以降のバージョンに設定する必要があります。
 * [ **\<アプリケーション\>** ](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-application)要素宣言の**TrustLevel = MediumIL**属性と**runtimebehavior = Win32App**属性は、スパースパッケージに関連付けられたデスクトップアプリが、標準のアンランデスクトップと同様に実行されることを宣言します。アプリケーション。レジストリとファイルシステムの仮想化やその他の実行時の変更はありません。
@@ -137,9 +137,9 @@ SignTool.exe sign /fd SHA256 /a /f <path to certificate>\MyCertificate.pfx  /p <
 
 ### <a name="add-the-package-identity-metadata-to-your-desktop-application-manifest"></a>デスクトップアプリケーションマニフェストにパッケージ id メタデータを追加する
 
-また、デスクトップアプリと[side-by-side アプリケーションマニフェスト](https://docs.microsoft.com/windows/win32/sbscs/application-manifests)を追加し、アプリの id 属性を宣言する属性を持つ **\<.msix\>** 要素を含める必要があります。 これらの属性の値は、実行可能ファイルが起動されたときにアプリの id を決定するために OS によって使用されます。
+また、デスクトップアプリと[side-by-side アプリケーションマニフェスト](https://docs.microsoft.com/windows/win32/sbscs/application-manifests)を追加し、アプリの id 属性を宣言する属性を持つ **\<msix\>** 要素を含める必要があります。 これらの属性の値は、実行可能ファイルが起動されたときにアプリの id を決定するために OS によって使用されます。
 
-次の例は、 **\<.msix\>** 要素を含む side-by-side アプリケーションマニフェストを示しています。
+次の例は、 **\<msix\>** 要素を含む side-by-side アプリケーションマニフェストを示しています。
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -153,9 +153,9 @@ SignTool.exe sign /fd SHA256 /a /f <path to certificate>\MyCertificate.pfx  /p <
 </assembly>
 ```
 
-**\<.msix\>** 要素の属性は、スパースパッケージのパッケージマニフェストの次の値と一致している必要があります。
+**\<msix\>** 要素の属性は、スパースパッケージのパッケージマニフェストの次の値と一致している必要があります。
 
-* **PackageName**属性と**publisher**属性は、それぞれパッケージマニフェストの[ **\<Identity\>** ](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-identity)要素の**Name**属性と**publisher**属性が一致している必要があります。
+* **packageName**属性と**publisher**属性は、それぞれパッケージマニフェストの[ **\<Identity\>** ](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-identity)要素の**Name**属性と**Publisher**属性が一致している必要があります。
 * **ApplicationId**属性は、パッケージマニフェスト内の[ **\<アプリケーション\>** ](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-application)要素の**Id**属性と一致する必要があります。
 
 Side-by-side アプリケーションマニフェストは、デスクトップアプリの実行可能ファイルと同じディレクトリに存在する必要があります。また、規則により、アプリの実行可能ファイルと同じ名前を付けて、`.manifest` 拡張子を追加する必要があります。 たとえば、アプリの実行可能ファイル名が `ContosoPhotoStore`の場合、アプリケーションマニフェストファイル名を `ContosoPhotoStore.exe.manifest`する必要があります。
