@@ -8,12 +8,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 97eae5f3-c16b-4aa5-b4a1-dd892cf32ead
 ms.localizationpriority: medium
-ms.openlocfilehash: 9b34f88d198ec80c67e5aac7b57001e42fe5c516
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: b665145eac8599bae69aaf4b1951d267bf79f7a7
+ms.sourcegitcommit: 05be6929cd380a9dd241cc1298fd53f11c93d774
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66825022"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73062105"
 ---
 # <a name="inking-controls"></a>インク コントロール
 
@@ -80,7 +80,7 @@ InkCanvas と InkToolbar は、**Windows Ink ワークスペース**の**スケ�
 アプリに InkCanvas を追加するには、次に示す 1 行のマークアップが必要です。
 
 ```xaml
-<InkCanvas x:Name=“myInkCanvas”/>
+<InkCanvas x:Name="myInkCanvas"/>
 ```
 
 > [!NOTE]
@@ -89,7 +89,7 @@ InkCanvas と InkToolbar は、**Windows Ink ワークスペース**の**スケ�
 InkToolbar コントロールは、InkCanvas と組み合わせて使う必要があります。 InkToolbar (組み込みのすべてのツールが含まれています) をアプリに組み込むには、さらに次の 1 行のマークアップを追加する必要があります。
 
  ```xaml
-<InkToolbar TargetInkCanvas=“{x:Bind myInkCanvas}”/>
+<InkToolbar TargetInkCanvas="{x:Bind myInkCanvas}"/>
  ```
 
 これにより、次のような InkToolbar が表示されます。
@@ -137,7 +137,7 @@ InkToolbar は、次のような 2 つの異なるボタンの種類のグルー
 - カスタム トグル – アプリで定義された機能の状態をオンまたはオフに設定します。 オンにすると、機能はアクティブなツールと連携して動作します。
 
 > [!NOTE]
-> 組み込みのボタンの表示順序を変更することはできません。 既定の表示順序は、ボールペン、鉛筆、蛍光ペン、消しゴム、ルーラーです。 カスタム ペンは最後の既定のペンに追加され、カスタム ツール ボタンは最後のペン ボタンと消しゴム ボタンの間に追加され、カスタム トグル ボタンはルーラー ボタンの後に追加されます (カスタム ボタンは、指定されている順序で追加されます)。
+> 組み込みのボタンの表示順序を変更することはできません。 既定の表示順序は、次のとおりです: ボールペン、鉛筆、蛍光ペン、消しゴム、ルーラー。 カスタム ペンは最後の既定のペンに追加され、カスタム ツール ボタンは最後のペン ボタンと消しゴム ボタンの間に追加され、カスタム トグル ボタンはルーラー ボタンの後に追加されます (カスタム ボタンは、指定されている順序で追加されます)。
 
 InkToolbar はトップ レベルの項目にすることもできますが、通常は "手書き入力" ボタンまたはコマンドを使って公開されます。 Segoe MLD2 アセット フォントの EE56 グリフをトップ レベルのアイコンとして使うことをお勧めします。
 

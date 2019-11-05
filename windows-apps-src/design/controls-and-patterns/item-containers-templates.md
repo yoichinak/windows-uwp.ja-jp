@@ -29,7 +29,7 @@ ms.locfileid: "72531665"
 
 
 > [!NOTE]
-> ListView と GridView はどちらも [ListViewBase](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase) クラスから派生しているため、同じ機能を持ちますが、データの表示方法が異なります。 この記事では、特に指定がない限り、リスト ビューについての説明は ListView コントロールにも GridView コントロールにも適用されます。 ListView や ListViewItem などのクラスの説明については、プレフィックスの "List" を "Grid" に置き換えることで、対応するグリッド クラス (GridView または GridViewItem) に適用できます。 ** ** 
+> ListView と GridView はどちらも [ListViewBase](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase) クラスから派生しているため、同じ機能を持ちますが、データの表示方法が異なります。 この記事では、特に指定がない限り、リスト ビューについての説明は ListView コントロールにも GridView コントロールにも適用されます。 ListView や ListViewItem などのクラスの説明については、プレフィックスの "*List*" を "*Grid*" に置き換えることで、対応するグリッド クラス (GridView または GridViewItem) に適用できます。 
 
 ## <a name="listview-items-and-gridview-items"></a>ListView 項目と GridView 項目
 前述のように、ListView 項目は ListViewItem コンテナーに自動的に配置され、GridView 項目は GridViewItem コンテナーに配置されます。 これらの項目コンテナーは、独自の組み込みスタイルと対話機能を備えたコントロールですが、高度にカスタマイズすることもできます。 ただし、カスタマイズする前に、ListViewItem と GridViewItem の推奨されるスタイルとガイドラインを良く確認してください。

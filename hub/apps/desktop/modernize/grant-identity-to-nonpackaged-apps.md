@@ -156,7 +156,7 @@ SignTool.exe sign /fd SHA256 /a /f <path to certificate>\MyCertificate.pfx  /p <
 **\<msix\>** 要素の属性は、スパースパッケージのパッケージマニフェストの次の値と一致している必要があります。
 
 * **packageName**属性と**publisher**属性は、それぞれパッケージマニフェストの[ **\<Identity\>** ](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-identity)要素の**Name**属性と**Publisher**属性が一致している必要があります。
-* **applicationId**属性は、パッケージマニフェスト内の[ **\<Application\>** ](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-application)要素の**Id**属性と一致する必要があります。
+* **ApplicationId**属性は、パッケージマニフェスト内の[ **\<Application\>** ](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-application)要素の**Id**属性と一致する必要があります。
 
 Side-by-side アプリケーションマニフェストは、デスクトップアプリの実行可能ファイルと同じディレクトリに存在する必要があります。また、規則により、アプリの実行可能ファイルと同じ名前を付けて、`.manifest` 拡張子を追加する必要があります。 たとえば、アプリの実行可能ファイル名が `ContosoPhotoStore`の場合、アプリケーションマニフェストファイル名を `ContosoPhotoStore.exe.manifest`する必要があります。
 

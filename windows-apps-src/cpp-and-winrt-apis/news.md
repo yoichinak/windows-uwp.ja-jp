@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 新機能
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 525110a09c56f48f9f9ce3d2521c98e2297a8372
-ms.sourcegitcommit: 6fbf645466278c1f014c71f476408fd26c620e01
+ms.openlocfilehash: 24abdb26cf884367d9a9521d30b09b443d2e4e00
+ms.sourcegitcommit: 5dfa98a80eee41d97880dba712673168070c4ec8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72816709"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72998613"
 ---
 # <a name="whats-new-in-cwinrt"></a>C++/WinRT の新機能
 
@@ -269,9 +269,9 @@ Windows ランタイム プログラミングだけでなく、C++/WinRT は COM
 
 [**winrt::event**](/uwp/cpp-ref-for-winrt/event) の実装では、無効なトークン値 (配列に存在しない値) で **remove** メソッドが呼び出された場合が正しく処理されるようになります。
 
-#### <a name="coroutine-locals-are-now-destroyed-before-the-coroutine-returns"></a>コルーチンが戻る前にコルーチンのローカルが破棄される
+#### <a name="coroutine-local-variables-are-now-destroyed-before-the-coroutine-returns"></a>コルーチンが戻る前にコルーチンのローカル変数が破棄される
 
-コルーチン型の従来の実装方法では、コルーチン内のローカルを (最後の中断の前ではなく) コルーチンのリターン/完了の "*後*" で破棄することができました。 この問題を回避するためと他のメリットのため、待機処理の再開は最後の中断まで延期されるようになりました。
+コルーチン型の従来の実装方法では、コルーチン内のローカル変数を (最後の中断の前ではなく) コルーチンのリターン/完了の "*後*" で破棄することができました。 この問題を回避するためと他のメリットのため、待機処理の再開は最後の中断まで延期されるようになりました。
 
 ## <a name="news-and-changes-in-windows-sdk-version-100177630-windows-10-version-1809"></a>Windows SDK バージョン 10.0.17763.0 (Windows 10 バージョン 1809) での新機能と変更点
 
@@ -296,7 +296,7 @@ Windows ランタイム プログラミングだけでなく、C++/WinRT は COM
 - **破壊的変更**。 [**winrt::handle_type コンストラクター**](/uwp/cpp-ref-for-winrt/handle-type#handle_typehandle_type-constructor) は、明示的にすることで強化されています (それで不適切なコードを記述することが難しくなっています)。 生のハンドル値を割り当てる必要がある場合は、代わりに [**handle_type::attach 関数**](/uwp/cpp-ref-for-winrt/handle-type#handle_typeattach-function) を呼び出します。
 - **破壊的変更**。 **WINRT_CanUnloadNow** と **WINRT_GetActivationFactory** のシグネチャが変更されています。 これらの関数は宣言しないでください。 代わりに、`winrt/base.h` をインクルードしてこれらの関数の宣言を含めます (いずれかの C++/WinRT Windows 名前空間ヘッダー ファイルをインクルードすると、自動的にインクルードされます)。
 - [**winrt::clock struct**](/uwp/cpp-ref-for-winrt/clock) では、**from_FILETIME/to_FILETIME** は非推奨になり、**from_file_time/to_file_time** を代わりに使用します。
-- **IBuffer** パラメーターを必要とする API が簡素化されています。 ほとんどの API ではコレクションまたは配列が優先されますが、かなりの API は C++ で簡単に使用するには **IBuffer** が必要です。 この更新では、C++ 標準ライブラリ コンテナーによって使用されるのと同じデータ名前付け規則を使用して、**IBuffer** 実装の背後にあるデータに直接アクセスできます。 これにより、慣例的に大文字で始まるメタデータの名前との競合も回避されます。
+- **IBuffer** パラメーターを必要とする簡素化された API。 ほとんどの API ではコレクションまたは配列が優先されますが、 **IBuffer** に依存する API を簡単に呼び出せるようにする必要がありました。 この更新では、C++ 標準ライブラリ コンテナーによって使用されるのと同じデータ名前付け規則を使用して、**IBuffer** 実装の背後にあるデータに直接アクセスできます。 この規則により、慣例的に大文字で始まるメタデータの名前との競合も回避されます。
 - コード生成の向上: コード サイズの削減、インライン化の向上、ファクトリ キャッシュの最適化に関するさまざまな改善。
 - 不要な再帰を削除しました。 コマンド ラインで特定の `.winmd` ではなくフォルダーを参照するとき、`cppwinrt.exe` ツールで `.winmd` ファイルが再帰的に検索されなくなります。 `cppwinrt.exe` ツールでは重複の処理もいっそうインテリジェントになり、ユーザー エラーや不適切な形式の `.winmd` ファイルに対する回復性が向上しています。
 - 強化されたスマート ポインター。 以前は、新しい値を移動割り当てすると、イベント リボーカーは失効に失敗しました。 これは、スマート ポインター クラスが自己割り当てを確実に処理しない問題を発見するのに役立ちました。原因は [ **winrt::com_ptr 構造体テンプレート**](/uwp/cpp-ref-for-winrt/com-ptr)でした。 **winrt::com_ptr** を修正しました。また、イベント リボーカーが移動セマンティクスを正しく処理するように修正され、割り当て時に失効するようになりました。

@@ -11,12 +11,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 662f23c5ab201a44669b2e4e4a454aa73ebd3b43
-ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
+ms.openlocfilehash: 31b4a02f3307909f325b71cdc0540d44054adf4c
+ms.sourcegitcommit: 05be6929cd380a9dd241cc1298fd53f11c93d774
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71340203"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73061978"
 ---
 # <a name="resourcedictionary-and-xaml-resource-references"></a>ResourceDictionary と XAML リソースの参照
 
@@ -77,7 +77,7 @@ XAML リソースは、マークアップから 2 回以上参照されるオブ
 </Page>
 ```
 
-すべてのリソースにはキーが必要です。 通常、そのキーは `x:Key=”myString”` を使って定義された文字列です。 ただし、キーを指定する方法は他にもいくつかあります。
+すべてのリソースにはキーが必要です。 通常、そのキーは `x:Key="myString"` を使って定義された文字列です。 ただし、キーを指定する方法は他にもいくつかあります。
 
 -   [Style](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Style) と [ControlTemplate](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ControlTemplate) には **TargetType** が必要であり、[x:Key](https://docs.microsoft.com/windows/uwp/xaml-platform/x-key-attribute) が指定されていない場合は **TargetType** をキーとして使います。 この場合、キーは文字列ではなく実際の Type オブジェクトです (以下の例をご覧ください)。
 -   [x:Key](https://docs.microsoft.com/windows/uwp/xaml-platform/x-key-attribute) が指定されていない場合、**TargetType** を持つ [DataTemplate](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.DataTemplate) リソースはキーとして **TargetType** を使います。 この場合、キーは文字列ではなく実際の Type オブジェクトです

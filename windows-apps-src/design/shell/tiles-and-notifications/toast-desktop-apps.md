@@ -7,12 +7,12 @@ ms.date: 05/01/2018
 ms.topic: article
 keywords: windows 10, uwp, win32, デスクトップ, トースト通知, デスクトップ ブリッジ, トーストの送信のオプション, com サーバー, com アクティベーター, com, 偽の com, com なし, com なし, トーストの送信
 ms.localizationpriority: medium
-ms.openlocfilehash: 030f8b1380dc28a41e65989ccbda688523fad965
-ms.sourcegitcommit: bac5574a1f47a5b38c984a5482272c9e49a9c91e
+ms.openlocfilehash: 31501d2dc3ac255897e374ca81b05558be7bc2fc
+ms.sourcegitcommit: 545d5d864d89650a00a496ac4e52def9a13b14cd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71100818"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73560655"
 ---
 # <a name="toast-notifications-from-desktop-apps"></a>デスクトップ アプリからのトースト通知
 
@@ -28,7 +28,7 @@ ms.locfileid: "71100818"
 
 次の表は、デスクトップ アプリ内のトーストをサポートするためのオプション、および対応するサポートされる機能を示しています。 この表を使用してシナリオに最適なオプションを選択します。<br/><br/>
 
-| OPTION | ビジュアル オブジェクト | Actions | 入力 | プロセス内でのアクティブ化 |
+| オプション | ビジュアル オブジェクト | Actions | 入力 | プロセス内でのアクティブ化 |
 | -- | -- | -- | -- | -- |
 | [COM アクティベーター](#preferred-option---com-activator) | ✔️ | ✔️ | ✔️ | ✔️ |
 | [COM/スタブ CLSID がありません](#alternative-option---no-com--stub-clsid) | ✔️ | ✔️ | ❌ | ❌ |
@@ -79,8 +79,8 @@ COM アクティベーター オプションでは、アプリで次の通知テ
 従来の Win32 アプリでは、トースト通知を送信し、ショートカットで CLSID を指定できるように AUMID を設定します。 ランダムな GUID を指定できます。 COM サーバー/アクティベーターを追加しないでください。 "stub" COM CLSID を追加することで、アクション センターで通知が保持されます。 スタブ CLSID は他のトーストのアクティブ化を中断するため、プロトコルのアクティブ化のトーストのみを使用できる点に注意してください。 そのため、プロトコルのアクティブ化をサポートするようにアプリを更新し、トースト プロトコルで各自のアプリをアクティブ化する必要があります。
 
 
-## <a name="resources"></a>リソース
+## <a name="resources"></a>参考資料
 
-* [Destkop C#アプリからローカルトースト通知を送信する](send-local-toast-desktop.md)
-* [Destkop C++ wrl アプリからローカルトースト通知を送信する](send-local-toast-desktop-cpp-wrl.md)
+* [デスクトップC#アプリからローカルのトースト通知を送信する](send-local-toast-desktop.md)
+* [デスクトップC++ wrl アプリからローカルトースト通知を送信する](send-local-toast-desktop-cpp-wrl.md)
 * [トーストコンテンツのドキュメント](adaptive-interactive-toasts.md)
