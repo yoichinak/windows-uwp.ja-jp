@@ -26,7 +26,7 @@ ms.locfileid: "71340084"
 *パネル*は、Extensible Application Markup Language (XAML) レイアウト システムが実行されて、アプリの UI が表示されるときに、含まれている子要素のレイアウト動作を提供するオブジェクトです。 
 
 
-> **重要な API**:[**Panel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Panel)、[**ArrangeOverride**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.arrangeoverride)]、[ [**MeasureOverride**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.measureoverride) ]
+> **重要な API**:[**Panel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Panel)、[並べ替え[**eoverride**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.arrangeoverride)]、[ [**measureoverride**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.measureoverride) ]
 
 [**Panel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Panel) クラスからカスタム クラスを派生させて、XAML レイアウトのカスタム パネルを定義できます。 パネルの動作は、[**MeasureOverride**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.measureoverride) と [**ArrangeOverride**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.arrangeoverride) をオーバーライドすることで子要素を評価して配置するロジックを提供して実行します。
 
@@ -56,7 +56,7 @@ ms.locfileid: "71340084"
 </local:CustomPanel>
 ```
 
-XAML パーサーがこのマークアップを読み取るときに、[**Children**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.panel.children) は、すべての [**Panel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Panel) 派生型の XAML コンテンツ プロパティであると認識されるため、パーサーは、**Children** プロパティの [**UIElementCollection**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.UIElementCollection) 値に 2 つの [**Button**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Button) 要素を追加します。 XAML コンテンツ プロパティにより、UI 定義の XAML マークアップで親子関係を効率化しやすくなります。 XAML コンテンツ プロパティの詳細と、XAML の解析時のコレクション プロパティの設定方法については、「[基本的な XAML 構文のガイド](https://docs.microsoft.com/windows/uwp/xaml-platform/xaml-syntax-guide)」を参照してください。
+XAML パーサーがこのマークアップを読み取るときに、[**Children**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.panel.children) は、すべての [**Panel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Panel) 派生型の XAML コンテンツ プロパティであると認識されるため、パーサーは、[**Children** プロパティの [**UIElementCollection**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.UIElementCollection) 値に 2 つの **Button**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Button) 要素を追加します。 XAML コンテンツ プロパティにより、UI 定義の XAML マークアップで親子関係を効率化しやすくなります。 XAML コンテンツ プロパティの詳細と、XAML の解析時のコレクション プロパティの設定方法については、「[基本的な XAML 構文のガイド](https://docs.microsoft.com/windows/uwp/xaml-platform/xaml-syntax-guide)」を参照してください。
 
 [**Children**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.panel.children) プロパティの値を維持しているコレクション型は [**UIElementCollection**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.UIElementCollection) クラスです。 **UIElementCollection** は、適用された項目の型として [**UIElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement) を使う、厳密に型指定されたコレクションです。 **UIElement** は、多くの実用的な UI 要素型によって継承されている基本型であるため、ここでは、型が意図的に緩やかに適用されています。 ただし、[**Brush**](/uwp/api/Windows.UI.Xaml.Media.Brush) が [**Panel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Panel) の直接の子になることができない点は適用されます。これは一般に、UI に表示され、レイアウトに含まれると予想されている要素のみが、**Panel** の子要素となることを意味します。
 
@@ -84,13 +84,13 @@ XAML パーサーがこのマークアップを読み取るときに、[**Childr
 レイアウト システムが機能するための要件の大部分は、[**FrameworkElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.FrameworkElement) に基づく要素のいずれかに、コンテナーで子として機能するときの固有の動作の一部が既に含まれることです。 たとえば、**FrameworkElement** のいくつかの API は、レイアウト動作を通知する API であるか、またはレイアウトが機能するための必須 API です。 これには次が含まれます。
 
 -   [**System.windows.uielement.desiredsize**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.desiredsize) (実際には[**UIElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement)プロパティ)
--   [**ActualHeight**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.actualheight)と[ **ActualWidth**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.actualwidth)
--   [**Height**](/uwp/api/Windows.UI.Xaml.FrameworkElement.Height)と[**Width**](/uwp/api/Windows.UI.Xaml.FrameworkElement.Width)
--   [**Margin**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.margin)
--   [**LayoutUpdated**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.layoutupdated)イベント
--   [**HorizontalAlignment**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.horizontalalignment)と[**VerticalAlignment**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.verticalalignment)
--   [**ArrangeOverride**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.arrangeoverride)メソッドと[**MeasureOverride**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.measureoverride)メソッド
--   [**Arrange**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.arrange)および[**Measure**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.measure)メソッド: これらには、要素レベルのレイアウトアクションを処理する[**FrameworkElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.FrameworkElement)レベルで定義されたネイティブ実装があります。
+-   [**Actualheight**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.actualheight)と[ **actualheight**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.actualwidth)
+-   [**高さ**](/uwp/api/Windows.UI.Xaml.FrameworkElement.Height)と[**幅**](/uwp/api/Windows.UI.Xaml.FrameworkElement.Width)
+-   [**余白**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.margin)
+-   [**Layoutupdated**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.layoutupdated)イベント
+-   [**水平**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.horizontalalignment)方向の配置と垂直方向の[**配置**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.verticalalignment)
+-   並べ替え[**eoverride**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.arrangeoverride)メソッドと[**measureoverride**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.measureoverride)メソッド
+-   [**配置**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.arrange)および[**測定**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.measure)メソッド: これらには、要素レベルのレイアウトアクションを処理する[**FrameworkElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.FrameworkElement)レベルで定義されたネイティブ実装があります。
 
 ## <a name="measureoverride"></a>**System.windows.frameworkelement.measureoverride**
 
@@ -119,7 +119,7 @@ protected override Size MeasureOverride(Size availableSize)
 
 要素は、多くの場合、レイアウトの準備ができた時点で自然なサイズになっています。 [**Measure**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.measure) について渡した *availableSize* が小さい場合は、測定パスの後に、[**DesiredSize**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.desiredsize) が自然なサイズを示す場合もあります。 自然なサイズが、**Measure** について渡した *availableSize* よりも大きい場合は、**DesiredSize** が *availableSize* に制限されます。 これは、**Measure** の内部実装の動作であり、レイアウトのオーバーライドは、この動作を考慮する必要があります。
 
-自然なサイズのない要素もあります。このような要素には、[**Height**](/uwp/api/Windows.UI.Xaml.FrameworkElement.Height) と [**Width**](/uwp/api/Windows.UI.Xaml.FrameworkElement.Width) の **Auto** 値があるためです。 これらの要素は、**Auto** 値が表すとおり、完全な *availableSize* を使用します。つまり、要素を使用可能な最大サイズに調整します。直接のレイアウトの親は、[**Measure**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.measure) と共に *availableSize* を呼び出して、このサイズを伝えます。 実際には、UI のサイズが設定されている測定値が常にあります (これが最上位レベルのウィンドウであっても)。最終的には、メジャーパスはすべての**Auto**値を親制約に解決し、すべての**Auto**値要素は実際の測定値を取得します (レイアウトが完了した後で、 [**ActualWidth**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.actualwidth)と[**ActualHeight**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.actualheight)をチェックすることによって取得できます)。
+自然なサイズのない要素もあります。このような要素には、[**Height**](/uwp/api/Windows.UI.Xaml.FrameworkElement.Height) と [**Width**](/uwp/api/Windows.UI.Xaml.FrameworkElement.Width) の **Auto** 値があるためです。 これらの要素は、**Auto** 値が表すとおり、完全な *availableSize* を使用します。つまり、要素を使用可能な最大サイズに調整します。直接のレイアウトの親は、[**Measure**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.measure) と共に *availableSize* を呼び出して、このサイズを伝えます。 実際には、UI のサイズが設定されている測定値が常にあります (これが最上位レベルのウィンドウであっても)。最終的には、メジャーパスはすべての**自動**値を親制約に解決し、すべての**自動**値要素は実際の測定値を取得します (レイアウトが完了した後で、 [**actualwidth**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.actualwidth)と[**actualwidth**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.actualheight)をチェックすることによって取得できます)。
 
 少なくとも 1 つの無限サイズを含む [**Measure**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.measure) にサイズを渡すこともできます。これは、パネルがそれ自体のサイズを、コンテンツの測定値に収まるように調整できることを示します。 測定される各子要素の [**DesiredSize**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.desiredsize) 値が、その要素の自然なサイズを使用して設定されます。 配置パスでは、通常、そのサイズを使用してパネルが配置されます。
 
@@ -167,7 +167,7 @@ protected override Size ArrangeOverride(Size finalSize)
 
 [**Arrange**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.arrange) の入力は、[**Rect**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Rect) 値を受け取ります。 この **Rect** を作成する一般的な方法は、[**Point**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Point) の入力と [**Size**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Size) の入力を持つコンストラクターを使うことです。 **Point** は、要素の境界ボックスの左上隅を配置するポイントです。 **Size** は、この特定の要素を表示するために使われるサイズです。 多くの場合、この要素の [**DesiredSize**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.desiredsize) を、この **Size** 値として使います。これは、レイアウトに関与したすべての要素の **DesiredSize** を確立することが、レイアウトの測定パスの目的であったためです。 (測定パスは、反復される方法で要素のサイズ設定全体を決定します。このため、配置パスに到達した後は、レイアウト システムが要素の配置を最適化できます)。
 
-通常、各 [**ArrangeOverride**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.arrangeoverride) 実装で異なっているのは、それぞれの子の配置方法の [**Point**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Point) コンポーネントをパネルが決定するためのロジックです。 [**Canvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Canvas) などの絶対配置のパネルでは、[**Canvas.Left**](https://docs.microsoft.com/dotnet/api/system.windows.controls.canvas.left) 値と [**Canvas.Top**](https://docs.microsoft.com/dotnet/api/system.windows.controls.canvas.top) 値を介して各要素から取得する明示的な配置情報を使用します。 [  **Grid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid) などのスペース分割のパネルには、使用可能なスペースをセルに分割する数学演算があり、各セルには、そのコンテンツが配置され、位置調整される場所に関する x-y 値があります。 [**StackPanel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.StackPanel) などのアダプティブ パネルでは、コンテンツの向きとサイズに合わせてパネル自体を拡大する場合があります。
+通常、各 [**ArrangeOverride**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.arrangeoverride) 実装で異なっているのは、それぞれの子の配置方法の [**Point**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Point) コンポーネントをパネルが決定するためのロジックです。 [**Canvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Canvas) などの絶対配置のパネルでは、[**Canvas.Left**](https://docs.microsoft.com/dotnet/api/system.windows.controls.canvas.left) 値と [**Canvas.Top**](https://docs.microsoft.com/dotnet/api/system.windows.controls.canvas.top) 値を介して各要素から取得する明示的な配置情報を使用します。 [**Grid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid) などのスペース分割のパネルには、使用可能なスペースをセルに分割する数学演算があり、各セルには、そのコンテンツが配置され、位置調整される場所に関する x-y 値があります。 [**StackPanel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.StackPanel) などのアダプティブ パネルでは、コンテンツの向きとサイズに合わせてパネル自体を拡大する場合があります。
 
 直接制御して [**Arrange**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.arrange) に渡すもの以外にも、レイアウトの要素の位置に影響するものがあります。 これらは、すべての [**FrameworkElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.FrameworkElement) 派生型に一般的な **Arrange** の内部ネイティブ実装によるもので、この実装は、テキスト要素などのあるその他の型によって拡張されます。 たとえば、要素には余白と配置を含めることができ、一部の要素には、パディングを含めることができます。 これらのプロパティは、多くの場合、相互に作用します。 詳しくは、「[配置、余白、およびパディング](alignment-margin-padding.md)」をご覧ください。
 
@@ -187,15 +187,15 @@ protected override Size ArrangeOverride(Size finalSize)
 
 -   [**System.windows.uielement.updatelayout**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.updatelayout)、 [**InvalidateMeasure**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.invalidatemeasure)、および[**InvalidateArrange**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.invalidatearrange)は、レイアウトパスを開始するメソッドです。 **InvalidateArrange** は、測定パスをトリガーしない場合もありますが、他の 2 つは測定パスをトリガーします。 これらのメソッドは、レイアウト メソッド オーバーライドで呼び出さないでください。呼び出すと、ほとんどの場合、レイアウトのループが発生します。 通常、制御コードも、これらを呼び出す必要はありません。 レイアウトのほとんどの機能は、[**Width**](/uwp/api/Windows.UI.Xaml.FrameworkElement.Width) などのフレームワーク定義のレイアウト プロパティへの変更を検出することによって自動的にトリガーされます。
 -   [**Layoutupdated**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.layoutupdated)は、要素のレイアウトの一部が変更されたときに発生するイベントです。 これは、パネルに固有のイベントではなく、[**FrameworkElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.FrameworkElement) で定義されています。
--   [**Sizechanged**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.sizechanged)は、レイアウトパスの完了後にのみ発生するイベントであり、 [**ActualHeight**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.actualheight)または[**ActualWidth**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.actualwidth)が結果として変更されたことを示します。 これは、もう 1 つの [**FrameworkElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.FrameworkElement) イベントです。 [**LayoutUpdated**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.layoutupdated) は発生するが、**SizeChanged** は発生しない場合があります。 たとえば、内部コンテンツが再配置されたが、要素のサイズは変更されなかった場合です。
+-   [**Sizechanged**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.sizechanged)は、レイアウトパスの完了後にのみ発生するイベントであり、 [**Actualheight**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.actualheight)または[**actualheight**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.actualwidth)が結果として変更されたことを示します。 これは、もう 1 つの [**FrameworkElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.FrameworkElement) イベントです。 [**LayoutUpdated**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.layoutupdated) は発生するが、**SizeChanged** は発生しない場合があります。 たとえば、内部コンテンツが再配置されたが、要素のサイズは変更されなかった場合です。
 
 
 ## <a name="related-topics"></a>関連トピック
 
 **リファレンス**
 * [**FrameworkElement.ArrangeOverride**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.arrangeoverride)
-* [**FrameworkElement.MeasureOverride**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.measureoverride)
-* [**Panel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Panel)
+* [**FrameworkElement. MeasureOverride**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.measureoverride)
+* [**パネル**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Panel)
 
 **概念**
 * [配置、余白、および余白](alignment-margin-padding.md)

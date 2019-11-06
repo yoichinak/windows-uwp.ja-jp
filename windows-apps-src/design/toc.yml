@@ -114,6 +114,8 @@
           items:
             - name: 項目コンテナーやテンプレート
               href: controls-and-patterns/item-containers-templates.md
+            - name: データ テンプレートの選択
+              href: controls-and-patterns/data-template-selector.md
             - name: リスト ビューの項目テンプレート
               href: controls-and-patterns/item-templates-listview.md
             - name: グリッド ビューの項目テンプレート
