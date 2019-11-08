@@ -5,12 +5,12 @@ keywords: XAML, UWP, 概要
 ms.date: 08/31/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 804f1994e187d3b09ed4dcb2186105cf615f5de0
-ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
+ms.openlocfilehash: f2c63c90170a633ae718db618c502efa41fb3f7d
+ms.sourcegitcommit: 807dadf5eceb576aba3ad898a6e9bf12129e94a4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67820499"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680765"
 ---
 # <a name="tutorial-create-custom-styles"></a>チュートリアル: カスタム スタイルを作成する
 
@@ -36,10 +36,7 @@ PhotoLab アプリには、2 つのプライマリ ページがあります。
 
 チュートリアルの最初のパートでは、写真編集コントロールを装飾してみましょう。 
 
-<figure>
-    <img src="../basics/images/xaml-basics/slider-start.png" />
-    <figure>*既定のスタイルによるシンプルなスライダー。*</figure>
-</figure>
+![既定のスタイルによるシンプルなスライダー。](../basics/images/xaml-basics/slider-start.png)
 
 これらのスライダーに問題はなく、スライダーに必要な機能をすべて備えています。ただ、今ひとつ装飾性に欠けます。 これを解決してみましょう。 
 
@@ -748,8 +745,7 @@ XAML スタイルの利点の 1 つは、記述するコードの量を劇的に
             Grid.Row="2" Background="Transparent" Foreground="Transparent"
             Value="{x:Bind item.Exposure, Mode=TwoWay}"
             Minimum="-2"
-            Maximum="2"
-            Template="{StaticResource FancySliderControlTemplate}"/>    
+            Maximum="2" />    
     ```
     
     **変更後**

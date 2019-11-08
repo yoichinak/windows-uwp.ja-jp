@@ -9,12 +9,12 @@ metadata:
   ms.author: tedhudek
   ms.topic: hub-page
   uhfHeaderId: MSDocsHeader-DocsL1
-  ms.openlocfilehash: 0cdab14a7301cdb20ca6986854523c5b6e834b21
-  ms.sourcegitcommit: bac5574a1f47a5b38c984a5482272c9e49a9c91e
+  ms.openlocfilehash: 50a82a07d74e44746858e0800e2ff2007b5385e8
+  ms.sourcegitcommit: 860e8303da3e36624f603ce3273d68911c696e5d
   ms.translationtype: HT
   ms.contentlocale: ja-JP
-  ms.lasthandoff: 09/18/2019
-  ms.locfileid: "71100827"
+  ms.lasthandoff: 10/22/2019
+  ms.locfileid: "72777256"
 highlightedContent:
   items:
   - title: Visual Studio と Windows SDK を入手する
@@ -38,10 +38,10 @@ additionalContent:
         url: https://docs.microsoft.com/windows/apps
       - text: Windows 10 機能をアプリに追加する
         url: https://docs.microsoft.com/windows/apps/desktop/modernize/
-      - text: Windows での Python を使用した開発
-        url: https://docs.microsoft.com/windows/python/index
-      - text: Windows Subsystem for Linux のセットアップ
-        url: https://docs.microsoft.com/windows/wsl/about
+      - text: デスクトップ アプリの構築
+        url: https://docs.microsoft.com/windows/apps/desktop/
+      - text: Python、Node.js、および Windows Subsystem for Linux を使った開発
+        url: https://docs.microsoft.com/windows/dev-environment/
       - text: コード サンプルを探す
         url: https://developer.microsoft.com/windows/samples
     - title: ハードウェア デベロッパー

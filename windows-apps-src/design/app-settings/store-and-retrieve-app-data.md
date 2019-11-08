@@ -6,20 +6,20 @@ label: App settings and data
 template: detail.hbs
 ms.date: 11/14/2017
 ms.topic: article
-keywords: windows 10, uwp
+keywords: Windows 10, UWP
 ms.localizationpriority: medium
-ms.openlocfilehash: 3958d69dc3142702eb2d2a41d6dba5ebeb9fa8ce
-ms.sourcegitcommit: 2fa2d2236870eaabc95941a95fd4e358d3668c0c
+ms.openlocfilehash: 0eb7ef49d0ce1876635dc36e84f43432c13e1791
+ms.sourcegitcommit: f561efbda5c1d47b85601d91d70d86c5332bbf8c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70076379"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72690366"
 ---
 # <a name="store-and-retrieve-settings-and-other-app-data"></a>設定と他のアプリ データを保存して取得する
 
 *アプリデータ*は、特定のアプリによって作成および管理される変更可能なデータです。 これには、ランタイム状態、アプリケーション設定、ユーザー設定、参照コンテンツ (辞書アプリの辞書定義など)、およびその他の設定が含まれます。 アプリ データは*ユーザー データ*とは異なり、アプリを使用しているときに、ユーザーが作成、管理するデータです。 ユーザー データには、ドキュメント ファイル、メディア ファイル、メール トランスクリプト、通信トランスクリプト、ユーザーが作成したコンテンツを保持するデータベース レコードなどがあります。 ユーザー データは複数のアプリで有効な場合があります。 多くの場合、ユーザー データは、ユーザーがアプリ自体とは無関係にエンティティとして操作または転送するデータ (ドキュメントなど) です。
 
-**アプリデータに関する重要な注意事項:** アプリ データの有効期間はアプリの有効期間に依存します。 アプリが削除されると、すべてのアプリ データが失われます。 ユーザー データや、ユーザーにとって欠かすことができない重要なデータの保存には、アプリ データを使用しないでください。 そのような情報の保存には、ユーザーのライブラリや Microsoft OneDrive を使用することをお勧めします。 アプリ データは、アプリ固有のユーザー設定、設定、お気に入りを保存するのに適しています。
+**アプリ データに関する重要な注意:** アプリ データの有効期間は、アプリの有効期間に依存します。 アプリが削除されると、すべてのアプリ データが失われます。 ユーザー データや、ユーザーにとって欠かすことができない重要なデータの保存には、アプリ データを使用しないでください。 そのような情報の保存には、ユーザーのライブラリや Microsoft OneDrive を使用することをお勧めします。 アプリ データは、アプリ固有のユーザー設定、設定、お気に入りを保存するのに適しています。
 
 ## <a name="types-of-app-data"></a>アプリ データの種類
 
@@ -32,11 +32,12 @@ ms.locfileid: "70076379"
 アプリの設定に使用できるデータ型を次に示します。
 
 - **UInt8**、**Int16**、**UInt16**、**Int32**、**UInt32**、**Int64**、**UInt64**、**Single**、**Double**
-- **ブール値**
+- **演算**
 - **Char16**、**String**
-- [**DateTime**](https://docs.microsoft.com/uwp/api/Windows.Foundation.DateTime)、 [ **TimeSpan**](https://docs.microsoft.com/uwp/api/Windows.Foundation.TimeSpan)
+- [**DateTime**](/uwp/api/Windows.Foundation.DateTime)、 [ **TimeSpan**](/uwp/api/Windows.Foundation.TimeSpan)
+    - /.NET C#の場合は、[**次の**](/dotnet/api/system.datetimeoffset?view=dotnet-uwp-10.0)ように使用します。 [**system.string, system.string**](/dotnet/api/system.timespan?view=dotnet-uwp-10.0) , system.string
 - **GUID**、[**Point**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Point)、[**Size**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Size)、[**Rect**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Rect)
-- [**ApplicationDataCompositeValue**](https://docs.microsoft.com/uwp/api/Windows.Storage.ApplicationDataCompositeValue):アトミックにシリアル化および逆シリアル化する必要がある関連するアプリ設定のセット。 コンポジット設定を使うと、相互に依存する設定のアトミックな更新が簡単になります。 同時アクセスとローミング時は、システムによってコンポジット設定の整合性が保たれます。 コンポジット設定は少量のデータに適しており、大きなデータ セットに使うとパフォーマンスが低下する場合があります。
+- [**ApplicationDataCompositeValue**](/uwp/api/Windows.Storage.ApplicationDataCompositeValue): アトミックにシリアル化および逆シリアル化する必要がある関連するアプリ設定のセット。 コンポジット設定を使うと、相互に依存する設定のアトミックな更新が簡単になります。 同時アクセスとローミング時は、システムによってコンポジット設定の整合性が保たれます。 コンポジット設定は少量のデータに適しており、大きなデータ セットに使うとパフォーマンスが低下する場合があります。
 
 ### <a name="files"></a>ファイル
 
@@ -188,7 +189,7 @@ async void ReadTimestamp()
 
 リソースの不適切な使用を防止するために、システムにはさまざまな保護メカニズムが備わっています。 アプリ データが想定どおりに移行されない場合は、デバイスが一時的に制限されていることが考えられます。 通常、この状況はしばらくすると自動的に解決されるため、操作は必要ありません。
 
-### <a name="versioning"></a>バージョン管理
+### <a name="versioning"></a>バージョン
 
 アプリ データは、バージョンに基づいてデータ構造をアップグレードできます。 バージョン番号は、アプリのバージョンとは別の番号で、自由に設定することができます。 強制ではありませんが、バージョン番号は新しいデータほど大きくすることを強くお勧めします。新しいデータを表すバージョン番号が小さくなると、データ損失などの望ましくない問題が発生する可能性があります。
 

@@ -5,12 +5,12 @@ template: detail.hbs
 ms.date: 11/03/2017
 ms.topic: article
 keywords: Windows 10, UWP, Fluent
-ms.openlocfilehash: f1cc576bbc7fe7fc326d86072e22b7a385cfeb8b
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: edd9f5e56f78a4fef34f5ddff85f64ada73dc68a
+ms.sourcegitcommit: 445320ff0ee7323d823194d4ec9cfa6e710ed85d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63794486"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72282299"
 ---
 # <a name="item-templates-for-grid-view"></a>グリッド ビューの項目テンプレート
 

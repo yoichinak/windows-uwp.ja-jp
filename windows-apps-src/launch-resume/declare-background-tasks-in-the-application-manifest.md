@@ -4,14 +4,14 @@ description: アプリ マニフェストでバックグラウンド タスク�
 ms.assetid: 6B4DD3F8-3C24-4692-9084-40999A37A200
 ms.date: 02/08/2017
 ms.topic: article
-keywords: windows 10、uwp、バック グラウンド タスク
+keywords: windows 10、uwp、バックグラウンドタスク
 ms.localizationpriority: medium
-ms.openlocfilehash: 471c2851f72027c364fdd0c9c295c8c9babe17c5
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: cf114ed3d2ffce95f9e9aba6ceb222029d23819c
+ms.sourcegitcommit: 5dfa98a80eee41d97880dba712673168070c4ec8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66366180"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73052027"
 ---
 # <a name="declare-background-tasks-in-the-application-manifest"></a>アプリケーション マニフェストでのバックグラウンド タスクの宣言
 
@@ -21,7 +21,7 @@ ms.locfileid: "66366180"
 **重要な API**
 
 -   [**BackgroundTasks スキーマ**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.IBackgroundTask)
--   [**Windows.ApplicationModel.Background**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background)
+-   [**Windows. ApplicationModel. Background**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background)
 
 アプリ マニフェストでバックグラウンド タスクを拡張機能として宣言し、バックグラウンド タスクを使うことができるようにします。
 
@@ -90,7 +90,7 @@ ms.locfileid: "66366180"
 
 2.  Task Type 属性のリストを、このバックグラウンド タスクで使われるタスク登録の種類を示すように変更します。 バックグラウンド タスクを複数の種類のトリガーで登録する場合は、必要な Task 要素と Type 属性を個々に追加します。
 
-    **注**  トリガーの種類の各ボックスの一覧を使用している、またはバック グラウンド タスクが宣言されていないトリガーの種類を登録できないかどうかを確認 (、 [**登録**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundtaskbuilder.register)メソッドには失敗、例外をスロー)。
+    **メモ**  使用している各トリガーの種類が一覧表示されていること、またはバックグラウンドタスクが宣言されていないトリガーの型に登録されていないことを確認してください ( [**register**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundtaskbuilder.register)メソッドは失敗し、例外をスローします)。
 
     次の抜粋例は、システム イベント トリガーとプッシュ通知の使用法を示します。
 
@@ -209,7 +209,7 @@ BackgroundTaskHost.exe プロセスで実行されるが、同じアプリのバ
 
 ### <a name="run-in-a-new-process-each-time-a-trigger-fires-with-the-supportsmultipleinstances-attribute"></a>SupportsMultipleInstances 属性を使用して、トリガーが発生するたびに新しいプロセスで実行
 
-この例では、新しいトリガーが発生するたびに独自のリソース制限 (メモリと CPU) を持つ新しいプロセスで実行される、バックグラウンド タスクを宣言します。 `SupportsMultipleInstances` を使っていることに注目してください。この属性がこの動作を実現します。 この属性を使用するには、SDK バージョン '10.0.15063 追加されたため' (Windows 10 Creators Update) をターゲットする必要がありますまたはそれ以降。
+この例では、新しいトリガーが発生するたびに独自のリソース制限 (メモリと CPU) を持つ新しいプロセスで実行される、バックグラウンド タスクを宣言します。 `SupportsMultipleInstances` を使っていることに注目してください。この属性がこの動作を実現します。 この属性を使用するには、SDK バージョン ' 10.0.15063 ' (Windows 10 作成者の更新プログラム) 以降をターゲットにする必要があります。
 
 ```xml
 <Package
@@ -220,7 +220,7 @@ BackgroundTaskHost.exe プロセスで実行されるが、同じアプリのバ
             ...
             <Extensions>
                 <Extension Category="windows.backgroundTasks" EntryPoint="BackgroundTasks.TimerTriggerTask">
-                    <BackgroundTasks uap4:SupportsMultipleInstances=“True”>
+                    <BackgroundTasks uap4:SupportsMultipleInstances="True">
                         <Task Type="timer" />
                     </BackgroundTasks>
                 </Extension>

@@ -5,24 +5,22 @@ author: mattwojo
 ms.author: mattwoj
 manager: jken
 ms.topic: article
-ms.prod: dev-environment
-ms.technology: windows-python
+ms.technology: windows-nodejs
 keywords: Mac から Windows、ショートカットキーのマッピング、Unix から Windows への移行、Mac から Windows への移行、Macintosh ユーザー用の Windows の使用、開発環境の変更、Windows への Mac OS X、ヘルプを参照してください。Mac から PC への移行
 ms.localizationpriority: medium
 ms.date: 09/19/2019
-ms.openlocfilehash: 486742768bddff077c0f1b0e73e2f431ffdf1bba
-ms.sourcegitcommit: 7104ad5d01ad1c69a4ea0b3ba6732c1b2a98ec09
+ms.openlocfilehash: f72e688417726d3c3193d831dc886f6a33ec98f8
+ms.sourcegitcommit: 13faf9dab9946295986f8edd79b5fae0db4ed0f6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71251139"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72315326"
 ---
 # <a name="guide-for-changing-your-dev-environment-from-mac-to-windows"></a>開発環境を Mac から Windows に変更するためのガイド
 
 次のヒントと制御に相当するものが、Mac と Windows (または WSL/Linux) 開発環境の移行に役立ちます。
 
 アプリの開発では、Xcode と最も近いものが[Visual Studio](https://visualstudio.microsoft.com)になります。 また、前に戻る必要があると思われる場合は、 [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/)のバージョンもあります。 クロスプラットフォームのソースコード編集 (および多数のプラグイン) の場合[Visual Studio Code](https://code.visualstudio.com/?wt.mc_id=DX_841432)は最も一般的な選択肢です。
-
 
 ## <a name="keyboard-shortcuts"></a>キーボード ショートカット
 
@@ -40,7 +38,7 @@ ms.locfileid: "71251139"
 | 検索 | コマンド + スペース | Windows キー |
 | アクティブウィンドウを閉じる | コマンド + W | Ctrl + W |
 | 現在のタスクの切り替え | コマンド + Tab | Alt + Tab |
-| 画面の保存 | コマンド + Shift + 3 | Windows + Shift + S |
+| 画面の保存 (スクリーンショット) | コマンド + Shift + 3 | Windows + Shift + S |
 | ウィンドウの保存 | コマンド + Shift + 4 | Windows + Shift + S |
 | 項目の情報またはプロパティを表示する | コマンド + I | Alt + Enter |
  | すべての項目を選択 | コマンド + A | Ctrl + A |

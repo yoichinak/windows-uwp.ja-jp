@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp, セキュリティ
 ms.localizationpriority: medium
-ms.openlocfilehash: 24ae3fb7442ac955b5edf4127dfdf66176c81a43
-ms.sourcegitcommit: 4ca51472d0474be96fa3184e311b729f58998234
+ms.openlocfilehash: 8248e17a342563a0746e3c54c3a69a52f027d072
+ms.sourcegitcommit: 445320ff0ee7323d823194d4ec9cfa6e710ed85d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67399631"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72282427"
 ---
 # <a name="create-a-windows-hello-login-app"></a>Windows Hello ログイン アプリの作成
 
@@ -24,16 +24,16 @@ ms.locfileid: "67399631"
 ## <a name="get-started"></a>作業開始
 
 
-このプロジェクトを作成するには、C# と XAML の経験がいくらか必要です。 Visual Studio 2015 を使用する必要もあります (Community Edition 以上)、または Windows 10 コンピューターで、Visual Studio の今後のリリース。 Visual Studio 2015 には、必要な最小のバージョンが、最新の開発者とセキュリティ更新プログラムの最新バージョンの Visual Studio を使用することをお勧めします。
+このプロジェクトを作成するには、C# と XAML の経験がいくらか必要です。 また、Windows 10 コンピューターで Visual Studio 2015 (Community Edition 以上) または Visual Studio の今後のリリースを使用する必要があります。 Visual Studio 2015 は最低限必要なバージョンですが、最新バージョンの Visual Studio を使用して最新の開発者およびセキュリティ更新プログラムを作成することをお勧めします。
 
--   Visual Studio を開き、ファイルを選択 > 新規 > プロジェクト。
+-   Visual Studio を開き、[ファイル > 新しい > プロジェクト] を選択します。
 -   [新しいプロジェクト] ウィンドウが開きます。 [テンプレート]、[Visual C#] の順に移動します。
 -   [空白のアプリ (ユニバーサル Windows)] を選び、アプリケーションに "PassportLogin" という名前を付けます。
 -   新しいアプリケーションをビルドして実行すると (F5)、画面に空白のウィンドウが表示されます。 アプリケーションを閉じます。
 
 ![Windows Hello の新しいプロジェクト](images/passport-login-1.png)
 
-## <a name="exercise-1-login-with-microsoft-passport"></a>手順 1:Microsoft Passport を使用してログイン
+## <a name="exercise-1-login-with-microsoft-passport"></a>演習 1:Microsoft Passport を使用したログイン
 
 
 この演習では、コンピューターで Windows Hello がセットアップされているかどうかを確認する方法と、Windows Hello を使ってアカウントにサインインする方法について説明します。
@@ -490,7 +490,7 @@ ms.locfileid: "67399631"
 
     ![Windows Hello のログイン PIN の入力画面](images/passport-login-8.png)
 
-## <a name="exercise-2-welcome-and-user-selection-pages"></a>手順 2:[ようこそ] ページとユーザーの選択ページ
+## <a name="exercise-2-welcome-and-user-selection-pages"></a>演習 2:[ようこそ] ページと [ユーザーの選択] ページ
 
 
 この演習は、前の演習の続きです。 ユーザーが正常にログインすると、ウェルカム ページに移動し、サインアウトしたり、アカウントを削除したりすることができます。 Windows Hello ではコンピューターごとにキーが作成されるため、そのコンピューターにサインインしたすべてのユーザーが表示されるユーザーの選択画面を作成できます。 その後、ユーザーはいずれかのアカウントを選び、パスワードを再入力しなくてもようこそ画面に直接移動することができます。コンピューターにアクセスするときに既に認証されているためです。
@@ -577,7 +577,7 @@ ms.locfileid: "67399631"
         if (keyOpenResult.Status == KeyCredentialStatus.Success)
         {
             // In the real world you would send key information to server to unregister
-            //e.g. RemovePassportAccountOnServer(account);
+            //for example, RemovePassportAccountOnServer(account);
         }
 
         // Then delete the account from the machines list of Passport Accounts
@@ -815,7 +815,7 @@ ms.locfileid: "67399631"
             // If it does here you would Request a challenge from the Server. The client would sign this challenge and the server
             // would check the signed challenge. If it is correct it would allow the user access to the backend.
             // You would likely make a new method called RequestSignAsync to handle all this
-            // e.g. RequestSignAsync(openKeyResult);
+            // for example, RequestSignAsync(openKeyResult);
             // Refer to the second Microsoft Passport sample for information on how to do this.
 
             // For this sample there is not concept of a server implemented so just return true.
@@ -876,7 +876,7 @@ ms.locfileid: "67399631"
 
     ![Windows Hello のユーザー選択用の一覧](images/passport-login-10.png)
 
-## <a name="exercise-3-registering-a-new-windows-hello-user"></a>手順 3:新しいWindows Helloユーザーを登録する
+## <a name="exercise-3-registering-a-new-windows-hello-user"></a>演習 3:新しいWindows Helloユーザーを登録する
 
 
 この演習では、Windows Hello を使って新しいアカウントを作成する新しいページを作成します。 このページは、Login ページの動作と似ています。 Login ページは、Windows Hello の使用に移行する既存のユーザーのために実装されます。 PassportRegister ページでは、新しいユーザーの Windows Hello の登録が作成されます。

@@ -1,41 +1,41 @@
 ---
-Description: Web アプリ間での最適な互換性のためのエンコード、およびその他の utf-8 文字を使用して、* nix ベースのプラットフォーム (Unix、Linux、およびバリアント) のローカリゼーションのバグを最小限に抑えるし、テストのオーバーヘッドを削減します。
-title: Windows utf-8 コード ページを使用します。
+Description: UTF-8 文字エンコードを使用して、web アプリと他の * nix ベースのプラットフォーム (Unix、Linux、および亜種) 間の最適な互換性を確保し、ローカリゼーションのバグを最小限に抑え、テストのオーバーヘッドを削減します。
+title: Windows UTF-8 コードページを使用する
 template: detail.hbs
 ms.date: 06/12/2019
 ms.topic: article
 keywords: Windows 10, UWP, グローバリゼーション, ローカライズの可否, ローカライズ
 ms.localizationpriority: medium
-ms.openlocfilehash: a9386b31d16796c68d41a27ab48a5b2c9a9a342b
-ms.sourcegitcommit: 734aa941dc675157c07bdeba5059cb76a5626b39
+ms.openlocfilehash: be3aade0289911f878d960fb62bde49b8ef840a8
+ms.sourcegitcommit: 3a06cf3f8bd00e5e6eac3b38ee7e3c7cf4bc5197
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68141806"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72888745"
 ---
 # <a name="use-the-utf-8-code-page"></a>UTF-8 コード ページの使用
 
-使用[utf-8](http://www.utf-8.com/) web アプリおよびその他の間の最適な互換性のためのエンコード文字 * nix ベースのプラットフォーム (Unix、Linux、およびバリアント) のローカリゼーションのバグを最小限に抑えるし、テストのオーバーヘッドを削減します。
+[Utf-8](http://www.utf-8.com/)文字エンコードを使用して、web アプリと他の * nix ベースのプラットフォーム (Unix、Linux、および亜種) 間の最適な互換性を確保し、ローカリゼーションのバグを最小限に抑え、テストのオーバーヘッドを削減します。
 
-Utf-8 では、国際化対応のユニバーサル コード ページは、し、1 ~ 4 バイトの可変幅のエンコーディングを使用してすべての Unicode コード ポイントをサポートします。 Web テクノロジーを広範囲に使用されるの既定値は、* nix ベースのプラットフォームです。
+UTF-8 は国際化用のユニバーサルコードページで、1-6 バイトの可変長エンコーディングを使用するすべての Unicode コードポイントをサポートしています。 これは web で pervasively に使用され、* nix ベースのプラットフォームの既定値です。
 
-## <a name="-a-vs--w-apis"></a>-W Api とは
+## <a name="-a-vs--w-apis"></a>-A vs.-W Api
   
-Win32 Api は、多くの場合- と -W のバリエーションをサポートします。
+Win32 Api は、多くの場合、-A と-W の両方のバリアントをサポートします。
 
-は、バリアントは、システムとサポートで構成されている ANSI コード ページを認識`char*`-w バリアントが utf-16 とサポートで動作中に、`WCHAR`します。
+-バリアントは、システム上で構成された ANSI コードページを認識し、`char*`をサポートします。また、-W バリアントは UTF-16 で動作し、`WCHAR`をサポートします。
 
-最近まで、Windows が強調表示される"Unicode"-w バリアント-a Api 経由します。 ただし、最近のリリースは、ANSI コード ページを使用して、-、utf-8 を導入するための手段として Api アプリをサポートします。 Utf-8 の ANSI コード ページを構成する場合-Api 動作を utf-8 でします。 このモデルでは、-a Api コード変更なしで構築された既存のコードをサポートするという利点があります。
+最近までは、Windows は "Unicode"-W のバリエーションを Api 経由で強調してきました。 ただし、最近のリリースでは、アプリに UTF-8 のサポートを導入する手段として ANSI コードページと-Api が使用されています。 ANSI コードページが UTF-8 用に構成されている場合、Api は UTF-8 で動作します。 このモデルには、コードを変更することなく、-A Api でビルドされた既存のコードをサポートするという利点があります。
 
-## <a name="set-a-process-code-page-to-utf-8"></a>プロセスのコード ページを utf-8 に設定します。
+## <a name="set-a-process-code-page-to-utf-8"></a>プロセスコードページを UTF-8 に設定する
 
-Windows バージョン 1903 (2019 の更新の可能性があります)、使えば ActiveCodePage プロパティ、appxmanifest でパッケージ化されたアプリの場合、またはアプリのパッケージ化されていない場合、fusion マニフェストとしてプロセスのコード ページ utf-8 を使用するプロセスを強制的にできます。
+Windows バージョン 1903 (2019 更新プログラム) では、パッケージアプリの package.appxmanifest の ActiveCodePage プロパティまたはパッケージ化されていないアプリの fusion マニフェストを使用して、プロセスがプロセスコードページとして UTF-8 を使用するように強制することができます。
 
-このプロパティを宣言することができ、ビルドを以前の Windows では、ターゲット/実行が通常どおりレガシ コード ページの検出と変換を処理する必要があります。 Windows バージョン 1903 の最小ターゲット バージョンでは、レガシ コード ページの検出と変換を回避できるように、プロセスのコード ページは utf-8 を必ずします。
+このプロパティを宣言し、以前の Windows ビルドでターゲット/実行できますが、従来のコードページの検出と変換は通常どおりに処理する必要があります。 Windows バージョン1903の最小ターゲットバージョンでは、プロセスコードページは常に UTF-8 になるため、レガシコードページの検出と変換を回避できます。
 
-## <a name="examples"></a>使用例
+## <a name="examples"></a>例
 
-**パッケージ アプリの Appx マニフェスト:**
+**パッケージアプリの Appx マニフェスト:**
 
 ```xaml
 <?xml version="1.0" encoding="utf-8"?>
@@ -56,7 +56,7 @@ Windows バージョン 1903 (2019 の更新の可能性があります)、使�
 </Package>
 ```
 
-**Fusion のマニフェストをパッケージ化されていない Win32 アプリ:**
+**アンパッケージ Win32 アプリの Fusion マニフェスト:**
 
 ``` xaml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -71,18 +71,18 @@ Windows バージョン 1903 (2019 の更新の可能性があります)、使�
 ```
 
 > [!NOTE]
-> 既存の実行可能ファイルを使用してコマンドラインからマニフェストを追加します。 `mt.exe -manifest <MANIFEST> -outputresource:<EXE>;#1`
+> コマンドラインから既存の実行可能ファイルにマニフェストを追加 `mt.exe -manifest <MANIFEST> -outputresource:<EXE>;#1`
 
-## <a name="code-page-conversion"></a>コード ページ変換
+## <a name="code-page-conversion"></a>コードページの変換
 
-Utf-16 でネイティブ Windows よう (`WCHAR`)、Windows Api との相互運用に utf-16 (またはその逆) に、utf-8 データを変換する必要があります。
+Windows が UTF-16 (`WCHAR`) でネイティブに動作するため、Windows Api と相互運用するには、UTF-8 データを UTF-16 (またはその逆) に変換する必要がある場合があります。
 
-[MultiByteToWideChar](https://docs.microsoft.com/windows/desktop/api/stringapiset/nf-stringapiset-multibytetowidechar)と[WideCharToMultiByte](https://docs.microsoft.com/windows/desktop/api/stringapiset/nf-stringapiset-widechartomultibyte) let utf-8 と utf-16 との間で変換する (`WCHAR`) (およびその他のコード ページ)。 これは特に便利です、従来の Win32 API が認識のみ`WCHAR`します。 これらの関数では、utf-8 入力に変換できます。 `WCHAR` 、-w API に渡すと、必要な場合に戻り、結果を変換します。
-これらの関数を使用する場合`CodePage`に設定`CP_UTF8`を使用して、`dwFlags`いずれかの`0`または`MB_ERR_INVALID_CHARS`、それ以外の場合、`ERROR_INVALID_FLAGS`に発生します。
+[MultiByteToWideChar](https://docs.microsoft.com/windows/desktop/api/stringapiset/nf-stringapiset-multibytetowidechar)と[WideCharToMultiByte](https://docs.microsoft.com/windows/desktop/api/stringapiset/nf-stringapiset-widechartomultibyte)を使用すると、utf-8 と utf-16 (`WCHAR`) (およびその他のコードページ) 間で変換を行うことができます。 これは、レガシ Win32 API が `WCHAR`を理解する必要がある場合に特に便利です。 これらの関数を使用すると、UTF-8 入力を `WCHAR` に変換して-W API に渡し、必要に応じて結果を変換できます。
+これらの関数を `CodePage` を `CP_UTF8`に設定して使用する場合は、`0` または `MB_ERR_INVALID_CHARS`の `dwFlags` を使用します。それ以外の場合は、`ERROR_INVALID_FLAGS` が発生します。
 
-注:`CP_ACP`に割り当てられる総合`CP_UTF8`または上記の Windows バージョンの 1903 (2019 の更新の可能性があります) で実行されているし、上記で説明した ActiveCodePage プロパティが utf-8 に設定されている場合のみです。 それ以外の場合、レガシ システムのコード ページが考慮されます。 使用することをお勧めします。`CP_UTF8`明示的にします。
+注: `CP_ACP` は、Windows バージョン 1903 (2019 更新プログラム) 以降で実行されていて、上記の ActiveCodePage プロパティが UTF-8 に設定されている場合にのみ `CP_UTF8` に相当します。 それ以外の場合は、従来のシステムコードページが受け入れられます。 `CP_UTF8` を明示的に使用することをお勧めします。
 
 ## <a name="related-topics"></a>関連トピック
 
-- [コード ページ](https://docs.microsoft.com/windows/desktop/Intl/code-pages)
-- [コード ページの識別子](https://docs.microsoft.com/windows/desktop/Intl/code-page-identifiers)
+- [コードページ](https://docs.microsoft.com/windows/desktop/Intl/code-pages)
+- [コードページ識別子](https://docs.microsoft.com/windows/desktop/Intl/code-page-identifiers)

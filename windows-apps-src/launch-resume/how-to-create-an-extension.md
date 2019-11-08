@@ -5,12 +5,12 @@ keywords: アプリの拡張機能, アプリ サービス, バック グラウ�
 ms.date: 10/05/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: bdd6d3fb875e95f251e02f07e7af563c95a400a6
-ms.sourcegitcommit: 350d6e6ba36800df582f9715c8d21574a952aef1
+ms.openlocfilehash: 1cb5395238ad6813556b7ae254ca4a86bc8f5b28
+ms.sourcegitcommit: 445320ff0ee7323d823194d4ec9cfa6e710ed85d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68682783"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72282394"
 ---
 # <a name="create-and-host-an-app-extension"></a>アプリ拡張機能の作成とホスト
 
@@ -19,7 +19,7 @@ ms.locfileid: "68682783"
 この記事には、コード サンプルが付属しています。
 - [Math Extension コード サンプル](https://github.com/MicrosoftDocs/windows-topic-specific-samples/archive/MathExtensionSample.zip)をダウンロードして解凍します。
 - Visual Studio 2019 で MathExtensionSample を開きます。 ビルドの種類を x86 に設定します (両方のプロジェクトで、 **[ビルド]**  >  **[構成マネージャー]** を選択し、 **[プラットフォーム]** を **[x86]** に変更します)。
-- ソリューションをデプロイします。 ビルド > **配置ソリューション**。
+- ソリューションをデプロイします。**ビルド** > **ソリューションをデプロイ**します。
 
 ## <a name="introduction-to-app-extensions"></a>アプリ拡張機能の概要
 
@@ -74,7 +74,7 @@ _MathExtensionHost プロジェクトの package.appxmanifest_
 
 `xmlns:uap3="http://..."` という記述があり、`IgnorableNamespaces` に `uap3` が指定されています。 これらは、uap3 名前空間を使用するために必要な記述です。
 
-`<uap3:Extension Category="windows.appExtensionHost">`このアプリを拡張ホストとして識別します。
+`<uap3:Extension Category="windows.appExtensionHost">` の場合、このアプリは拡張ホストとして識別されます。
 
 `<uap3:AppExtensionHost>` の **Name** 要素は、_拡張機能コントラクト_名です。 拡張機能が同じ拡張機能コントラクト名を指定していれば、ホストからの検出が可能になります。 慣例として、他の拡張機能コントラクト名との競合を回避するため、アプリ名または発行元の名前を使用して拡張機能コントラクト名を作成するようお勧めします。
 
@@ -116,19 +116,19 @@ _MathExtension プロジェクトの package.appxmanifest:_
 
 ここでも、`xmlns:uap3="http://..."` という記述があり、`IgnorableNamespaces` に `uap3` が指定されています。 これらは、`uap3` 名前空間を使用するために必要な記述です。
 
-`<uap3:Extension Category="windows.appExtension">`このアプリを拡張機能として識別します。
+`<uap3:Extension Category="windows.appExtension">` は、このアプリを拡張機能として識別します。
 
 `<uap3:AppExtension>` 属性の意味は次のとおりです。
 
 |属性|説明|必須|
 |---------|-----------|:------:|
-|**名前**|これは、拡張機能コントラクト名です。 ホストで宣言されている **Name** と一致すれば、ホストがこの拡張機能を検出できます。| :heavy_check_mark: |
+|**Name**|これは、拡張機能コントラクト名です。 ホストで宣言されている **Name** と一致すれば、ホストがこの拡張機能を検出できます。| :heavy_check_mark: |
 |**ID**| このアプリを拡張機能を一意に識別します。 複数の拡張機能で同じ拡張機能コントラクト名が使用されることも考えられるため (たとえば、ペイント アプリでは複数の拡張機能がサポートされています)、ID を使用して区別できます。 アプリ拡張機能のホストは、ID を使用して拡張機能の種類を推測できます。 たとえば、1 つ目の拡張機能がデスクトップ用、2 つ目の拡張機能がモバイル用に設計されている場合に、これらを ID で区別できます。 この目的で **Properties** 要素を使用することもできます (以下をご覧ください)。| :heavy_check_mark: |
 |**DisplayName**| ユーザーが拡張機能を識別できるように、ホスト アプリから使用できます。 照会が可能であり、ローカライズ用に[新しいリソース管理システム](https://docs.microsoft.com/windows/uwp/app-resources/using-mrt-for-converted-desktop-apps-and-games) (`ms-resource:TokenName`) を使用できます。 ローカライズされたコンテンツは、ホスト アプリからではなく、アプリ拡張機能から読み込まれます。 | |
 |**[説明]** | ユーザーに対して拡張機能を説明するために、ホスト アプリから使用できます。 照会が可能であり、ローカライズ用に[新しいリソース管理システム](https://docs.microsoft.com/windows/uwp/app-resources/using-mrt-for-converted-desktop-apps-and-games) (`ms-resource:TokenName`) を使用できます。 ローカライズされたコンテンツは、ホスト アプリからではなく、アプリ拡張機能から読み込まれます。 | |
 |**PublicFolder**|パッケージのルートを基準としたフォルダーの名前です。このフォルダーでは、コンテンツを拡張機能のホストと共有できます。 この名前は、慣例では "Public" ですが、拡張機能内のフォルダーと一致する名前であれば、任意の名前を使用できます。| :heavy_check_mark: |
 
-`<uap3:Properties>`は、ホストが実行時に読み取ることができるカスタムメタデータを含む、省略可能な要素です。 コード サンプルでは拡張機能がアプリ サービスとして実装されるため、ホストでは、そのアプリ サービスを呼び出すことができるように、名前を取得する方法が必要になります。 アプリ サービスの名前は、<Service> 要素で定義されています (任意の名前を定義できます)。 コード サンプルのホストは、実行時にこのプロパティを探して、アプリ サービスの名前を取得します。
+`<uap3:Properties>` は、ホストが実行時に読み取ることができるカスタムメタデータを含む、省略可能な要素です。 コード サンプルでは拡張機能がアプリ サービスとして実装されるため、ホストでは、そのアプリ サービスを呼び出すことができるように、名前を取得する方法が必要になります。 アプリ サービスの名前は、<Service> 要素で定義されています (任意の名前を定義できます)。 コード サンプルのホストは、実行時にこのプロパティを探して、アプリ サービスの名前を取得します。
 
 ## <a name="decide-how-you-will-implement-the-extension"></a>拡張機能の実装方法を決定する
 
@@ -211,7 +211,7 @@ _MathExtension プロジェクトの package.appxmanifest_
 
 ホストが拡張機能を読み込むと、このようなコードによって、拡張機能の Package.appxmanifest で定義されているプロパティから、サービスの名前が抽出されます。
 
-_`Update()`ExtensionManager.cs の MathExtensionHost プロジェクト_
+_ExtensionManager.cs の `Update()`、MathExtensionHost プロジェクト_
 ```cs
 ...
 var properties = await ext.GetExtensionPropertiesAsync() as PropertySet;
@@ -233,13 +233,13 @@ if (_properties != null)
 
 アプリ サービスの名前が `_serviceName` に格納されていれば、ホストはこれを使用して、アプリ サービスを起動できます。
 
-アプリ サービスを呼び出すには、そのアプリ サービスが含まれるパッケージのファミリ名も必要です。 幸い、アプリ拡張 API は、次の行で取得された情報を提供します。`connection.PackageFamilyName = AppExtension.Package.Id.FamilyName;`
+アプリ サービスを呼び出すには、そのアプリ サービスが含まれるパッケージのファミリ名も必要です。 幸い、アプリ拡張 API は、次の行で取得された情報を提供します: `connection.PackageFamilyName = AppExtension.Package.Id.FamilyName;`
 
 ### <a name="define-how-the-host-and-the-extension-will-communicate"></a>ホストと拡張機能の通信方法を定義する
 
 アプリ サービスは [ValueSet](https://docs.microsoft.com/uwp/api/windows.foundation.collections.valueset) を使って情報を交換します。 ホストの作成者は、拡張機能と通信するための柔軟なプロトコルを用意する必要があります。 コード サンプルでは、将来的に拡張機能が 1 つまたは 2 つ、あるいはそれ以上の引数を受け取る可能性を考慮しています。
 
-この例では、引数のプロトコルは 'Arg' + 引数番号 (`Arg1`、`Arg2` など) という名前のキー値ペアが含まれる **ValueSet** です。 ホストはすべての引数を **ValueSet** で渡し、拡張機能はそのうち必要なものを利用します。 拡張機能が結果を計算できる場合、拡張機能から返された **ValueSet** に `Result` という名前のキーがあり計算値が含まれていることをホストが想定します。 そのキーが存在しない場合、ホストでは、拡張機能が計算を完了できなかったと見なします。
+この例では、引数のプロトコルは、' Arg ' という名前のキーと値のペアと引数の数を含む**Valueset**です。たとえば、`Arg1` や `Arg2` です。 ホストはすべての引数を **ValueSet** で渡し、拡張機能はそのうち必要なものを利用します。 拡張機能が結果を計算できる場合、拡張機能から返された **ValueSet** に `Result` という名前のキーがあり計算値が含まれていることをホストが想定します。 そのキーが存在しない場合、ホストでは、拡張機能が計算を完了できなかったと見なします。
 
 ### <a name="extension-app-service-code"></a>拡張機能のアプリ サービス コード
 

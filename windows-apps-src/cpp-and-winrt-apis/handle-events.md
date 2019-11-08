@@ -277,5 +277,5 @@ winrt::hstring f(ListView listview)
 
 ## <a name="related-topics"></a>関連トピック
 * [C++/WinRT でのイベントの作成](author-events.md)
-* [C++/WinRT を使用した同時実行操作と非同期操作](concurrency.md)
+* [C++/WinRT を使用した同時開催操作と非同期操作](concurrency.md)
 * [C++/WinRT の強参照と弱参照](weak-references.md)

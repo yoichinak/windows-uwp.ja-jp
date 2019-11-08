@@ -1,16 +1,16 @@
 ---
-title: Windows 10 の開発者向け新着情報、ツール、機能
+title: Windows 10 ビルド 17134 の新着情報
 description: Windows 10 ビルド 17134 と新しい開発者ツールでは、ユニバーサル Windows プラットフォームによって強化されたツール、機能、エクスペリエンスを利用できます。
 keywords: 新着情報, 新機能, 更新, 更新プログラム, 機能, 新規, Windows 10, 最新, 開発者, 17134
 ms.date: 04/10/2018
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: dc35dc50b8dc523aff5478b3ec19c3daeed9dafb
-ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
+ms.openlocfilehash: 797129b62217b9deb74781638b302c59192b7e9a
+ms.sourcegitcommit: a7740ebb14c98cd5afadd52db5cf714522821b49
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67820447"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72893030"
 ---
 # <a name="whats-new-in-windows-10-for-developers-build-17134"></a>Windows 10 ビルド 17134 の開発者向け新着情報
 

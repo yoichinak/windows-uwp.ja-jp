@@ -4,14 +4,14 @@ title: モバイル用 Device Portal
 description: Windows Device Portal で、モバイル デバイスの構成と管理をリモートから行う方法について説明します。
 ms.date: 02/08/2017
 ms.topic: article
-keywords: windows 10、uwp、デバイス ポータル
+keywords: windows 10、uwp、デバイスポータル
 ms.localizationpriority: medium
-ms.openlocfilehash: 879f4b9fd8806565eedeabda95f0c24c5b7931d7
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: fb9cd2861fe826d9e8d112f2729d2922c68194ce
+ms.sourcegitcommit: 445320ff0ee7323d823194d4ec9cfa6e710ed85d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57597227"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72281892"
 ---
 # <a name="device-portal-for-mobile"></a>モバイル用 Device Portal
 
@@ -31,9 +31,9 @@ Device Portal に接続するには、電話の設定でデバイスの検出と
 
 ![開発者モードのデバイス検出設定](images/device-portal/mob-dev-mode-pairing.png)
 
-デバイスのポータルに接続する 3 つの方法から選択できます。USB、ローカルのホストとローカル ネットワーク (テザリングと VPN を含む)。
+デバイスポータルに接続するには、次の3つの方法から選択できます。USB、ローカルホスト、およびローカルネットワーク (VPN およびテザリングを含む)。
 
-**デバイスのポータルに接続するには**
+**デバイスポータルに接続するには**
 
 1. ブラウザーで、使っている接続の種類に応じて次のアドレスを入力します。
 
@@ -49,7 +49,7 @@ Device Portal に接続するには、電話の設定でデバイスの検出と
 
     このアドレスは、ローカル ネットワーク経由で接続するときに使います。
 
-    電話の IP アドレスは、電話の Device Portal の設定に表示されます。 認証とセキュリティで保護された通信には HTTPS が必要です。 ホスト名 ([設定]、[システム]、[バージョン情報] で編集可能) は、ローカル ネットワーク上の Device Portal (たとえば http://Phone360) にアクセスするためにも使われます。これは、IP アドレスが頻繁に変わる可能性のあるデバイスや、共有する必要のあるデバイスを使っている場合に便利です。 
+    電話の IP アドレスは、電話の Device Portal の設定に表示されます。 認証とセキュリティで保護された通信には HTTPS が必要です。 ローカルネットワーク上のデバイスポータルへのアクセスには、ホスト名 ([設定 > システム > に関する編集可能]) を使用することもできます。 @no__t たとえば、ネットワークや IP アドレスを頻繁に変更したり、共有したりする必要があるデバイスの場合に便利です。 
 
 2. 電話の [ペアリング] ボタンを押して、必要なセキュリティ コードを生成して表示します。
 
@@ -83,5 +83,5 @@ Windows Mobile Device Portal には、任意のプロセスを強制終了する
 
 ## <a name="see-also"></a>関連項目
 
-* [Windows Device Portal の概要](device-portal.md)
-* [デバイス ポータル core API リファレンス](https://docs.microsoft.com/windows/uwp/debug-test-perf/device-portal-api-core)
+* [Windows デバイスポータルの概要](device-portal.md)
+* [デバイスポータルコア API リファレンス](https://docs.microsoft.com/windows/uwp/debug-test-perf/device-portal-api-core)

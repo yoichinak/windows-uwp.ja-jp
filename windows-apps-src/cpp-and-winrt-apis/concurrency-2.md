@@ -5,12 +5,12 @@ ms.date: 07/23/2019
 ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、同時実行、非同期、非同期、非同期操作
 ms.localizationpriority: medium
-ms.openlocfilehash: 1170b8e1291afd166f210feb291b644d1c7ed546
-ms.sourcegitcommit: e5a154c7b6c1b236943738febdb17a4815853de5
+ms.openlocfilehash: 4a671a319be49e07d3a8fcdacb569c4ae76e299b
+ms.sourcegitcommit: 6fbf645466278c1f014c71f476408fd26c620e01
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71164824"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72816675"
 ---
 # <a name="more-advanced-concurrency-and-asynchrony-with-cwinrt"></a>C++/WinRT でのより高度な同時実行操作と非同期操作
 
@@ -359,7 +359,7 @@ winrt::fire_and_forget RunAsync(DispatcherQueue queue)
 
 このように、C++/WinRT とコルーチンを組み合わせると、多大なパワーを簡単に手に入れられ、これは古い Petzold スタイルのデスクトップ アプリケーション開発を行うときに特に役立ちます。
 
-## <a name="canceling-an-asychronous-operation-and-cancellation-callbacks"></a>非同期操作の取り消しとキャンセル コールバック
+## <a name="canceling-an-asynchronous-operation-and-cancellation-callbacks"></a>非同期操作の取り消しとキャンセル コールバック
 
 非同期プログラミング向けの Windows ランタイムの機能を使用すると、実行中の非同期アクションまたは操作を取り消すことができます。 大きくなる可能性があるファイルのコレクションを取得する [**StorageFolder::GetFilesAsync**](/uwp/api/windows.storage.storagefolder.getfilesasync) を呼び出して、非同期操作の結果のオブジェクトをデータ メンバーに格納する例を次に示します。 ユーザーには、操作を取り消すオプションがあります。
 
@@ -485,7 +485,7 @@ IAsyncAction MainCoroutineAsync()
 
 ### <a name="register-a-cancellation-callback"></a>キャンセル コールバックを登録する
 
-Windows ランタイムの取り消しは、他の非同期オブジェクトに自動的に流れません。 ただし、キャンセル コールバックを登録することができます (Windows SDK のバージョン 10.0.17763.0 (Windows 10、バージョン 1809) で導入されました)。 これは、取り消しを伝達できる先行フックで、既存の同時実行ライブラリとの統合を可能にします。
+Windows ランタイムの取り消しは、他の非同期オブジェクトに自動的に流れません。 ただし、キャンセル コールバックを登録することができます (Windows SDK のバージョン 10.0.17763.0 (Windows 10、バージョン 1809) で導入されました)。 これは、取り消しを伝達できる先行フックで、既存の同時開催ライブラリとの統合を可能にします。
 
 次のコード例では、**NestedCoroutineAsync** がこれを行いますが、特別な取り消しロジックはありません。 **CancellationPropagatorAsync** は、本質的に、入れ子になったコルーチンでのラッパーです。ラッパーは取り消しを先行的に転送します。
 
@@ -534,7 +534,7 @@ int main()
 }
 ```
 
-**CancellationPropagatorAsync** は、独自のキャンセル コールバックのラムダ関数を登録してから、入れ子になった作業が完了するまで待機 (中断) します。 **CancellationPropagatorAsync** は、取り消されると、取り消しを入れ子になったコルーチンに伝達します。 取り消しをポーリングする必要はありません。また取り消しは無限にブロックされません。 このメカニズムは、コルーチンまたは C++/WinRT に関する情報が何もない同時実行ライブラリとの相互運用に使用するのに十分な柔軟性があります。
+**CancellationPropagatorAsync** は、独自のキャンセル コールバックのラムダ関数を登録してから、入れ子になった作業が完了するまで待機 (中断) します。 **CancellationPropagatorAsync** は、取り消されると、取り消しを入れ子になったコルーチンに伝達します。 取り消しをポーリングする必要はありません。また取り消しは無限にブロックされません。 このメカニズムは、コルーチンまたは C++/WinRT に関する情報が何もない同時開催ライブラリとの相互運用に使用するのに十分な柔軟性があります。
 
 ## <a name="reporting-progress"></a>進行状況を報告する
 
@@ -788,6 +788,51 @@ case AsyncStatus::Started:
 - **Asyncstatus:: Error** は、非同期オブジェクトが何らかの方法で失敗したことを意味します。 必要な場合は、例外を再スローするために **get** できます。
 - **AsyncStatus::Started** は、非同期オブジェクトがまだ実行されていることを意味します。 Windows ランタイムの非同期パターンでは、複数の待機も待機処理も許可されません。 これは、ループ内で **wait_for** を呼び出せないことを意味します。 待機が有効にタイムアウトしている場合は、いくつかの選択肢があります。 オブジェクトを破棄するか、**get** を呼び出して結果を取得する前にその状態をポーリングできます。 ただし、最善なのは、この時点で単にオブジェクトを破棄することです。
 
+## <a name="returning-an-array-asynchronously"></a>配列を非同期的に返す
+
+次に示すのは、*エラー MIDL2025: [msg]syntax error [context]: expecting > or, near "["* を生成する [MIDL 3.0](/uwp/midl-3/) の例です。
+
+```idl
+Windows.Foundation.IAsyncOperation<Int32[]> RetrieveArrayAsync();
+```
+
+これは、パラメーター化されたインターフェイスのパラメーター型引数として配列を使用することが無効であるためです。 そのため、ランタイム クラスのメソッドから非同期的に配列を渡すことを目的とする明確さの低い方法が必要になります。 
+
+配列は、[PropertyValue](/uwp/api/windows.foundation.propertyvalue) オブジェクトにボックス化して返すことができます。 その後、呼び出し元のコードでボックス化を解除します。 コード例を次に示します。これを試すには、**Windows ランタイム コンポーネント (C++/WinRT)** プロジェクトに **SampleComponent** ランタイム クラスを追加し、それを (たとえば) **Core アプリ (C++/WinRT)** プロジェクトから利用します。
+
+```cppwinrt
+// SampleComponent.idl
+namespace MyComponentProject
+{
+    runtimeclass SampleComponent
+    {
+        Windows.Foundation.IAsyncOperation<IInspectable> RetrieveCollectionAsync();
+    };
+}
+
+// SampleComponent.h
+...
+struct SampleComponent : SampleComponentT<SampleComponent>
+{
+    ...
+    Windows::Foundation::IAsyncOperation<Windows::Foundation::IInspectable> RetrieveCollectionAsync()
+    {
+        co_return Windows::Foundation::PropertyValue::CreateInt32Array({ 99, 101 }); // Box an array into a PropertyValue.
+    }
+}
+...
+
+// SampleCoreApp.cpp
+...
+MyComponentProject::SampleComponent m_sample_component;
+...
+auto boxed_array{ co_await m_sample_component.RetrieveCollectionAsync() };
+auto property_value{ boxed_array.as<winrt::Windows::Foundation::IPropertyValue>() };
+winrt::com_array<int32_t> my_array;
+property_value.GetInt32Array(my_array); // Unbox back into an array.
+...
+```
+
 ## <a name="important-apis"></a>重要な API
 * [IAsyncAction インターフェイス](/uwp/api/windows.foundation.iasyncaction)
 * [IAsyncActionWithProgress&lt;TProgress&gt; インターフェイス](/uwp/api/windows.foundation.iasyncactionwithprogress_tprogress_)
@@ -800,5 +845,5 @@ case AsyncStatus::Started:
 * [winrt::resume_foreground](/uwp/cpp-ref-for-winrt/resume-foreground)
 
 ## <a name="related-topics"></a>関連トピック
-* [同時実行操作と非同期操作](concurrency.md)
+* [同時開催操作と非同期操作](concurrency.md)
 * [C++/WinRT でのデリゲートを使用したイベントの処理](handle-events.md)

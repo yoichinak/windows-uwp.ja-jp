@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 330cbaab4a1c8313fb0b298dea55176eb66d4803
-ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
+ms.openlocfilehash: 55bf6360f09ba4ab6c7878543ecfa0c80c4558e3
+ms.sourcegitcommit: 74c674c70b86bafeac7c8c749b1662fae838c428
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71340526"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72252311"
 ---
 # <a name="diagnosing-windows-runtime-component-error-conditions"></a>Windows ランタイム コンポーネントでのエラー状態の診断
 
@@ -69,7 +69,7 @@ UWP では、オーバーロードされたメソッドの 1 つが既定のオ�
 
 ユニバーサル Windows プラットフォームでは、Windows メタデータ (.winmd) ファイルに含まれるすべてのパブリック型は、.winmd ファイルの名前を共有する名前空間、またはそのファイル名のサブ名前空間に含まれている必要があります。 たとえば、Visual Studio プロジェクトの名前が A.B (つまり、Windows ランタイム コンポーネントが A.B.winmd) の場合、パブリック クラス A.B.Class1 と A.B.C.Class2 を含めることができますが、A.Class3 (WME0006) または D.Class4 (WME1044) を含めることはできません。
 
-> **注**   これらの制限は、実装で使用されるプライベート型ではなく、パブリック型にのみ適用されます。
+> **注:** これらの制限はパブリック型だけに適用され、実装で使われるプライベート型には適用されません。
 
 A.Class3 の場合、Class3 を別の名前空間に移動するか、Windows ランタイム コンポーネントの名前を A.winmd に変更することができます。 WME0006 は警告ですが、エラーとして扱う必要があります。 前の例では、A.B.winmd を呼び出すコードは A.Class3 を特定することはできません。
 
@@ -81,7 +81,7 @@ D.Class4 の場合、ファイル名には D.Class4 と A.B 名前空間内の�
 
 Windows ランタイム コンポーネントの型には、名前空間と同じ名前を付けることはできません (WME1068)。
 
-> **注意**  if を直接呼び出し、/out オプションを使用して Windows ランタイムコンポーネントの名前を指定しないと、Winmdexp はコンポーネント内のすべての名前空間を含む名前を生成しようとします。 名前空間の名前を変更すると、コンポーネントの名前も変更される場合があります。
+> **注意** Winmdexp.exe を直接呼び出し、Windows ランタイム コンポーネントの名前を指定する /out オプションを指定しなかった場合、Winmdexp.exe は、コンポーネント内のすべての名前空間を含めた名前を生成しようとします。 名前空間の名前を変更すると、コンポーネントの名前も変更される場合があります。
 
  
 
@@ -102,9 +102,9 @@ Windows ランタイム コンポーネントの型には、名前空間と同�
 
 一般に、最適なのは型に最も近いインターフェイスです。 たとえば、Dictionary&lt;int, string&gt; の場合、IDictionary&lt;int, string&gt; が最適と考えられます。
 
-> **重要**   javascript は、マネージ型が実装するインターフェイスのリストに最初に表示されるインターフェイスを使用します。 たとえば、Dictionary&lt;int, string&gt; を JavaScript コードに返した場合、戻り値の型としてどのインターフェイスを指定しても、IDictionary&lt;int, string&gt; として表示されます。 つまり、後のインターフェイスにメンバーが最初のインターフェイスに含まれていない場合、そのメンバーは JavaScript では認識されません。
+> **重要:** JavaScript では、マネージ型が実装するインターフェイスのリストに最初に現れるインターフェイスが使われます。 たとえば、Dictionary&lt;int, string&gt; を JavaScript コードに返した場合、戻り値の型としてどのインターフェイスを指定しても、IDictionary&lt;int, string&gt; として表示されます。 つまり、後のインターフェイスにメンバーが最初のインターフェイスに含まれていない場合、そのメンバーは JavaScript では認識されません。
 
-> **注意**   コンポーネントが JavaScript によって使用される場合は、非ジェネリック[IList](https://docs.microsoft.com/dotnet/api/system.collections.ilist)および[IEnumerable](https://docs.microsoft.com/dotnet/api/system.collections.ienumerable)インターフェイスを使用しないようにしてください。 これらのインターフェイスは、それぞれ [IBindableVector](https://docs.microsoft.com/uwp/api/windows.ui.xaml.interop.ibindablevector) と [IBindableIterator](https://docs.microsoft.com/uwp/api/windows.ui.xaml.interop.ibindableiterator) にマップされます。 これらは、XAML コントロールのバインドをサポートし、JavaScript には参照されません。 JavaScript では、実行時エラー ("関数 'X' に無効なシグネチャがあるため、呼び出せません") が発生します。
+> **注意** JavaScript で利用されるコンポーネントでは、非ジェネリックな [IList](https://docs.microsoft.com/dotnet/api/system.collections.ilist) インターフェイスと [IEnumerable](https://docs.microsoft.com/dotnet/api/system.collections.ienumerable) インターフェイスを使わないでください。 これらのインターフェイスは、それぞれ [IBindableVector](https://docs.microsoft.com/uwp/api/windows.ui.xaml.interop.ibindablevector) と [IBindableIterator](https://docs.microsoft.com/uwp/api/windows.ui.xaml.interop.ibindableiterator) にマップされます。 これらは、XAML コントロールのバインドをサポートし、JavaScript には参照されません。 JavaScript では、実行時エラー ("関数 'X' に無効なシグネチャがあるため、呼び出せません") が発生します。
 
  
 
@@ -131,7 +131,7 @@ Windows ランタイム コンポーネントの型には、名前空間と同�
 <tr class="odd">
 <td align="left">WME1039</td>
 <td align="left"><p>メソッド ' {0} ' のシグネチャには、型 ' {1} ' のパラメーターが指定されています。 このジェネリック型は有効な Windows ランタイム型ではありませんが、この型またはそのジェネリック パラメーターは、有効な Windows ランタイム型であるインターフェイスを実装します。 [mailto:johndoe@mydomain.com]({2})</p>
-> **Note @ no__t @ no__t @no__t の場合は、Winmdexp の場合は、次のように、メソッドシグネチャ内の型 ' system.string @ no__t-4T @ no__t-5 ' を代わりに、次のいずれかの型に変更することを検討してください (例:)。' System.string. IList @ no__t-0T @ no__t, IReadOnlyList @ no__t-2T @ no__t-4 t @ no__t-5 '. "というようになりました。このような場合は、" "というようになります。
+> **Note @ no__t-1 @no__t の場合、Winmdexp では、次のように、メソッドシグネチャ内の型 ' system.string @ no__t-3T @ no__t-4 ' を代わりに、次のいずれかの型に変更することを検討してください。'System.Collections.Generic.IList&gt;T&lt;, System.Collections.Generic.IReadOnlyList&gt;T&lt;, System.Collections.Generic.IEnumerable&gt;T'."
 </td>
 </tr>
 <tr class="even">
@@ -210,7 +210,7 @@ UWP では、戻り値は出力パラメーターであると見なされ、パ�
     > <Out> ByRef highValue As Integer) As <ReturnValueName("average")> String
     > ```
 
-> **@No__t-** 1 戻り値の名前を変更し、新しい名前が別のパラメーターの名前と競合する場合は、wme1091 が発生エラーが発生します。
+> **注:** 戻り値の名前を変更する場合、新しい名前が別のパラメーターの名前と競合すると、エラー WME1091 が発生します。
 
 JavaScript コードは、戻り値も含め、メソッドの出力パラメーターに名前でアクセスできます。 例については、[ReturnValueNameAttribute](https://docs.microsoft.com/dotnet/api/system.runtime.interopservices.windowsruntime.returnvaluenameattribute) 属性に関するトピックをご覧ください。
 
@@ -219,7 +219,7 @@ JavaScript コードは、戻り値も含め、メソッドの出力パラメー
 | WME1091 | メソッド ' \{0} ' には、パラメーター名と同じ ' \{1} ' という名前の戻り値があります。 Windows ランタイム メソッドのパラメーターと戻り値には一意の名前を指定する必要があります。 |
 | WME1092 | メソッド ' \{0} ' には、既定の戻り値の名前と同じ ' \{1} ' という名前のパラメーターがあります。 このパラメーターに別の名前を使用するか、System.Runtime.InteropServices.WindowsRuntime.ReturnValueNameAttribute を使用して、戻り値の名前を明示的に指定してください。 |
 
-**注**  The の既定の名前は、プロパティアクセサーの場合は "戻り値"、他のすべてのメソッドの場合は "value" です。
+**注:** 既定の名前は、プロパティ アクセサーでは "returnValue"、その他のすべてのメソッドでは "value" となります。
 
 ## <a name="related-topics"></a>関連トピック
 

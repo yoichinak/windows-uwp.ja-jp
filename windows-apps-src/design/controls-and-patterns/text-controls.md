@@ -11,12 +11,12 @@ pm-contact: miguelrb
 design-contact: ksulliv
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: cdf361bfd993ce93e2c3b9eec4e66cb1417e36f8
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 0c171a431180ee63956bae1c235224f64642601a
+ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66364143"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340224"
 ---
 # <a name="text-controls"></a>テキスト コントロール
 
@@ -63,7 +63,7 @@ TextBox を読み取り専用にすることはできますが、これは一時
 
 -   **有効なすべての値を効率的に列挙することは現実的か。** そうである場合は、いずれかの選択コントロールを使うことを検討します。考えられる選択コントロールは、[チェック ボックス](checkbox.md)、[ドロップダウン リスト](lists.md)、リスト ボックス、[ラジオ ボタン](radio-button.md)、[スライダー](slider.md)、[トグル スイッチ](toggles.md)、[日付の選択コントロール](date-and-time.md)、または時刻の選択コントロールです。
 -   **有効な値は比較的少数か。** 少数の場合は、[ドロップダウン リスト](lists.md)またはリスト ボックス (値の文字数が多い場合) をお勧めします。
--   **有効なデータに、何も制約がないか。それとも、形式の制約 (長さや文字の種類の制約) だけがあるか。** これに該当する場合は、テキスト入力コントロールを使います。 入力できる文字数を制限したり、アプリ コードで形式を検証したりすることができます。
+-   **有効なデータに、何も制約がないか。または、形式の制約 (長さや文字の種類による制約) だけがあるか。** これに該当する場合は、テキスト入力コントロールを使います。 入力できる文字数を制限したり、アプリ コードで形式を検証したりすることができます。
 -   **値は、専用の共通コントロールがあるデータ型を表しているか。** そうである場合は、テキスト入力コントロールではなく、適切なコントロールを使います。 たとえば、データ入力を受け付けるには、テキスト入力コントロールの代わりに [DatePicker](https://docs.microsoft.com/previous-versions/windows/apps/br211681(v=win.10)) を使います。
 -   数値データのみに制限されている場合:
     -   **入力される値は、同じページの別の数量の近似値および相対値、またはそのいずれかか。** そうである場合は、[スライダー](slider.md)を使います。
@@ -208,4 +208,4 @@ TextBox コントロールおよび RichEditBox コントロールでは、ス�
 **開発者向け (XAML)**
 - [TextBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox)
 - [Windows.UI.Xaml.Controls PasswordBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.PasswordBox)
-- [String.Length プロパティ](https://docs.microsoft.com/dotnet/api/system.string.length?redirectedfrom=MSDN#System_String_Length)
+- [String.Length プロパティ](https://docs.microsoft.com/dotnet/api/system.string.length)

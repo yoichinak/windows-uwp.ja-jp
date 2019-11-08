@@ -10,51 +10,63 @@ metadata:
   ms.prod: dev-environment
   ms.technology: windows-python
   ms.topic: landing-page
-  ms.openlocfilehash: 60c0905a87d5089cccf5a525a6d29f87c327fd62
-  ms.sourcegitcommit: 7104ad5d01ad1c69a4ea0b3ba6732c1b2a98ec09
+  ms.openlocfilehash: 42ca85644c0759e3c3bb561d3decfe42560d95c9
+  ms.sourcegitcommit: 60d2d15dd0d365f82e4e90e4bc34b40cf5b4a247
   ms.translationtype: HT
   ms.contentlocale: ja-JP
-  ms.lasthandoff: 09/25/2019
-  ms.locfileid: "71251119"
+  ms.lasthandoff: 10/17/2019
+  ms.locfileid: "72517804"
 landingContent:
 - title: 初心者向けスタートアップ ガイド
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: 開発環境を設定する
-      url: get-started/python-for-education.md#set-up-your-development-environment
+      url: ./beginners.md
   - linkListType: tutorial
     links:
     - text: 基本的な Python コードをいくつか実行する
-      url: get-started/python-for-education.md#hello-world-tutorial-for-some-python-basics
+      url: ./beginners.md#hello-world-tutorial-for-some-python-basics
     - text: VS Code を使用した HelloWorld
-      url: get-started/python-for-education.md#hello-world-tutorial-for-using-python-with-vs-code
+      url: ./beginners.md#hello-world-tutorial-for-using-python-with-vs-code
     - text: Pygame を使用してシンプルなゲームを作成する
-      url: get-started/python-for-education.md#create-a-simple-game-with-pygame
+      url: ./beginners.md#create-a-simple-game-with-pygame
 - title: Web 開発を始める
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: 開発環境を設定する
-      url: get-started/python-for-web.md#set-up-your-development-environment
+      url: ./web-frameworks.md#set-up-your-development-environment
   - linkListType: tutorial
     links:
     - text: Flask を使用した HelloWorld
-      url: get-started/python-for-web.md#hello-world-tutorial-for-flask
+      url: ./web-frameworks.md#hello-world-tutorial-for-flask
     - text: Django を使用した HelloWorld
-      url: get-started/python-for-web.md#hello-world-tutorial-for-django
+      url: ./web-frameworks.md#hello-world-tutorial-for-django
 - title: 自動化スクリプトの概要
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: 開発環境を設定する
-      url: get-started/python-for-scripting.md#set-up-your-development-environment
+      url: ./scripting.md#set-up-your-development-environment
   - linkListType: tutorial
     links:
     - text: スクリプトの例 - ファイル システムを表示する
-      url: get-started/python-for-scripting.md#example-script-to-display-the-structure-of-your-file-system-directory
+      url: ./scripting.md#example-script-to-display-the-structure-of-your-file-system-directory
     - text: スクリプトの例 - ディレクトリ内のすべてのファイルを変更する
-      url: get-started/python-for-scripting.md#example-script-to-modify-all-files-in-a-directory
+      url: ./scripting.md#example-script-to-modify-all-files-in-a-directory
+- title: データベースの概要
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: MongoDB と PostgreSQL
+      url: ./databases.md
+  - linkListType: quickstart
+    links:
+    - text: PostgreSQL をインストールして実行する
+      url: ./databases.md#install-postgresql
+    - text: MongoDB をインストールして実行する
+      url: ./databases.md#install-mongodb
 - title: その他の資料
   linkLists:
   - linkListType: reference
@@ -71,17 +83,3 @@ landingContent:
       url: resources.md#online-courses
     - text: 推奨される Web 開発リンク
       url: resources.md#web-development
-- title: Mac-to-Windows サポート ガイド
-  linkLists:
-  - linkListType: reference
-    links:
-    - text: 開発環境の変更
-      url: ../mac-to-windows.md
-    - text: キーボード ショートカット
-      url: ../mac-to-windows.md#keyboard-shortcuts
-    - text: トラックパッドのショートカット
-      url: ../mac-to-windows.md#trackpad-shortcuts
-    - text: ターミナルとシェル
-      url: ../mac-to-windows.md#terminal-and-shell
-    - text: アプリとユーティリティ
-      url: ../mac-to-windows.md#apps-and-utilities

@@ -6,12 +6,12 @@ ms.date: 03/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, SD カード, ストレージ
 ms.localizationpriority: medium
-ms.openlocfilehash: 4573e0959cf9d4af9b3cef8ffbbce14847a9e521
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: a6f94f0f417225ae154fc65c6beb5a6e2c1812fb
+ms.sourcegitcommit: 445320ff0ee7323d823194d4ec9cfa6e710ed85d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66369493"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72282383"
 ---
 # <a name="access-the-sd-card"></a>SD カードへのアクセス
 
@@ -86,7 +86,7 @@ else
 ```
 
 > [!NOTE]
-> SDカード リーダーが内蔵のリーダー (ノート PC や PC のスロットなど) である場合、KnownFolders.RemovableDevices によってアクセスできない場合があります。
+> SD カード リーダーが内蔵のリーダー (ノート PC や PC のスロットなど) である場合、KnownFolders.RemovableDevices によってアクセスできない場合があります。
 
 ### <a name="querying-the-contents-of-the-sd-card"></a>SD カードのコンテンツの照会
 

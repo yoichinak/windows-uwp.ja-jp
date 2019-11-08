@@ -5,12 +5,12 @@ template: detail.hbs
 ms.date: 11/03/2017
 ms.topic: article
 keywords: Windows 10, UWP, Fluent
-ms.openlocfilehash: 0a772c0ec6aad2c0d6a099b54eb4c6faa413cc7b
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 491489c0a6462c1bcbee2015027403ae359c47a2
+ms.sourcegitcommit: 445320ff0ee7323d823194d4ec9cfa6e710ed85d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63793933"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72282274"
 ---
 # <a name="item-templates-for-list-view"></a>リスト ビューの項目テンプレート
 

@@ -3,16 +3,16 @@ Description: Windows UI とコンポーネントによるデスクトップ ア�
 title: Windows UI とコンポーネントによるデスクトップ アプリケーションの拡張
 ms.date: 06/08/2018
 ms.topic: article
-keywords: windows 10, uwp
+keywords: Windows 10, UWP
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: 7359d28d968a2948e9f4049e2acc3c655edcfcb3
-ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
+ms.openlocfilehash: 0a404f2d9f58fc283cf47f47860362c0f5bc8164
+ms.sourcegitcommit: d7eccdb27c22bccac65bd014e62b6572a6b44602
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71339204"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73142544"
 ---
 # <a name="extend-your-desktop-app-with-modern-uwp-components"></a>最新の UWP コンポーネントでデスクトップアプリを拡張する
 
@@ -21,7 +21,7 @@ ms.locfileid: "71339204"
 多くの場合、デスクトップアプリケーションから Windows ランタイム Api を直接呼び出すことができるため、このガイドを確認する前に、「 [Windows 10 用の拡張](desktop-to-uwp-enhance.md)」を参照してください。
 
 > [!NOTE]
-> この記事で説明されている機能を使用するには、デスクトップアプリケーション用の Windows アプリパッケージを作成する必要があります。 まだ行っていない場合は、「[デスクトップアプリケーションのパッケージ化](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-root)」を参照してください。
+> この記事で説明されている機能を使用するには、デスクトップアプリに[パッケージ id](modernize-packaged-apps.md)があることが必要です。これには、[デスクトップアプリを msix パッケージでパッケージ化](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-root)するか、[スパースパッケージを使用してアプリ id を付与](grant-identity-to-nonpackaged-apps.md)します。
 
 準備ができたら始めましょう。
 
@@ -94,21 +94,21 @@ UWP プロジェクトとランタイム コンポーネントで行うことが
 ![アダプティブ デザイン](images/desktop-to-uwp/extend-xaml-ui.png)
 
 >[!NOTE]
->この例では、UWP プロジェクトをソリューションに追加することによって XAML UI を示します。 これは、デスクトップアプリケーションで XAML Ui を表示するために安定してサポートされる方法です。 代わりに、この方法では、XAML Island を使用して、デスクトップ アプリケーションに直接 UWP XAML コントロールを追加します。 XAML Islandsは、現在開発者プレビューとして使用できます。 今すぐご自身ののプロトタイプのコードで試されることをお勧めしますが、現時点で本番コードでそれらを使用することはお勧めしません。 これらの API とコントロールは、将来の Windows リリースでも成熟し安定し続けるでしょう。 XAML Islands の詳細については、[デスクトップ アプリケーションでの UWP コントロール](xaml-islands.md)を参照してください。
+>この例では、UWP プロジェクトをソリューションに追加することによって XAML UI を示します。 これは、デスクトップアプリケーションで XAML Ui を表示するために安定してサポートされる方法です。 この方法の代わりに、XAML アイランドを使用して UWP XAML コントロールをデスクトップアプリケーションに直接追加します。 現在、XAML アイランドは開発者プレビューとして提供されています。 ご自身のプロトタイプ コードでこれらを試すことはお勧めしますが、現時点では運用コードで使用することはお勧めしません。 これらの Api とコントロールは、今後の Windows リリースでも成熟し、安定したものになります。 XAML アイランドの詳細については、「[デスクトップアプリケーションの UWP コントロール](xaml-islands.md)」を参照してください。
 
 ### <a name="the-design-pattern"></a>設計パターン
 
 XAML ベースの UI を表示するには、以下の手順を実行します。
 
-:1:[ソリューションをセットアップする](#solution-setup)
+1: [ソリューションをセットアップする](#solution-setup)
 
-:2:[XAML UI を作成する](#xaml-UI)
+2: [XAML UI を作成する](#xaml-UI)
 
-:3:[UWP プロジェクトにプロトコル拡張機能を追加する](#add-a-protocol-extension)
+3: [プロトコル拡張機能を UWP プロジェクトに追加する](#add-a-protocol-extension)
 
-:4:[デスクトップアプリから UWP アプリを起動する](#start)
+4: [デスクトップ アプリから UWP アプリを起動する](#start)
 
-:5:[UWP プロジェクトで、必要なページを表示します。](#parse)
+5: [UWP プロジェクトで目的のページを表示する](#parse)
 
 <a id="solution-setup" />
 
@@ -253,7 +253,7 @@ protected override void OnNavigatedTo(NavigationEventArgs e)
 
 たとえば、ユーザーは、Microsoft Edge (Photos アプリ) から画像を共有するアプリケーションを選択できます。 この機能を備えた WPF サンプルアプリケーションを次に示します。
 
-![共有ターゲット](images/desktop-to-uwp/share-target.png).
+![共有ターゲット](images/desktop-to-uwp/share-target.png)の順に移動します。
 
 完全なサンプルについては、[こちら](https://github.com/Microsoft/Windows-Packaging-Samples/tree/master/ShareTarget)を参照してください。
 
@@ -261,15 +261,15 @@ protected override void OnNavigatedTo(NavigationEventArgs e)
 
 アプリケーションを共有ターゲットにするには、以下の手順を実行します。
 
-:1:[共有ターゲットの拡張機能を追加する](#share-extension)
+:1: [共有ターゲットの拡張機能を追加する](#share-extension)
 
-:2:[OnShareTargetActivated イベントハンドラーをオーバーライドします。](#override)
+: 2: [OnShareTargetActivated イベントハンドラーをオーバーライドし](#override)ます。
 
-:3:[UWP プロジェクトへのデスクトップ拡張機能の追加](#desktop-extensions)
+: 3: [UWP プロジェクトにデスクトップ拡張機能を追加する](#desktop-extensions)
 
-:4:[完全信頼プロセス拡張機能を追加する](#full-trust)
+: 4:[完全信頼プロセス拡張機能を追加し](#full-trust)ます。
 
-:5:[デスクトップアプリケーションを変更して共有ファイルを取得する](#modify-desktop)
+: 5:[デスクトップアプリケーションを変更して、共有ファイルを取得](#modify-desktop)します。
 
 <a id="share-extension" />
 
@@ -295,9 +295,9 @@ protected override void OnNavigatedTo(NavigationEventArgs e)
 </Extensions>  
 ```
 
-UWP プロジェクトによって生成された実行可能ファイルの名前と、エントリ ポイント クラスの名前を指定します。 このマークアップは、UWP アプリの実行可能ファイルの名前が `ShareTarget.exe` であることを前提としています。
+UWP プロジェクトによって生成された実行可能ファイルの名前と、エントリ ポイント クラスの名前を指定します。 このマークアップは、UWP アプリの実行可能ファイルの名前が `ShareTarget.exe`であることを前提としています。
 
-アプリとの間で共有できるようにするファイルの種類を指定することも必要です。 この例では、 [WPF PhotoStoreDemo](https://github.com/Microsoft/WPF-Samples/tree/master/Sample%20Applications/PhotoStoreDemo)デスクトップアプリケーションをビットマップイメージの共有ターゲットとしています。そのため、サポートされているファイルの種類に対して `Bitmap` を指定します。
+アプリとの間で共有できるようにするファイルの種類を指定することも必要です。 この例では、 [WPF PhotoStoreDemo](https://github.com/Microsoft/WPF-Samples/tree/master/Sample%20Applications/PhotoStoreDemo)デスクトップアプリケーションをビットマップイメージの共有ターゲットとしています。そのため、サポートされているファイルの種類に `Bitmap` を指定します。
 
 <a id="override" />
 
@@ -408,11 +408,11 @@ private void Watcher_Created(object sender, FileSystemEventArgs e)
 
 バックグラウンド サービスを作成するには、以下の手順を実行します。
 
-:1:[バックグラウンドタスクを実装する](#implement-task)
+:1: [バックグラウンド タスクの実装](#implement-task)
 
-:2:[バックグラウンドタスクを構成する](#configure-background-task)
+:2: [バックグラウンド タスクの構成](#configure-background-task)
 
-:3:[バックグラウンドタスクを登録する](#register-background-task)
+:3: [バックグラウンド タスクの登録](#register-background-task)
 
 <a id="implement-task" />
 

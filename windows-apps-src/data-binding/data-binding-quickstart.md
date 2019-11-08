@@ -10,12 +10,12 @@ dev_langs:
 - csharp
 - cppwinrt
 - cppcx
-ms.openlocfilehash: 0832e46794302a3ccc9eba81d4b0e9d93dd9be8c
-ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
+ms.openlocfilehash: 0a967c923d9f8616a3a05af5bb0ebb612251d3b8
+ms.sourcegitcommit: 035b03f1247eae4e9359ee7db66429d4e1c1d09b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71339666"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674544"
 ---
 # <a name="data-binding-overview"></a>データ バインディングの概要
 
@@ -704,7 +704,8 @@ public:
 ...
 ```
 
-> [注!]上記の Ivalueconverter.convert のコードリストでは、`StringFormatter.idl` で、既定の[属性](https://docs.microsoft.com/windows/desktop/midl/default)を使用してを既定のインターフェイスとして宣言します。 C++ この一覧では、 **Stringformatter**にはコンストラクターだけが含まれ、メソッドは存在しないため、既定のインターフェイスは生成されません。 @No__t-0 属性は、 **ivalueconverter.convert**メソッドを呼び出すために QueryInterface が必要ないため、 **stringformatter**にインスタンスメンバーを追加しない場合に最適です。 または、既定の**Istringformatter**インターフェイスを生成するように求めるメッセージを表示し、 [default_interface 属性](https://docs.microsoft.com/uwp/midl-3/predefined-attributes#the-default_interface-attribute)を使用してランタイムクラス自体に注釈を付けることによってこれを行うこともできます。 このオプションは、 **ivalueconverter.convert**のメソッドよりも頻繁に呼び出される**stringformatter**にインスタンスメンバーを追加する場合に最適です。これは、インスタンスメンバーを呼び出すために QueryInterface が必要ないためです。
+> [!NOTE]
+> 上記の Ivalueconverter.convert のコードリストでは、`StringFormatter.idl` で、既定の[属性](https://docs.microsoft.com/windows/desktop/midl/default)を使用してを既定のインターフェイスとして宣言します。 C++ この一覧では、 **Stringformatter**にはコンストラクターだけが含まれ、メソッドは存在しないため、既定のインターフェイスは生成されません。 @No__t-0 属性は、 **ivalueconverter.convert**メソッドを呼び出すために QueryInterface が必要ないため、 **stringformatter**にインスタンスメンバーを追加しない場合に最適です。 または、既定の**Istringformatter**インターフェイスを生成するように求めるメッセージを表示し、 [default_interface 属性](https://docs.microsoft.com/uwp/midl-3/predefined-attributes#the-default_interface-attribute)を使用してランタイムクラス自体に注釈を付けることによってこれを行うこともできます。 このオプションは、 **ivalueconverter.convert**のメソッドよりも頻繁に呼び出される**stringformatter**にインスタンスメンバーを追加する場合に最適です。これは、インスタンスメンバーを呼び出すために QueryInterface が必要ないためです。
 
 これで、 **Stringformatter**のインスタンスをページリソースとして追加し、 **releasedatetime**プロパティを表示する**TextBlock**のバインドで使用できるようになりました。
 

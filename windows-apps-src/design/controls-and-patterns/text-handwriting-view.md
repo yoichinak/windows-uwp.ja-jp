@@ -11,12 +11,12 @@ design-contact: minah.kim
 doc-status: Draft
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 262e033c8393544e3b5b8394d0e9a5be410cd080
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: ec78498cc3941c3c03b33d8c3ab55b40c100a7ea
+ms.sourcegitcommit: 05be6929cd380a9dd241cc1298fd53f11c93d774
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67319477"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73062078"
 ---
 # <a name="text-input-with-the-handwriting-view"></a>手書きビューでのテキスト入力
 
@@ -255,7 +255,7 @@ StackPanel が TextBox より大きくなったため、[HandwritingView](https:
         VerticalAlignment="Center">
         <TextBox.HandwritingView>
             <HandwritingView 
-                PlacementTarget="{Binding ElementName=DictationBox}“
+                PlacementTarget="{Binding ElementName=DictationBox}"
                 MaxWidth="{Binding ElementName=DictationTextBox, Path=Width"/>
         </TextBox.HandwritingView>
     </TextBox>

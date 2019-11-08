@@ -6,19 +6,19 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, OpenCV
 ms.localizationpriority: medium
-ms.openlocfilehash: e5a1993ea4808cabf9f82640f03f0187d431f3d2
-ms.sourcegitcommit: d38e2f31c47434cd6dbbf8fe8d01c20b98fabf02
+ms.openlocfilehash: e8f4fd041eae30269e8b876c108151e4aae45d91
+ms.sourcegitcommit: e189166dea855ce330bd0634cc158b51cb4fbd69
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70393509"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72811645"
 ---
 # <a name="use-the-open-source-computer-vision-library-opencv-with-mediaframereader"></a>Open Source Computer Vision Library (OpenCV) と MediaFrameReader の使用
 
 この記事では、さまざまな画像処理アルゴリズムを提供するネイティブ コード ライブラリである Open Source Computer Vision Library (OpenCV) を、複数のソースから同時にメディア フレームを読み取ることができる [**MediaFrameReader**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.Frames.MediaFrameReader) クラスと共に使用する方法について説明します。 この記事のコード例では、カラー センサーからフレームを取得し、OpenCV ライブラリを使用して各フレームをぼかして、処理された画像を XAML の **Image** コントロールに表示する方法を示します。 
 
 >[!NOTE]
->OpenCV.Win.Core と OpenCV.Win.ImgProc は定期的に更新されていませんが、このページの説明に従って OpenCVHelper を作成することをお勧めします。
+>ImgProc は定期的に更新されず、ストアの準拠チェックにも合格しないため、これらのパッケージは実験のみを目的としています。
 
 この記事は、他の 2 つの記事の内容に基づいています。
 

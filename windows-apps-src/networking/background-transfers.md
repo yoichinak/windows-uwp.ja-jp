@@ -6,12 +6,12 @@ ms.date: 03/23/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 7d06d91d2195c483f5453aeadbc5523a8935003c
-ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
+ms.openlocfilehash: d8a4c354eff34edb0c97e9d95828d4287f9c4b99
+ms.sourcegitcommit: 445320ff0ee7323d823194d4ec9cfa6e710ed85d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71340575"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72282491"
 ---
 # <a name="background-transfers"></a>バックグラウンド転送
 ネットワーク経由でファイルを確実にコピーするには、バックグラウンド転送 API を使います。 バックグラウンド転送 API には、アプリの一時停止中はバックグラウンドで実行され、アプリの終了後も実行が続行される高度なアップロード機能とダウンロード機能があります。 この API は、ネットワークの状態を監視し、接続が失われたときに転送の中断と再開を自動的に実行します。転送ではデータ センサーとバッテリー セーバーにも対応し、ダウンロード アクティビティは現在の接続とデバイスのバッテリー状態に基づいて調整されます。 この API は、アップロード HTTP(S) を使った大きなファイルのアップロードとダウンロードに適しています。 FTP もサポートされますが、その対象はダウンロードのみです。
@@ -53,7 +53,7 @@ ms.locfileid: "71340575"
 | 従量制課金接続、データ制限超過 この状態は、ユーザーが Data Sense UI で [バックグラウンドでのデータ通信を制限する] を有効にしている場合にのみ発生します。 | 拒否             | 拒否    | 拒否   |
 
 ## <a name="uploading-files"></a>ファイルのアップロード
-バックグラウンド転送を使う場合、アップロードは [**UploadOperation**](https://docs.microsoft.com/uwp/api/Windows.Networking.BackgroundTransfer.UploadOperation) として存在し、操作の再起動や取り消しに使われる多くの制御メソッドを公開します。 アプリのイベント (一時停止、終了など) や接続の変更は、**UploadOperation** を通じてシステムによって自動的に処理されます。アップロードは、アプリの一時停止中も続行し、アプリの終了以降は一時停止して保持されます。 また、[**CostPolicy**](https://docs.microsoft.com/uwp/api/windows.networking.backgroundtransfer.backgrounddownloader.costpolicy) プロパティを設定することで、従量制課金接続がインターネット接続のために使われている間もアプリがアップロードを開始するかどうかを指定します。
+バックグラウンド転送を使う場合、アップロードは [**UploadOperation**](https://docs.microsoft.com/uwp/api/Windows.Networking.BackgroundTransfer.UploadOperation) として存在し、操作の再起動や取り消しに使われる多くの制御メソッドを公開します。 アプリのイベント (一時停止、終了など) や接続の変更は、**UploadOperation** を通じてシステムによって自動的に処理されます。アップロードは、アプリの一時停止中も続行され、アプリの終了以降は一時停止して保持されます。 また、[**CostPolicy**](https://docs.microsoft.com/uwp/api/windows.networking.backgroundtransfer.backgrounddownloader.costpolicy) プロパティを設定することで、従量制課金接続がインターネット接続のために使われている間もアプリがアップロードを開始するかどうかを指定します。
 
 以下に、基本的なアップロードを作成および初期化する例と、前のアプリ セッションから続いている操作を列挙および再び取り込む例を示します。
 
@@ -161,7 +161,7 @@ contentParts 配列には、アップロード用の各 [**IStorageFile**](https
     [!code-js[uploadFile](./code/backgroundtransfer/upload_quickstart/js/main.js#Snippetupload_quickstart_D "Enumerate persisted operations")]
 
 ## <a name="downloading-files"></a>ファイルのダウンロード
-バックグラウンド転送を使う場合、各ダウンロードは [**DownloadOperation**](https://docs.microsoft.com/uwp/api/Windows.Networking.BackgroundTransfer.DownloadOperation) として存在し、操作の一時停止、再開、再起動、取り消しに使われる多くの制御メソッドを公開します。 アプリのイベント (一時停止、終了など) や接続の変更は、**DownloadOperation** を通じてシステムによって自動的に処理されます。ダウンロードは、アプリの一時停止中も続行し、アプリの終了以降は一時停止して保持されます。 モバイル ネットワーク シナリオの場合、[**CostPolicy**](https://docs.microsoft.com/uwp/api/windows.networking.backgroundtransfer.backgrounddownloader.costpolicy) プロパティを設定することで、従量制課金接続がインターネット接続のために使われている間もアプリがダウンロードを開始または続行するかどうかを指定します。
+バックグラウンド転送を使う場合、各ダウンロードは [**DownloadOperation**](https://docs.microsoft.com/uwp/api/Windows.Networking.BackgroundTransfer.DownloadOperation) として存在し、操作の一時停止、再開、再起動、取り消しに使われる多くの制御メソッドを公開します。 アプリのイベント (一時停止、終了など) や接続の変更は、**DownloadOperation** を通じてシステムによって自動的に処理されます。ダウンロードは、アプリの一時停止中も続行され、アプリの終了以降は一時停止して保持されます。 モバイル ネットワーク シナリオの場合、[**CostPolicy**](https://docs.microsoft.com/uwp/api/windows.networking.backgroundtransfer.backgrounddownloader.costpolicy) プロパティを設定することで、従量制課金接続がインターネット接続のために使われている間もアプリがダウンロードを開始または続行するかどうかを指定します。
 
 すぐに完了する可能性がある小さいリソースをダウンロードする場合は、バックグラウンド転送ではなく [**HttpClient**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpClient) API を使ってください。
 

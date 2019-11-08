@@ -5,12 +5,12 @@ ms.date: 05/07/2018
 ms.topic: article
 keywords: windows 10, uwp, 概要
 ms.localizationpriority: medium
-ms.openlocfilehash: 9a5cec4c53d05e14537c5cc965b795a5eab8382f
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: d3d52429d4d91aa646f19aad5444f895f71504de
+ms.sourcegitcommit: 7791596c25baf9d222729e057ecdf81b45a59f0c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64564452"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71205925"
 ---
 # <a name="start-coding"></a>コーディングの開始
 
@@ -44,12 +44,12 @@ ms.locfileid: "64564452"
 **ドキュメント:**
 
 * [C# の使用を開始する](https://docs.microsoft.com/dotnet/csharp/getting-started/)
-* [C# クイック スタート](https://docs.microsoft.com/dotnet/csharp/quick-starts/index)
+* [C# クイック スタート](https://docs.microsoft.com/dotnet/csharp/quick-starts/)
 * [Visual Studio の概要](https://docs.microsoft.com/visualstudio/ide/)
 
-**ビデオ:**
+**チュートリアル:**
 
-* [LinkedIn Learning](https://www.linkedin.com/learning/learning-universal-windows-app-development/welcome)
+* [Microsoft Learn の Windows](https://docs.microsoft.com/learn/browse/?products=windows&resource_type=module)
 
 ## <a name="using-the-docs"></a>ドキュメントの使用
 

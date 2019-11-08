@@ -50,7 +50,7 @@ UI のコントロールに入力フォーカスがあるときにだけ、キ�
 
 -   イベントのセンダー。 センダーは、イベント ハンドラーがアタッチされているオブジェクトを報告します。
 -   イベント データ。 キーボード イベントの場合、イベント データは [**KeyRoutedEventArgs**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.KeyRoutedEventArgs) のインスタンスです。 ハンドラーのデリゲートは [**KeyEventHandler**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.keyeventhandler) です。 ハンドラーに関するほとんどのシナリオで、最もよく使われる **KeyRoutedEventArgs** のプロパティは、[**Key**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.keyroutedeventargs.key) です。場合によっては、[**KeyStatus**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.keyroutedeventargs.keystatus) も使われます。
--   [**Originalsource**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.routedeventargs.originalsource)。 キーボード イベントはルーティング イベントであるため、イベント データには **OriginalSource** があります。 イベントがオブジェクト ツリーをバブルアップするように意図的に設定した場合、**OriginalSource** がセンダーではなく対象のオブジェクトとなる場合があります。 ただし、この動作は設計によって異なります。 センダーではなく **OriginalSource** を使う方法について詳しくは、このトピックの「キーボード ルーティング イベント」または「[イベントとルーティング イベントの概要](https://docs.microsoft.com/windows/uwp/xaml-platform/events-and-routed-events-overview)」をご覧ください。
+-   [**OriginalSource**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.routedeventargs.originalsource)。 キーボード イベントはルーティング イベントであるため、イベント データには **OriginalSource** があります。 イベントがオブジェクト ツリーをバブルアップするように意図的に設定した場合、**OriginalSource** がセンダーではなく対象のオブジェクトとなる場合があります。 ただし、この動作は設計によって異なります。 センダーではなく **OriginalSource** を使う方法について詳しくは、このトピックの「キーボード ルーティング イベント」または「[イベントとルーティング イベントの概要](https://docs.microsoft.com/windows/uwp/xaml-platform/events-and-routed-events-overview)」をご覧ください。
 
 ### <a name="attaching-a-keyboard-event-handler"></a>キーボード イベント ハンドラーのアタッチ
 
@@ -94,10 +94,10 @@ void MyProject::MainPage::Grid_KeyUp(
 
 キーボード イベントはいずれもイベント データに [**KeyRoutedEventArgs**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.KeyRoutedEventArgs) を使います。**KeyRoutedEventArgs** には次のプロパティがあります。
 
--   [**レジストリ**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.keyroutedeventargs.key)
+-   [**Key**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.keyroutedeventargs.key)
 -   [**KeyStatus**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.keyroutedeventargs.keystatus)
--   [**対応**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.keyroutedeventargs.handled)
--   [**Originalsource**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.routedeventargs.originalsource) ( [**system.windows.routedeventargs.handled**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.RoutedEventArgs)から継承)
+-   [**Handled**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.keyroutedeventargs.handled)
+-   [**OriginalSource**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.routedeventargs.originalsource) ( [**RoutedEventArgs**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.RoutedEventArgs)から継承)
 
 ### <a name="key"></a>キー
 
@@ -286,7 +286,7 @@ End Sub
 ## <a name="keyboard-routed-events"></a>キーボード ルーティング イベント
 
 
-[  **KeyDown**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.keydown) や、[**KeyUp**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.keyup) などの特定のイベントがルーティング イベントです。 ルーティング イベントでは、バブル ルーティング方式が採用されています。 バブル ルーティング方式では、子オブジェクトで発生したイベントが、オブジェクト ツリー内で上位にある親オブジェクトに順にルーティング (バブルアップ) されます。 つまり、同じイベントを処理し、同じイベント データを操作する機会が増えることを意味します。
+[**KeyDown**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.keydown) や、[**KeyUp**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.keyup) などの特定のイベントがルーティング イベントです。 ルーティング イベントでは、バブル ルーティング方式が採用されています。 バブル ルーティング方式では、子オブジェクトで発生したイベントが、オブジェクト ツリー内で上位にある親オブジェクトに順にルーティング (バブルアップ) されます。 つまり、同じイベントを処理し、同じイベント データを操作する機会が増えることを意味します。
 
 次の XAML の例では、1 つの [**Canvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Canvas) と 2 つの [**Button**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Button) オブジェクトについて、[**KeyUp**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.keyup) イベントを処理します。 この場合、どちらかの **Button** オブジェクトにフォーカスがある間にキーを離すと、**KeyUp** イベントが発生します。 イベントはその後、親 **Canvas** までバブルアップされます。
 
@@ -319,9 +319,9 @@ void StackPanel_KeyUp(object sender, KeyRoutedEventArgs e)
 
 ### <a name="addhandler-and-already-handled-keyboard-events"></a>AddHandler イベントと処理済みキーボード イベント
 
-特殊な方法を利用して、既に処理済みとしてマークされているイベントに対して処理を実行できるハンドラーをアタッチすることができます。 この手法では、 [**AddHandler**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.addhandler)メソッドを使用してハンドラーを登録します。これには、XAML 属性や、c++ を追加するための言語固有の構文 (C @ no__t の + = など) は使用しません。
+特殊な方法を利用して、既に処理済みとしてマークされているイベントに対して処理を実行できるハンドラーをアタッチすることができます。 この手法では、 [**AddHandler**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.addhandler)メソッドを使用してハンドラーを登録します。これには、XAML 属性や、c++ を追加するための言語固有の構文 (C\# の += など) は使用しません。
 
-一般的に、この方法には、**AddHandler** API が [**RoutedEvent**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.RoutedEvent) 型のパラメーターを受け取るという制限があります。このパラメーターで対象のルーティング イベントを識別します。 一部のルーティング イベントには **RoutedEvent** 識別子がないため、[**Handled**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.keyroutedeventargs.handled) の状態でも処理できるルーティング イベントを識別する場合に考慮する必要があります。 [  **UIElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement) の [**KeyDown**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.keydown) イベントと [**KeyUp**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.keyup) イベントには、ルーティング イベント識別子 ([**KeyDownEvent**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.keydownevent) と [**KeyUpEvent**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.keyupevent)) があります。 これに対し、[**TextBox.TextChanged**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.textchanged) などのイベントにはルーティング イベント識別子がないため、**AddHandler** を使う手法には利用できません。
+一般的に、この方法には、**AddHandler** API が [**RoutedEvent**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.RoutedEvent) 型のパラメーターを受け取るという制限があります。このパラメーターで対象のルーティング イベントを識別します。 一部のルーティング イベントには **RoutedEvent** 識別子がないため、[**Handled**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.keyroutedeventargs.handled) の状態でも処理できるルーティング イベントを識別する場合に考慮する必要があります。 [**UIElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement) の [**KeyDown**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.keydown) イベントと [**KeyUp**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.keyup) イベントには、ルーティング イベント識別子 ([**KeyDownEvent**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.keydownevent) と [**KeyUpEvent**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.keyupevent)) があります。 これに対し、[**TextBox.TextChanged**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.textchanged) などのイベントにはルーティング イベント識別子がないため、**AddHandler** を使う手法には利用できません。
 
 ### <a name="overriding-keyboard-events-and-behavior"></a>キーボード イベントと動作のオーバーライド
 
@@ -355,7 +355,7 @@ void StackPanel_KeyUp(object sender, KeyRoutedEventArgs e)
 
 UI 要素でコマンド実行を使うことができる場合は、個々の入力イベントではなく、コマンド実行 API を使うことを検討してください。 詳しくは、「[**ButtonBase.Command**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.command)」をご覧ください。
 
-[  **ICommand**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.ICommand) を実装して、通常のイベント ハンドラーから呼び出すコマンド機能をカプセル化することもできます。 この方法では、**Command** プロパティを利用できない場合でも、コマンド実行を使うことができます。
+[**ICommand**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.ICommand) を実装して、通常のイベント ハンドラーから呼び出すコマンド機能をカプセル化することもできます。 この方法では、**Command** プロパティを利用できない場合でも、コマンド実行を使うことができます。
 
 ## <a name="text-input-and-controls"></a>テキスト入力とコントロール
 
@@ -399,8 +399,8 @@ UI 要素でコマンド実行を使うことができる場合は、個々の�
 
 **サンプルのアーカイブ**
 * [入力サンプル](https://go.microsoft.com/fwlink/p/?linkid=226855)
-* [Input:デバイス機能のサンプル @ no__t-0
-* [Input:タッチキーボードサンプル @ no__t-0
+* [Input:デバイス機能のサンプル](https://go.microsoft.com/fwlink/p/?linkid=231530)
+* [Input:タッチキーボードサンプル](https://go.microsoft.com/fwlink/p/?linkid=246019)
 * [スクリーンキーボードサンプルの外観への対応](https://go.microsoft.com/fwlink/p/?linkid=231633)
 * [XAML テキスト編集のサンプル](https://go.microsoft.com/fwlink/p/?LinkID=251417)
  

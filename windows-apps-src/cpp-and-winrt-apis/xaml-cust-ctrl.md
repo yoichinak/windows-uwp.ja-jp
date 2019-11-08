@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, XAML, カスタム, テンプレート化, コントロール
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: c0b2d8fb17b90bc55834f6bf2200b22af9352ef6
-ms.sourcegitcommit: d37a543cfd7b449116320ccfee46a95ece4c1887
+ms.openlocfilehash: 6acbd62a8fa75eefb39598dd5bbb6ec1270388c4
+ms.sourcegitcommit: cc9f5a16386be78c12821a975e43497a0693abba
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68270076"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72578172"
 ---
 # <a name="xaml-custom-templated-controls-with-cwinrt"></a>C++/WinRT による XAML カスタム (テンプレート化) コントロール
 
@@ -22,6 +22,9 @@ ms.locfileid: "68270076"
 
 ## <a name="create-a-blank-app-bglabelcontrolapp"></a>空のアプリを作成する (BgLabelControlApp)
 まず、Microsoft Visual Studio で、新しいプロジェクトを作成します。 **空のアプリ (C++/WinRT)** プロジェクトを作成し、*BgLabelControlApp* と名前を付けます。 このトピックの後半で、プロジェクトをビルドするよう指示します (それまでビルドしないでください)。
+
+> [!NOTE]
+> &mdash;C++/WinRT Visual Studio Extension (VSIX) と NuGet パッケージ (両者が連携してプロジェクト テンプレートとビルドをサポート) のインストールと使用など、&mdash;C++/WinRT 開発用に Visual Studio を設定する方法については、[Visual Studio での C++/WinRT のサポート](intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)に関する記事を参照してください。
 
 これから、カスタム (テンプレート) コントロールを表す新しいクラスを作成します。 同じコンパイル ユニット内のクラスを作成および使用しています。 ただし、このクラスを XAML マークアップからインスタンス化できるようにするため、ランタイム クラスにします。 また、この作成と使用のどちらにも C++/WinRT を使用します。
 
@@ -116,7 +119,7 @@ void BgLabelControl::OnLabelChanged(Windows::UI::Xaml::DependencyObject const& d
 
 そのコンストラクター内で、**BgLabelControl** によってそれ自体の既定のスタイル キーが設定されます。 しかし、既定のスタイル*とは*何でしょうか。 カスタム (テンプレート) コントロールには、コントロールのコンシューマーがスタイルやテンプレートを設定しない場合にレンダリングに使用できる&mdash;既定のコントロール テンプレートを含む&mdash;既定のスタイルを指定する必要があります。 このセクションでは、既定のスタイルを含むマークアップ ファイルをプロジェクトに追加します。
 
-プロジェクト ノードで、新しいフォルダーを作成し、"Themes" という名前を付けます。 `Themes` 以下に、種類が **Visual C++**  > **XAML** > **XAML ビュー**の新しい項目を追加し、"Generic.xaml" という名前を付けます。 XAML フレームワークでカスタム コントロールの既定のスタイルを検出するには、フォルダーとファイルの名前をこのようにする必要があります。 `Generic.xaml` の既定のコンテンツを削除し、以下のマークアップを貼り付けます。
+プロジェクト ノードで、新しいフォルダー (フィルターではなくフォルダー) を作成し、"Themes" という名前を付けます。 `Themes` 以下に、種類が **Visual C++**  > **XAML** > **XAML ビュー**の新しい項目を追加し、"Generic.xaml" という名前を付けます。 XAML フレームワークでカスタム コントロールの既定のスタイルを検出するには、フォルダーとファイルの名前をこのようにする必要があります。 `Generic.xaml` の既定のコンテンツを削除し、以下のマークアップを貼り付けます。
 
 ```xaml
 <!-- \Themes\Generic.xaml -->

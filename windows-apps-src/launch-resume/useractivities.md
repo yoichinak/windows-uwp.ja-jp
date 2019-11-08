@@ -5,12 +5,12 @@ keywords: ユーザー アクティビティ、ユーザー アクティビテ�
 ms.date: 04/27/2018
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: ed268dd4ba07604db468ee24e5ea348acf806b39
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 7ddceda3457ef5251cb2b1e384dbb880725103fa
+ms.sourcegitcommit: 445320ff0ee7323d823194d4ec9cfa6e710ed85d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67321811"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72282310"
 ---
 # <a name="continue-user-activity-even-across-devices"></a>デバイス間でもユーザーのアクティビティを継続する
 
@@ -32,14 +32,14 @@ ms.locfileid: "67321811"
 
 [UserActivity](https://docs.microsoft.com/uwp/api/windows.applicationmodel.useractivities.useractivity) は、Windows でのユーザー エンゲージメントの単位です。 これには、アクティビティが属するアプリをアクティブ化するために使用される URI、ビジュアル、およびアクティビティを記述するメタデータの 3 つの部分があります。
 
-1. [ActivationUri](https://docs.microsoft.com/uwp/api/windows.applicationmodel.useractivities.useractivity.activationuri#Windows_ApplicationModel_UserActivities_UserActivity_ActivationUri) は、特定のコンテキストでアプリケーションを再開するために使用します。 通常、このリンクは、スキームのプロトコル ハンドラー (例: “my-app://page2?action=edit”) または AppUriHandler (例: http://constoso.com/page2?action=edit) のフォームをとります。
+1. [ActivationUri](https://docs.microsoft.com/uwp/api/windows.applicationmodel.useractivities.useractivity.activationuri#Windows_ApplicationModel_UserActivities_UserActivity_ActivationUri) は、特定のコンテキストでアプリケーションを再開するために使用します。 通常、このリンクでは、スキームのプロトコルハンドラー (たとえば、"my app:/page2? action = edit") または AppUriHandler (たとえば、 http://constoso.com/page2?action=edit) ) の形式を使用します。
 2. [VisualElements](https://docs.microsoft.com/uwp/api/windows.applicationmodel.useractivities.useractivity.visualelements) は、タイトル、説明、またはアダプティブ カード要素でアクティビティを視覚的に識別できるようにするクラスを公開します。
 3. 最後に、[コンテンツ](https://docs.microsoft.com/uwp/api/windows.applicationmodel.useractivities.useractivityvisualelements.content#Windows_ApplicationModel_UserActivities_UserActivityVisualElements_Content) は、特定のコンテキストでアクティビティをグループ化したり取得したりするために使用できるアクティビティのメタデータを格納できます。 多くの場合、これは [https://schema.org](https://schema.org) データのフォームとなります。
 
 **UserActivity** をアプリに追加するには:
 
 1. アプリケーション内でユーザーのコンテキスト (ページ ナビゲーション、新しいゲームレベルなど) が変更されたときに **UserActivity** オブジェクトを生成する
-2. 設定**UserActivity**必須フィールドの最小セットを持つオブジェクト。[ActivityId](https://docs.microsoft.com/uwp/api/windows.applicationmodel.useractivities.useractivity.activityid#Windows_ApplicationModel_UserActivities_UserActivity_ActivityId)、 [ActivationUri](https://docs.microsoft.com/uwp/api/windows.applicationmodel.useractivities.useractivity.activationuri)、および[UserActivity.VisualElements.DisplayText](https://docs.microsoft.com/uwp/api/windows.applicationmodel.useractivities.useractivityvisualelements.displaytext#Windows_ApplicationModel_UserActivities_UserActivityVisualElements_DisplayText)します。
+2. 次の必須フィールドの最小セットを使用して、 **Useractivity**オブジェクトを設定します。[ActivityId](https://docs.microsoft.com/uwp/api/windows.applicationmodel.useractivities.useractivity.activityid#Windows_ApplicationModel_UserActivities_UserActivity_ActivityId)、 [ActivationUri](https://docs.microsoft.com/uwp/api/windows.applicationmodel.useractivities.useractivity.activationuri)、および[useractivity. visualelements](https://docs.microsoft.com/uwp/api/windows.applicationmodel.useractivities.useractivityvisualelements.displaytext#Windows_ApplicationModel_UserActivities_UserActivityVisualElements_DisplayText)。
 3. **UserActivity** によって再アクティブ化できるように、カスタム スキーム ハンドラーをアプリケーションに追加します。
 
 **UserActivity** はわずか数行のコードでアプリに統合できます。 たとえば、MainPage.xaml.cs の MainPage クラス内でこのコードを想像してみてください (注: `using Windows.ApplicationModel.UserActivities;` を前提としています)。
@@ -99,7 +99,7 @@ protected override void OnActivated(IActivatedEventArgs e)
 }
 ```
 
-このコードは、アプリがプロトコル経由でアクティブ化されたかどうかを検出します。 アクティブ化されていた場合は、アプリがアクティブ化されているタスクを再開するためにアプリが何をすべきかを確認します。 簡単なアプリであるアクティビティだけがこのアプリを再開しますができるようにすることセカンダリ ページで、アプリが動作するときにします。
+このコードは、アプリがプロトコル経由でアクティブ化されたかどうかを検出します。 アクティブ化されていた場合は、アプリがアクティブ化されているタスクを再開するためにアプリが何をすべきかを確認します。 単純なアプリであるため、このアプリが再開する唯一のアクティビティは、アプリが起動したときにセカンダリページを表示することです。
 
 ## <a name="use-adaptive-cards-to-improve-the-timeline-experience"></a>アダプティブ カードを使用して、タイムラインのエクスペリエンスを向上させる
 
@@ -152,10 +152,10 @@ Windows.UI.Shell.AdaptiveCardBuilder.CreateAdaptiveCardFromJson(jsonCardText); /
 アプリがクロスプラットフォーム (Android や iOS など) で稼働している場合や、クラウドにユーザーの状態を保持している場合は、[Microsoft Graph](https://developer.microsoft.com/graph) で UserActivities を公開できます。
 アプリケーションまたはサービスが Microsoft アカウントで認証されると、上記と同じデータを使用して [アクティビティ](https://docs.microsoft.com/graph/api/resources/projectrome-activity) オブジェクトと [履歴](https://docs.microsoft.com/graph/api/resources/projectrome-historyitem) オブジェクトを生成するための 2 回の単純な REST 呼び出しが必要です。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 [UserActivity](https://docs.microsoft.com/uwp/api/windows.applicationmodel.useractivities) API を使用して、アプリをタイムラインと Cortana に表示させることができます。
-* 詳細については、 [ **UserActivity** API](https://docs.microsoft.com/uwp/api/windows.applicationmodel.useractivities)
+* [ **Useractivity** API についての詳細情報](https://docs.microsoft.com/uwp/api/windows.applicationmodel.useractivities)
 * 「[sample code](https://github.com/Microsoft/project-rome)」をご覧ください。
 * 「[more sophisticated Adaptive Cards](https://adaptivecards.io/)」を参照してください。
 * [Microsoft Graph](https://developer.microsoft.com/graph) を介して、iOS、Android、または Web サービスから **UserActivity** を公開します。
@@ -167,9 +167,9 @@ Windows.UI.Shell.AdaptiveCardBuilder.CreateAdaptiveCardFromJson(jsonCardText); /
 
 ## <a name="related-topics"></a>関連トピック
 
-* [ユーザー アクティビティ (プロジェクト ローマ docs)](https://docs.microsoft.com/windows/project-rome/user-activities/)
-* [アダプティブ カード](https://docs.microsoft.com/adaptive-cards/)
-* [アダプティブ カード ビジュアライザー、サンプル](https://adaptivecards.io/)
+* [ユーザーアクティビティ (プロジェクトローマドキュメント)](https://docs.microsoft.com/windows/project-rome/user-activities/)
+* [アダプティブカード](https://docs.microsoft.com/adaptive-cards/)
+* [アダプティブカードビジュアライザー、サンプル](https://adaptivecards.io/)
 * [URI のアクティブ化の処理](https://docs.microsoft.com/windows/uwp/launch-resume/handle-uri-activation)
-* [お客様の Microsoft Graph、アクティビティ フィード、および Adaptive Cards を使用して任意のプラットフォームとの連携](https://channel9.msdn.com/Events/Connect/2017/B111)
+* [Microsoft Graph、アクティビティフィード、アダプティブカードを使用して、あらゆるプラットフォームの顧客と提携する](https://channel9.msdn.com/Events/Connect/2017/B111)
 * [Microsoft Graph](https://developer.microsoft.com/graph)

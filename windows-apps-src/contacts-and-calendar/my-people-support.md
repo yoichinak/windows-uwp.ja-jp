@@ -5,20 +5,23 @@ ms.date: 06/28/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 67a96b8423d589036ef1c6896f056d097282dc33
-ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
+ms.openlocfilehash: f54cb261f6ef94545d656d5bd4f624622cc6dfff
+ms.sourcegitcommit: dafda665fd3d25136194e452e7500b5bab076638
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67820226"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71982231"
 ---
 # <a name="adding-my-people-support-to-an-application"></a>アプリケーションにマイ連絡先のサポートを追加する
+
+> [!Note]
+> Windows 10 5 月2019更新プログラム (バージョン 1903) の時点で、新しい Windows 10 のインストールでは、既定では [タスクバーに表示する] が表示されなくなりました。 この機能を有効にするには、タスクバーを右クリックし、[タスクバーにユーザーを表示する] を押します。 開発者は、ユーザーのサポートをアプリケーションに追加しないことをお勧めします。 Windows 10 用のアプリの最適化の詳細については、 [Windows 開発者のブログ](https://blogs.windows.com/windowsdeveloper/)を参照してください。
 
 マイ連絡先の機能を使うと、ユーザーは、アプリケーションから直接、連絡先をタスク バーにピン留めすることができます。これにより、いろいろな方法で操作できる新しい連絡先オブジェクトを作成できます。 この記事では、この機能のサポートを追加して、ユーザーがアプリから直接を連絡先をピン留めできるようにする方法を説明します。 連絡先をピン留めすると、[マイ連絡先の共有](my-people-sharing.md)や[通知](my-people-notifications.md)など、ユーザーは新しい種類の操作を利用できるようになります。
 
 ![マイ連絡先のチャット](images/my-people-chat.png)
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>要件
 
 + Windows 10 と Microsoft Visual Studio 2019。 インストールについて詳しくは、「[Visual Studio のセットアップ](https://docs.microsoft.com/en-us/windows/uwp/get-started/get-set-up)」をご覧ください。
 + C# またはこれに類似するオブジェクト指向プログラミング言語に関する基本的な知識。 C# で作業を始めるには、「["Hello, world" アプリを作成する](https://docs.microsoft.com/en-us/windows/uwp/get-started/create-a-hello-world-app-xaml-universal)」をご覧ください。
@@ -27,8 +30,8 @@ ms.locfileid: "67820226"
 
 アプリケーションでマイ連絡先の機能を使えるようにするには、3 つの手順を行う必要があります。
 
-1. [アプリケーション マニフェストで shareTarget アクティブ化コントラクトのサポートを宣言します。](https://docs.microsoft.com/en-us/windows/uwp/contacts-and-calendar/my-people-sharing#declaring-support-for-the-share-contract)
-2. [ユーザーがアプリを使用して共有できる連絡先の注釈を付けます。](https://docs.microsoft.com/en-us/windows/uwp/contacts-and-calendar/my-people-sharing#annotating-contacts)
+1. [アプリケーションマニフェストで shareTarget activation コントラクトのサポートを宣言します。](https://docs.microsoft.com/en-us/windows/uwp/contacts-and-calendar/my-people-sharing#declaring-support-for-the-share-contract)
+2. [アプリを使用してユーザーが共有できる連絡先に注釈を付けます。](https://docs.microsoft.com/en-us/windows/uwp/contacts-and-calendar/my-people-sharing#annotating-contacts)
 3.  アプリケーションの複数インスタンスの同時実行をサポートします。 ユーザーは、連絡先パネルでアプリケーションを使いながら、アプリケーションの通常版を操作できる必要があります。  ユーザーは複数の連絡先パネルを同時に使用することもできます。  これをサポートするには、アプリケーションが複数のビューを同時に実行できる必要があります。 これを行う方法については、「["アプリの複数のビューの表示](https://docs.microsoft.com/windows/uwp/design/layout/show-multiple-views)」の記事をご覧ください。
 
 これを行うと、アプリケーションは、注釈付きの連絡先のための、連絡先のパネルに表示されます。
@@ -184,7 +187,7 @@ ContactPanel オブジェクトを使うと、連絡先パネル ヘッダーの
 ![連絡先の通知でのバッジの表示](images/my-people-badging.png)
 
 連絡先にバッジを表示するには、トップ レベルのトースト ノードに hint-people パラメーターを含めて、送信連絡先を指定する必要があります。 このパラメーターには次の値を指定できます。
-+ **電子メール アドレス** 
++ **電子メールアドレス** 
     + 例: [mailto:johndoe@mydomain.com](mailto:johndoe@mydomain.com)
 + **電話番号** 
     + 例: tel:888-888-8888
@@ -250,9 +253,9 @@ async Task PinMultipleContacts(Contact[] contacts)
 
 ## <a name="see-also"></a>関連項目
 + [マイ連絡先の共有](my-people-sharing.md)
-+ [ユーザー通知](my-people-notifications.md)
-+ [Channel 9 ビデオ マイ ユーザーがアプリケーションにサポートを追加する方法](https://channel9.msdn.com/Events/Build/2017/P4056)
-+ [ユーザーの統合サンプル](https://aka.ms/mypeoplebuild2017)
++ [マイユーザー通知](my-people-notifications.md)
++ [アプリケーションへの People サポートの追加に関する Channel 9 のビデオ](https://channel9.msdn.com/Events/Build/2017/P4056)
++ [マイユーザー統合のサンプル](https://aka.ms/mypeoplebuild2017)
 + [連絡先カードのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/6370138b150ca8a34ff86de376ab6408c5587f5d/Samples/ContactCardIntegration)
 + [PinnedContactManager クラスのドキュメント](https://docs.microsoft.com/en-us/uwp/api/windows.applicationmodel.contacts.pinnedcontactmanager)
 + [アプリを連絡先カードの操作に接続する](https://docs.microsoft.com/en-us/windows/uwp/contacts-and-calendar/integrating-with-contacts)

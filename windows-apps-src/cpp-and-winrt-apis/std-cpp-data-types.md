@@ -125,7 +125,7 @@ array_view<byte const> fromRange{ theArray.data(), theArray.data() + 2 }; // jus
 dataWriter.WriteBytes(fromRange); // the winrt::array_view is passed to WriteBytes.
 ```
 
-## <a name="winrtarrayview-functions-and-operators"></a>winrt::array_view の関数と演算子
+## <a name="winrtarray_view-functions-and-operators"></a>winrt::array_view の関数と演算子
 コンストラクター、演算子、関数、および反復子のホストが **winrt::array_view** に対して実装されています。 **winrt::array_view** は範囲であるため、範囲ベースの `for`、または **std::for_each** で使用できます。
 
 その他の例や詳細については、[**winrt::array_view**](/uwp/cpp-ref-for-winrt/array-view) API リファレンス トピックをご覧ください。
@@ -152,7 +152,7 @@ void PrintFeed(SyndicationFeed const& syndicationFeed)
 ```
 
 ## <a name="c-coroutines-with-asynchronous-windows-runtime-apis"></a>非同期 Windows ランタイム API を使用した C++ コルーチン
-非同期 Windows ランタイム API を呼び出すときには、引き続き[並列パターン ライブラリ (PPL)](/cpp/parallel/concrt/parallel-patterns-library-ppl) を使用できます。 しかし、多くの場合、C++ コルーチンは非同期オブジェクトとのやりとり用に、効率的でコーディングがより簡単なイディオムを提供します。 詳細とコード例については、「[C++/WinRT を使用した同時実行操作と非同期操作](concurrency.md)」を参照してください。
+非同期 Windows ランタイム API を呼び出すときには、引き続き[並列パターン ライブラリ (PPL)](/cpp/parallel/concrt/parallel-patterns-library-ppl) を使用できます。 しかし、多くの場合、C++ コルーチンは非同期オブジェクトとのやりとり用に、効率的でコーディングがより簡単なイディオムを提供します。 詳細とコード例については、「[C++/WinRT を使用した同時開催操作と非同期操作](concurrency.md)」を参照してください。
 
 ## <a name="important-apis"></a>重要な API
 * [IVector&lt;T&gt; インターフェイス](/uwp/api/windows.foundation.collections.ivector_t_)

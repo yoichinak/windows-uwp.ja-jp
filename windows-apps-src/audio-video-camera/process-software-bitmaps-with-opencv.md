@@ -6,12 +6,12 @@ ms.date: 03/19/2018
 ms.topic: article
 keywords: Windows 10, UWP, OpenCV, SoftwareBitmap
 ms.localizationpriority: medium
-ms.openlocfilehash: ed8d6572fb280b2cfecf1cf035d68a739c5bc92d
-ms.sourcegitcommit: d38e2f31c47434cd6dbbf8fe8d01c20b98fabf02
+ms.openlocfilehash: 349326ba458999b2b1e299e8260d52d608d5af1f
+ms.sourcegitcommit: e189166dea855ce330bd0634cc158b51cb4fbd69
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70393520"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72811642"
 ---
 # <a name="process-bitmaps-with-opencv"></a>OpenCV でのビットマップの処理
 
@@ -29,25 +29,25 @@ ms.locfileid: "70393520"
 
 ## <a name="create-a-helper-windows-runtime-component-for-opencv-interop"></a>OpenCV 相互運用機能のヘルパー Windows ランタイムコンポーネントを作成する
 
-### <a name="1-add-a-new-native-code-windows-runtime-component-project-to-your-solution"></a>1. 新しいネイティブコード Windows ランタイムコンポーネントプロジェクトをソリューションに追加する
+### <a name="1-add-a-new-native-code-windows-runtime-component-project-to-your-solution"></a>1. ソリューションに新しいネイティブコード Windows ランタイムコンポーネントプロジェクトを追加する
 
 1. ソリューション エクスプローラーで、ソリューションを右クリックして **[追加]、[新しいプロジェクト]** の順に選択し、新しいプロジェクトを Visual Studio のソリューションに追加します。 
 2. **[Visual C++]** カテゴリで、 **[Windows ランタイム コンポーネント (ユニバーサル Windows)]** を選択します。 この例では、「OpenCVBridge」というプロジェクト名を入力し、 **[OK]** をクリックします。 
 3. **[新しい Windows ユニバーサル プロジェクト]** ダイアログ ボックスで、アプリのターゲットと最小 OS バージョンを選択して **[OK]** をクリックします。
 4. ソリューション エクスプローラーで自動生成された Class1.cpp ファイルを右クリックして **[削除]** を選択し、確認のダイアログ ボックスが表示されたら **[削除]** を選択します。 次に Class1.h ヘッダー ファイルを削除します。
-5. OpenCVBridge プロジェクトアイコンを右クリックし、 **[Add-> クラス]** を選択します。 **[クラスの追加]** ダイアログボックスで、 **[クラス名]** フィールドに「OpenCVHelper」と入力し、 **[OK]** をクリックします。 コードは、後の手順で作成されるクラス ファイルに追加されます。
+5. OpenCVBridge プロジェクト アイコンを右クリックし、 **[追加]、[クラス]** の順に選択します。 **[クラスの追加]** ダイアログ ボックスで、 **[クラス名]** フィールドに「OpenCVHelper」と入力し、 **[OK]** をクリックします。 コードは、後の手順で作成されるクラス ファイルに追加されます。
 
-### <a name="2-add-the-opencv-nuget-packages-to-your-component-project"></a>2. OpenCV NuGet パッケージをコンポーネントプロジェクトに追加する
+### <a name="2-add-the-opencv-nuget-packages-to-your-component-project"></a>2. OpenCV NuGet パッケージをコンポーネント プロジェクトに追加する
 
 1. ソリューション エクスプローラーで、OpenCVBridge プロジェクト アイコンを右クリックし、 **[NuGet パッケージの管理]** をクリックします。
 2. [NuGet パッケージ マネージャー] ダイアログが開いたら、 **[参照]** タブを選択し、検索ボックスに「OpenCV.Win」と入力します。
 3. [OpenCV.Win.Core] を選択し、 **[インストール]** をクリックします。 **[プレビュー]** ダイアログ ボックスで、 **[OK]** をクリックします。
 4. 同じ手順で "OpenCV.Win.ImgProc" パッケージをインストールします。
 
-> [!NOTE]
-> OpenCV.Win.Core と OpenCV.Win.ImgProc は定期的に更新されていませんが、このページの説明に従って OpenCVHelper を作成することをお勧めします。
+>[!NOTE]
+>ImgProc は定期的に更新されず、ストアの準拠チェックにも合格しないため、これらのパッケージは実験のみを目的としています。
 
-### <a name="3-implement-the-opencvhelper-class"></a>3.OpenCVHelper クラスを実装する
+### <a name="3-implement-the-opencvhelper-class"></a>3. OpenCVHelper クラスを実装する
 
 OpenCVHelper.h ヘッダー ファイルに以下のコードを貼り付けます。 このコードには、インストールした *Core* パッケージと *ImgProc* パッケージの OpenCV ヘッダー ファイルが含まれており、以下の手順で示される 3 つのメソッドを宣言しています。
 
@@ -82,7 +82,7 @@ include ディレクティブの後に、以下の **using** ディレクティ�
 
 
 ## <a name="a-simple-softwarebitmap-opencv-example-using-the-helper-component"></a>ヘルパー コンポーネントを使用するシンプルな SoftwareBitmap OpenCV の例
-OpenCVBridge コンポーネントが作成されたので、OpenCV の **blur** メソッドを使用して **SoftwareBitmap** を変更するシンプルな C# アプリを作成できます。 UWP アプリから Windows ランタイムコンポーネントにアクセスするには、まずコンポーネントへの参照を追加する必要があります。 ソリューションエクスプローラーで、UWP アプリプロジェクトの **[参照設定]** ノードを右クリックし、 **[参照の追加]** を選択します。参照マネージャー ダイアログで、 **[プロジェクト-> ソリューション]** を選択します。 OpenCVBridge プロジェクトの横のボックスをオンにし、 **[OK]** をクリックします。
+OpenCVBridge コンポーネントが作成されたので、OpenCV の **blur** メソッドを使用して **SoftwareBitmap** を変更するシンプルな C# アプリを作成できます。 UWP アプリから Windows ランタイムコンポーネントにアクセスするには、まずコンポーネントへの参照を追加する必要があります。 ソリューション エクスプローラーで、UWP アプリ プロジェクトの下にある **[参照設定]** ノードを右クリックし、 **[参照の追加]** を選択します。[参照マネージャー] ダイアログ ボックスで、 **[プロジェクト]、[ソリューション]** の順に選択します。 OpenCVBridge プロジェクトの横のボックスをオンにし、 **[OK]** をクリックします。
 
 次のコード例では、ユーザーは画像ファイルを選択し、 **[BitmapDecoder](https://docs.microsoft.com/uwp/api/windows.graphics.imaging.bitmapencoder)** を使用して画像の  **SoftwareBitmap** 表現を作成できます。 **SoftwareBitmap** の操作について詳しくは、「[ビットマップ画像の作成、編集、保存](https://docs.microsoft.com/windows/uwp/audio-video-camera/imaging)」をご覧ください。
 

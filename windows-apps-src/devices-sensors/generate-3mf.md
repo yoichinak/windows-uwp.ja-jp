@@ -9,18 +9,18 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: f7cc27df92329157f2987d8d02eb59039534d166
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: c69e8618aaba58fd3b8de163ce990371bbf3c945
+ms.sourcegitcommit: ce7610916fd662d4bb95d4bfe5c4cf0e45303014
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66370106"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71681997"
 ---
 # <a name="generate-a-3mf-package"></a>3MF パッケージの生成
 
 **重要な API**
 
--   [**Windows.Graphics.Printing3D**](https://docs.microsoft.com/uwp/api/windows.graphics.printing3d)
+-   [**Printing3D**](https://docs.microsoft.com/uwp/api/windows.graphics.printing3d)
 
 このガイドでは、3D Manufacturing Format (3MF) ドキュメントの構造について説明し、その作成方法と [**Windows.Graphics.Printing3D**](https://docs.microsoft.com/uwp/api/windows.graphics.printing3d) API による操作について説明します。
 
@@ -28,7 +28,7 @@ ms.locfileid: "66370106"
 
 3D Manufacturing Format (3MF) は、製造 (3D 印刷) 目的のために、XML を使って 3D モデルの外観と構造を記述するための規則のセットです。 3MF ではパーツ (必須なパーツとオプションのパーツがあります) のセットとそのリレーションシップを定義しています。そのねらいは 3D 製造デバイスのために必要なすべての情報を提供することです。 3MF に準拠したデータセットは .3mf 拡張子を持つファイルとして保存できます。
 
-Windows 10 で、 [ **Printing3D3MFPackage** ](https://docs.microsoft.com/uwp/api/windows.graphics.printing3d.printing3d3mfpackage)クラス、 **Windows.Graphics.Printing3D**名前空間は、1 つ .3mf ファイルとする他のクラスのマップに似ています、ファイルの XML 要素を特定します。 このガイドでは、3MF ドキュメントの主なパーツのそれぞれの作成方法とプログラムによる設定方法、3MF の素材の拡張の利用方法、**Printing3D3MFPackage** オブジェクトを変換して .3mf ファイルとして保存する方法について説明します。 3MF および 3MF 素材の拡張の標準について詳しくは、「[3MF の仕様](https://3mf.io/what-is-3mf/3mf-specification/)」をご覧ください。
+Windows 10 では、 **Printing3D**名前空間の[**Printing3D3MFPackage**](https://docs.microsoft.com/uwp/api/windows.graphics.printing3d.printing3d3mfpackage)クラスは1つの3mf ファイルに似ており、その他のクラスはファイル内の特定の XML 要素にマップされます。 このガイドでは、3MF ドキュメントの主なパーツのそれぞれの作成方法とプログラムによる設定方法、3MF の素材の拡張の利用方法、**Printing3D3MFPackage** オブジェクトを変換して .3mf ファイルとして保存する方法について説明します。 3MF および 3MF 素材の拡張の標準について詳しくは、「[3MF の仕様](https://3mf.io/what-is-3mf/3mf-specification/)」をご覧ください。
 
 <!-- >**Note** This guide describes how to construct a 3MF document from scratch. If you wish to make changes to an already existing 3MF document provided in the form of a .3mf file, you simply need to convert it to a **Printing3D3MFPackage** and alter the contained classes/properties in the same way (see [link]) below). -->
 
@@ -83,7 +83,7 @@ Printing3DMesh オブジェクトが頂点と三角形の有効なセットを�
 [!code-cs[BaseMaterialGroup](./code/3dprinthowto/cs/Generate3MFMethods.cs#SnippetBaseMaterialGroup)]
 
 > [!NOTE]
-> 3D の製造デバイスでは、仮想の数量単価型の要素が、3MF に保存されている、使用可能な物理マテリアルのマップを決定します。 素材のマッピングは 1:1 とは限りません。3D プリンターが 1 つの素材のみを使用できる場合、オブジェクトや表面が別の素材に割り当てられている場合でも、全モデルをその素材で印刷します。
+>@no__t、3D 製造デバイスは、3MF に格納されている仮想マテリアル要素にマップされている使用可能な物理マテリアルを判別します。 素材のマッピングは 1:1 とは限りません。3D プリンターが 1 つの素材のみを使用できる場合、オブジェクトや表面が別の素材に割り当てられている場合でも、全モデルをその素材で印刷します。
 
 ### <a name="color-materials"></a>Color Materials
 
@@ -131,6 +131,10 @@ Component 構造体により、ユーザーは印刷可能な 3D モデルに複
 
 [!code-cs[SavePackage](./code/3dprinthowto/cs/Generate3MFMethods.cs#SnippetSavePackage)]
 
+この関数は、テクスチャが正しく指定されていることを確認します。
+
+[!code-cs[FixTexture](./code/3dprinthowto/cs/Generate3MFMethods.cs#SnippetFixTexture)]
+
 ここでは、アプリ内から印刷ジョブを開始するか (「[アプリからの 3D 印刷](https://docs.microsoft.com/windows/uwp/devices-sensors/3d-print-from-app)」をご覧ください)、またはこの **Printing3D3MFPackage** を .3mf ファイルとして保存します。
 
 次のメソッドは、完成した **Printing3D3MFPackage** を取得して、そのデータを .3mf ファイルに保存します。
@@ -139,7 +143,7 @@ Component 構造体により、ユーザーは印刷可能な 3D モデルに複
 
 ## <a name="related-topics"></a>関連トピック
 
-[アプリの 3D 印刷](https://docs.microsoft.com/windows/uwp/devices-sensors/3d-print-from-app)  
+[アプリからの3D 印刷](https://docs.microsoft.com/windows/uwp/devices-sensors/3d-print-from-app)  
 [3D 印刷 UWP サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/3DPrinting)
  
 

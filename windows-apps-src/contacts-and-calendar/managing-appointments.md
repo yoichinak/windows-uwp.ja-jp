@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, 予定, カレンダー
 ms.localizationpriority: medium
-ms.openlocfilehash: 1e4eeaf486738996ce5a860f567fc18a7d41cca2
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 5fd4fc62a393e6439458ddc38f37bbb0680fb9b1
+ms.sourcegitcommit: 445320ff0ee7323d823194d4ec9cfa6e710ed85d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66361251"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72282227"
 ---
 # <a name="manage-appointments"></a>予定の管理
 
@@ -156,7 +156,7 @@ private void Create-Click(object sender, RoutedEventArgs e)
         }
         else
         {
-            // Organizer Address (e.g. Email Address)
+            // Organizer Address (for example, Email Address)
             organizer.Address = OrganizerAddressTextBox.Text;
 
             if (organizer.Address.Length > 321)
@@ -192,7 +192,7 @@ private void Create-Click(object sender, RoutedEventArgs e)
         }
         else
         {
-            // Invitee Address (e.g. Email Address)
+            // Invitee Address (for example, Email Address)
             invitee.Address = InviteeAddressTextBox.Text;
 
             if (invitee.Address.Length > 321)
@@ -282,7 +282,7 @@ private async void Add-Click(object sender, RoutedEventArgs e)
 }
 ```
 
-**注**  Windows Phone ストアのアプリ、 [ **ShowAddAppointment** ](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appointments.appointmentmanager.showaddappointmentasync)同様に機能[ **ShowEditNewAppointment**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appointments.appointmentmanager.showeditnewappointmentasync)予定を追加するために表示されるダイアログ ボックスが編集可能にします。
+**注**@no__t Windows Phone ストアアプリの場合は、 [**ShowEditNewAppointment**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appointments.appointmentmanager.showeditnewappointmentasync)と同様に[**showaddappointment**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appointments.appointmentmanager.showaddappointmentasync)関数は、予定を追加するために表示されるダイアログが編集可能であることを示します。
 
 ## <a name="replace-an-appointment-in-the-users-calendar"></a>ユーザーのカレンダーで予定を置換する
 
@@ -507,7 +507,7 @@ private void Create-Click(object sender, RoutedEventArgs e)
 
 ## <a name="add-a-new-editable-appointment"></a>新しい編集可能な予定を追加する
 
-[**ShowEditNewAppointmentAsync** ](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appointments.appointmentmanager.showeditnewappointmentasync)同様の機能[ **ShowAddAppointmentAsync** ](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appointments.appointmentmanager.showaddappointmentasync)ユーザーが変更できるように、予定を追加するためのダイアログ ボックスが編集可能ながある点が保存する前に、予定データ。
+[**ShowEditNewAppointmentAsync**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appointments.appointmentmanager.showeditnewappointmentasync)は、 [**ShowAddAppointmentAsync**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appointments.appointmentmanager.showaddappointmentasync)と同様に機能します。ただし、予定を追加するためのダイアログが編集可能になり、ユーザーが予定データを保存する前に変更できるようになります。
 
 ``` cs
 private async void AddAndEdit-Click(object sender, RoutedEventArgs e)
@@ -542,7 +542,7 @@ private async void AddAndEdit-Click(object sender, RoutedEventArgs e)
 
 ## <a name="show-appointment-details"></a>予定の詳しい情報を表示する
 
-[**ShowAppointmentDetailsAsync** ](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appointments.appointmentmanager.showappointmentdetailsasync)により、システムが指定された予定の詳細を表示します。 カレンダーを実装するアプリでは、所有下にあるカレンダー内の予定について詳しい情報を表示するときに、そのアプリをアクティブにするかどうかを選ぶことができます。 それ以外の場合、予定の詳しい情報がシステムによって表示されます。 開始日を引数として受け取るメソッドのオーバーロードが用意されており、定期的に発生する予定について、詳しい情報をいつから表示するかを指定することができます。
+[**ShowAppointmentDetailsAsync**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appointments.appointmentmanager.showappointmentdetailsasync)を指定すると、指定した予定の詳細がシステムに表示されます。 カレンダーを実装するアプリでは、所有下にあるカレンダー内の予定について詳しい情報を表示するときに、そのアプリをアクティブにするかどうかを選ぶことができます。 それ以外の場合、予定の詳しい情報がシステムによって表示されます。 開始日を引数として受け取るメソッドのオーバーロードが用意されており、定期的に発生する予定について、詳しい情報をいつから表示するかを指定することができます。
 
 ```cs
 private async void ShowAppointmentDetails-Click(object sender, RoutedEventArgs e)

@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: f9b0d6bd-af12-4237-bc66-0c218859d2fd
 ms.localizationpriority: medium
-ms.openlocfilehash: 08ad21d3ddc73499bb2b97b300e635fe0a6c148d
-ms.sourcegitcommit: 698a86640b365dc1ca772fb6f53ca556dc284ed6
+ms.openlocfilehash: b7d38464a26af0df03c1aa381b16fbddf1de55cc
+ms.sourcegitcommit: e0644abf76a2535ea24758d1904ff00dfcd86a51
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935775"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72008043"
 ---
 # <a name="set-up-automated-builds-for-your-uwp-app"></a>UWP アプリの自動ビルドを設定する
 
@@ -38,7 +38,7 @@ trigger:
 - master
 
 pool:
-  vmImage: 'VS2017-Win2016'
+  vmImage: 'windows-latest'
 
 variables:
   solution: '**/*.sln'
@@ -62,7 +62,7 @@ steps:
 
 ```
 
-既定のテンプレートは、.csproj ファイルに指定されている証明書を使用してパッケージに署名しようとします。 ビルド中にパッケージに署名する場合は、秘密キーへのアクセス権を持っている必要があります。 それ以外の場合は、yaml ファイルの`/p:AppxPackageSigningEnabled=false` `msbuildArgs`セクションにパラメーターを追加することにより、署名を無効にすることができます。
+既定のテンプレートは、.csproj ファイルに指定されている証明書を使用してパッケージに署名しようとします。 ビルド中にパッケージに署名する場合は、秘密キーへのアクセス権を持っている必要があります。 それ以外の場合は、パラメーター `/p:AppxPackageSigningEnabled=false` を YAML ファイルの `msbuildArgs` セクションに追加することにより、署名を無効にすることができます。
 
 ## <a name="add-your-project-certificate-to-the-secure-files-library"></a>セキュリティで保護されたファイルライブラリにプロジェクト証明書を追加する
 
@@ -70,13 +70,13 @@ steps:
 
 自動ビルドの証明書をアップロードするには、次のようにします。
 
-1. Azure Pipelines で、ナビゲーションウィンドウの [**パイプライン**] を展開し、[**ライブラリ**] をクリックします。
-2. [**セキュリティで保護さ**れたファイル] タブをクリックし、[ **+ 保護されたファイル**] をクリックします。
+1. Azure Pipelines で、ナビゲーションウィンドウの **[パイプライン]** を展開し、 **[ライブラリ]** をクリックします。
+2. **[セキュリティで保護さ]** れたファイル タブをクリックし、 **[+ 保護されたファイル]** をクリックします。
 
     ![セキュリティで保護されたファイルをアップロードする方法](images/secure-file1.png)
 
 3. 証明書ファイルを参照し、[ **OK]** をクリックします。
-4. 証明書をアップロードしたら、証明書を選択してプロパティを表示します。 [**パイプラインのアクセス許可**] で、[**すべてのパイプラインで使用することを承認**する] の切り替えを有効にします。
+4. 証明書をアップロードしたら、証明書を選択してプロパティを表示します。 **[パイプラインのアクセス許可]** で、 **[すべてのパイプラインで使用することを承認]** する の切り替えを有効にします。
 
     ![セキュリティで保護されたファイルをアップロードする方法](images/secure-file2.png)
 
@@ -116,7 +116,7 @@ steps:
 ### <a name="configure-package-signing"></a>パッケージ署名の構成
 
 MSIX (または APPX) パッケージに署名するには、パイプラインで署名証明書を取得する必要があります。 これを行うには、VSBuild タスクの前に DownloadSecureFile タスクを追加します。
-これにより、を使用```signingCert```して署名証明書にアクセスできるようになります。
+これにより、```signingCert``` を使用して署名証明書にアクセスできるようになります。
 
 ```yml
 - task: DownloadSecureFile@1
@@ -144,11 +144,11 @@ MSIX (または APPX) パッケージに署名するには、パイプライン�
 ```
 
 > [!NOTE]
-> PackageCertificateThumbprint 引数は、意図的に空の文字列に設定されます。 拇印がプロジェクトで設定されていても、署名証明書と一致しない場合、ビルドは失敗`Certificate does not match supplied signing thumbprint`し、というエラーが表示されます。
+> PackageCertificateThumbprint 引数は、意図的に空の文字列に設定されます。 拇印がプロジェクトで設定されていても署名証明書と一致しない場合、ビルドは失敗し、`Certificate does not match supplied signing thumbprint` というエラーが表示されます。
 
 ### <a name="review-parameters"></a>パラメーターの確認
 
-`$()`構文で定義されたパラメーターは、ビルド定義で定義された変数であり、他のビルドシステムでは変更されます。
+@No__t-0 構文で定義されたパラメーターは、ビルド定義で定義された変数であり、他のビルドシステムでは変更されます。
 
 ![既定の変数](images/building-screen5.png)
 
@@ -172,11 +172,11 @@ MSIX (または APPX) パッケージに署名するには、パイプライン�
     PathtoPublish: '$(build.artifactstagingdirectory)'
 ```
 
-生成された成果物は、[ビルド結果] ページの [**成果物**] オプションで確認できます。
+生成された成果物は、ビルド結果 ページの **成果物** オプションで確認できます。
 
 ![成果物](images/building-screen6.png)
 
-`UapAppxPackageBuildMode`引数をに`StoreUpload`設定したため、アーティファクトフォルダーには、ストアに送信するためのパッケージ (. msixupload/. .appxupload) が含まれています。 ストアには、通常のアプリケーションパッケージ (msix/.appx) またはアプリバンドル (. .msixbundle/.appxbundle/) を送信することもできます。 この資料の目的上、.appxupload ファイルを使います。
+@No__t-0 引数を `StoreUpload` に設定したため、アーティファクトフォルダーには、ストアに送信するためのパッケージ (. msixupload/. .appxupload) が含まれています。 ストアには、通常のアプリケーションパッケージ (msix/.appx) またはアプリバンドル (. .msixbundle/.appxbundle/) を送信することもできます。 この資料の目的上、.appxupload ファイルを使います。
 
 ## <a name="address-bundle-errors"></a>アドレスバンドルエラー
 
@@ -184,14 +184,14 @@ MSIX (または APPX) パッケージに署名するには、パイプライン�
 
   `MakeAppx(0,0): Error : Error info: error 80080204: The package with file name "AppOne.UnitTests_0.1.2595.0_x86.appx" and package full name "8ef641d1-4557-4e33-957f-6895b122f1e6_0.1.2595.0_x86__scrj5wvaadcy6" is not valid in the bundle because it has a different package family name than other packages in the bundle`
 
-このエラーが表示されるのは、ソリューション レベルで、バンドルに含めるアプリが明確ではないためです。 この問題を解決するには、各プロジェクトファイルを開き、最初`<PropertyGroup>`の要素の末尾に次のプロパティを追加します。
+このエラーが表示されるのは、ソリューション レベルで、バンドルに含めるアプリが明確ではないためです。 この問題を解決するには、各プロジェクトファイルを開き、最初の `<PropertyGroup>` 要素の末尾に次のプロパティを追加します。
 
-|**プロジェクト**|**Properties**|
+|**作品**|**Properties**|
 |-------|----------|
-|アプリ|`<AppxBundle>Always</AppxBundle>`|
+|App|`<AppxBundle>Always</AppxBundle>`|
 |UnitTests|`<AppxBundle>Never</AppxBundle>`|
 
-次に、ビルド`AppxBundle`ステップから MSBuild 引数を削除します。
+次に、ビルドステップから @no__t 0 の MSBuild 引数を削除します。
 
 ## <a name="related-topics"></a>関連トピック
 

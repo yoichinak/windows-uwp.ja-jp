@@ -1,20 +1,24 @@
 ---
-description: C++/WinRT 2.0 を使用すると、実装型の破棄を延期したり、破棄中に安全にクエリを実行したりすることができます。 このトピックでは、それらの機能についてと、それらをいつ使用するかについて説明します。
-title: デストラクターに関する詳細情報
-ms.date: 07/19/2019
+description: C++/WinRT 2.0 のこれらの拡張ポイントを使用すると、実装の種類の破棄を延期したり、破棄中に安全にクエリを実行したり、プロジェクションが実行された方法に対してエントリをフックしたりすることができます。
+title: 実装の種類の拡張ポイント
+ms.date: 09/26/2019
 ms.topic: article
 keywords: windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、遅延破棄、安全な照会
 ms.localizationpriority: medium
-ms.openlocfilehash: 9806ea54665b24c246f2023714a14d94ec3bcc8e
-ms.sourcegitcommit: 02cc7aaa408efe280b089ff27484e8bc879adf23
+ms.openlocfilehash: 76068ffc655c20aa13b50cce9ac49af9afd50805
+ms.sourcegitcommit: 50b0b6d6571eb80aaab3cc36ab4e8d84ac4b7416
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68387799"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71329565"
 ---
-# <a name="details-about-destructors"></a>デストラクターに関する詳細情報
+# <a name="extension-points-for-your-implementation-types"></a>実装の種類の拡張ポイント
 
-C++/WinRT 2.0 を使用すると、実装型の破棄を延期したり、破棄中に安全にクエリを実行したりすることができます。 このトピックでは、それらの機能についてと、それらをいつ使用するかについて説明します。
+[winrt::implements 構造体テンプレート](/uwp/cpp-ref-for-winrt/implements)は、(ランタイム クラスとアクティベーション ファクトリの) 独自の [C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) 実装の直接的または間接的な派生元です。
+
+このトピックでは、C++/WinRT 2.0 の **winrt::implements** の拡張ポイントについて説明します。 検査可能ブジェクト([IInspectable](/windows/win32/api/inspectable/nn-inspectable-iinspectable) インターフェイスの意味での*検査可能*) の既定の動作をカスタマイズするために、これらの拡張ポイントを実装の種類に実装することを選択できます。
+
+これらの拡張ポイントを使用すると、実装の種類の破棄を延期したり、破棄中に安全にクエリを実行したり、投影されたメソッドに対してエントリをフックおよび終了したりすることができます。 このトピックでは、それらの機能について説明し、それらをいつどのように使用するかについて詳しく説明します。
 
 ## <a name="deferred-destruction"></a>遅延破棄
 
@@ -89,7 +93,11 @@ struct Sample : implements<Sample, IStringable>
 };
 ```
 
-これは、より確定的なガベージ コレクターと考えてください。 おそらく、より実用的かつ強力に、**final_release** 関数をコルーチンに変換し、必要に応じてスレッドを中断して切り替えながら、その最終的な破棄を 1 か所で処理することができます。
+これは、より確定的なガベージ コレクターと考えてください。
+
+通常、オブジェクトは  **std::unique_ptr**  が破棄されると破棄されますが、 **std::unique_ptr::reset** を呼び出すことで破棄を早めることができます。または、 **std :: unique_ptr**  をどこかに保存して、破棄を延期することもできます。
+
+おそらく、より実用的かつ強力に、**final_release** 関数をコルーチンに変換し、必要に応じてスレッドを中断して切り替えながら、その最終的な破棄を 1 か所で処理することができます。
 
 ```cppwinrt
 struct Sample : implements<Sample, IStringable>
@@ -111,7 +119,7 @@ struct Sample : implements<Sample, IStringable>
 
 遅延破棄の概念に基づくと、破棄中にインターフェイスを安全に照会できます。
 
-従来の COM は、2 つの中心となる概念に基づいています。 1 つ目は参照カウントで、もう 1 つはインターフェイスの照会です。 **AddRef** と **Release** に加えて、**IUnknown**インターフェイスには **[QueryInterface]** (/windows/win32/api/unknwn/nf-unknwn-iunknown-queryinterface(refiid_void) が用意されています。 このメソッドは、XAML などの特定の UI フレームワークによって、構成可能型システムをシミュレートするときに XAML 階層を走査するために頻繁に使用されます。 単純な例について考えます。
+従来の COM は、2 つの中心となる概念に基づいています。 1 つ目は参照カウントで、もう 1 つはインターフェイスの照会です。 **AddRef** と **Release** に加えて、**IUnknown**インターフェイスには [**QueryInterface**](/windows/win32/api/unknwn/nf-unknwn-iunknown-queryinterface(refiid_void)) が用意されています。 このメソッドは、XAML などの特定の UI フレームワークによって、構成可能型システムをシミュレートするときに XAML 階層を走査するために頻繁に使用されます。 単純な例について考えます。
 
 ```cppwinrt
 struct MainPage : PageT<MainPage>
@@ -172,3 +180,59 @@ struct MainPage : PageT<MainPage>
 デストラクター内で、データ コンテキストをクリアします。ご存じのように、これには **FrameworkElement** 基本クラスに対するクエリが必要です。
 
 参照カウントのデバウンス (または参照カウントの安定化) が C++/WinRT 2.0 によって提供されているため、このすべてが可能です。
+
+## <a name="method-entry-and-exit-hooks"></a>メソッドのエントリと終了のフック
+
+あまり一般的に使用されない拡張ポイントは、 **abi_guard** 構造体、および **abi_enter**  と  **abi_exit** 関数です。
+
+実装の種類によって関数 **abi_enter** が定義されている場合、その関数は、投影されたインターフェイス メソッド( [IInspectable](/windows/win32/api/inspectable/nn-inspectable-iinspectable) のメソッドはカウントされない) のすべてのエントリで呼び出されます。
+
+同様に、**abi_exit** を定義すると、そのようなすべてのメソッドの終了時に呼び出されます。ただし、**abi_enter**  が例外をスローした場合は呼び出されません。 *なお*、投影されたインターフェイス メソッド自体によって例外がスローされた場合には呼び出されます。
+
+たとえば、**abi_enter** を使用すると、 **Shut­Down**  または  **Disconnect** メソッドの呼び出しの後など、オブジェクトが使用不可能な状態になった後にクライアントがオブジェクトを使用しようとした場合に、仮想的な  **invalid_state_error** 例外をスローできます。 C++/WinRT 反復子クラスは、この機能を使用して、基になるコレクションが変更された場合に、 **abi_enter** 関数で無効な状態例外をスローします。
+
+単純な **abi_enter**  および  **abi_exit** 関数に加えて、 **abi_guard** という名前の入れ子になった型を定義できます。 その場合、**abi_guard** のインスタンスは、オブジェクトへの参照をコンストラクター パラメーターとして使用して、投影されたインターフェイス メソッドの各 (非 **IInspectable**) へのエントリに対して作成されます。 その後、 **abi_guard**  は、メソッドの終了時に破棄されます。 任意の追加の状態を **abi_guard** の型に設定できます。
+
+独自の **abi_guard** を定義しない場合は、構築時に **abi_enter**  を呼び出し、破棄時に  **abi_exit** を呼び出す既定のものが使用されます。
+
+これらのガードが使用されるのは、*投影されたインターフェイスを介して* メソッドが呼び出される場合だけです。 実装オブジェクトでメソッドを直接呼び出すと、それらの呼び出しはガードなしで実装に直接送られます。
+
+次にコード例を示します。
+
+```cppwinrt
+struct Sample : SampleT<Sample, IClosable>
+{
+    void abi_enter();
+    void abi_exit();
+
+    void Close();
+};
+
+void example1()
+{
+    auto sampleObj1{ winrt::make<Sample>() };
+    sampleObj1.Close(); // Calls abi_enter and abi_exit.
+}
+
+void example2()
+{
+    auto sampleObj2{ winrt::make_self<Sample>() };
+    sampleObj2->Close(); // Doesn't call abi_enter nor abi_exit.
+}
+
+// A guard is used only for the duration of the method call.
+// If the method is a coroutine, then the guard applies only until
+// the IAsyncXxx is returned; not until the coroutine completes.
+
+IAsyncAction CloseAsync()
+{
+    // Guard is active here.
+    DoWork();
+
+    // Guard becomes inactive once DoOtherWorkAsync
+    // returns an IAsyncAction.
+    co_await DoOtherWorkAsync();
+
+    // Guard is not active here.
+}
+```

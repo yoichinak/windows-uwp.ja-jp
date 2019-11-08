@@ -5,12 +5,12 @@ ms.date: 04/18/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 概要
 ms.localizationpriority: medium
-ms.openlocfilehash: 4b6fd3f3085449c57dafdcedc60f63997e3ec807
-ms.sourcegitcommit: d38e2f31c47434cd6dbbf8fe8d01c20b98fabf02
+ms.openlocfilehash: 1a9bb432ce7c856a6c54305f657f06a23dab14f1
+ms.sourcegitcommit: 805420bb7ec6850ec3576b21193a3681054c9754
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70393434"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71976332"
 ---
 # <a name="introduction-to-cwinrt"></a>C++/WinRT の概要
 &nbsp;
@@ -71,7 +71,7 @@ VSIX 拡張機能によって提供される Visual Studio プロジェクト �
 ### <a name="blank-app-cwinrt"></a>空のアプリ (C++/WinRT)
 XAML ユーザー インターフェイスを持つユニバーサル Windows プラットフォーム (UWP) アプリのプロジェクト テンプレートです。
 
-Visual Studio では、各 XAML マークアップ ファイルの背後にあるインターフェイス定義言語 (IDL) (`.idl`) ファイルから実装とヘッダーのスタブを生成するために XAML コンパイラ サポートを提供します。 IDL ファイルで、アプリの XAML ページ内で参照する任意のローカルのランタイム クラスを定義してから、プロジェクトを 1 回ビルドして `Generated Files` で実装テンプレート、`Generated Files\sources` でスタブ型定義を生成します。 次にローカルのランタイム クラスの実装への参照にこれらのスタブ型定義を使用します。 「[ランタイム クラスを Midl ファイル (.idl) にファクタリングする](/windows/uwp/cpp-and-winrt-apis/author-apis#factoring-runtime-classes-into-midl-files-idl)」を参照してください。
+Visual Studio では、各 XAML マークアップ ファイルの背後にあるインターフェイス定義言語 (IDL) (`.idl`) ファイルから実装とヘッダーのスタブを生成するために XAML コンパイラ サポートを提供します。 IDL ファイルで、アプリの XAML ページ内で参照する任意のローカルのランタイム クラスを定義してから、プロジェクトを 1 回ビルドして `Generated Files` で実装テンプレート、`Generated Files\sources` でスタブ型定義を生成します。 次に、ローカルのランタイム クラスの実装への参照にこれらのスタブ型定義を使用します。 「[ランタイム クラスを Midl ファイル (.idl) にファクタリングする](/windows/uwp/cpp-and-winrt-apis/author-apis#factoring-runtime-classes-into-midl-files-idl)」を参照してください。
 
 C++/WinRT に対する Visual Studio 2019 での XAML デザイン サーフェスのサポートは、C# でのパリティに近いです。 Visual Studio 2019 では、 **[プロパティ]** ウィンドウの **[イベント]** タブを使用して、C++/WinRT プロジェクト内にイベント ハンドラーを追加できます。 また、自分のコードに手動でイベント ハンドラーを追加することもできます&mdash;詳細については、「[C++/WinRT でのデリゲートを使用したイベントの処理](handle-events.md)」を参照してください。
 

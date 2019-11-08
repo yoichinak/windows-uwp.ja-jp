@@ -7,12 +7,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: 4f44772a9e8b34bf7f19a3b14dc8efd3d16c792f
-ms.sourcegitcommit: e5ed95f8252ddc7f39055d8f7276e82167bb9891
+ms.openlocfilehash: 7dd8604d9c9f32c374161ec1478221ebee6972c6
+ms.sourcegitcommit: 445320ff0ee7323d823194d4ec9cfa6e710ed85d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70973708"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72282504"
 ---
 # <a name="launch-the-windows-settings-app"></a>Windows 設定アプリの起動
 
@@ -151,7 +151,7 @@ URI の起動について詳しくは、「[URI に応じた既定のアプリ�
 
 |設定ページ| URI |
 |-------------|-----|
-| Extras | ms-settings:extras (第三者などによる「設定アプリ」がインストールされている場合のみ利用可能) |
+| Extras | ms 設定: エクストラ (たとえば、サードパーティによって "設定アプリ" がインストールされている場合のみ使用可能) |
 
 ## <a name="gaming"></a>ゲーム
 
@@ -217,7 +217,7 @@ URI の起動について詳しくは、「[URI に応じた既定のアプリ�
 | タスク バー | ms-settings:taskbar |
 | テーマ | ms-settings:themes |
 
-## <a name="phone"></a>電話番号
+## <a name="phone"></a>Phone
 
 |設定ページ| URI |
 |-------------|-----|
@@ -236,7 +236,7 @@ URI の起動について詳しくは、「[URI に応じた既定のアプリ�
 | バックグラウンド アプリ | ms-settings:privacy-backgroundapps |
 | 予定表 | ms-settings:privacy-calendar |
 | 通話履歴 | ms-settings:privacy-callhistory |
-| カメラ | ms-settings:privacy-webcam |
+| Camera | ms-settings:privacy-webcam |
 | 連絡先 | ms-settings:privacy-contacts |
 | Documents | ms-settings:privacy-documents |
 | Email | ms-settings:privacy-email |
@@ -278,7 +278,7 @@ URI の起動について詳しくは、「[URI に応じた既定のアプリ�
 | バッテリー節約機能 | ms-settings:batterysaver (タブレットなど、バッテリーを搭載したデバイスでのみ利用可能) |
 | バッテリー節約機能の設定 | ms-settings:batterysaver-settings (タブレットなど、バッテリーを搭載したデバイスでのみ利用可能) |
 | バッテリーの使用状況 | ms-settings:batterysaver-usagedetails (タブレットなど、バッテリーを搭載したデバイスでのみ利用可能) |
-| クリップボードのトピック | ms-設定: クリップボード |
+| クリップボード | ms-設定: クリップボード |
 | ディスプレイ | ms-settings:display |
 | 既定の保存場所 | ms-settings:savelocations |
 | ディスプレイ | ms-settings:screenrotation |
@@ -288,16 +288,16 @@ URI の起動について詳しくは、「[URI に応じた既定のアプリ�
 | 集中モード | ms-settings:quiethours <br> ms-settings:quietmomentshome |
 | グラフィック設定 | ms-settings:display-advancedgraphics (詳細グラフィック オプションをサポートするデバイスでのみ利用可能) |
 | メッセージング | ms-settings:messaging |
-| マルチタスキング | ms-settings:multitasking |
+| マルチタスク | ms-settings:multitasking |
 | 夜間モード設定 | ms-settings:nightlight |
-| 電話番号 | ms-settings:phone-defaultapps |
+| Phone | ms-settings:phone-defaultapps |
 | この PC へのプロジェクション | ms-settings:project |
 | 共有エクスペリエンス | ms-settings:crossdevice |
 | タブレット モード | ms-settings:tabletmode |
 | タスク バー | ms-settings:taskbar |
 | 通知とアクション | ms-settings:notifications |
 | リモート デスクトップ | ms-settings:remotedesktop |
-| 電話番号 | ms-settings:phone (**1809 およびそれ以降のバージョンの Windows 10 で非推奨とされます**) |
+| Phone | ms-settings:phone (**1809 およびそれ以降のバージョンの Windows 10 で非推奨とされます**) |
 | 電源とスリープ | ms-settings:powersleep |
 | サウンド | ms 設定: サウンド |
 | ストレージ | ms-settings:storagesense |

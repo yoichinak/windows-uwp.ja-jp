@@ -6,14 +6,14 @@ ms.topic: article
 keywords: windows 10、uwp、windows フォーム、wpf、xaml islands
 ms.author: mcleans
 author: mcleanbyron
-ms.localizationpriority: medium
+ms.localizationpriority: high
 ms.custom: 19H1
-ms.openlocfilehash: bd49417d110759dc9fec4ff4c9003e842bf1d7bb
-ms.sourcegitcommit: 6bb794c6e309ba543de6583d96627fbf1c177bef
-ms.translationtype: MT
+ms.openlocfilehash: 52287576dbc395af60e15b5f4b4a403db7e92900
+ms.sourcegitcommit: 13faf9dab9946295986f8edd79b5fae0db4ed0f6
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69643356"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72313449"
 ---
 # <a name="host-uwp-xaml-controls-in-desktop-apps-xaml-islands"></a>デスクトップ アプリ でUWP XAMLコントロールをホストする(XAML Islands)
 
@@ -81,7 +81,7 @@ XAML アイランド .NET コントロールには、Windows 10 バージョン1
 
 * カスタム UWP コントロールをホストしている場合は、WPF または Windows フォームプロジェクトで .NET Core 3 をターゲットにする必要があります。 カスタム UWP コントロールのホストは、.NET Framework を対象とするアプリではサポートされていません。 また、カスタムコントロールを参照するために、いくつかの追加手順を実行する必要があります。 詳細については、「 [XAML アイランドを使用した WPF アプリでのカスタム UWP コントロールのホスト](host-custom-control-with-xaml-islands.md)」を参照してください。
 
-* 以前のバージョンの手順では、 `maxversiontested` WPF または Windows フォームプロジェクトのアプリケーションマニフェストに要素を追加しました。 上記の NuGet パッケージの最新のプレビューバージョンを使用している限り、この要素をマニフェストに追加する必要はありません。
+* 以前のバージョンの手順では、WPF または Windows フォームプロジェクトのアプリケーションマニフェストに `maxversiontested` 要素を追加しました。 上記の NuGet パッケージの最新のプレビューバージョンを使用している限り、この要素をマニフェストに追加する必要はありません。
 
 ### <a name="architecture-of-xaml-island-net-controls"></a>XAML アイランド .NET コントロールのアーキテクチャ
 
@@ -129,4 +129,4 @@ Windows 10 バージョン1903のリリース時点では、Windows Community To
 詳細な背景情報と XAML Islandsを使用したチュートリアルについては、次の記事やリソースを参照してください。
 
 * [WPF アプリの最新化のチュートリアル](modernize-wpf-tutorial.md):このチュートリアルでは、Windows Community Toolkit のラップされたコントロールとホストコントロールを使用して、既存の WPF 基幹業務アプリケーションに UWP コントロールを追加する手順について説明します。 このチュートリアルでは、WPF アプリケーションの完全なコードと、プロセスの各手順の詳細な手順について説明します。
-* [XAML Islands v1 - 更新プログラムとロードマップ](https://blogs.windows.com/windowsdeveloper/2019/06/13/xaml-islands-v1-updates-and-roadmap):このブログの投稿では、XAML Islands に関する多くの一般的な質問を説明し、開発の詳細なロードマップを提供します。
+* [XAML Islands v1 - 更新プログラムとロードマップ](https://blogs.windows.com/windowsdeveloper/2019/06/13/xaml-islands-v1-updates-and-roadmap):このブログの投稿では、XAML Islandsに関する多くの一般的な質問を説明し、開発の詳細なロードマップを提供します。

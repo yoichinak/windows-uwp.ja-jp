@@ -7,12 +7,12 @@ ms.topic: article
 keywords: Windows 10, UWP, 連絡先, 連絡先カード, 注釈
 ms.assetid: 0edabd9c-ecfb-4525-bc38-53f219d744ff
 ms.localizationpriority: medium
-ms.openlocfilehash: 506f0d2c778a934c3f8861493f4a512a39fe66fc
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 8310b7c5b629d8d3a35a05b1124b140ebf35cf17
+ms.sourcegitcommit: 05be6929cd380a9dd241cc1298fd53f11c93d774
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66360460"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73061874"
 ---
 # <a name="connect-your-app-to-actions-on-a-contact-card"></a>アプリを連絡先カードの操作に接続する
 
@@ -185,7 +185,7 @@ public async void OpenContactCard(object sender, RoutedEventArgs e)
 
 ページのコード ビハインド ファイルで、[Page.OnNavigatedTo](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.page.onnavigatedto) メソッドをオーバーライドします。 連絡先カードは、このメソッドに操作の名前とユーザーの ID を渡します。
 
-ビデオまたはオーディオの呼び出しを開始するには、このサンプルを参照してください。[VoIP サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/VoIP)します。 [WIndows.ApplicationModel.Calls](https://docs.microsoft.com/uwp/api/windows.applicationmodel.calls) 名前空間にすべての API が見つかります。
+ビデオ通話や音声通話を開始するには、[VoIP のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/VoIP)をご覧ください。 [WIndows.ApplicationModel.Calls](https://docs.microsoft.com/uwp/api/windows.applicationmodel.calls) 名前空間にすべての API が見つかります。
 
 メッセージングを容易にするには、[Windows.ApplicationModel.Chat](https://docs.microsoft.com/uwp/api/windows.applicationmodel.chat) 名前空間をご覧ください。
 
@@ -204,7 +204,7 @@ protected override async void OnNavigatedTo(NavigationEventArgs e)
         var options = new Windows.System.LauncherOptions();
         options.DisplayApplicationPicker = true;
 
-        options.TargetApplicationPackageFamilyName = “ContosoApp”;
+        options.TargetApplicationPackageFamilyName = "ContosoApp";
 
         string launchString = args.uri.Scheme + ":" + args.uri.Query;
         var launchUri = new Uri(launchString);

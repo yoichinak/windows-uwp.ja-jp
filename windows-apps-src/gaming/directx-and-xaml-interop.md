@@ -6,28 +6,25 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, DirectX, XAML の相互運用機能
 ms.localizationpriority: medium
-ms.openlocfilehash: ad03a86ba18f11d8d63c2c98649e7f159f3d4f52
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 174cb7f2608c1da89ebacc21e5032d03f7701f15
+ms.sourcegitcommit: 0179e2ccb59a14abc1676da0662e2def54af24ea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67321293"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72796223"
 ---
 # <a name="directx-and-xaml-interop"></a>DirectX と XAML の相互運用機能
-
-
 
 ユニバーサル Windows プラットフォーム (UWP) ゲームまたはアプリで Extensible Application Markup Language (XAML) と Microsoft DirectX を組み合わせて使うことができます。 XAML と DirectX を組み合わせれば、DirectX でレンダリングしたコンテンツと相互運用できる柔軟なユーザー インターフェイス フレームワークを構築できます。これは、グラフィックスを多用するアプリで特に役立ちます。 ここでは、DirectX を使った UWP アプリの構造について説明し、DirectX と連携する UWP アプリを構築するときに使う重要な型を示します。
 
 アプリが主に 2D レンダリングに重点を置いているときは、[Win2D](https://github.com/microsoft/win2d) Windows ランタイム ライブラリの使用が必要になる場合があります。 このライブラリは Microsoft によって管理されており、コア Direct2D のテクノロジを基盤として構築されています。 2D グラフィックスを実装する使用パターンを大幅に簡略化し、このドキュメントで説明する手法の一部の便利な抽象化が含まれています。 詳しくは、プロジェクトのページをご覧ください。 このドキュメントでは、Win2D を使用*しない*ことを選択したアプリ開発者向けのガイダンスを示します。
 
-> **注**  通常 Visual C コンポーネント拡張機能を使用するために、DirectX Api は Windows ランタイムの型として定義されていません (C +/cli CX) DirectX を使用した相互運用可能な XAML UWP コンポーネントを開発します。 また、DirectX の呼び出しを独立した Windows ランタイム メタデータ ファイルにラップすると、C# と DirectX を利用する XAML を使って UWP アプリを作成できます。
-
- 
+> [!NOTE]
+> Directx api は Windows ランタイム型として定義されていませんが、通常は[ C++/WinRT](/windows/uwp/cpp-and-winrt-apis/index)を使用して、directx と相互運用できる XAML UWP コンポーネントを開発することができます。 また、DirectX の呼び出しを独立した Windows ランタイム メタデータ ファイルにラップすると、C# と DirectX を利用する XAML を使って UWP アプリを作成できます。
 
 ## <a name="xaml-and-directx"></a>XAML と DirectX
 
-DirectX では、2 D および 3D グラフィックスの 2 つの強力なライブラリを提供します。Direct2D と Direct3D の Microsoft。 XAML でも基本的な 2D のプリミティブと効果はサポートされますが、モデリングやゲームなどの多くのアプリでは、より複雑なグラフィックス サポートが必要になります。 そのようなアプリでは、Direct2D と Direct3D を使ってグラフィックスの一部または全体をレンダリングし、それ以外の部分には XAML を使うことができます。
+DirectX には、2D と 3D のグラフィックス用に、Direct2D と Microsoft Direct3D という 2 つの強力なライブラリがあります。 XAML でも基本的な 2D のプリミティブと効果はサポートされますが、モデリングやゲームなどの多くのアプリでは、より複雑なグラフィックス サポートが必要になります。 そのようなアプリでは、Direct2D と Direct3D を使ってグラフィックスの一部または全体をレンダリングし、それ以外の部分には XAML を使うことができます。
 
 カスタム XAML と DirectX の相互運用機能を実装する場合は、次の 2 つの概念を理解する必要があります。
 
@@ -42,10 +39,9 @@ DirectX をどのように使うかを決めたら、目的に応じて次のい
 
 -   画像が画面上のスペースよりも大きく、ユーザーがパンまたはズームできる場合は、[Windows::UI::Xaml::Media::Imaging::VirtualSurfaceImageSource](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Imaging.VirtualSurfaceImageSource) を使います。 これは、画面よりも大きいサイズが指定された DirectX の描画サーフェイスを処理する型です。 [SurfaceImageSource](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Imaging.SurfaceImageSource) と同様に、複雑な画像やコントロールを動的に構成する場合に使います。 また、**SurfaceImageSource** と同様に、高パフォーマンスのゲームには適しません。 **VirtualSurfaceImageSource** を使うことができる XAML 要素には、マップ コントロールや、画像が多い大きなドキュメント ビューアーなどがあります。
 
--   リアルタイムで更新されるグラフィックスを DirectX を使って表示する場合や、短い待ち時間で定期的に更新を行う必要がある場合は、[SwapChainPanel](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.SwapChainPanel) クラスを使います。これにより、XAML フレームワークの更新タイマーに同期せずにグラフィックスを更新することができます。 この型を使うと、グラフィックス デバイスのスワップ チェーン ([IDXGISwapChain1](https://docs.microsoft.com/windows/desktop/api/dxgi1_2/nn-dxgi1_2-idxgiswapchain1)) に直接アクセスし、XAML をレンダー ターゲットの上に配置できます。 この型は、ゲームなどの全画面の DirectX アプリで XAML ベースのユーザー インターフェイスが必要な場合に便利です。 Microsoft DirectX Graphic Infrastructure (DXGI)、Direct2D、Direct3D も含めて、この方法を使うには、DirectX に関する知識が必要です。 詳しくは、「[Direct3D 11 用プログラミング ガイド](https://docs.microsoft.com/windows/desktop/direct3d11/dx-graphics-overviews)」をご覧ください。
+-   リアルタイムで更新されるグラフィックスを DirectX を使って表示する場合や、短い待ち時間で定期的に更新を行う必要がある場合は、[SwapChainPanel](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.SwapChainPanel) クラスを使います。これにより、XAML フレームワークの更新タイマーに同期せずにグラフィックスを更新することができます。 この型を使うと、グラフィックス デバイスのスワップ チェーン ([IDXGISwapChain1](https://docs.microsoft.com/windows/desktop/api/dxgi1_2/nn-dxgi1_2-idxgiswapchain1)) に直接アクセスし、XAML をレンダー ターゲットの上に配置できます。 この型は、ゲームなどの全画面の DirectX アプリで XAML ベースのユーザー インターフェイスが必要な場合に便利です。 Microsoft DirectX Graphics Infrastructure (DXGI)、Direct2D、Direct3D も含めて、この方法を使うには、DirectX に関する知識が必要です。 詳しくは、「[Direct3D 11 用プログラミング ガイド](https://docs.microsoft.com/windows/desktop/direct3d11/dx-graphics-overviews)」をご覧ください。
 
 ## <a name="surfaceimagesource"></a>SurfaceImageSource
-
 
 [SurfaceImageSource](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Imaging.SurfaceImageSource) は、DirectX で描画を行うための共有サーフェイスを提供し、ビットからアプリのコンテンツを構成します。
 
@@ -53,7 +49,7 @@ DirectX をどのように使うかを決めたら、目的に応じて次のい
 
 1.  [SurfaceImageSource](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Imaging.SurfaceImageSource) コンストラクターに高さと幅の値を渡して、共有サーフェイスのサイズを定義します。 アルファ (不透明度) のサポートが必要かどうかも指定できます。
 
-    例:
+    次に、例を示します。
 
     `SurfaceImageSource^ surfaceImageSource = ref new SurfaceImageSource(400, 300);`
 
@@ -77,7 +73,7 @@ DirectX をどのように使うかを決めたら、目的に応じて次のい
     > [!NOTE]
     > バックグラウンド スレッドから **SurfaceImageSource** に描画する場合は、DXGI デバイスでマルチスレッド アクセスも有効になっている必要があります。 この有効化は、パフォーマンス上の理由で、バック グラウンド スレッドから描画する場合にのみ行ってください。
 
-    例:
+    次に、例を示します。
 
     ```cpp
     Microsoft::WRL::ComPtr<ID3D11Device> m_d3dDevice;
@@ -212,7 +208,7 @@ DirectX をどのように使うかを決めたら、目的に応じて次のい
     > [!NOTE]
     > バックグラウンド スレッドから **VirtualSurfaceImageSource** に描画する場合は、DXGI デバイスでマルチスレッド アクセスも有効になっている必要があります。 この有効化は、パフォーマンス上の理由で、バック グラウンド スレッドから描画する場合にのみ行ってください。
 
-    例:
+    次に、例を示します。
 
     ```cpp
     Microsoft::WRL::ComPtr<ID3D11Device> m_d3dDevice;
@@ -369,9 +365,8 @@ DirectX をどのように使うかを決めたら、目的に応じて次のい
 パフォーマンスを高めるために、[SwapChainPanel](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.SwapChainPanel) 型には次のような制限事項があります。
 
 -   [SwapChainPanel](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.SwapChainPanel) インスタンスの数は、アプリごとに 4 つ以下です。
--   DirectX スワップ チェーンの高さと幅を設定する必要があります (で[DXGI\_スワップ\_チェーン\_DESC1](https://docs.microsoft.com/windows/desktop/api/dxgi1_2/ns-dxgi1_2-dxgi_swap_chain_desc1)) スワップ チェーンの要素の現在のディメンションにします。 ない場合は、コンテンツの表示は拡大縮小されます (を使用して**DXGI\_スケーリング\_STRETCH**) に合わせています。
--   DirectX スワップ チェーンのスケーリング モードを設定する必要があります (で[DXGI\_スワップ\_チェーン\_DESC1](https://docs.microsoft.com/windows/desktop/api/dxgi1_2/ns-dxgi1_2-dxgi_swap_chain_desc1)) に**DXGI\_スケーリング\_STRETCH**します。
--   DirectX スワップ チェーンのアルファ モードを設定することはできません (で[DXGI\_スワップ\_チェーン\_DESC1](https://docs.microsoft.com/windows/desktop/api/dxgi1_2/ns-dxgi1_2-dxgi_swap_chain_desc1)) に**DXGI\_アルファ\_モード\_前乗算された**します。
+-   DirectX スワップチェーンの高さと幅 ( [DXGI \_SWAP \_CHAIN \_DESC1](https://docs.microsoft.com/windows/desktop/api/dxgi1_2/ns-dxgi1_2-dxgi_swap_chain_desc1)) をスワップチェーン要素の現在のサイズに設定する必要があります。 そうしないと、表示コンテンツは ( **DXGI \_SCALING \_STRETCH**) に合わせて拡大縮小されます。
+-   DirectX スワップチェーンのスケーリングモード ( [dxgi \_SWAP \_CHAIN \_DESC1](https://docs.microsoft.com/windows/desktop/api/dxgi1_2/ns-dxgi1_2-dxgi_swap_chain_desc1)) を**dxgi \_SCALING \_STRETCH**に設定する必要があります。
 -   DirectX スワップ チェーンを作成するときは、[IDXGIFactory2::CreateSwapChainForComposition](https://docs.microsoft.com/windows/desktop/api/dxgi1_2/nf-dxgi1_2-idxgifactory2-createswapchainforcomposition) を呼び出す必要があります。
 
 [SwapChainPanel](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.SwapChainPanel) の更新は、XAML フレームワークの更新ではなく、アプリのニーズに基づいて行います。 **SwapChainPanel** の更新を XAML フレームワークの更新に同期する必要がある場合は、[Windows::UI::Xaml::Media::CompositionTarget::Rendering](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.compositiontarget.rendering) イベントに登録します。 このイベントに登録しないと、**SwapChainPanel** を更新するスレッドと異なるスレッドから XAML 要素を更新する場合に、クロス スレッドの問題についての検討が必要になります。
@@ -465,12 +460,4 @@ DirectX をどのように使うかを決めたら、目的に応じて次のい
 * [VirtualSurfaceImageSource](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Imaging.VirtualSurfaceImageSource)
 * [SwapChainPanel](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.SwapChainPanel)
 * [ISwapChainPanelNative](https://docs.microsoft.com/windows/desktop/api/windows.ui.xaml.media.dxinterop/nn-windows-ui-xaml-media-dxinterop-iswapchainpanelnative)
-* [Direct3D のプログラミング ガイド 11](https://docs.microsoft.com/windows/desktop/direct3d11/dx-graphics-overviews)
-
- 
-
- 
-
-
-
-
+* [Direct3D 11 のプログラミングガイド](https://docs.microsoft.com/windows/desktop/direct3d11/dx-graphics-overviews)

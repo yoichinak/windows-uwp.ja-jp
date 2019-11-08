@@ -6,12 +6,12 @@ ms.date: 07/13/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: cc5b3598f2d50a49aa9d51721c2c1eb1261c8aa8
-ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
+ms.openlocfilehash: 1107670e837dff294739e9ba38c7dea9004d1d62
+ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67820511"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340347"
 ---
 # <a name="storyboarded-animations"></a>ストーリーボードに設定されたアニメーション
 
@@ -66,13 +66,13 @@ Microsoft Silverlight または Windows Presentation Foundation (WPF) に慣れ�
 
 先ほどの例では、ストーリーボードで [**Rectangle**](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle) の [**Opacity**](/uwp/api/Windows.UI.Xaml.UIElement.Opacity) プロパティがアニメーション化されています。 オブジェクト自体ではアニメーションを宣言しません。 代わりに、ストーリーボードのアニメーション定義内で宣言します。 ストーリーボードは、アニメーション化するオブジェクトの XAML UI 定義のすぐ近くにない XAML で定義されるのが普通です。 代わりに、通常は、XAML リソースとして設定します。
 
-ターゲットにアニメーションを接続するには、識別用のプログラミング名でターゲットを参照します。 必ず XAML UI 定義の [x:Name 属性](https://docs.microsoft.com/windows/uwp/xaml-platform/x-name-attribute)を適用して、アニメーション化するオブジェクトに名前を付けてください。 その後で、アニメーション定義内の [**Storyboard.TargetName**](https://docs.microsoft.com/dotnet/api/system.windows.media.animation.storyboard.targetname?view=netframework-4.8) を設定することで、アニメーション化するオブジェクトのターゲット設定を行います。 **Storyboard.TargetName** の値には、ターゲット オブジェクトの名前文字列を使います。これは、前に別の場所で x:Name 属性を使って設定した値です。
+ターゲットにアニメーションを接続するには、識別用のプログラミング名でターゲットを参照します。 必ず XAML UI 定義の [x:Name 属性](https://docs.microsoft.com/windows/uwp/xaml-platform/x-name-attribute)を適用して、アニメーション化するオブジェクトに名前を付けてください。 その後で、アニメーション定義内の [**Storyboard.TargetName**](https://docs.microsoft.com/dotnet/api/system.windows.media.animation.storyboard.targetname) を設定することで、アニメーション化するオブジェクトのターゲット設定を行います。 **Storyboard.TargetName** の値には、ターゲット オブジェクトの名前文字列を使います。これは、前に別の場所で x:Name 属性を使って設定した値です。
 
 ### <a name="targeting-the-dependency-property-to-animate"></a>アニメーション化する依存関係プロパティの指定
 
 アニメーションの [**Storyboard.TargetProperty**](https://docs.microsoft.com/previous-versions/windows/silverlight/dotnet-windows-silverlight/ms616983(v=vs.95)) の値を設定します。 これにより、アニメーション化するターゲット オブジェクトのプロパティが決まります。
 
-ターゲット オブジェクトの直接のプロパティではないプロパティをターゲットにする必要があることもありますが、オブジェクトとプロパティの関係の中でより深い入れ子の状態になります。 アニメーション化できるプロパティの型 ([**Double**](https://docs.microsoft.com/dotnet/api/system.double?redirectedfrom=MSDN)、[**Point**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Point)、[**Color**](https://docs.microsoft.com/uwp/api/Windows.UI.Color)) を参照できるまで、関係する一連のオブジェクトとプロパティの値をドリルダウンするために、これが必要になることがよくあります。 この概念を *"間接的なターゲット設定"* と呼び、この方法でアニメーションの対象プロパティを設定する構文を *"プロパティ パス"* と呼びます。
+ターゲット オブジェクトの直接のプロパティではないプロパティをターゲットにする必要があることもありますが、オブジェクトとプロパティの関係の中でより深い入れ子の状態になります。 アニメーション化できるプロパティの型 ([**Double**](https://docs.microsoft.com/dotnet/api/system.double)、[**Point**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Point)、[**Color**](https://docs.microsoft.com/uwp/api/Windows.UI.Color)) を参照できるまで、関係する一連のオブジェクトとプロパティの値をドリルダウンするために、これが必要になることがよくあります。 この概念を *"間接的なターゲット設定"* と呼び、この方法でアニメーションの対象プロパティを設定する構文を *"プロパティ パス"* と呼びます。
 
 次に例を示します。 ストーリーボードに設定されたアニメーションの一般的なシナリオの 1 つに、コントロールが特定の状態にあることを表すためにアプリ UI やコントロールの一部の色を変更するというシナリオがあります。 たとえば、赤から緑に変化するように [**TextBlock**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock) の [**Foreground**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock.foreground) をアニメーション化するとします。 [  **ColorAnimation**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.ColorAnimation) の呼び出しが必要と思われるでしょう。それは正しいものの、 オブジェクトの色に影響する UI 要素のプロパティは、実際には [**Color**](https://docs.microsoft.com/uwp/api/Windows.UI.Color) 型ではなく、 [  **Brush**](/uwp/api/Windows.UI.Xaml.Media.Brush) 型です。 そのため、アニメーションのターゲット設定に実際に必要なのは、[**SolidColorBrush**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.SolidColorBrush) クラスの [**Color**](/uwp/api/Windows.UI.Xaml.Media.SolidColorBrush.Color) プロパティです。これは、これらの色関連の UI プロパティに一般的に使われる **Brush** 派生型です。 アニメーションのプロパティのターゲット設定に使うプロパティ パスの作成という点に注目すると、次のようになります。
 
@@ -107,11 +107,11 @@ XAML 添付プロパティをアニメーション化することもできます
 
 Windows ランタイムのアニメーション システムには、ストーリーボードに設定されたアニメーションを適用できる 3 つの型があります。
 
--   [**二重**](https://docs.microsoft.com/dotnet/api/system.double?redirectedfrom=MSDN)、いずれかでアニメーション化できる[ **DoubleAnimation**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.DoubleAnimation)
--   [**ポイント**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Point)、いずれかでアニメーション化できる[ **PointAnimation**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.PointAnimation)
--   [**色**](https://docs.microsoft.com/uwp/api/Windows.UI.Color)、いずれかでアニメーション化できる[ **ColorAnimation**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.ColorAnimation)
+-   [**Double**](https://docs.microsoft.com/dotnet/api/system.double)、任意の system.windows.media.animation.doubleanimation> を使用してアニメーション化できます。 [**DoubleAnimation**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.DoubleAnimation)
+-   [**ポイント**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Point)、任意の[ **pointanimation**でアニメーション化できます。](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.PointAnimation)
+-   [**色**](https://docs.microsoft.com/uwp/api/Windows.UI.Color)、任意の[ **coloranimation**でアニメーション化できます。](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.ColorAnimation)
 
-また、後ほど説明するオブジェクトの参照値に使える汎用 [**Object**](https://docs.microsoft.com/dotnet/api/system.object?redirectedfrom=MSDN) アニメーション型もあります。
+また、後ほど説明するオブジェクトの参照値に使える汎用 [**Object**](https://docs.microsoft.com/dotnet/api/system.object) アニメーション型もあります。
 
 ### <a name="specifying-the-animated-values"></a>アニメーション化された値の指定
 
@@ -125,9 +125,9 @@ Windows ランタイムのアニメーション システムには、ストー�
 -   **To** 値または **By** 値を指定しない場合、終了値は、アニメーション化されたプロパティにアニメーションの実行前に設定されていた値になります。 この場合は、**From** 値をお勧めします。そうしないと、アニメーションによって値がまったく変更されず、開始値と終了値が同じになるためです。
 -   アニメーションには **From**、**By**、または **To** のうち少なくとも 1 つが指定されるのが一般的ですが、3 つすべてが指定されることはありません。
 
-前の XAML の例に戻り、**From** 値と **To** 値、それに **Duration** をもう一度見てみましょう。 この例では [**Opacity**](/uwp/api/Windows.UI.Xaml.UIElement.Opacity) プロパティをアニメーション化します。**Opacity** のプロパティ型は [**Double**](https://docs.microsoft.com/dotnet/api/system.double?redirectedfrom=MSDN) です。 そのため、ここで使うアニメーションは [**DoubleAnimation**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.DoubleAnimation) です。
+前の XAML の例に戻り、**From** 値と **To** 値、それに **Duration** をもう一度見てみましょう。 この例では [**Opacity**](/uwp/api/Windows.UI.Xaml.UIElement.Opacity) プロパティをアニメーション化します。**Opacity** のプロパティ型は [**Double**](https://docs.microsoft.com/dotnet/api/system.double) です。 そのため、ここで使うアニメーションは [**DoubleAnimation**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.DoubleAnimation) です。
 
-`From="1.0" To="0.0"` は、アニメーション開始時の [**Opacity**](/uwp/api/Windows.UI.Xaml.UIElement.Opacity) プロパティの初期値が 1 で、これが 0 になるまでアニメーション化することを示します。 つまり、これらの [**Double**](https://docs.microsoft.com/dotnet/api/system.double?redirectedfrom=MSDN) 値が **Opacity** プロパティに与える効果は、当初不透明な状態のオブジェクトを徐々に透明にするというものです。
+`From="1.0" To="0.0"` は、アニメーション開始時の [**Opacity**](/uwp/api/Windows.UI.Xaml.UIElement.Opacity) プロパティの初期値が 1 で、これが 0 になるまでアニメーション化することを示します。 つまり、これらの [**Double**](https://docs.microsoft.com/dotnet/api/system.double) 値が **Opacity** プロパティに与える効果は、当初不透明な状態のオブジェクトを徐々に透明にするというものです。
 
 ```xaml
 ...
@@ -149,19 +149,19 @@ Windows ランタイムのアニメーション システムには、ストー�
 
 ### <a name="fromtoby-are-nullable"></a>From/To/By では null が許容される
 
-**From**、**To**、または **By** は省略でき、省略した値の代わりにアニメーション化されない現在の値を使うことができると説明しました。 アニメーションの **From**、**To**、**By** の各プロパティは、想定した型ではない場合があります。 たとえば、[**DoubleAnimation.To**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.doubleanimation.easingfunction) プロパティの型は [**Double**](https://docs.microsoft.com/dotnet/api/system.double?redirectedfrom=MSDN) ではなく、 **Double** に対しては [**Nullable**](https://docs.microsoft.com/dotnet/api/system.nullable-1?redirectedfrom=MSDN) です。 既定値は 0 ではなく **null** です。 **null** 値により、アニメーション システムは、**From**、**To**、または **By** プロパティの値が明示的に設定されていないことを識別します。 Visual C コンポーネント拡張 (C +/cli CX) がない、 **Nullable**型であるため、使用して[ **IReference** ](https://docs.microsoft.com/uwp/api/Windows.Foundation.IReference_T_)代わりにします。
+**From**、**To**、または **By** は省略でき、省略した値の代わりにアニメーション化されない現在の値を使うことができると説明しました。 アニメーションの **From**、**To**、**By** の各プロパティは、想定した型ではない場合があります。 たとえば、[**DoubleAnimation.To**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.doubleanimation.easingfunction) プロパティの型は [**Double**](https://docs.microsoft.com/dotnet/api/system.double) ではなく、 **Double** に対しては [**Nullable**](https://docs.microsoft.com/dotnet/api/system.nullable-1) です。 既定値は 0 ではなく **null** です。 **null** 値により、アニメーション システムは、**From**、**To**、または **By** プロパティの値が明示的に設定されていないことを識別します。 ビジュアルC++コンポーネント拡張 (C++/Cx) には**null 許容**型がないため、代わりに[IReference](https://docs.microsoft.com/uwp/api/Windows.Foundation.IReference_T_)を使用します。
 
 ### <a name="other-properties-of-an-animation"></a>アニメーションのその他のプロパティ
 
 次のセクションで説明するプロパティはいずれも省略可能であり、ほとんどのアニメーションに適した既定値を持ちます。
 
-### <a name="autoreverse"></a>**AutoReverse**
+### <a name="autoreverse"></a>**System.windows.media.animation.timeline.autoreverse**
 
 アニメーションで [**AutoReverse**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.timeline.autoreverse) または [**RepeatBehavior**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.timeline.repeatbehavior) を指定しなかった場合、そのアニメーションは 1 回実行され、さらに [**Duration**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.timeline.duration) で指定された期間実行されます。
 
 [  **AutoReverse**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.timeline.autoreverse) プロパティは、[**Duration**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.timeline.duration) の最後に達した後で逆にタイムラインを再生するかどうかを指定します。 これを **true** に設定すると、アニメーションは宣言済みの [**Duration**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.timeline.duration) の最後に達した後で逆に再生され、値がその終了値 (**To**) から開始値 (**From**) に変更されます。 これは、アニメーションが実質的に [**Duration**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.timeline.duration) の倍の時間実行されることを表します。
 
-### <a name="repeatbehavior"></a>**RepeatBehavior**
+### <a name="repeatbehavior"></a>**System.windows.media.animation.timeline.repeatbehavior**
 
 [  **RepeatBehavior**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.timeline.repeatbehavior) プロパティは、タイムラインの再生回数か、タイムラインを繰り返すより長い期間を指定します。 既定では、タイムラインの反復回数は "1x" であり、その [**Duration**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.timeline.duration) の間に 1 回再生され、繰り返されません。
 
@@ -169,7 +169,7 @@ Windows ランタイムのアニメーション システムには、ストー�
 
 [  **RepeatBehavior**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.RepeatBehavior) 値と XAML 構文について詳しくは、「[**RepeatBehavior**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.RepeatBehavior)」をご覧ください。
 
-### <a name="fillbehaviorstop"></a>**FillBehavior ="Stop"**
+### <a name="fillbehaviorstop"></a>**FillBehavior = "Stop"**
 
 既定では、アニメーションが終了すると、その継続期間を超過した後も、プロパティ値は最終的な **To** か、**By** で変更された値で維持されます。 ただし、[**FillBehavior**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.timeline.fillbehavior) プロパティの値を [**FillBehavior.Stop**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.FillBehavior) に設定した場合、アニメーション化された値はアニメーションが適用される前の値か、より正確には、依存関係プロパティ システムによって特定された現在の有効な値に戻ります (この違いについて詳しくは、「[依存関係プロパティの概要](https://docs.microsoft.com/windows/uwp/xaml-platform/dependency-properties-overview)」をご覧ください)。
 
@@ -177,7 +177,7 @@ Windows ランタイムのアニメーション システムには、ストー�
 
 既定では、アニメーションの [**BeginTime**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.timeline.begintime) は "0:0:0" であるため、上位の [**Storyboard**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.Storyboard) の実行と同時に開始されます。 この動作は、**Storyboard** に複数のアニメーションが含まれており、アニメーションどうしの開始のタイミングをずらしたり、開始のタイミングを意図的に少し遅らせたりする場合には、変更できます。
 
-### <a name="speedratio"></a>**SpeedRatio**
+### <a name="speedratio"></a>**System.windows.media.animation.timeline.speedratio**
 
 [  **Storyboard**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.Storyboard) に複数のアニメーションがある場合は、**Storyboard** を基準に 1 つ以上のアニメーションのタイム レートを変更できます。 これは、アニメーションの実行中に経過する [**Duration**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Duration) 時間を最終的に制御する親 **Storyboard** です。 このプロパティはあまり利用されません。 詳しくは、「[**SpeedRatio**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.timeline.speedratio)」をご覧ください。
 
@@ -239,8 +239,8 @@ UI スレッドの処理を遅くする可能性があると判断された各�
 
 -   アニメーションの [**Duration**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.timeline.duration) が 0 秒である (「警告」をご覧ください)
 -   アニメーションのターゲットが [**UIElement.Opacity**](/uwp/api/Windows.UI.Xaml.UIElement.Opacity) である
--   これらのサブプロパティ値、アニメーションのターゲット[ **UIElement** ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement)プロパティ。[**Transform3D**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.transform3d)、 [ **RenderTransform**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.rendertransform)、 [**プロジェクション**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.projection)、 [ **クリップ**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.clip)
--   アニメーションのターゲットが [**Canvas.Left**](https://docs.microsoft.com/dotnet/api/system.windows.controls.canvas.left?view=netframework-4.8) または [**Canvas.Top**](https://docs.microsoft.com/dotnet/api/system.windows.controls.canvas.top?view=netframework-4.8)
+-   アニメーションは、次の[**UIElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement)プロパティのサブプロパティ値を対象とします。[**Transform3D**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.transform3d)、 [**rendertransform**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.rendertransform)、[**投影**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.projection)、[**クリップ**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.clip)
+-   アニメーションのターゲットが [**Canvas.Left**](https://docs.microsoft.com/dotnet/api/system.windows.controls.canvas.left) または [**Canvas.Top**](https://docs.microsoft.com/dotnet/api/system.windows.controls.canvas.top)
 -   アニメーションのターゲットが [**Brush**](/uwp/api/Windows.UI.Xaml.Media.Brush) 値であり、[**SolidColorBrush**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.SolidColorBrush) を使い、その [**Color**](/uwp/api/Windows.UI.Xaml.Media.SolidColorBrush.Color) をアニメーション化する
 -   アニメーションが [**ObjectAnimationUsingKeyFrames**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.ObjectAnimationUsingKeyFrames) である
 
@@ -265,7 +265,7 @@ UI スレッドの処理を遅くする可能性があると判断された各�
 アプリ開発者は、**EnableDependentAnimation** が **true** でも、依存型アニメーションを常に無効にするアプリ全体の設定を適用することもできます。 「[**Timeline.AllowDependentAnimations**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.timeline.allowdependentanimations)」をご覧ください。
 
 > [!TIP]
-> Blend for Visual Studio 2019 のアニメーション ウィンドウを使用しているは、visual state プロパティに依存するアニメーションを適用しようとしたときに場合、は、デザイナーで警告が表示されます。 ビルド出力またはエラーの一覧で、警告は表示されません。 XAML を手動で、編集する場合、デザイナーでは、警告が表示されません。 出力ウィンドウのデバッグ出力時のデバッグ時に、警告が表示されます、アニメーションは独立していないはスキップされます。
+> Blend for Visual Studio 2019 の [アニメーション] ペインを使用している場合、ビジュアル状態プロパティに依存アニメーションを適用しようとするたびに、デザイナーに警告が表示されます。 警告は、ビルド出力またはエラー一覧に表示されません。 XAML を手動で編集している場合、デザイナーは警告を表示しません。 デバッグ時の実行時に、出力ウィンドウのデバッグ出力には、アニメーションが独立していないことを示す警告が表示され、スキップされます。
 
 
 ## <a name="starting-and-controlling-an-animation"></a>アニメーションの開始と制御
@@ -331,13 +331,13 @@ XAML で完全に宣言できるアニメーションをある方法で開始で
 
 ## <a name="related-topics"></a>関連トピック
 
-* [プロパティ パスの構文](https://docs.microsoft.com/windows/uwp/xaml-platform/property-path-syntax)
+* [プロパティパスの構文](https://docs.microsoft.com/windows/uwp/xaml-platform/property-path-syntax)
 * [依存関係プロパティの概要](https://docs.microsoft.com/windows/uwp/xaml-platform/dependency-properties-overview)
-* [キー フレームと関数のアニメーションにイージング](key-frame-and-easing-function-animations.md)
-* [表示状態のアニメーションを再検討](https://docs.microsoft.com/previous-versions/windows/apps/jj819808(v=win.10))
+* [キーフレームとイージング関数のアニメーション](key-frame-and-easing-function-animations.md)
+* [視覚状態の Storyboarded アニメーション](https://docs.microsoft.com/previous-versions/windows/apps/jj819808(v=win.10))
 * [コントロール テンプレート](https://docs.microsoft.com/windows/uwp/controls-and-patterns/control-templates)
-* [**ストーリー ボード**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.Storyboard)
-* [**Storyboard.TargetProperty**](https://docs.microsoft.com/previous-versions/windows/silverlight/dotnet-windows-silverlight/ms616983(v=vs.95))
+* [**Storyboard**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.Storyboard)
+* [**System.windows.media.animation.storyboard.targetproperty**](https://docs.microsoft.com/previous-versions/windows/silverlight/dotnet-windows-silverlight/ms616983(v=vs.95))
  
 
  

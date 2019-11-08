@@ -11,12 +11,12 @@ dev_langs:
 - vb
 - cppwinrt
 - cpp
-ms.openlocfilehash: 5c846d0e0110a1285e67f6f21e1eeb7a0d9c2624
-ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
+ms.openlocfilehash: 6d45e70afa5b0dc6e903dbd253c09042bb2046c2
+ms.sourcegitcommit: f7ef7e894d7b7fc24483b4485605686abf8f2e93
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71339280"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679211"
 ---
 # <a name="xaml-overview"></a>XAML の概要
 
@@ -144,10 +144,10 @@ XAML は、オブジェクトとそのプロパティを記述するための宣
 次に単純な例を示します。 @No__t-0 クラスは、<xref:Windows.UI.Xaml.Controls.Primitives.ButtonBase.Click> という名前のイベントをサポートしています。 ユーザーが **Button** をクリックすると呼び出されるコードを実行する **Click** のハンドラーを作成できます。 XAML では、**Click** を **Button** の属性として指定します。 属性値には、ハンドラーのメソッド名である文字列を指定します。
 
 ```xml
-<Button Click="showUpdatesButton-Click">Show updates</Button>
+<Button Click="showUpdatesButton_Click">Show updates</Button>
 ```
 
-コンパイルの際に、`showUpdatesButton-Click` という名前のメソッドが、コード ビハインド ファイルと、XAML ページの [x:Class](x-class-attribute.md) 値に宣言された名前空間に定義されていることが前提となります。 また、このメソッドは、<xref:Windows.UI.Xaml.Controls.Primitives.ButtonBase.Click> イベントのデリゲートコントラクトを満たす必要があります。 以下に例を示します。
+コンパイルの際に、`showUpdatesButton_Click` という名前のメソッドが、コード ビハインド ファイルと、XAML ページの [x:Class](x-class-attribute.md) 値に宣言された名前空間に定義されていることが前提となります。 また、このメソッドは、<xref:Windows.UI.Xaml.Controls.Primitives.ButtonBase.Click> イベントのデリゲートコントラクトを満たす必要があります。 以下に例を示します。
 
 ```csharp
 namespace App1

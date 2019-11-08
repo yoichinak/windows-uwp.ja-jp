@@ -1,17 +1,17 @@
 ---
-title: Windows 10 の開発者向け新着情報、ツール、機能
+title: Windows 10 ビルド 14393 の新着情報
 description: Windows 10 ビルド 14393 と新しい開発者ツールでは、新しいユニバーサル Windows プラットフォームによって強化されたツール、機能、エクスペリエンスを利用できます。
 keywords: 新着情報, 新機能, 更新, 更新プログラム, 機能, 新規, Windows 10, 1607, 7 月, 最新, 14393
 ms.date: 11/02/2017
 ms.topic: article
 ms.assetid: f95cd87b-f959-4148-a9bd-ba0b90d16e71
 ms.localizationpriority: medium
-ms.openlocfilehash: 037963109fd6f70a60c17dc1b6c1b4eef82fb080
-ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
+ms.openlocfilehash: 713a3f709863fbc073bf48ac4a5de30c737d782b
+ms.sourcegitcommit: a7740ebb14c98cd5afadd52db5cf714522821b49
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67821103"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72893062"
 ---
 # <a name="whats-new-in-windows-10-for-developers-build-14393"></a>Windows 10 ビルド 14393 の開発者向け新着情報
 
@@ -60,5 +60,5 @@ Web とアプリのリンク | アプリと Web サイトを関連付けます�
 WebSocket | [  **MessageWebSocket**](https://docs.microsoft.com/uwp/api/windows.networking.sockets.messagewebsocket) と [**StreamWebSocket**](https://docs.microsoft.com/uwp/api/windows.networking.sockets.streamwebsocket) の両方に、サーバー証明書の表示、SSL ネゴシエーション時にサーバーによって送信された中間証明書の表示、カスタム サーバー証明書の検証の実行、無視する必要がある特定のサーバー証明書エラーの指定といった処理のサポートが追加されました。
 Windows Information Protection (WIP) API | [**WIP**](https://docs.microsoft.com/windows/uwp/enterprise/wip-hub) は、デスクトップ、ノート PC、タブレット、電話に対するモバイル デバイス管理 (MDM) 用の一連の機能です。 WIP によって、企業は管理対象デバイスによるデータの処理方法をより細かく制御できます。 <br/><br/>WIP API を使用すると、データ ポリシーを尊重しながら、それらのポリシーによって影響を受ける従業員の個人データを分離するアプリを構築できます。 ポリシー管理者は、組織のデータを利用するこのようなアプリを信頼します。 また、従業員からも、組織のモバイル デバイス管理 (MDM) から登録を解除した場合や、完全に組織を去ることになった場合でも、デバイス上の個人データをそのまま残す方法が望まれています。
 Windows IOT Core | Windows IoT Core は、Raspberry Pi 3 だけでなく、リモート表示エクスペリエンスを完全にサポートするようになったため、ユーザーは IoT Core デバイスで実行されている UWP アプリケーションをリモートで表示および制御することができます。
-コンパニオン (IoT) デバイスを使った Windows のロック解除 | コンパニオン デバイスは、ユーザー認証のエクスペリエンスを強化するために、Windows 10 のデスクトップと組み合わせて使用できるデバイスです。 [コンパニオン デバイス フレームワーク](https://docs.microsoft.com/windows/uwp/security/companion-device-unlock)を使用すると、コンパニオン デバイスは、Windows Hello を利用できない場合 (たとえば、Windows 10 のデスクトップに顔認証のカメラまたは指紋リーダーのデバイスがない場合など) でも、Microsoft Passport のための優れたエクスペリエンスを提供できます。
+コンパニオン (IoT) デバイスを使った Windows のロック解除 | コンパニオン デバイスは、ユーザー認証のエクスペリエンスを強化するために、Windows 10 のデスクトップと組み合わせて使用できるデバイスです。 [コンパニオン デバイス フレームワーク](https://docs.microsoft.com/windows/uwp/security/companion-device-unlock)を使用すると、Windows Hello を利用できない場合 (Windows 10 のデスクトップに顔認証のカメラまたは指紋リーダーのデバイスがない場合など) でも、コンパニオン デバイスによって Microsoft Passport のための優れたエクスペリエンスを提供できます。
 Winsock | TCP ソケットは、[Winsock](https://tools.ietf.org/html/rfc7413) で TCP_FASTOPEN ソケット オプションを設定することにより、[RFC 7413](https://tools.ietf.org/html/rfc7413) TCP Fast Open を使用するように構成できます。

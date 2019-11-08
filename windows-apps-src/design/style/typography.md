@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 1d162fcf9a0f1023c58792e8c9f7a0e22fac4440
-ms.sourcegitcommit: 789bfe3756c5c47f7324b96f482af636d12c0ed3
+ms.openlocfilehash: cb2aef514c8787b5afe11ea5a2818012bfdf2f41
+ms.sourcegitcommit: 445320ff0ee7323d823194d4ec9cfa6e710ed85d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68867752"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72282422"
 ---
 # <a name="typography"></a>文字体裁
 
@@ -193,7 +193,7 @@ Segoe UI は、英語、ヨーロッパの各言語、ギリシャ語、ヘブ�
 <tr class="odd">
 <td align="left" style="font-family: Microsoft YaHei UI;">Microsoft YaHei UI</td>
 <td align="left">標準、太字、細字</td>
-<td align="left">簡体字中国語用のユーザー インターフェイス フォント。</td>
+<td align="left">簡体中国語用のユーザー インターフェイス フォント。</td>
 </tr>
 <tr class="odd">
 <td align="left" style="font-family: Myanmar Text;">Myanmar Text</td>

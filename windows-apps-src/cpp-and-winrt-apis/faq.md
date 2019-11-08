@@ -5,12 +5,12 @@ ms.date: 04/23/2019
 ms.topic: article
 keywords: wwindows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 頻繁, 質問, 質問, faq
 ms.localizationpriority: medium
-ms.openlocfilehash: a8da69f0041c71ecfc7429cae2ed51eee0f87d5e
-ms.sourcegitcommit: d38e2f31c47434cd6dbbf8fe8d01c20b98fabf02
+ms.openlocfilehash: 5bb19e406df98a24a6d65fc774a29e44ef267272
+ms.sourcegitcommit: c079388634cbd328d0d43e7a6185e09bb4bca65b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70393486"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71939586"
 ---
 # <a name="frequently-asked-questions-about-cwinrt"></a>C++/WinRT についてよく寄せられる質問
 [C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) での Windows ランタイム API の作成と使用に関する質問への回答です。
@@ -29,6 +29,10 @@ Visual Studio 2017 (Version 15.8.0 以降) を使用し、Windows SDK Version 10
 
 ## <a name="how-do-i-resolve-the-build-error-the-cwinrt-vsix-no-longer-provides-project-build-support--please-add-a-project-reference-to-the-microsoftwindowscppwinrt-nuget-package"></a>ビルド エラー "The C++/WinRT VSIX no longer provides project build support.  Please add a project reference to the Microsoft.Windows.CppWinRT Nuget package" (C++/WinRT VSIX はプロジェクトのビルドをサポートしなくなりました。Microsoft.Windows.CppWinRT Nuget パッケージへのプロジェクト参照を追加してください) を解決するにはどうすればよいですか?
 **Microsoft.Windows.CppWinRT** NuGet パッケージをプロジェクトにインストールします。 詳細については、「[VSIX 拡張機能の以前のバージョン](intro-to-using-cpp-with-winrt.md#earlier-versions-of-the-vsix-extension)」を参照してください。
+
+## <a name="how-do-i-customize-the-build-support-in-the-nuget-package"></a>NuGet パッケージでビルド サポートをカスタマイズするにはどうすればよいですか?
+
+C++/WinRT ビルド サポート (プロパティ/ターゲット) については、Microsoft.Windows.CppWinRT NuGet パッケージの [readme](https://github.com/microsoft/xlang/tree/master/src/package/cppwinrt/nuget/readme.md#customizing) に記載されています。
 
 ## <a name="what-are-the-requirements-for-the-cwinrt-visual-studio-extension-vsix"></a>C++/WinRT Visual Studio Extension (VSIX) の要件は何ですか?
 VSIX 拡張機能の Version 1.0.190128.4 以降については、[C++/WinRT の Visual Studio のサポート](intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)に関する記事を参照してください。 その他のバージョンについては、「[VSIX 拡張機能の以前のバージョン](intro-to-using-cpp-with-winrt.md#earlier-versions-of-the-vsix-extension)」を参照してください。

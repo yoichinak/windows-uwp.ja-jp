@@ -1379,7 +1379,7 @@ Concurrency::create_task(Windows::Security::Cryptography::Certificates::Certific
 
 ## <a name="related-topics"></a>関連トピック
 * [アプリ間通信](/windows/uwp/app-to-app/index)
-* [C++/WinRT を使用した同時実行操作と非同期操作](/windows/uwp/cpp-and-winrt-apis/concurrency)
+* [C++/WinRT を使用した同時開催操作と非同期操作](/windows/uwp/cpp-and-winrt-apis/concurrency)
 * [ネットワーク機能を設定する方法](https://docs.microsoft.com/previous-versions/windows/apps/hh770532(v=win.10))
 * [Windows ソケット 2 (Winsock)](https://docs.microsoft.com/windows/desktop/WinSock/windows-sockets-start-page-2)
 

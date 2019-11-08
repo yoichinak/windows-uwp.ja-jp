@@ -6,12 +6,12 @@ keywords: 開発者用 Visual Studio での作業の開始, 開発者用ライ�
 ms.date: 04/09/2019
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 705ff7fab00d13123211feb747ea9a9f95b0cc43
-ms.sourcegitcommit: 789bfe3756c5c47f7324b96f482af636d12c0ed3
+ms.openlocfilehash: 1a4c1f90c0fa8304f95b1dc958fe5a75e74301dd
+ms.sourcegitcommit: 7791596c25baf9d222729e057ecdf81b45a59f0c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68867610"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71205934"
 ---
 # <a name="enable-your-device-for-development"></a>デバイスを開発用に有効にする
 
@@ -47,7 +47,7 @@ ms.locfileid: "68867610"
 ## <a name="which-setting-should-i-choose-sideload-apps-or-developer-mode"></a>選ぶ必要がある設定: アプリのサイドローディングか開発者モードか
 
 > [!NOTE]
-> Windows Insider Build 18956 の時点では、サイドローディング オプションは削除されており、開発者モードは切り替えになりました。 次のセクションでサイドローディングの詳細を参照してください。 
+> Windows Insider Build 18956 の時点では、サイドローディング オプションは削除されており、開発者モードは切り替えになりました。 次のセクションでサイドローディングの詳細を参照してください。
 
  デバイスでは、開発者モードを有効にすることも、サイドローディングのみを有効にすることもできます。
 
@@ -60,7 +60,7 @@ ms.locfileid: "68867610"
 ### <a name="sideload-apps"></a>アプリのサイドローディング
 
 > [!NOTE]
-> Windows Insider Build 18956 の時点で、サイドローディングは既定で有効になっています。 これにより、特別な構成を行わずに、署名済みの MSIX パッケージをデバイスに展開できるようになりました。 
+> Windows Insider Build 18956 の時点で、サイドローディングは既定で有効になっています。 これにより、特別な構成を行わずに、署名済みの MSIX パッケージをデバイスに展開できるようになりました。
 
 アプリのサイドロード設定は、通常、Microsoft Store を使わずにカスタム アプリを管理対象デバイスにインストールする必要がある会社や学校によって、または Microsoft 以外のソースからアプリを実行する必要があるユーザーによって、使用されます。 この場合、設定ページのイメージで以前に示したように、*UWP アプリ*設定を無効にするポリシーを組織が適用していることはよくあります。 また、組織は、必要な証明書と、アプリをサイドローディングするインストール場所を提供します。 詳しくは、TechNet の記事「[Windows 10 でのアプリのサイド ローディング](https://docs.microsoft.com/windows/deploy/sideload-apps-in-windows-10)」と「[Microsoft Intune でのアプリ展開の開始](https://docs.microsoft.com/intune/deploy-use/add-apps)」をご覧ください。
 
@@ -100,7 +100,7 @@ Device Portal について詳しくは、「[Windows Device Portal の概要](..
 
 デバイス固有のセットアップ手順については、以下をご覧ください。
 - [デスクトップ用 Device Portal](https://docs.microsoft.com/windows/uwp/debug-test-perf/device-portal-desktop)
-- [HoloLens 用 Device Portal](https://developer.microsoft.com/mixed-reality)
+- [HoloLens 用 Device Portal](https://docs.microsoft.com/windows/mixed-reality/using-the-windows-device-portal)
 - [IoT 用 Device Portal](https://developer.microsoft.com/windows/iot/docs/DevicePortal)
 - [モバイル用 Device Portal](../debug-test-perf/device-portal-mobile.md)
 - [Xbox 向けのデバイス ポータル](../xbox-apps/device-portal-xbox.md)
@@ -207,26 +207,26 @@ Windows 10 Home をお持ちでない場合は、gpedit.msc を使って、グ�
 1.  **regedit** を実行します。
 2.  サイドローディングを有効にするには、この DWORD の値を 1 に設定します。
 
-    -   **HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\AppModelUnlock\\AllowAllTrustedApps**
+    -   `HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\AppModelUnlock\\AllowAllTrustedApps`
 
     - または -
 
     開発者モードを有効にするには、この DWORD の値を 1 に設定します。
 
-    -   **HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\AppModelUnlock\\AllowDevelopmentWithoutDevLicense**
+    -   `HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\AppModelUnlock\\AllowDevelopmentWithoutDevLicense`
 
 **PowerShell を使ってデバイスを有効にする**
 
 1.  管理者特権で PowerShell を実行します。
 2.  サイドローディングを有効にするには、このコマンドを実行します。
 
-    -   **PS C:\\WINDOWS\\system32&gt; reg add "HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\AppModelUnlock" /t REG\_DWORD /f /v "AllowAllTrustedApps" /d "1"**
+    -   `PS C:\\WINDOWS\\system32&gt; reg add "HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\AppModelUnlock" /t REG\_DWORD /f /v "AllowAllTrustedApps" /d "1"`
 
     - または -
 
     開発者モードを有効にするには、このコマンドを実行します。
 
-    -   **PS C:\\WINDOWS\\system32&gt; reg add "HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\AppModelUnlock" /t REG\_DWORD /f /v "AllowDevelopmentWithoutDevLicense" /d "1"**
+    -   `PS C:\\WINDOWS\\system32&gt; reg add "HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\AppModelUnlock" /t REG\_DWORD /f /v "AllowDevelopmentWithoutDevLicense" /d "1"`
 
 ## <a name="upgrade-your-device-from-windows-81-to-windows-10"></a>Windows 8.1 から Windows 10 にデバイスをアップグレードする
 
@@ -235,7 +235,7 @@ Windows 8.1 デバイスでアプリを作成またはサイドローディン�
 **開発者用ライセンスを登録解除するには**
 
 1.  管理者特権で PowerShell を実行します。
-2.  **unregister-windowsdeveloperlicense** コマンドを実行します。
+2.  コマンド `unregister-windowsdeveloperlicense` を実行します。
 
 その後、このトピックで説明されているように、開発用のデバイスを有効にする必要があります。これにより、このデバイスで開発を継続できます。 有効にしない場合、アプリをデバッグしたり、パッケージを作成しようとしたりすると、エラーが発生する可能性があります。 このエラーの例を次に示します。
 
