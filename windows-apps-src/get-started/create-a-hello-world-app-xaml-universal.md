@@ -6,12 +6,12 @@ ms.date: 03/06/2017
 ms.topic: article
 keywords: windows 10, uwp, 初めてのアプリ, hello world
 ms.localizationpriority: medium
-ms.openlocfilehash: b0d2ad6f0370867159054d77c7e68201d4799037
-ms.sourcegitcommit: 05be6929cd380a9dd241cc1298fd53f11c93d774
+ms.openlocfilehash: 93c78845a218620a8a46fc4439733734099b9853
+ms.sourcegitcommit: 13ce25364201223e21e2e5e89f99bc7aa4d93f56
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73062885"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847604"
 ---
 # <a name="create-a-hello-world-app-xaml"></a>"Hello, world" アプリを作成する (XAML)
 
@@ -123,7 +123,7 @@ ms.locfileid: "73062885"
     XAML コード ウィンドウを見ると、そこにも Button が追加されたことがわかります。
 
  ```XAML
-<Button x:name="button" Content="Button" HorizontalAlignment="Left" Margin = "152,293,0,0" VerticalAlignment="Top"/>
+<Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin = "152,293,0,0" VerticalAlignment="Top"/>
  ```
 
 4.  ボタンのテキストを変更します。
@@ -131,7 +131,7 @@ ms.locfileid: "73062885"
     XAML コード ビュー内をクリックし、Content の値を "Button" から "Hello, world!" に変更します。
 
 ```XAML
-<Button x:name="button" Content="Hello, world!" HorizontalAlignment="Left" Margin = "152,293,0,0" VerticalAlignment="Top"/>
+<Button x:Name="button" Content="Hello, world!" HorizontalAlignment="Left" Margin = "152,293,0,0" VerticalAlignment="Top"/>
 ```
 
 デザイン キャンバスに表示されたボタンが更新され、新しいテキストが表示されることがわかります。
