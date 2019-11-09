@@ -6,12 +6,12 @@ keywords: バックグラウンドタスク、拡張実行、リソース、制�
 ms.date: 10/03/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: dee95e02e43f3a541bd332f5150765ca76bb0955
-ms.sourcegitcommit: 234dce5fb67e435ae14eb0052d94ab01611ac5e4
+ms.openlocfilehash: 55025d0348abdf311ebf020c70ccf9029bf7ec5a
+ms.sourcegitcommit: ebd35887b00d94f1e76f7d26fa0d138ec4abe567
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72822446"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888665"
 ---
 # <a name="run-in-the-background-indefinitely"></a>バックグラウンドで無期限に実行する
 
@@ -27,17 +27,22 @@ ms.locfileid: "72822446"
 
 `extendedExecutionUnconstrained` 機能は、制限された機能としてアプリのマニフェストに追加されます。 制限された機能について詳しくは、「[アプリ機能の宣言](https://docs.microsoft.com/windows/uwp/packaging/app-capability-declarations)」をご覧ください。
 
+> **注:** *Xmlns: rescap* XML 名前空間宣言を追加し、 *rescap*プレフィックスを使用して機能を宣言します。
+
 _Package.appxmanifest_
 ```xml
-<Package ...>
-...
+<Package
+    ...
+    xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+    IgnorableNamespaces="uap mp rescap">
+  ...
   <Capabilities>
     <rescap:Capability Name="extendedExecutionUnconstrained"/>
   </Capabilities>
 </Package>
 ```
 
-`extendedExecutionUnconstrained` 機能を使用する場合は、[ExtendedExecutionSession](https://docs.microsoft.com/uwp/api/windows.applicationmodel.extendedexecution.extendedexecutionsession) と [ExtendedExecutionReason](https://docs.microsoft.com/uwp/api/windows.applicationmodel.extendedexecution.extendedexecutionreason) ではなく [ExtendedExecutionForegroundSession](https://docs.microsoft.com/uwp/api/windows.applicationmodel.extendedexecution.foreground.extendedexecutionforegroundsession) と [ExtendedExecutionForegroundReason](https://docs.microsoft.com/en-us/uwp/api/windows.applicationmodel.extendedexecution.foreground.extendedexecutionforegroundreason) が使用されます。 この場合も、セッションの作成、メンバーの設定、非同期的な延長要求は同じパターンになります。 
+`extendedExecutionUnconstrained` 機能を使用する場合は、[ExtendedExecutionSession](https://docs.microsoft.com/uwp/api/windows.applicationmodel.extendedexecution.extendedexecutionsession) と [ExtendedExecutionReason](https://docs.microsoft.com/uwp/api/windows.applicationmodel.extendedexecution.extendedexecutionreason) ではなく [ExtendedExecutionForegroundSession](https://docs.microsoft.com/uwp/api/windows.applicationmodel.extendedexecution.foreground.extendedexecutionforegroundsession) と [ExtendedExecutionForegroundReason](https://docs.microsoft.com/uwp/api/windows.applicationmodel.extendedexecution.foreground.extendedexecutionforegroundreason) が使用されます。 この場合も、セッションの作成、メンバーの設定、非同期的な延長要求は同じパターンになります。 
 
 ```cs
 var newSession = new ExtendedExecutionForegroundSession();
@@ -66,9 +71,15 @@ switch (result)
 
 ユニバーサル Windows プラットフォームのバックグラウンド タスクは、どのような形のユーザー インターフェイスも持たない、バックグラウンドで実行されるプロセスです。 一般的に、バックグラウンド タスクは取り消されるまで最長で 25 秒間実行できます。 長時間実行されるタスクについても、バックグラウンド タスクのアイドル状態やメモリ使用について確認が行われます。 Windows Creators Update (Version 1703) では、制限された機能 [extendedBackgroundTaskTime](https://docs.microsoft.com/windows/uwp/packaging/app-capability-declarations) が導入され、これらの制限が解消されました。 **extendedBackgroundTaskTime** 機能は、制限された機能としてアプリのマニフェスト ファイルに追加されます。
 
+> **注:** *Xmlns: rescap* XML 名前空間宣言を追加し、 *rescap*プレフィックスを使用して機能を宣言します。
+
 _Package.appxmanifest_
 ```xml
-<Package ...>
+<Package
+    ... 
+    xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+    IgnorableNamespaces="uap mp rescap">
+...
   <Capabilities>
     <rescap:Capability Name="extendedBackgroundTaskTime"/>
   </Capabilities>
