@@ -22,7 +22,7 @@ ms.locfileid: "71339852"
 
 UI スレッドを使って、UI スレッドへのほぼすべての変更を行う必要があります。これには、UI の種類の作成、そのメンバーへのアクセスも含まれます。 UI はバックグラウンド スレッドから更新できませんが、[**CoreDispatcher.RunAsync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync) を使ってこのスレッドにメッセージを投稿し、コードをそこで実行することができます。
 
-> **注**  The の1つの例外として、別のレンダリングスレッドがあります。これは、入力の処理方法や基本レイアウトに影響を与えない UI の変更を適用できます。 たとえば、レイアウトに影響を及ぼさない多くのアニメーションと切り替えは、このレンダリング スレッド上で実行できます。
+> **注**  1 つの例外として、別のレンダリング スレッドがあります。これは、入力の処理方法や基本レイアウトに影響を与えない UI の変更を適用できます。たとえば、レイアウトに影響を及ぼさない多くのアニメーションと切り替えは、このレンダリング スレッド上で実行できます。
 
 ## <a name="delay-element-instantiation"></a>要素のインスタンス化の遅延
 
@@ -31,7 +31,7 @@ UI スレッドを使って、UI スレッドへのほぼすべての変更を�
 -   [x:Load attribute](../xaml-platform/x-load-attribute.md) または [x:DeferLoadStrategy](https://docs.microsoft.com/windows/uwp/xaml-platform/x-deferloadstrategy-attribute) を使って要素のインスタンス化を遅らせます。
 -   プログラムを使って、要素をツリーにオンデマンドで挿入します。
 
-[**RunIdleAsync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runidleasync)キューは、UI スレッドがビジー状態でないときに処理されるように動作します。
+[**CoreDispatcher.RunIdleAsync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runidleasync) キューは、UI スレッドがビジー状態でないときに処理されるように動作します。
 
 ## <a name="use-asynchronous-apis"></a>非同期 API の使用
 
@@ -41,7 +41,7 @@ UI スレッドを使って、UI スレッドへのほぼすべての変更を�
 
 すばやく戻るイベント ハンドラーを記述します。 かなりの量の作業を実行する必要がある場合は、バックグラウンド スレッドで実行し、戻るようにスケジュールします。
 
-C# では **await** 演算子、Visual Basic では **Await** 演算子、C++ ではデリゲートを使って、作業を非同期で実行するようスケジュールできます。 ただし、これは、スケジュールした作業がバックグラウンド スレッドで実行されることを保証するものではありません。 ユニバーサル Windows プラットフォーム (UWP) API の多くは、作業をバックグラウンド スレッドで実行するようスケジュールしますが、**await** またはデリゲートのみを使ってアプリのコードを呼び出すと、そのデリゲートまたはメソッドは UI スレッドで実行されます。 アプリのコードをバックグラウンド スレッドで実行するタイミングを明示的に指定する必要があります。 C# と Visual Basic では、コードを [**Task.Run**](https://docs.microsoft.com/dotnet/api/system.threading.tasks.task.run) に渡すことによってこれを実現できます。
+C# では **await** 演算子、Visual Basic では **Await** 演算子、C++ ではデリゲートを使って、作業を非同期で実行するようスケジュールできます。ただし、これは、スケジュールした作業がバックグラウンド スレッドで実行されることを保証するものではありません。ユニバーサル Windows プラットフォーム (UWP) API の多くは、作業をバックグラウンド スレッドで実行するようスケジュールしますが、**await** またはデリゲートのみを使ってアプリのコードを呼び出すと、そのデリゲートまたはメソッドは UI スレッドで実行されます。 アプリのコードをバックグラウンド スレッドで実行するタイミングを明示的に指定する必要があります。C# と Visual Basic では、コードを [**Task.Run**](https://docs.microsoft.com/dotnet/api/system.threading.tasks.task.run) に渡すことによってこれを実現できます。
 
 UI 要素には UI スレッドからしかアクセスできないことに注意してください。 バックグラウンドの作業を起動する前に、UI スレッドを使って UI 要素にアクセスするか、バックグラウンド スレッドで [**CoreDispatcher.RunAsync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync) または [**CoreDispatcher.RunIdleAsync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runidleasync) を使います。
 
@@ -101,7 +101,7 @@ public class AsyncExample
 
 この例では、UI スレッドの応答性を確保するために、`NextMove_Click` ハンドラーが **await** で戻ります。 ただし、バックグラウンド スレッドで実行される `ComputeNextMove` が完了すると、そのハンドラーで実行が回復します。 ハンドラーの残りのコードにより、UI がその結果で更新されます。
 
-> **注**   は UWP 用の[**ThreadPool**](https://docs.microsoft.com/uwp/api/Windows.System.Threading.ThreadPool)および[**threadpooltimer**](https://docs.microsoft.com/uwp/api/windows.system.threading.threadpooltimer) API でもあり、同様のシナリオに使用できます。 詳しくは、「[スレッド化と非同期プログラミング](https://docs.microsoft.com/windows/uwp/threading-async/index)」をご覧ください。
+> **注** UWP 用の [**ThreadPool**](https://docs.microsoft.com/uwp/api/Windows.System.Threading.ThreadPool) および [**ThreadPoolTimer**](https://docs.microsoft.com/uwp/api/windows.system.threading.threadpooltimer) API もあり、同様のシナリオに使用できます。 詳しくは、「[スレッド化と非同期プログラミング](https://docs.microsoft.com/windows/uwp/threading-async/index)」をご覧ください。
 
 ## <a name="related-topics"></a>関連トピック
 
