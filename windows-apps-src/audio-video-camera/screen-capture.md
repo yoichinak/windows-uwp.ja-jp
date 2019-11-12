@@ -23,11 +23,11 @@ Windows 10、バージョン 1803 以降では、[Windows.Graphics.Capture](http
 画面キャプチャでは、開発者がセキュリティで保護されたシステム UI を起動し、エンド ユーザーがこれを使ってキャプチャ対象のディスプレイまたはアプリケーション ウィンドウを選択すると、アクティブにキャプチャされた項目の周囲に、それを通知する黄色の枠線がシステムによって描画されます。 複数の同時キャプチャ セッションの場合は、キャプチャされる各項目が黄色の枠線で囲まれます。
 
 > [!NOTE]
-> 画面キャプチャ Api は、デスクトップおよび Windows Mixed Reality のイマーシブヘッドセットでのみサポートされています。
+> 画面キャプチャ API は、デスクトップおよび Windows Mixed Reality のイマーシブ ヘッドセットでのみサポートされています。
 
 ## <a name="add-the-screen-capture-capability"></a>画面キャプチャ機能を追加する
 
-**Windows**の名前空間にある api を使用するには、アプリケーションのマニフェストで汎用的な機能を宣言する必要があります。
+**Windows.Graphics.Capture** の名前空間にある API を使用するには、アプリケーションのマニフェストで汎用的な機能を宣言する必要があります。
 
 1. **ソリューションエクスプローラー**で**package.appxmanifest**を開きます。
 2. **[機能]** タブをクリックします。
@@ -113,7 +113,7 @@ Await window.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
 
 ## <a name="create-a-capture-frame-pool-and-capture-session"></a>キャプチャ フレーム プールとキャプチャ セッションを作成する
 
-**GraphicsCaptureItem**を使用して、D3D デバイスでサポートされているピクセル形式 (**DXGI @ NO__T-3format @ NO__T-4B8G8R8A8 @ NO__T-5unorm**)、必要なフレームの数 (任意の整数を指定できます) を使用して[Direct3D11CaptureFramePool](https://docs.microsoft.com/uwp/api/windows.graphics.capture.direct3d11captureframepool)を作成します。)、フレームサイズ。 **GraphicsCaptureItem** クラスの **ContentSize** プロパティをフレーム サイズとして使用できます。
+**GraphicsCaptureItem**を使用して、D3D デバイスでサポートされているピクセル形式 (**DXGI\_FORMAT\_B8G8R8A8\_UNORM**)、必要なフレームの数 (任意の整数を指定できます)、フレームサイズで [Direct3D11CaptureFramePool](https://docs.microsoft.com/uwp/api/windows.graphics.capture.direct3d11captureframepool) を作成します。 **GraphicsCaptureItem** クラスの **ContentSize** プロパティをフレーム サイズとして使用できます。
 
 ```cs
 private GraphicsCaptureItem _item;
@@ -230,7 +230,7 @@ UI スレッドで **FrameArrived** を使用することはできれば避け�
 
 ## <a name="take-a-screenshot"></a>スクリーンショットを撮る
 
-この例では、各**Direct3D11CaptureFrame**を[CanvasBitmap](https://microsoft.github.io/Win2D/html/T_Microsoft_Graphics_Canvas_CanvasBitmap.htm)に変換します。これは[Win2D api](https://microsoft.github.io/Win2D/html/Introduction.htm)の一部です。
+この例では、各 **Direct3D11CaptureFrame** を [CanvasBitmap](https://microsoft.github.io/Win2D/html/T_Microsoft_Graphics_Canvas_CanvasBitmap.htm) に変換します。これは [Win2D API](https://microsoft.github.io/Win2D/html/Introduction.htm) の一部です。
 
 ```cs
 // Convert our D3D11 surface into a Win2D object.
@@ -239,7 +239,7 @@ CanvasBitmap canvasBitmap = CanvasBitmap.CreateFromDirect3D11Surface(
     frame.Surface);
 ```
 
-**CanvasBitmap**を取得したら、それをイメージファイルとして保存できます。 次の例では、ユーザーの**保存さ**れているピクチャフォルダーに PNG ファイルとして保存します。
+**CanvasBitmap** を取得したら、それをイメージ ファイルとして保存できます。次の例では、ユーザーの **[保存済みの写真]** フォルダーに PNG ファイルとして保存します。
 
 ```cs
 StorageFolder pictureFolder = KnownFolders.SavedPictures;
@@ -686,8 +686,8 @@ End Class
 
 ## <a name="record-a-video"></a>ビデオを録画する
 
-アプリケーションのビデオを記録する場合は、 [Windows の名前空間](https://docs.microsoft.com/uwp/api/windows.media.apprecording)を使用すると、より簡単に実行できます。 これはデスクトップ拡張 SDK の一部であるため、デスクトップ上でのみ機能し、プロジェクトから参照を追加する必要があります。 詳細については、「[デバイスファミリの概要](https://docs.microsoft.com/uwp/extension-sdks/device-families-overview)」を参照してください。
+アプリケーションのビデオを記録する場合は、[Windows.Media.AppRecording 名前空間](https://docs.microsoft.com/uwp/api/windows.media.apprecording)を使用すると、より簡単に実行できます。これはデスクトップ拡張 SDK の一部であるため、デスクトップ上でのみ機能し、プロジェクトから参照を追加する必要があります。詳細については、「[デバイス ファミリの概要](https://docs.microsoft.com/uwp/extension-sdks/device-families-overview)」を参照してください。
 
 ## <a name="see-also"></a>関連項目
 
-* [Windows. Graphics. Capture 名前空間](https://docs.microsoft.com/uwp/api/windows.graphics.capture)
+* [Windows.Graphics.Capture 名前空間](https://docs.microsoft.com/uwp/api/windows.graphics.capture)
