@@ -84,13 +84,13 @@ XAML パーサーがこのマークアップを読み取るときに、[**Childr
 レイアウト システムが機能するための要件の大部分は、[**FrameworkElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.FrameworkElement) に基づく要素のいずれかに、コンテナーで子として機能するときの固有の動作の一部が既に含まれることです。 たとえば、**FrameworkElement** のいくつかの API は、レイアウト動作を通知する API であるか、またはレイアウトが機能するための必須 API です。 これには次が含まれます。
 
 -   [**System.windows.uielement.desiredsize**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.desiredsize) (実際には[**UIElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement)プロパティ)
--   [**Actualheight**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.actualheight)と[ **actualheight**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.actualwidth)
--   [**高さ**](/uwp/api/Windows.UI.Xaml.FrameworkElement.Height)と[**幅**](/uwp/api/Windows.UI.Xaml.FrameworkElement.Width)
--   [**余白**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.margin)
--   [**Layoutupdated**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.layoutupdated)イベント
--   [**水平**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.horizontalalignment)方向の配置と垂直方向の[**配置**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.verticalalignment)
--   並べ替え[**eoverride**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.arrangeoverride)メソッドと[**measureoverride**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.measureoverride)メソッド
--   [**配置**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.arrange)および[**測定**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.measure)メソッド: これらには、要素レベルのレイアウトアクションを処理する[**FrameworkElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.FrameworkElement)レベルで定義されたネイティブ実装があります。
+-   [**ActualHeight**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.actualheight)と[ **ActualWidth**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.actualwidth)
+-   [**Height**](/uwp/api/Windows.UI.Xaml.FrameworkElement.Height)と[**Width**](/uwp/api/Windows.UI.Xaml.FrameworkElement.Width)
+-   [**Margin**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.margin)
+-   [**LayoutUpdated**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.layoutupdated)イベント
+-   [**HorizontalAlignment**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.horizontalalignment)と[**VerticalAlignment**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.verticalalignment)
+-   [**ArrangeOverride**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.arrangeoverride)メソッドと[**MeasureOverride**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.measureoverride)メソッド
+-   [**Arrange**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.arrange)および[**Measure**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.measure)メソッド: これらには、要素レベルのレイアウトアクションを処理する[**FrameworkElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.FrameworkElement)レベルで定義されたネイティブ実装があります。
 
 ## <a name="measureoverride"></a>**System.windows.frameworkelement.measureoverride**
 
@@ -119,7 +119,7 @@ protected override Size MeasureOverride(Size availableSize)
 
 要素は、多くの場合、レイアウトの準備ができた時点で自然なサイズになっています。 [**Measure**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.measure) について渡した *availableSize* が小さい場合は、測定パスの後に、[**DesiredSize**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.desiredsize) が自然なサイズを示す場合もあります。 自然なサイズが、**Measure** について渡した *availableSize* よりも大きい場合は、**DesiredSize** が *availableSize* に制限されます。 これは、**Measure** の内部実装の動作であり、レイアウトのオーバーライドは、この動作を考慮する必要があります。
 
-自然なサイズのない要素もあります。このような要素には、[**Height**](/uwp/api/Windows.UI.Xaml.FrameworkElement.Height) と [**Width**](/uwp/api/Windows.UI.Xaml.FrameworkElement.Width) の **Auto** 値があるためです。 これらの要素は、**Auto** 値が表すとおり、完全な *availableSize* を使用します。つまり、要素を使用可能な最大サイズに調整します。直接のレイアウトの親は、[**Measure**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.measure) と共に *availableSize* を呼び出して、このサイズを伝えます。 実際には、UI のサイズが設定されている測定値が常にあります (これが最上位レベルのウィンドウであっても)。最終的には、メジャーパスはすべての**自動**値を親制約に解決し、すべての**自動**値要素は実際の測定値を取得します (レイアウトが完了した後で、 [**actualwidth**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.actualwidth)と[**actualwidth**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.actualheight)をチェックすることによって取得できます)。
+自然なサイズのない要素もあります。このような要素には、[**Height**](/uwp/api/Windows.UI.Xaml.FrameworkElement.Height) と [**Width**](/uwp/api/Windows.UI.Xaml.FrameworkElement.Width) の **Auto** 値があるためです。 これらの要素は、**Auto** 値が表すとおり、完全な *availableSize* を使用します。つまり、要素を使用可能な最大サイズに調整します。直接のレイアウトの親は、[**Measure**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.measure) と共に *availableSize* を呼び出して、このサイズを伝えます。 実際には、UI のサイズが設定されている測定値が常にあります (これが最上位レベルのウィンドウであっても)。最終的には、メジャーパスはすべての**Auto**値を親制約に解決し、すべての**Auto**値要素は実際の測定値を取得します (レイアウトが完了した後で、 [**ActualWidth**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.actualwidth)と[**ActualHeight**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.actualheight)をチェックすることによって取得できます)。
 
 少なくとも 1 つの無限サイズを含む [**Measure**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.measure) にサイズを渡すこともできます。これは、パネルがそれ自体のサイズを、コンテンツの測定値に収まるように調整できることを示します。 測定される各子要素の [**DesiredSize**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.desiredsize) 値が、その要素の自然なサイズを使用して設定されます。 配置パスでは、通常、そのサイズを使用してパネルが配置されます。
 
@@ -194,8 +194,8 @@ protected override Size ArrangeOverride(Size finalSize)
 
 **リファレンス**
 * [**FrameworkElement.ArrangeOverride**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.arrangeoverride)
-* [**FrameworkElement. MeasureOverride**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.measureoverride)
-* [**パネル**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Panel)
+* [**FrameworkElement.MeasureOverride**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.measureoverride)
+* [**Panel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Panel)
 
 **概念**
 * [配置、余白、および余白](alignment-margin-padding.md)
