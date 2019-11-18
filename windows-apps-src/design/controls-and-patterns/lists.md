@@ -12,12 +12,12 @@ design-contact: kimsea
 dev-contact: ranjeshj
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: e1167a57da6a3f54cabcc946cfbf7a592f301d2c
-ms.sourcegitcommit: 9625f8fb86ff6473ac2851e600bc02e996993660
+ms.openlocfilehash: d309ce7e18a8dc62a24bc0e7f51f0015042a5f84
+ms.sourcegitcommit: 3bb982f35c057e30c742ab9f1eea119bae627a5f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72163738"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74086864"
 ---
 # <a name="collections-and-lists"></a>コレクションとリスト
 
@@ -38,11 +38,11 @@ ms.locfileid: "72163738"
 
 > **重要な API**:[ListView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView)、[GridView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.GridView)、[FlipView クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.flipview)、[TreeView クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.treeview)、[ItemsRepeater クラス](https://docs.microsoft.com/uwp/api/microsoft.ui.xaml.controls.itemsrepeater?view=winui-2.2)
 
-> <div id="main">
-> <strong>Windows 10 Fall Creators Update - 動作の変更</strong>
-> </div>
-> 既定では、UWP アプリでは、アクティブ ペンは、選択の実行ではなく、リストのスクロール/パン (タッチ、タッチパッド、パッシブ ペンなどと同様に) をするようになりました。
-> アプリが以前の動作に依存している場合は、ペン スクロールを上書きして、以前の動作に戻すことができます。 詳しくは、<a href="https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.scrollviewer">ScrollViewer クラス</a>の API リファレンス トピックをご覧ください。
+> <div id="main">  
+> <strong>Windows 10 Fall Creators Update - 動作の変更</strong>  
+> </div>  
+> 既定では、UWP アプリでは、アクティブ ペンは、選択の実行ではなく、リストのスクロール/パン (タッチ、タッチパッド、パッシブ ペンなどと同様に) をするようになりました。  
+> アプリが以前の動作に依存している場合は、ペン スクロールを上書きして、以前の動作に戻すことができます。 詳しくは、<a href="https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.scrollviewer">ScrollViewer クラス</a>の API リファレンス トピックをご覧ください。  
 
 ## <a name="examples"></a>例
 
@@ -66,7 +66,7 @@ ms.locfileid: "72163738"
 
 ### <a name="is-this-the-right-control"></a>適切なコントロールの選択
 
-リスト ビューは、次の用途で使います。
+グリッド ビューは、次の用途で使います。
 
 - 主にテキストベースの項目で構成され、すべての項目のビジュアルと対話動作を同じにする必要があるコレクションを表示する。
 - コンテンツの単一のコレクションまたはカテゴリ別のコレクションを表現する。
@@ -105,7 +105,7 @@ ms.locfileid: "72163738"
 </tr>
 <tr class="even">
 <td align="left"><p><a href="item-containers-templates.md">項目コンテナーやテンプレート</a></p></td>
-<td align="left"><p>リスト ビューまたはグリッド ビューに表示される項目は、アプリの全体的な見た目を左右する要素になる可能性があります。 コントロール テンプレートとデータ テンプレートを変更してコレクション項目の外観をカスタマイズすることで、アプリの見栄えをよくすることができます。</p></td>
+<td align="left"><p>リスト ビューまたはグリッド ビューに表示する項目は、アプリの全体的な見た目を左右する要素になる可能性があります。 コントロール テンプレートとデータ テンプレートを変更してコレクション項目の外観をカスタマイズすることで、アプリの見栄えをよくすることができます。</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p><a href="item-templates-listview.md">リスト ビューの項目テンプレート</a></p></td>
