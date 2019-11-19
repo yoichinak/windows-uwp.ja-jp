@@ -6,12 +6,12 @@ ms.date: 10/24/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, DirectX
 ms.localizationpriority: medium
-ms.openlocfilehash: 940de8c00dc2639785ae82e87d63f4994b1b6b2e
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: af5d73e0a786e33aff6274cd63ee5ae6ac77c133
+ms.sourcegitcommit: 49a34e957433966ac8d4822b5822f21087aa61c3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66367746"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74153697"
 ---
 #  <a name="define-the-uwp-app-framework"></a>UWP アプリ フレームワークの定義
 
@@ -22,11 +22,11 @@ ms.locfileid: "66367746"
 ビュー プロバイダー オブジェクトは、__IFrameworkView__ インターフェイスを実装します。これには、このゲーム サンプルを作成するために構成する必要がある一連のメソッドが含まれています。
 
 アプリ シングルトンが呼び出す次の 5 つのメソッドを実装する必要があります。
-* [__初期化します。__ ](#initialize-the-view-provider)
+* [__化__](#initialize-the-view-provider)
 * [__SetWindow__](#configure-the-window-and-display-behaviors)
-* [__ロード__](#load-method-of-the-view-provider)
-* [__Run__](#run-method-of-the-view-provider)
-* [__初期化を解除します。__ ](#uninitialize-method-of-the-view-provider)
+* [__給紙__](#load-method-of-the-view-provider)
+* [__実行__](#run-method-of-the-view-provider)
+* [__解除__](#uninitialize-method-of-the-view-provider)
 
 __Initialize__ メソッドは、アプリケーションの起動時に呼び出されます。 __SetWindow__ メソッドは __Initialize__ の後に呼び出されます。 次に、__Load__ メソッドが呼び出されます。 __Run__ メソッドはゲームの実行中に呼び出されます。 ゲームが終了すると、__Uninitialize__ メソッドが呼び出されます。 詳しくは、[__IFrameworkView__ の API リファレンス](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.iframeworkview)を参照してください。 
 
@@ -45,7 +45,7 @@ __App.cpp__ 内の __main__ ループを見てみましょう。
 
 ### <a name="main-method"></a>Main メソッド
 
-GitHub サンプル コードを読み込んでいる場合は、新しい __DirectXApplicationSource__ を作成します  (元の DirectX テンプレートを使用している場合は __Direct3DApplicationSource__ を使用します)。これは、__IFrameworkViewSource__ を実装するビュー プロバイダー ファクトリです。 ビュー プロバイダー ファクトリの __IFrameworkViewSource__ インターフェイスには、__CreateView__ という単一のメソッドが定義されています。
+GitHub サンプル コードを読み込んでいる場合は、新しい __DirectXApplicationSource__ を作成します (元の DirectX テンプレートを使用している場合は __Direct3DApplicationSource__ を使用します)。これは、__IFrameworkViewSource__ を実装するビュー プロバイダー ファクトリです。 ビュー プロバイダー ファクトリの __IFrameworkViewSource__ インターフェイスには、__CreateView__ という単一のメソッドが定義されています。
 
 __CoreApplication::Run__ では、__Direct3DApplicationSource__ または __DirectXApplicationSource__ が渡されたときに、アプリ シングルトンによって __CreateView__ メソッドが呼び出されます。
 
@@ -186,10 +186,10 @@ void App::Load(
 
 ### <a name="gamemain-constructor"></a>GameMain コンストラクター
 
-* ゲーム レンダラーを作成して初期化します。 詳細については、次を参照してください[レンダリング framework i:。レンダリングの概要](tutorial--assembling-the-rendering-pipeline.md)します。
+* ゲーム レンダラーを作成して初期化します。 詳細については、「[レンダリング フレームワーク I: レンダリングの概要](tutorial--assembling-the-rendering-pipeline.md)」を参照してください。
 * Simple3Dgame オブジェクトを作成して初期化します。 詳細については、「[メイン ゲーム オブジェクトの定義](tutorial--defining-the-main-game-loop.md)」を参照してください。    
 * ゲームの UI コントロール オブジェクトを作成し、リソース ファイルの読み込み時に進行状況バーを表示するゲーム情報オーバーレイを表示します。 詳細については、「[ユーザー インターフェイスの追加](tutorial--adding-a-user-interface.md)」を参照してください。
-* コントローラー (タッチ、マウス、または Xbox ワイヤレス コントローラー) からの入力を読み取ることができるようにコントローラーを作成します。 詳細については、「[コントロールの追加](tutorial--adding-controls.md)」を参照してください。
+* コントローラー (タッチ、マウス、または Xbox ワイヤレスコントローラー) からの入力を読み取ることができるように、コントローラーを作成します。 詳細については、「[コントロールの追加](tutorial--adding-controls.md)」を参照してください。
 * コントローラーを初期化したら、移動とカメラのそれぞれのタッチ コントロール用に、画面の左下と右下の 2 つの四角形の領域を定義しています。 **SetMoveRect** を呼び出して定義される左下の四角形は、カメラを前後左右に動かすための仮想のコントロール パッドとして使われ、 **SetFireRect** メソッドで定義される右下の四角形は、弾を撃つための仮想のボタンとして使われます。
 * __create_task__ と __create_task::then__ を使用して、リソースの読み込みを 2 つの独立したステージに分割します。 Direct3D 11 デバイス コンテキストへのアクセスは、そのデバイス コンテキストが作成されたスレッドに制限されている一方で、オブジェクト作成のための Direct3D 11 デバイスへのアクセスにはスレッドの制限がないため、**CreateGameDeviceResourcesAsync** タスクは、元のスレッドで実行される完了タスク (*FinalizeCreateGameDeviceResources*) とは別のスレッドで実行されます。 **LoadLevelAsync** と **FinalizeLoadLevel** を使うレベル リソースの読み込みにも同様のパターンを使います。
 
@@ -298,19 +298,19 @@ GameMain::GameMain(const std::shared_ptr<DX::DeviceResources>& deviceResources) 
 
 ## <a name="run-method-of-the-view-provider"></a>ビュー プロバイダーの Run メソッド
 
-以前の 3 つのメソッド:__初期化__、 __SetWindow__と__ロード__ステージを設定します。 次に、ゲームは **Run** メソッドに進んで、楽しいゲームを開始できます。 ゲームの状態間の移行に使われるイベントのディスパッチと処理が行われます。 ゲーム ループの循環に応じてグラフィックスが更新されます。
+前述の 3 つメソッド __Initialize__、__SetWindow__、__Load__ によって、ステージを設定しました。 次に、ゲームは **Run** メソッドに進んで、楽しいゲームを開始できます。 ゲームの状態間の移行に使われるイベントのディスパッチと処理が行われます。 ゲーム ループの循環に応じてグラフィックスが更新されます。
 
 ### <a name="apprun"></a>App::Run
 
 プレイヤーがゲーム ウィンドウを閉じると終了する __while__ ループを開始します。
 
 サンプル コードは、ゲーム エンジンのステート マシンの次の 2 つのいずれかの状態に移行します。
-    * __非アクティブ化__:ゲーム ウィンドウが非アクティブ化される (フォーカスを失う) か、スナップされます。 この場合、ゲームではイベントの処理を中断し、ウィンドウがフォーカスまたはスナップを解除されるまで待機します。
-    * __TooSmall__:ゲームでは、独自の状態を更新し、表示するためのグラフィックスをレンダリングします。
+    * __Deactivated__: ゲーム ウィンドウが非アクティブ化される (フォーカスを失う) か、スナップされます。 この場合、ゲームではイベントの処理を中断し、ウィンドウがフォーカスまたはスナップを解除されるまで待機します。
+    * __TooSmall__: ゲームが自身の状態を更新し、表示するグラフィックスをレンダリングします。
 
 ゲームにフォーカスがある場合、メッセージ キューに到達する各イベントを処理する必要があるため、[**CoreWindowDispatch.ProcessEvents**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.processevents) を **ProcessAllIfPresent** オプションで呼び出す必要があります。 他のオプションでは、メッセージ イベントの処理に遅延が発生することがあり、この場合、ゲームが応答しなくなったように見えるか、タッチ動作の反応が遅くて "敏感" でないように見える可能性があります。
 
-ゲームが表示されていないときや中断またはスナップ状態のときにリソースを循環させてどこにも到達しないメッセージをディスパッチすることは回避する必要があるため、 ゲームでは **ProcessOneAndAllPending** を使う必要があります。この結果、イベントが取得されるまではブロックが行われ、その後、そのイベントと、そのイベントの処理中にプロセス キューに到達した他のイベントが処理されます。 [**ProcessEvents** ](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.processevents)キューの処理が完了したらすぐに返します。
+ゲームが表示されていないときや中断またはスナップ状態のときにリソースを循環させてどこにも到達しないメッセージをディスパッチすることは回避する必要があるため、 ゲームでは **ProcessOneAndAllPending** を使う必要があります。この結果、イベントが取得されるまではブロックが行われ、その後、そのイベントと、そのイベントの処理中にプロセス キューに到達した他のイベントが処理されます。 [**ProcessEvents**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.processevents)は、キューが処理された後すぐに制御を戻します。
 
 ```cpp
 void App::Run()
@@ -384,9 +384,9 @@ void GameMain::Run()
 
 ユーザー最終的にゲーム セッションを終了したら、クリーンアップする必要があります。 **Uninitialize** はまさにそのような用途に使います。
 
-Windows 10 で、アプリのプロセスを強制終了しないアプリ ウィンドウを閉じるとが、代わりにアプリの単一の状態をメモリに書き込みます。 システムでこのメモリの再利用が必要になった際に、リソースの特別なクリーンアップなどの特別な処理が必要な場合は、そのクリーンアップ用のコードをこのメソッドに入れてください。
+Windows 10 では、アプリウィンドウを閉じるとアプリのプロセスが強制終了されるのではなく、アプリシングルトンの状態がメモリに書き込まれます。 システムでこのメモリの再利用が必要になった際に、リソースの特別なクリーンアップなどの特別な処理が必要な場合は、そのクリーンアップ用のコードをこのメソッドに入れてください。
 
-### <a name="app-uninitialize"></a>アプリ。Uninitialize
+### <a name="app-uninitialize"></a>App:: Uninitialize
 
 ```cpp
 void App::Uninitialize()
