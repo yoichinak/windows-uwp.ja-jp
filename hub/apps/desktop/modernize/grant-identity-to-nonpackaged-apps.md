@@ -48,9 +48,9 @@ Windows 10 Insider Preview Build 10.0.19000.0 以降では、アプリに*スパ
 
 ### <a name="package-external-location"></a>パッケージ外部の場所
 
-スパースパッケージをサポートするために、パッケージマニフェストスキーマでは、 [ **\<Properties\>** ](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-properties) 要素の下でオプションの **\<AllowExternalContent\>** 要素がサポートされるようになりました。 これにより、パッケージマニフェストは、ディスク上の特定の場所にあるパッケージの外部のコンテンツを参照できます。
+スパースパッケージをサポートするために、パッケージマニフェストスキーマでは、 [ **\<Properties\>** ](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-properties) 要素の下でオプションの **\<AllowExternalContent\>** 要素がサポートされるようになりました。 これにより、パッケージマニフェストは、ディスク上の特定の場所にあるパッケージの外部のコンテンツを参照できます。 これにより、パッケージマニフェストは、ディスク上の特定の場所にあるパッケージの外部のコンテンツを参照できます。
 
-たとえば、アプリの実行可能ファイルとその他のコンテンツを C:\Program\, Files\MyDesktopApp にインストールする、パッケージ化されていない既存のデスクトップアプリがある場合は、 マニフェスト内の要素に **\<AllowExternalContent\>** を含むスパースパッケージを作成できます。 アプリのインストールプロセスまたはアプリの初回起動時に、スパースパッケージをインストールし、アプリで使用する外部の場所として C:\Program Files\MyDesktopApp\ を宣言できます。
+たとえば、アプリの実行可能ファイルとその他のコンテンツを C:\Program\, Files\MyDesktopApp にインストールする、パッケージ化されていない既存のデスクトップアプリがある場合は、マニフェスト内の要素に **\<AllowExternalContent\>** を含むスパースパッケージを作成できます。 アプリのインストールプロセスまたはアプリの初回起動時に、スパースパッケージをインストールし、アプリで使用する外部の場所として C:\Program Files\MyDesktopApp\ を宣言できます。
 
 ## <a name="create-a-package-manifest-for-the-sparse-package"></a>スパースパッケージのパッケージマニフェストを作成する
 
@@ -59,9 +59,9 @@ Windows 10 Insider Preview Build 10.0.19000.0 以降では、アプリに*スパ
 パッケージマニフェストに次の項目が含まれていることを確認してください。
 
 * デスクトップアプリの id 属性を記述する[ **\<Identity\>** ](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-identity)要素。
-* [ **\<Properties\>** ](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-properties) 要素の下の **\<AllowExternalContent\>** 要素。 この要素には `true`値を割り当てる必要があります。これにより、パッケージマニフェストは、ディスク上の特定の場所で、パッケージの外部のコンテンツを参照できます。 後の手順で、インストーラーまたはアプリで実行されるコードからスパースパッケージを登録するときに、外部の場所のパスを指定します。 マニフェスト内で参照するコンテンツは、パッケージ自体には存在しないため、外部の場所にインストールする必要があります。
+* [ **\<Properties\>** ](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-properties)要素の下に **\<AllowExternalContent\>** 要素。 この要素には `true`値を割り当てる必要があります。これにより、パッケージマニフェストは、ディスク上の特定の場所で、パッケージの外部のコンテンツを参照できます。 後の手順で、インストーラーまたはアプリで実行されるコードからスパースパッケージを登録するときに、外部の場所のパスを指定します。 マニフェスト内で参照するコンテンツは、パッケージ自体には存在しないため、外部の場所にインストールする必要があります。
 * [ **\<TargetDeviceFamily\>** ](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-targetdevicefamily)要素の**MinVersion**属性は `10.0.19000.0` 以降のバージョンに設定する必要があります。
-* [ **\<Application\>** ](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-application) 要素宣言の **TrustLevel=mediumIL** 属性と **RuntimeBehavior=Win32App** 属性は、スパースパッケージに関連付けられたデスクトップアプリが、標準のアンランデスクトップ アプリケーションと同様に実行されることを宣言します。レジストリとファイルシステムの仮想化やその他の実行時の変更はありません。
+* [ **\<Application\>** ](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-application) 要素宣言の**TrustLevel=mediumIL** 属性と **RuntimeBehavior = Win32App** 属性は、スパースパッケージに関連付けられたデスクトップアプリが、標準のアンランデスクトップ アプリケーションと同様に実行されることを宣言します。レジストリとファイルシステムの仮想化やその他の実行時の変更はありません。
 
 次の例は、スパースパッケージマニフェスト (AppxManifest.xml) の完全な内容を示しています。 このマニフェストには、パッケージ id を必要とする `windows.sharetarget` の拡張機能が含まれています。
 
