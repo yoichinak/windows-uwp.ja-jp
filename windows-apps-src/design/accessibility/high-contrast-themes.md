@@ -7,12 +7,12 @@ ms.date: 09/28/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: c37ceb63a5d9d9f83d3f1ebca0b0584f1092b7f6
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 617511d23bcabe342abe7477f617d81cd01182e6
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66359575"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74257782"
 ---
 # <a name="high-contrast-themes"></a>ハイ コントラスト テーマ  
 
@@ -20,7 +20,7 @@ Windows では、OS やアプリでハイ コントラスト テーマがサポ�
 
 ![淡色テーマと黒のハイ コントラスト テーマで表示された電卓。](images/high-contrast-calculators.png)
 
-*ライト テーマとハイ コントラストの黒のテーマに示すように計算します。*
+*ライトテーマとハイコントラスト黒のテーマで表示される電卓。*
 
 ハイ コントラスト テーマに切り替えるには、 *[設定]、[簡単操作]、[ハイ コントラスト]* の順に選択します。
 
@@ -39,7 +39,7 @@ Windows では、OS やアプリでハイ コントラスト テーマがサポ�
 
 最初の例で `#E6E6E6` をインラインで設定すると、グリッドはすべてのテーマでその背景色を保持します。 ユーザーが黒のハイ コントラスト テーマに切り替えたら、彼らはアプリの背景が黒で表示されることを期待します。 `#E6E6E6` はほぼ白一色であるため、ユーザーによってはアプリを操作できない場合があります。
 
-2 番目の例では、[**ResourceDictionary**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.ResourceDictionary) 要素の専用プロパティである [**ThemeDictionaries**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.resourcedictionary.themedictionaries) コレクション内の色を参照するために [ **{ThemeResource} マークアップ拡張**](../../xaml-platform/themeresource-markup-extension.md)を使っています。 **ThemeDictionaries** により、XAML はユーザーの現在のテーマに基づいて自動的に色を変えることができます。
+2 番目の例では、[**ResourceDictionary**](../../xaml-platform/themeresource-markup-extension.md) 要素の専用プロパティである [**ThemeDictionaries**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.resourcedictionary.themedictionaries) コレクション内の色を参照するために [ **{ThemeResource} マークアップ拡張**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.ResourceDictionary)を使っています。 **ThemeDictionaries** により、XAML はユーザーの現在のテーマに基づいて自動的に色を変えることができます。
 
 ## <a name="theme-dictionaries"></a>テーマ ディクショナリ
 
@@ -87,19 +87,19 @@ Windows では、OS やアプリでハイ コントラスト テーマがサポ�
 
 ![ハイ コントラスト設定](images/high-contrast-settings.png)  
 
-*ユーザーがオプションを選択した後、ページには、プレビューが表示されます。*  
+*ユーザーがオプションを選択すると、ページにプレビューが表示されます。*  
 
 ![ハイ コントラスト リソース](images/high-contrast-resources.png)  
 
-*プレビューですべての色をクリックすると、その値を変更します。色見本のすべては、色リソースの XAML に直接マップされます。*  
+*プレビューのすべての色見本をクリックして、その値を変更できます。すべての見本は、直接 XAML 色リソースにもマップされます。*  
 
 各 **SystemColor*Color** リソースは、ユーザーがハイ コントラスト テーマに切り替えたときに自動的に色を更新する変数です。 各リソースをいつどこで使用するかについてのガイドラインを以下に示します。
 
 リソース | 使用方法 |
 |--------|-------|
 **SystemColorWindowTextColor** | 本文、見出し、一覧など、操作できないテキスト |
-| **SystemColorHotlightColor** | ハイパーリンク |
-| **SystemColorGrayTextColor** | 無効な UI |
+| **Systemcolorホットライトの色** | ハイパーリンク |
+| **Systemcolorグレーの Textcolor** | 無効な UI |
 | **SystemColorHighlightTextColor** | 処理中、選択されている、または現在操作されているテキストや UI の前景色 |
 | **SystemColorHighlightColor** | 処理中、選択されている、または現在操作されているテキストや UI の背景色 |
 | **SystemColorButtonTextColor** | ボタンなど、操作可能な UI の前景色 |
@@ -108,7 +108,7 @@ Windows では、OS やアプリでハイ コントラスト テーマがサポ�
 
 既存のアプリ、スタート画面、またはコモン コントロールを確認すると、ハイ コントラストのデザインの参考になります。
 
-**操作を行います**
+**ください**
 
 * 可能な限り、背景と前景の組み合わせを考慮します。
 * アプリの実行中に、4 つのハイ コントラスト テーマをすべてテストします。 ユーザーがテーマを切り替えたときに、アプリを再起動しなくても良いようにします。
@@ -154,7 +154,7 @@ Windows では、OS やアプリでハイ コントラスト テーマがサポ�
 <Grid Background="{ThemeResource BrandedPageBackgroundBrush}">
 ```
 
-注方法 **\{ThemeResource\}** 2 回使用の参照を 1 回**SystemColorWindowColor**と参照 をもう一度**BrandedPageBackgroundBrush**. 実行時に正しいテーマを使うためには、両方の参照がアプリに必要です。 ここで、アプリでハイ コントラストの機能をテストすると良いでしょう。 ハイ コントラスト テーマに切り替えると、グリッドの背景が自動的に更新されます。 また、別のハイ コントラスト テーマに切り替えたときにも更新されます。
+BrandedPageBackgroundBrush を参照するために、2回、\}を使用して**Systemcolorwindowcolor**を参照し、もう一度を参照する **\{** 方法に注意してください。 実行時に正しいテーマを使うためには、両方の参照がアプリに必要です。 ここで、アプリでハイ コントラストの機能をテストすると良いでしょう。 ハイ コントラスト テーマに切り替えると、グリッドの背景が自動的に更新されます。 また、別のハイ コントラスト テーマに切り替えたときにも更新されます。
 
 ## <a name="when-to-use-borders"></a>境界線を使う状況
 
@@ -162,7 +162,7 @@ Windows では、OS やアプリでハイ コントラスト テーマがサポ�
 
 ![ページの他の部分と区別されたナビゲーション ウィンドウ](images/high-contrast-actions-content.png)  
 
-*ナビゲーション ウィンドウと、ページは、ハイ コントラストの同じ背景色を共有します。高いコントラスト専用に罫線を分けてが不可欠です。*
+*ナビゲーションウィンドウとページは、どちらも同じ背景色をハイコントラストで共有します。ハイコントラストのみの境界線を分割することが重要です。*
 
 
 ## <a name="list-items"></a>リスト項目
@@ -171,7 +171,7 @@ Windows では、OS やアプリでハイ コントラスト テーマがサポ�
 
 ![単色テーマと黒のハイ コントラスト テーマの簡単なリスト](images/high-contrast-list1.png)
 
-*ライト テーマの (左) と (右) ハイコントラスト黒のテーマでの単純なリスト。2 番目の項目が選択されています。ハイ コントラストでそのテキストの色を反転する方法に注意してください。*
+*ライトテーマ (左) とハイコントラスト黒のテーマ (右) の単純なリスト。2番目の項目が選択されています。テキストの色がハイコントラストで反転されていることに注意してください。*
 
 
 ### <a name="list-items-with-colored-text"></a>テキストに色が付いているリスト項目
@@ -180,7 +180,7 @@ Windows では、OS やアプリでハイ コントラスト テーマがサポ�
 
 ![淡色テーマと黒のハイ コントラスト テーマの複雑なリスト](images/high-contrast-list2.png)
 
-*ライト テーマの (左) とハイコントラスト黒のテーマ (右) で複雑な一覧です。ハイ コントラストなどで選択した項目の 2 行目は反転できませんでした。*  
+*明るいテーマの複合リスト (左) とハイコントラスト黒のテーマ (右側)。ハイコントラストでは、選択した項目の2行目を反転できませんでした。*  
 
 この問題を回避するには、**ThemeDictionaries** コレクションに含まれている Style を使って、条件付きで Foreground を設定します。 **Foreground** が、**HighContrast** の **SecondaryBodyTextBlockStyle** によって設定されていないため、色が正しく反転します。
 
@@ -234,8 +234,8 @@ Windows では、OS やアプリでハイ コントラスト テーマがサポ�
 > アプリが初期化され、既にコンテンツが表示されているスコープから **AccessibilitySettings** コンストラクターを呼び出すようにします。
 
 ## <a name="related-topics"></a>関連トピック  
-* [ユーザー補助](accessibility.md)
-* [UI のコントラストと設定のサンプル](https://go.microsoft.com/fwlink/p/?linkid=231539)
-* [XAML のアクセシビリティのサンプル](https://go.microsoft.com/fwlink/p/?linkid=238570)
-* [XAML のハイ コントラストのサンプル](https://go.microsoft.com/fwlink/p/?linkid=254993)
+* [アクセシビリティ](accessibility.md)
+* [UI のコントラストと設定のサンプル](https://code.msdn.microsoft.com/windowsapps/High-Contrast-UI-Settings-9a310961)
+* [XAML アクセシビリティのサンプル](https://code.msdn.microsoft.com/windowsapps/XAML-accessibility-sample-d63e820d)
+* [XAML ハイコントラストサンプル](https://code.msdn.microsoft.com/windowsapps/XAML-high-contrast-style-c0ce936f)
 * [**AccessibilitySettings**](https://docs.microsoft.com/uwp/api/Windows.UI.ViewManagement.AccessibilitySettings)

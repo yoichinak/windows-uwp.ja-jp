@@ -4,20 +4,20 @@ title: Microsoft Emulator for Windows 10 Mobile を使ったテスト
 description: Microsoft Emulator for Windows 10 Mobile に用意されているツールを使って、デバイスでの実際の操作をシミュレートし、アプリの機能をテストします。
 ms.date: 02/08/2017
 ms.topic: article
-keywords: Windows 10, UWP
+keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 5e87fba21f74140e14688194864ccdc416ea227d
-ms.sourcegitcommit: 05be6929cd380a9dd241cc1298fd53f11c93d774
+ms.openlocfilehash: 4f2cb92dca3da2d1f8e3eccfade6558f363c5b13
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73062307"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74257866"
 ---
 # <a name="test-with-the-microsoft-emulator-for-windows-10-mobile"></a>Microsoft Emulator for Windows 10 Mobile を使ったテスト
 
 Microsoft Emulator for Windows 10 Mobile に用意されているツールを使って、デバイスでの実際の操作をシミュレートし、アプリの機能をテストします。 エミュレーターは、Windows 10 を実行するモバイル デバイスをエミュレートするデスクトップ アプリケーションです。 このアプリケーションを使用すると、仮想化された環境が提供されるため、物理デバイスを使用せずに Windows アプリのデバッグとテストを実行できます。 また、アプリケーションのプロトタイプのための隔離環境としても使用できます。
 
-エミュレーターは実際の機器と同等のパフォーマンスを発揮するように設計されています。 ただし、Microsoft Store にアプリを公開する前に、物理デバイスでアプリをテストすることをお勧めします。
+エミュレーターは実際のデバイスと同等のパフォーマンスを発揮するように設計されています。 ただし、Microsoft Store にアプリを公開する前に、物理デバイスでアプリをテストすることをお勧めします。
 
 さまざまな画面解像度と画面サイズ構成に対応する一意の Windows 10 Mobile エミュレーター イメージを使用して、ユニバーサル アプリをテストすることができます。 Microsoft Emulator に用意されているツールを使って、デバイスでの実際の操作をシミュレートし、アプリのさまざまな機能をテストできます。
 
@@ -52,7 +52,7 @@ Microsoft Emulator for Windows 10 Mobile は、Windows Phone OS 7.1 より前の
 ## <a name="installing-uninstalling-and-running-the-emulator"></a>エミュレーターのインストール、アンインストール、および実行
 
 ### <a name="installing"></a>のインストール
-Microsoft Emulator for Windows 10 Mobile は、Windows 10 SDK の一部としてリリースされています。 Windows 10 SDK とエミュレーターは、Visual Studio の一部としてインストールできます。 「[Visual Studio 2015 RC 用の Windows 10 開発ツールをインストールする手順](https://go.microsoft.com/fwlink/p/?LinkId=534785)」をご覧ください。
+Microsoft Emulator for Windows 10 Mobile は、Windows 10 SDK の一部としてリリースされています。 Windows 10 SDK とエミュレーターは、Visual Studio の一部としてインストールできます。 「[Visual Studio 2015 RC 用の Windows 10 開発ツールをインストールする手順](https://developer.microsoft.com/windows/downloads)」をご覧ください。
 
 Microsoft Emulator for Windows 10 Mobile は、[Microsoft Emulator のセットアップ](https://go.microsoft.com/fwlink/p/?LinkID=615095)を使ってインストールすることもできます。
 
@@ -62,7 +62,7 @@ Microsoft Emulator for Windows 10 Mobile は、Visual Studio のセットアッ�
 
 Microsoft Emulator for Windows 10 Mobile をアンインストールしても、使うエミュレーター用に作られた Hyper-V 仮想イーサネット アダプターは自動的に削除されません。 この仮想アダプターは、**コントロール パネル**の **[ネットワーク接続]** から手動で削除できます。
 
-### <a name="running"></a>Running
+### <a name="running"></a>実行中
 
 エミュレーターでアプリを実行するには、Visual Studio の **[実行]** ドロップダウンメニューからエミュレートされたデバイスを選択するだけです。
 
@@ -144,7 +144,7 @@ Windows PC の物理的なマウスまたはトラック パッド、および�
 
 エミュレーターのビルド 10.0.14332 では、コンピューターのハードウェア キー マッピングが変更されたことに注意してください。 次の表の 2 番目の列の値は、これらの新しいキーを表します。 
 
-コンピューターのハードウェア キー (エミュレーター ビルド 10.0.14295 以前) | コンピューターのハードウェア キー (エミュレーター ビルド 10.0.14332 以降) | Windows Phone のハードウェア ボタン | 注意
+コンピューターのハードウェア キー (エミュレーター ビルド 10.0.14295 以前) | コンピューターのハードウェア キー (エミュレーター ビルド 10.0.14332 以降) | Windows Phone のハードウェア ボタン | 説明
 --------------------- | ------------------------- | ----------------------------- | -----
 F1 | Windows + Esc | 戻る | 長押しは期待どおりに動作します。
 F2 | Windows + F2 | スタート | 長押しは期待どおりに動作します。
@@ -237,7 +237,7 @@ Windows 8 Driver Kit (WDK) には、Windows Phone 8 エミュレーターと同�
 -   スクリプト エディター ウィンドウの下にある **[MasterCard リスナーを有効にする]** チェック ボックスをオンにし、MasterCard のシミュレーターを起動します。
 -   このツールを使うと、NFC ツールを通じてエミュレーターで実行されているアプリケーションに中継されるコマンドを生成することができます。
 
-HCE のサポートと Windows 10 Mobile で HCE アプリを開発する方法について詳しくは、[Microsoft NFC チームのブログ](https://go.microsoft.com/fwlink/?LinkId=534749)をご覧ください。
+HCE のサポートと Windows 10 Mobile で HCE アプリを開発する方法について詳しくは、[Microsoft NFC チームのブログ](https://blogs.msdn.com/b/nfc/)をご覧ください。
 
 ### <a name="how-to-create-scripts-for-hce-testing"></a>HCE テスト用のスクリプトを作る方法
 
@@ -362,10 +362,10 @@ NFC 対応スマート カード リーダーの中には、一部の種類の N
 
 | Profile | 時速               | 秒速 | 説明 | 
 |---------|------------------------------|------------------|-------------|
-| Speed Limit (制限速度) | ルートの速度制限 | 適用なし   | ポストされた制限速度でルートをスキャンします。 |
+| Speed Limit (制限速度) | ルートの速度制限 | 該当なし   | ポストされた制限速度でルートをスキャンします。 |
 | Walking (ウォーキング)     | 5 km/時                   | 1.39 m           | 自然な歩行ペースの 5 km/時でルートをスキャンします。 |
 | Biking (自転車移動)      | 25 km/時                  | 6.94 m           | 自然な自転車移動ペースの 25 km/時でルートをスキャンします。 |
-| Fast (高速)        |                          |                  |ポストされた制限速度よりも高速でルートをスキャンします。 | 
+| ファースト (高速)        |                          |                  |ポストされた制限速度よりも高速でルートをスキャンします。 | 
 
 **ルートモード**
 
@@ -393,7 +393,7 @@ NFC 対応スマート カード リーダーの中には、一部の種類の N
 
 -   シミュレートされる位置プロパティは、[緯度]、[経度]、[精度]、[PositionSource] (位置ソース) のみです。 位置シミュレーターでは [速度] や [方位] などのその他のプロパティはシミュレートされません。
 
-## <a name="network"></a>[ネットワーク]
+## <a name="network"></a>ネットワーク
 
 エミュレーターの **[その他のツール]** の **[ネットワーク]** タブを使って、さまざまなネットワークの速度とシグナルの強さでアプリをテストします。 この機能は、アプリで Web サービスを呼び出す場合や、データを移す場合に便利です。
 
@@ -440,7 +440,7 @@ NFC 対応スマート カード リーダーの中には、一部の種類の N
 
 3.  必要に応じて、 **[Sync updated files back to the local folder when I eject the SD card]** (SD カードの取り出し時に更新されたファイルをローカル フォルダーに同期) をオンまたはオフにします。
 
-    既定では、このオプションは有効になっています。 このオプションを有効にすると、SD カードの取り出し時にエミュレーターのファイルが開発用コンピューターのフォルダーに同期されます。
+    このオプションは、既定の設定で有効になります。 このオプションを有効にすると、SD カードの取り出し時にエミュレーターのファイルが開発用コンピューターのフォルダーに同期されます。
 
 4.  **SD カードを取り出します**。
 
@@ -492,7 +492,7 @@ NFC 対応スマート カード リーダーの中には、一部の種類の N
             アプリが WNS 通知を使っている場合に通知の種類に **[トースト]** を選ぶと、シミュレーション タブに**タグ** フィールドと**グループ** フィールドが表示されます。 これらのオプションを選択して **[タグ]** と **[グループ]** の値を入力し、通知センターのトースト通知を管理することができます。
 
         -   Tile
-        -   Badge
+        -   バッジ
 
     -   次の MPN 通知の種類がサポートされています。
 
@@ -563,9 +563,9 @@ NFC 対応スマート カード リーダーの中には、一部の種類の N
 
 | 機能            | Windows Phone 8.0 カメラ | Windows Phone 8.1 カメラ  |
 |--------------------|--------------------------|---------------------------|
-| 解像度         | 640 x 480 (VGA)          | 640 x 480 (VGA) 以上 |
-| 自動フォーカス          | [はい]                      | [はい]                       |
-| Flash              | 必須ではない                       | [はい]                       |
+| 解決方法         | 640 x 480 (VGA)          | 640 x 480 (VGA) 以上 |
+| 自動フォーカス          | 〇                      | 〇                       |
+| Flash              | X                       | 〇                       |
 | ズーム               | 2x (デジタルまたは光学)  | 2x (デジタルまたは光学)   |
 | ビデオ解像度   | 640 x 480 (VGA)          | 640 x 480 (VGA) 以上 |
 | プレビュー解像度 | 640 x 480 (VGA)          | 640 x 480 (VGA)           |
@@ -656,7 +656,7 @@ Microsoft Emulator には、すべての VM、差分ディスク、およびエ�
 
 ## <a name="support-resources"></a>サポート資料
 
-Windows 10 ツールを使う際に生じた質問の答えを探したり、問題を解決したりするには、[Windows 10 ツール フォーラム](https://go.microsoft.com/fwlink/?LinkId=534765)にアクセスしてください。 Windows 10 開発のすべてのフォーラムを参照するには、[このリンク](https://go.microsoft.com/fwlink/?LinkId=535000)にアクセスしてください。
+Windows 10 ツールを使う際に生じた質問の答えを探したり、問題を解決したりするには、[Windows 10 ツール フォーラム](https://social.msdn.microsoft.com/Forums/en-US/home?forum=Win10SDKToolsIssues)にアクセスしてください。 Windows 10 開発のすべてのフォーラムを参照するには、[このリンク](https://social.msdn.microsoft.com/Forums/windowsapps/en-US/home?forum=wpdevelop)にアクセスしてください。
 
 ## <a name="related-topics"></a>関連トピック
 

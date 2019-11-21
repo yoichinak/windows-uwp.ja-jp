@@ -6,12 +6,12 @@ ms.date: 04/16/2018
 ms.topic: article
 keywords: Windows 10, UWP, アプリ内購入, IAP, 受領通知, Windows.ApplicationModel.Store
 ms.localizationpriority: medium
-ms.openlocfilehash: 6cae88e57a61e6d4e982f1eac7e65582861ef5d2
-ms.sourcegitcommit: 6a7dd4da2fc31ced7d1cdc6f7cf79c2e55dc5833
+ms.openlocfilehash: a26d98de58c954f1bec588b335483de08404862b
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58335010"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74259223"
 ---
 # <a name="use-receipts-to-verify-product-purchases"></a>受領通知を使った製品購入の確認
 
@@ -104,11 +104,11 @@ ms.locfileid: "58335010"
 
 このファイルのルート要素は、**Receipt** 要素です。これには、アプリとアプリ内での購入に関する情報が含まれています。 この要素には、次の子要素が含まれます。
 
-|  要素  |  必須  |  Quantity  |  説明   |
+|  要素  |  必須  |  数量  |  説明   |
 |-------------|------------|--------|--------|
 |  [AppReceipt](#appreceipt)  |    X        |  0 または 1  |  現在のアプリの購入情報が含まれています。            |
 |  [ProductReceipt](#productreceipt)  |     X       |  0 以上    |   現在のアプリのアプリ内での購入に関する情報が含まれています。     |
-|  署名  |      〇      |  1   |   この要素は、標準の [XML-DSIG コンストラクト](https://go.microsoft.com/fwlink/p/?linkid=251093)です。 これには、受領通知の検証に使用する **SignatureValue** 要素に加え、**SignedInfo** 要素が含まれています。      |
+|  署名  |      〇      |  1   |   この要素は、標準の [XML-DSIG コンストラクト](https://www.w3.org/TR/xmldsig-core/)です。 これには、受領通知の検証に使用する **SignatureValue** 要素に加え、**SignedInfo** 要素が含まれています。      |
 
 **Receipt** には次の属性があります。
 
@@ -146,7 +146,7 @@ ms.locfileid: "58335010"
 |-------------|-------------------|
 |  **Id**  |    購入を識別します。           |
 |  **AppId**  |     ユーザーが購入に使ったアプリを識別します。           |
-|  **productId**  |     購入した製品を識別します。           |
+|  **Id**  |     購入した製品を識別します。           |
 |  **ProductType**  |    製品の種類を示します。 現在サポートされている値は、**Durable** のみです。          |  
 |  **PurchaseDate**  |    購入した日付です。          |  |
 

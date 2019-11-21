@@ -8,12 +8,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: b68e736cc6d413196205f84467b7e159c53cb98e
-ms.sourcegitcommit: e7589fa25d8de86c36b6ce6d90d360337718ef93
+ms.openlocfilehash: 0d54ab79926ef20bb54a83346c12df2ea383167d
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71311239"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74258351"
 ---
 # <a name="mouse-interactions"></a>マウス操作
 
@@ -38,7 +38,7 @@ ms.locfileid: "71311239"
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">項目</th>
+<th align="left">用語</th>
 <th align="left">説明</th>
 </tr>
 </thead>
@@ -58,8 +58,8 @@ ms.locfileid: "71311239"
 <tr class="even">
 <td align="left"><p>右クリックによる選択とコマンド</p></td>
 <td align="left"><p>右クリックして、ナビゲーション バー (使用できる場合) と、グローバル コマンドを含むアプリ バーを表示します。 要素を右クリックして選択し、その要素に対応する状況依存のコマンドを備えたアプリ バーを表示します。</p>
-<div class="alert">
-<strong></strong>メモ  選択項目またはアプリバーのコマンドが適切な UI 動作でない場合は、右クリックしてコンテキストメニューを表示します。 ただし、すべてのコマンド動作にアプリ バーを使うことを強くお勧めします。
+<div class="alert">選択またはアプリバーのコマンドが適切な UI 動作でない場合は、右クリックしてコンテキストメニューを
+<strong>表示  ます</strong>。 ただし、すべてのコマンド動作にアプリ バーを使うことを強くお勧めします。
 </div>
 <div>
  
@@ -86,7 +86,7 @@ ms.locfileid: "71311239"
 
 ## <a name="mouse-input-events"></a>マウス入力イベント
 
-ほとんどのマウス入力は、すべての[**UIElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement)オブジェクトでサポートされている一般的なルーティング入力イベントを使用して処理できます。 これには次が含まれます。
+ほとんどのマウス入力は、すべての[**UIElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement)オブジェクトでサポートされている一般的なルーティング入力イベントを使用して処理できます。 次のようなクラスがあります。
 
 - [**Bring@ View要求**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.bringintoviewrequested)
 - [**受信した文字**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.characterreceived)
@@ -127,7 +127,7 @@ ms.locfileid: "71311239"
 
 ただし、ポインター、ジェスチャ、および[Windows](https://docs.microsoft.com/uwp/api/windows.ui.input)の操作イベントを使用して、各デバイス (マウスホイールイベントなど) の特定の機能を利用できます。
 
-**Samples**については、 [Basicinput サンプル](https://go.microsoft.com/fwlink/p/?LinkID=620302)を参照してください。
+**サンプル:** については、 [Basicinput サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/BasicInput)を参照してください。
 
 ## <a name="guidelines-for-visual-feedback"></a>視覚的なフィードバックのガイドライン
 
@@ -151,8 +151,8 @@ ms.locfileid: "71311239"
 - クリック可能な要素には常に矢印カーソル (![矢印カーソル](images/cursor-arrow.png)) を使います。 リンクなどのインタラクティブな要素には手の形のポインティング カーソル (![手の形のポインティング カーソル](images/cursor-pointinghand.png)) を使いません。 代わりに、前に説明したホバー効果を使います。
 - 選択可能なテキストにはテキスト カーソル (![テキスト カーソル](images/cursor-text.png)) を使います。
 - ドラッグやトリミングなど、移動がメインの操作である場合は、移動カーソル (![移動カーソル](images/cursor-move.png)) を使います。 スタート画面のタイルなどでのナビゲーションがメインの操作である場合は、要素に対して移動カーソルを使いません。
-- サイズ変更ができるオブジェクトに対しては、横、縦、対角線のサイズ変更カーソル (![縦のサイズ変更カーソル](images/cursor-vertical.png)、 ![横のサイズ変更カーソル](images/cursor-horizontal.png)、 ![対角線のサイズ変更カーソル (左下、右上)](images/cursor-diagonal2.png)、 ![対角線のサイズ変更カーソル (左上、右下)](images/cursor-diagonal1.png)) を使います。
-- 地図など、固定キャンバス内のコンテンツのパンを行うときは、手でつかむ形のカーソル (![手でつかむ形のカーソル (開いた状態)](images/cursor-pan1.png)、 ![手でつかむ形のカーソル (つかんだ状態)](images/cursor-pan2.png)) を使います。
+- サイズ変更ができるオブジェクトに対しては、横、縦、対角線のサイズ変更カーソル (![縦のサイズ変更カーソル](images/cursor-vertical.png), ![横のサイズ変更カーソル](images/cursor-horizontal.png), ![対角線のサイズ変更カーソル (左下、右上)](images/cursor-diagonal2.png), ![対角線のサイズ変更カーソル (左上、右下)](images/cursor-diagonal1.png)) を使います。
+- 地図など、固定キャンバス内のコンテンツのパンを行うときは、手でつかむ形のカーソル (![手でつかむ形のカーソル (開いた状態)](images/cursor-pan1.png), ![手でつかむ形のカーソル (つかんだ状態)](images/cursor-pan2.png)) を使います。
 
 ## <a name="related-articles"></a>関連記事
 
@@ -162,7 +162,7 @@ ms.locfileid: "71311239"
 
 ### <a name="samples"></a>サンプル
 
-- [基本的な入力サンプル](https://go.microsoft.com/fwlink/p/?LinkID=620302)
-- [低待機時間入力サンプル](https://go.microsoft.com/fwlink/p/?LinkID=620304)
-- [ユーザー操作モードのサンプル](https://go.microsoft.com/fwlink/p/?LinkID=619894)
-- [フォーカスの視覚効果のサンプル](https://go.microsoft.com/fwlink/p/?LinkID=619895)
+- [基本的な入力サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/BasicInput)
+- [低待機時間入力サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/LowLatencyInput)
+- [ユーザー操作モードのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/UserInteractionMode)
+- [フォーカスの視覚効果のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlFocusVisuals)

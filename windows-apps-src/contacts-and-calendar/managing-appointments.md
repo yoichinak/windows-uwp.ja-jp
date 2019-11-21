@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, 予定, カレンダー
 ms.localizationpriority: medium
-ms.openlocfilehash: 5fd4fc62a393e6439458ddc38f37bbb0680fb9b1
-ms.sourcegitcommit: 445320ff0ee7323d823194d4ec9cfa6e710ed85d
+ms.openlocfilehash: 52200d7896c9edea727bf31c69c04c4c1bd02bb2
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72282227"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74255494"
 ---
 # <a name="manage-appointments"></a>予定の管理
 
@@ -282,7 +282,7 @@ private async void Add-Click(object sender, RoutedEventArgs e)
 }
 ```
 
-**注**@no__t Windows Phone ストアアプリの場合は、 [**ShowEditNewAppointment**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appointments.appointmentmanager.showeditnewappointmentasync)と同様に[**showaddappointment**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appointments.appointmentmanager.showaddappointmentasync)関数は、予定を追加するために表示されるダイアログが編集可能であることを示します。
+**注**  Windows Phone ストアアプリ[**の場合は、** ](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appointments.appointmentmanager.showaddappointmentasync) [**ShowEditNewAppointment**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appointments.appointmentmanager.showeditnewappointmentasync)と同様に、予定を追加するために表示されるダイアログが編集可能であることに注意してください。
 
 ## <a name="replace-an-appointment-in-the-users-calendar"></a>ユーザーのカレンダーで予定を置換する
 
@@ -390,7 +390,7 @@ private async void Remove-Click(object sender, RoutedEventArgs e)
 
 ## <a name="show-a-time-span-for-the-appointments-provider"></a>予定プロバイダーの一定の期間を表示する
 
-ユーザーが **[表示]** をクリックした場合、[**AppointmentManager.ShowTimeFrameAsync**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appointments.appointmentmanager.showtimeframeasync) メソッドを呼び出して、既定の予定プロバイダーのプライマリ UI の一定期間を表示します。 このサンプルは、既定の予定プロバイダーが画面に表示されたことを出力します。
+ユーザーが [[表示] **をクリックした場合、** ](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appointments.appointmentmanager.showtimeframeasync)AppointmentManager.ShowTimeFrameAsync メソッドを呼び出して、既定の予定プロバイダーのプライマリ UI の一定期間を表示します。 このサンプルは、既定の予定プロバイダーが画面に表示されたことを出力します。
 
 ```cs
 private async void Show-Click(object sender, RoutedEventArgs e)
@@ -565,11 +565,11 @@ private async void ShowAppointmentDetails-Click(object sender, RoutedEventArgs e
 
 ## <a name="summary-and-next-steps"></a>要約と次のステップ
 
-これで、予定を管理する方法の基本について理解できました。 予定を管理する方法のその他の例については、GitHub から[ユニバーサル Windows アプリのサンプル](https://go.microsoft.com/fwlink/p/?linkid=619979)をダウンロードしてください。
+これで、予定を管理する方法の基本について理解できました。 予定を管理する方法のその他の例については、GitHub から[ユニバーサル Windows アプリのサンプル](https://github.com/Microsoft/Windows-universal-samples)をダウンロードしてください。
 
 ## <a name="related-topics"></a>関連トピック
 
-* [予定 API のサンプル](https://go.microsoft.com/fwlink/p/?linkid=309836)
+* [予定 API のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Appointments)
  
 
  

@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: adb80c3396002a76b3c22a9ce8a8e2893ea728ac
-ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
+ms.openlocfilehash: 279f0d007be927e29632986ce8178c4e0b9778b3
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71340502"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74259854"
 ---
 # <a name="dependency-properties-overview"></a>依存関係プロパティの概要
 
@@ -47,7 +47,7 @@ ms.locfileid: "71340502"
 
 依存関係プロパティについて説明するときにこのドキュメントで使用する用語の概要を次に示します。
 
-| 項目 | 説明 |
+| 用語 | 説明 |
 |------|-------------|
 | 依存関係プロパティ | [  **DependencyProperty**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.DependencyProperty) 識別子上に存在するプロパティ (下記参照)。 この識別子は通常、定義する **DependencyObject** 派生クラスの静的メンバーとして使用できます。 |
 | 依存関係プロパティ識別子 | プロパティを識別する定数値です。通常はパブリックで、読み取り専用です。 |
@@ -86,11 +86,11 @@ public bool IsSpinning
 
 依存関係プロパティのランタイム値を割り当てる際に、最終的にプロパティ システムで使用される順序を次に示します。 優先順位の高いものから順に示します。 このリストの直後に、詳しい説明があります。
 
-1. **アニメーション値:** アクティブなアニメーション、視覚状態のアニメーション、または[**HoldEnd**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.FillBehavior)動作を持つアニメーション。 実際的な効果を持たせるためには、プロパティに適用されるアニメーションは、値がローカルに設定されている場合でも、その基本値 (アニメーション化されていない値) よりも優先される必要があります。
-1. **ローカルの値:** ローカル値は、プロパティラッパーを使用することによって設定できます。これは、XAML で属性またはプロパティ要素として設定するか、特定のインスタンスのプロパティを使用して[**SetValue**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.dependencyobject.setvalue)メソッドを呼び出すことにも相当します。 バインドまたは静的リソースを使用してローカル値を設定すると、優先順位に関してはローカル値を設定した場合と同じように扱われます。新しいローカル値が設定されると、バインドやリソース参照は削除されます。
-1. **テンプレート化プロパティ:** 要素は、テンプレートの一部として作成された場合 ( [**ControlTemplate**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ControlTemplate)または[**system.windows.datatemplate>** ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.DataTemplate)から)、これらの要素を持ちます。
-1. **スタイルセッター:** ページまたはアプリケーションリソースからのスタイル内の[**Setter**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Setter)の値。
-1. **既定値:** 依存関係プロパティは、メタデータの一部として既定値を持つことができます。
+1. **アニメーション化された値:** アクティブなアニメーション、表示状態のアニメーション、または [**HoldEnd**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.FillBehavior) 動作を使ったアニメーションです。 実際的な効果を持たせるためには、プロパティに適用されるアニメーションは、値がローカルに設定されている場合でも、その基本値 (アニメーション化されていない値) よりも優先される必要があります。
+1. **ローカル値:** ローカル値の場合は、プロパティ ラッパーを利用した簡便な設定方法が利用できます (XAML 内で属性またはプロパティ要素として設定することに相当)。また、特定のインスタンスのプロパティを使用して [**SetValue**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.dependencyobject.setvalue) メソッドを呼び出すことによって設定することもできます。 バインドまたは静的リソースを使用してローカル値を設定すると、優先順位に関してはローカル値を設定した場合と同じように扱われます。新しいローカル値が設定されると、バインドやリソース参照は削除されます。
+1. **テンプレートが適用されたプロパティ:** [**ControlTemplate**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ControlTemplate) または [**DataTemplate**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.DataTemplate) からテンプレートの一部として作成された要素は、このプロパティを持ちます。
+1. **スタイル setter:** ページ リソースまたはアプリケーション リソースから得たスタイル内にある [**Setter**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Setter) から得た値。
+1. **既定値:** 依存関係プロパティには、プロパティ メタデータの一部として既定値を定義できます。
 
 ### <a name="templated-properties"></a>テンプレートが適用されたプロパティ
 
@@ -113,7 +113,7 @@ public bool IsSpinning
 
 アニメーション化されたプロパティでは、そのアニメーションが **From** と **To** の両方を明示的に指定していない場合、またはアニメーションが完了するとプロパティが基本値に戻る場合に、基本値は依然としてアニメーションの動作に影響を与えます。 このような場合、アニメーションが実行されなくなると、優先順位の残りの部分が再び使用されます。
 
-ただし、[**HoldEnd**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.FillBehavior) 動作と共に **To** を指定したアニメーションは、停止しているように見えていても、アニメーションが削除されるまでローカル値をオーバーライドできます。 これは概念的には、UI に視覚的なアニメーションが存在しない場合でも、永遠に実行されるアニメーションのようなものです。
+ただし、HoldEnd[**動作と共に**To](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.FillBehavior) を指定したアニメーションは、停止しているように見えていても、アニメーションが削除されるまでローカル値をオーバーライドできます。 これは概念的には、UI に視覚的なアニメーションが存在しない場合でも、永遠に実行されるアニメーションのようなものです。
 
 1 つのプロパティに複数のアニメーションを適用できます。 このアニメーションそれぞれが、値の優先順位の異なる場所に由来する基本値を置き換えるように定義されている場合が考えられます。 ただし、これらのアニメーションは、実行時にすべて同時に実行され、多くの場合、これは各アニメーションが値に対して与える影響が等しいため、値を結合する必要があることを意味します。 これは、アニメーションが実際にどのように定義されているか、およびアニメーション化される値の型によって異なります。
 
@@ -130,7 +130,7 @@ public bool IsSpinning
 - Windows ランタイムの構造体を使うプロパティには、その構造体の暗黙の既定のコンストラクターを呼び出して取得される既定値があります。 このコンストラクターは、構造体の基本的な値フィールドごとの既定値を使います。 たとえば、[**Point**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Point) の既定値は、**X** と **Y** の値が 0 として初期化されます。
 - 列挙型を使うプロパティには、その列挙型で定義されている最初のメンバーの既定値があります。 既定値を確認するには、特定の列挙型のリファレンスをご覧ください。
 - 文字列 (.NET では [**System.String**](https://docs.microsoft.com/dotnet/api/system.string)、C++/CX では [**Platform::String**](https://docs.microsoft.com/cpp/cppcx/platform-string-class)) を使うプロパティには、空の文字列 ( **""** ) という既定値があります。
-- コレクション プロパティは、このトピックで詳しく説明する理由から、一般に依存関係プロパティとして実装されます。 ただし、カスタム コレクション プロパティを実装して、それを依存関係プロパティにする場合は、「[カスタム依存関係プロパティ](custom-dependency-properties.md)」の最後のあたりで説明されているように、*意図しないシングルトン*にならないよう注意します。
+- コレクション プロパティは、このトピックで詳しく説明する理由から、一般に依存関係プロパティとして実装されます。 ただし、カスタム コレクション プロパティを実装して、それを依存関係プロパティにする場合は、「*カスタム依存関係プロパティ*」の最後のあたりで説明されているように、[意図しないシングルトン](custom-dependency-properties.md)にならないよう注意します。
 
 ## <a name="property-functionality-provided-by-a-dependency-property"></a>依存関係プロパティによって提供されるプロパティ機能
 
@@ -138,7 +138,7 @@ public bool IsSpinning
 
 依存関係プロパティには、データ バインディングを適用して値を設定することができます。 データ バインディングは、XAML では [{Binding} マークアップ拡張](binding-markup-extension.md) 構文、コードでは [{x:Bind} マークアップ拡張](x-bind-markup-extension.md)または [**Binding**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.Binding) クラスを使います。 データ バインディング プロパティの場合、最終的なプロパティ値の決定は実行時まで遅延されます。 その時点で、データ ソースから値が取得されます。 依存関係プロパティ システムがここで果たす役割は、値がまだ未知のときに XAML を読み込むような操作のプレースホルダー動作を可能にし、次に、Windows ランタイム データ バインディング エンジンとやり取りして実行時に値を供給することです。
 
-XAML でバインドを使用して、[**TextBlock**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock) 要素の [**Text**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock.text) 値を設定する例を次に示します。 バインドでは、継承されたデータ コンテキストおよびオブジェクト データ ソースが使用されます (この短い例ではどちらも示されていません。コンテキストとソースを含むより完全なサンプルについては、「[データ バインディングの詳細](https://docs.microsoft.com/windows/uwp/data-binding/data-binding-in-depth)」をご覧ください)。
+XAML でバインドを使用して、[**TextBlock**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock.text) 要素の [**Text**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock) 値を設定する例を次に示します。 バインドでは、継承されたデータ コンテキストおよびオブジェクト データ ソースが使用されます (この短い例ではどちらも示されていません。コンテキストとソースを含むより完全なサンプルについては、「[データ バインディングの詳細](https://docs.microsoft.com/windows/uwp/data-binding/data-binding-in-depth)」をご覧ください)。
 
 ```xaml
 <Canvas>
@@ -166,7 +166,7 @@ XAML ではなく、コードを使ってバインドを確立することもで
 
 ### <a name="styles-and-templates"></a>スタイルとテンプレート
 
-スタイルとテンプレートは、依存関係プロパティとして定義されるプロパティに関する 2 つのシナリオです。 スタイルは、アプリの UI を定義するプロパティを設定する際に役立ちます。 スタイルは XAML のリソースとして定義されます。その方法は、[**Resources**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.resources) コレクションのエントリとするか、テーマ リソース ディクショナリなど、別の XAML ファイル内で定義するかのいずれかです。 スタイルにはプロパティの setter が含まれるため、スタイルはプロパティ システムと対話します。 ここで最も重要なプロパティは、[**Control**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Control) の [**Control.Template**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.template) プロパティです。このプロパティは、**Control** のほとんどの表示形式と表示状態を定義します。 スタイルについての詳しい情報と、[**Style**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Style) を定義し、setter を使う XAML の例については、「[クイック スタート: コントロールのスタイル](https://docs.microsoft.com/windows/uwp/controls-and-patterns/styling-controls)」をご覧ください。
+スタイルとテンプレートは、依存関係プロパティとして定義されるプロパティに関する 2 つのシナリオです。 スタイルは、アプリの UI を定義するプロパティを設定する際に役立ちます。 スタイルは XAML のリソースとして定義されます。その方法は、[**Resources**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.resources) コレクションのエントリとするか、テーマ リソース ディクショナリなど、別の XAML ファイル内で定義するかのいずれかです。 スタイルにはプロパティの setter が含まれるため、スタイルはプロパティ システムと対話します。 ここで最も重要なプロパティは、[**Control**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.template) の [**Control.Template**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Control) プロパティです。このプロパティは、**Control** のほとんどの表示形式と表示状態を定義します。 スタイルについての詳しい情報と、[**Style**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Style) を定義し、setter を使う XAML の例については、「[クイック スタート: コントロールのスタイル](https://docs.microsoft.com/windows/uwp/controls-and-patterns/styling-controls)」をご覧ください。
 
 スタイルやテンプレートの値は、バインドと同様に、遅延された値です。 これは、コントロールのユーザーがコントロールにテンプレートを適用し直したりスタイルを定義し直したりできるようにするためです。 そのため、スタイルのプロパティ setter は、通常のプロパティではなく、依存関係プロパティしか操作できません。
 
@@ -188,13 +188,13 @@ Windows 10 では、[**RegisterPropertyChangedCallback**](https://docs.microsoft
 
 ### <a name="default-value-and-clearvalue"></a>既定値と **ClearValue**
 
-依存関係プロパティには、プロパティ メタデータの一部として既定値を定義できます。 依存関係プロパティの場合、その既定値は、プロパティが最初に設定された後も無効にはなりません。 既定値は、値の優先順位で他の決定要因がなくなるたびに、実行時に再び適用されることがあります (依存関係プロパティ値の優先順位については、次のセクションで説明します)。たとえば、プロパティに適用されるスタイル値またはアニメーションを意図的に削除することがありますが、その後で値を妥当な既定値にする必要があります。 依存関係プロパティの既定値を使うと、各プロパティの値を余分な手間をかけて特に設定することなく、適切な値を適用することができます。
+依存関係プロパティには、プロパティ メタデータの一部として既定値を定義できます。 依存関係プロパティの場合、その既定値は、プロパティが最初に設定された後も無効にはなりません。 既定値は、値の優先順位で他の決定要因がなくなるたびに、実行時に再び適用されることがあります (依存関係プロパティ値の優先順位については、次のセクションで説明します)。たとえば、ユーザーが意図的にプロパティに適用されるスタイル値またはアニメーションを削除しても、削除後に適切な既定値がこれらのプロパティ値に適用されるようにしたい場合があります。 依存関係プロパティの既定値を使うと、各プロパティの値を余分な手間をかけて特に設定することなく、適切な値を適用することができます。
 
 既にローカル値を設定した後でも、意図的にプロパティを既定値に設定することができます。 値を既定値にリセットし、優先順位が既定値よりも高く、ローカル値よりも低い値を有効にするには、プロパティの [**ClearValue**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.dependencyobject.clearvalue) メソッドを呼び出します (メソッド パラメーターとしてクリアするプロパティを参照)。 プロパティで常に既定値がそのまま使われるようにしたくない場合、ローカル値をクリアして既定値に戻しても、コントロール テンプレートのスタイル setter に由来する値など、優先順位内の別の項目が有効になることがあります。
 
 ## <a name="dependencyobject-and-threading"></a>**DependencyObject** とスレッド
 
-すべての [**DependencyObject**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.DependencyObject) インスタンスは、Windows ランタイム アプリによって表示される現在の [**Window**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Window) と関連付けられている UI スレッド上で作成する必要があります。 それぞれの **DependencyObject** はメイン UI スレッド上で作成する必要がありますが、オブジェクトは、[**Dispatcher**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.dependencyobject.dispatcher) プロパティにアクセスすることにより、他のスレッドからディスパッチャー参照を使ってアクセスできます。 続いて、[**CoreDispatcher**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreDispatcher) オブジェクトの [**RunAsync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync) のようなメソッドを呼び出して、UI スレッドのスレッド制限の規則内でコードを実行します。
+すべての [**DependencyObject**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.DependencyObject) インスタンスは、Windows ランタイム アプリによって表示される現在の [**Window**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Window) と関連付けられている UI スレッド上で作成する必要があります。 それぞれの **DependencyObject** はメイン UI スレッド上で作成する必要がありますが、オブジェクトは、[**Dispatcher**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.dependencyobject.dispatcher) プロパティにアクセスすることにより、他のスレッドからディスパッチャー参照を使ってアクセスできます。 続いて、[**CoreDispatcher**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync) オブジェクトの [**RunAsync**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreDispatcher) のようなメソッドを呼び出して、UI スレッドのスレッド制限の規則内でコードを実行します。
 
 [  **DependencyObject**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.DependencyObject) のスレッドの側面も問題となります。それは、通常、UI スレッド上で実行されるコードのみが依存関係プロパティの値を変更または読み取ることができることを意味するためです。 通常、**非同期**パターンとバックグラウンド ワーカー スレッドを適切に使う一般的な UI コードでは、スレッドの問題を回避できます。 独自に **DependencyObject** 型を定義し、それをデータ ソースや **DependencyObject** が必ずしも適切でないその他のシナリオで使おうとすると、通常は **DependencyObject** に関連するスレッドの問題が発生します。
 
@@ -207,7 +207,7 @@ Windows 10 では、[**RegisterPropertyChangedCallback**](https://docs.microsoft
 - [データ バインディングの詳細](https://docs.microsoft.com/windows/uwp/data-binding/data-binding-in-depth)
 - [Storyboarded アニメーション](https://docs.microsoft.com/windows/uwp/graphics/storyboarded-animations)
 - [Windows ランタイムコンポーネントの作成](https://docs.microsoft.com/previous-versions/windows/apps/hh441572(v=vs.140))
-- [XAML ユーザーとカスタム コントロールのサンプル](https://go.microsoft.com/fwlink/p/?linkid=238581)
+- [XAML ユーザーとカスタム コントロールのサンプル](https://code.msdn.microsoft.com/windowsapps/XAML-user-and-custom-a8a9505e)
 
 ## <a name="apis-related-to-dependency-properties"></a>依存関係プロパティに関連する Api
 

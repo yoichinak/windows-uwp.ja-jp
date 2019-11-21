@@ -1,47 +1,47 @@
 ---
 ms.assetid: ''
-description: この記事では、リモート カメラに接続し、各カメラからフレームを取得する MediaFrameSourceGroup を取得する方法を示します。
-title: リモート カメラへの接続します。
+description: この記事では、リモートカメラに接続し、MediaFrameSourceGroup を取得して各カメラからフレームを取得する方法について説明します。
+title: リモート カメラへの接続
 ms.date: 04/19/2019
 ms.topic: article
 ms.custom: 19H1
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: bc719b8dad2adef0542edf284d257846052eac21
-ms.sourcegitcommit: fca0132794ec187e90b2ebdad862f22d9f6c0db8
+ms.openlocfilehash: 253eea00ba6c4188197224111909c28a53932b88
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63789582"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74257350"
 ---
-# <a name="connect-to-remote-cameras"></a>リモート カメラへの接続します。
+# <a name="connect-to-remote-cameras"></a>リモート カメラへの接続
 
-この記事では、1 つまたは複数のリモート カメラに接続し、取得する方法を示します、 [ **MediaFrameSourceGroup** ](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.Frames.MediaFrameSourceGroup)各カメラからフレームを読み取ることができるようにするオブジェクト。 メディア ソースからのフレームの読み取りの詳細については、次を参照してください。 [MediaFrameReader でメディア フレーム処理](process-media-frames-with-mediaframereader.md)します。 デバイスとペアリングの詳細については、次を参照してください。[デバイスをペアリング](https://docs.microsoft.com/windows/uwp/devices-sensors/pair-devices)します。
+この記事では、1つまたは複数のリモートカメラに接続して、各カメラからフレームを読み取ることができる[**Mediaframesourcegroup**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.Frames.MediaFrameSourceGroup)オブジェクトを取得する方法について説明します。 メディアソースからのフレームの読み取りの詳細については、「 [MediaFrameReader を使用したメディアフレームの処理](process-media-frames-with-mediaframereader.md)」を参照してください。 デバイスとのペアリングの詳細については、「[ペアリングデバイス](https://docs.microsoft.com/windows/uwp/devices-sensors/pair-devices)」を参照してください。
 
 > [!NOTE] 
-> この記事で説明した機能は、Windows 10、バージョンが 1903 以降で使用できるのみです。
+> この記事で説明されている機能は、Windows 10 バージョン1903以降でのみ使用できます。
 
-## <a name="create-a-devicewatcher-class-to-watch-for-available-remote-cameras"></a>使用可能なリモート カメラを監視する DeviceWatcher クラスを作成します。
+## <a name="create-a-devicewatcher-class-to-watch-for-available-remote-cameras"></a>使用可能なリモートカメラを監視する DeviceWatcher クラスを作成する
 
-[ **DeviceWatcher** ](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.devicewatcher)クラスは、アプリに使用できるデバイスを監視し、デバイスの追加または削除されたときに、アプリに通知します。 インスタンスを取得**DeviceWatcher**呼び出して[ **DeviceInformation.CreateWatcher**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformation.createwatcher#Windows_Devices_Enumeration_DeviceInformation_CreateWatcher_System_String_)の種類を識別する高度なクエリ構文 (AQS) 文字列を渡して、デバイスを監視します。 カメラのネットワーク デバイスを指定する AQS 文字列次に示します。
+[**Devicewatcher**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.devicewatcher)クラスは、アプリで使用可能なデバイスを監視し、デバイスが追加または削除されたときにアプリに通知します。 Devicewatcher のインスタンスを取得するには、 [**Devicewatcher. createwatcher**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformation.createwatcher#Windows_Devices_Enumeration_DeviceInformation_CreateWatcher_System_String_)を呼び出して、監視するデバイスの種類を識別する Advanced Query 構文 (aqs) 文字列を渡します。 ネットワークカメラデバイスを指定する AQS 文字列は、次のとおりです。
 
 ```
 @"System.Devices.InterfaceClassGuid:=""{B8238652-B500-41EB-B4F3-4234F7F5AE99}"" AND System.Devices.InterfaceEnabled:=System.StructuredQueryType.Boolean#True"
 ```
 
 > [!NOTE] 
-> ヘルパー メソッド[ **MediaFrameSourceGroup.GetDeviceSelector** ](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesourcegroup.getdeviceselector)がローカルに接続されていると、リモートのネットワーク カメラを監視する AQS の文字列を返します。 ネットワーク カメラのみを監視するには、前に示した AQS 文字列を使用する必要があります。
+> ヘルパーメソッド[**Mediaframesourcegroup. GetDeviceSelector**](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesourcegroup.getdeviceselector)は、ローカルに接続されたリモートネットワークカメラを監視する aqs 文字列を返します。 ネットワークカメラだけを監視するには、上に示した AQS 文字列を使用する必要があります。
 
 
-返される開始すると**DeviceWatcher**呼び出すことによって、 [**開始**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.devicewatcher.start)発生は、メソッド、 [ **Added** ](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.devicewatcher.added)イベントが現在使用できるすべてのネットワーク カメラをします。 呼び出すことによって、監視を停止するまで[**停止**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.devicewatcher.stop)、 **Added**カメラの新しいネットワーク デバイスが利用可能になるときに、イベントが発生しますが、 [ **から削除された**](https://docs.microsoft.com/en-us/uwp/api/windows.devices.enumeration.devicewatcher.removed)カメラ デバイスが使用できなくなったときにイベントが発生します。
+[**Start**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.devicewatcher.start)メソッドを呼び出すことによって返された**devicewatcher**を開始すると、現在使用可能なすべてのネットワークカメラに対して[**追加さ**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.devicewatcher.added)れたイベントが発生します。 [**Stop**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.devicewatcher.stop)を呼び出してウォッチャーを停止するまで、**追加**されたイベントは、新しいネットワークカメラデバイスが使用可能になったときに発生し、カメラデバイスが使用できなくなったときに[**削除**](https://docs.microsoft.com/en-us/uwp/api/windows.devices.enumeration.devicewatcher.removed)されたイベントが発生します。
 
-渡されるイベント引数、 **Added**と**から削除された**イベント ハンドラーは、 [ **DeviceInformation** ](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceInformation)または[ **DeviceInformationUpdate** ](https://docs.microsoft.com/en-us/uwp/api/windows.devices.enumeration.deviceinformationupdate)オブジェクトに、それぞれします。 これらの各オブジェクト、 **Id**プロパティ、イベントが発生した対象のネットワーク カメラの識別子です。 この ID に渡す、 [ **MediaFrameSourceGroup.FromIdAsync** ](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesourcegroup.fromidasync)を取得するメソッド、 [ **MediaFrameSourceGroup** ](https://docs.microsoft.com/en-us/uwp/api/windows.media.capture.frames.mediaframesourcegroup.fromidasync)に使用できるオブジェクトカメラからフレームを取得します。
+**追加**および**削除**されたイベントハンドラーに渡されるイベント引数は、それぞれ[**Deviceinformation**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceInformation)または[**deviceinformationupdate**](https://docs.microsoft.com/en-us/uwp/api/windows.devices.enumeration.deviceinformationupdate)オブジェクトです。 これらの各オブジェクトには、イベントが発生したネットワークカメラの識別子である**Id**プロパティがあります。 この ID を[**mediaframesourcegroup. FromIdAsync**](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesourcegroup.fromidasync)メソッドに渡して、カメラからフレームを取得するために使用できる[**mediaframesourcegroup**](https://docs.microsoft.com/en-us/uwp/api/windows.media.capture.frames.mediaframesourcegroup.fromidasync)オブジェクトを取得します。
 
-## <a name="remote-camera-pairing-helper-class"></a>リモート カメラ ペアリング ヘルパー クラス
+## <a name="remote-camera-pairing-helper-class"></a>リモートカメラペアリングヘルパークラス
 
-次の例を使用するヘルパー クラスを示しています、 **DeviceWatcher**作成、更新、 **ObservableCollection**の**MediaFrameSourceGroup**をサポートするオブジェクトカメラの一覧へのデータ バインディング。 標準的なアプリをラップは、 **MediaFrameSourceGroup**カスタム モデル クラス。 ヘルパー クラスが、アプリへの参照を管理していることに注意してください[ **CoreDispatcher** ](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreDispatcher)カメラへの呼び出し内のコレクションを更新および[ **RunAsync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync) UI スレッドでコレクションにバインドされている UI が更新されるようにします。
+次の例は、 **Devicewatcher**を使用して**Mediaframesourcegroup**オブジェクトの**system.collections.objectmodel.observablecollection**を作成および更新し、カメラのリストへのデータバインドをサポートするヘルパークラスを示しています。 一般的なアプリでは、カスタムモデルクラスに**Mediaframesourcegroup**がラップされます。 ヘルパークラスは、アプリの[**CoreDispatcher**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreDispatcher)への参照を保持し、 [**runasync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync)の呼び出し内のカメラのコレクションを更新して、コレクションにバインドされた ui が ui スレッドで確実に更新されるようにします。
 
-また、この例では処理、 [ **DeviceWatcher.Updated** ](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.devicewatcher.updated)イベントに加え、 **Added**と**から削除された**イベント。 **Updated**ハンドラー、関連付けられているリモート カメラ デバイスから削除され、再びコレクションに追加されます。
+また、この例では、**追加**および**削除**されたイベントに加えて、 [**devicewatcher も更新さ**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.devicewatcher.updated)れたイベントを処理します。 **更新さ**れたハンドラーで、関連付けられているリモートカメラデバイスがから削除され、コレクションに戻されます。
 
 [!code-cs[SnippetRemoteCameraPairingHelper](./code/Frames_Win10/Frames_Win10/RemoteCameraPairingHelper.cs#SnippetRemoteCameraPairingHelper)]
 
@@ -49,9 +49,9 @@ ms.locfileid: "63789582"
 ## <a name="related-topics"></a>関連トピック
 
 * [カメラ](camera.md)
-* [MediaCapture で基本的な写真、ビデオ、およびオーディオのキャプチャします。](basic-photo-video-and-audio-capture-with-MediaCapture.md)
-* [カメラのフレームのサンプル](https://go.microsoft.com/fwlink/?LinkId=823230)
-* [プロセスのメディア MediaFrameReader フレーム](process-media-frames-with-mediaframereader.md)
+* [MediaCapture を使用した基本的な写真、ビデオ、オーディオキャプチャ](basic-photo-video-and-audio-capture-with-MediaCapture.md)
+* [カメラフレームのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/CameraFrames)
+* [MediaFrameReader を使用してメディアフレームを処理する](process-media-frames-with-mediaframereader.md)
  
 
  

@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 99ffa0dcae3412d49aef9da5bc3dfea255173ecb
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 7344e5004e6ac398673734cb03ddbdde93b3bd0d
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66358935"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74254317"
 ---
 # <a name="manual-camera-controls-for-photo-and-video-capture"></a>写真とビデオのキャプチャのための手動カメラ制御
 
@@ -21,7 +21,7 @@ ms.locfileid: "66358935"
 
 この記事で説明するコントロールはすべて、同じパターンを使ってアプリに追加されます。 まず、アプリが実行されている現在のデバイスで、コントロールがサポートされているかどうかを確認します。 コントロールがサポートされている場合は、コントロールに対して必要なモードを設定します。 一般的に、現在のデバイスで特定のコントロールがサポートされていない場合は、ユーザーがその機能を有効にできるような UI 要素を無効または非表示にする必要があります。
 
-この記事のコードは、[カメラの手動コントロール SDK のサンプル](https://go.microsoft.com/fwlink/?linkid=845228)を基にしています。 このサンプルをダウンロードし、該当するコンテキストで使用されているコードを確認することも、サンプルを独自のアプリの開始点として使用することもできます。
+この記事のコードは、[カメラの手動コントロール SDK のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/CameraManualControls)を基にしています。 このサンプルをダウンロードし、該当するコンテキストで使用されているコードを確認することも、サンプルを独自のアプリの開始点として使用することもできます。
 
 > [!NOTE]
 > この記事の内容は、写真やビデオの基本的なキャプチャ機能を実装するための手順を紹介した「[MediaCapture を使った基本的な写真、ビデオ、およびオーディオのキャプチャ](basic-photo-video-and-audio-capture-with-MediaCapture.md)」で取り上げた概念やコードに基づいています。 そちらの記事で基本的なメディア キャプチャのパターンを把握してから、高度なキャプチャ シナリオに進むことをお勧めします。 この記事で紹介しているコードは、MediaCapture のインスタンスが既に作成され、適切に初期化されていることを前提としています。
@@ -42,7 +42,7 @@ ms.locfileid: "66358935"
 
 露出値は、デバイスでサポートされている範囲内である必要があり、サポートされているステップ サイズのインクリメントである必要があります。 現在のデバイスでサポートされている値を取得するには、[**Min**](https://docs.microsoft.com/uwp/api/windows.media.devices.exposurecontrol.min)、[**Max**](https://docs.microsoft.com/uwp/api/windows.media.devices.exposurecontrol.max)、および [**Step**](https://docs.microsoft.com/uwp/api/windows.media.devices.exposurecontrol.step) プロパティを確認します。これらのプロパティは、対応するスライダー コントロールのプロパティを設定するために使用されます。
 
-値が設定されたときにイベントがトリガーされないように、[**ValueChanged**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.rangebase.valuechanged) イベント ハンドラーの登録を解除した後、スライダー コントロールの値を **ExposureControl** の現在値に設定します。
+値が設定されたときにイベントがトリガーされないように、ValueChanged[**イベント ハンドラーの登録を解除した後、スライダー コントロールの値を**ExposureControl](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.rangebase.valuechanged) の現在値に設定します。
 
 [!code-cs[ExposureControl](./code/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs#SnippetExposureControl)]
 
@@ -69,7 +69,7 @@ ms.locfileid: "66358935"
 
 露出補正値は、デバイスでサポートされている範囲内である必要があり、サポートされているステップ サイズのインクリメントである必要があります。 現在のデバイスでサポートされている値を取得するには、[**Min**](https://docs.microsoft.com/uwp/api/windows.media.devices.exposurecompensationcontrol.min)、[**Max**](https://docs.microsoft.com/uwp/api/windows.media.devices.exposurecompensationcontrol.max)、および [**Step**](https://docs.microsoft.com/uwp/api/windows.media.devices.exposurecompensationcontrol.step) プロパティを確認します。これらのプロパティは、対応するスライダー コントロールのプロパティを設定するために使用されます。
 
-値が設定されたときにイベントがトリガーされないように、[**ValueChanged**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.rangebase.valuechanged) イベント ハンドラーの登録を解除した後、スライダー コントロールの値を **ExposureCompensationControl** の現在値に設定します。
+値が設定されたときにイベントがトリガーされないように、ValueChanged[**イベント ハンドラーの登録を解除した後、スライダー コントロールの値を**ExposureCompensationControl](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.rangebase.valuechanged) の現在値に設定します。
 
 [!code-cs[EvControl](./code/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs#SnippetEvControl)]
 
@@ -118,7 +118,7 @@ ms.locfileid: "66358935"
 
 [!code-cs[CAF](./code/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs#SnippetCAF)]
 
-連続オート フォーカス ラジオ ボタンの [**Checked**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.togglebutton.checked) イベント ハンドラーで、[**VideoDeviceController.FocusControl**](https://docs.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.focuscontrol) プロパティを使ってコントロールのインスタンスを取得します。 アプリが以前に [**LockAsync**](https://docs.microsoft.com/uwp/api/windows.media.devices.focuscontrol.lockasync) を呼び出して他のフォーカス モードのいずれかを有効にしていた場合は、[**UnlockAsync**](https://docs.microsoft.com/uwp/api/windows.media.devices.focuscontrol.unlockasync) を呼び出してコントロールのロックを解除します。
+連続オート フォーカス ラジオ ボタンの [**Checked**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.togglebutton.checked) イベント ハンドラーで、[**VideoDeviceController.FocusControl**](https://docs.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.focuscontrol) プロパティを使ってコントロールのインスタンスを取得します。 アプリが以前に [**LockAsync**](https://docs.microsoft.com/uwp/api/windows.media.devices.focuscontrol.unlockasync) を呼び出して他のフォーカス モードのいずれかを有効にしていた場合は、[**UnlockAsync**](https://docs.microsoft.com/uwp/api/windows.media.devices.focuscontrol.lockasync) を呼び出してコントロールのロックを解除します。
 
 新しい [**FocusSettings**](https://docs.microsoft.com/uwp/api/Windows.Media.Devices.FocusSettings) オブジェクトを作成し、[**Mode**](https://docs.microsoft.com/uwp/api/windows.media.devices.focussettings.mode) プロパティを **Continuous** に設定します。 [  **AutoFocusRange**](https://docs.microsoft.com/uwp/api/windows.media.devices.focussettings.autofocusrange) プロパティをアプリのシナリオに適した値またはユーザーが UI で選択した値に設定します。 **FocusSettings** オブジェクトを [**Configure**](https://docs.microsoft.com/uwp/api/windows.media.devices.focuscontrol.configure) メソッドに渡し、[**FocusAsync**](https://docs.microsoft.com/uwp/api/windows.media.devices.focuscontrol.focusasync) を呼び出して連続オート フォーカスを開始します。
 
@@ -139,7 +139,7 @@ ms.locfileid: "66358935"
 
 [!code-cs[TapFocus](./code/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs#SnippetTapFocus)]
 
-タップしてフォーカスのラジオ ボタンの [**Checked**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.togglebutton.checked) イベント ハンドラーで、[**VideoDeviceController.FocusControl**](https://docs.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.focuscontrol) プロパティを使ってコントロールのインスタンスを取得します。 アプリが以前に [**UnlockAsync**](https://docs.microsoft.com/uwp/api/windows.media.devices.focuscontrol.unlockasync) を呼び出して連続オート フォーカスを有効にしていた場合は、[**LockAsync**](https://docs.microsoft.com/uwp/api/windows.media.devices.focuscontrol.lockasync) を呼び出してコントロールをロックし、ユーザーが画面をタップしてフォーカスを変更するまで待機します。
+タップしてフォーカスのラジオ ボタンの [**Checked**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.togglebutton.checked) イベント ハンドラーで、[**VideoDeviceController.FocusControl**](https://docs.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.focuscontrol) プロパティを使ってコントロールのインスタンスを取得します。 アプリが以前に [**UnlockAsync**](https://docs.microsoft.com/uwp/api/windows.media.devices.focuscontrol.lockasync) を呼び出して連続オート フォーカスを有効にしていた場合は、[**LockAsync**](https://docs.microsoft.com/uwp/api/windows.media.devices.focuscontrol.unlockasync) を呼び出してコントロールをロックし、ユーザーが画面をタップしてフォーカスを変更するまで待機します。
 
 [!code-cs[TapFocusRadioButton](./code/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs#SnippetTapFocusRadioButton)]
 
@@ -147,33 +147,33 @@ ms.locfileid: "66358935"
 
 [!code-cs[IsFocused](./code/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs#SnippetIsFocused)]
 
-次の手順では、ユーザーが画面をタップしたときのイベントをリッスンします。そのためには、現在キャプチャ プレビュー ストリームを表示している [**CaptureElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CaptureElement) の [**Tapped**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.tapped) イベントを処理します。 カメラが現在プレビューを表示していない場合や、タップしてフォーカス モードが無効である場合は、何もせずにハンドラーから制御を戻します。
+次の手順では、ユーザーが画面をタップしたときのイベントをリッスンします。そのためには、現在キャプチャ プレビュー ストリームを表示している [**CaptureElement**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.tapped) の [**Tapped**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CaptureElement) イベントを処理します。 カメラが現在プレビューを表示していない場合や、タップしてフォーカス モードが無効である場合は、何もせずにハンドラーから制御を戻します。
 
-場合、追跡変数 *\_isFocused*が false に切り替えられた場合は、カメラがフォーカスを処理中に現在と (によって決定されます、 [ **FocusState** ](https://docs.microsoft.com/uwp/api/windows.media.devices.focuscontrol.focusstate)プロパティ、 **FocusControl**)、タップ、フォーカスを設定するプロセスを開始します。 ハンドラーに渡されるイベント引数から、ユーザーのタップの位置を取得します。 また、この例では、この機会を利用して、フォーカスが設定される領域のサイズを取得します。 この場合、サイズは、キャプチャ要素の最小サイズの 1/4 です。 タップの位置と領域のサイズを、次のセクションで定義される **TapToFocus** ヘルパー メソッドに渡します。
+追跡変数 *\_isfocused*が false に切り替わり、カメラが現在フォーカスを持っていない ( **FocusControl**の[**FocusState**](https://docs.microsoft.com/uwp/api/windows.media.devices.focuscontrol.focusstate)プロパティによって決定される) 場合は、タップしてフォーカスを移動するプロセスを開始します。 ハンドラーに渡されるイベント引数から、ユーザーのタップの位置を取得します。 また、この例では、この機会を利用して、フォーカスが設定される領域のサイズを取得します。 この場合、サイズは、キャプチャ要素の最小サイズの 1/4 です。 タップの位置と領域のサイズを、次のセクションで定義される **TapToFocus** ヘルパー メソッドに渡します。
 
-場合、  *\_isFocused*切り替えが設定されているユーザーは、true にタップ以前のリージョンからフォーカスをオフにする必要があります。 これは、次に示す **TapUnfocus** ヘルパー メソッドで行われます。
+*\_isfocused*トグルが true に設定されている場合、ユーザータップは前の領域からフォーカスをクリアする必要があります。 これは、次に示す **TapUnfocus** ヘルパー メソッドで行われます。
 
 [!code-cs[TapFocusPreviewControl](./code/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs#SnippetTapFocusPreviewControl)]
 
-**TapToFocus**ヘルパー メソッドは、最初のセット、  *\_isFocused*スクリーンのタップなど、[次へ] がタップされたリージョンからフォーカスを解放できるように、true に切り替えます。
+**TapToFocus** helper メソッドで、まず *\_isfocused*トグルを true に設定して、次の画面タップでタップされた領域からフォーカスが解放されるようにします。
 
 このヘルパー メソッドの次のタスクでは、フォーカス コントロールに割り当てられるプレビュー ストリーム内の四角形を決定します。 これには 2 つのステップが必要です。 最初のステップは、[**CaptureElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CaptureElement) コントロール内でプレビュー ストリームが占有する四角形を特定することです。 これは、プレビュー ストリームのサイズとデバイスの向きに依存します。 ヘルパー メソッド **GetPreviewStreamRectInControl** (このセクションの最後に示されている) は、このタスクを実行し、プレビュー ストリームが含まれている四角形を返します。
 
 **TapToFocus** の次のタスクは、**CaptureElement.Tapped** イベント ハンドラーで特定された、タップの位置と目的のフォーカスの四角形のサイズを、キャプチャ ストリーム内の座標に変換することです。 **ConvertUiTapToPreviewRect** ヘルパー メソッド (このセクションで後で説明されている) は、フォーカスが要求されている四角形をキャプチャ ストリームの座標で返します。
 
-ターゲットの四角形が取得されたら、[**Bounds**](https://docs.microsoft.com/uwp/api/windows.media.devices.regionofinterest.bounds) プロパティを前の手順で取得されたターゲットの四角形に設定して、新しい [**RegionOfInterest**](https://docs.microsoft.com/uwp/api/Windows.Media.Devices.RegionOfInterest) オブジェクトを作成します。
+ターゲットの四角形が取得されたら、[**Bounds**](https://docs.microsoft.com/uwp/api/Windows.Media.Devices.RegionOfInterest) プロパティを前の手順で取得されたターゲットの四角形に設定して、新しい [**RegionOfInterest**](https://docs.microsoft.com/uwp/api/windows.media.devices.regionofinterest.bounds) オブジェクトを作成します。
 
-キャプチャ デバイスの [**FocusControl**](https://docs.microsoft.com/uwp/api/Windows.Media.Devices.FocusControl) を取得します。 新しい [**FocusSettings**](https://docs.microsoft.com/uwp/api/Windows.Media.Devices.FocusSettings) オブジェクトを作成し、**FocusControl** でサポートされていることを確認した後、[**Mode**](https://docs.microsoft.com/uwp/api/windows.media.devices.focuscontrol.mode) と [**AutoFocusRange**](https://docs.microsoft.com/uwp/api/windows.media.devices.focussettings.autofocusrange) を目的の値に設定します。 最後に、**FocusControl** で [**Configure**](https://docs.microsoft.com/uwp/api/windows.media.devices.focuscontrol.configure) を呼び出して、設定をアクティブにし、指定された領域へのフォーカスを開始するようにデバイスに通知します。
+キャプチャ デバイスの [**FocusControl**](https://docs.microsoft.com/uwp/api/Windows.Media.Devices.FocusControl) を取得します。 新しい [**FocusSettings**](https://docs.microsoft.com/uwp/api/Windows.Media.Devices.FocusSettings) オブジェクトを作成し、[FocusControl **でサポートされていることを確認した後、** ](https://docs.microsoft.com/uwp/api/windows.media.devices.focuscontrol.mode)Mode[**と**](https://docs.microsoft.com/uwp/api/windows.media.devices.focussettings.autofocusrange)AutoFocusRange を目的の値に設定します。 最後に、[FocusControl**で**](https://docs.microsoft.com/uwp/api/windows.media.devices.focuscontrol.configure)Configure を呼び出して、設定をアクティブにし、指定された領域へのフォーカスを開始するようにデバイスに通知します。
 
 次に、キャプチャ デバイスの [**RegionsOfInterestControl**](https://docs.microsoft.com/uwp/api/Windows.Media.Devices.RegionsOfInterestControl) を取得し、[**SetRegionsAsync**](https://docs.microsoft.com/uwp/api/windows.media.devices.regionsofinterestcontrol.setregionsasync) を呼び出してアクティブな領域を設定します。 サポートされているデバイスでは複数の対象領域を設定できますが、この例では単一の領域のみを設定します。
 
-最後に、**FocusControl** で [**FocusAsync**](https://docs.microsoft.com/uwp/api/windows.media.devices.focuscontrol.focusasync) を呼び出して、フォーカス設定を開始します。
+最後に、[FocusControl**で**](https://docs.microsoft.com/uwp/api/windows.media.devices.focuscontrol.focusasync)FocusAsync を呼び出して、フォーカス設定を開始します。
 
 > [!IMPORTANT]
 > タップによるフォーカスを実装する場合、操作の順序が重要になります。 これらの API は、次の順序で呼び出す必要があります。
 >
-> 1. [**FocusControl.Configure**](https://docs.microsoft.com/uwp/api/windows.media.devices.focuscontrol.configure)
-> 2. [**RegionsOfInterestControl.SetRegionsAsync**](https://docs.microsoft.com/uwp/api/windows.media.devices.regionsofinterestcontrol.setregionsasync)
+> 1. [**FocusControl**](https://docs.microsoft.com/uwp/api/windows.media.devices.focuscontrol.configure)
+> 2. [**RegionsOfInterestControl. SetRegionsAsync**](https://docs.microsoft.com/uwp/api/windows.media.devices.regionsofinterestcontrol.setregionsasync)
 > 3. [**FocusControl.FocusAsync**](https://docs.microsoft.com/uwp/api/windows.media.devices.focuscontrol.focusasync)
 
 [!code-cs[TapToFocus](./code/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs#SnippetTapToFocus)]
@@ -200,11 +200,11 @@ ms.locfileid: "66358935"
 
 フォーカス値は、デバイスでサポートされている範囲内である必要があり、サポートされているステップ サイズのインクリメントである必要があります。 現在のデバイスでサポートされている値を取得するには、[**Min**](https://docs.microsoft.com/uwp/api/windows.media.devices.focuscontrol.min)、[**Max**](https://docs.microsoft.com/uwp/api/windows.media.devices.focuscontrol.max)、および [**Step**](https://docs.microsoft.com/uwp/api/windows.media.devices.focuscontrol.step) プロパティを確認します。これらのプロパティは、対応するスライダー コントロールのプロパティを設定するために使用されます。
 
-値が設定されたときにイベントがトリガーされないように、[**ValueChanged**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.rangebase.valuechanged) イベント ハンドラーの登録を解除した後、スライダー コントロールの値を **FocusControl** の現在値に設定します。
+値が設定されたときにイベントがトリガーされないように、ValueChanged[**イベント ハンドラーの登録を解除した後、スライダー コントロールの値を**FocusControl](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.rangebase.valuechanged) の現在値に設定します。
 
 [!code-cs[Focus](./code/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs#SnippetFocus)]
 
-アプリが以前に [**UnlockAsync**](https://docs.microsoft.com/uwp/api/windows.media.devices.focuscontrol.unlockasync) を呼び出してフォーカスのロックを解除していた場合は、手動フォーカスのラジオ ボタンの **Checked** イベント ハンドラーで、**FocusControl** オブジェクトを取得し、[**LockAsync**](https://docs.microsoft.com/uwp/api/windows.media.devices.focuscontrol.lockasync) を呼び出します。
+アプリが以前にUnlockAsync を呼び出してフォーカスのロックを解除していた場合は、手動フォーカスのラジオ ボタンの [Checked **イベント ハンドラーで、** FocusControl](https://docs.microsoft.com/uwp/api/windows.media.devices.focuscontrol.lockasync) オブジェクトを取得し、[**LockAsync**](https://docs.microsoft.com/uwp/api/windows.media.devices.focuscontrol.unlockasync) を呼び出します。
 
 [!code-cs[ManualFocusChecked](./code/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs#SnippetManualFocusChecked)]
 
@@ -238,7 +238,7 @@ ms.locfileid: "66358935"
 
 ISO 速度値は、デバイスでサポートされている範囲内である必要があり、サポートされているステップ サイズのインクリメントである必要があります。 現在のデバイスでサポートされている値を取得するには、[**Min**](https://docs.microsoft.com/uwp/api/windows.media.devices.isospeedcontrol.min)、[**Max**](https://docs.microsoft.com/uwp/api/windows.media.devices.isospeedcontrol.max)、および [**Step**](https://docs.microsoft.com/uwp/api/windows.media.devices.isospeedcontrol.step) プロパティを確認します。これらのプロパティは、対応するスライダー コントロールのプロパティを設定するために使用されます。
 
-値が設定されたときにイベントがトリガーされないように、[**ValueChanged**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.rangebase.valuechanged) イベント ハンドラーの登録を解除した後、スライダー コントロールの値を **IsoSpeedControl** の現在値に設定します。
+値が設定されたときにイベントがトリガーされないように、ValueChanged[**イベント ハンドラーの登録を解除した後、スライダー コントロールの値を**IsoSpeedControl](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.rangebase.valuechanged) の現在値に設定します。
 
 [!code-cs[IsoControl](./code/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs#SnippetIsoControl)]
 
@@ -265,7 +265,7 @@ OIS を有効または無効にするには、[**OpticalImageStabilizationContro
 ## <a name="powerline-frequency"></a>電源周波数
 一部のカメラ デバイスでは、現在の環境の AC 電源周波数を認識し、それに応じたアンチフリッカー処理をサポートします。 電源周波数の自動認識をサポートするデバイスもあれば、周波数を手動で設定する必要があるデバイスもあります。 次のコード例は、デバイスの電源周波数のサポートを判別し、必要に応じて、周波数を手動で設定する方法を示します。 
 
-まず [**PowerlineFrequency**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.PowerlineFrequency) 型の出力パラメーターを渡して **VideoDeviceController** メソッド [**TryGetPowerlineFrequency**](https://docs.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.trygetpowerlinefrequency) を呼び出します。この呼び出しが失敗した場合、現在のデバイスでは電源周波数の制御がサポートされていません。 機能がサポートされている場合、自動モードの設定を試みることで、自動モードがサポートされているかどうかを確認できます。 これを行うには、値 **Auto**  を渡して [**TrySetPowerlineFrequency**](https://docs.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.trysetpowerlinefrequency) を呼び出します。呼び出しに成功した場合、自動電源周波数機能がサポートされています。 デバイスで電源周波数の制御はサポートされているが、周波数の自動検出はサポートされていない場合、**TrySetPowerlineFrequency** を使って周波数を手動で設定できます。 次の例で、**MyCustomFrequencyLookup** は、デバイスの現在の場所における正しい周波数を判定するために実装するカスタム メソッドです。 
+まずPowerlineFrequency[**型の出力パラメーターを渡して**VideoDeviceController](https://docs.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.trygetpowerlinefrequency) メソッド [**TryGetPowerlineFrequency**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.PowerlineFrequency) を呼び出します。この呼び出しが失敗した場合、現在のデバイスでは電源周波数の制御がサポートされていません。 機能がサポートされている場合、自動モードの設定を試みることで、自動モードがサポートされているかどうかを確認できます。 これを行うには、 [**TrySetPowerlineFrequency**](https://docs.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.trysetpowerlinefrequency)を呼び出し、値**Auto**を渡します。呼び出しが成功した場合は、自動 powerline の周波数がサポートされていることを意味します。 デバイスで電源周波数の制御はサポートされているが、周波数の自動検出はサポートされていない場合、**TrySetPowerlineFrequency** を使って周波数を手動で設定できます。 次の例で、**MyCustomFrequencyLookup** は、デバイスの現在の場所における正しい周波数を判定するために実装するカスタム メソッドです。 
 
 [!code-cs[PowerlineFrequency](./code/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs#SnippetPowerlineFrequency)]
 
@@ -281,7 +281,7 @@ OIS を有効または無効にするには、[**OpticalImageStabilizationContro
 
 手動コントロールの場合、ホワイト バランス値は、デバイスでサポートされている範囲内である必要があり、サポートされているステップ サイズのインクリメントである必要があります。 現在のデバイスでサポートされている値を取得するには、[**Min**](https://docs.microsoft.com/uwp/api/windows.media.devices.whitebalancecontrol.min)、[**Max**](https://docs.microsoft.com/uwp/api/windows.media.devices.whitebalancecontrol.max)、および [**Step**](https://docs.microsoft.com/uwp/api/windows.media.devices.whitebalancecontrol.step) プロパティを確認します。これらのプロパティは、対応するスライダー コントロールのプロパティを設定するために使用されます。 手動コントロールを有効にする前に、サポートされている最小値と最大値の間の範囲がステップ サイズよりも大きいことを確認します。 このようになっていない場合、手動コントロールは、現在のデバイスではサポートされません。
 
-値が設定されたときにイベントがトリガーされないように、[**ValueChanged**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.rangebase.valuechanged) イベント ハンドラーの登録を解除した後、スライダー コントロールの値を **WhiteBalanceControl** の現在値に設定します。
+値が設定されたときにイベントがトリガーされないように、ValueChanged[**イベント ハンドラーの登録を解除した後、スライダー コントロールの値を**WhiteBalanceControl](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.rangebase.valuechanged) の現在値に設定します。
 
 [!code-cs[WhiteBalance](./code/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs#SnippetWhiteBalance)]
 
@@ -311,13 +311,13 @@ OIS を有効または無効にするには、[**OpticalImageStabilizationContro
 
 ズーム レベル値は、デバイスでサポートされている範囲内である必要があり、サポートされているステップ サイズのインクリメントである必要があります。 現在のデバイスでサポートされている値を取得するには、[**Min**](https://docs.microsoft.com/uwp/api/windows.media.devices.zoomcontrol.min)、[**Max**](https://docs.microsoft.com/uwp/api/windows.media.devices.zoomcontrol.max)、および [**Step**](https://docs.microsoft.com/uwp/api/windows.media.devices.zoomcontrol.step) プロパティを確認します。これらのプロパティは、対応するスライダー コントロールのプロパティを設定するために使用されます。
 
-値が設定されたときにイベントがトリガーされないように、[**ValueChanged**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.rangebase.valuechanged) イベント ハンドラーの登録を解除した後、スライダー コントロールの値を **ZoomControl** の現在値に設定します。
+値が設定されたときにイベントがトリガーされないように、ValueChanged[**イベント ハンドラーの登録を解除した後、スライダー コントロールの値を**ZoomControl](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.rangebase.valuechanged) の現在値に設定します。
 
 [!code-cs[ZoomControl](./code/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs#SnippetZoomControl)]
 
-**ValueChanged** イベント ハンドラーで、[**Value**](https://docs.microsoft.com/uwp/api/windows.media.devices.zoomsettings.value) プロパティをズーム スライダー コントロールの現在の値に設定して、[**ZoomSettings**](https://docs.microsoft.com/uwp/api/Windows.Media.Devices.ZoomSettings) クラスの新しいインスタンスを作成します。 **ZoomControl** の [**SupportedModes**](https://docs.microsoft.com/uwp/api/windows.media.devices.zoomcontrol.supportedmodes) プロパティに [**ZoomTransitionMode.Smooth**](https://docs.microsoft.com/uwp/api/Windows.Media.Devices.ZoomTransitionMode) が含まれている場合、デバイスがズーム レベルのスムーズな切り替えをサポートしていることを意味します。 このモードではユーザー エクスペリエンスが向上するため、通常、**ZoomSettings** オブジェクトの [**Mode**](https://docs.microsoft.com/uwp/api/windows.media.devices.zoomsettings.mode) プロパティにはこの値を使います。
+**ValueChanged** イベント ハンドラーで、[**Value**](https://docs.microsoft.com/uwp/api/Windows.Media.Devices.ZoomSettings) プロパティをズーム スライダー コントロールの現在の値に設定して、[**ZoomSettings**](https://docs.microsoft.com/uwp/api/windows.media.devices.zoomsettings.value) クラスの新しいインスタンスを作成します。 [ZoomControl**の**](https://docs.microsoft.com/uwp/api/windows.media.devices.zoomcontrol.supportedmodes)SupportedModes プロパティに [**ZoomTransitionMode.Smooth**](https://docs.microsoft.com/uwp/api/Windows.Media.Devices.ZoomTransitionMode) が含まれている場合、デバイスがズーム レベルのスムーズな切り替えをサポートしていることを意味します。 このモードではユーザー エクスペリエンスが向上するため、通常、[ZoomSettings**オブジェクトの**](https://docs.microsoft.com/uwp/api/windows.media.devices.zoomsettings.mode)Mode プロパティにはこの値を使います。
 
-最後に、**ZoomSettings** オブジェクトを、**ZoomControl** オブジェクトの [**Configure**](https://docs.microsoft.com/uwp/api/windows.media.devices.zoomcontrol.configure) メソッドに渡すことによって、現在のズーム設定を変更します。
+最後に、**ZoomSettings** オブジェクトを、[ZoomControl**オブジェクトの**](https://docs.microsoft.com/uwp/api/windows.media.devices.zoomcontrol.configure)Configure メソッドに渡すことによって、現在のズーム設定を変更します。
 
 [!code-cs[ZoomSlider](./code/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs#SnippetZoomSlider)]
 
@@ -329,13 +329,13 @@ OIS を有効または無効にするには、[**OpticalImageStabilizationContro
 
 [!code-cs[IsSmoothZoomSupported](./code/BasicMediaCaptureWin10/cs/MainPage.xaml.cs#SnippetIsSmoothZoomSupported)]
 
-マルチタッチ操作対応デバイスでは、2 本指でのピンチ ジェスチャに基づいてズーム倍率を調整するのが一般的です。 ピンチ ジェスチャを有効にするには、[**CaptureElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CaptureElement) コントロールの [**ManipulationMode**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.manipulationmode) プロパティを [**ManipulationModes.Scale**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.ManipulationModes) に設定します。 次に、ピンチ ジェスチャでサイズ変更されたときに発生する [**ManipulationDelta**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.manipulationdelta) イベントを登録します。
+マルチタッチ操作対応デバイスでは、2 本指でのピンチ ジェスチャに基づいてズーム倍率を調整するのが一般的です。 ピンチ ジェスチャを有効にするには、[**CaptureElement**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.manipulationmode) コントロールの [**ManipulationMode**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CaptureElement) プロパティを [**ManipulationModes.Scale**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.ManipulationModes) に設定します。 次に、ピンチ ジェスチャでサイズ変更されたときに発生する [**ManipulationDelta**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.manipulationdelta) イベントを登録します。
 
 [!code-cs[RegisterPinchGestureHandler](./code/BasicMediaCaptureWin10/cs/MainPage.xaml.cs#SnippetRegisterPinchGestureHandler)]
 
 **ManipulationDelta** イベント用のハンドラーでは、ユーザーのピンチ ジェスチャの変化に基づいてズーム倍率を更新します。 [  **ManipulationDelta.Scale**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.ManipulationDelta) 値は、ピンチ ジェスチャによるズーム倍率の変化を表します。たとえば、ピンチ サイズがわずかに大きくなった場合は 1.0 よりわずかに大きい数値、ピンチ サイズがわずかに小さくなった場合は 1.0 よりわずかに小さい数値になります。 この例では、ズーム コントロールの現在の値にスケール デルタを掛けています。
 
-ズーム倍率を設定する前に、デバイスでサポートされている ([**ZoomControl.Min**](https://docs.microsoft.com/uwp/api/windows.media.devices.zoomcontrol.min) プロパティで示されている) 最小値より小さい値になっていないか確認する必要があります。 また、値が [**ZoomControl.Max**](https://docs.microsoft.com/uwp/api/windows.media.devices.zoomcontrol.max) 値以下であることを確認します。 最後に、行う必要があります、ズームの倍率がで示されている、デバイスでサポートされるズーム ステップ サイズの倍数であることを確認、 [**手順**](https://docs.microsoft.com/uwp/api/windows.media.devices.zoomcontrol.step)プロパティ。 ズーム倍率がこれらの要件を満たしていない場合は、キャプチャ デバイスでズーム レベルを設定しようとすると、例外がスローされます。
+ズーム倍率を設定する前に、デバイスでサポートされている ([**ZoomControl.Min**](https://docs.microsoft.com/uwp/api/windows.media.devices.zoomcontrol.min) プロパティで示されている) 最小値より小さい値になっていないか確認する必要があります。 また、値が [**ZoomControl.Max**](https://docs.microsoft.com/uwp/api/windows.media.devices.zoomcontrol.max) 値以下であることを確認します。 最後に、[[**ステップ**](https://docs.microsoft.com/uwp/api/windows.media.devices.zoomcontrol.step)] プロパティで示されているように、デバイスでサポートされているズームステップのサイズの倍数であることを確認する必要があります。 ズーム倍率がこれらの要件を満たしていない場合は、キャプチャ デバイスでズーム レベルを設定しようとすると、例外がスローされます。
 
 キャプチャ デバイスでズーム レベルを設定するには、新しい [**ZoomSettings**](https://docs.microsoft.com/uwp/api/Windows.Media.Devices.ZoomSettings) オブジェクトを作成します。 [  **Mode**](https://docs.microsoft.com/uwp/api/windows.media.devices.zoomsettings.mode) プロパティを [**ZoomTransitionMode.Smooth**](https://docs.microsoft.com/uwp/api/Windows.Media.Devices.ZoomTransitionMode) に設定し、[**Value**](https://docs.microsoft.com/uwp/api/windows.media.devices.zoomsettings.value) プロパティを目的のズーム倍率に設定します。 最後に、[**ZoomControl.Configure**](https://docs.microsoft.com/uwp/api/windows.media.devices.zoomcontrol.configure) を呼び出して、デバイスの新しいズーム値を設定します。 デバイスは新しいズーム値への切り替えをスムーズに行います。
 
@@ -344,4 +344,4 @@ OIS を有効または無効にするには、[**OpticalImageStabilizationContro
 ## <a name="related-topics"></a>関連トピック
 
 * [カメラ](camera.md)
-* [MediaCapture で基本的な写真、ビデオ、およびオーディオのキャプチャします。](basic-photo-video-and-audio-capture-with-MediaCapture.md)
+* [MediaCapture を使用した基本的な写真、ビデオ、オーディオキャプチャ](basic-photo-video-and-audio-capture-with-MediaCapture.md)

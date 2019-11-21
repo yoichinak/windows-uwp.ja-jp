@@ -6,12 +6,12 @@ ms.date: 04/18/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 60abc29ad4f9e16dc9d37e99f94c9f30039c0087
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: f8d357dfbceafb6cc366b2880956ab3db231047d
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66360698"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74256664"
 ---
 # <a name="process-audio-frames-with-mediaframereader"></a>MediaFrameReader を使ったオーディオ フレームの処理
 
@@ -21,12 +21,12 @@ ms.locfileid: "66360698"
 > この記事で説明している機能は、Windows 10 バージョン 1803 以降でのみ利用できます。
 
 > [!NOTE] 
-> **MediaFrameReader** を使ってカラー カメラ、深度カメラ、赤外線カメラなど、さまざまなフレーム ソースからのフレームを表示する方法を示す、ユニバーサル Windows アプリのサンプルがあります。 詳しくは、「[カメラ フレームのサンプル](https://go.microsoft.com/fwlink/?LinkId=823230)」をご覧ください。
+> **MediaFrameReader** を使ってカラー カメラ、深度カメラ、赤外線カメラなど、さまざまなフレーム ソースからのフレームを表示する方法を示す、ユニバーサル Windows アプリのサンプルがあります。 詳しくは、「[カメラ フレームのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/CameraFrames)」をご覧ください。
 
 ## <a name="setting-up-your-project"></a>プロジェクトの設定
 オーディオ フレームを取得するためのプロセスは、他の種類のメディア フレームを取得する場合とほぼ同じです。 **MediaCapture** を使う他のアプリと同様に、カメラ デバイスにアクセスする前にアプリが *webcam* 機能を使うことを宣言する必要があります。 アプリがオーディオ デバイスからキャプチャする場合は、*microphone* デバイス機能も宣言する必要があります。 
 
-**アプリケーション マニフェストに機能を追加します。**
+**アプリマニフェストに機能を追加する**
 
 1.  Microsoft Visual Studio の**ソリューション エクスプローラー**で、**package.appxmanifest** 項目をダブルクリックしてアプリケーション マニフェストのデザイナーを開きます。
 2.  **[機能]** タブをクリックします。
@@ -47,15 +47,15 @@ ms.locfileid: "66360698"
 
 ## <a name="create-and-start-the-mediaframereader"></a>MediaFrameReader を作成して開始する
 
-**MediaFrameReader** の新しいインスタンスを取得するために、前の手順で選択した **MediaFrameSource** オブジェクトを渡して [**MediaCapture.CreateFrameReaderAsync**](https://docs.microsoft.com/uwp/api/windows.media.capture.mediacapture.createframereaderasync#Windows_Media_Capture_MediaCapture_CreateFrameReaderAsync_Windows_Media_Capture_Frames_MediaFrameSource_) を呼び出します。 既定では、オーディオ フレームがバッファー モードで取得されます。これにより、フレーム損失の可能性は低くなりますが、それでもなおオーディオ フレームの処理が間に合わず、システムに割り当てられたメモリ バッファーがいっぱいになると、フレームの損失が発生します。
+**MediaFrameReader** の新しいインスタンスを取得するために、前の手順で選択した [MediaFrameSource**オブジェクトを渡して**](https://docs.microsoft.com/uwp/api/windows.media.capture.mediacapture.createframereaderasync#Windows_Media_Capture_MediaCapture_CreateFrameReaderAsync_Windows_Media_Capture_Frames_MediaFrameSource_)MediaCapture.CreateFrameReaderAsync を呼び出します。 既定では、オーディオ フレームがバッファー モードで取得されます。これにより、フレーム損失の可能性は低くなりますが、それでもなおオーディオ フレームの処理が間に合わず、システムに割り当てられたメモリ バッファーがいっぱいになると、フレームの損失が発生します。
 
 オーディオ データの新しいフレームが利用可能になったときにシステムによって生成される [**MediaFrameReader.FrameArrived**](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.mediaframereader.framearrived) イベントのハンドラーを登録します。 [  **StartAsync**](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.mediaframereader.startasync) を呼び出して、オーディオ フレームの取得を開始します。 フレーム リーダーが開始できない場合、呼び出しから返される状態値には、[**Success**](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.mediaframereaderstartstatus) 以外の値が格納されます。
 
 [!code-cs[CreateAudioFrameReader](./code/Frames_Win10/Frames_Win10/MainPage.xaml.cs#SnippetCreateAudioFrameReader)]
 
-**FrameArrived** イベント ハンドラーで、センダーとしてハンドラーに渡される **MediaFrameReader** オブジェクトに対して [**TryAcquireLatestFrame**](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.mediaframereader.tryacquirelatestframe) を呼び出し、最新のメディア フレームへの参照の取得を試みます。 このオブジェクトは null の場合があるため、オブジェクトを使用する前に常に確認する必要があります。 **TryAcquireLatestFrame** から返される **MediaFrameReference** にラップされたメディア フレームの種類は、フレーム リーダーで取得対象として構成した 1 つまたは複数のフレーム ソースの種類によって異なります。 この例では、フレーム リーダーがオーディオ フレームを取得するように設定されているため、[**AudioMediaFrame**](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.mediaframereference.audiomediaframe) プロパティを使用している、基になるフレームが取得されます。 
+**FrameArrived** イベント ハンドラーで、センダーとしてハンドラーに渡される [MediaFrameReader**オブジェクトに対して**](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.mediaframereader.tryacquirelatestframe)TryAcquireLatestFrame を呼び出し、最新のメディア フレームへの参照の取得を試みます。 このオブジェクトは null の場合があるため、オブジェクトを使用する前に常に確認する必要があります。 **TryAcquireLatestFrame** から返される **MediaFrameReference** にラップされたメディア フレームの種類は、フレーム リーダーで取得対象として構成した 1 つまたは複数のフレーム ソースの種類によって異なります。 この例では、フレーム リーダーがオーディオ フレームを取得するように設定されているため、[**AudioMediaFrame**](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.mediaframereference.audiomediaframe) プロパティを使用している、基になるフレームが取得されます。 
 
-以下の例で、この **ProcessAudioFrame** ヘルパー メソッドは、フレームのタイムスタンプや、フレームが **AudioMediaFrame** オブジェクトと非連続的かどうかなどの情報が入った [**AudioFrame**](https://docs.microsoft.com/uwp/api/windows.media.audioframe) の取得方法を示します。 オーディオ サンプル データを読み取りまたは処理するには、[**AudioBuffer**](https://docs.microsoft.com/uwp/api/windows.media.audiobuffer) オブジェクトを **AudioMediaFrame** オブジェクトから取得し、[**IMemoryBufferReference**](https://docs.microsoft.com/uwp/api/windows.foundation.imemorybufferreference) を作成した後、COM メソッド **IMemoryBufferByteAccess::GetBuffer** を呼び出してデータを取得します。 ネイティブ バッファーへのアクセス方法について詳しくは、コード例の下の注をご覧ください。
+以下の例で、この **ProcessAudioFrame** ヘルパー メソッドは、フレームのタイムスタンプや、フレームが [AudioMediaFrame**オブジェクトと非連続的かどうかなどの情報が入った**](https://docs.microsoft.com/uwp/api/windows.media.audioframe)AudioFrame の取得方法を示します。 オーディオ サンプル データを読み取りまたは処理するには、[**AudioBuffer**](https://docs.microsoft.com/uwp/api/windows.media.audiobuffer) オブジェクトを **AudioMediaFrame** オブジェクトから取得し、[**IMemoryBufferReference**](https://docs.microsoft.com/uwp/api/windows.foundation.imemorybufferreference) を作成した後、COM メソッド **IMemoryBufferByteAccess::GetBuffer** を呼び出してデータを取得します。 ネイティブ バッファーへのアクセス方法について詳しくは、コード例の下の注をご覧ください。
 
 データの形式は、フレーム ソースに依存します。 この例では、メディア フレーム ソースの選択時に、選択したフレーム ソースが 1 つの浮動小数点型のデータ チャネルを使用していることを明示的に確認しました。 以下の最後のコード例では、フレーム内のオーディオ データの継続期間とサンプル数を確認する方法を示します。  
 
@@ -72,14 +72,14 @@ ms.locfileid: "66360698"
 
 [!code-cs[AudioDeviceControllerMute](./code/Frames_Win10/Frames_Win10/MainPage.xaml.cs#SnippetAudioDeviceControllerMute)]
 
-メディア フレーム ソースによってキャプチャされたオーディオ データは、[**AudioFrame**](https://docs.microsoft.com/uwp/api/windows.media.audioframe) オブジェクトを使用して、[**AudioGraph**](https://docs.microsoft.com/uwp/api/windows.media.audio.audiograph) に渡すことができます。 フレームは、[**AudioFrameInputNode**](https://docs.microsoft.com/en-us/uwp/api/windows.media.audio.audioframeinputnode) の [**AddFrame**](https://docs.microsoft.com/uwp/api/windows.media.audio.audioframeinputnode.addframe) メソッドに渡します。 オーディオ グラフを使用して、オーディオ信号をキャプチャ、処理、ミックスする方法について詳しくは、「[オーディオ グラフ](audio-graphs.md)」をご覧ください。
+メディア フレーム ソースによってキャプチャされたオーディオ データは、[**AudioFrame**](https://docs.microsoft.com/uwp/api/windows.media.audioframe) オブジェクトを使用して、[**AudioGraph**](https://docs.microsoft.com/uwp/api/windows.media.audio.audiograph) に渡すことができます。 フレームは、[**AudioFrameInputNode**](https://docs.microsoft.com/uwp/api/windows.media.audio.audioframeinputnode.addframe) の [**AddFrame**](https://docs.microsoft.com/en-us/uwp/api/windows.media.audio.audioframeinputnode) メソッドに渡します。 オーディオ グラフを使用して、オーディオ信号をキャプチャ、処理、ミックスする方法について詳しくは、「[オーディオ グラフ](audio-graphs.md)」をご覧ください。
 
 ## <a name="related-topics"></a>関連トピック
 
-* [プロセスのメディア MediaFrameReader フレーム](process-media-frames-with-mediaframereader.md)
+* [MediaFrameReader を使用してメディアフレームを処理する](process-media-frames-with-mediaframereader.md)
 * [カメラ](camera.md)
-* [MediaCapture で基本的な写真、ビデオ、およびオーディオのキャプチャします。](basic-photo-video-and-audio-capture-with-MediaCapture.md)
-* [カメラのフレームのサンプル](https://go.microsoft.com/fwlink/?LinkId=823230)
+* [MediaCapture を使用した基本的な写真、ビデオ、オーディオキャプチャ](basic-photo-video-and-audio-capture-with-MediaCapture.md)
+* [カメラフレームのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/CameraFrames)
 * [オーディオ グラフ](audio-graphs.md)
  
 

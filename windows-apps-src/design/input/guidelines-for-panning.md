@@ -8,35 +8,35 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 01754d94cf413317cf204d04f8590028eeabcfc8
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 945368e27c4f6215d2f5df20d52d916ead3597dd
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67317312"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74257954"
 ---
 # <a name="guidelines-for-panning"></a>パンのガイドライン
 
 
 パンとスクロールにより、ユーザーは単一ビュー内で移動し、ビューポートに収まらないビューのコンテンツを表示できます。 ビューの例として、コンピューターのフォルダー構造、ドキュメントのライブラリ、フォト アルバムなどがあります。
 
-> **重要な API**:[**Windows.UI.Input**](https://docs.microsoft.com/uwp/api/Windows.UI.Input)、 [ **Windows.UI.Xaml.Input**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input)
+> **重要な API**: [**Windows.UI.Input**](https://docs.microsoft.com/uwp/api/Windows.UI.Input)、[**Windows.UI.Xaml.Input**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input)
 
 
 ## <a name="dos-and-donts"></a>推奨と非推奨
 
 
-**インジケーターのパンとスクロール バー**
+**パンインジケーターとスクロールバー**
 
 -   アプリにコンテンツを読み込む前に、パン/スクロールが可能であることを確認します。
 
--   パン インジケーターとスクロール バーを表示して、位置とサイズがわかるようにします。これらのコントロールは、カスタム ナビゲーション機能がある場合には非表示にします。
+-   パン インジケーターとスクロール バーを表示して、位置とサイズがわかるようにします。カスタム ナビゲーション機能を提供する場合には、これらのコントロールを非表示にします。
 
-    **注**  標準スクロールとは異なりバー、パン インジケーターは純粋にわかりやすくありません。 入力デバイスには公開されず、一切操作できません。
+    **注**  標準のスクロールバーとは異なり、パンインジケーターは純粋に有益です。 入力デバイスには公開されず、一切操作できません。
 
      
 
-**1 つの軸 (1 次元のオーバーフロー) にパン**
+**1つの軸によるパン (1 次元オーバーフロー)**
 
 -   コンテンツ領域が 1 つのビューポート境界 (垂直方向または水平方向) を超えている場合は、単一軸のパンを使います。
 
@@ -44,27 +44,27 @@ ms.locfileid: "67317312"
     -   項目のグリッドの場合は、水平方向のパンを使います。
 -   ユーザーのパン操作をスナップ位置以外の位置で停止できるようにする必要がある場合は、単一軸パンで強制スナップ位置を使わないでください。 強制スナップ位置を使うと、スナップ位置で必ず停止します。 代わりに、近接スナップ位置を使ってください。
 
-**フリー フォーム (2 次元オーバーフロー) をパン**
+**自由形式のパン (2 次元オーバーフロー)**
 
 -   コンテンツ領域が両方のビューポート境界 (垂直方向と水平方向) を超えている場合は、2 軸のパンを使います。
 
     -   複数の方向へ動かされる可能性がある、構造化されていないコンテンツの場合は、既定のレール動作を上書きしてフリーフォーム パンを使います。
 -   フリーフォーム パンは通常、画像や地図内の移動に適しています。
 
-**ページ ビュー**
+**ページビュー**
 
 -   コンテンツが個別の要素で構成されている場合、または 1 つの要素全体を表示する必要がある場合は、強制スナップ位置を使います。 書籍や雑誌のページ、項目の列、個々の画像がその例です。
 
     -   スナップ位置はそれぞれの論理的な境界に置く必要があります。
     -   各要素のサイズや倍率を、ビューに収まるように調整する必要があります。
 
-**論理およびキーのポイント**
+**論理ポイントと主ポイント**
 
 -   コンテンツ内にユーザーが停止する可能性が高い主要位置または論理的な位置がある場合は、近接スナップ位置を使います。 たとえば、セクション ヘッダーなどです。
 
 -   最大サイズと最小サイズの制限または範囲が定義されている場合には、視覚的なフィードバックを使って、ユーザーがこの制限に達したことや超過したことを示します。
 
-**埋め込みまたは入れ子になったコンテンツのチェーン**
+**埋め込みコンテンツまたは入れ子になったコンテンツのチェーン**
 
 -   テキストとグリッド ベースのコンテンツに対して単一軸パン (通常は水平方向) と列レイアウトを使います。 このような場合は、コンテンツは通常列から列へと自然に折り返し、遷移するので、UWP アプリ全体で一貫性があり見つけやすいユーザー エクスペリエンスを維持できます。
 
@@ -76,11 +76,11 @@ ms.locfileid: "67317312"
 
 ## <a name="additional-usage-guidance"></a>その他の使い方のガイダンス
 
-タッチでのパン (1 本または複数の指でのスワイプまたはスライド ジェスチャ) は、マウスでのスクロールと似ています。 パンはスクロール バーのクリックよりも、マウス ホイールの回転やスクロール ボックスのスライドに最も近い操作です。 単に区別が API で行われたか、デバイスに固有の Windows UI に必要なしない限りパンとして両方の相互作用を参照してください。
+タッチでのパン (1 本または複数の指でのスワイプまたはスライド ジェスチャ) は、マウスでのスクロールと似ています。 パンはスクロール バーのクリックよりも、マウス ホイールの回転やスクロール ボックスのスライドに最も近い操作です。 API で区別されない場合、または一部のデバイス固有の Windows UI で必要な場合を除き、両方の対話をパンとして参照するだけです。
 
 > <div id="main">
-> <strong>Windows 10 Fall Creators Update の動作の変更</strong>テキスト選択範囲ではなく、既定でアクティブのペン今すぐスクロール/パン (タッチ、タッチパッド、パッシブ ペンなど) の UWP アプリでします。  
-> アプリが以前の動作に依存している場合は、ペン スクロールを上書きして、以前の動作に戻すことができます。 詳細については、API リファレンスのトピックを参照してください、 <a href="https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.scrollviewer">ScrollViewer クラス</a>します。
+> <strong>Windows 10 の作成者の更新-動作の変更</strong>既定では、テキスト選択ではなく、アクティブなペンが UWP アプリ (タッチ、タッチパッド、受動ペンなど) でスクロール/パンされるようになりました。  
+> アプリが以前の動作に依存している場合は、ペン スクロールを上書きして、以前の動作に戻すことができます。 詳しくは、<a href="https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.scrollviewer">ScrollViewer クラス</a>の API リファレンス トピックをご覧ください。
 > </div>
 
 入力デバイスに応じて、ユーザーは次のいずれかを使って、パン対応領域内でパンを実行します。
@@ -93,18 +93,18 @@ ms.locfileid: "67317312"
 
 スライドでは、指をパン方向にゆっくり移動します。 これにより、コンテンツが指と同じ速度で同じ距離だけパンする 1 対 1 の関係ができます。 スワイプ (指をすばやくスライドして離す) では、パンのアニメーションに次の物理的効果が適用されます。
 
--   減速 (慣性):減速を開始するパン本の指の原因を変換します。 これは滑りやすい表面で滑っている状態から止まるまでの動きに似ています。
--   配賦:スナップ ポイントまたはコンテンツ エリアの境界のいずれかに達した場合、わずかな返送効果を減速の中にモーメンタムをパンします。
+-   減速 (慣性): 指を離すとパンが減速し始めます。 これは滑りやすい表面で滑っている状態から止まるまでの動きに似ています。
+-   吸収: 減速時に、パン操作の勢いがスナップ位置またはコンテンツ領域の境界まで保たれた場合、反対方向に少し押し戻される効果があります。
 
 **パンの種類**
 
-Windows 8 には、3 種類のパンがサポートされています。
+Windows 8 では、次の3種類のパンがサポートされています。
 
 -   単一軸: 一方向 (水平または垂直) へのパンのみがサポートされます。
 -   レール: 全方向へのパンがサポートされます。 ただし、特定の方向への距離のしきい値を超えると、パンはその軸に制限されます。
 -   フリーフォーム: 全方向へのパンがサポートされます。
 
-**UI のパン**
+**パン UI**
 
 パンの操作エクスペリエンスは、機能的には類似していても、入力デバイスごとに異なります。
 
@@ -115,7 +115,7 @@ Windows 8 には、3 種類のパンがサポートされています。
 -   パン インジケーター (タッチを使う場合)。
 -   スクロール バー (マウス、タッチパッド、キーボード、スタイラスなど、その他の入力デバイスを使う場合)。
 
-**注**  パン インジケーターは、パンのリージョン内で、タッチ スクリーンには、するときにのみ表示されます。 同様に、スクロール バーは、スクロール対応領域内にマウス カーソル、ペン/スタイラス カーソル、またはキーボード フォーカスがあるときにのみ表示されます。
+**注**  パンインジケーターは、タッチの連絡先がパン可能領域内にある場合にのみ表示されます。 同様に、スクロール バーは、スクロール対応領域内にマウス カーソル、ペン/スタイラス カーソル、またはキーボード フォーカスがあるときにのみ表示されます。
 
  
 
@@ -152,7 +152,7 @@ Windows 8 には、3 種類のパンがサポートされています。
 
 ![パンを制約するレールの画面の図](images/ux-panning-rails.png)
 
-**埋め込みまたは入れ子になったコンテンツのチェーン**
+**埋め込みコンテンツまたは入れ子になったコンテンツのチェーン**
 
 他のズーム可能またはスクロール可能な要素の入れ子になっている要素のズームまたはスクロールが限界に達した後で、親要素が子要素のズーム操作またはスクロール操作を継続して開始するかどうかを指定します。 これはズームまたはスクロールのチェーンと呼ばれます。
 
@@ -172,24 +172,24 @@ Windows 8 には、3 種類のパンがサポートされています。
 
 
 * [カスタム ユーザー操作](https://docs.microsoft.com/windows/uwp/design/layout/index)
-* [ListView と GridView を最適化します。](https://docs.microsoft.com/windows/uwp/debug-test-perf/optimize-gridview-and-listview)
+* [ListView と GridView の最適化](https://docs.microsoft.com/windows/uwp/debug-test-perf/optimize-gridview-and-listview)
 * [キーボードのアクセシビリティ](https://docs.microsoft.com/windows/uwp/accessibility/keyboard-accessibility)
 
 **サンプル**
-* [基本的な入力サンプル](https://go.microsoft.com/fwlink/p/?LinkID=620302)
-* [低待機時間の入力サンプル](https://go.microsoft.com/fwlink/p/?LinkID=620304)
-* [ユーザー操作モードのサンプル](https://go.microsoft.com/fwlink/p/?LinkID=619894)
-* [フォーカスの視覚効果のサンプル](https://go.microsoft.com/fwlink/p/?LinkID=619895)
+* [基本的な入力サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/BasicInput)
+* [低待機時間入力サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/LowLatencyInput)
+* [ユーザー操作モードのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/UserInteractionMode)
+* [フォーカスの視覚効果のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlFocusVisuals)
 
 **サンプルのアーカイブ**
-* [入力:XAML ユーザー入力イベントのサンプル](https://go.microsoft.com/fwlink/p/?linkid=226855)
-* [入力:デバイス機能のサンプル](https://go.microsoft.com/fwlink/p/?linkid=231530)
-* [入力:タッチ ヒット テストのサンプル](https://go.microsoft.com/fwlink/p/?linkid=231590)
-* [XAML のスクロール、パン、ズームのサンプル](https://go.microsoft.com/fwlink/p/?linkid=251717)
-* [入力:簡略化されたインクのサンプル](https://go.microsoft.com/fwlink/p/?linkid=246570)
-* [入力:Windows 8 のジェスチャのサンプル](https://go.microsoft.com/fwlink/p/?LinkId=264995)
-* [入力:操作とジェスチャ (C++) のサンプル](https://go.microsoft.com/fwlink/p/?linkid=231605)
-* [DirectX のタッチ入力サンプル](https://go.microsoft.com/fwlink/p/?LinkID=231627)
+* [入力: XAML ユーザー入力イベントのサンプル](https://code.msdn.microsoft.com/windowsapps/Input-3dff271b)
+* [入力: デバイス機能のサンプル](https://code.msdn.microsoft.com/windowsapps/Input-device-capabilities-31b67745)
+* [入力: タッチヒットテストのサンプル](https://code.msdn.microsoft.com/windowsapps/Touch-Hit-Testing-sample-5e35c690)
+* [XAML のスクロール、パン、ズームのサンプル](https://code.msdn.microsoft.com/windowsapps/xaml-scrollviewer-pan-and-949d29e9)
+* [入力: 簡略化されたインクのサンプル](https://code.msdn.microsoft.com/windowsapps/Input-simplified-ink-sample-11614bbf)
+* [入力: Windows 8 のジェスチャのサンプル](https://docs.microsoft.com/samples/browse/?redirectedfrom=MSDN-samples)
+* [入力: 操作とジェスチャ (C++) のサンプル](https://code.msdn.microsoft.com/windowsapps/Manipulations-and-gestures-362b6b59)
+* [DirectX タッチ入力のサンプル](https://code.msdn.microsoft.com/windowsapps/Simple-Direct3D-Touch-f98db97e)
  
 
  

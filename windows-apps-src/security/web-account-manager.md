@@ -6,19 +6,19 @@ ms.topic: article
 keywords: windows 10, uwp, セキュリティ
 ms.assetid: ec9293a1-237d-47b4-bcde-18112586241a
 ms.localizationpriority: medium
-ms.openlocfilehash: 557f5c03bda68d11507ba3b3b3b12823dbe6fd9f
-ms.sourcegitcommit: 445320ff0ee7323d823194d4ec9cfa6e710ed85d
+ms.openlocfilehash: c90a3257f8a54202e7ac50395e7e73f0538a484a
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72282401"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74259878"
 ---
 # <a name="web-account-manager"></a>Web アカウント マネージャー
 
 この記事では、Windows 10 Web アカウント マネージャー API を使い、 **[AccountsSettingsPane](https://docs.microsoft.com/uwp/api/Windows.UI.ApplicationSettings.AccountsSettingsPane)** を利用して、ユニバーサル Windows プラットフォーム (UWP) アプリを外部の ID プロバイダー (Microsoft や Facebook など) に接続する方法について説明します。 ユーザーの Microsoft アカウントを使用するためにユーザーの許可を求める方法、アクセス トークンを取得する方法、アクセス トークンを使って基本的な操作 (プロファイル データの取得や OneDrive アカウントへのファイルのアップロードなど) を実行する方法を学習してください。 この手順は、ユーザーの許可を得て、Web アカウント マネージャーをサポートする ID プロバイダーにアクセスするための手順と似ています。
 
 > [!NOTE]
-> 完全なコード サンプルについては、[GitHub の WebAccountManagement サンプル](https://go.microsoft.com/fwlink/p/?LinkId=620621)をご覧ください。
+> 完全なコード サンプルについては、[GitHub の WebAccountManagement サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/WebAccountManagement)をご覧ください。
 
 ## <a name="get-set-up"></a>準備
 
@@ -116,7 +116,7 @@ private async void BuildPaneAsync(AccountsSettingsPane s,
 }
 ```
 
-次に、WebAuthenticationCoreManager.FindAccountProviderAsync メソッドを使ってプロバイダーを取得します。 プロバイダーの URL はプロバイダーによって異なり、プロバイダーのドキュメントに記載されています。 Microsoft アカウントと Azure Active Directory の場合は、"https @ no__t-0//login. microsoft .com" になります。 
+次に、WebAuthenticationCoreManager.FindAccountProviderAsync メソッドを使ってプロバイダーを取得します。 プロバイダーの URL はプロバイダーによって異なり、プロバイダーのドキュメントに記載されています。 Microsoft アカウントと Azure Active Directory の場合、"https\://login.microsoft.com" になります。 
 
 ```csharp
 private async void BuildPaneAsync(AccountsSettingsPane s,
@@ -133,7 +133,7 @@ private async void BuildPaneAsync(AccountsSettingsPane s,
 
 文字列 "consumers" をオプションの *authority* パラメーターに渡すことにも注意してください。 これは、Microsoft は "消費者 (consumers)" 向けの Microsoft アカウント (MSA) と、"組織 (organizations)" 向けの Azure Active Directory (AAD) という、2 種類の認証を提供しているためです。 "consumers" 権限は、MSA オプションを必要としていることを示します。 企業向けのアプリを開発している場合は、代わりに文字列 "organizations" を使います。
 
-最後に、次のような新しい **[WebAccountProviderCommand](https://docs.microsoft.com/uwp/api/windows.ui.applicationsettings.webaccountprovidercommand)** を作成して、**AccountsSettingsPane** にプロバイダーを追加します。 
+最後に、次のような新しいWebAccountProviderCommand **[ を作成して、](https://docs.microsoft.com/uwp/api/windows.ui.applicationsettings.webaccountprovidercommand)AccountsSettingsPane** にプロバイダーを追加します。 
 
 ```csharp
 private async void BuildPaneAsync(AccountsSettingsPane s,
@@ -430,6 +430,6 @@ private async void BuildPaneAsync(AccountsSettingsPane s, AccountsSettingsPaneCo
 
 [Web 認証ブローカー](web-authentication-broker.md)
 
-[Web アカウント管理のサンプル](https://go.microsoft.com/fwlink/p/?LinkId=620621)
+[Web アカウント管理のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/WebAccountManagement)
 
 [ランチスケジューラアプリ](https://github.com/Microsoft/Windows-appsample-lunch-scheduler)

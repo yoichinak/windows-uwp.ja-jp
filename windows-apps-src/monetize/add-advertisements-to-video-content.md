@@ -6,12 +6,12 @@ ms.date: 03/22/2018
 ms.topic: article
 keywords: Windows 10, UWP, 広告, 宣伝, ビデオ, スケジューラ, Javascript
 ms.localizationpriority: medium
-ms.openlocfilehash: 69fef2bc5deb21be8685badb0cf18f38769170cb
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 1a214288c778505d16707fd64391a9b8cedbbb32
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57603847"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74260357"
 ---
 # <a name="show-ads-in-video-content"></a>ビデオ コンテンツに広告を表示する
 
@@ -26,7 +26,7 @@ ms.locfileid: "57603847"
 
 ## <a name="prerequisites"></a>前提条件
 
-* Visual Studio 2015 以降のリリースと共に [Microsoft Advertising SDK](https://aka.ms/ads-sdk-uwp) をインストールします。
+* Visual Studio 2015 以降のリリースと共に [Microsoft Advertising SDK](https://marketplace.visualstudio.com/items?itemName=AdMediator.MicrosoftAdvertisingSDK) をインストールします。
 
 * 広告がスケジュールされるビデオ コンテンツを提供するためには、プロジェクトで [MediaPlayer](https://github.com/Microsoft/TVHelpers/wiki/MediaPlayer-Overview) コントロールを使う必要があります。 このコントロールは、Microsoft の GitHub から入手できる [TVHelpers](https://github.com/Microsoft/TVHelpers) コレクションのライブラリにあります。
 
@@ -47,17 +47,17 @@ ms.locfileid: "57603847"
 
 1. Visual Studio でプロジェクトを開くか、新しいプロジェクトを作ります。
 
-2. プロジェクトのターゲットが **[Any CPU]** (任意の CPU) になっている場合は、アーキテクチャ固有のビルド出力 (たとえば、**[x86]**) を使うようにプロジェクトを更新します。 プロジェクトのターゲットが **[Any CPU]** (任意の CPU) になっていると、次の手順で Microsoft Advertising ライブラリへの参照を正常に追加できません。 詳しくは、「[プロジェクトのターゲットを "Any CPU" に設定すると参照エラーが発生する](known-issues-for-the-advertising-libraries.md#reference_errors)」をご覧ください。
+2. プロジェクトのターゲットが **[Any CPU]** (任意の CPU) になっている場合は、アーキテクチャ固有のビルド出力 (たとえば、 **[x86]** ) を使うようにプロジェクトを更新します。 プロジェクトのターゲットが **[Any CPU]** (任意の CPU) になっていると、次の手順で Microsoft Advertising ライブラリへの参照を正常に追加できません。 詳しくは、「[プロジェクトのターゲットを "Any CPU" に設定すると参照エラーが発生する](known-issues-for-the-advertising-libraries.md#reference_errors)」をご覧ください。
 
 3. **Microsoft Advertising SDK for JavaScript** ライブラリへの参照をプロジェクトに追加します。
 
-    1. **[ソリューション エクスプローラー]** ウィンドウで、**[参照設定]** を右クリックし、**[参照の追加]** を選択します。
-    2. **[参照マネージャー]** で、**[ユニバーサル Windows]** を展開し、**[拡張]** をクリックして、**[Microsoft Advertising SDK for JavaScript]** (バージョン 10.0) の横にあるチェック ボックスをオンにします。
+    1. **[ソリューション エクスプローラー]** ウィンドウで、 **[参照設定]** を右クリックし、 **[参照の追加]** を選択します。
+    2. **[参照マネージャー]** で、 **[ユニバーサル Windows]** を展開し、 **[拡張]** をクリックして、 **[Microsoft Advertising SDK for JavaScript]** (バージョン 10.0) の横にあるチェック ボックスをオンにします。
     3. **[参照マネージャー]** で、[OK] をクリックします。
 
 4.  AdScheduler.js ファイルをプロジェクトに追加します。
 
-    1. Visual Studio で、**[プロジェクト]** と **[NuGet パッケージの管理]** をクリックします。
+    1. Visual Studio で、 **[プロジェクト]** と **[NuGet パッケージの管理]** をクリックします。
     2. 検索ボックスに、「**Microsoft.StoreServices.VideoAdScheduler**」と入力し、Microsoft.StoreServices.VideoAdScheduler パッケージをインストールします。 AdScheduler.js ファイルがプロジェクトの ../js サブディレクトリに追加されます。
 
 5.  index.html ファイル (またはプロジェクトに対応するその他の html ファイル) を開きます。 `<head>` セクションで、プロジェクトの default.css と main.js の JavaScript 参照の後に、ad.js と adscheduler.js への参照を追加します。
@@ -142,7 +142,7 @@ ms.locfileid: "57603847"
 
 ### <a name="requesttimeout"></a>requestTimeout
 
-このプロパティを取得またはタイムアウトする前に、ad 要求の応答を待機するミリ秒数を設定します。値 0 は、タイムアウトしないようにシステムに通知します。 既定値は 30000 ミリ秒 (30 秒) です。
+このプロパティは、広告要求の応答がタイムアウトするまでの待ち時間をミリ秒単位で取得または設定します。値 0 は、タイムアウトしないようにシステムに通知します。 既定値は 30000 ミリ秒 (30 秒) です。
 
 ### <a name="schedule"></a>schedule
 
@@ -152,9 +152,9 @@ ms.locfileid: "57603847"
 
 このイベントは、広告の再生が 4 分の 1 ごとのチェックポイントに到達したときに発生します。 イベント ハンドラーの第 2 パラメーター (*eventInfo*) は、次のメンバーを含む JSON オブジェクトです。
 
-* **進行状況**:広告の再生状態 (の 1 つ、 **MediaProgress** AdScheduler.js で定義された列挙型の値)。
-* **クリップ**:再生中のビデオ クリップします。 このオブジェクトは、ユーザーのコードで使用するためのものではありません。
-* **adPackage**:再生されている広告に対応する ad ペイロードの一部を表すオブジェクト。 このオブジェクトは、ユーザーのコードで使用するためのものではありません。
+* **progress**: 広告の再生状態 (AdScheduler.js に定義されている **MediaProgress** 列挙型の値のいずれか)。
+* **clip**: 再生中のビデオ クリップ。 このオブジェクトは、ユーザーのコードで使用するためのものではありません。
+* **adPackage**: 再生中の広告に対応する広告ペイロードの部分を表すオブジェクト。 このオブジェクトは、ユーザーのコードで使用するためのものではありません。
 
 ### <a name="onallcomplete"></a>onAllComplete  
 
@@ -168,8 +168,8 @@ ms.locfileid: "57603847"
 
 このイベントは、広告の再生中に発生し、現在のポッドの残り時間を通知します。 イベント ハンドラーの第 2 パラメーター (*eventData*) は、次のメンバーを含む JSON オブジェクトです。
 
-* **remainingAdTime**:現在の ad の残りの秒数。
-* **remainingPodTime**:現在のポッドの残りの秒数。
+* **remainingAdTime**: 現在の広告の残り時間を示す秒数。
+* **remainingPodTime**: 現在のポッドの残り時間を示す秒数。
 
 > [!NOTE]
 > ポッドとは、連続して再生される広告のグループです。広告ブレークの間に再生される広告のグループなどがあります。 詳しくは、IAB Digital Video Ad Serving Template (VAST) の仕様をご覧ください。
@@ -178,12 +178,12 @@ ms.locfileid: "57603847"
 
 このイベントは、広告ポッドが終了したときに発生します。 イベント ハンドラーの第 2 パラメーター (*eventData*) は、次のメンバーを含む JSON オブジェクトです。
 
-* **startTime**:ポッドの開始時間 (秒)。
-* **ポッド**:ポッドを表すオブジェクト。 このオブジェクトは、ユーザーのコードで使用するためのものではありません。
+* **startTime**: ポッドの開始時間 (秒単位)。
+* **pod**: ポッドを表すオブジェクト。 このオブジェクトは、ユーザーのコードで使用するためのものではありません。
 
 ### <a name="onpodstart"></a>onPodStart
 
 このイベントは、広告ポッドが開始されたときに発生します。 イベント ハンドラーの第 2 パラメーター (*eventData*) は、次のメンバーを含む JSON オブジェクトです。
 
-* **startTime**:ポッドの開始時間 (秒)。
-* **ポッド**:ポッドを表すオブジェクト。 このオブジェクトは、ユーザーのコードで使用するためのものではありません。
+* **startTime**: ポッドの開始時間 (秒単位)。
+* **pod**: ポッドを表すオブジェクト。 このオブジェクトは、ユーザーのコードで使用するためのものではありません。

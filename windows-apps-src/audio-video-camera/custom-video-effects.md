@@ -9,12 +9,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 40a6bd32-a756-400f-ba34-2c5f507262c0
 ms.localizationpriority: medium
-ms.openlocfilehash: 819f0b4a5ba17a866eb50539f5138460eefd0eec
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 1be4bf71d99bd6560ce4ed753b55dacdfcceb868
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67318398"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74257192"
 ---
 # <a name="custom-video-effects"></a>カスタムのビデオ特殊効果
 
@@ -28,9 +28,9 @@ ms.locfileid: "67318398"
 
 カスタムのビデオ特殊効果は、[**IBasicVideoEffect**](https://docs.microsoft.com/uwp/api/Windows.Media.Effects.IBasicVideoEffect) インターフェイスを実装するクラスで定義します。 このクラスは、アプリのプロジェクトに直接含めることはできません。 代わりに、Windows ランタイム コンポーネントを使ってビデオ特殊効果のクラスをホストする必要があります。
 
-**Windows ランタイム コンポーネント、ビデオ特殊効果の追加します。**
+**ビデオ効果の Windows ランタイムコンポーネントを追加する**
 
-1.  Microsoft Visual Studio で、ソリューションを開き、 **[ファイル]** メニューから **[追加]、[新しいプロジェクト]** の順にクリックします。
+1.  Microsoft Visual Studio で、ソリューションを開き、 **[ファイル]** メニューから **[追加]、[新しいプロジェクト]&gt; の順にクリックします。
 2.  プロジェクトの種類として **[Windows ランタイム コンポーネント (ユニバーサル Windows)]** を選びます。
 3.  この例では、プロジェクトに *VideoEffectComponent* という名前を付けます。 この名前は後でコードで参照されます。
 4.  **[OK]** をクリックします。
@@ -93,7 +93,7 @@ ms.locfileid: "67318398"
 
 
 > [!NOTE] 
-> **SupportedEncodingProperties** から返される [**VideoEncodingProperties**](https://docs.microsoft.com/uwp/api/Windows.Media.MediaProperties.VideoEncodingProperties) オブジェクトの一覧を空にすると、既定で ARGB32 エンコードが使われます。
+> [SupportedEncodingProperties**から返される**](https://docs.microsoft.com/uwp/api/Windows.Media.MediaProperties.VideoEncodingProperties)VideoEncodingProperties オブジェクトの一覧を空にすると、既定で ARGB32 エンコードが使われます。
 
  
 
@@ -152,7 +152,7 @@ ms.locfileid: "67318398"
 
  
 
-これで、**ProcessFrame** メソッドの実装を追加できます。 最初に、入力と出力の両方のソフトウェア ビットマップから [**BitmapBuffer**](https://docs.microsoft.com/uwp/api/Windows.Graphics.Imaging.BitmapBuffer) オブジェクトを取得します。 出力フレームが書き込み用で、入力フレームが読み取り用です。 次に、[**CreateReference**](https://docs.microsoft.com/uwp/api/windows.graphics.imaging.bitmapbuffer.createreference) を呼び出して、各バッファーの [**IMemoryBufferReference**](https://docs.microsoft.com/uwp/api/Windows.Foundation.IMemoryBufferReference) を取得します。 その後、実際のデータ バッファーを取得するために、先ほど定義した COM 相互運用機能のインターフェイス (**IMemoryByteAccess**) として **IMemoryBufferReference** オブジェクトをキャストし、**GetBuffer** を呼び出します。
+これで、**ProcessFrame** メソッドの実装を追加できます。 最初に、入力と出力の両方のソフトウェア ビットマップから [**BitmapBuffer**](https://docs.microsoft.com/uwp/api/Windows.Graphics.Imaging.BitmapBuffer) オブジェクトを取得します。 出力フレームが書き込み用で、入力フレームが読み取り用です。 次に、[**CreateReference**](https://docs.microsoft.com/uwp/api/Windows.Foundation.IMemoryBufferReference) を呼び出して、各バッファーの [**IMemoryBufferReference**](https://docs.microsoft.com/uwp/api/windows.graphics.imaging.bitmapbuffer.createreference) を取得します。 その後、実際のデータ バッファーを取得するために、先ほど定義した COM 相互運用機能のインターフェイス (**IMemoryByteAccess**) として **IMemoryBufferReference** オブジェクトをキャストし、**GetBuffer** を呼び出します。
 
 これで、データ バッファーが取得され、入力バッファーからの読み取りと出力バッファーへの書き込みが可能になります。 [  **GetPlaneDescription**](https://docs.microsoft.com/uwp/api/windows.graphics.imaging.bitmapbuffer.getplanedescription) を呼び出して、バッファーのレイアウトを取得します。バッファーの幅、ストライド、初期オフセットについての情報が提供されます。 ピクセルあたりのビット数は、[**SetEncodingProperties**](https://docs.microsoft.com/uwp/api/windows.media.effects.ibasicvideoeffect.setencodingproperties) メソッドで既に設定したエンコード プロパティで決まります。 バッファーの形式情報を使って、各ピクセルのバッファーへのインデックスを特定します。 ソース バッファーのピクセル値をターゲット バッファーにコピーし、そのカラー値にこの効果の FadeValue プロパティで定義した値を掛けます。これで、指定した値に応じてピクセルが暗くなります。
 
@@ -162,11 +162,11 @@ ms.locfileid: "67318398"
 ## <a name="implement-the-ibasicvideoeffect-interface-using-hardware-processing"></a>ハードウェア処理を使用した IBasicVideoEffect インターフェイスの実装
 
 
-カスタムのビデオ特殊効果をハードウェア (GPU) 処理を使って作成する場合も、方法は上記のソフトウェア処理を使った場合とほぼ同じです。 このセクションでは、効果にハードウェア処理を使う場合のいくつかの違いについて説明します。 この例では、Win2D Windows ランタイム API を使います。 Win2D を使う方法について詳しくは、[Win2D のドキュメント](https://go.microsoft.com/fwlink/?LinkId=519078)をご覧ください。
+カスタムのビデオ特殊効果をハードウェア (GPU) 処理を使って作成する場合も、方法は上記のソフトウェア処理を使った場合とほぼ同じです。 このセクションでは、効果にハードウェア処理を使う場合のいくつかの違いについて説明します。 この例では、Win2D Windows ランタイム API を使います。 Win2D を使う方法について詳しくは、[Win2D のドキュメント](https://microsoft.github.io/Win2D/html/Introduction.htm)をご覧ください。
 
 次の手順に従って、この記事の最初に「**アプリへのカスタム効果の追加**」で作成したプロジェクトに Win2D NuGet パッケージを追加します。
 
-**効果プロジェクトに Win2D NuGet パッケージを追加するには**
+**Win2D NuGet パッケージを効果プロジェクトに追加するには**
 
 1.  **ソリューション エクスプローラー**で、**VideoEffectComponent** プロジェクトを右クリックし、 **[NuGet パッケージの管理]** をクリックします。
 2.  ウィンドウの上部で **[参照]** タブをクリックします。
@@ -180,7 +180,7 @@ ms.locfileid: "67318398"
 [!code-cs[UsingWin2D](./code/VideoEffect_Win10/cs/VideoEffectComponent/ExampleVideoEffectWin2D.cs#SnippetUsingWin2D)]
 
 
-この効果では画像データの操作に GPU メモリを使うため、[**SupportedMemoryTypes**](https://docs.microsoft.com/uwp/api/windows.media.effects.ibasicvideoeffect.supportedmemorytypes) プロパティで [**MediaMemoryTypes.Gpu**](https://docs.microsoft.com/uwp/api/Windows.Media.Effects.MediaMemoryTypes) を返します。
+この効果では画像データの操作に GPU メモリを使うため、[**SupportedMemoryTypes**](https://docs.microsoft.com/uwp/api/Windows.Media.Effects.MediaMemoryTypes) プロパティで [**MediaMemoryTypes.Gpu**](https://docs.microsoft.com/uwp/api/windows.media.effects.ibasicvideoeffect.supportedmemorytypes) を返します。
 
 [!code-cs[SupportedMemoryTypesWin2D](./code/VideoEffect_Win10/cs/VideoEffectComponent/ExampleVideoEffectWin2D.cs#SnippetSupportedMemoryTypesWin2D)]
 
@@ -190,7 +190,7 @@ ms.locfileid: "67318398"
 [!code-cs[SupportedEncodingPropertiesWin2D](./code/VideoEffect_Win10/cs/VideoEffectComponent/ExampleVideoEffectWin2D.cs#SnippetSupportedEncodingPropertiesWin2D)]
 
 
-[  **SetEncodingProperties**](/uwp/api/windows.graphics.imaging.softwarebitmap.convert) メソッドを使って、メソッドに渡される [**IDirect3DDevice**](https://docs.microsoft.com/uwp/api/Windows.Graphics.DirectX.Direct3D11.IDirect3DDevice) から新しい Win2D **CanvasDevice** オブジェクトを作成します。
+[  **SetEncodingProperties**](/uwp/api/windows.graphics.imaging.softwarebitmap.convert) メソッドを使って、メソッドに渡されるIDirect3DDevice[**から新しい Win2D**CanvasDevice](https://docs.microsoft.com/uwp/api/Windows.Graphics.DirectX.Direct3D11.IDirect3DDevice) オブジェクトを作成します。
 
 [!code-cs[SetEncodingPropertiesWin2D](./code/VideoEffect_Win10/cs/VideoEffectComponent/ExampleVideoEffectWin2D.cs#SnippetSetEncodingPropertiesWin2D)]
 
@@ -204,7 +204,7 @@ ms.locfileid: "67318398"
 
 最後に、画像データを実際に処理する [**ProcessFrame**](https://docs.microsoft.com/uwp/api/windows.media.effects.ibasicvideoeffect.processframe) メソッドを実装します。
 
-Win2D API を使って、入力フレームの [**Direct3DSurface**](https://docs.microsoft.com/uwp/api/windows.media.videoframe.direct3dsurface) プロパティから **CanvasBitmap** を作成します。 出力フレームの **Direct3DSurface** から **CanvasRenderTarget** を作成し、このレンダー ターゲットから **CanvasDrawingSession** を作成します。 新しい Win2D **GaussianBlurEffect** を初期化し、[**SetProperties**](https://docs.microsoft.com/uwp/api/windows.media.imediaextension.setproperties) で **BlurAmount** プロパティを使って効果を公開します。 最後に、**CanvasDrawingSession.DrawImage** メソッドを呼び出して、入力ビットマップをレンダー ターゲットにぼかし効果を使って描画します。
+Win2D API を使って、入力フレームのDirect3DSurface[**プロパティから**CanvasBitmap](https://docs.microsoft.com/uwp/api/windows.media.videoframe.direct3dsurface) を作成します。 出力フレームの **Direct3DSurface** から **CanvasRenderTarget** を作成し、このレンダー ターゲットから **CanvasDrawingSession** を作成します。 新しい Win2D **GaussianBlurEffect** を初期化し、SetProperties[**で**BlurAmount](https://docs.microsoft.com/uwp/api/windows.media.imediaextension.setproperties) プロパティを使って効果を公開します。 最後に、**CanvasDrawingSession.DrawImage** メソッドを呼び出して、入力ビットマップをレンダー ターゲットにぼかし効果を使って描画します。
 
 [!code-cs[ProcessFrameWin2D](./code/VideoEffect_Win10/cs/VideoEffectComponent/ExampleVideoEffectWin2D.cs#SnippetProcessFrameWin2D)]
 
@@ -232,14 +232,14 @@ Win2D API を使って、入力フレームの [**Direct3DSurface**](https://doc
 
 ### <a name="add-your-custom-effect-to-a-clip-in-a-mediacomposition"></a>MediaComposition のクリップへのカスタム効果の追加
 
-ビデオ クリップからメディア コンポジションを作成する一般的なガイダンスについては、「[メディア コンポジションと編集](media-compositions-and-editing.md)」をご覧ください。 次のコード スニペットは、カスタムのビデオ特殊効果を使ってシンプルなメディア コンポジションを作成する例を示しています。 [  **CreateFromFileAsync**](https://docs.microsoft.com/uwp/api/windows.media.editing.mediaclip.createfromfileasync) を呼び出して [**MediaClip**](https://docs.microsoft.com/uwp/api/Windows.Media.Editing.MediaClip) オブジェクトを作成し、ユーザーが [**FileOpenPicker**](https://docs.microsoft.com/uwp/api/Windows.Storage.Pickers.FileOpenPicker) で選択したビデオ ファイルを渡して新しい [**MediaComposition**](https://docs.microsoft.com/uwp/api/Windows.Media.Editing.MediaComposition) にクリップを追加します。 次に、新しい [**VideoEffectDefinition**](https://docs.microsoft.com/uwp/api/Windows.Media.Effects.VideoEffectDefinition) オブジェクトを作成し、効果の名前空間とクラスの名前を渡します。 最後に、**MediaClip** オブジェクトの [**VideoEffectDefinitions**](https://docs.microsoft.com/uwp/api/windows.media.editing.mediaclip.videoeffectdefinitions) コレクションに効果の定義を追加します。
+ビデオ クリップからメディア コンポジションを作成する一般的なガイダンスについては、「[メディア コンポジションと編集](media-compositions-and-editing.md)」をご覧ください。 次のコード スニペットは、カスタムのビデオ特殊効果を使ってシンプルなメディア コンポジションを作成する例を示しています。 [  **CreateFromFileAsync**](https://docs.microsoft.com/uwp/api/Windows.Media.Editing.MediaClip) を呼び出して [**MediaClip**](https://docs.microsoft.com/uwp/api/windows.media.editing.mediaclip.createfromfileasync) オブジェクトを作成し、ユーザーが [**FileOpenPicker**](https://docs.microsoft.com/uwp/api/Windows.Storage.Pickers.FileOpenPicker) で選択したビデオ ファイルを渡して新しい [**MediaComposition**](https://docs.microsoft.com/uwp/api/Windows.Media.Editing.MediaComposition) にクリップを追加します。 次に、新しい [**VideoEffectDefinition**](https://docs.microsoft.com/uwp/api/Windows.Media.Effects.VideoEffectDefinition) オブジェクトを作成し、効果の名前空間とクラスの名前を渡します。 最後に、[MediaClip**オブジェクトの**](https://docs.microsoft.com/uwp/api/windows.media.editing.mediaclip.videoeffectdefinitions)VideoEffectDefinitions コレクションに効果の定義を追加します。
 
 
 [!code-cs[AddEffectToComposition](./code/VideoEffect_Win10/cs/VideoEffect_Win10/MainPage.xaml.cs#SnippetAddEffectToComposition)]
 
 
 ## <a name="related-topics"></a>関連トピック
-* [単純なカメラのプレビューへのアクセス](simple-camera-preview-access.md)
+* [単純なカメラプレビューへのアクセス](simple-camera-preview-access.md)
 * [メディア コンポジションと編集](media-compositions-and-editing.md)
-* [Win2D ドキュメント](https://go.microsoft.com/fwlink/p/?LinkId=519078)
+* [Win2D のドキュメント](https://microsoft.github.io/Win2D/html/Introduction.htm)
 * [メディア再生](media-playback.md)

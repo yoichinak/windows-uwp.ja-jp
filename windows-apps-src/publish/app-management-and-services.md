@@ -1,23 +1,23 @@
 ---
-Description: 管理および各パートナー センターのアプリに関連する詳細を表示するなどのサービスの構成/B がテストされ、マップされます。
+Description: パートナーセンターで各アプリに関連する詳細を管理および表示し、A/B テストやマップなどのサービスを構成します。
 title: アプリの管理とサービス
 ms.assetid: 99DA2BC1-9B5D-4746-8BC0-EC723D516EEF
 ms.date: 03/21/2019
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: e9567e06f80035bbcf811b5aaeaf8058ffee41a3
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 30610cdacbd9d2be10205958688376371f0387f6
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67320029"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74260036"
 ---
 # <a name="app-management-and-services"></a>アプリの管理とサービス
 
-各でアプリに関連する詳細を管理および表示できます[パートナー センター](https://partner.microsoft.com/dashboard)通知などのサービスを構成および B は、テスト、およびマップ/。
+[パートナーセンター](https://partner.microsoft.com/dashboard)で各アプリに関連する詳細を管理および表示したり、通知、A/B テスト、マップなどのサービスを構成したりすることができます。
 
-パートナー センターでのアプリを使用する場合は、左側のナビゲーション メニューのセクションを確認します**サービス**と**アプリ管理**します。 これらのセクションを展開すると、次の機能にアクセスできます。
+パートナーセンターでアプリを使用する場合、**サービス**と**アプリ管理**の左側のナビゲーションメニューにセクションが表示されます。 これらのセクションを展開すると、次の機能にアクセスできます。
 
 ## <a name="services"></a>サービス
 
@@ -25,9 +25,9 @@ ms.locfileid: "67320029"
 
 ## <a name="xbox-live"></a>Xbox Live
 
-有効にできますが、ゲームを公開する場合、 [Xbox Live クリエーターズ プログラム](https://www.xbox.com/developers/creators-program)このページでします。 これにより、構成とテスト、Xbox Live 機能を起動し、最終的に、Xbox Live クリエーターズ プログラム ゲームを発行することができます。
+ゲームを発行する場合は、このページで[Xbox Live](https://www.xbox.com/developers/creators-program)作成者プログラムを有効にすることができます。 これにより、Xbox Live の機能の構成とテストを開始し、最終的に Xbox Live クリエータープログラムゲームを発行できます。
 
-詳細については、次を参照してください。 [Xbox Live クリエーターズ プログラムの概要](https://docs.microsoft.com/gaming/xbox-live/get-started-with-creators/get-started-with-xbox-live-creators)と[新しい Xbox Live クリエーターズ プログラムのタイトルを作成し、テスト環境に公開](https://docs.microsoft.com/gaming/xbox-live/get-started-with-creators/create-and-test-a-new-creators-title)します。
+詳細については、「 [Xbox Live 作成者プログラムの概要](https://docs.microsoft.com/gaming/xbox-live/get-started-with-creators/get-started-with-xbox-live-creators)」を参照して、[新しい xbox Live 作成者プログラムのタイトルを作成し、テスト環境に発行](https://docs.microsoft.com/gaming/xbox-live/get-started-with-creators/create-and-test-a-new-creators-title)してください。
 
 ## <a name="experimentation"></a>Experimentation
 
@@ -37,21 +37,21 @@ ms.locfileid: "67320029"
 
 ## <a name="maps"></a>マップ
 
-Windows 10 または Windows 8.x を対象としたアプリでマップ サービスを使うには、[Bing 地図デベロッパー センター](https://go.microsoft.com/fwlink/p/?LinkId=614880)にアクセスしてください。 Bing マップ デベロッパー センターからマップの認証キーを要求し、アプリに追加する方法については、次を参照してください。[マップ認証キーを要求](../maps-and-location/authentication-key.md)の詳細。 
+Windows 10 または Windows 8.x を対象としたアプリでマップ サービスを使うには、[Bing 地図デベロッパー センター](https://www.bingmapsportal.com/)にアクセスしてください。 Bing Maps デベロッパーセンターからマップ認証キーを要求してアプリに追加する方法の詳細については、「 [request a maps authentication key](../maps-and-location/authentication-key.md) 」を参照してください。 
 
-使用して、**マップ**ページ Windows Phone 8.1 以前発行されたアプリに対してのみです。 これらのアプリでマップのサービスを使用するには、アプリのコードに含めるには、マップ サービスのアプリケーション ID とトークンを要求する必要があります。 クリックすると**トークンを取得する**、マップ サービス アプリケーション ID を生成します (**ApplicationID**) とマップ サービスの認証トークン (**AuthenticationToken**) アプリの。 パッケージ化したりする前に、コードをこれらの値を追加し、アプリを送信してください。 詳細については、「[Windows Phone 8 でマップ コントロールをページに追加する方法](https://go.microsoft.com/fwlink/p/?LinkId=614882)」を参照してください。
+**[マップ]** ページは、以前に発行された Windows Phone 8.1 以前のアプリに対してのみ使用してください。 これらのアプリでマップサービスを使用するには、アプリのコードに含めるマップサービスアプリケーション ID とトークンを要求する必要があります。 [トークンの**取得**] をクリックすると、マップサービスアプリケーション ID (**ApplicationID**) が生成され、アプリのサービス認証トークン (**authenticationtoken**) がマップされます。 アプリをパッケージ化して送信する前に、これらの値をコードに追加してください。 詳細については、「[Windows Phone 8 でマップ コントロールをページに追加する方法](https://docs.microsoft.com/previous-versions/windows/apps/jj207033(v=vs.105)?redirectedfrom=MSDN)」を参照してください。
 
 ## <a name="product-collections-and-purchases"></a>製品のコレクションと購入
 
-Microsoft Store コレクション API と Microsoft Store 購入 API を使用して、アプリケーションとアドオンの所有権情報にアクセスする、関連付けられている入力する必要があります。 ここでの Azure AD クライアント Id。 これらの変更が有効になるまで最大で 16 時間かかることに注意してください。
+Microsoft Store collection API と Microsoft Store purchase API を使用してアプリとアドオンの所有権情報にアクセスするには、関連付けられた Azure AD クライアント Id をここに入力する必要があります。 これらの変更が有効になるまで最大で 16 時間かかることに注意してください。
 
 詳しくは、「[サービスから製品の権利を管理する](../monetize/view-and-grant-products-from-a-service.md)」をご覧ください。
 
 ## <a name="administrator-consent"></a>管理者の同意
 
-お使いの製品が Azure AD と連携し、いずれかを要求する Api を呼び出すかどうか[アプリケーションのアクセス許可または委任されたアクセス許可](https://developer.microsoft.com/graph/docs/concepts/permissions_reference)を管理者の同意が必要です、ここで、Azure AD のクライアント ID を入力します。 これにより、管理者がテナント内のすべてのユーザーの代理として機能するのには、製品の組織 grant 同意用アプリを取得します。
+製品が Azure AD と統合され、[アプリケーションのアクセス許可または](https://developer.microsoft.com/graph/docs/concepts/permissions_reference)管理者の同意が必要な委任されたアクセス許可を要求する api を呼び出す場合は、ここに AZURE AD クライアント ID を入力します。 これにより、組織のアプリを取得する管理者は、テナント内のすべてのユーザーの代理として、製品の同意を与えることができます。
 
-詳細については、次を参照してください。[テナント全体の同意を要求する](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#requesting-consent-for-an-entire-tenant)します。
+詳細については、「[テナント全体に対する同意の要求](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#requesting-consent-for-an-entire-tenant)」を参照してください。
 
 ## <a name="app-management"></a>アプリ管理
 
@@ -78,22 +78,22 @@ Microsoft Store コレクション API と Microsoft Store 購入 API を使用�
 
 各パッケージの名前、バージョン、およびアーキテクチャが表示されます。 **[詳細]** をクリックすると、サポートされる言語、アプリの機能、ファイル サイズなどの詳しい情報が表示されます。 パッケージごとに表示される情報は、対象となるオペレーティング システムとその他の要因によって異なることがあります。 
 
-OEM アクセス許可を持つ開発者は、 **[現在のパッケージ]** ページから [プレインストール パッケージを生成](generate-preinstall-packages-for-oems.md) することもできます。
+OEM アクセス許可を持つ開発者は、[[現在のパッケージ]](generate-preinstall-packages-for-oems.md) ページから **プレインストール パッケージを生成** することもできます。
 
-## <a name="wnsmpns"></a>WNS または MPNS
+## <a name="wnsmpns"></a>WNS/MPNS
 
-**WNS/MPNS**セクションを作成して、アプリの顧客に通知を送信するオプションを提供します。 
+**WNS/MPNS**セクションには、アプリの顧客に通知を作成して送信するためのオプションが用意されています。 
 
 > [!TIP]
-> UWP アプリの使用を推奨、**通知**パートナー センターで機能します。 この機能では、すべてのアプリの顧客に通知を送信できます。 または、対象となる条件を満たす、Windows 10 の顧客のサブセットには、で定義した、[顧客セグメント](create-customer-segments.md)します。 詳しくは、「[アプリのユーザーに通知を送信する](send-push-notifications-to-your-apps-customers.md)」をご覧ください。
+> UWP アプリの場合は、パートナーセンターの**通知**機能を使用することをお勧めします。 この機能を使用すると、お客様のすべてのお客様に通知を送信することができます。また、お客様の[セグメント](create-customer-segments.md)で定義した条件を満たす Windows 10 のお客様の対象となるサブセットに通知を送信することもできます。 詳しくは、「[アプリのユーザーに通知を送信する](send-push-notifications-to-your-apps-customers.md)」をご覧ください。
 
-アプリのパッケージの種類、その特定の要件に応じて、次のオプションのいずれかを使用することができますも。 
+アプリのパッケージの種類とその具体的な要件に応じて、次のいずれかのオプションを使用することもできます。 
 
 -   **Windows プッシュ通知サービス (WNS)** を使うと、独自のクラウド サービスからトースト更新、タイル更新、バッジ更新、直接更新を送ることができます。 詳しくは、「[Windows プッシュ通知サービスの概要](../design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview.md)」をご覧ください。
 
--   **Microsoft Azure Mobile Apps** を使うと、プッシュ通知の送信や、アプリ ユーザーの認証や管理、クラウドでのアプリ データの保存をすることができます。 詳しくは、[モバイル アプリに関するドキュメント](https://go.microsoft.com/fwlink/p/?LinkId=221116)をご覧ください。
+-   **Microsoft Azure Mobile Apps** を使うと、プッシュ通知の送信や、アプリ ユーザーの認証や管理、クラウドでのアプリ データの保存をすることができます。 詳しくは、[モバイル アプリに関するドキュメント](https://docs.microsoft.com/azure/app-service-mobile/)をご覧ください。
 
--   **Microsoft プッシュ通知サービス (MPNS)** Windows Phone の前に発行された .xap パッケージで使用できます。 ここで構成を行わなくても、認証されていない通知を限られた数送信することができますが、制限が減らないように認証済みの通知を使うことをお勧めします。 MPNS を使用している場合に表示されたフィールドに証明書をアップロードする必要があります、 **WNS/MPNS**ページ。 詳しくは、「[Windows Phone 8 のプッシュ通知を送信するように認証済み Web サービスを設定する](https://go.microsoft.com/fwlink/p/?LinkId=528736)」をご覧ください。
+-   **Microsoft プッシュ通知サービス (MPNS)** は、以前に公開された .xap パッケージと共に Windows Phone に使用できます。 ここで構成を行わなくても、認証されていない通知を限られた数送信することができますが、制限が減らないように認証済みの通知を使うことをお勧めします。 MPNS を使用している場合は、 **[WNS/MPNS]** ページで指定したフィールドに証明書をアップロードする必要があります。 詳しくは、「[Windows Phone 8 のプッシュ通知を送信するように認証済み Web サービスを設定する](https://docs.microsoft.com/previous-versions/windows/apps/ff941099(v=vs.105)?redirectedfrom=MSDN)」をご覧ください。
  
 
  

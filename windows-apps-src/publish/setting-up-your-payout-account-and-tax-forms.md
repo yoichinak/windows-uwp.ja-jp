@@ -6,12 +6,12 @@ ms.date: 12/14/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 974d96f6ba2daf275ffd346f50571787d4eee925
-ms.sourcegitcommit: ad2940a12a7ee59ee7696cd23a03743eef84ca31
+ms.openlocfilehash: 5a56630a0a2f0acdc71241ac0234cad463e45ace
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71275751"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74259908"
 ---
 # <a name="set-up-your-payout-account-and-tax-forms"></a>受取りアカウントの設定と税関連の書類
 
@@ -152,10 +152,10 @@ Microsoft Store のアプリの売上から金額を受け取るには、支払�
 
 支払いに PayPal を使う場合の一般的な質問:
 
-- **支払いを受けるために必要な PayPal 設定は何ですか。** PayPal アカウントで eCheck の支払いをブロックしないようにする必要があります。 この設定は、PayPal の [支払い受領設定] ページで管理します。 詳しくは、[PayPal のアカウント セットアップ ページ](https://go.microsoft.com/fwlink/p/?linkid=513139)をご覧ください。
+- **支払いを受けるために必要な PayPal 設定は何ですか。** PayPal アカウントで eCheck の支払いをブロックしないようにする必要があります。 この設定は、PayPal の [支払い受領設定] ページで管理します。 詳しくは、[PayPal のアカウント セットアップ ページ](https://developer.paypal.com/webapps/developer/docs/classic/admin/setup-account/)をご覧ください。
 - **国/地域はサポートされていますか?** お支払いの[しきい値、方法、および](payment-thresholds-methods-and-timeframes.md)期間を参照して、PayPal がサポートされている支払い方法を確認してください。
-- **PayPal アカウントは、パートナーセンターアカウントと同じ国/地域に登録する必要がありますか。** No. PayPal アカウントを設定する際は、既定の構成をそのまま使用できます。 特定の通貨による支払いをブロックしていない限り、国/地域と通貨が違っていても、問題は発生しません。 この設定は、PayPal の [支払い受領設定] ページで管理します。
-- **手動で PayPal の支払いを受け入れる必要がありますか。** No. PayPal アカウントは、既定では、ユーザーに対して支払いを手動で承認するように求める設定になっています。この場合は、支払いを 30 日以内に承認しないと、支払いが返されることになります。 この設定を変更するには、PayPal の [その他の設定] ページで [確認する] をオフにします。
+- **PayPal アカウントは、パートナーセンターアカウントと同じ国/地域に登録する必要がありますか。** いいえ。 PayPal アカウントを設定する際は、既定の構成をそのまま使用できます。 特定の通貨による支払いをブロックしていない限り、国/地域と通貨が違っていても、問題は発生しません。 この設定は、PayPal の [支払い受領設定] ページで管理します。
+- **手動で PayPal の支払いを受け入れる必要がありますか。** いいえ。 PayPal アカウントは、既定では、ユーザーに対して支払いを手動で承認するように求める設定になっています。この場合は、支払いを 30 日以内に承認しないと、支払いが返されることになります。 この設定を変更するには、PayPal の [その他の設定] ページで [確認する] をオフにします。
 - **PayPal はどのような通貨をサポートしていますか。** 現在の一覧については、 [PayPal のサポートページ](https://developer.paypal.com/docs/classic/api/currency-codes/#paypal)を参照してください。
 
 ### <a name="specific-requirements-for-certain-countriesregions"></a>特定の国や地域に固有の要件

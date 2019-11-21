@@ -6,12 +6,12 @@ ms.date: 09/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, サンプル, DirectX, 構造
 ms.localizationpriority: medium
-ms.openlocfilehash: a04e6714772d9b17c281f81ad93582d1fb691c9b
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: d248d8737f32d35cf0a25f4ad0c9138a1d334365
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66368502"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74258498"
 ---
 # <a name="marble-maze-application-structure"></a>Marble Maze のアプリケーション構造
 
@@ -21,7 +21,7 @@ ms.locfileid: "66368502"
 DirectX ユニバーサル Windows プラットフォーム (UWP) アプリの構造は、従来のデスクトップ アプリケーションとは異なります。 [HWND](https://docs.microsoft.com/windows/desktop/WinProg/windows-data-types) などのハンドル型や [CreateWindow](https://docs.microsoft.com/windows/desktop/api/winuser/nf-winuser-createwindowa) などの関数は使いません。それよりも新しい、オブジェクト指向に沿った方法で UWP アプリを開発できるように、Windows ランタイムには [Windows::UI::Core::ICoreWindow](https://docs.microsoft.com/uwp/api/Windows.UI.Core.ICoreWindow) をはじめとするインターフェイスが用意されています。 ここでは、Marble Maze アプリ コードがどのように構成されているかを確認します。
 
 > [!NOTE]
-> このドキュメントに対応するサンプル コードは、[DirectX Marble Maze ゲームのサンプルに関するページ](https://go.microsoft.com/fwlink/?LinkId=624011)にあります。
+> このドキュメントに対応するサンプル コードは、[DirectX Marble Maze ゲームのサンプルに関するページ](https://github.com/microsoft/Windows-appsample-marble-maze)にあります。
 
  
 ## 
@@ -123,7 +123,7 @@ UWP ゲームの初期化時には、通常、Direct3D、Direct2D などのラ�
     });
 ```
 
-**MarbleMazeMain**クラスを定義、 *m\_deferredResourcesReady*非同期読み込みが完了したことを示すフラグ。 **MarbleMazeMain::LoadDeferredResources** メソッドは、ゲーム リソースを読み込んで、このフラグを設定します。 アプリの更新 (**MarbleMazeMain::Update**) フェーズとレンダリング (**MarbleMazeMain::Render**) フェーズでは、このフラグを確認します。 このフラグが設定されると、ゲームは通常どおりに続行されます。 フラグがまだ設定されていない場合、ゲームは読み込み画面を表示します。
+**MarbleMazeMain**クラスは、非同期読み込みが完了したことを示すために、 *m\_deferredResourcesReady*フラグを定義します。 **MarbleMazeMain::LoadDeferredResources** メソッドは、ゲーム リソースを読み込んで、このフラグを設定します。 アプリの更新 (**MarbleMazeMain::Update**) フェーズとレンダリング (**MarbleMazeMain::Render**) フェーズでは、このフラグを確認します。 このフラグが設定されると、ゲームは通常どおりに続行されます。 フラグがまだ設定されていない場合、ゲームは読み込み画面を表示します。
 
 UWP アプリの非同期プログラミングについて詳しくは、「[C++ での非同期プログラミング](https://docs.microsoft.com/windows/uwp/threading-async/asynchronous-programming-in-cpp-universal-windows-platform-apps)」をご覧ください。
 
@@ -195,7 +195,7 @@ enum class GameState
 };
 ```
 
-たとえば、**MainMenu** 状態は、メイン メニューが表示され、ゲームがアクティブでないと定義されています。 反対に、**InGameActive** 状態は、ゲームがアクティブで、メニューが表示されていないと定義されています。 **MarbleMazeMain**クラスを定義、 **m\_gameState**メンバー変数をアクティブなゲームの状態を保持します。
+たとえば、**MainMenu** 状態は、メイン メニューが表示され、ゲームがアクティブでないと定義されています。 反対に、**InGameActive** 状態は、ゲームがアクティブで、メニューが表示されていないと定義されています。 **MarbleMazeMain**クラスは、アクティブなゲームの状態を保持するために、 **m\_の状態**のメンバー変数を定義します。
 
 **MarbleMazeMain::Update** メソッドと **MarbleMazeMain::Render** メソッドは、現在の状態のロジックを実行するために、switch ステートメントを使います。 次の例は、**MarbleMazeMain::Update** メソッドでのこの switch ステートメントがどのようなものかを示しています (構造をわかりやすく示すために、細部は削除されています)。
 
@@ -423,9 +423,9 @@ void MarbleMazeMain::LoadState()
 
 ## <a name="related-topics"></a>関連トピック
 
-* [Marble Maze サンプルへのビジュアル コンテンツの追加](adding-visual-content-to-the-marble-maze-sample.md)
-* [Marble Maze サンプルの基礎](marble-maze-sample-fundamentals.md)
-* [Marble Maze、C++ および DirectX での UWP ゲームの開発](developing-marble-maze-a-windows-store-game-in-cpp-and-directx.md)
+* [大理石の迷路サンプルにビジュアルコンテンツを追加する](adding-visual-content-to-the-marble-maze-sample.md)
+* [大理石の迷路サンプルの基礎](marble-maze-sample-fundamentals.md)
+* [および DirectX でのC++ UWP ゲームである大理石迷路の開発](developing-marble-maze-a-windows-store-game-in-cpp-and-directx.md)
 
  
 

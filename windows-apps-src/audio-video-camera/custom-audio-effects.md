@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 360faf3f-7e73-4db4-8324-3391f801d827
 ms.localizationpriority: medium
-ms.openlocfilehash: 6bebf9533ab045822902d44f87f68eec55c11074
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: e4bcd5294031e64aa9f21371fa389978b5e708ab
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67318573"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74257419"
 ---
 # <a name="custom-audio-effects"></a>カスタムのオーディオ特殊効果
 
@@ -22,9 +22,9 @@ ms.locfileid: "67318573"
 
 カスタムのオーディオ効果は、[**IBasicAudioEffect**](https://docs.microsoft.com/uwp/api/Windows.Media.Effects.IBasicAudioEffect) インターフェイスを実装するクラスで定義します。 このクラスは、アプリのプロジェクトに直接含めることはできません。 代わりに、Windows ランタイム コンポーネントを使ってオーディオ特殊効果のクラスをホストする必要があります。
 
-**Windows ランタイム コンポーネントをオーディオ効果の追加します。**
+**オーディオ効果の Windows ランタイムコンポーネントを追加する**
 
-1.  Microsoft Visual Studio で、ソリューションを開き、 **[ファイル]** メニューから **[追加]、[新しいプロジェクト]** の順にクリックします。
+1.  Microsoft Visual Studio で、ソリューションを開き、 **[ファイル]** メニューから **[追加]、[新しいプロジェクト]&gt; の順にクリックします。
 2.  プロジェクトの種類として **[Windows ランタイム コンポーネント (ユニバーサル Windows)]** を選びます。
 3.  この例では、プロジェクトに *AudioEffectComponent* という名前を付けます。 この名前は後でコードで参照されます。
 4.  **[OK]** をクリックします。
@@ -83,7 +83,7 @@ ms.locfileid: "67318573"
 
  
 
-これで、**ProcessFrame** メソッドの実装を効果に追加できます。 最初に、入力と出力の両方のオーディオ フレームから [**AudioBuffer**](https://docs.microsoft.com/uwp/api/Windows.Media.AudioBuffer) オブジェクトを取得します。 出力フレームが書き込み用で、入力フレームが読み取り用です。 次に、[**CreateReference**](https://docs.microsoft.com/uwp/api/windows.graphics.imaging.bitmapbuffer.createreference) を呼び出して、各バッファーの [**IMemoryBufferReference**](https://docs.microsoft.com/uwp/api/Windows.Foundation.IMemoryBufferReference) を取得します。 その後、実際のデータ バッファーを取得するために、先ほど定義した COM 相互運用機能のインターフェイス (**IMemoryByteAccess**) として **IMemoryBufferReference** オブジェクトをキャストし、**GetBuffer** を呼び出します。
+これで、**ProcessFrame** メソッドの実装を効果に追加できます。 最初に、入力と出力の両方のオーディオ フレームから [**AudioBuffer**](https://docs.microsoft.com/uwp/api/Windows.Media.AudioBuffer) オブジェクトを取得します。 出力フレームが書き込み用で、入力フレームが読み取り用です。 次に、[**CreateReference**](https://docs.microsoft.com/uwp/api/Windows.Foundation.IMemoryBufferReference) を呼び出して、各バッファーの [**IMemoryBufferReference**](https://docs.microsoft.com/uwp/api/windows.graphics.imaging.bitmapbuffer.createreference) を取得します。 その後、実際のデータ バッファーを取得するために、先ほど定義した COM 相互運用機能のインターフェイス (**IMemoryByteAccess**) として **IMemoryBufferReference** オブジェクトをキャストし、**GetBuffer** を呼び出します。
 
 これで、データ バッファーが取得され、入力バッファーからの読み取りと出力バッファーへの書き込みが可能になります。 入力バッファーの各サンプルで値が取得され、1 - **Mix**が乗算されて、効果のドライ信号値が設定されます。 次にエコー バッファー内の現在の位置からサンプルが取得され、**Mix** が乗算されて、効果のウェット値が設定されます。 出力サンプルはドライとウェット値の合計に設定されます。 最後に、各入力サンプルがエコー バッファーに格納され、現在のサンプルのインデックスがインクリメントされます。
 
@@ -93,7 +93,7 @@ ms.locfileid: "67318573"
 
 ### <a name="close-method"></a>Close メソッド
 
-システムが呼び出す、 [**閉じる**](https://docs.microsoft.com/uwp/api/windows.media.effects.ibasicaudioeffect.close) [**閉じる**](https://docs.microsoft.com/uwp/api/windows.media.effects.ibasicaudioeffect.close)効果をシャット ダウンするときに、クラスのメソッド。 このメソッドを使って、作成したすべてのリソースを破棄する必要があります。 このメソッドの [**MediaEffectClosedReason**](https://docs.microsoft.com/uwp/api/Windows.Media.Effects.MediaEffectClosedReason) 引数により、効果が正常に終了されたかどうかがわかります。エラーが発生したり、必要なエンコード形式が効果でサポートされていないと、この引数で通知されます。
+効果をシャットダウンする必要がある場合、システムはクラスの[**close**](https://docs.microsoft.com/uwp/api/windows.media.effects.ibasicaudioeffect.close) [**close**](https://docs.microsoft.com/uwp/api/windows.media.effects.ibasicaudioeffect.close)メソッドを呼び出します。 このメソッドを使って、作成したすべてのリソースを破棄する必要があります。 このメソッドの [**MediaEffectClosedReason**](https://docs.microsoft.com/uwp/api/Windows.Media.Effects.MediaEffectClosedReason) 引数により、効果が正常に終了されたかどうかがわかります。エラーが発生したり、必要なエンコード形式が効果でサポートされていないと、この引数で通知されます。
 
 [!code-cs[Close](./code/AudioGraph/AudioEffectComponent/ExampleAudioEffect.cs#SnippetClose)]
 
@@ -111,7 +111,7 @@ TimeIndependent [**TimeIndependent**](https://docs.microsoft.com/uwp/api/windows
 
 ### <a name="useinputframeforoutput-property"></a>UseInputFrameForOutput プロパティ
 
-効果がその出力を [**ProcessFrame**](https://docs.microsoft.com/uwp/api/windows.media.effects.ibasicaudioeffect.processframe) に渡される [**ProcessAudioFrameContext**](https://docs.microsoft.com/uwp/api/Windows.Media.Effects.ProcessAudioFrameContext) の [**OutputFrame**](https://docs.microsoft.com/uwp/api/windows.media.effects.processaudioframecontext.outputframe) ではなく、[**InputFrame**](https://docs.microsoft.com/uwp/api/windows.media.effects.processaudioframecontext.inputframe) のオーディオ バッファーに書き込む場合には、[**UseInputFrameForOutput**](https://docs.microsoft.com/uwp/api/windows.media.effects.ibasicaudioeffect.useinputframeforoutput) プロパティを **true** に設定します。 
+効果がその出力を [**ProcessFrame**](https://docs.microsoft.com/uwp/api/windows.media.effects.ibasicaudioeffect.useinputframeforoutput) に渡されるProcessAudioFrameContext[**の**](https://docs.microsoft.com/uwp/api/windows.media.effects.processaudioframecontext.inputframe)OutputFrame[ **ではなく、** ](https://docs.microsoft.com/uwp/api/Windows.Media.Effects.ProcessAudioFrameContext)InputFrame[ **のオーディオ バッファーに書き込む場合には、** ](https://docs.microsoft.com/uwp/api/windows.media.effects.ibasicaudioeffect.processframe)UseInputFrameForOutput[**プロパティを**true](https://docs.microsoft.com/uwp/api/windows.media.effects.processaudioframecontext.outputframe) に設定します。 
 
 [!code-cs[UseInputFrameForOutput](./code/AudioGraph/AudioEffectComponent/ExampleAudioEffect.cs#SnippetUseInputFrameForOutput)]
 
@@ -130,7 +130,7 @@ TimeIndependent [**TimeIndependent**](https://docs.microsoft.com/uwp/api/windows
 [!code-cs[UsingAudioEffectComponent](./code/AudioGraph/cs/MainPage.xaml.cs#SnippetUsingAudioEffectComponent)]
 
 ### <a name="add-your-custom-effect-to-an-audiograph-node"></a>AudioGraph ノードにカスタム効果を追加する
-オーディオ グラフの使用に関する概要については、「[オーディオ グラフ](audio-graphs.md)」をご覧ください。 次のコード スニペットは、この記事で説明したエコー効果をオーディオ グラフ ノードに追加する例を示しています。 まず、[**PropertySet**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Collections.PropertySet) が作成され、効果によって定義された **Mix** プロパティの値が設定されます。 次に、[**AudioEffectDefinition**](https://docs.microsoft.com/uwp/api/Windows.Media.Effects.AudioEffectDefinition) コンストラクターが呼び出され、カスタム効果の種類とプロパティ セットの完全なクラス名が渡されます。 最後に、既存の [**FileInputNode**](https://docs.microsoft.com/uwp/api/windows.media.audio.createaudiofileinputnoderesult.fileinputnode) の [**EffectDefinitions**](https://docs.microsoft.com/uwp/api/windows.media.audio.audiofileinputnode.effectdefinitions)プロパティに効果の定義が追加され、カスタム効果によるオーディオの処理が行われます。 
+オーディオ グラフの使用に関する概要については、「[オーディオ グラフ](audio-graphs.md)」をご覧ください。 次のコード スニペットは、この記事で説明したエコー効果をオーディオ グラフ ノードに追加する例を示しています。 まず、[**PropertySet**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Collections.PropertySet) が作成され、効果によって定義された **Mix** プロパティの値が設定されます。 次に、[**AudioEffectDefinition**](https://docs.microsoft.com/uwp/api/Windows.Media.Effects.AudioEffectDefinition) コンストラクターが呼び出され、カスタム効果の種類とプロパティ セットの完全なクラス名が渡されます。 最後に、既存の [**FileInputNode**](https://docs.microsoft.com/uwp/api/windows.media.audio.audiofileinputnode.effectdefinitions) の [**EffectDefinitions**](https://docs.microsoft.com/uwp/api/windows.media.audio.createaudiofileinputnoderesult.fileinputnode)プロパティに効果の定義が追加され、カスタム効果によるオーディオの処理が行われます。 
 
 [!code-cs[AddCustomEffect](./code/AudioGraph/cs/MainPage.xaml.cs#SnippetAddCustomEffect)]
 
@@ -145,9 +145,9 @@ TimeIndependent [**TimeIndependent**](https://docs.microsoft.com/uwp/api/windows
 
 
 ## <a name="related-topics"></a>関連トピック
-* [単純なカメラのプレビューへのアクセス](simple-camera-preview-access.md)
+* [単純なカメラプレビューへのアクセス](simple-camera-preview-access.md)
 * [メディア コンポジションと編集](media-compositions-and-editing.md)
-* [Win2D ドキュメント](https://go.microsoft.com/fwlink/p/?LinkId=519078)
+* [Win2D のドキュメント](https://microsoft.github.io/Win2D/html/Introduction.htm)
 * [メディア再生](media-playback.md)
 
  

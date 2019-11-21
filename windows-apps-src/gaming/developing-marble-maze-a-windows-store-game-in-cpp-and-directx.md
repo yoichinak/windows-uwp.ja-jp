@@ -6,12 +6,12 @@ ms.date: 08/10/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, サンプル, DirectX, 3D
 ms.localizationpriority: medium
-ms.openlocfilehash: 754d1eb535fa2ac2930513981bb7d85a428778e5
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: b9192c15dd745be43027f32a8af0f5f3f99a74d4
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67321339"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74259555"
 ---
 # <a name="developing-marble-maze-a-uwp-game-in-c-and-directx"></a>Marble Maze、C++ と DirectX での UWP ゲームの開発
 
@@ -21,10 +21,10 @@ ms.locfileid: "67321339"
 このトピックでは、DirectX と Visual C++ を使って 3D のユニバーサル Windows プラットフォーム (UWP) ゲームを作成する方法について説明します。 Marble Maze と呼ばれるこのゲームでは、タブレット、従来のデスクトップ、ノート PC などの、複数のフォーム ファクターを活用しています。
 
 > [!NOTE]
-> Marble Maze のソース コードをダウンロードするには、[GitHub のサンプル](https://go.microsoft.com/fwlink/?LinkId=624011)をご覧ください。
+> Marble Maze のソース コードをダウンロードするには、[GitHub のサンプル](https://github.com/microsoft/Windows-appsample-marble-maze)をご覧ください。
 
 > [!IMPORTANT]
-> Marble Maze は、UWP ゲームを作成するためのベスト プラクティスと考えられる設計パターンを示しています。 各自のプラクティスと開発するゲームの固有の要件に適合するように、このゲームの実装の詳細を利用できます。 各自のニーズに適合する別のテクニックやライブラリがある場合はそれを自由にお使いください (ただし、常に確認コードが合格する、 [Windows アプリ認定キット](https://docs.microsoft.com/windows/uwp/debug-test-perf/windows-app-certification-kit))。ゲーム開発を成功に不可欠に実装を考慮すると部分が強調します、このドキュメントで。
+> Marble Maze は、UWP ゲームを作成するためのベスト プラクティスと考えられる設計パターンを示しています。 各自のプラクティスと開発するゲームの固有の要件に適合するように、このゲームの実装の詳細を利用できます。 各自のニーズに適合する別のテクニックやライブラリがある場合はそれを自由にお使いください (ただし、コードが [Windows アプリ認定キット](https://docs.microsoft.com/windows/uwp/debug-test-perf/windows-app-certification-kit)によるテストに合格することを常に確かめてください。) ゲームの開発を成功させるために Marble Maze の実装が不可欠であると見なされる場合は、このドキュメントでその点を強調しています。
 
  
 
@@ -42,8 +42,8 @@ Marble Maze では、ユーザーは複数の方法でゲーム ボードを操�
 ## <a name="prerequisites"></a>前提条件
 
 
--   Windows 10 Creators Update します。
--   [Microsoft Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+-   Windows 10 の作成者の更新
+-   [Microsoft Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
 -   C++ プログラミングの知識
 -   DirectX と DirectX の用語に関する知識
 -   COM に関する基本的な知識
@@ -51,7 +51,7 @@ Marble Maze では、ユーザーは複数の方法でゲーム ボードを操�
 ## <a name="who-should-read-this"></a>このドキュメントの対象読者
 
 
-3D ゲームや Windows 10 用の他のグラフィックを多用するアプリケーションを作成したい場合は、これは。 このドキュメントで説明する基本原則とプラクティスを活用して、各自の UWP ゲームを作成してください。 C++ と DirectX のプログラミングの知識または強い興味があれば、このドキュメントを活用するのに役に立ちます。 DirectX の経験がない場合でも、類似の 3D グラフィックスのプログラミング環境の経験があれば役に立ちます。
+Windows 10 用の3D ゲームやその他のグラフィックを多用するアプリケーションの作成に関心がある場合は、この方法をお勧めします。 このドキュメントで説明する基本原則とプラクティスを活用して、各自の UWP ゲームを作成してください。 C++ と DirectX のプログラミングの知識または強い興味があれば、このドキュメントを活用するのに役に立ちます。 DirectX の経験がない場合でも、類似の 3D グラフィックスのプログラミング環境の経験があれば役に立ちます。
 
 ドキュメント「[チュートリアル: DirectX によるシンプルな UWP ゲームの作成](tutorial--create-your-first-uwp-directx-game.md)」に、DirectX と C++ を使った基本的な 3D シューティング ゲームを実装するサンプルの説明があります。
 
@@ -91,11 +91,11 @@ Marble Maze には再利用可能なコンポーネントがたくさん用意�
 
 | タイトル                                                                                                                    | 説明                                                                                                                                                                                                                                        |
 |--------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Marble Maze サンプルの基礎](marble-maze-sample-fundamentals.md)                                                   | ゲームの構造の概要と、ソース コードが従っているコーディング ガイドラインとスタイル ガイドラインの一部を示します。                                                                                                                                 |
-| [Marble Maze のアプリケーション構造](marble-maze-application-structure.md)                                               | Marble Maze アプリケーション コードの構造と、DirectX UWP アプリの構造と従来のデスクトップ アプリケーションの構造の違いについて説明します。                                                                                    |
-| [Marble Maze サンプルへのビジュアル コンテンツの追加](adding-visual-content-to-the-marble-maze-sample.md)                   | Direct3D と Direct2D を使うときに留意する主なプラクティスについて説明します。 これらのプラクティスが Marble Maze の視覚的なコンテンツにどのように適用されるかについても説明します。                                                                           |
-| [入力および Marble Maze サンプルへの対話機能を追加します。](adding-input-and-interactivity-to-the-marble-maze-sample.md) | ユーザーがメニュー間を移動し、ゲーム ボードを操作できるように、Marble Maze が加速度計入力、タッチ入力、Xbox One コントローラー入力を処理する方法について説明します。 入力を操作するときに留意するベスト プラクティスについても説明します。 |
-| [Marble Maze サンプルへのオーディオの追加](adding-audio-to-the-marble-maze-sample.md)                                     | Marble Maze でオーディオを操作して音楽とサウンド エフェクトをゲームのエクスペリエンスに追加する方法について説明します。                                                                                                                                                  |
+| [大理石の迷路サンプルの基礎](marble-maze-sample-fundamentals.md)                                                   | ゲームの構造の概要と、ソース コードが従っているコーディング ガイドラインとスタイル ガイドラインの一部を示します。                                                                                                                                 |
+| [大理石迷路アプリケーション構造](marble-maze-application-structure.md)                                               | Marble Maze アプリケーション コードの構造と、DirectX UWP アプリの構造と従来のデスクトップ アプリケーションの構造の違いについて説明します。                                                                                    |
+| [大理石の迷路サンプルにビジュアルコンテンツを追加する](adding-visual-content-to-the-marble-maze-sample.md)                   | Direct3D と Direct2D を使うときに留意する主なプラクティスについて説明します。 これらのプラクティスが Marble Maze の視覚的なコンテンツにどのように適用されるかについても説明します。                                                                           |
+| [大理石の迷路サンプルに入力とインタラクティビティを追加する](adding-input-and-interactivity-to-the-marble-maze-sample.md) | ユーザーがメニュー間を移動し、ゲーム ボードを操作できるように、Marble Maze が加速度計入力、タッチ入力、Xbox One コントローラー入力を処理する方法について説明します。 入力を操作するときに留意するベスト プラクティスについても説明します。 |
+| [大理石の迷路サンプルにオーディオを追加する](adding-audio-to-the-marble-maze-sample.md)                                     | Marble Maze でオーディオを操作して音楽とサウンド エフェクトをゲームのエクスペリエンスに追加する方法について説明します。                                                                                                                                                  |
 
  
 

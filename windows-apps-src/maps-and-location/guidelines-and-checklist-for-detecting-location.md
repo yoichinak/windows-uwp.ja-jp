@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, 位置, 地図, 位置情報
 ms.localizationpriority: medium
-ms.openlocfilehash: b92d74332bb13a11adc25cb33c0d026e14a5b9e9
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 8ab8e91c773990bafd414af1ae3d071ac6142088
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66371662"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74259357"
 ---
 # <a name="guidelines-for-location-aware-apps"></a>位置認識アプリのガイドライン
 
@@ -20,7 +20,7 @@ ms.locfileid: "66371662"
 
 **重要な API**
 
--   [**地理的位置情報**](https://docs.microsoft.com/uwp/api/Windows.Devices.Geolocation)
+-   [**情報**](https://docs.microsoft.com/uwp/api/Windows.Devices.Geolocation)
 -   [**Geolocator**](https://docs.microsoft.com/uwp/api/Windows.Devices.Geolocation.Geolocator)
 
 このトピックでは、ユーザーの位置にアクセスする必要があるアプリを構築する際のパフォーマンス ガイドラインを説明します。
@@ -41,13 +41,13 @@ ms.locfileid: "66371662"
 -   位置データの取得中は、進行状況バーまたは進行状況リングを表示します。 <!--For info on the available progress controls and how to use them, see [**Guidelines for progress controls**](guidelines-and-checklist-for-progress-controls.md).-->
 -   位置情報サービスが無効または利用不可になっている場合は、適切なエラー メッセージまたはダイアログを表示します。
 
-    位置情報の設定でアプリからユーザーの位置情報へのアクセスを許可していない場合は、**設定**アプリ内にある**位置情報に関するプライバシー設定**への使いやすいリンクを示すことをお勧めします。 たとえば、ハイパーリンク コントロールを使うか、`ms-settings:privacy-location` URI を使用して [**LaunchUriAsync**](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchuriasync) メソッドを呼び出すことでコードから**設定**アプリを起動します。 詳しくは、「[Windows 設定アプリの起動](https://docs.microsoft.com/windows/uwp/launch-resume/launch-settings-app)」をご覧ください。
+    位置情報の設定でアプリからユーザーの位置情報へのアクセスを許可していない場合は、**設定**アプリ内にある**位置情報に関するプライバシー設定**への使いやすいリンクを示すことをお勧めします。 たとえば、ハイパーリンク コントロールを使うか、[ URI を使用してLaunchUriAsync](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchuriasync) **メソッドを呼び出すことでコードから**設定`ms-settings:privacy-location`アプリを起動します。 詳しくは、「[Windows 設定アプリの起動](https://docs.microsoft.com/windows/uwp/launch-resume/launch-settings-app)」をご覧ください。
 
 -   位置情報へのアクセスをユーザーが無効にしたときに、キャッシュされた位置データをクリアし、[**Geolocator**](https://docs.microsoft.com/uwp/api/Windows.Devices.Geolocation.Geolocator) を解放します。
 
-    ユーザーが設定を使って位置情報へのアクセスをオフにした場合に、[**Geolocator**](https://docs.microsoft.com/uwp/api/Windows.Devices.Geolocation.Geolocator) オブジェクトを解放します。 アプリが受信し、**アクセス\_DENIED**任意の場所 API 呼び出しの結果。 アプリで位置データを保存またはキャッシュしている場合は、ユーザーが位置情報へのアクセスを無効にするときにすべてのキャッシュ データをクリアします。 位置情報サービス経由で位置データを利用できないときに位置情報を手動で入力するための代替手段を用意してください。
+    ユーザーが設定を使って位置情報へのアクセスをオフにした場合に、[**Geolocator**](https://docs.microsoft.com/uwp/api/Windows.Devices.Geolocation.Geolocator) オブジェクトを解放します。 その後、アプリは、任意の場所の API 呼び出しに対して**アクセス\_拒否**された結果を受け取ります。 アプリで位置データを保存またはキャッシュしている場合は、ユーザーが位置情報へのアクセスを無効にするときにすべてのキャッシュ データをクリアします。 位置情報サービス経由で位置データを利用できないときに位置情報を手動で入力するための代替手段を用意してください。
 
--   位置情報サービスを再び有効にするための UI を用意します。 たとえば、更新ボタンを再インスタンス化を提供、 [ **Geolocator** ](https://docs.microsoft.com/uwp/api/Windows.Devices.Geolocation.Geolocator)オブジェクトおよびロケーション情報をもう一度取得を試みます。
+-   位置情報サービスを再び有効にするための UI を用意します。 たとえば、 [**Geolocator**](https://docs.microsoft.com/uwp/api/Windows.Devices.Geolocation.Geolocator)オブジェクトを再インスタンス化して位置情報を再度取得しようとする更新ボタンを提供します。
 
     位置情報サービスを再び有効にするための UI を提供する—
 
@@ -75,19 +75,19 @@ ms.locfileid: "66371662"
 
         位置データを提供するデバイスでは、さまざまなアプリから要求されるレポート間隔を追跡し、要求された最短の間隔でデータをレポートする場合があります。 これにより、精度の要件が最も高いアプリに必要なデータを提供できます。 そのため、別のアプリで要求された更新頻度の方が高い場合は、要求した頻度よりも頻繁に更新が生成されることがあります。
 
-        **注**  場所のソースが特定のレポート間隔の要求を許可するという保証はありません。 位置情報取得機能デバイスによってはレポート間隔を追跡しないものもありますが、追跡されるものとして指定しておくことをお勧めします。
+        場所のソースが特定のレポート間隔の要求を受け入れることは保証されていない  に**注意**してください。 位置情報取得機能デバイスによってはレポート間隔を追跡しないものもありますが、追跡されるものとして指定しておくことをお勧めします。
 
     -   電力を節約するには、[**desiredAccuracy**](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geolocator.desiredaccuracy) プロパティを設定して、アプリで高い精度のデータが必要かどうかを位置情報プラットフォームに示します。 高い精度のデータを必要とするアプリがなければ、GPS 位置情報取得機能を無効にして電力を節約できます。
 
         -   GPS でデータを取得するには、[**desiredAccuracy**](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geolocator.desiredaccuracy) を **HIGH** に設定します。
         -   ターゲティング広告のためにのみ位置情報を使うアプリは、消費電力を最小限に抑えるため、[**desiredAccuracy**](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geolocator.desiredaccuracy) を **Default** に設定します。
 
-        精度についてアプリに特定のニーズがある場合は、[**DesiredAccuracy**](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geolocator.desiredaccuracy) を使う代わりに [**DesiredAccuracyInMeters**](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geolocator.desiredaccuracyinmeters) プロパティを使うこともあります。 これは、通常、位置情報を移動体通信ビーコン、Wi-Fi ビーコンや衛星に基づいて取得できる Windows Phone に特に役立ちます。 より具体的な精度値を選ぶと、システムが位置情報を提供する際に最も低い消費電力で適切なテクノロジを識別するために役立ちます。
+        精度についてアプリに特定のニーズがある場合は、[**DesiredAccuracy**](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geolocator.desiredaccuracyinmeters) を使う代わりに [**DesiredAccuracyInMeters**](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geolocator.desiredaccuracy) プロパティを使うこともあります。 これは、通常、位置情報を移動体通信ビーコン、Wi-Fi ビーコンや衛星に基づいて取得できる Windows Phone に特に役立ちます。 より具体的な精度値を選ぶと、システムが位置情報を提供する際に最も低い消費電力で適切なテクノロジを識別するために役立ちます。
 
         次に、例を示します。
 
         -   アプリが広告の調整、天気、ニュースなどのための位置情報を取得している場合は、一般に 5000 m の精度で十分です。
-        -   近所の取引の近くにあるアプリを表示している場合は 300 メーターの精度は結果を提供する一般的です。
+        -   アプリで近隣の取引が隣接して表示されている場合は、通常、結果を提供するには300メーターの精度が適しています。
         -   ユーザーがお勧めの近くのレストランを探している場合は、ブロック内の位置を取得する必要がありますので、100 m の精度で十分です。
         -   ユーザーが自身の位置を共有しようとしている場合は、アプリには約 10 m の精度が必要です。
     -   アプリに特定の精度の要件がある場合は [**Geocoordinate.accuracy**](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geocoordinate.accuracy) プロパティを使います。 たとえば、ナビゲーション アプリでは、**Geocoordinate.accuracy** プロパティを使って、利用可能な位置情報データがアプリの要件を満たしているかどうかを調べます。
@@ -101,9 +101,9 @@ ms.locfileid: "66371662"
     -   ロー センサーには、加速度計、ジャイロメーター、磁力計が含まれます。
     -   フュージョン センサーには、向き、傾斜計、コンパスが含まれます。 フュージョン センサーは、ロー センサーの組み合わせからデータを取得します。
 
-    Windows ランタイム Api は、これらのセンサー、磁力計以外のすべてにアクセスできます。 フュージョン センサーの方がロー センサーよりも正確で安定していますが、より多くの電力を使います。 用途に適したセンサーを使う必要があります。 詳しくは、「[センサー](https://docs.microsoft.com/windows/uwp/devices-sensors/sensors)」をご覧ください。
+    Windows ランタイム Api は、磁力計を除くすべてのセンサーにアクセスできます。 フュージョン センサーの方がロー センサーよりも正確で安定していますが、より多くの電力を使います。 用途に適したセンサーを使う必要があります。 詳しくは、「[センサー](https://docs.microsoft.com/windows/uwp/devices-sensors/sensors)」をご覧ください。
 
-**コネクト スタンバイ**
+**コネクトスタンバイ**
 - PC がコネクト スタンバイ状態にある場合、[**Geolocator**](https://docs.microsoft.com/uwp/api/Windows.Devices.Geolocation.Geolocator) オブジェクトはいつでもインスタンス化できます。 しかし、**Geolocator** オブジェクトは集約する対象のセンサーを見つけることができず、[**GetGeopositionAsync**](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geolocator.getgeopositionasync) の呼び出しは 7 秒後にタイムアウトします。[**PositionChanged**](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geolocator.positionchanged) イベント リスナーの呼び出しは行われず、[**StatusChanged**](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geolocator.statuschanged) イベント リスナーは 1 回呼び出され、そのステータスは **NoData** となります。
 
 ## <a name="additional-usage-guidance"></a>その他の使い方のガイダンス
@@ -114,8 +114,8 @@ ms.locfileid: "66371662"
 ユーザーは、**設定**アプリの**位置情報に関するプライバシー設定**を使って、位置情報機能を無効にすることができます。
 
 -   ユーザーが位置情報サービスを無効にしたり再び有効にしたことを検出するには、次の操作を行います。
-    -   [  **StatusChanged**](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geolocator.statuschanged) イベントを処理します。 **StatusChanged** イベントの引数である [**Status**](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.statuschangedeventargs.status) プロパティの値は、ユーザーが位置情報サービスを無効にすると **Disabled** になります。
-    -   [  **GetGeopositionAsync**](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geolocator.getgeopositionasync) から返るエラー コードをチェックします。 場合は、ユーザーには、位置情報サービスが無効に、呼び出し**GetGeopositionAsync**で失敗する、**アクセス\_DENIED**エラーと[ **LocationStatus**](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geolocator.locationstatus)プロパティの値を**無効**します。
+    -   [  **StatusChanged**](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geolocator.statuschanged) イベントを処理します。 [StatusChanged**イベントの引数である**](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.statuschangedeventargs.status)Status プロパティの値は、ユーザーが位置情報サービスを無効にすると **Disabled** になります。
+    -   [  **GetGeopositionAsync**](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geolocator.getgeopositionasync) から返るエラー コードをチェックします。 ユーザーがロケーションサービスを無効にしている場合は、 **Getgeopositionasync**の呼び出しが**アクセス\_拒否**エラーで失敗し、 [**Locationstatus**](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geolocator.locationstatus)プロパティの値が**無効**になります。
 -   地図アプリのような、位置情報データが必須のアプリの場合は、必ず次の操作を実行してください。
     -   ユーザーの位置情報が変わったときに更新情報を取得できるように、[**PositionChanged**](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geolocator.positionchanged) イベントを処理します。
     -   前の説明に従って [**StatusChanged**](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geolocator.statuschanged) イベントを処理し、位置設定の変化を検出します。
@@ -162,10 +162,10 @@ ms.locfileid: "66371662"
 ## <a name="related-topics"></a>関連トピック
 
 * [ジオフェンスのセットアップ](https://docs.microsoft.com/windows/uwp/maps-and-location/set-up-a-geofence)
-* [現在の場所を取得します](https://docs.microsoft.com/windows/uwp/maps-and-location/get-location)
+* [現在の位置情報の取得](https://docs.microsoft.com/windows/uwp/maps-and-location/get-location)
 * [2D、3D、Streetside ビューでの地図の表示](https://docs.microsoft.com/windows/uwp/maps-and-location/display-maps)
 <!--* [Design guidelines for privacy-aware apps](guidelines-for-enabling-sensitive-devices.md)-->
-* [UWP の場所のサンプル (地理的位置情報)](https://go.microsoft.com/fwlink/p/?linkid=533278)
+* [UWP ロケーションサンプル (位置情報)](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Geolocation)
  
 
  

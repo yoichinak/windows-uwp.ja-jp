@@ -6,18 +6,18 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: a7b82570-1f99-4bc3-ac78-412f6360e936
 ms.localizationpriority: medium
-ms.openlocfilehash: 01bc72051e9efa69adbbab574b932da829c83e72
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 34425a0e754d62a1d9d7716bca3576463aec3ba5
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57626637"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74259725"
 ---
 # <a name="known-issues-with-uwp-on-xbox-developer-program"></a>Xbox 開発者プログラムの UWP の既知の問題
 
 このトピックでは、Xbox One 開発者プログラムの UWP の既知の問題について説明します。 このプログラムについて詳しくは、「[Xbox One の UWP](index.md)」をご覧ください。 
 
-\[場合は、API リファレンスのトピックのリンクから来たユニバーサル デバイス ファミリ API の情報を探してを参照してください[Xbox でまだサポートされていない UWP 機能](https://go.microsoft.com/fwlink/?LinkID=760755)します。\]
+\[API リファレンストピックのリンクから、ユニバーサルデバイスファミリ API 情報を探している場合は、「 [Xbox でまだサポートされていない UWP 機能](https://docs.microsoft.com/uwp/extension-sdks/uwp-limitations-on-xbox?redirectedfrom=MSDN)」を参照してください。\]
 
 以下では、発生する可能性のある既知の問題を示していますが、すべての問題は網羅されていません。 
 
@@ -60,12 +60,12 @@ Xbox One デバイスでは、範囲 [57344, 65535] に含まれるポートへ�
 
 ## <a name="uwp-api-coverage"></a>UWP API カバレッジ
 
-Xbox では、すべての UWP API がサポートされているわけではありません。 動作しないことが確認されている API の一覧については、「[Xbox でまだサポートされていない UWP 機能](https://go.microsoft.com/fwlink/p/?LinkId=760755)」をご覧ください。 他の API に問題が見つかった場合は、フォーラムでご報告ください。 
+Xbox では、すべての UWP API がサポートされているわけではありません。 動作しないことが確認されている API の一覧については、「[Xbox でまだサポートされていない UWP 機能](https://docs.microsoft.com/uwp/extension-sdks/uwp-limitations-on-xbox?redirectedfrom=MSDN)」をご覧ください。 他の API に問題が見つかった場合は、フォーラムでご報告ください。 
 
 
 ## <a name="navigating-to-wdp-causes-a-certificate-warning"></a>WDP に移動すると証明書の警告が表示される
 
-提供された証明書についての、次のスクリーン ショットのような警告が表示されます。これは、Xbox One 本体によって署名されたセキュリティ証明書が、既知の信頼された発行元とは見なされないためです。 Windows Device Portal にアクセスするには、**[このサイトの閲覧を続行する]** をクリックします。
+提供された証明書についての、次のスクリーン ショットのような警告が表示されます。これは、Xbox One 本体によって署名されたセキュリティ証明書が、既知の信頼された発行元とは見なされないためです。 Windows Device Portal にアクセスするには、 **[このサイトの閲覧を続行する]** をクリックします。
 
 ![Web サイトのセキュリティ証明書の警告](images/security_cert_warning.jpg)
 

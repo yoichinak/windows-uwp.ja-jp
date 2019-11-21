@@ -4,14 +4,14 @@ description: このセクションでは、以前の Windows 8.1 バージョン
 title: PlayReady の Encrypted Media Extension
 ms.date: 02/08/2017
 ms.topic: article
-keywords: Windows 10, UWP
+keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 9f4d72050ca30271a0ad2c6c2c39c857e2c10550
-ms.sourcegitcommit: 05be6929cd380a9dd241cc1298fd53f11c93d774
+ms.openlocfilehash: b673122d707e152d24c49d3bacf71ed52cdb0ae5
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73061946"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74256809"
 ---
 # <a name="playready-encrypted-media-extension"></a>PlayReady の Encrypted Media Extension
 
@@ -34,7 +34,7 @@ Internet Explorer で PlayReady メディア要素を使うと、開発者はコ
 -   永続的でないライセンスの事前の取得を提供します。
 -   1 つのメッセージで複数のライセンスを取得できるようにします。
 
-    Windows 8.1 のように、複数のキー識別子 (KeyIDs) を持つ PlayReady オブジェクトを使用することも、複数の KeyIDs を持つ[コンテンツ復号化モデルデータ (CDMData)](https://go.microsoft.com/fwlink/p/?LinkID=626819)を使用することもできます。
+    Windows 8.1 のように、複数のキー識別子 (KeyIDs) を持つ PlayReady オブジェクトを使用することも、複数の KeyIDs を持つ[コンテンツ復号化モデルデータ (CDMData)](https://docs.microsoft.com/previous-versions/windows/apps/dn457361(v=ieb.10)?redirectedfrom=MSDN)を使用することもできます。
 
     > [!NOTE]
     > Windows 10 では、CDMData の &lt;のキー id&gt; で複数のキー識別子がサポートされています。
@@ -67,7 +67,7 @@ Web アプリ用の PlayReady は、現在 [2013 年 5 月 10 日付けの W3C E
 
 このセクションでは、Web アプリで PlayReady ハードウェア DRM を使う方法と、保護されたコンテンツがハードウェア DRM をサポートしていない場合にそれを無効にする方法について説明します。
 
-PlayReady ハードウェア DRM を使うには、JavaScript Web アプリは、キー システム識別子 `com.microsoft.playready.hardware` と共に **isTypeSupported** EME メソッドを使って、ブラウザーから PlayReady ハードウェア DRM のサポートを照会する必要があります。
+PlayReady ハードウェア DRM を使うには、JavaScript Web アプリは、キー システム識別子 **と共に**isTypeSupported`com.microsoft.playready.hardware` EME メソッドを使って、ブラウザーから PlayReady ハードウェア DRM のサポートを照会する必要があります。
 
 一部のコンテンツは、ハードウェア DRM ではサポートされない場合があります。 Cocktail コンテンツがハードウェア DRM でサポートされることはありません。Cocktail コンテンツを再生する場合は、ハードウェア DRM を除外する必要があります。 一部のハードウェア DRM は HEVC をサポートしますが、サポートしないものもあります。HEVC コンテンツを再生したいが、ハードウェア DRM がサポートしていない場合も、これを除外してください。
 
@@ -268,7 +268,7 @@ function formatSecureStopCDMData(encodedSessionId, customData, encodedPublisherC
 
 このセクションでは、Windows 10 用の PlayReady が有効な web アプリを作成するときに考慮する必要があるプログラミングの考慮事項を示します。
 
-アプリで作成した **MSMediaKeys** オブジェクトと **MSMediaKeySession** オブジェクトは、アプリが終了するまで有効なままである必要があります。 これらのオブジェクトが必ず有効な状態にとどまるようにする方法の 1 つは、それらをグローバル変数として割り当てることです (関数内でローカル変数宣言された場合、変数はスコープ外になり、ガベージ コレクションの対象になります)。 たとえば、次の例では、変数*g\_msMediaKeys*と*g\_mediakeysession*をグローバル変数として割り当てています 。これらの変数は、プロシージャ.
+アプリで作成した **MSMediaKeys** オブジェクトと **MSMediaKeySession** オブジェクトは、アプリが終了するまで有効なままである必要があります。 これらのオブジェクトが必ず有効な状態にとどまるようにする方法の 1 つは、それらをグローバル変数として割り当てることです (関数内でローカル変数宣言された場合、変数はスコープ外になり、ガベージ コレクションの対象になります)。 たとえば、次の例では、変数*g\_msMediaKeys*と*g\_mediakeysession*をグローバル変数として割り当てます。この変数は、関数の**Msmediakeys**オブジェクトと**msmediakeysession**オブジェクトに割り当てられます。
 
 ``` syntax
 var g_msMediaKeys;

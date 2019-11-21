@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 9bf23926a1c17615db5ef838d21f9a46a8921c8c
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: a76b451a3d268e418ae24998afdd29d32bb43ed6
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57655787"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74260137"
 ---
 # <a name="selecting-an-approach-to-ios-and-uwp-app-development"></a>iOS と UWP のアプリ開発方法の選択
 
@@ -26,19 +26,19 @@ Windows と iOS はまったく違うものに見えるかもしれませんが�
 
 ゼロから始める場合、次のように自由に選べる多くのオプションがあります。
 
--   [Xamarin](https://go.microsoft.com/fwlink/p/?LinkID=320484)
+-   [Xamarin](https://xamarin.com/)
 
     Xamarin を使うと、C# でアプリを作成して Windows 上で実行することができ、ネイティブの iOS アプリを作成することもできます。 Xamarin のサポートは Visual Studio に組み込まれており、適切なプロジェクトの種類を選ぶだけです。
 
--   [Apache Cordova](https://go.microsoft.com/fwlink/p/?LinkID=400439)
+-   [Apache Cordova](https://www.microsoft.com/?ref=go)
 
     Javascript と HTML の方がよい場合は、Apache Cordova (PhoneGap とも呼ばれる) を使うと、iOS、Windows、および Android 向けのクロスプラットフォーム アプリを容易に作成できます。 このプロジェクトの種類は、Visual Studio にも組み込まれています。
 
 -   ゲーム エンジン
 
-    [Unity3D](https://go.microsoft.com/fwlink/p/?LinkID=320479) や [Unreal Engine](https://go.microsoft.com/fwlink/p/?LinkID=394062) などのツールを自由に利用することで、Windows のほか、iOS など多くのプラットフォーム用に最高品質のゲームを作成することができます。 Unity は C# スクリプトをサポートし、Unreal は C++ を使います。
+    [Unity3D](https://www.unity3d.com/) や [Unreal Engine](https://www.unrealengine.com/en-US/) などのツールを自由に利用することで、Windows のほか、iOS など多くのプラットフォーム用に最高品質のゲームを作成することができます。 Unity は C# スクリプトをサポートし、Unreal は C++ を使います。
 
--   [MonoGame](https://go.microsoft.com/fwlink/p/?LinkID=320483)
+-   [MonoGame](http://www.monogame.net/)
 
     XNA の後継にあたります。 これは、オープン ソースのクロスプラットフォーム フレームワークです。つまり、物理エンジン、2D および 3D グラフィック サポートにより、多くのプラットフォーム向けに C# でアプリを作成できます。
 
@@ -46,7 +46,7 @@ Windows と iOS はまったく違うものに見えるかもしれませんが�
 
 既存の iOS アプリを使う場合、オプションが少し制限されます。 ただし、何も失われません。
 
--   [iOS 用 Windows ブリッジ](https://go.microsoft.com/fwlink/p/?LinkId=619014)
+-   [iOS 用 Windows ブリッジ](https://github.com/Microsoft/WinObjC)
 
     Project Islandwood とも呼ばれます。これはまだ開発中のツールで、Xcode プロジェクトを Visual Studio に直接インポートできます。 Objective-C コードは Visual Studio からビルドおよびデバッグできます。 プロジェクトでグラフィックス用に Cocos などのライブラリを使用している場合、これはアプリを迅速に移植するための便利な方法です。
 
@@ -54,45 +54,45 @@ Windows と iOS はまったく違うものに見えるかもしれませんが�
 
     主要なビジネス ロジックが、Objective-C や Swift ではなく C++ で作成されている場合、そのコードを少し変更するだけでプロジェクトで使用できます。 そして、他の Windows でアプリと同様に、XAML を使って UI を定義し、必要に応じて C++ コードを呼び出すことができます。
 
--   [角度を使用して、Windows での OpenGL ES の実行](https://go.microsoft.com/fwlink/p/?linkid=618387)
+-   [角度を使用して Windows で OpenGL ES を実行する](https://github.com/microsoft/angle/wiki)
 
     OpenGL ES 2.0 プロジェクトを移植する中間の手順で ANGLE を使います。 ANGLE では、OpenGL ES API 呼び出しを DirectX 11 API 呼び出しに変換することにより、Windows で OpenGL ES コンテンツを実行することができます。
 
 ## <a name="other-cross-platform-authoring-tools"></a>その他のクロスプラットフォームの作成ツール
 
--   [GameSalad](https://go.microsoft.com/fwlink/p/?LinkID=320480)
+-   [GameSalad](https://gamesalad.com/)
 
     ゲーム作成環境。
 
--   [Construct 2]( https://go.microsoft.com/fwlink/p/?LinkID=320481)
+-   [コンストラクト2]( https://go.microsoft.com/fwlink/p/?LinkID=320481)
 
     ゲーム作成環境。
 
--   [チタン Studio](https://go.microsoft.com/fwlink/p/?LinkID=320482)
+-   [チタン製 Studio](https://www.appcelerator.com/platform/titanium-studio/)
 
     クロスプラットフォームの作成環境。
 
--   [Cocos2d-x](https://go.microsoft.com/fwlink/p/?LinkID=320485)
+-   [Cocos2D-x](https://www.cocos2d-x.org/)
 
     スプライト処理と物理モデリング用のクロスプラットフォームのコード ライブラリ。
 
--   [Impact.js](https://go.microsoft.com/fwlink/p/?LinkID=320486)
+-   [影響 (js)](https://impactjs.com/)
 
     HTML ベースのゲーム ライブラリ。
 
--   [Marmalade](https://go.microsoft.com/fwlink/p/?LinkID=320487)
+-   [Marmalade](http://madewithmarmalade.com/)
 
     クロスプラットフォーム SDK。
 
--   [OpenFL](https://go.microsoft.com/fwlink/p/?LinkID=320488)
+-   [OpenFL](https://www.openfl.org/)
 
     クロスプラットフォームの開発ツール。
 
--   [GameMaker](https://go.microsoft.com/fwlink/p/?LinkID=320490)
+-   [GameMaker](https://www.yoyogames.com/gamemaker/studio)
 
     特にゲーム用の作成環境。
 
--   [PlayCanvas](https://go.microsoft.com/fwlink/p/?LinkID=394061)
+-   [PlayCanvas](https://playcanvas.com/)
 
     HTML ベースのゲーム開発用ツール。
 

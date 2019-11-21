@@ -5,16 +5,16 @@ ms.date: 06/05/2018
 ms.topic: article
 keywords: windows 10, uwp, 広告, 広告, 広告仲介
 ms.localizationpriority: medium
-ms.openlocfilehash: 9197dd4b62df26ff63e469063573789da948c767
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 700a80aff4c991f4fa3bff681ba995b113025fec
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57592257"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74259330"
 ---
 # <a name="microsoft-ad-mediation-service"></a>Microsoft 広告仲介サービス
 
-[Microsoft Advertising SDK](https://aka.ms/ads-sdk-uwp) を使用して[アプリに広告を表示する場合](display-ads-in-your-app.md)、必要に応じてマイクロソフトの広告仲介サービスを使って、広告の収益を最大化できます。 この記事では、広告仲介サービスとその目標の概要を示します。
+[Microsoft Advertising SDK](https://marketplace.visualstudio.com/items?itemName=AdMediator.MicrosoftAdvertisingSDK) を使用して[アプリに広告を表示する場合](display-ads-in-your-app.md)、必要に応じてマイクロソフトの広告仲介サービスを使って、広告の収益を最大化できます。 この記事では、広告仲介サービスとその目標の概要を示します。
 
 広告仲介サービスは、[マイクロソフトの広告の収益化プラットフォーム](https://developer.microsoft.com/windows/ad-monetization-platform)の一部です。 プラットフォームは、次の部分で構成されます。
 
@@ -28,7 +28,7 @@ ms.locfileid: "57592257"
 
 ## <a name="manage-complexity-of-ad-network-relationships"></a>広告ネットワークの関係の複雑さの管理  
 
-広告仲介サービスはさまざまな広告ネットワークと統合されるため、開発者がこの作業を行う必要はありません。 Microsoft Advertising SDK を使用して、アプリに広告を表示した後は、ad 仲介設定を変更することができます[パートナー センターで](../publish/in-app-ads.md#mediation-settings)ad に複数のネットワークから広告を表示します。 コードを変更することなく、新しい広告ネットワークから広告を取得できるという利点があります。
+広告仲介サービスはさまざまな広告ネットワークと統合されるため、開発者がこの作業を行う必要はありません。 Microsoft Advertising SDK を使用してアプリに広告を表示した後、[パートナーセンターで](../publish/in-app-ads.md#mediation-settings)ad 仲介の設定を変更して、複数の ad ネットワークから広告を表示することができます。 コードを変更することなく、新しい広告ネットワークから広告を取得できるという利点があります。
 
 マイクロソフトでは、開発者に代わって広告ネットワークとのエンド ツー エンドの関係を管理します。 開発者が余分な手間をかける必要はなく、広告ネットワークの統合から、広告の提供、レポートおよび支払いまですべてマイクロソフトが行います。
 
@@ -47,7 +47,7 @@ ms.locfileid: "57592257"
 
 新しい広告ネットワークは自動的に含まれ、学習予算を通じてパフォーマンスが評価されます。 短時間に、広告ネットワークは大量のイベント内で自分の場所を見つけます。 これにより、広告ネットワークの競争力が強化され、開発者は、アプリの収益化を最大限に活用できます。
 
-[推奨される仲介設定](../publish/in-app-ads.md#mediation-settings)を使用してアプリ内広告で得られる収入を最大化することを強くお勧めします。 これにより、アルゴリズムでアプリの最適な収益を可能にすることができます。 ただし、広告や、順序を使用する ad ネットワークをより細かく制御するパートナー センターで、独自の仲介設定を選択することもあります。
+[推奨される仲介設定](../publish/in-app-ads.md#mediation-settings)を使用してアプリ内広告で得られる収入を最大化することを強くお勧めします。 これにより、アルゴリズムでアプリの最適な収益を可能にすることができます。 ただし、パートナーセンターで独自の仲介設定を選択して、広告を提供する ad ネットワークとその実行順序をより細かく制御することもできます。
 
 ## <a name="rich-data-and-signals"></a>豊富なデータと信号
 
@@ -55,6 +55,6 @@ ms.locfileid: "57592257"
 
 ## <a name="related-topics"></a>関連トピック
 
-* [Microsoft Advertising SDK](https://aka.ms/ads-sdk-uwp)
+* [Microsoft Advertising SDK](https://marketplace.visualstudio.com/items?itemName=AdMediator.MicrosoftAdvertisingSDK)
 * [仲介の設定](../publish/in-app-ads.md#mediation-settings)
 * [広告パフォーマンス レポート](../publish/advertising-performance-report.md)

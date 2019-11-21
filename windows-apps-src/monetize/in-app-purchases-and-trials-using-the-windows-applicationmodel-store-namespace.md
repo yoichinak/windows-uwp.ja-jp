@@ -6,12 +6,12 @@ ms.date: 08/25/2017
 ms.topic: article
 keywords: UWP, アプリ内購入, IAP, アドオン, 試用版, Windows.ApplicationModel.Store
 ms.localizationpriority: medium
-ms.openlocfilehash: a0b81d966dedb9cebaca747eb68cb8815088b6f6
-ms.sourcegitcommit: 6fbf645466278c1f014c71f476408fd26c620e01
+ms.openlocfilehash: 03bd2740022864008e87b448682c1025c46d2f2d
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72816699"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74260288"
 ---
 # <a name="in-app-purchases-and-trials-using-the-windowsapplicationmodelstore-namespace"></a>Windows.ApplicationModel.Store 名前空間を使用するアプリ内購入と試用版
 
@@ -20,7 +20,7 @@ ms.locfileid: "72816699"
 このセクションの記事では、いくつかの一般的なシナリオにおいて **Windows.ApplicationModel.Store** 名前空間のメンバーを使用するための詳しいガイダンスとコード例を示します。 UWP アプリのアプリ内での購入に関する基本概念の概要については、「[アプリ内購入と試用版](in-app-purchases-and-trials.md)」をご覧ください。 **Windows.ApplicationModel.Store** 名前空間を使用した試用版とアプリ内購入の実装方法を示す完全なサンプルについては、[ストア サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/win10-1507/Samples/Store)をご覧ください。
 
 > [!IMPORTANT]
-> **Windows.ApplicationModel.Store** 名前空間は今後更新されず、新機能も追加されません。 Visual Studio でプロジェクトのターゲットを **Windows 10 Anniversary Edition (10.0、ビルド 14393)** 以降のリリースに設定している (つまり、Windows 10 Version 1607 以降をターゲットとしている) 場合は、代わりに [Windows.Services.Store](https://docs.microsoft.com/uwp/api/windows.services.store) 名前空間を使うことをお勧めします。 詳しくは、「[アプリ内購入と試用版](https://docs.microsoft.com/windows/uwp/monetize/in-app-purchases-and-trials)」をご覧ください。 [デスクトップブリッジ](https://developer.microsoft.com/windows/bridges/desktop)を使用する windows デスクトップアプリケーションや、パートナーセンターの開発サンドボックスを使用するアプリやゲームでは、 **Windows の Applicationmodel. ストア**名前空間はサポートされていません (たとえば、Xbox Live と統合します)。 このような製品では、**Windows.Services.Store** 名前空間を使ってアプリ内購入と試用版を実装する必要があります。
+> **Windows.ApplicationModel.Store** 名前空間は今後更新されず、新機能も追加されません。 Visual Studio でプロジェクトのターゲットを **Windows 10 Anniversary Edition (10.0、ビルド 14393)** 以降のリリースに設定している (つまり、Windows 10 Version 1607 以降をターゲットとしている) 場合は、代わりに [Windows.Services.Store](https://docs.microsoft.com/uwp/api/windows.services.store) 名前空間を使うことをお勧めします。 詳しくは、「[アプリ内購入と試用版](https://docs.microsoft.com/windows/uwp/monetize/in-app-purchases-and-trials)」をご覧ください。 [デスクトップブリッジ](https://developer.microsoft.com/windows/bridges/desktop)を使用する windows デスクトップアプリケーションや、パートナーセンターの開発サンドボックスを使用するアプリやゲームでは、 **Windows の Applicationmodel. ストア**名前空間はサポートされていません (たとえば、Xbox Live と統合されているゲームの場合は、これが該当します)。 このような製品では、**Windows.Services.Store** 名前空間を使ってアプリ内購入と試用版を実装する必要があります。
 
 ## <a name="get-started-with-the-currentapp-and-currentappsimulator-classes"></a>CurrentApp クラスと CurrentAppSimulator クラスの概要
 
@@ -155,7 +155,7 @@ ms.locfileid: "72816699"
 5. Visual Studio で、この WindowsStoreProxy.xml ファイルに切り替えます。
 6. **[XML]** メニューで **[スキーマ]** をクリックし、一覧から WindowsStoreProxy.xsd ファイルの行を探します。 ファイルの場所が適切でない場合 (たとえば、一時ファイルがまだ表示されている場合) は、 **[追加]** をクリックします。 適切なファイルに移動し、 **[OK]** をクリックします。 一覧にそのファイルが表示されます。 そのスキーマの **[使用]**  列にチェックマークが入っていることを確認します。
 
-この操作を完了すると、WindowsStoreProxy.xml に加えた変更内容がスキーマに適用されます。 詳しくは、「[方法: 使用する XML スキーマを選択する](https://go.microsoft.com/fwlink/p/?LinkId=403014)」をご覧ください。
+この操作を完了すると、WindowsStoreProxy.xml に加えた変更内容がスキーマに適用されます。 詳しくは、「[方法: 使用する XML スキーマを選択する](https://msdn.microsoft.com/library/ms255816)」をご覧ください。
 
 > [!div class="tabbedCodeSnippets"]
 ```xml
@@ -355,12 +355,12 @@ ms.locfileid: "72816699"
 
 このファイルのルート要素は、現在のアプリを表す **CurrentApp**要素です。 この要素には、次の子要素が含まれます。
 
-|  要素  |  必須かどうか  |  Quantity  |  説明   |
+|  要素  |  必須  |  数量  |  説明   |
 |-------------|------------|--------|--------|
-|  [ListingInformation](#listinginformation)  |    [はい]        |  1  |  アプリの登録情報のデータが含まれています。            |
-|  [LicenseInformation](#licenseinformation)  |     [はい]       |   1    |   このアプリで利用可能なライセンスと永続的なアドオンが記述されています。     |
-|  [ConsumableInformation](#consumableinformation)  |      必須ではない      |   0 または 1   |   このアプリで利用可能なコンシューマブルなアドオンが記述されています。      |
-|  [・](#simulation)  |     必須ではない       |      0 または 1      |   テストで、さまざまな [CurrentAppSimulator](https://docs.microsoft.com/uwp/api/windows.applicationmodel.store.currentappsimulator) メソッドを呼び出したときに行われる動作が記述されています。    |
+|  [ListingInformation](#listinginformation)  |    〇        |  1  |  アプリの登録情報のデータが含まれています。            |
+|  [LicenseInformation](#licenseinformation)  |     〇       |   1    |   このアプリで利用可能なライセンスと永続的なアドオンが記述されています。     |
+|  [ConsumableInformation](#consumableinformation)  |      X      |   0 または 1   |   このアプリで利用可能なコンシューマブルなアドオンが記述されています。      |
+|  [・](#simulation)  |     X       |      0 または 1      |   テストで、さまざまな [CurrentAppSimulator](https://docs.microsoft.com/uwp/api/windows.applicationmodel.store.currentappsimulator) メソッドを呼び出したときに行われる動作が記述されています。    |
 
 <span id="listinginformation" />
 
@@ -370,10 +370,10 @@ ms.locfileid: "72816699"
 
 **ListingInformation** には、次の子要素が含まれます。
 
-|  要素  |  必須かどうか  |  Quantity  |  説明   |
+|  要素  |  必須  |  数量  |  説明   |
 |-------------|------------|--------|--------|
-|  [アプリケーション](#app-child-of-listinginformation)  |    [はい]   |  1   |    アプリに関するデータを提供します。         |
-|  [製品](#product-child-of-listinginformation)  |    必須ではない  |  0 以上   |      アプリのアドオンを記述します。     |     |
+|  [アプリケーション](#app-child-of-listinginformation)  |    〇   |  1   |    アプリに関するデータを提供します。         |
+|  [Product](#product-child-of-listinginformation)  |    X  |  0 以上   |      アプリのアドオンを記述します。     |     |
 
 <span id="app-child-of-listinginformation"/>
 
@@ -383,13 +383,13 @@ ms.locfileid: "72816699"
 
 **App** には、次の子要素が含まれます。
 
-|  要素  |  必須かどうか  |  Quantity  | 説明   |
+|  要素  |  必須  |  数量  | 説明   |
 |-------------|------------|--------|--------|
-|  **AppId**  |    [はい]   |  1   |   ストアでアプリを識別する GUID です。 テストでは任意の GUID を使用できます。        |
-|  **LinkUri**  |    [はい]  |  1   |    ストアの登録情報ページの URI です。 テストでは任意の有効な URI を使用できます。         |
-|  **CurrentMarket**  |    [はい]  |  1   |    顧客の国/地域です。         |
-|  **AgeRating**  |    [はい]  |  1   |     アプリの年齢区分の下限を表す整数です。 これは、アプリを送信するときにパートナーセンターで指定するのと同じ値です。 ストアで使われる値は、3、7、12、および 16 です。 これらの年齢区分について詳しくは、「[年齢区分](../publish/age-ratings.md)」をご覧ください。        |
-|  [MarketData](#marketdata-child-of-app)  |    [はい]  |  1 以上      |    アプリに関する特定の国/地域向けの情報が含まれています。 アプリが掲載される国/地域ごとに、**MarketData**要素を含める必要があります。       |    |
+|  **AppId**  |    〇   |  1   |   ストアでアプリを識別する GUID です。 テストでは任意の GUID を使用できます。        |
+|  **LinkUri**  |    〇  |  1   |    ストアの登録情報ページの URI です。 テストでは任意の有効な URI を使用できます。         |
+|  **CurrentMarket**  |    〇  |  1   |    顧客の国/地域です。         |
+|  **AgeRating**  |    〇  |  1   |     アプリの年齢区分の下限を表す整数です。 これは、アプリを送信するときにパートナーセンターで指定するのと同じ値です。 ストアで使われる値は、3、7、12、および 16 です。 これらの年齢区分について詳しくは、「[年齢区分](../publish/age-ratings.md)」をご覧ください。        |
+|  [MarketData](#marketdata-child-of-app)  |    〇  |  1 以上      |    アプリに関する特定の国/地域向けの情報が含まれています。 アプリが掲載される国/地域ごとに、**MarketData**要素を含める必要があります。       |    |
 
 <span id="marketdata-child-of-app"/>
 
@@ -399,19 +399,19 @@ ms.locfileid: "72816699"
 
 **MarketData** には、次の子要素が含まれます。
 
-|  要素  |  必須かどうか  |  Quantity  | 説明   |
+|  要素  |  必須  |  数量  | 説明   |
 |-------------|------------|--------|--------|
-|  **名前**  |    [はい]   |  1   |   この国/地域でのアプリの名前です。        |
-|  **説明**  |    [はい]  |  1   |      この国/地域向けのアプリの説明です。       |
-|  **標準**  |    [はい]  |  1   |     この国/地域でのアプリの価格です。        |
-|  **CurrencySymbol**  |    [はい]  |  1   |     この国/地域で使われている通貨記号です。        |
-|  **CurrencyCode**  |    必須ではない  |  0 または 1      |      この国/地域で使われている通貨コードです。         |  |
+|  **名前**  |    〇   |  1   |   この国/地域でのアプリの名前です。        |
+|  **説明**  |    〇  |  1   |      この国/地域向けのアプリの説明です。       |
+|  **標準**  |    〇  |  1   |     この国/地域でのアプリの価格です。        |
+|  **CurrencySymbol**  |    〇  |  1   |     この国/地域で使われている通貨記号です。        |
+|  **CurrencyCode**  |    X  |  0 または 1      |      この国/地域で使われている通貨コードです。         |  |
 
 **MarketData** には次の属性があります。
 
-|  備わっている  |  必須かどうか  |  説明   |
+|  属性  |  必須  |  説明   |
 |-------------|------------|----------------|
-|  **xml: lang**  |    [はい]        |     市場データ情報を適用する国/地域を指定します。          |  |
+|  **xml:lang**  |    〇        |     市場データ情報を適用する国/地域を指定します。          |  |
 
 <span id="product-child-of-listinginformation"/>
 
@@ -421,11 +421,11 @@ ms.locfileid: "72816699"
 
 **Product** には次の属性があります。
 
-|  備わっている  |  必須かどうか  |  説明   |
+|  属性  |  必須  |  説明   |
 |-------------|------------|----------------|
-|  **Id**  |    [はい]        |    アプリがこのアドオンを特定するために使う文字列が含まれています。           |
-|  **LicenseDuration**  |    必須ではない        |    アイテム購入後、ライセンスが有効な日数を示します。 製品の購入によって作成される新しいライセンスの有効期限は、購入日にライセンス期間を加算した日付です。 この属性は、**ProductType** 属性が **Durable** の場合のみ使用され、コンシューマブルなアドオンの場合には無視されます。           |
-|  **ProductType**  |    必須ではない        |    アプリ内製品が永続的かどうかを識別する値が含まれています。 サポートされている値は、**Durable** (既定) と **Consumable** です。 永続的なアドオンについて詳しくは、[LicenseInformation](#licenseinformation) の下の [Product](#product-child-of-licenseinformation)要素をご覧ください。コンシューマブルなアドオンについて詳しくは、[ConsumableInformation](#consumableinformation) の [Product](#product-child-of-consumableinformation) 要素をご覧ください。           |  |
+|  **Id**  |    〇        |    アプリがこのアドオンを特定するために使う文字列が含まれています。           |
+|  **LicenseDuration**  |    X        |    アイテム購入後、ライセンスが有効な日数を示します。 製品の購入によって作成される新しいライセンスの有効期限は、購入日にライセンス期間を加算した日付です。 この属性は、**ProductType** 属性が **Durable** の場合のみ使用され、コンシューマブルなアドオンの場合には無視されます。           |
+|  **ProductType**  |    X        |    アプリ内製品が永続的かどうかを識別する値が含まれています。 サポートされている値は、**Durable** (既定) と **Consumable** です。 永続的なアドオンについて詳しくは、[LicenseInformation](#product-child-of-licenseinformation) の下の [Product](#licenseinformation)要素をご覧ください。コンシューマブルなアドオンについて詳しくは、[ConsumableInformation](#product-child-of-consumableinformation) の [Product](#consumableinformation) 要素をご覧ください。           |  |
 
 <span id="marketdata-child-of-product"/>
 
@@ -435,22 +435,22 @@ ms.locfileid: "72816699"
 
 **MarketData** には、次の子要素が含まれます。
 
-|  要素  |  必須かどうか  |  Quantity  | 説明   |
+|  要素  |  必須  |  数量  | 説明   |
 |-------------|------------|--------|--------|
-|  **名前**  |    [はい]   |  1   |   この国/地域でのアドオンの名前です。        |
-|  **標準**  |    [はい]  |  1   |     この国/地域でのアドオンの価格です。        |
-|  **CurrencySymbol**  |    [はい]  |  1   |     この国/地域で使われている通貨記号です。        |
-|  **CurrencyCode**  |    必須ではない  |  0 または 1      |      この国/地域で使われている通貨コードです。         |  
-|  **説明**  |    必須ではない  |   0 または 1   |      この国/地域向けのアドオンの説明です。       |
-|  **番号**  |    必須ではない  |   0 または 1   |      アドオンの[カスタム開発者データ](../publish/enter-add-on-properties.md#custom-developer-data) (タグとも呼ばれます) です。       |
-|  **キーワード**  |    必須ではない  |   0 または 1   |      アドオンの[キーワード](../publish/enter-add-on-properties.md#keywords)が含まれた最大 10 個の **Keyword** 要素を含みます。       |
-|  **ImageUri**  |    必須ではない  |   0 または 1   |      アドオンの登録情報に表示する[画像の URI](../publish/create-add-on-store-listings.md#icon) です。           |  |
+|  **名前**  |    〇   |  1   |   この国/地域でのアドオンの名前です。        |
+|  **標準**  |    〇  |  1   |     この国/地域でのアドオンの価格です。        |
+|  **CurrencySymbol**  |    〇  |  1   |     この国/地域で使われている通貨記号です。        |
+|  **CurrencyCode**  |    X  |  0 または 1      |      この国/地域で使われている通貨コードです。         |  
+|  **説明**  |    X  |   0 または 1   |      この国/地域向けのアドオンの説明です。       |
+|  **番号**  |    X  |   0 または 1   |      アドオンの[カスタム開発者データ](../publish/enter-add-on-properties.md#custom-developer-data) (タグとも呼ばれます) です。       |
+|  **キーワード**  |    X  |   0 または 1   |      アドオンの**キーワード**が含まれた最大 10 個の [Keyword](../publish/enter-add-on-properties.md#keywords) 要素を含みます。       |
+|  **ImageUri**  |    X  |   0 または 1   |      アドオンの登録情報に表示する[画像の URI](../publish/create-add-on-store-listings.md#icon) です。           |  |
 
 **MarketData** には次の属性があります。
 
-|  備わっている  |  必須かどうか  |  説明   |
+|  属性  |  必須  |  説明   |
 |-------------|------------|----------------|
-|  **xml: lang**  |    [はい]        |     市場データ情報を適用する国/地域を指定します。          |  |
+|  **xml:lang**  |    〇        |     市場データ情報を適用する国/地域を指定します。          |  |
 
 <span id="licenseinformation"/>
 
@@ -460,10 +460,10 @@ ms.locfileid: "72816699"
 
 **LicenseInformation** には、次の子要素が含まれます。
 
-|  要素  |  必須かどうか  |  Quantity  | 説明   |
+|  要素  |  必須  |  数量  | 説明   |
 |-------------|------------|--------|--------|
-|  [アプリケーション](#app-child-of-licenseinformation)  |    [はい]   |  1   |    アプリのライセンスを記述します。         |
-|  [製品](#product-child-of-licenseinformation)  |    必須ではない  |  0 以上   |      アプリ内の永続的なアドオンのライセンスの状態を記述します。         |   |
+|  [アプリケーション](#app-child-of-licenseinformation)  |    〇   |  1   |    アプリのライセンスを記述します。         |
+|  [Product](#product-child-of-licenseinformation)  |    X  |  0 以上   |      アプリ内の永続的なアドオンのライセンスの状態を記述します。         |   |
 
 次の表では、**App** 要素と **Product** 要素の下で値を組み合わせて、いくつかの一般的な条件をシミュレートする方法を示します。
 
@@ -482,11 +482,11 @@ ms.locfileid: "72816699"
 
 **App** には、次の子要素が含まれます。
 
-|  要素  |  必須かどうか  |  Quantity  | 説明   |
+|  要素  |  必須  |  数量  | 説明   |
 |-------------|------------|--------|--------|
-|  **IsActive**  |    [はい]   |  1   |    このアプリの現在のライセンスの状態を記述します。 値 **true** はライセンスが有効であることを示し、**false** はライセンスが無効であることを示します。 この値はアプリが使用モードであるかどうかに関係なく、通常、**true** です。  ライセンスが無効な場合にアプリがどのように動作するかをテストするには、この値を **false** に設定します。           |
-|  **IsTrial**  |    [はい]  |  1   |      このアプリが現在、試用期間中かどうかの状態を記述します。 値 **true** はアプリが試用期間中であることを示します。**false** は、アプリが購入済みであるか、試用期限が切れたために、アプリが試用期間中でないことを示します。         |
-|  **ExpirationDate**  |    必須ではない  |  0 または 1       |     このアプリの試用期間が期限切れとなる日付 (協定世界時 (UTC)) です。 日付は、yyyy-mm-ddThh:mm:ss.ssZ の形式で表す必要があります。 たとえば、2015 年 1 月 19 日午前 5 時は、2015-01-19T05:00:00.00Z と表します。 この要素は、**IsTrial** が **true** の場合に必須です。 そうでない場合は、必須ではありません。          |  |
+|  **IsActive**  |    〇   |  1   |    このアプリの現在のライセンスの状態を記述します。 値 **true** はライセンスが有効であることを示し、**false** はライセンスが無効であることを示します。 この値はアプリが使用モードであるかどうかに関係なく、通常、**true** です。  ライセンスが無効な場合にアプリがどのように動作するかをテストするには、この値を **false** に設定します。           |
+|  **IsTrial**  |    〇  |  1   |      このアプリが現在、試用期間中かどうかの状態を記述します。 値 **true** はアプリが試用期間中であることを示します。**false** は、アプリが購入済みであるか、試用期限が切れたために、アプリが試用期間中でないことを示します。         |
+|  **ExpirationDate**  |    X  |  0 または 1       |     このアプリの試用期間が期限切れとなる日付 (協定世界時 (UTC)) です。 日付は、yyyy-mm-ddThh:mm:ss.ssZ の形式で表す必要があります。 たとえば、2015 年 1 月 19 日午前 5 時は、2015-01-19T05:00:00.00Z と表します。 この要素は、**IsTrial** が **true** の場合に必須です。 そうでない場合は、必須ではありません。          |  |
 
 <span id="product-child-of-licenseinformation"/>
 
@@ -496,17 +496,17 @@ ms.locfileid: "72816699"
 
 **Product** には、次の子要素が含まれます。
 
-|  要素  |  必須かどうか  |  Quantity  | 説明   |
+|  要素  |  必須  |  数量  | 説明   |
 |-------------|------------|--------|--------|
-|  **IsActive**  |    [はい]   |  1     |    このアドオンの現在のライセンスの状態を記述します。 値 **true** はアドオンを追加できることを示し、**false** はアドオンを使用できないか、購入していないことを示します。           |
-|  **ExpirationDate**  |    必須ではない   |  0 または 1     |     協定世界時 (UTC) で表したアドオンの有効期限日です。 日付は、yyyy-mm-ddThh:mm:ss.ssZ の形式で表す必要があります。 たとえば、2015 年 1 月 19 日午前 5 時は、2015-01-19T05:00:00.00Z と表します。 この要素が存在する場合、アドオンには有効期限日があります。 存在しない場合、アドオンに有効期限はありません。  |  
+|  **IsActive**  |    〇   |  1     |    このアドオンの現在のライセンスの状態を記述します。 値 **true** はアドオンを追加できることを示し、**false** はアドオンを使用できないか、購入していないことを示します。           |
+|  **ExpirationDate**  |    X   |  0 または 1     |     協定世界時 (UTC) で表したアドオンの有効期限日です。 日付は、yyyy-mm-ddThh:mm:ss.ssZ の形式で表す必要があります。 たとえば、2015 年 1 月 19 日午前 5 時は、2015-01-19T05:00:00.00Z と表します。 この要素が存在する場合、アドオンには有効期限日があります。 存在しない場合、アドオンに有効期限はありません。  |  
 
 **Product** には次の属性があります。
 
-|  備わっている  |  必須かどうか  |  説明   |
+|  属性  |  必須  |  説明   |
 |-------------|------------|----------------|
-|  **Id**  |    [はい]        |   アプリがこのアドオンを特定するために使う文字列が含まれています。            |
-|  **OfferId**  |     必須ではない       |   アプリが、このアドオンが属するカテゴリを特定するために使う文字列が含まれています。 これを使うことで、「[アプリ内製品の大規模なカタログの管理](manage-a-large-catalog-of-in-app-products.md)」で説明されている大規模なアイテムのカタログに対応できます。           |
+|  **Id**  |    〇        |   アプリがこのアドオンを特定するために使う文字列が含まれています。            |
+|  **OfferId**  |     X       |   アプリが、このアドオンが属するカテゴリを特定するために使う文字列が含まれています。 これを使うことで、「[アプリ内製品の大規模なカタログの管理](manage-a-large-catalog-of-in-app-products.md)」で説明されている大規模なアイテムのカタログに対応できます。           |
 
 <span id="simulation"/>
 
@@ -516,9 +516,9 @@ ms.locfileid: "72816699"
 
 **Simulation** には次の属性があります。
 
-|  備わっている  |  必須かどうか  |  説明   |
+|  属性  |  必須  |  説明   |
 |-------------|------------|----------------|
-|  **SimulationMode**  |    必須ではない        |      値は **Interactive** か **Automatic** のいずれかです。 この属性を **Automatic** に設定すると、指定した HRESULT エラー コードがメソッドによって自動的に返されます。 これは自動化されたテスト ケースを実行する場合に使用できます。       |
+|  **SimulationMode**  |    X        |      値は **Interactive** か **Automatic** のいずれかです。 この属性を **Automatic** に設定すると、指定した HRESULT エラー コードがメソッドによって自動的に返されます。 これは自動化されたテスト ケースを実行する場合に使用できます。       |
 
 <span id="defaultresponse"/>
 
@@ -528,10 +528,10 @@ ms.locfileid: "72816699"
 
 **DefaultResponse** には次の属性があります。
 
-|  備わっている  |  必須かどうか  |  説明   |
+|  属性  |  必須  |  説明   |
 |-------------|------------|----------------|
-|  **MethodName**  |    [はい]        |   この属性は、[スキーマ](#schema) の **StoreMethodName** 型で表示される列挙値のいずれかに割り当てます。 これらの各列挙値は、テストのときにアプリでエラー コードの戻り値をシミュレートする **CurrentAppSimulator** メソッドを表します。 たとえば、値 **RequestAppPurchaseAsync_GetResult** は、[RequestAppPurchaseAsync](https://docs.microsoft.com/uwp/api/windows.applicationmodel.store.currentappsimulator.requestapppurchaseasync) メソッドのエラー コードの戻り値をシミュレートすることを示します。            |
-|  **HResult**  |     [はい]       |   この属性は、[スキーマ](#schema) の **ResponseCodes** 型で表示される列挙値のいずれかに割り当てます。 これらの各列挙値は、この **DefaultResponse** 要素の **MethodName** 属性に割り当てるメソッドに対して返すエラーコードを表します。           |
+|  **MethodName**  |    〇        |   この属性は、**スキーマ** の [StoreMethodName](#schema) 型で表示される列挙値のいずれかに割り当てます。 これらの各列挙値は、テストのときにアプリでエラー コードの戻り値をシミュレートする **CurrentAppSimulator** メソッドを表します。 たとえば、値 **RequestAppPurchaseAsync_GetResult** は、[RequestAppPurchaseAsync](https://docs.microsoft.com/uwp/api/windows.applicationmodel.store.currentappsimulator.requestapppurchaseasync) メソッドのエラー コードの戻り値をシミュレートすることを示します。            |
+|  **HResult**  |     〇       |   この属性は、**スキーマ** の [ResponseCodes](#schema) 型で表示される列挙値のいずれかに割り当てます。 これらの各列挙値は、この **DefaultResponse** 要素の **MethodName** 属性に割り当てるメソッドに対して返すエラーコードを表します。           |
 
 <span id="consumableinformation"/>
 
@@ -547,9 +547,9 @@ ms.locfileid: "72816699"
 
 **Product** には次の属性があります。
 
-|  備わっている  |  必須かどうか  |  説明   |
+|  属性  |  必須  |  説明   |
 |-------------|------------|----------------|
-|  **Id**  |    [はい]        |   アプリがこのコンシューマブルなアドオンを特定するために使う文字列が含まれています。            |
-|  **TransactionId**  |     [はい]       |   アプリが、フルフィルメントのプロセス全体を通じ、コンシューマブルの購入トランザクションを追跡するために使用する GUID (文字列) が含まれています。 詳しくは、「[コンシューマブルなアプリ内製品購入の有効化](enable-consumable-in-app-product-purchases.md)」をご覧ください。            |
-|  **状態**  |      [はい]      |  アプリが、コンシューマブルのフルフィルメントの状態を示すために使う文字列が含まれています。 値は、**Active**、**PurchaseReverted**、**PurchasePending**、または **ServerError** です。             |
-|  **OfferId**  |     必須ではない       |    アプリが、このコンシューマブルが属するカテゴリを特定するために使う文字列が含まれています。 これを使うことで、「[アプリ内製品の大規模なカタログの管理](manage-a-large-catalog-of-in-app-products.md)」で説明されている大規模なアイテムのカタログに対応できます。           |
+|  **Id**  |    〇        |   アプリがこのコンシューマブルなアドオンを特定するために使う文字列が含まれています。            |
+|  **TransactionId**  |     〇       |   アプリが、フルフィルメントのプロセス全体を通じ、コンシューマブルの購入トランザクションを追跡するために使用する GUID (文字列) が含まれています。 詳しくは、「[コンシューマブルなアプリ内製品購入の有効化](enable-consumable-in-app-product-purchases.md)」をご覧ください。            |
+|  **状態**  |      〇      |  アプリが、コンシューマブルのフルフィルメントの状態を示すために使う文字列が含まれています。 値は、**Active**、**PurchaseReverted**、**PurchasePending**、または **ServerError** です。             |
+|  **OfferId**  |     X       |    アプリが、このコンシューマブルが属するカテゴリを特定するために使う文字列が含まれています。 これを使うことで、「[アプリ内製品の大規模なカタログの管理](manage-a-large-catalog-of-in-app-products.md)」で説明されている大規模なアイテムのカタログに対応できます。           |

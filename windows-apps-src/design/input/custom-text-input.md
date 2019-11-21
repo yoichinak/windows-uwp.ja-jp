@@ -8,12 +8,12 @@ keywords: キーボード, テキスト, 基本的なテキスト, カスタム 
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 91015294c595987e14189f85f3bd2cbed3ba8423
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 6313fb4deed76c61d5fb8309da72417b92bff503
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66363824"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74258015"
 ---
 # <a name="custom-text-input"></a>カスタム テキスト入力
 
@@ -21,7 +21,7 @@ ms.locfileid: "66363824"
 
 [  **Windows.UI.Text.Core**](https://docs.microsoft.com/uwp/api/Windows.UI.Text.Core) 名前空間の基本的なテキスト API によって、ユニバーサル Windows プラットフォーム (UWP) アプリは、Windows デバイスでサポートされている任意のテキスト サービスからテキスト入力を受け取ることができます。 この API は、アプリがテキスト サービスの詳細を認識している必要がないという点で、[テキスト サービス フレームワーク](https://docs.microsoft.com/windows/desktop/TSF/text-services-framework) API に似ています。 これにより、アプリは、任意の言語で、キーボード、音声、ペンなどの任意の入力の種類からテキストを受け取ることができます。
 
-> **重要な API**:[**Windows.UI.Text.Core**](https://docs.microsoft.com/uwp/api/Windows.UI.Text.Core), [**CoreTextEditContext**](https://docs.microsoft.com/uwp/api/Windows.UI.Text.Core.CoreTextEditContext)
+> **重要な API**: [**Windows.UI.Text.Core**](https://docs.microsoft.com/uwp/api/Windows.UI.Text.Core)、[**CoreTextEditContext**](https://docs.microsoft.com/uwp/api/Windows.UI.Text.Core.CoreTextEditContext)
 
 ## <a name="why-use-core-text-apis"></a>基本的なテキスト API を使う理由
 
@@ -56,12 +56,12 @@ ms.locfileid: "66363824"
 
 | フィールド                  | データの種類                                                                 | 説明                                                                      |
 |------------------------|---------------------------------------------------------------------------|----------------------------------------------------------------------------------|
-| **StartCaretPosition** | **数** \[JavaScript\] | **System.Int32** \[.NET\] | **int32** \[C++\] | 範囲の開始位置は、最初の文字の直前の ACP です。 |
-| **EndCaretPosition**   | **数** \[JavaScript\] | **System.Int32** \[.NET\] | **int32** \[C++\] | 範囲の終了位置は、最後の文字の直後の ACP です。     |
+| **StartCaretPosition** | JavaScript\] \[**数** | System.string **\[.net**\] | **int32** \[C++\] | 範囲の開始位置は、最初の文字の直前の ACP です。 |
+| **EndCaretPosition**   | JavaScript\] \[**数** | System.string **\[.net**\] | **int32** \[C++\] | 範囲の終了位置は、最後の文字の直後の ACP です。     |
 
  
 
-たとえば、範囲を前に示したテキスト範囲の\[0、5\] 「こんにちは」という単語を指定します。 **StartCaretPosition** は、常に **EndCaretPosition** 以下である必要があります。 範囲\[5, 0\]が無効です。
+たとえば、前に示したテキスト範囲では、範囲 \[0, 5\] は "Hello" という単語を指定します。 **StartCaretPosition** は、常に **EndCaretPosition** 以下である必要があります。 範囲 \[5, 0\] が無効です。
 
 ### <a name="insertion-point"></a>挿入ポイント
 
@@ -73,7 +73,7 @@ ms.locfileid: "66363824"
 
 たとえば、次のようなテキスト ストリームがあるとします。
 
-![テキスト ストリームの図の例](images/coretext/stream-2.png)は 2 つあります。\[0、1\]と\[6, 11\]します。 エディット コントロールを報告する必要があります。 1 つだけいずれか\[0, 1\]または\[6, 11\]します。
+![テキストストリームダイアグラムの例として、\[0、1\]、\[6、11\]の2つの選択肢があり](images/coretext/stream-2.png)。 編集コントロールは、そのうちの1つだけを報告する必要があります。\[0、1\] または \[6、11\]のいずれかです。
 
 ## <a name="working-with-text"></a>テキストの操作
 
@@ -94,13 +94,13 @@ ms.locfileid: "66363824"
 2.  [  **CoreTextTextUpdatingEventArgs.NewSelection**](https://docs.microsoft.com/uwp/api/windows.ui.text.core.coretexttextupdatingeventargs.newselection) で指定された位置に選択範囲を配置します。
 3.  [  **CoreTextTextUpdatingEventArgs.Result**](https://docs.microsoft.com/uwp/api/windows.ui.text.core.coretexttextupdatingeventargs.result) を [**CoreTextTextUpdatingResult.Succeeded**](https://docs.microsoft.com/uwp/api/Windows.UI.Text.Core.CoreTextTextUpdatingResult) に設定することによって、更新が成功したことをシステムに通知します。
 
-たとえば、これは、ユーザーが "d" を入力する前の編集コントロールの状態です。 挿入ポイントがある\[10, 10\]します。
+たとえば、これは、ユーザーが "d" を入力する前の編集コントロールの状態です。 挿入ポイントは、10 \[10\]にあります。
 
-![テキスト ストリームの図の例](images/coretext/stream-3.png)"d"、ユーザーを入力すると、 [ **TextUpdating** ](https://docs.microsoft.com/uwp/api/windows.ui.text.core.coretexteditcontext.textupdating)に次のイベントは[ **CoreTextTextUpdatingEventArgs**](https://docs.microsoft.com/uwp/api/Windows.UI.Text.Core.CoreTextTextUpdatingEventArgs)データ。
+![サンプルのテキストストリームダイアグラム](images/coretext/stream-3.png) ユーザーが "d" と入力すると、次の[**Coretexttextupdatingeventargs**](https://docs.microsoft.com/uwp/api/Windows.UI.Text.Core.CoreTextTextUpdatingEventArgs)データで[**textupdating**](https://docs.microsoft.com/uwp/api/windows.ui.text.core.coretexteditcontext.textupdating)イベントが発生します。
 
--   [**範囲**](https://docs.microsoft.com/uwp/api/windows.ui.text.core.coretexttextupdatingeventargs.range) = \[10, 10\]
--   [**テキスト**](https://docs.microsoft.com/uwp/api/windows.ui.text.core.coretexttextupdatingeventargs.text) "d"を =
--   [**NewSelection**](https://docs.microsoft.com/uwp/api/windows.ui.text.core.coretexttextupdatingeventargs.newselection) = \[11、11\]
+-   [**範囲**](https://docs.microsoft.com/uwp/api/windows.ui.text.core.coretexttextupdatingeventargs.range) = \[10、10\]
+-   [**Text**](https://docs.microsoft.com/uwp/api/windows.ui.text.core.coretexttextupdatingeventargs.text) = "d"
+-   [**Newselection**](https://docs.microsoft.com/uwp/api/windows.ui.text.core.coretexttextupdatingeventargs.newselection) = \[11、11\]
 
 編集コントロールで、指定された変更を適用し、[**Result**](https://docs.microsoft.com/uwp/api/windows.ui.text.core.coretexttextupdatingeventargs.result) を **Succeeded** に設定します。 変更が適用された後のコントロールの状態は、次のようになります。
 
@@ -115,15 +115,15 @@ ms.locfileid: "66363824"
 
 テキストの貼り付けや自動修正などが行われた場合に、編集コントロールのテキストが変更されることがあります。 このような場合、[**NotifyTextChanged**](https://docs.microsoft.com/uwp/api/windows.ui.text.core.coretexteditcontext.notifytextchanged) を呼び出すことによって、これらの変更をテキスト サービスに通知する必要があります。
 
-たとえば、これは、ユーザーが "World" を貼り付ける前の編集コントロールの状態です。 挿入ポイントがある\[6、6\]します。
+たとえば、これは、ユーザーが "World" を貼り付ける前の編集コントロールの状態です。 挿入ポイントは \[6、6\]にあります。
 
-![テキスト ストリームの図の例](images/coretext/stream-5.png)貼り付けの操作し、次のテキスト編集コントロールが最終的します。
+![テキストストリームダイアグラムの例では、ユーザーが貼り付け操作を実行し、エディットコントロールが次のテキストで終了し](images/coretext/stream-5.png) ます。
 
-![テキスト ストリームの図の例](images/coretext/stream-4.png)このような場合を呼び出す必要があります[ **NotifyTextChanged** ](https://docs.microsoft.com/uwp/api/windows.ui.text.core.coretexteditcontext.notifytextchanged)これらの引数で。
+![サンプルのテキストストリームダイアグラム](images/coretext/stream-4.png) このような場合は、次の引数を指定して[**Notifytextchanged**](https://docs.microsoft.com/uwp/api/windows.ui.text.core.coretexteditcontext.notifytextchanged)を呼び出す必要があります。
 
 -   *modifiedRange* = \[6、6\]
 -   *newLength* = 5
--   *newSelection* = \[11、11\]
+-   *Newselection* = \[11、11\]
 
 1 つまたは複数の [**TextRequested**](https://docs.microsoft.com/uwp/api/windows.ui.text.core.coretexteditcontext.textrequested) イベントが発生し、これを処理することによって、テキスト サービスが操作しているテキストを更新します。
 
@@ -131,17 +131,17 @@ ms.locfileid: "66363824"
 
 編集コントロールで、自動修正機能を提供するために、テキストの更新を上書きすることが必要になる場合があります。
 
-たとえば、短縮形を正式なつづりにする修正機能を提供する編集コントロールがあるとします。 ユーザーが Space キーを押して修正機能をトリガーする前の編集コントロールの状態は、次のようになっています。 挿入ポイントがある\[3、3\]します。
+たとえば、短縮形を正式なつづりにする修正機能を提供する編集コントロールがあるとします。 ユーザーが Space キーを押して修正機能をトリガーする前の編集コントロールの状態は、次のようになっています。 挿入ポイントは \[3、3\]にあります。
 
-![テキスト ストリームの図の例](images/coretext/stream-6.png)space キーと対応するユーザーが押した[ **TextUpdating** ](https://docs.microsoft.com/uwp/api/windows.ui.text.core.coretexteditcontext.textupdating)イベントが発生します。 編集コントロールは、テキストの更新を受け付けます。 修正が完了する直前の編集コントロールの状態は、次のようになります。 挿入ポイントがある\[4, 4\]します。
+![テキストストリームダイアグラムの例では、ユーザーが space キーを押す](images/coretext/stream-6.png)、対応する[**Textupdating**](https://docs.microsoft.com/uwp/api/windows.ui.text.core.coretexteditcontext.textupdating)イベントが発生します。 編集コントロールは、テキストの更新を受け付けます。 修正が完了する直前の編集コントロールの状態は、次のようになります。 挿入ポイントは \[4、4\]にあります。
 
-![テキスト ストリームの図の例](images/coretext/stream-7.png)の外部、 [ **TextUpdating** ](https://docs.microsoft.com/uwp/api/windows.ui.text.core.coretexteditcontext.textupdating)イベント ハンドラーでは、編集コントロールは、次の修正。 修正が完了した後の編集コントロールの状態は、次のようになります。 挿入ポイントがある\[5, 5\]します。
+サンプルのテキストストリームダイアグラム](images/coretext/stream-7.png) [**Textupdating**](https://docs.microsoft.com/uwp/api/windows.ui.text.core.coretexteditcontext.textupdating)イベントハンドラーの外部にある ![、エディットコントロールによって次のように修正されます。 修正が完了した後の編集コントロールの状態は、次のようになります。 挿入ポイントは \[5、5\]にあります。
 
-![テキスト ストリームの図の例](images/coretext/stream-8.png)このような場合を呼び出す必要があります[ **NotifyTextChanged** ](https://docs.microsoft.com/uwp/api/windows.ui.text.core.coretexteditcontext.notifytextchanged)これらの引数で。
+![サンプルのテキストストリームダイアグラム](images/coretext/stream-8.png) このような場合は、次の引数を指定して[**Notifytextchanged**](https://docs.microsoft.com/uwp/api/windows.ui.text.core.coretexteditcontext.notifytextchanged)を呼び出す必要があります。
 
--   *modifiedRange* = \[1, 2\]
+-   *modifiedRange* = \[1、2\]
 -   *newLength* = 2
--   *newSelection* = \[5, 5\]
+-   *Newselection* = \[5、5\]
 
 1 つまたは複数の [**TextRequested**](https://docs.microsoft.com/uwp/api/windows.ui.text.core.coretexteditcontext.textrequested) イベントが発生し、これを処理することによって、テキスト サービスが操作しているテキストを更新します。
 
@@ -149,13 +149,13 @@ ms.locfileid: "66363824"
 
 テキスト サービスでは、自動修正や予測入力などの機能を提供する場合、正しいテキストがあることが重要です。特に、ドキュメントの読み込みなどから編集コントロールに既に存在しているテキストや、前のセクションで説明したように編集コントロールによって挿入されたテキストについて重要です。 そのため、[**TextRequested**](https://docs.microsoft.com/uwp/api/windows.ui.text.core.coretexteditcontext.textrequested) イベントが発生するたびに、現在編集コントロール内にあり、指定された範囲のテキストを提供する必要があります。
 
-[  **CoreTextTextRequest**](https://docs.microsoft.com/uwp/api/Windows.UI.Text.Core.CoreTextTextRequest) 内の [**Range**](https://docs.microsoft.com/uwp/api/windows.ui.text.core.coretexttextrequest.range) が、編集コントロールでそのまま格納できない範囲を指定する場合があります。 たとえば、[**TextRequested**](https://docs.microsoft.com/uwp/api/windows.ui.text.core.coretexteditcontext.textrequested) イベントの発生時に **Range** が編集コントロールのサイズよりも大きい場合や、**Range** の最後が範囲外である場合です。 このような場合は、何か適切な範囲を返す必要があります。通常、これは要求された範囲のサブセットです。
+[  **CoreTextTextRequest**](https://docs.microsoft.com/uwp/api/windows.ui.text.core.coretexttextrequest.range) 内の [**Range**](https://docs.microsoft.com/uwp/api/Windows.UI.Text.Core.CoreTextTextRequest) が、編集コントロールでそのまま格納できない範囲を指定する場合があります。 たとえば、TextRequested[**イベントの発生時に**Range](https://docs.microsoft.com/uwp/api/windows.ui.text.core.coretexteditcontext.textrequested) が編集コントロールのサイズよりも大きい場合や、**Range** の最後が範囲外である場合です。 このような場合は、何か適切な範囲を返す必要があります。通常、これは要求された範囲のサブセットです。
 
 ## <a name="related-articles"></a>関連記事
 
 **サンプル**
-* [カスタム コントロールの編集サンプル](https://go.microsoft.com/fwlink/?linkid=831024)  
-**サンプルのアーカイブ**
-* [XAML テキスト編集のサンプル](https://go.microsoft.com/fwlink/p/?LinkID=251417)
+* [カスタムエディットコントロールのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/CustomEditControl) 
+**アーカイブサンプル**
+* [XAML テキスト編集のサンプル](https://code.msdn.microsoft.com/windowsapps/XAML-text-editing-sample-fb0493ad)
 
 

@@ -7,12 +7,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 350565d9eccb8b19cf276c800522e28c59c9b10f
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: b04e48163af47b7e753bc3bc050e44a947b122fc
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66361029"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74259695"
 ---
 # <a name="raw-notification-overview"></a>直接通知の概要
 
@@ -55,7 +55,7 @@ ms.locfileid: "66361029"
 
 直接通知は、アプリでのアクション (サービスに直接アクセスして大量のデータを同期する、通知コンテンツに基づいて局部的な状態変更を行うなど) の実行をトリガーする短いメッセージとして使うことを意図しています。 WNS プッシュ通知は配信されるとは限らないため、アプリとクラウド サービスで、クライアントがオフラインの場合などには直接通知がクライアントに届かない可能性があることを示しておく必要があります。
 
-プッシュ通知の送信の詳細については、次を参照してください。[クイック スタート。プッシュ通知を送信する](https://docs.microsoft.com/previous-versions/windows/apps/hh868252(v=win.10))します。
+プッシュ通知の送信について詳しくは、「[クイック スタート: プッシュ通知の送信](https://docs.microsoft.com/previous-versions/windows/apps/hh868252(v=win.10))」をご覧ください。
 
 ## <a name="receiving-a-raw-notification"></a>直接通知の受信
 
@@ -76,11 +76,11 @@ ms.locfileid: "66361029"
 
 アプリが実行されておらず、[バックグラウンド タスク](#background-tasks-triggered-by-raw-notifications)を使わない場合、そのアプリに送られる直接通知はすべて受信時に WNS によってドロップされます。 クラウド サービスのリソースの消費を削減するには、アプリがアクティブであるかどうかを追跡するロジックをサービスに実装することを検討する必要があります。 このロジックの情報源は 2 種類あります。アプリが通知を受け取る準備ができたことをサービスに明示的に伝えることも、WNS が停止するタイミングをサービスに伝えることもできます。
 
--   **アプリをクラウド サービスに通知**:アプリは、それをアプリがフォア グラウンドで実行されていることを通知できるようにするには、そのサービスに連絡できます。 この方法の欠点は、アプリがサービスに頻繁にアクセスするようになる可能性があるということです。 ただし、到着した直接通知をアプリが受け取ることができるタイミングをサービスが常に把握しているという利点もあります。 この他、アプリがそのサービスにアクセスする際に、サービスがブロードキャストではなく直接通知をそのアプリの特定のインスタンスに送る必要があるとわかるという利点もあります。
--   **クラウド サービスが WNS 応答メッセージに応答**:App service を使用できます、 [X-notificationstatus WNS](https://docs.microsoft.com/previous-versions/windows/apps/hh465435(v=win.10))と[X-WNS-DeviceConnectionStatus](https://docs.microsoft.com/previous-versions/windows/apps/hh465435(v=win.10))をアプリに直接通知の送信を停止するタイミングを決定する WNS によって返される情報。 サービスが通知を HTTP POST としてチャネルに送る場合、サービスは応答で以下のメッセージの 1 つを受け取ることがあります。
+-   **アプリがクラウド サービスに通知する**: アプリは、サービスにアクセスし、アプリがフォアグラウンドで実行されていると知らせることができます。 この方法の欠点は、アプリがサービスに頻繁にアクセスするようになる可能性があるということです。 ただし、到着した直接通知をアプリが受け取ることができるタイミングをサービスが常に把握しているという利点もあります。 この他、アプリがそのサービスにアクセスする際に、サービスがブロードキャストではなく直接通知をそのアプリの特定のインスタンスに送る必要があるとわかるという利点もあります。
+-   **クラウド サービスが WNS 応答メッセージに応答する** : アプリ サービスは、WNS によって返された [X-WNS-NotificationStatus](https://docs.microsoft.com/previous-versions/windows/apps/hh465435(v=win.10)) の情報と [X-WNS-DeviceConnectionStatus](https://docs.microsoft.com/previous-versions/windows/apps/hh465435(v=win.10)) の情報を使って、アプリへの直接通知の送信を停止するタイミングを判断できます。 サービスが通知を HTTP POST としてチャネルに送る場合、サービスは応答で以下のメッセージの 1 つを受け取ることがあります。
 
-    -   **WNS-X-notificationstatus: 削除**:これは、通知がクライアントによって受信していないことを示します。 **dropped** 応答は、ユーザー デバイスのフォアグラウンドに存在しなくなったアプリによって引き起こされたと考えることができます。
-    -   **X-WNS DeviceConnectionStatus: 切断**または**X-WNS-DeviceConnectionStatus: tempconnected**:これは、Windows クライアントされなく WNS に接続されていることを示します。 このメッセージを WNS から受け取るには、通知の HTTP POST に [X-WNS-RequestForStatus](https://docs.microsoft.com/previous-versions/windows/apps/hh465435(v=win.10)) ヘッダーを設定して受け取りを要求する必要があります。
+    -   **X-WNS-NotificationStatus: dropped**: クライアントが通知を受け取らなかったことを示します。 **dropped** 応答は、ユーザー デバイスのフォアグラウンドに存在しなくなったアプリによって引き起こされたと考えることができます。
+    -   **X-WNS-DeviceConnectionStatus: disconnected** または **X-WNS-DeviceConnectionStatus: tempconnected**: Windows クライアントがもう WNS に接続されていないことを示します。 このメッセージを WNS から受け取るには、通知の HTTP POST に [X-WNS-RequestForStatus](https://docs.microsoft.com/previous-versions/windows/apps/hh465435(v=win.10)) ヘッダーを設定して受け取りを要求する必要があります。
 
     アプリのクラウド サービスは、これらのステータス メッセージ内の情報を使って、直接通知による通信要求を停止できます。 アプリがフォアグラウンドに戻り、サービスにアクセスした時点で、サービスは直接通知の送信を再開できます。
 
@@ -113,15 +113,15 @@ ms.locfileid: "66361029"
 ## <a name="other-resources"></a>その他のリソース
 
 
-ダウンロードして詳細を確認できます、[生の通知のサンプル](https://go.microsoft.com/fwlink/p/?linkid=241553)の Windows 8.1、および[プッシュおよび定期的な通知のサンプル](https://go.microsoft.com/fwlink/p/?LinkId=231476)Windows 8.1、および Windows 10 アプリで、ソース コードを再利用します。
+詳細については、Windows 8.1 の[生通知のサンプル](https://code.msdn.microsoft.com/windowsapps/Raw-notifications-sample-3bc28c5d)をダウンロードし、Windows 8.1 の[プッシュ通知と定期的な通知のサンプル](https://code.msdn.microsoft.com/windowsapps/push-and-periodic-de225603)をダウンロードして、Windows 10 アプリでソースコードを再利用する方法に関するページを参照してください。
 
 ## <a name="related-topics"></a>関連トピック
 
-* [生の通知のガイドライン](https://docs.microsoft.com/windows/uwp/controls-and-patterns/tiles-and-notifications-raw-notification-overview)
-* [クイック スタート:作成して、生の通知のバック グラウンド タスクを登録します。](https://docs.microsoft.com/previous-versions/windows/apps/jj676800(v=win.10))
-* [クイック スタート:アプリを実行するためのプッシュ通知を受信](https://docs.microsoft.com/previous-versions/windows/apps/jj709908(v=win.10))
+* [生の通知に関するガイドライン](https://docs.microsoft.com/windows/uwp/controls-and-patterns/tiles-and-notifications-raw-notification-overview)
+* [クイックスタート: 通知の生のバックグラウンドタスクの作成と登録](https://docs.microsoft.com/previous-versions/windows/apps/jj676800(v=win.10))
+* [クイックスタート: 実行中のアプリのプッシュ通知を受信する](https://docs.microsoft.com/previous-versions/windows/apps/jj709908(v=win.10))
 * [**RawNotification**](https://docs.microsoft.com/uwp/api/Windows.Networking.PushNotifications.RawNotification)
-* [**BackgroundExecutionManager.RequestAccessAsync**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.BackgroundExecutionManager#Windows_ApplicationModel_Background_BackgroundExecutionManager_RequestAccessAsync_System_String_)
+* [**BackgroundExecutionManager**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.BackgroundExecutionManager#Windows_ApplicationModel_Background_BackgroundExecutionManager_RequestAccessAsync_System_String_)
  
 
  

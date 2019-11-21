@@ -8,12 +8,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 5fd8fa2b5264328619619df862d21f02f70f52e0
-ms.sourcegitcommit: d38e2f31c47434cd6dbbf8fe8d01c20b98fabf02
+ms.openlocfilehash: 1fd0f00d74d62816ff347265936f6b066a0316b0
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70393760"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74257755"
 ---
 # <a name="keyboard-accessibility"></a>キーボードのアクセシビリティ  
 
@@ -148,7 +148,7 @@ XAML
 
 わかりやすくするために、上の例では "Ctrl + A" などの文字列に対するリソースは使っていません。 ただし、ローカライズ時にはショートカット キーについても考慮する必要があります。 ショートカット キーとして使うキーは通常、要素の表示テキスト ラベルに基づいて選ぶため、ショートカット キーをローカライズすることは適切な作業です。
 
-ショートカット キーの実装について詳しくは、Windows ユーザー エクスペリエンス インタラクション ガイドラインの[ショートカット キー](https://go.microsoft.com/fwlink/p/?linkid=221825)に関する説明をご覧ください。
+ショートカット キーの実装について詳しくは、Windows ユーザー エクスペリエンス インタラクション ガイドラインの[ショートカット キー](https://docs.microsoft.com/windows/win32/uxguide/inter-keyboard?redirectedfrom=MSDN)に関する説明をご覧ください。
 
 <span id="Implementing_a_key_event_handler"/>
 <span id="implementing_a_key_event_handler"/>
@@ -175,7 +175,7 @@ Ctrl キーなどの修飾キーのチェックを含むキー イベント ハ�
 ## <a name="an-example-of-a-visual-state-for-a-focus-indicator"></a>フォーカス インジケーターの表示状態の例  
 これまで説明したように、ユーザーがフォーカスを合わせることができるカスタム コントロールには視覚的なフォーカス インジケーターが必要です。 一般に、フォーカス インジケーターは、コントロールを囲む通常の四角形の境界線のすぐ外側に、四角形を描画するだけの簡単なものです。 視覚的なフォーカスに使う [**Rectangle**](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle) は、コントロール テンプレートにおけるコントロールの合成の他の部分に対するピア要素ですが、最初はコントロールにフォーカスがないため、[**Visibility**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.visibility) の値には **Collapsed** が設定されています。 コントロールがフォーカスを取得すると、表示状態が呼び出され、フォーカス表示の **Visibility** が **Visible** に設定されます。 フォーカスが別の場所に移動すると、他の表示状態が呼び出され、**Visibility** が **Collapsed** になります。
 
-既定の XAML コントロールはいずれも、フォーカスを設定できるものであれば、フォーカスを受け取ったときに視覚的なフォーカス インジケーターを適切に表示します。 また、ユーザーが選択したテーマによって、外観が異なる場合もあります (特に、ユーザーがハイコントラストモードを使用している場合)。UI で XAML コントロールを使用していて、コントロールテンプレートを置き換えない場合は、動作して正しく表示されるコントロールに対して視覚的なフォーカスインジケーターを取得するために余分な操作を行う必要はありません。 ただし、コントロールを再テンプレート化する必要がある場合、または XAML コントロールで視覚的なフォーカス インジケーターがどのように実現されているかを理解したい場合のために、このセクションの残りの部分では、XAML とコントロール ロジックにおけるフォーカス インジケーターの処理方法について説明します。
+既定の XAML コントロールはいずれも、フォーカスを設定できるものであれば、フォーカスを受け取ったときに視覚的なフォーカス インジケーターを適切に表示します。 また、ユーザーが選んでいるテーマに応じて (ハイ コントラスト モードを使っている場合は特に)、外観が異なる可能性があります。UI で XAML コントロールを使っており、コントロール テンプレートを置き換えていない場合は、特に何もしなくても、視覚的なフォーカス インジケーターがコントロールに適切に表示され、動作します。 ただし、コントロールを再テンプレート化する必要がある場合、または XAML コントロールで視覚的なフォーカス インジケーターがどのように実現されているかを理解したい場合のために、このセクションの残りの部分では、XAML とコントロール ロジックにおけるフォーカス インジケーターの処理方法について説明します。
 
 次に示す XAML の例は、[**Button**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Button) の既定の XAML テンプレートに含まれています。
 
@@ -250,4 +250,4 @@ SIP には Ctrl キーや Alt キーがないため、キーボード ショー�
 * [アクセシビリティ](accessibility.md)
 * [キーボード操作](https://docs.microsoft.com/windows/uwp/input-and-devices/keyboard-interactions)
 * [タッチキーボードのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/TouchKeyboard)
-* [XAML アクセシビリティのサンプル](https://go.microsoft.com/fwlink/p/?linkid=238570)
+* [XAML アクセシビリティのサンプル](https://code.msdn.microsoft.com/windowsapps/XAML-accessibility-sample-d63e820d)

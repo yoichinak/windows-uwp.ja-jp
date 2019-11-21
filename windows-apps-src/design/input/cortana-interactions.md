@@ -8,12 +8,12 @@ keywords: Cortana, Cortana のキャンバス, Cortana の設計, ユーザー �
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 49290d0e0ba96a5dce562ca4148b0ebf53bf0ff5
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: fa9001492228cee7427c2b18f2692a6a33fbb16b
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57648167"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74258031"
 ---
 # <a name="cortana-interactions-in-uwp-apps"></a>UWP アプリでの Cortana の操作
 
@@ -29,14 +29,14 @@ Cortanaの機能とサービスに関する開発者向けドキュメントは�
 
 ## <a name="related-articles"></a>関連記事
 
-* [**VCD の要素と属性のバージョン 1.2**](https://docs.microsoft.com/uwp/schemas/voicecommands/voice-command-elements-and-attributes-1-2)
+* [**VCD の要素と属性 version 1.2**](https://docs.microsoft.com/uwp/schemas/voicecommands/voice-command-elements-and-attributes-1-2)
 
 **デザイナー向け**
 * [音声認識のデザイン ガイドライン](speech-interactions.md)
-* [音声コマンドの Cortana のデザイン ガイドライン](https://docs.microsoft.com/cortana/voice-commands/voicecommand-design-guidelines)
+* [音声コマンドの Cortana デザインガイドライン](https://docs.microsoft.com/cortana/voice-commands/voicecommand-design-guidelines)
 
 **サンプル**
-* [Cortana 音声コマンドのサンプル](https://go.microsoft.com/fwlink/p/?LinkID=619899)
+* [Cortana voice コマンドのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/CortanaVoiceCommand)
  
 
  

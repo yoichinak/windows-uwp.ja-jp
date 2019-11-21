@@ -6,12 +6,12 @@ ms.date: 03/05/2019
 ms.topic: article
 keywords: windows 10, uwp, 支払い, アプリの販売, アプリの収益, 受け取り, Microsoft Store の手数料, 支払い保留, パーセント
 ms.localizationpriority: medium
-ms.openlocfilehash: 8a3c8bf0d2d203b650b2706c24dc4c20e88e2576
-ms.sourcegitcommit: 36f502e2449f49e82bd593d6aea0b71ac48d6bec
+ms.openlocfilehash: 853554a0a3a0507f1a8b9d8994618d16aa44bccc
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70750559"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74259995"
 ---
 # <a name="getting-paid"></a>支払いの受け取り
 アプリ、アドオン、広告収益の支払いに関する重要な情報を次に示します。
@@ -21,7 +21,7 @@ ms.locfileid: "70750559"
 
 ## <a name="store-fee"></a>Microsoft Store の手数料
 
-[開発者アカウントを登録する](https://go.microsoft.com/fwlink/p/?LinkID=615100)際に、開発者は[アプリ開発者契約](https://docs.microsoft.com/legal/windows/agreements/app-developer-agreement)に同意します。 この契約には、Microsoft Store でのアプリ販売に関する、開発者と Microsoft との関係が説明されています。これには、Microsoft がすべての販売に対して課金する Microsoft Store の手数料に関する規定も含まれています。
+[開発者アカウントを登録する](https://developer.microsoft.com/store/register)際に、開発者は[アプリ開発者契約](https://docs.microsoft.com/legal/windows/agreements/app-developer-agreement)に同意します。 この契約には、Microsoft Store でのアプリ販売に関する、開発者と Microsoft との関係が説明されています。これには、Microsoft がすべての販売に対して課金する Microsoft Store の手数料に関する規定も含まれています。
 
 これらの手数料は、[アプリ開発者契約](https://docs.microsoft.com/legal/windows/agreements/app-developer-agreement)で正式に定められています。 疑問がある場合は、常にこの契約を確認してください。
 

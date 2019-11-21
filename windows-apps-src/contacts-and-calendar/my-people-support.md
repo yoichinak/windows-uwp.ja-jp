@@ -5,12 +5,12 @@ ms.date: 06/28/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: f54cb261f6ef94545d656d5bd4f624622cc6dfff
-ms.sourcegitcommit: dafda665fd3d25136194e452e7500b5bab076638
+ms.openlocfilehash: 7ba05e958a8746874becd4cfa17ec0e8f255ff00
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71982231"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74255143"
 ---
 # <a name="adding-my-people-support-to-an-application"></a>アプリケーションにマイ連絡先のサポートを追加する
 
@@ -104,7 +104,7 @@ if (ApiInformation.IsApiContractPresent("Windows.Foundation.UniversalApiContract
 }
 ```
 
-“appId” はパッケージ ファミリ名の最後に ‘!’ と アクティブ化可能なクラス ID を付けたものです。 パッケージ ファミリー名を見つけるには、既定のエディターを使って **Package.appxmanifest** を開き、“Packaging” タブを検索します。ここで、"App"は、アプリケーションのスタートアップ ビューに対応する、アクティブ化可能なクラスです。
+“appId” はパッケージ ファミリ名の最後に ‘!’ と アクティブ化可能なクラス ID を付けたものです。 パッケージ ファミリ名を見つけるには、既定のエディターを使って **Package.appxmanifest** を開き、"Packaging" タブを検索します。ここで、"App" は、アプリケーションのスタートアップ ビューに対応する、アクティブ化可能なクラスです。
 
 ## <a name="allow-contacts-to-invite-new-potential-users"></a>連絡先が新しい潜在的なユーザーを招待できるようにする
 
@@ -182,13 +182,13 @@ ContactPanel オブジェクトを使うと、連絡先パネル ヘッダーの
 
 ## <a name="supporting-notification-badging"></a>通知バッジをサポートする
 
-ユーザーに関連する新しい通知がアプリから届いたときに、タスク バーにピン留めされた連絡先にバッジを表示する場合は、[トースト通知](https://docs.microsoft.com/windows/uwp/design/shell/tiles-and-notifications/adaptive-interactive-toasts)と表現力豊かな[マイ連絡先の通知](https://docs.microsoft.com/en-us/windows/uwp/contacts-and-calendar/my-people-notifications)に **hint-people** パラメーターを含める必要があります。
+ユーザーに関連する新しい通知がアプリから届いたときに、タスク バーにピン留めされた連絡先にバッジを表示する場合は、**トースト通知**と表現力豊かな[マイ連絡先の通知](https://docs.microsoft.com/windows/uwp/design/shell/tiles-and-notifications/adaptive-interactive-toasts)に [hint-people](https://docs.microsoft.com/en-us/windows/uwp/contacts-and-calendar/my-people-notifications) パラメーターを含める必要があります。
 
 ![連絡先の通知でのバッジの表示](images/my-people-badging.png)
 
 連絡先にバッジを表示するには、トップ レベルのトースト ノードに hint-people パラメーターを含めて、送信連絡先を指定する必要があります。 このパラメーターには次の値を指定できます。
 + **電子メールアドレス** 
-    + 例: [mailto:johndoe@mydomain.com](mailto:johndoe@mydomain.com)
+    + 例: mailto:johndoe@mydomain.com
 + **電話番号** 
     + 例: tel:888-888-8888
 + **リモート ID** 
@@ -255,7 +255,7 @@ async Task PinMultipleContacts(Contact[] contacts)
 + [マイ連絡先の共有](my-people-sharing.md)
 + [マイユーザー通知](my-people-notifications.md)
 + [アプリケーションへの People サポートの追加に関する Channel 9 のビデオ](https://channel9.msdn.com/Events/Build/2017/P4056)
-+ [マイユーザー統合のサンプル](https://aka.ms/mypeoplebuild2017)
++ [マイユーザー統合のサンプル](https://github.com/tonyPendolino/MyPeopleBuild2017)
 + [連絡先カードのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/6370138b150ca8a34ff86de376ab6408c5587f5d/Samples/ContactCardIntegration)
 + [PinnedContactManager クラスのドキュメント](https://docs.microsoft.com/en-us/uwp/api/windows.applicationmodel.contacts.pinnedcontactmanager)
 + [アプリを連絡先カードの操作に接続する](https://docs.microsoft.com/en-us/windows/uwp/contacts-and-calendar/integrating-with-contacts)

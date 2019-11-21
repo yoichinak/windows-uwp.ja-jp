@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 2e02d74df59bae4dd4bdaa909c97866da754db93
-ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
+ms.openlocfilehash: 1af36b43e02c9ee08373098f57ba29c10badb6c8
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71339925"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74259071"
 ---
 # <a name="windowsphone-silverlight-to-uwp-api-mappings"></a>Silverlight から UWP API へのマッピングの Windows Phone
 
@@ -22,7 +22,7 @@ ms.locfileid: "71339925"
 
 **テーブルの使用方法:  **まず、使用しているクラスの名前を検索します。 マッピングで単純な名前空間名の変更よりも複雑になる場合は常に、クラスが示されています。 クラスが示されていない場合は、マッピングは名前空間の変更のみです。 したがって、クラスの名前空間名を探すことで、相当する UWP の名前空間名が見つかります。 目的のクラスはその名前空間に含まれています。 名前空間が示されていない場合は、その名前は変更されていません。
 
-**@No__t-** 1 Windows 10 では、Windows Phone ストアアプリよりも多くの .NET Framework がサポートされています。 たとえば、Windows 10 には、System.Net 名前空間、、システム .Net. NetworkInformation、およびシステムの各ソケットがいくつ @no__t かあります。
+**注**  Windows 10 では、Windows Phone ストアアプリよりも多くの .NET Framework がサポートされています。 たとえば、Windows 10 にはいくつかの System.servicemodel があります。名前空間と System.Net、システムの .Net. NetworkInformation、およびを参照してください。\*
 また、Windows 10 アプリでは .NET ネイティブを利用できます。これは、MSIL をネイティブに実行可能なマシンコードに変換するための事前コンパイルテクノロジです。 .NET ネイティブ アプリは、MSIL アプリに比べて、すばやく起動し、メモリ使用量やバッテリ使用量は少なくなります。
 
 | Silverlight の Windows Phone | Windows ランタイム |
@@ -52,11 +52,11 @@ ms.locfileid: "71339925"
 | (SWT = **System.Windows.Threading**) <br/> **SWT.DispatcherTimer** クラス | [**DispatcherTimer**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.DispatcherTimer)クラス |
 | Blend for Visual Studio | |
 | (MEDC = **Microsoft.Expression.Drawing.Core**) <br/> **MEDC.GeometryHelper** クラス | 直接相当する要素はなし |
-| **Microsoft.Expression.Interactivity** 名前空間 | [Microsoft.Xaml.Interactivity](https://go.microsoft.com/fwlink/p/?LinkId=328776) 名前空間 |
-| **Microsoft.Expression.Interactivity.Core** 名前空間 | [Microsoft.Xaml.Interactions.Core](https://go.microsoft.com/fwlink/p/?LinkId=328773) 名前空間 |
+| **Microsoft.Expression.Interactivity** 名前空間 | [Microsoft.Xaml.Interactivity](https://msdn.microsoft.com/library/windows/apps/microsoft.xaml.interactivity.aspx) 名前空間 |
+| **Microsoft.Expression.Interactivity.Core** 名前空間 | [Microsoft.Xaml.Interactions.Core](https://msdn.microsoft.com/library/windows/apps/microsoft.xaml.interactions.core.aspx) 名前空間 |
 | (MEIC = **Microsoft.Expression.Interactivity.Core**) <br/> **MEIC.ExtendedVisualStateManager** クラス | 直接相当する要素はなし |
 | **Microsoft.Expression.Interactivity.Input** 名前空間 | 直接相当する要素はなし |
-| **Microsoft.Expression.Interactivity.Media** 名前空間 | [Microsoft.Xaml.Interactions.Media](https://go.microsoft.com/fwlink/p/?LinkId=328775) 名前空間 |
+| **Microsoft.Expression.Interactivity.Media** 名前空間 | [Microsoft.Xaml.Interactions.Media](https://msdn.microsoft.com/library/windows/apps/microsoft.xaml.interactions.media.aspx) 名前空間 |
 | **Microsoft.Expression.Shapes** 名前空間 | 直接相当する要素はなし |
 | (MI = **Microsoft.Internal**) <br/> **MI.IManagedFrameworkInternalHelper** インターフェイス | 直接相当する要素はなし |
 | 連絡先とカレンダーのデータ | |
@@ -116,12 +116,12 @@ ms.locfileid: "71339925"
 | **Microsoft.Devices.Sensors.Accelerometer**、**Compass** クラス | [  **Windows.Devices.Sensors**](https://docs.microsoft.com/uwp/api/Windows.Devices.Sensors) 名前空間内 |
 | **Microsoft.Devices.Sensors.Gyroscope** クラス | [**ジャイロ**](https://docs.microsoft.com/uwp/api/Windows.Devices.Sensors.Gyrometer)クラス |
 | **Microsoft.Devices.Sensors.Motion** クラス | [**Inclinometer**](https://docs.microsoft.com/uwp/api/Windows.Devices.Sensors.Inclinometer)クラス |
-| グローバリゼーション | |
+| Globalization | |
 | **System.Globalization** 名前空間 | [**Windows. グローバリゼーション**](https://docs.microsoft.com/uwp/api/Windows.Globalization)名前空間 |
 | (ST = **System.Threading**) <br/> **ST.Thread.CurrentCulture** プロパティ | (SG = **System.Globalization**) <br/> **S.CultureInfo.CurrentCulture** プロパティ |
 | (ST = **System.Threading**) <br/> **ST.Thread.CurrentUICulture** プロパティ | (SG = **System.Globalization**) <br/> **S.CultureInfo.CurrentUICulture** プロパティ |
 | グラフィックスとアニメーション | |
-| **@No__t-1**名前空間、 [Xna フレームワーククラスライブラリ](https://go.microsoft.com/fwlink/p/?LinkId=263769)、[コンテンツパイプラインクラスライブラリ](https://go.microsoft.com/fwlink/p/?LinkId=263770) | 直接相当する要素はなし。 一般的に、C++ と共に [Microsoft DirectX](https://docs.microsoft.com/windows/desktop/directx) を使います。 「[ゲームの開発](https://docs.microsoft.com/previous-versions/windows/apps/hh452744(v=win.10))」と「[DirectX と XAML の相互運用機能](https://docs.microsoft.com/previous-versions/windows/apps/hh825871(v=win.10))」をご覧ください。 |
+| **\*** 名前空間、 [Xna フレームワーククラスライブラリ](https://msdn.microsoft.com/library/bb203940.aspx)、[コンテンツパイプラインクラスライブラリ](https://msdn.microsoft.com/library/bb195587(v=XNAGameStudio.40).aspx) | 直接相当する要素はなし。 一般的に、C++ と共に [Microsoft DirectX](https://docs.microsoft.com/windows/desktop/directx) を使います。 「[ゲームの開発](https://docs.microsoft.com/previous-versions/windows/apps/hh452744(v=win.10))」と「[DirectX と XAML の相互運用機能](https://docs.microsoft.com/previous-versions/windows/apps/hh825871(v=win.10))」をご覧ください。 |
 | **Microsoft.Xna.Framework.Audio.Microphone** クラス | [**MediaCapture**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.MediaCapture)クラス |
 | **Microsoft.Xna.Framework.Audio.SoundEffect** クラス | [**MediaElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.MediaElement)クラス |
 | **Microsoft.Xna.Framework.GamerServices** 名前空間 | (WPS = **Windows.Phone.System**) <br/> [**WPS。GameServices**](https://docs.microsoft.com/uwp/api/Windows.Phone.System.UserProfile.GameServices.Core)名前空間 |
@@ -210,7 +210,7 @@ ms.locfileid: "71339925"
 | **Microsoft.Phone.Reactive** 名前空間 | 直接相当する要素はなし |
 | リフレクション | |
 | **System.Type** クラス | **System.Reflection.TypeInfo** クラス。 「[UWP アプリのための .NET Framework でのリフレクション](https://docs.microsoft.com/dotnet/framework/reflection-and-codedom/reflection-for-windows-store-apps)」を参照してください。 |
-| リソース | |
+| 参考資料 | |
 | **System.Resources.ResourceManager** クラス | (WA = **Windows.ApplicationModel**)<br/>[**WA。Resources. Core**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Resources.Core)および[**WA。Resources**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Resources)名前空間、 [**ResourceManager**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Resources.Core.ResourceManager)クラス。 「[Windows ランタイム アプリのリソースの作成と取得](https://docs.microsoft.com/previous-versions/windows/apps/hh694557(v=vs.140))」をご覧ください。 |
 | セキュリティ要素 | |
 | (MPS = **Microsoft.Phone.SecureElement**) <br/> **MPS.SecureElementChannel**、**MPS.SecureElementSession** クラス | [**Smartcardconnection**](https://docs.microsoft.com/uwp/api/Windows.Devices.SmartCards.SmartCardConnection)クラス |
@@ -221,7 +221,7 @@ ms.locfileid: "71339925"
 | (SSC = **System.Security.Cryptography**) <br/> **SSC.ProtectedData** クラス | [**Dataprotectionprovider**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.DataProtection.DataProtectionProvider)クラス |
 | (SSC = **System.Security.Cryptography**) <br/> **SSC.RandomNumberGenerator** クラス | [**CryptographicBuffer**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.CryptographicBuffer)クラス |
 | (SSC = **System.Security.Cryptography**) <br/> **SSC.X509Certificates.X509Certificate** クラス | [**CertificateEnrollmentManager**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.Certificates.CertificateEnrollmentManager)クラス |
-| Shell | |
+| シェル | |
 | (MPSh = **Microsoft.Phone.Shell**) <br/> **MPSh.ApplicationBar** クラス | [**CommandBar**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CommandBar)クラス |
 | (MPSh = **Microsoft.Phone.Shell**) <br/> **MPSh.ApplicationBarIconButton** クラス | [**Appbarbutton**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.AppBarButton)クラス ( [**primarycommands**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.commandbar.primarycommands)プロパティ内で使用されている場合) |
 | (MPSh = **Microsoft.Phone.Shell**) <br/> **MPSh.ApplicationBarMenuItem** クラス | [**Appbarbutton**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.AppBarButton)クラス ( [**secondarycommands**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.commandbar.secondarycommands)プロパティ内で使用されている場合) |

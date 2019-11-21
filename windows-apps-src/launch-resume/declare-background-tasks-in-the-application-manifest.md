@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10、uwp、バックグラウンドタスク
 ms.localizationpriority: medium
-ms.openlocfilehash: cf114ed3d2ffce95f9e9aba6ceb222029d23819c
-ms.sourcegitcommit: 5dfa98a80eee41d97880dba712673168070c4ec8
+ms.openlocfilehash: 53fb8c0b213705a5a79680356bb4f1773594dcdc
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73052027"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74260484"
 ---
 # <a name="declare-background-tasks-in-the-application-manifest"></a>アプリケーション マニフェストでのバックグラウンド タスクの宣言
 
@@ -37,7 +37,7 @@ ms.locfileid: "73052027"
 
 アプリケーション マニフェスト (Package.appxmanifest) を開き、Application 要素に移動します。 Extensions 要素を作ります (まだ存在していない場合)。
 
-次に示す例は、[バックグラウンド タスクのサンプル](https://go.microsoft.com/fwlink/p/?LinkId=618666)から抜粋したものです。
+次に示す例は、[バックグラウンド タスクのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/BackgroundTask)から抜粋したものです。
 
 ```xml
 <Application Id="App"
@@ -230,7 +230,7 @@ BackgroundTaskHost.exe プロセスで実行されるが、同じアプリのバ
 ```
 
 > [!NOTE]
-> `SupportsMultipleInstances` と共に `ResourceGroup` または `ServerName` を指定することはできません。
+> `ResourceGroup` と共に `ServerName` または `SupportsMultipleInstances` を指定することはできません。
 
 ## <a name="related-topics"></a>関連トピック
 

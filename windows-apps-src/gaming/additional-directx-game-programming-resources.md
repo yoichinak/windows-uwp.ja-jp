@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10、UWP、ゲーム、プログラミング
 ms.localizationpriority: medium
-ms.openlocfilehash: 684180d9fc86c870475351ed8e429ea83f968735
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 3ecf6e4c28695d789a133c96d6fa04ceb705ef3e
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67321368"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74258538"
 ---
 # <a name="game-programming-resources"></a>ゲーム プログラミング リソース
 
@@ -24,28 +24,28 @@ Windows でのゲーム プログラミングについて詳しくは、次の�
 
 
 -   [グラフィックスとゲーム](https://docs.microsoft.com/windows/desktop/graphics-and-multimedia)
--   [OpenGL の参照](https://go.microsoft.com/fwlink/p/?LinkID=288875)
+-   [OpenGL リファレンス](https://www.opengl.org/sdk/docs/man4/)
 
 ## <a name="game-design-guidance"></a>ゲーム設計のガイダンス
 
 
--   [UWP アプリ用のインデックスの UX のガイドライン](https://developer.microsoft.com/windows/apps/design)
+-   [UWP アプリの UX ガイドラインのインデックス](https://developer.microsoft.com/windows/apps/design)
 
 ## <a name="blogs"></a>ブログ
 
 
--   [Windows と DirectX SDK 用のゲーム]( https://go.microsoft.com/fwlink/p/?LinkID=288873)
--   [DirectX の開発者向けブログ]( https://go.microsoft.com/fwlink/p/?LinkID=288874)
+-   [Windows と DirectX SDK のゲーム]( https://go.microsoft.com/fwlink/p/?LinkID=288873)
+-   [DirectX 開発者向けブログ]( https://go.microsoft.com/fwlink/p/?LinkID=288874)
 -   [Shawn Hargreaves のブログ]( https://go.microsoft.com/fwlink/p/?LinkID=288872) (XNA のゲームの情報)
 
 ## <a name="toolkits"></a>ツールキット
 
 
--   [DirectX ツール キット](  https://go.microsoft.com/fwlink/p/?LinkID=248929)
+-   [DirectX ツールキット](  https://go.microsoft.com/fwlink/p/?LinkID=248929)
 -   [DirectXTex テクスチャ処理ライブラリ](  https://go.microsoft.com/fwlink/p/?LinkID=248926)
 -   Microsoft Visual Studio [ グラフィックス診断](https://docs.microsoft.com/visualstudio/debugger/overview-of-visual-studio-graphics-diagnostics?view=vs-2015) に関するページ
 -   [Win2D](https://github.com/Microsoft/Win2D) - GPU アクセラレーションを使った即時モードの 2D グラフィックス レンダリング用の、使いやすい Windows ランタイム API です。
--   [Microsoft Store の角度](https://go.microsoft.com/fwlink/p/?linkid=618387)-OpenGL ES の API を変換することによって Windows の実行の OpenGL ES コンテンツは、DirectX 11 の API 呼び出しに呼び出します。
+-   [Microsoft Store の角度](https://github.com/microsoft/angle/wiki)-OPENGL es api 呼び出しを DIRECTX 11 api 呼び出しに変換することにより、Windows で opengl es コンテンツを実行します。
 
 ## <a name="gdc-2015-game-dev-session-videos"></a>GDC 2015 のゲーム開発セッションのビデオ
 
@@ -56,11 +56,11 @@ Windows でのゲーム プログラミングについて詳しくは、次の�
 -   [Windows 10 でのゲームのユーザー エクスペリエンス](https://channel9.msdn.com/Events/GDC/GDC-2015/Gaming-Consumer-Experience-on-Windows-10) – Bill Schiefelbein
 -   [独立系開発者のための新しい機会](https://channel9.msdn.com/Events/GDC/GDC-2015/New-Opportunities-for-Independent-Developers) – Chris Charla
 -   [Windows 10 用の Live Xbox による開発](https://channel9.msdn.com/Events/GDC/GDC-2015/Developing-with-Xbox-Live-for-Windows-10) – Vijay Gajjala、Brian Tyler
--   [Xbox Live マルチプレイヤー:クロス プラットフォームのマッチメイ キングとゲームプレイのサービスの概要](https://channel9.msdn.com/Events/GDC/GDC-2015/Xbox-Live-Multiplayer-Introducing-services-for-cross-platform-matchmaking-and-gameplay)– Ferdinand Schober
--   [Fable 凡例:クロス デバイス ゲームプレイ xbox Live](https://channel9.msdn.com/Events/GDC/GDC-2015/Fable-Legends-Cross-device-Gameplay-with-Xbox-Live) – Raymond Arifianto、ユリウス Davis
+-   [Xbox Live マルチプレイヤー: クロス プラットフォーム マッチメイキングとゲームプレイのサービスの紹介](https://channel9.msdn.com/Events/GDC/GDC-2015/Xbox-Live-Multiplayer-Introducing-services-for-cross-platform-matchmaking-and-gameplay) – Ferdinand Schober
+-   [Fable Legends: Xbox Live によるデバイス間のゲームプレイ](https://channel9.msdn.com/Events/GDC/GDC-2015/Fable-Legends-Cross-device-Gameplay-with-Xbox-Live) – Raymond Arifianto、Julian Davis
 -   [クラウド ベースのユーザーの統計情報と Xbox Live での達成度の活用のベスト プラクティス](https://channel9.msdn.com/Events/GDC/GDC-2015/Best-Practices-for-Leveraging-Cloud-Based-User-Stats-and-Achievements-in-Xbox-Live) – Cierra McDonald
 -   [DirectX ツールを使用した、ゲームでのグラフィックスの困難な問題の解決](https://channel9.msdn.com/Events/GDC/GDC-2015/Solve-the-Tough-Graphics-Problems-with-your-Game-Using-DirectX-Tools) – Rudolph Balaz、Rong Lu Jason Strayer
--   [優れた電源、パフォーマンスが向上します。DirectX 12 のゲーム](https://channel9.msdn.com/Events/GDC/GDC-2015/Better-Power-Better-Performance-Your-Game-on-DirectX12)– Bennett Sorbo
+-   [強化されたパワーとパフォーマンスの向上: DirectX 12 でのゲーム](https://channel9.msdn.com/Events/GDC/GDC-2015/Better-Power-Better-Performance-Your-Game-on-DirectX12) – Bennett Sorbo
 -   [マルチコア モバイル デバイスでのゲームのパフォーマンスの維持](https://channel9.msdn.com/Events/GDC/GDC-2015/Sustained-gaming-performance-in-multi-core-mobile-devices) – Julian Calinov
 -   [Windows Core の世界向けのゲームの設計](https://channel9.msdn.com/Events/GDC/GDC-2015/Designing-Games-for-a-Windows-Core-World) – Todd Williams、Shai Hinitz
 -   [Windows 10 向け PC ゲーム](https://channel9.msdn.com/Events/GDC/GDC-2015/PC-Games-for-Windows-10) – Chuck walbourn
@@ -68,15 +68,15 @@ Windows でのゲーム プログラミングについて詳しくは、次の�
 ## <a name="build-2015-session-videos"></a>//build 2015 セッションのビデオ
 
 
--   [Win2D を導入するには。描画の DirectX を利用したC# ](https://channel9.msdn.com/Events/Build/2015/2-631) – Simon 道理
--   [角度。Windows 上の OpenGL ES 2.0 のグラフィックス コード実行](https://channel9.msdn.com/Events/Build/2015/3-686)– Tony Balogh
+-   [Win2D の紹介: C# での DirectX を活用した描画](https://channel9.msdn.com/Events/Build/2015/2-631) – Simon Tao
+-   [ANGLE: Windows での OpenGL ES 2.0 グラフィックス コードの実行](https://channel9.msdn.com/Events/Build/2015/3-686) – Tony Balogh
 -   [高度な DirectX12 グラフィックスとパフォーマンス](https://channel9.msdn.com/Events/Build/2015/3-673) – Max McMullen
 
 ## <a name="other-resources"></a>その他のリソース
 
 
--   [CodePlex](https://go.microsoft.com/fwlink/p/?LinkID=76627)
--   [GameDev.net](https://go.microsoft.com/fwlink/p/?LinkID=288870)
+-   [CodePlex](https://www.codeplex.com/)
+-   [GameDev.net](https://www.gamedev.net/page/index.html)
 
  
 
