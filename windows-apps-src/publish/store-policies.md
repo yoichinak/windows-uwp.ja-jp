@@ -7,12 +7,12 @@ ms.topic: article
 keywords: Microsoft Store ポリシー契約
 ms.localizationpriority: high
 ms.assetid: F02A720E-2899-4863-8945-9AB99158BCA1
-ms.openlocfilehash: ba99abd906bd84a91fae5da1505ac8845dd5b99c
-ms.sourcegitcommit: 445320ff0ee7323d823194d4ec9cfa6e710ed85d
+ms.openlocfilehash: 5086353adbc07e265f02e12f998ae655cd512d48
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72282471"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74258977"
 ---
 # <a name="microsoft-store-policies"></a>Microsoft Store ポリシー
 
@@ -36,7 +36,7 @@ Microsoft Store<sup>1</sup> 向け製品の開発に関心をお持ちいただ�
 
 お客様の製品は、何億ものユーザーのエクスペリエンスにとって非常に重要です。 Microsoft は、お客様が作成する製品を待ち望んでおり、お客様が製品を世界に向けて配信するのを喜んでお手伝いいたします。
 
-ポリシーに関するフィードバックは、[フォーラム](http://go.microsoft.com/fwlink/p/?LinkId=224196)にコメントを投稿してお知らせください。 すべてのコメントを検討します。
+ポリシーに関するフィードバックは、[フォーラム](https://social.msdn.microsoft.com/Forums/windowsapps/home?forum=windowsstore)にコメントを投稿してお知らせください。 すべてのコメントを検討します。
 
 
 ## <a name="table-of-contents"></a>目次
@@ -114,7 +114,7 @@ Web を閲覧する製品では、Windows プラットフォームによって�
 
 **10.2.3**
 
-[望ましくないソフトウェアと悪意のあるソフトウェア](http://go.microsoft.com/fwlink/?LinkId=821298)に関する Microsoft の条件で定義されているマルウェアを、製品に含めたり、製品で有効にしたりすることはできません。
+[望ましくないソフトウェアと悪意のあるソフトウェア](https://docs.microsoft.com/windows/security/threat-protection/intelligence/criteria)に関する Microsoft の条件で定義されているマルウェアを、製品に含めたり、製品で有効にしたりすることはできません。
 
 **10.2.4**
 
@@ -291,11 +291,11 @@ WNS または MPNS によって提供される通知は、製品のコンテン�
 
 **10.10.2**
 
-プロモーション用の広告キャンペーンを購入または作成し、パートナー センターの広告キャンペーン機能を使用して製品を宣伝する場合、お客様が Microsoft に提供するすべての広告資料は、関連するランディング ページを含め、Microsoft の[制作仕様書 (Creative Specifications Policy)](http://go.microsoft.com/fwlink/p/?LinkId=532593) および[広告掲載基準 (Creative Acceptance Policy)](http://go.microsoft.com/fwlink/p/?LinkId=532595) に従う必要があります。
+プロモーション用の広告キャンペーンを購入または作成し、パートナー センターの広告キャンペーン機能を使用して製品を宣伝する場合、お客様が Microsoft に提供するすべての広告資料は、関連するランディング ページを含め、Microsoft の[制作仕様書 (Creative Specifications Policy)](https://about.ads.microsoft.com/solutions/ad-products/display-advertising/creative-specs) および[広告掲載基準 (Creative Acceptance Policy)](https://about.ads.microsoft.com/solutions/ad-products/display-advertising/creative-acceptance-policies) に従う必要があります。
 
 **10.10.3**
 
-製品が表示する広告コンテンツは、Microsoft の[広告掲載基準 (Creative Acceptance Policy)](http://go.microsoft.com/fwlink/p/?LinkId=532595) に従う必要があります。
+製品が表示する広告コンテンツは、Microsoft の[広告掲載基準 (Creative Acceptance Policy)](https://about.ads.microsoft.com/solutions/ad-products/display-advertising/creative-acceptance-policies) に従う必要があります。
 
 製品に広告を表示する場合、表示されるすべてのコンテンツは、以下の要件を含む[アプリ開発者契約書](https://docs.microsoft.com/legal/windows/agreements/app-developer-agreement)の広告要件に従う必要があります。
 
@@ -309,7 +309,7 @@ WNS または MPNS によって提供される通知は、製品のコンテン�
 
 **10.10.6**
 
-製品が 13 歳未満の子供を対象としている場合 ([児童オンライン プライバシー保護法](http://go.microsoft.com/fwlink/p/?LinkID=623015)で定義されているとおり)、パートナー センターからこの事実を Microsoft に通知し、製品で表示されるすべての広告コンテンツが 13 歳未満の子供に適切なものであることを確認する必要があります。
+製品が 13 歳未満の子供を対象としている場合 ([児童オンライン プライバシー保護法](https://www.ftc.gov/tips-advice/business-center/privacy-and-security/children%27s-privacy)で定義されているとおり)、パートナー センターからこの事実を Microsoft に通知し、製品で表示されるすべての広告コンテンツが 13 歳未満の子供に適切なものであることを確認する必要があります。
 
 ### <a name="1011-mobile-voice-plans"></a>10.11 携帯電話会社の音声通話プラン
 
@@ -330,11 +330,11 @@ Microsoft Edge の拡張機能には、以下の要件が適用されます。
 
 **10.13.1**
 
-他のデバイスやプラットフォームで実行されているゲームのリモートのゲーム プレイ/制御機能を主に提供するゲーム製品も含めて、Xbox One を対象とするゲーム製品は、[Xbox Live クリエーター](https://go.microsoft.com/fwlink/?linkid=844722)または [ID@Xbox](http://go.microsoft.com/fwlink/?LinkId=821742) プログラムを通じて Xbox Live サービスを使用する必要があります。
+他のデバイスやプラットフォームで実行されているゲームのリモートのゲーム プレイ/制御機能を主に提供するゲーム製品も含めて、Xbox One を対象とするゲーム製品は、[Xbox Live クリエーター](https://go.microsoft.com/fwlink/?linkid=844722)または [ID@Xbox](https://www.xbox.com/Developers/id) プログラムを通じて Xbox Live サービスを使用する必要があります。
 
 **10.13.2**
 
-Xbox One デバイスのクロスプレイヤー通信または同期ネットワーク プレイを許可するゲーム製品は、Xbox Live を使用し、[ID@Xbox](http://go.microsoft.com/fwlink/?LinkId=821742) プログラムで承認を得る必要があります。
+Xbox One デバイスのクロスプレイヤー通信または同期ネットワーク プレイを許可するゲーム製品は、Xbox Live を使用し、[ID@Xbox](https://www.xbox.com/Developers/id) プログラムで承認を得る必要があります。
 
 **10.13.3**
 
@@ -356,7 +356,7 @@ Xbox Live を使用するゲーム製品は、次のことを行う必要があ�
 
 Xbox Live を使用し、マルチプレイヤー ゲームプレイ、ユーザー作成コンテンツ、またはユーザー通信を提供するゲーム製品:
 - ユーザーが Xbox Live にサインインするまでゲームプレイを許可してはなりません。
-- [保護者による制限およびサービス コントロール](https://go.microsoft.com/fwlink/?linkid=860295)を尊重する必要があります。
+- [保護者による制限およびサービス コントロール](https://docs.microsoft.com/gaming/xbox-live/get-started/setup-ide/creators/unity-win10/check-user-privileges-in-unity)を尊重する必要があります。
 
 **10.13.7**
 
@@ -385,7 +385,7 @@ Xbox Live ユーザー データには、次のプライバシー要件が適用
 - サービスおよびユーザー データは、ゲームで適切に使用する必要があります。 これらのデータには、使用状況データ、アカウント識別子および個人を特定するその他のデータ、統計情報、スコア、評価、ランキング、他のユーザーとのつながりおよびユーザーの交流に関連したその他のデータが含まれます (ただし、これらに限定されません)。
 - Xbox Live アカウントをゲームとリンクさせているユーザーのアカウント識別子を除いて、Xbox Live ソーシャル グラフ データ (フレンド リストなど) を保存してはなりません。
 - Microsoft のサービスからゲームを削除した場合や、Xbox Live アカウントとゲームのリンクをユーザーが解除した場合は、すべてのアカウント識別子を削除する必要があります。 サービスまたはユーザー データ (匿名、集計、または派生データを含む) を広告ネットワーク、データ ブローカー、またはその他の広告サービスもしくは営利目的のサービスと共有してはなりません。
-- Microsoft がエンド ユーザーから個人データの削除リクエストを受け取った場合、エンド ユーザー識別子の一覧を提供することでそのリクエストについてお客様にお知らせします。 お客様は、少なくとも 30 日ごとにその一覧をチェックしてすべての削除リクエストを確実に受け取る必要があり、一覧で提供される情報はエンド ユーザーの削除リクエストに対応するためにのみ利用する必要があります。 このプロセスについて詳しくは、[削除されたアカウントの一覧ツール](https://aka.ms/xbox-deleted)のページをご覧ください。
+- Microsoft がエンド ユーザーから個人データの削除リクエストを受け取った場合、エンド ユーザー識別子の一覧を提供することでそのリクエストについてお客様にお知らせします。 お客様は、少なくとも 30 日ごとにその一覧をチェックしてすべての削除リクエストを確実に受け取る必要があり、一覧で提供される情報はエンド ユーザーの削除リクエストに対応するためにのみ利用する必要があります。 このプロセスについて詳しくは、[削除されたアカウントの一覧ツール](https://forums.xboxlive.com/users/login.html)のページをご覧ください。
 
 ### <a name="1014-account-type"></a>10.14 アカウントの種類
 
