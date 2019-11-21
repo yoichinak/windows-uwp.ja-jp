@@ -6,24 +6,24 @@ ms.date: 08/23/2017
 ms.topic: article
 keywords: Windows 10, UWP, 広告, 宣伝, リリース ノート
 ms.localizationpriority: medium
-ms.openlocfilehash: d7a250880d148dd4ca3ced522312904f2786715e
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 04d3554620cde44fc9907845a7765d023e1ed03e
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57601227"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74260207"
 ---
 # <a name="release-notes-for-the-advertising-libraries"></a>Advertising ライブラリのリリース ノート
 
 
 
 
-このセクションでは、Microsoft Advertising ライブラリの現在のリリースのリリース ノートを示します。 これらのライブラリは、Windows 10、Windows 8.1、Windows Phone 8.1 および Windows Phone 8 の XAML および JavaScript と HTML アプリをサポートします。
+このセクションでは、Microsoft Advertising ライブラリの現在のリリースのリリース ノートを示します。 These libraries support XAML and JavaScript/HTML apps for Windows 10, Windows 8.1, Windows Phone 8.1 and Windows Phone 8.
 
 ## <a name="installation"></a>インストール
 
 
-Microsoft Advertising ライブラリは、[Microsoft Advertising SDK](https://aka.ms/ads-sdk-uwp) の一部として利用できるようになりました。 SDK のインストールについて詳しくは、「[Microsoft Advertising SDK のインストール](install-the-microsoft-advertising-libraries.md)」をご覧ください。
+Microsoft Advertising ライブラリは、[Microsoft Advertising SDK](https://marketplace.visualstudio.com/items?itemName=AdMediator.MicrosoftAdvertisingSDK) の一部として利用できるようになりました。 SDK のインストールについて詳しくは、「[Microsoft Advertising SDK のインストール](install-the-microsoft-advertising-libraries.md)」をご覧ください。
 
 ## <a name="uninstall-previous-versions"></a>以前のバージョンのアンインストール
 
@@ -39,7 +39,7 @@ Microsoft Advertising ライブラリ (**AdControl** クラスと **Interstitial
 
 ## <a name="no-toolbox-control"></a>ツールボックス コントロールはない
 
-[Microsoft Advertising SDK](https://aka.ms/ads-sdk-uwp) に含まれる Microsoft Advertising ライブラリの現在のリリースには、**AdControl** や **InterstitialAd** をアプリのデザイン サーフェイスにドラッグするためのツールボックス コントロールはありません。 マークアップとコードでこれらのコントロールを追加する方法については、[開発者向けのチュートリアル](developer-walkthroughs.md)をご覧ください。
+[Microsoft Advertising SDK](https://marketplace.visualstudio.com/items?itemName=AdMediator.MicrosoftAdvertisingSDK) に含まれる Microsoft Advertising ライブラリの現在のリリースには、**AdControl** や **InterstitialAd** をアプリのデザイン サーフェイスにドラッグするためのツールボックス コントロールはありません。 マークアップとコードでこれらのコントロールを追加する方法については、[開発者向けのチュートリアル](developer-walkthroughs.md)をご覧ください。
 
 ## <a name="latitude-and-longitude-properties-no-longer-available"></a>使用できなくなった緯度と経度のプロパティ
 

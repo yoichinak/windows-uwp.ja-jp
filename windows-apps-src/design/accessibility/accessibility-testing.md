@@ -6,14 +6,14 @@ label: Accessibility testing
 template: detail.hbs
 ms.date: 05/18/2018
 ms.topic: article
-keywords: windows 10, uwp
+keywords: Windows 10, UWP
 ms.localizationpriority: medium
-ms.openlocfilehash: 60be53bfcb351866a0cf124fe4ef6f21ff889f88
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: fb9480740746b6e6ec792d4b88f4d84e4acb7c0e
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67318965"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74257800"
 ---
 # <a name="accessibility-testing"></a>アクセシビリティ テスト  
 
@@ -42,7 +42,7 @@ Windows ソフトウェア開発キット (Windows SDK) には、[**AccScope**](
 
 ### <a name="inspect"></a>**Inspect**  
 
-[**検査**](https://docs.microsoft.com/windows/desktop/WinAuto/inspect-objects)任意の UI 要素を選択し、そのアクセシビリティ データを表示することができます。 Microsoft UI オートメーションのプロパティと制御パターンを表示し、UI オートメーション ツリー内のオートメーション要素のナビゲーション構造をテストできます。 UI の開発時に **Inspect** を使って、アクセシビリティ属性が UI オートメーションでどのように現れるか確認します。 属性は、既定の XAML コントロールに既に実装されている UI オートメーション サポートのものである場合や、 [  **AutomationProperties**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.automationproperties) 添付プロパティとして、XAML マークアップで設定した特定の値のものである場合があります。
+[**Inspect**](https://docs.microsoft.com/windows/desktop/WinAuto/inspect-objects) enables you to select any UI element and view its accessibility data. Microsoft UI オートメーションのプロパティと制御パターンを表示し、UI オートメーション ツリー内のオートメーション要素のナビゲーション構造をテストできます。 UI の開発時に **Inspect** を使って、アクセシビリティ属性が UI オートメーションでどのように現れるか確認します。 属性は、既定の XAML コントロールに既に実装されている UI オートメーション サポートのものである場合や、 [  **AutomationProperties**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.automationproperties) 添付プロパティとして、XAML マークアップで設定した特定の値のものである場合があります。
 
 次の図は、メモ帳の **[編集]** メニュー要素の UI オートメーション プロパティを照会する [**Inspect**](https://docs.microsoft.com/windows/desktop/WinAuto/inspect-objects) ツールを示しています。
 
@@ -64,7 +64,7 @@ Windows ソフトウェア開発キット (Windows SDK) には、[**AccScope**](
 <span id="ACCESSIBLE_EVENT_WATCHER"/>
 
 ### <a name="accessible-event-watcher"></a>**Accessible Event Watcher**  
-[**アクセス可能なイベントの監視 (AccEvent)** ](https://docs.microsoft.com/windows/desktop/WinAuto/accessible-event-watcher)アプリの UI 要素イベントを発生させる適切な UI オートメーションと Microsoft Active Accessibility UI の変更が行われるかどうかをテストします。 UI の変更は、フォーカスが移動したときや、UI 要素の呼び出しまたは選択が行われたとき、状態またはプロパティが変更された場合に発生することがあります。
+[**Accessible Event Watcher (AccEvent)** ](https://docs.microsoft.com/windows/desktop/WinAuto/accessible-event-watcher) tests whether an app's UI elements fire proper UI Automation and Microsoft Active Accessibility events when UI changes occur. UI の変更は、フォーカスが移動したときや、UI 要素の呼び出しまたは選択が行われたとき、状態またはプロパティが変更された場合に発生することがあります。
 
 > [!NOTE]
 > ドキュメントで説明したほとんどのアクセシビリティ テスト ツールは、PC で動作し、電話では動作しません。 一部のツールは開発中にエミュレーターを使って実行できますが、それらのツールのほとんどはエミュレーターで UI オートメーション ツリーを表示できません。
@@ -95,7 +95,7 @@ Windows ソフトウェア開発キット (Windows SDK) には、[**AccScope**](
 
 ## <a name="verify-your-app-with-display-settings"></a>アプリの表示設定を確認する  
 
-ディスプレイの 1 インチあたりのドット数 (dpi) の値を調整するシステム ディスプレイ オプションを使い、DPI の値の変更に合わせてアプリの UI が正常に拡大縮小されることを確認します (一部のユーザーは、dpi 値を変更から入手できますが、ユーザー補助のオプションとして**コンピューターの簡単操作**プロパティを表示と同様です)。次の問題を発見した場合、[レイアウトのスケーリングのガイドライン](https://developer.microsoft.com/windows/apps/design)とは異なるスケーリング要因の他のリソースを提供します。
+ディスプレイの 1 インチあたりのドット数 (dpi) の値を調整するシステム ディスプレイ オプションを使い、DPI の値の変更に合わせてアプリの UI が正常に拡大縮小されることを確認します (一部のユーザーはアクセシビリティ対応オプションとして DPI の値を変更します。これは、 **[コンピューターの簡単操作]** からだけでなく各種の表示プロパティでも設定できます)。問題が見つかった場合は、[レイアウトとスケーリングのガイドライン](https://developer.microsoft.com/windows/apps/design) に従い、さまざまなスケール ファクター用のリソースを追加します。
 
 <span id="verify_main_app_scenarios_by_using_narrator"/>
 <span id="VERIFY_MAIN_APP_SCENARIOS_BY_USING_NARRATOR"/>
@@ -105,7 +105,7 @@ Windows ソフトウェア開発キット (Windows SDK) には、[**AccScope**](
 
 > [!VIDEO https://channel9.msdn.com/Blogs/One-Dev-Minute/Using-Narrator-and-Dev-Mode/player]
 
-**マウス/キーボードとナレーターを使用して、アプリをテストするのにには、次の手順を使用します。**
+**Use these steps to test your app using Narrator with a mouse and keyboard:**
 1.  _Windows ロゴ キー、Ctrl キー、Enter キー_を同時に押して、ナレーターを起動します。 Windows 10 Version 1607 より前のバージョンでは、_Windows ロゴ キーと Enter キー_を同時に押して、ナレーターを起動します。
 2.  キーボードを使ってアプリ内を移動するには、_Tab_ キーと方向キーを使うか、_CapsLock キーを押しながら方向キー_を使います。
 3.  アプリ内を移動しながら、ナレーターが UI 要素を読み上げるのを聞き取り、次の点を確かめます。
@@ -118,16 +118,16 @@ Windows ソフトウェア開発キット (Windows SDK) には、[**AccScope**](
 
 Windows 10 バージョン 1607 以降では、ナレーターで新しい開発者モードが導入されました。 ナレーターがオンになっている場合、_CapsLock キー、Shift キー、F12 キー_を同時に押して、開発者モードをオンにします。 開発者モードを有効にすると、画面がマスクされ、アクセス可能なオブジェクトとナレーターにプログラムで公開されている関連のテキストのみが強調表示されます。 これにより、ナレーターに公開されている情報が適切な方法で視覚的に表示されます。
 
-**ナレーターのタッチ モードを使用してアプリをテストするのにには、次の手順を使用します。**
+**Use these steps to test your app using Narrator's touch mode:**
 
 > [!NOTE]
 > 4 つ以上のコンタクトをサポートするデバイスの場合、ナレーターは自動的にタッチ モードに移行します。 ナレーターは、マルチモニターや主要画面でのマルチタッチ デジタイザーをサポートしません。
 
 1.  UI を操作し、レイアウトを確かめます。
 
-    * **1 本指のスワイプ ジェスチャを使用して、ui に移動します。** 項目間を移動するには左右のスワイプを使い、項目のカテゴリを変更するには上下のスワイプを使います。 カテゴリには、すべての項目、リンク、表、見出しなどがあります。 指 1 本のスワイプ ジェスチャによるナビゲーションは、_CapsLock キーを押しながら方向キー_を押すことによるナビゲーションとほぼ同じです。
-    * **タブのジェスチャを使用して、フォーカスを設定できる要素を移動します。** 指 3 本を使った左右のスワイプは、キーボードで _Tab_ キーを押したり、_Shift キーを押しながら Tab キー_ を押したりするのと同じです。
-    * **1 本の指で UI が空間的に調査します。** 1 本の指を上下左右にドラッグして、ナレーターに指の下の項目を読み上げさせます。 代わりにマウスを使うこともできます。マウスでも 1 本指でのドラッグと同じヒット テスト ロジックを使っているためです。
+    * **Navigate through the UI by using single-finger swipe gestures.** 項目間を移動するには左右のスワイプを使い、項目のカテゴリを変更するには上下のスワイプを使います。 カテゴリには、すべての項目、リンク、表、見出しなどがあります。 指 1 本のスワイプ ジェスチャによるナビゲーションは、_CapsLock キーを押しながら方向キー_を押すことによるナビゲーションとほぼ同じです。
+    * **Use tab gestures to navigate through focusable elements.** 指 3 本を使った左右のスワイプは、キーボードで _Tab_ キーを押したり、_Shift キーを押しながら Tab キー_ を押したりするのと同じです。
+    * **Spatially investigate the UI with a single finger.** 1 本の指を上下左右にドラッグして、ナレーターに指の下の項目を読み上げさせます。 代わりにマウスを使うこともできます。マウスでも 1 本指でのドラッグと同じヒット テスト ロジックを使っているためです。
     * **3 本指で上方向へスワイプすることで、ウィンドウ全体とウィンドウの全内容を読み上げます**。 これは、_CapsLock キーを押しながら W キー_を押すのと同じです。
 
     重要な UI にアクセスできない場合、アクセシビリティに問題が存在する可能性があります。
@@ -136,9 +136,9 @@ Windows 10 バージョン 1607 以降では、ナレーターで新しい開発
 
     プライマリ操作には、ボタンのアクティブ化、テキスト キャレットの配置、コントロールへのフォーカスの設定などが含まれます。 セカンダリ操作には、一覧項目の選択、オプションが複数あるボタンの展開などの操作が含まれます。
 
-    * プライマリ アクションをテストします。倍精度浮動小数点、または 1 本の指でキーを押して順にタップします別です。
-    * セカンダリのアクションをテストします。タップして、3 倍または 1 本の指ダブルタップ別とキーを押します。
-    * スクロール動作をテストするには。2 本の指のカードを使用して、目的の方向にスクロールします。
+    * プライマリ操作のテスト: ダブルタップするか、指で押しながら別の指でタップします。
+    * セカンダリ操作のテスト: トリプルタップするか、指で押しながら別の指でダブルタップします。
+    * スクロール操作のテスト: 2 本指でスワイプし、目的の方向にスクロールします。
 
     一部のコントロールには、その他の操作も用意されています。 すべての一覧を表示するには、4 本指で 1 回タップします。
 
@@ -160,8 +160,8 @@ Windows 10 バージョン 1607 以降では、ナレーターで新しい開発
 <span id="related_topics"/>
 
 ## <a name="related-topics"></a>関連トピック  
-* [ユーザー補助](accessibility.md)
+* [アクセシビリティ](accessibility.md)
 * [避ける事項](practices-to-avoid.md)
 * [UI オートメーション](https://docs.microsoft.com/windows/desktop/WinAuto/entry-uiauto-win32)
-* [Windows のユーザー補助機能](https://go.microsoft.com/fwlink/p/?LinkId=320802)
-* [ナレーターを概要します。](https://support.microsoft.com/help/22798/windows-10-complete-guide-to-narrator)
+* [Accessibility in Windows](https://www.microsoft.com/accessibility/)
+* [Get started with Narrator](https://support.microsoft.com/help/22798/windows-10-complete-guide-to-narrator)

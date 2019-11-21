@@ -1,17 +1,17 @@
 ---
-Description: クロススライドは、スワイプ ジェスチャによる選択や、スライド ジェスチャによるドラッグ (移動) 操作をサポートするために使います。
+Description: クロススライドは、スワイプ ジェスチャによる選択や、スライド ジェスチャによるドラッグ (移動) 対話式操作をサポートするために使います。
 title: クロススライドのガイドライン
 ms.assetid: 897555e2-c567-4bbe-b600-553daeb223d5
 ms.date: 10/25/2017
 ms.topic: article
-keywords: windows 10, uwp
+keywords: Windows 10, UWP
 ms.localizationpriority: medium
-ms.openlocfilehash: 36ebabbfd8f7e5f40e31be44d6dc7e4483a199ee
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 833949effd311c707de8dd1823ec6eee06e91e87
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66363713"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74257974"
 ---
 # <a name="guidelines-for-cross-slide"></a>クロススライドのガイドライン
 
@@ -24,16 +24,16 @@ ms.locfileid: "66363713"
 -   [**CrossSlideThresholds**](https://docs.microsoft.com/uwp/api/windows.ui.input.gesturerecognizer.crossslidethresholds)
 -   [**Windows.UI.Input**](https://docs.microsoft.com/uwp/api/Windows.UI.Input)
 
-クロススライドは、スワイプ ジェスチャによる選択や、スライド ジェスチャによるドラッグ (移動) 操作をサポートするために使います。
+クロススライドは、スワイプ ジェスチャによる選択や、スライド ジェスチャによるドラッグ (移動) 対話式操作をサポートするために使います。
 
-## <a name="span-iddosanddontsspanspan-iddosanddontsspanspan-iddosanddontsspandos-and-donts"></a><span id="Dos_and_don_ts"></span><span id="dos_and_don_ts"></span><span id="DOS_AND_DON_TS"></span>注意事項
+## <a name="span-iddos_and_don_tsspanspan-iddos_and_don_tsspanspan-iddos_and_don_tsspandos-and-donts"></a><span id="Dos_and_don_ts"></span><span id="dos_and_don_ts"></span><span id="DOS_AND_DON_TS"></span>Dos and don'ts
 
 
 -   クロススライドは、単一の方向にスクロールするリストやコレクションに使います。
 -   クロススライドは、タップ操作が別の目的で使われる場合に、項目を選ぶために使います。
 -   キューに項目を追加するためにクロススライドを使わないでください。
 
-## <a name="span-idadditionalusageguidancespanspan-idadditionalusageguidancespanspan-idadditionalusageguidancespanadditional-usage-guidance"></a><span id="Additional_usage_guidance"></span><span id="additional_usage_guidance"></span><span id="ADDITIONAL_USAGE_GUIDANCE"></span>追加の使用に関するガイダンス
+## <a name="span-idadditional_usage_guidancespanspan-idadditional_usage_guidancespanspan-idadditional_usage_guidancespanadditional-usage-guidance"></a><span id="Additional_usage_guidance"></span><span id="additional_usage_guidance"></span><span id="ADDITIONAL_USAGE_GUIDANCE"></span>Additional usage guidance
 
 
 選択とドラッグは、1 方向 (垂直または水平) にパンできるコンテンツ領域内でだけ行うことができます。 これらの操作が機能するには、1 つのパン方向がロックされていて、ジェスチャがパン方向に対して垂直な方向に行われる必要があります。
@@ -56,7 +56,7 @@ ms.locfileid: "66363713"
 
 クロススライドは、単一の方向にスクロールするリストやコレクションに使います。 詳しくは、「[ListView コントロールの追加](https://docs.microsoft.com/previous-versions/windows/apps/hh465382(v=win.10))」をご覧ください。
 
-**注**  場合、コンテンツ領域をパンして、web ブラウザーや電子書籍リーダーなどの 2 つの方向に、プレス アンド ホールド時間指定の相互作用をイメージとハイパーリンクなどのオブジェクトのコンテキスト メニューの呼び出しに使用する必要があります。
+**Note**  In cases where the content area can be panned in two directions, such as web browsers or e-readers, the press-and-hold timed interaction should be used to invoke the context menu for objects such as images and hyperlinks.
 
  
 
@@ -69,7 +69,7 @@ ms.locfileid: "66363713"
 
 ### <span id="selection"></span><span id="SELECTION"></span>
 
-**選択します。**
+**Selecting**
 
 選択は、1 つ以上のオブジェクトを起動またはアクティブ化せずにマークする操作です。 これは、マウスを 1 回クリックする操作、または Shift キーを押しながらクリックする操作 (オブジェクトが複数の場合) に相当します。
 
@@ -97,7 +97,7 @@ ms.locfileid: "66363713"
 
 主な操作が選択だけであるアプリケーションでは、選択にシングル タップを使います。 この場合、アクティブ化やナビゲーションのための標準のタップ操作と区別するために、クロススライドの自己説明のアニメーションが表示されます。
 
-**バスケット**
+**Selection basket**
 
 選択バスケットは、アプリの主要なリストやコレクションから選択された項目を視覚的に区別して動的に表す機能です。 これは選択された項目の追跡に役立つ機能で、次のようなアプリで使うと便利です。
 
@@ -111,7 +111,7 @@ ms.locfileid: "66363713"
 
 また、選択バスケットを使わない場合は、リストやコレクションで別の項目がアクティブ化されたときにも現在の選択がクリアされます。 たとえば、受信トレイのメッセージを選択すると、プレビュー ウィンドウが更新されます。 その後、受信トレイで別のメッセージを選択すると、前のメッセージの選択が取り消され、プレビュー ウィンドウが更新されます。
 
-**キュー**
+**Queues**
 
 キューと選択バスケットのリストは異なるものであるため、混同しないように注意してください。 主な違いは次のとおりです。
 
@@ -123,29 +123,29 @@ ms.locfileid: "66363713"
 
 ### <span id="draganddrop"></span><span id="DRAGANDDROP"></span>
 
-**ドラッグ**
+**Drag**
 
 1 つまたは複数のオブジェクトを別の場所に移動するには、ドラッグを使います。
 
 複数のオブジェクトを移動する必要がある場合は、ユーザーが複数の項目を選択してから、すべてを同時にドラッグできるようにします。
 
-## <a name="span-idrelatedtopicsspanrelated-articles"></a><span id="related_topics"></span>関連記事
+## <a name="span-idrelated_topicsspanrelated-articles"></a><span id="related_topics"></span>Related articles
 
 
 **サンプル**
-* [基本的な入力サンプル](https://go.microsoft.com/fwlink/p/?LinkID=620302)
-* [低待機時間の入力サンプル](https://go.microsoft.com/fwlink/p/?LinkID=620304)
-* [ユーザー操作モードのサンプル](https://go.microsoft.com/fwlink/p/?LinkID=619894)
-* [フォーカスの視覚効果のサンプル](https://go.microsoft.com/fwlink/p/?LinkID=619895)
+* [Basic input sample](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/BasicInput)
+* [Low latency input sample](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/LowLatencyInput)
+* [ユーザー操作モードのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/UserInteractionMode)
+* [フォーカスの視覚効果のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlFocusVisuals)
 **サンプルのアーカイブ**
-* [入力:XAML ユーザー入力イベントのサンプル](https://go.microsoft.com/fwlink/p/?linkid=226855)
-* [入力:デバイス機能のサンプル](https://go.microsoft.com/fwlink/p/?linkid=231530)
-* [入力:タッチ ヒット テストのサンプル](https://go.microsoft.com/fwlink/p/?linkid=231590)
-* [XAML のスクロール、パン、ズームのサンプル](https://go.microsoft.com/fwlink/p/?linkid=251717)
-* [入力:簡略化されたインクのサンプル](https://go.microsoft.com/fwlink/p/?linkid=246570)
-* [入力:Windows 8 のジェスチャのサンプル](https://go.microsoft.com/fwlink/p/?LinkId=264995)
-* [入力:操作とジェスチャ (C++) のサンプル](https://go.microsoft.com/fwlink/p/?linkid=231605)
-* [DirectX のタッチ入力サンプル](https://go.microsoft.com/fwlink/p/?LinkID=231627)
+* [Input: XAML user input events sample](https://code.msdn.microsoft.com/windowsapps/Input-3dff271b)
+* [Input: Device capabilities sample](https://code.msdn.microsoft.com/windowsapps/Input-device-capabilities-31b67745)
+* [Input: Touch hit testing sample](https://code.msdn.microsoft.com/windowsapps/Touch-Hit-Testing-sample-5e35c690)
+* [XAML scrolling, panning, and zooming sample](https://code.msdn.microsoft.com/windowsapps/xaml-scrollviewer-pan-and-949d29e9)
+* [Input: Simplified ink sample](https://code.msdn.microsoft.com/windowsapps/Input-simplified-ink-sample-11614bbf)
+* [Input: Windows 8 gestures sample](https://docs.microsoft.com/samples/browse/?redirectedfrom=MSDN-samples)
+* [Input: Manipulations and gestures (C++) sample](https://code.msdn.microsoft.com/windowsapps/Manipulations-and-gestures-362b6b59)
+* [DirectX touch input sample](https://code.msdn.microsoft.com/windowsapps/Simple-Direct3D-Touch-f98db97e)
  
 
  

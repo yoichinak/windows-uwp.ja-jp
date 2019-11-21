@@ -6,20 +6,20 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, タイマー, スレッド
 ms.localizationpriority: medium
-ms.openlocfilehash: fb375f280c474ce5a23e10977f96659480cdbb53
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 7bd870858bbccffa07b082384ae6ddea987b67f2
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67320515"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74258928"
 ---
 # <a name="use-a-timer-to-submit-a-work-item"></a>タイマーを使った作業項目の送信
 
 
 <b>重要な API</b>
 
--   [**Windows.UI.Core 名前空間**](https://docs.microsoft.com/uwp/api/Windows.UI.Core)
--   [**Windows.System.Threading 名前空間**](https://docs.microsoft.com/uwp/api/Windows.System.Threading)
+-   [**Windows.UI.Core namespace**](https://docs.microsoft.com/uwp/api/Windows.UI.Core)
+-   [**Windows.System.Threading namespace**](https://docs.microsoft.com/uwp/api/Windows.System.Threading)
 
 タイマーが終了した後に実行される作業項目の作成方法を説明します。
 
@@ -27,7 +27,7 @@ ms.locfileid: "67320515"
 
 [  **CreateTimer**](https://docs.microsoft.com/uwp/api/windows.system.threading.threadpooltimer.createtimer) メソッドを使って、作業項目に対応するタイマーを作成します。 作業を実行するラムダを指定し、*delay* パラメーターを使って、利用可能なスレッドに作業項目を割り当てることができるようになるまでスレッド プールが待機する時間を指定します。 delay パラメーターは [**TimeSpan**](https://docs.microsoft.com/uwp/api/Windows.Foundation.TimeSpan) 構造体を使って指定します。
 
-> **注**  を使用することができます[ **CoreDispatcher.RunAsync** ](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync)を UI にアクセスし、作業項目からの進行状況を表示します。
+> **Note**  You can use [**CoreDispatcher.RunAsync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync) to access the UI and show progress from the work item.
 
 次の例では、3 分間実行される作業項目を作成します。
 
@@ -221,7 +221,7 @@ ms.locfileid: "67320515"
 
 ユニバーサル Windows プラットフォーム (UWP) アプリでは UI スレッドをブロックできるため、**Thread.Sleep** を使うことができません。 代わりに、[**ThreadPoolTimer**](https://docs.microsoft.com/uwp/api/Windows.System.Threading.ThreadPoolTimer) を使って作業項目を作ります。これによって、UI スレッドをブロックすることなく、作業項目によって実行されたタスクを遅延します。
 
-作業項目、タイマー作業項目、定期的な作業項目の使い方を示すコード サンプル全体については、[スレッド プールのサンプルに関するページ](https://go.microsoft.com/fwlink/p/?linkid=255387)をご覧ください。 コード サンプルは、Windows 8.1 用に記述された最初が、コードは、Windows 10 で再利用できます。
+作業項目、タイマー作業項目、定期的な作業項目の使い方を示すコード サンプル全体については、[スレッド プールのサンプルに関するページ](https://code.msdn.microsoft.com/windowsapps/Pool-Sample-5aa60454)をご覧ください。 The code sample was originally written for Windows 8.1 but the code can be re-used in Windows 10.
 
 繰り返しタイマーについて詳しくは、「[定期的な作業項目の作成](create-a-periodic-work-item.md)」をご覧ください。
 

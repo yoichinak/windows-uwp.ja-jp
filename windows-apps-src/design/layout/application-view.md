@@ -1,22 +1,22 @@
 ---
-Description: ApplicationView クラスを使用して、アプリのさまざまな部分を別のウィンドウに表示します。
-title: ApplicationView クラスを使用してアプリのセカンダリウィンドウを表示する
+Description: Use the ApplicationView class to view different parts of your app in separate windows.
+title: Use the ApplicationView class to show secondary windows for an app
 ms.date: 07/19/2019
 ms.topic: article
-keywords: windows 10, uwp
+keywords: Windows 10, UWP
 ms.localizationpriority: medium
-ms.openlocfilehash: bc01894311badd9bb6e88f05c0f8b49c5824736b
-ms.sourcegitcommit: 3cc6eb3bab78f7e68c37226c40410ebca73f82a9
+ms.openlocfilehash: 1a89596979f84c1ec4d698d14deacf8f852a7fbd
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68730530"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74258198"
 ---
-# <a name="show-multiple-views-with-applicationview"></a>ApplicationView を使用して複数のビューを表示する
+# <a name="show-multiple-views-with-applicationview"></a>Show multiple views with ApplicationView
 
 アプリの独立した部分を別々のウィンドウで表示できるようにすることは、ユーザーが生産性を高めるために役立ちます。 アプリの複数のウィンドウを作成すると、各ウィンドウは別々に動作します。 タスク バーには各ウィンドウが別々に表示されます。 ユーザーはアプリ ウィンドウの移動、サイズ変更、表示、非表示を個別に行うことができます。また、個別のアプリの場合と同じように各アプリ ウィンドウを切り替えることができます。 各ウィンドウは、独自のスレッドで動作します。
 
-> **重要な API**:[**Applicationviewswitcher**](https://docs.microsoft.com/uwp/api/Windows.UI.ViewManagement.ApplicationViewSwitcher)、 [ **CreateNewView**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplication.createnewview)
+> **重要な API**: [**ApplicationViewSwitcher**](https://docs.microsoft.com/uwp/api/Windows.UI.ViewManagement.ApplicationViewSwitcher)、[**CreateNewView**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplication.createnewview)
 
 ## <a name="what-is-a-view"></a>ビューとは
 
@@ -53,7 +53,7 @@ private async void Button_Click(object sender, RoutedEventArgs e)
 }
 ```
 
-**新しいビューを表示するには**
+**To show a new view**
 
 1.  [  **CoreApplication.CreateNewView**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplication.createnewview) を呼び出して、ビュー コンテンツに使う新しいウィンドウとスレッドを作成します。
 
@@ -63,7 +63,7 @@ private async void Button_Click(object sender, RoutedEventArgs e)
 
 2.  新しいビューの [**Id**](https://docs.microsoft.com/uwp/api/windows.ui.viewmanagement.applicationview.id) を記録します。 これは後でビューの表示に使います。
 
-    作成するビューの追跡に役立つ何らかのインフラストラクチャをアプリに構築することを検討することもできます。 例については、[MultipleViews サンプル](https://go.microsoft.com/fwlink/p/?LinkId=620574)の `ViewLifetimeControl` クラスをご覧ください。
+    作成するビューの追跡に役立つ何らかのインフラストラクチャをアプリに構築することを検討することもできます。 例については、[MultipleViews サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/MultipleViews)の `ViewLifetimeControl` クラスをご覧ください。
 
     ```csharp
     int newViewId = 0;
@@ -71,9 +71,9 @@ private async void Button_Click(object sender, RoutedEventArgs e)
 
 3.  新しいスレッドで、ウィンドウにコンテンツを読み込みます。
 
-    [  **CoreDispatcher.RunAsync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync) メソッドを使って、UI スレッドでの新しいビューの操作をスケジュールします。 [ラムダ式](https://go.microsoft.com/fwlink/p/?LinkId=389615)を使って、**RunAsync** メソッドの引数として関数を渡します。 ラムダ関数による操作は新しいビューのスレッドで実行されます。
+    [  **CoreDispatcher.RunAsync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync) メソッドを使って、UI スレッドでの新しいビューの操作をスケジュールします。 [ラムダ式](https://msdn.microsoft.com/library/bb397687.aspx)を使って、**RunAsync** メソッドの引数として関数を渡します。 ラムダ関数による操作は新しいビューのスレッドで実行されます。
 
-    XAML では通常、[**Window**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Window) の [**Content**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.window.content) プロパティに [**Frame**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Frame) を追加した後、**Frame** から、アプリのコンテンツを定義した XAML [**Page**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Page) に移ります。 フレームとページの詳細については、「 [2 つのページ間のピアツーピアナビゲーション](../basics/navigate-between-two-pages.md)」を参照してください。
+    XAML では通常、[**Window**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Window) の [**Content**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.window.content) プロパティに [**Frame**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Frame) を追加した後、**Frame** から、アプリのコンテンツを定義した XAML [**Page**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Page) に移ります。 For more info about frames and pages, see [Peer-to-peer navigation between two pages](../basics/navigate-between-two-pages.md).
 
     新しい [**Window**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Window) にコンテンツが読み込まれたら、後で **Window** を表示するには、**Window** の [**Activate**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.window.activate) メソッドを呼び出す必要があります。 この操作は新しいビューのスレッドで実行されるため、新しい **Window** がアクティブになります。
 
@@ -105,7 +105,7 @@ private async void Button_Click(object sender, RoutedEventArgs e)
 
 アプリの起動時に最初に作成されるビューは、*メイン ビュー*と呼ばれます。 このビューは、[**CoreApplication.MainView**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplication.mainview) プロパティに格納され、その [**IsMain**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplicationview.ismain) プロパティは true です。 このビューは作成しません。アプリによって作成されます。 メイン ビューのスレッドはアプリのマネージャーとして機能し、すべてのアプリの起動イベントはこのスレッドに振り分けられます。
 
-セカンダリ ビューが開いている場合は、ウィンドウのタイトル バーの閉じるボタン (x) をクリックするなどして、メイン ビューのウィンドウを非表示にすることができます。ただし、そのスレッドはアクティブのままになります。 メイン ビューの [**Window**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Window) で [**Close**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.window.close) を呼び出すと、**InvalidOperationException** が発生します (アプリケーションを終了するには、 [**Exit**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.exit)を使用します。)メインビューのスレッドが終了すると、アプリケーションが閉じます。
+セカンダリ ビューが開いている場合は、ウィンドウのタイトル バーの閉じるボタン (x) をクリックするなどして、メイン ビューのウィンドウを非表示にすることができます。ただし、そのスレッドはアクティブのままになります。 メイン ビューの [**Window**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Window) で [**Close**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.window.close) を呼び出すと、**InvalidOperationException** が発生します ([**Application.Exit**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.exit) を使ってアプリを閉じます)。メイン ビューのスレッドが終了した場合、アプリは終了します。
 
 ## <a name="secondary-views"></a>セカンダリ ビュー
 
@@ -127,7 +127,7 @@ await ApplicationViewSwitcher.SwitchAsync(viewIdToShow);
 
 ## <a name="related-topics"></a>関連トピック
 
-- [複数のビューを表示する](show-multiple-views.md)
-- [AppWindow での複数のビューの表示](app-window.md)
+- [Show multiple views](show-multiple-views.md)
+- [Show multiple views with AppWindow](app-window.md)
 - [ApplicationViewSwitcher](https://docs.microsoft.com/uwp/api/Windows.UI.ViewManagement.ApplicationViewSwitcher)
 - [CreateNewView](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplication.createnewview)

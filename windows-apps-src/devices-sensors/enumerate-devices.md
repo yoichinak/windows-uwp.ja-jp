@@ -4,14 +4,14 @@ title: デバイスの列挙
 description: 列挙用の名前空間によって、システムに内部接続されているデバイス、外部接続されているデバイス、ワイヤレス プロトコルまたはネットワーク プロトコル経由で検出できるデバイスを検索できます。
 ms.date: 02/08/2017
 ms.topic: article
-keywords: windows 10, uwp
+keywords: Windows 10, UWP
 ms.localizationpriority: medium
-ms.openlocfilehash: cddd7fbcff62f070fa4c4e181e012ec871f1c0c2
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: b562dd139705e983bc8a8ad10962d923cff55559
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66370161"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74259675"
 ---
 # <a name="enumerate-devices"></a>デバイスの列挙
 
@@ -26,7 +26,7 @@ async void enumerateSnapshot(){
 }
 ```
 
-[  **Windows.Devices.Enumeration**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration) API のより高度な使い方を示すサンプルをダウンロードするには、[ここ](https://go.microsoft.com/fwlink/?LinkID=620536)をクリックしてください。
+[  **Windows.Devices.Enumeration**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration) API のより高度な使い方を示すサンプルをダウンロードするには、[ここ](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/DeviceEnumerationAndPairing)をクリックしてください。
 
 ## <a name="enumeration-apis"></a>列挙 API
 
@@ -42,8 +42,8 @@ async void enumerateSnapshot(){
 -   物理的に接続されたバス。 これには PCI や USB が含まれます。 たとえば、**デバイス マネージャー**に表示されるすべてのデバイス。
 -   [UPnP](https://docs.microsoft.com/windows/desktop/UPnP/universal-plug-and-play-start-page)
 -   デジタル リビング ネットワーク アライアンス (DLNA)
--   [**検出と起動 (ダイヤル)** ](https://docs.microsoft.com/uwp/api/Windows.Media.DialProtocol)
--   [**DNS サービス探索 (DNS SD)** ](https://docs.microsoft.com/uwp/api/Windows.Networking.ServiceDiscovery.Dnssd)
+-   [**Discovery and Launch (DIAL)** ](https://docs.microsoft.com/uwp/api/Windows.Media.DialProtocol)
+-   [**DNS Service Discovery (DNS-SD)** ](https://docs.microsoft.com/uwp/api/Windows.Networking.ServiceDiscovery.Dnssd)
 -   [Web Services on Devices (WSD)](https://docs.microsoft.com/windows/desktop/WsdApi/wsd-portal)
 -   [Bluetooth](https://docs.microsoft.com/windows/desktop/Bluetooth/bluetooth-start-page)
 -   [**Wi-Fi Direct**](https://docs.microsoft.com/uwp/api/Windows.Devices.WiFiDirect)
@@ -82,7 +82,7 @@ async void enumerateSnapshot(){
 
 [  **DevicePicker**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DevicePicker) を表示すると、デバイスの追加、削除、更新に合わせて、UI の内容が自動的に更新されます。
 
-**注**  指定することはできません、 [ **DeviceInformationKind** ](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformationkind)を使用して、 [ **DevicePicker**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DevicePicker)します。 特定の **DeviceInformationKind** のデバイスが必要な場合は、[**DeviceWatcher**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceWatcher) を作成して独自の UI を提供する必要があります。
+**Note**  You cannot specify the [**DeviceInformationKind**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformationkind) using the [**DevicePicker**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DevicePicker). 特定の **DeviceInformationKind** のデバイスが必要な場合は、[**DeviceWatcher**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceWatcher) を作成して独自の UI を提供する必要があります。
 
  
 
@@ -123,7 +123,7 @@ async void enumerateSnapshot(){
 
 バックグラウンド タスクによるデバイスの監視は、上で説明した [**DeviceWatcher**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceWatcher) を作成する方法によく似ています。 実際、最初に前のセクションの説明に従って通常の **DeviceWatcher** オブジェクトを作成する必要があります。 オブジェクトを作成したら、[**DeviceWatcher.Start**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.devicewatcher.start) の代わりに [**GetBackgroundTrigger**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.devicewatcher.enumerationcompleted) を使います。 **GetBackgroundTrigger** を呼び出すときに目的の通知 (追加、削除、更新) を指定する必要があります。 更新または削除を要求する際には追加も要求する必要があります。 トリガーを登録すると、すぐにバックグラウンドで **DeviceWatcher** の実行が開始されます。 それ以降、条件に一致する新しい通知を受け取るたびに、バックグラウンド タスクがアプリケーションをトリガーして、前回のトリガー以降の最新の変更が提供されます。
 
-**重要な**  初めて、 [ **DeviceWatcherTrigger** ](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.DeviceWatcherTrigger)ウォッチャーに達すると、アプリケーションが表示されるトリガー、 **EnumerationCompleted**状態。 したがって、そのときには最初の結果がすべて含まれます。 その後にアプリケーションがトリガーされるときには、前回のトリガー以降に発生した追加、更新、削除の通知のみが含まれます。 最初の結果が一度に 1 つずつ送られるのではなく、**EnumerationCompleted** に達した後にまとめて送られるため、フォアグラウンドの [**DeviceWatcher**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceWatcher) オブジェクトとは若干異なります。
+**Important**  The first time that a [**DeviceWatcherTrigger**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.DeviceWatcherTrigger) triggers your application will be when the watcher reaches the **EnumerationCompleted** state. したがって、そのときには最初の結果がすべて含まれます。 その後にアプリケーションがトリガーされるときには、前回のトリガー以降に発生した追加、更新、削除の通知のみが含まれます。 最初の結果が一度に 1 つずつ送られるのではなく、**EnumerationCompleted** に達した後にまとめて送られるため、フォアグラウンドの [**DeviceWatcher**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceWatcher) オブジェクトとは若干異なります。
 
  
 
@@ -153,7 +153,7 @@ async void enumerateSnapshot(){
 ## <a name="save-a-device-for-later-use"></a>後で使うためにデバイスを保存する
 
 
-すべて[ **DeviceInformation** ](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceInformation)オブジェクトが 2 つの情報の組み合わせによって一意に識別されます。[**DeviceInformation.Id** ](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformation.id)と[ **DeviceInformation.Kind**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformation.kind)します。 この 2 つの情報を手元に残しておくと、**DeviceInformation** オブジェクトが失われたとしても、この情報を [**CreateFromIdAsync**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformation.createfromidasync) に渡して再び作成することができます。 この場合、アプリと統合するデバイスのユーザー設定を保存できます。
+すべての [**DeviceInformation**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceInformation) オブジェクトが、[**DeviceInformation.Id**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformation.id) と [**DeviceInformation.Kind**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformation.kind) の 2 つの情報を組み合わせて個別に識別されています。 この 2 つの情報を手元に残しておくと、**DeviceInformation** オブジェクトが失われたとしても、この情報を [**CreateFromIdAsync**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformation.createfromidasync) に渡して再び作成することができます。 この場合、アプリと統合するデバイスのユーザー設定を保存できます。
 
 
  

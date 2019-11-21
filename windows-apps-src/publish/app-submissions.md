@@ -6,114 +6,114 @@ keywords: チェックリスト, windows, uwp, 申請, 提出, ゲーム, アプ
 ms.date: 10/31/2018
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 7c535b77c68f4375f70fe344165f96d66a551eaf
-ms.sourcegitcommit: d8ce1a25ac0373acafb394837eb5c0737f6efec8
+ms.openlocfilehash: bed7f232c8ec59771c6ae80a48b12bab1307ad68
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67486422"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74260022"
 ---
 # <a name="app-submissions"></a>アプリの申請
 
 
 [名前を予約してアプリを作成](create-your-app-by-reserving-a-name.md)したら、そのアプリを公開するための作業を開始できます。 まず、**申請**を作成します。
 
-申請は、アプリが完成して公開する準備ができたときに開始できます。または、1 行のコードを記述する前でも情報を入力し始めることができます。 返され、準備ができたときに作業できるように、お客様の提出に行った変更が保存されます。
+申請は、アプリが完成して公開する準備ができたときに開始できます。または、1 行のコードを記述する前でも情報を入力し始めることができます。 Updates you make to your submission are saved, so you can come back and work on it whenever you're ready.
 
 > [!NOTE]
-> 有効である必要があります[開発者アカウント](https://go.microsoft.com/fwlink/p/?LinkId=615100)で[パートナー センター](https://partner.microsoft.com/dashboard) Microsoft Store にアプリを送信するためにします。
+> You must have an active [developer account](https://developer.microsoft.com/store/register) in [Partner Center](https://partner.microsoft.com/dashboard) in order to submit apps to the Microsoft Store.
 
-アプリが発行された後は、パートナー センターで別の送信を作成して、更新されたバージョンを発行できます。 新しい申請を作成すると、新しいパッケージをアップロードするときでも、価格やカテゴリなどの情報を変更するだけのときでも、必要な変更を加えて公開することができます。 発行されたアプリの新規サブミッションを作成する をクリックして**Update**で示すように、最新の送信の横にあるその**概要**ページ。 できます[ストアからアプリを削除](guidance-for-app-package-management.md#removing-an-app-from-the-store)かどうかに行う (および、使用できるように、後でもう一度たい場合) 必要があります。
+After your app is published, you can publish an updated version by creating another submission in Partner Center. 新しい申請を作成すると、新しいパッケージをアップロードするときでも、価格やカテゴリなどの情報を変更するだけのときでも、必要な変更を加えて公開することができます。 To create a new submission for a published app, click **Update** next to the most recent submission shown on its **Overview** page. You can also [remove an app from the Store](guidance-for-app-package-management.md#removing-an-app-from-the-store) if you need to do so (and then make it available again later, if you'd like).
 
 > [!NOTE]
-> ドキュメントのこのセクションでは、パートナー センターでアプリの提出を作成する方法について説明します。 ここで説明する方法以外に、[Microsoft Store 申請 API](../monetize/create-and-manage-submissions-using-windows-store-services.md) を使用してアプリ申請を自動化することもできます。
+> This section of the documentation describes how to create an app submission in Partner Center. ここで説明する方法以外に、[Microsoft Store 申請 API](../monetize/create-and-manage-submissions-using-windows-store-services.md) を使用してアプリ申請を自動化することもできます。
 
 > [!IMPORTANT]
-> 2018 年 10 月 31 日の時点で、新しく作成された製品が Windows 8.x/Windows を対象とするパッケージを含めることはできません Phone 8.x 以前のバージョン。 詳細については、「この[ブログの投稿](https://blogs.windows.com/windowsdeveloper/2018/08/20/important-dates-regarding-apps-with-windows-phone-8-x-and-earlier-and-windows-8-8-1-packages-submitted-to-microsoft-store)します。
+> As of October 31, 2018, newly-created products cannot include packages targeting Windows 8.x/Windows Phone 8.x or earlier. For more info, see this [blog post](https://blogs.windows.com/windowsdeveloper/2018/08/20/important-dates-regarding-apps-with-windows-phone-8-x-and-earlier-and-windows-8-8-1-packages-submitted-to-microsoft-store).
 
 ## <a name="app-submission-checklist"></a>アプリの申請用チェック リスト
 
-ここでは、アプリの申請を作成するときに提供できる詳細情報と、それぞれの詳細へのリンクを示します。
+ここで示しているのは、アプリの申請を作成するときに提供できる詳細情報と、詳細情報のリンクです。
 
-提供または指定する情報には、必須のものと 省略可能なものがあります。提供されている既定値は必要に応じて変更できます。 ここで表示する順序でこれらのセクションで作業する必要はありません。
+提供または指定する情報は必須のものと、 省略可能なものがあります。提供されている既定値は必要に応じて変更できます。 You don't have to work on these sections in the order listed here.
 
 ### <a name="pricing-and-availability-page"></a>[価格と使用可能状況] ページ
-| フィールド名                    | メモ                                       | 詳しい情報                                                             |
+| フィールド名                    | 注意                                       | 詳しい情報                                                             |
 |-------------------------------|---------------------------------------------|---------------------------------------------------------------------------|
-| **市場**                   | 既定:すべての可能な市場  | [価格と市場の選択範囲を定義します。](define-pricing-and-market-selection.md)         |
-| **対象ユーザー**                | 既定:パブリック対象ユーザー | [対象ユーザー](choose-visibility-options.md#audience) |
-| **見つけやすさ**                | 既定:ストアで使用可能な探索可能なこのアプリを作成します。 | [見つけやすさ](choose-visibility-options.md#discoverability) |
-| **スケジュール**                  | 既定:できるだけ早くリリース        | [正確なリリースのスケジュール設定を構成します。](configure-precise-release-scheduling.md) |
-| **基本料金**                | 必須                                    | [設定し、アプリの価格のスケジュール設定](set-and-schedule-app-pricing.md)              |
-| **無料試用版**                | 既定:無料の試用版なし                      | [無料試用版](set-app-pricing-and-availability.md#free-trial)              |
-| **セール価格**              | 省略可能                                    | [アプリとアドオンを販売する](put-apps-and-add-ons-on-sale.md)           |
-| **組織のライセンス**    | 既定:組織でボリュームの取得を許可します。 | [組織のライセンス オプション](organizational-licensing.md)        |
+| **Markets**                   | 既定値: 対象となるすべての市場  | [Define pricing and market selection](define-pricing-and-market-selection.md)         |
+| **オーディエンス**                | 既定値: パブリック対象ユーザー | [オーディエンス](choose-visibility-options.md#audience) |
+| **Discoverability**                | 既定値: この製品を Microsoft Store で提供し、検索可能にします | [Discoverability](choose-visibility-options.md#discoverability) |
+| **Schedule**                  | 既定値: 最短でリリース        | [Configure precise release scheduling](configure-precise-release-scheduling.md) |
+| **Base price**                | 必須かどうか                                    | [Set and schedule app pricing](set-and-schedule-app-pricing.md)              |
+| **無料試用版**                | 既定値: 無料の試用版なし                      | [無料試用版](set-app-pricing-and-availability.md#free-trial)              |
+| **セール価格**              | オプション                                    | [アプリとアドオンを販売する](put-apps-and-add-ons-on-sale.md)           |
+| **Organizational licensing**    | 既定値: このアプリの組織単位でのボリューム購入を許可する | [Organizational licensing options](organizational-licensing.md)        |
       |
 
 
 ### <a name="properties-page"></a>[プロパティ] ページ
 
-| フィールド名                    | メモ                                       | 詳しい情報                                                             |
+| フィールド名                    | 注意                                       | 詳しい情報                                                             |
 |-------------------------------|---------------------------------------------|---------------------------------------------------------------------------|
-| **カテゴリとサブカテゴリ**  | 必須                                    | [Category と subcategory テーブル](category-and-subcategory-table.md)       |
-| **プライバシー ポリシー URL**            | 多くのアプリでは必須。 「[アプリ開発者契約](https://docs.microsoft.com/legal/windows/agreements/app-developer-agreement)」と「[Microsoft Store ポリシー](store-policies.md#105-personal-information)」をご覧ください | [プライバシー ポリシー URL](enter-app-properties.md#privacy-policy-url)        |
-| **Web サイト**                   | 省略可能                                    | [Web サイト](enter-app-properties.md#website)                   |
-| **サポートの連絡先情報**      | 製品が Xbox で使用可能な場合は必須。それ以外の場合は省略可能 (ただし推奨)                                   | [サポートの連絡先情報](enter-app-properties.md#support-contact-info)              |
-| **ゲームの設定**             | 省略可能 (ゲームにのみ適用)         | [ゲームの設定](enter-app-properties.md#game-settings) |
-| **表示モード**             | 省略可能                   | [表示モード](enter-app-properties.md#display-mode) |
-| **製品の宣言**          | 既定:お客様は、別のドライブまたはリムーバブル記憶域です。 このアプリをインストールできます。Windows は、OneDrive への自動バックアップでこのアプリのデータを含めることができます。 | [製品の宣言](app-declarations.md) |
-| **システム要件**      | 省略可能                                    | [システム要件](enter-app-properties.md#system-requirements)      |
+| **Category and subcategory**  | 必須かどうか                                    | [Category and subcategory table](category-and-subcategory-table.md)       |
+| **Privacy policy URL**            | 多くのアプリでは必須。 「[アプリ開発者契約](https://docs.microsoft.com/legal/windows/agreements/app-developer-agreement)」と「[Microsoft Store ポリシー](store-policies.md#105-personal-information)」をご覧ください | [Privacy policy URL](enter-app-properties.md#privacy-policy-url)        |
+| **Website**                   | オプション                                    | [Website](enter-app-properties.md#website)                   |
+| **Support contact info**      | 製品が Xbox で使用可能な場合は必須。それ以外の場合は省略可能 (ただし推奨)                                   | [Support contact info](enter-app-properties.md#support-contact-info)              |
+| **Game settings**             | 省略可能 (ゲームにのみ適用)         | [Game settings](enter-app-properties.md#game-settings) |
+| **Display mode**             | オプション                   | [Display mode](enter-app-properties.md#display-mode) |
+| **Product declarations**          | 既定値: ユーザーは、代替ドライブやリムーバブル ストレージにこのアプリをインストールできます。Windows はこのアプリのデータを OneDrive に自動的にバックアップできます | [Product declarations](app-declarations.md) |
+| **システム要件**      | オプション                                    | [システム要件](enter-app-properties.md#system-requirements)      |
 
 <span/>
 
 ### <a name="age-ratings-page"></a>[年齢区分] ページ
 
-| フィールド名                    | メモ                                       | 詳しい情報                          |
+| フィールド名                    | 注意                                       | 詳しい情報                          |
 |-------------------------------|---------------------------------------------|----------------------------------------|
-| **年齢別規制**               | 必須                                    | [年齢別規制](age-ratings.md)          |
+| **Age ratings**               | 必須かどうか                                    | [Age ratings](age-ratings.md)          |
 
 <span/>
 
 ### <a name="packages-page"></a>[パッケージ] ページ
 
-| フィールド名                    | メモ                                  | 詳しい情報                          |
+| フィールド名                    | 注意                                  | 詳しい情報                          |
 |-------------------------------|----------------------------------------|----------------------------------------|
-| **パッケージのアップロード コントロール**    | 必須 (パッケージが 1 つ以上)        | [アプリ パッケージをアップロードします。](upload-app-packages.md) |
-| **デバイス ファミリの可用性** | 既定値: パッケージに基づく       | [デバイス ファミリの可用性](device-family-availability.md) |
-| **パッケージの段階的なロールアウト**   | 省略可能 (更新プログラムのみ)            | [パッケージの段階的なロールアウト](gradual-package-rollout.md) |
-| **必須の更新プログラム**          | 省略可能 (更新プログラムのみ)            | [必須の更新プログラム](upload-app-packages.md#mandatory-update)
+| **Package upload control**    | 必須 (パッケージが 1 つ以上)        | [Upload app packages](upload-app-packages.md) |
+| **Device family availability** | 既定値: パッケージに基づく       | [Device family availability](device-family-availability.md) |
+| **Gradual package rollout**   | 省略可能 (更新プログラムのみ)            | [Gradual package rollout](gradual-package-rollout.md) |
+| **Mandatory update**          | 省略可能 (更新プログラムのみ)            | [Mandatory update](upload-app-packages.md#mandatory-update)
 
 
 ### <a name="store-listings"></a>ストア登録情報
 
-必須情報のすべてを、アプリでサポートする言語のうち、少なくとも 1 つの言語で用意する必要があります。 [Store 登録情報](create-app-store-listings.md)は、アプリでサポートするすべての言語で用意することをお勧めします。また[追加の言語で Store 登録情報を用意](create-app-store-listings.md#store-listing-languages)することもできます。 同じ製品の複数の登録情報を管理しやすくするため、[Store 登録情報をインポートおよびエクスポート](import-and-export-store-listings.md)することができます。
+必須情報のすべてを、アプリでサポートする言語のうち、少なくとも 1 つの言語で用意する必要があります。 [ストア登録情報](create-app-store-listings.md)は、アプリでサポートするすべての言語で用意することをお勧めします。また[追加の言語でストア登録情報を用意](create-app-store-listings.md#store-listing-languages)することもできます。 同じ製品の複数の登録情報を管理しやすくするため、[Store 登録情報をインポートおよびエクスポート](import-and-export-store-listings.md)することができます。
 
-| フィールド名                    | メモ                                       | 詳しい情報                                                     |
+| フィールド名                    | 注意                                       | 詳しい情報                                                     |
 |-------------------------------|---------------------------------------------|-------------------------------------------------------------------|
-| **説明**               | 必須                                    | [優れたアプリを記述します。](write-a-great-app-description.md) |
-| **このバージョンの新機能新機能**   | 省略可能                                 | [リリース ノート](create-app-store-listings.md#whats-new-in-this-version)       |
-| **アプリの機能**              | 省略可能                                    | [製品の機能](create-app-store-listings.md#product-features)         |
-| **スクリーン ショット**               | 必須 (スクリーンショット 1 つ以上。4 つ以上を推奨)          | [スクリーン ショット](app-screenshots-and-images.md#screenshots)          |
-| **ストア ロゴ**               | 推奨。一部の OS バージョンで必須 | [ストア ロゴ](app-screenshots-and-images.md#store-logos)             |
-| **トレーラー**                  | 省略可能                                    | [トレーラー](app-screenshots-and-images.md#trailers)                | 
-| **Windows 10 と Xbox のイメージ (16:9 のスーパー ヒーロー アート)**     | 推奨        | [Windows 10 と Xbox のイメージ (16:9 のスーパー ヒーロー アート)](app-screenshots-and-images.md#windows-10-and-xbox-image-169-super-hero-art) |
-| **Xbox のイメージ**     | Xbox を発行する場合に必要な適切な表示        | [Xbox のイメージ](app-screenshots-and-images.md#xbox-images) |
-| **補足的なフィールド**  | 省略可能                                    | [補足的なフィールド](create-app-store-listings.md#supplemental-fields) 
-| **検索語句**              | 省略可能                                    | [検索語句](create-app-store-listings.md#search-terms)         |
-| **著作権と商標情報** | 省略可能                                 | [著作権と商標情報](create-app-store-listings.md#copyright-and-trademark-info) |
-| **追加ライセンス条項**  | 省略可能                                    | [追加ライセンス条項](create-app-store-listings.md#additional-license-terms) |
-| **開発されました。**              | 省略可能                                    | [開発されました。](create-app-store-listings.md#developed-by)                   |
+| **説明**               | 必須かどうか                                    | [Write a great app description](write-a-great-app-description.md) |
+| **What's new in this version**   | オプション                                 | [リリース ノート](create-app-store-listings.md#whats-new-in-this-version)       |
+| **App features**              | オプション                                    | [Product features](create-app-store-listings.md#product-features)         |
+| **Screenshots**               | 必須 (スクリーンショット 1 つ以上。4 つ以上を推奨)          | [Screenshots](app-screenshots-and-images.md#screenshots)          |
+| **Store logos**               | 推奨。一部の OS バージョンで必須 | [Store logos](app-screenshots-and-images.md#store-logos)             |
+| **Trailers**                  | オプション                                    | [Trailers](app-screenshots-and-images.md#trailers)                | 
+| **Windows 10 and Xbox image (16:9 Super hero art)**     | おすすめ        | [Windows 10 and Xbox image (16:9 Super hero art)](app-screenshots-and-images.md#windows-10-and-xbox-image-169-super-hero-art) |
+| **Xbox images**     | Required for proper display if you publish to Xbox        | [Xbox images](app-screenshots-and-images.md#xbox-images) |
+| **Supplemental fields**  | オプション                                    | [Supplemental fields](create-app-store-listings.md#supplemental-fields) 
+| **Search terms**              | オプション                                    | [Search terms](create-app-store-listings.md#search-terms)         |
+| **Copyright and trademark info** | オプション                                 | [Copyright and trademark info](create-app-store-listings.md#copyright-and-trademark-info) |
+| **Additional license terms**  | オプション                                    | [Additional license terms](create-app-store-listings.md#additional-license-terms) |
+| **Developed by**              | オプション                                    | [Developed by](create-app-store-listings.md#developed-by)                   |
 
 
 <span/>
 
 ### <a name="submission-options-page"></a>申請オプション ページ
 
-| フィールド名                    | メモ                                       | 詳しい情報                                                     |
+| フィールド名                    | 注意                                       | 詳しい情報                                                     |
 |-------------------------------|---------------------------------------------|-------------------------------------------------------------------|
-| **発行の保留オプション**     | 既定:証明書を渡す (またはスケジュール セクションで、選択した日付ごと) とすぐにこの提出を発行します。      | [発行の保留オプション](manage-submission-options.md#publishing-hold-options)    
-| **認定のノート**     | 推奨          | [認定のノート](notes-for-certification.md)             |
-| **制限された機能**     | お使いの製品をいずれかの宣言に必要な[機能の制限](../packaging/app-capability-declarations.md#restricted-capabilities)    | [制限された機能](manage-submission-options.md#publishing-hold-options)       
+| **Publishing hold options**     | 既定: この申請が認定されたら、すぐに申請を公開します (または [スケジュール] セクションで選択した各日付で公開します)      | [Publishing hold options](manage-submission-options.md#publishing-hold-options)    
+| **Notes for certification**     | おすすめ          | [Notes for certification](notes-for-certification.md)             |
+| **Restricted capabilities**     | Required if your product declares any [restricted capabilities](../packaging/app-capability-declarations.md#restricted-capabilities)    | [Restricted capabilities](manage-submission-options.md#publishing-hold-options)       
 
 <span/>
 

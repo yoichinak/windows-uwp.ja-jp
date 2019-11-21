@@ -1,5 +1,5 @@
 ---
-Description: 視覚的なフィードバックを使用して、UWP アプリとの対話が検出、解釈、および処理されるときにユーザーを表示します。
+Description: Use visual feedback to show users when their interactions with a UWP app are detected, interpreted, and handled.
 title: 視覚的なフィードバック
 ms.assetid: bf2f3672-95f0-4c8c-9a72-0934f2d3b767
 label: Visual feedback
@@ -8,18 +8,18 @@ keywords: 視覚的なフィードバック, フォーカス フィードバッ�
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 56260eb09bc834b2a71e9889b91f0bc439edaa30
-ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
+ms.openlocfilehash: bba80403934987569c25b96eced9a610226431b5
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71340465"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74257911"
 ---
 # <a name="guidelines-for-visual-feedback"></a>視覚的なフィードバックのガイドライン
 
 視覚的なフィードバックは、対話式操作が検出、解釈、処理されていることをユーザーに示すために使います。 視覚的なフィードバックは、対話式操作を促進することによってユーザーを支援します。 対話式操作の成功を示すことによって、ユーザーのコントロール感を向上させます。 また、システム状態の中継やエラーの削減も可能になります。
 
-> **重要な API**:[**Windows. デバイス. input**](https://docs.microsoft.com/uwp/api/Windows.Devices.Input)、WINDOWS. [**ui**](https://docs.microsoft.com/uwp/api/Windows.UI.Input) [ **. [...]** ](https://docs.microsoft.com/uwp/api/Windows.UI.Core)
+> **重要な API**: [**Windows.Devices.Input**](https://docs.microsoft.com/uwp/api/Windows.Devices.Input)、[**Windows.UI.Input**](https://docs.microsoft.com/uwp/api/Windows.UI.Input)、[**Windows.UI.Core**](https://docs.microsoft.com/uwp/api/Windows.UI.Core)
 
 ## <a name="recommendations"></a>推奨事項
 
@@ -40,7 +40,7 @@ ms.locfileid: "71340465"
 > [!Important]
 > 組み込みジェスチャの操作の動作を変更することはお勧めしません。
 
-**デバイス間のフィードバック**
+**Feedback Across Devices**
 
 視覚的なフィードバックは、一般に入力デバイス (タッチ、タッチバッド、マウス、ペン/スタイラス、キーボードなど) に依存します。 たとえば、マウスの組み込みフィードバックには、通常はカーソルの移動と変化が伴います。一方、タッチとペンの場合は接触の視覚エフェクトが必要です。キーボードによる入力とナビゲーションの場合は、フォーカス用の四角形と強調表示を使います。
 
@@ -62,10 +62,10 @@ Xbox とテレビの使用で一般的な **10 フィート エクスペリエ�
 
 ## <a name="color-branding--customizing"></a>色のブランド化とカスタマイズ
 
-**罫線のプロパティ**
+**Border Properties**
 
 視認性の高いフォーカスの視覚効果は、プライマリ境界線とセカンダリ境界線という 2 つの部分で構成されます。 プライマリ境界線は、**2 px** の幅があり、セカンダリ境界線の*外側*に描画されます。 セカンダリ境界線は、**1 px** の幅があり、プライマリ境界線の*内側*に描画されます。
-![High 可視性フォーカス visual redlines @ no__t-1
+![High visibility focus visual redlines](images/FocusRectRedlines.png)
 
 それぞれの境界線 (プライマリおよびセカンダリ) の太さを変更するには、**FocusVisualPrimaryThickness** をプライマリ境界線に対して使用し、 **FocusVisualSecondaryThickness** をセカンダリ境界線に対して使用します。
 ```XAML
@@ -73,7 +73,7 @@ Xbox とテレビの使用で一般的な **10 フィート エクスペリエ�
 ```
 ![視認性の高いフォーカスの視覚効果における余白部分の太さ](images/FocusMargin.png)
 
-余白は [**Thickness**](https://docs.microsoft.com/dotnet/api/system.windows.thickness) という種類のプロパティで指定されます。このため、コントロールの特定の側にのみ表示されるように、余白をカスタマイズすることができます。 以下に例を示します。@no__t 0High 可視性フォーカスの視覚的な余白の幅の下限のみ @ no__t
+余白は [**Thickness**](https://docs.microsoft.com/dotnet/api/system.windows.thickness) という種類のプロパティで指定されます。このため、コントロールの特定の側にのみ表示されるように、余白をカスタマイズすることができます。 See below: ![High visibility focus visual margin thickness bottom only](images/FocusThicknessSide.png)
 
 余白は、コントロールの視覚的な境界線と、フォーカスの視覚効果で示される*セカンダリ境界線*の開始点との間にあるスペースです。 既定の余白は、コントロールの境界線から **1 px** の幅で描画されます。 この余白はコントロールごとに変更できます。それには、**FocusVisualMargin** プロパティを変更します。
 ```XAML
@@ -81,7 +81,7 @@ Xbox とテレビの使用で一般的な **10 フィート エクスペリエ�
 ```
 ![視認性の高いフォーカスの視覚効果における余白の違い](images/FocusPlusMinusMargin.png)
 
-*負の余白は、コントロールの中央から境界線を離し、正の余白によってコントロールの中心に向かって境界線を近づけます。*
+*A negative margin will push the border away from the center of the control, and a positive margin will move the border closer to the center of the control.*
 
 コントロールでフォーカスの視覚効果を完全に無効にするには、**UseSystemFocusVisuals** を無効にするだけです。
 ```XAML
@@ -90,7 +90,7 @@ Xbox とテレビの使用で一般的な **10 フィート エクスペリエ�
 
 太さ、余白、またはアプリ開発者がフォーカスの視覚効果を必要とするかどうかは、コントロールごとに決める必要があります。
 
-**色のプロパティ**
+**Color Properties**
 
 フォーカスの視覚効果に関する色のプロパティには、プライマリ境界線の色とセカンダリ境界線の色という 2 つのプロパティがあります。 これらのフォーカスの視覚効果における境界線の色は、ページ レベルでコントロールごとに変更したり、アプリ全体を対象としてグローバルに変更したりすることができます。
 
@@ -115,20 +115,20 @@ Xbox とテレビの使用で一般的な **10 フィート エクスペリエ�
 * [カスタム ユーザー操作](https://docs.microsoft.com/windows/uwp/design/layout/index)
 
 **サンプル**
-* [基本的な入力サンプル](https://go.microsoft.com/fwlink/p/?LinkID=620302)
-* [低待機時間入力サンプル](https://go.microsoft.com/fwlink/p/?LinkID=620304)
-* [ユーザー操作モードのサンプル](https://go.microsoft.com/fwlink/p/?LinkID=619894)
-* [フォーカスの視覚効果のサンプル](https://go.microsoft.com/fwlink/p/?LinkID=619895)
+* [Basic input sample](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/BasicInput)
+* [Low latency input sample](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/LowLatencyInput)
+* [ユーザー操作モードのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/UserInteractionMode)
+* [フォーカスの視覚効果のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlFocusVisuals)
 
 **サンプルのアーカイブ**
-* [Input:XAML ユーザー入力イベントのサンプル @ no__t-0
-* [Input:デバイス機能のサンプル @ no__t-0
-* [Input:タッチヒットテストのサンプル @ no__t-0
-* [XAML のスクロール、パン、ズームのサンプル](https://go.microsoft.com/fwlink/p/?linkid=251717)
-* [Input:簡略化されたインクのサンプル @ no__t-0
-* [Input:Windows 8 のジェスチャのサンプル @ no__t-0
-* [Input:操作とジェスチャ (C++) のサンプル @ no__t
-* [DirectX タッチ入力のサンプル](https://go.microsoft.com/fwlink/p/?LinkID=231627)
+* [Input: XAML user input events sample](https://code.msdn.microsoft.com/windowsapps/Input-3dff271b)
+* [Input: Device capabilities sample](https://code.msdn.microsoft.com/windowsapps/Input-device-capabilities-31b67745)
+* [Input: Touch hit testing sample](https://code.msdn.microsoft.com/windowsapps/Touch-Hit-Testing-sample-5e35c690)
+* [XAML scrolling, panning, and zooming sample](https://code.msdn.microsoft.com/windowsapps/xaml-scrollviewer-pan-and-949d29e9)
+* [Input: Simplified ink sample](https://code.msdn.microsoft.com/windowsapps/Input-simplified-ink-sample-11614bbf)
+* [Input: Windows 8 gestures sample](https://docs.microsoft.com/samples/browse/?redirectedfrom=MSDN-samples)
+* [Input: Manipulations and gestures (C++) sample](https://code.msdn.microsoft.com/windowsapps/Manipulations-and-gestures-362b6b59)
+* [DirectX touch input sample](https://code.msdn.microsoft.com/windowsapps/Simple-Direct3D-Touch-f98db97e)
  
 
  

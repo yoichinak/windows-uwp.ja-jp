@@ -1,21 +1,21 @@
 ---
 ms.assetid: 8e6c3d3d-0120-40f4-9f90-0b0518188a1a
-description: プログラムによって、または組織のパートナー センター アカウントに登録されているアプリのプロモーションの広告キャンペーンを管理するのにには、Microsoft Store の上位変換 API を使用します。
+description: Use the Microsoft Store promotions API to programmatically manage promotional ad campaigns for apps that are registered to your or your organization's Partner Center account.
 title: ストア サービスを使用した広告キャンペーンの実行
 ms.date: 06/04/2018
 ms.topic: article
 keywords: Windows 10, UWP, Microsoft Store プロモーション API, 広告キャンペーン
 ms.localizationpriority: medium
-ms.openlocfilehash: e9b88c2aa4c16564d8b2708f54ed25e5d284b4c0
-ms.sourcegitcommit: 6a7dd4da2fc31ced7d1cdc6f7cf79c2e55dc5833
+ms.openlocfilehash: 54a9fcf524231f641ca92cb037bb6dcd01b8502f
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58334870"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74260189"
 ---
 # <a name="run-ad-campaigns-using-store-services"></a>ストア サービスを使用した広告キャンペーンの実行
 
-使用して、 *Microsoft Store の上位変換 API*をプログラムで、または組織のパートナー センター アカウントに登録されているアプリのプロモーションの広告キャンペーンを管理します。 この API を使用して、広告キャンペーンや、ターゲット設定、クリエイティブなど、その他の関連アセットを作成、更新、および監視できます。 この API は、膨大な量のキャンペーンを作成して、パートナー センターを使用せずにしたい開発者にとって特に便利です。 この API は、Azure Active Directory (Azure AD) を使って、アプリまたはサービスからの呼び出しを認証します。
+Use the *Microsoft Store promotions API* to programmatically manage promotional ad campaigns for apps that are registered to your or your organization's Partner Center account. この API を使用して、広告キャンペーンや、ターゲット設定、クリエイティブなど、その他の関連アセットを作成、更新、および監視できます。 This API is especially useful for developers who create large volumes of campaigns, and who want to do so without using Partner Center. この API は、Azure Active Directory (Azure AD) を使って、アプリまたはサービスからの呼び出しを認証します。
 
 次の手順で、このプロセスについて詳しく説明しています。
 
@@ -23,38 +23,38 @@ ms.locfileid: "58334870"
 2.  Microsoft Store プロモーション API のメソッドを呼び出す前に、[Azure AD アクセス トークンを取得](#obtain-an-azure-ad-access-token)する必要があります。 トークンを取得した後、Microsoft Store プロモーション API の呼び出しでこのトークンを使用できるのは、その有効期限が切れるまでの 60 分間です。 トークンの有効期限が切れた後は、新しいトークンを生成できます。
 3.  [Microsoft Store プロモーション API を呼び出します](#call-the-windows-store-promotions-api)。
 
-または、作成し、パートナー センターを使用して広告キャンペーンと API は、パートナー センターにアクセスすることも、Microsoft Store の上位変換を使用してプログラムで作成した任意の広告キャンペーンを管理できます。 パートナー センターでの広告キャンペーンの管理に関する詳細については、次を参照してください。[アプリの広告キャンペーンの作成](../publish/create-an-ad-campaign-for-your-app.md)です。
+You can alternatively create and manage ad campaigns using Partner Center, and any ad campaigns that you create programmatically via the Microsoft Store promotions API can also be accessed in Partner Center. For more information about managing ad campaigns in Partner Center, see [Create an ad campaign for your app](../publish/create-an-ad-campaign-for-your-app.md).
 
 > [!NOTE]
-> あらゆる開発者、パートナー センター アカウントでは、それぞれのアプリの広告キャンペーンを管理するのに Microsoft Store の上位変換 API を使用できます。 メディア エージェンシーもこの API へのアクセスを要求して、広告主の代わりに広告キャンペーンを実行できます。 お客様がメディア エージェンシーで、この API について詳しい情報を希望される場合、またはこの API へのアクセスを要求される場合は、storepromotionsapi@microsoft.com までリクエストをお送りください。
+> Any developer with a Partner Center account can use the Microsoft Store promotions API to manage ad campaigns for their apps. メディア エージェンシーもこの API へのアクセスを要求して、広告主の代わりに広告キャンペーンを実行できます。 お客様がメディア エージェンシーで、この API について詳しい情報を希望される場合、またはこの API へのアクセスを要求される場合は、storepromotionsapi@microsoft.com までリクエストをお送りください。
 
 <span id="prerequisites" />
 
-## <a name="step-1-complete-prerequisites-for-using-the-microsoft-store-promotions-api"></a>手順 1:Microsoft Store の上位変換 API を使用するための前提条件
+## <a name="step-1-complete-prerequisites-for-using-the-microsoft-store-promotions-api"></a>手順 1: Microsoft Store プロモーション API を使うための前提条件を満たす
 
 Microsoft Store プロモーション API を呼び出すコードの作成を開始する前に、次の前提条件が満たされていることを確認します。
 
-* 正常に作成および、この API を使用して広告キャンペーンを開始することができます、前にする必要があります[有料広告キャンペーンを使用して作成、**広告キャンペーン**パートナー センターでページ](../publish/create-an-ad-campaign-for-your-app.md)、少なくとも 1 つの支払いを追加する必要がありますこのページのインストルメント化します。 これを行うと、この API を使用して、広告キャンペーンの請求可能な配信ラインを正しく作成することができます。 この API を使用して作成する広告キャンペーンの配信の線は既定の支払い方法の選択に関する課金を自動的に、**広告キャンペーン**パートナー センターでのページ。
+* Before you can successfully create and start an ad campaign using this API, you must first [create one paid ad campaign using the **Ad campaigns** page in Partner Center](../publish/create-an-ad-campaign-for-your-app.md), and you must add at least one payment instrument on this page. これを行うと、この API を使用して、広告キャンペーンの請求可能な配信ラインを正しく作成することができます。 Delivery lines for ad campaigns you create using this API will automatically bill the default payment instrument chosen on the **Ad campaigns** page in Partner Center.
 
-* ユーザー (またはユーザーの組織) は、Azure AD ディレクトリと、そのディレクトリに対する[全体管理者](https://go.microsoft.com/fwlink/?LinkId=746654)のアクセス許可を持っている必要があります。 Office 365 または Microsoft の他のビジネス サービスを既に使っている場合は、既に Azure AD ディレクトリをお持ちです。 それ以外の場合は、追加料金なしに[パートナー センターで新しい Azure AD を作成](../publish/associate-azure-ad-with-partner-center.md#create-a-brand-new-azure-ad-to-associate-with-your-partner-center-account)できます。
+* ユーザー (またはユーザーの組織) は、Azure AD ディレクトリと、そのディレクトリに対する[全体管理者](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)のアクセス許可を持っている必要があります。 Office 365 または Microsoft の他のビジネス サービスを既に使っている場合は、既に Azure AD ディレクトリをお持ちです。 それ以外の場合は、追加料金なしに[パートナー センターで新しい Azure AD を作成](../publish/associate-azure-ad-with-partner-center.md#create-a-brand-new-azure-ad-to-associate-with-your-partner-center-account)できます。
 
-* Azure AD アプリケーションをパートナー センター アカウントに関連付ける、テナント ID と、アプリケーションのクライアント ID を取得、およびキーを生成する必要があります。 Azure AD アプリケーションは、Microsoft Store プロモーション API の呼び出し元のアプリまたはサービスを表します。 テナント ID、クライアント ID、およびキーは、API に渡す Azure AD アクセス トークンを取得するために必要です。
+* You must associate an Azure AD application with your Partner Center account, retrieve the tenant ID and client ID for the application and generate a key. Azure AD アプリケーションは、Microsoft Store プロモーション API の呼び出し元のアプリまたはサービスを表します。 テナント ID、クライアント ID、およびキーは、API に渡す Azure AD アクセス トークンを取得するために必要です。
     > [!NOTE]
     > この作業を行うのは一度だけです。 テナント ID、クライアント ID、キーがあれば、新しい Azure AD アクセス トークンの作成が必要になったときに、いつでもそれらを再利用できます。
 
-Azure AD アプリケーションをパートナー センター アカウントに関連付けるし、必要な値を取得します。
+To associate an Azure AD application with your Partner Center account and retrieve the required values:
 
-1.  パートナー センターの[、組織の Azure AD ディレクトリと、組織のパートナー センター アカウントを関連付ける](../publish/associate-azure-ad-with-partner-center.md)します。
+1.  In Partner Center, [associate your organization's Partner Center account with your organization's Azure AD directory](../publish/associate-azure-ad-with-partner-center.md).
 
-2.  [次へ]、**ユーザー**ページで、**アカウント設定**パートナー センターの「[して Azure AD アプリケーションを追加](../publish/add-users-groups-and-azure-ad-applications.md#add-azure-ad-applications-to-your-partner-center-account)アプリを使用してサービスを表すパートナー センター アカウントのプロモーション キャンペーンを管理します。 このアプリケーションに必ず**マネージャー** ロールを割り当てます。 アプリケーションが存在しない場合、Azure AD ディレクトリで実行できます[を新規作成パートナー センターで Azure AD アプリケーション](../publish/add-users-groups-and-azure-ad-applications.md#create-a-new-azure-ad-application-account-in-your-organizations-directory-and-add-it-to-your-partner-center-account)します。 
+2.  Next, from the **Users** page in the **Account settings** section of Partner Center, [add the Azure AD application](../publish/add-users-groups-and-azure-ad-applications.md#add-azure-ad-applications-to-your-partner-center-account) that represents the app or service that you will use to manage promotion campaigns for your Partner Center account. このアプリケーションに必ず**マネージャー** ロールを割り当てます。 If the application doesn't exist yet in your Azure AD directory, you can [create a new Azure AD application in Partner Center](../publish/add-users-groups-and-azure-ad-applications.md#create-a-new-azure-ad-application-account-in-your-organizations-directory-and-add-it-to-your-partner-center-account). 
 
-3.  **[ユーザー]** ページに戻り、Azure AD アプリケーションの名前をクリックしてアプリケーション設定に移動し、**[テナント ID]** と **[クライアント ID]** の値を書き留めます。
+3.  **[ユーザー]** ページに戻り、Azure AD アプリケーションの名前をクリックしてアプリケーション設定に移動し、 **[テナント ID]** と **[クライアント ID]** の値を書き留めます。
 
-4. **[新しいキーの追加]** をクリックします。 次の画面で、**[キー]** の値を書き留めます。 このページから離れると、この情報に再度アクセスすることはできません。 詳しくは、「[Azure AD アプリケーションのキーを管理する方法](../publish/add-users-groups-and-azure-ad-applications.md#manage-keys)」をご覧ください。
+4. **[新しいキーの追加]** をクリックします。 次の画面で、 **[キー]** の値を書き留めます。 このページから離れると、この情報に再度アクセスすることはできません。 詳しくは、「[Azure AD アプリケーションのキーを管理する方法](../publish/add-users-groups-and-azure-ad-applications.md#manage-keys)」をご覧ください。
 
 <span id="obtain-an-azure-ad-access-token" />
 
-## <a name="step-2-obtain-an-azure-ad-access-token"></a>手順 2:Azure AD アクセス トークンの取得
+## <a name="step-2-obtain-an-azure-ad-access-token"></a>手順 2. Azure AD のアクセス トークンを取得する
 
 Microsoft Store プロモーション API のいずれかのメソッドを呼び出す前に、まず API の各メソッドの **Authorization** ヘッダーに渡す Azure AD アクセス トークンを取得する必要があります。 アクセス トークンを取得した後、アクセス トークンを使用できるのは、その有効期限が切れるまでの 60 分間です。 トークンの有効期限が切れた後は、トークンを更新してそれ以降の API 呼び出しで引き続き使用できます。
 
@@ -71,17 +71,17 @@ grant_type=client_credentials
 &resource=https://manage.devcenter.microsoft.com
 ```
 
-*テナント\_id* POST URI の値と*クライアント\_id*と*クライアント\_シークレット*パラメーター、テナントの指定ID、クライアント ID、前のセクションで、パートナー センターから取得したアプリケーションのキー。 *resource* パラメーターには、```https://manage.devcenter.microsoft.com``` を指定します。
+For the *tenant\_id* value in the POST URI and the *client\_id* and *client\_secret* parameters, specify the tenant ID, client ID and the key for your application that you retrieved from Partner Center in the previous section. *resource* パラメーターには、```https://manage.devcenter.microsoft.com``` を指定します。
 
 アクセス トークンの有効期限が切れた後は、[この](https://azure.microsoft.com/documentation/articles/active-directory-protocols-oauth-code/#refreshing-the-access-tokens)手順に従って更新できます。
 
 <span id="call-the-windows-store-promotions-api" />
 
-## <a name="step-3-call-the-microsoft-store-promotions-api"></a>手順 3:Microsoft Store の上位変換 API を呼び出す
+## <a name="step-3-call-the-microsoft-store-promotions-api"></a>手順 3: Microsoft Store プロモーション API を呼び出す
 
 Azure AD アクセス トークンを取得したら、Microsoft Store プロモーション API を呼び出すことができます。 各メソッドの **Authorization** ヘッダーにアクセス トークンを渡す必要があります。
 
-Microsoft Store プロモーション API では、キャンペーンについての概要情報を保持する*キャンペーン* オブジェクトと、広告キャンペーンの*配信ライン*、*ターゲット プロファイル*、および*クリエイティブ*を表すその他のオブジェクトで構成されるものを広告キャンペーンとします。 この API には、これらのオブジェクトの種類ごとにグループ化されたメソッドのセットが含まれます。 キャンペーンを作成するには、通常、これらのオブジェクトごとに別の POST メソッドを呼び出します。 この API には、任意のオブジェクトの取得に使用できる GET メソッドと、キャンペーン、配信ライン、およびターゲット プロファイル オブジェクトの編集に使用できる PUT メソッドも用意されています。
+Microsoft Store プロモーション API では、キャンペーンについての概要情報を保持する*キャンペーン* オブジェクトと、広告キャンペーンの*配信ライン*、*ターゲット プロファイル*、および*クリエイティブ*を表すその他のオブジェクトで構成されるものを広告キャンペーンとします。 この API には、これらのオブジェクトの種類ごとにグループ化されたメソッドのセットが含まれます。 キャンペーンを作成するには、通常、これらのオブジェクトごとに別の POST メソッドを呼び出します。 この API には、任意のオブジェクトの取得に使用できる GET メソッドと、キャンペーン、配信ライン、および対象プロファイル オブジェクトの編集に使用できる PUT メソッドも用意されています。
 
 これらオブジェクトと関連するメソッドについての詳細は、以下の表を参照してください。
 
@@ -90,11 +90,11 @@ Microsoft Store プロモーション API では、キャンペーンについ�
 |---------------|-----------------|
 | キャンペーン |  このオブジェクトは広告キャンペーンを表し、広告キャンペーンのオブジェクト モデル階層の最上位に置かれます。 このオブジェクトは、実行するキャンペーンの種類 (有料、自社、またはコミュニティ)、キャンペーン目標、広告キャンペーンの配信ライン、その他の詳細情報を示します。 1 つのキャンペーンに関連づけることができるのは、1 つのアプリのみです。<br/><br/>このオブジェクトについて詳しくは、「[広告キャンペーンの管理](manage-ad-campaigns.md)」をご覧ください。<br/><br/>**注**&nbsp;&nbsp;広告キャンペーンの作成後は、[Microsoft Store 分析 API](access-analytics-data-using-windows-store-services.md) の[広告キャンペーンのパフォーマンス データの取得](get-ad-campaign-performance-data.md)メソッドを使って、キャンペーンのパフォーマンス データを取得できます。  |
 | 配信ライン | キャンペーンごとに、インベントリの購入と広告の配信に使用する配信ラインが 1 つ以上あります。 配信ラインごとに、ターゲットと入札額を設定できます。また、予算と使用したいクリエイティブへのリンクを設定することで、支払い額を決定できます。<br/><br/>このオブジェクトについて詳しくは、「[広告キャンペーンの配信ラインの管理](manage-delivery-lines-for-ad-campaigns.md)」をご覧ください。 |
-| ターゲット プロファイル | 配信ラインごとに、1 つのターゲット プロファイルを用意します。ターゲット プロファイルでは、対象にするユーザー、地域、およびインベントリの種類を指定します。 ターゲット プロファイルは、テンプレートとして作成し、複数の配信ライン間で共有できます。<br/><br/>このオブジェクトについて詳しくは、「[広告キャンペーンのターゲット プロファイルの管理](manage-targeting-profiles-for-ad-campaigns.md)」をご覧ください。 |
+| 対象プロファイル | 配信ラインごとに、1 つの対象プロファイルを用意します。対象プロファイルでは、対象にするユーザー、地域、およびインベントリの種類を指定します。 対象プロファイルは、テンプレートとして作成し、複数の配信ライン間で共有できます。<br/><br/>このオブジェクトについて詳しくは、「[広告キャンペーンの対象プロファイルの管理](manage-targeting-profiles-for-ad-campaigns.md)」をご覧ください。 |
 | クリエイティブ | 配信ラインごとに、キャンペーンの一環でお客様に表示される広告を表すクリエイティブが 1 つ以上あります。 クリエイティブは、常に同じアプリを表す場合は、同一の広告キャンペーンでなくても、1 つ以上の配信ラインに関連付けることができます。<br/><br/>このオブジェクトについて詳しくは、「[広告キャンペーンのクリエイティブの管理](manage-creatives-for-ad-campaigns.md)」をご覧ください。 |
 
 
-次の図は、キャンペーン、配信ライン、ターゲット プロファイル、クリエイティブ間の関係を表しています。
+次の図は、キャンペーン、配信ライン、対象プロファイル、クリエイティブ間の関係を表しています。
 
 ![広告キャンペーンの階層](images/ad-campaign-hierarchy.png)
 
@@ -106,11 +106,11 @@ Microsoft Store プロモーション API では、キャンペーンについ�
 
 ## <a name="related-topics"></a>関連トピック
 
-* [広告キャンペーンを管理します。](manage-ad-campaigns.md)
-* [広告キャンペーンの配信の線を管理します。](manage-delivery-lines-for-ad-campaigns.md)
-* [広告キャンペーンの対象とするプロファイルを管理します。](manage-targeting-profiles-for-ad-campaigns.md)
-* [広告キャンペーンのクリエイティブを管理します。](manage-creatives-for-ad-campaigns.md)
-* [広告キャンペーンのパフォーマンス データを取得します。](get-ad-campaign-performance-data.md)
+* [Manage ad campaigns](manage-ad-campaigns.md)
+* [Manage delivery lines for ad campaigns](manage-delivery-lines-for-ad-campaigns.md)
+* [Manage targeting profiles for ad campaigns](manage-targeting-profiles-for-ad-campaigns.md)
+* [Manage creatives for ad campaigns](manage-creatives-for-ad-campaigns.md)
+* [Get ad campaign performance data](get-ad-campaign-performance-data.md)
 
 
  

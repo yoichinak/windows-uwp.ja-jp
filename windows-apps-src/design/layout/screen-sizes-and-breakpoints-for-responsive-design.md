@@ -3,19 +3,19 @@ title: 画面のサイズとレスポンシブ デザインのブレークポイ
 description: Windows 10 エコシステムの多くのデバイス用に UI を最適化するのではなく、ブレークポイントと呼ばれるいくつかの主要な幅カテゴリ用に設計することをお勧めします。
 ms.date: 08/30/2017
 ms.topic: article
-keywords: windows 10, uwp
+keywords: Windows 10, UWP
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: fce2c9230add569c4494b01546f1b3ced81d488b
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 37d0ca71adf43891628a02d60d6873e7934d749b
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57612927"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74258185"
 ---
 #  <a name="screen-sizes-and-breakpoints"></a>画面のサイズとブレークポイント
 
-UWP アプリは、Windows 10 を実行している任意のデバイスで実行できます (電話、タブレット、デスクトップ、テレビなど)。 ターゲット デバイスと各デバイスの UI を最適化するのではなく、Windows 10 エコシステム間での画面サイズの数が膨大では、いくつかのキー幅カテゴリ (「ブレークポイント」とも呼ばれます) の設計を推奨しました。 
+UWP アプリは、Windows 10 を実行している任意のデバイスで実行できます (電話、タブレット、デスクトップ、テレビなど)。 With a huge number of device targets and screen sizes across the Windows 10 ecosystem, rather than optimizing your UI for each device, we recommended designing for a few key width categories (also called "breakpoints"): 
 - 小 (640 ピクセル以下)
 - 中 (641 ピクセル ～ 1007 ピクセル)
 - 大 (1008 ピクセル以上)
@@ -34,7 +34,7 @@ UWP アプリは、Windows 10 を実行している任意のデバイスで実�
 <th align="left">サイズ クラス</th>
 <th align="left">ブレークポイント</th>
 <th align="left">一般的な画面サイズ (対角線)</th>
-<th align="left">デバイス</th>
+<th align="left">[デバイス]</th>
 <th align="left">ウィンドウ サイズ</th>
 </tr>
 </thead>
@@ -71,7 +71,7 @@ UWP の有効ピクセルのシステムでは、視聴距離を自動的に考�
 
 ## <a name="effective-pixels-and-scale-factor"></a>有効ピクセルと倍率
 
-UWP アプリは、すべての Windows 10 デバイスでアプリが判読可能であることを保証するために、UI を自動的に拡大縮小します。 Windows では、ディスプレイの DPI (1 インチあたりのドット数) と、デバイスの視聴距離に基づいて各ディスプレイが自動的に拡大縮小されます。 ユーザーは、**[設定]** > **[ディスプレイ]** > **[拡大縮小とレイアウト]** の設定ページに移動して既定値を上書きできます。 
+UWP アプリは、すべての Windows 10 デバイスでアプリが判読可能であることを保証するために、UI を自動的に拡大縮小します。 Windows では、ディスプレイの DPI (1 インチあたりのドット数) と、デバイスの視聴距離に基づいて各ディスプレイが自動的に拡大縮小されます。 ユーザーは、 **[設定]**  >  **[ディスプレイ]**  >  **[拡大縮小とレイアウト]** の設定ページに移動して既定値を上書きできます。 
 
 
 ## <a name="general-recommendations"></a>一般的な推奨事項
@@ -90,7 +90,7 @@ UWP アプリは、すべての Windows 10 デバイスでアプリが判読可�
 - 最大で 2 つの列/領域を使用します。
 - 検索ボックスを表示します。
 - アイコンの幅の狭いストリップが常に表示されるように[ナビゲーション ウィンドウ](../controls-and-patterns/navigationview.md)を小片モードにします。
-- [テレビのエクスペリエンス](https://go.microsoft.com/fwlink/?LinkId=760736)の調整を検討します。
+- [テレビのエクスペリエンス](https://docs.microsoft.com/windows/uwp/design/devices/designing-for-tv?redirectedfrom=MSDN)の調整を検討します。
 
 ### <a name="large"></a>大
 - ウィンドウの左右の余白を 24 ピクセルに設定して、アプリ ウィンドウの左右の端の間で視覚的な区切りを作成します。
@@ -100,6 +100,6 @@ UWP アプリは、すべての Windows 10 デバイスでアプリが判読可�
 - 常に表示されるように[ナビゲーション ウィンドウ](../controls-and-patterns/navigationview.md)を固定モードにします。
 
 >[!TIP] 
-> [**スマート フォン用の Continuum**](https://go.microsoft.com/fwlink/p/?LinkID=699431)ユーザーが電話をラップトップと同様に機能するモニター、マウス、キーボードに互換性のある Windows 10 mobile デバイスを接続できます。 特定のブレークポイント向けに設計するときは、この新機能に注意してください。携帯電話が常にそのサイズ クラスで維持されるわけではありません。
+> With [**Continuum for Phones**](https://docs.microsoft.com/windows-hardware/design/device-experiences/continuum-phone?redirectedfrom=MSDN), users can connect compatible Windows 10 mobile devices to a monitor, mouse and keyboard to make their phones work like laptops. 特定のブレークポイント向けに設計するときは、この新機能に注意してください。携帯電話が常にそのサイズ クラスで維持されるわけではありません。
 
 

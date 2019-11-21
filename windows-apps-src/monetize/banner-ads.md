@@ -5,12 +5,12 @@ ms.date: 08/23/2017
 ms.topic: article
 keywords: Windows 10, UWP, 広告, AdControl, バナー広告
 ms.localizationpriority: medium
-ms.openlocfilehash: 5f8aea8f204127a0f783f9b751a9f4178667753e
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: cd3e57ebf5a7f7770adf2a8defcd92e66ad1e3a0
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57627247"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74260337"
 ---
 # <a name="banner-ads"></a>バナー広告
 
@@ -24,12 +24,12 @@ ms.locfileid: "57627247"
 
 |  トピック    | 説明 |               
 |----------|-------|
-| [XAML と .NET で AdControl](adcontrol-in-xaml-and--net.md)     | XAML/.NET アプリにバナー広告を追加します。        |
-| [HTML 5 で AdControl および Javascript](adcontrol-in-html-5-and-javascript.md)     | HTML5/JavaScript アプリにバナー広告を追加します。        |
-| [サポートされているバナー広告サイズ](supported-ad-sizes-for-banner-ads.md)    |  UWP アプリのバナー広告でサポートされているサイズを説明します。        |
+| [AdControl in XAML and .NET](adcontrol-in-xaml-and--net.md)     | XAML/.NET アプリにバナー広告を追加します。        |
+| [AdControl in HTML 5 and Javascript](adcontrol-in-html-5-and-javascript.md)     | HTML5/JavaScript アプリにバナー広告を追加します。        |
+| [Supported banner ad sizes](supported-ad-sizes-for-banner-ads.md)    |  UWP アプリのバナー広告でサポートされているサイズを説明します。        |
 
 
 ## <a name="related-topics"></a>関連トピック
 
-* [GitHub の広告サンプル](https://aka.ms/githubads)
-* [アプリの ad 単位を設定します](set-up-ad-units-in-your-app.md)
+* [GitHub の広告サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Advertising)
+* [Set up ad units for your app](set-up-ad-units-in-your-app.md)

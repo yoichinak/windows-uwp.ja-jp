@@ -1,25 +1,25 @@
 ---
-Description: このトピックでは、米国以外の言語にローカライズされた UWP アプリで使用できるフォントを示します。英語。
+Description: このトピックでは、米国英語以外の言語にローカライズされる UWP アプリで使用できるフォントの一覧を示します。
 title: 国際フォント
 template: detail.hbs
 ms.date: 11/02/2017
 ms.topic: article
 keywords: Windows 10, UWP, グローバリゼーション, ローカライズの可否, ローカライズ
 ms.localizationpriority: medium
-ms.openlocfilehash: 06284481ccecbc3c9cd7d7a78d83ccd6e97a49a7
-ms.sourcegitcommit: f3c1a81b50f4a372a15996ac71b3f408a8ee1409
+ms.openlocfilehash: eb12ea0bb7966813413d29908c4974a7c4c97486
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72237525"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74258077"
 ---
 # <a name="international-fonts"></a>国際フォント
 
-このトピックでは、米国以外の言語にローカライズされた UWP アプリで使用できるフォントを示します。英語。
+このトピックでは、米国英語以外の言語にローカライズされる UWP アプリで使用できるフォントの一覧を示します。
 
-次の表の "言語タグ" 列は、言語の [BCP-47 言語タグ](https://go.microsoft.com/fwlink/p/?linkid=227302) を示します。 特に Microsoft Store でサポートされる言語タグの一覧については、「[サポートされている言語](../../publish/supported-languages.md)」をご覧ください。
+次の表の "言語タグ" 列は、言語の [BCP-47 言語タグ](https://tools.ietf.org/html/bcp47) を示します。 特に Microsoft Store でサポートされる言語タグの一覧については、「[サポートされている言語](../../publish/supported-languages.md)」をご覧ください。
 
-| [言語] | 言語タグ | Windows で使用されているフォント |
+| 言語 | 言語タグ | Windows で使用されているフォント |
 | --------- | ----------- | -------------------- |
 | アフリカーンス語 | af-ZA | Segoe UI |
 | アルバニア語 | sq-AL | Segoe UI |
@@ -34,7 +34,7 @@ ms.locfileid: "72237525"
 | ベラルーシ語 | be-BY | Segoe UI |
 | ボスニア語 (ラテン) | bs-Latn-BA | Segoe UI |
 | ブルガリア語 | bg-BG | Segoe UI |
-| カタロニア語 | ca-ES | Segoe UI |
+| カタルニア語 | ca-ES | Segoe UI |
 | 中央クルド語 (アラビア) | ku-ARAB-IQ | Segoe UI |
 | チェロキー語 (チェロキー) | chr-CHER-US | Gadugi |
 | 簡体中国語 | zh-CN | Microsoft YaHei UI |
@@ -66,7 +66,7 @@ ms.locfileid: "72237525"
 | コサ語 | xh-ZA | Segoe UI |
 | ズールー語 | zu-ZA | Segoe UI |
 | イタリア語 | it-IT | Segoe UI |
-| 日本語 | ja-JP | Yu Gothic UI |
+| [日本語] | ja-JP | Yu Gothic UI |
 | カンナダ語 | kn-IN | Nirmala UI |
 | カザフ語 | kk-KZ | Segoe UI |
 | クメール語 | km-KH | Leelawadee UI |
@@ -94,7 +94,7 @@ ms.locfileid: "72237525"
 | ポーランド語 | pl-PL | Segoe UI |
 | ポルトガル語 (ブラジル) | pt-BR | Segoe UI |
 | ポルトガル語 (ポルトガル) | pt-PT | Segoe UI |
-| パンジャーブ語 | pa-IN | Nirmala UI |
+| パンジャブ語 | pa-IN | Nirmala UI |
 | パンジャーブ語 (アラビア) | pa-Arab-PK | Segoe UI |
 | ケチュア語 | quz-PE | Segoe UI |
 | ルーマニア語 | ro-RO | Segoe UI |
@@ -131,5 +131,5 @@ ms.locfileid: "72237525"
 
 ## <a name="related-topics"></a>関連トピック
 
-* [BCP-47 言語タグ](https://go.microsoft.com/fwlink/p/?linkid=227302)
+* [BCP-47 language tag](https://tools.ietf.org/html/bcp47)
 * [サポートされている言語](../../publish/supported-languages.md)

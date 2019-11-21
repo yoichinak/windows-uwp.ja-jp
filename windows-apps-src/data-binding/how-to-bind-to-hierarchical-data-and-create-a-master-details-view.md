@@ -4,20 +4,20 @@ title: 階層データをバインドしてマスター/詳細ビューを作る
 description: チェーン内でバインドされた CollectionViewSource インスタンスに項目コントロールをバインドすると、階層データの複数レベルのマスター/詳細 (リスト/詳細とも呼ばれる) ビューを作成することができます。
 ms.date: 02/08/2017
 ms.topic: article
-keywords: windows 10, uwp
+keywords: Windows 10, UWP
 ms.localizationpriority: medium
-ms.openlocfilehash: d8695a385dbc6d550a8002a5f64b7d777e95594e
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 14b6ab96ac5423d1811618c6a3c91ccf56645664
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66360028"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74255123"
 ---
 # <a name="bind-hierarchical-data-and-create-a-masterdetails-view"></a>階層データをバインドしてマスター/詳細ビューを作る方法
 
 
 
-> **注**  も参照してください、[マスター/詳細サンプル](https://go.microsoft.com/fwlink/p/?linkid=619991)します。
+> **Note**  Also see the [Master/detail sample](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlMasterDetail).
 
 チェーン内でバインドされた [**CollectionViewSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.CollectionViewSource) インスタンスに項目コントロールをバインドすることによって、階層データの複数レベルのマスター/詳細 (リスト/詳細とも呼ばれる) ビューを作成することができます。 このトピックでは、できる限り [{x:Bind} マークアップ拡張](https://docs.microsoft.com/windows/uwp/xaml-platform/x-bind-markup-extension)を使用し、必要に応じて、より柔軟な (ただし効率は低下する) [{Binding} マークアップ拡張](https://docs.microsoft.com/windows/uwp/xaml-platform/binding-markup-extension)を使います。
 

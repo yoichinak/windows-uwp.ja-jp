@@ -4,49 +4,49 @@ title: Windows Device Portal の概要
 description: Windows Device Portal で、ネットワーク経由でリモートから、または USB 接続によって、デバイスの構成と管理を行うための方法を説明します。
 ms.date: 04/09/2019
 ms.topic: article
-keywords: windows 10、uwp、デバイスポータル
+keywords: windows 10, uwp, device portal
 ms.localizationpriority: medium
-ms.openlocfilehash: e2d149faaa967846244553ed53ed5e8255dae276
-ms.sourcegitcommit: 445320ff0ee7323d823194d4ec9cfa6e710ed85d
+ms.openlocfilehash: 2292d97166d34905bb895aa3f53f864510a21f46
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72282286"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74254763"
 ---
 # <a name="windows-device-portal-overview"></a>Windows Device Portal の概要
 
-Windows Device Portal では、ネットワーク経由でリモートから、または USB 接続によって、デバイスの構成と管理を行えます。 また、Windows デバイスのリアルタイムのパフォーマンスのトラブルシューティングと表示に役立つ高度な診断ツールも用意されています。
+Windows Device Portal では、ネットワーク経由でリモートから、または USB 接続によって、デバイスの構成と管理を行えます。 It also provides advanced diagnostic tools to help you troubleshoot and view the real-time performance of your Windows device.
 
-Windows デバイスポータルは、デバイス上の web サーバーで、PC の web ブラウザーから接続できます。 デバイスに web ブラウザーがある場合は、そのデバイスのブラウザーを使用してローカルに接続することもできます。
+Windows Device Portal is a web server on your device that you can connect to from a web browser on a PC. If your device has a web browser, you can also connect locally with the browser on that device.
 
-Windows デバイスポータルは各デバイスファミリで利用できますが、機能とセットアップは各デバイスの要件によって異なります。 ここでは、Device Portal の一般的な説明と、各デバイス ファミリに関するさらに詳細な情報が掲載されている記事へのリンクを示します。
+Windows Device Portal is available on each device family, but features and setup vary based on each device's requirements. ここでは、Device Portal の一般的な説明と、各デバイス ファミリに関するさらに詳細な情報が掲載されている記事へのリンクを示します。
 
-Windows デバイスポータルの機能は、 [REST api](device-portal-api-core.md)を使用して実装されます。この api を使用して、データにアクセスしたり、デバイスをプログラムで制御したりすることができます。
+The functionality of the Windows Device Portal is implemented with [REST APIs](device-portal-api-core.md) that you can use directly to access data and control your device programmatically.
 
-## <a name="setup"></a>セットアップ
+## <a name="setup"></a>[セットアップ]
 
 Device Portal への接続の具体的な手順はデバイスによって異なりますが、どのデバイスでも次の一般的な手順が必要です。
 
-1. デバイスで開発者モードとデバイスポータルを有効にします (設定アプリで構成されます)。
+1. Enable Developer Mode and Device Portal on your device (configured in the Settings app).
 
-2. ローカルネットワークまたは USB を使用して、デバイスと PC を接続します。
+2. Connect your device and PC through a local network or with USB.
 
-3. ブラウザーでデバイス ポータルのページに移動します。 次の表は、各デバイスファミリによって使用されるポートとプロトコルを示しています。
+3. ブラウザーでデバイス ポータルのページに移動します。 This table shows the ports and protocols used by each device family.
 
-デバイス ファミリ | 既定でオンになっているか | HTTP | HTTPS | USB
+デバイス ファミリ | 既定でオンになっているか | HTTP | HTTPS | [USB]
 --------------|----------------|------|-------|----
 HoloLens | 開発者モードでオン | 80 (既定) | 443 (既定) | http://127.0.0.1:10080
-IoT | 開発者モードでオン | 8080 | レジストリ キーで有効化する | なし
-Xbox | 開発者モードで有効化する | Disabled | 11443 | なし
-Desktop| 開発者モードで有効化する | 50080 @ no__t-0 | 50043 @ no__t-0 | なし
+IoT | 開発者モードでオン | 8080 | レジストリ キーで有効化する | 該当なし
+Xbox | 開発者モードで有効化する | 無効 | 11443 | 該当なし
+Desktop| 開発者モードで有効化する | 50080\* | 50043\* | 該当なし
 Phone | 開発者モードで有効化する | 80| 443 | http://127.0.0.1:10080
 
-\* は、デバイス上の既存のポート要求との競合を防ぐために、一時的な範囲 (> 50000) にあるデバイスポータルとして、常にこのような状況になるとは限りません。 詳しくは、デスクトップに関する「[ポート番号を設定する](device-portal-desktop.md#registry-based-configuration-for-device-portal)」のセクションをご覧ください。  
+\* This is not always the case, as Device Portal on desktop claims ports in the ephemeral range (>50,000) to prevent collisions with existing port claims on the device. 詳しくは、デスクトップに関する「[ポート番号を設定する](device-portal-desktop.md#registry-based-configuration-for-device-portal)」のセクションをご覧ください。  
 
 デバイス固有のセットアップ手順については、以下をご覧ください。
 
 - [HoloLens 用 Device Portal](https://docs.microsoft.com/windows/uwp/debug-test-perf/device-portal-hololens)
-- [IoT 用 Device Portal](https://go.microsoft.com/fwlink/?LinkID=616499)
+- [IoT 用 Device Portal](https://docs.microsoft.com/windows/iot-core/manage-your-device/DevicePortal)
 - [モバイル用 Device Portal](device-portal-mobile.md)
 - [Xbox 向けのデバイス ポータル](../xbox-apps/device-portal-xbox.md)
 - [デスクトップ用 Device Portal](device-portal-desktop.md#set-up-device-portal-on-windows-desktop)
@@ -55,157 +55,157 @@ Phone | 開発者モードで有効化する | 80| 443 | http://127.0.0.1:10080
 
 ### <a name="toolbar-and-navigation"></a>ツールバーとナビゲーション
 
-ページの上部にあるツールバーを使用すると、一般的に使用される機能にアクセスできます。
+The toolbar at the top of the page provides access to commonly used features.
 
-- **電力**:電源オプションにアクセスします。
-  - **シャットダウン**:デバイスをオフにします。
-  - **再起動**:デバイスの電源を入れます。
-- **ヘルプ**:ヘルプページを開きます。
+- **Power**: Access power options.
+  - **[Shutdown]** (シャットダウン): デバイスをオフにします。
+  - **[Restart]** (再起動): デバイスの電源を入れ直します。
+- **[Help]** (ヘルプ): ヘルプ ページを開きます。
 
 ページの左側にあるナビゲーション ウィンドウのリンクを使用して、デバイスの管理と監視に利用可能なツールに移動します。
 
-ここでは、デバイスファミリ間で共通するツールについて説明します。 デバイスによってはその他のオプションを利用できる場合があります。 詳細については、デバイスの種類の特定のページを参照してください。
+Tools that are common across device families are described here. デバイスによってはその他のオプションを利用できる場合があります。 For more info, see the specific page for your device type.
 
 ### <a name="apps-manager"></a>アプリ マネージャー
 
-アプリマネージャーには、ホストデバイス上のアプリパッケージとバンドルのインストール/アンインストールと管理の機能が用意されています。
+The Apps manager provides install/uninstall and management functionality for app packages and bundles on the host device.
 
-![デバイスポータルアプリマネージャーページ](images/device-portal/WDP_AppsManager2.png)
+![Device Portal Apps manager page](images/device-portal/WDP_AppsManager2.png)
 
-* **アプリを展開**する:ローカル、ネットワーク、または web ホストからパッケージアプリを展開し、ネットワーク共有から圧縮されていないファイルを登録します。
-* **インストールされているアプリ**:ドロップダウンメニューを使用して、デバイスにインストールされているアプリを削除または開始します。
-* **実行中のアプリ**:現在実行中のアプリに関する情報を取得し、必要に応じて閉じます。
+* **Deploy apps**: Deploy packaged apps from local, network, or web hosts and register loose files from network shares.
+* **Installed apps**: Use the dropdown menu to remove or start apps that are installed on the device.
+* **Running apps**: Get information about the apps that are currently running and close them as necessary.
 
-#### <a name="install-sideload-an-app"></a>アプリのインストール (サイドロード)
+#### <a name="install-sideload-an-app"></a>Install (sideload) an app
 
-Windows デバイスポータルを使用して、開発中にアプリをサイドロードできます。
+You can sideload apps during development using Windows Device Portal:
 
-1. アプリパッケージを作成したら、デバイスにリモートでインストールできます。 Visual Studio でビルドすると、出力フォルダーが生成されます。
+1. When you've created an app package, you can remotely install it onto your device. Visual Studio でビルドすると、出力フォルダーが生成されます。
 
     ![アプリのインストール](images/device-portal/iot-installapp0.png)
 
-2. Windows デバイスポータルで、 **[アプリマネージャー]** ページに移動します。
+2. In Windows Device Portal, navigate to the **Apps manager** page.
 
-3. **[アプリの展開]** セクションで、 **[ローカルストレージ]** を選択します。
+3. In the **Deploy apps** section, select **Local Storage**.
 
-4. **[アプリケーションパッケージの選択]** で **[ファイル]** の選択 を選択し、サイドロードするアプリケーションパッケージを参照します。
+4. Under **Select the application package**, select **Choose File** and browse to the app package that you want to sideload.
 
-5. **[アプリパッケージの署名に使用する証明書ファイル (.cer) を選択]** します で、 **[ファイルの選択]** を選択し、そのアプリパッケージに関連付けられている証明書を参照します。
+5. Under **Select certificate file (.cer) used to sign app package**, select **Choose File** and browse to the certificate associated with that app package.
 
-6. アプリのインストールと共にオプションまたはフレームワークのパッケージをインストールする場合は、各ボックスをオンにし、 **[次へ]** を選択して選択します。
+6. Check the respective boxes if you want to install optional or framework packages along with the app installation, and select **Next** to choose them.
 
-7. **[インストール]** を選択してインストールを開始します。
+7. Select **Install** to initiate the installation.
 
-8. デバイスで Windows 10 がモードで実行されていて、特定の証明書がデバイスに初めてインストールされている場合は、デバイスを再起動します。
+8. If the device is running Windows 10 in S mode, and it is the first time that the given certificate has been installed on the device, restart the device.
 
-#### <a name="install-a-certificate"></a>証明書をインストールする
+#### <a name="install-a-certificate"></a>Install a certificate
 
-または、Windows デバイスポータルを使用して証明書をインストールし、他の方法でアプリをインストールすることもできます。
+Alternatively, you can install the certificate via Windows Device Portal, and install the app through other means:
 
-1. Windows デバイスポータルで、 **[アプリマネージャー]** ページに移動します。
+1. In Windows Device Portal, navigate to the **Apps manager** page.
 
-2. **[アプリの展開]** セクションで、 **[証明書のインストール]** を選択します。
+2. In the **Deploy apps** section, select **Install Certificate**.
 
-3. **[アプリパッケージの署名に使用する証明書ファイル (.cer) を選択]** します で、 **[ファイルの選択]** を選択し、サイドロードするアプリケーションパッケージに関連付けられている証明書を参照します。
+3. Under **Select certificate file (.cer) used to sign an app package**, select **Choose File** and browse to the certificate associated with the app package that you want to sideload.
 
-4. **[インストール]** を選択してインストールを開始します。
+4. Select **Install** to initiate the installation.
 
-5. デバイスで Windows 10 がモードで実行されていて、特定の証明書がデバイスに初めてインストールされている場合は、デバイスを再起動します。
+5. If the device is running Windows 10 in S mode, and it is the first time that the given certificate has been installed on the device, restart the device.
 
 #### <a name="uninstall-an-app"></a>アプリをアンインストールする
 
 1. アプリが実行中でないことを確認します。
-2. 表示されている場合は、**実行中のアプリ**にアクセスして閉じます。 アプリの実行中にをアンインストールしようとすると、アプリを再インストールしようとしたときに問題が発生します。
-3. ドロップダウンからアプリを選択し、 **[削除]** をクリックします。
+2. If it is, go to **Running apps** and close it. If you attempt to uninstall while the app is running, it will cause issues when you attempt to reinstall the app.
+3. Select the app from the dropdown and click **Remove**.
 
-### <a name="running-processes"></a>実行中のプロセス
+### <a name="running-processes"></a>Running processes
 
-このページには、ホストデバイスで現在実行中のプロセスの詳細が表示されます。 これには、アプリとシステムの両方のプロセスが含まれます。 一部のプラットフォーム (デスクトップ、IoT、および HoloLens) では、プロセスを終了できます。
+This page shows details about processes currently running on the host device. これには、アプリとシステムの両方のプロセスが含まれます。 On some platforms (Desktop, IoT, and HoloLens), you can terminate processes.
 
-![デバイスポータルの [実行中のプロセス] ページ](images/device-portal/mob-device-portal-processes.png)
+![Device Portal Running processes page](images/device-portal/mob-device-portal-processes.png)
 
 ### <a name="file-explorer"></a>エクスプローラー
 
-このページでは、サイドロードアプリによって保存されたファイルを表示および操作できます。 ファイルエクスプローラーとその使用方法の詳細については、「[アプリエクスプローラーの使用](https://blogs.windows.com/buildingapps/2016/06/08/using-the-app-file-explorer-to-see-your-app-data/)」のブログ記事を参照してください。
+This page allows you to view and manipulate files stored by any sideloaded apps. See the [Using the App File Explorer](https://blogs.windows.com/buildingapps/2016/06/08/using-the-app-file-explorer-to-see-your-app-data/) blog post to learn more about the File explorer and how to use it.
 
-![デバイスポータルの [ファイルエクスプローラー] ページ](images/device-portal/mob-device-portal-AppFileExplorer.png)
+![Device Portal File explorer page](images/device-portal/mob-device-portal-AppFileExplorer.png)
 
 ### <a name="performance"></a>パフォーマンス
 
-[パフォーマンス] ページには、電力使用率、フレームレート、CPU 負荷などのシステム診断情報のリアルタイムグラフが表示されます。
+The Performance page shows real-time graphs of system diagnostic info like power usage, frame rate, and CPU load.
 
 利用可能なメトリックを次に示します。
 
-- **CPU**:使用可能な合計 CPU 使用率 (%)
-- **メモリ**:合計、使用中、使用可能、コミット、ページング、非ページ化
-- **I/O**:データ量の読み取りと書き込み
-- **ネットワーク**:送受信されたデータ
-- **GPU**:使用可能な GPU エンジン使用率の合計に対する割合
+- **CPU**: Percent of total available CPU utilization
+- **Memory**: Total, in use, available, committed, paged, and non-paged
+- **I/O**: Read and write data quantities
+- **Network**: Received and sent data
+- **GPU**: Percent of total available GPU engine utilization
 
-![デバイスポータルの [パフォーマンス] ページ](images/device-portal/mob-device-portal-perf.png)
+![Device Portal Performance page](images/device-portal/mob-device-portal-perf.png)
 
-### <a name="event-tracing-for-windows-etw-logging"></a>Windows イベントトレーシング (ETW) のログ記録
+### <a name="event-tracing-for-windows-etw-logging"></a>Event Tracing for Windows (ETW) logging
 
-ETW ログページでは、デバイス上のリアルタイム Windows イベントトレーシング (ETW) 情報を管理します。
+The ETW logging page manages real-time Event Tracing for Windows (ETW) information on the device.
 
-![デバイスポータルの [ETW ログ] ページ](images/device-portal/mob-device-portal-etw.png)
+![Device Portal ETW logging page](images/device-portal/mob-device-portal-etw.png)
 
 **[Hide Providers]** (プロバイダを非表示にする) チェックボックスをオンにすると、イベントの一覧のみが表示されます。
 
-- **登録済みのプロバイダー**:イベントプロバイダーとトレースレベルを選択します。 トレースレベルは次のいずれかの値になります。
+- **Registered providers**: Select the event provider and the tracing level. The tracing level is one of these values:
   1. 異常終了または終了
   2. 重大なエラー
   3. 警告
   4. エラーではない警告
-  5. 詳細なトレース
+  5. Detailed trace
 
   トレースを開始するには、 **[Enable]** (有効にする) をクリックまたはタップします。 **[Enabled Providers]** (有効なプロバイダー) ドロップダウン リストにプロバイダーが追加されます。
-- **カスタムプロバイダー**:カスタム ETW プロバイダーとトレースレベルを選択します。 GUID を使用してプロバイダーを識別します。 GUID に角かっこを含めないでください。
-- **有効なプロバイダー**:これにより、有効なプロバイダーが一覧表示されます。 ドロップダウンからプロバイダーを選択し、 **[Disable]** (無効にする) をクリックまたはタップしてトレースを停止します。 すべてのトレースを中断するには、 **[Stop All]** (すべて停止) をクリックまたはタップします。
-- **プロバイダーの履歴**:これは、現在のセッション中に有効にされた ETW プロバイダーを示しています。 無効になっているプロバイダーをアクティブ化するには、 **[Enable]** (有効にする) をクリックまたはタップします。 履歴をクリアするには、 **[Clear]** (クリア) をクリックまたはタップします。
-- **フィルター/イベント**: **[イベント]** セクションには、選択したプロバイダーからの ETW イベントがテーブル形式で一覧表示されます。 テーブルはリアルタイムで更新されます。 **[フィルター]** メニューを使用すると、イベントが表示されるカスタムフィルターを設定できます。 **[クリア]** ボタンをクリックして、テーブルからすべての ETW イベントを削除します。 これによってプロバイダーが無効になることはありません。 **[ファイルに保存]** をクリックすると、現在収集されている ETW イベントをローカルの CSV ファイルにエクスポートできます。
+- **[Custom providers]** (カスタム プロバイダー): カスタム ETW プロバイダーとトレース レベルを選択します。 GUID を使用してプロバイダーを識別します。 Do not include brackets in the GUID.
+- **Enabled providers**: This lists the enabled providers. ドロップダウンからプロバイダーを選択し、 **[Disable]** (無効にする) をクリックまたはタップしてトレースを停止します。 すべてのトレースを中断するには、 **[Stop All]** (すべて停止) をクリックまたはタップします。
+- **Providers history**: This shows the ETW providers that were enabled during the current session. 無効になっているプロバイダーをアクティブ化するには、 **[Enable]** (有効にする) をクリックまたはタップします。 履歴をクリアするには、 **[Clear]** (クリア) をクリックまたはタップします。
+- **Filters / Events**: The **Events** section lists ETW events from the selected providers in table format. The table is updated in real time. Use the **Filters** menu to set up custom filters for which events will be displayed. Click the **Clear** button to delete all ETW events from the table. これによってプロバイダーが無効になることはありません。 You can click **Save to file** to export the currently collected ETW events to a local CSV file.
 
-ETW ログの使用方法の詳細については、[デバイスポータルを使用したデバッグログの表示](https://blogs.windows.com/buildingapps/2016/06/10/using-device-portal-to-view-debug-logs-for-uwp/)に関するブログの投稿を参照してください。
+For more details on using ETW logging, see the [Use Device Portal to view debug logs](https://blogs.windows.com/buildingapps/2016/06/10/using-device-portal-to-view-debug-logs-for-uwp/) blog post.
 
 ### <a name="performance-tracing"></a>パフォーマンス トレース
 
-[パフォーマンストレース] ページでは、ホストデバイスから[Windows パフォーマンスレコーダー (WPR)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh448205(v=win.10))トレースを表示できます。
+The Performance tracing page allows you for view the [Windows Performance Recorder (WPR)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh448205(v=win.10)) traces from the host device.
 
-![デバイスポータルの [パフォーマンストレース] ページ](images/device-portal/mob-device-portal-perf-tracing.png)
+![Device Portal performance tracing page](images/device-portal/mob-device-portal-perf-tracing.png)
 
-- **使用可能なプロファイル**:ドロップダウンから WPR プロファイルを選択し、**開始** をクリックまたはタップしてトレースを開始します。
-- **カスタムプロファイル**:PC から WPR プロファイルを選択するには、 **[参照]** をクリックまたはタップします。 **[Upload and start]** (アップロードして開始) をクリックまたはタップすると、トレースが開始します。
+- **[Available profiles]** (利用可能なプロファイル): ドロップダウン リストから WPR プロファイルを選択し、 **[Start]** (開始) をクリックまたはタップすると、トレースを開始できます。
+- **[Custom profiles]** (カスタム プロファイル): **[Browse]** (参照) をクリックまたはタップして、PC から WPR プロファイルを選択します。 **[Upload and start]** (アップロードして開始) をクリックまたはタップすると、トレースが開始します。
 
-トレースを停止するには、 **[Stop]** (停止) をクリックします。 トレースファイル () までこのページに移動します。ETL) のダウンロードが完了しました。
+トレースを停止するには、 **[Stop]** (停止) をクリックします。 Stay on this page until the trace file (.ETL) has finished downloading.
 
-れ.ETL ファイルは、 [Windows パフォーマンスアナライザー](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh448170(v=win.10))で分析するために開くことができます。
+Captured .ETL files can be opened for analysis in the [Windows Performance Analyzer](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh448170(v=win.10)).
 
 ### <a name="device-manager"></a>デバイス マネージャー
 
-デバイスマネージャーのページには、デバイスに接続されているすべての周辺機器が列挙されます。 [設定] アイコンをクリックすると、それぞれのプロパティを表示できます。
+The Device manager page enumerates all peripherals attached to your device. You can click the settings icons to view the properties of each.
 
-![デバイスポータルの [デバイスマネージャー] ページ](images/device-portal/mob-device-portal-devices.png)
+![Device Portal Device manager page](images/device-portal/mob-device-portal-devices.png)
 
-### <a name="networking"></a>ネットワーク
+### <a name="networking"></a>のネットワーク
 
-[ネットワーク] ページでは、デバイス上のネットワーク接続を管理します。 USB 経由でデバイスポータルに接続している場合を除き、これらの設定を変更すると、デバイスポータルから切断される可能性があります。
+The Networking page manages network connections on the device. Unless you are connected to Device Portal through USB, changing these settings will likely disconnect you from Device Portal.
 
-- **利用可能なネットワーク**:デバイスで使用できる WiFi ネットワークを表示します。 ネットワークをクリックまたはタップすると、そのネットワークに接続し、必要に応じてパスキーを提供できます。 デバイスポータルでは、エンタープライズ認証はまだサポートされていません。 また、 **[プロファイル]** ドロップダウンを使用して、デバイスで認識されている任意の WiFi プロファイルに接続しようとすることもできます。
-- **IP 構成**:各ホストデバイスのネットワークポートについてのアドレス情報を表示します。
+- **Available networks**: Shows the WiFi networks available to the device. ネットワークをクリックまたはタップすると、そのネットワークに接続し、必要に応じてパスキーを提供できます。 Device Portal does not yet support Enterprise Authentication. You can also use the **Profiles** dropdown to attempt to connect to any of the WiFi profiles known to the device.
+- **IP configuration**: Shows address information about each of the host device's network ports.
 
-![デバイスポータルの [ネットワーク] ページ](images/device-portal/mob-device-portal-network.png)
+![Device Portal Networking page](images/device-portal/mob-device-portal-network.png)
 
-## <a name="service-features-and-notes"></a>サービスの機能と注意事項
+## <a name="service-features-and-notes"></a>Service features and notes
 
 ### <a name="dns-sd"></a>DNS-SD
 
 Device Portal は DNS-SD を使用して、ローカル ネットワーク上でその存在をアドバタイズします Device Portal のすべてのインスタンスは、デバイスの種類に関係なく、"WDP._wdp._tcp.local" でアドバタイズします。 サービス インスタンスの TXT レコードは、次の情報を提供します。
 
-キー | 種類 | 説明
+Key | タスクバーの検索ボックスに | 説明
 ----|------|-------------
-S | int | Device Portal 用のセキュリティで保護されたポート。 0 (ゼロ) の場合、Device Portal は HTTPS 接続をリッスンしていません。
-D | string | デバイスの種類。 これは、"Windows. *" という形式になります。たとえば、「windows. Xbox」や「Windows. Desktop」のようになります。
-A | string | デバイスのアーキテクチャ。 これは、ARM、x86、AMD64 のいずれかです。  
+S | 整数 | Device Portal 用のセキュリティで保護されたポート。 0 (ゼロ) の場合、Device Portal は HTTPS 接続をリッスンしていません。
+D | string | デバイスの種類。 This will be in the format "Windows.*", for example, Windows.Xbox or Windows.Desktop
+確認が完了していないエイリアスの横には、 | string | デバイスのアーキテクチャ。 これは、ARM、x86、AMD64 のいずれかです。  
 T | null 文字で区切られた string のリスト | ユーザーが適用したデバイスのタグ。 使い方については、タグの REST API に関する説明をご覧ください。 リストは 2 つの null で終了します。  
 
 DNS-SD レコードでアドバタイズされる HTTP ポートですべてのデバイスがリッスンしているわけではないため、HTTPS ポートでの接続をお勧めします。
@@ -215,8 +215,8 @@ DNS-SD レコードでアドバタイズされる HTTP ポートですべての�
 [CSRF 攻撃](https://en.wikipedia.org/wiki/Cross-site_request_forgery)に対する保護のために、すべての非 GET 要求に一意のトークンが必要です。 このトークン、X-CSRF-Token 要求ヘッダーは、セッション Cookie、CSRF-Token から派生します。 Device Portal の Web UI では、CSRF-Token Cookie が、各要求の X-CSRF-Token にコピーされます。
 
 > [!IMPORTANT]
-> この保護により、スタンドアロンクライアントからの REST Api の使用が防止されます (コマンドラインユーティリティなど)。 これは 3 つの方法で解決できます。
-> - "自動" ユーザー名を使用します。 クライアントはユーザー名の前に "auto-" を追加することによって、CSRF に対する保護を迂回できます。 このユーザー名は、ブラウザーから Device Portal にログインするために使用しないでください。サービスが CSRF 攻撃を受ける可能性があります。 例:デバイスポータルのユーザー名が "admin" の場合は、CSRF 保護をバイパスするために @no__t 0 を使用する必要があります。
+> This protection prevents usages of the REST APIs from a standalone client (such as command-line utilities). これは 3 つの方法で解決できます。
+> - Use an "auto-" username. クライアントはユーザー名の前に "auto-" を追加することによって、CSRF に対する保護を迂回できます。 このユーザー名は、ブラウザーから Device Portal にログインするために使用しないでください。サービスが CSRF 攻撃を受ける可能性があります。 例: Device Portal のユーザー名が "admin" である場合、CSRF に対する保護を迂回するために ```curl -u auto-admin:password <args>``` を使用します。
 > - クライアントで cookie-to-header スキームを実装します。 そのためには、GET 要求でセッション Cookie を確立し、それ以降のすべての要求にヘッダーと Cookie の両方を含めます。
 > - 認証を無効にして、HTTP を使用します。 CSRF に対する保護は HTTPS エンドポイントにのみ適用されるため、HTTP エンドポイントに接続する場合、上記のいずれの操作も必要ありません。
 

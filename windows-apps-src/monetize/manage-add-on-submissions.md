@@ -1,30 +1,30 @@
 ---
 ms.assetid: 66400066-24BF-4AF2-B52A-577F5C3CA474
-description: Microsoft Store 送信 API でこれらのメソッドを使用して、パートナーセンターアカウントに登録されているアプリのアドオンの送信を管理します。
+description: Use these methods in the Microsoft Store submission API to manage add-on submissions for apps that are registered to your Partner Center account.
 title: アドオンの申請の管理
 ms.date: 04/17/2018
 ms.topic: article
 keywords: Windows 10, UWP, Microsoft Store 申請 API, アドオンの申請, アプリ内製品, IAP
 ms.localizationpriority: medium
-ms.openlocfilehash: 6c725765eacfbf5a4148b8755530de74c3c0fd9a
-ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
+ms.openlocfilehash: c8204382a4e341083ce825a9424181cdd75771e1
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71339959"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74260237"
 ---
 # <a name="manage-add-on-submissions"></a>アドオンの申請の管理
 
 Microsoft Store 申請 API には、アプリのアドオン (アプリ内製品または IAP とも呼ばれます) 申請を管理するために使用できるメソッドが用意されています。 Microsoft Store 申請 API の概要については、「[Microsoft Store サービスを使用した申請の作成と管理](create-and-manage-submissions-using-windows-store-services.md)」をご覧ください。この API を使用するための前提条件などの情報があります。
 
 > [!IMPORTANT]
-> Microsoft Store 送信 API を使用してアドオンの送信を作成する場合は、パートナーセンターで変更を行うのではなく、API を使用してのみ、送信にさらに変更を加えるようにしてください。 API を使用して最初に作成した送信をパートナーセンターを使用して変更した場合、API を使用してその送信を変更またはコミットすることはできなくなります。 場合によっては、申請がエラー状態のままになり、申請プロセスを進めることができなくなります。 この場合、申請を削除して新しい申請を作成する必要があります。
+> If you use the Microsoft Store submission API to create a submission for an add-on, be sure to make further changes to the submission only by using the API, rather than making changes in Partner Center. If you use Partner Center to change a submission that you originally created by using the API, you will no longer be able to change or commit that submission by using the API. 場合によっては、申請がエラー状態のままになり、申請プロセスを進めることができなくなります。 この問題が発生した場合は、申請を削除して、新しい申請を作成する必要があります。
 
 <span id="methods-for-add-on-submissions" />
 
 ## <a name="methods-for-managing-add-on-submissions"></a>アドオンの申請を管理するためのメソッド
 
-アドオンの申請を取得、作成、更新、コミット、または削除するには、次のメソッドを使用します。 これらの方法を使用するには、パートナーセンターアカウントにアドオンが既に存在している必要があります。 パートナーセンターでアドオンを作成するには、[その製品の種類と製品 ID を定義](../publish/set-your-add-on-product-id.md)するか、「[アドオンの管理](manage-add-ons.md)」で説明されている Microsoft Store 送信 API メソッドを使用します。
+アドオンの申請を取得、作成、更新、コミット、または削除するには、次のメソッドを使用します。 Before you can use these methods, the add-on must already exist in your Partner Center account. You can create an add-on in Partner Center by [defining its product type and product ID](../publish/set-your-add-on-product-id.md) or by using the Microsoft Store submission API methods in described in [Manage add-ons](manage-add-ons.md).
 
 <table>
 <colgroup>
@@ -43,32 +43,32 @@ Microsoft Store 申請 API には、アプリのアドオン (アプリ内製品
 <tr>
 <td align="left">GET</td>
 <td align="left">https://manage.devcenter.microsoft.com/v1.0/my/inappproducts/{id}/submissions/{submissionId}</td>
-<td align="left"><a href="get-an-add-on-submission.md">既存のアドオンの送信を取得する</a></td>
+<td align="left"><a href="get-an-add-on-submission.md">Get an existing add-on submission</a></td>
 </tr>
 <tr>
 <td align="left">GET</td>
 <td align="left">https://manage.devcenter.microsoft.com/v1.0/my/inappproducts/{id}/submissions/{submissionId}/status</td>
-<td align="left"><a href="get-status-for-an-add-on-submission.md">既存のアドオンの送信の状態を取得する</a></td>
+<td align="left"><a href="get-status-for-an-add-on-submission.md">Get the status of an existing add-on submission</a></td>
 </tr>
 <tr>
 <td align="left">POST</td>
 <td align="left">https://manage.devcenter.microsoft.com/v1.0/my/inappproducts/{id}/submissions</td>
-<td align="left"><a href="create-an-add-on-submission.md">新しいアドオンの送信を作成する</a></td>
+<td align="left"><a href="create-an-add-on-submission.md">Create a new add-on submission</a></td>
 </tr>
 <tr>
 <td align="left">PUT</td>
 <td align="left">https://manage.devcenter.microsoft.com/v1.0/my/inappproducts/{id}/submissions/{submissionId}</td>
-<td align="left"><a href="update-an-add-on-submission.md">既存のアドオンの送信を更新する</a></td>
+<td align="left"><a href="update-an-add-on-submission.md">Update an existing add-on submission</a></td>
 </tr>
 <tr>
 <td align="left">POST</td>
 <td align="left">https://manage.devcenter.microsoft.com/v1.0/my/inappproducts/{id}/submissions/{submissionId}/commit</td>
-<td align="left"><a href="commit-an-add-on-submission.md">新規または更新されたアドオンの送信をコミットする</a></td>
+<td align="left"><a href="commit-an-add-on-submission.md">Commit a new or updated add-on submission</a></td>
 </tr>
 <tr>
 <td align="left">DELETE</td>
 <td align="left">https://manage.devcenter.microsoft.com/v1.0/my/inappproducts/{id}/submissions/{submissionId}</td>
-<td align="left"><a href="delete-an-add-on-submission.md">アドオンの送信を削除する</a></td>
+<td align="left"><a href="delete-an-add-on-submission.md">Delete an add-on submission</a></td>
 </tr>
 </tbody>
 </table>
@@ -79,9 +79,9 @@ Microsoft Store 申請 API には、アプリのアドオン (アプリ内製品
 
 アドオンの申請を作成するには、次のプロセスに従います。
 
-1. まだ行っていない場合は、「 [Microsoft Store サービスを使用した送信の作成と管理](create-and-manage-submissions-using-windows-store-services.md)」で説明されている前提条件を完了します。たとえば、Azure AD アプリケーションをパートナーセンターアカウントに関連付け、クライアント ID とキーを取得します。 この作業は 1 度行うだけでよく、クライアント ID とキーを入手したら、新しい Azure AD アクセス トークンの作成が必要になったときに、いつでもそれらを再利用できます。  
+1. If you have not yet done so, complete the prerequisites described in [Create and manage submissions using Microsoft Store services](create-and-manage-submissions-using-windows-store-services.md), including associating an Azure AD application with your Partner Center account and obtaining your client ID and key. この作業は 1 度行うだけでよく、クライアント ID とキーを入手したら、新しい Azure AD アクセス トークンの作成が必要になったときに、いつでもそれらを再利用できます。  
 
-2. [Azure AD のアクセス トークンを取得します](create-and-manage-submissions-using-windows-store-services.md#obtain-an-azure-ad-access-token)。 このアクセス トークンを Microsoft Store 申請 API のメソッドに渡す必要があります。 アクセス トークンを取得した後、アクセス トークンを使用できるのは、その有効期限が切れるまでの 60 分間です。 トークンの有効期限が切れたら新しいトークンを取得できます。
+2. [Azure AD アクセス トークンを取得します](create-and-manage-submissions-using-windows-store-services.md#obtain-an-azure-ad-access-token)。 このアクセス トークンを Microsoft Store 申請 API のメソッドに渡す必要があります。 アクセス トークンを取得した後、アクセス トークンを使用できるのは、その有効期限が切れるまでの 60 分間です。 トークンの有効期限が切れたら新しいトークンを取得できます。
 
 3. Microsoft Store 申請 API の次のメソッドを実行します。 このメソッドによって、新しい申請が作成され、審査中になります。これは、前回発行した申請のコピーです。 詳しくは、「[アドオンの申請の作成](create-an-add-on-submission.md)」をご覧ください。
 
@@ -92,7 +92,7 @@ Microsoft Store 申請 API には、アプリのアドオン (アプリ内製品
     応答本文には、新しい申請の ID、申請用のアドオン アイコンを Azure Blob Storage にアップロードするための共有アクセス署名 (SAS) URI、および新しい申請のためのすべてのデータ (登録情報や料金情報など) を含む[アドオンの申請](#add-on-submission-object) リソースが含まれます。
 
     > [!NOTE]
-    > SAS URI では、アカウント キーを必要とせずに、Azure Storage 内のセキュリティで保護されたリソースにアクセスできます。 SAS URI の背景情報と Azure Blob Storage での SAS URI の使用については、[Shared Access Signature 第 1 部: SAS モデルを理解する @ no__t-0 と [ Shared Access Signature、第2部:Blob storage @ no__t を使用して SAS を作成して使用します。
+    > SAS URI では、アカウント キーを必要とせずに、Azure Storage 内のセキュリティで保護されたリソースにアクセスできます。 SAS URI の背景情報と Azure Blob Storage での SAS URI の使用については、「[Shared Access Signatures (SAS) の使用](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)」と「[Shared Access Signature、第 2 部: BLOB ストレージでの SAS の作成と使用](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-2/)」をご覧ください。
 
 4. 申請用に新しいアイコンを追加する場合は、[アイコンを準備](https://docs.microsoft.com/windows/uwp/publish/create-iap-descriptions)して、ZIP アーカイブに追加します。
 
@@ -106,7 +106,7 @@ Microsoft Store 申請 API には、アプリのアドオン (アプリ内製品
 
 4. 申請用に新しいアイコンを追加する場合は、上記で呼び出した POST メソッドの応答本文に含まれていた SAS URI を使用して、ZIP アーカイブを [Azure Blob Storage](https://docs.microsoft.com/azure/storage/storage-introduction#blob-storage) にアップロードします。 さまざまなプラットフォームでこれを行うために使用できる、次のようなさまざまな Azure ライブラリがあります。
 
-    * [.NET 用 Azure Storage クライアントライブラリ](https://docs.microsoft.com/azure/storage/storage-dotnet-how-to-use-blobs)
+    * [Azure Storage Client Library for .NET](https://docs.microsoft.com/azure/storage/storage-dotnet-how-to-use-blobs)
     * [Azure Storage SDK for Java](https://docs.microsoft.com/azure/storage/storage-java-how-to-use-blob-storage)
     * [Azure Storage SDK for Python](https://docs.microsoft.com/azure/storage/storage-python-how-to-use-blob-storage)
 
@@ -119,7 +119,7 @@ Microsoft Store 申請 API には、アプリのアドオン (アプリ内製品
     await blockBob.UploadFromStreamAsync(stream);
     ```
 
-5. 次のメソッドを実行して、申請をコミットします。 これにより、送信が完了したことがパートナーセンターに通知され、更新プログラムがアカウントに適用されるようになります。 詳しくは、「[アドオンの申請のコミット](commit-an-add-on-submission.md)」をご覧ください。
+5. 次のメソッドを実行して、申請をコミットします。 This will alert Partner Center that you are done with your submission and that your updates should now be applied to your account. 詳しくは、「[アドオンの申請のコミット](commit-an-add-on-submission.md)」をご覧ください。
 
     ```json
     POST https://manage.devcenter.microsoft.com/v1.0/my/inappproducts/{id}/submissions/{submissionId}/commit
@@ -133,7 +133,7 @@ Microsoft Store 申請 API には、アプリのアドオン (アプリ内製品
 
     申請の状態を確認するには、応答本文の *status* の値を確認します。 この値が **CommitStarted** から **PreProcessing** (要求が成功した場合) または **CommitFailed** (要求でエラーが発生した場合) に変わっています。 エラーがある場合は、*statusDetails* フィールドにエラーについての詳細情報が含まれています。
 
-7. コミットが正常に処理されると、インジェストのために申請がストアに送信されます。 前の方法を使用するか、パートナーセンターにアクセスして、送信の進行状況を引き続き監視することができます。
+7. コミットが正常に処理されると、インジェストのために申請がストアに送信されます。 You can continue to monitor the submission progress by using the previous method, or by visiting Partner Center.
 
 <span/>
 
@@ -141,15 +141,15 @@ Microsoft Store 申請 API には、アプリのアドオン (アプリ内製品
 
 次の記事では、さまざまなプログラミング言語でアドオンの申請を作成する方法を説明する詳しいコード例を紹介します。
 
-* [C#コード例](csharp-code-examples-for-the-windows-store-submission-api.md)
-* [Java コードの例](java-code-examples-for-the-windows-store-submission-api.md)
-* [Python のコード例](python-code-examples-for-the-windows-store-submission-api.md)
+* [C# code examples](csharp-code-examples-for-the-windows-store-submission-api.md)
+* [Java code examples](java-code-examples-for-the-windows-store-submission-api.md)
+* [Python code examples](python-code-examples-for-the-windows-store-submission-api.md)
 
 ## <a name="storebroker-powershell-module"></a>StoreBroker PowerShell モジュール
 
-Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコマンド ライン インターフェイスを実装するオープンソースの PowerShell モジュールも用意されています。 このモジュールは、[StoreBroker](https://aka.ms/storebroker) と呼ばれています。 このモジュールを使うと、Microsoft Store 申請 API を直接呼び出さずに、コマンド ラインからアプリ、フライト、アドオンの申請を管理できます。また、ソースを参照して、この API を呼び出す方法の例を確認することもできます。 StoreBroker モジュールは、多くのファースト パーティ アプリケーションをストアに申請する主要な方法として Microsoft 内で積極的に使っています。
+Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコマンド ライン インターフェイスを実装するオープンソースの PowerShell モジュールも用意されています。 このモジュールは、[StoreBroker](https://github.com/Microsoft/StoreBroker) と呼ばれています。 このモジュールを使うと、Microsoft Store 申請 API を直接呼び出さずに、コマンド ラインからアプリ、フライト、アドオンの申請を管理できます。また、ソースを参照して、この API を呼び出す方法の例を確認することもできます。 StoreBroker モジュールは、多くのファースト パーティ アプリケーションをストアに申請する主要な方法として Microsoft 内で積極的に使っています。
 
-詳しくは、[GitHub の StoreBroker に関するページ](https://aka.ms/storebroker)をご覧ください。
+詳しくは、[GitHub の StoreBroker のページ](https://github.com/Microsoft/StoreBroker)をご覧ください。
 
 <span/>
 
@@ -228,22 +228,22 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 
 このリソースには、次の値があります。
 
-| 値      | 種類   | 説明        |
+| Value      | タスクバーの検索ボックスに   | 説明        |
 |------------|--------|----------------------|
-| id            | string  | 申請 ID。 この ID は、[アドオンの申請の作成](create-an-add-on-submission.md)要求、[すべてのアドオンの取得](get-all-add-ons.md)要求、[アドオンの取得](get-an-add-on.md)要求に対する応答データで確認できます。 パートナーセンターで作成された送信の場合、この ID はパートナーセンターの [送信] ページの URL でも利用できます。  |
+| id            | string  | 申請 ID。 この ID は、[アドオンの申請の作成](create-an-add-on-submission.md)要求、[すべてのアドオンの取得](get-all-add-ons.md)要求、[アドオンの取得](get-an-add-on.md)要求に対する応答データで確認できます。 For a submission that was created in Partner Center, this ID is also available in the URL for the submission page in Partner Center.  |
 | contentType           | string  |  アドオンで提供されている[コンテンツの種類](../publish/enter-add-on-properties.md#content-type)です。 次のいずれかの値を使用できます。 <ul><li>NotSet</li><li>BookDownload</li><li>EMagazine</li><li>ENewspaper</li><li>MusicDownload</li><li>MusicStream</li><li>OnlineDataStorage</li><li>VideoDownload</li><li>VideoStream</li><li>Asp</li><li>OnlineDownload</li></ul> |  
 | keywords           | array  | アドオンの[キーワード](../publish/enter-add-on-properties.md#keywords)の文字列を最大 10 個含む配列です。 アプリでは、これらのキーワードを使ってアドオンを照会できます。   |
 | lifetime           | string  |  アドオンの有効期間です。 次のいずれかの値を使用できます。 <ul><li>Forever</li><li>OneDay</li><li>ThreeDays</li><li>FiveDays</li><li>OneWeek</li><li>TwoWeeks</li><li>OneMonth</li><li>TwoMonths</li><li>ThreeMonths</li><li>SixMonths</li><li>OneYear</li></ul> |
 | listings           | オブジェクト  |  キーと値のペアのディクショナリです。各キーは 2 文字の ISO 3166-1 alpha-2 の国コードで、各値はアドオンの登録情報が保持される[登録情報リソース](#listing-object)です。  |
 | pricing           | オブジェクト  | アドオンの価格設定情報が保持される[価格リソース](#pricing-object)です。   |
-| targetPublishMode           | string  | 申請の公開モードです。 次のいずれかの値を使用できます。 <ul><li>即時</li><li>手動</li><li>SpecificDate</li></ul> |
+| targetPublishMode           | string  | 申請の公開モードです。 次のいずれかの値を使用できます。 <ul><li>Immediate</li><li>手動</li><li>SpecificDate</li></ul> |
 | targetPublishDate           | string  | *targetPublishMode* が SpecificDate に設定されている場合、ISO 8601 形式での申請の公開日です。  |
-| tag           | string  |  アドオンの[カスタムの開発者データ](../publish/enter-add-on-properties.md#custom-developer-data)(この情報は従来*タグ*と呼ばれていました)。   |
-| visibility  | string  |  アドオンの可視性です。 次のいずれかの値を使用できます。 <ul><li>[非表示]</li><li>パブリック</li><li>プライベート</li><li>NotSet</li></ul>  |
-| status  | string  |  申請の状態。 次のいずれかの値を使用できます。 <ul><li>なし</li><li>Canceled</li><li>PendingCommit</li><li>CommitStarted</li><li>CommitFailed</li><li>PendingPublication</li><li>公開</li><li>公開済み</li><li>PublishFailed</li><li>PreProcessing</li><li>PreProcessingFailed</li><li>認定</li><li>CertificationFailed</li><li>リリース</li><li>ReleaseFailed</li></ul>   |
+| タグを付ける           | string  |  アドオンの[カスタムの開発者データ](../publish/enter-add-on-properties.md#custom-developer-data)(この情報は従来*タグ*と呼ばれていました)。   |
+| visibility  | string  |  アドオンの可視性です。 次のいずれかの値を使用できます。 <ul><li>Hidden</li><li>Public</li><li>Private</li><li>NotSet</li></ul>  |
+| status  | string  |  申請の状態。 次のいずれかの値を使用できます。 <ul><li>なし</li><li>Canceled</li><li>PendingCommit</li><li>CommitStarted</li><li>CommitFailed</li><li>PendingPublication</li><li>公開</li><li>Published</li><li>PublishFailed</li><li>PreProcessing</li><li>PreProcessingFailed</li><li>認定</li><li>CertificationFailed</li><li>リリース</li><li>ReleaseFailed</li></ul>   |
 | statusDetails           | オブジェクト  |  エラーに関する情報など、申請のステータスに関する追加情報が保持される[ステータスの詳細に関するリソース](#status-details-object)です。 |
 | fileUploadUrl           | string  | 申請のパッケージのアップロードに使用する共有アクセス署名 (SAS) URI です。 申請用に新しいパッケージを追加する場合は、パッケージを含む ZIP アーカイブをこの URI にアップロードします。 詳しくは、「[アドオンの申請の作成](#create-an-add-on-submission)」をご覧ください。  |
-| friendlyName  | string  |  パートナーセンターに表示される送信のフレンドリ名。 この値は、申請を作成するときに生成されます。  |
+| friendlyName  | string  |  The friendly name of the submission, as shown in Partner Center. この値は、申請を作成するときに生成されます。  |
 
 <span id="listing-object" />
 
@@ -251,10 +251,10 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 
 このリソースには[アドオンの登録情報](../publish/create-add-on-store-listings.md)が保持されます。 このリソースには、次の値があります。
 
-| 値           | 種類    | 説明       |
+| Value           | タスクバーの検索ボックスに    | 説明       |
 |-----------------|---------|------|
-|  description               |    string     |   アドオンの登録情報についての説明です。   |     
-|  アイコン●あいこん○               |   オブジェクト      |アドオンの登録情報に使用されるアイコンのデータが保持される[アイコン リソース](#icon-object)です。    |
+|  説明               |    string     |   アドオンの登録情報についての説明です。   |     
+|  アイコン               |   オブジェクト      |アドオンの登録情報に使用されるアイコンのデータが保持される[アイコン リソース](#icon-object)です。    |
 |  title               |     string    |   アドオンの登録情報のタイトルです。   |  
 
 <span id="icon-object" />
@@ -263,7 +263,7 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 
 このリソースにはアドオンの登録情報のアイコン データが保持されます。 このリソースには、次の値があります。
 
-| 値           | 種類    | 説明     |
+| Value           | タスクバーの検索ボックスに    | 説明     |
 |-----------------|---------|------|
 |  fileName               |    string     |   申請用にアップロードした ZIP アーカイブに含まれているアイコン ファイルの名前です。 このアイコンには、300 x 300 ピクセルの .png ファイルを使用する必要があります。   |     
 |  fileStatus               |   string      |  アイコン ファイルの状態です。 次のいずれかの値を使用できます。 <ul><li>なし</li><li>PendingUpload</li><li>Uploaded</li><li>PendingDelete</li></ul>   |
@@ -274,10 +274,10 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 
 このリソースにはアドオンの価格設定情報が保持されます。 このリソースには、次の値があります。
 
-| 値           | 種類    | 説明    |
+| Value           | タスクバーの検索ボックスに    | 説明    |
 |-----------------|---------|------|
 |  marketSpecificPricings               |    オブジェクト     |  キーと値のペアのディクショナリです。各キーは 2 文字の ISO 3166-1 alpha-2 の国コードで、各値は[価格帯](#price-tiers)です。 これらの項目は、[特定の市場でのアドオンのカスタム価格](https://docs.microsoft.com/windows/uwp/publish/set-iap-pricing-and-availability)を表します。 このディクショナリに含まれる項目は、指定された市場の *priceId* の値によって指定されている基本価格を上書きします。     |     
-|  sales               |   array      |  **非推奨**。 アドオンの販売情報が保持される[セール リソース](#sale-object)の配列です。     |     
+|  sales               |   array      |  **推奨されなくなった値**です。 アドオンの販売情報が保持される[セール リソース](#sale-object)の配列です。     |     
 |  priceId               |   string      |  アドオンの[基本価格](https://docs.microsoft.com/windows/uwp/publish/set-iap-pricing-and-availability)を規定する[価格帯](#price-tiers)です。    |    
 |  isAdvancedPricingModel               |   boolean      |  **true** の場合、開発者アカウントは 0.99 USD ～ 1999.99 USD の拡張された価格セットにアクセスできます。 **false** の場合、開発者アカウントは 0.99 USD ～ 999.99 USD の元の価格帯セットにアクセスできます。 各種価格帯について詳しくは、「[価格帯](#price-tiers)」をご覧ください。<br/><br/>**注**&nbsp;&nbsp;このフィールドは読み取り専用です。   |
 
@@ -290,14 +290,14 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 
 > [!IMPORTANT]
 > **セール** リソースはサポートを終了しました。現在、Microsoft Store 申請 API を使ってアドオンの申請の販売データを取得または変更することはできません。 将来的には、Microsoft Store 申請 API を更新して、アドオンの申請のセール情報にプログラムでアクセスする新しい方法を導入する予定です。
->    * [アドオンの申請を取得する GET メソッド](get-an-add-on-submission.md)を呼び出すと、*セール* リソースは空になります。 引き続き、パートナーセンターを使用して、アドオンの送信用の売上データを取得できます。
->    * [アドオンの申請を更新する PUT メソッド](update-an-add-on-submission.md)を呼び出すとき、*セール*の値に含まれた情報は無視されます。 引き続き、パートナーセンターを使用して、アドオンの送信用に販売データを変更することができます。
+>    * [アドオンの申請を取得する GET メソッド](get-an-add-on-submission.md)を呼び出すと、*セール* リソースは空になります。 You can continue to use Partner Center to get the sale data for your add-on submission.
+>    * [アドオンの申請を更新する PUT メソッド](update-an-add-on-submission.md)を呼び出すとき、*セール*の値に含まれた情報は無視されます。 You can continue to use Partner Center to change the sale data for your add-on submission.
 
 このリソースには、次の値があります。
 
-| 値           | 種類    | 説明           |
+| Value           | タスクバーの検索ボックスに    | 説明           |
 |-----------------|---------|------|
-|  NAME               |    string     |   セールの名前です。    |     
+|  名前               |    string     |   セールの名前です。    |     
 |  basePriceId               |   string      |  セールの基本価格として使用する[価格帯](#price-tiers)です。    |     
 |  startDate               |   string      |   ISO 8601 形式で表したセールの開始日です。  |     
 |  endDate               |   string      |  ISO 8601 形式で表したセールの終了日です。      |     
@@ -309,7 +309,7 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 
 このリソースには、申請の状態についての追加情報が保持されます。 このリソースには、次の値があります。
 
-| 値           | 種類    | 説明       |
+| Value           | タスクバーの検索ボックスに    | 説明       |
 |-----------------|---------|------|
 |  errors               |    オブジェクト     |   申請のエラーの詳細が保持される[ステータスの詳細リソース](#status-detail-object)の配列です。   |     
 |  warnings               |   オブジェクト      | 申請の警告の詳細が保持される[ステータスの詳細リソース](#status-detail-object)の配列です。     |
@@ -321,9 +321,9 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 
 このリソースには、申請に関連するエラーや警告についての追加情報が保持されます。 このリソースには、次の値があります。
 
-| 値           | 種類    | 説明    |
+| Value           | タスクバーの検索ボックスに    | 説明    |
 |-----------------|---------|------|
-|  code               |    string     |   エラーや警告の種類を説明する[申請ステータス コード](#submission-status-code)です。   |     
+|  コード               |    string     |   エラーや警告の種類を説明する[申請ステータス コード](#submission-status-code)です。   |     
 |  details               |     string    |  問題についての詳細が含まれるメッセージです。     |
 
 <span id="certification-report-object" />
@@ -332,12 +332,12 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 
 このリソースは、申請の認定レポート データへのアクセスを提供します。 このリソースには、次の値があります。
 
-| 値           | 種類    | 説明               |
+| Value           | タスクバーの検索ボックスに    | 説明               |
 |-----------------|---------|------|
-|     日付            |    string     |  レポートが生成された日付と時刻 (ISO 8601 形式)。    |
+|     date            |    string     |  The date and time the report was generated, in ISO 8601 format.    |
 |     reportUrl            |    string     |  レポートにアクセスできる URL です。    |
 
-## <a name="enums"></a>列挙体
+## <a name="enums"></a>列挙型
 
 これらのメソッドでは、次の列挙型が使用されます。
 
@@ -347,12 +347,12 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 
 次の値は、[価格リソース](#pricing-object)における、アドオンの申請に利用できる価格帯を表します。
 
-| 値           | 説明       |
+| Value           | 説明       |
 |-----------------|------|
-|  基本               |   価格帯が設定されていない場合、アドオンの基本価格が使用されます。      |     
+|  Base               |   価格帯が設定されていない場合、アドオンの基本価格が使用されます。      |     
 |  NotAvailable              |   アドオンは指定された地域で提供されていません。    |     
-|  Free              |   アドオンは無償です。    |    
-|  Tier*xxxx*               |   アドオンの価格帯を指定する文字列 (**Tier<em>xxxx</em>** の形式)。 現在のところ、次の範囲の価格帯がサポートされています。<br/><br/><ul><li>[価格リソース](#pricing-object)の *isAdvancedPricingModel* 値が **true** の場合、アカウントで利用可能な価格帯値は **Tier1012** - **Tier1424** です。</li><li>[価格リソース](#pricing-object)の *isAdvancedPricingModel* 値が **false** の場合、アカウントで利用可能な価格帯値は **Tier2** - **Tier96** です。</li></ul>各レベルに関連付けられている市場固有の価格を含め、開発者アカウントで使用できる価格レベルの完全なテーブルを表示するには、パートナーセンターでアプリの送信のいずれかの **[価格と可用性]** ページにアクセスします。 **[マーケットとカスタム価格]** セクションの **[テーブルの表示]** リンクをクリックします (一部の開発者アカウントの場合、このリンクは **[価格]** セクションにあります)。     |
+|  [無料]              |   アドオンは無償です。    |    
+|  Tier*xxxx*               |   アドオンの価格帯を指定する文字列 (**Tier<em>xxxx</em>** の形式)。 現在のところ、次の範囲の価格帯がサポートされています。<br/><br/><ul><li>[価格リソース](#pricing-object)の *isAdvancedPricingModel* 値が **true** の場合、アカウントで利用可能な価格帯値は **Tier1012** - **Tier1424** です。</li><li>[価格リソース](#pricing-object)の *isAdvancedPricingModel* 値が **false** の場合、アカウントで利用可能な価格帯値は **Tier2** - **Tier96** です。</li></ul>To see the complete table of price tiers that are available for your developer account, including the market-specific prices that are associated with each tier, go to the **Pricing and availability** page for any of your app submissions in Partner Center and click the **view table** link in the **Markets and custom prices** section (for some developer accounts, this link is in the **Pricing** section).     |
 
 <span id="submission-status-code" />
 
@@ -360,7 +360,7 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 
 次の値は、申請の状態コードを表します。
 
-| 値           |  説明      |
+| Value           |  説明      |
 |-----------------|---------------|
 |  なし            |     コードが指定されていません。         |     
 |      InvalidArchive        |     パッケージが含まれる ZIP アーカイブは無効であるか、認識できないアーカイブ形式です。  |
@@ -374,13 +374,13 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 | ListingOptOutWarning | 開発者が以前の申請の登録情報を削除しているか、パッケージによってサポートされる登録情報を含めていませんでした。 |
 | ListingOptInWarning  | 開発者が登録情報を追加しました。 |
 | UpdateOnlyWarning | 開発者が、更新サポートしかないものを挿入しようとしています。 |
-| その他  | 申請が非認識または未分類の状態です。 |
+| Other  | 申請が非認識または未分類の状態です。 |
 | PackageValidationWarning | パッケージ検証プロセスの結果、警告が生成されました。 |
 
 <span/>
 
 ## <a name="related-topics"></a>関連トピック
 
-* [Microsoft Store services を使用した送信の作成と管理](create-and-manage-submissions-using-windows-store-services.md)
-* [Microsoft Store 送信 API を使用してアドオンを管理する](manage-add-ons.md)
-* [パートナーセンターでのアドオンの送信](https://docs.microsoft.com/windows/uwp/publish/iap-submissions)
+* [Create and manage submissions using Microsoft Store services](create-and-manage-submissions-using-windows-store-services.md)
+* [Manage add-ons using the Microsoft Store submission API](manage-add-ons.md)
+* [Add-on submissions in Partner Center](https://docs.microsoft.com/windows/uwp/publish/iap-submissions)

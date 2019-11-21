@@ -4,14 +4,14 @@ title: コンポジション効果
 description: 効果 API を使用すると、開発者は UI のレンダリング方法をカスタマイズできます。
 ms.date: 02/08/2017
 ms.topic: article
-keywords: windows 10, uwp
+keywords: Windows 10, UWP
 ms.localizationpriority: medium
-ms.openlocfilehash: afcb94ca0e6692d5dfede526f1368b71920ab771
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 57236b6780a7afe996fb1e68ac474d8d8077ca69
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67318199"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74255898"
 ---
 # <a name="composition-effects"></a>コンポジション効果
 
@@ -27,11 +27,11 @@ ms.locfileid: "67318199"
 
 ## <a name="effect-features"></a>効果機能
 
-- [効果ライブラリ](./composition-effects.md#effect-library)
-- [チェーンの効果](./composition-effects.md#chaining-effects)
-- [アニメーションのサポート](./composition-effects.md#animation-support)
-- [Vs の定数。アニメーションの効果のプロパティ](./composition-effects.md#constant-vs-animated-effect-properties)
-- [独立したプロパティを持つ複数の効果](./composition-effects.md#multiple-effect-instances-with-independent-properties)
+- [Effect Library](./composition-effects.md#effect-library)
+- [Chaining Effects](./composition-effects.md#chaining-effects)
+- [Animation Support](./composition-effects.md#animation-support)
+- [Constant vs. Animated Effect Properties](./composition-effects.md#constant-vs-animated-effect-properties)
+- [Multiple Effect Instances with Independent Properties](./composition-effects.md#multiple-effect-instances-with-independent-properties)
 
 ### <a name="effect-library"></a>効果ライブラリ
 
@@ -39,8 +39,8 @@ ms.locfileid: "67318199"
 
 | 効果               | 説明                                                                                                                                                                                                                |
 |----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 2D アフィン変換  | 画像に 2D アフィン変換マトリックスを適用します。 効果の [サンプル](https://go.microsoft.com/fwlink/?LinkId=785341) では、アルファ マスクのアニメーション化にこの効果が使われています。       |
-| 算術コンポジット | 柔軟な方程式を使って 2 つの画像を組み合わせます。 [サンプル](https://go.microsoft.com/fwlink/?LinkId=785341) では、クロスフェード効果の作成に算術コンポジットが使われています。 |
+| 2D アフィン変換  | 画像に 2D アフィン変換マトリックスを適用します。 効果の [サンプル](https://github.com/microsoft/WindowsCompositionSamples/tree/master/Demos/Reference Demos/BasicCompositonEffects) では、アルファ マスクのアニメーション化にこの効果が使われています。       |
+| 算術コンポジット | 柔軟な方程式を使って 2 つの画像を組み合わせます。 [サンプル](https://github.com/microsoft/WindowsCompositionSamples/tree/master/Demos/Reference Demos/BasicCompositonEffects) では、クロスフェード効果の作成に算術コンポジットが使われています。 |
 | ブレンド効果         | 2 つの画像を組み合わせるブレンド効果を作成します。 コンポジションでは、Win2D でサポートされている 26 個の [ブレンド モード](https://microsoft.github.io/Win2D/html/T_Microsoft_Graphics_Canvas_Effects_BlendEffectMode.htm) のうち 21 個が用意されています。        |
 | カラー ソース         | 単色が含まれている画像を生成します。                                                                                                                                                                               |
 | コンポジット            | 2 つの画像を組み合わせます。 コンポジションでは、Win2D でサポートされている 13 個の [コンポジット モード](https://microsoft.github.io/Win2D/html/T_Microsoft_Graphics_Canvas_CanvasComposite.htm) がすべて用意されています。                                              |
@@ -49,12 +49,12 @@ ms.locfileid: "67318199"
 | グレースケール            | 画像を灰色のモノクロ画像に変換します。                                                                                                                                                                                   |
 | ガンマ伝達       | チャネルあたりのガンマ伝達関数を適用することで、画像の色を変更します。                                                                                                                                           |
 | 色相回転           | 色相値を回転することで、画像の色を変更します。                                                                                                                                                                   |
-| Invert               | 画像の色を反転します。                                                                                                                                                                                            |
+| 反転               | 画像の色を反転します。                                                                                                                                                                                            |
 | 彩度             | 画像の彩度を変更します。                                                                                                                                                                                         |
 | セピア                | 画像をセピア調に変換します。                                                                                                                                                                                          |
 | 色温度と濃淡 | 画像の色温度および濃淡を調整します。                                                                                                                                                                           |
 
-詳しくは、Win2D の [Microsoft.Graphics.Canvas.Effects](https://microsoft.github.io/Win2D/html/N_Microsoft_Graphics_Canvas_Effects.htm) 名前空間をご覧ください。 効果の合成でサポートされていませんとして示されている\[NoComposition\]します。
+詳しくは、Win2D の [Microsoft.Graphics.Canvas.Effects](https://microsoft.github.io/Win2D/html/N_Microsoft_Graphics_Canvas_Effects.htm) 名前空間をご覧ください。 Effects not supported in composition are noted as \[NoComposition\].
 
 ### <a name="chaining-effects"></a>チェーン効果
 
@@ -123,28 +123,28 @@ ScalarKeyFrameAnimation effectAnimation = _compositor.CreateScalarKeyFrameAnimat
 catEffect.Properties.StartAnimation("saturationEffect.Saturation", effectAnimation);
 ```
 
-キー フレームを使った効果プロパティのアニメーション化については、[彩度を下げるアニメーション サンプル](https://go.microsoft.com/fwlink/?LinkId=785342) を、効果や式の使用については、[AlphaMask サンプル](https://go.microsoft.com/fwlink/?LinkId=785343) をご覧ください。
+キー フレームを使った効果プロパティのアニメーション化については、[彩度を下げるアニメーション サンプル](https://github.com/microsoft/WindowsCompositionSamples/tree/master/Demos/Reference Demos/BasicCompositonEffects/Desaturation - Animation) を、効果や式の使用については、[AlphaMask サンプル](https://github.com/microsoft/WindowsCompositionSamples/tree/master/Demos/Reference Demos/BasicCompositonEffects/AlphaMask) をご覧ください。
 
 ### <a name="multiple-effect-instances-with-independent-properties"></a>独立したプロパティを持つ複数の効果インスタンス
 
-効果のコンパイル時にパラメーターが動的であることを指定することにより、パラメーターを効果インスタンスごとに変更できます。 これにより、2 つのビジュアルに同じ効果を使用しても、異なる効果プロパティを使って表示できます。 詳しくは、ColorSource と Blend の [サンプル](https://go.microsoft.com/fwlink/?LinkId=785344) をご覧ください。
+効果のコンパイル時にパラメーターが動的であることを指定することにより、パラメーターを効果インスタンスごとに変更できます。 これにより、2 つのビジュアルに同じ効果を使用しても、異なる効果プロパティを使って表示できます。 詳しくは、ColorSource と Blend の [サンプル](https://github.com/microsoft/WindowsCompositionSamples/tree/master/Demos/Reference Demos/BasicCompositonEffects/ColorSource and Blend) をご覧ください。
 
 ## <a name="getting-started-with-composition-effects"></a>コンポジション効果の概要
 
 このクイック スタート チュートリアルでは、効果のいくつかの基本機能の使用方法を示します。
 
-- [Visual Studio のインストール](./composition-effects.md#installing-visual-studio)
-- [新しいプロジェクトを作成します。](./composition-effects.md#creating-a-new-project)
-- [Win2D をインストールします。](./composition-effects.md#installing-win2d)
-- [コンポジションの基本を設定](./composition-effects.md#setting-your-composition-basics)
-- [CompositionSurface ブラシの作成](./composition-effects.md#creating-a-compositionsurface-brush)
-- [作成、コンパイルおよび効果の適用](./composition-effects.md#creating-compiling-and-applying-effects)
+- [Installing Visual Studio](./composition-effects.md#installing-visual-studio)
+- [Creating a new project](./composition-effects.md#creating-a-new-project)
+- [Installing Win2D](./composition-effects.md#installing-win2d)
+- [Setting your Composition Basics](./composition-effects.md#setting-your-composition-basics)
+- [Creating a CompositionSurface Brush](./composition-effects.md#creating-a-compositionsurface-brush)
+- [Creating, Compiling and Applying Effects](./composition-effects.md#creating-compiling-and-applying-effects)
 
 ### <a name="installing-visual-studio"></a>Visual Studio のインストール
 
 - サポートされている Visual Studio バージョンがインストールされていない場合は、「[Visual Studio ダウンロード](https://visualstudio.microsoft.com/downloads/download-visual-studio-vs)」ページをご覧ください。
 
-### <a name="creating-a-new-project"></a>新しいプロジェクトを作成します。
+### <a name="creating-a-new-project"></a>新しいプロジェクトの作成
 
 - [ファイル]、[新規]、[プロジェクト] の順にクリックします。
 - [Visual C#] を選択します。
@@ -168,7 +168,7 @@ Windows 10 用と Windows 8.1 用の 2 つのパッケージ バージョンが�
 ![ソース画像](images/composition-cat-source.png)
 ### <a name="setting-your-composition-basics"></a>コンポジション設定の基本
 
-Windows.UI.Composition コンポジターとルート ContainerVisual の設定方法、およびコア ウィンドウとの関連付け方法の例については、GitHub で [コンポジション ビジュアル ツリーのサンプル](https://go.microsoft.com/fwlink/?LinkId=785345) をご覧ください。
+Windows.UI.Composition コンポジターとルート ContainerVisual の設定方法、およびコア ウィンドウとの関連付け方法の例については、GitHub で [コンポジション ビジュアル ツリーのサンプル](https://github.com/microsoft/WindowsCompositionSamples/tree/master/Demos/Reference Demos/CompositionImageSample) をご覧ください。
 
 ```cs
 _compositor = new Compositor();
@@ -235,14 +235,14 @@ LoadImage(surfaceBrush);
 
 ![彩度を下げた画像](images/composition-cat-desaturated.png)
 
-## <a name="more-information"></a>詳細情報
+## <a name="more-information"></a>説明
 
-- [Microsoft – コンポジション GitHub](https://github.com/microsoft/WindowsCompositionSamples)
+- [Microsoft – Composition GitHub](https://github.com/microsoft/WindowsCompositionSamples)
 - [**Windows.UI.Composition**](https://docs.microsoft.com/uwp/api/Windows.UI.Composition)
-- [Windows 合成チーム twitter](https://twitter.com/wincomposition)
-- [構成の概要](https://blogs.windows.com/buildingapps/2015/12/08/awaken-your-creativity-with-the-new-windows-ui-composition/)
-- [ビジュアル ツリーの基礎](composition-visual-tree.md)
-- [合成ブラシ](composition-brushes.md)
+- [Windows Composition team on Twitter](https://twitter.com/wincomposition)
+- [Composition Overview](https://blogs.windows.com/buildingapps/2015/12/08/awaken-your-creativity-with-the-new-windows-ui-composition/)
+- [Visual Tree Basics](composition-visual-tree.md)
+- [Composition Brushes](composition-brushes.md)
 - [XamlCompositionBrushBase](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.xamlcompositionbrushbase)
-- [アニメーションの概要](composition-animation.md)
-- [コンポジション ネイティブ DirectX と Direct2D との相互運用 begindraw メソッドと EndDraw](composition-native-interop.md)
+- [Animation Overview](composition-animation.md)
+- [Composition native DirectX and Direct2D interoperation with BeginDraw and EndDraw](composition-native-interop.md)

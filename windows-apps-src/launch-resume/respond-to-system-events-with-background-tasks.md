@@ -4,18 +4,18 @@ description: SystemTrigger イベントに応答するバックグラウンド �
 ms.assetid: 43C21FEA-28B9-401D-80BE-A61B71F01A89
 ms.date: 07/06/2018
 ms.topic: article
-keywords: windows 10、uwp、バック グラウンド タスク
+keywords: windows 10, uwp, background task
 ms.localizationpriority: medium
 dev_langs:
 - csharp
 - cppwinrt
 - cpp
-ms.openlocfilehash: b19d5056e924c58f4896804756b0637ead934ee0
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 4b704a83fbcf948f2c9377334831ca8948fc0e1a
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66371492"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74260442"
 ---
 # <a name="respond-to-system-events-with-background-tasks"></a>バックグラウンド タスクによるシステム イベントへの応答
 
@@ -31,7 +31,7 @@ ms.locfileid: "66371492"
 
 ## <a name="create-a-systemtrigger-object"></a>SystemTrigger オブジェクトを作る
 
-アプリ コードで新規の [**SystemTrigger**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.SystemTrigger) オブジェクトを作ります。 1 つ目のパラメーター *triggerType* には、このバックグラウンド タスクをアクティブ化するシステム イベント トリガーの種類を指定します。 イベントの種類の一覧については、「[**SystemTriggerType**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.SystemTriggerType)」をご覧ください。
+アプリ コードで新規の [**SystemTrigger**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.SystemTrigger) オブジェクトを作ります。 1 つ目のパラメーター triggerType には、このバックグラウンド タスクをアクティブ化するシステム イベント トリガーの種類を指定します。 イベントの種類の一覧については、「[**SystemTriggerType**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.SystemTriggerType)」をご覧ください。
 
 2 つ目のパラメーター *OneShot* では、次回システム イベントが発生したときに一度だけバックグラウンド タスクを実行するか、それともタスクの登録が解除されるまで、システム イベントが発生するたびにバックグラウンド タスクを実行するかを指定します。
 
@@ -79,7 +79,7 @@ BackgroundTaskRegistration ^ task = RegisterBackgroundTask(entryPoint, taskName,
 ```
 
 > [!NOTE]
-> ユニバーサル Windows プラットフォーム アプリを呼び出す必要があります[ **RequestAccessAsync** ](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundexecutionmanager.requestaccessasync)バック グラウンドのトリガーの種類のいずれかを登録する前にします。
+> Universal Windows Platform apps must call [**RequestAccessAsync**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundexecutionmanager.requestaccessasync) before registering any of the background trigger types.
 
 更新プログラムのリリース後にユニバーサル Windows アプリが引き続き適切に実行されるようにするには、更新後にアプリが起動する際に、[**RemoveAccess**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundexecutionmanager.removeaccess)、[**RequestAccessAsync**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundexecutionmanager.requestaccessasync) の順に呼び出す必要があります。 詳しくは、「[バックグラウンド タスクのガイドライン](guidelines-for-background-tasks.md)」をご覧ください。
 
@@ -88,7 +88,7 @@ BackgroundTaskRegistration ^ task = RegisterBackgroundTask(entryPoint, taskName,
  
 ## <a name="remarks"></a>注釈
 
-バックグラウンド タスクの登録動作を確認するには、[バックグラウンド タスクのサンプル](https://go.microsoft.com/fwlink/p/?LinkId=618666)をダウンロードしてください。
+バックグラウンド タスクの登録動作を確認するには、[バックグラウンド タスクのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/BackgroundTask)をダウンロードしてください。
 
 バックグラウンド タスクは、[**SystemTrigger**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.SystemTrigger) イベントと [**MaintenanceTrigger**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.MaintenanceTrigger) イベントに応答して実行できます。ただし、その場合も[アプリケーション マニフェストでバックグラウンド タスクを宣言する](declare-background-tasks-in-the-application-manifest.md)必要があります。 どの種類のバックグラウンド タスクを登録する場合でも、その前に [**RequestAccessAsync**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundexecutionmanager.requestaccessasync) も呼び出す必要があります。
 
@@ -108,4 +108,4 @@ BackgroundTaskRegistration ^ task = RegisterBackgroundTask(entryPoint, taskName,
 * [タイマーでのバックグラウンド タスクの実行](run-a-background-task-on-a-timer-.md)
 * [バックグラウンド タスクのガイドライン](guidelines-for-background-tasks.md)
 * [バックグラウンド タスクのデバッグ](debug-a-background-task.md)
-* [トリガーする方法を中断、再開、および (デバッグ) 場合は、UWP アプリでイベントをバック グラウンド](https://go.microsoft.com/fwlink/p/?linkid=254345)
+* [How to trigger suspend, resume, and background events in UWP apps (when debugging)](https://msdn.microsoft.com/library/windows/apps/hh974425(v=vs.110).aspx)

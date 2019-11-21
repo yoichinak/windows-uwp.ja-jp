@@ -6,14 +6,14 @@ label: Interaction primer
 template: detail.hbs
 ms.date: 02/08/2017
 ms.topic: article
-keywords: windows 10, uwp
+keywords: Windows 10, UWP
 ms.localizationpriority: medium
-ms.openlocfilehash: 55879c33e30564f4639b8880c3a12f4b4181245e
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 2f9aab8c4b627b9a4952e7e3e292f1e4b528f992
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66365920"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74258388"
 ---
 # <a name="interaction-primer"></a>操作の基本情報
 
@@ -34,16 +34,16 @@ UWP では "スマート" な状況依存の対話式操作システムが採用
 
 ### <a name="device-support"></a>デバイスのサポート
 
-- タブレット
+- Tablet
 - PC とノート PC
 
 ### <a name="typical-usage"></a>一般的な使い方
 
 ユーザーの視線、注意、および場所とユーザーの目の動きに基づくプレゼンスを追跡します。 UWP アプリを使用して操作するためのこの新しい強力な手段は、ALS などの神経原性筋萎縮症や、筋肉や神経の機能障害を含むその他の障碍を持つユーザーの支援技術として特に役立ちます。 また、視線入力は、ゲーム (ターゲット把握や追跡を含む) や従来の生産性向上アプリケーション、キオスクだけでなく、従来の入力デバイス (キーボード、マウス、タッチ) が使用できないか、ユーザーの両手を他のタスク (買い袋を持つなど) のために開放することが便利である可能性のあるその他の対話型シナリオで、魅力的な機会をもたらします。
 
-### <a name="more-info"></a>詳細情報
+### <a name="more-info"></a>詳細
 
-[相互作用と視線を視線します。](gaze-interactions.md)
+[Gaze interactions and eye tracking](gaze-interactions.md)
 
 ## <a name="surface-dial"></a>Surface Dial
 
@@ -51,25 +51,25 @@ UWP では "スマート" な状況依存の対話式操作システムが採用
 
 ### <a name="device-support"></a>デバイスのサポート
 
-- タブレット
+- Tablet
 - PC とノート PC
 
 ### <a name="typical-usage"></a>一般的な使い方
 
 回転動作 (またはジェスチャ) に基づくフォームファクタを持つ Surface Dial は、プライマリ デバイスからの入力を補完または変更する、セカンダリのマルチ モーダル入力デバイスとして設計されています。 このデバイスは多くの場合、ユーザーが優先的な手でタスクを実行している間に (たとえばペンでインク操作をするときなど)、従属的な手で操作されます。
 
-### <a name="more-info"></a>詳細情報
+### <a name="more-info"></a>詳細
 
-[画面のダイヤル デザイン ガイドライン](windows-wheel-interactions.md)
+[Surface Dial design guidelines](windows-wheel-interactions.md)
 
 ## <a name="cortana"></a>Cortana
 
-Windows 10 で**Cortana**拡張機能では、ユーザーからの音声コマンドを処理し、1 つのアクションを実行するアプリケーションを起動することができます。
+In Windows 10, **Cortana** extensibility lets you handle voice commands from a user and launch your application to carry out a single action.
 
 ### <a name="device-support"></a>デバイスのサポート
 
 -   電話とファブレット
--   タブレット
+-   Tablet
 -   PC とノート PC
 -   Surface Hub
 -   IoT
@@ -84,12 +84,12 @@ Windows 10 で**Cortana**拡張機能では、ユーザーからの音声コマ�
 
 アプリの基本的な機能を統合して、ユーザーが直接アプリを開かずにほとんどのタスクを実行できる中心的エントリ ポイントを提供することで、**Cortana** はアプリとユーザーの仲介役となります。 多くの場合、これによってユーザーの時間と労力を大幅に減らすことができます。 詳しくは、「[Cortana の設計ガイドライン](https://docs.microsoft.com/cortana/skills/cortana-design-guidelines)」をご覧ください。
 
-### <a name="more-info"></a>詳細情報
+### <a name="more-info"></a>詳細
 
 [Cortana の設計ガイドライン](https://docs.microsoft.com/cortana/skills/cortana-design-guidelines)
  
 
-## <a name="speech"></a>音声認識
+## <a name="speech"></a>[音声認識]
 
 音声認識により、アプリケーションを効果的かつ自然に操作できます。 また、音声認識により、アプリケーションを正確かつ容易に操作し、さまざまな状況で生産性を高め、いつでも新しい情報を入手することができます。
 
@@ -100,7 +100,7 @@ Windows 10 で**Cortana**拡張機能では、ユーザーからの音声コマ�
 ### <a name="device-support"></a>デバイスのサポート
 
 -   電話とファブレット
--   タブレット
+-   Tablet
 -   PC とノート PC
 -   Surface Hub
 -   IoT
@@ -113,7 +113,7 @@ Windows 10 で**Cortana**拡張機能では、ユーザーからの音声コマ�
 
 音声操作には 3 つのモードがあります。
 
-**自然言語**
+**Natural language**
 
 自然言語とは、人が人とコミュニケーションをとるために通常使っている言葉のことです。 表現は人や状況によって異なるため、一般的に解釈されます。 解釈されない場合は、人は単語や語順を変えて、同じ考えを伝えようとします。
 
@@ -121,19 +121,19 @@ Windows 10 で**Cortana**拡張機能では、ユーザーからの音声コマ�
 
 自然言語は最も高度な音声操作で、**Cortana** によって実装および公開できます。
 
-**コマンドと制御**
+**Command and control**
 
 音声コマンドを使うと、ボタンのクリック、メニューの選択などのコントロールと機能を音声でアクティブ化できます。
 
 音声コマンドは、優れたユーザー エクスペリエンスには欠かせません。このため入力の種類を 1 つにすることは、通常お勧めしません。 音声認識は、通常、基本設定やハードウェア機能に基づいて、ユーザー向け入力オプションの 1 つとして含まれています。
 
-**ディクテーション モード**
+**Dictation**
 
 最も基本的な音声入力方法です。 発声した各語句がテキストに変換されます。
 
 ディクテーションは通常、アプリが語句の意味や意図を理解する必要がない場合に使われます。
 
-### <a name="more-info"></a>詳細情報
+### <a name="more-info"></a>詳細
 
 [音声認識のデザイン ガイドライン](https://docs.microsoft.com/windows/uwp/input-and-devices/speech-interactions)
  
@@ -142,7 +142,7 @@ Windows 10 で**Cortana**拡張機能では、ユーザーからの音声コマ�
 
 ペン (スタイラス) は、マウス同様ピクセル単位のポインティング デバイスとして動作し、デジタル インク入力には最適なデバイスです。
 
-**注**  ペン デバイスの 2 種類があります: アクティブおよびパッシブです。
+**Note**  There are two types of pen devices: active and passive.
   -   電気的な回路が組み込まれていないパッシブなペンは、1 本の指からのタッチ入力を効果的にエミュレートします。 このペンには、接触の圧力に基づいて入力を認識する基本的なデバイス ディスプレイが必要です。 ユーザーは入力サーフェスに手を置きながら書き込むことがよくあるため、パーム リジェクションの失敗が原因で入力データが汚染されることがあります。
   -   アクティブなペンには電気的な回路が組み込まれています。このペンは複雑なデバイス ディスプレイで動作して、より広範な入力データ (ホバー、近接通信データを含む) をシステムやアプリに提供できます。 パーム リジェクションは、はるかに堅牢です。
 
@@ -151,7 +151,7 @@ Windows 10 で**Cortana**拡張機能では、ユーザーからの音声コマ�
 ### <a name="device-support"></a>デバイスのサポート
 
 -   電話とファブレット
--   タブレット
+-   Tablet
 -   PC とノート PC
 -   Surface Hub
 -   IoT
@@ -166,7 +166,7 @@ Windows のインク プラットフォームでペンを使うと、自然な�
 
 このような操作をサポートするには、ペン固有の UI コマンド、またはアフォーダンスを提供する必要があります。 たとえば、"前へ" ボタンと "次へ" ボタン (または "+" ボタンと "-" ボタン) を使ってコンテンツのページをフリップしたり、オブジェクトを回転、サイズ変更、ズームしたりできるようにします。
 
-### <a name="more-info"></a>詳細情報
+### <a name="more-info"></a>詳細
 
 [ペンの設計ガイドライン](https://docs.microsoft.com/windows/uwp/input-and-devices/pen-and-stylus-interactions)
  
@@ -178,7 +178,7 @@ Windows のインク プラットフォームでペンを使うと、自然な�
 ### <a name="device-support"></a>デバイスのサポート
 
 -   電話とファブレット
--   タブレット
+-   Tablet
 -   PC とノート PC
 -   Surface Hub
 -   IoT
@@ -201,7 +201,7 @@ Surface Hub デバイスは、100 か所の独自の同時タッチ接触を認�
 -   デバイスの向きに制限されない。
 -   すべての操作 (テキスト入力 (タッチ キーボード)、手描き入力 (アプリで構成) を含む) で使用される。
 
-### <a name="more-info"></a>詳細情報
+### <a name="more-info"></a>詳細
 
 [タッチの設計ガイドライン](https://docs.microsoft.com/windows/uwp/input-and-devices/guidelines-for-user-interaction)
  
@@ -225,21 +225,21 @@ Surface Hub デバイスは、100 か所の独自の同時タッチ接触を認�
 
 このような操作をサポートするには、マウス固有の UI コマンド、またはアフォーダンスを提供する必要があります。 たとえば、"前へ" ボタンと "次へ" ボタン (または "+" ボタンと "-" ボタン) を使ってコンテンツのページをフリップしたり、オブジェクトを回転、サイズ変更、ズームしたりできるようにします。
 
-### <a name="more-info"></a>詳細情報
+### <a name="more-info"></a>詳細
 
 [タッチパッドの設計ガイドライン](https://docs.microsoft.com/windows/uwp/input-and-devices/touch-interactions)
  
 
-## <a name="keyboard"></a>キーボード
+## <a name="keyboard"></a>Keyboard
 
 キーボードはテキスト用の主要な入力デバイスであり、多くの場合、特定の障碍のあるユーザーや、キーボードを使った方がアプリをすばやく効率よく操作できると考えるユーザーにとって欠かせません。
 
-[電話の Continuum](https://go.microsoft.com/fwlink/p/?LinkID=699431)、互換性のある Windows 10 mobile デバイス用の新しいエクスペリエンスをユーザーに接続できる、電話、マウスとキーボード、電話、ラップトップのように動作させる。
+With [Continuum for Phone](https://docs.microsoft.com/windows-hardware/design/device-experiences/continuum-phone?redirectedfrom=MSDN), a new experience for compatible Windows 10 mobile devices, users can connect their phones to a mouse and keyboard to make their phones work like a laptop.
 
 ### <a name="device-support"></a>デバイスのサポート
 
 -   電話とファブレット
--   タブレット
+-   Tablet
 -   PC とノート PC
 -   Surface Hub
 -   IoT
@@ -256,7 +256,7 @@ OSK は、物理的なキーボードの代わりに使うことができる視�
 
 タッチ キーボードは、タッチ入力でのテキスト入力に使われる、視覚的なソフトウェア キーボードです。 タッチ キーボードはテキスト入力専用であり (ハードウェア キーボードをエミュレートしません)、テキスト フィールドや編集可能なテキスト コントロールにフォーカスがあるときにだけ表示されるので、OSK の代わりになるものではありません。 タッチ キーボードは、アプリ コマンドやシステム コマンドをサポートしていません。
 
-**注**  OSK OSK が存在するかどうかは表示されませんが、タッチ キーボードの上の優先順位を持ちます。
+**Note**  The OSK has priority over the touch keyboard, which won't be shown if the OSK is present.
 
 一般的にキーボードには、次のような特徴があります。
 
@@ -265,19 +265,19 @@ OSK は、物理的なキーボードの代わりに使うことができる視�
 -   テキスト入力、ナビゲーション、ゲームプレイ、およびアクセシビリティのために使用される。
 -   常に利用可能 (事前または事後)。
 
-### <a name="more-info"></a>詳細情報
+### <a name="more-info"></a>詳細
 
 [キーボードの設計ガイドライン](https://docs.microsoft.com/windows/uwp/input-and-devices/keyboard-interactions)
  
 
-## <a name="mouse"></a>マウス
+## <a name="mouse"></a>Mouse
 
 マウスは、ユーザー操作でターゲット設定とコマンド実行にピクセルレベルの精度を必要とする、生産性アプリや高密度 UI に最適です。
 
 ### <a name="device-support"></a>デバイスのサポート
 
 -   電話とファブレット
--   タブレット
+-   Tablet
 -   PC とノート PC
 -   Surface Hub
 -   IoT
@@ -286,13 +286,13 @@ OSK は、物理的なキーボードの代わりに使うことができる視�
 
 ### <a name="typical-usage"></a>一般的な使い方
 
-マウス入力は、キーボードのさまざまなキー (Ctrl、Shift、Alt キーなど) を追加して変更できます。 これらのキーは、マウスの左ボタンや右ボタン、ホイール ボタン、X ボタンと組み合わせて、マウスに最適化した拡張コマンド セットを作成できます  (一部の Microsoft マウス デバイスでは、追加のボタン (X ボタン) は通常、Web ブラウザーで前後のページに移動するために使います)。
+マウス入力は、キーボードのさまざまなキー (Ctrl、Shift、Alt キーなど) を追加して変更できます。 これらのキーは、マウスの左ボタンや右ボタン、ホイール ボタン、X ボタンと組み合わせて、マウスに最適化した拡張コマンド セットを作成できます (一部の Microsoft マウス デバイスでは、追加のボタン (X ボタン) は通常、Web ブラウザーで前後のページに移動するために使います)。
 
 ペンと同様に、マウス入力とタッチ入力が異なるのは、タッチでは画面上の UI 要素に対する物理的なジェスチャ (スワイプ、スライド、ドラッグ、回転など) を通じて、それらのオブジェクトへの直接の操作をエミュレートする機能があることです。
 
 このような操作をサポートするには、マウス固有の UI コマンド、またはアフォーダンスを提供する必要があります。 たとえば、"前へ" ボタンと "次へ" ボタン (または "+" ボタンと "-" ボタン) を使ってコンテンツのページをフリップしたり、オブジェクトを回転、サイズ変更、ズームしたりできるようにします。
 
-### <a name="more-info"></a>詳細情報
+### <a name="more-info"></a>詳細
 
 [マウスの設計ガイドライン](https://docs.microsoft.com/windows/uwp/input-and-devices/mouse-interactions)
  
@@ -349,7 +349,7 @@ Windows でサポートされている対話式操作のエクスペリエンス
 ### <a name="device-support"></a>デバイスのサポート
 
 -   電話とファブレット
--   タブレット
+-   Tablet
 -   PC とノート PC
 -   Surface Hub
 -   IoT

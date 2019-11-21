@@ -4,18 +4,18 @@ description: バックグラウンド タスクをいつ実行するかを制御
 ms.assetid: 10ABAC9F-AA8C-41AC-A29D-871CD9AD9471
 ms.date: 07/06/2018
 ms.topic: article
-keywords: windows 10、uwp、バック グラウンド タスク
+keywords: windows 10, uwp, background task
 ms.localizationpriority: medium
 dev_langs:
 - csharp
 - cppwinrt
 - cpp
-ms.openlocfilehash: 88836ac0363001e86c17486e1527b96a4eac0faa
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 618c8891551d851c27414968be76fb465eb89bf0
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66371844"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74260419"
 ---
 # <a name="set-conditions-for-running-a-background-task"></a>バックグラウンド タスクを実行するための条件の設定
 
@@ -105,9 +105,9 @@ BackgroundTaskRegistration ^ task = taskBuilder->Register();
 複数の条件を追加するには、アプリから [**で**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundtaskbuilder.addcondition) メソッドを複数回呼び出します。 呼び出しは必ず、タスクの登録が有効になる前に行います。
 
 > [!NOTE]
-> バック グラウンド タスクに競合する条件を追加しないようにしてください。
+> Take care not to add conflicting conditions to a background task.
 
-次のスニペットでは、作成して、バック グラウンド タスクの登録のコンテキストで複数の条件を示します。
+The following snippet shows multiple conditions in the context of creating and registering a background task.
 
 ```csharp
 // Set up the background task.
@@ -178,7 +178,7 @@ BackgroundTaskRegistration ^ task = recurringTaskBuilder->Register();
 ## <a name="remarks"></a>注釈
 
 > [!NOTE]
-> これが必要であり、そうでないときに実行されない場合にのみ実行されるように、バック グラウンド タスクの条件を選択します。 バックグラウンド タスクの各条件については、「[**SystemConditionType**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.SystemConditionType)」をご覧ください。
+> Choose conditions for your background task so that it only runs when it's needed, and doesn't run when it shouldn't. バックグラウンド タスクの各条件については、「[**SystemConditionType**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.SystemConditionType)」をご覧ください。
 
 ## <a name="related-topics"></a>関連トピック
 
@@ -194,4 +194,4 @@ BackgroundTaskRegistration ^ task = recurringTaskBuilder->Register();
 * [タイマーでのバックグラウンド タスクの実行](run-a-background-task-on-a-timer-.md)
 * [バックグラウンド タスクのガイドライン](guidelines-for-background-tasks.md)
 * [バックグラウンド タスクのデバッグ](debug-a-background-task.md)
-* [トリガーする方法を中断、再開、および (デバッグ) 場合は、UWP アプリでイベントをバック グラウンド](https://go.microsoft.com/fwlink/p/?linkid=254345)
+* [How to trigger suspend, resume, and background events in UWP apps (when debugging)](https://msdn.microsoft.com/library/windows/apps/hh974425(v=vs.110).aspx)

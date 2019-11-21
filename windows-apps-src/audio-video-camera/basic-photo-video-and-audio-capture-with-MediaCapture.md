@@ -4,14 +4,14 @@ description: この記事では、MediaCapture クラスを使用して写真や
 title: MediaCapture を使った基本的な写真、ビデオ、およびオーディオのキャプチャ
 ms.date: 02/08/2017
 ms.topic: article
-keywords: windows 10, uwp
+keywords: Windows 10, UWP
 ms.localizationpriority: medium
-ms.openlocfilehash: 47134c951fe0351966a34b4a58fe657a6aeeb602
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 28974fea7861022c383efa5bf61565c4f18b5f8d
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67317567"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74254333"
 ---
 # <a name="basic-photo-video-and-audio-capture-with-mediacapture"></a>MediaCapture を使った基本的な写真、ビデオ、およびオーディオのキャプチャ
 
@@ -20,18 +20,18 @@ ms.locfileid: "67317567"
 
 写真やビデオをキャプチャするだけで、他のメディア キャプチャ機能を追加しない場合や、独自のカメラ UI を作成する必要がない場合は、[**CameraCaptureUI**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.CameraCaptureUI) クラスを使用することができます。このクラスによって、単に Windows の組み込みカメラ アプリを起動し、キャプチャされた写真やビデオのファイルを受信することができます。 詳しくは、「[**Windows の組み込みカメラ UI を使った写真とビデオのキャプチャ**](capture-photos-and-video-with-cameracaptureui.md)」をご覧ください。
 
-この記事のコードは、[**カメラのスターター キット**](https://go.microsoft.com/fwlink/?linkid=619479)のサンプルを基にしています。 このサンプルをダウンロードし、該当するコンテキストで使用されているコードを確認することも、サンプルを独自のアプリの開始点として使用することもできます。
+この記事のコードは、[**カメラのスターター キット**](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/CameraStarterKit)のサンプルを基にしています。 このサンプルをダウンロードし、該当するコンテキストで使用されているコードを確認することも、サンプルを独自のアプリの開始点として使用することもできます。
 
 ## <a name="add-capability-declarations-to-the-app-manifest"></a>アプリ マニフェストに機能宣言を追加する
 
 アプリからデバイスのカメラにアクセスするには、アプリでデバイス機能 (*webcam* と *microphone*) の使用を宣言する必要があります。 キャプチャした写真とビデオをユーザーの画像ライブラリまたはビデオ ライブラリに保存する場合は、*picturesLibrary* 機能と *videosLibrary* 機能も宣言する必要があります。
 
-**アプリケーション マニフェストに機能を追加するには**
+**To add capabilities to the app manifest**
 
-1.  Microsoft Visual Studio の**ソリューション エクスプローラー**で、**package.appxmanifest** 項目をダブルクリックしてアプリケーション マニフェストのデザイナーを開きます。
+1.  Microsoft Visual Studio では、**ソリューション エクスプローラー**で **package.appxmanifest** 項目をダブルクリックし、アプリケーション マニフェストのデザイナーを開きます。
 2.  **[機能]** タブをクリックします。
 3.  **[Web カメラ]** のボックスと **[マイク]** のボックスをオンにします。
-4.  画像ライブラリとビデオ ライブラリにアクセスするには、 **[画像ライブラリ]** のボックスと **[ビデオ ライブラリ]** のボックスをオンにします。
+4.  画像ライブラリとビデオ ライブラリにアクセスするには、**画像ライブラリ**のボックスと**ビデオ ライブラリ**のボックスをオンにします。
 
 
 ## <a name="initialize-the-mediacapture-object"></a>MediaCapture オブジェクトを初期化する
@@ -47,7 +47,7 @@ ms.locfileid: "67317567"
 ## <a name="capture-a-photo-to-a-softwarebitmap"></a>SoftwareBitmap への写真のキャプチャ
 [  **SoftwareBitmap**](https://docs.microsoft.com/uwp/api/Windows.Graphics.Imaging.SoftwareBitmap) クラスは、複数の機能間で共通の画像表現を提供するために、Windows 10 で導入されました。 写真をキャプチャした後、ファイルにキャプチャするのではなく、XAML で表示するなど、キャプチャしたイメージをアプリですぐに使用する場合は、**SoftwareBitmap** にキャプチャする必要があります。 後で画像をディスクに保存するオプションもあります。
 
-**MediaCapture** オブジェクトを初期化した後、[**LowLagPhotoCapture**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.LowLagPhotoCapture) クラスを使用して、写真を **SoftwareBitmap** にキャプチャできます。 このクラスのインスタンスを取得するには、[**PrepareLowLagPhotoCaptureAsync**](https://docs.microsoft.com/uwp/api/windows.media.capture.mediacapture.preparelowlagphotocaptureasync) を呼び出して、必要な画像形式を指定する [**ImageEncodingProperties**](https://docs.microsoft.com/uwp/api/Windows.Media.MediaProperties.ImageEncodingProperties)オブジェクトを渡します。 [**CreateUncompressed** ](https://docs.microsoft.com/uwp/api/windows.media.mediaproperties.imageencodingproperties.createuncompressed)圧縮されていないエンコーディングの指定したピクセル形式を作成します。 写真をキャプチャするには、[**CaptureAsync**](https://docs.microsoft.com/uwp/api/windows.media.capture.lowlagphotocapture.captureasync) を呼び出します。これは、[**CapturedPhoto**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.CapturedPhoto) オブジェクトを返します。 **SoftwareBitmap** を取得するには、[**Frame**](https://docs.microsoft.com/uwp/api/windows.media.capture.capturedphoto.frame) プロパティにアクセスし、次に [**SoftwareBitmap**](https://docs.microsoft.com/uwp/api/windows.media.capture.capturedframe.softwarebitmap) プロパティにアクセスします。
+**MediaCapture** オブジェクトを初期化した後、[**LowLagPhotoCapture**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.LowLagPhotoCapture) クラスを使用して、写真を **SoftwareBitmap** にキャプチャできます。 このクラスのインスタンスを取得するには、[**PrepareLowLagPhotoCaptureAsync**](https://docs.microsoft.com/uwp/api/windows.media.capture.mediacapture.preparelowlagphotocaptureasync) を呼び出して、必要な画像形式を指定する [**ImageEncodingProperties**](https://docs.microsoft.com/uwp/api/Windows.Media.MediaProperties.ImageEncodingProperties)オブジェクトを渡します。 [**CreateUncompressed**](https://docs.microsoft.com/uwp/api/windows.media.mediaproperties.imageencodingproperties.createuncompressed) creates an uncompressed encoding with the specified pixel format. 写真をキャプチャするには、[**CaptureAsync**](https://docs.microsoft.com/uwp/api/windows.media.capture.lowlagphotocapture.captureasync) を呼び出します。これは、[**CapturedPhoto**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.CapturedPhoto) オブジェクトを返します。 **SoftwareBitmap** を取得するには、[**Frame**](https://docs.microsoft.com/uwp/api/windows.media.capture.capturedphoto.frame) プロパティにアクセスし、次に [**SoftwareBitmap**](https://docs.microsoft.com/uwp/api/windows.media.capture.capturedframe.softwarebitmap) プロパティにアクセスします。
 
 必要に応じて、**CaptureAsync** を繰り返し呼び出して、複数の写真をキャプチャできます。 キャプチャが完了したら、[**FinishAsync**](https://docs.microsoft.com/uwp/api/windows.media.capture.advancedphotocapture.finishasync) を呼び出して **LowLagPhotoCapture** セッションをシャットダウンし、関連するリソースを解放します。 **FinishAsync** を呼び出した後、再び写真のキャプチャを開始するには、もう一度 [**PrepareLowLagPhotoCaptureAsync**](https://docs.microsoft.com/uwp/api/windows.media.capture.mediacapture.preparelowlagphotocaptureasync) を呼び出して、キャプチャ セッションを再初期化してから、[**CaptureAsync**](https://docs.microsoft.com/uwp/api/windows.media.capture.lowlagphotocapture.captureasync) を呼び出す必要があります。
 
@@ -62,9 +62,9 @@ Windows バージョン 1803 以降では、**CaptureAsync** から返された 
 Windows 10 バージョン 1803 以降では、**MediaCapture** によって返された **CapturedFrame** の [**BitmapProperties**](https://docs.microsoft.com/uwp/api/windows.media.capture.capturedframe.bitmapproperties) プロパティにアクセスして、圧縮されていない形式でキャプチャした写真に関する EXIF 情報などのメタデータを取得できます。 以前のリリースでは、このデータにアクセスできるのは、圧縮ファイル形式にキャプチャされた写真のヘッダーでのみでした。 このデータを [**BitmapEncoder**](https://docs.microsoft.com/uwp/api/windows.graphics.imaging.bitmapencoder) に渡すと、画像ファイルを手動で書き込むことができます。 ビットマップのエンコードについて詳しくは、「[ビットマップ画像の作成、編集、保存](imaging.md)」をご覧ください。  [  **ControlValues**](https://docs.microsoft.com/en-us/uwp/api/windows.media.capture.capturedframe.controlvalues) プロパティにアクセスすると、画像をキャプチャしたときに使用された露出やフラッシュ設定などのフレーム コントロールの値にもアクセスできます。 詳しくは、「[写真とビデオのキャプチャのためのキャプチャ デバイス コントロール](capture-device-controls-for-photo-and-video-capture.md)」をご覧ください。
 
 ## <a name="capture-a-photo-to-a-file"></a>ファイルへの写真のキャプチャ
-一般的な写真アプリでは、キャプチャした写真をディスクやクラウド ストレージに保存し、写真の向きなどのメタデータをファイルに追加する必要があります。 次の例では、ファイルに写真をキャプチャする方法を示します。 後で画像ファイルから **SoftwareBitmap** を作成するオプションもあります。 
+典型的な写真アプリでは、キャプチャした写真をディスクやクラウド ストレージに保存し、写真の向きなどのメタデータをファイルに追加する必要があります。 次の例では、ファイルに写真をキャプチャする方法を示します。 後で画像ファイルから **SoftwareBitmap** を作成するオプションもあります。 
 
-この例で示されている方法では、写真をインメモリ ストリームにキャプチャし、写真をストリームからディスク上のファイルにコード変換します。 この例では、[**GetLibraryAsync**](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrary.getlibraryasync) を使ってユーザーのピクチャ ライブラリを取得し、次に [**SaveFolder**](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrary.savefolder) プロパティを使って既定の保存フォルダーを取得します。 このフォルダーにアクセスするには、必ず**ピクチャ ライブラリ**機能をアプリ マニフェストに追加してください。 [**CreateFileAsync** ](https://docs.microsoft.com/uwp/api/windows.storage.storagefolder.createfileasync)新たに作成[ **StorageFile** ](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageFile)写真を保存します。
+この例で示されている方法では、写真をインメモリ ストリームにキャプチャし、写真をストリームからディスク上のファイルにコード変換します。 この例では、[**GetLibraryAsync**](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrary.getlibraryasync) を使ってユーザーのピクチャ ライブラリを取得し、次に [**SaveFolder**](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrary.savefolder) プロパティを使って既定の保存フォルダーを取得します。 このフォルダーにアクセスするには、必ず**ピクチャ ライブラリ**機能をアプリ マニフェストに追加してください。 [**CreateFileAsync**](https://docs.microsoft.com/uwp/api/windows.storage.storagefolder.createfileasync) creates a new [**StorageFile**](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageFile) to which the photo will be saved.
 
 [  **InMemoryRandomAccessStream**](https://docs.microsoft.com/uwp/api/Windows.Storage.Streams.InMemoryRandomAccessStream) を作成し、[**CapturePhotoToStreamAsync**](https://docs.microsoft.com/uwp/api/windows.media.capture.mediacapture.capturephototostreamasync) を呼び出して、ストリームと、使用する画像形式を指定する [**ImageEncodingProperties**](https://docs.microsoft.com/uwp/api/Windows.Media.MediaProperties.ImageEncodingProperties) オブジェクトを渡して、写真をストリームにキャプチャします。 自分でオブジェクトを初期化することによって、カスタム エンコード プロパティを作成することもできますが、このクラスには、[**ImageEncodingProperties.CreateJpeg**](https://docs.microsoft.com/uwp/api/windows.media.mediaproperties.imageencodingproperties.createjpeg) など、一般的なエンコード形式用の静的メソッドが用意されています。 次に、[**OpenAsync**](https://docs.microsoft.com/uwp/api/windows.storage.storagefile.openasync) を呼び出すことにより、出力ファイルへのファイル ストリームを作成します。 [  **BitmapDecoder**](https://docs.microsoft.com/uwp/api/Windows.Graphics.Imaging.BitmapDecoder) を作成して、インメモリ ストリームから画像をデコードします。次に、[**BitmapEncoder**](https://docs.microsoft.com/uwp/api/Windows.Graphics.Imaging.BitmapEncoder) を作成して、[**CreateForTranscodingAsync**](https://docs.microsoft.com/uwp/api/windows.graphics.imaging.bitmapencoder.createfortranscodingasync) を呼び出すことによって画像をファイルにエンコードします。
 
@@ -76,7 +76,7 @@ Windows 10 バージョン 1803 以降では、**MediaCapture** によって返�
 
 ファイルとフォルダーの操作について詳しくは、「[**ファイル、フォルダー、およびライブラリ**](https://docs.microsoft.com/windows/uwp/files/index)」をご覧ください。
 
-## <a name="capture-a-video"></a>ビデオをキャプチャする
+## <a name="capture-a-video"></a>ビデオのキャプチャ
 アプリにビデオ キャプチャ機能をすばやく追加するには、[**LowLagMediaRecording**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.LowLagMediaRecording) クラスを使用します。 最初に、オブジェクト用のクラス変数を宣言します。
 
 [!code-cs[LowLagMediaRecording](./code/SimpleCameraPreview_Win10/cs/MainPage.xaml.cs#SnippetLowLagMediaRecording)]
@@ -91,7 +91,7 @@ Windows 10 バージョン 1803 以降では、**MediaCapture** によって返�
 
 [!code-cs[StopRecording](./code/SimpleCameraPreview_Win10/cs/MainPage.xaml.cs#SnippetStopRecording)]
 
-**StartAsync** と **StopAsync** の呼び出しを続行して、他のビデオをキャプチャすることもできます。 ビデオのキャプチャが完了したら、[**FinishAsync**](https://docs.microsoft.com/uwp/api/windows.media.capture.lowlagmediarecording.finishasync) を呼び出して、キャプチャ セッションを破棄し、関連付けられているリソースをクリーンアップします。 この呼び出しの後は、再び **PrepareLowLagRecordToStorageFileAsync** を呼び出してキャプチャ セッションを再初期化してから、**StartAsync** を呼び出す必要があります。
+**StartAsync** と **StopAsync** の呼び出しを続行して、他のビデオをキャプチャすることもできます。 ビデオのキャプチャが完了したら、[**FinishAsync**](https://docs.microsoft.com/uwp/api/windows.media.capture.lowlagmediarecording.finishasync) を呼び出して、キャプチャ セッションを破棄し、関連付けられているリソースをクリーンアップします。 この呼び出しの後は、再び **PrepareLowLagRecordToStorageFileAsync** 呼び出してキャプチャ セッションを再初期化してから、**StartAsync** を呼び出す必要があります。
 
 [!code-cs[FinishAsync](./code/SimpleCameraPreview_Win10/cs/MainPage.xaml.cs#SnippetFinishAsync)]
 
@@ -139,7 +139,7 @@ Windows 10 バージョン 1607 以降では、ビデオの録画を一時停止
 * [カメラ](camera.md)  
 [!code-cs[StopRecording](./code/SimpleCameraPreview_Win10/cs/MainPage.xaml.cs#SnippetStopRecording)]
 
-**StartAsync** と **StopAsync** を複数回呼び出して、複数のオーディオ ファイルを録音します。 オーディオのキャプチャが完了したら、[**FinishAsync**](https://docs.microsoft.com/uwp/api/windows.media.capture.lowlagmediarecording.finishasync) を呼び出して、キャプチャ セッションを破棄し、関連付けられているリソースをクリーンアップします。 この呼び出しの後は、再び **PrepareLowLagRecordToStorageFileAsync** を呼び出してキャプチャ セッションを再初期化してから、**StartAsync** を呼び出す必要があります。
+**StartAsync** と **StopAsync** を複数回呼び出して、複数のオーディオ ファイルを録音します。 オーディオのキャプチャが完了したら、[**FinishAsync**](https://docs.microsoft.com/uwp/api/windows.media.capture.lowlagmediarecording.finishasync) を呼び出して、キャプチャ セッションを破棄し、関連付けられているリソースをクリーンアップします。 この呼び出しの後は、再び **PrepareLowLagRecordToStorageFileAsync** 呼び出してキャプチャ セッションを再初期化してから、**StartAsync** を呼び出す必要があります。
 
 [!code-cs[FinishAsync](./code/SimpleCameraPreview_Win10/cs/MainPage.xaml.cs#SnippetFinishAsync)]
 
@@ -162,8 +162,8 @@ Windows 10、バージョン 1803 以降では、アプリのオーディオ キ
 [!code-cs[RenderSoundLevelChanged](./code/SimpleCameraPreview_Win10/cs/MainPage.xaml.cs#SnippetRenderSoundLevelChanged)]
 
 
-* [Windows のビルトイン カメラ UI で写真やビデオをキャプチャします。](capture-photos-and-video-with-cameracaptureui.md)
-* [MediaCapture とデバイスの向きを処理します。](handle-device-orientation-with-mediacapture.md)
+* [Capture photos and video with Windows built-in camera UI](capture-photos-and-video-with-cameracaptureui.md)
+* [Handle device orientation with MediaCapture](handle-device-orientation-with-mediacapture.md)
 * [ビットマップ画像の作成、編集、保存](imaging.md)
 * [ファイル、フォルダー、およびライブラリ](https://docs.microsoft.com/windows/uwp/files/index)
 

@@ -6,19 +6,19 @@ ms.date: 04/16/2018
 ms.topic: article
 keywords: Windows 10, UWP, 広告, Advertising, 既知の問題, トラブルシューティング
 ms.localizationpriority: medium
-ms.openlocfilehash: 029d595c41301e62f74c9b08b633bb22bfb12786
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 51192e13c63bf3141989cfbf5d9ebd7fbaf13641
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57641067"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74260243"
 ---
 # <a name="known-issues-and-troubleshooting-for-ads-in-apps"></a>アプリ内広告の既知の問題とトラブルシューティング
 
 このトピックでは、Microsoft Advertising SDK の現在のリリースにおける既知の問題を示します。 トラブルシューティングのガイダンスについては、以下のトピックを参照してください。
 
-* [HTML および JavaScript のトラブルシューティング ガイド](html-and-javascript-troubleshooting-guide.md)
-* [XAML とC#トラブルシューティング ガイド](xaml-and-c-troubleshooting-guide.md)
+* [HTML and JavaScript troubleshooting guide](html-and-javascript-troubleshooting-guide.md)
+* [XAML and C# troubleshooting guide](xaml-and-c-troubleshooting-guide.md)
 
 ## <a name="adcontrol-interface-unknown-in-xaml"></a>XAML での不明な AdControl インターフェイス
 
@@ -30,7 +30,7 @@ ms.locfileid: "57641067"
 
 ## <a name="interstitial-ads-and-navigation-buttons-on-phones"></a>スポット広告と電話のナビゲーション ボタン
 
-ハードウェア ボタンの代わりにソフトウェア ボタンの **"戻る"**、**"スタート"**、**"検索"** を備えた電話 (またはエミュレーター) では、スポット広告用のカウントダウン タイマー ボタンとクリックスルー ボタンが隠れる場合があります。
+ハードウェア ボタンの代わりにソフトウェア ボタンの **"戻る"** 、 **"スタート"** 、 **"検索"** を備えた電話 (またはエミュレーター) では、スポット広告用のカウントダウン タイマー ボタンとクリックスルー ボタンが隠れる場合があります。
 
 ## <a name="recently-created-ads-are-not-being-served-to-your-app"></a>最近作成した広告がアプリに提供されない
 
@@ -40,15 +40,15 @@ ms.locfileid: "57641067"
 
 広告が表示されない場合、ネットワーク エラーを含むさまざまな理由があります。 次の理由も考えられます。
 
-* サイズが大きいか小のサイズであるパートナー センターで、ad 単位を選択すると、 **AdControl**アプリのコードにします。
+* Selecting an ad unit in Partner Center with a size that is greater or less than the size of the **AdControl** in your app's code.
 
 * 広告ユニット ID に[テスト モードの値](set-up-ad-units-in-your-app.md#test-ad-units)を使ってライブ アプリを実行した場合、広告は表示されません。
 
 * 新しい広告ユニット ID の作成を行ったのがこの 30 分以内の場合、サーバーによってシステムに新しいデータが伝達されるまで、広告は表示されません。 広告が表示されていた既存の ID を使用すると、広告はすぐに表示されます。
 
-アプリにテスト広告が表示される場合は、コードが正常に動作していて広告を表示できることを示します。 問題が発生した場合は、[製品サポート](https://developer.microsoft.com/en-us/windows/support)にお問い合わせください。 ページで、次のように選択します。**問い合わせ**します。
+アプリにテスト広告が表示される場合は、コードが正常に動作していて広告を表示できることを示します。 問題が発生した場合は、[製品サポート](https://developer.microsoft.com/en-us/windows/support)にお問い合わせください。 On that page, choose **Contact us**.
 
-[フォーラム](https://go.microsoft.com/fwlink/p/?LinkId=401266)に質問を投稿することもできます。
+[フォーラム](https://go.microsoft.com/fwlink/?LinkID=401264)に質問を投稿することもできます。
 
 ## <a name="test-ads-are-showing-in-your-app-instead-of-live-ads"></a>ライブ広告ではなくテスト広告がアプリに表示される
 
@@ -58,12 +58,12 @@ ms.locfileid: "57641067"
 
 * サイドローディングされたアプリやエミュレーターで実行されているアプリには、ライブ広告は表示されません。
 
-ライブ広告ユニットは、テストの広告を提供している、ad ユニットのステータスが表示されます**アクティブ、およびサービスのテスト広告**パートナー センターでします。 現時点で、これは、電話アプリには適用されません。
+When a live ad unit is serving test ads, the ad unit’s status shows **Active and serving test ads** in Partner Center. 現時点で、これは、電話アプリには適用されません。
 
 
 <span id="reference_errors"/>
 
-## <a name="reference-errors-caused-by-targeting-any-cpu-in-your-project"></a>プロジェクトのターゲットを "任意の CPU" に設定すると参照エラーが発生する
+## <a name="reference-errors-caused-by-targeting-any-cpu-in-your-project"></a>プロジェクトのターゲットを "Any CPU" に設定すると参照エラーが発生する
 
 Microsoft Advertising SDK を使う場合、プロジェクトで**任意の CPU** をターゲットにすることはできません。 プロジェクトのターゲットを **Any CPU** プラットフォームに設定した場合、次のような参照を追加した後で警告が表示される場合があります。
 
@@ -91,7 +91,7 @@ JavaScript/HTML アプリでは、z オーダーの予約済みの MAX-10 の範
 
 ## <a name="more-information"></a>説明
 
-最新の既知の問題についての詳細を調べたり、Microsoft Advertising SDK に関連する質問を投稿したりするには、[フォーラム](https://go.microsoft.com/fwlink/p/?LinkId=401266)をご利用ください。
+最新の既知の問題についての詳細を調べたり、Microsoft Advertising SDK に関連する質問を投稿したりするには、[フォーラム](https://go.microsoft.com/fwlink/?LinkID=401264)をご利用ください。
 
  
 

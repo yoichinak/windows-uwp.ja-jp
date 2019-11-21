@@ -4,15 +4,15 @@ title: デバイスのペアリング
 description: 一部のデバイスは、使う前にペアリングする必要があります。 Windows.Devices.Enumeration 名前空間では、デバイスをペアリングするための 3 つの異なる方法がサポートされています。
 ms.date: 04/19/2019
 ms.topic: article
-keywords: windows 10, uwp
+keywords: Windows 10, UWP
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: 84835449c7c259c45423a93716b4fbc85fa0a7ab
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 85d42e69b376e2f3f455e44eb1dce3d41e890971
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66369949"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74258646"
 ---
 # <a name="pair-devices"></a>デバイスのペアリング
 
@@ -28,7 +28,7 @@ ms.locfileid: "66369949"
 -   基本ペアリング
 -   カスタム ペアリング
 
-**ヒント:**   一部のデバイスを使用するためにはペアにする必要はありません。 これについては、自動ペアリングに関するセクションで説明します。
+**Tip**  Some devices do not need to be paired in order to be used. これについては、自動ペアリングに関するセクションで説明します。
 
  
 
@@ -59,7 +59,7 @@ ms.locfileid: "66369949"
 
 カスタム ペアリングは常にシステム レベルの操作であることを認識することが重要です。 このため、デスクトップまたは Windows Phone を操作している場合、ペアリングが発生するときに、システム ダイアログが常にユーザーに表示されます。 これは、これらの両方のプラットフォームが、ユーザーの同意を必要とするユーザー エクスペリエンスを発生させるためです。 このダイアログは自動的に生成されるため、これらのプラットフォームを使用中に **ConfirmOnly** の [**DevicePairingKinds**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DevicePairingKinds) を選ぶ場合に、独自のダイアログを作る必要はありません。 他の **DevicePairingKinds** については、特定の **DevicePairingKinds** 値に応じて、いくつかの特別な処理を実行する必要があります。 さまざまな **DevicePairingKinds** の値のカスタム ペアリングを処理する方法の例については、サンプルをご覧ください。
 
-以降では、Windows 10、バージョンが 1903、新しい**DevicePairingKinds**はサポートされている**ProvidePasswordCredential**します。 この値は、アプリケーションする必要がありますから要求するユーザー名とパスワードをユーザー ペアになっているデバイスで認証するためを意味します。 このケースを処理するために呼び出す、 [ **AcceptWithPasswordCredential** ](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.devicepairingrequestedeventargs.acceptwithpasswordcredential?branch=release-19h1#Windows_Devices_Enumeration_DevicePairingRequestedEventArgs_AcceptWithPasswordCredential_Windows_Security_Credentials_PasswordCredential_)のイベント引数のメソッド、 **PairingRequested**ペアリングを許可するイベント ハンドラー。 渡す、 [ **PasswordCredential** ](https://docs.microsoft.com/uwp/api/windows.security.credentials.passwordcredential)ユーザー名とパスワードをパラメーターとしてカプセル化するオブジェクト。 ユーザー名とパスワードをリモート デバイスが異なることに注意してください。 多くの場合とは異なります、ローカルでサインインしているユーザーの資格情報とします。
+Starting with Windows 10, version 1903, a new **DevicePairingKinds** is supported, **ProvidePasswordCredential**. This value means that the app must request a user name and password from the user in order to authenticate with the paired device. To handle this case, call the [**AcceptWithPasswordCredential**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.devicepairingrequestedeventargs.acceptwithpasswordcredential?branch=release-19h1#Windows_Devices_Enumeration_DevicePairingRequestedEventArgs_AcceptWithPasswordCredential_Windows_Security_Credentials_PasswordCredential_) method of the event args of the **PairingRequested** event handler to accept the pairing. Pass in a [**PasswordCredential**](https://docs.microsoft.com/uwp/api/windows.security.credentials.passwordcredential) object that encapsulates the user name and password as a parameter. Note that the username and password for the remote device are distinct from and often not the same as the credentials for the locally signed-in user.
 
 ## <a name="unpairing"></a>ペアリング解除
 
@@ -71,7 +71,7 @@ ms.locfileid: "66369949"
 ## <a name="sample"></a>サンプル
 
 
-[  **Windows.Devices.Enumeration**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration) API の使い方を示すサンプルをダウンロードするには、[ここ](https://go.microsoft.com/fwlink/?LinkID=620536)をクリックしてください。
+[  **Windows.Devices.Enumeration**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration) API の使い方を示すサンプルをダウンロードするには、[ここ](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/DeviceEnumerationAndPairing)をクリックしてください。
 
  
 

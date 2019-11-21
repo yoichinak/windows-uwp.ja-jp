@@ -230,7 +230,7 @@ UI スレッドで **FrameArrived** を使用することはできれば避け�
 
 ## <a name="take-a-screenshot"></a>スクリーンショットを撮る
 
-この例では、各**Direct3D11CaptureFrame**を[CanvasBitmap](https://microsoft.github.io/Win2D/html/T_Microsoft_Graphics_Canvas_CanvasBitmap.htm)に変換します。これは[Win2D api](https://microsoft.github.io/Win2D/html/Introduction.htm)の一部です。
+この例では、各 **Direct3D11CaptureFrame** を [CanvasBitmap](https://microsoft.github.io/Win2D/html/T_Microsoft_Graphics_Canvas_CanvasBitmap.htm) に変換します。これは [Win2D API](https://microsoft.github.io/Win2D/html/Introduction.htm) の一部です。
 
 ```cs
 // Convert our D3D11 surface into a Win2D object.

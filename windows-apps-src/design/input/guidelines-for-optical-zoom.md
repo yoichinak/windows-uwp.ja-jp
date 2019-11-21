@@ -6,14 +6,14 @@ label: Optical zoom and resizing
 template: detail.hbs
 ms.date: 02/08/2017
 ms.topic: article
-keywords: windows 10, uwp
+keywords: Windows 10, UWP
 ms.localizationpriority: medium
-ms.openlocfilehash: b63c9191489ecae54b17cb75b8aa1af32f09fcb8
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: fbcb4510a5b3ecca80b388172fe30028ac511452
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66363599"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74257988"
 ---
 # <a name="optical-zoom-and-resizing"></a>光学式ズームとサイズ変更
 
@@ -21,7 +21,7 @@ ms.locfileid: "66363599"
 
 この記事では、Windows のズームとサイズ変更の要素について説明し、アプリでこのような対話式操作のメカニズムを使うためのユーザー エクスペリエンスのガイドラインを示します。
 
-> **重要な API**:[**Windows.UI.Input**](https://docs.microsoft.com/uwp/api/Windows.UI.Input)、 [**入力 (XAML)** ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input)
+> **重要な API**: [**Windows.UI.Input**](https://docs.microsoft.com/uwp/api/Windows.UI.Input)、[**Input (XAML)** ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input)
 
 光学式ズームを使うと、ユーザーはコンテンツの表示を拡大できます (コンテンツ領域自体に対して実行されます)。一方、サイズ変更を使うと、コンテンツ領域の表示は変更せずに、1 つまたは複数のオブジェクトの相対的なサイズをユーザーが変更できます (コンテンツ領域内のオブジェクトに対して実行されます)。
 
@@ -29,15 +29,15 @@ ms.locfileid: "66363599"
 
 次の図にサイズ変更と光学式ズームの違いを示します。
 
-**光学ズーム**:ユーザーは、領域を選択し、領域全体にズーム インします。
+**光学式ズーム**: ユーザーは領域を選び、領域全体を拡大します。
 
 ![コンテンツ領域上で指を互いに近づけて拡大し、広げて縮小する](images/areazoom.png)
 
-**サイズ変更**:ユーザーは、領域内のオブジェクトを選択し、そのオブジェクトのサイズを変更します。
+**サイズ変更**: ユーザーは領域内のオブジェクトを選び、そのオブジェクトのサイズを変更します。
 
 ![指を互いに近づけてオブジェクトを縮小し、広げて拡大する](images/objectresize.png)
 
-**注**  と光のズームを混同しないでください[セマンティック ズーム](../controls-and-patterns/semantic-zoom.md)します。 どちらの操作でも同じジェスチャが使われますが、セマンティック ズームは、単一のビュー内で整理されたコンテンツを表示したりナビゲーションしたりする場合に使われます (コンピューターのフォルダー構造、ドキュメント ライブラリ、フォト アルバムなど)。
+**Note**   Optical zoom shouldn't be confused with [Semantic Zoom](../controls-and-patterns/semantic-zoom.md). どちらの操作でも同じジェスチャが使われますが、セマンティック ズームは、単一のビュー内で整理されたコンテンツを表示したりナビゲーションしたりする場合に使われます (コンピューターのフォルダー構造、ドキュメント ライブラリ、フォト アルバムなど)。
 
  
 
@@ -56,8 +56,8 @@ ms.locfileid: "66363599"
     -   近接: 指を離した後、スナップ位置の距離のしきい値の範囲内で慣性に従った動きが止まると、スナップ位置が選ばれます。 近接スナップ位置の場合は、ズームとサイズ変更をスナップ位置とスナップ位置の間で止めることができます。
     -   強制: 指を離す前に通過した最後のスナップ位置の直前または直後のスナップ位置が選ばれます (ジェスチャの方向と速度によって異なります)。 操作が必ず強制スナップ位置で止まるようにする必要があります。
 -   慣性の物理法則を使います。 これには次のものがあります。
-    -   減速します。ピンチまたは拡大、ユーザーが停止したときに発生します。 これは滑りやすい表面で滑っている状態から止まるまでの動きに似ています。
-    -   バウンス:わずか返送効果は、ときに、サイズ制約に発生します。 または、境界が渡されました。
+    -   減速: ユーザーが 2 本の指を互いに近づけたり、遠ざけたりしたときに発生します。 これは滑りやすい表面で滑っている状態から止まるまでの動きに似ています。
+    -   バウンド: サイズの制限または範囲を超えると、わずかな跳ね返りの効果が発生します。
 -   「[ターゲットの設定のガイドライン](guidelines-for-targeting.md)」に従った領域制御。
 -   制限付きのサイズ変更のためにスケーリング ハンドルを提供します。 ハンドルが指定されない場合は、等角投影、つまり比が一定のサイズ変更が既定値です。
 -   UI の操作またはアプリ内の追加コントロールの公開用にはズームを使わず、パン領域を使います。 パンについて詳しくは、「[パンのガイドライン](guidelines-for-panning.md)」をご覧ください。
@@ -65,7 +65,7 @@ ms.locfileid: "66363599"
     -   サイズ変更できるアイテムがサイズ変更できるキャンバスまたはアート ボードに表示される描画アプリケーション。
     -   地図などの埋め込みオブジェクトがある Web ページ。
 
-    **注**  サイズ変更可能なオブジェクト内ですべてのタッチ ポイントがない場合は、コンテンツ領域がサイズ変更します。
+    **Note**   In all cases, the content area is resized unless all touch points are within the resizable object.
 
      
 
@@ -73,20 +73,20 @@ ms.locfileid: "66363599"
 
 
 **サンプル**
-* [基本的な入力サンプル](https://go.microsoft.com/fwlink/p/?LinkID=620302)
-* [低待機時間の入力サンプル](https://go.microsoft.com/fwlink/p/?LinkID=620304)
-* [ユーザー操作モードのサンプル](https://go.microsoft.com/fwlink/p/?LinkID=619894)
-* [フォーカスの視覚効果のサンプル](https://go.microsoft.com/fwlink/p/?LinkID=619895)
+* [Basic input sample](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/BasicInput)
+* [Low latency input sample](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/LowLatencyInput)
+* [ユーザー操作モードのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/UserInteractionMode)
+* [フォーカスの視覚効果のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlFocusVisuals)
 
 **サンプルのアーカイブ**
-* [入力:XAML ユーザー入力イベントのサンプル](https://go.microsoft.com/fwlink/p/?linkid=226855)
-* [入力:デバイス機能のサンプル](https://go.microsoft.com/fwlink/p/?linkid=231530)
-* [入力:タッチ ヒット テストのサンプル](https://go.microsoft.com/fwlink/p/?linkid=231590)
-* [XAML のスクロール、パン、ズームのサンプル](https://go.microsoft.com/fwlink/p/?linkid=251717)
-* [入力:簡略化されたインクのサンプル](https://go.microsoft.com/fwlink/p/?linkid=246570)
-* [入力:Windows 8 のジェスチャのサンプル](https://go.microsoft.com/fwlink/p/?LinkId=264995)
-* [入力:操作とジェスチャ (C++) のサンプル](https://go.microsoft.com/fwlink/p/?linkid=231605)
-* [DirectX のタッチ入力サンプル](https://go.microsoft.com/fwlink/p/?LinkID=231627)
+* [Input: XAML user input events sample](https://code.msdn.microsoft.com/windowsapps/Input-3dff271b)
+* [Input: Device capabilities sample](https://code.msdn.microsoft.com/windowsapps/Input-device-capabilities-31b67745)
+* [Input: Touch hit testing sample](https://code.msdn.microsoft.com/windowsapps/Touch-Hit-Testing-sample-5e35c690)
+* [XAML scrolling, panning, and zooming sample](https://code.msdn.microsoft.com/windowsapps/xaml-scrollviewer-pan-and-949d29e9)
+* [Input: Simplified ink sample](https://code.msdn.microsoft.com/windowsapps/Input-simplified-ink-sample-11614bbf)
+* [Input: Windows 8 gestures sample](https://docs.microsoft.com/samples/browse/?redirectedfrom=MSDN-samples)
+* [Input: Manipulations and gestures (C++) sample](https://code.msdn.microsoft.com/windowsapps/Manipulations-and-gestures-362b6b59)
+* [DirectX touch input sample](https://code.msdn.microsoft.com/windowsapps/Simple-Direct3D-Touch-f98db97e)
  
 
  

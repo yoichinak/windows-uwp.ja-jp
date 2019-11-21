@@ -6,16 +6,16 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, スレッド, スレッド プール
 ms.localizationpriority: medium
-ms.openlocfilehash: 0ff0eca18eeab72dbf0a2f9a539e452a5923392d
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: d3dcd162e0a139328ef5885ac26edec04a279134
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67322015"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74259804"
 ---
 # <a name="submit-a-work-item-to-the-thread-pool"></a>スレッド プールへの作業項目の送信
 
-\[ Windows 10 での UWP アプリが更新されました。 Windows 8.x の記事を参照してください、[アーカイブ](https://go.microsoft.com/fwlink/p/?linkid=619132) \]
+\[ Updated for UWP apps on Windows 10. For Windows 8.x articles, see the [archive](https://docs.microsoft.com/previous-versions/windows/apps/mt244353(v=win.10)?redirectedfrom=MSDN) \]
 
 <b>重要な API</b>
 
@@ -31,7 +31,7 @@ ms.locfileid: "67322015"
 3 つのバージョンの [**RunAsync**](https://docs.microsoft.com/uwp/api/windows.system.threading.threadpool.runasync) を使うことができるため、必要に応じて作業項目の優先度を指定し、他の作業項目と同時に実行するかどうかを制御できます。
 
 >[!NOTE]
->使用[ **CoreDispatcher.RunAsync** ](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync)を UI スレッドにアクセスし、作業項目からの進行状況を表示します。
+>Use [**CoreDispatcher.RunAsync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync) to access the UI thread and show progress from the work item.
 
 次の例では作業項目を作成し、作業を実行するラムダを指定します。
 
@@ -350,7 +350,7 @@ asyncAction.Completed = new AsyncActionCompletedHandler(
 
 ## <a name="summary-and-next-steps"></a>要約と次のステップ
 
-このクイック スタートからコードをダウンロードすることによって詳細については、 [ThreadPool 作業項目のサンプルを作成する](https://go.microsoft.com/fwlink/p/?LinkID=328569)Windows 8.1、および、win でソース コードを再利用向けに書かれた\_unap Windows 10 アプリ。
+You can learn more by downloading the code from this quickstart in the [Creating a ThreadPool work item sample](https://code.msdn.microsoft.com/windowsapps/Creating-a-ThreadPool-work-9665cdff) written for Windows 8.1, and re-using the source code in a win\_unap Windows 10 app.
 
 ## <a name="related-topics"></a>関連トピック
 

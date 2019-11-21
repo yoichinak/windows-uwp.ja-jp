@@ -6,12 +6,12 @@ ms.date: 04/16/2018
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム、ゲーム開発
 ms.localizationpriority: medium
-ms.openlocfilehash: db510c1dc084fd1af986d618716854ed09cfc618
-ms.sourcegitcommit: d38e2f31c47434cd6dbbf8fe8d01c20b98fabf02
+ms.openlocfilehash: c05a973dc9a954569531be6e0fea212135532b84
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70393610"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74258507"
 ---
 # <a name="windows-10-game-development-guide"></a>Windows 10 ゲーム開発ガイド
 
@@ -50,19 +50,19 @@ Windows または Xbox で初めてゲームを開発する場合は、最初に
     </colgroup>
     <tr>
         <td>Windows デベロッパー センターのメイン ポータル</td>
-        <td><a href="https://developer.microsoft.com/windows">Windows デベロッパー センター</a></td>
+        <td><a href="https://developer.microsoft.com/windows">Windows Dev Center</a></td>
     </tr>
     <tr>
         <td>Windows アプリの開発</td>
-        <td><a href="https://developer.microsoft.com/windows/apps/develop">Windows アプリの開発</a></td>
+        <td><a href="https://developer.microsoft.com/windows/apps/develop">Develop Windows apps</a></td>
     </tr>
     <tr>
         <td>ユニバーサル Windows プラットフォーム アプリの開発</td>
-        <td><a href="https://developer.microsoft.com/windows/apps">Windows 10 アプリの操作方法に関するガイド</a></td>
+        <td><a href="https://developer.microsoft.com/windows/apps">How-to guides for Windows 10 apps</a></td>
     </tr>
     <tr>
         <td>UWP ゲームに関する使い方ガイド</td>
-        <td><a href="index.md">ゲームと DirectX</a> </td>
+        <td><a href="index.md">Games and DirectX</a> </td>
     </tr>
     <tr>
         <td>DirectX のリファレンスと概要</td>
@@ -70,50 +70,50 @@ Windows または Xbox で初めてゲームを開発する場合は、最初に
     </tr>
     <tr>
         <td>ゲームのための Azure</td>
-        <td><a href="https://azure.microsoft.com/solutions/gaming/">Azure を使用したゲームの構築とスケーリング</a></td>
+        <td><a href="https://azure.microsoft.com/solutions/gaming/">Build and scale your games using Azure</a></td>
     </tr>
     <tr>
         <td>PlayFab</td>
-        <td><a href="https://api.playfab.com/">ライブゲームのバックエンドソリューションの完成</a></td>
+        <td><a href="https://api.playfab.com/">Complete backend solution for live games</a></td>
     </tr>
     <tr>
         <td>Xbox One の UWP</td>
-        <td><a href="https://docs.microsoft.com/windows/uwp/xbox-apps/index">Xbox One で UWP アプリをビルドする</a></td>
+        <td><a href="https://docs.microsoft.com/windows/uwp/xbox-apps/index">Building UWP apps on Xbox One</a></td>
     </tr>
     <tr>
         <td>HoloLens の UWP</td>
-        <td><a href="https://developer.microsoft.com/windows/mixed-reality/development_overview">HoloLens での UWP アプリの構築</a></td>
+        <td><a href="https://developer.microsoft.com/windows/mixed-reality/development_overview">Building UWP apps on HoloLens</a></td>
     </tr>
     <tr>
         <td>Xbox Live に関するドキュメント</td>
-        <td><a href="https://docs.microsoft.com/gaming/xbox-live/">Xbox Live 開発者ガイド</a></td>
+        <td><a href="https://docs.microsoft.com/gaming/xbox-live/">Xbox Live developer guide</a></td>
     </tr>
     <tr>
         <td>Xbox One 開発に関するドキュメント (XGD)</td>
-        <td><a href="https://developer.microsoft.com/games/xbox/partner/development-home">Xbox One 開発</a></td>
+        <td><a href="https://developer.microsoft.com/games/xbox/partner/development-home">Xbox One Development</a></td>
     </tr>
     <tr>
         <td>Xbox One 開発に関するホワイト ペーパー (XGD)</td>
-        <td><a href="https://developer.microsoft.com/games/xbox/partner/development-education-whitepapers">ホワイトペーパー</a></td>
+        <td><a href="https://developer.microsoft.com/games/xbox/partner/development-education-whitepapers">White Papers</a></td>
     </tr>
     <tr>
         <td>Mixer の対話機能のドキュメント</td>
-        <td><a href="https://dev.mixer.com/reference/interactive/index.html">ゲームにインタラクティビティを追加する</a></td>
+        <td><a href="https://dev.mixer.com/reference/interactive/index.html">Add interactivity to your game</a></td>
     </tr>        
 </table>
 
 ### <a name="partner-center"></a>パートナー センター
 
-[パートナーセンターに開発者アカウントを登録する](https://developer.microsoft.com/store/register)ことは、Windows ゲームの発行に向けた最初の手順です。 開発者アカウントでは、ゲームの名前を予約することや、すべての Windows デバイスに対応する無料ゲームと有料ゲームを Microsoft Store に提出することができます。 開発者アカウントを使って、ゲームとゲーム内製品を管理したり、詳細な分析を取得したり、世界中のプレイヤーに優れたエクスペリエンスを提供するサービスを実現することができます。 
+[Registering a developer account in Partner Center](https://developer.microsoft.com/store/register) is the first step towards publishing your Windows game. 開発者アカウントでは、ゲームの名前を予約することや、すべての Windows デバイスに対応する無料ゲームと有料ゲームを Microsoft Store に提出することができます。 開発者アカウントを使って、ゲームとゲーム内製品を管理したり、詳細な分析を取得したり、世界中のプレイヤーに優れたエクスペリエンスを提供するサービスを実現することができます。 
 
-さらにマイクロソフトでは、Windows ゲームの開発と公開に役立ついくつかの開発者向けプログラムを提供しています。 パートナーセンターアカウントに登録する前に、適切な権限があるかどうかを確認することをお勧めします。 詳しくは、「[開発者プログラム](#developer-programs)」をご覧ください。
+さらにマイクロソフトでは、Windows ゲームの開発と公開に役立ついくつかの開発者向けプログラムを提供しています。 We recommend seeing if any are right for you before registering for a Partner Center account. 詳しくは、「[開発者プログラム](#developer-programs)」をご覧ください。
 
 
 ### <a name="developer-programs"></a>開発者プログラム
 
-Microsoft では、Windows ゲームの開発と公開に役立ついくつかの開発者向けプログラムを提供しています。 Xbox One のゲームを開発し、Xbox Live の機能をゲームに統合する場合には、開発者プログラムへの参加を検討してください。 Microsoft Store でゲームを発行するには、[パートナーセンター](https://partner.microsoft.com/dashboard)で開発者アカウントを作成する必要もあります。
+Microsoft では、Windows ゲームの開発と公開に役立ついくつかの開発者向けプログラムを提供しています。 Xbox One のゲームを開発し、Xbox Live の機能をゲームに統合する場合には、開発者プログラムへの参加を検討してください。 To publish a game in the Microsoft Store, you'll also need to create a developer account in [Partner Center](https://partner.microsoft.com/dashboard) .
 
-#### <a name="xbox-live-creators-program"></a>Xbox Live クリエーターズ プログラム
+#### <a name="xbox-live-creators-program"></a>Xbox Live Creators Program
 
 Xbox Live クリエーターズ プログラムでは、だれでも Xbox Live を自分のタイトルに統合して、Xbox One や Windows 10 に公開することができます。 認定プロセスが簡素化され、標準的な [Microsoft Store ポリシー](https://docs.microsoft.com/legal/windows/agreements/store-policies)以外に概念の承認はありません。
 
@@ -127,14 +127,14 @@ Xbox Live の他の機能にアクセスしたり、マーケティングと開�
     <col width="50%" />
     </colgroup>
     <tr>
-        <td>Xbox Live クリエーターズ プログラム</td>
+        <td>Xbox Live Creators Program</td>
         <td><a href="https://developer.microsoft.com/games/xbox/xboxlive/creator">Xbox Live Creators Program の詳細を見る</a></td>
     </tr>
 </table>
 
 #### <a name="idxbox"></a>ID@Xbox
 
-ID@Xbox プログラムを利用すると、認定されたゲーム開発者は Windows や Xbox One 向けに自分でゲームを公開することができます。 Xbox One 向けの開発を行ったり、ゲーマースコア、達成度、ランキングなどの Xbox Live 機能を自分の Windows 10 ゲームでも実現したいと検討されているなら、ID@Xbox にサインアップしてください。 ID@Xbox 開発者になると、創造性を発揮し、成功の可能性を最大限に引き出すためのツールやサポートを利用できます。 パートナーセンターで開発者アカウントID@Xboxを登録する前に、最初にを適用することをお勧めします。
+ID@Xbox プログラムを利用すると、認定されたゲーム開発者は Windows や Xbox One 向けに自分でゲームを公開することができます。 Xbox One 向けの開発を行ったり、ゲーマースコア、達成度、ランキングなどの Xbox Live 機能を自分の Windows 10 ゲームでも実現したいと検討されているなら、ID@Xbox にサインアップしてください。 ID@Xbox 開発者になると、創造性を発揮し、成功の可能性を最大限に引き出すためのツールやサポートを利用できます。 We recommend that you apply to ID@Xbox first before registering for a developer account in Partner Center.
 
 <table>
     <colgroup>
@@ -143,7 +143,7 @@ ID@Xbox プログラムを利用すると、認定されたゲーム開発者は
     </colgroup>
     <tr>
         <td>ID@Xbox開発者プログラム</td>
-        <td><a href="https://go.microsoft.com/fwlink/p/?LinkID=526271">Xbox One 用の独立した開発者プログラム</a></td>
+        <td><a href="https://www.xbox.com/Developers/id">Independent Developer Program for Xbox One</a></td>
     </tr>
     <tr>
         <td>ID@Xbox コンシューマー向けサイト</td>
@@ -169,7 +169,7 @@ Xbox のツールおよびミドルウェア プログラムは、ゲームの�
 
 ### <a name="game-samples"></a>ゲームのサンプル
 
-Windows 10 ゲームとアプリのサンプルが数多く用意されており、Windows 10 のゲーム機能を理解して、ゲーム開発をすぐに始めることができます。 サンプルは次々と開発され、定期的に公開されるため、ときどきサンプル ポータルをチェックして、新機能を確認することを忘れないでください。 GitHub のリポジトリを[監視](https://help.github.com/en/articles/watching-and-unwatching-repositories)して、変更や追加についての通知を受け取ることもできます。
+Windows 10 のゲーム機能を理解してゲーム開発をすぐに始めることができるように、Windows 10 のゲームとアプリのサンプルが数多く用意されています。 サンプルは次々と開発され、定期的に公開されるため、ときどきサンプル ポータルをチェックして、新機能を確認することを忘れないでください。 GitHub のリポジトリを[監視](https://help.github.com/en/articles/watching-and-unwatching-repositories)して、変更や追加についての通知を受け取ることもできます。
 
 <table>
     <colgroup>
@@ -182,11 +182,11 @@ Windows 10 ゲームとアプリのサンプルが数多く用意されており
     </tr>
     <tr>
         <td>Direct3D 12 グラフィックスのサンプル</td>
-        <td><a href="https://github.com/Microsoft/DirectX-Graphics-Samples">DirectX-グラフィックス-サンプル</a></td>
+        <td><a href="https://github.com/Microsoft/DirectX-Graphics-Samples">DirectX-Graphics-Samples</a></td>
     </tr>
     <tr>
         <td>Direct3D 11 グラフィックスのサンプル</td>
-        <td><a href="https://github.com/walbourn/directx-sdk-samples">directx-sdk-サンプル</a></td>
+        <td><a href="https://github.com/walbourn/directx-sdk-samples">directx-sdk-samples</a></td>
     </tr>
     <tr>
         <td>Direct3D 11 主観視点のゲームのサンプル</td>
@@ -194,23 +194,23 @@ Windows 10 ゲームとアプリのサンプルが数多く用意されており
     </tr>
     <tr>
         <td>Direct2D カスタム画像効果のサンプル</td>
-        <td><a href="https://go.microsoft.com/fwlink/p/?LinkId=620531">D2DCustomEffects</a></td>
+        <td><a href="https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/D2DCustomEffects">D2DCustomEffects</a></td>
     </tr>
     <tr>
         <td>Direct2D グラデーション メッシュのサンプル</td>
-        <td><a href="https://go.microsoft.com/fwlink/p/?LinkId=620532">D2DGradientMesh</a></td>
+        <td><a href="https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/D2DGradientMesh">D2DGradientMesh</a></td>
     </tr>
     <tr>
         <td>Direct2D 写真調整のサンプル</td>
-        <td><a href="https://go.microsoft.com/fwlink/p/?LinkId=620533">D2DPhotoAdjustment</a></td>
+        <td><a href="https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/D2DPhotoAdjustment">D2DPhotoAdjustment</a></td>
     </tr>
     <tr>
         <td>Xbox Advanced Technology Group のパブリック サンプル</td>
-        <td><a href="https://github.com/Microsoft/Xbox-ATG-Samples">Xbox-ATG-サンプル</a></td>
+        <td><a href="https://github.com/Microsoft/Xbox-ATG-Samples">Xbox-ATG-Samples</a></td>
     </tr>
     <tr>
         <td>Xbox Live のサンプル</td>
-        <td><a href="https://github.com/Microsoft/xbox-live-samples">xbox ライブサンプル</a></td>
+        <td><a href="https://github.com/Microsoft/xbox-live-samples">xbox-live-samples</a></td>
     </tr>
     <tr>
         <td>Xbox One ゲームのサンプル (XGD)</td>
@@ -218,19 +218,19 @@ Windows 10 ゲームとアプリのサンプルが数多く用意されており
     </tr>
     <tr>
         <td>Windows ゲームのサンプル (MSDN コード ギャラリー)</td>
-        <td><a href="https://code.msdn.microsoft.com/windowsapps/site/search?f%5B0%5D.Type=SearchText&f%5B0%5D.Value=game&f%5B1%5D.Type=Contributors&f%5B1%5D.Value=Microsoft&f%5B1%5D.Text=Microsoft">Microsoft Store ゲームのサンプル</a></td>
+        <td><a href="https://code.msdn.microsoft.com/windowsapps/site/search?f%5B0%5D.Type=SearchText&f%5B0%5D.Value=game&f%5B1%5D.Type=Contributors&f%5B1%5D.Value=Microsoft&f%5B1%5D.Text=Microsoft">Microsoft Store game samples</a></td>
     </tr>
     <tr>
         <td>JavaScript 2D ゲームのサンプル</td>
-        <td><a href="../get-started/get-started-tutorial-game-js2d.md">JavaScript で UWP ゲームを作成する</a></td>
+        <td><a href="../get-started/get-started-tutorial-game-js2d.md">Create a UWP game in JavaScript</a></td>
     </tr>
     <tr>
         <td>JavaScript 3D ゲームのサンプル</td>
-        <td><a href="../get-started/get-started-tutorial-game-js3d.md">3つの .js を使用した 3D JavaScript ゲームの作成</a></td>
+        <td><a href="../get-started/get-started-tutorial-game-js3d.md">Creating a 3D JavaScript game using three.js</a></td>
     </tr>
     <tr>
         <td>MonoGame 2D UWP ゲームのサンプル</td>
-        <td><a href="../get-started/get-started-tutorial-game-mg2d.md">モノゲーム2D で UWP ゲームを作成する</a></td>
+        <td><a href="../get-started/get-started-tutorial-game-mg2d.md">Create a UWP game in MonoGame 2D</a></td>
     </tr>      
 </table>
 
@@ -245,40 +245,40 @@ Windows 10 ゲームとアプリのサンプルが数多く用意されており
     <col width="50%" />
     </colgroup>
     <tr>
-        <td>アプリとゲーム開発者フォーラムの公開</td>
-        <td><a href="https://social.msdn.microsoft.com/Forums/en-us/home?category=windowsapps">アプリ内での発行と広告</a></td>
+        <td>Publishing apps and games developer forums</td>
+        <td><a href="https://social.msdn.microsoft.com/Forums/en-us/home?category=windowsapps">Publishing and ads-in-apps</a></td>
     </tr>
     <tr>
         <td>UWP アプリ開発者フォーラム</td>
-        <td><a href="https://social.msdn.microsoft.com/Forums/en-us/home?forum=wpdevelop">ユニバーサル Windows プラットフォームアプリの開発</a></td>
+        <td><a href="https://social.msdn.microsoft.com/Forums/en-us/home?forum=wpdevelop">Developing Universal Windows Platform apps</a></td>
     </tr>
     <tr>
         <td>デスクトップ アプリケーション開発者フォーラム</td>
-        <td><a href="https://social.msdn.microsoft.com/Forums/en-us/home?category=windowsdesktopdev">Windows デスクトップアプリケーションフォーラム</a></td>
+        <td><a href="https://social.msdn.microsoft.com/Forums/en-us/home?category=windowsdesktopdev">Windows desktop applications forums</a></td>
     </tr>
     <tr>
         <td>DirectX Microsoft Store ゲーム (アーカイブ済みのフォーラムの投稿)</td>
-        <td><a href="https://social.msdn.microsoft.com/Forums/vstudio/home?forum=wingameswithdirectx">DirectX を使用した Microsoft Store ゲームの構築 (アーカイブ済み)</a></td>
+        <td><a href="https://social.msdn.microsoft.com/Forums/vstudio/home?forum=wingameswithdirectx">Building Microsoft Store games with DirectX (archived)</a></td>
     </tr>
     <tr>
         <td>Windows 10 対象パートナー開発者フォーラム</td>
-        <td><a href="https://aka.ms/win10devforums">XBOX Developer フォーラム:Windows 10</a></td>
+        <td><a href="https://forums.xboxlive.com/users/login.html">XBOX Developer Forums: Windows 10</a></td>
     </tr>
     <tr>
         <td>DirectX フォーラム</td>
-        <td><a href="https://forums.directxtech.com/index.php">DirectX 12 フォーラム</a></td>
+        <td><a href="https://forums.directxtech.com/index.php">DirectX 12 forum</a></td>
     </tr>
     <tr>
         <td>Azure プラットフォーム フォーラム</td>
-        <td><a href="https://social.msdn.microsoft.com/Forums/en-us/home?category=windowsazureplatform">Azure フォーラム</a></td>
+        <td><a href="https://social.msdn.microsoft.com/Forums/en-us/home?category=windowsazureplatform">Azure forum</a></td>
     </tr>
     <tr>
         <td>Xbox Live フォーラム</td>
-        <td><a href="https://social.msdn.microsoft.com/Forums/en-US/home?forum=xboxlivedev">Xbox Live 開発フォーラム</a></td>
+        <td><a href="https://social.msdn.microsoft.com/Forums/en-US/home?forum=xboxlivedev">Xbox Live development forum</a></td>
     </tr>
     <tr>
         <td>PlayFab フォーラム</td>
-        <td><a href="https://community.playfab.com/index.html">PlayFab フォーラム</a></td>
+        <td><a href="https://community.playfab.com/index.html">PlayFab forums</a></td>
     </tr>
 </table>
 
@@ -294,27 +294,27 @@ Windows 10 ゲームとアプリのサンプルが数多く用意されており
     </colgroup>
     <tr>
         <td>Windows 用アプリ開発ブログ</td>
-        <td><a href="https://blogs.windows.com/buildingapps/">Windows 用アプリのビルド</a></td>
+        <td><a href="https://blogs.windows.com/buildingapps/">Building Apps for Windows</a></td>
     </tr>
     <tr>
         <td>Windows 10 (ブログの投稿)</td>
-        <td><a href="https://blogs.windows.com/blog/tag/windows-10/">Windows 10 での投稿</a></td>
+        <td><a href="https://blogs.windows.com/blog/tag/windows-10/">Posts in Windows 10</a></td>
     </tr>
     <tr>
         <td>Visual Studio エンジニアリング チームのブログ</td>
-        <td><a href="https://devblogs.microsoft.com/visualstudio/">Visual Studio ブログ</a></td>
+        <td><a href="https://devblogs.microsoft.com/visualstudio/">The Visual Studio Blog</a></td>
     </tr>
     <tr>
         <td>Visual Studio 開発者ツールに関するブログ</td>
-        <td><a href="https://devblogs.microsoft.com/visualstudio/">開発者ツールブログ</a></td>
+        <td><a href="https://devblogs.microsoft.com/visualstudio/">Developer Tools Blogs</a></td>
     </tr>
     <tr>
         <td>Somasegar の開発者ツールに関するブログ</td>
-        <td><a href="https://devblogs.microsoft.com/somasegar/">Somasegar のブログ</a></td>
+        <td><a href="https://devblogs.microsoft.com/somasegar/">Somasegar’s blog</a></td>
     </tr>
     <tr>
         <td>DirectX 開発者ブログ</td>
-        <td><a href="https://devblogs.microsoft.com/directx/">DirectX 開発者向けブログ</a></td>
+        <td><a href="https://devblogs.microsoft.com/directx/">DirectX Developer blog</a></td>
     </tr>
     <tr>
         <td>DirectX 12 の概要 (ブログの投稿)</td>
@@ -322,15 +322,15 @@ Windows 10 ゲームとアプリのサンプルが数多く用意されており
     </tr>
     <tr>
         <td>Visual C++ ツール チームのブログ</td>
-        <td><a href="https://devblogs.microsoft.com/cppblog/">ビジュアルC++チームのブログ</a></td>
+        <td><a href="https://devblogs.microsoft.com/cppblog/">Visual C++ team blog</a></td>
     </tr>
     <tr>
         <td>PIX チームのブログ</td>
-        <td><a href="https://devblogs.microsoft.com/pix/">Windows および Xbox での DirectX 12 ゲームのパフォーマンスチューニングとデバッグ</a></td>
+        <td><a href="https://devblogs.microsoft.com/pix/">Performance tuning and debugging for DirectX 12 games on Windows and Xbox</a></td>
     </tr>
     <tr>
         <td>ユニバーサル Windows アプリの展開チームのブログ</td>
-        <td><a href="https://blogs.msdn.microsoft.com/appinstaller/">UWP アプリチームブログのビルドとデプロイ</a></td>
+        <td><a href="https://blogs.msdn.microsoft.com/appinstaller/">Build and deploy UWP apps team blog</a></td>
     </tr>
 </table>
  
@@ -353,7 +353,7 @@ UWP のゲームの開発を開始するとき、グラフィックス、入力�
     </colgroup>
     <tr>
         <td>UWP のゲーム テクノロジの概要</td>
-        <td><a href="game-development-platform-guide.md">UWP アプリのゲームテクノロジ</a></td>
+        <td><a href="game-development-platform-guide.md">Game technologies for UWP apps</a></td>
     </tr>
 </table>
  
@@ -367,15 +367,15 @@ UWP のゲームの開発を開始するとき、グラフィックス、入力�
     </colgroup>
     <tr>
         <td>Windows 10 のゲーム開発の概要 (ビデオ)</td>
-        <td><a href="https://channel9.msdn.com/Events/GDC/GDC-2015/Developing-Games-for-Windows-10">Windows 10 用ゲームの開発</a></td>
+        <td><a href="https://channel9.msdn.com/Events/GDC/GDC-2015/Developing-Games-for-Windows-10">Developing Games for Windows 10</a></td>
     </tr>
     <tr>
         <td>Windows 10 のゲーム エクスペリエンス (ビデオ)</td>
-        <td><a href="https://channel9.msdn.com/Events/GDC/GDC-2015/Gaming-Consumer-Experience-on-Windows-10">Windows 10 のゲームコンシューマーエクスペリエンス</a></td>
+        <td><a href="https://channel9.msdn.com/Events/GDC/GDC-2015/Gaming-Consumer-Experience-on-Windows-10">Gaming Consumer Experience on Windows 10</a></td>
     </tr>
     <tr>
         <td>Microsoft エコシステム全体でのゲーム (ビデオ)</td>
-        <td><a href="https://channel9.msdn.com/Events/GDC/GDC-2015/The-Future-of-Gaming-Across-the-Microsoft-Ecosystem">Microsoft エコシステム全体にわたるゲームの未来</a></td>
+        <td><a href="https://channel9.msdn.com/Events/GDC/GDC-2015/The-Future-of-Gaming-Across-the-Microsoft-Ecosystem">The Future of Gaming Across the Microsoft Ecosystem</a></td>
     </tr>
 </table>
 
@@ -390,15 +390,15 @@ UWP のゲームの開発を開始するとき、グラフィックス、入力�
     </colgroup>
     <tr>
         <td>ゲームをアクセシビリティ対応にする</td>
-        <td><a href="https://docs.microsoft.com/windows/uwp/gaming/accessibility-for-games">ゲームのユーザー補助機能</a></td>
+        <td><a href="https://docs.microsoft.com/windows/uwp/gaming/accessibility-for-games">Accessibility for games</a></td>
     </tr>
     <tr>
         <td>クラウドを使用したゲームの作成</td>
-        <td><a href="https://docs.microsoft.com/windows/uwp/gaming/cloud-for-games">ゲーム用クラウド</a></td>
+        <td><a href="https://docs.microsoft.com/windows/uwp/gaming/cloud-for-games">Cloud for games</a></td>
     </tr>
     <tr>
         <td>ゲームの収益化</td>
-        <td><a href="https://docs.microsoft.com/windows/uwp/gaming/monetization-for-games">ゲームの収益化</a></td>
+        <td><a href="https://docs.microsoft.com/windows/uwp/gaming/monetization-for-games">Monetization for games</a></td>
     </tr>
 </table>
 
@@ -406,7 +406,7 @@ UWP のゲームの開発を開始するとき、グラフィックス、入力�
 
 ### <a name="choosing-your-graphics-technology-and-programming-language"></a>グラフィックス テクノロジとプログラミング言語の選択
 
-Windows 10 ゲームでは、複数のプログラミング言語やグラフィックス テクノロジを使うことができます。 どれを選ぶかは、開発しているゲームの種類、開発スタジオの経験や好み、ゲームの具体的な機能要件によって決まります。 C#、C++、JavaScript のどれを使うか、 DirectX、XAML、HTML5 のどれを使うか、
+Windows 10 ゲームでは、複数のプログラミング言語やグラフィックス テクノロジを使うことができます。 どれを選ぶかは、開発しているゲームの種類、開発スタジオの経験や好み、ゲームの具体的な機能要件によって決まります。 C#、C++、JavaScript のどれを使うか、 DirectX、XAML、HTML5 のどれを使うかなどです。
 
 #### <a name="directx"></a>DirectX
 
@@ -425,10 +425,10 @@ DirectX のさまざまな機能と緊密なプラットフォーム統合によ
     </colgroup>
     <tr>
         <td>UWP 用の DirectX 開発</td>
-        <td><a href="directx-programming.md">DirectX プログラミング</a></td>
+        <td><a href="directx-programming.md">DirectX programming</a></td>
     </tr>
     <tr>
-        <td>チュートリアル:UWP DirectX ゲームを作成する方法</td>
+        <td>チュートリアル: UWP DirectX ゲームを作成する方法</td>
         <td><a href="tutorial--create-your-first-uwp-directx-game.md">DirectX によるシンプルな UWP ゲームの作成</a></td>
     </tr>
     <tr>
@@ -441,7 +441,7 @@ DirectX のさまざまな機能と緊密なプラットフォーム統合によ
     </tr>
     <tr>
         <td>グラフィックスおよび DirectX 12 開発に関するビデオ (YouTube チャンネル)</td>
-        <td><a href="https://www.youtube.com/channel/UCiaX2B8XiXR70jaN7NK-FpA">Microsoft DirectX 12 とグラフィックスの教育</a></td>
+        <td><a href="https://www.youtube.com/channel/UCiaX2B8XiXR70jaN7NK-FpA">Microsoft DirectX 12 and Graphics Education</a></td>
     </tr>
 </table>
  
@@ -461,7 +461,7 @@ XAML は、アニメーション、ストーリーボード、データ バイ�
     </tr>
     <tr>
         <td>XAML UI とコントロール</td>
-        <td><a href="https://docs.microsoft.com/windows/uwp/design/basics/">コントロール、レイアウト、テキスト</a></td>
+        <td><a href="https://docs.microsoft.com/windows/uwp/design/basics/">Controls, layouts, and text</a></td>
     </tr>
 </table>
  
@@ -477,11 +477,11 @@ XAML は、アニメーション、ストーリーボード、データ バイ�
     </colgroup>
     <tr>
         <td>HTML5 とドキュメント オブジェクト モデルに関する情報</td>
-        <td><a href="https://developer.mozilla.org/en-US/docs/Web">HTML および DOM リファレンス</a></td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web">HTML and DOM reference</a></td>
     </tr>
     <tr>
         <td>HTML5 W3C 勧告</td>
-        <td><a href="https://go.microsoft.com/fwlink/p/?linkid=221374">HTML5</a></td>
+        <td><a href="https://www.w3.org/TR/html5/">HTML5</a></td>
     </tr>
 </table>
  
@@ -501,7 +501,7 @@ Microsoft DirectX Graphic Infrastructure (DXGI) には、複数のグラフィ�
     </tr>
     <tr>
         <td>DirectX と XAML の組み合わせ</td>
-        <td><a href="directx-and-xaml-interop.md">DirectX と XAML 相互運用</a></td>
+        <td><a href="directx-and-xaml-interop.md">DirectX and XAML interop</a></td>
     </tr>
 </table>
  
@@ -517,11 +517,11 @@ C++/CX はオーバーヘッドの低い高パフォーマンスな言語であ�
     </colgroup>
     <tr>
         <td>C++/CX のリファレンスと概要</td>
-        <td><a href="https://docs.microsoft.com/cpp/cppcx/visual-c-language-reference-c-cx">ビジュアルC++言語リファレンス (C++/cx)</a></td>
+        <td><a href="https://docs.microsoft.com/cpp/cppcx/visual-c-language-reference-c-cx">Visual C++ Language Reference (C++/CX)</a></td>
     </tr>
     <tr>
         <td>Visual C++ のプログラミング ガイドとリファレンス</td>
-        <td><a href="https://docs.microsoft.com/cpp/visual-cpp-in-visual-studio">Visual C++ Studio 2019 のビジュアル</a></td>
+        <td><a href="https://docs.microsoft.com/cpp/visual-cpp-in-visual-studio">Visual C++ in Visual Studio 2019</a></td>
     </tr>
 </table>
  
@@ -555,14 +555,14 @@ Windows JavaScript アプリは、ユニバーサル Windows プラットフォ�
     </colgroup>
     <tr>
         <td>JavaScript と Windows ランタイムのリファレンス</td>
-        <td><a href="https://docs.microsoft.com/scripting/javascript/javascript-language-reference">JavaScript リファレンス</a></td>
+        <td><a href="https://docs.microsoft.com/scripting/javascript/javascript-language-reference">JavaScript reference</a></td>
     </tr>
 </table>
 
 
-#### <a name="use-windows-runtime-components-to-combine-languages"></a>Windows ランタイムコンポーネントを使用した言語の結合
+#### <a name="use-windows-runtime-components-to-combine-languages"></a>Use Windows Runtime components to combine languages
 
-ユニバーサル Windows プラットフォームでは、異なる言語で記述されたコンポーネントを簡単に組み合わせることができます。 、 C++ C#、または Visual Basic に Windows ランタイムコンポーネントを作成し、JavaScript、 C#、 C++、または Visual Basic からそれらを呼び出します。 これは、好みの言語でゲームの一部をプログラミングする場合に最適な方法です。 コンポーネントにより、特定の言語でのみ使用可能な外部ライブラリや、既に記述しているレガシ コードを使うこともできるようになります。
+ユニバーサル Windows プラットフォームでは、異なる言語で記述されたコンポーネントを簡単に組み合わせることができます。 Create Windows Runtime components in C++, C#, or Visual Basic, and then call into them from JavaScript, C#, C++, or Visual Basic. これは、好みの言語でゲームの一部をプログラミングする場合に最適な方法です。 コンポーネントにより、特定の言語でのみ使用可能な外部ライブラリや、既に記述しているレガシ コードを使うこともできるようになります。
 
 <table>
     <colgroup>
@@ -570,15 +570,15 @@ Windows JavaScript アプリは、ユニバーサル Windows プラットフォ�
     <col width="50%" />
     </colgroup>
     <tr>
-        <td>Windows ランタイムコンポーネントを作成する方法</td>
-        <td><a href="https://docs.microsoft.com/windows/uwp/winrt-components/creating-windows-runtime-components-in-cpp">/Cx を使用C++したコンポーネントの Windows ランタイム</a></td>
+        <td>How to create Windows Runtime components</td>
+        <td><a href="https://docs.microsoft.com/windows/uwp/winrt-components/creating-windows-runtime-components-in-cpp">C++/CX を使用した Windows ランタイム コンポーネント</a></td>
     </tr>
 </table>
 
 
 ### <a name="which-version-of-directx-should-your-game-use"></a>ゲームで使う Microsoft DirectX のバージョン
 
-ゲームに DirectX を選択する場合は、どのバージョンを使用するかを決定する必要があります。Microsoft Direct3D 12 または Microsoft Direct3D 11。
+If you are choosing DirectX for your game, you'll need to decide which version to use: Microsoft Direct3D 12 or Microsoft Direct3D 11.
 
 DirectX 12 は、以前のバージョンよりも高速かつ効率的になっています。 Direct3D 12 は、より豊かなシーン、より多くのオブジェクト、より複雑な効果を実現し、Windows 10 PC や Xbox One の最新の GPU ハードウェアを十分に活用できます。 Direct3D 12 は非常に低いレベルで動作するため、専門的なグラフィックス開発チームや経験豊富な DirectX 11 開発チームは、グラフィックスの最適化を十分に活かすために必要となるすべてのコントロールを利用することができます。
 
@@ -590,12 +590,12 @@ Direct3D 11.3 は低レベル グラフィック API です。よく利用され
     <col width="50%" />
     </colgroup>
     <tr>
-        <td>Direct3D 12 または Direct3D 11 の選択</td>
-        <td><a href="https://docs.microsoft.com/windows/desktop/direct3d12/what-is-directx-12-">Direct3D 12 とは</a></td>
+        <td>Choosing Direct3D 12 or Direct3D 11</td>
+        <td><a href="https://docs.microsoft.com/windows/desktop/direct3d12/what-is-directx-12-">What is Direct3D 12?</a></td>
     </tr>
     <tr>
-        <td>Direct3D 11 の概要</td>
-        <td><a href="https://docs.microsoft.com/windows/desktop/direct3d11/atoc-dx-graphics-direct3d-11">Direct3D 11 グラフィックス</a></td>
+        <td>Overview of Direct3D 11</td>
+        <td><a href="https://docs.microsoft.com/windows/desktop/direct3d11/atoc-dx-graphics-direct3d-11">Direct3D 11 Graphics</a></td>
     </tr>
     <tr>
         <td>Direct3D 11 on 12 の概要</td>
@@ -619,15 +619,15 @@ Direct3D 11.3 は低レベル グラフィック API です。よく利用され
     </colgroup>
     <tr>
         <td>UWP ブリッジ</td>
-        <td><a href="https://developer.microsoft.com/windows/bridges">コードを Windows に取り込む</a></td>
+        <td><a href="https://developer.microsoft.com/windows/bridges">Bring your code to Windows</a></td>
     </tr>
     <tr>
-        <td>Windows Bridge for iOS</td>
-        <td><a href="https://developer.microsoft.com/windows/bridges/ios">IOS アプリを Windows に持ち込む</a></td>
+        <td>iOS 用 Windows ブリッジ</td>
+        <td><a href="https://developer.microsoft.com/windows/bridges/ios">Bring your iOS apps to Windows</a></td>
     </tr>
     <tr>
         <td>デスクトップ アプリケーション用 Windows ブリッジ (.NET および Win32)</td>
-        <td><a href="https://developer.microsoft.com/windows/bridges/desktop">デスクトップアプリケーションを UWP アプリに変換する</a></td>
+        <td><a href="https://developer.microsoft.com/windows/bridges/desktop">Convert your desktop application to a UWP app</a></td>
     </tr>
 </table>
 
@@ -642,35 +642,35 @@ Microsoft ファミリの一部となった PlayFab は、ライブ ゲームの
     </colgroup>
     <tr>
         <td>PlayFab</td>
-        <td><a href="https://playfab.com/">ツールとサービスの概要</a></td>
+        <td><a href="https://playfab.com/">Overview of tools and services</a></td>
     </tr>
     <tr>
-        <td>作業の開始</td>
-        <td><a href="https://api.playfab.com/docs/general-getting-started">一般的な入門ガイド</a></td>
+        <td>開始するには</td>
+        <td><a href="https://api.playfab.com/docs/general-getting-started">General getting started guide</a></td>
     </tr>
     <tr>
         <td>ビデオ チュートリアル シリーズ</td>
-        <td><a href="https://www.youtube.com/watch?v=fGNpiqVi5xU&list=PLHCfyL7JpoPbLpA_oh_T5PKrfzPgCpPT5">PlayFab のコアシステムに関する一連のデモビデオ</a></td>
+        <td><a href="https://www.youtube.com/watch?v=fGNpiqVi5xU&list=PLHCfyL7JpoPbLpA_oh_T5PKrfzPgCpPT5">Series of demo videos about PlayFab's core systems</a></td>
     </tr>
     <tr>
         <td>レシピ</td>
-        <td><a href="https://api.playfab.com/docs/tutorials/recipes-index">一般的なゲーム機構と設計パターンのサンプル</a></td>
+        <td><a href="https://api.playfab.com/docs/tutorials/recipes-index">Popular game mechanics and design pattern samples</a></td>
     </tr>
     <tr>
         <td>プラットフォーム</td>
-        <td><a href="https://api.playfab.com/platforms">さまざまなプラットフォームとゲームエンジンに関する特定のドキュメント</a></td>
+        <td><a href="https://api.playfab.com/platforms">Specific documentation for various platforms and game engines</a></td>
     </tr>
     <tr>
         <td>GitHub リポジトリ</td>
-        <td><a href="https://github.com/PlayFab">Android、iOS、Windows、Unity、Unreal などのさまざまなプラットフォーム用のスクリプトと Sdk を入手できます。</a></td>
+        <td><a href="https://github.com/PlayFab">Get scripts and SDKs for various platforms including Android, iOS, Windows, Unity, and Unreal.</a></td>
     </tr>
     <tr>
         <td>API ドキュメント</td>
-        <td><a href="https://api.playfab.com/documentation/">REST に似た Web Api を使用して PlayFab サービスに直接アクセスする</a></td>
+        <td><a href="https://api.playfab.com/documentation/">Access PlayFab service directly via REST-like Web APIs</a></td>
     </tr>
     <tr>
         <td>フォーラム</td>
-        <td><a href="https://community.playfab.com/index.html">PlayFab フォーラム</a></td>
+        <td><a href="https://community.playfab.com/index.html">PlayFab forums</a></td>
     </tr>
 </table>
  
@@ -688,7 +688,7 @@ Unity 5.4 以降では、Unity は Direct3D 12 の開発をサポートします
     </colgroup>
     <tr>
         <td>Unity ゲーム エンジン</td>
-        <td><a href="https://unity.com/">Unity-ゲームエンジン</a></td>
+        <td><a href="https://unity.com/">Unity - Game Engine</a></td>
     </tr>
     <tr>
         <td>Unity を入手する</td>
@@ -696,43 +696,43 @@ Unity 5.4 以降では、Unity は Direct3D 12 の開発をサポートします
     </tr>
     <tr>
         <td>Windows 向けの Unity に関するドキュメント</td>
-        <td><a href="https://docs.unity3d.com/Manual/Windows.html">Unity 手動/Windows</a></td>
+        <td><a href="https://docs.unity3d.com/Manual/Windows.html">Unity Manual / Windows</a></td>
     </tr>
     <tr>
         <td>PlayFab を使用して LiveOps を追加する</td>
-        <td><a href="https://api.playfab.com/docs/getting-started/unity-getting-started">はじめに: Unity ゲームから最初の PlayFab API 呼び出しを行う</a></td>
+        <td><a href="https://api.playfab.com/docs/getting-started/unity-getting-started">Getting started - Make your first PlayFab API call from your Unity game</a></td>
     </tr>
     <tr>
         <td>Mixer の対話機能を使用して、ゲームに対話機能を追加する方法</td>
-        <td><a href="https://github.com/mixer/interactive-unity-plugin/wiki/Getting-started">ファーストステップガイド</a></td>
+        <td><a href="https://github.com/mixer/interactive-unity-plugin/wiki/Getting-started">Getting started guide</a></td>
     </tr>
     <tr>
         <td>Unity 向け Mixer SDK</td>
-        <td><a href="https://www.assetstore.unity3d.com/en/#!/content/88585">ミキサー Unity プラグイン</a></td>
+        <td><a href="https://www.assetstore.unity3d.com/en/#!/content/88585">Mixer Unity plugin</a></td>
     </tr>
     <tr>
         <td>Unity 向け Mixer SDK のリファレンス ドキュメント</td>
-        <td><a href="https://dev.mixer.com/reference/interactive/csharp/index.html">ミキサー Unity プラグインの API リファレンス</a></td>
+        <td><a href="https://dev.mixer.com/reference/interactive/csharp/index.html">API reference for Mixer Unity plugin</a></td>
     </tr>
     <tr>
         <td>Unity ゲームを Microsoft Store に公開する</td>
-        <td><a href="https://unity3d.com/partners/microsoft/porting-guides">移植のガイド</a></td>
+        <td><a href="https://unity3d.com/partners/microsoft/porting-guides">Porting guide</a></td>
     </tr>
     <tr>
         <td>.NET API に関連するアセンブリ参照が見つからない場合のトラブルシューティング</td>
-        <td><a href="https://docs.microsoft.com/windows/uwp/gaming/missing-dot-net-apis-in-unity-and-uwp">Unity と UWP で .NET Api が見つからない</a></td>
+        <td><a href="https://docs.microsoft.com/windows/uwp/gaming/missing-dot-net-apis-in-unity-and-uwp">Missing .NET APIs in Unity and UWP</a></td>
     </tr>
     <tr>
         <td>ユニバーサル Windows プラットフォーム アプリとして Unity ゲームを公開する (ビデオ)</td>
-        <td><a href="https://channel9.msdn.com/Blogs/One-Dev-Minute/How-to-publish-your-Unity-game-as-a-UWP-app">Unity ゲームを UWP アプリとして発行する方法</a></td>
+        <td><a href="https://channel9.msdn.com/Blogs/One-Dev-Minute/How-to-publish-your-Unity-game-as-a-UWP-app">How to publish your Unity game as a UWP app</a></td>
     </tr>
     <tr>
         <td>Unity を使って Windows 向けゲームとアプリを作成する (ビデオ)</td>
-        <td><a href="https://channel9.msdn.com/Blogs/One-Dev-Minute/Making-games-and-apps-with-Unity">Unity を使用した Windows ゲームとアプリの作成</a></td>
+        <td><a href="https://channel9.msdn.com/Blogs/One-Dev-Minute/Making-games-and-apps-with-Unity">Making Windows games and apps with Unity</a></td>
     </tr>
     <tr>
         <td>Visual Studio を使った Unity ゲームの開発 (ビデオ シリーズ)</td>
-        <td><a href="https://go.microsoft.com/fwlink/?LinkId=722359">Visual Studio 2015 での Unity の使用</a></td>
+        <td><a href="https://www.youtube.com/playlist?list=PLReL099Y5nRfseAg0k1SJOlpqdcsDs8Em">Using Unity with Visual Studio 2015</a></td>
     </tr>
 </table>
  
@@ -748,15 +748,15 @@ Havok のモジュール化された一連のツールとテクノロジによ�
     </colgroup>
     <tr>
         <td>Havok の Web サイト</td>
-        <td><a href="https://www.havok.com/">[べきです]</a></td>
+        <td><a href="https://www.havok.com/">Havok</a></td>
     </tr>
     <tr>
         <td>Havok ツール スイート</td>
-        <td><a href="https://www.havok.com/products/">は、製品の概要</a></td>
+        <td><a href="https://www.havok.com/products/">Havok Product Overview</a></td>
     </tr>
     <tr>
         <td>Havok サポート フォーラム</td>
-        <td><a href="https://www.havok.com/">[べきです]</a></td>
+        <td><a href="https://www.havok.com/">Havok</a></td>
     </tr>
 </table>
  
@@ -772,11 +772,11 @@ MonoGame は、オープン ソース、クロスプラット フォームのゲ
     </colgroup>
     <tr>
         <td>MonoGame</td>
-        <td><a href="https://www.monogame.net">モノゲーム web サイト</a></td>
+        <td><a href="https://www.monogame.net">MonoGame website</a></td>
     </tr>
     <tr>
         <td>MonoGame のドキュメント</td>
-        <td><a href="https://www.monogame.net/documentation/">モノゲームのドキュメント (最新)</a></td>
+        <td><a href="https://www.monogame.net/documentation/">MonoGame Documentation (latest)</a></td>
     </tr>
     <tr>
         <td>Monogame のダウンロード</td>
@@ -784,14 +784,14 @@ MonoGame は、オープン ソース、クロスプラット フォームのゲ
     </tr>
     <tr>
         <td>MonoGame 2D UWP ゲームのサンプル</td>
-        <td><a href="../get-started/get-started-tutorial-game-mg2d.md">モノゲーム2D で UWP ゲームを作成する</a></td>
+        <td><a href="../get-started/get-started-tutorial-game-mg2d.md">Create a UWP game in MonoGame 2D</a></td>
     </tr>    
 </table>
 
 
 #### <a name="cocos2d"></a>Cocos2d
 
-Cocos2d-x は、オープン ソース、クロス プラットフォームのゲーム開発エンジンおよびツール スイートで、UWP ゲームの構築をサポートしています。 バージョン 3 以降、3D 機能も追加されています。
+Cocos2d-x は、オープン ソース、クロス プラットフォームのゲーム開発エンジンおよびツール スイートで、UWP ゲームの構築をサポートしています。 バージョン 3 以降、3 D 機能も追加されています。
 
 <table>
     <colgroup>
@@ -800,19 +800,19 @@ Cocos2d-x は、オープン ソース、クロス プラットフォームの�
     </colgroup>
     <tr>
         <td>Cocos2d-x</td>
-        <td><a href="https://www.cocos2d-x.org/">Cocos2d-x とは何ですか?</a></td>
+        <td><a href="https://www.cocos2d-x.org/">What is Cocos2d-x?</a></td>
     </tr>
     <tr>
         <td>Cocos2d-x プログラマ ガイド</td>
-        <td><a href="https://www.cocos2d-x.org/programmersguide/">Cocos2d-x プログラマーガイド</a></td>
+        <td><a href="https://www.cocos2d-x.org/programmersguide/">Cocos2d-x Programmers Guide</a></td>
     </tr>
     <tr>
         <td>Windows 10 での Cocos2d-x (ブログの投稿)</td>
-        <td><a href="https://blogs.windows.com/buildingapps/2015/06/15/running-cocos2d-x-on-windows-10/">Windows 10 での Cocos2d の実行</a></td>
+        <td><a href="https://blogs.windows.com/buildingapps/2015/06/15/running-cocos2d-x-on-windows-10/">Running Cocos2d-x on Windows 10</a></td>
     </tr>
     <tr>
         <td>PlayFab を使用して LiveOps を追加する</td>
-        <td><a href="https://api.playfab.com/docs/getting-started/cocos2d-x-getting-started-guide">はじめに-Cocos2d ゲームから最初の PlayFab API 呼び出しを行う</a></td>
+        <td><a href="https://api.playfab.com/docs/getting-started/cocos2d-x-getting-started-guide">Getting started - Make your first PlayFab API call from your Cocos2d game</a></td>
     </tr>
 </table>
 
@@ -832,11 +832,11 @@ Unreal Engine 4 は、あらゆる種類のゲームや開発者に適したゲ�
     </tr>
     <tr>
         <td>PlayFab を使用して LiveOps を追加する - C++</td>
-        <td><a href="https://api.playfab.com/docs/getting-started/unreal-cpp-getting-started">はじめに-実際のゲームから最初の PlayFab API 呼び出しを行う</a></td>
+        <td><a href="https://api.playfab.com/docs/getting-started/unreal-cpp-getting-started">Getting started - Make your first PlayFab API call from your Unreal game</a></td>
     </tr>
     <tr>
         <td>PlayFab を使用して LiveOps を追加する - Blueprints</td>
-        <td><a href="https://api.playfab.com/docs/getting-started/unreal-blueprints-getting-started">はじめに-実際のゲームから最初の PlayFab API 呼び出しを行う</a></td>
+        <td><a href="https://api.playfab.com/docs/getting-started/unreal-blueprints-getting-started">Getting started - Make your first PlayFab API call from your Unreal game</a></td>
     </tr>
 </table>
 
@@ -855,11 +855,11 @@ BabylonJS は、HTML5、WebGL、WebVR、Web オーディオで 3D ゲームを�
     </tr>
     <tr>
         <td>HTML5 と BabylonJS を使用した WebGL 3D (ビデオ シリーズ)</td>
-        <td><a href="https://channel9.msdn.com/Series/Introduction-to-WebGL-3D-with-HTML5-and-Babylonjs/01">WebGL 3D と BabylonJS の学習</a></td>
+        <td><a href="https://channel9.msdn.com/Series/Introduction-to-WebGL-3D-with-HTML5-and-Babylonjs/01">Learning WebGL 3D and BabylonJS</a></td>
     </tr>
     <tr>
         <td>BabylonJS を使用してクロスプラットフォーム WebGL ゲームを構築する</td>
-        <td><a href="https://www.smashingmagazine.com/2016/07/babylon-js-building-sponza-a-cross-platform-webgl-game/">BabylonJS を使用してクロスプラットフォームゲームを開発する</a></td>
+        <td><a href="https://www.smashingmagazine.com/2016/07/babylon-js-building-sponza-a-cross-platform-webgl-game/">Use BabylonJS to develop a cross-platform game</a></td>
     </tr>    
 </table>
 
@@ -878,7 +878,7 @@ BabylonJS は、HTML5、WebGL、WebVR、Web オーディオで 3D ゲームを�
     </tr>
     <tr>
         <td>Windows 8 アプリをユニバーサル Windows プラットフォーム アプリに移植する (ビデオ)</td>
-        <td><a href="https://channel9.msdn.com/Series/A-Developers-Guide-to-Windows-10/21">8.1 アプリを Windows 10 に移植する</a></td>
+        <td><a href="https://channel9.msdn.com/Series/A-Developers-Guide-to-Windows-10/21">Porting 8.1 Apps to Windows 10</a></td>
     </tr>
     <tr>
         <td>iOS アプリをユニバーサル Windows プラットフォーム アプリに移植する</td>
@@ -890,31 +890,31 @@ BabylonJS は、HTML5、WebGL、WebVR、Web オーディオで 3D ゲームを�
     </tr>
     <tr>
         <td>XAML または Silverlight からユニバーサル Windows プラットフォーム アプリに移植する (ビデオ)</td>
-        <td><a href="https://channel9.msdn.com/Events/Build/2015/3-741">XAML または Silverlight から Windows 10 へのアプリの移植</a></td>
+        <td><a href="https://channel9.msdn.com/Events/Build/2015/3-741">Porting an App from XAML or Silverlight to Windows 10</a></td>
     </tr>
     <tr>
         <td>Xbox ゲームをユニバーサル Windows プラットフォーム アプリに移植する</td>
-        <td><a href="https://developer.xboxlive.com/en-us/platform/development/education/Documents/Porting%20from%20Xbox%20One%20to%20Windows%2010.aspx">Xbox One から Windows 10 UWP への移植</a></td>
+        <td><a href="https://developer.xboxlive.com/en-us/platform/development/education/Documents/Porting%20from%20Xbox%20One%20to%20Windows%2010.aspx">Porting from Xbox One to Windows 10 UWP</a></td>
     </tr>
     <tr>
         <td>DirectX 9 から DirectX 11 に移植する</td>
-        <td><a href="porting-your-directx-9-game-to-windows-store.md">DirectX 9 からユニバーサル Windows プラットフォーム (UWP) へのポート</a></td>
+        <td><a href="porting-your-directx-9-game-to-windows-store.md">Port from DirectX 9 to Universal Windows Platform (UWP)</a></td>
     </tr>
     <tr>
         <td>Direct3D 11 から Direct3D 12 に移植する</td>
-        <td><a href="https://docs.microsoft.com/windows/desktop/direct3d12/porting-from-direct3d-11-to-direct3d-12">Direct3D 11 から Direct3D 12 への移植</a></td>
+        <td><a href="https://docs.microsoft.com/windows/desktop/direct3d12/porting-from-direct3d-11-to-direct3d-12">Porting from Direct3D 11 to Direct3D 12</a></td>
     </tr>
     <tr>
         <td>OpenGL ES から Direct3D 11 に移植する</td>
-        <td><a href="port-from-opengl-es-2-0-to-directx-11-1.md">OpenGL ES 2.0 から Direct3D 11 へのポート</a></td>
+        <td><a href="port-from-opengl-es-2-0-to-directx-11-1.md">Port from OpenGL ES 2.0 to Direct3D 11</a></td>
     </tr>
     <tr>
         <td>ANGLE を使って OpenGL ES から Direct3D 11 に移行する</td>
-        <td><a href="https://go.microsoft.com/fwlink/p/?linkid=618387">角度</a></td>
+        <td><a href="https://github.com/microsoft/angle/wiki">ANGLE</a></td>
     </tr>
     <tr>
         <td>UWP で従来の Windows API に相当する要素</td>
-        <td><a href="https://docs.microsoft.com/uwp/win32-and-com/win32-and-com-for-uwp-apps">ユニバーサル Windows プラットフォーム (UWP) アプリの Windows Api の代替手段</a></td>
+        <td><a href="https://docs.microsoft.com/uwp/win32-and-com/win32-and-com-for-uwp-apps">Alternatives to Windows APIs in Universal Windows Platform (UWP) apps</a></td>
     </tr>
 </table>
 
@@ -937,7 +937,7 @@ Windows 10 ではユニバーサル Windows プラットフォーム (UWP) が�
     </colgroup>
     <tr>
         <td>ユニバーサル Windows プラットフォーム アプリの概要</td>
-        <td><a href="https://docs.microsoft.com/windows/uwp/get-started/whats-a-uwp">ユニバーサル Windows プラットフォームアプリとは</a></td>
+        <td><a href="https://docs.microsoft.com/windows/uwp/get-started/whats-a-uwp">What's a Universal Windows Platform app?</a></td>
     </tr>
     <tr>
         <td>UWP の概要</td>
@@ -974,11 +974,11 @@ UWP プログラミングについて "文字どおりの初心者" である場
     </colgroup>
     <tr>
         <td>XAML を使った Windows 10 の開発の初心者向けガイド (ビデオ シリーズ)</td>
-        <td><a href="https://channel9.msdn.com/Series/Windows-10-development-for-absolute-beginners">初級者向けの Windows 10 開発</a></td>
+        <td><a href="https://channel9.msdn.com/Series/Windows-10-development-for-absolute-beginners">Windows 10 development for absolute beginners</a></td>
     </tr>
     <tr>
         <td>XAML を使う Windows 10 の初心者向けシリーズの発表 (ブログの投稿)</td>
-        <td><a href="https://blogs.windows.com/buildingapps/2015/09/30/windows-10-development-for-absolute-beginners/">初級者向けの Windows 10 開発</a></td>
+        <td><a href="https://blogs.windows.com/buildingapps/2015/09/30/windows-10-development-for-absolute-beginners/">Windows 10 development for absolute beginners</a></td>
     </tr>
 </table>
 
@@ -991,7 +991,7 @@ UWP プログラミングについて "文字どおりの初心者" である場
     </colgroup>
     <tr>
         <td>ユニバーサル Windows プラットフォーム アプリの開発の概要</td>
-        <td><a href="https://developer.microsoft.com/windows/apps/develop">Windows アプリの開発</a></td>
+        <td><a href="https://developer.microsoft.com/windows/apps/develop">Develop Windows apps</a></td>
     </tr>
     <tr>
         <td>UWP のネットワーク プログラミングの概要</td>
@@ -999,7 +999,7 @@ UWP プログラミングについて "文字どおりの初心者" である場
     </tr>
     <tr>
         <td>ゲームでの Windows.Web.HTTP と Windows.Networking.Sockets の使用</td>
-        <td><a href="work-with-networking-in-your-directx-game.md">ゲームのネットワーク</a></td>
+        <td><a href="work-with-networking-in-your-directx-game.md">Networking for games</a></td>
     </tr>
     <tr>
         <td>UWP での非同期プログラミングの概念</td>
@@ -1007,7 +1007,7 @@ UWP プログラミングについて "文字どおりの初心者" である場
     </tr>
 </table>
 
-### <a name="windows-desktop-apisto-uwp"></a>UWP への Windows デスクトップ Api
+### <a name="windows-desktop-apisto-uwp"></a>Windows Desktop APIs to UWP
 
 Windows デスクトップ ゲームを UWP に移行する際に役立つリンクの一部を以下に示します。
 
@@ -1018,19 +1018,19 @@ Windows デスクトップ ゲームを UWP に移行する際に役立つリン
     </colgroup>
     <tr>
         <td>既存の C++ コードを使った UWP ゲーム開発</td>
-        <td><a href="https://docs.microsoft.com/cpp/porting/how-to-use-existing-cpp-code-in-a-universal-windows-platform-app">2 つのオブジェクトが等しいかどうかをテストする方法UWP アプリC++での既存のコードの使用</a></td>
+        <td><a href="https://docs.microsoft.com/cpp/porting/how-to-use-existing-cpp-code-in-a-universal-windows-platform-app">How to: Use existing C++ code in a UWP app</a></td>
     </tr>
     <tr>
         <td>Win32 API と COM API 用の UWP API</td>
-        <td><a href="https://docs.microsoft.com/uwp/win32-and-com/win32-and-com-for-uwp-apps">UWP アプリの Win32 Api と COM Api</a></td>
+        <td><a href="https://docs.microsoft.com/uwp/win32-and-com/win32-and-com-for-uwp-apps">Win32 and COM APIs for UWP apps</a></td>
     </tr>
     <tr>
         <td>UWP でサポートされない CRT 関数</td>
-        <td><a href="https://docs.microsoft.com/cpp/cppcx/crt-functions-not-supported-in-universal-windows-platform-apps">ユニバーサル Windows プラットフォーム アプリでサポートされていない CRT 関数</a></td>
+        <td><a href="https://docs.microsoft.com/cpp/cppcx/crt-functions-not-supported-in-universal-windows-platform-apps">CRT functions not supported in Universal Windows Platform apps</a></td>
     </tr>
     <tr>
         <td>Windows API の代替</td>
-        <td><a href="https://docs.microsoft.com/uwp/win32-and-com/alternatives-to-windows-apis-uwp">ユニバーサル Windows プラットフォーム (UWP) アプリの Windows Api の代替手段</a></td>
+        <td><a href="https://docs.microsoft.com/uwp/win32-and-com/alternatives-to-windows-apis-uwp">Alternatives to Windows APIs in Universal Windows Platform (UWP) apps</a></td>
     </tr>
 </table>
  
@@ -1050,7 +1050,7 @@ Windows デスクトップ ゲームを UWP に移行する際に役立つリン
     </tr>
     <tr>
         <td>Microsoft Visual Studio を使ったアプリの移行のトリガー</td>
-        <td><a href="https://docs.microsoft.com/visualstudio/debugger/how-to-trigger-suspend-resume-and-background-events-for-windows-store-apps-in-visual-studio?view=vs-2015">Visual Studio で UWP アプリの中断イベント、再開イベント、およびバックグラウンドイベントをトリガーする方法</a></td>
+        <td><a href="https://docs.microsoft.com/visualstudio/debugger/how-to-trigger-suspend-resume-and-background-events-for-windows-store-apps-in-visual-studio?view=vs-2015">How to trigger suspend, resume, and background events for UWP apps in Visual Studio</a></td>
     </tr>
 </table>
  
@@ -1074,7 +1074,7 @@ UX デザインとは別に、レベルのデザイン、ペース配分、世�
     </tr>
     <tr>
         <td>アプリのライフサイクルの状態の設計</td>
-        <td><a href="https://docs.microsoft.com/windows/uwp/launch-resume/index">起動、中断、再開に関する UX ガイドライン</a></td>
+        <td><a href="https://docs.microsoft.com/windows/uwp/launch-resume/index">UX guidelines for launch, suspend, and resume</a></td>
     </tr>
     <tr>
         <td>Xbox One とテレビ画面向けの UWP アプリの設計</td>
@@ -1082,14 +1082,14 @@ UX デザインとは別に、レベルのデザイン、ペース配分、世�
     </tr>
     <tr>
         <td>複数のデバイスのフォーム ファクターをターゲットに設定する (ビデオ)</td>
-        <td><a href="https://channel9.msdn.com/Events/GDC/GDC-2015/Designing-Games-for-a-Windows-Core-World">Windows コア環境向けのゲームの設計</a></td>
+        <td><a href="https://channel9.msdn.com/Events/GDC/GDC-2015/Designing-Games-for-a-Windows-Core-World">Designing Games for a Windows Core World</a></td>
     </tr>   
 </table>
  
 
 #### <a name="color-guideline-and-palette"></a>色のガイドラインとパレット
 
-ゲームで一貫した色のガイドラインに従うと、美しさやナビゲーションの操作性が向上し、メニューや HUD の機能がプレーヤーに伝わりやすくなります。 警告、ダメージ、XP、成績などのゲーム要素の色が一貫していると、UI がわかりやすくなるため、ラベルによって説明する必要性が減ります。
+ゲームで一貫した色のガイドラインに従うと、美しさやナビゲーションの操作性が向上し、メニューや HUD の機能がプレイヤーに伝わりやすくなります。 警告、ダメージ、XP、成績などのゲーム要素の色が一貫していると、UI がわかりやすくなるため、ラベルによって説明する必要性が減ります。
 
 <table>
     <colgroup>
@@ -1098,12 +1098,12 @@ UX デザインとは別に、レベルのデザイン、ペース配分、世�
     </colgroup>
     <tr>
         <td>色のガイド</td>
-        <td><a href="https://assets.windowsphone.com/499cd2be-64ed-4b05-a4f5-cd0c9ad3f6a3/101_BestPractices_Color_InvariantCulture_Default.zip">ベストプラクティス:色</a></td>
+        <td><a href="https://assets.windowsphone.com/499cd2be-64ed-4b05-a4f5-cd0c9ad3f6a3/101_BestPractices_Color_InvariantCulture_Default.zip">Best Practices: Color</a></td>
     </tr>
 </table>
  
 
-#### <a name="typography"></a>タイポグラフィ
+#### <a name="typography"></a>文字体裁
 
 文字体裁を適切に使うと、UI のレイアウト、ナビゲーション、読みやすさ、雰囲気、ブランド、プレイヤーの熱中度など、多くの側面が向上します。
 
@@ -1114,7 +1114,7 @@ UX デザインとは別に、レベルのデザイン、ペース配分、世�
     </colgroup>
     <tr>
         <td>文字体裁のガイド</td>
-        <td><a href="https://go.microsoft.com/fwlink/?LinkId=535007">ベストプラクティス:体裁</a></td>
+        <td><a href="https://cmsresources.windowsphone.com/devcenter/common/resources/content/101_BestPractices_Typography.pdf">Best Practices: Typography</a></td>
     </tr>
 </table>
  
@@ -1130,7 +1130,7 @@ UI マップとは、ゲーム ナビゲーションのレイアウトとフロ�
     </colgroup>
     <tr>
         <td>UI マップ ガイド</td>
-        <td><a href="https://go.microsoft.com/fwlink/?LinkId=535008">ベストプラクティス:UI マップ</a></td>
+        <td><a href="https://cmsresources.windowsphone.com/devcenter/common/resources/content/101_BestPractices_UI_Map.pdf">Best Practices: UI Map</a></td>
     </tr>
 </table>
 
@@ -1145,15 +1145,15 @@ XAudio2、XAPO、Windows Sonic を使ってオーディオをゲームで実装�
     </colgroup>
     <tr>
         <td>XAudio2 API</td>
-        <td><a href="https://docs.microsoft.com/windows/desktop/xaudio2/xaudio2-apis-portal">XAudio2 のプログラミングガイドと API リファレンス</a></td>
+        <td><a href="https://docs.microsoft.com/windows/desktop/xaudio2/xaudio2-apis-portal">Programming guide and API reference for XAudio2</a></td>
     </tr>
     <tr>
         <td>クロスプラット フォーム オーディオ処理オブジェクトを作成する</td>
-        <td><a href="https://docs.microsoft.com/windows/desktop/xaudio2/xapo-overview">XAPO の概要</a></td>
+        <td><a href="https://docs.microsoft.com/windows/desktop/xaudio2/xapo-overview">XAPO Overview</a></td>
     </tr>
     <tr>
         <td>オーディオの概念の概要</td>
-        <td><a href="working-with-audio-in-your-directx-game.md">ゲーム用オーディオ</a></td>
+        <td><a href="working-with-audio-in-your-directx-game.md">Audio for games</a></td>
     </tr>
     <tr>
         <td>Windows Sonic の概要</td>
@@ -1161,11 +1161,11 @@ XAudio2、XAPO、Windows Sonic を使ってオーディオをゲームで実装�
     </tr>
     <tr>
         <td>Windows Sonic の立体音響のサンプル</td>
-        <td><a href="https://github.com/Microsoft/Xbox-ATG-Samples/tree/master/UWPSamples/Audio">Xbox Advanced テクノロジグループのオーディオサンプル</a></td>
+        <td><a href="https://github.com/Microsoft/Xbox-ATG-Samples/tree/master/UWPSamples/Audio">Xbox Advanced Technology Group audio samples</a></td>
     </tr>
     <tr>
         <td>Windows Sonic をゲーム (ビデオ) に統合する方法</td>
-        <td><a href="https://channel9.msdn.com/Events/GDC/GDC-2017/GDC2017-002">Xbox と Windows の空間オーディオ機能の概要</a></td>
+        <td><a href="https://channel9.msdn.com/Events/GDC/GDC-2017/GDC2017-002">Introducing Spatial Audio Capabilities for Xbox and Windows</a></td>
     </tr>
 </table>
 
@@ -1180,19 +1180,19 @@ DirectX ゲーム開発用のガイドと参照情報を紹介します。
     </colgroup>
     <tr>
         <td>UWP 用の DirectX 開発</td>
-        <td><a href="directx-programming.md">DirectX プログラミング</a></td>
+        <td><a href="directx-programming.md">DirectX programming</a></td>
     </tr>
     <tr>
-        <td>チュートリアル:UWP DirectX ゲームを作成する方法</td>
+        <td>チュートリアル: UWP DirectX ゲームを作成する方法</td>
         <td><a href="tutorial--create-your-first-uwp-directx-game.md">DirectX によるシンプルな UWP ゲームの作成</a></td>
     </tr>
     <tr>
         <td>UWP アプリ モデルによる DirectX の操作</td>
-        <td><a href="about-the-uwp-user-interface-and-directx.md">アプリオブジェクトと DirectX</a></td>
+        <td><a href="about-the-uwp-user-interface-and-directx.md">The app object and DirectX</a></td>
     </tr>
     <tr>
         <td>グラフィックスおよび DirectX 12 開発に関するビデオ (YouTube チャンネル)</td>
-        <td><a href="https://www.youtube.com/channel/UCiaX2B8XiXR70jaN7NK-FpA">Microsoft DirectX 12 とグラフィックスの教育</a></td>
+        <td><a href="https://www.youtube.com/channel/UCiaX2B8XiXR70jaN7NK-FpA">Microsoft DirectX 12 and Graphics Education</a></td>
     </tr>
     <tr>
         <td>DirectX の概要とリファレンス</td>
@@ -1204,7 +1204,7 @@ DirectX ゲーム開発用のガイドと参照情報を紹介します。
     </tr>
     <tr>
         <td>DirectX 12 の基本事項 (ビデオ)</td>
-        <td><a href="https://channel9.msdn.com/Events/GDC/GDC-2015/Better-Power-Better-Performance-Your-Game-on-DirectX12">電力の向上、パフォーマンスの向上:DirectX 12 でのゲーム</a></td>
+        <td><a href="https://channel9.msdn.com/Events/GDC/GDC-2015/Better-Power-Better-Performance-Your-Game-on-DirectX12">Better Power, Better Performance: Your Game on DirectX 12</a></td>
     </tr>
 </table>
 
@@ -1219,7 +1219,7 @@ Direct3D 12 での変更点、および Direct3D 12 を使ってプログラミ�
     </colgroup>
     <tr>
         <td>プログラミング環境のセットアップ</td>
-        <td><a href="https://docs.microsoft.com/windows/desktop/direct3d12/directx-12-programming-environment-set-up">Direct3D 12 プログラミング環境のセットアップ</a></td>
+        <td><a href="https://docs.microsoft.com/windows/desktop/direct3d12/directx-12-programming-environment-set-up">Direct3D 12 programming environment setup</a></td>
     </tr>
     <tr>
         <td>基本的なコンポーネントを作成する方法</td>
@@ -1227,11 +1227,11 @@ Direct3D 12 での変更点、および Direct3D 12 を使ってプログラミ�
     </tr>
     <tr>
         <td>Direct3D 12 での変更点</td>
-        <td><a href="https://docs.microsoft.com/windows/desktop/direct3d12/important-changes-from-directx-11-to-directx-12">Direct3D 11 から Direct3D 12 への移行に関する重要な変更</a></td>
+        <td><a href="https://docs.microsoft.com/windows/desktop/direct3d12/important-changes-from-directx-11-to-directx-12">Important changes migrating from Direct3D 11 to Direct3D 12</a></td>
     </tr>
     <tr>
         <td>Direct3D 11 から Direct3D 12 に移植する方法</td>
-        <td><a href="https://docs.microsoft.com/windows/desktop/direct3d12/porting-from-direct3d-11-to-direct3d-12">Direct3D 11 から Direct3D 12 への移植</a></td>
+        <td><a href="https://docs.microsoft.com/windows/desktop/direct3d12/porting-from-direct3d-11-to-direct3d-12">Porting from Direct3D 11 to Direct3D 12</a></td>
     </tr>
     <tr>
         <td>リソース バインディングの概念 (対象となる記述子、記述子テーブル、記述子ヒープ、およびルート署名) </td>
@@ -1255,31 +1255,31 @@ DirectX ツール キット、DirectX テクスチャ処理ライブラリ、Dir
     </colgroup>
     <tr>
         <td>DirectX 11 用 DirectX ツール キットを入手する</td>
-        <td><a href="https://go.microsoft.com/fwlink/?LinkId=248929">DirectXTK</a></td>
+        <td><a href="https://github.com/Microsoft/DirectXTK">DirectXTK</a></td>
     </tr>
     <tr>
         <td>DirectX 12 用 DirectX ツール キットを入手する</td>
-        <td><a href="https://go.microsoft.com/fwlink/?LinkID=615561">DirectXTK 12</a></td>
+        <td><a href="https://github.com/Microsoft/DirectXTK12">DirectXTK 12</a></td>
     </tr>
     <tr>
         <td>DirectX テクスチャ処理ライブラリを入手する</td>
-        <td><a href="https://go.microsoft.com/fwlink/?LinkId=248926">DirectXTex</a></td>
+        <td><a href="https://github.com/Microsoft/DirectXTex">DirectXTex</a></td>
     </tr>
     <tr>
         <td>DirectXMesh ジオメトリ処理ライブラリを入手する</td>
-        <td><a href="https://go.microsoft.com/fwlink/?LinkID=324981">DirectXMesh</a></td>
+        <td><a href="https://github.com/Microsoft/DirectXMesh">DirectXMesh</a></td>
     </tr>
     <tr>
         <td>isochart テクスチャ アトラスを作成してパッケージ化するための UVAtlas を入手する</td>
-        <td><a href="https://go.microsoft.com/fwlink/?LinkID=512686">UVAtlas</a></td>
+        <td><a href="https://github.com/Microsoft/UVAtlas">UVAtlas</a></td>
     </tr>
     <tr>
         <td>DirectXMath のライブラリを入手する</td>
-        <td><a href="https://go.microsoft.com/fwlink/?LinkID=615560">DirectXMath</a></td>
+        <td><a href="https://github.com/Microsoft/DirectXMath">DirectXMath</a></td>
     </tr>
     <tr>
-        <td>DirectXTK での Direct3D 12 のサポート (ブログの投稿)</td>
-        <td><a href="https://github.com/Microsoft/DirectXTK/issues/2">DirectX 12 のサポート</a></td>
+        <td>Direct3D 12 support in the DirectXTK (blog post)</td>
+        <td><a href="https://github.com/Microsoft/DirectXTK/issues/2">Support for DirectX 12</a></td>
     </tr>
 </table>
 
@@ -1293,25 +1293,25 @@ DirectX ツール キット、DirectX テクスチャ処理ライブラリ、Dir
     <col width="50%" />
     </colgroup>
     <tr>
-        <td>NvidiaDX12 Do's and すべき (ブログの投稿) </td>
-        <td><a href="https://developer.nvidia.com/dx12-dos-and-donts-updated">Nvidia Gpu の DirectX 12</a></td>
+        <td>Nvidia: DX12 での推奨と非推奨 (ブログ投稿) </td>
+        <td><a href="https://developer.nvidia.com/dx12-dos-and-donts-updated">DirectX 12 on Nvidia GPUs</a></td>
     </tr>
     <tr>
-        <td>IntelDirectX 12 を使用した効率的なレンダリング</td>
-        <td><a href="https://software.intel.com/sites/default/files/managed/4a/38/Efficient-Rendering-with-DirectX-12-on-Intel-Graphics.pdf">Intel グラフィックスでの DirectX 12 のレンダリング</a></td>
+        <td>Intel: DirectX 12 を使った効率的なレンダリング</td>
+        <td><a href="https://software.intel.com/sites/default/files/managed/4a/38/Efficient-Rendering-with-DirectX-12-on-Intel-Graphics.pdf">DirectX 12 rendering on Intel Graphics</a></td>
     </tr>
     <tr>
-        <td>IntelDirectX 12 でのマルチアダプターのサポート</td>
-        <td><a href="https://software.intel.com/articles/multi-adapter-support-in-directx-12">DirectX 12 を使用して明示的なマルチアダプターアプリケーションを実装する方法</a></td>
+        <td>Intel: DirectX 12 でのマルチ アダプターのサポート</td>
+        <td><a href="https://software.intel.com/articles/multi-adapter-support-in-directx-12">How to implement an explicit multi-adapter application using DirectX 12</a></td>
     </tr>
     <tr>
-        <td>IntelDirectX 12 チュートリアル</td>
-        <td><a href="https://software.intel.com/articles/tutorial-migrating-your-apps-to-directx-12-part-1">Intel、Suzhou、および Microsoft による共同のホワイトペーパー</a></td>
+        <td>Intel: DirectX 12 のチュートリアル</td>
+        <td><a href="https://software.intel.com/articles/tutorial-migrating-your-apps-to-directx-12-part-1">Collaborative white paper by Intel, Suzhou Snail and Microsoft</a></td>
     </tr>
 </table>
 
 
-## <a name="production"></a>Production
+## <a name="production"></a>実稼働
 
 
 制作スタジオの準備が整ったら、チーム全体に作業を分散して制作サイクルに移行します。 プロトタイプの調整、リファクタリング、拡張によって、ゲームの完成品に仕上げていきます。
@@ -1331,11 +1331,11 @@ DirectX ツール キット、DirectX テクスチャ処理ライブラリ、Dir
     </tr>
     <tr>
         <td>ライブ タイルと通知を示すサンプル</td>
-        <td><a href="https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Notifications">通知のサンプル</a></td>
+        <td><a href="https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Notifications">Notifications sample</a></td>
     </tr>
     <tr>
         <td>アダプティブ タイル テンプレート (ブログの投稿)</td>
-        <td><a href="https://blogs.msdn.microsoft.com/tiles_and_toasts/2015/06/30/adaptive-tile-templates-schema-and-documentation/">アダプティブタイルテンプレート-スキーマとドキュメント</a></td>
+        <td><a href="https://blogs.msdn.microsoft.com/tiles_and_toasts/2015/06/30/adaptive-tile-templates-schema-and-documentation/">Adaptive Tile Templates - Schema and Documentation</a></td>
     </tr>
     <tr>
         <td>タイルとバッジの設計</td>
@@ -1347,18 +1347,18 @@ DirectX ツール キット、DirectX テクスチャ処理ライブラリ、Dir
     </tr>
     <tr>
         <td>Visual Studio 用の UWP Tile Generator 拡張機能</td>
-        <td><a href="https://marketplace.visualstudio.com/items?itemName=shenchauhan.UWPTileGenerator">1つのイメージを使用して必要なすべてのタイルを作成するためのツール</a></td>
+        <td><a href="https://marketplace.visualstudio.com/items?itemName=shenchauhan.UWPTileGenerator">Tool for creating all required tiles using single image</a></td>
     </tr>
     <tr>
         <td>Visual Studio 用の UWP Tile Generator 拡張機能 (ブログの投稿)</td>
-        <td><a href="https://blogs.windows.com/buildingapps/2016/02/15/uwp-tile-generator-extension-for-visual-studio/">UWP タイルジェネレーターツールの使用に関するヒント</a></td>
+        <td><a href="https://blogs.windows.com/buildingapps/2016/02/15/uwp-tile-generator-extension-for-visual-studio/">Tips on using the UWP Tile Generator tool</a></td>
     </tr>
 </table>
  
 
-### <a name="enable-in-app-product-add-on-purchases"></a>アプリ内製品 (アドオン) の購入を有効にする
+### <a name="enable-in-app-product-add-on-purchases"></a>Enable in-app product (add-on) purchases
 
-アドオン (アプリ内製品) は、プレイヤーがゲームで購入できる補助的な項目です。 アドオンには、ゲームレベル、項目、またはプレーヤーが利用できるその他のものを使用できます。 適切に使用することで、アドオンはゲームエクスペリエンスを向上させながら収益を提供できます。 パートナーセンターでゲームのアドオンを定義して公開し、ゲームのコードでアプリ内購入を有効にします。
+An add-on (in-app product) is a supplementary item that players can purchase in-game. Add-ons can be game levels, items, or anything else that your players might enjoy. Used appropriately, add-ons can provide revenue while improving the game experience. You define and publish your game's add-ons through Partner Center, and enable in-app purchases in your game's code.
 
 <table>
     <colgroup>
@@ -1366,19 +1366,19 @@ DirectX ツール キット、DirectX テクスチャ処理ライブラリ、Dir
     <col width="50%" />
     </colgroup>
     <tr>
-        <td>持続性のあるアドオン</td>
+        <td>Durable add-ons</td>
         <td><a href="https://docs.microsoft.com/windows/uwp/monetize/enable-in-app-product-purchases">アプリ内製品購入を有効にする</a></td>
     </tr>
     <tr>
-        <td>利用できるアドオン</td>
+        <td>Consumable add-ons</td>
         <td><a href="https://docs.microsoft.com/windows/uwp/monetize/enable-consumable-in-app-product-purchases">コンシューマブルなアプリ内製品購入を有効にする</a></td>
     </tr>
     <tr>
-        <td>アドオンの詳細と送信</td>
+        <td>Add-on details and submission</td>
         <td><a href="https://docs.microsoft.com/windows/uwp/publish/iap-submissions">アドオンの申請</a></td>
     </tr>
     <tr>
-        <td>ゲームのアドオンの売上と人口統計を監視する</td>
+        <td>Monitor add-on sales and demographics for your game</td>
         <td><a href="https://docs.microsoft.com/windows/uwp/publish/iap-acquisitions-report">アドオン取得レポート</a></td>
     </tr>
 </table>
@@ -1388,7 +1388,7 @@ DirectX ツール キット、DirectX テクスチャ処理ライブラリ、Dir
 
 パフォーマンスを最適化するには、Windows 10 のゲーム モードを活用し、ハードウェアの機能を最大限に活用して、ゲーマーに可能な限りのゲーム エクスペリエンスを提供します。
 
-Windows Performance Toolkit (WPT) は、Windows オペレーティング システムやアプリケーションの詳しいパフォーマンス プロファイルを生成するための一連のパフォーマンス監視ツールです。 これは、メモリ使用量を監視し、ゲームのパフォーマンスを向上させるために特に便利です。 Windows Performance Toolkit は、Windows 10 SDK と Windows ADK に含まれています。 このツールキットは、次の2つの独立したツールで構成されます。Windows パフォーマンスレコーダー (WPR) と Windows パフォーマンスアナライザー (WPA)。 [Windows Sysinternals](https://technet.microsoft.com/sysinternals/default) に含まれる ProcDump は、コマンドライン ユーティリティであり、CPU 使用量の急上昇を監視し、ゲームのクラッシュ時にダンプ ファイルを生成します。 
+Windows Performance Toolkit (WPT) は、Windows オペレーティング システムやアプリケーションの詳しいパフォーマンス プロファイルを生成するための一連のパフォーマンス監視ツールです。 これは、メモリ使用量を監視し、ゲームのパフォーマンスを向上させるために特に便利です。 Windows Performance Toolkit は、Windows 10 SDK と Windows ADK に含まれています。 このツールキットは、2 つの独立したツールで構成されています。Windows Performance Recorder (WPR) と Windows Performance Analyzer (WPA) です。 [Windows Sysinternals](https://technet.microsoft.com/sysinternals/default) に含まれる ProcDump は、コマンドライン ユーティリティであり、CPU 使用量の急上昇を監視し、ゲームのクラッシュ時にダンプ ファイルを生成します。 
 
 <table>
     <colgroup>
@@ -1397,11 +1397,11 @@ Windows Performance Toolkit (WPT) は、Windows オペレーティング シス�
     </colgroup>
     <tr>
         <td>コードのパフォーマンス テストを行う</td>
-        <td><a href="https://azure.microsoft.com/services/devops/test-plans/">クラウドベースのロードテスト</a></td>
+        <td><a href="https://azure.microsoft.com/services/devops/test-plans/">Cloud based load testing</a></td>
     </tr>
     <tr>
         <td>ゲーム デバイス情報を使用して Xbox 本体のタイプを取得する</td>
-        <td><a href="https://docs.microsoft.com/previous-versions/windows/desktop/gamingdvcinfo/gaming-device-information-portal">ゲームデバイス情報</a></td>
+        <td><a href="https://docs.microsoft.com/previous-versions/windows/desktop/gamingdvcinfo/gaming-device-information-portal">Gaming Device Information</a></td>
     </tr>
     <tr>
         <td>ゲーム モードの API の使用によるハードウェア リソースへの排他的または優先的なアクセスを使ったパフォーマンスの向上</td>
@@ -1417,11 +1417,11 @@ Windows Performance Toolkit (WPT) は、Windows オペレーティング シス�
     </tr>
     <tr>
         <td>Windows Performance Analyzer を使って応答しない UI のトラブルシューティングを行う (ビデオ)</td>
-        <td><a href="https://channel9.msdn.com/Shows/Defrag-Tools/Defrag-Tools-156-Critical-Path-Analysis-with-Windows-Performance-Analyzer">WPA を使用したクリティカルパス分析</a></td>
+        <td><a href="https://channel9.msdn.com/Shows/Defrag-Tools/Defrag-Tools-156-Critical-Path-Analysis-with-Windows-Performance-Analyzer">Critical path analysis with WPA</a></td>
     </tr>
     <tr>
         <td>Windows Performance Recorder を使ってメモリ使用量とメモリ リークを診断する (ビデオ)</td>
-        <td><a href="https://channel9.msdn.com/Shows/Defrag-Tools/Defrag-Tools-154-Memory-Footprint-and-Leaks">メモリフットプリントとリーク</a></td>
+        <td><a href="https://channel9.msdn.com/Shows/Defrag-Tools/Defrag-Tools-154-Memory-Footprint-and-Leaks">Memory footprint and leaks</a></td>
     </tr>
     <tr>
         <td>ProcDump を取得する</td>
@@ -1429,7 +1429,7 @@ Windows Performance Toolkit (WPT) は、Windows オペレーティング シス�
     </tr>
     <tr>
         <td>ProcDump の使い方 (ビデオ)</td>
-        <td><a href="https://channel9.msdn.com/Shows/Defrag-Tools/Defrag-Tools-131-Windows-10-SDK">ダンプファイルを作成するように ProcDump を構成する</a></td>
+        <td><a href="https://channel9.msdn.com/Shows/Defrag-Tools/Defrag-Tools-131-Windows-10-SDK">Configure ProcDump to create dump files</a></td>
     </tr>
 </table>
 
@@ -1444,23 +1444,23 @@ DirectX の開発には微妙で複雑な部分があります。 運用環境�
     </colgroup>
     <tr>
         <td>Windows の PIX</td>
-        <td><a href="https://devblogs.microsoft.com/pix/introducing-pix-on-windows-beta/">Windows での DirectX 12 のパフォーマンスチューニングおよびデバッグツール</a></td>
+        <td><a href="https://devblogs.microsoft.com/pix/introducing-pix-on-windows-beta/">Performance tuning and debugging tool for DirectX 12 on Windows</a></td>
     </tr>
     <tr>
         <td>D3D12 開発のデバッグと検証のツール (ビデオ)</td>
-        <td><a href="https://channel9.msdn.com/Events/GDC/GDC-2017/GDC2017-003">PIX と GPU 検証を使用した D3D12 パフォーマンスのチューニングとデバッグ</a></td>
+        <td><a href="https://channel9.msdn.com/Events/GDC/GDC-2017/GDC2017-003">D3D12 Performance Tuning and Debugging with PIX and GPU Validation</a></td>
     </tr>
     <tr>
         <td>グラフィックスとパフォーマンスの最適化 (ビデオ)</td>
-        <td><a href="https://channel9.msdn.com/Events/GDC/GDC-2015/Advanced-DirectX12-Graphics-and-Performance">DirectX 12 の高度なグラフィックスとパフォーマンス</a></td>
+        <td><a href="https://channel9.msdn.com/Events/GDC/GDC-2015/Advanced-DirectX12-Graphics-and-Performance">Advanced DirectX 12 Graphics and Performance</a></td>
     </tr>
     <tr>
         <td>DirectX グラフィックスのデバッグ (ビデオ)</td>
-        <td><a href="https://channel9.msdn.com/Events/GDC/GDC-2015/Solve-the-Tough-Graphics-Problems-with-your-Game-Using-DirectX-Tools">DirectX ツールを使用したゲームでのグラフィックスの困難な問題を解決する</a></td>
+        <td><a href="https://channel9.msdn.com/Events/GDC/GDC-2015/Solve-the-Tough-Graphics-Problems-with-your-Game-Using-DirectX-Tools">Solve the tough graphics problems with your game using DirectX Tools</a></td>
     </tr>
     <tr>
         <td>DirectX 12 をデバッグするための Visual Studio 2015 のツール (ビデオ)</td>
-        <td><a href="https://channel9.msdn.com/Series/ConnectOn-Demand/212">Visual Studio 2015 での Windows 10 用 DirectX ツール</a></td>
+        <td><a href="https://channel9.msdn.com/Series/ConnectOn-Demand/212">DirectX tools for Windows 10 in Visual Studio 2015</a></td>
     </tr>
     <tr>
         <td>Direct3D 12 プログラミング ガイド</td>
@@ -1468,7 +1468,7 @@ DirectX の開発には微妙で複雑な部分があります。 運用環境�
     </tr>
     <tr>
         <td>DirectX と XAML の組み合わせ</td>
-        <td><a href="directx-and-xaml-interop.md">DirectX と XAML 相互運用</a></td>
+        <td><a href="directx-and-xaml-interop.md">DirectX and XAML interop</a></td>
     </tr>
 </table>
 
@@ -1483,15 +1483,15 @@ HDR のフル カラー機能を使用するゲーム コンテンツを構築�
     </colgroup>
     <tr>
         <td>HDR の概要と色の概念 (ビデオ)</td>
-        <td><a href="https://channel9.msdn.com/Events/Build/2017/P4061">DirectX での HDR と高度な色の設定</a></td>
+        <td><a href="https://channel9.msdn.com/Events/Build/2017/P4061">Lighting up HDR and advanced color in DirectX</a></td>
     </tr>
     <tr>
         <td>HDR コンテンツをレンダリングする方法と、現在のディスプレイが HDR コンテンツをサポートするかどうかを検出する方法について説明します。</td>
-        <td><a href="https://github.com/Microsoft/DirectX-Graphics-Samples/tree/master/Samples/UWP/D3D12HDR">HDR サンプル</a></td>
+        <td><a href="https://github.com/Microsoft/DirectX-Graphics-Samples/tree/master/Samples/UWP/D3D12HDR">HDR sample</a></td>
     </tr>
     <tr>
         <td>DirectX を使用して高度な色を作成および構成する</td>
-        <td><a href="https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/D2DAdvancedColorImages">Direct2D 高度なカラーイメージレンダリングのサンプル</a></td>
+        <td><a href="https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/D2DAdvancedColorImages">Direct2D advanced color image rendering sample</a></td>
     </tr>   
 </table>
 
@@ -1507,21 +1507,21 @@ Windows プラットフォーム用の多言語対応ゲームを開発し、Mic
     </colgroup>
     <tr>
         <td>世界市場向けのゲームの準備</td>
-        <td><a href="https://docs.microsoft.com/windows/uwp/globalizing/globalizing-portal">グローバルユーザー向けの開発に関するガイドライン</a></td>
+        <td><a href="https://docs.microsoft.com/windows/uwp/globalizing/globalizing-portal">Guidelines when developing for a global audience</a></td>
     </tr>
     <tr>
         <td>言語、文化、およびテクノロジの橋渡し</td>
-        <td><a href="https://www.microsoft.com/Language/Default.aspx">言語規則と標準の Microsoft の用語に関するオンラインリソース</a></td>
+        <td><a href="https://www.microsoft.com/Language/Default.aspx">Online resource for language conventions and standard Microsoft terminology</a></td>
     </tr>
 </table>
 
 ## <a name="submitting-and-publishing-your-game"></a>ゲームの申請と公開
 
-次のガイドと情報は、公開と申請のプロセスをできるだけスムーズに進めるために役立ちます。
+次のガイドと情報は、公開と申請のプロセスをできるだけスムーズに進めるのに役立ちます。
 
-### <a name="publishing"></a>置換
+### <a name="publishing"></a>公開
 
-[パートナーセンター](https://partner.microsoft.com/dashboard)を使用して、ゲームパッケージの発行と管理を行います。
+You'll use [Partner Center](https://partner.microsoft.com/dashboard) to publish and manage your game packages.
 
 <table>
     <colgroup>
@@ -1529,20 +1529,20 @@ Windows プラットフォーム用の多言語対応ゲームを開発し、Mic
     <col width="50%" />
     </colgroup>
     <tr>
-        <td>パートナーセンターアプリの発行</td>
+        <td>Partner Center app publishing</td>
         <td><a href="https://developer.microsoft.com/store/publish-apps">Windows アプリを公開する</a></td>
     </tr>
     <tr>
-        <td>パートナーセンターの高度な発行 (GDN)</td>
-        <td><a href="https://developer.xboxlive.com/en-us/windows/documentation/Pages/home.aspx">パートナーセンターの高度な発行ガイド</a></td>
+        <td>Partner Center advanced publishing (GDN)</td>
+        <td><a href="https://developer.xboxlive.com/en-us/windows/documentation/Pages/home.aspx">Partner Center advanced publishing guide</a></td>
     </tr>
     <tr>
-        <td>Azure Active Directory (AAD) を使用してパートナーセンターアカウントにユーザーを追加する</td>
-        <td><a href="https://docs.microsoft.com/windows/uwp/publish/manage-account-users">アカウントユーザーを管理する</a></td>
+        <td>Use Azure Active Directory (AAD) to add users to your Partner Center account</td>
+        <td><a href="https://docs.microsoft.com/windows/uwp/publish/manage-account-users">Manage account users</a></td>
     </tr>   
     <tr>
         <td>ゲームの評価 (ブログの投稿)</td>
-        <td><a href="https://blogs.windows.com/buildingapps/2016/01/06/now-available-single-age-rating-system-to-simplify-app-submissions/">IARC システムを使用して年齢区分を割り当てる1つのワークフロー</a></td>
+        <td><a href="https://blogs.windows.com/buildingapps/2016/01/06/now-available-single-age-rating-system-to-simplify-app-submissions/">Single workflow to assign age ratings using IARC system</a></td>
     </tr>
 </table>
 
@@ -1555,11 +1555,11 @@ Windows プラットフォーム用の多言語対応ゲームを開発し、Mic
     </colgroup>
     <tr>
         <td>ストリーミング インストールとオプション パッケージを使用する方法 (ビデオ)</td>
-        <td><a href="https://channel9.msdn.com/Events/Build/2017/B8093">Nextgen UWP アプリの配布:拡張可能なストリーム配信可能アプリの構築</a></td>
+        <td><a href="https://channel9.msdn.com/Events/Build/2017/B8093">Nextgen UWP app distribution: Building extensible, stream-able, componentized apps</a></td>
     </tr>
     <tr>
         <td>コンテンツの分割とグループ化によるストリーミング インストールの実現</td>
-        <td><a href="https://docs.microsoft.com/windows/msix/package/streaming-install">UWP アプリのストリーミングインストール</a></td>
+        <td><a href="https://docs.microsoft.com/windows/msix/package/streaming-install">UWP App Streaming install</a></td>
     </tr>
     <tr>
         <td>DLC ゲーム コンテンツのようなオプション パッケージを作成する</td>
@@ -1571,23 +1571,23 @@ Windows プラットフォーム用の多言語対応ゲームを開発し、Mic
     </tr>
     <tr>
         <td>UWP DirectX ゲームのパッケージ化</td>
-        <td><a href="package-your-windows-store-directx-game.md">UWP DirectX ゲームのパッケージ化</a></td>
+        <td><a href="package-your-windows-store-directx-game.md">Package your UWP DirectX game</a></td>
     </tr>
     <tr>
         <td>サード パーティ開発者としてのゲームのパッケージ化 (ブログ投稿)</td>
-        <td><a href="https://blogs.windows.com/buildingapps/2015/12/15/building-an-app-for-a-3rd-party-how-to-package-their-store-app/">発行元のストアアカウントにアクセスせずに、uploadable パッケージを作成する</a></td>
+        <td><a href="https://blogs.windows.com/buildingapps/2015/12/15/building-an-app-for-a-3rd-party-how-to-package-their-store-app/">Create uploadable packages without publisher's store account access</a></td>
     </tr>
     <tr>
         <td>MakeAppx を使用したアプリ パッケージとアプリ パッケージ バンドルの作成</td>
-        <td><a href="https://docs.microsoft.com/windows/msix/package/create-app-package-with-makeappx-tool">アプリパッケージャーツールを使用したパッケージの作成 MakeAppx</a></td>
+        <td><a href="https://docs.microsoft.com/windows/msix/package/create-app-package-with-makeappx-tool">Create packages using app packager tool MakeAppx.exe</a></td>
     </tr>
     <tr>
         <td>SignTool を使用したファイルへのデジタル署名</td>
-        <td><a href="https://docs.microsoft.com/windows/desktop/SecCrypto/signtool">SignTool を使用してファイルに署名し、ファイルの署名を検証する</a></td>
+        <td><a href="https://docs.microsoft.com/windows/desktop/SecCrypto/signtool">Sign files and verify signatures in files using SignTool</a></td>
     </tr>    
     <tr>
         <td>ゲームのアップロードとバージョン管理</td>
-        <td><a href="https://docs.microsoft.com/windows/uwp/publish/upload-app-packages">アプリパッケージのアップロード</a></td>
+        <td><a href="https://docs.microsoft.com/windows/uwp/publish/upload-app-packages">Upload app packages</a></td>
     </tr>
 </table>
 
@@ -1611,7 +1611,7 @@ Windows プラットフォーム用の多言語対応ゲームを開発し、Mic
     </tr>
     <tr>
         <td>一般的なアプリの認定の問題を回避する方法</td>
-        <td><a href="https://docs.microsoft.com/windows/uwp/publish/avoid-common-certification-failures">一般的な認証エラーを回避する</a></td>
+        <td><a href="https://docs.microsoft.com/windows/uwp/publish/avoid-common-certification-failures">Avoid common certification failures</a></td>
     </tr>
 </table>
  
@@ -1627,7 +1627,7 @@ Windows プラットフォーム用の多言語対応ゲームを開発し、Mic
     </colgroup>
     <tr>
         <td>ストア マニフェストのスキーマ</td>
-        <td><a href="https://docs.microsoft.com/uwp/schemas/storemanifest/storemanifestschema2015/schema-root">StoreManifest スキーマ (Windows 10)</a></td>
+        <td><a href="https://docs.microsoft.com/uwp/schemas/storemanifest/storemanifestschema2015/schema-root">StoreManifest schema (Windows 10)</a></td>
     </tr>
 </table>
  
@@ -1637,7 +1637,7 @@ Windows プラットフォーム用の多言語対応ゲームを開発し、Mic
 
 開発が終了し、ゲームを出荷しても、"ゲーム オーバー" というわけではありません。 バージョン 1 の開発は終了ですが、市場でのゲームの旅は始まったばかりです。 使用状況やエラー レポートの監視、ユーザーからのフィードバックへの対応、ゲームの更新プログラムの公開という作業が必要になります。
 
-### <a name="partner-center-analytics-and-promotion"></a>パートナーセンターの分析とプロモーション
+### <a name="partner-center-analytics-and-promotion"></a>Partner Center analytics and promotion
 
 <table>
     <colgroup>
@@ -1645,12 +1645,12 @@ Windows プラットフォーム用の多言語対応ゲームを開発し、Mic
     <col width="50%" />
     </colgroup>
     <tr>
-        <td>パートナーセンター分析</td>
-        <td><a href="https://docs.microsoft.com/windows/uwp/publish/analytics">アプリのパフォーマンスの分析</a></td>
+        <td>Partner Center analytics</td>
+        <td><a href="https://docs.microsoft.com/windows/uwp/publish/analytics">Analyze app performance</a></td>
     </tr>
     <tr>
         <td>ゲーム内で Xbox の機能を使用してユーザーを引き付ける方法について説明します。</td>
-        <td><a href="../publish/xbox-analytics-report.md">Xbox analytics レポート</a></td>
+        <td><a href="../publish/xbox-analytics-report.md">Xbox analytics report</a></td>
     </tr>
     <tr>
         <td>顧客のレビューへの返信</td>
@@ -1678,7 +1678,7 @@ Visual Studio Application Insights は、公開されたゲームのパフォー
     </tr>
     <tr>
         <td>Windows アプリでの Application Insights の有効化</td>
-        <td><a href="https://azure.microsoft.com/documentation/articles/app-insights-windows-get-started/">Windows Phone およびストアアプリの Application Insights</a></td>
+        <td><a href="https://azure.microsoft.com/documentation/articles/app-insights-windows-get-started/">Application Insights for Windows Phone and Store apps</a></td>
     </tr>
 </table>
 
@@ -1692,27 +1692,27 @@ Visual Studio Application Insights は、公開されたゲームのパフォー
     </colgroup>
     <tr>
         <td>GameAnalytics を使用してプレイヤーの動作を理解する</td>
-        <td><a href="https://gameanalytics.com/">お持ちのお持ちの分析</a></td>
+        <td><a href="https://gameanalytics.com/">GameAnalytics</a></td>
     </tr>
     <tr>
         <td>UWP ゲームを Google Analytics に接続する</td>
-        <td><a href="https://github.com/dotnet/windows-sdk-for-google-analytics">Google アナリティクスの Windows SDK を取得する</a></td>
+        <td><a href="https://github.com/dotnet/windows-sdk-for-google-analytics">Get Windows SDK for Google Analytics</a></td>
     </tr>
     <tr>
         <td>Google Analytics で Windows SDK を利用する方法 (ビデオ)</td>
-        <td><a href="https://channel9.msdn.com/Events/Windows/Windows-Developer-Day-Creators-Update/Getting-started-with-the-Windows-SDK-for-Google-Analytics">Google アナリティクスの Windows SDK の概要</a></td>
+        <td><a href="https://channel9.msdn.com/Events/Windows/Windows-Developer-Day-Creators-Update/Getting-started-with-the-Windows-SDK-for-Google-Analytics">Getting started with Windows SDK for Google Analytics</a></td>
     </tr>    
     <tr>
         <td>Facebook のアプリ インストール広告を使って Facebook ユーザー向けにゲームのプロモーションを行う</td>
-        <td><a href="https://github.com/Microsoft/winsdkfb">Facebook の Windows SDK を取得する</a></td>
+        <td><a href="https://github.com/Microsoft/winsdkfb">Get Windows SDK for Facebook</a></td>
     </tr>
     <tr>
         <td>Facebook のアプリ インストール広告の使用方法 (ビデオ)</td>
-        <td><a href="https://channel9.msdn.com/Events/Windows/Windows-Developer-Day-Creators-Update/Getting-started-with-Facebook-App-Install-Ads">Facebook 用 Windows SDK の概要</a></td>
+        <td><a href="https://channel9.msdn.com/Events/Windows/Windows-Developer-Day-Creators-Update/Getting-started-with-Facebook-App-Install-Ads">Getting started with Windows SDK for Facebook</a></td>
     </tr>
     <tr>
         <td>Vungle を使用してゲームにビデオ広告を追加する</td>
-        <td><a href="https://publisher.vungle.com/sdk/">Vungle の Windows SDK を取得する</a></td>
+        <td><a href="https://publisher.vungle.com/sdk/">Get Windows SDK for Vungle</a></td>
     </tr>
 </table>
  
@@ -1728,11 +1728,11 @@ Visual Studio Application Insights は、公開されたゲームのパフォー
     </colgroup>
     <tr>
         <td>ゲームの更新とバージョン管理</td>
-        <td><a href="https://docs.microsoft.com/windows/uwp/publish/package-version-numbering">パッケージバージョン番号付け</a></td>
+        <td><a href="https://docs.microsoft.com/windows/uwp/publish/package-version-numbering">Package version numbering</a></td>
     </tr>
     <tr>
         <td>ゲームのパッケージ管理のガイダンス</td>
-        <td><a href="https://docs.microsoft.com/windows/uwp/publish/package-version-numbering">アプリケーションパッケージの管理に関するガイダンス</a></td>
+        <td><a href="https://docs.microsoft.com/windows/uwp/publish/package-version-numbering">Guidance for app package management</a></td>
     </tr>
 </table>
 
@@ -1751,19 +1751,19 @@ Xbox Live は、世界中の何百万ものゲーマーを結びつける最高�
     </colgroup>
     <tr>
         <td>Xbox Live の概要</td>
-        <td><a href="https://docs.microsoft.com/gaming/xbox-live/index.md">Xbox Live 開発者ガイド</a></td>
+        <td><a href="https://docs.microsoft.com/gaming/xbox-live/index.md">Xbox Live developer guide</a></td>
     </tr>
     <tr>
         <td>プログラムによって利用できる機能を理解する</td>
-        <td><a href="https://docs.microsoft.com/gaming/xbox-live/developer-program-overview.md#feature-table">開発者プログラムの概要:機能テーブル</a></td>
+        <td><a href="https://docs.microsoft.com/gaming/xbox-live/developer-program-overview.md#feature-table">Developer program overview: Feature table</a></td>
     </tr>
     <tr>
         <td>Xbox Live ゲーム開発に役立つリソースへのリンク</td>
-        <td><a href="https://docs.microsoft.com/gaming/xbox-live/xbox-live-resources.md">Xbox ライブリソース</a></td>
+        <td><a href="https://docs.microsoft.com/gaming/xbox-live/xbox-live-resources.md">Xbox Live resources</a></td>
     </tr>
     <tr>
         <td>Xbox Live サービスから情報を取得する方法</td>
-        <td><a href="https://docs.microsoft.com/gaming/xbox-live/introduction-to-xbox-live-apis.md">Xbox Live Api の概要</a></td>
+        <td><a href="https://docs.microsoft.com/gaming/xbox-live/introduction-to-xbox-live-apis.md">Introduction to Xbox Live APIs</a></td>
     </tr>
 </table>
 
@@ -1777,27 +1777,27 @@ Xbox Live は、世界中の何百万ものゲーマーを結びつける最高�
     </colgroup>
     <tr>
         <td>概要</td>
-        <td><a href="https://docs.microsoft.com/gaming/xbox-live/get-started-with-creators/get-started-with-xbox-live-creators.md">Xbox Live クリエータープログラムを使ってみる</a></td>
+        <td><a href="https://docs.microsoft.com/gaming/xbox-live/get-started-with-creators/get-started-with-xbox-live-creators.md">Get started with the Xbox Live Creators Program</a></td>
     </tr>
     <tr>
         <td>ゲームへの Xbox Live の追加</td>
-        <td><a href="https://docs.microsoft.com/gaming/xbox-live/get-started-with-creators/creators-step-by-step-guide.md">Xbox Live クリエータープログラムを統合するためのステップバイステップガイド</a></td>
+        <td><a href="https://docs.microsoft.com/gaming/xbox-live/get-started-with-creators/creators-step-by-step-guide.md">Step by step guide to integrate Xbox Live Creators Program</a></td>
     </tr>
     <tr>
         <td>Unity を使用して作成された UWP ゲームに Xbox Live を追加する</td>
-        <td><a href="https://docs.microsoft.com/gaming/xbox-live/get-started-with-creators/develop-creators-title-with-unity.md">Unity ゲームエンジンで Xbox Live 作成者のプログラムタイトルの開発を開始する</a></td>
+        <td><a href="https://docs.microsoft.com/gaming/xbox-live/get-started-with-creators/develop-creators-title-with-unity.md">Get started developing an Xbox Live Creators Program title with the Unity game engine</a></td>
     </tr>
     <tr>
         <td>開発サンドボックスをセットアップする</td>
-        <td><a href="https://docs.microsoft.com/gaming/xbox-live/get-started-with-creators/xbox-live-sandboxes-creators.md">Xbox Live サンドボックスの概要</a></td>
+        <td><a href="https://docs.microsoft.com/gaming/xbox-live/get-started-with-creators/xbox-live-sandboxes-creators.md">Xbox Live sandboxes introduction</a></td>
     </tr>
     <tr>
         <td>テスト用のアカウントを設定する</td>
-        <td><a href="https://docs.microsoft.com/gaming/xbox-live/get-started-with-creators/authorize-xbox-live-accounts.md">テスト環境で Xbox Live アカウントを承認する</a></td>
+        <td><a href="https://docs.microsoft.com/gaming/xbox-live/get-started-with-creators/authorize-xbox-live-accounts.md">Authorize Xbox Live accounts in your test environment</a></td>
     </tr>
     <tr>
         <td>Xbox Live クリエーターズ プログラム向けサンプル</td>
-        <td><a href="https://github.com/Microsoft/xbox-live-samples/tree/master/Samples/CreatorsSDK">作成者プログラム開発者向けのコードサンプル</a></td>
+        <td><a href="https://github.com/Microsoft/xbox-live-samples/tree/master/Samples/CreatorsSDK">Code samples for Creators Program developers</a></td>
     </tr>
     <tr>
         <td>クロスプラット フォームの Xbox Live エクスペリエンスを UWP ゲームに統合する方法 (ビデオ)</td>
@@ -1814,48 +1814,48 @@ Xbox Live は、世界中の何百万ものゲーマーを結びつける最高�
     </colgroup>
     <tr>
         <td>概要</td>
-        <td><a href="https://docs.microsoft.com/gaming/xbox-live/get-started-with-partner/get-started-with-xbox-live-partner.md">マネージドパートナーまたは ID 開発者として Xbox Live を使ってみる</a></td>
+        <td><a href="https://docs.microsoft.com/gaming/xbox-live/get-started-with-partner/get-started-with-xbox-live-partner.md">Get started with Xbox Live as a managed partner or an ID developer</a></td>
     </tr>
     <tr>
         <td>ゲームへの Xbox Live の追加</td>
-        <td><a href="https://docs.microsoft.com/gaming/xbox-live/get-started-with-partner/partners-step-by-step-guide.md">マネージドパートナーと ID メンバーに Xbox Live を統合するためのステップバイステップガイド</a></td>
+        <td><a href="https://docs.microsoft.com/gaming/xbox-live/get-started-with-partner/partners-step-by-step-guide.md">Step by step guide to integrate Xbox Live for managed partners and ID members</a></td>
     </tr>
     <tr>
         <td>Unity を使用して作成された UWP ゲームに Xbox Live を追加する</td>
-        <td><a href="https://docs.microsoft.com/gaming/xbox-live/get-started-with-partner/partner-unity-uwp-il2cpp.md">ID および管理されたパートナー向けの IL2CPP scripting バックエンドでの UWP のために、Xbox Live サポートを Unity に追加する</a></td>
+        <td><a href="https://docs.microsoft.com/gaming/xbox-live/get-started-with-partner/partner-unity-uwp-il2cpp.md">Add Xbox Live support to Unity for UWP with IL2CPP scripting backend for ID and managed partners</a></td>
     </tr>
     <tr>
         <td>開発サンドボックスをセットアップする</td>
-        <td><a href="https://docs.microsoft.com/gaming/xbox-live/get-started-with-partner/advanced-xbox-live-sandboxes.md">高度な Xbox Live サンドボックス</a></td>
+        <td><a href="https://docs.microsoft.com/gaming/xbox-live/get-started-with-partner/advanced-xbox-live-sandboxes.md">Advanced Xbox Live sandboxes</a></td>
     </tr>
     <tr>
         <td>Xbox Live を使うためのゲームの要件 (GDN)</td>
-        <td><a href="https://go.microsoft.com/fwlink/?LinkId=533217">Xbox Live on Windows 10 の xbox の要件</a></td>
+        <td><a href="https://edadfs.partners.extranet.microsoft.com/adfs/ls/?wa=wsignin1.0&wtrealm=https%3a%2f%2fdeveloper.xboxlive.com&wctx=rm%3d0%26id%3dpassive%26ru%3d%252fen-us%252flive%252fcertification%252frequirements%252fPages%252fTCR.aspx&wct=2019-11-20T19%3a55%3a26Z">Xbox Requirements for Xbox Live on Windows 10</a></td>
     </tr>
     <tr>
         <td>サンプル</td>
-        <td><a href="https://github.com/Microsoft/xbox-live-samples/tree/master/Samples/ID%40XboxSDK">開発者向けID@Xboxのコードサンプル</a></td>
+        <td><a href="https://github.com/Microsoft/xbox-live-samples/tree/master/Samples/ID%40XboxSDK">Code samples for ID@Xbox developers</a></td>
     </tr>  
     <tr>
         <td>Xbox Live のゲーム開発の概要 (ビデオ)</td>
-        <td><a href="https://channel9.msdn.com/Events/GDC/GDC-2015/Developing-with-Xbox-Live-for-Windows-10">Xbox Live for Windows 10 を使用した開発</a></td>
+        <td><a href="https://channel9.msdn.com/Events/GDC/GDC-2015/Developing-with-Xbox-Live-for-Windows-10">Developing with Xbox Live for Windows 10</a></td>
     </tr>
     <tr>
         <td>クロス プラットフォーム マッチメイキング (ビデオ)</td>
-        <td><a href="https://channel9.msdn.com/Events/GDC/GDC-2015/Xbox-Live-Multiplayer-Introducing-services-for-cross-platform-matchmaking-and-gameplay">Xbox Live マルチプレイヤー:クロスプラットフォームのマッチメイキングとゲームプレイのためのサービスの導入</a></td>
+        <td><a href="https://channel9.msdn.com/Events/GDC/GDC-2015/Xbox-Live-Multiplayer-Introducing-services-for-cross-platform-matchmaking-and-gameplay">Xbox Live Multiplayer: Introducing services for cross-platform matchmaking and gameplay</a></td>
     </tr>
     <tr>
         <td>Fable Legends でのクロス デバイスのゲームプレイ (ビデオ)</td>
-        <td><a href="https://channel9.msdn.com/Events/GDC/GDC-2015/Fable-Legends-Cross-device-Gameplay-with-Xbox-Live">Fable の凡例:Xbox Live でのクロスデバイスゲームプレイ</a></td>
+        <td><a href="https://channel9.msdn.com/Events/GDC/GDC-2015/Fable-Legends-Cross-device-Gameplay-with-Xbox-Live">Fable Legends: Cross-device Gameplay with Xbox Live</a></td>
     </tr>
     <tr>
         <td>Xbox Live の統計情報や達成度 (ビデオ)</td>
-        <td><a href="https://channel9.msdn.com/Events/GDC/GDC-2015/Best-Practices-for-Leveraging-Cloud-Based-User-Stats-and-Achievements-in-Xbox-Live">Xbox Live でクラウドベースのユーザー統計とアチーブメントを活用するためのベストプラクティス</a></td>
+        <td><a href="https://channel9.msdn.com/Events/GDC/GDC-2015/Best-Practices-for-Leveraging-Cloud-Based-User-Stats-and-Achievements-in-Xbox-Live">Best Practices for Leveraging Cloud-Based User Stats and Achievements in Xbox Live</a></td>
     </tr>
 </table>
 
 
-## <a name="additional-resources"></a>その他の技術情報
+## <a name="additional-resources"></a>その他の資料
 
 <table>
     <colgroup>
@@ -1864,19 +1864,19 @@ Xbox Live は、世界中の何百万ものゲーマーを結びつける最高�
     </colgroup>
     <tr>
         <td>ゲーム開発ビデオ</td>
-        <td><a href="https://docs.microsoft.com/windows/uwp/gaming/game-development-videos">GDC やビルドなどの主要なカンファレンスからのビデオ</a></td>
+        <td><a href="https://docs.microsoft.com/windows/uwp/gaming/game-development-videos">Videos from major conferences like GDC and //build</a></td>
     </tr>
     <tr>
         <td>インディーズ ゲーム開発 (ビデオ)</td>
-        <td><a href="https://channel9.msdn.com/Events/GDC/GDC-2015/New-Opportunities-for-Independent-Developers">独立した開発者のための新しい機会</a></td>
+        <td><a href="https://channel9.msdn.com/Events/GDC/GDC-2015/New-Opportunities-for-Independent-Developers">New Opportunities for Independent Developers</a></td>
     </tr>
     <tr>
         <td>マルチコア モバイル デバイスに関する考慮事項 (ビデオ)</td>
-        <td><a href="https://channel9.msdn.com/Events/GDC/GDC-2015/Sustained-gaming-performance-in-multi-core-mobile-devices">マルチコアモバイルデバイスでの継続的なゲームのパフォーマンス</a></td>
+        <td><a href="https://channel9.msdn.com/Events/GDC/GDC-2015/Sustained-gaming-performance-in-multi-core-mobile-devices">Sustained Gaming Performance in multi-core mobile devices</a></td>
     </tr>
     <tr>
         <td>Windows 10 デスクトップ ゲームの開発 (ビデオ)</td>
-        <td><a href="https://channel9.msdn.com/Events/GDC/GDC-2015/PC-Games-for-Windows-10">Windows 10 用 PC ゲーム</a></td>
+        <td><a href="https://channel9.msdn.com/Events/GDC/GDC-2015/PC-Games-for-Windows-10">PC Games for Windows 10</a></td>
     </tr>
 </table>
 

@@ -6,12 +6,12 @@ ms.date: 10/10/2017
 ms.topic: article
 keywords: Windows 10, UWP, リソース, 画像, アセット, MRT, 修飾子
 ms.localizationpriority: medium
-ms.openlocfilehash: db5ba7fb6e13d2a5aab4b74014458073aa88e7f4
-ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
+ms.openlocfilehash: 0d6af9d532ecabe517983e8b56cdf8e1b2a2d812
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67820211"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74254522"
 ---
 # <a name="tailor-your-resources-for-language-scale-high-contrast-and-other-qualifiers"></a>言語、スケール、ハイ コントラスト、その他の修飾子用にリソースを調整する
 
@@ -27,9 +27,9 @@ ms.locfileid: "67820211"
 
 | コンテキスト | 修飾子名 | 修飾子の値 |
 | :--------------- | :--------------- | :--------------- |
-| ハイ コントラスト設定 | contrast | standard、high、black、white |
+| ハイ コントラスト設定 | コントラスト | standard、high、black、white |
 
-修飾子は、修飾子名と修飾子の値を組み合わせて作成します。 `<qualifier name>-<qualifier value>` 修飾子の形式です。 `contrast-standard` 修飾子の例に示します。
+修飾子は、修飾子名と修飾子の値を組み合わせて作成します。 `<qualifier name>-<qualifier value>` is the format of a qualifier. `contrast-standard` is an example of a qualifier.
 
 ハイ コントラストの場合、修飾子のセットは `contrast-standard`、`contrast-high`、`contrast-black`、`contrast-white` になります。 修飾子名と修飾子の値では、大文字と小文字が区別されません。 たとえば、`contrast-standard` と `Contrast-Standard` は同じ修飾子であると見なされます。
 
@@ -88,7 +88,7 @@ ms.locfileid: "67820211"
 
 ## <a name="multiple-qualifiers"></a>複数の修飾子
 
-修飾子は、フォルダー名とファイル名で組み合わせることができます。 たとえば、ハイ コントラスト モードがオンであり*表示倍率が* 400 のときに、イメージ アセットをアプリに読み込むとします。 これを行う方法の 1 つは、入れ子になったフォルダーの使用です。
+修飾子は、フォルダー名とファイル名で組み合わせることができます。 たとえば、ハイ コントラスト モードがオンであり表示倍率が 400 のときに、イメージ アセットをアプリに読み込むとします。 これを行う方法の 1 つは、入れ子になったフォルダーの使用です。
 
 ```console
 \Assets\Images\contrast-high\scale-400\<logo.png, and other image files>
@@ -102,7 +102,7 @@ ms.locfileid: "67820211"
 \Assets\Images\contrast-high_scale-400\<logo.png, and other image files>
 ```
 
-フォルダー名として、複数の修飾子をアンダー スコアで結合します。 `<qualifier1>[_<qualifier2>...]` 形式です。
+フォルダー名として、複数の修飾子をアンダー スコアで結合します。 `<qualifier1>[_<qualifier2>...]` is the format.
 
 同じ形式で、複数の修飾子を結合して 1 つのファイル名にすることもできます。
 
@@ -191,11 +191,11 @@ public void SetLicenseLevel(BrandID brand)
 
 ## <a name="homeregion"></a>HomeRegion
 
-`homeregion` 修飾子は、国または地域のユーザー設定に対応します。 ユーザーが住んでいる地域の場所を表します。 値には、有効な [BCP-47 region タグ](https://go.microsoft.com/fwlink/p/?linkid=227302)が含まれます。 つまり、**ISO 3166-1 alpha-2** の 2 文字の地域番号に、構成地域用の **ISO 3166-1 numeric** の 3 桁の地域番号のセットを加えた値となります ([国連統計部 M49 地域番号構成に関するページ](https://go.microsoft.com/fwlink/p/?linkid=247929)をご覧ください)。 "Selected economic and other groupings" の番号は有効ではありません。
+`homeregion` 修飾子は、国または地域のユーザー設定に対応します。 ユーザーが住んでいる地域の場所を表します。 値には、有効な [BCP-47 region タグ](https://tools.ietf.org/html/bcp47)が含まれます。 つまり、**ISO 3166-1 alpha-2** の 2 文字の地域番号に、構成地域用の **ISO 3166-1 numeric** の 3 桁の地域番号のセットを加えた値となります ([国連統計部 M49 地域番号構成に関するページ](https://unstats.un.org/unsd/methods/m49/m49regin.htm)をご覧ください)。 "Selected economic and other groupings" の番号は有効ではありません。
 
-## <a name="language"></a>[言語]
+## <a name="language"></a>言語
 
-`language` 修飾子は、表示言語設定に対応します。 値には、有効な [BCP 47 language タグ](https://go.microsoft.com/fwlink/p/?linkid=227302)が含まれます。 言語の一覧については、[IANA 言語サブタグ レジストリに関するページ](https://go.microsoft.com/fwlink/p/?linkid=227303)をご覧ください。
+`language` 修飾子は、表示言語設定に対応します。 値には、有効な [BCP 47 language タグ](https://tools.ietf.org/html/bcp47)が含まれます。 言語の一覧については、[IANA 言語サブタグ レジストリに関するページ](https://www.iana.org/assignments/language-subtag-registry)をご覧ください。
 
 アプリで複数の表示言語をサポートする必要があり、コードまたは XAML マークアップ内に文字列リテラルが含まれている場合は、その文字列をコードまたはマークアップからリソース ファイル (`.resw`) に移動します。 アプリでサポートする各言語用に、このリソース ファイルを翻訳したコピーを作成することができます。
 
@@ -256,22 +256,22 @@ Windows では、ディスプレイの DPI (1 インチあたりのドット数)
 
 `scale` と `targetsize` でリソースを修飾する方法については、「[targetsize で画像リソースを修飾する](images-tailored-for-scale-theme-contrast.md#qualify-an-image-resource-for-targetsize)」をご覧ください。
 
-## <a name="theme"></a>テーマ
+## <a name="theme"></a>Theme
 
 `theme` 修飾子は、既定のアプリ モード設定に最も一致するリソースか、[Application.RequestedTheme](/uwp/api/windows.ui.xaml.application.requestedtheme) を使用してアプリのオーバーライドを提供するために使用されます。
 
 
-## <a name="shell-light-theme-and-unplated-resources"></a>ライト テーマのシェルとプレートなしのリソース
-*2019 の更新が Windows 10* Windows シェルの新しい"light"テーマを導入します。 結果として、黒っぽい背景に表示されたいた一部のアプリケーション資産は、今すぐ明るい背景に表示されます。 アプリのアプリを提供する altform プレートなしの資産をタスク バーとウィンドウ スイッチャー (Alt + Tab キー、タスクの表示など)、明るい背景で許容可能なコントラストがあることを確認する必要があります。
+## <a name="shell-light-theme-and-unplated-resources"></a>Shell light theme and unplated resources
+The *Windows 10 May 2019 Update* introduced a new "light" theme for the Windows Shell. As a result, some application assets that were previously shown on a dark background will now be shown on a light background. For apps that apps that provided altform-unplated assets for the taskbar and window switchers (Alt+Tab, Task View, etc), you should verify that they have acceptable contrast on a light background.
 
-### <a name="providing-light-theme-specific-assets"></a>ライト テーマの特定の資産を提供します。
-ライト テーマのシェルは、新しい代替形式のリソース修飾子を使用できます、カスタマイズされたリソースを提供するアプリ:`altform-lightunplated`します。 この修飾子は、既存の altform プレートなしの修飾子をミラー化します。 
+### <a name="providing-light-theme-specific-assets"></a>Providing light theme specific assets
+Apps that want to provide a tailored resource for shell light theme can use a new alternate form resource qualifier: `altform-lightunplated`. This qualifier mirrors the existing altform-unplated qualifier. 
 
-### <a name="downlevel-considerations"></a>ダウンレベルの考慮事項
-アプリを使用する必要があります、`theme-light`修飾子を`altform-unplated`修飾子。 RS5 で予期しない動作がこうし、タスク バーのリソースにより Windows の以前のバージョンが読み込まれます。 以前のバージョンの windows では、テーマ light バージョンいない正しく使用可能性があります。 `altform-lightunplated`修飾子は、この問題を回避できます。 
+### <a name="downlevel-considerations"></a>Downlevel considerations
+Apps should not use the `theme-light` qualifier with the `altform-unplated` qualifier. This will cause unpredictable behavior on RS5 and earlier versions of Windows due to the way resources are loaded for the Taskbar. On earlier versions of windows, the theme-light version may be used incorrectly. The `altform-lightunplated` qualifier avoids this issue. 
 
-### <a name="compatibility-behavior"></a>互換性の動作
-下位互換性のため、Windows には、モノクロのアイコンを検出し、目的の背景とは対照的にするかどうかを確認するためのロジックが含まれています。 アイコンは、コントラストの要件を満たすために失敗した場合、Windows はコントラスト-白のバージョンの資産になります。 使用できない場合、Windows がフォールバック メッキされた資産のバージョンを使用します。
+### <a name="compatibility-behavior"></a>Compatibility behavior
+For backwards compatibility, Windows includes logic to detect a monochromatic icons and check whether it contrasts with the intended background. If the icon fails to meet contrast requirements, Windows will look for a contrast-white version of the asset. If that’s not available, Windows will fall back to using the plated version of the asset.
 
 
 
@@ -282,13 +282,13 @@ Windows では、ディスプレイの DPI (1 インチあたりのドット数)
 
 ## <a name="related-topics"></a>関連トピック
 
-* [有効ピクセルとスケール ファクター](../design/layout/screen-sizes-and-breakpoints-for-responsive-design.md#effective-pixels-and-scale-factor)
+* [Effective pixels and scale factor](../design/layout/screen-sizes-and-breakpoints-for-responsive-design.md#effective-pixels-and-scale-factor)
 * [リソース管理システム](resource-management-system.md)
-* [ローカライズを準備する方法](https://docs.microsoft.com/previous-versions/windows/apps/hh967762(v=win.10))
-* [を検出、プラットフォーム、アプリを実行します。](../porting/wpsl-to-uwp-input-and-sensors.md#detecting-the-platform-your-app-is-running-on)
-* [デバイスのファミリの概要](https://docs.microsoft.com/uwp/extension-sdks/device-families-overview)
-* [UI 文字列をローカライズします。](localize-strings-ui-manifest.md)
-* [BCP-47](https://go.microsoft.com/fwlink/p/?linkid=227302)
-* [地域コードの United Nations 統計除算 M49 コンポジション](https://go.microsoft.com/fwlink/p/?linkid=247929)
-* [IANA 言語サブタグ レジストリ](https://go.microsoft.com/fwlink/p/?linkid=227303)
+* [How to prepare for localization](https://docs.microsoft.com/previous-versions/windows/apps/hh967762(v=win.10))
+* [Detecting the platform your app is running on](../porting/wpsl-to-uwp-input-and-sensors.md#detecting-the-platform-your-app-is-running-on)
+* [Device families overview](https://docs.microsoft.com/uwp/extension-sdks/device-families-overview)
+* [Localize your UI strings](localize-strings-ui-manifest.md)
+* [BCP-47](https://tools.ietf.org/html/bcp47)
+* [United Nations Statistic Division M49 composition of region codes](https://unstats.un.org/unsd/methods/m49/m49regin.htm)
+* [IANA language subtag registry](https://www.iana.org/assignments/language-subtag-registry)
 * [レイアウトやフォントの調整と RTL のサポート](../design/globalizing/adjust-layout-and-fonts--and-support-rtl.md)

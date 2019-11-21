@@ -4,18 +4,18 @@ title: ビジュアル レイヤー
 description: Windows.UI.Composition API を使うと、フレーム ワーク層 (XAML) とグラフィック層 (DirectX) との間のコンポジション層にアクセスできます。
 ms.date: 02/08/2017
 ms.topic: article
-keywords: windows 10, uwp
+keywords: Windows 10, UWP
 ms.localizationpriority: medium
-ms.openlocfilehash: bf9cc4f97cdfcb02eb725b81163f215b22b259e4
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: ac41d461982a39a939e460b7a81b144e5a08fdb3
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67318055"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74255527"
 ---
 # <a name="visual-layer"></a>ビジュアル レイヤー
 
-ビジュアル レイヤーは、グラフィックス、効果、アニメーション用の高パフォーマンスの保持モード API を提供し、Windows デバイス間ですべての UI の基盤となります。 宣言的な方法で UI を定義すると、ビジュアル レイヤーは、グラフィックス ハードウェア アクセラレータを利用し、アプリの UI スレッドから独立して、エラーのない、なめらかな方法でコンテンツ、効果、アニメーションをレンダリングします。
+ビジュアル レイヤーは、グラフィックス、効果、アニメーション用の高パフォーマンスの保持モード API を提供し、Windows デバイス間ですべての UI の基盤となります。 You define your UI in a declarative manner and the Visual layer relies on graphics hardware acceleration to ensure your content, effects and animations are rendered in a smooth, glitch-free manner independent of the app's UI thread.
 
 主な特長は次のとおりです。
 
@@ -32,13 +32,13 @@ Windows UWP アプリは、いずれかの UI フレームワークを介して�
 
 ビジュアル レイヤーの主な機能は次のとおりです。
 
-1. **[コンテンツ]** :カスタムの描画コンテンツの軽量の複合
-1. **効果**:リアルタイム UI 効果システムが効果をアニメーション化、連鎖してカスタマイズできます。
-1. **アニメーション**:UI スレッドから独立して実行されているアニメーションの表現力豊かな、フレームワークに依存しません。
+1. **コンテンツ**: カスタム描画コンテンツの軽量合成
+1. **効果**: 効果をアニメーション化、チェーン化、カスタマイズできる、リアルタイム UI 効果システム
+1. **アニメーション**: UI スレッドから独立して実行される、表現力豊かな、フレームワークに依存しないアニメーション
 
-### <a name="content"></a>Content
+### <a name="content"></a>コンテンツ
 
-コンテンツは、ビジュアルを使用するアニメーションおよび効果システムで使用できるように、ホスト、変換、提供されます。 クラス階層の基底クラスは [**Visual**](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.Visual) クラスで、コンポジターでビジュアル状態を処理するアプリ プロセスにおける、軽量でスレッド アジャイルなプロキシです。 ビジュアルのサブ クラスが含まれます  [**ContainerVisual** ](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.ContainerVisual)子のビジュアル ツリーを作成するために、 [ **SpriteVisual** ](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.SpriteVisual)ですコンテンツを含み、いずれかの純色、カスタムの描画コンテンツまたは視覚的効果を描画することができます。 また、これらの種類のビジュアルは 2D UI 用のビジュアル ツリー構造を構成し、多くの表示される XAML FrameworkElements を強化します。
+コンテンツは、ビジュアルを使用するアニメーションおよび効果システムで使用できるように、ホスト、変換、提供されます。 クラス階層の基底クラスは [**Visual**](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.Visual) クラスで、コンポジターでビジュアル状態を処理するアプリ プロセスにおける、軽量でスレッド アジャイルなプロキシです。 Sub-classes of Visual include  [**ContainerVisual**](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.ContainerVisual) to allow for children to create trees of visuals and [**SpriteVisual**](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.SpriteVisual) that contains content and can be painted with either solid colors, custom drawn content or visual effects. また、これらの種類のビジュアルは 2D UI 用のビジュアル ツリー構造を構成し、多くの表示される XAML FrameworkElements を強化します。
 
 詳しくは、[コンポジションのビジュアル](composition-visual-tree.md)の概要をご覧ください。
 
@@ -50,11 +50,11 @@ Windows UWP アプリは、いずれかの UI フレームワークを介して�
 
 詳しくは、「[コンポジションの効果](composition-effects.md)」をご覧ください。
 
-### <a name="animations"></a>アニメーション
+### <a name="animations"></a>[アニメーション]
 
-ビジュアル レイヤーのアニメーション システムによって、移動の視覚効果、効果のアニメーション化、変換、クリップ、その他のプロパティの駆動を実現できます。  これは、パフォーマンスを考慮して一から設計された、フレームワークに依存しないシステムです。  UI スレッドから独立して実行されるため、滑らかさとスケーラビリティが実現されます。  使い慣れたキー フレーム アニメーションを使って時間の経過に伴うプロパティの変化を駆動できる一方で、ユーザー入力を含む、さまざまなプロパティ間の数学的な関係を設定して、シームレスな演出エクスペリエンスを直接作成することもできます。
+ビジュアル レイヤーのアニメーション システムによって、移動の視覚効果、効果のアニメーション化、変換、クリップ、その他のプロパティの駆動を実現できます。  It is a framework agnostic system that has been designed from the ground up with performance in mind.  It runs independently from the UI thread to ensure smoothness and scalability.  While it lets you use familiar KeyFrame animations to drive property changes over time, it also lets you set up mathematical relationships between different properties, including user input, letting you directly craft seamless choreographed experiences.
 
-詳しくは、[コンポジションのアニメーション](composition-animation.md)の概要をご覧ください。
+詳しくは、「[コンポジションのアニメーション](composition-animation.md)」をご覧ください。
 
 ### <a name="working-with-your-xaml-uwp-app"></a>XAML UWP アプリの操作
 
@@ -62,16 +62,16 @@ Windows UWP アプリは、いずれかの UI フレームワークを介して�
 
 詳しくは、[XAML でのビジュアル レイヤーの使用](using-the-visual-layer-with-xaml.md)の概要をご覧ください。
 
-### <a name="working-with-your-desktop-app"></a>デスクトップ アプリの使用
+### <a name="working-with-your-desktop-app"></a>Working with your desktop app
 
-ビジュアル レイヤーを使用することで、Windows フォーム、WPF、C++ Win32 デスクトップ アプリの外観、操作性、機能を向上させることができます 。 Islands のコンテンツを移行してビジュアルレイヤーを使用し、残りのUIを既存のフレームワークに維持することができます。 これは、既存のコードに広範な変更を加えることなく、アプリケーションの UI の重要なプログラム更新や機能強化ができます。
+You can use the Visual layer to enhance the look, feel, and functionality of your WPF, Windows Forms, and C++ Win32 desktop apps. You can migrate islands of content to use the Visual layer and keep the rest of your UI in its existing framework. This means you can make significant updates and enhancements to your application UI without needing to make extensive changes to your existing code base.
 
 詳しくは、「[Modernize your desktop app using the Visual layer (ビジュアル レイヤーを使用したデスクトップ アプリの現代化)](/windows/apps/desktop/modernize/visual-layer-in-desktop-apps)」をご覧ください。
 
 ## <a name="additional-resources"></a>その他の資料
 
-* [**API の完全なリファレンス ドキュメント**](https://docs.microsoft.com/uwp/api/Windows.UI.Composition)
+* [**Full reference documentation for the API**](https://docs.microsoft.com/uwp/api/Windows.UI.Composition)
 * [WindowsUIDevLabs GitHub](https://github.com/microsoft/WindowsCompositionSamples) にある高度な UI とコンポジションのサンプル
-* [Windows.UI.Composition サンプル ギャラリー](https://aka.ms/winuiapp)
-* [@windowsui Twitter フィード ](https://twitter.com/windowsui)
-* この API の Kenny Kerr の MSDN 記事をご覧ください。[グラフィックスとアニメーション - Windows 合成に 10](https://msdn.microsoft.com/magazine/mt590968)
+* [Windows.UI.Composition Sample Gallery](https://www.microsoft.com/store/apps/9pp1sb5wgnww)
+* [@windowsui Twitter feed ](https://twitter.com/windowsui)
+* この API に関する Kenny Kerr の MSDN 記事:「[グラフィックスとアニメーション - Windows 合成が 10 歳になる](https://msdn.microsoft.com/magazine/mt590968)」

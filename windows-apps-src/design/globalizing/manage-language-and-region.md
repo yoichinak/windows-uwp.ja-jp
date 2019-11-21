@@ -1,5 +1,5 @@
 ---
-Description: このトピックでは、用語のユーザー プロファイルの言語の一覧、アプリ マニフェストの言語の一覧、およびアプリ ランタイム言語の一覧を定義します。 これらの用語は、この機能領域のこのトピックおよびその他のトピックで使用しますので、意味を把握しておくことが重要です。
+Description: This topic defines the terms user profile language list, app manifest language list, and app runtime language list. これらの用語は、この機能領域のこのトピックおよびその他のトピックで使用しますので、意味を把握しておくことが重要です。
 title: ユーザー プロファイルの言語とアプリ マニフェストの言語について
 ms.assetid: 22D3A937-736A-4121-8285-A55DED56E594
 template: detail.hbs
@@ -7,26 +7,26 @@ ms.date: 11/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, グローバリゼーション, ローカライズの可否, ローカライズ
 ms.localizationpriority: medium
-ms.openlocfilehash: d782e8cd64cb976df964c72199964c1d349d527e
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 79edf30733f7bca443c5fd12103fbd5d93909732
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57605577"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74258066"
 ---
 # <a name="understand-user-profile-languages-and-app-manifest-languages"></a>ユーザー プロファイルの言語とアプリ マニフェストの言語について
-Windows ユーザーは、**[設定]** > **[時刻と言語]** > **[地域と言語]** の順に移動して、優先される表示言語の順序指定された一覧を構成するか、または優先される 1 つの表示言語を構成できます。 言語には場合によっては地域バリアントがあります。 たとえば、スペインで話されるスペイン語、メキシコで話されるスペイン語、米国で話されるスペイン語などを選ぶことができます。
+Windows ユーザーは、 **[設定]**  >  **[時刻と言語]**  >  **[地域と言語]** の順に移動して、優先される表示言語の順序指定された一覧を構成するか、または優先される 1 つの表示言語を構成できます。 言語には場合によっては地域バリアントがあります。 たとえば、スペインで話されるスペイン語、メキシコで話されるスペイン語、米国で話されるスペイン語などを選ぶことができます。
 
-また、**[設定]** > **[時刻と言語]** > **[地域と言語]** では、言語とは別に世界中の場所 (地域と呼ばれます) を指定できます。 表示言語 (および地域バリアント) の設定は地域の設定を決定するものではありません。その逆も同様です。 たとえば、現在フランスに住んでいるユーザーが、優先される Windows 表示言語としてスペイン語 (メキシコ) を選択している場合があります。
+また、 **[設定]**  >  **[時刻と言語]**  >  **[地域と言語]** では、言語とは別に世界中の場所 (地域と呼ばれます) を指定できます。 表示言語 (および地域バリアント) の設定は地域の設定を決定するものではありません。その逆も同様です。 たとえば、現在フランスに住んでいるユーザーが、優先される Windows 表示言語としてスペイン語 (メキシコ) を選択している場合があります。
 
-UWP アプリの場合、言語は [BCP-47 言語タグ](https://go.microsoft.com/fwlink/p/?linkid=227302)として表示されます。 たとえば、BCP-47 言語タグ "en-US" は **[設定]** の英語 (米国)に対応しています。 適切な UWP API は、BCP-47 言語タグの文字列表現を受け入れて返します。
+UWP アプリの場合、言語は [BCP-47 言語タグ](https://tools.ietf.org/html/bcp47)として表示されます。 たとえば、BCP-47 言語タグ "en-US" は **[設定]** の英語 (米国)に対応しています。 適切な UWP API は、BCP-47 言語タグの文字列表現を受け入れて返します。
 
-「[IANA 言語サブタグ レジストリ](https://go.microsoft.com/fwlink/p/?linkid=227303)」も参照してください。
+「[IANA 言語サブタグ レジストリ](https://www.iana.org/assignments/language-subtag-registry)」も参照してください。
 
 次の 3 つのセクションでは、"ユーザー プロファイルの言語の一覧"、"アプリ マニフェストの言語の一覧"、"アプリの実行時の言語の一覧" という用語を定義します。 これらの用語は、この機能領域のこのトピックおよびその他のトピックで使用しますので、意味を把握しておくことが重要です。
 
 ## <a name="user-profile-language-list"></a>ユーザー プロファイルの言語の一覧
-ユーザー プロファイルの言語の一覧は、**[設定]** > **[時刻と言語]** > **[地域と言語]** > **[言語]** でユーザーによって構成された一覧の名前です。 コードでは、[**GlobalizationPreferences.Languages**](/uwp/api/windows.system.userprofile.globalizationpreferences.Languages) プロパティを使用して、読み取り専用の文字列一覧としてユーザー プロファイルの言語の一覧にアクセスできます。この一覧では、各文字列は "en-US" または "ja-JP" などの単一の [BCP-47 言語タグ](https://go.microsoft.com/fwlink/p/?linkid=227302) です。
+ユーザー プロファイルの言語の一覧は、 **[設定]**  >  **[時刻と言語]**  >  **[地域と言語]**  >  **[言語]** でユーザーによって構成された一覧の名前です。 コードでは、[**GlobalizationPreferences.Languages**](/uwp/api/windows.system.userprofile.globalizationpreferences.Languages) プロパティを使用して、読み取り専用の文字列一覧としてユーザー プロファイルの言語の一覧にアクセスできます。この一覧では、各文字列は "en-US" または "ja-JP" などの単一の [BCP-47 言語タグ](https://tools.ietf.org/html/bcp47) です。
 
 ```csharp
     IReadOnlyList<string> userLanguages = Windows.System.UserProfile.GlobalizationPreferences.Languages;
@@ -55,7 +55,7 @@ UWP アプリの場合、言語は [BCP-47 言語タグ](https://go.microsoft.co
 
 もう 1 つのオプションは、アプリ パッケージ マニフェスト ソース ファイル (`Package.appxmanifest`) 内の単一の "x-generate" `<Resource>` 要素を `<Resource>` 要素の展開時のリストで置き換える方法です (既定の言語を最初に表示するように注意してください)。 このオプションの方がメンテナンス作業が多くなりますが、カスタム ビルド システムを使用する場合には適切なオプションです。
 
-まず、アプリ マニフェストの言語の一覧には 1 つの言語のみが含められます。 たとえば en-US です。 ただし、最終的にマニフェストを手動で構成するか、または翻訳済みのリソースをプロジェクトに追加すると、リストは大きくなります。
+まず、アプリ マニフェストの言語の一覧には 1 つの言語のみが含められます。 たとえば en-US です。 But eventually&mdash;as you either manually configure your manifest, or as you add translated resources to your project&mdash;that list will grow.
 
 アプリが Microsoft Store にある場合、アプリ マニフェストの言語の一覧の言語は、ユーザーに表示される言語になります。 特に Microsoft Store でサポートされる BCP-47 言語タグの一覧については、「[サポートされている言語](../../publish/supported-languages.md)」を参照してください。
 
@@ -70,7 +70,7 @@ UWP アプリの場合、言語は [BCP-47 言語タグ](https://go.microsoft.co
 
 具体的には、アプリの実行時の言語の一覧は次の項目で構成されています。
 
-1.  **(オプション) 第 1 言語の上書き**。 [  **PrimaryLanguageOverride**](/uwp/api/Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride) は、独自の独立した言語選択をユーザーに提示するアプリや、既定の言語選択を無効にしなければならない重大な理由があるアプリで利用できる、シンプルな上書き設定です。 詳細については、「[アプリ リソースとローカライズのサンプルに関するページ](https://go.microsoft.com/fwlink/p/?linkid=231501)」を参照してください。
+1.  **(オプション) 第 1 言語の上書き**。 [  **PrimaryLanguageOverride**](/uwp/api/Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride) は、独自の独立した言語選択をユーザーに提示するアプリや、既定の言語選択を無効にしなければならない重大な理由があるアプリで利用できる、シンプルな上書き設定です。 詳しくは、[アプリ リソースとローカライズのサンプルに関するページ](https://code.msdn.microsoft.com/windowsapps/Application-resources-and-cd0c6eaa)をご覧ください。
 2.  **アプリでサポートされるユーザーの言語**。 これは、アプリ マニフェストの言語の一覧でフィルター処理されたユーザー プロファイルの言語の一覧です。 アプリでサポートされる言語でユーザーの言語をフィルター処理することで、ソフトウェア開発キット (SDK)、クラス ライブラリ、依存性のあるフレームワーク パッケージ、そのアプリの間で一貫性が保たれます。
 3.  **1 と 2 が空の場合、アプリでサポートされる既定または最初の言語**。 ユーザー プロファイルの言語の一覧に、アプリでサポートされる言語が含まれない場合は、アプリで最優先にサポートされる言語がアプリの実行時の言語として選ばれます。
 
@@ -93,34 +93,34 @@ UWP アプリの場合、言語は [BCP-47 言語タグ](https://go.microsoft.co
 **注** ユーザー プロファイルの言語とアプリ マニフェストの言語が互いの地域バリアントである場合、ユーザーの地域バリアントがアプリの実行時の言語として使用されます。 たとえば、ユーザーが en-GB を選んだがアプリでは en-US がサポートされるという場合、アプリの実行時の言語は en-GB になります。 この結果、日付、時刻、数値の形式はユーザーの期待 (en-GB) により近いものとなりますが、(言語の対応付けにより) ローカライズ リソースはアプリのサポート言語 (en-US) で読み込まれます。
 
 ## <a name="qualify-resource-files-with-their-language"></a>ユーザーの言語によるリソース ファイルの修飾
-言語リソース修飾子でリソース ファイルまたはそのフォルダーに名前を付けます。 リソース修飾子の詳細については、「[言語、スケール、ハイ コントラスト、その他の修飾子用にリソースを調整する](../../app-resources/tailor-resources-lang-scale-contrast.md)」を参照してください)。 リソース ファイルは、イメージ (またはその他の資産) を指定できますか、または、リソース コンテナー ファイルをなどあることができます、 *.resw*テキスト文字列を格納しています。
+言語リソース修飾子でリソース ファイルまたはそのフォルダーに名前を付けます。 リソース修飾子の詳細については、「[言語、スケール、ハイ コントラスト、その他の修飾子用にリソースを調整する](../../app-resources/tailor-resources-lang-scale-contrast.md)」を参照してください)。 A resource file can be an image (or other asset), or it can be a resource container file, such as a *.resw* that contains text strings.
 
-**注**アプリの既定の言語であってもリソースは、language 修飾子を指定する必要があります。 たとえば、アプリの既定の言語が英語 (米国) の場合は、修飾として資産`\Assets\Images\en-US\logo.png`します。
+**Note** Even resources in your app's default language must specify the language qualifier. For example, if your app's default language is English (United States), then qualify your assets as `\Assets\Images\en-US\logo.png`.
 
-- Windows では、EN-US、EN-GB などの地域のバリアントを含む複雑な一致を実行します。 適切なリージョンのサブ タグが含まれます。 「[リソース管理システムでの言語タグの照合の仕組み](../../app-resources/how-rms-matches-lang-tags.md)」を参照してください。
-- 言語の定義を抑制するスクリプトの値がない場合は、修飾子で言語スクリプトのサブ タグを指定します。 たとえば、ZH-CN、ZH-TW ではなく使用 Zh-hant、zh-tw が Hant-ありますまたは Zh-hans (詳細については、次を参照してください。、 [IANA 言語サブタグ レジストリ](https://go.microsoft.com/fwlink/p/?linkid=227303))。
-- 1 つの標準言語がある言語では、リージョンの修飾子を含める必要はありません。 たとえば、JA-JP ではなく、ja を使用します。
+- Windows performs complex matching, including across regional variants such as en-US and en-GB. So include the region sub-tag as appropriate. 「[リソース管理システムでの言語タグの照合の仕組み](../../app-resources/how-rms-matches-lang-tags.md)」を参照してください。
+- Specify a language script sub-tag in the qualifier when there is no Suppress-Script value defined for the language. For example, instead of zh-CN or zh-TW, use zh-Hant, zh-Hant-TW, or zh-Hans (for more detail, see the [IANA language subtag registry](https://www.iana.org/assignments/language-subtag-registry)).
+- For languages that have a single standard dialect, there is no need to include the region qualifier. For example, use ja instead of ja-JP.
 - 一部のツールやその他のコンポーネント (機械翻訳など) では、データの理解に役立つ地域言語情報など特定の言語タグを探す場合があります。
 
-### <a name="not-all-resources-need-to-be-localized"></a>すべてのリソースをローカライズする必要があります。
+### <a name="not-all-resources-need-to-be-localized"></a>Not all resources need to be localized
 
-ローカライズしないすべてのリソースに必要な場合があります。
+Localization might not be required for all resources.
 
-- 少なくとも既定の言語ですべてのリソースの存在を確認します。
-- 一部のリソースのサブセットが密接に関連する言語 (部分的なローカライズ) で十分です。 たとえば、アプリの完全なリソースのセットがスペイン語で用意されている場合、アプリの UI でカタルニア語にローカライズされていないものがある可能性があります。 カタルニア語とし、スペイン語を話すユーザー用カタルニア語では使用できないリソースがスペイン語で表示されます。
-- 一部のリソースは、特定の言語では、ほとんどの一般的なリソースへの他のリソース マップの中に例外を必要があります。 この場合、未確定の言語タグ 'und' を持つすべての言語で使用するためのリソースをマークします。 Windows がワイルドカードとして 'und' 言語タグを解釈 (のような '\*')、その他の特定の一致の後に最上位のアプリの言語と一致するのです。 たとえば、いくつかのリソース (要素の幅など) がフィンランド語では異なっていて、残りのリソースはすべての言語で同じであれば、フィンランド語のリソースはフィンランド語の言語タグでマークし、残りは 'und' でマークする必要があります。
-- フォントまたはテキストの高さなどの言語スクリプトに基づいてリソースが指定されたスクリプトを使用して、未確定の言語タグを使用します。 ' und -&lt;スクリプト&gt;'。 たとえば、ラテン語フォントの場合は `und-Latn\\fonts.css` を使い、キリル語フォントの場合は `und-Cryl\\fonts.css` を使います。
+- At a minimum, ensure all resources exist in the default language.
+- A subset of some resources might suffice for a closely related language (partial localization). たとえば、アプリの完全なリソースのセットがスペイン語で用意されている場合、アプリの UI でカタルニア語にローカライズされていないものがある可能性があります。 For users who speak Catalan and then Spanish, the resources that are not available in Catalan appear in Spanish.
+- Some resources might require exceptions for specific languages, while the majority of other resources map to a common resource. In this case, mark the resource intended to be used for all languages with the undetermined language tag 'und'. Windows interprets the 'und' language tag as a wildcard (similar to '\*') in that it matches the top app language after any other specific match. たとえば、いくつかのリソース (要素の幅など) がフィンランド語では異なっていて、残りのリソースはすべての言語で同じであれば、フィンランド語のリソースはフィンランド語の言語タグでマークし、残りは 'und' でマークする必要があります。
+- For resources that are based on a language script, such as a font or height of text, use the undetermined language tag with a specified script: 'und-&lt;script&gt;'. たとえば、ラテン語フォントの場合は `und-Latn\\fonts.css` を使い、キリル語フォントの場合は `und-Cryl\\fonts.css` を使います。
 
 ## <a name="set-the-http-accept-language-request-header"></a>HTTP Accept-Language 要求ヘッダーの設定
 呼び出す Web サービスがアプリと同じ程度ローカライズされているかどうかを検討します。 通常の Web 要求と XMLHttpRequest (XHR) で UWP アプリとデスクトップ アプリから行われた HTTP 要求では、標準の HTTP Accept-Language 要求ヘッダーが使われます。 既定では、HTTP ヘッダーは、ユーザー プロファイルの言語の一覧に設定されます。 この一覧内の各言語は、言語と重み付け (q) のニュートラルを含むようにさらに拡張されます。 たとえば、fr-FR と en-US のユーザーの言語一覧では、HTTP Accept-Language 要求ヘッダーは "fr-FR, fr, en-US, en ("fr-FR,fr;q=0.8,en-US;q=0.5,en;q=0.3")" となります。 ただし、たとえば天気予報アプリで UI がフランス語 (フランス) で表示されていて、ユーザーの優先順位一覧の中で最上位にリストされている言語がドイツ語の場合、アプリ内で整合性を維持するために、サービスからフランス語 (フランス) を明示的に要求する必要があります。
 
 ## <a name="apis-in-the-windowsglobalization-namespace"></a>Windows.Globalization 名前空間の API
-通常、[**Windows.Globalization**](/uwp/api/windows.globalization?branch=live) 名前空間の API は、アプリの実行時の言語の一覧を使って言語を判断します。 どの言語にも対応する形式が存在しない場合は、ユーザー ロケールが使われます。 これはシステム クロックに使われているものと同じロケールです。 ユーザー ロケールは**設定** > **時刻と言語** > **地域と言語** >  **追加の日付、時刻、および地域の設定** > **リージョン。日付、時刻、または数値の形式を変更する**します。 **Windows.Globalization** API には、アプリの実行時の言語の一覧の代わりに使う言語の一覧を指定するための上書きもあります。
+通常、[**Windows.Globalization**](/uwp/api/windows.globalization?branch=live) 名前空間の API は、アプリの実行時の言語の一覧を使って言語を判断します。 どの言語にも対応する形式が存在しない場合は、ユーザー ロケールが使われます。 これはシステム クロックに使われているものと同じロケールです。 ユーザー ロケールは、 **[設定]**  >  **[時刻と言語]**  >  **[地域と言語]**  >  **[日付、時刻、地域の追加設定]**  >  **[地域: 日付、時刻、または数値の形式の変更]** で確認できます。 **Windows.Globalization** API には、アプリの実行時の言語の一覧の代わりに使う言語の一覧を指定するための上書きもあります。
 
 [  **Language**](/uwp/api/windows.globalization.language?branch=live) クラスを使うと、言語のスクリプト、表示名、本来の名称などの、特定の言語についての詳細も調べることができます。
 
 ## <a name="use-geographic-region-when-appropriate"></a>必要に応じて、地理的な地域を使う
-**[設定]** > **[時刻と言語]** > **[地域と言語]** > **[国/地域]** で、自分の地域として世界中の場所を指定できます。 ユーザーに表示するコンテンツの選択方法として、言語ではなく、この設定を使うことができます。 たとえば、ニュース アプリは、既定では、この地域のコンテンツを表示します。
+**[設定]**  >  **[時刻と言語]**  >  **[地域と言語]**  >  **[国/地域]** で、自分の地域として世界中の場所を指定できます。 ユーザーに表示するコンテンツの選択方法として、言語ではなく、この設定を使うことができます。 たとえば、ニュース アプリは、既定では、この地域のコンテンツを表示します。
 
 コードでは、[**GlobalizationPreferences.HomeGeographicRegion**](/uwp/api/windows.system.userprofile.globalizationpreferences.HomeGeographicRegion) プロパティを使ってこの設定にアクセスできます。
 
@@ -152,48 +152,48 @@ UWP アプリの場合、言語は [BCP-47 言語タグ](https://go.microsoft.co
 <td align="left">英語 (英国)</td>
 <td align="left">なし</td>
 <td align="left">英語 (英国)</td>
-<td align="left">UI の場合:英語 (英国)<br>日付/時間/数字:英語 (英国)</td>
+<td align="left">UI: 英語 (英国)<br>日付/時刻/数値: 英語 (英国)</td>
 </tr>
 <tr>
 <td align="left">ドイツ語 (ドイツ) (既定)、フランス語 (フランス)、イタリア語 (イタリア)</td>
 <td align="left">フランス語 (オーストリア)</td>
 <td align="left">なし</td>
 <td align="left">フランス語 (オーストリア)</td>
-<td align="left">UI の場合:フランス語 (フランス) (フランス語 (オーストリア) からフォールバック)<br>日付/時間/数字:フランス語 (オーストリア)</td>
+<td align="left">UI: フランス語 (フランス) (フランス語 (オーストリア) からのフォールバック)<br>日付/時刻/数値: フランス語 (オーストリア)</td>
 </tr>
 <tr>
 <td align="left">英語 (米国) (既定)、フランス語 (フランス)、英語 (英国)</td>
 <td align="left">英語 (カナダ)、フランス語 (カナダ)</td>
 <td align="left">なし</td>
 <td align="left">英語 (カナダ)、フランス語 (カナダ)</td>
-<td align="left">UI の場合:英語 (米国) (英語 (カナダ) からフォールバック)<br>日付/時間/数字:英語 (カナダ)</td>
+<td align="left">UI: 英語 (米国) (英語 (カナダ) からのフォールバック)<br>日付/時刻/数値: 英語 (カナダ)</td>
 </tr>
 <tr>
 <td align="left">スペイン語 (スペイン) (既定)、スペイン語 (メキシコ)、スペイン語 (ラテン アメリカ)、ポルトガル語 (ブラジル)</td>
 <td align="left">英語 (米国)</td>
 <td align="left">なし</td>
 <td align="left">スペイン語 (スペイン)</td>
-<td align="left">UI の場合:スペイン語 (スペイン) (英語の使用可能なフォールバックなしから既定を使用)<br>日付/時刻/数値: スペイン語 (スペイン)</td>
+<td align="left">UI: スペイン語 (スペイン) (英語に利用できるフォールバックがないため既定を使う)<br>日付/時刻/数値: スペイン語 (スペイン)</td>
 </tr>
 <tr>
 <td align="left">カタルニア語 (既定)、スペイン語 (スペイン)、フランス語 (フランス)</td>
 <td align="left">カタルニア語、フランス語 (フランス)</td>
 <td align="left">なし</td>
 <td align="left">カタルニア語、フランス語 (フランス)</td>
-<td align="left">UI の場合:カタルニア語といくつかのフランス語 (フランス) ほとんどの場合、すべての文字列がカタルニア語では<br>日付/時間/数字:カタルニア語</td>
+<td align="left">UI: ほとんどカタルニア語であるが、一部の文字列がカタルニア語では存在しないため、一部はフランス語 (フランス)<br>日付/時刻/数値: カタルニア語</td>
 </tr>
 <tr>
 <td align="left">英語 (英国) (既定)、フランス語 (フランス)、ドイツ語 (ドイツ)</td>
 <td align="left">ドイツ語 (ドイツ)、英語 (英国)</td>
 <td align="left">英語 (英国) (アプリの UI でユーザーによって選ばれる)</td>
 <td align="left">英語 (英国)、ドイツ語 (ドイツ)</td>
-<td align="left">UI の場合:英語 (GB) (言語の上書き)<br>日付/時刻/数値: 英語 (英国)</td>
+<td align="left">UI: 英語 (英国) (言語の上書き)<br>日付/時刻/数値: 英語 (英国)</td>
 </tr>
 </tbody>
 </table>
 
 >[!NOTE]
-> Microsoft で使用される標準の国/地域コードの一覧は、次を参照してください。、[公式の国/地域一覧](https://globalready.azurewebsites.net/marketreadiness/OfficialCountryregion)します。
+> For a list of standard country/region codes used by Microsoft, see the [Official Country/Region List](https://globalready.azurewebsites.net/marketreadiness/OfficialCountryregion).
 
 ## <a name="important-apis"></a>重要な API
 * [GlobalizationPreferences.Languages](/uwp/api/windows.system.userprofile.globalizationpreferences.Languages)
@@ -208,12 +208,12 @@ UWP アプリの場合、言語は [BCP-47 言語タグ](https://go.microsoft.co
 * [GeographicRegion](/uwp/api/windows.globalization.geographicregion?branch=live)
 
 ## <a name="related-topics"></a>関連トピック
-* [Bcp-47 言語タグ](https://go.microsoft.com/fwlink/p/?linkid=227302)
-* [IANA 言語サブタグ レジストリ](https://go.microsoft.com/fwlink/p/?linkid=227303)
+* [BCP-47 language tag](https://tools.ietf.org/html/bcp47)
+* [IANA language subtag registry](https://www.iana.org/assignments/language-subtag-registry)
 * [言語、スケール、ハイ コントラスト、その他の修飾子用にリソースを調整する](../../app-resources/tailor-resources-lang-scale-contrast.md)
 * [サポートされている言語](../../publish/supported-languages.md)
-* [日付/時間/数字形式をグローバル化します。](use-global-ready-formats.md)
+* [Globalize your date/time/number formats](use-global-ready-formats.md)
 * [リソース管理システムでの言語タグの照合の仕組み](../../app-resources/how-rms-matches-lang-tags.md)
 
 ## <a name="samples"></a>サンプル
-* [アプリケーション リソースとローカリゼーション サンプル](https://go.microsoft.com/fwlink/p/?linkid=231501)
+* [Application resources and localization sample](https://code.msdn.microsoft.com/windowsapps/Application-resources-and-cd0c6eaa)

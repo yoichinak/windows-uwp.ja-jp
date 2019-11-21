@@ -9,12 +9,12 @@ ms.topic: article
 keywords: Windows 10, UWP, Windows 情報保護, 企業データ, エンタープライズ データ保護, EDP, 対応アプリ
 ms.assetid: 08f0cfad-f15d-46f7-ae7c-824a8b1c44ea
 ms.localizationpriority: medium
-ms.openlocfilehash: 42f08127567704b1c8623ac64857cc5afe0ef882
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: f6e3839ac2c15c1f976a9135b121ffea26174d41
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67321392"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74259616"
 ---
 # <a name="windows-information-protection-wip"></a>Windows 情報保護 (WIP)
 
@@ -41,9 +41,9 @@ MDM または MAM を利用すると、管理者は、組織に属している�
 
 ![WIP のライフサイクル](images/wip-lifecycle.png)
 
-> **WIP についてもっと読む** <br>
-* [Windows Information Protection の概要](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/bg-p/Windows10Blog)
-* [Windows 情報保護 (WIP) を使用したエンタープライズ データを保護します。](https://docs.microsoft.com/windows/whats-new/edp-whats-new-overview)
+> **Read more about WIP** <br>
+* [Introducing Windows Information Protection](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/bg-p/Windows10Blog)
+* [Protect your enterprise data using Windows Information Protection (WIP)](https://docs.microsoft.com/windows/whats-new/edp-whats-new-overview)
 
 アプリが許可リストに登録されている場合、アプリによって生成されたすべてのデータにはポリシーの制限が適用されます。 つまり、管理者が企業データへのユーザー アクセスを無効にすると、それらのユーザーは、アプリによって生成されたすべてのデータへアクセスできなくなります。
 
@@ -61,13 +61,13 @@ WIP API を使用してアプリを対応させてから、アプリをエンタ
 
 アプリを対応させる準備ができたら、以下のガイドのいずれかをご覧ください。
 
-**ユニバーサル Windows プラットフォーム (UWP) アプリを使用して作成します。C#**
+**For Universal Windows Platform (UWP) apps that you build by using C#**
 
 [Windows 情報保護 (WIP) 開発者向けガイド](wip-dev-guide.md)。
 
-**C++ を使用してビルドするデスクトップ アプリ**
+**For Desktop apps that you build by using C++**
 
-[Windows 情報保護 (WIP) 開発者向けガイド (C++)](https://go.microsoft.com/fwlink/?LinkId=822192)。
+[Windows 情報保護 (WIP) 開発者向けガイド (C++)](https://docs.microsoft.com/previous-versions/windows/desktop/EDP/wip-developer-guide?redirectedfrom=MSDN)。
 
 
 ## <a name="create-non-enlightened-enterprise-app"></a>エンタープライズ非対応アプリの作成

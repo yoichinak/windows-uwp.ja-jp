@@ -1,26 +1,26 @@
 ---
-Description: このトピックでは、回転の新しい Windows UI を説明し、UWP アプリでこの新しい相互作用のメカニズムの使用時に考慮すべきユーザー エクスペリエンス ガイドラインを示します。
+Description: This topic describes the new Windows UI for rotation and provides user experience guidelines that should be considered when using this new interaction mechanism in your UWP app.
 title: 回転
 ms.assetid: f098bc05-35b3-46b2-9e9b-9ff292d067ca
 label: Rotation
 template: detail.hbs
 ms.date: 02/08/2017
 ms.topic: article
-keywords: windows 10, uwp
+keywords: Windows 10, UWP
 ms.localizationpriority: medium
-ms.openlocfilehash: f6593c19503fec3ee0e60920c66af7de8f2a7025
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 71a09d304b0d68bf01012166173360ec6304fb2c
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66363638"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74257927"
 ---
 # <a name="rotation"></a>回転
 
 
-この記事では、新しい Windows UI の回転について説明し、UWP アプリでこの新しい操作のメカニズムを使うときに考慮する必要があるユーザー エクスペリエンスのガイドラインを示します。
+この記事では、新しい Windows UI の回転について説明し、UWP アプリでこの新しい対話式操作のメカニズムを使うときに考慮する必要があるユーザー エクスペリエンスのガイドラインを示します。
 
-> **重要な API**:[**Windows.UI.Input**](https://docs.microsoft.com/uwp/api/Windows.UI.Input)、 [ **Windows.UI.Xaml.Input**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input)
+> **重要な API**: [**Windows.UI.Input**](https://docs.microsoft.com/uwp/api/Windows.UI.Input)、[**Windows.UI.Xaml.Input**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input)
 
 ## <a name="dos-and-donts"></a>推奨と非推奨
 
@@ -29,7 +29,7 @@ ms.locfileid: "66363638"
 ## <a name="additional-usage-guidance"></a>その他の使い方のガイダンス
 
 
-**回転の概要**
+**Overview of rotation**
 
 回転は UWP アプリで使われるタッチ操作に最適な手法であり、ユーザーがオブジェクトを回転 (時計回りまたは反時計回り) できるようにします。
 
@@ -38,30 +38,30 @@ ms.locfileid: "66363638"
 -   マウスまたはアクティブなペン/スタイラスを使って、選んだオブジェクトの回転グリッパーを移動する。
 -   タッチまたはパッシブなペン/スタイラスを使って、回転ジェスチャによって任意の方向にオブジェクトを回転させる。
 
-**回転を使用する場合**
+**When to use rotation**
 
 ユーザーが直接 UI 要素を回転できるように回転を使います。 次の図は、サポートされる回転操作の指の配置をいくつか示しています。
 
 ![回転がサポートされる異なる指の配置を示す図](images/ux-rotate-positions.png)
 
-**注**  ユーザーが (たとえば、描画またはレイアウトのアプリケーション) に接続ポイントとは無関係な回転ポイントを指定しない限りは直感的とでほとんどの場合、回転ポイントは、2 つのタッチ ポイントの 1 つです。 以下の図では、回転の中心点がこのような制約を受けない場合に、どのようにユーザー エクスペリエンスが低下するかについて説明します。
+**Note**   Intuitively, and in most cases, the rotation point is one of the two touch points unless the user can specify a rotation point unrelated to the contact points (for example, in a drawing or layout application). 以下の図では、回転の中心点がこのような制約を受けない場合に、どのようにユーザー エクスペリエンスが低下するかについて説明します。
 
 1 番目の図は、最初のタッチ ポイント (親指) と 2 番目のタッチ ポイント (人差し指) を示します。人差し指は木に、親指は丸太にタッチしています。
 
-![イメージの回転のジェスチャの 2 つの初期のタッチ ポイントを表示します。](images/ux-rotate-points1.png)
+![image showing the two initial touch points for the rotation gesture.](images/ux-rotate-points1.png)
 2 番目の図では、最初のタッチ ポイント (親指) の周りで回転が行われています。 回転の後で、人差し指は相変わらず木の幹にタッチし、親指は相変わらず丸太 (回転の中心点) にタッチしています。
 
-![回転ポイントで回転した画像を表示するイメージは、2 つの初期のタッチ ポイントの 1 つに制限されます。](images/ux-rotate-points2.png)
+![image showing a rotated picture with the rotation point constrained to one of the two initial touch points.](images/ux-rotate-points2.png)
 3 番目の図では、回転の中心がアプリによって絵の中心点に定義されています (またはユーザーによって設定されています)。 回転の後で、絵が指の 1 つの周りで回転しなかったために、直接操作の画像が失われます (ユーザーがこの設定を選んだ場合を除きます)。
 
-![回転ポイントで回転した画像を表示するイメージは、2 つの初期のタッチ ポイントのいずれかではなく、画像の中央に制限されます。](images/ux-rotate-points3.png)
+![image showing a rotated picture with the rotation point constrained to the center of the picture rather than either of the two initial touch points.](images/ux-rotate-points3.png)
 最後の図では、回転の中心がアプリによって絵の左端の中央の点に定義されています (またはユーザーによって設定されています)。 この場合も、ユーザーがこの設定を選んだ場合を除いて、直接操作の画像が失われます。
 
 ![回転の中心点が最初に 2 つタッチした点のどちらでもなく、絵の左端の中央に制約された状態で回転する絵を示す図](images/ux-rotate-points4.png)
 
  
 
-Windows 10 には、回転の 3 つの種類がサポートしています: 無料、制約、および結合します。
+Windows 10 supports three types of rotation: free, constrained, and combined.
 
 <table>
 <colgroup>
@@ -70,7 +70,7 @@ Windows 10 には、回転の 3 つの種類がサポートしています: 無�
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">種類</th>
+<th align="left">タスクバーの検索ボックスに</th>
 <th align="left">説明</th>
 </tr>
 </thead>
@@ -88,7 +88,7 @@ Windows 10 には、回転の 3 つの種類がサポートしています: 無�
 <td align="left">複合回転</td>
 <td align="left"><p>複合回転は自由回転をサポートしますが、(<a href="guidelines-for-panning.md">パン</a>におけるレールのように) 90°単位のスナップ位置のゾーンでは制約付き回転によって強制されます。 ユーザーが各 90° のゾーンの外でオブジェクトを離した場合にはオブジェクトはその位置にとどまりますが、それ以外の場合にはオブジェクトは自動的にスナップ位置まで回転します。</p>
 <div class="alert">
-<strong>注</strong>  ユーザー インターフェイスのレールはターゲットの周囲がいくつかの特定の値または場所の選択に影響を与える方に移動を制限する機能です。
+<strong>Note</strong>  A user interface rail is a feature in which an area around a target constrains movement towards some specific value or location to influence its selection.
 </div>
 <div>
  
@@ -103,20 +103,20 @@ Windows 10 には、回転の 3 つの種類がサポートしています: 無�
 
 
 **サンプル**
-* [基本的な入力サンプル](https://go.microsoft.com/fwlink/p/?LinkID=620302)
-* [低待機時間の入力サンプル](https://go.microsoft.com/fwlink/p/?LinkID=620304)
-* [ユーザー操作モードのサンプル](https://go.microsoft.com/fwlink/p/?LinkID=619894)
-* [フォーカスの視覚効果のサンプル](https://go.microsoft.com/fwlink/p/?LinkID=619895)
+* [Basic input sample](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/BasicInput)
+* [Low latency input sample](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/LowLatencyInput)
+* [ユーザー操作モードのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/UserInteractionMode)
+* [フォーカスの視覚効果のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlFocusVisuals)
 
 **サンプルのアーカイブ**
-* [入力:XAML ユーザー入力イベントのサンプル](https://go.microsoft.com/fwlink/p/?linkid=226855)
-* [入力:デバイス機能のサンプル](https://go.microsoft.com/fwlink/p/?linkid=231530)
-* [入力:タッチ ヒット テストのサンプル](https://go.microsoft.com/fwlink/p/?linkid=231590)
-* [XAML のスクロール、パン、ズームのサンプル](https://go.microsoft.com/fwlink/p/?linkid=251717)
-* [入力:簡略化されたインクのサンプル](https://go.microsoft.com/fwlink/p/?linkid=246570)
-* [入力:ジェスチャと GestureRecognizer の操作](https://go.microsoft.com/fwlink/p/?LinkId=264995)
-* [入力:操作とジェスチャ (C++) のサンプル](https://go.microsoft.com/fwlink/p/?linkid=231605)
-* [DirectX のタッチ入力サンプル](https://go.microsoft.com/fwlink/p/?LinkID=231627)
+* [Input: XAML user input events sample](https://code.msdn.microsoft.com/windowsapps/Input-3dff271b)
+* [Input: Device capabilities sample](https://code.msdn.microsoft.com/windowsapps/Input-device-capabilities-31b67745)
+* [Input: Touch hit testing sample](https://code.msdn.microsoft.com/windowsapps/Touch-Hit-Testing-sample-5e35c690)
+* [XAML scrolling, panning, and zooming sample](https://code.msdn.microsoft.com/windowsapps/xaml-scrollviewer-pan-and-949d29e9)
+* [Input: Simplified ink sample](https://code.msdn.microsoft.com/windowsapps/Input-simplified-ink-sample-11614bbf)
+* [Input: Gestures and manipulations with GestureRecognizer](https://docs.microsoft.com/samples/browse/?redirectedfrom=MSDN-samples)
+* [Input: Manipulations and gestures (C++) sample](https://code.msdn.microsoft.com/windowsapps/Manipulations-and-gestures-362b6b59)
+* [DirectX touch input sample](https://code.msdn.microsoft.com/windowsapps/Simple-Direct3D-Touch-f98db97e)
  
 
  

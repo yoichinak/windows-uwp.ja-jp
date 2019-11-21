@@ -6,18 +6,18 @@ ms.date: 08/11/2017
 ms.topic: article
 keywords: Windows 10, UWP, 地図, 位置情報, プッシュピン
 ms.localizationpriority: medium
-ms.openlocfilehash: b8e14693dd6ef23714da53d652b9083f202cd62d
-ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
+ms.openlocfilehash: 6bf8009232dbe3afcab2af28b76785fb261200f7
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71340432"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74259375"
 ---
 # <a name="display-points-of-interest-on-a-map"></a>関心のあるポイントの地図への表示
 
 プッシュピン、画像、図形、XAML UI 要素を使って、関心のあるポイント (POI) を地図に追加します。 POI は、地図上の特定のポイントであり、関心のあるものを表します。 たとえば、企業、市区町村、友人の所在地を示すことができます。
 
-アプリでの POI の表示の詳細については、GitHub の[Windows-universal samples リポジトリ](https://go.microsoft.com/fwlink/p/?LinkId=619979)から次のサンプルをダウンロードしてください。[ユニバーサル Windows プラットフォーム (UWP) マップのサンプル](https://go.microsoft.com/fwlink/p/?LinkId=619977)です。
+アプリで POI を表示する方法について詳しくは、GitHub の [Windows-universal-samples リポジトリ](https://github.com/Microsoft/Windows-universal-samples)から[ユニバーサル Windows プラットフォーム (UWP) の地図サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/MapControl)をダウンロードしてください。
 
 地図にプッシュピン、画像、図形を表示するには、[**MapIcon**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapIcon)、[**MapBillboard**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapbillboard)、[**MapPolygon**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapPolygon)、[**MapPolyline**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapPolyline) の各オブジェクトを、[**MapElementsLayer**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapelementslayer) オブジェクトの **MapElements** コレクションに追加します。 次に、そのレイヤー オブジェクトをマップ コントロールの **Layers** コレクションに追加します。
 
@@ -34,7 +34,7 @@ ms.locfileid: "71340432"
 
 ![さまざまな長さのタイトルを含むサンプルの MapIcon。](images/mapctrl-mapicons.png)
 
-次の例では、シアトル市の地図を表示して、既定の画像とオプションのタイトルを使って [**MapIcon**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapIcon) を追加し、スペース ニードルの場所を示しています。 また、アイコンを地図の中央に配置し、拡大しています。 マップ コントロールを使用する方法に関する一般的な情報については、「[2D、3D、Streetside ビューでの地図の表示](display-maps.md)」をご覧ください。
+次の例では、シアトル市の地図を表示して、既定の画像とオプションのタイトルを使って [**MapIcon**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapIcon) を追加し、スペース ニードルの場所を示しています。 また、アイコンを地図の中央に配置し、拡大しています。 マップ コントロールを使用する方法に関する一般的な情報については、「 [2D、3D、Streetside ビューでの地図の表示](display-maps.md)」をご覧ください。
 
 ```csharp
 public void AddSpaceNeedleIcon()
@@ -163,9 +163,9 @@ public void AddLandmarkPhoto()
 }
 ```
 
-このコードの3つの部分は、もう少し詳しく調べてみる価値があります。イメージ、参照カメラ、および[**NormalizedAnchorPoint**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapbillboard.NormalizedAnchorPoint)プロパティ。
+このコードには、少し詳しく説明するに値する部分が 3 つあります。画像、リファレンス カメラ、および [**NormalizedAnchorPoint**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapbillboard.NormalizedAnchorPoint) のことです。
 
-### <a name="image"></a>イメージ
+### <a name="image"></a>画像
 
 この例は、プロジェクトの **Assets** フォルダーに保存されたカスタム画像を示しています。 [  **MapBillboard**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapbillboard) の [**Image**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapbillboard.Image) プロパティでは、[**RandomAccessStreamReference**](https://docs.microsoft.com/uwp/api/Windows.Storage.Streams.RandomAccessStreamReference) 型の値が想定されています。 この型では、[**Windows.Storage.Streams**](https://docs.microsoft.com/uwp/api/Windows.Storage.Streams) 名前空間用に **using** ステートメントが必要になります。
 
@@ -186,7 +186,7 @@ public void AddLandmarkPhoto()
 
 ## <a name="add-a-shape"></a>図形の追加
 
-マルチポイント図形を地図に表示するには、[**MapPolygon**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapPolygon) クラスを使います。 次の例は、[UWP の地図サンプル](https://go.microsoft.com/fwlink/p/?LinkId=619977)から抜粋したもので、地図に赤色のボックス (境界線は青色) を表示します。
+[  **MapPolygon**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapPolygon) クラスを使って、マルチポイント図形を地図に表示します。 次の例は、[UWP の地図サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/MapControl)から抜粋したもので、地図に赤色のボックス (境界線は青色) を表示します。
 
 ```csharp
 public void HighlightArea()
@@ -229,7 +229,7 @@ public void HighlightArea()
 ## <a name="add-a-line"></a>線の追加
 
 
-[  **MapPolyline**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapPolyline) クラスを使って、線を地図に表示します。 次の例は、[UWP の地図サンプル](https://go.microsoft.com/fwlink/p/?LinkId=619977)から抜粋したもので、地図に破線を表示します。
+[  **MapPolyline**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapPolyline) クラスを使って、線を地図に表示します。 次の例は、[UWP の地図サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/MapControl)から抜粋したもので、地図に破線を表示します。
 
 ```csharp
 public void DrawLineOnMap()
@@ -273,7 +273,7 @@ XAML を使って、カスタム UI 要素を地図に表示します。 XAML �
 -   [  **SetLocation**](https://docs.microsoft.com/windows/desktop/tablet/icontextnode-setlocation) を呼び出して、XAML を地図に配置する位置を設定します。
 -   [  **SetNormalizedAnchorPoint**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.setnormalizedanchorpoint) を呼び出して、指定した位置に対応する XAML 上の相対位置を設定します。
 
-次の例では、シアトル市の地図を表示して、XAML の [**Border**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Border) コントロールを追加し、スペース ニードルの場所を示しています。 また、そのエリアを地図の中央に配置し、拡大しています。 マップ コントロールを使用する方法に関する一般的な情報については、「[2D、3D、Streetside ビューでの地図の表示](display-maps.md)」をご覧ください。
+次の例では、シアトル市の地図を表示して、XAML の [**Border**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Border) コントロールを追加し、スペース ニードルの場所を示しています。 また、そのエリアを地図の中央に配置し、拡大しています。 マップ コントロールを使用する方法に関する一般的な情報については、「 [2D、3D、Streetside ビューでの地図の表示](display-maps.md)」をご覧ください。
 
 ```csharp
 private void displayXAMLButton_Click(object sender, RoutedEventArgs e)
@@ -474,10 +474,10 @@ XAML ページで、レイヤーを返すビュー モデル クラスのプロ�
 ## <a name="related-topics"></a>関連トピック
 
 * [Bing Maps Developer Center](https://www.bingmapsportal.com/)
-* [UWP の地図のサンプル](https://go.microsoft.com/fwlink/p/?LinkId=619977)
+* [UWP の地図のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/MapControl)
 * [地図の設計ガイドライン](https://docs.microsoft.com/windows/uwp/maps-and-location/controls-map)
-* [Build 2015 のビデオ:Windows アプリでの電話、タブレット、PC で使用できるマップと位置情報の活用](https://channel9.msdn.com/Events/Build/2015/2-757)
-* [UWP の交通情報アプリのサンプル](https://go.microsoft.com/fwlink/p/?LinkId=619982)
+* [Build 2015 video: Leveraging Maps and Location Across Phone, Tablet, and PC in Your Windows Apps](https://channel9.msdn.com/Events/Build/2015/2-757)
+* [UWP の交通情報アプリのサンプル](https://github.com/Microsoft/Windows-appsample-trafficapp)
 * [**MapIcon**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapIcon)
 * [**MapPolygon**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapPolygon)
 * [**MapPolyline**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapPolyline)

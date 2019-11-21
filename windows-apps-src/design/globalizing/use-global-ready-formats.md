@@ -7,12 +7,12 @@ ms.date: 11/07/2017
 ms.topic: article
 keywords: Windows 10, UWP, グローバリゼーション, ローカライズの可否, ローカライズ
 ms.localizationpriority: medium
-ms.openlocfilehash: d641bcff48b830c56a1d03ee861ec2a4c5f433b6
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 54846cd350e8f91f7ba664690cfd4dd7e36c129e
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57634137"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74258051"
 ---
 # <a name="globalize-your-datetimenumber-formats"></a>日付、時刻、数値の形式のグローバル化
 
@@ -24,7 +24,7 @@ ms.locfileid: "57634137"
 
 さまざまな地域やカルチャで、さまざまな日付と時刻の形式が使われています。 例として、日付の月と日の順、時刻の時と分との分離、セパレーターとして使われる句読点に関する規則があります。 また、日付にはさまざまな表示形式があり、長い形式 ("Wednesday, March 28, 2012") や短い形式 ("3/28/12") など、カルチャによってその表示形式が異なります。 当然ですが、曜日や月の名称と省略形は言語間で異なります。
 
-さまざまな言語で使用される形式をプレビューすることができます。 **[設定]** > **[時刻と言語]** > **[地域と言語]** に移動し、**[日付、時刻、地域の追加設定]** > **[日付、時刻、または数値の形式の変更]** の順にクリックします。 **[形式]** タブで、**[表示形式]** ドロップダウンから言語を選択し、**[例]** で形式をプレビューします。
+さまざまな言語で使用される形式をプレビューすることができます。 **[設定]**  >  **[時刻と言語]**  >  **[地域と言語]** に移動し、 **[日付、時刻、地域の追加設定]**  >  **[日付、時刻、または数値の形式の変更]** の順にクリックします。 **[形式]** タブで、 **[表示形式]** ドロップダウンから言語を選択し、 **[例]** で形式をプレビューします。
 
 このトピックでは、"ユーザー プロファイルの言語の一覧"、"アプリ マニフェストの言語の一覧"、"アプリの実行時の言語の一覧" という用語を定義します。 これらの用語の正確な意味とその値にアクセスする方法の詳細については、「[ユーザー プロファイルの言語とアプリ マニフェストの言語について](manage-language-and-region.md)」を参照してください。
 
@@ -52,7 +52,7 @@ ms.locfileid: "57634137"
 上のコードは、次のように個人の PC でテストできます。
 
 - "en-US" と "de-DE" の両方に対して修飾されたリソース ファイルがプロジェクトにあることを確認します ([言語、スケール、ハイ コントラスト、その他の修飾子用にリソースを調整する](../../app-resources/tailor-resources-lang-scale-contrast.md) を参照)。
-- **[設定]** > **[時刻と言語]** > **[地域と言語]** > **[言語]** でユーザー プロファイルの言語の一覧を変更します。 ドイツ語 (ドイツ) を追加し、それを既定の言語にして、もう一度コードを実行します。
+- **[設定]**  >  **[時刻と言語]**  >  **[地域と言語]**  >  **[言語]** でユーザー プロファイルの言語の一覧を変更します。 ドイツ語 (ドイツ) を追加し、それを既定の言語にして、もう一度コードを実行します。
 
 ## <a name="format-dates-and-times-for-the-user-profile-language-list"></a>ユーザー プロファイルの言語の一覧の日付と時刻の書式設定
 
@@ -104,7 +104,7 @@ ms.locfileid: "57634137"
                     "Formatted Euro (fr-FR defaults): " + currencyValueEuroFR;
 ```
 
-**[設定]** > **[時刻と言語]** > **[地域と言語]** > **[国/地域]** で国または地域を変更して、個人の PC で上のコードをテストできます。 国または地域 (アイスランドなど) を選択し、もう一度コードを実行します。
+**[設定]**  >  **[時刻と言語]**  >  **[地域と言語]**  >  **[国/地域]** で国または地域を変更して、個人の PC で上のコードをテストできます。 国または地域 (アイスランドなど) を選択し、もう一度コードを実行します。
 
 ## <a name="use-a-culturally-appropriate-calendar"></a>カルチャに適したカレンダーを使用する
 
@@ -116,9 +116,9 @@ ms.locfileid: "57634137"
 
 電話番号の書式設定は地域によって異なります。 電話番号の桁数、桁のグループ化、および特定部分の重要性は、国によって異なります。 Windows 10 Version 1607 以降では、[**PhoneNumberFormatting**](/uwp/api/windows.globalization.phonenumberformatting?branch=live) 名前空間のクラスを使って、電話番号を現在の地域に適した書式に設定できます。
 
-[**PhoneNumberInfo** ](/uwp/api/windows.globalization.phonenumberformatting.phonenumberinfo?branch=live)桁の文字列を解析し、することができます数字が現在のリージョンで有効な電話番号であるかどうかを確認; は、等価性と、電話のさまざまな機能の部分を抽出する 2 つの数値の比較。国コードや地理的領域のコードなどの数。
+[**PhoneNumberInfo**](/uwp/api/windows.globalization.phonenumberformatting.phonenumberinfo?branch=live) parses a string of digits and allows you to: determine whether the digits are a valid phone number in the current region; compare two numbers for equality; and to extract the different functional parts of the phone number, such as country code or geographical area code.
 
-[**PhoneNumberFormatter** ](/uwp/api/windows.globalization.phonenumberformatting.phonenumberformatter?branch=live)形式の数字の文字列または**PhoneNumberInfo**数字の文字列が、部分的な電話番号を表す場合にも、表示のためです。 この部分的な番号の書式設定を使って、ユーザーの番号入力に合わせて番号を書式設定できます。
+[**PhoneNumberFormatter**](/uwp/api/windows.globalization.phonenumberformatting.phonenumberformatter?branch=live) formats a string of digits or a **PhoneNumberInfo** for display, even when the string of digits represents a partial phone number. この部分的な番号の書式設定を使って、ユーザーの番号入力に合わせて番号を書式設定できます。
 
 次の例では、入力されている電話番号を **PhoneNumberFormatter** を使って書式設定する方法を示します。 phoneNumberInputTextBox という名前の **TextBox** のテキストが変わるたびに、現在の既定の地域を使ってテキスト ボックスの内容が書式設定されて、phoneNumberOutputTextBlock という名前の **TextBlock** に表示されます。 デモンストレーション用として、文字列は地域としてニュージーランドを使って書式設定され、phoneNumberOutputTextBlockNZ という名前の TextBlock にも表示されます。
   
@@ -151,7 +151,7 @@ ms.locfileid: "57634137"
     }
 ```    
 
-**[設定]** > **[時刻と言語]** > **[地域と言語]** > **[国/地域]** で国または地域を変更して、個人の PC で上のコードをテストできます。 国または地域 (形式が一致することを確認するために、ニュージーランドなど) を選択し、もう一度コードを実行します。 テスト データでは、ニュージーランドの企業の電話番号を Web 検索することができます。
+**[設定]**  >  **[時刻と言語]**  >  **[地域と言語]**  >  **[国/地域]** で国または地域を変更して、個人の PC で上のコードをテストできます。 国または地域 (形式が一致することを確認するために、ニュージーランドなど) を選択し、もう一度コードを実行します。 テスト データでは、ニュージーランドの企業の電話番号を Web 検索することができます。
 
 ## <a name="the-users-language-and-cultural-preferences"></a>ユーザーの言語とカルチャの設定
 
@@ -161,19 +161,19 @@ ms.locfileid: "57634137"
 
 * [DateTimeFormatter](/uwp/api/windows.globalization.datetimeformatting?branch=live)
 * [NumberFormatting](/uwp/api/windows.globalization.numberformatting?branch=live)
-* [予定表](/uwp/api/windows.globalization.calendar?branch=live)
+* [Calendar](/uwp/api/windows.globalization.calendar?branch=live)
 * [PhoneNumberFormatting](/uwp/api/windows.globalization.phonenumberformatting?branch=live)
 * [GlobalizationPreferences](/uwp/api/windows.system.userprofile.globalizationpreferences?branch=live)
 
 ## <a name="related-topics"></a>関連トピック
 
-* [予定表、日付、およびタイム コントロール](../controls-and-patterns/date-and-time.md)
-* [ユーザー プロファイルの言語とアプリ マニフェストの言語を理解します。](manage-language-and-region.md)
+* [カレンダー、日付、および時刻コントロール](../controls-and-patterns/date-and-time.md)
+* [Understand user profile languages and app manifest languages](manage-language-and-region.md)
 * [言語、スケール、ハイ コントラスト、その他の修飾子用にリソースを調整する](../../app-resources/tailor-resources-lang-scale-contrast.md)
 
 ## <a name="samples"></a>サンプル
 
-* [予定表の詳細と数式のサンプル](https://go.microsoft.com/fwlink/p/?linkid=231636)
-* [日付と時刻のサンプルを書式設定](https://go.microsoft.com/fwlink/p/?linkid=231618)
-* [グローバリゼーションの基本設定のサンプル](https://go.microsoft.com/fwlink/p/?linkid=231608)
-* [数値の書式とサンプルの解析](https://go.microsoft.com/fwlink/p/?linkid=231620)
+* [Calendar details and math sample](https://code.msdn.microsoft.com/windowsapps/Calendar-details-and-math-b1683bb7)
+* [Date and time formatting sample](https://code.msdn.microsoft.com/windowsapps/Date-and-time-formatting-2361f348)
+* [Globalization preferences sample](https://code.msdn.microsoft.com/windowsapps/Globalization-preferences-6654eb36)
+* [Number formatting and parsing sample](https://code.msdn.microsoft.com/windowsapps/Number-formatting-and-bb10ba3d)

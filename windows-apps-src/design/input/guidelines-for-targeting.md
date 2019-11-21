@@ -6,45 +6,45 @@ label: Targeting
 template: detail.hbs
 ms.date: 03/18/2019
 ms.topic: article
-keywords: windows 10, uwp
+keywords: Windows 10, UWP
 ms.localizationpriority: medium
-ms.openlocfilehash: 34f8d15b971cc9ed286471010a21d1b44b84af13
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 9b1cac04405f18aaf3c8f39f9bfce2b965577807
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66363471"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74257940"
 ---
-# <a name="guidelines-for-touch-targets"></a>タッチの対象とするためのガイドライン
+# <a name="guidelines-for-touch-targets"></a>Guidelines for touch targets
 
-ユニバーサル Windows プラットフォーム (UWP) アプリケーション内のすべての対話型 UI 要素を正確にアクセスして、デバイスの種類や入力方法に関係なく、使用するユーザーに十分な大きさにする必要があります。
+All interactive UI elements in your Universal Windows Platform (UWP) application must be large enough for users to accurately access and use, regardless of device type or input method.
 
-タッチ デジタイザーによって報告される入力データの大規模でより複雑なセットが決定に使用されるため、ターゲットのサイズとコントロールのレイアウトに関するさらに最適化を必要とタッチ入力 (およびタッチの連絡先情報 領域の比較的不正確な性質) をサポートしている、ユーザーの目的 (または最も可能性の高い) のターゲット。
+Supporting touch input (and the relatively imprecise nature of the touch contact area) requires further optimization with respect to target size and control layout as the larger, more complex set of input data reported by the touch digitizer is used to determine the user's intended (or most likely) target.
 
-UWP コントロールのすべてでは、タッチの既定のターゲット サイズとは、快適な使いやすく、視覚的にバランスの取れたで魅力的なもののアプリを構築するためのレイアウトを設計し、信頼してもらいます。
+All UWP controls have been designed with default touch target sizes and layouts that enable you to build visually balanced and appealing apps that are comfortable, easy to use, and inspire confidence.
 
-このトピックでプラットフォーム コントロールとカスタム コントロールの両方を使用して (必要があります、アプリに) 最大の使いやすさのアプリを設計するためにこれらの既定の動作を説明します。
+In this topic, we describe these default behaviors so you can design your app for maximum usability using both platform controls and custom controls (should your app require them).
 
-> **重要な API**:[**Windows.UI.Core**](https://docs.microsoft.com/uwp/api/Windows.UI.Core)、 [ **Windows.UI.Input**](https://docs.microsoft.com/uwp/api/Windows.UI.Input)、 [ **Windows.UI.Xaml.Input**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input)
+> **重要な API**: [**Windows.UI.Core**](https://docs.microsoft.com/uwp/api/Windows.UI.Core)、[**Windows.UI.Input**](https://docs.microsoft.com/uwp/api/Windows.UI.Input)、[**Windows.UI.Xaml.Input**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input)
 
-## <a name="fluent-standard-sizing"></a>標準の Fluent のサイズ変更
+## <a name="fluent-standard-sizing"></a>Fluent Standard サイズ
 
-*標準のサイズ変更の Fluent*情報密度とユーザーの快適性のバランスを提供するが作成されました。 実際には、画面上のすべての項目は、UI 要素をグリッドに合わせるし、適切にスケーリングできますが、システム レベルのスケールに基づいて、40 x 40 有効ピクセル (epx) のターゲットに揃えます。
+"*Fluent Standard サイズ*" は、情報の密度とユーザーの快適さのバランスを取るために作成されました。 実質的に、画面上のすべての項目が 40 x 40 の有効ピクセル (epx) ターゲットに揃えられ、UI 要素をグリッドに位置合わせし、システム レベルのスケーリングに基づいて適切にスケーリングできます
 
 > [!NOTE]
->有効ピクセルとスケーリングの詳細については、次を参照してください[UWP アプリのデザインの概要。](../basics/design-and-ui-intro.md#effective-pixels-and-scaling)
+>有効ピクセルとスケーリングについて詳しくは、「[UWP アプリ設計の概要](../basics/design-and-ui-intro.md#effective-pixels-and-scaling)」をご覧ください
 >
-> システム レベルのスケーリングの詳細については、次を参照してください。[配置、余白、パディング](../layout/alignment-margin-padding.md)します。
+> システム レベルのスケーリングについて詳しくは、「[配置、余白、パディング](../layout/alignment-margin-padding.md)」をご覧ください。
 
-## <a name="fluent-compact-sizing"></a>Fluent のコンパクト サイズ変更
+## <a name="fluent-compact-sizing"></a>Fluent Compact サイズ
 
-アプリケーションの情報密度の高いレベルを表示できる*Fluent コンパクト サイズ変更*します。 Compact のサイズ変更は、厳密なグリッド システム レベルのスケールに基づいて、適切なスケールを整列する UI 要素を 32 x 32 epx ターゲットへの UI 要素を配置します。
+Applications can display a higher level of information density with *Fluent Compact sizing*. Compact sizing aligns UI elements to a 32x32 epx target, which lets UI elements to align to a tighter grid and scale appropriately based on system level scaling.
 
 ### <a name="examples"></a>例
 
-Compact のサイズ変更は、ページまたはグリッド レベルで適用できます。
+Compact sizing can be applied at the page or grid level.
 
-### <a name="page-level"></a>ページレベルのロック
+### <a name="page-level"></a>ページ レベル
 
 ```xaml
 <Page.Resources>
@@ -62,39 +62,39 @@ Compact のサイズ変更は、ページまたはグリッド レベルで適�
 </Grid>
 ```
 
-## <a name="target-size"></a>ターゲット サイズ
+## <a name="target-size"></a>Target size
 
-一般に、タッチ、ターゲットのサイズを 7.5 mm 正方形の範囲 (x 頭打ちのスケーリングの 1.0 135 PPI ディスプレイで 40 x 40 ピクセル) に設定します。 通常、UWP コントロールの連携 7.5 mm タッチのターゲット (特定のコントロールと、一般的な使用パターンに基づいてこの異なることができます)。 参照してください[サイズおよび密度の制御](../style/spacing.md)詳細。
+In general, set your touch target size to 7.5mm square range (40x40 pixels on a 135 PPI display at a 1.0x scaling plateau). Typically, UWP controls align with 7.5mm touch target (this can vary based on the specific control and any common usage patterns). See [Control size and density](../style/spacing.md) for more detail.
 
-表に示したターゲット サイズの推奨サイズは、個々のシナリオの必要に応じて調整できます。 考慮事項を次に示します。
+表に示したターゲット サイズの推奨サイズは、個々のシナリオの必要に応じて調整できます。 Here are some things to consider:
 
-- 繰り返しまたはよく押されている最小のサイズを超えるターゲット仕上げ - の頻度を検討しています。
-- エラー結果 - エラーの場合、重大な影響を及ぼすターゲットで大きい余白、コンテンツ エリアの端からかけ離れたものに配置します。 特に当てはまるのは頻繁にタッチされるターゲットです。
-- コンテンツ領域内の位置。
-- 要素や画面サイズを形成します。
-- 本の指の状態。
-- 視覚エフェクトをタッチします。
+- Frequency of Touches - consider making targets that are repeatedly or frequently pressed larger than the minimum size.
+- Error Consequence - targets that have severe consequences if touched in error should have greater padding and be placed further from the edge of the content area. 特に当てはまるのは頻繁にタッチされるターゲットです。
+- Position in the content area.
+- Form factor and screen size.
+- Finger posture.
+- Touch visualizations.
 
 ## <a name="related-articles"></a>関連記事
 
 - [UWP アプリ設計の概要](../basics/design-and-ui-intro.md)
-- [コントロールのサイズおよび密度](../style/spacing.md)
+- [Control size and density](../style/spacing.md)
 - [配置、余白、パディング](../layout/alignment-margin-padding.md)
 
 ### <a name="samples"></a>サンプル
 
-- [基本的な入力サンプル](https://go.microsoft.com/fwlink/p/?LinkID=620302)
-- [低待機時間の入力サンプル](https://go.microsoft.com/fwlink/p/?LinkID=620304)
-- [ユーザー操作モードのサンプル](https://go.microsoft.com/fwlink/p/?LinkID=619894)
-- [フォーカスの視覚効果のサンプル](https://go.microsoft.com/fwlink/p/?LinkID=619895)
+- [Basic input sample](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/BasicInput)
+- [Low latency input sample](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/LowLatencyInput)
+- [ユーザー操作モードのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/UserInteractionMode)
+- [フォーカスの視覚効果のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlFocusVisuals)
 
 ### <a name="archive-samples"></a>サンプルのアーカイブ
 
-- [入力:XAML ユーザー入力イベントのサンプル](https://go.microsoft.com/fwlink/p/?linkid=226855)
-- [入力:デバイス機能のサンプル](https://go.microsoft.com/fwlink/p/?linkid=231530)
-- [入力:タッチ ヒット テストのサンプル](https://go.microsoft.com/fwlink/p/?linkid=231590)
-- [XAML のスクロール、パン、ズームのサンプル](https://go.microsoft.com/fwlink/p/?linkid=251717)
-- [入力:簡略化されたインクのサンプル](https://go.microsoft.com/fwlink/p/?linkid=246570)
-- [入力:Windows 8 のジェスチャのサンプル](https://go.microsoft.com/fwlink/p/?LinkId=264995)
-- [入力:操作とジェスチャ (C++) のサンプル](https://go.microsoft.com/fwlink/p/?linkid=231605)
-- [DirectX のタッチ入力サンプル](https://go.microsoft.com/fwlink/p/?LinkID=231627)
+- [Input: XAML user input events sample](https://code.msdn.microsoft.com/windowsapps/Input-3dff271b)
+- [Input: Device capabilities sample](https://code.msdn.microsoft.com/windowsapps/Input-device-capabilities-31b67745)
+- [Input: Touch hit testing sample](https://code.msdn.microsoft.com/windowsapps/Touch-Hit-Testing-sample-5e35c690)
+- [XAML scrolling, panning, and zooming sample](https://code.msdn.microsoft.com/windowsapps/xaml-scrollviewer-pan-and-949d29e9)
+- [Input: Simplified ink sample](https://code.msdn.microsoft.com/windowsapps/Input-simplified-ink-sample-11614bbf)
+- [Input: Windows 8 gestures sample](https://docs.microsoft.com/samples/browse/?redirectedfrom=MSDN-samples)
+- [Input: Manipulations and gestures (C++) sample](https://code.msdn.microsoft.com/windowsapps/Manipulations-and-gestures-362b6b59)
+- [DirectX touch input sample](https://code.msdn.microsoft.com/windowsapps/Simple-Direct3D-Touch-f98db97e)

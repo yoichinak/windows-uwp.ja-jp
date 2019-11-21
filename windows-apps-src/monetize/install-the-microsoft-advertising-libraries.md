@@ -6,19 +6,19 @@ ms.date: 08/23/2017
 ms.topic: article
 keywords: Windows 10, UWP, 広告, 宣伝, インストール, SDK, Advertising ライブラリ
 ms.localizationpriority: medium
-ms.openlocfilehash: d348b1b7a7b057388b437fab9952bb8eaffe9957
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 37e57d49ba40814891154aef2ec0de6b3b7e560c
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67320232"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74260269"
 ---
 # <a name="install-the-microsoft-advertising-sdk"></a>Microsoft Advertising SDK のインストール
 
-Windows 10 用の UWP アプリで広告を表示するには、[Microsoft Advertising SDK](https://aka.ms/ads-sdk-uwp) をインストールします。 この SDK は、Visual Studio 2015 およびそれ以降のバージョンの拡張機能です。
+Windows 10 用の UWP アプリで広告を表示するには、[Microsoft Advertising SDK](https://marketplace.visualstudio.com/items?itemName=AdMediator.MicrosoftAdvertisingSDK) をインストールします。 この SDK は、Visual Studio 2015 およびそれ以降のバージョンの拡張機能です。
 
 > [!NOTE]
-> JavaScript と HTML の UWP アプリを開発しているともにインストールする必要があります、後ですることも Windows 10 SDK バージョン 10.0.14393 (Anniversary Update) がインストールされている場合、 [WinJS](https://github.com/winjs/winjs)ライブラリ。 このライブラリは以前のバージョンの Windows 10 SDK に含まれていましたが、Windows 10 SDK バージョン 10.0.14393 (Anniversary Update) 以降ではこのライブラリを別個にインストールする必要があります。
+> If you are developing a JavaScript/HTML UWP app and you have installed Windows 10 SDK version 10.0.14393 (Anniversary Update) or later, you must also install the [WinJS](https://github.com/winjs/winjs) library. このライブラリは以前のバージョンの Windows 10 SDK に含まれていましたが、Windows 10 SDK バージョン 10.0.14393 (Anniversary Update) 以降ではこのライブラリを別個にインストールする必要があります。
 
 <span id="install-msi" />
 
@@ -35,7 +35,7 @@ MSI インストーラーを使って Microsoft Advertising SDK をインスト�
     MsiExec.exe /x{6AC81125-8485-463D-9352-3F35A2508C11}
     ```
 
-3.  [Microsoft Advertising SDK](https://aka.ms/ads-sdk-uwp) をダウンロードしてインストールします。 インストールには数分かかることがあります。 確実に処理が完了するまでお待ちください。
+3.  [Microsoft Advertising SDK](https://marketplace.visualstudio.com/items?itemName=AdMediator.MicrosoftAdvertisingSDK) をダウンロードしてインストールします。 インストールには数分かかることがあります。 確実に処理が完了するまでお待ちください。
 
 4.  Visual Studio を再起動します。
 
@@ -94,14 +94,14 @@ Microsoft Advertising SDK をインストールした後、次の手順に従っ
 
 * [スポット広告](interstitial-ads.md)
 * [ネイティブ広告](native-ads.md)
-* [XAML と .NET で AdControl](adcontrol-in-xaml-and--net.md)
-* [HTML 5 で AdControl および Javascript](adcontrol-in-html-5-and-javascript.md)
+* [AdControl in XAML and .NET](adcontrol-in-xaml-and--net.md)
+* [AdControl in HTML 5 and Javascript](adcontrol-in-html-5-and-javascript.md)
 
 <span id="framework" />
 
 ## <a name="understanding-framework-packages-in-the-microsoft-advertising-sdk"></a>Microsoft Advertising SDK のフレームワーク パッケージについて
 
-(UWP アプリ用) [Microsoft Advertising SDK](https://aka.ms/ads-sdk-uwp) の Microsoft.Advertising.dll ライブラリは、*フレームワーク パッケージ*として構成されています。 このライブラリには、[Microsoft.Advertising](https://docs.microsoft.com/uwp/api/microsoft.advertising) のアドバタイズ API と [Microsoft.Advertising.WinRT.UI](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui) 名前空間が含まれます。
+(UWP アプリ用) [Microsoft Advertising SDK](https://marketplace.visualstudio.com/items?itemName=AdMediator.MicrosoftAdvertisingSDK) の Microsoft.Advertising.dll ライブラリは、*フレームワーク パッケージ*として構成されています。 このライブラリには、[Microsoft.Advertising](https://docs.microsoft.com/uwp/api/microsoft.advertising) のアドバタイズ API と [Microsoft.Advertising.WinRT.UI](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui) 名前空間が含まれます。
 
 このライブラリはフレームワーク パッケージであるため、このライブラリを使用するバージョンのアプリをユーザーがインストールすると、このライブラリは、修正されてパフォーマンスが向上した新しいバージョンのライブラリが公開されるたびに、ユーザーのデバイスで Windows Update によって自動的に更新されます。 これにより、利用できる最新バージョンのライブラリがユーザーのデバイスに確実にインストールされます。
 

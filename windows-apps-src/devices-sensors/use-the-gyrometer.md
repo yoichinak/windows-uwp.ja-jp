@@ -4,14 +4,14 @@ title: ジャイロメーターの使用
 description: ジャイロメーターを使ってユーザーの動きの変化を検出する方法を説明します。
 ms.date: 06/06/2017
 ms.topic: article
-keywords: windows 10, uwp
+keywords: Windows 10, UWP
 ms.localizationpriority: medium
-ms.openlocfilehash: e7ee2cac1ae53ca59b8ec60d917e39a737a049ad
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: a5898d4157b216175c77356e5a27b4c58d049d9a
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66369631"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74259636"
 ---
 # <a name="use-the-gyrometer"></a>ジャイロメーターの使用
 
@@ -19,9 +19,9 @@ ms.locfileid: "66369631"
 **重要な API**
 
 -   [**Windows.Devices.Sensors**](https://docs.microsoft.com/uwp/api/Windows.Devices.Sensors)
--   [**ジャイロ メーター**](https://docs.microsoft.com/uwp/api/Windows.Devices.Sensors.Gyrometer)
+-   [**Gyrometer**](https://docs.microsoft.com/uwp/api/Windows.Devices.Sensors.Gyrometer)
 
-**サンプル**
+**Sample**
 
 -   より完全な実装については、[ジャイロメーターのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/gyrometer)をご覧ください。
 
@@ -31,7 +31,7 @@ ms.locfileid: "66369631"
 
 ## <a name="prerequisites"></a>前提条件
 
-Extensible Application Markup Language (XAML)、Microsoft Visual 知っておくべきC#、およびイベント。
+You should be familiar with Extensible Application Markup Language (XAML), Microsoft Visual C#, and events.
 
 使うデバイスやエミュレーターがジャイロメーターをサポートしている必要があります。
 
@@ -108,7 +108,7 @@ Extensible Application Markup Language (XAML)、Microsoft Visual 知っておく
     }
 ```
 
-元のスニペットの名前空間の名前を、自分のプロジェクトに指定した名前に変更する必要があります。 たとえば、作成したプロジェクトの名前が **GyrometerCS** だとすると、`namespace App1` を `namespace GyrometerCS` に置き換えます。
+元のスニペットの名前空間の名前を、自分のプロジェクトに指定した名前に変更する必要があります。 たとえば、作成したプロジェクトの名前が **GyrometerCS** である場合は、`namespace App1` を `namespace GyrometerCS` に置き換えます。
 
 -   MainPage.xaml ファイルを開き、元の内容を次の XML に置き換えます。
 
@@ -134,13 +134,13 @@ Extensible Application Markup Language (XAML)、Microsoft Visual 知っておく
     </Page>
 ```
 
-元のスニペットのクラス名の最初の部分を、自分のアプリの名前空間に置き換える必要があります。 たとえば、作成したプロジェクトの名前が **GyrometerCS** だとすると、`x:Class="App1.MainPage"` を `x:Class="GyrometerCS.MainPage"` に置き換えます。 また、`xmlns:local="using:App1"` を `xmlns:local="using:GyrometerCS"` に置き換える必要があります。
+元のスニペットのクラス名の最初の部分を、自分のアプリの名前空間に置き換える必要があります。 たとえば、作成したプロジェクトの名前が **GyrometerCS** である場合は、`x:Class="App1.MainPage"` を `x:Class="GyrometerCS.MainPage"` に置き換えます。 また、`xmlns:local="using:App1"` を `xmlns:local="using:GyrometerCS"` に置き換える必要があります。
 
--   アプリをビルド、展開、実行するには、F5 キーを押すか、 **[デバッグ]**  >  **[デバッグの開始]** の順にクリックします。
+-   アプリをビルド、展開、実行するには、F5 キーを押すか、 **[デバッグ]** 、 **[デバッグの開始]** の順にクリックします。
 
 アプリを実行した後、デバイスを移動するか、エミュレーター ツールを使うことによって、ジャイロメーターの値を変更できます。
 
--   アプリを停止するには、Visual Studio に戻り、Shift キーを押しながら F5 キーを押すか、 **[デバッグ]**  >  **[デバッグの停止]** の順にクリックします。
+-   アプリを停止するには、Visual Studio に戻り、Shift キーを押しながら F5 キーを押すか、 **[デバッグ]** 、 **[デバッグの停止]** の順にクリックします。
 
 ###  <a name="explanation"></a>説明
 
@@ -180,4 +180,4 @@ GyrometerReadingChangedEventArgs>(ReadingChanged);
 
  ## <a name="related-topics"></a>関連トピック
 
-* [ジャイロ メーターのサンプル](https://go.microsoft.com/fwlink/p/?linkid=241379)
+* [Gyrometer Sample](https://code.msdn.microsoft.com/windowsapps/Gyrometer-Sensor-Sample-4fe891d9)
