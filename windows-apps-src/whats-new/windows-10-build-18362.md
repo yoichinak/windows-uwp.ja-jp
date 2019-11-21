@@ -6,18 +6,18 @@ ms.date: 04/19/2019
 ms.topic: article
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: f95193b1bbf50165619fb6c7b7222ed36853d2e2
-ms.sourcegitcommit: a7740ebb14c98cd5afadd52db5cf714522821b49
+ms.openlocfilehash: 4671b3048850197cc33e6878b814b2c26792e36c
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72893037"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74258847"
 ---
 # <a name="whats-new-in-windows-10-for-developers-build-18362"></a>Windows 10 ビルド 18362 の開発者向け新着情報
 
-Windows 10 ビルド 18362 (SDK バージョン 1903 とも呼ばれる) を Visual Studio 2019 と組み合わせて使用すると、優れた Windows アプリを作成するためのツール、機能、およびエクスペリエンスが得られます。 Windows 10 の[ツールと SDK をインストール](https://go.microsoft.com/fwlink/?LinkId=821431)すると、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
+Windows 10 ビルド 18362 (SDK バージョン 1903 とも呼ばれる) を Visual Studio 2019 と組み合わせて使用すると、優れた Windows アプリを作成するためのツール、機能、およびエクスペリエンスが得られます。 Windows 10 の[ツールと SDK をインストール](https://developer.microsoft.com/windows/downloads#_blank)すると、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
 
-ここには、Windows 開発者にとって重要なこのリリースの新機能、強化された機能、ガイダンスを集めました。 Windows SDK に追加されたすべての新しい名前空間の一覧については、「[Windows 10 ビルド 18362 API の変更点](windows-10-build-18362-api-diff.md)」をご覧ください。 Windows 10 での注目すべき機能について詳しくは、「[Windows 10 の優れた機能](https://go.microsoft.com/fwlink/?LinkId=823181)」をご覧ください。
+ここには、Windows 開発者にとって重要なこのリリースの新機能、強化された機能、ガイダンスを集めました。 Windows SDK に追加されたすべての新しい名前空間の一覧については、「[Windows 10 ビルド 18362 API の変更点](windows-10-build-18362-api-diff.md)」をご覧ください。 Windows 10 での注目すべき機能について詳しくは、「[Windows 10 の優れた機能](https://developer.microsoft.com/windows/windows-10-for-developers)」をご覧ください。
 
 ## <a name="design--ui"></a>設計および UI
 
@@ -56,7 +56,7 @@ Project Rome | Project Rome SDK が Android および iOS で利用できるよ�
 Visual Studio 2019 | すべての開発者、アプリ、またはプラットフォーム用の最新のツールとサービスを備えた Visual Studio 2019 がリリースされています。 最新情報および使い始める方法については、「[Visual Studio 2019 の新機能](https://docs.microsoft.com/visualstudio/ide/whats-new-visual-studio-2019?view=vs-2019)」をご覧ください。
 Win32 WebView | [よく寄せられる質問](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/webview#frequently-asked-questions-faqs)では、デスクトップ アプリケーションで Microsoft Edge WebView を使用する際の一般的な質問に対する回答、サンプルおよびその他のリソースへのリンクが提供されています。
 Windows コマンド ライン | [コンソールの新機能](https://devblogs.microsoft.com/commandline/new-experimental-console-features/)には、スクロール、カーソルの形状、およびカーソルの色に関する設定がある実験用の [ターミナル] タブが含まれています。 詳細については、[開発者向けの Windows コマンド ライン ツール](https://devblogs.microsoft.com/commandline/)に関するブログ記事を参照してください。
-Windows  コミュニティ ツールキット | Windows コミュニティ ツールキット v5.1 では、アニメーション、リモート デバイス、画像のトリミング、およびアクセシビリティに対して魅力的な更新プログラムが提供されています。 </br> • 新しい [Lottie-Windows ライブラリ](https://docs.microsoft.com/windows/communitytoolkit/animations/lottie)では、Windows.UI.Composition API を利用することによって Windows 10 (1809) 上での高品質のアニメーションがサポートされ、さらに [Bodymovin](https://aescripts.com/bodymovin/) JSON ファイルの使用、またはご利用の Windows アプリで再生するための最適化されたコード生成クラスの使用が考慮されています。 アニメーションのテストを行い、ご利用の Windows アプリ用に最適化されたコードを生成するために、Microsoft Store からの新しい [Lottie Viewer アプリ](https://aka.ms/lottieviewer)を試してみてください。 </br> • 新しい[リモート デバイス ピッカー](https://docs.microsoft.com/windows/communitytoolkit/controls/remotedevicepicker)を使用すると、ユーザーはデバイス (近距離またはクラウドからアクセス可能) を選択したり、そのデバイス上でアプリを起動したり、リモート デバイス上のアプリ サービスと通信したりできます。 </br> • 新しい[ImageCropper コントロール](https://docs.microsoft.com/windows/communitytoolkit/controls/imagecropper)では、プロフィール画像を選択するため、または写真編集ツールを使用するのトリミング機能が統合されています。 </br> • さらに、コントロールに対するアクセシビリティーの向上や WPF および WinForms 用の [Microsoft.Toolkit.Win32](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32) 6.0 プレビュー パッケージ更新プログラムの他にも、[リリース ノート](https://github.com/windows-toolkit/WindowsCommunityToolkit/releases/tag/v5.1.0)で確認できる機能があります。
+Windows  コミュニティ ツールキット | Windows コミュニティ ツールキット v5.1 では、アニメーション、リモート デバイス、画像のトリミング、およびアクセシビリティに対して魅力的な更新プログラムが提供されています。 </br> • 新しい [Lottie-Windows ライブラリ](https://docs.microsoft.com/windows/communitytoolkit/animations/lottie)では、Windows.UI.Composition API を利用することによって Windows 10 (1809) 上での高品質のアニメーションがサポートされ、さらに [Bodymovin](https://aescripts.com/bodymovin/) JSON ファイルの使用、またはご利用の Windows アプリで再生するための最適化されたコード生成クラスの使用が考慮されています。 アニメーションのテストを行い、ご利用の Windows アプリ用に最適化されたコードを生成するために、Microsoft Store からの新しい [Lottie Viewer アプリ](https://www.microsoft.com/p/lottie-viewer/9p7x9k692tmw)を試してみてください。 </br> • 新しい[リモート デバイス ピッカー](https://docs.microsoft.com/windows/communitytoolkit/controls/remotedevicepicker)を使用すると、ユーザーはデバイス (近距離またはクラウドからアクセス可能) を選択したり、そのデバイス上でアプリを起動したり、リモート デバイス上のアプリ サービスと通信したりできます。 </br> • 新しい[ImageCropper コントロール](https://docs.microsoft.com/windows/communitytoolkit/controls/imagecropper)では、プロフィール画像を選択するため、または写真編集ツールを使用するのトリミング機能が統合されています。 </br> • さらに、コントロールに対するアクセシビリティーの向上や WPF および WinForms 用の [Microsoft.Toolkit.Win32](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32) 6.0 プレビュー パッケージ更新プログラムの他にも、[リリース ノート](https://github.com/windows-toolkit/WindowsCommunityToolkit/releases/tag/v5.1.0)で確認できる機能があります。
 Windows Machine Learning | Windows AI ドキュメントをデザインし直して次の 3 つの領域に分けました: Windows Machine Learning (WinML)、Windows Vision Skills、および Direct Machine Learning (DirectML)。 新しい[ランディング ページ](https://docs.microsoft.com/windows/ai/)を確認してください </br> • [*MLGen* エクスペリエンス](https://docs.microsoft.com/windows/ai/mlgen)は、Visual Studio で変更中です。 バージョン 1903 以降の Windows 10 では、*mlgen*が Windows 10 SDK に含まれなくなりました。 VS 2017 を使用している場合は、代わりに Visual Studio の拡張機能 [Windows Machine Learning Code Generator VS 2017](https://marketplace.visualstudio.com/items?itemName=WinML.mlgen) をダウンロードしてインストールする必要があります。 Visual Studio 2019 を使用している場合は、拡張機能 [Windows Machine Learning Code Generator](https://marketplace.visualstudio.com/items?itemName=WinML.mlgenv2) をインストールする必要があります。 </br> • また、新たにウェイト パッキング用のサポートを発表できることを誇りに思います。 開発者は、[WinMLTools コンバーター](https://docs.microsoft.com/windows/ai/convert-model-winmltools)を介して利用可能になるウェイト パッキングと呼ばれる手法を使用して、ML モデルのディスク占有領域を削減できるようになりました。
 WinRT 統合リファレンス | WinRT API の構造体の定義に関して特定の詳細なノートを提供するために、[WinRT 型システム](https://docs.microsoft.com/uwp/winrt-cref/winrt-type-system)および [WinMD ファイル](https://docs.microsoft.com/uwp/winrt-cref/winmd-files)の詳細な説明を追加しました。
 Windows Subsystem for Linux (WSL) | [WSL に対する最近の更新プログラム](https://devblogs.microsoft.com/commandline/whats-new-for-wsl-in-windows-10-version-1903/)には、エクスプローラーを使用して Windows から Linux ファイルにアクセスする機能と、wsl.exe および wslconfig.exe 用のいくつかの新しいコマンドが含まれています。
@@ -87,7 +87,7 @@ Microsoft Learn は、新しい実践的な学習とトレーニングの機会�
 
 ### <a name="progressive-web-apps"></a>プログレッシブ Web アプリ
 
-プログレッシブ Web アプリは、さまざまなブラウザーおよび各種 Windows 10 デバイスでネイティブ アプリのように機能する Web サイトです。 [ビデオをご覧になって](https://youtu.be/ugAewC3308Y)詳細を学習してから、[ドキュメントを参照](https://aka.ms/Windows-PWA)して使用を開始してください。
+プログレッシブ Web アプリは、さまざまなブラウザーおよび各種 Windows 10 デバイスでネイティブ アプリのように機能する Web サイトです。 [ビデオをご覧になって](https://youtu.be/ugAewC3308Y)詳細を学習してから、[ドキュメントを参照](https://developer.microsoft.com/windows/pwa)して使用を開始してください。
 
 ### <a name="vs-code-series"></a>VS Code シリーズ
 

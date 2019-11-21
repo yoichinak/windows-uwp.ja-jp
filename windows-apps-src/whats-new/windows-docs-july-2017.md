@@ -5,18 +5,18 @@ keywords: 最新情報, 更新, 機能, 開発者向けガイダンス, Windows 
 ms.date: 07/05/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 03bc41ca76f6c6b20f06c98b0e71e2bc5a361992
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 0fa773cdb174369e14c12c4f805f3a57e2ff6eef
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65984200"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74258831"
 ---
 # <a name="whats-new-in-the-windows-developer-docs-in-july-2017"></a>Windows 開発者向けドキュメントの最新情報、2017 年 7 月
 
 Windows 開発者向けドキュメントは、Windows プラットフォームで開発者に提供される新機能の情報を反映して継続的に更新されています。 ここに示す機能概要、開発者向けガイダンス、コード サンプルは最近公開されたもので、Windows 開発者向けの新しい情報や更新情報を含んでいます。
 
-Windows 10 の[ツールと SDK をインストール](https://go.microsoft.com/fwlink/?LinkId=821431)すると、[新しいユニバーサル Windows アプリを作成](../get-started/your-first-app.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
+Windows 10 の[ツールと SDK をインストール](https://developer.microsoft.com/windows/downloads#_blank)すると、[新しいユニバーサル Windows アプリを作成](../get-started/your-first-app.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
 
 ## <a name="features"></a>機能
 

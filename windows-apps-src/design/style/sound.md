@@ -12,12 +12,12 @@ design-contact: mattben
 dev-contact: joyate
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: ce81088495716e43a32dab94d1d47d399dd6a309
-ms.sourcegitcommit: bf95c8b29145a224957a940512394e6aa97cb90f
+ms.openlocfilehash: 31f527cff7588ccf6da2594566cfa3cf13a214f1
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71061918"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74258680"
 ---
 # <a name="sound"></a>サウンド
 
@@ -69,7 +69,7 @@ ElementSoundPlayer.SpatialAudioMode = ElementSpatialAudioMode.Off
 ### <a name="sound-for-tv-and-xbox"></a>テレビや Xbox のサウンド
 
 サウンドは 10 フィート エクスペリエンスの重要なパーツであるため、既定では、**ElementSoundPlayer** の状態は **Auto**、つまり、アプリが Xbox で実行されているときにのみサウンドが再生されます。
-Xbox やテレビ向けの設計について詳しくは、「[Xbox およびテレビ向け設計](https://go.microsoft.com/fwlink/?LinkId=760736)」の記事をご覧ください。
+Xbox やテレビ向けの設計について詳しくは、「[Xbox およびテレビ向け設計](https://docs.microsoft.com/windows/uwp/design/devices/designing-for-tv?redirectedfrom=MSDN)」の記事をご覧ください。
 
 ## <a name="sound-volume-override"></a>音量設定のオーバーライド
 

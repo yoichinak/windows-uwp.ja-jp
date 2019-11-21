@@ -11,12 +11,12 @@ pm-contact: miguelrb
 design-contact: ksulliv
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 82e05880dc8b0a983f4f8005b40939e5ffe0cbe4
-ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
+ms.openlocfilehash: 67c729455c6eb2d8f5e8b07db5e1be7ac13f59b8
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71340395"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74258175"
 ---
 # <a name="text-box"></a>テキスト ボックス
 
@@ -215,7 +215,7 @@ Paste | クリップボードにテキストが含まれている。
 すべて選択 | TextBox にテキストが含まれている。
 元に戻す | テキストが変更されている。
 
-ショートカット メニューに表示されるコマンドを変更するには、[ContextMenuOpening](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.contextmenuopening) イベントを処理します。 この処理の例については、[ContextMenu のサンプル](https://go.microsoft.com/fwlink/p/?linkid=234891)のシナリオ 2 をご覧ください。 デザインについて詳しくは、「ショートカット メニューのガイドライン」をご覧ください。
+ショートカット メニューに表示されるコマンドを変更するには、[ContextMenuOpening](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.contextmenuopening) イベントを処理します。 この処理の例については、[ContextMenu のサンプル](https://code.msdn.microsoft.com/windowsapps/Context-menu-sample-40840351)のシナリオ 2 をご覧ください。 デザインについて詳しくは、「ショートカット メニューのガイドライン」をご覧ください。
 
 ### <a name="select-copy-and-paste"></a>選択、コピー、貼り付け
 

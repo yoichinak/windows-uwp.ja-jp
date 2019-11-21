@@ -5,18 +5,18 @@ keywords: 新着情報, 新機能, 更新, 更新プログラム, 機能, 新規
 ms.date: 04/10/2018
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 797129b62217b9deb74781638b302c59192b7e9a
-ms.sourcegitcommit: a7740ebb14c98cd5afadd52db5cf714522821b49
+ms.openlocfilehash: cce2c6c36918a117ba6aee25987be9060b3ec148
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72893030"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74258865"
 ---
 # <a name="whats-new-in-windows-10-for-developers-build-17134"></a>Windows 10 ビルド 17134 の開発者向け新着情報
 
-Windows 10 ビルド 17134 (April Update またはバージョン 1803 とも呼ばれます) では、Visual Studio 2019 や更新された SDK と組み合わせて使うことで、優れたユニバーサル Windows プラットフォーム アプリを作成するためのツール、機能、エクスペリエンスが利用可能になります。 Windows 10 の[ツールと SDK をインストール](https://go.microsoft.com/fwlink/?LinkId=821431)すると、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
+Windows 10 ビルド 17134 (April Update またはバージョン 1803 とも呼ばれます) では、Visual Studio 2019 や更新された SDK と組み合わせて使うことで、優れたユニバーサル Windows プラットフォーム アプリを作成するためのツール、機能、エクスペリエンスが利用可能になります。 Windows 10 の[ツールと SDK をインストール](https://developer.microsoft.com/windows/downloads#_blank)すると、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
 
-ここには、Windows 開発者にとって重要なこのリリースの新機能、強化された機能、ガイダンスを集めました。 Windows SDK に追加されたすべての新しい名前空間の一覧については、「[Windows 10 ビルド 17134 API の変更点](windows-10-build-17134-api-diff.md)」をご覧ください。 Windows 10 での注目すべき機能について詳しくは、「[Windows 10 の優れた機能](https://go.microsoft.com/fwlink/?LinkId=823181)」をご覧ください。 また、Windows プラットフォームに過去に追加された機能と今後追加される機能の概要については、[Windows 開発者向けプラットフォーム機能に関するページ](https://developer.microsoft.com/windows/platform/features)をご覧ください。
+ここには、Windows 開発者にとって重要なこのリリースの新機能、強化された機能、ガイダンスを集めました。 Windows SDK に追加されたすべての新しい名前空間の一覧については、「[Windows 10 ビルド 17134 API の変更点](windows-10-build-17134-api-diff.md)」をご覧ください。 Windows 10 での注目すべき機能について詳しくは、「[Windows 10 の優れた機能](https://developer.microsoft.com/windows/windows-10-for-developers)」をご覧ください。 また、Windows プラットフォームに過去に追加された機能と今後追加される機能の概要については、[Windows 開発者向けプラットフォーム機能に関するページ](https://developer.microsoft.com/windows/platform/features)をご覧ください。
 
 ## <a name="design--ui"></a>設計および UI
 

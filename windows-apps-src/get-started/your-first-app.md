@@ -6,12 +6,12 @@ ms.date: 01/25/2017
 ms.topic: article
 keywords: windows 10, uwp, 初めてのアプリ, c#, c++, JavaScript
 ms.localizationpriority: medium
-ms.openlocfilehash: c6f66d90e96b0dfe941e4311ebf79cd3b9b5f4ae
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: f386de7ebf9aae2f49a2709d8c1c8ce2595cbf1d
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67318750"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74260524"
 ---
 # <a name="create-your-first-app"></a>初めてのアプリの作成
 
@@ -27,9 +27,9 @@ ms.locfileid: "67318750"
 
 基本を学習したり、知識を再確認したりする場合は、次のリソースをご覧ください。
 
-* [文字どおりの初心者のための C# の基本](https://go.microsoft.com/fwlink/?linkid=850801)
-* [VB Fundamentals for Absolute Beginners (文字どおりの初心者のための VB の基本)](https://go.microsoft.com/fwlink/?linkid=850802)
-* [Windows 10 の開発者向けガイド](https://go.microsoft.com/fwlink/?linkid=850804)
+* [文字どおりの初心者のための C# の基本](https://channel9.msdn.com/Series/CSharp-Fundamentals-for-Absolute-Beginners?l=Lvld4EQIC_2706218949)
+* [VB Fundamentals for Absolute Beginners (文字どおりの初心者のための VB の基本)](https://docs.microsoft.com/learn/?l=jqMOvLKbC_9206218965)
+* [Windows 10 の開発者向けガイド](https://docs.microsoft.com/learn/)
 
 "Hello, World!" よりも少し進んだ内容が必要な場合は、次のチュートリアルを試してください。
 

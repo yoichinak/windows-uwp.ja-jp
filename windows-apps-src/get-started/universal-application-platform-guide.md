@@ -6,12 +6,12 @@ ms.date: 05/07/2018
 ms.topic: article
 keywords: Windows 10, UWP, ユニバーサル
 ms.localizationpriority: medium
-ms.openlocfilehash: 8b1f6e0e04cdf81512918e0cd3e33ec0f93e2245
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 5b0d226a9492a2218edf20e68b8216ea513ca12a
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67320998"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74260537"
 ---
 # <a name="whats-a-universal-windows-platform-uwp-app"></a>ユニバーサル Windows プラットフォーム (UWP) アプリとは
 
@@ -115,7 +115,7 @@ UWP アプリは、オペレーティング システムによって提供され
 
 Microsoft デザイン システムは Fluent と呼ばれます。 Fluent Design System は、すべての種類の Windows デバイスで適切に動作するアプリを作成するためのベスト プラクティスと組み合わされた、UWP 機能のセットです。 Fluent エクスペリエンスは、タブレット、ノート PC、デスクトップ、テレビから、仮想現実デバイスまで、さまざまなデバイスに対応し、自然に操作できます。 Fluent Design の概要については、[UWP アプリ向けの Fluent Design System に関するページ](https://docs.microsoft.com/windows/uwp/design/fluent-design-system)を参照してください。
 
-適切な[設計](https://go.microsoft.com/fwlink/?LinkId=258848)とは、アプリの外観や機能に加えて、ユーザーによるアプリの操作方法を決定するプロセスです。 ユーザー エクスペリエンスは、ユーザーがアプリでどの程度満足するかを判断する場合に大きな役割を果たします。そのため、この手順は必ず守ってください。 [設計の基本に関するページ](https://developer.microsoft.com/en-us/windows/apps/design)では、ユニバーサル Windows アプリの設計を紹介します。 ユーザーを楽しませる UWP アプリの設計の情報については、「[デザイナー向けユニバーサル Windows プラットフォーム (UWP) アプリの紹介](https://docs.microsoft.com/windows/uwp/layout/design-and-ui-intro)」をご覧ください。 コーディングを開始する前に、ターゲットにするすべての異なるフォーム ファクターについてのアプリの使用についての操作エクスペリエンスを検討するために役立つ「[デバイスの基本情報](../design/devices/index.md)」をご覧ください。
+適切な[設計](http://design.windows.com/)とは、アプリの外観や機能に加えて、ユーザーによるアプリの操作方法を決定するプロセスです。 ユーザー エクスペリエンスは、ユーザーがアプリでどの程度満足するかを判断する場合に大きな役割を果たします。そのため、この手順は必ず守ってください。 [設計の基本に関するページ](https://developer.microsoft.com/en-us/windows/apps/design)では、ユニバーサル Windows アプリの設計を紹介します。 ユーザーを楽しませる UWP アプリの設計の情報については、「[デザイナー向けユニバーサル Windows プラットフォーム (UWP) アプリの紹介](https://docs.microsoft.com/windows/uwp/layout/design-and-ui-intro)」をご覧ください。 コーディングを開始する前に、ターゲットにするすべての異なるフォーム ファクターについてのアプリの使用についての操作エクスペリエンスを検討するために役立つ「[デバイスの基本情報](../design/devices/index.md)」をご覧ください。
 
 さまざまなデバイスでの操作に加えて、複数のデバイスで動作する利点を取り入れるように [アプリの計画](https://docs.microsoft.com/windows/uwp/get-started/plan-your-app) を行います。 次に、例を示します。
 
@@ -125,7 +125,7 @@ Microsoft デザイン システムは Fluent と呼ばれます。 Fluent Desig
 
 ### <a name="add-services"></a>サービスの追加
 
-- [クラウド サービス](https://go.microsoft.com/fwlink/?LinkId=526377)を使用して、デバイス間で同期します。
+- [クラウド サービス](https://azure.microsoft.com/documentation/services/cloud-services)を使用して、デバイス間で同期します。
 - アプリのエクスペリエンスをサポートするにあたって、[Web サービスに接続する](https://docs.microsoft.com/previous-versions/windows/apps/hh761504(v=win.10))方法について説明します。
 - [プッシュ通知](https://docs.microsoft.com/windows/uwp/controls-and-patterns/tiles-and-notifications-windows-push-notification-services--wns--overview)と[アプリ内購入](https://docs.microsoft.com/windows/uwp/monetize/enable-in-app-product-purchases)を計画に盛り込みます。 これらの機能はさまざまなデバイスで動作する必要があります。
 

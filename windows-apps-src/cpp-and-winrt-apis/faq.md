@@ -5,12 +5,12 @@ ms.date: 04/23/2019
 ms.topic: article
 keywords: wwindows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 頻繁, 質問, 質問, faq
 ms.localizationpriority: medium
-ms.openlocfilehash: 5bb19e406df98a24a6d65fc774a29e44ef267272
-ms.sourcegitcommit: c079388634cbd328d0d43e7a6185e09bb4bca65b
+ms.openlocfilehash: b0ec2c5a05e7c4e9309311fa22ad863d06597a53
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71939586"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74254997"
 ---
 # <a name="frequently-asked-questions-about-cwinrt"></a>C++/WinRT についてよく寄せられる質問
 [C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) での Windows ランタイム API の作成と使用に関する質問への回答です。
@@ -51,7 +51,7 @@ Windows ランタイム クラス (ランタイム クラス) を*使用*する�
 ## <a name="why-is-the-linker-giving-me-a-lnk2019-unresolved-external-symbol-error"></a>リンカーで "LNK2019:Unresolved external symbol" (外部シンボルは未解決です) エラーが発生するのはなぜですか?
 未解決のシンボルが (**winrt** 名前空間内の) C++/WinRT プロジェクションの Windows 名前空間ヘッダーからの API である場合、その API は含まれているヘッダー内で事前宣言されていますが、その定義は含まれていないヘッダー内にあります。 API の名前空間で付けられた名前のヘッダーを含めてから、リビルドしてください。 詳細については、「[C++/WinRT プロジェクション ヘッダー](consume-apis.md#cwinrt-projection-headers)」を参照してください。
 
-未解決のシンボルが [RoInitialize](https://docs.microsoft.com/windows/desktop/api/roapi/nf-roapi-roinitialize) などの Windows ランタイムの自由関数である場合、[WindowsApp.lib](/uwp/win32-and-com/win32-apis) の包括的なライブラリを明示的にプロジェクトにリンクする必要があります。 C++/WinRT プロジェクションは、これらの一部の自由 (非メンバー) 関数とエントリ ポイントに依存します。 アプリケーションでいずれかの [C++/WinRT Visual Studio Extension (VSIX)](https://aka.ms/cppwinrt/vsix) プロジェクト テンプレートを使用する場合は、`WindowsApp.lib` が自動的にリンクされます。 それ以外の場合、プロジェクトのリンク設定を使用して含めるか、またはソース コードでそれを行うことができます。
+未解決のシンボルが [RoInitialize](https://docs.microsoft.com/windows/desktop/api/roapi/nf-roapi-roinitialize) などの Windows ランタイムの自由関数である場合、[WindowsApp.lib](/uwp/win32-and-com/win32-apis) の包括的なライブラリを明示的にプロジェクトにリンクする必要があります。 C++/WinRT プロジェクションは、これらの一部の自由 (非メンバー) 関数とエントリ ポイントに依存します。 アプリケーションでいずれかの [C++/WinRT Visual Studio Extension (VSIX)](https://marketplace.visualstudio.com/items?itemName=CppWinRTTeam.cppwinrt101804264) プロジェクト テンプレートを使用する場合は、`WindowsApp.lib` が自動的にリンクされます。 それ以外の場合、プロジェクトのリンク設定を使用して含めるか、またはソース コードでそれを行うことができます。
 
 ```cppwinrt
 #pragma comment(lib, "windowsapp")

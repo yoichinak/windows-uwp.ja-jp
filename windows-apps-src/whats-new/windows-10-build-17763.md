@@ -6,18 +6,18 @@ ms.date: 10/03/2018
 ms.topic: article
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: c7387a7a66d2492bf6f228c662a48b19a19afe3d
-ms.sourcegitcommit: a7740ebb14c98cd5afadd52db5cf714522821b49
+ms.openlocfilehash: 1c2e6ee84b143ea13aa3e804f288e4dd9e0becec
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72893013"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74258861"
 ---
 # <a name="whats-new-in-windows-10-for-developers-build-17763"></a>Windows 10 ビルド 17763 の開発者向け新着情報
 
-Windows 10 ビルド 17763 (October 2018 Update またはバージョン 1809 とも呼ばれます) では、Visual Studio 2019 や更新された SDK と組み合わせて使うことで、優れたユニバーサル Windows プラットフォーム アプリを作成するためのツール、機能、エクスペリエンスが利用可能になります。 Windows 10 の[ツールと SDK をインストール](https://go.microsoft.com/fwlink/?LinkId=821431)すると、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
+Windows 10 ビルド 17763 (October 2018 Update またはバージョン 1809 とも呼ばれます) では、Visual Studio 2019 や更新された SDK と組み合わせて使うことで、優れたユニバーサル Windows プラットフォーム アプリを作成するためのツール、機能、エクスペリエンスが利用可能になります。 Windows 10 の[ツールと SDK をインストール](https://developer.microsoft.com/windows/downloads#_blank)すると、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
 
-ここには、Windows 開発者にとって重要なこのリリースの新機能、強化された機能、ガイダンスを集めました。 Windows SDK に追加されたすべての新しい名前空間の一覧については、「[Windows 10 ビルド 17763 API の変更点](windows-10-build-17763-api-diff.md)」をご覧ください。 Windows 10 での注目すべき機能について詳しくは、「[Windows 10 の優れた機能](https://go.microsoft.com/fwlink/?LinkId=823181)」をご覧ください。 また、Windows プラットフォームに過去に追加された機能と今後追加される機能の概要については、[Windows 開発者向けプラットフォーム機能に関するページ](https://developer.microsoft.com/windows/platform/features)をご覧ください。
+ここには、Windows 開発者にとって重要なこのリリースの新機能、強化された機能、ガイダンスを集めました。 Windows SDK に追加されたすべての新しい名前空間の一覧については、「[Windows 10 ビルド 17763 API の変更点](windows-10-build-17763-api-diff.md)」をご覧ください。 Windows 10 での注目すべき機能について詳しくは、「[Windows 10 の優れた機能](https://developer.microsoft.com/windows/windows-10-for-developers)」をご覧ください。 また、Windows プラットフォームに過去に追加された機能と今後追加される機能の概要については、[Windows 開発者向けプラットフォーム機能に関するページ](https://developer.microsoft.com/windows/platform/features)をご覧ください。
 
 ## <a name="design--ui"></a>設計および UI
 
@@ -34,21 +34,21 @@ Fluent Design でのモーション | Fluent Design System でのモーション
 テキストの拡大縮小 | 新しい[テキストの拡大縮小ガイダンス](../design/input/text-scaling.md)では、新しいテキストの拡大縮小の動作に対応するようアプリケーションを更新する方法について説明します。これにより、ユーザーは OS と個々のアプリケーションの両方で相対的なフォント サイズを変更できます。 拡大鏡アプリ (これは通常、画面の領域内のすべてを拡大するだけであり、独自のユーザビリティの問題が発生する) を使用したり、ディスプレイの解像度を変更したり、DPI スケール (これは、ディスプレイと標準的な表示距離に基づいてすべてのサイズを変更する) に依存したりする代わりに、ユーザーはテキストだけを 100% (既定のサイズ) から最大 225% までの範囲でサイズ変更するための設定にすばやくアクセスできます。
 ツールキット | [Adobe XD および Adobe Illustrator ツールキット](../design/downloads/index.md)が更新されて新機能が追加されました。 これらの設計ツールキットは、UWP アプリを設計するためのコントロールとレイアウトのテンプレートを提供します。
 UI コマンド処理 | [UWP コマンド処理インフラストラクチャ](../design/basics/commanding-basics.md)の更新には、コマンド オブジェクト (動作、ラベル、アイコン、キーボード アクセラレータ、アクセス キー、および説明) のカプセル化の改善と、切り取り、コピー、貼り付け、終了などの一般的なコマンドの標準セットが含まれており、これらのプロパティを手動で設定する必要がなくなりました。 </br> 新しい [XamlUICommand](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.input.xamluicommand) クラスは、呼び出されたときにアクションを実行する対話型の UI 要素のコマンドの動作を定義するための基本クラスを提供します。 これは、定義済みのプロパティを持つ標準プラットフォームのコマンドのセットを公開する [StandardUICommand](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.input.standarduicommand) の親クラスです。 
-Windows UI ライブラリ | [Windows UI ライブラリ](https://aka.ms/winui-docs)は、UWP アプリ用のコントロールとその他のユーザー インターフェイス要素を提供する NuGet パッケージのセットです。 これらのパッケージは Windows 10 の以前のバージョンにも対応しているため、ユーザーが最新の OS を持っていない場合でも、アプリは動作します。 </br> Windows UI ライブラリの内容の詳細については、[NuGet パッケージに含まれる API 名前空間を示すこちらの一覧](https://docs.microsoft.com/uwp/api/overview/winui/)を参照してください。
+Windows UI ライブラリ | [Windows UI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)は、UWP アプリ用のコントロールとその他のユーザー インターフェイス要素を提供する NuGet パッケージのセットです。 これらのパッケージは Windows 10 の以前のバージョンにも対応しているため、ユーザーが最新の OS を持っていない場合でも、アプリは動作します。 </br> Windows UI ライブラリの内容の詳細については、[NuGet パッケージに含まれる API 名前空間を示すこちらの一覧](https://docs.microsoft.com/uwp/api/overview/winui/)を参照してください。
 
 ## <a name="develop-windows-apps"></a>Windows アプリを開発
 
 機能 | 説明
  :------ | :------
 バーコード スキャナー | [バーコード スキャナー](https://docs.microsoft.com/windows/uwp/devices-sensors/pos-barcodescanner)のドキュメントが再編成され、さらに詳しい情報とコード スニペットを使用して改善されています。 さらに、新しいトピック「[バーコード データの取得と理解](https://docs.microsoft.com/windows/uwp/devices-sensors/pos-barcodescanner-scan-data)」が追加され、バーコード スキャナーからデータを取得して操作する方法が説明されています。
-C++/WinRT | [C++/WinRT](https://aka.ms/cppwinrt) には、このリリースに関する多くの新機能、変更、および修正が含まれています。 ユーザーが独自の[コレクションのプロパティおよびコレクション型](/windows/uwp/cpp-and-winrt-apis/collections)を実装するのをサポートする新しい関数および基本クラスがあります。また、[{binding}](/windows/uwp/xaml-platform/binding-markup-extension) XAML マークアップ拡張機能を C++/WinRT ランタイム クラスとともに使用できるようになりました (コード例については、[データ バインディングの概要](/windows/uwp/data-binding/data-binding-quickstart)に関する記事を参照してください)。 このリリースのすべての新機能および変更された機能の詳細な説明については、「[C++/WinRT の新機能](../cpp-and-winrt-apis/news.md)」を参照してください。</br></br>C++/WinRT に関するその他の新しい内容には、[XAML カスタム コントロール](/windows/uwp/cpp-and-winrt-apis/xaml-cust-ctrl)、[COM コンポーネントの作成](/windows/uwp/cpp-and-winrt-apis/author-coclasses)、[値のカテゴリ](/windows/uwp/cpp-and-winrt-apis/cpp-value-categories)、[強参照と弱参照](../cpp-and-winrt-apis/weak-references.md)などがあります。
+C++/WinRT | [C++/WinRT](https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/index) には、このリリースに関する多くの新機能、変更、および修正が含まれています。 ユーザーが独自の[コレクションのプロパティおよびコレクション型](/windows/uwp/cpp-and-winrt-apis/collections)を実装するのをサポートする新しい関数および基本クラスがあります。また、[{binding}](/windows/uwp/xaml-platform/binding-markup-extension) XAML マークアップ拡張機能を C++/WinRT ランタイム クラスとともに使用できるようになりました (コード例については、[データ バインディングの概要](/windows/uwp/data-binding/data-binding-quickstart)に関する記事を参照してください)。 このリリースのすべての新機能および変更された機能の詳細な説明については、「[C++/WinRT の新機能](../cpp-and-winrt-apis/news.md)」を参照してください。</br></br>C++/WinRT に関するその他の新しい内容には、[XAML カスタム コントロール](/windows/uwp/cpp-and-winrt-apis/xaml-cust-ctrl)、[COM コンポーネントの作成](/windows/uwp/cpp-and-winrt-apis/author-coclasses)、[値のカテゴリ](/windows/uwp/cpp-and-winrt-apis/cpp-value-categories)、[強参照と弱参照](../cpp-and-winrt-apis/weak-references.md)などがあります。
 C++/WinRT コード例 | 既存の C++/CX コード例とともに、250 件の C++/WinRT コード リストをドキュメントのトピックに追加しました。
 共同作成に関するガイダンス | Microsoft の UWP ドキュメントを対象にした[共同作成のガイダンス](https://github.com/MicrosoftDocs/windows-uwp/blob/docs/CONTRIBUTING.md)を更新しました。 この新しいガイダンスでは、Microsoft のドキュメントに対する外部貢献のワークフローとその貢献に対して期待することを明確にしています。
 DirectX グラフィックス インフラストラクチャ (DXGI) | 不足している DXGI API についての新しいドキュメントが追加され、Windows 10 上で動作するときのベスト プラクティスに関する記事が提供されています。 </br> * [最適なパフォーマンスを得るには、DXGI フリップ モデルを使用してください](https://docs.microsoft.com/windows/desktop/direct3ddxgi/for-best-performance--use-dxgi-flip-model)。最新バージョンの Windows でプレゼンテーション スタックのパフォーマンスと効率を最大化する方法について説明します。 </br> * [IDXGIOutput6::CheckHardwareCompositionSupport メソッド](https://docs.microsoft.com/windows/desktop/api/dxgi1_6/nf-dxgi1_6-idxgioutput6-checkhardwarecompositionsupport):ハードウェアの拡大がサポートされていることをアプリケーションに通知します。 </br> * [DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS 列挙](https://docs.microsoft.com/windows/desktop/api/dxgi1_6/ne-dxgi1_6-dxgi_hardware_composition_support_flags):サポートされているハードウェア構成のレベルについて説明します。
 はじめに | 「[はじめに](../get-started/index.md)」のコンテンツが新しいトピックによって改訂されており、Windows 10 を初めて使用する開発者が次の一般的なタスクを実行するための方法についての情報とガイダンスが示されます。 </br> * [フォームの作成](../get-started/construct-form-learning-track.md) </br> * [一覧での顧客の表示](../get-started/display-customers-in-list-learning-track.md) </br> * [設定の保存と読み込み](../get-started/settings-learning-track.md) </br> * [ファイルの操作](../get-started/fileio-learning-track.md)
 マップ スタイル シート エディター | 新しい[マップ スタイル シート エディター](https://www.microsoft.com/p/map-style-sheet-editor/9nbhtcjt72ft?rtc=1#activetab=pivot:overviewtab) アプリケーションを使用して、アプリケーションに追加するマップの外観を対話形式でカスタマイズできます。
 Microsoft Learn | 新しい [Microsoft Learn サイト](https://www.microsoft.com/learning/default.aspx)は、新しい実践的な学習とトレーニングの機会を Microsoft 開発者に提供します。 現時点では、Microsoft Learn は Microsoft 365、Microsoft Azure、Office 365、および Windows Server についてのトレーニングと認定を提供します。
-メモ帳 | [メモ帳が更新](https://aka.ms/ant-man)されており、ズーム、折り返し検索/置換、および Unix/Linux と Mac の行の末尾 (それぞれ LF および CR) のサポートが追加されました。
+メモ帳 | [メモ帳が更新](https://blogs.windows.com/windowsexperience/2018/07/11/announcing-windows-10-insider-preview-build-17713/)されており、ズーム、折り返し検索/置換、および Unix/Linux と Mac の行の末尾 (それぞれ LF および CR) のサポートが追加されました。
 Project Rome | [Project Rome](https://docs.microsoft.com/windows/project-rome/) では、サポートされるすべてのプラットフォームおよび SDK にわたって一貫性のあるプログラミング エクスペリエンスが提供されるようになりました。 </br>  新しい [Microsoft Graph 通知](https://developer.microsoft.com/graph/docs/concepts/notifications-concept-overview)では、Project Rome を使用して、アプリのためのユーザーを中心としたクロスプラットフォーム通知プラットフォームが提供されます。
 画面切り取り | 新しい [URI スキーム](../launch-resume/launch-screen-snipping.md)によって、アプリで新しい切り取り領域をプログラムで開いたり、注釈用の特定のイメージとともに切り取り & スケッチ アプリを起動したりできます。
 デスクトップ アプリケーションの UWP コントロール | Windows 10 では、WPF、Windows フォーム、および C++ Win32 デスクトップ アプリケーションで UWP コントロールを使用できるようになりました。 つまり、Windows Ink や Fluent Design System をサポートするコントロールなど、UWP コントロールでのみ利用可能な最新の Windows 10 UI 機能で、既存のデスクトップ アプリケーションの外観、操作性、機能を拡張することができます。 この機能を *XAML Islands* といいます。 </br> お使いのアプリケーション プラットフォームに応じて、アプリケーションで XAML Islands を使用するいくつかの方法を紹介します。 WPF および Windows Forms アプリケーションでは、デザイナー指向の開発エクスペリエンスを提供する[Windows コミュニティ ツールキット](https://docs.microsoft.com/windows/uwpcommunitytoolkit/)内の一連のコントロールを使用できます。 C++ Win32 アプリケーションは、[Windows.UI.Xaml.Hosting](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting) 名前空間の *UWP XAML ホスティング API* を使用する必要があります。 詳細については、[デスクトップ アプリケーションでの UWP コントロール](../xaml-platform/xaml-host-controls.md)に関するページを参照してください。 </br> **注:** XAML Islands を有効にする API およびコントロールは、開発者プレビューとして現在使用できます。 ご自身のプロトタイプ コードでこれらを試すことはお勧めしますが、現時点では運用コードで使用することはお勧めしません。
@@ -97,11 +97,11 @@ C++/WinRT は、Windows ランタイム API を作成および使用するため
 
 ### <a name="get-started-for-devs-create-and-customize-a-form-on-windows-10"></a>開発者向けスタートアップ ガイド:Windows 10 でフォームを作成してカスタマイズする
 
-Windows 開発者向けの[スタートアップ ガイド](../get-started/index.md)では、基本的なアプリ開発タスクを実際に体験できるようになりました。 このビデオは、これらのトピックの 1 つを順を追って説明するもので、アプリでのフォーム UI 作成の基本について扱います。 [ビデオを見て](https://www.youtube.com/watch?v=AgngKzq4hKI&feature=youtu.be)動作中のコードを理解したうえで、[トピックを自分で確認してください。](https://aka.ms/CreateForms)
+Windows 開発者向けの[スタートアップ ガイド](../get-started/index.md)では、基本的なアプリ開発タスクを実際に体験できるようになりました。 このビデオは、これらのトピックの 1 つを順を追って説明するもので、アプリでのフォーム UI 作成の基本について扱います。 [ビデオを見て](https://www.youtube.com/watch?v=AgngKzq4hKI&feature=youtu.be)動作中のコードを理解したうえで、[トピックを自分で確認してください。](https://docs.microsoft.com/windows/uwp/get-started/construct-form-learning-track)
 
 ### <a name="enhance-your-bot-with-project-personality-chat"></a>Project Personality Chat でボットを強化する
 
-Project Personality Chat により、カスタマイズ可能なペルソナをチャット ボットに追加することができます。 Microsoft Bot Framework SDK を統合することで、より会話的な方法で顧客と対話するための複数のスモールトーク機能を追加できます。 [ビデオを見て](https://www.youtube.com/watch?v=5C_uD8g2QKg&feature=youtu.be)これを実装する方法を理解したうえで、[対話的なデモを通して](https://aka.ms/PersonalityChat)実際に体験してみてください。
+Project Personality Chat により、カスタマイズ可能なペルソナをチャット ボットに追加することができます。 Microsoft Bot Framework SDK を統合することで、より会話的な方法で顧客と対話するための複数のスモールトーク機能を追加できます。 [ビデオを見て](https://www.youtube.com/watch?v=5C_uD8g2QKg&feature=youtu.be)これを実装する方法を理解したうえで、[対話的なデモを通して](https://www.microsoft.com/research/project/personality-chat/)実際に体験してみてください。
 
 ### <a name="multi-instance-uwp-apps"></a>マルチインスタンスの UWP アプリ
 

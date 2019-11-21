@@ -5,12 +5,12 @@ author: Karl-Bridge-Microsoft
 ms.service: ''
 ms.topic: overview
 ms.date: 09/13/2019
-ms.openlocfilehash: 1d176f90af4a3d601e44ce7e3e0ac708bcb7dd45
-ms.sourcegitcommit: e5ed95f8252ddc7f39055d8f7276e82167bb9891
+ms.openlocfilehash: cd34c9444c68b8e959f449124fe4ae294ec14fc4
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70973694"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74257713"
 ---
 # <a name="commanding-in-universal-windows-platform-uwp-apps-using-standarduicommand-xamluicommand-and-icommand"></a>StandardUICommand、XamlUICommand、ICommand を使用するユニバーサル Windows プラットフォーム (UWP) アプリのコマンド処理
 
@@ -1114,5 +1114,5 @@ UWP アプリのコマンドを構築するときは、次の手法を使用し�
 
 #### <a name="other-samples"></a>その他のサンプル
 
-- [ユニバーサル Windows プラットフォームのサンプル (C# と C++)](https://go.microsoft.com/fwlink/?linkid=832713)
+- [ユニバーサル Windows プラットフォームのサンプル (C# と C++)](https://github.com/Microsoft/Windows-universal-samples/tree/b78d95134ce2d57c848e0a8dc339fc362748fb9c/Samples/RadialController)
 - [XAML コントロール ギャラリー](https://github.com/Microsoft/Xaml-Controls-Gallery)

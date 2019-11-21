@@ -6,18 +6,18 @@ ms.date: 11/02/2017
 ms.topic: article
 ms.assetid: ea855480-874d-431f-94bf-13d81eacc010
 ms.localizationpriority: medium
-ms.openlocfilehash: 4395ed9113b85d53ce464bd085b168c806fc281c
-ms.sourcegitcommit: a7740ebb14c98cd5afadd52db5cf714522821b49
+ms.openlocfilehash: 53604de72eb32f7f6a8162b0cdb9cf481f6e9537
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72893051"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74258881"
 ---
 # <a name="whats-new-in-windows-10-for-developers-build-15063"></a>Windows 10 ビルド 15063 の開発者向け新着情報
 
-Windows 10 ビルド 15063 (Creators Update またはバージョン 1703 とも呼ばれます) では、Visual Studio 2019 や更新された SDK と組み合わせて使うことで、優れたユニバーサル Windows プラットフォーム アプリを作成するためのツール、機能、エクスペリエンスが利用可能になります。 Windows 10 の[ツールと SDK をインストール](https://go.microsoft.com/fwlink/?LinkId=821431)すると、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
+Windows 10 ビルド 15063 (Creators Update またはバージョン 1703 とも呼ばれます) では、Visual Studio 2019 や更新された SDK と組み合わせて使うことで、優れたユニバーサル Windows プラットフォーム アプリを作成するためのツール、機能、エクスペリエンスが利用可能になります。 Windows 10 の[ツールと SDK をインストール](https://developer.microsoft.com/windows/downloads#_blank)すると、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
 
-ここには、開発者にとって重要な新機能や強化された機能を集めました。 Windows SDK に追加されたすべての新しい名前空間の一覧については、「[Windows 10 ビルド 15063 API の変更点](windows-10-build-15063-api-diff.md)」をご覧ください。 Windows 10 での注目すべき機能について詳しくは、「[Windows 10 の優れた機能](https://go.microsoft.com/fwlink/?LinkId=823181)」をご覧ください。 また、Windows プラットフォームに過去に追加された機能と今後追加される機能の概要については、[Windows 開発者向けプラットフォーム機能に関するページ](https://developer.microsoft.com/windows/platform/features)をご覧ください。
+ここには、開発者にとって重要な新機能や強化された機能を集めました。 Windows SDK に追加されたすべての新しい名前空間の一覧については、「[Windows 10 ビルド 15063 API の変更点](windows-10-build-15063-api-diff.md)」をご覧ください。 Windows 10 での注目すべき機能について詳しくは、「[Windows 10 の優れた機能](https://developer.microsoft.com/windows/windows-10-for-developers)」をご覧ください。 また、Windows プラットフォームに過去に追加された機能と今後追加される機能の概要については、[Windows 開発者向けプラットフォーム機能に関するページ](https://developer.microsoft.com/windows/platform/features)をご覧ください。
 
 ## <a name="windows-10-build-15063---march-2017"></a>Windows 10 ビルド 15063 - 2017 年 3 月
 

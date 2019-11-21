@@ -6,12 +6,12 @@ ms.date: 06/01/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: c1c23bc205c5f9e2ad24e201e9583e19f2d6ec35
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 8d6bafc9a21e3950974615078af24989aab7da9e
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67320673"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74259191"
 ---
 # <a name="networking-basics"></a>ネットワークの基本
 ネットワーク対応アプリで実行する必要がある事柄について説明します。
@@ -45,7 +45,7 @@ ms.locfileid: "67320673"
 ### <a name="choosing-a-network-trigger"></a>ネットワーク トリガーの選択
 どちらの種類のトリガーが適しているかを判断するいくつかのシナリオがあります。 アプリで使うトリガーの種類を選択するときは、次のアドバイスを検討してください。
 
--   [  **IXMLHTTPRequest2**](https://docs.microsoft.com/previous-versions/windows/desktop/api/msxml6/nn-msxml6-ixmlhttprequest2)、[**System.Net.Http.HttpClient**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpClient)、または [System.Net.Http.HttpClientHandler](https://go.microsoft.com/fwlink/p/?linkid=241638) を使う場合は、[**ControlChannelTrigger**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) を使う必要があります。
+-   [  **IXMLHTTPRequest2**](https://docs.microsoft.com/previous-versions/windows/desktop/api/msxml6/nn-msxml6-ixmlhttprequest2)、[**System.Net.Http.HttpClient**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpClient)、または [System.Net.Http.HttpClientHandler](https://msdn.microsoft.com/library/system.net.http.httpclienthandler(VS.110).aspx) を使う場合は、[**ControlChannelTrigger**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) を使う必要があります。
 -   プッシュ対応 **StreamSockets** を使っている場合、コントロール チャネル トリガーを使うことができますが、[**SocketActivityTrigger**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.SocketActivityTrigger) をお勧めします。 後者を選ぶと、接続がアクティブに使われていない場合は、システムによってメモリが解放され、電力要件が低減されます。
 -   アプリがネットワーク要求をアクティブに処理していないときのメモリ使用量をできる限り少なくする場合は、可能な限り [**SocketActivityTrigger**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.SocketActivityTrigger) をお勧めします。
 -   システムがコネクト スタンバイ モードにあるときにアプリがデータを受信できるようにする場合は、[**SocketActivityTrigger**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.SocketActivityTrigger) を使います。

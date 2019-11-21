@@ -3,16 +3,17 @@ Description: 新しいデスクトップ アプリを作成する場合、最初
 ms.assetid: 82705644-F1F0-40F3-99B1-7A97BFB32831
 title: アプリ プラットフォームの選択
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 11/04/2019
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: 57f3101b1134b4fdceb6a38f392e54677d2b884d
-ms.sourcegitcommit: f3dd633a3149d2e206981fa52ad424d408e5508c
+keywords: windows win32, デスクトップ開発
+ms.openlocfilehash: c931991c283bb0b31f55c3e5539eac5ddeda9575
+ms.sourcegitcommit: cf88f5e8e1de476ed2635e791a5e5e82ae4bd8cf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73799575"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74056852"
 ---
 # <a name="choose-your-app-platform"></a>アプリ プラットフォームの選択
 
@@ -40,19 +41,57 @@ UWP は、Windows 10 アプリケーションおよびゲーム用の最先端�
 
 UWP は、Windows PC 用のデスクトップ アプリケーションを作成できるだけでなく、Xbox、HoloLens、および Surface Hub アプリケーションで唯一サポートされているプラットフォームでもあります。 UWP は最新で最先端のアプリケーション プラットフォームです。
 
-UWP の詳細については、「[Windows 10 アプリの概要](/windows/uwp/get-started/)」を参照してください。
+UWP の詳細については、次の記事を参照してください。
+
+* [作業の開始](/windows/uwp/get-started/)
+* [設計と UI](/windows/uwp/design/)
+* [テクノロジと機能](/windows/uwp/develop/)
+* [API リファレンス](/uwp/)
+* [サンプル](https://github.com/Microsoft/Windows-universal-samples)
 
 ## <a name="wpf"></a>WPF
 
-WPF は、.NET Framework にフル アクセスできるマネージド Windows アプリケーション用に確立されたプラットフォームであり、XAML マークアップを使用してコードから UI を分離します。 このプラットフォームは、高度な UI、スタイルのカスタマイズ、およびグラフィックス集中型のシナリオを必要とするデスクトップ アプリケーションのために設計されています。 WPF の開発スキルは UWP の開発スキルに似ているため、WPF から UWP アプリへの移行は Windows フォームからの移行よりも簡単です。
+WPF は、.NET Core にアクセスできるか、.NET Framework にフル アクセスできるマネージド Windows アプリケーション用に確立されたプラットフォームであり、XAML マークアップを使用してコードから UI を分離します。 このプラットフォームは、高度な UI、スタイルのカスタマイズ、およびグラフィックス集中型のシナリオを必要とするデスクトップ アプリケーションのために設計されています。 WPF の開発スキルは UWP の開発スキルに似ているため、WPF から UWP アプリへの移行は Windows フォームからの移行よりも簡単です。
 
-詳細については、「[はじめに (WPF)](https://docs.microsoft.com/dotnet/framework/wpf/getting-started/)」を参照してください。
+WPF の詳細については、次の記事を参照してください。
+
+* [使ってみる (WPF)](https://docs.microsoft.com/dotnet/framework/wpf/getting-started/)。
+* [初めてのアプリの作成 (.NET Core)](/visualstudio/get-started/csharp/tutorial-wpf/)
+* [初めてのアプリの作成 (.NET Framework)](/dotnet/framework/wpf/getting-started/walkthrough-my-first-wpf-desktop-application/)
+* [WPF アプリを .NET Core に移行する](/dotnet/desktop-wpf/migration/convert-project-from-net-framework/)
+* [API リファレンス (.NET)](https://docs.microsoft.com/dotnet/api/index)
+* [サンプル](https://github.com/Microsoft/WPF-Samples)
 
 ## <a name="windows-forms"></a>Windows フォーム
 
-Windows フォームは、軽量 UI モデルと .NET Framework へのフル アクセスを備え、Windows マネージド アプリケーションのために用意された最初のプラットフォームです。 プラットフォームを初めて使用する場合であっても、開発者がアプリケーションの構築をすぐに開始できる点で優れています。 これは、ビジュアルおよび非ビジュアルのドラッグアンドドロップ コントロールの大規模な組み込みコレクションを備えた、フォームベースの高速なアプリケーション開発プラットフォームです。 Windows フォームでは XAML を使用しないため、後でアプリケーションを UWP に拡張する場合は、UI を完全に再記述する必要があります。
+Windows フォームは、軽量 UI モデルや、.NET Core へのアクセスと .NET Framework へのフル アクセスを備え、Windows マネージド アプリケーションのために用意された最初のプラットフォームです。 プラットフォームを初めて使用する場合であっても、開発者がアプリケーションの構築をすぐに開始できる点で優れています。 これは、ビジュアルおよび非ビジュアルのドラッグアンドドロップ コントロールの大規模な組み込みコレクションを備えた、フォームベースの高速なアプリケーション開発プラットフォームです。 Windows フォームでは XAML を使用しないため、後でアプリケーションを UWP に拡張する場合は、UI を完全に再記述する必要があります。
 
-Windows フォームの詳細については、「[Windows フォームについて](https://docs.microsoft.com/dotnet/framework/winforms/getting-started-with-windows-forms)」を参照してください。
+Windows フォームの詳細については、次の記事を参照してください。
+
+* [Windows フォームについて](https://docs.microsoft.com/dotnet/framework/winforms/getting-started-with-windows-forms)
+* [初めてのアプリの作成](/dotnet/framework/wpf/getting-started/walkthrough-my-first-wpf-desktop-application/)
+* [API リファレンス (.NET)](https://docs.microsoft.com/dotnet/api/index)
+* [Windows フォーム アプリの拡張](/dotnet/framework/winforms/advanced/)
+
+## <a name="win32"></a>Win32
+
+C++ で Win32 API を使用すると、WinRT や .NET などのマネージド ランタイム環境以上のターゲット プラットフォームの制御の強化をアンマネージド コードを使用して行うことで、最高レベルのパフォーマンスと効率を実現できます。 ただし、アプリケーションの実行に対してこのようなレベルの制御を行うには、正しく行うための十分な慎重さと注意が必要です。また、実行時のパフォーマンスと開発の生産性が引き換えになります。
+
+ここでは、高パフォーマンスのアプリケーションの構築を可能にする、Win32 API と C++ が提供するものについて説明します。
+
+* リソース割り当て、オブジェクトの有効期間、データ レイアウト、アラインメント、バイト パッキングなどの厳密な制御を含むハードウェア レベルの最適化。
+* 組み込み関数による SSE や AVX などのパフォーマンス指向の命令セットへのアクセス。
+* テンプレートを使用した、効率的でタイプセーフな汎用プログラミング。
+* 効率的で安全なコンテナーとアルゴリズム。
+* DirectX、特に Direct3D および DirectCompute (UWP は DirectX 相互運用機能も提供)。
+
+詳しくは、次の記事をご覧ください。
+
+* [作業の開始](/windows/win32/desktop-programming/)
+* [初めての Win32 および C++ アプリの作成](/windows/win32/learnwin32/learn-to-program-for-windows/)
+* [テクノロジと機能](/windows/win32/desktop-app-technologies)
+* [API リファレンス](/windows/win32/apiindex/windows-api-list/)
+* [サンプル](https://github.com/Microsoft/Windows-classic-samples)
 
 ## <a name="platform-comparison-uwp-wpf-and-windows-forms"></a>プラットフォームの比較:UWP、WPF、Windows フォーム
 
@@ -71,29 +110,6 @@ Windows フォームの詳細については、「[Windows フォームについ
 <sup>1</sup> Windows 10 の今後のリリースでこのシナリオに対処する機能が公開されています。
 
 <sup>2</sup> プラットフォームには、このシナリオに対する最上級の API のサポートがありませんが、開発者はこのシナリオを回避策によりサポートできます。
-
-## <a name="win32"></a>Win32
-
-C++ で Win32 API を使用すると、WinRT や .NET などのマネージド ランタイム環境以上のターゲット プラットフォームの制御の強化をアンマネージド コードを使用して行うことで、最高レベルのパフォーマンスと効率を実現できます。 ただし、アプリケーションの実行に対してこのようなレベルの制御を行うには、正しく行うための十分な慎重さと注意が必要です。また、実行時のパフォーマンスと開発の生産性が引き換えになります。
-
-ここでは、高パフォーマンスのアプリケーションの構築を可能にする、Win32 API と C++ が提供するものについて説明します。
-
--   リソース割り当て、オブジェクトの有効期間、データ レイアウト、アラインメント、バイト パッキングなどの厳密な制御を含むハードウェア レベルの最適化。
--   組み込み関数による SSE や AVX などのパフォーマンス指向の命令セットへのアクセス。
--   テンプレートを使用した、効率的でタイプセーフな汎用プログラミング。
--   効率的で安全なコンテナーとアルゴリズム。
--   DirectX、特に Direct3D および DirectCompute (UWP は DirectX 相互運用機能も提供)。
--   C++ AMP。
-
-詳細については、「[Get started with desktop Windows apps that use the Win32 API](/windows/desktop/desktop-programming)」(Win32 API を使用するデスクトップ Windows アプリの概要) および[デスクトップ アプリ テクノロジ](/windows/desktop/desktop-app-technologies)に関する記事を参照してください。
-
-### <a name="win32-and-c-for-traditional-desktop-applications"></a>従来のデスクトップ アプリケーション向けの Win32 と C++
-
-C++ でデスクトップ アプリケーションを作成するときは、UI に Win32 または MFC を選択するか、Windows 以外のプラットフォームもサポートするサードパーティ製のアプリケーション フレームワークのホストを選択できます。
-
--   **Win32:** これは、Windows プラットフォームのハンドルベースの C 言語 API です。ウィンドウ、描画、UI コントロールなどの UI 機能を含みますがこれらに限定されません。 これは、ハンドルに基づく低レベルの C 言語 API なので、UI を大量に使用する最新のアプリの作成で選ばれることはあまりありません。 ただし、Windows プラットフォームとのやりとりに必要な基本的な API が用意されており、単純な UI 要件を持つアプリや、ゲームなどの Windows UI をできるだけ除外したいアプリに適しています。
--   **MFC (Microsoft Foundation Class ライブラリ):** これは、1992 年以降、Windows 開発者が使用してきた、歴史あるアプリケーション フレームワークおよび UI ライブラリです。 これは、ハンドルベースの C 言語 Win32 API に対する C++ の thin ラッパーであり、定義済みのウィンドウ、一般的なコントロール、およびその他の Windows オブジェクトの多くに対してオブジェクト指向インターフェイスを提供します。 .NET エコシステムの最新の UI フレームワークの多くは、MFC より使いやすくなっていますが、Windows デスクトップ用のアプリケーションを作成する多く C++ の開発者にとって、今でもネイティブ UI フレームワークとして選ばれています。
--   **サードパーティ アプリケーション フレームワーク:** C++ はさまざまなプラットフォームで実行でき、Windows または .NET ランタイムには関連していないため、サードパーティは、豊富なユーザー インターフェイスを備えたクロスプラットフォーム アプリケーションの開発を容易にするために、C++ 用の新しいアプリケーションおよび UI フレームワークを開発しました。 これらのフレームワークの中には、独自のルック アンド フィールを提供するものもありますが、wxWidgets や Qt などの他のプラットフォームでは、プラットフォームのネイティブ コントロール セットが使用されたり、エミュレートされたりします。 これらのライブラリを使用すると、Windows または OSX や Linux などの他のプラットフォームで実行されているアプリケーションのバージョン間で、ほぼすべてのアプリケーションのソースコードを共有することができます。
 
 ## <a name="other-app-platforms"></a>その他のアプリ プラットフォーム
 

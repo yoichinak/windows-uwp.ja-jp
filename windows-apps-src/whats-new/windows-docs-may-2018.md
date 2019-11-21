@@ -5,18 +5,18 @@ keywords: 最新情報, 更新, 機能, 開発者向けガイダンス, Windows 
 ms.date: 05/07/2018
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: d8b72501c298f3814092ec4567a5fb608c4bb88f
-ms.sourcegitcommit: 350d6e6ba36800df582f9715c8d21574a952aef1
+ms.openlocfilehash: cd84892f9d90a69379ac5a7f84dfa188adf1211e
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68682762"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74258784"
 ---
 # <a name="whats-new-in-the-windows-developer-docs-in-may-2018"></a>Windows 開発者向けドキュメントの最新情報、2018 年 5 月
 
 Windows 開発者向けドキュメントは、Windows プラットフォームで開発者に提供される新機能の情報を反映して継続的に更新されています。 ここに示す機能概要、開発者向けガイダンス、ビデオ、サンプルは、[Microsoft Build 2018](https://www.microsoft.com/build/) 開発者カンファレンスに合わせて 5 月に利用可能になりました。
 
-Windows 10 の[ツールと SDK をインストール](https://go.microsoft.com/fwlink/?LinkId=821431)すると、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
+Windows 10 の[ツールと SDK をインストール](https://developer.microsoft.com/windows/downloads#_blank)すると、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
 
 ## <a name="features"></a>機能
 

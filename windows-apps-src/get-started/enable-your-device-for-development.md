@@ -6,12 +6,12 @@ keywords: 開発者用 Visual Studio での作業の開始, 開発者用ライ�
 ms.date: 04/09/2019
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 1a4c1f90c0fa8304f95b1dc958fe5a75e74301dd
-ms.sourcegitcommit: 7791596c25baf9d222729e057ecdf81b45a59f0c
+ms.openlocfilehash: a2d1719379302dd8e996c37e05d7ddaf35a0cf18
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71205934"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74258418"
 ---
 # <a name="enable-your-device-for-development"></a>デバイスを開発用に有効にする
 
@@ -74,7 +74,7 @@ ms.locfileid: "71205934"
 信頼できる証明書がないデバイスにアプリをインストールすることはできないため、**アプリのサイドローディング**は開発者モードよりも安全です。
 
 > [!NOTE]
-> アプリをサイドローディングする場合は、信頼できるソースからのみアプリをインストールしてください。 サイドローディングしたアプリ (Microsoft Store の認証を受けていないアプリ) をインストールする場合は、そのアプリをサイドローディングする際に必要なすべての権利をお客様が保持していること、およびそのアプリのインストールや実行の結果生じるすべての問題についてお客様が一切の責任を負うことに同意したものと見なされます。 この[プライバシーに関する声明](https://go.microsoft.com/fwlink/?LinkId=521839)の「Windows」&gt;「Microsoft Store」セクションをご覧ください。
+> アプリをサイドローディングする場合は、信頼できるソースからのみアプリをインストールしてください。 サイドローディングしたアプリ (Microsoft Store の認証を受けていないアプリ) をインストールする場合は、そのアプリをサイドローディングする際に必要なすべての権利をお客様が保持していること、およびそのアプリのインストールや実行の結果生じるすべての問題についてお客様が一切の責任を負うことに同意したものと見なされます。 この[プライバシーに関する声明](https://privacy.microsoft.com/privacystatement)の「Windows」&gt;「Microsoft Store」セクションをご覧ください。
 
 
 ### <a name="developer-mode"></a>開発者モード

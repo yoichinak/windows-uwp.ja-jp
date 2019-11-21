@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 新機能
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 24abdb26cf884367d9a9521d30b09b443d2e4e00
-ms.sourcegitcommit: 5dfa98a80eee41d97880dba712673168070c4ec8
+ms.openlocfilehash: d5a2c3d10f2cbfcc608d212a9465ca738e1ca15e
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72998613"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74255041"
 ---
 # <a name="whats-new-in-cwinrt"></a>C++/WinRT の新機能
 
@@ -19,7 +19,7 @@ C++/WinRT の後続バージョンがリリースされると、このトピッ�
 
 ## <a name="news-and-changes-in-cwinrt-20"></a>C++/WinRT 2.0 の新機能と変更点
 
-[C++/WinRT Visual Studio Extension (VSIX)](https://aka.ms/cppwinrt/vsix)、[Microsoft.Windows.CppWinRT NuGet パッケージ](https://www.nuget.org/packages/Microsoft.Windows.CppWinRT/)、`cppwinrt.exe` ツールの入手やインストール方法などの詳細については、「[Visual Studio のサポートの C +/cli WinRT、XAML、VSIX 拡張機能と NuGet パッケージ](intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)」を参照してください。
+[C++/WinRT Visual Studio Extension (VSIX)](https://marketplace.visualstudio.com/items?itemName=CppWinRTTeam.cppwinrt101804264)、[Microsoft.Windows.CppWinRT NuGet パッケージ](https://www.nuget.org/packages/Microsoft.Windows.CppWinRT/)、`cppwinrt.exe` ツールの入手やインストール方法などの詳細については、「[Visual Studio のサポートの C +/cli WinRT、XAML、VSIX 拡張機能と NuGet パッケージ](intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)」を参照してください。
 
 ### <a name="changes-to-the-cwinrt-visual-studio-extension-vsix-for-version-20"></a>バージョン 2.0 の C++/WinRT Visual Studio Extension (VSIX) の変更点
 
@@ -302,7 +302,7 @@ Windows ランタイム プログラミングだけでなく、C++/WinRT は COM
 - 強化されたスマート ポインター。 以前は、新しい値を移動割り当てすると、イベント リボーカーは失効に失敗しました。 これは、スマート ポインター クラスが自己割り当てを確実に処理しない問題を発見するのに役立ちました。原因は [ **winrt::com_ptr 構造体テンプレート**](/uwp/cpp-ref-for-winrt/com-ptr)でした。 **winrt::com_ptr** を修正しました。また、イベント リボーカーが移動セマンティクスを正しく処理するように修正され、割り当て時に失効するようになりました。
 
 > [!IMPORTANT]
-> バージョン 1.0.181002.2 とバージョン 1.0.190128.4 の両方で、[C++/WinRT Visual Studio Extension (VSIX)](https://aka.ms/cppwinrt/vsix) に対して重要な変更が行われました。 これらの変更の詳細および既存プロジェクトへの影響については、[C++/WinRT の Visual Studio サポート](intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)に関するページおよび「[VSIX 拡張機能の以前のバージョン](intro-to-using-cpp-with-winrt.md#earlier-versions-of-the-vsix-extension)」をご覧ください。
+> バージョン 1.0.181002.2 とバージョン 1.0.190128.4 の両方で、[C++/WinRT Visual Studio Extension (VSIX)](https://marketplace.visualstudio.com/items?itemName=CppWinRTTeam.cppwinrt101804264) に対して重要な変更が行われました。 これらの変更の詳細および既存プロジェクトへの影響については、[C++/WinRT の Visual Studio サポート](intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)に関するページおよび「[VSIX 拡張機能の以前のバージョン](intro-to-using-cpp-with-winrt.md#earlier-versions-of-the-vsix-extension)」をご覧ください。
 
 ### <a name="isolation-from-windows-sdk-header-files"></a>Windows SDK ヘッダー ファイルからの分離
 

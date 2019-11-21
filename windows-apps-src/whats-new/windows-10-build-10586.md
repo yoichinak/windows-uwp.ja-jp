@@ -6,16 +6,16 @@ ms.date: 11/02/2017
 ms.topic: article
 ms.assetid: 0d6c65c5-2ad5-46c7-964e-a3a9833c94ce
 ms.localizationpriority: medium
-ms.openlocfilehash: 4b94cf08ea39ec12db48c56541a924e5cdc5efb4
-ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
+ms.openlocfilehash: af3c078d2e5c1d27e5e6ece8f72b0fa601d6c053
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67820993"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74259764"
 ---
 # <a name="whats-new-in-windows-10-for-developers-build-10586"></a>Windows 10 ビルド 10586 の開発者向け新着情報
 
-Windows 10 ビルド 10586 (November Update またはバージョン 1511 とも呼ばれます) では、Visual Studio 2019 や更新された SDK と組み合わせて使うことで、優れたユニバーサル Windows プラットフォーム アプリを作成するためのツール、機能、エクスペリエンスが利用可能になります。 Windows 10 の[ツールと SDK をインストール](https://go.microsoft.com/fwlink/?LinkId=821431)すると、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
+Windows 10 ビルド 10586 (November Update またはバージョン 1511 とも呼ばれます) では、Visual Studio 2019 や更新された SDK と組み合わせて使うことで、優れたユニバーサル Windows プラットフォーム アプリを作成するためのツール、機能、エクスペリエンスが利用可能になります。 Windows 10 の[ツールと SDK をインストール](https://developer.microsoft.com/windows/downloads#_blank)すると、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
 
 ## <a name="windows-10-build-10586---november-2015"></a>Windows 10 ビルド 10586 - 2015 年 11 月
 

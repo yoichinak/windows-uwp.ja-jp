@@ -11,12 +11,12 @@ pm-contact: predavid
 design-contact: kimsea
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: c655fbf5582ae5abbb3f415e6e0778b9c64ca7fd
-ms.sourcegitcommit: 04683376dbdbff987601f546f058748442170068
+ms.openlocfilehash: 0821ebaa300d6641cf4efe8f96f1ae8878877a88
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68340833"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74258139"
 ---
 # <a name="semantic-zoom"></a>セマンティック ズーム
 
@@ -98,7 +98,7 @@ ms.locfileid: "68340833"
 </SemanticZoom>
  ```
  
-この例は、「[XAML UI の基本サンプル](https://go.microsoft.com/fwlink/p/?LinkId=619992)」の SemanticZoom ページから引用したものです。 データ ソースを含む完全なコードは、このサンプルをダウンロードして確認できます。 このセマンティック ズームでは、拡大表示ビューに GridView を使用し、縮小表示ビューに ListView を使用しています。
+この例は、「[XAML UI の基本サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlUIBasics)」の SemanticZoom ページから引用したものです。 データ ソースを含む完全なコードは、このサンプルをダウンロードして確認できます。 このセマンティック ズームでは、拡大表示ビューに GridView を使用し、縮小表示ビューに ListView を使用しています。
   
 **拡大表示ビューの定義**
 

@@ -6,16 +6,16 @@ ms.date: 11/02/2017
 ms.topic: article
 ms.assetid: 4853e55b-2232-4589-903a-ccb60e07aeb8
 ms.localizationpriority: medium
-ms.openlocfilehash: 28eb1dfecf9f6648bd43606c541daf7b57960771
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 986fa1b14fcb3b1ada150a232fb0d42f7eafa133
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67320441"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74258905"
 ---
 # <a name="whats-new-in-windows10-for-developers-build-10240"></a>Windows 10 ビルド 10240 の開発者向け新機能
 
-Windows 10 ビルド 10240 と更新された SDK では、優れたユニバーサル Windows プラットフォーム アプリを作るためツール、機能、エクスペリエンスを利用できます。 Windows 10 への[ツールと SDK のインストール](https://go.microsoft.com/fwlink/?LinkId=821431)が完了したら、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
+Windows 10 ビルド 10240 と更新された SDK では、優れたユニバーサル Windows プラットフォーム アプリを作るためツール、機能、エクスペリエンスを利用できます。 Windows 10 への[ツールと SDK のインストール](https://developer.microsoft.com/windows/downloads#_blank)が完了したら、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
 
 以下では、Windows 10 ビルド 10240 (Windows 10 バージョン 1507 とも呼ばれます) の新機能をそれぞれ見ていきます。
 

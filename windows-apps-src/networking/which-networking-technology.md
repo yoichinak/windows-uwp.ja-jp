@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: db2e444b9f13ba41127b362483774c92d45f1f77
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: c4b1a0dab6bf1eb3301ba9fb97abd95fd896c53e
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66372753"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74259163"
 ---
 # <a name="which-networking-technology"></a>アプリに適したネットワーク テクノロジ
 
@@ -91,7 +91,7 @@ Windows 10 の新しい機能であるバックグラウンド転送は、フ�
 
 ### <a name="dns-service-discovery"></a>DNS サービス検出
 
-[  **Windows.Networking.ServiceDiscovery.Dnssd**](https://docs.microsoft.com/uwp/api/Windows.Networking.ServiceDiscovery.Dnssd) API により、IETF [RFC 2782](https://go.microsoft.com/fwlink/?LinkId=524158) に記述された DNS-SD プロトコルを使うネットワーク上の他のデバイスにネットワーク サービスをアドバタイズできます。
+[  **Windows.Networking.ServiceDiscovery.Dnssd**](https://docs.microsoft.com/uwp/api/Windows.Networking.ServiceDiscovery.Dnssd) API により、IETF [RFC 2782](https://www.rfc-archive.org/getrfc.php?rfc=2782) に記述された DNS-SD プロトコルを使うネットワーク上の他のデバイスにネットワーク サービスをアドバタイズできます。
 
 ### <a name="communicating-over-bluetooth"></a>Bluetooth 通信
 

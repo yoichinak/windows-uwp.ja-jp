@@ -5,18 +5,18 @@ keywords: 最新情報, 更新, 機能, 開発者向けガイダンス, Windows 
 ms.date: 01/17/2019
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: beb80c28866b8f8207f203b70cb504dcd034098d
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: ac5f7e058a616117e73defde2c48bf4c66f68d2e
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63800587"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74259750"
 ---
 # <a name="whats-new-in-the-windows-developer-docs-in-january-2019"></a>Windows 開発者向けドキュメントの最新情報、2019 年 1 月
 
 Windows 開発者向けドキュメントは、Windows プラットフォームで開発者に提供される新機能の情報を反映して継続的に更新されています。 次の機能概要、開発者向けガイダンス、およびビデオは 1 月に利用可能になりました。
 
-Windows 10 の[ツールと SDK をインストール](https://go.microsoft.com/fwlink/?LinkId=821431)すると、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
+Windows 10 の[ツールと SDK をインストール](https://developer.microsoft.com/windows/downloads#_blank)すると、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
 
 ## <a name="features"></a>機能
 
@@ -70,7 +70,7 @@ Microsoft は [WinML API のランディング ページ](https://docs.microsoft
 
 ### <a name="progressive-web-apps"></a>プログレッシブ Web アプリ
 
-プログレッシブ Web アプリは、さまざまなブラウザーおよび各種 Windows 10 デバイスでネイティブ アプリのように機能する Web サイトです。 [ビデオをご覧になって](https://youtu.be/ugAewC3308Y)詳細を学習してから、[ドキュメントを参照](https://aka.ms/Windows-PWA)して使用を開始してください。
+プログレッシブ Web アプリは、さまざまなブラウザーおよび各種 Windows 10 デバイスでネイティブ アプリのように機能する Web サイトです。 [ビデオをご覧になって](https://youtu.be/ugAewC3308Y)詳細を学習してから、[ドキュメントを参照](https://developer.microsoft.com/windows/pwa)して使用を開始してください。
 
 ### <a name="vs-code-series"></a>VS Code シリーズ
 
@@ -78,7 +78,7 @@ VSCode とは何か、その使用方法、および作成方法については�
 
 ### <a name="one-dev-question"></a>One Dev Question
 
-One Dev Question ビデオ シリーズでは、ベテランの Microsoft 開発者が Windows 開発、チーム カルチャー、履歴に関する一連の質問に答えています。 最新の質問に対してお答えした内容を以下に示します。
+One Dev Question ビデオ シリーズでは、ベテランの Microsoft 開発者が Windows 開発、チーム カルチャ、および歴史に関する一連の質問に答えています。 最新の質問に対してお答えした内容を以下に示します。
 
 Raymond Chen:
 

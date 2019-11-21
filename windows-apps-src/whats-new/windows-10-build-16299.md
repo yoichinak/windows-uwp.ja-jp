@@ -5,18 +5,18 @@ keywords: 新着情報, 新機能, 更新, 更新プログラム, 機能, 新規
 ms.date: 11/02/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 56061fa30e9581be278c710c29b19f0f90ea99cb
-ms.sourcegitcommit: a7740ebb14c98cd5afadd52db5cf714522821b49
+ms.openlocfilehash: c54321d1d9db95a33d2de6363a79d93243c07d1f
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72893020"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74258889"
 ---
 # <a name="whats-new-in-windows-10-for-developers-build-16299"></a>Windows 10 ビルド 16299 の開発者向け新着情報
 
-Windows 10 ビルド 16299 (Fall Creators Update またはバージョン 1709 とも呼ばれます) と Visual Studio 2019 および更新された SDK には、優れたユニバーサル Windows プラットフォーム アプリを作るためのツール、機能、エクスペリエンスが用意されています。 Windows 10 の[ツールと SDK をインストール](https://go.microsoft.com/fwlink/?LinkId=821431)すると、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
+Windows 10 ビルド 16299 (Fall Creators Update またはバージョン 1709 とも呼ばれます) と Visual Studio 2019 および更新された SDK には、優れたユニバーサル Windows プラットフォーム アプリを作るためのツール、機能、エクスペリエンスが用意されています。 Windows 10 の[ツールと SDK をインストール](https://developer.microsoft.com/windows/downloads#_blank)すると、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
 
-ここには、Windows 開発者にとって重要なこのリリースの新機能、強化された機能、ガイダンスを集めました。 Windows SDK に追加されたすべての新しい名前空間の一覧については、「[Windows 10 ビルド 16299 API の変更点](windows-10-build-16299-api-diff.md)」をご覧ください。 Windows 10 での注目すべき機能について詳しくは、「[Windows 10 の優れた機能](https://go.microsoft.com/fwlink/?LinkId=823181)」をご覧ください。 また、Windows プラットフォームに過去に追加された機能と今後追加される機能の概要については、[Windows 開発者向けプラットフォーム機能に関するページ](https://developer.microsoft.com/windows/platform/features)をご覧ください。
+ここには、Windows 開発者にとって重要なこのリリースの新機能、強化された機能、ガイダンスを集めました。 Windows SDK に追加されたすべての新しい名前空間の一覧については、「[Windows 10 ビルド 16299 API の変更点](windows-10-build-16299-api-diff.md)」をご覧ください。 Windows 10 での注目すべき機能について詳しくは、「[Windows 10 の優れた機能](https://developer.microsoft.com/windows/windows-10-for-developers)」をご覧ください。 また、Windows プラットフォームに過去に追加された機能と今後追加される機能の概要については、[Windows 開発者向けプラットフォーム機能に関するページ](https://developer.microsoft.com/windows/platform/features)をご覧ください。
 
 ## <a name="design--ui"></a>設計および UI
 
@@ -39,10 +39,10 @@ UI コントロール | 新しいコントロールを使用すると、優れ�
  :------ | :------
 ゲームのブロードキャスト | **[Windows.Media.AppBroadcasting](https://docs.microsoft.com/uwp/api/windows.media.appbroadcasting)** 名前空間の新しい API を使うと、システムが提供するゲーム ブロードキャスト UI をアプリが起動できるようになります。 </br>ブロードキャストが開始または停止したときにアプリに通知するイベントを登録することもできます。 **[Windows.Media.AppRecording](https://docs.microsoft.com/uwp/api/windows.media.apprecording)** 名前空間の新しい API を使うと、ゲームプレイのオーディオおよびビデオを録画または録音して画面をキャプチャできます。 </br>システムがブロードキャストに埋め込むメタデータを提供してストリームをキャプチャすることもできるため、アプリはゲームプレイ イベントと同期された表示エクスペリエンスを提供できるようになります。 これらの機能について詳しくは、「[ゲームのブロードキャストとキャプチャ](../gaming/game-broadcast-and-capture.md)」をご覧ください。
 ゲーム チャット オーバーレイ | [GameChatOverlay クラス](https://docs.microsoft.com/uwp/api/windows.gaming.ui.gamechatoverlay)は、既定のゲーム チャット オーバーレイ インスタンスを取得するメソッド、オーバーレイの目的の位置を設定するメソッド、メッセージを追加するメソッドを提供します。
-ゲーム デバイス情報 | さまざまなコンソール機能があるため、ユニバーサル Windows プラットフォーム (UWP) ゲームの開発者には、ハードウェアの最適な使用方法を実行時に選択するため、ゲームが実行されているコンソールの種類を決定する方法が必要です。 **&lt;gamingdeviceinformation.h&gt;** の[ゲーム デバイス情報](https://aka.ms/gamingdeviceinfo) API がこの機能を提供します。
+ゲーム デバイス情報 | さまざまなコンソール機能があるため、ユニバーサル Windows プラットフォーム (UWP) ゲームの開発者には、ハードウェアの最適な使用方法を実行時に選択するため、ゲームが実行されているコンソールの種類を決定する方法が必要です。 **&lt;gamingdeviceinformation.h&gt;** の[ゲーム デバイス情報](https://docs.microsoft.com/previous-versions/windows/desktop/gamingdvcinfo/gaming-device-information-portal?redirectedfrom=MSDN) API がこの機能を提供します。
 ゲーム モード | ユニバーサル Windows プラットフォーム (UWP) 用の[ゲーム モード](https://docs.microsoft.com/previous-versions/windows/desktop/gamemode/game-mode-portal) API では、Windows 10 のゲーム モードを利用することで最適化されたゲーム エクスペリエンスを実現できます。 これらの API は **&lt;expandedresources.h&gt;** ヘッダーに含まれています。
 ゲーム モニター | [GameMonitor クラス](https://docs.microsoft.com/uwp/api/windows.gaming.ui.gamemonitor)を使うと、アプリがデバイスのアクセス許可の状態を監視するゲームを取得し、必要に応じてゲームの監視を有効にするようユーザーに確認できるようになります。
-TruePlay | [TruePlay](https://aka.ms/trueplay) は、PC ゲーム内での不正な行為の防止するための新しいツール セットを開発者に提供します。 TruePlay に登録されているゲームは、保護されたプロセスで実行されるため、一般的な種類の攻撃が軽減されます。 ユニバーサル Windows プラットフォーム (UWP) 用の TruePlay API を使うと、Windows 10 PC におけるゲームとゲーム監視システムの間の操作を制限することができます。 これらの API は **&lt;gamemonitor.h&gt;** ヘッダーに含まれています。
+TruePlay | [TruePlay](https://docs.microsoft.com/previous-versions//mt808781(v=vs.85)?redirectedfrom=MSDN) は、PC ゲーム内での不正な行為の防止するための新しいツール セットを開発者に提供します。 TruePlay に登録されているゲームは、保護されたプロセスで実行されるため、一般的な種類の攻撃が軽減されます。 ユニバーサル Windows プラットフォーム (UWP) 用の TruePlay API を使うと、Windows 10 PC におけるゲームとゲーム監視システムの間の操作を制限することができます。 これらの API は **&lt;gamemonitor.h&gt;** ヘッダーに含まれています。
 Xbox Live | Xbox Live 開発者向けに、UWP ゲームと Xbox 開発キット (XDK) のゲームの両方に関するドキュメントが追加されました。 </br>* 「[Xbox Live 開発者向けガイド](https://docs.microsoft.com/gaming/xbox-live/index.md)」では、Xbox Live API を使ってゲームを Xbox Live ソーシャル ゲーミング ネットワークに接続する方法について説明します。 </br>* [Xbox Live クリエーターズ プログラム](https://docs.microsoft.com/gaming/xbox-live/get-started-with-creators/get-started-with-xbox-live-creators.md)を利用すると、UWP ゲーム開発者はだれでも、PC と Xbox One の両方で Xbox Live 対応ゲームを開発して公開できます。 </br>* Xbox Live 開発者向けに提供されているプログラムと機能については、「[Xbox Live 開発者プログラムの概要](https://docs.microsoft.com/gaming/xbox-live/developer-program-overview.md)」をご覧ください。
 
 ## <a name="develop-windows-apps"></a>Windows アプリを開発

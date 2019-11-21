@@ -5,12 +5,12 @@ ms.date: 04/18/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 取得, 取得, 開始
 ms.localizationpriority: medium
-ms.openlocfilehash: ab582d0528d6af8c9a8ae97e43fda2714f8e2fe6
-ms.sourcegitcommit: 2442a5f5b0c4275204063162f0f379fa90ff13b4
+ms.openlocfilehash: c058a727e09f00e01664c314d8c198f3f25e841e
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292773"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74255130"
 ---
 # <a name="get-started-with-cwinrt"></a>C++/WinRT の使用を開始する
 
@@ -121,7 +121,7 @@ HRESULT リターン コードを処理する必要もありません。 C++/Win
 
 このセクションでは、Windows デスクトップ アプリケーション プロジェクトに C++/WinRT のサポートを追加する方法を説明します。 既存の Windows デスクトップ アプリケーション プロジェクトがない場合は、まずそれを作成すると、これらの手順を実行できます。 たとえば、Visual Studio を開き、 **[Visual C++]** \> **[Windows デスクトップ]** \> **[Windows デスクトップ アプリケーション]** プロジェクトを作成します。
 
-必要に応じて [C++/WinRT Visual Studio 拡張機能 (VSIX)](https://aka.ms/cppwinrt/vsix) と NuGet パッケージをインストールできます。 詳細については、[C++/WinRT の Visual Studio のサポート](intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)に関する記事を参照してください。
+必要に応じて [C++/WinRT Visual Studio 拡張機能 (VSIX)](https://marketplace.visualstudio.com/items?itemName=CppWinRTTeam.cppwinrt101804264) と NuGet パッケージをインストールできます。 詳細については、[C++/WinRT の Visual Studio のサポート](intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)に関する記事を参照してください。
 
 ### <a name="set-project-properties"></a>プロジェクト プロパティを設定する
 

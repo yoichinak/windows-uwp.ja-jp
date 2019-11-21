@@ -6,12 +6,12 @@ ms.date: 12/19/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 5d45c907215f21977b0a59acede5a8314d6ed168
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: b3143247eab0bd8ed4266b78e34ec54dafa4dd7e
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66369325"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74259565"
 ---
 # <a name="open-files-and-folders-with-a-picker"></a>ピッカーでファイルやフォルダーを開く
 
@@ -24,7 +24,7 @@ ms.locfileid: "66369325"
 ユーザーがピッカーを操作してファイルやフォルダーにアクセスできるようにします。 ファイルへのアクセスには [**FileOpenPicker**](https://docs.microsoft.com/uwp/api/Windows.Storage.Pickers.FileOpenPicker) クラスと [**FileSavePicker**](https://docs.microsoft.com/uwp/api/Windows.Storage.Pickers.FileSavePicker) クラス、フォルダーへのアクセスには [**FolderPicker**](https://docs.microsoft.com/uwp/api/Windows.Storage.Pickers.FolderPicker) を使います。
 
 > [!NOTE]
-> 完全なサンプルについては、「[File picker sample](https://go.microsoft.com/fwlink/p/?linkid=619994)」 (ファイル ピッカーのサンプル) を参照してください。
+> 完全なサンプルについては、「[File picker sample](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/FilePicker)」 (ファイル ピッカーのサンプル) を参照してください。
 
 ## <a name="prerequisites"></a>前提条件
 

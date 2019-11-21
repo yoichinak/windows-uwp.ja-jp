@@ -5,12 +5,12 @@ ms.date: 04/18/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 概要
 ms.localizationpriority: medium
-ms.openlocfilehash: 1a9bb432ce7c856a6c54305f657f06a23dab14f1
-ms.sourcegitcommit: 805420bb7ec6850ec3576b21193a3681054c9754
+ms.openlocfilehash: fd267f96ca6931252ab3130d363447ae79820108
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71976332"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74255102"
 ---
 # <a name="introduction-to-cwinrt"></a>C++/WinRT の概要
 &nbsp;
@@ -37,7 +37,7 @@ Visual Studio のサポートでは、Visual Studio 2019 または Visual Studio
 
 最新バージョンの Visual Studio と Windows SDK で開発することをお勧めしますが、10.0.17763.0 (Windows 10、バージョン 1809) より前の Windows SDK に付属する C++/WinRT のバージョンを使用している場合、上記で示した Windows 名前空間ヘッダーを使用するには、10.0.17134.0 (Windows 10、バージョン 1803) のプロジェクトで最小の Windows SDK ターゲット バージョンが必要になります。
 
-[Visual Studio Marketplace](https://marketplace.visualstudio.com/) から最新バージョンの [C++/WinRT Visual Studio 拡張機能 (VSIX)](https://aka.ms/cppwinrt/vsix) をダウンロードしてインストールする必要があります。
+[Visual Studio Marketplace](https://marketplace.visualstudio.com/) から最新バージョンの [C++/WinRT Visual Studio 拡張機能 (VSIX)](https://marketplace.visualstudio.com/items?itemName=CppWinRTTeam.cppwinrt101804264) をダウンロードしてインストールする必要があります。
 
 - VSIX 拡張機能では、C++/WinRT 開発を開始できるように、Visual Studio で C++/WinRT プロジェクトとアイテム テンプレートが提供されます。
 - さらに、これにより、C++/WinRT の投影された型の Visual Studio ネイティブのデバッグの視覚化 (NatVis) が提供され、C# デバッグと同様のエクスペリエンスを実現します。 Natvis はデバッグ ビルドで自動で行われます。 シンボル WINRT_NATVIS を定義することで、リリース ビルドを選択できます。
@@ -96,7 +96,7 @@ IDL ファイルでは、コンポーネント、それらの既定インター�
 ビルドした Windows ランタイム コンポーネントのバイナリとその `.winmd` を、それらを使用する UWP アプリとバンドルします。
 
 ## <a name="earlier-versions-of-the-vsix-extension"></a>VSIX 拡張機能の以前のバージョン
-最新バージョンの [VSIX 拡張機能](https://aka.ms/cppwinrt/vsix)をインストール (またはアップグレード) することをお勧めします。 既定では、それ自体で更新されるように構成されています。 これを行い、1.0.190128.4 以前の VSIX 拡張機能のバージョンで作成されたプロジェクトがある場合、このセクションには新しいバージョンで動作するように、これらのプロジェクトのアップグレードに関する重要な情報が含まれます。 更新しない場合は、引き続きこのセクションでの情報が役に立つことがわかります。
+最新バージョンの [VSIX 拡張機能](https://marketplace.visualstudio.com/items?itemName=CppWinRTTeam.cppwinrt101804264)をインストール (またはアップグレード) することをお勧めします。 既定では、それ自体で更新されるように構成されています。 これを行い、1.0.190128.4 以前の VSIX 拡張機能のバージョンで作成されたプロジェクトがある場合、このセクションには新しいバージョンで動作するように、これらのプロジェクトのアップグレードに関する重要な情報が含まれます。 更新しない場合は、引き続きこのセクションでの情報が役に立つことがわかります。
 
 サポートされる Windows SDK と Visual Studio のバージョン、Visual Studio の構成に関して、上記の「[C++/WinRT、XAML、VSIX 拡張機能、NuGet パッケージの Visual Studio のサポート](#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)」セクションの情報は、以前のバージョンの VSIX 拡張機能に適用されます。 下記の情報は、以前のバージョンで作成された (または作業を行うためにアップグレードされた) 動作とプロジェクトの構成に関して重要な違いについて説明します。
 
@@ -147,7 +147,7 @@ IDL ファイルでは、コンポーネント、それらの既定インター�
 
 ## <a name="related-topics"></a>関連トピック
 * [C++/CX](/cpp/cppcx/visual-c-language-reference-c-cx)
-* [C++/WinRT Visual Studio 拡張機能 (VSIX)](https://aka.ms/cppwinrt/vsix)
+* [C++/WinRT Visual Studio 拡張機能 (VSIX)](https://marketplace.visualstudio.com/items?itemName=CppWinRTTeam.cppwinrt101804264)
 * [C++/WinRT の使用を開始する](get-started.md)
 * [標準的な C++ のデータ型と C++/WinRT](std-cpp-data-types.md)
 * [C++/WinRT での文字列の処理](strings.md)

@@ -6,12 +6,12 @@ ms.date: 06/03/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 8278e02de4d0f9a0efa301051a57bf59bce8d520
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 49e126ea0212499361fea58b58237ee13fb76ca2
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66363298"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74259179"
 ---
 # <a name="sockets"></a>ソケット
 ソケットは、下位レベルのデータ転送テクノロジであり、多くのネットワーク プロトコルがこの上に実装されています。 UWP は、接続が長期間維持されるか、確立された接続が必要あるかどうかに関係なく、クライアント/サーバー アプリケーションまたは ピア ツー ピア アプリケーションの TCP および UDP ソケット クラスを提供します。
@@ -521,7 +521,7 @@ void StreamSocketListener_ConnectionReceived(Windows::Networking::Sockets::Strea
 }
 ```
 
-**StreamSocket** の観点では、完了ハンドラーは継続本文が実行される前に実行を完了します (およびソケットは破棄の対象となります)。 したがって、ソケットをその継続内で使用する場合はソケットが破棄されないようにするには、ソケットを直接参照 (ラムダ キャプチャを使用) して使うか、間接的に参照 (継続内の `args->Socket` にアクセスし続けることにより) するか、継続タスクを強制的にインラインにする必要があります。 [StreamSocket のサンプル](https://go.microsoft.com/fwlink/p/?LinkId=620609)では、最初の手法 (ラムダ キャプチャ) が実行される様子を確認できます。 上記の「[基本的な TCP ソケット クライアントおよびサーバーを構築する](#build-a-basic-tcp-socket-client-and-server)」の C++/CX コードでは、2 番目の手法を使っています。要求を応答としてエコーし、最も内側にあるいずれかの継続内から `args->Socket` にアクセスします。
+**StreamSocket** の観点では、完了ハンドラーは継続本文が実行される前に実行を完了します (およびソケットは破棄の対象となります)。 したがって、ソケットをその継続内で使用する場合はソケットが破棄されないようにするには、ソケットを直接参照 (ラムダ キャプチャを使用) して使うか、間接的に参照 (継続内の `args->Socket` にアクセスし続けることにより) するか、継続タスクを強制的にインラインにする必要があります。 [StreamSocket のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/StreamSocket)では、最初の手法 (ラムダ キャプチャ) が実行される様子を確認できます。 上記の「[基本的な TCP ソケット クライアントおよびサーバーを構築する](#build-a-basic-tcp-socket-client-and-server)」の C++/CX コードでは、2 番目の手法を使っています。要求を応答としてエコーし、最も内側にあるいずれかの継続内から `args->Socket` にアクセスします。
 
 3 番目の手法は、応答をエコーしない場合に適しています。 PPL が継続本文をインラインで実行すること強制するには、`task_continuation_context::use_synchronous_execution()` オプションを使います。 この方法を示すコード例を次に示します。
 
@@ -1384,4 +1384,4 @@ Concurrency::create_task(Windows::Security::Cryptography::Certificates::Certific
 * [Windows ソケット 2 (Winsock)](https://docs.microsoft.com/windows/desktop/WinSock/windows-sockets-start-page-2)
 
 ## <a name="samples"></a>サンプル
-* [StreamSocket のサンプル](https://go.microsoft.com/fwlink/p/?LinkId=620609)
+* [StreamSocket のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/StreamSocket)

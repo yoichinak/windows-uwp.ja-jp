@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 97407ec48eaac3415980b9313092b21e9532250a
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 834bea47a566789926648098086c05c0a47b6065
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67321109"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74260554"
 ---
 #  <a name="building-a-complex-universal-windows-platform-uwp-app"></a>複雑なユニバーサル Windows プラットフォーム (UWP) アプリを作成する
 
@@ -65,7 +65,7 @@ Microsoft のデザイン チームのアプリ作成プロセスは、5 つの�
 
 概念に満足したら、次の段階としてアプリの青写真を作る準備に入ります。 情報アーキテクチャ (IA) により、コンテンツには、必要な構造的整合性が提供されます。 これは、アプリのナビゲーション モデルを定義し、最終的にアプリの ID を定義するのに役立ちます。 コンテンツをどのように整理するか、また、どうすればユーザーがそのコンテンツを見つけられるのかを計画することにより、ユーザーがアプリを使ったときのエクスペリエンスについて理解を深めることができます。
 
-優れた IA は、ユーザーのシナリオを容易にするだけでなく、最初に主な画面を構想するのに役立ちます。 たとえば、[Audible](https://go.microsoft.com/fwlink/p/?LinkID=268089) アプリは、ユーザーのライブラリ、ストア、ニュース、統計情報へのアクセスを提供するハブを直接開始します。エクスペリエンスが重視されているため、ユーザーはオーディオ ブックをすばやく取得して楽しむことができます。 アプリのより深いレベルでは、より具体的なタスクに焦点を当てています。
+優れた IA は、ユーザーのシナリオを容易にするだけでなく、最初に主な画面を構想するのに役立ちます。 たとえば、[Audible](https://www.windowsphone.com/store/app/audible-for-windows-phone/bdc813dd-c20b-41f8-8646-de72fa0b365d) アプリは、ユーザーのライブラリ、ストア、ニュース、統計情報へのアクセスを提供するハブを直接開始します。エクスペリエンスが重視されているため、ユーザーはオーディオ ブックをすばやく取得して楽しむことができます。 アプリのより深いレベルでは、より具体的なタスクに焦点を当てています。
 
 関連するガイドラインについては、「[Windows ユニバーサル アプリのナビゲーション デザインの基本](../design/basics/navigation-basics.md)」をご覧ください。
 

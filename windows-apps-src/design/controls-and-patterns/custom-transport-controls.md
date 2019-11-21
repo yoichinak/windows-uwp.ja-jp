@@ -8,12 +8,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 41c42a058398539701cc1df003717eec99d1b2cd
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 74735b15ec53cf04e33dcb850c6cb174082ac438
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66362856"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74257261"
 ---
 # <a name="create-custom-transport-controls"></a>カスタム トランスポート コントロールを作成する
 
@@ -26,7 +26,7 @@ MediaPlayerElement には、ユニバーサル Windows プラットフォーム 
 始める前に、MediaPlayerElement クラスと MediaTransportControls クラスについて理解している必要があります。 詳しくは、「MediaPlayerElement コントロール ガイド」をご覧ください。
 
 > [!TIP]
-> このトピックの例は、[メディア トランスポート コントロールのサンプル](https://go.microsoft.com/fwlink/p/?LinkId=620023)を基にしています。 サンプルをダウンロードし、詳細なコードを参照して実行することができます。
+> このトピックの例は、[メディア トランスポート コントロールのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlCustomMediaTransportControls)を基にしています。 サンプルをダウンロードし、詳細なコードを参照して実行することができます。
 
 > [!NOTE]
 > **MediaPlayerElement** は Windows 10 バージョン 1607 以降でのみ使用できます。 Windows 10 の以前のバージョン用にアプリを開発する場合は、代わりに [**MediaElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.MediaElement) を使用する必要があります。 このページのすべての例は **MediaElement**でも動作します。
@@ -95,7 +95,7 @@ MediaTransportControls の外観のみを変更する場合、既定のコント
 
 ### <a name="create-a-derived-control"></a>派生コントロールの作成
 
-トランスポート コントロールの機能を追加または変更するには、MediaTransportControls から派生した新しいクラスを作成する必要があります。 [メディア トランスポート コントロールのサンプル](https://go.microsoft.com/fwlink/p/?LinkId=620023)と、このページの他の例では、`CustomMediaTransportControls` という名前の派生クラスが使用されています。
+トランスポート コントロールの機能を追加または変更するには、MediaTransportControls から派生した新しいクラスを作成する必要があります。 [メディア トランスポート コントロールのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlCustomMediaTransportControls)と、このページの他の例では、`CustomMediaTransportControls` という名前の派生クラスが使用されています。
 
 **MediaTransportControls から派生した新しいクラスを作成するには**
 1. プロジェクトに新しいクラス ファイルを追加します。
@@ -202,7 +202,7 @@ MediaTransportControls テンプレートでは、コマンド ボタンは [**C
 
 ### <a name="adding-a-custom-button"></a>カスタム ボタンの追加
 
-MediaTransportControls をカスタマイズする理由の 1 つは、コントロールにカスタム コマンドを追加するためです。 コマンドをプライマリ コマンドとセカンダリ コマンドのどちらとして追加するかに関係なく、コマンド ボタンを作成し、その動作を変更する手順は同じです。 [メディア トランスポート コントロールのサンプル](https://go.microsoft.com/fwlink/p/?LinkId=620023)では、"評価" ボタンをプライマリ コマンドに追加しています。
+MediaTransportControls をカスタマイズする理由の 1 つは、コントロールにカスタム コマンドを追加するためです。 コマンドをプライマリ コマンドとセカンダリ コマンドのどちらとして追加するかに関係なく、コマンド ボタンを作成し、その動作を変更する手順は同じです。 [メディア トランスポート コントロールのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlCustomMediaTransportControls)では、"評価" ボタンをプライマリ コマンドに追加しています。
 
 **カスタム コマンド ボタンを追加するには**
 1. AppBarButton オブジェクトを作成し、コントロール テンプレートの CommandBar に追加します。

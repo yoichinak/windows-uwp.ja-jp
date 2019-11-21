@@ -5,18 +5,18 @@ keywords: 最新情報, 更新, 機能, 開発者向けガイダンス, Windows 
 ms.date: 07/11/2018
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 4030796e942c76ccf32e04dbf951cac68718a6a5
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 3c92de1901c9cc67a30f495e34289bac5d7d2b94
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67320393"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74258796"
 ---
 # <a name="whats-new-in-the-windows-developer-docs-in-july-2018"></a>Windows 開発者向けドキュメントの最新情報、2018 年 7 月
 
 Windows 開発者向けドキュメントは、Windows プラットフォームで開発者に提供される新機能の情報を反映して継続的に更新されています。 次の機能概要、開発者向けガイダンス、ビデオ、およびサンプルは 7 月に公開されたものです。
 
-Windows 10 の[ツールと SDK をインストール](https://go.microsoft.com/fwlink/?LinkId=821431)すると、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
+Windows 10 の[ツールと SDK をインストール](https://developer.microsoft.com/windows/downloads#_blank)すると、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
 
 ## <a name="features"></a>機能
 
@@ -34,7 +34,7 @@ Windows 10 の[ツールと SDK をインストール](https://go.microsoft.com/
 
 ### <a name="notepad"></a>メモ帳
 
-Windows 10 Insider Preview ビルド 17713 で提供されている[メモ帳は、多数の新機能で更新されています](https://aka.ms/ant-man)。 ズーム、折り返し検索/置換、および Unix/Linux と Mac の行の末尾 (それぞれ LF と CR) が、[Windows Insider](https://insider.windows.com/) でサポートされるようになりました。 
+Windows 10 Insider Preview ビルド 17713 で提供されている[メモ帳は、多数の新機能で更新されています](https://blogs.windows.com/windowsexperience/2018/07/11/announcing-windows-10-insider-preview-build-17713/)。 ズーム、折り返し検索/置換、および Unix/Linux と Mac の行の末尾 (それぞれ LF と CR) が、[Windows Insider](https://insider.windows.com/) でサポートされるようになりました。 
 
 ## <a name="developer-guidance"></a>開発者向けガイダンス
 
@@ -70,11 +70,11 @@ Adobe XD および Adobe Illustrator ツールキットが更新されて新機�
 
 ### <a name="get-started-for-devs-create-and-customize-a-form-on-windows-10"></a>開発者向けスタートアップ ガイド:Windows 10 でフォームを作成してカスタマイズする
 
-Windows 開発者向けの[スタートアップ ガイド](../get-started/index.md)では、基本的なアプリ開発タスクを実際に体験できるようになりました。 このビデオは、これらのトピックの 1 つを順を追って説明するもので、アプリでのフォーム UI 作成の基本について扱います。 [ビデオを見て](https://www.youtube.com/watch?v=AgngKzq4hKI&feature=youtu.be)動作中のコードを理解したうえで、[トピックを自分で確認してください。](https://aka.ms/CreateForms)
+Windows 開発者向けの[スタートアップ ガイド](../get-started/index.md)では、基本的なアプリ開発タスクを実際に体験できるようになりました。 このビデオは、これらのトピックの 1 つを順を追って説明するもので、アプリでのフォーム UI 作成の基本について扱います。 [ビデオを見て](https://www.youtube.com/watch?v=AgngKzq4hKI&feature=youtu.be)動作中のコードを理解したうえで、[トピックを自分で確認してください。](https://docs.microsoft.com/windows/uwp/get-started/construct-form-learning-track)
 
 ### <a name="enhance-your-bot-with-project-personality-chat"></a>Project Personality Chat でボットを強化する
 
-Project Personality Chat により、カスタマイズ可能なペルソナをチャット ボットに追加することができます。 Microsoft Bot Framework SDK を統合することで、より会話的な方法で顧客と対話するための複数のスモールトーク機能を追加できます。 [ビデオを見て](https://www.youtube.com/watch?v=5C_uD8g2QKg&feature=youtu.be)これを実装する方法を理解したうえで、[対話的なデモを通して](https://aka.ms/PersonalityChat)実際に体験してみてください。
+Project Personality Chat により、カスタマイズ可能なペルソナをチャット ボットに追加することができます。 Microsoft Bot Framework SDK を統合することで、より会話的な方法で顧客と対話するための複数のスモールトーク機能を追加できます。 [ビデオを見て](https://www.youtube.com/watch?v=5C_uD8g2QKg&feature=youtu.be)これを実装する方法を理解したうえで、[対話的なデモを通して](https://www.microsoft.com/research/project/personality-chat/)実際に体験してみてください。
 
 ### <a name="one-dev-question"></a>One Dev Question
 

@@ -12,12 +12,12 @@ design-contact: jeffarn
 dev-contact: mitra
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: a409c4b940ad0e194428981f536823d880e56302
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 67315518238bda1359862f36acd398e25e8481e3
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66364489"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74258155"
 ---
 # <a name="progress-controls"></a>プログレス コントロール
 
@@ -192,4 +192,4 @@ Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows
 
 **開発者向け (XAML)**
 - [プログレス コントロールの追加](https://docs.microsoft.com/previous-versions/windows/apps/hh780651(v=win.10))
-- [Windows Phone 向けのカスタム進行状況不定バーを作成する方法](https://go.microsoft.com/fwlink/p/?LinkID=392426)
+- [Windows Phone 向けのカスタム進行状況不定バーを作成する方法](https://msdn.microsoft.com/library/windows/apps/gg442303.aspx)

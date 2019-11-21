@@ -6,12 +6,12 @@ ms.date: 06/11/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 65436d7efd1de6e9c3649ad27b29b925bc632d95
-ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
+ms.openlocfilehash: 13e6f4ac59a99463cd891e936f51449baf4ea7c2
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67820657"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74259538"
 ---
 # <a name="create-a-hello-world-app-in-ccx"></a>"Hello world" アプリを C++/CX で作成する
 
@@ -25,7 +25,7 @@ Microsoft Visual Studio では、Extensible Application Markup Language (XAML) �
 
 ## <a name="before-you-start"></a>開始前の作業
 
--   このチュートリアルを完了するには、Windows 10 が実行されているコンピューターで、Visual Studio Community、または Community バージョン以外のいずれかの Visual Studio を使う必要があります。 ツールをダウンロードするには、[ツールの入手に関するページ](https://go.microsoft.com/fwlink/p/?LinkId=532666)をご覧ください。
+-   このチュートリアルを完了するには、Windows 10 が実行されているコンピューターで、Visual Studio Community、または Community バージョン以外のいずれかの Visual Studio を使う必要があります。 ツールをダウンロードするには、[ツールの入手に関するページ](https://visualstudio.microsoft.com/downloads/)をご覧ください。
 -   このトピックは、C++/CX、XAML、そして「[XAML の概要](https://docs.microsoft.com/windows/uwp/xaml-platform/xaml-overview)」で説明されている概念について基本的な知識があることを前提としています。
 -   Visual Studio の既定のウィンドウ レイアウトを使用することを前提としています。 既定のレイアウトに戻すには、メニュー バーで **[ウィンドウ]**  >  **[ウィンドウ レイアウトのリセット]** の順に選択します。
 
@@ -231,7 +231,7 @@ MainPage::MainPage()
 
 アプリのデバッグを停止して閉じるには、Visual Studio に戻り、Shift キーを押しながら F5 キーを押します。
 
-詳しくは、「[Visual Studio からのストア アプリの実行](https://go.microsoft.com/fwlink/p/?LinkId=619619)」をご覧ください。
+詳しくは、「[Visual Studio からのストア アプリの実行](https://msdn.microsoft.com/library/windows/apps/xaml/Hh441477(v=VS.140).aspx)」をご覧ください。
 
 アプリの [**TextBox**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox) に文字を入力することはできますが、この時点では [**Button**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Button) をクリックしても何も起こりません。 この後の手順で、ユーザーに合わせたあいさつを表示する、ボタンの [**Click**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.click) イベント用のイベント ハンドラーを作成します。
 
@@ -397,6 +397,6 @@ MainPage::MainPage()
 
 ## <a name="next-steps"></a>次のステップ
 
-Windows 8.1 や Windows Phone 8.1 を対象とする Windows ユニバーサル アプリ プロジェクトがある場合は、そのプロジェクトを Windows 10 に移植できます。 この移植を自動的に行うプロセスはありませんが、手動で実行することができます。 新しい Windows ユニバーサル プロジェクトを使って開発を始めることで、最新のプロジェクト システム構造を入手し、お使いのコード ファイルをプロジェクトのディレクトリ構造にコピーしたり、項目をプロジェクトに追加したりすることができます。また、このトピックのガイダンスに従い、[**VisualStateManager**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.VisualStateManager) を使って XAML を書き換えることもできます。 詳しくは、「[Windows ランタイム 8 プロジェクトのユニバーサル Windows プラットフォーム (UWP) プロジェクトへの移植](https://docs.microsoft.com/windows/uwp/porting/w8x-to-uwp-porting-to-a-uwp-project)」と「[ユニバーサル Windows プラットフォームへの移植 (C++)](https://go.microsoft.com/fwlink/p/?LinkId=619525)」をご覧ください。
+Windows 8.1 や Windows Phone 8.1 を対象とする Windows ユニバーサル アプリ プロジェクトがある場合は、そのプロジェクトを Windows 10 に移植できます。 この移植を自動的に行うプロセスはありませんが、手動で実行することができます。 新しい Windows ユニバーサル プロジェクトを使って開発を始めることで、最新のプロジェクト システム構造を入手し、お使いのコード ファイルをプロジェクトのディレクトリ構造にコピーしたり、項目をプロジェクトに追加したりすることができます。また、このトピックのガイダンスに従い、[**VisualStateManager**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.VisualStateManager) を使って XAML を書き換えることもできます。 詳しくは、「[Windows ランタイム 8 プロジェクトのユニバーサル Windows プラットフォーム (UWP) プロジェクトへの移植](https://docs.microsoft.com/windows/uwp/porting/w8x-to-uwp-porting-to-a-uwp-project)」と「[ユニバーサル Windows プラットフォームへの移植 (C++)](https://msdn.microsoft.com/library/mt186164.aspx)」をご覧ください。
 
-UWP アプリと統合する既存の C++ コードがある場合、たとえば、既存のアプリケーションに新しい UWP UI を作成する場合は、[ユニバーサル Windows プロジェクトでの既存の C++ コードの使用](https://go.microsoft.com/fwlink/p/?LinkId=619623)に関するページをご覧ください。
+UWP アプリと統合する既存の C++ コードがある場合、たとえば、既存のアプリケーションに新しい UWP UI を作成する場合は、[ユニバーサル Windows プロジェクトでの既存の C++ コードの使用](https://msdn.microsoft.com/library/mt186162.aspx)に関するページをご覧ください。
