@@ -6,12 +6,12 @@ ms.date: 11/29/2017
 ms.topic: article
 keywords: Windows 10, UWP, 収益化, エンゲージメント, プロモーション, ストア サービス
 ms.localizationpriority: medium
-ms.openlocfilehash: 460179f7f57e17f78fdb3fd3bd289e761a8a7b4f
-ms.sourcegitcommit: 2dba9b4e81151d14ca90d36341274a3b59926197
+ms.openlocfilehash: 7beee974bceceab02984ae6499a9c5db0b0281b9
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74057464"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74259301"
 ---
 # <a name="monetization-engagement-and-store-services"></a>収益化、エンゲージメント、Microsoft Store サービス
 
@@ -72,7 +72,7 @@ Microsoft Store の手数料に関する説明とアプリの収益を受け取�
 バナー広告、スポット広告 (バナーおよびビデオ)、リニア ビデオ広告、再生可能広告、ネイティブ広告など、さまざまな広告をサポートし、ほとんどのニーズに対応しています。 マイクロソフトのプラットフォームは、OpenRTB、VAST 2.x、MRAID 2、および VPAID 3 の各標準に準拠しており、MOAT および IAS と互換性があります。
 
 [広告オプションを探す](../publish/create-an-ad-campaign-for-your-app.md)
-[広告 SDK をインストールする](https://aka.ms/ads-sdk-uwp)
+[広告 SDK をインストールする](https://marketplace.visualstudio.com/items?itemName=AdMediator.MicrosoftAdvertisingSDK)
     :::column-end:::
 :::row-end:::
 
@@ -85,7 +85,7 @@ Microsoft Store の手数料に関する説明とアプリの収益を受け取�
 
 複数の人気のある広告ネットワークから広告を提供する、マイクロソフトの広告仲介サービスを使って、アプリでの広告収益を最大化します。 コード行を変更せずに、パートナー センターで、仲介の設定を構成できます。 マイクロソフトに仲介を設定させる場合、マイクロソフトの機械学習アルゴリズムによって、お客様のアプリがサポートしている市場の広告収益を最大化できます。
 
-[広告サービスを使用する](https://aka.ms/admediationblog)
+[広告サービスを使用する](https://blogs.windows.com/windowsdeveloper/2017/05/08/announcing-microsofts-ad-mediation-service/)
     :::column-end:::
 :::row-end:::
 
@@ -110,8 +110,8 @@ Microsoft Store の手数料に関する説明とアプリの収益を受け取�
 
  トピック                | 説明                 |
 |--------------------|-----------------------------|
-| [マイクロソフトのアフィリエイト プログラム](https://go.microsoft.com/fwlink/p/?LinkId=617665)。 | アプリ、ブログ、Web ページなどのコミュニケーション ツールから Microsoft 製品にリンクして、手数料を獲得できます。 リンクの対象として使うことができるのは、Microsoft Store で販売されているアプリ、ゲーム、音楽、ムービー、ハードウェア、アクセサリなどの商品があります。
-| [A/B テスト](https://go.microsoft.com/fwlink/p/?LinkId=722784) | アプリの機能の変更をすべてのユーザー向けに有効にする前に、アプリで A/B テストを実行し、一部のユーザーを対象として機能の変更の有効性を測定します。
+| [マイクロソフトのアフィリエイト プログラム](https://www.microsoftaffiliates.com/)。 | アプリ、ブログ、Web ページなどのコミュニケーション ツールから Microsoft 製品にリンクして、手数料を獲得できます。 リンクの対象として使うことができるのは、Microsoft Store で販売されているアプリ、ゲーム、音楽、ムービー、ハードウェア、アクセサリなどの商品があります。
+| [A/B テスト](https://docs.microsoft.com/windows/uwp/monetize/run-app-experiments-with-a-b-testing) | アプリの機能の変更をすべてのユーザー向けに有効にする前に、アプリで A/B テストを実行し、一部のユーザーを対象として機能の変更の有効性を測定します。
 | [Microsoft Store Services SDK を使ってユーザーとの関係を深める](microsoft-store-services-sdk.md) | Microsoft Store Services SDK が提供するライブラリとツールを利用すると、顧客エンゲージメントの獲得を図る機能をアプリに追加できます。 これらの機能には、ターゲット通知、A/B テスト、アプリからのフィードバック Hub の起動が含まれます。
 | [アプリからのフィードバック Hub の起動](launch-feedback-hub-from-your-app.md) | UWP アプリにコードを追加して、Windows 10 ユーザーをフィードバック Hub に誘導して、ユーザーが問題、提案、賛成票を送信できるようにします。 次に、パートナー センターの[フィードバック レポート](../publish/feedback-report.md)でこのフィードバックを管理します。 この機能を使うには、Microsoft Store Services SDK が必要です。 
 | [パートナー センターのプッシュ通知を受信するようにアプリを設定する](configure-your-app-to-receive-dev-center-notifications.md) | UWP アプリの通知チャンネルを登録して、[パートナー センターのプッシュ通知](../publish/send-push-notifications-to-your-apps-customers.md)を受信し、プッシュ通知の結果としてのアプリの起動率を追跡できるようにします。 この機能を使うには、Microsoft Store Services SDK が必要です。

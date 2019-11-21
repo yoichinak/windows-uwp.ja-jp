@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: c7296923b3e991a56fed115527b28a6b62b3ffd6
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 15e6ebd45d4f7069e09169a437476b0f785ea959
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66369458"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74259599"
 ---
  # <a name="files-folders-and-libraries"></a>ファイル、フォルダー、およびライブラリ
 
@@ -36,11 +36,11 @@ ms.locfileid: "66369458"
 | [UWP でファイルのプロパティにすばやくアクセスする](fast-file-properties.md) | UWP アプリで使用するために、ライブラリからファイルとそのプロパティの一覧を効率的に収集します。 |
 
 ## <a name="related-samples"></a>関連するサンプル
-[フォルダーの列挙のサンプル](https://go.microsoft.com/fwlink/p/?linkid=619993)
+[フォルダーの列挙のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/FolderEnumeration)
 
-[ファイル アクセスのサンプル](https://go.microsoft.com/fwlink/p/?linkid=619995)
+[ファイル アクセスのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/FileAccess)
 
-[ファイル ピッカーのサンプル](https://go.microsoft.com/fwlink/p/?linkid=619994)
+[ファイル ピッカーのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/FilePicker)
  
 
  

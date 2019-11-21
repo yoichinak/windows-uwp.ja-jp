@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 2d935f53-84db-4108-86dc-cb6a0749782f
 ms.localizationpriority: medium
-ms.openlocfilehash: f8f31630fed64e2a22b21e4572eaba76440a82fc
-ms.sourcegitcommit: 6a7dd4da2fc31ced7d1cdc6f7cf79c2e55dc5833
+ms.openlocfilehash: 0b5ca136b969ca238226d6f6b63b8e2fcff3207f
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58334770"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74259739"
 ---
 # <a name="uwp-on-xbox-one"></a>Xbox One の UWP
 
@@ -40,7 +40,7 @@ Xbox One の UWP は、アプリ開発とゲーム開発の両方をサポート
 |[複数ユーザーのアプリケーションの概要](multi-user-applications.md)| Xbox One での複数ユーザーのアプリケーション (MUA) について説明します。 |
 | [Xbox One の開発作業の自動化](https://github.com/Microsoft/WindowsDevicePortalWrapper/tree/v0.9.4) | GitHub の WindowsDevicePortalWrapper プロジェクトでは、アプリの開発や起動などの一般的な開発タスクを自動化できるライブラリが提供されます。 プロジェクトには、一般的なタスクの API を使用する方法を示すサンプルである XboxWdpDriver.exe が含まれています。 |
 |[既存のゲームの Xbox への移行](development-lanes-landing.md)|ゲームを構築する際の基礎となるテクノロジに基づいて、UWP を使用した Xbox へのゲームの移行プロセスを迅速に処理するための詳しい手順について説明します。|
-|[Xbox One でまだサポートされていない UWP 機能](https://go.microsoft.com/fwlink/p/?LinkId=760755)|  Xbox One でまだ完全に機能していない UWP 機能について説明します。|
+|[Xbox One でまだサポートされていない UWP 機能](https://docs.microsoft.com/uwp/extension-sdks/uwp-limitations-on-xbox?redirectedfrom=MSDN)|  Xbox One でまだ完全に機能していない UWP 機能について説明します。|
 
 ## <a name="videos"></a>ビデオ
 

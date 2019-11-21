@@ -6,12 +6,12 @@ ms.date: 05/18/2018
 ms.topic: article
 keywords: windows 10, uwp, 連絡先, カレンダー, 予定, メール メッセージ
 ms.localizationpriority: medium
-ms.openlocfilehash: 6356e20966fc3899196e00ba5a99ebcf0104f8d6
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 8abb3773b2fa18a25716baf641d04c7ad37a293c
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66361258"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74255439"
 ---
 # <a name="contacts-my-people-and-calendar"></a>連絡先、マイ連絡先、カレンダー
 
@@ -35,8 +35,8 @@ ms.locfileid: "66361258"
 
 ## <a name="related-topics"></a>関連トピック
 
-* [予定 API のサンプル](https://go.microsoft.com/fwlink/p/?linkid=309836)
-* [連絡先マネージャー API のサンプル](https://go.microsoft.com/fwlink/p/?LinkID=310079)
-* [連絡先ピッカー アプリのサンプル](https://go.microsoft.com/fwlink/p/?linkid=231575)
-* [連絡先に関連する操作の処理のサンプル](https://go.microsoft.com/fwlink/p/?LinkID=320151)
+* [予定 API のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Appointments)
+* [連絡先マネージャー API のサンプル](https://code.msdn.microsoft.com/windowsapps/Contact-manager-API-sample-319bdcef)
+* [連絡先ピッカー アプリのサンプル](https://code.msdn.microsoft.com/windowsapps/Contact-Picker-App-sample-fc6677a1)
+* [連絡先に関連する操作の処理のサンプル](https://code.msdn.microsoft.com/windowsapps/Handling-Contact-Actions-359380e2)
 * [連絡先カードの統合のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/ContactCardIntegration)
