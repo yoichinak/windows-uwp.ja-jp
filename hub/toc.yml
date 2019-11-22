@@ -1,7 +1,7 @@
 - name: Windows 向けアプリの構築
   items:
     - name: 概要
-      href: apps/index.md
+      href: apps/index.yml
     - name: デスクトップ アプリの構築
       items:
         - name: 概要
