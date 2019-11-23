@@ -21,7 +21,7 @@ ms.locfileid: "74258937"
 
 米国商務省産業安全保障局は、一部の種類の暗号化を使う技術の輸出を規制しています。 アプリ ファイルは米国内に保存することができるため、Microsoft Store に登録されているすべてのアプリはこれらの法律と規制に従う必要があります。 米国以外の国で配布することを目的として他の国からアプリ開発者によってアップロードされたアプリについても、これらの規制に従う必要があります。 このため、アプリを Microsoft Store に提出する場合、すべてのアプリ開発者はこれらの規制で制限されている技術がアプリに含まれていないことを確認する必要があります。
 
-> **Note**  The information provided here provides some guidance, but it is your responsibility as the app developer who is publishing apps in the Microsoft Store to make sure that your app complies with all applicable laws and regulations.
+> ここに記載されている情報にはいくつかのガイダンスがありますが、アプリが適用されるすべての法律および規制に準拠していることを確認するために、Microsoft Store でアプリを発行しているアプリ開発者としての責任があります **。  **
 
  
 
@@ -33,7 +33,7 @@ ms.locfileid: "74258937"
 
 まず、輸出管理規制の対象となる暗号化の種類をアプリが使っているかどうかを判断します。 この質問には、ここで一覧に示している例も含まれていますが、この一覧が暗号化の応用のすべてではないことに注意してください。
 
-> **Important**  Consider not only the code you wrote for your app, but also all the software libraries, utilities and operating system components that your app includes or links to.
+> **重要**  アプリ用に記述したコードだけでなく、アプリに含まれている、またはリンク先のすべてのソフトウェアライブラリ、ユーティリティ、およびオペレーティングシステムコンポーネントも考慮してください。
 
 -   認証、整合性チェックなどの、デジタル署名の使用
 -   アプリが使ったりアクセスしたりするデータまたはファイルの暗号化

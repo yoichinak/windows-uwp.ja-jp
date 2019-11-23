@@ -26,7 +26,7 @@ Windows での低レベル バスへのユーザー モード アクセスは、
 
 ## <a name="asl-by-example"></a>ASL の例
 
-Raspberry Pi 2 での rhproxy デバイス ノードの宣言について説明します。 まず、@no__t 横-0 のスコープで ACPI デバイス宣言を作成します。
+Raspberry Pi 2 での rhproxy デバイス ノードの宣言について説明します。 まず、\\_SB スコープで ACPI デバイス宣言を作成します。
 
 ```cpp
 Device(RHPX)
@@ -37,11 +37,11 @@ Device(RHPX)
 }
 ```
 
-* _HID – ハードウェア ID です。ベンダー固有のハードウェア ID に設定します。
-* _CID – 互換性 ID です。“MSFT8000” にする必要があります。
-* _UID – 一意の ID です。1 に設定します。
+* _HID: ハードウェア ID です。ベンダー固有のハードウェア ID に設定します。
+* _CID: 互換性 ID です。"MSFT8000" にする必要があります。
+* _UID: 一意の ID です。1 に設定します。
 
-次に、ユーザー モードに公開する GPIO リソースと SPB リソースをそれぞれ宣言します。 プロパティとリソースを関連付けるためにリソース インデックスが使われるため、リソースが宣言される順序は重要です。 複数の I2C または SPI バスが公開されている場合は、最初に宣言されているバスがその種類のバスの '既定' と見なされ、[Windows.Devices.I2c.I2cController](https://docs.microsoft.com/uwp/api/windows.devices.i2c.i2ccontroller) および [Windows.Devices.Spi.SpiController](https://docs.microsoft.com/uwp/api/windows.devices.spi.spicontroller) の `GetDefaultAsync()` メソッドによって返されるインスタンスになります。
+次に、ユーザー モードに公開する GPIO リソースと SPB リソースをそれぞれ宣言します。 プロパティとリソースを関連付けるためにリソース インデックスが使われるため、リソースが宣言される順序は重要です。 複数の I2C または SPI バスが公開されている場合は、最初に宣言されているバスがその種類のバスの '既定' と見なされ、`GetDefaultAsync()`Windows.Devices.I2c.I2cController[ および ](https://docs.microsoft.com/uwp/api/windows.devices.i2c.i2ccontroller)Windows.Devices.Spi.SpiController[ の ](https://docs.microsoft.com/uwp/api/windows.devices.spi.spicontroller) メソッドによって返されるインスタンスになります。
 
 ### <a name="spi"></a>SPI
 
@@ -159,7 +159,7 @@ Package(2) { "bus-SPI-SPI1", Package() { 2 }},
 * [MITT SPI テスト](https://docs.microsoft.com/windows-hardware/drivers/spb/spi-tests-in-mitt)に合格している必要があります
 * 4 Mhz のクロック周波数をサポートしている必要があります
 * 8 ビットのデータ長をサポートしている必要があります
-* すべての SPI モードをサポートする必要があります。0、1、2、3
+* すべての SPI モード (0、1、2、3) をサポートしている必要があります
 
 ### <a name="i2c"></a>I2C
 
@@ -228,7 +228,7 @@ GpioInt(Edge, ActiveBoth, Shared, PullUp, 0, “\\_SB.GPI0”,) { 5 }
 
 GPIO ピンを宣言するときは、次の要件を順守する必要があります。
 
-* メモリ マップ GPIO コントローラーのみがサポートされています。 I2C/SPI 経由で接続された GPIO コントローラーはサポートされていません。 [CLIENT_QueryControllerBasicInformation](https://docs.microsoft.com/windows-hardware/drivers/ddi/content/gpioclx/nc-gpioclx-gpio_client_query_controller_basic_information) コールバックへの応答で [CLIENT_CONTROLLER_BASIC_INFORMATION](https://docs.microsoft.com/windows-hardware/drivers/ddi/content/gpioclx/ns-gpioclx-_client_controller_basic_information) 構造に [MemoryMappedController](https://docs.microsoft.com/windows-hardware/drivers/ddi/content/gpioclx/ns-gpioclx-_controller_attribute_flags) フラグを設定する場合、コントローラー ドライバーはメモリ マップ コントローラーです。
+* メモリ マップ GPIO コントローラーのみがサポートされています。 I2C/SPI 経由で接続された GPIO コントローラーはサポートされていません。 [CLIENT_QueryControllerBasicInformation](https://docs.microsoft.com/windows-hardware/drivers/ddi/content/gpioclx/ns-gpioclx-_controller_attribute_flags) コールバックへの応答で [CLIENT_CONTROLLER_BASIC_INFORMATION](https://docs.microsoft.com/windows-hardware/drivers/ddi/content/gpioclx/ns-gpioclx-_client_controller_basic_information) 構造に [MemoryMappedController](https://docs.microsoft.com/windows-hardware/drivers/ddi/content/gpioclx/nc-gpioclx-gpio_client_query_controller_basic_information) フラグを設定する場合、コントローラー ドライバーはメモリ マップ コントローラーです。
 * 各ピンに GpioIO リソースと GpioInt リソースの両方が必要です。 GpioInt リソースは GpioIO リソースの直後に続き、同じピン番号を参照する必要があります。
 * GPIO リソースはピン番号の昇順で並べる必要があります。
 * 各 GpioIO リソースと GpioInt リソースには、ピン一覧に正確に 1 つのピン番号を含める必要があります。
@@ -282,13 +282,13 @@ Package (2) { “GPIO-UseDescriptorPinNumbers”, 1 },
 Package (2) { “GPIO-PinCount”, 54 },
 ```
 
-**PinCount** プロパティは、`GpioClx` ドライバーの [CLIENT_QueryControllerBasicInformation](https://docs.microsoft.com/windows-hardware/drivers/ddi/content/gpioclx/nc-gpioclx-gpio_client_query_controller_basic_information) コールバックの **TotalPins** プロパティから返された値と一致する必要があります。
+**PinCount** プロパティは、**ドライバーの**CLIENT_QueryControllerBasicInformation[ コールバックの ](https://docs.microsoft.com/windows-hardware/drivers/ddi/content/gpioclx/nc-gpioclx-gpio_client_query_controller_basic_information)TotalPins`GpioClx` プロパティから返された値と一致する必要があります。
 
 ボードの既存の公開されたドキュメントと最も互換性のある番号付けスキームを選択します。 たとえば、多くの既存のピン配列図が BCM2835 ピン番号を使っているため、Raspberry Pi はネイティブのピンの番号付けを使います。 200 個を超えるピンから 10 個のピンのみが公開されるため、既存のピン配列図が少なく、連番のピンの番号付けでは開発者のエクスペリエンスが単純化されるので、MinnowBoardMax は連番のピンの番号付けを使います。 連番のピンの番号付けを使うかネイティブのピンの番号付けを使うかの決定は、開発者の混乱を少なくすることを目的として行う必要があります。
 
 #### <a name="gpio-driver-requirements"></a>GPIO ドライバーの要件
 
-* @No__t-0 を使用する必要があります
+* `GpioClx` を使用する必要があります
 * SOC 上でメモリ マッピングする必要があります
 * エミュレートされた ActiveBoth 割り込み処理を使う必要があります
 
@@ -347,7 +347,7 @@ Windows では、[GpioClx](https://docs.microsoft.com/windows-hardware/drivers/d
 * ピンの多重化のクライアントは、ピンの多重化を使うドライバーです。 ピンの多重化のクライアントは ACPI ファームウェアからピンの多重化のリソースを受け取ります。 ピンの多重化のリソースは接続リソースの一種で、リソース ハブによって管理されます。 ピンの多重化のクライアントは、ハンドルをリソースに対して開くことでピンの多重化のリソースを予約します。 ハードウェアの変更を有効にするために、クライアントは *IOCTL_GPIO_COMMIT_FUNCTION_CONFIG_PINS* 要求を送信して構成をコミットする必要があります。 クライアントはハンドルを閉じることでピンの多重化のリソースを解放し、この時点で多重化構成は既定の状態に戻ります。
 * ACPI ファームウェアは、`MsftFunctionConfig()` リソースにより多重化構成を指定します。 MsftFunctionConfig リソースは、どのピンがどの多重化構成でクライアントにより必要とされるかを表します。 MsftFunctionConfig リソースには、機能番号、プル構成、ピン番号の一覧が含まれます。 MsftFunctionConfig リソースはハードウェア リソースとしてピンの多重化のクライアントに提供され、GPIO および SPB 接続リソースと同様に、ドライバーによって PrepareHardware コールバックで受け取られます。 クライアントは、リソースに対してハンドルを開くために使うことができるリソース ハブ ID を受け取ります。
 
-> `MsftFunctionConfig()` 記述子を含んでいる ASL ファイルをコンパイルするには、`/MsftInternal` コマンド ライン スイッチを `asl.exe` に渡す必要があります。これは、これらの記述子が、ACPI 作業部会で現在検討中であるためです。 たとえば次のようになります。`asl.exe /MsftInternal dsdt.asl`
+> `/MsftInternal` 記述子を含んでいる ASL ファイルをコンパイルするには、`asl.exe` コマンド ライン スイッチを `MsftFunctionConfig()` に渡す必要があります。これは、これらの記述子が、ACPI 作業部会で現在検討中であるためです。 たとえば次のようになります。`asl.exe /MsftInternal dsdt.asl`
 
 ピンの多重化に関連する操作の順序を次に示します。
 
@@ -369,7 +369,7 @@ Windows では、[GpioClx](https://docs.microsoft.com/windows-hardware/drivers/d
 
 #### <a name="parsing-resources"></a>リソースの解析
 
-WDF ドライバーが [EvtDevicePrepareHardware()](https://docs.microsoft.com/windows-hardware/drivers/ddi/content/wdfdevice/nc-wdfdevice-evt_wdf_device_prepare_hardware) ルーチンで `MsftFunctionConfig()` リソースを受け取ります。 MsftFunctionConfig リソースは、次のフィールドで識別できます。
+WDF ドライバーが `MsftFunctionConfig()`EvtDevicePrepareHardware()[ ルーチンで ](https://docs.microsoft.com/windows-hardware/drivers/ddi/content/wdfdevice/nc-wdfdevice-evt_wdf_device_prepare_hardware) リソースを受け取ります。 MsftFunctionConfig リソースは、次のフィールドで識別できます。
 
 ```cpp
 CM_PARTIAL_RESOURCE_DESCRIPTOR::Type = CmResourceTypeConnection
@@ -553,7 +553,7 @@ FunctionNumber の意味はサーバーによって定義され、サーバー�
 
 ### <a name="authoring-guidelines-for-acpi-tables"></a>ACPI テーブルの作成のガイドライン
 
-このセクションでは、クライアント ドライバーに多重化のリソースを指定する方法について説明します。 `MsftFunctionConfig()` リソースを含むテーブルをコンパイルするために、Microsoft ASL コンパイラ ビルド 14327 以降が必要となることに注意してください。 `MsftFunctionConfig()` リソースは、マルチプレキシングクライアントをハードウェアリソースとしてピン留めするために提供されます。 `MsftFunctionConfig()` リソースは、pin マルチプレキシングの変更を必要とするドライバーに提供する必要があります。これは通常、SPB とシリアルコントローラードライバーですが、SPB とシリアル周辺機器ドライバーには提供されません。これは、コントローラードライバーがマルチプレキシングの構成を処理するためです。
+このセクションでは、クライアント ドライバーに多重化のリソースを指定する方法について説明します。 `MsftFunctionConfig()` リソースを含むテーブルをコンパイルするために、Microsoft ASL コンパイラ ビルド 14327 以降が必要となることに注意してください。 `MsftFunctionConfig()` リソースは、マルチプレキシングクライアントをハードウェアリソースとしてピン留めするために用意されています。 `MsftFunctionConfig()` リソースは、pin マルチプレキシングの変更を必要とするドライバーに提供する必要があります。これは通常、SPB とシリアルコントローラードライバーですが、SPB とシリアル周辺機器ドライバーには提供されません。これは、コントローラードライバーがマルチプレキシングの構成を処理するためです。
 `MsftFunctionConfig()` ACPI マクロは、次のように定義されています。
 
 ```cpp
@@ -605,7 +605,7 @@ Device(I2C1)
 }
 ```
 
-通常コントローラー ドライバーに必要なメモリと割り込みリソースに加えて、`MsftFunctionConfig()` リソースも指定します。 このリソースを使用すると、I2C コントローラードライバーで @no__t 横-0 のデバイスノードによってピン2と3が管理されるようになります。GPIO0 –関数4でプルアップ抵抗が有効になっています。
+通常コントローラー ドライバーに必要なメモリと割り込みリソースに加えて、`MsftFunctionConfig()` リソースも指定します。 このリソースにより、I2C コントローラードライバーは、デバイスノードによって \\_SB にピン2と3が管理されるようになります。GPIO0 –関数4でプルアップ抵抗が有効になっています。
 
 ## <a name="supporting-muxing-support-in-gpioclx-client-drivers"></a>GpioClx クライアント ドライバーでの多重化サポートのサポート
 
@@ -633,11 +633,11 @@ Windows 10 ビルド 14327 以降では、`SpbCx` および `SerCx` コントロ
 
 デバイスの初期化時に、`SpbCx` および `SerCx` フレームワークがハードウェア リソースとしてデバイスに提供されたすべての `MsftFunctionConfig()` リソースを解析します。 SpbCx/SerCx はその後、必要に応じてピンの多重化のリソースを取得および解放します。
 
-`SpbCx` は、クライアントドライバーの[Evtspbtargetconnect ()](https://docs.microsoft.com/windows-hardware/drivers/ddi/content/spbcx/nc-spbcx-evt_spb_target_connect)コールバックを呼び出す直前に、 *IRP_MJ_CREATE*ハンドラーにピンマルチプレキシングの構成を適用します。 多重化構成を適用できなかった場合、コントローラー ドライバーの `EvtSpbTargetConnect()` コールバックは呼び出されません。 そのため、SPB コントローラー ドライバーは `EvtSpbTargetConnect()` が呼び出されたときまでにピンが SPB 機能に対して多重化されていると想定することができます。
+`SpbCx` は、クライアントドライバーの[Evtspbtargetconnect ()](https://docs.microsoft.com/windows-hardware/drivers/ddi/content/spbcx/nc-spbcx-evt_spb_target_connect)コールバックを呼び出す直前に、 *IRP_MJ_CREATE*ハンドラーに pin マルチプレキシングの構成を適用します。 多重化構成を適用できなかった場合、コントローラー ドライバーの `EvtSpbTargetConnect()` コールバックは呼び出されません。 そのため、SPB コントローラー ドライバーは `EvtSpbTargetConnect()` が呼び出されたときまでにピンが SPB 機能に対して多重化されていると想定することができます。
 
-`SpbCx` に設定すると、コントローラードライバーの[Evtspbtargetdisconnect ()](https://docs.microsoft.com/windows-hardware/drivers/ddi/content/spbcx/nc-spbcx-evt_spb_target_disconnect)コールバックが呼び出された直後に、 *IRP_MJ_CLOSE*ハンドラーでマルチプレキシング構成のピン留めを戻します。 その結果、周辺機器ドライバーが SPB コントローラー ドライバーに対してハンドルを開くたびにピンが SPB 機能に対して多重化され、周辺機器ドライバーがハンドルを閉じると多重化が終了します。
+コントローラードライバーの[Evtspbtargetdisconnect ()](https://docs.microsoft.com/windows-hardware/drivers/ddi/content/spbcx/nc-spbcx-evt_spb_target_disconnect)コールバックを呼び出した直後に、`SpbCx` によって*IRP_MJ_CLOSE*ハンドラーにピンマルチプレキシングの構成が戻されます。 その結果、周辺機器ドライバーが SPB コントローラー ドライバーに対してハンドルを開くたびにピンが SPB 機能に対して多重化され、周辺機器ドライバーがハンドルを閉じると多重化が終了します。
 
-`SerCx` も同様に動作します。 `SerCx` は、コントローラードライバーの[EvtSerCx2FileOpen ()](https://docs.microsoft.com/windows-hardware/drivers/ddi/content/sercx/nc-sercx-evt_sercx2_fileopen)コールバックを呼び出す直前に、 *IRP_MJ_CREATE*ハンドラー内のすべての `MsftFunctionConfig()` リソースを取得し、コントローラーを呼び出した直後に IRP_MJ_CLOSE ハンドラー内のすべてのリソースを解放します。ドライバーの[EvtSerCx2FileClose](https://docs.microsoft.com/windows-hardware/drivers/ddi/content/sercx/nc-sercx-evt_sercx2_fileclose)コールバック。
+`SerCx` も同様に動作します。 `SerCx` は、コントローラードライバーの[EvtSerCx2FileOpen ()](https://docs.microsoft.com/windows-hardware/drivers/ddi/content/sercx/nc-sercx-evt_sercx2_fileopen)コールバックを呼び出す直前に*IRP_MJ_CREATE*ハンドラー内のすべての `MsftFunctionConfig()` リソースを取得し、コントローラードライバーの[EvtSerCx2FileClose](https://docs.microsoft.com/windows-hardware/drivers/ddi/content/sercx/nc-sercx-evt_sercx2_fileclose)コールバックを呼び出した直後に、その IRP_MJ_CLOSE ハンドラー内のすべてのリソースを解放します。
 
 `SerCx` および `SpbCx` コントローラー ドライバーのための動的なピンの多重化の実装では、特定の時間で SPB/UART 機能のピンの多重化が終了することを許容できる必要があります。 コントローラー ドライバーは、`EvtSpbTargetConnect()` または `EvtSerCx2FileOpen()` が呼び出されるまでピンが多重化されないことを前提とする必要があります。 次のコールバック中に必ずしもピンが SPB/UART 機能に多重化される必要はありません。 次に示すのは完全な一覧ではありませんが、コントローラー ドライバーによって実装される最も一般的な PNP ルーチンを示しています。
 
@@ -652,7 +652,7 @@ rhproxy をテストする準備ができたら、次の手順を使用すると
 
 1. `SpbCx`、`GpioClx`、`SerCx` の各コントローラー ドライバーの読み込みと正しい動作を確認します。
 1. `rhproxy` がシステムに存在することを確認します。 Windows のエディションやビルドによっては、これが含まれていない場合があります。
-1. @No__t-0 を使用して、rhproxy ノードをコンパイルして読み込みます。
+1. `ACPITABL.dat` を使用して、rhproxy ノードをコンパイルして読み込みます
 1. `rhproxy` デバイス ノードが存在することを確認します。
 1. `rhproxy` が読み込まれ、開始されていることを確認します。
 1. 想定されているデバイスがユーザー モードに公開されていることを確認します。
@@ -701,7 +701,7 @@ DefinitionBlock ("ACPITABL.dat", "SSDT", 1, "MSFT", "RHPROXY", 1)
 }
 ```
 
-2. [WDK](https://docs.microsoft.com/windows-hardware/drivers/download-the-wdk)をダウンロードし、@no__t で `asl.exe` を見つけます。
+2. [WDK](https://docs.microsoft.com/windows-hardware/drivers/download-the-wdk)をダウンロードし、で `asl.exe` を検索 `C:\Program Files (x86)\Windows Kits\10\Tools\x64\ACPIVerify`
 3. 次のコマンドを実行して ACPITABL.dat を生成します。
 
 ```ps
@@ -737,14 +737,14 @@ devcon status *msft8000
 
 出力が rhproxy が開始されていることを示している場合、rhproxy は正常に読み込まれて開始されています。 問題のコードが表示された場合は、調査する必要があります。 一般的な問題コードには次のようなものがあります。
 
-* 問題 51 - `CM_PROB_WAITING_ON_DEPENDENCY` -その依存関係のいずれかが読み込みに失敗したため、システムは rhproxy を開始していません。 これは、rhproxy に渡されたリソースが無効な ACPI ノードを指しているか、ターゲット デバイスが起動していないことを意味します。 最初に、すべてのデバイスが正常に実行されていることを再確認します (上記の「コントローラー ドライバーを確認する」を参照)。 次に、ASL を再確認し、すべてのリソースパス (たとえば、`\_SB.I2C1`) が正しいことと、DSDT 内の有効なノードを指していることを確認します。
+* 問題 51 - `CM_PROB_WAITING_ON_DEPENDENCY` -その依存関係のいずれかが読み込みに失敗したため、システムは rhproxy を開始していません。 これは、rhproxy に渡されたリソースが無効な ACPI ノードを指しているか、ターゲット デバイスが起動していないことを意味します。 最初に、すべてのデバイスが正常に実行されていることを再確認します (上記の「コントローラー ドライバーを確認する」を参照)。 次に、ASL をダブルクリックして、すべてのリソースパス (`\_SB.I2C1`など) が正しいことと、DSDT 内の有効なノードを指していることを確認します。
 * 問題 10 - `CM_PROB_FAILED_START` - rhproxy を開始できませんでした。ほとんどの場合、リソースの解析の問題が原因です。 ASL を調べて、DSD 内のリソースのインデックスを再確認し、ピン番号の昇順で GPIO リソースが指定されていることを確認します。
 
 ### <a name="verify-that-the-expected-devices-are-exposed-to-usermode"></a>想定されているデバイスがユーザー モードに公開されていることを確認します。
 
 rhproxy が実行されると、ユーザー モードからアクセスできるデバイス インターフェイスが作成されています。 いくつかのコマンド ライン ツールを使用してデバイスを列挙し、デバイスが存在していることを確認します。
 
-[@No__t-1](https://github.com/ms-iot/samples)リポジトリを複製し、`GpioTestTool`、`I2cTestTool`、`SpiTestTool`、@no__t 5 の各サンプルをビルドします。 テスト対象デバイスにツールをコピーし、次のコマンドを使用してデバイスを列挙します。
+[https://github.com/ms-iot/samples](https://github.com/ms-iot/samples)リポジトリを複製し、`GpioTestTool`、`I2cTestTool`、`SpiTestTool`、および `Mincomm` のサンプルをビルドします。 テスト対象デバイスにツールをコピーし、次のコマンドを使用してデバイスを列挙します。
 
 ```ps
 I2cTestTool.exe -list
@@ -833,9 +833,9 @@ HLK マネージャーで、[Resource Hub Proxy device] を選択します。
 
 [選択したテストの実行] をクリックします。 各テストに関するその他のドキュメントは、テストを右クリックして [テストの説明] をクリックすることで利用できます。
 
-## <a name="resources"></a>リソース
+## <a name="resources"></a>参考資料
 
-| [Destination] | リンク |
+| 宛先 | リンク |
 |-------------|------|
 | ACPI 5.0 の仕様 | http://acpi.info/spec.htm |
 | Asl.exe (Microsoft ASL Compiler) | https://msdn.microsoft.com/library/windows/hardware/dn551195.aspx |

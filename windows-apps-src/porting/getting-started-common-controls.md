@@ -4,7 +4,7 @@ description: コモン コントロールの概要
 title: コモン コントロールの概要
 ms.date: 02/08/2017
 ms.topic: article
-keywords: Windows 10, UWP
+keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: bc45f21acf5b9a485cf6bd5ead18482f1920bf99
 ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
@@ -18,19 +18,19 @@ ms.locfileid: "74260150"
 
 ## <a name="common-controls-list"></a>コモン コントロールの一覧
 
-前のセクションで扱ったコントロールは、ボタンとテキストブロックの 2 つのみでした。 There are, of course, many more controls that are available to you. ここでは、アプリやそれに対応する iOS アプリで使用するいくつかのコモン コントロールを紹介します。 ここでは、iOS コントロールをアルファベット順に並べ、その横に最も似ているユニバーサル Windows プラットフォーム (UWP) コントロールを示しています。
+前のセクションで扱ったコントロールは、ボタンとテキストブロックの 2 つのみでした。 もちろん、他にも多くのコントロールが用意されています。 ここでは、アプリやそれに対応する iOS アプリで使用するいくつかのコモン コントロールを紹介します。 ここでは、iOS コントロールをアルファベット順に並べ、その横に最も似ているユニバーサル Windows プラットフォーム (UWP) コントロールを示しています。
 
 UWP コントロールが優れている点は、実行されているデバイスの種類を検出して、それに応じて外観と機能を変更できることです。 たとえば、プロジェクトが [**DatePicker**](https://docs.microsoft.com/previous-versions/windows/apps/br211681(v=win.10)) コントロールを使用している場合、たとえば、電話と比較して、デスクトップ コンピューターで異なる外観と動作に自動的に最適化します。 何もする必要はありません。コントロールが実行時に自動的に調整します。
 
-| iOS のコントロール (クラス/プロトコル) | Equivalent UWP control |
+| iOS のコントロール (クラス/プロトコル) | 同等の UWP コントロール |
 |------------------------------|--------------------------------------|
-| アクティビティ インジケーター (**UIActivityIndicatorView**) | [**ProgressRing**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ProgressRing) <br/> 「[クイック スタート: プログレス コントロールの追加](https://docs.microsoft.com/previous-versions/windows/apps/hh780651(v=win.10))」もご覧ください。 |
+| アクティビティ インジケーター (**UIActivityIndicatorView**) | [**進行中のリング**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ProgressRing) <br/> 「[クイック スタート: プログレス コントロールの追加](https://docs.microsoft.com/previous-versions/windows/apps/hh780651(v=win.10))」もご覧ください。 |
 | 広告バナー ビュー (**ADBannerView**) と広告バナー ビュー デリゲート (**ADBannerViewDelegate**) | [AdControl](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.adcontrol) <br/> 「[アプリでの広告の表示](../monetize/display-ads-in-your-app.md)」もご覧ください。 |
 | ボタン (UIButton) | [ボタン](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Button) <br/> 「[クイック スタート: ボタン コントロールの追加](https://docs.microsoft.com/previous-versions/windows/apps/jj153346(v=win.10))」もご覧ください。 |
 | 日付の選択 (UIDatePicker) | [DatePicker](https://docs.microsoft.com/previous-versions/windows/apps/br211681(v=win.10)) |
 | 画像ビュー (UIImageView) | [画像](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Image) <br/> 「[Image と ImageBrush](https://docs.microsoft.com/windows/uwp/controls-and-patterns/images-imagebrushes)」もご覧ください。 |
 | ラベル (UILabel) | [TextBlock](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock) <br/> 「[クイック スタート: テキストの表示](https://docs.microsoft.com/previous-versions/windows/apps/hh700392(v=win.10))」もご覧ください。 |
-| 地図ビュー (MKMapView) と地図ビュー デリゲート (MKMapViewDelegate) | See [Bing Maps for UWP apps](https://msdn.microsoft.com/library/hh846481) |
+| 地図ビュー (MKMapView) と地図ビュー デリゲート (MKMapViewDelegate) | 「 [Bing Maps FOR UWP apps」を](https://msdn.microsoft.com/library/hh846481)参照してください。 |
 | ナビゲーション コント ローラー (UINavigationController) とナビゲーション コント ローラー デリゲート (UINavigationControllerDelegate) | [フレーム](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Frame) <br/> 「[ナビゲーション](https://docs.microsoft.com/windows/uwp/layout/navigation-basics)」もご覧ください。 |
 | ページ コントロール (UIPageControl) | [ページ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Page) <br/> 「[ナビゲーション](https://docs.microsoft.com/windows/uwp/layout/navigation-basics)」もご覧ください。 |
 | ピッカー ビュー (UIPickerView) とピッカー ビュー デリゲート (UIPickerViewDelegate) | [ComboBox](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ComboBox) <br/> 「[コンボ ボックスとリスト ボックスの追加](https://docs.microsoft.com/previous-versions/windows/apps/hh780616(v=win.10))」もご覧ください。 |
@@ -51,14 +51,14 @@ UWP コントロールが優れている点は、実行されているデバイ�
 
 その他のコントロールについては、「[コントロールの一覧](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/)」をご覧ください。
 
-**Note**  For a list of controls for UWP apps using JavaScript and HTML, see [Controls list](https://docs.microsoft.com/previous-versions/windows/apps/hh465453(v=win.10)).
+**注  :** JAVASCRIPT と HTML を使用して UWP アプリのコントロールの一覧を表示するには、「[コントロールリスト](https://docs.microsoft.com/previous-versions/windows/apps/hh465453(v=win.10))」を参照してください。
 
 ### <a name="next-step"></a>次の手順
 
-[Getting Started: Navigation](getting-started-navigation.md)
+[はじめに: ナビゲーション](getting-started-navigation.md)
 
 ## <a name="related-topics"></a>関連トピック
 
-* [build 2014: What about XAML UI and Controls?](https://channel9.msdn.com/Events/Build/2014/2-516)
-* [build 2014: Developing Apps using the Common XAML UI Framework](https://channel9.msdn.com/Events/Build/2014/2-507)
-* [build 2014: Using Visual Studio to Build XAML Converged Apps](https://channel9.msdn.com/Events/Build/2014/3-591)
+* [ビルド 2014: XAML UI とコントロールについて](https://channel9.msdn.com/Events/Build/2014/2-516)
+* [ビルド 2014: 共通の XAML UI フレームワークを使用したアプリの開発](https://channel9.msdn.com/Events/Build/2014/2-507)
+* [ビルド 2014: Visual Studio を使用した XAML 収束型アプリの構築](https://channel9.msdn.com/Events/Build/2014/3-591)

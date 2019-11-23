@@ -25,9 +25,9 @@ Docker コンテナーを node.js アプリで使い始める際に役立つス�
 
 - Windows 10 Insider Preview ビルド18932以降をインストールします。
 - Windows で WSL 2 機能を有効にします。
-- Linux ディストリビューションをインストールします (この例では Ubuntu 18.04)。 これを確認するには、`wsl lsb_release -a` を使用します。
-- Ubuntu 18.04 のディストリビューションが WSL 2 モードで実行されていることを確認します。 (WSL では、v1 モードと v2 モードの両方でディストリビューションを実行できます)。これを確認するには、PowerShell を開き、次のように入力します。 `wsl -l -v`
-- PowerShell を使用して、Ubuntu 18.04 を既定のディストリビューションとして設定します。これには、`wsl -s ubuntu 18.04` を使用します。
+- Linux ディストリビューションをインストールします (この例では Ubuntu 18.04)。 これを確認するには、`wsl lsb_release -a`を使用します。
+- Ubuntu 18.04 のディストリビューションが WSL 2 モードで実行されていることを確認します。 (WSL では、v1 モードと v2 モードの両方でディストリビューションを実行できます)。これを確認するには、PowerShell を開き、「`wsl -l -v`」と入力します。
+- PowerShell を使用して、Ubuntu 18.04 を既定のディストリビューションとして設定します。 `wsl -s ubuntu 18.04`を使用します。
 
 ## <a name="overview-of-docker-containers"></a>Docker コンテナーの概要
 
@@ -57,20 +57,20 @@ Docker Desktop WSL 2 Tech Preview をインストールして実行するには�
 
     ![Docker デスクトップの起動](../images/start-docker.gif)
 
-6. Docker がインストールされていることを確認し、バージョン番号を表示するには、コマンドライン (WSL または PowerShell) を開き、次のように入力します。 `docker --version`
+6. Docker がインストールされていることを確認し、バージョン番号を表示するには、コマンドライン (WSL または PowerShell) を開き、次のように入力し `docker --version`
 
-7. 単純な組み込みの Docker イメージを実行して、インストールが正しく機能することをテストします。 `docker run hello-world`
+7. 単純な組み込みの Docker イメージを実行することで、インストールが正しく機能することをテストします。 `docker run hello-world`
 
 理解しておく必要がある Docker コマンドをいくつか次に示します。
 
-- 次のように入力して、Docker CLI で使用できるコマンドを一覧表示します: `docker`
+- 次のように入力して、Docker CLI で使用できるコマンドを一覧表示し `docker`
 - 特定のコマンドの情報を一覧表示: `docker <COMMAND> --help`
-- 次のように、コンピューター上の docker イメージ (この時点では hello world イメージ) を一覧表示します。 `docker image ls --all`
+- 次のように、コンピューター上の docker イメージ (この時点では hello world イメージ) を一覧表示し `docker image ls --all`
 - 次のようにして、コンピューター上のコンテナーを一覧表示します: `docker container ls --all`
-- 次のようにして、WSL 2 コンテキストで使用可能な Docker システムの統計とリソース (CPU & メモリ) を一覧表示します。 `docker info`
-- Docker が現在実行されている場所の表示: `docker context ls`
+- 次のように、WSL 2 コンテキストで使用可能な Docker システムの統計とリソース (CPU & メモリ) を一覧表示します。 `docker info`
+- Docker が現在実行されている場所を表示します。次のものがあります: `docker context ls`
 
-Docker が @no__t 実行されている2つのコンテキスト (クラシック Docker デーモン) と `wsl` (tech preview を使用した推奨事項) があることがわかります。 (また、`ls` コマンドは `list` に対しては短く、同じ意味で使用できます)。
+Docker が実行されているコンテキストは、`default` (クラシック Docker デーモン) と `wsl` (tech preview を使用した推奨事項) の2つであることがわかります。 (また、`ls` コマンドは `list` に対して短く、同じ意味で使用できます)。
 
 ![Powershell での Docker 表示コンテキスト](../images/docker-context.png)
 
@@ -87,11 +87,11 @@ Docker 拡張機能を使用すると、コンテナー化されたアプリケ�
 
     ![リモート-WSL の VS Code の Docker 拡張機能](../images/docker-vscode-extension.png)
 
-VS Code に Docker 拡張機能をインストールすることにより、次のセクションで使用する `Dockerfile` のコマンドの一覧をショートカットを使用して表示できるようになります。 `Ctrl+Space`
+VS Code に Docker 拡張機能をインストールすることにより、次のセクションで使用する `Dockerfile` のコマンドの一覧をショートカットで表示できるようになりました。 `Ctrl+Space`
 
 [Docker の操作の詳細については、VS Code を](https://code.visualstudio.com/docs/azure/docker)参照してください。
 
-## <a name="create-a-container-image-with-dockerfile"></a>DockerFile を使用してコンテナーイメージを作成する
+## <a name="create-a-container-image-with-dockerfile"></a>DockerFile を使用してコンテナー イメージを作成する
 
 **コンテナーイメージ**には、アプリケーションコード、ライブラリ、構成ファイル、環境変数、およびランタイムが格納されます。 イメージを使用すると、コンテナー内の環境が標準化され、アプリケーションのビルドと実行に必要なもののみが含まれるようになります。
 
@@ -101,7 +101,7 @@ VS Code に Docker 拡張機能をインストールすることにより、次�
 
 1. VS Code で次の .js アプリを開きます (リモート WSL 拡張機能が実行されていることを確認するために、左下の緑色のタブに示されています)。 VS Code に統合された WSL ターミナル ( **> ターミナルを表示**) を開き、ターミナルパスが次の .js プロジェクトディレクトリ (ie. `~/NextProjects/my-next-app$`) を指していることを確認します。
 
-2. 次の .js プロジェクトのルートに `Dockerfile` という名前の新しいファイルを作成し、次のファイルを追加します。
+2. 次の .js プロジェクトのルートに `Dockerfile` という名前の新しいファイルを作成し、次の内容を追加します。
 
     ```docker
     # Specifies where to get the base image (Node v12 in our case) and creates a new container for it
@@ -127,23 +127,23 @@ VS Code に Docker 拡張機能をインストールすることにより、次�
     CMD [ "npm", "start" ]
     ```
 
-3. Docker イメージをビルドするには、プロジェクトのルートから次のコマンドを実行します (ただし、`<your_docker_username>` は、Docker Hub で作成したユーザー名に置き換えます)。 `docker build -t <your_docker_username>/my-nextjs-app .`
+3. Docker イメージをビルドするには、プロジェクトのルートから次のコマンドを実行します (`<your_docker_username>` は、Docker Hub で作成したユーザー名に置き換えます)。 `docker build -t <your_docker_username>/my-nextjs-app .`
 
 > [!NOTE]
-> このコマンドを機能させるには、Docker が WSL Tech Preview を使用して実行されている必要があります。 Docker を開始する方法の詳細については、「install」セクションの「[手順 #4](#install-docker-desktop-wsl-2-tech-preview) 」を参照してください。 @No__t-0 フラグは、作成するイメージの名前を指定します。ここでは "my nextjs-app: v1" を指定します。 イメージを作成するときは、常に[タグ名にバージョン # を使用](https://medium.com/@mccode/the-misunderstood-docker-tag-latest-af3babfd6375)することをお勧めします。 コマンドの最後にピリオドを含めるようにしてください。これは、現在の作業ディレクトリを使用して、次の .js アプリのビルドファイルを検索し、コピーすることを指定します。
+> このコマンドを機能させるには、Docker が WSL Tech Preview を使用して実行されている必要があります。 Docker を開始する方法の詳細については、「install」セクションの「[手順 #4](#install-docker-desktop-wsl-2-tech-preview) 」を参照してください。 `-t` フラグは、作成するイメージの名前を指定します。ここでは "my nextjs-app: v1" を指定します。 イメージを作成するときは、常に[タグ名にバージョン # を使用](https://medium.com/@mccode/the-misunderstood-docker-tag-latest-af3babfd6375)することをお勧めします。 コマンドの最後にピリオドを含めるようにしてください。これは、現在の作業ディレクトリを使用して、次の .js アプリのビルドファイルを検索し、コピーすることを指定します。
 
-4. 次の .js アプリの新しい docker イメージをコンテナー内で実行するには、次のコマンドを入力します: `docker run -d -p 3333:3000 <your_docker_username>/my-nextjs-app:v1`
+4. 次の .js アプリの新しい docker イメージをコンテナー内で実行するには、コマンドを入力します: `docker run -d -p 3333:3000 <your_docker_username>/my-nextjs-app:v1`
 
-5. @No__t-0 フラグにより、コンピューター上のポート ' 3000 ' (アプリがコンテナー内で実行されているポート) がローカルポート ' 3333 ' にバインドされます。これにより、web ブラウザーが[@no__t](http://localhost:3333)になり、サーバー側でレンダリングされる次の .js アプリケーションを Docker として表示できるようになります。コンテナーイメージ。
+5. `-p` フラグによって、コンピューター上のポート ' 3000 ' (アプリがコンテナー内で実行されているポート) がローカルポート ' 3333 ' にバインドされます。これにより、web ブラウザーで[http://localhost:3333](http://localhost:3333)をポイントし、サーバー側でレンダリングされる次の .js アプリケーションを Docker コンテナーイメージとして表示できるようになります。
 
 > [!TIP]
 > Docker Hub に格納されている node.js バージョン12の既定のイメージを参照する `FROM node:12` を使用して、コンテナーイメージを構築しています。 この既定の node.js イメージは Debian/Ubuntu Linux システムに基づいており、さまざまな node.js イメージから選択できます。また、より軽量であるか、ニーズに合わせて調整することを検討する必要があります。 詳細については、 [Docker Hub の Node.js イメージレジストリ](https://hub.docker.com/_/node/)を参照してください。
 
-## <a name="upload-your-container-image-to-a-repository"></a>コンテナーイメージをリポジトリにアップロードする
+## <a name="upload-your-container-image-to-a-repository"></a>コンテナー イメージをリポジトリにアップロードする
 
 コンテナー**リポジトリ**は、コンテナーイメージをクラウドに格納します。 多くの場合、コンテナーリポジトリには、さまざまなバージョンなどの関連するイメージのコレクションが含まれており、これらはすべて、簡単なセットアップや迅速なデプロイに使用できます。 通常は、セキュリティで保護された HTTPs エンドポイント経由でコンテナーリポジトリのイメージにアクセスできます。これにより、任意のシステム、ハードウェア、または VM インスタンスを使用してイメージをプル、プッシュ、または管理できます。
 
-一方、**コンテナーレジストリ**には、リポジトリのコレクションに加えて、インデックス、アクセス制御規則、および API パスが格納されます。 これらは、パブリックまたはプライベートにホストできます。 [Docker Hub](https://hub.docker.com/)は、オープンソースの docker レジストリと、`docker push` と `docker pull` のコマンドを実行するときに使用される既定値です。 パブリックリポジトリでは無料で、プライベートリポジトリの料金が必要です。
+一方、**コンテナーレジストリ**には、リポジトリのコレクションに加えて、インデックス、アクセス制御規則、および API パスが格納されます。 これらは、パブリックまたはプライベートにホストできます。 [Docker Hub](https://hub.docker.com/)はオープンソースの docker レジストリで、`docker push` および `docker pull` コマンドを実行するときに既定で使用されます。 パブリックリポジトリでは無料で、プライベートリポジトリの料金が必要です。
 
 Docker Hub でホストされているリポジトリに新しいコンテナーイメージをアップロードするには、次のようにします。
 
@@ -151,11 +151,11 @@ Docker Hub でホストされているリポジトリに新しいコンテナー
 
 2. コンピューターに作成した docker コンテナーイメージの一覧を取得するには、次のように入力します。 `docker image ls --all`
 
-3. 次のコマンドを使用して、コンテナーイメージを Docker Hub にプッシュし、そこに新しいリポジトリを作成します。 `docker push <your_docker_username>/my-nextjs-app:v1`
+3. 次のコマンドを使用して、コンテナーイメージを Docker Hub までプッシュし、そこに新しいリポジトリを作成します。 `docker push <your_docker_username>/my-nextjs-app:v1`
 
-4. Docker Hub でリポジトリを表示し、説明を入力して、(必要に応じて) GitHub アカウントをリンクすることで、次の場所にアクセスできます。 https://cloud.docker.com/repository/list
+4. Docker Hub でリポジトリを表示し、説明を入力し、(必要に応じて) GitHub アカウントをリンクすることで、次の情報にアクセスできるようになりました。 https://cloud.docker.com/repository/list
 
-5. また、次のようにして、アクティブな Docker コンテナーの一覧を表示することもできます。 `docker container ls` (または `docker ps`)
+5. また、: `docker container ls` (または `docker ps`) を使用して、アクティブな Docker コンテナーの一覧を表示することもできます。
 
 6. "My nextjs-app: v1" コンテナーがポート 3333-> 3000/tcp でアクティブになっていることを確認します。 ここには、"コンテナー ID" も表示されます。 コンテナーの実行を停止するには、次のコマンドを入力します: `docker stop <container ID>`
 
@@ -163,19 +163,19 @@ Docker Hub でホストされているリポジトリに新しいコンテナー
 
 [Docker でコンテナー化された web アプリケーションを構築する](https://docs.microsoft.com/learn/modules/intro-to-containers/)方法について説明します。
 
-## <a name="deploy-to-azure-container-registry"></a>Azure Container Registry に配置する
+## <a name="deploy-to-azure-container-registry"></a>Azure コンテナー レジストリへのデプロイ
 
-[**Azure Container Registry**](https://azure.microsoft.com/services/container-registry/) (ACR) を使用すると、コンテナーイメージを保存、管理し、プライベートで認証されたリポジトリに安全に保管することができます。 標準の Docker コマンドと互換性があるため、ACR はコンテナーの正常性の監視とメンテナンスを行うための重要なタスクを処理し、 [Kubernetes](https://docs.microsoft.com/azure/aks/intro-kubernetes)と組み合わせてスケーラブルなオーケストレーションシステムを作成できます。 オンデマンドでビルドするか、ソースコードのコミットや基本イメージの更新などのトリガーを使用してビルドを完全に自動化します。 また、ACR は、大規模な Azure クラウドネットワークを活用してネットワーク待機時間やグローバルデプロイを管理し、 [Azure App Service](https://docs.microsoft.com/azure/app-service/) (web ホスティング、モバイルバックエンド、REST api など) を使用するすべてのユーザーにシームレスなネイティブエクスペリエンスを作成します。また、[その他の azure cloud services](https://azure.microsoft.com/product-categories/containers/).
+[**Azure Container Registry**](https://azure.microsoft.com/services/container-registry/) (ACR) を使用すると、コンテナーイメージを保存、管理し、プライベートで認証されたリポジトリに安全に保管することができます。 標準の Docker コマンドと互換性があるため、ACR はコンテナーの正常性の監視とメンテナンスを行うための重要なタスクを処理し、 [Kubernetes](https://docs.microsoft.com/azure/aks/intro-kubernetes)と組み合わせてスケーラブルなオーケストレーションシステムを作成できます。 オンデマンドでビルドするか、ソースコードのコミットや基本イメージの更新などのトリガーを使用してビルドを完全に自動化します。 また、ACR は、大規模な Azure クラウドネットワークを活用して、ネットワーク待ち時間やグローバルデプロイを管理し、 [Azure App Service](https://docs.microsoft.com/azure/app-service/) (web ホスティング、モバイルバックエンド、REST api など) を使用するすべてのユーザーにシームレスなネイティブエクスペリエンスを作成[します。](https://azure.microsoft.com/product-categories/containers/)
 
 > [!IMPORTANT]
 > コンテナーを Azure にデプロイするには、独自の Azure サブスクリプションが必要です。料金が発生する場合があります。 まだ Azure サブスクリプションをお持ちでない場合は、開始する前に[無料アカウントを作成](https://azure.microsoft.com/free/)してください。
 
-Azure Container Registry を作成してアプリコンテナーイメージをデプロイする方法の詳細については、演習の「」を参照してください。[Docker イメージを Azure Container Instance にデプロイ](https://docs.microsoft.com/learn/modules/intro-to-containers/7-exercise-deploy-docker-image-to-container-instance)します。
+Azure Container Registry を作成してアプリコンテナーイメージをデプロイする方法の詳細については、「演習: [Azure Container Instance への Docker イメージのデプロイ](https://docs.microsoft.com/learn/modules/intro-to-containers/7-exercise-deploy-docker-image-to-container-instance)」を参照してください。
 
-## <a name="additional-resources"></a>その他の技術情報
+## <a name="additional-resources"></a>その他の資料
 
 - [Azure 上の node.js](https://azure.microsoft.com/en-us/develop/nodejs/)
-- クイック スタート: [Azure での node.js web アプリの作成](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs)
-- オンラインコース:[Azure でのコンテナーの管理](https://docs.microsoft.com/learn/paths/administer-containers-in-azure/)
-- VS Code の使用:[Docker の操作](https://code.visualstudio.com/docs/azure/docker)
-- Docker ドキュメント:[Docker Desktop WSL 2 Tech Preview](https://docs.docker.com/docker-for-windows/wsl-tech-preview/)
+- クイックスタート: [Azure で node.js web アプリを作成する](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs)
+- オンラインコース: [Azure でコンテナーを管理](https://docs.microsoft.com/learn/paths/administer-containers-in-azure/)する
+- VS Code の使用: [Docker の操作](https://code.visualstudio.com/docs/azure/docker)
+- Docker ドキュメント: [Docker Desktop WSL 2 Tech Preview](https://docs.docker.com/docker-for-windows/wsl-tech-preview/)

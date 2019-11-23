@@ -80,17 +80,17 @@ Windows デスクトップの Device Portal では、標準のページのセッ
 
 デバイス ポータルのポート番号 (80、443 など) を選択する場合は、次のレジストリ キーを設定することができます。
 
-- @No__t-0
-    - `UseDynamicPorts`:必須の DWORD です。 選択したポート番号を保持するには、これを 0 に設定します。
-    - `HttpPort`:必須の DWORD です。 Device Portal が HTTP 接続をリッスンするポート番号を指定します。    
-    - `HttpsPort`:必須の DWORD です。 Device Portal が HTTPS 接続をリッスンするポート番号を指定します。
+- `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WebManagement\Service`
+    - `UseDynamicPorts`: 必須の DWORD です。 選択したポート番号を保持するには、これを 0 に設定します。
+    - `HttpPort`: 必須の DWORD です。 Device Portal が HTTP 接続をリッスンするポート番号を指定します。    
+    - `HttpsPort`: 必須の DWORD です。 Device Portal が HTTPS 接続をリッスンするポート番号を指定します。
     
 同じレジストリ キー パスの下で、認証要件をオフにすることもできます。
-- `UseDefaultAuthorizer` @ no__t @ no__t-2 で @no__t 無効になっている場合は、有効になっている場合は3になります。  
+- 無効にするには `UseDefaultAuthorizer` - `0` を、有効にするには `1` します。  
     - これによって、各接続の基本認証要件と HTTP から HTTPS へのリダイレクトの両方が制御されます。  
     
 ### <a name="command-line-options-for-device-portal"></a>Device Portal のコマンド ライン オプション
-管理コマンド プロンプトから、Device Portal の各部分を有効にして構成することができます。 ビルドでサポートされている最新のコマンドセットを表示するには、`webmanagement /?` を実行します。
+管理コマンド プロンプトから、Device Portal の各部分を有効にして構成することができます。 ビルドでサポートされている最新のコマンドセットを確認するには、を実行し `webmanagement /?`
 
 - `sc start webmanagement` または `sc stop webmanagement` 
     - サービスをオンまたはオフにします。 ここでも、開発者モードを有効にする必要があります。 
@@ -109,11 +109,11 @@ Windows デスクトップの Device Portal では、標準のページのセッ
 
 デバイスポータルの設定時に発生する可能性のある一般的なエラーを次に示します。
 
-### <a name="windowsupdatesearch-returns-invalid-number-of-updates-0x800f0950-cbs_e_invalid_windows_update_count"></a>WindowsUpdateSearch が無効な数の更新を返します (0x800f0950 CBS_E_INVALID_WINDOWS_UPDATE_COUNT)
+### <a name="windowsupdatesearch-returns-invalid-number-of-updates-0x800f0950-cbs_e_invalid_windows_update_count"></a>WindowsUpdateSearch は無効な数の更新プログラム (0x800f0950 CBS_E_INVALID_WINDOWS_UPDATE_COUNT) を返します
 
 Windows 10 のプレリリースビルドで開発者パッケージをインストールしようとすると、このエラーが発生することがあります。 これらの機能オンデマンド (レ d) パッケージは Windows Update でホストされ、プレリリースビルドでダウンロードするには、flighting を選択する必要があります。 適切なビルドとリングの組み合わせに対してフライトを選択していない場合、ペイロードはダウンロードできません。 次の点を確認します。
 
-1. [設定] に移動して **& セキュリティ > Windows Insider program に更新**し、 **[windows insider account]** セクションに正しいアカウント情報が記載されていることを確認 > ます。 このセクションが表示されない場合は、 **[Windows insider account のリンク]** を選択し、電子メールアカウントを追加して、 **windows insider アカウント**の見出しの下に表示されることを確認します ( **[windows insider account]** を2回目にリンクする を選択する必要があります)。新しく追加したアカウントを実際にリンクします)。
+1. [設定] に移動して **& セキュリティ > Windows Insider program に更新**し、 **[windows insider account]** セクションに正しいアカウント情報が記載されていることを確認 > ます。 このセクションが表示されない場合は、[ **Windows insider account をリンク**する] を選択し、電子メールアカウントを追加して、 **windows insider アカウント**の見出しの下に表示されることを確認します (新しく追加したアカウントを実際にリンクするには、[ **windows Insider アカウント**をもう一度リンクする] を選択する必要があります)。
  
 2. **[どのような種類のコンテンツを受信しますか?]** で、 **[Windows のアクティブな開発]** が選択されていることを確認します。
  
@@ -121,7 +121,7 @@ Windows 10 のプレリリースビルドで開発者パッケージをインス
  
 4. これで、ディレクトリをインストールできるようになります。 Windows Insider Fast を使用していても、まだインストールできないことを確認した場合は、フィードバックを提供し、 **C:\Windows\Logs\CBS**の下にログファイルを添付してください。
 
-### <a name="sc-startservice-openservice-failed-1060-the-specified-service-does-not-exist-as-an-installed-service"></a>SCStartServiceOpenService に失敗しました 1060:指定されたサービスは、インストール済みのサービスとして存在しません
+### <a name="sc-startservice-openservice-failed-1060-the-specified-service-does-not-exist-as-an-installed-service"></a>SCStartService: OpenService が失敗しました 1060: 指定されたサービスは、インストールされたサービスとして存在しません
 
 開発者パッケージがインストールされていない場合は、このエラーが表示されることがあります。 開発者パッケージを使用しない場合、web 管理サービスはありません。 開発者パッケージをもう一度インストールしてみてください。
 

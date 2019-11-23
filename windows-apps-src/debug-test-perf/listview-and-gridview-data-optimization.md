@@ -16,7 +16,7 @@ ms.locfileid: "71339617"
 # <a name="listview-and-gridview-data-virtualization"></a>ListView と GridView のデータ仮想化
 
 
-**注**   詳細については、「[ユーザーが GridView および ListView で大量のデータを操作するときに](https://channel9.msdn.com/Events/Build/2013/3-158)、build/session を使用してパフォーマンスを大幅に向上させる」を参照してください。
+**注**  詳細については、 [GridView および ListView でユーザーが大量のデータを操作すると](https://channel9.msdn.com/Events/Build/2013/3-158)、build/session を使用してパフォーマンスが劇的に向上します。
 
 データ仮想化によって [**ListView**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView) と [**GridView**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.GridView) のパフォーマンスと起動時間を向上させます。 UI の仮想化、要素の削減、項目の段階的な更新については、「[ListView と GridView の UI の最適化](optimize-gridview-and-listview.md)」をご覧ください。
 
@@ -27,7 +27,7 @@ ms.locfileid: "71339617"
 -   データ セットのソース (ローカル ディスク、ネットワーク、またはクラウド)
 -   アプリの総合的なメモリ消費量
 
-**注**   機能が既定で有効になっていることに注意してください。 ListView と GridView では、ユーザーがすばやくパン/スクロールするときに、一時的なプレースホルダービジュアルが表示されます。 これらのプレース ホルダーの視覚効果は、データが読み込まれると項目テンプレートに置き換えられます。 この機能は、[**ListViewBase.ShowsScrollingPlaceholders**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase.showsscrollingplaceholders) を false に設定することによって無効にできますが、その場合は、x:Phase 属性を使って項目テンプレートの要素を段階的にレンダリングすることをお勧めします。 詳しくは、「[GridView と ListView の項目を段階的に更新する](optimize-gridview-and-listview.md#update-items-incrementally)」をご覧ください。
+この機能は、ユーザーがすばやくパン/スクロールしているときに、一時的なプレースホルダービジュアルを表示する ListView および GridView では既定で有効になっていること**に注意してください  。** これらのプレース ホルダーの視覚効果は、データが読み込まれると項目テンプレートに置き換えられます。 この機能は、[**ListViewBase.ShowsScrollingPlaceholders**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase.showsscrollingplaceholders) を false に設定することによって無効にできますが、その場合は、x:Phase 属性を使って項目テンプレートの要素を段階的にレンダリングすることをお勧めします。 詳しくは、「[GridView と ListView の項目を段階的に更新する](optimize-gridview-and-listview.md#update-items-incrementally)」をご覧ください。
 
 以降では、段階的なデータ仮想化とランダム アクセスのデータ仮想化の手法について詳しく説明します。
 
@@ -36,7 +36,7 @@ ms.locfileid: "71339617"
 段階的なデータ仮想化では、データを連続的にダウンロードします。 段階的なデータ仮想化を実行する [**ListView**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView) を使って、数百万の項目のコレクションを表示できますが、最初は 50 個の項目だけが読み込まれます。 ユーザーがパン/スクロールすると、次の 50 個の項目が読み込まれます。 項目が読み込まれると、スクロール バーのサムはサイズが小さくなります。 この種のデータ仮想化では、次のインターフェイスを実装するデータ ソース クラスを記述します。
 
 -   [**IList**](https://docs.microsoft.com/dotnet/api/system.collections.ilist)
--   [INotifyCollectionChanged](https://docs.microsoft.com/dotnet/api/system.collections.specialized.inotifycollectionchanged) (C#/VB) または[IObservableVector @ no__t-5t @ no__t](https://docs.microsoft.com/uwp/api/Windows.Foundation.Collections.IObservableVector_T_) (C++/cx)
+-   [**INotifyCollectionChanged**](https://docs.microsoft.com/dotnet/api/system.collections.specialized.inotifycollectionchanged) (C#/VB) または[**IObservableVector&lt;t&gt;** ](https://docs.microsoft.com/uwp/api/Windows.Foundation.Collections.IObservableVector_T_) (C++/cx)
 -   [**ISupportIncrementalLoading**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.ISupportIncrementalLoading)
 
 このようなデータ ソースは、継続的に拡張できるメモリ内リストです。 項目コントロールは、標準的な [**IList**](https://docs.microsoft.com/dotnet/api/system.collections.ilist) インデクサーとカウント プロパティを使って項目を要求します。 カウントは、データセットの実際のサイズではなく、ローカルでの項目の数を表す必要があります。
@@ -48,7 +48,7 @@ ms.locfileid: "71339617"
 ランダム アクセスのデータ仮想化を使うと、データ セット内の任意の位置からデータを読み込むことができます。 ランダム アクセスのデータ仮想化を実行する [**ListView**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView) を、100 万の項目があるコレクションを表示するために使うと、100,000 番目から 100,050 番目の項目を読み込むことができます。 ユーザーが一覧の先頭に移動すると、コントロールは 1 番目から 50 番目の項目を読み込みます。 スクロール バーのサムは、常に **ListView** に 100 万の項目が含まれていることを示します。 スクロール バーのサムの位置は、表示されている項目がコレクションのデータ セット全体で相対的にどこに位置しているかを示します。 この種のデータ仮想化は、必要なメモリを大幅に減らし、コレクションの読み込み時間を大きく短縮します。 これを有効にするには、データをオンデマンドで取得し、ローカル キャッシュを管理し、次のインターフェイスを実装するデータ ソース クラスを記述する必要があります。
 
 -   [**IList**](https://docs.microsoft.com/dotnet/api/system.collections.ilist)
--   [INotifyCollectionChanged](https://docs.microsoft.com/dotnet/api/system.collections.specialized.inotifycollectionchanged) (C#/VB) または[IObservableVector @ no__t-5t @ no__t](https://docs.microsoft.com/uwp/api/Windows.Foundation.Collections.IObservableVector_T_) (C++/cx)
+-   [**INotifyCollectionChanged**](https://docs.microsoft.com/dotnet/api/system.collections.specialized.inotifycollectionchanged) (C#/VB) または[**IObservableVector&lt;t&gt;** ](https://docs.microsoft.com/uwp/api/Windows.Foundation.Collections.IObservableVector_T_) (C++/cx)
 -   (必要に応じて) [**IItemsRangeInfo**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.IItemsRangeInfo)
 -   (必要に応じて) [**ISelectionInfo**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.ISelectionInfo)
 
@@ -68,7 +68,7 @@ ms.locfileid: "71339617"
     -   メモリ内の項目を利用できる場合はその項目を返します。
     -   利用できない場合は、null またはプレースホルダー項目を返します。
     -   項目に対する要求 (または [**IItemsRangeInfo**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.IItemsRangeInfo) からの範囲要求) を使って、どの項目が必要であるかを調べ、バックエンドから項目のデータを非同期的に取得します。 データを取得した後、[**INotifyCollectionChanged**](https://docs.microsoft.com/dotnet/api/system.collections.specialized.inotifycollectionchanged) または [**IObservableVector&lt;T&gt;** ](https://docs.microsoft.com/uwp/api/Windows.Foundation.Collections.IObservableVector_T_) 経由で変更通知を発行して、項目コントロールが新しい項目を認識できるようにします。
--   (必要に応じて) 項目コントロールのビューポートが変更されるときに、[**IItemsRangeInfo**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.IItemsRangeInfo) の実装を通してどの項目がデータ ソースから必要であるかを識別します。
+-   (必要に応じて) 項目コントロールのビューポートが変更されるときに、[**IItemsRangeInfo**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.IItemsRangeInfo) の実装を利用して、データ ソースのどの項目が必要であるかを特定します。
 
 その他のいつデータ項目を読み込むか、いくつ読み込むか、そしてどの項目をメモリに保持するかは、アプリケーションにまかされます。 いくつかの一般的な考慮事項を次に示します。
 

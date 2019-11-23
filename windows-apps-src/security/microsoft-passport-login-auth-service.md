@@ -19,7 +19,7 @@ ms.locfileid: "72282341"
 
 このプロジェクトを作成するには、C# と XAML の経験がいくらか必要です。 Windows 10 コンピューターで Visual Studio 2015 (Community Edition 以上) を使う必要もあります。
 
-## <a name="exercise-1-server-side-logic"></a>演習 1:サーバー側のロジック
+## <a name="exercise-1-server-side-logic"></a>演習 1: サーバー側のロジック
 
 
 この演習では、最初のタブに組み込まれた Windows Hello アプリケーションを使って作業を開始し、ローカルのモック サーバーとモック データベースを作成します。 このハンズオン ラボの目的は、Windows Hello を既存のシステムに統合する方法を説明することです。 モック サーバーとモック データベースを使うと、関係のない多くの設定が省略されます。 実際のアプリケーションでは、モック オブジェクトを実際のサービスとデータベースに置き換える必要があります。
@@ -182,7 +182,7 @@ ms.locfileid: "72282341"
     }
 ```
 
--   load メソッドでは、InitializeSampleUserAccounts メソッドがコメント アウトされている点に注目してください。このメソッドは、MockStore.cs で作成する必要があります。 このメソッドによりユーザー アカウントの一覧が入力され、ログインできるようになります。 実際には、ユーザー データベースには情報が既に入力されています。 この手順では、ユーザーの一覧を初期化し、読み込みメソッドを呼び出すコンストラクターも作成します。
+-   読み込みメソッドでは、InitializeSampleUserAccounts メソッドがコメント アウトされている点に注目してください。このメソッドは、MockStore.cs で作成する必要があります。 このメソッドによりユーザー アカウントの一覧が入力され、ログインできるようになります。 実際には、ユーザー データベースには情報が既に入力されています。 この手順では、ユーザーの一覧を初期化し、読み込みメソッドを呼び出すコンストラクターも作成します。
 
     ```cs
     namespace PassportLogin.AuthService
@@ -535,7 +535,7 @@ ms.locfileid: "72282341"
     }
     ```
 
-## <a name="exercise-2-client-side-logic"></a>演習 2:クライアント側のロジック
+## <a name="exercise-2-client-side-logic"></a>演習 2: クライアント側のロジック
 
 この演習では、最初のラボのクライアント側ビューとヘルパー クラスを変更して、AuthService クラスを使います。 実際には、AuthService が認証サーバーとなり、Web API を使ってサーバーとの間でデータを送受信する必要があります。 このハンズオン ラボでは、わかりやすいようにクライアントとサーバーはすべてローカルになっています。 目的は、Windows Hello API を使う方法を学習することです。
 
@@ -804,7 +804,7 @@ ms.locfileid: "72282341"
     }
     ```
 
--   アカウントを削除するときに AuthService を使用するので、ボタン @ no__t から AccountHelper への参照が表示されます。 @ no__t-1User @ no__t-2Click メソッドは削除できます。 この結果、メソッドは次のようになります。
+-   アカウントを削除するときに AuthService を使用するので、ボタンの AccountHelper への参照を\_忘れ\_ユーザー\_クリックして削除することができます。 この結果、メソッドは次のようになります。
 
     ```cs
     private void Button_Forget_User_Click(object sender, RoutedEventArgs e)
@@ -1060,7 +1060,7 @@ ms.locfileid: "72282341"
     }
     ```
 
--   先ほど追加した GetKeyAttestationAsync メソッドでは、最後の行がコメント アウトされています。新しいメソッドとして作成するのはこの最後の行であり、すべての Windows Hello 情報を AuthService に送信します。 実際の環境では、Web API を使って実際のサーバーにこれを送信する必要があります。
+-   先ほど追加した GetKeyAttestationAsync メソッドでは、最後の行がコメント アウトされている点に注目してください。新しいメソッドとして作成するのはこの最後の行であり、すべての Windows Hello 情報を AuthService に送信します。 実際の環境では、Web API を使って実際のサーバーにこれを送信する必要があります。
 
     ```cs
     using System.Runtime.InteropServices.WindowsRuntime;

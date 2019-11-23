@@ -1,5 +1,5 @@
 ---
-Description: Use the Windows.Globalization.DateTimeFormatting API with custom templates and patterns to display dates and times in exactly the format you wish.
+Description: カスタムテンプレートおよびパターンと共に Windows.globalization.datetimeformatting API を使用して、目的の形式で日付と時刻を表示します。
 title: パターンを使った日付と時刻の書式設定
 ms.assetid: 012028B3-9DA2-4E72-8C0E-3E06BEC3B3FE
 label: Use patterns to format dates and times
@@ -21,11 +21,11 @@ ms.locfileid: "74258129"
 
 ## <a name="introduction"></a>概要
 
-[  **DateTimeFormatter**](/uwp/api/windows.globalization.datetimeformatting?branch=live) クラスでは、世界中の言語と地域に対応するように、日付と時刻をさまざまな方法で適切に書式設定できます。 年、月、日などについて標準形式を使うことができます。 または、"longdate" または "month day" のような **DateTimeFormatter** コンストラクターの *formatTemplate* 引数に書式テンプレートを渡すことができます。
+[  **DateTimeFormatter**](/uwp/api/windows.globalization.datetimeformatting?branch=live) クラスでは、世界中の言語と地域に対応するように、日付と時刻をさまざまな方法で適切に書式設定できます。 年、月、日などについて標準形式を使うことができます。 または、"longdate" または "month day" のような *DateTimeFormatter* コンストラクターの **formatTemplate** 引数に書式テンプレートを渡すことができます。
 
-ただし、表示する [**DateTime**](/uwp/api/windows.foundation.datetime?branch=live) オブジェクトの構成要素の順序や形式をより細かく制御する場合は、コンストラクターの *formatTemplate* 引数に書式パターンを渡すことができます。 A format pattern uses a special syntax, which allows you to obtain individual components of a **DateTime** object&mdash;just the month name, or just the year value, for example&mdash;in order to display them in whatever custom format you choose. さらに、パターンをローカライズして、他の言語や地域に対応させることができます。
+ただし、表示する [**DateTime**](/uwp/api/windows.foundation.datetime?branch=live) オブジェクトの構成要素の順序や形式をより細かく制御する場合は、コンストラクターの *formatTemplate* 引数に書式パターンを渡すことができます。 書式パターンでは、特殊な構文を使用します。これにより、 **DateTime**オブジェクトの個々のコンポーネントを、月の名前だけ&mdash;、または年の値のみを取得できます。たとえば、選択した任意のカスタム書式で表示するために&mdash;ます。 さらに、パターンをローカライズして、他の言語や地域に対応させることができます。
 
-**Note**  This is only an overview of format patterns. 書式テンプレートと書式パターンについて詳しくは、[**DateTimeFormatter**](/uwp/api/windows.globalization.datetimeformatting?branch=live) クラスの「解説」セクションをご覧ください。
+**  これ**は、書式パターンの概要です。 書式テンプレートと書式パターンについて詳しくは、[**DateTimeFormatter**](/uwp/api/windows.globalization.datetimeformatting?branch=live) クラスの「解説」セクションをご覧ください。
 
 ## <a name="the-difference-between-format-templates-and-format-patterns"></a>書式テンプレートと書式パターンの違い
 
@@ -39,7 +39,7 @@ var dateFormatter = new Windows.Globalization.DateTimeFormatting.DateTimeFormatt
 
 これにより、現在のコンテキストの言語や地域の値に基づいてフォーマッタが作成されます。 書式テンプレート内のコンポーネントの順序は問題になりません。フォーマッタでは、現在の言語の正しい順序でそれらを表示します。 たとえば、英語 (米国) の場合は "January 1"、フランス語 (フランス) の場合は "1 janvier"、日本語の場合は "1 月 1 日" と表示されます。
 
-その一方で、書式パターンはカルチャ固有です。 Let's access the format pattern for our format template.
+その一方で、書式パターンはカルチャ固有です。 書式テンプレートの形式パターンにアクセスしてみましょう。
 
 ```csharp
 IReadOnlyList<string> monthDayPatterns = dateFormatter.Patterns;
@@ -59,7 +59,7 @@ Ja-JP: "{month.integer}月{day.integer}日"
 var dateFormatter = new Windows.Globalization.DateTimeFormatting.DateTimeFormatter("{month.full} {day.integer}");
 ```
 
-The formatter above returns culture-specific values for the individual components inside the brackets {}. ただし、書式パターンのコンポーネントの順序は不変です。 要求どおりのものが得られても、それがカルチャに適している場合と適していない場合があります。 このフォーマッタは英語 (米国) で有効ですが、フランス語 (フランス) または日本語では有効ではありません。
+上のフォーマッタは、{}角かっこ内の個々のコンポーネントについてカルチャ固有の値を返します。 ただし、書式パターンのコンポーネントの順序は不変です。 要求どおりのものが得られても、それがカルチャに適している場合と適していない場合があります。 このフォーマッタは英語 (米国) で有効ですが、フランス語 (フランス) または日本語では有効ではありません。
 
 ``` syntax
 En-US: January 1
@@ -76,14 +76,14 @@ Ja-JP: 1月1 (inappropriate for Japan; the day symbol 日 is missing)
 
 書式テンプレートと書式パターンの違いを、以下に簡単にまとめます。
 
-**Format templates, such as "month day"**
+**書式テンプレート ("month day" など)**
 
 -   月や日などの値を任意の順序で含む [DateTime](/uwp/api/windows.foundation.datetime?branch=live) 形式の抽象化された表現です。
 -   Windows でサポートされているすべての言語と地域にわたって有効な標準の形式を必ず返します。
 -   特定の言語と地域のカルチャに適するように書式設定された文字列を必ず提供します。
 -   コンポーネントのすべての組み合わせが有効であるとは限りません。 たとえば、"dayofweek day" は正しくありません。
 
-**Format patterns, such as "{month.full} {day.integer}"**
+**書式パターン ("{month. full} {day. integer}" など)**
 
 -   月の完全な名前の後にスペースが挿入され、その後に日付の整数が続く、特定の順序、または指定した特定の書式パターンの明示的に指定された文字列です。
 -   任意の言語と地域のペアについて有効な標準の形式に対応しない場合があります。
@@ -98,7 +98,7 @@ Ja-JP: 1月1 (inappropriate for Japan; the day symbol 日 is missing)
 June 25 | 1:38 PM
 ```
 
-日付の部分は "month day" 書式テンプレートに対応し、時刻の部分は "hour minute" 書式テンプレートに対応します。 So, you can construct formatters for the relevant date and time format templates, and then concatenate their output together using a localizable format string.
+日付の部分は "month day" 書式テンプレートに対応し、時刻の部分は "hour minute" 書式テンプレートに対応します。 そのため、関連する日付と時刻の書式テンプレートのフォーマッタを構築してから、ローカライズ可能な書式指定文字列を使用して、出力を連結することができます。
 
 ```csharp
 var dateToFormat = System.DateTime.Now;
@@ -113,7 +113,7 @@ var time = timeFormatter.Format(dateToFormat);
 string output = string.Format(resourceLoader.GetString("CustomDateTimeFormatString"), date, time);
 ```
 
-`CustomDateTimeFormatString` is a resource identifier referring to a localizable resource in a Resources File (.resw). For a default language of English (United States), this would be set to a value of "{0} | {1}" along with a comment indicating that "{0}" is the date and "{1}" is the time. このようにして、翻訳者は必要に応じて書式項目を調整できます。 たとえば、時刻を日付より前に配置する方が一部の言語や地域では自然であると思われる場合は、項目の順序を変更できます。 また、"|" を別の区切り文字に置き換えることもできます。
+`CustomDateTimeFormatString` は、リソースファイル (resw) 内のローカライズ可能なリソースを参照するリソース識別子です。 既定の言語 (米国) の場合、この値は "{0} | に設定されます。"{0}" が日付で、"{1}" が時刻であることを示すコメントと共に "{1}" です。 このようにして、翻訳者は必要に応じて書式項目を調整できます。 たとえば、時刻を日付より前に配置する方が一部の言語や地域では自然であると思われる場合は、項目の順序を変更できます。 また、"|" を別の区切り文字に置き換えることもできます。
 
 また、この例を実装する別の方法として、2 つのフォーマッタを照会して書式パターンを検索し、それらの書式パターンを連結して、結果として生成される書式パターンから 3 つ目のフォーマッタを構築することができます。
 
@@ -135,10 +135,10 @@ string output = patternFormatter.Format(System.DateTime.Now);
 
 ## <a name="important-apis"></a>重要な API
 
-* [Windows.Globalization.DateTimeFormatting](/uwp/api/windows.globalization.datetimeformatting?branch=live)
+* [Windows.globalization.datetimeformatting](/uwp/api/windows.globalization.datetimeformatting?branch=live)
 * [DateTimeFormatter](/uwp/api/windows.globalization.datetimeformatting?branch=live)
 * [DateTime](/uwp/api/windows.foundation.datetime?branch=live)
 
 ## <a name="related-topics"></a>関連トピック
 
-* [Date and time formatting sample](https://code.msdn.microsoft.com/windowsapps/Date-and-time-formatting-2361f348)
+* [日付と時刻の書式設定のサンプル](https://code.msdn.microsoft.com/windowsapps/Date-and-time-formatting-2361f348)

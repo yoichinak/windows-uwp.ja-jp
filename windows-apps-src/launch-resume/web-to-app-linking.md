@@ -55,7 +55,7 @@ Web とアプリのリンクを有効にするには、次を行う必要があ�
 >[!Important]
 > JSON ファイルには、.json ファイル接尾辞を指定しないでください。
 
-**windows-app-web-link** という名前で JSON ファイルを作成し (.json ファイル拡張子は付加しない)、アプリのパッケージ ファミリ名を指定します。 以下に例を示します。
+**windows-app-web-link** という名前で JSON ファイルを作成し (.json ファイル拡張子は付加しない)、アプリのパッケージ ファミリ名を指定します。 次に、例を示します。
 
 ``` JSON
 [{
@@ -71,12 +71,12 @@ Windows によって、Web サイトへの https 接続が行われ、Web サー
 
 上記の JSON ファイルの例では、ワイルドカードの使用も示しています。 ワイルドカードを使用すると、数行のコードでさまざまなリンクをサポートすることができます。 Web とアプリのリンクでは、JSON ファイルで 2 種類のワイルドカードを使用できます。
 
-| ***** | **[説明]**               |
+| ***** | **説明**               |
 |--------------|-------------------------------|
 | **\***       | 任意の部分文字列を表します      |
 | **?**        | 1 つの文字を表します |
 
-たとえば、上の例で `"excludePaths" : [ "/news/*", "/blog/*" ]` を指定すると、アプリは、web サイトのアドレスで始まるすべてのパス (たとえば、msn.com) をサポートします。ただし、`/news/` と `/blog/` の場合を**除き**ます。 **msn.com/weather.html**はサポートされますが、 **msn.com/news/topnews.html**はサポートされません。
+たとえば、上の例で `"excludePaths" : [ "/news/*", "/blog/*" ]` を指定した場合、アプリは、web サイトのアドレスで始まるすべてのパス (たとえば、msn.com) をサポートします。ただし、`/news/` と `/blog/`に含まれるパスは**除き**ます。 **msn.com/weather.html**はサポートされますが、 **msn.com/news/topnews.html**はサポートされません。
 
 ### <a name="multiple-apps"></a>複数のアプリ
 
@@ -96,7 +96,7 @@ Web サイトにリンクするアプリが 2 つある場合、両方のアプ�
 
 ユーザーに最適なエクスペリエンスを提供するには、JSON ファイル内のサポート対象のパスからオンラインのみのコンテンツが除外されるように、除外パスを使用してください。
 
-最初に除外パスが確認され、除外パスが一致すると、そのパスに対応するページは、指定されたアプリではなくブラウザーで開かれます。 上の例では、'/news/\* ' はそのパスの下にあるページを含みますが、'/news @ no__t ' (スラッシュのない "news") には、' newslocal/'、' newsinternational/' などの ' news @ no__t-2 ' の下にあるパスが含まれています。
+最初に除外パスが確認され、除外パスが一致すると、そのパスに対応するページは、指定されたアプリではなくブラウザーで開かれます。 上記の例では、'/news/\*' には、そのパスの下にあるページが含まれています。また、' newslocal/'、' newsinternational/' などの ' news\*' の下にあるすべてのパスが '/news\*' に含まれています。
 
 ## <a name="handle-links-on-activation-to-link-to-content"></a>コンテンツにリンクするためのアクティブ化でリンクを処理する
 
@@ -150,19 +150,19 @@ protected override void OnActivated(IActivatedEventArgs e)
 
 **重要** 上記の例で示したように、最後の `if (rootFrame.Content == null)` ロジックは `rootFrame.Navigate(deepLinkPageType, e);` に置き換えてください。
 
-## <a name="test-it-out-local-validation-tool"></a>テストする:ローカル検証ツール
+## <a name="test-it-out-local-validation-tool"></a>テストの実行: ローカルの検証ツール
 
 アプリ ホスト登録検証ツールを実行して、アプリと Web サイトの構成をテストできます。このツールは次の場所にあります。
 
-% windir% \\system32 @ no__t-1**Apphostregistrationverifier**
+% windir%\\system32\\**Apphostregistrationverifier**
 
 次のパラメーターを使用してこのツールを実行し、アプリと Web サイトの構成をテストしてください。
 
 **Apphostregistrationverifier** *ホスト名パッケージ名ファイルパス*
 
--   ホスト名:Web サイト (たとえば、microsoft.com)
--   パッケージファミリ名 (PFN):アプリの PFN
--   ファイルパス:ローカル検証用の JSON ファイル (例: C: \\フォルダー @ no__t-1windows-app-web リンク)
+-   Hostname: web サイト (たとえば、microsoft.com)
+-   パッケージ ファミリ名 (PFN): アプリの PFN
+-   ファイルパス: ローカル検証用の JSON ファイル (例: C:\\フォルダー\\windows-app-web リンク)
 
 ツールが何も返さない場合、アップロード時にそのファイルの検証は正常に終了します。 エラー コードがある場合は機能しません。
 
@@ -171,11 +171,11 @@ protected override void OnActivated(IActivatedEventArgs e)
 `HKCU\Software\Classes\LocalSettings\Software\Microsoft\Windows\CurrentVersion\
 AppModel\SystemAppData\YourApp\AppUriHandlers`
 
-Keyname`ForceValidation` 値: `1`
+Keyname: `ForceValidation` 値: `1`
 
-## <a name="test-it-web-validation"></a>テストする:Web 検証
+## <a name="test-it-web-validation"></a>テストの実行: Web 検証
 
-リンクをクリックしたときにアプリがアクティブ化されるかどうか確認するには、アプリケーションを閉じておきます。 次に、Web サイトでサポートされるパスのいずれかのアドレスをコピーします。 たとえば、web サイトのアドレスが "msn.com" で、サポートパスの1つが "path1" の場合は、-0 を @no__t 使用します。
+リンクをクリックしたときにアプリがアクティブ化されるかどうか確認するには、アプリケーションを閉じておきます。 次に、Web サイトでサポートされるパスのいずれかのアドレスをコピーします。 たとえば、web サイトのアドレスが "msn.com" で、サポートパスの1つが "path1" の場合、を `http://msn.com/path1` 使用します。
 
 アプリが閉じていることを確認します。 **Windows キー + R** キーを押し、 **[ファイル名を指定して実行]** ダイアログ ボックスを開き、ウィンドウにリンクを貼り付けます。 Web ブラウザーではなく、アプリが起動します。
 

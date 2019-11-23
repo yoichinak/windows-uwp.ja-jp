@@ -18,8 +18,8 @@ ms.locfileid: "74258928"
 
 <b>重要な API</b>
 
--   [**Windows.UI.Core namespace**](https://docs.microsoft.com/uwp/api/Windows.UI.Core)
--   [**Windows.System.Threading namespace**](https://docs.microsoft.com/uwp/api/Windows.System.Threading)
+-   [**Windows. UI. Core 名前空間**](https://docs.microsoft.com/uwp/api/Windows.UI.Core)
+-   [**Windows. system.object 名前空間**](https://docs.microsoft.com/uwp/api/Windows.System.Threading)
 
 タイマーが終了した後に実行される作業項目の作成方法を説明します。
 
@@ -27,7 +27,7 @@ ms.locfileid: "74258928"
 
 [  **CreateTimer**](https://docs.microsoft.com/uwp/api/windows.system.threading.threadpooltimer.createtimer) メソッドを使って、作業項目に対応するタイマーを作成します。 作業を実行するラムダを指定し、*delay* パラメーターを使って、利用可能なスレッドに作業項目を割り当てることができるようになるまでスレッド プールが待機する時間を指定します。 delay パラメーターは [**TimeSpan**](https://docs.microsoft.com/uwp/api/Windows.Foundation.TimeSpan) 構造体を使って指定します。
 
-> **Note**  You can use [**CoreDispatcher.RunAsync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync) to access the UI and show progress from the work item.
+> [**CoreDispatcher**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync)を使用して UI にアクセスし、作業項目の進行状況を**表示  こと**ができます。
 
 次の例では、3 分間実行される作業項目を作成します。
 
@@ -221,7 +221,7 @@ ms.locfileid: "74258928"
 
 ユニバーサル Windows プラットフォーム (UWP) アプリでは UI スレッドをブロックできるため、**Thread.Sleep** を使うことができません。 代わりに、[**ThreadPoolTimer**](https://docs.microsoft.com/uwp/api/Windows.System.Threading.ThreadPoolTimer) を使って作業項目を作ります。これによって、UI スレッドをブロックすることなく、作業項目によって実行されたタスクを遅延します。
 
-作業項目、タイマー作業項目、定期的な作業項目の使い方を示すコード サンプル全体については、[スレッド プールのサンプルに関するページ](https://code.msdn.microsoft.com/windowsapps/Pool-Sample-5aa60454)をご覧ください。 The code sample was originally written for Windows 8.1 but the code can be re-used in Windows 10.
+作業項目、タイマー作業項目、定期的な作業項目の使い方を示すコード サンプル全体については、[スレッド プールのサンプルに関するページ](https://code.msdn.microsoft.com/windowsapps/Pool-Sample-5aa60454)をご覧ください。 コードサンプルは Windows 8.1 用に記述されていましたが、Windows 10 でコードを再利用することはできます。
 
 繰り返しタイマーについて詳しくは、「[定期的な作業項目の作成](create-a-periodic-work-item.md)」をご覧ください。
 

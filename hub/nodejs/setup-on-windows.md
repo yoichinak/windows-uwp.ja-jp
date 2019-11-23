@@ -36,12 +36,12 @@ Node.js をインストールするには、複数の方法があります。 �
 
     ![NVM for Windows インストールウィザード](../images/install-nvm-for-windows-wizard.png)
 
-5. インストールが完了したら、 PowerShell を開き、windows-nvm を使用して、現在インストールされているノードのバージョンを一覧表示します (この時点では何も指定しないでください)。 `nvm ls`
+5. インストールが完了したら、 PowerShell を開き、windows-nvm を使用して、現在インストールされているノードのバージョンを一覧表示します (現時点では、この時点では none にする必要があります)。 `nvm ls`
 
     ![ノードバージョンが表示されていない NVM リスト](../images/windows-nvm-powershell-no-node.png)
 
-6. Node.js の現在のリリースをインストールします (最新の機能の改善をテストするために、LTS バージョンよりも問題が発生する可能性が高くなります)。 `nvm install latest`
-7. Node.js の最新の安定した LTS リリース (推奨) をインストールするには、最初に現在の LTS バージョン番号を参照してください @no__t。そのためには、次のように指定します。 `nvm install <version>` (`<version>` を数字、ie: `nvm install 10.16.3`) に置き換えます。
+6. Node.js の現在のリリースをインストールします (最新の機能の改善をテストするために、LTS バージョンよりも問題が発生する可能性が高く `nvm install latest` なります)。
+7. Node.js の最新の安定した LTS リリース (推奨) をインストールします。最初に現在の LTS バージョン番号を参照してください `nvm list available`。そのためには、次のようにして、LTS バージョン番号を: `nvm install <version>` でインストールします (`<version>` を数字に置き換えます。 ie: `nvm install 10.16.3`)。
 
     ![使用可能なバージョンの NVM リスト](../images/windows-nvm-list.png)
 
@@ -49,15 +49,15 @@ Node.js をインストールするには、複数の方法があります。 �
 
     ![インストールされているノードバージョンを示す NVM リスト](../images/windows-nvm-node-installs.png)
 
-9. 現在既定として使用されている node.js のバージョンを確認するには、次のように入力します。 `node --version`
-10. プロジェクトに使用する node.js のバージョンを変更するには、新しいプロジェクトディレクトリを作成し `mkdir NodeTest` を入力し @no__t ディレクトリを入力します。次に、`<version>` を使用するバージョン番号 (ie v 10.16.3 ') に置き換えて @no__t を入力します。
-11. インストールされている npm のバージョンを確認します。 `npm --version`,、このバージョン番号は、現在のバージョンの node.js に関連付けられている npm のバージョンに自動的に変更されます。
+9. 現在既定である node.js のバージョンを確認するには、次のように入力します: `node --version`
+10. プロジェクトに使用する node.js のバージョンを変更するには、新しいプロジェクトディレクトリ `mkdir NodeTest`を作成し、`cd NodeTest`ディレクトリを入力して、`<version>` を使用するバージョン番号 (ie v 10.16.3 ') に置き換え `nvm use <version>` を入力します。
+11. インストールされている npm のバージョンを確認してください: `npm --version`、このバージョン番号は、現在のバージョンの node.js に関連付けられている npm のバージョンに自動的に変更されます。
 
 ## <a name="alternative-version-managers"></a>代替バージョンマネージャー
 
 Windows-nvm は現在最も人気のあるノードのバージョンマネージャーですが、次の点を考慮することをお勧めします。
 
-- [nvs](https://github.com/jasongin/nvs) (ノードバージョンスイッチャー) は、クロスプラットフォームの `nvm` の代替であり、 [VS Code と統合](https://github.com/jasongin/nvs/blob/master/doc/VSCODE.md)できます。
+- [nvs](https://github.com/jasongin/nvs) (ノードバージョンスイッチャー) は、 [VS Code と統合](https://github.com/jasongin/nvs/blob/master/doc/VSCODE.md)できる、クロスプラットフォームの `nvm` 代替です。
 - 
 - [Volta](https://github.com/volta-cli/volta#installing-volta)は、より高速でクロスプラットフォームのサポートを要求する LinkedIn チームの新しいバージョンマネージャーです。
 

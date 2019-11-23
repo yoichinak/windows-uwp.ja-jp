@@ -5,7 +5,7 @@ ms.assetid: 340F55C1-0DDF-4233-A8E4-C15EF9030785
 template: detail.hbs
 ms.date: 05/19/2017
 ms.topic: article
-keywords: Windows 10, UWP
+keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: 8a91052adf29e6628ad70c1c004fdbaabe671d62
 ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
@@ -42,7 +42,7 @@ var <mobile-service-name>Client = new Microsoft.WindowsAzure.MobileServices.Mobi
 ## <a name="registration-for-push-notifications"></a>プッシュ通知への登録
 
 
-In push.register.\*, the UploadChannel method registers the device to receive push notifications. ストアは、アプリのインストールされたインスタンスを追跡し、プッシュ通知チャネルを提供します。 「[**PushNotificationChannelManager**](https://docs.microsoft.com/uwp/api/Windows.Networking.PushNotifications.PushNotificationChannelManager)」をご覧ください。
+Push. register.\*、UploadChannel メソッドは、プッシュ通知を受信するようにデバイスを登録します。 ストアは、アプリのインストールされたインスタンスを追跡し、プッシュ通知チャネルを提供します。 「[**PushNotificationChannelManager**](https://docs.microsoft.com/uwp/api/Windows.Networking.PushNotifications.PushNotificationChannelManager)」をご覧ください。
 
 クライアント コードは、JavaScript のバックエンドと .NET のバックエンドの両方に似ています。 既定では、JavaScript バックエンド サービスのプッシュ通知を追加すると、notifyAllUsers カスタム API のサンプル呼び出しが UploadChannel メソッドに挿入されます。
 
@@ -207,7 +207,7 @@ function sendNotifications(request) {
 
 sendNotifications 関数は、1 つの通知をトースト通知として送信します。 他の種類のプッシュ通知を使うこともできます。
 
-**Tip**  For information about how to get help while editing scripts, see [Enabling IntelliSense for server-side JavaScript](https://blogs.msdn.com/b/visualstudio/archive/2013/07/26/enabling-intellisense-for-mobile-services-javascript-in-visual-studio.aspx).
+**ヒント**  スクリプトの編集中にヘルプを表示する方法については、「[サーバー側 JavaScript での IntelliSense の有効化](https://blogs.msdn.com/b/visualstudio/archive/2013/07/26/enabling-intellisense-for-mobile-services-javascript-in-visual-studio.aspx)」を参照してください。
 
  
 
@@ -233,7 +233,7 @@ Window Azure のモバイル サービスの柔軟性が不十分な場合、C# 
 
 モバイル サービスでスケジュール済みタスクを実行して、プッシュ通知を送ることもできます。 「[Mobile Services での繰り返し発生するジョブのスケジュール](https://azure.microsoft.com/documentation/articles/mobile-services-schedule-recurring-tasks/)」をご覧ください。
 
-**Warning**  Once you've run the push notification wizard once, don't run the wizard a second time to add registration code for another mobile service. このウィザードをプロジェクトごとに複数回実行すると、生成されるコードで [**CreatePushNotificationChannelForApplicationAsync**](https://docs.microsoft.com/uwp/api/Windows.Networking.PushNotifications.PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync) メソッドの呼び出しが重複し、ランタイムの例外が発生します。 複数のモバイル サービスのプッシュ通知を登録するには、ウィザードを 1 回だけ実行し、登録コードを上書きして、**CreatePushNotificationChannelForApplicationAsync** の呼び出しが同時に実行されないようにしてください。 For example, you can accomplish this by moving the wizard-generated code in push.register.\* (including the call to **CreatePushNotificationChannelForApplicationAsync**) outside of the OnLaunched event, but the specifics of this will depend on your app's architecture.
+**警告**  プッシュ通知ウィザードを1回実行した後は、もう一度ウィザードを実行して別のモバイルサービスの登録コードを追加しないでください。 このウィザードをプロジェクトごとに複数回実行すると、生成されるコードで [**CreatePushNotificationChannelForApplicationAsync**](https://docs.microsoft.com/uwp/api/Windows.Networking.PushNotifications.PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync) メソッドの呼び出しが重複し、ランタイムの例外が発生します。 複数のモバイル サービスのプッシュ通知を登録するには、ウィザードを 1 回だけ実行し、登録コードを上書きして、**CreatePushNotificationChannelForApplicationAsync** の呼び出しが同時に実行されないようにしてください。 たとえば、ウィザードで生成されたコードを push. register で移動することで、これを実現できます。OnLaunched 上げイベント以外の\* ( **Createpushnotificationchannelforapplicationasync**の呼び出しを含む)。ただし、この詳細については、アプリのアーキテクチャによって異なります。
 
  
 
@@ -242,9 +242,9 @@ Window Azure のモバイル サービスの柔軟性が不十分な場合、C# 
 
 * [Windows プッシュ通知サービス (WNS) の概要](windows-push-notification-services--wns--overview.md)
 * [直接通知の概要](raw-notification-overview.md)
-* [Connecting to Windows Azure Mobile Services (JavaScript)](https://docs.microsoft.com/previous-versions/windows/apps/dn263160(v=win.10))
-* [Connecting to Windows Azure Mobile Services (C#/C++/VB)](https://docs.microsoft.com/previous-versions/windows/apps/dn263175(v=win.10))
-* [Quickstart: Adding push notifications for a mobile service (JavaScript)](https://docs.microsoft.com/previous-versions/windows/apps/dn263163(v=win.10))
+* [Windows Azure Mobile Services への接続 (JavaScript)](https://docs.microsoft.com/previous-versions/windows/apps/dn263160(v=win.10))
+* [Windows Azure Mobile Services への接続C#(C++//VB)](https://docs.microsoft.com/previous-versions/windows/apps/dn263175(v=win.10))
+* [クイックスタート: モバイルサービスのプッシュ通知の追加 (JavaScript)](https://docs.microsoft.com/previous-versions/windows/apps/dn263163(v=win.10))
  
 
  

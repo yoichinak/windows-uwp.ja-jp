@@ -18,16 +18,16 @@ ms.locfileid: "74258484"
 
 
 
-This topic describes the fundamental characteristics of the Marble Maze project&mdash;for example, how it uses Visual C++ in the Windows Runtime environment, how it is created and structured, and how it is built. また、コードで使われるいくつかの規則についても説明します。
+このトピックでは、Windows ランタイム環境でのビジュアルC++の使用方法、作成方法と構成方法、ビルド方法など、大理石の迷路プロジェクト&mdash;基本的な特性について説明します。 また、コードで使われるいくつかの規則についても説明します。
 
 > [!NOTE]
 > このドキュメントに対応するサンプル コードは、[DirectX Marble Maze ゲームのサンプルに関するページ](https://github.com/microsoft/Windows-appsample-marble-maze)にあります。
 
 このドキュメントでは、ユニバーサル Windows プラットフォーム (UWP) ゲームの計画と開発の際に重要となるいくつかの事柄について説明します。取り上げる内容は次のとおりです。
 
--   Use the **DirectX 11 App (Universal Windows - C++/CX)** template in Visual Studio to create your DirectX UWP game.
+-   Directx UWP ゲームを作成するには、Visual Studio の**directx 11 アプリ (ユニバーサル Windows C++-/cx)** テンプレートを使用します。
 -   より新しい、オブジェクト指向に沿った方法で UWP アプリを開発できるようなクラスとインターフェイスが、Windows ランタイムには用意されています。
--   Use object references with the hat (^) symbol to manage the lifetime of Windows Runtime variables, [Microsoft::WRL::ComPtr](https://docs.microsoft.com/cpp/windows/comptr-class) to manage the lifetime of COM objects, and [std::shared\_ptr](https://docs.microsoft.com/cpp/standard-library/shared-ptr-class) or [std::unique\_ptr](https://docs.microsoft.com/cpp/standard-library/unique-ptr-class) to manage the lifetime of all other heap-allocated C++ objects.
+-   オブジェクト参照を hat (^) 記号と共に使用して Windows ランタイム変数の有効期間を管理します。 [Microsoft:: WRL:: ComPtr](https://docs.microsoft.com/cpp/windows/comptr-class)は COM オブジェクトの有効期間を管理し、 [std:: shared\_ptr](https://docs.microsoft.com/cpp/standard-library/shared-ptr-class)または[std:: unique\_ptr](https://docs.microsoft.com/cpp/standard-library/unique-ptr-class)を使用C++して、その他すべてのヒープ割り当てオブジェクトの有効期間を管理します。
 -   ほとんどの場合、予期しないエラーを処理するには、結果コードではなく例外処理を使います。
 -   アプリのエラー検出に役立てるために、コード分析ツールと共に [SAL 注釈](https://docs.microsoft.com/visualstudio/code-quality/using-sal-annotations-to-reduce-c-cpp-code-defects)を使います。
 
@@ -36,25 +36,25 @@ This topic describes the fundamental characteristics of the Marble Maze project&
 
 サンプルをダウンロードおよび展開してある場合は、Visual Studio で **MarbleMaze_VS2017.sln** ファイル (**C++** フォルダー内) を開くと、コードが表示されます。
 
-Marble Maze の Visual Studio プロジェクトを作ったときには、既にあるプロジェクトを利用しました。 However, if you do not already have an existing project that provides the basic functionality that your DirectX UWP game requires, we recommend that you create a project based on the Visual Studio **DirectX 11 App (Universal Windows - C++/CX)** template because it provides a basic working 3D application. これを行うには、次の手順に従います。
+Marble Maze の Visual Studio プロジェクトを作ったときには、既にあるプロジェクトを利用しました。 ただし、DirectX UWP ゲームで必要な基本機能を提供する既存のプロジェクトがない場合は、Visual Studio **directx 11 アプリ (ユニバーサル Windows C++-/cx)** テンプレートに基づいてプロジェクトを作成することをお勧めします。これは、基本的な動作する3d アプリケーションを提供するためです。 これを行うには、次の手順に従います。
 
-1. In Visual Studio 2019, select **File > New > Project...**
+1. Visual Studio 2019 で、 **[ファイル > 新しい > プロジェクト]** を選択します。
 
-2. In the **Create a new project** window, select **DirectX 11 App (Universal Windows - C++/CX)** . If you don't see this option, you may not have the required components installed&mdash;see [Modify Visual Studio 2019 by adding or removing workloads and components](https://docs.microsoft.com/visualstudio/install/modify-visual-studio) for information about how to install additional components.
+2. **[新しいプロジェクトの作成]** ウィンドウで、 **[DirectX 11 アプリ (ユニバーサル Windows C++-/cx)]** を選択します。 このオプションが表示されない場合は&mdash;必要なコンポーネントがインストールされていない可能性があります。追加のコンポーネントをインストールする方法については、「[ワークロードとコンポーネントを追加または削除して Visual Studio 2019 を変更](https://docs.microsoft.com/visualstudio/install/modify-visual-studio)する」を参照してください。
 
 ![新しいプロジェクト](images/vs2019-marble-maze-sample-fundamentals-1.png)
 
-3. Select **Next**, and then enter  a **Project name**, a **Location** for the files to be stored, and a **Solution name**, and then select **Create**.
+3. **[次へ]** を選択し、**プロジェクト名**、格納するファイルの**場所**、および**ソリューション名**を入力して、 **[作成]** を選択します。
 
 
 
-One important project setting in the **DirectX 11 App (Universal Windows - C++/CX)** template is the **/ZW** option, which enables the program to use the Windows Runtime language extensions. Visual Studio テンプレートを使う場合、このオプションは既定で有効になっています。 Visual Studio でコンパイラ オプションを設定する方法について詳しくは、「[コンパイラ オプションの設定](https://docs.microsoft.com/cpp/build/reference/setting-compiler-options)」をご覧ください。
+**DirectX 11 アプリ (ユニバーサル Windows- C++/cx)** テンプレートの重要なプロジェクト設定の1つに、 **/ZW**オプションがあります。これにより、プログラムで Windows ランタイム言語拡張機能を使用できるようになります。 Visual Studio テンプレートを使う場合、このオプションは既定で有効になっています。 Visual Studio でコンパイラ オプションを設定する方法について詳しくは、「[コンパイラ オプションの設定](https://docs.microsoft.com/cpp/build/reference/setting-compiler-options)」をご覧ください。
 
-> **Caution**   The **/ZW** option is not compatible with options such as **/clr**. **/clr** の場合は、同じ Visual C++ プロジェクトで .NET Framework と Windows ランタイムの両方をターゲットにすることはできないことを意味します。
+> **注意**   **/ZW**オプションは **/clr**などのオプションと互換性がありません。 **/clr** の場合は、同じ Visual C++ プロジェクトで .NET Framework と Windows ランタイムの両方をターゲットにすることはできないことを意味します。
 
  
 
-Every UWP app that you acquire from the Microsoft Store comes in the form of an app package. アプリ パッケージには、アプリについての情報が記載されたパッケージ マニフェストが含まれています。 たとえば、アプリの機能 (つまり、保護されたシステム リソースやユーザー データへの必要なアクセス) を指定できます。 アプリで特定の機能が必須であると決めた場合は、パッケージ マニフェストを使って、必要な機能を宣言します。 マニフェストでは、サポートされているデバイスの回転、タイル画像、スプラッシュ画面など、プロジェクト プロパティを指定することもできます。 プロジェクトで **Package.appxmanifest** を開いて、マニフェストを編集することができます。 アプリ パッケージについて詳しくは、「[アプリのパッケージ化](https://docs.microsoft.com/windows/uwp/packaging/index)」をご覧ください。
+Microsoft Store から取得したすべての UWP アプリは、アプリケーションパッケージの形式になります。 アプリ パッケージには、アプリについての情報が記載されたパッケージ マニフェストが含まれています。 たとえば、アプリの機能 (つまり、保護されたシステム リソースやユーザー データへの必要なアクセス) を指定できます。 アプリで特定の機能が必須であると決めた場合は、パッケージ マニフェストを使って、必要な機能を宣言します。 マニフェストでは、サポートされているデバイスの回転、タイル画像、スプラッシュ画面など、プロジェクト プロパティを指定することもできます。 プロジェクトで **Package.appxmanifest** を開いて、マニフェストを編集することができます。 アプリ パッケージについて詳しくは、「[アプリのパッケージ化](https://docs.microsoft.com/windows/uwp/packaging/index)」をご覧ください。
 
 ##  <a name="building-deploying-and-running-the-game"></a>ゲームのビルド、展開、実行
 
@@ -77,14 +77,14 @@ Marble Maze の制御には、タッチ、加速度計、Xbox One コントロ�
 ##  <a name="code-conventions"></a>コードの規則
 
 
-Windows ランタイムは、特別なアプリケーション環境だけで実行される UWP アプリの作成に使うプログラミング インターフェイスです。 Such apps use authorized functions, data types, and devices, and are distributed from the Microsoft Store. Windows ランタイムの最も基本となる部分を構成しているのは、アプリケーション バイナリ インターフェイス (ABI) です。 ABI は、JavaScript、.NET 言語、Visual C++ など、複数のプログラミング言語から Windows ランタイム API にアクセスできるようにするための基礎となるバイナリ コントラクトです。
+Windows ランタイムは、特別なアプリケーション環境だけで実行される UWP アプリの作成に使うプログラミング インターフェイスです。 このようなアプリは、承認された機能、データ型、およびデバイスを使用し、Microsoft Store から配布されます。 Windows ランタイムの最も基本となる部分を構成しているのは、アプリケーション バイナリ インターフェイス (ABI) です。 ABI は、JavaScript、.NET 言語、Visual C++ など、複数のプログラミング言語から Windows ランタイム API にアクセスできるようにするための基礎となるバイナリ コントラクトです。
 
 Windows ランタイム API を JavaScript や .NET から呼び出すには、各言語環境に固有のプロジェクションが必要となります。 Windows ランタイム API を JavaScript または .NET から呼び出すとき、実際にはプロジェクションを呼び出し、そこからさらに、基になる ABI 関数を呼び出すことになります。 ABI 関数は C++ から直接呼び出すことができますが、Microsoft は、C++ 用のプロジェクションも併せて提供しています。そのようにすることで、Windows ランタイム API の扱いがシンプルになると共に、高いパフォーマンスを維持できるためです。 また、実際に Windows ランタイムのプロジェクションをサポートする、Visual C++ の言語拡張機能も Microsoft から提供されています。 こうした言語拡張機能の多くは、C++/CLI 言語の構文と似ています。 ただし、ネイティブ アプリはこの構文を使って、共通言語ランタイム (CLR) をターゲットにするのではなく、Windows ランタイムをターゲットにします。 オブジェクト参照、またはハット (^) 修飾子は、この新しい構文の重要な要素です。これによって、参照カウントに基づくランタイム オブジェクトの自動削除が可能になるためです。 Windows ランタイム オブジェクトの有効期間を管理するために [AddRef](https://docs.microsoft.com/windows/desktop/api/unknwn/nf-unknwn-iunknown-addref) や [Release](https://docs.microsoft.com/windows/desktop/api/unknwn/nf-unknwn-iunknown-release) などのメソッドを呼び出さなくても、他のコンポーネントがオブジェクトを参照していないときに (たとえばオブジェクトのスコープが終わったり、すべての参照が **nullptr** に設定されたりしたときに)、ランタイムがオブジェクトを削除します。 Visual C++ を使った UWP アプリの作成に関して、もう 1 つの重要な要素は **ref new** キーワードです。 参照カウントで管理される Windows ランタイム オブジェクトを作成するには、**new** ではなく **ref new** を使います。 詳しくは、「[型システム (C++/CX)](https://docs.microsoft.com/cpp/cppcx/type-system-c-cx)」をご覧ください。
 
 > [!IMPORTANT]
 > **^**  と **ref new** は、Windows ランタイム オブジェクトを作成するときと Windows ランタイム コンポーネントを作成するとき以外は使わないでください。 Windows ランタイムを使わないコア アプリケーション コードを作成する際は、標準の C++ 構文を使うことができます。
 
-Marble Maze は、ヒープに割り当てられたオブジェクトを **^** と **Microsoft::WRL::ComPtr** を使って管理し、メモリ リークを最小限に抑えます。 We recommend that you use ^ to manage the lifetime of Windows Runtime variables, **ComPtr** to manage the lifetime of COM variables (such as when you use DirectX), and **std::shared\_ptr** or **std::unique\_ptr** to manage the lifetime of all other heap-allocated C++ objects.
+Marble Maze は、ヒープに割り当てられたオブジェクトを **^** と **Microsoft::WRL::ComPtr** を使って管理し、メモリ リークを最小限に抑えます。 Windows ランタイム変数の有効期間を管理するに**は、^** を使用して、COM 変数の有効期間 (DirectX を使用する場合など) を管理し、 **std:: shared\_ptr**または**std:: unique\_ptr**を使用して、すべてのヒープC++割り当てオブジェクトの有効期間を管理することをお勧めします。
 
  
 
@@ -99,7 +99,7 @@ Marble Maze では、予期しないエラーに対応する主な方法とし�
 -   例外は、予期しないエラーを知らせるために使います。
 -   コードのフローを制御するためには、例外を使わないでください。
 -   キャッチする例外は安全に処理、回復できるものだけにしてください。 それ以外の例外はキャッチせず、アプリを強制終了させます。
--   **HRESULT** を返す DirectX ルーチンを呼び出す場合は、**DX::ThrowIfFailed** 関数を使います。 この関数は、[DirectXHelper.h](https://github.com/Microsoft/Windows-appsample-marble-maze/blob/master/C%2B%2B/Shared/DirectXHelper.h) 内で定義されています。 **HRESULT** がエラー コードであれば、**ThrowIfFailed** から例外がスローされます。 For example, **E\_POINTER** causes **ThrowIfFailed** to throw [Platform::NullReferenceException](https://docs.microsoft.com/cpp/cppcx/platform-nullreferenceexception-class).
+-   **HRESULT** を返す DirectX ルーチンを呼び出す場合は、**DX::ThrowIfFailed** 関数を使います。 この関数は、[DirectXHelper.h](https://github.com/Microsoft/Windows-appsample-marble-maze/blob/master/C%2B%2B/Shared/DirectXHelper.h) 内で定義されています。 **HRESULT** がエラー コードであれば、**ThrowIfFailed** から例外がスローされます。 たとえば、 **E\_ポインター**を使用すると、 **ThrowIfFailed**は[Platform:: NullReferenceException](https://docs.microsoft.com/cpp/cppcx/platform-nullreferenceexception-class)をスローします。
 
     **ThrowIfFailed** を使うときは、次の例に示すように DirectX 呼び出しを別の行に記述して、コードが読みやすくなるようにします。
 
@@ -119,7 +119,7 @@ Marble Maze では、予期しないエラーに対応する主な方法とし�
 
 Microsoft Source-code Annotation Language (SAL) を使うと、関数がパラメーターをどのように使うかを説明する注を付けることができます。 SAL 注釈は、戻り値についても説明します。 SAL 注釈を C/C++ コード分析ツールと共に使うと、C や C++ ソース コードの潜在的な不具合を検出できます。 ツールによって報告される一般的なコーディング エラーは、バッファー オーバーラン、初期化されていないメモリ、null ポインターの逆参照、メモリとリソースのリークなどです。
 
-[BasicLoader.h](https://github.com/Microsoft/Windows-appsample-marble-maze/blob/e62d68a85499e208d591d2caefbd9df62af86809/C%2B%2B/Shared/BasicLoader.h) で宣言されている **BasicLoader::LoadMesh** メソッドを検討してください。 このメソッドは、`_In_` を使って *filename* が入力パラメーターである (つまり、読み取られるだけである) ことを指定します。また、`_Out_` を使って *vertexBuffer* と *indexBuffer* が出力パラメーターである (つまり、書き込まれるだけである) ことを指定します。さらに、`_Out_opt_` を使って *vertexCount* と *indexCount* が省略可能な出力パラメーターである (書き込まれる場合がある) ことを指定します。 *vertexCount* と *indexCount* は省略可能な出力パラメーターであるため、**nullptr** にすることができます。 C/C++ コード分析ツールは、このメソッドの呼び出しを調べて、渡されるパラメーターが条件を満たしていることを確認します。
+**BasicLoader.h** で宣言されている [BasicLoader::LoadMesh](https://github.com/Microsoft/Windows-appsample-marble-maze/blob/e62d68a85499e208d591d2caefbd9df62af86809/C%2B%2B/Shared/BasicLoader.h) メソッドを検討してください。 このメソッドは、`_In_` を使って *filename* が入力パラメーターである (つまり、読み取られるだけである) ことを指定します。また、`_Out_` を使って *vertexBuffer* と *indexBuffer* が出力パラメーターである (つまり、書き込まれるだけである) ことを指定します。さらに、`_Out_opt_` を使って *vertexCount* と *indexCount* が省略可能な出力パラメーターである (書き込まれる場合がある) ことを指定します。 *vertexCount* と *indexCount* は省略可能な出力パラメーターであるため、**nullptr** にすることができます。 C/C++ コード分析ツールは、このメソッドの呼び出しを調べて、渡されるパラメーターが条件を満たしていることを確認します。
 
 ```cpp
 void LoadMesh(
@@ -143,8 +143,8 @@ Marble Maze アプリケーション コードの構造と、DirectX UWP アプ�
 ## <a name="related-topics"></a>関連トピック
 
 
-* [Marble Maze application structure](marble-maze-application-structure.md)
-* [Developing Marble Maze, a UWP game in C++ and DirectX](developing-marble-maze-a-windows-store-game-in-cpp-and-directx.md)
+* [大理石迷路アプリケーション構造](marble-maze-application-structure.md)
+* [および DirectX でのC++ UWP ゲームである大理石迷路の開発](developing-marble-maze-a-windows-store-game-in-cpp-and-directx.md)
 
  
 

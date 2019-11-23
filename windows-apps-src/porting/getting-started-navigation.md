@@ -4,7 +4,7 @@ description: ナビゲーションの概要
 ms.assetid: F4DF5C5F-C886-4483-BBDA-498C4E2C1BAF
 ms.date: 02/08/2017
 ms.topic: article
-keywords: Windows 10, UWP
+keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: dcbc8f6737c2b7450e42ed01a752087d6e9034c1
 ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
@@ -20,9 +20,9 @@ ms.locfileid: "74259147"
 
 iOS では、アプリのナビゲーション用に **UINavigationController** クラスが用意されています。ビューのプッシュ/ポップ操作を通じて、アプリを定義する **UIViewControllers** の階層を作ることができます。
 
-In contrast, a Windows 10 app containing multiple views takes more of a web-site approach to navigation. ユーザーがコントロールをクリックしてページ間を移動し、アプリ内を進むことを考えてみることができます。 詳しくは、「[ナビゲーション デザインの基本](https://docs.microsoft.com/windows/uwp/layout/navigation-basics)」をご覧ください。
+これに対し、複数のビューを含む Windows 10 アプリは、ナビゲーションのために web サイトのアプローチをさらに活用します。 ユーザーがコントロールをクリックしてページ間を移動し、アプリ内を進むことを考えてみることができます。 詳しくは、「[ナビゲーション デザインの基本](https://docs.microsoft.com/windows/uwp/layout/navigation-basics)」をご覧ください。
 
-One of the ways to manage this navigation in a Windows 10 app is to use the [**Frame**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Frame) class. 以下のチュートリアルでは実際に試す方法を示しています。
+Windows 10 アプリでこのナビゲーションを管理する方法の1つは、 [**Frame**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Frame)クラスを使用することです。 以下のチュートリアルでは実際に試す方法を示しています。
 
 以前に開始したソリューションに戻り、**MainPage.xaml** ファイルを開いて、 **[デザイン]** ビューにボタンを追加します。 このボタンの **Content** プロパティを "Button" から "Go To Page" に変更します。 次に、ボタンの **Click** イベントのハンドラーを、次の図に示すように作成します。 作成方法がわからない場合は、前のセクションのチュートリアルを見直してください (ヒント: **[デザイン]** ビューにあるボタンをダブルクリックします)。
 
@@ -34,7 +34,7 @@ One of the ways to manage this navigation in a Windows 10 app is to use the [**
 
 次に、BlankPage.xaml ファイルにボタンを追加します。 ここでは、AppBarButton コントロールを使い、ボタンに "前に戻る矢印" の画像を設定します。 **[XAML]** ビューで、` <AppBarButton Icon="Back"/>` を `<Grid> </Grid>` 要素の間に追加します。
 
-Now, let's add an event handler to the button: double-click the control in the **Design** view and Microsoft Visual Studio adds the text "AppBarButton\_Click" to the **Click** box, as shown in the following figure, and then adds and displays the corresponding event handler in the BlankPage.xaml.cs file.
+次に、イベントハンドラーをボタンに追加してみましょう。**デザイン**ビューでコントロールをダブルクリックし、次の図に示すように "AppBarButton\_click" というテキスト Microsoft Visual Studio**追加して**、対応するイベントハンドラーを BlankPage.xaml.cs ファイルに追加して表示します。
 
 ![Visual Studio での戻るボタンとそのクリック イベントの追加](images/ios-to-uwp/vs-add-back-button.png)
 
@@ -64,7 +64,7 @@ private void Button_Click(object sender, RoutedEventArgs e)
 
 それでは、プログラムを実行してみましょう。 [Go To Page] ボタンをタップすると、他のページに進みます。矢印スタイルの戻るボタンをタップすると、前のページに戻ります。
 
-ページのナビゲーションは、[**Frame**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Frame) クラスによって管理されます。 As the **UINavigationController** class in iOS uses **pushViewController** and **popViewController** methods, the **Frame** class for UWP apps provides [**Navigate**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.frame.navigate) and [**GoBack**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.frame.goback) methods. **Frame** クラスには、名前から推測されるとおりに動作する [**GoForward**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.frame.goforward) というメソッドもあります。
+ページのナビゲーションは、[**Frame**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Frame) クラスによって管理されます。 IOS の**UINavigationController**クラスで**Pushviewcontroller**メソッドと**popviewcontroller**メソッドが使用されているため、UWP アプリの**Frame**クラスは[**Navigate**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.frame.navigate)メソッドと[**GoBack**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.frame.goback)メソッドを提供します。 **Frame** クラスには、名前から推測されるとおりに動作する [**GoForward**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.frame.goforward) というメソッドもあります。
 
 このチュートリアルでは、ナビゲーションを行うたびに BlankPage の新しいインスタンスが作成されます。 (前のインスタンスは自動的に*解放*されます)。 毎回新しいインスタンスが作成されることがないようにするには、BlankPage.xaml.cs ファイル内の BlankPage クラスのコンストラクターに以下のコードを追加します。 これにより、[**NavigationCacheMode**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.page.navigationcachemode) 動作が有効になります。
 
@@ -81,9 +81,9 @@ public BlankPage()
 
 ナビゲーションについて詳しくは、「[ナビゲーション](https://docs.microsoft.com/windows/uwp/layout/navigation-basics)」と「[XAML パーソナリティ アニメーションのサンプル](https://code.msdn.microsoft.com/windowsapps/Personality-Animations-3f857919)」をご覧ください。
 
-**Note**  For info about navigation for UWP apps using JavaScript and HTML, see [Quickstart: Using single-page navigation](https://docs.microsoft.com/previous-versions/windows/apps/hh452768(v=win.10)).
+**注**  JAVASCRIPT と HTML を使用した UWP アプリのナビゲーションの詳細については、「[クイックスタート: 単一ページナビゲーションの使用](https://docs.microsoft.com/previous-versions/windows/apps/hh452768(v=win.10))」を参照してください。
  
 ### <a name="next-step"></a>次の手順
 
-[Getting started: Animation](getting-started-animation.md)
+[はじめに: アニメーション](getting-started-animation.md)
 

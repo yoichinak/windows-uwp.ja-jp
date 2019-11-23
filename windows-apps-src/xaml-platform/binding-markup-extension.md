@@ -4,7 +4,7 @@ title: Binding マークアップ拡張
 ms.assetid: 3BAFE7B5-AF33-487F-9AD5-BEAFD65D04C3
 ms.date: 02/08/2017
 ms.topic: article
-keywords: Windows 10, UWP
+keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.custom: RS5
 ms.openlocfilehash: 6f11aae7d08f25e9dffaee12e24d1486cf9de581
@@ -57,7 +57,7 @@ ms.locfileid: "72998610"
 
 データ ソースがコレクションである場合、プロパティ パスには、位置またはインデックスによりコレクション内の項目を指定できます。 たとえば、"Teams\[0\]です。"\[\]" というリテラルは、コレクション内の最初の項目を指定する "0" を囲みます。
 
-既にある [**DependencyObject**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.DependencyObject) への [**ElementName**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.elementname) バインドを使う場合は、プロパティ パスの一部として添付プロパティを使うことができます。 添付プロパティの名前に含まれるドットがプロパティ パスへのステップとは見なされないように、添付プロパティを明確に示すには、所有者で修飾された添付プロパティの名前を、`(AutomationProperties.Name)` のようにかっこで囲みます。
+既にある [**DependencyObject**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.elementname) への [**ElementName**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.DependencyObject) バインドを使う場合は、プロパティ パスの一部として添付プロパティを使うことができます。 添付プロパティの名前に含まれるドットがプロパティ パスへのステップとは見なされないように、添付プロパティを明確に示すには、所有者で修飾された添付プロパティの名前を、`(AutomationProperties.Name)` のようにかっこで囲みます。
 
 プロパティ パスの中間オブジェクトは、実行時の形式で [**PropertyPath**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.PropertyPath) オブジェクトとして格納されますが、ほとんどのシナリオでは、コードで **PropertyPath** オブジェクトを操作する必要はありません。 通常、XAML を使って必要なバインド情報を指定できます。
 
@@ -120,7 +120,7 @@ ms.locfileid: "72998610"
 </Page>
 ```
 
-2 番目の例では、[**ElementName**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.elementname)、[**Path**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.path)、[**Mode**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.mode)、[**Converter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.converter) の 4 種類の [**Binding**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.Binding) プロパティを設定します。 **Path** はここで、**Binding** プロパティであることが明示的に示された状態で表示されています。 **Path** は、データ バインド ソースに評価されます。このデータ バインド ソースは、同じランタイム オブジェクト ツリーにある別のオブジェクト、具体的には `sliderValueConverter` という名前の [**Slider**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Slider) です。
+2 番目の例では、[**ElementName**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.Binding)、[**Path**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.elementname)、[**Mode**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.path)、[**Converter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.mode) の 4 種類の [**Binding**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.converter) プロパティを設定します。 **Path** はここで、**Binding** プロパティであることが明示的に示された状態で表示されています。 **Path** は、データ バインド ソースに評価されます。このデータ バインド ソースは、同じランタイム オブジェクト ツリーにある別のオブジェクト、具体的には [ という名前のSlider](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Slider)`sliderValueConverter` です。
 
 [  **Converter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.converter) プロパティの値が別のマークアップ拡張 [{StaticResource} マークアップ拡張](staticresource-markup-extension.md) を使っていることに注意してください。つまり、ここでは入れ子になったマークアップ拡張が 2 つ使われています。 内側のものが最初に評価されます。このため、リソースが取得されると、バインドに使える実用的な [**IValueConverter**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.IValueConverter) (リソースの `local:S2Formatter` 要素によってインスタンス化されるカスタム クラス) が存在することになります。
 

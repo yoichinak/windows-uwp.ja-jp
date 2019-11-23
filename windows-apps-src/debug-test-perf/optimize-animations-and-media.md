@@ -32,7 +32,7 @@ UWP アプリの重要な側面は、スムーズな対話式操作です。 こ
 -   再生時間が 0 のアニメーション
 -   [  **Canvas.Left**](https://docs.microsoft.com/dotnet/api/system.windows.controls.canvas.left) プロパティと [**Canvas.Top**](https://docs.microsoft.com/dotnet/api/system.windows.controls.canvas.top) プロパティに対するアニメーション
 -   [  **UIElement.Opacity**](/uwp/api/Windows.UI.Xaml.UIElement.Opacity) プロパティに対するアニメーション
--   [  **SolidColorBrush.Color**](/uwp/api/Windows.UI.Xaml.Media.SolidColorBrush.Color) サブプロパティをターゲット設定した場合の、[**Brush**](/uwp/api/Windows.UI.Xaml.Media.Brush) 型のプロパティに対するアニメーション
+-   [  **SolidColorBrush.Color**](/uwp/api/Windows.UI.Xaml.Media.Brush) サブプロパティをターゲット設定した場合の、[**Brush**](/uwp/api/Windows.UI.Xaml.Media.SolidColorBrush.Color) 型のプロパティに対するアニメーション
 -   これらの戻り値の型のサブプロパティをターゲット設定した場合の、次の [**UIElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement) プロパティに対するアニメーション
 
     -   [**System.windows.uielement.rendertransform**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.rendertransform)
@@ -44,7 +44,7 @@ UWP アプリの重要な側面は、スムーズな対話式操作です。 こ
 
 XAML フレームワーク内のほぼすべてのアニメーションは、既定で独立して実行されますが、この最適化が無効になる操作がいくつかあります。 特に次のようなシナリオに注意してください。
 
--   依存型アニメーションを UI スレッドで実行できるように [**EnableDependentAnimation**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.pointanimation.enabledependentanimation) プロパティを設定する。 そうしたアニメーションは、独立型バージョンに変換します。 たとえば、オブジェクトの [**Width**](/uwp/api/Windows.UI.Xaml.FrameworkElement.Width) と [**Height**](/uwp/api/Windows.UI.Xaml.FrameworkElement.Height) ではなく、[**ScaleTransform.ScaleX**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.scaletransform.scalex) と [**ScaleTransform.ScaleY**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.scaletransform.scaley) をアニメーション化します。 画像やテキストなどのオブジェクトも拡大/縮小できます。 [  **ScaleTransform**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.ScaleTransform) がアニメーション化されている間のみ、フレームワークによってバイリニア スケーリングが適用されます。 画像やテキストは、常にきれいに表示されるように、最終的なサイズでもう一度ラスター化されます。
+-   依存型アニメーションを UI スレッドで実行できるように [**EnableDependentAnimation**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.pointanimation.enabledependentanimation) プロパティを設定する。 そうしたアニメーションは、独立型バージョンに変換します。 たとえば、オブジェクトの [**Width**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.scaletransform.scalex) と [**Height**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.scaletransform.scaley) ではなく、[**ScaleTransform.ScaleX**](/uwp/api/Windows.UI.Xaml.FrameworkElement.Width) と [**ScaleTransform.ScaleY**](/uwp/api/Windows.UI.Xaml.FrameworkElement.Height) をアニメーション化します。 画像やテキストなどのオブジェクトも拡大/縮小できます。 [  **ScaleTransform**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.ScaleTransform) がアニメーション化されている間のみ、フレームワークによってバイリニア スケーリングが適用されます。 画像やテキストは、常にきれいに表示されるように、最終的なサイズでもう一度ラスター化されます。
 -   フレームごとに更新する。これは、実質的には依存型アニメーションです。 これの例には、[**CompositonTarget.Rendering**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.compositiontarget.rendering) イベントのハンドラーでの変換の適用があります。
 -   [  **CacheMode**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.cachemode) プロパティを **BitmapCache** に設定した要素で独立型と見なされるアニメーションを実行する。 これは、フレームごとにキャッシュをもう一度ラスター化する必要があるため、依存型と見なされます。
 
@@ -54,7 +54,7 @@ XAML フレームワーク内のほぼすべてのアニメーションは、既
 
 [  **MediaPlayerElement**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement) のアニメーション化も同様に適切ではない方法です。 パフォーマンスが低下するだけでなく、再生中のビデオ コンテンツに裂け目のようなアーティファクトが発生することがあります。
 
-> **注**   この記事の**MediaPlayerElement**に関する推奨事項は、 [**MediaElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.MediaElement)にも適用されます。 **MediaPlayerElement** は Windows 10 バージョン 1607 でのみ利用できます。以前のバージョンの Windows 用のアプリを作成する場合は、**MediaElement** を使う必要があります。
+> **MediaPlayerElement**に関するこの記事に記載されている推奨事項は、 [**MediaElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.MediaElement)にも適用**さ   ます**。 **MediaPlayerElement** は Windows 10 バージョン 1607 でのみ利用できます。以前のバージョンの Windows 用のアプリを作成する場合は、**MediaElement** を使う必要があります。
 
 ### <a name="use-infinite-animations-sparingly"></a>無限アニメーションは慎重に使う
 
@@ -66,7 +66,7 @@ XAML フレームワーク内のほぼすべてのアニメーションは、既
 
 [  **Windows.UI.Xaml.Media.Animation**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation) 名前空間には、他の Windows アニメーションとの一貫性を備えた外観を持つ、高パフォーマンスかつスムーズなアニメーションのライブラリが含まれています。 関連クラスは名前に "Theme" が含まれています。関連クラスについては、「[アニメーションの概要](https://docs.microsoft.com/windows/uwp/graphics/animations-overview)」をご覧ください。 このライブラリは、アプリの最初の表示や、状態とコンテンツの切り替えにアニメーションを設定するなど、一般的なアニメーション シナリオの多くに対応しています。 パフォーマンスを高め UWP UI との一貫性を強化するために、できるだけこのアニメーション ライブラリを使うことをお勧めします。
 
-> **@No__t-** 1 アニメーションライブラリでは、使用可能なすべてのプロパティをアニメーション化することはできません。 アニメーション ライブラリが適用されない XAML シナリオについては、「[ストーリーボードに設定されたアニメーション](https://docs.microsoft.com/windows/uwp/graphics/storyboarded-animations)」を参照してください。
+> アニメーションライブラリでは、使用可能なすべてのプロパティをアニメーション化できない   に**注意**してください。 アニメーション ライブラリが適用されない XAML シナリオについては、「[ストーリーボードに設定されたアニメーション](https://docs.microsoft.com/windows/uwp/graphics/storyboarded-animations)」を参照してください。
 
 
 ### <a name="animate-compositetransform3d-properties-independently"></a>CompositeTransform3D のプロパティを個別にアニメーション化する
@@ -85,7 +85,7 @@ XAML フレームワーク内のほぼすべてのアニメーションは、既
 
 ### <a name="display-full-screen-video-playback-when-possible"></a>可能な場合はビデオ再生を全画面表示
 
-UWP アプリでは、フル ウィンドウのレンダリングを有効または無効にする場合、常に [**MediaPlayerElement**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement) の [**IsFullWindow**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement.isfullwindow) プロパティを使います。 そうすることで、メディアの再生中にシステム レベルの最適化が使われることが保証されます。
+UWP アプリでは、フル ウィンドウのレンダリングを有効または無効にする場合、常に [**MediaPlayerElement**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement.isfullwindow) の [**IsFullWindow**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement) プロパティを使います。 そうすることで、メディアの再生中にシステム レベルの最適化が使われることが保証されます。
 
 XAML フレームワークでは、レンダリングの対象がビデオ コンテンツだけの場合は、ビデオ コンテンツの表示を最適化することができます。その結果、消費電力が低減され、フレーム レートが改善されます。 メディアの再生を最適化するには、**MediaPlayerElement** のサイズを画面の幅と高さに設定し、他の XAML 要素を表示しないようにします。
 
@@ -127,7 +127,7 @@ XAML フレームワークでは、レンダリングの対象がビデオ コ�
 
 メディア プラットフォームの応答性を高めるにあたってスクラブは常に困難を伴うタスクです。 一般的には、Slider の値を変更することで、これを実現します。 次に、スクラブ操作をできるだけ効率的にするためのヒントをいくつか示します。
 
--   [  **Slider**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Slider) の値を [**MediaPlayerElement.MediaPlayer**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement.mediaplayer) の [**Position**](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplaybacksession.position) を照会するタイマーに基づいて更新します。 タイマーに適切な更新頻度を設定します。 **Position** プロパティは再生中に 250 ミリ秒ごとにのみ更新します。
+-   [  **Slider**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Slider) の値を [**MediaPlayerElement.MediaPlayer**](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplaybacksession.position) の [**Position**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement.mediaplayer) を照会するタイマーに基づいて更新します。 タイマーに適切な更新頻度を設定します。 **Position** プロパティは再生中に 250 ミリ秒ごとにのみ更新します。
 -   Slider のステップ間隔のサイズは、ビデオの長さに合わせて変える必要があります。
 -   スライダーの [**PointerPressed**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerpressed)、[**PointerMoved**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointermoved)、[**PointerReleased**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerreleased) イベントを取得して、ユーザーがスライダーのつまみをドラッグしたときに [**PlaybackRate**](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplaybacksession.playbackrate) プロパティを 0 に設定します。
 -   [  **PointerReleased**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerreleased) イベント ハンドラーで、スクラブ中のつまみのスナップ動作を最適化するために、メディアの位置をスライダーの位置の値に手動で設定します。
@@ -185,7 +185,7 @@ DecodePixelWidth/DecodePixelHeight が明示的に画面に表示される画像
 
 明示的なデコード サイズを設定していない場合、XAML では、画像を表示するページの初期レイアウトに従って、画面に表示される正確なサイズで画像をデコードすることにより、メモリの消費を最大限に抑えようとします。 可能な限り、この機能を使用するような方法でアプリケーションを作成することをお勧めします。 次の条件のいずれかが満たされる場合、この機能は無効になります。
 
--   [  **SetSourceAsync**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.bitmapsource.setsourceasync) または [**UriSource**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.bitmapimage.urisource) を使ってコンテンツを設定した後、[**BitmapImage**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Imaging.BitmapImage) がライブ XAML ツリーに接続されている。
+-   [  **SetSourceAsync**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Imaging.BitmapImage) または [**UriSource**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.bitmapsource.setsourceasync) を使ってコンテンツを設定した後、[**BitmapImage**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.bitmapimage.urisource) がライブ XAML ツリーに接続されている。
 -   画像が [**SetSource**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.bitmapsource.setsource) などの同期デコードを使用してデコードされる。
 -   ホスト画像要素、ブラシ、親要素のいずれかで、[**Opacity**](/uwp/api/Windows.UI.Xaml.UIElement.Opacity) を 0 に設定するか、[**Visibility**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.visibility) を **Collapsed** に設定することによって、画像が非表示になっている。
 -   画像コントロールまたはブラシで使用する [**Stretch**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Stretch) が **None** になっている。
@@ -243,7 +243,7 @@ myImage.Source = bitmapImage;
 
 ### <a name="software-rasterized-images"></a>ソフトウェアでラスタライズされた画像
 
-画像が四角形以外のブラシや [**NineGrid**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.image.ninegrid) 用に使用されている場合、画像の拡大縮小が行われない、ソフトウェア ラスタライズ パスが使用されます。 さらに、ソフトウェアとハードウェアの両方のメモリに画像のコピーを保存して必要があります。 たとえば、画像が楕円形のブラシとして使われる場合、大きい可能性がある画像全体は内部で 2 回保存されます。 **NineGrid** または四角形以外のブラシを使用する場合は、アプリで画像を事前に拡大縮小し、レンダリング時のおよそのサイズにしておく必要があります。
+画像が四角形以外のブラシや [**NineGrid**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.image.ninegrid) 用に使用されている場合、画像の拡大縮小が行われない、ソフトウェア ラスタライズ パスが使用されます。 また、ソフトウェアとハードウェアの両方のメモリに画像のコピーを保存する必要があります。 たとえば、画像が楕円形のブラシとして使われる場合、大きい可能性がある画像全体は内部で 2 回保存されます。 **NineGrid** または四角形以外のブラシを使用する場合は、アプリで画像を事前に拡大縮小し、レンダリング時のおよそのサイズにしておく必要があります。
 
 ### <a name="background-thread-image-loading"></a>バックグラウンド スレッドによる画像の読み込み
 
@@ -259,7 +259,7 @@ XAML には内部の最適化機能があり、ソフトウェア メモリ内�
 
 ソース情報を提供する [**SoftwareBitmap**](https://docs.microsoft.com/uwp/api/Windows.Graphics.Imaging.SoftwareBitmap) は、カスタム [**IWICBitmap**](https://docs.microsoft.com/windows/desktop/api/wincodec/nn-wincodec-iwicbitmap) を使用するように構成して、再読み込み可能なバッキング ストアを提供することもできます。これにより、アプリは必要に応じてメモリを再マップできます。 これは、高度な C++ の使用事例です。
 
-画像を生成および使用する他の WinRT API と相互運用するには、アプリで [**SoftwareBitmap**](https://docs.microsoft.com/uwp/api/Windows.Graphics.Imaging.SoftwareBitmap) と [**SoftwareBitmapSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Imaging.SoftwareBitmapSource) を使う必要があります。 また、アプリで非圧縮画像データを読み込むときには、[**WriteableBitmap**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Imaging.WriteableBitmap) を使用する代わりに、**SoftwareBitmapSource** を使用する必要があります。
+画像を生成および使用する他の WinRT API と相互運用するには、アプリで [**SoftwareBitmap**](https://docs.microsoft.com/uwp/api/Windows.Graphics.Imaging.SoftwareBitmap) と [**SoftwareBitmapSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Imaging.SoftwareBitmapSource) を使う必要があります。 また、アプリで非圧縮画像データを読み込むときには、WriteableBitmap[ **を使用する代わりに、** SoftwareBitmapSource](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Imaging.WriteableBitmap) を使用する必要があります。
 
 ### <a name="use-getthumbnailasync-for-thumbnails"></a>GetThumbnailAsync を使ったサムネイル
 

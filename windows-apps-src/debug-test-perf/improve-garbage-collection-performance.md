@@ -18,7 +18,7 @@ ms.locfileid: "72282188"
 
 C# と Visual Basic で記述されたユニバーサル Windows プラットフォーム (UWP) アプリは、.NET ガベージ コレクターによって、自動的にメモリ管理が行われます。 このセクションでは、UWP アプリでの .NET ガーベジ コレクターの動作とパフォーマンスに関するベスト プラクティスについて説明します。 .NET ガーベジ コレクターのしくみと、ガーベジ コレクターのパフォーマンスをデバッグおよび分析するためのツールについて詳しくは、「[ガベージ コレクション](https://docs.microsoft.com/dotnet/standard/garbage-collection/index)」をご覧ください。
 
-**注**   ガベージコレクターの既定の動作に介入する必要があることは、アプリに関する一般的なメモリの問題を意味します。 詳しくは、「[Memory Usage Tool while debugging in Visual Studio 2015 (Visual Studio でのユーザー モード デバッグの設定)](https://devblogs.microsoft.com/devops/memory-usage-tool-while-debugging-in-visual-studio-2015/)」をご覧ください。 このトピックは、C# と Visual Basic にのみ適用されます。
+**注:** ガベージコレクターの既定の動作に介入する必要がある  、アプリに関する一般的なメモリの問題を厳密に示すことになります。 詳しくは、「[Memory Usage Tool while debugging in Visual Studio 2015 (Visual Studio でのユーザー モード デバッグの設定)](https://devblogs.microsoft.com/devops/memory-usage-tool-while-debugging-in-visual-studio-2015/)」をご覧ください。 このトピックは、C# と Visual Basic にのみ適用されます。
 
  
 
@@ -42,7 +42,7 @@ C# と Visual Basic で記述されたユニバーサル Windows プラットフ
 
 [  **GC.Collect(n)** ](https://docs.microsoft.com/dotnet/api/system.gc.collect#System_GC_Collect_System_Int32_) を呼び出すと、ジェネレーション別にガベージ コレクションを実行できます。n には、コレクションを実行するジェネレーション (0、1、または 2) を指定します。
 
-**注**  ガベージ コレクターは、コレクションの実行に最適なタイミングを判断するために多くのヒューリスティックを使用し、コレクションを強制することは、多くの場合 CPU の不要な使用であるため、アプリではガベージコレクションを強制しないことをお勧めします。 ただし、アプリ内のたくさんのオブジェクトが使われなくなることがわかっており、そのメモリをシステムに返す必要がある場合は、ガベージ コレクションを強制的に実行してもかまいません。 たとえば、ゲームの読み込みシーケンスの最後にコレクションを実行すると、ゲームプレイが始まる前にメモリを解放できます。
+**注**  ガベージコレクターは多くのヒューリスティックを使用してコレクションの実行に最適な時間を決定し、コレクションを強制することは、多くの場合、CPU の不要な使用になるため、アプリではガベージコレクションを強制しないことをお勧めします。 ただし、アプリ内のたくさんのオブジェクトが使われなくなることがわかっており、そのメモリをシステムに返す必要がある場合は、ガベージ コレクションを強制的に実行してもかまいません。 たとえば、ゲームの読み込みシーケンスの最後にコレクションを実行すると、ゲームプレイが始まる前にメモリを解放できます。
  
 ガベージ コレクションが誤って何度も実行されないようにするには、[**GCCollectionMode**](https://docs.microsoft.com/dotnet/api/system.gccollectionmode) を **Optimized** に設定します。 これにより、コレクションが妥当で生産的であると判断した場合にのみ、ガベージ コレクターがコレクションを開始するようになります。
 

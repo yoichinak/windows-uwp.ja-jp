@@ -4,7 +4,7 @@ title: Windows アプリ認定キット
 description: 作成したアプリを Microsoft Store に公開する、または Windows 認定を受ける最善の方法は、認定のためにアプリを提出する前に、ローカルでアプリの検証とテストを行うことです。 このトピックでは、Windows アプリ認定キットのインストール方法と実行方法について説明します。
 ms.date: 02/08/2017
 ms.topic: article
-keywords: windows 10, uwp, app certification
+keywords: windows 10、uwp、アプリ認定
 ms.localizationpriority: medium
 ms.openlocfilehash: 4772edb9c99426396b7fa3a8734e2f45391c3a0f
 ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
@@ -17,18 +17,18 @@ ms.locfileid: "74257831"
 
 
 
-To get your app [Windows Certified](https://msdn.microsoft.com/windows/desktop/jj134964.aspx) or prepare it for [publication to the Microsoft Store](https://docs.microsoft.com/windows/uwp/publish/app-submissions), you should validate and test it locally first. This topic shows you how to install and run the [Windows App Certification Kit](https://msdn.microsoft.com/en-US/windows/apps/bg127575) to ensure your app is safe and efficient.
+アプリの[Windows 認定](https://msdn.microsoft.com/windows/desktop/jj134964.aspx)を取得するか、 [Microsoft Store へのパブリケーション](https://docs.microsoft.com/windows/uwp/publish/app-submissions)を準備するには、最初にローカルで検証してテストする必要があります。 このトピックでは、 [Windows アプリ認定キット](https://msdn.microsoft.com/en-US/windows/apps/bg127575)をインストールして実行し、アプリが安全で効率的であることを確認する方法について説明します。
 
 ## <a name="prerequisites"></a>前提条件
 
 ユニバーサル Windows アプリのテストの前提条件:
 
--   You must install and run Windows 10.
--   You must install [Windows App Certification Kit version 10]( https://go.microsoft.com/fwlink/p/?LinkID=309666), which is included in the Windows Software Development Kit (SDK) for Windows 10.
+-   Windows 10 をインストールして実行する必要があります。
+-   Windows[アプリ認定キットバージョン 10]( https://go.microsoft.com/fwlink/p/?LinkID=309666)をインストールする必要があります。これは、windows 10 用 Windows ソフトウェア開発キット (SDK) に含まれています。
 -   [開発用にデバイスを有効にする](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)必要があります。
 -   テストする Windows アプリをコンピューターに展開する必要があります。
 
-**A note about in-place upgrades**
+**インプレースアップグレードに関する注意事項**
 
 最新の [Windows アプリ認定キット]( https://go.microsoft.com/fwlink/p/?LinkID=309666)をインストールすると、コンピューターにインストールされているキットの以前のバージョンが置き換えられます。
 
@@ -42,7 +42,7 @@ To get your app [Windows Certified](https://msdn.microsoft.com/windows/desktop/j
 
 3.  テストするアプリを入力するか選択したら **[次へ]** をクリックします。
 
-4.  次の画面からは、テストするアプリの種類に合ったテスト ワークフローが表示されます。 一覧でテストが淡色されている場合、お使いの環境にはそのテストが適用されません。 たとえば、Windows 7 で Windows 10 アプリをテストする場合、静的テストのみがワークフローに適用されます。 Note that the Microsoft Store may apply all tests from this workflow. 実行するテストを選んで **[次へ]** をクリックします。
+4.  次の画面からは、テストするアプリの種類に合ったテスト ワークフローが表示されます。 一覧でテストが淡色されている場合、お使いの環境にはそのテストが適用されません。 たとえば、Windows 7 で Windows 10 アプリをテストする場合、静的テストのみがワークフローに適用されます。 Microsoft Store によって、このワークフローのすべてのテストが適用される場合があることに注意してください。 実行するテストを選んで **[次へ]** をクリックします。
 
     Windows アプリ認定キットによってアプリの検証が開始されます。
 
@@ -53,18 +53,18 @@ To get your app [Windows Certified](https://msdn.microsoft.com/windows/desktop/j
 6.  レポート ファイルを開いて、テストの結果を確認します。
 
 > [!NOTE]
-> If you're using Visual Studio, you can run the Windows App Certification Kit when you create your app package. 方法については、「[UWP アプリのパッケージ化](/windows/msix/package/packaging-uwp-apps)」をご覧ください。
+> Visual Studio を使用している場合は、アプリパッケージを作成するときに Windows アプリ認定キットを実行できます。 方法については、「[UWP アプリのパッケージ化](/windows/msix/package/packaging-uwp-apps)」をご覧ください。
 
  
 
 ## <a name="validate-your-windows-app-using-the-windows-app-certification-kit-from-a-command-line"></a>コマンド ラインから Windows アプリ認定キットを使った Windows アプリを検証する
 
 > [!IMPORTANT]
-> The Windows App Certification Kit must be run within the context of an active user session.
+> Windows アプリ認定キットは、アクティブなユーザーセッションのコンテキスト内で実行する必要があります。
 
 1.  コマンド ウィンドウで、Windows アプリ認定キットを含むディレクトリに移動します。
 
-    **Note**   The default path is C:\\Program Files\\Windows Kits\\10\\App Certification Kit\\.
+    既定のパスは、C:\\Program Files\\Windows Kit\\10\\アプリ認定キット\\である**こと**を   ます。
 
 2.  次のコマンドをこの順序で入力し、テスト コンピューターにすでにインストールされているアプリをテストします。
 
@@ -80,21 +80,21 @@ To get your app [Windows Certified](https://msdn.microsoft.com/windows/desktop/j
 
 3.  テストが完了したら、`[report file name]` という名前のレポート ファイルを開いて、テスト結果を確認します。
 
-**Note**  The Windows App Certification Kit can be run from a service, but the service must initiate the kit process within an active user session and cannot be run in Session0.
+Windows アプリ認定キットはサービスから実行できますが、サービスはアクティブなユーザーセッション内でキットプロセスを開始する必要があり、Session0 では実行できないことに  **注意**してください。
 
-**Note**   For more info about the Windows App Certification Kit command line, enter the command `appcert.exe /?`
+**注**   Windows アプリ認定キットのコマンドラインの詳細については、コマンドを入力してください `appcert.exe /?`
 
 ## <a name="testing-with-a-low-power-computer"></a>低電力コンピューターでのテスト
 
 Windows アプリ認定キットで使用するパフォーマンス テストのしきい値は、低電力コンピューターのパフォーマンスに基づいて設定します。
 
-テストを実行するコンピューターの特性がテスト結果に影響することがあります。 To determine if your app’s performance meets the [Microsoft Store Policies](https://docs.microsoft.com/legal/windows/agreements/store-policies), we recommend that you test your app on a low-power computer, such as an Intel Atom processor-based computer with a screen resolution of 1366x768 (or higher) and a rotational hard drive (as opposed to a solid-state hard drive).
+テストを実行するコンピューターの特性がテスト結果に影響することがあります。 アプリのパフォーマンスが[Microsoft Store ポリシー](https://docs.microsoft.com/legal/windows/agreements/store-policies)を満たしているかどうかを判断するには、1366x768 (またはそれ以降) の画面解像度を備えた Intel Atom プロセッサベースのコンピューターや、(ソリッドステートハードドライブではなく) 回転ハードドライブで、アプリを低電力のコンピューターでテストすることをお勧めします。
 
-低電力コンピューターの進化に伴い、パフォーマンスの特性が時間の経過と共に変化する可能性があります。 Refer to the most current [Microsoft Store Policies](https://docs.microsoft.com/legal/windows/agreements/store-policies) and test your app with the most current version of the Windows App Certification Kit to make sure that your app complies with the latest performance requirements.
+低電力コンピューターの進化に伴い、パフォーマンスの特性が時間の経過と共に変化する可能性があります。 最新の[Microsoft Store ポリシー](https://docs.microsoft.com/legal/windows/agreements/store-policies)を参照し、最新バージョンの Windows アプリ認定キットでアプリをテストして、アプリが最新のパフォーマンス要件に準拠していることを確認してください。
 
 ## <a name="related-topics"></a>関連トピック
 
-* [Windows App Certification Kit tests](windows-app-certification-kit-tests.md)
+* [Windows アプリ認定キットテスト](windows-app-certification-kit-tests.md)
 * [Microsoft Store ポリシー](https://docs.microsoft.com/legal/windows/agreements/store-policies)
  
 

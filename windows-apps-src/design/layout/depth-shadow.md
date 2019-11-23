@@ -65,7 +65,7 @@ ThemeShadow が MenuFlyout アウトに実装された方法を次に示しま�
 - [Media transport control](../controls-and-patterns/media-playback.md#media-transport-controls)、 [inktoolbar](../controls-and-patterns/inking-controls.md)
 - [接続型アニメーション](../motion/connected-animation.md)
 
-メモ:Flyouts は、Windows 10 バージョン1903またはそれより新しい SDK に対してコンパイルされた場合にのみ、ThemeShadow を適用します。
+注: Flyouts は、Windows 10 バージョン1903またはそれより新しい SDK に対してコンパイルされた場合にのみ ThemeShadow を適用します。
 
 ### <a name="themeshadow-in-popups"></a>ThemeShadow のポップアップ
 
@@ -115,7 +115,7 @@ PopupRectangle.Translation += new Vector3(0, 0, 32);
 
 一般に、影の使用について慎重に検討し、意味のある視覚的階層が導入されている場合にその使用を制限することをお勧めします。 ただし、高度なシナリオが必要になった場合に備えて、任意の UI 要素から影をキャストする方法を提供します。
 
-ポップアップに含まれていない XAML 要素から影をキャストするには、@no__t 0 のコレクションで影を受け取ることができる他の要素を明示的に指定する必要があります。 レシーバーをビジュアルツリー内のキャスターの先祖にすることはできません。
+ポップアップに含まれていない XAML 要素から影をキャストするには、`ThemeShadow.Receivers` コレクションでシャドウを受け取ることができる他の要素を明示的に指定する必要があります。 レシーバーをビジュアルツリー内のキャスターの先祖にすることはできません。
 
 この例では、影を下のグリッドにキャストする2つの四角形を示します。
 
@@ -162,10 +162,10 @@ DropShadow は環境に自動的に応答せず、光源を使用しません。
 | プロパティ | ThemeShadow | DropShadow |
 | - | - | - | - |
 | **最小 SDK** | Windows 10 バージョン1903 | 14393 |
-| **適応性** | はい | いいえ |
-| **Customization** | いいえ | はい |
+| **適応性** | 〇 | X |
+| **Customization** | X | 〇 |
 | **光源** | 自動 (既定ではグローバルですが、アプリごとに上書きできます) | なし |
-| **3D 環境でサポート** | はい | いいえ |
+| **3D 環境でサポート** | 〇 | X |
 
 - Shadow の目的は、単純な視覚的な取り扱いではなく、意味のある階層を提供することに注意してください。
 - 一般に、環境に自動的に適応する ThemeShadow を使用することをお勧めします。

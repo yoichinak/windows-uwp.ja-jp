@@ -1,9 +1,9 @@
 ---
-title: Brokered Windows Runtime components for a side-loaded UWP app
-description: This paper discusses an enterprise-targeted feature supported by Windows 10, which allows touch-friendly .NET apps to use the existing code responsible for key business-critical operations.
+title: サイドロードされた UWP アプリ用の仲介型 Windows ランタイムコンポーネント
+description: このホワイトペーパーでは、Windows 10 でサポートされている企業向けの機能について説明します。これにより、タッチ対応の .NET アプリで主要なビジネスクリティカルな操作を担当する既存のコードを使用できるようになります。
 ms.date: 02/08/2017
 ms.topic: article
-keywords: Windows 10, UWP
+keywords: windows 10, uwp
 ms.assetid: 81b3930c-6af9-406d-9d1e-8ee6a13ec38a
 ms.localizationpriority: medium
 ms.openlocfilehash: 77993256752f081c5abc4f56164d0846c2b61060
@@ -13,13 +13,13 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74258770"
 ---
-# <a name="brokered-windows-runtime-components-for-a-side-loaded-uwp-app"></a>Brokered Windows Runtime components for a side-loaded UWP app
+# <a name="brokered-windows-runtime-components-for-a-side-loaded-uwp-app"></a>サイドロードされた UWP アプリ用の仲介型 Windows ランタイムコンポーネント
 
-This article discusses an enterprise-targeted feature supported by Windows 10, which allows touch-friendly .NET apps to use the existing code responsible for key business-critical operations.
+この記事では、Windows 10 でサポートされているエンタープライズ向けの機能について説明します。これにより、タッチ対応の .NET アプリで主要なビジネスクリティカルな操作を担当する既存のコードを使用できるようになります。
 
 ## <a name="introduction"></a>概要
 
->**Note**  The sample code that accompanies this paper may be downloaded for [Visual Studio 2015 & 2017](https://github.com/Microsoft/Brokered-WinRT-Components). Windows ランタイム コンポーネント ブローカーをビルドするための Microsoft Visual Studio テンプレートは、「[Visual Studio 2015 template targeting Universal Windows Apps for Windows 10](https://marketplace.visualstudio.com/items?itemName=vs-publisher-713547.VS2015TemplateBrokeredComponents)」(Windows 10 用のユニバーサル Windows アプリをターゲットとする Visual Studio 2015 テンプレート) でダウンロードできます。
+>このホワイトペーパーに付属するサンプルコードは、 [Visual Studio 2015 & 2017](https://github.com/Microsoft/Brokered-WinRT-Components)用に**ダウンロード  こと**があります。 Windows ランタイム コンポーネント ブローカーをビルドするための Microsoft Visual Studio テンプレートは、「[Visual Studio 2015 template targeting Universal Windows Apps for Windows 10](https://marketplace.visualstudio.com/items?itemName=vs-publisher-713547.VS2015TemplateBrokeredComponents)」(Windows 10 用のユニバーサル Windows アプリをターゲットとする Visual Studio 2015 テンプレート) でダウンロードできます。
 
 Windows には、*サイドロード アプリケーション用の Windows ランタイム コンポーネント ブローカー*という新機能が用意されています。 既存のデスクトップ ソフトウェア資産を 1 つのプロセス (デスクトップ コンポーネント) 内で実行しつつ、UWP アプリからこのコードとやり取りできるようにする機能は、IPC (プロセス間通信) と呼ばれます。 これはエンタープライズ開発者には馴染みのあるモデルです。同様のマルチプロセス アーキテクチャは、データベース アプリケーションや、Windows で NT サービスを利用するアプリケーションでも使用されているためです。
 
@@ -28,36 +28,36 @@ Windows には、*サイドロード アプリケーション用の Windows ラ�
 
 このアプリケーション アーキテクチャが主に対象としているのが、データ中心のアプリケーションです。 たとえば SQL Server に格納されている既存のビジネス ルールは、デスクトップ コンポーネントの共通の構成要素になります。 デスクトップ コンポーネントが提供できるのは、この種類の機能だけではありません。この機能に対する要求のほとんどが既存のデータとビジネス ロジックに関連していることは確かなことです。
 
-Lastly, given the overwhelming penetration of the .NET runtime and the C\# language in enterprise development, this feature was developed with an emphasis on using .NET for both the UWP app and the desktop component sides. While there are other languages and runtimes possible for the UWP app, the accompanying sample only illustrates C\#, and is restricted to the .NET runtime exclusively.
+最後に、エンタープライズ開発で .NET ランタイムと C\# 言語の膨大な侵入が発生したため、この機能は UWP アプリとデスクトップコンポーネント側の両方に .NET を使用することに重点を置いて開発されました。 UWP アプリで使用できる言語とランタイムは他にもありますが、付随するサンプルは C\#のみを示すものであり、.NET ランタイムのみに制限されています。
 
 ## <a name="application-components"></a>アプリケーション コンポーネント
 
->**Note**  This feature is exclusively for the use of .NET. クライアント アプリとデスクトップ コンポーネントの両方が、.NET を使って作成されている必要があります。
+>この機能は、.NET を使用するためだけ**に  ます**。 クライアント アプリとデスクトップ コンポーネントの両方が、.NET を使って作成されている必要があります。
 
-**Application model**
+**アプリケーションモデル**
 
 この機能は、MVVM (モデル ビュー ビュー モデル) と呼ばれる一般的なアプリケーション アーキテクチャを中心に構築されています。 また、"モデル" は完全にデスクトップ コンポーネントに含まれると見なされます。 したがって、デスクトップ コンポーネントが "ヘッドレス" になる (UI が含まれない) ことは明らかです。 ビューは、サイドロードされたエンタープライズ アプリケーションに完全に含まれます。 このアプリケーションを "ビュー モデル" 構造で構築しなければならないという要件はありませんが、このパターンを使うのが一般的とされます。
 
-**Desktop component**
+**デスクトップコンポーネント**
 
-この機能のデスクトップ コンポーネントは、この機能の一部として導入された新しい種類のアプリケーションです。 This desktop component can only be written in C\# and must target .NET 4.6 or greater for Windows 10. プロジェクトの種類は、UWP をターゲットとする CLR のハイブリッドで、プロセス間通信の形式は UWP の型とクラスで構成されます。一方、デスクトップ コンポーネントは、.NET ランタイム クラス ライブラリのすべてを呼び出すことができます。 Visual Studio プロジェクトに対する影響については、後で詳しく説明します。 このハイブリッド構成により、デスクトップ コンポーネントに構築されたアプリケーションとの間で UWP の型をマーシャリングしながら、デスクトップ CLR コードをデスクトップ コンポーネントの実装内で呼び出すことができます。
+この機能のデスクトップ コンポーネントは、この機能の一部として導入された新しい種類のアプリケーションです。 このデスクトップコンポーネントは C\# でのみ記述でき、Windows 10 の場合は .NET 4.6 以上を対象にする必要があります。 プロジェクトの種類は、UWP をターゲットとする CLR のハイブリッドで、プロセス間通信の形式は UWP の型とクラスで構成されます。一方、デスクトップ コンポーネントは、.NET ランタイム クラス ライブラリのすべてを呼び出すことができます。 Visual Studio プロジェクトに対する影響については、後で詳しく説明します。 このハイブリッド構成により、デスクトップ コンポーネントに構築されたアプリケーションとの間で UWP の型をマーシャリングしながら、デスクトップ CLR コードをデスクトップ コンポーネントの実装内で呼び出すことができます。
 
-**Contract**
+**決め**
 
-サイドロード アプリケーションとデスクトップ コンポーネントの間のコントラクトは、UWP 型システムの観点から記述されます。 This involves declaring one or more C\# classes that can represent a UWP. See MSDN topic [Creating Windows Runtime components in C\# and Visual Basic](https://docs.microsoft.com/previous-versions/windows/apps/br230301(v=vs.140)) for specific requirement of creating Windows Runtime Class using C\#.
+サイドロード アプリケーションとデスクトップ コンポーネントの間のコントラクトは、UWP 型システムの観点から記述されます。 これには、UWP を表すことができる1つ以上の C\# クラスの宣言が含まれます。 「C [\# での Windows ランタイムコンポーネントの作成」 Visual Basic および](https://docs.microsoft.com/previous-versions/windows/apps/br230301(v=vs.140))「c\#を使用して Windows ランタイムクラスを作成するための特定の要件」を参照してください。
 
->**Note**  Enums are not supported in the Windows Runtime components contract between desktop component and side-loaded application at this time.
+>**注** 列挙型は、現時点では、デスクトップコンポーネントとサイドロードアプリケーションの Windows ランタイムコンポーネントコントラクトではサポートされていません。
 
-**Side-loaded application**
+**サイドロードアプリケーション**
 
 サイドロード アプリケーションは、Microsoft Store 経由でインストールされるのではなくサイドロードされるという 1 点を除けば、あらゆる点で通常の UWP アプリと変わりません。 インストール メカニズムのほとんどは同じであり、マニフェストとアプリケーションのパッケージも似ています (マニフェストには追加点が 1 つありますが、これについては後で詳しく説明します)。 いったんサイドローディングを有効にしたら、簡単な PowerShell スクリプトで、必要な証明書とアプリケーション自体をインストールできます。 一般的なベスト プラクティスとして、サイドロード アプリケーションでは、Visual Studio の [プロジェクト] メニューの [ストア] に含まれる WACK 認定テストを実行することをお勧めします。
 
 >**注** サイドローディングは、[設定] &gt; [更新とセキュリティ] &gt;[開発者向け] で有効にすることができます。
 
 重要な点として、Windows 10 に搭載されているアプリ ブローカー メカニズムは 32 ビット専用であることに注意が必要です。 デスクトップ コンポーネントは 32 ビットである必要があります。
-サイドロード アプリケーションは 64 ビットにできますが (64 ビットと 32 ビットの両方のプロキシが登録されている場合)、これは特殊なアプリケーションになります。 Building the side-loaded application in C\# using the normal "neutral" configuration and the "prefer 32-bit" default naturally creates 32-bit side-loaded applications.
+サイドロード アプリケーションは 64 ビットにできますが (64 ビットと 32 ビットの両方のプロキシが登録されている場合)、これは特殊なアプリケーションになります。 通常の "ニュートラル" 構成を使用して、サイドロードされたアプリケーションを C\# ビルドすると、"32 ビットの優先" の既定値では、32ビットのサイドロードアプリケーションが生成されます。
 
-**Server instancing and AppDomains**
+**サーバーのインスタンス化と AppDomains**
 
 サイドロードされたアプリケーションはそれぞれ、アプリ ブローカー サーバーの独自のインスタンスを受け取ります (いわゆる "マルチインスタンス化" が行われます)。 サーバー コードは、1 つの AppDomain 内で実行されます。 これにより、複数のバージョンのライブラリを個別のインスタンスで実行できます。 たとえば、アプリケーション A には V1.1 のコンポーネントが必要で、アプリケーション B には V2 が必要であるとします。 これを明確に区別するには、V1.1 コンポーネントと V2 コンポーネントをそれぞれ別のサーバー ディレクトリに分けて、各アプリケーションが、必要なバージョンをサポートするサーバーに接続するように指定します。
 
@@ -66,11 +66,11 @@ Lastly, given the overwhelming penetration of the .NET runtime and the C\# langu
 ## <a name="defining-the-contract"></a>コントラクトの定義
 
 この機能を使ってアプリケーションを作成するには、まず、サイドロード アプリケーションとデスクトップ コンポーネントの間のコントラクトを作成します。 これは、Windows ランタイム型だけを使用して行う必要があります。
-Fortunately, these are easy to declare using C\# classes. ただし、このような通信を定義するときは、パフォーマンスについて考慮することが重要です。これについては後で説明します。
+幸いにも、これらは C\# クラスを使用して簡単に宣言できます。 ただし、このような通信を定義するときは、パフォーマンスについて考慮することが重要です。これについては後で説明します。
 
 コントラクトを定義する流れは次のようになります。
 
-**手順 1:** Visual Studio で新しいクラス ライブラリを作成します。 Make sure to create the project using the **Class Library** template, and not the **Windows Runtime Component** template.
+**手順 1:** Visual Studio で新しいクラス ライブラリを作成します。 必ず、 **Windows ランタイムコンポーネント**テンプレートではなく、**クラスライブラリ**テンプレートを使用してプロジェクトを作成してください。
 
 この後には実装が続きますが、このセクションでは、プロセス間のコントラクトの定義についてのみ説明します。 関連するサンプルには次のクラス (EnterpriseServer.cs) が含まれ、先頭部分は次のようになっています。
 
@@ -102,11 +102,11 @@ namespace Fabrikam
 
 これにより、サイドロード アプリケーションからインスタンス化できる "EnterpriseServer" クラスが定義されます。 このクラスは、RuntimeClass で保障された機能を提供します。 RuntimeClass は、サイドロード アプリケーションに含める参照用の winmd を生成するために使用できます。
 
-**Step 2:** Edit the project file manually to change the output type of project to **Windows Runtime Component**.
+**手順 2:** プロジェクトファイルを手動で編集して、プロジェクトの出力の種類を**Windows ランタイムコンポーネント**に変更します。
 
 これを Visual Studio で実行するには、新しく作成されたプロジェクトを右クリックし、[プロジェクトのアンロード] を選択します。もう一度右クリックし、[Edit EnterpriseServer.csproj の編集] を選択して、プロジェクト ファイル (XML ファイル) を編集用に開きます。
 
-In the opened file, search for the \<OutputType\> tag and change its value to “winmdobj”.
+開いているファイルで、\<の OutputType\> タグを検索し、その値を "winmdobj" に変更します。
 
 **手順 3:** "参照" 用の Windows メタデータ ファイル (.winmd ファイル) を作成するビルド規則を作ります。 つまり、実装は含まれません。
 
@@ -179,13 +179,13 @@ In the opened file, search for the \<OutputType\> tag and change its value to �
 
 カテゴリは inProcessServer です。outOfProcessServer カテゴリには、このアプリケーション構成に適用できないエントリが複数あるためです。 <Path> コンポーネントには、必ず clrhost.dll を含める必要があります (ただし、これは強制的には適用されません。別の値を指定するとエラーが発生し、その場合の動作は未定義です)。
 
-<ActivatableClass> セクションは、アプリ パッケージ内の Windows ランタイム コンポーネントによって優先される実際のインプロセス RuntimeClass と同じです。 <ActivatableClassAttribute> is a new element, and the attributes Name="DesktopApplicationPath" and Type="string" are mandatory and invariant. Value 属性では、デスクトップ コンポーネントの実装用の winmd の場所を指定します (詳しくは、次のセクションを参照)。 デスクトップ コンポーネントによって優先される各 RuntimeClass には、独自の <ActivatableClass> 要素ツリーが必要です。 ActivatableClassId は、RuntimeClass の完全な名前空間修飾名と一致する必要があります。
+<ActivatableClass> セクションは、アプリ パッケージ内の Windows ランタイム コンポーネントによって優先される実際のインプロセス RuntimeClass と同じです。 <ActivatableClassAttribute> は新しい要素で、属性 Name = "DesktopApplicationPath" と Type = "string" は必須および不変です。 Value 属性では、デスクトップ コンポーネントの実装用の winmd の場所を指定します (詳しくは、次のセクションを参照)。 デスクトップ コンポーネントによって優先される各 RuntimeClass には、独自の <ActivatableClass> 要素ツリーが必要です。 ActivatableClassId は、RuntimeClass の完全な名前空間修飾名と一致する必要があります。
 
-「コントラクトの定義」で説明したように、プロジェクトの参照先は、デスクトップ コンポーネントの参照用の winmd にする必要があります。 Visual Studio のプロジェクト システムでは、通常、同じ名前で 2 レベルのディレクトリ構造が作成されます。 In the sample it is EnterpriseIPCApplication\\EnterpriseIPCApplication. 参照用の **winmd** は、この第 2 レベルのディレクトリに手動でコピーされます。その後、[プロジェクトの参照] ダイアログを使って ( **[参照]** ボタンをクリック)、この **winmd** を見つけて参照します。 After this, the top level namespace of the desktop component (for example, Fabrikam) should appear as a top level node in the References part of the project.
+「コントラクトの定義」で説明したように、プロジェクトの参照先は、デスクトップ コンポーネントの参照用の winmd にする必要があります。 Visual Studio のプロジェクト システムでは、通常、同じ名前で 2 レベルのディレクトリ構造が作成されます。 このサンプルでは、EnterpriseIPCApplication\\EnterpriseIPCApplication です。 参照用の **winmd** は、この第 2 レベルのディレクトリに手動でコピーされます。その後、[プロジェクトの参照] ダイアログを使って ( **[参照]** ボタンをクリック)、この **winmd** を見つけて参照します。 その後、デスクトップコンポーネントの最上位レベルの名前空間 (たとえば、Fabrikam) は、プロジェクトの参照部分の最上位ノードとして表示されます。
 
 >**注** サイドロード アプリケーションでは、**参照用の winmd** を使うことが非常に重要です。 誤って**実装用の winmd** をサイドロード アプリのディレクトリに配置して参照すると、"IStringable が見つからない" などのエラーが発生する可能性があります。 これは、不適切な **winmd** が参照されていることを示す明らかな兆候の 1 つです。 IPC サーバー アプリのビルド後の規則 (詳しくは次のセクションで説明) では、これらの 2 つの **winmd** が慎重に分離されます。
 
-Environment variables (especially %ProgramFiles%) can be used in <ActivatableClassAttribute Value="path"> .As noted earlier, the App Broker only supports 32-bit so %ProgramFiles% will resolve to C:\\Program Files (x86) if the application is run on a 64-bit OS.
+環境変数 (特に% ProgramFiles%)<ActivatableClassAttribute Value="path"> で使用できます。前述のように、App Broker は32ビットのみをサポートするため、アプリケーションが64ビット OS で実行されている場合、% ProgramFiles% は C:\\Program Files (x86) に解決されます。
 
 ## <a name="desktop-ipc-server-detail"></a>デスクトップ IPC サーバーの詳細
 
@@ -194,7 +194,7 @@ Environment variables (especially %ProgramFiles%) can be used in <ActivatableCla
 1 つはデスクトップ用プロファイル (".NetFramework")、もう 1 つは CLR の UWP アプリ部分をターゲットとするプロファイル (".NetCore") です。 この機能のデスクトップ コンポーネントは、この 2 つのハイブリッドです。 その結果、参照セクションは、これら 2 つのプロファイルがうまく調和するように注意深く構成されます。
 
 通常の UWP アプリ プロジェクトでは、Windows ランタイム API サーフェス全体が暗黙的に含まれるため、明示的なプロジェクト参照は含まれません。
-通常は、他のプロジェクト間でのみ参照が行われます。 これに対してデスクトップ コンポーネント プロジェクトには、きわめて特殊な一連の参照が含まれます。 It starts life as a "Classic Desktop\\Class Library" project and therefore is a desktop project. したがって、(**winmd** ファイルを参照することで) Windows ランタイム API を明示的に参照する必要があります。 次に示すように、適切な参照を追加します。
+通常は、他のプロジェクト間でのみ参照が行われます。 これに対してデスクトップ コンポーネント プロジェクトには、きわめて特殊な一連の参照が含まれます。 このプロジェクトは、"従来のデスクトップ\\クラスライブラリ" として有効期間を開始するため、デスクトッププロジェクトになります。 したがって、(**winmd** ファイルを参照することで) Windows ランタイム API を明示的に参照する必要があります。 次に示すように、適切な参照を追加します。
 
 ```XML
 <ItemGroup>
@@ -406,7 +406,7 @@ Environment variables (especially %ProgramFiles%) can be used in <ActivatableCla
 
 上の参照では、このハイブリッド サーバーを適切に動作させるために欠かせない参照が慎重に組み合わされています。 手順としては、(プロジェクトの OutputType を編集する手順で説明したように) .csproj ファイルを開き、これらの参照を必要に応じて追加します。
 
-参照が適切に構成されたら、次は、サーバーの機能を実装する必要があります。 See the topic [Best practices for interoperability with Windows Runtime components (UWP apps using C\#/VB/C++ and XAML)](https://docs.microsoft.com/previous-versions/windows/apps/hh750311(v=win.10)).
+参照が適切に構成されたら、次は、サーバーの機能を実装する必要があります。 「 [Windows ランタイムコンポーネントとの相互運用性のベストプラクティス (C\#/VB/C++および XAML を使用した UWP アプリ)](https://docs.microsoft.com/previous-versions/windows/apps/hh750311(v=win.10))」を参照してください。
 この作業では、実装の一部として、デスクトップ コードを呼び出すことができる Windows ランタイム コンポーネント dll を作成します。 関連するサンプルには、Windows ランタイムで使われる主なパターンが含まれます。
 
 -   メソッド呼び出し
@@ -422,7 +422,7 @@ Environment variables (especially %ProgramFiles%) can be used in <ActivatableCla
 アプリをインストールするには、実装用の **winmd** を、関連付けられているサイドロード アプリケーションのマニフェストで指定された正しいディレクトリにコピーします。このディレクトリは、<ActivatableClassAttribute> の Value="パス" として示されます。 また、関連付けられているすべてのサポート ファイルと、プロキシ/スタブ dll もコピーします (後者については後で詳しく説明します)。 実装用の **winmd** をサーバー ディレクトリの場所にコピーしていないと、サイドロード アプリケーションから RuntimeClass の new 演算子を呼び出したときに、"クラスが登録されていない" というエラーが発生します。 プロキシ/スタブをインストールできない (または登録できない) 場合は、すべての呼び出しが戻り値なしで失敗します。 後者のエラーが、表示される例外に関連付けられて**いない**ことはよくあります。
 この構成エラーが原因で発生する例外は、"無効なキャスト" を参照する可能性があります。
 
-**Server implementation considerations**
+**サーバー実装に関する考慮事項**
 
 デスクトップ Windows ランタイム サーバーは、"ワーカー" または "タスク" に基づいていると考えることができます。 サーバーへのすべての呼び出しが UI スレッド以外で動作し、すべてのコードがマルチスレッドに対して安全である必要があります。 また、サイドロード アプリケーションのどの部分が、サーバーの機能を呼び出してしているかも重要です。 サイドロード アプリケーションでは、実行に時間のかかるコードを UI スレッドから呼び出すことは必ず避けてください。 それには、主に次の 2 つの方法があります。
 
@@ -430,7 +430,7 @@ Environment variables (especially %ProgramFiles%) can be used in <ActivatableCla
 
 2.  サイドロード アプリケーションのバックグラウンド スレッドからサーバーの機能を呼び出します。
 
-**Windows Runtime async in the server**
+**サーバーでの非同期 Windows ランタイム**
 
 アプリケーション モデルのプロセス間通信の特性を考えると、サーバーを呼び出す場合のオーバーヘッドは、イン プロセスで占有的に実行されるコードよりも大きくなります。 一般的に、インメモリの値を返す単純なプロパティを呼び出す操作はすばやく実行できて安全なのは、UI スレッドをブロックする心配がないからです。 ただし、どのような種類でも I/O がかかわる呼び出しは (すべてのファイル処理やデータベース検索を含む)、UI スレッドの呼び出しをブロックする可能性があり、無応答が原因でアプリケーションが停止することがあります。 さらに、オブジェクトに対するプロパティの呼び出しは、パフォーマンス上の理由から、アプリケーション アーキテクチャとしてはお勧めできません。
 これについては、次のセクションで詳しく説明します。
@@ -466,22 +466,22 @@ return Task<int>.Run(async () =>
 
 この非同期メソッドのクライアントは、他の Windows ランタイム非同期操作と同じようにこの操作を待つことができます。
 
-**Call server functionality from an application background thread**
+**アプリケーションのバックグラウンドスレッドからサーバーの機能を呼び出す**
 
-通常、クライアントとサーバーは両方とも同じ組織によって作成されるため、サーバーへのすべての呼び出しをサイドロード アプリケーションのバックグラウンド スレッドから行うというプログラミング手法を採用できます。 サーバーから 1 つ以上のバッチ データを収集する呼び出しは、バックグラウンド スレッドから直接行うことができます。 結果の取得が完了したら、アプリケーション プロセスのインメモリにあるバッチ データは、一般的に UI スレッドから直接取得できます。 C\# objects are naturally agile between background threads and UI threads so are especially useful for this kind of calling pattern.
+通常、クライアントとサーバーは両方とも同じ組織によって作成されるため、サーバーへのすべての呼び出しをサイドロード アプリケーションのバックグラウンド スレッドから行うというプログラミング手法を採用できます。 サーバーから 1 つ以上のバッチ データを収集する呼び出しは、バックグラウンド スレッドから直接行うことができます。 結果の取得が完了したら、アプリケーション プロセスのインメモリにあるバッチ データは、一般的に UI スレッドから直接取得できます。 C\# オブジェクトは、バックグラウンドスレッドと UI スレッド間の自然なアジャイルであるため、この種の呼び出しパターンでは特に便利です。
 
 ## <a name="creating-and-deploying-the-windows-runtime-proxy"></a>Windows ランタイム プロキシの作成と展開
 
 IPC アプローチには 2 つのプロセス間の Windows ランタイム インターフェイスのマーシャリングが伴うため、グローバルに登録された Windows ランタイム プロキシとスタブを使う必要があります。
 
-**Creating the proxy in Visual Studio**
+**Visual Studio でのプロキシの作成**
 
-The process for creating and registering proxies and stubs for use inside a regular UWP app package are described in the topic [Raising Events in Windows Runtime Components](https://docs.microsoft.com/previous-versions/windows/apps/dn169426(v=vs.140)).
+通常の UWP アプリパッケージ内で使用するプロキシおよびスタブを作成および登録するプロセスについては、「 [Windows ランタイムコンポーネントでのイベントの発生](https://docs.microsoft.com/previous-versions/windows/apps/dn169426(v=vs.140))」を参照してください。
 この記事で説明されている手順には、アプリケーション パッケージ内でのプロキシ/スタブの登録プロセスが含まれているため、次に示すプロセスよりも複雑です (グローバル登録とは異なります)。
 
 **手順 1:** デスクトップ コンポーネント プロジェクトのソリューションを使って、Visual Studio でプロキシ/スタブ プロジェクトを作ります。
 
-**Solution > Add > Project > Visual C++ > Win32 Console Select DLL option.**
+**ソリューション > Visual C++ > Win32 コンソールの [DLL の選択] オプション > > プロジェクトを追加します。**
 
 以降の手順では、サーバー コンポーネントの名前が **MyWinRTComponent** であるとします。
 
@@ -491,11 +491,11 @@ The process for creating and registering proxies and stubs for use inside a regu
 
 a) Dlldata.c
 
-b) A header file (for example, MyWinRTComponent.h)
+b) ヘッダーファイル (例、MyWinRTComponent .h)
 
-c) A \*\_i.c file (for example, MyWinRTComponent\_i.c)
+c) \*\_i. c ファイル (例、MyWinRTComponent\_i. c)
 
-d) A \*\_p.c file (for example, MyWinRTComponent\_p.c)
+d) \*\_p. c ファイル (たとえば、MyWinRTComponent\_p .c)
 
 **手順 5:** これらの生成された 4 つのファイルを "MyWinRTProxy" プロジェクトに追加します。
 
@@ -515,31 +515,31 @@ DllUnregisterServer PRIVATE
 
 **手順 7:** "MyWinRTProxy" プロジェクトのプロパティを開きます。
 
-**Comfiguration Properties > General > Target Name :**
+**Comfiguration プロパティ > 全般 > ターゲット名:**
 
 MyWinRTComponent.Proxies
 
-**C/C++ > Preprocessor Definitions > Add**
+**C/C++ > プリプロセッサ定義 > 追加**
 
-"WIN32;\_WINDOWS;REGISTER\_PROXY\_DLL"
+32\_WINDOWS;\_プロキシ\_DLL "を登録する
 
-**C/C++ > Precompiled Header : Select "Not Using Precompiled Header"**
+**C/C++ > プリコンパイル済みヘッダー: [プリコンパイル済みヘッダーを使用しない] を選択します。**
 
-**Linker > General > Ignore Import Library : Select "Yes"**
+**リンカー > 全般 > インポートライブラリを無視する: [はい] を選択します**
 
-**Linker > Input > Additional Dependencies : Add rpcrt4.lib;runtimeobject.lib**
+**リンカー > 追加の依存関係を入力 >: rpcrt4 を追加します。**
 
-**Linker > Windows Metadata > Generate Windows Metadata : Select "No"**
+**リンカー > windows メタデータを生成 > windows メタデータ: [いいえ] を選択します。**
 
 **手順 8:** "MyWinRTProxy" プロジェクトをビルドします。
 
-**Deploying the proxy**
+**プロキシの展開**
 
 プロキシは、グローバルに登録する必要があります。 最も簡単にこれを行うには、インストール プロセスによってプロキシ dll の DllRegisterServer が呼び出されるようにします。 この機能でサポートされるのは x86 用に構築されたサーバーだけなので (つまり 64 ビットはサポートされません)、最もシンプルな構成は、32 ビットのサーバー、32 ビットのプロキシ、32 ビットのサイドロード アプリケーションを使った構成となります。 プロキシは、通常、デスクトップ コンポーネントの実装用の **winmd** と一緒に設置されます。
 
 追加の構成手順を 1 つ実行する必要があります。 サイドロード プロセスでプロキシを読み込んで実行できるようにうするには、ディレクトリが ALL_APPLICATION_PACKAGES に対して "読み取りと実行" としてマークされている必要があります。 これを行うには、**icacls.exe** コマンド ライン ツールを使います。 次のコマンドを、実装用の **winmd** とプロキシ/スタブ dll が存在するディレクトリで実行する必要があります。
 
-*icacls . /T /grant \*S-1-15-2-1:RX*
+*icacls./T/grant \*S-1-15-2-1: RX*
 
 ## <a name="patterns-and-performance"></a>パターンとパフォーマンス
 
@@ -565,7 +565,7 @@ struct PersonStruct
 }
 ```
 
-Then return* PersonStruct\[\]* instead of *List&lt;PersonObject&gt;* .
+次に、*リスト&lt;個人オブジェクト&gt;* ではなく、* 個人構造体\[\]* を返します。
 これにより、プロセス間の "ホップ" を 1 回に抑えてすべてのデータを取得できます。
 
 パフォーマンスに関する他のあらゆる考慮事項と同様に、ここでも測定とテストが重要になります。 利用統計情報をさまざまな操作に挿入して、所要時間を判断することをお勧めします。 幅広く測定することが重要です。たとえば、サイドロード アプリケーションで、特定のクエリに対してすべての *People* オブジェクトを処理するには実際にどれくらいの時間がかかるかを測定します。
@@ -590,15 +590,15 @@ Then return* PersonStruct\[\]* instead of *List&lt;PersonObject&gt;* .
 
 ## <a name="resources"></a>参考資料
 
--   [Brokered WinRT Component Project Templates for Windows 10 and VS 2015](https://marketplace.visualstudio.com/items?itemName=vs-publisher-713547.VS2015TemplateBrokeredComponents)
+-   [Windows 10 および VS 2015 用の仲介型 WinRT コンポーネントプロジェクトテンプレート](https://marketplace.visualstudio.com/items?itemName=vs-publisher-713547.VS2015TemplateBrokeredComponents)
 
--   [NorthwindRT Brokered WinRT Component Sample](https://code.msdn.microsoft.com/Northwind-Brokered-WinRTC-5143a67c)
+-   [NorthwindRT 仲介型 WinRT コンポーネントのサンプル](https://code.msdn.microsoft.com/Northwind-Brokered-WinRTC-5143a67c)
 
--   [Delivering reliable and trustworthy Microsoft Store apps](https://blogs.msdn.com/b/b8/archive/2012/05/17/delivering-reliable-and-trustworthy-metro-style-apps.aspx)
+-   [信頼性と信頼性に優れた Microsoft Store アプリの提供](https://blogs.msdn.com/b/b8/archive/2012/05/17/delivering-reliable-and-trustworthy-metro-style-apps.aspx)
 
--   [App contracts and extensions (Windows Store apps)](https://docs.microsoft.com/previous-versions/windows/apps/hh464906(v=win.10))
+-   [アプリのコントラクトと拡張機能 (Windows ストアアプリ)](https://docs.microsoft.com/previous-versions/windows/apps/hh464906(v=win.10))
 
--   [How to sideload apps on Windows 10](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)
+-   [Windows 10 でアプリをサイドロードする方法](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)
 
--   [Deploying UWP apps to businesses](https://blogs.msdn.com/b/windowsstore/archive/2012/04/25/deploying-metro-style-apps-to-businesses.aspx)
+-   [UWP アプリを企業に展開する](https://blogs.msdn.com/b/windowsstore/archive/2012/04/25/deploying-metro-style-apps-to-businesses.aspx)
 

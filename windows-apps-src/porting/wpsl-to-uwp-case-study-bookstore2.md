@@ -1,10 +1,10 @@
 ---
 ms.assetid: 333f67f5-f012-4981-917f-c6fd271267c6
-description: This case study, which builds on the info given in Bookstore, begins with a Windows Phone Silverlight app that displays grouped data in a LongListSelector.
-title: Windows Phone Silverlight to UWP case study, Bookstore2
+description: このケーススタディでは、書店に記載されている情報を基に、LongListSelector にグループ化されたデータを表示する Windows Phone Silverlight アプリを開始します。
+title: Silverlight から UWP ケーススタディへの Windows Phone、Bookstore2
 ms.date: 02/08/2017
 ms.topic: article
-keywords: Windows 10, UWP
+keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: 1d1440bf3cfded6b50eb58feffd322ea484e488a
 ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
@@ -13,42 +13,42 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74260104"
 ---
-# <a name="windowsphone-silverlight-to-uwp-case-study-bookstore2"></a>Windows Phone Silverlight to UWP case study: Bookstore2
+# <a name="windowsphone-silverlight-to-uwp-case-study-bookstore2"></a>Silverlight から UWP ケーススタディへの Windows Phone: Bookstore2
 
 
-This case study—which builds on the info given in [Bookstore1](wpsl-to-uwp-case-study-bookstore1.md)—begins with a Windows Phone Silverlight app that displays grouped data in a **LongListSelector**. ビュー モデルでは、**Author** クラスの各インスタンスは、該当する著者によって書かれた書籍のグループを表します。**LongListSelector** では、著者ごとにグループ化された書籍の一覧を表示したり、縮小して著者のジャンプ リストを表示したりすることができます。 ジャンプ リストを使うと、書籍の一覧をスクロールするよりもすばやく移動することができます。 We walk through the steps of porting the app to a Windows 10 Universal Windows Platform (UWP) app.
+このケーススタディは、 [Bookstore1](wpsl-to-uwp-case-study-bookstore1.md)で提供されている情報に基づいています。は、グループ化されたデータを**longlistselector**に表示する Windows Phone Silverlight アプリから始まります。 ビュー モデルでは、**Author** クラスの各インスタンスは、該当する著者によって書かれた書籍のグループを表します。**LongListSelector** では、著者ごとにグループ化された書籍の一覧を表示したり、縮小して著者のジャンプ リストを表示したりすることができます。 ジャンプ リストを使うと、書籍の一覧をスクロールするよりもすばやく移動することができます。 ここでは、アプリを Windows 10 ユニバーサル Windows プラットフォーム (UWP) アプリに移植する手順について説明します。
 
-**Note**   When opening Bookstore2Universal\_10 in Visual Studio, if you see the message "Visual Studio update required", then follow the steps for setting Target Platform Version in [TargetPlatformVersion](w8x-to-uwp-troubleshooting.md).
+Visual Studio で Bookstore2Universal\_10 を開いたときに、"Visual Studio 更新プログラムが必要です" というメッセージが表示された場合は、 [Targetplatformversion](w8x-to-uwp-troubleshooting.md)でターゲットプラットフォームのバージョンを設定するための手順に従っ**て   し**ます。
 
 ## <a name="downloads"></a>ダウンロード
 
-[Download the Bookstore2WPSL8 Windows Phone Silverlight app](https://codeload.github.com/MicrosoftDocs/windows-topic-specific-samples/zip/Bookstore2WPSL8).
+[Bookstore2WPSL8 Windows Phone Silverlight アプリをダウンロード](https://codeload.github.com/MicrosoftDocs/windows-topic-specific-samples/zip/Bookstore2WPSL8)します。
 
-[Download the Bookstore2Universal\_10 Windows 10 app](https://codeload.github.com/MicrosoftDocs/windows-topic-specific-samples/zip/Bookstore2Universal_10).
+[Bookstore2Universal\_10 Windows 10 アプリをダウンロード](https://codeload.github.com/MicrosoftDocs/windows-topic-specific-samples/zip/Bookstore2Universal_10)します。
 
-##  <a name="the-windowsphone-silverlight-app"></a>The Windows Phone Silverlight app
+##  <a name="the-windowsphone-silverlight-app"></a>Windows Phone Silverlight アプリ
 
-下の図は、ここで移植するアプリ Bookstore2WPSL8 の外観を示しています。 このアプリでは、著者ごとにグループ化された書籍の **LongListSelector** を縦方向にスクロールします。 このリストを縮小してジャンプ リストを表示し、そこから任意のグループに移動できます。 このアプリには 2 つの重要な機能があります。それらは、グループ化されたデータ ソースを提供するビュー モデルと、そのビュー モデルにバインドされるユーザー インターフェイスです。 As we'll see, both of these pieces port easily from Windows Phone Silverlight technology to the Universal Windows Platform (UWP).
+下の図は、ここで移植するアプリ Bookstore2WPSL8 の外観を示しています。 このアプリでは、著者ごとにグループ化された書籍の **LongListSelector** を縦方向にスクロールします。 このリストを縮小してジャンプ リストを表示し、そこから任意のグループに移動できます。 このアプリには 2 つの重要な機能があります。それらは、グループ化されたデータ ソースを提供するビュー モデルと、そのビュー モデルにバインドされるユーザー インターフェイスです。 ご覧のように、これらの両方の部分は、Silverlight テクノロジ Windows Phone からユニバーサル Windows プラットフォーム (UWP) に簡単に移植できます。
 
 ![Bookstore2WPSL8 の外観](images/wpsl-to-uwp-case-studies/c02-01-wpsl-how-the-app-looks.png)
 
-##  <a name="porting-to-a-windows10-project"></a>Porting to a Windows 10 project
+##  <a name="porting-to-a-windows10-project"></a>Windows 10 プロジェクトへの移植
 
-Visual Studio で新しいプロジェクトを作成し、そこへ Bookstore2WPSL8 からファイルをコピーし、コピーしたファイルを新しいプロジェクトに含めるというタスクは、短時間で実行できます。 最初に、"新しいアプリケーション (Windows ユニバーサル)" プロジェクトを新規作成します。 Name it Bookstore2Universal\_10. These are the files to copy over from Bookstore2WPSL8 to Bookstore2Universal\_10.
+Visual Studio で新しいプロジェクトを作成し、そこへ Bookstore2WPSL8 からファイルをコピーし、コピーしたファイルを新しいプロジェクトに含めるというタスクは、短時間で実行できます。 最初に、"新しいアプリケーション (Windows ユニバーサル)" プロジェクトを新規作成します。 「Bookstore2Universal\_10」という名前を指定します。 これらは、Bookstore2WPSL8 から Bookstore2Universal\_10 にコピーするファイルです。
 
--   Copy the folder containing the book cover image PNG files (the folder is \\Assets\\CoverImages). フォルダーをコピーしたら、**ソリューション エクスプローラー**で **[すべてのファイルを表示]** がオンであることを確認します。 コピーしたフォルダーを右クリックし、 **[プロジェクトに含める]** をクリックします。 このコマンドは、ファイルまたはフォルダーをプロジェクトに "含める" ことを意味します。 ファイルやフォルダーをコピーするたびに、**ソリューション エクスプローラー**で **[更新]** をクリックしてから、ファイルまたはフォルダーをプロジェクトに含めます。 コピー先で置き換えるファイルについては、この手順を実行する必要はありません。
--   Copy the folder containing the view model source file (the folder is \\ViewModel).
+-   ブックのカバー画像 PNG ファイルが格納されているフォルダーをコピーします (このフォルダーは \\アセット\\カバーイメージ)。 フォルダーをコピーしたら、**ソリューション エクスプローラー**で **[すべてのファイルを表示]** がオンであることを確認します。 コピーしたフォルダーを右クリックし、 **[プロジェクトに含める]** をクリックします。 このコマンドは、ファイルまたはフォルダーをプロジェクトに "含める" ことを意味します。 ファイルやフォルダーをコピーするたびに、**ソリューション エクスプローラー**で **[更新]** をクリックしてから、ファイルまたはフォルダーをプロジェクトに含めます。 コピー先で置き換えるファイルについては、この手順を実行する必要はありません。
+-   ビューモデルのソースファイルが格納されているフォルダーをコピーします (このフォルダーは \\ビューモデルです)。
 -   MainPage.xaml をコピーして、コピー先のファイルを置き換えます。
 
-We can keep the App.xaml, and App.xaml.cs that Visual Studio generated for us in the Windows 10 project.
+App.xaml.cs は、Visual Studio によって Windows 10 プロジェクトに生成されたものを保持できます。
 
-Edit the source code and markup files that you just copied and change any references to the Bookstore2WPSL8 namespace to Bookstore2Universal\_10. これをすばやく行うには、 **[フォルダーを指定して置換]** 機能を使います。 ビュー モデルのソース ファイルに含まれている命令型コードでは、移植作業のために次の変更を行う必要があります。
+コピーしたソースコードとマークアップファイルを編集し、Bookstore2WPSL8 名前空間への参照を Bookstore2Universal\_10 に変更します。 これをすばやく行うには、 **[フォルダーを指定して置換]** 機能を使います。 ビュー モデルのソース ファイルに含まれている命令型コードでは、移植作業のために次の変更を行う必要があります。
 
 -   `System.ComponentModel.DesignerProperties` を `DesignMode` に変更した後、これに対して **[解決]** コマンドを使います。 `IsInDesignTool` プロパティを削除し、IntelliSense を使って適切なプロパティ名 (`DesignModeEnabled`) を追加します。
--   `ImageSource` に対して **[解決]** コマンドを使います。
--   `BitmapImage` に対して **[解決]** コマンドを使います。
+-   **に対して**[解決]`ImageSource` コマンドを使います。
+-   **に対して**[解決]`BitmapImage` コマンドを使います。
 -   `using System.Windows.Media;` と `using System.Windows.Media.Imaging;` を削除します。
--   Change the value returned by the **Bookstore2Universal\_10.BookstoreViewModel.AppName** property from "BOOKSTORE2WPSL8" to "BOOKSTORE2UNIVERSAL".
+-   **Bookstore2Universal\_10. BookstoreViewModel. AppName**プロパティによって返される値を、"" から "Bookstore2Universal" に変更します。
 -   「[Bookstore1](wpsl-to-uwp-case-study-bookstore1.md)」の場合と同じように、**BookSku.CoverImage** プロパティの実装を更新します (「[ビュー モデルへの画像のバインド](wpsl-to-uwp-case-study-bookstore1.md)」をご覧ください)。
 
 MainPage.xaml では、初期の移植作業のために次の変更を行う必要があります。
@@ -58,10 +58,10 @@ MainPage.xaml では、初期の移植作業のために次の変更を行う必
 -   その他の名前空間のプレフィックス宣言で、"clr-namespace" を "using" に変更します。
 -   `SupportedOrientations="Portrait"` と `Orientation="Portrait"` を削除し、新しいプロジェクトのアプリ パッケージ マニフェストで**縦方向**を構成します。
 -   `shell:SystemTray.IsVisible="True"` を削除します。
--   ジャンプ リスト項目コンバーター (マークアップ内にリソースとして含まれています) の種類は、[**Windows.UI.Xaml.Controls.Primitives**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Primitives) 名前空間に移動しています。 So, add the namespace prefix declaration Windows\_UI\_Xaml\_Controls\_Primitives and map it to **Windows.UI.Xaml.Controls.Primitives**. ジャンプ リスト項目コンバーターのリソースで、プレフィックスを `phone:` から `Windows_UI_Xaml_Controls_Primitives:` に変更します。
+-   ジャンプ リスト項目コンバーター (マークアップ内にリソースとして含まれています) の種類は、[**Windows.UI.Xaml.Controls.Primitives**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Primitives) 名前空間に移動しています。 そのため、名前空間プレフィックス宣言 Windows\_UI\_Xaml\_コントロール\_プリミティブに追加し、それを**windows**にマップします。 ジャンプ リスト項目コンバーターのリソースで、プレフィックスを `phone:` から `Windows_UI_Xaml_Controls_Primitives:` に変更します。
 -   「[Bookstore1](wpsl-to-uwp-case-study-bookstore1.md)」の場合と同じように、`PhoneTextExtraLargeStyle` **TextBlock** スタイルに対するすべての参照を `SubtitleTextBlockStyle` に対する参照に置き換えます。また、`PhoneTextSubtleStyle` を `SubtitleTextBlockStyle` に、`PhoneTextNormalStyle` を `CaptionTextBlockStyle` に、`PhoneTextTitle1Style` を `HeaderTextBlockStyle` に置き換えます。
 -   `BookTemplate` には例外が 1 つあります。 2 番目の **TextBlock** のスタイルは、`CaptionTextBlockStyle` を参照している必要があります。
--   `AuthorGroupHeaderTemplate` の内部の **TextBlock** から FontFamily 属性を削除し、**Border** の Background が `PhoneAccentBrush` の代わりに `SystemControlBackgroundAccentBrush` を参照するように設定します。
+-   **の内部の**TextBlock`AuthorGroupHeaderTemplate` から FontFamily 属性を削除し、**Border** の Background が `SystemControlBackgroundAccentBrush` の代わりに `PhoneAccentBrush` を参照するように設定します。
 -   [表示ピクセルに関連する変更](wpsl-to-uwp-porting-xaml-and-ui.md)のため、マークアップ全体を調べて、すべての固定サイズの寸法 (余白、幅、高さなど) を 0.8 倍にする必要があります。
 
 ## <a name="replacing-the-longlistselector"></a>LongListSelector の置き換え
@@ -120,13 +120,13 @@ MainPage.xaml では、初期の移植作業のために次の変更を行う必
 
 ![最初のソース コードの変更を加えたモバイルの UWP アプリ](images/wpsl-to-uwp-case-studies/c02-02-mob10-initial-source-code-changes.png)
 
-ビュー モデル、拡大表示、縮小表示は適切に連携しますが、スタイル設定やテンプレート化の作業を必要とする問題があります。 For example, the correct styles and brushes are not yet being used, so the text is invisible on the group headers that you can click to zoom out. If you run the app on a desktop device, then you'll see a second issue, which is that the app doesn't yet adapt its user-interface to give the best experience and use of space on larger devices where windows can be potentially much larger than the screen of a mobile device. 次のセクション (「[最初のスタイル設定とテンプレート化](#initial-styling-and-templating)」、「[アダプティブ UI](#adaptive-ui)」、「[最終的なスタイル設定](#final-styling)」) では、これらの問題に対処します。
+ビュー モデル、拡大表示、縮小表示は適切に連携しますが、スタイル設定やテンプレート化の作業を必要とする問題があります。 たとえば、正しいスタイルとブラシがまだ使用されていないので、クリックするとグループヘッダーのテキストが非表示になり、ズームアウトすることができます。デスクトップデバイスでアプリを実行すると、2つ目の問題が表示されます。これは、アプリがユーザーインターフェイスを調整して、最適なエクスペリエンスを提供し、windows がモバイルデバイスの画面よりもはるかに大きくなる可能性がある大規模なデバイスの領域を使用するようにしていないことを示します。 次のセクション (「[最初のスタイル設定とテンプレート化](#initial-styling-and-templating)」、「[アダプティブ UI](#adaptive-ui)」、「[最終的なスタイル設定](#final-styling)」) では、これらの問題に対処します。
 
 ## <a name="initial-styling-and-templating"></a>最初のスタイル設定とテンプレート化
 
-適切な間隔でグループ ヘッダーを配置するには、`AuthorGroupHeaderTemplate` を編集し、**Border** で **Margin** を `"0,0,0,9.6"` に設定します。
+適切な間隔でグループ ヘッダーを配置するには、`AuthorGroupHeaderTemplate` を編集し、**Border** で `"0,0,0,9.6"`Margin**を** に設定します。
 
-適切な間隔で書籍項目を配置するには、`BookTemplate` を編集し、両方の **TextBlock** で **Margin** を `"9.6,0"` に設定します。
+適切な間隔で書籍項目を配置するには、`BookTemplate` を編集し、両方の **TextBlock** で `"9.6,0"`Margin**を** に設定します。
 
 アプリ名とページ タイトルのレイアウトを向上させるには、`TitlePanel` 内で、2 番目の **TextBlock** の上余白を削除します。そのためには、**Margin** の値を `"7.2,0,0,0"` に設定します。 また、`TitlePanel` 自体で、余白を `0` (または適切な外観になる任意の値) に設定します。
 
@@ -218,9 +218,9 @@ Phone アプリを基にして作業を開始したため、この段階のプ�
 
 残りの作業は、スタイルの最終的な調整です。
 
--   `AuthorGroupHeaderTemplate` で、**TextBlock** に対して `Foreground="White"` を設定します。これにより、モバイル デバイス ファミリで実行したときに適切に表示されます。
--   `AuthorGroupHeaderTemplate` と `ZoomedOutAuthorTemplate` の両方で、**TextBlock** に `FontWeight="SemiBold"` を追加します。
--   `narrowSeZo`で、縮小表示ビューでのグループ ヘッダーと著者は、伸縮表示ではなく左揃えで表示されます。ここではその設定を行います。 [  **HorizontalContentAlignment**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.horizontalcontentalignment) を `Stretch` に設定して、拡大表示ビュー用の [**HeaderContainerStyle**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.groupstyle.headercontainerstyle) を作成します。 次に、同じ [**Setter**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Setter) を含む、縮小表示ビュー用の [**ItemContainerStyle**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemcontainerstyle) を作成します。 結果は次のようになります。
+-   `AuthorGroupHeaderTemplate` で、`Foreground="White"`TextBlock**に対して** を設定します。これにより、モバイル デバイス ファミリで実行したときに適切に表示されます。
+-   `FontWeight="SemiBold"` と  **の両方で、** TextBlock`AuthorGroupHeaderTemplate` に `ZoomedOutAuthorTemplate` を追加します。
+-   `narrowSeZo`で、縮小表示ビューでのグループ ヘッダーと著者は、伸縮表示ではなく左揃えで表示されます。ここではその設定を行います。 [  **HorizontalContentAlignment**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.groupstyle.headercontainerstyle) を [ に設定して、拡大表示ビュー用のHeaderContainerStyle](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.horizontalcontentalignment)`Stretch` を作成します。 次に、同じ [**Setter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemcontainerstyle) を含む、縮小表示ビュー用の [**ItemContainerStyle**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Setter) を作成します。 結果は次のようになります。
 
 ```xml
    <Style x:Key="AuthorGroupHeaderContainerStyle" TargetType="ListViewHeaderItem">
@@ -253,33 +253,33 @@ Phone アプリを基にして作業を開始したため、この段階のプ�
 
 ![デスクトップ デバイスで動作中の、移植された Windows 10 アプリ (2 つのサイズのウィンドウによる拡大表示)](images/w8x-to-uwp-case-studies/c02-07-desk10-zi-ported.png)
 
-The ported Windows 10 app running on a Desktop device, zoomed-in view, two sizes of window  
-![the ported windows 10 app running on a desktop device, zoomed-out view, two sizes of window](images/w8x-to-uwp-case-studies/c02-08-desk10-zo-ported.png)
+デスクトップデバイスで実行されている移植された Windows 10 アプリ、拡大ビュー、2つのサイズのウィンドウ  
+![デスクトップデバイスで実行される移植された windows 10 アプリ、縮小表示ビュー、2つのサイズのウィンドウ](images/w8x-to-uwp-case-studies/c02-08-desk10-zo-ported.png)
 
-The ported Windows 10 app running on a Desktop device, zoomed-out view, two sizes of window
+デスクトップデバイスで実行される移植された Windows 10 アプリ、ズームアウトビュー、ウィンドウの2つのサイズ
 
 ![モバイル デバイスで動作中の、移植された Windows 10 アプリ (拡大表示)](images/w8x-to-uwp-case-studies/c02-09-mob10-zi-ported.png)
 
-The ported Windows 10 app running on a Mobile device, zoomed-in view
+モバイルデバイスで実行されている移植された Windows 10 アプリ (拡大表示)
 
 ![モバイル デバイスで動作中の、移植された Windows 10 アプリ (縮小表示)](images/w8x-to-uwp-case-studies/c02-10-mob10-zo-ported.png)
 
-The ported Windows 10 app running on a Mobile device, zoomed-out view
+モバイルデバイスで実行されている移植された Windows 10 アプリ (縮小表示)
 
 ## <a name="making-the-view-model-more-flexible"></a>ビュー モデルの柔軟性の向上
 
-このセクションでは、UWP を使うようにアプリを移行することによって利用可能になる機能の例を紹介します。 ここでは、**CollectionViewSource** を使ってアクセスするときにビュー モデルの柔軟性を向上させるために実行できるオプションの手順について説明します。 The view model (the source file is in ViewModel\\BookstoreViewModel.cs) that we ported from the Windows Phone Silverlight app Bookstore2WPSL8 contains a class named Author, which derives from **List&lt;T&gt;** , where **T** is BookSku. これは、Author クラスが BookSku の*グループである*ことを意味します。
+このセクションでは、UWP を使うようにアプリを移行することによって利用可能になる機能の例を紹介します。 ここでは、**CollectionViewSource** を使ってアクセスするときにビュー モデルの柔軟性を向上させるために実行できるオプションの手順について説明します。 ビューモデル (ソースファイルは、モデルビュー\\BookstoreViewModel.cs) で Windows Phone Silverlight アプリから移植されています。このクラスには、 **List&lt;t&gt;** ( **t**は booksku) から派生した Author というクラスが含まれています。 これは、Author クラスが BookSku の*グループである*ことを意味します。
 
 **CollectionViewSource.Source** を Authors にバインドするとき、Authors 内の各 Author が*何か*のグループであるということを伝える必要があります。 このケース スタディでは、**CollectionViewSource** に依存して、Author が BookSku のグループであることを特定しています。 この設定でも機能しますが、柔軟性はありません。 Author が BookSku のグループ*および*著者の住所のグループの*両方*を表す必要がある場合は、どうしたらよいでしょうか。 Author を、これらの両方のグループにすることは*できません*。 ただし、Author に任意の数のグループを*保持させる*ことはできます。 これが解決策となります。つまり、現在使っている "*グループである*" というパターンの代わりに、またはこのパターンに加えて、"*グループを保持する*" というパターンを使います。 以下にその方法を示します。
 
 -   Author が **List&lt;T&gt;** から派生しないように変更します。
--   Add this field to 
--   Add this property to 
+-   このフィールドをに追加します。 
+-   このプロパティをに追加します。 
 -   当然ですが、上の 2 つの手順を繰り返して、必要な数のグループを Author に追加できます。
 -   AddBookSku メソッドの実装を `this.BookSkus.Add(bookSku);` に変更します。
 -   これで、Author は少なくとも 1 つのグループを*保持する*ようになりました。また、**CollectionViewSource** に対して、どのグループを使うかを伝える必要があります。 そのためには、**CollectionViewSource** に `ItemsPath="BookSkus"` プロパティを追加します。
 
-これらの変更を行っても、このアプリの機能は変更されません。ここでは、必要に応じて Author と **CollectionViewSource** を拡張する方法を理解してください。 Author に対して最後の変更を加えましょう。この変更により、**CollectionViewSource.ItemsPath** を指定*しないで* Author を使う場合に、選んだ既定のグループが使われるようになります。
+これらの変更を行っても、このアプリの機能は変更されません。ここでは、必要に応じて Author と **CollectionViewSource** を拡張する方法を理解してください。 Author に対して最後の変更を加えましょう。この変更により、*CollectionViewSource.ItemsPath* を指定**しないで** Author を使う場合に、選んだ既定のグループが使われるようになります。
 
 ```csharp
     public class Author : IEnumerable<BookSku>
@@ -301,4 +301,4 @@ The ported Windows 10 app running on a Mobile device, zoomed-out view
 
 ## <a name="conclusion"></a>まとめ
 
-このケース スタディには、前のケース スタディよりも複雑なユーザー インターフェイスが関連しています。 All of the facilities and concepts of the Windows Phone Silverlight **LongListSelector**—and more—were found to be available to a UWP app in the form of **SemanticZoom**, **ListView**, **GridView**, and **CollectionViewSource**. UWP アプリで命令型コードやマークアップの両方を再利用 (コピーと編集) して、最小および最大の Windows デバイスのフォーム ファクターや、その中間のあらゆるサイズに合わせて調整された機能、UI、および操作を実現する方法について説明しました。
+このケース スタディには、前のケース スタディよりも複雑なユーザー インターフェイスが関連しています。 Windows Phone Silverlight **Longlistselector**のすべての機能と概念は、 **SemanticZoom**、 **ListView**、 **GridView**、および**collectionviewsource**という形式の UWP アプリで使用できることがわかりました。 UWP アプリで命令型コードやマークアップの両方を再利用 (コピーと編集) して、最小および最大の Windows デバイスのフォーム ファクターや、その中間のあらゆるサイズに合わせて調整された機能、UI、および操作を実現する方法について説明しました。

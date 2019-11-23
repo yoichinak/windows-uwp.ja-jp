@@ -19,12 +19,12 @@ ms.locfileid: "74258247"
 
 音声認識や音声合成 (TTS: text-to-speech) をアプリのユーザー エクスペリエンスに直接統合します。
 
-**音声認識:** ユーザーが発声した単語を、フォーム入力やテキストのディクテーション用にテキストに変換し、操作やコマンドを指定したり、タスクを実行したります。 この機能は、フリーテキストのディクテーションと Web 検索向けの定義済みの文法、および Speech Recognition Grammar Specification (SRGS) Version 1.0 を使って作成されたカスタム文法をサポートしています。
+**音声認識:** ユーザーが発声した単語を、フォーム入力やテキストのディクテーション用にテキストに変換し、操作やコマンドを指定したり、タスクを実行したります。 この機能は、フリーテキストのディクテーションと Web 検索向けの定義済みの文法、および Speech Recognition Grammar Specification (SRGS) バージョン 1.0 を使って作成されたカスタム文法をサポートしています。
 
 **TTS:** 音声合成エンジン (声) を使って、テキスト文字列を音声に変換します。 入力文字列は、基本的でシンプルなテキスト、またはより複雑な Speech Synthesis Markup Language (SSML) のいずれかになります。 SSML は、発音、音量、ピッチ、速度、強調など、音声出力の特性を制御する標準的な方法です。
 
 **その他の音声関連のコンポーネント:** 
-Windows アプリケーションの **Cortana** ではカスタマイズした音声コマンド (発声したコマンドまたは入力したコマンド) を使って、アプリをフォアグラウンドで起動したり (スタート メニューから起動した場合と同様にアプリがフォーカスを取得します)、バック グラウンド サービスとしてアクティブ化したりすることができます (**Cortana** がフォーカスを維持しますが、アプリからの結果を表示します)。 **Cortana** UI でアプリの機能を公開する場合は、「[Cortana voice command (VCD) guidelines](https://docs.microsoft.com/en-us/cortana/voice-commands/vcd)」(Cortana 音声コマンド (VCD) のガイドライン) をご覧ください。
+Windows アプリケーションの **Cortana** ではカスタマイズした音声コマンド (発声したコマンドまたは入力したコマンド) を使って、アプリをフォアグラウンドで起動したり (スタート メニューから起動した場合と同様にアプリがフォーカスを取得します)、バック グラウンド サービスとしてアクティブ化したりすることができます (**Cortana** がフォーカスを維持しますが、アプリからの結果を表示します)。 [Cortana](https://docs.microsoft.com/en-us/cortana/voice-commands/vcd) UI でアプリの機能を公開する場合は、「**Cortana voice command (VCD) guidelines**」(Cortana 音声コマンド (VCD) のガイドライン) をご覧ください。
 
 ## <a name="speech-interaction-design"></a>音声操作の設計
 
@@ -58,7 +58,7 @@ Windows アプリケーションの **Cortana** ではカスタマイズした�
 
 音声入力がないときに認識を終了までの時間を指定します。 この時間が経過した後で音声認識を自動的に再開しないでください。これは、ユーザーがアプリの操作を停止したことを示している場合が多いためです。
 
-ネットワーク接続が利用できない場合は、すべての継続的な認識 UI を無効にし、認識セッションを停止します。 Continuous recognition requires a network connection.
+ネットワーク接続が利用できない場合は、すべての継続的な認識 UI を無効にし、認識セッションを停止します。 連続認識では、ネットワーク接続が必要です。
 
 ## <a name="commanding"></a>コマンド実行
 
@@ -200,18 +200,18 @@ TTS では、プレーンテキストまたは SSML から音声出力が生成�
 -   単語が不自然な順番で連続している場合や、文字列に含まれる数値や句読点を発声する場合に、語句が不明瞭になる可能性があります。
 -   韻律や抑揚がネイティブ スピーカーによる発声と異なると、音声が不自然に聞こえる場合があります。
 
-Both issues can be addressed by using SSML instead of plain text as input to the speech synthesizer. SSML について詳しくは、「[SSML による合成音声の制御](https://docs.microsoft.com/previous-versions/office/developer/speech-technologies/hh378454(v=office.14))」と「[Speech Synthesis Markup Language (SSML) のリファレンス](https://docs.microsoft.com/previous-versions/office/developer/speech-technologies/hh378377(v=office.14))」をご覧ください。
+両方の問題に対処するには、音声シンセサイザーへの入力としてプレーンテキストではなく SSML を使用します。 SSML について詳しくは、「[SSML による合成音声の制御](https://docs.microsoft.com/previous-versions/office/developer/speech-technologies/hh378454(v=office.14))」と「[Speech Synthesis Markup Language (SSML) のリファレンス](https://docs.microsoft.com/previous-versions/office/developer/speech-technologies/hh378377(v=office.14))」をご覧ください。
 
 ## <a name="other-articles-in-this-section"></a>このセクションの他の記事 
 
 | トピック | 説明 |
 | --- | --- |
 | [音声認識](speech-recognition.md) | 音声認識を使って、入力を行ったり、操作やコマンドを指定したり、タスクを実行したりできます。 |
-| [Specify the speech recognizer language](specify-the-speech-recognizer-language.md) | 音声認識に使われるインストール済みの言語を選ぶ方法について説明します。 |
+| [音声認識エンジンの言語を指定する](specify-the-speech-recognizer-language.md) | 音声認識に使われるインストール済みの言語を選ぶ方法について説明します。 |
 | [カスタム認識の制約の定義](define-custom-recognition-constraints.md) | 音声認識のカスタム制約を定義して使う方法について説明します。 |
 | [継続的なディクテーションの有効化](enable-continuous-dictation.md) |長い形式の継続的なディクテーション音声入力をキャプチャし、認識する方法について説明します。 |
-| [Manage issues with audio input](manage-issues-with-audio-input.md) | オーディオ入力の品質が原因で発生する音声認識の精度の問題を管理する方法について説明します。 |
-| [Set speech recognition timeouts](set-speech-recognition-timeouts.md) | 音声認識エンジンが無音または認識できないサウンド (雑音) を無視し、音声入力を待機する時間の長さを設定します。 |
+| [オーディオ入力に関する問題の管理](manage-issues-with-audio-input.md) | オーディオ入力の品質が原因で発生する音声認識の精度の問題を管理する方法について説明します。 |
+| [音声認識のタイムアウトを設定する](set-speech-recognition-timeouts.md) | 音声認識エンジンが無音または認識できないサウンド (雑音) を無視し、音声入力を待機する時間の長さを設定します。 |
 
 ## <a name="related-articles"></a>関連記事
 
@@ -220,7 +220,7 @@ Both issues can be addressed by using SSML instead of plain text as input to the
 
  **サンプル**
 
-* [Speech recognition and speech synthesis sample](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/SpeechRecognitionAndSynthesis)
+* [音声認識と音声合成のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/SpeechRecognitionAndSynthesis)
  
 
  

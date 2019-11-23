@@ -62,7 +62,7 @@ steps:
 
 ```
 
-既定のテンプレートは、.csproj ファイルに指定されている証明書を使用してパッケージに署名しようとします。 ビルド中にパッケージに署名する場合は、秘密キーへのアクセス権を持っている必要があります。 それ以外の場合は、パラメーター `/p:AppxPackageSigningEnabled=false` を YAML ファイルの `msbuildArgs` セクションに追加することにより、署名を無効にすることができます。
+既定のテンプレートは、.csproj ファイルに指定されている証明書を使用してパッケージに署名しようとします。 ビルド中にパッケージに署名する場合は、秘密キーへのアクセス権を持っている必要があります。 それ以外の場合は、YAML ファイルの `msbuildArgs` セクションにパラメーター `/p:AppxPackageSigningEnabled=false` を追加することにより、署名を無効にできます。
 
 ## <a name="add-your-project-certificate-to-the-secure-files-library"></a>セキュリティで保護されたファイルライブラリにプロジェクト証明書を追加する
 
@@ -89,18 +89,18 @@ steps:
 
 このタスクは、作業フォルダー内のすべてのソリューションをバイナリにコンパイルし、出力アプリパッケージファイルを生成します。 このタスクでは、MSBuild 引数を使用します。 これらの引数の値を指定する必要があります。 次の表をガイドとして使用してください。
 
-|**MSBuild 引数**|**[値]**|**[説明]**|
+|**MSBuild 引数**|**値**|**説明**|
 |--------------------|---------|---------------|
 | AppxPackageDir | $(Build.ArtifactStagingDirectory)\AppxPackages | 生成された成果物を格納するフォルダーを定義します。 |
 | AppxBundlePlatforms | $(Build.BuildPlatform) | バンドルに含めるプラットフォームを定義できます。 |
 | AppxBundle | 常に | 指定されたプラットフォームの .msixbundle/.appxbundle ファイルを持つ... を作成します。 |
-| UapAppxPackageBuildMode | StoreUpload | Msixupload/.appxupload ファイルと、サイドローディング用の**テスト**フォルダーを生成します。 |
+| UapAppxPackageBuildMode | StoreUpload | では、サイドローディング用に msixupload/.appxupload ファイルと **_Test**フォルダーが生成されます。 |
 | UapAppxPackageBuildMode | CI | では、msixupload/. .appxupload ファイルのみが生成されます。 |
-| UapAppxPackageBuildMode | SideloadOnly | サイドローディング専用のテストフォルダーを生成します **(_d)** 。 |
+| UapAppxPackageBuildMode | SideloadOnly | サイドローディング用の **_Test**フォルダーを生成します。 |
 | AppxPackageSigningEnabled | true | パッケージの署名を有効にします。 |
 | PackageCertificateThumbprint | 証明書の拇印 | この値は、署名証明書の拇印と一致しているか、空の文字列で**ある必要があり**ます。 |
 | PackageCertificateKeyFile | パス | 使用する証明書へのパス。 これは、セキュリティで保護されたファイルのメタデータから取得されます。 |
-| PackageCertificatePassword | Password | 証明書の秘密キーのパスワード。 パスワードを[Azure Key Vault](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates)に保存し、パスワードを[変数グループ](https://docs.microsoft.com/azure/devops/pipelines/library/variable-groups)にリンクすることをお勧めします。 この引数に変数を渡すことができます。 |
+| PackageCertificatePassword | パスワード | 証明書の秘密キーのパスワード。 パスワードを[Azure Key Vault](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates)に保存し、パスワードを[変数グループ](https://docs.microsoft.com/azure/devops/pipelines/library/variable-groups)にリンクすることをお勧めします。 この引数に変数を渡すことができます。 |
 
 ### <a name="configure-the-build"></a>ビルドを構成する
 
@@ -116,7 +116,7 @@ steps:
 ### <a name="configure-package-signing"></a>パッケージ署名の構成
 
 MSIX (または APPX) パッケージに署名するには、パイプラインで署名証明書を取得する必要があります。 これを行うには、VSBuild タスクの前に DownloadSecureFile タスクを追加します。
-これにより、```signingCert``` を使用して署名証明書にアクセスできるようになります。
+これにより、```signingCert```経由で署名証明書にアクセスできるようになります。
 
 ```yml
 - task: DownloadSecureFile@1
@@ -144,11 +144,11 @@ MSIX (または APPX) パッケージに署名するには、パイプライン�
 ```
 
 > [!NOTE]
-> PackageCertificateThumbprint 引数は、意図的に空の文字列に設定されます。 拇印がプロジェクトで設定されていても署名証明書と一致しない場合、ビルドは失敗し、`Certificate does not match supplied signing thumbprint` というエラーが表示されます。
+> PackageCertificateThumbprint 引数は、意図的に空の文字列に設定されます。 拇印がプロジェクトで設定されていても、署名証明書と一致しない場合、ビルドは失敗し、`Certificate does not match supplied signing thumbprint`が表示されます。
 
 ### <a name="review-parameters"></a>パラメーターの確認
 
-@No__t-0 構文で定義されたパラメーターは、ビルド定義で定義された変数であり、他のビルドシステムでは変更されます。
+`$()` 構文で定義されたパラメーターは、ビルド定義で定義された変数であり、他のビルドシステムでは変更されます。
 
 ![既定の変数](images/building-screen5.png)
 
@@ -176,7 +176,7 @@ MSIX (または APPX) パッケージに署名するには、パイプライン�
 
 ![成果物](images/building-screen6.png)
 
-@No__t-0 引数を `StoreUpload` に設定したため、アーティファクトフォルダーには、ストアに送信するためのパッケージ (. msixupload/. .appxupload) が含まれています。 ストアには、通常のアプリケーションパッケージ (msix/.appx) またはアプリバンドル (. .msixbundle/.appxbundle/) を送信することもできます。 この資料の目的上、.appxupload ファイルを使います。
+`UapAppxPackageBuildMode` 引数を `StoreUpload`に設定しているため、アーティファクトフォルダーには、ストアに送信するためのパッケージ (. msixupload/. .appxupload) が含まれています。 ストアには、通常のアプリケーションパッケージ (msix/.appx) またはアプリバンドル (. .msixbundle/.appxbundle/) を送信することもできます。 この資料の目的上、.appxupload ファイルを使います。
 
 ## <a name="address-bundle-errors"></a>アドレスバンドルエラー
 
@@ -186,12 +186,12 @@ MSIX (または APPX) パッケージに署名するには、パイプライン�
 
 このエラーが表示されるのは、ソリューション レベルで、バンドルに含めるアプリが明確ではないためです。 この問題を解決するには、各プロジェクトファイルを開き、最初の `<PropertyGroup>` 要素の末尾に次のプロパティを追加します。
 
-|**作品**|**Properties**|
+|**プロジェクト**|**[プロパティ]**|
 |-------|----------|
 |App|`<AppxBundle>Always</AppxBundle>`|
 |UnitTests|`<AppxBundle>Never</AppxBundle>`|
 
-次に、ビルドステップから @no__t 0 の MSBuild 引数を削除します。
+次に、ビルドステップから `AppxBundle` MSBuild 引数を削除します。
 
 ## <a name="related-topics"></a>関連トピック
 

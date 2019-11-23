@@ -24,13 +24,13 @@ ms.locfileid: "72282521"
 
 次に示す用語は、さまざまな形式の変換の特性を説明するために後で使用されます。
 
-| 項目  | 定義                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| 用語  | 定義                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 |-------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | SNORM | 符号付き正規化された整数。 n ビット2の補数数値の場合、最大値は 1.0 f を意味し (たとえば、5ビットの値01111が 1.0 f にマップされます)、最小値は-1.0 f を意味します (たとえば、5ビット値1万が-1.0 f にマップされます)。 さらに、2番目の最小値は-1.0 f にマップされます (たとえば、5ビット値10001は-1.0 f にマップされます)。 したがって、-1.0f には 2 つの整数表現があります。 0\.0f の整数表現は 1 つで、1.0f の整数表現も 1 つです。 その結果、-1.0f ～ 0.0f の範囲の均等間隔の浮動小数点値に対する整数表現のセットと、同様に 0.0f ～ 1.0f の範囲の数値表現の補集合が存在することになります。 |
 | UNORM | 符号なし正規化整数。n ビットの数値では、すべての桁が 0 の場合は 0.0f、すべての桁が 1 の場合は 1.0f を表します。 0\.0f ～ 1.0f の均等な間隔の一連の浮動小数点値が表されます。 たとえば、2ビット UNORM は、0.0 f、1/3、2/3、および 1.0 f を表します。                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | SINT  | 符号付き整数。 2 の補数の整数です。 たとえば、3ビットのシントは、整数値 (4、-3、-2、-1、0、1、2、3) を表します。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | UINT  | 符号なし整数。 たとえば、3ビットの UINT は、0、1、2、3、4、5、6、7の整数値を表します。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| FLOAT | Direct3D で定義された任意の表現の浮動小数点値。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| [FLOAT] | Direct3D で定義された任意の表現の浮動小数点値。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | SRGB  | n ビットの数値ですべての桁が 0 の場合は 0.0f、すべての桁が 1 の場合は 1.0f を表す点で UNORM と同様です。 ただし、UNORM とは異なり、SRGB では、すべての桁が 0 である値からすべての桁が 1 である値までの符号なし整数エンコードのシーケンスは、0.0f ～ 1.0f の数値の浮動小数点で表した値に対して非線形数列を表します。 大まかにいえば、この非線形の数列である SRGB をカラーのシーケンスとして表示すると、平均的な視聴者には、平均的な表示条件下および平均的なディスプレイ上で、輝度レベルの直線的な変化に見えます。 詳細については、IEC (国際電気標準会議) の SRGB カラー規格である IEC 61996-2-1 を参照してください。                |
 
  
@@ -53,7 +53,7 @@ ms.locfileid: "72282521"
 ### <a name="span-idconverting_from_a_lower_range_representation_to_a_higher_range_representationspanspan-idconverting_from_a_lower_range_representation_to_a_higher_range_representationspanspan-idconverting_from_a_lower_range_representation_to_a_higher_range_representationspanconverting-from-a-lower-range-representation-to-a-higher-range-representation"></a><span id="Converting_from_a_lower_range_representation_to_a_higher_range_representation"></span><span id="converting_from_a_lower_range_representation_to_a_higher_range_representation"></span><span id="CONVERTING_FROM_A_LOWER_RANGE_REPRESENTATION_TO_A_HIGHER_RANGE_REPRESENTATION"></span>低い範囲表現から上位の表現への変換
 
 -   範囲が狭い形式にある NaN を範囲の広い形式に変換する場合、範囲が広い変換先の形式で利用可能であれば該当する NaN 表現に変換されます。 範囲が広い形式に NaN 表現がない場合は、0 に変換されます。
--   範囲が狭い形式にある INF を範囲の広い形式に変換する場合、範囲が広い変換先の形式で利用可能であれば該当する INF 表現に変換されます。 より高い形式で INF 表現がない場合は、表現可能な最大値に変換されます (その形式では最大 @ no__t-0FLOAT)。 変換先の形式で利用可能な場合、符号は保持されます。
+-   範囲が狭い形式にある INF を範囲の広い形式に変換する場合、範囲が広い変換先の形式で利用可能であれば該当する INF 表現に変換されます。 より高い形式で INF 表現がない場合は、表現可能な最大値に変換されます (その形式では最大\_FLOAT)。 変換先の形式で利用可能な場合、符号は保持されます。
 -   範囲が狭い形式にある非正規化数を範囲が広い形式に変換する場合、変換先の形式の正規化表現に変換可能であれば、その表現に変換されます。変換が不可能な場合、範囲が広い形式に該当の非正規化表現があれば、その表現に変換されます。 範囲が広い形式に非正規化表現がなければ、0 に変換されます。 変換先の形式で利用可能な場合、符号は保持されます。 32 ビット浮動小数点型の数値は、非正規化表現のない形式として扱います (32 ビット浮動小数点型の演算における非正規化数を、符号が保持された 0 にフラッシュする必要があるからです)。
 
 ## <a name="span-idinteger_conversionspanspan-idinteger_conversionspanspan-idinteger_conversionspaninteger-conversion"></a><span id="Integer_Conversion"></span><span id="integer_conversion"></span><span id="INTEGER_CONVERSION"></span>整数変換
@@ -79,7 +79,7 @@ ms.locfileid: "72282521"
 <tbody>
 <tr class="odd">
 <td align="left">SNORM</td>
-<td align="left">FLOAT</td>
+<td align="left">[FLOAT]</td>
 <td align="left"><p>符号付きの -1.0f ～ 1.0f の範囲を表す n ビットの整数値から浮動小数点型への変換は次のとおりです。</p>
 <ul>
 <li>負数側の最小値が -1.0f にマップされます。 たとえば、5ビット値1万は-1.0 f にマップされます。</li>
@@ -87,7 +87,7 @@ ms.locfileid: "72282521"
 </ul></td>
 </tr>
 <tr class="even">
-<td align="left">FLOAT</td>
+<td align="left">[FLOAT]</td>
 <td align="left">SNORM</td>
 <td align="left"><p>浮動小数点値から符号付きの -1.0f ～ 1.0f の範囲を表す n ビットの整数値への変換は次のとおりです。</p>
 <ul>
@@ -106,11 +106,11 @@ ms.locfileid: "72282521"
 </tr>
 <tr class="odd">
 <td align="left">UNORM</td>
-<td align="left">FLOAT</td>
+<td align="left">[FLOAT]</td>
 <td align="left"><p>変換元の n ビット値は浮動小数点型 (0.0f、1.0f、2.0f など) に変換された後、(2ⁿ-1) で除算されます。</p></td>
 </tr>
 <tr class="even">
-<td align="left">FLOAT</td>
+<td align="left">[FLOAT]</td>
 <td align="left">UNORM</td>
 <td align="left"><p>変換元の値を c とします。</p>
 <ul>
@@ -128,7 +128,7 @@ ms.locfileid: "72282521"
 </tr>
 <tr class="odd">
 <td align="left">SRGB</td>
-<td align="left">FLOAT</td>
+<td align="left">[FLOAT]</td>
 <td align="left"><p>SRGB から FLOAT への最適な変換は次のとおりです。</p>
 <ul>
 <li>変換元の n ビット値を浮動小数点型 (0.0f、1.0f、2.0f など) に変換します。これを c とします。</li>
@@ -138,7 +138,7 @@ ms.locfileid: "72282521"
 <p>この変換では、SRGB 側で D3D<em>xx</em>_SRGB_TO_FLOAT_TOLERANCE_IN_ULP ULP の誤差が許容されます。</p></td>
 </tr>
 <tr class="even">
-<td align="left">FLOAT</td>
+<td align="left">[FLOAT]</td>
 <td align="left">SRGB</td>
 <td align="left"><p>FLOAT から SRGB への最適な変換は次のとおりです。</p>
 <p>変換先の SRGB カラー成分を n ビットと仮定します。</p>
@@ -170,7 +170,7 @@ ms.locfileid: "72282521"
 <tr class="odd">
 <td align="left">SINT</td>
 <td align="left">よりビット数が多い UINT</td>
-<td align="left"><p>より多くのビットを含むシントから UINT に変換するには、次のようにします。負の値の場合、値は0にクランプされます。 それ以外の数値は変換先の形式の LSB 側にコピーされ、余った MSB 側が 0 で埋められます。</p></td>
+<td align="left"><p>SINT からそれよりもビット数が多い UINTに変換する場合、負の値は 0 にクランプされます。 それ以外の数値は変換先の形式の LSB 側にコピーされ、余った MSB 側が 0 で埋められます。</p></td>
 </tr>
 <tr class="even">
 <td align="left">UINT</td>
@@ -218,7 +218,7 @@ Direct3D では、次の 2 つの状況で固定小数点整数表現を使用�
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">FLOAT</td>
+<td align="left">[FLOAT]</td>
 <td align="left">固定小数点整数</td>
 <td align="left"><p>浮動小数点型の数値 n を固定小数点整数 i.f に変換する一般的な手順は次のとおりです。ここで、i は整数部ビット数 (符号付き)、f は小数部ビット数です。</p>
 <ul>
@@ -228,11 +228,11 @@ Direct3D では、次の 2 つの状況で固定小数点整数表現を使用�
 <li>n &gt;= FixedMax の場合の結果は Fixedmax*2<sup>f</sup> で、n &lt;= FixedMin の場合の結果は FixedMin*2<sup>f</sup> です。</li>
 <li>それ以外の場合は、n*2<sup>f</sup> を計算して整数に変換します。</li>
 </ul>
-<p>実装では、上の最後の手順で得られた整数と無限大精度値 n*2<sup>f</sup> との比較で、D3D<em>xx</em>_FLOAT32_TO_INTEGER_TOLERANCE_IN_ULP ULP の誤差が許容されます。</p></td>
+<p>実装では、上の最後の手順で得られた整数と無限大精度値 n*2<em>f</em> との比較で、D3D<sup>xx</sup>_FLOAT32_TO_INTEGER_TOLERANCE_IN_ULP ULP の誤差が許容されます。</p></td>
 </tr>
 <tr class="even">
 <td align="left">固定小数点整数</td>
-<td align="left">FLOAT</td>
+<td align="left">[FLOAT]</td>
 <td align="left"><p>浮動小数点型に変換する固定小数点表現があり、その合計ビット数は 24 ビット以下で、うち小数部は 23 ビット以下であるとします。 特定の固定小数点数 fxp を i.f の形式とします (i ビットの整数、f ビットの小数)。 浮動小数点型への変換は次に示す疑似コードのようになります。</p>
 <p>float result = (float)(fxp &gt;&gt; f) + // 整数を抽出する</p>
 ((float) (fxp &amp; (2<sup>f</sup> - 1))/(2<sup>f</sup>));分数の抽出</td>

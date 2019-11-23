@@ -42,9 +42,9 @@ XAML では、_AttachedPropertyProvider.PropertyName_ 構文を使って添付�
 
 添付プロパティは、リレーションシップ内の別々のオブジェクトが実行時に情報をやり取りするのを防ぐようなコーディング規則を回避する方法の 1 つです。 共通の基底クラスにプロパティを設定し、各オブジェクトがそのプロパティを取得、設定できるようにすることも可能です。 ただ、このようにする可能性のあるシナリオの数はきわめて多く、共有できるプロパティによって基底クラスが大きくなるおそれがあります。 何百もの子孫のうちわずか 2 つしか使わないプロパティが存在するなどという事態が発生することも考えられます。 これでは、優れたクラス設計にはなりません。 この問題に対処するため、添付プロパティの概念では、自らのクラス構造では定義されないプロパティに対してオブジェクトが値を割り当てられるようになっています。 定義クラスでは、オブジェクト ツリーで各種オブジェクトが作成された後、実行時に子オブジェクトから値を読み取ります。
 
-たとえば、子要素では添付プロパティを使用して、子要素がどのように UI に表示されるかを親要素に通知できます。 [  **Canvas.Left**](https://docs.microsoft.com/dotnet/api/system.windows.controls.canvas.left) 添付プロパティの場合がこれに該当します。 **Canvas.Left** が添付プロパティとして作成されるのは、このプロパティが **Canvas** 自体ではなく [**Canvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Canvas) 要素に含まれる要素に対して設定されるためです。 子要素は、**Canvas.Left** と [**Canvas.Top**](https://docs.microsoft.com/dotnet/api/system.windows.controls.canvas.top) を使って、レイアウト オフセットを親である **Canvas** レイアウト コンテナー内で指定します。 基本の要素オブジェクト モデルに多数のプロパティがあり、それぞれのプロパティが多数のレイアウト コンテナーの 1 つのみに適用される場合でも、添付プロパティを使えば、そのオブジェクト モデルを煩雑な状態にすることなくこれを実現できます。 代わりに、レイアウト コンテナーの多くは独自の添付プロパティ セットを実装します。
+たとえば、子要素では添付プロパティを使用して、子要素がどのように UI に表示されるかを親要素に通知できます。 [  **Canvas.Left**](https://docs.microsoft.com/dotnet/api/system.windows.controls.canvas.left) 添付プロパティの場合がこれに該当します。 **Canvas.Left** が添付プロパティとして作成されるのは、このプロパティが [Canvas**自体ではなく**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Canvas)Canvas 要素に含まれる要素に対して設定されるためです。 子要素は、**Canvas.Left** と [**Canvas.Top**](https://docs.microsoft.com/dotnet/api/system.windows.controls.canvas.top) を使って、レイアウト オフセットを親である **Canvas** レイアウト コンテナー内で指定します。 基本の要素オブジェクト モデルに多数のプロパティがあり、それぞれのプロパティが多数のレイアウト コンテナーの 1 つのみに適用される場合でも、添付プロパティを使えば、そのオブジェクト モデルを煩雑な状態にすることなくこれを実現できます。 代わりに、レイアウト コンテナーの多くは独自の添付プロパティ セットを実装します。
 
-添付プロパティを実装するには、[**Canvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Canvas) クラスは、[**Canvas.LeftProperty**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.canvas.leftproperty) という名前の静的な [**DependencyProperty**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.DependencyProperty) フィールドを定義します。 次に **Canvas** では、[**SetLeft**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.canvas.setleft) メソッドと [**GetLeft**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.canvas.getleft) メソッドを添付プロパティのパブリック アクセサーとして提供して、XAML の設定とランタイム値のアクセスの両方を可能にします。 XAML と依存関係プロパティ システムに対しては、この API のセットは添付プロパティ用の特定の XAML 構文を使い、依存関係プロパティ ストアに値を格納するパターンを実現できます。
+添付プロパティを実装するには、[**Canvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Canvas) クラスは、[**Canvas.LeftProperty**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.DependencyProperty) という名前の静的な [**DependencyProperty**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.canvas.leftproperty) フィールドを定義します。 次に **Canvas** では、[**SetLeft**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.canvas.setleft) メソッドと [**GetLeft**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.canvas.getleft) メソッドを添付プロパティのパブリック アクセサーとして提供して、XAML の設定とランタイム値のアクセスの両方を可能にします。 XAML と依存関係プロパティ システムに対しては、この API のセットは添付プロパティ用の特定の XAML 構文を使い、依存関係プロパティ ストアに値を格納するパターンを実現できます。
 
 ## <a name="how-the-owning-type-uses-attached-properties"></a>所有する型による添付プロパティの使用方法
 
@@ -125,13 +125,13 @@ myCheckBox.SetValue(Canvas::TopProperty(), winrt::box_value(75));
 > [!WARNING]
 > Windows ランタイムの XAML 実装の既存の制限事項として、カスタム添付プロパティをアニメーション化することはできません。
 
-- リソースファイルから**x:Uid**へのリソース参照のターゲットプロパティとして添付プロパティを指定するには、コードスタイルを挿入する特別な構文を使用し**ます。** これには、角かっこ ("\[ @ no__t") 内に、完全に修飾されたコード形式の宣言を使用します。意図的なスコープ中断を作成します。 たとえば、要素 @no__t が0の場合は、キャンバスを対象とするリソースファイル内のリソースキーです **。** そのインスタンスの Top 値は、"Title. \[using: Windows.UI.Xaml.Controls\]Canvas.Top" です。 リソースファイルと XAML の詳細については、「[Quickstart スタート:UI リソース @ no__t を変換しています。
+- リソースファイルから**x:Uid**へのリソース参照のターゲットプロパティとして添付プロパティを指定するには、コードスタイルを挿入する特別な構文を使用します。これには、かっこで囲まれたコードスタイル ("\[\]") を使用**して**、意図的なスコープの区切りを作成します。 たとえば、要素 `<TextBlock x:Uid="Title" />`が存在すると仮定した場合、そのインスタンス上のリソースファイル内のリソースキーは "Title" になります **。** を使用して\[: Windows. UI................. コントロール\]。 リソース ファイルと XAML について詳しくは、「[クイック スタート: UI リソースの翻訳](https://docs.microsoft.com/previous-versions/windows/apps/hh965329(v=win.10))」をご覧ください。
 
 ## <a name="related-topics"></a>関連トピック
 
 - [カスタム添付プロパティ](custom-attached-properties.md)
 - [依存関係プロパティの概要](dependency-properties-overview.md)
 - [XAML を使ったレイアウトの定義](https://docs.microsoft.com/windows/uwp/layout/layouts-with-xaml)
-- [クイック スタート:UI リソースの変換 @ no__t
+- [クイックスタート: UI リソースの変換](https://docs.microsoft.com/previous-versions/windows/apps/hh943060(v=win.10))
 - [**値**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.dependencyobject.setvalue)
 - [**GetValue**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.dependencyobject.getvalue)

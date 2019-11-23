@@ -5,7 +5,7 @@ ms.assetid: 1EB79BF6-4B94-451F-9FAB-0A1B45B4D01C
 template: detail.hbs
 ms.date: 05/19/2017
 ms.topic: article
-keywords: Windows 10, UWP
+keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: 617b5d013c8452733fae2a1fa7c16180d37fbe57
 ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
@@ -25,11 +25,11 @@ ms.locfileid: "74259721"
 
 定期的な通知では、最小限のクラウド サービスとクライアントの投資で、ライブ タイルを更新することができます。 定期的な通知は、同じコンテンツを多数のユーザーに配信する優れた方法です。
 
-**Note**   You can learn more by downloading the [Push and periodic notifications sample](https://code.msdn.microsoft.com/windowsapps/push-and-periodic-de225603) for Windows 8.1 and re-using its source code in your Windows 10 app.
+詳細については、Windows 8.1 の[プッシュ通知と定期的な通知のサンプル](https://code.msdn.microsoft.com/windowsapps/push-and-periodic-de225603)をダウンロードして、Windows 10 アプリでソースコードを再利用する   に関するページを参照してください。
 
  
 
-## <a name="how-it-works"></a>機能のしくみ
+## <a name="how-it-works"></a>方法
 
 
 定期的な通知では、アプリでクラウド サービスをホストする必要があります。 このサービスは、アプリをインストールしているすべてのユーザーによって定期的にポーリングされます。 Windows では、ポーリング間隔 (1 時間に 1 回など) に従って URI に HTTP GET 要求を送り、この要求に対する応答として提供される要求したタイルまたはバッジのコンテンツ (XML 形式) をダウンロードして、アプリのタイルにそのコンテンツを表示します。
@@ -48,9 +48,9 @@ ms.locfileid: "74259721"
 
 ポーリングを開始するには次のメソッドのいずれかを呼び出します。
 
--   [**StartPeriodicUpdate**](https://docs.microsoft.com/uwp/api/Windows.UI.Notifications.TileUpdater#Windows_UI_Notifications_TileUpdater_StartPeriodicUpdate_Windows_Foundation_Uri_Windows_Foundation_DateTime_Windows_UI_Notifications_PeriodicUpdateRecurrence_) (Tile)
--   [**StartPeriodicUpdate**](https://docs.microsoft.com/uwp/api/Windows.UI.Notifications.BadgeUpdater#Windows_UI_Notifications_BadgeUpdater_StartPeriodicUpdate_Windows_Foundation_Uri_Windows_Foundation_DateTime_Windows_UI_Notifications_PeriodicUpdateRecurrence_) (Badge)
--   [**StartPeriodicUpdateBatch**](https://docs.microsoft.com/uwp/api/Windows.UI.Notifications.TileUpdater#Windows_UI_Notifications_TileUpdater_StartPeriodicUpdateBatch_Windows_Foundation_Collections_IIterable_1_Windows_UI_Notifications_PeriodicUpdateRecurrence_) (Tile)
+-   [**Startperiodicupdate**](https://docs.microsoft.com/uwp/api/Windows.UI.Notifications.TileUpdater#Windows_UI_Notifications_TileUpdater_StartPeriodicUpdate_Windows_Foundation_Uri_Windows_Foundation_DateTime_Windows_UI_Notifications_PeriodicUpdateRecurrence_) (タイル)
+-   [**Startperiodicupdate**](https://docs.microsoft.com/uwp/api/Windows.UI.Notifications.BadgeUpdater#Windows_UI_Notifications_BadgeUpdater_StartPeriodicUpdate_Windows_Foundation_Uri_Windows_Foundation_DateTime_Windows_UI_Notifications_PeriodicUpdateRecurrence_) (バッジ)
+-   [**Startperiodicupdatebatch**](https://docs.microsoft.com/uwp/api/Windows.UI.Notifications.TileUpdater#Windows_UI_Notifications_TileUpdater_StartPeriodicUpdateBatch_Windows_Foundation_Collections_IIterable_1_Windows_UI_Notifications_PeriodicUpdateRecurrence_) (タイル)
 
 これらのいずれかのメソッドを呼び出すと、URI がすぐにポーリングされて、受け取ったコンテンツでタイルやバッジが更新されます。 この最初のポーリングの後は、要求した間隔で更新が提供されます。 ポーリングは、明示的に停止するか ([**TileUpdater.StopPeriodicUpdate**](https://docs.microsoft.com/uwp/api/Windows.UI.Notifications.TileUpdater.StopPeriodicUpdate) を使用)、アプリをアンインストールするか、(セカンダリ タイルの場合は) タイルを削除するまで続けられます。 それまでの間は、アプリが起動されなくても、タイルやバッジの更新がないかどうかを調べるために継続的にポーリングが行われます。
 
@@ -92,7 +92,7 @@ URI がポーリングされるのは、デバイスがオンラインになっ�
 
 詳しくは、「[通知キューの使用](https://docs.microsoft.com/previous-versions/windows/apps/hh781199(v=win.10))」をご覧ください。
 
-### <a name="enabling-the-notification-queue"></a>通知キューを有効にする
+### <a name="enabling-the-notification-queue"></a>通知キューの有効化
 
 通知キューを実装するには、最初に、タイルに対してキューを有効にする必要があります (「[ローカル通知で通知キューを使用する方法](https://blogs.msdn.microsoft.com/tiles_and_toasts/2016/01/05/quickstart-how-to-use-the-tile-notification-queue-with-local-notifications/)」を参照)。 キューを有効にする呼び出しはアプリの存続期間で 1 回だけ実行する必要がありますが、アプリが起動されるたびに呼び出しても問題はありません。
 
@@ -103,7 +103,7 @@ Windows でダウンロードを行うタイルの通知ごとに、一意の UR
 ## <a name="related-topics"></a>関連トピック
 
 
-* [Guidelines for periodic notifications](https://docs.microsoft.com/windows/uwp/controls-and-patterns/tiles-and-notifications-periodic-notification-overview)
-* [How to set up periodic notifications for badges](https://docs.microsoft.com/previous-versions/windows/apps/hh761476(v=win.10))
-* [How to set up periodic notifications for tiles](https://docs.microsoft.com/previous-versions/windows/apps/hh761476(v=win.10))
+* [定期的な通知のガイドライン](https://docs.microsoft.com/windows/uwp/controls-and-patterns/tiles-and-notifications-periodic-notification-overview)
+* [バッジの定期的な通知を設定する方法](https://docs.microsoft.com/previous-versions/windows/apps/hh761476(v=win.10))
+* [タイルの定期的な通知を設定する方法](https://docs.microsoft.com/previous-versions/windows/apps/hh761476(v=win.10))
  

@@ -24,17 +24,17 @@ XAML マークアップで、プロパティに **null** 値を指定します�
 <object property="{x:Null}" .../>
 ```
 
-## <a name="remarks"></a>コメント
+## <a name="remarks"></a>注釈
 
 **null** は、C# と C++ の null 参照キーワードです。 Microsoft Visual Basic の null 参照キーワードは **Nothing** です。
 
 初期の既定値は、依存関係プロパティごとに異なる場合があり、必ずしも **null** というわけではありません。 また、依存関係プロパティの多くは、その内部実装により、(マークアップまたはコードのいずれによる場合でも) **null** を値として受け入れません。 このような場合、 **{x:Null}** で XAML 属性値を設定すると、パーサー例外が発生することがあります。
 
-一部の Windows ランタイム型では、null を使うことができます。 null 許容型に **null** が既定値として設定されていない場合に備え、 **{x:Null}** を使って XAML 内で **null** 値に設定することができます。 Visual C++ component extensions (C++/cx) を使用する場合、Null 許容型は[Platform:: ibox @ no__t-4](https://docs.microsoft.com/cpp/cppcx/platform-ibox-interface)として表されます。 Microsoft .NET 言語を使う場合、null 許容型は [**Nullable<T>** ](https://docs.microsoft.com/dotnet/api/system.nullable-1) として表されます。
+一部の Windows ランタイム型では、null を使うことができます。 null 許容型に **null** が既定値として設定されていない場合に備え、 **{x:Null}** を使って XAML 内で **null** 値に設定することができます。 Visual C++ component extensions (C++/cx) を使用する場合、Null 許容型は[**Platform:: ibox<T>** ](https://docs.microsoft.com/cpp/cppcx/platform-ibox-interface)として表されます。 Microsoft .NET 言語を使う場合、null 許容型は [**Nullable<T>** ](https://docs.microsoft.com/dotnet/api/system.nullable-1) として表されます。
 
 ## <a name="related-topics"></a>関連トピック
 
-* [**Null 値を許容する @ no__t**](https://docs.microsoft.com/dotnet/api/system.nullable-1)
-* [**IReference @ no__t**](https://docs.microsoft.com/uwp/api/Windows.Foundation.IReference_T_)
+* [**Null 許容の<T>** ](https://docs.microsoft.com/dotnet/api/system.nullable-1)
+* [**IReference<T>** ](https://docs.microsoft.com/uwp/api/Windows.Foundation.IReference_T_)
  
 

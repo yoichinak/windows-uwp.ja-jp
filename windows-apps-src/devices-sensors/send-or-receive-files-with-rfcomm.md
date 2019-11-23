@@ -40,7 +40,7 @@ RFCOMM 操作の詳細を示す完全なコード サンプルについては、
 
 ファイルを送信する際の基本的なアプリのシナリオは、必要なサービスに基づいてペアリングされたデバイスに接続することです。 これには、次の手順に従う必要があります。
 
--   必要なサービスのペアリングされたデバイスインスタンスを列挙するために使用できる AQS クエリを生成するには、 **Rfcommdeviceservice @ no__t**関数を使用します。
+-   必要なサービスのペアリングされたデバイスインスタンスを列挙するために使用できる AQS クエリを生成するには、 **Rfcommdeviceservice. GetDeviceSelector\*** 関数を使用します。
 -   列挙されたデバイスを選んで [**RfcommDeviceService**](https://docs.microsoft.com/uwp/api/Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceService) を作成し、適宜 SDP 属性を読み取ります ([**established data helpers**](https://docs.microsoft.com/uwp/api/Windows.Storage.Streams.DataReader) を使って属性のデータを解析します)。
 -   ソケットを作成して、[**RfcommDeviceService.ConnectionHostName**](https://docs.microsoft.com/uwp/api/windows.devices.bluetooth.rfcomm.rfcommdeviceservice.connectionhostname) と [**RfcommDeviceService.ConnectionServiceName**](https://docs.microsoft.com/uwp/api/windows.devices.bluetooth.rfcomm.rfcommdeviceservice.connectionservicename) プロパティを [**StreamSocket.ConnectAsync**](https://docs.microsoft.com/uwp/api/windows.networking.sockets.streamsocket.connectasync) に渡し、適切なパラメーターでリモート デバイス サービスに接続します。
 -   定型的なデータ ストリーム パターンに従って、ファイルからデータのチャンクを読み取り、ソケットの [**StreamSocket.OutputStream**](https://docs.microsoft.com/uwp/api/windows.networking.sockets.streamsocket.outputstream) でデバイスに送信します。

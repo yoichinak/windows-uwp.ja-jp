@@ -81,7 +81,7 @@ ms.locfileid: "72282291"
 
 #### <a name="per-container-state"></a>コンテナーごとの状態
 
-レイアウトが添付されている場合は、次のスニペットのように、レイアウトオブジェクトの1つのインスタンスを*多数*のコンテナーに関連付けることができます。そのため、ホストコンテナーに依存したり、直接参照したりすることはできません。  以下に例を示します。
+レイアウトが添付されている場合は、次のスニペットのように、レイアウトオブジェクトの1つのインスタンスを*多数*のコンテナーに関連付けることができます。そのため、ホストコンテナーに依存したり、直接参照したりすることはできません。  次に、例を示します。
 
 ```xaml
 <!-- ... --->
@@ -154,7 +154,7 @@ UI の仮想化とは、_必要に_なるまで ui オブジェクトの作成�
 5. 並べ替え[Eoverride](/uwp/api/microsoft.ui.xaml.controls.nonvirtualizinglayout.arrangeoverride)をオーバーライドし、すべての子の[配置](/uwp/api/windows.ui.xaml.uielement.arrange)メソッドを呼び出します。
 6. *(**新規**/省略可能)* [Uninitializeforcontextcore](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout.uninitializeforcontextcore)の一部として保存された状態をクリーンアップします。
 
-### <a name="example-a-simple-stack-layout-varying-sized-items"></a>例:単純なスタックレイアウト (サイズの異なる項目)
+### <a name="example-a-simple-stack-layout-varying-sized-items"></a>例: 単純なスタックレイアウト (可変サイズの項目)
 
 ![MyStackLayout](images/xaml-attached-layout-mystacklayout.png)
 
@@ -261,7 +261,7 @@ Windows でのスクロールは、UI スレッドに対して非同期に行わ
 
 特定のインデックスの要素を要求すると、その要素はレイアウトのそのパスに対して "使用中" としてマークされます。 要素がまだ存在しない場合は、その要素が認識され、自動的に使用できるように準備されます (たとえば、System.windows.datatemplate> で定義されている UI ツリーの拡大、任意のデータバインディングの処理など)。  それ以外の場合は、既存のインスタンスのプールから取得されます。
 
-各メジャーパスの最後には、"使用中" とマークされていない既存の、実現された要素は、 [SuppressAutoRecycle](/uwp/api/microsoft.ui.xaml.controls.elementrealizationoptions)のオプションを使用して取得[された場合を除き、自動的に再利用可能と見なされます。GetOrCreateElementAt](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.getorcreateelementat)メソッド。 フレームワークによって自動的にリサイクルプールに移動され、使用できるようになります。 その後、別のコンテナーで使用するためにプルされる可能性があります。 要素の再親に関連するコストが発生するため、可能であればフレームワークはこれを回避しようとします。
+各メジャーパスの最後では、"使用中" とマークされていない既存の、実現された要素は、 [SuppressAutoRecycle](/uwp/api/microsoft.ui.xaml.controls.elementrealizationoptions)のオプションが[Getorcreateelementat](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.getorcreateelementat)メソッドを介して取得されたときに使用された場合を除き、自動的に再利用可能と見なされます。 フレームワークによって自動的にリサイクルプールに移動され、使用できるようになります。 その後、別のコンテナーで使用するためにプルされる可能性があります。 要素の再親に関連するコストが発生するため、可能であればフレームワークはこれを回避しようとします。
 
 仮想化レイアウトが各メジャーの先頭で認識している要素が、実現されていない要素である場合、その再利用を最適化できます。 フレームワークの既定の動作に依存するのではなく、 レイアウトでは、 [RecycleElement](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.recycleelement)メソッドを使用して、事前にの要素をリサイクルプールに移動できます。  新しい要素を要求する前にこのメソッドを呼び出すと、既に要素に関連付けられていないインデックスに対して、後で[Getorcreateelementat](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.getorcreateelementat)要求を発行するときに、これらの既存の要素が使用可能になります。
 
@@ -289,7 +289,7 @@ VirtualizingLayoutContext には、レイアウト作成者がコンテンツに
 > [!TIP]
 > さまざまな状況で他のユーザーによって使用されるコントロールライブラリのカスタムコントロールを作成する場合、データレイアウトを選択することはできません。
 
-### <a name="example-xbox-activity-feed-layout"></a>例:Xbox アクティビティフィードレイアウト
+### <a name="example-xbox-activity-feed-layout"></a>例: Xbox アクティビティフィードのレイアウト
 
 Xbox アクティビティフィードの UI では繰り返しパターンが使用されます。このパターンでは、各行にワイドタイルが含まれ、その後に2つの細いタイルが適用されます。 このレイアウトでは、すべての項目のサイズは、データセット内の項目の位置と、タイルの既知のサイズ (幅と幅の比較) の関数です。
 
@@ -586,7 +586,7 @@ internal class ActivityFeedLayoutState
 
 既定では、 [Virtualizinglayoutcontext](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext)は、認識される要素と、それが表すデータソース内のインデックスとの間のマッピングを維持します。  レイアウトでは、既定の自動リサイクル動作を妨げる[Getorcreateelementat](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.getorcreateelementat)メソッドを使用して要素を取得するときに、常に[SuppressAutoRecycle](/uwp/api/microsoft.ui.xaml.controls.elementrealizationoptions)のオプションを要求することによって、このマッピングを管理することを選択できます。  たとえば、スクロールが1方向に制限されていて、それが考慮される項目が常に連続している場合 (つまり、最初の要素と最後の要素のインデックスを知っていれば、動詞する必要があるすべての要素を把握できるようにする場合など) に、レイアウトを選択できます。lized).
 
-#### <a name="example-xbox-activity-feed-measure"></a>例:Xbox アクティビティフィードのメジャー
+#### <a name="example-xbox-activity-feed-measure"></a>例: Xbox アクティビティフィードメジャー
 
 次のスニペットは、マッピングを管理するために、前のサンプルの MeasureOverride に追加できる追加のロジックを示しています。
 
@@ -703,7 +703,7 @@ XAML には、スクロールコントロールで[IScrollAnchorPovider](/uwp/ap
 レイアウトで推測が正しくないことが検出された場合、または予期しないビューポートのシフトが見られる場合は、その開始位置を方向を確認する必要があります。  XAML コントロールの一部として出荷される仮想化レイアウトは、表示されるコンテンツの性質に対する制限を減らすことで、コンテンツに依存するレイアウトとして開発されます。
 
 
-### <a name="example-simple-virtualizing-stack-layout-for-variable-sized-items"></a>例:可変サイズの項目の単純な仮想化スタックレイアウト
+### <a name="example-simple-virtualizing-stack-layout-for-variable-sized-items"></a>例: 可変サイズの項目の単純な仮想化スタックレイアウト
 
 次のサンプルでは、可変サイズの項目の単純なスタックレイアウトを示しています。
 
@@ -712,7 +712,7 @@ XAML には、スクロールコントロールで[IScrollAnchorPovider](/uwp/ap
 * 非連続的なビューポートのシフトを認識し、
 * レイアウトの修正を適用して、それらのシフトを考慮します。
 
-**Usage:マークアップ @ no__t-0
+**使用法: マークアップ**
 
 ```xaml
 <ScrollViewer>
@@ -741,7 +741,7 @@ XAML には、スクロールコントロールで[IScrollAnchorPovider](/uwp/ap
 </ScrollViewer>
 ```
 
-**Codebehind:メイン .cs @ no__t-0
+**分離コード: Main.cs**
 
 ```csharp
 string _lorem = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam laoreet erat vel massa rutrum, eget mollis massa vulputate. Vivamus semper augue leo, eget faucibus nulla mattis nec. Donec scelerisque lacus at dui ultricies, eget auctor ipsum placerat. Integer aliquet libero sed nisi eleifend, nec rutrum arcu lacinia. Sed a sem et ante gravida congue sit amet ut augue. Donec quis pellentesque urna, non finibus metus. Proin sed ornare tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam laoreet erat vel massa rutrum, eget mollis massa vulputate. Vivamus semper augue leo, eget faucibus nulla mattis nec. Donec scelerisque lacus at dui ultricies, eget auctor ipsum placerat. Integer aliquet libero sed nisi eleifend, nec rutrum arcu lacinia. Sed a sem et ante gravida congue sit amet ut augue. Donec quis pellentesque urna, non finibus metus. Proin sed ornare tellus.";
@@ -757,7 +757,7 @@ var data = new ObservableCollection<Recipe>(Enumerable.Range(0, 300).Select(k =>
 repeater.ItemsSource = data;
 ```
 
-**Code:VirtualizingStackLayout. cs @ no__t-0
+**コード: VirtualizingStackLayout.cs**
 
 ```csharp
 // This is a sample layout that stacks elements one after
