@@ -1,0 +1,156 @@
+### YamlMime:Hub
+title: Windows アプリ開発者向けドキュメント
+summary: Windows PC などのデバイス用のアプリとソリューションを設計、開発、デプロイする方法について説明します。
+brand: windows
+metadata:
+  title: Windows 開発者向けドキュメント
+  description: Windows PC などのデバイス向けアプリとソリューションを設計、開発、デプロイします。
+  author: mcleanbyron
+  ms.author: mcleans
+  ms.topic: hub-page
+  ms.date: 11/08/2019
+  ms.localizationpriority: medium
+  uhfHeaderId: MSDocsHeader-WinDevCenter
+  ms.openlocfilehash: f7c79005943440c4b8896e35f78b86c300a23d7f
+  ms.sourcegitcommit: 5bd8dcb5dc1b07fd97c60b41c3f8feae099fee4a
+  ms.translationtype: HT
+  ms.contentlocale: ja-JP
+  ms.lasthandoff: 11/22/2019
+  ms.locfileid: "74320025"
+highlightedContent:
+  items:
+  - title: Visual Studio と Windows SDK を入手する
+    itemType: download
+    url: https://developer.microsoft.com/windows/downloads
+  - title: ユーザー インターフェイスと設計ガイドライン
+    itemType: overview
+    url: /windows/apps/fluent-design-system
+  - title: Insider Program に参加する
+    itemType: overview
+    url: https://docs.microsoft.com/windows-insider
+  - title: Windows アプリ開発者向けオンライン トレーニング
+    itemType: learn
+    url: https://docs.microsoft.com/learn/browse/?products=windows
+conceptualContent:
+  items:
+  - title: デバイス プラットフォーム
+    links:
+    - text: Windows PC
+      url: /windows/apps/desktop/
+      itemType: get-started
+    - text: Mixed Reality と HoloLens
+      url: https://docs.microsoft.com/windows/mixed-reality/
+      itemType: get-started
+    - text: IoT Core
+      url: https://docs.microsoft.com/windows/iot-core/windows-iot-core
+      itemType: get-started
+    - text: Xbox One
+      url: https://www.xbox.com/developers
+      itemType: get-started
+    - text: モバイル アプリケーション開発
+      url: https://docs.microsoft.com/azure/mobile-apps/
+      itemType: overview
+  - title: 初めてのデスクトップ アプリの開発
+    links:
+    - text: UWP
+      url: /windows/uwp/get-started/
+      itemType: get-started
+    - text: Win32
+      url: https://docs.microsoft.com/windows/win32/desktop-programming/
+      itemType: get-started
+    - text: WPF (.NET Core)
+      url: https://docs.microsoft.com/visualstudio/get-started/csharp/tutorial-wpf?toc=/dotnet/desktop-wpf/toc.json&bc=/dotnet/breadcrumb/toc.json&view=vs-2019
+      itemType: get-started
+    - text: WPF (.NET Framework)
+      url: https://docs.microsoft.com/dotnet/framework/wpf/getting-started/
+      itemType: get-started
+    - text: Windows フォーム
+      url: https://docs.microsoft.com/dotnet/framework/winforms/getting-started-with-windows-forms
+      itemType: get-started
+  - title: API リファレンス
+    links:
+    - text: UWP
+      url: https://docs.microsoft.com/uwp/
+      itemType: reference
+    - text: Win32 (ヘッダー別)
+      url: https://docs.microsoft.com/windows/win32/api/
+      itemType: reference
+    - text: Win32 (機能別)
+      url: https://docs.microsoft.com/windows/win32/apiindex/windows-api-list
+      itemType: reference
+    - text: .NET Core
+      url: https://docs.microsoft.com/dotnet/api/index?view=netcore-3.0
+      itemType: reference
+    - text: .NET Framework
+      url: https://docs.microsoft.com/dotnet/api/index?view=netframework-4.8
+      itemType: reference
+tools:
+  title: アプリのプラットフォームとフレームワーク
+  items:
+  - title: UWP
+    imageSrc: https://docs.microsoft.com/media/logos/logo_windows.svg
+    url: /windows/uwp/
+  - title: Win32
+    imageSrc: https://docs.microsoft.com/media/logos/logo_windows.svg
+    url: https://docs.microsoft.com/windows/win32/
+  - title: WPF
+    imageSrc: https://docs.microsoft.com/media/logos/logo_NET.svg
+    url: https://docs.microsoft.com/dotnet/framework/wpf/
+  - title: Windows フォーム
+    imageSrc: https://docs.microsoft.com/media/logos/logo_NET.svg
+    url: https://docs.microsoft.com/dotnet/framework/winforms/
+additionalContent:
+  sections:
+  - title: タスク
+    items:
+    - title: デスクトップ アプリの構築
+      summary: Windows を実行する PC 用の UWP、Win32、WPF、Windows フォーム デスクトップ アプリを構築します。
+      url: /windows/apps/desktop/
+    - title: デスクトップ アプリの現代化
+      summary: Windows 10 の最新機能を使用するように既存のデスクトップ アプリを強化します。
+      url: /windows/apps/desktop/modernize
+    - title: Windows 機能向けの開発
+      summary: さまざまなアプリ プラットフォームで Windows の機能がどのようにサポートされているかについて説明します。
+      url: /windows/apps/features-and-technologies/
+    - title: コード サンプルを探す
+      summary: サンプルを調べることで、優れたアプリを作る方法について説明します。
+      url: https://developer.microsoft.com/windows/samples
+    - title: モバイル向け開発
+      summary: セキュリティで保護された信頼性の高いクラウドベースのモバイル アプリケーションを作成できる Microsoft サービスについて説明します。
+      url: https://docs.microsoft.com/azure/mobile-apps/
+    - title: Python、Node.js などを使用した開発
+      summary: Python、Node.js などのクロスプラットフォーム テクノロジを使用するように Windows コンピューターをセットアップします。
+      url: /windows/dev-environment/
+    - title: Microsoft Store への発行
+      summary: パートナー センターを使用して、Windows アプリとゲームを Microsoft Store に発行します。
+      url: /windows/uwp/publish/
+    - title: アプリをアクセス可能にする
+      summary: アプリケーションにアクセシビリティを組み込んで、あらゆる人々の能力を高めます。
+      url: /windows/apps/accessibility/
+  - title: テクノロジ
+    items:
+    - title: 開発者向け新機能
+      summary: Windows 10 の最新の開発者向け機能について説明します。
+      url: https://developer.microsoft.com/windows/windows-10-for-developers
+    - title: Windows AI
+      summary: Windows AI を使用して、アプリの複雑な問題に対するインテリジェントなソリューションを構築します。
+      url: https://docs.microsoft.com/windows/ai/
+    - title: Windows for IoT
+      summary: Windows for IoT プラットフォーム向けのソリューションを構築します。
+      url: https://docs.microsoft.com/windows/iot-core/
+    - title: MSIX
+      summary: Windows アプリをパッケージ化して、最新の汎用パッケージ化形式で展開します。
+      url: https://docs.microsoft.com/windows/msix/
+    - title: Windows のコンテナー
+      summary: アプリケーションとその依存関係を、完全に分離された高速な Windows 環境でパッケージ化します。
+      url: https://docs.microsoft.com/virtualization/windowscontainers/
+    - title: Mixed Reality
+      summary: HoloLens など向けのコラボレーションに対応した複合現実ソリューションを構築します。
+      url: https://docs.microsoft.com/windows/mixed-reality/
+    - title: Project Rome
+      summary: アプリに対応したクロスデバイス エクスペリエンスを構築します。
+      url: https://docs.microsoft.com/windows/project-rome/
+    - title: Microsoft Graph
+      summary: 統合プログラミング モデルを活用して、何百万人ものユーザーのデータとやり取りするアプリを構築します。
+      url: https://docs.microsoft.com/graph/
+  footer: '[@WindowsDocs (Twitter)](https://twitter.com/WindowsDocs) - [OneDevMinute (YouTube)](https://aka.ms/OneDevMinute) - [Windows 開発者向けサポート](https://developer.microsoft.com/windows/support) - [Stack Overflow](https://stackoverflow.com/questions/tagged/windows)'
