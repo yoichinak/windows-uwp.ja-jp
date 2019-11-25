@@ -8,12 +8,12 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 keywords: windows win32, デスクトップ開発
-ms.openlocfilehash: c931991c283bb0b31f55c3e5539eac5ddeda9575
-ms.sourcegitcommit: cf88f5e8e1de476ed2635e791a5e5e82ae4bd8cf
+ms.openlocfilehash: d0d87f8e4b6524471ff5e2ada9012a22641b06d7
+ms.sourcegitcommit: ddf0137929945eddf01041a81aa4d26038e70f46
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74056852"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74392091"
 ---
 # <a name="choose-your-app-platform"></a>アプリ プラットフォームの選択
 
@@ -69,7 +69,8 @@ Windows フォームは、軽量 UI モデルや、.NET Core へのアクセス�
 Windows フォームの詳細については、次の記事を参照してください。
 
 * [Windows フォームについて](https://docs.microsoft.com/dotnet/framework/winforms/getting-started-with-windows-forms)
-* [初めてのアプリの作成](/dotnet/framework/wpf/getting-started/walkthrough-my-first-wpf-desktop-application/)
+* [初めての Windows フォーム アプリの作成](/dotnet/framework/winforms/creating-a-new-windows-form)
+* [チュートリアル: ピクチャ ビューアーの作成](/visualstudio/ide/tutorial-1-create-a-picture-viewer?view=vs-2019)
 * [API リファレンス (.NET)](https://docs.microsoft.com/dotnet/api/index)
 * [Windows フォーム アプリの拡張](/dotnet/framework/winforms/advanced/)
 
