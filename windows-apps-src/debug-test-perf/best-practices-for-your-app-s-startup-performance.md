@@ -4,7 +4,7 @@ title: アプリ起動時のパフォーマンスのベスト プラクティス
 description: 起動とアクティブ化を処理する方法を向上させることによって、最適な起動時間のユニバーサル Windows プラットフォーム (UWP) アプリを作成します。
 ms.date: 02/08/2017
 ms.topic: article
-keywords: Windows 10, UWP
+keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: ae37ab763b6705fbb3f341569904972ebb181412
 ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
@@ -32,7 +32,7 @@ UWP アプリがユーザーのコンピューターに届くまで、アプリ�
 
 次の手順では、Ngen.exe を実行してアプリをプリコンパイルする方法について説明します。
 
-**To run Ngen.exe**
+**Ngen.exe を実行するには**
 
 1.  少なくとも 1 回アプリを実行して、Ngen.exe にアプリを検出させます。
 2.  次のいずれかの方法で**タスク スケジューラ**を開きます。

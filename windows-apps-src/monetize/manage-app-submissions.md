@@ -426,7 +426,7 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 |  privacyPolicy                |   string      |   この値は使われなくなりました。 アプリのプライバシーポリシーの URL を設定または変更するには、パートナーセンターの [[プロパティ](../publish/enter-app-properties.md#privacy-policy-url)] ページでこれを行う必要があります。 この値は、申請 API の呼び出しから省略することができます。 この値を設定しても無視されます。       |
 |  supportContact                |   string      |  この値は使われなくなりました。 アプリのサポート担当者の URL または電子メールアドレスを設定または変更するには、パートナーセンターの [[プロパティ](../publish/enter-app-properties.md#support-contact-info)] ページでこの操作を行う必要があります。 この値は、申請 API の呼び出しから省略することができます。 この値を設定しても無視されます。        |
 |  websiteUrl                |   string      |  この値は使われなくなりました。 アプリの web ページの URL を設定または変更するには、パートナーセンターの [[プロパティ](../publish/enter-app-properties.md#website)] ページでこれを行う必要があります。 この値は、申請 API の呼び出しから省略することができます。 この値を設定しても無視されます。      |    
-|  description               |    string     |   アプリの登録情報の[説明](https://docs.microsoft.com/windows/uwp/publish/create-app-descriptions)です。   |     
+|  説明               |    string     |   アプリの登録情報の[説明](https://docs.microsoft.com/windows/uwp/publish/create-app-descriptions)です。   |     
 |  features               |    array     |  アプリの[機能](https://docs.microsoft.com/windows/uwp/publish/create-app-descriptions)を示す最大 20 個の文字列の配列です。     |
 |  releaseNotes               |  string       |  アプリの[リリース ノート](https://docs.microsoft.com/windows/uwp/publish/create-app-descriptions)です。    |
 |  images               |   array      |  アプリの登録情報の[画像とアイコン](#image-object)のリソースの配列です。  |
@@ -450,7 +450,7 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 |  fileName               |    string     |   申請用にアップロードした ZIP アーカイブに含まれている画像ファイルの名前です。    |     
 |  fileStatus               |   string      |  画像ファイルの状態です。 次のいずれかの値を使用できます。 <ul><li>なし</li><li>PendingUpload</li><li>Uploaded</li><li>PendingDelete</li></ul>   |
 |  id  |  string  | 画像の ID です。 この値は、パートナーセンターによって指定されます。  |
-|  description  |  string  | 画像の説明です。  |
+|  説明  |  string  | 画像の説明です。  |
 |  imageType  |  string  | 画像の種類を示します。 現在サポートされている文字列は次のとおりです。 <p/>[スクリーン ショット画像](../publish/app-screenshots-and-images.md#screenshots): <ul><li>Screenshot (デスクトップのスクリーンショットにはこの値を使用します)</li><li>MobileScreenshot</li><li>XboxScreenshot</li><li>SurfaceHubScreenshot</li><li>HoloLensScreenshot</li></ul><p/>[ストア ロゴ](../publish/app-screenshots-and-images.md#store-logos):<ul><li>StoreLogo9x16 </li><li>StoreLogoSquare</li><li>Icon (1:1 の 300 x 300 ピクセルのロゴにはこの値を使用します)</li></ul><p/>[プロモーション画像](../publish/app-screenshots-and-images.md#promotional-images): <ul><li>PromotionalArt16x9</li><li>PromotionalArtwork2400X1200</li></ul><p/>[Xbox 画像](../publish/app-screenshots-and-images.md#xbox-images): <ul><li>XboxBrandedKeyArt</li><li>XboxTitledHeroArt</li><li>XboxFeaturedPromotionalArt</li></ul><p/>[オプションのプロモーション画像](../publish/app-screenshots-and-images.md#optional-promotional-images): <ul><li>SquareIcon358X358</li><li>BackgroundImage1000X800</li><li>PromotionalArtwork414X180</li></ul><p/> <!-- The following strings are also recognized for this field, but they correspond to image types that are no longer for listings in the Store.<ul><li>PromotionalArtwork846X468</li><li>PromotionalArtwork558X756</li><li>PromotionalArtwork414X468</li><li>PromotionalArtwork558X558</li><li>WideIcon358X173</li><li>Unknown</li></ul> -->   |
 
 
@@ -499,7 +499,7 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 |  localCooperativeMaxPlayers               |   int      |   ゲームでサポートされるローカル協力プレイの最大プレイヤー数を指定します。  |     
 |  isBroadcastingPrivilegeGranted               |   boolean      |  ゲームでブロードキャストがサポートされているかどうかを示します。   |     
 |  isCrossPlayEnabled               |   boolean      |   ゲームで Windows 10 PC と Xbox のプレイヤー間でのマルチプレイヤー セッションがサポートされているかどうかを示します。  |     
-|  kinectDataForExternal               |   string      |  次の各文字列値は、ゲームで Kinect データを収集し、外部サービスに送信できるかどうかを示します。 <ul><li>NotSet</li><li>Unknown</li><li>有効</li><li>Disabled</li></ul>   |
+|  kinectDataForExternal               |   string      |  次の各文字列値は、ゲームで Kinect データを収集し、外部サービスに送信できるかどうかを示します。 <ul><li>NotSet</li><li>Unknown</li><li>有効</li><li>無効</li></ul>   |
 
 > [!NOTE]
 > *gamingOptions* リソースは、Microsoft Store 申請 API が開発者向けに最初にリリースされた後、2017 年 5 月に追加されました。 このリソースが導入される前に申請 API を通じててアプリの申請を作成し、その申請がまだ審査中の場合、申請を正常にコミットするか削除するまで、アプリの申請に対するこのリソースは null になります。 アプリの申請で *gamingOptions* リソースが利用できない場合、*アプリの取得*メソッドから返される[アプリケーション リソース](get-app-data.md#application_object)の [hasAdvancedListingPermission](get-an-app.md) フィールドは false になります。
@@ -705,7 +705,7 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 |-----------------|---------|------|
 |  fileName               |    string     |   申請用にアップロードした ZIP アーカイブに含まれているサムネイル画像ファイルの名前です。    |     
 |  id  |  string  | サムネイル画像の ID です。 この値は、パートナーセンターによって提供されます。  |
-|  description  |  string  | サムネイル画像の説明です。 この値はメタデータのみです。ユーザーには表示されません。   |
+|  説明  |  string  | サムネイル画像の説明です。 この値はメタデータのみです。ユーザーには表示されません。   |
 
 <span/>
 

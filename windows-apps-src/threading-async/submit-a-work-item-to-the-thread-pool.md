@@ -15,7 +15,7 @@ ms.locfileid: "74259804"
 ---
 # <a name="submit-a-work-item-to-the-thread-pool"></a>スレッド プールへの作業項目の送信
 
-\[ Updated for UWP apps on Windows 10. For Windows 8.x articles, see the [archive](https://docs.microsoft.com/previous-versions/windows/apps/mt244353(v=win.10)?redirectedfrom=MSDN) \]
+Windows 10 の UWP アプリの \[ が更新されました。 Windows 8.x の記事については、「 [archive](https://docs.microsoft.com/previous-versions/windows/apps/mt244353(v=win.10)?redirectedfrom=MSDN) 」を参照してください \]
 
 <b>重要な API</b>
 
@@ -31,7 +31,7 @@ ms.locfileid: "74259804"
 3 つのバージョンの [**RunAsync**](https://docs.microsoft.com/uwp/api/windows.system.threading.threadpool.runasync) を使うことができるため、必要に応じて作業項目の優先度を指定し、他の作業項目と同時に実行するかどうかを制御できます。
 
 >[!NOTE]
->Use [**CoreDispatcher.RunAsync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync) to access the UI thread and show progress from the work item.
+>[**CoreDispatcher**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync)を使用して UI スレッドにアクセスし、作業項目の進行状況を表示します。
 
 次の例では作業項目を作成し、作業を実行するラムダを指定します。
 
@@ -350,7 +350,7 @@ asyncAction.Completed = new AsyncActionCompletedHandler(
 
 ## <a name="summary-and-next-steps"></a>要約と次のステップ
 
-You can learn more by downloading the code from this quickstart in the [Creating a ThreadPool work item sample](https://code.msdn.microsoft.com/windowsapps/Creating-a-ThreadPool-work-9665cdff) written for Windows 8.1, and re-using the source code in a win\_unap Windows 10 app.
+詳細については、このクイックスタートの「Windows 8.1 用に記述された[ThreadPool 作業項目サンプルの作成](https://code.msdn.microsoft.com/windowsapps/Creating-a-ThreadPool-work-9665cdff)」に記載されているコードをダウンロードし、win\_Unap Windows 10 アプリでソースコードを再利用する方法に関するページを参照してください。
 
 ## <a name="related-topics"></a>関連トピック
 

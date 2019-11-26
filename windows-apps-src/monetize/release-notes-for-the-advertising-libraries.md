@@ -18,7 +18,7 @@ ms.locfileid: "74260207"
 
 
 
-このセクションでは、Microsoft Advertising ライブラリの現在のリリースのリリース ノートを示します。 These libraries support XAML and JavaScript/HTML apps for Windows 10, Windows 8.1, Windows Phone 8.1 and Windows Phone 8.
+このセクションでは、Microsoft Advertising ライブラリの現在のリリースのリリース ノートを示します。 これらのライブラリは、Windows 10、Windows 8.1、Windows Phone 8.1、Windows Phone 8 の XAML および JavaScript/HTML アプリをサポートしています。
 
 ## <a name="installation"></a>インストール
 

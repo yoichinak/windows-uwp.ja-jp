@@ -24,12 +24,12 @@ ms.locfileid: "74260337"
 
 |  トピック    | 説明 |               
 |----------|-------|
-| [AdControl in XAML and .NET](adcontrol-in-xaml-and--net.md)     | XAML/.NET アプリにバナー広告を追加します。        |
-| [AdControl in HTML 5 and Javascript](adcontrol-in-html-5-and-javascript.md)     | HTML5/JavaScript アプリにバナー広告を追加します。        |
-| [Supported banner ad sizes](supported-ad-sizes-for-banner-ads.md)    |  UWP アプリのバナー広告でサポートされているサイズを説明します。        |
+| [XAML および .NET での AdControl](adcontrol-in-xaml-and--net.md)     | XAML/.NET アプリにバナー広告を追加します。        |
+| [HTML 5 および Javascript での AdControl](adcontrol-in-html-5-and-javascript.md)     | HTML5/JavaScript アプリにバナー広告を追加します。        |
+| [サポートされているバナー広告のサイズ](supported-ad-sizes-for-banner-ads.md)    |  UWP アプリのバナー広告でサポートされているサイズを説明します。        |
 
 
 ## <a name="related-topics"></a>関連トピック
 
 * [GitHub の広告サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Advertising)
-* [Set up ad units for your app](set-up-ad-units-in-your-app.md)
+* [アプリの ad ユニットを設定する](set-up-ad-units-in-your-app.md)

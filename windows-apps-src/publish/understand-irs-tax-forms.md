@@ -23,28 +23,28 @@ ms.locfileid: "74258966"
 
 | IRS の税関連の書類 | 説明 | 対象 |
 |--------------|-------------|--------------|
-|1099-MISC、1099-K | マイクロソフトのマーケットプレースへの参加に関する販売アクティビティや開発者への支払いに関連します。 | Printed forms will be postmarked on or before **January 31**, and .pdf copies will be available in [Partner Center](https://partner.microsoft.com/dashboard) (in **Account settings > Tax profile**) at the same time |
-|1042-S | 米国の源泉徴収税の対象になる開発者への支払いに関連します。 | Printed forms will be postmarked on or before **March 15**, and .pdf copies will be available in Partner Center (in **Account settings > Tax profile**) at the same time |
+|1099-MISC、1099-K | マイクロソフトのマーケットプレースへの参加に関する販売アクティビティや開発者への支払いに関連します。 | 印刷されるフォームは postmarked**年1月 31**日以前になります。また、pdf コピーは、[パートナーセンター](https://partner.microsoft.com/dashboard) (**アカウント設定 > 税プロファイル**) で同時に利用できます。 |
+|1042-S | 米国の源泉徴収税の対象になる開発者への支払いに関連します。 | 印刷されるフォームは、 **3 月 15**日以前に postmarked ます。また、pdf コピーは、パートナーセンター (**アカウント設定 > 税プロファイル**) で同時に利用できます。 |
 
 > [!NOTE]
-> The address we use on IRS tax forms comes from the address in your [Tax profile](setting-up-your-payout-account-and-tax-forms.md#tax-forms). 住所を変更した場合は、 **[税プロファイル]** の住所も変更するようにしてください。
+> IRS 税のフォームで使用する住所は、[税金プロファイル](setting-up-your-payout-account-and-tax-forms.md#tax-forms)のアドレスから取得されます。 住所を変更した場合は、 **[税プロファイル]** の住所も変更するようにしてください。
 
-The tax forms will be sent to you from the following addresses:
+税金のフォームは、次のアドレスから送信されます。
 
-**US Citizens:**
+**米国市民:**
 <table>
-<tr><th>Business Group</th><th>Legal Entity</th><th>Address</th></tr>
-<tr><td>Windows, Office, Azure</td><td>Microsoft Corporation</td><td>One Microsoft Way<br>Redmond WA 98052 USA</td></tr>
-<tr><td>広告</td><td>Microsoft Online Inc.</td><td>6100 Neil Road<br>Reno, NV 89511 USA</td></tr>
+<tr><th>ビジネスグループ</th><th>法人</th><th>Address</th></tr>
+<tr><td>Windows、Office、Azure</td><td>Microsoft Corporation</td><td>One Microsoft Way<br>Redmond WA 98052 USA</td></tr>
+<tr><td>広告</td><td>Microsoft Online Inc.</td><td>6100 Neil の道路<br>Reno、NV 89511 USA</td></tr>
 <table> 
 
-**Non-US Citizens:**
+**米国以外の市民:**
 <table>
-<tr><th>Business Group</th><th>Legal Entity</th><th>Address</th></tr>
-<tr><td>Windows, Office, Azure</td><td>Microsoft Ireland Operations Limited (Payment is made by Microsoft Corporation via Microsoft Ireland acting as qualified intermediary for Microsoft Corporation)</td><td>One Microsoft Place<br>South&nbsp;County&nbsp;Business&nbsp;Park<br>Leopardstown, Dublin 18 Ireland</td></tr>
-<tr><td>Advertising *</td><td>Microsoft Ireland Operations Limited (Payment is made by Microsoft Online Inc. via Microsoft Ireland acting as payout agent for Microsoft Online Inc.)</td><td>One Microsoft Place<br>South&nbsp;County&nbsp;Business&nbsp;Park<br>Leopardstown, Dublin 18 Ireland</td></tr>
-<tr><td>広告</td><td>Microsoft Online Inc.</td><td>6100 Neil Road<br>Reno, NV 89511 USA</td></tr>
-<tr><td colspan="3">* Citizens of the following countries earning Advertising revenue will be paid through Microsoft Ireland Operations Limited: Austria, Belgium, Bulgaria, Croatia, Cyprus, Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Ireland, Isle of Man, Italy, Latvia, Liechtenstein, Lithuania, Luxembourg, Malta, Monaco, Netherlands, Norway, Poland, Portugal, Romania, Slovakia, Slovenia, South Africa, Spain, Sweden, Switzerland, United Kingdom</td></tr>
+<tr><th>ビジネスグループ</th><th>法人</th><th>Address</th></tr>
+<tr><td>Windows、Office、Azure</td><td>Microsoft アイルランドの運用に限定されています (マイクロソフトは microsoft corporation によって microsoft corporation の修飾された仲介役として機能します)。</td><td>Microsoft の1か所<br>南部&nbsp;郡&nbsp;ビジネス&nbsp;公園<br>Leopardstown, ダブリン18アイルランド</td></tr>
+<tr><td>掲載</td><td>Microsoft アイルランドの操作は制限されています (支払いは microsoft online inc. によって行われます)。 microsoft アイルランドは、microsoft Online Inc. の支払いエージェントとして機能します)。</td><td>Microsoft の1か所<br>南部&nbsp;郡&nbsp;ビジネス&nbsp;公園<br>Leopardstown, ダブリン18アイルランド</td></tr>
+<tr><td>広告</td><td>Microsoft Online Inc.</td><td>6100 Neil の道路<br>Reno、NV 89511 USA</td></tr>
+<tr><td colspan="3">* 次の国の市民の広告は、Microsoft アイルランドに限定されています。オーストリア、ベルギー、ブルガリア、クロアチア、キプロス、チェコ共和国、デンマーク、エストニア、フィンランド、フランス、ドイツ、ギリシャ、ハンガリー、アイルランド、マン島、イタリア、ラトビア、リヒテンシュタイン、リトアニア、ルクセンブルク、マルタ、モナコ、オランダ、ノルウェー、ポーランド、ポルトガル、ルーマニア、スロバキア、スロベニア、南アフリカ、スペイン、スウェーデン、スイス、英国</td></tr>
 </table>
 
 ## <a name="for-developers-located-in-the-united-states"></a>米国在住の開発者の場合
@@ -56,15 +56,15 @@ The tax forms will be sent to you from the following addresses:
   </tr>
   <tr> 
      <td valign="top">適用される税年度に、<b>アプリの販売数が 200 個を上回り</b>、アプリ販売の合計購入金額が <b>20,000 米国ドルを超えました</b> (Windows 10 の Microsoft Store 経由でブラジルおよび中国で販売された数は<b>含まれません</b>)。</td>
-    <td valign="top"><b>1099-K</b> :<br>提出者: Microsoft Corporation<br>EIN: *****4442<br><br><b>Important</b>: Form 1099-K contains <b>gross purchase</b> amounts, not payments made to you.</td>
+    <td valign="top"><b>1099-K</b>:<br>提出者: Microsoft Corporation<br>中: * * * * * 4442<br><br><b>重要</b>: フォーム 1099-K には<b>総購入</b>金額が含まれており、支払いは行われません。</td>
   </tr>
   <tr> 
      <td valign="top">(i) Windows 10 の Microsoft Store 経由でブラジルおよび中国で販売したアプリまたは (ii) Minecraft Marketplace マーケットプレースでの売り上げについて、<b>10 ドル以上の支払い額</b>を受け取りました。<br>
 <br>
-<b>OR</b><br>
+<b>もしくは</b><br>
 <br>
-I received at least $600 in payments not related to app sales from Microsoft in the applicable tax year (for example, incentive payments or payments from a contest or promotion)</td>
-    <td valign="top"><b>1099-MISC</b> :<br>支払者: Microsoft Corporation<br>EIN: *****4442<br><br><b>Important</b>: Certain business entities will not receive 1099-MISC forms regardless of the payment amounts received from Microsoft.  詳細については、税務の専門家にお問い合わせください。</td>
+適用されている課税年度 (インセンティブ支払いやコンテストからの支払いなど) において、マイクロソフトからのアプリの販売に関連しない支払いを $600 以上受け取りました。</td>
+    <td valign="top"><b>1099-MISC</b>:<br>支払者: Microsoft Corporation<br>中: * * * * * 4442<br><br><b>重要</b>: 特定のビジネスエンティティは、Microsoft から受け取った支払い額に関係なく、1099のその他のフォームを受信しません。  詳細については、税務の専門家にお問い合わせください。</td>
   </tr>
   <tr>
     <td valign="top">上のいずれの理由も該当しません。</td>
@@ -75,12 +75,12 @@ I received at least $600 in payments not related to app sales from Microsoft in 
     <td valign="top">&nbsp;</td>
   </tr>
   <tr>
-     <th>If I'm a United States developer selling ads in apps and ... </th>
+     <th>アプリで広告を販売している米国開発者の方は、 </th>
      <th> 以下の書類を受け取る</th>
   </tr>
   <tr> 
      <td valign="top">適用される税年度に、アプリ内広告によって <b>600 ドル以上の支払い</b>を受け取りました。</td>
-    <td valign="top"><b>1099-MISC</b> :<br>支払い人: Microsoft Online Inc<br>EIN: *****0505<br><br><b>Important</b>: Certain business entities will not receive 1099-MISC forms regardless of the payment amounts received from Microsoft.  詳細については、税務の専門家にお問い合わせください。</td>
+    <td valign="top"><b>1099-MISC</b>:<br>支払い人: Microsoft Online Inc<br>中: * * * * * 0505<br><br><b>重要</b>: 特定のビジネスエンティティは、Microsoft から受け取った支払い額に関係なく、1099のその他のフォームを受信しません。  詳細については、税務の専門家にお問い合わせください。</td>
   </tr>
   <tr> 
      <td valign="top">適用される税年度に、アプリ内広告によって <b>600 ドル未満の支払い</b>を受け取りました。</td>
@@ -93,29 +93,29 @@ I received at least $600 in payments not related to app sales from Microsoft in 
 
 <table>
   <tr>
-    <td valign="top"><b>I received a form 1042-S from Microsoft. What is it for?</b></td>
+    <td valign="top"><b>Microsoft からフォーム 1042-S を受け取りました。何を目的としていますか。</b></td>
     <td valign="top">マイクロソフトが 1042-S フォームを送った理由は、米国の税務当局に申告義務があると見なされている、源泉徴収税の対象になった収益を、マイクロソフトが開発者に対して支払ったためです。  フォーム 1042-S は、この報告義務のために使用されます。</td>
   </tr>
   <tr>
-    <td valign="top"><b>What should I do with the forms?</b></td>
+    <td valign="top"><b>フォームで何を行う必要がありますか。</b></td>
     <td valign="top">一般的に、開発者側で特別な対応は必要ありません。 フォーム 1402-S は、開発者が管轄の税務当局に任意の形式の税額控除を申請する場合に役立つ可能性があります。  このトピックについて詳しくは、税金アドバイザーにお問い合わせください。</td>
   </tr>
   <tr>
-    <td valign="top"><b>Why was tax withheld on my payments when I completed a W8 form?</b></td>
-    <td valign="top">税金は次のいずれかの場合に源泉徴収されます。<br>
-     1. You did not complete the tax treaty section of the W8 correctly, or<br>
-     2. You are resident in a country that does not have a tax treaty with the United States.<br><br>You can visit Partner Center at any time to submit an updated W8 form.<br><br><b>Note</b>: Not all income is subject to tax withholding.</td>
+    <td valign="top"><b>W8 フォームを完了したときに支払いに課税されたのはなぜですか。</b></td>
+    <td valign="top">税金は次のいずれかの場合に源泉徴収されます。<br>W8 の税務条約のセクションを正しく完了していない 
+     1.、<br>米国が含まれている税条約がない国に居住している 
+     2. ます。<br><br>いつでもパートナーセンターにアクセスして、更新された W8 フォームを送信できます。<br><br><b>注</b>: すべての収入が税金源泉徴収の対象になるとは限りません。</td>
   </tr>
   <tr>
-    <td valign="top"><b>I submitted an updated W8 form with valid treaty information. Can Microsoft refund me the tax that was withheld?</b></td>
+    <td valign="top"><b>有効な条約情報を含む更新された W8 フォームを送信しました。Microsoft は、源泉徴収された税金を返金できますか。</b></td>
     <td valign="top">源泉徴収された税金を払い戻すことはできません。 これらの税金について地域で控除を請求できるかどうか、または IRS から払い戻しを求められるかどうかについては、税金アドバイザーにご相談ください。</td>
   </tr>
   <tr>
-    <td valign="top"><b>What sales are reported on form 1042-S?</b></td>
+    <td valign="top"><b>1042-S フォームで報告される売上</b></td>
     <td valign="top"><b>源泉徴収の対象として分類された、米国在住の購入者に対する</b>売り上げのみ報告義務があります。  その他の売り上げはすべて報告義務があるとは見なされていません。</td>
   </tr>
   <tr>
-    <td valign="top"><b>Why did I get 3 copies of the same form 1042-S in one envelope?</b></td>
+    <td valign="top"><b>1つの封筒で 1042-S という同じ形式のコピーを3つ取得したのはなぜですか。</b></td>
     <td valign="top">IRS 規則により、次の 3 つの目的で書類を 3 部提供する必要があります。
 <ul>
 <li>受取人の記録のため</li>

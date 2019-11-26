@@ -1,5 +1,5 @@
 ---
-Description: Use visual feedback to show users when their interactions with a UWP app are detected, interpreted, and handled.
+Description: 視覚的なフィードバックを使用して、UWP アプリとの対話が検出、解釈、および処理されるときにユーザーを表示します。
 title: 視覚的なフィードバック
 ms.assetid: bf2f3672-95f0-4c8c-9a72-0934f2d3b767
 label: Visual feedback
@@ -40,7 +40,7 @@ ms.locfileid: "74257911"
 > [!Important]
 > 組み込みジェスチャの操作の動作を変更することはお勧めしません。
 
-**Feedback Across Devices**
+**デバイス間のフィードバック**
 
 視覚的なフィードバックは、一般に入力デバイス (タッチ、タッチバッド、マウス、ペン/スタイラス、キーボードなど) に依存します。 たとえば、マウスの組み込みフィードバックには、通常はカーソルの移動と変化が伴います。一方、タッチとペンの場合は接触の視覚エフェクトが必要です。キーボードによる入力とナビゲーションの場合は、フォーカス用の四角形と強調表示を使います。
 
@@ -62,10 +62,10 @@ Xbox とテレビの使用で一般的な **10 フィート エクスペリエ�
 
 ## <a name="color-branding--customizing"></a>色のブランド化とカスタマイズ
 
-**Border Properties**
+**罫線のプロパティ**
 
 視認性の高いフォーカスの視覚効果は、プライマリ境界線とセカンダリ境界線という 2 つの部分で構成されます。 プライマリ境界線は、**2 px** の幅があり、セカンダリ境界線の*外側*に描画されます。 セカンダリ境界線は、**1 px** の幅があり、プライマリ境界線の*内側*に描画されます。
-![High visibility focus visual redlines](images/FocusRectRedlines.png)
+可視性の高いフォーカスを ![ビジュアル赤線](images/FocusRectRedlines.png)
 
 それぞれの境界線 (プライマリおよびセカンダリ) の太さを変更するには、**FocusVisualPrimaryThickness** をプライマリ境界線に対して使用し、 **FocusVisualSecondaryThickness** をセカンダリ境界線に対して使用します。
 ```XAML
@@ -73,7 +73,7 @@ Xbox とテレビの使用で一般的な **10 フィート エクスペリエ�
 ```
 ![視認性の高いフォーカスの視覚効果における余白部分の太さ](images/FocusMargin.png)
 
-余白は [**Thickness**](https://docs.microsoft.com/dotnet/api/system.windows.thickness) という種類のプロパティで指定されます。このため、コントロールの特定の側にのみ表示されるように、余白をカスタマイズすることができます。 See below: ![High visibility focus visual margin thickness bottom only](images/FocusThicknessSide.png)
+余白は [**Thickness**](https://docs.microsoft.com/dotnet/api/system.windows.thickness) という種類のプロパティで指定されます。このため、コントロールの特定の側にのみ表示されるように、余白をカスタマイズすることができます。 下の図を参照してください。表示 ![の視覚的な余白の幅の下限のみ](images/FocusThicknessSide.png)
 
 余白は、コントロールの視覚的な境界線と、フォーカスの視覚効果で示される*セカンダリ境界線*の開始点との間にあるスペースです。 既定の余白は、コントロールの境界線から **1 px** の幅で描画されます。 この余白はコントロールごとに変更できます。それには、**FocusVisualMargin** プロパティを変更します。
 ```XAML
@@ -81,7 +81,7 @@ Xbox とテレビの使用で一般的な **10 フィート エクスペリエ�
 ```
 ![視認性の高いフォーカスの視覚効果における余白の違い](images/FocusPlusMinusMargin.png)
 
-*A negative margin will push the border away from the center of the control, and a positive margin will move the border closer to the center of the control.*
+*負の余白は、コントロールの中央から境界線を離し、正の余白によってコントロールの中心に向かって境界線を近づけます。*
 
 コントロールでフォーカスの視覚効果を完全に無効にするには、**UseSystemFocusVisuals** を無効にするだけです。
 ```XAML
@@ -90,7 +90,7 @@ Xbox とテレビの使用で一般的な **10 フィート エクスペリエ�
 
 太さ、余白、またはアプリ開発者がフォーカスの視覚効果を必要とするかどうかは、コントロールごとに決める必要があります。
 
-**Color Properties**
+**色のプロパティ**
 
 フォーカスの視覚効果に関する色のプロパティには、プライマリ境界線の色とセカンダリ境界線の色という 2 つのプロパティがあります。 これらのフォーカスの視覚効果における境界線の色は、ページ レベルでコントロールごとに変更したり、アプリ全体を対象としてグローバルに変更したりすることができます。
 
@@ -115,20 +115,20 @@ Xbox とテレビの使用で一般的な **10 フィート エクスペリエ�
 * [カスタム ユーザー操作](https://docs.microsoft.com/windows/uwp/design/layout/index)
 
 **サンプル**
-* [Basic input sample](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/BasicInput)
-* [Low latency input sample](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/LowLatencyInput)
+* [基本的な入力サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/BasicInput)
+* [低待機時間入力サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/LowLatencyInput)
 * [ユーザー操作モードのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/UserInteractionMode)
 * [フォーカスの視覚効果のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlFocusVisuals)
 
 **サンプルのアーカイブ**
-* [Input: XAML user input events sample](https://code.msdn.microsoft.com/windowsapps/Input-3dff271b)
-* [Input: Device capabilities sample](https://code.msdn.microsoft.com/windowsapps/Input-device-capabilities-31b67745)
-* [Input: Touch hit testing sample](https://code.msdn.microsoft.com/windowsapps/Touch-Hit-Testing-sample-5e35c690)
-* [XAML scrolling, panning, and zooming sample](https://code.msdn.microsoft.com/windowsapps/xaml-scrollviewer-pan-and-949d29e9)
-* [Input: Simplified ink sample](https://code.msdn.microsoft.com/windowsapps/Input-simplified-ink-sample-11614bbf)
-* [Input: Windows 8 gestures sample](https://docs.microsoft.com/samples/browse/?redirectedfrom=MSDN-samples)
-* [Input: Manipulations and gestures (C++) sample](https://code.msdn.microsoft.com/windowsapps/Manipulations-and-gestures-362b6b59)
-* [DirectX touch input sample](https://code.msdn.microsoft.com/windowsapps/Simple-Direct3D-Touch-f98db97e)
+* [入力: XAML ユーザー入力イベントのサンプル](https://code.msdn.microsoft.com/windowsapps/Input-3dff271b)
+* [入力: デバイス機能のサンプル](https://code.msdn.microsoft.com/windowsapps/Input-device-capabilities-31b67745)
+* [入力: タッチヒットテストのサンプル](https://code.msdn.microsoft.com/windowsapps/Touch-Hit-Testing-sample-5e35c690)
+* [XAML のスクロール、パン、ズームのサンプル](https://code.msdn.microsoft.com/windowsapps/xaml-scrollviewer-pan-and-949d29e9)
+* [入力: 簡略化されたインクのサンプル](https://code.msdn.microsoft.com/windowsapps/Input-simplified-ink-sample-11614bbf)
+* [入力: Windows 8 のジェスチャのサンプル](https://docs.microsoft.com/samples/browse/?redirectedfrom=MSDN-samples)
+* [入力: 操作とジェスチャ (C++) のサンプル](https://code.msdn.microsoft.com/windowsapps/Manipulations-and-gestures-362b6b59)
+* [DirectX タッチ入力のサンプル](https://code.msdn.microsoft.com/windowsapps/Simple-Direct3D-Touch-f98db97e)
  
 
  

@@ -373,7 +373,7 @@ ms.locfileid: "74260288"
 |  要素  |  必須  |  数量  |  説明   |
 |-------------|------------|--------|--------|
 |  [アプリケーション](#app-child-of-listinginformation)  |    〇   |  1   |    アプリに関するデータを提供します。         |
-|  [Product](#product-child-of-listinginformation)  |    X  |  0 以上   |      アプリのアドオンを記述します。     |     |
+|  [製品](#product-child-of-listinginformation)  |    X  |  0 以上   |      アプリのアドオンを記述します。     |     |
 
 <span id="app-child-of-listinginformation"/>
 
@@ -411,7 +411,7 @@ ms.locfileid: "74260288"
 
 |  属性  |  必須  |  説明   |
 |-------------|------------|----------------|
-|  **xml:lang**  |    〇        |     市場データ情報を適用する国/地域を指定します。          |  |
+|  **xml: lang**  |    〇        |     市場データ情報を適用する国/地域を指定します。          |  |
 
 <span id="product-child-of-listinginformation"/>
 
@@ -450,7 +450,7 @@ ms.locfileid: "74260288"
 
 |  属性  |  必須  |  説明   |
 |-------------|------------|----------------|
-|  **xml:lang**  |    〇        |     市場データ情報を適用する国/地域を指定します。          |  |
+|  **xml: lang**  |    〇        |     市場データ情報を適用する国/地域を指定します。          |  |
 
 <span id="licenseinformation"/>
 
@@ -463,7 +463,7 @@ ms.locfileid: "74260288"
 |  要素  |  必須  |  数量  | 説明   |
 |-------------|------------|--------|--------|
 |  [アプリケーション](#app-child-of-licenseinformation)  |    〇   |  1   |    アプリのライセンスを記述します。         |
-|  [Product](#product-child-of-licenseinformation)  |    X  |  0 以上   |      アプリ内の永続的なアドオンのライセンスの状態を記述します。         |   |
+|  [製品](#product-child-of-licenseinformation)  |    X  |  0 以上   |      アプリ内の永続的なアドオンのライセンスの状態を記述します。         |   |
 
 次の表では、**App** 要素と **Product** 要素の下で値を組み合わせて、いくつかの一般的な条件をシミュレートする方法を示します。
 

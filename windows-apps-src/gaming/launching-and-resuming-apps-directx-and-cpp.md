@@ -19,6 +19,6 @@ ms.locfileid: "74490624"
 
 |トピック|説明|
 |-|-|
-|[How to activate an app](how-to-activate-an-app-directx-and-cpp.md)|ここでは、UWP DirectX アプリのアクティブ化エクスペリエンスを定義する方法について説明します。|
-|[How to suspend an app](how-to-suspend-an-app-directx-and-cpp.md)|ここでは、UWP DirectX アプリをシステムが一時停止するときに重要なシステム状態とアプリ データを保存する方法について説明します。|
-|[How to resume an app](how-to-resume-an-app-directx-and-cpp.md)|ここでは、UWP DirectX アプリをシステムが再開するときに重要なアプリケーション データを復元する方法について説明します。|
+|[アプリをアクティブ化する方法](how-to-activate-an-app-directx-and-cpp.md)|ここでは、UWP DirectX アプリのアクティブ化エクスペリエンスを定義する方法について説明します。|
+|[アプリを中断する方法](how-to-suspend-an-app-directx-and-cpp.md)|ここでは、UWP DirectX アプリをシステムが一時停止するときに重要なシステム状態とアプリ データを保存する方法について説明します。|
+|[アプリを再開する方法](how-to-resume-an-app-directx-and-cpp.md)|ここでは、UWP DirectX アプリをシステムが再開するときに重要なアプリケーション データを復元する方法について説明します。|

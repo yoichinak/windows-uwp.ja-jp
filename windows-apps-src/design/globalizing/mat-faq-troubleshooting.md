@@ -177,6 +177,6 @@ Microsoft Store の認定プロセスを開始する前に、`<project-name>.qps
 
 ## <a name="related-topics"></a>関連トピック
 
-* [Use the Multilingual App Toolkit 4.0](use-mat.md)
+* [多言語アプリツールキット4.0 を使用する](use-mat.md)
 * [Microsoft Translator](https://www.microsofttranslator.com/)
-* [MakePri.exe command-line options](../../app-resources/makepri-exe-command-options.md)
+* [MakePri のコマンドラインオプション](../../app-resources/makepri-exe-command-options.md)

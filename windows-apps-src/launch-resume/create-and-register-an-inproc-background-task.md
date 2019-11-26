@@ -3,7 +3,7 @@ title: インプロセス バックグラウンド タスクの作成と登録
 description: フォアグラウンド アプリと同じプロセスで実行されるインプロセスのタスクを作成して登録します。
 ms.date: 11/03/2017
 ms.topic: article
-keywords: windows 10, uwp, background task
+keywords: windows 10、uwp、バックグラウンドタスク
 ms.assetid: d99de93b-e33b-45a9-b19f-31417f1e9354
 ms.localizationpriority: medium
 ms.openlocfilehash: 9ee8a0e6538abd879921dd9d1496d29a61054a02
@@ -68,7 +68,7 @@ ms.locfileid: "74260502"
 
 ## <a name="place-your-background-activity-code-in-onbackgroundactivated"></a>バックグラウンド アクティビティのコードを OnBackgroundActivated() に配置する
 
-Put your background activity code in [OnBackgroundActivated](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onbackgroundactivated) to respond to your background trigger when it fires. **OnBackgroundActivated** は、[IBackgroundTask.Run](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtask.run?f=255&MSPPError=-2147217396) と同様に処理することができます。 The method has a [BackgroundActivatedEventArgs](https://docs.microsoft.com/uwp/api/windows.applicationmodel.activation.backgroundactivatedeventargs) parameter, which contains everything that the **Run** method delivers. For example, in App.xaml.cs:
+バックグラウンドのアクティビティコードを[Onbackgroundactivated アクティブ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onbackgroundactivated)にして、バックグラウンドトリガーが起動したときに応答します。 **OnBackgroundActivated** は、[IBackgroundTask.Run](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtask.run?f=255&MSPPError=-2147217396) と同様に処理することができます。 メソッドには[BackgroundActivatedEventArgs](https://docs.microsoft.com/uwp/api/windows.applicationmodel.activation.backgroundactivatedeventargs)パラメーターがあり、このパラメーターには**Run**メソッドが提供するすべてのものが含まれています。 たとえば、App.xaml.cs の場合は次のようになります。
 
 ``` cs
 using Windows.ApplicationModel.Background;
@@ -88,7 +88,7 @@ sealed partial class App : Application
 }
 ```
 
-For a richer **OnBackgroundActivated** example, see [Convert an app service to run in the same process as its host app](convert-app-service-in-process.md).
+より充実した**Onbackgroundactivated 化**の例については、「[ホストアプリと同じプロセスで実行されるように App service を変換する](convert-app-service-in-process.md)」を参照してください。
 
 ## <a name="handle-background-task-progress-and-completion"></a>バックグラウンド タスクの進捗状況と完了を処理する
 
@@ -110,11 +110,11 @@ API リファレンス、バックグラウンド タスクの概念的ガイダ
 
 ## <a name="related-topics"></a>関連トピック
 
-**Detailed background task instructional topics**
+**バックグラウンドタスクの詳細な手順に関するトピック**
 
-* [Convert an out-of-process background task to an in-process background task](convert-out-of-process-background-task.md)
+* [プロセス外のバックグラウンドタスクをインプロセスバックグラウンドタスクに変換する](convert-out-of-process-background-task.md)
 * [アウトプロセス バックグラウンド タスクの作成と登録](create-and-register-a-background-task.md)
-* [Play media in the background](https://docs.microsoft.com/windows/uwp/audio-video-camera/background-audio)
+* [バックグラウンドでメディアを再生する](https://docs.microsoft.com/windows/uwp/audio-video-camera/background-audio)
 * [バックグラウンド タスクによるシステム イベントへの応答](respond-to-system-events-with-background-tasks.md)
 * [バックグラウンド タスクの登録](register-a-background-task.md)
 * [バックグラウンド タスクを実行するための条件の設定](set-conditions-for-running-a-background-task.md)
@@ -123,12 +123,12 @@ API リファレンス、バックグラウンド タスクの概念的ガイダ
 * [バックグラウンド タスクの進捗状況と完了の監視](monitor-background-task-progress-and-completion.md)
 * [タイマーでのバックグラウンド タスクの実行](run-a-background-task-on-a-timer-.md)
 
-**Background task guidance**
+**バックグラウンドタスクのガイダンス**
 
 * [バックグラウンド タスクのガイドライン](guidelines-for-background-tasks.md)
 * [バックグラウンド タスクのデバッグ](debug-a-background-task.md)
-* [How to trigger suspend, resume, and background events in UWP apps (when debugging)](https://msdn.microsoft.com/library/windows/apps/hh974425(v=vs.110).aspx)
+* [UWP アプリで中断イベント、再開イベント、およびバックグラウンドイベントをトリガーする方法 (デバッグ時)](https://msdn.microsoft.com/library/windows/apps/hh974425(v=vs.110).aspx)
 
-**Background Task API Reference**
+**バックグラウンドタスク API リファレンス**
 
-* [**Windows.ApplicationModel.Background**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background)
+* [**Windows. ApplicationModel. Background**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background)

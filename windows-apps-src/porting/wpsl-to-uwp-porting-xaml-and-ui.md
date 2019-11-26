@@ -187,7 +187,7 @@ UWP アプリでは、ms-appx [URI スキーム](https://docs.microsoft.com/prev
 
 Silverlight アプリ**では、** Windows Phone**名前空間および system.string 名前空間で**定義されているコントロールを使用します。 XAML UWP アプリは、[**Windows.UI.Xaml.Controls**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls) 名前空間で定義されたコントロールを使います。 UWP における XAML コントロールのアーキテクチャと設計は、Windows Phone Silverlight コントロールとほぼ同じです。 ただし、使用可能なコントロール セットの向上と Windows アプリとの一体化のために、若干の変更が加えられています。 具体的な例をいくつか紹介します。
 
-| コントロール名 | [変更] |
+| コントロール名 | [Change] |
 |--------------|--------|
 | ApplicationBar | [Page.TopAppBar](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.page.topappbar) プロパティです。 |
 | ApplicationBarIconButton | UWP の相当要素は [Glyph](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.fonticon.glyph) プロパティです。 PrimaryCommands は CommandBar のコンテンツ プロパティです。 XAML パーサーは、コンテンツ プロパティの値として要素の内部 xml を解釈します。 |

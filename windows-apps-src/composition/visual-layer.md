@@ -4,7 +4,7 @@ title: ビジュアル レイヤー
 description: Windows.UI.Composition API を使うと、フレーム ワーク層 (XAML) とグラフィック層 (DirectX) との間のコンポジション層にアクセスできます。
 ms.date: 02/08/2017
 ms.topic: article
-keywords: Windows 10, UWP
+keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: ac41d461982a39a939e460b7a81b144e5a08fdb3
 ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
@@ -15,7 +15,7 @@ ms.locfileid: "74255527"
 ---
 # <a name="visual-layer"></a>ビジュアル レイヤー
 
-ビジュアル レイヤーは、グラフィックス、効果、アニメーション用の高パフォーマンスの保持モード API を提供し、Windows デバイス間ですべての UI の基盤となります。 You define your UI in a declarative manner and the Visual layer relies on graphics hardware acceleration to ensure your content, effects and animations are rendered in a smooth, glitch-free manner independent of the app's UI thread.
+ビジュアル レイヤーは、グラフィックス、効果、アニメーション用の高パフォーマンスの保持モード API を提供し、Windows デバイス間ですべての UI の基盤となります。 UI は宣言的な方法で定義します。ビジュアル層はグラフィックスハードウェアの高速化に依存しており、アプリの UI スレッドに依存せずに、コンテンツ、効果、およびアニメーションがスムーズにエラーのない方法でレンダリングされるようにします。
 
 主な特長は次のとおりです。
 
@@ -38,7 +38,7 @@ Windows UWP アプリは、いずれかの UI フレームワークを介して�
 
 ### <a name="content"></a>コンテンツ
 
-コンテンツは、ビジュアルを使用するアニメーションおよび効果システムで使用できるように、ホスト、変換、提供されます。 クラス階層の基底クラスは [**Visual**](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.Visual) クラスで、コンポジターでビジュアル状態を処理するアプリ プロセスにおける、軽量でスレッド アジャイルなプロキシです。 Sub-classes of Visual include  [**ContainerVisual**](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.ContainerVisual) to allow for children to create trees of visuals and [**SpriteVisual**](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.SpriteVisual) that contains content and can be painted with either solid colors, custom drawn content or visual effects. また、これらの種類のビジュアルは 2D UI 用のビジュアル ツリー構造を構成し、多くの表示される XAML FrameworkElements を強化します。
+コンテンツは、ビジュアルを使用するアニメーションおよび効果システムで使用できるように、ホスト、変換、提供されます。 クラス階層の基底クラスは [**Visual**](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.Visual) クラスで、コンポジターでビジュアル状態を処理するアプリ プロセスにおける、軽量でスレッド アジャイルなプロキシです。 Visual のサブクラスには、子がコンテンツを含むビジュアルと[**SpriteVisual**](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.SpriteVisual)のツリーを作成できるようにするための  [**ContainerVisual**](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.ContainerVisual)が含まれており、純色、カスタム描画コンテンツ、視覚効果のいずれかで描画できます。 また、これらの種類のビジュアルは 2D UI 用のビジュアル ツリー構造を構成し、多くの表示される XAML FrameworkElements を強化します。
 
 詳しくは、[コンポジションのビジュアル](composition-visual-tree.md)の概要をご覧ください。
 
@@ -50,28 +50,28 @@ Windows UWP アプリは、いずれかの UI フレームワークを介して�
 
 詳しくは、「[コンポジションの効果](composition-effects.md)」をご覧ください。
 
-### <a name="animations"></a>[アニメーション]
+### <a name="animations"></a>アニメーション
 
-ビジュアル レイヤーのアニメーション システムによって、移動の視覚効果、効果のアニメーション化、変換、クリップ、その他のプロパティの駆動を実現できます。  It is a framework agnostic system that has been designed from the ground up with performance in mind.  It runs independently from the UI thread to ensure smoothness and scalability.  While it lets you use familiar KeyFrame animations to drive property changes over time, it also lets you set up mathematical relationships between different properties, including user input, letting you directly craft seamless choreographed experiences.
+ビジュアル レイヤーのアニメーション システムによって、移動の視覚効果、効果のアニメーション化、変換、クリップ、その他のプロパティの駆動を実現できます。  これは、パフォーマンスを考慮して最初から設計されたフレームワークに依存しないシステムです。  これは、滑らかさとスケーラビリティを確保するために、UI スレッドとは別に実行されます。  使い慣れたキーフレームアニメーションを使用して、時間の経過と共にプロパティの変更を行うことができますが、ユーザー入力などの異なるプロパティ間に数学的な関係を設定して、シームレスな choreographed エクスペリエンスを直接作成することもできます。
 
-詳しくは、「[コンポジションのアニメーション](composition-animation.md)」をご覧ください。
+詳しくは、[コンポジションのアニメーション](composition-animation.md)の概要をご覧ください。
 
 ### <a name="working-with-your-xaml-uwp-app"></a>XAML UWP アプリの操作
 
-[  **Windows.UI.Xaml.Hosting**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Hosting) の [**ElementCompositionPreview**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Hosting.ElementCompositionPreview) クラスを使用して、XAML フレームワークによってビジュアルを作成できるようになり、表示可能な FrameworkElement を強化することができます。 フレームワークによって作成されたビジュアルには、カスタマイズに関するいくつかの制限があることに注意してください。 これは、フレームワークがオフセット、変換、有効期間を管理するためです。 ただし、独自のビジュアルを作成し、ElementCompositionPreview によって、またはビジュアル ツリー構造内のどこかに既にある ContainerVisual に追加することにより、既存の XAML 要素にアタッチできます。
+[  **Windows.UI.Xaml.Hosting**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Hosting.ElementCompositionPreview) の [**ElementCompositionPreview**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Hosting) クラスを使用して、XAML フレームワークによってビジュアルを作成できるようになり、表示可能な FrameworkElement を強化することができます。 フレームワークによって作成されたビジュアルには、カスタマイズに関するいくつかの制限があることに注意してください。 これは、フレームワークがオフセット、変換、有効期間を管理するためです。 ただし、独自のビジュアルを作成し、ElementCompositionPreview によって、またはビジュアル ツリー構造内のどこかに既にある ContainerVisual に追加することにより、既存の XAML 要素にアタッチできます。
 
 詳しくは、[XAML でのビジュアル レイヤーの使用](using-the-visual-layer-with-xaml.md)の概要をご覧ください。
 
-### <a name="working-with-your-desktop-app"></a>Working with your desktop app
+### <a name="working-with-your-desktop-app"></a>デスクトップアプリの操作
 
-You can use the Visual layer to enhance the look, feel, and functionality of your WPF, Windows Forms, and C++ Win32 desktop apps. You can migrate islands of content to use the Visual layer and keep the rest of your UI in its existing framework. This means you can make significant updates and enhancements to your application UI without needing to make extensive changes to your existing code base.
+ビジュアルレイヤーを使用すると、WPF、Windows フォーム、およびC++ Win32 デスクトップアプリの外観、外観、機能を向上させることができます。 コンテンツの孤島を移行して、ビジュアルレイヤーを使用し、残りの UI を既存のフレームワークに保持することができます。 つまり、既存のコードベースに大幅な変更を加えることなく、アプリケーション UI に大幅な更新や拡張を行うことができます。
 
 詳しくは、「[Modernize your desktop app using the Visual layer (ビジュアル レイヤーを使用したデスクトップ アプリの現代化)](/windows/apps/desktop/modernize/visual-layer-in-desktop-apps)」をご覧ください。
 
 ## <a name="additional-resources"></a>その他の資料
 
-* [**Full reference documentation for the API**](https://docs.microsoft.com/uwp/api/Windows.UI.Composition)
+* [**API の完全なリファレンスドキュメント**](https://docs.microsoft.com/uwp/api/Windows.UI.Composition)
 * [WindowsUIDevLabs GitHub](https://github.com/microsoft/WindowsCompositionSamples) にある高度な UI とコンポジションのサンプル
-* [Windows.UI.Composition Sample Gallery](https://www.microsoft.com/store/apps/9pp1sb5wgnww)
-* [@windowsui Twitter feed ](https://twitter.com/windowsui)
-* この API に関する Kenny Kerr の MSDN 記事:「[グラフィックスとアニメーション - Windows 合成が 10 歳になる](https://msdn.microsoft.com/magazine/mt590968)」
+* [Windows. UI. コンポジションのサンプルギャラリー](https://www.microsoft.com/store/apps/9pp1sb5wgnww)
+* [@windowsui Twitter フィード](https://twitter.com/windowsui)
+* この API に関する Kenny Kerr の MSDN 記事: [Graphics and Animation - Windows Composition Turns 10 (グラフィックとアニメーション - Window コンポジションの 10 年)](https://msdn.microsoft.com/magazine/mt590968)

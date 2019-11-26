@@ -17,7 +17,7 @@ ms.locfileid: "74255003"
 
 このトピックでは、SMS の作成ダイアログを起動して、ユーザーが SMS メッセージを送信できるようにする方法について説明します。 ダイアログを表示する前に、SMS の各フィールドにデータを設定することができます。 メッセージは、ユーザーが送信ボタンをタップするまで送信されません。
 
-To call this code, declare the **chat**, **smsSend**, and **chatSystem** capabilities in your package manifest. These are [restricted capabilities](https://docs.microsoft.com/windows/uwp/packaging/app-capability-declarations#special-and-restricted-capabilities) but you can use them in your app. You need approval only if you intend to publish your app to the Store. See [Account types, locations, and fees](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees).
+このコードを呼び出すには、パッケージマニフェストで chat、 **smssend**、および**チャット** **システム**の機能を宣言します。 これらの[機能は制限](https://docs.microsoft.com/windows/uwp/packaging/app-capability-declarations#special-and-restricted-capabilities)されていますが、アプリで使用することができます。 アプリをストアに発行する場合にのみ、承認が必要です。 「[アカウントの種類、場所、料金](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees)」を参照してください。
 
 ## <a name="launch-the-compose-sms-dialog"></a>SMS の作成ダイアログの起動
 
@@ -52,7 +52,7 @@ private async void ComposeSms(Windows.ApplicationModel.Contacts.Contact recipien
 }
 ```
 
-You can use the following code to determine whether the device that is running your app is able to send SMS messages.
+次のコードを使用して、アプリを実行しているデバイスが SMS メッセージを送信できるかどうかを判断できます。
 
 ```csharp
 if (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.ApplicationModel.Chat"))

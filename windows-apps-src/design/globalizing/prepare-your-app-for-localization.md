@@ -22,7 +22,7 @@ ms.locfileid: "74258101"
 
 ## <a name="put-your-strings-into-resources-files-resw"></a>リソース ファイル (.resw) に文字列を格納する
 
-Don't hard-code string literals in your imperative code, XAML markup, nor in your app package manifest. 代わりに、アプリの事前ビルドされたバイナリに関係なくさまざまな地域市場に適応できるように、リソース ファイル (.resw) に文字列を格納します。 詳細については、「[UI とアプリ パッケージ マニフェスト内の文字列をローカライズする](../../app-resources/localize-strings-ui-manifest.md)」を参照してください。
+命令型コード、XAML マークアップ、またはアプリケーションパッケージマニフェストに文字列リテラルをハードコーディングしないでください。 代わりに、アプリの事前ビルドされたバイナリに関係なくさまざまな地域市場に適応できるように、リソース ファイル (.resw) に文字列を格納します。 詳細については、「[UI とアプリ パッケージ マニフェスト内の文字列をローカライズする](../../app-resources/localize-strings-ui-manifest.md)」を参照してください。
 
 そのトピックでは、既定のリソース ファイル (.resw) にコメントを追加する方法も示します。 たとえば、くだけた表現を使う場合は、そのことをコメント内で説明してください また、コストを最小限に抑えるため、変換する必要がある文字列だけが翻訳者に提供されることを確認します。
 
@@ -30,7 +30,7 @@ Don't hard-code string literals in your imperative code, XAML markup, nor in you
 
 ## <a name="tailor-your-images-and-other-file-resources-for-language"></a>言語に合わせてイメージやその他のファイル リソースを調整する
 
-Ideally, you will be able to globalize your images&mdash;that is, make them culture-independent. それが可能ではないイメージやその他のファイル リソースでは、必要なだけそれらのさまざまなバリエーションを作成し、適切な言語修飾子をそれらのファイル名またはフォルダー名に追加します。 詳細については、「[言語、スケール、ハイ コントラスト、その他の修飾子用にリソースを調整する](../../app-resources/tailor-resources-lang-scale-contrast.md)」を参照してください。
+理想的には、イメージを国際化して、カルチャに依存しないように&mdash;することができます。 それが可能ではないイメージやその他のファイル リソースでは、必要なだけそれらのさまざまなバリエーションを作成し、適切な言語修飾子をそれらのファイル名またはフォルダー名に追加します。 詳細については、「[言語、スケール、ハイ コントラスト、その他の修飾子用にリソースを調整する](../../app-resources/tailor-resources-lang-scale-contrast.md)」を参照してください。
 
 ローカライズ コストを最小限に抑えるために、テキストまたは文化的に重要な内容を開始時のイメージに含めないでください。 自分が所属するカルチャでは妥当なイメージでも、別のカルチャでは不快感を与えたり、誤って解釈されたりすることがあります。 世界で一般的ではない、メールボックスなどのカルチャ固有のイメージを使用しないでください。 宗教的なシンボル、動物、政治、性別に固有のイメージを避けます。 肌、手足、指のジェスチャの表示も慎重に扱う必要がある場合があります。 これらのすべてを回避することはできない場合、イメージは慎重にローカライズする必要があります。 読み取り順が自国語とは異なる言語にローカライズする場合は、左右対称の画像や効果を使うと左右反転をサポートしやすくなります。
 
@@ -50,9 +50,9 @@ Ideally, you will be able to globalize your images&mdash;that is, make them cult
 
 つまり、文字列をすべてのコンテキストで機能する断片に分けます。 場合によっては、文字列が文全体である必要があります。
 
-Consider the following string: "The {0} could not be synchronized."
+"{0} を同期できませんでした。" という文字列を考えてみます。
 
-A variety of words could replace {0}, such as "appointment", "task", or "document". この例は日本語では機能しますが、たとえばドイツ語の対応する文ではどのようなケースでも機能しません。 次に示すドイツ語の文では、テンプレート文字列内の一部の語句 ("Der"、"Die"、"Das") はパラメーター化された語句と一致する必要があります。
+"予定"、"タスク"、"ドキュメント" など、さまざまな単語が {0}置換される可能性があります。 この例は日本語では機能しますが、たとえばドイツ語の対応する文ではどのようなケースでも機能しません。 次に示すドイツ語の文では、テンプレート文字列内の一部の語句 ("Der"、"Die"、"Das") はパラメーター化された語句と一致する必要があります。
 
 | 日本語                                    | ドイツ語                                           |
 |:------------------------------------------ |:------------------------------------------------ |
@@ -60,7 +60,7 @@ A variety of words could replace {0}, such as "appointment", "task", or "documen
 | タスクを同期できませんでした。        | Die Aufgabe konnte nicht synchronisiert werden.  |
 | ドキュメントを同期できませんでした。    | Das Dokument konnte nicht synchronisiert werden. |
 
-As another example, consider the sentence "Remind me in {0} minute(s)." "分" は日本語では使うことができますが、他の言語では別の語句を使っている可能性があります。 たとえば、ポーランド語では、状況に応じて "minuta"、"minuty"、または "minut" を使います。
+もう1つの例として、"{0} 分で通知する" という文を考えてみましょう。 "分" は日本語では使うことができますが、他の言語では別の語句を使っている可能性があります。 たとえば、ポーランド語では、状況に応じて "minuta"、"minuty"、または "minut" を使います。
 
 この問題を解決するには、1 つの単語ではなく、文全体をローカライズしてください。 このやり方は手間がかかり、洗練されていないように見えるかもしれませんが、次の理由から最善の方法と言えます。
 
@@ -80,28 +80,28 @@ As another example, consider the sentence "Remind me in {0} minute(s)." "分" �
 
 アプリを擬似言語でローカライズすると、ローカライズの可否に関する問題を発見できます。 擬似言語によるローカライズは、一種のローカライズの予行演習または開示テストです。 実際には翻訳されていないが翻訳されているように見えるリソースのセットを生成します。 たとえば、UI で文字列が切り捨てられたかどうかがひとめで確認できるように、文字列が既定の言語より約 40% 長く、区切り記号が含まれています。
 
-## <a name="deployment-considerations"></a>Deployment Considerations
+## <a name="deployment-considerations"></a>展開に関する考慮事項
 
-When you install an app that contains localized language data, you might find that only the default language is available for the app even though you initially included resources for multiple languages. This is because the installation process is optimized to only install language resources that match the current language and culture of the device. Therefore, if your device is configured for en-US, only the en-US language resources are installed with your app.
+ローカライズされた言語データを含むアプリをインストールする場合、最初に複数の言語のリソースが含まれていたとしても、アプリでは既定の言語のみを使用できます。 これは、インストールプロセスが、デバイスの現在の言語とカルチャに一致する言語リソースのみをインストールするように最適化されているためです。 そのため、デバイスが en-us 用に構成されている場合は、en-us 言語リソースのみがアプリと共にインストールされます。
 
 > [!NOTE]
-> It is not possible to install additional language support for your app after the initial installation. If you change the default language after installing an app, the app continues to use only the original language resources.
+> 最初のインストール後に、アプリの追加の言語サポートをインストールすることはできません。 アプリをインストールした後で既定の言語を変更すると、アプリは引き続き元の言語リソースのみを使用します。
 
-If you want to ensure all language resources are available after installation, create a configuration file for the app package that specifies that certain resources are required during installation (including language resources). This optimized installation feature is automatically enabled when your application's .appxbundle is generated during packaging. For more information, see [Ensure that resources are installed on a device regardless of whether a device requires them](https://docs.microsoft.com/en-us/previous-versions/dn482043(v=vs.140)).
+インストール後にすべての言語リソースを使用できるようにするには、インストール時に特定のリソースが必要であることを指定するアプリケーションパッケージの構成ファイルを作成します (言語リソースを含む)。 この最適化されたインストール機能は、パッケージ化中にアプリケーションの .appxbundle が生成されたときに自動的に有効になります。 詳細については、[デバイスでリソースが必要かどうかに関係なく、デバイスにリソースがインストールさ](https://docs.microsoft.com/en-us/previous-versions/dn482043(v=vs.140))れていることを確認してください。
 
-Optionally, to ensure all resources are installed (not just a subset), you can disable .appxbundle generation when you package your app. This is not recommended however as it can increase the installation time of your app.
+必要に応じて (サブセットだけでなく) すべてのリソースを確実にインストールするために、アプリをパッケージ化するときに .appxbundle の生成を無効にすることができます。 ただし、アプリのインストール時間が長くなる可能性があるため、この方法はお勧めしません。
 
-Disable automatic generation of the .appxbundle by setting the "Generate App Bundle" attribute to “never”:
+"アプリバンドルの生成" 属性を "never" に設定して、.appxbundle の自動生成を無効にします。
 
-1. In Visual Studio, right-click the project name
-2. Select **Store** -> **Create app packages...**
-3. In the **Create Your Packages** dialog, select **I want to create packages to upload to the Microsoft Store using a new app name** and then click **Next**.
-4. In the **Select an app name** dialog, select/create an app name for your package.
-5. In the **Select and Configure Packages** dialog, set **Generate app bundle** to **Never**.
+1. Visual Studio で、プロジェクト名を右クリックします。
+2. [**ストア** -> **アプリパッケージの作成**] を選択します。
+3. **[パッケージの作成]** ダイアログで、 **[新しいアプリ名を使用して Microsoft Store にアップロードするパッケージを作成]** しますか? を選択し、 **[次へ]** をクリックします。
+4. **[アプリ名の選択**] ダイアログで、パッケージのアプリ名を選択または作成します。
+5. **[パッケージの選択と構成**] ダイアログで、 **[アプリバンドルの生成]** を **[なし]** に設定します。
 
 ## <a name="geopolitical-awareness"></a>地理的な認識
 
-地図や、地域についての言及では、政治的侵害を避ける。 地図には論争の的になっている地域や国境が含まれている可能性があり、それらはしばしば政治的な侵害のきっかけになります。 国家の選択に使う UI は、必ず &quot;国/地域&quot; という名称にしてください。 Listing a disputed territory in a list labeled &quot;countries&quot;&mdash;such as in an address form&mdash;might offend some users.
+地図や、地域についての言及では、政治的侵害を避ける。 地図には論争の的になっている地域や国境が含まれている可能性があり、それらはしばしば政治的な侵害のきっかけになります。 国家の選択に使う UI は、必ず &quot;国/地域&quot; という名称にしてください。 住所&mdash;フォームなど &mdash;&quot;&quot;国という名前の一覧に、紛争区域を掲載すると、一部のユーザーが offend される可能性があります。
 
 ## <a name="language--and-region-changed-events"></a>言語- および地域 -変更イベント
 
@@ -115,7 +115,7 @@ Disable automatic generation of the .appxbundle by setting the "Generate App Bun
     string.Format("Every {0} {1}", monthName, dayNumber); // For example, "Every April 1".
 ```
 
-この例の書式文字列は英語 (米国) で機能します。 ただし、たとえば、日と月が逆の順序で表示されるドイツ語 (ドイツ) では適切ではありません。 Ensure that the translator knows the intent of each of the parameters so that they can reverse the order of the format items in the format string (for example, "{1} {0}") as appropriate for the target language.
+この例の書式文字列は英語 (米国) で機能します。 ただし、たとえば、日と月が逆の順序で表示されるドイツ語 (ドイツ) では適切ではありません。 書式指定文字列の書式項目の順序 (例、"{1} {0}") をターゲット言語に応じて逆にできるように、変換プログラムが各パラメーターの目的を認識していることを確認します。
 
 ## <a name="dont-over-localize"></a>過度なローカライズを避ける
 
@@ -134,16 +134,16 @@ Disable automatic generation of the .appxbundle by setting the "Generate App Bun
 
 次のオプションを検討してください。
 
-- **The resource files can be translated by opening them directly in the project.** この方法は、文字列の量が少ないプロジェクトや、2 ～ 3 言語に翻訳する必要があるプロジェクトに合っています。 たとえば、開発者が複数の言語に通じており、翻訳プロセスを自分で処理することをいとわない場合などに適します。 この方法は迅速さがメリットであり、ツールを必要とせず、誤訳のリスクが最小限に抑えられます。 ただし拡張性はありません。 たとえば、複数の言語にわたるリソースの同期があっけなく失われ、ユーザー操作に問題が生じ、メンテナンスが困難になる可能性があります。
-- **The string resource files are in XML or ResJSON text format, so could be handed off for translation using any text editor. The translated files would then be copied back into the project.** この方法には翻訳者が誤って XML タグを編集するリスクがありますが、Microsoft Visual Studio プロジェクトの外で翻訳作業を進めることができます。 この方法は、少数の言語に翻訳する必要があるプロジェクトに適します。 XLIFF 形式はローカライズ向けとして特別に設計された XML 形式であり、いくつかのローカライズ ベンダーやローカライゼーション ツールでうまくサポートされています。 他のリソース ファイル (.resw や .resjson など) から XLIFF ファイルを生成する場合は、[多言語アプリ ツールキット](https://docs.microsoft.com/previous-versions/windows/apps/jj572370(v=win.10))を使うことができます。
+- **リソースファイルは、プロジェクトで直接開くことによって変換できます。** この方法は、文字列の量が少ないプロジェクトや、2 ～ 3 言語に翻訳する必要があるプロジェクトに合っています。 たとえば、開発者が複数の言語に通じており、翻訳プロセスを自分で処理することをいとわない場合などに適します。 この方法は迅速さがメリットであり、ツールを必要とせず、誤訳のリスクが最小限に抑えられます。 ただし拡張性はありません。 たとえば、複数の言語にわたるリソースの同期があっけなく失われ、ユーザー操作に問題が生じ、メンテナンスが困難になる可能性があります。
+- **文字列リソースファイルは XML または ResJSON テキスト形式であるため、テキストエディターを使用して翻訳用に渡すことができます。翻訳されたファイルは、プロジェクトに再びコピーされます。** この方法には翻訳者が誤って XML タグを編集するリスクがありますが、Microsoft Visual Studio プロジェクトの外で翻訳作業を進めることができます。 この方法は、少数の言語に翻訳する必要があるプロジェクトに適します。 XLIFF 形式はローカライズ向けとして特別に設計された XML 形式であり、いくつかのローカライズ ベンダーやローカライゼーション ツールでうまくサポートされています。 他のリソース ファイル (.resw や .resjson など) から XLIFF ファイルを生成する場合は、[多言語アプリ ツールキット](https://docs.microsoft.com/previous-versions/windows/apps/jj572370(v=win.10))を使うことができます。
 
 > [!NOTE]
-> Localization might also be necessary for other assets, including images and audio files.
+> 画像やオーディオファイルなど、他のアセットにもローカリゼーションが必要になる場合があります。
 
-You should also consider the following:
+また、次の点も考慮する必要があります。
 
-- **Localization tools** A number of localization tools are available for parsing resource files and allowing only the translatable strings to be edited by translators. この方法では翻訳者が誤って XML タグを編集するリスクは減ります。 ただし、ローカライズ プロセスに新しいツールとプロセスの導入が必要になるという欠点があります。 ローカライズ ツールは、扱う文字列は大量であるが言語は少ないというプロジェクトに適します。 詳しくは、「[多言語アプリ ツールキットの使用方法](https://docs.microsoft.com/previous-versions/windows/apps/jj572370(v=win.10))」をご覧ください。
-- **Localization vendors** Consider using a localization vendor if your application contains extensive strings that need to be translated into a large number of languages. ローカライズ ベンダーは、リソース ファイルの翻訳だけでなく、ツールとプロセスについてのアドバイスを得るためにも利用できます。 これは非常によい解決策ですが、最もコストがかかる選択肢でもあり、翻訳済みコンテンツの作業期間が延びる可能性があります。
+- **ローカリゼーションツール**リソースファイルを解析し、翻訳可能な文字列のみを翻訳者が編集できるローカライズツールが多数用意されています。 この方法では翻訳者が誤って XML タグを編集するリスクは減ります。 ただし、ローカライズ プロセスに新しいツールとプロセスの導入が必要になるという欠点があります。 ローカライズ ツールは、扱う文字列は大量であるが言語は少ないというプロジェクトに適します。 詳細については、「[多言語アプリ ツールキットの使用方法](https://docs.microsoft.com/previous-versions/windows/apps/jj572370(v=win.10))」を参照してください。
+- **ローカリゼーションベンダー**多数の言語に翻訳する必要がある広範な文字列がアプリケーションに含まれている場合は、ローカリゼーションベンダーの使用を検討してください。 ローカライズ ベンダーは、リソース ファイルの翻訳だけでなく、ツールとプロセスについてのアドバイスを得るためにも利用できます。 これは非常によい解決策ですが、最もコストがかかる選択肢でもあり、翻訳済みコンテンツの作業期間が延びる可能性があります。
 
 ## <a name="keep-access-keys-and-labels-consistent"></a>アクセス キーとラベルの一貫性を維持する
 
@@ -182,12 +182,12 @@ You should also consider the following:
 
 ## <a name="related-topics"></a>関連トピック
 
-- [Guidelines for globalization](guidelines-and-checklist-for-globalizing-your-app.md)
+- [グローバリゼーションのガイドライン](guidelines-and-checklist-for-globalizing-your-app.md)
 - [UI とアプリ パッケージ マニフェスト内の文字列をローカライズする](../../app-resources/localize-strings-ui-manifest.md)
 - [言語、スケール、ハイ コントラスト、その他の修飾子用にリソースを調整する](../../app-resources/tailor-resources-lang-scale-contrast.md)
 - [レイアウトやフォントの調整と RTL のサポート](adjust-layout-and-fonts--and-support-rtl.md)
-- [Updating images in response to qualifier value change events](../../app-resources/images-tailored-for-scale-theme-contrast.md#updating-images-in-response-to-qualifier-value-change-events)
+- [修飾子の値の変更イベントに応答してイメージを更新する](../../app-resources/images-tailored-for-scale-theme-contrast.md#updating-images-in-response-to-qualifier-value-change-events)
 
 ## <a name="samples"></a>サンプル
 
-- [Application resources and localization sample](https://code.msdn.microsoft.com/windowsapps/Application-resources-and-cd0c6eaa)
+- [アプリケーションリソースとローカリゼーションのサンプル](https://code.msdn.microsoft.com/windowsapps/Application-resources-and-cd0c6eaa)

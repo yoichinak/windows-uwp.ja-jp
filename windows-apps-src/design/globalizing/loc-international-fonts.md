@@ -66,7 +66,7 @@ ms.locfileid: "74258077"
 | コサ語 | xh-ZA | Segoe UI |
 | ズールー語 | zu-ZA | Segoe UI |
 | イタリア語 | it-IT | Segoe UI |
-| [日本語] | ja-JP | Yu Gothic UI |
+| Japanese | ja-JP | Yu Gothic UI |
 | カンナダ語 | kn-IN | Nirmala UI |
 | カザフ語 | kk-KZ | Segoe UI |
 | クメール語 | km-KH | Leelawadee UI |
@@ -94,7 +94,7 @@ ms.locfileid: "74258077"
 | ポーランド語 | pl-PL | Segoe UI |
 | ポルトガル語 (ブラジル) | pt-BR | Segoe UI |
 | ポルトガル語 (ポルトガル) | pt-PT | Segoe UI |
-| パンジャブ語 | pa-IN | Nirmala UI |
+| パンジャーブ語 | pa-IN | Nirmala UI |
 | パンジャーブ語 (アラビア) | pa-Arab-PK | Segoe UI |
 | ケチュア語 | quz-PE | Segoe UI |
 | ルーマニア語 | ro-RO | Segoe UI |
@@ -131,5 +131,5 @@ ms.locfileid: "74258077"
 
 ## <a name="related-topics"></a>関連トピック
 
-* [BCP-47 language tag](https://tools.ietf.org/html/bcp47)
+* [BCP-47 言語タグ](https://tools.ietf.org/html/bcp47)
 * [サポートされている言語](../../publish/supported-languages.md)

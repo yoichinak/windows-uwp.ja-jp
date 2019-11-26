@@ -17,7 +17,7 @@ ms.locfileid: "74259670"
 
 | トピック | 説明 |
 |------|------------|
-| [基本操作](pos-basics.md) | この記事では、POS (店舗販売時点管理) UWP API を使い始めるために役立つ情報を示します。 |
+| [方](pos-basics.md) | この記事では、POS (店舗販売時点管理) UWP API を使い始めるために役立つ情報を示します。 |
 | [ハードウェアサポート](pos-device-support.md) | [PointOfService](https://docs.microsoft.com/uwp/api/Windows.Devices.PointOfService) UWP api と互換性のある既知のデバイスの一覧。 |
 | [バーコードスキャナー](pos-barcodescanner.md) | バーコードスキャナーの記事のインデックス。 |
 | [磁気ストライプリーダー](pos-magnetic-stripe-reader.md) | 磁気ストライプリーダーの記事のインデックス。

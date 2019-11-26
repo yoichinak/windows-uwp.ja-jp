@@ -41,9 +41,9 @@ MDM または MAM を利用すると、管理者は、組織に属している�
 
 ![WIP のライフサイクル](images/wip-lifecycle.png)
 
-> **Read more about WIP** <br>
-* [Introducing Windows Information Protection](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/bg-p/Windows10Blog)
-* [Protect your enterprise data using Windows Information Protection (WIP)](https://docs.microsoft.com/windows/whats-new/edp-whats-new-overview)
+> **WIP の詳細を読む** <br>
+* [Windows Information Protection の概要](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/bg-p/Windows10Blog)
+* [Windows Information Protection (WIP) を使用してエンタープライズデータを保護する](https://docs.microsoft.com/windows/whats-new/edp-whats-new-overview)
 
 アプリが許可リストに登録されている場合、アプリによって生成されたすべてのデータにはポリシーの制限が適用されます。 つまり、管理者が企業データへのユーザー アクセスを無効にすると、それらのユーザーは、アプリによって生成されたすべてのデータへアクセスできなくなります。
 
@@ -61,11 +61,11 @@ WIP API を使用してアプリを対応させてから、アプリをエンタ
 
 アプリを対応させる準備ができたら、以下のガイドのいずれかをご覧ください。
 
-**For Universal Windows Platform (UWP) apps that you build by using C#**
+**を使用してビルドするユニバーサル Windows プラットフォーム (UWP) アプリの場合C#**
 
 [Windows 情報保護 (WIP) 開発者向けガイド](wip-dev-guide.md)。
 
-**For Desktop apps that you build by using C++**
+**を使用してビルドするデスクトップアプリの場合C++**
 
 [Windows 情報保護 (WIP) 開発者向けガイド (C++)](https://docs.microsoft.com/previous-versions/windows/desktop/EDP/wip-developer-guide?redirectedfrom=MSDN)。
 

@@ -3,7 +3,7 @@ title: アプリ内からのバックグラウンド タスクのトリガー
 description: アプリケーション内からバックグラウンド タスクをトリガーする方法について説明します。
 ms.date: 07/06/2018
 ms.topic: article
-keywords: background task trigger, background task
+keywords: バックグラウンドタスクトリガー、バックグラウンドタスク
 ms.localizationpriority: medium
 ms.openlocfilehash: 3d8917c6ed181607459d6126aa295d270cfea838
 ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
@@ -16,7 +16,7 @@ ms.locfileid: "74259405"
 
 [ApplicationTrigger](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.ApplicationTrigger) を使ってアプリ内からバックグラウンド タスクをアクティブ化する方法について説明します。
 
-For an example of how to create an Application trigger, see this [example](https://github.com/Microsoft/Windows-universal-samples/blob/v2.0.0/Samples/BackgroundTask/cs/BackgroundTask/Scenario5_ApplicationTriggerTask.xaml.cs).
+アプリケーショントリガーを作成する方法の例については、次の[例](https://github.com/Microsoft/Windows-universal-samples/blob/v2.0.0/Samples/BackgroundTask/cs/BackgroundTask/Scenario5_ApplicationTriggerTask.xaml.cs)を参照してください。
 
 このトピックでは、アプリケーションからアクティブ化する必要のあるバックグラウンド タスクがあることを前提としています。 まだバックグラウンド タスクがない場合は、[BackgroundActivity.cs](https://github.com/Microsoft/Windows-universal-samples/blob/master/Samples/BackgroundActivation/cs/BackgroundActivity.cs) にサンプルのバックグラウンド タスクがあります。 または、「[アウトプロセス バックグラウンド タスクの作成と登録](create-and-register-a-background-task.md)」の手順に従って、バックグラウンド タスクを作成してください。
 
@@ -56,7 +56,7 @@ ApplicationTrigger ^ _AppTrigger = ref new ApplicationTrigger();
 
 いつタスクを実行するかを制御するバックグラウンド タスクの条件を作成できます。 条件を指定すると、条件が満たされるまではバックグラウンド タスクが実行されないようにすることができます。 詳しくは、「[バックグラウンド タスクを実行するための条件の設定](set-conditions-for-running-a-background-task.md)」をご覧ください。
 
-In this example the condition is set to **InternetAvailable** so that, once triggered, the task only runs once internet access is available. 指定できる条件の一覧については、「[**SystemConditionType**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.SystemConditionType)」をご覧ください。
+この例では、条件は**Internetavailable**に設定されています。これにより、トリガーされると、インターネットアクセスが利用可能になるとタスクのみが実行されるようになります。 指定できる条件の一覧については、「[**SystemConditionType**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.SystemConditionType)」をご覧ください。
 
 ```csharp
 SystemCondition internetCondition = new SystemCondition(SystemConditionType.InternetAvailable);
@@ -141,21 +141,21 @@ var result = await _AppTrigger.RequestAsync();
 
 ## <a name="remarks"></a>注釈
 
-Starting with Windows 10, it is no longer necessary for the user to add your app to the lock screen in order to utilize background tasks.
+Windows 10 以降では、バックグラウンドタスクを利用するためにユーザーがロック画面にアプリを追加する必要がなくなりました。
 
 バックグラウンド タスクが **ApplicationTrigger** を使って実行されるのは、先に [**RequestAccessAsync**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundexecutionmanager.requestaccessasync) を呼び出した場合のみです。
 
 ## <a name="related-topics"></a>関連トピック
 
 * [バックグラウンド タスクのガイドライン](guidelines-for-background-tasks.md)
-* [Background task code sample](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/BackgroundTask)
-* [インプロセス バックグラウンド タスクの作成と登録](create-and-register-an-inproc-background-task.md)。
+* [バックグラウンドタスクのコードサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/BackgroundTask)
+* [インプロセス バックグラウンド タスクの作成と登録](create-and-register-an-inproc-background-task.md)
 * [アウトプロセス バックグラウンド タスクの作成と登録](create-and-register-a-background-task.md)
 * [バックグラウンド タスクのデバッグ](debug-a-background-task.md)
 * [アプリケーション マニフェストでのバックグラウンド タスクの宣言](declare-background-tasks-in-the-application-manifest.md)
 * [アプリがバックグラウンドに移動したときのメモリの解放](reduce-memory-usage.md)
 * [取り消されたバックグラウンド タスクの処理](handle-a-cancelled-background-task.md)
-* [How to trigger suspend, resume, and background events in UWP apps (when debugging)](https://msdn.microsoft.com/library/windows/apps/hh974425(v=vs.110).aspx)
+* [UWP アプリで中断イベント、再開イベント、およびバックグラウンドイベントをトリガーする方法 (デバッグ時)](https://msdn.microsoft.com/library/windows/apps/hh974425(v=vs.110).aspx)
 * [バックグラウンド タスクの進捗状況と完了の監視](monitor-background-task-progress-and-completion.md)
 * [延長実行を使ってアプリの中断を延期する](run-minimized-with-extended-execution.md)
 * [バックグラウンド タスクの登録](register-a-background-task.md)

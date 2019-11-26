@@ -15,7 +15,7 @@ ms.locfileid: "74260330"
 ---
 # <a name="display-ads-in-your-app-with-the-microsoft-advertising-sdk"></a>Microsoft Advertising SDK を使用したアプリでの広告の表示
 
-Microsoft Advertising SDK を使用して、Windows 10 用ユニバーサル Windows プラットフォーム (UWP) アプリに広告を配置することで、収益機会を増やせます。 Our ad monetization platform offers a variety of ad formats that can be seamlessly integrated into your apps and supports mediation with many popular ad networks. マイクロソフトのプラットフォームは、OpenRTB、VAST 2.x、MRAID 2、および VPAID 3 の各標準に準拠しており、MOAT および IAS と互換性があります。 
+Microsoft Advertising SDK を使用して、Windows 10 用ユニバーサル Windows プラットフォーム (UWP) アプリに広告を配置することで、収益機会を増やせます。 Microsoft の ad 収益化プラットフォームでは、アプリにシームレスに統合できるさまざまな ad 形式が提供されており、多くの一般的な ad ネットワークでの仲介をサポートしています。 マイクロソフトのプラットフォームは、OpenRTB、VAST 2.x、MRAID 2、および VPAID 3 の各標準に準拠しており、MOAT および IAS と互換性があります。 
 
 <br/>
 
@@ -31,24 +31,24 @@ Microsoft Advertising SDK を使用して、Windows 10 用ユニバーサル Win
 <tbody>
 <tr>
 <td align="left"><img src="images/install-sdk.png" alt="Install SDK icon" /></td>
-<td align="left"><b>開始する</b><br/><br/>
-    <a href="https://marketplace.visualstudio.com/items?itemName=AdMediator.MicrosoftAdvertisingSDK">Install the Microsoft Advertising SDK</a>
-</td>
+<td align="left"><b>作業の開始</b><br/><br/>
+    <a href="https://marketplace.visualstudio.com/items?itemName=AdMediator.MicrosoftAdvertisingSDK">MICROSOFT ADVERTISING SDK
+ をインストールする</a></td>
 <td align="left"><img src="images/write-code.png" alt="Develop icon" /></td>
-<td align="left"><b>Developer guides</b><br/><br/>
-    <a href="banner-ads.md">Banner ads</a>
+<td align="left"><b>開発者ガイド</b><br/><br/>
+    <a href="banner-ads.md">バナー広告</a>
     <br/>
-    <a href="interstitial-ads.md">Interstitial ads</a>
+    <a href="interstitial-ads.md">スポット広告</a>
     <br/>
-    <a href="native-ads.md">Native ads</a>
+    <a href="native-ads.md">ネイティブ広告</a>
     </td>
 <td align="left"><img src="images/api-reference.png" alt="API ref icon" /></td>
-<td align="left"><b>Other resources</b><br/><br/>
-    <a href="set-up-ad-units-in-your-app.md">Set up ad units in your app</a>
+<td align="left"><b>その他のリソース</b><br/><br/>
+    <a href="set-up-ad-units-in-your-app.md">アプリで ad ユニットを設定する</a>
     <br/>
-    <a href="best-practices-for-ads-in-apps.md">Best practices</a>
+    <a href="best-practices-for-ads-in-apps.md">ベストプラクティス</a>
     <br/>
-    <a href="https://docs.microsoft.com/uwp/api/overview/advertising">API reference</a>
+    <a href="https://docs.microsoft.com/uwp/api/overview/advertising">API リファレンス</a>
     </td>
 </tr>
 </tbody>
@@ -90,7 +90,7 @@ Microsoft Advertising SDK では、アプリで使用できるさまざまな種
 
 ## <a name="step-3-create-an-ad-unit-and-configure-mediation"></a>手順 3: 広告ユニットを作成し、仲介を構成する
 
-After you finish testing your app and you are ready to submit it to the Store, create an ad unit on the [In-app ads](../publish/in-app-ads.md) page in Partner Center. 次に、アプリがライブ広告を受信できるように、この広告ユニットを使用するようにアプリのコードを更新します。 詳しくは、「[アプリの広告ユニットをセットアップする](set-up-ad-units-in-your-app.md#live-ad-units)」をご覧ください。
+アプリのテストを完了し、ストアに送信する準備ができたら、パートナーセンターの[アプリ内広告](../publish/in-app-ads.md)ページで広告ユニットを作成します。 次に、アプリがライブ広告を受信できるように、この広告ユニットを使用するようにアプリのコードを更新します。 詳しくは、「[アプリの広告ユニットをセットアップする](set-up-ad-units-in-your-app.md#live-ad-units)」をご覧ください。
 
 既定では、アプリはマイクロソフトの有料広告ネットワークの広告を表示します。 広告の収益を最大化するには、広告ユニットの[広告仲介](ad-mediation-service.md)を有効化することで、Taboola や Smaato など、その他の有料広告ネットワークの広告を表示できます。 また、Microsoft アプリ プロモーション キャンペーンの広告を用意することでも、アプリ プロモーション機能を強化できます。
 
@@ -98,9 +98,9 @@ UWP アプリで広告仲介の使用を開始するには、広告ユニット�
 
 ## <a name="step-4-submit-your-app-and-review-performance"></a>手順 4: アプリを提出してパフォーマンスを確認する
 
-After you finish developing your app with ads, you can [submit your updated app](https://docs.microsoft.com/windows/uwp/publish/app-submissions) in Partner Center to make it available in the Store. 広告を表示するアプリは、[Microsoft Store ポリシーの第 10.10 項](https://docs.microsoft.com/legal/windows/agreements/store-policies#1010-advertising-conduct-and-content)と、[アプリ開発者契約の追加条項 E](https://docs.microsoft.com/legal/windows/agreements/app-developer-agreement) で指定されたその他の要件を満たしている必要があります。
+広告を使用したアプリの開発が完了したら、[更新されたアプリ](https://docs.microsoft.com/windows/uwp/publish/app-submissions)をパートナーセンターで送信して、ストアで使用できるようにすることができます。 広告を表示するアプリは、[Microsoft Store ポリシーの第 10.10 項](https://docs.microsoft.com/legal/windows/agreements/store-policies#1010-advertising-conduct-and-content)と、[アプリ開発者契約の追加条項 E](https://docs.microsoft.com/legal/windows/agreements/app-developer-agreement) で指定されたその他の要件を満たしている必要があります。
 
-After your app is published and available in the Store, you can review your [advertising performance reports](../publish/advertising-performance-report.md) in Partner Center and continue to make changes to your mediation settings to optimize the performance of your ads. 広告の収益は[入金状況](../publish/payout-summary.md)に表示されます。
+アプリが公開され、ストアで使用できるようになったら、パートナーセンターで[広告パフォーマンスレポート](../publish/advertising-performance-report.md)を確認し、引き続き仲介の設定を変更して、広告のパフォーマンスを最適化することができます。 広告の収益は[入金状況](../publish/payout-summary.md)に表示されます。
 
 <span id="additional-help" />
 
@@ -123,4 +123,4 @@ Windows 8.1 および Windows Phone 8.x 用のアプリについては、[Window
 
 * [Microsoft Advertising SDK](https://marketplace.visualstudio.com/items?itemName=AdMediator.MicrosoftAdvertisingSDK)
 * [広告パフォーマンス レポート](../publish/advertising-performance-report.md)
-* [Windows Premium Ads Publishers Program](windows-premium-ads-publishers-program.md)
+* [Windows Premium Ads 発行者プログラム](windows-premium-ads-publishers-program.md)

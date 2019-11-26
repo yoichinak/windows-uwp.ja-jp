@@ -50,7 +50,7 @@ Windows または Xbox で初めてゲームを開発する場合は、最初に
     </colgroup>
     <tr>
         <td>Windows デベロッパー センターのメイン ポータル</td>
-        <td><a href="https://developer.microsoft.com/windows">Windows デベロッパー センター</a></td>
+        <td><a href="https://developer.microsoft.com/windows">Windows デベロッパーセンター</a></td>
     </tr>
     <tr>
         <td>Windows アプリの開発</td>

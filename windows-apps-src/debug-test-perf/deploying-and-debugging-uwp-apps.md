@@ -17,7 +17,7 @@ ms.locfileid: "74254793"
 
 この記事では、さまざまな展開およびデバッグのターゲットを指定する手順について説明します。
 
-Microsoft Visual Studio allows you to deploy and debug your Universal Windows Platform (UWP) apps on a variety of Windows 10 devices. Visual Studio は、ターゲット デバイスにアプリを展開して登録するプロセスを処理します。
+Microsoft Visual Studio を使用すると、さまざまな Windows 10 デバイスでユニバーサル Windows プラットフォーム (UWP) アプリをデプロイおよびデバッグできます。 Visual Studio は、ターゲット デバイスにアプリを展開して登録するプロセスを処理します。
 
 ## <a name="picking-a-deployment-target"></a>展開ターゲットの選択
 
@@ -29,7 +29,7 @@ Microsoft Visual Studio allows you to deploy and debug your Universal Windows Pl
 - **[ローカル コンピューター]** は、現在の開発コンピューターにアプリを展開します。 このオプションは、アプリの **[ターゲット プラットフォームの最小バージョン]** が開発コンピューターのオペレーティング システム以下である場合にのみ使用できます。
 - **[リモート コンピューター]** では、アプリを展開するリモート ターゲットを指定できます。 リモート コンピューターへの展開について詳しくは、「[リモート デバイスの指定](#specifying-a-remote-device)」をご覧ください。
 - **[デバイス]** は、USB 接続のデバイスにアプリを展開します。 デバイスが開発者によりロック解除され、画面がロック解除されている必要があります。
-- **[エミュレーター]** ターゲットが起動し、名前で指定された構成のエミュレーターにアプリが展開されます。 Emulators are only available on Hyper-V enabled machines running Windows 8.1 or beyond.
+- **[エミュレーター]** ターゲットが起動し、名前で指定された構成のエミュレーターにアプリが展開されます。 エミュレーターは、Windows 8.1 以降を実行している Hyper-v 対応のコンピューターでのみ使用できます。
 
 ## <a name="debugging-deployed-apps"></a>展開されているアプリのデバッグ
 
@@ -45,7 +45,7 @@ UWP アプリは、Windows 8.1 以降で開発してコンパイルすること�
 
 ## <a name="package-layout"></a>パッケージのレイアウト
 
-As of Visual Studio 2015 Update 3, we have added the option for developers to specify the layout path for their UWP apps. これにより、アプリをビルドするときの、パッケージのレイアウトのディスク上でのコピー先を指定します。 既定では、このプロパティは、プロジェクトのルート ディレクトリに相対的に設定されます。 このプロパティを変更しない場合には、動作は Visual Studio の以前のバージョンと同じです。
+Visual Studio 2015 Update 3 では、開発者が UWP アプリのレイアウトパスを指定するオプションが追加されました。 これにより、アプリをビルドするときの、パッケージのレイアウトのディスク上でのコピー先を指定します。 既定では、このプロパティは、プロジェクトのルート ディレクトリに相対的に設定されます。 このプロパティを変更しない場合には、動作は Visual Studio の以前のバージョンと同じです。
 
 このプロパティは、プロジェクトの **デバッグ** プロパティで変更できます。
 
@@ -65,15 +65,15 @@ C# または Microsoft Visual Basic のアプリのリモート コンピュー�
 
 ![リモート接続ダイアログ ボックス](images/debug-remote-connections.png)
 
-To return to this dialog, you can open project properties and go to the **Debug** tab. From there, select **Find** next to **Remote machine:**
+このダイアログに戻るには、プロジェクトのプロパティを開き、 **[デバッグ]** タブにアクセスします。そこから、リモートコンピューター の横にある **[検索]** を選択し**ます。**
 
-![デバッグ タブ](images/debug-remote-machine-config.png)
+![[デバッグ] タブ](images/debug-remote-machine-config.png)
 
 Creators Update より前のリモート PC にアプリを展開するには、Visual Studio リモート ツールをターゲット PC にダウンロードしてインストールする必要もあります。 詳しい手順については、「[リモート PC の手順](#remote-pc-instructions)」をご覧ください。  ただし、Creators Update の PC ではリモート展開もサポートされます。  
 
 ### <a name="c-and-javascript"></a>C++ および JavaScript
 
-To specify a remote machine target for a C++ or JavaScript UWP app:
+C++または JAVASCRIPT の UWP アプリのリモートコンピューターターゲットを指定するには、次のようにします。
 
 1. **[ソリューション エクスプローラー]** で、プロジェクトを右クリックし、 **[プロパティ]** をクリックします。
 2. **[デバッグ]** 設定に移動し、 **[起動するデバッガー]** の下で **[リモート コンピューター]** を選択します。
@@ -92,16 +92,16 @@ Creators Update より前のリモート PC に展開するには、ターゲッ
 
 これを行うには、 **[スタート]** メニューで **[リモート デバッガー]** を探して開き、プロンプトが表示されたらデバッガーがファイアウォール設定を構成できるようにします。 既定では、デバッガーは Windows 認証を使用して起動します。 両方の PC でサインイン ユーザーが同じでない場合、これにはユーザー資格情報が必要になります。
 
-To change it to **no authentication**, in the **Remote Debugger**, go to **Tools** -&gt; **Options**, and then set it to **No Authentication**. リモート デバッガーを設定したら、ホスト デバイスが[開発者モード](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)に設定されていることを確認する必要があります。 その後、開発コンピューターから展開できます。
+**認証なし**に変更するには、**リモートデバッガー**で **ツール** -&gt;**オプション** に移動し、**認証なし** に設定します。 リモート デバッガーを設定したら、ホスト デバイスが[開発者モード](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)に設定されていることを確認する必要があります。 その後、開発コンピューターから展開できます。
 
 詳しくは、[Visual Studio ダウンロード センター](https://visualstudio.microsoft.com/downloads/)のページをご覧ください。
 
 ## <a name="passing-command-line-debug-arguments"></a>デバッグのコマンド ライン引数を渡す
 
-In Visual Studio 2019, you can pass command line debug arguments when you start debugging UWP applications. デバッグのコマンド ライン引数には、[**Application**](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.application) クラスの **OnLaunched** メソッドで *args* パラメーターからアクセスすることができます デバッグのコマンド ライン引数を指定するには、プロジェクトのプロパティを開き、 **[デバッグ]** タブに移動します。
+Visual Studio 2019 では、UWP アプリケーションのデバッグを開始するときにコマンドラインデバッグ引数を渡すことができます。 デバッグのコマンド ライン引数には、Application クラスの [OnLaunched**メソッドで**args](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.application) パラメーターからアクセスすることができます デバッグのコマンド ライン引数を指定するには、プロジェクトのプロパティを開き、 **[デバッグ]** タブに移動します。
 
 > [!NOTE]
-> これは、Visual Studio 2017 (Version 15.1) で C#、VB、C++ について利用できます。 JavaScript is available in later versions. デバッグのコマンド ライン引数は、シミュレーターを除くすべての種類の展開で利用できます。
+> これは、Visual Studio 2017 (Version 15.1) で C#、VB、C++ について利用できます。 JavaScript は、以降のバージョンで使用できます。 デバッグのコマンド ライン引数は、シミュレーターを除くすべての種類の展開で利用できます。
 
 C# と VB の UWP プロジェクトでは、 **[開始オプション]** に **[コマンド ライン引数]** フィールドが表示されます。
 
@@ -121,11 +121,11 @@ C++ と JS の UWP プロジェクトでは、 **[デバッグ プロパティ]*
 
 - **[ユニバーサル (暗号化されていないプロトコル)]** : リモート デバイスに展開するときは、必ずこの認証モードを使います。 これは現在、IoT デバイス、Xbox デバイス、HoloLens デバイスと、Creators Update 以降を搭載した PC を対象としています。 ユニバーサル (暗号化されていないプロトコル) は、信頼されたネットワークで使う必要があります。 デバッグ接続は、開発マシンとリモート マシンとの間で渡されるデータを傍受して変更できる悪意のあるユーザーに対して脆弱です。
 - **[Windows]** : この認証モードは、Visual Studio リモート ツールを実行中のリモート PC (デスクトップまたはノート PC) にのみ使うように想定されています。 ターゲット コンピューターのサインイン ユーザーの資格情報にアクセスできる場合は、この認証モードを使用します。 これは、リモート展開用の最も安全なチャネルです。
-- **[なし]** : この認証モードは、Visual Studio リモート ツールを実行中のリモート PC (デスクトップまたはノート PC) にのみ使うように想定されています。 テスト アカウントがサインインしていて資格情報を入力できない環境にテスト コンピューターがセットアップされている場合は、この認証モードを使用します。 リモート デバッガーの設定が、認証を受け入れないように設定されていることを確認してください。
+- **[なし]** : この認証モードは、Visual Studio リモート ツールを実行中のリモート PC (デスクトップまたはノート PC) にのみ使うように想定されています。 テスト アカウントがサインインしていて資格情報を入力できない環境にテスト コンピューターがセットアップされている場合は、この認証モードを使用します。 リモート デバッガーの設定が、"認証なし" を受け入れるようになっていることを確認してください。
 
 ## <a name="advanced-remote-deployment-options"></a>リモート展開の詳細オプション
 
-As of the release of Visual Studio 2015 Update 3, and the Windows 10 Anniversary Update, there are new advanced remote deployment options for certain Windows 10 devices. リモート展開の詳細オプションは、プロジェクト プロパティの **[デバッグ]** メニューにあります。
+Visual Studio 2015 Update 3 のリリースと Windows 10 記念日の更新プログラムには、特定の Windows 10 デバイス向けの新しい高度なリモート展開オプションがあります。 リモート展開の詳細オプションは、プロジェクト プロパティの **[デバッグ]** メニューにあります。
 
 新しいプロパティには、次のものが含まれています。
 
@@ -137,7 +137,7 @@ As of the release of Visual Studio 2015 Update 3, and the Windows 10 Anniversary
 
 リモート展開の詳細オプションを利用するには、次の要件を満たす必要があります。
 
-- Have Visual Studio 2015 Update 3 or some later Visual Studio release installed with Windows 10 Tools 1.4.1 or later(which includes the Windows 10 Anniversary Update SDK) We recommend that you use the latest version of Visual Studio with updates to ensure you get all the newest development and security features.
+- Visual Studio 2015 Update 3 またはそれ以降の Visual Studio リリースを Windows 10 Tools 1.4.1 以降 (Windows 10 周年更新 SDK を含む) でインストールした場合は、最新バージョンの Visual Studio を更新プログラムと共に使用して、すべてを取得できるようにすることをお勧めします。最新の開発とセキュリティ機能。
 - Windows 10 Anniversary Update の Xbox リモート デバイスまたは Windows 10 Creators Update の PC をターゲットにする
 - ユニバーサル認証モードを使う
 
@@ -147,7 +147,7 @@ C# または Visual Basic の UWP アプリでは、[プロパティ] ページ�
 
 ![CS または VB プロパティ](images/advanced-remote-deploy-cs.png)
 
-C++ UWP アプリでは、[プロパティ] ページは、次のようになります。
+C++ UWP アプリでは、プロパティ ページは次のようになります。
 
 ![Cpp プロパティ](images/advanced-remote-deploy-cpp.png)
 
@@ -160,7 +160,7 @@ C++ UWP アプリでは、[プロパティ] ページは、次のようになり
 > [!NOTE]
 > **[デバイスにファイルをコピーする]** は現在、Windows 10 Anniversary Update を搭載した Xbox と、Windows 10 Creators Update を搭載した PC でサポートされています。
 
-On the remote device, the layout gets copied to the following default location: `\\MY-DEVKIT\DevelopmentFiles\PACKAGE-REGISTRATION-PATH`
+リモートデバイスでは、レイアウトは次の既定の場所にコピーされます: `\\MY-DEVKIT\DevelopmentFiles\PACKAGE-REGISTRATION-PATH`
 
 ### <a name="register-layout-from-network"></a>ネットワークからレイアウトを登録する
 
@@ -171,12 +171,12 @@ On the remote device, the layout gets copied to the following default location: 
 これについては、次の例をご覧ください。
 
 - 例 1 (ネットワーク共有としてアクセス可能な、ローカル レイアウト フォルダー):
-  - **Layout folder path** = `D:\Layouts\App1`
-  - **Package registration path** = `\\NETWORK-SHARE\Layouts\App1`
+  - **レイアウトフォルダーのパス** = `D:\Layouts\App1`
+  - **パッケージ登録パス** = `\\NETWORK-SHARE\Layouts\App1`
 
 - 例 2 (ネットワーク レイアウト フォルダー):
-  - **Layout folder path** = `\\NETWORK-SHARE\Layouts\App1`
-  - **Package registration path** = `\\NETWORK-SHARE\Layouts\App1`
+  - **レイアウトフォルダーのパス** = `\\NETWORK-SHARE\Layouts\App1`
+  - **パッケージ登録パス** = `\\NETWORK-SHARE\Layouts\App1`
 
 最初にネットワークからレイアウトを登録するときに、ターゲット デバイスに資格情報がキャッシュされるため、繰り返しサインインする必要はありません。 キャッシュされた資格情報を削除するには、Windows 10 SDK の [WinAppDeployCmd.exe ツール](https://docs.microsoft.com/windows/uwp/packaging/install-universal-windows-apps-with-the-winappdeploycmd-tool) と **deletecreds**コマンド を使用できます。
 
@@ -185,30 +185,30 @@ On the remote device, the layout gets copied to the following default location: 
 > [!NOTE]
 > **[ネットワークからレイアウトを登録する]** は現在、Windows 10 Anniversary Update を搭載した Xbox と、Windows 10 Creators Update を搭載した PC でサポートされています。
 
-On the remote device, the layout gets registered to the following default location depending on the device family: `Xbox: \\MY-DEVKIT\DevelopmentFiles\XrfsFiles` - this is a symlink to the **package registration path** PC does not use a symlink and instead directly registers the **package registration path**
+リモートデバイスでは、レイアウトはデバイスファミリに応じて次の既定の場所に登録されます。 `Xbox: \\MY-DEVKIT\DevelopmentFiles\XrfsFiles`-これは**パッケージ登録パス**へのシンボリックリンクです。 PC はシンボリックリンクを使用せず、代わりに**パッケージ登録パス**を直接登録します。
 
 ## <a name="debugging-options"></a>デバッグのオプション
 
-On Windows 10, the startup performance of UWP apps is improved by proactively launching and then suspending apps in a technique called [prelaunch](https://docs.microsoft.com/windows/uwp/launch-resume/handle-app-prelaunch). 多くのアプリはこのモードで動作するために特別に何もする必要はありませんが、一部のアプリでは動作を調整する必要があります。 これらのコード パスの問題をデバッグするために、事前起動モードで Visual Studio からアプリのデバッグを開始できます。
+Windows 10 では、事前起動と呼ばれる手法でアプリを事前に起動して中断することで、UWP アプリの起動パフォーマンスが[向上して](https://docs.microsoft.com/windows/uwp/launch-resume/handle-app-prelaunch)います。 多くのアプリはこのモードで動作するために特別に何もする必要はありませんが、一部のアプリでは動作を調整する必要があります。 これらのコード パスの問題をデバッグするために、事前起動モードで Visual Studio からアプリのデバッグを開始できます。
 
-Debugging is supported both from a Visual Studio project (**Debug** -&gt; **Other Debug Targets** -&gt; **Debug Universal Windows App Prelaunch**), and for apps already installed on the machine (**Debug** -&gt; **Other Debug Targets** -&gt; **Debug Installed App Package** by selecting the **Activate app with Prelaunch** check box). 詳しくは、「[事前起動 UWP をデバッグする](https://blogs.msdn.com/b/visualstudioalm/archive/2015/11/30/debug-uwp-prelaunch-with-vs2015.aspx)」をご覧ください。
+デバッグは、Visual Studio プロジェクト (**デバッグ** -&gt;**他のデバッグターゲット** -&gt;**ユニバーサル Windows アプリ**の事前起動) と、コンピューターに既にインストールされているアプリの両方でサポートされてい**ます ([** 事前**認証を使用**してアプリをアクティブにする] チェックボックスをオンにして、**インストールさ**れているアプリパッケージ ** -** デバッグ &gt;)。 -&gt; 詳しくは、「[事前起動 UWP をデバッグする](https://blogs.msdn.com/b/visualstudioalm/archive/2015/11/30/debug-uwp-prelaunch-with-vs2015.aspx)」をご覧ください。
 
 スタートアップ プロジェクトの **[デバッグ]** プロパティ ページで、次の展開オプションを設定できます。
 
-- **Allow local network loopback**
+- **ローカルネットワークループバックを許可する**
 
-  セキュリティ上の理由で、標準的な方法でインストールされた UWP アプリでは、それがインストールされているデバイスに対してネットワーク呼び出しを実行することは許可されません。 既定では、Visual Studio の展開では、展開されたアプリについてこの規則が除外されます。 この除外により、単一コンピューター上で通信手順をテストできます。 Before submitting your app to the Microsoft Store, you should test your app without the exemption.
+  セキュリティ上の理由で、標準的な方法でインストールされた UWP アプリでは、それがインストールされているデバイスに対してネットワーク呼び出しを実行することは許可されません。 既定では、Visual Studio の展開では、展開されたアプリについてこの規則が除外されます。 この除外により、単一コンピューター上で通信手順をテストできます。 アプリを Microsoft Store に送信する前に、除外を行わずにアプリをテストする必要があります。
 
   ネットワーク ループバックに関する除外をアプリから除去するには:
 
-  - On the C# and Visual Basic **Debug** property page, clear the **Allow local network loopback** check box.
+  - C#および Visual Basic **デバッグ** プロパティページで、**ローカルネットワークループバックを許可する** チェックボックスをオフにします。
   - JavaScript および C++ の **[デバッグ]** プロパティ ページで、 **[ローカル ネットワーク ループバックの許可]** の値を **[いいえ]** に設定します
 
-- **Do not launch, but debug my code when it starts / Launch Application**
+- **起動しないが、アプリケーションの起動時または起動時にコードをデバッグする**
 
   アプリ起動時にデバッグ セッションが自動的に開始されるように展開を構成するには:
 
-  - On the C# and Visual Basic **Debug** property page, select the **Do not launch, but debug my code when it starts** check box.
+  - C#および Visual Basic **[デバッグ]** プロパティページで、 **[起動しないが、開始時にコードをデバッグする]** チェックボックスをオンにします。
   - JavaScript および C++ の **[デバッグ]** プロパティ ページで、 **[アプリの起動]** 値を **[はい]** に設定します。
 
 ## <a name="symbols"></a>シンボル
@@ -217,7 +217,7 @@ Debugging is supported both from a Visual Studio project (**Debug** -&gt; **Othe
 
 Visual Studio のシンボル オプションを設定するには、 **[ツール] の [オプション]** を選択し、ダイアログ ウィンドウで **[デバッグ]、[シンボル]** の順に移動します。
 
-![オプション ダイアログ ボックス](images/gs-debug-uwp-apps-004.png)
+![[オプション] ダイアログ ボックス](images/gs-debug-uwp-apps-004.png)
 
 [WinDbg](#windbg) を使ってデバッグ セッションでシンボルを読み込むには、**sympath** 変数をシンボル パッケージの場所に設定します。 たとえば、次のコマンドを実行すると、Microsoft シンボル サーバーからシンボルが読み込まれ、C:\Symbols ディレクトリにキャッシュされます。
 

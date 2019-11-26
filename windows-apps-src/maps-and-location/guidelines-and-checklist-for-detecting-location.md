@@ -54,7 +54,7 @@ ms.locfileid: "74259357"
     -   ユーザーが位置情報を無効にした後に再び有効にした場合、アプリには通知されません。 [  **status**](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.statuschangedeventargs.status) プロパティは変更されず、[**statusChanged**](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geolocator.statuschanged) イベントも発生しません。 アプリで、新しい [**Geolocator**](https://docs.microsoft.com/uwp/api/Windows.Devices.Geolocation.Geolocator) オブジェクトを作成し、[**getGeopositionAsync**](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geolocator.getgeopositionasync) を呼び出して更新された位置情報データを取得するか、[**positionChanged**](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geolocator.positionchanged) イベントの受信登録をもう一度行います。 位置情報が再び有効になったことを確認できたら、位置情報サービスが無効であることをユーザーに通知するために表示していた UI をクリアし、新しい状態に対して適切に対応します。
     -   アプリをアクティブ化するとき、位置情報が必要な機能をユーザーが明示的に使おうとしたときなど、状況に応じて必要と思われる任意の時点で、位置情報データを取得し直すことをお勧めします。
 
-**[パフォーマンス]**
+**パフォーマンス**
 
 -   アプリで位置情報の更新を受け取る必要がない場合は、位置情報の要求を 1 回だけ使います。 たとえば、写真に位置情報タグを追加するアプリでは、位置情報更新イベントを受け取る必要はありません。 このようなアプリでは、[**getGeopositionAsync**](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geolocator.getgeopositionasync) を使って位置情報を要求します。詳しくは、「[現在の位置情報の取得](https://docs.microsoft.com/windows/uwp/maps-and-location/get-location)」をご覧ください。
 

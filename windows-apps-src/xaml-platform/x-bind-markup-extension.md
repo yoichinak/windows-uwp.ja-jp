@@ -135,7 +135,7 @@ Windows 10 バージョン 1607 以降、 **{x:Bind}** はバインド パスの
 
 | プロパティ | 説明 |
 |----------|-------------|
-| **[パス]** | 上記の「[プロパティ パス](#property-path)」をご覧ください。 |
+| **Path** | 上記の「[プロパティ パス](#property-path)」をご覧ください。 |
 | **修復** | バインド エンジンによって呼び出されるコンバーター オブジェクトを指定します。 コンバーターは XAML で設定できますが、リソース ディクショナリ内のオブジェクトへの [{StaticResource} マークアップ拡張](staticresource-markup-extension.md) 参照で割り当てたオブジェクト インスタンスを参照する場合に限られます。 |
 | **収束 Terlanguage** | コンバーターで使うカルチャを指定します (**ConverterLanguage** を設定する場合は **Converter** も設定する必要があります)。カルチャは、標準ベースの識別子として設定できます。 詳しくは、「[**ConverterLanguage**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.converterlanguage)」をご覧ください。 |
 | **ConverterParameter** | コンバーター ロジックで使うことができるコンバーター パラメーターを指定します (**ConverterParameter** を設定する場合は **Converter** も設定する必要があります)。 ほとんどのコンバーターは、渡された値から変換に必要なすべての情報を取得するという単純なロジックを使っており、**ConverterParameter** 値を必要としません。 **ConverterParameter** パラメーターは、**ConverterParameter** で渡された値を利用する複数のロジックを持つ、ある程度高度なコンバーターを実装するために存在します。 また、文字列以外の値を使うコンバーターも作成できますが、一般的ではありません。詳しくは、「[**ConverterParameter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.converterparameter)」の「注釈」をご覧ください。 |

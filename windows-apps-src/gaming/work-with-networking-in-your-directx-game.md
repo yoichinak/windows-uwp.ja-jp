@@ -45,10 +45,10 @@ DirectX ゲームに使うことのできる Networking API は、多数あり�
 
 ゲームに使うことができる主要なネットワーク API には、次のようなものがあります。
 
--   TCP とソケット - 信頼性の高い接続を実現します。 TCP は、セキュリティを必要としないゲーム操作に使います。 TCP を使うとサーバーの規模変更が容易であるため、インフラストラクチャ (クライアント サーバーまたはインターネット ピア ツー ピア) モデルのゲームでよく使われます。 TCP は、Wi-Fi Direct と Bluetooth を経由したアドホック (ローカル ピア ツー ピア) ゲームでも使うことができます。 TCP は一般的に、ゲーム オブジェクトの動き、文字操作、テキスト チャットなどの操作に使います。 The [**StreamSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamSocket) class provides a TCP socket that can be used in Microsoft Store games. **StreamSocket** クラスは、[**Windows::Networking::Sockets**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets) 名前空間の関連クラスと共に使われます。
+-   TCP とソケット - 信頼性の高い接続を実現します。 TCP は、セキュリティを必要としないゲーム操作に使います。 TCP を使うとサーバーの規模変更が容易であるため、インフラストラクチャ (クライアント サーバーまたはインターネット ピア ツー ピア) モデルのゲームでよく使われます。 TCP は、Wi-Fi Direct と Bluetooth を経由したアドホック (ローカル ピア ツー ピア) ゲームでも使うことができます。 TCP は一般的に、ゲーム オブジェクトの動き、文字操作、テキスト チャットなどの操作に使います。 [**Streamsocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamSocket)クラスは、Microsoft Store ゲームで使用できる TCP ソケットを提供します。 **StreamSocket** クラスは、[**Windows::Networking::Sockets**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets) 名前空間の関連クラスと共に使われます。
 -   SSL を使う TCP とソケット - 信頼性の高い接続を提供して改ざんを防ぎます。 SSL を伴う TCP 接続は、セキュリティを必要とするゲーム操作で使います。 SSL の暗号化とオーバーヘッドにより、待機時間とパフォーマンスのコストが増加するため、セキュリティが必要な場合にのみ使うようにします。 一般的に、SSL を伴う TCP は、ログイン、アセットの購入とトレーディング、ゲーム キャラクターの作成と管理に使います。 SSL をサポートする TCP ソケットは、[**StreamSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamSocket) クラスで提供されます。
--   UDP とソケット - 信頼性の低いネットワーク転送を低いオーバーヘッドで提供します。 UDP は、待機時間を短くする必要があり、ある程度のパケット損失を許容できるゲーム操作に使われます。 これは、ファイティング ゲーム、シューティング、トレーサー、ネットワーク オーディオ、ボイス チャットなどによく使われます。 The [**DatagramSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.DatagramSocket) class provides a UDP socket that can be used in Microsoft Store games. **DatagramSocket** クラスは、[**Windows::Networking::Sockets**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets) 名前空間の関連クラスと共に使われます。
--   HTTP クライアント - HTTP サーバーへの、信頼性の高い接続を実現します。 最も一般的なネットワーク シナリオは、Web サイトにアクセスして情報を取得または保存することです。 単純な例としては、Web サイトを使ってユーザー情報とゲームのスコアを保存するゲームが考えられます。 HTTP クライアントは、SSL と組み合わせてセキュリティを強化すると、ログイン、購入、アセットのトレーディング、ゲーム キャラクターの作成、管理に使うことができます。 The [**HttpClient**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpClient) class provides a modern HTTP client API for use in Microsoft Store games. **HttpClient** クラスは、[**Windows::Web::Http**](https://docs.microsoft.com/uwp/api/Windows.Web.Http) 名前空間の関連クラスと共に使われます。
+-   UDP とソケット - 信頼性の低いネットワーク転送を低いオーバーヘッドで提供します。 UDP は、待機時間を短くする必要があり、ある程度のパケット損失を許容できるゲーム操作に使われます。 これは、ファイティング ゲーム、シューティング、トレーサー、ネットワーク オーディオ、ボイス チャットなどによく使われます。 [**DatagramSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.DatagramSocket)クラスには、Microsoft Store ゲームで使用できる UDP ソケットが用意されています。 **DatagramSocket** クラスは、[**Windows::Networking::Sockets**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets) 名前空間の関連クラスと共に使われます。
+-   HTTP クライアント - HTTP サーバーへの、信頼性の高い接続を実現します。 最も一般的なネットワーク シナリオは、Web サイトにアクセスして情報を取得または保存することです。 単純な例としては、Web サイトを使ってユーザー情報とゲームのスコアを保存するゲームが考えられます。 HTTP クライアントは、SSL と組み合わせてセキュリティを強化すると、ログイン、購入、アセットのトレーディング、ゲーム キャラクターの作成、管理に使うことができます。 [**Httpclient**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpClient)クラスは、Microsoft Store ゲームで使用するための最新の HTTP クライアント API を提供します。 **HttpClient** クラスは、[**Windows::Web::Http**](https://docs.microsoft.com/uwp/api/Windows.Web.Http) 名前空間の関連クラスと共に使われます。
 
 ## <a name="handling-network-exceptions-in-your-directx-game"></a>DirectX ゲームでのネットワーク例外の処理
 
@@ -222,7 +222,7 @@ using namespace Windows::Networking::Sockets;
 
 ### <a name="exceptions-in-windowswebhttp"></a>Windows.Web.Http の例外
 
-[  **Windows::Web::Http::HttpClient**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpClient) と共に使われる [**Windows::Foundation::Uri**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Uri) クラスのコンストラクターは、有効な URI ではない (URI に使うことができない文字が含まれている) 文字列が渡された場合に例外をスローすることができます。 C++ では、URI として渡される文字列を試行して解析するメソッドはありません。 アプリがユーザーから **Windows::Foundation::Uri** の入力を取得する場合、このコンストラクターを try/catch ブロックに配置する必要があります。 例外がスローされた場合、アプリは、ユーザーに通知して、新しい URI を要求することができます。
+[  **Windows::Web::Http::HttpClient**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Uri) と共に使われる [**Windows::Foundation::Uri**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpClient) クラスのコンストラクターは、有効な URI ではない (URI に使うことができない文字が含まれている) 文字列が渡された場合に例外をスローすることができます。 C++ では、URI として渡される文字列を試行して解析するメソッドはありません。 アプリがユーザーから **Windows::Foundation::Uri** の入力を取得する場合、このコンストラクターを try/catch ブロックに配置する必要があります。 例外がスローされた場合、アプリは、ユーザーに通知して、新しい URI を要求することができます。
 
 アプリでは、URI 内のスキーマが HTTP または HTTPS であることも確認する必要があります。[**Windows::Web::Http::HttpClient**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpClient) では、これらのスキーマしかサポートされていないためです。
 
@@ -368,27 +368,27 @@ using namespace Windows::Web::Http;
 ## <a name="related-topics"></a>関連トピック
 
 
-**Other resources**
+**その他のリソース**
 
-* [Connecting with a datagram socket](https://docs.microsoft.com/previous-versions/windows/apps/jj635238(v=win.10))
-* [Connecting to a network resource with a stream socket](https://docs.microsoft.com/previous-versions/windows/apps/jj150599(v=win.10))
-* [Connecting to network services](https://docs.microsoft.com/previous-versions/windows/apps/hh452976(v=win.10))
-* [Connecting to web services](https://docs.microsoft.com/previous-versions/windows/apps/hh761504(v=win.10))
+* [データグラムソケットを使用した接続](https://docs.microsoft.com/previous-versions/windows/apps/jj635238(v=win.10))
+* [ストリームソケットを使用したネットワークリソースへの接続](https://docs.microsoft.com/previous-versions/windows/apps/jj150599(v=win.10))
+* [ネットワークサービスへの接続](https://docs.microsoft.com/previous-versions/windows/apps/hh452976(v=win.10))
+* [Web サービスへの接続](https://docs.microsoft.com/previous-versions/windows/apps/hh761504(v=win.10))
 * [ネットワークの基本](https://docs.microsoft.com/windows/uwp/networking/networking-basics)
-* [How to configure network isolation capabilities](https://docs.microsoft.com/previous-versions/windows/apps/hh770532(v=win.10))
-* [How to enable loopback and debug network isolation](https://docs.microsoft.com/previous-versions/windows/apps/hh780593(v=win.10))
+* [ネットワーク分離機能を構成する方法](https://docs.microsoft.com/previous-versions/windows/apps/hh770532(v=win.10))
+* [ループバックとネットワーク分離のデバッグを有効にする方法](https://docs.microsoft.com/previous-versions/windows/apps/hh780593(v=win.10))
 
 **リファレンス**
 
 * [**DatagramSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.DatagramSocket)
 * [**HttpClient**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpClient)
 * [**StreamSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamSocket)
-* [**Windows::Web::Http**](https://docs.microsoft.com/uwp/api/Windows.Web.Http)
-* [**Windows::Networking::Sockets**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets)
+* [**Windows:: Web:: Http**](https://docs.microsoft.com/uwp/api/Windows.Web.Http)
+* [**Windows:: Network:: Sockets**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets)
 
 **サンプル**
 
-* [DatagramSocket sample](https://code.msdn.microsoft.com/windowsapps/StreamSocket-Sample-8c573931)
-* [HttpClient Sample]( https://go.microsoft.com/fwlink/p/?linkid=242550)
-* [Proximity sample](https://code.msdn.microsoft.com/windowsapps/Proximity-Sample-88129731)
+* [DatagramSocket サンプル](https://code.msdn.microsoft.com/windowsapps/StreamSocket-Sample-8c573931)
+* [HttpClient のサンプル]( https://go.microsoft.com/fwlink/p/?linkid=242550)
+* [近接サンプル](https://code.msdn.microsoft.com/windowsapps/Proximity-Sample-88129731)
 * [StreamSocket のサンプル](https://code.msdn.microsoft.com/windowsapps/StreamSocket-Sample-8c573931)

@@ -93,7 +93,7 @@ Windows 10 で実行されている Universal 8.1 アプリは、コントロー
 
 以下に、コントロールの変更に関する具体的な例を示します。
 
-| コントロール名 | [変更] |
+| コントロール名 | [Change] |
 |--------------|--------|
 | **AppBar**   | **Appbar**コントロールを使用している場合 (代わりに[**CommandBar**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.AppBar)を使用することをお勧めします)、Windows 10 アプリでは既定で非表示になりません。 これを制御するには、[**AppBar.ClosedDisplayMode**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.appbar.closeddisplaymode) プロパティを使います。 |
 | **AppBar**、[**CommandBar**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.AppBar) | Windows 10 アプリでは、 **Appbar**と[**CommandBar**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.AppBar)に **[詳細]** ボタン (省略記号) が表示されます。 |

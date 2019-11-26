@@ -1,7 +1,7 @@
 ---
 title: 広告キャンペーン レポート
 ms.assetid: 8C5907A6-8059-4CAF-951F-C97301A5EEDF
-description: The Ad campaign report in Partner Center lets you see how your app promotion ad campaigns are performing.
+description: パートナーセンターの Ad キャンペーンレポートを使用すると、アプリの昇格によって ad キャンペーンがどのように実行されているかを確認できます。
 ms.date: 10/31/2018
 ms.topic: article
 keywords: Windows 10, UWP, 販売促進, アプリ, キャンペーン, レポート, インストール
@@ -15,7 +15,7 @@ ms.locfileid: "74260066"
 ---
 # <a name="ad-campaign-report"></a>広告キャンペーン レポート
 
-The **Ad campaign** report in [Partner Center](https://partner.microsoft.com/dashboard) lets you see how your app promotion [ad campaigns](create-an-ad-campaign-for-your-app.md) are performing. To see the report, expand **Attract** in the left navigation menu and select **Ad campaigns**.
+[パートナーセンター](https://partner.microsoft.com/dashboard)の**ad キャンペーン**レポートを使用すると、アプリの昇格によって[ad キャンペーン](create-an-ad-campaign-for-your-app.md)がどのように実行されているかを確認できます。 レポートを表示するには、左側のナビゲーションメニューで **[惹き]** を展開し、 **[Ad キャンペーン]** を選択します。
 
 ## <a name="definitions"></a>定義
 
@@ -23,7 +23,7 @@ The **Ad campaign** report in [Partner Center](https://partner.microsoft.com/das
 
 -   **[インプレッション数]** : 広告がユーザーに表示された回数です。
 -   **[クリック数]** : 広告がユーザーによってクリックされた回数です。
--   **[コンバージョン]** : アプリのインストール数の増加をキャンペーン目標にしている場合、コンバージョンはユーザーが広告を表示してから 24 時間以内にアプリをインストールした回数です。 アプリのエンゲージメント向上をキャンペーン目標にしている場合、コンバージョンはユーザーが広告を表示してから 24 時間以内にアプリを開いた回数です。 インストールの追跡とコンバージョンの測定方法について詳しくは、以下をご覧ください。
+-   **[コンバージョン]** : アプリのインストール数の増加をキャンペーンの目的にしている場合、コンバージョンはユーザーが広告を表示してから 24 時間以内にアプリをインストールした回数です。 アプリのエンゲージメント向上をキャンペーンの目的にしている場合、コンバージョンはユーザーが広告を表示してから 24 時間以内にアプリを開いた回数です。 インストールの追跡とコンバージョンの測定方法について詳しくは、以下をご覧ください。
 -   **[支出]** : 各キャンペーンに費やした費用の合計です。
 
 ## <a name="apply-filters"></a>フィルターの適用
@@ -48,7 +48,7 @@ The **Ad campaign** report in [Partner Center](https://partner.microsoft.com/das
 
 ## <a name="install-tracking"></a>インストールの追跡
 
-Running an install ad campaign through Partner Center provides much-needed exposure to advertise your apps. 広告インプレッションは、アプリに関心を持っている可能性が最も高いと思われるユーザーに表示され、ユーザーは広告をクリックして、ストアからアプリをインストールします。 以前は、広告キャンペーンの結果行われたインストールと、その他のソースに由来するインストールを区別するのは困難でした。
+パートナーセンターから ad キャンペーンのインストールを実行すると、アプリを提供するために必要な公開が非常に多くなります。 広告インプレッションは、アプリに関心を持っている可能性が最も高いと思われるユーザーに表示され、ユーザーは広告をクリックして、ストアからアプリをインストールします。 以前は、広告キャンペーンの結果行われたインストールと、その他のソースに由来するインストールを区別するのは困難でした。
 
 このレポートには、広告キャンペーンを実行したことで増加したインストール数が表示されます。 これは、広告キャンペーンの直接的な結果として発生したダウンロード数のみを表しており、他のソースからのダウンロードは含まれません。
 
@@ -67,7 +67,7 @@ Running an install ad campaign through Partner Center provides much-needed expos
 2.  ユーザーは Microsoft アカウントにログインしている。
 3.  ユーザーは [COPPA](https://www.ftc.gov/enforcement/rules/rulemaking-regulatory-reform-proceedings/childrens-online-privacy-protection-rule) 要件を満たしている (COPPA 要件を満たしていないユーザーを追跡することはできません)。
 
-この結果、アプリのインストールの追跡で、広告キャンペーンによって生じた実際のインストール数より少なく報告される可能性があります。 Please note that you can view the total number of installs for an app (through campaigns and otherwise) in the [Acquisitions](acquisitions-report.md) report in Partner Center.
+この結果、アプリのインストールの追跡で、広告キャンペーンによって生じた実際のインストール数より少なく報告される可能性があります。 パートナーセンターの[購入](acquisitions-report.md)レポートでは、(キャンペーンを通じて、またはそれ以外の方法で) アプリのインストールの合計数を表示できることに注意してください。
 
 
 ## <a name="account-billing-history"></a>アカウントの支払い履歴
@@ -80,7 +80,7 @@ Running an install ad campaign through Partner Center provides much-needed expos
 
 ## <a name="related-topics"></a>関連トピック
 
-* [Create an ad campaign for your app](create-an-ad-campaign-for-your-app.md)
+* [アプリの広告キャンペーンを作成する](create-an-ad-campaign-for-your-app.md)
 
  
 

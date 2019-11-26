@@ -15,7 +15,7 @@ ms.locfileid: "74260198"
 ---
 # <a name="respond-to-reviews-using-store-services"></a>ストアのサービスを使用してレビューに返信する
 
-Store のアプリのレビューにプログラムで返信するには、*Microsoft Store レビュー API* を使います。 This API is especially useful for developers who want to bulk respond to many reviews without using Partner Center. この API は、Azure Active Directory (Azure AD) を使って、アプリまたはサービスからの呼び出しを認証します。
+Store のアプリのレビューにプログラムで返信するには、*Microsoft Store レビュー API* を使います。 この API は、パートナーセンターを使用せずに多数のレビューに一括応答する開発者に特に役立ちます。 この API は、Azure Active Directory (Azure AD) を使って、アプリまたはサービスからの呼び出しを認証します。
 
 次の手順で、このプロセスについて詳しく説明しています。
 
@@ -24,7 +24,7 @@ Store のアプリのレビューにプログラムで返信するには、*Micr
 3.  [Microsoft Store レビュー API を呼び出します](#call-the-windows-store-reviews-api)。
 
 > [!NOTE]
-> In addition to using the Microsoft Store reviews API to programmatically respond to reviews, you can alternatively respond to reviews [using Partner Center](../publish/respond-to-customer-reviews.md).
+> Microsoft Store レビュー API を使用してプログラムでレビューに応答するだけでなく、[パートナーセンターを使用して](../publish/respond-to-customer-reviews.md)レビューに応答することもできます。
 
 <span id="prerequisites" />
 
@@ -34,15 +34,15 @@ Microsoft Store レビュー API を呼び出すコードの作成を開始す�
 
 * ユーザー (またはユーザーの組織) は、Azure AD ディレクトリと、そのディレクトリに対する[全体管理者](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)のアクセス許可を持っている必要があります。 Office 365 または Microsoft の他のビジネス サービスを既に使っている場合は、既に Azure AD ディレクトリをお持ちです。 それ以外の場合は、追加料金なしに[パートナー センターで新しい Azure AD を作成](../publish/associate-azure-ad-with-partner-center.md#create-a-brand-new-azure-ad-to-associate-with-your-partner-center-account)できます。
 
-* You must associate an Azure AD application with your Partner Center account, retrieve the tenant ID and client ID for the application and generate a key. Azure AD アプリケーションは、Microsoft Store レビュー API の呼び出し元のアプリまたはサービスを表します。 テナント ID、クライアント ID、およびキーは、API に渡す Azure AD アクセス トークンを取得するために必要です。
+* Azure AD アプリケーションをパートナーセンターアカウントに関連付けて、アプリケーションのテナント ID とクライアント ID を取得し、キーを生成する必要があります。 Azure AD アプリケーションは、Microsoft Store レビュー API の呼び出し元のアプリまたはサービスを表します。 テナント ID、クライアント ID、およびキーは、API に渡す Azure AD アクセス トークンを取得するために必要です。
     > [!NOTE]
     > この作業を行うのは一度だけです。 テナント ID、クライアント ID、キーがあれば、新しい Azure AD アクセス トークンの作成が必要になったときに、いつでもそれらを再利用できます。
 
-To associate an Azure AD application with your Partner Center account and retrieve the required values:
+Azure AD アプリケーションをパートナーセンターアカウントに関連付け、必要な値を取得するには、次のようにします。
 
-1.  In Partner Center, [associate your organization's Partner Center account with your organization's Azure AD directory](../publish/associate-azure-ad-with-partner-center.md).
+1.  パートナーセンターで、[組織のパートナーセンターアカウントを組織の Azure AD ディレクトリに関連付け](../publish/associate-azure-ad-with-partner-center.md)ます。
 
-2.  Next, from the **Users** page in the **Account settings** section of Partner Center, [add the Azure AD application](../publish/add-users-groups-and-azure-ad-applications.md#add-azure-ad-applications-to-your-partner-center-account) that represents the app or service that you will use to respond to reviews. このアプリケーションに必ず**マネージャー** ロールを割り当てます。 If the application doesn't exist yet in your Azure AD directory, you can [create a new Azure AD application in Partner Center](../publish/add-users-groups-and-azure-ad-applications.md#create-a-new-azure-ad-application-account-in-your-organizations-directory-and-add-it-to-your-partner-center-account). 
+2.  次に、パートナーセンターの **[アカウントの設定]** セクションの **[ユーザー]** ページで、レビューに応答するために使用するアプリまたはサービスを表す[Azure AD アプリケーションを追加](../publish/add-users-groups-and-azure-ad-applications.md#add-azure-ad-applications-to-your-partner-center-account)します。 このアプリケーションに必ず**マネージャー** ロールを割り当てます。 アプリケーションが Azure AD ディレクトリにまだ存在しない場合は、[パートナーセンターで新しい Azure AD アプリケーションを作成](../publish/add-users-groups-and-azure-ad-applications.md#create-a-new-azure-ad-application-account-in-your-organizations-directory-and-add-it-to-your-partner-center-account)できます。 
 
 3.  **[ユーザー]** ページに戻り、Azure AD アプリケーションの名前をクリックしてアプリケーション設定に移動し、 **[テナント ID]** と **[クライアント ID]** の値を書き留めます。
 
@@ -50,7 +50,7 @@ To associate an Azure AD application with your Partner Center account and retrie
 
 <span id="obtain-an-azure-ad-access-token" />
 
-## <a name="step-2-obtain-an-azure-ad-access-token"></a>手順 2. Azure AD のアクセス トークンを取得する
+## <a name="step-2-obtain-an-azure-ad-access-token"></a>手順 2: Azure AD のアクセス トークンを取得する
 
 Microsoft Store レビュー API のいずれかのメソッドを呼び出す前に、まず API の各メソッドの **Authorization** ヘッダーに渡す Azure AD アクセス トークンを取得する必要があります。 アクセス トークンを取得した後、アクセス トークンを使用できるのは、その有効期限が切れるまでの 60 分間です。 トークンの有効期限が切れた後は、トークンを更新してそれ以降の API 呼び出しで引き続き使用できます。
 
@@ -67,7 +67,7 @@ grant_type=client_credentials
 &resource=https://manage.devcenter.microsoft.com
 ```
 
-For the *tenant\_id* value in the POST URI and the *client\_id* and *client\_secret* parameters, specify the tenant ID, client ID and the key for your application that you retrieved from Partner Center in the previous section. *resource* パラメーターには、```https://manage.devcenter.microsoft.com``` を指定します。
+[POST URI] と [ *client\_id* ] および [client *\_secret* parameters] の [ *tenant\_id* ] の値について、前のセクションでパートナーセンターから取得したアプリケーションのテナント id、クライアント id、キーを指定します。 *resource* パラメーターには、```https://manage.devcenter.microsoft.com``` を指定します。
 
 アクセス トークンの有効期限が切れた後は、[この](https://azure.microsoft.com/documentation/articles/active-directory-protocols-oauth-code/#refreshing-the-access-tokens)手順に従って更新できます。
 
@@ -79,15 +79,15 @@ Azure AD アクセス トークンを取得したら、Microsoft Store レビュ
 
 Microsoft Store レビュー API には、特定のレビューに返信できるかどうかや、1 つ以上のレビューに返信を提出できるかどうかの判断に使えるメソッドがいくつか含まれています。 この API を使用するには次のプロセスに従います。
 
-1. 返信するレビューの ID を取得します。 レビュー ID は、Microsoft Store 分析 API の[アプリのレビューの取得](get-app-reviews.md)メソッドの応答データ、および[レビュー レポート](../publish/reviews-report.md)の[オフライン ダウンロード](../publish/download-analytic-reports.md)で取得できます。
+1. 返信するレビューの ID を取得します。 レビュー ID は、Microsoft Store 分析 API の[アプリのレビューの取得](get-app-reviews.md)メソッドの応答データ、および[レビュー レポート](../publish/download-analytic-reports.md)の[オフライン ダウンロード](../publish/reviews-report.md)で取得できます。
 2. レビューに返信できるかどうかを判断するには、[アプリのレビューへの返信情報の取得](get-response-info-for-app-reviews.md)メソッドを呼び出します。 顧客はレビューを送信するときに、レビューへの返信を受け取らないことを選択できます。 レビューの返信を受け取らないことを選択している顧客が送信したレビューに返信することはできません。
 3. プラグラムでレビューに返信するには、[アプリ レビューへの返信の提出](submit-responses-to-app-reviews.md)メソッドを呼び出します。
 
 
 ## <a name="related-topics"></a>関連トピック
 
-* [Get app reviews](get-app-reviews.md)
-* [Get response info for app reviews](get-response-info-for-app-reviews.md)
-* [Submit responses to app reviews](submit-responses-to-app-reviews.md)
+* [アプリのレビューを取得する](get-app-reviews.md)
+* [アプリレビューの応答情報を取得する](get-response-info-for-app-reviews.md)
+* [アプリレビューに応答を送信する](submit-responses-to-app-reviews.md)
 
  

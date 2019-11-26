@@ -31,11 +31,11 @@ ms.locfileid: "74259340"
 
 * [  **MapRouteFinder**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapRouteFinder) クラスには、ルートとルート案内を取得するメソッドがあります。 これらのメソッドは、[**MapRouteFinderResult**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapRouteFinderResult) を返します。
 
-* [  **MapRouteFinderResult**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapRouteFinderResult) には [**MapRoute**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapRoute) オブジェクトが含まれています。 **MapRouteFinderResult** の [**Route**](https://docs.microsoft.com/uwp/api/windows.services.maps.maproutefinderresult.route) プロパティを通じてこのオブジェクトにアクセスします。
+* [  **MapRouteFinderResult**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapRouteFinderResult) には [**MapRoute**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapRoute) オブジェクトが含まれています。 [MapRouteFinderResult**の**](https://docs.microsoft.com/uwp/api/windows.services.maps.maproutefinderresult.route)Route プロパティを通じてこのオブジェクトにアクセスします。
 
-* [  **MapRoute**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapRoute) には、[**MapRouteLeg**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapRouteLeg) オブジェクトのコレクションが含まれています。 **MapRoute** の [**Legs**](https://docs.microsoft.com/uwp/api/windows.services.maps.maproute.legs) プロパティを通じてこのコレクションにアクセスします。
+* [  **MapRoute**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapRoute) には、[**MapRouteLeg**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapRouteLeg) オブジェクトのコレクションが含まれています。 [MapRoute**の**](https://docs.microsoft.com/uwp/api/windows.services.maps.maproute.legs)Legs プロパティを通じてこのコレクションにアクセスします。
 
-* 各 [**MapRouteLeg**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapRouteLeg) には、[**MapRouteManeuver**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapRouteManeuver) オブジェクトのコレクションが含まれています。 **MapRouteLeg** の [**Maneuvers**](https://docs.microsoft.com/uwp/api/windows.services.maps.maprouteleg.maneuvers) プロパティを通じてこのコレクションにアクセスします。
+* 各 [**MapRouteLeg**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapRouteLeg) には、[**MapRouteManeuver**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapRouteManeuver) オブジェクトのコレクションが含まれています。 [MapRouteLeg**の**](https://docs.microsoft.com/uwp/api/windows.services.maps.maprouteleg.maneuvers)Maneuvers プロパティを通じてこのコレクションにアクセスします。
 
 自動車や徒歩でのルートとルート案内を取得するには、[**MapRouteFinder**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapRouteFinder) クラスのメソッドを呼び出します。 たとえば、[**GetDrivingRouteAsync**](https://docs.microsoft.com/uwp/api/windows.services.maps.maproutefinder.getdrivingrouteasync) や [**GetWalkingRouteAsync**](https://docs.microsoft.com/uwp/api/windows.services.maps.maproutefinder.getwalkingrouteasync) を使用できます。
 
@@ -138,7 +138,7 @@ You have reached your destination.
 ## <a name="display-routes"></a>ルートの表示
 
 
-[  **MapControl**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl) に [**MapRoute**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapRoute) を表示するには、**MapRoute** を使って [**MapRouteView**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapRouteView) を構成します。 次に、**MapControl** の [**Routes**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.routes) コレクションに **MapRouteView** を追加します。
+[  **MapControl**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapRoute) に [**MapRoute**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl) を表示するには、[MapRoute**を使って**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapRouteView)MapRouteView を構成します。 次に、**MapControl** の [**Routes**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.routes) コレクションに **MapRouteView** を追加します。
 
 >[!IMPORTANT]
 >マップ サービスまたはマップ コントロールを使用する前に、マップ認証キーを指定する必要があります。 詳しくは、「[マップ認証キーの要求](authentication-key.md)」をご覧ください。
@@ -190,7 +190,7 @@ private async void ShowRouteOnMap()
 }
 ```
 
-この例では、**MapWithRoute** という名前の [**MapControl**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl) に次のルートが表示されます。
+この例では、[MapWithRoute**という名前の**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl)MapControl に次のルートが表示されます。
 
 ![ルートが表示されたマップ コントロール。](images/routeonmap.png)
 
@@ -244,5 +244,5 @@ private async void ShowRouteOnMap()
 * [Bing Maps Developer Center](https://www.bingmapsportal.com/)
 * [UWP の地図のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/MapControl)
 * [地図の設計ガイドライン](https://docs.microsoft.com/windows/uwp/maps-and-location/controls-map)
-* [Build 2015 video: Leveraging Maps and Location Across Phone, Tablet, and PC in Your Windows Apps](https://channel9.msdn.com/Events/Build/2015/2-757)
+* [ビルド2015ビデオ: Windows アプリでの電話、タブレット、および PC でのマップと場所の活用](https://channel9.msdn.com/Events/Build/2015/2-757)
 * [UWP の交通情報アプリのサンプル](https://github.com/Microsoft/Windows-appsample-trafficapp)

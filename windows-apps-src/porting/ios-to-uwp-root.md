@@ -5,7 +5,7 @@ title: iOS から UWP への移行
 ms.assetid: 7a05751d-02df-4240-9ba5-d95f65a7a9c5
 ms.date: 02/08/2017
 ms.topic: article
-keywords: Windows 10, UWP
+keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: 266a5f147b57e522088dab2ec298b54596ef77b7
 ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
@@ -26,12 +26,12 @@ ms.locfileid: "74260155"
 
 | トピック | 説明 |
 |-------|-------------|
-| [Selecting an approach to iOS and UWP app development](selecting-an-approach-to-ios-and-uwp-app-development.md) | クロスプラットフォーム アプリを開発するときの選択肢 |
-| [Getting started with UWP for iOS developers](getting-started-with-uwp-for-ios-developers.md) | この記事は、Windows 10 用の開発を検討している iOS 開発者向けに用意されています。 |
-| [Setting up your Mac with Windows 10](setting-up-your-mac-with-windows-10.md) | 現在の Mac コンピューターを使用して、Windows 用アプリを開発します。 |
+| [IOS と UWP アプリ開発のアプローチを選択する](selecting-an-approach-to-ios-and-uwp-app-development.md) | クロスプラットフォーム アプリを開発するときの選択肢 |
+| [IOS 開発者向け UWP の概要](getting-started-with-uwp-for-ios-developers.md) | この記事は、Windows 10 用の開発を検討している iOS 開発者向けに用意されています。 |
+| [Windows 10 を使用して Mac をセットアップする](setting-up-your-mac-with-windows-10.md) | 現在の Mac コンピューターを使用して、Windows 用アプリを開発します。 |
 
 ## <a name="related-topics"></a>関連トピック
 
-**For designers and developers**
-* [Building Universal Windows apps for all Windows devices](https://docs.microsoft.com/windows/uwp/get-started/universal-application-platform-guide)
-* [Download design assets for UWP apps](https://docs.microsoft.com/windows/uwp/design/downloads/index)
+**デザイナーと開発者向け**
+* [すべての Windows デバイス用のユニバーサル Windows アプリの構築](https://docs.microsoft.com/windows/uwp/get-started/universal-application-platform-guide)
+* [UWP アプリ用のデザインアセットをダウンロードする](https://docs.microsoft.com/windows/uwp/design/downloads/index)

@@ -172,7 +172,7 @@ AllowPartiallyTrustedCallersAttribute (APTCA) 属性を使うと、署名され�
 
 プロジェクトに必要で、リスクをよく認識している場合を除いて、厳密な名前の付いたアセンブリでは APTCA 属性を使わないでください。 APTCA 属性を使う必要がある場合は、すべての API が適切なコード アクセス セキュリティ要求によって保護されていることを確認します。 アセンブリがユニバーサル Windows プラットフォーム (UWP) アプリの一部となっている場合は、APTCA の影響はありません。
 
-**解説**
+**注釈**
 
 このテストは、マネージ コード (C#、.NET など) でのみ実行されます。
 
@@ -186,7 +186,7 @@ AllowPartiallyTrustedCallersAttribute (APTCA) 属性を使うと、署名され�
 
 アプリをビルドするときに、リンカー コマンドの /SAFESEH オプションを有効にします。 Visual Studio のリリース構成では、既定で、このオプションが有効になっています。 このオプションが、アプリのすべての実行可能モジュールに対するビルド手順で有効になっていることを確認します。
 
-**解説**
+**注釈**
 
 このテストは、64 ビット バイナリまたは ARM チップセット バイナリでは実行されません。例外ハンドラーのアドレスがスタックに格納されないためです。
 
@@ -200,7 +200,7 @@ AllowPartiallyTrustedCallersAttribute (APTCA) 属性を使うと、署名され�
 
 アプリをビルドするときに、リンカー コマンドの /NXCOMPAT オプションを有効にします。 Data Execution Prevention (DEP) をサポートするリンカー バージョンでは、既定で、このオプションが有効になっています。
 
-**解説**
+**注釈**
 
 DEP 対応の CPU でアプリをテストし、DEP の結果として見つかったエラーをすべて修正することをお勧めします。
 
@@ -214,7 +214,7 @@ DEP 対応の CPU でアプリをテストし、DEP の結果として見つか�
 
 アプリをビルドするときに、リンカー コマンドの /DYNAMICBASE オプションを有効にします。 アプリで使うすべてのモジュールでも、このリンカー オプションを使っていることを確認します。
 
-**解説**
+**注釈**
 
 通常、ASLR がパフォーマンスに影響を与えることはありません。 ただし、場合によっては、32 ビット システムでわずかにパフォーマンスが向上することがあります。 多くの画像がさまざまなメモリに読み込まれた非常に密集したシステムでは、パフォーマンスが低下する可能性があります。
 
@@ -230,7 +230,7 @@ DEP 対応の CPU でアプリをテストし、DEP の結果として見つか�
 
 アプリからすべての共有セクションを削除し、適切なセキュリティ属性を指定した [**CreateFileMapping**](https://docs.microsoft.com/windows/desktop/api/winbase/nf-winbase-createfilemappinga) または [**MapViewOfFile**](https://docs.microsoft.com/windows/desktop/api/memoryapi/nf-memoryapi-mapviewoffile) を呼び出して共有メモリ オブジェクトを作成し、アプリをリビルドします。
 
-**解説**
+**注釈**
 
 このテストは、C や C++ などのアンマネージ言語で記述されたアプリでのみ実行されます。
 
@@ -246,7 +246,7 @@ AppContainerCheck は、実行可能なバイナリの PE (Portable Executable) 
 
 マネージ実行可能ファイルがテストに失敗した場合は、Microsoft Visual Studio などの最新のコンパイラとリンカーを使用して UWP アプリをビルドしたことを確認します。
 
-**解説**
+**注釈**
 
 このテストは、すべての .exe ファイル、およびアンマネージ DLL で実行されます。
 
@@ -260,7 +260,7 @@ AppContainerCheck は、実行可能なバイナリの PE (Portable Executable) 
 
 インポート テーブルを実行可能コード セクションにマージしないでください。 Visual C++ リンカーの */merge* フラグをチェックして、.rdata セクションがコード セクションにマージされる設定になっていないことを確認します。
 
-**解説**
+**注釈**
 
 このテストは、純粋なマネージ アセンブリを除き、すべてのバイナリ コードで実行されます。
 
@@ -274,7 +274,7 @@ AppContainerCheck は、実行可能なバイナリの PE (Portable Executable) 
 
 バイナリに書き込み可能なセクションまたは実行可能なセクションがないこと、およびバイナリの*Sectionalignment*値が少なくとも*ページ\-サイズ*と同じであることを確認してください。
 
-**解説**
+**注釈**
 
 このテストは、すべての .exe ファイル、およびネイティブのアンマネージ DLL で実行されます。
 
@@ -335,7 +335,7 @@ JavaScript の実行時間を短縮するパフォーマンスの最適化とし
 
 アプリの展開をチェックして、すべての .js ファイルがバイトコードに変換されたことをチェックします。
 
-### <a name="corrective-action"></a>修正措置
+### <a name="corrective-action"></a>問題への対応
 
 このテストに合格しなかった場合は、問題の対処に際して次の点を考慮します。
 
@@ -352,7 +352,7 @@ JavaScript の実行時間を短縮するパフォーマンスの最適化とし
 
 WinJS.Binding.optimizeBindingReferences の値を確認します。
 
-### <a name="corrective-action"></a>修正措置
+### <a name="corrective-action"></a>問題への対応
 
 アプリの JavaScript で WinJS.Binding.optimizeBindingReferences を "**true**" に設定します。
 
@@ -366,7 +366,7 @@ WinJS.Binding.optimizeBindingReferences の値を確認します。
 
 アプリ マニフェストで定義されているリソースを調べて、それらのリソースが存在し有効であることを確認します。
 
-### <a name="corrective-action"></a>修正措置
+### <a name="corrective-action"></a>問題への対応
 
 次の表をガイダンスとして使います。
 
@@ -521,7 +521,7 @@ Microsoft Store に対して認定を受けるには、デバッグ用にアプ�
 
 アプリ パッケージのコンテンツをテストし、正しいファイル エンコードが使われていることを確認します。
 
-### <a name="corrective-action"></a>修正措置
+### <a name="corrective-action"></a>問題への対応
 
 Visual Studio で、影響を受けるファイルを開き、 **[ファイル]** メニューの **[名前を付けて保存]** を選択します。 **[保存]** ボタンの横のドロップダウン コントロールを選び、 **[エンコード付きで保存]** をクリックします。 **[保存オプションの詳細設定]** ダイアログ ボックスで、Unicode (シグネチャを含む UTF-8) オプションを選び、 **[OK]** をクリックします。
 
@@ -541,7 +541,7 @@ Microsoft Store では、Direct3D を使用しているすべてのアプリケ�
 
 このテストでは、アプリが機能レベル 9\-1 で正確に表示されるかどうかを検証します。
 
-### <a name="corrective-action"></a>修正措置
+### <a name="corrective-action"></a>問題への対応
 
 上位の機能レベルで実行することが予想される場合でも、Direct3D 機能レベル 9\-1 でアプリが正しくレンダリングされることを確認します。 詳しくは、「[機能レベルが異なる Direct3D の開発](https://msdn.microsoft.com/library/windows/apps/hh994923.aspx)」をご覧ください。
 
@@ -557,7 +557,7 @@ Microsoft Store では、Direct3D を使用しているすべてのアプリケ�
 
 アプリが d3d 要件を満たしているかどうか、そして中断コールバック時に新しい [**Trim**](https://docs.microsoft.com/windows/desktop/api/dxgi1_3/nf-dxgi1_3-idxgidevice3-trim) API を呼び出すかどうかを確認します。
 
-### <a name="corrective-action"></a>修正措置
+### <a name="corrective-action"></a>問題への対応
 
 アプリは中断されそうになった時は常に [**Trim**](https://docs.microsoft.com/windows/desktop/api/dxgi1_3/nf-dxgi1_3-idxgidevice3-trim) インターフェイスで [**IDXGIDevice3**](https://docs.microsoft.com/windows/desktop/api/dxgi1_3/nn-dxgi1_3-idxgidevice3) API を呼び出す必要があります。
 
@@ -616,7 +616,7 @@ Microsoft Store では、Direct3D を使用しているすべてのアプリケ�
 
 アプリ パッケージのプロセッサ アーキテクチャ宣言と相互参照される場合に、各ファイルの PE ヘッダー内のビット "bitness" が適切かどうかを検証します。
 
-### <a name="corrective-action"></a>修正措置
+### <a name="corrective-action"></a>問題への対応
 
 アプリ マニフェストで指定されたアーキテクチャでサポートされるファイルのみをアプリ パッケージが含むことを確認するために、次のガイドラインに従ってください。
 
@@ -642,7 +642,7 @@ OS コンポーネント (Trident、WWAHost など) は、内部的にはファ�
 
 アプリのインストールディレクトリ内のパスが最大\-パスを超えていないことを確認します。
 
-### <a name="corrective-action"></a>修正措置
+### <a name="corrective-action"></a>問題への対応
 
 短いディレクトリ構造やファイル名にします。
 
@@ -660,7 +660,7 @@ JavaScript のバックグラウンド タスクがあるアプリは、バッ�
 
 マニフェストで指定されたバックグラウンド タスク ファイルがアプリにない場合、テストに合格します。 それ以外の場合は、テストはアプリ パッケージで指定された JavaScript バックグラウンド タスク ファイルを解析し、Close() ステートメントを探します。 見つかった場合はテストに合格します。見つからない場合はテストに合格しません。
 
-### <a name="corrective-action"></a>修正措置
+### <a name="corrective-action"></a>問題への対応
 
 バックグラウンドの JavaScript コードを更新して、Close() を正しく呼び出します。
 

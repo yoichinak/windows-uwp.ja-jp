@@ -4,7 +4,7 @@ description: このトピックでは、ユニバーサル Windows プラット�
 title: PlayReady DRM
 ms.date: 02/08/2017
 ms.topic: article
-keywords: Windows 10, UWP
+keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: 13cd80818835511310820285a2da498309d9db8a
 ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
@@ -19,16 +19,16 @@ ms.locfileid: "74256908"
 
 このトピックでは、ユニバーサル Windows プラットフォーム (UWP) アプリに PlayReady で保護されたメディア コンテンツを追加する方法について説明します。
 
-PlayReady DRM を使うと、開発者はコンテンツ プロバイダーが定義したアクセス ルールを適用しながら、ユーザーに PlayReady コンテンツを提供することができる UWP アプリを作成できます。 This section describes changes made to Microsoft PlayReady DRM for Windows 10 and how to modify your PlayReady UWP app to support the changes made from the previous Windows 8.1 version to the Windows 10 version.
+PlayReady DRM を使うと、開発者はコンテンツ プロバイダーが定義したアクセス ルールを適用しながら、ユーザーに PlayReady コンテンツを提供することができる UWP アプリを作成できます。 このセクションでは、Windows 10 用の Microsoft PlayReady DRM に加えられた変更について説明します。また、以前の Windows 8.1 バージョンから Windows 10 バージョンに加えられた変更をサポートするように PlayReady UWP アプリを変更する方法について説明します。
  
 | トピック                                                                     | 説明                                                                                                                                                                                                                                                                             |
 |---------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Hardware DRM](hardware-drm.md)                                           | このトピックでは、PlayReady ハードウェア ベースのデジタル著作権管理 (DRM) を UWP アプリに追加する方法の概要を示します。                                                                                                                                                                 |
-| [Adaptive streaming with PlayReady](adaptive-streaming-with-playready.md) | この記事では、ユニバーサル Windows プラットフォーム (UWP) アプリに、Microsoft PlayReady コンテンツ保護を使ったマルチメディア コンテンツのアダプティブ ストリーミングを追加する方法について説明します。 現在、この機能では、HTTP ライブ ストリーミング (HLS) と Dynamic Adaptive Streaming over HTTP (DASH) コンテンツの再生がサポートされています。 |
+| [ハードウェア DRM](hardware-drm.md)                                           | このトピックでは、PlayReady ハードウェア ベースのデジタル著作権管理 (DRM) を UWP アプリに追加する方法の概要を示します。                                                                                                                                                                 |
+| [PlayReady によるアダプティブストリーミング](adaptive-streaming-with-playready.md) | この記事では、ユニバーサル Windows プラットフォーム (UWP) アプリに、Microsoft PlayReady コンテンツ保護を使ったマルチメディア コンテンツのアダプティブ ストリーミングを追加する方法について説明します。 現在、この機能では、HTTP ライブ ストリーミング (HLS) と Dynamic Adaptive Streaming over HTTP (DASH) コンテンツの再生がサポートされています。 |
 
 ## <a name="whats-new-in-playready-drm"></a>PlayReady DRM の新機能
 
-The following list describes the new features and changes made to PlayReady DRM for Windows 10.
+次の一覧では、Windows 10 用 PlayReady DRM に加えられた新機能と変更点について説明します。
 
 -   追加されたハードウェア デジタル著作権管理 (HWDRM)。
 
@@ -69,13 +69,13 @@ The following list describes the new features and changes made to PlayReady DRM 
 
 PlayReady DRM に、次の新しいインターフェイス、クラス、列挙子が追加されました。
 
--   [**IPlayReadyLicenseAcquisitionServiceRequest**](https://docs.microsoft.com/uwp/api/Windows.Media.Protection.PlayReady.IPlayReadyLicenseAcquisitionServiceRequest) interface
--   [**IPlayReadyLicenseSession**](https://docs.microsoft.com/uwp/api/Windows.Media.Protection.PlayReady.IPlayReadyLicenseSession) interface
--   [**IPlayReadySecureStopServiceRequest**](https://docs.microsoft.com/uwp/api/Windows.Media.Protection.PlayReady.IPlayReadySecureStopServiceRequest) interface
--   [**PlayReadyLicenseSession**](https://docs.microsoft.com/uwp/api/Windows.Media.Protection.PlayReady.PlayReadyLicenseSession) class
--   [**PlayReadySecureStopIterable**](https://docs.microsoft.com/uwp/api/Windows.Media.Protection.PlayReady.PlayReadySecureStopIterable) class
--   [**PlayReadySecureStopIterator**](https://docs.microsoft.com/uwp/api/Windows.Media.Protection.PlayReady.PlayReadySecureStopIterator) class
--   [**PlayReadyHardwareDRMFeatures**](https://docs.microsoft.com/uwp/api/Windows.Media.Protection.PlayReady.PlayReadyHardwareDRMFeatures) enumerator
+-   [**IPlayReadyLicenseAcquisitionServiceRequest**](https://docs.microsoft.com/uwp/api/Windows.Media.Protection.PlayReady.IPlayReadyLicenseAcquisitionServiceRequest)インターフェイス
+-   [**IPlayReadyLicenseSession**](https://docs.microsoft.com/uwp/api/Windows.Media.Protection.PlayReady.IPlayReadyLicenseSession)インターフェイス
+-   [**IPlayReadySecureStopServiceRequest**](https://docs.microsoft.com/uwp/api/Windows.Media.Protection.PlayReady.IPlayReadySecureStopServiceRequest)インターフェイス
+-   [**PlayReadyLicenseSession**](https://docs.microsoft.com/uwp/api/Windows.Media.Protection.PlayReady.PlayReadyLicenseSession)クラス
+-   [**PlayReadySecureStopIterable**](https://docs.microsoft.com/uwp/api/Windows.Media.Protection.PlayReady.PlayReadySecureStopIterable)クラス
+-   [**PlayReadySecureStopIterator**](https://docs.microsoft.com/uwp/api/Windows.Media.Protection.PlayReady.PlayReadySecureStopIterator)クラス
+-   [**PlayReadyHardwareDRMFeatures**](https://docs.microsoft.com/uwp/api/Windows.Media.Protection.PlayReady.PlayReadyHardwareDRMFeatures)列挙子
 
 PlayReady DRM の新機能を利用する方法を示すために、新しいサンプルが作成されました。 サンプルは、[https://docs.microsoft.com/samples/browse/?redirectedfrom=MSDN-samples&clcid=0x409](https://docs.microsoft.com/samples/browse/?redirectedfrom=MSDN-samples) からダウンロードできます。
 
@@ -89,10 +89,10 @@ PlayReady DRM の新機能を利用する方法を示すために、新しいサ
 
 | エラー                                                   | Value      | 説明                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 |---------------------------------------------------------|------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ERROR\_GRAPHICS\_OPM\_OUTPUT\_DOES\_NOT\_SUPPORT\_HDCP  | 0xC0262513 | ライセンスの出力保護ポリシーでは、モニターが HDCP をエンゲージする必要がありますが、HDCP をエンゲージできませんでした。                                                                                                                                                                                                                                                                                                                                                                                              |
-| MF\_E\_POLICY\_UNSUPPORTED                              | 0xC00D7159 | ライセンスの出力保護ポリシーでは、モニターが HDCP Type 1 をエンゲージする必要がありますが、HDCP Type 1 をエンゲージできませんでした。                                                                                                                                                                                                                                                                                                                                                                                |
-| DRM\_E\_TEE\_OUTPUT\_PROTECTION\_REQUIREMENTS\_NOT\_MET | 0x8004CD22 | このエラー コードは、ハードウェア DRM で実行されている場合にのみ発生します。 ライセンスの出力保護ポリシーでは、モニターが HDCP をエンゲージするか、コンテンツの実質的な解像度を減らす必要がありますが、ハードウェア DRM はコンテンツの解像度の減少をサポートしていないため、HDCP をエンゲージできず、コンテンツの実質的な解像度を減らすことができませんでした。 ソフトウェア DRM で、コンテンツは再生されます。 「[ハードウェア DRM を使うための考慮事項](hardware-drm.md#considerations-for-using-hardware-drm)」をご覧ください。 |
-| ERROR\_GRAPHICS\_OPM\_NOT\_SUPPORTED                    | 0xc0262500 | グラフィックス ドライバーは、出力保護をサポートしていません。 たとえば、モニターが VGA 経由で接続されているか、デジタル出力用の適切なグラフィックス ドライバーがインストールされていません。 後者の場合、インストールされている一般的なドライバーは Microsoft ベーシック ディスプレイ アダプターであり、適切なグラフィックス ドライバーをインストールすることで、問題が解決されます。                                                                                                                                                  |
+| \_グラフィックス\_OPM\_の出力\_が\_HDCP をサポートしていません。\_\_  | 0xC0262513 | ライセンスの出力保護ポリシーでは、モニターが HDCP をエンゲージする必要がありますが、HDCP をエンゲージできませんでした。                                                                                                                                                                                                                                                                                                                                                                                              |
+| MF\_E\_ポリシー\_サポートされていません                              | 0xC00D7159 | ライセンスの出力保護ポリシーでは、モニターが HDCP Type 1 をエンゲージする必要がありますが、HDCP Type 1 をエンゲージできませんでした。                                                                                                                                                                                                                                                                                                                                                                                |
+| DRM\_E\_t\_出力\_保護\_要件\_満たされていません\_ | 0x8004CD22 | このエラー コードは、ハードウェア DRM で実行されている場合にのみ発生します。 ライセンスの出力保護ポリシーでは、モニターが HDCP をエンゲージするか、コンテンツの実質的な解像度を減らす必要がありますが、ハードウェア DRM はコンテンツの解像度の減少をサポートしていないため、HDCP をエンゲージできず、コンテンツの実質的な解像度を減らすことができませんでした。 ソフトウェア DRM で、コンテンツは再生されます。 「[ハードウェア DRM を使うための考慮事項](hardware-drm.md#considerations-for-using-hardware-drm)」をご覧ください。 |
+| グラフィックス\_OPM\_サポートされて\_いない\_のエラー                    | 0xc0262500 | グラフィックス ドライバーは、出力保護をサポートしていません。 たとえば、モニターが VGA 経由で接続されているか、デジタル出力用の適切なグラフィックス ドライバーがインストールされていません。 後者の場合、インストールされている一般的なドライバーは Microsoft ベーシック ディスプレイ アダプターであり、適切なグラフィックス ドライバーをインストールすることで、問題が解決されます。                                                                                                                                                  |
 
 ## <a name="output-protection"></a>出力保護
 
@@ -118,7 +118,7 @@ PlayReady DRM では、PlayReady の適合性規則で指定された出力コ�
 
 次の表では、PlayReady ライセンスのさまざまな OPL 間のマッピングと、Windows 10 用の PlayReady DRM でそれらを適用する方法の概要を示します。
 
-#### <a name="video"></a>ビデオ
+#### <a name="video"></a>Video
 
 <table>
     <tr>
@@ -179,7 +179,7 @@ PlayReady DRM では、PlayReady の適合性規則で指定された出力コ�
 </table>
 <br/>
 
-\* Not all values for output protection levels can be set by a licensing server. 詳しくは、「[PlayReady の適合性規則](https://www.microsoft.com/playready/licensing/compliance/)」をご覧ください。
+\*、出力保護レベルのすべての値をライセンスサーバーで設定できるわけではありません。 詳しくは、「[PlayReady の適合性規則](https://www.microsoft.com/playready/licensing/compliance/)」をご覧ください。
 
 #### <a name="audio"></a>オーディオ
 
@@ -279,7 +279,7 @@ PlayReady DRM では、HDCP 2.0 以降がエンゲージされるとすぐに Mi
 </table>
 <br/>
 
-\* Not all values for output protection levels can be set by a licensing server. 詳しくは、「[PlayReady の適合性規則](https://www.microsoft.com/playready/licensing/compliance/)」をご覧ください。
+\*、出力保護レベルのすべての値をライセンスサーバーで設定できるわけではありません。 詳しくは、「[PlayReady の適合性規則](https://www.microsoft.com/playready/licensing/compliance/)」をご覧ください。
 
 ### <a name="additional-explicit-output-restrictions"></a>その他の明示的な出力制限
 
@@ -397,17 +397,17 @@ PlayReady DRM では、HDCP 2.0 以降がエンゲージされるとすぐに Mi
 
 PlayReady で保護された UWP アプリの作成を開始する前に、次のソフトウェアがシステムにインストールされている必要があります。
 
--   Windows 10.
--   If you are compiling any of the samples for PlayReady DRM for UWP apps, you must use Microsoft Visual Studio 2015 or later to compile the samples. You can still use Microsoft Visual Studio 2013 to compile any of the samples from PlayReady DRM for Windows 8.1 Store Apps.
+-   Windows 10。
+-   UWP アプリ用の PlayReady DRM 用のサンプルをコンパイルする場合は、Microsoft Visual Studio 2015 以降を使用してサンプルをコンパイルする必要があります。 Microsoft Visual Studio 2013 を使用して、Windows 8.1 ストアアプリの PlayReady DRM からサンプルをコンパイルすることもできます。
 
 <!--This is no longer available-->
 <!--If you are planning to play back MPEG-2/H.262 content on your app, you must also download and install [Windows 8.1 Media Center Pack](https://windows.microsoft.com/windows-8/feature-packs).-->
 
 ## <a name="playready-uwp-app-migration-guide"></a>PlayReady UWP アプリの移行ガイド
 
-This section includes information on how to migrate your existing PlayReady Windows 8.x Store apps to Windows 10.
+このセクションでは、既存の PlayReady Windows 8.x ストアアプリを Windows 10 に移行する方法について説明します。
 
-The namespace for PlayReady UWP apps on Windows 10 was changed from **Microsoft.Media.PlayReadyClient** to [**Windows.Media.Protection.PlayReady**](https://docs.microsoft.com/uwp/api/Windows.Media.Protection.PlayReady). つまり、コード内で以前の名前空間を探し、新しい名前空間に置き換える必要があります。 winmd ファイルは、引き続き参照されます。 It is part of windows.media.winmd on the Windows 10 operating system. TH の Windows SDK の一部として、windows.winmd に含まれています。 winmd ファイルは、UWP では、windows.foundation.univeralappcontract.winmd で参照されます。
+Windows 10 上の PlayReady UWP アプリの名前空間は、 **PlayReadyClient**から[**windows**](https://docs.microsoft.com/uwp/api/Windows.Media.Protection.PlayReady)に変更されました。 つまり、コード内で以前の名前空間を探し、新しい名前空間に置き換える必要があります。 winmd ファイルは、引き続き参照されます。 Windows 10 オペレーティングシステム上の windows. メディアの一部です。 TH の Windows SDK の一部として、windows.winmd に含まれています。 winmd ファイルは、UWP では、windows.foundation.univeralappcontract.winmd で参照されます。
 
 PlayReady で保護された高解像度 (HD) コンテンツ (1080p) および超高解像度 (UHD) コンテンツを再生するには、PlayReady ハードウェア DRM を実装する必要があります。 PlayReady ハードウェア DRM を実装する方法について詳しくは、「[ハードウェア DRM](hardware-drm.md)」をご覧ください。
 
@@ -462,7 +462,7 @@ mediaProtectionManager.Properties["Windows.Media.Protection.MediaProtectionConta
     ```
 
 4.  手順 3. で作成したサービスの要求を使ってライセンスの取得を実行します。 ライセンスは、再生セッションに格納されます。
-5.  再生のメディア ソースに再生セッションに結び付けます。 次に、例を示します。
+5.  再生のメディア ソースに再生セッションを結び付けます。 次に、例を示します。
 
     ```cs
     licenseSession.configureMediaProtectionManager( mediaProtectionManager );
@@ -496,7 +496,7 @@ Windows 10 Version 1703 以降では、デコード コーデック、解像度�
         break;
     }
     ```
-## <a name="add-secure-stop"></a>セキュア ストップの追加
+## <a name="add-secure-stop"></a>セキュア ストップを追加する
 
 このセクションでは、UWP アプリにセキュア ストップを追加する方法を説明します。
 
@@ -511,10 +511,10 @@ Windows 10 Version 1703 以降では、デコード コーデック、解像度�
 
 ## <a name="use-playready-drm-on-xbox-one"></a>Xbox One での PlayReady DRM の使用
 
-To use PlayReady DRM in a UWP app on Xbox One, you will first need to register your [Partner Center](https://partner.microsoft.com/dashboard) account that you're using to publish the app for authorization to use PlayReady. これは次の 2 つのいずれかの方法で行うことができます。
+Xbox One の UWP アプリで PlayReady DRM を使用するには、まず、PlayReady を使用する承認のためにアプリを発行するために使用している[パートナーセンター](https://partner.microsoft.com/dashboard)アカウントを登録する必要があります。 次のいずれかの方法で無効にすることができます。
 
 * Microsoft の連絡担当者を通じて許可を申請します。
-* Apply for authorization by sending your Partner Center account and company name to [pronxbox@microsoft.com](mailto:pronxbox@microsoft.com).
+* パートナーセンターのアカウントと会社名を[pronxbox@microsoft.com](mailto:pronxbox@microsoft.com)に送信して、承認を申請します。
 
 許可を受信したら、追加の `<DeviceCapability>` をアプリ マニフェストに追加する必要があります。 アプリケーション マニフェスト デザイナーには現在利用できる設定がないため、これは手動で追加する必要があります。 構成するには、次の手順を実行します。
 

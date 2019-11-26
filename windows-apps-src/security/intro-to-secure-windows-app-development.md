@@ -1,6 +1,6 @@
 ---
 title: 安全な Windows アプリの開発について
-description: This introductory article helps app architects and developers better understand the various Windows 10 platform capabilities that accelerate creating secure Universal Windows Platform (UWP) apps.
+description: この入門記事では、アプリの設計者と開発者が、セキュリティで保護されたユニバーサル Windows プラットフォーム (UWP) アプリの作成を促進するさまざまな Windows 10 プラットフォームの機能について理解を深めることができます。
 ms.assetid: 6AFF9D09-77C2-4811-BB1A-BBF4A6FF511E
 ms.date: 02/08/2017
 ms.topic: article
@@ -18,7 +18,7 @@ ms.locfileid: "74258948"
 
 
 
-This introductory article helps app architects and developers better understand the various Windows 10 platform capabilities that accelerate creating secure Universal Windows Platform (UWP) apps. ここでは、認証、移動中データ、および保存データの各段階で利用可能な、Windows のセキュリティ機能に使用方法について詳しく説明します。 各章にあるその他のリソースを確認すれば、各トピックについてさらに詳しい情報を得ることができます。
+この入門記事では、アプリの設計者と開発者が、セキュリティで保護されたユニバーサル Windows プラットフォーム (UWP) アプリの作成を促進するさまざまな Windows 10 プラットフォームの機能について理解を深めることができます。 ここでは、認証、移動中データ、および保存データの各段階で利用可能な、Windows のセキュリティ機能に使用方法について詳しく説明します。 各章にあるその他のリソースを確認すれば、各トピックについてさらに詳しい情報を得ることができます。
 
 ## <a name="1-introduction"></a>1 はじめに
 
@@ -286,7 +286,7 @@ Azure App 管理では、Web サービスのパフォーマンスを最適化す
 
 従来、Windows はアプリの定義を備えていませんでした。 一般的には、実行可能ファイル (.exe) がアプリの定義として扱われていましたが、インストール、状態の記憶、実行の長さ、バージョン管理、OS の統合、およびアプリ間通信は、定義には含まれていませんでした。 ユニバーサル Windows プラットフォーム モデルでは、インストール、ランタイム環境、リソース管理、更新プログラム、データ モデル、およびアンインストールを含めるように、アプリ モデルを定義します。
 
-Windows 10 apps run in a container, which means that they have limited privileges by default (additional privileges can be requested and granted by the user). たとえば、アプリがシステム上のファイルにアクセスする場合、[**Windows.Storage.Pickers**](https://docs.microsoft.com/uwp/api/Windows.Storage.Pickers) 名前空間のファイル ピッカーを使って、ユーザーにファイルを選ばせる必要があります (ファイルに直接アクセスすることはできません)。 別の例としては、アプリがユーザーの位置情報データにアクセスする場合、位置デバイス機能を有効にして、このアプリがユーザーの位置情報へのアクセスを要求することをダウンロード時にユーザーに確認する必要があります。 さらに、アプリが初めてユーザーの位置情報にアクセスするとき、追加の同意のプロンプトがユーザーに示され、データへのアクセスの許可を要求します。
+Windows 10 アプリはコンテナー内で実行されます。つまり、既定では制限付きの特権が付与されます (ユーザーが追加の特権を要求して付与することができます)。 たとえば、アプリがシステム上のファイルにアクセスする場合、[**Windows.Storage.Pickers**](https://docs.microsoft.com/uwp/api/Windows.Storage.Pickers) 名前空間のファイル ピッカーを使って、ユーザーにファイルを選ばせる必要があります (ファイルに直接アクセスすることはできません)。 別の例としては、アプリがユーザーの位置情報データにアクセスする場合、位置デバイス機能を有効にして、このアプリがユーザーの位置情報へのアクセスを要求することをダウンロード時にユーザーに確認する必要があります。 さらに、アプリが初めてユーザーの位置情報にアクセスするとき、追加の同意のプロンプトがユーザーに示され、データへのアクセスの許可を要求します。
 
 このアプリ モデルは、アプリが外部と通信できない "刑務所" として機能しますが、外部から通信できない "城" ではないことに注意してください (もちろん管理者特権を持つアプリケーションは中に入れます)。 どの (Win32) アプリを実行できるかを組織/IT が指定することを可能にする、Windows 10 の Device Guard は、このアクセスをさらに制限するのに役立ちます。
 
@@ -301,14 +301,14 @@ Windows 10 apps run in a container, which means that they have limited privileg
 
 多くの場合、認証済みのサービスにアクセスする Windows アプリでは、ユーザーは資格情報をローカル デバイスに保存することができます。 これは、ユーザーによって指定されたユーザー名とパスワードを、アプリが、次回以降の起動時に自動的に使う場合に便利です。 この機能は、保存されているデータへのアクセス許可を攻撃者が手に入れた場合に、セキュリティ上の問題となる可能性があります。このため、Windows 10 では、Windows アプリはユーザーの資格情報を安全な資格情報保管ボックスに保存することができます。 アプリは、アプリのストレージ コンテナーに資格情報を保存するのではなく、資格情報保管ボックス API を呼び出して、保管ボックスに対して資格情報の保存や取得を実行します。 資格情報保管ボックスはオペレーティング システムによって管理されますが、アクセスは資格情報を保存したアプリに制限されます。これにより、資格情報の保存に関して、安全に管理されたソリューションが実現されます。
 
-保存する資格情報をユーザーが指定すると、アプリでは、[**Windows.Security.Credentials**](https://docs.microsoft.com/uwp/api/Windows.Security.Credentials) 名前空間の [**PasswordVault**](https://docs.microsoft.com/uwp/api/Windows.Security.Credentials.PasswordVault) オブジェクトを使って、資格情報保管ボックスへの参照を取得します。 次に、Windows アプリの識別子、およびユーザー名とパスワードが含まれている [**PasswordCredential**](https://docs.microsoft.com/uwp/api/Windows.Security.Credentials.PasswordCredential) オブジェクトが作成されます。 これが [**PasswordVault.Add**](https://docs.microsoft.com/uwp/api/windows.security.credentials.passwordvault.add) メソッドに渡され、保管ボックスに資格情報が保存されます。 次の C# コードの例は、これがどのように実行されるかを示しています。
+保存する資格情報をユーザーが指定すると、アプリでは、[**Windows.Security.Credentials**](https://docs.microsoft.com/uwp/api/Windows.Security.Credentials.PasswordVault) 名前空間の [**PasswordVault**](https://docs.microsoft.com/uwp/api/Windows.Security.Credentials) オブジェクトを使って、資格情報保管ボックスへの参照を取得します。 次に、Windows アプリの識別子、およびユーザー名とパスワードが含まれている [**PasswordCredential**](https://docs.microsoft.com/uwp/api/Windows.Security.Credentials.PasswordCredential) オブジェクトが作成されます。 これが [**PasswordVault.Add**](https://docs.microsoft.com/uwp/api/windows.security.credentials.passwordvault.add) メソッドに渡され、保管ボックスに資格情報が保存されます。 次の C# コードの例は、これがどのように実行されるかを示しています。
 
 ```cs
 var vault = new PasswordVault();
 vault.Add(new PasswordCredential("My App", username, password));
 ```
 
-次の C# コードの例では、アプリは [**PasswordVault**](https://docs.microsoft.com/uwp/api/Windows.Security.Credentials.PasswordVault) オブジェクトの [**FindAllByResource**](https://docs.microsoft.com/uwp/api/windows.security.credentials.passwordvault.findallbyresource) メソッドを呼び出して、アプリに対応するすべての資格情報を要求します。 複数の資格情報が返された場合、ユーザーは、ユーザー名の入力を求められます。 保管ボックスに資格情報がない場合、アプリは、ユーザーに対して資格情報を指定するように要求します。 ユーザーは、資格情報を使ってサーバーにログインします。
+次の C# コードの例では、アプリは [**PasswordVault**](https://docs.microsoft.com/uwp/api/windows.security.credentials.passwordvault.findallbyresource) オブジェクトの [**FindAllByResource**](https://docs.microsoft.com/uwp/api/Windows.Security.Credentials.PasswordVault) メソッドを呼び出して、アプリに対応するすべての資格情報を要求します。 複数の資格情報が返された場合、ユーザーは、ユーザー名の入力を求められます。 保管ボックスに資格情報がない場合、アプリは、ユーザーに対して資格情報を指定するように要求します。 ユーザーは、資格情報を使ってサーバーにログインします。
 
 ```cs
 private string resourceName = "My App";
@@ -374,7 +374,7 @@ private PasswordCredential GetCredentialFromLocker()
 
 このデータ保護の方法の 1 つとして、公開/秘密キー ペアを使う非対称暗号化があります。 公開キーは、メッセージを暗号化するすべてのユーザーによって自由に共有されます。 秘密キーは、常に秘密のまま保持され、データの受信者だけがこのキーを使ってデータの暗号化を解除できます。 公開キーを検出できるようにするための一般的な方法は、デジタル証明書 (単に証明書とも呼ばる場合もあります) を使うことです。 証明書には、ユーザーやサーバーに関する情報 (名前、発行者、メール アドレス、国など) に加えて公開キーが含まれています。
 
-Windows アプリの開発者は、[**SymmetricKeyAlgorithmProvider**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.Core.SymmetricKeyAlgorithmProvider) クラスと [**AsymmetricKeyAlgorithmProvider**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.Core.AsymmetricKeyAlgorithmProvider) クラスを使って、UWP アプリに対称暗号化と非対称暗号化を実装することができます。 また、[**CryptographicEngine**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.Core.CryptographicEngine) クラスを使って、データの暗号化と暗号化解除、コンテンツへの署名、デジタル署名の確認を実行することができます。 アプリでは、[**Windows.Security.Cryptography.DataProtection**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.DataProtection) 名前空間の [**DataProtectionProvider**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.DataProtection.DataProtectionProvider) クラスを使って、保存されているローカル データの暗号化と暗号化解除を実行することもできます。
+Windows アプリの開発者は、[**SymmetricKeyAlgorithmProvider**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.Core.SymmetricKeyAlgorithmProvider) クラスと [**AsymmetricKeyAlgorithmProvider**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.Core.AsymmetricKeyAlgorithmProvider) クラスを使って、UWP アプリに対称暗号化と非対称暗号化を実装することができます。 また、[**CryptographicEngine**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.Core.CryptographicEngine) クラスを使って、データの暗号化と暗号化解除、コンテンツへの署名、デジタル署名の確認を実行することができます。 アプリでは、[**Windows.Security.Cryptography.DataProtection**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.DataProtection.DataProtectionProvider) 名前空間の [**DataProtectionProvider**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.DataProtection) クラスを使って、保存されているローカル データの暗号化と暗号化解除を実行することもできます。
 
 ## <a name="432-detecting-message-tampering-macs-hashes-and-signatures"></a>4.3.2 メッセージの改ざんの検出 (Mac、ハッシュ、署名)
 
@@ -465,9 +465,9 @@ Windows 10 のユニバーサル Windows プラットフォームには、オペ
 -   [Windows Hello](microsoft-passport.md)
 -   [資格情報保管ボックス](credential-locker.md)
 -   [Web 認証ブローカー](web-authentication-broker.md)
--   [Fingerprint biometrics](fingerprint-biometrics.md)
+-   [指紋生体認証](fingerprint-biometrics.md)
 -   [スマート カード](smart-cards.md)
--   [Shared certificates](share-certificates.md)
+-   [共有証明書](share-certificates.md)
 -   [暗号化](cryptography.md)
 -   [証明書](certificates.md)
 -   [暗号化キー](cryptographic-keys.md)
@@ -479,26 +479,26 @@ Windows 10 のユニバーサル Windows プラットフォームには、オペ
 ### <a name="62-code-samples"></a>6.2 コード サンプル
 
 -   [資格情報保管ボックス](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/PasswordVault)
--   [Credential picker](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/CredentialPicker)
--   [Device lockdown with Azure login](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/DeviceLockdownAzureLogin)
--   [Enterprise data protection](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/EnterpriseDataProtection)
+-   [資格情報の選択](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/CredentialPicker)
+-   [Azure ログインを使用したデバイスのロックダウン](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/DeviceLockdownAzureLogin)
+-   [エンタープライズ データ保護](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/EnterpriseDataProtection)
 -   [KeyCredentialManager](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/KeyCredentialManager)
 -   [スマート カード](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/SmartCard)
--   [Web account management](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/WebAccountManagement)
+-   [Web アカウントの管理](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/WebAccountManagement)
 -   [WebAuthenticationBroker](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/WebAuthenticationBroker)
 
 ### <a name="63-api-reference"></a>6.3 API リファレンス
 
--   [**Windows.Security.Authentication.OnlineId**](https://docs.microsoft.com/uwp/api/Windows.Security.Authentication.OnlineId)
--   [**Windows.Security.Authentication.Web**](https://docs.microsoft.com/uwp/api/Windows.Security.Authentication.Web)
--   [**Windows.Security.Authentication.Web.Core**](https://docs.microsoft.com/uwp/api/Windows.Security.Authentication.Web.Core)
--   [**Windows.Security.Authentication.Web.Provider**](https://docs.microsoft.com/uwp/api/Windows.Security.Authentication.Web.Provider)
--   [**Windows.Security.Credentials**](https://docs.microsoft.com/uwp/api/Windows.Security.Credentials)
--   [**Windows.Security.Credentials**](https://docs.microsoft.com/uwp/api/Windows.Security.Credentials)
--   [**Windows.Security.Credentials.UI**](https://docs.microsoft.com/uwp/api/Windows.Security.Credentials.UI)
--   [**Windows.Security.Cryptography**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography)
--   [**Windows.Security.Cryptography.Certificates**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.Certificates)
--   [**Windows.Security.Cryptography.Core**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.Core)
--   [**Windows.Security.Cryptography.DataProtection**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.DataProtection)
--   [**Windows.Security.ExchangeActiveSyncProvisioning**](https://docs.microsoft.com/uwp/api/Windows.Security.ExchangeActiveSyncProvisioning)
--   [**Windows.Security.EnterpriseData**](https://docs.microsoft.com/uwp/api/Windows.Security.EnterpriseData)
+-   [**Windows. Security. Authentication. の Id**](https://docs.microsoft.com/uwp/api/Windows.Security.Authentication.OnlineId)
+-   [**Windows. Security. Authentication. Web**](https://docs.microsoft.com/uwp/api/Windows.Security.Authentication.Web)
+-   [**Windows. Security. Web.config**](https://docs.microsoft.com/uwp/api/Windows.Security.Authentication.Web.Core)
+-   [**Windows. セキュリティ. 認証. Web プロバイダー**](https://docs.microsoft.com/uwp/api/Windows.Security.Authentication.Web.Provider)
+-   [**Windows. Security. 資格情報**](https://docs.microsoft.com/uwp/api/Windows.Security.Credentials)
+-   [**Windows. Security. 資格情報**](https://docs.microsoft.com/uwp/api/Windows.Security.Credentials)
+-   [**Windows. Security. Credentials. UI**](https://docs.microsoft.com/uwp/api/Windows.Security.Credentials.UI)
+-   [**Windows. Security. Cryptography**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography)
+-   [**Windows. Security. Cryptography. 証明書**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.Certificates)
+-   [**Windows. Security. Cryptography. Core**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.Core)
+-   [**Windows. Cryptography. DataProtection**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.DataProtection)
+-   [**Windows.security.exchangeactivesyncprovisioning**](https://docs.microsoft.com/uwp/api/Windows.Security.ExchangeActiveSyncProvisioning)
+-   [**Windows. Security. EnterpriseData**](https://docs.microsoft.com/uwp/api/Windows.Security.EnterpriseData)

@@ -1,10 +1,10 @@
 ---
-Description: The Feedback report in Partner Center lets you see the problems, suggestions, and upvotes that your Windows 10 customers have submitted through Feedback Hub.
+Description: パートナーセンターのフィードバックレポートでは、Windows 10 のお客様がフィードバックハブを通じて送信した問題、提案、およびアップ投票を確認できます。
 title: フィードバック レポート
 ms.assetid: 9EA8B456-CA57-40CE-A55B-7BFDC55CA8A8
 ms.date: 10/31/2018
 ms.topic: article
-keywords: Windows 10, UWP
+keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: 47eb494ac1b61caac0549f89254ae5d60a7ddf4c
 ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
@@ -15,19 +15,19 @@ ms.locfileid: "74259015"
 ---
 # <a name="feedback-report"></a>フィードバック レポート
 
-The **Feedback report** in Partner Center lets you see the problems, suggestions, and upvotes that your Windows 10 customers have submitted through Feedback Hub. You can view this data in Partner Center, or export the data to view offline.
+パートナーセンターの**フィードバックレポート**では、Windows 10 のお客様がフィードバックハブを通じて送信した問題、提案、およびアップ投票を確認できます。 パートナーセンターでこのデータを表示したり、データをエクスポートしてオフラインで表示したりすることができます。
 
 > [!NOTE]
 > またフィードバックを確認していることを顧客に伝えるため、このレポートから直接[フィードバックに返信](respond-to-customer-feedback.md)できます。
 
 アプリについてのフィードバックをユーザーに送信してもらうように促すのは、ユーザーにとって重要な問題や機能について知ることができる、よい方法です。 ユーザーは、アプリの作成者に直接フィードバックを送ることができるとわかると、否定的なレビューをフィードバックとしてストアに残す可能性が低くなることが考えられます。
 
-[Microsoft Store Services SDK](https://marketplace.visualstudio.com/items?itemName=AdMediator.MicrosoftStoreServicesSDK) のフィードバック API を使って、ユーザーが直接[アプリからフィードバック Hub を起動](../monetize/launch-feedback-hub-from-your-app.md)するようにできます。 フィードバック Hub をサポートする Windows 10 デバイスにアプリをダウンロードしたユーザーはだれでも、フィードバック Hub アプリを使ってフィードバックを残すことができます。 Because of this, you may see customer feedback in this report even if you have not specifically asked for feedback from within your app.
+[Microsoft Store Services SDK](https://marketplace.visualstudio.com/items?itemName=AdMediator.MicrosoftStoreServicesSDK) のフィードバック API を使って、ユーザーが直接[アプリからフィードバック Hub を起動](../monetize/launch-feedback-hub-from-your-app.md)するようにできます。 フィードバック Hub をサポートする Windows 10 デバイスにアプリをダウンロードしたユーザーはだれでも、フィードバック Hub アプリを使ってフィードバックを残すことができます。 このため、アプリ内からのフィードバックを明示的に要求していない場合でも、このレポートにお客様からのフィードバックが表示されることがあります。
 
-Feedback can also be helpful when using [package flighting](package-flights.md), since the **Feedback** report shows you the specific package that each customer had installed on their device when they left the feedback.
+フィードバック**レポートには、** 各顧客がフィードバックを終了したときにデバイスにインストールした特定のパッケージが表示されるため、[パッケージフライト](package-flights.md)を使用する場合にもフィードバックが役立ちます。
 
 > [!TIP]
-> For a quick look at the reviews, ratings, and user feedback across all of your apps in the last 30 days, expand **Engage** in the left navigation menu and select **Reviews and feedback.** 
+> 過去30日間のすべてのアプリでのレビュー、評価、およびユーザーフィードバックを簡単に確認するには、左側のナビゲーションメニューの **[参加]** を展開し、 **[レビューとフィードバック]** を選択します。 
 
 
 ## <a name="apply-filters"></a>フィルターの適用
@@ -54,14 +54,14 @@ Feedback can also be helpful when using [package flighting](package-flights.md),
 - **人気上昇中**: 最も直近に受けたフィードバックを先頭に、最近 7 日間に他のユーザーから賛成票を受けたフィードバックを表示します。
 - **最近のフィードバック**: 最も直近のフィードバックを先頭に、すべてのフィードバックを表示します。
 
-各コメントの横には、フィードバックを受けた日付と、フィードバックの種類が表示されます。 You’ll also see the customer’s market, the specific package that was installed on the device they were using when they left the feedback, the type of that device, and **Windows Insider** if the customer submitting the feedback is a member of the Windows Insider program.
+各コメントの横には、フィードバックを受けた日付と、フィードバックの種類が表示されます。 また、お客様の市場、フィードバックを残したときに使用していたデバイスにインストールされていた特定のパッケージ、そのデバイスの種類、フィードバックを送信したお客様が Windows Insider program のメンバーである場合は**Windows insider**も表示されます。
 
 ここには、[フィードバックに返信](respond-to-customer-feedback.md)するためのオプションも表示されます。
 
 
 ## <a name="translating-feedback"></a>フィードバックの翻訳
 
-By default, feedback that was not written in your preferred language is translated for you. 必要に応じて、右上の、ページ フィルターの近くにある **[フィードバックを翻訳する]** チェック ボックスをオフにして、フィードバックの翻訳を無効にすることができます。
+既定では、優先する言語で記述されていないフィードバックは翻訳されます。 必要に応じて、右上の、ページ フィルターの近くにある **[フィードバックを翻訳する]** チェック ボックスをオフにして、フィードバックの翻訳を無効にすることができます。
 
 フィードバックは自動翻訳システムによって翻訳されるため、翻訳の結果が正確でない場合があることに注意してください。 元のテキストと翻訳を比較する場合や、元のテキストを他の方法で翻訳する場合は、元のテキストが提供されます。
 

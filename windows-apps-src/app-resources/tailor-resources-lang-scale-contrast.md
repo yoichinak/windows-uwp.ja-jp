@@ -27,9 +27,9 @@ ms.locfileid: "74254522"
 
 | コンテキスト | 修飾子名 | 修飾子の値 |
 | :--------------- | :--------------- | :--------------- |
-| ハイ コントラスト設定 | コントラスト | standard、high、black、white |
+| ハイ コントラスト設定 | contrast | standard、high、black、white |
 
-修飾子は、修飾子名と修飾子の値を組み合わせて作成します。 `<qualifier name>-<qualifier value>` is the format of a qualifier. `contrast-standard` is an example of a qualifier.
+修飾子は、修飾子名と修飾子の値を組み合わせて作成します。 `<qualifier name>-<qualifier value>` は、修飾子の形式です。 修飾子の例としては、`contrast-standard` があります。
 
 ハイ コントラストの場合、修飾子のセットは `contrast-standard`、`contrast-high`、`contrast-black`、`contrast-white` になります。 修飾子名と修飾子の値では、大文字と小文字が区別されません。 たとえば、`contrast-standard` と `Contrast-Standard` は同じ修飾子であると見なされます。
 
@@ -71,7 +71,7 @@ ms.locfileid: "74254522"
 \Assets\Images\logo.png
 ```
 
-最初のファイル名には、`contrast-high` 修飾子が含まれています。 ハイ コントラストが *[オン]* になっている場合、この修飾子は、あらゆるハイ コントラスト設定に対する*実際の*一致です。 言い換えると、これは近似一致であり、優先されます。 この場合のように、*実際*の一致は、修飾子に*実際*の値が含まれている場合にのみ発生します。 この場合、`high` が `contrast` に対する*実際*の値です。
+最初のファイル名には、`contrast-high` 修飾子が含まれています。 ハイ コントラストが *[オン]* になっている場合、この修飾子は、あらゆるハイ コントラスト設定に対する*実際の*一致です。 言い換えると、これは近似一致であり、優先されます。 この場合のように、*実際*の一致は、修飾子に*実際*の値が含まれている場合にのみ発生します。 この場合、`high` が  *に対する*実際`contrast`の値です。
 
 `logo.png` というファイル名には、contrast 修飾子がまったく含まれていません。 修飾子がない値は、*中立的*です。 優先される一致が見つからない場合、中立値はフォールバックの一致として使用されます。 この例では、ハイ コントラストが*オフ*になっている場合、実際の一致はありません。 見つかるベスト マッチが*中立的*な一致であるため、`logo.png` というアセットが読み込まれます。
 
@@ -102,7 +102,7 @@ ms.locfileid: "74254522"
 \Assets\Images\contrast-high_scale-400\<logo.png, and other image files>
 ```
 
-フォルダー名として、複数の修飾子をアンダー スコアで結合します。 `<qualifier1>[_<qualifier2>...]` is the format.
+フォルダー名として、複数の修飾子をアンダー スコアで結合します。 `<qualifier1>[_<qualifier2>...]` は形式です。
 
 同じ形式で、複数の修飾子を結合して 1 つのファイル名にすることもできます。
 
@@ -116,7 +116,7 @@ ms.locfileid: "74254522"
 
 特別な目的でリソースの代替フォームを提供するには、`alternateform` 修飾子を使います。 通常、日本のアプリ開発者によってふりがな文字列を提供する目的のみで使用されます。そのために、`msft-phonetic` という値が予約されています (「[ローカライズの準備をする方法](https://docs.microsoft.com/previous-versions/windows/apps/hh967762(v=win.10))」の「並べ替えることができる日本語文字列のふりがなのサポート」をご覧ください)。
 
-ターゲット システムとアプリのうちいずれかが、`alternateform` 修飾子と一致する値を提供する必要があります。 カスタムの `alternateform` 修飾子の値に `msft-` プレフィックスを使用しないでください。
+ターゲット システムとアプリのうちいずれかが、`alternateform` 修飾子と一致する値を提供する必要があります。 カスタムの `msft-` 修飾子の値に `alternateform` プレフィックスを使用しないでください。
 
 ## <a name="configuration"></a>構成
 
@@ -130,7 +130,7 @@ ms.locfileid: "74254522"
 
 ## <a name="custom"></a>カスタム
 
-アプリで `custom` 修飾子の値を設定すると、その値に最も一致するリソースが読み込まれます。 たとえば、アプリのライセンスに基づいてリソースを読み込む必要があるとします。 アプリは、起動するとライセンスを確認し、[SetGlobalQualifierValue](/uwp/api/windows.applicationmodel.resources.core.resourcecontext.setglobalqualifiervalue) を呼び出すことによって、ライセンスを `custom` 修飾子の値として使用します。コード例をご覧ください。
+アプリで `custom` 修飾子の値を設定すると、その値に最も一致するリソースが読み込まれます。 たとえば、アプリのライセンスに基づいてリソースを読み込む必要があるとします。 アプリは、起動するとライセンスを確認し、`custom`SetGlobalQualifierValue[ を呼び出すことによって、ライセンスを ](/uwp/api/windows.applicationmodel.resources.core.resourcecontext.setglobalqualifiervalue) 修飾子の値として使用します。コード例をご覧ください。
 
 ```csharp
 public void SetLicenseLevel(BrandID brand)
@@ -206,7 +206,7 @@ public void SetLicenseLevel(BrandID brand)
 \Strings\language-ja\Resources.resw
 ```
 
-`language` 修飾子の `language-` の部分 (修飾子名) は省略することができます。 これは他の種類の修飾子には適用されません。また、適用できるのはフォルダー名の場合のみです。
+`language-` 修飾子の `language` の部分 (修飾子名) は省略することができます。 これは他の種類の修飾子には適用されません。また、適用できるのはフォルダー名の場合のみです。
 
 ```console
 \Strings\en\Resources.resw
@@ -252,7 +252,7 @@ Windows では、ディスプレイの DPI (1 インチあたりのドット数)
 
 `targetsize` 修飾子は主に、エクスプローラーに表示される[ファイルの種類の関連付け](https://docs.microsoft.com/windows/desktop/shell/how-to-assign-a-custom-icon-to-a-file-type)アイコンまたは[プロトコル アイコン](https://docs.microsoft.com/windows/desktop/search/-search-3x-wds-ph-ui-extensions)の指定に使用されます。 この修飾子の値は、正方形のイメージの辺の長さを RAW (物理) ピクセル単位で表します。 エクスプローラーの表示設定に値が一致するリソースが読み込まれます。正確に一致する対象が存在しない場合は、次に大きな値のリソースが読み込まれます。
 
-アプリ パッケージ マニフェスト デザイナーの [ビジュアル資産] タブで、複数サイズのアプリ アイコン (`/Assets/Square44x44Logo.png`) に対応する `targetsize` 修飾子の値を表すアセットを定義できます。
+アプリ パッケージ マニフェスト デザイナーの [ビジュアル資産] タブで、複数サイズのアプリ アイコン (`targetsize`) に対応する `/Assets/Square44x44Logo.png` 修飾子の値を表すアセットを定義できます。
 
 `scale` と `targetsize` でリソースを修飾する方法については、「[targetsize で画像リソースを修飾する](images-tailored-for-scale-theme-contrast.md#qualify-an-image-resource-for-targetsize)」をご覧ください。
 
@@ -261,34 +261,34 @@ Windows では、ディスプレイの DPI (1 インチあたりのドット数)
 `theme` 修飾子は、既定のアプリ モード設定に最も一致するリソースか、[Application.RequestedTheme](/uwp/api/windows.ui.xaml.application.requestedtheme) を使用してアプリのオーバーライドを提供するために使用されます。
 
 
-## <a name="shell-light-theme-and-unplated-resources"></a>Shell light theme and unplated resources
-The *Windows 10 May 2019 Update* introduced a new "light" theme for the Windows Shell. As a result, some application assets that were previously shown on a dark background will now be shown on a light background. For apps that apps that provided altform-unplated assets for the taskbar and window switchers (Alt+Tab, Task View, etc), you should verify that they have acceptable contrast on a light background.
+## <a name="shell-light-theme-and-unplated-resources"></a>シェルライトテーマとプレートなしリソース
+*Windows 10 2019 年5月の更新プログラム*では、windows シェルの新しい "ライト" テーマが導入されました。 その結果、以前は暗い背景に表示されていた一部のアプリケーションアセットが明るい背景に表示されるようになりました。 タスクバーとウィンドウにプレートなしアセットを提供したアプリ (Alt + Tab、タスクビューなど) では、明るい背景で使用できるコントラストがあるかどうかを確認する必要があります。
 
-### <a name="providing-light-theme-specific-assets"></a>Providing light theme specific assets
-Apps that want to provide a tailored resource for shell light theme can use a new alternate form resource qualifier: `altform-lightunplated`. This qualifier mirrors the existing altform-unplated qualifier. 
+### <a name="providing-light-theme-specific-assets"></a>ライトテーマ固有のアセットを提供する
+シェルライトテーマ用に調整されたリソースを提供するアプリでは、新しい代替フォームリソース修飾子である `altform-lightunplated`を使用できます。 この修飾子は、既存の altform-プレートなし修飾子を反映します。 
 
-### <a name="downlevel-considerations"></a>Downlevel considerations
-Apps should not use the `theme-light` qualifier with the `altform-unplated` qualifier. This will cause unpredictable behavior on RS5 and earlier versions of Windows due to the way resources are loaded for the Taskbar. On earlier versions of windows, the theme-light version may be used incorrectly. The `altform-lightunplated` qualifier avoids this issue. 
+### <a name="downlevel-considerations"></a>ダウンレベルの考慮事項
+アプリでは、`altform-unplated` 修飾子と共に `theme-light` 修飾子を使用しないでください。 これにより、タスクバーのリソースが読み込まれる方法によって、RS5 以前のバージョンの Windows で予期しない動作が発生します。 以前のバージョンの windows では、テーマライトのバージョンが正しく使用されない場合があります。 `altform-lightunplated` 修飾子は、この問題を回避します。 
 
-### <a name="compatibility-behavior"></a>Compatibility behavior
-For backwards compatibility, Windows includes logic to detect a monochromatic icons and check whether it contrasts with the intended background. If the icon fails to meet contrast requirements, Windows will look for a contrast-white version of the asset. If that’s not available, Windows will fall back to using the plated version of the asset.
+### <a name="compatibility-behavior"></a>互換性の動作
+旧バージョンとの互換性を維持するために、Windows には、モノクロのアイコンを検出し、意図した背景と比較するかどうかを確認するロジックが含まれています。 アイコンがコントラストの要件を満たすことができない場合、Windows は、コントラストが白のアセットを検索します。 使用できない場合は、plated バージョンの資産を使用するように Windows が切り替えられます。
 
 
 
 ## <a name="important-apis"></a>重要な API
 
-* [ResourceContext.QualifierValues](/uwp/api/windows.applicationmodel.resources.core.resourcecontext.QualifierValues)
+* [ResourceContext. QualifierValues](/uwp/api/windows.applicationmodel.resources.core.resourcecontext.QualifierValues)
 * [SetGlobalQualifierValue](/uwp/api/windows.applicationmodel.resources.core.resourcecontext.setglobalqualifiervalue)
 
 ## <a name="related-topics"></a>関連トピック
 
-* [Effective pixels and scale factor](../design/layout/screen-sizes-and-breakpoints-for-responsive-design.md#effective-pixels-and-scale-factor)
+* [有効なピクセルとスケールファクター](../design/layout/screen-sizes-and-breakpoints-for-responsive-design.md#effective-pixels-and-scale-factor)
 * [リソース管理システム](resource-management-system.md)
-* [How to prepare for localization](https://docs.microsoft.com/previous-versions/windows/apps/hh967762(v=win.10))
-* [Detecting the platform your app is running on](../porting/wpsl-to-uwp-input-and-sensors.md#detecting-the-platform-your-app-is-running-on)
-* [Device families overview](https://docs.microsoft.com/uwp/extension-sdks/device-families-overview)
-* [Localize your UI strings](localize-strings-ui-manifest.md)
+* [ローカライズを準備する方法](https://docs.microsoft.com/previous-versions/windows/apps/hh967762(v=win.10))
+* [アプリが実行されているプラットフォームを検出しています](../porting/wpsl-to-uwp-input-and-sensors.md#detecting-the-platform-your-app-is-running-on)
+* [デバイスファミリの概要](https://docs.microsoft.com/uwp/extension-sdks/device-families-overview)
+* [UI 文字列をローカライズする](localize-strings-ui-manifest.md)
 * [BCP-47](https://tools.ietf.org/html/bcp47)
-* [United Nations Statistic Division M49 composition of region codes](https://unstats.un.org/unsd/methods/m49/m49regin.htm)
-* [IANA language subtag registry](https://www.iana.org/assignments/language-subtag-registry)
+* [地域コードの国ごとの統計部 M49 の構成](https://unstats.un.org/unsd/methods/m49/m49regin.htm)
+* [IANA 言語サブタグレジストリ](https://www.iana.org/assignments/language-subtag-registry)
 * [レイアウトやフォントの調整と RTL のサポート](../design/globalizing/adjust-layout-and-fonts--and-support-rtl.md)

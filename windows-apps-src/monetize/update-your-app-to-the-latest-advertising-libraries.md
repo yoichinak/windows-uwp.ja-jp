@@ -19,7 +19,7 @@ ms.locfileid: "74259237"
 
 ## <a name="overview"></a>概要
 
-バナー広告を表示する UWP アプリでは、[Microsoft Advertising SDK](https://marketplace.visualstudio.com/items?itemName=AdMediator.MicrosoftAdvertisingSDK) で配布されている Advertising ライブラリの **AdControl** を使用する必要があります。 この SDK では、Interactive Advertising Bureau (IAB) の [Mobile Rich-media Ad Interface Definitions (MRAID) 1.0 仕様](https://www.iab.com/wp-content/uploads/2015/08/IAB_MRAID_VersionOne.pdf)を通じた HTML5 リッチ メディアの提供機能など、最小限の広告機能セットがサポートされています。 多くの広告主様がこれらの機能を必要とされており、Microsoft ではアプリ開発者にこれらのいずれかの SDK リリースの使用を求めることで、より魅力的なアプリのエコシステムを広告主様に提供し、開発者様の収益アップを図ります。
+バナー広告を表示する UWP アプリでは、**Microsoft Advertising SDK** で配布されている Advertising ライブラリの [AdControl](https://marketplace.visualstudio.com/items?itemName=AdMediator.MicrosoftAdvertisingSDK) を使用する必要があります。 この SDK では、Interactive Advertising Bureau (IAB) の [Mobile Rich-media Ad Interface Definitions (MRAID) 1.0 仕様](https://www.iab.com/wp-content/uploads/2015/08/IAB_MRAID_VersionOne.pdf)を通じた HTML5 リッチ メディアの提供機能など、最小限の広告機能セットがサポートされています。 多くの広告主様がこれらの機能を必要とされており、Microsoft ではアプリ開発者にこれらのいずれかの SDK リリースの使用を求めることで、より魅力的なアプリのエコシステムを広告主様に提供し、開発者様の収益アップを図ります。
 
 この SDK をリリースする前に、いくつかの古い広告 SDK リリースで **AdControl** クラスを提供していました。 これらの以前の広告 SDK リリースは、上記で説明した最小限の広告機能をサポートしていないため、サポートされなくなりました。 2017 年 4 月 1 日の時点で、サポートされていない広告 SDK リリースを使うアプリにはバナー広告が提供されなくなりました。 サポートされていない広告 SDK リリースを使うアプリがまだある場合、次の動作が発生します。
 
@@ -27,7 +27,7 @@ ms.locfileid: "74259237"
 
 * アプリ内の **AdControl** から新しい広告が要求されると、コントロールの **ErrorOccurred** イベントが発生し、イベント引数の **ErrorCode** プロパティに **NoAdAvailable** という値が設定されます。
 
-* そのアプリに関連付けられているすべての広告ユニットが非アクティブ化されます。 You cannot remove these deactivated ad units from your DePartnerv Center account. アプリを更新して [Microsoft Advertising SDK](https://marketplace.visualstudio.com/items?itemName=AdMediator.MicrosoftAdvertisingSDK) を使う場合、これらの広告ユニットを無視して新しい広告ユニットを作成します。
+* そのアプリに関連付けられているすべての広告ユニットが非アクティブ化されます。 これらの非アクティブ化 ad ユニットを DePartnerv Center アカウントから削除することはできません。 アプリを更新して [Microsoft Advertising SDK](https://marketplace.visualstudio.com/items?itemName=AdMediator.MicrosoftAdvertisingSDK) を使う場合、これらの広告ユニットを無視して新しい広告ユニットを作成します。
 
 * 複数のアプリで使われている広告ユニットにも、バナー広告が提供されなくなりました。 広告ユニットがそれぞれ 1 つのアプリだけで使われるようにしてください。
 
@@ -86,4 +86,4 @@ ms.locfileid: "74259237"
 
 アプリをテストし、バナーが正常に提供されることを確認します。
 
-If the previous version of your app is already available in the Store, [create a new submission](../publish/app-submissions.md) for your updated app in Partner Center to republish your app.
+以前のバージョンのアプリがストアで既に利用可能な場合は、パートナーセンターで更新されたアプリの[新しい送信を作成](../publish/app-submissions.md)して、アプリを再発行します。

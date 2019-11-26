@@ -108,7 +108,7 @@ MRT は複数の修飾子に合わせてカスタマイズされたリソース�
 
 [デスクトップアプリコンバーター](https://www.microsoft.com/store/p/desktopappconverter/9nblggh4skzw)を使用する場合は、変換プロセスの詳細について、「[デスクトップアプリコンバーターを使用してデスクトップアプリケーションをパッケージ化](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-run-desktop-app-converter)する」を参照してください。 デスクトップのコンバーターのサンプルの完全なセットについては[、デスクトップブリッジの UWP サンプル github リポジトリを](https://github.com/Microsoft/DesktopBridgeToUWP-Samples)参照してください。
 
-パッケージを手動で作成する場合は、アプリケーションのすべてのファイル (実行可能ファイルとコンテンツ、ただしソース コードを含まない) とパッケージ マニフェスト ファイル (.appxmanifest) が含まれるディレクトリ構造を作成する必要があります。 例が、[Hello, World GitHub サンプル](https://github.com/Microsoft/DesktopBridgeToUWP-Samples/blob/master/Samples/HelloWorldSample/CentennialPackage/AppxManifest.xml)に記載されていますが、`ContosoDemo.exe` という名前のデスクトップ実行可能ファイルを実行する基本パッケージ マニフェスト ファイルは次のとおりです。ここではハイライト表示されたテキストが独自の値に置き換えられます。<span style="background-color: yellow"></span>
+パッケージを手動で作成する場合は、アプリケーションのすべてのファイル (実行可能ファイルとコンテンツ、ただしソース コードを含まない) とパッケージ マニフェスト ファイル (.appxmanifest) が含まれるディレクトリ構造を作成する必要があります。 例については、 [Hello, World GitHub サンプル](https://github.com/Microsoft/DesktopBridgeToUWP-Samples/blob/master/Samples/HelloWorldSample/CentennialPackage/AppxManifest.xml)を参照してください。ただし、`ContosoDemo.exe` というデスクトップ実行可能ファイルを実行する基本的なパッケージマニフェストファイルは次のとおりです。<span style="background-color: yellow">強調表示</span>されたテキストは、実際の値に置き換えられます。
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -148,9 +148,9 @@ MRT は複数の修飾子に合わせてカスタマイズされたリソース�
 </Package>
 ```
 
-パッケージ マニフェスト ファイルとパッケージのレイアウトの詳細については、[アプリ パッケージのマニフェスト](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/appx-package-manifest)を参照してください。
+パッケージマニフェストファイルとパッケージレイアウトの詳細については、「[アプリケーションパッケージマニフェスト](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/appx-package-manifest)」を参照してください。
 
-最後に、新しいプロジェクトを作成し、既存のコード間で移行するのに Visual Studio を使用している場合は、["Hello, world" アプリを作成する](https://docs.microsoft.com/windows/uwp/get-started/create-a-hello-world-app-xaml-universal) を参照してください。 新しいプロジェクトに既存のコードを含めることができますが、純粋な UWP アプリとして実行するには、(特にユーザー インターフェイス対して) 大幅なコードの変更が必要になる場合があります。 それらの変更は、このドキュメントの対象範囲外です。
+最後に、Visual Studio を使用して新しいプロジェクトを作成し、既存のコードを移行する場合は、「 [Hello, world "アプリを作成](https://docs.microsoft.com/windows/uwp/get-started/create-a-hello-world-app-xaml-universal)する」を参照してください。 新しいプロジェクトに既存のコードを含めることができますが、純粋な UWP アプリとして実行するには、(特にユーザー インターフェイス対して) 大幅なコードの変更が必要になる場合があります。 それらの変更は、このドキュメントの対象範囲外です。
 
 ## <a name="phase-1-localize-the-manifest"></a>フェーズ 1: マニフェストをローカライズする
 

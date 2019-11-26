@@ -3,7 +3,7 @@ title: よく寄せられる質問
 description: Xbox の UWP についてのよく寄せられる質問。
 ms.date: 03/29/2017
 ms.topic: article
-keywords: Windows 10, UWP
+keywords: windows 10, uwp
 ms.assetid: 265fe827-bd4a-48d4-b362-8793b9b25705
 ms.localizationpriority: medium
 ms.openlocfilehash: e134e64c441aececdc50b1ac868efeb2b31bd5e5
@@ -49,7 +49,7 @@ ms.locfileid: "74259828"
 ### <a name="can-i-develop-and-publish-x86-apps-for-xbox"></a>Xbox 用の x86 アプリを開発および公開できますか
 Xbox では、x86 アプリの開発または x86 アプリのストアへの申請をサポートしなくなりました。 
 
-### <a name="will-i-lose-my-games-and-apps-or-saved-changes"></a>ゲームやアプリ、保存した変更を失うことがありますか
+### <a name="will-i-lose-my-games-and-apps-or-saved-changes"></a>ゲームやアプリや保存した変更を失うことがありますか
 
 開発者プログラムへの参加を停止しても、インストールしたゲームやアプリは失われません。 またオンラインでプレイした場合には、保存したゲームはすべて Live アカウントのクラウド プロファイルに保存されていますので、それを失うことはありません。
 
@@ -59,15 +59,15 @@ Xbox では、x86 アプリの開発または x86 アプリのストアへの申
 
 ### <a name="i-sold-my-xbox-one-and-left-it-in-developer-mode-how-do-i-deactivate-developer-mode"></a>Xbox One を開発者モードにしたままで売却した場合に、 開発者モードを非アクティブ化する方法
 
-If you no longer have access to your Xbox One, you can deactivate it in Windows Partner Center. For details, see the **Deactivate your console using Partner Center** section in the [Xbox One Developer Mode Deactivation](devkit-deactivation.md#deactivate-your-console-using-partner-center) topic. 
+Xbox One へのアクセス権がなくなった場合は、Windows パートナーセンターで非アクティブ化できます。 詳細については、 [Xbox One Developer Mode の非](devkit-deactivation.md#deactivate-your-console-using-partner-center)アクティブ化に関するトピックの「**パートナーセンターを使用したコンソールの非アクティブ化**」セクションを参照してください。 
 
-### <a name="i-left-the-developer-program-using-partner-center-but-im-in-still-developer-mode-what-do-i-do"></a>I left the Developer Program using Partner Center but I'm in still Developer Mode. どうすればよいでしょうか。
+### <a name="i-left-the-developer-program-using-partner-center-but-im-in-still-developer-mode-what-do-i-do"></a>パートナーセンターを使用して開発者プログラムを残しましたが、まだ開発者モードです。 解決するには、
 
 Dev Home を開始し、 **[Leave developer mode]** ボタンを選択します。 コンソールがリテール モードで再起動します。 
 
 ### <a name="can-i-publish-my-app"></a>自分のアプリを公開できますか
 
-You can [publish apps](../publish/index.md) through Partner Center if you have a [developer account](https://developer.microsoft.com/store/register). 市販の Xbox One コンソールで作成されテストされた UWP アプリは、Windows で現在行われているものと同様の取り込み、レビュー、公開のプロセスが行われ、さらに Xbox One の標準を満たすための追加のレビューが行われます。
+[開発者アカウント](https://developer.microsoft.com/store/register)を持っている場合は、パートナーセンターを使用して[アプリを発行](../publish/index.md)できます。 市販の Xbox One コンソールで作成されテストされた UWP アプリは、Windows で現在行われているものと同様の取り込み、レビュー、公開のプロセスが行われ、さらに Xbox One の標準を満たすための追加のレビューが行われます。
 
 ### <a name="can-i-publish-my-game"></a>自分のゲームを公開できますか
 
@@ -99,7 +99,7 @@ Visual Studio からアプリを展開できない場合、次の手順が問題
 Visual Studio が Xbox One に接続できない場合:
 
 1. 開発者モードであることを確認します (このページで既に説明した方法を確認します)。
-2. 開発用 PC が正しく設定されていることを確認します。 [Xbox One の UWP アプリ開発の概要](getting-started.md)の*すべての*指示に従いましたか。 
+2. 開発用 PC が正しく設定されていることを確認します。 *Xbox One の UWP アプリ開発の概要*の[すべての](getting-started.md)指示に従いましたか。 
 
 3. まだの場合、「[開発環境のセットアップ](development-environment-setup.md)」と「[Xbox One ツールの概要](introduction-to-xbox-tools.md)」をよくお読みください。
 
@@ -117,6 +117,6 @@ TVHelpers は、JavaScript と XAML/C# のサンプルとライブラリです�
 詳しくは、「[TVHelpers](https://github.com/Microsoft/TVHelpers) プロジェクトとプロジェクト [wiki](https://github.com/Microsoft/TVHelpers/wiki)」をご覧ください。
 
 ## <a name="see-also"></a>関連項目
-- [Known issues with UWP on Xbox One](known-issues.md)
+- [Xbox One の UWP に関する既知の問題](known-issues.md)
 - [Xbox One の UWP](index.md)
 - [Xbox One の UWP](index.md)

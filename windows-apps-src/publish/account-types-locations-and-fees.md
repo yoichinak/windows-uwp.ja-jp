@@ -15,12 +15,12 @@ ms.locfileid: "74260061"
 ---
 # <a name="account-types-locations-and-fees"></a>アカウントの種類、場所、料金
 
-The Windows program in [Partner Center](https://partner.microsoft.com/dashboard) offers both individual and company accounts in many [countries and regions](#developer-account-and-app-submission-markets). Either type of account gives you access to publish apps to the Store and to participate in additional Microsoft programs.
+[パートナーセンター](https://partner.microsoft.com/dashboard)の Windows プログラムでは、多くの[国や地域](#developer-account-and-app-submission-markets)で個人と会社の両方のアカウントを提供しています。 どちらの種類のアカウントでも、ストアにアプリを発行し、その他の Microsoft プログラムに参加することができます。
 
 > [!NOTE]
-> When opening your developer account, make sure to sign in to [Partner Center](https://partner.microsoft.com/dashboard) with the Microsoft account that you want to use for your developer account. 後で[追加のユーザーをアカウントに追加](manage-account-users.md)できます。
+> 開発者アカウントを開くときは、開発者アカウントに使用する Microsoft アカウントで[パートナーセンター](https://partner.microsoft.com/dashboard)にサインインしてください。 後で[追加のユーザーをアカウントに追加](manage-account-users.md)できます。
 
-[サインアップ プロセスを開始する](https://developer.microsoft.com/store/register)ときには、個人のアカウントと会社のアカウントのどちらを作るかを選ぶ必要があります。 どちらの種類のアカウントでも、アプリ、ゲーム、アドイン、サービスを提出できます。
+[サインアップ プロセスを開始](https://developer.microsoft.com/store/register) するときは、個人のアカウントを作成するのか、会社のアカウントを作成するのかを選択する必要があります。 どちらの種類のアカウントでも、アプリ、ゲーム、アドイン、サービスを提出できます。
 
 会社のアカウントは、組織や企業向けです。 会社のアカウントについては、ユーザーが会社の代理としてアカウントを設定できる権限を持っていることを確認するため、より多くの[確認](#account-verification)が必要になります。 個人アカウントは、通常、1 人で仕事をしているフリーの開発者に適していますが、どちらの種類のアカウントにも追加のアカウント ユーザーを追加できます。
 
@@ -33,15 +33,15 @@ The Windows program in [Partner Center](https://partner.microsoft.com/dashboard)
 |--------------------|-----------------|
 | <ul><li>約 19 米ドルの費用がかかる (1 回限りの登録料。正確な金額は、国または地域によって異なる)</li><li>短いアカウント検証プロセス</li></ul> | <ul><li>約 99 米ドルの費用がかかる (1 回限りの登録料。正確な金額は、国または地域によって異なる)</li><li>より厳格なアカウントの確認が必要になる</li><li>所在地の国または地域で、その会社が会社として認識されている必要がある</li><li>機能が制限されたアプリを提出できる ([Microsoft Store ポリシー](store-policies.md#1014-account-type)の説明に従う)</li></ul> |
 
-会社のアカウントの方が費用が少し高くなる主な原因は、会社を代表してアカウントをセットアップする権限がユーザーにあることを確かめるために追加の手続きが必要になることにあります。 Per the [Store Policies](store-policies.md#1014-account-type), apps with certain functionality, such as those that access financial account information or that require authentication to access primary functionality (without using a secure dedicated third party authentication provider), can only be published by company accounts.
+会社のアカウントの方が費用が少し高くなる主な原因は、会社を代表してアカウントをセットアップする権限がユーザーにあることを確かめるために追加の手続きが必要になることにあります。 [ストアポリシー](store-policies.md#1014-account-type)によっては、金融アカウント情報にアクセスするアプリや、プライマリ機能にアクセスするための認証を必要とするアプリ (セキュリティで保護された専用サードパーティの認証プロバイダーを使用しない場合) など、特定の機能を持つアプリは、会社のアカウントによってのみ公開できます。
 
 ## <a name="account-verification"></a>アカウントの検証
 
-サインアップ プロセスが完了すると、アカウントに対して検証プロセスが開始されます。 個人アカウントの場合、別の会社が、発行者の表示名を既に使用していないかどうかを確認します。 会社のアカウントについては、Microsoft の確認パートナーの Dun & Bradstreet により、会社の代理でアカウントを作る権限をお持ちかどうかを確認します。 この処理には、数日から数週間かかることがあり、多くの場合は会社への電話連絡が行われます (そのため、登録フォームに入力するときにはすべて最新の連絡先を指定してください)。 You can't submit apps from a company account until it's been verified, but while you're waiting, you can [reserve an app name](create-your-app-by-reserving-a-name.md) continue building and testing apps, and work on getting your submissions ready.
+サインアップ プロセスが完了すると、アカウントに対して検証プロセスが開始されます。 個人アカウントの場合、別の会社が、発行者の表示名を既に使用していないかどうかを確認します。 会社のアカウントについては、Microsoft の確認パートナーの Dun & Bradstreet により、会社の代理でアカウントを作る権限をお持ちかどうかを確認します。 この処理には、数日から数週間かかることがあり、多くの場合は会社への電話連絡が行われます (そのため、登録フォームに入力するときにはすべて最新の連絡先を指定してください)。 確認されるまで会社のアカウントからアプリを送信することはできませんが、待機中に[アプリ名を予約](create-your-app-by-reserving-a-name.md)することで、アプリのビルドとテストを続行し、送信の準備を整えることができます。
 
 **[アカウント設定]** ページで確認状態をチェックすることができます。 
 
-## <a name="developer-account-and-app-submission-markets"></a>アカウントの種類、場所、料金
+## <a name="developer-account-and-app-submission-markets"></a>開発者アカウントとアプリ提出の市場
 
 次の表にある国や地域にお住まいの方、またはその国や地域で事業を経営している方は、開発者アカウントに登録してアプリを提出することができます。
 
@@ -151,7 +151,7 @@ The Windows program in [Partner Center](https://partner.microsoft.com/dashboard)
 | リトアニア                         | 14 EUR              | 75 EUR           |  
 | ルクセンブルク                        | 14 EUR              | 75 EUR           |  
 | マカオ                         | 19 USD              | 99 USD           |  
-| マケドニア (FYROM)                 | 19 USD              | 99 USD           |  
+| マケドニア (旧ユーゴスラビア共和国)                 | 19 USD              | 99 USD           |  
 | マダガスカル                        | 19 USD              | 99 USD           |  
 | マラウイ                            | 19 USD              | 99 USD           |  
 | マレーシア                          | 62 MYR              | 300 MYR          |  
@@ -164,7 +164,7 @@ The Windows program in [Partner Center](https://partner.microsoft.com/dashboard)
 | メキシコ                            | 247 MXN             | 1,140 MXN         |  
 | ミクロネシア                        | 19 USD              | 99 USD           |  
 | モナコ                            | 14 EUR              | 75 EUR           |  
-| モンゴル国                          | 19 USD              | 99 USD           |  
+| モンゴル                          | 19 USD              | 99 USD           |  
 | モンテネグロ                        | 14 EUR              | 75 EUR           |  
 | モロッコ                           | 158 MAD             | 800 MAD          |  
 | モザンビーク                        | 19 USD              | 99 USD           |  
@@ -190,7 +190,7 @@ The Windows program in [Partner Center](https://partner.microsoft.com/dashboard)
 | ポルトガル                          | 14 EUR              | 75 EUR           |  
 | カタール                             | 69 QAR              | 360 QAR          |  
 | ルーマニア                           | 14 EUR              | 75 EUR           |  
-| ロシア連邦                            | 626 RUB             | 3,000 RUB         |  
+| ロシア                            | 626 RUB             | 3,000 RUB         |  
 | ルワンダ                            | 19 USD              | 99 USD           |  
 | セントクリストファー・ネイビス             | 19 USD              | 99 USD           |  
 | セントルシア                       | 19 USD              | 99 USD           |  
@@ -230,7 +230,7 @@ The Windows program in [Partner Center](https://partner.microsoft.com/dashboard)
 | ウガンダ                            | 19 USD              | 99 USD           |  
 | ウクライナ                           | 156 UAH             | 800 UAH          |  
 | アラブ首長国連邦              | 19 USD              | 99 USD           |  
-| 英国                    | 12 GBP              | 65 GBP           |  
+| イギリス                    | 12 GBP              | 65 GBP           |  
 | 米国                     | 19 USD              | 99 USD           |  
 | ウルグアイ                           | 19 USD              | 99 USD           |  
 | ウズベキスタン                        | 19 USD              | 99 USD           |  

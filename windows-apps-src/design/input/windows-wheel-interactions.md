@@ -66,11 +66,11 @@ Surface Dial と共に使用する場合、これらのコントロールで、�
 
 インク ツール バーを使用している手描き入力アプリケーションで、Surface Dial メニューを開くと、ペンの種類とブラシの太さを制御するためのツールがメニューに表示されます。 ルーラーが有効である場合、対応するツールがメニューに追加され、デバイスでルーラーの位置と角度を制御できます。
 
-![Windows Ink ツールバーの選択ツールをペンで画面のダイヤル](images/windows-wheel/surface-dial-menu-inktoolbar-pen.png)  
-*Windows Ink ツールバーの選択ツールをペンで画面のダイヤル*
+Windows Ink ツールバーのペン選択ツールを使用して ![Surface のダイヤルメニュー](images/windows-wheel/surface-dial-menu-inktoolbar-pen.png)  
+*Windows Ink ツールバーのペン選択ツールを使用した Surface Dial メニュー*
 
-![Windows Ink ツールバーのストロークのサイズのツールを使用して画面のダイヤル](images/windows-wheel/surface-dial-menu-inktoolbar-strokesize.png)  
-*Windows Ink ツールバーのストロークのサイズのツールを使用して画面のダイヤル*
+Windows Ink ツールバーの [ストロークサイズ] ツールを使用して ![Surface のダイヤルメニュー](images/windows-wheel/surface-dial-menu-inktoolbar-strokesize.png)  
+*Windows Ink ツールバーのストロークサイズツールを使用した Surface のダイヤルメニュー*
 
 Windows Ink ツールバーの [ルーラー] ツールを使用して ![Surface のダイヤルメニュー](images/windows-wheel/surface-dial-menu-inktoolbar-ruler.png)  
 *Windows Ink ツールバー用のルーラーツールを使用した Surface Dial メニュー*

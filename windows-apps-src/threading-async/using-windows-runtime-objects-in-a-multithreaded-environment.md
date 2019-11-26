@@ -1,6 +1,6 @@
 ---
 title: マルチスレッド環境での Windows ランタイム オブジェクトの使用 | Microsoft Docs
-description: This article discusses the way the .NET Framework handles calls from C# and Visual Basic code to objects that are provided by the Windows Runtime or by Windows Runtime components.
+description: この記事では、.NET Framework が Windows ランタイムまたはC# Windows ランタイムコンポーネントによって提供されるオブジェクトへのコードの呼び出し Visual Basic を処理する方法について説明します。
 ms.date: 01/14/2017
 ms.topic: article
 ms.assetid: 43ffd28c-c4df-405c-bf5c-29c94e0d142b
@@ -14,7 +14,7 @@ ms.lasthandoff: 11/20/2019
 ms.locfileid: "74259797"
 ---
 # <a name="using-windows-runtime-objects-in-a-multithreaded-environment"></a>マルチスレッド環境での Windows ランタイム オブジェクトの使用
-This article discusses the way the .NET Framework handles calls from C# and Visual Basic code to objects that are provided by the Windows Runtime or by Windows Runtime components.
+この記事では、.NET Framework が Windows ランタイムまたはC# Windows ランタイムコンポーネントによって提供されるオブジェクトへのコードの呼び出し Visual Basic を処理する方法について説明します。
 
 .NET Framework では、既定で、特別な処理をせずに、複数のスレッドからどのようなオブジェクトにでもアクセスできます。 必要なものは、オブジェクトへの参照だけです。 Windows ランタイム では、このようなオブジェクトは*アジャイル*と呼ばれます。 ほとんどの Windows ランタイム クラスはアジャイルですが、アジャイルでないクラスもいくつかあります。またアジャイル クラスであっても、特別な処理が必要となる場合があります。
 
@@ -92,7 +92,7 @@ UI スレッドで作成された Windows ランタイム オブジェクトの�
 XAML コントロールを継承したり、XAML コントロールのセットを作成したりすることによって、独自のコントロールを作成する場合、作成したコントロールは .NET Framework オブジェクトであるため、アジャイルになります。 ただし、そのコントロールの基底クラスまたは構成要素であるクラスのメンバーを呼び出す場合や、継承されたメンバーを呼び出す場合は、それらのメンバーは UI スレッド以外のいずれかのスレッドから呼び出されると、例外をスローします。
 
 ### <a name="classes-that-cant-be-marshaled"></a>マーシャリングできないクラス
-マーシャリング情報が提供されない Windows ランタイム クラスには、値が [MarshalingType.None](https://msdn.microsoft.com/library/windows/apps/windows.foundation.metadata.marshalingtype.aspx) である [MarshalingBehaviorAttribute](https://msdn.microsoft.com/library/windows/apps/windows.foundation.metadata.marshalingbehaviorattribute.aspx) 属性が含まれます。 このようなクラスに関するドキュメントでは、クラスの属性として "MarshalingBehaviorAttribute(None)" が示されています。
+マーシャリング情報が提供されない Windows ランタイム クラスには、値が [MarshalingType.None](https://msdn.microsoft.com/library/windows/apps/windows.foundation.metadata.marshalingbehaviorattribute.aspx) である [MarshalingBehaviorAttribute](https://msdn.microsoft.com/library/windows/apps/windows.foundation.metadata.marshalingtype.aspx) 属性が含まれます。 このようなクラスに関するドキュメントでは、クラスの属性として "MarshalingBehaviorAttribute(None)" が示されています。
 
 次のコードでは、UI スレッドに [CameraCaptureUI](https://msdn.microsoft.com/library/windows/apps/windows.media.capture.cameracaptureui.aspx) オブジェクトを作成して、スレッド プールのスレッドからオブジェクトのプロパティを設定しようとします。 CLR は呼び出しをマーシャリングできないため、オブジェクトを使用できるのはそのオブジェクトが作成されたスレッド コンテキスト内のみであることを示すメッセージと共に [System.InvalidCastException](/dotnet/api/system.invalidcastexception) 例外をスローします。
 
@@ -163,4 +163,4 @@ UI スレッドで実行され、UI スレッド以外のスレッドから呼�
 ## <a name="see-also"></a>参照
 [C# ガイド](/dotnet/csharp/)
 
-[Visual Basic Guide](/dotnet/visual-basic/)
+[Visual Basic ガイド](/dotnet/visual-basic/)

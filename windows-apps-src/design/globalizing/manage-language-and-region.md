@@ -1,5 +1,5 @@
 ---
-Description: This topic defines the terms user profile language list, app manifest language list, and app runtime language list. これらの用語は、この機能領域のこのトピックおよびその他のトピックで使用しますので、意味を把握しておくことが重要です。
+Description: このトピックでは、ユーザープロファイルの言語一覧、アプリケーションマニフェストの言語一覧、アプリのランタイム言語の一覧を定義します。 これらの用語は、この機能領域のこのトピックおよびその他のトピックで使用しますので、意味を把握しておくことが重要です。
 title: ユーザー プロファイルの言語とアプリ マニフェストの言語について
 ms.assetid: 22D3A937-736A-4121-8285-A55DED56E594
 template: detail.hbs
@@ -35,7 +35,7 @@ UWP アプリの場合、言語は [BCP-47 言語タグ](https://tools.ietf.org/
 ## <a name="app-manifest-language-list"></a>アプリ マニフェストの言語の一覧
 アプリ マニフェストの言語の一覧は、アプリでサポートを宣言している (または宣言する) 言語の一覧です。 この一覧は、ローカライズまで開発ライフサイクルを通じてアプリを進行させるにつれて大きくなります。
 
-一覧はコンパイル時に決定されますが、決定方法を正確に制御するための 2 つのオプションがあります。 1 つ目のオプションは、Visual Studio でプロジェクト内のファイルから一覧を決定する方法です。 これを行うには、まずアプリのパッケージ マニフェスト ソース ファイル (`Package.appxmanifest`) の **[アプリケーション]** タブでアプリの**既定の言語**を設定します。 次に、同じファイルにこの構成が含まれていることを確認します (既定では含まれています)。
+一覧はコンパイル時に決定されますが、決定方法を正確に制御するための 2 つのオプションがあります。 1 つ目のオプションは、Visual Studio でプロジェクト内のファイルから一覧を決定する方法です。 これを行うには、まずアプリのパッケージ マニフェスト ソース ファイル ( **) の** [アプリケーション] **タブでアプリの**既定の言語`Package.appxmanifest`を設定します。 次に、同じファイルにこの構成が含まれていることを確認します (既定では含まれています)。
 
 ```xml
   <Resources>
@@ -53,9 +53,9 @@ UWP アプリの場合、言語は [BCP-47 言語タグ](https://tools.ietf.org/
   </Resources>
 ```
 
-もう 1 つのオプションは、アプリ パッケージ マニフェスト ソース ファイル (`Package.appxmanifest`) 内の単一の "x-generate" `<Resource>` 要素を `<Resource>` 要素の展開時のリストで置き換える方法です (既定の言語を最初に表示するように注意してください)。 このオプションの方がメンテナンス作業が多くなりますが、カスタム ビルド システムを使用する場合には適切なオプションです。
+もう 1 つのオプションは、アプリ パッケージ マニフェスト ソース ファイル (`<Resource>`) 内の単一の "x-generate" `Package.appxmanifest` 要素を `<Resource>` 要素の展開時のリストで置き換える方法です (既定の言語を最初に表示するように注意してください)。 このオプションの方がメンテナンス作業が多くなりますが、カスタム ビルド システムを使用する場合には適切なオプションです。
 
-まず、アプリ マニフェストの言語の一覧には 1 つの言語のみが含められます。 たとえば en-US です。 But eventually&mdash;as you either manually configure your manifest, or as you add translated resources to your project&mdash;that list will grow.
+まず、アプリ マニフェストの言語の一覧には 1 つの言語のみが含められます。 たとえば en-US です。 ただし、最終的には、手動でマニフェストを構成するか、またはプロジェクトに翻訳されたリソースを追加すると、そのリストが大きくなる&mdash;&mdash;ます。
 
 アプリが Microsoft Store にある場合、アプリ マニフェストの言語の一覧の言語は、ユーザーに表示される言語になります。 特に Microsoft Store でサポートされる BCP-47 言語タグの一覧については、「[サポートされている言語](../../publish/supported-languages.md)」を参照してください。
 
@@ -70,7 +70,7 @@ UWP アプリの場合、言語は [BCP-47 言語タグ](https://tools.ietf.org/
 
 具体的には、アプリの実行時の言語の一覧は次の項目で構成されています。
 
-1.  **(オプション) 第 1 言語の上書き**。 [  **PrimaryLanguageOverride**](/uwp/api/Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride) は、独自の独立した言語選択をユーザーに提示するアプリや、既定の言語選択を無効にしなければならない重大な理由があるアプリで利用できる、シンプルな上書き設定です。 詳しくは、[アプリ リソースとローカライズのサンプルに関するページ](https://code.msdn.microsoft.com/windowsapps/Application-resources-and-cd0c6eaa)をご覧ください。
+1.  **(オプション) 第 1 言語の上書き**。 [  **PrimaryLanguageOverride**](/uwp/api/Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride) は、独自の独立した言語選択をユーザーに提示するアプリや、既定の言語選択を無効にしなければならない重大な理由があるアプリで利用できる、シンプルな上書き設定です。 詳細については、「[アプリ リソースとローカライズのサンプルに関するページ](https://code.msdn.microsoft.com/windowsapps/Application-resources-and-cd0c6eaa)」を参照してください。
 2.  **アプリでサポートされるユーザーの言語**。 これは、アプリ マニフェストの言語の一覧でフィルター処理されたユーザー プロファイルの言語の一覧です。 アプリでサポートされる言語でユーザーの言語をフィルター処理することで、ソフトウェア開発キット (SDK)、クラス ライブラリ、依存性のあるフレームワーク パッケージ、そのアプリの間で一貫性が保たれます。
 3.  **1 と 2 が空の場合、アプリでサポートされる既定または最初の言語**。 ユーザー プロファイルの言語の一覧に、アプリでサポートされる言語が含まれない場合は、アプリで最優先にサポートされる言語がアプリの実行時の言語として選ばれます。
 
@@ -93,23 +93,23 @@ UWP アプリの場合、言語は [BCP-47 言語タグ](https://tools.ietf.org/
 **注** ユーザー プロファイルの言語とアプリ マニフェストの言語が互いの地域バリアントである場合、ユーザーの地域バリアントがアプリの実行時の言語として使用されます。 たとえば、ユーザーが en-GB を選んだがアプリでは en-US がサポートされるという場合、アプリの実行時の言語は en-GB になります。 この結果、日付、時刻、数値の形式はユーザーの期待 (en-GB) により近いものとなりますが、(言語の対応付けにより) ローカライズ リソースはアプリのサポート言語 (en-US) で読み込まれます。
 
 ## <a name="qualify-resource-files-with-their-language"></a>ユーザーの言語によるリソース ファイルの修飾
-言語リソース修飾子でリソース ファイルまたはそのフォルダーに名前を付けます。 リソース修飾子の詳細については、「[言語、スケール、ハイ コントラスト、その他の修飾子用にリソースを調整する](../../app-resources/tailor-resources-lang-scale-contrast.md)」を参照してください)。 A resource file can be an image (or other asset), or it can be a resource container file, such as a *.resw* that contains text strings.
+言語リソース修飾子でリソース ファイルまたはそのフォルダーに名前を付けます。 リソース修飾子の詳細については、「[言語、スケール、ハイ コントラスト、その他の修飾子用にリソースを調整する](../../app-resources/tailor-resources-lang-scale-contrast.md)」を参照してください)。 リソースファイルには、イメージ (またはその他のアセット) を使用できます。また、リソースコンテナーファイル (テキスト文字列を含む *. resw*など) を指定することもできます。
 
-**Note** Even resources in your app's default language must specify the language qualifier. For example, if your app's default language is English (United States), then qualify your assets as `\Assets\Images\en-US\logo.png`.
+**メモ**アプリの既定の言語のリソースでも、言語の修飾子を指定する必要があります。 たとえば、アプリの既定の言語が英語 (米国) の場合は、アセットを `\Assets\Images\en-US\logo.png`として修飾します。
 
-- Windows performs complex matching, including across regional variants such as en-US and en-GB. So include the region sub-tag as appropriate. 「[リソース管理システムでの言語タグの照合の仕組み](../../app-resources/how-rms-matches-lang-tags.md)」を参照してください。
-- Specify a language script sub-tag in the qualifier when there is no Suppress-Script value defined for the language. For example, instead of zh-CN or zh-TW, use zh-Hant, zh-Hant-TW, or zh-Hans (for more detail, see the [IANA language subtag registry](https://www.iana.org/assignments/language-subtag-registry)).
-- For languages that have a single standard dialect, there is no need to include the region qualifier. For example, use ja instead of ja-JP.
+- Windows では、en-us や en GB などの地域別のバリアントを含む複雑な照合が実行されます。 そのため、必要に応じて region サブタグを含めます。 「[リソース管理システムでの言語タグの照合の仕組み](../../app-resources/how-rms-matches-lang-tags.md)」を参照してください。
+- 言語に対して非表示スクリプト値が定義されていない場合は、修飾子に言語スクリプトのサブタグを指定します。 たとえば、zh-tw または zh-tw の代わりに、zh-tw、zh-tw-TW、または zh-hant-Zh-tw を使用します (詳細については、 [IANA 言語のサブタグレジストリ](https://www.iana.org/assignments/language-subtag-registry)を参照してください)。
+- 1つの標準言語を持つ言語では、地域の修飾子を含める必要はありません。 たとえば、ja-jp ではなく ja を使用します。
 - 一部のツールやその他のコンポーネント (機械翻訳など) では、データの理解に役立つ地域言語情報など特定の言語タグを探す場合があります。
 
-### <a name="not-all-resources-need-to-be-localized"></a>Not all resources need to be localized
+### <a name="not-all-resources-need-to-be-localized"></a>すべてのリソースをローカライズする必要はありません
 
-Localization might not be required for all resources.
+すべてのリソースに対してローカリゼーションが必要になるとは限りません。
 
-- At a minimum, ensure all resources exist in the default language.
-- A subset of some resources might suffice for a closely related language (partial localization). たとえば、アプリの完全なリソースのセットがスペイン語で用意されている場合、アプリの UI でカタルニア語にローカライズされていないものがある可能性があります。 For users who speak Catalan and then Spanish, the resources that are not available in Catalan appear in Spanish.
-- Some resources might require exceptions for specific languages, while the majority of other resources map to a common resource. In this case, mark the resource intended to be used for all languages with the undetermined language tag 'und'. Windows interprets the 'und' language tag as a wildcard (similar to '\*') in that it matches the top app language after any other specific match. たとえば、いくつかのリソース (要素の幅など) がフィンランド語では異なっていて、残りのリソースはすべての言語で同じであれば、フィンランド語のリソースはフィンランド語の言語タグでマークし、残りは 'und' でマークする必要があります。
-- For resources that are based on a language script, such as a font or height of text, use the undetermined language tag with a specified script: 'und-&lt;script&gt;'. たとえば、ラテン語フォントの場合は `und-Latn\\fonts.css` を使い、キリル語フォントの場合は `und-Cryl\\fonts.css` を使います。
+- 少なくとも、すべてのリソースが既定の言語で存在することを確認してください。
+- 一部のリソースのサブセットでは、密接に関連する言語 (部分的なローカリゼーション) に十分な場合があります。 たとえば、アプリの完全なリソースのセットがスペイン語で用意されている場合、アプリの UI でカタルニア語にローカライズされていないものがある可能性があります。 カタロニア語とスペイン語を話すユーザーの場合、カタロニア語では利用できないリソースはスペイン語で表示されます。
+- リソースによっては、特定の言語の例外が必要になる場合がありますが、その他のリソースの大部分は共通のリソースにマップされます。 この場合は、指定されていない言語タグ ' und ' を持つすべての言語で使用することを目的としたリソースをマークします。 Windows では、' und ' 言語タグがワイルドカードとして解釈されます ('\*' に似ています)。これは、他の特定の一致の後にアプリの最上位の言語と一致するという点です。 たとえば、いくつかのリソース (要素の幅など) がフィンランド語では異なっていて、残りのリソースはすべての言語で同じであれば、フィンランド語のリソースはフィンランド語の言語タグでマークし、残りは 'und' でマークする必要があります。
+- テキストのフォントや高さなどの言語スクリプトに基づくリソースの場合は、指定されたスクリプトで不明な言語タグを使用します: ' und-&lt;script&gt;'。 たとえば、ラテン語フォントの場合は `und-Latn\\fonts.css` を使い、キリル語フォントの場合は `und-Cryl\\fonts.css` を使います。
 
 ## <a name="set-the-http-accept-language-request-header"></a>HTTP Accept-Language 要求ヘッダーの設定
 呼び出す Web サービスがアプリと同じ程度ローカライズされているかどうかを検討します。 通常の Web 要求と XMLHttpRequest (XHR) で UWP アプリとデスクトップ アプリから行われた HTTP 要求では、標準の HTTP Accept-Language 要求ヘッダーが使われます。 既定では、HTTP ヘッダーは、ユーザー プロファイルの言語の一覧に設定されます。 この一覧内の各言語は、言語と重み付け (q) のニュートラルを含むようにさらに拡張されます。 たとえば、fr-FR と en-US のユーザーの言語一覧では、HTTP Accept-Language 要求ヘッダーは "fr-FR, fr, en-US, en ("fr-FR,fr;q=0.8,en-US;q=0.5,en;q=0.3")" となります。 ただし、たとえば天気予報アプリで UI がフランス語 (フランス) で表示されていて、ユーザーの優先順位一覧の中で最上位にリストされている言語がドイツ語の場合、アプリ内で整合性を維持するために、サービスからフランス語 (フランス) を明示的に要求する必要があります。
@@ -193,27 +193,27 @@ Localization might not be required for all resources.
 </table>
 
 >[!NOTE]
-> For a list of standard country/region codes used by Microsoft, see the [Official Country/Region List](https://globalready.azurewebsites.net/marketreadiness/OfficialCountryregion).
+> Microsoft が使用する標準の国/地域コードの一覧については、[公式の国/地域の一覧](https://globalready.azurewebsites.net/marketreadiness/OfficialCountryregion)を参照してください。
 
 ## <a name="important-apis"></a>重要な API
-* [GlobalizationPreferences.Languages](/uwp/api/windows.system.userprofile.globalizationpreferences.Languages)
-* [ApplicationLanguages.ManifestLanguages](/uwp/api/windows.globalization.applicationlanguages.ManifestLanguages)
-* [PrimaryLanguageOverride](/uwp/api/Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride)
-* [ResourceContext.QualifierValues](/uwp/api/windows.applicationmodel.resources.core.resourcecontext.QualifierValues)
-* [ResourceContext.Languages](/uwp/api/windows.applicationmodel.resources.core.resourcecontext.Languages)
-* [ApplicationLanguages.Languages](/uwp/api/windows.globalization.applicationlanguages.Languages)
+* [GlobalizationPreferences](/uwp/api/windows.system.userprofile.globalizationpreferences.Languages)
+* [ApplicationLanguages. ManifestLanguages](/uwp/api/windows.globalization.applicationlanguages.ManifestLanguages)
+* [Primary言語のオーバーライド](/uwp/api/Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride)
+* [ResourceContext. QualifierValues](/uwp/api/windows.applicationmodel.resources.core.resourcecontext.QualifierValues)
+* [ResourceContext. 言語](/uwp/api/windows.applicationmodel.resources.core.resourcecontext.Languages)
+* [ApplicationLanguages. 言語](/uwp/api/windows.globalization.applicationlanguages.Languages)
 * [Windows.Globalization](/uwp/api/windows.globalization?branch=live)
 * [言語](/uwp/api/windows.globalization.language?branch=live)
 * [GlobalizationPreferences.HomeGeographicRegion](/uwp/api/windows.system.userprofile.globalizationpreferences.HomeGeographicRegion)
 * [GeographicRegion](/uwp/api/windows.globalization.geographicregion?branch=live)
 
 ## <a name="related-topics"></a>関連トピック
-* [BCP-47 language tag](https://tools.ietf.org/html/bcp47)
-* [IANA language subtag registry](https://www.iana.org/assignments/language-subtag-registry)
+* [BCP-47 言語タグ](https://tools.ietf.org/html/bcp47)
+* [IANA 言語サブタグレジストリ](https://www.iana.org/assignments/language-subtag-registry)
 * [言語、スケール、ハイ コントラスト、その他の修飾子用にリソースを調整する](../../app-resources/tailor-resources-lang-scale-contrast.md)
 * [サポートされている言語](../../publish/supported-languages.md)
-* [Globalize your date/time/number formats](use-global-ready-formats.md)
+* [日付/時刻/数値形式をグローバライズする](use-global-ready-formats.md)
 * [リソース管理システムでの言語タグの照合の仕組み](../../app-resources/how-rms-matches-lang-tags.md)
 
 ## <a name="samples"></a>サンプル
-* [Application resources and localization sample](https://code.msdn.microsoft.com/windowsapps/Application-resources-and-cd0c6eaa)
+* [アプリケーションリソースとローカリゼーションのサンプル](https://code.msdn.microsoft.com/windowsapps/Application-resources-and-cd0c6eaa)

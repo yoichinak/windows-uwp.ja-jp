@@ -20,7 +20,7 @@ ms.locfileid: "74258646"
 
 **重要な API**
 
-- [**Windows.Devices.Enumeration**](https://docs.microsoft.com/en-us/uwp/api/Windows.Devices.Enumeration)
+- [**Windows. Devices. 列挙型**](https://docs.microsoft.com/en-us/uwp/api/Windows.Devices.Enumeration)
 
 一部のデバイスは、使う前にペアリングする必要があります。 [  **Windows.Devices.Enumeration**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration) 名前空間では、デバイスをペアリングするための 3 つの異なる方法がサポートされています。
 

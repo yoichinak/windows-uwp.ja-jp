@@ -4,7 +4,7 @@ description: アプリから Windows マップ アプリを起動する方法に
 ms.assetid: E363490A-C886-4D92-9A64-52E3C24F1D98
 ms.date: 02/08/2017
 ms.topic: article
-keywords: Windows 10, UWP
+keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: 4f91ee2ff498ae9c28a0513e1029669fe5e6991e
 ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
@@ -20,7 +20,7 @@ ms.locfileid: "74259451"
 
 アプリから Windows マップ アプリを起動する方法について説明します。 このトピックでは、**bingmaps:** 、**ms-drive-to:** 、**ms-walk-to:** 、**ms-settings:** の各 URI (Uniform Resource Identifier) スキームについて説明します。 これらの URI スキームを使って、Windows マップ アプリを起動し、特定の地図、ルート案内、検索結果を表示したり、設定アプリから Windows マップ オフライン マップをダウンロードしたりします。
 
-**ヒント** アプリから Windows マップ アプリを起動する方法について詳しくは、GitHub の [Windows-universal-samples リポジトリ](https://github.com/Microsoft/Windows-universal-samples)から[ユニバーサル Windows プラットフォーム (UWP) の地図サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/MapControl)をダウンロードしてください。
+**ヒント** アプリから Windows マップ アプリを起動する方法について詳しくは、GitHub の [Windows-universal-samples リポジトリ](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/MapControl)から[ユニバーサル Windows プラットフォーム (UWP) の地図サンプル](https://github.com/Microsoft/Windows-universal-samples)をダウンロードしてください。
 
 ## <a name="introducing-uris"></a>URI の概要
 
@@ -40,18 +40,18 @@ URI スキームを使うと、ハイパーリンクのクリックによって 
 
 URI スキームについて次に説明します。
 
-**bingmaps:?query**
+**bingmaps:? クエリ**
 
 この URI スキームでは、*query* は、次のようなパラメーター名と値の一連のペアを示します。
 
-**&param1=value1&param2=value2 …**
+**& param1 = value1 & param2 = value2...**
 
 使用可能なパラメーターの一覧については、[bingmaps:](#bingmaps-param-reference)、[ms-drive-to:](#ms-drive-to-param-reference)、[ms-walk-to:](#ms-walk-to-param-reference) のパラメーター リファレンスをご覧ください。 このトピックでも後で例を示します。
 
 ## <a name="launch-a-uri-from-your-app"></a>アプリからの URI の起動
 
 
-アプリから Windows マップ アプリを起動するには、**bingmaps:** 、**ms-drive-to:** 、または **ms-walk-to:** URI を指定して [**LaunchUriAsync**](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchuriasync) メソッドを呼び出します。 次の例では、前の例と同じ URI を起動します。 URI によるアプリの起動について詳しくは、「[URI に応じた既定のアプリの起動](launch-default-app.md)」をご覧ください。
+アプリから Windows マップ アプリを起動するには、[bingmaps: **、** ms-drive-to:](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchuriasync)、または **ms-walk-to:** URI を指定してLaunchUriAsync メソッドを呼び出します。 次の例では、前の例と同じ URI を起動します。 URI によるアプリの起動について詳しくは、「[URI に応じた既定のアプリの起動](launch-default-app.md)」をご覧ください。
 
 ```cs
 // Center on New York City
@@ -77,10 +77,10 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriNewYork, launcherO
 | bingmaps:?                                                                 | マップ アプリを開きます。                                                                                                                                                                            |
 | bingmaps:?cp=40.726966~-74.006076                                          | ニューヨークを中心とした地図を表示します。                                                                                                                                                    |
 | bingmaps:?cp=40.726966~-74.006076&lvl=10                                   | ズーム レベル 10 でニューヨークを中心とした地図を表示します。                                                                                                                            |
-| bingmaps:?bb=39.719\_-74.52~41.71\_-73.5                                   | **bb** 引数で指定された領域に基づいてニューヨーク市の地図を表示します。                                                                                                           |
-| bingmaps:?bb=39.719\_-74.52~41.71\_-73.5&cp=47~-122                        | 境界ボックスの引数で指定された領域に基づいてニューヨークの地図を表示します。 *bb* が指定されているため、**cp** 引数で指定されたシアトルの中心点は無視されます。 |
-| bingmaps:?collection=point.36.116584\_-115.176753\_Caesars%20Palace&lvl=16 | シーザーズ パレス (ラスベガス) という名前のポイントを使って地図を表示します。ズーム レベルは 16 に設定されます。                                                                                                 |
-| bingmaps:?collection=point.40.726966\_-74.006076\_Some%255FBusiness        | Displays a map with a point named Some\_Business (in Las Vegas).                                                                                                                               |
+| bingmaps:? bb = 39.719\_-74.52 ~ 41.71\_-73.5                                   | **bb** 引数で指定された領域に基づいてニューヨーク市の地図を表示します。                                                                                                           |
+| bingmaps:? bb = 39.719\_-74.52 ~ 41.71\_-73.5 & cp = 47 ~-122                        | 境界ボックスの引数で指定された領域に基づいてニューヨークの地図を表示します。 **bb** が指定されているため、*cp* 引数で指定されたシアトルの中心点は無視されます。 |
+| bingmaps:? collection = 36.116584\_-115.176753\_Caesars% & lvl = 16 | シーザーズ パレス (ラスベガス) という名前のポイントを使って地図を表示します。ズーム レベルは 16 に設定されます。                                                                                                 |
+| bingmaps:? collection = 40.726966\_-74.006076\_% 255FBusiness        | \_ビジネス (ラスベガス) という名前のポイントを持つマップを表示します。                                                                                                                               |
 | bingmaps:?cp=40.726966~-74.006076&trfc=1&sty=a                             | 航空写真の地図形式を使い、交通情報を有効にして、ニューヨーク市の地図を表示します。                                                                                                                          |
 | bingmaps:?cp=47.6204~-122.3491&sty=3d                                      | スペース ニードルの 3D ビューを表示します。                                                                                                                                                        |
 | bingmaps:?cp=47.6204~-122.3491&sty=3d&rad=200&pit=75&hdg=165               | 半径 200 m、ピッチ 75 度、方位 165 度で、スペース ニードルの 3D ビューを表示します。                                                                             |
@@ -97,7 +97,7 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriNewYork, launcherO
 | bingmaps:?q=1600%20Pennsylvania%20Ave,%20Washington,%20DC     | 地図を表示し、ワシントンD.C. のホワイト ハウスの住所を検索します。 |
 | bingmaps:?q=coffee&where=Seattle                              | シアトルでコーヒーを検索します。                                                    |
 | bingmaps:?cp=40.726966~-74.006076&where=New%20York            | 指定した中心点の近くのニューヨークを検索します。                             |
-| bingmaps:?bb=39.719\_-74.52~41.71\_-73.5&q=pizza              | 指定した境界ボックス (ニューヨーク市) の中でピザを検索します。      |
+| bingmaps:? bb = 39.719\_-74.52 ~ 41.71\_-73.5 & q = ピザ              | 指定した境界ボックス (ニューヨーク市) の中でピザを検索します。      |
 
  
 ## <a name="display-multiple-points"></a>複数のポイントの表示
@@ -107,11 +107,11 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriNewYork, launcherO
 
 | サンプル URI | 結果                                                                                                                   |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
-| bingmaps:?collection=point.36.116584\_-115.176753\_Caesars%20Palace                                                                                                | ラスベガスのシーザーズ パレスを検索し、その結果を地図に表示します (最適な地図のビューで表示されます)。                         |
-| bingmaps:?collection=point.36.116584\_-115.176753\_Caesars%20Palace&lvl=16                                                                                         | ラスベガスにあるシーザーズ パレスという名前のプッシュピンを表示し、ズーム レベルを 16 に設定します。                                               |
-| bingmaps:?collection=point.36.116584\_-115.176753\_Caesars%20Palace~point.36.113126\_-115.175188\_The%20Bellagio&lvl=16&cp=36.114902~-115.176669                   | ラスベガスにあるシーザーズ パレスおよびベラジオという名前のプッシュピンを表示し、ズーム レベルを 16 に設定します。              |
-| bingmaps:?collection=point.40.726966\_-74.006076\_Fake%255FBusiness%255Fwith%255FUnderscore                                                                        | Displays New York with a pushpin named Fake\_Business\_with\_Underscore.                                                  |
-| bingmaps:?collection=name.Hotel%20List~point.36.116584\_-115.176753\_Caesars%20Palace~point.36.113126\_-115.175188\_The%20Bellagio&lvl=16&cp=36.114902~-115.176669 | Hotel List という名前の一覧、およびラスベガスにあるシーザーズ パレスとベラジオの 2 つのプッシュピンを表示し、ズーム レベルを 16 に設定します。 |
+| bingmaps:? collection = 36.116584\_-115.176753\_Caesars%                                                                                                | ラスベガスのシーザーズ パレスを検索し、その結果を地図に表示します (最適な地図のビューで表示されます)。                         |
+| bingmaps:? collection = 36.116584\_-115.176753\_Caesars% & lvl = 16                                                                                         | ラスベガスにあるシーザーズ パレスという名前のプッシュピンを表示し、ズーム レベルを 16 に設定します。                                               |
+| bingmaps:? collection = 36.116584\_-115.176753\_Caesars% ~ 36.113126\_-115.175188\_% 20Bellagio & lvl = 16 & cp = 36.114902 ~-115.176669                   | ラスベガスにあるシーザーズ パレスおよびベラジオという名前のプッシュピンを表示し、ズーム レベルを 16 に設定します。              |
+| bingmaps:? collection = 40.726966\_-74.006076\_フェイク% 255FBusiness% 255Fbusiness% 255Fbusiness                                                                        | 偽\_Business\_という名前のプッシュピンと\_のアンダースコアを持つニューヨークを表示します。                                                  |
+| bingmaps:? collection = name.ホテル% 20List ~ point. 36.116584\_-115.176753\_Caesars% ~ 36.113126\_-115.175188\_% 20Bellagio & lvl = 16 & cp = 36.114902 ~-115.176669 | Hotel List という名前の一覧、およびラスベガスにあるシーザーズ パレスとベラジオの 2 つのプッシュピンを表示し、ズーム レベルを 16 に設定します。 |
 
  
 
@@ -124,10 +124,10 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriNewYork, launcherO
 
 | サンプル URI                                                                                                              | 結果                                                                                                                                                         |
 |-------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| bingmaps:?rtp=pos.44.9160\_-110.4158~pos.45.0475\_-109.4187                                                             | ポイント ツー ポイントのルート案内と共に地図を表示します。 *mode* が指定されていないため、ルート案内は、ユーザーの交通手段の設定のモードを使って提供されます。 |
+| bingmaps:? rtp = 44.9160\_-110.4158 ~ 45.0475\_-109.4187                                                             | ポイント ツー ポイントのルート案内と共に地図を表示します。 *mode* が指定されていないため、ルート案内は、ユーザーの交通手段の設定のモードを使って提供されます。 |
 | bingmaps:?cp=43.0332~-87.9167&trfc=1                                                                                    | ウィスコンシン州のミルウォーキーを中心とした地図と交通情報を表示します。                                                                                                        |
-| bingmaps:?rtp=adr.One Microsoft Way, Redmond, WA 98052~pos.39.0731\_-108.7238                                           | 指定した住所から指定した場所までのルート案内と共に地図を表示します。                                                                            |
-| bingmaps:?rtp=adr.1%20Microsoft%20Way,%20Redmond,%20WA,%2098052~pos.36.1223\_-111.9495\_Grand%20Canyon%20northern%20rim | 1 Microsoft Way, Redmond, WA、98052 からグランドキャニオンの北端までのルート案内を表示します。                                                                |
+| bingmaps:? rtp = adr。Microsoft の1つの方法である Redmond, WA 98052 ~ 39.0731\_-108.7238                                           | 指定した住所から指定した場所までのルート案内と共に地図を表示します。                                                                            |
+| bingmaps:? rtp = adr. 1% 20Microsoft% 20Microsoft、% 20Microsoft、% 20MICROSOFT、%2098052 ~ 36.1223\_-111.9495\_総計% 20Microsoft% 20microsoft% 20microsoft | 1 Microsoft Way, Redmond, WA、98052 からグランドキャニオンの北端までのルート案内を表示します。                                                                |
 | bingmaps:?rtp=adr.Davenport, CA~adr.Yosemite Village                                                                    | 指定した場所から指定したランドマークまでの自動車ルート案内と共に地図を表示します。                                                                   |
 | bingmaps:?rtp=adr.Mountain%20View,%20CA~adr.San%20Francisco%20International%20Airport,%20CA&mode=d                      | カリフォルニア州のマウンテンビューからカリフォルニア州のサンフランシスコ国際空港までの自動車ルート案内を表示します。                                                                  |
 | bingmaps:?rtp=adr.Mountain%20View,%20CA~adr.San%20Francisco%20International%20Airport,%20CA&mode=w                      | カリフォルニア州のマウンテンビューからカリフォルニア州のサンフランシスコ国際空港までの徒歩ルート案内を表示します。                                                                  |
@@ -209,7 +209,7 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriNewYork, launcherO
 </tr>
 <tr class="odd">
 <td align="left"><p><b>where</b></p></td>
-<td align="left"><p>位置情報</p></td>
+<td align="left"><p>Location</p></td>
 <td align="left"><p>where = "where=" whereval</p>
 <p>whereval = 1 *( ALPHA / DIGIT / "-" / "." / "_" / pct-encoded / "!" / "$" / "'" / "(" / ")" / "* " / "+" / "," / ";" / ":" / "@" / "/" / "?")</p>
 <p>以下に例を示します。</p>
@@ -235,7 +235,7 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriNewYork, launcherO
 </tr>
 <tr class="even">
 <td align="left"><p><b>sty</b></p></td>
-<td align="left"><p>[スタイル]</p></td>
+<td align="left"><p>スタイル</p></td>
 <td align="left"><p>sty = "sty=" ("a" / "r"/"3d")</p>
 <p>以下に例を示します。</p>
 <p>sty=a</p></td>
@@ -247,7 +247,7 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriNewYork, launcherO
 </ul>
 <p>Windows 10 では、航空写真表示と 3D ビューのスタイルは同じです。</p>
 <div class="alert">
-<b>Note</b>  Omitting the <b>sty</b> parameter produces the same results as sty=r.
+<b>注</b>  <b>Sty</b>パラメーターを省略すると、sty = r と同じ結果が生成されます。
 </div>
 <div>
  
@@ -271,7 +271,7 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriNewYork, launcherO
 </tr>
 <tr class="odd">
 <td align="left"><p><b>hdg</b></p></td>
-<td align="left"><p>方位</p></td>
+<td align="left"><p>見出し</p></td>
 <td align="left"><p>hdg = "hdg=" heading</p>
 <p>以下に例を示します。</p>
 <p>hdg=180</p></td>
@@ -279,13 +279,13 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriNewYork, launcherO
 </tr>
 <tr class="even">
 <td align="left"><p><b>ss</b></p></td>
-<td align="left"><p>[Streetside]</p></td>
+<td align="left"><p>Streetside</p></td>
 <td align="left"><p>ss = "ss=" BIT</p>
 <p>以下に例を示します。</p>
 <p>ss=1</p></td>
 <td align="left"><p><code>ss=1</code> の場合は、ストリート レベルの画像が表示されることを示します。 <b>ss</b> パラメーターを省略すると、<code>ss=0</code> と同じ結果が表示されます。 <b>cp</b> パラメーターと組み合わせて使うと、ストリート レベル ビューの場所を指定できます。</p>
 <div class="alert">
-<b>Note</b>  Street-level imagery is not available in all regions.
+<b>注</b>: ストリートレベルの画像は、すべての地域で使用できるわけではありません  。
 </div>
 <div>
  
@@ -293,13 +293,13 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriNewYork, launcherO
 </tr>
 <tr class="odd">
 <td align="left"><p><b>trfc</b></p></td>
-<td align="left"><p>交通情報</p></td>
+<td align="left"><p>トラフィック</p></td>
 <td align="left"><p>trfc = "trfc=" BIT</p>
 <p>以下に例を示します。</p>
 <p>trfc=1</p></td>
 <td align="left"><p>交通情報を地図に含めるかどうかを指定します。 trfc パラメーターを省略すると、<code>trfc=0</code> と同じ結果が表示されます。</p>
-<div class="alert">
-<b>Note</b>  Traffic data is not available in all regions.
+<div class="alert">  トラフィックデータはすべてのリージョンで使用できない
+<b>ことに注意</b>してください。
 </div>
 <div>
  
@@ -327,8 +327,8 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriNewYork, launcherO
 <p><code>rtp=~"B"</code> のようにルートの終了地点のみを指定した場合は、ルート案内のパネルが表示されると、<b>[目的地]</b> フィールドには指定された中間点が表示されます。 現在の正確な位置情報にアクセスできる場合、<b>[出発地]</b> フィールドに現在の場所があらかじめ入力され、フォーカスが設定されます。</p>
 <p>不完全なルートが指定されている場合は、ルートの線は表示されません。</p>
 <p><b>mode</b> パラメーターと組み合わせて使うと、交通手段のモード (自動車、公共交通機関、徒歩) を指定できます。 <b>mode</b> が指定されていない場合、ルート案内は、ユーザーの交通手段の設定のモードを使って提供されます。</p>
-<div class="alert">
-<b>Note</b>  A title can be used for a location if the location is specified by the <b>pos</b> parameter value. 緯度と経度が表示される代わりに、タイトルが表示されます。
+<div class="alert">場所が<b>pos</b>パラメーター値によって指定されている場合は、場所にタイトルを使用でき  ことに
+<b>注意</b>してください。 緯度と経度が表示される代わりに、タイトルが表示されます。
 </div>
 <div>
  
@@ -351,7 +351,7 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriNewYork, launcherO
 
 <tr class="even">
 <td align="left"><p><b>collection</b></p></td>
-<td align="left"><p>[コレクション]</p></td>
+<td align="left"><p>コレクション</p></td>
 <td align="left"><p>collection = "collection="(name"~"/)point["~"point]</p>
 <p>name = "name." whereval </p>
 <p>whereval = 1( ALPHA / DIGIT / "-" / "." / "_" / pct-encoded / "!" / "$" / "'" / "(" / ")" / "" / "+" / "," / ";" / ":" / "@" / "/" / "?") </p>
@@ -387,8 +387,8 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriNewYork, launcherO
 
 | パラメーター | 定義 | 例 | 詳細 |
 |------------|-----------|---------|---------|
-| **destination.latitude** | 目的地の緯度 | 例: destination.latitude=47.6451413797194 | 目的地の緯度です。 有効な緯度の値の範囲は -90 ～ +90 です (両端の値を含む)。 |
-| **destination.longitude** | 目的地の経度 | 例: destination.longitude=-122.141964733601 | 目的地の経度です。 有効な経度の値の範囲は -180 ～ +180 です (両端の値を含む)。 |
+| **変換先緯度** | 目的地の緯度 | 例: destination.latitude=47.6451413797194 | 目的地の緯度です。 有効な緯度の値の範囲は -90 ～ +90 です (両端の値を含む)。 |
+| **変換先経度** | 目的地の経度 | 例: destination.longitude=-122.141964733601 | 目的地の経度です。 有効な経度の値の範囲は -180 ～ +180 です (両端の値を含む)。 |
 | **destination.name** | 目的地の名前 | 例: destination.name=Redmond, WA | 目的地の名前です。 **destination.name** 値をエンコードする必要はありません。 |
 
  
@@ -404,8 +404,8 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriNewYork, launcherO
 
 | パラメーター | 定義 | 例 | 詳細 |
 |-----------|------------|---------|----------|
-| **destination.latitude** | 目的地の緯度 | 例: destination.latitude=47.6451413797194 | 目的地の緯度です。 有効な緯度の値の範囲は -90 ～ +90 です (両端の値を含む)。 |
-| **destination.longitude** | 目的地の経度 | 例: destination.longitude=-122.141964733601 | 目的地の経度です。 有効な経度の値の範囲は -180 ～ +180 です (両端の値を含む)。 |
+| **変換先緯度** | 目的地の緯度 | 例: destination.latitude=47.6451413797194 | 目的地の緯度です。 有効な緯度の値の範囲は -90 ～ +90 です (両端の値を含む)。 |
+| **変換先経度** | 目的地の経度 | 例: destination.longitude=-122.141964733601 | 目的地の経度です。 有効な経度の値の範囲は -180 ～ +180 です (両端の値を含む)。 |
 | **destination.name** | 目的地の名前 | 例: destination.name=Redmond, WA | 目的地の名前です。 **destination.name** 値をエンコードする必要はありません。 |
 
 ## <a name="ms-settings-parameter-reference"></a>ms-settings: のパラメーター リファレンス

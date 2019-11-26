@@ -25,7 +25,7 @@ ms.locfileid: "74258129"
 
 ただし、表示する [**DateTime**](/uwp/api/windows.foundation.datetime?branch=live) オブジェクトの構成要素の順序や形式をより細かく制御する場合は、コンストラクターの *formatTemplate* 引数に書式パターンを渡すことができます。 書式パターンでは、特殊な構文を使用します。これにより、 **DateTime**オブジェクトの個々のコンポーネントを、月の名前だけ&mdash;、または年の値のみを取得できます。たとえば、選択した任意のカスタム書式で表示するために&mdash;ます。 さらに、パターンをローカライズして、他の言語や地域に対応させることができます。
 
-**  これ**は、書式パターンの概要です。 書式テンプレートと書式パターンについて詳しくは、[**DateTimeFormatter**](/uwp/api/windows.globalization.datetimeformatting?branch=live) クラスの「解説」セクションをご覧ください。
+**  これ**は、書式パターンの概要です。 書式テンプレートと書式パターンの詳細については、[**DateTimeFormatter**](/uwp/api/windows.globalization.datetimeformatting?branch=live) クラスの「解説」セクションを参照してください。
 
 ## <a name="the-difference-between-format-templates-and-format-patterns"></a>書式テンプレートと書式パターンの違い
 
@@ -137,7 +137,7 @@ string output = patternFormatter.Format(System.DateTime.Now);
 
 * [Windows.globalization.datetimeformatting](/uwp/api/windows.globalization.datetimeformatting?branch=live)
 * [DateTimeFormatter](/uwp/api/windows.globalization.datetimeformatting?branch=live)
-* [DateTime](/uwp/api/windows.foundation.datetime?branch=live)
+* [/](/uwp/api/windows.foundation.datetime?branch=live)
 
 ## <a name="related-topics"></a>関連トピック
 

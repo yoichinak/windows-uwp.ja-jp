@@ -3,7 +3,7 @@ title: 画面のサイズとレスポンシブ デザインのブレークポイ
 description: Windows 10 エコシステムの多くのデバイス用に UI を最適化するのではなく、ブレークポイントと呼ばれるいくつかの主要な幅カテゴリ用に設計することをお勧めします。
 ms.date: 08/30/2017
 ms.topic: article
-keywords: Windows 10, UWP
+keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.custom: RS5
 ms.openlocfilehash: 37d0ca71adf43891628a02d60d6873e7934d749b
@@ -15,7 +15,7 @@ ms.locfileid: "74258185"
 ---
 #  <a name="screen-sizes-and-breakpoints"></a>画面のサイズとブレークポイント
 
-UWP アプリは、Windows 10 を実行している任意のデバイスで実行できます (電話、タブレット、デスクトップ、テレビなど)。 With a huge number of device targets and screen sizes across the Windows 10 ecosystem, rather than optimizing your UI for each device, we recommended designing for a few key width categories (also called "breakpoints"): 
+UWP アプリは、Windows 10 を実行している任意のデバイスで実行できます (電話、タブレット、デスクトップ、テレビなど)。 Windows 10 エコシステム全体にわたって多数のデバイスターゲットと画面サイズがあるため、各デバイスの UI を最適化するのではなく、いくつかのキー幅のカテゴリ ("ブレークポイント" とも呼ばれます) を設計することをお勧めします。 
 - 小 (640 ピクセル以下)
 - 中 (641 ピクセル ～ 1007 ピクセル)
 - 大 (1008 ピクセル以上)
@@ -34,7 +34,7 @@ UWP アプリは、Windows 10 を実行している任意のデバイスで実�
 <th align="left">サイズ クラス</th>
 <th align="left">ブレークポイント</th>
 <th align="left">一般的な画面サイズ (対角線)</th>
-<th align="left">[デバイス]</th>
+<th align="left">デバイス</th>
 <th align="left">ウィンドウ サイズ</th>
 </tr>
 </thead>
@@ -100,6 +100,6 @@ UWP アプリは、すべての Windows 10 デバイスでアプリが判読可�
 - 常に表示されるように[ナビゲーション ウィンドウ](../controls-and-patterns/navigationview.md)を固定モードにします。
 
 >[!TIP] 
-> With [**Continuum for Phones**](https://docs.microsoft.com/windows-hardware/design/device-experiences/continuum-phone?redirectedfrom=MSDN), users can connect compatible Windows 10 mobile devices to a monitor, mouse and keyboard to make their phones work like laptops. 特定のブレークポイント向けに設計するときは、この新機能に注意してください。携帯電話が常にそのサイズ クラスで維持されるわけではありません。
+> [**携帯電話の**](https://docs.microsoft.com/windows-hardware/design/device-experiences/continuum-phone?redirectedfrom=MSDN)場合、ユーザーは互換性のある Windows 10 mobile デバイスをモニター、マウス、キーボードに接続して、携帯電話をラップトップのように機能させることができます。 特定のブレークポイント向けに設計するときは、この新機能に注意してください。携帯電話が常にそのサイズ クラスで維持されるわけではありません。
 
 

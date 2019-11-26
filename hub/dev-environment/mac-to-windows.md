@@ -1,12 +1,12 @@
 ---
-title: Help moving from Mac (Unix) to Windows
-description: A guide to help you transition from a Mac (Unix) to a Windows development environment, including shortcut key mapping and a brief overview of concepts that differ between Mac and Windows.
+title: Mac (Unix) から Windows への移行に関するヘルプ
+description: Mac (Unix) から Windows 開発環境への移行に役立つガイドです。これには、ショートカットキーマッピングや、Mac と Windows で異なる概念の簡単な概要が含まれます。
 author: mattwojo
 ms.author: mattwoj
 manager: jken
 ms.topic: article
 ms.technology: windows-nodejs
-keywords: Mac to Windows, shortcut key mapping, move from Unix to Windows, transition from Mac to Windows, help moving from MacBook to Surface, how to use Windows for a Macintosh user, switching from Macintosh to Windows, help changing dev environments, Mac OS X to Windows, help moving from Mac to PC
+keywords: Mac から Windows、ショートカットキーのマッピング、Unix から Windows への移行、Mac から Windows への移行、Macintosh ユーザー用の Windows の使用、開発環境の変更、Windows への Mac OS X、ヘルプを参照してください。Mac から PC への移行
 ms.localizationpriority: medium
 ms.date: 09/19/2019
 ms.openlocfilehash: 563a8ad659cfff1396049aae78342642d1db3e72
@@ -16,79 +16,79 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/21/2019
 ms.locfileid: "74309157"
 ---
-# <a name="guide-for-changing-your-dev-environment-from-mac-to-windows"></a>Guide for changing your dev environment from Mac to Windows
+# <a name="guide-for-changing-your-dev-environment-from-mac-to-windows"></a>開発環境を Mac から Windows に変更するためのガイド
 
-The following tips and control equivalents should help you in your transition between a Mac and Windows (or WSL/Linux) development environment.
+次のヒントと制御に相当するものが、Mac と Windows (または WSL/Linux) 開発環境の移行に役立ちます。
 
-For app development, the nearest equivalent to Xcode would be [Visual Studio](https://visualstudio.microsoft.com). There is also a version of [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/), if you ever feel the need to go back. For cross-platform source code editing (and a huge number of plug-ins) [Visual Studio Code](https://code.visualstudio.com/?wt.mc_id=DX_841432) is the most popular choice.
+アプリの開発では、Xcode と最も近いものが[Visual Studio](https://visualstudio.microsoft.com)になります。 また、前に戻る必要があると思われる場合は、 [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/)のバージョンもあります。 クロスプラットフォームのソースコード編集 (および多数のプラグイン) の場合[Visual Studio Code](https://code.visualstudio.com/?wt.mc_id=DX_841432)は最も一般的な選択肢です。
 
-## <a name="keyboard-shortcuts"></a>[キーボード ショートカット]
+## <a name="keyboard-shortcuts"></a>キーボード ショートカット
 
-| **Operation** | **Mac** | **Windows** |
+| **運用** | **Mac** | **Windows** |
 |---------------|--------------------|---------------------|
-| [コピー] | Command+C | Ctr+C |
-| 切り取り | Command+X | Ctr+X |
-| Paste | Command+V | Ctr+V |
-| 元に戻す | Command+Z | Ctrl + Z |
-| [保存] | Command+S | Ctrl + S |
-| まず、 | Command+O | Ctrl + O |
-| Lock computer | Command+Control+Q | WindowKey+L |
-| Show desktop | Command+F3 | WindowKey+D |
-| Minimize windows | COMMAND +M | Windows key+M |
-| [検索] | Command+Space | Windows キー |
-| Close active window | Command+W | Control+W |
-| Switch current task | Command+Tab | Alt + Tab |
-| Save screen (Screenshot) | Command+Shift+3 | Windows+Shift+S |
-| Save window | Command+Shift+4 | Windows+Shift+S |
-| View item information or properties | Command+I | Alt + Enter |
- | Select all items | Command+A | Ctrl + A |
-| Select more than one item in a list (noncontiguous) | Command, then click each item | Control, then click each item |
-| Type special characters | Option+ character key | Alt+ character key|
+| コピー | コマンド + C | Ctr + C |
+| 切り取り | コマンド + X | Ctr + X |
+| Paste | コマンド + V | Ctr + V |
+| 元に戻す | コマンド + Z | Ctrl + Z |
+| Save | コマンド + S | Ctrl + S |
+| Open | コマンド + O | Ctrl + O |
+| コンピューターのロック | コマンド + コントロール + Q | WindowKey + L |
+| デスクトップを表示する | Command + F3 | WindowKey + D |
+| ウィンドウを最小化する | コマンド + M | Windows キー + M |
+| 検索 | コマンド + スペース | Windows キー |
+| アクティブウィンドウを閉じる | コマンド + W | Ctrl + W |
+| 現在のタスクの切り替え | コマンド + Tab | Alt + Tab |
+| 画面の保存 (スクリーンショット) | コマンド + Shift + 3 | Windows + Shift + S |
+| ウィンドウの保存 | コマンド + Shift + 4 | Windows + Shift + S |
+| 項目の情報またはプロパティを表示する | コマンド + I | Alt + Enter |
+ | すべての項目を選択 | コマンド + A | Ctrl + A |
+| リスト内の複数の項目を選択する (非連続) | をクリックし、各項目をクリックします。 | コントロールをクリックし、各項目をクリックします。 |
+| 特殊文字の入力 | Option + 文字キー | Alt + 文字キー|
 
 ## <a name="trackpad-shortcuts"></a>トラックパッドのショートカット
 
-Note: Some of these shortcuts require a “Precision Trackpad”, such as the trackpad on Surface devices and some other third party laptops.
+注: これらのショートカットの中には、Surface デバイスのトラックパッドや他のサードパーティ製のラップトップなど、"Precision トラックパッド" が必要です。
 
- **Operation** | **Mac** | **Windows** |
+ **運用** | **Mac** | **Windows** |
 |---------------|--------------------|---------------------|
-| スクロールする | Two finger vertical swipe | Two finger vertical swipe |
-| ズーム | Two finger pinch in and out | Two finger pinch in and out |
-| Swipe back and forward between views | Two finger sideways swipe | Two finger sideways swipe |
-| Switch virtual workspaces | Four fingers sideways swipe | Four fingers sideways swipe |
-| Display currently open apps | Four fingers upward swipe | Three fingers upward swipe |
-| Switch between apps | 該当なし | Slow three finger sideways swipe |
-| Go to desktop | Spread out four fingers | Three finger swipe downwards |
-| Open Cortana / Action center | Two finger slide from right | Three finger tap |
-| Open extra information | Three finger tap | 該当なし |
-|Show launchpad / start an app | Pinch with four fingers | Tap with four fingers |
+| Scroll | 2本の指の垂直方向のスワイプ | 2本の指の垂直方向のスワイプ |
+| ズーム | 2本の指のピンチインと out | 2本の指のピンチインと out |
+| ビューを前後にスワイプする | 2本の横方向のスワイプ | 2本の横方向のスワイプ |
+| 仮想ワークスペースの切り替え | 4本の横方向のスワイプ | 4本の横方向のスワイプ |
+| 現在開いているアプリを表示する | 4本の上向きスワイプ | 3本の上向きスワイプ |
+| アプリを切り替える | 該当なし | 3本の横方向のスワイプが遅い |
+| デスクトップにアクセス | 4本の指を拡散する | 指を下に3本スワイプ |
+| Cortana/アクションセンターを開く | 右から2本の指スライド | 3本の指タップ |
+| 追加情報を開く | 3本の指タップ | 該当なし |
+|スタートパッドの表示/アプリの開始 | 4本の指を使用したピンチ | 4本の指でタップ |
 
-Note: Trackpad options are configurable on both platforms.
+注: トラックパッドオプションは、両方のプラットフォームで構成できます。
 
 ## <a name="terminal-and-shell"></a>ターミナルとシェル
 
-Windows provides several alternatives to the Mac's terminal emulator.
+Windows には、Mac のターミナルエミュレーターに代わるいくつかの代替手段が用意されています。
 
-1. The Windows Command Line
+1. Windows コマンドライン
 
-The Windows command line will accept DOS commands, and is the most commonly used command line tool on Windows. To open it: Press **Windows+R** to open the **Run** box, then type **cmd** and then click **OK**. To open an administrator command line, type **cmd** and then press **Ctrl+Shift+Enter**. 
+Windows のコマンドラインは DOS コマンドを受け取り、Windows で最も一般的に使用されるコマンドラインツールです。 開くには、 **Windows + R**キーを押して [ファイル名を選択して**実行**] ボックスを開き、「 **cmd** 」と入力して、[ **OK]** をクリックします。 管理者のコマンドラインを開くには、「 **cmd** 」と入力し、 **ctrl + Shift + enter**キーを押します。 
 
 2. PowerShell
 
-[PowerShell](https://docs.microsoft.com/powershell/scripting/overview?view=powershell-6) is a "PowerShell is a task-based command-line shell and scripting language built on .NET. PowerShell helps system administrators and power-users rapidly automate tasks that manage operating systems". In other words, it's a very powerful command line, and is especially loved by system admins.
+[Powershell は](https://docs.microsoft.com/powershell/scripting/overview?view=powershell-6)、"powershell は、.net 上に構築されたタスクベースのコマンドラインシェルおよびスクリプト言語です。 PowerShell を使用すると、システム管理者やパワーユーザーは、オペレーティングシステムを管理するタスクを迅速に自動化できます。 つまり、非常に強力なコマンドラインであり、特にシステム管理者にとっては非常に便利です。
 
-Incidentally, PowerShell is [also available for Mac](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-macos?view=powershell-6).
+ちなみに、Mac で[も PowerShell を使用でき](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-macos?view=powershell-6)ます。
 
 3. Windows Subsystem for Linux (WSL)
 
-WSL allows you to run a Linux shell within Windows. This means you can run *bash** or other shell, depending on choice and the specific Linux distro installed. Using WSL will provide the kind of environment most familiar to Mac users. For example, you will **ls** to list the files in a current directory, not **dir** as you would with the Windows command line. To learn about instaling and using WSL, see the [Windows Subsystem for Linux Installation Guide for Windows 10](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
+WSL を使用すると、Linux シェルを Windows 内で実行できます。 これは、インストールされている特定の Linux ディストリビューションに応じて、 *bash** またはその他のシェルを実行できることを意味します。 WSL を使用すると、Mac ユーザーに最もなじみのある環境を提供できます。 たとえば、Windows のコマンドラインの場合**と同じ**ように、現在のディレクトリ内のファイルを一覧**表示すること**ができます。 Instaling と WSL の使用方法については、windows [10 用 Windows Subsystem For Linux のインストールガイド](https://docs.microsoft.com/en-us/windows/wsl/install-win10)を参照してください。
 
 ## <a name="apps-and-utilities"></a>アプリとユーティリティ
 
- **App** | **Mac** | **Windows** |
+ **アプリケーション** | **Mac** | **Windows** |
 |---------------|--------------------|---------------------|
-| Settings and Preferences | System Preferences | 設定 |
-| タスク マネージャー | Activity Monitor | タスク マネージャー |
-| Disk formatting | Disk Utility | ディスクの管理 |
-| Text editing | TextEdit | メモ帳 |
-| Event viewing | Console | イベント ビューアー |
-| Find files/apps | Command+Space | Windows キー |
+| 設定と基本設定 | システム設定 | 設定 |
+| タスク マネージャー | 利用状況モニター | タスク マネージャー |
+| ディスクのフォーマット | ディスクユーティリティ | ディスクの管理 |
+| テキスト編集 | TextEdit | メモ帳 |
+| イベントの表示 | Console | イベント ビューアー |
+| ファイル/アプリの検索 | コマンド + スペース | Windows キー |

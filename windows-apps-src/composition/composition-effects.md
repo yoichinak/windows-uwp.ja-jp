@@ -4,7 +4,7 @@ title: コンポジション効果
 description: 効果 API を使用すると、開発者は UI のレンダリング方法をカスタマイズできます。
 ms.date: 02/08/2017
 ms.topic: article
-keywords: Windows 10, UWP
+keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: 57236b6780a7afe996fb1e68ac474d8d8077ca69
 ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
@@ -27,11 +27,11 @@ ms.locfileid: "74255898"
 
 ## <a name="effect-features"></a>効果機能
 
-- [Effect Library](./composition-effects.md#effect-library)
-- [Chaining Effects](./composition-effects.md#chaining-effects)
-- [Animation Support](./composition-effects.md#animation-support)
-- [Constant vs. Animated Effect Properties](./composition-effects.md#constant-vs-animated-effect-properties)
-- [Multiple Effect Instances with Independent Properties](./composition-effects.md#multiple-effect-instances-with-independent-properties)
+- [効果ライブラリ](./composition-effects.md#effect-library)
+- [チェーン効果](./composition-effects.md#chaining-effects)
+- [アニメーションのサポート](./composition-effects.md#animation-support)
+- [定数とアニメーション効果のプロパティ](./composition-effects.md#constant-vs-animated-effect-properties)
+- [独立したプロパティを持つ複数の効果インスタンス](./composition-effects.md#multiple-effect-instances-with-independent-properties)
 
 ### <a name="effect-library"></a>効果ライブラリ
 
@@ -49,12 +49,12 @@ ms.locfileid: "74255898"
 | グレースケール            | 画像を灰色のモノクロ画像に変換します。                                                                                                                                                                                   |
 | ガンマ伝達       | チャネルあたりのガンマ伝達関数を適用することで、画像の色を変更します。                                                                                                                                           |
 | 色相回転           | 色相値を回転することで、画像の色を変更します。                                                                                                                                                                   |
-| 反転               | 画像の色を反転します。                                                                                                                                                                                            |
+| Invert               | 画像の色を反転します。                                                                                                                                                                                            |
 | 彩度             | 画像の彩度を変更します。                                                                                                                                                                                         |
 | セピア                | 画像をセピア調に変換します。                                                                                                                                                                                          |
 | 色温度と濃淡 | 画像の色温度および濃淡を調整します。                                                                                                                                                                           |
 
-詳しくは、Win2D の [Microsoft.Graphics.Canvas.Effects](https://microsoft.github.io/Win2D/html/N_Microsoft_Graphics_Canvas_Effects.htm) 名前空間をご覧ください。 Effects not supported in composition are noted as \[NoComposition\].
+詳しくは、Win2D の [Microsoft.Graphics.Canvas.Effects](https://microsoft.github.io/Win2D/html/N_Microsoft_Graphics_Canvas_Effects.htm) 名前空間をご覧ください。 コンポジションでサポートされていない効果は \[NoComposition\]として示されます。
 
 ### <a name="chaining-effects"></a>チェーン効果
 
@@ -133,12 +133,12 @@ catEffect.Properties.StartAnimation("saturationEffect.Saturation", effectAnimati
 
 このクイック スタート チュートリアルでは、効果のいくつかの基本機能の使用方法を示します。
 
-- [Installing Visual Studio](./composition-effects.md#installing-visual-studio)
-- [Creating a new project](./composition-effects.md#creating-a-new-project)
-- [Installing Win2D](./composition-effects.md#installing-win2d)
-- [Setting your Composition Basics](./composition-effects.md#setting-your-composition-basics)
-- [Creating a CompositionSurface Brush](./composition-effects.md#creating-a-compositionsurface-brush)
-- [Creating, Compiling and Applying Effects](./composition-effects.md#creating-compiling-and-applying-effects)
+- [Visual Studio のインストール](./composition-effects.md#installing-visual-studio)
+- [新しいプロジェクトの作成](./composition-effects.md#creating-a-new-project)
+- [Win2D のインストール](./composition-effects.md#installing-win2d)
+- [コンポジションの基本設定](./composition-effects.md#setting-your-composition-basics)
+- [CompositionSurface Brush の作成](./composition-effects.md#creating-a-compositionsurface-brush)
+- [効果の作成、コンパイル、適用](./composition-effects.md#creating-compiling-and-applying-effects)
 
 ### <a name="installing-visual-studio"></a>Visual Studio のインストール
 
@@ -237,12 +237,12 @@ LoadImage(surfaceBrush);
 
 ## <a name="more-information"></a>説明
 
-- [Microsoft – Composition GitHub](https://github.com/microsoft/WindowsCompositionSamples)
-- [**Windows.UI.Composition**](https://docs.microsoft.com/uwp/api/Windows.UI.Composition)
-- [Windows Composition team on Twitter](https://twitter.com/wincomposition)
-- [Composition Overview](https://blogs.windows.com/buildingapps/2015/12/08/awaken-your-creativity-with-the-new-windows-ui-composition/)
-- [Visual Tree Basics](composition-visual-tree.md)
-- [Composition Brushes](composition-brushes.md)
+- [Microsoft –コンポジション GitHub](https://github.com/microsoft/WindowsCompositionSamples)
+- [**Windows. UI. コンポジション**](https://docs.microsoft.com/uwp/api/Windows.UI.Composition)
+- [Twitter の Windows コンポジションチーム](https://twitter.com/wincomposition)
+- [コンポジションの概要](https://blogs.windows.com/buildingapps/2015/12/08/awaken-your-creativity-with-the-new-windows-ui-composition/)
+- [ビジュアルツリーの基礎](composition-visual-tree.md)
+- [合成ブラシ](composition-brushes.md)
 - [XamlCompositionBrushBase](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.xamlcompositionbrushbase)
-- [Animation Overview](composition-animation.md)
-- [Composition native DirectX and Direct2D interoperation with BeginDraw and EndDraw](composition-native-interop.md)
+- [アニメーションの概要](composition-animation.md)
+- [ネイティブ DirectX と Direct2D の合成と BeginDraw および EndDraw との相互運用](composition-native-interop.md)

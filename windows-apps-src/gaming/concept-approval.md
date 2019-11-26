@@ -21,7 +21,7 @@ ms.locfileid: "74259551"
 
 このプロセスは、開発者が Xbox のゲームを [ID@Xbox](https://www.xbox.com/Developers/id) を通じて、または対象パートナーとして、公開する場合のみ必要となります。 [Xbox Live クリエーターズ プログラム](https://developer.microsoft.com/games/xbox/xboxlive/creator)に参加している場合で、ユニバーサル Windows プラットフォーム (UWP) ゲームを作成する場合には、Xbox に自分で公開することができ、このプロセスは必要ありません。 ただし、このプログラムで作成されたゲームは、ストアの別のセクションで取り上げられます。 作成したゲームが著名なゲームと共に取り上げられることを希望する場合、または Xbox 開発キット (XDK) を使ってより高度なゲームを作成する場合には、概念の承認のプロセスが必要となります。
 
-Windows デスクトップまたはモバイル デバイス向けの UWP ゲームを開発する場合 (または、任意のデバイスをターゲットとした、ゲーム*以外の* UWP アプリを公開する場合) にも、概念の承認のプロセスは不要です。 All you need is a [developer account](https://developer.microsoft.com/store/register), and you can freely configure and submit your app to the Store through Partner Center.
+Windows デスクトップまたはモバイル デバイス向けの UWP ゲームを開発する場合 (または、任意のデバイスをターゲットとした、ゲーム*以外の* UWP アプリを公開する場合) にも、概念の承認のプロセスは不要です。 必要なのは[開発者アカウント](https://developer.microsoft.com/store/register)だけです。パートナーセンターを使用して、アプリを自由に構成し、ストアに送信することができます。
 
 ## <a name="submit-your-concept-for-approval"></a>承認を受けるために概念を提出する
 
