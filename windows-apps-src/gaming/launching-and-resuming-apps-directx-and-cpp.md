@@ -6,30 +6,19 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, DirectX, 起動, 再開
 ms.localizationpriority: medium
-ms.openlocfilehash: ac2f7e70d813ea3314d897eedb5e245d781ce412
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: f075b50c3f943ec016ebdb513367aff680897aa5
+ms.sourcegitcommit: c5dc47198f40339a047db72db9d5f2248583b948
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57662217"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74490624"
 ---
 # <a name="launching-and-resuming-apps-directx-and-c"></a>アプリの起動と再開 (DirectX と C++)
 
-
-
 ユニバーサル Windows プラットフォーム (UWP) DirectX アプリを起動、一時停止、再開する方法について説明します。
 
-| トピック | 説明 |
-|---------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
-| [アプリをアクティブ化する方法](how-to-activate-an-app-directx-and-cpp.md) | ここでは、UWP DirectX アプリのアクティブ化エクスペリエンスを定義する方法について説明します。 |
-| [アプリを停止する方法](how-to-suspend-an-app-directx-and-cpp.md) | ここでは、UWP DirectX アプリをシステムが一時停止するときに重要なシステム状態とアプリ データを保存する方法について説明します。 |
-| [アプリを再開する方法](how-to-resume-an-app-directx-and-cpp.md) | ここでは、UWP DirectX アプリをシステムが再開するときに重要なアプリケーション データを復元する方法について説明します。 |
- 
-
- 
-
- 
-
-
-
-
+|トピック|説明|
+|-|-|
+|[How to activate an app](how-to-activate-an-app-directx-and-cpp.md)|ここでは、UWP DirectX アプリのアクティブ化エクスペリエンスを定義する方法について説明します。|
+|[How to suspend an app](how-to-suspend-an-app-directx-and-cpp.md)|ここでは、UWP DirectX アプリをシステムが一時停止するときに重要なシステム状態とアプリ データを保存する方法について説明します。|
+|[How to resume an app](how-to-resume-an-app-directx-and-cpp.md)|ここでは、UWP DirectX アプリをシステムが再開するときに重要なアプリケーション データを復元する方法について説明します。|
