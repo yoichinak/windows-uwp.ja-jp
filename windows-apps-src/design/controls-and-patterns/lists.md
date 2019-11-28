@@ -12,16 +12,20 @@ design-contact: kimsea
 dev-contact: ranjeshj
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: d309ce7e18a8dc62a24bc0e7f51f0015042a5f84
-ms.sourcegitcommit: 3bb982f35c057e30c742ab9f1eea119bae627a5f
+ms.openlocfilehash: 4605f759c554c12368325a7c1e42143319eddede
+ms.sourcegitcommit: 503fa613c65236660350794b4f066eccebe9ac8e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74086864"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74162345"
 ---
 # <a name="collections-and-lists"></a>コレクションとリスト
 
-コレクションとリストは、どちらも、まとめて表示される複数の関連データ項目の表現を指します。 コレクションは、さまざまなコレクション コントロール (コレクション ビューと呼ばれる場合もあります) によって、複数の方法で表現できます。 コレクション コントロールを使用して、連絡先リスト、日付リスト、画像コレクションなど、コレクションベースのコンテンツを表示して操作できるようにします。  この記事で説明するコントロールには、以下が含まれます。
+コレクションとリストは、どちらも、まとめて表示される複数の関連データ項目の表現を指します。 コレクションは、さまざまなコレクション コントロール (コレクション ビューと呼ばれる場合もあります) によって、複数の方法で表現できます。 コレクション コントロールを使用して、連絡先リスト、日付リスト、画像コレクションなど、コレクションベースのコンテンツを表示して操作できるようにします。
+
+> **重要な API**:[ListView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView)、[GridView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.GridView)、[FlipView クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.flipview)、[TreeView クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.treeview)、[ItemsRepeater クラス](https://docs.microsoft.com/uwp/api/microsoft.ui.xaml.controls.itemsrepeater?view=winui-2.2)
+
+この記事で説明するコントロールには、以下が含まれます。
 
 - リスト ビュー: 主に、テキストの多いコンテンツのコレクションを表示するために使います。
 - グリッド ビュー: 主に、画像の多いコンテンツのコレクションを表示するために使います。
@@ -29,20 +33,14 @@ ms.locfileid: "74086864"
 - ツリー ビュー: 主に、テキストの多いコンテンツのコレクションを特定の階層で表示するために使います。
 - ItemsRepeater: これは、カスタム コレクション コントロールを作成するためのカスタマイズ可能な構成要素です。
 
-
 この後、各コントロールについて、設計のガイドライン、特徴、および例を示します。
 
 これらの (ItemsRepeater を除く) 各コントロールには、組み込みのスタイル設定と操作が用意されています。 ただし、コレクション ビューとその中の項目の視覚的な外観をカスタマイズするには、[DataTemplate](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.DataTemplate) を使用します。 データ テンプレートの詳細とコレクション ビューの外観のカスタマイズについては、「[項目コンテナーやテンプレート](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/item-containers-templates)」を参照してください。
 
 これらの (ItemsRepeater を除く) 各コントロールには、1 つまたは複数の項目を選択できるようにするための組み込みの動作も含まれています。 詳細については、「[選択モードの概要](selection-modes.md)」を参照してください。
 
-> **重要な API**:[ListView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView)、[GridView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.GridView)、[FlipView クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.flipview)、[TreeView クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.treeview)、[ItemsRepeater クラス](https://docs.microsoft.com/uwp/api/microsoft.ui.xaml.controls.itemsrepeater?view=winui-2.2)
-
-> <div id="main">  
-> <strong>Windows 10 Fall Creators Update - 動作の変更</strong>  
-> </div>  
-> 既定では、UWP アプリでは、アクティブ ペンは、選択の実行ではなく、リストのスクロール/パン (タッチ、タッチパッド、パッシブ ペンなどと同様に) をするようになりました。  
-> アプリが以前の動作に依存している場合は、ペン スクロールを上書きして、以前の動作に戻すことができます。 詳しくは、<a href="https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.scrollviewer">ScrollViewer クラス</a>の API リファレンス トピックをご覧ください。  
+> **Windows 10 Fall Creators Update - 動作の変更** 既定では、UWP アプリでは、アクティブ ペンは、選択の実行ではなく、リストのスクロール/パン (タッチ、タッチパッド、パッシブ ペンなどと同様に) をするようになりました。
+> アプリが以前の動作に依存している場合は、ペン スクロールを上書きして、以前の動作に戻すことができます。 詳しくは、[ScrollViewer クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.scrollviewer)の API リファレンス トピックをご覧ください。
 
 ## <a name="examples"></a>例
 

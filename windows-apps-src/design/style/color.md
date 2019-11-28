@@ -7,12 +7,12 @@ keywords: windows 10, uwp
 design-contact: karenmui
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 5f040060b1c3931e9ef1634fddd65febb1be7dbc
-ms.sourcegitcommit: 789bfe3756c5c47f7324b96f482af636d12c0ed3
+ms.openlocfilehash: efe67707edc5f556301ded466f3f2919ec04873e
+ms.sourcegitcommit: 49a34e957433966ac8d4822b5822f21087aa61c3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68867728"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74153728"
 ---
 # <a name="color"></a>色
 
@@ -58,7 +58,7 @@ UWP アプリでは、淡色または濃色のアプリケーション テーマ
 
 ![濃色テーマ](images/color/dark-theme.svg)
 
-既定では、UWP アプリのテーマは、ユーザーが Windows の設定で選択したテーマか、デバイスの既定のテーマ (XBox では黒など) に設定されます。 ただし、開発者が UWP アプリのテーマを設定することもできます。
+既定では、UWP アプリのテーマは、ユーザーが Windows の設定で選択したテーマか、デバイスの既定のテーマ (Xbox では黒など) に設定されます。 ただし、開発者が UWP アプリのテーマを設定することもできます。
 
 ### <a name="changing-the-theme"></a>テーマの変更
 

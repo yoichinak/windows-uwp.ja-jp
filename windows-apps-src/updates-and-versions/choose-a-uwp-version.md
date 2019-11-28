@@ -1,18 +1,18 @@
 ---
 title: UWP バージョンの選択
 description: Microsoft Visual Studio で UWP アプリを作成するときは、ターゲットのバージョンを選択できます。 ここでは、UWP バージョンによる違いと、新しいプロジェクトや既存のプロジェクトで選択したバージョンを構成する方法について説明します。
-ms.date: 04/19/2019
+ms.date: 11/19/2019
 ms.topic: article
 keywords: windows 10, uwp, バージョン, 作成, バージョン, windows, 選択, 更新, 更新プログラム
 ms.assetid: a8b7830f-4929-44c6-90be-91f38be5f364
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: f691a0d600fd6508f1f8ec2bbffec9bf02a98da7
-ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
+ms.openlocfilehash: a75667fdad6352b5ca8225951ce522f13325d381
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67821051"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74258916"
 ---
 # <a name="choose-a-uwp-version"></a>UWP バージョンの選択
 
@@ -21,7 +21,7 @@ Windows 10 の各バージョンでは、新機能や強化された機能が UW
 > [!WARNING]
 > Visual Studio の現行バージョンで作成された UWP プロジェクトは、Visual Studio 2015 では開くことができません。
 
-次の表に、Windows 10 で利用できるバージョンを示します。 この表は、Windows 10 でのみサポートされる UWP アプリを作成する場合にだけ適用されることに注意してください。 以前のバージョンの Windows 向けに UWP アプリを開発することはできません。また、目的のバージョンをターゲットにするには、[SDK の適切なビルドをインストール](https://go.microsoft.com/fwlink/?LinkId=821431)する必要があります。
+次の表に、Windows 10 で利用できるバージョンを示します。 この表は、Windows 10 でのみサポートされる UWP アプリを作成する場合にだけ適用されることに注意してください。 以前のバージョンの Windows 向けに UWP アプリを開発することはできません。また、目的のバージョンをターゲットにするには、[SDK の適切なビルドをインストール](https://developer.microsoft.com/windows/downloads#_blank)する必要があります。
 
 | バージョン | 説明 |
 | --- | --- |
@@ -34,7 +34,7 @@ Windows 10 の各バージョンでは、新機能や強化された機能が UW
 | ビルド 10586 (November Update バージョン 1511) | このバージョンの Windows 10 は、2015 年 11 月にリリースされました。 このリリースでは主な新機能として、Microsoft Edge のビデオ通信用 ORTC (オブジェクト リアルタイム通信) APIと、アプリで Windows Hello 顔認証を使うためのプロバイダー API が導入されました。 [このビルドで導入された機能について詳しくは、こちらをご覧ください。](../whats-new/windows-10-build-10586.md) |
 | ビルド 10240 (Windows 10 バージョン 1507) | 2015 年 7 月にリリースされた Windows 10 の初期リリース バージョンです。 [このビルドで導入された機能について詳しくは、こちらをご覧ください。](../whats-new/windows-10-build-10240.md) |
 
-一般ユーザー向けのコードを新しく開発する場合、常に最新ビルドの Windows (17763) を使うことを強くお勧めします。 エンタープライズ アプリを開発する場合は、**最小バージョン**で古いバージョンをサポートすることを検討してください。
+一般ユーザー向けのコードを新しく開発する場合、常に最新ビルドの Windows (18362) を使うことを強くお勧めします。 エンタープライズ アプリを開発する場合は、**最小バージョン**で古いバージョンをサポートすることを検討してください。
 
 ## <a name="whats-different-in-each-uwp-version"></a>UWP バージョンの比較
 
@@ -54,8 +54,8 @@ UWP は、.NET API の限定されたサブセットをサポートしており�
 
 Visual Studio の **[新しいユニバーサル Windows プロジェクト]** ダイアログで、 **[ターゲット バージョン]** と **[最小バージョン]** を選択できます。 また、アプリの **[プロパティ]** にある*アプリケーション* セクションで、UWP アプリの **[ターゲット バージョン]** と **[最小バージョン]** を変更することもできます。
 
-* **[ターゲット バージョン]** 。 この設定により、プロジェクト ファイルの *TargetPlatformVersion* が設定されます。 またアプリ パッケージ マニフェスト内の *TargetDeviceFamily@MaxVersionTested* 属性の値が設定されます。 選択した値に基づいて、プロジェクトがターゲットとする UWP プラットフォームのバージョンが指定され、アプリで使用可能な API のセットが決まります。したがって、可能な限り新しいバージョンを選択することをお勧めします。 アプリ パッケージ マニフェストの詳細と、TargetDeviceFamily を手動で構成する場合のガイドラインについては、「[TargetDeviceFamily](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-targetdevicefamily)」をご覧ください。
-* **[最小バージョン]** 。 この設定により、プロジェクト ファイルの *TargetPlatformMinVersion* が設定されます。 またアプリ パッケージ マニフェスト内の *TargetDeviceFamily@MinVersion* 属性の値が設定されます。 選択した値に基づいて、プロジェクトが動作できる UWP プラットフォームの最小バージョンが指定されます。
+* **[ターゲット バージョン]** 。 アプリの実行環境として想定している Windows 10 のバージョン。 この設定により、プロジェクト ファイルの *TargetPlatformVersion* が設定されます。 またアプリ パッケージ マニフェスト内の *TargetDeviceFamily@MaxVersionTested* 属性の値が設定されます。 選択した値に基づいて、プロジェクトがターゲットとする UWP プラットフォームのバージョンが指定され、アプリで使用可能な API のセットが決まります。したがって、可能な限り新しいバージョンを選択することをお勧めします。 アプリ パッケージ マニフェストの詳細と、TargetDeviceFamily を手動で構成する場合のガイドラインについては、「[TargetDeviceFamily](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-targetdevicefamily)」をご覧ください。
+* **[最小バージョン]** 。 アプリの基本機能をサポートするために必要な Windows 10 の最も古いバージョン。 この設定により、プロジェクト ファイルの *TargetPlatformMinVersion* が設定されます。 またアプリ パッケージ マニフェスト内の *TargetDeviceFamily@MinVersion* 属性の値が設定されます。 選択した値に基づいて、プロジェクトが動作できる UWP プラットフォームの最小バージョンが指定されます。
 
 これらの設定は、アプリが **[最小バージョン]** から **[ターゲット バージョン]** までのすべてのバージョンで動作することの宣言となります。 これら 2 つが同じバージョンである場合は、特に問題はありません。 これらが異なる場合は、次の点に注意が必要です。
 

@@ -10,16 +10,16 @@ keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: c08dad36929c7889f1896404df862230040e3499
 ms.sourcegitcommit: 9625f8fb86ff6473ac2851e600bc02e996993660
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 10/09/2019
 ms.locfileid: "72163705"
 ---
 # <a name="guidelines-for-app-settings"></a>アプリ設定のガイドライン
 
-アプリ設定は、アプリケーション設定ページからアクセスされる、ユニバーサル Windows プラットフォーム (UWP) アプリのユーザーがカスタマイズできる部分です。 たとえば、ニュースリーダーアプリでは、表示するニュースのソースや、画面に表示する列の数をユーザーが指定できます。一方、気象アプリでは、摂氏と華氏を選択できます。 この記事では、アプリ設定を作成および表示するための推奨事項とベストプラクティスについて説明します。
+アプリ設定は、ユニバーサル Windows プラットフォーム (UWP) アプリの中で、ユーザーによるカスタマイズが可能な部分であり、アプリ設定ページからアクセスします。 たとえば、ニュース リーダー アプリでは、表示するニュース ソースや画面に表示する記事の数を指定できる場合があります。また、天気予報アプリでは、摂氏または華氏を選ぶことができます。 この記事では、アプリ設定の作成と表示に関する推奨事項とベスト プラクティスを示します。
 
-## <a name="when-to-provide-a-settings-page"></a>設定ページを提供する場合
+## <a name="when-to-provide-a-settings-page"></a>設定ページを提供する場面
 
 アプリ設定のページに含めるアプリのオプションには、次のようなものがあります。
 
@@ -42,13 +42,13 @@ ms.locfileid: "72163705"
 
 ユーザーがアプリ設定のページにアクセスする方法は、アプリのレイアウトに基づいている必要があります。
 
-**ナビゲーションウィンドウ**
+**ナビゲーション ウィンドウ**
 
 ナビゲーション ウィンドウ レイアウトの場合、アプリ設定は、選択肢が示されるナビゲーション リストの最後の項目として配置し、下部にピン留めすることをお勧めします。
 
 ![ナビゲーション ウィンドウでのアプリ設定のエントリ ポイント](images/appsettings-entrypoint-navpane.png)
 
-**アプリバー**
+**アプリ バー**
 
 [アプリ バー](../controls-and-patterns/app-bars.md)またはツール バーを使っている場合、設定のエントリ ポイントを [その他] オーバーフロー メニューの最後の項目として配置します。 設定のエントリ ポイントを簡単に検索できることがアプリで重要となる場合は、オーバーフローではなく、アプリ バーに直接エントリ ポイントを配置します。
 
@@ -62,7 +62,7 @@ ms.locfileid: "72163705"
 
 タブやピボットのレイアウトでは、アプリ設定のエントリ ポイントをナビゲーション内のトップレベルのいずれかの項目として配置することはお勧めしません。 代わりに、アプリ設定のエントリ ポイントをアプリ バーの [その他] オーバーフロー メニュー内に配置することをお勧めします。
 
-**マスター-詳細**
+**マスター/詳細**
 
 アプリ設定のエントリをマスター/詳細ウィンドウ内の深い位置に配置するのではなく、マスター ウィンドウのトップ レベルに、最後のピン留めされた項目として配置してください。
 
@@ -124,11 +124,11 @@ Detailed redlines showing preferred text strings for the "Choose a mode" section
 - コンテンツは 1 列で上から下に表示し、必要に応じてスクロールできるようにします。 スクロールの長さは画面の高さの 2 倍までに抑えます。
 - アプリ設定では次のコントロールを使います。
 
-    - [切り替えスイッチ](../controls-and-patterns/toggles.md):ユーザーが値を設定するか無効にするかを指定します。
-    - [オプションボタン](../controls-and-patterns/radio-button.md):ユーザーが、最大5つの相互排他的な関連オプションのセットから項目を1つ選択できるようにする。
-    - [テキスト入力ボックス](../controls-and-patterns/text-block.md):ユーザーがテキストを入力できるようにします。 ユーザーから取得するテキストの種類 (メール、パスワードなど) に応じた種類のテキスト入力ボックスを使います。
-    - [ハイパーリンク](../controls-and-patterns/hyperlinks.md):ユーザーをアプリ内の別のページまたは外部の web サイトに移動します。 ユーザーがハイパーリンクをクリックすると、設定ポップアップは閉じられます。
-    - [ボタン](../controls-and-patterns/buttons.md):現在の設定のフライアウトを終了せずに、直ちにアクションを開始できるようにします。
+    - [トグル スイッチ](../controls-and-patterns/toggles.md): ユーザーが値をオンまたはオフに設定できるようにする場合。
+    - [ラジオ ボタン](../controls-and-patterns/radio-button.md): ユーザーが相互排他的な関連するオプション (5 個まで) の中から 1 つの項目を選択できるようにする場合。
+    - [テキスト入力ボックス](../controls-and-patterns/text-block.md): ユーザーがテキストを入力できるようにする場合。 ユーザーから取得するテキストの種類 (メール、パスワードなど) に応じた種類のテキスト入力ボックスを使います。
+    - [ハイパーリンク](../controls-and-patterns/hyperlinks.md): アプリ内の別のページや外部 Web サイトに移動する場合。 ユーザーがハイパーリンクをクリックすると、設定ポップアップは閉じられます。
+    - [ボタン](../controls-and-patterns/buttons.md): ユーザーが現在の設定ポップアップを閉じることなく即座に操作を開始できるようにする場合。
 - 使用できないコントロールがある場合は、説明用のメッセージを追加します。 使用できないコントロールの上に、このメッセージを配置します。
 - 設定ポップアップとヘッダーがアニメーション化された後で、コンテンツとコントロールを単一のブロックとしてアニメーション化します。 [  **enterPage**](https://docs.microsoft.com/previous-versions/windows/apps/br212672(v=win.10)) または [**EntranceThemeTransition**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.EntranceThemeTransition) アニメーションを使って、100 ピクセル左のオフセットでコンテンツをアニメーション化します。
 - 必要に応じて、コンテンツの整理と明確化の助けになるように、セクション ヘッダー、段落、ラベルを使います。
@@ -140,7 +140,7 @@ Detailed redlines showing preferred text strings for the "Choose a mode" section
 
 ## <a name="related-articles"></a>関連記事
 
-* [コマンドのデザインの基礎](https://docs.microsoft.com/windows/uwp/layout/commanding-basics)
+* [コマンド設計の基本](https://docs.microsoft.com/windows/uwp/layout/commanding-basics)
 * [プログレス コントロールのガイドライン](https://docs.microsoft.com/windows/uwp/controls-and-patterns/progress-controls)
-* [アプリデータの保存と取得](https://docs.microsoft.com/windows/uwp/app-settings/store-and-retrieve-app-data)
+* [アプリ データの保存と取得](https://docs.microsoft.com/windows/uwp/app-settings/store-and-retrieve-app-data)
 * [**EntranceThemeTransition**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.EntranceThemeTransition)

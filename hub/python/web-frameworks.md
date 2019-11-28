@@ -1,185 +1,185 @@
 ---
 title: Windows での Python を使用した Web 開発
-description: Windows での web 開発用の Python の使用を開始する方法 (Flask や Django などのフレームワークのセットアップを含む)。
+description: Windows で Python を使用して Web 開発を始める方法。Flask や Django などのフレームワークのセットアップを含みます。
 author: mattwojo
 ms.author: mattwoj
 manager: jken
 ms.topic: article
-keywords: python、windows 10、microsoft、python on windows、python web with wsl、windows subsystem for linux を使用した python web アプリ、windows 上の python web 開発、windows 上の flask アプリ、django app on windows、python web、flask web dev on windows、django web dev on windows、windows web dev with python、vs code python web dev、remote wsl extension、ubuntu、wsl、ベンダー、pip、microsoft python extension、windows での python の実行、windows での python の使用、windows での python のビルド
+keywords: python, windows 10, microsoft, windows での python , wsl を使用した python web , linux 用 windows サブシステムを使用した python web アプリ, windows での python web 開発, windows での flask アプリ, windows での django アプリ, python web, windows での flask web 開発, windows での django web 開発, python を使用した windows web 開発, vs code python web 開発, リモート wsl 拡張機能, ubuntu, wsl, venv, pip, microsoft python 拡張機能, windows での python の実行, windows での python の使用, windows での python を使用した構築
 ms.localizationpriority: medium
 ms.date: 07/19/2019
 ms.openlocfilehash: 285e5149778f2d5cb63554a5af63bb9ae23809dc
 ms.sourcegitcommit: 13faf9dab9946295986f8edd79b5fae0db4ed0f6
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 10/15/2019
 ms.locfileid: "72314946"
 ---
-# <a name="get-started-using-python-for-web-development-on-windows"></a>Windows での web 開発用の Python の使用を開始する
+# <a name="get-started-using-python-for-web-development-on-windows"></a>Windows で Web 開発に Python を使用する
 
-Windows Subsystem for Linux (WSL) を使用して、Windows での web 開発用の Python の使用を開始するためのステップバイステップガイドを次に示します。
+以下は、Linux 用 Windows サブシステム (WSL) を使用して、Windows で Python を使用した Web 開発を始めるためのステップバイステップ ガイドです。
 
 ## <a name="set-up-your-development-environment"></a>開発環境を設定する
 
-Web アプリケーションを構築するときは、WSL に Python をインストールすることをお勧めします。 Python web 開発のチュートリアルと手順の多くは、Linux ユーザー向けに記述されており、Linux ベースのパッケージツールとインストールツールを使用します。 ほとんどの web アプリも Linux にデプロイされるため、開発環境と運用環境の間で一貫性が確保されます。
+Web アプリケーションを構築するときは、WSL に Python をインストールすることをお勧めします。 Python Web 開発のチュートリアルと手順の多くは Linux ユーザー向けに記述されており、Linux ベースのパッケージ ツールとインストール ツールを使用しています。 ほとんどの Web アプリも Linux に配置されるため、これによって、開発環境と運用環境の間で一貫性が確保されます。
 
-Web 開発以外に Python を使用している場合は、Microsoft Store を使用して、Windows 10 に Python を直接インストールすることをお勧めします。 WSL は、GUI デスクトップやアプリケーション (Pykinect、Gnome、KDE など) をサポートしていません。 このような場合は、Python を Windows に直接インストールして使用します。 Python を初めて使用する場合は、次のガイドを参照してください。[初心者向け Windows での Python の使用を開始しましょう](./beginners.md)。 お使いのオペレーティングシステムでの一般的なタスクの自動化に関心がある場合は、次のガイドを参照してください。[Windows での Python の使用を開始し、スクリプト作成と自動化を実現](./scripting.md)します。 一部の高度なシナリオでは、 [python.org](https://www.python.org/downloads/windows/)から特定の Python リリースを直接ダウンロードすることを検討するか、Anaconda、Jython、PyPy、Winpython、IronPython などの[代替](https://www.python.org/download/alternatives)のインストールを検討することをお勧めします。これは、別の実装を選択する具体的な理由を持つより高度な Python プログラマの場合にのみお勧めします。
+Web 開発以外に Python を使用している場合は、Microsoft Store を使用して Windows 10 に Python を直接インストールすることをお勧めします。 WSL は、GUI デスクトップまたはアプリケーション (PyGame、Gnome、KDE など) をサポートしていません。 このような場合は、Windows に直接 Python をインストールして使用してください。 Python を初めて使用する場合は、[初心者向けの Windows での Python の使用](./beginners.md)に関する記事をご覧ください。 お使いのオペレーティング システムでの一般的なタスクの自動化に関心がある場合は、次のガイドを参照してください:[Windows で Python を使用してスクリプト作成と自動化を開始する](./scripting.md)。 一部の高度なシナリオでは、[python.org](https://www.python.org/downloads/windows/) から特定の Python リリースを直接ダウンロードすることを検討するか、Anaconda、Jython、PyPy、WinPython、IronPython などの[代替手段をインストール](https://www.python.org/download/alternatives)することを検討してください。これは、別の実装を選択する具体的な理由がある、より高度な Python プログラマの場合にのみお勧めします。
 
-## <a name="enable-windows-subsystem-for-linux"></a>Linux 用 Windows サブシステムを有効にする
+## <a name="enable-windows-subsystem-for-linux"></a>Linux 用 Windows サブシステムを有効化する
 
-WSL を使用すると、ほとんどのコマンドラインツール、ユーティリティ、アプリケーションを含む GNU/Linux 環境を Windows 上で直接実行できます。また、Windows ファイルシステムや Visual Studio Code などのお気に入りのツールと完全に統合されています。 WSL を有効にする前に、[最新バージョンの Windows 10](https://www.microsoft.com/software-download/windows10)がインストールされていることを確認してください。
+WSL を利用すると、GNU/Linux 環境 (これにはほとんどのコマンドライン ツール、ユーティリティ、アプリケーションが含まれます) を直接 Windows 上で実行できます。この環境は、変更されることなく Windows ファイル システムと完全に統合され、Visual Studio Code をはじめとする開発ツールも使用できます。 WSL を有効化する前に、[最新バージョンの Windows 10](https://www.microsoft.com/software-download/windows10) を使用していることを確認してください。
 
-コンピューターで WSL を有効にするには、次のことを行う必要があります。
+コンピューターで WSL を有効化するには、次の手順を実行する必要があります。
 
-1. **[スタート]** メニュー (左下の windows アイコン) に移動し、「windows の機能の有効化または無効化」と入力して、**コントロールパネル**へのリンクを選択し、 **[windows の機能]** ポップアップメニューを開きます。 一覧で "Windows Subsystem for Linux" を探し、チェックボックスをオンにして機能を有効にします。
+1. **[スタート]** メニュー (左下の Windows アイコン) に移動し、「Windows の機能の有効化または無効化」と入力し、 **[コントロール パネル]** へのリンクを選択して、 **[Windows の機能]** ポップアップメニューを開きます。 一覧から "Windows Subsystem for Linux" を探し、チェックボックスをオンにして機能を有効にします。
 
 2. メッセージが表示されたら、コンピューターを再起動します。
 
 ## <a name="install-a-linux-distribution"></a>Linux ディストリビューションをインストールする
 
-WSL で実行できる Linux ディストリビューションがいくつかあります。 お気に入りは、Microsoft Store で見つけてインストールできます。 [Ubuntu 18.04 LTS](https://www.microsoft.com/store/productId/9N9TNGVNDL3Q)は、現在、人気、およびサポートされているため、開始することをお勧めします。
+WSL 上で実行できる Linux ディストリビューションは複数あります。 Microsoft Store でお気に入りのものを探してインストールできます。 最新であり、広く普及しており、サポートが充実している [Ubuntu 18.04 LTS](https://www.microsoft.com/store/productId/9N9TNGVNDL3Q) から始めることをお勧めします。
 
-1. この[Ubuntu 18.04 LTS](https://www.microsoft.com/store/productId/9N9TNGVNDL3Q)リンクを開き、Microsoft Store を開いて、 **[取得]** を選択します。 *(これはかなり大きなダウンロードであり、インストールに時間がかかる場合があります)。*
+1. この [Ubuntu 18.04 LTS](https://www.microsoft.com/store/productId/9N9TNGVNDL3Q) リンクを開き、Microsoft Store を開いて、 **[入手]** を選択します。 *(ダウンロードのサイズが大きいため、インストールに時間がかかる場合があります。)*
 
 2. ダウンロードが完了したら、Microsoft Store から **[起動]** を選択するか、 **[スタート]** メニューに「Ubuntu 18.04 LTS」と入力して起動します。
 
-3. 最初にディストリビューションを実行するときに、アカウント名とパスワードの作成を求められます。 この後、既定では、このユーザーとして自動的にサインインされます。 任意のユーザー名とパスワードを選択できます。 Windows ユーザー名には影響しません。
+3. ディストリビューションを初めて実行すると、アカウント名とパスワードの作成を求められます。 これ以降、既定でこのユーザーとして自動的にサインインします。 任意のユーザー名とパスワードを選択できます。 これらはご自分の Windows ユーザー名とは関係ありません。
 
-次のように入力して、現在使用している Linux ディストリビューションを確認することができます。 `lsb_release -d` Ubuntu ディストリビューションを更新するには、: `sudo apt update && sudo apt upgrade` を使用します。 最新のパッケージがあることを確認するために、定期的に更新することをお勧めします。 Windows は、この更新プログラムを自動的に処理しません。 Microsoft Store で利用可能なその他の Linux ディストリビューション、代替のインストール方法、トラブルシューティングのリンクについては、「windows [10 用 Windows Subsystem For Linux インストールガイド](https://docs.microsoft.com/windows/wsl/install-win10)」を参照してください。
+現在使用している Linux ディストリビューションは、`lsb_release -d` と入力することで確認できます。 使用中の Ubuntu ディストリビューションを更新するには、`sudo apt update && sudo apt upgrade` を使用します。 パッケージを常に最新にするために、定期的な更新をお勧めします。 Windows はこの更新を自動的に処理しません。 Microsoft Store から入手できる他の Linux ディストリビューションへのリンク、別のインストール方法、またはトラブルシューティングについては、「[Windows 10 用 Windows Subsystem for Linux のインストール ガイド](https://docs.microsoft.com/windows/wsl/install-win10)」を参照してください。
 
-## <a name="set-up-visual-studio-code"></a>Visual Studio Code の設定
+## <a name="set-up-visual-studio-code"></a>Visual Studio Code を設定する
 
-VS Code を使用して、[IntelliSense](https://code.visualstudio.com/docs/editor/intellisense)、[インライン処理](https://code.visualstudio.com/docs/python/linting)、[デバッグサポート](https://code.visualstudio.com/docs/python/debugging)、[コードスニペット](https://code.visualstudio.com/docs/editor/userdefinedsnippets)、[単体テスト](https://code.visualstudio.com/docs/python/unit-testing)を活用できます。 VS Code は、Windows Subsystem for Linux に適切に統合されており、[組み込みのターミナル](https://code.visualstudio.com/docs/editor/integrated-terminal)を使用して、コードエディターとコマンドラインの間でシームレスなワークフローを確立します。また、共通の git による[バージョン管理のために git](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)をサポートしています。コマンド (追加、コミット、プッシュ、プル) が UI に組み込まれています。
+VS Code を使用して、[IntelliSense](https://code.visualstudio.com/docs/editor/intellisense)、[lint](https://code.visualstudio.com/docs/python/linting)、[デバッグ サポート](https://code.visualstudio.com/docs/python/debugging)、[コード スニペット](https://code.visualstudio.com/docs/editor/userdefinedsnippets)、[単体テスト](https://code.visualstudio.com/docs/python/unit-testing)を利用します。 VS Code は Linux 用 Windows サブシステムと密接に統合され、[組み込みのターミナル](https://code.visualstudio.com/docs/editor/integrated-terminal)を提供してコード エディターとコマンド ライン間のシームレスなワークフローを確立し、[Git によるバージョン管理](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)をサポートすることに加えて、一般的な Git コマンド (追加、コミット、プッシュ、プル) が UI に直接組み込まれています。
 
-1. [Windows 用の VS Code をダウンロードしてインストール](https://code.visualstudio.com)します。 VS Code は Linux でも使用できますが、Windows Subsystem for Linux は GUI アプリをサポートしていないため、Windows にインストールする必要があります。 心配しなくても、リモートの WSL 拡張機能を使用して Linux コマンドラインやツールと統合できます。
+1. [Windows 用の VS Code をダウンロードしてインストールします](https://code.visualstudio.com)。 VS Code は Linux でも使用できますが、Linux 用 Windows サブシステムは GUI アプリをサポートしていないため、Windows にインストールする必要があります。 心配しなくても、Remote - WSL 拡張機能を使用すれば、将来、お使いの Linux コマンド ラインやツールとの統合は引き続き可能です。
 
-2. VS Code に[リモート WSL 拡張機能](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl)をインストールします。 これにより、統合開発環境として WSL を使用し、互換性とパスを処理することができます。 [詳しくはこちらをご覧ください](https://code.visualstudio.com/docs/remote/remote-overview)。
+2. [Remote - WSL 拡張機能](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl)を VS Code にインストールします。 これにより、統合開発環境として WSL を使用できるようになり、互換性とパスが自動的に処理されます。 [詳しくはこちらをご覧ください](https://code.visualstudio.com/docs/remote/remote-overview)。
 
 > [!IMPORTANT]
-> 既に VS Code がインストールされている場合は、[リモート WSL 拡張機能](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl)をインストールするために、 [1.35 がリリース](https://code.visualstudio.com/updates/v1_35)以降であることを確認する必要があります。 リモート WSL 拡張機能を使用せずに VS Code で WSL を使用することはお勧めしません。オートコンプリート、デバッグ、インライン処理などのサポートが失われるためです。おもしろい事実:この WSL 拡張機能は $HOME/.vscode-server/extensions. にインストールされています
+> VS Code が既にインストールされている場合、[Remote - WSL 拡張機能](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl)をインストールするためには、[1.35 May リリース](https://code.visualstudio.com/updates/v1_35)以降がインストールされていることを確認する必要があります。 オートコンプリート、デバッグ、lint などのサポートが失われるため、VS Code において、Remote - WSL 拡張機能なしで WSL を使用することはお勧めしません。豆知識: この WSL 拡張機能は $HOME/.vscode-server/extensions にインストールされます。
 
-## <a name="create-a-new-project"></a>新しいプロジェクトを作成する
+## <a name="create-a-new-project"></a>新しいプロジェクトを作る
 
-ここでは、linux (Ubuntu) ファイルシステム上に新しいプロジェクトディレクトリを作成し、VS Code を使用して Linux アプリとツールを操作します。
+ここでは、Linux (Ubuntu) ファイル システムに新しいプロジェクト ディレクトリを作成し、Linux のアプリとツール、および VS Code を使用してこのディレクトリで作業します。
 
-1. **[スタート]** メニュー (左下の Windows アイコン) に移動して、次のように入力して、VS Code を閉じて Ubuntu 18.04 (wsl コマンドライン) を開きます。"Ubuntu 18.04"。
+1. VS Code を閉じ、 **[スタート]** メニュー (左下の Windows アイコン) から次のように入力して Ubuntu 18.04 (WSL コマンド ライン) を開きます:「Ubuntu 18.04」。
 
-2. Ubuntu のコマンドラインで、プロジェクトを配置する場所に移動し、そのディレクトリを作成します (`mkdir HelloWorld`)。
+2. Ubuntu コマンド ラインで、プロジェクトを配置する場所に移動し、プロジェクト用のディレクトリを作成します: `mkdir HelloWorld`。
 
 ![Ubuntu ターミナル](../images/ubuntu-terminal.png)
 
 > [!TIP]
-> Windows Subsystem for Linux (WSL) を使用するときに重要なことは、次の**2 つの異なるファイルシステム間で作業**していることです。1) Windows ファイルシステム、2) Linux ファイルシステム (WSL)。この例では Ubuntu です。 パッケージをインストールしてファイルを保存する場所に注意を払う必要があります。 Windows ファイルシステムには、ツールまたはパッケージの1つのバージョンをインストールできます。 Linux ファイルシステムには、まったく異なるバージョンをインストールできます。 Windows ファイルシステムのツールを更新しても、Linux ファイルシステムのツールには影響しません。その逆も同様です。 WSL は、コンピューターの固定ドライブを Linux ディストリビューションの @no__t 0 フォルダーの下にマウントします。 たとえば、Windows C: ドライブが `/mnt/c/` の下にマウントされているとします。 Ubuntu ターミナルから Windows ファイルにアクセスし、それらのファイルで Linux アプリとツールを使用できます。また、その逆も可能です。 Python web 開発用に Linux ファイルシステムで作業することをお勧めします。これは、ほとんどの web ツールが Linux 向けに作成され、Linux 運用環境にデプロイされているためです。 また、ファイルシステムのセマンティクスが混在しないようにします (ファイル名については、Windows のように大文字と小文字が区別されます)。 しかし、WSL では、Linux ファイルシステムと Windows ファイルシステムの間でのジャンプがサポートされるようになったので、どちらかでファイルをホストすることができます。 [詳しくはこちらをご覧ください](https://devblogs.microsoft.com/commandline/do-not-change-linux-files-using-windows-apps-and-tools/)。 また、 [WSL2 が Windows に近](https://devblogs.microsoft.com/commandline/wsl-2-is-now-available-in-windows-insiders/)日公開され、大幅な改善が加えられています。 これは[、Windows insider build 18917 で試す](https://docs.microsoft.com/windows/wsl/wsl2-install)ことができます。
+> Linux 用 Windows サブシステム (WSL) を使用する際に覚えておく必要がある重要な点は、**2 つの異なるファイル システムをまたいで作業している**ことです。1 つは Windows ファイル システム、もう 1 つは Linux ファイル システム (WSL)、この例では Ubuntu です。 パッケージをインストールおよびファイルを保存する場所に注意する必要があります。 あるバージョンのツールまたはパッケージを Windows ファイル システムにインストールし、まったく別のバージョンを Linux ファイル システムにインストールすることが可能です。 Windows ファイル システムでツールを更新しても Linux ファイル システムのツールには影響がなく、逆も同様です。 WSL は、お使いのコンピューター上の固定ドライブを、お使いの Linux ディストリビューションの `/mnt/<drive>` フォルダー配下にマウントします。 たとえば、Windows の C: ドライブは `/mnt/c/` 配下にマウントされます。 Ubuntu ターミナルから Windows のファイルにアクセスし、それらのファイルに対して Linux のアプリやツールを使用することが可能であり、逆も同様です。 多くの Web ツールは元々 Linux 向けに開発され、Linux の運用環境に配置されるため、Python Web 開発では Linux のファイル システムで作業することをお勧めします。 そうすることで、(Windows でファイル名の大文字と小文字が区別されないといった) ファイル システムのセマンティクスが混在することも回避できます。 とはいえ、WSL は Linux と Windows の両ファイル システム間の行き来をサポートするようになったため、どちらのファイル システムでもファイルをホストできます。 [詳しくはこちらをご覧ください](https://devblogs.microsoft.com/commandline/do-not-change-linux-files-using-windows-apps-and-tools/)。 また、嬉しいお知らせとして、[近日中に Windows で WSL2 の提供が始まり](https://devblogs.microsoft.com/commandline/wsl-2-is-now-available-in-windows-insiders/)、いくつかの大きな改善が提供されます。 [Windows Insiders ビルド 18917 で今すぐお試しいただく](https://docs.microsoft.com/windows/wsl/wsl2-install)ことができます。
 
-## <a name="install-python-pip-and-venv"></a>Python、pip、およびベンダーをインストールする
+## <a name="install-python-pip-and-venv"></a>Python、pip、venv をインストールする
 
-Ubuntu 18.04 LTS には、Python 3.6 が既にインストールされていますが、他の Python のインストールによって取得されることが予想されるモジュールの一部が付属していません。 また、 **pip**、Python 用標準パッケージマネージャー、および軽量仮想環境の作成と管理に使用される標準モジュールである**ベンダー**をインストールする必要もあります。  
+Ubuntu 18.04 LTS には Python 3.6 が既にインストールされていますが、他の Python インストールで一般的なモジュールの一部が含まれていません。 Python の標準パッケージ マネージャー **pip** と、軽量な仮想環境の作成および管理に使用される標準モジュールの **venv** を、追加でインストールする必要があります。  
 
-1. Ubuntu ターミナルを開き、次のように入力して、Python3 が既にインストールされていることを確認します: `python3 --version`。 これにより、Python のバージョン番号が返されます。 Python のバージョンを更新する必要がある場合は、まず次のように入力して Ubuntu バージョンを更新します。 `sudo apt update && sudo apt upgrade`、次に `sudo apt upgrade python3` を使用して Python を更新します。
+1. Ubuntu ターミナルを開き、`python3 --version` と入力して、Python3 が既にインストールされていることを確認します。 Python のバージョン番号が返されます。 Python のバージョンを更新する必要がある場合、`sudo apt update && sudo apt upgrade` と入力して Ubuntu のバージョンを更新した後、`sudo apt upgrade python3` を使用して Python を更新します。
 
-2. 次のように入力して**pip**をインストールします。 `sudo apt install python3-pip`. Pip を使用すると、Python 標準ライブラリに含まれていない追加のパッケージをインストールして管理することができます。
+2. `sudo apt install python3-pip` と入力して **pip** をインストールします。 pip を使用すると、Python 標準ライブラリに含まれていない追加のパッケージをインストールして管理することができます。
 
-3. 次のように入力して、**ベンダー**をインストールします。 `sudo apt install python3-venv`.
+3. `sudo apt install python3-venv` と入力して **venv** をインストールします。
 
 ## <a name="create-a-virtual-environment"></a>仮想環境を作成する
 
-Python 開発プロジェクトのベストプラクティスとして、仮想環境を使用することをお勧めします。 仮想環境を作成することにより、プロジェクトツールを分離し、他のプロジェクトのツールとのバージョン管理の競合を回避できます。 たとえば、Django 1.2 web フレームワークを必要とする古い web プロジェクトを管理している場合に、Django 2.2 を使用して新しいプロジェクトを作成することができます。 仮想環境の外部で Django をグローバルに更新する場合は、後でバージョン管理の問題が発生する可能性があります。 仮想環境では、誤ったバージョン管理の競合を防ぐだけでなく、管理者特権なしでパッケージをインストールして管理することができます。
+仮想環境の使用は、Python 開発プロジェクトで推奨されるベスト プラクティスです。 仮想環境を作成することにより、プロジェクトのツールを分離し、他のプロジェクト用のツールとの間でバージョン管理上の競合を避けることができます。 たとえば、Django 1.2 Web フレームワークが必要な古い Web プロジェクトを保守している間に、Django 2.2 を使用するエキサイティングな新しいプロジェクトが登場したとします。 仮想環境の外で Django をグローバルに更新する場合、後でバージョン管理上の問題が起きる可能性があります。 仮想環境を使用すれば、予期しないバージョン管理上の競合を避けられるだけでなく、管理者特権なしでパッケージをインストールおよび管理することができます。
 
-1. ターミナルを開き、 *HelloWorld*プロジェクトフォルダー内で次のコマンドを使用して、 **. ベンダー**: `python3 -m venv .venv` という名前の仮想環境を作成します。
+1. ターミナルを開き、*HelloWorld* プロジェクト フォルダー内で、次のコマンドを使用して **.venv** という名前の仮想環境を作成します: `python3 -m venv .venv`。
 
-2. 仮想環境をアクティブ化するには、`source .venv/bin/activate` と入力します。 正常に機能した場合は、コマンドプロンプトの前に **(...)** が表示されます。 これで、コードを記述してパッケージをインストールするための、自己完結型の環境が準備できました。 仮想環境の使用が完了したら、次のコマンドを入力して非アクティブ化します。 `deactivate`
+2. 仮想環境をアクティブにするには、`source .venv/bin/activate` と入力します。 成功した場合、コマンド プロンプトの前に **(.venv)** と表示されます。 これで、コードを記述してパッケージをインストールするための、自己完結型の環境が準備できました。 仮想環境での作業が完了したら、次のコマンドを入力して非アクティブ化します: `deactivate`。
 
     ![仮想環境を作成する](../images/wsl-venv.png)
 
 > [!TIP]
-> プロジェクトを作成するディレクトリ内に仮想環境を作成することをお勧めします。 各プロジェクトは個別のディレクトリにする必要があるため、それぞれに独自の仮想環境があるため、一意の名前を付ける必要はありません。 ここでは、Python 規則に従う**ために、という名前を**使用することを提案します。 プロジェクトディレクトリにをインストールすると、一部のツール (pipenv など) も既定でこの名前になります。 環境変数の定義ファイルと競合するため、 **env**は使用しません。 通常、ドットではない名前を使用することはお勧めしません。 @no__t 0 は、ディレクトリが存在することを常に示す必要があります。 また、お使いの gifile に追加することをお**勧めします**。 (ここでは、 [Python 用の GitHub の既定の .gitignore](https://github.com/github/gitignore/blob/50e42aa1064d004a5c99eaa72a2d8054a0d8de55/Python.gitignore#L99-L106) for リファレンスを示しています)。VS Code での仮想環境の操作の詳細については、「 [VS Code での Python 環境の使用](https://code.visualstudio.com/docs/python/environments)」を参照してください。
+> プロジェクトを配置する予定のディレクトリ内に仮想環境を作成することをお勧めします。 プロジェクトごとに独自の独立したディレクトリを設ける必要があり、各プロジェクトが独自の仮想環境を持つことになるため、一意の名前付けは必要ありません。 ここでは、Python の規則に従うために **.venv** という名前を使用することを提案します。 プロジェクト ディレクトリにインストールした場合、(pipenv などの) 一部のツールも既定でこの名前になります。 **.env** は環境変数の定義ファイルと競合するため、使用しないでください。 ディレクトリが存在することが `ls` から常に通知される必要はないため、一般的には、ドットで始まらない名前は推奨されません。 .gitignore ファイルに **.venv** を追加することもお勧めします。 (参考までに、[GitHub の既定の Python 用 gitignore テンプレート](https://github.com/github/gitignore/blob/50e42aa1064d004a5c99eaa72a2d8054a0d8de55/Python.gitignore#L99-L106)はこちらです。)VS Code での仮想環境を使用した作業の詳細については、[VS Code での Python 環境の使用](https://code.visualstudio.com/docs/python/environments)に関するページを参照してください。
 
-## <a name="open-a-wsl---remote-window"></a>WSL-リモートウィンドウを開く
+## <a name="open-a-wsl---remote-window"></a>WSL - Remote ウィンドウを開く
 
-VS Code は、前にインストールしたリモート WSL 拡張機能を使用して、Linux サブシステムをリモートサーバーとして扱います。 これにより、統合開発環境として WSL を使用できるようになります。 [詳しくはこちらをご覧ください](https://code.visualstudio.com/docs/remote/wsl)。 
+VS Code では、(以前にインストールした) Remote - WSL 拡張機能を使用して、Linux サブシステムをリモート サーバーとして扱います。 これにより、WSL を統合開発環境として使用できるようになります。 [詳しくはこちらをご覧ください](https://code.visualstudio.com/docs/remote/wsl)。 
 
-1. 次のように入力して、Ubuntu ターミナルから VS Code でプロジェクトフォルダーを開きます。 `code .` ("." は、現在のフォルダーを開くように VS Code に指示します)。
+1. `code .` と入力して、Ubuntu ターミナルから VS Code でプロジェクト フォルダーを開きます ("." は、現在のフォルダーを開くよう VS Code に指示します)。
 
-2. Windows Defender からセキュリティの警告がポップアップ表示され、[アクセスを許可する] を選択します。 VS Code を開くと、左下隅にリモート接続ホストインジケーターが表示され、@no__t 0WSL で編集中であることがわかります。Ubuntu-18.04 @ no__t-0
+2. Windows Defender のセキュリティ警告が表示されたら、[アクセスを許可] を選択します。 VS Code が開くと、リモート接続ホストのインジケーターが左下隅に表示され、**WSL: Ubuntu-18.04** で編集作業中であることを知らせます。
 
-    ![VS Code リモート接続ホストインジケーター](../images/wsl-remote-extension.png)
+    ![VS Code のリモート接続ホストのインジケーター](../images/wsl-remote-extension.png)
 
-3. Ubuntu ターミナルを閉じます。 今後は、VS Code に統合された WSL 端末を使用します。
+3. Ubuntu ターミナルを閉じます。 これより後は、VS Code に統合された WSL ターミナルを使用します。
 
-4. Ctrl キーを押し**ながら '** (バックティック文字を使用) を押すか、[@no__t の**表示**]**ターミナル**を選択して、VS Code で wsl ターミナルを開きます。 これにより、Ubuntu ターミナルで作成したプロジェクトフォルダーパスに対して開かれた bash (WSL) コマンドラインが開きます。
+4. **Ctrl + `** (バックティック文字を使用) キーを押すか **[表示]**  >  **[ターミナル]** を選択して、VS Code で WSL ターミナルを開きます。 Ubuntu ターミナルで作成したプロジェクト フォルダーのパスで bash (WSL) コマンド ラインが開きます。
 
-    ![WSL ターミナルを使用した VS Code](../images/vscode-bash-remote.png)
+    ![VS Code 内の WSL ターミナル](../images/vscode-bash-remote.png)
 
 ## <a name="install-the-microsoft-python-extension"></a>Microsoft Python 拡張機能をインストールする
 
-リモート WSL の VS Code 拡張機能をインストールする必要があります。 VS Code にローカルにインストールされている拡張機能は、自動的には使用できません。 [詳しくはこちらをご覧ください](https://code.visualstudio.com/docs/remote/wsl#_managing-extensions)。
+お使いの Remote - WSL 用の VS Code 拡張機能がある場合、インストールする必要があります。 VS Code にローカルで既にインストールされている拡張機能は、自動的には使用可能になりません。 [詳しくはこちらをご覧ください](https://code.visualstudio.com/docs/remote/wsl#_managing-extensions)。
 
-1. **Ctrl + Shift + X キーを押し**て [VS Code 拡張機能] ウィンドウを開きます (または、メニューを使用して  >  の**拡張機能**の**表示**に移動します)。
+1. **Ctrl + Shift + X** を入力して VS Code 拡張機能ウィンドウを開きます (または、メニューを使用して **[表示]**  >  **[拡張機能]** に移動します)。
 
-2. **[Marketplace の検索拡張機能]** ボックスに、次のように入力します。**Python**。
+2. 上部の **[Marketplace で拡張機能を検索する]** ボックスに、次のように入力します: **Python**。
 
-3. Microsoft 拡張機能**によって python (ms python. python)** を検索し、緑色の **[インストール]** ボタンを選択します。
+3. **Python (ms-python.python) by Microsoft** 拡張機能を探し、緑色の **[インストール]** ボタンを選択します。
 
-4. 拡張機能のインストールが完了したら、青色の **[再読み込みが必要]** ボタンを選択する必要があります。 VS Code が再読み込みされ、@no__t 0WSL が表示されます。UBUNTU-18.04-Python 拡張機能がインストールされていることを示す VS Code 拡張機能ウィンドウに @ no__t-0 セクションがインストールされました。
+4. 拡張機能のインストールが完了したら、青色の **[Reload Required]\(再読み込みが必要\)** ボタンを選択する必要があります。 VS Code が再読み込みされ、**WSL: UBUNTU-18.04 - Installed** セクションが VS Code の [拡張機能] ウィンドウに表示されて、Python 拡張機能がインストールされたことを示します。
 
 ## <a name="run-a-simple-python-program"></a>単純な Python プログラムを実行する
 
-Python は解釈された言語であり、さまざまな種類の解釈 (Python2、Anaconda、PyPy など) をサポートしています。 VS Code は、プロジェクトに関連付けられているインタープリターを既定値にする必要があります。 変更する理由がある場合は、VS Code ウィンドウの下部にある青いバーに現在表示されているインタープリターを選択するか、**コマンドパレット**(Ctrl + Shift + P) を開いてコマンド **python を入力します。[インタープリター @ no__t-0] を選択します。 これにより、現在インストールされている Python インタープリターの一覧が表示されます。 [詳細については、Python 環境の構成に関する](https://code.visualstudio.com/docs/python/environments)ページをご覧ください。
+Python はインタープリター言語であり、さまざまな種類のインタープリター (Python2、Anaconda、PyPy など) をサポートしています。 VS Code では、プロジェクトに関連付けられているインタープリターが既定で使用されます。 変更する理由がある場合、VS Code ウィンドウの下部にある青いバーに現在表示されているインタープリターを選択するか、**コマンド パレット** (Ctrl + Shift + P) を開いて **Python: Select Interpreter** コマンドを入力します。 これにより、現在インストールされている Python インタープリターの一覧が表示されます。 [Python 環境の構成の詳細については、こちらを参照してください](https://code.visualstudio.com/docs/python/environments)。
 
-単純な Python プログラムを作成してテストとして実行し、正しい Python インタープリターが選択されていることを確認しましょう。
+テストとして単純な Python プログラムを作成して実行し、正しい Python インタープリターが選択されていることを確認してみましょう。
 
-1. **Ctrl + Shift + E キーを押し**て [VS Code エクスプローラー] ウィンドウを開きます (または、メニューを使用して  > **エクスプローラー**の**表示**に移動します)。
+1. **Ctrl + Shift + E** キーを押すか、メニューから **[表示]**  >  **[エクスプローラー]** を選択して、VS Code のファイル エクスプローラー ウィンドウを開きます。
 
-2. まだ開いていない場合は、 **Ctrl + Shift + ' キーを押し**て統合 wsl ターミナルを開き、 **HelloWorld** python プロジェクトフォルダーが選択されていることを確認します。
+2. まだ開いていない場合、**Ctrl + Shift + `** キーを押して統合 WSL ターミナルを開き、**HelloWorld** python プロジェクト フォルダーが選択されていることを確認します。
 
-3. 次のように入力して、python ファイルを作成します。 `touch test.py` 先ほど作成したファイルが [エクスプローラー] ウィンドウの [プロジェクトディレクトリに既に存在する] フォルダーの下に表示されます。
+3. `touch test.py` と入力して python ファイルを作成します。 エクスプローラー ウィンドウで、先に作成したファイルが、プロジェクト ディレクトリに既に存在する .venv および .vscode フォルダーの下に表示されるはずです。
 
-4. エクスプローラーウィンドウで作成した**test.py**ファイルを選択して、VS Code で開きます。 ファイル名の .py は、これが Python ファイルであること VS Code 通知するため、以前に読み込んだ Python の拡張機能は、VS Code ウィンドウの下部に表示される Python インタープリターを自動的に選択して読み込みます。
+4. エクスプローラー ウィンドウで、先に作成した **test.py** ファイルを選択して、VS Code で開きます。 これが Python ファイルであることはファイル名の .py によって VS Code に認識されるため、以前に読み込んだ Python 拡張機能によって、Python インタープリターが自動的に選択されて読み込まれ、VS Code ウィンドウの最下部に表示されます。
 
-    ![VS Code で Python インタープリターを選択します](../images/interpreterselection.gif)
+    ![VS Code で Python インタープリターを選択する](../images/interpreterselection.gif)
 
-5. この Python コードを test.py ファイルに貼り付け、ファイルを保存します (Ctrl + S): 
+5. この Python コードを test.py ファイルに貼り付けて、ファイルを保存します (Ctrl + S)。 
 
     ```python
     print("Hello World")
     ```
 
-6. 先ほど作成した Python の "Hello World" プログラムを実行するには、[VS Code エクスプローラー] ウィンドウで**test.py**ファイルを選択し、ファイルを右クリックして、[オプション] メニューを表示します。 [**ターミナルで Python ファイルを実行**する] を選択します。 または、統合された WSL ターミナルウィンドウで、「`python test.py`」と入力して、"Hello World" プログラムを実行します。 Python インタープリターは、ターミナルウィンドウに "Hello World" を出力します。
+6. 先に作成した "Hello World" Python プログラムを実行するには、VS Code のエクスプローラー ウィンドウで **test.py** ファイルを選択し、ファイルを右クリックしてオプションのメニューを表示します。 **[Run Python File in Terminal]\(Python ファイルをターミナルで実行\)** を選択します。 または、統合 WSL ターミナル ウィンドウで `python test.py` と入力して "Hello World" プログラムを実行します。 Python インタープリターにより、ターミナル ウィンドウに "Hello World" と出力されます。
 
-テストは成功です。 Python プログラムを作成して実行するための設定がすべて整いました。 次に、最も一般的な2つの Python web フレームワークを使用して、Hello World アプリを作成してみましょう。Flask と Django。
+お疲れさまでした。 Python プログラムを作成して実行するための準備がすべて整いました。 次に、最も一般的な 2 つの Python Web フレームワークである Flask と Django を使用して Hello World アプリを作成してみましょう。
 
-## <a name="hello-world-tutorial-for-flask"></a>Flask の Hello World チュートリアル
+## <a name="hello-world-tutorial-for-flask"></a>Flask 用の Hello World チュートリアル
 
-[Flask](http://flask.pocoo.org/)は Python 用の web アプリケーションフレームワークです。 この簡単なチュートリアルでは、VS Code と WSL を使用して小さな "Hello World" Flask アプリを作成します。
+[Flask](http://flask.pocoo.org/) は Python 用の Web アプリケーション フレームワークです。 この簡単なチュートリアルでは、VS Code と WSL を使用して小さな "Hello World" Flask アプリを作成します。
 
-1. **[スタート]** メニュー (左下の Windows アイコン) に移動して、次のように入力して、Ubuntu 18.04 (wsl コマンドライン) を開きます。"Ubuntu 18.04"。
+1. **[スタート]** メニュー (左下の Windows アイコン) から次のように入力して Ubuntu 18.04 (WSL コマンド ライン) を開きます:「Ubuntu 18.04」。
 
-2. プロジェクトのディレクトリを作成します。 `mkdir HelloWorld-Flask`、`cd HelloWorld-Flask` を選択して、ディレクトリを入力します。
+2. `mkdir HelloWorld-Flask` でプロジェクトのディレクトリを作成し、`cd HelloWorld-Flask` でこのディレクトリに移動します。
 
-3. 仮想環境を作成して、プロジェクトツールをインストールします。 `python3 -m venv .venv`
+3. プロジェクトのツールをインストールするための仮想環境を作成します: `python3 -m venv .venv`
 
-4. コマンドを入力して VS Code で**HelloWorld-Flask**プロジェクトを開きます。 `code .`
+4. 次のコマンドを入力して、VS Code で **HelloWorld-Flask** プロジェクトを開きます: `code .`
 
-5. VS Code 内で、 **Ctrl + Shift + '** ( **HelloWorld-flask**プロジェクトフォルダーは既に選択されている必要があります) を入力して、統合された Wsl ターミナル (Bash) を開きます。 *前の VS Code と統合された WSL ターミナルで作業するため、Ubuntu コマンドラインを閉じます。*
+5. VS Code 内で **Ctrl + Shift + `** キーを押して統合 WSL ターミナル (別名 Bash) を開きます (**HelloWorld-Flask** プロジェクト フォルダーが既に選択されているはずです)。 *ここからは、VS Code に統合された WSL ターミナルで作業を進めるので、Ubuntu コマンド ラインを閉じます。*
 
-6. VS Code で Bash ターミナルを使用して #3 手順で作成した仮想環境をアクティブにします。 `source .venv/bin/activate`。 正常に機能した場合は、コマンドプロンプトの前に (...) が表示されます。
+6. VS Code 内の Bash ターミナルを使用して、手順 3 で作成した仮想環境をアクティブ化します: `source .venv/bin/activate`。 成功した場合、コマンド プロンプトの前に (.venv) と表示されます。
 
-7. 次のように入力して、仮想環境に Flask をインストールします。 `python3 -m pip install flask` 次のように入力して、インストールされていることを確認します。 `python3 -m flask --version`
+7. `python3 -m pip install flask` と入力して、Flask を仮想環境にインストールします。 `python3 -m flask --version` と入力して、インストールされていることを確認します。
 
-8. Python コード用の新しいファイルを作成します。 `touch app.py`
+8. Python コード用の新しいファイルを作成します: `touch app.py`
 
-9. VS Code のエクスプローラー (@no__t で**app.py**ファイルを開き、app.py ファイルを選択します。 これにより、インタープリターを選択するために Python 拡張機能がアクティブ化されます。 既定値は**Python 3.6.8 64-bit ('...)** です。 仮想環境も検出されていることに注意してください。
+9. VS Code のファイル エクスプローラーで **app.py** ファイルを開きます (`Ctrl+Shift+E` キーを押してから app.py ファイルを選択します)。 インタープリターを選択するための Python 拡張機能がアクティブになります。 既定で **Python 3.6.8 64-bit ('.venv': venv)** が選択されるはずです。 仮想環境も検出されていることに注意してください。
 
     ![アクティブ化された仮想環境](../images/virtual-environment.png)
 
-10. **App.py**で、flask をインポートするコードを追加し、flask オブジェクトのインスタンスを作成します。
+10. **app.py** で、Flask をインポートして Flask オブジェクトのインスタンスを作成するためのコードを追加します。
 
     ```python
     from flask import Flask
     app = Flask(__name__)
     ```
 
-11. また、 **app.py**では、コンテンツ (この場合は単純な文字列) を返す関数を追加します。 Flask のアプリを使用して、URL ルート "/" をその関数にマップします **。**
+11. さらに **app.py** で、コンテンツ (この場合は単純な文字列) を返す関数を追加します。 Flask の **app.route** デコレーターを使用して、URL ルート "/" をその関数にマップします。
 
     ```python
     @app.route("/")
@@ -188,9 +188,9 @@ Python は解釈された言語であり、さまざまな種類の解釈 (Pytho
     ```
 
     > [!TIP]
-    > 同じ関数に複数のデコレーターを使用することができます。同じ関数にマップするルートの数に応じて、1行につき1つの関数を使用できます。
+    > 同じ関数にマップする異なったルートの数に応じて、同じ関数で複数のデコレーターを (1 行につき 1 つ) 使用できます。
 
-12. **App.py**ファイルを保存します (**Ctrl + S**)。
+12. **app.py** ファイルを保存します (**Ctrl + S**)。
 
 13. ターミナルで、次のコマンドを入力してアプリを実行します。
 
@@ -198,7 +198,7 @@ Python は解釈された言語であり、さまざまな種類の解釈 (Pytho
     python3 -m flask run
     ```
 
-    Flask 開発サーバーが実行されます。 開発サーバーは、既定で**app.py**を検索します。 Flask を実行すると、次のような出力が表示されます。
+    Flask 開発サーバーが実行されます。 開発サーバーは既定で **app.py** を探します。 Flask を実行すると、次のような出力が表示されるはずです。
 
     ```bash
     (env) user@USER:/mnt/c/Projects/HelloWorld$ python3 -m flask run
@@ -209,58 +209,58 @@ Python は解釈された言語であり、さまざまな種類の解釈 (Pytho
      * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
     ```
 
-14. 表示されたページで既定の web ブラウザーを開き、 **Ctrl キーを押しながら**ターミナルで @no__t 1 の URL をクリックします。 ブラウザーに次のメッセージが表示されます。
+14. 既定の Web ブラウザーを開き、ターミナル内の http://127.0.0.1:5000/ URL を **Ctrl キーを押しながらクリック**して、レンダリングされたページを表示します。 次のメッセージがブラウザーに表示されるはずです。
 
-    ![こんにちは、Flask!](../images/hello-flask.png)
+    ![Hello, Flask!](../images/hello-flask.png)
 
-15. "/" のような URL にアクセスすると、HTTP 要求を示すメッセージがデバッグターミナルに表示されることを確認します。
+15. "/" のような URL にアクセスすると、HTTP 要求を示すメッセージがデバッグ ターミナルに表示されることを確認します。
 
     ```bash
     127.0.0.1 - - [19/Jun/2019 13:36:56] "GET / HTTP/1.1" 200 -
     ```
 
-16. ターミナルで**Ctrl + C キーを押し**てアプリを停止します。
+16. ターミナルで **Ctrl + C** を使用してアプリを停止します。
 
 > [!TIP]
-> **Program.py**などの**app.py**とは異なるファイル名を使用する場合は、 **FLASK_APP**という名前の環境変数を定義し、その値を選択したファイルに設定します。 Flask の開発サーバーは、既定のファイル**app.py**ではなく、 **FLASK_APP**の値を使用します。 詳細については、 [Flask のコマンドラインインターフェイス](http://flask.pocoo.org/docs/1.0/cli/)に関するドキュメントを参照してください。
+> **app.py** 以外のファイル名 (**program.py** など) を使用する場合、**FLASK_APP** という名前の環境変数を定義し、選択したファイルにその値を設定します。 Flask の開発サーバーは、既定のファイル **app.py** の代わりに **FLASK_APP** の値を使用します。 詳細については、[Flask のコマンド ライン インターフェイスに関するドキュメント](http://flask.pocoo.org/docs/1.0/cli/)を参照してください。
 
-これで、Visual Studio Code と Windows Subsystem for Linux を使用して Flask web アプリケーションが作成されました。 VS Code と Flask を使用した詳細なチュートリアルについては、 [Visual Studio Code の Flask チュートリアル](https://code.visualstudio.com/docs/python/tutorial-flask)を参照してください。
+以上、Visual Studio Code と Linux 用 Windows サブシステムを使用して Flask Web アプリケーションを作成しました。 VS Code と Flask を使用した、さらに詳しいチュートリアルについては、[Visual Studio Code の Flask チュートリアル](https://code.visualstudio.com/docs/python/tutorial-flask)を参照してください。
 
-## <a name="hello-world-tutorial-for-django"></a>Django のチュートリアルの Hello World
+## <a name="hello-world-tutorial-for-django"></a>Django 用の Hello World チュートリアル
 
-[Django](https://www.djangoproject.com)は、Python 用の web アプリケーションフレームワークです。 この簡単なチュートリアルでは、VS Code と WSL を使用して小さな "Hello World" Django アプリを作成します。
+[Django](https://www.djangoproject.com) は Python 用の Web アプリケーション フレームワークです。 この簡単なチュートリアルでは、VS Code と WSL を使用して小さな "Hello World" Django アプリを作成します。
 
-1. **[スタート]** メニュー (左下の Windows アイコン) に移動して、次のように入力して、Ubuntu 18.04 (wsl コマンドライン) を開きます。"Ubuntu 18.04"。
+1. **[スタート]** メニュー (左下の Windows アイコン) から次のように入力して Ubuntu 18.04 (WSL コマンド ライン) を開きます:「Ubuntu 18.04」。
 
-2. プロジェクトのディレクトリを作成します。 `mkdir HelloWorld-Django`、`cd HelloWorld-Django` を選択して、ディレクトリを入力します。
+2. `mkdir HelloWorld-Django` でプロジェクトのディレクトリを作成し、`cd HelloWorld-Django` でこのディレクトリに移動します。
 
-3. 仮想環境を作成して、プロジェクトツールをインストールします。 `python3 -m venv .venv`
+3. プロジェクトのツールをインストールするための仮想環境を作成します: `python3 -m venv .venv`
 
-4. 次のコマンドを入力して VS Code で**HelloWorld-DJango**プロジェクトを開きます。 `code .`
+4. 次のコマンドを入力して、VS Code で **HelloWorld-DJango** プロジェクトを開きます: `code .`
 
-5. VS Code 内で、 **Ctrl + Shift + '** ( **Django**プロジェクトフォルダーは既に選択されている必要があります) を入力して、統合された Wsl ターミナル (Bash) を開きます。 *前の VS Code と統合された WSL ターミナルで作業するため、Ubuntu コマンドラインを閉じます。*
+5. VS Code 内で **Ctrl + Shift + `** キーを押して統合 WSL ターミナル (別名 Bash) を開きます (**HelloWorld-Django** プロジェクト フォルダーが既に選択されているはずです)。 *ここからは、VS Code に統合された WSL ターミナルで作業を進めるので、Ubuntu コマンド ラインを閉じます。*
 
-6. VS Code で Bash ターミナルを使用して #3 手順で作成した仮想環境をアクティブにします。 `source .venv/bin/activate`。 正常に機能した場合は、コマンドプロンプトの前に (...) が表示されます。
+6. VS Code 内の Bash ターミナルを使用して、手順 3 で作成した仮想環境をアクティブ化します: `source .venv/bin/activate`。 成功した場合、コマンド プロンプトの前に (.venv) と表示されます。
 
-7. @No__t-0 コマンドを使用して、仮想環境に Django をインストールします。 次のように入力して、インストールされていることを確認します。 `python3 -m django --version`
+7. `python3 -m pip install django` コマンドを使用して、仮想環境に Django をインストールします。 `python3 -m django --version` と入力して、インストールされていることを確認します。
 
-8. 次に、次のコマンドを実行して、Django プロジェクトを作成します。
+8. 次に、下記のコマンドを実行して Django プロジェクトを作成します。
 
     ```bash
     django-admin startproject web_project .
     ```
 
-    @No__t-0 コマンドは、現在 @no__t のフォルダーがプロジェクトフォルダーであることを前提としており、その中に次のものを作成します。
+    `startproject` コマンドは (最後の `.` の使用によって) 現在のフォルダーがプロジェクト フォルダーであると想定し、その中に以下を作成します。
 
-    - `manage.py` :プロジェクトの Django コマンドライン管理ユーティリティ。 @No__t-0 を使用して、プロジェクトの管理コマンドを実行します。
+    - `manage.py`:プロジェクト用の Django コマンド ライン管理ユーティリティ。 `python manage.py <command> [options]` を使用してプロジェクトの管理コマンドを実行します。
 
-    - @No__t-0 という名前のサブフォルダー。次のファイルが含まれています。
-        - `__init__.py`: このフォルダーが Python パッケージであることを Python に通知する空のファイル。
-        - `wsgi.py`: WSGI と互換性のある web サーバーをプロジェクトに提供するためのエントリポイント。 通常、このファイルは実稼働 web サーバーのフックを提供するので、そのままにしておきます。
-        - `settings.py`: web アプリを開発する過程で変更する Django プロジェクトの設定が含まれています。
-        - `urls.py`: Django プロジェクトの目次が含まれています。このテーブルは、開発の過程でも変更できます。
+    - `web_project` という名前のサブフォルダー。次のファイルが含まれます。
+        - `__init__.py`: このフォルダーが Python パッケージであることを Python に指示する空のファイル。
+        - `wsgi.py`: プロジェクトを実行する WSGI 互換 Web サーバーのエントリ ポイント。 通常、このファイルは実稼働 Web サーバーへのフックを提供するので、そのままにしておきます。
+        - `settings.py`: Web アプリの開発中に変更する、Django プロジェクトの設定が含まれています。
+        - `urls.py`: Django プロジェクトの目次が含まれ、これも開発中に変更します。
 
-9. Django プロジェクトを確認するには、コマンド `python3 manage.py runserver` を使用して Django の開発サーバーを起動します。 サーバーは既定のポート8000で実行され、ターミナルウィンドウに次の出力のような出力が表示されます。
+9. Django プロジェクトを検証するには、コマンド `python3 manage.py runserver` を使用して Django の開発サーバーを起動します。 サーバーは既定のポート 8000 で実行され、ターミナル ウィンドウに次のような出力が表示されるはずです。
 
     ```output
     Performing system checks...
@@ -273,23 +273,23 @@ Python は解釈された言語であり、さまざまな種類の解釈 (Pytho
     Quit the server with CONTROL-C.
     ```
 
-    サーバーを初めて実行すると、既定の SQLite データベースが @no__t ファイル内に作成されます。このデータベースは開発目的で使用されますが、運用環境では、ボリュームの少ない web アプリに使用できます。 また、Django の組み込み web サーバーは、ローカルでの開発*のみ*を目的としています。 ただし、web ホストに配置する場合、Django では、ホストの web サーバーが代わりに使用されます。 Django プロジェクトの `wsgi.py` モジュールは、運用サーバーへのフックを処理します。
+    サーバーを初めて実行すると、サーバーは既定の SQLite データベースをファイル `db.sqlite3` に作成します。開発用途が想定されていますが、小規模な Web アプリであれば運用環境で使用できます。 また、Django の組み込み Web サーバーはローカル開発用途*のみ*を想定しています。 ただし、Web ホストに配置する場合、Django はホストの Web サーバーを代わりに使用します。 Django プロジェクトの `wsgi.py` モジュールは、実稼働サーバーへのフックを処理します。
 
-    既定の8000とは異なるポートを使用する場合は、`python3 manage.py runserver 5000` など、コマンドラインでポート番号を指定します。
+    既定の 8000 以外のポートを使用する場合、`python3 manage.py runserver 5000` のようにコマンド ラインでポート番号を指定します。
 
-10. `Ctrl+click` の場合は、ターミナル出力ウィンドウの `http://127.0.0.1:8000/` の URL を使用して、そのアドレスに対する既定のブラウザーを開きます。 Django が正しくインストールされ、プロジェクトが有効な場合は、既定のページが表示されます。 VS Code ターミナル出力ウィンドウには、サーバーログも表示されます。
+10. ターミナル出力ウィンドウ内の `http://127.0.0.1:8000/` URL を `Ctrl+click`すると、既定のブラウザーでそのアドレスが開きます。 Django が正しくインストールされていてプロジェクトが有効な場合、既定のページが表示されます。 VS Code のターミナル出力ウィンドウには、サーバー ログも表示されます。
 
-11. 完了したら、ブラウザーウィンドウを閉じ、ターミナル出力ウィンドウに示されているように `Ctrl+C` を使用して VS Code のサーバーを停止します。
+11. 終了したら、ブラウザー ウィンドウを閉じ、VS Code で、ターミナル出力ウィンドウの指示のとおり `Ctrl+C` を使用してサーバーを停止します。
 
-12. 次に、Django アプリを作成するために、プロジェクトフォルダー (`manage.py` が存在する) で管理ユーティリティの `startapp` コマンドを実行します。
+12. 次に、Django アプリを作成するために、プロジェクト フォルダー (`manage.py` がある場所) で管理ユーティリティの `startapp` コマンドを実行します。
 
     ```bash
     python3 manage.py startapp hello
     ```
 
-    このコマンドは、多数のコードファイルと1つのサブフォルダーを含む `hello` という名前のフォルダーを作成します。 これらのうち、`views.py` (web アプリ内のページを定義する関数を含む) と `models.py` (データオブジェクトを定義するクラスを含む) を使用することがよくあります。 @No__t-0 フォルダーは、このチュートリアルで後ほど説明するように、データベースのバージョンを管理するために Django の管理ユーティリティによって使用されます。 ファイル `apps.py` (アプリ構成)、`admin.py` (管理インターフェイスの作成用)、および `tests.py` (テスト用) もあります。これについては、ここでは説明しません。
+    このコマンドは、多数のコード ファイルと 1 つのサブフォルダーを含む `hello` という名前のフォルダーを作成します。 これらのうち、よく使用するのは、Web アプリ内のページを定義する関数が含まれる `views.py` と、データ オブジェクトを定義するクラスが含まれる `models.py` です。 `migrations` フォルダーは、このチュートリアルで追って説明するように、データベースのバージョンを管理するために Django の管理ユーティリティによって使用されます。 `apps.py` (アプリ構成)、`admin.py` (管理インターフェイスの作成用)、`tests.py` (テスト用) などのファイルもありますが、ここでは説明しません。
 
-13. アプリのホームページに対して1つのビューを作成する次のコードと一致するように `hello/views.py` を変更します。
+13. 次のコードに一致するように `hello/views.py` を変更します。このコードは、アプリのホーム ページの単一ビューを作成します。
 
     ```python
     from django.http import HttpResponse
@@ -298,7 +298,7 @@ Python は解釈された言語であり、さまざまな種類の解釈 (Pytho
         return HttpResponse("Hello, Django!")
     ```
 
-14. 次の内容を含むファイルを作成します (@no__t 0)。 @No__t 0 ファイルでは、パターンを指定して、異なる Url を適切なビューにルーティングします。 次のコードには、アプリのルート URL (`""`) を、`hello/views.py` に追加した `views.home` 関数にマップするためのルートが1つ含まれています。
+14. 次の内容のファイル `hello/urls.py` を作成します。 `urls.py` ファイルでは、さまざまな URL を適切なビューにルーティングするためのパターンを指定します。 下記のコードには、アプリのルート URL (`""`) を、先に `hello/views.py` に追加した `views.home` 関数にマップする 1 つのルートが含まれています。
 
     ```python
     from django.urls import path
@@ -309,7 +309,7 @@ Python は解釈された言語であり、さまざまな種類の解釈 (Pytho
     ]
     ```
 
-15. @No__t-0 フォルダーには、@no__t 1 ファイルも含まれます。このファイルは、URL ルーティングが実際に処理されます。 @No__t-0 を開き、次のコードに一致するように変更します (必要に応じて、必要に応じてコメントを保持できます)。 このコードは `django.urls.include` を使用してアプリの @no__t 0 を取得します。これにより、アプリ内に含まれるアプリのルートが保持されます。 この分離は、プロジェクトに複数のアプリが含まれている場合に便利です。
+15. `web_project` フォルダーには `urls.py` ファイルも含まれます。これは、URL ルーティングが実際に処理される場所です。 `web_project/urls.py` を開き、次のコードに一致するように変更します (必要であれば、指示コメントを残しても構いません)。 このコードは、`django.urls.include` を使用してアプリの `hello/urls.py` を取得します。これにより、アプリのルートがアプリ内に保持されます。 この分離は、プロジェクトに複数のアプリが含まれる場合に役立ちます。
 
     ```python
     from django.contrib import admin
@@ -320,15 +320,15 @@ Python は解釈された言語であり、さまざまな種類の解釈 (Pytho
     ]
     ```
 
-16. 変更されたファイルをすべて保存します。
+16. 変更したすべてのファイルを保存します。
 
-17. VS Code ターミナルで `python manage.py runserver` を使用して開発サーバーを実行し、ブラウザーを開いて `http://127.0.0.1:8000/` を開き、"Hello, Django" と表示されるページを表示します。
+17. VS Code ターミナルで、`python manage.py runserver` を使用して開発サーバーを実行し、ブラウザーで `http://127.0.0.1:8000/` を開いて、ページの "Hello, Django" の表示を確認します。
 
-これで、VS Code と Windows Subsystem for Linux を使用して Django web アプリケーションが作成されました。 VS Code と Django を使用した詳細なチュートリアルについては、 [Visual Studio Code の「Django チュートリアル](https://code.visualstudio.com/docs/python/tutorial-django)」を参照してください。
+以上、VS Code と Linux 用 Windows サブシステムを使用して Django Web アプリケーションを作成しました。 VS Code と Django を使用した、さらに詳しいチュートリアルについては、[Visual Studio Code の Django チュートリアル](https://code.visualstudio.com/docs/python/tutorial-django)を参照してください。
 
 ## <a name="additional-resources"></a>その他の資料
 
-- [VS Code を使用した Python チュートリアル](https://code.visualstudio.com/docs/python/python-tutorial):Python 環境として VS Code するための入門チュートリアルです。主にコードを編集、実行、デバッグする方法を説明します。
-- [VS Code での Git のサポート](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support):VS Code で Git バージョン管理の基本を使用する方法について説明します。  
-- [WSL 2 で近日公開予定の更新について説明](https://docs.microsoft.com/windows/wsl/wsl2-index)します。この新しいバージョンでは、Linux ディストリビューションが Windows とどのように連携し、ファイルシステムのパフォーマンスが向上し、システムコールの完全な互換性が追加されるかを変更します。
-- [Windows での複数の Linux ディストリビューションの使用](https://docs.microsoft.com/windows/wsl/wsl-config):Windows コンピューターで複数の異なる Linux ディストリビューションを管理する方法について説明します。
+- [VS Code の Python チュートリアル](https://code.visualstudio.com/docs/python/python-tutorial):Python 環境としての VS Code の入門チュートリアル。コードを編集、実行、デバッグする方法が主な内容です。
+- [VS Code の Git サポート](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support):VS Code で基本的な Git バージョン管理を使用する方法について説明します。  
+- [近日提供の WSL 2 での更新内容について](https://docs.microsoft.com/windows/wsl/wsl2-index):この新しいバージョンでは、Linux ディストリビューションと Windows の対話方法が変わり、ファイル システムのパフォーマンスが向上し、システム コールの完全な互換性が追加されます。
+- [Windows で複数の Linux ディストリビューションを使用する](https://docs.microsoft.com/windows/wsl/wsl-config):Windows コンピューターで複数の異なる Linux ディストリビューションを管理する方法について説明します。

@@ -6,12 +6,12 @@ ms.topic: article
 keywords: Windows 10、UWP、サンプル コード、コード サンプル
 ms.assetid: 393c5a81-ee14-45e7-acd7-495e5d916909
 ms.localizationpriority: medium
-ms.openlocfilehash: 6b0e30804eabb7e50c5a7319bba9a6b2c83e1d7e
-ms.sourcegitcommit: 99595e4938213aafdb49635d684d8ba8eb3f697a
+ms.openlocfilehash: ac3c99bc364e81386a362f1d1b5530bee9d462c4
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69487854"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74259514"
 ---
 # <a name="get-uwp-app-samples"></a>UWP アプリのサンプルを取得する
 
@@ -21,16 +21,16 @@ ms.locfileid: "69487854"
 
 ## <a name="download-the-code"></a>コードのダウンロード
 
-サンプルをダウンロードするには、[リポジトリ](https://github.com/Microsoft/Windows-universal-samples "ユニバーサル Windows プラットフォーム アプリのサンプル GitHub リポジトリ")にアクセスします。 **[Clone or download]\(クローンまたはダウンロード\)** を選択し、 **[Download ZIP]\(ZIP のダウンロード\)** を選択します。 
+サンプルをダウンロードするには、[リポジトリ](https://github.com/Microsoft/Windows-universal-samples "ユニバーサル Windows プラットフォーム アプリのサンプル GitHub リポジトリ")に移動します。 **[Clone or download]\(クローンまたはダウンロード\)** を選択し、 **[Download ZIP]\(ZIP のダウンロード\)** を選択します。 
 
 ![サンプルのダウンロード](images/SamplesDownloadButton.png)
 
-この記事から、[サンプルをダウンロード](https://github.com/Microsoft/Windows-universal-samples/archive/master.zip "ユニバーサル Windows プラットフォーム アプリのサンプル zip ファイルのダウンロード")することもできます。
+この記事から[サンプルをダウンロード](https://github.com/Microsoft/Windows-universal-samples/archive/master.zip "ユニバーサル Windows プラットフォーム アプリのサンプル zip ファイルのダウンロード")することもできます。
 
 このサンプル ダウンロード .zip ファイルには、常に最新のサンプルが含まれています。 ファイルをダウンロードする際に GitHub のアカウントは必要ありません。 SDK の更新プログラムがリリースされた場合、または最新の変更内容や追加内容を選ぶ場合は、最新の zip ファイルをダウンロードしてください。
 
 > [!NOTE]
-> UWP のサンプルを開いたり、作成や実行したりするには、Visual Studio 2015 以降と Windows SDK が必要になります。 [Visual Studio Community の無料コピー](https://go.microsoft.com/fwlink/p/?LinkID=280676 "Windows 開発ツールのダウンロード")を入手できます。 Visual Studio Community は、UWP アプリのビルドをサポートしています。  
+> UWP のサンプルを開いたり、作成や実行したりするには、Visual Studio 2015 以降と Windows SDK が必要になります。 [Visual Studio Community の無料コピー](https://www.microsoft.com/?ref=go)を入手できます。 Visual Studio Community は、UWP アプリのビルドをサポートしています。  
 >
 > サンプルを正常に動作させるには、個別のサンプルではなくアーカイブ全体を解凍してください。 すべてのサンプルは、アーカイブ内の SharedContent フォルダーに依存しているためです。 UWP 機能のサンプルは、Visual Studio のリンク ファイルを使用して、共通ファイル (サンプルのテンプレート ファイルや画像アセットなど) の重複を減らします。 共通ファイルは、リポジトリのルートにある SharedContent フォルダーに格納されます。 リンクは、共通ファイルを参照するプロジェクト ファイルで使用されます。
 > 

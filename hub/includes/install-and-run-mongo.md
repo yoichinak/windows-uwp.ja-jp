@@ -5,36 +5,36 @@ ms.author: mattwoj
 ms.date: 10/04/2019
 ms.openlocfilehash: f594600991f08a7dfda784ae127be2e6438dacbd
 ms.sourcegitcommit: 13faf9dab9946295986f8edd79b5fae0db4ed0f6
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 10/15/2019
 ms.locfileid: "72314886"
 ---
 MongoDB をインストールするには:
 
-1. WSL ターミナル (ie を開きます。Ubuntu 18.04)。
-2. Ubuntu パッケージを更新する: `sudo apt update`
-3. パッケージが更新されたら、次のように MongoDB をインストールします。 `sudo apt-get install mongodb`
-4. インストールの確認とバージョン番号の取得: `mongod --version`
+1. WSL ターミナルを開きます (Ubuntu 18.04)。
+2. `sudo apt update` を実行して Ubuntu パッケージを更新します。
+3. パッケージが更新されたら、`sudo apt-get install mongodb` を実行して MongoDB をインストールします。
+4. `mongod --version` を実行してインストールを確認し、バージョン番号を取得します。
 
-MongoDB をインストールすると、次の3つのコマンドを認識する必要があります。
+MongoDB をインストールした後は、次の 3 つのコマンドについて覚えておく必要があります。
 
-1. データベースの状態を確認するには、`sudo service mongodb status` を使用します。
-2. `sudo service mongodb start` を使用すると、データベースの実行が開始されます。
-3. `sudo service mongodb stop` の場合は、データベースの実行を停止します。
-
-> [!NOTE]
-> チュートリアルや記事で使用されているコマンド `sudo systemctl status mongodb` が表示されることがあります。 軽量のままにするため、WSL には `systemd` (Linux のサービス管理システム) は含まれません。 代わりに、SysVinit を使用してコンピューターでサービスを開始します。 違いはありませんが、チュートリアルで `sudo systemctl` を使用することを推奨する場合は、次のように使用します。 `sudo /etc/init.d/` を使用します。 たとえば、WSL の `sudo systemctl status mongodb` は `sudo /etc/inid.d/mongodb status`...または、`sudo service mongodb status` を使用することもできます。
-
-### <a name="run-your-mongo-database-in-a-local-server"></a>ローカルサーバーで Mongo データベースを実行する
-
-1. データベースの状態を確認します。`sudo service mongodb status` データベースを既に開始している場合を除き、[Fail] の応答が表示されます。
-
-2. データベースを起動します。@no__t 0 の場合は、[OK] の応答が表示されます。
-
-3. データベースサーバーに接続し、診断コマンドを実行して確認します。`mongo --eval 'db.runCommand({ connectionStatus: 1 })'` にすると、現在のデータベースのバージョン、サーバーのアドレスとポート、および status コマンドの出力が出力されます。 応答の "ok" フィールドの値 `1` は、サーバーが動作していることを示します。
-
-4. MongoDB サービスの実行を停止するには、次のように入力します。 `sudo service mongodb stop`
+1. データベースの状態を確認する `sudo service mongodb status`
+2. データベースの実行を開始する `sudo service mongodb start`
+3. データベースの実行を停止する `sudo service mongodb stop`
 
 > [!NOTE]
-> MongoDB には、データを/data/db に格納し、ポート27017で実行するなど、いくつかの既定のパラメーターがあります。 また、`mongod` はデーモン (データベースのホストプロセス) で、`mongo` は `mongod` の特定のインスタンスに接続するコマンドラインシェルです。
+> チュートリアルや記事で、`sudo systemctl status mongodb` コマンドが使用されている場合があります。 軽量状態を維持するために、WSL には `systemd` (Linux のサービス管理システム) は含まれていません。 代わりに、SysVinit を使用してマシン上のサービスを開始します。 違いはほとんどありませんが、チュートリアルで `sudo systemctl` が使用されている場合は、代わりに `sudo /etc/init.d/` を使用します。 たとえば、`sudo /etc/inid.d/mongodb status` は WSL では `sudo systemctl status mongodb` になります。または、`sudo service mongodb status` を使用することもできます。
+
+### <a name="run-your-mongo-database-in-a-local-server"></a>ローカル サーバーで Mongo データベースを実行する
+
+1. データベースの状態を確認します。`sudo service mongodb status` を実行すると、データベースを既に開始している場合を除き、[Fail] 応答が表示されます。
+
+2. データベースを起動します。`sudo service mongodb start` を実行すると、[OK] の応答が表示されるようになります。
+
+3. データベース サーバーに接続し、診断コマンドを実行して確認します。`mongo --eval 'db.runCommand({ connectionStatus: 1 })'` を実行すると、現在のデータベースのバージョン、サーバーのアドレスとポート、および status コマンドの結果が出力されます。 応答の "ok" フィールドに `1` の値は、サーバーが動作していることを示しています。
+
+4. MongoDB のサービスの実行を停止するには、`sudo service mongodb stop` と入力します。
+
+> [!NOTE]
+> MongoDB には、データを /data/db に格納する、ポート 27017 で実行するなど、いくつかの既定のパラメーターがあります。 また、`mongod` はデーモン (データベースのホスト プロセス) であり、`mongo` は `mongod` の特定のインスタンスに接続するコマンドライン シェルです。
