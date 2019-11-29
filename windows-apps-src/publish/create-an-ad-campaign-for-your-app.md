@@ -1,5 +1,5 @@
 ---
-Description: You can create ad campaigns in Partner Center to help promote your app and grow your app's user base.
+Description: パートナーセンターで広告キャンペーンを作成して、アプリの昇格とアプリのユーザーベースの拡大を支援することができます。
 title: アプリの広告キャンペーンの作成
 ms.assetid: 10D94929-92C4-4379-AA5F-6FEF879F2463
 ms.date: 10/31/2018
@@ -15,18 +15,18 @@ ms.locfileid: "74260021"
 ---
 # <a name="create-an-ad-campaign-for-your-app"></a>アプリの広告キャンペーンの作成
 
-You can create ad campaigns in [Partner Center](https://partner.microsoft.com/dashboard) to help promote your app and grow its user base. By default, we will choose the target audience for your ads based on the settings for your app in Partner Center, but you can optionally define your own audience. 広告テンプレートの既定のセットを使ったり、独自の広告のデザインをアップロードすることもできます。 広告キャンペーンについて詳しくは、「[広告キャンペーンに関してよく寄せられる質問](common-questions.md)」をご覧ください。
+[パートナーセンター](https://partner.microsoft.com/dashboard)で広告キャンペーンを作成して、アプリを昇格させ、ユーザーベースを拡張することができます。 既定では、パートナーセンターでのアプリの設定に基づいて、広告の対象読者を選択しますが、必要に応じて独自のユーザーを定義することもできます。 広告テンプレートの既定のセットを使ったり、独自の広告のデザインをアップロードすることもできます。 広告キャンペーンについて詳しくは、「[広告キャンペーンに関してよく寄せられる質問](common-questions.md)」をご覧ください。
 
 [アプリの認定プロセス](the-app-certification-process.md)の最終的な公開フェーズに合格したアプリについてのみ、広告キャンペーンを作成できます。
 
 > [!NOTE]
-> This section of the documentation describes how to create an ad campaign in Partner Center. Other campaign options to create and manage ad campaigns programmatically include [Vungle](https://vungle.com/) and the [Microsoft Store promotions API](../monetize/run-ad-campaigns-using-windows-store-services.md).
+> ドキュメントのこのセクションでは、パートナーセンターで広告キャンペーンを作成する方法について説明します。 プログラムによって ad キャンペーンを作成および管理するためのその他のキャンペーンオプションには、 [Vungle](https://vungle.com/)と[Microsoft Store 昇格 API](../monetize/run-ad-campaigns-using-windows-store-services.md)が含まれています。
 
 ## <a name="instructions"></a>手順
 
 アプリを宣伝するために、広告キャンペーンを作成する方法を次に示します。
 
-1.  From the left navigation menu of [Partner Center](https://partner.microsoft.com/dashboard), expand **Attract** and then select **Ad campaigns**.
+1.  [パートナーセンター](https://partner.microsoft.com/dashboard)の左側のナビゲーションメニューから **[惹き]** を展開し、 **[Ad キャンペーン]** を選択します。
 2.  **[キャンペーンを作成する]** (以前キャンペーンを作成している場合は、 **[新しいキャンペーン]** )を選びます。
 3.  次のページの **[目標の種類]** セクションで、次のいずれかを選びます。
     * **アプリのインストールを増やす**。 広告キャンペーンが、アプリをインストールするユーザーの獲得を意図している場合は、このオプションを選択します。
@@ -35,7 +35,7 @@ You can create ad campaigns in [Partner Center](https://partner.microsoft.com/da
 4.  このキャンペーンを使って宣伝するアプリを選びます。 対象のアプリはストアで既に公開されている必要があります。
 5.  **[キャンペーン名]** フィールドでキャンペーンの名前を確認し、必要に応じて変更します。
 6.  **[キャンペーンの種類]** で、次のいずれかのオプションを選択します。
-    * **[有料広告]** : これらの広告は、アプリのデバイスとカテゴリに一致するすべてのアプリで表示されます。 2017 年 1 月 9 日以降に作成された新しいキャンペーンでは、これらの広告は MSN.com、Outlook.com、Skype など、Microsoft の豪華なラインナップもターゲットに加わります。 アプリと Microsoft の豪華なラインナップをターゲットとするアプリ プロモーション キャンペーンは、*ユニバーサル*キャンペーンと呼ばれます。
+    * **[有料広告]** : これらの広告は、アプリのデバイスとカテゴリに一致するすべてのアプリで表示されます。 2017 年 1 月 9 日以降に作成された新しいキャンペーンでは、これらの広告は MSN.com、Outlook.com、Skype など、Microsoft の豪華なラインナップもターゲットに加わります。 アプリと Microsoft の豪華なラインナップをターゲットとするアプリ プロモーション キャンペーンは、*ユニバーサル* キャンペーンと呼ばれます。
     * **[無料のコミュニティ広告]** : これらの広告は、コミュニティ広告キャンペーンも作成している他の開発者によって発行されるアプリで表示されます。 このオプションを選択する前に、 **[収益化]**  ->  **[アプリ内広告]**  ページでコミュニティ広告の表示を有効にしている必要があります。 詳しくは、「[コミュニティ広告について](about-community-ads.md)」をご覧ください。
     * **[無料の自社広告]** : これらの広告は、自分のアプリ (宣伝されているアプリのデバイスと一致するアプリ) でのみ表示されます。 自社広告は無料です。 詳しくは、「[自社広告について](about-house-ads.md)」をご覧ください。
 
@@ -46,11 +46,11 @@ You can create ad campaigns in [Partner Center](https://partner.microsoft.com/da
 
         広告キャンペーンの作成月については、月額予算が日割りで計算されます。 つまり、月の半ばで広告キャンペーンを作成した場合、その月の予算の半分が請求されます。
 
-    * **[新しい支払い方法の追加]** をクリックして広告キャンペーンの支払い方法を設定し、アカウントの詳細情報を入力します。 既に支払方法を指定していて、それを更新する必要がある場合は、 **[別の支払い方法を選択してください]** を選びます。 The country/region of your payment method's billing address must match the country/region associated with your developer account.
+    * **[新しい支払い方法の追加]** をクリックして広告キャンペーンの支払い方法を設定し、アカウントの詳細情報を入力します。 既に支払方法を指定していて、それを更新する必要がある場合は、 **[別の支払い方法を選択してください]** を選びます。 支払い方法の請求先住所の国/地域は、開発者アカウントに関連付けられている国/地域と一致している必要があります。
 
     * Microsoft の担当者から受け取った広告キャンペーンの支払いに使えるクーポンがある場合は、 **[Use a coupon]** (クーポンを使う) をクリックし、クーポン コードを入力します。 **[適用]** をクリックすると、キャンペーンにクーポンが適用されます。
 
-    入力が完了したら、 **[保存して次へ]** をクリックし、 **[対象ユーザー]** のステップに進みます。 This step is not available for House ad campaigns, since they run only in your own apps.
+    入力が完了したら、 **[保存して次へ]** をクリックし、 **[対象ユーザー]** のステップに進みます。 この手順は、自分のアプリでのみ実行されるため、社内 ad キャンペーンでは使用できません。
 
 9.  **[対象ユーザー]** ページでは、キャンペーンにお勧めの対象ユーザーの設定が表示されます。 以下の情報を任意で調整できます。
     * **国/地域**: 広告を表示する国または地域を最大で 5 つ選びます。 サポートされている国や地域の一覧については、「[広告キャンペーンに関してよく寄せられる質問](common-questions.md#where-will-my-ad-appear)」をご覧ください。
@@ -67,22 +67,22 @@ You can create ad campaigns in [Partner Center](https://partner.microsoft.com/da
 
     このセクションには、 **[推定リーチ]** グラフも表示されます。 このグラフでは、選択した市場内のすべての Windows 広告対応アプリのユーザーに対して、現在選択しているターゲット設定でのリーチを見込めるユーザーの割合が示されます。
 
-10.  キャンペーン目標として **[アプリの利用率を引き上げる]** を選択した場合は、対象とするユーザーのセグメントを選択できます。 このキャンペーンを使用して作成された広告は、セグメントに含まれるユーザーのみに表示されます。 各広告キャンペーンでは、セグメントを 1 つのみ選択できます。 セグメントについて詳しくは、「[顧客セグメントの作成](create-customer-segments.md)」をご覧ください。 入力が完了したら、 **[保存して次へ]** をクリックし、 **[広告のデザイン]** のステップに進みます。 This step is not available for House ad campaigns, because they run only in your own apps.
+10.  キャンペーンの目的として **[アプリの利用率を引き上げる]** を選択した場合は、対象とするユーザーのセグメントを選択できます。 このキャンペーンを使用して作成された広告は、セグメントに含まれるユーザーのみに表示されます。 各広告キャンペーンでは、セグメントを 1 つのみ選択できます。 セグメントについて詳しくは、「[顧客セグメントの作成](create-customer-segments.md)」をご覧ください。 入力が完了したら、 **[保存して次へ]** をクリックし、 **[広告のデザイン]** のステップに進みます。 この手順は、自分のアプリでのみ実行されるため、社内 ad キャンペーンでは使用できません。
 
 11.  **[広告のデザイン]** ページでは、次のいずれかのオプションを選びます。
-    * **自動生成**。 This is the default option, and it allows you to create an ad from our default templates. 設定を選んで広告コンテンツをカスタマイズでき、選択内容を基に広告のプレビューが表示されます (設定を選ぶと自動的に更新されます)。
+    * **自動生成**。 これは既定のオプションであり、既定のテンプレートから広告を作成できます。 設定を選んで広告コンテンツをカスタマイズでき、選択内容を基に広告のプレビューが表示されます (設定を選ぶと自動的に更新されます)。
         * **[言語]** ドロップダウンで、広告の言語を選びます。 Microsoft Store バッジのテキストは、選択した言語で表示されます。
         * 広告にテキスト行を追加するには、 **[カスタムの紹介文]** フィールドにテキストを入力します。
             > [!NOTE]
-            > ここで入力したテキストは、選択した言語にローカライズする必要があります。 テキストが [Bing 広告ポリシー](https://advertise.bingads.microsoft.com/bing-ads-policies)に準拠していない場合、カスタム タグ行は拒否されます。 スタイルと、許可されないコンテンツについては、このページをご覧ください。
+            > ここで入力したテキストは、選択した言語にローカライズする必要があります。 テキストが [Bing Ads ポリシー](https://advertise.bingads.microsoft.com/bing-ads-policies)に準拠していない場合、カスタム タグ行は拒否されます。 スタイルと、許可されないコンテンツについては、このページをご覧ください。
         * 広告をさらにカスタマイズするには、 **[広告デザインのカスタマイズ/すべての広告サイズを表示]** を展開し、次のいずれかを選択します。
             * **背景色**。 利用できるオプションから選択します。
             * **画像**。 利用可能な画像 (アプリのストア登録情報の画像) のうち 1 つを選びます。
             * **アプリの評価を表示します**。 アプリの評価を表示する場合は、このチェック ボックスをオンにします。
             * **私のアプリが無料であることを表示します**。 選択したすべての市場でアプリが無料の場合、このチェック ボックスをオンにできます。
-            * **行動喚起**。 キャンペーン目標として **[アプリの利用率を引き上げる]** を選んだ場合は、広告の行動喚起ボタンを、 **[開く]** 、 **[プレイ]** 、 **[読み取り]** 、 **[聴く]** 、または **[ショップ]** に設定できます。  
+            * **行動喚起**。 キャンペーンの目的として **[アプリの利用率を引き上げる]** を選んだ場合は、広告の行動喚起ボタンを、 **[開く]** 、 **[プレイ]** 、 **[読み取り]** 、 **[聴く]** 、または **[ショップ]** に設定できます。  
 
-    * **カスタム**。 独自の広告のデザインを使うには、このオプションを選択します。 Note that if you selected a customer segment earlier, you must use custom creatives. 利用可能な広告サイズごとに異なるファイルをアップロードできます。 ファイルは、次の要件とガイドラインを満たしている必要があります。
+    * **カスタム**。 独自の広告のデザインを使うには、このオプションを選択します。 前に顧客セグメントを選択した場合は、カスタムクリエイティブを使用する必要があることに注意してください。 利用可能な広告サイズごとに異なるファイルをアップロードできます。 ファイルは、次の要件とガイドラインを満たしている必要があります。
         * 各ファイルは 40 KB 以下の .png または .jpg 形式にする必要があります。
         * 広告のデザインは、[Microsoft の広告掲載基準 (Creative Acceptance Policy)](https://about.ads.microsoft.com/solutions/ad-products/display-advertising/creative-acceptance-policies) で指定された要件を満たす必要があります
         * 広告のデザインのコンテンツは、宣伝するアプリに関連している必要があります。 アプリに関連していない広告デザインは、他のアプリの広告に配信されません。
@@ -90,14 +90,14 @@ You can create ad campaigns in [Partner Center](https://partner.microsoft.com/da
 
 12.  [プレミアム アカウント](common-questions.md#how-can-i-increase-the-maximum-monthly-budget-amount-allowed-for-my-ad-campaign)をお持ちの場合は、 **[宛先 URL]** ボックスを使用して、顧客が広告をクリックしたときの動作を制御できます。
     * このボックスを空白のままにした場合、顧客が広告をクリックすると、アプリのストア登録情報が表示されます。
-    * If you are using Adjust, Kochava, Tune, or Vungle to measure install analytics for your app, enter your install tracking URL. キャンペーンを保存するときに、トラッキング URL が検証され、Microsoft Store のアプリの登録情報ページに解決されるかどうかが確認されます。 For more information about install tracking with these services, see the [Adjust](https://docs.adjust.com/en/), [Kochava](https://support.kochava.com/), [Tune](https://help.tune.com/hasoffers/), and [Vungle](https://support.vungle.com/hc/en-us) documentation.
-    * キャンペーン目標として **[アプリの利用率を引き上げる]** を選択した場合は、[ディープリンク URI](../launch-resume/handle-uri-activation.md) を指定して、選択したセグメントに該当する顧客をアプリ内の特定のページにリダイレクトできます。
+    * 調整、Vungle Chava、チューン、またはを使用してアプリのインストール分析を測定する場合は、インストールの追跡 URL を入力します。 キャンペーンを保存するときに、トラッキング URL が検証され、Microsoft Store のアプリの登録情報ページに解決されるかどうかが確認されます。 これらのサービスを使用したインストールの追跡の詳細につい[ては、](https://support.kochava.com/)[調整](https://docs.adjust.com/en/)、 [Vungle](https://support.vungle.com/hc/en-us)のドキュメントを参照してください。 [](https://help.tune.com/hasoffers/)
+    * キャンペーンの目的として **[アプリの利用率を引き上げる]** を選択した場合は、[ディープリンク URI](../launch-resume/handle-uri-activation.md) を指定して、選択したセグメントに該当する顧客をアプリ内の特定のページにリダイレクトできます。
     * アプリの説明ページでもアプリ内のページでもないページをリンク先に指定した場合、キャンペーンが自動的に一時停止されます。
 
 13.  (最後に、 **[Review)] （レビュー）** をクリックして広告キャンペーンの設定を確認し、有料の広告キャンペーンの場合は、予算と支払い情報を確認します。 **[確認]** をクリックすると、通常は数時間以内にデバイスに広告の表示が開始されます。
 
 ## <a name="review-ad-campaign-performance"></a>広告キャンペーンのパフォーマンスの確認
 
-キャンペーンのパフォーマンスを確認するには、 **[広告キャンペーン]** ページに戻ります。 **[セクション フィルター]** を選び、レポートに含める範囲を **[日付]** 、 **[キャンペーン目標]** 、 **[アプリの名前]** , **[キャンペーン タイプ]** 、または **[状態]** によって指定します。 キャンペーンの **[インプレッション数]** 、 **[クリック数]** 、 **[コンバージョン]** 、および **[支出]** を確認するには、レポートを使用してキャンペーンを**一時停止**または**再開**します。 詳しくは、「[[広告キャンペーン] レポート](promote-your-app-report.md)」をご覧ください。
+キャンペーンのパフォーマンスを確認するには、 **[広告キャンペーン]** ページに戻ります。 **[セクション フィルター]** を選び、レポートに含める範囲を **[日付]** 、 **[キャンペーンの目的]** 、 **[アプリの名前]** , **[キャンペーン タイプ]** 、または **[状態]** によって指定します。 キャンペーンの **[インプレッション数]** 、 **[クリック数]** 、 **[コンバージョン]** 、および **[支出]** を確認するには、レポートを使用してキャンペーンを**一時停止**または**再開**します。 詳しくは、「[[広告キャンペーン] レポート](promote-your-app-report.md)」をご覧ください。
 
 キャンペーンを編集するには、一覧でキャンペーン名を選択します。

@@ -8,12 +8,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: f5b87590736c4875214819f5c60a05edd47b1476
-ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
+ms.openlocfilehash: 8b566b1960435a856b82a7be605ef5e1f7ba86e2
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71339511"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74257792"
 ---
 # <a name="accessible-text-requirements"></a>アクセシビリティに対応したテキストの要件  
 
@@ -28,7 +28,7 @@ ms.locfileid: "71339511"
 ## <a name="contrast-ratios"></a>コントラスト比  
 ユーザーはハイ コントラスト モードにいつでも切り替えることができますが、テキスト用のアプリ設計ではこのオプションを最後の手段にする必要があります。 これよりも、アプリのテキストが、テキストと背景とのコントラストのレベルに関して確立されているガイドラインに準拠するようにすることをお勧めします。 コントラストのレベルは、色合いを考慮しない確定的な方法に基づいて評価されます。 たとえば、緑の背景の上に赤のテキストを配置すると、色覚に障碍があるユーザーはそのテキストを読み取ることができない場合があります。 コントラスト比を確認して修正することで、このようなアクセシビリティの問題を防ぐことができます。
 
-ここで説明するテキストのコントラストの推奨事項は、web アクセシビリティ標準 (@no__t 0G18) に基づいています。少なくとも 4.5: 1 のコントラスト比がテキスト (テキストのイメージ) とテキストの背後にあることを確認しています @ no__t-0。 このガイドラインは、*W3C Techniques for WCAG 2.0* 仕様に含まれています。
+ここで説明するテキストのコントラストに関する推奨事項は、「[G18: テキスト (および画像化された文字) とテキストの背景のコントラスト比を 4.5:1 以上にする](https://www.w3.org/TR/WCAG20-TECHS/G18.html)」という Web アクセシビリティ標準に基づいています。 このガイドラインは、*W3C Techniques for WCAG 2.0* 仕様に含まれています。
 
 表示テキストがアクセシビリティに対応していると見なされるためには、背景に対する明暗のコントラスト比が最低でも 4.5:1 以上であることが必要です。 ただし、ロゴや、非アクティブな UI コンポーネントの一部のテキストなどの付随テキストは、例外です。
 
@@ -70,7 +70,7 @@ XAML のテキスト モデルでは、静的なテキスト、[**TextBlock**](h
 * ナレーターのフォーカスを一覧に移動できる
 * 他のすべての閲覧モードで候補内を移動できる
 
-@no__t 0Suggestion リスト @ no__t-1<br/>
+候補リストの ![](images/autosuggest-list.png)<br/>
 _候補リストの例_
 
 <span id="Implementing_auto-suggest"/>
@@ -85,17 +85,17 @@ _候補リストの例_
 **既定の選択**  
 一覧で既定の選択が行われる場合、ナレーターは、デスクトップ アプリでは [**UIA_SelectionItem_ElementSelectedEventId**](https://docs.microsoft.com/windows/desktop/WinAuto/uiauto-event-ids) イベント、UWP アプリでは [**AutomationEvents.SelectionItemPatternOnElementSelected**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.peers.automationevents) イベントの発生を検索します。 選択項目が変更されるたび、つまりユーザーが別の文字を入力して候補が更新されたときや、ユーザーが一覧内を移動したときに、**ElementSelected** イベントが発生する必要があります。
 
-既定の選択を使用して @no__t 0List @ no__t-1<br/>
+既定の選択を含む ![一覧](images/autosuggest-default-selection.png)<br/>
 _既定の選択がある場合の例_
 
 **既定の選択なし**  
 天気予報アプリの場所のボックスなど、既定の選択がない場合、ナレーターはデスクトップの [**UIA_LayoutInvalidatedEventId**](https://docs.microsoft.com/windows/desktop/WinAuto/uiauto-event-ids) イベントまたは UWP の [**LayoutInvalidated**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.peers.automationevents) イベントの発生を検索します。
 
-既定の選択のない ![List @ no__t-1<br/>
+既定の選択のないリスト ![](images/autosuggest-no-default-selection.png)<br/>
 _既定の選択がない例_
 
 ### <a name="xaml-implementation"></a>XAML の実装  
-XAML の既定の [**AutosuggestBox**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.autosuggestbox) を使用している場合、既にすべての準備が完了しています。 [  **TextBox**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox) と一覧を使って独自の自動提案エクスペリエンスを作成している場合は、**TextBox** で一覧を [**AutomationProperties.ControlledPeers**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.automationproperties.getcontrolledpeers) として設定する必要があります。 [  **ControlledPeers**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.automationproperties.getcontrolledpeers) プロパティを追加または削除するたびに、このプロパティの **AutomationPropertyChanged** イベントを発生させる必要があります。また、この記事で既に説明したシナリオのタイプに応じて、独自の [**SelectionItemPatternOnElementSelected**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.peers.automationevents) イベントまたは [**LayoutInvalidated**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.peers.automationevents) イベントを発生させる必要があります。
+XAML の既定の [**AutosuggestBox**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.autosuggestbox) を使用している場合、既にすべての準備が完了しています。 [  **TextBox**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox) と一覧を使って独自の自動提案エクスペリエンスを作成している場合は、[TextBox**で一覧を**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.automationproperties.getcontrolledpeers)AutomationProperties.ControlledPeers として設定する必要があります。 **** ControlledPeers[**プロパティを追加または削除するたびに、このプロパティの**AutomationPropertyChanged](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.automationproperties.getcontrolledpeers) イベントを発生させる必要があります。また、この記事で既に説明したシナリオのタイプに応じて、独自の [**SelectionItemPatternOnElementSelected**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.peers.automationevents) イベントまたは [**LayoutInvalidated**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.peers.automationevents) イベントを発生させる必要があります。
 
 ### <a name="html-implementation"></a>HTML の実装  
 HTML で組み込みのコントロールを使っている場合は、UIA 実装が既にマップされています。 既に準備されている実装の例を次に示します。
@@ -126,7 +126,7 @@ HTML で組み込みのコントロールを使っている場合は、UIA 実�
 
 フォントが使用されている場合、ユーザーはアプリのテキストを読みづらくなることがあります。そのため、アプリケーション内のテキストは、最初に適切なサイズであることを確認してください。
 
-明らかになったら、Windows にはさまざまなユーザー補助ツールと設定が含まれており、ユーザーはこれを利用して、テキストを読み取るためのニーズや設定を調整できます。 これには次が含まれます。
+明らかになったら、Windows にはさまざまなユーザー補助ツールと設定が含まれており、ユーザーはこれを利用して、テキストを読み取るためのニーズや設定を調整できます。 次のようなクラスがあります。
 
 * 拡大鏡ツール。 UI の選択領域を拡大します。 アプリ内のテキストのレイアウトによって、拡大鏡を使用した読み取りが困難になることはありません。
 * [設定] のグローバルなスケールと解像度の設定 **-> システム > 表示-> スケールとレイアウト**です。 使用できるサイズ変更オプションは、ディスプレイデバイスの機能によって異なります。
@@ -169,7 +169,7 @@ private async void UISettings_TextScaleFactorChanged(Windows.UI.ViewManagement.U
 }
 ```
 
-**Textscalefactor**の値は、\[1、2.25 @ no__t ~ 2 の範囲の倍精度浮動小数点数です。 最も小さい文字がこの大きさまで拡大されます。 たとえば、この値を使ってテキストに合わせてグラフィックスを拡大縮小できます。 ただし、すべてのテキストが同じ倍率で拡大縮小されるわけではないことに注意してください。 一般に、最初の状態のテキストのサイズが大きいほど、拡大縮小の影響は小さくなります。
+**Textscalefactor**の値は、\[1, 2.25\]の範囲内の倍精度浮動小数点数です。 最も小さい文字がこの大きさまで拡大されます。 たとえば、この値を使ってテキストに合わせてグラフィックスを拡大縮小できます。 ただし、すべてのテキストが同じ倍率で拡大縮小されるわけではないことに注意してください。 一般に、最初の状態のテキストのサイズが大きいほど、拡大縮小の影響は小さくなります。
 
 次の型に **IsTextScaleFactorEnabled** プロパティがあります。  
 * [**ContentPresenter**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ContentPresenter)
@@ -186,6 +186,6 @@ private async void UISettings_TextScaleFactorChanged(Windows.UI.ViewManagement.U
 * [テキストの拡大縮小](https://docs.microsoft.com/windows/uwp/design/input/text-scaling)
 * [アクセシビリティ](accessibility.md)
 * [基本的なアクセシビリティ情報](basic-accessibility-information.md)
-* [XAML テキスト表示のサンプル](https://go.microsoft.com/fwlink/p/?linkid=238579)
-* [XAML テキスト編集のサンプル](https://go.microsoft.com/fwlink/p/?linkid=251417)
-* [XAML アクセシビリティのサンプル](https://go.microsoft.com/fwlink/p/?linkid=238570) 
+* [XAML テキスト表示のサンプル](https://code.msdn.microsoft.com/windowsapps/XAML-text-display-sample-2593ba0a)
+* [XAML テキスト編集のサンプル](https://code.msdn.microsoft.com/windowsapps/XAML-text-editing-sample-fb0493ad)
+* [XAML アクセシビリティのサンプル](https://code.msdn.microsoft.com/windowsapps/XAML-accessibility-sample-d63e820d) 

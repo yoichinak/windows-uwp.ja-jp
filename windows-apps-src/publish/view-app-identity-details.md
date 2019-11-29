@@ -1,10 +1,10 @@
 ---
-Description: View details related to the unique identity assigned to your app by the Microsoft Store, and get a link to your app's Store listing.
+Description: Microsoft Store によってアプリに割り当てられた一意の id に関する詳細を表示し、アプリのストアの一覧へのリンクを取得します。
 title: アプリ ID の詳細の表示
 ms.assetid: 86F05A79-EFBC-4705-9A71-3A056323AC65
 ms.date: 10/02/2018
 ms.topic: article
-keywords: Windows 10, UWP
+keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: 07c2d3308d204d37e246a9a56c0a7203a1340dc0
 ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
@@ -16,20 +16,20 @@ ms.locfileid: "74259889"
 # <a name="view-app-identity-details"></a>アプリ ID の詳細の表示
 
 
-You can view details related to the unique identity assigned to your app by the Microsoft Store on its **App identity** pages. You can also get a link to your app's Store listing on this page.
+アプリに割り当てられた一意の id に関する詳細は、**アプリ id**ページの Microsoft Store によって表示できます。 また、このページでアプリのストアの一覧へのリンクを取得することもできます。
 
 アプリ ID の情報を探すには、アプリのいずれかに移動し、左側のナビゲーション メニューで **[アプリ管理]** を展開します。 **[アプリ ID]** を選ぶと、アプリ ID の詳細が表示されます。
 
 
 ## <a name="values-to-include-in-your-app-package-manifest"></a>アプリのパッケージ マニフェストに追加する値
 
-The following values must be included in your package manifest. [パッケージのビルドに Microsoft Visual Studio を使っていて](/windows/msix/package/packaging-uwp-apps)、開発者アカウントに関連付けられている同じ Microsoft アカウントでサインインしている場合は、これらの値は自動的に追加されています。 パッケージを手動でビルドしている場合は、以下の項目を追加する必要があります。
+パッケージマニフェストには、次の値を含める必要があります。 [パッケージのビルドに Microsoft Visual Studio を使っていて](/windows/msix/package/packaging-uwp-apps)、開発者アカウントに関連付けられている同じ Microsoft アカウントでサインインしている場合は、これらの値は自動的に追加されています。 パッケージを手動でビルドしている場合は、以下の項目を追加する必要があります。
 
--   **Package/Identity/Name**
--   **Package/Identity/Publisher**
--   **Package/Properties/PublisherDisplayName**
+-   **パッケージ/Id/名前**
+-   **パッケージ/Id/パブリッシャー**
+-   **パッケージ/プロパティ/PublisherDisplayName**
 
-詳しくは、[パッケージ マニフェスト スキーマのリファレンス](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/schema-root)の「[**Identity**](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-identity)」をご覧ください。
+詳しくは、[パッケージ マニフェスト スキーマのリファレンス**の「** ](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-identity)Identity[](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/schema-root)」をご覧ください。
 
 また、アプリ ID を宣言するこれらの値により、パッケージが属している "パッケージ ファミリ" が確定されます。 個々のパッケージには、アーキテクチャやバージョンなど、その他の詳細が含まれています。
 
@@ -39,10 +39,10 @@ The following values must be included in your package manifest. [パッケージ
 次の値は、アプリのパッケージ ファミリを参照するが、マニフェストには含まれていないその他の値です。
 
 -   **パッケージ ファミリ名 (PFN)** : この値は特定の Windows API で使われます。
--   **パッケージ SID**: アプリに WNS の通知を渡すには、この値が必要になります。 詳しくは、「[Windows プッシュ通知サービス (WNS) の概要](../design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview.md)」をご覧ください。
+-   **パッケージ SID**: アプリに WNS の通知を渡すには、この値が必要になります。 詳しくは、「[Windows プッシュ通知サービスの概要](../design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview.md)」をご覧ください。
 
 
-## <a name="link-to-your-apps-listing"></a>アプリの内容へのリンク
+## <a name="link-to-your-apps-listing"></a>アプリの登録情報へのリンク
 
 アプリのページへの直接リンクを共有することで、ユーザーはストアでアプリを見つけやすくなります。 このリンクは、 **`https://www.microsoft.com/store/apps/<your app's Store ID>`** の形式で示されます。 ユーザーがこのリンクをクリックすると、アプリの Web ベースの登録情報ページが開きます。 Windows デバイスでは、ストア アプリも起動して、アプリの登録情報を表示します。
 

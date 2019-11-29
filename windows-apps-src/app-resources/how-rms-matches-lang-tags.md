@@ -70,7 +70,7 @@ Windows で 2 つの言語の比較が行われる場合は、通常、より大
 
 ### <a name="partial-matches"></a>部分一致
 
-タグの言語とスクリプトの各サブタグは一致していますが、地域やその他のサブタグが異なっています。 For example, en-US matches en, or en-US matches en-\*.
+タグの言語とスクリプトの各サブタグは一致していますが、地域やその他のサブタグが異なっています。 たとえば、en-us は en に一致し、en-us は en-us と一致します。\*。
 
 #### <a name="macro-region-match"></a>マクロ地域の一致
 
@@ -190,5 +190,5 @@ Windows で 2 つの言語の比較が行われる場合は、通常、より大
 
 * [リソース管理システムでのリソースの照合と選択の仕組み](how-rms-matches-and-chooses-resources.md)
 * [BCP-47](https://tools.ietf.org/html/bcp47)
-* [Understand user profile languages and app manifest languages](../design/globalizing/manage-language-and-region.md)
-* [Composition of macro geographic (continental) regions, geographical sub-regions, and selected economic and other groupings](https://unstats.un.org/unsd/methods/m49/m49regin.htm)
+* [ユーザープロファイルの言語とアプリマニフェストの言語について](../design/globalizing/manage-language-and-region.md)
+* [マクロ地理的 (大陸) 地域、地理的サブ地域、および選択された経済とその他のグループの構成](https://unstats.un.org/unsd/methods/m49/m49regin.htm)

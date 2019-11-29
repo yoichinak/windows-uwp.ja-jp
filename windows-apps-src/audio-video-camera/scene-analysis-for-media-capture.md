@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 2dec80e4b79a93fc5b6f1e2990ad89570d62c5f1
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 406af54cfaae8710cea2d989278a16f28c8dd619
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66361434"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74256217"
 ---
 # <a name="effects-for-analyzing-camera-frames"></a>カメラ フレームの分析の効果
 
@@ -45,7 +45,7 @@ HDR の使用が推奨された場合は、次の方法で実行できます。
 
 アプリで、**MediaCapture** オブジェクトを初期化した後、[**SceneAnalysisEffectDefinition**](https://docs.microsoft.com/uwp/api/Windows.Media.Core.SceneAnalysisEffectDefinition) の新しいインスタンスを作成します。
 
-**MediaCapture** オブジェクトに対して [**AddVideoEffectAsync**](https://docs.microsoft.com/uwp/api/windows.media.capture.mediacapture.addvideoeffectasync) を呼び出すことで、効果をキャプチャ デバイスに登録します。このとき、**SceneAnalysisEffectDefinition** を指定し、さらに [**MediaStreamType.VideoPreview**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.MediaStreamType) を指定することで、効果をキャプチャ ストリームではなくビデオ プレビュー ストリームに適用することを示します。 **AddVideoEffectAsync** は追加されたエフェクトのインスタンスを返します。 このメソッドは複数の種類の効果について使用できるため、返されたインスタンスは [**SceneAnalysisEffect**](https://docs.microsoft.com/uwp/api/Windows.Media.Core.SceneAnalysisEffect) オブジェクトにキャストする必要があります。
+[MediaCapture**オブジェクトに対して**](https://docs.microsoft.com/uwp/api/windows.media.capture.mediacapture.addvideoeffectasync)AddVideoEffectAsync を呼び出すことで、効果をキャプチャ デバイスに登録します。このとき、**SceneAnalysisEffectDefinition** を指定し、さらに [**MediaStreamType.VideoPreview**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.MediaStreamType) を指定することで、効果をキャプチャ ストリームではなくビデオ プレビュー ストリームに適用することを示します。 **AddVideoEffectAsync** は追加されたエフェクトのインスタンスを返します。 このメソッドは複数の種類の効果について使用できるため、返されたインスタンスは [**SceneAnalysisEffect**](https://docs.microsoft.com/uwp/api/Windows.Media.Core.SceneAnalysisEffect) オブジェクトにキャストする必要があります。
 
 シーン分析の結果を受け取るには、[**SceneAnalyzed**](https://docs.microsoft.com/uwp/api/windows.media.core.sceneanalysiseffect.sceneanalyzed) イベントのハンドラーを登録する必要があります。
 
@@ -85,7 +85,7 @@ HDR の使用が推奨された場合は、次の方法で実行できます。
 
 アプリで、**MediaCapture** オブジェクトを初期化した後、[**FaceDetectionEffectDefinition**](https://docs.microsoft.com/uwp/api/Windows.Media.Core.FaceDetectionEffectDefinition) の新しいインスタンスを作成します。 [  **DetectionMode**](https://docs.microsoft.com/uwp/api/windows.media.core.facedetectioneffectdefinition.detectionmode) プロパティを設定して、より高速な顔検出とより正確な顔検出のどちらを優先するかを決めます。 顔検出が完了するまで待機して着信フレームが遅延すると、プレビューがぎくしゃくした感じになる場合があるため、[**SynchronousDetectionEnabled**](https://docs.microsoft.com/uwp/api/windows.media.core.facedetectioneffectdefinition.synchronousdetectionenabled) を設定して、顔検出を待機しないよう指定します。
 
-**MediaCapture** オブジェクトに対して [**AddVideoEffectAsync**](https://docs.microsoft.com/uwp/api/windows.media.capture.mediacapture.addvideoeffectasync) を呼び出すことで、効果をキャプチャ デバイスに登録します。このとき、**FaceDetectionEffectDefinition** を指定し、さらに [**MediaStreamType.VideoPreview**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.MediaStreamType) を指定することで、効果をキャプチャ ストリームではなくビデオ プレビュー ストリームに適用することを示します。 **AddVideoEffectAsync** は追加されたエフェクトのインスタンスを返します。 このメソッドは複数の種類の効果について使用できるため、返されたインスタンスは [**FaceDetectionEffect**](https://docs.microsoft.com/uwp/api/Windows.Media.Core.FaceDetectionEffect) オブジェクトにキャストする必要があります。
+[MediaCapture**オブジェクトに対して**](https://docs.microsoft.com/uwp/api/windows.media.capture.mediacapture.addvideoeffectasync)AddVideoEffectAsync を呼び出すことで、効果をキャプチャ デバイスに登録します。このとき、**FaceDetectionEffectDefinition** を指定し、さらに [**MediaStreamType.VideoPreview**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.MediaStreamType) を指定することで、効果をキャプチャ ストリームではなくビデオ プレビュー ストリームに適用することを示します。 **AddVideoEffectAsync** は追加されたエフェクトのインスタンスを返します。 このメソッドは複数の種類の効果について使用できるため、返されたインスタンスは [**FaceDetectionEffect**](https://docs.microsoft.com/uwp/api/Windows.Media.Core.FaceDetectionEffect) オブジェクトにキャストする必要があります。
 
 [  **FaceDetectionEffect.Enabled**](https://docs.microsoft.com/uwp/api/windows.media.core.facedetectioneffect.enabled) プロパティを設定して、効果を有効または無効にします。 [  **FaceDetectionEffect.DesiredDetectionInterval**](https://docs.microsoft.com/uwp/api/windows.media.core.facedetectioneffect.desireddetectioninterval) プロパティを設定して、フレームを分析する頻度を調整します。 これらのプロパティはいずれも、メディア キャプチャの進行中に調整できます。
 
@@ -97,7 +97,7 @@ HDR の使用が推奨された場合は、次の方法で実行できます。
 
 [!code-cs[RegisterFaceDetectionHandler](./code/BasicMediaCaptureWin10/cs/MainPage.xaml.cs#SnippetRegisterFaceDetectionHandler)]
 
-イベントのハンドラーで、[**FaceDetectedEventArgs**](https://docs.microsoft.com/uwp/api/Windows.Media.Core.FaceDetectedEventArgs) の [**FaceDetectionEffectFrame.DetectedFaces**](https://docs.microsoft.com/uwp/api/windows.media.core.facedetectioneffectframe.detectedfaces) プロパティにアクセスすることにより、フレームで検出されたすべての顔の一覧を取得できます。 [  **FaceBox**](https://docs.microsoft.com/uwp/api/windows.media.faceanalysis.detectedface.facebox) プロパティは、プレビュー ストリームのサイズを基準とした単位で検出された顔を含む四角形を描画する [**BitmapBounds**](https://docs.microsoft.com/uwp/api/Windows.Graphics.Imaging.BitmapBounds) 構造体です。 プレビュー ストリームの座標を画面座標に変換するサンプル コードについては、「[顔検出 UWP のサンプル](https://go.microsoft.com/fwlink/?LinkId=619486)」をご覧ください。
+イベントのハンドラーで、[**FaceDetectedEventArgs**](https://docs.microsoft.com/uwp/api/windows.media.core.facedetectioneffectframe.detectedfaces) の [**FaceDetectionEffectFrame.DetectedFaces**](https://docs.microsoft.com/uwp/api/Windows.Media.Core.FaceDetectedEventArgs) プロパティにアクセスすることにより、フレームで検出されたすべての顔の一覧を取得できます。 [  **FaceBox**](https://docs.microsoft.com/uwp/api/windows.media.faceanalysis.detectedface.facebox) プロパティは、プレビュー ストリームのサイズを基準とした単位で検出された顔を含む四角形を描画する [**BitmapBounds**](https://docs.microsoft.com/uwp/api/Windows.Graphics.Imaging.BitmapBounds) 構造体です。 プレビュー ストリームの座標を画面座標に変換するサンプル コードについては、「[顔検出 UWP のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/CameraFaceDetection)」をご覧ください。
 
 [!code-cs[FaceDetected](./code/BasicMediaCaptureWin10/cs/MainPage.xaml.cs#SnippetFaceDetected)]
 
@@ -109,14 +109,14 @@ HDR の使用が推奨された場合は、次の方法で実行できます。
 
 ### <a name="check-for-focus-and-exposure-support-for-detected-faces"></a>検出された顔に対するフォーカスや露出のサポートを確認する
 
-すべてのデバイスに、検出された顔に基づいてフォーカスや露出を調整できるキャプチャ デバイスが搭載されているとは限りません。 顔検出はデバイス リソースを消費するため、キャプチャを強化する機能を使用できるデバイスでのみ顔検出を有効にすることもできます。 顔に基づくキャプチャの最適化が利用可能かどうかを確認するには、初期化された [MediaCapture](capture-photos-and-video-with-mediacapture.md) に対する [**VideoDeviceController**](https://docs.microsoft.com/uwp/api/Windows.Media.Devices.VideoDeviceController) を取得してから、ビデオ デバイス コントローラーの [**RegionsOfInterestControl**](https://docs.microsoft.com/uwp/api/Windows.Media.Devices.RegionsOfInterestControl) を取得します。 [  **MaxRegions**](https://docs.microsoft.com/uwp/api/windows.media.devices.regionsofinterestcontrol.maxregions) で少なくとも 1 つの領域がサポートされているかどうかを確認します。 次に、[**AutoExposureSupported**](https://docs.microsoft.com/uwp/api/windows.media.devices.regionsofinterestcontrol.autoexposuresupported) または [**AutoFocusSupported**](https://docs.microsoft.com/uwp/api/windows.media.devices.regionsofinterestcontrol.autofocussupported) のいずれかが true であるかどうかを確認します。 これらの条件が満たされている場合は、デバイスで顔検出を利用してキャプチャを強化できます。
+すべてのデバイスに、検出された顔に基づいてフォーカスや露出を調整できるキャプチャ デバイスが搭載されているとは限りません。 顔検出はデバイス リソースを消費するため、キャプチャを強化する機能を使用できるデバイスでのみ顔検出を有効にすることもできます。 顔に基づくキャプチャの最適化が利用可能かどうかを確認するには、初期化された [MediaCapture**に対する**](https://docs.microsoft.com/uwp/api/Windows.Media.Devices.VideoDeviceController)VideoDeviceController[](capture-photos-and-video-with-mediacapture.md) を取得してから、ビデオ デバイス コントローラーの [**RegionsOfInterestControl**](https://docs.microsoft.com/uwp/api/Windows.Media.Devices.RegionsOfInterestControl) を取得します。 [  **MaxRegions**](https://docs.microsoft.com/uwp/api/windows.media.devices.regionsofinterestcontrol.maxregions) で少なくとも 1 つの領域がサポートされているかどうかを確認します。 次に、[**AutoExposureSupported**](https://docs.microsoft.com/uwp/api/windows.media.devices.regionsofinterestcontrol.autoexposuresupported) または [**AutoFocusSupported**](https://docs.microsoft.com/uwp/api/windows.media.devices.regionsofinterestcontrol.autofocussupported) のいずれかが true であるかどうかを確認します。 これらの条件が満たされている場合は、デバイスで顔検出を利用してキャプチャを強化できます。
 
 [!code-cs[AreFaceFocusAndExposureSupported](./code/BasicMediaCaptureWin10/cs/MainPage.xaml.cs#SnippetAreFaceFocusAndExposureSupported)]
 
 ## <a name="related-topics"></a>関連トピック
 
 * [カメラ](camera.md)
-* [MediaCapture で基本的な写真、ビデオ、およびオーディオのキャプチャします。](basic-photo-video-and-audio-capture-with-MediaCapture.md)
+* [MediaCapture を使用した基本的な写真、ビデオ、オーディオキャプチャ](basic-photo-video-and-audio-capture-with-MediaCapture.md)
  
 
  

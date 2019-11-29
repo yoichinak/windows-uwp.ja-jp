@@ -4,17 +4,17 @@ title: データ バインディングの詳細
 description: データ バインディングは、アプリの UI でデータを表示し、必要に応じてそのデータとの同期を保つ方法です。
 ms.date: 10/05/2018
 ms.topic: article
-keywords: Windows 10, UWP
+keywords: windows 10, uwp
 ms.localizationpriority: medium
 dev_langs:
 - csharp
 - cppwinrt
-ms.openlocfilehash: ac4ab9dc85292187055c7b4ef772cc64104f7944
-ms.sourcegitcommit: a791269689f0494f2905ee9bdb3cb739dc33eda3
+ms.openlocfilehash: c9218fe2b74fe9a550cd347f72083f090bd48f85
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/19/2019
-ms.locfileid: "72601221"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74255350"
 ---
 # <a name="data-binding-in-depth"></a>データ バインディングの詳細
 
@@ -42,19 +42,19 @@ ms.locfileid: "72601221"
 
 **{X:Bind} をデモンストレーションするサンプルアプリ**
 
--   [{x:Bind} のサンプル](https://go.microsoft.com/fwlink/p/?linkid=619989)。
+-   [{x:Bind} のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlBind)。
 -   [QuizGame](https://github.com/microsoft/Windows-appsample-networkhelper)。
--   [XAML UI の基本のサンプル](https://go.microsoft.com/fwlink/p/?linkid=619992)。
+-   [XAML UI の基本のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlUIBasics)。
 
 **{Binding} をデモンストレーションするサンプルアプリ**
 
--   [Bookstore1](https://go.microsoft.com/fwlink/?linkid=532950) アプリのダウンロード。
--   [Bookstore2](https://go.microsoft.com/fwlink/?linkid=532952) アプリのダウンロード。
+-   [Bookstore1](https://codeload.github.com/MicrosoftDocs/windows-topic-specific-samples/zip/Bookstore1Universal_10) アプリのダウンロード。
+-   [Bookstore2](https://codeload.github.com/MicrosoftDocs/windows-topic-specific-samples/zip/Bookstore2Universal_10) アプリのダウンロード。
 
 ## <a name="every-binding-involves-these-pieces"></a>すべてのバインディングに関連する要素
 
 -   *バインディング ソース*。 これは、バインディング用のデータのソースで、UI に表示する値を持つメンバーが含まれる、任意のクラスのインスタンスを使うことができます。
--   *バインディング ターゲット*。 これは、データを表示する UI の [**FrameworkElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.FrameworkElement) の [**DependencyProperty**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.DependencyProperty) です。
+-   *バインディング ターゲット*。 これは、データを表示する UI の [**FrameworkElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.DependencyProperty) の [**DependencyProperty**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.FrameworkElement) です。
 -   *バインディング オブジェクト*。 これは、ソースからターゲットに、および必要に応じてターゲットからソースに、データ値を転送する要素です。 バインディング オブジェクトは、XAML の読み込み時に [{x:Bind}](https://docs.microsoft.com/windows/uwp/xaml-platform/x-bind-markup-extension) または [{Binding}](https://docs.microsoft.com/windows/uwp/xaml-platform/binding-markup-extension) マークアップ拡張から作成されます。
 
 次のセクションでは、バインディング ソース、バインディング ターゲット、バインド オブジェクトについて詳しく見てみます。 また、以下のセクションでは、**HostViewModel** という名前のクラスに属する **NextButtonText** という名前の文字列プロパティに、ボタンのコンテンツをバインドする例へのリンクも示します。
@@ -63,7 +63,7 @@ ms.locfileid: "72601221"
 
 バインディング ソースとして使用できるクラスの非常に基本的な実装を次に示します。
 
-[ C++/Winrt](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt)を使用している場合は、次のリストにC++示すように、新しい**Midl ファイル (.idl)** 項目をプロジェクトに追加します。 これらの新しいファイルの内容を、一覧に示されている[MIDL 3.0](/uwp/midl-3/intro)コードに置き換え、`HostViewModel.h` と `.cpp` を生成するプロジェクトをビルドします。次に、生成されたファイルに、一覧に一致するコードを追加します。 これらの生成されたファイルの詳細と、これらのファイルをプロジェクトにコピーする方法については、「 [XAML コントロール」をC++](/windows/uwp/cpp-and-winrt-apis/binding-property)参照してください。
+[ C++/Winrt](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt)を使用している場合は、次のリストにC++示すように、新しい**Midl ファイル (.idl)** 項目をプロジェクトに追加します。 これらの新しいファイルの内容を、一覧に示されている[MIDL 3.0](/uwp/midl-3/intro)コードに置き換え、`HostViewModel.h` と `.cpp`を生成するプロジェクトをビルドします。次に、生成されたファイルに、一覧に一致するコードを追加します。 これらの生成されたファイルの詳細と、これらのファイルをプロジェクトにコピーする方法については、「 [XAML コントロール」をC++](/windows/uwp/cpp-and-winrt-apis/binding-property)参照してください。
 
 ```csharp
 public class HostViewModel
@@ -224,18 +224,18 @@ public class HostViewModel : BindableBase
 ```
 
 > [!NOTE]
-> / C++WinRT の場合、基底クラスから派生したアプリケーションで宣言するランタイムクラスは、*コンポーザブル*クラスと呼ばれます。 また、構成可能クラスに関しては制約があります。 Visual Studio および Microsoft Store が送信を検証するために使用する [Windows App Certification Kit](../debug-test-perf/windows-app-certification-kit.md) テストにアプリケーションが合格するには (そして結果的に、アプリケーションが Microsoft Store に正常に取り込まれるには)、構成可能クラスを最終的に Windows 基底クラスから派生させる必要があります。 つまり、継承階層の最上位にあるクラスは、Windows.* 名前空間から取得された型である必要があります。 基底クラスからランタイム クラスを派生させる必要がある場合 (たとえば、派生元のご自分のすべてのビュー モデルに対して **BindableBase** クラスを実装するために)、[**Windows.UI.Xaml.DependencyObject**](/uwp/api/windows.ui.xaml.dependencyobject) から派生させることができます。
+> / C++WinRT の場合、基底クラスから派生したアプリケーションで宣言するランタイムクラスは、*コンポーザブル*クラスと呼ばれます。 また、構成可能クラスに関しては制約があります。 Visual Studio および Microsoft Store が送信を検証するために使用する [Windows App Certification Kit](../debug-test-perf/windows-app-certification-kit.md) テストにアプリケーションが合格するには (そして結果的に、アプリケーションが Microsoft Store に正常に取り込まれるには)、構成可能クラスを最終的に Windows 基底クラスから派生させる必要があります。 つまり、継承階層の最上位にあるクラスは、Windows.* 名前空間から取得された型である必要があります。 基底クラスからランタイム クラスを派生させる必要がある場合 (たとえば、派生元のご自分のすべてのビュー モデルに対して &mdash;BindableBase **クラスを実装するために)、** &mdash;Windows.UI.Xaml.DependencyObject[** から派生させることができます。
 
-[  **String.Empty**](https://docs.microsoft.com/dotnet/api/system.string.empty) または **null** の引数を使って **PropertyChanged** イベントを発生させることは、オブジェクトのすべての非インデクサー プロパティを再び読み取る必要があることを示します。 イベントを発生させて、特定のインデクサー (*インデクサー*がインデックス値) に対して "item \[*indexer* \]" の引数を使用してオブジェクトのインデクサープロパティが変更されたこと、または all に対して "item \[ \]" の値が設定されていることを示すことができます。インデックス.
+**** String.Empty[**または**null](https://docs.microsoft.com/dotnet/api/system.string.empty) の引数を使って **PropertyChanged** イベントを発生させることは、オブジェクトのすべての非インデクサー プロパティを再び読み取る必要があることを示します。 イベントを発生させて、特定のインデクサー (*インデクサー*がインデックス値) の場合は "item\[*indexer*\]" の引数を、すべてのインデクサーには "item\[\]" の値を使用して、オブジェクトのインデクサープロパティが変更されたことを示すことができます。
 
-バインディング ソースは、プロパティにデータが含まれる単一のオブジェクト、またはオブジェクトのコレクションとして処理できます。 およびC# Visual Basic コードでは、 [**List (Of T)** ](https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1)を実装するオブジェクトに1回だけバインドして、実行時に変更されないコレクションを表示できます。 監視可能なコレクション (コレクションの項目の追加と削除を監視する) の場合、代わりに [**ObservableCollection(Of T)** ](https://docs.microsoft.com/dotnet/api/system.collections.objectmodel.observablecollection-1) への一方向バインディングを設定します。 /Cx C++コードでは、観測可能なコレクションと観測不可能なコレクションの両方に対して[**ベクター &lt;T &gt;** ](https://docs.microsoft.com/cpp/cppcx/platform-collections-vector-class)にバインドできます。またC++、WinRT には独自の型があります。 独自のコレクション クラスにバインドするには、次の表をご覧ください。
+バインディング ソースは、プロパティにデータが含まれる単一のオブジェクト、またはオブジェクトのコレクションとして処理できます。 およびC# Visual Basic コードでは、 [**List (Of T)** ](https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1)を実装するオブジェクトに1回だけバインドして、実行時に変更されないコレクションを表示できます。 監視可能なコレクション (コレクションの項目の追加と削除を監視する) の場合、代わりに [**ObservableCollection(Of T)** ](https://docs.microsoft.com/dotnet/api/system.collections.objectmodel.observablecollection-1) への一方向バインディングを設定します。 /Cx C++コードでは、観測可能なコレクションと観測不可能なコレクションの両方に対して[**Vector&lt;t&gt;** ](https://docs.microsoft.com/cpp/cppcx/platform-collections-vector-class)にバインドできます。またC++、WinRT には独自の型があります。 独自のコレクション クラスにバインドするには、次の表をご覧ください。
 
 |シナリオ|C# と VB (CLR)|C++/WinRT|C++/CX|
 |-|-|-|-|
 |オブジェクトにバインドする。|どのオブジェクトでもかまいません。|どのオブジェクトでもかまいません。|オブジェクトで [**BindableAttribute**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.BindableAttribute) を指定するか、[**ICustomPropertyProvider**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.ICustomPropertyProvider) を実装する必要があります。|
 |バインドされたオブジェクトからプロパティ変更通知を取得します。|オブジェクトは[**INotifyPropertyChanged**](https://docs.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged)を実装しなければなりません。| オブジェクトは[**INotifyPropertyChanged**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.INotifyPropertyChanged)を実装しなければなりません。|オブジェクトは[**INotifyPropertyChanged**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.INotifyPropertyChanged)を実装しなければなりません。|
-|コレクションにバインドする。| [**List (Of T)** ](https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1)|[**IInspectable**](/windows/desktop/api/inspectable/nn-inspectable-iinspectable)または[**IBindableObservableVector**](/uwp/api/windows.ui.xaml.interop.ibindableobservablevector)の[**ivector**](/uwp/api/windows.foundation.collections.ivector_t_) 。 「 [XAML 項目コントロールC++](../cpp-and-winrt-apis/binding-collection.md) 」を参照してください。/winrt コレクションと[ C++コレクション](../cpp-and-winrt-apis/collections.md)にバインドします。| [**ベクター &lt;T &gt;** ](https://docs.microsoft.com/cpp/cppcx/platform-collections-vector-class)|
-|バインドされたコレクションからコレクションの変更通知を取得します。|[**System.collections.objectmodel.observablecollection (Of T)** ](https://docs.microsoft.com/dotnet/api/system.collections.objectmodel.observablecollection-1)|[**IObservableVector**](/uwp/api/windows.foundation.collections.iobservablevector_t_) [**IInspectable**](/windows/desktop/api/inspectable/nn-inspectable-iinspectable). たとえば、 [**winrt:: single_threaded_observable_vector &lt;T &gt;** ](https://docs.microsoft.com/en-us/uwp/cpp-ref-for-winrt/single-threaded-observable-vector)です。|[**IObservableVector &lt;T &gt;** ](https://docs.microsoft.com/uwp/api/Windows.Foundation.Collections.IObservableVector_T_)。  [**ベクター &lt;T &gt;** ](https://docs.microsoft.com/cpp/cppcx/platform-collections-vector-class)このインターフェイスを実装します。|
+|コレクションにバインドする。| [**List (Of T)** ](https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1)|[**IInspectable**](/windows/desktop/api/inspectable/nn-inspectable-iinspectable)または[**IBindableObservableVector**](/uwp/api/windows.ui.xaml.interop.ibindableobservablevector)の[**ivector**](/uwp/api/windows.foundation.collections.ivector_t_) 。 「 [XAML 項目コントロールC++](../cpp-and-winrt-apis/binding-collection.md) 」を参照してください。/winrt コレクションと[ C++コレクション](../cpp-and-winrt-apis/collections.md)にバインドします。| [**Vector&lt;T&gt;** ](https://docs.microsoft.com/cpp/cppcx/platform-collections-vector-class)|
+|バインドされたコレクションからコレクションの変更通知を取得します。|[**System.collections.objectmodel.observablecollection (Of T)** ](https://docs.microsoft.com/dotnet/api/system.collections.objectmodel.observablecollection-1)|[**IObservableVector**](/uwp/api/windows.foundation.collections.iobservablevector_t_) [**IInspectable**](/windows/desktop/api/inspectable/nn-inspectable-iinspectable). たとえば、 [**winrt:: single_threaded_observable_vector&lt;t&gt;** ](https://docs.microsoft.com/en-us/uwp/cpp-ref-for-winrt/single-threaded-observable-vector)です。|[**IObservableVector&lt;t&gt;** ](https://docs.microsoft.com/uwp/api/Windows.Foundation.Collections.IObservableVector_T_)。  [**Vector&lt;t&gt;** ](https://docs.microsoft.com/cpp/cppcx/platform-collections-vector-class)このインターフェイスを実装します。|
 |バインドをサポートするコレクションを実装する。|[  **List(Of T)** ](https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1) を拡張するか、[**IList**](https://docs.microsoft.com/dotnet/api/system.collections.ilist)、[**IList**](https://docs.microsoft.com/dotnet/api/system.collections.generic.ilist-1)(Of [**Object**](https://docs.microsoft.com/dotnet/api/system.object))、[**IEnumerable**](https://docs.microsoft.com/dotnet/api/system.collections.ienumerable)、または [**IEnumerable**](https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1)(Of **Object**) を実装します。 汎用の **IList(Of T)** と **IEnumerable(Of T)** へのバインドはサポートされていません。|[**IInspectable**](/windows/desktop/api/inspectable/nn-inspectable-iinspectable)の[**ivector**](/uwp/api/windows.foundation.collections.ivector_t_)を実装します。 「 [XAML 項目コントロールC++](../cpp-and-winrt-apis/binding-collection.md) 」を参照してください。/winrt コレクションと[ C++コレクション](../cpp-and-winrt-apis/collections.md)にバインドします。|[  **IBindableVector**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Interop.IBindableVector)、[**IBindableIterable**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Interop.IBindableIterable)、[**IVector**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Collections.IVector_T_)&lt;[**Object**](https://docs.microsoft.com/dotnet/api/system.object)^&gt;、[**IIterable**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Collections.IIterable_T_)&lt;**Object**^&gt;、**IVector**&lt;[**IInspectable**](https://docs.microsoft.com/windows/desktop/api/inspectable/nn-inspectable-iinspectable)\*&gt;、または **IIterable**&lt;**IInspectable**\*&gt; を実装します。 汎用の **IVector&lt;T&gt;** と **IIterable&lt;T&gt;** へのバインドはサポートされていません。|
 | コレクションの変更通知をサポートするコレクションを実装します。 | [  **ObservableCollection(Of T)** ](https://docs.microsoft.com/dotnet/api/system.collections.objectmodel.observablecollection-1) を拡張するか、(汎用ではない) [**IList**](https://docs.microsoft.com/dotnet/api/system.collections.ilist) と [**INotifyCollectionChanged**](https://docs.microsoft.com/dotnet/api/system.collections.specialized.inotifycollectionchanged) を実装します。|[**IInspectable**](/windows/desktop/api/inspectable/nn-inspectable-iinspectable)または[**IBindableObservableVector**](/uwp/api/windows.ui.xaml.interop.ibindableobservablevector)の[**IObservableVector**](/uwp/api/windows.foundation.collections.iobservablevector_t_)を実装します。|[  **IBindableVector**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Interop.IBindableVector) と [**IBindableObservableVector**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Interop.IBindableObservableVector) を実装します。|
 |段階的読み込みをサポートするコレクションを実装する。|[  **ObservableCollection(Of T)** ](https://docs.microsoft.com/dotnet/api/system.collections.objectmodel.observablecollection-1) を拡張するか、(汎用ではない) [**IList**](https://docs.microsoft.com/dotnet/api/system.collections.ilist) と [**INotifyCollectionChanged**](https://docs.microsoft.com/dotnet/api/system.collections.specialized.inotifycollectionchanged) を実装します。 さらに、[**ISupportIncrementalLoading**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.ISupportIncrementalLoading) を実装します。|[**IInspectable**](/windows/desktop/api/inspectable/nn-inspectable-iinspectable)または[**IBindableObservableVector**](/uwp/api/windows.ui.xaml.interop.ibindableobservablevector)の[**IObservableVector**](/uwp/api/windows.foundation.collections.iobservablevector_t_)を実装します。 さらに、[**ISupportIncrementalLoading**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.ISupportIncrementalLoading) を実装します|[  **IBindableVector**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Interop.IBindableVector)、[**IBindableObservableVector**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Interop.IBindableObservableVector)、[**ISupportIncrementalLoading**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.ISupportIncrementalLoading) を実装します。|
@@ -420,7 +420,7 @@ void MainPage::ClickHandler(IInspectable const&, RoutedEventArgs const&)
 }
 ```
 
-**Path** として指定している値に注意してください。 この値は、ページの [**DataContext**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.datacontext) で解釈されます。この例では、**HostViewModel** のインスタンスに設定されます。 パスは **HostViewModel.NextButtonText** プロパティを参照します。 [{Binding}](https://docs.microsoft.com/windows/uwp/xaml-platform/binding-markup-extension) の既定値である一方向のバインディングが適切であるため、**Mode** は省略できます。
+**Path** として指定している値に注意してください。 この値は、ページの [**DataContext**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.datacontext) で解釈されます。この例では、**HostViewModel** のインスタンスに設定されます。 パスは **HostViewModel.NextButtonText** プロパティを参照します。 **{Binding}** の既定値である一方向のバインディングが適切であるため、[Mode](https://docs.microsoft.com/windows/uwp/xaml-platform/binding-markup-extension) は省略できます。
 
 UI 要素の [**DataContext**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.datacontext) の既定値は、その親から継承された値です。 もちろん **DataContext** を明示的に設定することによってこの既定値 (さらに既定で子に継承される) をオーバーライドすることができます。 要素で明示的に **DataContext** を設定することは、同じソースを使う複数のバインディングが必要な場合に便利です。
 
@@ -507,7 +507,7 @@ public class DateToStringConverter : IValueConverter
   Text="{Binding Month, Converter={StaticResource Converter1}}"/>
 ```
 
-バインドの [**Converter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.converter) パラメーターを定義した場合、[**Convert**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.ivalueconverter.convert) メソッドと [**ConvertBack**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.ivalueconverter.convertback) メソッドがバインド エンジンによって呼び出されます。 ソースからデータが渡されると、バインド エンジンは、**Convert** を呼び出し、返すデータをターゲットに渡します。 ターゲットからデータが渡されると (双方向バインディングの場合)、バインド エンジンは、**ConvertBack** を呼び出し、返すデータをソースに渡します。
+バインドの [**Converter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.ivalueconverter.convert) パラメーターを定義した場合、[**Convert**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.ivalueconverter.convertback) メソッドと [**ConvertBack**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.converter) メソッドがバインド エンジンによって呼び出されます。 ソースからデータが渡されると、バインド エンジンは、**Convert** を呼び出し、返すデータをターゲットに渡します。 ターゲットからデータが渡されると (双方向バインディングの場合)、バインド エンジンは、**ConvertBack** を呼び出し、返すデータをソースに渡します。
 
 コンバーターには省略可能なパラメーターもあります。変換で使う言語を指定できる [**ConverterLanguage**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.converterlanguage)、および変換ロジックに渡すパラメーターを指定できる [**ConverterParameter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.converterparameter) です。 コンバーター パラメーターの使用例については、「[**IValueConverter**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.IValueConverter)」をご覧ください。
 
@@ -616,11 +616,11 @@ Click="{x:Bind RootFrame.GoForward}"/>
 
 この方法では、オーバーロードされたメソッドを使ってイベントを処理することはできません。 また、イベントを処理するメソッドにパラメーターがある場合、すべてのパラメーターがそれぞれ、イベントのすべての型から代入できる必要があります。 この場合、[**Frame.GoForward**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.frame.goforward) はオーバーロードされておらず、パラメーターはありません (ただし、2 つの **object** パラメーターを取る場合でも有効です)。 ただし、[**フレーム GoBack**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.frame.goback)はオーバーロードされるので、この方法では使用できません。
 
-イベント バインディングの手法は、コマンドの実装と使用に似ています (コマンドは [**ICommand**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.icommand) インターフェイスを実装するオブジェクトを返すプロパティです)。 [{x:Bind}](https://docs.microsoft.com/windows/uwp/xaml-platform/x-bind-markup-extension) と [{Binding}](https://docs.microsoft.com/windows/uwp/xaml-platform/binding-markup-extension) はいずれもコマンドで動作します。 コマンド パターンを何度も実装する必要はありません。[QuizGame](https://github.com/microsoft/Windows-appsample-networkhelper) サンプル (Common フォルダー) に含まれている **DelegateCommand** ヘルパー クラスを使うことができます。
+イベント バインディングの手法は、コマンドの実装と使用に似ています (コマンドは [**ICommand**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.icommand) インターフェイスを実装するオブジェクトを返すプロパティです)。 [{x:Bind}](https://docs.microsoft.com/windows/uwp/xaml-platform/x-bind-markup-extension) と [{Binding}](https://docs.microsoft.com/windows/uwp/xaml-platform/binding-markup-extension) はいずれもコマンドで動作します。 コマンド パターンを何度も実装する必要はありません。**QuizGame** サンプル (Common フォルダー) に含まれている [DelegateCommand](https://github.com/microsoft/Windows-appsample-networkhelper) ヘルパー クラスを使うことができます。
 
 ## <a name="binding-to-a-collection-of-folders-or-files"></a>フォルダーやファイルのコレクションへのバインド
 
-[  **Windows.Storage**](https://docs.microsoft.com/uwp/api/Windows.Storage) 名前空間の API を使って、フォルダーとファイルのデータを取得できます。 ただし、**GetFilesAsync** メソッド、**GetFoldersAsync** メソッド、**GetItemsAsync** メソッドは、リスト コントロールへのバインドに適した値を返さないことがあります。 代わりに、[**FileInformationFactory**](https://docs.microsoft.com/uwp/api/Windows.Storage.BulkAccess.FileInformationFactory) クラスの [**GetVirtualizedFilesVector**](https://docs.microsoft.com/uwp/api/windows.storage.bulkaccess.fileinformationfactory.getvirtualizedfilesvector) メソッド、[**GetVirtualizedFoldersVector**](https://docs.microsoft.com/uwp/api/windows.storage.bulkaccess.fileinformationfactory.getvirtualizedfoldersvector) メソッド、[**GetVirtualizedItemsVector**](https://docs.microsoft.com/uwp/api/windows.storage.bulkaccess.fileinformationfactory.getvirtualizeditemsvector) メソッドの戻り値にバインドする必要があります。 [StorageDataSource と GetVirtualizedFilesVector のサンプルに関するページ](https://go.microsoft.com/fwlink/p/?linkid=228621)から抜粋した次のコード例は、一般的な使用パターンを示しています。 アプリ パッケージ マニフェストで **picturesLibrary** 機能を宣言し、ピクチャ ライブラリ フォルダーにピクチャがあることを確認します。
+[  **Windows.Storage**](https://docs.microsoft.com/uwp/api/Windows.Storage) 名前空間の API を使って、フォルダーとファイルのデータを取得できます。 ただし、**GetFilesAsync** メソッド、**GetFoldersAsync** メソッド、**GetItemsAsync** メソッドは、リスト コントロールへのバインドに適した値を返さないことがあります。 代わりに、[**FileInformationFactory**](https://docs.microsoft.com/uwp/api/windows.storage.bulkaccess.fileinformationfactory.getvirtualizedfilesvector) クラスの [**GetVirtualizedFilesVector**](https://docs.microsoft.com/uwp/api/windows.storage.bulkaccess.fileinformationfactory.getvirtualizedfoldersvector) メソッド、[**GetVirtualizedFoldersVector**](https://docs.microsoft.com/uwp/api/windows.storage.bulkaccess.fileinformationfactory.getvirtualizeditemsvector) メソッド、[**GetVirtualizedItemsVector**](https://docs.microsoft.com/uwp/api/Windows.Storage.BulkAccess.FileInformationFactory) メソッドの戻り値にバインドする必要があります。 [StorageDataSource と GetVirtualizedFilesVector のサンプルに関するページ](https://code.msdn.microsoft.com/windowsapps/Data-source-adapter-sample-3d32e535)から抜粋した次のコード例は、一般的な使用パターンを示しています。 アプリ パッケージ マニフェストで **picturesLibrary** 機能を宣言し、ピクチャ ライブラリ フォルダーにピクチャがあることを確認します。
 
 ```csharp
 protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -649,7 +649,7 @@ protected override void OnNavigatedTo(NavigationEventArgs e)
 
 この方法による双方向のバインドは、ミュージックなど、インデックス化された場所でのみ機能します。 ある場所がインデックス化されているかどうかを確認するには、[**FolderInformation.GetIndexedStateAsync**](https://docs.microsoft.com/uwp/api/windows.storage.bulkaccess.folderinformation.getindexedstateasync) メソッドを呼び出します。
 
-仮想化されたベクターは、一部の項目に対して、値の設定の前に **null** を返す場合があることにも注意してください。 たとえば、仮想化されたベクターにバインドされたリスト コントロールの [**SelectedItem**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.selector.selecteditem) 値を使う前に、**null** をチェックする必要があります。または、代わりに [**SelectedIndex**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.selector.selectedindex) を使います。
+仮想化されたベクターは、一部の項目に対して、値の設定の前に **null** を返す場合があることにも注意してください。 たとえば、仮想化されたベクターにバインドされたリスト コントロールのSelectedItem[ **値を使う前に、** null](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.selector.selecteditem) をチェックする必要があります。または、代わりに [**SelectedIndex**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.selector.selectedindex) を使います。
 
 ## <a name="binding-to-data-grouped-by-a-key"></a>キーでグループ化されたデータへのバインド
 
@@ -663,7 +663,7 @@ Books の例をもう一度実行するために、著者名によって本を�
 - 作成者名であるキー
 - **Authorname**プロパティがグループのキーと一致する**booksku**のコレクション。
 
-一般的に、コレクションを表示するには、項目コントロール [**ItemsSource**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemssource) ([**ListView**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView) や [**GridView**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.GridView) など) を、コレクションを返すプロパティに直接バインドします。 項目のフラットなコレクションの場合は、何も特別なことをする必要はありません。 一方、グループ オブジェクトのコレクションの場合 (グループ化されたデータにバインドしている場合など) は、項目コントロールとバインディング ソースの間に存在する、[**CollectionViewSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.CollectionViewSource) と呼ばれる中間オブジェクトのサービスが必要です。 グループ化されたデータを返すプロパティに **CollectionViewSource** をバインドし、項目コントロールを **CollectionViewSource** にバンドします。 **CollectionViewSource** の追加の付加価値として現在の項目を追跡できるため、複数の項目コントロールをすべて同じ **CollectionViewSource** にバインドすることによって同期させることができます。 [  **CollectionViewSource.View**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.collectionviewsource.view) プロパティによって返されるオブジェクトの [**ICollectionView.CurrentItem**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.icollectionview.currentitem) プロパティによって、現在の項目にプログラムでアクセスすることもできます。
+一般的に、コレクションを表示するには、項目コントロール [**ItemsSource**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemssource) ([**ListView**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView) や [**GridView**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.GridView) など) を、コレクションを返すプロパティに直接バインドします。 項目のフラットなコレクションの場合は、何も特別なことをする必要はありません。 一方、グループ オブジェクトのコレクションの場合 (グループ化されたデータにバインドしている場合など) は、項目コントロールとバインディング ソースの間に存在する、[**CollectionViewSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.CollectionViewSource) と呼ばれる中間オブジェクトのサービスが必要です。 グループ化されたデータを返すプロパティに **CollectionViewSource** をバインドし、項目コントロールを **CollectionViewSource** にバンドします。 **CollectionViewSource** の追加の付加価値として現在の項目を追跡できるため、複数の項目コントロールをすべて同じ **CollectionViewSource** にバインドすることによって同期させることができます。 [  **CollectionViewSource.View**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.icollectionview.currentitem) プロパティによって返されるオブジェクトの [**ICollectionView.CurrentItem**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.collectionviewsource.view) プロパティによって、現在の項目にプログラムでアクセスすることもできます。
 
 [  **CollectionViewSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.CollectionViewSource) のグループ化機能をアクティブにするには、[**IsSourceGrouped**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.collectionviewsource.issourcegrouped) を **true** に設定します。 [  **ItemsPath**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.collectionviewsource.itemspath) プロパティも設定する必要があるかどうかは、グループ オブジェクトを作成する方法に依存します。 グループ オブジェクトを作成するには、"グループである" パターンと "グループを保持する" パターンの 2 つの方法があります。 "グループである" パターンでは、グループ オブジェクトはコレクション型から派生 (たとえば、**List&lt;T&gt;** ) から派生するため、グループ オブジェクトは実際にそれ自体が項目のグループです。 このパターンでは、**ItemsPath** を設定する必要はありません。 "グループを保持する" パターンでは、グループ オブジェクトはコレクション型 (**List&lt;T&gt;** など) の 1 つまたは複数のプロパティを持つため、グループは、プロパティの形式で項目のグループ (または複数のプロパティの形式で項目の複数のグループ) を "保持" します。 このパターンでは、**ItemsPath** を、項目のグループを含むプロパティの名前に設定する必要があります。
 
@@ -687,7 +687,7 @@ ItemsSource="{x:Bind AuthorHasACollectionOfBookSku}" ...>
 </GridView>
 ```
 
-"グループである" パターンは、2 つの方法のいずれかで実装できます。 1 つは、独自のグループ クラスを作成する方法です。 **List&lt;T&gt;** からクラスを派生させます (ここで *T* は項目の型です)。 たとえば、`public class Author : List<BookSku>` と記述します。 もう 1 つは、**BookSku** 項目の同様のプロパティ値から、動的にグループ オブジェクト (とグループ クラス) を動的に作成する [LINQ](https://docs.microsoft.com/previous-versions/bb397926(v=vs.140)) 式を使う方法です。 このアプローチ (項目のフラットな一覧のみを保持し、必要に応じてグループ化する) は、クラウド サービスのデータにアクセスするアプリで一般的です。 著者やジャンルなどに基づいて書籍を柔軟にグループ化することができます。**Author** や **Genre** などの特別なグループ クラスは必要ありません。
+"グループである" パターンは、2 つの方法のいずれかで実装できます。 1 つは、独自のグループ クラスを作成する方法です。 **List&lt;T&gt;** からクラスを派生させます (ここで *T* は項目の型です)。 たとえば、`public class Author : List<BookSku>` と記述します。 もう 1 つは、[BookSku](https://docs.microsoft.com/previous-versions/bb397926(v=vs.140)) 項目の同様のプロパティ値から、動的にグループ オブジェクト (とグループ クラス) を動的に作成する **LINQ** 式を使う方法です。 このアプローチ (項目のフラットな一覧のみを保持し、必要に応じてグループ化する) は、クラウド サービスのデータにアクセスするアプリで一般的です。 著者やジャンルなどに基づいて書籍を柔軟にグループ化することができます。**Author** や **Genre** などの特別なグループ クラスは必要ありません。
 
 次の例は、[LINQ](https://docs.microsoft.com/previous-versions/bb397926(v=vs.140)) を使用した "グループである" パターンを示しています。 今回は、書籍をジャンルでグループ化し、グループ ヘッダーにジャンル名と共に表示します。 これは、グループの [**Key**](https://docs.microsoft.com/dotnet/api/system.linq.igrouping-2.key#System_Linq_IGrouping_2_Key) の値に関連する "Key" プロパティ パスによって示されます。
 
@@ -738,7 +738,7 @@ public IOrderedEnumerable<IGrouping<string, BookSku>> Genres
     </GridView>
 ```
 
-[  **SemanticZoom**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.SemanticZoom) コントロールは、ユーザーがグループ化されたデータを表示したり、データ間を移動したりするための優れた方法です。 [Bookstore2](https://go.microsoft.com/fwlink/?linkid=532952) サンプル アプリは、**SemanticZoom** の使い方を示しています。 このアプリでは、著者別にグループ化された書籍の一覧を表示する (拡大表示ビュー) ことも、縮小して著者のジャンプ リストを表示する (縮小表示ビュー) こともできます。 ジャンプ リストを使うと、書籍の一覧をスクロールするよりもすばやく移動することができます。 拡大表示ビューと縮小表示ビューは、実際には、同じ **CollectionViewSource** にバインドされた **ListView** または **GridView** コントロールです。
+[  **SemanticZoom**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.SemanticZoom) コントロールは、ユーザーがグループ化されたデータを表示したり、データ間を移動したりするための優れた方法です。 [Bookstore2](https://codeload.github.com/MicrosoftDocs/windows-topic-specific-samples/zip/Bookstore2Universal_10) サンプル アプリは、**SemanticZoom** の使い方を示しています。 このアプリでは、著者別にグループ化された書籍の一覧を表示する (拡大表示ビュー) ことも、縮小して著者のジャンプ リストを表示する (縮小表示ビュー) こともできます。 ジャンプ リストを使うと、書籍の一覧をスクロールするよりもすばやく移動することができます。 拡大表示ビューと縮小表示ビューは、実際には、同じ **CollectionViewSource** にバインドされた **ListView** または **GridView** コントロールです。
 
 ![SemanticZoom の図](images/sezo.png)
 
@@ -756,7 +756,7 @@ public IOrderedEnumerable<IGrouping<string, BookSku>> Genres
 
 ## <a name="creating-bindings-in-code"></a>コードでのバインドの作成
 
-**注**  This セクションは[{Binding}](https://docs.microsoft.com/windows/uwp/xaml-platform/binding-markup-extension)にのみ適用されます。コードで[{x:Bind}](https://docs.microsoft.com/windows/uwp/xaml-platform/x-bind-markup-extension) binding を作成することはできません。 ただし、{x:Bind} と同じメリットを、[**DependencyObject.RegisterPropertyChangedCallback**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.dependencyobject.registerpropertychangedcallback) によって実現できます。これにより、すべての依存関係プロパティについての変更通知を登録できます。
+このセクション  [{Binding}](https://docs.microsoft.com/windows/uwp/xaml-platform/binding-markup-extension)にのみ適用されます。コードで[{x:Bind}](https://docs.microsoft.com/windows/uwp/xaml-platform/x-bind-markup-extension) binding を作成**することは**できません。 ただし、{x:Bind} と同じメリットを、[**DependencyObject.RegisterPropertyChangedCallback**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.dependencyobject.registerpropertychangedcallback) によって実現できます。これにより、すべての依存関係プロパティについての変更通知を登録できます。
 
 XAML の代わりに手続き型コードを使っても UI 要素をデータに接続できます。 そのためには、新しい [**Binding**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.Binding) オブジェクトを作成し、適切なプロパティを設定してから、[**FrameworkElement.SetBinding**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.setbinding) または [**BindingOperations.SetBinding**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.bindingoperations.setbinding) を呼び出します。 バインドをプログラムで作成すると、Binding プロパティの値を実行時に選択する場合や、複数のコントロール間で 1 つのバインドを共有する場合に便利です。 ただし、**SetBinding** の呼び出し後は Binding プロパティの値を変更できないことに注意してください。
 
@@ -800,11 +800,11 @@ MyTextBox.SetBinding(TextBox.ForegroundProperty, binding)
 
 ## <a name="xbind-and-binding-feature-comparison"></a>{x:Bind} と {Binding} の機能の比較
 
-| 機能 | {x:Bind} | {Binding} | 注意 |
+| 機能 | {x:Bind} | {Binding} | 説明 |
 |---------|----------|-----------|-------|
 | Path が既定のプロパティである | `{x:Bind a.b.c}` | `{Binding a.b.c}` | | 
 | Path プロパティ | `{x:Bind Path=a.b.c}` | `{Binding Path=a.b.c}` | x:Bind では、Path は既定で DataContext ではなく、Page をルートにします。 | 
-| インデクサー | `{x:Bind Groups[2].Title}` | `{Binding Groups[2].Title}` | コレクション内で指定した項目にバインドします。 整数ベースのインデックスのみがサポートされます。 | 
+| Indexer | `{x:Bind Groups[2].Title}` | `{Binding Groups[2].Title}` | コレクション内で指定した項目にバインドします。 整数ベースのインデックスのみがサポートされます。 | 
 | 添付プロパティ | `{x:Bind Button22.(Grid.Row)}` | `{Binding Button22.(Grid.Row)}` | 添付プロパティは、かっこを使って指定します。 プロパティが XAML 名前空間で宣言されていない場合は、そのプロパティの前に xml 名前空間を付けます。これはドキュメントの先頭でコード名前空間にマップする必要があります。 | 
 | キャスト | `{x:Bind groups[0].(data:SampleDataGroup.Title)}` | 必要ありません。 | キャストはかっこを使って指定します。 プロパティが XAML 名前空間で宣言されていない場合は、そのプロパティの前に xml 名前空間を付けます。これはドキュメントの先頭でコード名前空間にマップする必要があります。 | 
 | Converter | `{x:Bind IsShown, Converter={StaticResource BoolToVisibility}}` | `{Binding IsShown, Converter={StaticResource BoolToVisibility}}` | コンバーターは、Page/ResourceDictionary のルートまたは App.xaml で宣言する必要があります。 | 
@@ -814,8 +814,8 @@ MyTextBox.SetBinding(TextBox.ForegroundProperty, binding)
 | ElementName | `{x:Bind slider1.Value}` | `{Binding Value, ElementName=slider1}` | {x:Bind} によって、フィールドにバインドしています。Path は既定で Page をルートとするため、名前付きの要素はそのフィールドを使ってアクセスできます。 | 
 | RelativeSource: Self | `<Rectangle x:Name="rect1" Width="200" Height="{x:Bind rect1.Width}" ... />` | `<Rectangle Width="200" Height="{Binding Width, RelativeSource={RelativeSource Self}}" ... />` | {x:Bind} では、要素に名前を付けて、Path でその名前を使います。 | 
 | RelativeSource: TemplatedParent | 不要 | `{Binding <path>, RelativeSource={RelativeSource TemplatedParent}}` | {X:Bind} TargetType on ControlTemplate は、テンプレートの親へのバインドを示します。 {Binding} では、ほとんどの用途で、標準テンプレートバインドをコントロールテンプレートで使用できます。 ただし、コンバーターまたは双方向バインディングを使用する必要がある場合は TemplatedParent を使います。< | 
-| Source (ソース) | 不要 | `<ListView ItemsSource="{Binding Orders, Source={StaticResource MyData}}"/>` | {X:Bind} では、名前付き要素を直接使用することも、プロパティまたは静的パスを使用することもできます。 | 
-| [モード] | `{x:Bind Name, Mode=OneWay}` | `{Binding Name, Mode=TwoWay}` | Mode には、OneTime、OneWay、TwoWay を指定できます。 {x:Bind} の既定値は OneTime で、{Binding} の既定値は OneWay です。 | 
+| Source | 不要 | `<ListView ItemsSource="{Binding Orders, Source={StaticResource MyData}}"/>` | {X:Bind} では、名前付き要素を直接使用することも、プロパティまたは静的パスを使用することもできます。 | 
+| Mode | `{x:Bind Name, Mode=OneWay}` | `{Binding Name, Mode=TwoWay}` | Mode には、OneTime、OneWay、TwoWay を指定できます。 {x:Bind} の既定値は OneTime で、{Binding} の既定値は OneWay です。 | 
 | UpdateSourceTrigger | `{x:Bind Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}` | `{Binding UpdateSourceTrigger=PropertyChanged}` | UpdateSourceTrigger には、Default、LostFocus、PropertyChanged を指定できます。 {x:Bind} では、UpdateSourceTrigger=Explicit はサポートされません。 {x:Bind} では、TextBox.Text を除くすべての場合に PropertyChanged 動作を使います。TextBox.Text の場合は LostFocus 動作を使います。 | 
 
 
