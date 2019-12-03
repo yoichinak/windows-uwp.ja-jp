@@ -6,16 +6,16 @@ ms.date: 05/08/2018
 ms.topic: article
 keywords: windows 10, uwp, 年齢区分, ゲームの評価, iarc, 評価, アンケート, レーティング機関, コンテンツ区分
 ms.localizationpriority: medium
-ms.openlocfilehash: bab98b50b1d53451708b7631f74d15947c60d4c8
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: 2e8ffdcf1daf9198ded9658c471e765acf5ab8f3
+ms.sourcegitcommit: 7754c1cb1a348f3311417ea7df3e9d168fe39517
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74260043"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74694778"
 ---
 # <a name="age-ratings"></a>年齢区分
 
-**アプリの申請プロセス**の [[年齢区分]](app-submissions.md) ページでアプリに関する情報を提供すると、[International Age Ratings Coalition (IARC)](https://www.globalratings.com/) 評価システムが管理する適切な年齢区分とコンテンツ区分を受け取ることができます。 これらの区分は、アプリのコンテンツの適切性に関する区分であって、アプリの対象ユーザーの年齢ではありません。
+[アプリの申請プロセス](app-submissions.md)の **[年齢区分]** ページでアプリに関する情報を提供すると、[International Age Ratings Coalition (IARC)](https://www.globalratings.com/) 評価システムが管理する適切な年齢区分とコンテンツ区分を受け取ることができます。 これらの区分は、アプリのコンテンツの適切性に関する区分であって、アプリの対象ユーザーの年齢ではありません。
 
 ## <a name="answering-the-age-ratings-questionnaire"></a>年齢区分についての質問表への回答
 
@@ -33,9 +33,6 @@ ms.locfileid: "74260043"
 次回アプリを更新するとき、このページにはアプリに割り当てられたすべての年齢区分が表示されます。 アプリのコンテンツを変更して、いずれかの回答の調整が必要になった場合も、 **[編集]** をクリックしてもう一度質問票に回答してください。 また、質問は IARC により随時更新される可能性があります。 この場合、更新を申請するときに、もう一度質問表に回答するように求めるメッセージが表示されます。
 
 <span id="boards" />
-
-> [!NOTE]
-> 韓国の法律により、韓国で入手可能なゲームは韓国の [Game Rating Board](https://www.grb.or.kr/Default.aspx) の評価を受ける必要があります。 韓国で提供する可能性のあるゲームを提出する場合は、この追加セクションに入力し、評価証明書をアップロードする必要があります。 アプリがゲームではない場合や、そのアプリを韓国で提供しない場合は、このセクションは空白のままでかまいません。
 
 > [!NOTE]
 > 台湾での利用が可能になるゲームを提出する場合は、提供された CSRR レーティングを[こちらのフォーム](https://www.gamerating.org.tw/company_login.php)で登録することが法律で義務付けられています。 
