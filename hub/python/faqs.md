@@ -8,12 +8,12 @@ ms.topic: article
 keywords: python, windows 10, microsoft, pip, py.exe, ファイル パス, PYTHONPATH, python 開発, python パッケージ化
 ms.localizationpriority: medium
 ms.date: 07/19/2019
-ms.openlocfilehash: 4132ef0089ee707367666b4d6340333e538b1130
-ms.sourcegitcommit: 13faf9dab9946295986f8edd79b5fae0db4ed0f6
+ms.openlocfilehash: 6dbf86e0f9435e44140159ebb2bcbc3d67928999
+ms.sourcegitcommit: c8634b15b10bd196e7e2f876ae26e1205e160c91
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72313377"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74663559"
 ---
 # <a name="frequently-asked-questions-about-using-python-on-windows"></a>Windows での Python の使用についてよく寄せられる質問
 
@@ -47,7 +47,7 @@ Python をインストールせずにショートカットを無効にするに�
 
 Python の文字列では、特殊文字に "エスケープ" を使用します。 たとえば、改行文字を文字列に挿入するには「`\n`」と入力します。 Windows のファイル パスでは円記号が使用されるため、一部の箇所が特殊文字に変換される場合があります。
 
-Python でパスを文字列として貼り付けるには、`r` プレフィックスを追加します。 これは、貼り付けるものが `raw` 文字列であり、"\" 以外のエスケープ文字が使用されないことを示します (パス内の最後の円記号を削除することが必要な場合があります)。 この場合、パスは r"C:\Users\MyName\Documents\Document.txt" のようになります。
+Python でパスを文字列として貼り付けるには、`r` プレフィックスを追加します。 これは、貼り付けるものが `raw` 文字列であり、"\" 以外のエスケープ文字が使用されないことを示します (パス内の最後の円記号を削除することが必要な場合があります)。 そのため、パスは次のようになります。`r"C:\Users\MyName\Documents\Document.txt"`
 
 Python でパスを扱うときは、標準の pathlib モジュールを使用することをお勧めします。 これにより、スラッシュと円記号のどちらを使用する場合でも一貫したパス操作を実行できるリッチな Path オブジェクトに文字列を変換できるため、オペレーティング システム間でのコードの可搬性が向上します。
 
