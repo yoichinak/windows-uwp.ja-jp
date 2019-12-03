@@ -6,12 +6,12 @@ ms.date: 09/12/2019
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 3f4ab5b177539bc286ce24d480cd949d43a51e17
-ms.sourcegitcommit: bd41fb6f59dfbd7021b14ff749b8b0f83f883c0f
+ms.openlocfilehash: a161a5e26bd647a37b06a270ef6714d54bc16d80
+ms.sourcegitcommit: ac9fb37fe58cc728df2fa0495e36ee4d7b811a23
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70963622"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74467409"
 ---
 # <a name="create-a-hello-world-app-js"></a>"Hello, world" アプリを作成する (JS)
 
@@ -23,13 +23,13 @@ ms.locfileid: "70963622"
 > [!WARNING]
 > Javascript UWP アプリの開発は、Visual Studio 2019 ではサポートされていません。 Javascript UWP アプリを開発するには、Visual Studio 2017 を使用する必要があります。
 
-ここでは、次の方法について説明します。
+この記事では、次の作業を行う方法について説明します。
 
 -   **Windows 10** と **UWP** を対象とする新しい **Visual Studio 2017** プロジェクトを作る
--   HTML と JavaScript のコンテンツを追加する
--   Visual Studio のローカル デスクトップでプロジェクトを実行する
+-   HTML と JavaScript のコンテンツを追加する。
+-   Visual Studio のローカル デスクトップでプロジェクトを実行する。
 
-## <a name="before-you-start"></a>はじめに...
+## <a name="before-you-start"></a>開始前の作業
 
 -   [UWP アプリとは](universal-application-platform-guide.md)。
 -   このチュートリアルを行うには、Windows 10 と Visual Studio が必要です。 [準備してください](get-set-up.md)。
@@ -39,16 +39,16 @@ ms.locfileid: "70963622"
 
 1.  Visual Studio 2017 を起動します。
 
-2.  **[ファイル]** メニューの **[新規作成] > [プロジェクト...]** の順にクリックし、 *[新しいプロジェクトの作成]* ダイアログを開きます。
+2.  **[ファイル]** メニューの **[新規作成] > [プロジェクト]** の順にクリックし、 **[新しいプロジェクトの作成]** ダイアログを開きます。
 
 3.  **[Blank App (Universal Windows) JavaScript]\(空のアプリ (ユニバーサル Windows) JavaScript\)** を選択し、 **[次へ]** を選択します。
 
-    ユニバーサル テンプレートが表示されない場合は、UWP アプリを作成するためのコンポーネントがない可能性があります。 インストール プロセスを繰り返して UWP サポートを追加することもできます ( *[新しいプロジェクトの作成]* ダイアログで **[Visual Studio インストーラーを開く]** をクリック)。 「[準備](get-set-up.md)」をご覧ください。
+    ユニバーサル テンプレートが表示されない場合は、UWP アプリを作成するためのコンポーネントがない可能性があります。 インストール プロセスを繰り返して UWP サポートを追加することもできます ( **[新しいプロジェクトの作成]** ダイアログで **[Visual Studio インストーラーを開く]** を選択)。 「[準備](get-set-up.md)」をご覧ください。
 
-4.  *[新しいプロジェクトの構成]* ダイアログで、 **[プロジェクト名]** として「HelloWorld」と入力し、 **[作成]** を選択します。
+4.  **[新しいプロジェクトの構成]** ダイアログで、 **[プロジェクト名]** として「**HelloWorld**」と入力し、 **[作成]** を選択します。
 
 > [!NOTE]
-> Visual Studio を初めて使う場合は、[設定] ダイアログ ボックスが表示され、**開発者モード**を有効にするよう求められることがあります。 開発者モードは、アプリをストアからだけではなく、直接実行するためのアクセス許可など、特定の機能を有効にする特別な設定です。 詳しくは、「[デバイスを開発用に有効にする](enable-your-device-for-development.md)」をご覧ください。 先に進むには、 **[開発者モード]** を選択し、 **[はい]** をクリックしてダイアログ ボックスを閉じます。
+> Visual Studio を初めて使う場合は、[設定] ダイアログ ボックスが表示され、**開発者モード**を有効にするよう求められることがあります。 開発者モードは、アプリをストアからだけではなく、直接実行するためのアクセス許可など、特定の機能を有効にする特別な設定です。 詳しくは、「[デバイスを開発用に有効にする](enable-your-device-for-development.md)」をご覧ください。 先に進むには、 **[開発者モード]** を選択し、 **[はい]** を選択してからダイアログ ボックスを閉じます。
 
  ![開発者モードのアクティブ化ダイアログ](images/win10-cs-00.png)
 
@@ -80,13 +80,13 @@ ms.locfileid: "70963622"
 - アプリの Web ページです。アプリの起動時に読み込まれ、表示されます。
 
 *ロゴ画像のセット*
--   Assets/Square150x150Logo.scale-200.png は、スタート メニュー内のアプリを表します。
+-   Assets/Square150x150Logo.scale-200.png は、 **[スタート]** メニュー内のアプリを表します。
 -   Assets/StoreLogo.png は、Microsoft Store 内のアプリを表します。
 -   Assets/SplashScreen.scale-200.png は、アプリが起動したときに表示するスプラッシュ画面です。
 
 ## <a name="step-2-adding-a-button"></a>手順 2:ボタンを追加する
 
-エディターで *index.html* をクリックして選択し、含まれている HTML を次のように変更します。
+エディターで **index.html** を選択して選択し、含まれている HTML を次のように変更します。
 
 ```html
 <!DOCTYPE html>
@@ -116,7 +116,7 @@ ms.locfileid: "70963622"
 
 ## <a name="step-3-adding-some-javascript"></a>手順 3:JavaScript を追加する
 
-次は、JavaScript を追加します。 *main.js* をクリックして選択し、以下を追加します。
+次は、JavaScript を追加します。 **main.js** を選択して選択し、以下を追加します。
 
 ```javascript
 // Your code here!
@@ -146,7 +146,7 @@ function sayHello() {
 
 ## <a name="step-4-run-the-app"></a>手順 4:アプリを実行する
 
-ここで F5 キーを押すと、アプリを実行できます。 アプリが読み込まれ、Web ページが表示されます。 ボタンをクリックすると、メッセージ ダイアログ ボックスが表示されます。
+ここで F5 キーを押すと、アプリを実行できます。 アプリが読み込まれ、Web ページが表示されます。 ボタンを選択すると、メッセージ ダイアログ ボックスが表示されます。
 
  ![プロジェクトを実行する](images/win10-js-05.png)
 
