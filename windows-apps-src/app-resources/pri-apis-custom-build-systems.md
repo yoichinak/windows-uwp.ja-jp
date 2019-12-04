@@ -1,17 +1,17 @@
 ---
-Description: パッケージ リソース インデックス (PRI) Api には、UWP アプリのリソース用のカスタム ビルド システムを開発できます。 ビルド システムでは、UWP アプリで必要となる複雑さのレベルにかかわらず、PRI ファイルの作成やバージョン管理を行ったり、PRI ファイルをダンプしたりすることができます。
-title: パッケージ リソース インデックス (PRI) API とカスタム ビルド システム
+Description: Package resource indexing (PRI) Api を使用すると、UWP アプリのリソース用にカスタムビルドシステムを開発できます。 ビルド システムでは、UWP アプリで必要となる複雑さのレベルにかかわらず、PRI ファイルの作成やバージョン管理を行ったり、PRI ファイルをダンプしたりすることができます。
+title: パッケージリソースのインデックス作成とカスタムビルドシステム
 template: detail.hbs
 ms.date: 05/07/2018
 ms.topic: article
 keywords: Windows 10, UWP, リソース, 画像, アセット, MRT, 修飾子
 ms.localizationpriority: medium
-ms.openlocfilehash: b300630ff4a9b6735cb7891444da4333532735c1
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: ebbec3a89d795dde5c47d3dce76f77be06feebe2
+ms.sourcegitcommit: ae9c1646398bb5a4a888437628eca09ae06e6076
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66359379"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74734927"
 ---
 # <a name="package-resource-indexing-pri-apis-and-custom-build-systems"></a>パッケージ リソース インデックス (PRI) API とカスタム ビルド システム
 [パッケージ リソース インデックス (PRI) API](https://docs.microsoft.com/windows/desktop/menurc/pri-indexing-reference) を使用すると、UWP アプリのリソース用にカスタム ビルド システムを開発することができます。 ビルド システムでは、UWP アプリが必要とする複雑さのレベルにかかわらず、パッケージ リソース インデックス (PRI) ファイルを (XML として) 作成、バージョン管理、ダンプすることができます。 現在 MakePri.exe コマンド ライン ツールを使用しているカスタム ビルド システムがある場合 (「[MakePri.exe を使用して手動でリソースをコンパイルする](makepri-exe-command-options.md)」を参照)、パフォーマンスと制御を向上させるために、MakePri.exe の呼び出しではなく、PRI API の呼び出しに切り替えることをお勧めします。
@@ -28,12 +28,12 @@ PRI ファイルのサイズ制限は、64 キロバイトです。
 ## <a name="scenario-walkthroughs"></a>シナリオのチュートリアル
 |トピック|説明|
 |-|-|
-|[シナリオ 1: 文字列リソースと資産ファイルからの PRI ファイルを生成します。](pri-apis-scenario-1.md)|このシナリオでは、カスタム ビルド システムを表す新しいアプリを作成します。 リソース インデクサーを作成し、文字列とその他の種類のリソースを追加します。 次に、PRI ファイルを生成してダンプします。|
+|[シナリオ 1: 文字列リソースと資産ファイルから PRI ファイルを生成する](pri-apis-scenario-1.md)|このシナリオでは、カスタム ビルド システムを表す新しいアプリを作成します。 リソース インデクサーを作成し、文字列とその他の種類のリソースを追加します。 次に、PRI ファイルを生成してダンプします。|
 
 ## <a name="important-apis"></a>重要な API
-* [パッケージのリソース インデックス (PRI) の参照](https://docs.microsoft.com/windows/desktop/menurc/pri-indexing-reference)
+* [パッケージリソースインデックス作成 (PRI) リファレンス](https://docs.microsoft.com/windows/desktop/menurc/pri-indexing-reference)
 
 ## <a name="related-topics"></a>関連トピック
 * [MakePri.exe を使用して手動でリソースをコンパイルする](makepri-exe-command-options.md)
-* [アンマネージ DLL 関数の処理](/dotnet/framework/interop/consuming-unmanaged-dll-functions?branch=live)
+* [アンマネージ DLL 関数の使用](/dotnet/framework/interop/consuming-unmanaged-dll-functions?branch=live)
 * [リソース管理システム](resource-management-system.md)

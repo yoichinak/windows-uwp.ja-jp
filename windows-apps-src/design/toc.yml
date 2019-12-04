@@ -130,6 +130,8 @@
               href: controls-and-patterns/swipe.md
             - name: 引っ張って更新
               href: controls-and-patterns/pull-to-refresh.md
+            - name: コレクションのフィルター処理
+              href: controls-and-patterns/listview-filtering.md
         - name: 追加のコレクション オプションとカスタマイズ
           items:
             - name: 反転リスト

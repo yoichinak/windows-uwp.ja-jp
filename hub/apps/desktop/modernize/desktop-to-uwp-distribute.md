@@ -1,19 +1,19 @@
 ---
-Description: パッケージ化されたデスクトップアプリケーションの配布 (デスクトップブリッジ)
+Description: デスクトップブリッジでパッケージ化されたアプリを配布する
 title: パッケージ化されたデスクトップアプリケーションを Microsoft Store に発行するか、1つまたは複数のデバイスにサイドロードします。
 ms.date: 05/18/2018
 ms.topic: article
-keywords: windows 10, uwp
+keywords: Windows 10, UWP
 ms.assetid: edff3787-cecb-4054-9a2d-1fbefa79efc4
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: 597a283fd28b571ed968255312059c7049f3f700
-ms.sourcegitcommit: 350d6e6ba36800df582f9715c8d21574a952aef1
+ms.openlocfilehash: 15970afbeb5d9dee1c2079cd5933b1250ecb2f09
+ms.sourcegitcommit: ae9c1646398bb5a4a888437628eca09ae06e6076
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68682561"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74734778"
 ---
 # <a name="distribute-your-packaged-desktop-app"></a>パッケージ化されたデスクトップアプリを配布する
 
@@ -28,7 +28,7 @@ ms.locfileid: "68682561"
 
 アプリケーションを Microsoft Store に発行して、最も広範な対象ユーザーに届けることができます。 また、組織のお客様は、アプリケーションを入手して、 [Microsoft Store For Business](https://businessstore.microsoft.com/store)を通じて組織に内部で配布することができます。
 
-Microsoft Store への公開を計画している場合は、申請プロセスの一部としていくつかの追加の質問をされます。 これは、パッケージ マニフェストが **runFullTrust** という名前の制限付き機能を宣言し、弊社でアプリケーションによるその機能の使用を承認する必要があるためです。 この要件の詳細については、こちらを参照してください。[制限付きの機能](/windows/uwp/packaging/app-capability-declarations#restricted-capabilities)。
+Microsoft Store への公開を計画している場合は、申請プロセスの一部としていくつかの追加の質問をされます。 これは、パッケージ マニフェストが **runFullTrust** という名前の制限付き機能を宣言し、弊社でアプリケーションによるその機能の使用を承認する必要があるためです。 この要件の詳細については、「[制限付き機能](/windows/uwp/packaging/app-capability-declarations#restricted-capabilities)」を参照してください。
 
 ストアに送信する前に、アプリケーションに署名する必要はありません。
 
@@ -162,7 +162,7 @@ private void RemoveDesktopApp()
 }
 ```
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 **質問に対する回答を検索する**
 

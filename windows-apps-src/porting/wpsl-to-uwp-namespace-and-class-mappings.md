@@ -1,17 +1,17 @@
 ---
 description: このトピックでは、Windows Phone Silverlight Api とそれに相当するユニバーサル Windows プラットフォーム (UWP) の包括的なマッピングについて説明します。
-title: Silverlight から UWP 名前空間およびクラスマッピングへの Windows Phone
+title: WPSL から UWP への名前空間とクラスのマッピング
 ms.assetid: 33f06706-4790-48f3-a2e4-ebef9ddb61a4
 ms.date: 02/08/2017
 ms.topic: article
-keywords: windows 10, uwp
+keywords: Windows 10, UWP
 ms.localizationpriority: medium
-ms.openlocfilehash: 1af36b43e02c9ee08373098f57ba29c10badb6c8
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: fdb1dc8ad4b4e61e1ffec294cfbf17e8abcc8586
+ms.sourcegitcommit: ae9c1646398bb5a4a888437628eca09ae06e6076
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74259071"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74735057"
 ---
 # <a name="windowsphone-silverlight-to-uwp-api-mappings"></a>Silverlight から UWP API へのマッピングの Windows Phone
 
@@ -104,7 +104,7 @@ ms.locfileid: "74259071"
 | **System.Data.Linq.DataContext** クラス | 直接相当する要素はなし |
 | **System.Data.Linq.Mapping.ColumnAttribute** クラス | 直接相当する要素はなし |
 | **System.Data.Linq.SqlClient.SqlHelpers** クラス | 直接相当する要素はなし |
-| デバイス | |
+| [デバイス] | |
 | **Microsoft.Devices**、**Microsoft.Devices.Sensors** 名前空間 | [**Windows. デバイス.** ](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration)列挙型、windows.[**デバイス..** ](https://docs.microsoft.com/uwp/api/Windows.Devices.Input) [ **...** ](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.Pnp).......... [ **. デバイスの名前空間**](https://docs.microsoft.com/uwp/api/Windows.Devices.Sensors) |
 | **Microsoft.Devices.Camera**、**Microsoft.Devices.PhotoCamera** クラス | [**MediaCapture**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.MediaCapture)クラス。 また [**CameraCaptureUI**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.CameraCaptureUI) クラス (Windows のみ)。 |
 | **Microsoft.Devices.CameraButtons** クラス | [**ハードウェアボタン**](https://docs.microsoft.com/uwp/api/Windows.Phone.UI.Input.HardwareButtons)クラス |
@@ -154,7 +154,7 @@ ms.locfileid: "74259071"
 | **Microsoft.Phone.Tasks.SaveContactTask**、**SaveEmailAddressTask**、**SavePhoneNumberTask** クラス | [**StoredContact**](https://docs.microsoft.com/uwp/api/Windows.Phone.PersonalInformation.StoredContact)クラス (Windows Phone のみ) | 
 | **Microsoft.Phone.Tasks.SaveRingtoneTask** クラス | 直接相当する要素はなし |
 | **Microsoft.Phone.Tasks.ShareLinkTask**、**ShareMediaTask**、**ShareStatusTask** クラス | [**DataPackage**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.DataTransfer.DataPackage)クラス |
-| Location | |
+| 位置情報 | |
 | **System.Device.Location** 名前空間 | [**Windows. デバイス. 位置**](https://docs.microsoft.com/uwp/api/Windows.Devices.Geolocation)情報名前空間 |
 | **System.Device.GeoCoordinateWatcher** クラス | [**Geolocator**](https://docs.microsoft.com/uwp/api/Windows.Devices.Geolocation.Geolocator)クラス |
 | マップ | |
@@ -168,9 +168,9 @@ ms.locfileid: "74259071"
 | **Microsoft.Phone.Maps.Services.RouteQuery** クラス | [**Maproutefinder**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapRouteFinder)クラス |
 | 収益化 | |
 | **Microsoft.Phone.Marketplace** 名前空間 | [**Windows. ApplicationModel. ストア**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Store)名前空間 |
-| メディア | |
+| [Media] | |
 | **Microsoft.Phone.Media** 名前空間 | [**MediaElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.MediaElement)クラス |
-| ネットワーク | |
+| のネットワーク | |
 | (MPNN = **Microsoft.Phone.Net.NetworkInformation**) <br/> **MPNN.DeviceNetworkInformation** クラス | [**ホスト名**](https://docs.microsoft.com/uwp/api/Windows.Networking.HostName)、 [**networkinformation**](https://docs.microsoft.com/uwp/api/Windows.Networking.Connectivity.NetworkInformation)クラス |
 | (MPNN = **Microsoft.Phone.Net.NetworkInformation**) <br/> **MPNN.NetworkInterface** クラス | [**Networkinformation**](https://docs.microsoft.com/uwp/api/Windows.Networking.Connectivity.NetworkInformation)クラス |
 | (MPNN = **Microsoft.Phone.Net.NetworkInformation**) <br/> **MPNN.NetworkInterfaceInfo** クラス | [**Connectionprofile**](https://docs.microsoft.com/uwp/api/Windows.Networking.Connectivity.ConnectionProfile)クラス |

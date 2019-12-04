@@ -1,17 +1,17 @@
 ---
 ms.assetid: 9899F6A0-7EDD-4988-A76E-79D7C0C58126
-title: ユニバーサル Windows プラットフォーム コンポーネントと相互運用性の最適化
+title: UWP コンポーネントの相互運用機能の最適化
 description: 相互運用性のパフォーマンス上の問題を回避しながら、ネイティブ型とマネージ型の間で UWP コンポーネントと相互運用機能を使うユニバーサル Windows プラットフォーム (UWP) アプリを作成します。
 ms.date: 02/08/2017
 ms.topic: article
-keywords: windows 10, uwp
+keywords: Windows 10, UWP
 ms.localizationpriority: medium
-ms.openlocfilehash: 685f862ea0b381195db2670de45c35df67b5fcb9
-ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
+ms.openlocfilehash: 7cc68520bbf83ec637c0814c333dfada2f974d1e
+ms.sourcegitcommit: ae9c1646398bb5a4a888437628eca09ae06e6076
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71339539"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74735007"
 ---
 # <a name="uwp-components-and-optimizing-interop"></a>UWPコンポーネントと相互運用性の最適化
 
@@ -80,7 +80,7 @@ UWP では、各言語に UWP API のプロジェクションが用意されて�
 
 相互運用性のコストを最適化するためには、アプリの実行時間の大部分が相互運用に費やされているかどうかの評価と判断が必要です。 Visual Studio でアプリのパフォーマンスを分析する際は、 **[関数]** ビューを使い、UWP のメソッド呼び出しに費やされている包括時間を調べることで、相互運用性コストの上限を簡単に把握できます。
 
-相互運用性のオーバーヘッドによってアプリが低速になる場合は、実行頻度の高いコード パスでの UWP API の呼び出しを減らすことで、パフォーマンスを向上できます。 たとえば、[**UIElements**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement) の位置とサイズを継続的に照会することで大量の物理的計算を実行しているゲーム エンジンは、**UIElements** から必要な情報をローカル変数に格納し、それらのキャッシュされた値に対して計算を行い、計算実行後に最終結果を **UIElements** にもう一度割り当てることによって、多くの時間を節約できます。 別の例として、C# または Visual Basic のコードから頻繁にアクセスされるコレクションがある場合は、[**System.Collections**](https://docs.microsoft.com/dotnet/api/system.collections) 名前空間からのコレクションではなく、[**Windows.Foundation.Collections**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Collections) 名前空間からのコレクションを使ったほうが、より効率的です。 UWP コンポーネントの呼び出しを結合することも検討に値します。これは、たとえば、[**Windows.Storage.BulkAccess**](https://docs.microsoft.com/uwp/api/Windows.Storage.BulkAccess) API で実現できます。
+相互運用性のオーバーヘッドによってアプリが低速になる場合は、実行頻度の高いコード パスでの UWP API の呼び出しを減らすことで、パフォーマンスを向上できます。 たとえば、[**UIElements**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement) の位置とサイズを継続的に照会することで大量の物理的計算を実行しているゲーム エンジンは、**UIElements** から必要な情報をローカル変数に格納し、それらのキャッシュされた値に対して計算を行い、計算実行後に最終結果を **UIElements** にもう一度割り当てることによって、多くの時間を節約できます。 別の例として、C# または Visual Basic のコードから頻繁にアクセスされるコレクションがある場合は、[**System.Collections**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Collections) 名前空間からのコレクションではなく、[**Windows.Foundation.Collections**](https://docs.microsoft.com/dotnet/api/system.collections) 名前空間からのコレクションを使ったほうが、より効率的です。 UWP コンポーネントの呼び出しを結合することも検討に値します。これは、たとえば、[**Windows.Storage.BulkAccess**](https://docs.microsoft.com/uwp/api/Windows.Storage.BulkAccess) API で実現できます。
 
 ### <a name="building-a-uwp-component"></a>UWP コンポーネントを構築する
 

@@ -1,19 +1,19 @@
 ---
-title: ユニバーサル Windows プラットフォーム (UWP) アプリのマルチサンプリング
+title: UWP アプリでのマルチサンプリング
 description: Direct3D を使って構築されたユニバーサル Windows プラットフォーム (UWP) アプリでマルチサンプリングを使う方法について説明します。
 ms.assetid: 1cd482b8-32ff-1eb0-4c91-83eb52f08484
 ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, マルチサンプリング, Direct3D
 ms.localizationpriority: medium
-ms.openlocfilehash: 976cdfb5f1dc92f693f7296d6e33d7ccc4c4d6e7
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: f4d3e590f99fdf6ca907fcc8fd5b412c5796f474
+ms.sourcegitcommit: ae9c1646398bb5a4a888437628eca09ae06e6076
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67318943"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74735107"
 ---
-# <a name="span-iddevgamingmultisamplingmulti-sampleantialiasinginwindowsstoreappsspan-multisampling-in-universal-windows-platform-uwp-apps"></a><span id="dev_gaming.multisampling__multi-sample_anti_aliasing__in_windows_store_apps"></span> マルチ サンプリングでは、ユニバーサル Windows プラットフォーム (UWP) アプリ
+# <a name="span-iddev_gamingmultisampling__multi-sample_anti_aliasing__in_windows_store_appsspan-multisampling-in-universal-windows-platform-uwp-apps"></a><span id="dev_gaming.multisampling__multi-sample_anti_aliasing__in_windows_store_apps"></span>ユニバーサル Windows プラットフォーム (UWP) アプリのマルチサンプリング
 
 
 
@@ -28,11 +28,11 @@ DirectX を使う UWP アプリでは、フリップ モデル スワップ チ�
 
 Direct3D 機能レベルは、特定の最小サンプル数機能のサポートを保証し、マルチサンプリングをサポートする特定のバッファー形式が使用できることを保証します。 グラフィックス デバイスは、多くの場合、最小限必要なものよりも広い範囲の形式とサンプル数をサポートしています。 マルチサンプリング サポートは、特定の DXGI 形式を使うマルチサンプリング機能がサポートされているか確認し、サポートされている形式ごとに使うことのできるサンプル数を確認することで、実行時に判断できます。
 
-1.  [  **ID3D11Device::CheckFeatureSupport**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11device-checkfeaturesupport) を呼び出して、どの DXGI 形式をマルチサンプリングで使うことができるか確認します。 ゲームで使うことのできるレンダー ターゲット形式を指定します。 レンダー ターゲットおよび解決するターゲットの両方必要があります、同じ形式を使用して、両方のチェック[ **D3D11\_形式\_サポート\_マルチ サンプリング\_レンダリング ターゲット**](https://docs.microsoft.com/windows/desktop/api/d3d11/ne-d3d11-d3d11_format_support)と**D3D11\_形式\_サポート\_マルチ サンプリング\_解決**します。
+1.  [  **ID3D11Device::CheckFeatureSupport**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11device-checkfeaturesupport) を呼び出して、どの DXGI 形式をマルチサンプリングで使うことができるか確認します。 ゲームで使うことのできるレンダー ターゲット形式を指定します。 レンダーターゲットと解決ターゲットは両方とも同じ形式を使用する必要があるため、 [**D3D11\_形式\_サポート\_マルチサンプリング\_作り**](https://docs.microsoft.com/windows/desktop/api/d3d11/ne-d3d11-d3d11_format_support)と**D3D11\_形式\_サポート\_マルチサンプリング\_解決をサポート**していることを確認してください。
 
-    **9 の機能レベル:  **機能レベルの 9 デバイスが[のマルチ サンプリングされたレンダー ターゲット形式のサポートを保証](https://docs.microsoft.com/previous-versions/ff471324(v=vs.85))、multisample 解決ターゲットにサポートが保証されていません。 そこで、このトピックで説明するマルチサンプリング技法を使おうとする前に、この確認が必要になります。
+    **機能レベル 9:  **機能レベル9のデバイスで[はマルチサンプリングテクスチャレンダーターゲット形式のサポートが保証](https://docs.microsoft.com/previous-versions/ff471324(v=vs.85))されますが、マルチサンプルの解決ターゲットではサポートが保証されません。 そこで、このトピックで説明するマルチサンプリング技法を使おうとする前に、この確認が必要になります。
 
-    次のコードはすべて、DXGI のマルチ サンプリング サポートを確認します。\_形式の値。
+    次のコードでは、すべての DXGI\_フォーマット値のマルチサンプリングサポートをチェックします。
 
     ```cpp
     // Determine the format support for multisampling.
@@ -82,11 +82,11 @@ Direct3D 機能レベルは、特定の最小サンプル数機能のサポー�
     }
     ```
 
-    > **注**  使用[ **ID3D11Device2::CheckMultisampleQualityLevels1** ](https://docs.microsoft.com/windows/desktop/api/d3d11_2/nf-d3d11_2-id3d11device2-checkmultisamplequalitylevels1)代わりに並べて表示されたリソースのバッファーのマルチ サンプリング サポートを確認する必要がある場合。
+    > タイル化されたリソースバッファーのマルチサンプリングサポートを確認する必要がある場合は、代わりに[**ID3D11Device2:: CheckMultisampleQualityLevels1**](https://docs.microsoft.com/windows/desktop/api/d3d11_2/nf-d3d11_2-id3d11device2-checkmultisamplequalitylevels1)を**使用  。**
 
      
 
-3.  目的のサンプル数を使って、バッファーとレンダー ターゲット ビューを作成します。 使用して、同じ DXGI\_形式、幅、および、スワップ チェーンと高さが 1 より大きいサンプル数を指定し、マルチ サンプリングされたテクスチャのディメンションを使用して (**D3D11\_RTV\_ディメンション\_TEXTURE2DMS**など)。 必要な場合、マルチサンプリングに最適な新しい設定を使ってスワップ チェーンを再作成することもできます。
+3.  目的のサンプル数を使って、バッファーとレンダー ターゲット ビューを作成します。 スワップチェーンと同じ DXGI\_形式、幅、および高さを使用しますが、1より大きいサンプル数を指定し、マルチサンプリングテクスチャテクスチャディメンション (**D3D11\_RTV\_dimension\_TEXTURE2DMS**を使用します) を使用します。 必要な場合、マルチサンプリングに最適な新しい設定を使ってスワップ チェーンを再作成することもできます。
 
     次のコードでは、マルチサンプリングされたレンダー ターゲットが作成されます。
 
