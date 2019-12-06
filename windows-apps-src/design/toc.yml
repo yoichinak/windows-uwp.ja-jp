@@ -260,6 +260,8 @@
       href: style/reveal.md
     - name: 表示フォーカス
       href: style/reveal-focus.md
+    - name: 角の半径
+      href: style/rounded-corner.md
     - name: サウンド
       href: style/sound.md
     - name: 間隔
