@@ -7,17 +7,17 @@ ms.topic: article
 ms.assetid: 88da6d1a-379c-4173-a56d-d8b9a4eab5da
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 72951270a45ba82f1241c967bb70628a3f27f7c1
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: f33e2f10686edf149feb11e317a10e535685ef19
+ms.sourcegitcommit: 6169660ea437915265165c4631d9702587e4793d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74258106"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74902542"
 ---
+# <a name="design-toolkits-and-samples-for-uwp-apps"></a>UWP アプリ用の設計ツールキットとサンプル
+
 ![設計の基本](../images/downloads-2x.png)
 
-# <a name="design-toolkits-and-samples-for-uwp-apps"></a>UWP アプリ用の設計ツールキットとサンプル
- 
 Fluent Design/UWP アプリの設計と UI に関連するダウンロード。 Visual Studio など、その他のツールについては、<a href="https://developer.microsoft.com/windows/downloads">メインのダウンロード ページ</a>をご覧ください。 
 
 
