@@ -3,16 +3,16 @@ title: Xbox Live テスト ユーザー管理 API のリファレンス
 description: ユーザー管理 API にプログラムでアクセスする方法について説明します。
 ms.date: 02/08/2017
 ms.topic: article
-keywords: windows 10, uwp
+keywords: Windows 10, UWP
 ms.assetid: 70876ab6-8222-4940-b4fb-65b581a77d6a
-ms.openlocfilehash: 71c47767cf026b962f682fb30ca93758dbd5e227
-ms.sourcegitcommit: bad7ed6def79acbb4569de5a92c0717364e771d9
+ms.openlocfilehash: 52f333af73084ed14982b9d09b6770c8294980f7
+ms.sourcegitcommit: 6169660ea437915265165c4631d9702587e4793d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59244078"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74902527"
 ---
-#<a name="xbox-live-user-management"></a>Xbox Live ユーザー管理 #
+# <a name="xbox-live-user-management"></a>Xbox Live ユーザー管理
 
 ## <a name="request"></a>要求
 
@@ -38,12 +38,12 @@ PUT メソッドの呼び出しには、次の構造の JSON 配列を含める�
 
 * Users
   * AutoSignIn (省略可能): EmailAddress や UserId で指定されたアカウントの自動サインインを無効または有効にするブール値。
-  * EmailAddress (省略可能 - スポンサーが付いたユーザーをサインインしない限り、ユーザー Id は指定しないかどうかを指定する必要があります)。電子メール アドレスを変更/追加/削除するユーザーを指定します。
-  * パスワード (省略可能 - ユーザーがコンソールに現在がないかどうかを指定する必要があります)。コンソールに新しいユーザーを追加するために使用するパスワード。
+  * EmailAddress (省略可能。ただし、スポンサー ユーザーにサインインしている場合を除き、UserId が指定されていない場合は必須): 変更、追加、削除を行うユーザーを指定するメール アドレス。
+  * Password (省略可能。ただし、ユーザーが現在本体にサインインしていない場合は必須): 新しいユーザーを本体に追加するために使うパスワード。
   * SignedIn (省略可能): 指定されたアカウントでサインインまたはサインアウトする必要があるかどうかを指定するブール値。
-  * ユーザー Id (省略可能 - EmailAddress が付属しており、ユーザーをサインインしない限り、指定しないかどうかを指定する必要があります)。ユーザー Id の変更/追加/削除するユーザーを指定します。
+  * UserId (省略可能。ただし、スポンサー ユーザーにサインインしている場合を除き、EmailAddress が指定されていない場合は必須): 変更、追加、削除を行うユーザーを指定するユーザー ID。
   * SponsoredUser (省略可能): スポンサー ユーザーを追加するかどうかを指定するブール値。
-  * (省略可能) の削除: コンソールからこのユーザーの削除を指定するブール値
+  * Delete (省略可能): ブール値を指定して、コンソールからこのユーザーを削除します。
 
 ## <a name="response"></a>応答
 
