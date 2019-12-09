@@ -1,6 +1,6 @@
 ---
-Description: ユニバーサル Windows プラットフォーム (UWP) Api を使用して、Windows 10 ユーザー向けのデスクトップアプリケーションを拡張します。
-title: デスクトップアプリで UWP Api を使用する
+Description: ユニバーサル Windows プラットフォーム (UWP) API を使用して、Windows 10 ユーザー向けのデスクトップアプリケーションを拡張します。
+title: デスクトップアプリで UWP API を使用する
 ms.date: 08/20/2019
 ms.topic: article
 keywords: Windows 10, UWP
@@ -15,19 +15,19 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/01/2019
 ms.locfileid: "73427087"
 ---
-# <a name="call-uwp-apis-in-desktop-apps"></a>デスクトップアプリで UWP Api を呼び出す
+# <a name="call-uwp-apis-in-desktop-apps"></a>デスクトップアプリで UWP API を呼び出す
 
-ユニバーサル Windows プラットフォーム (UWP) Api を使用して、Windows 10 ユーザー向けにセットアップされたデスクトップアプリに最新のエクスペリエンスを追加することができます。
+ユニバーサル Windows プラットフォーム (UWP) API を使用して、Windows 10 ユーザー向けにセットアップされたデスクトップアプリに最新のエクスペリエンスを追加することができます。
 
-まず、必要な参照を使用してプロジェクトを設定します。 次に、コードから UWP Api を呼び出して、Windows 10 エクスペリエンスをデスクトップアプリに追加します。 Windows 10 ユーザー用に個別にビルドすることも、実行する Windows のバージョンに関係なく、すべてのユーザーに同じバイナリを配布することもできます。
+まず、必要な参照を使用してプロジェクトを設定します。 次に、コードから UWP API を呼び出して、Windows 10 エクスペリエンスをデスクトップアプリに追加します。 Windows 10 ユーザー用に個別にビルドすることも、実行する Windows のバージョンに関係なく、すべてのユーザーに同じバイナリを配布することもできます。
 
-一部の UWP Api は、[パッケージ id](modernize-packaged-apps.md)を持つデスクトップアプリでのみサポートされています。 詳細については、「[使用可能な UWP api](desktop-to-uwp-supported-api.md)」を参照してください。
+一部の UWP API は、[パッケージ id](modernize-packaged-apps.md)を持つデスクトップアプリでのみサポートされています。 詳細については、「[使用可能な UWP api](desktop-to-uwp-supported-api.md)」を参照してください。
 
 ## <a name="set-up-your-project"></a>プロジェクトを設定する
 
 UWP API を使用するには、プロジェクトにいくつかの変更を加える必要があります。
 
-### <a name="modify-a-net-project-to-use-windows-runtime-apis"></a>Windows ランタイム Api を使用するように .NET プロジェクトを変更する
+### <a name="modify-a-net-project-to-use-windows-runtime-apis"></a>Windows ランタイム API を使用するように .NET プロジェクトを変更する
 
 .NET プロジェクトには、次の2つのオプションがあります。
 
@@ -74,7 +74,7 @@ UWP API を使用するには、プロジェクトにいくつかの変更を加
 
     ![[ローカルにコピー] フィールド](images/desktop-to-uwp/copy-local-field.png)
 
-### <a name="modify-a-c-win32-project-to-use-windows-runtime-apis"></a>Windows ランタイム Api C++を使用するように Win32 プロジェクトを変更する
+### <a name="modify-a-c-win32-project-to-use-windows-runtime-apis"></a>Windows ランタイム API C++を使用するように Win32 プロジェクトを変更する
 
 Windows ランタイム api を使用するには、 [ C++/WinRT](https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/)を使用します。 C++/WinRT は Windows ランタイム (WinRT) API の標準的な最新の C++17 言語プロジェクションで、ヘッダー ファイル ベースのライブラリとして実装され、最新の Windows API への最上位アクセス権を提供するように設計されています。
 
@@ -103,10 +103,10 @@ Windows ランタイム api を使用するには、 [ C++/WinRT](https://docs.m
 
 多くの場合、"拡張と*拡張*" という用語を使用*して、* これらの各用語の意味を正確に説明します。
 
-デスクトップアプリから直接呼び出すことができる Windows ランタイム Api (アプリケーションを MSIX パッケージでパッケージ化することを選択したかどうかにかかわらず) を説明するために、*拡張*機能という用語を使用します。 Windows 10 エクスペリエンスを選択したら、それを作成するために必要な Api を特定し、その API が[この一覧](desktop-to-uwp-supported-api.md)に表示されているかどうかを確認します。 これは、デスクトップアプリから直接呼び出すことができる Api の一覧です。 API がこの一覧に表示されていない場合、その API に関連付けられている機能が UWP プロセス内でしか実行できないことが理由です。 多くの場合、UWP マップコントロールや Windows Hello セキュリティプロンプトなどの UWP XAML をレンダリングする Api が含まれます。
+デスクトップアプリから直接呼び出すことができる Windows ランタイム API (アプリケーションを MSIX パッケージでパッケージ化することを選択したかどうかにかかわらず) を説明するために、*拡張*機能という用語を使用します。 Windows 10 エクスペリエンスを選択したら、それを作成するために必要な API を特定し、その API が[この一覧](desktop-to-uwp-supported-api.md)に表示されているかどうかを確認します。 これは、デスクトップアプリから直接呼び出すことができる API の一覧です。 API がこの一覧に表示されていない場合、その API に関連付けられている機能が UWP プロセス内でしか実行できないことが理由です。 多くの場合、UWP マップコントロールや Windows Hello セキュリティプロンプトなどの UWP XAML をレンダリングする API が含まれます。
 
 > [!NOTE]
-> UWP XAML をレンダリングする Api は通常、デスクトップから直接呼び出すことができませんが、別の方法を使用することもできます。 UWP XAML コントロールまたはその他のカスタムビジュアルエクスペリエンスをホストする場合は、 [Xaml アイランド](xaml-islands.md)(windows 10、バージョン1903以降) と[ビジュアル層](visual-layer-in-desktop-apps.md)(windows 10 version 1803 以降) を使用できます。 これらの機能は、パッケージまたはパッケージ化されていないデスクトップアプリで使用できます。
+> UWP XAML をレンダリングする API は通常、デスクトップから直接呼び出すことができませんが、別の方法を使用することもできます。 UWP XAML コントロールまたはその他のカスタムビジュアルエクスペリエンスをホストする場合は、 [XAML Islands](xaml-islands.md)(windows 10、バージョン1903以降) と[ビジュアル層](visual-layer-in-desktop-apps.md)(windows 10 version 1803 以降) を使用できます。 これらの機能は、パッケージまたはパッケージ化されていないデスクトップアプリで使用できます。
 
 MSIX パッケージでデスクトップアプリをパッケージ化することを選択した場合、別のオプションとして、UWP プロジェクトをソリューションに追加してアプリケーションを*拡張*することができます。 デスクトッププロジェクトはアプリケーションのエントリポイントですが、UWP プロジェクトを使用すると、[この一覧](desktop-to-uwp-supported-api.md)に表示されていないすべての api にアクセスできます。 デスクトップアプリは、app service を使用して UWP プロセスと通信できます。これを設定する方法については多くのガイダンスがあります。 UWP プロジェクトを必要とするエクスペリエンスを追加する場合は、「 [uwp コンポーネントによる拡張](desktop-to-uwp-extend.md)」を参照してください。
 
@@ -121,7 +121,7 @@ API の概要の下に、その API の API コントラクトを説明する表
 
 :white_check_mark: **エクスペリエンスを追加するための API を呼び出す**
 
-以下に、前述の通知ウィンドウの表示に使用するコードを示します。 これらの Api はこの[一覧](desktop-to-uwp-supported-api.md)に表示されるので、このコードをデスクトップアプリに追加して、すぐに実行することができます。
+以下に、前述の通知ウィンドウの表示に使用するコードを示します。 これらの API はこの[一覧](desktop-to-uwp-supported-api.md)に表示されるので、このコードをデスクトップアプリに追加して、すぐに実行することができます。
 
 ```csharp
 using Windows.Foundation;
@@ -204,7 +204,7 @@ Windows 10 ユーザー向けに個別のバイナリをビルドする場合は
 
 ![ビルド構成](images/desktop-to-uwp/build-config.png)
 
-そのビルド構成に対して、Windows ランタイム Api を呼び出すコードを識別する定数を作成します。  
+そのビルド構成に対して、Windows ランタイム API を呼び出すコードを識別する定数を作成します。  
 
 .NET ベースのプロジェクトの場合、この定数は**条件付きコンパイル定数**と呼ばれます。
 
@@ -241,7 +241,7 @@ void UWP::ShowToast()
 
 ### <a name="runtime-checks"></a>ランタイム チェック
 
-ユーザーが実行する Windows のバージョンに関係なく、1 組のバイナリをすべての Windows ユーザー向けにコンパイルできます。 アプリケーションは、ユーザーが Windows 10 でパッケージアプリケーションとしてアプリケーションを実行している場合にのみ、Windows ランタイム Api を呼び出します。
+ユーザーが実行する Windows のバージョンに関係なく、1 組のバイナリをすべての Windows ユーザー向けにコンパイルできます。 アプリケーションは、ユーザーが Windows 10 でパッケージアプリケーションとしてアプリケーションを実行している場合にのみ、Windows ランタイム API を呼び出します。
 
 コードにランタイムチェックを追加する最も簡単な方法は、この Nuget パッケージをインストールすることです:[デスクトップブリッジヘルパー](https://www.nuget.org/packages/DesktopBridge.Helpers/) 。次に、``IsRunningAsUWP()`` メソッドを使用して、Windows ランタイム api を呼び出すすべてのコードをゲートします。 詳細については、[デスクトップ ブリッジを使用したアプリケーションのコンテキストの特定](https://blogs.msdn.microsoft.com/appconsult/2016/11/03/desktop-bridge-identify-the-applications-context/)に関するブログ記事を参照してください。
 
