@@ -232,6 +232,8 @@
           href: controls-and-patterns/rich-edit-box.md
         - name: パスワード ボックス
           href: controls-and-patterns/password-box.md
+        - name: 数値ボックス
+          href: controls-and-patterns/number-box.md
         - name: ラベル
           href: controls-and-patterns/labels.md
         - name: コンテンツ リンク
