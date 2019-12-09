@@ -66,7 +66,7 @@ WPF および Windows フォームアプリケーションは、特定の UWP �
 
 <span id="requirements" />
 
-### <a name="configure-your-project-to-use-the-xaml-island-net-controls"></a>XAML アイランド .NET コントロールを使用するようにプロジェクトを構成する
+### <a name="configure-your-project-to-use-the-xaml-island-net-controls"></a>XAML Island .NET コントロールを使用するようにプロジェクトを構成する
 
 XAML アイランド .NET コントロールには、Windows 10 バージョン1903以降のバージョンが必要です。 これらのコントロールを使用するには、次に示すいずれかの NuGet パッケージをインストールします。 これらのパッケージは、XAML アイランドのラップされたコントロールとホストコントロールを使用するために必要なすべてのものを提供します。また、必要な他の関連する NuGet パッケージが含まれています。
 
@@ -83,7 +83,7 @@ XAML アイランド .NET コントロールには、Windows 10 バージョン1
 
 * 以前のバージョンの手順では、WPF または Windows フォームプロジェクトのアプリケーションマニフェストに `maxversiontested` 要素を追加しました。 上記の NuGet パッケージの最新のプレビューバージョンを使用している限り、この要素をマニフェストに追加する必要はありません。
 
-### <a name="architecture-of-xaml-island-net-controls"></a>XAML アイランド .NET コントロールのアーキテクチャ
+### <a name="architecture-of-xaml-island-net-controls"></a>XAML Island .NET コントロールのアーキテクチャ
 
 ここでは、さまざまな種類の XAML アイランドコントロールが UWP XAML ホスティング API の上に構造的にどのように構成されているかを簡単に説明します。
 
@@ -107,7 +107,7 @@ Windows Community Toolkit には、WPF および Windows フォームアプリ�
 
 ## <a name="c-win32-applications"></a>C++Win32 アプリケーション
 
-XAML アイランド .NET コントロールは、Win32 アプリケーションでC++はサポートされていません。 代わりに、これらのアプリケーションでは、Windows 10 SDK (バージョン1903以降) によって提供される*UWP XAML ホスティング API*を使用する必要があります。
+XAML Island .NET コントロールは、Win32 アプリケーションでC++はサポートされていません。 代わりに、これらのアプリケーションでは、Windows 10 SDK (バージョン1903以降) によって提供される*UWP XAML ホスティング API*を使用する必要があります。
 
 UWP XAML ホスティング API は、いくつかの Windows ランタイムクラスと COM インターフェイスでC++構成されています。このインターフェイスは、Win32 アプリケーションで、 [Windows の UI. .xaml. UIElement](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement)から派生した UWP コントロールをホストするために使用できます。 UWP コントロールは、ウィンドウハンドル (HWND) が関連付けられているアプリケーション内の任意の UI 要素でホストできます。 この API の前提条件などの詳細については、「 [ C++ Win32 アプリでの UWP XAML ホスティング API の使用](using-the-xaml-hosting-api.md)」を参照してください。
 
@@ -116,7 +116,7 @@ UWP XAML ホスティング API は、いくつかの Windows ランタイムク
 
 ## <a name="feature-roadmap"></a>機能のロードマップ
 
-Windows 10 バージョン1903のリリース時点では、Windows Community Toolkit の XAML アイランド .NET コントロールは、バージョン1.0 のコントロールが使用可能になるまで、developer preview のままです。
+Windows 10 バージョン1903のリリース時点では、Windows Community Toolkit の XAML Island .NET コントロールは、バージョン1.0 のコントロールが使用可能になるまで、developer preview のままです。
 
 * .NET Framework 4.6.2 以降のコントロールのバージョン1.0 は、[ツールキットの6.0 リリース](https://github.com/windows-toolkit/WindowsCommunityToolkit/milestones)でリリースされる予定です。
 * .NET Core 3 のコントロールのバージョン1.0 は、ツールキットの今後のリリースで予定されています。
