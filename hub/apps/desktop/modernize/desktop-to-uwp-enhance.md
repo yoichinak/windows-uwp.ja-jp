@@ -1,5 +1,5 @@
 ---
-Description: ユニバーサル Windows プラットフォーム (UWP) API を使用して、Windows 10 ユーザー向けのデスクトップアプリケーションを拡張します。
+Description: ユニバーサル Windows プラットフォーム (UWP) Api を使用して、Windows 10 ユーザー向けのデスクトップアプリケーションを拡張します。
 title: デスクトップアプリで UWP API を使用する
 ms.date: 08/20/2019
 ms.topic: article

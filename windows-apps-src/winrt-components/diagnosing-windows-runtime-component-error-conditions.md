@@ -131,7 +131,7 @@ Windows ランタイム コンポーネントの型には、名前空間と同�
 <tr class="odd">
 <td align="left">WME1039</td>
 <td align="left"><p>メソッド '{0}' のシグネチャに '{1}' 型のパラメーターがあります。 このジェネリック型は有効な Windows ランタイム型ではありませんが、この型またはそのジェネリック パラメーターは、有効な Windows ランタイム型であるインターフェイスを実装します。 [https://blogs.technet.microsoft.com/askperf/2008/11/18/disabling-unnecessary-services-a-word-to-the-wise/]({2})</p>
-> **メモ** {2}の場合、Winmdexp は、メソッドシグネチャ内の型 '&lt;T&gt;' を、代わりに次のいずれかの型に変更することを検討してください。たとえば、' system.string&lt;t&gt;, IReadOnlyList&lt;t&gt;,&lt;T&gt;'. "というようにしてください。このような場合は、
+> **注:**  &lt; には、Winmdexp.exe によって代替のインターフェイスのリストが付加されます。たとえば、"メソッド シグネチャの型 'System.Collections.Generic.List&lt;T&gt;' を次のいずれかの型に変更することを検討してください: 'System.Collections.Generic.IList&lt;T&gt;、System.Collections.Generic.IReadOnlyList&lt;T&gt;、System.Collections.Generic.IEnumerable&lt;T&gt;'。" のように示されます。
 </td>
 </tr>
 <tr class="even">
