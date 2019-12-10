@@ -553,19 +553,6 @@
                           href: ../monetize/download-the-cab-file-for-an-error-in-your-desktop-application.md
                 - name: Xbox One ゲームと Xbox Live
                   items:
-                    - name: Xbox One ゲームの入手数の取得
-                      href: ../monetize/get-xbox-one-game-acquisitions.md
-                    - name: Xbox One アドオンの入手数の取得
-                      href: ../monetize/get-xbox-one-add-on-acquisitions.md
-                    - name: Xbox One ゲームのエラー報告データの取得
-                      href: ../monetize/get-error-reporting-data-for-your-xbox-one-game.md
-                      items:
-                        - name: Xbox One ゲームのエラーに関する詳細情報の取得
-                          href: ../monetize/get-details-for-an-error-in-your-xbox-one-game.md
-                        - name: Xbox One ゲームのエラーに関するスタック トレースの取得
-                          href: ../monetize/get-the-stack-trace-for-an-error-in-your-xbox-one-game.md
-                        - name: Xbox One ゲームのエラーの CAB ファイルをダウンロードする
-                          href: ../monetize/download-the-cab-file-for-an-error-in-your-xbox-one-game.md
                     - name: Xbox Live の分析データの取得
                       href: ../monetize/get-xbox-live-analytics.md
                       items:
