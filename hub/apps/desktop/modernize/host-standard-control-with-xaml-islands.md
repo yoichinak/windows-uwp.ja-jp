@@ -30,7 +30,7 @@ WPF アプリで UWP コントロールをホストするには、次のコン�
   > [!NOTE]
   > すべての XAML Island シナリオでアプリが正常に動作するようにするには、WPF (または Windows フォーム) プロジェクト`XamlApplication`がオブジェクトにアクセスできる必要があります。 このオブジェクトは、アプリケーションの現在のディレクトリ内のアセンブリに UWP XAML 型のメタデータを読み込むためのルートメタデータプロバイダーとして機能します。 これを行うには、WPF (または Windows フォーム) プロジェクトと同じソリューションに**空のアプリ (ユニバーサル Windows)** プロジェクトを追加し、このプロジェクトの既定`App`のクラスを変更してから`XamlApplication`派生することをお勧めします。
   >
-  > この手順は、ファーストパーティ uwp コントロールのホストなど、単純な xaml アイランドのシナリオには必要ありませんが`XamlApplication` 、WPF アプリでは、カスタム uwp コントロールをホストするなど、xaml アイランドのあらゆるシナリオをサポートするためにこのオブジェクトが必要です。 常に UWP プロジェクトを追加し、XAML Island を使用`XamlApplication`しているソリューションでオブジェクトを定義することをお勧めします。 ソリューションには、オブジェクトを`XamlApplication`定義するプロジェクトを1つだけ含めることができます。 アプリ内のすべてのカスタム UWP コントロールは、 `XamlApplication`同じオブジェクトを共有します。
+  > この手順は、ファーストパーティ uwp コントロールのホストなど、単純な XAML Island のシナリオには必要ありませんが、カスタム uwp コントロールのホストを含む XAML Island のあらゆるシナリオをサポートするには、WPF アプリに `XamlApplication` オブジェクトが必要です。XAML Island を使用しているソリューションでは常に UWP プロジェクトを追加し、XamlApplication`オブジェクトを定義することをお勧めします。 ソリューションには、`XamlApplication`オブジェクトを定義するプロジェクトを 1 つだけ含めることができます。 アプリ内のすべてのカスタム UWP コントロールは、同じ `XamlApplication`オブジェクトを共有します。
 
 この記事では、WPF アプリで UWP コントロールをホストする方法について説明しますが、プロセスは Windows フォームアプリに似ています。
 
@@ -53,7 +53,7 @@ WPF アプリで UWP コントロールをホストするには、次のコン�
     > [!NOTE]
     > Windows フォーム[アプリでは、preview7](https://www.nuget.org/packages/Microsoft.Toolkit.Forms.UI.Controls)パッケージ (version v 6.0.0-以降) を使用する必要があります。
 
-6. X86 や x64 などの特定のプラットフォームを対象とするようにソリューションを構成します。 ほとんどの XAML Islands のシナリオは **、任意の CPU**を対象とするプロジェクトではサポートされていません。
+6. X86 や x64 などの特定のプラットフォームを対象とするようにソリューションを構成します。 ほとんどの XAML Islands のシナリオは、**任意の CPU** を対象とするプロジェクトではサポートされていません。
 
     1. **ソリューションエクスプローラー**で、ソリューションノードを右クリックし、[**プロパティ** -> ] [**構成プロパティ** -> ] **[Configuration Manager]** の順に選択します。 
     2. **[アクティブソリューションプラットフォーム]** で、 **[新規]** を選択します。 
@@ -62,7 +62,7 @@ WPF アプリで UWP コントロールをホストするには、次のコン�
 
 ## <a name="create-a-xamlapplication-object-in-a-uwp-app-project"></a>UWP アプリプロジェクトでの XamlApplication オブジェクトの作成
 
-次に、WPF プロジェクトと同じソリューションに UWP アプリプロジェクトを追加します。 このプロジェクトの既定`App`のクラスは、Windows Community Toolkit によって提供される`Microsoft.Toolkit.Win32.UI.XamlHost.XamlApplication`クラスから派生するように変更します。 この手順は、1つのファーストパーティ UWP コントロールのホストなど、単純な XAML Island のシナリオには必要ありませ`XamlApplication`んが、WPF アプリでは、xaml アイランドのあらゆるシナリオをサポートするためにこのオブジェクトが必要です。 XAML Islands を使用しているソリューションには、常にこのプロジェクトを追加することをお勧めします。
+次に、WPF プロジェクトと同じソリューションに UWP アプリプロジェクトを追加します。 このプロジェクトの既定`App`のクラスは、Windows Community Toolkit によって提供される`Microsoft.Toolkit.Win32.UI.XamlHost.XamlApplication`クラスから派生するように変更します。 この手順は、1 つのファーストパーティ UWP コントロールのホストなど、単純な XAML Island のシナリオには必要ありませんが、WPF アプリでは、XAML Island のあらゆるシナリオをサポートするためにこの`XamlApplication`オブジェクトが必要です。 XAML Islands を使用しているソリューションには、常にこのプロジェクトを追加することをお勧めします。
 
 1. **ソリューションエクスプローラー**で、ソリューションノードを右クリックし、[**新しいプロジェクト**の**追加** -> ] を選択します。
 2. ソリューションに **[空白のアプリ (ユニバーサル Windows)]** プロジェクトを追加します。 ターゲットバージョンと最小バージョンの両方が**Windows 10 バージョン 1903**以降に設定されていることを確認します。
@@ -100,7 +100,7 @@ WPF アプリで UWP コントロールをホストするには、次のコン�
 
 ## <a name="host-an-inkcanvas-and-inktoolbar-by-using-wrapped-controls"></a>ラップされたコントロールを使用して System.windows.controls.inkcanvas> および InkToolbar をホストする
 
-UWP XAML Islands を使用するようにプロジェクトを構成したので、次は[system.windows.controls.inkcanvas>](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/inkcanvas)と[inktoolbar](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/inktoolbar)のラップされた uwp コントロールをアプリに追加する準備ができました。
+UWP XAML Islands を使用するようにプロジェクトを構成したので、次は[InkCanvas](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/inkcanvas)と[Inktoolbar](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/inktoolbar)のラップされた uwp コントロールをアプリに追加する準備ができました。
 
 1. **ソリューションエクスプローラー**で、 **mainwindow.xaml**ファイルを開きます。
 
