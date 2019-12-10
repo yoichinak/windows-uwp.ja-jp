@@ -17,7 +17,7 @@ ms.locfileid: "71317070"
 ---
 # <a name="host-a-standard-uwp-control-in-a-wpf-app-using-xaml-islands"></a>XAML アイランドを使用して WPF アプリで標準の UWP コントロールをホストする
 
-この記事では、 [XAML アイランド](xaml-islands.md)を使用して WPF アプリで標準の uwp コントロール (つまり、Windows SDK または WinUI ライブラリによって提供されるファーストパーティ uwp コントロール) をホストする2つの方法について説明します。
+この記事では、 [XAML Islands](xaml-islands.md) を使用して WPF アプリで標準の uwp コントロール (つまり、Windows SDK または WinUI ライブラリによって提供されるファーストパーティ uwp コントロール) をホストする2つの方法について説明します。
 
 * この例では、Windows Community Toolkit でラップされた[コントロール](xaml-islands.md#wrapped-controls)を使用して UWP [System.windows.controls.inkcanvas>](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas)コントロールと[inktoolbar](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar)コントロールをホストする方法を示します。 これらのコントロールは、少数の便利な UWP コントロールのインターフェイスと機能をラップします。 WPF または Windows フォームプロジェクトのデザイン画面に直接追加し、デザイナーの他の WPF や Windows フォームコントロールと同様に使用できます。
 

@@ -66,7 +66,7 @@ WPF および Windows フォームアプリケーションは、特定の UWP �
 
 <span id="requirements" />
 
-### <a name="configure-your-project-to-use-the-xaml-island-net-controls"></a> XAML Island .NET コントロールを使用するようにプロジェクトを構成する
+### <a name="configure-your-project-to-use-the-xaml-island-net-controls"></a>XAML Island .NET コントロールを使用するようにプロジェクトを構成する
 
  XAML Island .NET コントロールには、Windows 10 バージョン1903以降のバージョンが必要です。 これらのコントロールを使用するには、次に示すいずれかの NuGet パッケージをインストールします。 これらのパッケージは、XAML Island のラップされたコントロールとホストコントロールを使用するために必要なすべてのものを提供します。また、必要な他の関連する NuGet パッケージが含まれています。
 
