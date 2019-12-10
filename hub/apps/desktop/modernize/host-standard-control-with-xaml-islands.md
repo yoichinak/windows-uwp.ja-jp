@@ -1,6 +1,6 @@
 ---
 description: この記事では、XAML アイランドを使用して WPF アプリで標準の UWP コントロールをホストする方法について説明します。
-title: XAML アイランドを使用して WPF アプリで標準の UWP コントロールをホストする
+title: XAML Islands を使用して WPF アプリで標準の UWP コントロールをホストする
 ms.date: 08/20/2019
 ms.topic: article
 keywords: windows 10、uwp、windows フォーム、wpf、xaml アイランド、ラップされたコントロール、標準コントロール、System.windows.controls.inkcanvas>、InkToolbar
@@ -15,7 +15,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 09/26/2019
 ms.locfileid: "71317070"
 ---
-# <a name="host-a-standard-uwp-control-in-a-wpf-app-using-xaml-islands"></a>XAML アイランドを使用して WPF アプリで標準の UWP コントロールをホストする
+# <a name="host-a-standard-uwp-control-in-a-wpf-app-using-xaml-islands"></a>XAML Islands を使用して WPF アプリで標準の UWP コントロールをホストする
 
 この記事では、 [XAML Islands](xaml-islands.md) を使用して WPF アプリで標準の uwp コントロール (つまり、Windows SDK または WinUI ライブラリによって提供されるファーストパーティ uwp コントロール) をホストする2つの方法について説明します。
 
@@ -28,7 +28,7 @@ WPF アプリで UWP コントロールをホストするには、次のコン�
 * WPF アプリのプロジェクトとソースコード。
 * Windows Community Toolkit から`Microsoft.Toolkit.Win32.UI.XamlHost.XamlApplication`クラスのインスタンスを定義する UWP アプリプロジェクト。
   > [!NOTE]
-  > すべての XAML アイランドシナリオでアプリが正常に動作するようにするには、WPF (または Windows フォーム) プロジェクト`XamlApplication`がオブジェクトにアクセスできる必要があります。 このオブジェクトは、アプリケーションの現在のディレクトリ内のアセンブリに UWP XAML 型のメタデータを読み込むためのルートメタデータプロバイダーとして機能します。 これを行うには、WPF (または Windows フォーム) プロジェクトと同じソリューションに**空のアプリ (ユニバーサル Windows)** プロジェクトを追加し、このプロジェクトの既定`App`のクラスを変更してから`XamlApplication`派生することをお勧めします。
+  > すべての XAML Island シナリオでアプリが正常に動作するようにするには、WPF (または Windows フォーム) プロジェクト`XamlApplication`がオブジェクトにアクセスできる必要があります。 このオブジェクトは、アプリケーションの現在のディレクトリ内のアセンブリに UWP XAML 型のメタデータを読み込むためのルートメタデータプロバイダーとして機能します。 これを行うには、WPF (または Windows フォーム) プロジェクトと同じソリューションに**空のアプリ (ユニバーサル Windows)** プロジェクトを追加し、このプロジェクトの既定`App`のクラスを変更してから`XamlApplication`派生することをお勧めします。
   >
   > この手順は、ファーストパーティ uwp コントロールのホストなど、単純な xaml アイランドのシナリオには必要ありませんが`XamlApplication` 、WPF アプリでは、カスタム uwp コントロールをホストするなど、xaml アイランドのあらゆるシナリオをサポートするためにこのオブジェクトが必要です。 常に UWP プロジェクトを追加し、XAML アイランドを使用`XamlApplication`しているソリューションでオブジェクトを定義することをお勧めします。 ソリューションには、オブジェクトを`XamlApplication`定義するプロジェクトを1つだけ含めることができます。 アプリ内のすべてのカスタム UWP コントロールは、 `XamlApplication`同じオブジェクトを共有します。
 
@@ -36,7 +36,7 @@ WPF アプリで UWP コントロールをホストするには、次のコン�
 
 ## <a name="create-a-wpf-project"></a>WPF プロジェクトを作成する
 
-作業を開始する前に、次の手順に従って WPF プロジェクトを作成し、XAML アイランドをホストするように構成します。 既存の WPF プロジェクトがある場合は、プロジェクトのこれらの手順とコード例を調整できます。
+作業を開始する前に、次の手順に従って WPF プロジェクトを作成し、XAML Islands をホストするように構成します。 既存の WPF プロジェクトがある場合は、プロジェクトのこれらの手順とコード例を調整できます。
 
 1. Visual Studio 2019 で、新しい**Wpf アプリ (.NET Framework)** プロジェクトまたは**wpf アプリ (.net Core)** プロジェクトを作成します。 **WPF アプリ (.Net core)** プロジェクトを作成する場合は、最初に[.NET core 3 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.0)の最新バージョンをインストールする必要があります。
 
@@ -62,7 +62,7 @@ WPF アプリで UWP コントロールをホストするには、次のコン�
 
 ## <a name="create-a-xamlapplication-object-in-a-uwp-app-project"></a>UWP アプリプロジェクトでの XamlApplication オブジェクトの作成
 
-次に、WPF プロジェクトと同じソリューションに UWP アプリプロジェクトを追加します。 このプロジェクトの既定`App`のクラスは、Windows Community Toolkit によって提供される`Microsoft.Toolkit.Win32.UI.XamlHost.XamlApplication`クラスから派生するように変更します。 この手順は、1つのファーストパーティ UWP コントロールのホストなど、単純な xaml アイランドのシナリオには必要ありませ`XamlApplication`んが、WPF アプリでは、xaml アイランドのあらゆるシナリオをサポートするためにこのオブジェクトが必要です。 XAML アイランドを使用しているソリューションには、常にこのプロジェクトを追加することをお勧めします。
+次に、WPF プロジェクトと同じソリューションに UWP アプリプロジェクトを追加します。 このプロジェクトの既定`App`のクラスは、Windows Community Toolkit によって提供される`Microsoft.Toolkit.Win32.UI.XamlHost.XamlApplication`クラスから派生するように変更します。 この手順は、1 つのファーストパーティ UWP コントロールのホストなど、単純な XAML Island のシナリオには必要ありませんが、WPF アプリでは、XAML Island のあらゆるシナリオをサポートするためにこの`XamlApplication`オブジェクトが必要です。 XAML Islands を使用しているソリューションには、常にこのプロジェクトを追加することをお勧めします。
 
 1. **ソリューションエクスプローラー**で、ソリューションノードを右クリックし、[**新しいプロジェクト**の**追加** -> ] を選択します。
 2. ソリューションに **[空白のアプリ (ユニバーサル Windows)]** プロジェクトを追加します。 ターゲットバージョンと最小バージョンの両方が**Windows 10 バージョン 1903**以降に設定されていることを確認します。

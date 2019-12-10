@@ -1,6 +1,6 @@
 ---
 description: この記事では、XAML Islands を使用して WPF アプリでカスタム UWP コントロールをホストする方法について説明します。
-title: XAML アイランドを使用した WPF アプリでのカスタム UWP コントロールのホスト
+title: XAML Islands を使用した WPF アプリでのカスタム UWP コントロールのホスト
 ms.date: 08/20/2019
 ms.topic: article
 keywords: windows 10、uwp、windows フォーム、wpf、xaml アイランド、カスタムコントロール、ユーザーコントロール、ホストコントロール
@@ -31,7 +31,7 @@ WPF アプリでカスタム UWP コントロールをホストするには、�
 
 * **XamlApplication オブジェクトを定義する UWP アプリプロジェクト**。 WPF (または Windows フォーム) プロジェクトは、Windows Community Toolkit によって`Microsoft.Toolkit.Win32.UI.XamlHost.XamlApplication`提供されるクラスのインスタンスにアクセスできる必要があります。 このオブジェクトは、アプリケーションの現在のディレクトリにあるアセンブリ内のカスタム UWP XAML 型のメタデータを読み込むためのルートメタデータプロバイダーとして機能します。 これを行うには、WPF (または Windows フォーム) プロジェクトと同じソリューションに**空のアプリ (ユニバーサル Windows)** プロジェクトを追加し、このプロジェクトの既定`App`のクラスを変更する方法をお勧めします。
   > [!NOTE]
-  > ソリューションには、オブジェクトを`XamlApplication`定義するプロジェクトを1つだけ含めることができます。 アプリ内のすべてのカスタム UWP コントロールは、 `XamlApplication`同じオブジェクトを共有します。 `XamlApplication`オブジェクトを定義するプロジェクトには、XAML Island でホスト uwp コントロールを使用する他のすべての uwp ライブラリおよびプロジェクトへの参照が含まれている必要があります。
+  > ソリューションには、オブジェクトを`XamlApplication`定義するプロジェクトを 1 つだけ含めることができます。 アプリ内のすべてのカスタム UWP コントロールは、 `XamlApplication`同じオブジェクトを共有します。 `XamlApplication`オブジェクトを定義するプロジェクトには、XAML Island でホスト uwp コントロールを使用する他のすべての uwp ライブラリおよびプロジェクトへの参照が含まれている必要があります。
 
 ## <a name="create-a-wpf-project"></a>WPF プロジェクトを作成する
 
