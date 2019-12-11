@@ -5,12 +5,12 @@ ms.date: 07/08/2019
 ms.topic: article
 keywords: windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、プロジェクション、実装、インプリメント、ランタイム クラス、ライセンス認証
 ms.localizationpriority: medium
-ms.openlocfilehash: eba0e6312bc22153d8cb62eb97d32635184f0fdc
-ms.sourcegitcommit: f34deba1d4460d85ed08fe9648999fe03ff6a3dd
+ms.openlocfilehash: 84c0e9315950541e51bf49f5c0eec370f3188c4d
+ms.sourcegitcommit: 58f6643510a27d6b9cd673da850c191ee23b813e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71317110"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74701485"
 ---
 # <a name="author-apis-with-cwinrt"></a>C++/WinRT での API の作成
 
@@ -239,7 +239,7 @@ Visual Studio プロジェクトと項目テンプレートでは、ランタイ
 例をいくつか紹介します。
 
 - パラメーターの型を緩和できます。 たとえば、IDL でメソッドが **SomeClass** を受け取る場合、実装ではそれを **IInspectable** に変更できます。 これができるのは、すべての **SomeClass** を **IInspectable** に転送できるためです (もちろん、逆はできません)。
-- コピー可能なパラメーターを参照渡しではなく値で受け取ることができます。 たとえば、`SomeClass const&` を `SomeClass const&` に変更します。 コルーチンに参照をキャプチャしないようにする必要があるときは、それが必要です (「[パラメーターの引き渡し](/windows/uwp/cpp-and-winrt-apis/concurrency#parameter-passing)」をご覧ください)。
+- コピー可能なパラメーターを参照渡しではなく値で受け取ることができます。 たとえば、`SomeClass` を `SomeClass const&` に変更します。 コルーチンに参照をキャプチャしないようにする必要があるときは、それが必要です (「[パラメーターの引き渡し](/windows/uwp/cpp-and-winrt-apis/concurrency#parameter-passing)」をご覧ください)。
 - 戻り値を緩和できます。 たとえば、**void** を [**winrt::fire_and_forget**](/uwp/cpp-ref-for-winrt/fire-and-forget) に変更できます。
 
 最後の 2 つは、非同期イベント ハンドラーを作成する場合に非常に便利です。
@@ -276,7 +276,13 @@ namespace MyProject
 }
 ```
 
-**MyType** から、プロジェクションの一部として使用するまたは返すことができる **IStringable** または **IClosable** オブジェクトへ移動するには、[**winrt::make**](/uwp/cpp-ref-for-winrt/make) 関数テンプレートを呼び出す必要があります。 **make** は実装型の既定のインターフェイスを返します。
+実装型を直接割り当てることはできません。
+
+```cppwinrt
+MyType myimpl; // error C2259: 'MyType': cannot instantiate abstract class
+```
+
+ただし、[**winrt::make**](/uwp/cpp-ref-for-winrt/make) 関数テンプレートを呼び出すことで、**MyType** から **IStringable** または **IClosable** オブジェクトに移動し、これらのオブジェクトを使用するか、プロジェクションの一部として返すことができます。 **make** は実装型の既定のインターフェイスを返します。
 
 ```cppwinrt
 IStringable istringable = winrt::make<MyType>();
@@ -329,36 +335,73 @@ impl.copy_from(winrt::get_self<MyType>(from));
 // com_ptr::copy_from ensures that AddRef is called.
 ```
 
-実装型自体は、**winrt::Windows::Foundation::IUnknown** から派生したものではないため、**as** 関数はありません。 その場合でも、1 つのインスタンスを作成し、そのインターフェイスのすべてのメンバーにアクセスできます。 ただしこれを行う場合、未処理の実装型のインスタンスを呼び出し元に返さないでください。 代わりに、前に示した手法のいずれかを使用して、投影されるインターフェイスまたは **com_ptr** を返します。
+実装型自体は、**winrt::Windows::Foundation::IUnknown** から派生したものではないため、**as** 関数はありません。 それでも、上記の **ImplFromIClosable** 関数でわかるように、そのインターフェイスすべてのメンバーにアクセスできます。 ただし、そのようにする場合、未処理の実装型のインスタンスを呼び出し元に返さないでください。 代わりに、既に示した手法のいずれかを使用して、投影されるインターフェイスまたは **com_ptr** を返します。
+
+実装型のインスタンスがある場合は、次のコード例に示すように、対応する投影型を想定している関数にこれを渡す必要があり、その後実行できます。 変換演算子は (`cppwinrt.exe` ツールによって実装型が生成されたという条件で) 実装型に存在し、これを可能にします。 実装型の値は、対応する投影型の値を想定しているメソッドに直接渡すことができます。 実装型のメンバー関数から、対応する投影型の値を想定しているメソッドに `*this` を渡すことができます。
 
 ```cppwinrt
-MyType myimpl;
-myimpl.ToString();
-myimpl.Close();
-IClosable ic1 = myimpl.as<IClosable>(); // error
-```
-
-実装型のインスタンスがある場合は、対応する投影型を想定している関数にこれを渡す必要があり、その後実行できます。 変換演算子は (`cppwinrt.exe` ツールによって実装型が生成されたという条件で) 実装型に存在し、これを可能にします。 実装型の値は、対応する投影型の値を想定しているメソッドに直接渡すことができます。 実装型のメンバー関数から、対応する投影型の値を想定しているメソッドに `*this` を渡すことができます。
-
-```cppwinrt
-// MyProject::MyType is the projected type; the implementation type would be MyProject::implementation::MyType.
-
-void MyOtherType::DoWork(MyProject::MyType const&){ ... }
-
-...
-
-void FreeFunction(MyProject::MyOtherType const& ot)
+// MyClass.idl
+import "MyOtherClass.idl";
+namespace MyProject
 {
-    MyType myimpl;
-    ot.DoWork(myimpl);
+    runtimeclass MyClass
+    {
+        MyClass();
+        void MemberFunction(MyOtherClass oc);
+    }
 }
 
+// MyClass.h
+...
+namespace winrt::MyProject::implementation
+{
+    struct MyClass : MyClassT<MyClass>
+    {
+        MyClass() = default;
+        void MemberFunction(MyProject::MyOtherClass const& oc) { oc.DoWork(*this); }
+    };
+}
 ...
 
-void MyType::MemberFunction(MyProject::MyOtherType const& ot)
+// MyOtherClass.idl
+import "MyClass.idl";
+namespace MyProject
 {
-    ot.DoWork(*this);
+    runtimeclass MyOtherClass
+    {
+        MyOtherClass();
+        void DoWork(MyClass c);
+    }
 }
+
+// MyOtherClass.h
+...
+namespace winrt::MyProject::implementation
+{
+    struct MyOtherClass : MyOtherClassT<MyOtherClass>
+    {
+        MyOtherClass() = default;
+        void DoWork(MyProject::MyClass const& c){ /* ... */ }
+    };
+}
+...
+
+//main.cpp
+#include "pch.h"
+#include <winrt/base.h>
+#include "MyClass.h"
+#include "MyOtherClass.h"
+using namespace winrt;
+
+// MyProject::MyClass is the projected type; the implementation type would be MyProject::implementation::MyClass.
+
+void FreeFunction(MyProject::MyOtherClass const& oc)
+{
+    auto defaultInterface = winrt::make<MyProject::implementation::MyClass>();
+    MyProject::implementation::MyClass* myimpl = winrt::get_self<MyProject::implementation::MyClass>(defaultInterface);
+    oc.DoWork(*myimpl);
+}
+...
 ```
 
 ## <a name="deriving-from-a-type-that-has-a-non-default-constructor"></a>既定以外のコンストラクターを持つ型からの派生

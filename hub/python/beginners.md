@@ -8,12 +8,12 @@ ms.topic: article
 keywords: python, windows 10, microsoft, python の学習, windows での python (初心者向け), microsoft store から python をインストール, python と vs code, windows での pygame
 ms.localizationpriority: medium
 ms.date: 07/19/2019
-ms.openlocfilehash: d4c1cb6d65eb38a93e8bf9f0c34afd9e28f20129
-ms.sourcegitcommit: 13faf9dab9946295986f8edd79b5fae0db4ed0f6
+ms.openlocfilehash: 688ae004dad8653e70d86b3b91652b6898c1e9d3
+ms.sourcegitcommit: f5bb4e35d1373b982259e61547b3b1765da0e78c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72314926"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74881287"
 ---
 # <a name="get-started-using-python-on-windows-for-beginners"></a>Windows で Python を使ってみる (初心者向け)
 
@@ -21,7 +21,7 @@ ms.locfileid: "72314926"
 
 ## <a name="set-up-your-development-environment"></a>開発環境を設定する
 
-Python を初めて使用する初心者の方には、[Microsoft Store から Python をインストールする](https://www.microsoft.com/en-us/p/python-37/9nj46sx7x90p?activetab=pivot:overviewtab)ことをお勧めします。 Microsoft Store を介してインストールすると、基本的な Python3 インタープリターが使用されますが、自動更新が提供されるだけでなく、現在のユーザーの PATH 設定 (管理者アクセス権は不要) も行われます。 これは、教育現場や、コンピューターへのアクセス許可または管理アクセスに制限を設けている組織で特に役立ちます。
+Python を初めて使用する初心者の方には、[Microsoft Store から Python をインストールする](https://www.microsoft.com/p/python-37/9nj46sx7x90p?activetab=pivot:overviewtab)ことをお勧めします。 Microsoft Store を介してインストールすると、基本的な Python3 インタープリターが使用されますが、自動更新が提供されるだけでなく、現在のユーザーの PATH 設定 (管理者アクセス権は不要) も行われます。 これは、教育現場や、コンピューターへのアクセス許可または管理アクセスに制限を設けている組織で特に役立ちます。
 
 Windows で **Web 開発**に Python を使用している場合は、開発環境用に別のセットアップを用意することをお勧めします。 Windows に直接インストールするのではなく、Linux 用 Windows サブシステム経由で Python をインストールして使用することをお勧めします。 ヘルプについては、次を参照してください:「[Windows での Web 開発用の Python の使用を開始する](./web-frameworks.md)」をご覧ください。 お使いのオペレーティング システムでの一般的なタスクの自動化に関心がある場合は、次のガイドを参照してください:[Windows で Python を使用してスクリプト作成と自動化を開始する](./scripting.md)。 一部の高度なシナリオ (Python のインストール ファイルへのアクセスや修正が必要な場合、バイナリのコピーを作成する場合、Python DLL を直接使用する場合など) では、[python.org](https://www.python.org/downloads/) から特定の Python リリースを直接ダウンロードすることを検討するか、Anaconda、Jython、PyPy、WinPython、IronPython などの[代替手段をインストール](https://www.python.org/download/alternatives)することを検討してください。これは、別の実装を選択する具体的な理由がある、より高度な Python プログラマの場合にのみお勧めします。
 
@@ -45,15 +45,17 @@ Microsoft Store を使用して Python をインストールするには:
 
 1. VS Code をインストールするには、Windows 用の VS Code をダウンロードします: [https://code.visualstudio.com](https://code.visualstudio.com)。
 
-2. Python はインタープリター言語であり、Python コードを実行するには、使用するインタープリターを VS Code に指示する必要があります。 別のものを選択する特別な理由がない限り、Python 3.7 を使用することをお勧めします。 Python 3 インタープリターを選択します。**コマンド パレット**を開き (Ctrl + Shift + P)、検索するコマンド「**Python: Select Interpreter**」の入力を開始して、コマンドを選択します。 利用可能な場合、最下部のステータス バーにある **[Select Python Environment]\(Python 環境の選択\)** オプションを使用することもできます (選択したインタープリターが既に表示されている場合があります)。 コマンドを実行すると、仮想環境を含め、VS Code が自動的に検出できる使用可能なインタープリターの一覧が表示されます。 目的のインタープリターが表示されない場合は、[Python 環境の構成](https://code.visualstudio.com/docs/python/environments)に関するページを参照してください。
+2. VS Code がインストールされたら、Python 拡張機能もインストールする必要があります。 Python 拡張機能をインストールするには、[VS Code マーケットプレースへのリンク](https://marketplace.visualstudio.com/items?itemName=ms-python.python)を選択するか、VS Code を開いて拡張機能メニュー (Ctrl + Shift + X) で「**Python**」を検索します。
+
+3. Python はインタープリター言語であり、Python コードを実行するには、使用するインタープリターを VS Code に指示する必要があります。 別のものを選択する特別な理由がない限り、Python 3.7 を使用することをお勧めします。 Python 拡張機能をインストールしたら、Python 3 インタープリターを選択します。**コマンド パレット**を開き (Ctrl + Shift + P)、検索するコマンド「**Python: Select Interpreter**」の入力を開始して、コマンドを選択します。 利用可能な場合、最下部のステータス バーにある **[Select Python Environment]\(Python 環境の選択\)** オプションを使用することもできます (選択したインタープリターが既に表示されている場合があります)。 コマンドを実行すると、仮想環境を含め、VS Code が自動的に検出できる使用可能なインタープリターの一覧が表示されます。 目的のインタープリターが表示されない場合は、[Python 環境の構成](https://code.visualstudio.com/docs/python/environments)に関するページを参照してください。
 
     ![VS Code で Python インタープリターを選択する](../images/interpreterselection.gif)
 
-3. VS Code でターミナルを開くには、 **[表示]**  >  **[ターミナル]** を選択するか、ショートカット **Ctrl + `** を使用します (バックティック文字を使用)。 既定のターミナルは PowerShell です。
+4. VS Code でターミナルを開くには、 **[表示]**  >  **[ターミナル]** を選択するか、ショートカット **Ctrl + `** を使用します (バックティック文字を使用)。 既定のターミナルは PowerShell です。
 
-4. VS Code ターミナル内で、`python` コマンドを入力して Python を開きます。
+5. VS Code ターミナル内で、`python` コマンドを入力して Python を開きます。
 
-5. `print("Hello World")` と入力して、Python インタープリターを試してみます。 Python から "Hello World" 文字列が返されます。
+6. `print("Hello World")` と入力して、Python インタープリターを試してみます。 Python から "Hello World" 文字列が返されます。
 
     ![VS Code 内の Python コマンド ライン](../images/python-in-vscode.png)
 
@@ -188,7 +190,7 @@ Windows での Python 開発について学習を続けるために役立つ、�
 
 ### <a name="online-courses-for-learning-python"></a>オンラインの Python 学習コース
 
-- [Microsoft Learn の Python 入門](https://docs.microsoft.com/en-us/learn/modules/intro-to-python/):対話型の Microsoft Learn プラットフォームで、簡単な Python コードを記述し、変数を宣言し、コンソール入出力を操作する方法を基礎から学びましょう。このモジュールを完了すると経験ポイントを獲得できます。 Python 開発環境をまだセットアップしていない場合、対話型のサンドボックス環境は学習を始めるのに最適な場所です。
+- [Microsoft Learn の Python 入門](https://docs.microsoft.com/learn/modules/intro-to-python/):対話型の Microsoft Learn プラットフォームで、簡単な Python コードを記述し、変数を宣言し、コンソール入出力を操作する方法を基礎から学びましょう。このモジュールを完了すると経験ポイントを獲得できます。 Python 開発環境をまだセットアップしていない場合、対話型のサンドボックス環境は学習を始めるのに最適な場所です。
 
 - [Pluralsight で Python を学ぶ:8 コース、29 時間](https://app.pluralsight.com/paths/skills/python):Pluralsight の Python ラーニング パスは、スキルを測定してギャップを見つけるためのツールなど、Python 関連のさまざまなトピックをカバーしたオンライン コースを提供します。
 

@@ -8,12 +8,12 @@ ms.localizationpriority: medium
 ms.custom: RS5
 ms.author: mcleans
 author: mcleanbyron
-ms.openlocfilehash: f3a2575b17cc4228d7c4db273845478aecf65f29
-ms.sourcegitcommit: f0936ce8e88d78b1af99998794a8765094f6a487
+ms.openlocfilehash: f46d6ba99d4342e1e4fe7a9926082a5981fd690a
+ms.sourcegitcommit: 11c5cb559c949b6fe645499c2265434885882d8e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72915103"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666907"
 ---
 # <a name="the-fluent-design-system-for-windows-app-creators"></a>Windows アプリ作成者用の Fluent Design System
 
@@ -112,7 +112,7 @@ UWP アプリはさまざまな Windows ベースのデバイスで実行でき�
     :::column span="2":::
 **入力方法に合わせた最適化**
 
-UWP アプリは、一般的なマウス、キーボード、ペンを自動的にサポートします。つまり、余分な操作をする必要がありません。 ただし、ペンや Surface Dial など、特定の入力方法に合わせてサポートを最適化することで、アプリの機能を強化することができます。
+UWP アプリは、一般的なマウス、キーボード、ペンを自動的にサポートします。 余分な操作をする必要がありません。 ただし、必要に応じて、ペンや Surface Dial など、特定の入力方法に合わせてサポートを最適化することで、アプリの機能を強化することができます。
 
 [入力方法と操作方法の詳細](/windows/uwp/design/input/input-primer)
 :::row-end:::

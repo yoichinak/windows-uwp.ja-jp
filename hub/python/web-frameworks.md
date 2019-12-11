@@ -8,12 +8,12 @@ ms.topic: article
 keywords: python, windows 10, microsoft, windows での python , wsl を使用した python web , linux 用 windows サブシステムを使用した python web アプリ, windows での python web 開発, windows での flask アプリ, windows での django アプリ, python web, windows での flask web 開発, windows での django web 開発, python を使用した windows web 開発, vs code python web 開発, リモート wsl 拡張機能, ubuntu, wsl, venv, pip, microsoft python 拡張機能, windows での python の実行, windows での python の使用, windows での python を使用した構築
 ms.localizationpriority: medium
 ms.date: 07/19/2019
-ms.openlocfilehash: 285e5149778f2d5cb63554a5af63bb9ae23809dc
-ms.sourcegitcommit: 13faf9dab9946295986f8edd79b5fae0db4ed0f6
+ms.openlocfilehash: d883007168e0baf35f8a0ab0827505b683cfd291
+ms.sourcegitcommit: f5bb4e35d1373b982259e61547b3b1765da0e78c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72314946"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74881290"
 ---
 # <a name="get-started-using-python-for-web-development-on-windows"></a>Windows で Web 開発に Python を使用する
 
@@ -46,6 +46,9 @@ WSL 上で実行できる Linux ディストリビューションは複数あり
 3. ディストリビューションを初めて実行すると、アカウント名とパスワードの作成を求められます。 これ以降、既定でこのユーザーとして自動的にサインインします。 任意のユーザー名とパスワードを選択できます。 これらはご自分の Windows ユーザー名とは関係ありません。
 
 現在使用している Linux ディストリビューションは、`lsb_release -d` と入力することで確認できます。 使用中の Ubuntu ディストリビューションを更新するには、`sudo apt update && sudo apt upgrade` を使用します。 パッケージを常に最新にするために、定期的な更新をお勧めします。 Windows はこの更新を自動的に処理しません。 Microsoft Store から入手できる他の Linux ディストリビューションへのリンク、別のインストール方法、またはトラブルシューティングについては、「[Windows 10 用 Windows Subsystem for Linux のインストール ガイド](https://docs.microsoft.com/windows/wsl/install-win10)」を参照してください。
+
+> [!TIP]
+> 複数のコマンド ライン (Ubuntu、PowerShell、Windows コマンド プロンプトなど) を使用する予定がある場合や、(テキスト、背景色、キー バインドなど) [ターミナルをカスタマイズする](https://github.com/microsoft/terminal/blob/master/doc/user-docs/UsingJsonSettings.md)場合は、新しい [Windows ターミナル](https://github.com/microsoft/terminal/blob/master/doc/user-docs/index.md)を試すことを検討してください。
 
 ## <a name="set-up-visual-studio-code"></a>Visual Studio Code を設定する
 

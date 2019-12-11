@@ -5,12 +5,12 @@ ms.date: 04/23/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 作成者, イベント
 ms.localizationpriority: medium
-ms.openlocfilehash: 55d512faccfa318156fb0dc28d3f804b53f0fe3d
-ms.sourcegitcommit: 102fdfdf32ba12a8911018d234d71d67ebef61ce
+ms.openlocfilehash: 6fb9b98ec362b59ad2593bbce24654f1dcfc7638
+ms.sourcegitcommit: 27cb7c4539bb6417d32883824ccea160bb948c15
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74551660"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74830782"
 ---
 # <a name="author-events-in-cwinrt"></a>C++/WinRT でのイベントの作成
 
@@ -253,8 +253,7 @@ struct App : implements<App, IFrameworkViewSource, IFrameworkView>
 ```
 
 ## <a name="parameterized-delegates-simple-signals-and-callbacks-within-a-project"></a>パラメーター化されたデリゲート、シンプルなシグナル、およびプロジェクト内でのコールバック
-
-自分のイベントを自分の C++/WinRT プロジェクトの内部でのみ使用する (バイナリ間ではない) 場合は、やはり [**winrt::event**](/uwp/cpp-ref-for-winrt/event) 構造体テンプレートを使用しますが、それをパラメーター化するには C++/WinRT の非 Windows ランタイム [**winrt::delegate&lt;...T&gt;** ](/uwp/cpp-ref-for-winrt/delegate) 構造体テンプレートを使用します。これは効率的な、参照カウント デリゲートです。 任意の数のパラメーターをサポートし、それらは Windows ランタイム型に限定されません。
+Visual Studio プロジェクトの内部の (複数のバイナリにまたがらない) イベントが必要であり、それらのイベントが Windows ランタイム型に限定されない場合でも、[**winrt::event**](/uwp/cpp-ref-for-winrt/event)\<Delegate\> クラス テンプレートを使用できます。 **winrt::delegate** は Windows ランタイム以外のパラメーターもサポートするため、実際の Windows ランタイム デリゲート型の代わりに [**winrt::delegate**](/uwp/cpp-ref-for-winrt/delegate) を使用するだけです。
 
 以下の例では、最初にパラメーターを取らないデリゲート シグネチャ (基本的にシンプルなシグナル) を示し、次に文字列を取るシグネチャを示します。
 

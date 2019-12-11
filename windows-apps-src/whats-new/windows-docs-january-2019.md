@@ -5,12 +5,12 @@ keywords: 最新情報, 更新, 機能, 開発者向けガイダンス, Windows 
 ms.date: 01/17/2019
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: ac5f7e058a616117e73defde2c48bf4c66f68d2e
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: 7947fb6e71a9f2ddbedcd8e3ee8bab7b720dc444
+ms.sourcegitcommit: 6169660ea437915265165c4631d9702587e4793d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74259750"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74902473"
 ---
 # <a name="whats-new-in-the-windows-developer-docs-in-january-2019"></a>Windows 開発者向けドキュメントの最新情報、2019 年 1 月
 
@@ -22,7 +22,7 @@ Windows 10 の[ツールと SDK をインストール](https://developer.microso
 
 ### <a name="windows-development-on-microsoft-learn"></a>Microsoft Learn での Windows 開発
 
-Microsoft Learn は、新しい実践的な学習とトレーニングの機会を Microsoft 開発者に提供します。 Windows アプリの開発方法の学習に関心がある場合、プラットフォーム、ツール、およびご自分の最初のいくつかのアプリの作成方法については、[新しいラーニング パス](https://docs.microsoft.com/learn/paths/develop-windows10-apps/)をご覧ください。
+Microsoft Learn は、新しい実践的な学習とトレーニングの機会を Microsoft 開発者に提供します。 Windows アプリの開発方法の学習に関心がある場合、プラットフォーム、ツール、およびご自分の最初のいくつかのアプリの作成方法については、[新しいラーニング パス](/learn/paths/develop-windows10-apps/)をご覧ください。
 
 ![Windows 開発のラーニング パスの画像](images/windows-learn.png)
 
@@ -32,7 +32,7 @@ Microsoft Learn は、新しい実践的な学習とトレーニングの機会�
 
 ### <a name="msix-modification-packages"></a>MSIX 修正パッケージ
 
-Windows 10 バージョン 1809 では、[MSIX 修正パッケージ](https://docs.microsoft.com/windows/msix/modification-package-1809-update)のサポートが改良されました。 修正パッケージにはレジストリベースのプラグインとそれに関連するカスタマイズを含めることができ、これにより MSIX を介して配置されたアプリケーションは仮想レジストリを使用して期待どおりに実行できるようにようになります。
+Windows 10 バージョン 1809 では、[MSIX 修正パッケージ](/windows/msix/modification-package-1809-update)のサポートが改良されました。 修正パッケージにはレジストリベースのプラグインとそれに関連するカスタマイズを含めることができ、これにより MSIX を介して配置されたアプリケーションは仮想レジストリを使用して期待どおりに実行できるようにようになります。
 
 ![MSIX 修正パッケージの作成](images/msix-modification-package.png)
 
@@ -42,13 +42,13 @@ WPF、Windows フォーム、WinUI UX フレームワークを、GitHub 上で�
 
 ### <a name="progressive-web-apps-for-xbox"></a>Xbox 用のプログレッシブ Web アプリ
 
-[Xbox One 用のプログレッシブ Web アプリ](https://docs.microsoft.com/microsoft-edge/progressive-web-apps/xbox-considerations)を使用すれば、既存のフレームワーク、CDN、サーバー バックエンドを引き続き使用しながら、Web アプリケーションを拡張してそれを Microsoft Store 経由で Xbox One アプリとして使用可能にすることができます。 ほとんどのパーツについては、Windows の場合と同じ方法で、ご自分の Xbox One 用 PWA をパッケージ化することができます。ただし、いくつかの重要な違いがあり、このガイドではそれを順番に説明します。
+[Xbox One 用のプログレッシブ Web アプリ](/microsoft-edge/progressive-web-apps/xbox-considerations)を使用すれば、既存のフレームワーク、CDN、サーバー バックエンドを引き続き使用しながら、Web アプリケーションを拡張してそれを Microsoft Store 経由で Xbox One アプリとして使用可能にすることができます。 ほとんどのパーツについては、Windows の場合と同じ方法で、ご自分の Xbox One 用 PWA をパッケージ化することができます。ただし、いくつかの重要な違いがあり、このガイドではそれを順番に説明します。
 
 ### <a name="windows-machine-learning"></a>Windows Machine Learning
 
-Microsoft は [WinML API のランディング ページ](https://docs.microsoft.com/windows/ai/api-reference)を再構築し、WinML カスタム演算子とネイティブ API に関する新しいドキュメントを追加しました。
+Microsoft は [WinML API のランディング ページ](/windows/ai/api-reference)を再構築し、WinML カスタム演算子とネイティブ API に関する新しいドキュメントを追加しました。
 
-「[PyTorch を使ってモデルをトレーニングする](https://docs.microsoft.com/windows/ai/train-model-pytorch)」には、PyTorch フレームワークを使用してローカルまたはクラウドのいずれかでモデルをトレーニングする方法に関するガイダンスが提供されています。 さらに、このモデルを ONNX ファイルとしてダウンロードし、ご利用の WinML アプリケーション内で使用することができます。
+「[PyTorch を使ってモデルをトレーニングする](/windows/ai/train-model-pytorch)」には、PyTorch フレームワークを使用してローカルまたはクラウドのいずれかでモデルをトレーニングする方法に関するガイダンスが提供されています。 さらに、このモデルを ONNX ファイルとしてダウンロードし、ご利用の WinML アプリケーション内で使用することができます。
 
 ![WinML グラフィック](images/winml-graphic.png)
 
@@ -56,15 +56,15 @@ Microsoft は [WinML API のランディング ページ](https://docs.microsoft
 
 ### <a name="choose-your-platform"></a>プラットフォームの選択
 
-新しいデスクトップ アプリケーションの作成に関心がありますか? UWP、WPF、Windows フォームの各プラットフォームの詳細な説明と比較、および Win32 API の詳細については、改訂された[プラットフォームの選択](https://docs.microsoft.com/windows/desktop/choose-your-technology)に関するページをご覧ください。
+新しいデスクトップ アプリケーションの作成に関心がありますか? UWP、WPF、Windows フォームの各プラットフォームの詳細な説明と比較、および Win32 API の詳細については、改訂された[プラットフォームの選択](/windows/desktop/choose-your-technology)に関するページをご覧ください。
 
 ### <a name="faqs-on-win32-webview"></a>Win32 WebView に関してよく寄せられる質問
 
-[よく寄せられる質問](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/webview#frequently-asked-questions-faqs)には、デスクトップ アプリケーションで Microsoft Edge WebView を使用する場合の一般的な質問に対する回答に加えて、サンプルおよびその他のリソースへのリンクが提供されています。
+[よく寄せられる質問](/windows/communitytoolkit/controls/wpf-winforms/webview#frequently-asked-questions-faqs)には、デスクトップ アプリケーションで Microsoft Edge WebView を使用する場合の一般的な質問に対する回答に加えて、サンプルおよびその他のリソースへのリンクが提供されています。
 
 ### <a name="japanese-era-change"></a>日本の元号の変更
 
-「[アプリケーションの新元号対応](../design/globalizing/japanese-era-change.md)」では、2019 年 5 月 1 日に実施された日本の元号の変更にご利用の Windows アプリケーションが確実に対応できるようにする方法を示しています。 [このページは日本語でもご覧いただけます](https://docs.microsoft.com/ja-jp/windows/uwp/design/globalizing/japanese-era-change)。
+「[アプリケーションの新元号対応](../design/globalizing/japanese-era-change.md)」では、2019 年 5 月 1 日に実施された日本の元号の変更にご利用の Windows アプリケーションが確実に対応できるようにする方法を示しています。 [このページは日本語でもご覧いただけます](/windows/uwp/design/globalizing/japanese-era-change)。
 
 ## <a name="videos"></a>ビデオ
 
@@ -82,9 +82,10 @@ One Dev Question ビデオ シリーズでは、ベテランの Microsoft 開発
 
 Raymond Chen:
 
-* [Program Files と Program Files (x86) があるのはなぜですか?](https://youtu.be/N7o9eJpFYco)
+* [Program Files と Program Files (x86) があるのはなぜですか?](https://youtu.be/qRb6otsHG5c)
+* [Microsoft でのあなたの最初のインタビューはどのようなものでしたか?](https://youtu.be/MfzzbNp8kfw)
 
 Larry Osterman:
 
-* [COM はなぜそれほど複雑なのですか?](https://youtu.be/-gkXAV-StVA )
-* [Microsoft に対するあなたの最初のインタビューはどのようなものでしたか?](https://youtu.be/qRb6otsHG5c)
+* [COM はなぜそれほど複雑なのですか?](https://youtu.be/-gkXAV-StVA)
+* [Microsoft に対するあなたの最初のインタビューはどのようなものでしたか?](https://youtu.be/N7o9eJpFYco)
