@@ -1,5 +1,5 @@
 ---
-description: この記事では、XAML アイランドを使用して WPF アプリで標準の UWP コントロールをホストする方法について説明します。
+description: この記事では、XAML Islands を使用して WPF アプリで標準の UWP コントロールをホストする方法について説明します。
 title: XAML Islands を使用して WPF アプリで標準の UWP コントロールをホストする
 ms.date: 08/20/2019
 ms.topic: article
