@@ -5,12 +5,12 @@ ms.date: 07/15/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 移植, 移行, C#
 ms.localizationpriority: medium
-ms.openlocfilehash: a63d38db613ebe6425a05ed20563405242ffd441
-ms.sourcegitcommit: ba4a046793be85fe9b80901c9ce30df30fc541f9
+ms.openlocfilehash: 17900829388bfe0b3cc325e27d0807b139ccaa27
+ms.sourcegitcommit: 2c6aac8a0cc02580df0987f0b7dba5924e3472d6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68328858"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74958962"
 ---
 # <a name="move-to-cwinrt-from-c"></a>C# から C++/WinRT への移行
 
@@ -264,7 +264,7 @@ C++/CX と C# では、Null ポインターを値型にボックス化解除し�
 | o が null の場合 | `System.NullReferenceException` | クラッシュ |
 | o がボックス化された int でない場合 | `System.InvalidCastException` | クラッシュ |
 | int をボックス化解除し、null の場合はフォールバックを使用する。それ以外の場合はクラッシュ | `i = o != null ? (int)o : fallback;` | `i = o ? unbox_value<int>(o) : fallback;` |
-| 可能であれば int をボックス化解除する。それ以外の場合はフォールバックを使用する | `var box = o as int?;`<br>`i = box != null ? box.Value : fallback;` | `i = unbox_value_or<int>(o, fallback);` |
+| 可能であれば int をボックス化解除する。それ以外の場合はフォールバックを使用する | `i = as int? ?? fallback;` | `i = unbox_value_or<int>(o, fallback);` |
 
 ### <a name="boxing-and-unboxing-a-string"></a>文字列のボックス化とボックス化解除
 
@@ -274,24 +274,23 @@ ABI 型 [**HSTRING**](/windows/win32/winrt/hstring) は、参照カウント文�
 
 C# は Windows ランタイム文字列を参照型として表しますが、C++/WinRT は文字列を値型として投影します。 つまり、ボックス化された null 文字列は、どのように表されるかによって異なる表現を持つことができます。
 
+| 動作 | C# | C++/WinRT|
+|-|-|-|
+| 宣言 | `object o;`<br>`string s;` | `IInspectable o;`<br>`hstring s;` |
+| 文字列型のカテゴリ | 参照型 | 値の種類 |
+| null **HSTRING** による投影 | `""` | `hstring{}` |
+| null と `""` が同一かどうか | X | 〇 |
+| null の有効性 | `s = null;`<br>`s.Length` により NullReferenceException が生成される | `s = hstring{};`<br>`s.size() == 0` (有効) |
+| オブジェクトに null 文字列を割り当てる場合 | `o = (string)null;`<br>`o == null` | `o = box_value(hstring{});`<br>`o != nullptr` |
+| オブジェクトに `""` を割り当てる場合 | `o = "";`<br>`o != null` | `o = box_value(hstring{L""});`<br>`o != nullptr` |
+
+基本的なボックス化とボックス化解除。
+
 | 操作 | C# | C++/WinRT|
 |-|-|-|
-| 文字列型のカテゴリ | 参照型 | 値の種類 |
-| null **HSTRING** による投影 | `""` | `hstring{ nullptr }` |
-| null と `""` が同一かどうか | X | 〇 |
-| null の有効性 | `s = null;`<br>`s.Length` により **NullReferenceException** が生成される | `s = nullptr;`<br>`s.size() == 0` (有効) |
-| 文字列をボックス化する | `o = s;` | `o = box_value(s);` |
-| `s` が `null` の場合 | `o = (string)null;`<br>`o == null` | `o = box_value(hstring{nullptr});`<br>`o != nullptr` |
-| `s` が `""` の場合 | `o = "";`<br>`o != null;` | `o = box_value(hstring{L""});`<br>`o != nullptr;` |
-| null を保持する文字列をボックス化する | `o = s;` | `o = s.empty() ? nullptr : box_value(s);` |
-| 文字列を強制的にボックス化する | `o = PropertyValue.CreateString(s);` | `o = box_value(s);` |
-| 既知の文字列をボックス化解除する | `s = (string)o;` | `s = unbox_value<hstring>(o);` |
-| `o` が null の場合 | `s == null; // not equivalent to ""` | クラッシュ |
-| `o` がボックス化された文字列ではない場合 | `System.InvalidCastException` | クラッシュ |
-| 文字列をボックス化解除し、null の場合はフォールバックを使用する。それ以外の場合はクラッシュ | `s = o != null ? (string)o : fallback;` | `s = o ? unbox_value<hstring>(o) : fallback;` |
-| 可能であれば文字列をボックス化解除する。それ以外の場合はフォールバックを使用する | `var s = o as string ?? fallback;` | `s = unbox_value_or<hstring>(o, fallback);` |
-
-上記の 2 つの*フォールバックを使用したボックス化解除*のケースでは、null 文字列が強制的にボックス化されている可能性があり、その場合、フォールバックは使用されません。 結果として得られる値は、ボックス内にあったもののため、空の文字列になります。
+| 文字列をボックス化する | `o = s;`<br>空の文字列は非 null オブジェクトになります。 | `o = box_value(s);`<br>空の文字列は非 null オブジェクトになります。 |
+| 既知の文字列をボックス化解除する | `s = (string)o;`<br>null オブジェクトは null 文字列になります。<br>文字列でない場合は InvalidCastException。 | `s = unbox_value<hstring>(o);`<br>null オブジェクトはクラッシュします。<br>文字列でない場合はクラッシュします。 |
+| 使用可能な文字列をボックス化解除する | `s = o as string;`<br>null オブジェクトまたは文字列以外は null 文字列になります。<br><br>または<br><br>`s = o as string ?? fallback;`<br>null または文字列以外はフォールバックになります。<br>空の文字列は保持されます。 | `s = unbox_value_or<hstring>(o, fallback);`<br>null または文字列以外はフォールバックになります。<br>空の文字列は保持されます。 |
 
 ## <a name="derived-classes"></a>派生クラス
 

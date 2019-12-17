@@ -5,12 +5,12 @@ ms.date: 01/17/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 移植, 移行, C++/CX
 ms.localizationpriority: medium
-ms.openlocfilehash: 92088906078a3a705e5fae052a50fc914561c77c
-ms.sourcegitcommit: d38e2f31c47434cd6dbbf8fe8d01c20b98fabf02
+ms.openlocfilehash: d540474140e4734320b06d852933b30fa20b61be
+ms.sourcegitcommit: 2c6aac8a0cc02580df0987f0b7dba5924e3472d6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70393454"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74958972"
 ---
 # <a name="move-to-cwinrt-from-ccx"></a>C++/CX から C++/WinRT への移行
 
@@ -468,24 +468,23 @@ C++/CX は Windows ランタイム文字列を参照型として表しますが�
 
 さらに、C++/CS を使用すると、null **String^** を逆参照できます。この場合は、文字列 `""` のように動作します。
 
-| 操作 | C++/CX | C++/WinRT|
+| 動作 | C++/CX | C++/WinRT|
 |-|-|-|
+| 宣言 | `Object^ o;`<br>`String^ s;` | `IInspectable o;`<br>`hstring s;` |
 | 文字列型のカテゴリ | 参照型 | 値の種類 |
 | null **HSTRING** による投影 | `(String^)nullptr` | `hstring{}` |
 | null と `""` が同一かどうか | 〇 | 〇 |
-| null の有効性 | `s = nullptr;`<br>`s->Length == 0` (有効) | `s = nullptr;`<br>`s.size() == 0` (有効) |
-| 文字列をボックス化する | `o = s;` | `o = box_value(s);` |
-| `s` が `null` の場合 | `o = (String^)nullptr;`<br>`o == nullptr` | `o = box_value(hstring{});`<br>`o != nullptr` |
-| `s` が `""` の場合 | `o = "";`<br>`o == nullptr` | `o = box_value(hstring{L""});`<br>`o != nullptr;` |
-| null を保持する文字列をボックス化する | `o = s;` | `o = s.empty() ? nullptr : box_value(s);` |
-| 文字列を強制的にボックス化する | `o = PropertyValue::CreateString(s);` | `o = box_value(s);` |
-| 既知の文字列をボックス化解除する | `s = (String^)o;` | `s = unbox_value<hstring>(o);` |
-| `o` が null の場合 | `s == nullptr; // equivalent to ""` | クラッシュ |
-| `o` がボックス化された文字列ではない場合 | `Platform::InvalidCastException` | クラッシュ |
-| 文字列をボックス化解除し、null の場合はフォールバックを使用する。それ以外の場合はクラッシュ | `s = o ? (String^)o : fallback;` | `s = o ? unbox_value<hstring>(o) : fallback;` |
-| 可能であれば文字列をボックス化解除する。それ以外の場合はフォールバックを使用する | `auto box = dynamic_cast<IBox<String^>^>(o);`<br>`s = box ? box->Value : fallback;` | `s = unbox_value_or<hstring>(o, fallback);` |
+| null の有効性 | `s = nullptr;`<br>`s->Length == 0` (有効) | `s = hstring{};`<br>`s.size() == 0` (有効) |
+| オブジェクトに null 文字列を割り当てる場合 | `o = (String^)nullptr;`<br>`o == nullptr` | `o = box_value(hstring{});`<br>`o != nullptr` |
+| オブジェクトに `""` を割り当てる場合 | `o = "";`<br>`o == nullptr` | `o = box_value(hstring{L""});`<br>`o != nullptr` |
 
-上記の 2 つの*フォールバックを使用したボックス化解除*のケースでは、null 文字列が強制的にボックス化されている可能性があり、その場合、フォールバックは使用されません。 結果として得られる値は、ボックス内にあったもののため、空の文字列になります。
+基本的なボックス化とボックス化解除
+
+| 操作 | C++/CX | C++/WinRT|
+|-|-|-|
+| 文字列をボックス化する | `o = s;`<br>空の文字列は nullptr になります。 | `o = box_value(s);`<br>空の文字列は非 null オブジェクトになります。 |
+| 既知の文字列をボックス化解除する | `s = (String^)o;`<br>null オブジェクトは空の文字列になります。<br>文字列でない場合は InvalidCastException。 | `s = unbox_value<hstring>(o);`<br>null オブジェクトはクラッシュします。<br>文字列でない場合はクラッシュします。 |
+| 使用可能な文字列をボックス化解除する | `s = dynamic_cast<String^>(o);`<br>null オブジェクトまたは文字列以外は空の文字列になります。 | `s = unbox_value_or<hstring>(o, fallback);`<br>null または文字列以外はフォールバックになります。<br>空の文字列は保持されます。 |
 
 ## <a name="concurrency-and-asynchronous-operations"></a>同時実行操作と非同期操作
 
