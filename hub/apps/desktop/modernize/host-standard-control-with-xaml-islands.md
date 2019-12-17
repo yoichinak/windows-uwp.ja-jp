@@ -53,7 +53,7 @@ WPF アプリで UWP コントロールをホストするには、次のコン�
     > [!NOTE]
     > Windows フォーム[アプリでは、preview7](https://www.nuget.org/packages/Microsoft.Toolkit.Forms.UI.Controls)パッケージ (version v 6.0.0-以降) を使用する必要があります。
 
-6. X86 や x64 などの特定のプラットフォームを対象とするようにソリューションを構成します。 ほとんどの XAML アイランドのシナリオは **、任意の CPU**を対象とするプロジェクトではサポートされていません。
+6. X86 や x64 などの特定のプラットフォームを対象とするようにソリューションを構成します。 ほとんどの XAML Islands のシナリオは、**任意の CPU**を対象とするプロジェクトではサポートされていません。
 
     1. **ソリューションエクスプローラー**で、ソリューションノードを右クリックし、[**プロパティ** -> ] [**構成プロパティ** -> ] **[Configuration Manager]** の順に選択します。 
     2. **[アクティブソリューションプラットフォーム]** で、 **[新規]** を選択します。 
@@ -100,7 +100,7 @@ WPF アプリで UWP コントロールをホストするには、次のコン�
 
 ## <a name="host-an-inkcanvas-and-inktoolbar-by-using-wrapped-controls"></a>ラップされたコントロールを使用して System.windows.controls.inkcanvas> および InkToolbar をホストする
 
-UWP XAML アイランドを使用するようにプロジェクトを構成したので、次は[system.windows.controls.inkcanvas>](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/inkcanvas)と[inktoolbar](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/inktoolbar)のラップされた uwp コントロールをアプリに追加する準備ができました。
+UWP XAML Islands を使用するようにプロジェクトを構成したので、次は[system.windows.controls.inkcanvas>](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/inkcanvas)と[inktoolbar](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/inktoolbar)のラップされた uwp コントロールをアプリに追加する準備ができました。
 
 1. **ソリューションエクスプローラー**で、 **mainwindow.xaml**ファイルを開きます。
 
