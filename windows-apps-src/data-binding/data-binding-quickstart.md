@@ -35,7 +35,7 @@ ms.locfileid: "71674544"
 
 またはC++/cx をC#使用している場合は、新しいクラスをプロジェクトに追加し、クラスの名前を**記録**します。
 
-[ C++/Winrt](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt)を使用している場合は、次のリストにC++示すように、新しい**Midl ファイル (.idl)** 項目をプロジェクトに追加します。 これらの新しいファイルの内容を、一覧に示されている[MIDL 3.0](/uwp/midl-3/intro)コードに置き換え、プロジェクトをビルドして `Recording.h`、`.cpp`、`RecordingViewModel.h`、および `.cpp` を生成します。次に、生成されたファイルに、一覧に一致するコードを追加します。 これらの生成されたファイルの詳細と、これらのファイルをプロジェクトにコピーする方法については、「 [XAML コントロール」をC++](/windows/uwp/cpp-and-winrt-apis/binding-property)参照してください。
+[ C++/Winrt](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt)を使用している場合は、次のリストにC++示すように、新しい**Midl ファイル (.idl)** 項目をプロジェクトに追加します。 これらの新しいファイルの内容を、一覧に示されている[MIDL 3.0](/uwp/midl-3/intro)コードに置き換え、`Recording.h` 生成するプロジェクトをビルドし、`.cpp` して `RecordingViewModel.h` および `.cpp`します。次に、生成されたファイルに、一覧に一致するコードを追加します。 これらの生成されたファイルの詳細と、これらのファイルをプロジェクトにコピーする方法については、「 [XAML コントロール」をC++](/windows/uwp/cpp-and-winrt-apis/binding-property)参照してください。
 
 ```csharp
 namespace Quickstart
@@ -223,7 +223,7 @@ namespace Quickstart
 
 次に、マークアップのページを表すクラスからバインディング ソース クラスを公開します。 これを行うには、**RecordingViewModel** 型のプロパティを **MainPage** に追加します。
 
-[ C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt)を使用している場合は、最初に `MainPage.idl` を更新します。 プロジェクトをビルドして `MainPage.h` および `.cpp` を再生成し、生成されたファイルの変更をプロジェクト内のファイルにマージします。
+[ C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt)を使用している場合は、最初に `MainPage.idl`を更新します。 プロジェクトをビルドして `MainPage.h` と `.cpp`を再生成し、生成されたファイルの変更をプロジェクト内のファイルにマージします。
 
 ```csharp
 namespace Quickstart
@@ -450,7 +450,7 @@ public:
 </Page>
 ```
 
-まだ **Recording** クラスのデータ テンプレートを用意していないため、UI フレームワークで [**ListView**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView) の各項目について [**ToString**](https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString) を呼び出します。 **ToString** の既定の実装は、型名を返すことです。
+まだ **Recording** クラスのデータ テンプレートを用意していないため、UI フレームワークで [**ListView**](https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString) の各項目について [**ToString**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView) を呼び出します。 **ToString** の既定の実装は、型名を返すことです。
 
 ![一覧ビューのバインド](images/xaml-databinding1.png)
 
@@ -492,17 +492,17 @@ XAML 構文について詳しくは、「[XAML を使った UI の作成](https:
 
 ## <a name="adding-a-details-view"></a>詳細ビューの追加
 
-[  **ListView**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView) 項目内の **Recording** オブジェクトの詳細をすべて表示することを選択できます。 ただし、多くの領域が占有されます。 代わりに、項目を識別するのに十分な項目内のデータのみを表示し、ユーザーが選択を行ったら、選択された項目のすべての詳細を、詳細ビューと呼ばれる独立した UI に表示できます。 この配置は、マスター/詳細ビューまたはリスト/詳細ビューとも呼ばれます。
+ListView[**項目内の**Recording](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView) オブジェクトの詳細をすべて表示することを選択できます。 ただし、多くの領域が占有されます。 代わりに、項目を識別するのに十分な項目内のデータのみを表示し、ユーザーが選択を行ったら、選択された項目のすべての詳細を、詳細ビューと呼ばれる独立した UI に表示できます。 この配置は、マスター/詳細ビューまたはリスト/詳細ビューとも呼ばれます。
 
-これには 2 つの方法があります。 詳細ビューを、[**ListView**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView) の [**SelectedItem**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.selector.selecteditem) プロパティにバインドできます。 または、 [**Collectionviewsource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.CollectionViewSource)を使用することもできます。この場合、 **ListView**と details ビューの両方を**collectionviewsource**にバインドします (これにより、現在選択されている項目が自動的に処理されます)。 両方の手法を次に示します。両方の方法で同じ結果が得られます (図を参照)。
+これには 2 つの方法があります。 詳細ビューを、[**ListView**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.selector.selecteditem) の [**SelectedItem**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView) プロパティにバインドできます。 または、 [**Collectionviewsource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.CollectionViewSource)を使用することもできます。この場合、 **ListView**と details ビューの両方を**collectionviewsource**にバインドします (これにより、現在選択されている項目が自動的に処理されます)。 両方の手法を次に示します。両方の方法で同じ結果が得られます (図を参照)。
 
 > [!NOTE]
 > このトピックでは、これまで [{x:Bind} マークアップ拡張](https://docs.microsoft.com/windows/uwp/xaml-platform/x-bind-markup-extension)のみを使ってきましたが、以下に示す 2 つの手法ではより柔軟な (ただし効率は低下する) [{Binding} マークアップ拡張](https://docs.microsoft.com/windows/uwp/xaml-platform/binding-markup-extension)が必要です。
 
-/WinRT またはC++ビジュアルC++コンポーネント拡張 (C++/cx) を使用している場合、 [{Binding}](https://docs.microsoft.com/windows/uwp/xaml-platform/binding-markup-extension)マークアップ拡張機能を使用するには、バインド先のランタイムクラスに[BindableAttribute](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.BindableAttribute)属性を追加する必要があります。 [{X:Bind}](https://docs.microsoft.com/windows/uwp/xaml-platform/x-bind-markup-extension)を使用するには、この属性は必要ありません。
+/WinRT またはC++ビジュアルC++コンポーネント拡張 (C++/cx) を使用している場合、 [{Binding}](https://docs.microsoft.com/windows/uwp/xaml-platform/binding-markup-extension)マークアップ拡張機能を使用するには、バインド先のランタイムクラスに[**BindableAttribute**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.BindableAttribute)属性を追加する必要があります。 [{X:Bind}](https://docs.microsoft.com/windows/uwp/xaml-platform/x-bind-markup-extension)を使用するには、この属性は必要ありません。
 
 > [!IMPORTANT]
-> [ C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt)を使用している場合は、Windows SDK バージョン 10.0.17763.0 (Windows 10、バージョン 1809)、またはそれ以降がインストールされている場合は、 [BindableAttribute](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.BindableAttribute)属性を使用できます。 この属性がない場合は、 [{Binding}](https://docs.microsoft.com/windows/uwp/xaml-platform/binding-markup-extension)マークアップ拡張機能を使用できるようにするために、 [ICustomPropertyProvider](/uwp/api/windows.ui.xaml.data.icustompropertyprovider)インターフェイスと[ICustomProperty](/uwp/api/windows.ui.xaml.data.icustomproperty)インターフェイスを実装する必要があります。
+> [ C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt)を使用している場合は、Windows SDK バージョン 10.0.17763.0 (Windows 10、バージョン 1809)、またはそれ以降がインストールされている場合は、 [**BindableAttribute**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.BindableAttribute)属性を使用できます。 この属性がない場合は、 [{Binding}](https://docs.microsoft.com/windows/uwp/xaml-platform/binding-markup-extension)マークアップ拡張機能を使用できるようにするために、 [ICustomPropertyProvider](/uwp/api/windows.ui.xaml.data.icustompropertyprovider)インターフェイスと[ICustomProperty](/uwp/api/windows.ui.xaml.data.icustomproperty)インターフェイスを実装する必要があります。
 
 まず、[**SelectedItem**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.selector.selecteditem) の手法を示します。
 
@@ -583,9 +583,9 @@ public ref class Recording sealed
 
 ## <a name="formatting-or-converting-data-values-for-display"></a>表示のためのデータ値の書式設定と変換
 
-上のレンダリングに問題があります。 **Releasedatetime**プロパティは日付だけではなく、 [DateTime](/uwp/api/windows.foundation.datetime) (を使用してC++いる場合は[カレンダー](/uwp/api/windows.globalization.calendar)) です。 そのため、 C#では、必要以上の精度で表示されています。 およびでC++は、型名としてレンダリングされています。 1つの解決策は、`this.ReleaseDateTime.ToString("d")` と同等のものを返す、**記録**クラスに文字列プロパティを追加することです。 このプロパティに**Releasedate**という名前を付けると、日付と時刻ではなく日付が返されることがわかります。 **ReleaseDateAsString** という名前を付けると、さらに文字列が返されることを示します。
+上のレンダリングに問題があります。 **Releasedatetime**プロパティは日付だけではなく、 [**DateTime**](/uwp/api/windows.foundation.datetime) (を使用してC++いる場合は[**カレンダー**](/uwp/api/windows.globalization.calendar)) です。 そのため、 C#では、必要以上の精度で表示されています。 およびでC++は、型名としてレンダリングされています。 1つの解決策として、`this.ReleaseDateTime.ToString("d")`に相当するものを返す、**記録**クラスに文字列プロパティを追加します。 このプロパティに**Releasedate**という名前を付けると、日付と時刻ではなく日付が返されることがわかります。 **ReleaseDateAsString** という名前を付けると、さらに文字列が返されることを示します。
 
-より柔軟な解決策は、値コンバーターと呼ばれるものを使うことです。 独自の値コンバーターを作成する方法の例を示します。 を使用してC#いる場合は、次のコードを @no__t 1 つのソースコードファイルに追加します。 /Winrt を使用C++している場合は、次のように、プロジェクトに新しい**Midl ファイル (.idl)** 項目を追加しC++ます。このプロジェクトには、次の例に示すように、プロジェクトをビルドして `StringFormatter.h` と `.cpp` を生成し、それらのファイルをプロジェクトに追加した後、コードリストを一覧にします。 また `#include "StringFormatter.h"` を `MainPage.h` に追加します。
+より柔軟な解決策は、値コンバーターと呼ばれるものを使うことです。 独自の値コンバーターを作成する方法の例を示します。 を使用してC#いる場合は、以下のコードを `Recording.cs` ソースコードファイルに追加します。 /Winrt を使用C++している場合は、次のように、プロジェクトに新しい**Midl ファイル (.idl)** 項目を追加しC++ます。このプロジェクトには、次の例に示すように、プロジェクトをビルドして `StringFormatter.h` と `.cpp`を生成し、それらのファイルをプロジェクトに追加してから、コード一覧を貼り付けます。 また、`MainPage.h`に `#include "StringFormatter.h"` を追加します。
 
 ```csharp
 public class StringFormatter : Windows.UI.Xaml.Data.IValueConverter
@@ -705,7 +705,7 @@ public:
 ```
 
 > [!NOTE]
-> 上記の Ivalueconverter.convert のコードリストでは、`StringFormatter.idl` で、既定の[属性](https://docs.microsoft.com/windows/desktop/midl/default)を使用してを既定のインターフェイスとして宣言します。 C++ この一覧では、 **Stringformatter**にはコンストラクターだけが含まれ、メソッドは存在しないため、既定のインターフェイスは生成されません。 @No__t-0 属性は、 **ivalueconverter.convert**メソッドを呼び出すために QueryInterface が必要ないため、 **stringformatter**にインスタンスメンバーを追加しない場合に最適です。 または、既定の**Istringformatter**インターフェイスを生成するように求めるメッセージを表示し、 [default_interface 属性](https://docs.microsoft.com/uwp/midl-3/predefined-attributes#the-default_interface-attribute)を使用してランタイムクラス自体に注釈を付けることによってこれを行うこともできます。 このオプションは、 **ivalueconverter.convert**のメソッドよりも頻繁に呼び出される**stringformatter**にインスタンスメンバーを追加する場合に最適です。これは、インスタンスメンバーを呼び出すために QueryInterface が必要ないためです。
+> C++上記の例のように、`StringFormatter.idl`では、[既定の属性](https://docs.microsoft.com/windows/desktop/midl/default)を使用して**ivalueconverter.convert**を既定のインターフェイスとして宣言しています。 この一覧では、 **Stringformatter**にはコンストラクターだけが含まれ、メソッドは存在しないため、既定のインターフェイスは生成されません。 `default` 属性は、 **ivalueconverter.convert**メソッドを呼び出すために QueryInterface が必要ないため、 **stringformatter**にインスタンスメンバーを追加しない場合に最適です。 または、既定の**Istringformatter**インターフェイスを生成するように求めるメッセージを表示し、 [default_interface 属性](https://docs.microsoft.com/uwp/midl-3/predefined-attributes#the-default_interface-attribute)を使用してランタイムクラス自体に注釈を付けることによってこれを行うこともできます。 このオプションは、 **ivalueconverter.convert**のメソッドよりも頻繁に呼び出される**stringformatter**にインスタンスメンバーを追加する場合に最適です。これは、インスタンスメンバーを呼び出すために QueryInterface が必要ないためです。
 
 これで、 **Stringformatter**のインスタンスをページリソースとして追加し、 **releasedatetime**プロパティを表示する**TextBlock**のバインドで使用できるようになりました。
 
