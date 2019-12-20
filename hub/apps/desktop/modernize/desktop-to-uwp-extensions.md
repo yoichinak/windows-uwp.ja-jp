@@ -8,12 +8,12 @@ ms.assetid: 0a8cedac-172a-4efd-8b6b-67fd3667df34
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: 16afad7724afeea50d379692f0755593e43709bb
-ms.sourcegitcommit: ae9c1646398bb5a4a888437628eca09ae06e6076
+ms.openlocfilehash: d1f01774d5950dbb73cff2e5c38f16167b4b812b
+ms.sourcegitcommit: cc108c791842789464c38a10e5d596c9bd878871
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74734827"
+ms.lasthandoff: 12/20/2019
+ms.locfileid: "75302596"
 ---
 # <a name="integrate-your-desktop-app-with-windows-10-and-uwp"></a>デスクトップアプリを Windows 10 および UWP と統合する
 
@@ -1376,10 +1376,4 @@ Win32 アプリの Windows アプリケーションパッケージを作成す�
 
 ## <a name="next-steps"></a>次のステップ
 
-**質問に対する回答を検索する**
-
 ご質問がある場合は、 Stack Overflow でお問い合わせください。 Microsoft のチームでは、これらの[タグ](https://stackoverflow.com/questions/tagged/project-centennial+or+desktop-bridge)をチェックしています。 [こちら](https://social.msdn.microsoft.com/Forums/en-US/home?filter=alltypes&sort=relevancedesc&searchTerm=%5BDesktop%20Converter%5D)から質問することもできます。
-
-**フィードバックの提供または機能に関する提案**
-
-[UserVoice](https://wpdev.uservoice.com/forums/110705-universal-windows-platform/category/161895-desktop-bridge-centennial) のページをご覧ください。

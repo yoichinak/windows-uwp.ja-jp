@@ -7,12 +7,12 @@ keywords: Windows 10, UWP
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: 4e4d3d22af21b8df3c78afc725ccc0e861934681
-ms.sourcegitcommit: ae9c1646398bb5a4a888437628eca09ae06e6076
+ms.openlocfilehash: a38f5fa7f3ef99f5970ec5d476fb65761aa39db4
+ms.sourcegitcommit: cc108c791842789464c38a10e5d596c9bd878871
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74734988"
+ms.lasthandoff: 12/20/2019
+ms.locfileid: "75302586"
 ---
 # <a name="extend-your-desktop-app-with-modern-uwp-components"></a>最新の UWP コンポーネントでデスクトップアプリを拡張する
 
@@ -94,7 +94,7 @@ UWP プロジェクトとランタイム コンポーネントで行うことが
 ![アダプティブ デザイン](images/desktop-to-uwp/extend-xaml-ui.png)
 
 >[!NOTE]
->この例では、UWP プロジェクトをソリューションに追加することによって XAML UI を示します。 これは、デスクトップアプリケーションで XAML Ui を表示するために安定してサポートされる方法です。 この方法の代わりに、XAML アイランドを使用して UWP XAML コントロールをデスクトップアプリケーションに直接追加します。 現在、XAML アイランドは開発者プレビューとして提供されています。 ご自身のプロトタイプ コードでこれらを試すことはお勧めしますが、現時点では運用コードで使用することはお勧めしません。 これらの Api とコントロールは、今後の Windows リリースでも成熟し、安定したものになります。 XAML アイランドの詳細については、「[デスクトップアプリケーションの UWP コントロール](xaml-islands.md)」を参照してください。
+>この例では、UWP プロジェクトをソリューションに追加することによって XAML UI を示します。 これは、デスクトップアプリケーションで XAML Ui を表示するために安定してサポートされる方法です。 代わりに、この方法では、XAML Island を使用して、デスクトップ アプリケーションに直接 UWP XAML コントロールを追加します。 XAML Islandsは、現在開発者プレビューとして使用できます。 ご自身のプロトタイプ コードでこれらを試すことはお勧めしますが、現時点では運用コードで使用することはお勧めしません。 これらの API とコントロールは、将来の Windows リリースでも成熟し安定し続けるでしょう。 XAML Islands の詳細については、[デスクトップ アプリケーションでの UWP コントロール](xaml-islands.md)を参照してください。
 
 ### <a name="the-design-pattern"></a>設計パターン
 
@@ -501,12 +501,6 @@ public void RegisterBackgroundTask(String triggerName)
 }
 ```
 
-## <a name="support-and-feedback"></a>サポートとフィードバック
-
-**質問に対する回答を検索する**
+## <a name="find-answers-to-your-questions"></a>質問に対する回答を見つける
 
 ご質問がある場合は、 Stack Overflow でお問い合わせください。 Microsoft のチームでは、これらの[タグ](https://stackoverflow.com/questions/tagged/project-centennial+or+desktop-bridge)をチェックしています。 [こちら](https://social.msdn.microsoft.com/Forums/en-US/home?filter=alltypes&sort=relevancedesc&searchTerm=%5BDesktop%20Converter%5D)から質問することもできます。
-
-**フィードバックの提供または機能に関する提案**
-
-[UserVoice](https://wpdev.uservoice.com/forums/110705-universal-windows-platform/category/161895-desktop-bridge-centennial) のページをご覧ください。
