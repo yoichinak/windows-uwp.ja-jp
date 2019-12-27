@@ -3,7 +3,7 @@ description: この記事では、XAML Islands を使用して WPF アプリで�
 title: XAML Islands を使用して WPF アプリで標準の UWP コントロールをホストする
 ms.date: 08/20/2019
 ms.topic: article
-keywords: windows 10、uwp、windows フォーム、wpf、xaml アイランド、ラップされたコントロール、標準コントロール、System.windows.controls.inkcanvas>、InkToolbar
+keywords: windows 10、uwp、windows フォーム、wpf、xaml islands、ラップされたコントロール、標準コントロール、System.windows.controls.inkcanvas>、InkToolbar
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
