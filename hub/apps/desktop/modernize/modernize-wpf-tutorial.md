@@ -126,4 +126,4 @@ Windows 10 バージョン 1903 以降では、*XAML Islands* と呼ばれる機
 > [!NOTE]
 > WPF と Windows フォームがクロスプラットフォームになっていないため、Linux および MacOS で WPF や Windows フォームを実行することはできません。 WPF と Windows フォームの UI コンポーネントは、引き続き Windows レンダリングシステムに依存しています。
 
-詳細については、「 [.Net Core 3.0 の新機能](https://docs.microsoft.com/dotnet/core/whats-new/dotnet-core-3-0)」を参照してください。
+詳細については、「[.Net Core 3.0 の新機能](https://docs.microsoft.com/dotnet/core/whats-new/dotnet-core-3-0)」を参照してください。
