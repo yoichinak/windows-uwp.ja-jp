@@ -17,12 +17,12 @@ ms.locfileid: "70911587"
 ---
 # <a name="part-2-add-a-uwp-inkcanvas-control-using-xaml-islands"></a>第 2 部: XAML Islandsを使って UWP InkCanvas コントロールを追加
 
-これは、Contoso の支出という名前の WPF デスクトップアプリのサンプルを最新化する方法を示すチュートリアルの2番目の部分です。 サンプルアプリをダウンロードするためのチュートリアル、前提条件、および手順の概要につい[ては、「チュートリアル:WPF アプリ](modernize-wpf-tutorial.md)を最新化します。 この記事では、既に[パート 1](modernize-wpf-tutorial-1.md)を完了していることを前提としています。
+これは、Contoso の支出という名前の WPF デスクトップアプリのサンプルを最新化する方法を示すチュートリアルの2番目の部分です。 サンプルアプリをダウンロードするためのチュートリアル、前提条件、および手順の概要については、「[チュートリアル:WPF アプリ](modernize-wpf-tutorial.md)を最新化します。 この記事では、既に[パート 1](modernize-wpf-tutorial-1.md)を完了していることを前提としています。
 
 このチュートリアルの架空のシナリオでは、Contoso 開発チームは、デジタル署名のサポートを Contoso の経費アプリに追加する必要があります。 UWP **system.windows.controls.inkcanvas>** コントロールは、テキストと図形を認識する機能のようなデジタルインクと AI を使用した機能をサポートするため、このシナリオに適したオプションです。 これを行うには、Windows Community Toolkit で使用可能な[system.windows.controls.inkcanvas>](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/inkcanvas)ラップされた UWP コントロールを使用します。 このコントロールは、WPF アプリで使用する UWP **system.windows.controls.inkcanvas>** コントロールのインターフェイスと機能をラップします。 ラップされた UWP コントロールの詳細については、次を参照してください。[デスクトップ アプリ (XAML Islands) でコントロールをホスト UWP XAML](xaml-islands.md)します。
 
 > [!NOTE]
-> このチュートリアルでは、WPF アプリは Windows SDK からのファーストパーティ UWP コントロールのみをホストします。 カスタム UWP コントロールを含む他の XAML アイランドのシナリオをサポートするには、アプリプロジェクトが、Windows `Microsoft.Toolkit.Win32.UI.XamlHost.XamlApplication` Community Toolkit によって提供されるクラスのインスタンスにアクセスできる必要があります。 これを行うには、WPF (または Windows フォーム) プロジェクトと同じソリューションに**空のアプリ (ユニバーサル Windows)** プロジェクトを追加し、このプロジェクトの既定`App`のクラスを変更する方法をお勧めします。 Windows SDK からファーストパーティの UWP コントロールをホストする基本的なシナリオでは、この手順は必要ありません。このチュートリアルでは、この手順を省略します。 詳細については、こちらの[記事](host-standard-control-with-xaml-islands.md)を参照してください。
+> このチュートリアルでは、WPF アプリは Windows SDK からのファーストパーティ UWP コントロールのみをホストします。 カスタム UWP コントロールを含む他の XAML Island のシナリオをサポートするには、アプリプロジェクトが、Windows `Microsoft.Toolkit.Win32.UI.XamlHost.XamlApplication` Community Toolkit によって提供されるクラスのインスタンスにアクセスできる必要があります。 これを行うには、WPF (または Windows フォーム) プロジェクトと同じソリューションに**空のアプリ (ユニバーサル Windows)** プロジェクトを追加し、このプロジェクトの既定`App`のクラスを変更する方法をお勧めします。 Windows SDK からファーストパーティの UWP コントロールをホストする基本的なシナリオでは、この手順は必要ありません。このチュートリアルでは、この手順を省略します。 詳細については、こちらの[記事](host-standard-control-with-xaml-islands.md)を参照してください。
 
 ## <a name="configure-the-project-to-use-xaml-islands"></a>XAML Islandsを使用するプロジェクトを構成します。
 
