@@ -46,7 +46,7 @@ Contoso では、従業員が経費報告書を効率的に作成できるよう
 このチュートリアルでは、新しい Windows 機能で Contoso の支出を強化します。
 
 * 既存の WPF アプリを .NET Core 3.0 に移行します。 これにより、今後新しい重要なシナリオが開きます。
-* Windows Community Toolkit によって提供される**system.windows.controls.inkcanvas>** および**mapcontrol**のラップされたコントロールをホストするには、XAML Islands を使用します。
+* Windows Community Toolkit によって提供される**system.windows.controls.inkcanvas>** および**mapcontrol**のラップされたコントロールをホストするには、XAML アイランドを使用します。
 * XAML Islands を使用して、標準の UWP XAML コントロール (この場合は**CalendardView**) をホストします。
 * アダプティブカードと Windows 10 の通知をアプリに統合します。
 * アプリを MSIX でパッケージ化し、Azure DevOps に CI/CD パイプラインを設定して、使用可能になったらすぐに新しいバージョンのアプリをテスト担当者とユーザーに自動的に配信できるようにします。

@@ -26,7 +26,7 @@ ms.locfileid: "69643373"
 [パート 2](modernize-wpf-tutorial-2.md)で追加した**system.windows.controls.inkcanvas>** コントロールとは異なり、Windows Community TOOLKIT には、WPF アプリで使用できる UWP **CalendarView**のラップされたバージョンが用意されていません。 別の方法として、汎用[Windowsxamlhost](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost)コントロールで**system.windows.controls.inkcanvas>** をホストします。 このコントロールを使用して、Windows SDK または WinUI ライブラリ、またはサードパーティによって作成された任意のカスタム UWP コントロールによって提供されるファーストパーティ UWP コントロールをホストできます。 **Windowsxamlhost**コントロールは、 `Microsoft.Toolkit.Wpf.UI.XamlHost`パッケージ NuGet パッケージによって提供されます。 このパッケージは、 `Microsoft.Toolkit.Wpf.UI.Controls` [パート 2](modernize-wpf-tutorial-2.md)でインストールした NuGet パッケージに含まれています。
 
 > [!NOTE]
-> このチュートリアルでは、Windows SDK によって提供されるファーストパーティの**CalendarView**コントロールをホストするために[windowsxamlhost](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost)を使用する方法についてのみ説明します。 カスタムコントロールをホストする方法を示すチュートリアルについては、「[XAML Islands を使用した WPF アプリでのカスタム UWP コントロールのホスト](host-custom-control-with-xaml-islands.md)」を参照してください。
+> このチュートリアルでは、Windows SDK によって提供されるファーストパーティの **CalendarView** コントロールをホストするために [windowsxamlhost](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost)を使用する方法についてのみ説明します。 カスタムコントロールをホストする方法を示すチュートリアルについては、「[XAML Islands を使用した WPF アプリでのカスタム UWP コントロールのホスト](host-custom-control-with-xaml-islands.md)」を参照してください。
 
 **Windowsxamlhost**コントロールを使用するには、WPF アプリのコードから WinRT api を直接呼び出す必要があります。 `Microsoft.Windows.SDK.Contracts` NuGet パッケージには、アプリから WinRT api を呼び出すことができるようにするために必要な参照が含まれています。 このパッケージは、 `Microsoft.Toolkit.Wpf.UI.Controls` [パート 2](modernize-wpf-tutorial-2.md)でインストールした NuGet パッケージにも含まれています。
 
