@@ -20,7 +20,7 @@ ms.locfileid: "71317081"
 アプリを最初から書き換えるのではなく、最新の Windows 機能を既存のソースコードに[統合することによっ](index.md)て、既存のデスクトップアプリを最新化する方法は多数あります。 このチュートリアルでは、次の機能を使用して、既存の WPF 基幹業務アプリを最新化するためのいくつかの方法について説明します。
 
 * .NET Core 3
-* XAML アイランドを使用した UWP XAML コントロール
+* XAML Islands を使用した UWP XAML コントロール
 * アダプティブカードと Windows 10 の通知
 * MSIX の展開
 
@@ -46,8 +46,8 @@ Contoso では、従業員が経費報告書を効率的に作成できるよう
 このチュートリアルでは、新しい Windows 機能で Contoso の支出を強化します。
 
 * 既存の WPF アプリを .NET Core 3.0 に移行します。 これにより、今後新しい重要なシナリオが開きます。
-* Windows Community Toolkit によって提供される**system.windows.controls.inkcanvas>** および**mapcontrol**のラップされたコントロールをホストするには、XAML アイランドを使用します。
-* XAML アイランドを使用して、標準の UWP XAML コントロール (この場合は**CalendardView**) をホストします。
+* Windows Community Toolkit によって提供される**system.windows.controls.inkcanvas>** および**mapcontrol**のラップされたコントロールをホストするには、XAML Islands を使用します。
+* XAML Islands を使用して、標準の UWP XAML コントロール (この場合は**CalendardView**) をホストします。
 * アダプティブカードと Windows 10 の通知をアプリに統合します。
 * アプリを MSIX でパッケージ化し、Azure DevOps に CI/CD パイプラインを設定して、使用可能になったらすぐに新しいバージョンのアプリをテスト担当者とユーザーに自動的に配信できるようにします。
 
@@ -126,4 +126,4 @@ Windows 10 バージョン 1903 以降では、*XAML Islands* と呼ばれる機
 > [!NOTE]
 > WPF と Windows フォームがクロスプラットフォームになっていないため、Linux および MacOS で WPF や Windows フォームを実行することはできません。 WPF と Windows フォームの UI コンポーネントは、引き続き Windows レンダリングシステムに依存しています。
 
-詳細については、「 [.Net Core 3.0 の新機能](https://docs.microsoft.com/dotnet/core/whats-new/dotnet-core-3-0)」を参照してください。
+詳細については、「[.Net Core 3.0 の新機能](https://docs.microsoft.com/dotnet/core/whats-new/dotnet-core-3-0)」を参照してください。
