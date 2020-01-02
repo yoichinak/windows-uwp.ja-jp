@@ -72,7 +72,7 @@ UWP XAML ホスティング API には、これらの主な Windows ランタイ
 |--------------------|-------------|
 | [WindowsXamlManager](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.windowsxamlmanager) | このクラスは、UWP XAML フレームワークを表します。 このクラスには、デスクトップアプリの現在のスレッドで UWP XAML フレームワークを初期化する単一の静的[Initializeforcurrentthread](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.windowsxamlmanager.initializeforcurrentthread)メソッドが用意されています。 |
 | [DesktopWindowXamlSource](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.desktopwindowxamlsource) | このクラスは、デスクトップアプリでホストする UWP XAML コンテンツのインスタンスを表します。 このクラスの最も重要なメンバーは、[コンテンツ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.desktopwindowxamlsource.content)プロパティです。 このプロパティは、ホストする[Windows.UI.Xaml.UIElement](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement)に割り当てます。 このクラスには、XAML Islands との間でキーボードフォーカスのナビゲーションをルーティングするための他のメンバーもあります。 |
-| IDesktopWindowXamlSourceNative | この COM インターフェイスには**Attachtowindow**メソッドが用意されています。このメソッドは、アプリの  XAML Island を親 UI 要素にアタッチするために使用します。 すべての **Desktopwindowxamlsource** オブジェクトは、このインターフェイスを実装します。 |
+| IDesktopWindowXamlSourceNative | この COM インターフェイスには**Attachtowindow**メソッドが用意されています。このメソッドは、アプリの XAML Island を親 UI 要素にアタッチするために使用します。 すべての **Desktopwindowxamlsource** オブジェクトは、このインターフェイスを実装します。 |
 | IDesktopWindowXamlSourceNative2 | この COM インターフェイスには、UWP XAML フレームワークが特定の Windows メッセージを正しく処理できるようにする**PreTranslateMessage**メソッドが用意されています。 すべての **Desktopwindowxamlsource** オブジェクトは、このインターフェイスを実装します。 |
 
 次の図は、デスクトップアプリでホストされている XAML Islands 内のオブジェクトの階層を示しています。
