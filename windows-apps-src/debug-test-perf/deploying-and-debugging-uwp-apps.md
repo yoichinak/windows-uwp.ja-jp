@@ -6,12 +6,12 @@ ms.date: 04/08/2019
 ms.topic: article
 keywords: Windows 10, UWP, デバッグ, テスト, パフォーマンス
 ms.localizationpriority: medium
-ms.openlocfilehash: cdfcdfddb2b595a589c70d1facc24559c63b98da
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: d948af1ce10b3752ba9f20454d8dea72916de692
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74254793"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75683855"
 ---
 # <a name="deploying-and-debugging-uwp-apps"></a>UWP アプリの展開とデバッグ
 
@@ -67,7 +67,7 @@ C# または Microsoft Visual Basic のアプリのリモート コンピュー�
 
 このダイアログに戻るには、プロジェクトのプロパティを開き、 **[デバッグ]** タブにアクセスします。そこから、リモートコンピューター の横にある **[検索]** を選択し**ます。**
 
-![[デバッグ] タブ](images/debug-remote-machine-config.png)
+![デバッグ タブ](images/debug-remote-machine-config.png)
 
 Creators Update より前のリモート PC にアプリを展開するには、Visual Studio リモート ツールをターゲット PC にダウンロードしてインストールする必要もあります。 詳しい手順については、「[リモート PC の手順](#remote-pc-instructions)」をご覧ください。  ただし、Creators Update の PC ではリモート展開もサポートされます。  
 
@@ -98,7 +98,7 @@ Creators Update より前のリモート PC に展開するには、ターゲッ
 
 ## <a name="passing-command-line-debug-arguments"></a>デバッグのコマンド ライン引数を渡す
 
-Visual Studio 2019 では、UWP アプリケーションのデバッグを開始するときにコマンドラインデバッグ引数を渡すことができます。 デバッグのコマンド ライン引数には、Application クラスの [OnLaunched**メソッドで**args](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.application) パラメーターからアクセスすることができます デバッグのコマンド ライン引数を指定するには、プロジェクトのプロパティを開き、 **[デバッグ]** タブに移動します。
+Visual Studio 2019 では、UWP アプリケーションのデバッグを開始するときにコマンドラインデバッグ引数を渡すことができます。 デバッグのコマンド ライン引数には、[**Application**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application) クラスの **OnLaunched** メソッドで *args* パラメーターからアクセスすることができます デバッグのコマンド ライン引数を指定するには、プロジェクトのプロパティを開き、 **[デバッグ]** タブに移動します。
 
 > [!NOTE]
 > これは、Visual Studio 2017 (Version 15.1) で C#、VB、C++ について利用できます。 JavaScript は、以降のバージョンで使用できます。 デバッグのコマンド ライン引数は、シミュレーターを除くすべての種類の展開で利用できます。
@@ -111,7 +111,7 @@ C++ と JS の UWP プロジェクトでは、 **[デバッグ プロパティ]*
 
 ![C++ と JS でのコマンド ライン引数](images/command-line-arguments-cpp.png)
 
-コマンド ライン引数を指定すると、アプリの **OnLaunched** メソッドで引数の値にアクセスすることができます。 [  **LaunchActivatedEventArgs**](https://docs.microsoft.com/en-us/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs) オブジェクト *args* は、値が **[コマンド ライン引数]** フィールドのテキストに設定された **Arguments** プロパティを持ちます。
+コマンド ライン引数を指定すると、アプリの **OnLaunched** メソッドで引数の値にアクセスすることができます。 [  **LaunchActivatedEventArgs**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs) オブジェクト *args* は、値が **[コマンド ライン引数]** フィールドのテキストに設定された **Arguments** プロパティを持ちます。
 
 ![C++ と JS でのコマンド ライン引数](images/command-line-arguments-debugging.png)
 
@@ -121,7 +121,7 @@ C++ と JS の UWP プロジェクトでは、 **[デバッグ プロパティ]*
 
 - **[ユニバーサル (暗号化されていないプロトコル)]** : リモート デバイスに展開するときは、必ずこの認証モードを使います。 これは現在、IoT デバイス、Xbox デバイス、HoloLens デバイスと、Creators Update 以降を搭載した PC を対象としています。 ユニバーサル (暗号化されていないプロトコル) は、信頼されたネットワークで使う必要があります。 デバッグ接続は、開発マシンとリモート マシンとの間で渡されるデータを傍受して変更できる悪意のあるユーザーに対して脆弱です。
 - **[Windows]** : この認証モードは、Visual Studio リモート ツールを実行中のリモート PC (デスクトップまたはノート PC) にのみ使うように想定されています。 ターゲット コンピューターのサインイン ユーザーの資格情報にアクセスできる場合は、この認証モードを使用します。 これは、リモート展開用の最も安全なチャネルです。
-- **[なし]** : この認証モードは、Visual Studio リモート ツールを実行中のリモート PC (デスクトップまたはノート PC) にのみ使うように想定されています。 テスト アカウントがサインインしていて資格情報を入力できない環境にテスト コンピューターがセットアップされている場合は、この認証モードを使用します。 リモート デバッガーの設定が、"認証なし" を受け入れるようになっていることを確認してください。
+- **[なし]** : この認証モードは、Visual Studio リモート ツールを実行中のリモート PC (デスクトップまたはノート PC) にのみ使うように想定されています。 テスト アカウントがサインインしていて資格情報を入力できない環境にテスト コンピューターがセットアップされている場合は、この認証モードを使用します。 リモート デバッガーの設定が、認証を受け入れないように設定されていることを確認してください。
 
 ## <a name="advanced-remote-deployment-options"></a>リモート展開の詳細オプション
 
@@ -147,7 +147,7 @@ C# または Visual Basic の UWP アプリでは、[プロパティ] ページ�
 
 ![CS または VB プロパティ](images/advanced-remote-deploy-cs.png)
 
-C++ UWP アプリでは、プロパティ ページは次のようになります。
+C++ UWP アプリでは、[プロパティ] ページは、次のようになります。
 
 ![Cpp プロパティ](images/advanced-remote-deploy-cpp.png)
 
@@ -191,7 +191,7 @@ C++ UWP アプリでは、プロパティ ページは次のようになりま�
 
 Windows 10 では、事前起動と呼ばれる手法でアプリを事前に起動して中断することで、UWP アプリの起動パフォーマンスが[向上して](https://docs.microsoft.com/windows/uwp/launch-resume/handle-app-prelaunch)います。 多くのアプリはこのモードで動作するために特別に何もする必要はありませんが、一部のアプリでは動作を調整する必要があります。 これらのコード パスの問題をデバッグするために、事前起動モードで Visual Studio からアプリのデバッグを開始できます。
 
-デバッグは、Visual Studio プロジェクト (**デバッグ** -&gt;**他のデバッグターゲット** -&gt;**ユニバーサル Windows アプリ**の事前起動) と、コンピューターに既にインストールされているアプリの両方でサポートされてい**ます ([** 事前**認証を使用**してアプリをアクティブにする] チェックボックスをオンにして、**インストールさ**れているアプリパッケージ ** -** デバッグ &gt;)。 -&gt; 詳しくは、「[事前起動 UWP をデバッグする](https://blogs.msdn.com/b/visualstudioalm/archive/2015/11/30/debug-uwp-prelaunch-with-vs2015.aspx)」をご覧ください。
+デバッグは、Visual Studio プロジェクト (**デバッグ** -&gt;**他のデバッグターゲット** -&gt;**ユニバーサル Windows アプリ**の事前起動) と、コンピューターに既にインストールされているアプリの両方でサポートされてい**ます ([** 事前**認証を使用**してアプリをアクティブにする] チェックボックスをオンにして、**インストールさ**れているアプリパッケージ ** -** デバッグ &gt;)。 詳しくは、「[事前起動 UWP をデバッグする](https://blogs.msdn.com/b/visualstudioalm/archive/2015/11/30/debug-uwp-prelaunch-with-vs2015.aspx)」をご覧ください。
 
 スタートアップ プロジェクトの **[デバッグ]** プロパティ ページで、次の展開オプションを設定できます。
 
@@ -217,7 +217,7 @@ Windows 10 では、事前起動と呼ばれる手法でアプリを事前に起
 
 Visual Studio のシンボル オプションを設定するには、 **[ツール] の [オプション]** を選択し、ダイアログ ウィンドウで **[デバッグ]、[シンボル]** の順に移動します。
 
-![[オプション] ダイアログ ボックス](images/gs-debug-uwp-apps-004.png)
+![オプション ダイアログ ボックス](images/gs-debug-uwp-apps-004.png)
 
 [WinDbg](#windbg) を使ってデバッグ セッションでシンボルを読み込むには、**sympath** 変数をシンボル パッケージの場所に設定します。 たとえば、次のコマンドを実行すると、Microsoft シンボル サーバーからシンボルが読み込まれ、C:\Symbols ディレクトリにキャッシュされます。
 

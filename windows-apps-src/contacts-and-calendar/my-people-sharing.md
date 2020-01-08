@@ -3,14 +3,14 @@ title: マイ連絡先の共有
 description: マイ連絡先の共有のサポートを追加する方法について説明します。
 ms.date: 06/28/2017
 ms.topic: article
-keywords: windows 10, uwp
+keywords: Windows 10, UWP
 ms.localizationpriority: medium
-ms.openlocfilehash: f0549aa1e20d8ed787eed550f4a7e7171a812831
-ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
+ms.openlocfilehash: ff37a243f88bdd378998070f58ec35196c62a6cf
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67820184"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75683490"
 ---
 # <a name="my-people-sharing"></a>マイ連絡先の共有
 
@@ -18,17 +18,17 @@ ms.locfileid: "67820184"
 
 ![マイ連絡先の共有パネル](images/my-people-sharing.png)
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>要件
 
-+ Windows 10 と Microsoft Visual Studio 2019。 インストールについて詳しくは、「[Visual Studio のセットアップ](https://docs.microsoft.com/en-us/windows/uwp/get-started/get-set-up)」をご覧ください。
-+ C# またはこれに類似するオブジェクト指向プログラミング言語に関する基本的な知識。 C# で作業を始めるには、「["Hello, world" アプリを作成する](https://docs.microsoft.com/en-us/windows/uwp/get-started/create-a-hello-world-app-xaml-universal)」をご覧ください。
++ Windows 10 と Microsoft Visual Studio 2019。 インストールについて詳しくは、「[Visual Studio のセットアップ](https://docs.microsoft.com/windows/uwp/get-started/get-set-up)」をご覧ください。
++ C# またはこれに類似するオブジェクト指向プログラミング言語に関する基本的な知識。 C# で作業を始めるには、「["Hello, world" アプリを作成する](https://docs.microsoft.com/windows/uwp/get-started/create-a-hello-world-app-xaml-universal)」をご覧ください。
 
 ## <a name="overview"></a>概要
 
 アプリケーションをマイ連絡先の共有ターゲットとするためには、次の 3 つの手順を行う必要があります。
 
-1. [アプリケーション マニフェストで shareTarget アクティブ化コントラクトのサポートを宣言します。](https://docs.microsoft.com/en-us/windows/uwp/contacts-and-calendar/my-people-sharing#declaring-support-for-the-share-contract)
-2. [ユーザーがアプリを使用して共有できる連絡先の注釈を付けます。](https://docs.microsoft.com/en-us/windows/uwp/contacts-and-calendar/my-people-sharing#annotating-contacts)
+1. [アプリケーションマニフェストで shareTarget activation コントラクトのサポートを宣言します。](https://docs.microsoft.com/windows/uwp/contacts-and-calendar/my-people-sharing#declaring-support-for-the-share-contract)
+2. [アプリを使用してユーザーが共有できる連絡先に注釈を付けます。](https://docs.microsoft.com/windows/uwp/contacts-and-calendar/my-people-sharing#annotating-contacts)
 3. アプリケーションの複数インスタンスの同時実行をサポートします。  ユーザーは、他のユーザーと共有するためにアプリケーションを使用しながら、アプリケーションの通常版を操作できる必要があります。 ユーザーは複数の共有ウィンドウで同時に使用できます。 これをサポートするには、アプリケーションが複数のビューを同時に実行できる必要があります。 これを行う方法については、「["アプリの複数のビューの表示](https://docs.microsoft.com/windows/uwp/design/layout/show-multiple-views)」の記事をご覧ください。
 
 これを行うと、アプリケーションがマイ連絡先の共有ウィンドウで共有ターゲットに表示されます。これは次の 2 つの方法で起動できます。
@@ -75,7 +75,7 @@ ms.locfileid: "67820184"
 </Applications>
 ```
 
-このコードはすべてのファイルとデータの形式のサポートを追加しますが、サポートするファイルの種類やデータの形式を指定することを選ぶこともできます (詳しくは、「[ShareTarget クラスのドキュメント](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/appxmanifestschema/element-sharetarget)」をご覧ください)。
+このコードはすべてのファイルとデータの形式のサポートを追加しますが、サポートするファイルの種類やデータの形式を指定することを選ぶこともできます (詳しくは、「[ShareTarget クラスのドキュメント](https://docs.microsoft.com/uwp/schemas/appxpackage/appxmanifestschema/element-sharetarget)」をご覧ください)。
 
 ## <a name="annotating-contacts"></a>連絡先に注釈を付ける
 
@@ -103,11 +103,11 @@ if (ApiInformation.IsApiContractPresent("Windows.Foundation.UniversalApiContract
 }
 ```
 
-“appId” はパッケージ ファミリ名の最後に ‘!’ と アクティブ化可能なクラス ID を付けたものです。 パッケージ ファミリー名を見つけるには、既定のエディターを使って **Package.appxmanifest** を開き、“Packaging” タブを検索します。ここで、"App"は、共有ターゲット ビューに対応する、アクティブ化可能なクラスです。
+“appId” はパッケージ ファミリ名の最後に ‘!’ と アクティブ化可能なクラス ID を付けたものです。 パッケージ ファミリ名を見つけるには、既定のエディターを使って **Package.appxmanifest** を開き、"Packaging" タブを検索します。ここで、"App" は、共有ターゲット ビューに対応する、アクティブ化可能なクラスです。
 
 ## <a name="running-as-a-my-people-share-target"></a>マイ連絡先の共有ターゲットとして実行する
 
-最後に、アプリを実行するには、共有ターゲットのアクティブ化を行うアプリのメイン クラスで [OnShareTargetActivated](https://docs.microsoft.com/en-us/uwp/api/Windows.UI.Xaml.Application#Windows_UI_Xaml_Application_OnShareTargetActivated_Windows_ApplicationModel_Activation_ShareTargetActivatedEventArgs_) メソッドを上書きします。 [ShareTargetActivatedEventArgs.ShareOperation.Contacts](https://docs.microsoft.com/en-us/uwp/api/windows.applicationmodel.datatransfer.sharetarget.shareoperation#Properties) プロパティは、共有される連絡先を含むか、または (マイ連絡先の共有ではない) 標準の共有操作の場合には、空となります。
+最後に、アプリを実行するには、共有ターゲットのアクティブ化を行うアプリのメイン クラスで [OnShareTargetActivated](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Application#Windows_UI_Xaml_Application_OnShareTargetActivated_Windows_ApplicationModel_Activation_ShareTargetActivatedEventArgs_) メソッドを上書きします。 [ShareTargetActivatedEventArgs.ShareOperation.Contacts](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.sharetarget.shareoperation#Properties) プロパティは、共有される連絡先を含むか、または (マイ連絡先の共有ではない) 標準の共有操作の場合には、空となります。
 
 ```Csharp
 protected override void OnShareTargetActivated(ShareTargetActivatedEventArgs args)
@@ -131,7 +131,7 @@ protected override void OnShareTargetActivated(ShareTargetActivatedEventArgs arg
 }
 ```
 
-## <a name="see-also"></a>関連項目
-+ [ユーザーの追加のサポートします。](my-people-support.md)
-+ [ShareTarget クラス](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/appxmanifestschema/element-sharetarget)
-+ [連絡先カードの統合サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/6370138b150ca8a34ff86de376ab6408c5587f5d/Samples/ContactCardIntegration)
+## <a name="see-also"></a>「
++ [People サポートを追加する](my-people-support.md)
++ [ShareTarget クラス](https://docs.microsoft.com/uwp/schemas/appxpackage/appxmanifestschema/element-sharetarget)
++ [連絡先カードの統合のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/6370138b150ca8a34ff86de376ab6408c5587f5d/Samples/ContactCardIntegration)

@@ -5,54 +5,54 @@ description: ブラシは、その出力で Visual の領域を塗りつぶし�
 ms.date: 04/19/2019
 ms.topic: article
 ms.custom: 19H1
-keywords: windows 10, uwp
+keywords: Windows 10, UWP
 ms.localizationpriority: medium
-ms.openlocfilehash: 41d3a84de1aa9e7440d5396775bd66d9c9e09d41
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 0f7bcb745245c896d1fc72c2e324af341b2e5aac
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66361519"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75683865"
 ---
 # <a name="composition-brushes"></a>コンポジションのブラシ
 UWP アプリケーションで画面に表示されるすべての情報は、ブラシによって塗りつぶされることによって表示されます。 ブラシを使用すると、シンプルで単色のカラーからイメージや描画を複雑なエフェクト チェーンまで、さまざまなコンテンツを使用してユーザー インターフェイス (UI) オブジェクトを塗りつぶします。 このトピックでは、CompositionBrush を使用した塗りつぶしの概念を紹介します。
 
-注: XAML UWP アプリを扱う場合、[XAML ブラシ](/windows/uwp/design/style/brushes)または [CompositionBrush](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.CompositionBrush) を使用して UIElement を塗りつぶすことができます。 通常、自分のシナリオが XAML ブラシでサポートされている場合、XAML ブラシを選択する方が簡単であるため、この方法をお勧めします。 たとえば、ボタンの色をアニメーション化する場合や、画像を使用してテキストや図形の塗りつぶしを変更する場合です。 その一方で、なアニメーションのマスクまたはアニメーションの 9 グリッド stretch、効果のチェーンでの描画などの XAML のブラシでサポートされていない操作を行う場合、CompositionBrush する際の使用により UIElement を描画[XamlCompositionBrushBase](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.xamlcompositionbrushbase)します。
+注: XAML UWP アプリを扱う場合、[XAML ブラシ](/windows/uwp/design/style/brushes)または [CompositionBrush](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.CompositionBrush) を使用して UIElement を塗りつぶすことができます。 通常、自分のシナリオが XAML ブラシでサポートされている場合、XAML ブラシを選択する方が簡単であるため、この方法をお勧めします。 たとえば、ボタンの色をアニメーション化する場合や、画像を使用してテキストや図形の塗りつぶしを変更する場合です。 一方、アニメーションマスクまたはアニメーション化された9グリッド伸縮や効果チェーンを使用した描画など、XAML ブラシでサポートされていないものを実行しようとしている場合は、CompositionBrush を使用して、 [XamlCompositionBrushBase](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.xamlcompositionbrushbase)を使用して UIElement を描画できます。
 
 ビジュアル レイヤーを扱う場合、CompositionBrush を使用して [SpriteVisual](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.SpriteVisual) の領域を塗りつぶす必要があります。
 
 -   [前提条件](./composition-brushes.md#prerequisites)
--   [CompositionBrush での塗りつぶし](./composition-brushes.md#paint-with-a-compositionbrush)
-    -   [純色で描画します。](./composition-brushes.md#paint-with-a-solid-color)
-    -   [線形グラデーションで塗りつぶす](./composition-brushes.md#paint-with-a-linear-gradient) 
-    -   [放射状グラデーションで塗りつぶす](./composition-brushes.md#paint-with-a-radial-gradient)
-    -   [イメージで描画します。](./composition-brushes.md#paint-with-an-image)
-    -   [カスタム描画で塗りつぶす](./composition-brushes.md#paint-with-a-custom-drawing)
-    -   [ビデオを描画します。](./composition-brushes.md#paint-with-a-video)
-    -   [フィルター効果で描画します。](./composition-brushes.md#paint-with-a-filter-effect)
-    -   [不透明度マスクを持つ、CompositionBrush で描画します。](./composition-brushes.md#paint-with-a-compositionbrush-with-opacity-mask-applied)
-    -   [NineGrid stretch を使用して CompositionBrush で描画します。](./composition-brushes.md#paint-with-a-compositionbrush-using-ninegrid-stretch)
-    -   [バック グラウンドのピクセルを使用して描画します。](./composition-brushes.md#paint-using-background-pixels)
--   [結合 CompositionBrushes](./composition-brushes.md#combining-compositionbrushes)
--   [XAML のブラシ vs を使用します。CompositionBrush](./composition-brushes.md#using-a-xaml-brush-vs-compositionbrush)
+-   [CompositionBrush を使用した塗りつぶし](./composition-brushes.md#paint-with-a-compositionbrush)
+    -   [純色で塗りつぶす](./composition-brushes.md#paint-with-a-solid-color)
+    -   [線状グラデーションを使用した塗りつぶし](./composition-brushes.md#paint-with-a-linear-gradient) 
+    -   [放射状グラデーションを使用した塗りつぶし](./composition-brushes.md#paint-with-a-radial-gradient)
+    -   [イメージを使用した塗りつぶし](./composition-brushes.md#paint-with-an-image)
+    -   [カスタム描画を使用した塗りつぶし](./composition-brushes.md#paint-with-a-custom-drawing)
+    -   [ビデオを使用した塗りつぶし](./composition-brushes.md#paint-with-a-video)
+    -   [フィルター効果を使用してペイントする](./composition-brushes.md#paint-with-a-filter-effect)
+    -   [不透明度マスク付きの CompositionBrush を使用した塗りつぶし](./composition-brushes.md#paint-with-a-compositionbrush-with-opacity-mask-applied)
+    -   [NineGrid stretch を使用して CompositionBrush で塗りつぶす](./composition-brushes.md#paint-with-a-compositionbrush-using-ninegrid-stretch)
+    -   [背景ピクセルを使用したペイント](./composition-brushes.md#paint-using-background-pixels)
+-   [CompositionBrushes の結合](./composition-brushes.md#combining-compositionbrushes)
+-   [XAML ブラシと CompositionBrush の使用](./composition-brushes.md#using-a-xaml-brush-vs-compositionbrush)
 -   [関連トピック](./composition-brushes.md#related-topics)
 
-## <a name="prerequisites"></a>前提条件
+## <a name="prerequisites"></a>必要条件
 この概要では、「[ビジュアル レイヤーの概要](visual-layer.md)」で説明されているように、基本的なコンポジション アプリケーションの構造を理解していることを前提としています。
 
 ## <a name="paint-with-a-compositionbrush"></a>CompositionBrush による塗りつぶし
 
 [CompositionBrush](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.CompositionBrush) は、その出力で領域を "塗りつぶします"。 さまざまなブラシで、出力の種類もさまざまです。 ブラシは、単色、グラデーション、画像、カスタム描画、効果を使用して領域を塗りつぶします。 その他のブラシの動作を変更する特殊なブラシも用意されています。 たとえば、不透明度マスクを使用して、CompositionBrush によって塗りつぶされる領域を制御することや、9 グリッドを使用して、領域を描画するときに、CompositionBrush に適用されるストレッチを制御することができます。 CompositionBrush は次の種類のいずれかです。
 
-|クラス                                   |詳細                                         |導入された製品|
+|クラス                                   |詳細情報                                         |導入された製品|
 |-------------------------------------|---------------------------------------------------------|--------------------------------------|
 |[CompositionColorBrush](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.CompositionColorBrush)         |単色で領域を塗りつぶします。                        |Windows 10 バージョン 1511 (SDK 10586)|
-|[CompositionSurfaceBrush](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.CompositionSurfaceBrush)       |[ICompositionSurface](https://docs.microsoft.com/en-us/uwp/api/Windows.UI.Composition.ICompositionSurface) の内容で領域を塗りつぶします。|Windows 10 バージョン 1511 (SDK 10586)|
-|[同様](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.CompositionEffectBrush)        |コンポジション効果の内容で領域を塗りつぶします。 |Windows 10 バージョン 1511 (SDK 10586)|
+|[CompositionSurfaceBrush](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.CompositionSurfaceBrush)       |[ICompositionSurface](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.ICompositionSurface) の内容で領域を塗りつぶします。|Windows 10 バージョン 1511 (SDK 10586)|
+|[CompositionEffectBrush](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.CompositionEffectBrush)        |コンポジション効果の内容で領域を塗りつぶします。 |Windows 10 バージョン 1511 (SDK 10586)|
 |[CompositionMaskBrush](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.CompositionMaskBrush)          |不透明度マスクを使って CompositionBrush でビジュアルを塗りつぶします。 |Windows 10 バージョン 1607 (SDK 14393)
 |[CompositionNineGridBrush](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.CompositionNineGridBrush)      |NineGrid ストレッチを使って CompositionBrush で領域を塗りつぶします。 |Windows 10 バージョン 1607 (SDK 14393)
 |[CompositionLinearGradientBrush](https://docs.microsoft.com/uwp/api/windows.ui.composition.compositionlineargradientbrush)|線形グラデーションで領域を塗りつぶします。                    |Windows 10 バージョン 1709 (SDK 16299)
-|[CompositionRadialGradientBrush](https://docs.microsoft.com/uwp/api/windows.ui.composition.compositionradialgradientbrush)|放射状グラデーションで領域を塗りつぶす                    |Windows 10、バージョンが 1903 (Insider Preview SDK)
+|[CompositionRadialGradientBrush](https://docs.microsoft.com/uwp/api/windows.ui.composition.compositionradialgradientbrush)|放射状グラデーションで領域を塗りつぶします                    |Windows 10 バージョン 1903 (Insider Preview SDK)
 |[CompositionBackdropBrush](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.CompositionBackdropBrush)     |アプリケーションのピクセルから、または直接デスクトップ上のアプリケーション ウィンドウの背景のピクセルから背景ピクセルをサンプリングして領域を塗りつぶします。 CompositionEffectBrush など、別の CompositionBrush への入力として使用されます。 | Windows 10 バージョン 1607 (SDK 14393)
 
 ### <a name="paint-with-a-solid-color"></a>単色による塗りつぶし
@@ -110,11 +110,11 @@ _gradientVisual.Brush = _redyellowBrush;
 _gradientVisual.Size = new Vector2(156, 156);
 ```
 
-### <a name="paint-with-a-radial-gradient"></a>放射状グラデーションで塗りつぶす
+### <a name="paint-with-a-radial-gradient"></a>放射状グラデーションを使用した塗りつぶし
 
-A [CompositionRadialGradientBrush](/uwp/api/windows.ui.composition.compositionradialgradientbrush)放射状グラデーションを使用して領域を塗りつぶします。 放射状グラデーションは、楕円の半径で始まり、楕円の中心からグラデーションを使用して、2 つまたは複数のカラーをブレンドします。 GradientStop オブジェクトは、グラデーションの色とその場所を定義に使用されます。
+[CompositionRadialGradientBrush](/uwp/api/windows.ui.composition.compositionradialgradientbrush)は放射状グラデーションで領域を塗りつぶします。 放射状グラデーションは、楕円の中心から始まり、楕円の半径で終了するグラデーションを持つ2つ以上の色をブレンドします。 System.windows.media.gradientstop> オブジェクトは、グラデーションの色と位置を定義するために使用されます。
 
-次の図とコードで 2 GradientStops RadialGradientBrush で塗りつぶされます SpriteVisual を示しています。
+次の図とコードは、2つの GradientStops を持つ RadialGradientBrush で描画された SpriteVisual を示しています。
 
 ![CompositionRadialGradientBrush](images/radial-gradient-brush.png)
 
@@ -203,7 +203,7 @@ _drawingVisual.Size = new Vector2(156, 156);
 同様に、CompositionSurfaceBrush を使用して、Win2D の相互運用機能を使う SwapChain で SpriteVisual を塗りつぶすこともできます。 [このサンプル](https://github.com/Microsoft/Win2D-Samples/tree/master/CompositionExample)では、Win2D を使用して、スワップ チェーンで SpriteVisual を塗りつぶす方法の例を示しています。
 
 ### <a name="paint-with-a-video"></a>ビデオによる塗りつぶし
-[CompositionSurfaceBrush](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.CompositionSurfaceBrush) を使用して、[MediaPlayer](https://docs.microsoft.com/en-us/uwp/api/Windows.Media.Playback.MediaPlayer) クラスによって読み込まれたビデオを使ってレンダリングされた ICompositionSurface のピクセルで領域を塗りつぶすこともできます。
+[CompositionSurfaceBrush](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.CompositionSurfaceBrush) を使用して、[MediaPlayer](https://docs.microsoft.com/uwp/api/Windows.Media.Playback.MediaPlayer) クラスによって読み込まれたビデオを使ってレンダリングされた ICompositionSurface のピクセルで領域を塗りつぶすこともできます。
 
 次のコードは、ICompositionSurface に読み込まれたビデオで塗りつぶされた SpriteVisual を示しています。
 
@@ -265,7 +265,7 @@ _effectVisual.Brush = _effectBrush;
 _effectVisual.Size = new Vector2(156, 156);
 ```
 
-CompositionBrushes を使用したエフェクトの作成の詳細については、[ビジュアル レイヤーでの効果に関するトピック](https://docs.microsoft.com/en-us/windows/uwp/composition/composition-effects)をご覧ください。
+CompositionBrushes を使用したエフェクトの作成の詳細については、[ビジュアル レイヤーでの効果に関するトピック](https://docs.microsoft.com/windows/uwp/composition/composition-effects)をご覧ください。
 
 ### <a name="paint-with-a-compositionbrush-with-opacity-mask-applied"></a>不透明度マスクを適用した CompositionBrush による塗りつぶし
 
@@ -392,7 +392,7 @@ _containerVisual.Children.InsertAtTop(_backdropVisual);
 <table>
 <tbody>
 <tr>
-<th>ブラシ</th>
+<th>Brush</th>
 <th>EffectBrush.SetSourceParameter()</th>
 <th>MaskBrush.Mask</th>
 <th>MaskBrush.Source</th>
@@ -451,7 +451,7 @@ _containerVisual.Children.InsertAtTop(_backdropVisual);
 </table>
 
 
-## <a name="using-a-xaml-brush-vs-compositionbrush"></a>XAML のブラシ vs を使用します。CompositionBrush
+## <a name="using-a-xaml-brush-vs-compositionbrush"></a>XAML ブラシと CompositionBrush の使用
 
 次の表に、シナリオと、アプリケーションで UIElement や SpriteVisual を塗りつぶすときに XAML ブラシまたはコンポジション ブラシを使用できるかどうかの一覧を示します。 
 
@@ -460,24 +460,24 @@ _containerVisual.Children.InsertAtTop(_backdropVisual);
 
 |シナリオ                                                                   | XAML UIElement                                                                                                |コンポジションの SpriteVisual
 |---------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|----------------------------------
-|単色で領域を塗りつぶす                                             |[SolidColorBrush](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.SolidColorBrush)                                |[CompositionColorBrush](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.CompositionColorBrush)
-|アニメーション化された色で領域を塗りつぶす                                          |[SolidColorBrush](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.SolidColorBrush)                                |[CompositionColorBrush](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.CompositionColorBrush)
-|静的なグラデーションで領域を塗りつぶす                                       |[LinearGradientBrush](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.LinearGradientBrush)                            |[CompositionLinearGradientBrush](https://docs.microsoft.com/uwp/api/windows.ui.composition.compositionlineargradientbrush)
+|単色で領域を塗りつぶす                                             |[System.windows.media.solidcolorbrush>](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.SolidColorBrush)                                |[CompositionColorBrush](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.CompositionColorBrush)
+|アニメーション化された色で領域を塗りつぶす                                          |[System.windows.media.solidcolorbrush>](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.SolidColorBrush)                                |[CompositionColorBrush](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.CompositionColorBrush)
+|静的なグラデーションで領域を塗りつぶす                                       |[System.windows.media.lineargradientbrush>](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.LinearGradientBrush)                            |[CompositionLinearGradientBrush](https://docs.microsoft.com/uwp/api/windows.ui.composition.compositionlineargradientbrush)
 |アニメーション化されたグラデーション ストップで領域を塗りつぶす                                 |[CompositionLinearGradientBrush](https://docs.microsoft.com/uwp/api/windows.ui.composition.compositionlineargradientbrush)                                                                                 |[CompositionLinearGradientBrush](https://docs.microsoft.com/uwp/api/windows.ui.composition.compositionlineargradientbrush)
-|画像で領域を塗りつぶす                                                |[ImageBrush](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.ImageBrush)                                     |[CompositionSurfaceBrush](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.CompositionSurfaceBrush)
+|画像で領域を塗りつぶす                                                |[System.windows.media.imagebrush>](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.ImageBrush)                                     |[CompositionSurfaceBrush](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.CompositionSurfaceBrush)
 |Web ページで領域を塗りつぶす                                               |[WebViewBrush](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.WebViewBrush)                                   |なし
-|NineGrid ストレッチを使った画像で領域を塗りつぶす                         |[イメージ コントロール](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Image)                   |[CompositionNineGridBrush](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.CompositionNineGridBrush)
+|NineGrid ストレッチを使った画像で領域を塗りつぶす                         |[イメージコントロール](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Image)                   |[CompositionNineGridBrush](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.CompositionNineGridBrush)
 |アニメーション化された NineGrid ストレッチを使って領域を塗りつぶす                               |[CompositionNineGridBrush](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.CompositionNineGridBrush)                                                                                       |[CompositionNineGridBrush](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.CompositionNineGridBrush)
 |スワップ チェーンで領域を塗りつぶす                                             |[SwapChainPanel](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.SwapChainPanel)                                                                                                 |[CompositionSurfaceBrush](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.CompositionSurfaceBrush) (スワップ チェーンの相互運用機能を使用)
 |ビデオで領域を塗りつぶす                                                 |[MediaElement](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/media-playback)                                                                                                  |[CompositionSurfaceBrush](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.CompositionSurfaceBrush) (メディア相互運用機能を使用)
 |カスタム 2D 描画を使用して領域を塗りつぶす                                       |[CanvasControl](https://microsoft.github.io/Win2D/html/T_Microsoft_Graphics_Canvas_UI_Xaml_CanvasControl.htm) (Win2D より)                                                                                                 |[CompositionSurfaceBrush](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.CompositionSurfaceBrush) (Win2D 相互運用機能を使用)
 |アニメーション化されていないマスクで領域を塗りつぶす                                       |XAML の[図形](https://docs.microsoft.com/windows/uwp/graphics/drawing-shapes)を使用してマスクを定義   |[CompositionMaskBrush](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.CompositionMaskBrush)
 |アニメーション化されたマスクで領域を塗りつぶす                                        |[CompositionMaskBrush](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.CompositionMaskBrush)                                                                                           |[CompositionMaskBrush](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.CompositionMaskBrush)
-|アニメーション化されたフィルター エフェクトで領域を塗りつぶす                               |[同様](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.CompositionEffectBrush)                                                                                         |[同様](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.CompositionEffectBrush)
+|アニメーション化されたフィルター エフェクトで領域を塗りつぶす                               |[CompositionEffectBrush](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.CompositionEffectBrush)                                                                                         |[CompositionEffectBrush](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.CompositionEffectBrush)
 |背景のピクセルに適用された効果で領域を塗りつぶす        |[CompositionBackdropBrush](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.CompositionBackdropBrush)                                                                                        |[CompositionBackdropBrush](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.CompositionBackdropBrush)
 
 ## <a name="related-topics"></a>関連トピック
 
-[コンポジション ネイティブ DirectX と Direct2D との相互運用 begindraw メソッドと EndDraw](composition-native-interop.md)
+[BeginDraw と EndDraw を使用したネイティブの DirectX と Direct2D の相互運用機能の構成](composition-native-interop.md)
 
-[XamlCompositionBrushBase と XAML ブラシの相互運用](/windows/uwp/design/style/brushes#xamlcompositionbrushbase)
+[XamlCompositionBrushBase との XAML ブラシの相互運用](/windows/uwp/design/style/brushes#xamlcompositionbrushbase)

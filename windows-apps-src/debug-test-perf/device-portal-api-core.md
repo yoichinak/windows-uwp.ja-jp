@@ -7,12 +7,12 @@ ms.date: 04/19/2019
 ms.topic: article
 keywords: windows 10、uwp、デバイスポータル
 ms.localizationpriority: medium
-ms.openlocfilehash: 2e6b505dfd24a57f03169df3ed38402e7b3e9bb0
-ms.sourcegitcommit: 445320ff0ee7323d823194d4ec9cfa6e710ed85d
+ms.openlocfilehash: 86724b084edb9350adfd2ed2623623d255302b70
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72282121"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75683460"
 ---
 # <a name="device-portal-core-api-reference"></a>デバイス ポータル コア API リファレンス
 
@@ -22,11 +22,11 @@ ms.locfileid: "72282121"
 
 ### <a name="install-an-app"></a>アプリをインストールする
 
-**申請**
+**要求**
 
 次の要求形式を使用して、アプリをインストールできます。
 
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/app/packagemanager/package |
 
@@ -40,7 +40,7 @@ ms.locfileid: "72282121"
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
@@ -71,11 +71,11 @@ ms.locfileid: "72282121"
 
 ### <a name="install-a-related-set"></a>関連セットをインストールする
 
-**申請**
+**要求**
 
 次の要求形式を使用して、[関連セット](https://blogs.msdn.microsoft.com/appinstaller/2017/05/12/tooling-to-create-a-related-set/)をインストールできます。
 
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :------ |
 | POST | /api/app/packagemanager/package |
 
@@ -89,7 +89,7 @@ ms.locfileid: "72282121"
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文** 
 - オプション パッケージをパラメーターとして指定するときは、"foo.appx.opt"、"bar.appxbundle.opt" などのようにパッケージのファイル名に ".opt" を追加します。 
@@ -120,21 +120,21 @@ ms.locfileid: "72282121"
 
 ### <a name="register-an-app-in-a-loose-folder"></a>アプリをルース フォルダーに登録する
 
-**申請**
+**要求**
 
 次の要求形式を使用して、アプリをルース フォルダーに登録できます。
 
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/app/packagemanager/networkapp |
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
@@ -172,21 +172,21 @@ ms.locfileid: "72282121"
 
 ### <a name="register-a-related-set-in-loose-file-folders"></a>関連セットをルース ファイル フォルダーに登録する
 
-**申請**
+**要求**
 
 次の要求形式を使用して、[関連セット](https://blogs.msdn.microsoft.com/appinstaller/2017/05/12/tooling-to-create-a-related-set/)をルース フォルダーに登録できます。
 
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/app/packagemanager/networkapp |
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
@@ -233,25 +233,25 @@ ms.locfileid: "72282121"
 
 ### <a name="get-app-installation-status"></a>アプリのインストール状態を取得する
 
-**申請**
+**要求**
 
 次の要求形式を使用して、現在進行中のアプリのインストールの状態を取得できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/app/packagemanager/state |
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -277,11 +277,11 @@ ms.locfileid: "72282121"
 
 ### <a name="uninstall-an-app"></a>アプリをアンインストールする
 
-**申請**
+**要求**
 
 次の要求形式を使用して、アプリをアンインストールできます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | DELETE | /api/app/packagemanager/package |
 
@@ -293,11 +293,11 @@ ms.locfileid: "72282121"
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -307,7 +307,7 @@ ms.locfileid: "72282121"
 
 |  HTTP 状態コード      | 説明 | 
 | :------     | :----- |
-|  200 | OK | 
+|  200 | [OK] を選びます | 
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -323,26 +323,26 @@ ms.locfileid: "72282121"
 
 ### <a name="get-installed-apps"></a>インストールされたアプリを取得する
 
-**申請**
+**要求**
 
 次の要求形式を使用して、システムにインストールされているアプリの一覧を取得できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/app/packagemanager/packages |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -353,7 +353,7 @@ ms.locfileid: "72282121"
         "Name": string,
         "PackageFamilyName": string,
         "PackageFullName": string,
-        "PackageOrigin": int, (https://msdn.microsoft.com/en-us/library/windows/desktop/dn313167(v=vs.85).aspx)
+        "PackageOrigin": int, (https://msdn.microsoft.com/library/windows/desktop/dn313167(v=vs.85).aspx)
         "PackageRelativeId": string,
         "Publisher": string,
         "Version": {
@@ -377,7 +377,7 @@ ms.locfileid: "72282121"
 
 |  HTTP 状態コード      | 説明 | 
 | :------     | :----- |
-|  200 | OK | 
+|  200 | [OK] を選びます | 
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -391,17 +391,17 @@ ms.locfileid: "72282121"
 
 <hr>
 
-## <a name="bluetooth"></a>Bluetooth
+## <a name="bluetooth"></a>[Bluetooth]
 
 <hr>
 
 ### <a name="get-the-bluetooth-radios-on-the-machine"></a>コンピューターの Bluetooth 無線を取得する
 
-**申請**
+**要求**
 
 次の要求形式を使用して、コンピューターにインストールされている Bluetooth 無線の一覧を取得できます。 これは、同じ JSON データを使用して、WebSocket 接続にもアップグレードできます。
  
-| メソッド        | 要求 URI |
+| 認証方法        | 要求 URI |
 | :------          | :------ |
 | GET           | /api/bt/getradios |
 | GET/WebSocket | /api/bt/getradios |
@@ -409,15 +409,15 @@ ms.locfileid: "72282121"
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -441,7 +441,7 @@ ms.locfileid: "72282121"
 
 | HTTP 状態コード | 説明 |
 | :------             | :------ |
-| 200              | OK |
+| 200              | [OK] を選びます |
 | 4XX              | エラー コード |
 | 5XX              | エラー コード |
 
@@ -455,11 +455,11 @@ ms.locfileid: "72282121"
 
 ### <a name="turn-the-bluetooth-radio-on-or-off"></a>Bluetooth 無線をオンまたはオフにします。
 
-**申請**
+**要求**
 
 特定の Bluetooth 無線をオンまたはオフに設定します。
  
-| メソッド | 要求 URI |
+| 認証方法 | 要求 URI |
 | :------   | :------ |
 | POST   | /api/bt/setradio |
 
@@ -470,15 +470,15 @@ ms.locfileid: "72282121"
 | URI パラメーター | 説明 |
 | :------          | :------ |
 | ID            | (**必須**) Bluetooth 無線のデバイス ID であり、base 64 でエンコードされている必要があります。 |
-| 状態         | (**必須**)これは、`"On"` または `"Off"`にすることができます。 |
+| State (状態)         | (**必須**)これは、`"On"` または `"Off"`にすることができます。 |
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -488,7 +488,7 @@ ms.locfileid: "72282121"
 
 | HTTP 状態コード | 説明 |
 | :------             | :------ |
-| 200              | OK |
+| 200              | [OK] を選びます |
 | 4XX              | エラー コード |
 | 5XX              | エラー コード |
 
@@ -501,26 +501,26 @@ ms.locfileid: "72282121"
 ---
 ### <a name="get-a-list-of-paired-bluetooth-devices"></a>ペアリングした Bluetooth デバイスの一覧を取得する
 
-**申請**
+**要求**
 
 現在ペアリングされている Bluetooth デバイスの一覧を取得するには、次の要求形式を使用します。 これは、同じ JSON データを使用して WebSocket 接続にアップグレードできます。 WebSocket 接続の有効期間中は、デバイスの一覧が変更される可能性があります。 更新が行われるたびに、WebSocket 接続を介してデバイスの完全な一覧が送信されます。
 
-| メソッド        | 要求 URI       |
+| 認証方法        | 要求 URI       |
 | :---          | :---              |
 | GET           | /api/bt/getpaired |
 | GET/WebSocket | /api/bt/getpaired |
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -539,26 +539,26 @@ ms.locfileid: "72282121"
 ---
 ### <a name="get-a-list-of-available-bluetooth-devices"></a>利用可能な Bluetooth デバイスの一覧を取得する
 
-**申請**
+**要求**
 
 ペアリングに使用できる Bluetooth デバイスの一覧を取得するには、次の要求形式を使用します。 これは、同じ JSON データを使用して WebSocket 接続にアップグレードできます。 WebSocket 接続の有効期間中は、デバイスの一覧が変更される可能性があります。 更新が行われるたびに、WebSocket 接続を介してデバイスの完全な一覧が送信されます。
 
-| メソッド        | 要求 URI          |
+| 認証方法        | 要求 URI          |
 | :---          | :---                 |
 | GET           | /api/bt/getavailable |
 | GET/WebSocket | /api/bt/getavailable |
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -575,11 +575,11 @@ ms.locfileid: "72282121"
 ---
 ### <a name="connect-a-bluetooth-device"></a>Bluetooth デバイスの接続
 
-**申請**
+**要求**
 
 デバイスをこのシステムのオーディオに使用できる場合、はデバイスに接続します。 (ポリシーとオプションのコンポーネントがこの影響を受ける可能性があります)。
 
-| メソッド       | 要求 URI           |
+| 認証方法       | 要求 URI           |
 | :---         | :---                  |
 | POST         | /apidevice |
 
@@ -591,11 +591,11 @@ ms.locfileid: "72282121"
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -605,7 +605,7 @@ ms.locfileid: "72282121"
 
 | HTTP 状態コード | 説明 |
 | :---             | :--- |
-| 200              | OK |
+| 200              | [OK] を選びます |
 | 4XX              | エラー コード |
 | 5XX              | エラー コード |
 
@@ -619,11 +619,11 @@ ms.locfileid: "72282121"
 ---
 ### <a name="disconnect-a-bluetooth-device"></a>Bluetooth デバイスの切断
 
-**申請**
+**要求**
 
 デバイスをこのシステムのオーディオに使用できる場合は、デバイスが切断されます。 (ポリシーとオプションのコンポーネントがこの影響を受ける可能性があります)。
 
-| メソッド       | 要求 URI              |
+| 認証方法       | 要求 URI              |
 | :---         | :---                     |
 | POST         | //またはデバイスを切断する |
 
@@ -635,11 +635,11 @@ ms.locfileid: "72282121"
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -649,7 +649,7 @@ ms.locfileid: "72282121"
 
 | HTTP 状態コード | 説明 |
 | :---             | :--- |
-| 200              | OK |
+| 200              | [OK] を選びます |
 | 4XX              | エラー コード |
 | 5XX              | エラー コード |
 
@@ -665,25 +665,25 @@ ms.locfileid: "72282121"
 
 ### <a name="get-the-installed-devices-on-the-machine"></a>コンピューターにインストールされているデバイスを取得する
 
-**申請**
+**要求**
 
 次の要求形式を使用して、コンピューターにインストールされているデバイスの一覧を取得できます。
 
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/devicemanager/devices |
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -708,7 +708,7 @@ ms.locfileid: "72282121"
 
 |  HTTP 状態コード      | 説明 | 
 | :------     | :----- |
-|  200 | OK | 
+|  200 | [OK] を選びます | 
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -722,26 +722,26 @@ ms.locfileid: "72282121"
 
 ### <a name="get-data-on-connected-usb-deviceshubs"></a>接続された USB デバイス/ハブのデータを取得する
 
-**申請**
+**要求**
 
 次の要求形式を使用して、接続された USB デバイスおよびハブの USB 記述子の一覧を取得できます。
 
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /ext/devices/usbdevices |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -795,7 +795,7 @@ ms.locfileid: "72282121"
 
 |  HTTP 状態コード      | 説明 | 
 | :------     | :----- |
-|  200 | OK | 
+|  200 | [OK] を選びます | 
 | 5XX | エラー コード |
 
 **使用可能なデバイスファミリ**
@@ -811,26 +811,26 @@ ms.locfileid: "72282121"
 
 ### <a name="get-the-list-of-all-crash-dumps-for-apps"></a>アプリのすべてのクラッシュ ダンプの一覧を取得する
 
-**申請**
+**要求**
 
 次の要求形式を使用して、サイドローディングされたすべてのアプリについて、利用可能なすべてのクラッシュ ダンプの一覧を取得できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/debug/dump/usermode/dumps |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -842,7 +842,7 @@ ms.locfileid: "72282121"
 
 |  HTTP 状態コード      | 説明 | 
 | :------     | :----- |
-|  200 | OK | 
+|  200 | [OK] を選びます | 
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -857,11 +857,11 @@ ms.locfileid: "72282121"
 
 ### <a name="get-the-crash-dump-collection-settings-for-an-app"></a>アプリのクラッシュ ダンプ収集設定を取得する
 
-**申請**
+**要求**
 
 次の要求形式を使用して、サイドローディングされたアプリのクラッシュ ダンプ収集設定を取得できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/debug/dump/usermode/crashcontrol |
 
@@ -876,11 +876,11 @@ ms.locfileid: "72282121"
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -895,7 +895,7 @@ ms.locfileid: "72282121"
 
 |  HTTP 状態コード      | 説明 | 
 | :------     | :----- |
-|  200 | OK | 
+|  200 | [OK] を選びます | 
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -910,11 +910,11 @@ ms.locfileid: "72282121"
 
 ### <a name="delete-a-crash-dump-for-a-sideloaded-app"></a>サイドローディングされたアプリのクラッシュ ダンプを削除する
 
-**申請**
+**要求**
 
 次の要求形式を使用して、サイドローディングされたアプリのクラッシュ ダンプを削除できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | DELETE | /api/debug/dump/usermode/crashdump |
 
@@ -930,11 +930,11 @@ ms.locfileid: "72282121"
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -944,7 +944,7 @@ ms.locfileid: "72282121"
 
 |  HTTP 状態コード      | 説明 | 
 | :------     | :----- |
-|  200 | OK | 
+|  200 | [OK] を選びます | 
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -959,11 +959,11 @@ ms.locfileid: "72282121"
 
 ### <a name="disable-crash-dumps-for-a-sideloaded-app"></a>サイドローディングされたアプリのクラッシュ ダンプを無効にする
 
-**申請**
+**要求**
 
 次の要求形式を使用して、サイドローディングされたアプリのクラッシュ ダンプを無効にすることができます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | DELETE | /api/debug/dump/usermode/crashcontrol |
 
@@ -978,11 +978,11 @@ ms.locfileid: "72282121"
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -992,7 +992,7 @@ ms.locfileid: "72282121"
 
 |  HTTP 状態コード      | 説明 | 
 | :------     | :----- |
-|  200 | OK | 
+|  200 | [OK] を選びます | 
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -1007,11 +1007,11 @@ ms.locfileid: "72282121"
 
 ### <a name="download-the-crash-dump-for-a-sideloaded-app"></a>サイドローディングされたアプリのクラッシュ ダンプをダウンロードする
 
-**申請**
+**要求**
 
 次の要求形式を使用して、サイドローディングされたアプリのクラッシュ ダンプをダウンロードできます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/debug/dump/usermode/crashdump |
 
@@ -1027,11 +1027,11 @@ ms.locfileid: "72282121"
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -1043,7 +1043,7 @@ ms.locfileid: "72282121"
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-|  200 | OK | 
+|  200 | [OK] を選びます | 
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -1058,11 +1058,11 @@ ms.locfileid: "72282121"
 
 ### <a name="enable-crash-dumps-for-a-sideloaded-app"></a>サイドローディングされたアプリのクラッシュ ダンプを有効にする
 
-**申請**
+**要求**
 
 次の要求形式を使用して、サイドローディングされたアプリのクラッシュ ダンプを有効にすることができます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/debug/dump/usermode/crashcontrol |
 
@@ -1077,11 +1077,11 @@ ms.locfileid: "72282121"
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -1091,7 +1091,7 @@ ms.locfileid: "72282121"
 
 |  HTTP 状態コード      | 説明 | 
 | :------     | :----- |
-|  200 | OK | 
+|  200 | [OK] を選びます | 
 
 **使用可能なデバイスファミリ**
 
@@ -1104,26 +1104,26 @@ ms.locfileid: "72282121"
 
 ### <a name="get-the-list-of-bugcheck-files"></a>バグチェック ファイルの一覧を取得する
 
-**申請**
+**要求**
 
 次の要求形式を使用して、バグチェックのミニダンプ ファイルの一覧を取得できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/debug/dump/kernel/dumplist |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -1143,7 +1143,7 @@ ms.locfileid: "72282121"
 
 |  HTTP 状態コード      | 説明 | 
 | :------     | :----- |
-|  200 | OK | 
+|  200 | [OK] を選びます | 
 
 **使用可能なデバイスファミリ**
 
@@ -1154,11 +1154,11 @@ ms.locfileid: "72282121"
 
 ### <a name="download-a-bugcheck-dump-file"></a>バグチェックのダンプ ファイルをダウンロードする
 
-**申請**
+**要求**
 
 次の要求形式を使用して、バグチェックのダンプ ファイルをダウンロードできます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/debug/dump/kernel/dump |
 
@@ -1174,11 +1174,11 @@ ms.locfileid: "72282121"
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -1190,7 +1190,7 @@ ms.locfileid: "72282121"
 
 |  HTTP 状態コード      | 説明 | 
 | :------     | :----- |
-|  200 | OK | 
+|  200 | [OK] を選びます | 
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -1203,26 +1203,26 @@ ms.locfileid: "72282121"
 
 ### <a name="get-the-bugcheck-crash-control-settings"></a>バグチェックのクラッシュ制御の設定を取得する
 
-**申請**
+**要求**
 
 次の要求形式を使用して、バグチェックのクラッシュ制御の設定を取得できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/debug/dump/kernel/crashcontrol |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -1252,7 +1252,7 @@ ms.locfileid: "72282121"
 
 |  HTTP 状態コード      | 説明 | 
 | :------     | :----- |
-|  200 | OK | 
+|  200 | [OK] を選びます | 
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -1265,26 +1265,26 @@ ms.locfileid: "72282121"
 
 ### <a name="get-a-live-kernel-dump"></a>ライブ カーネル ダンプを取得する
 
-**申請**
+**要求**
 
 次の要求形式を使用して、ライブ カーネル ダンプを取得できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/debug/dump/livekernel |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -1296,7 +1296,7 @@ ms.locfileid: "72282121"
 
 |  HTTP 状態コード      | 説明 | 
 | :------     | :----- |
-|  200 | OK | 
+|  200 | [OK] を選びます | 
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -1309,11 +1309,11 @@ ms.locfileid: "72282121"
 
 ### <a name="get-a-dump-from-a-live-user-process"></a>ライブ ユーザー プロセスからダンプを取得する
 
-**申請**
+**要求**
 
 次の要求形式を使用して、ライブ ユーザー プロセスのダンプを取得できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/debug/dump/usermode/live |
 
@@ -1328,11 +1328,11 @@ ms.locfileid: "72282121"
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -1344,7 +1344,7 @@ ms.locfileid: "72282121"
 
 |  HTTP 状態コード      | 説明 | 
 | :------     | :----- |
-|  200 | OK | 
+|  200 | [OK] を選びます | 
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -1357,11 +1357,11 @@ ms.locfileid: "72282121"
 
 ### <a name="set-the-bugcheck-crash-control-settings"></a>バグチェックのクラッシュ制御の設定を行う
 
-**申請**
+**要求**
 
 次の要求形式を使用して、バグチェック データの収集に関する設定を行うことができます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/debug/dump/kernel/crashcontrol |
 
@@ -1375,15 +1375,15 @@ ms.locfileid: "72282121"
 | autoreboot   | (**オプション**) true または false。 これは、エラーやロックの発生後に、システムが自動的に再起動するかどうかを示します。 |
 | dumptype   | (**オプション**) dump タイプ。 サポートされる値については、「[CrashDumpType 列挙体](https://docs.microsoft.com/previous-versions/azure/reference/dn802457(v=azure.100))」をご覧ください。|
 | maxdumpcount   | (**オプション**) 保存するダンプの最大数。 |
-| overwrite   | (**オプション**) true または false。 これは、*maxdumpcount*で指定されているダンプ カウンターの制限に達した場合に古いダンプを上書きするかどうかを示します。 |
+| overwrite   | (**オプション**) true または false。 これは、*maxdumpcount* で指定されているダンプ カウンターの制限に達した場合に古いダンプを上書きするかどうかを示します。 |
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -1393,7 +1393,7 @@ ms.locfileid: "72282121"
 
 |  HTTP 状態コード      | 説明 | 
 | :------     | :----- |
-|  200 | OK | 
+|  200 | [OK] を選びます | 
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -1410,26 +1410,26 @@ ms.locfileid: "72282121"
 
 ### <a name="create-a-realtime-etw-session-over-a-websocket"></a>websocket 経由でリアルタイムの ETW セッションを作成する
 
-**申請**
+**要求**
 
 次の要求形式を使用して、リアルタイムの ETW セッションを作成できます。 これは、websocket 経由で管理されます。  ETW イベントは、サーバーで一括処理され、1 秒に 1 回クライアントに送信されます。 
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET/WebSocket | /api/etw/session/realtime |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -1441,7 +1441,7 @@ ms.locfileid: "72282121"
 
 |  HTTP 状態コード      | 説明 | 
 | :------     | :----- |
-|  200 | OK | 
+|  200 | [OK] を選びます | 
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -1480,7 +1480,7 @@ ms.locfileid: "72282121"
 
 payload objects は、追加のキーと値のペア (文字列: 文字列) で、元の ETW イベントから提供されます。
 
-以下に例を示します。
+次に例を示します。
 ```json
 {
     "ID" : 42, 
@@ -1505,26 +1505,26 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 
 ### <a name="enumerate-the-registered-etw-providers"></a>登録済みの ETW プロバイダーを列挙する
 
-**申請**
+**要求**
 
 次の要求形式を使用して、登録済みプロバイダーを列挙できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/etw/providers |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -1544,7 +1544,7 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 
 |  HTTP 状態コード      | 説明 | 
 | :------     | :----- |
-|  200 | OK | 
+|  200 | [OK] を選びます | 
 
 **使用可能なデバイスファミリ**
 
@@ -1557,26 +1557,26 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 
 ### <a name="enumerate-the-custom-etw-providers-exposed-by-the-platform"></a>プラットフォームによって公開されているカスタム ETW プロバイダーを列挙します。
 
-**申請**
+**要求**
 
 次の要求形式を使用して、登録済みプロバイダーを列挙できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/etw/customproviders |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -1604,32 +1604,32 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 
 <hr>
 
-## <a name="location"></a>Location
+## <a name="location"></a>インストール先
 
 <hr>
 
 ### <a name="get-location-override-mode"></a>場所の上書きモードを取得する
 
-**申請**
+**要求**
 
 次の要求型式を使用して、デバイスの場所スタック上書き状態を取得できます。 この呼び出しを成功させるには、開発者モードを有効にしておく必要があります。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /ext/location/override |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -1645,7 +1645,7 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-|  200 | OK | 
+|  200 | [OK] を選びます | 
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -1659,22 +1659,22 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 
 ### <a name="set-location-override-mode"></a>場所の上書きモードを設定する
 
-**申請**
+**要求**
 
 次の要求型式を使用して、デバイスの場所スタック上書き状態を設定できます。 有効になっている場合は、場所スタックによって位置挿入が許可されます。 この呼び出しを成功させるには、開発者モードを有効にしておく必要があります。
 
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | PUT | /ext/location/override |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
@@ -1696,7 +1696,7 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |
+| 200 | [OK] を選びます |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -1710,26 +1710,26 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 
 ### <a name="get-the-injected-position"></a>挿入された位置を取得する
 
-**申請**
+**要求**
 
 次の要求型式を使用して、デバイスの挿入 (スプーフィング) された場所を取得できます。 挿入された場所を設定する必要があります。設定されなかった場合は、エラーがスローされます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /ext/location/position |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -1748,7 +1748,7 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 
 |  HTTP 状態コード      | 説明 | 
 | :------     | :----- |
-| 200 | OK |
+| 200 | [OK] を選びます |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -1762,22 +1762,22 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 
 ### <a name="set-the-injected-position"></a>挿入された位置を設定する
 
-**申請**
+**要求**
 
 次の要求型式を使用して、デバイスの挿入 (スプーフィング) された場所を設定できます。 あらかじめデバイス上で場所の上書きモードが有効になっており、設定される場所も有効である必要があります。それ以外の場合はエラーがスローされます。
 
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | PUT | /ext/location/override |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
@@ -1805,7 +1805,7 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |
+| 200 | [OK] を選びます |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -1825,26 +1825,26 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 
 ### <a name="get-the-machine-name"></a>コンピューター名を取得する
 
-**申請**
+**要求**
 
 次の要求形式を使用して、コンピューターの名前を取得できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/os/machinename |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -1860,7 +1860,7 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |
+| 200 | [OK] を選びます |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -1876,26 +1876,26 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 
 ### <a name="get-the-operating-system-information"></a>オペレーティング システムの情報を取得する
 
-**申請**
+**要求**
 
 次の要求形式を使用して、コンピューターの OS 情報を取得できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/os/info |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -1917,7 +1917,7 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |
+| 200 | [OK] を選びます |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -1933,26 +1933,26 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 
 ### <a name="get-the-device-family"></a>デバイス ファミリを取得する 
 
-**申請**
+**要求**
 
 次の要求形式を使用して、デバイス ファミリ (Xbox、携帯電話、デスクトップなど) を取得できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/os/devicefamily |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -1972,7 +1972,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |
+| 200 | [OK] を選びます |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -1988,11 +1988,11 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="set-the-machine-name"></a>コンピューター名を設定する
 
-**申請**
+**要求**
 
 次の要求形式を使用して、コンピューターの名前を設定できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/os/machinename |
 
@@ -2003,15 +2003,15 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | URI パラメーター | 説明 |
 | :------          | :------ |
-| name | (**必須**) コンピューターの新しい名前。 |
+| 名前 | (**必須**) コンピューターの新しい名前。 |
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -2021,7 +2021,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |
+| 200 | [OK] を選びます |
 
 **使用可能なデバイスファミリ**
 
@@ -2039,26 +2039,26 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="get-the-active-user"></a>アクティブ ユーザーを取得する
 
-**申請**
+**要求**
 
 次の要求形式を使用して、デバイスのアクティブ ユーザーの名前を取得できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/users/activeuser |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -2087,7 +2087,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |
+| 200 | [OK] を選びます |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -2105,11 +2105,11 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="get-the-list-of-running-processes"></a>実行中のプロセスの一覧を取得する
 
-**申請**
+**要求**
 
 次の要求形式を使用して、現在実行中のプロセスの一覧を取得できます。  これは、WebSocket 接続にアップグレードすることもでき、1 秒に 1 度クライアントにプッシュされる同じ JSON データを取得できます。 
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/resourcemanager/processes |
 | GET/WebSocket | /api/resourcemanager/processes |
@@ -2117,15 +2117,15 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -2152,7 +2152,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |
+| 200 | [OK] を選びます |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -2167,11 +2167,11 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="get-the-system-performance-statistics"></a>システム パフォーマンスの統計情報を取得する
 
-**申請**
+**要求**
 
 次の要求形式を使用して、システム パフォーマンスの統計情報を取得できます。 これには、読み取りと書き込みのサイクルや、使用されているメモリの量などの情報が含まれます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/resourcemanager/systemperf |
 | GET/WebSocket | /api/resourcemanager/systemperf |
@@ -2180,19 +2180,19 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
-応答には、CPU と GPU の使用量、メモリ アクセス、ネットワーク アクセスなど、パフォーマンスの統計情報が含まれます。 この情報は JSON 形式で、テンプレートは次のとおりです。
+応答には、CPU と GPU の使用量、メモリ アクセス、ネットワーク アクセスなど、システムのパフォーマンス統計情報が含まれます。 この情報は JSON 形式で、テンプレートは次のとおりです。
 ```json
 {
     "AvailablePages": int,
@@ -2231,7 +2231,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |
+| 200 | [OK] を選びます |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -2245,32 +2245,32 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 <hr>
 
-## <a name="power"></a>Power
+## <a name="power"></a>[電源]
 
 <hr>
 
 ### <a name="get-the-current-battery-state"></a>現在のバッテリ状態を取得する
 
-**申請**
+**要求**
 
 次の要求形式を使用して、バッテリの現在の状態を取得できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/power/battery |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -2294,7 +2294,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |
+| 200 | [OK] を選びます |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -2309,26 +2309,26 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="get-the-active-power-scheme"></a>アクティブな電源設定を取得する
 
-**申請**
+**要求**
 
 次の要求形式を使用して、アクティブな電源設定を取得できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/power/activecfg |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -2343,7 +2343,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |
+| 200 | [OK] を選びます |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -2356,11 +2356,11 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="get-the-sub-value-for-a-power-scheme"></a>電源設定のサブ値を取得する
 
-**申請**
+**要求**
 
 次の要求形式を使用して、電源設定のサブ値を取得できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/power/cfg/ *<power scheme path>* |
 
@@ -2369,11 +2369,11 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
@@ -2387,7 +2387,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |
+| 200 | [OK] を選びます |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -2400,26 +2400,26 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="get-the-power-state-of-the-system"></a>システムの電源状態を取得する
 
-**申請**
+**要求**
 
 次の要求形式を使用して、システムの電源状態を確認できます。 これによって、低電力状態になっているかどうかを確認できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/power/state |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -2434,7 +2434,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |
+| 200 | [OK] を選びます |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -2448,11 +2448,11 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="set-the-active-power-scheme"></a>アクティブな電源設定を行う
 
-**申請**
+**要求**
 
-次の要求形式を使用して、アクティブな電源設定を設定できます。
+次の要求形式を使用して、アクティブな電源設定を行うことができます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/power/activecfg |
 
@@ -2467,11 +2467,11 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -2481,7 +2481,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |
+| 200 | [OK] を選びます |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -2494,11 +2494,11 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="set-the-sub-value-for-a-power-scheme"></a>電源設定のサブ値を設定する
 
-**申請**
+**要求**
 
 次の要求形式を使用して、電源設定のサブ値を設定できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/power/cfg/ *<power scheme path>* |
 
@@ -2514,11 +2514,11 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -2528,7 +2528,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |
+| 200 | [OK] を選びます |
 
 **使用可能なデバイスファミリ**
 
@@ -2539,9 +2539,9 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="get-a-sleep-study-report"></a>SleepStudy レポートを取得する
 
-**申請**
+**要求**
 
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/power/sleepstudy/report |
 
@@ -2554,11 +2554,11 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -2570,7 +2570,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |
+| 200 | [OK] を選びます |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -2583,26 +2583,26 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="enumerate-the-available-sleep-study-reports"></a>利用可能な SleepStudy レポートを列挙する
 
-**申請**
+**要求**
 
 次の要求形式を使用して、利用可能な SleepStudy レポートを列挙できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/power/sleepstudy/reports |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -2622,7 +2622,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |
+| 200 | [OK] を選びます |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -2635,26 +2635,26 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="get-the-sleep-study-transform"></a>スリープ スタディ変換を取得する
 
-**申請**
+**要求**
 
 次の要求形式を使用して、スリープ スタディ変換を取得できます。 この変換は、SleepStudy レポートを、ユーザーが読み取ることができる XML 形式に変換する XSLT です。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/power/sleepstudy/transform |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -2666,7 +2666,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |
+| 200 | [OK] を選びます |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -2683,26 +2683,26 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="restart-the-target-computer"></a>ターゲット コンピューターを再起動する
 
-**申請**
+**要求**
 
 次の要求形式を使用して、ターゲット コンピューターを再起動できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/control/restart |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -2712,7 +2712,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |
+| 200 | [OK] を選びます |
 
 **使用可能なデバイスファミリ**
 
@@ -2726,26 +2726,26 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="shut-down-the-target-computer"></a>ターゲット コンピューターをシャットダウンする
 
-**申請**
+**要求**
 
 次の要求形式を使用して、ターゲット コンピューターをシャット ダウンできます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/control/shutdown |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -2755,7 +2755,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |
+| 200 | [OK] を選びます |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -2775,11 +2775,11 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="start-a-modern-app"></a>最新のアプリを起動する
 
-**申請**
+**要求**
 
 次の要求形式を使用して、最新のアプリを起動できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/taskmanager/app |
 
@@ -2795,11 +2795,11 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -2809,7 +2809,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |
+| 200 | [OK] を選びます |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -2825,11 +2825,11 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="stop-a-modern-app"></a>最新のアプリを停止する
 
-**申請**
+**要求**
 
 次の要求形式を使用して、最新のアプリを停止できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | DELETE | /api/taskmanager/app |
 
@@ -2845,11 +2845,11 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -2859,7 +2859,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |
+| 200 | [OK] を選びます |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -2875,11 +2875,11 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="kill-process-by-pid"></a>PID でプロセスを強制終了する
 
-**申請**
+**要求**
 
 次の要求形式を使用して、プロセスを強制終了できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | DELETE | /api/taskmanager/process |
 
@@ -2894,11 +2894,11 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -2908,7 +2908,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |
+| 200 | [OK] を選びます |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -2920,32 +2920,32 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 <hr>
 
-## <a name="networking"></a>ネットワーク
+## <a name="networking"></a>のネットワーク
 
 <hr>
 
 ### <a name="get-the-current-ip-configuration"></a>現在の IP 構成を取得する
 
-**申請**
+**要求**
 
 次の要求形式を使用して、現在の IP 構成を取得できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/networking/ipconfig |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -2997,7 +2997,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |
+| 200 | [OK] を選びます |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -3013,11 +3013,11 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="set-a-static-ip-address-ipv4-configuration"></a>静的 IP アドレスを設定する (IPV4 構成)
 
-**申請**
+**要求**
 
 静的 IP と DNS を使用して IPV4 構成を設定します。 静的 IP が指定されていない場合は、DHCP が有効になります。 静的 IP を指定する場合は、DNS も指定する必要があります。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | PUT | /api/networking/ipv4config |
 
@@ -3043,11 +3043,11 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -3057,7 +3057,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |
+| 200 | [OK] を選びます |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -3073,26 +3073,26 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="enumerate-wireless-network-interfaces"></a>ワイヤレス ネットワーク インターフェイスを列挙する
 
-**申請**
+**要求**
 
 次の要求形式を使用して、利用可能なワイヤレス ネットワーク インターフェイスを列挙できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/wifi/interfaces |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -3120,7 +3120,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |
+| 200 | [OK] を選びます |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -3136,11 +3136,11 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="enumerate-wireless-networks"></a>ワイヤレス ネットワークを列挙する
 
-**申請**
+**要求**
 
 次の要求形式を使用して、指定されたインターフェイスのワイヤレス ネットワークの一覧を列挙できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/wifi/networks |
 
@@ -3151,15 +3151,15 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | URI パラメーター | 説明 |
 | :------          | :------ |
-| インターフェイス   | (**必須**) ワイヤレス ネットワークの検索に使用するネットワーク インターフェイスの GUID (括弧は不要)。 |
+| interface   | (**必須**) ワイヤレス ネットワークの検索に使用するネットワーク インターフェイスの GUID (括弧は不要)。 |
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -3191,7 +3191,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |
+| 200 | [OK] を選びます |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -3207,11 +3207,11 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="connect-and-disconnect-to-a-wi-fi-network"></a>Wi-Fi ネットワークを接続および切断する
 
-**申請**
+**要求**
 
 次の要求形式を使用して、Wi-Fi ネットワークを接続および切断できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/wifi/network |
 
@@ -3222,7 +3222,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | URI パラメーター | 説明 |
 | :------          | :------ |
-| インターフェイス   | (**必須**) ネットワークへの接続に使用するネットワーク インターフェイスの GUID。 |
+| interface   | (**必須**) ネットワークへの接続に使用するネットワーク インターフェイスの GUID。 |
 | op   | (**必須**) 実行するアクションを示します。 設定可能な値は、connect または disconnect です。|
 | ssid   | ( ***op* == connect の場合は必須**) 接続先 SSID。 |
 | key   | ( ***op* == connect で、ネットワークで認証が必要な場合は必須**) 共有キー。 |
@@ -3230,11 +3230,11 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -3244,7 +3244,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |
+| 200 | [OK] を選びます |
 
 **使用可能なデバイスファミリ**
 
@@ -3258,11 +3258,11 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="delete-a-wi-fi-profile"></a>Wi-Fi のプロファイルを削除する
 
-**申請**
+**要求**
 
 次の要求形式を使用して、特定のインターフェイス上のネットワークに関連付けられたプロファイルを削除できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | DELETE | /api/wifi/profile |
 
@@ -3273,16 +3273,16 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | URI パラメーター | 説明 |
 | :------          | :------ |
-| インターフェイス   | (**必須**) 削除するプロファイルに関連付けられたネットワーク インターフェイスの GUID。 |
+| interface   | (**必須**) 削除するプロファイルに関連付けられたネットワーク インターフェイスの GUID。 |
 | プロファイル   | (**必須**) 削除するプロファイルの名前。 |
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -3292,7 +3292,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |
+| 200 | [OK] を選びます |
 
 **使用可能なデバイスファミリ**
 
@@ -3310,11 +3310,11 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="download-a-windows-error-reporting-wer-file"></a>Windows エラー報告 (WER) ファイルをダウンロードする
 
-**申請**
+**要求**
 
 次の要求形式を使用して、WER 関連のファイルをダウンロードできます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/wer/report/file |
 
@@ -3327,16 +3327,16 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | :------          | :------ |
 | ユーザー   | (**必須**) レポートに関連付けられたユーザー名。 |
 | type   | (**必須**) レポートの種類。 これは **queried** または **archived** のいずれかになります。 |
-| name   | (**必須**) レポートの名前。 base64 でエンコードされている必要があります。 |
+| 名前   | (**必須**) レポートの名前。 base64 でエンコードされている必要があります。 |
 | ファイル   | (**必須**) レポートからダウンロードするファイルの名前。 base64 でエンコードされている必要があります。 |
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -3348,7 +3348,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |
+| 200 | [OK] を選びます |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -3362,11 +3362,11 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="enumerate-files-in-a-windows-error-reporting-wer-report"></a>Windows エラー報告 (WER) レポート内のファイルを列挙する
 
-**申請**
+**要求**
 
 次の要求形式を使用して、WER レポート内のファイルを列挙できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/wer/report/files |
 
@@ -3379,11 +3379,11 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | :------          | :------ |
 | ユーザー   | (**必須**) レポートに関連付けられたユーザー。 |
 | type   | (**必須**) レポートの種類。 これは **queried** または **archived** のいずれかになります。 |
-| name   | (**必須**) レポートの名前。 base64 でエンコードされている必要があります。 |
+| 名前   | (**必須**) レポートの名前。 base64 でエンコードされている必要があります。 |
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
@@ -3404,7 +3404,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |
+| 200 | [OK] を選びます |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -3418,26 +3418,26 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 ### <a name="list-the-windows-error-reporting-wer-reports"></a>Windows エラー報告 (WER) レポートを一覧表示する
 
-**申請**
+**要求**
 
 次の要求形式を使用して、WER レポートを取得できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/wer/reports |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -3463,7 +3463,7 @@ WER 報告の形式は次のとおりです。
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |
+| 200 | [OK] を選びます |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -3481,22 +3481,22 @@ WER 報告の形式は次のとおりです。
 
 ### <a name="start-tracing-with-a-custom-profile"></a>カスタム プロファイルを使用してトレースを開始する
 
-**申請**
+**要求**
 
 次の要求形式を使用して、WPR プロファイルをアップロードし、そのプロファイルを使用してトレースを開始できます。  一度に実行できるトレースは 1 つのみです。 プロファイルはデバイス上に残りません。 
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/wpr/customtrace |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
@@ -3519,7 +3519,7 @@ WPR セッション状態の形式は次のとおりです。
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |
+| 200 | [OK] を選びます |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -3534,11 +3534,11 @@ WPR セッション状態の形式は次のとおりです。
 
 ### <a name="start-a-boot-performance-tracing-session"></a>起動パフォーマンス トレース セッションを開始する
 
-**申請**
+**要求**
 
 次の要求形式を使用して、WPR の起動トレース セッションを開始できます。 これは、パフォーマンス トレース セッションとも呼びます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/wpr/boottrace |
 
@@ -3553,11 +3553,11 @@ WPR セッション状態の形式は次のとおりです。
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -3576,7 +3576,7 @@ WPR セッション状態の形式は次のとおりです。
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |
+| 200 | [OK] を選びます |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -3591,26 +3591,26 @@ WPR セッション状態の形式は次のとおりです。
 
 ### <a name="stop-a-boot-performance-tracing-session"></a>起動パフォーマンス トレース セッションを停止する
 
-**申請**
+**要求**
 
 次の要求形式を使用して、WPR の起動トレース セッションを停止できます。 これは、パフォーマンス トレース セッションとも呼びます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/wpr/boottrace |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -3622,7 +3622,7 @@ WPR セッション状態の形式は次のとおりです。
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |
+| 200 | [OK] を選びます |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -3637,11 +3637,11 @@ WPR セッション状態の形式は次のとおりです。
 
 ### <a name="start-a-performance-tracing-session"></a>パフォーマンス トレース セッションを開始する
 
-**申請**
+**要求**
 
 次の要求形式を使用して、WPR のトレース セッションを開始できます。 これは、パフォーマンス トレース セッションとも呼びます。  一度に実行できるトレースは 1 つのみです。 
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/wpr/trace |
 
@@ -3656,11 +3656,11 @@ WPR セッション状態の形式は次のとおりです。
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -3679,7 +3679,7 @@ WPR セッション状態の形式は次のとおりです。
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |
+| 200 | [OK] を選びます |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -3694,26 +3694,26 @@ WPR セッション状態の形式は次のとおりです。
 
 ### <a name="stop-a-performance-tracing-session"></a>パフォーマンスのトレース セッションを停止する
 
-**申請**
+**要求**
 
 次の要求形式を使用して、WPR のトレース セッションを停止できます。 これは、パフォーマンス トレース セッションとも呼びます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/wpr/trace |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -3725,7 +3725,7 @@ WPR セッション状態の形式は次のとおりです。
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |
+| 200 | [OK] を選びます |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -3740,26 +3740,26 @@ WPR セッション状態の形式は次のとおりです。
 
 ### <a name="retrieve-the-status-of-a-tracing-session"></a>トレース セッションの状態を取得する
 
-**申請**
+**要求**
 
 次の要求形式を使用して、現在の WPR セッションの状態を取得できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/wpr/status |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -3778,7 +3778,7 @@ WPR トレース セッションの状態の形式は次のとおりです。
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |
+| 200 | [OK] を選びます |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -3793,26 +3793,26 @@ WPR トレース セッションの状態の形式は次のとおりです。
 
 ### <a name="list-completed-tracing-sessions-etls"></a>完了したトレース セッション (ETL) を一覧表示する
 
-**申請**
+**要求**
 
 次の要求形式を使用して、デバイス上の ETL トレースの一覧を取得できます。 
 
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/wpr/tracefiles |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -3836,7 +3836,7 @@ WPR トレース セッションの状態の形式は次のとおりです。
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |
+| 200 | [OK] を選びます |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -3851,11 +3851,11 @@ WPR トレース セッションの状態の形式は次のとおりです。
 
 ### <a name="download-a-tracing-session-etl"></a>トレース セッション (ETL) をダウンロードする
 
-**申請**
+**要求**
 
 次の要求形式を使用して、トレースファイル (ブート トレースまたはユーザー モード トレース) をダウンロードできます。 
 
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/wpr/tracefile |
 
@@ -3870,11 +3870,11 @@ WPR トレース セッションの状態の形式は次のとおりです。
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -3886,7 +3886,7 @@ WPR トレース セッションの状態の形式は次のとおりです。
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |
+| 200 | [OK] を選びます |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -3901,11 +3901,11 @@ WPR トレース セッションの状態の形式は次のとおりです。
 
 ### <a name="delete-a-tracing-session-etl"></a>トレース セッション (ETL) を削除する
 
-**申請**
+**要求**
 
 次の要求形式を使用して、トレースファイル (ブート トレースまたはユーザー モード トレース) を削除できます。 
 
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | DELETE | /api/wpr/tracefile |
 
@@ -3920,11 +3920,11 @@ WPR トレース セッションの状態の形式は次のとおりです。
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -3936,7 +3936,7 @@ WPR トレース セッションの状態の形式は次のとおりです。
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |
+| 200 | [OK] を選びます |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -3955,26 +3955,26 @@ WPR トレース セッションの状態の形式は次のとおりです。
 
 ### <a name="view-tags"></a>タグを表示する
 
-**申請**
+**要求**
 
 デバイスに現在適用されているタグを表示します。  これらのタグは、T キー内の DNS-SD TXT レコードを使用してアドバタイズされます。  
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/dns-sd/tags |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答** 現在適用されているタグの形式は次のとおりです。 
 ```json
@@ -3993,7 +3993,7 @@ WPR トレース セッションの状態の形式は次のとおりです。
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |
+| 200 | [OK] を選びます |
 | 5XX | サーバー エラー |
 
 
@@ -4009,29 +4009,29 @@ WPR トレース セッションの状態の形式は次のとおりです。
 
 ### <a name="delete-tags"></a>タグを削除する
 
-**申請**
+**要求**
 
 DNS-SD によって現在アドバタイズされているすべてのタグを削除します。   
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | DELETE | /api/dns-sd/tags |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
- - なし
+ - None
 
 **状態コード**
 
@@ -4039,7 +4039,7 @@ DNS-SD によって現在アドバタイズされているすべてのタグを�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |
+| 200 | [OK] を選びます |
 | 5XX | サーバー エラー |
 
 
@@ -4055,11 +4055,11 @@ DNS-SD によって現在アドバタイズされているすべてのタグを�
 
 ### <a name="delete-tag"></a>タグを削除する
 
-**申請**
+**要求**
 
 DNS-SD によって現在アドバタイズされている 1 つのタグを削除します。   
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | DELETE | /api/dns-sd/tag |
 
@@ -4072,14 +4072,14 @@ DNS-SD によって現在アドバタイズされている 1 つのタグを削�
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
- - なし
+ - None
 
 **状態コード**
 
@@ -4087,7 +4087,7 @@ DNS-SD によって現在アドバタイズされている 1 つのタグを削�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |
+| 200 | [OK] を選びます |
 
 
 **使用可能なデバイスファミリ**
@@ -4102,11 +4102,11 @@ DNS-SD によって現在アドバタイズされている 1 つのタグを削�
 
 ### <a name="add-a-tag"></a>タグを追加する
 
-**申請**
+**要求**
 
 DNS-SD アドバタイズにタグを追加します。   
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/dns-sd/tag |
 
@@ -4119,14 +4119,14 @@ DNS-SD アドバタイズにタグを追加します。
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
- - なし
+ - None
 
 **状態コード**
 
@@ -4134,7 +4134,7 @@ DNS-SD アドバタイズにタグを追加します。
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |
+| 200 | [OK] を選びます |
 | 401 | タグ領域のオーバーフロー。  提供されたタグが、結果として生成される DNS-SD サービス レコードに対して長すぎます。 |
 
 
@@ -4152,26 +4152,26 @@ DNS-SD アドバタイズにタグを追加します。
 
 ### <a name="get-known-folders"></a>既知のフォルダーを取得する
 
-**申請**
+**要求**
 
 アクセス可能なトップ レベル フォルダーの一覧を取得します。
 
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/filesystem/apps/knownfolders |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答** 利用可能なフォルダーの形式は次のとおりです。 
 ```json
@@ -4203,11 +4203,11 @@ DNS-SD アドバタイズにタグを追加します。
 
 ### <a name="get-files"></a>ファイルを取得する
 
-**申請**
+**要求**
 
 フォルダー内のファイルの一覧を取得します。
 
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/filesystem/apps/files |
 
@@ -4222,11 +4222,11 @@ DNS-SD アドバタイズにタグを追加します。
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答** 利用可能なフォルダーの形式は次のとおりです。 
 ```json
@@ -4248,7 +4248,7 @@ DNS-SD アドバタイズにタグを追加します。
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |
+| 200 | [OK] を選びます |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
@@ -4264,11 +4264,11 @@ DNS-SD アドバタイズにタグを追加します。
 
 ### <a name="download-a-file"></a>ファイルをダウンロードする
 
-**申請**
+**要求**
 
 既知のフォルダーまたは appLocalData からファイルを取得します。
 
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/filesystem/apps/file |
 
@@ -4283,7 +4283,7 @@ DNS-SD アドバタイズにタグを追加します。
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
@@ -4298,7 +4298,7 @@ DNS-SD アドバタイズにタグを追加します。
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
 | 200 | 要求したファイル |
-| 404 | ファイルが見つからない |
+| 404 | ファイルが見つかりません |
 | 5XX | エラー コード |
 
 **使用可能なデバイスファミリ**
@@ -4313,11 +4313,11 @@ DNS-SD アドバタイズにタグを追加します。
 
 ### <a name="rename-a-file"></a>ファイルの名前の変更
 
-**申請**
+**要求**
 
 フォルダー内のファイルの名前を変更します。
 
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/filesystem/apps/rename |
 
@@ -4334,15 +4334,15 @@ DNS-SD アドバタイズにタグを追加します。
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
-- なし
+- None
 
 **状態コード**
 
@@ -4350,8 +4350,8 @@ DNS-SD アドバタイズにタグを追加します。
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |. ファイルの名前が変更されました
-| 404 | ファイルが見つからない |
+| 200 | [OK] を選びます |の順に移動します。 ファイルの名前が変更されました
+| 404 | ファイルが見つかりません |
 | 5XX | エラー コード |
 
 **使用可能なデバイスファミリ**
@@ -4366,11 +4366,11 @@ DNS-SD アドバタイズにタグを追加します。
 
 ### <a name="delete-a-file"></a>ファイルを削除する
 
-**申請**
+**要求**
 
 フォルダー内のファイルを削除します。
 
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | DELETE | /api/filesystem/apps/file |
 
@@ -4385,15 +4385,15 @@ DNS-SD アドバタイズにタグを追加します。
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
-- なし 
+- None 
 
 **状態コード**
 
@@ -4401,8 +4401,8 @@ DNS-SD アドバタイズにタグを追加します。
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |. ファイルが削除されます。 |
-| 404 | ファイルが見つからない |
+| 200 | [OK] を選びます |の順に移動します。 ファイルが削除されます。 |
+| 404 | ファイルが見つかりません |
 | 5XX | エラー コード |
 
 **使用可能なデバイスファミリ**
@@ -4417,11 +4417,11 @@ DNS-SD アドバタイズにタグを追加します。
 
 ### <a name="upload-a-file"></a>ファイルをアップロードする
 
-**申請**
+**要求**
 
 フォルダーにファイルをアップロードします。  この場合、同じ名前を持つ既存のファイルは上書きされますが、新しいフォルダーは作成されません。 
 
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/filesystem/apps/file |
 
@@ -4435,11 +4435,11 @@ DNS-SD アドバタイズにタグを追加します。
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -4449,7 +4449,7 @@ DNS-SD アドバタイズにタグを追加します。
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |. ファイルがアップロードされます。 |
+| 200 | [OK] を選びます |の順に移動します。 ファイルがアップロードされます。 |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 

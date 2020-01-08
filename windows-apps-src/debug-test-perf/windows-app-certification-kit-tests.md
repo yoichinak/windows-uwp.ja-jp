@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10、uwp、アプリ認定
 ms.localizationpriority: medium
-ms.openlocfilehash: 32ece54ef17c97b1cb16b3f0a706c86eb2858556
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: 6ab5b2ec13e0de3d234fafc6c1a32e10d35aed4f
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74257858"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75681943"
 ---
 # <a name="windows-app-certification-kit-tests"></a>Windows アプリ認定キットのテスト
 
@@ -149,7 +149,7 @@ BinScope Binary Analyzer テストは、次のセキュリティ関連の機能�
 
 ### <a name="binscope-binary-analyzer-tests"></a>BinScope Binary Analyzer テスト
 
-[BinScope Binary Analyzer](https://www.microsoft.com/en-us/download/details.aspx?id=44995) テストは、アプリのバイナリ ファイルを検査して、攻撃や悪用からアプリを守るコーディングとビルドの手法をチェックします。
+[BinScope Binary Analyzer](https://www.microsoft.com/download/details.aspx?id=44995) テストは、アプリのバイナリ ファイルを検査して、攻撃や悪用からアプリを守るコーディングとビルドの手法をチェックします。
 
 BinScope Binary Analyzer テストは、次のセキュリティ関連機能が適切に使われているかをチェックします。
 
@@ -371,7 +371,7 @@ WinJS.Binding.optimizeBindingReferences の値を確認します。
 次の表をガイダンスとして使います。
 
 <table>
-<tr><th>エラー メッセージ</th><th>コメント</th></tr>
+<tr><th>エラー メッセージ</th><th>備考</th></tr>
 <tr><td>
 <p>The image {image name} defines both Scale and TargetSize qualifiers; you can define only one qualifier at a time. (イメージ {image name} には Scale 修飾子と TargetSize 修飾子が定義されていますが、一度に定義可能な修飾子は 1 つだけです。)</p>
 </td><td>
@@ -559,7 +559,7 @@ Microsoft Store では、Direct3D を使用しているすべてのアプリケ�
 
 ### <a name="corrective-action"></a>問題への対応
 
-アプリは中断されそうになった時は常に [**Trim**](https://docs.microsoft.com/windows/desktop/api/dxgi1_3/nf-dxgi1_3-idxgidevice3-trim) インターフェイスで [**IDXGIDevice3**](https://docs.microsoft.com/windows/desktop/api/dxgi1_3/nn-dxgi1_3-idxgidevice3) API を呼び出す必要があります。
+アプリは中断されそうになった時は常に [**Trim**](https://docs.microsoft.com/windows/desktop/api/dxgi1_3/nn-dxgi1_3-idxgidevice3) インターフェイスで [**IDXGIDevice3**](https://docs.microsoft.com/windows/desktop/api/dxgi1_3/nf-dxgi1_3-idxgidevice3-trim) API を呼び出す必要があります。
 
 ## <a name="app-capabilities-test"></a>アプリ機能のテスト
 

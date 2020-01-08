@@ -4,14 +4,14 @@ title: バックグラウンド アクティビティの最適化
 description: システムと連携して、バッテリー効率の高い方法でバックグラウンド タスクを使用する UWP アプリを作成します。
 ms.date: 02/08/2017
 ms.topic: article
-keywords: windows 10, uwp
+keywords: Windows 10, UWP
 ms.localizationpriority: medium
-ms.openlocfilehash: 8731e5c794210c1a084c3de3cbf5004c7749a5e0
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: eb3ff12e4b616edd7b87cab7f13aa060f301fc52
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66359911"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75683835"
 ---
 # <a name="optimize-background-activity"></a>バックグラウンド アクティビティの最適化
 
@@ -39,14 +39,14 @@ Windows 10 Version 1607 以降を実行するデスクトップ デバイスや�
 
 ![バックグラウンド タスクのアクセス許可がオフ](images/background-task-permissions-off.png)
 
-アプリでは、[**BackgroundExecutionManager.RequestAccessAsync()** ](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundexecutionmanager.requestaccessasync) メソッドの呼び出しによって返される [**BackgroundAccessStatus**](https://docs.microsoft.com/en-us/uwp/api/windows.applicationmodel.background.backgroundaccessstatus) 列挙値で、現在のバックグラウンド アクティビティのアクセス許可の設定を確認できます。
+アプリでは、[**BackgroundExecutionManager.RequestAccessAsync()** ](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundexecutionmanager.requestaccessasync) メソッドの呼び出しによって返される [**BackgroundAccessStatus**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundaccessstatus) 列挙値で、現在のバックグラウンド アクティビティのアクセス許可の設定を確認できます。
 
-しかし、アプリに信頼できるアクティビティ管理が実装されていない場合、ユーザーはそのアプリに対するバックグラウンドのアクセス許可を一切拒否する可能性があります。このことは、開発者とユーザーの双方にとって望ましいことではありません。 アプリをバックグラウンドで実行するためのアクセス許可が拒否されているときに、ユーザーの操作を完了するためにバックグラウンド アクティビティが必要である場合は、ユーザーに通知し、設定アプリに誘導することができます。 これを行うには、[設定アプリを起動](https://docs.microsoft.com/en-us/windows/uwp/launch-resume/launch-settings-app)して、[バックグラウンド アプリ] ページや [バッテリ使用量の詳細] ページに移動します。
+しかし、アプリに信頼できるアクティビティ管理が実装されていない場合、ユーザーはそのアプリに対するバックグラウンドのアクセス許可を一切拒否する可能性があります。このことは、開発者とユーザーの双方にとって望ましいことではありません。 アプリをバックグラウンドで実行するためのアクセス許可が拒否されているときに、ユーザーの操作を完了するためにバックグラウンド アクティビティが必要である場合は、ユーザーに通知し、設定アプリに誘導することができます。 これを行うには、[設定アプリを起動](https://docs.microsoft.com/windows/uwp/launch-resume/launch-settings-app)して、[バックグラウンド アプリ] ページや [バッテリ使用量の詳細] ページに移動します。
 
 ## <a name="work-with-the-battery-saver-feature"></a>バッテリー節約機能の使用
 バッテリー節約機能は、ユーザーが設定で構成できるシステム レベルの機能です。 バッテリー レベルがユーザーによって定義されたしきい値を下回った場合、 *[常に許可] に設定されたアプリを除いて*、すべてのアプリのバックグラウンド アクティビティが中断されます。
 
-アプリ内からバッテリー節約機能モードの状態を確認するには、[**PowerManager.EnergySaverStatus**](https://docs.microsoft.com/en-us/uwp/api/windows.system.power.energysaverstatus) プロパティを参照します。 これは列挙値で、**EnergySaverStatus.Disabled**、**EnergySaverStatus.Off**、**EnergySaverStatus.On** のいずれかです。 アプリがバックグラウンド アクティビティを必要とし、[常に許可] に設定されていない場合、特定の指定されたバックグラウンド タスクは、バッテリー節約機能がオフになるまで実行されないことをユーザーに通知することにより、**EnergySaverStatus.On** を処理する必要があります。 バックグラウンド アクティビティの管理は、バッテリー節約機能の主要目的ですが、バッテリー節約機能をオンにした場合、アプリはさらに電力を節約するための追加の調整を実行できます。  バッテリー節約機能がオンの場合、アプリは、アニメーションの使用を減らし、位置のポーリングを停止できるほか、同期やバックアップを遅らせることができます。 
+アプリ内からバッテリー節約機能モードの状態を確認するには、[**PowerManager.EnergySaverStatus**](https://docs.microsoft.com/uwp/api/windows.system.power.energysaverstatus) プロパティを参照します。 これは列挙値で、**EnergySaverStatus.Disabled**、**EnergySaverStatus.Off**、**EnergySaverStatus.On** のいずれかです。 アプリがバックグラウンド アクティビティを必要とし、[常に許可] に設定されていない場合、特定の指定されたバックグラウンド タスクは、バッテリー節約機能がオフになるまで実行されないことをユーザーに通知することにより、**EnergySaverStatus.On** を処理する必要があります。 バックグラウンド アクティビティの管理は、バッテリー節約機能の主要目的ですが、バッテリー節約機能をオンにした場合、アプリはさらに電力を節約するための追加の調整を実行できます。  バッテリー節約機能がオンの場合、アプリは、アニメーションの使用を減らし、位置のポーリングを停止できるほか、同期やバックアップを遅らせることができます。 
 
 ## <a name="further-optimize-background-tasks"></a>バックグラウンド タスクのさらなる最適化
 バックグラウンド タスクを登録する場合に、さらにバッテリー効率を高めるためのその他の手順を次に示します。
