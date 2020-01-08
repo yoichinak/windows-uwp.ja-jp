@@ -5,14 +5,14 @@ title: リモート カメラへの接続
 ms.date: 04/19/2019
 ms.topic: article
 ms.custom: 19H1
-keywords: windows 10, uwp
+keywords: Windows 10, UWP
 ms.localizationpriority: medium
-ms.openlocfilehash: 253eea00ba6c4188197224111909c28a53932b88
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: c7b876cff994f775b770d22c103d27271047b269
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74257350"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75683635"
 ---
 # <a name="connect-to-remote-cameras"></a>リモート カメラへの接続
 
@@ -33,9 +33,9 @@ ms.locfileid: "74257350"
 > ヘルパーメソッド[**Mediaframesourcegroup. GetDeviceSelector**](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesourcegroup.getdeviceselector)は、ローカルに接続されたリモートネットワークカメラを監視する aqs 文字列を返します。 ネットワークカメラだけを監視するには、上に示した AQS 文字列を使用する必要があります。
 
 
-[**Start**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.devicewatcher.start)メソッドを呼び出すことによって返された**devicewatcher**を開始すると、現在使用可能なすべてのネットワークカメラに対して[**追加さ**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.devicewatcher.added)れたイベントが発生します。 [**Stop**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.devicewatcher.stop)を呼び出してウォッチャーを停止するまで、**追加**されたイベントは、新しいネットワークカメラデバイスが使用可能になったときに発生し、カメラデバイスが使用できなくなったときに[**削除**](https://docs.microsoft.com/en-us/uwp/api/windows.devices.enumeration.devicewatcher.removed)されたイベントが発生します。
+[**Start**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.devicewatcher.start)メソッドを呼び出すことによって返された**devicewatcher**を開始すると、現在使用可能なすべてのネットワークカメラに対して[**追加さ**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.devicewatcher.added)れたイベントが発生します。 [**Stop**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.devicewatcher.stop)を呼び出してウォッチャーを停止するまで、**追加**されたイベントは、新しいネットワークカメラデバイスが使用可能になったときに発生し、カメラデバイスが使用できなくなったときに[**削除**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.devicewatcher.removed)されたイベントが発生します。
 
-**追加**および**削除**されたイベントハンドラーに渡されるイベント引数は、それぞれ[**Deviceinformation**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceInformation)または[**deviceinformationupdate**](https://docs.microsoft.com/en-us/uwp/api/windows.devices.enumeration.deviceinformationupdate)オブジェクトです。 これらの各オブジェクトには、イベントが発生したネットワークカメラの識別子である**Id**プロパティがあります。 この ID を[**mediaframesourcegroup. FromIdAsync**](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesourcegroup.fromidasync)メソッドに渡して、カメラからフレームを取得するために使用できる[**mediaframesourcegroup**](https://docs.microsoft.com/en-us/uwp/api/windows.media.capture.frames.mediaframesourcegroup.fromidasync)オブジェクトを取得します。
+**追加**および**削除**されたイベントハンドラーに渡されるイベント引数は、それぞれ[**Deviceinformation**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceInformation)または[**deviceinformationupdate**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformationupdate)オブジェクトです。 これらの各オブジェクトには、イベントが発生したネットワークカメラの識別子である**Id**プロパティがあります。 この ID を[**mediaframesourcegroup. FromIdAsync**](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesourcegroup.fromidasync)メソッドに渡して、カメラからフレームを取得するために使用できる[**mediaframesourcegroup**](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesourcegroup.fromidasync)オブジェクトを取得します。
 
 ## <a name="remote-camera-pairing-helper-class"></a>リモートカメラペアリングヘルパークラス
 

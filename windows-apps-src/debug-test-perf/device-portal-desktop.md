@@ -6,12 +6,12 @@ ms.date: 02/06/2019
 ms.topic: article
 keywords: windows 10、uwp、デバイスポータル
 ms.localizationpriority: medium
-ms.openlocfilehash: 0f25e882f53bb4f673aa5003495f37d553208721
-ms.sourcegitcommit: 445320ff0ee7323d823194d4ec9cfa6e710ed85d
+ms.openlocfilehash: 73f7e827c0ec8ca289d3523da06601de978a91d2
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72282004"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75681973"
 ---
 # <a name="device-portal-for-windows-desktop"></a>Windows デスクトップ用 Device Portal
 
@@ -22,7 +22,7 @@ Windows Device Portal では、診断情報を表示し、ブラウザー ウィ
 - CPU、メモリ、I/O、ネットワーク、および GPU の使用率のライブ グラフを表示する
 - プロセス ダンプを収集する
 - ETW トレースを収集する 
-- サイドローディングされたアプリの分離ストレージを操作する
+- サイドローディングしたアプリの分離ストレージを操作する
 
 ## <a name="set-up-device-portal-on-windows-desktop"></a>Windows デスクトップで Device Portal をセットアップする
 
@@ -61,17 +61,17 @@ Windows デスクトップの Device Portal では、標準のページのセッ
 - アプリ マネージャー
 - エクスプローラー
 - 実行中のプロセス
-- パフォーマンス
-- デバッグ
+- [パフォーマンス]
+- Debug
 - Windows イベント トレーシング (ETW)
 - パフォーマンス トレース
 - デバイス マネージャー
-- ネットワーク
+- のネットワーク
 - クラッシュ データ
 - 機能
 - Mixed Reality
 - ストリーミング インストール デバッガー
-- Location
+- インストール先
 - スクラッチ
 
 ## <a name="more-device-portal-options"></a>Device Portal のその他のオプション
@@ -103,7 +103,7 @@ Windows デスクトップの Device Portal では、標準のページのセッ
     - このオプションを指定すると、独自の SSL 証明書をインストールして、通常 Device Portal に表示される SSL 警告ページを修正することができます。 
 - `-Debug <various options for authentication, port selection, and tracing level>`
     - 特定の構成と視覚的なデバッグ メッセージを使用して、Device Portal のスタンドアロン バージョンを実行します。 これは、[パッケージ プラグイン](https://docs.microsoft.com/windows/uwp/debug-test-perf/device-portal-plugin)を構築するときに最も役立ちます。 
-    - これをシステムとして実行して、パッケージ プラグインを完全にテストする方法について詳しくは、[MSDN Magazine の記事](https://msdn.microsoft.com/en-us/magazine/mt826332.aspx)をご覧ください。
+    - これをシステムとして実行して、パッケージ プラグインを完全にテストする方法について詳しくは、[MSDN Magazine の記事](https://msdn.microsoft.com/magazine/mt826332.aspx)をご覧ください。
 
 ## <a name="common-errors-and-issues"></a>一般的なエラーと問題
 
@@ -129,7 +129,7 @@ Windows 10 のプレリリースビルドで開発者パッケージをインス
 
 従量制インターネット接続を使用している場合は、このエラーが表示されることがあります。 従量制課金接続で開発者パッケージをダウンロードすることはできません。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>「
 
 * [Windows デバイスポータルの概要](device-portal.md)
 * [デバイスポータルコア API リファレンス](https://docs.microsoft.com/windows/uwp/debug-test-perf/device-portal-api-core)

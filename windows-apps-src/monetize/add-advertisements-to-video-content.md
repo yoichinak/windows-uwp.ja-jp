@@ -4,14 +4,14 @@ description: AdScheduler クラスを使ってビデオ コンテンツに広告
 title: ビデオ コンテンツに広告を表示する
 ms.date: 03/22/2018
 ms.topic: article
-keywords: Windows 10, UWP, 広告, 宣伝, ビデオ, スケジューラ, Javascript
+keywords: Windows 10、UWP、広告、宣伝、ビデオ、スケジューラ、javascript
 ms.localizationpriority: medium
-ms.openlocfilehash: 1a214288c778505d16707fd64391a9b8cedbbb32
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: 6178758cd67471d56b1d65e293104e987e81fb9b
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74260357"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75681923"
 ---
 # <a name="show-ads-in-video-content"></a>ビデオ コンテンツに広告を表示する
 
@@ -24,7 +24,7 @@ ms.locfileid: "74260357"
 
 ビデオ コンテンツの広告は、プログラムが 10 分未満 (短い形式) か、10 分 (長い形式) を超えるかによって異なります。 後者は前者よりもサービス上の設定が複雑ですが、クライアント側コードの作成方法にはほとんど違いはありません。 **AdScheduler** が、マニフェストの代わりに 1 つの広告のみを含む VAST ペイロードを受け取った場合、その VAST ペイロードは 1 つのプリロール広告 (00:00 の時点で再生) についてマニフェストが呼び出された場合と同様に処理されます。
 
-## <a name="prerequisites"></a>前提条件
+## <a name="prerequisites"></a>必要条件
 
 * Visual Studio 2015 以降のリリースと共に [Microsoft Advertising SDK](https://marketplace.visualstudio.com/items?itemName=AdMediator.MicrosoftAdvertisingSDK) をインストールします。
 
@@ -51,8 +51,8 @@ ms.locfileid: "74260357"
 
 3. **Microsoft Advertising SDK for JavaScript** ライブラリへの参照をプロジェクトに追加します。
 
-    1. **[ソリューション エクスプローラー]** ウィンドウで、 **[参照設定]** を右クリックし、 **[参照の追加]** を選択します。
-    2. **[参照マネージャー]** で、 **[ユニバーサル Windows]** を展開し、 **[拡張]** をクリックして、 **[Microsoft Advertising SDK for JavaScript]** (バージョン 10.0) の横にあるチェック ボックスをオンにします。
+    1. **ソリューション エクスプローラー**のウィンドウで、 **[参照設定]** を右クリックし、 **[参照の追加]** を選択します。
+    2. **[参照マネージャー]** で、 **[Universal Windows]** を展開し、 **[拡張]** をクリックして、 **[Microsoft Advertising SDK for JavaScript]** (バージョン 10.0) の横にあるチェック ボックスをオンにします。
     3. **[参照マネージャー]** で、[OK] をクリックします。
 
 4.  AdScheduler.js ファイルをプロジェクトに追加します。
@@ -70,7 +70,7 @@ ms.locfileid: "74260357"
     > [!NOTE]
     > この行は、`<head>` セクションの main.js のインクルードの後に配置する必要があります。そうでない場合、プロジェクトのビルド時にエラーが発生します。
 
-6.  プロジェクトの main.js ファイルで、新しい **AdScheduler** オブジェクトを作成するコードを追加します。 ビデオ コンテンツをホストする **MediaPlayer** を渡します。 このコードは、[WinJS.UI.processAll](https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh440975) の後に実行されるように配置する必要があります。
+6.  プロジェクトの main.js ファイルで、新しい **AdScheduler** オブジェクトを作成するコードを追加します。 ビデオ コンテンツをホストする **MediaPlayer** を渡します。 このコードは、[WinJS.UI.processAll](https://docs.microsoft.com/previous-versions/windows/apps/hh440975) の後に実行されるように配置する必要があります。
 
     [!code-javascript[TrialVersion](./code/AdvertisingSamples/AdSchedulerSamples/js/js/main.js#Snippet2)]
 
@@ -144,7 +144,7 @@ ms.locfileid: "74260357"
 
 このプロパティは、広告要求の応答がタイムアウトするまでの待ち時間をミリ秒単位で取得または設定します。値 0 は、タイムアウトしないようにシステムに通知します。 既定値は 30000 ミリ秒 (30 秒) です。
 
-### <a name="schedule"></a>schedule
+### <a name="schedule"></a>スケジュール
 
 このプロパティは、広告サーバーから受け取ったスケジュール データを取得します。 このオブジェクトには、Video Ad Serving Template (VAST) または Video Multiple Ad Playlist (VMAP) ペイロードの構造に対応する完全なデータ階層が含まれます。
 

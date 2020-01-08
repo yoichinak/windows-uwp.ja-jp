@@ -5,12 +5,12 @@ ms.date: 09/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, 広告, Advertising
 ms.localizationpriority: medium
-ms.openlocfilehash: 1d747d35148965480cb34714cde7859203a7424d
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 4db99097516fcead384af6fc9e4c588707b96d41
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57634377"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75684439"
 ---
 # <a name="windows-premium-ads-publishers-program"></a>Windows Premium Ads Publishers Program
 
@@ -22,7 +22,7 @@ Windows 開発者が広告によってアプリを収益化するための継続
 
 マイクロソフトでは、Microsoft Store 内のアプリを継続的にレビューし、[利用条件を満たす](#what-are-the-criteria-for-apps-in-the-program)かどうかを確認します。 利用条件を満たすアプリは、厳格な手動レビューを経て、明確に定義された、スムーズなユーザー エクスペリエンスが確認され、意図しないクリックを避けるために広告が適切に配置されていることも確認されます。 自動スクリーニングと手動スクリーニングの両方をクリアしたアプリがこのプログラムに追加されます。
 
-これは現在、招待のみのプログラムで、利用条件を満たすだけで自動的にアプリがプレミアム プログラムに登録されるわけではありません。 プログラムの条件を満たすようにアプリのエクスペリエンスを改善する方法について詳しく知りたい場合は、aiacare@microsoft.com までお問い合わせください。
+これは現在、招待のみのプログラムで、利用条件を満たすだけで自動的にアプリがプレミアム プログラムに登録されるわけではありません。 プログラムに適合するようにアプリのエクスペリエンスを向上させる方法については、aiacare@microsoft.comにご連絡ください。
 
 ## <a name="what-are-the-criteria-for-apps-in-the-program"></a>このプログラムでのアプリの基準
 
@@ -41,7 +41,7 @@ Windows 開発者が広告によってアプリを収益化するための継続
 
 ## <a name="can-apps-get-removed-from-the-program"></a>アプリがプログラムから削除される場合があるか
 
-プログラムに登録されたアプリは、頻繁にモニタリングされ、継続的に利用条件を満たしていることが確認されます。 1 日あたりの広告の査証要求数量を維持するには、時間の経過と共にアプリの使用状況が大幅に低下していないことを確認します。 これを行うには、[定期的に販売促進キャンペーンを実施する](https://developer.microsoft.com/en-us/store/promote-your-apps)ことをお勧めします。
+プログラムに登録されたアプリは、頻繁にモニタリングされ、継続的に利用条件を満たしていることが確認されます。 1 日あたりの広告の査証要求数量を維持するには、時間の経過と共にアプリの使用状況が大幅に低下していないことを確認します。 これを行うには、[定期的に販売促進キャンペーンを実施する](https://developer.microsoft.com/store/promote-your-apps)ことをお勧めします。
 
 ## <a name="can-i-provide-additional-marketing-material-to-showcase-my-app-in-the-program"></a>プログラムでアプリをアピールするための追加のマーケティング情報を提供できるか 
 

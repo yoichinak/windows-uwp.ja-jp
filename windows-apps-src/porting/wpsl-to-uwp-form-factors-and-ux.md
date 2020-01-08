@@ -1,24 +1,24 @@
 ---
 description: Windows アプリは、PC、モバイル デバイス、その他の多くの種類のデバイスで同じ外観を共有します。 ユーザー インターフェイス、入力パターン、操作パターンは非常に類似しており、デバイス間を移行するユーザーには使い慣れたエクスペリエンスは歓迎されるはずです。
-title: UWP への Windows Phone Silverlight のフォーム ファクターと UX の移植
+title: フォームファクターと UX の UWP に Windows Phone Silverlight への移植
 ms.assetid: 96244516-dd2c-494d-ab5a-14b7dcd2edbd
 ms.date: 02/08/2017
 ms.topic: article
-keywords: windows 10, uwp
+keywords: Windows 10, UWP
 ms.localizationpriority: medium
-ms.openlocfilehash: 03a994930e956cb3c2e775c32e77c6e62b526a17
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 3c15621ed34fb358f318549d7987d7c445247aae
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67322312"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75684634"
 ---
-#  <a name="porting-windowsphone-silverlight-to-uwp-for-form-factor-and-ux"></a>UWP への Windows Phone Silverlight のフォーム ファクターと UX の移植
+#  <a name="porting-windowsphone-silverlight-to-uwp-for-form-factor-and-ux"></a>フォームファクターと UX の UWP に Windows Phone Silverlight への移植
 
 
 前のトピックは、「[ビジネス レイヤーとデータ レイヤーの移植](wpsl-to-uwp-business-and-data.md)」でした。
 
-Windows アプリは、PC、モバイル デバイス、その他の多くの種類のデバイスで同じ外観を共有します。 ユーザー インターフェイス、入力パターン、操作パターンは非常に類似しており、デバイス間を移行するユーザーには使い慣れたエクスペリエンスは歓迎されるはずです。 物理サイズ、既定の向き、およびユニバーサル Windows プラットフォーム (UWP) アプリを有効ピクセルの解像度の係数などのデバイス間の相違点は、Windows 10 でレンダリングされます。 さいわいなことに、これらの大変な作業の多くは、有効ピクセルなどのスマートな概念を用いてシステムにより自動的に処理されます。
+Windows アプリは、PC、モバイル デバイス、その他の多くの種類のデバイスで同じ外観を共有します。 ユーザー インターフェイス、入力パターン、操作パターンは非常に類似しており、デバイス間を移行するユーザーには使い慣れたエクスペリエンスは歓迎されるはずです。 物理サイズ、既定の向き、有効なピクセル解像度の要因など、Windows 10 によってユニバーサル Windows プラットフォーム (UWP) アプリがレンダリングされる方法におけるデバイスの違い。 さいわいなことに、これらの大変な作業の多くは、有効ピクセルなどのスマートな概念を用いてシステムにより自動的に処理されます。
 
 ## <a name="different-form-factors-and-user-experience"></a>フォーム ファクターとユーザー エクスペリエンスの相違
 
@@ -30,7 +30,7 @@ Windows アプリは、PC、モバイル デバイス、その他の多くの種
 
 客観的には、画面はインチと物理的な (RAW) ピクセル単位で測定されます。 この両方のメトリックがわかれば、1 インチに適合するピクセル数がわかります。 これは、ピクセル密度、DPI (1 インチあたりのドット数)、または PPI (1 インチあたりのピクセル数) と呼ばれています。 また、DPI の逆数は、1 インチを分母とするピクセルの実際のサイズです。 ピクセル密度はまた、*解像度*とも呼ばれます。ただし解像度は、漠然とピクセル数を意味する用語として使われることも少なくありません。
 
-視聴距離が増加すると、それに伴ってこうしたすべての客観的なメトリックが小さく*見え*、また画面の*有効サイズ*と*有効解像度*に帰着します。 電話は通常、最も近くで目視されます。次にタブレット、PC モニター、そして最も遠くで見られるのが [Surface Hub](https://www.microsoft.com/surface/devices/surface-hub) デバイスとテレビです。 補正のために、デバイスは視聴距離に対して客観的に大きくなる傾向があります。 UI 要素のサイズを設定する場合、有効ピクセル (epx) と呼ばれる単位でそのサイズを設定します。 Windows 10 が最適なエクスペリエンスを表示するための物理ピクセルに UI 要素の最適なサイズを計算するにアカウント DPI、およびデバイスからの一般的な表示距離になります。 詳しくは、「[表示/有効ピクセル、視聴距離、スケール ファクター](wpsl-to-uwp-porting-xaml-and-ui.md)」をご覧ください。
+視聴距離が増加すると、それに伴ってこうしたすべての客観的なメトリックが小さく*見え*、また画面の*有効サイズ*と*有効解像度*に帰着します。 電話は通常、最も近くで目視されます。次にタブレット、PC モニター、そして最も遠くで見られるのが [Surface Hub](https://www.microsoft.com/surface/devices/surface-hub) デバイスとテレビです。 補正のために、デバイスは視聴距離に対して客観的に大きくなる傾向があります。 UI 要素のサイズを設定する場合、有効ピクセル (epx) と呼ばれる単位でそのサイズを設定します。 と Windows 10 は、DPI と、デバイスからの一般的な表示距離を考慮して、最適な表示エクスペリエンスを提供するために、UI 要素の最適なサイズを物理ピクセル単位で計算します。 詳しくは、「[表示/有効ピクセル、視聴距離、スケール ファクター](wpsl-to-uwp-porting-xaml-and-ui.md)」をご覧ください。
 
 ただし、多くの異なるデバイスでアプリをテストし、各エクスペリエンスを自分で確認することをお勧めします。
 
@@ -50,13 +50,13 @@ Windows アプリは、PC、モバイル デバイス、その他の多くの種
 
 光学的にアプリを拡大表示してモバイル バージョンを大きくするだけでは、デバイスとその追加領域を活用できず、ユーザーに対して適切な機能を提供しません。 同じコンテンツをより大きく表示するのではなく、より多くのコンテンツを表示することを検討する必要があります。 タブレットであっても、コンテンツの表示行数を増やすことができます。 広告など、さまざまなコンテンツを表示するために追加領域を使うことができます。また、リスト ボックスをリスト ビューに変更することや、領域で可能であれば複数の列に項目を折り返すことができます。 「[リスト ビュー コントロールとグリッド ビュー コントロールのガイドライン](https://docs.microsoft.com/windows/uwp/controls-and-patterns/lists)」をご覧ください。
 
-リスト ビューおよびグリッド ビューなどの新しいコントロールのほかの Windows Phone Silverlight から確立されたレイアウト型のほとんどはユニバーサル Windows プラットフォーム (UWP) 対応をあります。 たとえば、[**Canvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Canvas)、[**Grid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid)、[**StackPanel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.StackPanel) などです。 こうしたレイアウトを使う UI の多くは、簡単に移植できるはずですが、さまざまなサイズのデバイスでサイズ変更と再レイアウトを自動的に行うために、こうしたレイアウト パネルの動的レイアウト機能を活用する方法を常に模索してください。
+リストビューやグリッドビューなどの新しいコントロールに加えて、Windows Phone Silverlight から確立されたレイアウトのほとんどの種類は、ユニバーサル Windows プラットフォーム (UWP) に相当します。 たとえば、[**Canvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Canvas)、[**Grid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid)、[**StackPanel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.StackPanel) などです。 こうしたレイアウトを使う UI の多くは、簡単に移植できるはずですが、さまざまなサイズのデバイスでサイズ変更と再レイアウトを自動的に行うために、こうしたレイアウト パネルの動的レイアウト機能を活用する方法を常に模索してください。
 
-システム コントロールやレイアウト パネルに組み込まれている動的レイアウトを凌駕場合は、このと呼ばれる新しい Windows 10 機能使用できる[アダプティブ Visual State Manager](wpsl-to-uwp-porting-xaml-and-ui.md)します。
+システムコントロールとレイアウトパネルに組み込まれている動的レイアウトを超えているため、[アダプティブビジュアル状態マネージャー](wpsl-to-uwp-porting-xaml-and-ui.md)と呼ばれる新しい Windows 10 機能を使用できます。
 
 ## <a name="input-modalities"></a>入力モダリティ
 
-Windows Phone Silverlight インターフェイスは、タッチに固有です。 また、移植するアプリのインターフェイスでももちろんタッチをサポートしますが、マウスやキーボードなど他の入力モダリティをさらにサポートすることもできます。 UWP では、マウス、ペン、タッチ入力は*ポインター入力*として統合されています。 詳しくは、「[ポインター入力の処理](https://docs.microsoft.com/windows/uwp/input-and-devices/handle-pointer-input)」と「[キーボード操作](https://docs.microsoft.com/windows/uwp/input-and-devices/keyboard-interactions)」をご覧ください。
+Windows Phone Silverlight インターフェイスはタッチ固有です。 また、移植するアプリのインターフェイスでももちろんタッチをサポートしますが、マウスやキーボードなど他の入力モダリティをさらにサポートすることもできます。 UWP では、マウス、ペン、タッチ入力は*ポインター入力*として統合されています。 詳しくは、「[ポインター入力の処理](https://docs.microsoft.com/windows/uwp/input-and-devices/handle-pointer-input)」と「[キーボード操作](https://docs.microsoft.com/windows/uwp/input-and-devices/keyboard-interactions)」をご覧ください。
 
 ## <a name="maximizing-markup-and-code-re-use"></a>マークアップとコード再利用の最大化
 
@@ -64,11 +64,11 @@ Windows Phone Silverlight インターフェイスは、タッチに固有です
 
 ## <a name="more-info-and-design-guidelines"></a>詳しい情報と設計のガイドライン
 
--   [UWP アプリをデザインします。](https://developer.microsoft.com/en-us/windows/apps/design)
+-   [UWP アプリの設計](https://developer.microsoft.com/windows/apps/design)
 -   [フォントのガイドライン](https://docs.microsoft.com/windows/uwp/controls-and-patterns/fonts)
--   [さまざまなフォーム ファクターの計画](https://docs.microsoft.com/windows/uwp/layout/screen-sizes-and-breakpoints-for-responsive-design)
+-   [さまざまなフォームファクターの計画](https://docs.microsoft.com/windows/uwp/layout/screen-sizes-and-breakpoints-for-responsive-design)
 
 ## <a name="related-topics"></a>関連トピック
 
-* [Namespace およびクラスのマッピング](wpsl-to-uwp-namespace-and-class-mappings.md)
+* [名前空間とクラスのマッピング](wpsl-to-uwp-namespace-and-class-mappings.md)
 

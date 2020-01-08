@@ -4,14 +4,14 @@ title: Device Portal 用のカスタム プラグインの作成
 description: Windows Device Portal を使用して Web ページをホストし、診断情報を提供する UWP アプリを作成する方法について説明します。
 ms.date: 03/24/2017
 ms.topic: article
-keywords: windows 10、uwp、デバイス ポータル
+keywords: windows 10、uwp、デバイスポータル
 ms.localizationpriority: medium
-ms.openlocfilehash: fe1c2130c3fae70f8aa5aa18acee83a6b6247ef5
-ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
+ms.openlocfilehash: 4881fe961979243849728d3f835c449e0f71f4b4
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67820159"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75683845"
 ---
 # <a name="write-a-custom-plugin-for-device-portal"></a>Device Portal 用のカスタム プラグインの作成
 
@@ -22,7 +22,7 @@ Creators Update 以降では、Device Portal を使用してアプリの診断�
 ## <a name="create-a-new-uwp-app-project"></a>新しい UWP アプリ プロジェクトを作成する
 このガイドでは、わかりやすくするためにすべてを 1 つのソリューションで作成します。
 
-Microsoft Visual Studio 2019 で新しい UWP アプリ プロジェクトを作成します。 ファイルに移動 > 新規 > プロジェクトと 空のアプリ (ユニバーサル Windows) のC#、次へ を順にクリックします。 新しいプロジェクト ダイアログ ボックスの構成。 プロジェクト"DevicePortalProvider"の名前し、し、[作成] をクリックします。 これは、アプリ サービスを格納するアプリです。 "Windows 10 Creators Update (10.0; を選択することを確認します。ビルド 15063)"をサポートします。  Visual Studio の更新や新しい SDK のインストールが必要になる場合があります。詳しくは、[こちら](https://blogs.windows.com/buildingapps/2017/04/05/updating-tooling-windows-10-creators-update/)をご覧ください。 
+Microsoft Visual Studio 2019 で、新しい UWP アプリプロジェクトを作成します。 [ファイル] > [新しい > プロジェクト] の順に選択し、[ C#空のアプリ (Windows ユニバーサル)] を選択して [次へ] をクリックします。 [新しいプロジェクトの構成] ダイアログボックスを使用します。 プロジェクトに "DevicePortalProvider" という名前を指定し、[作成] をクリックします。 これは、アプリ サービスを格納するアプリです。 Windows 10 の作成者の更新プログラム (10.0;ビルド 15063) "をサポートします。  Visual Studio の更新や新しい SDK のインストールが必要になる場合があります。詳しくは、[こちら](https://blogs.windows.com/buildingapps/2017/04/05/updating-tooling-windows-10-creators-update/)をご覧ください。 
 
 ## <a name="add-the-deviceportalprovider-extension-to-your-packageappxmanifest-file"></a>package.appxmanifest ファイルに devicePortalProvider 拡張機能を追加する
 アプリを Device Portal プラグインとして機能させるために、*package.appxmanifest* ファイルにコードを追加する必要があります。 最初に、ファイルの先頭に次の名前空間の定義を追加します。 また、これらを `IgnorableNamespaces` 属性にも追加します。
@@ -78,7 +78,7 @@ Microsoft Visual Studio 2019 で新しい UWP アプリ プロジェクトを作
 > "devicePortalProvider" 機能は制限された機能 ("rescap") であり、ストアでアプリを公開する前に、ストアから事前に承認を受ける必要があります。 ただし、これは、サイドローディングによって、アプリをローカルでテストすることを禁止するものではありません。 制限された機能について詳しくは、「[アプリ機能の宣言](https://docs.microsoft.com/windows/uwp/packaging/app-capability-declarations)」をご覧ください。
 
 ## <a name="set-up-your-background-task-and-winrt-component"></a>バック グラウンド タスクと WinRT コンポーネントを設定する
-Device Portal の接続を設定するために、アプリでは、アプリ内で実行されている Device Portal のインスタンスを使用して、Device Portal サービスからアプリ サービスの接続をフックする必要があります。 これを行うには、[**IBackgroundTask**](https://docs.microsoft.com/en-us/uwp/api/windows.applicationmodel.background.ibackgroundtask) を実装するクラスを使用して、アプリケーションに新しい WinRT コンポーネントを追加します。
+Device Portal の接続を設定するために、アプリでは、アプリ内で実行されている Device Portal のインスタンスを使用して、Device Portal サービスからアプリ サービスの接続をフックする必要があります。 これを行うには、[**IBackgroundTask**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtask) を実装するクラスを使用して、アプリケーションに新しい WinRT コンポーネントを追加します。
 
 ```csharp
 namespace MySampleProvider {
@@ -88,7 +88,7 @@ namespace MySampleProvider {
     }
 ```
 
-その名前が、AppService EntryPoint ("MySampleProvider.SampleProvider") によって設定された名前空間やクラス名が一致することを確認します。 Device Portal Provider に対して最初の要求を行うときに、Device Portal は要求を格納し、アプリのバック グラウンド タスクを起動して、その **Run** メソッドを呼び出し、[**IBackgroundTaskInstance**](https://docs.microsoft.com/en-us/uwp/api/windows.applicationmodel.background.ibackgroundtaskinstance) を渡します。 アプリはこれを使用して [**DevicePortalConnection**](https://docs.microsoft.com/en-us/uwp/api/windows.system.diagnostics.deviceportal.deviceportalconnection) インスタンスを設定します。
+その名前が、AppService EntryPoint ("MySampleProvider.SampleProvider") によって設定された名前空間やクラス名が一致することを確認します。 Device Portal Provider に対して最初の要求を行うときに、Device Portal は要求を格納し、アプリのバック グラウンド タスクを起動して、その **Run** メソッドを呼び出し、[**IBackgroundTaskInstance**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtaskinstance) を渡します。 アプリはこれを使用して [**DevicePortalConnection**](https://docs.microsoft.com/uwp/api/windows.system.diagnostics.deviceportal.deviceportalconnection) インスタンスを設定します。
 
 ```csharp
 // Implement background task handler with a DevicePortalConnection
@@ -108,10 +108,10 @@ public void Run(IBackgroundTaskInstance taskInstance) {
 }
 ```
 
-2 つイベント ループを処理する要求を完了するアプリによって処理する必要があります。**閉じられた**のたびに、デバイスのポータル サービスがシャット ダウン、および[ **RequestReceived**](https://docs.microsoft.com/en-us/uwp/api/windows.system.diagnostics.deviceportal.deviceportalconnectionrequestreceivedeventargs)、サーフェス受信 HTTP 要求し、デバイスのポータルの主な機能を提供しますプロバイダー。 
+要求処理ループを完了するために、アプリによって処理される必要がある2つのイベントがあります: **Closed**、デバイスポータルサービスがシャットダウンするたび、および受信 HTTP 要求を表示し、デバイスポータルプロバイダーの主な機能を提供する[**requestreceived**](https://docs.microsoft.com/uwp/api/windows.system.diagnostics.deviceportal.deviceportalconnectionrequestreceivedeventargs)。 
 
 ## <a name="handle-the-requestreceived-event"></a>RequestReceived イベントを処理する
-**RequestReceived** イベントは、プラグインの指定されたハンドラー ルートで行われる各 HTTP 要求について 1 回生成されます。 Device Portal プロバイダーの要求処理ループは、NodeJS Express での要求処理ループと似ています。イベントと共に要求と応答のオブジェクトが提供され、ハンドラーは応答オブジェクトを入力することで応答します。 Device Portal プロバイダーでは、**RequestReceived** イベントとそのハンドラーが [**Windows.Web.Http.HttpRequestMessage**](https://docs.microsoft.com/en-us/uwp/api/windows.web.http.httprequestmessage) オブジェクトと [**HttpResponseMessage**](https://docs.microsoft.com/en-us/uwp/api/windows.web.http.httpresponsemessage) オブジェクトを使用します。   
+**RequestReceived** イベントは、プラグインの指定されたハンドラー ルートで行われる各 HTTP 要求について 1 回生成されます。 Device Portal プロバイダーの要求処理ループは、NodeJS Express での要求処理ループと似ています。イベントと共に要求と応答のオブジェクトが提供され、ハンドラーは応答オブジェクトを入力することで応答します。 Device Portal プロバイダーでは、**RequestReceived** イベントとそのハンドラーが [**Windows.Web.Http.HttpRequestMessage**](https://docs.microsoft.com/uwp/api/windows.web.http.httprequestmessage) オブジェクトと [**HttpResponseMessage**](https://docs.microsoft.com/uwp/api/windows.web.http.httpresponsemessage) オブジェクトを使用します。   
 
 ```csharp
 // Sample RequestReceived echo handler: respond with an HTML page including the query and some additional process information. 
@@ -136,7 +136,7 @@ private void DevicePortalConnection_RequestReceived(DevicePortalConnection sende
 }
 ```
 
-このサンプル要求ハンドラーでは、まず *args*パラメーターから要求と応答のオブジェクトを取り出し、要求 URL やその他の HTML 書式設定を含む文字列を作成します。 これが、[**HttpStringContent**](https://docs.microsoft.com/en-us/uwp/api/windows.web.http.httpstringcontent) インスタンスとして応答オブジェクトに追加されます。 その他の [**IHttpContent**](https://docs.microsoft.com/en-us/uwp/api/windows.web.http.ihttpcontent) クラス ("String" や "Buffer" などのクラス) も使用できます。
+このサンプル要求ハンドラーでは、まず *args*パラメーターから要求と応答のオブジェクトを取り出し、要求 URL やその他の HTML 書式設定を含む文字列を作成します。 これが、[**HttpStringContent**](https://docs.microsoft.com/uwp/api/windows.web.http.httpstringcontent) インスタンスとして応答オブジェクトに追加されます。 その他の [**IHttpContent**](https://docs.microsoft.com/uwp/api/windows.web.http.ihttpcontent) クラス ("String" や "Buffer" などのクラス) も使用できます。
 
 応答は、HTTP 応答として設定され、200 (OK) 状態コードが指定されます。 元の呼び出しを行ったブラウザーでは、期待どおりにレンダリングされます。 **RequestReceived** イベント ハンドラーが制御を戻すときに、応答メッセージはユーザー エージェントに自動的に返されます。追加の "send" メソッドは必要ありません。
 
@@ -176,7 +176,7 @@ Device Portal プロバイダーによって提供される静的コンテンツ
 
 ![Device Portal プラグインの出力](images/device-portal/plugin-output.png)
  
-重要な点は、webbRest で HttpPost/DeleteExpect200 メソッドを使用すると、自動的に [CSRF 処理](https://docs.microsoft.com/en-us/aspnet/web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks) が実行されるため、Web ページで状態が変化する REST API を呼び出すことができます。  
+重要な点は、webbRest で HttpPost/DeleteExpect200 メソッドを使用すると、自動的に [CSRF 処理](https://docs.microsoft.com/aspnet/web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks) が実行されるため、Web ページで状態が変化する REST API を呼び出すことができます。  
 
 > [!NOTE] 
 > Device Portal に含まれている静的コンテンツは、重大な変更に対する保証は行われません。 API は頻繁に変更することは想定されていませんが、特に *common.js* や *controls.js* ファイルでは変更されることもあるため、プロバイダーでは使用しないでください。 
@@ -188,7 +188,7 @@ Device Portal プロバイダーによって提供される静的コンテンツ
 2.  [デバッグ] タブの [開始動作] で、[起動しないが、開始時にマイ コードをデバッグする] を選択します。  
 ![プラグインをデバッグ モードにする](images/device-portal/plugin-debug-mode.png)
 3.  RequestReceived ハンドラー関数にブレークポイントを設定します。
-![requestreceived ハンドラーの位置にブレークポイント](images/device-portal/plugin-requestreceived-breakpoint.png)
+requestreceived ハンドラーの ![ブレークポイント](images/device-portal/plugin-requestreceived-breakpoint.png)
 > [!NOTE] 
 > ビルドのアーキテクチャがターゲットのアーキテクチャと正確に一致することを確認してください。 64 ビット PC を使用している場合は、AMD64 ビルドを使って展開する必要があります。 
 4.  F5 キーを押してアプリを展開します。
@@ -196,7 +196,7 @@ Device Portal プロバイダーによって提供される静的コンテンツ
 6.  ブラウザーで、プロバイダーの名前空間にアクセスすると、ブレークポイントにヒットします。
 
 ## <a name="related-topics"></a>関連トピック
-* [Windows Device Portal の概要](device-portal.md)
-* [App Service の作成と利用](https://docs.microsoft.com/en-us/windows/uwp/launch-resume/how-to-create-and-consume-an-app-service)
+* [Windows デバイスポータルの概要](device-portal.md)
+* [App Service の作成と利用](https://docs.microsoft.com/windows/uwp/launch-resume/how-to-create-and-consume-an-app-service)
 
 

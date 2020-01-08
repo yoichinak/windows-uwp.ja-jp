@@ -1,48 +1,48 @@
 ---
 title: 画面切り取りの起動
-description: このトピックでは、ms screenclip と ms screensketch URI スキームについて説明します。 アプリは、これらの URI スキームを使用して、切り取り領域の & スケッチのアプリを起動する場合や新しい切り取り領域を開くことができます。
+description: このトピックでは、ms screenclip および ms screenclip URI スキームについて説明します。 アプリでは、これらの URI スキームを使用して、切り取り & スケッチアプリを起動したり、新しい切り取り領域を開いたりすることができます。
 ms.date: 08/09/2017
 ms.topic: article
 keywords: windows 10、uwp、uri、切り取り領域、スケッチ
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 06e988387f574b74d511b14a2ebca24b0a149158
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: HT
+ms.openlocfilehash: d9469dd6efd3598ab7abd9791a976385f4dfce49
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57595387"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75684663"
 ---
 # <a name="launch-screen-snipping"></a>画面切り取りの起動
 
-**Ms screenclip:** と**ms screensketch:** URI スキームでは、snipping またはスクリーン ショットの編集を開始できます。
+**Ms screenclip:** および**ms screenclip:** URI スキームでは、snipping または編集スクリーンショットを開始できます。
 
 ## <a name="open-a-new-snip-from-your-app"></a>アプリから新しい切り取り領域を開く
 
-**Ms screenclip:** URI は、アプリを自動的に起動し、新しい切り取り領域を開始できます。 結果として得られる、切り取り領域はユーザーのクリップボードにコピーされますが、アプリを開いてが自動的に渡されない。
+**Ms screenclip:** URI を使用すると、アプリを自動的に開いて、新しい切り取り領域を開始できます。 結果の切り取り領域はユーザーのクリップボードにコピーされますが、開いているアプリには自動的には戻されません。
 
-**ms screenclip:** は次のパラメーターを受け取ります。
+**ms screenclip:** 次のパラメーターを受け取ります。
 
-| パラメーター | 種類 | 必須 | 説明 |
+| パラメーター | タスクバーの検索ボックスに | 必須かどうか | 説明 |
 | --- | --- | --- | --- |
-| source | string | no | URI を起動したソースを示す自由形式の文字列。 |
-| delayInSeconds | int | no | 1 ~ 30 の整数値。 URI の呼び出しと snipping の開始時の間の完全な秒の遅延を指定します。 |
-| callbackformat | string | no | このパラメーターは使用できません。 |
+| source | string | × | URI を起動したソースを示す自由形式の文字列。 |
+| delayInSeconds | 整数 | × | 1 ~ 30 の整数値。 URI 呼び出しから snipping が開始されるまでの遅延を秒単位で指定します。 |
+| 表示形式 | string | × | このパラメーターは使用できません。 |
 
-## <a name="launching-the-snip--sketch-app"></a>切り取り領域とスケッチ アプリを起動します。
+## <a name="launching-the-snip--sketch-app"></a>切り取り & スケッチアプリを起動しています
 
-**Ms screensketch:** URI を使用すると、プログラムで、切り取り領域の & スケッチ アプリを起動し、注釈には、そのアプリで特定のイメージを開くことができます。
+**Ms screensketch:** URI を使用すると、プログラムによって & スケッチアプリの切り取りを開始し、そのアプリ内の特定のイメージを注釈用に開くことができます。
 
-**ms screensketch:** は次のパラメーターを受け取ります。
+**ms screensketch:** 次のパラメーターを受け取ります。
 
-| パラメーター | 種類 | 必須 | 説明 |
+| パラメーター | タスクバーの検索ボックスに | 必須かどうか | 説明 |
 | --- | --- | --- | --- |
-| sharedAccessToken | string | no | 切り取り領域の & スケッチのアプリで開くファイルを識別するトークンです。 取得した[SharedStorageAccessManager.AddFile](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.sharedstorageaccessmanager.addfile)します。 このパラメーターを省略した場合は、開いているファイルを使用せず、アプリが起動されます。 |
-| secondarySharedAccessToken | string | no | 切り取り領域についてのメタデータを含む JSON ファイルを識別する文字列。 メタデータを含めることができます、 **clipPoints**フィールドに、x、y 座標の配列、または[userActivity](https://docs.microsoft.com/uwp/api/windows.applicationmodel.useractivities.useractivity)します。 |
-| source | string | no | URI を起動したソースを示す自由形式の文字列。 |
-| IsTemporary | bool | no | 画面のスケッチを True に設定するが開いた後、ファイルを削除しようとするとします。 |
+| sharedAccessToken | string | × | 切り取り & スケッチアプリで開くファイルを識別するトークン。 [Sharedstorageaccessmanager. AddFile](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.sharedstorageaccessmanager.addfile)から取得されます。 このパラメーターを省略すると、ファイルを開いていない状態でアプリが起動されます。 |
+| secondarySharedAccessToken | string | × | 切り取り領域に関するメタデータを含む JSON ファイルを識別する文字列。 メタデータには、x、y 座標、または[Useractivity](https://docs.microsoft.com/uwp/api/windows.applicationmodel.useractivities.useractivity)の配列を含む**clippoints**フィールドを含めることができます。 |
+| source | string | × | URI を起動したソースを示す自由形式の文字列。 |
+| isTemporary | ブール | × | True に設定すると、ファイルを開いた後に、そのファイルを削除しようとします。 |
 
-次の例では、 [LaunchUriAsync](https://docs.microsoft.com/uwp/api/Windows.System.Launcher#Windows_System_Launcher_LaunchUriAsync_Windows_Foundation_Uri_)スケッチ (&)、切り取り領域に、ユーザーのアプリからイメージを送信する方法。
+次の例では、 [LaunchUriAsync](https://docs.microsoft.com/uwp/api/Windows.System.Launcher#Windows_System_Launcher_LaunchUriAsync_Windows_Foundation_Uri_)メソッドを呼び出して、ユーザーのアプリから & の切り取り領域にイメージを送信します。
 
 ```csharp
 
@@ -50,7 +50,7 @@ bool result = await Windows.System.Launcher.LaunchUriAsync(new Uri("ms-screenske
 
 ```
 
-次の例では、どのようなファイルで指定された、 **secondarySharedAccessToken**パラメーターの**ms screensketch**が含まれます。
+次の例は、 **ms screensketch**の**secondarySharedAccessToken**パラメーターによって指定されるファイルに、次のものが含まれていることを示しています。
 
 ```json
 {
@@ -72,7 +72,7 @@ bool result = await Windows.System.Launcher.LaunchUriAsync(new Uri("ms-screenske
       "y": 780
     }
   ],
-  "userActivity": "{\"$schema\":\"http://activity.windows.com/user-activity.json\",\"UserActivity\":\"type\",\"1.0\":\"version\",\"cross-platform-identifiers\":[{\"platform\":\"windows_universal\",\"application\":\"Microsoft.MicrosoftEdge_8wekyb3d8bbwe!MicrosoftEdge\"},{\"platform\":\"host\",\"application\":\"edge.activity.windows.com\"}],\"activationUrl\":\"microsoft-edge:https://support.microsoft.com/en-us/help/13776/windows-use-snipping-tool-to-capture-screenshots\",\"contentUrl\":\"https://support.microsoft.com/en-us/help/13776/windows-use-snipping-tool-to-capture-screenshots\",\"visualElements\":{\"attribution\":{\"iconUrl\":\"https://www.microsoft.com/favicon.ico?v2\",\"alternateText\":\"microsoft.com\"},\"description\":\"https://support.microsoft.com/en-us/help/13776/windows-use-snipping-tool-to-capture-screenshots\",\"backgroundColor\":\"#FF0078D7\",\"displayText\":\"Use snipping tool to capture screenshots - Windows Help\",\"content\":{\"$schema\":\"http://adaptivecards.io/schemas/adaptive-card.json\",\"type\":\"AdaptiveCard\",\"version\":\"1.0\",\"body\":[{\"type\":\"Container\",\"items\":[{\"type\":\"TextBlock\",\"text\":\"Use snipping tool to capture screenshots - Windows Help\",\"weight\":\"bolder\",\"size\":\"large\",\"wrap\":true,\"maxLines\":3},{\"type\":\"TextBlock\",\"text\":\"https://support.microsoft.com/en-us/help/13776/windows-use-snipping-tool-to-capture-screenshots\",\"size\":\"normal\",\"wrap\":true,\"maxLines\":3}]}]}},\"isRoamable\":true,\"appActivityId\":\"https://support.microsoft.com/en-us/help/13776/windows-use-snipping-tool-to-capture-screenshots\"}"
+  "userActivity": "{\"$schema\":\"http://activity.windows.com/user-activity.json\",\"UserActivity\":\"type\",\"1.0\":\"version\",\"cross-platform-identifiers\":[{\"platform\":\"windows_universal\",\"application\":\"Microsoft.MicrosoftEdge_8wekyb3d8bbwe!MicrosoftEdge\"},{\"platform\":\"host\",\"application\":\"edge.activity.windows.com\"}],\"activationUrl\":\"microsoft-edge:https://support.microsoft.com/help/13776/windows-use-snipping-tool-to-capture-screenshots\",\"contentUrl\":\"https://support.microsoft.com/help/13776/windows-use-snipping-tool-to-capture-screenshots\",\"visualElements\":{\"attribution\":{\"iconUrl\":\"https://www.microsoft.com/favicon.ico?v2\",\"alternateText\":\"microsoft.com\"},\"description\":\"https://support.microsoft.com/help/13776/windows-use-snipping-tool-to-capture-screenshots\",\"backgroundColor\":\"#FF0078D7\",\"displayText\":\"Use snipping tool to capture screenshots - Windows Help\",\"content\":{\"$schema\":\"http://adaptivecards.io/schemas/adaptive-card.json\",\"type\":\"AdaptiveCard\",\"version\":\"1.0\",\"body\":[{\"type\":\"Container\",\"items\":[{\"type\":\"TextBlock\",\"text\":\"Use snipping tool to capture screenshots - Windows Help\",\"weight\":\"bolder\",\"size\":\"large\",\"wrap\":true,\"maxLines\":3},{\"type\":\"TextBlock\",\"text\":\"https://support.microsoft.com/help/13776/windows-use-snipping-tool-to-capture-screenshots\",\"size\":\"normal\",\"wrap\":true,\"maxLines\":3}]}]}},\"isRoamable\":true,\"appActivityId\":\"https://support.microsoft.com/help/13776/windows-use-snipping-tool-to-capture-screenshots\"}"
 }
 
 ```

@@ -8,29 +8,27 @@ ms.topic: article
 keywords: NodeJS、node.js、windows 10、microsoft、learning NodeJS、windows 上のノード、初心者向け windows 上のノード、windows 上のノードを使用した開発、windows 上の NodeJS を使用した開発
 ms.localizationpriority: medium
 ms.date: 09/19/2019
-ms.openlocfilehash: 24a2ea5288a627ed884d549ca3b6f9c6930ce34e
-ms.sourcegitcommit: 13faf9dab9946295986f8edd79b5fae0db4ed0f6
+ms.openlocfilehash: 433eb5701696f590f10d8b3276481098b9ec073d
+ms.sourcegitcommit: 8f9cea69f33b06166fec22677eaa43466352c14d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72315136"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75657084"
 ---
 # <a name="get-started-using-nodejs-on-windows-for-beginners"></a>Windows 上の node.js を初心者向けに使い始める
 
 Node.js を初めて使用する場合は、このガイドを参考にして基本的な作業を開始できます。
 
-## <a name="prerequisites"></a>前提条件
+## <a name="prerequisites"></a>必要条件
 
-このガイドでは、次のよう[な WSL 2 を使用して node.js 開発環境を設定](./setup-on-wsl2.md)する手順を既に完了していることを前提としています。
+このガイドでは、[ネイティブウィンドウで node.js 開発環境を設定](./setup-on-windows.md)する手順を既に完了していることを前提としています。次に例を示します。
 
-- Windows 10 Insider Preview ビルド18932以降をインストールします。
-- Windows で WSL 2 機能を有効にします。
-- Linux ディストリビューションをインストールします (この例では Ubuntu 18.04)。 これを確認するには、次のようにします: `wsl lsb_release -a`
-- Ubuntu 18.04 のディストリビューションが WSL 2 モードで実行されていることを確認します。 (WSL では、v1 モードと v2 モードの両方でディストリビューションを実行できます)。これを確認するには、PowerShell を開き、次のように入力し `wsl -l -v`
-- 次のように、PowerShell を使用して Ubuntu 18.04 を既定のディストリビューションとして設定し `wsl -s ubuntu 18.04`
+- Node.js バージョンマネージャーをインストールします。
+- Visual Studio Code をインストールします。
 
-> [!NOTE]
-> Windows Subsystem for Linux を使用するための追加のセットアップ手順がいくつかありますが、WSL 2 を使用して VS Code とリモート WSL 拡張機能を使用すると、最も滑らかな node.js 開発ワークフローが提供されます。また、ツール、操作方法に関する記事、チュートリアル、[デプロイ環境](https://docs.microsoft.com/en-us/azure/javascript/tutorial-vscode-azure-app-service-node-01)でも、最もスムーズに調整できます。 ただし、Windows で node.js を使用することに努めている場合は、 [windows で直接 node.js 開発環境を設定](./setup-on-windows.md)するためのガイドを参照してください。 Windows server で node.js アプリをホストする必要がある (まれな) 状況では、最も一般的なシナリオは[リバースプロキシを使用して](https://medium.com/intrinsic/why-should-i-use-a-reverse-proxy-if-node-js-is-production-ready-5a079408b2ca)いるように見えます。 これを行うには、2つの方法があります。 1) [iisnode](https://harveywilliams.net/blog/installing-iisnode)またはを[直接](https://dev.to/petereysermans/hosting-a-node-js-application-on-windows-with-iis-as-reverse-proxy-397b)使用します。 これらのリソースは維持されず、 [Linux サーバーを使用して node.js アプリをホストする](https://azure.microsoft.com/en-us/develop/nodejs/)ことをお勧めします。
+Node.js を Windows に直接インストールすることは、最小限の設定で基本的な node.js 操作の実行を開始する最も簡単な方法です。
+
+Node.js を使用して運用環境用のアプリケーションを開発する準備ができたら (通常は、Linux サーバーへのデプロイが含まれます)、 [WSL2 を使用して node.js 開発環境](./setup-on-wsl2.md)をセットアップすることをお勧めします。 Windows サーバーに web アプリをデプロイすることもできますが、 [Linux サーバーを使用して node.js アプリをホスト](https://azure.microsoft.com/develop/nodejs/)する方が一般的です。
 
 ## <a name="types-of-nodejs-applications"></a>Node.js アプリケーションの種類
 
@@ -40,77 +38,77 @@ Node.js は、主に web アプリケーションの作成に使用される Jav
 - **リアルタイムアプリ (rta)** : これらは、ユーザーが更新プログラムのソースを定期的にチェックするのではなく、作成者によって発行された後すぐにユーザーが情報を受信できるようにする web アプリです。 Rta の例としては、インスタントメッセージングアプリやチャットルーム、ブラウザーで再生できるオンラインのマルチプレイヤーゲーム、オンラインコラボレーションドキュメント、コミュニティストレージ、ビデオ会議アプリなどがあります。
 - **データストリーミングアプリ**: これらのアプリ (またはサービス) は、接続を開いたままにして、必要に応じてさらにデータ、コンテンツ、またはコンポーネントをダウンロードし続けることができます。 一部の例には、ビデオとオーディオストリーミングアプリが含まれています。
 - **REST api**: これらは、他のユーザーの web アプリが操作するデータを提供するインターフェイスです。 たとえば、Calendar API サービスは、他のユーザーのローカルイベント web サイトで使用される可能性があるコンサート会場の日付と時刻を提供できます。
-- **サーバー側でレンダリングされるアプリ (SSRs)** : これらの web アプリは、(ブラウザー/フロントエンド内の) クライアントとサーバー (バックエンド) の両方で実行できるため、動的に表示されるページ (HTML の生成) を有効にしたり、利用可能なコンテンツを迅速に取得したりすることができます。 これらは、"isomorphic" または "universal" アプリケーションと呼ばれることがよくあります。 SSRs は、使用するたびに再読み込みを必要としないので、SPA のメソッドを利用します。 ただし、お客様にとって重要であるとは限りません。たとえば、サイトのコンテンツを Google search の結果に表示し、アプリへのリンクが Twitter や Facebook などのソーシャルメディアで共有されている場合にプレビューイメージを提供するなど、いくつかの利点があります。 潜在的な欠点は、常に node.js サーバーが実行されている必要があることです。 例として、ユーザーが検索結果やソーシャルメディアに表示するイベントをサポートするソーシャルネットワークアプリは SSR の恩恵を受ける可能性がありますが、電子メールアプリは SPA として問題なく動作する可能性があります。 サーバーでレンダリングされた非 SPA アプリを実行することもできます。これは WordPress ブログのようなものです。 ご覧のとおり、複雑になる可能性があります。重要なことを判断するだけで済みます。
+- **サーバー側でレンダリングされるアプリ (SSRs)** : これらの web アプリは、(ブラウザー/フロントエンド内の) クライアントとサーバー (バックエンド) の両方で実行できるため、動的に表示されるページ (HTML の生成) を有効にしたり、利用可能なコンテンツを迅速に取得したりすることができます。 これらは、"isomorphic" または "universal" アプリケーションと呼ばれることがよくあります。 SSRs は、使用するたびに再読み込みを必要としないので、SPA のメソッドを利用します。 SSRs では、サイトのコンテンツを Google search の結果に表示し、アプリへのリンクが Twitter や Facebook などのソーシャルメディアで共有されている場合にプレビューイメージを提供するのと同様に、お客様にとって重要ではない、または重要ではないいくつかの利点が提供されます。 潜在的な欠点は、常に node.js サーバーが実行されている必要があることです。 例として、ユーザーが検索結果やソーシャルメディアに表示するイベントをサポートするソーシャルネットワークアプリは SSR の恩恵を受ける可能性がありますが、電子メールアプリは SPA として問題なく動作する可能性があります。 サーバーでレンダリングされた非 SPA アプリを実行することもできます。これは WordPress ブログのようなものです。 ご覧のとおり、複雑になる可能性があります。重要なことを判断するだけで済みます。
 - **コマンドラインツール**: 繰り返し実行されるタスクを自動化し、大規模な node.js エコシステム全体にツールを配布することができます。 コマンドラインツールの例としては、cURL があります。これはクライアントの URL 用であり、インターネット URL からコンテンツをダウンロードするために使用されます。 cURL は多くの場合、node.js や node.js バージョンマネージャーなどをインストールするために使用されます。
 - **ハードウェアプログラミング**: web アプリほど広く普及しているわけではありませんが、node.js は、センサー、ビーコン、送信機、モーター、または大量のデータを生成するデータを収集するなど、IoT の使用に関してますます普及しています。 Node.js では、データ収集を有効にし、そのデータを分析し、デバイスとサーバー間の通信を行い、分析に基づいてアクションを実行することができます。 NPM には、Arduino コントローラー、raspberry pi、Intel IoT Edison、さまざまなセンサー、および Bluetooth デバイスの80を超えるパッケージが含まれています。
 
 ## <a name="try-using-nodejs-in-vs-code"></a>VS Code で node.js を使用してみてください
 
-1. Ubuntu ターミナルを開き、新しいディレクトリを作成します。 `mkdir HelloNode`には、次のディレクトリを入力してください: `cd HelloNode`
+1. コマンドライン (コマンドプロンプト、PowerShell、または任意のもの) を開き、新しいディレクトリを作成します。 `mkdir HelloNode`には、次のディレクトリを入力してください: `cd HelloNode`
 
-2. "App.config" という名前の空の JavaScript ファイルを作成します。 `touch app.js`
+2. 次の内部に "msg" という名前の変数を含む "app.config" という名前の JavaScript ファイルを作成します。 `echo var msg > app.js`
 
-3. VS Code:: `code .` でディレクトリと空のファイルを開きます。
+3. VS Code:: `code .` でディレクトリと app.config ファイルを開きます。
 
-4. App.config に単純な文字列変数を作成し、' app.config ' ファイルに次のように入力して、文字列の内容をコンソールに送信します。
+4. 単純な文字列変数 ("Hello World") を追加し、"app.config" ファイルに次のように入力して、文字列の内容をコンソールに送信します。
 
     ```js
     var msg = 'Hello World';
     console.log(msg);
     ```
 
-5. Node.js で "app.config" ファイルを実行します。 [ **View** > **ターミナル**] を選択して VS Code 内で Ubuntu ターミナルを開きます (または、Ctrl + ' を押し、バックティック文字を使用します)。 既定のターミナルを変更する必要がある場合は、ドロップダウンメニューを選択し、[**既定のシェルを選択**する] を選択します。 次に、VS Code で使用する既定のターミナルシェルとして **[Wsl]** を選択します。
+5. Node.js で "app.config" ファイルを実行します。 [ **View** > **ターミナル**] (または、バックティック文字を使用して Ctrl + ' を選択) を選択して VS Code 内でターミナルを開きます。 既定のターミナルを変更する必要がある場合は、ドロップダウンメニューを選択し、[**既定のシェルを選択**する] を選択します。
 
 6. ターミナルで、「`node app.js`」と入力します。 "Hello World" という出力が表示されます。
 
 > [!NOTE]
-> リモート WSL 拡張機能が既にインストールされているため、VS Code ウィンドウの左下にある緑色のタブで示されているように、Ubuntu Linux システムで実行されているリモート環境でディレクトリが開きます。 また、' app.config ' ファイルに `console` を入力すると、IntelliSense を使用して選択できる[`console`](https://developer.mozilla.org/docs/Web/API/Console)オブジェクトに関連するサポートされているオプションが VS Code 表示されます。 他の[JavaScript オブジェクト](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects)を使用して、Intellisense を試してみてください。
+> ' App.config ' ファイルに `console` と入力すると、IntelliSense を使用して選択できる[`console`](https://developer.mozilla.org/docs/Web/API/Console)オブジェクトに関連するサポートされているオプションが VS Code 表示されます。 他の[JavaScript オブジェクト](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects)を使用して、Intellisense を試してみてください。
 
 > [!TIP]
-> 複数のコマンドライン (Ubuntu、PowerShell、Windows コマンドプロンプトなど) を使用する場合や、[ターミナルをカスタマイズ](https://github.com/microsoft/terminal/blob/master/doc/user-docs/UsingJsonSettings.md)する場合は (テキスト、背景色、キーバインドなど)、新しい[Windows ターミナル](https://github.com/microsoft/terminal/blob/master/doc/user-docs/index.md)を試すことを検討してください。
+> 複数のコマンドライン (Ubuntu、PowerShell、Windows コマンドプロンプトなど) を使用する場合や、[ターミナルをカスタマイズ](https://github.com/microsoft/terminal/blob/master/doc/user-docs/UsingJsonSettings.md)する場合は (テキスト、背景色、キーバインド、複数のウィンドウウィンドウウィンドウなど)、新しい[Windows ターミナル](https://github.com/microsoft/terminal/blob/master/doc/user-docs/index.md)を試してみてください。
 
-## <a name="set-up-a-basic-web-app-framework-by-using-express"></a>Express を使用して基本的な web アプリフレームワークを設定する
+## <a name="set-up-a-basic-web-app-framework-by-using-express"></a>Express を使って基本的な Web アプリ フレームワークを設定する
 
-Express は、最小、柔軟、かつ合理化された node.js フレームワークであり、GET、PUT、POST、DELETE などの複数の種類の要求を処理できる web アプリの開発を容易にします。 Express には、アプリのファイルアーキテクチャを自動的に作成するアプリケーションジェネレーターが付属しています。
+Express は、柔軟かつ簡単な最小限の Node.js フレームワークであり、GET、PUT、POST、DELETE などの複数の種類の要求を処理できる Web アプリを簡単に開発できます。 Express には、アプリのファイル アーキテクチャを自動的に作成するアプリケーション ジェネレーターが付属しています。
 
 プロジェクトを作成するには、次のように記述します。
 
-1. WSL ターミナル (Ubuntu 18.04) を開きます。
-2. 新しいプロジェクトフォルダーを作成します。 `mkdir ExpressProjects`、そのディレクトリの `cd ExpressProjects`を入力します。
-3. Express を使用して HelloWorld プロジェクトテンプレートを作成します: `npx express-generator HelloWorld --view=pug`。
+1. コマンドライン (コマンドプロンプト、Powershell、または任意のもの) を開きます。
+2. 新しいプロジェクトフォルダーの作成: `mkdir ExpressProjects` し、そのディレクトリを入力します。 `cd ExpressProjects`
+3. Express を使用して HelloWorld プロジェクトテンプレートを作成する: `npx express-generator HelloWorld --view=pug`
 
 >[!NOTE]
-> ここでは、`npx` コマンドを使用して、実際にはインストールせずに (または、その考え方に応じて一時的にインストールして)、Express node.js ノードパッケージを実行しています。 `express` コマンドを使用しようとした場合、または: `express --version`を使用してインストールされている Express のバージョンを確認しようとすると、Express が見つからないという応答が返されます。 Express をグローバルにインストールして、繰り返し使用する場合は、: `npm install -g express-generator`を使用します。 Npm によってインストールされたパッケージの一覧を表示するには `npm list`を使用します。 これらは、深さ (入れ子になったディレクトリの数) で一覧表示されます。 インストールしたパッケージは、深度0になります。 そのパッケージの依存関係は、深さ1、さらに深い依存関係が深さ2になります。 詳細については、Stackoverflow での[npx と npx の違い](https://stackoverflow.com/questions/50605219/difference-between-npx-and-npm)に関するページを参照してください。
+> ここでは、`npx` コマンドを使用して、実際にはインストールせずに (または、その考え方に応じて一時的にインストールして)、Express node.js ノードパッケージを実行しています。 `express` コマンドを使用しようとした場合、または: `express --version`を使用してインストールされている Express のバージョンを確認しようとすると、Express が見つからないという応答が返されます。 Express をグローバルにインストールして、繰り返し使用する場合は、: `npm install -g express-generator`を使用します。 Npm によってインストールされたパッケージの一覧を表示するには `npm list`を使用します。 それらは深さ (入れ子になっているディレクトリの数) 別に表示されます。 自分でインストールしたパッケージは、深さ 0 になります。 そのパッケージに依存しているものは深さ 1 になり、それに依存しているものは深さ 2 になり、以下同様になります。 詳細については、Stackoverflow での[npx と npx の違い](https://stackoverflow.com/questions/50605219/difference-between-npx-and-npm)に関するページを参照してください。
 
 4. VS Code でプロジェクトを開き、次のようにを使用して、含まれているファイルとフォルダーを確認します。 `code .`
 
-   によって生成されるファイルによって、最初に少し圧倒されるアーキテクチャを使用する web アプリが作成されます。 次のファイルとフォルダーが生成されたことが、VS Code**エクスプローラー**ウィンドウに表示されます (Ctrl + Shift + E を参照)。
+   Express により生成されるファイルによって Web アプリを作成します。使われているアーキテクチャを見て、最初は圧倒されるかもしれません。 次のファイルとフォルダーが生成されたことが、VS Code**エクスプローラー**ウィンドウに表示されます (Ctrl + Shift + E を参照)。
 
-   - `bin`」をご覧ください。 アプリを起動する実行可能ファイルが含まれます。 (代替手段が提供されていない場合はポート3000で) サーバーを起動し、基本的なエラー処理を設定します。 
-   - `public`」をご覧ください。 JavaScript ファイル、CSS スタイルシート、フォントファイル、画像、その他のユーザーが web サイトに接続するときに必要なその他のアセットを含む、パブリックにアクセスされるすべてのファイルが含まれます。
-   - `routes`」をご覧ください。 アプリケーションのすべてのルートハンドラーを含みます。 このフォルダーには、`index.js` と `users.js`の2つのファイルが自動的に生成され、アプリケーションのルート構成を分離する方法の例として機能します。
-   - `views`」をご覧ください。 テンプレートエンジンによって使用されるファイルが含まれます。 Express は、render メソッドが呼び出されたときに、ここで一致するビューを検索するように構成されています。 既定のテンプレートエンジンは Jade ですが、Pug を優先するために Jade は非推奨とされているので、`--view` フラグを使用してビュー (テンプレート) エンジンを変更しました。 `express --help`を使用すると、`--view` フラグのオプションやその他のオプションを確認できます。
-   - `app.js`」をご覧ください。 アプリの開始点。 すべてを読み込み、ユーザー要求の提供を開始します。 これは基本的に、すべてのパーツをまとめて保持するグルーです。
-   - `package.json`」をご覧ください。 プロジェクトの説明、スクリプトマネージャー、およびアプリケーションマニフェストが含まれています。 主な目的は、アプリの依存関係とそのバージョンを追跡することです。
+   - `bin`」をご覧ください。 アプリを起動する実行可能ファイルが含まれています。 これにより、(他のものを指定しない場合はポート 3000 で) サーバーを起動し、基本的なエラー処理を設定します。 
+   - `public`」をご覧ください。 パブリックにアクセスできるすべてのファイルが含まれています (JavaScript ファイル、CSS スタイルシート、フォント ファイル、画像、自分の Web サイトに接続した人が必要とするその他のあらゆる資産など)。
+   - `routes`」をご覧ください。 アプリケーション用のルート ハンドラーがすべて含まれています。 アプリケーションのルート構成を分離させる方法の例として機能する 2 つのファイル (`index.js` と `users.js`) が、このフォルダー内に自動的に生成されます。
+   - `views`」をご覧ください。 テンプレート エンジンで使用するファイルが含まれています。 Express は、レンダリング メソッドが呼び出されたときに、ここを調べて一致するビューを探すように構成されています。 既定のテンプレート エンジンは Jade ですが、Jade は廃止されて Pug に代えられているため、`--view` フラグを使ってビュー (テンプレート) エンジンが変更されています。 `express --help` を使用して、`--view` フラグ オプションとその他のオプションを表示できます。
+   - `app.js`」をご覧ください。 アプリのスターティング ポイントです。 これによりすべてが読み込まれ、ユーザー要求の処理が開始されます。 これは基本的に、すべてのパーツをまとめて保持する接着剤です。
+   - `package.json`」をご覧ください。 プロジェクトの説明、スクリプト マネージャー、およびアプリ マニフェストが含まれています。 その主な目的は、アプリの依存関係とそれらの各バージョンを追跡することです。
 
-5. HelloWorld Express アプリをビルドして実行するために使用する依存関係をインストールする必要があります (`package.json` ファイルで定義されているように、サーバーの実行などのタスクに使用されるパッケージ)。 VS Code で、[ **View** > **ターミナル**] を選択して (または Ctrl + ' を選択し、バックティック文字を使用して) wsl ターミナルを開き、まだ ' HelloWorld ' プロジェクトディレクトリにあることを確認します。 次のものを使用して、Express パッケージの依存関係をインストールします。
+5. HelloWorld Express アプリをビルドして実行するために使用する依存関係をインストールする必要があります (`package.json` ファイルで定義されているように、サーバーの実行などのタスクに使用されるパッケージ)。 VS Code で、[ **View** > **ターミナル**] を選択してターミナルを開きます (または Ctrl + ' を選択し、バックティック文字を使用します)。 "HelloWorld" プロジェクトディレクトリにあることを確認します。 次のものを使用して、Express パッケージの依存関係をインストールします。
 
 ```bash
 npm install
 ```
 
-6. この時点で、さまざまな Api や HTTP ユーティリティメソッドとミドルウェアにアクセスできるマルチページ web アプリ用のフレームワークが設定されているため、堅牢な API を簡単に作成できます。 次のように入力して、仮想サーバーで Express アプリを起動します。
+6. この時点で、多種多様の API や HTTP ユーティリティ メソッド、およびミドルウェアにアクセスできる、複数ページの Web アプリ用のフレームワークが設定されています。これで堅固な API を簡単に作成できます。 次のように入力して、仮想サーバーで Express アプリを起動します。
 
 ```bash
-DEBUG=HelloWorld:* npm start
+npx cross-env DEBUG=HelloWorld:* npm start
 ```
 
 > [!TIP]
-> 上記のコマンドの `DEBUG=myapp:*` 部分は、デバッグのためにログ記録を有効にするように node.js に指示することを意味します。 ' Myapp ' は実際のアプリ名に置き換えてください。 アプリケーション名は、"name" プロパティの下のパッケージの json ファイルにあります。 `npm start` コマンドは、パッケージの json ファイルでスクリプトを実行するように npm に指示します。
+> 上記のコマンドの `DEBUG=myapp:*` 部分は、デバッグのためにログ記録を有効にするように node.js に指示することを意味します。 ' Myapp ' は実際のアプリ名に置き換えてください。 アプリ名は、`package.json` ファイルの "name" プロパティに表示されます。 `npx cross-env` を使用すると、任意のターミナルで `DEBUG` 環境変数が設定されますが、ターミナルに固有の方法で設定することもできます。 `npm start` コマンドは、`package.json` ファイルでスクリプトを実行するように npm に指示します。
 
 7. Web ブラウザーを開き、 **localhost: 3000**に移動して、実行中のアプリを表示できるようになりました。
 
-   ![ブラウザーで実行されている Express アプリのスクリーンショット](../images/express-app.png)
+   ![ブラウザー内で実行中の Express アプリのスクリーンショット](../images/express-app.png)
 
 8. HelloWorld Express アプリがブラウザーでローカルに実行されるようになったので、プロジェクトディレクトリで ' views ' フォルダーを開き、"index. pug" ファイルを選択して、変更を行ってみてください。 開いたら、`h1= title` を `h1= "Hello World!"` に変更し、 **[保存]** (Ctrl + S) を選択します。 Web ブラウザーで**localhost: 3000** URL を更新して変更内容を表示します。
 
@@ -118,21 +116,21 @@ DEBUG=HelloWorld:* npm start
 
 ## <a name="try-using-a-nodejs-module"></a>Node.js モジュールを試す
 
-Node.js には、サーバー側の web アプリを開発するのに役立つツールが用意されています。また、npm を使用して、さまざまな機能を利用できます。 これらのモジュールは、多くのタスクに役立ちます。
+Node.js には、サーバー側の Web アプリ開発を支援するツールが用意されています。一部は組み込みであり、npm 経由でさらに多くを入手できます。 これらのモジュールは多くのタスクに役立ちます。
 
 |ツール               |使用目的                                                                                                  |
 |:----------------- |:---------------------------------------------------------------------------------------------------------|
-|gm、シャープ          |JavaScript コード内で直接、編集、サイズ変更、圧縮などを含むイメージ操作 |
+|gm、sharp          |JavaScript コード内で直接画像を操作する (編集、サイズ変更、圧縮など) |
 |PDFKit             |PDF の生成                                                                                            |
-|検証コントロール       |文字列の検証                                                                                         |
-|imagemin, UglifyJS2|縮小                                                                                              |
-|spritesmith        |スプライトシートの生成                                                                                   |
-|winston            |ログ記録                                                                                                  |
-|コマンダー       |コマンドラインアプリケーションの作成                                                                       |
+|validator.js       |文字列の検証                                                                                         |
+|imagemin、UglifyJS2|縮小                                                                                              |
+|spritesmith        |スプライト シートの生成                                                                                   |
+|winston            |ログ                                                                                                  |
+|commander.js       |コマンド ライン アプリケーションの作成                                                                       |
 
-組み込みの OS モジュールを使用して、お使いのコンピューターのオペレーティングシステムに関する情報を取得してみましょう。
+組み込みの OS モジュールを使用して、コンピューターのオペレーティング システムに関する情報を取得してみましょう。
 
-1) WSL (Ubuntu 18.04) ターミナルで、node.js CLI を開きます。 次のように入力した後に node.js を使用していることを知らせる `>` プロンプトが表示され `node`
+1) コマンドラインで、node.js CLI を開きます。 次のように入力した後に node.js を使用していることを知らせる `>` プロンプトが表示され `node`
 
 2) 現在使用しているオペレーティングシステム (Windows を使用していることを知らせる応答を返す) を特定するには、次のように入力し `os.platform()`
 
@@ -140,12 +138,12 @@ Node.js には、サーバー側の web アプリを開発するのに役立つ�
 
 4) システムで使用可能な Cpu を表示するには、次のように入力します。 `os.cpus()`
 
-5) `.exit` を入力するか、Ctrl + C キーを2回押して、node.js CLI をそのまま使用します。
+5) `.exit` と入力するか、Ctrl + C キーを 2 回選択して、Node.js の CLI を終了します。
 
    > [!TIP]
    > Node.js OS モジュールを使用すると、プラットフォームの確認やプラットフォーム固有の変数の取得などを行うことができます。 Windows 開発の場合は Win32/.bat、Mac/unix の場合はダーウィン/sh、Linux の場合は (たとえば、`var isWin = process.platform === "win32";`)。
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
 このガイドでは、node.js で実行できることについていくつかの基本的なことを学習しました。 VS Code で node.js コマンドラインを使用して、簡単な web アプリを作成し、web ブラウザーでローカルに実行して、組み込みの node.js モジュールのいくつかを試してみました。 いくつかの一般的な node.js web フレームワークをインストールして使用する方法の詳細については、次のガイドに進んでください。次のガイドでは、サーバーによってレンダリングされた、Nuxt (Vue ベースの web フレームワーク)、Gatsby (a) について説明しています。応答に基づいて静的にレンダリングされた web フレームワーク。 また、MongoDB または PostgreSQL データベースまたは Docker コンテナーを操作する方法についても説明しません。
 

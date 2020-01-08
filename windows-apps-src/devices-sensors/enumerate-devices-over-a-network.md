@@ -4,15 +4,15 @@ title: ネットワーク経由でデバイスを列挙する
 description: Windows.Devices.Enumeration API を使うと、ローカル接続されたデバイスの検出だけでなく、ワイヤレス プロトコルおよびネットワーク プロトコル経由でデバイスを列挙できます。
 ms.date: 04/19/2019
 ms.topic: article
-keywords: windows 10, uwp
+keywords: Windows 10, UWP
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: e5773a77ccb98a75363184bcb17a6e3282e00932
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 8196131b92c395c0b21f4ff68558ddeb531cf6fa
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66370191"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75684800"
 ---
 # <a name="enumerate-devices-over-a-network"></a>ネットワーク経由でデバイスを列挙する
 
@@ -20,7 +20,7 @@ ms.locfileid: "66370191"
 
 **重要な API**
 
-- [**Windows.Devices.Enumeration**](https://docs.microsoft.com/en-us/uwp/api/Windows.Devices.Enumeration)
+- [**Windows.Devices.Enumeration**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration)
 
 [  **Windows.Devices.Enumeration**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration) API を使うと、ローカル接続されたデバイスの検出だけでなく、ワイヤレス プロトコルおよびネットワーク プロトコル経由でデバイスを列挙できます。
 
@@ -40,14 +40,14 @@ ms.locfileid: "66370191"
 | Web Services on Devices (WSD)                | **{782232aa-a2f9-4993-971b-aedc551346b0}** |
 | Wi-Fi Direct                                 | **{0407d24e-53de-4c9a-9ba1-9ced54641188}** |
 | DNS サービス検出 (DNS-SD)               | **{4526e8c1-8aac-4153-9b16-55e86ada0e54}** |
-| 店舗販売時点管理                             | **{d4bf61b3-442e-4ada-882d-fa7B70c832d9}** |
+| Point of Service                             | **{d4bf61b3-442e-4ada-882d-fa7B70c832d9}** |
 | ネットワーク プリンター (Active Directory のプリンター) | **{37aba761-2124-454c-8d82-c42962c2de2b}** |
 | Windows Connect Now (WNC)                    | **{4c1b1ef8-2f62-4b9f-9bc5-b21ab636138f}** |
 | WiGig ドック                                  | **{a277f3a5-8764-4f88-8045-4c5e962640b1}** |
 | HP プリンター用の Wi-Fi プロビジョニング           | **{c85ef710-f344-4792-bb6d-85a4346f1e69}** |
-| Bluetooth                                    | **{e0cbf06c-cd8b-4647-bb8a-263b43f0f974}** |
+| [Bluetooth]                                    | **{e0cbf06c-cd8b-4647-bb8a-263b43f0f974}** |
 | Bluetooth LE                                 | **{bb7bb05e-5972-42b5-94fc-76eaa7084d49}** |
-| ネットワーク カメラ                               | **{b8238652-b500-41eb-b4f3-4234f7f5ae99}** |
+| ネットワークカメラ                               | **{b8238652-b500-41eb-b4f3-4234f7f5ae99}** |
 
  
 

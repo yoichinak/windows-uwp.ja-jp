@@ -6,20 +6,20 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10、uwp、アプリ認定
 ms.localizationpriority: medium
-ms.openlocfilehash: 4772edb9c99426396b7fa3a8734e2f45391c3a0f
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: 346639a222228ce74d68735d2223815585d1ca08
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74257831"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75681913"
 ---
 # <a name="windows-app-certification-kit"></a>Windows アプリ認定キット
 
 
 
-アプリの[Windows 認定](https://msdn.microsoft.com/windows/desktop/jj134964.aspx)を取得するか、 [Microsoft Store へのパブリケーション](https://docs.microsoft.com/windows/uwp/publish/app-submissions)を準備するには、最初にローカルで検証してテストする必要があります。 このトピックでは、 [Windows アプリ認定キット](https://msdn.microsoft.com/en-US/windows/apps/bg127575)をインストールして実行し、アプリが安全で効率的であることを確認する方法について説明します。
+アプリの[Windows 認定](https://docs.microsoft.com/windows/win32/win_cert/windows-certification-portal)を取得するか、 [Microsoft Store へのパブリケーション](https://docs.microsoft.com/windows/uwp/publish/app-submissions)を準備するには、最初にローカルで検証してテストする必要があります。 このトピックでは、 [Windows アプリ認定キット](https://developer.microsoft.com/windows/develop/app-certification-kit)をインストールして実行し、アプリが安全で効率的であることを確認する方法について説明します。
 
-## <a name="prerequisites"></a>前提条件
+## <a name="prerequisites"></a>必要条件
 
 ユニバーサル Windows アプリのテストの前提条件:
 

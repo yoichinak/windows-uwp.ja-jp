@@ -4,14 +4,14 @@ title: Silverlight XAML と UI Windows Phone UWP に移植する
 ms.assetid: 49aade74-5dc6-46a5-89ef-316dbeabbebe
 ms.date: 02/08/2017
 ms.topic: article
-keywords: windows 10, uwp
+keywords: Windows 10, UWP
 ms.localizationpriority: medium
-ms.openlocfilehash: eeb8cb8a8b71123c3a5a94eea316621e5f93fe8e
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: 29357746b6fca2c6aae52e9516a5b7dc2fca8ef2
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74259077"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75684618"
 ---
 #  <a name="porting-windowsphone-silverlight-xaml-and-ui-to-uwp"></a>Silverlight XAML と UI Windows Phone UWP に移植する
 
@@ -23,14 +23,14 @@ ms.locfileid: "74259077"
 
 ## <a name="a-first-look-at-the-xaml-markup"></a>初めての XAML マークアップ
 
-前のトピックでは、XAML と分離コードファイルを新しい Windows 10 Visual Studio プロジェクトにコピーする方法を説明しました。 Visual Studio XAML デザイナーで強調表示され、認識される最初の問題の 1 つは、XAML ファイルのルートで `PhoneApplicationPage` 要素がユニバーサル Windows プラットフォーム (UWP) プロジェクトに対して有効ではないことです。 前のトピックでは、Windows 10 プロジェクトの作成時に Visual Studio によって生成された XAML ファイルのコピーを保存しました。 MainPage.xaml の該当バージョンを開くと、ルートに [**Windows.UI.Xaml.Controls**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Page) 名前空間の [**Page**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls) 型があることに気付きます。 したがって、すべての `<phone:PhoneApplicationPage>` 要素を `<Page>` に変更できます (プロパティ要素の構文を忘れないでください)。また、`xmlns:phone` 宣言は削除できます。
+前のトピックでは、XAML と分離コードファイルを新しい Windows 10 Visual Studio プロジェクトにコピーする方法を説明しました。 Visual Studio XAML デザイナーで強調表示され、認識される最初の問題の 1 つは、XAML ファイルのルートで `PhoneApplicationPage` 要素がユニバーサル Windows プラットフォーム (UWP) プロジェクトに対して有効ではないことです。 前のトピックでは、Windows 10 プロジェクトの作成時に Visual Studio によって生成された XAML ファイルのコピーを保存しました。 MainPage.xaml の該当バージョンを開くと、ルートに [**Windows.UI.Xaml.Controls**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls) 名前空間の [**Page**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Page) 型があることに気付きます。 したがって、すべての `<phone:PhoneApplicationPage>` 要素を `<Page>` に変更できます (プロパティ要素の構文を忘れないでください)。また、`xmlns:phone` 宣言は削除できます。
 
 Silverlight 型 Windows Phone に対応する UWP 型を検索するための一般的な方法については、「[名前空間とクラスのマッピング](wpsl-to-uwp-namespace-and-class-mappings.md)」を参照してください。
 
 ## <a name="xaml-namespace-prefix-declarations"></a>XAML 名前空間のプレフィックス宣言
 
 
-ビュー (ビュー モデル インスタンスまたは値コンバーターなど) でカスタム型のインスタンスを使う場合、XAML マークアップに XAML 名前空間のプレフィックス宣言が含まれます。 これらの構文は Windows Phone Silverlight と UWP の間で異なります。 例をいくつか紹介します。
+ビュー、おそらくビュー モデル インスタンスまたは値コンバーターでカスタム型のインスタンスを使う場合、XAML マークアップに XAML 名前空間のプレフィックス宣言が含まれます。 これらの構文は Windows Phone Silverlight と UWP の間で異なります。 例をいくつか紹介します。
 
 ```xml
     xmlns:ContosoTradingCore="clr-namespace:ContosoTradingCore;assembly=ContosoTradingCore"
@@ -187,7 +187,7 @@ UWP アプリでは、ms-appx [URI スキーム](https://docs.microsoft.com/prev
 
 Silverlight アプリ**では、** Windows Phone**名前空間および system.string 名前空間で**定義されているコントロールを使用します。 XAML UWP アプリは、[**Windows.UI.Xaml.Controls**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls) 名前空間で定義されたコントロールを使います。 UWP における XAML コントロールのアーキテクチャと設計は、Windows Phone Silverlight コントロールとほぼ同じです。 ただし、使用可能なコントロール セットの向上と Windows アプリとの一体化のために、若干の変更が加えられています。 具体的な例をいくつか紹介します。
 
-| コントロール名 | [Change] |
+| コントロール名 | [変更] |
 |--------------|--------|
 | ApplicationBar | [Page.TopAppBar](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.page.topappbar) プロパティです。 |
 | ApplicationBarIconButton | UWP の相当要素は [Glyph](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.fonticon.glyph) プロパティです。 PrimaryCommands は CommandBar のコンテンツ プロパティです。 XAML パーサーは、コンテンツ プロパティの値として要素の内部 xml を解釈します。 |
@@ -205,7 +205,7 @@ UWP のコントロールについて詳しくは、「[機能別コントロー
 
 ##  <a name="design-language-in-windows10"></a>Windows 10 のデザイン言語
 
-Windows Phone Silverlight アプリと Windows 10 アプリの間には、デザイン言語にいくつかの違いがあります。 詳しくは、「[Design](https://developer.microsoft.com/en-us/windows/apps/design)」(UWP アプリの設計) をご覧ください。 デザイン言語に変更が加えられていますが、設計原則は維持されています。細部にまで注意を払いながら、簡潔さを追求しています。そのために、クロムよりもコンテンツを優先し、視覚要素を大幅に減らし、真のデジタル領域を常に意識しています。また、視覚的な階層の利用 (特に文字体裁に対して)、グリッド内でのデザイン、滑らかなアニメーションを使ったエクスペリエンスの実現も行っています。
+Windows Phone Silverlight アプリと Windows 10 アプリの間には、デザイン言語にいくつかの違いがあります。 詳しくは、「[Design](https://developer.microsoft.com/windows/apps/design)」(UWP アプリの設計) をご覧ください。 デザイン言語に変更が加えられていますが、設計原則は維持されています。細部にまで注意を払いながら、簡潔さを追求しています。そのために、クロムよりもコンテンツを優先し、視覚要素を大幅に減らし、真のデジタル領域を常に意識しています。また、視覚的な階層の利用 (特に文字体裁に対して)、グリッド内でのデザイン、滑らかなアニメーションを使ったエクスペリエンスの実現も行っています。
 
 ## <a name="localization-and-globalization"></a>ローカリゼーションとグローバリゼーション
 
@@ -219,9 +219,9 @@ Silverlight アプリ Windows Phone、 **CultureInfo**クラスを使用して�
 
 UWP のメディアとグラフィックスに関する説明では、Windows の設計原則で、視覚的な複雑さや混乱を含めて、不用なあらゆるものの極度の簡略化を促している点に注意してください。 Windows 設計は、明確かつ明瞭な視覚効果、文字体裁、モーションによって特徴付けられます。 アプリが同じ原則に従えば、組み込みアプリのように振る舞うことができます。
 
-Windows Phone Silverlight には、UWP には存在しない**RadialGradientBrush**型がありますが、その他の[**ブラシ**](/uwp/api/Windows.UI.Xaml.Media.Brush)の種類はです。 場合によっては、ビットマップでも同様の効果を得ることができます。 [Microsoft DirectX](https://docs.microsoft.com/windows/desktop/Direct2D/how-to-create-a-radial-gradient-brush) および XAML C++ UWP では、Direct2D により[放射状グラデーションのブラシを作成](https://docs.microsoft.com/windows/desktop/directx)できることに注意してください。
+Windows Phone Silverlight には、UWP には存在しない**RadialGradientBrush**型がありますが、その他の[**ブラシ**](/uwp/api/Windows.UI.Xaml.Media.Brush)の種類はです。 場合によっては、ビットマップでも同様の効果を得ることができます。 [Microsoft DirectX](https://docs.microsoft.com/windows/desktop/directx) および XAML C++ UWP では、Direct2D により[放射状グラデーションのブラシを作成](https://docs.microsoft.com/windows/desktop/Direct2D/how-to-create-a-radial-gradient-brush)できることに注意してください。
 
-Windows Phone Silverlight には**OpacityMask**プロパティがありますが、そのプロパティは UWP [**UIElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement)型のメンバーではありません。 場合によっては、ビットマップでも同様の効果を得ることができます。 また、[Microsoft DirectX](https://docs.microsoft.com/windows/desktop/Direct2D/opacity-masks-overview) および XAML C++ UWP アプリでは、Direct2D により[不透明マスクを作成](https://docs.microsoft.com/windows/desktop/directx)できます。 ただし、**OpacityMask** の一般的な使用事例の 1 つに、淡色テーマと濃色テーマの両方に適合する単一のビットマップを使うことがあります。 ベクター グラフィック (次に示す円グラフなど) では、テーマに対応するシステム ブラシを使うことができます。 ただし、テーマに対応するビットマップ (次に示すチェック マークなど) を作成するには、別のアプローチが必要です。
+Windows Phone Silverlight には**OpacityMask**プロパティがありますが、そのプロパティは UWP [**UIElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement)型のメンバーではありません。 場合によっては、ビットマップでも同様の効果を得ることができます。 また、[Microsoft DirectX](https://docs.microsoft.com/windows/desktop/directx) および XAML C++ UWP アプリでは、Direct2D により[不透明マスクを作成](https://docs.microsoft.com/windows/desktop/Direct2D/opacity-masks-overview)できます。 ただし、**OpacityMask** の一般的な使用事例の 1 つに、淡色テーマと濃色テーマの両方に適合する単一のビットマップを使うことがあります。 ベクター グラフィック (次に示す円グラフなど) では、テーマに対応するシステム ブラシを使うことができます。 ただし、テーマに対応するビットマップ (次に示すチェック マークなど) を作成するには、別のアプローチが必要です。
 
 ![テーマに対応するビットマップ](images/wpsl-to-uwp-case-studies/wpsl-to-uwp-theme-aware-bitmap.png)
 
@@ -259,7 +259,7 @@ Windows Phone Silverlight では、 **UIElement**プロパティは、 **Geometr
 
 [Microsoft DirectX](https://docs.microsoft.com/windows/desktop/Direct2D/direct2d-layers-overview) アプリおよび XAML C++ UWP アプリで Direct2D により[レイヤー内でマスクとして任意のジオメトリを使用](https://docs.microsoft.com/windows/desktop/directx)できることに注意してください。
 
-## <a name="navigation"></a>ナビゲーション
+## <a name="navigation"></a>［ナビゲーション］
 
 Windows Phone Silverlight アプリ内のページに移動する場合は、Uniform Resource Identifier (URI) アドレス指定スキームを使用します。
 
@@ -305,15 +305,15 @@ Windows 10 の設計言語が進化し、その結果、特定のシステムス
 
 システム トレイ (`shell:SystemTray.IsVisible` により XAML マークアップで設定される) は、現在ではステータス バーと呼ばれており、既定で示されます。 [  **Windows.UI.ViewManagement.StatusBar.ShowAsync**](https://docs.microsoft.com/uwp/api/windows.ui.viewmanagement.statusbar.showasync) メソッドと [**HideAsync**](https://docs.microsoft.com/uwp/api/windows.ui.viewmanagement.statusbar.hideasync) メソッドを呼び出すことによって、表示するかどうかを命令型コードで制御できます。
 
-## <a name="text"></a>Text
+## <a name="text"></a>テキスト
 
 テキスト (または文字体裁) は UWP アプリの重要な要素です。移植するときには、ビューの視覚的なデザインが新しいデザイン言語に適合するように、ビューの視覚的なデザインを再検討することが必要になる場合があります。 次の図を使って、利用可能な UWP の **TextBlock** システム スタイルを見つけます。 使用した Windows Phone Silverlight スタイルに対応するものを探します。 または、独自のユニバーサルスタイルを作成し、そのプロパティを Windows Phone Silverlight システムスタイルからそれらにコピーすることもできます。
 
-![Windows 10 アプリのシステム TextBlock スタイル](images/label-uwp10stylegallery.png)
+![Windows 10 アプリのシステム TextBlock スタイル](images/label-uwp10stylegallery.png)
 
 Windows 10 アプリのシステム TextBlock スタイル
 
-Windows Phone Silverlight アプリでは、既定のフォントファミリは Meirwp です。 Windows 10 アプリでは、既定のフォントファミリは Segoe UI。 この結果、アプリでのフォント メトリックの表示が異なる可能性があります。 Windows Phone Silverlight テキストの外観を再現する場合は、 [**Lineheight**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock.lineheight)や[**LineStackingStrategy**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock.linestackingstrategy)などのプロパティを使用して独自のメトリックを設定できます。 詳しくは、「[フォントのガイドライン](https://docs.microsoft.com/windows/uwp/controls-and-patterns/fonts)」と「[UWP アプリの設計](https://developer.microsoft.com/en-us/windows/apps/design)」をご覧ください。
+Windows Phone Silverlight アプリでは、既定のフォントファミリは Meirwp です。 Windows 10 アプリでは、既定のフォントファミリは Segoe UI。 この結果、アプリでのフォント メトリックの表示が異なる可能性があります。 Windows Phone Silverlight テキストの外観を再現する場合は、 [**Lineheight**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock.lineheight)や[**LineStackingStrategy**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock.linestackingstrategy)などのプロパティを使用して独自のメトリックを設定できます。 詳しくは、「[フォントのガイドライン](https://docs.microsoft.com/windows/uwp/controls-and-patterns/fonts)」と「[UWP アプリの設計](https://developer.microsoft.com/windows/apps/design)」をご覧ください。
 
 ## <a name="theme-changes"></a>テーマの変更
 
@@ -368,7 +368,7 @@ Silverlight アプリと Windows 10 アプリ Windows Phone、UI 要素のサイ
 
 Windows Phone Silverlight アプリでは、すべての電話画面は、画面の物理的なピクセル数やピクセル密度や物理サイズに関係なく、正確には480のビューピクセル幅を持ち、例外はありません。 つまり、`Width="48"` を持つ**Image**要素は、Windows Phone Silverlight アプリを実行できるすべての電話の画面の幅の10分の1になります。
 
-Windows 10 アプリでは、すべてのデバイスが固定された数の有効なピクセル幅を備えているわけでは*ありません*。 これは、UWP アプリが広範なデバイスで実行できることから、おそらく明白です。 デバイスによって、有効ピクセルの幅の値が異なります。その範囲は、320 epx (最小のデバイス) から 1024 epx (一般的なサイズのモニター)、またはそれ以上のさらに広い幅になります。 これまでと同様に、自動的にサイズ調整される要素と動的レイアウト パネルを引き続き使うことで十分に対応できます。 ただし、場合によっては、UI 要素のプロパティを XAML マークアップで固定サイズに設定することがあります。 スケール ファクターは、アプリが実行されているデバイスやユーザーが行った表示設定に応じて、アプリに自動的に適用されます。 スケール ファクターによって、さまざまな幅の画面サイズでユーザーに対してほぼ一定サイズのタッチ (または読み取り) ターゲットを提示するように、すべての UI 要素を固定サイズで維持できます。 また、動的レイアウトと共に使うことで、UI は単にさまざまなデバイスで光学的なスケーリングを行うだけでなく、利用可能な領域に合わせて適切な量のコンテンツを表示するために必要となる処理も実行します。
+Windows 10 アプリでは、すべてのデバイスが固定された数の有効なピクセル幅を備えているわけでは*ありません*。 これは、UWP アプリが広範なデバイスで実行できることから、おそらく明白です。 デバイスによって、有効ピクセルの幅の値が異なります。その範囲は、320 epx (最小のデバイス) から 1024 epx (一般的なサイズのモニター)、またはそれ以上のさらに広い幅になります。 これまでと同様に、自動的にサイズ調整される要素と動的レイアウト パネルを引き続き使うことで十分に対応できます。 ただし、場合によっては、UI 要素のプロパティを XAML マークアップで固定サイズに設定することがあります。 スケール ファクターは、アプリが実行されているデバイスやユーザーが行った表示設定に応じて、アプリに自動的に適用されます。 スケール ファクターによって、さまざまな画面サイズでユーザーに対してほぼ一定サイズのタッチ (または読み取り) ターゲットを提示するように、すべての UI 要素を固定サイズで維持できます。 また、動的レイアウトと共に使うことで、UI は単にさまざまなデバイスで光学的なスケーリングを行うだけでなく、利用可能な領域に合わせて適切な量のコンテンツを表示するために必要となる処理も実行します。
 
 480は、以前は電話サイズの画面のビューピクセルの固定幅であるため、その値は通常、有効なピクセルに小さくなっています。目安として、Windows Phone Silverlight アプリマークアップ内の任意の次元に0.8 の係数を掛けることが挙げられます。
 
