@@ -6,12 +6,12 @@ ms.date: 04/16/2018
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム、ゲーム開発
 ms.localizationpriority: medium
-ms.openlocfilehash: c05a973dc9a954569531be6e0fea212135532b84
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: a348393a02bab946a128babefc07dc48faea6cd1
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74258507"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75685071"
 ---
 # <a name="windows-10-game-development-guide"></a>Windows 10 ゲーム開発ガイド
 
@@ -50,7 +50,7 @@ Windows または Xbox で初めてゲームを開発する場合は、最初に
     </colgroup>
     <tr>
         <td>Windows デベロッパー センターのメイン ポータル</td>
-        <td><a href="https://developer.microsoft.com/windows">Windows デベロッパーセンター</a></td>
+        <td><a href="https://developer.microsoft.com/windows">Windows デベロッパー センター</a></td>
     </tr>
     <tr>
         <td>Windows アプリの開発</td>
@@ -113,7 +113,7 @@ Windows または Xbox で初めてゲームを開発する場合は、最初に
 
 Microsoft では、Windows ゲームの開発と公開に役立ついくつかの開発者向けプログラムを提供しています。 Xbox One のゲームを開発し、Xbox Live の機能をゲームに統合する場合には、開発者プログラムへの参加を検討してください。 Microsoft Store でゲームを発行するには、[パートナーセンター](https://partner.microsoft.com/dashboard)で開発者アカウントを作成する必要もあります。
 
-#### <a name="xbox-live-creators-program"></a>Xbox Live クリエーターズ プログラム
+#### <a name="xbox-live-creators-program"></a>Xbox Live Creators Program
 
 Xbox Live クリエーターズ プログラムでは、だれでも Xbox Live を自分のタイトルに統合して、Xbox One や Windows 10 に公開することができます。 認定プロセスが簡素化され、標準的な [Microsoft Store ポリシー](https://docs.microsoft.com/legal/windows/agreements/store-policies)以外に概念の承認はありません。
 
@@ -127,7 +127,7 @@ Xbox Live の他の機能にアクセスしたり、マーケティングと開�
     <col width="50%" />
     </colgroup>
     <tr>
-        <td>Xbox Live クリエーターズ プログラム</td>
+        <td>Xbox Live Creators Program</td>
         <td><a href="https://developer.microsoft.com/games/xbox/xboxlive/creator">Xbox Live Creators Program の詳細を見る</a></td>
     </tr>
 </table>
@@ -169,7 +169,7 @@ Xbox のツールおよびミドルウェア プログラムは、ゲームの�
 
 ### <a name="game-samples"></a>ゲームのサンプル
 
-Windows 10 ゲームとアプリのサンプルが数多く用意されており、Windows 10 のゲーム機能を理解して、ゲーム開発をすぐに始めることができます。 サンプルは次々と開発され、定期的に公開されるため、ときどきサンプル ポータルをチェックして、新機能を確認することを忘れないでください。 GitHub のリポジトリを[監視](https://help.github.com/en/articles/watching-and-unwatching-repositories)して、変更や追加についての通知を受け取ることもできます。
+Windows 10 のゲーム機能を理解してゲーム開発をすぐに始めることができるように、Windows 10 のゲームとアプリのサンプルが数多く用意されています。 サンプルは次々と開発され、定期的に公開されるため、ときどきサンプル ポータルをチェックして、新機能を確認することを忘れないでください。 GitHub のリポジトリを[監視](https://help.github.com/en/articles/watching-and-unwatching-repositories)して、変更や追加についての通知を受け取ることもできます。
 
 <table>
     <colgroup>
@@ -246,15 +246,15 @@ Windows 10 ゲームとアプリのサンプルが数多く用意されており
     </colgroup>
     <tr>
         <td>アプリとゲーム開発者フォーラムの公開</td>
-        <td><a href="https://social.msdn.microsoft.com/Forums/en-us/home?category=windowsapps">アプリ内での発行と広告</a></td>
+        <td><a href="https://social.msdn.microsoft.com/Forums/home?category=windowsapps">アプリ内での発行と広告</a></td>
     </tr>
     <tr>
         <td>UWP アプリ開発者フォーラム</td>
-        <td><a href="https://social.msdn.microsoft.com/Forums/en-us/home?forum=wpdevelop">ユニバーサル Windows プラットフォームアプリの開発</a></td>
+        <td><a href="https://social.msdn.microsoft.com/Forums/home?forum=wpdevelop">ユニバーサル Windows プラットフォームアプリの開発</a></td>
     </tr>
     <tr>
         <td>デスクトップ アプリケーション開発者フォーラム</td>
-        <td><a href="https://social.msdn.microsoft.com/Forums/en-us/home?category=windowsdesktopdev">Windows デスクトップアプリケーションフォーラム</a></td>
+        <td><a href="https://social.msdn.microsoft.com/Forums/home?category=windowsdesktopdev">Windows デスクトップアプリケーションフォーラム</a></td>
     </tr>
     <tr>
         <td>DirectX Microsoft Store ゲーム (アーカイブ済みのフォーラムの投稿)</td>
@@ -270,7 +270,7 @@ Windows 10 ゲームとアプリのサンプルが数多く用意されており
     </tr>
     <tr>
         <td>Azure プラットフォーム フォーラム</td>
-        <td><a href="https://social.msdn.microsoft.com/Forums/en-us/home?category=windowsazureplatform">Azure フォーラム</a></td>
+        <td><a href="https://social.msdn.microsoft.com/Forums/home?category=windowsazureplatform">Azure フォーラム</a></td>
     </tr>
     <tr>
         <td>Xbox Live フォーラム</td>
@@ -306,7 +306,7 @@ Windows 10 ゲームとアプリのサンプルが数多く用意されており
     </tr>
     <tr>
         <td>Visual Studio 開発者ツールに関するブログ</td>
-        <td><a href="https://devblogs.microsoft.com/visualstudio/">開発者ツールブログ</a></td>
+        <td><a href="https://devblogs.microsoft.com/visualstudio/">開発者ツールのブログ</a></td>
     </tr>
     <tr>
         <td>Somasegar の開発者ツールに関するブログ</td>
@@ -322,7 +322,7 @@ Windows 10 ゲームとアプリのサンプルが数多く用意されており
     </tr>
     <tr>
         <td>Visual C++ ツール チームのブログ</td>
-        <td><a href="https://devblogs.microsoft.com/cppblog/">ビジュアルC++チームのブログ</a></td>
+        <td><a href="https://devblogs.microsoft.com/cppblog/">Visual C++ チーム ブログ</a></td>
     </tr>
     <tr>
         <td>PIX チームのブログ</td>
@@ -406,7 +406,7 @@ UWP のゲームの開発を開始するとき、グラフィックス、入力�
 
 ### <a name="choosing-your-graphics-technology-and-programming-language"></a>グラフィックス テクノロジとプログラミング言語の選択
 
-Windows 10 ゲームでは、複数のプログラミング言語やグラフィックス テクノロジを使うことができます。 どれを選ぶかは、開発しているゲームの種類、開発スタジオの経験や好み、ゲームの具体的な機能要件によって決まります。 C#、C++、JavaScript のどれを使うか、 DirectX、XAML、HTML5 のどれを使うか、
+Windows 10 ゲームでは、複数のプログラミング言語やグラフィックス テクノロジを使うことができます。 どれを選ぶかは、開発しているゲームの種類、開発スタジオの経験や好み、ゲームの具体的な機能要件によって決まります。 C#、C++、JavaScript のどれを使うか、 DirectX、XAML、HTML5 のどれを使うかなどです。
 
 #### <a name="directx"></a>DirectX
 
@@ -517,7 +517,7 @@ C++/CX はオーバーヘッドの低い高パフォーマンスな言語であ�
     </colgroup>
     <tr>
         <td>C++/CX のリファレンスと概要</td>
-        <td><a href="https://docs.microsoft.com/cpp/cppcx/visual-c-language-reference-c-cx">ビジュアルC++言語リファレンス (C++/cx)</a></td>
+        <td><a href="https://docs.microsoft.com/cpp/cppcx/visual-c-language-reference-c-cx">Visual C++ の言語リファレンス (C++/CX)</a></td>
     </tr>
     <tr>
         <td>Visual C++ のプログラミング ガイドとリファレンス</td>
@@ -622,7 +622,7 @@ Direct3D 11.3 は低レベル グラフィック API です。よく利用され
         <td><a href="https://developer.microsoft.com/windows/bridges">コードを Windows に取り込む</a></td>
     </tr>
     <tr>
-        <td>Windows Bridge for iOS</td>
+        <td>iOS 用 Windows ブリッジ</td>
         <td><a href="https://developer.microsoft.com/windows/bridges/ios">IOS アプリを Windows に持ち込む</a></td>
     </tr>
     <tr>
@@ -645,7 +645,7 @@ Microsoft ファミリの一部となった PlayFab は、ライブ ゲームの
         <td><a href="https://playfab.com/">ツールとサービスの概要</a></td>
     </tr>
     <tr>
-        <td>概要</td>
+        <td>開始するには</td>
         <td><a href="https://api.playfab.com/docs/general-getting-started">一般的な入門ガイド</a></td>
     </tr>
     <tr>
@@ -704,7 +704,7 @@ Unity 5.4 以降では、Unity は Direct3D 12 の開発をサポートします
     </tr>
     <tr>
         <td>Mixer の対話機能を使用して、ゲームに対話機能を追加する方法</td>
-        <td><a href="https://github.com/mixer/interactive-unity-plugin/wiki/Getting-started">ファーストステップガイド</a></td>
+        <td><a href="https://github.com/mixer/interactive-unity-plugin/wiki/Getting-started">ファースト ステップ ガイド</a></td>
     </tr>
     <tr>
         <td>Unity 向け Mixer SDK</td>
@@ -791,7 +791,7 @@ MonoGame は、オープン ソース、クロスプラット フォームのゲ
 
 #### <a name="cocos2d"></a>Cocos2d
 
-Cocos2d-x は、オープン ソース、クロス プラットフォームのゲーム開発エンジンおよびツール スイートで、UWP ゲームの構築をサポートしています。 バージョン 3 以降、3D 機能も追加されています。
+Cocos2d-x は、オープン ソース、クロス プラットフォームのゲーム開発エンジンおよびツール スイートで、UWP ゲームの構築をサポートしています。 バージョン 3 以降、3 D 機能も追加されています。
 
 <table>
     <colgroup>
@@ -894,7 +894,7 @@ BabylonJS は、HTML5、WebGL、WebVR、Web オーディオで 3D ゲームを�
     </tr>
     <tr>
         <td>Xbox ゲームをユニバーサル Windows プラットフォーム アプリに移植する</td>
-        <td><a href="https://developer.xboxlive.com/en-us/platform/development/education/Documents/Porting%20from%20Xbox%20One%20to%20Windows%2010.aspx">Xbox One から Windows 10 UWP への移植</a></td>
+        <td><a href="https://developer.xboxlive.com/platform/development/education/Documents/Porting%20from%20Xbox%20One%20to%20Windows%2010.aspx">Xbox One から Windows 10 UWP への移植</a></td>
     </tr>
     <tr>
         <td>DirectX 9 から DirectX 11 に移植する</td>
@@ -1026,7 +1026,7 @@ Windows デスクトップ ゲームを UWP に移行する際に役立つリン
     </tr>
     <tr>
         <td>UWP でサポートされない CRT 関数</td>
-        <td><a href="https://docs.microsoft.com/cpp/cppcx/crt-functions-not-supported-in-universal-windows-platform-apps">ユニバーサル Windows プラットフォームアプリでサポートされていない CRT 関数</a></td>
+        <td><a href="https://docs.microsoft.com/cpp/cppcx/crt-functions-not-supported-in-universal-windows-platform-apps">ユニバーサル Windows プラットフォーム アプリでサポートされていない CRT 関数</a></td>
     </tr>
     <tr>
         <td>Windows API の代替</td>
@@ -1070,7 +1070,7 @@ UX デザインとは別に、レベルのデザイン、ペース配分、世�
     </colgroup>
     <tr>
         <td>UWP の設計の基本とガイドライン</td>
-        <td><a href="https://developer.microsoft.com/en-us/windows/apps/design">UWP アプリの設計</a></td>
+        <td><a href="https://developer.microsoft.com/windows/apps/design">UWP アプリの設計</a></td>
     </tr>
     <tr>
         <td>アプリのライフサイクルの状態の設計</td>
@@ -1089,7 +1089,7 @@ UX デザインとは別に、レベルのデザイン、ペース配分、世�
 
 #### <a name="color-guideline-and-palette"></a>色のガイドラインとパレット
 
-ゲームで一貫した色のガイドラインに従うと、美しさやナビゲーションの操作性が向上し、メニューや HUD の機能がプレーヤーに伝わりやすくなります。 警告、ダメージ、XP、成績などのゲーム要素の色が一貫していると、UI がわかりやすくなるため、ラベルによって説明する必要性が減ります。
+ゲームで一貫した色のガイドラインに従うと、美しさやナビゲーションの操作性が向上し、メニューや HUD の機能がプレイヤーに伝わりやすくなります。 警告、ダメージ、XP、成績などのゲーム要素の色が一貫していると、UI がわかりやすくなるため、ラベルによって説明する必要性が減ります。
 
 <table>
     <colgroup>
@@ -1311,7 +1311,7 @@ DirectX ツール キット、DirectX テクスチャ処理ライブラリ、Dir
 </table>
 
 
-## <a name="production"></a>実稼働
+## <a name="production"></a>から Production
 
 
 制作スタジオの準備が整ったら、チーム全体に作業を分散して制作サイクルに移行します。 プロトタイプの調整、リファクタリング、拡張によって、ゲームの完成品に仕上げていきます。
@@ -1397,7 +1397,7 @@ Windows Performance Toolkit (WPT) は、Windows オペレーティング シス�
     </colgroup>
     <tr>
         <td>コードのパフォーマンス テストを行う</td>
-        <td><a href="https://azure.microsoft.com/services/devops/test-plans/">クラウドベースのロードテスト</a></td>
+        <td><a href="https://azure.microsoft.com/services/devops/test-plans/">クラウド ベースのロード テスト</a></td>
     </tr>
     <tr>
         <td>ゲーム デバイス情報を使用して Xbox 本体のタイプを取得する</td>
@@ -1517,7 +1517,7 @@ Windows プラットフォーム用の多言語対応ゲームを開発し、Mic
 
 ## <a name="submitting-and-publishing-your-game"></a>ゲームの申請と公開
 
-次のガイドと情報は、公開と申請のプロセスをできるだけスムーズに進めるために役立ちます。
+次のガイドと情報は、公開と申請のプロセスをできるだけスムーズに進めるのに役立ちます。
 
 ### <a name="publishing"></a>公開
 
@@ -1534,7 +1534,7 @@ Windows プラットフォーム用の多言語対応ゲームを開発し、Mic
     </tr>
     <tr>
         <td>パートナーセンターの高度な発行 (GDN)</td>
-        <td><a href="https://developer.xboxlive.com/en-us/windows/documentation/Pages/home.aspx">パートナーセンターの高度な発行ガイド</a></td>
+        <td><a href="https://developer.xboxlive.com/windows/documentation/Pages/home.aspx">パートナーセンターの高度な発行ガイド</a></td>
     </tr>
     <tr>
         <td>Azure Active Directory (AAD) を使用してパートナーセンターアカウントにユーザーを追加する</td>

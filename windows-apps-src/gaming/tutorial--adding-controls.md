@@ -6,12 +6,12 @@ ms.date: 10/24/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, コントロール, 入力
 ms.localizationpriority: medium
-ms.openlocfilehash: 9c2b7031bf8afb047fcfc869e23ee1c398218af8
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: edc790ba949010fb1975317c5113ca02744889a0
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74258428"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75684562"
 ---
 # <a name="add-controls"></a>コントロールの追加
 
@@ -82,7 +82,7 @@ void MoveLookController::InitWindow(_In_ CoreWindow^ window)
 
 ゲームがいつ特定の入力を待機する必要があるかを判断するために、**MoveLookController** クラスには、コントローラーの種類に関係なく、コントローラーに固有の次の 3 つの状態があります。
 
-状態 | 説明
+State (状態) | 説明
 :----- | :-------
 **なし** | これは、コントローラーの初期化された状態です。 ゲームではコントローラーの入力を予期していないため、すべての入力は無視されます。
 **WaitForInput** | コントローラーは、プレイヤーが、マウスの左クリック、タッチ イベント、ゲームパッドのメニュー ボタンのいずれかを使用して、ゲームからのメッセージを確認するのを待っています。
@@ -160,7 +160,7 @@ bool MoveLookController::IsFiring()
 
 マウス移動が検出された場合は、その移動を使ってカメラの新しいピッチとヨーを特定します。 そのためには、相対マウス コントロールを実装します。相対マウス コントロールでは、動作の絶対 x-y ピクセル座標を記録するのではなく、マウスが移動した相対距離 (移動の開始から停止までのデルタ) を処理します。
 
-これを行うには、[**MouseMoved**](https://docs.microsoft.com/uwp/api/Windows.Devices.Input.MouseDelta) イベントによって返されるWindows::Device::Input::MouseEventArgs::MouseDelta[**引数オブジェクトの**](https://docs.microsoft.com/uwp/api/windows.devices.input.mouseeventargs.mousedelta)MouseDelta::X[**フィールドと**MouseDelta::Y](https://docs.microsoft.com/uwp/api/windows.devices.input.mousedevice.mousemoved) フィールドを調べて、X (横方向の動作) と Y (縦方向の動作) の座標の変化を取得します。
+これを行うには、[**MouseMoved**](https://docs.microsoft.com/uwp/api/windows.devices.input.mousedevice.mousemoved) イベントによって返される [**Windows::Device::Input::MouseEventArgs::MouseDelta**](https://docs.microsoft.com/uwp/api/windows.devices.input.mouseeventargs.mousedelta) 引数オブジェクトの [**MouseDelta::X**](https://docs.microsoft.com/uwp/api/Windows.Devices.Input.MouseDelta) フィールドと **MouseDelta::Y** フィールドを調べて、X (横方向の動作) と Y (縦方向の動作) の座標の変化を取得します。
 
 ```cpp
 void MoveLookController::OnMouseMoved(
@@ -212,7 +212,7 @@ void MoveLookController::OnMouseMoved(
 ![ムーブ/ルックのタッチ画面のレイアウト](images/simple-dx-game-controls-touchzones.png)
 
 次のコマンドは、タッチ コントロールの動作をまとめたものです。
-ユーザー入力 | アクション
+ユーザー入力 | [操作]
 :------- | :--------
 ムーブ四角形 | タッチ入力は仮想ジョイスティックに変換され、垂直方向のモーションは前/後の位置モーションに変換され、水平方向のモーションは左/右の位置モーションに変換されます。
 ファイア四角形 | 球体を発射します。
@@ -456,10 +456,10 @@ window->PointerReleased +=
 
 このゲームには、キーボードとマウス用に次のコントロール レイアウトが含まれています。
 
-ユーザー入力 | アクション
+ユーザー入力 | [操作]
 :------- | :--------
 W | プレイヤーを前へ移動します。
-A | プレイヤーを左へ移動します。
+確認が完了していないエイリアスの横には、 | プレイヤーを左へ移動します。
 S | プレイヤーを後ろへ移動します。
 D | プレイヤーを右へ移動します。
 X | ビューを上へ移動します。
@@ -469,7 +469,7 @@ P | ゲームを一時停止します。
 マウスの左ボタン | 球体を発射します。
 
 
-キーボードを使用するために、ゲーム サンプルは、[**MoveLookController::InitWindow**](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.keyup) メソッド内で 2 つの新しいイベント [**CoreWindow::KeyUp**](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.keydown) と [**CoreWindow::KeyDown**](https://github.com/Microsoft/Windows-universal-samples/blob/ef073ed8a2007d113af1d88eddace479e3bf0e07/SharedContent/cpp/GameContent/MoveLookController.cpp#L84-L88) を登録します。 これらのイベントは、キーを押す操作と離す操作を処理します。
+キーボードを使用するために、ゲーム サンプルは、[**MoveLookController::InitWindow**](https://github.com/Microsoft/Windows-universal-samples/blob/ef073ed8a2007d113af1d88eddace479e3bf0e07/SharedContent/cpp/GameContent/MoveLookController.cpp#L84-L88) メソッド内で 2 つの新しいイベント [**CoreWindow::KeyUp**](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.keyup) と [**CoreWindow::KeyDown**](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.keydown) を登録します。 これらのイベントは、キーを押す操作と離す操作を処理します。
 
 ```cpp
 window->KeyDown +=
@@ -482,9 +482,9 @@ window->KeyUp +=
 マウスは、ポインターを使いますが、タッチ コントロールとは扱いが少し異なります。 このコントロール レイアウトに合わせて、**MoveLookController** は、マウスが移動されるたびにカメラを回転させ、マウスの左ボタンが押されたときに発射します。
 
 
-これは、[MoveLookController**の**](https://github.com/Microsoft/Windows-universal-samples/blob/ef073ed8a2007d113af1d88eddace479e3bf0e07/SharedContent/cpp/GameContent/MoveLookController.cpp#L179-L313)OnPointerPressed メソッドで処理されます。
+これは、**MoveLookController** の [**OnPointerPressed**](https://github.com/Microsoft/Windows-universal-samples/blob/ef073ed8a2007d113af1d88eddace479e3bf0e07/SharedContent/cpp/GameContent/MoveLookController.cpp#L179-L313) メソッドで処理されます。
 
-このメソッドで、[`Windows::Devices::Input::PointerDeviceType`](https://docs.microsoft.com/en-us/uwp/api/Windows.Devices.Input.PointerDeviceType) 列挙型を使って、使用されているポインター デバイスの種類を確認します。 ゲームが **Active** であり、**PointerDeviceType** が **Touch** ではない場合は、マウス入力と見なします。
+このメソッドで、[`Windows::Devices::Input::PointerDeviceType`](https://docs.microsoft.com/uwp/api/Windows.Devices.Input.PointerDeviceType) 列挙型を使って、使用されているポインター デバイスの種類を確認します。 ゲームが **Active** であり、**PointerDeviceType** が **Touch** ではない場合は、マウス入力と見なします。
 
 ```cpp
     case MoveLookControllerState::Active:
@@ -565,7 +565,7 @@ window->KeyUp +=
 
 このゲームのゲームパッド コントロールは次のようになります。
 
-ユーザー入力 | アクション
+ユーザー入力 | [操作]
 :------- | :--------
 左アナログ スティック | プレイヤーを移動します。
 右アナログ スティック | カメラ ビューの回転角度 (ピッチとヨー) を変更します。
@@ -591,7 +591,7 @@ window->KeyUp +=
 
 ### <a name="the-updatepollingdevices-method"></a>UpdatePollingDevices メソッド
 
-[MoveLookController**インスタンスの**](https://github.com/Microsoft/Windows-universal-samples/blob/ef073ed8a2007d113af1d88eddace479e3bf0e07/SharedContent/cpp/GameContent/MoveLookController.cpp#L654-L782)UpdatePollingDevices メソッドは、すぐにゲームパッドが接続されているかどうかを確認します。 ゲームパッドが接続されている場合は、[**Gamepad.GetCurrentReading**](https://docs.microsoft.com/uwp/api/windows.gaming.input.gamepad.GetCurrentReading) を使用して、その状態の読み取りを開始します。 これによって [**GamepadReading**](https://docs.microsoft.com/uwp/api/Windows.Gaming.Input.GamepadReading) 構造体が返され、クリックされていたボタンや移動したサムスティックを確認できます。
+**MoveLookController** インスタンスの [**UpdatePollingDevices**](https://github.com/Microsoft/Windows-universal-samples/blob/ef073ed8a2007d113af1d88eddace479e3bf0e07/SharedContent/cpp/GameContent/MoveLookController.cpp#L654-L782) メソッドは、すぐにゲームパッドが接続されているかどうかを確認します。 ゲームパッドが接続されている場合は、[**Gamepad.GetCurrentReading**](https://docs.microsoft.com/uwp/api/windows.gaming.input.gamepad.GetCurrentReading) を使用して、その状態の読み取りを開始します。 これによって [**GamepadReading**](https://docs.microsoft.com/uwp/api/Windows.Gaming.Input.GamepadReading) 構造体が返され、クリックされていたボタンや移動したサムスティックを確認できます。
 
 
 ゲームの状態が **WaitForInput** である場合、ゲームを再開できるように、コントローラーのスタート/メニュー ボタンのみをリッスンします。
@@ -727,7 +727,7 @@ window->KeyUp +=
 
 このサンプルの **Update** メソッドでは、以下の入力の確認を実行します。
 - プレイヤーがムーブ コントローラーの四角形を使用している場合は、ポインターの位置の変化を確認し、それを使用してユーザーがコントローラーのデッド ゾーンの外側にポインターを移動したかどうかを計算します。 デッド ゾーンの外側である場合、仮想ジョイスティックの値を使用して **m_moveCommand** ベクトル プロパティが更新されます。
-- 移動キーボード入力のいずれかが押されている場合は、`1.0f` または `-1.0f` の値が、転送用の**m_moveCommand** &mdash; ベクターの対応するコンポーネントに追加され、後方に `1.0f` ます。`-1.0f`
+- 移動キーボード入力のいずれかが押されている場合は、`1.0f` または `-1.0f` の値が、転送用の**m_moveCommand** &mdash; ベクターの対応するコンポーネントに追加され、後方に `1.0f` ます。
 
 
 すべての移動入力を考慮した後、**m_moveCommand** ベクトルに対していくつかの計算を実行し、ゲーム ワールドでのプレイヤーの方向を表す新しいベクトルを生成します。
@@ -810,7 +810,7 @@ void MoveLookController::Update()
 ```
 
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
 これで、コントロールが追加されましたが、臨場感のあるゲームを作成するためにもう 1 つ追加しなければならない機能として、サウンドがあります。
 ミュージックとサウンド効果はどのゲームでも重要であるため、次の「[サウンドの追加](tutorial--adding-sound.md)」で詳しく説明します。

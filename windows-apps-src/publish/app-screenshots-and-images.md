@@ -6,12 +6,12 @@ ms.date: 03/07/2019
 ms.topic: article
 keywords: Windows 10, uwp, 予告編, ビデオ, スクリーン ショット, 画像, アイコン, Store 登録情報, Store 登録情報の画像
 ms.localizationpriority: medium
-ms.openlocfilehash: 25dd6ffe698ae8141a02381d5ca45df31377599b
-ms.sourcegitcommit: a4a595c485a1e4549b02b0e20ca9f56b093c5814
+ms.openlocfilehash: 48a8566c80516588939dc0ef071c3da4b9232d64
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74125238"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75684612"
 ---
 # <a name="app-screenshots-images-and-trailers"></a>アプリのスクリーンショット、画像、トレーラー
 
@@ -170,7 +170,7 @@ Store 登録情報ページの他のフィールドと同様に、トレーラ�
 
 | ビデオ | オーディオ |
 | --- | --- |
-| <ul><li>コーデック: [h.264](https://docs.microsoft.com/en-us/windows/desktop/DirectShow/h-264-video-types) (AVC1)  </li><li>プログレッシブ スキャン (インターレースなし)</li><li>ハイ プロファイル</li><li>2 連続 B フレーム</li><li>クローズド GOP (フレーム レートの半分の GOP)</li><li>CABAC</li><li>50 MB/秒 </li><li>色空間: 4.2.0</li></ul> | <ul><li>コーデック: AAC-LC</li><li>チャンネル: ステレオまたはサラウンド サウンド</li><li>サンプル レート: 48 KHz</li><li>オーディオ ビットレート: ステレオでは 384 KB/秒、サラウンド サウンドでは 512 KB/秒</li></ul> |
+| <ul><li>コーデック: [h.264](https://docs.microsoft.com/windows/desktop/DirectShow/h-264-video-types) (AVC1)  </li><li>プログレッシブ スキャン (インターレースなし)</li><li>ハイ プロファイル</li><li>2 連続 B フレーム</li><li>クローズド GOP (フレーム レートの半分の GOP)</li><li>CABAC</li><li>50 MB/秒 </li><li>色空間: 4.2.0</li></ul> | <ul><li>コーデック: AAC-LC</li><li>チャンネル: ステレオまたはサラウンド サウンド</li><li>サンプル レート: 48 KHz</li><li>オーディオ ビットレート: ステレオでは 384 KB/秒、サラウンド サウンドでは 512 KB/秒</li></ul> |
 
 > [!WARNING]
 > AVC1 以外のコーデックでエンコードされた MP4 ファイルのオーディオは、お客様がご利用いただけません。

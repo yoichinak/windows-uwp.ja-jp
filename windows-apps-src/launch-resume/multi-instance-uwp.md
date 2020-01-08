@@ -5,12 +5,12 @@ keywords: マルチインスタンス UWP
 ms.date: 09/21/2018
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 9be9b5eec70bc98bc2c44beaf1dcfbba00876f20
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: cdb8d87a63eba14ecb2dc25e3cb5451dce6cae60
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74259437"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75684645"
 ---
 # <a name="create-a-multi-instance-universal-windows-app"></a>マルチインスタンスのユニバーサル Windows アプリの作成
 
@@ -23,7 +23,7 @@ Windows 10 バージョン 1803 (10.0;ビルド 17134) 以降、UWP アプリは
 
 ## <a name="opt-in-to-multi-instance-behavior"></a>複数インスタンスの動作を選択する
 
-新しいマルチインスタンス アプリケーションを作成する場合は、[Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=AndrewWhitechapelMSFT.MultiInstanceApps) から入手可能な [Multi-Instance App Project Templates.VSIX](https://marketplace.visualstudio.com/) をインストールします。 テンプレートをインストールすると、 **[Visual C#] > [Windows ユニバーサル]** の **[新しいプロジェクト]** ダイアログ (または **[他の言語] > [Visual C++] > [Windows ユニバーサル]** ) で使用可能になります。
+新しいマルチインスタンス アプリケーションを作成する場合は、[Visual Studio Marketplace](https://marketplace.visualstudio.com/) から入手可能な [Multi-Instance App Project Templates.VSIX](https://marketplace.visualstudio.com/items?itemName=AndrewWhitechapelMSFT.MultiInstanceApps) をインストールします。 テンプレートをインストールすると、 **[Visual C#] > [Windows ユニバーサル]** の **[新しいプロジェクト]** ダイアログ (または **[他の言語] > [Visual C++] > [Windows ユニバーサル]** ) で使用可能になります。
 
 2 つのテンプレートがインストールされます。**Multi-Instance UWP app** は、マルチインスタンス アプリを作成するためのテンプレートを提供します。**Multi-Instance Redirection UWP app** は、新しいインスタンスを起動するか、すでに起動されているインスタンスを選択的にアクティブ化するために構築する追加ロジックを提供します。 たとえば、同じドキュメントを一度に1つのインスタンスで編集するだけで、新しいインスタンスを起動するのではなく、そのファイルを開いているインスタンスをフォアグラウンドに取り込むことができます。
 
@@ -56,7 +56,7 @@ Windows 10 バージョン 1803 (10.0;ビルド 17134) 以降、UWP アプリは
 
 > [!VIDEO https://www.youtube.com/embed/clnnf4cigd0]
 
-**Multi-Instance Redirection UWP app** テンプレートは、上記のように `SupportsMultipleInstances` を package.appxmanifest ファイルに追加し、さらに **関数を含むプロジェクトに**Program.cs **(または、テンプレートの C++ バージョンを使用している場合は**Program.cpp`Main()`) を追加します。 アクティブ化をリダイレクトするためのロジックは `Main` 関数にあります。 **Program.cs**のテンプレートを次に示します。
+**Multi-Instance Redirection UWP app** テンプレートは、上記のように `SupportsMultipleInstances` を package.appxmanifest ファイルに追加し、さらに `Main()` 関数を含むプロジェクトに **Program.cs** (または、テンプレートの C++ バージョンを使用している場合は **Program.cpp**) を追加します。 アクティブ化をリダイレクトするためのロジックは `Main` 関数にあります。 **Program.cs**のテンプレートを次に示します。
 
 [**RecommendedInstance**](/uwp/api/windows.applicationmodel.appinstance.recommendedinstance)プロパティは、このアクティブ化要求に対してシェルが指定した優先インスタンス (存在しない場合は `null`) を表します。 シェルに優先順位が設定されている場合は、そのインスタンスにアクティベーションをリダイレクトできます。または、選択した場合は無視してかまいません。
 
@@ -110,7 +110,7 @@ public static class Program
 
 `Main()` は、最初に実行されるものです。 [**Onlaunched 上げ**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application#Windows_UI_Xaml_Application_OnLaunched_Windows_ApplicationModel_Activation_LaunchActivatedEventArgs_)と[**onlaunched 化**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application#Windows_UI_Xaml_Application_OnActivated_Windows_ApplicationModel_Activation_IActivatedEventArgs_)の前に実行されます。 これにより、アプリの他の初期化コードが実行される前に、これをアクティブ化するか別のインスタンスをアクティブ化するかを決定できます。
 
-上記のコードは、アプリケーションの既存のインスタンスまたは新しいインスタンスがアクティブになっているかどうかを判断します。 キーを使用して、アクティブ化する既存のインスタンスがあるかどうかを判断します。 たとえば、アプリを起動して [ファイルのアクティブ化の処理](https://docs.microsoft.com/en-us/windows/uwp/launch-resume/handle-file-activation) ができる場合は、ファイル名をキーとして使用できます。 次に、アプリのインスタンスがすでにそのキーに登録されているかどうかを確認し、新しいインスタンスを開く代わりにそれをアクティブにすることができます。 コードの背景は次のようになります。 `var instance = AppInstance.FindOrRegisterInstanceForKey(key);`
+上記のコードは、アプリケーションの既存のインスタンスまたは新しいインスタンスがアクティブになっているかどうかを判断します。 キーを使用して、アクティブ化する既存のインスタンスがあるかどうかを判断します。 たとえば、アプリを起動して [ファイルのアクティブ化の処理](https://docs.microsoft.com/windows/uwp/launch-resume/handle-file-activation) ができる場合は、ファイル名をキーとして使用できます。 次に、アプリのインスタンスがすでにそのキーに登録されているかどうかを確認し、新しいインスタンスを開く代わりにそれをアクティブにすることができます。 コードの背景は次のようになります。 `var instance = AppInstance.FindOrRegisterInstanceForKey(key);`
 
 キーに登録されているインスタンスが見つかった場合は、そのインスタンスがアクティブになります。 キーが見つからない場合は、現在のインスタンス (現在 `Main` を実行しているインスタンス) がそのアプリケーション オブジェクトを作成し、実行を開始します。
 
@@ -130,11 +130,11 @@ public static class Program
 - `SupportsMultipleInstances` をバックグラウンド タスクやアプリ サービス以外の拡張機能に追加し、その拡張機能をホストするアプリが Package.appxmanifest ファイルで `SupportsMultipleInstances` を宣言しない場合は、スキーマ エラーが生成されます。
 - アプリは、マニフェストで[**ResourceGroup**](https://docs.microsoft.com/windows/uwp/launch-resume/declare-background-tasks-in-the-application-manifest)宣言を使用して、複数のバックグラウンドタスクを同じホストにグループ化することができます。 これはマルチインスタンスと競合し、それぞれのアクティブ化は別々のホストに入ります。 したがって、アプリはマニフェストで `SupportsMultipleInstances` と `ResourceGroup` の両方を宣言することはできません。
 
-## <a name="sample"></a>サンプル
+## <a name="sample"></a>［サンプル］
 
 マルチインスタンスのアクティベーションのリダイレクトの例については、[マルチインスタンスのサンプル](https://github.com/Microsoft/AppModelSamples/tree/master/Samples/BananaEdit)を参照してください。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>「
 
 [AppInstance.FindOrRegisterInstanceForKey](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appinstance#Windows_ApplicationModel_AppInstance_FindOrRegisterInstanceForKey_System_String_)
 [AppInstance.GetActivatedEventArgs](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appinstance#Windows_ApplicationModel_AppInstance_GetActivatedEventArgs)

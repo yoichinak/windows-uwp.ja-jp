@@ -4,14 +4,14 @@ title: デバイス セレクターのビルド
 description: デバイス セレクターを作成すると、デバイスを列挙するときに、検索するデバイスを絞り込むことができるようになります。
 ms.date: 02/08/2017
 ms.topic: article
-keywords: windows 10, uwp
+keywords: Windows 10, UWP
 ms.localizationpriority: medium
-ms.openlocfilehash: a9d31eeefffca1320f3222ce25cfb7678178d4ab
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 67d83a66687bb8719dc374a2a8a3e30eaac82c71
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66370395"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75684831"
 ---
 # <a name="build-a-device-selector"></a>デバイス セレクターのビルド
 
@@ -19,7 +19,7 @@ ms.locfileid: "66370395"
 
 **重要な API**
 
-- [**Windows.Devices.Enumeration**](https://docs.microsoft.com/en-us/uwp/api/Windows.Devices.Enumeration)
+- [**Windows.Devices.Enumeration**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration)
 
 デバイス セレクターを作成すると、デバイスを列挙するときに、検索するデバイスを絞り込むことができるようになります。 これにより、関連する結果のみを取得することができ、システムのパフォーマンスも向上します。 多くのシナリオでは、デバイス スタックからデバイス セレクターを取得します。 たとえば、USB 経由で検出したデバイスに [**GetDeviceSelector**](https://docs.microsoft.com/uwp/api/windows.devices.usb.usbdevice.getdeviceselector) を使うとします。 これらのデバイス セレクターは高度なクエリ構文 (AQS) 文字列を返します。 AQS 形式を初めて使う場合は、「[プログラムでの高度なクエリ構文の使用](https://docs.microsoft.com/windows/desktop/search/-search-3x-advancedquerysyntax)」をご覧ください。
 
@@ -36,33 +36,33 @@ ms.locfileid: "66370395"
 
 [  **Windows.Devices.Enumeration**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration) API では、AQS の標準的な構文が使われますが、一部の演算子はサポートされていません。 フィルター文字列の作成に使えるプロパティの一覧については、「[デバイス情報プロパティ](device-information-properties.md)」をご覧ください。
 
-**注意**  カスタム プロパティを使用して定義されている、 `{GUID} PID` AQS フィルター文字列を構築するときに、形式は使用できません。 これは、プロパティの型が一般的な既知のプロパティ名から派生しているためです。
+**注意**  `{GUID} PID` 形式を使用して定義されたカスタムプロパティは、aqs フィルター文字列を構築するときには使用できません。 これは、プロパティの型が一般的な既知のプロパティ名から派生しているためです。
 
  
 
 次の表は、AQS 演算子とそれがサポートするパラメーターの型の一覧です。
 
-| 演算子                       | サポートされる型                                                             |
+| ［演算子］                       | サポートされる型                                                             |
 |--------------------------------|-----------------------------------------------------------------------------|
-| **COP\_と等しい**                 | 文字列、ブール値、GUID、UInt16、UInt32                                       |
-| **COP\_NOTEQUAL**              | 文字列、ブール値、GUID、UInt16、UInt32                                       |
-| **COP\_LESSTHAN**              | UInt16、UInt32                                                              |
+| **COP\_等しい**                 | 文字列、ブール値、GUID、UInt16、UInt32                                       |
+| **COP\_注の QUAL**              | 文字列、ブール値、GUID、UInt16、UInt32                                       |
+| **COP\_**              | UInt16、UInt32                                                              |
 | **COP\_GREATERTHAN**           | UInt16、UInt32                                                              |
-| **COP\_LESSTHANOREQUAL**       | UInt16、UInt32                                                              |
+| **COP\_(OREQUAL)**       | UInt16、UInt32                                                              |
 | **COP\_GREATERTHANOREQUAL**    | UInt16、UInt32                                                              |
-| **COP\_値\_CONTAINS**       | 文字列、文字列配列、ブール値配列、GUID 配列、UInt16 配列、UInt32 配列 |
+| **COP\_値\_含まれています**       | 文字列、文字列配列、ブール値配列、GUID 配列、UInt16 配列、UInt32 配列 |
 | **COP\_値\_NOTCONTAINS**    | 文字列、文字列配列、ブール値配列、GUID 配列、UInt16 配列、UInt32 配列 |
 | **COP\_値\_STARTSWITH**     | String                                                                      |
 | **COP\_値\_ENDSWITH**       | String                                                                      |
-| **COP\_DOSWILDCARDS**          | サポートされていません                                                               |
-| **COP\_WORD\_と等しい**           | サポートされていません                                                               |
-| **COP\_WORD\_STARTSWITH**      | サポートされていません                                                               |
-| **COP\_アプリケーション\_特定** | サポートされていません                                                               |
+| **COP\_DOSWILDCARDS**          | サポートされていません。                                                               |
+| **COP\_WORD\_EQUAL**           | サポートされていません。                                                               |
+| **COP\_WORD\_STARTSWITH**      | サポートされていません。                                                               |
+| **COP\_アプリケーション\_固有** | サポートされていません。                                                               |
 
 
-> **ヒント:**   を指定できます**NULL**の**COP\_等しい**または**COP\_NOTEQUAL**します。 これは空のプロパティに変換されます。つまり、値は存在しません。 AQS で指定する**NULL**空のかっこを使用して\[\]します。
+> **ヒント**   **\_EQUAL**または**COP\_** に**NULL**を指定できます。 これは空のプロパティに変換されます。つまり、値は存在しません。 AQS では、空のかっこ \[\]を使用して**NULL**を指定します。
 
-> **重要な**  を使用する場合、 **COP\_値\_CONTAINS**と**COP\_値\_NOTCONTAINS**演算子文字列および文字列配列で動作が異なります。 文字列の場合、大文字と小文字を区別する検索が実行され、デバイスに部分文字列として指定された文字列が含まれているかどうかを確認します。 文字列配列の場合、部分文字列は検索されません。 文字列配列を使って、配列を検索し、指定された文字列全体が含まれているかどうかを確認します。 配列内の要素に部分文字列が含まれているかどうかを確認するために、文字列配列を検索することはできません。
+> **重要**  **COP\_値\_CONTAINS**および**COP\_値\_notcontains**演算子では、文字列と文字列配列とで動作が異なります。 文字列の場合、大文字と小文字を区別する検索が実行され、デバイスに部分文字列として指定された文字列が含まれているかどうかを確認します。 文字列配列の場合、部分文字列は検索されません。 文字列配列を使って、配列を検索し、指定された文字列全体が含まれているかどうかを確認します。 配列内の要素に部分文字列が含まれているかどうかを確認するために、文字列配列を検索することはできません。
 
 1 つの AQS フィルター文字列により結果を適切に絞り込むことができない場合は、受け取った結果をさらにフィルター処理できます。 ただしその場合は、最初の AQS フィルター文字列によりできる限り結果を絞り込んでから、[**Windows.Devices.Enumeration**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration) API に渡すことをお勧めします。 これにより、アプリのパフォーマンスを向上させることができます。
 
@@ -70,38 +70,38 @@ ms.locfileid: "66370395"
 
 ここで示している例では、AQS 構文を使って、列挙するデバイスを制限する方法を説明しています。 以下のフィルター文字列はすべて、[**DeviceInformationKind**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceInformationKind) とペアリングされており、完全なフィルターを作成できます。 どの種類も指定しない場合、既定の種類は **DeviceInterface** になります。
 
-このフィルターを **DeviceInterface** の [**DeviceInformationKind**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceInformationKind) とペアリングすると、オーディオ キャプチャ インターフェイス クラスを含むオブジェクトと、現在有効なオブジェクトがすべて列挙されます。 **=** 変換されます**COP\_EQUALS**します。
+このフィルターを **DeviceInterface** の [**DeviceInformationKind**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceInformationKind) とペアリングすると、オーディオ キャプチャ インターフェイス クラスを含むオブジェクトと、現在有効なオブジェクトがすべて列挙されます。 **=** は**COP\_EQUALS**に変換されます。
 
 ``` syntax
 System.Devices.InterfaceClassGuid:="{2eef81be-33fa-4800-9670-1cd474972c3f}" AND
 System.Devices.InterfaceEnabled:=System.StructuredQueryType.Boolean#True
 ```
 
-このフィルターを **Device** の [**DeviceInformationKind**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceInformationKind) とペアリングすると、GenCdRom のハードウェア ID を 1 つ以上持つオブジェクトがすべて列挙されます。 **~~** 変換されます**COP\_値\_CONTAINS**します。
+このフィルターを **Device** の [**DeviceInformationKind**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceInformationKind) とペアリングすると、GenCdRom のハードウェア ID を 1 つ以上持つオブジェクトがすべて列挙されます。 **~~** は、 **CONTAINS\_\_値**に変換されます。
 
 ``` syntax
 System.Devices.HardwareIds:~~"GenCdRom"
 ```
 
-このフィルターを **DeviceContainer** の [**DeviceInformationKind**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceInformationKind) とペアリングすると、部分文字列として Microsoft を含むモデル名を持つオブジェクトがすべて列挙されます。 **~~** 変換されます**COP\_値\_CONTAINS**します。
+このフィルターを **DeviceContainer** の [**DeviceInformationKind**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceInformationKind) とペアリングすると、部分文字列として Microsoft を含むモデル名を持つオブジェクトがすべて列挙されます。 **~~** は、 **CONTAINS\_\_値**に変換されます。
 
 ``` syntax
 System.Devices.ModelName:~~"Microsoft"
 ```
 
-このフィルターを **DeviceInterface** の [**DeviceInformationKind**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceInformationKind) とペアリングすると、部分文字列の Microsoft から始まる名前を持つオブジェクトがすべて列挙されます。 **~&lt;** 変換されます**COP\_STARTSWITH**します。
+このフィルターを **DeviceInterface** の [**DeviceInformationKind**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceInformationKind) とペアリングすると、部分文字列の Microsoft から始まる名前を持つオブジェクトがすべて列挙されます。 **~&lt;** は**COP\_STARTSWITH**に変換されます。
 
 ``` syntax
 System.ItemNameDisplay:~<"Microsoft"
 ```
 
-このフィルターを **Device** の [**DeviceInformationKind**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceInformationKind) とペアリングすると、**System.Devices.IpAddress** プロパティ セットを持つオブジェクトがすべて列挙されます。 **&lt;&gt;\[\]** 変換されます**COP\_NOTEQUALS**と組み合わせて、 **NULL**値。
+このフィルターを **Device** の [**DeviceInformationKind**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceInformationKind) とペアリングすると、**System.Devices.IpAddress** プロパティ セットを持つオブジェクトがすべて列挙されます。 **&lt;&gt;\[\]** は、 **NULL**値と組み合わされた**COP\_** に変換されます。
 
 ``` syntax
 System.Devices.IpAddress:<>[]
 ```
 
-このフィルターを **Device** の [**DeviceInformationKind**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceInformationKind) とペアリングすると、**System.Devices.IpAddress** プロパティ セットを持たないオブジェクトがすべて列挙されます。 **=\[\]** 変換されます**COP\_EQUALS**と組み合わせて、 **NULL**値。
+このフィルターを **Device** の [**DeviceInformationKind**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceInformationKind) とペアリングすると、**System.Devices.IpAddress** プロパティ セットを持たないオブジェクトがすべて列挙されます。 **=\[\]** は、 **NULL**値と組み合わせて**COP\_EQUALS**に変換されます。
 
 ``` syntax
 System.Devices.IpAddress:=[]
