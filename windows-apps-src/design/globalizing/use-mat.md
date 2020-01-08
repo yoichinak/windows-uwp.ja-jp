@@ -6,12 +6,12 @@ ms.date: 01/23/2018
 ms.topic: article
 keywords: Windows 10, UWP, グローバリゼーション, ローカライズの可否, ローカライズ
 ms.localizationpriority: medium
-ms.openlocfilehash: 802a7a925a08dde94ab59d79e01df94fbbcf495d
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: 34bc609d06705f1dfa6a5c7370ce6022ae9c3ff8
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74258034"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75684246"
 ---
 # <a name="use-the-multilingual-app-toolkit-40"></a>多言語アプリ ツールキット 4.0 の使用
 
@@ -39,7 +39,7 @@ ms.locfileid: "74258034"
 多言語アプリ ツールキット 4.0 (MAT 4.0) は 2 つの部分から構成され、それぞれ独自のインストーラーがあります。
 
 - [Visual Studio 2017 以降用の多言語アプリ Toolkit 4.0 拡張機能](https://marketplace.visualstudio.com/items?itemName=MultilingualAppToolkit.MultilingualAppToolkit-18308)。 これには、.vsix インストーラーの形式で、Visual Studio 2019 の台紙4.0 拡張機能が含まれています。
-- [多言語アプリ ツールキット 4.0 エディター](https://developer.microsoft.com/en-us/windows/develop/multilingual-app-toolkit). これには、.msi インストーラーの形式で、MAT 4.0 のスタンドアロン多言語エディター ツールが含まれています。 Visual Studio 2015 と Visual Studio 2013 の MAT 4.0 拡張機能も含まれます。
+- [多言語アプリ ツールキット 4.0 エディター](https://developer.microsoft.com/windows/develop/multilingual-app-toolkit). これには、.msi インストーラーの形式で、MAT 4.0 のスタンドアロン多言語エディター ツールが含まれています。 Visual Studio 2015 と Visual Studio 2013 の MAT 4.0 拡張機能も含まれます。
 
 Visual Studio 2017 または Visual Studio 2019 を使用する場合は、両方のインストーラーをもう1つずつダウンロードして実行します。 Visual Studio 2015 または Visual Studio 2013 を使用している場合は、.msi インストーラーをダウンロードして実行します。
 
@@ -102,7 +102,7 @@ Visual Studio 2017 または Visual Studio 2019 を使用する場合は、両�
 
 #### <a name="option-1-translate-the-strings-yourself"></a>オプション 1. 自分で文字列を翻訳する
 
-多言語エディターを使用して、文字列を個別に翻訳することができます。 既に説明したように、これは [.msi インストーラー](https://developer.microsoft.com/en-us/windows/develop/multilingual-app-toolkit) に含まれています。
+多言語エディターを使用して、文字列を個別に翻訳することができます。 既に説明したように、これは [.msi インストーラー](https://developer.microsoft.com/windows/develop/multilingual-app-toolkit) に含まれています。
 
 - 翻訳する .xlf ファイルを右クリックします。
 - **[ファイルを開くアプリケーションの選択]** をクリックして多言語エディターを選択します。 必要に応じて、 **[既定値として設定]** をクリックすることもできます。
@@ -169,7 +169,7 @@ Microsoft Store の認定プロセスを開始する前に、`<project-name>.qps
 ## <a name="downloads"></a>ダウンロード
 
 * [多言語アプリツールキット4.0](https://marketplace.visualstudio.com/items?itemName=MultilingualAppToolkit.MultilingualAppToolkit-18308)
-* [多言語アプリツールキット 4.0 msi インストーラー](https://developer.microsoft.com/en-us/windows/develop/multilingual-app-toolkit)
+* [多言語アプリツールキット 4.0 msi インストーラー](https://developer.microsoft.com/windows/develop/multilingual-app-toolkit)
 
 ## <a name="translation-services"></a>翻訳サービス
 
