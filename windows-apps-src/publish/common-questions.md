@@ -4,14 +4,14 @@ title: 広告キャンペーンに関してよく寄せられる質問
 ms.assetid: EAF7CC74-7DE4-4D11-B9A6-29C6EA6E734B
 ms.date: 10/31/2018
 ms.topic: article
-keywords: windows 10, uwp
+keywords: Windows 10, UWP
 ms.localizationpriority: medium
-ms.openlocfilehash: 6875f5b06bbd253b7fe80fbc53936fe0dcf1a6b9
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: HT
+ms.openlocfilehash: c44f93676fd0324ef82ad7b33832bb6653409cda
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57597067"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75685161"
 ---
 # <a name="common-questions-about-ad-campaigns"></a>広告キャンペーンに関してよく寄せられる質問
 
@@ -25,11 +25,11 @@ ms.locfileid: "57597067"
 
 ### <a name="can-i-run-ads-for-one-of-my-apps-in-my-other-apps"></a>自分のいずれかのアプリの広告を、自分の他のアプリに表示できますか。
 
-[はい]。 そのような広告を「*自社広告*」と呼んでおり、無料で掲載できます。 コミュニティ広告について詳しくは、[この記事](about-house-ads.md)をご覧ください。
+対応 そのような広告を「*自社広告*」と呼んでおり、無料で掲載できます。 コミュニティ広告について詳しくは、[この記事](about-house-ads.md)をご覧ください。
 
 ### <a name="can-i-cross-promote-my-app-with-apps-from-other-developers-in-the-store"></a>ストアで自分のアプリと他の開発者のアプリを相互に販売促進することはできますか。
 
-[はい]。 そのような広告を「*コミュニティ広告*」と呼んでおり、無料で掲載できます。 [コミュニティ広告にオプトイン](about-community-ads.md#opt-in-to-community-ads)すると、[無料のコミュニティ広告キャンペーンを作成](create-an-ad-campaign-for-your-app.md)して、コミュニティ広告にオプトインした他の開発者とプロモーション用の広告スペースを共有できます。 詳しくは、[この記事](about-community-ads.md)をご覧ください。
+対応 そのような広告を「*コミュニティ広告*」と呼んでおり、無料で掲載できます。 [コミュニティ広告にオプトイン](about-community-ads.md#opt-in-to-community-ads)すると、[無料のコミュニティ広告キャンペーンを作成](create-an-ad-campaign-for-your-app.md)して、コミュニティ広告にオプトインした他の開発者とプロモーション用の広告スペースを共有できます。 詳しくは、[この記事](about-community-ads.md)をご覧ください。
 
 ### <a name="how-can-i-customize-my-ad"></a>広告はどのようにカスタマイズできますか。
 
@@ -37,7 +37,7 @@ ms.locfileid: "57597067"
 
 ### <a name="where-will-my-ad-appear"></a>自分の広告はどこに表示されますか。
 
-広告は、アプリの年齢区分と OS のバージョンを共有するアプリに表示されます。 Microsoft Store でアプリを発行すると、これらのプロパティを設定します。 「ユニバーサル」キャンペーンでは、広告は MSN.com、Outlook.com、Skype など、Microsoft の豪華なラインナップでも表示されます。
+広告は、アプリの年齢区分と OS のバージョンを共有するアプリに表示されます。 これらのプロパティは、Microsoft Store でアプリを発行するときに設定します。 「ユニバーサル」キャンペーンでは、広告は MSN.com、Outlook.com、Skype など、Microsoft の豪華なラインナップでも表示されます。
 
 広告キャンペーンは、以下の国または地域で現在サポートされています。
 
@@ -47,7 +47,7 @@ ms.locfileid: "57597067"
 
 次の言語で広告キャンペーンを作成できます。
 
-アラビア語、簡体中国語、繁体中国語、デンマーク語、オランダ語、英語、フランス語、ドイツ語、イタリア語、ノルウェー語、ポルトガル語 (ブラジル)、ポルトガル語 (ポルトガル)、スペイン語、スウェーデン語。
+アラビア語、簡体字中国語、繁体字中国語、デンマーク語、オランダ語、英語、フランス語、ドイツ語、イタリア語、ノルウェー語、ポルトガル語 (ブラジル)、ポルトガル語 (ポルトガル)、スペイン語、スウェーデン語。
 
 ### <a name="when-will-i-be-billed"></a>料金はいつ請求されますか。
 
@@ -59,5 +59,5 @@ ms.locfileid: "57597067"
 
 ### <a name="how-do-i-delete-a-credit-card-or-edit-the-details-of-a-credit-card"></a>クレジット カードを削除したり、クレジット カードの詳細を編集したりするにはどうすればよいですか。
 
-移動して<http://commerce.microsoft.com>、Microsoft アカウント資格情報でログインし、必要に応じて変更します。
+[https://commerce.microsoft.com](https://commerce.microsoft.com)にアクセスし、Microsoft アカウントの資格情報でログインして、必要な変更を行います。
 

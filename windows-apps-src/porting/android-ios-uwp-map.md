@@ -3,21 +3,21 @@ Description: iOS、Android、Windows 10 のプラットフォーム機能を比�
 title: Android と iOS 開発者向けの Windows アプリ概念マッピング
 ms.date: 02/08/2017
 ms.topic: article
-keywords: windows 10, uwp
+keywords: Windows 10, UWP
 ms.assetid: 082736c8-2ac3-41b3-b246-e705edc23f34
 ms.localizationpriority: medium
-ms.openlocfilehash: f8ace0d56e6e647ed5f977cbe6860d8f91bb2b5f
-ms.sourcegitcommit: 445320ff0ee7323d823194d4ec9cfa6e710ed85d
+ms.openlocfilehash: 23d090422c7c5aabb146d9cd1ff40cc64a485bdb
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72282358"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75683975"
 ---
 # <a name="windows-apps-concept-mapping-for-android-and-ios-developers"></a>Android と iOS 開発者向けの Windows アプリ概念マッピング
 
 このリソースには、Android や iOS のスキルとコードを持つ開発者が Windows 10 とユニバーサル Windows プラットフォーム (UWP) に移行する場合に、それら 3 つのプラットフォーム間でプラットフォームの機能と知識を関連付けるために必要なすべての情報が含まれています。
 
-[iOS から UWP への移行](ios-to-uwp-root.md) の移植に関するコンテンツもご覧ください。 このドキュメントは、[ダウンロード](https://www.microsoft.com/download/details.aspx?id=52041)することもできます。
+「[iOS から UWP への移行](ios-to-uwp-root.md)」の移植に関するコンテンツもご覧ください。 このドキュメントは、[ダウンロード](https://www.microsoft.com/download/details.aspx?id=52041)することもできます。
 
 ## <a name="user-interface-ui"></a>ユーザー インターフェイス (UI)
 
@@ -42,7 +42,7 @@ ms.locfileid: "72282358"
 <td align="left"><strong>デザイン言語。</strong><br><br>プラットフォーム上のアプリの外観と動作方法を規定する規則のセット。</td>
 <td align="left"><strong>Android のマテリアル デザイン</strong> ガイドラインに、Android の設計者や開発者が従う視覚言語が示されています。</td>
 <td align="left"><strong>ヒューマン インターフェイス ガイドライン</strong>に、iOS の設計者や開発者向けのアドバイスが示されています。</td>
-<td align="left"><a href="https://developer.microsoft.com/en-us/windows/apps/design"><strong>UWP Windows アプリの設計</strong></a>では、すべての Windows 10 デバイスですばらしい外観のアプリを作成する方法を示しています。 ユーザー インターフェイス (UI) デザインの基本、レスポンシブ デザイン テクニック、詳細なガイドラインの完全な一覧が示されています。<br/></td>
+<td align="left"><a href="https://developer.microsoft.com/windows/apps/design"><strong>UWP Windows アプリの設計</strong></a>では、すべての Windows 10 デバイスですばらしい外観のアプリを作成する方法を示しています。 ユーザー インターフェイス (UI) デザインの基本、レスポンシブ デザイン テクニック、詳細なガイドラインの完全な一覧が示されています。<br/></td>
 </tr>
 <tr class="even">
 <td align="left"><strong>ユーザーインターフェイスマークアップ言語。</strong> <br><br>UI とそのコンポーネントをレンダリングし、記述するマークアップ言語。 プラットフォームごとに、ビジュアル編集とマークアップ編集のためのエディターが提供されています。<br/></td>
@@ -121,13 +121,13 @@ ms.locfileid: "72282358"
 <td align="left"><strong>レイアウト。</strong> <br><br>レイアウトでは、ユーザー インターフェイスの構造を定義します。</td>
 <td align="left">レイアウトは、他のビュー グループやビューを入れ子にできる <strong>LinearLayout</strong> や <strong>RelativeLayout</strong> などの<strong>ビュー グループ</strong>で構成されます。</td>
 <td align="left">レイアウトは、入れ子にできる <strong>UIView</strong> が含まれる <strong>UIViewController</strong> で構成されます。</td>
-<td align="left">XAML が、静的レイアウトやレスポンシブ レイアウト用のCanvas<strong><a href="https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.canvas">、</a></strong>Grid<strong><a href="https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.grid">、</a></strong>RelativePanel<strong><a href="https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.relativepanel">、</a></strong>StackPanel<strong><a href="https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.stackpanel"> などの</a>レイアウト パネル クラス</strong>から成る柔軟なレイアウト システムを提供します。 <strong><a href="https://docs.microsoft.com/visualstudio/ide/reference/properties-window?view=vs-2015">プロパティ</a></strong>は、要素のサイズと位置を制御するために使用されます。<br/><br/><a href="https://docs.microsoft.com/windows/uwp/layout/layouts-with-xaml">XAML を使ったレイアウトの定義</a><br/></td>
+<td align="left">XAML が、静的レイアウトやレスポンシブ レイアウト用の <strong><a href="https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.canvas">Canvas</a></strong>、<strong><a href="https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.grid">Grid</a></strong>、<strong><a href="https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.relativepanel">RelativePanel</a></strong>、<strong><a href="https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.stackpanel">StackPanel</a></strong> などの<strong>レイアウト パネル クラス</strong>から成る柔軟なレイアウト システムを提供します。 <strong><a href="https://docs.microsoft.com/visualstudio/ide/reference/properties-window?view=vs-2015">プロパティ</a></strong>は、要素のサイズと位置を制御するために使用されます。<br/><br/><a href="https://docs.microsoft.com/windows/uwp/layout/layouts-with-xaml">XAML を使ったレイアウトの定義</a><br/></td>
 </tr>
 <tr class="even">
 <td align="left"><strong>ピアナビゲーション。</strong> <br><br>階層の重要度が同じページ間を移動する方法をユーザーに提供します。</td>
 <td align="left"><strong>タブ</strong>、<strong>スワイプ ビュー</strong>、<strong>ナビゲーション ドロワー</strong>で<strong>水平方向ナビゲーション</strong>ができます。</td>
 <td align="left"><strong>タブ バー コントローラー</strong>、<strong>分割ビュー コントローラー</strong>、<strong>ページ ビュー コントローラー</strong>で同じ階層のビューの間を移動できます。</td>
-<td align="left"><strong><a href="https://docs.microsoft.com/windows/uwp/controls-and-patterns/tabs-pivot">タブ/ピボット</a></strong>を使って、コンテンツの上にあるリンクやタブの永続的な一覧を表示できます。 <strong><a href="https://docs.microsoft.com/windows/uwp/controls-and-patterns/split-view">ナビゲーション ウィンドウと分割ビュー</a></strong>で、コンテンツと共にリンクの一覧を表示することができます。<br/><br/><a href="https://docs.microsoft.com/windows/uwp/layout/navigation-basics">ナビゲーション</a><br/><br/><a href="https://docs.microsoft.com/windows/uwp/layout/navigate-between-two-pages">2ページ間を移動する</a></td>
+<td align="left"><strong><a href="https://docs.microsoft.com/windows/uwp/controls-and-patterns/tabs-pivot">タブ/ピボット</a></strong>を使って、コンテンツの上にリンクやタブの永続的な一覧を表示できます。 <strong><a href="https://docs.microsoft.com/windows/uwp/controls-and-patterns/split-view">ナビゲーション ウィンドウと分割ビュー</a></strong>で、コンテンツの横にリンクの一覧を表示することができます。<br/><br/><a href="https://docs.microsoft.com/windows/uwp/layout/navigation-basics">ナビゲーション</a><br/><br/><a href="https://docs.microsoft.com/windows/uwp/layout/navigate-between-two-pages">2ページ間を移動する</a></td>
 </tr>
 <tr class="odd" style="background-color: #f2f2f2">
 <td align="left"><strong>階層ナビゲーション。</strong> <br><br>階層の親と子のページ間を移動します。</td>
@@ -145,7 +145,7 @@ ms.locfileid: "72282358"
 <td align="left"><strong>スプラッシュスクリーン。</strong> <br><br>アプリ起動時にイメージを表示します。主にブランディング目的です。</td>
 <td align="left">スプラッシュ画面は既定では指定されていません。最初のアクティビティの<strong>テーマの背景</strong>を編集すると実装されます。</td>
 <td align="left"><strong>静的起動イメージ</strong>または<strong>XIB/ストーリーボードの起動ファイル</strong>がアプリに必要です。</td>
-<td align="left"><strong>イメージ</strong>とカラーの背景を使ってスプラッシュ画面を作成できます。 <a href="https://docs.microsoft.com/windows/uwp/launch-resume/create-a-customized-splash-screen">スプラッシュ画面の時間を延ばすことができます</a>。<br/><br/><a href="https://docs.microsoft.com/windows/uwp/launch-resume/add-a-splash-screen">スプラッシュ画面の追加</a></td>
+<td align="left"><strong>イメージ</strong>とカラーの背景を使ってスプラッシュ画面を作成します。 <a href="https://docs.microsoft.com/windows/uwp/launch-resume/create-a-customized-splash-screen">スプラッシュ画面の時間を延ばすことができます</a>。<br/><br/><a href="https://docs.microsoft.com/windows/uwp/launch-resume/add-a-splash-screen">スプラッシュ画面の追加</a></td>
 </tr>
 </tbody>
 </table>
@@ -201,7 +201,7 @@ ms.locfileid: "72282358"
 <td align="left"><strong>ローカルアプリデータ。</strong> <br><br>アプリに関連する設定とファイルをローカルに保存します。</td>
 <td align="left"><strong>openFileOutput</strong> と <strong>openFileInput</strong> を使ってローカル ファイルを保存することができます。 <strong>getSharedPreferences</strong> を使って<strong>共有環境設定ファイル</strong>の設定にアクセスできます。</td>
 <td align="left"><strong>NSFileManager</strong> クラスを使ってアクセスする<strong>アプリケーション サポート</strong> ディレクトリにローカル ファイルを保存できます。 <strong>NSUserDefaults</strong> クラスを使って<strong>環境設定</strong>ファイルの設定にアクセスできます。</td>
-<td align="left"><strong><a href="https://docs.microsoft.com/uwp/api/Windows.Storage">Windows.Storage</a></strong> クラスは、統一された方法でローカルのデータ記憶域を処理します。 <strong><a href="https://docs.microsoft.com/uwp/api/Windows.Storage.ApplicationDataContainer">ApplicationData.LocalSettings</a></strong> プロパティを使ってアクセスする <strong><a href="https://docs.microsoft.com/uwp/api/windows.storage.applicationdata.localsettings">ApplicationDataContainer</a></strong> オブジェクトとして設定を保存します。 <strong><a href="https://docs.microsoft.com/uwp/api/windows.storage.storagefolder">ApplicationData.LocalFolder</a></strong> プロパティを使ってアクセスする <strong><a href="https://docs.microsoft.com/uwp/api/windows.storage.applicationdata.localfolder">StorageFolder</a></strong> オブジェクトにファイルを保存します。<br/><br/><a href="https://docs.microsoft.com/windows/uwp/app-settings/store-and-retrieve-app-data">設定と他のアプリ データを保存して取得する</a></td>
+<td align="left"><strong><a href="https://docs.microsoft.com/uwp/api/Windows.Storage">Windows.Storage</a></strong> クラスは、統一された方法でローカルのデータ記憶域を処理します。 <strong><a href="https://docs.microsoft.com/uwp/api/windows.storage.applicationdata.localsettings">ApplicationData.LocalSettings</a></strong> プロパティを使ってアクセスする <strong><a href="https://docs.microsoft.com/uwp/api/Windows.Storage.ApplicationDataContainer">ApplicationDataContainer</a></strong> オブジェクトとして設定を保存します。 <strong><a href="https://docs.microsoft.com/uwp/api/windows.storage.applicationdata.localfolder">ApplicationData.LocalFolder</a></strong> プロパティを使ってアクセスする <strong><a href="https://docs.microsoft.com/uwp/api/windows.storage.storagefolder">StorageFolder</a></strong> オブジェクトにファイルを保存します。<br/><br/><a href="https://docs.microsoft.com/windows/uwp/app-settings/store-and-retrieve-app-data">設定と他のアプリ データを保存して取得する</a></td>
 </tr>
 <tr class="even">
 <td align="left"><strong>ローカルデータベースストレージ。</strong> <br><br>リレーショナル データベースにアプリ データを保存します。該当する場合はオブジェクト リレーショナル マッパー (ORM) も一緒に保存します。</td>
@@ -278,7 +278,7 @@ ms.locfileid: "72282358"
 </tr>
 </tbody>
 </table>
-<h2 id="app-lifecycle">アプリのライフサイクル</h2>
+<h2 id="app-lifecycle">アプリのライフ サイクル</h2>
 <table style="width:100%">
 <colgroup>
 <col width="20%" />
@@ -309,7 +309,7 @@ ms.locfileid: "72282358"
 </tr>
 </tbody>
 </table>
-<h2 id="performance">パフォーマンス</h2>
+<h2 id="performance">[パフォーマンス]</h2>
 <table style="width:100%">
 <colgroup>
 <col width="20%" />
@@ -334,7 +334,7 @@ ms.locfileid: "72282358"
 </tr>
 <tr class="even">
 <td align="left"><strong>応答性の高い UI の最適化を表示します。</strong> <br><br>表示を最適化してパフォーマンスを向上させます。</td>
-<td align="left">階層ビューアー ツールを使った<strong>レイアウト階層</strong>の最適化、<strong>レイアウトの再利用</strong>、<strong>オンデマンドでのビュー</strong>の読み込みはすべて、UI スレッドの応答性を確保し、「アプリケーションが応答しない」(&quot;ANR&quot;) というダイアログを回避するための手法です。<br/></td>
+<td align="left">階層ビューアー ツールを使った<strong>レイアウト階層</strong>の最適化、<strong>レイアウトの再利用</strong>、<strong>オンデマンドでのビュー</strong>の読み込みはすべて、UI スレッドの応答性を確保し、「アプリケーションが応答しない」(<strong>ANR</strong>) というダイアログを回避するための手法です。<br/></td>
 <td align="left"><strong>コア アニメーション</strong> ツールを使って<strong>オフスクリーン レンダリング</strong>、<strong>ブレンド レイヤー</strong>、<strong>ラスタライズ</strong>で UI の問題を修正すると、UI スレッドの応答性を確保しやすくなります。</td>
 <td align="left">いくつかの簡単な手順を実行すると、XAML の<strong>マークアップ</strong>と<strong>レイアウト</strong>を簡単に<strong>最適化</strong>できます。 レイアウト構造の簡素化、要素数の最小化、過剰な描画の最小化などの手法を利用できます。 <br/><br/><a href="https://docs.microsoft.com/windows/uwp/debug-test-perf/keep-the-ui-thread-responsive">UI スレッドの応答性の確保</a><br/><br/><a href="https://docs.microsoft.com/windows/uwp/debug-test-perf/optimize-xaml-loading">XAML マークアップの最適化</a><br/><br/><a href="https://docs.microsoft.com/windows/uwp/debug-test-perf/optimize-your-xaml-layout">XAML レイアウトの最適化</a></td>
 </tr>
@@ -342,7 +342,7 @@ ms.locfileid: "72282358"
 <td align="left"><strong>スレッド処理。</strong> <br><br><strong>UI の応答性</strong>を確保し、複数<strong>タスクを並行</strong>して実行するためにスレッド処理を使用します。</td>
 <td align="left">スレッド処理を行うには、<strong>Runnable</strong>、<strong>Handler</strong>、<strong>ThreadPoolExecutor</strong> の各クラスと、上位レベルの <strong>AsyncTask</strong> クラスを使います。</td>
 <td align="left">スレッド処理を行うには、<strong>NSThread</strong>、<strong>Grand Central Dispatch</strong>、上位レベルの <strong>NSOperation</strong> を使います。</td>
-<td align="left">スレッドを使用するには、RunAsync で<strong>作業項目<a href="https://docs.microsoft.com/uwp/api/windows.system.threading.threadpool.runasync">を</a>スレッド プール</strong>に送信します。 <strong><a href="https://docs.microsoft.com/uwp/api/windows.system.threading.threadpooltimer.createtimer">CreateTimer</a></strong> でタイマーを使って作業項目を送信したり、<strong><a href="https://docs.microsoft.com/uwp/api/windows.system.threading.threadpooltimer.createperiodictimer">CreatePeriodicTimer</a></strong> で繰り返しの作業項目を作成したりできます。<br/><br/><a href="https://docs.microsoft.com/windows/uwp/threading-async/submit-a-work-item-to-the-thread-pool">スレッド プールへの作業項目の送信</a><br/><br/><a href="https://docs.microsoft.com/windows/uwp/threading-async/use-a-timer-to-submit-a-work-item">タイマーを使った作業項目の送信</a><br/><br/><a href="https://docs.microsoft.com/windows/uwp/threading-async/create-a-periodic-work-item">定期的な作業項目の作成</a><br/><br/><a href="https://docs.microsoft.com/windows/uwp/threading-async/best-practices-for-using-the-thread-pool">スレッド プールを使うためのベスト プラクティス</a></td>
+<td align="left">スレッドを使用するには、<strong><a href="https://docs.microsoft.com/uwp/api/windows.system.threading.threadpool.runasync">RunAsync</a></strong> で<strong>作業項目</strong>を<strong>スレッド プール</strong>に送信します。 <strong><a href="https://docs.microsoft.com/uwp/api/windows.system.threading.threadpooltimer.createtimer">CreateTimer</a></strong> でタイマーを使って作業項目を送信したり、<strong><a href="https://docs.microsoft.com/uwp/api/windows.system.threading.threadpooltimer.createperiodictimer">CreatePeriodicTimer</a></strong> で繰り返しの作業項目を作成したりできます。<br/><br/><a href="https://docs.microsoft.com/windows/uwp/threading-async/submit-a-work-item-to-the-thread-pool">スレッド プールへの作業項目の送信</a><br/><br/><a href="https://docs.microsoft.com/windows/uwp/threading-async/use-a-timer-to-submit-a-work-item">タイマーを使った作業項目の送信</a><br/><br/><a href="https://docs.microsoft.com/windows/uwp/threading-async/create-a-periodic-work-item">定期的な作業項目の作成</a><br/><br/><a href="https://docs.microsoft.com/windows/uwp/threading-async/best-practices-for-using-the-thread-pool">スレッド プールを使うためのベスト プラクティス</a></td>
 </tr>
 <tr class="even">
 <td align="left"><strong>非同期プログラミング。</strong> <br><br>UI スレッドの応答性を確保するために、非同期プログラミング パターンを利用してスレッドが複雑にならないようにします。</td>
@@ -354,7 +354,7 @@ ms.locfileid: "72282358"
 <td align="left"><strong>リストビューの最適化。</strong> <br><br>大量のデータを表示する必要がある場合にパフォーマンスを低下させることが多い、データの一覧の最適化を支援する組み込みのパターン</td>
 <td align="left"><strong>ViewHolder</strong> デザイン パターンを使って複数のビュー参照を避け、再利用可能な UI 要素を使うことができます。</td>
 <td align="left"><strong>UITableView</strong> のパフォーマンスを向上させるさまざまな最適化を行うことができます。組み込まれているものはありません。</td>
-<td align="left">既定で <a href="https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listview">UI の仮想化</a> を提供する <a href="https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.gridview">ListView</a> と <strong>GridView</strong> の各コントロールを使うと、スムーズなパンやスクロール、起動時間の短縮を実現できます。 <a href="https://docs.microsoft.com/dotnet/api/system.collections.ilist">IList</a> と <a href="https://docs.microsoft.com/dotnet/api/system.collections.specialized.inotifycollectionchanged">INotifyCollectionChanged</a> をデータ ソースに実装し、<strong>データ仮想化</strong>を行ってパフォーマンスをさらに改善することもできます。<br/><br/><a href="https://docs.microsoft.com/windows/uwp/debug-test-perf/optimize-gridview-and-listview">ListView と GridView の UI の最適化</a><br/><br/><a href="https://docs.microsoft.com/windows/uwp/debug-test-perf/listview-and-gridview-data-optimization">ListView と GridView のデータ仮想化</a></td>
+<td align="left">既定で <strong>UI の仮想化</strong> を提供する <a href="https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listview">ListView</a> と <a href="https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.gridview">GridView</a> の各コントロールを使うと、スムーズなパンやスクロール、起動時間の短縮を実現できます。 <a href="https://docs.microsoft.com/dotnet/api/system.collections.ilist">IList</a> と <a href="https://docs.microsoft.com/dotnet/api/system.collections.specialized.inotifycollectionchanged">INotifyCollectionChanged</a> をデータ ソースに実装し、<strong>データ仮想化</strong>を行ってパフォーマンスをさらに改善することもできます。<br/><br/><a href="https://docs.microsoft.com/windows/uwp/debug-test-perf/optimize-gridview-and-listview">ListView と GridView の UI の最適化</a><br/><br/><a href="https://docs.microsoft.com/windows/uwp/debug-test-perf/listview-and-gridview-data-optimization">ListView と GridView のデータ仮想化</a></td>
 </tr>
 </tbody>
 </table>
@@ -385,7 +385,7 @@ ms.locfileid: "72282358"
 <td align="left"><strong>アプリ内購入を利用できます。</strong> <br><br>購入して使った後でもう一度購入できるアプリ内製品。</td>
 <td align="left">通常の購入後に <strong>consumePurchase</strong> で製品を使うと、コンシューマブルな購入が有効になり、購入して使った後でもう一度購入できます。</td>
 <td align="left">コンシューマブルな製品は iTunes Connect で<strong>コンシューマブルな製品として定義</strong>されます。</td>
-<td align="left">コンシューマブルをサポートするには、ストアに <a href="https://docs.microsoft.com/windows/uwp/publish/enter-iap-properties">申請するときに製品の種類をコンシューマブルと定義</a> します。 次に、ユーザーがコンシューマブルな購入を利用できるようになったら <strong><a href="https://docs.microsoft.com/uwp/api/windows.applicationmodel.store.currentapp.reportconsumablefulfillmentasync">CurrentApp.ReportConsumableFulfillmentAsync</a></strong> を呼び出します。<br/><br/><a href="https://docs.microsoft.com/windows/uwp/monetize/enable-consumable-in-app-product-purchases">コンシューマブルなアプリ内購入の有効化</a></td>
+<td align="left">コンシューマブルをサポートするには、ストアに <a href="https://docs.microsoft.com/windows/uwp/publish/enter-iap-properties">申請するときに製品の種類をコンシューマブルと定義</a> します。 その後、コンシューマブルな購入が行われたら、<strong><a href="https://docs.microsoft.com/uwp/api/windows.applicationmodel.store.currentapp.reportconsumablefulfillmentasync">CurrentApp.ReportConsumableFulfillmentAsync</a></strong> を呼び出して、ユーザーがその製品にアクセスできるようにします。<br/><br/><a href="https://docs.microsoft.com/windows/uwp/monetize/enable-consumable-in-app-product-purchases">コンシューマブルなアプリ内購入の有効化</a></td>
 </tr>
 <tr class="odd" style="background-color: #f2f2f2">
 <td align="left"><strong>アプリ内購入のテスト。</strong> <br><br>アプリをストアに配置せずに、アプリ内購入コードをテストできるようにします。</td>
@@ -508,7 +508,7 @@ ms.locfileid: "72282358"
 <td align="left"><strong>メディアをキャプチャしています。</strong> <br><br>オーディオとビジュアルのコンテンツを記録します。</td>
 <td align="left">MediaStore.ACTION_VIDEO_CAPTURE などの<strong>インテント</strong>を使うと、既存のカメラ アプリでメディアをキャプチャできます。 <strong>android.hardware.camera2</strong> または <strong>camera</strong> ライブラリを使うと、カメラのカスタム インターフェイスを実装できます。 <strong>MediaRecorder</strong> API を使うと、オーディオをキャプチャできます。</td>
 <td align="left"><strong>UIImagePickerController</strong> を使うと、システム UI でビデオと写真をキャプチャできます。 <strong>AVCaptureSession</strong> などの <strong>AVFoundation</strong> クラスを使うと、カメラへ直接アクセスできます。 <br/><strong>AVAudioRecorder</strong> クラスを使うと、オーディオを録音できます。</td>
-<td align="left"><strong><a href="https://docs.microsoft.com/uwp/api/Windows.Media.Capture.CameraCaptureUI">CameraCaptureUI クラス</a></strong>を使うと、組み込みのカメラ UI を使いながら写真とビデオをキャプチャできます。 <strong><a href="https://docs.microsoft.com/uwp/api/Windows.Media.Capture">MediaCapture API</a></strong> などの <strong><a href="https://docs.microsoft.com/uwp/api/Windows.Media.Capture.MediaCapture">Windows.Media.Capture</a></strong> のクラスを使って、低レベルのカメラ操作でオーディオをキャプチャできます。 <br/><br/><a href="https://docs.microsoft.com/windows/uwp/audio-video-camera/capture-photos-and-video-with-cameracaptureui">CameraCaptureUI を使った写真とビデオのキャプチャ</a><br/><br/><a href="https://docs.microsoft.com/windows/uwp/audio-video-camera/capture-photos-and-video-with-mediacapture">MediaCapture を使った写真とビデオのキャプチャ</a></td>
+<td align="left"><strong><a href="https://docs.microsoft.com/uwp/api/Windows.Media.Capture.CameraCaptureUI">CameraCaptureUI クラス</a></strong>を使うと、組み込みのカメラ UI を使いながら写真とビデオをキャプチャできます。 <strong><a href="https://docs.microsoft.com/uwp/api/Windows.Media.Capture.MediaCapture">MediaCapture API</a></strong> などの <strong><a href="https://docs.microsoft.com/uwp/api/Windows.Media.Capture">Windows.Media.Capture</a></strong> のクラスを使って、低レベルのカメラ操作でオーディオをキャプチャできます。 <br/><br/><a href="https://docs.microsoft.com/windows/uwp/audio-video-camera/capture-photos-and-video-with-cameracaptureui">CameraCaptureUI を使った写真とビデオのキャプチャ</a><br/><br/><a href="https://docs.microsoft.com/windows/uwp/audio-video-camera/capture-photos-and-video-with-mediacapture">MediaCapture を使った写真とビデオのキャプチャ</a></td>
 </tr>
 <tr class="even">
 <td align="left"><strong>メディアの再生。</strong> <br><br>オーディオとビデオのファイルを再生します。</td>
@@ -520,7 +520,7 @@ ms.locfileid: "72282358"
 <td align="left"><strong>メディアを編集しています。</strong> <br><br>既存の録音や録画から新しいメディア ファイルを作成し、特殊効果を適用します。</td>
 <td align="left"><strong>MediaCodec</strong>、<strong>MediaMuxer</strong>、<strong>android.media.effect</strong> などの低レベルのクラスを使ってコンテンツを編集できます。</td>
 <td align="left"><strong>AV Foundation</strong> フレームワークの <strong>AVMutableComposition</strong>、<strong>AVMutableVideoComposition</strong>、<strong>AVMutableAudioMix</strong> などのクラスを使ってコンテンツを編集できます。</td>
-<td align="left"><strong><a href="https://docs.microsoft.com/uwp/api/windows.media.editing">MediaComposition</a></strong>、<strong><a href="https://docs.microsoft.com/uwp/api/windows.media.editing.mediacomposition">MediaClip</a></strong> などの <strong><a href="https://docs.microsoft.com/uwp/api/windows.media.editing.mediaclip">Windows.Media.Editing</a></strong> API を使って、オーディオやビデオのファイルからメディア コンポジションを作成できます。 ビデオと画像のオーバーレイの追加、ビデオ クリップの結合、バックグラウンド オーディオの追加、オーディオとビデオの効果の適用を行うことができます。<br/><br/><a href="https://docs.microsoft.com/windows/uwp/audio-video-camera/media-compositions-and-editing">メディア コンポジションと編集</a></td>
+<td align="left"><strong><a href="https://docs.microsoft.com/uwp/api/windows.media.editing.mediacomposition">MediaComposition</a></strong>、<strong><a href="https://docs.microsoft.com/uwp/api/windows.media.editing.mediaclip">MediaClip</a></strong> などの <strong><a href="https://docs.microsoft.com/uwp/api/windows.media.editing">Windows.Media.Editing</a></strong> API を使って、オーディオやビデオのファイルからメディア コンポジションを作成できます。 ビデオと画像のオーバーレイの追加、ビデオ クリップの結合、バックグラウンド オーディオの追加、オーディオとビデオの効果の適用を行うことができます。<br/><br/><a href="https://docs.microsoft.com/windows/uwp/audio-video-camera/media-compositions-and-editing">メディア コンポジションと編集</a></td>
 </tr>
 </tbody>
 </table>
@@ -588,13 +588,13 @@ ms.locfileid: "72282358"
 <td align="left"><strong>ジオコーディングと reverse ジオコーディング。</strong> <br><br>住所を地理的な位置に変換したり (ジオコーディング)、地理的な位置を住所に変換したりします (逆ジオコーディング)。<br/></td>
 <td align="left">ジオコーディングや逆ジオコーディングには <strong>Geocoder</strong> クラスを使います。</td>
 <td align="left">ジオコーディングには <strong>CLGeocoder</strong> クラスを使います。</td>
-<td align="left">ジオコーディングを実行するには、<strong><a href="https://docs.microsoft.com/uwp/api/windows.services.maps.maplocationfinder">Windows.Services.Maps</a></strong> の <strong><a href="https://docs.microsoft.com/uwp/api/windows.services.maps">MapLocationFinder クラス</a></strong>を使います。 ジオコーディングには <strong><a href="https://docs.microsoft.com/uwp/api/windows.services.maps.maplocationfinder.findlocationsasync">FindLocationsAsync</a></strong>、逆ジオコーディングには <strong><a href="https://docs.microsoft.com/uwp/api/windows.services.maps.maplocationfinder.findlocationsatasync">FindLocationsAtAsync</a></strong> を使います。<br/><br/><a href="https://docs.microsoft.com/windows/uwp/maps-and-location/geocoding">ジオコーディングと逆ジオコーディングの実行</a></td>
+<td align="left">ジオコーディングを実行するには、<strong><a href="https://docs.microsoft.com/uwp/api/windows.services.maps">Windows.Services.Maps</a></strong> の <strong><a href="https://docs.microsoft.com/uwp/api/windows.services.maps.maplocationfinder">MapLocationFinder クラス</a></strong>を使います。 ジオコーディングには <strong><a href="https://docs.microsoft.com/uwp/api/windows.services.maps.maplocationfinder.findlocationsasync">FindLocationsAsync</a></strong>、逆ジオコーディングには <strong><a href="https://docs.microsoft.com/uwp/api/windows.services.maps.maplocationfinder.findlocationsatasync">FindLocationsAtAsync</a></strong> を使います。<br/><br/><a href="https://docs.microsoft.com/windows/uwp/maps-and-location/geocoding">ジオコーディングと逆ジオコーディングの実行</a></td>
 </tr>
 <tr class="odd" style="background-color: #f2f2f2">
 <td align="left"><strong>ルートと方向。</strong> <br><br>地理的な 2 つの場所の間のルート、距離、ルート案内を提供します。</td>
 <td align="left">Google は、Android で使うことができる Web サービス <strong>Google Maps Directions API</strong> を提供しています。ただし、SDK は提供されていません。</td>
 <td align="left">Map Kit で提供されている <strong>MKDirections</strong> API を使ってルートとルート案内を取得できます。</td>
-<td align="left"><strong><a href="https://docs.microsoft.com/uwp/api/windows.services.maps.maproutefinder">Windows.Services.Maps</a></strong> の <strong><a href="https://docs.microsoft.com/uwp/api/windows.services.maps">MapRouteFinder</a></strong> クラスを使って、徒歩ルートや運転ルートを要求できます。 ルートは <strong><a href="https://docs.microsoft.com/uwp/api/windows.services.maps.maproute">MapRoute</a></strong> インスタンスとして返されるため、MapControl に簡単に表示できます。 ルート案内は <strong><a href="https://docs.microsoft.com/uwp/api/windows.services.maps.maproutemaneuver">MapRouteManeuver</a></strong> オブジェクト内に返されます。<br/><br/><a href="https://docs.microsoft.com/windows/uwp/maps-and-location/routes-and-directions">地図へのルートとルート案内の表示</a></td>
+<td align="left"><strong><a href="https://docs.microsoft.com/uwp/api/windows.services.maps">Windows.Services.Maps</a></strong> の <strong><a href="https://docs.microsoft.com/uwp/api/windows.services.maps.maproutefinder">MapRouteFinder</a></strong> クラスを使って、徒歩ルートや運転ルートを要求できます。 ルートは <strong><a href="https://docs.microsoft.com/uwp/api/windows.services.maps.maproute">MapRoute</a></strong> インスタンスとして返されるため、MapControl に簡単に表示できます。 ルート案内は <strong><a href="https://docs.microsoft.com/uwp/api/windows.services.maps.maproutemaneuver">MapRouteManeuver</a></strong> オブジェクト内に返されます。<br/><br/><a href="https://docs.microsoft.com/windows/uwp/maps-and-location/routes-and-directions">地図へのルートとルート案内の表示</a></td>
 </tr>
 </tbody>
 </table>
@@ -631,7 +631,7 @@ ms.locfileid: "72282358"
 <td align="left"><strong>コピーして貼り付けます。</strong> <br><br>アプリ間でテキストやその他のコンテンツをコピーしたり貼り付けしたりします。</td>
 <td align="left"><strong>クリップボード フレームワーク</strong>を使って、<strong>ClipboardManager</strong> と <strong>ClipData</strong> の各クラスでコピーと貼り付けを実装できます。</td>
 <td align="left"><strong>UIPasteboard</strong>、<strong>UIMenuController</strong>、<strong>UIResponderStandardEditActions</strong> を使って、コピーとペーストを実装できます。</td>
-<td align="left">多くの既定の XAML コントロールは既にコピーと貼り付けをサポートしています。 自分でコピーと貼り付けを実装するには、<strong><a href="https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.datapackage">Windows.ApplicationModel.DataTransfer</a></strong> の <strong><a href="https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.DataTransfer.Clipboard">DataPackage</a></strong> と <strong><a href="https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.DataTransfer">Clipboard</a></strong> の各クラスを使います。<br/><br/><a href="https://docs.microsoft.com/windows/uwp/app-to-app/copy-and-paste">コピーと貼り付け</a></td>
+<td align="left">多くの既定の XAML コントロールは既にコピーと貼り付けをサポートしています。 自分でコピーと貼り付けを実装するには、<strong><a href="https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.DataTransfer">Windows.ApplicationModel.DataTransfer</a></strong> の <strong><a href="https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.datapackage">DataPackage</a></strong> と <strong><a href="https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.DataTransfer.Clipboard">Clipboard</a></strong> の各クラスを使います。<br/><br/><a href="https://docs.microsoft.com/windows/uwp/app-to-app/copy-and-paste">コピーと貼り付け</a></td>
 </tr>
 <tr class="even">
 <td align="left"><strong>ドラッグアンドドロップ。</strong> <br><br>アプリ間でコンテンツをドラッグ アンド ドロップします。</td>

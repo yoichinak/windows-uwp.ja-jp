@@ -1,6 +1,6 @@
 ---
 description: このチュートリアルでは、UWP XAML ユーザーインターフェイスを追加する方法、MSIX パッケージを作成する方法、およびその他の最新のコンポーネントを WPF アプリに組み込む方法について説明します。
-title: チュートリアル:WPF アプリの現代化
+title: 'チュートリアル: WPF アプリの最新化'
 ms.topic: article
 ms.date: 06/27/2019
 ms.author: mcleans
@@ -8,19 +8,19 @@ author: mcleanbyron
 keywords: windows 10、uwp、windows フォーム、wpf、xaml islands
 ms.localizationpriority: medium
 ms.custom: RS5, 19H1
-ms.openlocfilehash: 3e78bd81531750ac419c5ca3628e72a3e8505038
-ms.sourcegitcommit: f34deba1d4460d85ed08fe9648999fe03ff6a3dd
+ms.openlocfilehash: de84cbb2e1927d9426eefaaf7b0d70d604427da1
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71317081"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75683815"
 ---
-# <a name="tutorial-modernize-a-wpf-app"></a>チュートリアル:WPF アプリの現代化 
+# <a name="tutorial-modernize-a-wpf-app"></a>チュートリアル: WPF アプリの最新化 
 
 アプリを最初から書き換えるのではなく、最新の Windows 機能を既存のソースコードに[統合することによっ](index.md)て、既存のデスクトップアプリを最新化する方法は多数あります。 このチュートリアルでは、次の機能を使用して、既存の WPF 基幹業務アプリを最新化するためのいくつかの方法について説明します。
 
 * .NET Core 3
-* XAML Islands を使用した UWP XAML コントロール
+* XAML アイランドを使用した UWP XAML コントロール
 * アダプティブカードと Windows 10 の通知
 * MSIX の展開
 
@@ -47,17 +47,17 @@ Contoso では、従業員が経費報告書を効率的に作成できるよう
 
 * 既存の WPF アプリを .NET Core 3.0 に移行します。 これにより、今後新しい重要なシナリオが開きます。
 * Windows Community Toolkit によって提供される**system.windows.controls.inkcanvas>** および**mapcontrol**のラップされたコントロールをホストするには、XAML アイランドを使用します。
-* XAML Islands を使用して、標準の UWP XAML コントロール (この場合は**CalendardView**) をホストします。
+* XAML アイランドを使用して、標準の UWP XAML コントロール (この場合は**CalendardView**) をホストします。
 * アダプティブカードと Windows 10 の通知をアプリに統合します。
 * アプリを MSIX でパッケージ化し、Azure DevOps に CI/CD パイプラインを設定して、使用可能になったらすぐに新しいバージョンのアプリをテスト担当者とユーザーに自動的に配信できるようにします。
 
-## <a name="prerequisites"></a>前提条件
+## <a name="prerequisites"></a>必要条件
 
 このチュートリアルを実行するには、開発用コンピューターに次の前提条件がインストールされている必要があります。
 
 * Windows 10 バージョン 1903 (ビルド 18362) 以降のバージョン。
 * [Visual Studio 2019](https://www.visualstudio.com)。
-* [.Net Core 3 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.0)(最新バージョンをインストールします)。
+* [.Net Core 3 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.0) (最新バージョンをインストールします)。
 
 Visual Studio 2019 では、次のワークロードとオプション機能をインストールしていることを確認します。
 
@@ -74,15 +74,15 @@ Visual Studio 2019 では、次のワークロードとオプション機能を�
 3. Visual Studio 2019 を開き、 **C:\WinAppsModernizationWorkshop\Lab\Exercise1\01-Start\ContosoExpenses\ContosoExpenses.sln**ファイルをダブルクリックしてソリューションを開きます。
 4. **[スタート]** ボタンまたは CTRL キーを押しながら F5 キーを押して、Contoso の経費の WPF プロジェクトをビルド、実行、およびデバッグできることを確認します。
 
-## <a name="get-started"></a>作業開始
+## <a name="get-started"></a>、
 
 Contoso の経費サンプルアプリのソースコードを取得し、それを Visual Studio でビルドできることを確認できるので、チュートリアルを開始する準備ができています。
 
 * [パート 1: Contoso の経費アプリを .NET Core 3 に移行する](modernize-wpf-tutorial-1.md)
-* [パート 2: XAML Islands を使用した UWP InkCanvas コントロールの追加](modernize-wpf-tutorial-2.md)
-* [パート 3:XAML Islands を使用した UWP CalendarView コントロールの追加](modernize-wpf-tutorial-3.md)
-* [パート 4:Windows 10 ユーザー アクティビティと通知の追加](modernize-wpf-tutorial-4.md)
-* [パート 5:MSIX によるパッケージとデプロイ](modernize-wpf-tutorial-5.md)
+* [パート 2: XAML アイランドを使用した UWP System.windows.controls.inkcanvas> コントロールの追加](modernize-wpf-tutorial-2.md)
+* [パート 3: XAML アイランドを使用した UWP CalendarView コントロールの追加](modernize-wpf-tutorial-3.md)
+* [パート 4: Windows 10 のユーザーアクティビティと通知を追加する](modernize-wpf-tutorial-4.md)
+* [パート 5: MSIX によるパッケージ化と配置](modernize-wpf-tutorial-5.md)
 
 ## <a name="important-concepts"></a>重要な概念
 
@@ -98,7 +98,7 @@ Windows 10 では、WinRT の上に構築された[ユニバーサル Windows �
 
 ### <a name="msix-packaging"></a>MSIX パッケージ化
 
-[Msix](http://aka.ms/msix)(旧称 AppX) は、Windows アプリの最新のパッケージモデルです。 MSIX は UWP アプリだけでなく、Win32、WPF、Windows フォーム、Java、電子などのテクノロジを使用して構築されたデスクトップアプリもサポートしています。 MSIX パッケージでデスクトップアプリをパッケージ化する場合、アプリを Microsoft Store に発行できます。 デスクトップアプリでは、インストール時にパッケージ id を取得することもできます。これにより、デスクトップアプリでより広範な WinRT Api のセットを使用できるようになります。
+[Msix](/windows/msix/) (旧称 AppX) は、Windows アプリの最新のパッケージモデルです。 MSIX は UWP アプリだけでなく、Win32、WPF、Windows フォーム、Java、電子などのテクノロジを使用して構築されたデスクトップアプリもサポートしています。 MSIX パッケージでデスクトップアプリをパッケージ化する場合、アプリを Microsoft Store に発行できます。 デスクトップアプリでは、インストール時にパッケージ id を取得することもできます。これにより、デスクトップアプリでより広範な WinRT Api のセットを使用できるようになります。
 
 詳細については、次の記事を参照してください。
 
@@ -111,7 +111,7 @@ Windows 10 バージョン 1903 以降では、*XAML Islands* と呼ばれる機
 
 詳細については、[デスクトップ アプリケーション (XAML Islands) の UWP コントロール](/windows/uwp/xaml-platform/xaml-host-controls) をご参照ください。 このチュートリアルでは、2 つの異なるタイプの XAML Islandsコントロールを使用するプロセスを案内します。
 
-* Windows Community Toolkit の[system.windows.controls.inkcanvas>](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/inkcanvas)と[mapcontrol](https://docs.microsoft.com/en-us/windows/communitytoolkit/controls/wpf-winforms/mapcontrol) 。 これらの WPF コントロールは、対応する UWP コントロールのインターフェイスと機能をラップし、Visual Studio デザイナーの他の WPF コントロールと同様に使用できます。
+* Windows Community Toolkit の[system.windows.controls.inkcanvas>](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/inkcanvas)と[mapcontrol](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/mapcontrol) 。 これらの WPF コントロールは、対応する UWP コントロールのインターフェイスと機能をラップし、Visual Studio デザイナーの他の WPF コントロールと同様に使用できます。
 
 * UWP[カレンダービュー](/windows/uwp/design/controls-and-patterns/calendar-view)コントロール。 これは、Windows Community Toolkit の[Windowsxamlhost](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost)コントロールを使用してホストする標準 UWP コントロールです。
 
@@ -121,9 +121,9 @@ Windows 10 バージョン 1903 以降では、*XAML Islands* と呼ばれる機
 
 最初のいくつかのリリースでは、web またはバックエンドアプリをサポートするために .NET Core の焦点を絞っていました。 .NET Core を使用すると、Windows、Linux、または Docker コンテナーのようなマイクロサービスアーキテクチャでホストできるスケーラブルな web アプリまたは Api を簡単に構築できます。
 
-.NET Core 3 は .NET Core の最新リリースです。 このリリースの強調表示は、Windows フォームと WPF アプリを含む Windows デスクトップアプリをサポートしています。 .NET Core 3 で新規および既存の Windows デスクトップアプリを実行して、.NET Core が提供するすべての利点を活用することができます。 [XAML Islands](xaml-islands.md)でホストされている UWP コントロールを、.NET Core 3 を対象とする Windows フォームや WPF アプリでも使用できます。
+.NET Core 3 は .NET Core の最新リリースです。 このリリースのハイライトは、Windows フォーム、WPF アプリを含む Windows デスクトップ アプリのサポートです。 .NET Core 3 で新規および既存の Windows デスクトップ アプリを実行し、.NET Core で提供されるすべての特典を利用することができます。 [XAML Islands](xaml-islands.md)でホストされている UWP コントロールを、.NET Core 3 を対象とする Windows フォームや WPF アプリでも使用できます。
 
 > [!NOTE]
 > WPF と Windows フォームがクロスプラットフォームになっていないため、Linux および MacOS で WPF や Windows フォームを実行することはできません。 WPF と Windows フォームの UI コンポーネントは、引き続き Windows レンダリングシステムに依存しています。
 
-詳細については、「[.Net Core 3.0 の新機能](https://docs.microsoft.com/dotnet/core/whats-new/dotnet-core-3-0)」を参照してください。
+詳細については、「[.NET Core 3.0 の新機能](https://docs.microsoft.com/dotnet/core/whats-new/dotnet-core-3-0)」をご覧ください。

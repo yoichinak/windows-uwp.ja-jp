@@ -6,14 +6,14 @@ label: Interaction primer
 template: detail.hbs
 ms.date: 02/08/2017
 ms.topic: article
-keywords: windows 10, uwp
+keywords: Windows 10, UWP
 ms.localizationpriority: medium
-ms.openlocfilehash: 2f9aab8c4b627b9a4952e7e3e292f1e4b528f992
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: b9fbe76244d37bda69a1737e04f7172a64b3af44
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74258388"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75684222"
 ---
 # <a name="interaction-primer"></a>操作の基本情報
 
@@ -30,18 +30,18 @@ UWP では "スマート" な状況依存の対話式操作システムが採用
 **Windows 10 April 2018 Update**で、目と頭の追跡入力デバイスを使用した視線入力のサポートを導入しました。 
 
 > [!NOTE]
-> 視線追跡ハードウェアのサポートは、**Windows 10 Fall Creators Update** で[視線制御](https://support.microsoft.com/en-us/help/4043921/windows-10-get-started-eye-control)と共に導入されました。視線制御は、ユーザーが目を使用して画面上のポインターを制御し、スクリーン キーボードで入力し、音声合成を使用して人々とやり取りすることができる組み込み機能です。
+> 視線追跡ハードウェアのサポートは、**Windows 10 Fall Creators Update** で[視線制御](https://support.microsoft.com/help/4043921/windows-10-get-started-eye-control)と共に導入されました。視線制御は、ユーザーが目を使用して画面上のポインターを制御し、スクリーン キーボードで入力し、音声合成を使用して人々とやり取りすることができる組み込み機能です。
 
 ### <a name="device-support"></a>デバイスのサポート
 
-- タブレット
+- Tablet
 - PC とノート PC
 
 ### <a name="typical-usage"></a>一般的な使い方
 
 ユーザーの視線、注意、および場所とユーザーの目の動きに基づくプレゼンスを追跡します。 UWP アプリを使用して操作するためのこの新しい強力な手段は、ALS などの神経原性筋萎縮症や、筋肉や神経の機能障害を含むその他の障碍を持つユーザーの支援技術として特に役立ちます。 また、視線入力は、ゲーム (ターゲット把握や追跡を含む) や従来の生産性向上アプリケーション、キオスクだけでなく、従来の入力デバイス (キーボード、マウス、タッチ) が使用できないか、ユーザーの両手を他のタスク (買い袋を持つなど) のために開放することが便利である可能性のあるその他の対話型シナリオで、魅力的な機会をもたらします。
 
-### <a name="more-info"></a>詳細情報
+### <a name="more-info"></a>詳細
 
 [ビジョンと視点の追跡](gaze-interactions.md)
 
@@ -51,14 +51,14 @@ UWP では "スマート" な状況依存の対話式操作システムが採用
 
 ### <a name="device-support"></a>デバイスのサポート
 
-- タブレット
+- Tablet
 - PC とノート PC
 
 ### <a name="typical-usage"></a>一般的な使い方
 
 回転動作 (またはジェスチャ) に基づくフォームファクタを持つ Surface Dial は、プライマリ デバイスからの入力を補完または変更する、セカンダリのマルチ モーダル入力デバイスとして設計されています。 このデバイスは多くの場合、ユーザーが優先的な手でタスクを実行している間に (たとえばペンでインク操作をするときなど)、従属的な手で操作されます。
 
-### <a name="more-info"></a>詳細情報
+### <a name="more-info"></a>詳細
 
 [Surface Dial の設計ガイドライン](windows-wheel-interactions.md)
 
@@ -69,7 +69,7 @@ Windows 10 では、 **Cortana**拡張機能を使用して、ユーザーから
 ### <a name="device-support"></a>デバイスのサポート
 
 -   電話とファブレット
--   タブレット
+-   Tablet
 -   PC とノート PC
 -   Surface Hub
 -   IoT
@@ -84,12 +84,12 @@ Windows 10 では、 **Cortana**拡張機能を使用して、ユーザーから
 
 アプリの基本的な機能を統合して、ユーザーが直接アプリを開かずにほとんどのタスクを実行できる中心的エントリ ポイントを提供することで、**Cortana** はアプリとユーザーの仲介役となります。 多くの場合、これによってユーザーの時間と労力を大幅に減らすことができます。 詳しくは、「[Cortana の設計ガイドライン](https://docs.microsoft.com/cortana/skills/cortana-design-guidelines)」をご覧ください。
 
-### <a name="more-info"></a>詳細情報
+### <a name="more-info"></a>詳細
 
 [Cortana の設計ガイドライン](https://docs.microsoft.com/cortana/skills/cortana-design-guidelines)
  
 
-## <a name="speech"></a>音声認識
+## <a name="speech"></a>[音声認識]
 
 音声認識により、アプリケーションを効果的かつ自然に操作できます。 また、音声認識により、アプリケーションを正確かつ容易に操作し、さまざまな状況で生産性を高め、いつでも新しい情報を入手することができます。
 
@@ -100,7 +100,7 @@ Windows 10 では、 **Cortana**拡張機能を使用して、ユーザーから
 ### <a name="device-support"></a>デバイスのサポート
 
 -   電話とファブレット
--   タブレット
+-   Tablet
 -   PC とノート PC
 -   Surface Hub
 -   IoT
@@ -133,7 +133,7 @@ Windows 10 では、 **Cortana**拡張機能を使用して、ユーザーから
 
 ディクテーションは通常、アプリが語句の意味や意図を理解する必要がない場合に使われます。
 
-### <a name="more-info"></a>詳細情報
+### <a name="more-info"></a>詳細
 
 [音声認識のデザイン ガイドライン](https://docs.microsoft.com/windows/uwp/input-and-devices/speech-interactions)
  
@@ -151,7 +151,7 @@ Windows 10 では、 **Cortana**拡張機能を使用して、ユーザーから
 ### <a name="device-support"></a>デバイスのサポート
 
 -   電話とファブレット
--   タブレット
+-   Tablet
 -   PC とノート PC
 -   Surface Hub
 -   IoT
@@ -166,7 +166,7 @@ Windows のインク プラットフォームでペンを使うと、自然な�
 
 このような操作をサポートするには、ペン固有の UI コマンド、またはアフォーダンスを提供する必要があります。 たとえば、"前へ" ボタンと "次へ" ボタン (または "+" ボタンと "-" ボタン) を使ってコンテンツのページをフリップしたり、オブジェクトを回転、サイズ変更、ズームしたりできるようにします。
 
-### <a name="more-info"></a>詳細情報
+### <a name="more-info"></a>詳細
 
 [ペンの設計ガイドライン](https://docs.microsoft.com/windows/uwp/input-and-devices/pen-and-stylus-interactions)
  
@@ -178,7 +178,7 @@ Windows のインク プラットフォームでペンを使うと、自然な�
 ### <a name="device-support"></a>デバイスのサポート
 
 -   電話とファブレット
--   タブレット
+-   Tablet
 -   PC とノート PC
 -   Surface Hub
 -   IoT
@@ -201,7 +201,7 @@ Surface Hub デバイスは、100 か所の独自の同時タッチ接触を認�
 -   デバイスの向きに制限されない。
 -   すべての操作 (テキスト入力 (タッチ キーボード)、手描き入力 (アプリで構成) を含む) で使用される。
 
-### <a name="more-info"></a>詳細情報
+### <a name="more-info"></a>詳細
 
 [タッチの設計ガイドライン](https://docs.microsoft.com/windows/uwp/input-and-devices/guidelines-for-user-interaction)
  
@@ -225,12 +225,12 @@ Surface Hub デバイスは、100 か所の独自の同時タッチ接触を認�
 
 このような操作をサポートするには、マウス固有の UI コマンド、またはアフォーダンスを提供する必要があります。 たとえば、"前へ" ボタンと "次へ" ボタン (または "+" ボタンと "-" ボタン) を使ってコンテンツのページをフリップしたり、オブジェクトを回転、サイズ変更、ズームしたりできるようにします。
 
-### <a name="more-info"></a>詳細情報
+### <a name="more-info"></a>詳細
 
 [タッチパッドの設計ガイドライン](https://docs.microsoft.com/windows/uwp/input-and-devices/touch-interactions)
  
 
-## <a name="keyboard"></a>キーボード
+## <a name="keyboard"></a>Keyboard
 
 キーボードはテキスト用の主要な入力デバイスであり、多くの場合、特定の障碍のあるユーザーや、キーボードを使った方がアプリをすばやく効率よく操作できると考えるユーザーにとって欠かせません。
 
@@ -239,7 +239,7 @@ Surface Hub デバイスは、100 か所の独自の同時タッチ接触を認�
 ### <a name="device-support"></a>デバイスのサポート
 
 -   電話とファブレット
--   タブレット
+-   Tablet
 -   PC とノート PC
 -   Surface Hub
 -   IoT
@@ -265,19 +265,19 @@ OSK がタッチキーボードより優先さ**れる  ます**。これは�
 -   テキスト入力、ナビゲーション、ゲームプレイ、およびアクセシビリティのために使用される。
 -   常に利用可能 (事前または事後)。
 
-### <a name="more-info"></a>詳細情報
+### <a name="more-info"></a>詳細
 
 [キーボードの設計ガイドライン](https://docs.microsoft.com/windows/uwp/input-and-devices/keyboard-interactions)
  
 
-## <a name="mouse"></a>マウス
+## <a name="mouse"></a>Mouse
 
 マウスは、ユーザー操作でターゲット設定とコマンド実行にピクセルレベルの精度を必要とする、生産性アプリや高密度 UI に最適です。
 
 ### <a name="device-support"></a>デバイスのサポート
 
 -   電話とファブレット
--   タブレット
+-   Tablet
 -   PC とノート PC
 -   Surface Hub
 -   IoT
@@ -292,7 +292,7 @@ OSK がタッチキーボードより優先さ**れる  ます**。これは�
 
 このような操作をサポートするには、マウス固有の UI コマンド、またはアフォーダンスを提供する必要があります。 たとえば、"前へ" ボタンと "次へ" ボタン (または "+" ボタンと "-" ボタン) を使ってコンテンツのページをフリップしたり、オブジェクトを回転、サイズ変更、ズームしたりできるようにします。
 
-### <a name="more-info"></a>詳細情報
+### <a name="more-info"></a>詳細
 
 [マウスの設計ガイドライン](https://docs.microsoft.com/windows/uwp/input-and-devices/mouse-interactions)
  
@@ -349,7 +349,7 @@ Windows でサポートされている対話式操作のエクスペリエンス
 ### <a name="device-support"></a>デバイスのサポート
 
 -   電話とファブレット
--   タブレット
+-   Tablet
 -   PC とノート PC
 -   Surface Hub
 -   IoT

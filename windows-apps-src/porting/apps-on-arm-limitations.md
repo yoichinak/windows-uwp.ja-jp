@@ -5,18 +5,18 @@ ms.date: 02/15/2018
 ms.topic: article
 keywords: windows 10 s, 常時接続, 制限事項, ARM 版 windows 10
 ms.localizationpriority: medium
-redirect_url: https://docs.microsoft.com/en-us/windows/uwp/porting/apps-on-arm-troubleshooting-x86
-ms.openlocfilehash: a0765f8b7b250949146c4ed6f374bb5b6f7ae8bb
-ms.sourcegitcommit: 350d6e6ba36800df582f9715c8d21574a952aef1
+redirect_url: https://docs.microsoft.com/windows/uwp/porting/apps-on-arm-troubleshooting-x86
+ms.openlocfilehash: e9bbef6f9b714b99148cf4ac082f98b4422f23b2
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68682758"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75683965"
 ---
 # <a name="limitations-of-apps-and-experiences-on-arm"></a>ARM でのアプリとエクスペリエンスの制限事項
 ARM 版 Windows 10 には、次の必須の制限事項があります。
 
-- **ARM64 ドライバーだけがサポートされます**。 すべてのアーキテクチャと同様、カーネル モード ドライバー、[ユーザー モード ドライバー フレームワーク (UMDF)](https://docs.microsoft.com/en-us/windows-hardware/drivers/wdf/overview-of-the-umdf) ドライバー、印刷ドライバーが OS のアーキテクチャと一致するようにコンパイルする必要があります。 ARM OS には x86 ユーザー モード アプリをエミュレートする機能がありますが、他のアーキテクチャ (x64 や x86 など) に実装されるドライバーは現在のところエミュレートされないため、このプラットフォームではサポートされません。 独自のカスタム ドライバーと連動するアプリはすべて、ARM64 に移植する必要があります。 限られたシナリオでは、アプリがエミュレーション下で x86 として実行される可能性がありますが、アプリのドライバー部分は ARM64 に移植する必要があります。 ARM64 用ドライバーのコンパイルについて詳しくは、「[WDK を使った ARM64 ドライバーのビルド](/windows-hardware/drivers/develop/building-arm64-drivers)」をご覧ください。
+- **ARM64 ドライバーだけがサポートされます**。 すべてのアーキテクチャと同様、カーネル モード ドライバー、[ユーザー モード ドライバー フレームワーク (UMDF)](https://docs.microsoft.com/windows-hardware/drivers/wdf/overview-of-the-umdf) ドライバー、印刷ドライバーが OS のアーキテクチャと一致するようにコンパイルする必要があります。 ARM OS には x86 ユーザー モード アプリをエミュレートする機能がありますが、他のアーキテクチャ (x64 や x86 など) に実装されるドライバーは現在のところエミュレートされないため、このプラットフォームではサポートされません。 独自のカスタム ドライバーと連動するアプリはすべて、ARM64 に移植する必要があります。 限られたシナリオでは、アプリがエミュレーション下で x86 として実行される可能性がありますが、アプリのドライバー部分は ARM64 に移植する必要があります。 ARM64 用ドライバーのコンパイルについて詳しくは、「[WDK を使った ARM64 ドライバーのビルド](/windows-hardware/drivers/develop/building-arm64-drivers)」をご覧ください。
 
 - **x64 アプリはサポートされません**。 ARM 版 Windows 10 では、x64 アプリのエミュレーションがサポートされません。
 
@@ -32,7 +32,7 @@ ARM 版 Windows 10 には、次の必須の制限事項があります。
 
 |問題|ソリューション|
 |-----|--------|
-| アプリが ARM 用に設計されていないドライバーに依存している。 | x86 ドライバーを ARM64 に再コンパイルします。 「[WDK を使った ARM64 ドライバーのビルド](https://docs.microsoft.com/en-us/windows-hardware/drivers/develop/building-arm64-drivers)」をご覧ください。 |
+| アプリが ARM 用に設計されていないドライバーに依存している。 | x86 ドライバーを ARM64 に再コンパイルします。 「[WDK を使った ARM64 ドライバーのビルド](https://docs.microsoft.com/windows-hardware/drivers/develop/building-arm64-drivers)」をご覧ください。 |
 | アプリが x64 でしか使用できない。 | Microsoft Store 向けに開発する場合、ARM バージョンのアプリを提出します。 詳しくは、「[アプリ パッケージのアーキテクチャ](/windows/msix/package/device-architecture)」をご覧ください。 Win32 開発者の場合、x86 バージョンのアプリを配布します。 |
 | アプリで OpenGL バージョン 1.1 以降が使用されているか、ハードウェア アクセラレータによる OpenGL を必要としている。 | DirectX 9、DirectX 10、DirectX 11、DirectX 12 を使う x86 アプリは ARM で動作します。 詳しくは、「[DirectX のグラフィックスとゲーミング](https://docs.microsoft.com/windows/desktop/directx)」をご覧ください。 |
 | x86 アプリが期待どおりに動作しない。 | 「[プログラム互換性のトラブルシューティング ツール (ARM)](apps-on-arm-program-compat-troubleshooter.md)」のガイダンスに従って、互換性トラブルシューティング ツールを使ってみてください。 その他のトラブルシューティング手順については、「[ARM における x86 アプリのトラブルシューティング](apps-on-arm-troubleshooting-x86.md)」をご覧ください。 |

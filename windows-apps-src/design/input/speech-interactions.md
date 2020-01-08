@@ -8,23 +8,23 @@ keywords: スピーチ, 音声, 音声認識, 自然言語, ディクテーシ�
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 4d36368fab267370e2301e52731d99bc7b146fbd
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: fd33720255a04ffd8669673f027973afb4369086
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74258247"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75684210"
 ---
 # <a name="speech-interactions"></a>音声操作
 
 音声認識や音声合成 (TTS: text-to-speech) をアプリのユーザー エクスペリエンスに直接統合します。
 
-**音声認識:** ユーザーが発声した単語を、フォーム入力やテキストのディクテーション用にテキストに変換し、操作やコマンドを指定したり、タスクを実行したります。 この機能は、フリーテキストのディクテーションと Web 検索向けの定義済みの文法、および Speech Recognition Grammar Specification (SRGS) バージョン 1.0 を使って作成されたカスタム文法をサポートしています。
+**音声認識:** ユーザーが発声した単語を、フォーム入力やテキストのディクテーション用にテキストに変換し、操作やコマンドを指定したり、タスクを実行したります。 この機能は、フリーテキストのディクテーションと Web 検索向けの定義済みの文法、および Speech Recognition Grammar Specification (SRGS) Version 1.0 を使って作成されたカスタム文法をサポートしています。
 
 **TTS:** 音声合成エンジン (声) を使って、テキスト文字列を音声に変換します。 入力文字列は、基本的でシンプルなテキスト、またはより複雑な Speech Synthesis Markup Language (SSML) のいずれかになります。 SSML は、発音、音量、ピッチ、速度、強調など、音声出力の特性を制御する標準的な方法です。
 
 **その他の音声関連のコンポーネント:** 
-Windows アプリケーションの **Cortana** ではカスタマイズした音声コマンド (発声したコマンドまたは入力したコマンド) を使って、アプリをフォアグラウンドで起動したり (スタート メニューから起動した場合と同様にアプリがフォーカスを取得します)、バック グラウンド サービスとしてアクティブ化したりすることができます (**Cortana** がフォーカスを維持しますが、アプリからの結果を表示します)。 [Cortana](https://docs.microsoft.com/en-us/cortana/voice-commands/vcd) UI でアプリの機能を公開する場合は、「**Cortana voice command (VCD) guidelines**」(Cortana 音声コマンド (VCD) のガイドライン) をご覧ください。
+Windows アプリケーションの **Cortana** ではカスタマイズした音声コマンド (発声したコマンドまたは入力したコマンド) を使って、アプリをフォアグラウンドで起動したり (スタート メニューから起動した場合と同様にアプリがフォーカスを取得します)、バック グラウンド サービスとしてアクティブ化したりすることができます (**Cortana** がフォーカスを維持しますが、アプリからの結果を表示します)。 **Cortana** UI でアプリの機能を公開する場合は、「[Cortana voice command (VCD) guidelines](https://docs.microsoft.com/cortana/voice-commands/vcd)」(Cortana 音声コマンド (VCD) のガイドライン) をご覧ください。
 
 ## <a name="speech-interaction-design"></a>音声操作の設計
 

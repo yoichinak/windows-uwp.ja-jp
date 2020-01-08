@@ -5,34 +5,34 @@ ms.date: 01/03/2019
 ms.topic: article
 keywords: windows 10 s, 常時接続, ARM での ARM32 アプリ, ARM 版 windows 10, トラブルシューティング
 ms.localizationpriority: medium
-ms.openlocfilehash: 3ef6d521cc3f090179e816873fdaa0a4cdd8307e
-ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
+ms.openlocfilehash: 6213c8c69695d160d4e6fa362aa7aa322a0326fd
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67821060"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75683945"
 ---
-# <a name="troubleshooting-arm-uwp-apps"></a>UWP アプリを ARM のトラブルシューティング
+# <a name="troubleshooting-arm-uwp-apps"></a>ARM UWP アプリのトラブルシューティング
 
-場合は、ARM32 または ARM64 UWP アプリは、ARM で正しく機能していない、役立つ可能性のあるいくつかのガイダンスを示します。
+ARM32 または ARM64 UWP アプリが ARM で正常に動作していない場合は、次のガイダンスを参考にしてください。
 
 >[!NOTE]
-> ネイティブ ARM64 プラットフォームを対象とする UWP アプリケーションのビルドするには、Visual Studio 2017 バージョン 15.9 またはそれ以降、または Visual Studio 2019 が必要です。 詳細については、次を参照してください。[このブログの投稿](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development)します。
+> ARM64 プラットフォームをネイティブでターゲットとする UWP アプリケーションをビルドするには、Visual Studio 2017 バージョン15.9 以降、または Visual Studio 2019 が必要です。 詳細については、[このブログ投稿](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development)を参照してください。
 
 
 ## <a name="common-issues"></a>一般的な問題
-ここでは、一般的な問題がいくつか ARM32 および ARM64 のアプリのトラブルシューティングを行うときに注意してください。
+ARM32 と ARM64 アプリのトラブルシューティングを行う際に注意すべき一般的な問題を次に示します。
 
 ### <a name="using-windows-10-mobile-only-apis-on-arm-based-processors"></a>ARM ベースのプロセッサでの Windows 10 Mobile 専用 API の使用
-モバイル専用の Api を使用する場合、問題に ARM アプリが実行可能性があります (たとえば、 **HardwareButtons**)。 これを軽減するには、それらの API を呼び出す前に Windows 10 Mobile でアプリが実行されているかどうかを動的に検出します。 [API コントラクトを使った機能の動的な検出](https://blogs.windows.com/buildingapps/2015/09/15/dynamically-detecting-features-with-api-contracts-10-by-10/)に関するブログ投稿のガイダンスに従います。
+ARM アプリは、モバイル専用 Api (たとえば、**ハードウェアボタン**) を使用しているときに問題が発生する可能性があります。 これを軽減するには、それらの API を呼び出す前に Windows 10 Mobile でアプリが実行されているかどうかを動的に検出します。 [API コントラクトを使った機能の動的な検出](https://blogs.windows.com/buildingapps/2015/09/15/dynamically-detecting-features-with-api-contracts-10-by-10/)に関するブログ投稿のガイダンスに従います。
 
 ### <a name="including-dependencies-not-supported-by-uwp-apps"></a>UWP アプリによりサポートされていない依存関係の追加
-Visual Studio と UWP SDK に組み込まれていない正しくユニバーサル Windows プラットフォーム (UWP) アプリによっては、ARM64 のシステムで実行されている ARM アプリを使用できない OS コンポーネントに依存関係があります。 そのような依存関係の例は、次のとおりです。
+Visual Studio と UWP SDK で正しくビルドされていないユニバーサル Windows プラットフォーム (UWP) アプリは、ARM64 システムで実行されている ARM アプリで使用できない OS コンポーネントに依存している可能性があります。 そのような依存関係の例は、次のとおりです。
 
 - .NET Framework の一部が使用可能であることが期待される。
 - UWP と互換性のないサード パーティの .NET コンポーネントを参照している。
 
-これらの問題を解決できます: 利用不可の依存関係を削除して、最新の Microsoft Visual Studio と UWP SDK バージョンの; を使用して、アプリを再構築または、Microsoft Store から ARM アプリを削除する最後の手段としてように x86 (該当する場合)、アプリのバージョンは、ユーザーの Pc にダウンロードされます。
+これらの問題は、最新の Microsoft Visual Studio および UWP SDK バージョンを使用して、使用できない依存関係を削除し、アプリを再構築することによって解決できます。または、最後の手段として、Microsoft Store から ARM アプリを削除して、アプリの x86 バージョン (利用可能な場合) がユーザーの Pc にダウンロードされるようにします。
 
 UWP アプリに使用可能な .NET API について詳しくは、「[UWP アプリの .NET](https://docs.microsoft.com/dotnet/api/index?view=dotnet-uwp-10.0)」をご覧ください。
 
@@ -40,7 +40,7 @@ UWP アプリに使用可能な .NET API について詳しくは、「[UWP ア�
 問題が発生した場合、最新バージョンの Microsoft Visual Studio と Windows SDK を使ってアプリをコンパイルしていることを確認します。 以前のバージョンの Visual Studio と SDK でコンパイルされたアプリでは、以降のバージョンで修正された問題が発生する可能性があります。
 
 ## <a name="debugging"></a>デバッグ
-ARM プラットフォーム向けのアプリを開発するため、既存のツールを使用できます。 便利なリソースを次に示します。
+ARM プラットフォーム用のアプリを開発するために、既存のツールを使用できます。 便利なリソースを次に示します。
 
 - Visual Studio 15.5 Preview 1 以降では、ユニバーサル認証モードを使った ARM32 アプリの実行がサポートされます。 これにより、必要なリモート デバッグ ツールが自動的にブートストラップされます。
-- ARM でデバッグを行うためのツールと戦略について詳しくは、[ARM64 でのデバッグに関するページ](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/debugging-arm64)をご覧ください。
+- ARM でデバッグを行うためのツールと戦略について詳しくは、[ARM64 でのデバッグに関するページ](https://docs.microsoft.com/windows-hardware/drivers/debugger/debugging-arm64)をご覧ください。

@@ -5,12 +5,12 @@ ms.date: 10/31/2018
 ms.topic: article
 keywords: windows 10, uwp, スケジュール, リリース日, 日付, 公開
 ms.localizationpriority: medium
-ms.openlocfilehash: ec9ee00aaa350fc48185cc6328674ac2d8f62ea5
-ms.sourcegitcommit: f561efbda5c1d47b85601d91d70d86c5332bbf8c
+ms.openlocfilehash: eebd98d8e1ce39ef8d9876ab4749bcc76012f9fa
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72690354"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75685140"
 ---
 # <a name="configure-precise-release-scheduling"></a>正確なリリース スケジュールの構成
 
@@ -30,7 +30,6 @@ ms.locfileid: "72690354"
 >
 >以前に発行されたアプリが以前のバージョンの OS をサポートしている場合、選択した**停止の取得**日は、これらの顧客には適用されません。引き続きアプリを取得できます ([[可視性](choose-visibility-options.md#discoverability)] セクションで新しい選択を使用して更新を送信した場合、または [アプリの**概要**] ページで [**アプリを使用できないよう**にする] を選択した場合を除く)。
 
-
 ## <a name="base-schedule"></a>基本スケジュール
 
 [基本スケジュール] で選択した設定は、後で [[特定の市場向けにカスタマイズする]](#customize-the-schedule-for-specific-markets) を選択して特定の市場 (または市場グループ) 向けの日付を指定しない限り、アプリを提供するすべての市場に適用されます。
@@ -45,12 +44,11 @@ ms.locfileid: "72690354"
 > アプリが公開され、ストアで利用可能になった後は、 **[リリース]** の日付を選択することはできません (既にアプリがリリースされているため)。
 
 製品の **[リリース]** スケジュールに関して構成できるオプションを次に示します。
-- **[できるだけ早く]** : 製品は、認定されて公開されるとすぐにリリースされます。 これは既定のオプションです。
+- **[できるだけ早く]** : 製品は、認定されて公開されるとすぐにリリースされます。 これは既定のオプションです
 - **[次の時点]** : 製品は、選択した日時にリリースされます。 次の 2 つの追加オプションがあります。
    - **[UTC]** : 選択した時刻は世界標準時 (UTC) です。アプリはすべての市場で同時にリリースされます。
    - **[ローカル]** : 選択した時刻は、市場に関連付けられている各タイム ゾーンの時刻として扱われます (複数のタイム ゾーンがある市場では、その市場のタイム ゾーンの 1 つだけが使われます。 米国では、東部標準時のタイムゾーンが使用されます。 タイムゾーンの包括的な一覧については、このページを参照してください)。
 - **[スケジュールされていません]** : アプリはストアで利用可能になりません。 このオプションを選択した場合は、後からアプリをストアで利用可能にすることができます。利用可能にするには、新しい申請を作成するか、他のいずれかのオプションを選択します。
-
 
 ## <a name="stop-acquisition"></a>購入の停止
 
@@ -58,7 +56,7 @@ ms.locfileid: "72690354"
 
 既定では、 **[購入の停止]** は [実行しない] に設定されます。 これを変更するには、ドロップダウンの **[次の時点]** を選択し、上で説明したように日付と時刻を指定します。 選択した日時になると、ユーザーはアプリを入手できなくなります。
 
-このオプションは、[**このアプリを探索可能**にする] を選択し、[[可視性](choose-visibility-options.md#discoverability)] セクションでは利用できず、[取得の停止] を選択した場合と同じ効果があることを理解しておくことが重要です **。直接リンクを使用している顧客は、製品のストアを表示できます。一覧に表示されますが、以前に製品を所有している場合、またはプロモーションコードを持っていて、Windows 10 デバイスを使用している場合にのみダウンロードできます。** 新しいユーザーへのアプリの提供を完全に停止するには、[アプリの概要] ページで **[アプリの提供を停止する]** をクリックします。 詳しくは、「[アプリをストアから削除する](guidance-for-app-package-management.md#removing-an-app-from-the-store)」をご覧ください。
+このオプションは、[**このアプリを探索可能**にする] を選択[し、[](choose-visibility-options.md#discoverability)取得の停止] を選択した場合と同じ効果が得られることを理解しておくことが重要です **。直接リンクを使用しているお客様は、製品のストアの一覧を表示できますが、以前に製品を所有している場合、または** 新しいユーザーへのアプリの提供を完全に停止するには、[アプリの概要] ページで **[アプリの提供を停止する]** をクリックします。 詳しくは、「[アプリをストアから削除する](guidance-for-app-package-management.md#removing-an-app-from-the-store)」をご覧ください。
 
 > [!TIP]
 > **[購入の停止]** で日付を選択し、後からもう一度アプリを提供することにした場合は、新しい申請を作成して、 **[購入の停止]** を **[実行しない]** に戻すことができます。 更新された申請が公開されると、アプリが再び利用可能になります。
@@ -80,7 +78,247 @@ ms.locfileid: "72690354"
 
 次の表は、各市場で使用されている特定のタイムゾーンを示しています。そのため、送信時に現地時刻 (午前9時ローカルでのリリースなど) を使用する場合、各市場でリリースされる時間を確認できます。特に、複数の時間がかかる市場では、カナダのようなものです。
 
-<a name="market--time-zone"></a>市場: タイムゾーン
-==================
-アフガニスタン: (UTC + 04:30) カブールアルバニア: (UTC + 01:00) サラエボ、スコピエ、ワルシャワ、ザグレブアルジェリア: (UTC + 01:00) サラエボ、スコピエ、ワルシャワ、ザグレブアメリカサモア: (utc + 13:00) サモアアンドラ: (utc + 01:00) サラエボ、スコピエ、ワルシャワ、ザグレブアンゴラ: (UTC + 01:00) 西部中央アフリカアンギラ: (UTC-04:00) 大西洋時間 (カナダ) 南極: (UTC + 12:00) オークランド、ウェリントンアンティグア・バーブーダ: (UTC-04:00) 大西洋標準時 (カナダ) アルゼンチン: (utc-03:00) ブエノスアイレスアルメニア: (UTC + 04:00) アブダビ、マスカットアルバ: (UTC-04:00) 大西洋時間 (カナダ) オーストラリア: (UTC + 10:00) キャンベラ、メルボルン、シドニーのオーストリア: (UTC + 01:00) アムステルダム、ベルリン、ベルン、ローマ、ストックホルム、ウィーンアゼルバイジャン: (utc + 04:00) バクーバハマ、: (UTC-05:00) 東部時間 (米国 & カナダ) バーレーン: (UTC+ 04:00) アブダビ、マスカットバングラデシュ: (UTC + 06:00) ダッカバルバドス: (UTC-04:00) 大西洋標準時 (カナダ) ベラルーシ: (utc + 01:00) ブリュッセル、コペンハーゲン、レアルマドリード、パリベリーズ: (UTC-06:00) 中部標準時 (米国 & カナダ) ベナン: (UTC + 01:00)西中央アフリカバミューダ: (UTC-04:00) 大西洋標準時 (カナダ) ブータン: (UTC + 06:00) ダッカベネズエラボリバル共和国: (UTC-04:00) カラカスボリビア: (utc-04:00) ジョージタウン、ラパス、マナウス、San フアンボネール、サンユースタティウス島、サバ島: (UTC-04:00)大西洋標準時 (カナダ) ボスニア・ヘルツェゴビナ: (UTC + 01:00) サラエボ、スコピエ、ワルシャワ、ザグレブボツワナ: (UTC + 01:00) 西中央アフリカブーベ島: (utc + 00:00) モンロビア、レイキャビクブラジル: (utc-03:00) ブラジリア英国インド洋区域: (UTC + 06:00)ダッカ英領バージン諸島: (UTC-04:00) 大西洋標準時 (カナダ) ブルネイ: (UTC + 08:00) イルクーツクブルガリア: (utc + 02:00) キシナウブルキナファソ: (UTC + 00:00) モンロビア、レイキャビクブルンジ: (UTC + 02:00) ハラーレ、プレトリア CÃ́te ジボワール: (UTC + 00:00) モンロビア、レイキャビクカンボジア: (UTC + 07:00) バンコク、ハノイ、ジャカルタカメルーン: (UTC + 01:00) 西中央アフリカカナダ: (UTC-05:00) 東部時間 (米国 & カナダ) カーボベルデ: (UTC-01:00) カーボベルデがです。
-Cayman Islands: (UTC-05:00) Eastern Time (US & Canada) Central African Republic: (UTC+01:00) West Central Africa Chad: (UTC+01:00) West Central Africa Chile: (UTC-04:00) Santiago China: (UTC+08:00) Beijing, Chongqing, Hong Kong, Urumqi Christmas Island: (UTC+07:00) Krasnoyarsk Cocos (Keeling) Islands: (UTC+06:30) Yangon (Rangoon) Colombia: (UTC-05:00) Bogota, Lima, Quito, Rio Branco Comoros: (UTC+03:00) Nairobi Congo: (UTC+01:00) West Central Africa Congo (DRC): (UTC+01:00) West Central Africa Cook Islands: (UTC-10:00) Hawaii Costa Rica: (UTC-06:00) Central Time (US & Canada) Croatia: (UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb CuraÃ§ao: (UTC-04:00) Cuiaba Cyprus: (UTC+02:00) Chisinau Czech Republic: (UTC+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague Denmark: (UTC+01:00) Brussels, Copenhagen, Madrid, Paris Djibouti: (UTC+03:00) Nairobi Dominica: (UTC-04:00) Atlantic Time (Canada) Dominican Republic: (UTC-04:00) Atlantic Time (Canada) Ecuador: (UTC-05:00) Bogota, Lima, Quito, Rio Branco Egypt: (UTC+02:00) Chisinau El Salvador: (UTC-06:00) Central Time (US & Canada) Equatorial Guinea: (UTC+01:00) West Central Africa Eritrea: (UTC+03:00) Nairobi Estonia: (UTC+02:00) Chisinau Ethiopia: (UTC+03:00) Nairobi Falkland Islands (Islas Malvinas): (UTC-04:00) Santiago Faroe Islands: (UTC+00:00) Dublin, Edinburgh, Lisbon, London Fiji: (UTC+12:00) Fiji Finland: (UTC+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius France: (UTC+01:00) Brussels, Copenhagen, Madrid, Paris French Guiana: (UTC-03:00) Cayenne, Fortaleza French Polynesia: (UTC-10:00) Hawaii French Southern and Antarctic Lands: (UTC+05:00) Ashgabat, Tashkent Gabon: (UTC+01:00) West Central Africa Gambia, The: (UTC+00:00) Monrovia, Reykjavik Georgia: (UTC-05:00) Eastern Time (US & Canada) Germany: (UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna Ghana: (UTC+00:00) Monrovia, Reykjavik Gibraltar: (UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb Greece: (UTC+02:00) Athens, Bucharest Greenland: (UTC+00:00) Monrovia, Reykjavik Grenada: (UTC-04:00) Atlantic Time (Canada) Guadeloupe: (UTC-04:00) Atlantic Time (Canada) Guam: (UTC+10:00) Guam, Port Moresby Guatemala: (UTC-06:00) Central Time (US & Canada) Guernsey: (UTC+00:00) Monrovia, Reykjavik Guinea: (UTC+00:00) Monrovia, Reykjavik Guinea-Bissau: (UTC+00:00) Monrovia, Reykjavik Guyana: (UTC-04:00) Atlantic Time (Canada) Haiti: (UTC-05:00) Eastern Time (US & Canada) Heard Island and McDonald Islands: (UTC-05:00) Bogota, Lima, Quito, Rio Branco Holy See (Vatican City): (UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb Honduras: (UTC-06:00) Central Time (US & Canada) Hong Kong SAR: (UTC+08:00) Beijing, Chongqing, Hong Kong, Urumqi Hungary: (UTC+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague Iceland: (UTC+00:00) Monrovia, Reykjavik India: (UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi Indonesia: (UTC+07:00) Bangkok, Hanoi, Jakarta Iraq: (UTC+04:00) Abu Dhabi, Muscat Ireland: (UTC+00:00) Dublin, Edinburgh, Lisbon, London Israel: (UTC+02:00) Jerusalem Italy: (UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna Jamaica: (UTC-05:00) Eastern Time (US & Canada) Japan: (UTC+09:00) Osaka, Sapporo, Tokyo Jersey: (UTC+00:00) Monrovia, Reykjavik Jordan: (UTC+02:00) Chisinau Kazakhstan: (UTC+05:00) Ashgabat, Tashkent Kenya: (UTC+03:00) Nairobi Kiribati: (UTC+14:00) Kiritimati Island Korea: (UTC+09:00) Seoul Kuwait: (UTC+04:00) Abu Dhabi, Muscat Kyrgyzstan: (UTC+06:00) Astana Laos: (UTC+07:00) Bangkok, Hanoi, Jakarta Latvia: (UTC+02:00) Chisinau Lebanon: (UTC+02:00) Chisinau Lesotho: (UTC+02:00) Harare, Pretoria Liberia: (UTC+00:00) Monrovia, Reykjavik Libya: (UTC+02:00) Chisinau Liechtenstein: (UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb Lithuania: (UTC+02:00) Chisinau Luxembourg: (UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb Macao SAR: (UTC+08:00) Beijing, Chongqing, Hong Kong, Urumqi Macedonia, FYROM: (UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb Madagascar: (UTC+03:00) Nairobi Malawi: (UTC+02:00) Harare, Pretoria Malaysia: (UTC+08:00) Kuala Lumpur, Singapore Maldives: (UTC+05:00) Ashgabat, Tashkent Mali: (UTC+00:00) Monrovia, Reykjavik Malta: (UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb Man, Isle of: (UTC+00:00) Dublin, Edinburgh, Lisbon, London Marshall Islands: (UTC+12:00) Petropavlovsk-Kamchatsky - Old Martinique: (UTC-04:00) Atlantic Time (Canada) Mauritania: (UTC+00:00) Monrovia, Reykjavik Mauritius: (UTC+04:00) Port Louis Mayotte: (UTC+03:00) Nairobi Mexico: (UTC-06:00) Guadalajara, Mexico City, Monterrey Micronesia: (UTC+10:00) Guam, Port Moresby Moldova: (UTC+02:00) Chisinau Monaco: (UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb Mongolia: (UTC+07:00) Krasnoyarsk Montenegro: (UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb Montserrat: (UTC-04:00) Atlantic Time (Canada) Morocco: (UTC+01:00) Casablanca Mozambique: (UTC+02:00) Harare, Pretoria Myanmar: (UTC+06:30) Yangon (Rangoon) Namibia: (UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna Nauru: (UTC+12:00) Petropavlovsk-Kamchatsky - Old Nepal: (UTC+05:45) Kathmandu Netherlands: (UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna New Caledonia: (UTC+11:00) Solomon Is., New Caledonia New Zealand: (UTC+12:00) Auckland, Wellington Nicaragua: (UTC-06:00) Central Time (US & Canada) Niger: (UTC+01:00) West Central Africa Nigeria: (UTC+01:00) West Central Africa Niue: (UTC+13:00) Samoa Norfolk Island: (UTC+11:00) Solomon Is., New Caledonia Northern Mariana Islands: (UTC+10:00) Guam, Port Moresby Norway: (UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna Oman: (UTC+04:00) Abu Dhabi, Muscat Pakistan: (UTC+05:00) Islamabad, Karachi Palau: (UTC+09:00) Osaka, Sapporo, Tokyo Palestinian Authority: (UTC+02:00) Chisinau Panama: (UTC-05:00) Eastern Time (US & Canada) Papua New Guinea: (UTC+10:00) Vladivostok Paraguay: (UTC-04:00) Asuncion Peru: (UTC-05:00) Bogota, Lima, Quito, Rio Branco Philippines: (UTC+08:00) Kuala Lumpur, Singapore Pitcairn Islands: (UTC-08:00) Pacific Time (US & Canada) Poland: (UTC+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague Portugal: (UTC+00:00) Dublin, Edinburgh, Lisbon, London Qatar: (UTC+04:00) Abu Dhabi, Muscat Reunion: (UTC+04:00) Port Louis Romania: (UTC+02:00) Chisinau ROW: (UTC-07:00) Mountain Time (US & Canada) Russia: (UTC+03:00) Moscow, St. Petersburg Rwanda: (UTC+02:00) Harare, Pretoria SÃ£o TomÃ© and PrÃ­ncipe: (UTC+00:00) Monrovia, Reykjavik Saint BarthÃ©lemy: (UTC+04:00) Yerevan Saint Helena, Ascension and Tristan da Cunha: (UTC+00:00) Dublin, Edinburgh, Lisbon, London Saint Kitts and Nevis: (UTC-04:00) Atlantic Time (Canada) Saint Lucia: (UTC-04:00) Atlantic Time (Canada) Saint Martin (French Part): (UTC-04:00) Atlantic Time (Canada) Saint Pierre and Miquelon: (UTC-02:00) Mid-Atlantic - Old Saint Vincent and the Grenadines: (UTC-04:00) Atlantic Time (Canada) Samoa: (UTC+13:00) Samoa San Marino: (UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb Saudi Arabia: (UTC+03:00) Kuwait, Riyadh Senegal: (UTC+00:00) Monrovia, Reykjavik Serbia: (UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb Seychelles: (UTC+04:00) Abu Dhabi, Muscat Sierra Leone: (UTC+00:00) Monrovia, Reykjavik Singapore: (UTC+08:00) Kuala Lumpur, Singapore Sint Maarten (Dutch Part): (UTC-04:00) Atlantic Time (Canada) Slovakia: (UTC+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague Slovenia: (UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb Solomon Islands: (UTC+11:00) Solomon Is., New Caledonia Somalia: (UTC+03:00) Nairobi South Africa: (UTC+02:00) Harare, Pretoria South Georgia and the South Sandwich Islands: (UTC-02:00) Mid-Atlantic - Old Spain: (UTC+01:00) Brussels, Copenhagen, Madrid, Paris Sri Lanka: (UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi Suriname: (UTC-03:00) Cayenne, Fortaleza Svalbard and Jan Mayen: (UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb Swaziland: (UTC+02:00) Harare, Pretoria Sweden: (UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna Switzerland: (UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna Taiwan: (UTC+08:00) Taipei Tajikistan: (UTC+05:00) Ashgabat, Tashkent Tanzania: (UTC+03:00) Nairobi Thailand: (UTC+07:00) Bangkok, Hanoi, Jakarta Timor-Leste: (UTC+09:00) Seoul Togo: (UTC+00:00) Monrovia, Reykjavik Tokelau: (UTC+13:00) Nuku'alofa Tonga: (UTC+13:00) Nuku'alofa Trinidad and Tobago: (UTC-04:00) Atlantic Time (Canada) Tunisia: (UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb Turkey: (UTC+03:00) Istanbul Turkmenistan: (UTC+05:00) Ashgabat, Tashkent Turks and Caicos Islands: (UTC-05:00) Eastern Time (US & Canada) Tuvalu: (UTC+12:00) Petropavlovsk-Kamchatsky - Old U.S. Minor Outlying Islands: (UTC+13:00) Samoa U.S. Virgin Islands: (UTC-04:00) Atlantic Time (Canada) Uganda: (UTC+03:00) Nairobi Ukraine: (UTC+02:00) Chisinau United Arab Emirates: (UTC+04:00) Abu Dhabi, Muscat United Kingdom: (UTC+00:00) Dublin, Edinburgh, Lisbon, London United States: (UTC-05:00) Eastern Time (US & Canada) Uruguay: (UTC-03:00) Brasilia Uzbekistan: (UTC+05:00) Ashgabat, Tashkent Vanuatu: (UTC+11:00) Solomon Is., New Caledonia Vietnam: (UTC+07:00) Bangkok, Hanoi, Jakarta Wallis and Futuna: (UTC+12:00) Petropavlovsk-Kamchatsky - Old Western Sahara (Disputed): (UTC+00:00) Dublin, Edinburgh, Lisbon, London Yemen: (UTC+04:00) Abu Dhabi, Muscat Zambia: (UTC+02:00) Harare, Pretoria Zimbabwe: (UTC+02:00) Harare, Pretoria
+| 市場 | タイム ゾーン |
+|--------|-----------|
+| アフガニスタン  |  (UTC+04:30) カブール |
+| アルバニア  |  (UTC+01:00) サラエヴォ、スコピエ、ワルシャワ、ザグレブ |
+| アルジェリア  |  (UTC+01:00) サラエヴォ、スコピエ、ワルシャワ、ザグレブ |
+| 米領サモア  |  (UTC+13:00) サモア |
+| アンドラ  |  (UTC+01:00) サラエヴォ、スコピエ、ワルシャワ、ザグレブ |
+| アンゴラ  |  (UTC+01:00) アフリカ中西部 |
+| アンギラ  |  (UTC-04:00) 大西洋時間 (カナダ) |
+| 南極  |  (UTC+12:00) オークランド、ウェリントン |
+| アンティグア・バーブーダ  |  (UTC-04:00) 大西洋時間 (カナダ) |
+| アルゼンチン  |  (UTC-03:00) ブエノスアイレス市 |
+| アルメニア  |  (UTC+04:00) アブダビ、マスカット |
+| アルバ  |  (UTC-04:00) 大西洋時間 (カナダ) |
+| オーストラリア  |  (UTC+10:00) キャンベラ、メルボルン、シドニー |
+| オーストリア  |  (UTC+01:00) アムステルダム、ベルリン、ベルン、ローマ、ストックホルム、ウィーン |
+| アゼルバイジャン  |  (UTC+04:00) バクー |
+| バハマ  |  (UTC-05:00) 東部時間 (米国およびカナダ) |
+| バーレーン  |  (UTC+04:00) アブダビ、マスカット |
+| バングラデシュ  |  (UTC+06:00) ダッカ |
+| バルバドス  |  (UTC-04:00) 大西洋時間 (カナダ) |
+| ベラルーシ  |  (UTC+03:00) ミンスク |
+| ベルギー  |  (UTC+01:00) ブリュッセル、コペンハーゲン、マドリード、パリ |
+| ベリーズ  |  (UTC-06:00) 中部標準時 (米国およびカナダ) |
+| ベナン  |  (UTC+01:00) アフリカ中西部 |
+| バミューダ諸島  |  (UTC-04:00) 大西洋時間 (カナダ) |
+| ブータン  |  (UTC+06:00) ダッカ |
+| ベネズエラ・ボリバル共和国  |  (UTC-04:00) カラカス |
+| ボリビア  |  (UTC-04:00) ジョージタウン、ラパス、マナウス、サン・フアン |
+| ボネール島、シント・ユースタティウス島、サバ島  |  (UTC-04:00) 大西洋時間 (カナダ) |
+| ボスニア・ヘルツェゴビナ  |  (UTC+01:00) サラエヴォ、スコピエ、ワルシャワ、ザグレブ |
+| ボツワナ  |  (UTC+01:00) アフリカ中西部 |
+| ブーベ島  |  (UTC+00:00) モンロビア、レイキャヴィーク |
+| ブラジル  |  (UTC-03:00) ブラジリア |
+| 英領インド洋地域  |  (UTC+06:00) ダッカ |
+| 英領バージン諸島  |  (UTC-04:00) 大西洋時間 (カナダ) |
+| ブルネイ  |  (UTC+08:00) イルクーツク |
+| ブルガリア  |  (UTC+02:00) キシナウ |
+| ブルキナファソ  |  (UTC+00:00) モンロビア、レイキャヴィーク |
+| ブルンジ  |  (UTC+02:00) ハラレ、プレトリア |
+| CÃ́te ジボワール  |  (UTC+00:00) モンロビア、レイキャヴィーク |
+| カンボジア  |  (UTC+07:00) バンコク、ハノイ、ジャカルタ |
+| カメルーン  |  (UTC+01:00) アフリカ中西部 |
+| カナダ  |  (UTC-05:00) 東部時間 (米国およびカナダ) |
+| カーボベルデ  |  (UTC-01:00) カーボベルデ諸島 |
+| ケイマン諸島  |  (UTC-05:00) 東部時間 (米国およびカナダ) |
+| 中央アフリカ共和国  |  (UTC+01:00) アフリカ中西部 |
+| チャド  |  (UTC+01:00) アフリカ中西部 |
+| チリ  |  (UTC-04:00) サンティアゴ |
+| 中国  |  (UTC+08:00) 北京、重慶市、香港、ウルムチ市 |
+| クリスマス島  |  (UTC+07:00) クラスノヤルスク |
+| ココス諸島  |  (UTC+06:30) ヤンゴン (ラングーン) |
+| コロンビア  |  (UTC-05:00) ボゴタ、リマ、キト、リオブランコ |
+| コモロ  |  (UTC+03:00) ナイロビ |
+| コンゴ共和国  |  (UTC+01:00) アフリカ中西部 |
+| コンゴ民主共和国  |  (UTC+01:00) アフリカ中西部 |
+| クック諸島  |  (UTC-10:00) ハワイ州 |
+| コスタリカ  |  (UTC-06:00) 中部標準時 (米国およびカナダ) |
+| クロアチア  |  (UTC+01:00) サラエヴォ、スコピエ、ワルシャワ、ザグレブ |
+| CuraÃを参照してください  |  (UTC-04:00) クイアバ |
+| キプロス  |  (UTC+02:00) キシナウ |
+| チェコ共和国  |  (UTC+01:00) ベオグラード、ブラチスラヴァ、ブダペスト、リュブリャナ、プラハ |
+| デンマーク  |  (UTC+01:00) ブリュッセル、コペンハーゲン、マドリード、パリ |
+| ジブチ  |  (UTC+03:00) ナイロビ |
+| ドミニカ国  |  (UTC-04:00) 大西洋時間 (カナダ) |
+| ドミニカ共和国  |  (UTC-04:00) 大西洋時間 (カナダ) |
+| エクアドル  |  (UTC-05:00) ボゴタ、リマ、キト、リオブランコ |
+| エジプト  |  (UTC+02:00) キシナウ |
+| エルサルバドル  |  (UTC-06:00) 中部標準時 (米国およびカナダ) |
+| 赤道ギニア  |  (UTC+01:00) アフリカ中西部 |
+| エリトリア  |  (UTC+03:00) ナイロビ |
+| エストニア  |  (UTC+02:00) キシナウ |
+| エチオピア  |  (UTC+03:00) ナイロビ |
+| フォークランド (マルビナス) 諸島  |  (UTC-04:00) サンティアゴ |
+| フェロー諸島  |  (UTC+00:00) ダブリン、エディンバラ、リスボン、ロンドン |
+| フィジー諸島  |  (UTC+12:00) フィジー |
+| フィンランド  |  (UTC+02:00) ヘルシンキ、キエフ、リガ、ソフィア、タリン、ヴィリニュス |
+| フランス  |  (UTC+01:00) ブリュッセル、コペンハーゲン、マドリード、パリ |
+| フランス領ギアナ  |  (UTC-03:00) カイエンヌ、フォルタレザ |
+| フランス領ポリネシア  |  (UTC-10:00) ハワイ州 |
+| フランス領南極地方  |  (UTC+05:00) アシガバート、タシュケント |
+| ガボン  |  (UTC+01:00) アフリカ中西部 |
+| ガンビア  |  (UTC+00:00) モンロビア、レイキャヴィーク |
+| ジョージア  |  (UTC-05:00) 東部時間 (米国およびカナダ) |
+| ドイツ  |  (UTC+01:00) アムステルダム、ベルリン、ベルン、ローマ、ストックホルム、ウィーン |
+| ガーナ  |  (UTC+00:00) モンロビア、レイキャヴィーク |
+| ジブラルタル  |  (UTC+01:00) サラエヴォ、スコピエ、ワルシャワ、ザグレブ |
+| ギリシャ  |  (UTC+02:00) アテネ、ブカレスト |
+| グリーンランド  |  (UTC+00:00) モンロビア、レイキャヴィーク |
+| グレナダ  |  (UTC-04:00) 大西洋時間 (カナダ) |
+| グアドループ  |  (UTC-04:00) 大西洋時間 (カナダ) |
+| グアム  |  (UTC+10:00) グアム、ポートモレスビー |
+| グアテマラ  |  (UTC-06:00) 中部標準時 (米国およびカナダ) |
+| ガーンジー島  |  (UTC+00:00) モンロビア、レイキャヴィーク |
+| ギニア  |  (UTC+00:00) モンロビア、レイキャヴィーク |
+| ギニアビサウ  |  (UTC+00:00) モンロビア、レイキャヴィーク |
+| ガイアナ  |  (UTC-04:00) 大西洋時間 (カナダ) |
+| ハイチ  |  (UTC-05:00) 東部時間 (米国およびカナダ) |
+| ハード・マクドナルド諸島  |  (UTC-05:00) ボゴタ、リマ、キト、リオブランコ |
+| バチカン  |  (UTC+01:00) サラエヴォ、スコピエ、ワルシャワ、ザグレブ |
+| ホンジュラス  |  (UTC-06:00) 中部標準時 (米国およびカナダ) |
+| 香港特別行政区  |  (UTC+08:00) 北京、重慶市、香港、ウルムチ市 |
+| ハンガリー  |  (UTC+01:00) ベオグラード、ブラチスラヴァ、ブダペスト、リュブリャナ、プラハ |
+| アイスランド  |  (UTC+00:00) モンロビア、レイキャヴィーク |
+| インド  |  (UTC+05:30) チェンナイ、コルカタ、ムンバイ、ニューデリー |
+| インドネシア  |  (UTC+07:00) バンコク、ハノイ、ジャカルタ |
+| イラク  |  (UTC+04:00) アブダビ、マスカット |
+| アイルランド  |  (UTC+00:00) ダブリン、エディンバラ、リスボン、ロンドン |
+| イスラエル  |  (UTC+02:00) エルサレム |
+| イタリア  |  (UTC+01:00) アムステルダム、ベルリン、ベルン、ローマ、ストックホルム、ウィーン |
+| ジャマイカ  |  (UTC-05:00) 東部時間 (米国およびカナダ) |
+| 日本  |  (UTC+09:00) 大阪、札幌、東京 |
+| ジャージー島  |  (UTC+00:00) モンロビア、レイキャヴィーク |
+| ヨルダン  |  (UTC+02:00) キシナウ |
+| カザフスタン  |  (UTC+05:00) アシガバート、タシュケント |
+| ケニア  |  (UTC+03:00) ナイロビ |
+| キリバス  |  (UTC+14:00) キリスィマスィ島 |
+| 韓国  |  (UTC+09:00) ソウル |
+| クウェート  |  (UTC+04:00) アブダビ、マスカット |
+| キルギス  |  (UTC+06:00) アスタナ |
+| ラオス  |  (UTC+07:00) バンコク、ハノイ、ジャカルタ |
+| ラトビア  |  (UTC+02:00) キシナウ |
+| レバノン  |  (UTC+02:00) キシナウ |
+| レソト  |  (UTC+02:00) ハラレ、プレトリア |
+| リベリア  |  (UTC+00:00) モンロビア、レイキャヴィーク |
+| リビア  |  (UTC+02:00) キシナウ |
+| リヒテンシュタイン  |  (UTC+01:00) サラエヴォ、スコピエ、ワルシャワ、ザグレブ |
+| リトアニア  |  (UTC+02:00) キシナウ |
+| ルクセンブルク  |  (UTC+01:00) サラエヴォ、スコピエ、ワルシャワ、ザグレブ |
+| マカオ  |  (UTC+08:00) 北京、重慶市、香港、ウルムチ市 |
+| マケドニア、FYROM  |  (UTC+01:00) サラエヴォ、スコピエ、ワルシャワ、ザグレブ |
+| マダガスカル  |  (UTC+03:00) ナイロビ |
+| マラウイ  |  (UTC+02:00) ハラレ、プレトリア |
+| マレーシア  |  (UTC+08:00) クアラルンプール、シンガポール |
+| モルディブ  |  (UTC+05:00) アシガバート、タシュケント |
+| マリ  |  (UTC+00:00) モンロビア、レイキャヴィーク |
+| マルタ  |  (UTC+01:00) サラエヴォ、スコピエ、ワルシャワ、ザグレブ |
+| Man、島  |  (UTC+00:00) ダブリン、エディンバラ、リスボン、ロンドン |
+| マーシャル諸島  |  (UTC+12:00) ペトロパブロフスク・カムチャツキー - 旧 |
+| マルチニーク島  |  (UTC-04:00) 大西洋時間 (カナダ) |
+| モーリタニア  |  (UTC+00:00) モンロビア、レイキャヴィーク |
+| モーリシャス  |  (UTC+04:00) ポートルイス |
+| マイヨット島  |  (UTC+03:00) ナイロビ |
+| メキシコ  |  (UTC-06:00) グアダラハラ、メキシコシティ、モンテレイ |
+| ミクロネシア  |  (UTC+10:00) グアム、ポートモレスビー |
+| モルドバ  |  (UTC+02:00) キシナウ |
+| モナコ  |  (UTC+01:00) サラエヴォ、スコピエ、ワルシャワ、ザグレブ |
+| モンゴル国  |  (UTC+07:00) クラスノヤルスク |
+| モンテネグロ  |  (UTC+01:00) サラエヴォ、スコピエ、ワルシャワ、ザグレブ |
+| モンセラット  |  (UTC-04:00) 大西洋時間 (カナダ) |
+| モロッコ  |  (UTC+01:00) カサブランカ |
+| モザンビーク  |  (UTC+02:00) ハラレ、プレトリア |
+| ミャンマー  |  (UTC+06:30) ヤンゴン (ラングーン) |
+| ナミビア  |  (UTC+01:00) アムステルダム、ベルリン、ベルン、ローマ、ストックホルム、ウィーン |
+| ナウル  |  (UTC+12:00) ペトロパブロフスク・カムチャツキー - 旧 |
+| ネパール  |  (UTC+05:45) カトマンズ |
+| オランダ  |  (UTC+01:00) アムステルダム、ベルリン、ベルン、ローマ、ストックホルム、ウィーン |
+| ニューカレドニア  |  (UTC+11:00) ソロモン諸島、ニューカレドニア |
+| ニュージーランド  |  (UTC+12:00) オークランド、ウェリントン |
+| ニカラグア  |  (UTC-06:00) 中部標準時 (米国およびカナダ) |
+| ニジェール  |  (UTC+01:00) アフリカ中西部 |
+| ナイジェリア  |  (UTC+01:00) アフリカ中西部 |
+| ニウエ  |  (UTC+13:00) サモア |
+| ノーフォーク島  |  (UTC+11:00) ソロモン諸島、ニューカレドニア |
+| 北マリアナ諸島  |  (UTC+10:00) グアム、ポートモレスビー |
+| ノルウェー  |  (UTC+01:00) アムステルダム、ベルリン、ベルン、ローマ、ストックホルム、ウィーン |
+| オマーン  |  (UTC+04:00) アブダビ、マスカット |
+| パキスタン  |  (UTC+05:00) イスラマバード、カラチ |
+| パラオ  |  (UTC+09:00) 大阪、札幌、東京 |
+| パレスチナ自治政府  |  (UTC+02:00) キシナウ |
+| パナマ  |  (UTC-05:00) 東部時間 (米国およびカナダ) |
+| パプアニューギニア  |  (UTC+10:00) ウラジオストク |
+| パラグアイ  |  (UTC-04:00) アスンシオン |
+| ペルー  |  (UTC-05:00) ボゴタ、リマ、キト、リオブランコ |
+| フィリピン  |  (UTC+08:00) クアラルンプール、シンガポール |
+| ピトケアン島  |  (UTC-08:00) 太平洋標準時 (米国およびカナダ) |
+| ポーランド  |  (UTC+01:00) ベオグラード、ブラチスラヴァ、ブダペスト、リュブリャナ、プラハ |
+| ポルトガル  |  (UTC+00:00) ダブリン、エディンバラ、リスボン、ロンドン |
+| カタール  |  (UTC+04:00) アブダビ、マスカット |
+| レユニオン  |  (UTC+04:00) ポートルイス |
+| ルーマニア  |  (UTC+02:00) キシナウ |
+| 行  |  (UTC-07:00) 山岳部時間 (米国およびカナダ) |
+| ロシア連邦  |  (UTC+03:00) モスクワ、サンクトペテルブルク |
+| ルワンダ  |  (UTC+02:00) ハラレ、プレトリア |
+| SÃ£ o TomÃ©および PrÃncipe  |  (UTC+00:00) モンロビア、レイキャヴィーク |
+| サン BarthÃ© lemy  |  (UTC+04:00) エレバン |
+| セントヘレナ、アセンションおよびトリスタンダクーニャ  |  (UTC+00:00) ダブリン、エディンバラ、リスボン、ロンドン |
+| セントクリストファー・ネイビス  |  (UTC-04:00) 大西洋時間 (カナダ) |
+| セントルシア  |  (UTC-04:00) 大西洋時間 (カナダ) |
+| サンマルタン島 (フランス領)  |  (UTC-04:00) 大西洋時間 (カナダ) |
+| サンピエール・ミクロン  |  (UTC-02:00) 米国中部大西洋岸 - 旧 |
+| セントビンセントおよびグレナディーン諸島  |  (UTC-04:00) 大西洋時間 (カナダ) |
+| サモア  |  (UTC+13:00) サモア |
+| サンマリノ  |  (UTC+01:00) サラエヴォ、スコピエ、ワルシャワ、ザグレブ |
+| サウジアラビア  |  (UTC+03:00) クウェート、リヤド |
+| セネガル  |  (UTC+00:00) モンロビア、レイキャヴィーク |
+| セルビア  |  (UTC+01:00) サラエヴォ、スコピエ、ワルシャワ、ザグレブ |
+| セーシェル  |  (UTC+04:00) アブダビ、マスカット |
+| シエラレオネ  |  (UTC+00:00) モンロビア、レイキャヴィーク |
+| シンガポール  |  (UTC+08:00) クアラルンプール、シンガポール |
+| サンマルタン島 (オランダ領)  |  (UTC-04:00) 大西洋時間 (カナダ) |
+| スロバキア  |  (UTC+01:00) ベオグラード、ブラチスラヴァ、ブダペスト、リュブリャナ、プラハ |
+| スロベニア  |  (UTC+01:00) サラエヴォ、スコピエ、ワルシャワ、ザグレブ |
+| ソロモン諸島  |  (UTC+11:00) ソロモン諸島、ニューカレドニア |
+| ソマリア  |  (UTC+03:00) ナイロビ |
+| 南アフリカ  |  (UTC+02:00) ハラレ、プレトリア |
+| サウスジョージア・サウスサンドウィッチ諸島  |  (UTC-02:00) 米国中部大西洋岸 - 旧 |
+| スペイン  |  (UTC+01:00) ブリュッセル、コペンハーゲン、マドリード、パリ |
+| スリランカ  |  (UTC+05:30) チェンナイ、コルカタ、ムンバイ、ニューデリー |
+| スリナム  |  (UTC-03:00) カイエンヌ、フォルタレザ |
+| スバールバル諸島、ヤンマイエン島  |  (UTC+01:00) サラエヴォ、スコピエ、ワルシャワ、ザグレブ |
+| スワジランド  |  (UTC+02:00) ハラレ、プレトリア |
+| スウェーデン  |  (UTC+01:00) アムステルダム、ベルリン、ベルン、ローマ、ストックホルム、ウィーン |
+| スイス  |  (UTC+01:00) アムステルダム、ベルリン、ベルン、ローマ、ストックホルム、ウィーン |
+| 台湾  |  (UTC+08:00) 台北市 |
+| タジキスタン  |  (UTC+05:00) アシガバート、タシュケント |
+| タンザニア  |  (UTC+03:00) ナイロビ |
+| タイ  |  (UTC+07:00) バンコク、ハノイ、ジャカルタ |
+| ティモール・レステ  |  (UTC+09:00) ソウル |
+| トーゴ  |  (UTC+00:00) モンロビア、レイキャヴィーク |
+| トケラウ諸島  |  (UTC+13:00) ヌクアロファ |
+| トンガ  |  (UTC+13:00) ヌクアロファ |
+| トリニダードトバゴ  |  (UTC-04:00) 大西洋時間 (カナダ) |
+| チュニジア  |  (UTC+01:00) サラエヴォ、スコピエ、ワルシャワ、ザグレブ |
+| トルコ  |  (UTC+03:00) イスタンブール |
+| トルクメニスタン  |  (UTC+05:00) アシガバート、タシュケント |
+| タークス・カイコス諸島  |  (UTC-05:00) 東部時間 (米国およびカナダ) |
+| ツバル  |  (UTC+12:00) ペトロパブロフスク・カムチャツキー - 旧 |
+| その他の米領諸島  |  (UTC+13:00) サモア |
+| 米領バージン諸島  |  (UTC-04:00) 大西洋時間 (カナダ) |
+| ウガンダ  |  (UTC+03:00) ナイロビ |
+| ウクライナ  |  (UTC+02:00) キシナウ |
+| アラブ首長国連邦  |  (UTC+04:00) アブダビ、マスカット |
+| 英国  |  (UTC+00:00) ダブリン、エディンバラ、リスボン、ロンドン |
+| 米国  |  (UTC-05:00) 東部時間 (米国およびカナダ) |
+| ウルグアイ  |  (UTC-03:00) ブラジリア |
+| ウズベキスタン  |  (UTC+05:00) アシガバート、タシュケント |
+| バヌアツ  |  (UTC+11:00) ソロモン諸島、ニューカレドニア |
+| ベトナム  |  (UTC+07:00) バンコク、ハノイ、ジャカルタ |
+| ワリス・フテュナ諸島  |  (UTC+12:00) ペトロパブロフスク・カムチャツキー - 旧 |
+| 西サハラ (紛争中)  |  (UTC+00:00) ダブリン、エディンバラ、リスボン、ロンドン |
+| イエメン  |  (UTC+04:00) アブダビ、マスカット |
+| ザンビア  |  (UTC+02:00) ハラレ、プレトリア |
+| ジンバブエ  |  (UTC+02:00) ハラレ、プレトリア |

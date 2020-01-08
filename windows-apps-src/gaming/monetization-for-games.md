@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, 収益化
 ms.localizationpriority: medium
-ms.openlocfilehash: 132f8c1d0ff314b794cc8464ec69cdf84f6a5f3b
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: baef3750b8dc076fd78c239cfc61662256e57c14
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74258479"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75685252"
 ---
 #  <a name="monetization-for-games"></a>ゲームの収益化
 
@@ -43,7 +43,7 @@ Microsoft Store を使用すると、世界中の200の国や地域でゲーム�
 ### <a name="sale-price"></a>セール価格
 
 ゲームの販売促進方法の 1 つに、期間を限定して価格を下げる方法があります。 セール価格を__無料__に設定して、無料でゲームのダウンロードを許可することもできます。
-あらかじめセールの開始日と終了日の両方を設定することで、セール キャンペーンのスケジュールを事前に設定できます。 詳しくは、「[アプリとアドオンの販売](https://docs.microsoft.com/windows/uwp/publish/put-apps-and-add-ons-on-sale)」をご覧ください。
+あらかじめセールの開始日と終了日の両方を設定することで、セール キャンペーンのスケジュールを事前に設定できます。 詳しくは、「[アプリとアドオンを販売する](https://docs.microsoft.com/windows/uwp/publish/put-apps-and-add-ons-on-sale)」をご覧ください。
 
 ## <a name="in-game-purchases"></a>ゲーム内購入
 
@@ -53,7 +53,7 @@ Microsoft Store を使用すると、世界中の200の国や地域でゲーム�
 
 ストアでは、_永続的_と_コンシューマブル_の 2 種類のアドオンを作成できます。 永続的なアドオンは、指定された時間にわたって使うことができ、有効期限の間に一度だけ購入できる項目です。 コンシューマブルなアドオンとは、繰り返し購入して使うことができる項目です。
 
-コンシューマブルを作成する際は、追跡方法として、それらの項目が&mdash;開発者による管理_か_ストアによる管理_か (この機能は Windows 10、バージョン 1607 以降で使用可能) を決定してください。 開発者によって管理された使用量によって、ゲーマーの項目の残高を追跡する責任があります。ストアで管理された使用量がある場合、Microsoft Store は項目の残高を追跡します。 詳しくは、「[コンシューマブルなアドオン購入の有効化](https://docs.microsoft.com/windows/uwp/monetize/enable-consumable-add-on-purchases)」をご覧ください。
+コンシューマブルを作成する際は、追跡方法として、それらの項目が_開発者による管理_か_ストアによる管理_か (この機能は Windows 10、バージョン 1607 以降で使用可能) を決定してください。 開発者によって管理された使用量によって、ゲーマーの項目の残高を追跡する責任があります。ストアで管理された使用量がある場合、Microsoft Store は項目の残高を追跡します。 詳しくは、「[コンシューマブルなアドオン購入の有効化](https://docs.microsoft.com/windows/uwp/monetize/enable-consumable-add-on-purchases)」をご覧ください。
 
 ### <a name="create-in-game-purchases"></a>ゲーム内購入の作成
 
@@ -77,7 +77,7 @@ Microsoft Store を使用すると、世界中の200の国や地域でゲーム�
 (完成したゲームを既にストアに公開している場合は、最初の 3 つのステップをスキップして、「[ストアでのアドオンの作成](#create-an-add-on-in-the-store)」に進むことができます)。
 
 開発中のゲームに対してアドオンを作成するには、次の手順を実行します。
-1. [パッケージを作成する](#create-a-package)
+1. [パッケージの作成](#create-a-package)
 2. [ゲームを非表示として公開する](#publish-the-game-as-hidden)
 3. [Visual Studio のゲームソリューションをストアに関連付ける](#associate-your-game-solution-with-the-store)
 4. [ストアにアドオンを作成する](#create-an-add-on-in-the-store)
@@ -103,7 +103,7 @@ Microsoft Store を使用すると、世界中の200の国や地域でゲーム�
 3. __[アプリの概要]__ ページで、 __[提出を開始する]__ をクリックします。
 4. この新しい申請を構成します。 [申請] ページで、次の手順を実行します。
     * __[価格と使用可能状況]__ をクリックします。 [__可視性__] セクションで、[__このアプリを非表示にして取得を禁止__する] を選択し、開発チームだけがゲームにアクセスできるようにします。 詳しくは、「[分布と認知度](https://docs.microsoft.com/windows/uwp/publish/set-app-pricing-and-availability)」をご覧ください。
-    * [__プロパティ__] を選択します。 __[カテゴリとサブカテゴリ]__ セクションで __[ゲーム]__ を選択し、ゲームに適したサブカテゴリを選びます。
+    * [ __プロパティ__] を選択します。 __[カテゴリとサブカテゴリ]__ セクションで __[ゲーム]__ を選択し、ゲームに適したサブカテゴリを選びます。
     * __[年齢区分]__ をクリックします。 質問表に正確に入力します。
     * __[パッケージ]__ をクリックします。 前の手順で作成したゲーム パッケージをアップロードします。
 5. ダッシュボードに表示されるその他の申請プロンプトに従って、このゲームを一般のユーザーに対して非表示にしたまま、正常に公開します。
@@ -206,10 +206,10 @@ Smaato では、UWP アプリと UWP ゲームにバナー広告を組み込む�
 AdDuplex を使うと、ゲームにバナー広告やスポット広告を実装できます。
 
 Windows 10 XAML プロジェクトに直接 AdDuplex を統合する方法について詳しくは、次の AdDuplex の Web サイトにアクセスしてください。
-* バナー広告: [Windows 10 SDK for XAML](https://adduplex.zendesk.com/hc/en-us/articles/204849031-Windows-10-SDK-for-XAML-apps-installation-and-usage)
-* スポット広告: [Windows 10 XAML AdDuplex Interstitial Ad Installation and Usage (Windows 10 XAML AdDuplex のスポット広告のインストールと使用)](https://adduplex.zendesk.com/hc/en-us/articles/204849091-Windows-10-XAML-AdDuplex-Interstitial-Ad-Installation-and-Usage)
+* バナー広告: [Windows 10 SDK for XAML](https://adduplex.zendesk.com/hc/articles/204849031-Windows-10-SDK-for-XAML-apps-installation-and-usage)
+* スポット広告: [Windows 10 XAML AdDuplex Interstitial Ad Installation and Usage (Windows 10 XAML AdDuplex のスポット広告のインストールと使用)](https://adduplex.zendesk.com/hc/articles/204849091-Windows-10-XAML-AdDuplex-Interstitial-Ad-Installation-and-Usage)
 
-Unity を使って作成された Windows 10 UWP ゲームに AdDuplex SDK を統合する方法については、「[Windows 10 SDK for Unity apps installation and usage (Windows 10 SDK for Unity アプリのインストールと使用)](https://adduplex.zendesk.com/hc/en-us/articles/207279435-Windows-10-SDK-for-Unity-apps-installation-and-usage)」をご覧ください。
+Unity を使って作成された Windows 10 UWP ゲームに AdDuplex SDK を統合する方法については、「[Windows 10 SDK for Unity apps installation and usage (Windows 10 SDK for Unity アプリのインストールと使用)](https://adduplex.zendesk.com/hc/articles/207279435-Windows-10-SDK-for-Unity-apps-installation-and-usage)」をご覧ください。
 
 ## <a name="maximize-your-games-potential-through-ad-campaigns"></a>広告キャンペーンによってゲームの可能性を最大限に広げる
 
