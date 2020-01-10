@@ -6,12 +6,12 @@ ms.date: 06/20/2018
 ms.topic: article
 keywords: Windows 10, UWP, 広告, 宣伝, バナー, 広告コントロール, スポット広告
 ms.localizationpriority: medium
-ms.openlocfilehash: 1c12d64bde6b16774b9090f7122f3933e0129ddc
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: 48aacf03d6e424b7b53052e2c292d4a8589a8d9f
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74260330"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75684572"
 ---
 # <a name="display-ads-in-your-app-with-the-microsoft-advertising-sdk"></a>Microsoft Advertising SDK を使用したアプリでの広告の表示
 
@@ -31,7 +31,7 @@ Microsoft Advertising SDK を使用して、Windows 10 用ユニバーサル Win
 <tbody>
 <tr>
 <td align="left"><img src="images/install-sdk.png" alt="Install SDK icon" /></td>
-<td align="left"><b>作業の開始</b><br/><br/>
+<td align="left"><b>開始する</b><br/><br/>
     <a href="https://marketplace.visualstudio.com/items?itemName=AdMediator.MicrosoftAdvertisingSDK">MICROSOFT ADVERTISING SDK
  をインストールする</a></td>
 <td align="left"><img src="images/write-code.png" alt="Develop icon" /></td>
@@ -110,14 +110,14 @@ Microsoft Advertising SDK の使用に関するその他のヘルプについて
 
 |  タスク    | リソース |               
 |----------|-------|
-| 広告のバグを報告したり個別のサポートを受けたりする     | [サポート ページ](https://developer.microsoft.com/en-us/windows/support)にアクセスし、 **[アプリ内広告]** を選択します。        |
+| 広告のバグを報告したり個別のサポートを受けたりする     | [サポート ページ](https://developer.microsoft.com/windows/support)にアクセスし、 **[アプリ内広告]** を選択します。        |
 | コミュニティ サポートを受ける     | [フォーラム](https://go.microsoft.com/fwlink/?LinkID=401264)をご覧ください。       |
 | バナーやスポット広告をアプリに追加する方法を説明するサンプル プロジェクトをダウンロードします。     | 「[GitHub の広告サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Advertising)」をご覧ください。       |
 | Windows アプリの最新の収益機会について学ぶ     | 「[アプリの収益の獲得](https://developer.microsoft.com/store/monetize)」をご覧ください。        |
 
 ## <a name="windows-81-and-windows-phone-8x-apps"></a>Windows 8.1 と Windows Phone 8.x のアプリ
 
-Windows 8.1 および Windows Phone 8.x 用のアプリについては、[Windows および Windows Phone 8.x 用の Microsoft Advertising SDK](https://marketplace.visualstudio.com/items?itemName=AdMediator.MicrosoftAdvertisingSDKforWindowsandWindowsPhone8x) を提供しています。 Windows 8.1 または Windows Phone 8.x アプリでこの SDK を使用して広告を表示する方法について詳しくは、[この記事](https://docs.microsoft.com/en-us/previous-versions/windows/apps/dn792120(v=win.10))をご覧ください。
+Windows 8.1 および Windows Phone 8.x 用のアプリについては、[Windows および Windows Phone 8.x 用の Microsoft Advertising SDK](https://marketplace.visualstudio.com/items?itemName=AdMediator.MicrosoftAdvertisingSDKforWindowsandWindowsPhone8x) を提供しています。 Windows 8.1 または Windows Phone 8.x アプリでこの SDK を使用して広告を表示する方法について詳しくは、[この記事](https://docs.microsoft.com/previous-versions/windows/apps/dn792120(v=win.10))をご覧ください。
 
 ## <a name="related-topics"></a>関連トピック
 

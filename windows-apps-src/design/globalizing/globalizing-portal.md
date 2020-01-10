@@ -9,12 +9,12 @@ ms.date: 12/07/2018
 ms.topic: article
 keywords: Windows 10, UWP, グローバリゼーション, ローカライズの可否, ローカライズ
 ms.localizationpriority: medium
-ms.openlocfilehash: 8c2d05c87f4f7b6164afe1fcbcb62323eef3bdf1
-ms.sourcegitcommit: 5f80bfc3ba04ad0a0853f83917d6a0ef3da24fa3
+ms.openlocfilehash: d180621736e79daec91a11a6932e80633962d6c7
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72302252"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75684520"
 ---
 # <a name="globalization-and-localization"></a>グローバリゼーションとローカライズ
 
@@ -38,7 +38,7 @@ Windows は世界中で利用されており、言語、地域、文化の異な
 - 並べ替え規則
 
 >[!NOTE]
-> Windows オペレーティングシステムのバージョン別のサポートされているロケール名の一覧については、「[付録 a:](https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-lcid/a9eac961-e77d-41a6-90a5-ce1a8b0cdb9c) [Windows 言語コード識別子 (LCID) リファレンス](https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-lcid/70feba9f-294e-491e-b6eb-56532684c37f)」の表の「言語タグ」列を参照してください。
+> Windows オペレーティングシステムのバージョン別のサポートされているロケール名の一覧については、「[付録 a:](https://docs.microsoft.com/openspecs/windows_protocols/ms-lcid/a9eac961-e77d-41a6-90a5-ce1a8b0cdb9c) [Windows 言語コード識別子 (LCID) リファレンス](https://docs.microsoft.com/openspecs/windows_protocols/ms-lcid/70feba9f-294e-491e-b6eb-56532684c37f)」の表の「言語タグ」列を参照してください。
 
 **ローカライズの可否**は、ローカライズ用にグローバル化したアプリを準備し、そのアプリがローカライズできる状態であることを検証するプロセスです。 適切にアプリをローカライズ可能にすることは、後続のローカライズ プロセスでアプリの機能上の欠陥が発生しないことを意味します。 ローカライズ可能なアプリの最も重要な特性は、その実行可能コードが、アプリのローカライズ可能なリソースから明確に区別されていることです。
 
@@ -55,14 +55,14 @@ Windows は世界中で利用されており、言語、地域、文化の異な
 
 ほとんどのローカライズ チームは、プロセスを支援するために特別なツールを使用します。 たとえば、繰り返し出現する文字列の翻訳を再使用します。
 
-| 記事 | 説明 |
+| アーティクル | 説明 |
 |---------|-------------|
 | [グローバリゼーションのガイドライン](guidelines-and-checklist-for-globalizing-your-app.md) | 言語とカルチャの構成が異なるシステムで適切に機能するようにアプリを設計して開発します。 |
 | [ユーザープロファイルの言語とアプリマニフェストの言語について](manage-language-and-region.md) | このトピックでは、"ユーザー プロファイルの言語の一覧"、"アプリ マニフェストの言語の一覧"、"アプリの実行時の言語の一覧" という用語を定義します。 これらの用語は、この機能領域のこのトピックおよびその他のトピックで使用しますので、意味を把握しておくことが重要です。 |
 | [日付/時刻/数値形式をグローバライズする](use-global-ready-formats.md) | 日付、時刻、数値、電話番号、通貨を適切に書式設定することで、グローバル対応のアプリを設計します。 これを行うと、後でアプリを世界市場の他のカルチャ、地域、言語に適応させることができます。 |
 | [テンプレートとパターンを使用して日付と時刻の書式を設定する](use-patterns-to-format-dates-and-times.md) | [  **Windows.Globalization.DateTimeFormatting**](/uwp/api/windows.globalization.datetimeformatting?branch=live) 名前空間のクラスでカスタムのテンプレートとパターンを使うと、日付と時刻を好みの形式で表示できます。 |
 | [レイアウトやフォントの調整と RTL のサポート](adjust-layout-and-fonts--and-support-rtl.md) | RTL (右から左) のテキストの方向を含め、複数の言語のレイアウトやフォントをサポートするアプリを設計します。 |
-| [NumeralSystem の値](glob-numeralsystem-values.md) | ここでは、Windows.Globalization[**名前空間のさまざまなクラスの**NumeralSystem](/uwp/api/windows.globalization?branch=live) プロパティに使用できる値を示します。 |
+| [NumeralSystem の値](glob-numeralsystem-values.md) | ここでは、[**Windows.Globalization**](/uwp/api/windows.globalization?branch=live) 名前空間のさまざまなクラスの **NumeralSystem** プロパティに使用できる値を示します。 |
 | [アプリをローカライズ可能にする](prepare-your-app-for-localization.md) | ローカライズされたアプリは、アプリで機能上の欠陥を生じさせることなく他の市場、言語、または地域にローカライズできるアプリです。 ローカライズ可能なアプリの最も重要な特性は、その実行可能コードが、アプリのローカライズ可能なリソースから明確に区別されていることです。 |
 | [国際対応フォント](loc-international-fonts.md) | このトピックでは、米国英語以外の言語にローカライズされる UWP アプリで使用できるフォントの一覧を示します。 |
 | [双方向テキスト用にアプリを設計する](design-for-bidi-text.md) | 左から右方向および右から左方向の書記体系のスクリプトを組み合わせることができるように、双方向テキスト サポート (BiDi) を備えたアプリを設計します。 |

@@ -4,20 +4,20 @@ title: ドラッグ アンド ドロップ
 ms.assetid: A15ED2F5-1649-4601-A761-0F6C707A8B7E
 ms.date: 02/08/2017
 ms.topic: article
-keywords: windows 10, uwp
+keywords: Windows 10, UWP
 ms.localizationpriority: medium
-ms.openlocfilehash: 60d713efd9deeffa0856a5d1dbc92688c229288e
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: fec8ef45cff07d7a092fd46bd2d960bfcaf0c50a
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66363578"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75684509"
 ---
 # <a name="drag-and-drop"></a>ドラッグ アンド ドロップ
 
 ドラッグ アンド ドロップは、Windows デスクトップでアプリケーション内またはアプリケーション間でデータを転送するための直感的な方法です。 ドラッグ アンド ドロップを利用すると、ユーザーは、標準ジェスチャ (指で押したままパン、またはマウスやスタイラスでボタンを押したままパン) 使ってアプリケーション間やアプリケーション内でデータを転送できます。
 
-> **重要な API**:[CanDrag プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.candrag)、 [AllowDrop プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.allowdrop) 
+> **重要な API**: [CanDrag プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.candrag)、[AllowDrop プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.allowdrop) 
 
 ドラッグ ソース (ドラッグ ジェスチャがトリガーされたアプリケーションや領域) は、標準的なデータ形式 (テキスト、RTF、HTML、ビットマップ、ストレージ項目) やカスタム データ形式を含むことができるデータ パッケージ オブジェクトに入力することによって、転送されるデータを提供します。 ソースは、ソースがサポートする操作の種類 (コピー、移動、リンク) も示します。 ポインターが離されたときにドロップが発生します。 ドロップ ターゲット (ポインターの下にあるアプリケーションや領域) は、データ パッケージを処理し、実行される操作の種類を返します。
 
@@ -51,7 +51,7 @@ UI をカスタマイズする場合 (この記事の後半で説明します) �
 
 ほとんどの場合、システムによってデータ パッケージが自動的に作成されます。 システムでは、次のコンテンツが自動的に処理されます。
 * 画像
-* Text 
+* テキスト 
 
 他のコンテンツについては、**DragStarted** イベントと **DragCompleted** イベントを手動で処理し、これらを使って独自の [DataPackage](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.datapackage) を作成する必要があります。
 
@@ -98,25 +98,25 @@ UI をカスタマイズする場合 (この記事の後半で説明します) �
 
 ## <a name="implementing-custom-drag-and-drop"></a>カスタムのドラッグ アンド ドロップを実装する
 
-[UIElement](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement) クラスは、ドラッグ アンド ドロップを実装するためのほとんどの処理を自動的に実行します。 Api を使用して、独自のバージョンを実装する場合は、ことができますが、 [Windows.ApplicationModel.DataTransfer.DragDrop.Core 名前空間](https://docs.microsoft.com/en-us/uwp/api/windows.applicationmodel.datatransfer.dragdrop.core)します。
+[UIElement](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement) クラスは、ドラッグ アンド ドロップを実装するためのほとんどの処理を自動的に実行します。 ただし、必要に応じて、 [DataTransfer 名前空間](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.dragdrop.core)の api を使用して独自のバージョンを実装することもできます。
 
 | 機能 | WinRT API |
 | --- | --- |
 |  ドラッグを有効にする | [CoreDragOperation](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.dragdrop.core.coredragoperation)  |
 |  データ パッケージを作成する | [DataPackage](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.datapackage)  |
-| ドラッグをシェルに渡す  | [CoreDragOperation.StartAsync](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.dragdrop.core.coredragoperation)  |
+| ドラッグをシェルに渡す  | [CoreDragOperation](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.dragdrop.core.coredragoperation)  |
 | シェルからドロップを受け取る  | [CoreDragDropManager](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.dragdrop.core.coredragdropmanager)<br/>[ICoreDropOperationTarget](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.dragdrop.core.icoredropoperationtarget)    |
 
 
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>「
 
 * [アプリ間通信](index.md)
-* [AllowDrop](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.allowdrop)
+* [System.windows.uielement.allowdrop](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.allowdrop)
 * [CanDrag](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.candrag)
-* [DragOver](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.dragover)
+* [System.windows.dragdrop.dragover>](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.dragover)
 * [AcceptedOperation](https://docs.microsoft.com/uwp/api/windows.ui.xaml.drageventargs.acceptedoperation)
 * [DataView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.drageventargs.dataview)
 * [DragUIOverride](https://docs.microsoft.com/uwp/api/windows.ui.xaml.drageventargs.draguioverride)
-* [ドロップ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.drop)
+* [破棄](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.drop)
 * [IsDragSource](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase.isdragsource)

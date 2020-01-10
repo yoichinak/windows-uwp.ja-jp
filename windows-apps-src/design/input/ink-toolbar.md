@@ -1,5 +1,5 @@
 ---
-Description: 既定の InkToolbar をユニバーサル Windows プラットフォーム (UWP) 手描き入力アプリに追加し、カスタム ペン ボタンを InkToolbar に追加して、カスタム ペン ボタンをカスタム ペン定義にバインドします。
+Description: 既定の InkToolbar をユニバーサル Windows プラットフォーム (UWP) 手書き入力アプリに追加し、カスタム ペン ボタンを InkToolbar に追加して、カスタム ペン ボタンをカスタム ペン定義にバインドします。
 title: InkToolbar をユニバーサル Windows プラットフォーム (UWP) アプリに追加する
 label: Add an InkToolbar to a Universal Windows Platform (UWP) app
 template: detail.hbs
@@ -8,12 +8,12 @@ ms.date: 02/08/2017
 ms.topic: article
 ms.assetid: d888f75f-c2a0-4134-81db-907b5e24fcc5
 ms.localizationpriority: medium
-ms.openlocfilehash: 8ae67e5d4d6da3cc9716c5f0efd276023bae9af0
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: 48fea83560655b02909b302225f44fa3e9713f00
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74258380"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75684492"
 ---
 # <a name="add-an-inktoolbar-to-a-universal-windows-platform-uwp-app"></a>InkToolbar をユニバーサル Windows プラットフォーム (UWP) アプリに追加する
 
@@ -87,7 +87,7 @@ InkCanvas は、完全に透明なオーバーレイであるため、インク 
 
 ツール バーの [VerticalAlignment](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.VerticalAlignment)、[HorizontalAlignment](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.HorizontalAlignment)、[Orientation](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar?branch=rs3.Orientation) の各プロパティを使用して、ツール バーの位置と向きを明示的に指定します。
 
-| Default | 明示的に指定 |
+| 既定 | 明示的に指定 |
 | --- | --- |
 | ![インク ツール バーの既定の位置と向き](./images/ink/location-default-small.png) | ![明示的に指定したインク ツール バーの位置と向き](./images/ink/location-explicit-small.png) |
 | *Windows Ink ツールバーの既定の場所と向き* | *Windows Ink ツールバーの明示的な位置と向き* |
@@ -172,7 +172,7 @@ public MainPage()
 
     1. 2 つのブール型プロパティを InkToolbarSnippetHostViewModel クラスに追加します。これらのプロパティは、**LeftHandedLayout** (前の XAML のみの例と同じ機能があります)、および **PortraitLayout** (デバイスの向き) です。
         >[!NOTE] 
-        > PortraitLayout プロパティは設定可能なプロパティであり、[PropertyChanged](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.data.inotifypropertychanged.PropertyChanged) イベントの定義を含んでいます。
+        > PortraitLayout プロパティは設定可能なプロパティであり、[PropertyChanged](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.inotifypropertychanged.PropertyChanged) イベントの定義を含んでいます。
 
         ```csharp
         public bool LeftHandedLayout
@@ -214,7 +214,7 @@ public MainPage()
     1. 2 つの新しいクラスを Converters フォルダーに追加します (この例では、これらのクラスは **HorizontalAlignmentFromHandednessConverter.cs** および **VerticalAlignmentFromAppViewConverter.cs** という名前です)。
     1. `using Windows.UI.Xaml` 名前空間と `using Windows.UI.Xaml.Data` 名前空間を各ファイルに追加します。
     1. 各クラスを `public` に変更し、[IValueConverter](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.ivalueconverter) インターフェイスを実装するように指定します。
-    1. 次に示すように、[Convert](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.data.ivalueconverter.convert) メソッドと [ConvertBack](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.data.ivalueconverter.convertback) メソッドを各ファイルに追加します (ConvertBack メソッドは実装されない状態のままにしてあります)。
+    1. 次に示すように、[Convert](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.ivalueconverter.convert) メソッドと [ConvertBack](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.ivalueconverter.convertback) メソッドを各ファイルに追加します (ConvertBack メソッドは実装されない状態のままにしてあります)。
         - HorizontalAlignmentFromHandednessConverter によって、右利きのユーザーに対してはアプリの右側にインク ツール バーが配置され、左利きのユーザーに対してはアプリの左側に配置されます。
         ```csharp
         using System;
@@ -413,7 +413,7 @@ public MainPage()
 ここでは、(ボールペンではなく) 鉛筆ボタンが選択され、鉛筆がアクティブになるように、既定のツール バーを初期化します。
 
 1. 前の例から、InkCanvas と InkToolbar の XAML 宣言を使用します。
-2. コード ビハインドで、[InkToolbar](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.loaded) オブジェクトの [Loaded](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar) イベントのハンドラーを設定します。
+2. コード ビハインドで、[InkToolbar](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar) オブジェクトの [Loaded](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.loaded) イベントのハンドラーを設定します。
 
   ```csharp
   /// <summary>
@@ -431,7 +431,7 @@ public MainPage()
 3. [Loaded](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.loaded) イベントのハンドラーで次の処理を行います。
     1. 組み込みの [InkToolbarPencilButton](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbarpencilbutton) への参照を取得します。
 
-    [GetToolButton](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbartool) メソッドで [InkToolbarTool.Pencil](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar.gettoolbutton) オブジェクトを渡すことで、[InkToolbarPencilButton](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbartoolbutton) の [InkToolbarToolButton](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbarpencilbutton) オブジェクトが返されます。
+    [GetToolButton](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar.gettoolbutton) メソッドで [InkToolbarTool.Pencil](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbartool) オブジェクトを渡すことで、[InkToolbarPencilButton](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbarpencilbutton) の [InkToolbarToolButton](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbartoolbutton) オブジェクトが返されます。
 
     2. 前の手順で返されたオブジェクトに [ActiveTool](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar.activetool) を設定します。
 
@@ -534,7 +534,7 @@ private void inkToolbar_Loaded(object sender, RoutedEventArgs e)
   </Grid>
   ```
 
-2. コード ビハインドで、[InkToolbar](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.loading) オブジェクトの [Loading](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar) イベントのハンドラーを設定します。
+2. コード ビハインドで、[InkToolbar](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar) オブジェクトの [Loading](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.loading) イベントのハンドラーを設定します。
 
   ```csharp
   /// <summary>
@@ -734,7 +734,7 @@ class CalligraphicPen : InkToolbarCustomPen
 アプリが起動すると、ペンによる手書き入力のみがサポートされ、タッチは手書き入力の入力面をパンまたはズームするために使用されます。 タッチによる手書き入力が有効化されていると、手書き入力の入力面をタッチ入力でパンまたはズームすることはできません。
 
 > [!NOTE]
-> [  ](../controls-and-patterns/inking-controls.md)InkCanvas[**および**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas)InkToolbar[ **の UX ガイドラインは、「** インク コントロール](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkToolbar)」をご覧ください。 次の推奨事項は、この例に関連したものです。
+> [  **InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) および [**InkToolbar**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkToolbar) の UX ガイドラインは、「[インク コントロール](../controls-and-patterns/inking-controls.md)」をご覧ください。 次の推奨事項は、この例に関連したものです。
 > - [  **InkToolbar**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkToolbar) と手書き入力全般は、アクティブなペンを通じて最適なエクスペリエンスを実現します。 ただし、アプリで必要な場合は、マウスやタッチによる手書き入力をサポートできます。 
 > - タッチ入力による手書き入力をサポートする場合、トグル ボタンに "Segoe MLD2 アセット" フォントの "ED5F" アイコンを使うと共に、"タッチによる手書き" というヒントを表示することをお勧めします。 
 

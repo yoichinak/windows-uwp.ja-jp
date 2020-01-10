@@ -6,16 +6,16 @@ ms.topic: article
 keywords: windows 10、uwp、接続されているデバイス、リモートシステム、ローマ、プロジェクトローマ
 ms.assetid: 7f39d080-1fff-478c-8c51-526472c1326a
 ms.localizationpriority: medium
-ms.openlocfilehash: b989f5c115ef5c8555f8cb48ac43f2d50a9d830c
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: 742ef56165ea26df3a03d54e99a17d2a00908cb6
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74260518"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75684454"
 ---
 # <a name="connected-apps-and-devices-project-rome"></a>接続されるアプリやデバイス ("Rome" プロジェクト)
 
-このセクションでは、[プロジェクトローマ](https://developer.microsoft.com/en-us/windows/project-rome)を使用してデバイスとプラットフォームの間でアプリを接続する方法について説明します。 クロスプラットフォームシナリオでプロジェクトローマを実装する方法については、[プロジェクトローマのメインドキュメントページ](https://docs.microsoft.com/en-us/windows/project-rome/)を参照してください。
+このセクションでは、[プロジェクトローマ](https://developer.microsoft.com/windows/project-rome)を使用してデバイスとプラットフォームの間でアプリを接続する方法について説明します。 クロスプラットフォームシナリオでプロジェクトローマを実装する方法については、[プロジェクトローマのメインドキュメントページ](https://docs.microsoft.com/windows/project-rome/)を参照してください。
 
 ほとんどのユーザーは複数のデバイスを持っており、あるデバイスでアクティビティを始めてデバイスで終えることがよくあります。 これに対応するため、アプリはデバイスとプラットフォームにまたがる必要があります。 Project ローマでは、リモートデバイスの検出、リモートデバイスでのアプリの起動、リモートデバイスでの app service との通信を行うことができます。
 

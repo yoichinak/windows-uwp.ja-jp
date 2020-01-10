@@ -8,19 +8,16 @@ ms.topic: article
 keywords: Node.js、windows 10、ネイティブウィンドウ、windows 上で直接
 ms.localizationpriority: medium
 ms.date: 09/19/2019
-ms.openlocfilehash: 18a8d07f790c391a6e10577ff512347106e1cf21
-ms.sourcegitcommit: 60d2d15dd0d365f82e4e90e4bc34b40cf5b4a247
+ms.openlocfilehash: 456aac17f61ab0add3d35a48c74e151fa15e9e83
+ms.sourcegitcommit: 8efeb6672f759b1ea7e3e9e2f90e764480791142
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72517827"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75728473"
 ---
 # <a name="set-up-your-nodejs-development-environment-directly-on-windows"></a>Node.js 開発環境を Windows 上に直接セットアップする
 
 ネイティブ Windows 開発環境で node.js の使用を開始するためのステップバイステップガイドを次に示します。
-
-> [!NOTE]
-> Windows での node.js の使用は確かに有効なオプションですが、通常は、node.js web アプリを開発するために Windows Subsystem for Linux (WSL) を使用することをお勧めします。 多くの node.js パッケージとフレームワークは * nix 環境を念頭に置いて作成されており、ほとんどの node.js アプリは Linux にデプロイされているため、WSL での開発では、開発環境と運用環境の間の一貫性が確保されます。 WSL dev 環境を設定するには、「 [wsl 2 を使用して node.js 開発環境を設定](./setup-on-wsl2.md)する」を参照してください。
 
 ## <a name="install-nvm-windows-nodejs-and-npm"></a>Nvm (windows、node.js、nvm) をインストールします。
 
@@ -41,7 +38,7 @@ Node.js をインストールするには、複数の方法があります。 �
     ![ノードバージョンが表示されていない NVM リスト](../images/windows-nvm-powershell-no-node.png)
 
 6. Node.js の現在のリリースをインストールします (最新の機能の改善をテストするために、LTS バージョンよりも問題が発生する可能性が高く `nvm install latest` なります)。
-7. Node.js の最新の安定した LTS リリース (推奨) をインストールします。最初に現在の LTS バージョン番号を参照してください `nvm list available`。そのためには、次のようにして、LTS バージョン番号を: `nvm install <version>` でインストールします (`<version>` を数字に置き換えます。 ie: `nvm install 10.16.3`)。
+7. Node.js の最新の安定した LTS リリース (推奨) をインストールします。最初に現在の LTS バージョン番号を参照してください `nvm list available`。そのためには、次のようにして、LTS バージョン番号を: `nvm install <version>` でインストールします (`<version>` を数字に置き換えます。 ie: `nvm install 12.14.0`)。
 
     ![使用可能なバージョンの NVM リスト](../images/windows-nvm-list.png)
 
@@ -58,13 +55,13 @@ Node.js をインストールするには、複数の方法があります。 �
 Windows-nvm は現在最も人気のあるノードのバージョンマネージャーですが、次の点を考慮することをお勧めします。
 
 - [nvs](https://github.com/jasongin/nvs) (ノードバージョンスイッチャー) は、 [VS Code と統合](https://github.com/jasongin/nvs/blob/master/doc/VSCODE.md)できる、クロスプラットフォームの `nvm` 代替です。
-- 
+
 - [Volta](https://github.com/volta-cli/volta#installing-volta)は、より高速でクロスプラットフォームのサポートを要求する LinkedIn チームの新しいバージョンマネージャーです。
 
 (Windows-nvm ではなく) バージョンマネージャーとして Volta をインストールするには、[はじめにガイド](https://docs.volta.sh/guide/getting-started)の「 **windows インストール**」セクションにアクセスし、windows インストーラーをダウンロードして実行します。セットアップの手順に従ってください。
 
 > [!IMPORTANT]
-> Volta をインストールする前に、Windows コンピューターで[開発者モード](https://docs.microsoft.com/en-us/windows/uwp/get-started/enable-your-device-for-development#accessing-settings-for-developers)が有効になっていることを確認する必要があります。
+> Volta をインストールする前に、Windows コンピューターで[開発者モード](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development#accessing-settings-for-developers)が有効になっていることを確認する必要があります。
 
 Volta を使用して Windows に複数のバージョンの node.js をインストールする方法の詳細については、 [Volta のドキュメント](https://docs.volta.sh/guide/understanding#managing-your-toolchain)を参照してください。
 
@@ -82,16 +79,23 @@ Node.js 拡張パックをインストールするには:
 
 - [Chrome のデバッガー](https://code.visualstudio.com/blogs/2016/02/23/introducing-chrome-debugger-for-vs-code): node.js を使用してサーバー側で開発を完了すると、クライアント側を開発してテストする必要があります。 この拡張機能により、VS Code エディターと Chrome ブラウザーのデバッグサービスが統合され、さらに効率的になります。
 - [他のエディターからの Keymaps](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Downloads): これらの拡張機能は、別のテキストエディター (Atom、Sublime、Vim、EMacs、メモ帳 + + など) から移行している場合に、環境を自宅で使用しやすくするために役立ちます。
-- [設定の同期](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync): GitHub を使用して、複数のインストール間で VS Code 設定を同期できます。 別のコンピューターで作業している場合は、これによって環境の整合性を保つことができます。
+- [設定の同期](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync): GitHub を使用して、複数のインストール間で VS Code 設定を同期できます。 複数のコンピューターで作業する場合、この機能によってコンピューター間で環境の一貫性を保つことができます。
 
 ## <a name="install-git-optional"></a>Git のインストール (省略可能)
 
-他のユーザーと共同作業を行う場合、または (GitHub などの) オープンソースサイトでプロジェクトをホストする場合、VS Code は[Git を使用したバージョン管理](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)をサポートします。 VS Code の [ソース管理] タブでは、すべての変更が追跡され、UI には一般的な Git コマンド (add、commit、push、pull) が組み込まれています。 最初に Git をインストールして、ソース管理パネルを電源にする必要があります。
+他のユーザーと共同作業を行う場合、または (GitHub などの) オープンソースサイトでプロジェクトをホストする場合、VS Code は[Git を使用したバージョン管理](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)をサポートします。 VS Code の [ソース管理] タブでは、すべての変更が追跡され、一般的な Git コマンド (追加、コミット、プッシュ、プル) が UI に組み込まれています。 ソース管理パネルを使用するには、まず Git をインストールする必要があります。
 
-1. Git [-scm web サイト](https://git-scm.com/download/win)から Git for Windows をダウンロードしてインストールします。
+1. Windows 用の Git を [git-scm Web サイト](https://git-scm.com/download/win)からダウンロードしてインストールします。
 
-2. インストールウィザードには、Git インストールの設定に関する一連の質問が記載されています。 何らかの変更に特に理由がない限り、すべての既定の設定を使用することをお勧めします。
+2. インストール ウィザードで、Git インストールの設定に関する一連の質問に答えます。 何かを変更する特別な理由がない限り、すべて既定の設定を使用することをお勧めします。
 
-3. 前に Git を使用したことがない場合は、 [GitHub のガイド](https://guides.github.com/)を参考にしてください。
+3. 以前に Git を使用したことがない場合、入門用の [GitHub ガイド](https://guides.github.com/)が役に立ちます。
 
 4. ノードプロジェクトには、ファイルを追加することをお勧めし[ます](https://help.github.com/en/articles/ignoring-files)。 [Node.js の GitHub の既定のテンプレート](https://github.com/github/gitignore/blob/master/Node.gitignore)は次のとおりです。
+
+## <a name="use-windows-subsystem-for-linux-for-production"></a>Windows Subsystem for Linux を運用環境で使用する
+
+Windows での node.js の直接使用は、実行できることを学習して試してみるのに最適です。 通常は Linux ベースのサーバーにデプロイされる実稼働対応の web アプリを作成する準備ができたら、node.js web アプリの開発用に Windows Subsystem for Linux version 2 (WSL 2) を使用することをお勧めします。 多くの node.js パッケージとフレームワークは * nix 環境を念頭に置いて作成されており、ほとんどの node.js アプリは Linux にデプロイされているため、WSL での開発では、開発環境と運用環境の間の一貫性が確保されます。 WSL dev 環境を設定するには、「 [wsl 2 を使用して node.js 開発環境を設定](./setup-on-wsl2.md)する」を参照してください。
+
+> [!NOTE]
+> Windows server で node.js アプリをホストする必要がある (まれな) 状況では、最も一般的なシナリオは[リバースプロキシを使用して](https://medium.com/intrinsic/why-should-i-use-a-reverse-proxy-if-node-js-is-production-ready-5a079408b2ca)いるように見えます。 これを行うには、2つの方法があります。 1) [iisnode](https://harveywilliams.net/blog/installing-iisnode)またはを[直接](https://dev.to/petereysermans/hosting-a-node-js-application-on-windows-with-iis-as-reverse-proxy-397b)使用します。 これらのリソースは維持されず、 [Linux サーバーを使用して node.js アプリをホストする](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs)ことをお勧めします。

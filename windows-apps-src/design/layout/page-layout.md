@@ -1,71 +1,71 @@
 ---
-title: UWP アプリのページ レイアウト
-description: アプリを設計するときに最初に検討することは、レイアウト構造です。 この記事では、基本的なページ レイアウト、UI 要素を含む必要があります、およびページが出るの一般的な構造について説明します。 各ページで UWP アプリでは、ナビゲーション、コマンド、およびコンテンツの要素が通常持っています。
+title: UWP アプリのページレイアウト
+description: アプリを設計する場合、最初に考慮すべきことは、レイアウト構造です。 この記事では、基本的なページレイアウトの一般的な構造について説明します。これには、必要な UI 要素や、ページをどこに配置する必要があるかなどが含まれます。 UWP アプリでは、各ページには通常、ナビゲーション、コマンド、およびコンテンツ要素があります。
 ms.date: 03/19/2018
 ms.topic: article
-keywords: windows 10, uwp
+keywords: Windows 10, UWP
 localizationpriority: medium
-ms.openlocfilehash: edda9948e70b1757ddb46fae45a579bb2fdb8de1
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 7333cebc945715412e3ff1140ca26e1ed5368704
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57633717"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75684545"
 ---
 # <a name="page-layout"></a>ページのレイアウト
 
-UWP アプリで各[**ページ**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Page)通常、ナビゲーション、コマンド、およびコンテンツの要素が存在します。 
+UWP アプリでは、各[**ページ**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Page)には通常、ナビゲーション、コマンド、およびコンテンツ要素があります。 
 
-アプリが複数のページがあることができます: ユーザーが、UWP アプリを起動、アプリケーション コードを作成、 [**フレーム**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Frame)アプリケーションの内部に配置する[**ウィンドウ**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.window). フレームできますし、[移動](../basics/navigate-between-two-pages.md)アプリケーションの間で[**ページ**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Page)インスタンス。 
+アプリには複数のページを含めることができます。ユーザーが UWP アプリを起動すると、アプリケーションコードは、アプリケーションの[**ウィンドウ**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.window)内に配置する[**フレーム**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Frame)を作成します。 フレームは、アプリケーションの[**ページ**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Page)インスタンス間を[移動](../basics/navigate-between-two-pages.md)できます。 
 
-ほとんどのページの次の一般的なレイアウト構造体と、この記事で説明する UI 要素が必要、およびページが出る。 
+ほとんどのページは一般的なレイアウト構造に従います。この記事では、必要な UI 要素、およびページの配置場所について説明します。 
 
-![ページの構造](images/page-components.svg)
+![ページ構造](images/page-components.svg)
 
-## <a name="navigation"></a>ナビゲーション
-ユーザーがアプリでページ間で移動する方法を定義するナビゲーション モデルを選択すると、アプリのレイアウトを開始します。 この記事では、2 つの一般的なナビゲーション パターンについて説明します左のナビゲーションと上部のナビゲーション。 その他のナビゲーション オプションを選択する方法のガイダンスについては、次を参照してください。 [UWP アプリのナビゲーション設計の基本](../basics/navigation-basics.md)します。
+## <a name="navigation"></a>［ナビゲーション］
+アプリのレイアウトは、選択したナビゲーションモデルから開始します。これにより、ユーザーがアプリ内のページ間を移動する方法が定義されます。 この記事では、左ナビゲーションとトップナビゲーションの2つの一般的なナビゲーションパターンについて説明します。 他のナビゲーションオプションの選択に関するガイダンスについては、「 [UWP アプリのナビゲーションデザインの基礎](../basics/navigation-basics.md)」を参照してください。
 
-![上部と左側のナビゲーション パターン](images/top-left-nav.svg)
+![上部および左のナビゲーションパターン](images/top-left-nav.svg)
 
-### <a name="left-nav"></a>左側のナビゲーション
-左のナビゲーションで、または[ナビゲーション ウィンドウ](../controls-and-patterns/navigationview.md)パターン、一般に、アプリ レベルのナビゲーションに予約されている、つまり常にある表示および使用できる、アプリ内で最上位レベルに存在します。 左側のナビゲーションは、複数の 5 つのナビゲーション項目、または、アプリ内の 5 つ以上のページがある場合にお勧めします。 ナビゲーション ウィンドウのパターンが通常含まれています。
+### <a name="left-nav"></a>左ナビゲーション
+左ナビゲーションまたは[ナビゲーションウィンドウ](../controls-and-patterns/navigationview.md)パターンは、一般にアプリレベルのナビゲーション用に予約されており、アプリ内の最上位レベルに存在します。つまり、常に表示され、使用できる状態になります。 ナビゲーション項目が5つ以上ある場合、またはアプリに5ページを超える場合は、左ナビゲーションをお勧めします。 通常、ナビゲーションウィンドウパターンには次のものが含まれます。
 - ナビゲーション項目
-- アプリの設定へのエントリ ポイント
-- アカウントの設定へのエントリ ポイント
+- アプリ設定へのエントリポイント
+- アカウント設定のエントリポイント
 
-[NavigationView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.navigationview)コントロールは、UWP の左側のナビゲーション パターンを実装します。
+[Navigationview](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.navigationview)コントロールは、UWP の左ナビゲーションパターンを実装します。
 
-ナビゲーション項目を選択すると、フレームが選択した項目のページに移動します。
+ナビゲーション項目を選択すると、選択した項目のページに移動します。
 
-![ナビゲーション ウィンドウの展開](images/navview-expanded.svg)
+![展開されたナビゲーションウィンドウ](images/navview-expanded.svg)
 
-メニュー ボタンでは、ナビゲーション ウィンドウを閉じたりすることができます。 画面のサイズが 640 よりも大きい場合 px、メニュー ボタンをクリックすると、バーにナビゲーション ウィンドウを折りたたみます。
+メニューボタンを使用すると、ユーザーはナビゲーションウィンドウを展開したり折りたたんだりできます。 画面のサイズが 640 px を超える場合は、[メニュー] ボタンをクリックするとナビゲーションウィンドウがバーに折りたたまれます。
 
-![compact のナビゲーション ウィンドウ](images/navview-compact.svg)
+![ナビゲーションウィンドウのコンパクト](images/navview-compact.svg)
 
-画面のサイズが 640 よりも小さい場合 px、ナビゲーション ウィンドウが完全に折りたたまれています。
+画面のサイズが 640 px より小さい場合、ナビゲーションウィンドウは完全に折りたたまれています。
 
-![最小限のナビゲーション ウィンドウ](images/navview-minimal.svg)
+![ナビゲーションウィンドウの最小](images/navview-minimal.svg)
 
-### <a name="top-nav"></a>上部のナビゲーション
+### <a name="top-nav"></a>トップナビゲーション
 
-上部のナビゲーションは、最上位レベルのナビゲーションとしても機能できます。 左側のナビゲーションは、折りたたみ可能な上部のナビゲーションが常に表示します。 [NavigationView](../controls-and-patterns/navigationview.md)コントロールは、UWP の上部のナビゲーションとタブのパターンを実装します。
+トップナビゲーションは、トップレベルのナビゲーションとしても機能します。 左ナビゲーションは折りたたむことができますが、トップナビゲーションは常に表示されます。 [Navigationview](../controls-and-patterns/navigationview.md)コントロールは、UWP の上部のナビゲーションとタブのパターンを実装します。
 
 ![上部のナビゲーション](images/pivot-large.svg)
 
 ## <a name="command-bar"></a>コマンド バー
 
-次に、アプリの最も一般的なタスクに簡単にアクセスをユーザーに提供する可能性があります。 A[コマンド バー](../controls-and-patterns/app-bars.md)アプリ レベルまたはページ レベルのコマンドにアクセスできるようにし、すべてのナビゲーション パターンを持つために使用できます。
+次に、ユーザーがアプリの最も一般的なタスクに簡単にアクセスできるようにすることができます。 [コマンドバー](../controls-and-patterns/app-bars.md)は、アプリレベルまたはページレベルのコマンドへのアクセスを提供し、任意のナビゲーションパターンと共に使用できます。
 
-![上部にあるコマンド バーの配置 ](images/app-bar-desktop.svg)
+![コマンドバーの配置 (上) ](images/app-bar-desktop.svg)
 
-上部またはページの下部にあるコマンド バーを配置できるアプリのどちらかをお勧めします。
+コマンドバーは、ページの上部または下部に配置できます。いずれかのアプリに最適です。
 
-![下部にあるコマンド バーの配置](images/app-bar-mobile.svg)
+![下部のコマンドバーの配置](images/app-bar-mobile.svg)
 
 ## <a name="content"></a>コンテンツ
 
-最後に、さまざまな方法でコンテンツを表示できるように、コンテンツは、広くからアプリにアプリによって異なります。 ここでは、アプリで使用する場合がありますいくつかの一般的なページ パターンについて説明します。 多くのアプリは、これらの一般的なページ パターンの一部またはすべてを使用して、さまざまな種類のコンテンツを表示します。 同様に、自由に混在させるし、アプリを最適化するためにこれらのパターンに一致します。
+最後に、コンテンツはアプリによって大きく異なるため、さまざまな方法でコンテンツを表示できます。 ここでは、アプリで使用する可能性のある一般的なページパターンについて説明します。 多くのアプリは、これらの一般的なページ パターンの一部またはすべてを使用して、さまざまな種類のコンテンツを表示します。 同様に、これらのパターンを自由に組み合わせて、アプリに合わせて最適化することもできます。
 
 ## <a name="landing"></a>ランディング
 
@@ -83,7 +83,7 @@ UWP アプリで各[**ページ**](https://docs.microsoft.com/uwp/api/Windows.UI
 
 ![マスター/詳細](images/master-detail.svg)
 
-[マスター/詳細](../controls-and-patterns/master-details.md)モデルは、リスト ビュー (マスター) とコンテンツ ビュー (詳細) で構成されます。 両方のウィンドウは固定されていて、垂直方向にスクロールできます。 リスト ビュー内のアイテムを選択すると、コンテンツ ビューがそれに応じて更新されます。 
+[マスター/詳細](../controls-and-patterns/master-details.md)モデルは、リスト ビュー (マスター) とコンテンツ ビュー (詳細) で構成されます。 両方のウィンドウは固定されていて、垂直方向にスクロールできます。 リストビュー内の項目が選択されている場合は、それに応じてコンテンツビューが更新されます。 
 
 ## <a name="forms"></a>フォーム
 ![フォーム](images/form.svg)
@@ -91,8 +91,8 @@ UWP アプリで各[**ページ**](https://docs.microsoft.com/uwp/api/Windows.UI
 [フォーム](../controls-and-patterns/forms.md)は、ユーザーからデータを収集して送信するコントロールのグループです。 すべてではなくても、ほとんどのアプリが、設定ページ、ログイン ポータル、フィードバック Hub、アカウントの作成などのために、何らかのフォームを使用しています。 
 
 ## <a name="sample-apps"></a>サンプル アプリ
-これらのパターンを実装する方法については、チェック アウト、 [UWP サンプル アプリ](https://developer.microsoft.com/en-us/windows/samples):
-- [BuildCast ビデオ プレーヤー](https://github.com/Microsoft/BuildCast)
+これらのパターンを実装する方法については、 [UWP サンプルアプリ](https://developer.microsoft.com/windows/samples)を参照してください。
+- [BuildCast ビデオプレーヤー](https://github.com/Microsoft/BuildCast)
 - [ランチ スケジューラ](https://github.com/Microsoft/Windows-appsample-lunch-scheduler)
 - [塗り絵帳](https://github.com/Microsoft/Windows-appsample-coloringbook)
 - [顧客注文データベース](https://github.com/Microsoft/Windows-appsample-customers-orders-database)
