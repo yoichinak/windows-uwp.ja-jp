@@ -6,12 +6,12 @@ ms.date: 03/23/2018
 ms.topic: article
 keywords: 概要, windows 10, uwp, xaml, c#
 ms.localizationpriority: medium
-ms.openlocfilehash: 7439d437dda69bf235bd8681751617b2982be394
-ms.sourcegitcommit: 2d3a7d18edf2715987b26d1b5341ec88eefc99ec
+ms.openlocfilehash: 4f78bdfec6c6e06ffc542bc7741b875e952bc169
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74898523"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75684890"
 ---
 # <a name="get-started-with-windows-10-apps"></a>Windows 10 アプリの概要
 
@@ -132,7 +132,7 @@ ms.locfileid: "74898523"
                     </div>
                 </div>
                 <div class="cardText">
-                    <h3>新着情報</h3>
+                    <h3>新機能</h3>
                     <p>視野を広げて、Windows 10 に追加された最新の機能について知ることができます。</p>
                     <br>
                     <p><a href="//developer.microsoft.com/windows/windows-10-for-developers">最新バージョンの Windows 10 の優れている点</a></p>
@@ -173,7 +173,7 @@ ms.locfileid: "74898523"
                                 </div>
                             </div>
                             <div class="cardText">
-                                <h3>API リファレンス</h3>
+                                <h3>リファレンス</h3>
                             </div>
                         </div>
                     </div>
@@ -223,7 +223,7 @@ ms.locfileid: "74898523"
                 <div class="card">
                     <div class="cardText">
                         <h3>初めての開発</h3>
-                        <p><a href="//docs.microsoft.com/en-us/learn/browse/?products=windows&resource_type=module">Microsoft Learn の Windows</a></p>
+                        <p><a href="//docs.microsoft.com/learn/browse/?products=windows&resource_type=module">Microsoft Learn の Windows</a></p>
                         </div>
                     </div>
                 </div>

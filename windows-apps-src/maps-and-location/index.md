@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, 地図, 位置情報, マップ サービス
 ms.localizationpriority: medium
-ms.openlocfilehash: 6a27eeeb9aa7349e532dcd76e5b7a7176ac20c08
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: 7f39e365cd15a10f775a89cf32747b4bf0bbd87a
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74259347"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75685063"
 ---
 # <a name="maps-and-location-overview"></a>地図と位置情報の概要
 
@@ -30,12 +30,12 @@ ms.locfileid: "74259347"
 ## <a name="display-maps"></a>地図の表示
 
 
-[  **Windows.UI.Xaml.Controls.Maps**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps) 名前空間の API を使って、アプリで地図を 2D、3D、または Streetside ビューで表示できます。 プッシュピン、画像、図形、XAML UI 要素を使って、関心のあるポイント (POI) を地図に表示できます。 また、タイル画像をオーバーレイしたり、地図の画像を完全に置き換えたりすることもできます。
+[**Windows.UI.Xaml.Controls.Maps**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps) 名前空間の API を使用して、アプリで地図を 2D、3D、または Streetside ビューで表示できます。 プッシュピン、画像、図形、XAML UI 要素を使って、関心のあるポイント (POI) を地図に表示できます。 また、タイル画像をオーバーレイしたり、地図の画像を完全に置き換えたりすることもできます。
 
 | トピック | 説明 |
 |-------|-------------|
-| [マップ認証キーの要求](authentication-key.md) | [  **MapControl**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl) や [**Windows.Services.Maps**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps) 名前空間のマップ サービスをアプリで使うには、アプリを認証する必要があります。 アプリを認証するには、マップ認証キーを指定する必要があります。 この記事では、[Bing Maps Developer Center](https://www.bingmapsportal.com/) にマップ認証キーを要求し、アプリに追加する方法について説明します。 |
-| [2D、3D、Streetside ビューでの地図の表示](display-maps.md) | [  **MapControl**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl) クラスを使って、アプリにカスタマイズできる地図を表示します。 このトピックでは、航空写真 3D ビューと Streetside ビューについても紹介します。 |
+| [マップ認証キーの要求](authentication-key.md) | [**MapControl**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl) や [**Windows.Services.Maps**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps) 名前空間のマップ サービスをアプリで使うには、アプリを認証する必要があります。 アプリを認証するには、マップ認証キーを指定する必要があります。 この記事では、[Bing Maps Developer Center](https://www.bingmapsportal.com/) にマップ認証キーを要求し、アプリに追加する方法について説明します。 |
+| [2D、3D、Streetside ビューでの地図の表示](display-maps.md) | [**MapControl**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl) クラスを使って、アプリにカスタマイズできる地図を表示します。 このトピックでは、航空写真 3D ビューと Streetside ビューについても紹介します。 |
 | [関心のあるポイント (POI) の地図への表示](display-poi.md) | プッシュピン、画像、図形、XAML UI 要素を使って、関心のあるポイント (POI) を地図に追加します。 |
 | [地図へのタイル画像のオーバーレイ](overlay-tiled-images.md) | タイル ソースを使って、地図上にサード パーティ製タイルまたはカスタム タイル画像をオーバーレイします。 タイル ソースを使って、気象データ、人口データ、地質データなどの特殊な情報をオーバーレイすることや、既定の地図を完全に置き換えることができます。 |
 
@@ -43,23 +43,23 @@ ms.locfileid: "74259347"
 
 ## <a name="access-map-services"></a>マップ サービスへのアクセス
 
-[  **Windows.Services.Maps**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps) 名前空間の API を使って、ルート、ルート案内、ジオコーディング機能をアプリに追加します。
+[**Windows.Services.Maps**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps) 名前空間の API を使って、ルート、ルート案内、ジオコーディング機能をアプリに追加します。
 
 | トピック | 説明 |
 |-----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [マップ認証キーの要求](authentication-key.md) | [  **MapControl**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl) や [**Windows.Services.Maps**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps) 名前空間のマップ サービスをアプリで使うには、アプリを認証する必要があります。 アプリを認証するには、マップ認証キーを指定する必要があります。 この記事では、[Bing Maps Developer Center](https://www.bingmapsportal.com/) にマップ認証キーを要求し、アプリに追加する方法について説明します。 |
+| [マップ認証キーの要求](authentication-key.md) | [**MapControl**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl) や [**Windows.Services.Maps**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps) 名前空間のマップ サービスをアプリで使うには、アプリを認証する必要があります。 アプリを認証するには、マップ認証キーを指定する必要があります。 この記事では、[Bing Maps Developer Center](https://www.bingmapsportal.com/) にマップ認証キーを要求し、アプリに追加する方法について説明します。 |
 | [関心のあるポイント (POI) の地図への表示](display-poi.md) | プッシュピン、画像、図形、XAML UI 要素を使って、関心のあるポイント (POI) を地図に追加します。 |
 | [ルートとルート案内の表示](routes-and-directions.md) | ルートとルート案内を要求し、アプリで表示します。 |
 | [ジオコーディングと逆ジオコーディングの実行](geocoding.md) | 住所から地理的な位置への変換 (ジオコーディング) や地理的な位置から住所への変換 (逆ジオコーディング) を行うには、[**Windows.Services.Maps**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps) 名前空間の [**MapLocationFinder**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapLocationFinder) クラスのメソッドを呼び出します。 |
-| [オフラインで使用するマップ パッケージを見つけてダウンロードする](https://docs.microsoft.com/uwp/api/windows.services.maps.offlinemaps)| これまでは、オフライン マップをダウンロードするには、アプリでユーザーを設定アプリに誘導する必要があります。 現在は、[Windows.Services.Maps.OfflineMaps](https://docs.microsoft.com/en-us/uwp/api/windows.services.maps.offlinemaps) 名前空間のクラスを使用して、([Geopoint](https://docs.microsoft.com/uwp/api/Windows.Devices.Geolocation.Geopoint)、[GeoboundingBox](https://docs.microsoft.com/en-us/uwp/api/windows.devices.geolocation.geoboundingbox) などに基づいて) 特定の領域でダウンロードされたパッケージを見つけることができます。 <br> マップ パッケージのダウンロードの状態を確認してリッスンすることもでき、また、ユーザーがアプリから離れなくても、ダウンロードを開始することができます。 <br> この方法の例については、リファレンス コンテンツと、[ユニバーサル Windows プラットフォーム (UWP) の地図のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/MapControl)に関するページの両方で確認できます。
+| [オフラインで使用するマップ パッケージを見つけてダウンロードする](https://docs.microsoft.com/uwp/api/windows.services.maps.offlinemaps)| これまでは、オフライン マップをダウンロードするには、アプリでユーザーを設定アプリに誘導する必要があります。 現在は、[Windows.Services.Maps.OfflineMaps](https://docs.microsoft.com/uwp/api/windows.services.maps.offlinemaps) 名前空間のクラスを使用して、([Geopoint](https://docs.microsoft.com/uwp/api/Windows.Devices.Geolocation.Geopoint)、[GeoboundingBox](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geoboundingbox) などに基づいて) 特定の領域でダウンロードされたパッケージを見つけることができます。 <br> マップ パッケージのダウンロードの状態を確認してリッスンすることもでき、また、ユーザーがアプリから離れなくても、ダウンロードを開始することができます。 <br> この方法の例については、リファレンス コンテンツと、[ユニバーサル Windows プラットフォーム (UWP) の地図のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/MapControl)に関するページの両方で確認できます。
 
 ## <a name="get-the-users-location"></a>ユーザーの位置情報の取得
 
-[  **Windows.Devices.Geolocation**](https://docs.microsoft.com/uwp/api/Windows.Devices.Geolocation) 名前空間の API を使って、アプリでユーザーの現在の位置情報を取得し、位置情報が変わったときに通知を受けるようにします。 これらの API メンバーは、マップ API のパラメーターでも頻繁に使われます。 [  **Windows.Devices.Geolocation.Geofencing**](https://docs.microsoft.com/uwp/api/Windows.Devices.Geolocation.Geofencing) 名前空間の API を使って、ユーザーがジオフェンス (事前定義された地理的領域) に入ったり、ジオフェンスから出たりしたときにアプリで通知を受けるようにします。
+[**Windows.Devices.Geolocation**](https://docs.microsoft.com/uwp/api/Windows.Devices.Geolocation) 名前空間の API を使って、アプリでユーザーの現在の位置情報を取得し、位置情報が変わったときに通知を受けるようにします。 これらの API メンバーは、マップ API のパラメーターでも頻繁に使われます。 [**Windows.Devices.Geolocation.Geofencing**](https://docs.microsoft.com/uwp/api/Windows.Devices.Geolocation.Geofencing) 名前空間の API を使って、ユーザーがジオフェンス (事前定義された地理的領域) に入ったり、ジオフェンスから出たりしたときにアプリで通知を受けるようにします。
 
 | トピック | 説明 |
 |-------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [マップ認証キーの要求](authentication-key.md) | [  **MapControl**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl) や [**Windows.Services.Maps**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps) 名前空間のマップ サービスをアプリで使うには、アプリを認証する必要があります。 アプリを認証するには、マップ認証キーを指定する必要があります。 この記事では、[Bing Maps Developer Center](https://www.bingmapsportal.com/) にマップ認証キーを要求し、アプリに追加する方法について説明します。 |
+| [マップ認証キーの要求](authentication-key.md) | [**MapControl**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl) や [**Windows.Services.Maps**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps) 名前空間のマップ サービスをアプリで使うには、アプリを認証する必要があります。 アプリを認証するには、マップ認証キーを指定する必要があります。 この記事では、[Bing Maps Developer Center](https://www.bingmapsportal.com/) にマップ認証キーを要求し、アプリに追加する方法について説明します。 |
 | [位置認識アプリの設計ガイドライン](guidelines-and-checklist-for-detecting-location.md) | ユーザーの位置情報にアクセスする必要があるアプリを構築するためのパフォーマンス ガイドラインです。 |
 | [ユーザーの位置情報の取得](get-location.md) | ユーザーの位置情報にアクセスして取得します。 | 
 | [ビジット追跡の使用ガイドライン](guidelines-for-visits.md) | 実用的な位置情報追跡に役立つ強力なビジット追跡機能を使用する方法について説明します。 |

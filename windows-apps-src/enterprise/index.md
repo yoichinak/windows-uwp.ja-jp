@@ -1,19 +1,19 @@
 ---
 ms.assetid: 4b0c86d3-f05b-450b-bf9c-6ab4d3f07d31
 description: このロードマップでは、Windows 10 およびユニバーサル Windows プラットフォーム (UWP) アプリの主要なエンタープライズ機能の概要について説明します。
-title: エンタープライズ
+title: Enterprise
 ms.date: 08/30/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 152a1bf2a751c2d2c78818b85868bfea3be911ac
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: e005d388e15efe10bede88e77c3ca021b0acad6b
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74259642"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75684947"
 ---
-# <a name="enterprise"></a>エンタープライズ
+# <a name="enterprise"></a>Enterprise
 
 この記事では、Windows 10 アプリ用のユニバーサル Windows プラットフォーム (UWP) で提供される主要なエンタープライズ機能の概要について説明します。 これらのいくつかの機能を詳しく説明するビデオについては、「[Rapidly Construct LOB Applications with UWP and Visual Studio](https://channel9.msdn.com/Events/Build/2018/BRK3502)」 (UWP と Visual Studio で LOB アプリケーションをすばやく構築する) をご覧ください。
 
@@ -41,7 +41,7 @@ Windows Template Studio は Visual Studio 2017 と Visual Studio 2019 の拡張�
 
 ### <a name="controls-to-support-enterprise-scenarios"></a>エンタープライズ シナリオをサポートするコントロール
 
-[DataGridView](https://docs.microsoft.com/en-us/windows/communitytoolkit/controls/datagrid) では、行と列に柔軟にデータ コレクションを表示できます。
+[DataGridView](https://docs.microsoft.com/windows/communitytoolkit/controls/datagrid) では、行と列に柔軟にデータ コレクションを表示できます。
 
 [TreeView](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/tree-view) を使用すると、階層リストが有効になり、入れ子になった項目を含むノードを展開したり、折りたたんだりすることができるようになります。 フォルダー構造や入れ子になった関係を UI で視覚的に示すために使用できます。
 
@@ -80,7 +80,7 @@ Windows 10 では、WPF、Windows フォーム、および C++ Win32 デスク�
 
 アプリで [System.Data.SqlClient](https://docs.microsoft.com/dotnet/api/system.data.sqlclient) 名前空間のクラスを使用して、SQL Server データベースに直接接続し、データを保存および取得することができます。
 
-「[UWP アプリでの SQL Server データベースの使用](https://docs.microsoft.com/en-us/windows/uwp/data-access/sql-server-databases)」をご覧ください。
+「[UWP アプリでの SQL Server データベースの使用](https://docs.microsoft.com/windows/uwp/data-access/sql-server-databases)」をご覧ください。
 
 <a id="MSIX" />
 
@@ -136,7 +136,7 @@ Windows 10 には、一連のセキュリティ機能が用意されていま�
 |--------|-------------|
 | [デバイスの列挙](https://docs.microsoft.com/windows/uwp/devices-sensors/enumerate-devices) | この記事では、[Windows.Devices.Enumeration](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration) 名前空間を使って、システムに内部接続されているデバイス、外部接続されているデバイス、ワイヤレス プロトコルまたはネットワーク プロトコル経由で検出できるデバイスを検索する方法について説明します。 デバイスと連携して動作するアプリを構築する場合は、ここから始めてください。 |
 | [印刷とスキャン](https://docs.microsoft.com/windows/uwp/devices-sensors/printing-and-scanning) | アプリから印刷およびスキャンする方法について説明します。販売時点管理 (POS) システム、レシート プリンター、大容量フィーダー スキャナーなどの業務用デバイスに接続する方法やこれらのデバイスを操作する方法についても説明します。 |
-| [Bluetooth](https://docs.microsoft.com/windows/uwp/devices-sensors/bluetooth) | 従来の Bluetooth 接続を使用したデータの送受信やデバイスの制御に加えて、Windows 10 では、Bluetooth 低エネルギー (BTLE) を使用してバックグラウンドでビーコンを送受信できるようになりました。 この BTLE を利用して、通知を表示します。また、ユーザーが特定の場所に近づいた場合や特定の場所から離れた場合の機能を有効にします。 |
+| [Bluetooth](https://docs.microsoft.com/windows/uwp/devices-sensors/bluetooth) | 従来の Bluetooth 接続を使用したデータの送受信やデバイスの制御に加えて、Windows 10 では、Bluetooth 低エネルギー (BTLE) を使用してバックグラウンドでビーコンを送受信できるようになりました。 これを利用して、ユーザーが特定の場所に近づいた場合や特定の場所から離れた場合に、通知を表示したり、機能を有効にしたりします。 |
 | [エンタープライズ共有記憶域](enterprise-shared-storage.md) | デバイスのロックダウン シナリオにおける、同じアプリ内でのデータの共有、また 1 つのアプリの複数のインスタンス間でのデータの共有、さらに複数のアプリ間でのデータの共有について、その方法を説明します。 |
 
 ## <a name="device-targeting"></a>対象となるデバイス
