@@ -8,12 +8,12 @@ ms.topic: article
 keywords: NodeJS、node.js、windows 10、microsoft、learning NodeJS、windows 上のノード、wsl のノード、windows 上の linux 上のノード、windows 上のノードのインストール、windows 上のノードのインストール、windows 上の NodeJS を使用した開発、windows 上のノードのインストール、WSL へのノードのインストール、Windows 上の NodeJSLinux 用サブシステム
 ms.localizationpriority: medium
 ms.date: 09/19/2019
-ms.openlocfilehash: e5875f0bf7ce73d3615aa131d57c2384c73dd8a1
-ms.sourcegitcommit: 60d2d15dd0d365f82e4e90e4bc34b40cf5b4a247
+ms.openlocfilehash: c987f5bea387c630a1b9ef23c928d7a1bb8fadfc
+ms.sourcegitcommit: cf4bf0ab4ea9019c1edc2bb96387ce6cedbe91dd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72517842"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75835380"
 ---
 # <a name="set-up-your-nodejs-development-environment-with-wsl-2"></a>WSL 2 を使用して node.js 開発環境を設定する
 
@@ -50,17 +50,17 @@ Windows Subsystem for Linux (WSL) を使用して node.js 開発環境をセッ�
 
 ## <a name="install-a-linux-distribution"></a>Linux ディストリビューションをインストールする
 
-WSL で実行できる Linux ディストリビューションがいくつかあります。 お気に入りは、Microsoft Store で見つけてインストールできます。 [Ubuntu 18.04 LTS](https://www.microsoft.com/store/productId/9N9TNGVNDL3Q)は、現在、人気、およびサポートされているため、開始することをお勧めします。
+WSL 上で実行できる Linux ディストリビューションは複数あります。 Microsoft Store でお気に入りのものを探してインストールできます。 最新であり、広く普及しており、サポートが充実している [Ubuntu 18.04 LTS](https://www.microsoft.com/store/productId/9N9TNGVNDL3Q) から始めることをお勧めします。
 
-1. この[Ubuntu 18.04 LTS](https://www.microsoft.com/store/productId/9N9TNGVNDL3Q)リンクを開き、Microsoft Store を開いて、 **[取得]** を選択します。 *(これはかなり大きなダウンロードであり、インストールに時間がかかる場合があります)。*
+1. この [Ubuntu 18.04 LTS](https://www.microsoft.com/store/productId/9N9TNGVNDL3Q) リンクを開き、Microsoft Store を開いて、 **[入手]** を選択します。 *(ダウンロードのサイズが大きいため、インストールに時間がかかる場合があります。)*
 
 2. ダウンロードが完了したら、Microsoft Store から **[起動]** を選択するか、 **[スタート]** メニューに「Ubuntu 18.04 LTS」と入力して起動します。
 
-3. 最初にディストリビューションを実行するときに、アカウント名とパスワードの作成を求められます。 この後、既定では、このユーザーとして自動的にサインインされます。 任意のユーザー名とパスワードを選択できます。 Windows ユーザー名には影響しません。
+3. ディストリビューションを初めて実行すると、アカウント名とパスワードの作成を求められます。 これ以降、既定でこのユーザーとして自動的にサインインします。 任意のユーザー名とパスワードを選択できます。 これらはご自分の Windows ユーザー名とは関係ありません。
 
     ![Microsoft Store での Linux ディストリビューション](../images/store-linux-distros.png)
 
-現在使用している Linux ディストリビューションを確認するには、`lsb_release -dc`を入力します。 Ubuntu ディストリビューションを更新するには、: `sudo apt update && sudo apt upgrade`を使用します。 最新のパッケージがあることを確認するために、定期的に更新することをお勧めします。 Windows は、この更新プログラムを自動的に処理しません。 Microsoft Store で利用可能なその他の Linux ディストリビューション、代替のインストール方法、トラブルシューティングのリンクについては、「windows [10 用 Windows Subsystem For Linux インストールガイド](https://docs.microsoft.com/windows/wsl/install-win10)」を参照してください。
+現在使用している Linux ディストリビューションは、`lsb_release -dc` と入力することで確認できます。 使用中の Ubuntu ディストリビューションを更新するには、`sudo apt update && sudo apt upgrade` を使用します。 パッケージを常に最新にするために、定期的な更新をお勧めします。 Windows はこの更新を自動的に処理しません。 Microsoft Store から入手できる他の Linux ディストリビューションへのリンク、別のインストール方法、またはトラブルシューティングについては、「[Windows 10 用 Windows Subsystem for Linux のインストール ガイド](https://docs.microsoft.com/windows/wsl/install-win10)」を参照してください。
 
 ## <a name="install-wsl-2"></a>WSL 2 のインストール
 
@@ -84,7 +84,7 @@ Node.js をインストールするには、複数の方法があります。 �
 
 1. Ubuntu 18.04 のコマンドラインを開きます。
 2. 次のコマンドを使用して、cURL (インターネットからコンテンツをダウンロードするために使用するツール) をインストールします。 `sudo apt-get install curl`
-3. 次のものを使用して nvm をインストールし `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash`
+3. 次のものを使用して nvm をインストールし `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash`
 4. インストールを確認するには、次のように入力します。 `command -v nvm`...' nvm ' が返されます。 "コマンドが見つかりません" または応答がない場合は、現在のターミナルを閉じて再度開き、もう一度やり直してください。 [詳細については、nvm github リポジトリを参照して](https://github.com/nvm-sh/nvm)ください。
 5. 現在インストールされているノードのバージョンを一覧表示します (この時点では何も指定できません): `nvm ls`
 
@@ -103,8 +103,8 @@ Node.js をインストールするには、複数の方法があります。 �
 > NVM を使用して node.js と NVM をインストールする場合は、SUDO コマンドを使用して新しいパッケージをインストールする必要はありません。
 
 > [!NOTE]
-> 発行時に、NVM v 0.34.0 が使用可能な最新バージョンでした。 [GitHub プロジェクトページで NVM の最新リリース](https://github.com/nvm-sh/nvm)を確認し、上記のコマンドを調整して最新バージョンを含めることができます。
-CURL を使用して新しいバージョンの NVM をインストールすると、古いものが置き換えられ、NVM で使用したノードのバージョンはそのまま残ります。 たとえば次のようになります。`curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash`
+> 発行時に、NVM v 0.35.2 が使用可能な最新バージョンでした。 [GitHub プロジェクトページで NVM の最新リリース](https://github.com/nvm-sh/nvm)を確認し、上記のコマンドを調整して最新バージョンを含めることができます。
+CURL を使用して新しいバージョンの NVM をインストールすると、古いものが置き換えられ、NVM で使用したノードのバージョンはそのまま残ります。 たとえば次のようになります。`curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash`
 
 ## <a name="alternative-version-managers"></a>代替バージョンマネージャー
 
@@ -131,12 +131,12 @@ Node.js プロジェクト用の**リモート WSL 拡張機能**で**Visual Stu
 
 VS Code とリモート WSL 拡張機能をインストールするには、次のようにします。
 
-1. [Windows 用の VS Code をダウンロードしてインストール](https://code.visualstudio.com)します。 VS Code は Linux でも使用できますが、Windows Subsystem for Linux は GUI アプリをサポートしていないため、Windows にインストールする必要があります。 心配しなくても、リモートの WSL 拡張機能を使用して Linux コマンドラインやツールと統合できます。
+1. [Windows 用の VS Code をダウンロードしてインストールします](https://code.visualstudio.com)。 VS Code は Linux でも使用できますが、Linux 用 Windows サブシステムは GUI アプリをサポートしていないため、Windows にインストールする必要があります。 心配しなくても、Remote - WSL 拡張機能を使用すれば、将来、お使いの Linux コマンド ラインやツールとの統合は引き続き可能です。
 
-2. VS Code に[リモート WSL 拡張機能](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl)をインストールします。 これにより、統合開発環境として WSL を使用し、互換性とパスを処理することができます。 [詳しくはこちらをご覧ください](https://code.visualstudio.com/docs/remote/remote-overview)。
+2. [Remote - WSL 拡張機能](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl)を VS Code にインストールします。 これにより、統合開発環境として WSL を使用できるようになり、互換性とパスが自動的に処理されます。 [詳しくはこちらをご覧ください](https://code.visualstudio.com/docs/remote/remote-overview)。
 
 > [!IMPORTANT]
-> 既に VS Code がインストールされている場合は、[リモート WSL 拡張機能](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl)をインストールするために、 [1.35 がリリース](https://code.visualstudio.com/updates/v1_35)以降であることを確認する必要があります。 リモート WSL 拡張機能を使用せずに VS Code で WSL を使用することはお勧めしません。オートコンプリート、デバッグ、インライン処理などのサポートが失われるためです。楽しい事実: この WSL 拡張機能は $HOME/.vscode-server/extensions. にインストールされます。
+> VS Code が既にインストールされている場合、[Remote - WSL 拡張機能](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl)をインストールするためには、[1.35 May リリース](https://code.visualstudio.com/updates/v1_35)以降がインストールされていることを確認する必要があります。 リモート WSL 拡張機能を使用せずに VS Code で WSL を使用することはお勧めしません。オートコンプリート、デバッグ、インライン処理などのサポートが失われるためです。楽しい事実: この WSL 拡張機能は $HOME/.vscode-server/extensions. にインストールされます。
 
 ### <a name="helpful-vs-code-extensions"></a>便利な VS Code 拡張機能
 
@@ -161,7 +161,7 @@ Node.js 拡張パックをインストールするには:
 
 - [Chrome のデバッガー](https://code.visualstudio.com/blogs/2016/02/23/introducing-chrome-debugger-for-vs-code): node.js を使用してサーバー側で開発を完了すると、クライアント側を開発してテストする必要があります。 この拡張機能により、VS Code エディターと Chrome ブラウザーのデバッグサービスが統合され、さらに効率的になります。
 - [他のエディターからの Keymaps](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Downloads): これらの拡張機能は、別のテキストエディター (Atom、Sublime、Vim、EMacs、メモ帳 + + など) から移行している場合に、環境を自宅で使用しやすくするために役立ちます。
-- [設定の同期](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync): GitHub を使用して、複数のインストール間で VS Code 設定を同期できます。 別のコンピューターで作業している場合は、これによって環境の整合性を保つことができます。
+- [設定の同期](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync): GitHub を使用して、複数のインストール間で VS Code 設定を同期できます。 複数のコンピューターで作業する場合、この機能によってコンピューター間で環境の一貫性を保つことができます。
 
 ## <a name="install-windows-terminal-optional"></a>Windows ターミナルをインストールする (省略可能)
 
@@ -175,13 +175,13 @@ Node.js 拡張パックをインストールするには:
 
 ## <a name="set-up-git-optional"></a>Git を設定する (省略可能)
 
-他のユーザーと共同作業を行う場合、または (GitHub などの) オープンソースサイトでプロジェクトをホストする場合、VS Code は[Git を使用したバージョン管理](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)をサポートします。 VS Code の [ソース管理] タブでは、すべての変更が追跡され、UI には一般的な Git コマンド (add、commit、push、pull) が組み込まれています。
+他のユーザーと共同作業を行う場合、または (GitHub などの) オープンソースサイトでプロジェクトをホストする場合、VS Code は[Git を使用したバージョン管理](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)をサポートします。 VS Code の [ソース管理] タブでは、すべての変更が追跡され、一般的な Git コマンド (追加、コミット、プッシュ、プル) が UI に組み込まれています。
 
-1. Git は、Windows Subsystem for Linux ディストリビューションと共にインストールされます。ただし、git 構成ファイルを設定する必要があります。 これを行うには、ターミナルで次のように入力して、`git config --global user.email "youremail@domain.com"``git config --global user.name "Your Name"` します。 まだ Git アカウントを持っていない場合は、 [GitHub でサインアップ](https://github.com/join)できます。 前に Git を使用したことがない場合は、 [GitHub のガイド](https://guides.github.com/)を参考にしてください。 Git 構成を編集する必要がある場合は、nano: `nano ~/.gitconfig`のような組み込みのテキストエディターを使用して実行できます。
+1. Git は、Windows Subsystem for Linux ディストリビューションと共にインストールされます。ただし、git 構成ファイルを設定する必要があります。 これを行うには、ターミナルで次のように入力して、`git config --global user.email "youremail@domain.com"``git config --global user.name "Your Name"` します。 まだ Git アカウントを持っていない場合は、 [GitHub でサインアップ](https://github.com/join)できます。 以前に Git を使用したことがない場合、入門用の [GitHub ガイド](https://guides.github.com/)が役に立ちます。 Git 構成を編集する必要がある場合は、nano: `nano ~/.gitconfig`のような組み込みのテキストエディターを使用して実行できます。
 
 2. ノードプロジェクトには、ファイルを追加することをお勧めし[ます](https://help.github.com/en/articles/ignoring-files)。 [Node.js の GitHub の既定のテンプレート](https://github.com/github/gitignore/blob/master/Node.gitignore)は次のとおりです。 [Github web サイトを使用して新しいリポジトリを作成](https://help.github.com/articles/create-a-repo)することを選択した場合は、リポジトリを初期化するためのチェックボックスがあります。このファイルは、node.js プロジェクト用にセットアップされています。また、必要に応じてライセンスを追加するためのオプションもあります。
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
 これで、node.js 開発環境がセットアップされました。 Node.js 環境の使用を開始するには、次のチュートリアルのいずれかを試すことを検討してください。
 
