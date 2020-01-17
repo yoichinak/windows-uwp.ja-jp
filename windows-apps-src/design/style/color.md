@@ -7,12 +7,12 @@ keywords: windows 10, uwp
 design-contact: karenmui
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: efe67707edc5f556301ded466f3f2919ec04873e
-ms.sourcegitcommit: 49a34e957433966ac8d4822b5822f21087aa61c3
+ms.openlocfilehash: 7ab504657ae5e3142eb7db1d9517a013e9aaf5f3
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74153728"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75684582"
 ---
 # <a name="color"></a>色
 
@@ -48,7 +48,7 @@ Windows では、ユーザーがアクセント カラーや淡色/濃色のテ�
 
 ## <a name="themes"></a>テーマ
 
-UWP アプリでは、淡色または濃色のアプリケーション テーマを使用できます。 テーマは、アプリの背景、テキスト、アイコン、[コモン コントロール](../controls-and-patterns/index.md) に反映されます。
+UWP アプリでは、淡色または濃色のアプリケーション テーマを使用できます。 テーマは、アプリの背景、テキスト、アイコン、[コモン コントロール](../controls-and-patterns/index.md)に反映されます。
 
 ### <a name="light-theme"></a>淡色テーマ
 
@@ -58,7 +58,7 @@ UWP アプリでは、淡色または濃色のアプリケーション テーマ
 
 ![濃色テーマ](images/color/dark-theme.svg)
 
-既定では、UWP アプリのテーマは、ユーザーが Windows の設定で選択したテーマか、デバイスの既定のテーマ (Xbox では黒など) に設定されます。 ただし、開発者が UWP アプリのテーマを設定することもできます。
+既定では、UWP アプリのテーマは、ユーザーが Windows の設定で選択したテーマか、デバイスの既定のテーマ (Xbox では黒など) に設定されます。 ただし、UWP アプリのテーマを設定することもできます。
 
 ### <a name="changing-the-theme"></a>テーマの変更
 
@@ -76,13 +76,13 @@ UWP アプリでは、淡色または濃色のアプリケーション テーマ
 
 **RequestedTheme** プロパティを削除すると、アプリケーションでユーザーのシステム設定が使用されるようになります。
 
-ユーザーはまたハイ コントラスト テーマを使用することができます。これはインターフェイスを見やすくするために、コントラストの大きい、少数の色のパレットを使ったテーマです。 ハイ コントラスト テーマを使用した場合、開発者が設定した RequestedTheme はシステムによって上書きされます。
+ユーザーはまたハイ コントラスト テーマを使用することができます。これはインターフェイスを見やすくするために、コントラストの大きい、少数の色のパレットを使ったテーマです。 この場合、RequestedTheme はシステムによって上書きされます。
 
 ### <a name="testing-themes"></a>テーマのテスト
 
 アプリのテーマを指定しない場合は、必ず淡色テーマと濃色テーマの両方でアプリをテストして、あらゆる条件でアプリが判読できることを確認します。
 
-**注意**:Visual Studio では、RequestedTheme の既定値が淡色に設定されているため、両方をテストするには、RequestedTheme を変更する必要があります。
+**注**:Visual Studio では、RequestedTheme の既定値が淡色に設定されているため、両方をテストするには、RequestedTheme を変更する必要があります。
 
 ## <a name="theme-brushes"></a>テーマ ブラシ
 
@@ -96,7 +96,7 @@ UWP アプリでは、淡色または濃色のアプリケーション テーマ
 
 - **Base** はテキストの設定に使用されます。
 - **Alt** は、Base の反転色の設定に使用されます。
-- **Chrome**  は、最上位の要素 (ナビゲーション ウィンドウやコマンド バーなど) の設定に使用されます。
+- **Chrome** は、最上位の要素 (ナビゲーション ペインやコマンド バーなど) の設定に使用されます。
 - **List** は、リスト コントロールの設定に使用されます。
 
 **Low**/**Medium**/**High** は色密度を指します。
@@ -105,7 +105,7 @@ UWP アプリでは、淡色または濃色のアプリケーション テーマ
 
 :::row:::
     :::column:::
-カスタム コントロールのテンプレートを作成する際は、ハード コードで色の値を設定するのではなく、テーマ ブラシを使用することをお勧めします。 これにより、アプリがあらゆるテーマに容易に適応できるようになります。
+カスタム コントロールのテンプレートを作成する際は、ハード コードで色の値を設定するのではなく、テーマ ブラシを使用することをお勧めします。 これにより、アプリによってあらゆるテーマに容易に適応できるようになります。
 
 たとえば、これらの [ListView 用の項目テンプレート](../controls-and-patterns/item-templates-listview.md)は、カスタム テンプレートでテーマ ブラシを使用する方法を示しています。
     :::column-end:::
@@ -138,7 +138,7 @@ UWP アプリでは、淡色または濃色のアプリケーション テーマ
 
 ## <a name="accent-color"></a>アクセント カラー
 
-コモン コントロールでは、アクセント カラーを使用して、状態情報を伝達します。 アクセント カラーは、既定では、ユーザーが設定で選択した `SystemAccentColor` が使用されます。 ただし、組織のブランドを反映するように、アプリのアクセント カラーをカスタマイズすることもできます。
+コモン コントロールでは、アクセント カラーを使用して、状態情報を伝達します。 アクセント カラーは、既定では、ユーザーが設定で選択した `SystemAccentColor` です。 ただし、組織のブランドを反映するように、アプリのアクセント カラーをカスタマイズすることもできます。
 
 ![Windows コントロール](images/color/windows-controls.svg)
 
@@ -169,7 +169,7 @@ UWP アプリでは、淡色または濃色のアプリケーション テーマ
 
 アプリに対してカスタムのアクセント カラーを選択した場合は、アクセント カラーを使用したテキストと背景との間に十分なコントラストがあり、テキストを適切に判読できることを確認してください。 コントラストをテストするには、Windows の設定でカラー ピッカー ツールを使用するか、これらの[オンライン コントラスト ツール](https://www.w3.org/TR/WCAG20-TECHS/G18.html#G18-resources)を使用します。
 
-![Windows の設定のアクセント カラー ピッカー](images/color/color-picker.svg)
+![Windows の設定のカスタムのアクセント カラー ピッカー](images/color/color-picker.svg)
 
 ## <a name="accent-color-palette"></a>アクセント カラー パレット
 
@@ -219,13 +219,13 @@ Windows シェルのアクセント カラーのアルゴリズムによって�
 
 ## <a name="color-api"></a>色の API
 
-アプリケーションに色を追加できる API は複数存在します。 まず、[**Colors**](https://docs.microsoft.com/en-us/uwp/api/windows.ui.colors) クラスを使用すると、多数の色があらかじめ定義された一覧を実装できます。 これらは、XAML プロパティを使用して自動的にアクセスできます。 以下の例では、ボタンを作成して、**Color** クラスのメンバーに背景色プロパティと前景色プロパティを設定しています。
+アプリケーションに色を追加できる API は複数存在します。 まず、[**Colors**](https://docs.microsoft.com/uwp/api/windows.ui.colors) クラスを使用すると、多数の色があらかじめ定義された一覧を実装できます。 これらは、XAML プロパティを使用して自動的にアクセスできます。 以下の例では、ボタンを作成して、**Color** クラスのメンバーに背景色プロパティと前景色プロパティを設定しています。
 
 ```xaml
 <Button Background="MediumSlateBlue" Foreground="White">Button text</Button>
 ```
 
-XAML で [**Color**](https://docs.microsoft.com/en-us/uwp/api/windows.ui.color) 構造体を使用すると、RGB または 16 進数値によって独自の色を作成できます。
+XAML で [**Color**](https://docs.microsoft.com/uwp/api/windows.ui.color) 構造体を使用すると、RGB または 16 進数値によって独自の色を作成できます。
 
 ```xaml
 <Color x:Key="LightBlue">#FF36C0FF</Color>
@@ -237,12 +237,12 @@ XAML で [**Color**](https://docs.microsoft.com/en-us/uwp/api/windows.ui.color) 
 Color LightBlue = Color.FromArgb(255,54,192,255);
 ```
 
-"Argb" という文字は、色の 4 つの構成要素であるアルファ (Alpha、不透明度)、赤 (Red)、緑 (Green)、青 (Blue) の頭文字です。 各引数の設定可能な範囲は、0 ～ 255 です。 最初の値は省略可能です。その場合、透明度が既定値の 255、つまり 100% 不透明に設定されます。
+"Argb" という文字は、色の 4 つの構成要素であるアルファ (Alpha、不透明度)、赤 (Red)、緑 (Green)、青 (Blue) の頭文字です。 各引数の設定可能な範囲は、0 - 255 です。 最初の値は省略可能です。その場合、透明度が既定値の 255、つまり 100% 不透明に設定されます。
 
 > [!Note]
-> C++ を使用している場合、[**ColorHelper**](https://docs.microsoft.com/en-us/uwp/api/windows.ui.colorhelper) クラスを使って色を作成する必要があります。
+> C++ を使用している場合、[**ColorHelper**](https://docs.microsoft.com/uwp/api/windows.ui.colorhelper) クラスを使って色を作成する必要があります。
 
-**Color** は、UI 要素を単色で塗りつぶす [**SolidColorBrush**](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.media.solidcolorbrush) の引数として使用されるのが最も一般的です。 このようなブラシは、通常、[**ResourceDictionary**](https://docs.microsoft.com/en-us/uwp/api/Windows.UI.Xaml.ResourceDictionary) で定義されているため、複数の要素に再利用できます。
+**Color** は、UI 要素を単色で塗りつぶす [**SolidColorBrush**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.solidcolorbrush) の引数として使用されるのが最も一般的です。 このようなブラシは、通常、[**ResourceDictionary**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.ResourceDictionary) で定義されているため、複数の要素に再利用できます。
 
 ```xaml
 <ResourceDictionary>
@@ -267,7 +267,7 @@ Color LightBlue = Color.FromArgb(255,54,192,255);
 ### <a name="how-to-use-colorpaletteresources"></a>ColorPaletteResources の使用方法
 
 ColorPaletteResources は、どのリソースがどこにスコープされているかをシステムに通知する API です。 ColorPaletteResources は必ず [x:Key](https://docs.microsoft.com/windows/uwp/xaml-platform/x-key-attribute) を受け取ります。これは次の 3 つの選択肢のいずれかの可能性があります。
-- Default
+- 既定
   * 色の変化を[淡色](https://docs.microsoft.com/windows/uwp/design/style/color#light-theme)と[濃色](https://docs.microsoft.com/windows/uwp/design/style/color#dark-theme)の両方のテーマで表示します
 - 淡色
   * 色の変化を[淡色テーマ](https://docs.microsoft.com/windows/uwp/design/style/color#light-theme)でのみ示します
@@ -404,7 +404,7 @@ ColorPaletteResources では、システム カラーを配置して、インラ
 </ColorPaletteResources>
 ```
 
-## <a name="usability"></a>ユーザビリティ
+## <a name="usability"></a>使いやすさ
 
 :::row:::
     :::column:::

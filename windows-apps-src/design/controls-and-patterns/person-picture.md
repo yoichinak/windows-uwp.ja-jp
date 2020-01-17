@@ -11,20 +11,20 @@ design-contact: kimsea
 dev-contact: kefodero
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: c276b232e76afb98d778ef65c7e0e363285c4794
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: a3bf48da5fdfff205b2013341aaf6869064ce341
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74258209"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75684375"
 ---
 # <a name="person-picture-control"></a>ユーザー画像コントロール
 
-ユーザー画像コントロールは、ユーザー画像を利用できる場合はユーザーのアバター画像を表示します。利用できない場合は、ユーザーの頭文字か汎用アイコンを表示します。 このコントロールを使うと、ユーザーの連絡先情報を管理するオブジェクトである [Contact オブジェクト](https://docs.microsoft.com/en-us/uwp/api/Windows.ApplicationModel.Contacts.Contact)を表示できます。また、表示名やプロフィール画像などの連絡先情報は手動で提供することもできます。  
+ユーザー画像コントロールは、ユーザー画像を利用できる場合はユーザーのアバター画像を表示します。利用できない場合は、ユーザーの頭文字か汎用アイコンを表示します。 このコントロールを使うと、ユーザーの連絡先情報を管理するオブジェクトである [Contact オブジェクト](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Contacts.Contact)を表示できます。また、表示名やプロフィール画像などの連絡先情報は手動で提供することもできます。  
 
-> **重要な API**:[PersonPicture クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.personpicture)、[Contact クラス](https://docs.microsoft.com/en-us/uwp/api/Windows.ApplicationModel.Contacts.Contact)、[ContactManager クラス](https://docs.microsoft.com/en-us/uwp/api/Windows.ApplicationModel.Contacts.ContactManager)
+> **重要な API**:[PersonPicture クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.personpicture)、[Contact クラス](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Contacts.Contact)、[ContactManager クラス](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Contacts.ContactManager)
 
-この図は、ユーザーの名前を表示する 2 つの[テキスト ブロック](text-block.md) 要素が付属している 2 つのユーザー画像コントロールを示しています。 
+この図は、ユーザーの名前を表示する 2 つの[テキスト ブロック](text-block.md)要素が付属している 2 つのユーザー画像コントロールを示しています。 
 ![ユーザー画像コントロール](images/person-picture/person-picture_hero.png)
 
 
@@ -79,7 +79,7 @@ ms.locfileid: "74258209"
 
 ## <a name="using-the-person-picture-control-to-display-a-contact-object"></a>ユーザー画像コントロールを使用して、Contact オブジェクトを表示する
 
-ユーザー選択コントロールを使用して、[Contact](https://docs.microsoft.com/en-us/uwp/api/Windows.ApplicationModel.Contacts.Contact) オブジェクトを表示できます。 
+ユーザー選択コントロールを使用して、[Contact](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Contacts.Contact) オブジェクトを表示できます。 
 
 ```xaml
 <Page
@@ -167,21 +167,21 @@ namespace SampleApp
 ```
 
 > [!NOTE]
-> コードを簡潔にするために、この例では新しい Contact オブジェクトを作成しています。 実際のアプリでは、ユーザーに連絡先を選択してもらうか、[ContactManager](https://docs.microsoft.com/en-us/uwp/api/Windows.ApplicationModel.Contacts.ContactManager) を使用して連絡先リストを照会します。 連絡先の取得と管理については、[連絡先とカレンダーの記事](../../contacts-and-calendar/index.md)をご覧ください。 
+> コードを簡潔にするために、この例では新しい Contact オブジェクトを作成しています。 実際のアプリでは、ユーザーに連絡先を選択してもらうか、[ContactManager](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Contacts.ContactManager) を使用して連絡先リストを照会します。 連絡先の取得と管理については、[連絡先とカレンダーの記事](../../contacts-and-calendar/index.md)をご覧ください。 
 
 ## <a name="determining-which-info-to-display"></a>表示する情報の決定
 
-[Contact](https://docs.microsoft.com/en-us/uwp/api/Windows.ApplicationModel.Contacts.Contact) オブジェクトを提供すると、ユーザー画像コントロールによってそのオブジェクトが評価され、表示できる情報が判断されます。 
+[Contact](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Contacts.Contact) オブジェクトを指定すると、ユーザー画像コントロールによってそのオブジェクトが評価され、表示できる情報が判断されます。 
 
-画像を利用できる場合、コントロールでは次の優先順位で最初に見つかった画像を表示します。
+画像を利用できる場合、コントロールでは次の優先順位で最初に見つかった画像が表示されます。
 
 1. LargeDisplayPicture
 1. SmallDisplayPicture
-1. Thumbnail
+1. サムネイル
 
 選択される画像は、PreferSmallImage プロパティを true に設定することで変更できます。このように設定すると、SmallDisplayPicture の優先順位が LargeDisplayPicture よりも高くなります。
 
-画像がない場合、コントロールは連絡先の名前か頭文字を表示します。名前のデータがない場合、コントロールはメール アドレスや電話番号などの連絡先データを表示します。 
+画像がない場合、コントロールは連絡先の名前か頭文字を表示します。名前のデータがない場合、コントロールはメール アドレスや電話番号などの連絡先データ表示します。 
 
 ## <a name="get-the-sample-code"></a>サンプル コードを入手する
 

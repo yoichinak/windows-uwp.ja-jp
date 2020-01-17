@@ -5,21 +5,21 @@ template: detail.hbs
 ms.date: 11/03/2017
 ms.topic: article
 keywords: Windows 10, UWP, Fluent
-ms.openlocfilehash: edd9f5e56f78a4fef34f5ddff85f64ada73dc68a
-ms.sourcegitcommit: 445320ff0ee7323d823194d4ec9cfa6e710ed85d
+ms.openlocfilehash: 17c14d7147cafa17e78bd13bf6684a99d87cbdfd
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72282299"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75684408"
 ---
 # <a name="item-templates-for-grid-view"></a>グリッド ビューの項目テンプレート
 
-このセクションでは、[**GridView**](https://docs.microsoft.com/en-us/uwp/api/Windows.UI.Xaml.Controls.GridView) コントロールで使用できる項目テンプレートについて説明します。 これらのテンプレートを使って、一般的な種類のアプリの外観を設定できます。
+このセクションでは、[**GridView**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.GridView) コントロールで使用できる項目テンプレートについて説明します。 これらのテンプレートを使って、一般的な種類のアプリの外観を設定できます。
 
 データ バインディングのデモのため、これらのテンプレートでは、**GridViewItems** が「[データ バインディングの概要](../../data-binding/data-binding-quickstart.md)」の Recording クラスのサンプルにバインドされます。
 
 > [!NOTE] 
-> 現在、**DataTemplate** に複数のコントロール (例: 複数の **TextBlock**) が含まれている場合、スクリーン リーダー用のアクセシビリティに対応する既定の名前は、項目の .ToString() から取得されます。 また利便性を考慮し、**DataTemplate** のルート要素に [**AutomationProperties.Name**](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.automation.automationproperties) を設定することもできます。 アクセシビリティについて詳しくは、[「アクセシビリティの概要」](../accessibility/accessibility-overview.md)をご覧ください。
+> 現在、**DataTemplate** に複数のコントロール (例: 複数の **TextBlock**) が含まれている場合、スクリーン リーダー用のアクセシビリティに対応する既定の名前は、項目の .ToString() から取得されます。 また利便性を考慮し、**DataTemplate** のルート要素に [**AutomationProperties.Name**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.automationproperties) を設定することもできます。 アクセシビリティについて詳しくは、「[アクセシビリティの概要](../accessibility/accessibility-overview.md)」をご覧ください。
 
 ## <a name="icon-and-text"></a>アイコンとテキスト
 これらのテンプレートを使用して、アプリのコレクションをアイコンとテキストから成るグリッドに表示します。
@@ -65,7 +65,7 @@ ms.locfileid: "72282299"
 </GridView>
 ```
 
-## <a name="image-gallery"></a>イメージ ギャラリー
+## <a name="image-gallery"></a>画像ギャラリー
 このテンプレートを使用して、画像のコレクションを複数選択モードのグリッドに表示します。
 
 ![Gridview の項目レイアウト](images/listitems/gridviewitems.png)
@@ -156,7 +156,7 @@ ms.locfileid: "72282299"
 ```
 
 ## <a name="related-articles"></a>関連記事
-- [GridView クラス](https://docs.microsoft.com/en-us/uwp/api/Windows.UI.Xaml.Controls.GridView)
+- [GridView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.GridView)
 - [データ バインディングの概要](../../data-binding/data-binding-quickstart.md)
 - [アクセシビリティの概要](../accessibility/accessibility-overview.md)
 - [ListView と GridView のサンプル (Windows 10)](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlListView)

@@ -10,20 +10,20 @@ design-contact: rybick
 dev-contact: jevansa
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 7ed9feb6edae58b906d4f37f0e1f011d4fa42ee9
-ms.sourcegitcommit: 789bfe3756c5c47f7324b96f482af636d12c0ed3
+ms.openlocfilehash: 55d8ed5fa1e3c4a7ffffaf47583eca3796f081cf
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68867734"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75683985"
 ---
 # <a name="acrylic-material"></a>アクリル素材
 
 ![ヒーロー イメージ](images/header-acrylic.svg)
 
-アクリルは、半透明のテクスチャを作成する[ブラシ](https://docs.microsoft.com/en-us/uwp/api/Windows.UI.Xaml.Media.Brush)の一種です。 アクリルをアプリ サーフェスに適用すると、奥行きを加えたり、視覚的な階層を確立したりすることができます。  <!-- By allowing user-selected wallpaper or colors to shine through, acrylic keeps users in touch with the OS personalization they've chosen. -->
+アクリルは、半透明のテクスチャを作成する[ブラシ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Brush)の一種です。 アクリルをアプリ サーフェスに適用すると、奥行きを加えたり、視覚的な階層を確立したりすることができます。  <!-- By allowing user-selected wallpaper or colors to shine through, acrylic keeps users in touch with the OS personalization they've chosen. -->
 
-> **重要な API**: [AcrylicBrush クラス](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.media.acrylicbrush)、[Background プロパティ](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.control.Background)
+> **重要な API**:[AcrylicBrush クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.acrylicbrush)、[Background プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.Background)
 
 :::row:::
     :::column:::
@@ -59,7 +59,7 @@ XAML コントロール ギャラリー アプリがインストールされて�
 
 ## <a name="acrylic-blend-types"></a>アクリル ブレンドの種類
 アクリルの最も注目すべき特徴は、その透明度です。 アクリル ブレンドの種類は 2 つあり、素材を通して何が表示されるかを変更することができます。
- - **背景アクリル**では、デスクトップの壁紙と現在アクティブになっているアプリの背後にある他のウィンドウが表示されます。これにより、アプリケーション ウィンドウの間に奥行きが出て、ユーザーが個人的に優先する画面を明示しておくことができます。
+ - **背景アクリル**では、デスクトップの壁紙と現在アクティブになっているアプリの背後にある他のウィンドウが表示されます。これにより、アプリケーション ウィンドウ間に奥行きが出て、ユーザーが個人的に優先する画面を明示しておくことができます。
  - **アプリ内アクリル**では、アプリ フレーム内に奥行きの感覚がもたらされ、フォーカスと階層の両方が提供されます。
 
  ![背景アクリル](images/BackgroundAcrylic_DarkTheme.png)
@@ -68,7 +68,7 @@ XAML コントロール ギャラリー アプリがインストールされて�
 
  複数のアクリル サーフェスを重ねる場合は注意が必要です。背景アクリルを何層にも重ねると、目の錯覚の原因となることがあります。
 
-## <a name="when-to-use-acrylic"></a>アクリルを使用する状況
+## <a name="when-to-use-acrylic"></a>アクリルの用途
 
 * アプリ内アクリルは、スクロール時や操作時にコンテンツと重なる可能性のあるサーフェス上などで、UI をサポートするために使用します。
 * コンテキスト メニュー、ポップアップ、簡易非表示 UI など、一時的な UI 要素に対して背景アクリルを使用します。<br />一時的なシナリオでアクリルを使用すると、一時的な UI をトリガーしたコンテンツとの視覚的な関係を維持するのに役立ちます。
@@ -80,7 +80,7 @@ XAML コントロール ギャラリー アプリがインストールされて�
 ### <a name="horizontal-navigation-or-commanding"></a>水平方向のナビゲーションまたはコマンド実行
 
 アプリでは NavigationView を利用できず、独自にアクリルを追加することを検討している場合は、比較的半透明なアクリル (濃淡の不透明度が 60%) を使用することをお勧めします。
- - ウィンドウが他のアプリ コンテンツ上でオーバーレイとして開くときは、[60% のアプリ内アクリル](#acrylic-theme-resources)にする必要があります
+ - ペインが他のアプリ コンテンツ上でオーバーレイとして開くときは、[60% のアプリ内アクリル](#acrylic-theme-resources)にする必要があります
 
 ![アプリ内での水平方向のコマンド実行を使用したマップ アプリ](images/Maps_In_App_Acrylic_1.png)
 
@@ -107,16 +107,16 @@ XAML コントロール ギャラリー アプリがインストールされて�
 ハイ コントラスト モードでは、ユーザーが選んだ見慣れた背景色が、アクリルの代わりに引き続き表示されます。 また次の場合には、背景アクリルとアプリ内アクリルはどちらも、単色として表示されます。
  - ユーザーが [設定] > [個人用設定] > [色] で透明度をオフにした場合
  - バッテリー節約機能モードがアクティブ化されている場合
- - アプリがローエンド ハードウェアで実行されている場合
+ - アプリがローエンド ハードウェアで実行される場合
 
 また次の場合には、背景アクリルのみ、その透明度とテクスチャを単色で置き換えることができます。
  - アプリ ウィンドウがデスクトップで非アクティブ化されている場合
  - UWP アプリが、電話、Xbox、HoloLens、またはタブレット モードで実行されている場合
 
 ### <a name="legibility-considerations"></a>見やすくするための考慮事項
-アプリがユーザーに表示するすべてのテキストでは、[コントラスト比を適切な値にする](../accessibility/accessible-text-requirements.md)ことが重要です。 ハイカラーの黒や白のテキスト、またはミディアムカラーの灰色のテキストがアクリル上で適切なコントラスト比になるように、アクリルのレシピは最適化されています。 プラットフォームによって提供されるテーマ リソースは、既定で、濃淡の色のコントラストが 80% の不透明度に設定されます。 ハイカラーの本文テキストをアクリル上に配置する場合、濃淡の不透明度を下げて、見やすさを維持することができます。 ダーク モードでは濃淡の不透明度を 70% にすることができ、ライト モードのアクリルではコントラスト比を 50% の不透明度に合わせることができます。
+アプリによりユーザーに表示されるすべてのテキストでは、[コントラスト比を適切な値にする](../accessibility/accessible-text-requirements.md)ことが重要です。 ハイカラーの黒や白のテキスト、またはミディアムカラーの灰色のテキストがアクリル上で適切なコントラスト比になるように、アクリルのレシピを最適化しています。 プラットフォームによって提供されるテーマ リソースは、既定で、濃淡の色のコントラストが 80% の不透明度に設定されます。 ハイカラーの本文テキストをアクリル上に配置する場合、濃淡の不透明度を下げて、見やすさを維持することができます。 ダーク モードでは濃淡の不透明度を 70% にすることができ、ライト モードのアクリルでは 50% の不透明度でコントラスト比が満たされます。
 
-アクリル サーフェスの上にアクセント カラーのテキストを配置することはお勧めしません。これは、これらの組み合わせが、15 ピクセルのフォント サイズでのコントラスト比の最小要件を満たさない可能性があるためです。 [ハイパーリンク](../controls-and-patterns/hyperlinks.md)はアクリル要素上には配置しないようにしてください。 また、アクリルの濃淡の色や透明度のレベルを、テーマ リソースによって提供されるプラットフォームの既定値以外にカスタマイズする場合は、見やすさへの影響を考慮してください。
+アクリル サーフェスの上にアクセントカラーのテキストを配置することはお勧めしません。これは、これらの組み合わせが、15 ピクセルのフォント サイズでのコントラスト比の最小要件を満たさない可能性があるためです。 [ハイパーリンク](../controls-and-patterns/hyperlinks.md)はアクリル要素上には配置しないようにしてください。 また、アクリルの濃淡の色や不透明度を、テーマ リソースによって提供されるプラットフォームの既定値以外にカスタマイズする場合は、見やすさへの影響を考慮してください。
 
 ## <a name="acrylic-theme-resources"></a>アクリルのテーマ リソース
 新しい XAML AcrylicBrush テーマ リソースや定義済みの AcrylicBrush テーマ リソースを使用して、アクリルをアプリのサーフェスに簡単に適用できます。 まず、アプリ内アクリルまたは背景アクリルのどちらを使用するかを決める必要があります。 この記事で推奨事項として既に説明した一般的なアプリのパターンを確認してください。
@@ -135,7 +135,7 @@ XAML コントロール ギャラリー アプリがインストールされて�
         <td> ChromeMedium <br/> ChromeLow <br/><br/> BaseHigh <br/><br/> BaseLow <br/><br/> AltHigh <br/><br/> AltLow </td>
     </tr>
     </tr>
-        <td> <b>推奨される使用法:</b> これらは、汎用的なアクリルのリソースであり、さまざまな使用方法で適切に機能します。 アプリで使用するセカンダリ テキストの色が AltMedium で、そのサイズが 18 ピクセルよりも小さい場合は、<a href="../accessibility/accessible-text-requirements.md">コントラスト比の要件を満たすように</a>、80% のアクリル リソースをテキストの背景に配置してください。 </td>
+        <td> <b>推奨される使用法:</b>これらは、汎用的なアクリルのリソースであり、さまざまな使用方法で適切に機能します。 アプリで使用するセカンダリ テキストの色が AltMedium で、そのサイズが 18 ピクセルよりも小さい場合は、<a href="../accessibility/accessible-text-requirements.md">コントラスト比の要件を満たすように</a>、80% のアクリル リソースをテキストの背景に配置してください。 </td>
     </tr>
     <tr>
         <td> SystemControlAcrylicWindowMediumHighBrush、SystemControlAcrylicElementMediumHighBrush <br/> SystemControlBaseHighAcrylicWindowMediumHighBrush、SystemControlBaseHighAcrylicElementMediumHighBrush </td>
@@ -143,7 +143,7 @@ XAML コントロール ギャラリー アプリがインストールされて�
         <td> ChromeMedium <br/><br/> BaseHigh </td>
     </tr>
     <tr>
-        <td> <b>推奨される使用法:</b> アプリで使用するセカンダリ テキストの色が AltMedium で、そのサイズが 18 ピクセル以上になる場合は、これらのより透過的な 70% のアクリル リソースをテキストの背景に配置できます。 これらのリソースは、アプリの最上部にある水平方向のナビゲーション領域やコマンド実行領域で使用することをお勧めします。  </td>
+        <td> <b>推奨される使用法:</b>アプリで使用するセカンダリ テキストの色が AltMedium で、そのサイズが 18 ピクセル以上になる場合は、これらのより透過的な 70% のアクリル リソースをテキストの背景に配置できます。 これらのリソースは、アプリの最上部にある水平方向のナビゲーション領域やコマンド実行領域で使用することをお勧めします。  </td>
     </tr>
     <tr>
         <td> SystemControlChromeHighAcrylicWindowMediumBrush、SystemControlChromeHighAcrylicElementMediumBrush <br/> SystemControlChromeMediumAcrylicWindowMediumBrush、SystemControlChromeMediumAcrylicElementMediumBrush <br/> SystemControlChromeMediumLowAcrylicWindowMediumBrush、SystemControlChromeMediumLowAcrylicElementMediumBrush <br/> SystemControlBaseHighAcrylicWindowMediumBrush、SystemControlBaseHighAcrylicElementMediumBrush <br/> SystemControlBaseMediumLowAcrylicWindowMediumBrush、SystemControlBaseMediumLowAcrylicElementMediumBrush <br/> SystemControlAltMediumLowAcrylicWindowMediumBrush、SystemControlAltMediumLowAcrylicElementMediumBrush  </td>
@@ -151,7 +151,7 @@ XAML コントロール ギャラリー アプリがインストールされて�
         <td> ChromeHigh <br/><br/> ChromeMedium <br/><br/> ChromeMediumLow <br/><br/> BaseHigh <br/><br/> BaseLow <br/><br/> AltMediumLow </td>
     </tr>
     <tr>
-        <td> <b>推奨される使用法:</b> プライマリ テキストの色が AltHigh で、このテキストのみをアクリルの上に配置する場合は、これらの 60% のリソースをアプリで利用できます。 アプリの<a href="../controls-and-patterns/navigationview.md">垂直方向のナビゲーション ウィンドウ</a> (ハンバーガー メニュー) を描画するときは、60% のアクリルを使用することをお勧めします。 </td>
+        <td> <b>推奨される使用法:</b>プライマリ テキストの色が AltHigh で、このテキストのみをアクリルの上に配置する場合は、これらの 60% のリソースをアプリで利用できます。 アプリの<a href="../controls-and-patterns/navigationview.md">垂直方向のナビゲーション ペイン</a> (ハンバーガー メニュー) を描画するときは、60% のアクリルを使用することをお勧めします。 </td>
     </tr>
 </table>
 
@@ -232,7 +232,7 @@ XAML コントロール ギャラリー アプリがインストールされて�
 </ResourceDictionary.ThemeDictionaries>
 ```
 
-次のサンプルは、コードで AcrylicBrush を宣言する方法を示しています。 アプリが複数の OS ターゲットをサポートする場合は、この API がユーザーのコンピューターで利用できることを確認してください。
+次のサンプルは、コードで AcrylicBrush を宣言する方法を示しています。 アプリで複数の OS ターゲットがサポートされている場合は、この API がユーザーのコンピューターで利用できることを確認してください。
 
 ```csharp
 if (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.Xaml.Media.XamlCompositionBrushBase"))
@@ -315,12 +315,12 @@ protected override void OnLaunched(LaunchActivatedEventArgs e)
 また、通常はタイトル バーに自動的に表示されるアプリのタイトルを、`CaptionTextBlockStyle` を使用した TextBlock で描画する必要もあります。 詳しくは、「[タイトル バーのカスタマイズ](../shell/title-bar.md)」をご覧ください。
 
 ## <a name="dos-and-donts"></a>推奨と非推奨
-* アクリルは、ナビゲーション ウィンドウなど、アプリのプライマリ サーフェス以外のサーフェスで背景素材として使用してください。
+* アクリルは、ナビゲーション ペインなど、アプリのプライマリ サーフェス以外のサーフェスで背景素材として使用してください。
 * シームレスなエクスペリエンスを実現するには、アプリの周囲とわずかにブレンドするようにして、アクリルをアプリの 1 つ以上の端にまで拡張してください。
 * アプリの大きな背景サーフェスにデスクトップ アクリルを配置しないでください。これを行うと、一時的なサーフェスに対して主に使用されるアクリルのメンタル モデルが破損します。
 * アプリ内アクリルと背景アクリルは、継ぎ目部分での視覚的なテンションを回避するために、隣接するようには配置しないでください。
-* 複数のアクリル ウィンドウを、同じ濃淡や不透明度で隣接するように配置しないでください。このようにすると、望ましくない継ぎ目が表示されます。
-* アクリル サーフェスの上には、アクセント カラーのテキストを配置しないでください。
+* 複数のアクリル ペインを、同じ濃淡や不透明度で隣接するように配置しないでください。このようにすると、望ましくない継ぎ目が表示されます。
+* アクリル サーフェスの上には、アクセントカラーのテキストを配置しないでください。
 
 ## <a name="how-we-designed-acrylic"></a>アクリルをどのように設計したか
 

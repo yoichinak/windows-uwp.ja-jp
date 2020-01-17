@@ -13,12 +13,12 @@ dev-contact: mitra
 doc-status: Published
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: e454bed6dc1a9429fe313e305dc9ba818d86e765
-ms.sourcegitcommit: 802699ce8d21e7fa4639f0b19b1c5b6c46c2c727
+ms.openlocfilehash: a3cd8a0c988df08047b10911a4d4f55e3ba1cb6e
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835643"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75684108"
 ---
 # <a name="buttons"></a>ボタン
 
@@ -28,7 +28,7 @@ ms.locfileid: "68835643"
 
 [XAML (Extensible Application Markup Language)](../../xaml-platform/xaml-overview.md) フレームワークには、標準のボタン コントロールといくつかの特殊なボタン コントロールが提供されています。
 
-コントロール | 説明
+Control | 説明
 ------- | -----------
 [ボタン](/uwp/api/windows.ui.xaml.controls.button) | 直ちに操作を開始しするボタン。 [Click](/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.click) イベントまたは[コマンド](/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.command) バインディングと共に使用することができます。
 [RepeatButton](/uwp/api/windows.ui.xaml.controls.primitives.repeatbutton) | 押されている間は継続的に [Click](/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.click) イベントを発生させるボタン。
@@ -129,7 +129,7 @@ private async void SubscribeButton_Click(object sender, RoutedEventArgs e)
 
 通常、**Button** オブジェクトでは低レベルな [PointerPressed](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerpressed) イベントを処理できません。これに代わる **Click** 動作があるためです。 詳しくは、「[イベントとルーティング イベントの概要](https://docs.microsoft.com/windows/uwp/xaml-platform/events-and-routed-events-overview)」をご覧ください。
 
-[ClickMode](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.clickmode) プロパティを変更することにより、ボタンで **Click** イベントが発生する方法を変えることができます。 **ClickMode** の既定値は **Release** ですが、ボタンの **ClickMode** の値を **Hover** または **Press** に設定することもできます。 **ClickMode** が **Hover** の場合、キーボードやタッチを使って **Click** イベントを発生させることはできません。
+[ClickMode](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.clickmode) プロパティを変更することにより、ボタンで **Click** イベントが発生する方法を変えることができます。 **ClickMode** の既定値は **Release** ですが、ボタンの **ClickMode** の値を **Hover** または **Press** に設定することもできます。 **ClickMode** が **Hover** の場合、キーボードやタッチを使って **Click** イベントを発生させることはできません。
 
 
 ### <a name="button-content"></a>ボタンのコンテンツ
@@ -154,7 +154,7 @@ private async void SubscribeButton_Click(object sender, RoutedEventArgs e)
 <td> <img src="images/button-wraptext.png"/> </td>
 </tr>
 <tr>
-<td> <b>選択肢 1:</b><br> テキストの長さが 26 文字より大きい場合は、ボタンの幅やスタック ボタンを増やし、テキストを折り返します。 </td>
+<td> <b>選択肢 1</b><br> テキストの長さが 26 文字より大きい場合は、ボタンの幅やスタック ボタンを増やし、テキストを折り返します。 </td>
 <td> <img src="images/button-wraptext1.png"> </td>
 </tr>
 <tr>
@@ -217,7 +217,7 @@ private void Decrease_Click(object sender, RoutedEventArgs e)
 
 ## <a name="create-a-drop-down-button"></a>ドロップダウン ボタンの作成
 
-> **DropDownButton** には、[Windows UI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)または Windows 10 バージョン 1809 (SDK 17763) 以降が必要です。 最新の SDK をダウンロードするには、「[Windows 10 SDK](https://developer.microsoft.com/windows/downloads/windows-10-sdk)」をご覧ください。以前の SDK をダウンロードするには、「[Windows SDK とエミュレーターのアーカイブ](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive)」をご覧ください。
+> **DropDownButton** には、[Windows UI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)または Windows 10 バージョン 1809 (SDK 17763) 以降が必要です。 最新の SDK をダウンロードするには、「[Windows 10 SDK](https://developer.microsoft.com/windows/downloads/windows-10-sdk)」をご覧ください。以前の SDK をダウンロードするには、「[Windows SDK とエミュレーターのアーカイブ](https://developer.microsoft.com/windows/downloads/sdk-archive)」をご覧ください。
 
 [DropDownButton](/uwp/api/windows.ui.xaml.controls.dropdownbutton) は、その他のオプションを含むアタッチされたポップアップがあることを示す視覚的なインジケーターとしてシェブロンを表示するボタンです。 動作はポップアップがある標準の **Button** コントロールと同じであり、外観だけが異なります。
 
@@ -278,7 +278,7 @@ private void AlignmentMenuFlyoutItem_Click(object sender, RoutedEventArgs e)
 ## <a name="create-a-split-button"></a>分割ボタンの作成
 
  > [!IMPORTANT]
- > **SplitButton** には、[Windows UI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)または Windows 10 バージョン 1809 (SDK 17763) 以降が必要です。 最新の SDK をダウンロードするには、「[Windows 10 SDK](https://developer.microsoft.com/windows/downloads/windows-10-sdk)」をご覧ください。以前の SDK をダウンロードするには、「[Windows SDK とエミュレーターのアーカイブ](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive)」をご覧ください。
+ > **SplitButton** には、[Windows UI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)または Windows 10 バージョン 1809 (SDK 17763) 以降が必要です。 最新の SDK をダウンロードするには、「[Windows 10 SDK](https://developer.microsoft.com/windows/downloads/windows-10-sdk)」をご覧ください。以前の SDK をダウンロードするには、「[Windows SDK とエミュレーターのアーカイブ](https://developer.microsoft.com/windows/downloads/sdk-archive)」をご覧ください。
 
 [SplitButton](/uwp/api/windows.ui.xaml.controls.splitbutton) コントロールには、個別に呼び出せる 2 つのパーツがあります。 1 つのパーツは標準のボタンのように動作し、即座にアクションを呼び出します。 もう一方のパーツは、ユーザーが選択できる追加オプションを含むポップアップを呼び出します。
 
@@ -388,7 +388,7 @@ public sealed partial class MainPage : Page
 ## <a name="create-a-toggle-split-button"></a>分割トグル ボタンの作成
 
 > [!NOTE]
-> **ToggleSplitButton** には、[Windows UI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)または Windows 10 バージョン 1809 (SDK 17763) 以降が必要です。 最新の SDK をダウンロードするには、「[Windows 10 SDK](https://developer.microsoft.com/windows/downloads/windows-10-sdk)」をご覧ください。以前の SDK をダウンロードするには、「[Windows SDK とエミュレーターのアーカイブ](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive)」をご覧ください。
+> **ToggleSplitButton** には、[Windows UI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)または Windows 10 バージョン 1809 (SDK 17763) 以降が必要です。 最新の SDK をダウンロードするには、「[Windows 10 SDK](https://developer.microsoft.com/windows/downloads/windows-10-sdk)」をご覧ください。以前の SDK をダウンロードするには、「[Windows SDK とエミュレーターのアーカイブ](https://developer.microsoft.com/windows/downloads/sdk-archive)」をご覧ください。
 
 [ToggleSplitButton](/uwp/api/windows.ui.xaml.controls.togglesplitbutton) コントロールには、個別に呼び出せる 2 つのパーツがあります。 1 つのパーツは、オンまたはオフにできるトグル ボタンのように動作します。 もう一方のパーツは、ユーザーが選択できる追加オプションを含むポップアップを呼び出します。
 
@@ -519,14 +519,14 @@ private void ApplyListStyle(string listStyle)
 
 - ボタンの用途と状態をユーザーがはっきりと理解できるようにします。
 
-- 同じ意思決定に対して複数のボタンが存在する場合 (確認のダイアログなど)、コミット ボタンは次の順番で提示します。この "[実行する]" と "[実行しない]" は、メインの指示に対応する具体的な文になります。
+- 同じ意思決定に対して複数のボタンが存在する場合 (確認のダイアログなど)、コミット ボタンは次の順番で提示します。この "[実行する]" と "[実行しない]" は、主要な指示への具体的な応答になります。
   - [OK]/[実行する]/[はい]
     - [実行しない]/[いいえ]
-    - Cancel
+    - キャンセル
 
-- ユーザーに対して表示するボタンは、1 つまたは 2 つにします (例: **[承諾]** と **[キャンセル]** )。 3 つ以上の操作をユーザーに示す必要がある場合は、ユーザーが操作を選択できる [チェック ボックス](checkbox.md) または [オプション ボタン](radio-button.md) を、それらの操作を開始するための 1 つのコマンド ボタンと共に使うことを検討します。
+- ユーザーに対して表示するボタンは、1 つまたは 2 つにします (例: **[承諾]** と **[キャンセル]** )。 3 つ以上の操作をユーザーに示す必要がある場合は、ユーザーが操作を選択できる[チェック ボックス](checkbox.md)または[オプション ボタン](radio-button.md)を、それらの操作を開始するための 1 つのコマンド ボタンと共に使うことを検討します。
 
-- ある操作をアプリの複数のページで実行できるようにするには、各ページでボタンを使うのではなく、[下部のアプリ バー](app-bars.md) を使うことを検討します。
+- ある操作をアプリの複数のページで実行できるようにするには、複数のページ上にボタンを複製するのではなく、[下部のアプリ バー](app-bars.md)を使うことを検討します。
 
 
 ### <a name="recommended-single-button-layout"></a>単一ボタンの推奨レイアウト
@@ -537,18 +537,18 @@ private void ApplyListStyle(string listStyle)
 
     ![ダイアログ内のボタン](images/pushbutton_doc_dialog.png)
 
-  - ボタンがコンテナー UI 内 (トースト通知、ポップアップ、またはリスト ビュー項目内など) に表示される場合は、コンテナー内でボタンを**左揃え**にします。
+  - ボタンがコンテナー UI 内 (トースト通知、ポップアップ、またはリスト ビュー項目内など) に表示される場合は、コンテナー内でボタンを**右揃え**にします。
 
     ![コンテナー内のボタン](images/pushbutton_doc_container.png)
 
-  - ページに含まれるボタンが 1 つだけの場合は (設定ページの下部にある **[適用]** ボタンなど)、ボタンを**左揃え**にします。 これで、ページのその他のコンテンツとボタンを揃えて配置できます。
+  - ページに含まれるボタンが 1 つだけの場合は (設定ページの下部にある **[適用]** ボタンなど)、ボタンを**左揃え**にします。 これで、ボタンをページのその他のコンテンツと揃えて配置できます。
 
     ![ページのボタン](images/pushbutton_doc_page.png)
 
 
 ## <a name="back-buttons"></a>戻るボタン
 
-戻るボタンは、バック スタックまたはユーザーのナビゲーション履歴を使って "戻る" ナビゲーションを実現する、システムの UI 要素です。 独自の"戻る"ボタンを作成する必要はありませんが、前に戻る移動で適切なエクスペリエンスを提供するために作業が必要になることがあります。 詳しくは、「[UWP アプリのナビゲーション履歴と前に戻る移動](../basics/navigation-history-and-backwards-navigation.md)」をご覧ください。
+戻るボタンは、バック スタックまたはユーザーのナビゲーション履歴を使って "戻る" ナビゲーションを実現する、システム指定の UI 要素です。 独自の "戻る" ボタンを作成する必要はありませんが、前に戻る移動で適切なエクスペリエンスを提供するために作業が必要になることがあります。 詳しくは、「[UWP アプリのナビゲーション履歴と前に戻る移動](../basics/navigation-history-and-backwards-navigation.md)」をご覧ください。
 
 
 ## <a name="get-the-sample-code"></a>サンプル コードを入手する

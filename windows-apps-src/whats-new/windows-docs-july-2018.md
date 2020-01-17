@@ -5,12 +5,12 @@ keywords: 最新情報, 更新, 機能, 開発者向けガイダンス, Windows 
 ms.date: 07/11/2018
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 3c92de1901c9cc67a30f495e34289bac5d7d2b94
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: f4e9ce391aa485e681fc198e14fe3374edb72aa1
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74258796"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75684715"
 ---
 # <a name="whats-new-in-the-windows-developer-docs-in-july-2018"></a>Windows 開発者向けドキュメントの最新情報、2018 年 7 月
 
@@ -29,14 +29,14 @@ Windows 10 の[ツールと SDK をインストール](https://developer.microso
 次の項目については、PWA ガイドを確認してください。
 
 * [単純な Web アプリを PWA として構築する](https://docs.microsoft.com/microsoft-edge/progressive-web-apps/get-started)
-* [Windows ランタイムで PWA を強化する](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps/windows-features)
+* [Windows ランタイムで PWA を強化する](https://docs.microsoft.com/microsoft-edge/progressive-web-apps/windows-features)
 * [PWA を Microsoft Store で公開する](https://docs.microsoft.com/microsoft-edge/progressive-web-apps/microsoft-store)
 
 ### <a name="notepad"></a>メモ帳
 
 Windows 10 Insider Preview ビルド 17713 で提供されている[メモ帳は、多数の新機能で更新されています](https://blogs.windows.com/windowsexperience/2018/07/11/announcing-windows-10-insider-preview-build-17713/)。 ズーム、折り返し検索/置換、および Unix/Linux と Mac の行の末尾 (それぞれ LF と CR) が、[Windows Insider](https://insider.windows.com/) でサポートされるようになりました。 
 
-## <a name="developer-guidance"></a>開発者向けガイダンス
+## <a name="developer-guidance"></a>開発者ガイド
 
 ### <a name="design-landing-page"></a>設計ランディング ページ
 

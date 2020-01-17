@@ -5,20 +5,20 @@ keywords: XAML, UWP, 概要
 ms.date: 08/30/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 71c04725fed4ab9d5d2158f2f892af038aefc8fd
-ms.sourcegitcommit: 807dadf5eceb576aba3ad898a6e9bf12129e94a4
+ms.openlocfilehash: b9c5348063f277d4d76cbea120689328bcc217b1
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680750"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75684152"
 ---
-# <a name="tutorial-create-adaptive-layouts"></a>チュートリアル: アダプティブ レイアウト作成する
+# <a name="tutorial-create-adaptive-layouts"></a>チュートリアル: アダプティブ レイアウトを作成する
 
-このチュートリアルでは、XAML のアダプティブなカスタム レイアウト機能の基本的な使い方について説明します。このレイアウト機能を使用すると、どのようなデバイスでもそのデバイス用に最適化されたアプリを作成できます。 新しい DataTemplate を作成する方法、ウィンドウ スナップ位置を追加する方法、VisualStateManager 要素および AdaptiveTrigger 要素を使用してアプリのレイアウトをカスタマイズする方法を学習します。 ここでは、これらのツールを使用して、より小さなデバイス画面向けにイメージ編集プログラムをカスタマイズします。 
+このチュートリアルでは、XAML のアダプティブなカスタム レイアウト機能の基本的な使い方について説明します。このレイアウト機能を使用すると、どのようなデバイスでもそのデバイス用に最適化されたアプリを作成できます。 新しい DataTemplate を作成する方法、ウィンドウ スナップ位置を追加する方法、VisualStateManager 要素および AdaptiveTrigger 要素を使用してアプリのレイアウトをカスタマイズする方法を学習します。 ここでは、これらのツールを使用して、より小さなデバイス画面向けに画像編集プログラムを最適化します。 
 
-作業するイメージ編集プログラムには、次の 2 つのページ/画面があります。
+作業する画像編集プログラムには、次の 2 つのページ/画面があります。
 
-**メイン ページ:** フォト ギャラリー ビューが各イメージ ファイルに関する情報と共に表示されます。
+**メイン ページ:** フォト ギャラリー ビューが各画像ファイルに関する情報と共に表示されます。
 
 ![MainPage](../basics/images/xaml-basics/mainpage.png)
 
@@ -30,22 +30,22 @@ ms.locfileid: "72680750"
 
 * Visual Studio 2019: [Visual Studio 2019 Community のダウンロード (無料)](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15&campaign=WinDevCenter&ocid=wdgcx-windevcenter-community-download) 
 * Windows 10 SDK (10.0.15063.468 以降): [最新の Windows SDK のダウンロード (無料)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
-* Windows モバイル エミュレーター: [Windows 10 モバイル エミュレーターのダウンロード (無料)](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive)
+* Windows モバイル エミュレーター: [Windows 10 モバイル エミュレーターのダウンロード (無料)](https://developer.microsoft.com/windows/downloads/sdk-archive)
 
 ## <a name="part-0-get-the-starter-code-from-github"></a>パート 0: GitHub からスタート コードを入手する
 
 このチュートリアルでは、PhotoLab サンプルの簡易バージョンから開始します。 
 
 1. [https://github.com/Microsoft/Windows-appsample-photo-lab](https://github.com/Microsoft/Windows-appsample-photo-lab) に移動します。 これで、サンプルの GitHub ページが表示されます。 
-2. 次に、サンプルを複製またはダウンロードする必要があります。 **[Clone or download]** (複製またはダウンロード) ボタンをクリックします。 サブメニューが表示されます。
+2. 次に、サンプルを複製またはダウンロードする必要があります。 **[Clone or download]\(クローンまたはダウンロード\)** ボタンをクリックします。 サブメニューが表示されます。
     <figure>
         <img src="../basics/images/xaml-basics/clone-repo.png" alt="The Clone or download menu on GitHub">
-        <figcaption>PhotoLab サンプルの GitHub ページの <b>[Clone or download]</b> (複製またはダウンロード) メニュー。</figcaption>
+        <figcaption>写真ラボ サンプルの GitHub ページの <b>[Clone or download]\(クローンまたはダウンロード\)</b> メニュー。</figcaption>
     </figure>
 
     **GitHub に慣れていない場合:**
     
-    a. **[Download ZIP]** (ZIP をダウンロード) をクリックし、ファイルをローカルに保存します。 これで、必要なすべてのプロジェクト ファイルを含む .zip ファイルがダウンロードされます。
+    」を参照します。 **[Download ZIP]\(ZIP のダウンロード\)** をクリックし、ファイルをローカルに保存します。 これで、必要なすべてのプロジェクト ファイルを含む .zip ファイルがダウンロードされます。
 
     b. ファイルを展開します。 エクスプローラーを使用して、ダウンロードした .zip ファイルに移動し、ファイルを右クリックして **[すべて展開]** を選択します。 
 
@@ -53,7 +53,7 @@ ms.locfileid: "72680750"
 
     **GitHub に慣れている場合:**
 
-    a. リポジトリのマスター ブランチをローカルに複製します。
+    」を参照します。 リポジトリのマスター ブランチをローカルに複製します。
 
     b. `Windows-appsample-photo-lab\xaml-basics-starting-points\adaptive-layout` ディレクトリに移動します。
 
@@ -68,10 +68,10 @@ Visual Studio ツールバーで、ソリューション プラットフォー�
 ![モバイル レイアウト: 変更後](../basics/images/xaml-basics/adaptive-layout-mobile-before.png)
 
 ## <a name="part-2-build-a-tailored-mobile-layout"></a>パート 2: カスタムのモバイル レイアウトを作成する
-より小さなデバイスでもこのアプリの見栄えを良くするには、モバイル デバイスが検出された場合にのみ使用される、別のスタイルを XAML ページに作成します。
+より小さなデバイスでもこのアプリの見栄えを良くするために、モバイル デバイスが検出された場合にのみ使用される、別の一連のスタイルを XAML ページに作成します。
 
 ### <a name="create-a-new-datatemplate"></a>新しい DataTemplate を作成する
-イメージの新しい DataTemplate を作成することで、アプリケーションのギャラリー ビューをカスタマイズしましょう。 ソリューション エクスプ ローラーから MainPage.xaml を開き、**Page.Resources** タグ内に次のコードを追加します。
+画像の新しい DataTemplate を作成することで、アプリケーションのギャラリー ビューをカスタマイズします。 ソリューション エクスプローラーから MainPage.xaml を開き、**Page.Resources** タグ内に次のコードを追加します。
 
 ```XAML
 <DataTemplate x:Key="ImageGridView_MobileItemTemplate"
@@ -91,10 +91,10 @@ Visual Studio ツールバーで、ソリューション プラットフォー�
 </DataTemplate>
 ```
 
-このギャラリー テンプレートでは、イメージの境界線を排除し、各サムネイルの下にあるイメージのメタデータ (ファイル名、評価など) を非表示にすることによって、画面領域を節約しています。 代わりに、各サムネイルは単純な正方形で表示します。
+このギャラリー テンプレートでは、画像の境界線と、各サムネイルの下にある画像のメタデータ (ファイル名、評価など) を排除することによって、画面領域を節約します。 代わりに、各サムネイルを単純な正方形で表示します。
 
-### <a name="add-metadata-to-a-tooltip"></a>メタデータをヒントを追加する
-ユーザーが各イメージのメタデータにアクセスできるように、各イメージ項目にヒントを追加します。 先ほど作成した DataTemplate の **Image** タグ内に、次のコードを追加します。
+### <a name="add-metadata-to-a-tooltip"></a>メタデータをヒントに追加する
+ユーザーが各画像のメタデータにアクセスできるように、各画像の項目にヒントを追加します。 先ほど作成した DataTemplate の **Image** タグ内に、次のコードを追加します。
 
 ```XAML
 <Image ...>
@@ -133,11 +133,11 @@ Visual Studio ツールバーで、ソリューション プラットフォー�
 </Image>
 ```
 
-これにより、サムネイルにマウスを重ねると (または、タッチ スクリーンを長押しすると)、イメージのタイトル、ファイルの種類、サイズが表示されるようになります。
+これにより、サムネイルにマウスを重ねると (または、タッチ スクリーンを長押しすると)、画像のタイトル、ファイルの種類、サイズが表示されるようになります。
 
 ### <a name="add-a-visualstatemanager-and-statetrigger"></a>VisualStateManager と StateTrigger を追加する
 
-これで、新しいデータ レイアウトが作成されましたが、今のところ、どのようなときに既定のスタイルではなくこのレイアウトを使うのか、アプリに知らせる方法がありません。 これを解決するには、**VisualStateManager** を追加する必要があります。 ページのルート要素である **RelativePanel** に次のコードを追加します。
+これで、新しいデータ レイアウトを作成しましたが、この時点でアプリは、どのようなときに既定のスタイルではなくこのレイアウトを使うのか理解していません。 これを解決するには、**VisualStateManager** を追加する必要があります。 ページのルート要素である **RelativePanel** に次のコードを追加します。
 
 ```XAML
 <VisualStateManager.VisualStateGroups>
@@ -156,10 +156,10 @@ Visual Studio ツールバーで、ソリューション プラットフォー�
 </VisualStateManager.VisualStateGroups>
 ```
 
-これにより、新しい **VisualState** および **StateTrigger** が追加されます。これらは、アプリがモバイル デバイス上で実行中であると検出されるとトリガーされます (この動作のロジックは、PhotoLab ディレクトリにある MobileScreenTrigger.cs で確認できます)。 **StateTrigger** が起動されると、アプリは、この **VisualState** に割り当てられているレイアウト属性を使用します。
+これにより、新しい **VisualState** および **StateTrigger** が追加されます。これらは、アプリがモバイル デバイス上で実行中であると検出されるとトリガーされます (この動作のロジックは、PhotoLab ディレクトリにある MobileScreenTrigger.cs で確認できます)。 **StateTrigger** が起動されると、アプリによって、この **VisualState** に割り当てられているレイアウト属性が使用されます。
 
 ### <a name="add-visualstate-setters"></a>VisualState の setter を追加する
-次に、**VisualState** の setter を使用して、状態がトリガーされたときに適用する属性を **VisualStateManager** に伝えます。 各 setter は、特定の XAML 要素の 1 つのプロパティを対象とし、指定された値に設定します。 先ほど作成したモバイルの **VisualState** (**VisualState.StateTriggers** 要素の下) にこのコードを追加します。 
+次に、**VisualState** の setter を使用して、状態がトリガーされたときに適用する属性を **VisualStateManager** に伝えます。 各 setter は、特定の XAML 要素の 1 つのプロパティを対象とし、指定された値にそれを設定します。 先ほど作成したモバイルの **VisualState** (**VisualState.StateTriggers** 要素の下) にこのコードを追加します。 
 
 ```XAML
 <VisualStateManager.VisualStateGroups>
@@ -208,7 +208,7 @@ Visual Studio ツールバーで、ソリューション プラットフォー�
 
 ```
 
-これらの setter は、イメージ ギャラリーの **ItemTemplate** を、先ほど作成した新しい **DataTemplate** に設定します。さらに、携帯電話の画面で親指によってアクセスしやすくなるように、コマンド バーとズーム スライダーを画面の下端に揃えます。
+これらの setter は、画像ギャラリーの **ItemTemplate** を、先ほど作成した新しい **DataTemplate** に設定します。さらに、携帯電話の画面で親指によってアクセスしやすくなるように、コマンド バーとズーム スライダーを画面の下端に揃えます。
 
 ### <a name="run-the-app"></a>アプリを実行する
 では、モバイル エミュレーターを使用してアプリを実行してみましょう。 新しいレイアウトは正しく表示されますか? 次のように、グリッド状に並んだ小さなサムネイルが表示されるはずです。 まだ以前のレイアウトが表示される場合は、**VisualStateManager** コードにスペルの間違いがないか確認してください。
@@ -216,12 +216,12 @@ Visual Studio ツールバーで、ソリューション プラットフォー�
 ![モバイル レイアウト: 変更後](../basics/images/xaml-basics/adaptive-layout-mobile-after.png)
 
 ## <a name="part-3-adapt-to-multiple-window-sizes-on-a-single-device"></a>パート 3: 単一デバイスのさまざまなウィンドウ サイズに対応する
-新しいカスタム レイアウトを作成すると、モバイル デバイスのレスポンシブ デザインに関する問題が解決しますが、デスクトップとタブレットの場合はどうでしょうか? アプリは、全画面では見栄え良く表示されても、ユーザーがウィンドウ サイズを縮小すると、インターフェイスが使いづらくなることがあります。 エンド ユーザーが常に適切な外観および操作性を得ることができるように、**VisualStateManager** を使用して、単一デバイスのさまざまなウィンドウサイズに対応することができます。
+新しいカスタム レイアウトを作成すると、モバイル デバイスのレスポンシブ デザインに関する問題が解決しますが、デスクトップとタブレットの場合はどうでしょうか? アプリは、全画面では見栄え良く表示されても、ユーザーがウィンドウ サイズを縮小すると、インターフェイスが使いづらくなることがあります。 エンドユーザーが常に適切な外観および操作性を得ることができるように、**VisualStateManager** を使用して、単一デバイスのさまざまなウィンドウ サイズに対応することができます。
 
 ![小さなウィンドウ: 変更前](../basics/images/xaml-basics/adaptive-layout-small-before.png)
 
 ### <a name="add-window-snap-points"></a>ウィンドウ スナップ位置を追加する
-最初のステップは、さまざまな **VisualStates** がトリガーされる "スナップ位置" を定義することです。 ソリューション エクスプ ローラーから App.xaml を開き、2 つの **Application** タグの間に次のコードを追加します。
+最初のステップは、さまざまな **VisualStates** がトリガーされる "スナップ位置" を定義することです。 ソリューション エクスプローラーから App.xaml を開き、2 つの **Application** タグの間に次のコードを追加します。
 
 ```XAML
 <Application.Resources>
@@ -233,12 +233,12 @@ Visual Studio ツールバーで、ソリューション プラットフォー�
 ```
 
 これにより 3 つのスナップ位置が追加され、3 種類のウィンドウ サイズ範囲に対する新しい **VisualStates** を作成できます。
-+ 小 (0 ～ 640 ピクセル幅)
-+ 中 (641 ～ 1007 ピクセル幅)
++ 小 (0 - 640 ピクセル幅)
++ 中 (641 - 1007 ピクセル幅)
 + 大 (1008 ピクセル幅以上)
 
 ### <a name="create-new-visualstates-and-statetriggers"></a>新しい VisualStates と StateTriggers を作成する
-次に、各スナップ位置に対応する **VisualStates** および **StateTriggers** を作成します。 MainPage.xaml.cpp の **VisualStateManager** (パート 2 で作成) に次のコードを追加します。
+次に、各スナップ位置に対応する **VisualStates** および **StateTriggers** を作成します。 MainPage.xaml の **VisualStateManager** (パート 2 で作成) に次のコードを追加します。
 
 ```XAML
 <VisualStateManager.VisualStateGroups>
@@ -280,7 +280,7 @@ Visual Studio ツールバーで、ソリューション プラットフォー�
 ```
 
 ### <a name="add-setters"></a>setter を追加する
-最後に、これらの setter を **SmallWindow** の状態に追加します。
+最後に、これらの setter を **SmallWindow** 状態に追加します。
 
 ```XAML
 
@@ -321,7 +321,7 @@ Visual Studio ツール バーで、ターゲット デバイスを **Local Mach
 
 ## <a name="going-further"></a>追加情報
 
-これで、この演習は終わりです。自身でさらに試すために必要な、レイアウトに関する知識を身につけることができました。 以前に追加したモバイル専用のヒントに、評価コントロールを追加してみてください。 または、さらに大きな課題として、大きな画面サイズ用にレイアウトを最適化してみてください (テレビ画面や Surface Studio を想定)。
+これで、この演習は終わりです。自身でさらに試すために必要な、アダプティブ レイアウトに関する知識を身につけることができました。 以前に追加したモバイル専用のヒントに、評価コントロールを追加してみてください。 または、さらに大きな課題として、大きな画面サイズ用にレイアウトを最適化してみてください (テレビ画面や Surface Studio を想定)。
 
 行き詰まった場合は、「[XAML を使ったページ レイアウトの定義](../layout/layouts-with-xaml.md)」の以下のセクションで、詳しいガイダンスを参照できます。
 

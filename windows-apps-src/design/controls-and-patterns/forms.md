@@ -5,12 +5,12 @@ template: detail.hbs
 ms.date: 11/07/2017
 ms.topic: article
 keywords: Windows 10, UWP, Fluent
-ms.openlocfilehash: ff071a2a98c533ad7c089b28165f026de00ba68f
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: e1a5b192ed57d3962b6ba4cbef69e3663bc1e2ec
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67319094"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75683995"
 ---
 # <a name="forms"></a>フォーム
 フォームは、ユーザーからデータを収集して送信するコントロールのグループです。 通常、フォームは、ページの設定、調査、アカウントの作成、その他に使われます。 
@@ -32,12 +32,12 @@ ms.locfileid: "67319094"
 
 ユーザー入力を送信および表示する方法を考えた場合、フォームには 2 つの種類があります。
 
-### <a name="1-instantly-updating"></a>1. すぐに更新する
+### <a name="1-instantly-updating"></a>1.すぐに更新する
 ![設定ページ](images/control-examples/toggle-switch-news.png)
 
 フォームで値を変更した結果をユーザーがすぐに確認できるようにする場合は、即時更新フォームを使います。 たとえば、設定ページでは、現在の選択が表示されていて、選択内容を変更するとすぐに適用されます。 アプリで変更を確認するには、各入力コントロールに[イベント ハンドラーを追加する](controls-and-events-intro.md)必要があります。 ユーザーが入力コントロールを変更した場合、アプリで適切に応答できます。
 
-### <a name="2-submitting-with-button"></a>2. ボタンで送信する
+### <a name="2-submitting-with-button"></a>2.ボタンで送信する
 もう 1 つの種類のフォームでは、ユーザーがボタンをクリックすることで、データを送信するタイミングを選択できます。
 
 ![予定表の新規イベント追加ページ](images/calendar-form.png)
@@ -58,7 +58,7 @@ ms.locfileid: "67319094"
 ユーザー エクスペリエンスを使いやすくして、ユーザーが確実に正しく入力できるようにするには、フォームのレイアウトをデザインするときに次の推奨事項を考慮してください。 
 
 ### <a name="labels"></a>ラベル
-[ラベル](labels.md)は左揃えにして、入力コントロールの上に配置する必要があります。 多くのコントロールには、ラベルを表示するための Header プロパティが組み込まれています。 Header プロパティがないコントロールの場合、またはコントロールのグループにラベルを付ける場合は、代わりに [TextBlock](https://docs.microsoft.com/en-us/uwp/api/Windows.UI.Xaml.Controls.TextBlock) を使います。
+[ラベル](labels.md)は左揃えにして、入力コントロールの上に配置する必要があります。 多くのコントロールには、ラベルを表示するための Header プロパティが組み込まれています。 Header プロパティがないコントロールの場合、またはコントロールのグループにラベルを付ける場合は、代わりに [TextBlock](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock) を使います。
 
 [アクセシビリティ対応の設計にする](../accessibility/accessibility.md)には、個別のコントロールとコントロールのグループのすべてに、人間とスクリーン リーダーの両方のためにわかりやすいラベルを付けます。 
 
@@ -66,7 +66,7 @@ ms.locfileid: "67319094"
 
 <div class="mx-responsive-img">
 <table>
-<tr><th>推奨される事項</th><th>非推奨</th></tr>
+<tr><th>推奨</th><th>非推奨</th></tr>
 <tr>
 <td><img src="../controls-and-patterns/images/forms-shortform1col.png" alt="form with top labels"></td>
 <td><img src="../controls-and-patterns/images/forms-leftlabel-donot1.png" alt="form with left labels don't"></td>
@@ -84,7 +84,7 @@ ms.locfileid: "67319094"
 
 <div class="mx-responsive-img">
 <table>
-<tr><th>推奨される事項</th><th>非推奨</th></tr>
+<tr><th>推奨</th><th>非推奨</th></tr>
 <tr>
 <td><img src="../controls-and-patterns/images/forms-2cols.png" alt="form with 2 columns"></td>
 <td><img src="../controls-and-patterns/images/forms-2cols-bad.png" alt="form with 2 bad columns"></td>
@@ -108,7 +108,7 @@ ms.locfileid: "67319094"
 入力コントロールは、ユーザーがフォームに情報を入力できる UI 要素です。 フォームに追加できる一般的なコントロールと、それらを使用する状況に関する情報と、以下に示します。
 
 ### <a name="text-input"></a>テキスト入力
-コントロール | 使用 | 例
+Control | vmmblue_2 | 例
  - | - | -
 [TextBox](text-box.md) | 1 行または複数行のテキストをキャプチャします | 名前、自由形式の応答、フィードバック
 [PasswordBox](password-box.md) | 文字を非表示にすることで、プライベート データを収集します | パスワード、社会保障番号 (SSN)、暗証番号、クレジット カード情報 
@@ -116,30 +116,30 @@ ms.locfileid: "67319094"
 [RichEditBox](rich-edit-box.md) | 書式設定されたテキスト、ハイパーリンク、およびイメージでテキスト ファイルを編集します | アップロード ファイル、プレビュー、アプリでの編集
 
 ### <a name="selection"></a>選択
-コントロール | 使用 | 例
+Control | vmmblue_2 | 例
 - | - | - 
 | [CheckBox](checkbox.md) | 1 つまたは複数のアクション項目を選択または選択解除します | 使用条件への同意、省略可能な項目の追加、該当するものすべての選択
 [RadioButton](radio-button.md) | 2 つ以上の選択肢から 1 つのオプションを選択します | 種類の選択、出荷方法など
 [ToggleSwitch](toggles.md) | 相互排他の 2 つのオプションのいずれかを選択します | オン/オフ
 
-> **注意**:5 つ以上の選択項目がある場合は、リスト コントロールを使います。
+> **注**:5 つ以上の選択項目がある場合は、リスト コントロールを使います。
 
 ### <a name="lists"></a>リスト
-コントロール | 使用 | 例
+Control | vmmblue_2 | 例
 - | - | -
 [ComboBox](https://docs.microsoft.com/windows/uwp/controls-and-patterns/lists.md#drop-down-lists) | コンパクトな状態で開始し、展開して選択可能な項目の一覧を表示します | 州や国などの長い項目一覧からの選択
 [ListView](https://docs.microsoft.com/windows/uwp/controls-and-patterns/lists#list-views) | 項目の分類とグループ ヘッダーの割り当て、項目のドラッグ アンド ドロップ、コンテンツの整理、項目の順序変更を行います | ランク オプション
 [GridView](https://docs.microsoft.com/windows/uwp/controls-and-patterns/lists#grid-views) | イメージ ベースのコレクションを配置および参照します | 写真、色、表示テーマの選択
 
 ### <a name="numeric-input"></a>数値入力
-コントロール | 使用 | 例
+Control | vmmblue_2 | 例
 - | - | -
 [スライダー](slider.md) | 連続する数値の範囲から数を選択します | パーセンテージ、ボリューム、再生速度
 [Rating](rating.md) | 星で評価します | カスタマー フィードバック
 
 ### <a name="date-and-time"></a>日時
 
-コントロール | 使用 
+Control | vmmblue_2 
 - | - 
 [CalendarView](calendar-view.md) | 常に表示されるカレンダーから 1 つの日付または日付の範囲を選択します 
 [CalendarDatePicker](calendar-date-picker.md) | コンテキストに対応するカレンダーから 1 つの日付を選択します 

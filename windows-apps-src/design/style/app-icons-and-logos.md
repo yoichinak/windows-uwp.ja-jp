@@ -9,12 +9,12 @@ design-contact: Judysa
 doc-status: Published
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 0801ba9036f69aef340881b9c92807e80af6b09f
-ms.sourcegitcommit: e43bc20c2f6e9375f61931c2fce95f06fd1f31df
+ms.openlocfilehash: 25d9df392d6ed2725b171fe6513334a39458410b
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70212072"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75684596"
 ---
 # <a name="app-icons-and-logos"></a>アプリのアイコンとロゴ 
 
@@ -29,7 +29,7 @@ ms.locfileid: "70212072"
         * Microsoft Store 内
     :::column-end:::
     :::column:::
-        ![windows 10 start and tiles](images/assetguidance01.jpg)
+        ![Windows 10 のスタート画面とタイル](images/assetguidance01.jpg)
     :::column-end:::
 :::row-end:::
 
@@ -48,11 +48,11 @@ Visual Studio では、既定でアイコン アセットがアセット サブ�
 | ワイド タイル  | スタート メニュー   | Wide310x150Logo.png |
 | 大きいタイル   | スタート メニュー、Microsoft Store 登録情報\* |  LargeTile.png  |
 | アプリのアイコン | スタート メニューのアプリ一覧、タスク バー、タスク マネージャー | Square44x44Logo.png |
-| スプラッシュ画面 | アプリのスプラッシュ スクリーン | SplashScreen.png  |
+| スプラッシュ スクリーン | アプリのスプラッシュ スクリーン | SplashScreen.png  |
 | バッジ ロゴ | アプリのタイル | BadgeLogo.png  |
 | パッケージ ロゴ/Microsoft Store ロゴ | アプリ インストーラー、パートナー センター、Microsoft Store の [Report an app]\(アプリを報告)\ オプション、Microsoft Store の [Write a review]\(レビューを書く)\ オプション | StoreLogo.png  |
 
-\* [アップロードした画像のみを Microsoft Store で表示](/windows/uwp/publish/app-screenshots-and-images#display-only-uploaded-logo-images-in-the-store)することを選択しなかった場合に使用されます。 
+\*[アップロードした画像のみを Microsoft Store で表示](/windows/uwp/publish/app-screenshots-and-images#display-only-uploaded-logo-images-in-the-store)することを選択しなかった場合に使用されます。 
 
 これらのアイコンがどの画面でも鮮明に表示されるようにするには、同じアイコンに、異なる表示倍率に対応する複数のバージョンを作成します。 
 
@@ -75,7 +75,7 @@ Visual Studio では、既定でアイコン アセットがアセット サブ�
 
 "Microsoft Store で自分のアプリの登録情報の画像を指定するにはどうしたらいいでしょうか。"
 
-このページの上部の表で説明しているように、Microsoft Store では既定でパッケージ内の画像が使用されます ([申請プロセスで指定したその他の画像](https://docs.microsoft.com/en-us/windows/uwp/publish/app-screenshots-and-images)とともに)。 ただし、Windows 10 (Xbox を含む) ユーザーに Microsoft Store 登録情報が表示されるときに、アプリのパッケージのロゴ画像ではなく、アップロードした画像のみが使用されるようにすることもできます。 これにより、ストアのさまざまな画面でアプリがどのように表示されるかをさらに細かく制御できます。 (製品が以前の OS バージョンをサポートしている場合は、このオプションを使用してもパッケージの画像が引き続きユーザーに表示される場合があるので注意してください。)これは、申請プロセスの **[Store 登録情報]** の手順の **[Microstore Store ロゴ]** セクションで行うことができます。
+このページの上部の表で説明しているように、Microsoft Store では既定でパッケージ内の画像が使用されます ([申請プロセスで指定したその他の画像](https://docs.microsoft.com/windows/uwp/publish/app-screenshots-and-images)とともに)。 ただし、Windows 10 (Xbox を含む) ユーザーに Microsoft Store 登録情報が表示されるときに、アプリのパッケージのロゴ画像ではなく、アップロードした画像のみが使用されるようにすることもできます。 これにより、ストアのさまざまな画面でアプリがどのように表示されるかをさらに細かく制御できます。 (製品が以前の OS バージョンをサポートしている場合は、このオプションを使用してもパッケージの画像が引き続きユーザーに表示される場合があるので注意してください。)これは、申請プロセスの **[Store 登録情報]** の手順の **[Microstore Store ロゴ]** セクションで行うことができます。
 
 ![アプリ申請プロセスでの Microsoft Store ロゴの指定](images/app-icons/storelogodisplay.png)
 
@@ -133,15 +133,15 @@ Visual Studio には、**マニフェスト デザイナー**と呼ばれるア�
         2. **[ソリューション エクスプローラー]** で Package.appxmanifest ファイルをダブルクリックします。
     :::column-end:::
     :::column:::
-        ![The Visual Studio 2019 Manifest Designer](images/icons/vs-solution-explorer.png)
+        ![Visual Studio 2019 マニフェスト デザイナー](images/icons/vs-solution-explorer.png)
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-            Visual Studio displays the Manifest Designer.
+            Visual Studio によってマニフェスト デザイナーが表示されます。
     :::column-end:::
     :::column:::
-            ![The Visual Assets tab](images/icons/vs-manfiest-designer.png)
+            ![[ビジュアル資産] タブ](images/icons/vs-manfiest-designer.png)
     :::column-end:::
 :::row-end:::    
 :::row:::
@@ -149,7 +149,7 @@ Visual Studio には、**マニフェスト デザイナー**と呼ばれるア�
         3. **[ビジュアル資産]** タブをクリックします。
     :::column-end:::
     :::column:::
-        ![The Visual Assets tab](images/icons/vs-manfiest-designer-visual-assets.png)
+        ![[ビジュアル資産] タブ](images/icons/vs-manfiest-designer-visual-assets.png)
     :::column-end:::
 :::row-end:::        
 
@@ -165,11 +165,11 @@ Visual Studio には、**マニフェスト デザイナー**と呼ばれるア�
 1. **[ソース]** フィールドの横の **[...]** をクリックし、使用する画像を選択します。 ビットマップ画像を使用する場合は、鮮明な画像になるように、400 × 400 ピクセル以上を指定してください。 ベクトル ベースの画像が最適です。Visual Studio では AI (Adobe Illustrator) ファイルや PDF ファイルを使用できます。 
 2. (省略可能) **[設定値を表示]** セクションで、以下のオプションを設定します。
 
-    a.  **短い名前**:アプリの短い名前を指定します。
+    」を参照します。  **短い名前**:アプリの短い名前を指定します。
 
     b.  **名前の表示**:普通サイズのタイル、ワイド タイル、または大きいタイルに短い名前を表示するかどうかを指定します。 
 
-    c. **タイルの背景**:タイルの背景色に対応する 16 進値または色名を指定します。 たとえば、`#464646` と記述します。 既定値は、`transparent` です。
+    c. **タイルの背景**:タイルの背景色に対応する 16 進値または色名を指定します。 たとえば、`#464646` のように指定します。 既定値は `transparent` です。
 
     d. **スプラッシュ スクリーンの背景**:スプラッシュ スクリーンの背景色に対応する 16 進値または色名を指定します。 
 
@@ -181,7 +181,7 @@ Visual Studio で画像ファイルが生成され、プロジェクトに追加
 
 *filename*-scale-*scale factor*.png
 
-以下に例を示します。
+たとえば、
 
 Square150x150Logo-scale-100.png、Square150x150Logo-scale-200.png、Square150x150Logo-scale-400.png
 
@@ -236,9 +236,9 @@ Windows では、ターゲット ベースのアセットが既定で色付き�
 
 次に示すサーフェスでは、プレートなしのアプリ アイコン アセットが使用されています。
 * タスク バーとタスク バー サムネイル (デスクトップ)
-* タスク バーのジャンプ リスト
+* タスク バーのジャンプリスト
 * タスク ビュー
-* Alt + Tab キー
+* Alt + Tab
 
 ### <a name="unplated-assets-and-themes"></a>プレートなしのアセットとテーマ
 

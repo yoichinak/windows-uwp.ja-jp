@@ -10,12 +10,12 @@ design-contact: conrwi
 dev-contact: jevansa
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 0810365eeb0023a31862d31213862e2b3bce8db8
-ms.sourcegitcommit: 5687e5340f8d78da95c3ac28304d1c9b8960c47d
+ms.openlocfilehash: 63a7ee8550b72356199645f54b587480275c2bcd
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70930346"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75685080"
 ---
 # <a name="reveal-highlight"></a>表示ハイライト
 
@@ -23,9 +23,9 @@ ms.locfileid: "70930346"
 
 表示ハイライトは、ユーザーがポインターを近付けたときにコマンド バーなどの対話型要素を目立たせるための発光効果です。 
 
-> **重要な API**:[RevealBrush クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.revealbrush)、[RevealBackgroundBrush クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.revealbackgroundbrush)、[RevealBorderBrush クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.revealborderbrush)、[RevealBrushHelper クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.revealbrushhelper)、[VisualState クラス](https://docs.microsoft.com/en-us/uwp/api/Windows.UI.Xaml.VisualState)
+> **重要な API**:[RevealBrush クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.revealbrush)、[RevealBackgroundBrush クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.revealbackgroundbrush)、[RevealBorderBrush クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.revealborderbrush)、[RevealBrushHelper クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.revealbrushhelper)、[VisualState クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.VisualState)
 
-## <a name="how-it-works"></a>方法
+## <a name="how-it-works"></a>しくみ
 表示ハイライトでは、対話型要素に注意が向くように、ポインターが近付いたときに要素のコンテナーが明示されます (下図参照)。
 
 ![表示のビジュアル効果](images/Nav_Reveal_Animation.gif)
@@ -72,13 +72,13 @@ ms.locfileid: "70930346"
 
 ## <a name="enabling-reveal-on-other-controls"></a>他のコントロールで表示効果を有効にする
 
-表示の適用が必要なシナリオの場合 (シナリオで使用されるコントロールはメイン コンテンツである場合、またはそれらのコントロールがリストやコレクションに対応するために使用される場合)、オプトインのリソース スタイルが用意されているので、これらのスタイルを使用することで、そのような状況で表示を有効にすることができます。
+表示の適用が必要なシナリオの場合 (シナリオで使用されるコントロールがメイン コンテンツである場合、またはそれらのコントロールがリストやコレクションに対応するために使用される場合)、オプトインのリソース スタイルが用意されているので、これらのスタイルを使用することで、そのような状況で表示を有効にすることができます。
 
 以下に示すコントロールは、既定では表示の機能を備えていません。これらのコントロールは小さなコントロールであり、通常は、アプリケーションの重要なコンテンツをサポートするヘルパー コントロールですが、アプリによってはその状況は異なります。これらのコントロールをアプリの多くの部分で使用する場合は、その表示をサポートするスタイルがいくつか用意されているのでご利用ください。
 
 | コントロール名   | リソース名 |
 |----------|:-------------:|
-| Button |  ButtonRevealStyle |
+| ボタン |  ButtonRevealStyle |
 | ToggleButton | ToggleButtonRevealStyle |
 | RepeatButton | RepeatButtonRevealStyle |
 | AppBarButton | AppBarButtonRevealStyle |
@@ -105,7 +105,7 @@ ms.locfileid: "70930346"
 </Grid>
 ```
 
-または、RevealBorderBrush の TargetTheme を黒に変更します。 注意: TargetTheme が黒に設定されている場合、表示効果は白になりますが、TargetTheme が白に設定されている場合、表示効果の境界線は灰色になります。
+または、RevealBorderBrush の TargetTheme を黒に変更します。 注意: TargetTheme が黒に設定されている場合、表示効果は白になりますが、これが白に設定されている場合、表示効果の境界線は灰色になります。
 
 ```xaml
  <RevealBorderBrush x:Key="MyLightBorderBrush" TargetTheme="Dark" Color="{ThemeResource SystemAccentColor}" FallbackColor="{ThemeResource SystemAccentColor}" />
@@ -265,7 +265,7 @@ ms.locfileid: "70930346"
 ### <a name="do"></a>推奨:
 - ユーザーが多数の操作を実行できる要素 (CommandBar、ナビゲーション メニュー) で表示効果を使う
 - 既定で視覚的な区切りがない対話型要素のグループ (一覧、リボン) 内で表示効果を使う
-- 対話型要素が密集している領域では表示を使う (コマンド実行シナリオ)
+- 対話型要素が密集している領域で表示効果を使う (コマンド実行シナリオ)
 - 表示効果を適用する項目と項目の間に 1 px の余白を配置する
 
 ### <a name="dont"></a>非推奨
