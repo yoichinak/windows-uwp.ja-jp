@@ -2,26 +2,28 @@
 ms.assetid: 4b0c86d3-f05b-450b-bf9c-6ab4d3f07d31
 description: このロードマップでは、Windows 10 およびユニバーサル Windows プラットフォーム (UWP) アプリの主要なエンタープライズ機能の概要について説明します。
 title: Enterprise
-ms.date: 08/30/2018
+ms.date: 01/16/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: e005d388e15efe10bede88e77c3ca021b0acad6b
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.openlocfilehash: 0a95529f40ef5bb1cbf112c91c385e6621620a01
+ms.sourcegitcommit: 7a8aea567b26283c71420e0d305d78f675e1fba7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75684947"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76125684"
 ---
 # <a name="enterprise"></a>Enterprise
 
 この記事では、Windows 10 アプリ用のユニバーサル Windows プラットフォーム (UWP) で提供される主要なエンタープライズ機能の概要について説明します。 これらのいくつかの機能を詳しく説明するビデオについては、「[Rapidly Construct LOB Applications with UWP and Visual Studio](https://channel9.msdn.com/Events/Build/2018/BRK3502)」 (UWP と Visual Studio で LOB アプリケーションをすばやく構築する) をご覧ください。
 
+## <a name="feature-highlights"></a>機能の概要
+
 <a id="template-studio" />
 
 ### <a name="windows-template-studio"></a>Windows Template Studio
 
-Windows Template Studio は Visual Studio 2017 と Visual Studio 2019 の拡張機能であり、ウィザード ベースのエクスペリエンスを使用して、新しいユニバーサル Windows プラットフォーム (UWP) アプリをより迅速に作成できます。 結果として得られる UWP プロジェクトは、実証済みのパターンとベスト プラクティスを実装するときに、最新の Windows 10 機能を組み込む適切な形式の読み取り可能なコードです。
+Windows Template Studio は Visual Studio 2019 の拡張機能であり、ウィザード ベースのエクスペリエンスを使用して、新しいユニバーサル Windows プラットフォーム (UWP) アプリをより迅速に作成できます。 結果として得られる UWP プロジェクトは、実証済みのパターンとベスト プラクティスを実装するときに、最新の Windows 10 機能を組み込む適切な形式の読み取り可能なコードです。
 
 ![Windows Template Studio](images/windows-template-studio.png)
 
@@ -58,9 +60,9 @@ Windows UI ライブラリは、UWP アプリ用のコントロールとその�
 
 <a id="xaml-islands" />
 
-### <a name="uwp-controls-in-desktop-applications"></a>デスクトップ アプリケーションの UWP コントロール
+### <a name="uwp-controls-in-desktop-applications-xaml-islands"></a>デスクトップ アプリケーションの UWP コントロール (XAML Islands)
 
-Windows 10 では、WPF、Windows フォーム、および C++ Win32 デスクトップ アプリケーションで UWP コントロールを使用できるようになりました。 つまり、Windows Ink や Fluent Design System をサポートするコントロールなど、UWP コントロールでのみ利用可能な最新の Windows 10 UI 機能で、既存のデスクトップ アプリケーションの外観、操作性、機能を拡張することができます。 この機能を XAML Islands といいます。
+Windows 10 では、*XAML Islands*と呼ばれる機能を使って、WPF、Windows フォーム、および C++ Win32 デスクトップ アプリケーションで UWP コントロールを使用できるようになりました。 つまり、Windows Ink や Fluent Design System をサポートするコントロールなど、UWP コントロールでのみ利用可能な最新の Windows 10 UI 機能で、既存のデスクトップ アプリケーションの外観、操作性、機能を拡張することができます。 この機能を XAML Islands といいます。
 
 「[デスクトップ アプリケーションの UWP コントロール](https://docs.microsoft.com/windows/uwp/xaml-platform/xaml-host-controls)」を参照してください。
 
@@ -86,9 +88,7 @@ Windows 10 では、WPF、Windows フォーム、および C++ Win32 デスク�
 
 ### <a name="msix-deployment"></a>MSIX の展開
 
-MSIX は、あらゆる Windows アプリに最新のパッケージ化エクスペリエンスを提供する Windows アプリ パッケージ形式です。 MSIX パッケージ形式では、Win32、WPF、および Windows フォームに対して新たな、最新のパッケージ化および展開機能が有効になるだけでなく、既存のアプリ パッケージとインストール ファイルの機能が維持されます。
-
-MSIX は、.msi、.appx、App-V および ClickOnce インストール テクノロジの組み合わせに基づき、安全な、セキュアで信頼性の高いものとなるように構築されたパッケージ化形式です。
+MSIX は、MSI、AppX、App-V、ClickOnce の優れた機能を組み合わせた Windows アプリのパッケージ形式であり、最新で信頼性の高いパッケージ化エクスペリエンスをすべての Windows アプリに提供します。 MSIX パッケージ形式では、Win32、WPF、および Windows フォームに対して、最新のパッケージ化および展開機能が有効になるだけでなく、既存のアプリ パッケージとインストール ファイルの機能が維持されます。 
 
 ![MSIX アイコン](images/MSIX-App-Package.ico)
 
@@ -151,11 +151,12 @@ Windows 10 には、一連のセキュリティ機能が用意されていま�
 
 ## <a name="deployment"></a>展開
 
-組織のユーザーにアプリを配布するための方法がいくつかあります。 ビジネス向け Microsoft Store や既存のモバイル デバイス管理を使うことも、アプリをデバイスにサイドロードすることもできます。 Microsoft Store に公開すると、一般ユーザーにもアプリを利用可能にすることができます。
+MSIX パッケージを使用して、組織のユーザーにアプリを配布するための方法がいくつかあります。 アプリ インストーラー ベースの展開を構成することも、デバイス管理ツール (Microsoft Endpoint Configuration Manager や Microsoft Intune など) を使用することも、ビジネス向け Microsoft Store に公開することも、アプリをデバイスにサイドロードすることもできます。 Microsoft Store に公開すると、一般ユーザーにもアプリを利用可能にすることができます。
 
 | トピック | 説明 |
 |-------|-------------|
-| [企業に LOB アプリを配布する](https://docs.microsoft.com/windows/uwp/publish/distribute-lob-apps-to-enterprises) | 基幹業務アプリを、ボリューム購入できるように、ビジネス向け Microsoft Store で企業に直接公開できます。一般ユーザーが利用できるようにアプリを公開する必要はありません。 |
+| [MSIX のドキュメント](https://docs.microsoft.com/windows/msix/) | MSIX は、MSI、AppX、App-V、ClickOnce の優れた機能を組み合わせた Windows アプリのパッケージ形式であり、最新で信頼性の高いパッケージ化エクスペリエンスを提供します。 |
+| [企業に LOB アプリを配布する](https://docs.microsoft.com/windows/uwp/publish/distribute-lob-apps-to-enterprises) | 広く一般に利用可能にすることなく、基幹業務アプリを配布する方法について説明します。これには、アプリ インストーラー ベースの展開、Microsoft Endpoint Configuration Manager や Microsoft Intune、ビジネス向け Microsoft Store への公開が含まれます。 |
 | [アプリのサイドローディング](https://docs.microsoft.com/windows/deploy/sideload-apps-in-windows-10) | アプリをサイドローディングすると、署名されたアプリ パッケージをデバイスに展開します。 これらのアプリの署名、ホスティング、配置は維持されます。 アプリのサイドローディングのプロセスは、Windows 10 向けに簡素化されています。             |
 | [Microsoft Store にアプリを公開する](https://developer.microsoft.com/store/publish-apps) | 統合された Microsoft Store では、すべての Windows デバイス向けのすべてのアプリを公開して管理することができます。 市場ごとの価格、配布と表示のコントロール、その他のオプションを使って、アプリの使用可能状況をカスタマイズできます。 |
 
