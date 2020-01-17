@@ -7,12 +7,12 @@ ms.topic: article
 keywords: Windows 10, UWP
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: 6387cc75047371666ac55b9fb70ae73d3e4c4d64
-ms.sourcegitcommit: cc108c791842789464c38a10e5d596c9bd878871
+ms.openlocfilehash: c67d359120b738458d7397c9558f19b4794888f6
+ms.sourcegitcommit: 87c20c6a40ed54e086adbe80caa509d851f54f57
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/20/2019
-ms.locfileid: "75302666"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76123844"
 ---
 # <a name="launch-the-windows-settings-app"></a>Windows 設定アプリの起動
 
@@ -144,7 +144,7 @@ URI の起動について詳しくは、「[URI に応じた既定のアプリ�
 | 拡大鏡 | ms-settings:easeofaccess-magnifier |
 | Mouse | ms-settings:easeofaccess-mouse |
 | Narrator | ms-settings:easeofaccess-narrator |
-| その他のオプション | ms 設定: easeofaccess-otheroptions (**Windows 10 バージョン1809以降では非推奨**) |
+| [その他のオプション] | ms 設定: easeofaccess-otheroptions (**Windows 10 バージョン1809以降では非推奨**) |
 | [音声認識] | ms-settings:easeofaccess-speechrecognition |
 
 ## <a name="extras"></a>[Extras]
@@ -217,7 +217,7 @@ URI の起動について詳しくは、「[URI に応じた既定のアプリ�
 | [タスク バー] | ms-settings:taskbar |
 | [テーマ] | ms-settings:themes |
 
-## <a name="phone"></a>Phone
+## <a name="phone"></a>電話
 
 |設定ページ| URI |
 |-------------|-----|
@@ -243,18 +243,19 @@ URI の起動について詳しくは、「[URI に応じた既定のアプリ�
 | アイ トラッカー | ms-settings:privacy-eyetracker (eyetracker ハードウェアが必要) |
 | フィードバックと診断 | ms-settings:privacy-feedback |
 | ファイル システム | ms-settings:privacy-broadfilesystemaccess |
-| [全般] | ms-settings:privacy-general |
-| 位置情報 | ms-settings:privacy-location |
+| [全般] | ms-設定: プライバシーまたは ms 設定: プライバシー-全般 |
+| インク & 入力 |ms-settings:privacy-speechtyping |
+| インストール先 | ms-settings:privacy-location |
 | Messaging | ms-settings:privacy-messaging |
 | マイク | ms-settings:privacy-microphone |
 | アニメーション | ms-settings:privacy-motion |
 | 通知 | ms-settings:privacy-notifications |
 | 他のデバイス | ms-settings:privacy-customdevices |
-| 画像 | ms-settings:privacy-pictures |
 | 電話での通話 | ms-設定: プライバシー-phonecalls |
+| 画像 | ms-settings:privacy-pictures |
 | 無線 | ms-settings:privacy-radios |
-| 音声認識、手書き入力、タイピング |ms-settings:privacy-speechtyping |
-| 処理手順 | ms-settings:privacy-tasks |
+| [音声認識] | ms-設定: プライバシー-音声 |
+| タスク | ms-settings:privacy-tasks |
 | ビデオ | ms-settings:privacy-videos |
 | 音声のアクティブ化 | ms-settings:privacy-voiceactivation |
 
@@ -290,14 +291,14 @@ URI の起動について詳しくは、「[URI に応じた既定のアプリ�
 | Messaging | ms-settings:messaging |
 | [マルチタスク] | ms-settings:multitasking |
 | [夜間モード設定] | ms-settings:nightlight |
-| Phone | ms-settings:phone-defaultapps |
+| 電話 | ms-settings:phone-defaultapps |
 | [この PC へのプロジェクション] | ms-settings:project |
 | 共有エクスペリエンス | ms-settings:crossdevice |
 | [タブレット モード] | ms-settings:tabletmode |
 | [タスク バー] | ms-settings:taskbar |
 | 通知とアクション | ms-settings:notifications |
 | リモート デスクトップ | ms-settings:remotedesktop |
-| Phone | ms-settings:phone (**1809 およびそれ以降のバージョンの Windows 10 で非推奨とされます**) |
+| 電話 | ms-settings:phone (**1809 およびそれ以降のバージョンの Windows 10 で非推奨とされます**) |
 | 電源とスリープ | ms-settings:powersleep |
 | サウンド | ms 設定: サウンド |
 | 記憶域 | ms-settings:storagesense |
@@ -333,7 +334,7 @@ URI の起動について詳しくは、「[URI に応じた既定のアプリ�
 | Windows Update - 再起動オプション | ms-settings:windowsupdate-restartoptions |
 | Windows Update - 更新履歴の表示 | ms-settings:windowsupdate-history |
 
-## <a name="user--accounts"></a>ユーザー アカウント
+## <a name="user-accounts"></a>[ユーザー アカウント]
 
 |設定ページ| URI |
 |-------------|-----|
