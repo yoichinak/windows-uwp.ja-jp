@@ -6,12 +6,12 @@ ms.date: 03/05/2019
 ms.topic: article
 keywords: Windows 10, uwp, 税金, アプリの税, 税の要件, コマース拡張, 税率
 ms.localizationpriority: medium
-ms.openlocfilehash: aa408e803457c9b53cb383158b5a7a91a2c07e14
-ms.sourcegitcommit: 8efeb6672f759b1ea7e3e9e2f90e764480791142
+ms.openlocfilehash: 2dd488fc241de4ef765cd318590ba857faa37003
+ms.sourcegitcommit: ff086bae50e61a351b8c53867ed6579e43d8cf1f
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75728483"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76265033"
 ---
 # <a name="tax-details-for-windows-appgame-developers-and-azure-marketplace-publishers"></a>Windows アプリ/ゲーム開発者と Azure Marketplace パブリッシャーの税金の詳細
 
@@ -275,7 +275,7 @@ ms.locfileid: "75728483"
 ## <a name="mixed-remittance-countriesregions-for-windows-appgame-developers"></a>Windows アプリ/ゲーム開発者向けの混合送金国/地域
 
 
-特定の Microsoft の請求パートナーは、下記の国/地域において、お客様によるストアからのアプリまたはアプリ内製品の取得に適用される消費税、使用税、物品サービス税、付加価値税などの税金を収集し、送金することがあります。 Microsoft から提供される[レポート](payout-summary.md#transaction-history-download-export)に、お客様によるストアからのアプリまたはアプリ内製品の取得に適用される消費税、使用税、物品サービス税、付加価値税などの税金を請求パートナーが収集したトランザクションが示されます。 そのレポートに示されているトランザクションを除いて、Microsoft もその請求サービス業者も、対象となる国でお客様が購入した当該アプリおよびアプリ内製品に適用される消費税、使用税、物品サービス税、付加価値税などの税を支払いません。 提供されたレポートを確認し、自分のアプリまたはアプリ内製品を含むトランザクションに関して、税金の登録、収集、および送金の義務がある場合は、それらを特定し、従う必要があります。
+特定の Microsoft の請求パートナーは、下記の国/地域において、お客様によるストアからのアプリまたはアプリ内製品の取得に適用される消費税、使用税、物品サービス税、付加価値税などの税金を収集し、送金することがあります。 0Microsoft によって利用可能になっている[レポート](payout-summary.md#export-data-page)を使用すると、課金パートナーが販売、使用、商品とサービス、お客様のアプリの取得や、ストアを介したアプリの取得に適用される税金を徴収する取引を特定できます。 そのレポートに示されているトランザクションを除いて、Microsoft もその請求サービス業者も、対象となる国でお客様が購入した当該アプリおよびアプリ内製品に適用される消費税、使用税、物品サービス税、付加価値税などの税を支払いません。 提供されたレポートを確認し、自分のアプリまたはアプリ内製品を含むトランザクションに関して、税金の登録、収集、および送金の義務がある場合は、それらを特定し、従う必要があります。
 
 | 混合送金の国/地域 |
 |------------------------------------|

@@ -9,24 +9,24 @@ ms.date: 05/20/2019
 ms.topic: article
 keywords: windows 10、uwp、WNS、windows notification service、通知、windows、ファイアウォール、トラブルシューティング、IP、トラフィック、エンタープライズ、ネットワーク、IPv4、VIP、FQDN、パブリック IP アドレス
 ms.localizationpriority: medium
-ms.openlocfilehash: c3774164d16e86a88f45eb50030beec099629d6f
-ms.sourcegitcommit: 738bab9a088a244a7a212dcac6fb3560c547b8d5
+ms.openlocfilehash: fa0153a395144382aee3f764f0f7d9316afa9c5e
+ms.sourcegitcommit: ff086bae50e61a351b8c53867ed6579e43d8cf1f
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72695770"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76265023"
 ---
 # <a name="enterprise-firewall-and-proxy-configurations-to-support-wns-traffic"></a>WNS トラフィックをサポートするためのエンタープライズファイアウォールとプロキシ構成
 
-## <a name="background"></a>バックグラウンド
-多くの企業ではファイアウォールを使用して、不要なネットワークトラフィックをブロックしています。残念ながら、これは Windows Notification Service の通信などの重要な機能もブロックする可能性があります。 つまり、WNS を介して送信されるすべての通知は、特定のネットワーク構成で削除されます。 これを回避するために、ネットワーク管理者は、承認済みの WNS Fqdn または Vip の一覧を除外リストに追加して、WNS トラフィックがファイアウォールを通過できるようにすることができます。 次に、さまざまなプロキシの種類のサポートに加え、追加の方法と用途について詳しく説明します。
+## <a name="background"></a>背景
+多くの企業では、ファイアウォールを使用して、不要なネットワークトラフィックとポートをブロックしています。残念ながら、これは Windows Notification Service の通信などの重要な機能もブロックする可能性があります。 つまり、WNS を介して送信されるすべての通知は、特定のネットワーク構成で削除されます。 これを回避するために、ネットワーク管理者は、承認済みの WNS Fqdn または Vip の一覧を除外リストに追加して、WNS トラフィックがファイアウォールを通過できるようにすることができます。 次に、さまざまなプロキシの種類のサポートに加え、追加の方法と用途について詳しく説明します。
 
 ## <a name="proxy-support"></a>プロキシのサポート
 
 > [!Note]
 > Windows クライアントは、すべてのプロキシをサポートし**ていません**。 WNS への接続は直接接続である必要があります。
 
-**もうすぐです！** さまざまなネットワーク構成、プロキシ、およびファイアウォールを積極的に調査しています。 このページは、一般的なエンタープライズシナリオと WNS サポートについて、さらに詳しく説明します。
+**準備中** さまざまなネットワーク構成、プロキシ、およびファイアウォールを積極的に調査しています。 このページは、一般的なエンタープライズシナリオと WNS サポートについて、さらに詳しく説明します。
 
 
 ## <a name="what-information-should-be-added-to-the-allowlist"></a>許可リストに追加する必要がある情報
@@ -39,8 +39,8 @@ Windows Notification Service によって使用される Fqdn、Vip、および 
 > IP アドレス範囲は定期的に変更されます。このため、このページには含まれていません。 IP 範囲の一覧を表示する場合は、ダウンロードセンターからファイルをダウンロードできます。 [Windows Notification Service (WNS) の VIP と IP の範囲](https://www.microsoft.com/download/details.aspx?id=44238)。 最新の情報があることを確認するために、定期的に確認してください。 
 
 
-### <a name="fqdns-vips-and-ips"></a>Fqdn、Vip、Ip
-次の XML ドキュメントに記載されている各要素については、この後の表で説明します ([用語と表記](#terms-and-notations))。 このドキュメントから除外された IP 範囲は、Fqdn が不変であるため、Fqdn のみを使用することをお勧めします。 ただし、ダウンロードセンターから完全な一覧を含む XML ファイル[(Windows Notification Service (WNS) の VIP と IP の範囲)](https://www.microsoft.com/download/details.aspx?id=44238)をダウンロードできます。 新しい Vip または IP 範囲は **、アップロードされてから1週間後に有効**になります。
+### <a name="fqdns-vips-ips-and-ports"></a>Fqdn、Vip、Ip、ポート
+以下から選択する方法に関係なく、**ポート 443**を使用して、一覧表示されている宛先へのネットワークトラフィックを許可する必要があります。 次の XML ドキュメントに記載されている各要素については、この後の表で説明します ([用語と表記](#terms-and-notations))。 このドキュメントから除外された IP 範囲は、Fqdn が不変であるため、Fqdn のみを使用することをお勧めします。 ただし、ダウンロードセンターから完全な一覧を含む XML ファイル[(Windows Notification Service (WNS) の VIP と IP の範囲)](https://www.microsoft.com/download/details.aspx?id=44238)をダウンロードできます。 新しい Vip または IP 範囲は **、アップロードされてから1週間後に有効**になります。
 
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
@@ -68,7 +68,7 @@ Windows Notification Service によって使用される Fqdn、Vip、および 
 ### <a name="terms-and-notations"></a>用語と表記
 次に、上記の XML スニペットで使用される表記法と要素について説明します。
 
-| 期間 | 説明 |
+| 用語 | 説明 |
 |---|---|
 | **ドット小数点表記 (64.4.28.0/26)** | ドット10進数表記は、IP アドレスの範囲を記述する方法です。 たとえば、64.4.28.0/26 は、64.4.28.0 の最初の26ビットが定数であり、最後の6ビットは変数であることを意味します。  この場合、IPv4 の範囲は 64.4.28.0-64.4.28.63 です。 |
 | **ClientDNS** | これらは、WNS から通知を受け取るクライアントデバイス (Windows Pc、デスクトップ) の完全修飾ドメイン名 (FQDN) フィルターです。 WNS クライアントで WNS 機能を使用するためには、ファイアウォールを通過する必要があります。  IP/VIP 範囲ではなく Fqdn によってリストを許可することをお勧めします。これは変更されないためです。 |

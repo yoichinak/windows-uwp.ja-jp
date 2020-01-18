@@ -6,12 +6,12 @@ ms.date: 12/19/2018
 ms.topic: article
 keywords: windows 10, uwp, 携帯電話会社, 携帯電話への課金, 携帯電話会社による課金
 ms.localizationpriority: medium
-ms.openlocfilehash: 606267080ced6ea8dd41f8f05ddcdee4d33b00f2
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: af682d2a17e10bf1c3b3cdcb3485315a6972eb9f
+ms.sourcegitcommit: e38946d8228293fca7d6c2b4d66e8e8f0d349e92
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74259968"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76258358"
 ---
 # <a name="mobile-operator-billing"></a>携帯電話会社による課金
 
@@ -44,6 +44,7 @@ Microsoft Store では、Windows 10 を実行するデバイス、Windows 10 Mob
 | ポーランド               | オレンジ、再生                                            |
 | シンガポール            | M1 限定、StarHub                                     |
 | スロバキア             | Slovak Telekom                                          |
+| 南アフリカ         | Vodacom                                                 |
 | スペイン                | Orange                                                  |
 | スウェーデン               | Telenor、3                                              |
 | スイス          | Swisscom、Sunrise                                       |
@@ -51,7 +52,7 @@ Microsoft Store では、Windows 10 を実行するデバイス、Windows 10 Mob
 | トルコ               | Turkcell                                                |
 | アラブ首長国連邦 | Etisalat                                                |
 | 米国        | Sprint、Verizon                                         |
-| イギリス       | O2、3 UK、EE                                            |
+| 英国       | O2、3 UK、EE                                            |
 
  
 
