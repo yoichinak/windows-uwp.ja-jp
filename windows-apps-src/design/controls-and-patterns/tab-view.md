@@ -7,12 +7,12 @@ ms.topic: article
 keywords: windows 10, uwp
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: acad94c0697f930235af809cc3e2826e4c5befde
-ms.sourcegitcommit: f0588a086cf2499968bf03b10c6bce5f518e90cb
+ms.openlocfilehash: 141a24ca1f828f98231ec35471f7b43229df57e6
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71144962"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75684362"
 ---
 # <a name="tabview"></a>TabView
 
@@ -20,7 +20,7 @@ TabView コントロールは、一連のタブとそれぞれの内容を表示
 
 ![TabView の例](images/tabview/tab-introduction.png)
 
-## <a name="is-this-the-right-control"></a>適切なコントロールの選択
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 一般に、タブ付き UI は、機能と外観が異なる 2 種類のスタイルのいずれかで提供されます。**静的タブ**は、設定ウィンドウでよく見られるタブの種類です。 通常、内容があらかじめ定義されている固定順序の複数のページが含まれます。
 **ドキュメント タブ**は、Microsoft Edge のようなブラウザーで見られるタブの種類です。 ユーザーは、タブの作成、削除、再配置、ウィンドウ間でのタブの移動、タブの内容の変更を行うことができます。
@@ -31,7 +31,7 @@ TabView では、UWP アプリ用のドキュメント タブが提供されて�
 - ユーザーが、ドキュメントや Web ページを直接タブで開くことができる。
 - ユーザーが、ウィンドウ間でタブをドラッグ アンド ドロップできる。
 
-TabView がアプリに適していない場合は、[Pivot](https://docs.microsoft.com/en-us/windows/uwp/design/controls-and-patterns/pivot) や [NavigationView](https://docs.microsoft.com/en-us/windows/uwp/design/controls-and-patterns/navigationview) などのコントロールの使用を検討してください。
+TabView がアプリに適していない場合は、[Pivot](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/pivot) や [NavigationView](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/navigationview) などのコントロールの使用を検討してください。
 
 ## <a name="anatomy"></a>構造
 
@@ -91,7 +91,7 @@ TabView の機能を利用または拡張する方法は多数あります。
 
 ユーザーはウィンドウをタイトル バーでドラッグしてウィンドウの位置を変更できるため、タイトル バーをタブで完全に埋めないことが重要です。 そのため、タイトル バーにタブを表示する場合は、ドラッグ可能な領域として確保するタイトル バーの部分を指定する必要があります。 ドラッグ可能な領域を指定しないと、タイトル バー全体がドラッグ可能になり、タブが入力イベントを受信できなくなります。 TabView をウィンドウのタイトル バーに表示する場合は、常に TabStripFooter を TabView に含めて、それをドラッグ可能な領域としてマークする必要があります。
 
-詳しくは、「[タイトル バーのカスタマイズ](https://docs.microsoft.com/en-us/windows/uwp/design/shell/title-bar)」をご覧ください
+詳しくは、「[タイトル バーのカスタマイズ](https://docs.microsoft.com/windows/uwp/design/shell/title-bar)」をご覧ください
 
 ![タイトル バーのタブ](images/tabview/tab-extend-to-title.png)
 
@@ -293,6 +293,6 @@ private void NavigateToNumberedTabKeyboardAccelerator_Invoked(KeyboardAccelerato
 
 ## <a name="related-articles"></a>関連記事
 
-- [MasterDetails](https://docs.microsoft.com/en-us/windows/uwp/design/controls-and-patterns/master-details)
-- [NavigationView](https://docs.microsoft.com/en-us/windows/uwp/design/controls-and-patterns/navigationview)
-- [ピボット](https://docs.microsoft.com/en-us/windows/uwp/design/controls-and-patterns/pivot)
+- [MasterDetails](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/master-details)
+- [NavigationView](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/navigationview)
+- [ピボット](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/pivot)

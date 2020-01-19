@@ -7,12 +7,12 @@ ms.date: 02/01/2019
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 93a81501b524826484111419899675fbb99b86fa
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 38f289b21980e2a77fd8669c39750e9b989aa742
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66364756"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75684393"
 ---
 # <a name="itemsrepeater"></a>ItemsRepeater
 
@@ -28,7 +28,7 @@ ms.locfileid: "66364756"
 
 > **重要な API**:[ItemsRepeater クラス](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater)、[ScrollViewer クラス](/uwp/api/windows.ui.xaml.controls.scrollviewer)
 
-## <a name="is-this-the-right-control"></a>適切なコントロールの選択
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 データ コレクション用のカスタム表示を作成するには、[ItemsRepeater](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater) を使用します。 これは基本的な一連の項目を表示するために使用できますが、多くの場合、カスタム コントロールのテンプレートで表示要素として使用します。
 
@@ -189,7 +189,7 @@ itemsRepeater1.ItemsSource = Items;
 
     インデックスを使用してコントロールで項目にアクセスできるようにし、内部の冗長コピーの回避を可能にします。
 
-    **警告**:[INotifyCollectionChanged](/dotnet/api/system.collections.specialized.inotifycollectionchanged) を実装せずに list/vector を変更した場合、UI では反映されません。
+    **警告**: [INotifyCollectionChanged](/dotnet/api/system.collections.specialized.inotifycollectionchanged) を実装せずに list/vector を変更した場合、UI では反映されません。
 
 - [INotifyCollectionChanged](/dotnet/api/system.collections.specialized.inotifycollectionchanged)(.NET)
 
@@ -203,7 +203,7 @@ itemsRepeater1.ItemsSource = Items;
 
     **INotifyCollectionChanged** インターフェイスと同様、これにより、コントロールでデータ ソース内の変更を監視し、対応できるようになります。
 
-    **警告**:Windows.Foundation.IObservableVector\<T> では '移動' アクションはサポートされません。 そのため、UI で項目の表示状態が失われる可能性があります。  たとえば、現在選択されているか、'削除' の後、'追加' によって移動が行われた場所にフォーカスがあるか、あるいはその両方の状態の項目のフォーカスが失われ、選択できなくなります。
+    **警告**: Windows.Foundation.IObservableVector\<T> では '移動' アクションはサポートされません。 そのため、UI で項目の表示状態が失われる可能性があります。  たとえば、現在選択されているか、'削除' の後、'追加' によって移動が行われた場所にフォーカスがあるか、あるいはその両方の状態の項目のフォーカスが失われ、選択できなくなります。
 
     Platform.Collections.Vector\<T> では IObservableVector\<T> が使用され、これと同じ制限があります。 '移動' アクションのサポートが必要な場合は、**INotifyCollectionChanged** インターフェイスを使用します。  .NET ObservableCollection\<T> クラスでは **INotifyCollectionChanged** が使用されます。
 
@@ -264,7 +264,7 @@ private async void ScrollViewer_ViewChanged(object sender, ScrollViewerViewChang
 
 [StackLayout](/uwp/api/microsoft.ui.xaml.controls.stacklayout) では 1 行に要素が配置され、これを水平方向または垂直方向に設定することができます。
 
-[Spacing](/en-us/uwp/api/microsoft.ui.xaml.controls.stacklayout.spacing) プロパティを設定することで、項目間のスペースの量を調整できます。 Spacing は、レイアウトの [Orientation](/uwp/api/microsoft.ui.xaml.controls.stacklayout.orientation) の方向に適用されます。
+[Spacing](/uwp/api/microsoft.ui.xaml.controls.stacklayout.spacing) プロパティを設定することで、項目間のスペースの量を調整できます。 Spacing は、レイアウトの [Orientation](/uwp/api/microsoft.ui.xaml.controls.stacklayout.orientation) の方向に適用されます。
 
 ![スタック レイアウトの間隔](images/stack-layout.png)
 
@@ -300,7 +300,7 @@ private async void ScrollViewer_ViewChanged(object sender, ScrollViewerViewChang
 
 このリストには使用可能な値が示されています。 定義では、既定の **Orientation** が **Horizontal** であることが前提となります。
 
-- **なし**:余分なスペースが行の末尾に未使用のまま残されます。 これが既定値です。
+- **None**: 余分なスペースが行の末尾に未使用のまま残されます。 これは既定です。
 - **Fill**:使用可能なスペースを使い切るように、項目に追加の幅 (垂直の場合は高さ) が指定されます。
 - **Uniform**:使用可能なスペースを使い切るように、項目に追加の幅が指定され、縦横比を維持するために追加の高さが指定されます (垂直の場合は、高さと幅が切り替わります)。
 
@@ -312,7 +312,7 @@ private async void ScrollViewer_ViewChanged(object sender, ScrollViewerViewChang
 
 このリストには使用可能な値が示されています。 定義では、既定の **Orientation** が **Horizontal** であることが前提となります。
 
-- **Start**:項目は行の先頭に揃えられます。 余分なスペースが行の末尾に未使用のまま残されます。 これが既定値です。
+- **Start**:項目は行の先頭に揃えられます。 余分なスペースが行の末尾に未使用のまま残されます。 これは既定です。
 - **Center**:項目は行の中央に揃えられます。 余分なスペースは、行の先頭と末尾に均等に分割されます。
 - **End**:項目は行の末尾に揃えられます。 余分なスペースが行の先頭に未使用のまま残されます。
 - **SpaceAround**:項目は均等に分散されます。 各項目の前後に同量のスペースが追加されます。
@@ -642,6 +642,12 @@ public sealed class MediaCollectionView : Control
 
 ```xaml
 <!-- xmlns:muxc="using:Microsoft.UI.Xaml.Controls" -->
+
+<Page.Resources>
+    <muxc:StackLayout x:Key="MyGroupLayout"/>
+    <muxc:StackLayout x:Key="MyItemLayout" Orientation="Horizontal"/>
+</Page.Resources>
+
 <ScrollViewer>
   <muxc:ItemsRepeater ItemsSource="{x:Bind AppNotifications}"
                       Layout="{StaticResource MyGroupLayout}">
@@ -650,7 +656,7 @@ public sealed class MediaCollectionView : Control
         <!-- Group -->
         <StackPanel>
           <!-- Header -->
-          TextBlock Text="{x:Bind AppTitle}"/>
+          <TextBlock Text="{x:Bind AppTitle}"/>
           <!-- Items -->
           <muxc:ItemsRepeater ItemsSource="{x:Bind Notifications}"
                               Layout="{StaticResource MyItemLayout}"
@@ -663,10 +669,11 @@ public sealed class MediaCollectionView : Control
   </muxc:ItemsRepeater>
 </ScrollViewer>
 ```
-
-この例では、以下に示すように、ユーザー設定で変更でき、水平スクロール リストとして表示される、さまざまなカテゴリがあるアプリのレイアウトを示します。
+以下の図は、上のサンプルをガイドラインとして使用して作成された基本的なレイアウトを示しています。
 
 ![items repeater を使用して入れ子にされたレイアウト](images/items-repeater-nested-layout.png)
+
+次の例では、ユーザー設定で変更でき、水平スクロール リストとして表示される、さまざまなカテゴリを含むアプリのレイアウトを示します。 この例のレイアウトは、上の図によっても示されています。
 
 ```xaml
 <!-- xmlns:muxc="using:Microsoft.UI.Xaml.Controls" -->
@@ -777,7 +784,7 @@ ItemsRepeater では、項目の既定のタブ順序が (仮想化されてい�
 > [!NOTE]
 > ItemsRepeater では、最後にフォーカスが置かれた項目が自動的に記憶されません。  これは、ユーザーが Shift + Tab キーを使用したときに、最後に認識された項目に移動される可能性があることを意味します。
 
-### <a name="announcing-item-x-of-y-in-screen-readers"></a>スクリーン リーダーでの "_Y_ の _X_ 項目" の読み上げ
+### <a name="announcing-item-_x_-of-_y_-in-screen-readers"></a>スクリーン リーダーでの "_Y_ の _X_ 項目" の読み上げ
 
 **PositionInSet** や **SizeOfSet** の値などの、適切なオートメーション プロパティの設定を管理する必要があり、項目の追加、移動、削除などが行われた場合、確実に最新の状態が保たれているようにする必要があります。
 

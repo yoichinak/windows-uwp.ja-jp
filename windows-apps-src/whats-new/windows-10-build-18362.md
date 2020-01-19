@@ -6,12 +6,12 @@ ms.date: 04/19/2019
 ms.topic: article
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: 4671b3048850197cc33e6878b814b2c26792e36c
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: 59b5b6dc3b359aa68b8282375a0fcb1716cdef50
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74258847"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75684730"
 ---
 # <a name="whats-new-in-windows-10-for-developers-build-18362"></a>Windows 10 ビルド 18362 の開発者向け新着情報
 
@@ -32,7 +32,7 @@ Windows UI ライブラリ | Windows UI ライブラリの最新の公式バー�
 デスクトップ アプリでのビジュアル レイヤー | [デスクトップ アプリケーションで UWP ビジュアル レイヤー API を使用](../composition/visual-layer-in-desktop-apps.md)できるようになりました。 これらの API は、グラフィックス、効果、およびアニメーション用の高パフォーマンスの保持モード API を提供し、Windows デバイス間で UI の基盤となります。
 Z 深度とシャドウ | ご利用の UWP アプリで昇格を作成するには、[Z 深度とシャドウ](../design/layout/depth-shadow.md)を使用します。 これらの新機能を使用すると、ご利用のアプリの UI を見やすくし、ユーザーが集中すべき重要なこととは何かを適切に伝えることができます。
 
-## <a name="develop-windows-apps"></a>Windows アプリを開発
+## <a name="develop-windows-apps"></a>Windows アプリの開発
 
 機能 | 説明
 :------ | :------
@@ -47,7 +47,7 @@ DirectX HLSL | [HLSL Shader Model 6.4](https://docs.microsoft.com/windows/deskto
 ドライバーの開発 | Windows ドライバー開発者向けに、オーディオ、カメラ、ディスプレイ、ネットワーク、モバイル ブロードバンド、印刷、センサー、ストレージ、および WiFi の新しい機能が追加されました。 詳細については、「[ドライバー開発に関する最新情報](https://docs.microsoft.com/windows-hardware/drivers/what-s-new-in-driver-development#whats-new-in-windows-10-version-1903-latest)」をご覧ください。
 ファイル システムの操作 | この[ベスト プラクティス ガイド](../files/best-practices-for-writing-to-files.md)は、お客様が Windows.Storage.FileIO クラスおよび Windows.Storage.PathIO クラスを使用してファイル システム I/O 操作を実行するのに役立ちます。
 ゲームパッドとリモコンの操作 | [ゲームパッドとリモコンの操作](../design/input/gamepad-and-remote-interactions.md)を使用すれば、使いやすくアクセスしやすい操作エクスペリエンスを構築できます。 これらの操作により、ご利用のアプリケーションを、2 ft (60 cm) 離れた場所からでも 10 ft (3 m) 離れた場所からでも同様に直感的で使いやすいものとすることができます。
-日本の年号の変更 | 2019 年 5 月 1 日に実施された日本の年号の変更にご利用の Windows アプリケーションが確実に対応できるようにする方法を示すために、[こちらの手順](../design/globalizing/japanese-era-change.md)を用意しました。 [このページは日本語でもご覧いただけます](https://docs.microsoft.com/ja-jp/windows/uwp/design/globalizing/japanese-era-change)。
+日本の年号の変更 | 2019 年 5 月 1 日に実施された日本の年号の変更にご利用の Windows アプリケーションが確実に対応できるようにする方法を示すために、[こちらの手順](../design/globalizing/japanese-era-change.md)を用意しました。 このページは、日本語でも利用できます (記事の下部にある [言語] コントロールをクリックし、[日本語] を選択します)。
 WPF、Windows フォーム、および WinUI のオープン ソース | WPF、Windows フォーム、WinUI UX フレームワークを、GitHub 上でのオープンソース共同作成に利用できるようになりました。 詳細とリンクについては、[Windows アプリの作成](https://blogs.windows.com/buildingapps/2018/12/04/announcing-open-source-of-wpf-windows-forms-and-winui-at-microsoft-connect-2018/#OKZjJs1VVTrMMtkL.97)に関するブログ記事を参照してください。
 Xbox 用のプログレッシブ Web アプリ | [Xbox One 用のプログレッシブ Web アプリ](https://docs.microsoft.com/microsoft-edge/progressive-web-apps/xbox-considerations)を使用すれば、既存のフレームワーク、CDN、およびサーバー バックエンドを引き続き使用しながら、Web アプリケーションを拡張してそれを Microsoft Store 経由で Xbox One アプリとして使用可能にすることができます。 ほとんどのパーツについては、Windows の場合と同じ方法で、ご自分の Xbox One 用 PWA をパッケージ化することができます。 このガイドでは、そのプロセスについて順を追って説明し、主な違いを強調表示します。
 Project Rome | Project Rome SDK が Android および iOS で利用できるようになりました。 Graph 通知を次の各プラットフォームに統合する方法について説明します: [Android](https://docs.microsoft.com/windows/project-rome/notifications/how-to-guide-for-android) および [iOS](https://docs.microsoft.com/windows/project-rome/notifications/how-to-guide-for-ios)。
@@ -56,7 +56,7 @@ Project Rome | Project Rome SDK が Android および iOS で利用できるよ�
 Visual Studio 2019 | すべての開発者、アプリ、またはプラットフォーム用の最新のツールとサービスを備えた Visual Studio 2019 がリリースされています。 最新情報および使い始める方法については、「[Visual Studio 2019 の新機能](https://docs.microsoft.com/visualstudio/ide/whats-new-visual-studio-2019?view=vs-2019)」をご覧ください。
 Win32 WebView | [よく寄せられる質問](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/webview#frequently-asked-questions-faqs)では、デスクトップ アプリケーションで Microsoft Edge WebView を使用する際の一般的な質問に対する回答、サンプルおよびその他のリソースへのリンクが提供されています。
 Windows コマンド ライン | [コンソールの新機能](https://devblogs.microsoft.com/commandline/new-experimental-console-features/)には、スクロール、カーソルの形状、およびカーソルの色に関する設定がある実験用の [ターミナル] タブが含まれています。 詳細については、[開発者向けの Windows コマンド ライン ツール](https://devblogs.microsoft.com/commandline/)に関するブログ記事を参照してください。
-Windows  コミュニティ ツールキット | Windows コミュニティ ツールキット v5.1 では、アニメーション、リモート デバイス、画像のトリミング、およびアクセシビリティに対して魅力的な更新プログラムが提供されています。 </br> • 新しい [Lottie-Windows ライブラリ](https://docs.microsoft.com/windows/communitytoolkit/animations/lottie)では、Windows.UI.Composition API を利用することによって Windows 10 (1809) 上での高品質のアニメーションがサポートされ、さらに [Bodymovin](https://aescripts.com/bodymovin/) JSON ファイルの使用、またはご利用の Windows アプリで再生するための最適化されたコード生成クラスの使用が考慮されています。 アニメーションのテストを行い、ご利用の Windows アプリ用に最適化されたコードを生成するために、Microsoft Store からの新しい [Lottie Viewer アプリ](https://www.microsoft.com/p/lottie-viewer/9p7x9k692tmw)を試してみてください。 </br> • 新しい[リモート デバイス ピッカー](https://docs.microsoft.com/windows/communitytoolkit/controls/remotedevicepicker)を使用すると、ユーザーはデバイス (近距離またはクラウドからアクセス可能) を選択したり、そのデバイス上でアプリを起動したり、リモート デバイス上のアプリ サービスと通信したりできます。 </br> • 新しい[ImageCropper コントロール](https://docs.microsoft.com/windows/communitytoolkit/controls/imagecropper)では、プロフィール画像を選択するため、または写真編集ツールを使用するのトリミング機能が統合されています。 </br> • さらに、コントロールに対するアクセシビリティーの向上や WPF および WinForms 用の [Microsoft.Toolkit.Win32](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32) 6.0 プレビュー パッケージ更新プログラムの他にも、[リリース ノート](https://github.com/windows-toolkit/WindowsCommunityToolkit/releases/tag/v5.1.0)で確認できる機能があります。
+Windows コミュニティ ツールキット | Windows コミュニティ ツールキット v5.1 では、アニメーション、リモート デバイス、画像のトリミング、およびアクセシビリティに対して魅力的な更新プログラムが提供されています。 </br> • 新しい [Lottie-Windows ライブラリ](https://docs.microsoft.com/windows/communitytoolkit/animations/lottie)では、Windows.UI.Composition API を利用することによって Windows 10 (1809) 上での高品質のアニメーションがサポートされ、さらに [Bodymovin](https://aescripts.com/bodymovin/) JSON ファイルの使用、またはご利用の Windows アプリで再生するための最適化されたコード生成クラスの使用が考慮されています。 アニメーションのテストを行い、ご利用の Windows アプリ用に最適化されたコードを生成するために、Microsoft Store からの新しい [Lottie Viewer アプリ](https://www.microsoft.com/p/lottie-viewer/9p7x9k692tmw)を試してみてください。 </br> • 新しい[リモート デバイス ピッカー](https://docs.microsoft.com/windows/communitytoolkit/controls/remotedevicepicker)を使用すると、ユーザーはデバイス (近距離またはクラウドからアクセス可能) を選択したり、そのデバイス上でアプリを起動したり、リモート デバイス上のアプリ サービスと通信したりできます。 </br> • 新しい[ImageCropper コントロール](https://docs.microsoft.com/windows/communitytoolkit/controls/imagecropper)では、プロフィール画像を選択するため、または写真編集ツールを使用するのトリミング機能が統合されています。 </br> • さらに、コントロールに対するアクセシビリティーの向上や WPF および WinForms 用の [Microsoft.Toolkit.Win32](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32) 6.0 プレビュー パッケージ更新プログラムの他にも、[リリース ノート](https://github.com/windows-toolkit/WindowsCommunityToolkit/releases/tag/v5.1.0)で確認できる機能があります。
 Windows Machine Learning | Windows AI ドキュメントをデザインし直して次の 3 つの領域に分けました: Windows Machine Learning (WinML)、Windows Vision Skills、および Direct Machine Learning (DirectML)。 新しい[ランディング ページ](https://docs.microsoft.com/windows/ai/)を確認してください </br> • [*MLGen* エクスペリエンス](https://docs.microsoft.com/windows/ai/mlgen)は、Visual Studio で変更中です。 バージョン 1903 以降の Windows 10 では、*mlgen*が Windows 10 SDK に含まれなくなりました。 VS 2017 を使用している場合は、代わりに Visual Studio の拡張機能 [Windows Machine Learning Code Generator VS 2017](https://marketplace.visualstudio.com/items?itemName=WinML.mlgen) をダウンロードしてインストールする必要があります。 Visual Studio 2019 を使用している場合は、拡張機能 [Windows Machine Learning Code Generator](https://marketplace.visualstudio.com/items?itemName=WinML.mlgenv2) をインストールする必要があります。 </br> • また、新たにウェイト パッキング用のサポートを発表できることを誇りに思います。 開発者は、[WinMLTools コンバーター](https://docs.microsoft.com/windows/ai/convert-model-winmltools)を介して利用可能になるウェイト パッキングと呼ばれる手法を使用して、ML モデルのディスク占有領域を削減できるようになりました。
 WinRT 統合リファレンス | WinRT API の構造体の定義に関して特定の詳細なノートを提供するために、[WinRT 型システム](https://docs.microsoft.com/uwp/winrt-cref/winrt-type-system)および [WinMD ファイル](https://docs.microsoft.com/uwp/winrt-cref/winmd-files)の詳細な説明を追加しました。
 Windows Subsystem for Linux (WSL) | [WSL に対する最近の更新プログラム](https://devblogs.microsoft.com/commandline/whats-new-for-wsl-in-windows-10-version-1903/)には、エクスプローラーを使用して Windows から Linux ファイルにアクセスする機能と、wsl.exe および wslconfig.exe 用のいくつかの新しいコマンドが含まれています。

@@ -6,18 +6,18 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: f384ca56-f2b2-4793-b251-f7f5735376bb
 ms.localizationpriority: medium
-ms.openlocfilehash: 1a2b22df2610191636d258dc48838e0bc5be6ee4
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: 47be38c6d7a5374b06789beede02647ef9b264d8
+ms.sourcegitcommit: cd185e16d976f2d149312d39d560681538070e3b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74259791"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75737635"
 ---
 # <a name="application-development-for-windows-as-a-service"></a>サービスとしての Windows アプリケーション開発
 
 **適用対象**
 -   Windows 10
--   Windows 10 Mobile
+-   Windows 10 Mobile
 -   Windows 10 IoT Core 
 
 現在の環境では、ユーザーはデバイス中心のエクスペリエンスで期待を抱くことが多いため、完全な製品サイクルを年ではなく月で測定する必要があります。 また、新しいリリースは頻繁に入手可能にする必要があり、ユーザーへの影響を最小限に抑えて展開できる必要があります。 Microsoft は革新、開発、配信のための新しいアプローチを実装することで、これらの要件を満たすように Windows 10 を設計しました。このアプローチは、[サービスとしての Windows (WaaS)](https://docs.microsoft.com/windows/deployment/update/waas-overview) と呼ばれます。 高い品質レベルを維持しながら、非常に短い製品サイクルを実現するためにキーとなるのは、Microsoft が Windows 10 向けに実装したテストに対するコミュニティ中心の革新的なアプローチです。 Windows Insider として知られるこのコミュニティは、世界中の何百万ものユーザーで構成されています。 Windows Insider ユーザーはコミュニティにオプトインすると、製品サイクルの経過と共に数多くのビルドをテストし、Insider プレビュー ビルドという反復的な方法で Microsoft にフィードバックを提供します。
@@ -40,7 +40,7 @@ Windows 10 の開発時、ユーザーが求める機能やエクスペリエ�
 | --- | --- | --- | --- | --- |
 | 半期チャネル (対象指定) | Microsoft が最初に発行した直後 | 18 か月 | できるだけ早く新機能をユーザーに利用可能にする | Home、Pro、Education、Enterprise、Mobile、IoT Core、Windows 10 IoT Core Pro (IoT Core Pro) |
 | 半期チャネル | Microsoft が最初に発行してから約 4 か月後 | 最初に発行してから 18 か月 | 展開の前に新しい機能アップグレードをテストするための追加時間を提供する | Pro、Education、Enterprise、Mobile Enterprise、IoT Core Pro |
-| 長期的なサービス チャネル (LTSC) | Microsoft が発行した直後 | 10 年 | 低料金構成で選択された Windows 10 リリースの長期的な展開を可能にする | エンタープライズ LTSB |
+| 長期的なサービス チャネル (LTSC) | Microsoft が発行した直後 | 10 年 | 低料金構成で選択された Windows 10 リリースの長期的な展開を可能にする | Enterprise LTSB |
 
 詳しくは、「[更新とアップグレードに関する Windows 10 のサービス オプション](https://docs.microsoft.com/windows/deployment/update/waas-overview#servicing-channels)」をご覧ください。
 
@@ -77,7 +77,7 @@ Microsoft は、診断データと使用状況データを、問題の特定と�
 
 以下のセクションでは、アプリと Windows 10 の互換性を確保するために、Microsoft がお勧めするベスト プラクティスをいくつか紹介します。
 
-### <a name="windows-version-check"></a>Windows のバージョン チェック
+### <a name="windows-version-check"></a>Windows バージョン確認
 
 Windows 10 で OS のバージョンがインクリメントされています。 つまり、内部バージョン番号が 10.0 に変更されています。 Microsoft はこれまでと同様に、OS のバージョン変更後のアプリケーションとデバイスの互換性を維持するために全力を尽くしています。 ほとんどのアプリ カテゴリ (カーネルに依存しない) では、変更によってアプリの機能への悪影響はなく、既存のアプリは Windows 10 で正しく動作します。
 
@@ -150,14 +150,12 @@ Windows Insider に登録する前に、参加するユーザーについて次�
 -   ペン (シングル\\ダブルタップ、プッシュ、長押し、消しゴムなど)
 -   印刷\\スキャン
 -   センサー (加速度計、フュージョン センサーなど)
--   Camera
+-   カメラ
 
-### <a name="step-3-provide-feedback"></a>手順 3:フィードバックの提供
+### <a name="step-3-provide-feedback"></a>手順 3:ご意見とご感想
 
 フライティング後のビルドに対してアプリが動作するかどうかをお知らせください。 テスト中にアプリで問題が見つかった場合、パートナー ポータルにアクセスできる場合はパートナー ポータルにログを登録してください。または、Microsoft の担当者にお伝えください。 ユーザー向けの高品質なエクスペリエンスを協力して構築するために、情報をお寄せください。
 
-### <a name="step-4-register-on-ready-for-windows"></a>手順 4:Ready For Windows に登録する
-[Ready for Windows](https://docs.microsoft.com/configmgr/desktop-analytics/ready-for-windows) の Web サイトには、Windows 10 に対応したソフトウェアが登録されています。 Windows 10 の導入を検討している世界中の企業や組織の IT 管理者向けです。 IT 管理者はこのサイトをチェックして、エンタープライズに導入したソフトウェアが Windows 10 でサポートされているかどうかを確認できます。
 
 ## <a name="related-topics"></a>関連トピック
 [更新プログラムおよびアップグレードに関する Windows 10 のサービス オプション](https://docs.microsoft.com/windows/manage/introduction-to-windows-10-servicing)

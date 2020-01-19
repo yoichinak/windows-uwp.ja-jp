@@ -10,12 +10,12 @@ design-contact: kimsea
 dev-contact: niallm
 ms.custom: 19H1
 ms.localizationpriority: medium
-ms.openlocfilehash: dc696c9a57e84e2caade6a2623a72a6048b65621
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 9fb08278391118215063c293b71ffde1ed4443b8
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67319108"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75684117"
 ---
 # <a name="teaching-tip"></a>教育のヒント
 
@@ -25,7 +25,7 @@ ms.locfileid: "67319108"
 
 教育のヒントは、簡易非表示にすることも、閉じるために明示的な操作を必要とすることもできます。 教育のヒントはテールを使用して特定の UI 要素をターゲットにすることができますが、テールやターゲットがなくても使用できます。
 
-## <a name="is-this-the-right-control"></a>適切なコントロールの選択 
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか? 
 
 **TeachingTip** コントロールを使用して、新規または重要な更新および機能にユーザーの注意を向けたり、重要ではないがユーザーのエクスペリエンスを改善できるオプションをユーザーにリマインドしたり、タスクの完了方法をユーザーに説明したりします。 
 
@@ -71,11 +71,11 @@ XAML
 ```XAML
 <Button x:Name="SaveButton" Content="Save">
     <Button.Resources>
-        <controls:TeachingTip x:Name="AutoSaveTip"
+        <muxc:TeachingTip x:Name="AutoSaveTip"
             Target="{x:Bind SaveButton}"
             Title="Save automatically"
             Subtitle="When you save your file to OneDrive, we save your changes as you go - so you never have to.">
-        </controls:TeachingTip>
+        </muxc:TeachingTip>
     </Button.Resources>
 </Button>
 ```
@@ -106,10 +106,10 @@ XAML
 ```XAML
 <Button x:Name="SaveButton" Content="Save" />
 
-<controls:TeachingTip x:Name="AutoSaveTip"
+<muxc:TeachingTip x:Name="AutoSaveTip"
     Title="Saving automatically"
     Subtitle="We save your changes as you go - so you never have to.">
-</controls:TeachingTip>
+</muxc:TeachingTip>
 ```
 
 この例では、TeachingTip が ResourceDictionary やコード ビハインドではなく要素ツリー内にあることに注意してください。 これは動作に影響せず、TeachingTip は開いたときにのみ表示され、レイアウト スペースを占有しません。
@@ -120,7 +120,7 @@ XAML
 
 教育のヒントは TeachingTipPlacementMode プロパティを使用して、ポップアップの [FlyoutPlacementMode](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Primitives.FlyoutPlacementMode) 配置動作を複製します。 既定の配置モードでは、ターゲット指定の教育のヒントはターゲットの上に配置しようとし、ターゲット非指定の教育のヒントは XAML ルートの下部中央に配置しようとします。 ポップアップと同様に、優先配置モードでは教育のヒントを表示するスペースがない場合は、別の配置モードが自動的に選択されます。 
 
-ゲームパッド入力を予測するアプリケーションの場合は、「[ゲームパッドとリモコンの操作]( https://docs.microsoft.com/en-us/windows/uwp/design/input/gamepad-and-remote-interactions#xy-focus-navigation-and-interaction)」を参照してください。 アプリの UI で考えられるすべての構成を使用して、それぞれの教育のヒントについてのゲームパッドのアクセシビリティをテストすることをお勧めします。
+ゲームパッド入力を予測するアプリケーションの場合は、「[ゲームパッドとリモコンの操作]( https://docs.microsoft.com/windows/uwp/design/input/gamepad-and-remote-interactions#xy-focus-navigation-and-interaction)」を参照してください。 アプリの UI で考えられるすべての構成を使用して、それぞれの教育のヒントについてのゲームパッドのアクセシビリティをテストすることをお勧めします。
 
 PreferredPlacement が "BottomLeft" に設定されたターゲット指定の教育のヒントは、テールがターゲットの下部中央に配置され、教育のヒントの本文が左寄せされた状態で表示されます。
 
@@ -128,12 +128,12 @@ XAML
 ```XAML
 <Button x:Name="SaveButton" Content="Save">
     <Button.Resources>
-        <controls:TeachingTip x:Name="AutoSaveTip"
+        <muxc:TeachingTip x:Name="AutoSaveTip"
             Target="{x:Bind SaveButton}"
             Title="Saving automatically"
             Subtitle="We save your changes as you go - so you never have to."
             PreferredPlacement="BottomLeft">
-        </controls:TeachingTip>
+        </muxc:TeachingTip>
     </Button.Resources>
 </Button>
 ```
@@ -147,11 +147,11 @@ XAML
 ```XAML
 <Button x:Name="SaveButton" Content="Save" />
 
-<controls:TeachingTip x:Name="AutoSaveTip"
+<muxc:TeachingTip x:Name="AutoSaveTip"
     Title="Saving automatically"
     Subtitle="We save your changes as you go - so you never have to."
     PreferredPlacement="BottomLeft">
-</controls:TeachingTip>
+</muxc:TeachingTip>
 ```
 
 ![教育のヒントが左下隅に表示されているサンプル アプリ。 ヒントのタイトルには "Saving automatically" (自動的に保存) と記載されており、サブタイトルには "We save your changes as you go - so you never have to." (変更内容は作業中に保存されるため、保存操作は不要です) と記載されています。 教育のヒントの右上隅に、閉じるボタンがあります。](../images/teaching-tip-non-targeted-preferred-placement.png)
@@ -164,7 +164,7 @@ XAML
 
 ### <a name="add-a-placement-margin"></a>配置の余白を追加する  
 
-ターゲット指定された教育のヒントをターゲットからどの程度離すか、およびターゲット非指定の教育のヒントを XAML ルートの端からどの程度離すかを、PlacementMargin プロパティを使用して制御できます。 [Margin](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.frameworkelement.margin) と同じように、PlacementMargin には left、right、top、および bottom の 4 つの値があり、関連する値のみが使用されます。 たとえば、ヒントがターゲットの左側にあるか、XAML ルートの左端にある場合は PlacementMargin.Left が適用されます。
+ターゲット指定された教育のヒントをターゲットからどの程度離すか、およびターゲット非指定の教育のヒントを XAML ルートの端からどの程度離すかを、PlacementMargin プロパティを使用して制御できます。 [Margin](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.margin) と同じように、PlacementMargin には left、right、top、および bottom の 4 つの値があり、関連する値のみが使用されます。 たとえば、ヒントがターゲットの左側にあるか、XAML ルートの左端にある場合は PlacementMargin.Left が適用されます。
 
 次の例では、PlacementMargin の Left/Top/Right/Bottom がすべて 80 に設定された場合のターゲット非指定のヒントを示しています。
 
@@ -172,12 +172,12 @@ XAML
 ```XAML
 <Button x:Name="SaveButton" Content="Save" />
 
-<controls:TeachingTip x:Name="AutoSaveTip"
+<muxc:TeachingTip x:Name="AutoSaveTip"
     Title="Saving automatically"
     Subtitle="We save your changes as you go - so you never have to."
     PreferredPlacement="BottomLeft"
     PlacementMargin="80">
-</controls:TeachingTip>
+</muxc:TeachingTip>
 ```
 
 ![右下隅の方向 (完全に右下隅ではない) に配置されている教育のヒントを表示するサンプル アプリ。 ヒントのタイトルには "Saving automatically" (自動的に保存) と記載されており、サブタイトルには "We save your changes as you go - so you never have to." (変更内容は作業中に保存されるため、保存操作は不要です) と記載されています。 教育のヒントの右上隅に、閉じるボタンがあります。](../images/teaching-tip-placement-margin.png)
@@ -191,7 +191,7 @@ XAML
 ```XAML
 <Button x:Name="SaveButton" Content="Save">
     <Button.Resources>
-        <controls:TeachingTip x:Name="AutoSaveTip"
+        <muxc:TeachingTip x:Name="AutoSaveTip"
             Target="{x:Bind SaveButton}"
             Title="Saving automatically"
             Subtitle="We save your changes as you go - so you never have to.">
@@ -199,7 +199,7 @@ XAML
                     <CheckBox x:Name="HideTipsCheckBox" Content="Don't show tips at start up" IsChecked="{x:Bind HidingTips, Mode=TwoWay}" />
                     <TextBlock>You can change your tip preferences in <Hyperlink NavigateUri="app:/item/SettingsPage">Settings</Hyperlink> if you change your mind.</TextBlock>
                 </StackPanel>
-        </controls:TeachingTip>
+        </muxc:TeachingTip>
     </Button.Resources>
 </Button>
 ```
@@ -210,7 +210,7 @@ XAML
 
 既定では、標準の閉じるボタン "X" が、教育のヒントのタイトルの横に表示されます。 閉じるボタンは CloseButtonContent プロパティを使用してカスタマイズできます。その場合、ボタンは教育のヒントの下部に移動します。
 
-**注:簡易非表示が有効なヒントの場合、閉じるボタンは表示されません**
+**注: 簡易非表示が有効なヒントの場合、閉じるボタンは表示されません**
 
 ActionButtonContent プロパティ (および必要に応じて、ActionButtonCommand および ActionButtonCommandParameter プロパティ) を設定して、カスタム アクション ボタンを追加できます。
 
@@ -218,7 +218,7 @@ XAML
 ```XAML
 <Button x:Name="SaveButton" Content="Save">
     <Button.Resources> 
-        <controls:TeachingTip x:Name="AutoSaveTip"
+        <muxc:TeachingTip x:Name="AutoSaveTip"
             Target="{x:Bind SaveButton}"
             Title="Saving automatically"
             Subtitle="We save your changes as you go - so you never have to."
@@ -229,7 +229,7 @@ XAML
                     <CheckBox x:Name="HideTipsCheckBox" Content="Don't show tips at start up" IsChecked="{x:Bind HidingTips, Mode=TwoWay}" />
                     <TextBlock>You can change your tip preferences in <Hyperlink NavigateUri="app:/item/SettingsPage">Settings</Hyperlink> if you change your mind.</TextBlock>
                 </StackPanel>
-        </controls:TeachingTip>
+        </muxc:TeachingTip>
     </Button.Resources>
 </Button>
 ```
@@ -244,14 +244,14 @@ XAML
 ```XAML
 <Button x:Name="SaveButton" Content="Save">
     <Button.Resources> 
-        <controls:TeachingTip x:Name="AutoSaveTip"
+        <muxc:TeachingTip x:Name="AutoSaveTip"
             Target="{x:Bind SaveButton}"
             Title="Saving automatically"
             Subtitle="We save your changes as you go - so you never have to.">
-            <controls:TeachingTip.HeroContent>
+            <muxc:TeachingTip.HeroContent>
                 <Image Source="Assets/cloud.png" />
-            </controls:TeachingTip.HeroContent>
-        </controls:TeachingTip>
+            </muxc:TeachingTip.HeroContent>
+        </muxc:TeachingTip>
     </Button.Resources>
 </Button>
 ```
@@ -266,14 +266,14 @@ XAML
 ```XAML
 <Button x:Name="SaveButton" Content="Save">
     <Button.Resources>
-        <controls:TeachingTip x:Name="AutoSaveTip"
+        <muxc:TeachingTip x:Name="AutoSaveTip"
             Target="{x:Bind SaveButton}"
             Title="Saving automatically"
             Subtitle="We save your changes as you go - so you never have to."
-            <controls:TeachingTip.IconSource>
-                <controls:SymbolIconSource Symbol="Save" />
-            </controls:TeachingTip.IconSource>
-        </controls:TeachingTip>
+            <muxc:TeachingTip.IconSource>
+                <muxc:SymbolIconSource Symbol="Save" />
+            </muxc:TeachingTip.IconSource>
+        </muxc:TeachingTip>
     </Button.Resources>
 </Button>
 ```
@@ -290,11 +290,11 @@ XAML
 ```XAML
 <Button x:Name="SaveButton" Content="Save" />
 
-<controls:TeachingTip x:Name="AutoSaveTip"
+<muxc:TeachingTip x:Name="AutoSaveTip"
     Title="Saving automatically"
     Subtitle="We save your changes as you go - so you never have to."
     IsLightDismissEnabled="True">
-</controls:TeachingTip>
+</muxc:TeachingTip>
 ```
 
 ![簡易非表示の教育のヒントが右下隅に表示されているサンプル アプリ。 ヒントのタイトルには "Saving automatically" (自動的に保存) と記載されており、サブタイトルには "We save your changes as you go - so you never have to." (変更内容は作業中に保存されるため、保存操作は不要です) と記載されています。](../images/teaching-tip-light-dismiss.png)
@@ -309,13 +309,13 @@ XAML
 ```XAML
 <Button x:Name="SaveButton" Content="Save" />
 
-<controls:TeachingTip x:Name="AutoSaveTip"
+<muxc:TeachingTip x:Name="AutoSaveTip"
     Title="Saving automatically"
     Subtitle="We save your changes as you go - so you never have to."
     PreferredPlacement="BottomRight"
     PlacementMargin="-80,-50,0,0"
     ShouldConstrainToRootBounds="False">
-</controls:TeachingTip>
+</muxc:TeachingTip>
 ```
 
 ![教育のヒントがアプリの右下隅の外に出ているサンプル アプリ。 ヒントのタイトルには "Saving automatically" (自動的に保存) と記載されており、サブタイトルには "We save your changes as you go - so you never have to." (変更内容は作業中に保存されるため、保存操作は不要です) と記載されています。 教育のヒントの右上隅に、閉じるボタンがあります。](../images/teaching-tip-escape-xaml-root.png)
@@ -324,15 +324,15 @@ XAML
 
 Closing イベントを使用して、教育のヒントのクローズをキャンセルしたり延期したりすることができます。 これは教育のヒントを開いたままにしたり、アクションの実行またはカスタム アニメーションの表示の時間を確保するために使用できます。 教育のヒントのクローズをキャンセルすると、IsOpen は true に戻りますが、延期の間は false のままになります。 プログラムによるクローズもキャンセルできます。 
 
-**注:教育のヒントの完全な表示を許可する配置オプションが存在しない場合、教育のヒントは、使用可能な閉じるボタンのない状態で表示されるのではなく、閉じることを強制するためにイベントのライフ サイクルを通じて繰り返されます。アプリが Closing イベントをキャンセルした場合、教育のヒントは使用可能な閉じるボタンがない状態で開いたままになることがあります。**
+**注: 教育のヒントの完全な表示を許可する配置オプションが存在しない場合、教育のヒントは、使用可能な閉じるボタンのない状態で表示されるのではなく、閉じることを強制するためにイベントのライフ サイクルを通じて繰り返されます。アプリが Closing イベントをキャンセルした場合、教育のヒントは使用可能な閉じるボタンがない状態で開いたままになることがあります。**
 
 XAML
 ```XAML
-<controls:TeachingTip x:Name="EnableNewSettingsTip"
+<muxc:TeachingTip x:Name="EnableNewSettingsTip"
     Title="New ways to protect your privacy!"
     Subtitle="Please close this tip and review our updated privacy policy and privacy settings."
     Closing="OnTipClosing">
-</controls:TeachingTip>
+</muxc:TeachingTip>
 ```
 
 C#
@@ -355,17 +355,17 @@ public void OnTipClosing(object sender, TeachingTipClosingEventArgs args)
 }
 ```
 
-## <a name="remarks"></a>注釈
+## <a name="remarks"></a>コメント
 
 ### <a name="related-articles"></a>関連記事 
 
-* [ダイアログとポップアップ](https://docs.microsoft.com/en-us/windows/uwp/design/controls-and-patterns/dialogs-and-flyouts/index)
+* [ダイアログとポップアップ](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/dialogs-and-flyouts/index)
 
 ### <a name="recommendations"></a>推奨事項
 * ヒントは一時的なものであるため、アプリケーションのエクスペリエンスにとって重要な情報やオプションを含めるべきではありません。 
 * 教育のヒントを過剰な頻度で表示しないようにしてください。 教育のヒントは、長いセッションまたは複数のセッションで時間をずらして表示された場合に、個人の注意を惹く可能性が最も高くなります。    
 * ヒントは簡潔にし、トピックを明確にしてください。 調査によると、ユーザーはヒントを活用するかどうかを決める前に、平均して 3 つから 5 つの単語しか読まず、2 つから 3 つの単語しか理解していません。
-* 教育のヒントのゲームパッド アクセシビリティは保証されません。 ゲームパッド入力を予測するアプリケーションの場合は、「[ゲームパッドとリモコンの操作]( https://docs.microsoft.com/en-us/windows/uwp/design/input/gamepad-and-remote-interactions#xy-focus-navigation-and-interaction)」を参照してください。 アプリの UI で考えられるすべての構成を使用して、それぞれの教育のヒントについてのゲームパッドのアクセシビリティをテストすることをお勧めします。
+* 教育のヒントのゲームパッド アクセシビリティは保証されません。 ゲームパッド入力を予測するアプリケーションの場合は、「[ゲームパッドとリモコンの操作]( https://docs.microsoft.com/windows/uwp/design/input/gamepad-and-remote-interactions#xy-focus-navigation-and-interaction)」を参照してください。 アプリの UI で考えられるすべての構成を使用して、それぞれの教育のヒントについてのゲームパッドのアクセシビリティをテストすることをお勧めします。
 * 教育のヒントが XAML ルートをエスケープすることを有効にするときは、IsLightDismissEnabled プロパティも有効にして、XAML ルートの中央に最も近い PreferredPlacement モードを設定することをお勧めします。 
 
 ### <a name="reconfiguring-an-open-teaching-tip"></a>開いている教育のヒントを再構成する

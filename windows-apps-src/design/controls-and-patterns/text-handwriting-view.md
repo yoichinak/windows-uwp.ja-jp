@@ -11,24 +11,24 @@ design-contact: minah.kim
 doc-status: Draft
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: ec78498cc3941c3c03b33d8c3ab55b40c100a7ea
-ms.sourcegitcommit: 05be6929cd380a9dd241cc1298fd53f11c93d774
+ms.openlocfilehash: 9b9d409718a157c55b28fdb3ccaa28caaa295adf
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73062078"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75684282"
 ---
 # <a name="text-input-with-the-handwriting-view"></a>手書きビューでのテキスト入力
 
 ![ペンでタップするとテキスト ボックスが展開する](images/handwritingview/handwritingview2.gif)
 
-[TextBox](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.textbox)、[RichEditBox](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.richeditbox) などの UWP テキスト コントロール、および [AutoSuggestBox](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.autosuggestbox) などから派生したコントロールによってサポートされる、テキスト入力に対してインク用に組み込まれた手書きビューをカスタマイズします。
+[TextBox](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox)、[RichEditBox](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.richeditbox) などの UWP テキスト コントロール、および [AutoSuggestBox](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.autosuggestbox) などから派生したコントロールによってサポートされる、テキスト入力に対してインク用に組み込まれた手書きビューをカスタマイズします。
 
 ## <a name="overview"></a>概要
 
 XAML テキスト入力ボックスでは、[Windows Ink](../input/pen-and-stylus-interactions.md) を使用したペン入力の埋め込みがサポートされています。 ユーザーが Windows ペンを使用してテキスト入力ボックスでタップすると、別の入力パネルを開くことなく、テキスト ボックスが手書きサーフェスに変換されます。
 
-ユーザーがテキスト ボックスの任意の場所に書き込むと、テキストが認識され、候補ウィンドウには認識結果が表示されます。 ユーザーは結果をタップしてそれを選択したり、さらに書き込んで提案された候補を受け入れたりすることができます。 リテラル (1 文字ずつ) による認識結果は候補ウィンドウに含まれているため、認識はディクショナリ内の単語に制限されません。 ユーザーが手書きで入力すると、受け入れられたテキスト入力は自然な手書き感を維持して Script フォントに変換されます。
+ユーザーがテキスト ボックスの任意の場所に書き込むと、テキストが認識され、候補ウィンドウには認識結果が表示されます。 ユーザーは結果をタップしてそれを選択したり、書き込み続けて提案された候補を受け入れたりすることができます。 リテラル (1 文字ずつ) による認識結果は候補ウィンドウに含まれているため、認識はディクショナリ内の単語に制限されません。 ユーザーが書き込むと、受け入れられたテキスト入力は自然な手書き感を維持して Script フォントに変換されます。
 
 > [!NOTE]
 > 既定で手書きビューは有効にされていますが、これはコントロールごとに無効にすることができ、代わりに元のテキスト入力パネルに戻すことができます。
@@ -37,10 +37,10 @@ XAML テキスト入力ボックスでは、[Windows Ink](../input/pen-and-stylu
 
 ユーザーは、次のような標準的なジェスチャや操作を使用してテキストを編集できます。
 
-- _取り消し線_または_インクを消す_ - 単語や単語の一部を削除します
+- _取り消し線_または_インクを消す_ - 取り消し線を引いて単語や単語の一部を削除します
 - _結合_ - 単語間に円弧を描き、単語間のスペースを削除します
-- _挿入_- スペースを挿入するキャレット記号を描画します
-- _上書き_- 既存のテキストの上に書き込み、それを置き換えます
+- _挿入_ - スペースを挿入するキャレット記号を描画します
+- _上書き_ - 既存のテキストの上に書き込み、それを置き換えます
 
 ![インクの修正を含むテキスト ボックス](images/handwritingview/handwritingview-inkcorrection1.gif)
 
@@ -50,7 +50,7 @@ XAML テキスト入力ボックスでは、[Windows Ink](../input/pen-and-stylu
 
 ご利用のアプリケーションで同等のインクをテキストに変換する機能を既に提供している場合、または、テキスト入力エクスペリエンスが手書きによって使用できない何らかの書式または特殊文字 (タブなど) に依存する場合、手書きビューを無効にする必要がある可能性があります。
 
-この例では、[TextBox](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.textbox) コントロールの [IsHandwritingViewEnabled](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.ishandwritingviewenabled) プロパティを false に設定することで、手書きビューを無効にします。 手書きビューをサポートするすべてのテキスト コントロールで、同様のプロパティがサポートされます。
+この例では、[TextBox](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox) コントロールの [IsHandwritingViewEnabled](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.ishandwritingviewenabled) プロパティを false に設定することで、手書きビューを無効にします。 手書きビューをサポートするすべてのテキスト コントロールで、同様のプロパティがサポートされます。
 
 ```xaml
 <TextBox Name="SampleTextBox"
@@ -67,7 +67,7 @@ XAML テキスト入力ボックスでは、[Windows Ink](../input/pen-and-stylu
 
 アプリケーション UI はより大きなコントロールに対応するためにリフローされないので、システムによってビューで重要な UI が見えなくなる可能性があります。
 
-ここで、[TextBox](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.textbox) [HandwritingView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.handwritingview) の [PlacementAlignment](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.handwritingview.placementalignment) プロパティを使用する方法を示し、手書きビューを整列するために使用される基になるテキスト コントロール上のアンカーを指定します。
+ここで、[TextBox](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox) [HandwritingView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.handwritingview) の [PlacementAlignment](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.handwritingview.placementalignment) プロパティを使用する方法を示し、手書きビューを整列するために使用される基になるテキスト コントロール上のアンカーを指定します。
 
 ```xaml
 <TextBox Name="SampleTextBox"
@@ -107,7 +107,7 @@ XAML テキスト入力ボックスでは、[Windows Ink](../input/pen-and-stylu
 
 ご利用のアプリでは、この設定にアクセスし、テキスト コントロールで認識されたテキスト用に選択されたフォントを使用することができます。
 
-この例では、[TextBox](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.textbox) の [TextChanged](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.textchanged) イベントをリッスンし、テキストの変更が HandwritingView から発生した場合、ユーザーが選択したフォントが適用されます (または、選択していない場合は、既定のフォントが適用されます)。
+この例では、[TextBox](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox) の [TextChanged](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.textchanged) イベントをリッスンし、テキストの変更が HandwritingView から発生した場合、ユーザーが選択したフォントが適用されます (または、選択していない場合は、既定のフォントが適用されます)。
 
 ```csharp
 private void SampleTextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -121,7 +121,7 @@ private void SampleTextBox_TextChanged(object sender, TextChangedEventArgs e)
 
 ## <a name="access-the-handwritingview-in-composite-controls"></a>複合コントロールで HandwritingView にアクセスする
 
-[TextBox ](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.textbox) コントロールまたは [RichEditBox](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.richeditbox) コントロールを使用する複合コントロール ([AutoSuggestBox](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.autosuggestbox) など) では、[HandwritingView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.handwritingview) もサポートされます。
+[TextBox ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox) コントロールまたは [RichEditBox](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.richeditbox) コントロールを使用する複合コントロール ([AutoSuggestBox](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.autosuggestbox) など) では、[HandwritingView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.handwritingview) もサポートされます。
 
 複合コントロールで [HandwritingView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.handwritingview) にアクセスするには、[VisualTreeHelper](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.visualtreehelper) API を使用します。
 

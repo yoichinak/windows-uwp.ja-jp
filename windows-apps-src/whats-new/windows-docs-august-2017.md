@@ -5,12 +5,12 @@ keywords: 最新情報, 更新, 機能, 開発者向けガイダンス, Windows 
 ms.date: 08/03/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: b4cc5f10ba23c942851f34ef64afd887d265dba1
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: 824cdb74a809ae3f9ae2ed202a9889535021f711
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74259781"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75684720"
 ---
 # <a name="whats-new-in-the-windows-developer-docs-in-august-2017"></a>Windows 開発者向けドキュメントの最新情報、2017 年 8 月
 
@@ -41,7 +41,7 @@ Visual Studio 2019 用の新しい [Windows Template Studio](https://marketplace
 [Microsoft Store 申請 API](../monetize/create-and-manage-submissions-using-windows-store-services.md) で、アプリの申請に[ビデオ トレーラー](../monetize/manage-app-submissions.md#trailer-object)や[ゲーム オプション](../monetize/manage-app-submissions.md#gaming-options-object)を含めることができるようになりました。
 
 
-## <a name="developer-guidance"></a>開発者向けガイダンス
+## <a name="developer-guidance"></a>開発者ガイド
 
 ### <a name="data-schemas-for-store-products"></a>Store 製品のデータ スキーマ
 
@@ -57,7 +57,7 @@ Windows 10 ユーザーの利便性を高める最新のエクスペリエンス
 
 ### <a name="getting-started-with-point-of-service"></a>POS (店舗販売時点管理) の概要
 
-[POS (店舗販売時点管理) サービス](https://docs.microsoft.com/en-us/windows/uwp/devices-sensors/pos-get-started)を利用する場合に役立つ新しいガイドが追加されました。 このガイドでは、デバイスの列挙、デバイス機能の確認、デバイスの要求、デバイスの共有といったトピックについて説明します。 
+[POS (店舗販売時点管理) サービス](https://docs.microsoft.com/windows/uwp/devices-sensors/pos-get-started)を利用する場合に役立つ新しいガイドが追加されました。 このガイドでは、デバイスの列挙、デバイス機能の確認、デバイスの要求、デバイスの共有といったトピックについて説明します。 
 
 ### <a name="xbox-live"></a>Xbox Live
 
@@ -73,7 +73,7 @@ Xbox Live 開発者向けに提供されているプログラムと機能につ�
 
 ### <a name="mixed-reality"></a>Mixed Reality
 
-[Microsoft HoloLens Course 250](https://developer.microsoft.com/en-us/windows/mixed-reality/mixed_reality_250) 向けに一連のチュートリアル ビデオが公開されました。 既にツールをインストールしていて、Mixed Reality の開発の基本を理解している場合は、これらのビデオ コースをチェックして、Mixed Reality デバイス間で共通のエクスペリエンスを作成する方法をご覧ください。
+[Microsoft HoloLens Course 250](https://developer.microsoft.com/windows/mixed-reality/mixed_reality_250) 向けに一連のチュートリアル ビデオが公開されました。 既にツールをインストールしていて、Mixed Reality の開発の基本を理解している場合は、これらのビデオ コースをチェックして、Mixed Reality デバイス間で共通のエクスペリエンスを作成する方法をご覧ください。
 
 ### <a name="narrator-and-dev-mode"></a>ナレーターと開発者モード
 
