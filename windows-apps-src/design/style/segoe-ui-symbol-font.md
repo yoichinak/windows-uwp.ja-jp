@@ -9,12 +9,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: a615e00513bba0ba21f2f9a18fa0c8cdda31cb3f
-ms.sourcegitcommit: b8087f8b6cf8367f8adb7d6db4581d9aa47b4861
+ms.openlocfilehash: b2003553ae7bf41b9c472f59528b46f39a07900c
+ms.sourcegitcommit: cd185e16d976f2d149312d39d560681538070e3b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67414130"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75737655"
 ---
 # <a name="segoe-mdl2-icons"></a>Segoe MDL2 アイコン
 
@@ -26,9 +26,9 @@ ms.locfileid: "67414130"
 
 ## <a name="about-segoe-mdl2-assets"></a>Segoe MDL2 アセットについて
 
-Windows 10 のリリースにより、従来の Windows 8/8.1 Segoe UI Symbol アイコン フォントが、Segoe MDL2 アセット フォントに置き換えられました。 <!-- It can be used in much the same manner as the older font, but many glyphs have been redrawn in the Windows 10 icon style with the font’s metrics set so that icons are aligned within the font’s em-square instead of on a typographic baseline. --> (**Segoe UI Symbol** も「レガシ」リソースとして利用できますが、アプリを更新して新しい **Segoe MDL2 アセット**を使用することをお勧めします。)
+Windows 10 のリリースにより、従来の Windows 8/8.1 Segoe UI Symbol アイコン フォントが、Segoe MDL2 アセット フォントに置き換えられました。 <!-- It can be used in much the same manner as the older font, but many glyphs have been redrawn in the Windows 10 icon style with the font’s metrics set so that icons are aligned within the font’s em-square instead of on a typographic baseline. --> (**Segoe UI Symbol** も "レガシ" リソースとして利用できますが、アプリを更新して新しい **Segoe MDL2 アセット**を使用することをお勧めします。)
 
-**Segoe MDL2 アセット** フォントに含まれるアイコンや UI コントロールのほとんどは、Unicode の私用領域 (PUA) にマップされます。 フォント開発者は PUA を使って、既にあるコード ポイントにマップされないグリフにプライベート Unicode 値を割り当てることができます。 これは、記号フォントを作成するときに役立ちますが、相互運用性の問題が生じます。 フォントが利用できない場合、グリフは表示されません。 これらのグリフは、 **Segoe MDL2 アセット** フォントを明示的に指定できる場合にのみ使います。
+**Segoe MDL2 アセット** フォントに含まれるアイコンや UI コントロールのほとんどは、Unicode の私用領域 (PUA) にマップされます。 フォント開発者は PUA を使って、既にあるコード ポイントにマップされないグリフにプライベート Unicode 値を割り当てることができます。 これは、記号フォントを作成するときに役立ちますが、相互運用性の問題が生じます。 フォントが利用できない場合、グリフは表示されません。 これらのグリフは、**Segoe MDL2 アセット** フォントを明示的に指定できる場合にのみ使います。
 
 これらのグリフは、**Segoe MDL2 アセット** フォントを明示的に指定できる場合にのみ使います。 タイルを使っている場合は、タイルのフォントを指定できず、フォントのフォールバックで PUA グリフを使うことができないため、これらのグリフは使うことができません。
 
@@ -91,7 +91,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E703.png" width="32" height="32" alt="Connect" /></td>
   <td>E703</td>
-  <td>接続</td>
+  <td>[接続ドライブ]</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E704.png" width="32" height="32" alt="InternetSharing" /></td>
   <td>E704</td>
@@ -119,7 +119,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E70A.png" width="32" height="32" alt="Tablet" /></td>
   <td>E70A</td>
-  <td>タブレット</td>
+  <td>Tablet</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E70B.png" width="32" height="32" alt="QuickNote" /></td>
   <td>E70B</td>
@@ -139,27 +139,27 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E70F.png" width="32" height="32" alt="Edit" /></td>
   <td>E70F</td>
-  <td>Edit</td>
+  <td>[編集]</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E710.png" width="32" height="32" alt="Add" /></td>
   <td>E710</td>
-  <td>Add</td>
+  <td>追加</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E711.png" width="32" height="32" alt="Cancel" /></td>
   <td>E711</td>
-  <td>Cancel</td>
+  <td>キャンセル</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E712.png" width="32" height="32" alt="More" /></td>
   <td>E712</td>
-  <td>More</td>
+  <td>[詳細]</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E713.png" width="32" height="32" alt="Settings" /></td>
   <td>E713</td>
-  <td>設定</td>
+  <td>Settings</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E714.png" width="32" height="32" alt="Video" /></td>
   <td>E714</td>
-  <td>Video</td>
+  <td>ビデオ</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E715.png" width="32" height="32" alt="Mail" /></td>
   <td>E715</td>
@@ -167,11 +167,11 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E716.png" width="32" height="32" alt="People" /></td>
   <td>E716</td>
-  <td>People</td>
+  <td>ユーザー</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E717.png" width="32" height="32" alt="Phone" /></td>
   <td>E717</td>
-  <td>Phone</td>
+  <td>電話</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E718.png" width="32" height="32" alt="Pin" /></td>
   <td>E718</td>
@@ -179,11 +179,11 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E719.png" width="32" height="32" alt="Shop" /></td>
   <td>E719</td>
-  <td>Shop</td>
+  <td>ショップ</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E71A.png" width="32" height="32" alt="Stop" /></td>
   <td>E71A</td>
-  <td>Stop</td>
+  <td>停止</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E71B.png" width="32" height="32" alt="Link" /></td>
   <td>E71B</td>
@@ -215,15 +215,15 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E722.png" width="32" height="32" alt="Camera" /></td>
   <td>E722</td>
-  <td>Camera</td>
+  <td>カメラ</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E723.png" width="32" height="32" alt="Attach" /></td>
   <td>E723</td>
-  <td>Attach</td>
+  <td>添付</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E724.png" width="32" height="32" alt="Send" /></td>
   <td>E724</td>
-  <td>Send</td>
+  <td>送信</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E725.png" width="32" height="32" alt="SendFill" /></td>
   <td>E725</td>
@@ -247,23 +247,23 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E72A.png" width="32" height="32" alt="Forward" /></td>
   <td>E72A</td>
-  <td>Forward</td>
+  <td>転送</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E72B.png" width="32" height="32" alt="Back" /></td>
   <td>E72B</td>
-  <td>Back</td>
+  <td>戻る</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E72C.png" width="32" height="32" alt="Refresh" /></td>
   <td>E72C</td>
-  <td>Refresh</td>
+  <td>更新</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E72D.png" width="32" height="32" alt="Share" /></td>
   <td>E72D</td>
-  <td>Share</td>
+  <td>共有</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E72E.png" width="32" height="32" alt="Lock" /></td>
   <td>E72E</td>
-  <td>Lock</td>
+  <td>ロック</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E730.png" width="32" height="32" alt="ReportHacked" /></td>
   <td>E730</td>
@@ -295,7 +295,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E739.png" width="32" height="32" alt="Checkbox" /></td>
   <td>E739</td>
-  <td>チェックボックス</td>
+  <td>チェック ボックス</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E73A.png" width="32" height="32" alt="CheckboxComposite" /></td>
   <td>E73A</td>
@@ -359,15 +359,15 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E749.png" width="32" height="32" alt="Print" /></td>
   <td>E749</td>
-  <td>印刷</td>
+  <td>［印刷］</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E74A.png" width="32" height="32" alt="Up" /></td>
   <td>E74A</td>
-  <td>Up</td>
+  <td>［上へ］</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E74B.png" width="32" height="32" alt="Down" /></td>
   <td>E74B</td>
-  <td>Down</td>
+  <td>［下へ］</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E74C.png" width="32" height="32" alt="OEM" /></td>
   <td>E74C</td>
@@ -379,7 +379,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E74E.png" width="32" height="32" alt="Save" /></td>
   <td>E74E</td>
-  <td>Save</td>
+  <td>上書き保存</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E74F.png" width="32" height="32" alt="Mute" /></td>
   <td>E74F</td>
@@ -399,7 +399,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E753.png" width="32" height="32" alt="Cloud" /></td>
   <td>E753</td>
-  <td>Cloud</td>
+  <td>クラウド</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E754.png" width="32" height="32" alt="Flashlight" /></td>
   <td>E754</td>
@@ -479,7 +479,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E769.png" width="32" height="32" alt="Pause" /></td>
   <td>E769</td>
-  <td>一時停止</td>
+  <td>［一時停止］</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E76B.png" width="32" height="32" alt="ChevronLeft" /></td>
   <td>E76B</td>
@@ -551,7 +551,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E77C.png" width="32" height="32" alt="Memo" /></td>
   <td>E77C</td>
-  <td>Memo</td>
+  <td>メモ</td>
  </tr>
  <tr><td><img src="images/segoe-mdl/E77E.png" width="32" height="32" alt="IncomingCall" /></td>
   <td>E77E</td>
@@ -559,7 +559,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
 </tr>
 <tr><td><img src="images/segoe-mdl/E77F.png" width="32" height="32" alt="Paste" /></td>
   <td>E77F</td>
-  <td>Paste</td>
+  <td>貼り付け</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E780.png" width="32" height="32" alt="PhoneBook" /></td>
   <td>E780</td>
@@ -571,7 +571,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E783.png" width="32" height="32" alt="Error" /></td>
   <td>E783</td>
-  <td>エラー</td>
+  <td>Error</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E784.png" width="32" height="32" alt="GripperBarVertical" /></td>
   <td>E784</td>
@@ -587,7 +587,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E787.png" width="32" height="32" alt="Calendar" /></td>
   <td>E787</td>
-  <td>カレンダー</td>
+  <td>Calendar</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E788.png" width="32" height="32" alt="GripperResize" /></td>
   <td>E788</td>
@@ -611,7 +611,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E790.png" width="32" height="32" alt="Color" /></td>
   <td>E790</td>
-  <td>色</td>
+  <td>Color</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E791.png" width="32" height="32" alt="DataSense" /></td>
   <td>E791</td>
@@ -623,7 +623,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E793.png" width="32" height="32" alt="Light" /></td>
   <td>E793</td>
-  <td>明るい</td>
+  <td>淡色</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E799.png" width="32" height="32" alt="AspectRatio" /></td>
   <td>E799</td>
@@ -635,7 +635,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E7A6.png" width="32" height="32" alt="Redo" /></td>
   <td>E7A6</td>
-  <td>Redo</td>
+  <td>やり直す</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E7A7.png" width="32" height="32" alt="Undo" /></td>
   <td>E7A7</td>
@@ -651,7 +651,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E7AD.png" width="32" height="32" alt="Rotate" /></td>
   <td>E7AD</td>
-  <td>回転</td>
+  <td>Rotate</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E7B3.png" width="32" height="32" alt="RedEye" /></td>
   <td>E7B3</td>
@@ -667,11 +667,11 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E7B8.png" width="32" height="32" alt="Package" /></td>
   <td>E7B8</td>
-  <td>パッケージ化</td>
+  <td>パッケージ</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E7BA.png" width="32" height="32" alt="Warning" /></td>
   <td>E7BA</td>
-  <td>Warning</td>
+  <td>警告</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E7BC.png" width="32" height="32" alt="ReadingList" /></td>
   <td>E7BC</td>
@@ -679,7 +679,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E7BE.png" width="32" height="32" alt="Education" /></td>
   <td>E7BE</td>
-  <td>Education</td>
+  <td>教育</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E7BF.png" width="32" height="32" alt="ShoppingCart" /></td>
   <td>E7BF</td>
@@ -691,7 +691,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E7C1.png" width="32" height="32" alt="Flag" /></td>
   <td>E7C1</td>
-  <td>Flag</td>
+  <td>フラグ</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E7C3.png" width="32" height="32" alt="Page" /></td>
   <td>E7C3</td>
@@ -731,7 +731,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E7E6.png" width="32" height="32" alt="Highlight" /></td>
   <td>E7E6</td>
-  <td>Highlight</td>
+  <td>強調表示</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E7E7.png" width="32" height="32" alt="ActionCenterNotification" /></td>
   <td>E7E7</td>
@@ -787,7 +787,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E7F5.png" width="32" height="32" alt="Speakers" /></td>
   <td>E7F5</td>
-  <td>スピーカー</td>
+  <td>Speakers</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E7F6.png" width="32" height="32" alt="Headphone" /></td>
   <td>E7F6</td>
@@ -863,7 +863,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E80F.png" width="32" height="32" alt="Home" /></td>
   <td>E80F</td>
-  <td>Home</td>
+  <td>ホーム</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E811.png" width="32" height="32" alt="ParkingLocation" /></td>
   <td>E811</td>
@@ -883,7 +883,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E815.png" width="32" height="32" alt="Touch" /></td>
   <td>E815</td>
-  <td>タッチ</td>
+  <td>Touch</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E816.png" width="32" height="32" alt="MapDirections" /></td>
   <td>E816</td>
@@ -907,7 +907,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E81D.png" width="32" height="32" alt="Location" /></td>
   <td>E81D</td>
-  <td>Location</td>
+  <td>インストール先</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E81E.png" width="32" height="32" alt="MapLayers" /></td>
   <td>E81E</td>
@@ -919,11 +919,11 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E821.png" width="32" height="32" alt="Work" /></td>
   <td>E821</td>
-  <td>仕事用</td>
+  <td>Work</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E822.png" width="32" height="32" alt="Construction" /></td>
   <td>E822</td>
-  <td>Construction</td>
+  <td>建設</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E823.png" width="32" height="32" alt="Recent" /></td>
   <td>E823</td>
@@ -983,7 +983,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E839.png" width="32" height="32" alt="Ethernet" /></td>
   <td>E839</td>
-  <td>Ethernet</td>
+  <td>イーサネット</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E83A.png" width="32" height="32" alt=" ShareBroadband" /></td>
   <td>E83A</td>
@@ -1331,7 +1331,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E890.png" width="32" height="32" alt="View" /></td>
   <td>E890</td>
-  <td>ビュー</td>
+  <td>表示</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E891.png" width="32" height="32" alt="HighlightFill" /></td>
   <td>E891</td>
@@ -1339,15 +1339,15 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E892.png" width="32" height="32" alt="Previous" /></td>
   <td>E892</td>
-  <td>戻る</td>
+  <td>前へ</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E893.png" width="32" height="32" alt="Next" /></td>
   <td>E893</td>
-  <td>次へ</td>
+  <td>ボタンをクリックします。</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E894.png" width="32" height="32" alt="Clear" /></td>
   <td>E894</td>
-  <td>[クリア]</td>
+  <td>クリア</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E895.png" width="32" height="32" alt="Sync" /></td>
   <td>E895</td>
@@ -1359,11 +1359,11 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E897.png" width="32" height="32" alt="Help" /></td>
   <td>E897</td>
-  <td>Help</td>
+  <td>[ヘルプ]</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E898.png" width="32" height="32" alt="Upload" /></td>
   <td>E898</td>
-  <td>Upload</td>
+  <td>アップロード</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E899.png" width="32" height="32" alt="Emoji" /></td>
   <td>E899</td>
@@ -1411,7 +1411,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E8A5.png" width="32" height="32" alt="Document" /></td>
   <td>E8A5</td>
-  <td>ドキュメント</td>
+  <td>マニュアル名の正式名称</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E8A6.png" width="32" height="32" alt="ProtectedDocument" /></td>
   <td>E8A6</td>
@@ -1435,11 +1435,11 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E8AB.png" width="32" height="32" alt="Switch" /></td>
   <td>E8AB</td>
-  <td>Switch</td>
+  <td>スイッチ</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E8AC.png" width="32" height="32" alt="Rename" /></td>
   <td>E8AC</td>
-  <td>Rename</td>
+  <td>名前の変更</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E8AD.png" width="32" height="32" alt="Go" /></td>
   <td>E8AD</td>
@@ -1475,7 +1475,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E8B5.png" width="32" height="32" alt="Import" /></td>
   <td>E8B5</td>
-  <td>Import</td>
+  <td>インポート</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E8B6.png" width="32" height="32" alt="ImportAll" /></td>
   <td>E8B6</td>
@@ -1483,19 +1483,19 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E8B7.png" width="32" height="32" alt="Folder" /></td>
   <td>E8B7</td>
-  <td>Folder</td>
+  <td>フォルダー</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E8B8.png" width="32" height="32" alt="Webcam" /></td>
   <td>E8B8</td>
-  <td>Web カメラ</td>
+  <td>ウェブ カメラ</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E8B9.png" width="32" height="32" alt="Picture" /></td>
   <td>E8B9</td>
-  <td>画像</td>
+  <td>Picture</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E8BA.png" width="32" height="32" alt="Caption" /></td>
   <td>E8BA</td>
-  <td>Caption</td>
+  <td>キャプション</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E8BB.png" width="32" height="32" alt="ChromeClose" /></td>
   <td>E8BB</td>
@@ -1531,7 +1531,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E8C3.png" width="32" height="32" alt="Read" /></td>
   <td>E8C3</td>
-  <td>Read</td>
+  <td>読み取り</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E8C4.png" width="32" height="32" alt="ShowBcc" /></td>
   <td>E8C4</td>
@@ -1543,7 +1543,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E8C6.png" width="32" height="32" alt="Cut" /></td>
   <td>E8C6</td>
-  <td>切り取り</td>
+  <td>［切り取り］</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E8C7.png" width="32" height="32" alt="PaymentCard" /></td>
   <td>E8C7</td>
@@ -1563,7 +1563,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E8CB.png" width="32" height="32" alt="Sort" /></td>
   <td>E8CB</td>
-  <td>Sort</td>
+  <td>［並べ替え］</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E8CC.png" width="32" height="32" alt="MobileTablet" /></td>
   <td>E8CC</td>
@@ -1583,7 +1583,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E8D0.png" width="32" height="32" alt="Priority" /></td>
   <td>E8D0</td>
-  <td>Priority</td>
+  <td>優先順位</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E8D1.png" width="32" height="32" alt="GotoToday" /></td>
   <td>E8D1</td>
@@ -1591,7 +1591,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E8D2.png" width="32" height="32" alt="Font" /></td>
   <td>E8D2</td>
-  <td>Font</td>
+  <td>フォント</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E8D3.png" width="32" height="32" alt="FontColor" /></td>
   <td>E8D3</td>
@@ -1627,7 +1627,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E8DB.png" width="32" height="32" alt="Italic" /></td>
   <td>E8DB</td>
-  <td>Italic</td>
+  <td>斜体</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E8DC.png" width="32" height="32" alt="Underline" /></td>
   <td>E8DC</td>
@@ -1635,7 +1635,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E8DD.png" width="32" height="32" alt="Bold" /></td>
   <td>E8DD</td>
-  <td>Bold</td>
+  <td>太字</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E8DE.png" width="32" height="32" alt="MoveToFolder" /></td>
   <td>E8DE</td>
@@ -1695,7 +1695,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E8EC.png" width="32" height="32" alt="Tag" /></td>
   <td>E8EC</td>
-  <td>Tag</td>
+  <td>タグ</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E8ED.png" width="32" height="32" alt="RepeatOne" /></td>
   <td>E8ED</td>
@@ -1707,7 +1707,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E8EF.png" width="32" height="32" alt="Calculator" /></td>
   <td>E8EF</td>
-  <td>電卓</td>
+  <td>Calculator</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E8F0.png" width="32" height="32" alt="Directions" /></td>
   <td>E8F0</td>
@@ -1715,7 +1715,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E8F1.png" width="32" height="32" alt="Library" /></td>
   <td>E8F1</td>
-  <td>Library</td>
+  <td>ライブラリ</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E8F2.png" width="32" height="32" alt="ChatBubbles" /></td>
   <td>E8F2</td>
@@ -1755,7 +1755,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E8FB.png" width="32" height="32" alt="Accept" /></td>
   <td>E8FB</td>
-  <td>OK</td>
+  <td>同意する</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E8FC.png" width="32" height="32" alt="GoToStart" /></td>
   <td>E8FC</td>
@@ -1767,11 +1767,11 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E8FE.png" width="32" height="32" alt="Scan" /></td>
   <td>E8FE</td>
-  <td>Scan</td>
+  <td>スキャン</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E8FF.png" width="32" height="32" alt="Preview" /></td>
   <td>E8FF</td>
-  <td>Preview</td>
+  <td>［プレビュー］</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E902.png" width="32" height="32" alt="Group" /></td>
   <td>E902</td>
@@ -1803,7 +1803,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E90A.png" width="32" height="32" alt="Comment" /></td>
   <td>E90A</td>
-  <td>Comment</td>
+  <td>コメント</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E90B.png" width="32" height="32" alt="MusicInfo" /></td>
   <td>E90B</td>
@@ -1823,11 +1823,11 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E90F.png" width="32" height="32" alt="Repair" /></td>
   <td>E90F</td>
-  <td>Repair</td>
+  <td>修復</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E910.png" width="32" height="32" alt="Accounts" /></td>
   <td>E910</td>
-  <td>Accounts</td>
+  <td>[アカウント]</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E911.png" width="32" height="32" alt="DullSound" /></td>
   <td>E911</td>
@@ -1891,7 +1891,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E927.png" width="32" height="32" alt="Swipe" /></td>
   <td>E927</td>
-  <td>スワイプ</td>
+  <td>Swipe</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E928.png" width="32" height="32" alt="Fingerprint" /></td>
   <td>E928</td>
@@ -1963,7 +1963,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E93E.png" width="32" height="32" alt="Streaming" /></td>
   <td>E93E</td>
-  <td>Streaming</td>
+  <td>ストリーミング</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E943.png" width="32" height="32" alt="Code" /></td>
   <td>E943</td>
@@ -1979,7 +1979,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E946.png" width="32" height="32" alt="Info" /></td>
   <td>E946</td>
-  <td>Info</td>
+  <td>［情報］</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E947.png" width="32" height="32" alt="CalculatorMultiply" /></td>
   <td>E947</td>
@@ -2019,7 +2019,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E950.png" width="32" height="32" alt="Component" /></td>
   <td>E950</td>
-  <td>Component</td>
+  <td>コンポーネント</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E951.png" width="32" height="32" alt="DMC" /></td>
   <td>E951</td>
@@ -2047,7 +2047,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E957.png" width="32" height="32" alt="Sensor" /></td>
   <td>E957</td>
-  <td>センサー</td>
+  <td>Sensor</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E958.png" width="32" height="32" alt="StorageOptical" /></td>
   <td>E958</td>
@@ -2059,7 +2059,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E95B.png" width="32" height="32" alt="Headset" /></td>
   <td>E95B</td>
-  <td>ヘッドセット</td>
+  <td>Headset</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E95D.png" width="32" height="32" alt="Projector" /></td>
   <td>E95D</td>
@@ -2067,7 +2067,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E95E.png" width="32" height="32" alt="Health" /></td>
   <td>E95E</td>
-  <td>Health</td>
+  <td>ヘルス</td>
  </tr>
  <tr><td><img src="images/segoe-mdl/E95F.png" width="32" height="32" alt="Wire" /></td>
   <td>E95F</td>
@@ -2171,7 +2171,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E97A.png" width="32" height="32" alt="Reply" /></td>
   <td>E97A</td>
-  <td>Reply</td>
+  <td>返信</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E97B.png" width="32" height="32" alt="SetTile" /></td>
   <td>E97B</td>
@@ -2215,7 +2215,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E985.png" width="32" height="32" alt="Japanese" /></td>
   <td>E985</td>
-  <td>Japanese</td>
+  <td>日本語</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E986.png" width="32" height="32" alt="FullHiragana" /></td>
   <td>E986</td>
@@ -2383,7 +2383,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E9D9.png" width="32" height="32" alt="Diagnostic" /></td>
   <td>E9D9</td>
-  <td>Diagnostic</td>
+  <td>診断</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E9E9.png" width="32" height="32" alt="Equalizer" /></td>
   <td>E9E9</td>
@@ -2391,11 +2391,11 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E9F3.png" width="32" height="32" alt="Process" /></td>
   <td>E9F3</td>
-  <td>Process</td>
+  <td>プロセス</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E9F5.png" width="32" height="32" alt="Processing" /></td>
   <td>E9F5</td>
-  <td>Processing</td>
+  <td>処理中</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E9F9.png" width="32" height="32" alt="ReportDocument" /></td>
   <td>E9F9</td>
@@ -2435,7 +2435,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/EA37.png" width="32" height="32" alt="List" /></td>
   <td>EA37</td>
-  <td>一覧</td>
+  <td>List</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/EA38.png" width="32" height="32" alt="Asterisk" /></td>
   <td>EA38</td>
@@ -2707,7 +2707,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
  <tr><td><img src="images/segoe-mdl/EAFC.png" width="32" height="32" alt="Market" /></td>
   <td>EAFC</td>
-  <td>市場</td>
+  <td>Market</td>
 </tr>
 <tr><td><img src="images/segoe-mdl/EB05.png" width="32" height="32" alt="PieSingle" /></td>
   <td>EB05</td>
@@ -2919,7 +2919,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/EB95.png" width="32" height="32" alt="Certificate" /></td>
   <td>EB95</td>
-  <td>Certificate</td>
+  <td>証明書</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/EB96.png" width="32" height="32" alt="BackSpaceQWERTYLg" /></td>
   <td>EB96</td>
@@ -3119,7 +3119,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/EBDA.png" width="32" height="32" alt="Family" /></td>
   <td>EBDA</td>
-  <td>Family (ファミリ)</td>
+  <td>Family</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/EBDB.png" width="32" height="32" alt="LockFeedback" /></td>
   <td>EBDB</td>
@@ -3223,7 +3223,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/EC1B.png" width="32" height="32" alt="Badge" /></td>
   <td>EC1B</td>
-  <td>バッジ</td>
+  <td>Badge</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/EC1E.png" width="32" height="32" alt="SignalRoaming" /></td>
   <td>EC1E</td>
@@ -3475,7 +3475,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/ECA5.png" width="32" height="32" alt="Tiles" /></td>
   <td>ECA5</td>
-  <td>タイル</td>
+  <td>Tiles</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/ECA7.png" width="32" height="32" alt="PartyLeader" /></td>
   <td>ECA7</td>
@@ -3607,7 +3607,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
 </tr>
 <tr><td><img src="images/segoe-mdl/ED15.png" width="32" height="32" alt="Feedback" /></td>
   <td>ED15</td>
-  <td>Feedback</td>
+  <td>フィードバック</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/ED1E.png" width="32" height="32" alt="Subtitles" /></td>
   <td>ED1E</td>
@@ -3803,7 +3803,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/EDA3.png" width="32" height="32" alt="NetworkAdapter" /></td>
   <td>EDA3</td>
-  <td>NetworkAdapter</td>
+  <td>VM01</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/EDA4.png" width="32" height="32" alt="Touchscreen" /></td>
   <td>EDA4</td>
@@ -3899,7 +3899,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/EDE1.png" width="32" height="32" alt="Export" /></td>
   <td>EDE1</td>
-  <td>Export</td>
+  <td>[エクスポート]</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/EDE2.png" width="32" height="32" alt="ExportMirrored" /></td>
   <td>EDE2</td>
@@ -3909,9 +3909,9 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
   <td>EDE3</td>
   <td>ButtonMenu</td>
  </tr>
-<tr><td><img src="images/segoe-mdl/EDE4.png" width="32" height="32" alt="CloudSeach" /></td>
+<tr><td><img src="images/segoe-mdl/EDE4.png" width="32" height="32" alt="CloudSearch" /></td>
   <td>EDE4</td>
-  <td>CloudSeach</td>
+  <td>CloudSearch</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/EDE5.png" width="32" height="32" alt="PinyinIMELogo" /></td>
   <td>EDE5</td>
@@ -4083,11 +4083,11 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
 </tr>
 <tr><td><img src="images/segoe-mdl/EFA5.png" width="32" height="32" alt="Touchpad" /></td>
   <td>EFA5</td>
-  <td>タッチパッド</td>
+  <td>Touchpad</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/EFA9.png" width="32" height="32" alt="Speech" /></td>
   <td>EFA9</td>
-  <td>音声認識</td>
+  <td>Speech</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/F000.png" width="32" height="32" alt="KnowledgeArticle" /></td>
   <td>F000</td>
@@ -4175,7 +4175,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/F0B9.png" width="32" height="32" alt="Connected" /></td>
   <td>F0B9</td>
-  <td>Connected</td>
+  <td>接続済み</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/F0C6.png" width="32" height="32" alt="PencilFill" /></td>
   <td>F0C6</td>
@@ -5521,7 +5521,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
 ## <a name="related-articles"></a>関連記事
 
 * [アイコンのガイドライン](../style/icons.md)
-* [Symbol 列挙型](https://docs.microsoft.com/en-us/uwp/api/Windows.UI.Xaml.Controls.Symbol)
+* [Symbol 列挙型](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Symbol)
 * [FontIcon クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.fonticon)
 
 

@@ -5,12 +5,12 @@ ms.date: 04/24/2019
 ms.topic: article
 keywords: windows 10、uwp、標準、c ++、cpp、winrt、COM、コンポーネント、クラス、インターフェイス
 ms.localizationpriority: medium
-ms.openlocfilehash: bb28ec7afa22f81033bfce2aff530119e53a4b91
-ms.sourcegitcommit: 7585bf66405b307d7ed7788d49003dc4ddba65e6
+ms.openlocfilehash: 88012d96b7c769094cb80d0f34b77060291a3eef
+ms.sourcegitcommit: 80ea5e05f8c15700f6c6fa3d1ed37e479568762b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67660156"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75928814"
 ---
 # <a name="consume-com-components-with-cwinrt"></a>C++/WinRT での COM コンポーネントの使用
 
@@ -18,7 +18,7 @@ ms.locfileid: "67660156"
 
 このトピックの末尾には、最小限の Direct2D アプリケーションの完全なソース コード一覧が掲載されています。 ここでは、そのコードの抜粋を取り上げ、それを使い、C++/WinRT ライブラリのさまざまな機能を使用し、C++/WinRT を使って COM コンポーネントを利用する方法を説明します。
 
-## <a name="com-smart-pointers-winrtcomptruwpcpp-ref-for-winrtcom-ptr"></a>COM スマート ポインター ([**winrt::com_ptr**](/uwp/cpp-ref-for-winrt/com-ptr))
+## <a name="com-smart-pointers-winrtcom_ptruwpcpp-ref-for-winrtcom-ptr"></a>COM スマート ポインター ([**winrt::com_ptr**](/uwp/cpp-ref-for-winrt/com-ptr))
 
 COM を使ってプログラミングする場合は、オブジェクトではなくインターフェイスを直接使って作業します (これは、COM が進化したものである Windows ランタイム API のバックグラウンドにも当てはまります)。 たとえば、COM クラスに対して関数を呼び出すには、そのクラスをアクティブ化し、インターフェイスを取得してから、そのインターフェイスに対して関数を呼び出します。 オブジェクトの状態にアクセスするには、そのデータ メンバーに直接アクセスしないでください。代わりに、インターフェイスに対してアクセサー関数とミューテーター関数を呼び出します。
 
@@ -81,7 +81,7 @@ DWriteCreateFactory(
     reinterpret_cast<IUnknown**>(dwriteFactory2.put()));
 ```
 
-## <a name="re-seat-a-winrtcomptr"></a>**winrt::com_ptr** を再設定する
+## <a name="re-seat-a-winrtcom_ptr"></a>**winrt::com_ptr** を再設定する
 
 > [!IMPORTANT]
 > [**winrt::com_ptr**](/uwp/cpp-ref-for-winrt/com-ptr) が既に設定されていて (内部の生のポインターが既にターゲットを持っていて)、別のオブジェクトを指すように再設定する場合は、次のコード例に示すように、最初に `nullptr` をそれに割り当てる必要があります。 そうしない場合、([**com_ptr::put**](/uwp/cpp-ref-for-winrt/com-ptr#com_ptr_put-function) または [**com_ptr::put_void**](/uwp/cpp-ref-for-winrt/com-ptr#com_ptrput_void-function) を呼び出すときに) 既に設定されている **com_ptr** によって内部ポインターが null ではないとアサートされるため、問題に気づきます。
@@ -169,7 +169,11 @@ void ExampleFunction(winrt::com_ptr<ID3D11Device> const& device)
 
 ## <a name="full-source-code-listing-of-a-minimal-direct2d-application"></a>最小限の Direct2D アプリケーションの完全なソース コード一覧
 
-このソース コード例をビルドして実行する場合は、まず Visual Studio で新しい**コア アプリ (C++/WinRT)** を作成します。 `Direct2D` はプロジェクトに適した名前ですが、任意の名前を付けることができます。 `App.cpp` を開き、内容全体を削除し、以下の一覧に貼り付けます。
+このソース コード例をビルドして実行する場合は、まず Visual Studio で新しい**コア アプリ (C++/WinRT)** を作成します。 `Direct2D` はプロジェクトに適した名前ですが、任意の名前を付けることができます。
+
+`pch.h` を開き、`windows.h` のインクルードの直後に `#include <unknwn.h>` を追加します。
+
+`App.cpp` を開き、内容全体を削除し、以下の一覧に貼り付けます。
 
 次のコードでは、可能な場合は [winrt::com_ptr::capture 関数](/uwp/cpp-ref-for-winrt/com-ptr#com_ptrcapture-function)を使用しています。 `WINRT_ASSERT` はマクロ定義であり、[_ASSERTE](/cpp/c-runtime-library/reference/assert-asserte-assert-expr-macros) に展開されます。
 

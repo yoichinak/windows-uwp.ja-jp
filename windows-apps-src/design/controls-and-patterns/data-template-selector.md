@@ -7,12 +7,12 @@ ms.date: 10/18/2019
 ms.topic: article
 keywords: windows 10, uwp
 pm-contact: anawish
-ms.openlocfilehash: 956ac13dcdc1a2e6367e590bb8885c8722f41e2c
-ms.sourcegitcommit: cb7f80100c99d4b6466a819bea191006ec3d616c
+ms.openlocfilehash: d388e1f4b3f1b1be4e265185934a02b6ccd20064
+ms.sourcegitcommit: 87c20c6a40ed54e086adbe80caa509d851f54f57
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73640879"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76123854"
 ---
 # <a name="data-template-selection-styling-items-based-on-their-properties"></a>データ テンプレートの選択:プロパティに基づいて項目のスタイルを設定する
 
@@ -132,5 +132,5 @@ public class MyDataTemplateSelector : DataTemplateSelector
 
 - _項目ごとの要素の削減_ - データ テンプレート内の UI 要素の数を適切な最小値に維持します。
 - 異種コレクションでのコンテナー リサイクル
-  - _ChoosingItemContainer イベント_ の使用 - このイベントは異なる項目に異なるデータ テンプレートを使用するための効率的な方法です。 最適なパフォーマンスを実現するには、特定のデータに応じてデータ テンプレートのキャッシュと選択を最適化する必要があります。
-  - _項目テンプレート セレクター_ の使用 - 一部のインスタンスでは、パフォーマンスに影響を与えるため項目テンプレート セレクター (`DataTemplateSelector`) を使用しないようにする必要があります。
+  - _ChoosingItemContainer_ の使用 - このイベントは異なる項目に異なるデータ テンプレートを使用するための効率的な方法です。 最適なパフォーマンスを実現するには、キャッシュを最適化し、特定のデータに応じたデータ テンプレートを選択する必要があります。
+  - _項目テンプレート セレクター_の使用 - 一部のインスタンスでは、パフォーマンスに影響を与えるために項目テンプレート セレクター (`DataTemplateSelector`) を使用しないようにする必要があります。
