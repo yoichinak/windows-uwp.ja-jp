@@ -6,18 +6,18 @@ ms.date: 10/03/2018
 ms.topic: article
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 1c2e6ee84b143ea13aa3e804f288e4dd9e0becec
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: d26d88377aec4306ad0711724760ec13e6568d85
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74258861"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75684765"
 ---
 # <a name="whats-new-in-windows-10-for-developers-build-17763"></a>Windows 10 ビルド 17763 の開発者向け新着情報
 
 Windows 10 ビルド 17763 (October 2018 Update またはバージョン 1809 とも呼ばれます) では、Visual Studio 2019 や更新された SDK と組み合わせて使うことで、優れたユニバーサル Windows プラットフォーム アプリを作成するためのツール、機能、エクスペリエンスが利用可能になります。 Windows 10 の[ツールと SDK をインストール](https://developer.microsoft.com/windows/downloads#_blank)すると、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
 
-ここには、Windows 開発者にとって重要なこのリリースの新機能、強化された機能、ガイダンスを集めました。 Windows SDK に追加されたすべての新しい名前空間の一覧については、「[Windows 10 ビルド 17763 API の変更点](windows-10-build-17763-api-diff.md)」をご覧ください。 Windows 10 での注目すべき機能について詳しくは、「[Windows 10 の優れた機能](https://developer.microsoft.com/windows/windows-10-for-developers)」をご覧ください。 また、Windows プラットフォームに過去に追加された機能と今後追加される機能の概要については、[Windows 開発者向けプラットフォーム機能に関するページ](https://developer.microsoft.com/windows/platform/features)をご覧ください。
+ここには、Windows 開発者にとって重要なこのリリースの新機能、強化された機能、ガイダンスを集めました。 Windows SDK に追加されたすべての新しい名前空間の一覧については、「[Windows 10 ビルド 17763 API の変更点](windows-10-build-17763-api-diff.md)」をご覧ください。 Windows 10 での注目すべき機能について詳しくは、「[Windows 10 の優れた機能](https://developer.microsoft.com/windows/windows-10-for-developers)」をご覧ください。 また、Windows プラットフォームに過去に追加された機能と今後追加される機能の概要については、[Windows 開発者向けプラットフォーム機能](https://developer.microsoft.com/windows/platform/features)に関するページをご覧ください。
 
 ## <a name="design--ui"></a>設計および UI
 
@@ -33,10 +33,10 @@ Fluent Design でのモーション | Fluent Design System でのモーション
 ページ切り替え効果 | [ページ切り替え効果](../design/motion/page-transitions.md)により、ユーザーはアプリ内のページ間を移動します。 ナビゲーション階層のどこにいるのかをユーザーが理解し、ページ間の関係についてフィードバックを提供するのに役立ちます。
 テキストの拡大縮小 | 新しい[テキストの拡大縮小ガイダンス](../design/input/text-scaling.md)では、新しいテキストの拡大縮小の動作に対応するようアプリケーションを更新する方法について説明します。これにより、ユーザーは OS と個々のアプリケーションの両方で相対的なフォント サイズを変更できます。 拡大鏡アプリ (これは通常、画面の領域内のすべてを拡大するだけであり、独自のユーザビリティの問題が発生する) を使用したり、ディスプレイの解像度を変更したり、DPI スケール (これは、ディスプレイと標準的な表示距離に基づいてすべてのサイズを変更する) に依存したりする代わりに、ユーザーはテキストだけを 100% (既定のサイズ) から最大 225% までの範囲でサイズ変更するための設定にすばやくアクセスできます。
 ツールキット | [Adobe XD および Adobe Illustrator ツールキット](../design/downloads/index.md)が更新されて新機能が追加されました。 これらの設計ツールキットは、UWP アプリを設計するためのコントロールとレイアウトのテンプレートを提供します。
-UI コマンド処理 | [UWP コマンド処理インフラストラクチャ](../design/basics/commanding-basics.md)の更新には、コマンド オブジェクト (動作、ラベル、アイコン、キーボード アクセラレータ、アクセス キー、および説明) のカプセル化の改善と、切り取り、コピー、貼り付け、終了などの一般的なコマンドの標準セットが含まれており、これらのプロパティを手動で設定する必要がなくなりました。 </br> 新しい [XamlUICommand](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.input.xamluicommand) クラスは、呼び出されたときにアクションを実行する対話型の UI 要素のコマンドの動作を定義するための基本クラスを提供します。 これは、定義済みのプロパティを持つ標準プラットフォームのコマンドのセットを公開する [StandardUICommand](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.input.standarduicommand) の親クラスです。 
+UI コマンド処理 | [UWP コマンド処理インフラストラクチャ](../design/basics/commanding-basics.md)の更新には、コマンド オブジェクト (動作、ラベル、アイコン、キーボード アクセラレータ、アクセス キー、および説明) のカプセル化の改善と、切り取り、コピー、貼り付け、終了などの一般的なコマンドの標準セットが含まれており、これらのプロパティを手動で設定する必要がなくなりました。 </br> 新しい [XamlUICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.xamluicommand) クラスは、呼び出されたときにアクションを実行する対話型の UI 要素のコマンドの動作を定義するための基本クラスを提供します。 これは、定義済みのプロパティを持つ標準プラットフォームのコマンドのセットを公開する [StandardUICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.standarduicommand) の親クラスです。 
 Windows UI ライブラリ | [Windows UI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)は、UWP アプリ用のコントロールとその他のユーザー インターフェイス要素を提供する NuGet パッケージのセットです。 これらのパッケージは Windows 10 の以前のバージョンにも対応しているため、ユーザーが最新の OS を持っていない場合でも、アプリは動作します。 </br> Windows UI ライブラリの内容の詳細については、[NuGet パッケージに含まれる API 名前空間を示すこちらの一覧](https://docs.microsoft.com/uwp/api/overview/winui/)を参照してください。
 
-## <a name="develop-windows-apps"></a>Windows アプリを開発
+## <a name="develop-windows-apps"></a>Windows アプリの開発
 
 機能 | 説明
  :------ | :------
@@ -45,7 +45,7 @@ C++/WinRT | [C++/WinRT](https://docs.microsoft.com/windows/uwp/cpp-and-winrt-api
 C++/WinRT コード例 | 既存の C++/CX コード例とともに、250 件の C++/WinRT コード リストをドキュメントのトピックに追加しました。
 共同作成に関するガイダンス | Microsoft の UWP ドキュメントを対象にした[共同作成のガイダンス](https://github.com/MicrosoftDocs/windows-uwp/blob/docs/CONTRIBUTING.md)を更新しました。 この新しいガイダンスでは、Microsoft のドキュメントに対する外部貢献のワークフローとその貢献に対して期待することを明確にしています。
 DirectX グラフィックス インフラストラクチャ (DXGI) | 不足している DXGI API についての新しいドキュメントが追加され、Windows 10 上で動作するときのベスト プラクティスに関する記事が提供されています。 </br> * [最適なパフォーマンスを得るには、DXGI フリップ モデルを使用してください](https://docs.microsoft.com/windows/desktop/direct3ddxgi/for-best-performance--use-dxgi-flip-model)。最新バージョンの Windows でプレゼンテーション スタックのパフォーマンスと効率を最大化する方法について説明します。 </br> * [IDXGIOutput6::CheckHardwareCompositionSupport メソッド](https://docs.microsoft.com/windows/desktop/api/dxgi1_6/nf-dxgi1_6-idxgioutput6-checkhardwarecompositionsupport):ハードウェアの拡大がサポートされていることをアプリケーションに通知します。 </br> * [DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS 列挙](https://docs.microsoft.com/windows/desktop/api/dxgi1_6/ne-dxgi1_6-dxgi_hardware_composition_support_flags):サポートされているハードウェア構成のレベルについて説明します。
-はじめに | 「[はじめに](../get-started/index.md)」のコンテンツが新しいトピックによって改訂されており、Windows 10 を初めて使用する開発者が次の一般的なタスクを実行するための方法についての情報とガイダンスが示されます。 </br> * [フォームの作成](../get-started/construct-form-learning-track.md) </br> * [一覧での顧客の表示](../get-started/display-customers-in-list-learning-track.md) </br> * [設定の保存と読み込み](../get-started/settings-learning-track.md) </br> * [ファイルの操作](../get-started/fileio-learning-track.md)
+開始 | 「[はじめに](../get-started/index.md)」のコンテンツが新しいトピックによって改訂されており、Windows 10 を初めて使用する開発者が次の一般的なタスクを実行するための方法についての情報とガイダンスが示されます。 </br> * [フォームの作成](../get-started/construct-form-learning-track.md) </br> * [一覧での顧客の表示](../get-started/display-customers-in-list-learning-track.md) </br> * [設定の保存と読み込み](../get-started/settings-learning-track.md) </br> * [ファイルの操作](../get-started/fileio-learning-track.md)
 マップ スタイル シート エディター | 新しい[マップ スタイル シート エディター](https://www.microsoft.com/p/map-style-sheet-editor/9nbhtcjt72ft?rtc=1#activetab=pivot:overviewtab) アプリケーションを使用して、アプリケーションに追加するマップの外観を対話形式でカスタマイズできます。
 Microsoft Learn | 新しい [Microsoft Learn サイト](https://www.microsoft.com/learning/default.aspx)は、新しい実践的な学習とトレーニングの機会を Microsoft 開発者に提供します。 現時点では、Microsoft Learn は Microsoft 365、Microsoft Azure、Office 365、および Windows Server についてのトレーニングと認定を提供します。
 メモ帳 | [メモ帳が更新](https://blogs.windows.com/windowsexperience/2018/07/11/announcing-windows-10-insider-preview-build-17713/)されており、ズーム、折り返し検索/置換、および Unix/Linux と Mac の行の末尾 (それぞれ LF および CR) のサポートが追加されました。
@@ -72,7 +72,7 @@ Windows.System.Update | 新しい [Windows.System.Update 名前空間](https://d
 機能 | 説明
  :------ | :------
 EdgeHTML 18 | Windows 10 October 2018 Update には、Microsoft Edge ブラウザーと UWP アプリ用 JavaScript エンジンの最新の更新である [EdgeHTML 18](https://docs.microsoft.com/microsoft-edge/dev-guide) が付属しています。 EdgeHTML 18 では、Web Authentication API や新しい WebView コントロール機能などのサポートが最新化および拡張されています。 ツール側では、EdgeHTML 18 は WebDriver の新しい機能と自動更新、および Edge DevTools と Edge DevTools Protocol の拡張機能を提供します。 詳しくは、[EdgeHTML 18 の新機能](https://docs.microsoft.com/microsoft-edge/dev-guide)および[最新の Windows 10 の更新 (EdgeHTML 18) の DevTools](https://docs.microsoft.com/microsoft-edge/devtools-guide/whats-new) に関するページを確認してください。
-プログレッシブ Web アプリ | Windows 10 の JavaScript アプリ (*WWAHost.exe* プロセスで実行されている Web アプリ) では、任意のビューがアクティブ化される前に開始されて処理中に実行される、オプションの[アプリケーション別のバックグラウンド スクリプト](https://docs.microsoft.com/en-us/microsoft-edge/dev-guide#progressive-web-apps)がサポートされるようになりました。 これにより、ナビゲーションの監視および変更、ナビゲーション全体での状態の追跡、ナビゲーション エラーの監視、およびコードの実行を、ビューがアクティブ化される前に行うことができます。 [アプリ マニフェスト](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/appx-package-manifest)内で [`StartPage`](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/appxmanifestschema2010-v2/element-application) として指定する場合、アプリの各ビュー (ウィンドウ) は新しい [`WebUIView`](https://docs.microsoft.com/en-us/uwp/api/windows.ui.webui.webuiview) クラスのインスタンスとしてスクリプトに公開され、一般的な (Win32) [WebView](https://docs.microsoft.com/en-us/uwp/api/windows.web.ui.iwebviewcontrol) と同じイベント、プロパティ、およびメソッドを提供します。
+プログレッシブ Web アプリ | Windows 10 の JavaScript アプリ (*WWAHost.exe* プロセスで実行されている Web アプリ) では、任意のビューがアクティブ化される前に開始されて処理中に実行される、オプションの[アプリケーション別のバックグラウンド スクリプト](https://docs.microsoft.com/microsoft-edge/dev-guide#progressive-web-apps)がサポートされるようになりました。 これにより、ナビゲーションの監視および変更、ナビゲーション全体での状態の追跡、ナビゲーション エラーの監視、およびコードの実行を、ビューがアクティブ化される前に行うことができます。 [アプリ マニフェスト](https://docs.microsoft.com/uwp/schemas/appxpackage/appx-package-manifest)内で [`StartPage`](https://docs.microsoft.com/uwp/schemas/appxpackage/appxmanifestschema2010-v2/element-application) として指定する場合、アプリの各ビュー (ウィンドウ) は新しい [`WebUIView`](https://docs.microsoft.com/uwp/api/windows.ui.webui.webuiview) クラスのインスタンスとしてスクリプトに公開され、一般的な (Win32) [WebView](https://docs.microsoft.com/uwp/api/windows.web.ui.iwebviewcontrol) と同じイベント、プロパティ、およびメソッドを提供します。
 Web API の拡張機能 | クロスブラウザー Web 開発用の Mozilla Developer Network ドキュメントに、[従来の Microsoft API 拡張機能](https://developer.mozilla.org/docs/Web/API/Microsoft_API_extensions)の一覧が追加されました。 これらの API 拡張機能は Internet Explorer または Microsoft Edge に固有のもので、MDN の Web ドキュメントの互換性とブラウザーのサポートに関する既存の情報を補足します。従来の Microsoft [CSS 拡張機能](https://developer.mozilla.org/docs/Web/CSS/Microsoft_Extensions)と [JavaScript 拡張機能](https://developer.mozilla.org/docs/Web/JavaScript/Microsoft_JavaScript_extensions)も利用でき、リッチな Web API 情報を、[Visual Studio Code](https://code.visualstudio.com/updates/v1_25#_new-css-pseudo-selectors-and-pseudo-elements-from-mdn) で直接表示される MDN から見つけることができます。
 WebVR | 「[WebVR Developer's Guide](https://docs.microsoft.com/microsoft-edge/webvr/)」を大幅に更新し、ホームページの完全な再設計や目次の再編成などを行いました。 また、以下に示すいくつかの新しいトピックを作成しました。 </br> * [WebVR とは](https://docs.microsoft.com/microsoft-edge/webvr/what-is-webvr) WebVR とは何か、それを使用する理由、およびそれに対する開発を開始する方法について説明します。 </br> * [プログレッシブ Web アプリでの WebVR](https://docs.microsoft.com/microsoft-edge/webvr/webvr-in-pwas):プログレッシブ Web アプリ (PWA) に WebVR を追加する方法について説明します。 </br> * [WebView の WebVR](https://docs.microsoft.com/microsoft-edge/webvr/webvr-in-webview):Windows 10 のアプリケーションで WebView コントロールに WebVR を追加する方法について説明します。 </br> * [WebVR のデモ](https://docs.microsoft.com/microsoft-edge/webvr/demos):Microsoft Edge と Windows Mixed Reality イマーシブ ヘッドセットを使用して、WebVR のいくつかのデモをご覧ください。
 

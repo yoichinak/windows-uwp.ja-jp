@@ -8,12 +8,12 @@ ms.topic: article
 keywords: python, windows 10, microsoft, python システム管理, python ファイル自動化, windows での python スクリプト, windows での python セットアップ, windows での python 開発環境, windows での python 開発環境, powershell を使用した python, ファイル システム タスク用の python スクリプト
 ms.localizationpriority: medium
 ms.date: 07/19/2019
-ms.openlocfilehash: 3f8a17de8121fed27e69442d5560f702a04c8e42
-ms.sourcegitcommit: 13faf9dab9946295986f8edd79b5fae0db4ed0f6
+ms.openlocfilehash: d465d46a0524345a45dff9b1cc7c425e4cb468a4
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72314866"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75683655"
 ---
 # <a name="get-started-using-python-on-windows-for-scripting-and-automation"></a>Windows で Python を使用してスクリプト作成と自動化を開始する
 
@@ -24,7 +24,7 @@ ms.locfileid: "72314866"
 
 ## <a name="set-up-your-development-environment"></a>開発環境を設定する
 
-Python を使用してファイル システムの操作を実行するスクリプトを記述する場合は、[Microsoft Store から Python をインストールする](https://www.microsoft.com/en-us/p/python-37/9nj46sx7x90p?activetab=pivot:overviewtab)ことをお勧めします。 Microsoft Store を介してインストールすると、基本的な Python3 インタープリターが使用されますが、自動更新が提供されるだけでなく、現在のユーザーの PATH 設定 (管理者アクセス権は不要) も行われます。
+Python を使用してファイル システムの操作を実行するスクリプトを記述する場合は、[Microsoft Store から Python をインストールする](https://www.microsoft.com/p/python-37/9nj46sx7x90p?activetab=pivot:overviewtab)ことをお勧めします。 Microsoft Store を介してインストールすると、基本的な Python3 インタープリターが使用されますが、自動更新が提供されるだけでなく、現在のユーザーの PATH 設定 (管理者アクセス権は不要) も行われます。
 
 Windows で Python を使用して **Web 開発**を行う場合は、Windows Subsystem for Linux を使用して別のセットアップを行うことをお勧めします。 ガイドのチュートリアル「[Windows での Web 開発用の Python の使用を開始する](./web-frameworks.md)」をご覧ください。 Python を初めて使用する場合は、[初心者向けの Windows での Python の使用](./beginners.md)に関する記事をご覧ください。 一部の高度なシナリオ (Python のインストール ファイルへのアクセスや修正が必要な場合、バイナリのコピーを作成する場合、Python DLL を直接使用する場合など) では、[python.org](https://www.python.org/downloads/) から特定の Python リリースを直接ダウンロードすることを検討するか、Anaconda、Jython、PyPy、WinPython、IronPython などの[代替手段をインストール](https://www.python.org/download/alternatives)することを検討してください。これは、別の実装を選択する具体的な理由がある、より高度な Python プログラマの場合にのみお勧めします。
 
@@ -52,7 +52,7 @@ VS Code のサポート機能を利用するには、Microsoft Python 拡張機�
 
 1. **Ctrl + Shift + X** を入力して VS Code 拡張機能ウィンドウを開きます (または、メニューを使用して **[表示]**  >  **[拡張機能]** に移動します)。
 
-2. 上部の **[Marketplace で拡張機能を検索する]** ボックスに、次のように入力します: **Python**
+2. 上部の **[Marketplace で拡張機能を検索する]** ボックスに、次のように入力します: **Python**。
 
 3. **Python (ms-python.python) by Microsoft** 拡張機能を探し、緑色の **[インストール]** ボタンを選択します。
 
@@ -174,7 +174,7 @@ VS Code のサポート機能を利用するには、Microsoft Python 拡張機�
 
 11. `python3 list-directory-contents.py > food-directory.txt` コマンドを入力し、Python を使用して PowerShell ターミナルからファイル システム ディレクトリの出力を直接テキスト ファイルに出力します。
 
-これで終了です。 作成したディレクトリとファイルを読み取り、Python を使用してディレクトリ構造を表示して独自のテキスト ファイルに出力する、自動化されたシステム管理スクリプトを作成しました。
+お疲れさまでした。 作成したディレクトリとファイルを読み取り、Python を使用してディレクトリ構造を表示して独自のテキスト ファイルに出力する、自動化されたシステム管理スクリプトを作成しました。
 
 ## <a name="example-script-to-modify-all-files-in-a-directory"></a>ディレクトリ内のすべてのファイルを変更するスクリプトの例
 

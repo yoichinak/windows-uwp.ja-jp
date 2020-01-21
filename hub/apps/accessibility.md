@@ -6,12 +6,12 @@ ms.date: 09/12/2019
 keywords: Windows 10 のアクセシビリティ, アクセシビリティ, アクセシビリティ対応 win32 アプリの構築, アクセシビリティ対応 UWP アプリの構築, アクセシビリティ対応 WPF アプリの構築, アクセシビリティ対応 WinForms アプリの構築
 ms.author: kbridge
 author: Karl-Bridge-Microsoft
-ms.openlocfilehash: 76bbd3f0e04bbb2f729ad0950bae190b2fffb6ac
-ms.sourcegitcommit: 6e7665b457ec4585db19b70acfa2554791ad6e10
+ms.openlocfilehash: fdb1092139602edd00086e17ff4dc7a27cf361dd
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70987196"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75681893"
 ---
 # <a name="accessibility-in-windows-10"></a>Windows 10 のアクセシビリティ
 
@@ -27,7 +27,7 @@ ms.locfileid: "70987196"
 
 このページでは、さまざまな Windows 開発フレームワークにおいて、Windows アプリケーションの開発者、スクリーン リーダーや拡大鏡などのツールに代表されるユーザー補助テクノロジの開発者、また、アプリケーションをテストするための自動スクリプトを作成するソフトウェア テスト エンジニアに、アクセシビリティのサポートが提供されるしくみに関しての情報を提供します。
 
-## <a name="platform-specific-documentation"></a>プラットフォーム固有ドキュメント
+## <a name="platform-specific-documentation"></a>プラットフォームに特化したドキュメント
 
 :::row:::
    :::column:::
@@ -123,7 +123,7 @@ ms.locfileid: "70987196"
       [アクセシビリティ対応 Web サイトの設計](https://docs.microsoft.com/microsoft-edge/accessibility/design)
    :::column-end:::
    :::column:::
-      [アクセシビリティ対応 Web サイトの構築 ](https://docs.microsoft.com/microsoft-edge/accessibility/build)
+      [アクセシビリティ対応 Web サイトの構築](https://docs.microsoft.com/microsoft-edge/accessibility/build)
 
       [アクセシビリティ対応 Web サイトのテスト](https://docs.microsoft.com/microsoft-edge/accessibility/test) (英語)
    :::column-end:::
@@ -135,7 +135,7 @@ ms.locfileid: "70987196"
 
 :::row:::
    :::column:::
-      [コード サンプル ブラウザー](https://docs.microsoft.com/en-us/samples/browse/)
+      [コード サンプル ブラウザー](https://docs.microsoft.com/samples/browse/)
 
       MSDN コード ギャラリーに代わる新しいサンプル ブラウザーです。
    :::column-end:::

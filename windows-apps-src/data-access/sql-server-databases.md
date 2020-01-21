@@ -5,12 +5,12 @@ ms.date: 03/28/2019
 ms.topic: article
 keywords: windows 10, UWP, SQL Server, データベース
 ms.localizationpriority: medium
-ms.openlocfilehash: 05579affd127fd951e233d1492d23e2dad0f4b53
-ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
+ms.openlocfilehash: 54907dac63580794b7df42fa2e61162d16be8a1b
+ms.sourcegitcommit: cc108c791842789464c38a10e5d596c9bd878871
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71340038"
+ms.lasthandoff: 12/20/2019
+ms.locfileid: "75302566"
 ---
 # <a name="use-a-sql-server-database-in-a-uwp-app"></a>UWP アプリでの SQL Server データベースの使用
 アプリで [System.Data.SqlClient](https://docs.microsoft.com/dotnet/api/system.data.sqlclient) 名前空間のクラスを使用して、SQL Server データベースに直接接続し、データを保存および取得することができます。
@@ -21,7 +21,7 @@ ms.locfileid: "71340038"
 
 このガイドで示すスニペットは、このもっと[完全なサンプル](https://github.com/StefanWickDev/IgniteDemos/tree/master/NorthwindDemo)に基づいています。
 
-## <a name="first-set-up-your-solution"></a>まず、ソリューションをセットアップする
+## <a name="first-set-up-your-solution"></a>まず、ソリューションをセットアップします。
 
 アプリを SQL Server データベースに直接接続するために、プロジェクトの最小バージョンが Fall Creators Update を対象にしていることを確認します。  UWP プロジェクトのプロパティ ページにその情報があります。
 
@@ -95,18 +95,15 @@ public class Product : INotifyPropertyChanged
     public event PropertyChangedEventHandler PropertyChanged;
     private void NotifyPropertyChanged(string propertyName)
     {
-        if (PropertyChanged != null)
-        {
-            PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-        }
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 
 }
 ```
 
-### <a name="retrieve-products-from-the-sql-server-database"></a>SQL Server データベースから製品を取得する
+### <a name="retrieve-products-from-the-sql-server-database"></a>SQL Server データベースから製品を取得します。
 
-Northwind サンプル データベースから製品を取得し、``Product`` インスタンスの [ObservableCollection](https://docs.microsoft.com/dotnet/api/system.collections.objectmodel.observablecollection-1) コレクションとしてそれらを返すメソッドを作成します。
+Northwind サンプル データベースから製品を取得し、``Product``インスタンスの [ObservableCollection](https://docs.microsoft.com/dotnet/api/system.collections.objectmodel.observablecollection-1) コレクションとしてそれらを返すメソッドを作成します。
 
 ```csharp
 public ObservableCollection<Product> GetProducts(string connectionString)
@@ -234,7 +231,7 @@ public MainPage()
 
 ![SQL Server Browser サービス](images/sql-browser-service.png)
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
 **簡易データベースを使用して、ユーザー デバイスにデータを保存する**
 
@@ -242,8 +239,8 @@ public MainPage()
 
 **異なるプラットフォームにわたる異なるアプリの間でコードを共有する**
 
-「[デスクトップと UWP でコードを共有する](https://docs.microsoft.com/windows/uwp/porting/desktop-to-uwp-migrate)」をご覧ください。
+[デスクトップと UWP 間のコード共有](https://docs.microsoft.com/windows/uwp/porting/desktop-to-uwp-migrate)に関するページをご覧ください。
 
 **Azure SQL バックエンドでマスター/詳細ページを追加する**
 
-「[顧客注文データベースのサンプル](https://github.com/Microsoft/Windows-appsample-customers-orders-database)」をご覧ください。
+[顧客注文データベースのサンプル](https://github.com/Microsoft/Windows-appsample-customers-orders-database)をご覧ください。

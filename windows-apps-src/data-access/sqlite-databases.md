@@ -5,15 +5,15 @@ ms.date: 11/30/2018
 ms.topic: article
 keywords: windows 10, UWP, SQLite, データベース
 ms.localizationpriority: medium
-ms.openlocfilehash: 5b9c26710dfc5f71a9709fa93de4b369f6281e8c
-ms.sourcegitcommit: 545d5d864d89650a00a496ac4e52def9a13b14cd
+ms.openlocfilehash: 7e10dc35464472a16f64ec94cd0fdd78c41eb484
+ms.sourcegitcommit: cc108c791842789464c38a10e5d596c9bd878871
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73560696"
+ms.lasthandoff: 12/20/2019
+ms.locfileid: "75302726"
 ---
 # <a name="use-a-sqlite-database-in-a-uwp-app"></a>UWP アプリでの SQLite データベースの使用
-SQLite を使用すると、ユーザー デバイス上の軽量なデータベースにデータを保存し、取得することができます。 このガイドでその方法を示します。
+SQLite を使用すると、ユーザーのデバイス上の軽量なデータベースにデータを保存し、取得することができます。 このガイドでその方法を示します。
 
 ## <a name="some-benefits-of-using-sqlite-for-local-storage"></a>ローカル ストレージに SQLite を使用するメリット
 
@@ -33,15 +33,15 @@ Entity Framework Core またはオープン ソースの [SQLite ライブラリ
 
 ### <a name="entity-framework-core"></a>Entity Framework Core
 
-Entity Framework (EF) は、ドメイン固有のオブジェクトを使ってリレーショナル データを操作できる、オブジェクト リレーショナル マッパーです。 既に他の .NET アプリでデータを操作するためにこのフレームワークを使用している場合は、そのコードを UWP アプリに移行することができ、アプリは接続文字列を適切に変更すると動作します。
+Entity Framework (EF) は、ドメイン固有のオブジェクトを使ってリレーショナル データを操作できる、オブジェクト リレーショナル マッパーです。 既に他の .NET アプリでデータを操作するためにこのフレームワークを使用している場合は、そのコードを UWP アプリに移行することができ、接続文字列を適切に変更することでアプリが動作します。
 
-これを試すには、「[新しいデータベースを使用した、ユニバーサル Windows プラットフォーム (UWP) 上の EF Core の概要](https://docs.microsoft.com/ef/core/get-started/uwp/getting-started)」をご覧ください。
+これを試すには、[新しいデータベースを使用した、ユニバーサル Windows プラットフォーム (UWP) 上の EF Core の概要](https://docs.microsoft.com/ef/core/get-started/uwp/getting-started)に関するページをご覧ください。
 
 ### <a name="sqlite-library"></a>SQLite ライブラリ
 
-[Microsoft.Data.Sqlite](https://docs.microsoft.com/dotnet/api/microsoft.data.sqlite?view=msdata-sqlite-2.0.0) ライブラリは、[System.Data.Common](https://docs.microsoft.com/dotnet/api/system.data.common) 名前空間内にインターフェイスを実装します。 Microsoft はこれらの実装をアクティブに保守します。これらは、低レベルのネイティブ SQLite API の直感的なラッパーを提供します。
+[Microsoft.Data.Sqlite](https://docs.microsoft.com/dotnet/api/microsoft.data.sqlite?view=msdata-sqlite-2.0.0) ライブラリでは、[System.Data.Common](https://docs.microsoft.com/dotnet/api/system.data.common) 名前空間内にインターフェイスを実装しています。 Microsoft では、これらの実装をアクティブに保守しています。これらの実装によって、低レベルのネイティブ SQLite API に関する直感的なラッパーを提供します。
 
-このガイドの残りの部分では、このライブラリーの使用について説明します。
+このガイドの残りの部分では、このライブラリの使用について説明します。
 
 ## <a name="set-up-your-solution-to-use-the-microsoftdatasqlite-library"></a>Microsoft.Data.SQlite ライブラリを使用するようにソリューションをセットアップする
 
@@ -55,7 +55,7 @@ UWP プロジェクトが対象とする Windows SDK の最小バージョンに
 
 ### <a name="the-minimum-version-of-your-project-does-not-target-the-fall-creators-update"></a>プロジェクトの最小バージョンが Fall Creators Update を対象としない場合
 
-Visual Studio 2015 を使用している場合は、 **[ヘルプ]** -> **[Microsoft Visual Studio のバージョン情報]** の順にクリックします。 インストールされているプログラムの一覧で、NuGet パッケージ マネージャーのバージョンが **3.5** 以降であることを確認します。 バージョン番号がこれより低い場合は、3.5 以降のバージョンの NuGet [こちら](https://www.nuget.org/downloads)をインストールします。 このページで、見出し **[Visual Studio 2015]** の下にすべてのバージョンの Nuget が表示されます。
+Visual Studio 2015 を使用している場合は、 **[ヘルプ]** -> **[Microsoft Visual Studio のバージョン情報]** の順にクリックします。 インストールされているプログラムの一覧で、NuGet パッケージ マネージャーのバージョンが **3.5** 以降であることを確認します。 バージョン番号がこれより低い場合は、3.5 以降のバージョンの NuGet を[こちら](https://www.nuget.org/downloads)からインストールします。 このページで、見出し **[Visual Studio 2015]** の下にすべてのバージョンの Nuget が表示されます。
 
 次に、クラス ライブラリをソリューションに追加します。 クラス ライブラリを使用してデータ アクセス コードを含める必要はありません。サンプルの 1 つを使用します。 ライブラリに **DataAccessLibrary** という名前を付け、ライブラリ内のクラスに **DataAccess** という名前を付けます。
 
@@ -75,7 +75,7 @@ Visual Studio 2015 を使用している場合は、 **[インストール済み
 
 ![SQLite パッケージ](images/sqlite-package.png)
 
-このガイドの「[SQLite データベースのデータの追加と取得](#use-data)」に移動します。
+このガイドの「[SQLite データベースのデータの追加と取得](#use-data)」のセクションに移動します。
 
 ### <a name="the-minimum-version-of-your-project-targets-the-fall-creators-update"></a>プロジェクトの最小バージョンが Fall Creators Update を対象とする場合
 
@@ -83,7 +83,7 @@ UWP プロジェクトの最小バージョンを Fall Creators Update に上げ
 
 まず、標準のクラス ライブラリの代わりに、.NET Standard 2.0 ライブラリを使用できます。 これによって、データ アクセス コードを WPF、Windows フォーム、Android、iOS、ASP.NET アプリなど、他の .NET ベースのアプリと共有することができます。
 
-2 つ目に、アプリで SQLite ライブラリをパッケージ化する必要はありません。 代わりに、アプリは Windows と共にインストールされるバージョンの SQLite を使用することができます。 これにより、次のような利点が得られます。
+2 つ目に、アプリで SQLite ライブラリをパッケージ化する必要はありません。 代わりに、アプリでは Windows と共にインストールされるバージョンの SQLite を使用することができます。 これにより、次のような利点が得られます。
 
 :heavy_check_mark:SQLite バイナリをダウンロードして、アプリの一部としてパッケージ化する必要がないため、アプリケーションのサイズが小さくなります。
 
@@ -99,7 +99,7 @@ UWP プロジェクトの最小バージョンを Fall Creators Update に上げ
 
 ![NuGet パッケージの管理](images/manage-nuget-2.png)
 
-この時点で 2 つの選択肢があります。 Windows に含まれている SQLite のバージョンを使用することができます。何らかの理由で特定バージョンの SQLite を使用する場合は、パッケージに SQLite ライブラリを含めることができます。
+この時点で 2 つの選択肢があります。 Windows に含まれている SQLite のバージョンを使用することができます。または、何らかの理由で特定バージョンの SQLite を使用する場合は、パッケージに SQLite ライブラリを含めることができます。
 
 まず、Windows に含まれている SQLite のバージョンを使用する方法を説明します。
 
@@ -115,7 +115,7 @@ UWP プロジェクトの最小バージョンを Fall Creators Update に上げ
 
 #### <a name="to-include-sqlite-with-your-app"></a>アプリと共に SQLite を含めるには
 
-これを行う必要はありませんが、 アプリと共に特定バージョンの SQLite を含める理由がある場合は、 **[参照]** タブをクリックし、**Microsoft.Data.SQLite** パッケージを検索します。 そのパッケージのバージョン **2.0** (またはそれ以前) をインストールします。
+これを行う必要はありませんが、 アプリと共に特定バージョンの SQLite を含める理由がある場合は、 **[参照]** タブを選択し、**Microsoft.Data.SQLite** パッケージを検索します。 そのパッケージのバージョン **2.0** (またはそれ以前) をインストールします。
 
 ![SQLite パッケージ](images/sqlite-package-v2.png)
 
@@ -201,7 +201,7 @@ public async static void InitializeDatabase()
 
 この例では、データベースに ``sqlliteSample.db`` という名前を付けますが、インスタンス化するすべての [SqliteConnection](https://docs.microsoft.com/dotnet/api/microsoft.data.sqlite.sqliteconnection?view=msdata-sqlite-2.0.0) オブジェクトでその名前を使用する限り、任意の名前を使用することができます。
 
-UWP プロジェクトの **App.xaml.cs** ファイルのコンス トラクターで、**DataAccess** クラスの ``InitializeDatabase`` メソッドを呼び出します。
+UWP プロジェクトの **App.xaml.cs** ファイルのコンストラクターで、**DataAccess** クラスの ``InitializeDatabase`` メソッドを呼び出します。
 
 ```csharp
 public App()
@@ -278,11 +278,11 @@ public static List<String> GetData()
 }
 ```
 
-[Read](https://docs.microsoft.com/dotnet/api/microsoft.data.sqlite.sqlitedatareader.read?view=msdata-sqlite-2.0.0#Microsoft_Data_Sqlite_SqliteDataReader_Read) メソッドは、返されるデータの行を次に進めます。 このメソッドは、残りの行がある場合は **true** を返し、ない場合は **false** を返します。
+[Read](https://docs.microsoft.com/dotnet/api/microsoft.data.sqlite.sqlitedatareader.read?view=msdata-sqlite-2.0.0#Microsoft_Data_Sqlite_SqliteDataReader_Read) メソッドは、返されるデータの行を次に進めます。 このメソッドでは、残りの行がある場合は **true** を返し、ない場合は **false** を返します。
 
-[GetString](https://docs.microsoft.com/dotnet/api/microsoft.data.sqlite.sqlitedatareader.getstring?view=msdata-sqlite-2.0.0#Microsoft_Data_Sqlite_SqliteDataReader_GetString_System_Int32_) メソッドは、指定された列の値を文字列として返します。 このメソッドは、必要なデータの 0 から始まる列の序数を表す整数値を受け取ります。 [GetDataTime](https://docs.microsoft.com/dotnet/api/microsoft.data.sqlite.sqlitedatareader.getdatetime?view=msdata-sqlite-2.0.0#Microsoft_Data_Sqlite_SqliteDataReader_GetDateTime_System_Int32_) や [GetBoolean](https://docs.microsoft.com/dotnet/api/microsoft.data.sqlite.sqlitedatareader.getboolean?view=msdata-sqlite-2.0.0#Microsoft_Data_Sqlite_SqliteDataReader_GetBoolean_System_Int32_) などの同様のメソッドを使用できます。 列に格納されたデータの型に基づいてメソッドを選択します。
+[GetString](https://docs.microsoft.com/dotnet/api/microsoft.data.sqlite.sqlitedatareader.getstring?view=msdata-sqlite-2.0.0#Microsoft_Data_Sqlite_SqliteDataReader_GetString_System_Int32_) メソッドは、指定された列の値を文字列として返します。 このメソッドでは、必要なデータの 0 から始まる列の序数を表す整数値を受け取ります。 [GetDataTime](https://docs.microsoft.com/dotnet/api/microsoft.data.sqlite.sqlitedatareader.getdatetime?view=msdata-sqlite-2.0.0#Microsoft_Data_Sqlite_SqliteDataReader_GetDateTime_System_Int32_) や [GetBoolean](https://docs.microsoft.com/dotnet/api/microsoft.data.sqlite.sqlitedatareader.getboolean?view=msdata-sqlite-2.0.0#Microsoft_Data_Sqlite_SqliteDataReader_GetBoolean_System_Int32_) などの同様のメソッドを使用できます。 列に格納するデータの型に基づいてメソッドを選択します。
 
-この例では 1 つの列のすべてのエントリを選択しているため、序数パラメーターはそれほど重要ではありません。 ただし、クエリに複数の列が含まれる場合は、序数値を使用してデータをプルする列を取得します。
+この例では 1 つの列のすべてのエントリを選択しているため、序数パラメーターがそれほど重要ではありません。 ただし、クエリに複数の列が含まれる場合は、序数値を使用してデータを取り出す列を取得します。
 
 ## <a name="add-a-basic-user-interface"></a>基本的なユーザー インターフェイスを追加する
 
@@ -304,7 +304,7 @@ UWP プロジェクトの **MainPage.xaml** ファイルに、次の XAML を追
 </Grid>
 ```
 
-この基本的なユーザー インターフェイスは、SQLite データベースに追加する文字列を入力するための ``TextBox`` をユーザーに提供します。 この UI の ``Button`` を、SQLite データベースからデータを取得して、``ListView`` にそのデータを表示するイベント ハンドラーに接続します。
+この基本的なユーザー インターフェイスでは、SQLite データベースに追加する文字列を入力するための ``TextBox`` をユーザーに提供します。 この UI の ``Button`` を、SQLite データベースからデータを取得して、``ListView`` にそのデータを表示するイベント ハンドラーに接続します。
 
 **MainPage.xaml.cs** ファイルで、次のハンドラーを追加します。 これは、UI で ``Button`` の ``Click`` イベントに関連付けたメソッドです。
 
@@ -317,9 +317,9 @@ private void AddData(object sender, RoutedEventArgs e)
 }
 ```
 
-以上で終わりです。 [Microsoft.Data.Sqlite](https://docs.microsoft.com/dotnet/api/microsoft.data.sqlite?view=msdata-sqlite-2.0.0) を参照して、他に SQLite データベースと連携できるものを確認してください。 UWP アプリでデータを使用するその他の方法については、次のリンクを参照してください。
+これで完了です。 [Microsoft.Data.Sqlite](https://docs.microsoft.com/dotnet/api/microsoft.data.sqlite?view=msdata-sqlite-2.0.0) を参照して、他に SQLite データベースと連携できるものを確認してください。 UWP アプリでデータを使用するその他の方法については、次のリンクを参照してください。
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
 **アプリを SQL Server データベースに直接接続する**
 
@@ -327,8 +327,8 @@ private void AddData(object sender, RoutedEventArgs e)
 
 **異なるプラットフォームにわたる異なるアプリの間でコードを共有する**
 
-「[デスクトップと UWP でコードを共有する](https://docs.microsoft.com/windows/uwp/porting/desktop-to-uwp-migrate)」をご覧ください。
+[デスクトップと UWP 間のコード共有](https://docs.microsoft.com/windows/uwp/porting/desktop-to-uwp-migrate)に関するページをご覧ください。
 
 **Azure SQL バックエンドでマスター/詳細ページを追加する**
 
-「[顧客注文データベースのサンプル](https://github.com/Microsoft/Windows-appsample-customers-orders-database)」をご覧ください。
+[顧客注文データベースのサンプル](https://github.com/Microsoft/Windows-appsample-customers-orders-database)をご覧ください。

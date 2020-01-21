@@ -9,12 +9,12 @@ pm-contact: chphilip
 design-contact: ''
 dev-contact: stevenki
 ms.localizationpriority: medium
-ms.openlocfilehash: f416db0266c4ab2ec959c926c0bf0b676b66dd95
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: 824476cb098d0ff561fca67497a896586c70b8fb
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74258705"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75681963"
 ---
 # <a name="reveal-focus"></a>表示フォーカス
 
@@ -27,7 +27,7 @@ ms.locfileid: "74258705"
 
 > **重要な API**:[Application.FocusVisualKind プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.FocusVisualKind)、[FocusVisualKind 列挙型](https://docs.microsoft.com/uwp/api/windows.ui.xaml.focusvisualkind)、[Control.UseSystemFocusVisuals プロパティ](/uwp/api/Windows.UI.Xaml.Controls.Control.UseSystemFocusVisuals)
 
-## <a name="how-it-works"></a>方法
+## <a name="how-it-works"></a>しくみ
 表示フォーカスでは、フォーカスが置かれた要素に注意が向くように、要素の境界線の周囲にアニメーション化されたグロー (蛍光ライト効果) が追加されます。
 
 ![表示のビジュアル効果](images/traveling-focus-fullscreen-light-rf.gif)
@@ -98,7 +98,7 @@ ms.locfileid: "74258705"
 
 ## <a name="customize-the-margin"></a>余白のカスタマイズ
 
-余白は、コントロールの視覚的な境界線と、フォーカスの視覚効果で示されるセカンダリ境界線の開始点との間にあるスペースです。 既定の余白は、コントロールの境界線から 1 px の幅になります。 この余白は、[FocusVisualMargin](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.FocusVisualMargin) プロパティを変更することでコントロールごとに変更できます。
+余白とは、コントロールの視覚的な境界線と、フォーカスの視覚効果で示されるセカンダリ境界線の開始点との間にあるスペースです。 既定の余白は、コントロールの境界線から 1 px の幅になります。 この余白は、[FocusVisualMargin](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.FocusVisualMargin) プロパティを変更することでコントロールごとに変更できます。
 
 ```xaml
 <Button FocusVisualPrimaryThickness="2" FocusVisualSecondaryThickness="1" FocusVisualMargin="-3"/>
@@ -108,7 +108,7 @@ ms.locfileid: "74258705"
 
 ## <a name="customize-the-color"></a>色のカスタマイズ
 
-表示フォーカス視覚効果の色を変更するには、[FocusVisualPrimaryBrush](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.FocusVisualPrimaryBrush) プロパティと [FocusVisualSecondaryBrush](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.frameworkelement.FocusVisualSecondaryBrush) プロパティを使用します。
+表示フォーカス視覚効果の色を変更するには、[FocusVisualPrimaryBrush](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.FocusVisualPrimaryBrush) プロパティと [FocusVisualSecondaryBrush](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.FocusVisualSecondaryBrush) プロパティを使用します。
 
 | プロパティ | 既定のリソース | 既定のリソースの値 |
 | ---- | ---- | --- | 
@@ -163,7 +163,7 @@ ms.locfileid: "74258705"
 
 ## <a name="use-your-own-focus-visuals"></a>独自のフォーカス視覚効果を使用する
 
-表示フォーカスをカスタマイズするもう 1 つの方法は、表示状態を使って独自のフォーカス表示効果を描画することにより、システムから提供されるフォーカス表示効果を除外することです。 詳しくは、「[フォーカスの視覚効果のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlFocusVisuals)」をご覧ください。
+表示フォーカスをカスタマイズするもう 1 つの方法は、表示状態を使って独自のフォーカス表示効果を描画することにより、システムから提供されるフォーカス表示効果を除外することです。 詳しくは、[フォーカスの視覚効果のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlFocusVisuals)をご覧ください。
 
 
 ## <a name="reveal-focus-and-the-fluent-design-system"></a>表示フォーカスと Fluent Design System

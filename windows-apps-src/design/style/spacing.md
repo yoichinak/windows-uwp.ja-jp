@@ -6,12 +6,12 @@ ms.date: 04/19/2019
 ms.topic: article
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: 1c535e4ea4ad3c93acb048de2050d5ae7a9c2c2b
-ms.sourcegitcommit: bf95c8b29145a224957a940512394e6aa97cb90f
+ms.openlocfilehash: 08853a201eff063b49dcc69d5827c9b54e324b75
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71061934"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75684870"
 ---
 # <a name="control-size-and-density"></a>コントロールのサイズと密度
 
@@ -72,7 +72,7 @@ Compact サイズは、高密度で情報量の多いコントロールのグル
 
 ### <a name="examples"></a>例
 
-Compact サイズは、アプリケーションにおいてページ レベルまたは特定のレイアウトで指定できる特殊なリソース ディクショナリによって実装されます。 リソース ディクショナリは、[WinUI](https://docs.microsoft.com/en-us/uwp/toolkits/winui/) Nuget パッケージで使用できます。
+Compact サイズは、アプリケーションにおいてページ レベルまたは特定のレイアウトで指定できる特殊なリソース ディクショナリによって実装されます。 リソース ディクショナリは、[WinUI](https://docs.microsoft.com/uwp/toolkits/winui/) Nuget パッケージで使用できます。
 
 次の例では、`Compact` スタイルをページおよび個々のグリッド コントロールに対して適用できる方法を示します。
 
@@ -101,6 +101,6 @@ Compact サイズは、アプリケーションにおいてページ レベル�
 ## <a name="related-articles"></a>関連記事
 
 - [タッチ ターゲットのガイドライン](../input/guidelines-for-targeting.md)
-- [ResourceDictionary と XAML リソースの参照](https://docs.microsoft.com/en-us/windows/uwp/design/controls-and-patterns/resourcedictionary-and-xaml-resource-references)
-- [リソース ディクショナリ](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.resourcedictionary)
-- [XAML スタイル](https://docs.microsoft.com/en-us/windows/uwp/design/controls-and-patterns/xaml-styles) 
+- [ResourceDictionary と XAML リソースの参照](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/resourcedictionary-and-xaml-resource-references)
+- [リソース ディクショナリ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.resourcedictionary)
+- [XAML スタイル](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/xaml-styles) 

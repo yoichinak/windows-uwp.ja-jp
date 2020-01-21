@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 5d5f7af2-41a9-4749-ad16-4503c64bb80c
 ms.localizationpriority: medium
-ms.openlocfilehash: 01ddc46c80c0ed9a9999ec7c8e67ab9034803a3d
-ms.sourcegitcommit: deb1cdecf34feaa92b0342adc61a5d08f3f10687
+ms.openlocfilehash: 4300bdc0224a18874a7ff9153195f81f8bb8d101
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332828"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75685056"
 ---
 # <a name="create-a-uwp-game-in-monogame-2d"></a>MonoGame 2D で UWP ゲームを作成する
 
@@ -20,14 +20,14 @@ ms.locfileid: "68332828"
 
 ![Walking Dino スプライト シート](images/JS2D_0.png)
 
-## <a name="introduction"></a>概要
+## <a name="introduction"></a>はじめに
 
-MonoGame は、軽量のゲーム開発フレームワークです。 このチュートリアルでは、コンテンツの読み込み、ストライプの描画、これらのアニメーション、ユーザー入力の処理など、MonoGame でのゲーム開発の基本事項について説明します。 衝突の検出や高 DPI 画面用のスケールアップなど、いくつかの高度な概念についても説明します。 このチュートリアルの所要時間は 30 ～ 60 分です。
+MonoGame は、軽量のゲーム開発フレームワークです。 このチュートリアルでは、コンテンツの読み込み、スプライトの描画、これらのアニメーション、ユーザー入力の処理など、MonoGame でのゲーム開発の基本事項について説明します。 衝突の検出や高 DPI 画面用のスケールアップなど、いくつかの高度な概念についても説明します。 このチュートリアルの所要時間は 30 ～ 60 分です。
 
 ## <a name="prerequisites"></a>前提条件
-+   Windows 10 と Microsoft Visual Studio 2019。  [Visual Studio を備えた環境をセットアップする方法については、こちらをご覧ください](https://docs.microsoft.com/en-us/windows/uwp/get-started/get-set-up)。
++   Windows 10 と Microsoft Visual Studio 2019。  [Visual Studio を備えた環境をセットアップする方法については、こちらをご覧ください](https://docs.microsoft.com/windows/uwp/get-started/get-set-up)。
 + .NET デスクトップ開発フレームワーク。 インストールしていない場合は、Visual Studio インストーラーを再度実行し、Visual Studio 2019 のインストールを変更して、取得できます。
-+   C# またはこれに類似するオブジェクト指向プログラミング言語に関する基本的な知識。 [C# によるチュートリアルについては、こちらをご覧ください](https://docs.microsoft.com/en-us/windows/uwp/get-started/create-a-hello-world-app-xaml-universal)。
++   C# またはこれに類似するオブジェクト指向プログラミング言語に関する基本的な知識。 [C# のチュートリアルについては、こちらをご覧ください](https://docs.microsoft.com/windows/uwp/get-started/create-a-hello-world-app-xaml-universal)。
 +   オプションとして、クラス、メソッド、変数など、基本的なコンピューター サイエンスの概念に関する知識。
 
 ## <a name="why-monogame"></a>MonoGame を使用する理由
@@ -38,9 +38,9 @@ MonoGame は、軽量のゲーム開発フレームワークです。 このチ�
 
 Visual Studio 2019 でプロジェクトを開き、**F5** キーを押すとサンプルを実行できます。 初めての実行時には、インストールに含まれていない NuGet パッケージを Visual Studio が取得する必要があるため、少し時間がかかることがあります。
 
-これを行った場合は、MonoGame のセットアップに関する次のセクションをスキップして、順を追ったコードのウォークスルーに進むことができます。
+これを行った場合は、MonoGame のセットアップに関する次のセクションをスキップして、順を追ったコードのチュートリアルに進むことができます。
 
-**注:** このサンプルで作成するゲームは、完全なゲームではなく、おもしろい内容でもありません。 MonoGame での 2D 開発の主要概念をすべて示すことだけを目的としたものです。 このコードを基にして、より優れたゲームを作成することも、基礎を習得して 1 から始めることもできます。
+**注:** このサンプルで作成するゲームは、完全なゲームではなく、おもしろい内容でもありません。 MonoGame での 2D 開発の主要概念をすべて示すことだけを目的としたものです。 このコードを基にして、より優れたゲームを作成することも、基礎を習得して最初から始めることもできます。
 
 ## <a name="set-up-monogame-project"></a>MonoGame プロジェクトのセットアップ
 1. [MonoGame.net](https://www.monogame.net/) から、**MonoGame 3.6** for Visual Studio をインストールします。
@@ -49,14 +49,14 @@ Visual Studio 2019 でプロジェクトを開き、**F5** キーを押すとサ
 
 3. **[ファイル] -> [新規] -> [プロジェクト]** を開きます。
 
-4. Visual C# プロジェクト テンプレートで、 **[MonoGame]** と **[MonoGame Windows 10 Universal Project]** (MonoGame Windows 10 ユニバーサル プロジェクト) を選択します。
+4. Visual C# プロジェクト テンプレートで、 **[MonoGame]** と **[MonoGame Windows 10 Universal Project]\(MonoGame Windows 10 ユニバーサル プロジェクト\)** を選択します。
 
 5. プロジェクトに「MonoGame2D」という名前を指定し、[OK] を選択します。 プロジェクトの作成時には多数のエラーがあるように見えますが、初めてプロジェクトを実行すると、不足していた NuGet パッケージがすべてインストールされ、エラーがなくなります。
 
 6. ターゲット プラットフォームとして **[x86]** および **[ローカル コンピューター ]** を設定し、**F5** を押して、空のプロジェクトをビルド/実行します。 上の手順を実行した場合は、プロジェクトのビルドが終了した後、空の青いウィンドウが表示されます。
 
 ## <a name="method-overview"></a>メソッドの概要
-プロジェクトを作成したので、**ソリューション エクスプローラー**から **Game1.cs** ファイルを開きます。 ゲーム ロジックの大部分は、ここに記述します。 新しい MonoGame プロジェクトを作成すると、多数の重要なメソッドがここに自動的に生成されます。 その内容を簡単に確認してみましょう。
+プロジェクトを作成したので、**ソリューション エクスプローラー**から **Game1.cs** ファイルを開きます。 ゲーム ロジックの大部分をここに記述します。 新しい MonoGame プロジェクトを作成すると、多数の重要なメソッドがここに自動的に生成されます。 その内容を簡単に確認してみましょう。
 
 **public Game1()** コンストラクター。 このチュートリアルでは、このメソッドをそのまま使用します。
 
@@ -74,12 +74,12 @@ Visual Studio 2019 でプロジェクトを開き、**F5** キーを押すとサ
 作成したばかりの MonoGame プロジェクトを実行し、美しい青空を確認しました。次は、地面を追加しましょう。
 MonoGame では、2D アートが "スプライト" という形でアプリに追加されます。 スプライトは、単一のエンティティとして処理されるコンピューター グラフィックです。 スプライトの移動、拡大縮小、成形、アニメーション化、組み合わせなどを行うことで、思い描いたものを 2D 空間に作成することができます。
 
-### <a name="1-download-a-texture"></a>1. テクスチャをダウンロードする
+### <a name="1-download-a-texture"></a>1.テクスチャをダウンロードする
 説明目的ですので、最初のスプライトは非常につまらないものです。 [こちらをクリックして、特徴のない緑色の四角形をダウンロードしてください](https://github.com/Microsoft/Windows-appsample-get-started-mg2d/blob/master/MonoGame2D/Content/grass.png)。
 
-### <a name="2-add-the-texture-to-the-content-folder"></a>2. コンテンツ フォルダーにテクスチャを追加する
+### <a name="2-add-the-texture-to-the-content-folder"></a>2.コンテンツ フォルダーにテクスチャを追加する
 - **ソリューション エクスプローラー**を開きます。
-- **[コンテンツ]** フォルダー内の **Content.mgcb** を右クリックし、 **[プログラムから開く]** を選択します。 ポップアップ メニューから **[Monogame Pipeline]** (MonoGame パイプライン) を選択し、 **[OK]** を選択します。
+- **[コンテンツ]** フォルダー内の **Content.mgcb** を右クリックし、 **[プログラムから開く]** を選択します。 ポップアップ メニューから **[Monogame Pipeline]\(MonoGame パイプライン\)** を選択し、 **[OK]** を選択します。
 - 新しいウィンドウで **[コンテンツ]** 項目を右クリックし、 **[追加] -> [既存の項目]** を選択します。
 - ファイル ブラウザーで、緑色の四角形を見つけて選択します。
 - 項目に「grass.png」という名前を指定し、 **[追加]** を選択します。
@@ -94,10 +94,10 @@ float screenHeight;
 Texture2D grass;
 ```
 
-SKYRATIO 変数は、シーン内の草地に対する空の割合 (この場合は 3 分の 2) を示します。 **screenWidth** と **screenHeight** では、アプリ ウィンドウのサイズを追跡し、**grass** には、緑色の四角形を格納します。
+SKYRATIO 変数で示すのは、シーン内の草地に対する空の割合 (この場合は 3 分の 2) です。 **screenWidth** と **screenHeight** では、アプリ ウィンドウのサイズを追跡し、**grass** には、緑色の四角形を格納します。
 
-### <a name="4-initialize-class-variables-and-set-window-size"></a>4。クラス変数を初期化してウィンドウ サイズを設定する
-**screenWidth** 変数と **screenHeight** 変数は初期化する必要があるため、このコードを **Initialize** メソッドに追加します。
+### <a name="4-initialize-class-variables-and-set-window-size"></a>4.クラス変数を初期化してウィンドウ サイズを設定する
+**screenWidth** 変数と **screenHeight** 変数を初期化する必要があるため、次のコードを **Initialize** メソッドに追加します。
 
 ```CSharp
 ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.FullScreen;
@@ -108,17 +108,17 @@ screenWidth = (float)ApplicationView.GetForCurrentView().VisibleBounds.Width;
 this.IsMouseVisible = false;
 ```
 
-画面の高さと幅を取得するほか、アプリのウィンドウ表示モードを **Fullscreen** に設定し、マウスを非表示にします。
+画面の高さと幅を取得するほか、アプリのウィンドウ表示モードを**全画面表示**に設定し、マウスを非表示にします。
 
-### <a name="5-load-the-texture"></a>5。テクスチャを読み込む
+### <a name="5-load-the-texture"></a>5.テクスチャを読み込む
 テクスチャを grass 変数に読み込むには、以下を **LoadContent** メソッドに追加します。
 
 ```CSharp
 grass = Content.Load<Texture2D>("grass");
 ```
 
-### <a name="6-draw-the-sprite"></a>6。スプライトを描画する
-四角形を描画するには、以下の行を追加、**Draw** メソッドに追加します。
+### <a name="6-draw-the-sprite"></a>6.スプライトを描画する
+四角形を描画するには、以下の行を **Draw** メソッドに追加します。
 
 ```CSharp
 GraphicsDevice.Clear(Color.CornflowerBlue);
@@ -133,7 +133,7 @@ spriteBatch.End();
 ![緑色の四角形](images/monogame-tutorial-1.png)
 
 ## <a name="scale-to-high-dpi-screens"></a>高 DPI 画面へのスケーリング
-Surface Pro や Surface Studio などで見られる高ピクセル密度モニターで Visual Studioを実行している場合、先ほどの緑色の四角形で、画面の下から 3 分の 1 までがきちんと覆われていないことがあります。 その場合は、画面の左下角が隠れない状態になります。 この問題を解決し、すべてのデバイスでゲームのエクスペリエンスを統一するには、画面のピクセル密度を基準として特定の値をスケーリングするメソッドを作成する必要があります。
+Surface Pro や Surface Studio などで見られる高ピクセル密度モニターで Visual Studio を実行している場合、先ほどの緑色の四角形で、画面の下から 3 分の 1 までがきちんと覆われていないことがあります。 その場合は、画面の左下角が隠れない状態になります。 この問題を解決し、すべてのデバイスでゲームのエクスペリエンスを統一するには、画面のピクセル密度を基準として特定の値をスケーリングするメソッドを作成する必要があります。
 
 ```CSharp
 public float ScaleToHighDPI(float f)
@@ -156,10 +156,10 @@ screenWidth = ScaleToHighDPI((float)ApplicationView.GetForCurrentView().VisibleB
 ## <a name="build-the-spriteclass"></a>SpriteClass のビルド
 スプライトのアニメーションを開始する前に、SpriteClass という新しいクラスを作成しましょう。このクラスを使用すると、スプライト処理に関する表面上の複雑さを軽減できます。
 
-### <a name="1-create-a-new-class"></a>1. 新しいクラスを作成する
-**ソリューション エクスプローラー**で、 **[MonoGame2D (Universal Windows)]** (MonoGame2D (ユニバーサル Windows)) を右クリックし、 **[追加] -> [クラス]** を選択します。 クラスに「SpriteClass.cs」という名前を指定し、 **[追加]** を選択します。
+### <a name="1-create-a-new-class"></a>1.新しいクラスを作成する
+**ソリューション エクスプローラー**で、 **[MonoGame2D (Universal Windows)]\(MonoGame2D (ユニバーサル Windows)\)** を右クリックし、 **[追加] -> [クラス]** を選択します。 クラスに「SpriteClass.cs」という名前を指定し、 **[追加]** を選択します。
 
-### <a name="2-add-class-variables"></a>2. クラス変数を追加する
+### <a name="2-add-class-variables"></a>2.クラス変数を追加する
 今作成したクラスに、以下のコードを追加します。
 
 ```CSharp
@@ -211,7 +211,7 @@ public float scale
 }
 ```
 
-ここでは、スプライトの描画とアニメーション化に必要なクラス変数をセットアップします。 **x** 変数と **y** 変数は、平面上のスプライトの現在の位置を表し、**angle** 変数は、スプライトの現在の角度を度単位で表します (0 の場合は直立、90 の場合は時計回りに 90 度傾斜)。 このクラスでは **x** と **y** がスプライトの**中央**の座標を表している点に注意します (既定の起点は左上角)。 これにより、指定された起点を中心としてスプライトが回転するため、スプライトの回転が容易になり、回転モーションを統一できます。
+ここでは、スプライトの描画とアニメーション化に必要なクラス変数をセットアップします。 **x** 変数と **y** 変数は、平面上のスプライトの現在の位置を表し、**angle** 変数は、スプライトの現在の角度を度単位で表します (0 の場合は直立、90 の場合は時計回りに 90°傾斜)。 このクラスでは **x** と **y** がスプライトの**中央**の座標を表している点に注意します (既定の起点は左上角)。 これにより、指定された起点を中心としてスプライトが回転するため、スプライトの回転が容易になり、回転モーションを統一できます。
 
 その後に、**dX**、**dY**、**dA** があります。これらはそれぞれ、変数 **x**、**y**、**angle** の 1 秒あたりの変化レートです。
 
@@ -232,7 +232,7 @@ public SpriteClass (GraphicsDevice graphicsDevice, string textureName, float sca
 }
 ```
 
-### <a name="4-update-and-draw"></a>4。更新と描画
+### <a name="4-update-and-draw"></a>4.更新と描画
 SpriteClass 宣言に追加する必要のあるメソッドが、あと 2 つあります。
 
 ```CSharp
@@ -257,14 +257,14 @@ SpriteClass の **Update** メソッドは、Game1.cs の **Update** メソッ�
 ## <a name="user-input-and-animation"></a>ユーザー入力とアニメーション
 これで SpriteClass を構築できたため、これを使用して 2 つの新しいゲーム オブジェクトを作成します。1 つ目は、プレイヤーが方向キーと Space キーで制御できるアバターです。 2 つ目は、プレイヤーが回避する必要があるオブジェクトです。
 
-### <a name="1-get-the-textures"></a>1. テクスチャを入手する
-プレイヤーのアバターには、Microsoft 独自のニンジャ キャットを使用します。ニンジャ キャットは、信頼できるティラノサウルスに乗っています。 [画像をダウンロードするには、こちらをクリックしてください](https://github.com/Microsoft/Windows-appsample-get-started-mg2d/blob/master/MonoGame2D/Content/ninja-cat-dino.png)。
+### <a name="1-get-the-textures"></a>1.テクスチャを入手する
+プレイヤーのアバターには、Microsoft 独自のニンジャ キャットを使用します。ニンジャ キャットは、頼もしいティラノサウルスに乗っています。 [画像をダウンロードするには、こちらをクリックしてください](https://github.com/Microsoft/Windows-appsample-get-started-mg2d/blob/master/MonoGame2D/Content/ninja-cat-dino.png)。
 
 次は、プレイヤーが避ける必要がある障害物を設定します。 ニンジャ キャットとティラノサウルスの両方が何より嫌うものは、 野菜を食べることです。 [画像をダウンロードするには、こちらをクリックしてください](https://github.com/Microsoft/Windows-appsample-get-started-mg2d/blob/master/MonoGame2D/Content/broccoli.png)。
 
-緑色の四角形のときと同じように、これらの画像を **[MonoGame Pipeline]** (MonoGame パイプライン) 経由で **Content.mgcb** に追加し、それぞれ「ninja-cat-dino.png」および「broccoli.png」という名前を指定します。
+緑色の四角形のときと同じように、これらの画像を **[MonoGame Pipeline]\(MonoGame パイプライン\)** 経由で **Content.mgcb** に追加し、それぞれ「ninja-cat-dino.png」および「broccoli.png」という名前を指定します。
 
-### <a name="2-add-class-variables"></a>2. クラス変数を追加する
+### <a name="2-add-class-variables"></a>2.クラス変数を追加する
 **Game1.cs** の一連のクラス変数に、以下のコードを追加します。
 
 ```CSharp
@@ -314,8 +314,8 @@ gravitySpeed = ScaleToHighDPI(30f);
 
 下から 3 つの変数は、変化レートをピクセルで指定しているため、高 DPI デバイス用にはスケーリングが必要である点に注意してください。
 
-### <a name="4-construct-spriteclasses"></a>4。SpriteClasses を作成する
-SpriteClass オブジェクトは、**LoadContent** メソッドで作成します。 既にあるコードに、以下を追加します。
+### <a name="4-construct-spriteclasses"></a>4.SpriteClasses を作成する
+SpriteClass オブジェクトを、**LoadContent** メソッドで作成します。 既にあるコードに、以下のコードを追加します。
 
 ```CSharp
 dino = new SpriteClass(GraphicsDevice, "Content/ninja-cat-dino.png", ScaleToHighDPI(1f));
@@ -324,7 +324,7 @@ broccoli = new SpriteClass(GraphicsDevice, "Content/broccoli.png", ScaleToHighDP
 
 ブロッコリの画像は、ゲームへの表示に適したサイズよりかなり大きいため、元のサイズの 0.2 倍に縮小します。
 
-### <a name="5-program-obstacle-behaviour"></a>5。障害物の動作をプログラミングする
+### <a name="5-program-obstacle-behaviour"></a>5.障害物の動作をプログラミングする
 ブロッコリは画面の外で生成され、プレイヤーのアバターの方に向かうため、プレイヤーのアバターはブロッコリをかわす必要があります。 そのためには、このメソッドを **Game1.cs** クラスに追加します。
 
 ```CSharp
@@ -359,13 +359,13 @@ public void SpawnBroccoli()
 }
 ```
 
-メソッドの最初の部分では、ランダム数を使用して、broccoli オブジェクトが生成される画面外の位置を指定しています。
+メソッドの最初の部分では、乱数を 2 つ使用して、broccoli オブジェクトが生成される画面外の位置を指定しています。
 
-2 番目の部分では、現在のスコアによってブロッコリの速度を決定しています。 プレイヤーがブロッコリを 5 個かわすごとに、速度が増します。
+2 番目の部分では、現在のスコアによってブロッコリが移動する速度を決定しています。 プレイヤーがブロッコリを 5 個かわすごとに、速度が増します。
 
-3 番目の部分では、broccoli スプライトによるモーションの方向を設定しています。 ブロッコリは、生成されると、プレイヤーのアバター (恐竜) の方に向います。 また、**dA** には 7f という値が設定されています。これにより、プレイヤーを追随する際にはブロッコリがスピンしながら空中を進むことになります。
+3 番目の部分では、broccoli スプライトによるモーションの方向を設定しています。 ブロッコリは、生成されると、プレイヤーのアバター (恐竜) の方に向かいます。 また、**dA** には 7f という値が設定されています。これにより、プレイヤーを追随する際にはブロッコリがスピンしながら空中を進むことになります。
 
-### <a name="6-program-game-starting-state"></a>6。ゲームの開始状態をプログラミングする
+### <a name="6-program-game-starting-state"></a>6.ゲームの開始状態をプログラミングする
 キーボード入力の処理に進む前に、作成した 2 つのオブジェクトの初期ゲーム状態を設定するメソッドが必要です。 また、ゲームはアプリが実行されるとすぐに開始するのではなく、ユーザーが Space キーを押すことにより手動で開始できるようにします。 アニメーション化されたオブジェクトの初期状態を設定し、スコアをリセットする以下のコードを追加してください。
 
 ```CSharp
@@ -494,11 +494,11 @@ MonoGame では、**spriteBatch.Draw** を新しく呼び出すと、その時�
 
 これらの問題をどちらも解決するために、**SpriteFonts** という新しい種類の MonoGame オブジェクトを使用します。
 
-### <a name="1-create-spritefont-description-files"></a>1. SpriteFont 記述ファイルを作成する
-**ソリューション エクスプローラー**で、 **[コンテンツ]** フォルダーを見つけます。 このフォルダー内の **Content.mgcb** ファイルを右クリックし、 **[プログラムから開く]** を選択します。 ポップアップ メニューから **[MonoGame Pipeline]** (MonoGame パイプライン) を選択し、 **[OK]** をクリックします。 新しいウィンドウで **[コンテンツ]** 項目を右クリックし、 **[追加] -> [新しいアイテム]** を選択します。 **[SpriteFont Description]** (SpriteFont 記述) を選択し、「Score」という名前を指定して、 **[OK]** をクリックします。 次に、同じ手順を使って、別の SpriteFont 記述を「GameState」という名前で追加します。
+### <a name="1-create-spritefont-description-files"></a>1.SpriteFont 記述ファイルを作成する
+**ソリューション エクスプローラー**で、 **[コンテンツ]** フォルダーを見つけます。 このフォルダー内の **Content.mgcb** ファイルを右クリックし、 **[プログラムから開く]** を選択します。 ポップアップ メニューから **[MonoGame Pipeline]\(MonoGame パイプライン\)** を選択し、 **[OK]** をクリックします。 新しいウィンドウで **[コンテンツ]** 項目を右クリックし、 **[追加] -> [新しい項目]** を選択します。 **[SpriteFont Description]\(SpriteFont 記述\)** を選択し、「Score」という名前を指定して、 **[OK]** をクリックします。 次に、同じ手順を使って、別の SpriteFont 記述を「GameState」という名前で追加します。
 
-### <a name="2-edit-descriptions"></a>2. 記述を編集する
-**[MonoGame Pipeline]** (MonoGame パイプライン) の **[コンテンツ]** フォルダーを右クリックし、 **[ファイルの場所を開く]** を選択します。 先ほど作成した SpriteFont 記述ファイルや、これまでに [コンテンツ] フォルダーに追加した画像がすべて含まれたフォルダーが表示されます。 MonoGame パイプライン ウィンドウを保存して閉じます。 **エクスプローラー**で、両方の記述ファイルをテキスト エディター (Visual Studio、NotePad++、Atom など) で開きます。
+### <a name="2-edit-descriptions"></a>2.記述を編集する
+**[MonoGame Pipeline]\(MonoGame パイプライン\)** の **[コンテンツ]** フォルダーを右クリックし、 **[ファイルの場所を開く]** を選択します。 先ほど作成した SpriteFont 記述ファイルや、これまでに [コンテンツ] フォルダーに追加した画像がすべて含まれたフォルダーが表示されます。 MonoGame パイプライン ウィンドウを保存して閉じます。 **エクスプローラー**で、両方の記述ファイルをテキスト エディター (Visual Studio、NotePad++、Atom など) で開きます。
 
 各記述には、SpriteFont を記述するさまざまな値が含まれています。 いくつか変更を行いましょう。
 
@@ -527,7 +527,7 @@ scoreFont = Content.Load<SpriteFont>("Score");
 stateFont = Content.Load<SpriteFont>("GameState");
 ```
 
-### <a name="4-draw-the-score"></a>4。スコアを描画する
+### <a name="4-draw-the-score"></a>4.スコアを描画する
 **Game1.cs** の **Draw** メソッドに移動し、以下のコードを **spriteBatch.End();** の直前に追加します。
 
 ```CSharp
@@ -537,8 +537,8 @@ new Vector2(screenWidth - 100, 50), Color.Black);
 
 上のコードでは、先ほど作成したスプライト記述 (Arial Size 36) を使用して、プレイヤーの現在のスコアを画面の右上付近に描画しています。
 
-### <a name="5-draw-horizontally-centered-text"></a>5。テキストを水平方向で中央揃えにして描画する
-ゲームを作成する場合は、水平方向または垂直方向で中央揃えにしてテキストを描画する機会が多数あります。 導入のテキストを水平方向で中央揃えにするには、以下のコードを **Draw**メソッドの **spriteBatch.End();** の直前に追加します。
+### <a name="5-draw-horizontally-centered-text"></a>5.テキストを水平方向で中央揃えにして描画する
+ゲームを作成する場合は、水平方向または垂直方向で中央揃えにしてテキストを描画する機会が多数あります。 導入のテキストを水平方向で中央揃えにするには、以下のコードを **Draw** メソッドの **spriteBatch.End();** の直前に追加します。
 
 ```CSharp
 if (!gameStarted)
@@ -577,12 +577,12 @@ if (!gameStarted)
 ## <a name="collision-detection"></a>衝突の検出
 これで、プレイヤーを追随するブロッコリをセットアップし、新しいブロッコリが生成されるたびに加算されるスコアも用意できました。ただ、このままでは、実際にゲームに負ける方法がありません。 dino スプライトと broccoli スプライトが衝突したかどうかを知り、衝突した場合はゲーム オーバーを宣言する手段が必要です。
 
-### <a name="1-get-the-textures"></a>1. テクスチャを入手する
+### <a name="1-get-the-textures"></a>1.テクスチャを入手する
 最後に、"ゲーム オーバー" 用の画像が必要です。 [画像をダウンロードするには、こちらをクリックしてください](https://github.com/Microsoft/Windows-appsample-get-started-mg2d/blob/master/MonoGame2D/Content/game-over.png)。
 
 緑色の四角形、ninja-cat、および broccoli の画像のときと同じように、この画像を **[MonoGame Pipeline]** (MonoGame パイプライン) 経由で **Content.mgcb** に追加し、「game-over.png」という名前を指定します。
 
-### <a name="2-rectangular-collision"></a>2. 四角形の衝突
+### <a name="2-rectangular-collision"></a>2.四角形の衝突
 ゲーム内での衝突を検出するためには、多くの場合、オブジェクトを単純化して数学的な複雑さを軽減します。 ここでは、プレイヤーのアバターとブロッコリの障害物の衝突を検出する目的で、これらをどちらも四角形として扱います。
 
 **SpriteClass.cs** を開き、新しいクラス変数を追加します。
@@ -629,7 +629,7 @@ gameOver = false;
 gameOverTexture = Content.Load<Texture2D>("game-over");
 ```
 
-### <a name="4-implement-game-over-logic"></a>4。"ゲーム オーバー" のロジックを実装する
+### <a name="4-implement-game-over-logic"></a>4."ゲーム オーバー" のロジックを実装する
 以下のコードを **Update** メソッド (**KeyboardHandler** メソッドの呼び出し直後) に追加します。
 
 ```CSharp
@@ -653,7 +653,7 @@ if (dino.RectangleCollision(broccoli)) gameOver = true;
 
 これにより、**SpriteClass** で作成した **RectangleCollision** メソッドが呼び出され、true が返された場合は、ゲーム オーバーのフラグが設定されます。
 
-### <a name="5-add-user-input-for-resetting-the-game"></a>5。ゲームをリセットするためのユーザー入力を追加する
+### <a name="5-add-user-input-for-resetting-the-game"></a>5.ゲームをリセットするためのユーザー入力を追加する
 ユーザーが Enter キーを押してゲームをリセットできるように、以下のコードを **KeyboardHandler** メソッドに追加します。
 
 ```CSharp
@@ -664,8 +664,8 @@ if (gameOver && state.IsKeyDown(Keys.Enter))
 }
 ```
 
-### <a name="6-draw-game-over-splash-and-text"></a>6。ゲーム オーバーのスプラッシュとテキストを描画する
-最後に、以下のコードを Draw メソッド内の **spriteBatch.Draw** の呼び出し (grass テクスチャを描画する) の直後に追加します。
+### <a name="6-draw-game-over-splash-and-text"></a>6.ゲーム オーバーのスプラッシュとテキストを描画する
+最後に、以下のコードを Draw メソッド内の **spriteBatch.Draw** の最初の呼び出し (grass テクスチャを描画する) の直後に追加します。
 
 ```CSharp
 if (gameOver)
@@ -683,19 +683,19 @@ if (gameOver)
 }
 ```
 
-前と同じメソッドを使用して (導入のスプラッシュと同じフォントを使用して)、テキストを水平方向で中央揃えにします。また、ウィンドウの上半分で、**gameOverTexture** も中央揃えにします。
+前と同じメソッドを使用して (導入のスプラッシュと同じフォントを使用して)、テキストを水平方向に中央揃えで描画します。また、ウィンドウの上半分で、**gameOverTexture** も中央揃えにします。
 
-これで、終わりです。 ゲームをもう一度実行してみてください。 これまでの手順に従っていれば、恐竜がブロッコリに衝突するとゲームが終了するようになっています。また、Enter キーを押してゲームを再起動するようにプレイヤーに求めるメッセージも表示されます。
+これで、終わりです。 ゲームをもう一度実行してみてください。 これまでの手順に従っていれば、恐竜がブロッコリに衝突するとゲームが終了するようになっています。また、Enter キーを押してゲームを再開するようにプレイヤーに求めるメッセージも表示されます。
 
 ![ゲーム オーバー](images/monogame-tutorial-4.png)
 
 ## <a name="publish-to-the-microsoft-store"></a>Microsoft Store への発行
 このゲームは UWP アプリとして作成したため、プロジェクトを Microsoft Store に公開することもできます。 このプロセスにはいくつかの手順が必要になります。
 
-Windows 開発者として[登録](https://developer.microsoft.com/en-us/store/register)する必要があります。
+Windows 開発者として[登録](https://developer.microsoft.com/store/register)する必要があります。
 
-[アプリの申請チェックリスト](https://docs.microsoft.com/en-us/windows/uwp/publish/app-submissions)を使用する必要があります。
+[アプリの申請チェックリスト](https://docs.microsoft.com/windows/uwp/publish/app-submissions)を使用する必要があります。
 
-[認定](https://docs.microsoft.com/en-us/windows/uwp/publish/the-app-certification-process)を受けるために、アプリを提出する必要があります。
+[認定](https://docs.microsoft.com/windows/uwp/publish/the-app-certification-process)を受けるために、アプリを提出する必要があります。
 
 詳しくは、[UWP アプリの公開](https://docs.microsoft.com/windows/uwp/publish/)に関する記事をご覧ください。

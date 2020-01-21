@@ -1,5 +1,5 @@
 ---
-Description: サウンドは、アプリケーションのユーザー エクスペリエンスの完成をサポートし、アプリケーションのオーディオ面の特徴を際立たせます。オーディオは、すべてのプラットフォームで Windows の使い勝手を一致させるために必要なものです。
+Description: サウンドを使用して、アプリケーションのユーザー エクスペリエンスの完成をサポートし、アプリケーションのオーディオ面の特徴を際立たせます。オーディオは、すべてのプラットフォームで Windows の使い勝手を一致させるために必要なものです。
 label: Sound
 title: サウンド
 template: detail.hbs
@@ -12,18 +12,18 @@ design-contact: mattben
 dev-contact: joyate
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 31f527cff7588ccf6da2594566cfa3cf13a214f1
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: 8ed1344b5ee49244a6c1afcbb873b54fcc28624f
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74258680"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75684884"
 ---
 # <a name="sound"></a>サウンド
 
 ![ヒーロー イメージ](images/header-sound.svg)
 
-サウンドを使ってアプリを向上させるには、さまざまな方法があります。 ユーザーがイベントを音声で認識できるように、サウンドを使って他の UI 要素を補完できます。 視覚障碍のあるユーザーにとって、サウンドは効果的なユーザー インターフェイスの要素となる可能性があります。 サウンドを使ってユーザーを釘づけにするような雰囲気を作ることができます。たとえば、パズル ゲームのバックグラウンドで風変わりなサウンドトラックを再生したり、ホラー ゲームやサバイバル ゲームで不気味なサウンド効果を使う可能性があります。
+サウンドを使ってアプリを向上させるには、さまざまな方法があります。 ユーザーがイベントを音声で認識できるように、サウンドを使って他の UI 要素を補完できます。 視覚障碍のあるユーザーにとって、サウンドは効果的なユーザー インターフェイスの要素となる可能性があります。 サウンドを使ってユーザーを釘づけにするような雰囲気を作ることができます。たとえば、パズル ゲームのバックグラウンドで風変わりなサウンドトラックを再生したり、ホラー ゲームやサバイバル ゲームで不気味なサウンド効果を使用したりすることが考えられます。
 
 ## <a name="examples"></a>例
 
@@ -41,17 +41,17 @@ ms.locfileid: "74258680"
 </tr>
 </table>
 
-## <a name="sound-global-api"></a>サウンドのグローバル API
+## <a name="sound-global-api"></a>Sound Global API
 
-UWP には使いやすいサウンド システムが用意されていて、「スイッチを切り替える」だけで、アプリ全体にイマーシブなオーディオ エクスペリエンスを実装することができます。
+UWP には使いやすいサウンド システムが用意されていて、"スイッチを切り替える" だけで、アプリ全体にイマーシブなオーディオ エクスペリエンスを実装することができます。
 
-[  **ElementSoundPlayer**](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.elementsoundplayer) は、XAML 内の統合的なサウンド システムで、オンにすると、すべての既定のコントロールで自動的にサウンドが再生されます。
+[**ElementSoundPlayer**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.elementsoundplayer) は、XAML 内の統合的なサウンド システムで、オンにすると、すべての既定のコントロールで自動的にサウンドが再生されます。
 ```C#
 ElementSoundPlayer.State = ElementSoundPlayerState.On;
 ```
-**ElementSoundPlayer** には、次の 3 つの異なる状態があります: **On**、**Off**、**Auto**。
+**ElementSoundPlayer** には、次の 3 つの異なる状態があります: **On**、**Off**、および **Auto**。
 
-**Off** に設定すると、アプリの実行環境に関わらず、サウンドが再生されることはありません。 **On** に設定すると、すべてのプラットフォームで、アプリのサウンドが再生されます。
+**Off** に設定すると、アプリの実行環境にかかわらず、サウンドが再生されることはありません。 **On** に設定すると、すべてのプラットフォームで、アプリのサウンドが再生されます。
 
 ElementSoundPlayer を有効にすると、空間オーディオ (3D サウンド) も自動的に有効になります。 サウンドをオンにしたまま 3D サウンドを無効にするには、ElementSoundPlayer の **SpatialAudioMode** を無効にします。 
 
@@ -60,15 +60,15 @@ ElementSoundPlayer.SpatialAudioMode = ElementSpatialAudioMode.Off
 ```
 
 **SpatialAudioMode** プロパティの有効な値は以下のとおりです。 
-- **自動**:サウンドがオンのときに、空間オーディオがオンになります。 
+- **Auto**: サウンドがオンのときに、空間オーディオがオンになります。 
 - **Off**: サウンドがオンでも、空間オーディオは常にオフです。
-- **[オン]** :空間オーディオが常に再生されます。
+- **On**: 空間オーディオが常に再生されます。
 
 空間オーディオと XAML による空間オーディオの処理方法について詳しくは、[「オーディオ グラフ」の「空間オーディオ」](/windows/uwp/audio-video-camera/audio-graphs#spatial-audio)をご覧ください。
 
 ### <a name="sound-for-tv-and-xbox"></a>テレビや Xbox のサウンド
 
-サウンドは 10 フィート エクスペリエンスの重要なパーツであるため、既定では、**ElementSoundPlayer** の状態は **Auto**、つまり、アプリが Xbox で実行されているときにのみサウンドが再生されます。
+サウンドは 10 フィート エクスペリエンスの重要なパーツであるため、既定では、**ElementSoundPlayer** の状態が **Auto**、つまり、アプリが Xbox で実行されているときにのみサウンドが再生されます。
 Xbox やテレビ向けの設計について詳しくは、「[Xbox およびテレビ向け設計](https://docs.microsoft.com/windows/uwp/design/devices/designing-for-tv?redirectedfrom=MSDN)」の記事をご覧ください。
 
 ## <a name="sound-volume-override"></a>音量設定のオーバーライド
@@ -154,7 +154,7 @@ ElementSoundPlayer.Play(ElementSoundKind.GoBack);
 
 マイクロソフトのシステムの **Focus** サウンドは、唯一の暗黙的なサウンドです。 つまり、ユーザーは、何かを直接操作していなくてもサウンドが聞こえます。
 
-フォーカスは、ユーザーがアプリをナビゲーションしたときに、ゲームパッド、キーボード、リモート、キネクトのいずれかで起こります。 通常、**Focus** サウンドは、*PointerEntered またはマウス ホバー イベント時には再生されません*。
+フォーカスは、ユーザーがアプリをナビゲーションしたときに発生します。これは、ゲームパッド、キーボード、リモコン、または Kinect で実行できます。 通常、**Focus** サウンドは、*PointerEntered またはマウス ホバー イベント時には再生されません*。
 
 コントロールがフォーカスされたときに **Focus** サウンドを再生するように設定するには、次のように呼び出します。
 
@@ -163,7 +163,7 @@ ElementSoundPlayer.Play(ElementSoundKind.Focus);
 ```
 ### <a name="cycling-focus-sounds"></a>フォーカス サウンドの循環
 
-**ElementSound.Focus** 呼び出しの追加機能として、サウンド システムは、既定で、ナビゲーション トリガーごとに 4 つの異なるサウンドを循環させます。 つまり、2 つの同じフォーカス サウンドが前後して再生されることはありません。
+**ElementSound.Focus** 呼び出しの追加機能として、サウンド システムでは、既定で、ナビゲーション トリガーごとに 4 つの異なるサウンドを循環させます。 つまり、2 つの同じフォーカス サウンドが前後して再生されることはありません。
 
 この循環機能の目的は、フォーカス サウンドが単調になることを防ぎ、ユーザーの注意をひかない状態を保つことです。フォーカス サウンドは、最もよく再生されるため、最も繊細なサウンドにする必要があります。
 

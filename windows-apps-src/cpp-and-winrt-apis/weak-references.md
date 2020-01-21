@@ -1,17 +1,17 @@
 ---
 description: Windows ランタイムは参照カウント システムです。このようなシステムでは、強参照と弱参照の重要性とこれらの違いを認識することが重要です。
-title: C++/WinRT の弱参照
+title: C++/WinRT の強参照と弱参照
 ms.date: 05/16/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 強, 弱, 参照
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 3ad6bb9a98b0fe2a699580001698740e44cea14f
-ms.sourcegitcommit: cba3ba9b9a9f96037cfd0e07d05bd4502753c809
+ms.openlocfilehash: 781b63f9f32a0fdf7edee6479b60fd82822cc745
+ms.sourcegitcommit: e1bd1d9b2598e40b5d788338a07e12f4e4c58495
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/14/2019
-ms.locfileid: "67870311"
+ms.lasthandoff: 01/01/2020
+ms.locfileid: "75585395"
 ---
 # <a name="strong-and-weak-references-in-cwinrt"></a>C++/WinRT の強参照と弱参照
 
@@ -361,10 +361,10 @@ void OnCompositionScaleChanged(Windows::UI::Xaml::Controls::SwapChainPanel const
 
 以上、弱参照の使用を確認しました。 一般的に、弱参照は循環参照から抜けるときに最適です。 たとえば、XAML ベースの UI フレームワークのネイティブ実装の場合、フレームワーク設計の歴史的背景に起因し、C++/WinRT の弱参照メカニズムは循環参照を処理するために必要になります。 ただし、XAML 以外では、弱参照はおそらく使用する必要はありません (本質的に XAML 固有のものがあるというわけではありません)。 むしろ、通常は、循環参照や弱参照が必要とならないように独自の C++/WinRT API を設計することができるはずです。 
 
-宣言するすべての型について、いつどこで弱参照が必要になるかが C++/WinRT に対してすぐに明白になるわけではありません。 したがって、C++/WinRT は構造体テンプレート [**winrt::implements**](/uwp/cpp-ref-for-winrt/implements) で弱参照サポートを自動的に提供し、そこから直接的または間接的に独自の C++/WinRT の型を派生します。 利用に応じた料金制度であるため、オブジェクトが [**IWeakReferenceSource**](/windows/desktop/api/weakreference/nn-weakreference-iweakreferencesource) で実際に照会されない限り料金はかかりません。 また、[そのサポートを除外する](#opting-out-of-weak-reference-support)ことを明示的に選択することができます。
+宣言するすべての型について、いつどこで弱参照が必要になるかが C++/WinRT に対してすぐに明白になるわけではありません。 したがって、C++/WinRT では構造体テンプレート [**winrt::implements**](/uwp/cpp-ref-for-winrt/implements) で弱参照サポートを自動的に提供し、そこから直接的または間接的に独自の C++/WinRT の型を派生します。 利用に応じた料金制度であるため、オブジェクトが [**IWeakReferenceSource**](/windows/desktop/api/weakreference/nn-weakreference-iweakreferencesource) で実際に照会されない限り料金はかかりません。 また、[そのサポートを除外する](#opting-out-of-weak-reference-support)ことを明示的に選択することができます。
 
 ### <a name="code-examples"></a>コード例
-[  **winrt::weak_ref**](/uwp/cpp-ref-for-winrt/weak-ref) 構造体テンプレートは、クラス インスタンスへの弱参照を取得するための 1 つのオプションです。
+[**winrt::weak_ref**](/uwp/cpp-ref-for-winrt/weak-ref) 構造体テンプレートは、クラス インスタンスへの弱参照を取得するための 1 つのオプションです。
 
 ```cppwinrt
 Class c;
@@ -410,7 +410,7 @@ struct MyRuntimeClass: MyRuntimeClassT<MyRuntimeClass, no_weak_ref>
 }
 ```
 
-可変個引数パラメーター パックのどこにマーカー構造体が現れるかは関係ありません。 除外された型に対して弱参照を要求すると、コンパイラーは "*これは弱参照サポート専用です*" というメッセージで知らせます。
+可変個引数パラメーター パックのどこにマーカー構造体が現れるかは関係ありません。 除外された型に対して弱参照を要求すると、コンパイラは "*これは弱参照サポート専用です*" というメッセージで知らせます。
 
 ## <a name="important-apis"></a>重要な API
 * [implements::get_weak 関数](/uwp/cpp-ref-for-winrt/implements#implementsget_weak-function)

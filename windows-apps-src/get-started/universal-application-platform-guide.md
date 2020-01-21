@@ -6,12 +6,12 @@ ms.date: 05/07/2018
 ms.topic: article
 keywords: Windows 10, UWP, ユニバーサル
 ms.localizationpriority: medium
-ms.openlocfilehash: 5b0d226a9492a2218edf20e68b8216ea513ca12a
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: fdb06581639391c09c445c8497f67af28a8405df
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74260537"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75685014"
 ---
 # <a name="whats-a-universal-windows-platform-uwp-app"></a>ユニバーサル Windows プラットフォーム (UWP) アプリとは
 
@@ -25,7 +25,7 @@ UWP アプリには次のような特長があります。
 - Windows 10 を実行するすべてのデバイス (または指定したデバイスのみ) で Microsoft Store から入手できます。 Microsoft Store では、アプリで収益を上げるいくつかの方法を提供します。
 - コンピューターへのリスクや "コンピューターの劣化" を気にせずにインストールおよびアンインストールできます。
 - 魅力的。ライブ タイル、プッシュ通知、Windows タイムラインや Cortana の前回終了した位置から再開を利用したユーザー アクティビティによって、ユーザーのエンゲージメントを高めます。
-- C#、C++、Visual Basic、Javascript でプログラミング可能です。 UI 用に、XAML、HTML、または DirectX を使用します。
+- C#、C++、Visual Basic、JavaScript でプログラミング可能です。 UI 用に、XAML、HTML、または DirectX を使用します。
 
 これらをさらに詳しく見てみましょう。
 
@@ -43,16 +43,16 @@ C++/WinRT または C++/CX で記述された UWP アプリは UWP の一部で�
 
 ユニバーサル API を対象としている場合、アプリは Windows 10 が動作しているすべてのデバイスで実行できます。 ただし、UWP アプリでデバイス固有の API を利用したい場合は、利用できます。
 
-拡張 SDK では、さまざまなデバイスに特化した API を呼び出すことができます。 たとえば、UWP アプリで IoT デバイスをターゲットにしている場合、IoT デバイスに固有の機能をターゲットにしたプロジェクトに IoT 拡張 SDK を追加できます。 拡張 SDK の追加に関する詳細については、[デバイス ファミリの概要に関するページ](https://docs.microsoft.com/uwp/extension-sdks/device-families-overview#extension-sdks)の**拡張 SDK**のセクションを参照してください。
+拡張 SDK では、さまざまなデバイスに特化した API を呼び出すことができます。 たとえば、UWP アプリで IoT デバイスをターゲットにしている場合、IoT デバイスに固有の機能をターゲットにしたプロジェクトに IoT 拡張 SDK を追加できます。 拡張 SDK の追加に関する詳細については、[デバイス ファミリの概要](https://docs.microsoft.com/uwp/extension-sdks/device-families-overview#extension-sdks)に関するページの**拡張 SDK** のセクションを参照してください。
 
-特定の種類のデバイスでのみ実行されることを想定し、Microsoft Store からの配布をその種類のデバイスのみに制限するようにアプリを記述することができます。 または、実行時に API の存在を条件付きでテストし、結果に応じてアプリの動作を調整できます。 詳細については、[デバイス ファミリの概要に関するページ](https://docs.microsoft.com/uwp/extension-sdks/device-families-overview#writing-code)の**コードの記述**のセクションを参照してください。<br>
+特定の種類のデバイスでのみ実行されることを想定し、Microsoft Store からの配布をその種類のデバイスのみに制限するようにアプリを記述することができます。 または、実行時に API の存在を条件付きでテストし、結果に応じてアプリの動作を調整できます。 詳細については、[デバイス ファミリの概要](https://docs.microsoft.com/uwp/extension-sdks/device-families-overview#writing-code)に関するページの**コードの記述**のセクションを参照してください。<br>
 
 次のビデオでは、デバイス ファミリとアダプティブ コードの作成に関する簡単な概要を示します。
 <iframe src="https://channel9.msdn.com/Blogs/One-Dev-Minute/Introduction-to-UWP-and-Device-Families/player" width="640" height="360" allowFullScreen frameBorder="0"></iframe>
 
 ## <a name="adaptive-controls-and-input"></a>アダプティブ コントロールおよび入力
 
-UI 要素は、そのレイアウトやスケールを調整することで、アプリが実行されている画面のサイズや DPI に対応します。 UWP アプリは、キーボード、マウス、タッチ、ペン、Xbox One コントローラーなど、さまざまな種類の入力デバイスで問題なく機能します。 特定の画面サイズやデバイスに合わせて UI をさらに調整する必要がある場合は、新しく追加されたレイアウト パネルとツールを使用して、アプリが実行されるさまざまなデバイスやフォーム ファクターに合わせて調整可能な UI を設計できます。
+UI 要素では、そのレイアウトやスケールを調整して、アプリが実行されている画面のサイズや DPI に対応します。 UWP アプリは、キーボード、マウス、タッチ、ペン、Xbox One コントローラーなど、さまざまな種類の入力デバイスで問題なく機能します。 特定の画面サイズやデバイスに合わせて UI をさらに調整する必要がある場合は、新しく追加されたレイアウト パネルとツールを使用して、アプリが実行されるさまざまなデバイスやフォーム ファクターに合わせて調整可能な UI を設計できます。
 
 ![Windows デバイス](images/1894834-hig-device-primer-01-500.png)
 
@@ -62,7 +62,7 @@ Windows では、UI を次の機能を備えた複数のデバイスを対象と
 - 一般的な入力処理では、タッチ、ペン、マウス、キーボード、またはコントローラー (Microsoft Xbox コントローラーなど) による入力を受け取ることができます。
 - さまざまな画面の解像度に合わせて変化する UI の設計に役立つツール。
 
-アプリの UI の一部はデバイス間で自動的に対応します。 ただし、アプリのユーザー エクスペリエンスの設計は、アプリが実行されているデバイスへの対応が必要になる場合があります。 たとえば、フォト アプリが小型のハンドヘルド デバイスで実行されている場合、UI を片手での使用に適するように調整できます。 フォト アプリがデスクトップ コンピューターで実行されている場合、UI は広い画面スペースを利用するように調整する必要があります。
+アプリの UI の一部はデバイス間で自動的に対応します。 ただし、アプリのユーザー エクスペリエンスの設計では、アプリが実行されているデバイスへの対応が必要になる場合があります。 たとえば、フォト アプリが小型のハンドヘルド デバイスで実行されている場合、UI を片手での使用に適するように調整できます。 フォト アプリがデスクトップ コンピューターで実行されている場合、UI は広い画面スペースを利用するように調整する必要があります。
 
 ## <a name="theres-one-store-for-all-devices"></a>1 つのストアですべてのデバイスに対応する
 
@@ -89,7 +89,7 @@ UWP アプリは、詳細なテレメトリや分析のために [Application In
 
 UWP アプリに対するユーザーのエンゲージメントを維持するためのさまざまな方法があります。
 
-- ライブ タイルとロック画面タイルは、アプリからのコンテキストに関連したタイムリーな情報をひとめでわかるように表示します。
+- ライブ タイルとロック画面タイルでは、アプリからのコンテキストに関連したタイムリーな情報をひとめでわかるように表示します。
 - プッシュ通知は、ユーザーがリアルタイムの通知に注目できるようにします。
 - ユーザー アクティビティでは、異なるデバイスでも、アプリで前回中断したところから作業を始めることができます。
 - アクション センターでは、アプリの通知を整理できます。
@@ -99,7 +99,7 @@ UWP アプリに対するユーザーのエンゲージメントを維持する�
 
 ##  <a name="use-a-language-you-already-know"></a>使い慣れた言語の使用
 
-UWP アプリは、オペレーティング システムによって提供されるネイティブな API である Windows ランタイムを使います。 この API は C++ で実装され、C#、Visual Basic、C++、JavaScript でサポートされます。 UWP アプリを作成するための一部のオプションを次に示します。
+UWP アプリでは、オペレーティング システムによって提供されるネイティブな API である Windows ランタイムを使います。 この API は C++ で実装され、C#、Visual Basic、C++、JavaScript でサポートされます。 UWP アプリを作成するための一部のオプションを次に示します。
 
 - XAML UI と、C#、VB、または C++
 - DirectX UI と C++
@@ -113,20 +113,20 @@ UWP アプリは、オペレーティング システムによって提供され
 
 ### <a name="design-your-app"></a>アプリをデザインする
 
-Microsoft デザイン システムは Fluent と呼ばれます。 Fluent Design System は、すべての種類の Windows デバイスで適切に動作するアプリを作成するためのベスト プラクティスと組み合わされた、UWP 機能のセットです。 Fluent エクスペリエンスは、タブレット、ノート PC、デスクトップ、テレビから、仮想現実デバイスまで、さまざまなデバイスに対応し、自然に操作できます。 Fluent Design の概要については、[UWP アプリ向けの Fluent Design System に関するページ](https://docs.microsoft.com/windows/uwp/design/fluent-design-system)を参照してください。
+Microsoft デザイン システムは Fluent と呼ばれます。 Fluent Design System は、すべての種類の Windows デバイスで適切に動作するアプリを作成するためのベスト プラクティスと組み合わされた、UWP 機能のセットです。 Fluent エクスペリエンスは、タブレット、ノート PC、デスクトップ、テレビから、仮想現実デバイスまで、さまざまなデバイスに対応し、自然に操作できます。 Fluent Design の概要については、[UWP アプリ向けの Fluent Design System](https://docs.microsoft.com/windows/uwp/design/fluent-design-system) に関するページを参照してください。
 
-適切な[設計](http://design.windows.com/)とは、アプリの外観や機能に加えて、ユーザーによるアプリの操作方法を決定するプロセスです。 ユーザー エクスペリエンスは、ユーザーがアプリでどの程度満足するかを判断する場合に大きな役割を果たします。そのため、この手順は必ず守ってください。 [設計の基本に関するページ](https://developer.microsoft.com/en-us/windows/apps/design)では、ユニバーサル Windows アプリの設計を紹介します。 ユーザーを楽しませる UWP アプリの設計の情報については、「[デザイナー向けユニバーサル Windows プラットフォーム (UWP) アプリの紹介](https://docs.microsoft.com/windows/uwp/layout/design-and-ui-intro)」をご覧ください。 コーディングを開始する前に、ターゲットにするすべての異なるフォーム ファクターについてのアプリの使用についての操作エクスペリエンスを検討するために役立つ「[デバイスの基本情報](../design/devices/index.md)」をご覧ください。
+適切な[設計](http://design.windows.com/)とは、アプリの外観や機能に加えて、ユーザーによるアプリの操作方法を決定するプロセスです。 ユーザー エクスペリエンスは、ユーザーがアプリでどの程度満足するかを判断する場合に大きな役割を果たします。そのため、この手順は必ず守ってください。 [設計の基本](https://developer.microsoft.com/windows/apps/design)に関するページでは、ユニバーサル Windows アプリの設計を紹介します。 ユーザーを楽しませる UWP アプリの設計の情報については、[デザイナー向けユニバーサル Windows プラットフォーム (UWP) アプリの紹介](https://docs.microsoft.com/windows/uwp/layout/design-and-ui-intro)に関するページをご覧ください。 コーディングを開始する前に、ターゲットにするすべての異なるフォーム ファクターでアプリを使用する際の操作エクスペリエンスを検討するために役立つ、[デバイスの基本情報](../design/devices/index.md)に関するページをご覧ください。
 
-さまざまなデバイスでの操作に加えて、複数のデバイスで動作する利点を取り入れるように [アプリの計画](https://docs.microsoft.com/windows/uwp/get-started/plan-your-app) を行います。 次に、例を示します。
+さまざまなデバイスでの操作に加えて、複数のデバイスで動作する利点を取り入れるように[アプリの計画](https://docs.microsoft.com/windows/uwp/get-started/plan-your-app)を行います。 たとえば、次のように入力します。
 
-- モバイル、小型画面デバイス、大型画面デバイスに対応するには、「[UWP アプリのナビゲーション デザインの基本](https://docs.microsoft.com/windows/uwp/layout/navigation-basics)」を使用してワークフローをデザインします。 [ユーザー インターフェイスをレイアウトする](https://docs.microsoft.com/windows/uwp/layout/screen-sizes-and-breakpoints-for-responsive-design)さまざまな画面サイズと解像度に対応します。
+- モバイル、小型画面デバイス、大型画面デバイスに対応するには、「[UWP アプリのナビゲーション デザインの基本](https://docs.microsoft.com/windows/uwp/layout/navigation-basics)」を使用してワークフローをデザインします。 さまざまな画面サイズと解像度に対応するように[ユーザー インターフェイスをレイアウト](https://docs.microsoft.com/windows/uwp/layout/screen-sizes-and-breakpoints-for-responsive-design)します。
 
-- 複数の入力の種類の対処方法を検討してください。 ユーザーが [Cortana](https://docs.microsoft.com/windows/uwp/input-and-devices/cortana-design-guidelines)、[音声認識](https://docs.microsoft.com/windows/uwp/input-and-devices/speech-interactions)、[タッチ操作](https://docs.microsoft.com/windows/uwp/input-and-devices/guidelines-for-user-interaction)、[タッチ キーボード](https://docs.microsoft.com/windows/uwp/input-and-devices/keyboard-interactions)などを使ってアプリを操作する方法については、「[操作のガイドライン](https://docs.microsoft.com/windows/uwp/design/layout/index)」をご覧ください。  または、従来の操作エクスペリエンスについて詳しくは、「[テキストとテキスト入力のガイドライン](https://docs.microsoft.com/windows/uwp/controls-and-patterns/text-controls)」をご覧ください。
+- 複数の入力の種類の対処方法を検討してください。 ユーザーが [Cortana](https://docs.microsoft.com/windows/uwp/input-and-devices/cortana-design-guidelines)、[音声認識](https://docs.microsoft.com/windows/uwp/input-and-devices/speech-interactions)、[タッチ操作](https://docs.microsoft.com/windows/uwp/input-and-devices/guidelines-for-user-interaction)、[タッチ キーボード](https://docs.microsoft.com/windows/uwp/input-and-devices/keyboard-interactions)などを使ってアプリを操作する方法については、[操作のガイドライン](https://docs.microsoft.com/windows/uwp/design/layout/index)に関するページをご覧ください。  または、従来の操作エクスペリエンスの詳細については、[テキストとテキスト入力のガイドライン](https://docs.microsoft.com/windows/uwp/controls-and-patterns/text-controls)に関するページを参照してください。
 
 ### <a name="add-services"></a>サービスの追加
 
 - [クラウド サービス](https://azure.microsoft.com/documentation/services/cloud-services)を使用して、デバイス間で同期します。
-- アプリのエクスペリエンスをサポートするにあたって、[Web サービスに接続する](https://docs.microsoft.com/previous-versions/windows/apps/hh761504(v=win.10))方法について説明します。
+- アプリのエクスペリエンスをサポートするには、[Web サービスに接続する](https://docs.microsoft.com/previous-versions/windows/apps/hh761504(v=win.10))方法を参照してください。
 - [プッシュ通知](https://docs.microsoft.com/windows/uwp/controls-and-patterns/tiles-and-notifications-windows-push-notification-services--wns--overview)と[アプリ内購入](https://docs.microsoft.com/windows/uwp/monetize/enable-in-app-product-purchases)を計画に盛り込みます。 これらの機能はさまざまなデバイスで動作する必要があります。
 
 ### <a name="submit-your-app-to-the-store"></a>アプリをストアに提出する
@@ -141,11 +141,11 @@ Microsoft デザイン システムは Fluent と呼ばれます。 Fluent Desig
 
 - アプリでのユーザー アクティビティが Windows タイムラインと Cortana の 前回終了した位置から再開機能に表示されるようにするには、[ユーザー アクティビティ](https://blogs.windows.com/buildingapps/2017/12/19/application-engagement-windows-timeline-user-activities/#tHuZ6tLPtCXqYKvw.97)の使用方法に関するページを参照してください。
 - [UWP アプリのタイル、バッジ、通知](https://docs.microsoft.com/windows/uwp/design/shell/tiles-and-notifications/)の使用方法に関するページを参照してください。
-- UWP アプリに利用可能な Win32 API の完全な一覧については、「[UWP アプリの API セット](https://docs.microsoft.com/previous-versions/mt186421(v=vs.85))」と「[UWP アプリの DLL](https://docs.microsoft.com/previous-versions/mt186422(v=vs.85))」をご覧ください。
-- .NET UWP アプリの作成の概要については、[.NET でのユニバーサル Windows アプリに関するページ](https://devblogs.microsoft.com/dotnet/universal-windows-apps-in-net/)を参照してください。
-- UWP アプリで使用できる .NET 型の一覧については、「[UWP アプリの .NET](https://docs.microsoft.com/dotnet/api/index?view=dotnet-uwp-10.0)」を参照してください。
+- UWP アプリで利用可能な Win32 API の完全な一覧については、[UWP アプリの API セット](https://docs.microsoft.com/previous-versions/mt186421(v=vs.85))および [UWP アプリの DLL](https://docs.microsoft.com/previous-versions/mt186422(v=vs.85)) に関するページをご覧ください。
+- .NET UWP アプリの作成の概要については、[.NET でのユニバーサル Windows アプリ](https://devblogs.microsoft.com/dotnet/universal-windows-apps-in-net/)に関するページを参照してください。
+- UWP アプリで使用できる .NET 型の一覧については、[UWP アプリ用 .NET](https://docs.microsoft.com/dotnet/api/index?view=dotnet-uwp-10.0) に関するページを参照してください。
 - [.NET Native によるアプリのコンパイル](https://docs.microsoft.com/dotnet/framework/net-native/)
-- [デスクトップ ブリッジ](https://developer.microsoft.com/windows/bridges/desktop)を使用して、既存のデスクトップ アプリに Windows 10 ユーザー向けの最新のエクスペリエンスを追加し、Microsoft Store で配布する方法について説明しています。
+- [デスクトップ ブリッジ](https://developer.microsoft.com/windows/bridges/desktop)を使用して、既存のデスクトップ アプリに Windows 10 ユーザー向けの最新のエクスペリエンスを追加し、そのアプリを Microsoft Store で配布する方法を確認してください。
 
 ## <a name="how-the-universal-windows-platform-relates-to-windows-runtime-apis"></a>ユニバーサル Windows プラットフォームと Windows ランタイム API の関連性
 ユニバーサル Windows プラットフォーム (UWP) アプリをビルドする場合は、"ユニバーサル Windows プラットフォーム (UWP)" と "Windows ランタイム (WinRT)" をほぼ同義と考えると便利です。 ただし、テクノロジの実体を明らかにして、この 2 つの概念の違いを確認しておくことも可能*です*。 この最後のセクションは、この点に興味があるユーザーを対象としています。

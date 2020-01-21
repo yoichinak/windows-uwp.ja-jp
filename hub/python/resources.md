@@ -8,18 +8,18 @@ ms.topic: article
 keywords: python, microsoft, windows 10, チュートリアル, オンライン コース, ブログ, イベント
 ms.localizationpriority: medium
 ms.date: 07/19/2019
-ms.openlocfilehash: 8870c1e269eb2c5f049c5431d6360e8c11570c0b
-ms.sourcegitcommit: 4cb3ee28baa8020ec925b0bdd896ab197a1ddadb
+ms.openlocfilehash: 24bda3a9eb76dac2e584540161e551ce6bb7ff4e
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74309171"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75683665"
 ---
 # <a name="resources-for-developing-with-python-on-windows"></a>Windows での Python を使用した開発に関するリソース
 
 Windows 10 を実行するコンピューターで作業している Python 開発者にお勧めのリンクの一覧です。
 
-## <a name="general"></a>全般的な情報
+## <a name="general"></a>全般
 
 - [Microsoft 開発者向けブログ:Python](https://devblogs.microsoft.com/python/):Python 関連の最新情報を Microsoft からお届けします。
 
@@ -41,13 +41,13 @@ Windows 10 を実行するコンピューターで作業している Python 開�
 
 - [Python API ブラウザー](https://docs.microsoft.com/python/api/?view=azure-python):Microsoft の Python ベース API のすべてを調べることができます。
 
-- [Python を使用した Azure コード サンプル](https://azure.microsoft.com/en-us/resources/samples/?platform=python&sort=0):Python コードを使用して Azure サービスと対話する方法を学びます。
+- [Python を使用した Azure コード サンプル](https://azure.microsoft.com/resources/samples/?platform=python&sort=0):Python コードを使用して Azure サービスと対話する方法を学びます。
 
 - [Python と Visual Studio Code](https://code.visualstudio.com/docs/languages/python):VS Code での Python の使用の概要です。
 
 ## <a name="online-courses"></a>オンライン コース
 
-- [Microsoft Learn の Python 入門](https://docs.microsoft.com/en-us/learn/modules/intro-to-python/):対話型の Microsoft Learn プラットフォームで、簡単な Python コードを記述し、変数を宣言し、コンソール入出力を操作する方法を基礎から学びましょう。このモジュールを完了すると経験ポイントを獲得できます。 Python 開発環境をまだセットアップしていない場合、対話型のサンドボックス環境は学習を始めるのに最適な場所です。
+- [Microsoft Learn の Python 入門](https://docs.microsoft.com/learn/modules/intro-to-python/):対話型の Microsoft Learn プラットフォームで、簡単な Python コードを記述し、変数を宣言し、コンソール入出力を操作する方法を基礎から学びましょう。このモジュールを完了すると経験ポイントを獲得できます。 Python 開発環境をまだセットアップしていない場合、対話型のサンドボックス環境は学習を始めるのに最適な場所です。
 
 - [Pluralsight で Python を学ぶ:8 コース、29 時間](https://app.pluralsight.com/paths/skills/python):Pluralsight の Python ラーニング パスは、スキルを測定してギャップを見つけるためのツールなど、Python 関連のさまざまなトピックをカバーしたオンライン コースを提供します。
 

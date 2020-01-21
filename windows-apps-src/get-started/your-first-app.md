@@ -1,19 +1,19 @@
 ---
 ms.assetid: A77DA371-C0FE-4FAE-9E77-ADC3C9314EDF
-title: 初めてのアプリの作成
+title: 最初のアプリケーションを作成
 description: Windows 10 用のユニバーサル Windows プラットフォーム (UWP) アプリは、好みのプログラミング言語で作成できます。
 ms.date: 01/25/2017
 ms.topic: article
 keywords: windows 10, uwp, 初めてのアプリ, c#, c++, JavaScript
 ms.localizationpriority: medium
-ms.openlocfilehash: f386de7ebf9aae2f49a2709d8c1c8ce2595cbf1d
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: d0870212df4deb7f12f790107ec988fac3eb69ab
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74260524"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75685149"
 ---
-# <a name="create-your-first-app"></a>初めてのアプリの作成
+# <a name="create-your-first-app"></a>最初のアプリケーションを作成
 
 [UWP プラットフォーム](universal-application-platform-guide.md)へようこそ。 このチュートリアルは、好みの言語で初めての UWP アプリを作る際に役立ちます。
 
@@ -61,9 +61,9 @@ Web のスキルを活用し、HTML5、CSS3、JavaScript を使ったアプリ�
 UWP の域を超えて JavaScript と HTML のスキルを拡張し、Web アプリを作成しましょう。WebVR を使用すると、Web に仮想現実を組み込むこともできます。
 
 * [Microsoft Edge 開発者ドキュメント](https://docs.microsoft.com/microsoft-edge/)
-* [Microsoft Edge で WebVR を使用する](https://docs.microsoft.com/en-us/microsoft-edge/webvr/)
+* [Microsoft Edge で WebVR を使用する](https://docs.microsoft.com/microsoft-edge/webvr/)
 
-Web アプリは、ホストされた Web アプリとして UWP フレームワークに簡単にパッケージ化し、Microsoft Store で販売促進できます。
+Web アプリを使用して、ホストされた Web アプリとして UWP フレームワークに簡単にパッケージ化し、Microsoft Store で販売促進できます。
 
 * [ホストされた Web アプリ](https://developer.microsoft.com/windows/pwa)
 * [Web アプリケーションを UWP アプリに変換する](../porting/hwa-create-windows.md)
