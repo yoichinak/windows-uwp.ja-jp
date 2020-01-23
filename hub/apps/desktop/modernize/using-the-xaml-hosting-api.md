@@ -1,19 +1,19 @@
 ---
 description: この記事では、デスクトップC++ Win32 アプリで UWP XAML UI をホストする方法について説明します。
 title: UWP XAML を使用した C++ Win32 アプリでの API のホスト
-ms.date: 08/20/2019
+ms.date: 01/10/2010
 ms.topic: article
 keywords: windows 10、uwp、windows フォーム、wpf、win32、xaml islands
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: 9e4fdc8366e26bcd7e106bf070cb42ed2cd1a49f
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.openlocfilehash: 5a0973bcce4de4fac8f923a303b0c3216600fb97
+ms.sourcegitcommit: 85fd390b1e602707bd9342cb4b84b97ae0d8b831
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75683685"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76520427"
 ---
 # <a name="using-the-uwp-xaml-hosting-api-in-a-c-win32-app"></a>UWP XAML を使用した C++ Win32 アプリでの API のホスト
 
@@ -55,7 +55,7 @@ XAML アイランドには、Windows 10 バージョン 1903 (以降) と、そ�
     1. Windows 10 バージョン 1903 SDK (バージョン 10.0.18362) 以降のリリースをインストールします。
     2. [Windows アプリケーションパッケージプロジェクト](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)をソリューションに追加し、 C++/Win32 プロジェクトへの参照を追加することによって、msix パッケージでアプリをパッケージ化します。
 
-* **Microsoft. Toolkit. SDK パッケージをインストール**します。 アプリを MSIX パッケージにパッケージ化しない場合は、[Microsoft.Toolkit.Win32.UI.SDK](https://www.nuget.org/packages/Microsoft.Toolkit.Win32.UI.SDK)（preview7 またはそれ以降のバージョンの 6.0.0 パッケージ) をインストールすることができます。 このパッケージには、XAML Islands をアプリで使用できるようにする、いくつかのビルドおよび実行時アセットが用意されています。 このパッケージの最新のプレビューバージョンを確認できるように、 **[プレリリースを含める]** オプションが選択されていることを確認します。
+* **Microsoft. Toolkit. SDK パッケージをインストール**します。 アプリを MSIX パッケージにパッケージ化しない場合[は、6.0.0 (バージョン](https://www.nuget.org/packages/Microsoft.Toolkit.Win32.UI.SDK)v1.0 以降) をインストールすることができます。この場合、 このパッケージには、XAML Islands をアプリで使用できるようにする、いくつかのビルドおよび実行時アセットが用意されています。
 
 > [!NOTE]
 > 以前のバージョンの手順では、プロジェクトのアプリケーションマニフェストに `maxversiontested` 要素を追加しました。 上記のオプションのいずれかを使用している限り、この要素をマニフェストに追加する必要はありません。
@@ -125,7 +125,7 @@ Windows Community Toolkit の[Windowsxamlhost](https://docs.microsoft.com/window
 4. 次のようにして、 [Microsoft. Toolkit. UI](https://www.nuget.org/packages/Microsoft.Toolkit.Win32.UI.SDK) NuGet パッケージをインストールします。
 
     1. **[NuGet パッケージマネージャー]** ウィンドウで、 **[プレリリースを含める]** が選択されていることを確認します。
-    2. **[参照]** タブを選択し、 [6.0.0 パッケージを](https://www.nuget.org/packages/Microsoft.Toolkit.Win32.UI.SDK)検索して、このパッケージのバージョン v preview7 (またはそれ以降) をインストールします。
+    2. **[参照]** タブを選択し、 [6.0.0 パッケージを](https://www.nuget.org/packages/Microsoft.Toolkit.Win32.UI.SDK)検索して、このパッケージのバージョン v (またはそれ以降) をインストールします。
 
 ### <a name="use-the-xaml-hosting-api-to-host-a-uwp-control"></a>XAML ホスティング API を使用して UWP コントロールをホストする
 

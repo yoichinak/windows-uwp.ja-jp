@@ -1,19 +1,19 @@
 ---
 description: この記事では、XAML アイランドを使用して WPF アプリでカスタム UWP コントロールをホストする方法について説明します。
 title: XAML アイランドを使用した WPF アプリでのカスタム UWP コントロールのホスト
-ms.date: 08/20/2019
+ms.date: 01/10/2010
 ms.topic: article
 keywords: windows 10、uwp、windows フォーム、wpf、xaml アイランド、カスタムコントロール、ユーザーコントロール、ホストコントロール
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: af8ef4d8fb8661e4a8f2d6b1fb98dd19cbd567c1
-ms.sourcegitcommit: cc108c791842789464c38a10e5d596c9bd878871
+ms.openlocfilehash: 4fb6e2d4fc13d90ec69f962e69b1ee8cb5c1361c
+ms.sourcegitcommit: 85fd390b1e602707bd9342cb4b84b97ae0d8b831
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/20/2019
-ms.locfileid: "75302526"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76520397"
 ---
 # <a name="host-a-custom-uwp-control-in-a-wpf-app-using-xaml-islands"></a>XAML アイランドを使用した WPF アプリでのカスタム UWP コントロールのホスト
 
@@ -53,9 +53,9 @@ WPF アプリでカスタム UWP コントロールをホストするには、�
 
 5. **[NuGet パッケージマネージャー]** ウィンドウで、 **[プレリリースを含める]** が選択されていることを確認します。
 
-6. **[参照]** タブを選択し、preview7 またはそれ[以降のバージョンの6.0.0 パッケージを](https://www.nuget.org/packages/Microsoft.Toolkit.Wpf.UI.XamlHost)検索して、パッケージをインストールします。 このパッケージには、他の関連する NuGet パッケージを含め、UWP コントロールをホストするために**Windowsxamlhost**コントロールを使用するために必要なすべてのものが用意されています。
+6. **[参照]** タブを選択し、6.0.0 またはそれ[以降のバージョンのパッケージを](https://www.nuget.org/packages/Microsoft.Toolkit.Wpf.UI.XamlHost)検索して、パッケージをインストールします。 このパッケージには、他の関連する NuGet パッケージを含め、UWP コントロールをホストするために**Windowsxamlhost**コントロールを使用するために必要なすべてのものが用意されています。
     > [!NOTE]
-    > Windows フォームアプリでは、preview7 またはそれ以降のバージョンの[6.0.0 パッケージを](https://www.nuget.org/packages/Microsoft.Toolkit.Forms.UI.XamlHost)使用する必要があります。
+    > Windows フォームアプリでは、 [6.0.0 パッケージ (](https://www.nuget.org/packages/Microsoft.Toolkit.Forms.UI.XamlHost)バージョン v1.0 以降) を使用する必要があります。
 
 7. X86 や x64 などの特定のプラットフォームを対象とするようにソリューションを構成します。 カスタム UWP コントロールは **、任意の CPU**を対象とするプロジェクトではサポートされていません。
 
@@ -70,7 +70,7 @@ WPF アプリでカスタム UWP コントロールをホストするには、�
 
 1. **ソリューションエクスプローラー**で、[ソリューション] ノードを右クリックし、[ -> **新しいプロジェクト**の**追加**] を選択します。
 2. ソリューションに **[空白のアプリ (ユニバーサル Windows)]** プロジェクトを追加します。 ターゲットバージョンと最小バージョンの両方が**Windows 10 バージョン 1903**以降に設定されていることを確認します。
-3. UWP アプリプロジェクトで、6.0.0 NuGet パッケージ (version v preview7 またはそれ以降) をインストールします。この[パッケージは、](https://www.nuget.org/packages/Microsoft.Toolkit.Win32.UI.XamlApplication)
+3. UWP アプリプロジェクトで、 [6.0.0 NuGet パッケージ](https://www.nuget.org/packages/Microsoft.Toolkit.Win32.UI.XamlApplication)(バージョン v1.0 以降) をインストールします。このパッケージには、
 4. **App.xaml**ファイルを開き、このファイルの内容を次の xaml に置き換えます。 `MyUWPApp` を、UWP アプリプロジェクトの名前空間に置き換えます。
 
     ```xml
@@ -200,13 +200,11 @@ WPF アプリでカスタム UWP コントロールをホストするには、�
 
 従来、UWP コントロールは Windows 10 OS の一部としてリリースされ、Windows SDK を通じて開発者が使用できるようになりました。 [WinUI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)は、Windows SDK からのファーストパーティ UWP コントロールの更新バージョンが Windows SDK リリースに関連付けられていない NuGet パッケージで配布される、別の方法です。 このライブラリには、Windows SDK と既定の UWP プラットフォームの一部ではない新しいコントロールも含まれています。 詳細については、「 [WinUI ライブラリのロードマップ](https://github.com/microsoft/microsoft-ui-xaml/blob/master/docs/roadmap.md)」を参照してください。
 
-このセクションでは、WPF アプリでこのコントロールをホストできるように、WinUI ライブラリからユーザーコントロールに UWP コントロールを追加する方法について説明します。 
+このセクションでは、WPF アプリでこのコントロールをホストできるように、WinUI ライブラリからユーザーコントロールに UWP コントロールを追加する方法について説明します。
 
-1. UWP アプリプロジェクトで、最新のプレリリース版の NuGet パッケージをインストール[します。](https://www.nuget.org/packages/Microsoft.UI.Xaml)
-    > [!NOTE]
-    > 最新の*プレリリース*版がインストールされていることを確認してください。 現時点では、アプリを[Msix パッケージ](https://docs.microsoft.com/windows/msix)に配置するようにパッケージ化する場合、このパッケージのプレリリース版のみが機能します。
+1. UWP アプリプロジェクトで、最新バージョンの[UI](https://www.nuget.org/packages/Microsoft.UI.Xaml) NuGet パッケージをインストールします。
 
-2. このプロジェクトの app.xaml ファイルで、次の子要素を `<xaml:Application>` 要素に追加します。
+2. このプロジェクトの app.xaml ファイルで、次の子要素を `<xaml:XamlApplication>` 要素に追加します。
 
     ```xml
     <Application.Resources>
@@ -229,7 +227,7 @@ WPF アプリでカスタム UWP コントロールをホストするには、�
     </xaml:XamlApplication>
     ```
 
-3. UWP クラスライブラリプロジェクトで、最新バージョンの[UI](https://www.nuget.org/packages/Microsoft.UI.Xaml) NuGet パッケージ (uwp アプリプロジェクトにインストールしたものと同じバージョン) の最新のプレリリースバージョンをインストールします。
+3. UWP クラスライブラリプロジェクトで、最新バージョンの[MICROSOFT UI](https://www.nuget.org/packages/Microsoft.UI.Xaml) (uwp アプリプロジェクトにインストールしたものと同じバージョン) の NuGet パッケージをインストールします。
 
 4. 同じプロジェクトで、ユーザーコントロールの XAML ファイルを開き、次の名前空間宣言を `<UserControl>` 要素に追加します。
 
@@ -289,20 +287,7 @@ WPF アプリでカスタム UWP コントロールをホストするには、�
 
     3. プロジェクトファイルを保存して閉じます。
 
-4. パッケージマニフェストを編集して、正しい既定のスプラッシュスクリーンイメージを参照します。 この回避策は、現在、カスタム UWP コントロールをホストする WPF アプリをパッケージ化するために必要です。
-
-    1. パッケージプロジェクトで、 **package.appxmanifest**ファイルを右クリックし、 **[コードの表示]** をクリックします。
-    2. ファイルで次の要素を探します。
-
-        ```<uap:SplashScreen Image="Images\SplashScreen.png" />```
-
-    3. この要素を次のように変更します。
-
-        ```<uap:SplashScreen Image="Images\SplashScreen.scale-200.png" />```
-
-    4. **Package.appxmanifest**ファイルを保存して閉じます。
-
-5. WPF プロジェクトファイルを編集します。 これらの変更は、現在、カスタム UWP コントロールをホストする WPF アプリのパッケージ化に必要です。
+4. WPF プロジェクトファイルを編集します。 これらの変更は、現在、カスタム UWP コントロールをホストする WPF アプリのパッケージ化に必要です。
 
     1. ソリューションエクスプローラーで、WPF プロジェクト ノードを右クリックし、**プロジェクトのアンロード** を選択します。
     2. WPF プロジェクトノードを右クリックし、 **[編集]** を選択します。
@@ -317,7 +302,7 @@ WPF アプリでカスタム UWP コントロールをホストするには、�
     4. プロジェクトファイルを保存して閉じます。
     5. WPF プロジェクトノードを右クリックし、 **[プロジェクトの再読み込み]** をクリックします。
 
-6. パッケージプロジェクトをビルドして実行します。 WPF が実行され、UWP カスタムコントロールが想定どおりに表示されることを確認します。
+5. パッケージプロジェクトをビルドして実行します。 WPF が実行され、UWP カスタムコントロールが想定どおりに表示されることを確認します。
 
 ## <a name="related-topics"></a>関連トピック
 

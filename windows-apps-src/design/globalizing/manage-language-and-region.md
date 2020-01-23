@@ -7,12 +7,12 @@ ms.date: 11/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, グローバリゼーション, ローカライズの可否, ローカライズ
 ms.localizationpriority: medium
-ms.openlocfilehash: 79edf30733f7bca443c5fd12103fbd5d93909732
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: 1642f8ccc989ce224ff0b3250fa1b79c954167b1
+ms.sourcegitcommit: 85fd390b1e602707bd9342cb4b84b97ae0d8b831
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74258066"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76520417"
 ---
 # <a name="understand-user-profile-languages-and-app-manifest-languages"></a>ユーザー プロファイルの言語とアプリ マニフェストの言語について
 Windows ユーザーは、 **[設定]**  >  **[時刻と言語]**  >  **[地域と言語]** の順に移動して、優先される表示言語の順序指定された一覧を構成するか、または優先される 1 つの表示言語を構成できます。 言語には場合によっては地域バリアントがあります。 たとえば、スペインで話されるスペイン語、メキシコで話されるスペイン語、米国で話されるスペイン語などを選ぶことができます。
@@ -35,7 +35,7 @@ UWP アプリの場合、言語は [BCP-47 言語タグ](https://tools.ietf.org/
 ## <a name="app-manifest-language-list"></a>アプリ マニフェストの言語の一覧
 アプリ マニフェストの言語の一覧は、アプリでサポートを宣言している (または宣言する) 言語の一覧です。 この一覧は、ローカライズまで開発ライフサイクルを通じてアプリを進行させるにつれて大きくなります。
 
-一覧はコンパイル時に決定されますが、決定方法を正確に制御するための 2 つのオプションがあります。 1 つ目のオプションは、Visual Studio でプロジェクト内のファイルから一覧を決定する方法です。 これを行うには、まずアプリのパッケージ マニフェスト ソース ファイル ( **) の** [アプリケーション] **タブでアプリの**既定の言語`Package.appxmanifest`を設定します。 次に、同じファイルにこの構成が含まれていることを確認します (既定では含まれています)。
+一覧はコンパイル時に決定されますが、決定方法を正確に制御するための 2 つのオプションがあります。 1 つ目のオプションは、Visual Studio でプロジェクト内のファイルから一覧を決定する方法です。 これを行うには、まずアプリのパッケージ マニフェスト ソース ファイル (`Package.appxmanifest`) の **[アプリケーション]** タブでアプリの**既定の言語**を設定します。 次に、同じファイルにこの構成が含まれていることを確認します (既定では含まれています)。
 
 ```xml
   <Resources>
@@ -53,7 +53,7 @@ UWP アプリの場合、言語は [BCP-47 言語タグ](https://tools.ietf.org/
   </Resources>
 ```
 
-もう 1 つのオプションは、アプリ パッケージ マニフェスト ソース ファイル (`<Resource>`) 内の単一の "x-generate" `Package.appxmanifest` 要素を `<Resource>` 要素の展開時のリストで置き換える方法です (既定の言語を最初に表示するように注意してください)。 このオプションの方がメンテナンス作業が多くなりますが、カスタム ビルド システムを使用する場合には適切なオプションです。
+もう 1 つのオプションは、アプリ パッケージ マニフェスト ソース ファイル (`Package.appxmanifest`) 内の単一の "x-generate" `<Resource>` 要素を `<Resource>` 要素の展開時のリストで置き換える方法です (既定の言語を最初に表示するように注意してください)。 このオプションの方がメンテナンス作業が多くなりますが、カスタム ビルド システムを使用する場合には適切なオプションです。
 
 まず、アプリ マニフェストの言語の一覧には 1 つの言語のみが含められます。 たとえば en-US です。 ただし、最終的には、手動でマニフェストを構成するか、またはプロジェクトに翻訳されたリソースを追加すると、そのリストが大きくなる&mdash;&mdash;ます。
 
@@ -70,7 +70,7 @@ UWP アプリの場合、言語は [BCP-47 言語タグ](https://tools.ietf.org/
 
 具体的には、アプリの実行時の言語の一覧は次の項目で構成されています。
 
-1.  **(オプション) 第 1 言語の上書き**。 [  **PrimaryLanguageOverride**](/uwp/api/Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride) は、独自の独立した言語選択をユーザーに提示するアプリや、既定の言語選択を無効にしなければならない重大な理由があるアプリで利用できる、シンプルな上書き設定です。 詳細については、「[アプリ リソースとローカライズのサンプルに関するページ](https://code.msdn.microsoft.com/windowsapps/Application-resources-and-cd0c6eaa)」を参照してください。
+1.  **(オプション) 第 1 言語の上書き**。 [  **PrimaryLanguageOverride**](/uwp/api/Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride) は、独自の独立した言語選択をユーザーに提示するアプリや、既定の言語選択を無効にしなければならない重大な理由があるアプリで利用できる、シンプルな上書き設定です。 詳しくは、[アプリ リソースとローカライズのサンプルに関するページ](https://code.msdn.microsoft.com/windowsapps/Application-resources-and-cd0c6eaa)をご覧ください。
 2.  **アプリでサポートされるユーザーの言語**。 これは、アプリ マニフェストの言語の一覧でフィルター処理されたユーザー プロファイルの言語の一覧です。 アプリでサポートされる言語でユーザーの言語をフィルター処理することで、ソフトウェア開発キット (SDK)、クラス ライブラリ、依存性のあるフレームワーク パッケージ、そのアプリの間で一貫性が保たれます。
 3.  **1 と 2 が空の場合、アプリでサポートされる既定または最初の言語**。 ユーザー プロファイルの言語の一覧に、アプリでサポートされる言語が含まれない場合は、アプリで最優先にサポートされる言語がアプリの実行時の言語として選ばれます。
 
@@ -193,7 +193,7 @@ UWP アプリの場合、言語は [BCP-47 言語タグ](https://tools.ietf.org/
 </table>
 
 >[!NOTE]
-> Microsoft が使用する標準の国/地域コードの一覧については、[公式の国/地域の一覧](https://globalready.azurewebsites.net/marketreadiness/OfficialCountryregion)を参照してください。
+> Microsoft が使用する標準の国/地域コードの一覧については、[公式の国/地域の一覧](/windows/uwp/publish/supported-languages)を参照してください。
 
 ## <a name="important-apis"></a>重要な API
 * [GlobalizationPreferences](/uwp/api/windows.system.userprofile.globalizationpreferences.Languages)
