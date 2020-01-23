@@ -7,19 +7,18 @@ ms.topic: article
 ms.assetid: 88da6d1a-379c-4173-a56d-d8b9a4eab5da
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: f33e2f10686edf149feb11e317a10e535685ef19
-ms.sourcegitcommit: 6169660ea437915265165c4631d9702587e4793d
+ms.openlocfilehash: 4678565547616c0cee4a7961cb4a0c95fc03241b
+ms.sourcegitcommit: 85fd390b1e602707bd9342cb4b84b97ae0d8b831
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74902542"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76520457"
 ---
 # <a name="design-toolkits-and-samples-for-uwp-apps"></a>UWP アプリ用の設計ツールキットとサンプル
 
 ![設計の基本](../images/downloads-2x.png)
 
-Fluent Design/UWP アプリの設計と UI に関連するダウンロード。 Visual Studio など、その他のツールについては、<a href="https://developer.microsoft.com/windows/downloads">メインのダウンロード ページ</a>をご覧ください。 
-
+Fluent Design/UWP アプリの設計と UI に関連するダウンロード。 Visual Studio など、その他のツールについては、<a href="https://developer.microsoft.com/windows/downloads">メインのダウンロード ページ</a>をご覧ください。
 
 ## <a name="design-toolkits"></a>設計ツールキット
 
@@ -60,11 +59,6 @@ v1705、2017 年 5 月<br>
 <a href="https://aka.ms/adobephotoshoptoolkit">ダウンロード</a>
     :::column-end:::
     :::column:::
-![ヒーロー イメージ](images/framer.png)
-<b>Framer ツールキット</b><br>
-(このツールはサポートされなくなりました。)<br/>
-v1806、2018 年 6 月<br>
-<a href="https://github.com/Microsoft/windows-framer-toolkit">ダウンロード</a>
     :::column-end:::
 :::row-end:::
 
@@ -127,7 +121,7 @@ BuildCast は、Fluent Design System と UWP を示すために組み込まれ�
 
 ![Xaml コントロール ギャラリー](images/xaml-controls-gallery.png)
 **XAML コントロール ギャラリー**<br>
-このサンプルは、すべての XAML コントロールの対話型デモを提供します。 基本的なものから応用まで、さまざまなレイアウトを示し、独自のプロジェクトにコピーすることができますマークアップを表示します。 注:ダウンロード ファイルと GitHub リポジトリでは現在、このサンプル アプリが "UI の基本 (XAML)" と呼ばれています。 <br/><a href="https://github.com/Microsoft/Windows-universal-samples/archive/master.zip">XAML コントロール ギャラリー サンプルをダウンロードする</a><br/><a href="https://github.com/Microsoft/Xaml-Controls-Gallery">GitHub で XAML コントロール ギャラリー サンプルを確認する</a> <br/><a href="https://www.microsoft.com/store/apps/9msvh128x2zt">XAML コントロール ギャラリー アプリを Microsoft Store からダウンロードする</a></p>
+このサンプルは、すべての XAML コントロールの対話型デモを提供します。 基本的なものから応用まで、さまざまなレイアウトを示し、独自のプロジェクトにコピーすることができますマークアップを表示します。 注: ダウンロード ファイルと GitHub リポジトリでは現在、このサンプル アプリが "UI の基本 (XAML)" と呼ばれています。 <br/><a href="https://github.com/Microsoft/Windows-universal-samples/archive/master.zip">XAML コントロール ギャラリー サンプルをダウンロードする</a><br/><a href="https://github.com/Microsoft/Xaml-Controls-Gallery">GitHub で XAML コントロール ギャラリー サンプルを確認する</a> <br/><a href="https://www.microsoft.com/store/apps/9msvh128x2zt">XAML コントロール ギャラリー アプリを Microsoft Store からダウンロードする</a></p>
 
 ## <a name="want-more-code"></a>他のコードをお探しの場合は、
 

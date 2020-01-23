@@ -106,13 +106,13 @@
           href: controls-and-patterns/listview-and-gridview.md
         - name: フリップ ビュー
           href: controls-and-patterns/flipview.md
-        - name: ツリー ビュー
+        - name: ツリー構造
           href: controls-and-patterns/tree-view.md
         - name: ItemsRepeater
           href: controls-and-patterns/items-repeater.md
-        - name: 項目コンテナーやテンプレート
+        - name: 項目コンテナーとテンプレート
           items:
-            - name: 項目コンテナーやテンプレート
+            - name: 項目コンテナーとテンプレート
               href: controls-and-patterns/item-containers-templates.md
             - name: データ テンプレートの選択
               href: controls-and-patterns/data-template-selector.md
@@ -126,7 +126,7 @@
               href: controls-and-patterns/collection-commanding.md
             - name: 選択モードの概要
               href: controls-and-patterns/selection-modes.md
-            - name: スワイプ
+            - name: Swipe
               href: controls-and-patterns/swipe.md
             - name: 引っ張って更新
               href: controls-and-patterns/pull-to-refresh.md
@@ -172,9 +172,9 @@
           href: controls-and-patterns/command-bar-flyout.md
         - name: メニューとショートカット メニュー
           href: controls-and-patterns/menus.md
-    - name: ナビゲーション
+    - name: ［ナビゲーション］
       items:
-        - name: マスター/詳細
+        - name: マスターと詳細
           href: controls-and-patterns/master-details.md
         - name: ナビゲーション ビュー
           href: controls-and-patterns/navigationview.md
@@ -182,7 +182,7 @@
           href: controls-and-patterns/pivot.md
         - name: タブ ビュー
           href: controls-and-patterns/tab-view.md
-    - name: People
+    - name: ユーザー
       items:
         - name: 連絡先カード
           href: controls-and-patterns/contact-card.md
@@ -212,11 +212,11 @@
       href: controls-and-patterns/search.md
     - name: 状態と情報
       items:
-        - name: 進行状況
+        - name: ［進行状況］
           href: controls-and-patterns/progress-controls.md
         - name: ヒント
           href: controls-and-patterns/tooltips.md
-    - name: Text
+    - name: テキスト
       items:
         - name: 概要
           href: controls-and-patterns/text-controls.md
@@ -240,11 +240,13 @@
           href: controls-and-patterns/content-links.md
         - name: 手書きビュー
           href: controls-and-patterns/text-handwriting-view.md
+    - name: 2 つのペインからなるビュー
+      href: controls-and-patterns/two-pane-view.md
 - name: スタイル
   items:
     - name: 概要
       href: style/index.md
-    - name: 色
+    - name: Color
       href: style/color.md
     - name: 文字体裁
       href: style/typography.md
@@ -306,9 +308,9 @@
           href: motion/storyboarded-animations.md
         - name: キー フレームとイージング関数のアニメーション
           href: motion/key-frame-and-easing-function-animations.md
-- name: シェル
+- name: Shell
   items:
-    - name: タイル
+    - name: Tiles
       href: shell/tiles-and-notifications/creating-tiles.md
       items:
         - name: セカンダリ タイル
@@ -423,7 +425,7 @@
           href: input/save-and-load-ink.md
         - name: Ink ツール バーの追加
           href: input/ink-toolbar.md
-    - name: タッチ
+    - name: Touch
       href: input/touch-interactions.md
     - name: マウス
       href: input/mouse-interactions.md
@@ -446,7 +448,7 @@
           href: input/use-input-scope-to-change-the-touch-keyboard.md
     - name: ゲームパッドとリモート制御
       href: input/gamepad-and-remote-interactions.md
-    - name: タッチパッド
+    - name: Touchpad
       href: input/touchpad-interactions.md
     - name: Surface Dial
       href: input/windows-wheel-interactions.md
@@ -505,7 +507,7 @@
       href: input/guidelines-for-rotation.md
     - name: テキストと画像の選択
       href: input/guidelines-for-textselection.md
-    - name: ターゲット設定
+    - name: ターゲット
       href: input/guidelines-for-targeting.md
     - name: 視覚的なフィードバック
       href: input/guidelines-for-visualfeedback.md
@@ -517,7 +519,7 @@
       href: devices/designing-for-tv.md
     - name: Mixed Reality
       href: devices/designing-for-MR.md
-- name: ユーザビリティ
+- name: 使いやすさ
   items:
     - name: 概要
       href: usability/index.md
