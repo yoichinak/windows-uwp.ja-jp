@@ -2,22 +2,22 @@
 description: このチュートリアルでは、UWP XAML ユーザーインターフェイスを追加する方法、MSIX パッケージを作成する方法、およびその他の最新のコンポーネントを WPF アプリに組み込む方法について説明します。
 title: MSIX によるパッケージとデプロイ
 ms.topic: article
-ms.date: 06/27/2019
+ms.date: 01/23/2020
 ms.author: mcleans
 author: mcleanbyron
 keywords: windows 10、uwp、windows フォーム、wpf、xaml islands
 ms.localizationpriority: medium
 ms.custom: RS5, 19H1
-ms.openlocfilehash: 6f5c01b23f02bb9c116ddaaec698612aa539539d
-ms.sourcegitcommit: e9dc2711f0a0758727468f7ccd0d0f0eee3363e3
+ms.openlocfilehash: 27906d9d389c065ab1fdf7124151cd1915f850eb
+ms.sourcegitcommit: 8a88a05ad89aa180d41a93152632413694f14ef8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69979348"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76726015"
 ---
-# <a name="part-5-package-and-deploy-with-msix"></a>第 5 部:MSIX によるパッケージとデプロイ
+# <a name="part-5-package-and-deploy-with-msix"></a>パート 5: MSIX によるパッケージ化と配置
 
-これは、Contoso の支出という名前の WPF デスクトップアプリのサンプルを最新化する方法を示すチュートリアルの最後の部分です。 サンプルアプリをダウンロードするためのチュートリアル、前提条件、および手順の概要につい[ては、「チュートリアル:WPF アプリ](modernize-wpf-tutorial.md)を最新化します。 この記事では、[パート 4](modernize-wpf-tutorial-4.md)が既に完了していることを前提としています。
+これは、Contoso の支出という名前の WPF デスクトップアプリのサンプルを最新化する方法を示すチュートリアルの最後の部分です。 サンプルアプリをダウンロードするためのチュートリアル、前提条件、および手順の概要については、「[チュートリアル: WPF アプリの](modernize-wpf-tutorial.md)最新化」を参照してください。 この記事では、[パート 4](modernize-wpf-tutorial-4.md)が既に完了していることを前提としています。
 
 [パート 4](modernize-wpf-tutorial-4.md)では、notification api を含む一部の WinRT api は、アプリで使用する前に、パッケージ id が必要であることを学習しました。 Windows アプリケーションをパッケージ化して展開するために Windows 10 で導入されたパッケージ形式である[Msix](https://docs.microsoft.com/windows/msix)を使用して Contoso の経費をパッケージ化することで、パッケージ id を取得できます。 MSIX には、開発者や IT プロフェッショナルにとって、次のような利点があります。
 
@@ -36,11 +36,11 @@ Visual Studio 2019 では、Windows アプリケーションパッケージプ�
 
     ![新しいプロジェクトの追加](images/wpf-modernize-tutorial/AddNewProject.png)
 
-3. **[新しいプロジェクトの追加]** ダイアログボックスで、を`packaging`検索し、 C#カテゴリで**Windows アプリケーションパッケージプロジェクト**プロジェクトテンプレートを選択して、 **[次へ]** をクリックします。
+3. **[新しいプロジェクトの追加]** ダイアログボックスで、`packaging`を検索し、 C#カテゴリで**Windows アプリケーションパッケージプロジェクト**プロジェクトテンプレートを選択して、 **[次へ]** をクリックします。
 
-    ![Windows アプリケーション パッケージ プロジェクト](images/wpf-modernize-tutorial/WAP.png)
+    ![Windows アプリケーションパッケージプロジェクト](images/wpf-modernize-tutorial/WAP.png)
 
-4. 新しいプロジェクト`ContosoExpenses.Package`に名前を指定し、 **[作成]** をクリックします。
+4. 新しいプロジェクトに `ContosoExpenses.Package` 名前を指定し、 **[作成]** をクリックします。
 
 5. **Windows 10 バージョン 1903 (10.0; を選択します。ビルド 18362)** を**ターゲットバージョン**と**最小バージョン**の両方に使用し、[ **OK]** をクリックします。
 
@@ -54,37 +54,7 @@ Visual Studio 2019 では、Windows アプリケーションパッケージプ�
 
 8. **ContosoExpenses**プロジェクトを右クリックし、 **[スタートアッププロジェクトに設定]** を選択します。
 
-9. ソリューションエクスプローラーで、 **ContosoExpenses**プロジェクトノードを右クリックし、 **[プロジェクトファイルの編集]** を選択します。
-
-10. ファイル内の `<Import Project="$(WapProjPath)\Microsoft.DesktopBridge.targets" />` 要素を見つけます。
-
-11. この要素を次の XML に置き換えます。
-
-    ``` xml
-    <ItemGroup>
-        <SDKReference Include="Microsoft.VCLibs,Version=14.0">
-        <TargetedSDKConfiguration Condition="'$(Configuration)'!='Debug'">Retail</TargetedSDKConfiguration>
-        <TargetedSDKConfiguration Condition="'$(Configuration)'=='Debug'">Debug</TargetedSDKConfiguration>
-        <TargetedSDKArchitecture>$(PlatformShortName)</TargetedSDKArchitecture>
-        <Implicit>true</Implicit>
-        </SDKReference>
-    </ItemGroup>
-    <Import Project="$(WapProjPath)\Microsoft.DesktopBridge.targets" />
-    <Target Name="_StompSourceProjectForWapProject" BeforeTargets="_ConvertItems">
-        <ItemGroup>
-        <_TemporaryFilteredWapProjOutput Include="@(_FilteredNonWapProjProjectOutput)" />
-        <_FilteredNonWapProjProjectOutput Remove="@(_TemporaryFilteredWapProjOutput)" />
-        <_FilteredNonWapProjProjectOutput Include="@(_TemporaryFilteredWapProjOutput)">
-            <SourceProject></SourceProject>
-            <TargetPath Condition="'%(FileName)%(Extension)'=='resources.pri'">app_resources.pri</TargetPath>
-        </_FilteredNonWapProjProjectOutput>
-        </ItemGroup>
-    </Target>
-    ```
-
-12. プロジェクトファイルを保存して閉じます。
-
-13. **F5**キーを押して、デバッガーでパッケージアプリを起動します。
+9. **F5**キーを押して、デバッガーでパッケージアプリを起動します。
 
 この時点で、アプリがパッケージとして実行されていることを示す変更がいくつかあります。
 
@@ -99,7 +69,7 @@ Visual Studio 2019 では、Windows アプリケーションパッケージプ�
 
 これで、MSIX を使用して Contoso の経費アプリをパッケージ化したので、[パート 4](modernize-wpf-tutorial-4.md)の最後で動作しなかった通知シナリオをテストできます。
 
-1. Contoso の経費アプリで、一覧から従業員を選択し、[Add new] \ (**新しい費用の追加**\) ボタンをクリックします。 
+1. Contoso の経費アプリで、一覧から従業員を選択し、[Add new] \ (**新しい費用の追加**\) ボタンをクリックします。
 2. フォーム内のすべてのフィールドを入力し、 **[保存]** をクリックします。
 3. OS の通知が表示されていることを確認します。
 

@@ -8,12 +8,12 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: 4fb6e2d4fc13d90ec69f962e69b1ee8cb5c1361c
-ms.sourcegitcommit: 85fd390b1e602707bd9342cb4b84b97ae0d8b831
+ms.openlocfilehash: 70ba858daa09f4412a771441e76f5c00dd8c6c32
+ms.sourcegitcommit: 8a88a05ad89aa180d41a93152632413694f14ef8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76520397"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76725985"
 ---
 # <a name="host-a-custom-uwp-control-in-a-wpf-app-using-xaml-islands"></a>XAML アイランドを使用した WPF アプリでのカスタム UWP コントロールのホスト
 
@@ -258,36 +258,7 @@ WPF アプリでカスタム UWP コントロールをホストするには、�
 
 2. パッケージプロジェクトで、 **[アプリケーション]** ノードを右クリックし、 **[参照の追加]** を選択します。 プロジェクトの一覧で、ソリューション内の WPF プロジェクトを選択し、[ **OK]** をクリックします。
 
-3. パッケージプロジェクトファイルを編集します。 これらの変更は、現在、.NET Core 3 を対象とし、XAML アイランドをホストする WPF アプリをパッケージ化するために必要です。
-
-    1. ソリューションエクスプローラーで、パッケージプロジェクト ノードを右クリックし、**プロジェクトファイルの編集** を選択します。
-    2. ファイル内の `<Import Project="$(WapProjPath)\Microsoft.DesktopBridge.targets" />` 要素を見つけます。 この要素を次の XML に置き換えます。 これらの変更は、現在、.NET Core 3 を対象とする WPF アプリをパッケージ化し、UWP コントロールをホストするために必要です。
-
-        ``` xml
-        <ItemGroup>
-            <SDKReference Include="Microsoft.VCLibs,Version=14.0">
-            <TargetedSDKConfiguration Condition="'$(Configuration)'!='Debug'">Retail</TargetedSDKConfiguration>
-            <TargetedSDKConfiguration Condition="'$(Configuration)'=='Debug'">Debug</TargetedSDKConfiguration>
-            <TargetedSDKArchitecture>$(PlatformShortName)</TargetedSDKArchitecture>
-            <Implicit>true</Implicit>
-            </SDKReference>
-        </ItemGroup>
-        <Import Project="$(WapProjPath)\Microsoft.DesktopBridge.targets" />
-        <Target Name="_StompSourceProjectForWapProject" BeforeTargets="_ConvertItems">
-            <ItemGroup>
-            <_TemporaryFilteredWapProjOutput Include="@(_FilteredNonWapProjProjectOutput)" />
-            <_FilteredNonWapProjProjectOutput Remove="@(_TemporaryFilteredWapProjOutput)" />
-            <_FilteredNonWapProjProjectOutput Include="@(_TemporaryFilteredWapProjOutput)">
-                <SourceProject></SourceProject>
-                <TargetPath Condition="'%(FileName)%(Extension)'=='resources.pri'">app_resources.pri</TargetPath>
-            </_FilteredNonWapProjProjectOutput>
-            </ItemGroup>
-        </Target>
-        ```
-
-    3. プロジェクトファイルを保存して閉じます。
-
-4. WPF プロジェクトファイルを編集します。 これらの変更は、現在、カスタム UWP コントロールをホストする WPF アプリのパッケージ化に必要です。
+3. WPF プロジェクトファイルを編集します。 これらの変更は、現在、カスタム UWP コントロールをホストする WPF アプリのパッケージ化に必要です。
 
     1. ソリューションエクスプローラーで、WPF プロジェクト ノードを右クリックし、**プロジェクトのアンロード** を選択します。
     2. WPF プロジェクトノードを右クリックし、 **[編集]** を選択します。
@@ -302,7 +273,7 @@ WPF アプリでカスタム UWP コントロールをホストするには、�
     4. プロジェクトファイルを保存して閉じます。
     5. WPF プロジェクトノードを右クリックし、 **[プロジェクトの再読み込み]** をクリックします。
 
-5. パッケージプロジェクトをビルドして実行します。 WPF が実行され、UWP カスタムコントロールが想定どおりに表示されることを確認します。
+4. パッケージプロジェクトをビルドして実行します。 WPF が実行され、UWP カスタムコントロールが想定どおりに表示されることを確認します。
 
 ## <a name="related-topics"></a>関連トピック
 

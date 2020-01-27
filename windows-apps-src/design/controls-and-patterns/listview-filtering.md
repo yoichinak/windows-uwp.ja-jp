@@ -25,7 +25,7 @@ ms.locfileid: "75302656"
 
 次のコードは、単純な ListView、その DataTemplate、付随する TextBox を含む UI を示しています。 この例では、ListView は Person オブジェクトのコレクションを表示します。 Person は (下記のコード サンプルには示されていない) 分離コードで定義されるクラスであり、各 Person オブジェクトには次のプロパティがあります: FirstName、LastName、Company。
 
-ユーザーは TextBox を使用して検索/フィルター条件を入力し、Person オブジェクトのリストを姓でフィルター処理できます。 TextBox は特定の名前 (`FilterByLName`) にバインドされ、独自の TextChanged イベント (`FilteredLV_LNameChanged`) を備えていることに注意してください。 バインドされた名前によって、分離コードで TextBox の内容/テキストにアクセスでます。また、ユーザーが TextBox に入力するたびに TextChanged イベントが発生し、それを利用して、ユーザー入力を受け取った時点でフィルター操作を実行できます。 
+ユーザーは TextBox を使用して検索/フィルター条件を入力し、Person オブジェクトのリストを姓でフィルター処理できます。 TextBox は特定の名前 (`FilterByLName`) にバインドされ、独自の TextChanged イベント (`FilteredLV_LNameChanged`) を備えていることに注意してください。 バインドされた名前によって、分離コードで TextBox の内容/テキストにアクセスできます。また、ユーザーが TextBox に入力するたびに TextChanged イベントが発生し、それを利用して、ユーザー入力を受け取った時点でフィルター操作を実行できます。 
 
 フィルター処理が機能するためには、分離コードで操作できる `ObservableCollection<>` などのデータ ソースが ListView に必要です。 この場合、ListView の ItemsSource プロパティが分離コードの `ObservableCollection<Person>` に割り当てられます。 
 

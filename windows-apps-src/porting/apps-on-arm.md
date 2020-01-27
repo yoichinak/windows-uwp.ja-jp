@@ -5,12 +5,12 @@ ms.date: 02/15/2018
 ms.topic: article
 keywords: windows 10 s, 常時接続, ARM, ARM64, x86 エミュレーション
 ms.localizationpriority: medium
-ms.openlocfilehash: 004b2410ab050ca32ec6219b2d9a6ba0d45a6ebb
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.openlocfilehash: 1a72fbaf4982f2a053298f10279eacba6a46d05d
+ms.sourcegitcommit: 8a88a05ad89aa180d41a93152632413694f14ef8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75683925"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76726005"
 ---
 # <a name="windows-10-on-arm"></a>ARM 版 Windows 10
 もともと、Windows 10 (Windows 10 Mobile とは区別されます) は、x86 および x64 プロセッサを搭載した PC でのみ実行できました。 現在、Windows 10 desktop は、ARM64 プロセッサを搭載したコンピューターで実行できます。 ARM CPU アーキテクチャが持つ省電力の性質により、これらの PC のバッテリーが終日持つようになり、モバイル データ ネットワークがサポートされるようになります。 これらの PC にはアプリケーションの互換性が十分に備わっており、既存の x86 win32 アプリケーションを変更せずに実行できます。 詳細やデモについては、「[常時接続されている PC の Channel 9 ビデオ](https://channel9.msdn.com/Events/Build/2017/P4171)」を参照してください。
@@ -30,7 +30,7 @@ ARM 上の Windows 10 は、Microsoft Store からすべての x86、ARM32、お
 
 
 >[!IMPORTANT]
-> ユーザーが Microsoft Store から UWP アプリをダウンロードすると、x86 バージョンしか利用できない場合を除き、ARM32 バージョンが ARM64 デバイスにダウンロードされます。 アーキテクチャについて詳しくは、「[アプリ パッケージのアーキテクチャ](/windows/msix/package/device-architecture)」をご覧ください。
+> ARM 上の Windows 10 は、ARM64 デバイス上のストアからの x86、ARM32、ARM64 UWP アプリをサポートしています。 ユーザーが ARM64 デバイスに UWP アプリをダウンロードすると、使用可能なアプリの最適なバージョンが OS によって自動的にインストールされます。 アプリの x86、ARM32、ARM64 バージョンをストアに送信すると、アプリの ARM64 バージョンが OS によって自動的にインストールされます。 アプリの x86 と ARM32 のバージョンのみを送信する場合、OS は ARM32 バージョンをインストールします。 アプリの x86 バージョンのみを送信する場合は、OS によってそのバージョンがインストールされ、エミュレーション下で実行されます。 アーキテクチャについて詳しくは、「[アプリ パッケージのアーキテクチャ](/windows/msix/package/device-architecture)」をご覧ください。
 
 ### <a name="win32-apps"></a>Win32 アプリ
 UWP アプリに加えて、ARM 上の Windows 10 では、PC と同じように、優れたパフォーマンスとシームレスなユーザーエクスペリエンスで、x86 Win32 アプリを変更せずに実行することもできます。 これらの x86 Win32 アプリは ARM 用に再コンパイルする必要がなく、ARM プロセッサで実行されていることを認識していません。 64ビットの x64 Win32 アプリはサポートされていませんが、ほとんどのアプリには x86 バージョンが用意されています。  アプリのアーキテクチャを選択した場合は、ARM PC 上の Windows 10 でアプリを実行するために、32ビットの x86 バージョンを選択するだけです。

@@ -5,12 +5,12 @@ template: detail.hbs
 ms.date: 11/07/2017
 ms.topic: article
 keywords: Windows 10, UWP, Fluent
-ms.openlocfilehash: e1a5b192ed57d3962b6ba4cbef69e3663bc1e2ec
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.openlocfilehash: b6533864748b4245b16ec7bcea9d2a831ff1c88a
+ms.sourcegitcommit: 85fd390b1e602707bd9342cb4b84b97ae0d8b831
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75683995"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76520447"
 ---
 # <a name="forms"></a>フォーム
 フォームは、ユーザーからデータを収集して送信するコントロールのグループです。 通常、フォームは、ページの設定、調査、アカウントの作成、その他に使われます。 
@@ -127,7 +127,7 @@ Control | vmmblue_2 | 例
 ### <a name="lists"></a>リスト
 Control | vmmblue_2 | 例
 - | - | -
-[ComboBox](https://docs.microsoft.com/windows/uwp/controls-and-patterns/lists.md#drop-down-lists) | コンパクトな状態で開始し、展開して選択可能な項目の一覧を表示します | 州や国などの長い項目一覧からの選択
+[ComboBox](combo-box.md) | コンパクトな状態で開始し、展開して選択可能な項目の一覧を表示します | 州や国などの長い項目一覧からの選択
 [ListView](https://docs.microsoft.com/windows/uwp/controls-and-patterns/lists#list-views) | 項目の分類とグループ ヘッダーの割り当て、項目のドラッグ アンド ドロップ、コンテンツの整理、項目の順序変更を行います | ランク オプション
 [GridView](https://docs.microsoft.com/windows/uwp/controls-and-patterns/lists#grid-views) | イメージ ベースのコレクションを配置および参照します | 写真、色、表示テーマの選択
 
