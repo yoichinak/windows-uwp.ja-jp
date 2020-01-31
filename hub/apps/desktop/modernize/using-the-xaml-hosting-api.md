@@ -1,19 +1,19 @@
 ---
 description: この記事では、デスクトップC++ Win32 アプリで UWP XAML UI をホストする方法について説明します。
 title: UWP XAML を使用した C++ Win32 アプリでの API のホスト
-ms.date: 01/10/2010
+ms.date: 01/24/2020
 ms.topic: article
 keywords: windows 10、uwp、windows フォーム、wpf、win32、xaml islands
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: 5a0973bcce4de4fac8f923a303b0c3216600fb97
-ms.sourcegitcommit: 85fd390b1e602707bd9342cb4b84b97ae0d8b831
+ms.openlocfilehash: 7574fb5920433f894819ffd3d94e31fef03d30b3
+ms.sourcegitcommit: 1455e12a50f98823bfa3730c1d90337b1983b711
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76520427"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76814032"
 ---
 # <a name="using-the-uwp-xaml-hosting-api-in-a-c-win32-app"></a>UWP XAML を使用した C++ Win32 アプリでの API のホスト
 
@@ -95,9 +95,9 @@ UWP XAML ホスティング API には、これらの主な Windows ランタイ
 
 次のサンプルは、 C++ Win32 アプリで UWP XAML ホスティング API を使用する方法を示しています。
 
-* [単純な XAML アイランドサンプル](https://github.com/marb2000/XamlIslands/tree/master/1903_Samples/CppWinRT_Win32_SimpleApp)。 このサンプルでは、パッケージ化されていないC++ Win32 アプリ (つまり、msix パッケージに組み込まれていないアプリ) で UWP コントロールをホストする基本的な実装を示します。
+* [単純な XAML アイランドサンプル](https://github.com/microsoft/Xaml-Islands-Samples/tree/master/Standalone_Samples/CppWinRT_Basic_Win32App)。 このサンプルでは、パッケージ化されていないC++ Win32 アプリ (つまり、msix パッケージに組み込まれていないアプリ) で UWP コントロールをホストする基本的な実装を示します。
 
-* [カスタムコントロールのサンプルを使用した XAML 島](https://github.com/marb2000/XamlIslands/tree/master/1903_Samples/CppWinRT_Win32_App)。 このサンプルでは、パッケージC++されていない Win32 アプリでカスタム UWP コントロールをホストする完全な実装と、キーボード入力やフォーカス移動などの他の動作を処理する方法を示します。 
+* [カスタムコントロールのサンプルを使用した XAML 島](https://github.com/microsoft/Xaml-Islands-Samples/tree/master/Samples/Win32)。 このサンプルでは、パッケージ化C++された Win32 アプリでカスタム UWP コントロールをホストする完全な実装と、キーボード入力やフォーカス移動などの他の動作を処理する方法を示します。
 
 ### <a name="wpf-and-windows-forms"></a>WPF と Windows フォーム
 
@@ -109,7 +109,7 @@ Windows Community Toolkit の[Windowsxamlhost](https://docs.microsoft.com/window
 
 ## <a name="host-a-standard-uwp-control"></a>標準の UWP コントロールをホストする
 
-このセクションでは、UWP XAML ホスティング API を使用して、新しいC++ Win32 アプリで標準の uwp コントロール (つまり、Windows SDK または WinUI ライブラリによって提供されるコントロール) をホストするプロセスについて説明します。 このコードは、[単純な XAML Islands サンプル](https://github.com/marb2000/XamlIslands/tree/master/1903_Samples/CppWinRT_Win32_SimpleApp)に基づいています。このセクションでは、コードの最も重要な部分について説明します。 既存C++の Win32 アプリプロジェクトがある場合は、プロジェクトのこれらの手順とコード例を調整できます。
+このセクションでは、UWP XAML ホスティング API を使用して、新しいC++ Win32 アプリで標準の uwp コントロール (つまり、Windows SDK または WinUI ライブラリによって提供されるコントロール) をホストするプロセスについて説明します。 このコードは、[単純な XAML Islands サンプル](https://github.com/microsoft/Xaml-Islands-Samples/tree/master/Standalone_Samples/CppWinRT_Basic_Win32App)に基づいています。このセクションでは、コードの最も重要な部分について説明します。 既存C++の Win32 アプリプロジェクトがある場合は、プロジェクトのこれらの手順とコード例を調整できます。
 
 ### <a name="configure-the-project"></a>プロジェクトを構成する
 
@@ -119,7 +119,7 @@ Windows Community Toolkit の[Windowsxamlhost](https://docs.microsoft.com/window
 
 3. [Microsoft. Windows. CppWinRT](https://www.nuget.org/packages/Microsoft.Windows.CppWinRT/) NuGet パッケージをインストールします。
 
-    1. **ソリューション エクスプローラー**でプロジェクトを右クリックし、 **[NuGet パッケージの管理]** をクリックします。
+    1. **ソリューションエクスプローラー**でプロジェクトを右クリックし、 **[NuGet パッケージの管理]** を選択します。
     2. **[参照]** タブを選択し、「 [Microsoft. Windows. cppwinrt](https://www.nuget.org/packages/Microsoft.Windows.CppWinRT/)パッケージ」を検索して、このパッケージの最新バージョンをインストールします。
 
 4. 次のようにして、 [Microsoft. Toolkit. UI](https://www.nuget.org/packages/Microsoft.Toolkit.Win32.UI.SDK) NuGet パッケージをインストールします。
@@ -341,9 +341,8 @@ XAML ホスティング API を使用して UWP コントロールをホスト�
 これらのタスクを示す完全な例については、次のコードファイルを参照してください。
 
 * **C++32**
-  * [単純な XAML Islands サンプル](https://github.com/marb2000/XamlIslands/tree/master/1903_Samples/CppWinRT_Win32_SimpleApp)の[HelloWindowsDesktop](https://github.com/marb2000/XamlIslands/blob/master/1903_Samples/CppWinRT_Win32_SimpleApp/Win32DesktopApp/HelloWindowsDesktop.cpp)ファイルを参照してください。
-  * [カスタムコントロールのサンプル付き XAML Islands](https://github.com/marb2000/XamlIslands/tree/master/1903_Samples/CppWinRT_Win32_App)の[xamlbridge .cpp](https://github.com/marb2000/XamlIslands/blob/master/1903_Samples/CppWinRT_Win32_App/SampleCppApp/XamlBridge.cpp)ファイルを参照してください。
-
+  * [HelloWindowsDesktop](https://github.com/microsoft/Xaml-Islands-Samples/blob/master/Standalone_Samples/CppWinRT_Basic_Win32App/Win32DesktopApp/HelloWindowsDesktop.cpp)ファイルを参照してください。
+  * [Xamlbridge .cpp](https://github.com/microsoft/Xaml-Islands-Samples/blob/master/Samples/Win32/SampleCppApp/XamlBridge.cpp)ファイルを参照してください。
 * **WPF:** Windows Community Toolkit の[WindowsXamlHostBase.cs](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/blob/master/Microsoft.Toolkit.Wpf.UI.XamlHost/WindowsXamlHostBase.cs)ファイルと[WindowsXamlHost.cs](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/blob/master/Microsoft.Toolkit.Wpf.UI.XamlHost/WindowsXamlHost.cs)ファイルを参照してください。  
 
 * **Windows フォーム:** Windows Community Toolkit の[WindowsXamlHostBase.cs](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/blob/master/Microsoft.Toolkit.Forms.UI.XamlHost/WindowsXamlHostBase.cs)ファイルと[WindowsXamlHost.cs](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/blob/master/Microsoft.Toolkit.Forms.UI.XamlHost/WindowsXamlHost.cs)ファイルを参照してください。
@@ -358,27 +357,29 @@ C++ Win32 アプリでカスタム UWP コントロール (自分で定義した
 
 * **カスタム UWP コントロール**。 アプリを使用してコンパイルできるように、ホストするカスタム UWP コントロールのソースコードが必要になります。 通常、カスタムコントロールは、 C++ Win32 プロジェクトと同じソリューションで参照する UWP クラスライブラリプロジェクトで定義されます。
 
-* **XamlApplication オブジェクトを定義する UWP アプリプロジェクト**。 C++ Win32 プロジェクトは、Windows Community Toolkit によって提供される `Microsoft.Toolkit.Win32.UI.XamlHost.XamlApplication` クラスのインスタンスにアクセスできる必要があります。 この型は、アプリケーションの現在のディレクトリ内のアセンブリにカスタム UWP XAML 型のメタデータを読み込むためのルートメタデータプロバイダーとして機能します。 これを行うには、 C++ Win32 プロジェクトと同じソリューションに空の**アプリ (ユニバーサル Windows)** プロジェクトを追加し、このプロジェクトの既定の `App` クラスを変更します。
+* **XamlApplication オブジェクトを定義する UWP アプリプロジェクト**。 C++ Win32 プロジェクトは、Windows Community Toolkit によって提供される、Microsoft の toolkit... [UI. xamlhost](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/tree/master/Microsoft.Toolkit.Win32.UI.XamlApplication)クラスのインスタンスにアクセスできる必要があります。 この型は、アプリケーションの現在のディレクトリ内のアセンブリにカスタム UWP XAML 型のメタデータを読み込むためのルートメタデータプロバイダーとして機能します。
+
+  これを行うには、 C++ win32 プロジェクトと同じソリューションに**空のアプリ (ユニバーサル Windows)** プロジェクトを追加し、`XamlApplication`から派生するようにこのプロジェクトの既定の `App` クラスを変更してから、 C++ win32 アプリのエントリポイントコードにこのオブジェクトのインスタンスを作成します。
+
   > [!NOTE]
   > ソリューションには、`XamlApplication`オブジェクトを定義するプロジェクトを 1 つだけ含めることができます。 アプリ内のすべてのカスタム UWP コントロールは、同じ `XamlApplication`オブジェクトを共有します。 `XamlApplication` オブジェクトを定義するプロジェクトには、XAML アイランドでホスト UWP コントロールを使用する他のすべての UWP ライブラリおよびプロジェクトへの参照を含める必要があります。
 
 C++ Win32 アプリでカスタム UWP コントロールをホストするには、次の一般的な手順に従います。
 
-1. Win32 デスクトップアプリプロジェクトが含まれているソリューションで、**空のアプリ (ユニバーサル Windows)** プロジェクトを追加し、関連する WPF チュートリアルの[このセクション](host-custom-control-with-xaml-islands.md#create-a-xamlapplication-object-in-a-uwp-app-project)の詳細な手順に従って構成します。 C++
+1. Win32 デスクトップアプリプロジェクトが含まれているソリューションで、**空のアプリ (ユニバーサル Windows)** プロジェクトを追加し、関連する WPF チュートリアルの[このセクション](host-custom-control-with-xaml-islands.md#define-a-xamlapplication-class-in-a-uwp-app-project)の詳細な手順に従って、`XamlApplication` クラスを定義します。 C++ 
 
 2. 同じソリューションで、カスタム UWP XAML コントロールのソースコードを含むプロジェクトを追加します (これは通常、UWP クラスライブラリプロジェクトです)。プロジェクトをビルドします。
 
 3. UWP アプリプロジェクトで、UWP クラスライブラリプロジェクトへの参照を追加します。
 
-4. C++ Win32 プロジェクトで、uwp アプリプロジェクトへの参照と、ソリューション内の uwp クラスライブラリプロジェクトへの参照を追加します。
+4. C++ Win32 プロジェクトの場合:
+
+  * UWP アプリプロジェクトへの参照と、ソリューション内の UWP クラスライブラリプロジェクトへの参照を追加します。
+  * `WinMain` 関数またはその他のエントリポイントコードで、前に UWP アプリプロジェクトで定義した `XamlApplication` クラスのインスタンスを作成します。 たとえば、 [XAML アイランドのサンプル](https://github.com/microsoft/Xaml-Islands-Samples)のC++ Win32 サンプルにある[次のコード行](https://github.com/microsoft/Xaml-Islands-Samples/blob/master/Standalone_Samples/CppWinRT_Desktop_Win32App/DesktopWin32App/DesktopWin32App.cpp#L46)を参照してください。
 
 5. 「 [Xaml ホスティング API を使用して UWP コントロールをホストする](#use-the-xaml-hosting-api-to-host-a-uwp-control)」セクションで説明されている手順に従って、アプリの xaml アイランドでカスタムコントロールをホストします。 ホストするカスタムコントロールのインスタンスを、コード内の**Desktopwindowxamlsource**オブジェクトの[Content](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.desktopwindowxamlsource.content)プロパティに割り当てます。
 
-C++ Win32 アプリケーションの完全な例については、「[カスタムコントロールのサンプルを使用した XAML アイランド](https://github.com/marb2000/XamlIslands/tree/master/1903_Samples/CppWinRT_Win32_App)の次のプロジェクト」を参照してください。
-
-* [Sampleusercontrol](https://github.com/marb2000/XamlIslands/tree/master/1903_Samples/CppWinRT_Win32_App/SampleUserControl): このプロジェクトは、テキストボックス、いくつかのボタン、およびコンボボックスを含む `MyUserControl` という名前のカスタム UWP XAML コントロールを実装します。
-* [MyApp](https://github.com/marb2000/XamlIslands/tree/master/1903_Samples/CppWinRT_Win32_App/MyApp): これは、上記で説明した変更を含む UWP アプリプロジェクトです。
-* [SampleCppApp](https://github.com/marb2000/XamlIslands/tree/master/1903_Samples/CppWinRT_Win32_App/SampleCppApp): これは、 C++ XAML アイランドでカスタム UWP XAML コントロールをホストする Win32 アプリプロジェクトです。
+C++ Win32 アプリケーションの完全な例については、「 [XAML C++アイランドの win32 サンプル](https://github.com/microsoft/Xaml-Islands-Samples/tree/master/Standalone_Samples/CppWinRT_Desktop_Win32App)」を参照してください。
 
 ## <a name="handle-keyboard-layout-and-dpi"></a>キーボード、レイアウト、DPI を処理する
 
@@ -393,7 +394,7 @@ C++ Win32 アプリケーションの完全な例については、「[カスタ
 
 各 XAML アイランドのキーボード入力を正しく処理するには、アプリケーションがすべての Windows メッセージを UWP XAML フレームワークに渡して、特定のメッセージが正しく処理されるようにする必要があります。 これを行うには、アプリケーションでメッセージループにアクセスできる場所で、各 XAML アイランドの**Desktopwindowxamlsource**オブジェクトを**IDesktopWindowXamlSourceNative2** COM インターフェイスにキャストします。 次に、このインターフェイスの**PreTranslateMessage**メソッドを呼び出し、現在のメッセージを渡します。
 
-  * Win32:: アプリはメインメッセージループ内で直接**PreTranslateMessage**を呼び出すことができます。 **C++** 例については、 [ C++ Win32 サンプル](https://github.com/marb2000/XamlIslands/tree/master/1903_Samples/CppWinRT_Win32_App)の[xamlbridge .cpp](https://github.com/marb2000/XamlIslands/blob/master/1903_Samples/CppWinRT_Win32_App/SampleCppApp/XamlBridge.cpp#L6)ファイルを参照してください。
+  * Win32:: アプリはメインメッセージループ内で直接**PreTranslateMessage**を呼び出すことができます。 **C++** 例については、 [Xamlbridge .cpp](https://github.com/microsoft/Xaml-Islands-Samples/blob/master/Samples/Win32/SampleCppApp/XamlBridge.cpp#L16)ファイルを参照してください。
 
   * **WPF:** アプリは、 [Componentdispatcher. ThreadFilterMessage](https://docs.microsoft.com/dotnet/api/system.windows.interop.componentdispatcher.threadfiltermessage)イベントのイベントハンドラーから**PreTranslateMessage**を呼び出すことができます。 例については、Windows Community Toolkit の[WindowsXamlHostBase.Focus.cs](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/blob/master/Microsoft.Toolkit.Wpf.UI.XamlHost/WindowsXamlHostBase.Focus.cs#L177)ファイルを参照してください。
 
@@ -411,7 +412,7 @@ UWP XAML ホスティング API は、これらのタスクを実行するのに
 
 これを実用的なサンプルアプリケーションのコンテキストで実行する方法を示す例については、次のコードファイルを参照してください。
 
-  * /Win32: [ C++ win32 サンプル](https://github.com/marb2000/XamlIslands/tree/master/1903_Samples/CppWinRT_Win32_App)の[xamlbridge .cpp](https://github.com/marb2000/XamlIslands/blob/master/1903_Samples/CppWinRT_Win32_App/SampleCppApp/XamlBridge.cpp)ファイルを参照してください。  **C++**
+  * /Win32: [xamlbridge .cpp](https://github.com/microsoft/Xaml-Islands-Samples/blob/master/Samples/Win32/SampleCppApp/XamlBridge.cpp)ファイルを参照してください。  **C++**
 
   * **WPF:** Windows Community Toolkit の[WindowsXamlHostBase.Focus.cs](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/blob/master/Microsoft.Toolkit.Wpf.UI.XamlHost/WindowsXamlHostBase.Focus.cs)ファイルを参照してください。  
 
@@ -421,7 +422,7 @@ UWP XAML ホスティング API は、これらのタスクを実行するのに
 
 ユーザーが親 UI 要素のサイズを変更した場合は、必要なレイアウト変更を処理して、UWP コントロールが期待どおりに表示されるようにする必要があります。 ここでは、考慮すべき重要なシナリオをいくつか紹介します。
 
-* C++ Win32 アプリケーションでは、アプリケーションが WM_SIZE メッセージを処理する際に、[SetWindowPos](https://docs.microsoft.com/windows/desktop/api/winuser/nf-winuser-setwindowpos) 関数を使用してホストされている XAML Island を再配置できます。 例については、[C++ Win32 サンプル](https://github.com/marb2000/XamlIslands/tree/master/19H1_Insider_Samples/CppWin32App_With_Island) の [SampleApp.cpp](https://github.com/marb2000/XamlIslands/blob/master/19H1_Insider_Samples/CppWin32App_With_Island/SampleCppApp/SampleApp.cpp#L191) コード ファイルを参照してください。
+* C++ Win32 アプリケーションでは、アプリケーションが WM_SIZE メッセージを処理する際に、[SetWindowPos](https://docs.microsoft.com/windows/desktop/api/winuser/nf-winuser-setwindowpos) 関数を使用してホストされている XAML Island を再配置できます。 例については、「 [Sampleapp](https://github.com/microsoft/Xaml-Islands-Samples/blob/master/Samples/Win32/SampleCppApp/SampleApp.cpp#L170)のコードファイル」を参照してください。
 
 * 親 UI 要素が、 **Desktopwindowxamlsource**でホストしている、 **windows の ui. xaml. uielement**に適合させるために必要な四角形の領域のサイズを取得する必要がある場合は、Windows. ui の[Measure](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.measure)メソッドを呼び出します。 たとえば次のようになります。
 
@@ -480,5 +481,5 @@ UWP XAML フレームワークは、ホストされている UWP コントロー
 
 ## <a name="related-topics"></a>関連トピック
 
-* [デスクトップアプリケーションの UWP コントロール](xaml-islands.md)
-* [C++Win32 XAML Islandsサンプル](https://github.com/marb2000/XamlIslands/tree/master/19H1_Insider_Samples/CppWin32App_With_Island)
+* [デスクトップアプリでの UWP XAML コントロールのホスト (XAML アイランド)](xaml-islands.md)
+* [C++Win32 XAML Islandsサンプル](https://github.com/microsoft/Xaml-Islands-Samples/tree/master/Samples/Win32/SampleCppApp)

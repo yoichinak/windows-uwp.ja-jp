@@ -2,18 +2,18 @@
 description: このチュートリアルでは、UWP XAML ユーザーインターフェイスを追加する方法、MSIX パッケージを作成する方法、およびその他の最新のコンポーネントを WPF アプリに組み込む方法について説明します。
 title: XAML Islands を使用した UWP InkCanvas コントロールの追加
 ms.topic: article
-ms.date: 01/10/2010
+ms.date: 01/24/2020
 ms.author: mcleans
 author: mcleanbyron
 keywords: windows 10、uwp、windows フォーム、wpf、xaml islands
 ms.localizationpriority: medium
 ms.custom: RS5, 19H1
-ms.openlocfilehash: 1ed4fa54b9987ef0ab5f3dd89aa9d11a00ae695c
-ms.sourcegitcommit: 85fd390b1e602707bd9342cb4b84b97ae0d8b831
+ms.openlocfilehash: 945cc2f1cf225c194e5820990bdbeda584069e4c
+ms.sourcegitcommit: 1455e12a50f98823bfa3730c1d90337b1983b711
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76520437"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76814042"
 ---
 # <a name="part-2-add-a-uwp-inkcanvas-control-using-xaml-islands"></a>パート 2: XAML アイランドを使用した UWP System.windows.controls.inkcanvas> コントロールの追加
 
@@ -22,7 +22,7 @@ ms.locfileid: "76520437"
 このチュートリアルの架空のシナリオでは、Contoso 開発チームは、デジタル署名のサポートを Contoso の経費アプリに追加する必要があります。 UWP **system.windows.controls.inkcanvas>** コントロールは、テキストと図形を認識する機能のようなデジタルインクと AI を使用した機能をサポートするため、このシナリオに適したオプションです。 これを行うには、Windows Community Toolkit で使用可能な[system.windows.controls.inkcanvas>](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/inkcanvas)ラップされた UWP コントロールを使用します。 このコントロールは、WPF アプリで使用する UWP **system.windows.controls.inkcanvas>** コントロールのインターフェイスと機能をラップします。 ラップされた UWP コントロールの詳細については、次を参照してください。[デスクトップ アプリ (XAML Islands) でコントロールをホスト UWP XAML](xaml-islands.md)します。
 
 > [!NOTE]
-> このチュートリアルでは、WPF アプリは Windows SDK からのファーストパーティ UWP コントロールのみをホストします。 カスタム UWP コントロールを含む他の XAML アイランドのシナリオをサポートするには、アプリプロジェクトが Windows Community Toolkit によって提供される `Microsoft.Toolkit.Win32.UI.XamlHost.XamlApplication` クラスのインスタンスにアクセスできる必要があります。 これを行うには、WPF (または Windows フォーム) プロジェクトと同じソリューションに**空のアプリ (ユニバーサル Windows)** プロジェクトを追加し、このプロジェクトの既定の `App` クラスを変更することをお勧めします。 Windows SDK からファーストパーティの UWP コントロールをホストする基本的なシナリオでは、この手順は必要ありません。このチュートリアルでは、この手順を省略します。 詳細については、[こちらの記事](host-standard-control-with-xaml-islands.md)を参照してください。
+> このチュートリアルでは、WPF アプリは Windows SDK からのファーストパーティ UWP コントロールのみをホストします。 このため、このチュートリアルでは、[ここで](host-standard-control-with-xaml-islands.md#required-components)説明するように、このクラスのインスタンスを定義する手順を省略[します。](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/tree/master/Microsoft.Toolkit.Win32.UI.XamlApplication)
 
 ## <a name="configure-the-project-to-use-xaml-islands"></a>XAML Islandsを使用するプロジェクトを構成します。
 

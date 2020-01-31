@@ -6,16 +6,16 @@ ms.date: 09/12/2019
 keywords: Windows 10 のアクセシビリティ, アクセシビリティ, アクセシビリティ対応 win32 アプリの構築, アクセシビリティ対応 UWP アプリの構築, アクセシビリティ対応 WPF アプリの構築, アクセシビリティ対応 WinForms アプリの構築
 ms.author: kbridge
 author: Karl-Bridge-Microsoft
-ms.openlocfilehash: fdb1092139602edd00086e17ff4dc7a27cf361dd
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.openlocfilehash: 2739546061febcfc96403ed5520fdcbd8bc2c462
+ms.sourcegitcommit: 8a88a05ad89aa180d41a93152632413694f14ef8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75681893"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76725935"
 ---
 # <a name="accessibility-in-windows-10"></a>Windows 10 のアクセシビリティ
 
-![hero-accessibility-bar-smaller.png](images/hero-accessibility-bar-smaller.png)
+![アクセシビリティのヒーローの画像](images/hero-accessibility-bar-smaller.png)
 
 ## <a name="build-accessibility-into-your-applications-to-empower-people-of-all-abilities"></a>アプリケーションにアクセシビリティを組み込んで、あらゆる人々の能力を高めます
 
@@ -256,7 +256,6 @@ ms.locfileid: "75681893"
       [Windows UI オートメーションのブログ](https://blogs.msdn.microsoft.com/winuiautomation/) (英語)
    :::column-end:::
 :::row-end:::
-
 :::row:::
    :::column span="3":::
       **コミュニティとサポート**

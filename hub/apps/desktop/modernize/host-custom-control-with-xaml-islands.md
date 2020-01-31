@@ -1,19 +1,19 @@
 ---
 description: この記事では、XAML アイランドを使用して WPF アプリでカスタム UWP コントロールをホストする方法について説明します。
 title: XAML アイランドを使用した WPF アプリでのカスタム UWP コントロールのホスト
-ms.date: 01/10/2010
+ms.date: 01/24/2020
 ms.topic: article
 keywords: windows 10、uwp、windows フォーム、wpf、xaml アイランド、カスタムコントロール、ユーザーコントロール、ホストコントロール
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: 70ba858daa09f4412a771441e76f5c00dd8c6c32
-ms.sourcegitcommit: 8a88a05ad89aa180d41a93152632413694f14ef8
+ms.openlocfilehash: 8f22761bf535f13ae0686a9b180ee810fba61028
+ms.sourcegitcommit: 1455e12a50f98823bfa3730c1d90337b1983b711
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76725985"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76814002"
 ---
 # <a name="host-a-custom-uwp-control-in-a-wpf-app-using-xaml-islands"></a>XAML アイランドを使用した WPF アプリでのカスタム UWP コントロールのホスト
 
@@ -21,17 +21,20 @@ ms.locfileid: "76725985"
 
 この記事では、WPF アプリでこれを行う方法について説明しますが、プロセスは Windows フォームアプリに似ています。 WPF と Windows フォームアプリで UWP コントロールをホストする方法の概要については、こちらの[記事](xaml-islands.md#wpf-and-windows-forms-applications)を参照してください。
 
-## <a name="overview"></a>概要
+## <a name="required-components"></a>必要なコンポーネント
 
-WPF アプリでカスタム UWP コントロールをホストするには、次のコンポーネントが必要です。 この記事では、これらの各コンポーネントを作成する手順について説明します。
+WPF (または Windows フォーム) アプリでカスタム UWP コントロールをホストするには、ソリューションに次のコンポーネントが必要です。 この記事では、これらの各コンポーネントを作成する手順について説明します。
 
-* **WPF アプリのプロジェクトとソースコード**。 [Windowsxamlhost](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost)コントロールを使用したカスタム UWP コントロールのホストは、WPF と、.net Core 3 を対象とする Windows フォームアプリでのみサポートされています。 このシナリオは、.NET Framework を対象とするアプリではサポートされていません。
+* **アプリのプロジェクトとソースコード**。 [Windowsxamlhost](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost)コントロールを使用してカスタム UWP コントロールをホストすることは、.net Core 3 を対象とするアプリでのみサポートされています。 このシナリオは、.NET Framework を対象とするアプリではサポートされていません。
 
-* **カスタム UWP コントロール**。 アプリを使用してコンパイルできるように、ホストするカスタム UWP コントロールのソースコードが必要になります。 通常、カスタムコントロールは、WPF (または Windows フォーム) プロジェクトと同じソリューションで参照する UWP クラスライブラリプロジェクトで定義されます。
+* **カスタム UWP コントロール**。 アプリを使用してコンパイルできるように、ホストするカスタム UWP コントロールのソースコードが必要になります。 通常、カスタムコントロールは、WPF または Windows フォームプロジェクトと同じソリューションで参照する UWP クラスライブラリプロジェクトで定義されます。
 
-* **XamlApplication オブジェクトを定義する UWP アプリプロジェクト**。 WPF (または Windows フォーム) プロジェクトは、Windows Community Toolkit によって提供される `Microsoft.Toolkit.Win32.UI.XamlHost.XamlApplication` クラスのインスタンスにアクセスできる必要があります。 このオブジェクトは、アプリケーションの現在のディレクトリにあるアセンブリ内のカスタム UWP XAML 型のメタデータを読み込むためのルートメタデータプロバイダーとして機能します。 これを行うには、WPF (または Windows フォーム) プロジェクトと同じソリューションに**空のアプリ (ユニバーサル Windows)** プロジェクトを追加し、このプロジェクトの既定の `App` クラスを変更することをお勧めします。
-  > [!NOTE]
-  > ソリューションには、`XamlApplication`オブジェクトを定義するプロジェクトを 1 つだけ含めることができます。 アプリ内のすべてのカスタム UWP コントロールは、同じ `XamlApplication`オブジェクトを共有します。 `XamlApplication` オブジェクトを定義するプロジェクトには、XAML アイランドでホスト UWP コントロールを使用する他のすべての UWP ライブラリおよびプロジェクトへの参照を含める必要があります。
+* **Xamlapplication から派生するルートアプリケーションクラスを定義する UWP アプリプロジェクト**。 WPF または Windows フォームプロジェクトは、Windows Community Toolkit によって提供される、Microsoft の Toolkit... [UI. Xamlhost](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/tree/master/Microsoft.Toolkit.Win32.UI.XamlApplication)クラスのインスタンスにアクセスできる必要があります。 このオブジェクトは、アプリケーションの現在のディレクトリにあるアセンブリ内のカスタム UWP XAML 型のメタデータを読み込むためのルートメタデータプロバイダーとして機能します。
+
+    これを行うには、WPF または Windows フォームプロジェクトと同じソリューションに**空のアプリ (ユニバーサル Windows)** プロジェクトを追加し、`XamlApplication`から派生するようにこのプロジェクトの既定の `App` クラスを変更してから、アプリのエントリポイントコードにこのオブジェクトのインスタンスを作成することをお勧めします。
+
+    > [!NOTE]
+    > ソリューションには、`XamlApplication`オブジェクトを定義するプロジェクトを 1 つだけ含めることができます。 アプリ内のすべてのカスタム UWP コントロールは、同じ `XamlApplication`オブジェクトを共有します。 `XamlApplication` オブジェクトを定義するプロジェクトには、XAML アイランドでホスト UWP コントロールを使用する他のすべての UWP ライブラリおよびプロジェクトへの参照を含める必要があります。
 
 ## <a name="create-a-wpf-project"></a>WPF プロジェクトを作成する
 
@@ -59,14 +62,14 @@ WPF アプリでカスタム UWP コントロールをホストするには、�
 
 7. X86 や x64 などの特定のプラットフォームを対象とするようにソリューションを構成します。 カスタム UWP コントロールは **、任意の CPU**を対象とするプロジェクトではサポートされていません。
 
-    1. **ソリューションエクスプローラー**で、ソリューション ノードを右クリックし、**プロパティ** -> **構成プロパティ** -> **Configuration Manager** の順に選択します。 
+    1. **ソリューションエクスプローラー**で、ソリューション ノードを右クリックし、**プロパティ** -> **構成プロパティ** -> **Configuration Manager** の順に選択します。
     2. **[アクティブソリューションプラットフォーム]** で、 **[新規]** を選択します。 
     3. **[新しいソリューションプラットフォーム]** ダイアログボックスで、 **[x64]** または **[x86]** を選択し、[ **OK]** をクリックします。 
     4. 開いているダイアログボックスを閉じます。
 
-## <a name="create-a-xamlapplication-object-in-a-uwp-app-project"></a>UWP アプリプロジェクトでの XamlApplication オブジェクトの作成
+## <a name="define-a-xamlapplication-class-in-a-uwp-app-project"></a>UWP アプリプロジェクトでの XamlApplication クラスの定義
 
-次に、WPF プロジェクトと同じソリューションに UWP アプリプロジェクトを追加します。 このプロジェクトの既定の `App` クラスは、Windows Community Toolkit によって提供される `Microsoft.Toolkit.Win32.UI.XamlHost.XamlApplication` クラスから派生するように変更します。 WPF アプリの**Windowsxamlhost**オブジェクトには、カスタム UWP コントロールをホストするためにこの `XamlApplication` オブジェクトが必要です。
+次に、WPF プロジェクトと同じソリューションに UWP アプリプロジェクトを追加します。 このプロジェクトの既定の `App` クラスを修正して、Windows Community Toolkit によって提供される、 [Microsoft の toolkit](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/tree/master/Microsoft.Toolkit.Win32.UI.XamlApplication) .........................。 このクラスの目的の詳細については、[このセクション](#required-components)を参照してください。
 
 1. **ソリューションエクスプローラー**で、[ソリューション] ノードを右クリックし、[ -> **新しいプロジェクト**の**追加**] を選択します。
 2. ソリューションに **[空白のアプリ (ユニバーサル Windows)]** プロジェクトを追加します。 ターゲットバージョンと最小バージョンの両方が**Windows 10 バージョン 1903**以降に設定されていることを確認します。
@@ -101,6 +104,38 @@ WPF アプリでカスタム UWP コントロールをホストするには、�
 6. UWP アプリプロジェクトから**mainpage.xaml**ファイルを削除します。
 7. UWP アプリプロジェクトをクリーンアップし、ビルドします。
 8. WPF プロジェクトで、 **[依存関係]** ノードを右クリックし、UWP アプリプロジェクトへの参照を追加します。
+
+## <a name="instantiate-the-xamlapplication-object-in-the-entry-point-of-your-wpf-app"></a>WPF アプリのエントリポイントで XamlApplication オブジェクトをインスタンス化する
+
+次に、WPF アプリのエントリポイントにコードを追加して、UWP プロジェクトで定義した `App` クラスのインスタンスを作成します (これは、`XamlApplication`から派生したクラスです)。 このオブジェクトの目的の詳細については、[このセクション](#required-components)を参照してください。
+
+1. WPF プロジェクトで、プロジェクトノードを右クリックし、[**新しい項目**の**追加** -> ]、 **[クラス]** の順に選択します。 クラスに「 **Program** 」という名前を指定し、 **[追加]** をクリックします。
+
+2. 生成された `Program` クラスを次のコードに置き換えて、ファイルを保存します。 `MyUWPApp` を UWP アプリプロジェクトの名前空間に置き換え、`MyWPFApp` を WPF アプリプロジェクトの名前空間に置き換えます。
+
+    ```csharp
+    public class Program
+    {
+        [System.STAThreadAttribute()]
+        public static void Main()
+        {
+            using (new MyUWPApp.App())
+            {
+                MyWPFApp.App app = new MyWPFApp.App();
+                app.InitializeComponent();
+                app.Run();
+            }
+        }
+    }
+    ```
+
+3. プロジェクトノードを右クリックし、 **[プロパティ]** を選択します。
+
+4. プロパティの **[アプリケーション]** タブで、 **[スタートアップオブジェクト]** ドロップダウンをクリックし、前の手順で追加した `Program` クラスの完全修飾名を選択します。 
+    > [!NOTE]
+    > 既定では、WPF プロジェクトは、変更を意図していない生成されたコードファイルに `Main` エントリポイント関数を定義します。 この手順では、プロジェクトのエントリポイントを新しい `Program` クラスの `Main` メソッドに変更します。これにより、アプリのスタートアッププロセスの早い段階で実行されるコードを追加できるようになります。 
+
+5. プロジェクトのプロパティへの変更を保存します。
 
 ## <a name="create-a-custom-uwp-control"></a>カスタム UWP コントロールを作成する
 
@@ -277,5 +312,6 @@ WPF アプリでカスタム UWP コントロールをホストするには、�
 
 ## <a name="related-topics"></a>関連トピック
 
-* [デスクトップアプリケーションの UWP コントロール](xaml-islands.md)
+* [デスクトップアプリでの UWP XAML コントロールのホスト (XAML アイランド)](xaml-islands.md)
+* [XAML アイランドコードサンプル](https://github.com/microsoft/Xaml-Islands-Samples)
 * [WindowsXamlHost](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost)
