@@ -7,16 +7,18 @@ ms.topic: article
 keywords: windows 10, uwp
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 141a24ca1f828f98231ec35471f7b43229df57e6
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.openlocfilehash: 24c7bd8828ec036135233f569ee7add5d39ffb32
+ms.sourcegitcommit: 136416e8e2eb0565bb6eb99e42482c1723ccb8c7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75684362"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890427"
 ---
 # <a name="tabview"></a>TabView
 
 TabView コントロールは、一連のタブとそれぞれの内容を表示するための手段です。 TabView は、ユーザーに新しいタブを再配置したり、開いたり、閉じたりする機能を提供しながら、コンテンツの複数のページ (またはドキュメント) を表示する場合に便利です。
+
+> **重要な API**:[TabView クラス](/uwp/api/microsoft.ui.xaml.controls.tabview)、[TabViewItem クラス](/uwp/api/microsoft.ui.xaml.controls.tabviewitem)
 
 ![TabView の例](images/tabview/tab-introduction.png)
 
@@ -25,7 +27,7 @@ TabView コントロールは、一連のタブとそれぞれの内容を表示
 一般に、タブ付き UI は、機能と外観が異なる 2 種類のスタイルのいずれかで提供されます。**静的タブ**は、設定ウィンドウでよく見られるタブの種類です。 通常、内容があらかじめ定義されている固定順序の複数のページが含まれます。
 **ドキュメント タブ**は、Microsoft Edge のようなブラウザーで見られるタブの種類です。 ユーザーは、タブの作成、削除、再配置、ウィンドウ間でのタブの移動、タブの内容の変更を行うことができます。
 
-TabView では、UWP アプリ用のドキュメント タブが提供されています。 次のような場合は TabView を使用します。
+[TabView](/uwp/api/microsoft.ui.xaml.controls.tabview) では、UWP アプリ用のドキュメント タブが提供されています。 次のような場合は TabView を使用します。
 
 - ユーザーが、タブを動的に開いたり、閉じたり、再配置したりできる。
 - ユーザーが、ドキュメントや Web ページを直接タブで開くことができる。
@@ -35,21 +37,21 @@ TabView がアプリに適していない場合は、[Pivot](https://docs.micros
 
 ## <a name="anatomy"></a>構造
 
-次の図では、TabView コントロールの各部分を示します。 TabStrip にはヘッダーとフッターがありますが、ドキュメントとは異なり、TabStrip のヘッダーとフッターはそれぞれストリップの左端と右端にあります。
+下の図では、[TabView](/uwp/api/microsoft.ui.xaml.controls.tabview) コントロールの各部分を示します。 TabStrip にはヘッダーとフッターがありますが、ドキュメントとは異なり、TabStrip のヘッダーとフッターはそれぞれストリップの左端と右端にあります。
 
 ![TabView コントロールの構造](images/tabview/tab-view-anatomy.png)
 
-次の図では、TabViewItem コントロールの各部分を示します。 コンテンツは TabView コントロールの内部に表示されますが、コンテンツは実際には TabViewItem の一部であることに注意してください。
+次の図では、[TabViewItem](/uwp/api/microsoft.ui.xaml.controls.tabviewitem) コントロールの各部分を示します。 コンテンツは TabView コントロールの内部に表示されますが、コンテンツは実際には TabViewItem の一部であることに注意してください。
 
 ![TabViewItem コントロールの構造](images/tabview/tab-control-anatomy.png)
 
 ### <a name="create-a-tab-view"></a>タブ ビューを作成する
 
-この例では、簡単な TabView と、タブの開閉をサポートするためのイベント ハンドラーを作成します。
+この例では、簡単な [TabView](/uwp/api/microsoft.ui.xaml.controls.tabview) と、タブの開閉をサポートするためのイベント ハンドラーを作成します。
 
 ```xaml
 <TabView AddTabButtonClick="Tabs_AddTabButtonClick"
-            TabCloseRequested="Tabs_TabCloseRequested" />
+         TabCloseRequested="Tabs_TabCloseRequested" />
 ```
 
 ```csharp
@@ -77,7 +79,7 @@ private void Tabs_TabCloseRequested(TabView sender, TabViewTabCloseRequestedEven
 
 ## <a name="behavior"></a>動作
 
-TabView の機能を利用または拡張する方法は多数あります。
+[TabView](/uwp/api/microsoft.ui.xaml.controls.tabview) の機能を利用または拡張する方法は多数あります。
 
 ### <a name="bind-tabitemssource-to-a-tabviewitemcollection"></a>TabItemsSource を TabViewItemCollection にバインドする
 
@@ -89,7 +91,7 @@ TabView の機能を利用または拡張する方法は多数あります。
 
 ウィンドウのタイトル バーの下にタブ専用の行を挿入するのではなく、2 つを同じ領域に統合できます。 これにより、コンテンツの縦方向の領域が節約され、最新のアプリの感じになります。
 
-ユーザーはウィンドウをタイトル バーでドラッグしてウィンドウの位置を変更できるため、タイトル バーをタブで完全に埋めないことが重要です。 そのため、タイトル バーにタブを表示する場合は、ドラッグ可能な領域として確保するタイトル バーの部分を指定する必要があります。 ドラッグ可能な領域を指定しないと、タイトル バー全体がドラッグ可能になり、タブが入力イベントを受信できなくなります。 TabView をウィンドウのタイトル バーに表示する場合は、常に TabStripFooter を TabView に含めて、それをドラッグ可能な領域としてマークする必要があります。
+ユーザーはウィンドウをタイトル バーでドラッグしてウィンドウの位置を変更できるため、タイトル バーをタブで完全に埋めないことが重要です。 そのため、タイトル バーにタブを表示する場合は、ドラッグ可能な領域として確保するタイトル バーの部分を指定する必要があります。 ドラッグ可能な領域を指定しないと、タイトル バー全体がドラッグ可能になり、タブが入力イベントを受信できなくなります。 TabView をウィンドウのタイトルバーに表示する場合は、常に [TabStripFooter](/uwp/api/microsoft.ui.xaml.controls.tabview.tabstripfooter) を [TabView](/uwp/api/microsoft.ui.xaml.controls.tabview) に含めて、それをドラッグ可能な領域としてマークする必要があります。
 
 詳しくは、「[タイトル バーのカスタマイズ](https://docs.microsoft.com/windows/uwp/design/shell/title-bar)」をご覧ください
 
@@ -98,7 +100,7 @@ TabView の機能を利用または拡張する方法は多数あります。
 ```xaml
 <Page>
     <TabView HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-        <TabViewItem Icon="Home" Header="Home" IsCloseable="False" />
+        <TabViewItem Icon="Home" Header="Home" IsClosable="False" />
         <TabViewItem Icon="Document" Header="Document 1" />
         <TabViewItem Icon="Document" Header="Document 2" />
         <TabViewItem Icon="Document" Header="Document 3" />
@@ -147,7 +149,7 @@ private void CoreTitleBar_LayoutMetricsChanged(CoreApplicationViewTitleBar sende
 
 ### <a name="control-overflow-behavior"></a>コントロールのオーバーフロー動作
 
-タブ バーがタブでいっぱいになったら、TabView.TabWidthMode を設定して、タブの表示方法を制御できます。
+タブ バーがタブでいっぱいになったら、[TabView.TabWidthMode](/uwp/api/microsoft.ui.xaml.controls.tabview.tabwidthmode) を設定して、タブの表示方法を制御できます。
 
 | TabWidthMode の値 | 動作                                                                                                                                                    |
 |--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -160,15 +162,15 @@ private void CoreTitleBar_LayoutMetricsChanged(CoreApplicationViewTitleBar sende
 
 ほとんどのユーザーは、Web ブラウザーを使用して簡単にドキュメント タブを使用した経験があります。 アプリでドキュメント タブを使用するとき、ユーザーは経験からタブがどのように動作するかを予期します。
 
-ユーザーがドキュメント タブのセットを操作する方法に関係なく、常にアクティブなタブが必要になります。ユーザーが選択したタブを閉じたり、選択したタブを別のウィンドウに分割したりした場合は、別のタブがアクティブになる必要があります。TabView では、次のタブを自動的に選択することで、これが試みられます。タブが選択されていない TabView をアプリで許可する十分な理由がある場合、TabView のコンテンツ領域は単に空白になります。
+ユーザーがドキュメント タブのセットを操作する方法に関係なく、常にアクティブなタブが必要になります。ユーザーが選択したタブを閉じたり、選択したタブを別のウィンドウに分割したりした場合は、別のタブがアクティブになる必要があります。[TabView](/uwp/api/microsoft.ui.xaml.controls.tabview) では、次のタブを自動的に選択することで、これが試みられます。タブが選択されていない TabView をアプリで許可する十分な理由がある場合、TabView のコンテンツ領域は単に空白になります。
 
 ## <a name="keyboard-navigation"></a>キーボード ナビゲーション
 
-TabView では、既定で多くの一般的なキーボード ナビゲーション シナリオがサポートされています。 このセクションでは、組み込みの機能について説明し、一部のアプリで役立つ追加機能についての推奨事項を示します。
+[TabView](/uwp/api/microsoft.ui.xaml.controls.tabview) では、既定で多くの一般的なキーボード ナビゲーション シナリオがサポートされています。 このセクションでは、組み込みの機能について説明し、一部のアプリで役立つ追加機能についての推奨事項を示します。
 
 ### <a name="tab-and-cursor-key-behavior"></a>タブとカーソル キーの動作
 
-フォーカスが TabStrip 領域に移動すると、選択された TabViewItem がフォーカスを得ます。 ユーザーは左右の方向キーを使用して、TabStrip 内の他のタブにフォーカスを移動できます (選択はされません)。 矢印フォーカスはタブ ストリップ内でトラップされ、ある場合はタブ追加 [+] ボタンが表示されます。 Tab キーを押すとフォーカスを TabStrip 領域の外に移動することができ、フォーカスは次のフォーカス可能な要素に移動します。
+フォーカスが _TabStrip_ 領域に移動すると、選択された [TabViewItem](/uwp/api/microsoft.ui.xaml.controls.tabviewitem) がフォーカスを得ます。 ユーザーは左右の方向キーを使用して、TabStrip 内の他のタブにフォーカスを移動できます (選択はされません)。 矢印フォーカスはタブ ストリップ内でトラップされ、ある場合はタブ追加 [+] ボタンが表示されます。 Tab キーを押すとフォーカスを TabStrip 領域の外に移動することができ、フォーカスは次のフォーカス可能な要素に移動します。
 
 Tab キーを使用してフォーカスを移動する
 
@@ -188,18 +190,18 @@ TabViewItem にフォーカスがあるときに、Space キーまたは Enter �
 
 ### <a name="shortcuts-for-selecting-adjacent-tabs"></a>隣接するタブを選択するためのショートカット
 
-Ctrl + Tab キーを押すと、次の TabViewItem が選択されます。 Ctrl + Shift + Tab キーを押すと、前の TabViewItem が選択されます。 これらの目的のため、タブ リストは "ループ" になっているので、最後のタブが選択されているときに次のタブを選択すると、最初のタブが選択されます。
+Ctrl + Tab キーを押すと、次の [TabViewItem](/uwp/api/microsoft.ui.xaml.controls.tabviewitem) が選択されます。 Ctrl + Shift + Tab キーを押すと、前の TabViewItem が選択されます。 これらの目的のため、タブ リストは "ループ" になっているので、最後のタブが選択されているときに次のタブを選択すると、最初のタブが選択されます。
 
 ### <a name="closing-a-tab"></a>タブを閉じる
 
-Ctrl + F4 キーが押されると、TabCloseRequested イベントが発生します。 イベントを処理し、必要に応じてタブを閉じます。
+Ctrl + F4 キーを押すと、[TabCloseRequested](/uwp/api/microsoft.ui.xaml.controls.tabview.tabcloserequested) イベントが発生します。 イベントを処理し、必要に応じてタブを閉じます。
 
 ### <a name="keyboard-guidance-for-app-developers"></a>アプリ開発者向けのキー ボードガイダンス
 
 アプリケーションによっては、より高度なキーボード制御が必要になる場合があります。 アプリに適している場合は、次のショートカットを実装することを検討してください。
 
 > [!WARNING]
-> 既存のアプリに TabView を追加する場合は、推奨される TabView キーボード ショートカットのキーの組み合わせに対応するキーボード ショートカットが、既に作成されている可能性があります。 この場合は、既存のショートカットを保持するか、ユーザーに直感的なタブ エクスペリエンスを提供するかを、検討する必要があります。
+> 既存のアプリに [TabView](/uwp/api/microsoft.ui.xaml.controls.tabview) を追加する場合は、推奨される TabView キーボード ショートカットのキーの組み合わせに対応するキーボード ショートカットが、既に作成されている可能性があります。 この場合は、既存のショートカットを保持するか、ユーザーに直感的なタブ エクスペリエンスを提供するかを、検討する必要があります。
 
 - Ctrl + T キーが押されたら、新しいタブを開く必要があります。通常、このタブは、定義済みのドキュメントを設定されるか、またはコンテンツを選択する簡単な方法を備えて空で作成されます。 ユーザーが新しいタブのコンテンツを選択する必要がある場合は、コンテンツ選択コントロールに入力フォーカスを設定することを検討します。
 - Ctrl + W キーが押されたら、選択されているタブを閉じる必要があります。TabView では次のタブが自動的に選択されることを思い出してください。
@@ -210,7 +212,7 @@ Ctrl + F4 キーが押されると、TabCloseRequested イベントが発生し�
 
 ### <a name="implement-browser-style-keyboarding-behavior"></a>ブラウザー スタイルのキーボード動作を実装する
 
-この例では、TabView に関する上記の推奨事項がいくつか実装されています。 具体的には、この例では Ctrl + T、Ctrl + W、Ctrl + 1-8、Ctrl + 9 が実装されています。
+この例では、[TabView](/uwp/api/microsoft.ui.xaml.controls.tabview) に関する上記の推奨事項がいくつか実装されています。 具体的には、この例では Ctrl + T、Ctrl + W、Ctrl + 1-8、Ctrl + 9 が実装されています。
 
 ```xaml
 <controls:TabView x:Name="TabRoot">

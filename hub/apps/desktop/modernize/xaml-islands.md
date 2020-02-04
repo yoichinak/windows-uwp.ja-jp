@@ -1,19 +1,19 @@
 ---
 description: このガイドは、WPF および Windows フォーム アプリケーションで直接 Fluent ベースの UWP UI を作成するのに役立ちます。
 title: デスクトップ アプリの UWP コントロール
-ms.date: 01/10/2010
+ms.date: 01/24/2020
 ms.topic: article
 keywords: windows 10、uwp、windows フォーム、wpf、xaml islands
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: high
 ms.custom: 19H1
-ms.openlocfilehash: 95fbfc9aa988330fb21713651687690fa769b99f
-ms.sourcegitcommit: 85fd390b1e602707bd9342cb4b84b97ae0d8b831
+ms.openlocfilehash: 96705faff278c4cab31e0ab271bc31d08261401b
+ms.sourcegitcommit: 1455e12a50f98823bfa3730c1d90337b1983b711
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76520407"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76814012"
 ---
 # <a name="host-uwp-xaml-controls-in-desktop-apps-xaml-islands"></a>デスクトップ アプリで UWP XAML コントロールをホストする (XAML Islands)
 
@@ -127,4 +127,5 @@ UWP XAML ホスティング API は、いくつかの Windows ランタイム �
 XAML Islands の使用に関する背景情報とチュートリアルの詳細については、次の記事とリソースを参照してください。
 
 * [WPF アプリの最新化のチュートリアル:](modernize-wpf-tutorial.md)このチュートリアルでは、Windows Community Toolkit でラップされたコントロールとホスト コントロールを使用して、UWP コントロールを既存の WPF 基幹業務アプリケーションに追加する手順が説明されています。 このチュートリアルには、WPF アプリケーションの完全なコードと、プロセスの各手順の詳細な手順も含まれています。
+* [XAML Islands コード サンプル](https://github.com/microsoft/Xaml-Islands-Samples):このリポジトリには、XAML Islands の使用方法を示す Windows フォーム、WPF、C++/Win32 のサンプルが含まれています。
 * [XAML Islandss v1 - 更新プログラムとロードマップ](https://blogs.windows.com/windowsdeveloper/2019/06/13/xaml-islands-v1-updates-and-roadmap):このブログ投稿では、XAML Islands についてよく寄せられる質問が説明され、詳細な開発ロードマップが掲載されています。

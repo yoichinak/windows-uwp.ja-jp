@@ -6,12 +6,12 @@ ms.date: 01/22/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: b3d12f2aad1d5dffbbad0790e5940699536daf0b
-ms.sourcegitcommit: e6a435716799c7bb192b3d5c4d3b8295ec3911d4
+ms.openlocfilehash: 67b97aec970cc655700729743f10c63c666ab0a6
+ms.sourcegitcommit: 09571e1c6a01fabed773330aa7ead459a47d94f7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76549707"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76929262"
 ---
 # <a name="two-pane-view"></a>2 つのペインからなるビュー
 
@@ -238,8 +238,8 @@ MinWideModeWidth よりも狭く、MinTallModeHeight よりも高いシングル
 2 ペイン ビューが横長モードの場合、TallLayout プロパティによって表示される内容が決まります。
 
 - **SinglePane** - 単一ペイン (PanePriority によって決まります)。 ペインは、TwoPaneView のサイズ全体を占有します (つまり、両方向に比例サイズ設定です)。
-- **TopBottom** - 上側に Pane1、右側に Pane2。 両方のペインは横方向に比例サイズ設定、Pane1 の高さは自動サイズ設定、Pane2 の高さは比例サイズ設定です。
-- **BottomTop** - 右側に Pane1、左側に Pane2。 両方のペインは横方向に比例サイズ設定、Pane2 の高さは自動サイズ設定、Pane1 の高さは比例サイズ設定です。
+- **TopBottom** - 上側に Pane1、下側に Pane2。 両方のペインは横方向に比例サイズ設定、Pane1 の高さは自動サイズ設定、Pane2 の高さは比例サイズ設定です。
+- **TopBottom** - 下側に Pane1、上側に Pane2。 両方のペインは横方向に比例サイズ設定、Pane2 の高さは自動サイズ設定、Pane1 の高さは比例サイズ設定です。
 
 既定値は **TopBottom** です。
 

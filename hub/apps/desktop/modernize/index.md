@@ -6,12 +6,12 @@ ms.date: 04/17/2019
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: 7403c0a3fd9f822ee24411aa88d8fd91994748dd
-ms.sourcegitcommit: d7eccdb27c22bccac65bd014e62b6572a6b44602
+ms.openlocfilehash: fb6d2bebda31ed768309b23d18b3b47e4487b058
+ms.sourcegitcommit: 09571e1c6a01fabed773330aa7ead459a47d94f7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73142518"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76929246"
 ---
 # <a name="modernize-your-desktop-apps"></a>デスクトップ アプリの現代化
 
@@ -24,7 +24,7 @@ Windows 10 とユニバーサル Windows プラットフォーム (UWP) に用�
 
 ## <a name="msix-packages"></a>MSIX パッケージ
 
-MSIX は、UWP、WPF、Windows フォーム、Win32 アプリを含む、あらゆる Windows アプリ用のユニバーサル パッケージ化エクスペリエンスを提供するモダンな Windows アプリ パッケージ形式です。 MSIX は、MSI、.appx、App-V および ClickOnce インストール テクノロジの優れた部分が組み合わされ、安全かつセキュアで信頼性の高いものとなるように構築されています。
+MSIX は、UWP、WPF、Windows フォーム、Win32 アプリを含む、あらゆる Windows アプリ用のユニバーサル パッケージ化エクスペリエンスを提供するモダンな Windows アプリ パッケージ形式です。 MSIX は、MSI、AppX、App-V、ClickOnce インストール テクノロジの優れた部分を組み合わせたもので、最新で信頼性の高いパッケージ化エクスペリエンスを提供します。
 
 MSIX パッケージにデスクトップ Windows アプリをパッケージ化することで、堅牢なインストール、更新エクスペリエンス、柔軟な機能システムによる管理されたセキュリティ モデル、Microsoft Store のサポート、エンタープライズ管理、および多くのカスタム配布モデルにアクセスできます。
 
@@ -69,7 +69,7 @@ UWP 以外のデスクトップ アプリで UWP API を使用して WPF、Windo
 
 デスクトップ デバイス ファミリを排他的にターゲットとする UWP アプリを構築する場合でも、WPF、Windows フォーム、または C++ Win32 デスクトップ アプリで UWP コントロールを使用する場合でも、次の新しい、または更新された UWP コントロールは [Fluent Design System](/windows/uwp/design/fluent-design-system/index) を使用してデスクトップ最適化されたエクスペリエンスを提供するように設計されています。 これらのコントロールは、Windows 10、バージョン 1809 (October 2018 Update、またはバージョン 10.0.17763) で導入されました。
 
-| コントロール |  説明 |
+| Control |  説明 |
 |------ |--------------|
 | [MenuBar](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/menus#create-a-menu-bar) | **CommandBar** で許容されるよりも多くの組織またはグループ化が必要になる可能性があるアプリ用のコマンド セットを公開する簡単でシンプルな方法を提供します。 |
 | [DropDownButton](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/buttons#create-a-drop-down-button) | その他のオプションを含むアタッチされたポップアップのある視覚インジケータとして山かっこを示します。  |
