@@ -52,20 +52,20 @@ ms.locfileid: "76726552"
 
       ここで提供されているツール、情報、およびサンプルエンジンとアプリケーションを使用して、Windows デスクトップおよび Windows Server 用の音声対応アプリケーションを開発します。
 
-      [Microsoft Speech Platform-ソフトウェア開発キット (SDK) (バージョン 11)](https://www.microsoft.com/download/details.aspx?id=27226)
+      [Microsoft Speech Platform - ソフトウェア開発キット (SDK) (バージョン 11)](https://www.microsoft.com/download/details.aspx?id=27226)
       
-      [Microsoft Speech SDK、バージョン5.1](https://www.microsoft.com/download/details.aspx?id=10121)
+      [Microsoft Speech SDK バージョン 5.1](https://www.microsoft.com/download/details.aspx?id=10121)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column:::
-      ![.NET の場合](images/platform-dotnet.png)
+      ![.NET](images/platform-dotnet.png)
 
       **.NET Framework**
 
       Windows マネージド アプリケーション用として実績のあるプラットフォームで、XAML UI モデルと .NET Framework を使用して、アクセシビリティに対応したアプリやツールを開発します。
 
-      [.NET Framework 用の Speech プログラミングガイド](https://docs.microsoft.com/previous-versions/office/developer/speech-technologies/hh361625(v=office.14))
+      [.NET Framework 用 System.Speech プログラミング ガイド](https://docs.microsoft.com/previous-versions/office/developer/speech-technologies/hh361625(v=office.14))
    :::column-end:::
    :::column:::
       ![Azure speech services](images/platform-azure-speech.png)
@@ -105,7 +105,7 @@ ms.locfileid: "76726552"
    :::column-end:::
 :::row-end:::
 
-## <a name="samples"></a>サンプル
+## <a name="samples"></a>Samples
 
 アクセシビリティのためのさまざまな特徴や機能の例を示す、完全な Windows サンプルをダウンロードして実行します。
 
@@ -134,7 +134,7 @@ ms.locfileid: "76726552"
    :::column-end:::
 :::row-end:::
 
-## <a name="videos"></a>ビデオ
+## <a name="videos"></a>Videos
 
 音声操作を組み込む Windows アプリケーションを構築する方法を説明するさまざまなビデオです。
 
