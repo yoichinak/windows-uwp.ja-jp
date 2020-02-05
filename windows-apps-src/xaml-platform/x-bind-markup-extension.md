@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 10f601b29ff441fe8cec9261d7751ba525c7f52b
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: 8008c652dea89b42185c9fb1d9ac42e96f16a117
+ms.sourcegitcommit: 5af282fb230765a7225e138d99e9cb1b60bf7238
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74258751"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77012050"
 ---
 # <a name="xbind-markup-extension"></a>{x:Bind} マークアップ拡張
 
@@ -94,7 +94,7 @@ C++/CX の場合、 **{x:Bind}** はページまたはデータ モデルのプ�
 
 インデクサーを使うには、インデックス化されるプロパティの型に基づいて、モデルで **IList&lt;T&gt;** または **IVector&lt;T&gt;** を実装する必要があります。 (IReadOnlyList&lt;T&gt; と IVectorView&lt;T&gt; では、インデクサー構文はサポートされていません)。インデックス付きプロパティの型が**INotifyCollectionChanged**または**IObservableVector**をサポートし、バインドが OneWay または TwoWay の場合は、これらのインターフェイスに対する変更通知を登録してリッスンします。 変更検出ロジックは、特定のインデックス付きの値に影響を与えない場合でも、すべてのコレクションの変更に基づいて更新されます。 これは、リッスンしているロジックがコレクションのすべてのインスタンス間で共通であるためです。
 
-データ ソースがディクショナリまたはマップである場合、プロパティ パスには、文字列名によりコレクション内の項目を指定できます。 たとえば **&lt;TextBlock Text = "{X:Bind Players\[' John smith '\]"/&gt;** は、"john smith" という名前の辞書内の項目を検索します。 名前は引用符で囲む必要があり、単一引用符と二重引用符のどちらでも使用できます。 文字列で引用符をエスケープするにはハット (^) を使用できます。 XAML 属性に使用されるものから代替引用符を使用するのが最も簡単です。 (Ireadonlydictionary<&lt;T&gt; と IMapView&lt;T&gt; では、インデクサー構文はサポートされていません)。
+データ ソースがディクショナリまたはマップである場合、プロパティ パスには、文字列名によりコレクション内の項目を指定できます。 たとえば **&lt;TextBlock Text = "{X:Bind Players\[' John smith '\]}"/&gt;** は、"john smith" という名前の辞書内の項目を検索します。 名前は引用符で囲む必要があり、単一引用符と二重引用符のどちらでも使用できます。 文字列で引用符をエスケープするにはハット (^) を使用できます。 XAML 属性に使用されるものから代替引用符を使用するのが最も簡単です。 (Ireadonlydictionary<&lt;T&gt; と IMapView&lt;T&gt; では、インデクサー構文はサポートされていません)。
 
 文字列インデクサーを使うには、インデックス化されるプロパティの型に基づいて、モデルで **IDictionary&lt;string, T&gt;** または **IMap&lt;string, T&gt;** を実装する必要があります。 インデックス付きプロパティの型が **IObservableMap** をサポートしており、バインディングが OneWay または TwoWay の場合、そのプロパティは登録され、それらのインターフェイスで変更通知をリッスンします。 変更検出ロジックは、特定のインデックス付きの値に影響を与えない場合でも、すべてのコレクションの変更に基づいて更新されます。 これは、リッスンしているロジックがコレクションのすべてのインスタンス間で共通であるためです。
 

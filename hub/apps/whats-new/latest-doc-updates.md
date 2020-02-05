@@ -2,179 +2,164 @@
 Description: Windows 開発者向けドキュメントの最新の追加について説明します。
 title: Windows 開発者向けドキュメントの最新の更新プログラム
 ms.topic: article
-ms.date: 01/15/2020
+ms.date: 02/4/2020
 ms.localizationpriority: medium
 ms.author: quradic
 author: QuinnRadich
-ms.openlocfilehash: 9b6e4823a25e38ae1f63922a2efdb80514156bfa
-ms.sourcegitcommit: b6c3510e0fc7703b3279fc3bf64ddf4c16143d42
+ms.openlocfilehash: cda322f893f85b2affbbd4065757adc913d7b485
+ms.sourcegitcommit: 58ef376ca133c0159a36b62c010ea8be213b763a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76040571"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77001372"
 ---
 # <a name="latest-updates-to-the-windows-developer-docs"></a>Windows 開発者向けドキュメントの最新の更新プログラム
 
 Windows 開発者ドキュメントは、新機能と強化された情報やコンテンツによって定期的に更新されます。 次のドキュメントでは、最新の重要な更新を確認しています。
 
-最近重要な更新プログラムが表示されたトピックを次に示します。
+ここでは、最近重要な更新 (2020 年2月4日終了日) のトピックをいくつか紹介します。
 
 <ul>
-<li><a href="https://docs.microsoft.com/windows/uwp/app-resources/build-resources-into-app-package">アプリケーションパッケージへのリソースのビルド</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/app-resources/images-tailored-for-scale-theme-contrast">スケール、テーマ、ハイ コントラストなどに合わせた画像と資産の読み込み</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/app-resources/pri-apis-custom-build-systems">パッケージリソースのインデックス作成とカスタムビルドシステム</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/app-resources/using-mrt-for-converted-desktop-apps-and-games">変換されたデスクトップアプリとゲームに MRT.DLL を使用する</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/app-to-app/copy-and-paste">コピーと貼り付け</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/audio-video-camera/basic-photo-video-and-audio-capture-with-MediaCapture">MediaCapture を使用した基本的な写真、ビデオ、オーディオキャプチャ</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/audio-video-camera/connect-to-remote-cameras">リモートカメラに接続する</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/audio-video-camera/detect-and-respond-to-audio-state-changes">オーディオ状態の変化の検出と対応</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/audio-video-camera/play-audio-and-video-with-mediaplayer">MediaPlayer でオーディオとビデオを再生する</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/audio-video-camera/process-audio-frames-with-mediaframereader">MediaFrameReader を使用してオーディオフレームを処理する</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/audio-video-camera/process-media-frames-with-mediaframereader">MediaFrameReader を使用してメディアフレームを処理する</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/audio-video-camera/transcode-media-files">メディア ファイルのコード変換</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/composition/composition-brushes">合成ブラシ</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/contacts-and-calendar/my-people-notifications">マイ連絡先の通知</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/contacts-and-calendar/my-people-sharing">マイ連絡先の共有</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/contacts-and-calendar/my-people-support">アプリケーションにマイ連絡先のサポートを追加する</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/author-apis">C++/WinRT で API を作成する</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/author-events">C++/WinRT でのイベントの作成</a></li>
 <li><a href="https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/consume-com">C++/WinRT での COM コンポーネントの使用</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/move-to-winrt-from-csharp">C# から C++/WinRT への移行</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/move-to-winrt-from-cx">C++/CX から C++/WinRT への移行</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/weak-references">C++/WinRT の強参照と弱参照</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/data-access/sql-server-databases">UWP アプリでの SQL Server データベースの使用</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/data-access/sqlite-databases">UWP アプリでの SQLite データベースの使用</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/data-binding/data-binding-in-depth">データ バインディングの詳細</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/debug-test-perf/deploying-and-debugging-uwp-apps">ユニバーサル Windows プラットフォーム (UWP) アプリのデプロイとデバッグ</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/debug-test-perf/device-portal-api-core">デバイスポータルコア API リファレンス</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/debug-test-perf/device-portal-desktop">Windows デスクトップ用のデバイスポータル</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/debug-test-perf/device-portal-plugin">デバイスポータルのカスタムプラグインを作成する</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/debug-test-perf/loose-file-registration">ルーズ ファイルの登録によるアプリの展開</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/debug-test-perf/optimize-background-activity">バックグラウンド アクティビティの最適化</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/debug-test-perf/optimize-file-access">ファイルアクセスの最適化</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/debug-test-perf/testing-debugging-plm">プロセスの有効期間管理のテストとデバッグ</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/debug-test-perf/version-adaptive-code">バージョンアダプティブコード</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/debug-test-perf/windows-app-certification-kit-tests">Windows アプリ認定キットテスト</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/debug-test-perf/windows-app-certification-kit">Windows アプリ認定キット</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/debug-test-perf/windows-desktop-bridge-app-tests">Windows デスクトップブリッジアプリのテスト</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/debug-test-perf/windows-runtime-components-and-optimizing-interop">UWP コンポーネントの相互運用機能の最適化</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/accessibility/custom-automation-peers">カスタム オートメーション ピア</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/basics/navigation-history-and-backwards-navigation">ナビゲーション履歴と後方ナビゲーション</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/basics/xaml-basics-adaptive-layout">アダプティブレイアウトの作成のチュートリアル</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/basics/xaml-basics-style">カスタムスタイルを作成する</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/buttons">ボタン</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/dialogs-and-flyouts/teaching-tip">教育のヒント</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/forms">フォーム</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/item-containers-templates">項目コンテナーやテンプレート</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/item-templates-gridview">グリッド ビューの項目テンプレート</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/item-templates-listview">リスト ビューの項目テンプレート</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/items-repeater">ItemsRepeater</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/listview-and-gridview">リスト ビューとグリッド ビュー</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/listview-filtering">コレクションのフィルター処理</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/master-details">マスター/詳細</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/number-box">数値ボックス</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/person-picture">個人の画像コントロール</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/progress-controls">プログレス コントロールのガイドライン</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/tab-view">タブビュー</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/text-box">テキスト ボックス</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/text-handwriting-view">手書き表示を使用したテキスト入力</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/web-view">Web ビュー</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/devices/designing-for-MR">Mixed Reality の設計</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/downloads/index">UWP アプリのツールキットとサンプルを設計する</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/globalizing/globalizing-portal">グローバリゼーションとローカライズ</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/globalizing/prepare-your-app-for-localization">アプリをローカライズ可能にする</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/globalizing/use-mat">多言語アプリツールキットを使用する</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/input/convert-ink-to-text">Windows Ink のストロークをテキストおよび図形として認識する</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/input/drag-and-drop">ドラッグ アンド ドロップ</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/input/focus-navigation-programmatic">キーボード、ゲームパッド、およびユーザー補助ツールを使用したプログラムフォーカスナビゲーション</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/input/focus-navigation">マウスを使用せずにナビゲーションをフォーカスする</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/input/gaze-interactions">宝石との対話</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/input/ink-toolbar">ユニバーサル Windows プラットフォーム (UWP) アプリに InkToolbar を追加する</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/input/input-primer">相互作用の入門</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/input/keyboard-accelerators">キーボードアクセラレータ</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/input/pen-and-stylus-interactions">UWP アプリでのペン操作と Windows Ink</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/input/speech-interactions">音声操作</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/layout/alignment-margin-padding">レイアウトの配置、余白、および埋め込み</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/layout/grid-tutorial">Grid と StackPanel を使用して、簡単なアプリを作成します。</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/layout/page-layout">UWP アプリのページレイアウト</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/motion/parallax">視差を使用して、アプリに深さと移動を追加します。</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/shell/pin-to-taskbar">アプリをタスクバーにピン留めする</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/shell/tiles-and-notifications/secondary-tiles-guidance">セカンダリタイルの設計ガイダンス</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/shell/tiles-and-notifications/send-local-toast-desktop-cpp-wrl">デスクトップC++ wrl アプリからローカルトースト通知を送信する</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/shell/tiles-and-notifications/tile-schema">タイルのコンテンツのスキーマ</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/shell/tiles-and-notifications/toast-collections">トーストコレクション</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/shell/tiles-and-notifications/toast-ux-guidance">トースト UX のガイダンス</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/style/acrylic">Acrylic のマテリアル</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/style/app-icons-and-logos">アプリアイコンとロゴ</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/style/brushes">ブラシを使用する</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/style/color">UWP アプリの色</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/style/icons">アイコン</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/style/reveal-focus">フォーカスの表示</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/style/reveal">表示ハイライト</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/style/rounded-corner">角の半径</a></li>
 <li><a href="https://docs.microsoft.com/windows/uwp/design/style/segoe-ui-symbol-font">Yu gothic MDL2 アイコンのガイドライン</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/design/style/sound">サウンド</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/devices-sensors/aep-service-class-ids">AEP サービスクラス Id</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/devices-sensors/bluetooth-dev-faq">Bluetooth 開発者向け FAQ</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/devices-sensors/bluetooth-low-energy-overview">Bluetooth 低エネルギー</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/devices-sensors/build-a-device-selector">デバイスセレクターを構築する</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/devices-sensors/deploy-scanner-profiles-with-mdm">MDM を使用してバーコードスキャナープロファイルを展開する</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/devices-sensors/device-information-properties">デバイス情報のプロパティ</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/devices-sensors/enumerate-devices-over-a-network">ネットワーク経由でデバイスを列挙する</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/devices-sensors/host-card-emulation">NFC スマート カード アプリの作成</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/devices-sensors/pair-devices">デバイスのペアリング</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/devices-sensors/pos-basics-claim">PointOfService device claim と enable model</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/enterprise/index">エンタープライズ</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/files/best-practices-for-writing-to-files">ファイルへの書き込みに関するベスト プラクティス</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/files/change-tracking-filesystem">ファイル システムの変更のバックグラウンドでの追跡</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/files/quickstart-managing-folders-in-the-music-pictures-and-videos-libraries">音楽、画像、およびビデオライブラリの管理</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/gaming/cloud-for-games">UWP ゲームにクラウドサービスを使用する</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/gaming/e2e">Windows 10 ゲーム開発ガイド</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/gaming/input-practices-for-games">ゲームの入力方法</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/gaming/monetization-for-games">ゲームの収益化</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/gaming/multisampling--multi-sample-anti-aliasing--in-windows-store-apps">UWP アプリのマルチサンプリング</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/gaming/racing-wheel-and-force-feedback">レースホイールとフォースフィードバック</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/gaming/registry-data-for-game-controllers">ゲームコントローラーのレジストリデータ</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/gaming/tutorial--adding-controls">コントロールの追加</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/gaming/tutorial--assembling-the-rendering-pipeline">レンダリングの概要</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/gaming/tutorial-game-rendering">設定</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/get-started/adding-webvr-to-a-babylonjs-game">3D Babylon ゲームへの WebVR サポートの追加</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/get-started/create-uwp-apps">ユニバーサル Windows プラットフォームを使用したアプリの作成</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/get-started/get-started-tutorial-fullstack-web-app">REST API バックエンドでシングルページ web アプリを作成する</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/get-started/get-started-tutorial-game-js2d">JavaScript で UWP ゲームを作成する</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/get-started/get-started-tutorial-game-mg2d">モノゲーム2D で UWP ゲームを作成する</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/get-started/index">ユニバーサル Windows プラットフォーム (UWP) を使ってみる</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/get-started/universal-application-platform-guide">ユニバーサル Windows プラットフォーム (UWP) アプリとは</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/get-started/your-first-app">初めてのアプリの作成</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/graphics-concepts/stencil-formats-not-supported-with-streaming-resources">ストリーミングリソースを含むサポートされていないステンシル形式</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/launch-resume/connected-apps-and-devices">接続されているアプリとデバイス (プロジェクトローマ)</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/launch-resume/launch-default-app">URI に応じた既定のアプリの起動</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/launch-resume/launch-screen-snipping">スクリーン snipping を起動する</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/launch-resume/multi-instance-uwp">マルチインスタンスユニバーサル Windows アプリを作成する</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/launch-resume/run-minimized-with-extended-execution">延長実行を使ってアプリの中断を延期する</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/maps-and-location/index">マップと場所の概要</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/monetize/access-analytics-data-using-windows-store-services">ストアサービスを使用した分析データへのアクセス</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/monetize/add-advertisements-to-video-content">ビデオコンテンツに広告を表示する</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/monetize/display-ads-in-your-app">Microsoft Advertising SDK を使用したアプリでの広告の表示</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/monetize/get-desktop-block-data-details">アプリのアップグレードブロックの詳細を取得する</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/monetize/known-issues-for-the-advertising-libraries">アプリの広告に関する既知の問題とトラブルシューティング</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/monetize/payment-request">支払い要求 API を使用して支払いを簡易化する</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/monetize/python-code-examples-for-the-windows-store-submission-api">アプリ、アドオン、フライトを送信するための Python コード</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/monetize/update-your-app-to-the-latest-advertising-libraries">バナー広告用の最新の広告ライブラリを使用する</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/monetize/windows-premium-ads-publishers-program">Windows Premium Ads 発行者プログラム</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/networking/sockets">ソケット</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/networking/websockets">WebSocket</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/packaging/app-capability-declarations">アプリ機能の宣言</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/porting/android-ios-uwp-map">Android と iOS 開発者向けの Windows アプリ概念マッピング</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/porting/apps-on-arm-limitations">ARM でのアプリとエクスペリエンスの制限事項</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/porting/apps-on-arm-program-compat-troubleshooter">プログラム互換性のトラブルシューティング ツール (ARM)</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/porting/apps-on-arm-troubleshooting-arm32">ARM32 UWP アプリのトラブルシューティング</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/porting/apps-on-arm-troubleshooting-x86">X86 デスクトップアプリのトラブルシューティング</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/porting/apps-on-arm">ARM 版 Windows 10</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/porting/getting-started-what-next">はじめに</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/porting/getting-started-with-uwp-for-ios-developers">IOS 開発者向け UWP の概要</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/porting/setting-up-your-mac-with-windows-10">Windows 10 を使用して Mac をセットアップする</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/porting/w8x-to-uwp-porting-xaml-and-ui">Windows ランタイム 8. x XAML と UI を UWP に移植する</a></li>
-<li><a href="https://docs.microsoft.com/windows/uwp/porting/wpsl-to-uwp-business-and-data">UWP への WPSL ビジネス層とデータ層の移植</a></li>
 </ul>
 
+## <a name="win32-api-reference"></a>Win32 API リファレンス
+
+<ul>
+<li><a href="https://docs.microsoft.com/windows/win32/api/d3d10shader/nf-d3d10shader-id3d10shaderreflectiontype-getmembertypename">ID3D10ShaderReflectionType:: GetMemberTypeName (d3d10shader)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/d3d12/nf-d3d12-id3d12device-createsharedhandle">ID3D12Device:: CreateSharedHandle (d3d12)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/davclnt/nc-davclnt-pfndavauthcallback">PFNDAVAUTHCALLBACK (davclnt)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/davclnt/nf-davclnt-davunregisterauthcallback">DavUnregisterAuthCallback 関数 (davclnt)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/dxgi1_3/nf-dxgi1_3-idxgidevice3-trim">IDXGIDevice3:: Trim (dxgi1_3)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/gdiplusbrush/nf-gdiplusbrush-hatchbrush-hatchbrush(inhatchstyle_inconstcolor__inconstcolor_)">HatchBrush:: HatchBrush (定数 Color & の場合は定数 Color &) (gdiplusbrush)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/gdiplusbrush/nf-gdiplusbrush-lineargradientbrush-lineargradientbrush(inconstpoint__inconstpoint__inconstcolor__inconstcolor_)">System.windows.media.lineargradientbrush>:: System.windows.media.lineargradientbrush> (const ポイント & & の場合は、const color & の定数の色の &) (gdiplusbrush)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/gdiplusbrush/nf-gdiplusbrush-lineargradientbrush-lineargradientbrush(inconstpointf__inconstpointf__inconstcolor__inconstcolor_)">System.windows.media.lineargradientbrush>:: System.windows.media.lineargradientbrush> & (const PointF & の const Color & の const color &) (gdiplusbrush) (const の場合)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/gdiplusbrush/nf-gdiplusbrush-solidbrush-solidbrush~r3">SolidBrush:: SolidBrush ~ r3 (gdiplusbrush)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ntdef/nf-ntdef-initializeobjectattributes">InitializeObjectAttributes マクロ (ntdef. h)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/objidl/ns-objidl-ustgmedium~r1">uSTGMEDIUM</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/peerdist/nf-peerdist-peerdistgetoverlappedresult">PeerDistGetOverlappedResult 関数 (peerdist)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/shobjidl_core/nf-shobjidl_core-ihandleractivationhost-beforecocreateinstance">IHandlerActivationHost:: BeforeCoCreateInstance (shobjidl_core)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/shobjidl_core/nf-shobjidl_core-ihandleractivationhost-beforecreateprocess">IHandlerActivationHost:: BeforeCreateProcess (shobjidl_core)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/shobjidl_core/nf-shobjidl_core-itaskbarlist2-markfullscreenwindow">ITaskbarList2:: MarkFullscreenWindow (shobjidl_core .h)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/strmif/ns-strmif-dvd_titleattributes">DVD_TitleAttributes (strmif .h)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/uiautomationclient/nf-uiautomationclient-iuiautomationtextpattern-get_supportedtextselection">IUIAutomationTextPattern:: get_SupportedTextSelection (uiautomationclient.dll)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/uiautomationclient/nf-uiautomationclient-iuiautomationtextrange-expandtoenclosingunit">IUIAutomationTextRange:: ExpandToEnclosingUnit (uiautomationclient.dll)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/uiautomationcore/nf-uiautomationcore-itextprovider-get_supportedtextselection">ITextProvider:: get_SupportedTextSelection (uiautomationcore)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/uiautomationcoreapi/nf-uiautomationcoreapi-textpattern_get_supportedtextselection">TextPattern_get_SupportedTextSelection 関数 (uiautomationcoreapi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/wdsclientapi/nc-wdsclientapi-pfn_wdsclicallback">PFN_WdsCliCallback (wdsclientapi .h)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/wincred/nf-wincred-creduipromptforwindowscredentialsa">CredUIPromptForWindowsCredentialsA 関数 (wincred. h)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/wincred/nf-wincred-creduipromptforwindowscredentialsw">CredUIPromptForWindowsCredentialsW 関数 (wincred. h)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/wincred/ns-wincred-credentialw">CREDENTIALW (wincred. h)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/winioctl/ni-winioctl-fsctl_dismount_volume">FSCTL_DISMOUNT_VOLUME</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/winnetwk/nf-winnetwk-wnetaddconnection2a">WNetAddConnection2A 関数 (winnetwk)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/winnls/nf-winnls-getuserpreferreduilanguages">GetUserPreferredUILanguages 関数 (winnls. h)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/winsock2/nf-winsock2-wsapoll">WSAPoll 関数 (winsock2 .h)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/winuser/nf-winuser-getwindowtextlengtha">Getwindowtextlength a 関数 (winuser. h)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/winuser/nf-winuser-getwindowtextlengthw">Getwindowtextlength w 関数 (winuser. h)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/wlanapi/nf-wlanapi-wlandeviceservicecommand">WlanDeviceServiceCommand</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/wlanapi/nf-wlanapi-wlangetsupporteddeviceservices">WlanGetSupportedDeviceServices</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/wlanapi/nf-wlanapi-wlanregisterdeviceservicenotification">WlanRegisterDeviceServiceNotification</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/wlanapi/ns-wlanapi-wlan_device_service_guid_list">WLAN_DEVICE_SERVICE_GUID_LIST</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nc-ws2spi-lpnspcleanup">LPNSPCLEANUP (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nc-ws2spi-lpnspgetserviceclassinfo">LPNSPGETSERVICECLASSINFO (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nc-ws2spi-lpnspinstallserviceclass">LPNSPINSTALLSERVICECLASS (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nc-ws2spi-lpnsplookupservicebegin">LPNSPLOOKUPSERVICEBEGIN (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nc-ws2spi-lpnsplookupserviceend">LPNSPLOOKUPSERVICEEND (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nc-ws2spi-lpnsplookupservicenext">LPNSPLOOKUPSERVICENEXT (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nc-ws2spi-lpnspremoveserviceclass">LPNSPREMOVESERVICECLASS (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nc-ws2spi-lpnspsetservice">LPNSPSETSERVICE (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nc-ws2spi-lpnspv2clientsessionrundown">LPNSPV2CLIENTSESSIONRUNDOWN (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nc-ws2spi-lpnspv2lookupservicebegin">LPNSPV2LOOKUPSERVICEBEGIN (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nc-ws2spi-lpnspv2lookupserviceend">LPNSPV2LOOKUPSERVICEEND (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nc-ws2spi-lpnspv2lookupservicenextex">LPNSPV2LOOKUPSERVICENEXTEX (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nc-ws2spi-lpnspv2setserviceex">LPNSPV2SETSERVICEEX (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nc-ws2spi-lpwspaccept">LPWSPACCEPT</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nc-ws2spi-lpwspaddresstostring">LPWSPADDRESSTOSTRING (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nc-ws2spi-lpwspasyncselect">LPWSPASYNCSELECT</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nc-ws2spi-lpwspbind">LPWSPBIND</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nc-ws2spi-lpwspconnect">LPWSPCONNECT</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nc-ws2spi-lpwspduplicatesocket">LPWSPDUPLICATESOCKET</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nc-ws2spi-lpwspenumnetworkevents">LPWSPENUMNETWORKEVENTS</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nc-ws2spi-lpwspeventselect">LPWSPEVENTSELECT</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nc-ws2spi-lpwspgetoverlappedresult">LPWSPGETOVERLAPPEDRESULT</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nc-ws2spi-lpwspgetpeername">LPWSPGETPEERNAME</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nc-ws2spi-lpwspgetqosbyname">LPWSPGETQOSBYNAME</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nc-ws2spi-lpwspgetsockname">LPWSPGETSOCKNAME</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nc-ws2spi-lpwspgetsockopt">LPWSPGETSOCKOPT</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nc-ws2spi-lpwspioctl">LPWSPIOCTL</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nc-ws2spi-lpwspjoinleaf">LPWSPJOINLEAF (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nc-ws2spi-lpwsplisten">LPWSPLISTEN</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nc-ws2spi-lpwsprecv">LPWSPRECV</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nc-ws2spi-lpwsprecvdisconnect">LPWSPRECVDISCONNECT</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nc-ws2spi-lpwspselect">LPWSPSELECT</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nc-ws2spi-lpwspsetsockopt">LPWSPSETSOCKOPT</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nc-ws2spi-lpwspshutdown">LPWSPSHUTDOWN</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nc-ws2spi-lpwspsocket">LPWSPSOCKET (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nc-ws2spi-lpwspstringtoaddress">LPWSPSTRINGTOADDRESS (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/ne-ws2spi-wsc_provider_info_type">WSC_PROVIDER_INFO_TYPE (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nf-ws2spi-nspstartup">NSPStartup 関数 (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nf-ws2spi-wpuclosesockethandle">WPUCloseSocketHandle 関数 (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nf-ws2spi-wpuclosethread">WPUCloseThread 関数 (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nf-ws2spi-wpucompleteoverlappedrequest">WPUCompleteOverlappedRequest 関数 (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nf-ws2spi-wpucreatesockethandle">WPUCreateSocketHandle 関数 (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nf-ws2spi-wpugetproviderpath">WPUGetProviderPath 関数 (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nf-ws2spi-wpumodifyifshandle">WPUModifyIFSHandle 関数 (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nf-ws2spi-wpuopencurrentthread">WPUOpenCurrentThread 関数 (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nf-ws2spi-wsaadvertiseprovider">WSAAdvertiseProvider 関数 (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nf-ws2spi-wsaprovidercompleteasynccall">WSAProviderCompleteAsyncCall 関数 (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nf-ws2spi-wsaunadvertiseprovider">WSAUnadvertiseProvider 関数 (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nf-ws2spi-wscdeinstallprovider">WSCDeinstallProvider 関数 (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nf-ws2spi-wscdeinstallprovider32">WSCDeinstallProvider32 関数 (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nf-ws2spi-wscenablensprovider">WSCEnableNSProvider 関数 (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nf-ws2spi-wscenablensprovider32">WSCEnableNSProvider32 関数 (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nf-ws2spi-wscenumnamespaceproviders32">WSCEnumNameSpaceProviders32 関数 (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nf-ws2spi-wscenumnamespaceprovidersex32">WSCEnumNameSpaceProvidersEx32 関数 (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nf-ws2spi-wscenumprotocols">WSCEnumProtocols 関数 (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nf-ws2spi-wscenumprotocols32">WSCEnumProtocols32 関数 (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nf-ws2spi-wscgetapplicationcategory">WSCGetApplicationCategory 関数 (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nf-ws2spi-wscgetproviderinfo">WSCGetProviderInfo 関数 (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nf-ws2spi-wscgetproviderinfo32">WSCGetProviderInfo32 関数 (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nf-ws2spi-wscgetproviderpath">WSCGetProviderPath 関数 (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nf-ws2spi-wscgetproviderpath32">WSCGetProviderPath32 関数 (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nf-ws2spi-wscinstallnamespace">WSCInstallNameSpace 関数 (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nf-ws2spi-wscinstallnamespace32">WSCInstallNameSpace32 関数 (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nf-ws2spi-wscinstallnamespaceex32">WSCInstallNameSpaceEx32 関数 (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nf-ws2spi-wscinstallprovider64_32">WSCInstallProvider64_32 関数 (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nf-ws2spi-wscinstallproviderandchains64_32">WSCInstallProviderAndChains64_32 関数 (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nf-ws2spi-wscinstallqostemplate">WSCInstallQOSTemplate 関数 (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nf-ws2spi-wscremoveqostemplate">WSCRemoveQOSTemplate 関数 (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nf-ws2spi-wscsetapplicationcategory">WSCSetApplicationCategory 関数 (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nf-ws2spi-wscuninstallnamespace">WSCUnInstallNameSpace 関数 (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nf-ws2spi-wscuninstallnamespace32">WSCUnInstallNameSpace32 関数 (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2Already up to date.
+spi/nf-ws2spi-wscupdateprovider">WSCUpdateProvider 関数 (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nf-ws2spi-wscupdateprovider32">WSCUpdateProvider32 関数 (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/nf-ws2spi-wspstartup">WSPStartup 関数 (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/ns-ws2spi-nspv2_routine">NSPV2_ROUTINE (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/ns-ws2spi-wsc_provider_audit_info">WSC_PROVIDER_AUDIT_INFO (ws2spi)</a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ws2spi/ns-ws2spi-wspupcalltable">WSPUPCALLTABLE (ws2spi)</a></li>
+</ul>
+
+## <a name="winrt-api-reference"></a>WinRT API リファレンス
+
+<ul>
+<li><a href="https://docs.microsoft.com/uwp/api/windows.devices.sensors.accelerometer.reportinterval">加速度計を指定します。</a></li>
+<li><a href="https://docs.microsoft.com/uwp/api/windows.devices.sensors.altimeter.reportinterval">Windows. デバイス.... レポート間隔</a></li>
+<li><a href="https://docs.microsoft.com/uwp/api/windows.devices.sensors.barometer.reportinterval">Barometer を指定します。</a></li>
+<li><a href="https://docs.microsoft.com/uwp/api/windows.devices.sensors.gyrometer.reportinterval">ジャイロを指定します。</a></li>
+<li><a href="https://docs.microsoft.com/uwp/api/windows.devices.sensors.magnetometer.reportinterval">磁力計を指定します。</a></li>
+<li><a href="https://docs.microsoft.com/uwp/api/windows.devices.sensors.pedometer.reportinterval">Pedometer を指定します。</a></li>
+<li><a href="https://docs.microsoft.com/uwp/api/windows.graphics.holographic.holographiccamerarenderingparameters.commitdirect3d11depthbuffer">Holographic. HolographicCameraRenderingParameters. CommitDirect3D11DepthBuffer (Direct3D11. IDirect3DSurface) ()</a></li>
+<li><a href="https://docs.microsoft.com/uwp/api/windows.security.authorization.appcapabilityaccess.appcapability">AppCapabilityAccess. AppCapability ビリティ</a></li>
+<li><a href="https://docs.microsoft.com/uwp/api/windows.security.authorization.appcapabilityaccess.appcapability.capabilityname">AppCapabilityAccess. CapabilityName のようになります。</a></li>
+<li><a href="https://docs.microsoft.com/uwp/api/windows.security.authorization.appcapabilityaccess.appcapability.checkaccess">AppCapabilityAccess. CheckAccess のようになります。</a></li>
+<li><a href="https://docs.microsoft.com/uwp/api/windows.security.authorization.appcapabilityaccess.appcapability.create">AppCapabilityAccess (System.string) のように指定してください。</a></li>
+<li><a href="https://docs.microsoft.com/uwp/api/windows.security.authorization.appcapabilityaccess.appcapability.createwithprocessidforuser">AppCapabilityAccess (Windows. System. User, System.string, System.string) のように指定することによって、セキュリティを強化することができます。</a></li>
+<li><a href="https://docs.microsoft.com/uwp/api/windows.security.authorization.appcapabilityaccess.appcapability.requestaccessasync">AppCapabilityAccess (Windows のセキュリティ). RequestAccessAsync</a></li>
+<li><a href="https://docs.microsoft.com/uwp/api/windows.security.authorization.appcapabilityaccess.appcapability.requestaccessforcapabilitiesasync">AppCapabilityAccess. RequestAccessForCapabilitiesAsync (IIterable {System.string}) ({System.string}) を指定してください。</a></li>
+<li><a href="https://docs.microsoft.com/uwp/api/windows.security.authorization.appcapabilityaccess.appcapability.requestaccessforcapabilitiesforuserasync">AppCapabilityAccess. RequestAccessForCapabilitiesForUserAsync (Windows. IIterable {System.string}) (windows. {System.string}) を指定している場合は、</a></li>
+<li><a href="https://docs.microsoft.com/uwp/api/windows.security.authorization.appcapabilityaccess.appcapability.user">AppCapabilityAccess (Windows のセキュリティ権限の許可)</a></li>
+<li><a href="https://docs.microsoft.com/uwp/api/windows.security.authorization.appcapabilityaccess.appcapabilityaccessstatus">AppCapabilityAccess. AppCapabilityAccessStatus のようになります。</a></li>
+<li><a href="https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapmodel3d">MapModel3D のようになります。</a></li>
+</ul>
