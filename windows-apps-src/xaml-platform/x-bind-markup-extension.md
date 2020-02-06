@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 8008c652dea89b42185c9fb1d9ac42e96f16a117
-ms.sourcegitcommit: 5af282fb230765a7225e138d99e9cb1b60bf7238
+ms.openlocfilehash: 4c8fda22a565972e4157777c1db537a8f8d9ba20
+ms.sourcegitcommit: 20af365ce85d3d7d3a8d07c4cba5d0f1fbafd85d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77012050"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77034003"
 ---
 # <a name="xbind-markup-extension"></a>{x:Bind} マークアップ拡張
 
@@ -46,7 +46,7 @@ XAML のコンパイル時に、 **{x:Bind}** は、データ ソースのプロ
 <object property="{x:Bind pathToFunction.functionName(functionParameter1, functionParameter2, ...), bindingProperties}" .../>
 ```
 
-| 用語 | 説明 |
+| 項目 | 説明 |
 |------|-------------|
 | _propertyPath_ | バインドのプロパティ パスを指定する文字列。 詳しくは、以下の「[プロパティ パス](#property-path)」をご覧ください。 |
 | _bindingProperties_ |
@@ -54,7 +54,7 @@ XAML のコンパイル時に、 **{x:Bind}** は、データ ソースのプロ
 | _propName_ | Binding オブジェクトで設定するプロパティの文字列名。 たとえば、"Converter" です。 |
 | _value_ | プロパティに設定する値。 引数の構文は、設定されているプロパティによって異なります。 値がそれ自体マークアップ拡張である _propName_=_value_ の使用例を示します: `Converter={StaticResource myConverterClass}`。 詳しくは、以下の「[{x:Bind} で設定できるプロパティ](#properties-that-you-can-set-with-xbind)」をご覧ください。 |
 
-## <a name="examples"></a>例
+## <a name="examples"></a>使用例
 
 ```XAML
 <Page x:Class="QuizGame.View.HostView" ... >
@@ -73,7 +73,7 @@ XAML のコンパイル時に、 **{x:Bind}** は、データ ソースのプロ
   </DataTemplate>
 ```
 
-## <a name="property-path"></a>プロパティ パス
+## <a name="property-path"></a>[プロパティのパス]
 
 *PropertyPath* は **{x:Bind}** 式の **Path** です。 **Path** は、バインド先のプロパティ、サブプロパティ、フィールド、またはメソッドの値 (ソース) を指定するプロパティ パスです。 **Path** プロパティの名前は、`{x:Bind Path=...}` のように明示的に指定することができます。 または、`{x:Bind ...}` のように省略することもできます。
 
@@ -94,11 +94,11 @@ C++/CX の場合、 **{x:Bind}** はページまたはデータ モデルのプ�
 
 インデクサーを使うには、インデックス化されるプロパティの型に基づいて、モデルで **IList&lt;T&gt;** または **IVector&lt;T&gt;** を実装する必要があります。 (IReadOnlyList&lt;T&gt; と IVectorView&lt;T&gt; では、インデクサー構文はサポートされていません)。インデックス付きプロパティの型が**INotifyCollectionChanged**または**IObservableVector**をサポートし、バインドが OneWay または TwoWay の場合は、これらのインターフェイスに対する変更通知を登録してリッスンします。 変更検出ロジックは、特定のインデックス付きの値に影響を与えない場合でも、すべてのコレクションの変更に基づいて更新されます。 これは、リッスンしているロジックがコレクションのすべてのインスタンス間で共通であるためです。
 
-データ ソースがディクショナリまたはマップである場合、プロパティ パスには、文字列名によりコレクション内の項目を指定できます。 たとえば **&lt;TextBlock Text = "{X:Bind Players\[' John smith '\]}"/&gt;** は、"john smith" という名前の辞書内の項目を検索します。 名前は引用符で囲む必要があり、単一引用符と二重引用符のどちらでも使用できます。 文字列で引用符をエスケープするにはハット (^) を使用できます。 XAML 属性に使用されるものから代替引用符を使用するのが最も簡単です。 (Ireadonlydictionary<&lt;T&gt; と IMapView&lt;T&gt; では、インデクサー構文はサポートされていません)。
+データ ソースがディクショナリまたはマップである場合、プロパティ パスには、文字列名によりコレクション内の項目を指定できます。 たとえば **&lt;TextBlock Text = "{X:Bind Players\[' John smith '\]}"/&gt;** は、"john smith" という名前の辞書内の項目を検索します。 名前は引用符で囲む必要があり、単一引用符と二重引用符のどちらでも使用できます。 文字列で引用符をエスケープするにはハット (^) を使用できます。 通常は、XAML 属性で使用されているものとは別の引用符を使用するのが最も簡単です。 (Ireadonlydictionary<&lt;T&gt; と IMapView&lt;T&gt; では、インデクサー構文はサポートされていません)。
 
 文字列インデクサーを使うには、インデックス化されるプロパティの型に基づいて、モデルで **IDictionary&lt;string, T&gt;** または **IMap&lt;string, T&gt;** を実装する必要があります。 インデックス付きプロパティの型が **IObservableMap** をサポートしており、バインディングが OneWay または TwoWay の場合、そのプロパティは登録され、それらのインターフェイスで変更通知をリッスンします。 変更検出ロジックは、特定のインデックス付きの値に影響を与えない場合でも、すべてのコレクションの変更に基づいて更新されます。 これは、リッスンしているロジックがコレクションのすべてのインスタンス間で共通であるためです。
 
-### <a name="attached-properties"></a>添付プロパティ
+### <a name="attached-properties"></a>アタッチされるプロパティ
 
 [アタッチされたプロパティ](./attached-properties-overview.md)にバインドするには、クラスとプロパティ名をドットの後にかっこで囲んで指定する必要があります。 たとえば、**Text="{x:Bind Button22.(Grid.Row)}"** などです。 プロパティが Xaml 名前空間で宣言されていない場合は、そのプロパティの前に xml 名前空間を付ける必要があります。これはドキュメントの先頭でコード名前空間にマップする必要があります。
 
@@ -149,7 +149,7 @@ Windows 10 バージョン 1607 以降、 **{x:Bind}** はバインド パスの
 > マークアップを **{Binding}** から **{x:Bind}** に変換する場合は、**Mode** プロパティの既定値の違いに注意してください。
 > [**x:DefaultBindMode**](https://docs.microsoft.com/windows/uwp/xaml-platform/x-defaultbindmode-attribute)は、マークアップツリーの特定のセグメントについて、x:Bind の既定のモードを変更するために使用できます。 選択されたモードは、バインドの一部として明示的にモードが指定されている場合を除いて、対象の要素とその子に対するすべての x:Bind 式に適用されます。 OneTime は、OneWay より重要です。OneWay を使うと、接続して変更検出を処理するために生成されるコードが多くなるためです。
 
-## <a name="remarks"></a>注釈
+## <a name="remarks"></a>コメント
 
 **{x:Bind}** は、その利点を得るために、生成されたコードを使用するので、コンパイル時に型情報が必要です。 つまり、型が事前にわかっていない場合は、プロパティにバインドできません。 このため、 **{x:Bind}** は、型が **Object** で、実行時に変更されることもある **DataContext** プロパティと共に使用することはできません。
 

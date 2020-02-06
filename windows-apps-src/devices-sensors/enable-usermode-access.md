@@ -1,28 +1,28 @@
 ---
-title: GPIO、I2C、SPI へのユーザー モード アクセスの有効化
-description: このチュートリアルでは、Windows 10 で GPIO、I2C、SPI、および UART へのユーザー モード アクセスを有効にする方法について説明します。
+title: ユーザーモードでの GPIO、I2C、および SPI へのアクセスを有効にする
+description: このチュートリアルでは、Windows 10 上の GPIO、I2C、SPI、および UART へのユーザーモードアクセスを有効にする方法について説明します。
 ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, UWP, ACPI, GPIO, I2C, SPI, UEFI
 ms.assetid: 2fbdfc78-3a43-4828-ae55-fd3789da7b34
 ms.localizationpriority: medium
-ms.openlocfilehash: 0a1356003c86040cfa51872b802ba070a685789b
-ms.sourcegitcommit: 445320ff0ee7323d823194d4ec9cfa6e710ed85d
+ms.openlocfilehash: 08c802154180f5577c43a3ad5f349f53e3d9b5d3
+ms.sourcegitcommit: 20ee991a1cf87ef03c158cd3f38030c7d0e483fa
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72281841"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77037902"
 ---
-# <a name="enable-usermode-access-to-gpio-i2c-and-spi"></a>GPIO、I2C、SPI へのユーザー モード アクセスの有効化
+# <a name="enable-user-mode-access-to-gpio-i2c-and-spi"></a>ユーザーモードでの GPIO、I2C、および SPI へのアクセスを有効にする
 
-Windows 10 には、GPIO、I2C、SPI、UART にユーザー モードから直接アクセスするための新しい API が含まれています。 Raspberry Pi 2 のような開発ボードは、特定のアプリケーションに対処するためにユーザーがカスタム回路を使って基本計算モジュールを拡張できるようにする、これらの接続のサブセットを公開しています。 通常、これらの低レベル バスはその他の重要なオンボード機能と共有され、GPIO ピンのサブセットとバスのみがヘッダーで公開されます。 システムの安定性を維持するために、どのピンとバスの変更が安全かをユーザー モード アプリケーションで指定する必要があります。
+Windows 10 には、汎用入出力 (GPIO)、統合された回線 (I2C)、シリアル周辺機器インターフェイス (SPI)、およびユニバーサル非同期受信機 (UART) のユーザーモードから直接アクセスできる新しい Api が含まれています。 Raspberry Pi 2 などの開発ボードには、これらの接続のサブセットが公開されています。これにより、カスタム回路で基本コンピューティングモジュールを拡張し、特定のアプリケーションに対処できます。 通常、これらの低レベル バスはその他の重要なオンボード機能と共有され、GPIO ピンのサブセットとバスのみがヘッダーで公開されます。 システムの安定性を維持するには、ユーザーモードアプリケーションによって変更が安全な pin とバスを指定する必要があります。
 
-このドキュメントでは、ACPI でこの構成を指定する方法を説明し、構成が正しく指定されていることを検証するためのツールを提供します。
+このドキュメントでは、詳細構成と電源インターフェイス (ACPI) でこの構成を指定する方法について説明し、構成が正しく指定されたことを検証するためのツールを提供します。
 
 > [!IMPORTANT]
-> このドキュメントの対象者は、UEFI と ACPI の開発者です。 ACPI、ASL 作成、SpbCx/GpioClx についてある程度の知識があることを前提としています。
+> このドキュメントの対象読者は、Unified Extensible Firmware Interface (UEFI) および ACPI 開発者です。 ACPI、ACPI ソース言語 (ASL) のオーサリング、SpbCx/GpioClx に関する知識があることを前提としています。
 
-Windows での低レベル バスへのユーザー モード アクセスは、既存の `GpioClx` および `SpbCx` フレームワークを通じて組み込まれています。 Windows 10 IoT Core と Windows Enterprise で使用可能な *RhProxy* という新しいドライバーが、`GpioClx` リソースと `SpbCx` リソースをユーザー モードに公開します。 API を有効にするには、ユーザー モードに公開する GPIO リソースと SPB リソースのそれぞれで、ACPI テーブル内で rhproxy 用のデバイス ノードが宣言されている必要があります。 このドキュメントでは、ASL の作成と検証について説明します。
+Windows 上の低レベルのバスへのユーザーモードアクセスは、既存の `GpioClx` と `SpbCx` のフレームワークによって組み込まれています。 Windows IoT Core および Windows Enterprise で利用できる*RhProxy*という新しいドライバーにより、`GpioClx` と `SpbCx` のリソースがユーザーモードに公開されます。 Api を有効にするには、rhproxy のデバイスノードを、ユーザーモードに公開する必要がある各 GPIO および SPB リソースを使用して、ACPI テーブル内で宣言する必要があります。 このドキュメントでは、ASL の作成と検証について説明します。
 
 ## <a name="asl-by-example"></a>ASL の例
 
@@ -41,7 +41,7 @@ Device(RHPX)
 * _CID: 互換性 ID です。"MSFT8000" にする必要があります。
 * _UID: 一意の ID です。1 に設定します。
 
-次に、ユーザー モードに公開する GPIO リソースと SPB リソースをそれぞれ宣言します。 プロパティとリソースを関連付けるためにリソース インデックスが使われるため、リソースが宣言される順序は重要です。 複数の I2C または SPI バスが公開されている場合は、最初に宣言されているバスがその種類のバスの '既定' と見なされ、`GetDefaultAsync()`Windows.Devices.I2c.I2cController[ および ](https://docs.microsoft.com/uwp/api/windows.devices.i2c.i2ccontroller)Windows.Devices.Spi.SpiController[ の ](https://docs.microsoft.com/uwp/api/windows.devices.spi.spicontroller) メソッドによって返されるインスタンスになります。
+次に、ユーザーモードに公開する必要がある各 GPIO および SPB リソースを宣言します。 プロパティとリソースを関連付けるためにリソース インデックスが使われるため、リソースが宣言される順序は重要です。 複数の I2C または SPI バスが公開されている場合は、最初に宣言されているバスがその種類のバスの '既定' と見なされ、`GetDefaultAsync()`Windows.Devices.I2c.I2cController[ および ](https://docs.microsoft.com/uwp/api/windows.devices.i2c.i2ccontroller)Windows.Devices.Spi.SpiController[ の ](https://docs.microsoft.com/uwp/api/windows.devices.spi.spicontroller) メソッドによって返されるインスタンスになります。
 
 ### <a name="spi"></a>SPI
 
@@ -208,7 +208,7 @@ I2CSerialBus() 記述子の次のフィールドは固定されています。
 
 ### <a name="gpio"></a>GPIO
 
-次に、ユーザー モードに公開されるすべての GPIO ピンを宣言します。 どのピンを公開するかを判断するために、次のガイダンスを提供しています。
+次に、ユーザーモードに公開されているすべての GPIO ピンを宣言します。 どのピンを公開するかを判断するために、次のガイダンスを提供しています。
 
 * 公開されるヘッダーのすべてのピンを宣言します。
 * ボタンや LED などの役立つオンボード機能に接続されているピンを宣言します。
@@ -294,9 +294,9 @@ Package (2) { “GPIO-PinCount”, 54 },
 
 ### <a name="uart"></a>UART
 
-UART ドライバーが `SerCx` または `SerCx2` を使用する場合、rhproxy を使用してこのドライバーをユーザー モードに公開することができます。 `GUID_DEVINTERFACE_COMPORT` 型のデバイス インターフェイスを作成する UART ドライバーでは、rhproxy を使用する必要はありません。 インボックス `Serial.sys` ドライバーも、このようなドライバーの 1 つです。
+UART ドライバーで `SerCx` または `SerCx2`が使用されている場合は、rhproxy を使用して、ドライバーをユーザーモードに公開できます。 `GUID_DEVINTERFACE_COMPORT` 型のデバイス インターフェイスを作成する UART ドライバーでは、rhproxy を使用する必要はありません。 インボックス `Serial.sys` ドライバーも、このようなドライバーの 1 つです。
 
-`SerCx` スタイルの UART をユーザー モードに公開するには、次のように `UARTSerialBus` リソースを宣言します。
+`SerCx`スタイルの UART をユーザーモードに公開するには、次のように `UARTSerialBus` リソースを宣言します。
 
 ```cpp
 // Index 2
@@ -325,7 +325,7 @@ ResourceSource フィールドのみが固定され、その他のすべての�
 Package(2) { "bus-UART-UART2", Package() { 2 }},
 ```
 
-ユーザーがユーザー モードからバスにアクセスするために使う識別子である、フレンドリ名 “UART2” がコントローラーに割り当てられます。
+これにより、コントローラーにフレンドリ名 "UART2" が割り当てられます。これは、ユーザーモードからバスにアクセスするためにユーザーが使用する識別子です。
 
 ## <a name="runtime-pin-muxing"></a>実行時のピンの多重化
 
@@ -655,14 +655,14 @@ rhproxy をテストする準備ができたら、次の手順を使用すると
 1. `ACPITABL.dat` を使用して、rhproxy ノードをコンパイルして読み込みます
 1. `rhproxy` デバイス ノードが存在することを確認します。
 1. `rhproxy` が読み込まれ、開始されていることを確認します。
-1. 想定されているデバイスがユーザー モードに公開されていることを確認します。
+1. 予想されるデバイスがユーザーモードに公開されていることを確認する
 1. コマンド ラインから各デバイスを操作できることを確認します。
 1. UWP アプリから各デバイスを操作できることを確認します。
 1. HLK テストを実行します。
 
 ### <a name="verify-controller-drivers"></a>コントローラー ドライバーを確認する
 
-rhproxy は、システム上の他のデバイスもユーザー モードに公開するため、それらのデバイスが既に動作している場合にのみ動作します。 最初の手順では、それらのデバイス (公開する I2C、SPI、GPIO コントローラー) が既に動作していることを確認します。
+Rhproxy は、システム上の他のデバイスをユーザーモードに公開するため、これらのデバイスが既に動作している場合にのみ機能します。 最初の手順では、それらのデバイス (公開する I2C、SPI、GPIO コントローラー) が既に動作していることを確認します。
 
 コマンド プロンプトで、次のコマンドを実行します。
 
@@ -740,9 +740,9 @@ devcon status *msft8000
 * 問題 51 - `CM_PROB_WAITING_ON_DEPENDENCY` -その依存関係のいずれかが読み込みに失敗したため、システムは rhproxy を開始していません。 これは、rhproxy に渡されたリソースが無効な ACPI ノードを指しているか、ターゲット デバイスが起動していないことを意味します。 最初に、すべてのデバイスが正常に実行されていることを再確認します (上記の「コントローラー ドライバーを確認する」を参照)。 次に、ASL をダブルクリックして、すべてのリソースパス (`\_SB.I2C1`など) が正しいことと、DSDT 内の有効なノードを指していることを確認します。
 * 問題 10 - `CM_PROB_FAILED_START` - rhproxy を開始できませんでした。ほとんどの場合、リソースの解析の問題が原因です。 ASL を調べて、DSD 内のリソースのインデックスを再確認し、ピン番号の昇順で GPIO リソースが指定されていることを確認します。
 
-### <a name="verify-that-the-expected-devices-are-exposed-to-usermode"></a>想定されているデバイスがユーザー モードに公開されていることを確認します。
+### <a name="verify-that-the-expected-devices-are-exposed-to-user-mode"></a>予想されるデバイスがユーザーモードに公開されていることを確認する
 
-rhproxy が実行されると、ユーザー モードからアクセスできるデバイス インターフェイスが作成されています。 いくつかのコマンド ライン ツールを使用してデバイスを列挙し、デバイスが存在していることを確認します。
+Rhproxy が実行中であるため、ユーザーモードでアクセスできるデバイスインターフェイスが作成されている必要があります。 いくつかのコマンド ライン ツールを使用してデバイスを列挙し、デバイスが存在していることを確認します。
 
 [https://github.com/ms-iot/samples](https://github.com/ms-iot/samples)リポジトリを複製し、`GpioTestTool`、`I2cTestTool`、`SpiTestTool`、および `Mincomm` のサンプルをビルドします。 テスト対象デバイスにツールをコピーし、次のコマンドを使用してデバイスを列挙します。
 
@@ -833,9 +833,9 @@ HLK マネージャーで、[Resource Hub Proxy device] を選択します。
 
 [選択したテストの実行] をクリックします。 各テストに関するその他のドキュメントは、テストを右クリックして [テストの説明] をクリックすることで利用できます。
 
-## <a name="resources"></a>参考資料
+## <a name="resources"></a>リソース
 
-| 宛先 | リンク |
+| [Destination] | リンク |
 |-------------|------|
 | ACPI 5.0 の仕様 | http://acpi.info/spec.htm |
 | Asl.exe (Microsoft ASL Compiler) | https://msdn.microsoft.com/library/windows/hardware/dn551195.aspx |
@@ -854,7 +854,7 @@ HLK マネージャーで、[Resource Hub Proxy device] を選択します。
 | MinComm (シリアル) | https://github.com/ms-iot/samples/tree/develop/MinComm |
 | ハードウェア ラボ キット (HLK) | https://msdn.microsoft.com/library/windows/hardware/dn930814.aspx |
 
-## <a name="apendix"></a>付録
+## <a name="appendix"></a>付録
 
 ### <a name="appendix-a---raspberry-pi-asl-listing"></a>付録 A - Raspberry Pi ASL の一覧
 
