@@ -6,12 +6,12 @@ ms.date: 12/18/2017
 ms.topic: article
 keywords: windows 10、uwp、アプリ認定
 ms.localizationpriority: medium
-ms.openlocfilehash: ec780253deb170c5dde1828add366907c403f100
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.openlocfilehash: c7ffd500f3b616367ac26dffbbfc03d43b507dac
+ms.sourcegitcommit: 3e7a4f7605dfb4e87bac2d10b6d64f8b35229546
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75681903"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77089408"
 ---
 # <a name="windows-desktop-bridge-app-tests"></a>Windows デスクトップ ブリッジ アプリのテスト
 
@@ -43,7 +43,7 @@ Windows デスクトップブリッジアプリのオプションのテストは
 これらの拡張機能とその適切な使用方法については、「[Desktop to UWP Bridge: アプリの拡張機能](https://docs.microsoft.com/windows/apps/desktop/modernize/desktop-to-uwp-extensions)」をご覧ください。 
 
 ### <a name="3-debug-configuration-test"></a>3. デバッグ構成のテスト
-このテストでは、appx がデバッグ ビルドではないことを確認します。
+このテストでは、msix または .appx がデバッグビルドでないことを確認します。
  
 **背景**  
 Microsoft Store に対して認定を受けるには、デバッグ用にアプリをコンパイルしないでください。また、実行可能ファイルのデバッグバージョンを参照することはできません。 また、アプリがこのテストに合格するよう最適化されたコードをビルドする必要もあります。
@@ -107,10 +107,10 @@ Microsoft Store に対して認定を受けるには、デバッグ用にアプ�
 **テストの詳細**  
 アプリ マニフェストで定義されているリソースを調べて、それらのリソースが存在し有効であることを確認します。
 
-**是正措置**:  
+**是正措置**  
 次の表をガイドとして使用してください。
 
-エラー メッセージ | 備考
+エラー メッセージ | コメント
 --------------|---------
 The image {image name} defines both Scale and TargetSize qualifiers; you can define only one qualifier at a time. (イメージ {image name} には Scale 修飾子と TargetSize 修飾子が定義されていますが、一度に定義可能な修飾子は 1 つだけです。) | さまざまな解像度に合わせて画像をカスタマイズできます。 実際のメッセージでは、{imageName} にエラーの発生した画像の名前が入ります。 各画像で Scale と TargetSize のいずれかが修飾子として定義されていることを確認します。 
 The image {image name} failed the size restrictions. (イメージ {image name} がサイズ制限を超えました。)  | すべてのアプリ画像が適切なサイズ制限に従っていることを確認します。 実際のメッセージでは、{imageName} にエラーの発生した画像の名前が入ります。 
@@ -156,9 +156,9 @@ The {filename} file must not contain a reverse map section. ({filename} ファ�
 * **フレームワークの依存関係ルール**  
 このテストは、アプリが UWP への適切な依存関係を宣言しているかどうかをチェックします。 不適切な依存関係がある場合は、このテストは失敗します。 アプリがターゲットとする OS のバージョンと依存関係のあるフレームワークとの間に不整合がある場合は、テストは失敗します。 アプリがフレーム ワーク DLL の "Preview" 版を参照している場合にも、テストは失敗します。
 * **プロセス間通信 (IPC) の検証**  
-このテストでは、デスクトップ ブリッジ アプリがデスクトップ コンポーネントとアプリ コンテナーの外側で通信しないかどうかをチェックします。 プロセス間通信は、サイドローディングが行われたアプリのみを対象としています。 `DesktopApplicationPath` と同じ名前で [**ActivatableClassAttribute**](https://docs.microsoft.com/uwp/schemas/appxpackage/appxmanifestschema/element-activatableclassattribute) を指定しているアプリは、このテストに合格しません。  
+このテストでは、デスクトップ ブリッジ アプリがデスクトップ コンポーネントとアプリ コンテナーの外側で通信しないかどうかをチェックします。 プロセス間通信は、サイドローディングが行われたアプリのみを対象としています。 [ と同じ名前でActivatableClassAttribute](https://docs.microsoft.com/uwp/schemas/appxpackage/appxmanifestschema/element-activatableclassattribute)`DesktopApplicationPath` を指定しているアプリは、このテストに合格しません。  
 
-**是正措置**:  
+**是正措置**  
 「[アプリ パッケージの要件](https://docs.microsoft.com/windows/uwp/publish/app-package-requirements)」で説明されている要件に照らして、アプリのマニフェストを確認します。
 
 

@@ -6,19 +6,19 @@ ms.date: 07/22/2019
 ms.topic: article
 keywords: Windows 10, UWP, パッケージ化
 ms.localizationpriority: medium
-ms.openlocfilehash: d067511e4ceb5aaf072aabf8f74ccf186a7787dc
-ms.sourcegitcommit: 350d6e6ba36800df582f9715c8d21574a952aef1
+ms.openlocfilehash: bb772007cd5c4391634f9df6ba0b6d2037a7b5de
+ms.sourcegitcommit: 3e7a4f7605dfb4e87bac2d10b6d64f8b35229546
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68682673"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77089478"
 ---
 # <a name="packaging-apps"></a>アプリのパッケージ化
 
-このセクションには、デプロイとインストールに使用するための、MSIX および AppX アプリ パッケージでのユニバーサル Windows プラットフォーム (UWP) アプリのパッケージ化に関する記事が含まれているか、リンクされています。 これらのリンクの一部は、[MSIX ドキュメント](https://docs.microsoft.com/windows/msix/)の関連記事にアクセスします。
+このセクションには、デプロイとインストールに使用するための、MSIX および .appx アプリ パッケージでのユニバーサル Windows プラットフォーム (UWP) アプリのパッケージ化に関する記事が含まれているか、リンクされています。 これらのリンクの一部は、[MSIX ドキュメント](https://docs.microsoft.com/windows/msix/)の関連記事にアクセスします。
 
 > [!NOTE]
-> Windows 10 の UWP アプリの元のアプリ パッケージ形式は、AppX という名前でした。 Windows 10 バージョン 1809 以降では、このパッケージ形式は MSIX という名前に変更され、.NET や C++/Win32 デスクトップ アプリを含むすべての種類の Windows アプリをサポートするように拡張されました。 MSIX のサポートは、以前のバージョンの Windows にも拡張されています。 詳細については、[MSIX のドキュメント](https://docs.microsoft.com/windows/msix/)を参照してください。
+> Windows 10 の UWP アプリの元のアプリ パッケージ形式は、.appx でした。 Windows 10 バージョン 1809 以降では、このパッケージ形式は .msix という名前に変更され、.NET や C++/Win32 デスクトップ アプリを含むすべての種類の Windows アプリをサポートするように拡張されました。 MSIX のサポートは、以前のバージョンの Windows にも拡張されています。 詳細については、[MSIX のドキュメント](https://docs.microsoft.com/windows/msix/)を参照してください。
 
 | トピック | 説明 |
 |-------|-------------|

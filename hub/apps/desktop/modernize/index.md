@@ -6,12 +6,12 @@ ms.date: 04/17/2019
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: fb6d2bebda31ed768309b23d18b3b47e4487b058
-ms.sourcegitcommit: 09571e1c6a01fabed773330aa7ead459a47d94f7
+ms.openlocfilehash: c2e7524605847009dae415d93794658dd08a79a3
+ms.sourcegitcommit: 3e7a4f7605dfb4e87bac2d10b6d64f8b35229546
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76929246"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77089398"
 ---
 # <a name="modernize-your-desktop-apps"></a>デスクトップ アプリの現代化
 
@@ -24,7 +24,7 @@ Windows 10 とユニバーサル Windows プラットフォーム (UWP) に用�
 
 ## <a name="msix-packages"></a>MSIX パッケージ
 
-MSIX は、UWP、WPF、Windows フォーム、Win32 アプリを含む、あらゆる Windows アプリ用のユニバーサル パッケージ化エクスペリエンスを提供するモダンな Windows アプリ パッケージ形式です。 MSIX は、MSI、AppX、App-V、ClickOnce インストール テクノロジの優れた部分を組み合わせたもので、最新で信頼性の高いパッケージ化エクスペリエンスを提供します。
+MSIX は、UWP、WPF、Windows フォーム、Win32 アプリを含む、あらゆる Windows アプリ用のユニバーサル パッケージ化エクスペリエンスを提供するモダンな Windows アプリ パッケージ形式です。 MSIX は、MSI、.appx、App-V、ClickOnce インストール テクノロジの優れた部分を組み合わせたもので、最新で信頼性の高いパッケージ化エクスペリエンスを提供します。
 
 MSIX パッケージにデスクトップ Windows アプリをパッケージ化することで、堅牢なインストール、更新エクスペリエンス、柔軟な機能システムによる管理されたセキュリティ モデル、Microsoft Store のサポート、エンタープライズ管理、および多くのカスタム配布モデルにアクセスできます。
 

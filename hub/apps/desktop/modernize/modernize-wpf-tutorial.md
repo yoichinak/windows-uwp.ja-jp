@@ -8,12 +8,12 @@ author: mcleanbyron
 keywords: windows 10、uwp、windows フォーム、wpf、xaml islands
 ms.localizationpriority: medium
 ms.custom: RS5, 19H1
-ms.openlocfilehash: de84cbb2e1927d9426eefaaf7b0d70d604427da1
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.openlocfilehash: 397c301564c0d4799c6b41db209da9659725103d
+ms.sourcegitcommit: 3e7a4f7605dfb4e87bac2d10b6d64f8b35229546
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75683815"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77089308"
 ---
 # <a name="tutorial-modernize-a-wpf-app"></a>チュートリアル: WPF アプリの最新化 
 
@@ -51,7 +51,7 @@ Contoso では、従業員が経費報告書を効率的に作成できるよう
 * アダプティブカードと Windows 10 の通知をアプリに統合します。
 * アプリを MSIX でパッケージ化し、Azure DevOps に CI/CD パイプラインを設定して、使用可能になったらすぐに新しいバージョンのアプリをテスト担当者とユーザーに自動的に配信できるようにします。
 
-## <a name="prerequisites"></a>必要条件
+## <a name="prerequisites"></a>前提条件
 
 このチュートリアルを実行するには、開発用コンピューターに次の前提条件がインストールされている必要があります。
 
@@ -74,7 +74,7 @@ Visual Studio 2019 では、次のワークロードとオプション機能を�
 3. Visual Studio 2019 を開き、 **C:\WinAppsModernizationWorkshop\Lab\Exercise1\01-Start\ContosoExpenses\ContosoExpenses.sln**ファイルをダブルクリックしてソリューションを開きます。
 4. **[スタート]** ボタンまたは CTRL キーを押しながら F5 キーを押して、Contoso の経費の WPF プロジェクトをビルド、実行、およびデバッグできることを確認します。
 
-## <a name="get-started"></a>、
+## <a name="get-started"></a>作業開始
 
 Contoso の経費サンプルアプリのソースコードを取得し、それを Visual Studio でビルドできることを確認できるので、チュートリアルを開始する準備ができています。
 
@@ -98,7 +98,7 @@ Windows 10 では、WinRT の上に構築された[ユニバーサル Windows �
 
 ### <a name="msix-packaging"></a>MSIX パッケージ化
 
-[Msix](/windows/msix/) (旧称 AppX) は、Windows アプリの最新のパッケージモデルです。 MSIX は UWP アプリだけでなく、Win32、WPF、Windows フォーム、Java、電子などのテクノロジを使用して構築されたデスクトップアプリもサポートしています。 MSIX パッケージでデスクトップアプリをパッケージ化する場合、アプリを Microsoft Store に発行できます。 デスクトップアプリでは、インストール時にパッケージ id を取得することもできます。これにより、デスクトップアプリでより広範な WinRT Api のセットを使用できるようになります。
+[Msix](/windows/msix/)は、Windows アプリの最新のパッケージモデルです。 MSIX は UWP アプリだけでなく、Win32、WPF、Windows フォーム、Java、電子などのテクノロジを使用して構築されたデスクトップアプリもサポートしています。 MSIX パッケージでデスクトップアプリをパッケージ化する場合、アプリを Microsoft Store に発行できます。 デスクトップアプリでは、インストール時にパッケージ id を取得することもできます。これにより、デスクトップアプリでより広範な WinRT Api のセットを使用できるようになります。
 
 詳細については、次の記事を参照してください。
 
@@ -107,9 +107,9 @@ Windows 10 では、WinRT の上に構築された[ユニバーサル Windows �
 
 ### <a name="xaml-islands"></a>XAML Islands
 
-Windows 10 バージョン 1903 以降では、*XAML Islands* と呼ばれる機能を使用して UWP 以外のデスクトップ アプリで UWP コントロールをホストできます。 この機能では、UWP コントロールを介してのみ使用できる最新の Windows 10 の UI 機能を使用して既存のデスクトップ アプリの外観、操作性、および機能性を向上させることができます。 つまり、既存のWPF、Windowsフォーム、およびC++Win32アプリでは、Windows Ink などの UWP 機能と Fluent Design System をサポートするコントロールを使用できます。
+Windows 10 バージョン1903以降では、 *XAML アイランド*と呼ばれる機能を使用して、uwp 以外のデスクトップアプリで uwp コントロールをホストできます。 この機能では、UWP コントロールを介してのみ使用できる最新の Windows 10 の UI 機能を使用して既存のデスクトップ アプリの外観、操作性、および機能性を向上させることができます。 つまり、既存のWPF、Windowsフォーム、およびC++Win32アプリでは、Windows Ink などの UWP 機能と Fluent Design System をサポートするコントロールを使用できます。
 
-詳細については、[デスクトップ アプリケーション (XAML Islands) の UWP コントロール](/windows/uwp/xaml-platform/xaml-host-controls) をご参照ください。 このチュートリアルでは、2 つの異なるタイプの XAML Islandsコントロールを使用するプロセスを案内します。
+詳細については、「[デスクトップアプリケーションの UWP コントロール (XAML アイランド)](/windows/uwp/xaml-platform/xaml-host-controls)」を参照してください。 このチュートリアルでは、2 つの異なるタイプの XAML Islandsコントロールを使用するプロセスを案内します。
 
 * Windows Community Toolkit の[system.windows.controls.inkcanvas>](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/inkcanvas)と[mapcontrol](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/mapcontrol) 。 これらの WPF コントロールは、対応する UWP コントロールのインターフェイスと機能をラップし、Visual Studio デザイナーの他の WPF コントロールと同様に使用できます。
 

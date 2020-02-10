@@ -7,12 +7,12 @@ ms.date: 10/20/2017
 ms.topic: article
 keywords: Windows 10, UWP, リソース, 画像, アセット, MRT, 修飾子
 ms.localizationpriority: medium
-ms.openlocfilehash: f40a68b6e07a90bcb1ce1d646bdfc0dfb4553495
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 5b45f33e9849a46e22250640b88a85ea16143231
+ms.sourcegitcommit: 3e7a4f7605dfb4e87bac2d10b6d64f8b35229546
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66359419"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77089325"
 ---
 # <a name="app-resources-and-the-resource-management-system"></a>アプリ リソースとリソース管理システム
 
@@ -25,7 +25,7 @@ ms.locfileid: "66359419"
 
 アプリのローカライズの価値提案の詳細については、「[グローバリゼーションとローカライズ](../design/globalizing/globalizing-portal.md)」をご覧ください。
 
-| 記事 | 説明 |
+| アーティクル | 説明 |
 |---------|-------------|
 | [リソース管理システム](resource-management-system.md) | ビルド時に、リソース管理システムは、アプリとしてパッケージ化されているリソースのさまざまなバリエーションすべてのインデックスを作成します。 実行時に、システムは、有効になっているユーザーやコンピューターの設定を検出し、それらの設定に最適なリソースを読み込みます。 |
 | [リソース管理システムでのリソースの照合と選択の仕組み](how-rms-matches-and-chooses-resources.md) | リソースを要求すると、現在のリソース コンテキストにある程度一致するリソース候補がいくつか存在する場合があります。 リソース管理システムはすべての候補を分析して、返すのに最もよい候補を決定します。 このトピックでは、そのプロセスの詳細について説明し、例を示します。 |
@@ -38,6 +38,6 @@ ms.locfileid: "66359419"
 | [リソースをリソース パックではなくアプリ パッケージに組み込む](build-resources-into-app-package.md) | 一部の種類のアプリ (多言語の辞書、翻訳ツールなど) は、アプリ バンドルの既定の動作をオーバーライドし、別のリソース パッケージではなくアプリ パッケージにリソースを組み込む必要があります。 このトピックでは、その方法について説明します。 |
 | [パッケージ リソース インデックス (PRI) API とカスタム ビルド システム](pri-apis-custom-build-systems.md) | [パッケージ リソース インデックス (PRI) API](https://docs.microsoft.com/windows/desktop/menurc/pri-indexing-reference) を使用すると、UWP アプリのリソース用にカスタム ビルド システムを開発することができます。 ビルド システムでは、UWP アプリが必要とする複雑さのレベルにかかわらず、パッケージ リソース インデックス (PRI) ファイルを (XML として) 作成、バージョン管理、ダンプすることができます。 |
 | [MakePri.exe を使用して手動でリソースをコンパイルする](compile-resources-manually-with-makepri.md) | MakePri.exe は、PRI ファイルを作成およびダンプするために使用できるコマンド ライン ツールです。 このツールは、Microsoft Visual Studio の MSBuild の一部として統合されていますが、パッケージを手動で作成したり、カスタム ビルド システムを使って作成する場合にも使うことができます。 |
-| [レガシ アプリやゲームで Windows 10 のリソース管理システムを使用する](using-mrt-for-converted-desktop-apps-and-games.md) | .NET または Win32 アプリやゲームを AppX パッケージとしてパッケージ化することにより、リソース管理システムを活用して実行時のコンテキストに合わせたアプリ リソースを読み込むことができます。 この詳細なトピックでは、この手法について説明します。 |
+| [レガシ アプリやゲームで Windows 10 のリソース管理システムを使用する](using-mrt-for-converted-desktop-apps-and-games.md) | .NET または Win32 アプリやゲームを .msix または .appx パッケージとしてパッケージ化することにより、リソース管理システムを活用して実行時のコンテキストに合わせたアプリ リソースを読み込むことができます。 この詳細なトピックでは、この手法について説明します。 |
 
 「[言語、スケール、ハイ コントラストに合わせたタイルとトースト通知のサポート](../design/shell/tiles-and-notifications/tile-toast-language-scale-contrast.md)」も参照してください。

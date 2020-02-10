@@ -12,12 +12,12 @@ design-contact: kimsea
 dev-contact: niallm
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 67ba9f5c9bc4a5e723eb2696d88804df5300eda0
-ms.sourcegitcommit: 4aef8c01ba9321401d5729a1ec6d46452ee76faf
+ms.openlocfilehash: d5014532be613e8284a1e2d6496f71b9f2b8e892
+ms.sourcegitcommit: 5002836b3c8d3e0f2970da1333ec8f42da861ae3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67468987"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77071254"
 ---
 # <a name="dialog-controls"></a>ダイアログ コントロール
 
@@ -28,7 +28,7 @@ ms.locfileid: "67468987"
 
 > **重要な API**:[ContentDialog クラス](/uwp/api/Windows.UI.Xaml.Controls.ContentDialog)
 
-## <a name="is-this-the-right-control"></a>適切なコントロールの選択
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 重要な情報をユーザーに通知したり、アクションが完了する前に確認や追加情報を要求したりするには、ダイアログを使用します。
 
@@ -252,7 +252,7 @@ private async void DisplaySubscribeDialog()
 
 ## <a name="contentdialog-in-appwindow-or-xaml-islands"></a>AppWindow 内または XAML Islands 内の ContentDialog
 
-> 注: このセクションは、Windows 10 バージョン 1903 以降をターゲットとするアプリにのみ適用されます。 それより前のバージョンでは、AppWindow および XAML Islands は使用できません。 バージョンについて詳しくは、[バージョン アダプティブ アプリ](../../../debug-test-perf/version-adaptive-apps.md)に関する記事をご覧ください。
+> 注記:このセクションは、Windows 10 バージョン 1903 以降をターゲットとするアプリにのみ適用されます。 それより前のバージョンでは、AppWindow および XAML Islands は使用できません。 バージョンについて詳しくは、[バージョン アダプティブ アプリ](../../../debug-test-perf/version-adaptive-apps.md)に関する記事をご覧ください。
 
 既定では、コンテンツ ダイアログはルート [ApplicationView](/uwp/api/windows.ui.viewmanagement.applicationview) を基準としてモーダルに表示されます。 ContentDialog を [AppWindow](/uwp/api/windows.ui.windowmanagement.appwindow) または [XAML Islands](/windows/apps/desktop/modernize/xaml-islands)の内部で使うときは、ダイアログの [XamlRoot](/uwp/api/windows.ui.xaml.uielement.xamlroot) を XAML ホストのルートに手動で設定する必要があります。
 
@@ -282,7 +282,7 @@ private async void DisplayNoWifiDialog()
 > [!WARNING]
 > 1 つのスレッドで一度に開くことのできる ContentDialog は 1 つだけです。 2 つの ContentDialog を開こうとすると、個別の AppWindow で開く場合でも、例外がスローされます。
 
-## <a name="get-the-sample-code"></a>サンプル コードを入手する
+## <a name="get-the-sample-code"></a>サンプル コードの入手
 
 - [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - インタラクティブな形で XAML コントロールのすべてを参照できます。
 

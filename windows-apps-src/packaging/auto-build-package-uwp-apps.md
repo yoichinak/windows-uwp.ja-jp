@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: f9b0d6bd-af12-4237-bc66-0c218859d2fd
 ms.localizationpriority: medium
-ms.openlocfilehash: b7d38464a26af0df03c1aa381b16fbddf1de55cc
-ms.sourcegitcommit: e0644abf76a2535ea24758d1904ff00dfcd86a51
+ms.openlocfilehash: 70415c9f3d58625cfdc651ec67c8a9f37c23cffa
+ms.sourcegitcommit: 3e7a4f7605dfb4e87bac2d10b6d64f8b35229546
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72008043"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77089498"
 ---
 # <a name="set-up-automated-builds-for-your-uwp-app"></a>UWP アプリの自動ビルドを設定する
 
@@ -93,14 +93,14 @@ steps:
 |--------------------|---------|---------------|
 | AppxPackageDir | $(Build.ArtifactStagingDirectory)\AppxPackages | 生成された成果物を格納するフォルダーを定義します。 |
 | AppxBundlePlatforms | $(Build.BuildPlatform) | バンドルに含めるプラットフォームを定義できます。 |
-| AppxBundle | 常に | 指定されたプラットフォームの .msixbundle/.appxbundle ファイルを持つ... を作成します。 |
+| AppxBundle | 常に行う | 指定されたプラットフォームの .msixbundle/.appxbundle ファイルを持つ... を作成します。 |
 | UapAppxPackageBuildMode | StoreUpload | では、サイドローディング用に msixupload/.appxupload ファイルと **_Test**フォルダーが生成されます。 |
 | UapAppxPackageBuildMode | CI | では、msixupload/. .appxupload ファイルのみが生成されます。 |
 | UapAppxPackageBuildMode | SideloadOnly | サイドローディング用の **_Test**フォルダーを生成します。 |
 | AppxPackageSigningEnabled | true | パッケージの署名を有効にします。 |
 | PackageCertificateThumbprint | 証明書の拇印 | この値は、署名証明書の拇印と一致しているか、空の文字列で**ある必要があり**ます。 |
-| PackageCertificateKeyFile | パス | 使用する証明書へのパス。 これは、セキュリティで保護されたファイルのメタデータから取得されます。 |
-| PackageCertificatePassword | パスワード | 証明書の秘密キーのパスワード。 パスワードを[Azure Key Vault](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates)に保存し、パスワードを[変数グループ](https://docs.microsoft.com/azure/devops/pipelines/library/variable-groups)にリンクすることをお勧めします。 この引数に変数を渡すことができます。 |
+| PackageCertificateKeyFile | Path | 使用する証明書へのパス。 これは、セキュリティで保護されたファイルのメタデータから取得されます。 |
+| PackageCertificatePassword | Password | 証明書の秘密キーのパスワード。 パスワードを[Azure Key Vault](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates)に保存し、パスワードを[変数グループ](https://docs.microsoft.com/azure/devops/pipelines/library/variable-groups)にリンクすることをお勧めします。 この引数に変数を渡すことができます。 |
 
 ### <a name="configure-the-build"></a>ビルドを構成する
 
@@ -115,7 +115,7 @@ steps:
 
 ### <a name="configure-package-signing"></a>パッケージ署名の構成
 
-MSIX (または APPX) パッケージに署名するには、パイプラインで署名証明書を取得する必要があります。 これを行うには、VSBuild タスクの前に DownloadSecureFile タスクを追加します。
+MSIX (または .appx) パッケージに署名するには、パイプラインで署名証明書を取得する必要があります。 これを行うには、VSBuild タスクの前に DownloadSecureFile タスクを追加します。
 これにより、```signingCert```経由で署名証明書にアクセスできるようになります。
 
 ```yml
@@ -186,7 +186,7 @@ MSIX (または APPX) パッケージに署名するには、パイプライン�
 
 このエラーが表示されるのは、ソリューション レベルで、バンドルに含めるアプリが明確ではないためです。 この問題を解決するには、各プロジェクトファイルを開き、最初の `<PropertyGroup>` 要素の末尾に次のプロパティを追加します。
 
-|**プロジェクト**|**[プロパティ]**|
+|**作品**|**[プロパティ]**|
 |-------|----------|
 |App|`<AppxBundle>Always</AppxBundle>`|
 |UnitTests|`<AppxBundle>Never</AppxBundle>`|

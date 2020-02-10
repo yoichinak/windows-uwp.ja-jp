@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10、uwp、アプリ認定
 ms.localizationpriority: medium
-ms.openlocfilehash: 6ab5b2ec13e0de3d234fafc6c1a32e10d35aed4f
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.openlocfilehash: 9de761a0b127d7218c7dc2bb4c6862626b7c60e4
+ms.sourcegitcommit: 3e7a4f7605dfb4e87bac2d10b6d64f8b35229546
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75681943"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77089428"
 ---
 # <a name="windows-app-certification-kit-tests"></a>Windows アプリ認定キットのテスト
 
@@ -62,7 +62,7 @@ Windows アプリを将来のバージョンの OS で実行できることを�
 
 Windows アプリ認定キットは、HighVersionLie を使って、アプリが OS のバージョンを確認する方法を検出します。 アプリがクラッシュした場合は、このテストに合格しません。
 
-### <a name="corrective-action"></a>問題への対応
+### <a name="corrective-action"></a>是正措置
 
 アプリは、バージョン API ヘルパー関数を使ってこれを確認する必要があります。 詳しくは、「[オペレーティング システムのバージョン](https://docs.microsoft.com/windows/desktop/SysInfo/operating-system-version)」をご覧ください。
 
@@ -78,13 +78,13 @@ Windows アプリ認定キットは、HighVersionLie を使って、アプリが
 
 アプリが起動して中断され、アプリの非バックグラウンド部分が終了します。 このアプリに関連付けられたバックグラウンド タスクは取り消されます。 アプリの状態が確認され、アプリがまだ実行中の場合はこのテストに合格しません。
 
-### <a name="corrective-action"></a>問題への対応
+### <a name="corrective-action"></a>是正措置
 
 アプリに取り消しハンドラーを追加します。 詳しくは、「[バックグラウンド タスクによるアプリのサポート](https://docs.microsoft.com/windows/uwp/launch-resume/support-your-app-with-background-tasks)」をご覧ください。
 
 ## <a name="app-count"></a>アプリ カウント
 
-アプリ パッケージ (APPX、アプリ バンドル) に 1 つのアプリケーションが含まれていることを確認します。 これは、キットでスタンドアロン テストに変更されました。
+これにより、アプリケーションパッケージ (msix、.appx、またはアプリバンドル) に1つのアプリケーションが含まれていることが確認されます。 これは、キットでスタンドアロン テストに変更されました。
 
 ### <a name="background"></a>背景
 
@@ -92,11 +92,11 @@ Windows アプリ認定キットは、HighVersionLie を使って、アプリが
 
 ### <a name="test-details"></a>テストの詳細
 
-Windows Phone 8.1 アプリの場合は、テストにより、バンドル内の appx パッケージの合計数が 512 個未満であること、バンドル内に含まれるメイン パッケージが 1 個だけであること、そしてバンドル内のメイン パッケージのアーキテクチャが ARM またはニュートラルとしてマークされていることを確認します。
+Windows Phone 8.1 アプリの場合、テストでは、バンドル内の .appx パッケージの総数 &lt; が512であること、バンドル内のメインパッケージが1つだけであること、バンドル内のメインパッケージのアーキテクチャが ARM またはニュートラルとしてマークされていることが確認されます。
 
 Windows 10 アプリの場合は、テストでは、バンドルのバージョンのリビジョン番号が 0 に設定されていることを確認します。
 
-### <a name="corrective-action"></a>問題への対応
+### <a name="corrective-action"></a>是正措置
 
 アプリ パッケージとバンドルが、テストの詳細で上記の要件を満たしていることを確認します。
 
@@ -126,7 +126,7 @@ Windows 10 アプリの場合は、テストでは、バンドルのバージョ
 
     このテストでは、UWP アプリがアプリコンテナーの外部でデスクトップコンポーネントと通信しないという要件が適用されます。 プロセス間通信は、サイドローディングが行われたアプリのみを対象としています。 DesktopApplicationPath と同じ名前で [**ActivatableClassAttribute**](https://docs.microsoft.com/uwp/schemas/appxpackage/appxmanifestschema/element-activatableclassattribute) を指定しているアプリは、このテストに合格しません。
 
-### <a name="corrective-action"></a>問題への対応
+### <a name="corrective-action"></a>是正措置
 
 「[アプリ パッケージの要件](https://docs.microsoft.com/windows/uwp/publish/app-package-requirements)」で説明されている要件に照らして、アプリのマニフェストを確認します。
 
@@ -335,7 +335,7 @@ JavaScript の実行時間を短縮するパフォーマンスの最適化とし
 
 アプリの展開をチェックして、すべての .js ファイルがバイトコードに変換されたことをチェックします。
 
-### <a name="corrective-action"></a>問題への対応
+### <a name="corrective-action"></a>是正措置
 
 このテストに合格しなかった場合は、問題の対処に際して次の点を考慮します。
 
@@ -352,7 +352,7 @@ JavaScript の実行時間を短縮するパフォーマンスの最適化とし
 
 WinJS.Binding.optimizeBindingReferences の値を確認します。
 
-### <a name="corrective-action"></a>問題への対応
+### <a name="corrective-action"></a>是正措置
 
 アプリの JavaScript で WinJS.Binding.optimizeBindingReferences を "**true**" に設定します。
 
@@ -366,12 +366,12 @@ WinJS.Binding.optimizeBindingReferences の値を確認します。
 
 アプリ マニフェストで定義されているリソースを調べて、それらのリソースが存在し有効であることを確認します。
 
-### <a name="corrective-action"></a>問題への対応
+### <a name="corrective-action"></a>是正措置
 
 次の表をガイダンスとして使います。
 
 <table>
-<tr><th>エラー メッセージ</th><th>備考</th></tr>
+<tr><th>エラー メッセージ</th><th>コメント</th></tr>
 <tr><td>
 <p>The image {image name} defines both Scale and TargetSize qualifiers; you can define only one qualifier at a time. (イメージ {image name} には Scale 修飾子と TargetSize 修飾子が定義されていますが、一度に定義可能な修飾子は 1 つだけです。)</p>
 </td><td>
@@ -521,7 +521,7 @@ Microsoft Store に対して認定を受けるには、デバッグ用にアプ�
 
 アプリ パッケージのコンテンツをテストし、正しいファイル エンコードが使われていることを確認します。
 
-### <a name="corrective-action"></a>問題への対応
+### <a name="corrective-action"></a>是正措置
 
 Visual Studio で、影響を受けるファイルを開き、 **[ファイル]** メニューの **[名前を付けて保存]** を選択します。 **[保存]** ボタンの横のドロップダウン コントロールを選び、 **[エンコード付きで保存]** をクリックします。 **[保存オプションの詳細設定]** ダイアログ ボックスで、Unicode (シグネチャを含む UTF-8) オプションを選び、 **[OK]** をクリックします。
 
@@ -541,7 +541,7 @@ Microsoft Store では、Direct3D を使用しているすべてのアプリケ�
 
 このテストでは、アプリが機能レベル 9\-1 で正確に表示されるかどうかを検証します。
 
-### <a name="corrective-action"></a>問題への対応
+### <a name="corrective-action"></a>是正措置
 
 上位の機能レベルで実行することが予想される場合でも、Direct3D 機能レベル 9\-1 でアプリが正しくレンダリングされることを確認します。 詳しくは、「[機能レベルが異なる Direct3D の開発](https://msdn.microsoft.com/library/windows/apps/hh994923.aspx)」をご覧ください。
 
@@ -557,9 +557,9 @@ Microsoft Store では、Direct3D を使用しているすべてのアプリケ�
 
 アプリが d3d 要件を満たしているかどうか、そして中断コールバック時に新しい [**Trim**](https://docs.microsoft.com/windows/desktop/api/dxgi1_3/nf-dxgi1_3-idxgidevice3-trim) API を呼び出すかどうかを確認します。
 
-### <a name="corrective-action"></a>問題への対応
+### <a name="corrective-action"></a>是正措置
 
-アプリは中断されそうになった時は常に [**Trim**](https://docs.microsoft.com/windows/desktop/api/dxgi1_3/nn-dxgi1_3-idxgidevice3) インターフェイスで [**IDXGIDevice3**](https://docs.microsoft.com/windows/desktop/api/dxgi1_3/nf-dxgi1_3-idxgidevice3-trim) API を呼び出す必要があります。
+アプリは中断されそうになった時は常に [**Trim**](https://docs.microsoft.com/windows/desktop/api/dxgi1_3/nf-dxgi1_3-idxgidevice3-trim) インターフェイスで [**IDXGIDevice3**](https://docs.microsoft.com/windows/desktop/api/dxgi1_3/nn-dxgi1_3-idxgidevice3) API を呼び出す必要があります。
 
 ## <a name="app-capabilities-test"></a>アプリ機能のテスト
 
@@ -616,7 +616,7 @@ Microsoft Store では、Direct3D を使用しているすべてのアプリケ�
 
 アプリ パッケージのプロセッサ アーキテクチャ宣言と相互参照される場合に、各ファイルの PE ヘッダー内のビット "bitness" が適切かどうかを検証します。
 
-### <a name="corrective-action"></a>問題への対応
+### <a name="corrective-action"></a>是正措置
 
 アプリ マニフェストで指定されたアーキテクチャでサポートされるファイルのみをアプリ パッケージが含むことを確認するために、次のガイドラインに従ってください。
 
@@ -642,7 +642,7 @@ OS コンポーネント (Trident、WWAHost など) は、内部的にはファ�
 
 アプリのインストールディレクトリ内のパスが最大\-パスを超えていないことを確認します。
 
-### <a name="corrective-action"></a>問題への対応
+### <a name="corrective-action"></a>是正措置
 
 短いディレクトリ構造やファイル名にします。
 
@@ -660,7 +660,7 @@ JavaScript のバックグラウンド タスクがあるアプリは、バッ�
 
 マニフェストで指定されたバックグラウンド タスク ファイルがアプリにない場合、テストに合格します。 それ以外の場合は、テストはアプリ パッケージで指定された JavaScript バックグラウンド タスク ファイルを解析し、Close() ステートメントを探します。 見つかった場合はテストに合格します。見つからない場合はテストに合格しません。
 
-### <a name="corrective-action"></a>問題への対応
+### <a name="corrective-action"></a>是正措置
 
 バックグラウンドの JavaScript コードを更新して、Close() を正しく呼び出します。
 

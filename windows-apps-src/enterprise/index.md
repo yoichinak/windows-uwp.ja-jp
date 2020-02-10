@@ -6,12 +6,12 @@ ms.date: 01/16/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 0a95529f40ef5bb1cbf112c91c385e6621620a01
-ms.sourcegitcommit: 7a8aea567b26283c71420e0d305d78f675e1fba7
+ms.openlocfilehash: 7e17b155966c609537c40050edc4c11ee6935b0d
+ms.sourcegitcommit: 3e7a4f7605dfb4e87bac2d10b6d64f8b35229546
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76125684"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77089468"
 ---
 # <a name="enterprise"></a>Enterprise
 
@@ -88,7 +88,7 @@ Windows 10 では、*XAML Islands*と呼ばれる機能を使って、WPF、Wind
 
 ### <a name="msix-deployment"></a>MSIX の展開
 
-MSIX は、MSI、AppX、App-V、ClickOnce の優れた機能を組み合わせた Windows アプリのパッケージ形式であり、最新で信頼性の高いパッケージ化エクスペリエンスをすべての Windows アプリに提供します。 MSIX パッケージ形式では、Win32、WPF、および Windows フォームに対して、最新のパッケージ化および展開機能が有効になるだけでなく、既存のアプリ パッケージとインストール ファイルの機能が維持されます。 
+MSIX は、MSI、.appx、App-V、ClickOnce の優れた機能を組み合わせた Windows アプリのパッケージ形式であり、最新で信頼性の高いパッケージ化エクスペリエンスをすべての Windows アプリに提供します。 MSIX パッケージ形式では、Win32、WPF、および Windows フォームに対して、最新のパッケージ化および展開機能が有効になるだけでなく、既存のアプリ パッケージとインストール ファイルの機能が維持されます。 
 
 ![MSIX アイコン](images/MSIX-App-Package.ico)
 
@@ -155,7 +155,7 @@ MSIX パッケージを使用して、組織のユーザーにアプリを配布
 
 | トピック | 説明 |
 |-------|-------------|
-| [MSIX のドキュメント](https://docs.microsoft.com/windows/msix/) | MSIX は、MSI、AppX、App-V、ClickOnce の優れた機能を組み合わせた Windows アプリのパッケージ形式であり、最新で信頼性の高いパッケージ化エクスペリエンスを提供します。 |
+| [MSIX のドキュメント](https://docs.microsoft.com/windows/msix/) | MSIX は、MSI、.appx、App-V、ClickOnce の優れた機能を組み合わせた Windows アプリのパッケージ形式であり、最新で信頼性の高いパッケージ化エクスペリエンスを提供します。 |
 | [企業に LOB アプリを配布する](https://docs.microsoft.com/windows/uwp/publish/distribute-lob-apps-to-enterprises) | 広く一般に利用可能にすることなく、基幹業務アプリを配布する方法について説明します。これには、アプリ インストーラー ベースの展開、Microsoft Endpoint Configuration Manager や Microsoft Intune、ビジネス向け Microsoft Store への公開が含まれます。 |
 | [アプリのサイドローディング](https://docs.microsoft.com/windows/deploy/sideload-apps-in-windows-10) | アプリをサイドローディングすると、署名されたアプリ パッケージをデバイスに展開します。 これらのアプリの署名、ホスティング、配置は維持されます。 アプリのサイドローディングのプロセスは、Windows 10 向けに簡素化されています。             |
 | [Microsoft Store にアプリを公開する](https://developer.microsoft.com/store/publish-apps) | 統合された Microsoft Store では、すべての Windows デバイス向けのすべてのアプリを公開して管理することができます。 市場ごとの価格、配布と表示のコントロール、その他のオプションを使って、アプリの使用可能状況をカスタマイズできます。 |
