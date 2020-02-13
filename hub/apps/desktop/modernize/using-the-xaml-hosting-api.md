@@ -8,12 +8,12 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: 7574fb5920433f894819ffd3d94e31fef03d30b3
-ms.sourcegitcommit: 1455e12a50f98823bfa3730c1d90337b1983b711
+ms.openlocfilehash: 84a41b4dd77a451a79e607e5ad5cb7df548419a9
+ms.sourcegitcommit: 3e7a4f7605dfb4e87bac2d10b6d64f8b35229546
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76814032"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77089418"
 ---
 # <a name="using-the-uwp-xaml-hosting-api-in-a-c-win32-app"></a>UWP XAML を使用した C++ Win32 アプリでの API のホスト
 
@@ -24,9 +24,9 @@ UWP XAML ホスティング API は、開発者が UWP デスクトップアプ�
 > [!NOTE]
 > XAML Islands に関するフィードバックがある場合は、 [Microsoft.Toolkit.Win32 リポジトリ](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/issues)に新しい問題を作成し、そこにコメントを残してください。 個人的にフィードバックを送信したい場合は、XamlIslandsFeedback@microsoft.com に送信できます。 あなたの洞察とシナリオは弊社にとって非常に重要です。
 
-## <a name="should-you-use-the-uwp-xaml-hosting-api"></a>UWP XAML ホスティング API を使用する必要がありますか。
+## <a name="is-the-uwp-xaml-hosting-api-the-right-choice-for-your-desktop-app"></a>UWP XAML ホスティング API は、デスクトップアプリに最適な選択ですか。
 
-UWP XAML ホスティング API は、デスクトップアプリで UWP コントロールをホストするための低レベルのインフラストラクチャを提供します。 デスクトップアプリの種類によっては、別の便利な Api を使用してこの目標を達成するオプションがあります。  
+UWP XAML ホスティング API は、デスクトップアプリで UWP コントロールをホストするための低レベルのインフラストラクチャを提供します。 デスクトップアプリの種類によっては、別の便利な Api を使用してこの目標を達成するオプションがあります。
 
 * C++ Win32 デスクトップアプリがあり、uwp コントロールをアプリでホストする場合は、uwp XAML ホスティング API を使用する必要があります。 これらの種類のアプリに代わる方法はありません。
 
@@ -34,35 +34,9 @@ UWP XAML ホスティング API は、デスクトップアプリで UWP コン�
 
 この記事では、 C++ win32 アプリのみが UWP XAML ホスティング API を使用することをお勧めしますC++ 。この記事では、主に win32 アプリの手順と例について説明します。 ただし、WPF で UWP XAML ホスティング API を使用して、Windows フォームアプリを選択することもできます。 この記事では、WPF の[ホストコントロール](xaml-islands.md#host-controls)と Windows Community Toolkit の Windows フォームに関連するソースコードについて説明します。そのため、これらのコントロールで UWP XAML ホスティング API がどのように使用されているかを確認できます。
 
-## <a name="prerequisites"></a>必要条件
+## <a name="prerequisites"></a>必須コンポーネント
 
-XAML アイランドには、Windows 10 バージョン 1903 (以降) と、それに対応する Windows SDK のビルドが必要です。 C++ Win32 アプリで XAML アイランドを使用するには、最初にプロジェクトを設定する必要があります。
-
-### <a name="support-for-cwinrt"></a>/WinRT C++のサポート
-
-プロジェクトが[ C++/WinRT](/windows/uwp/cpp-and-winrt-apis)をサポートしていることを確認します。
-
-* 新しいプロジェクトの場合は、 [ C++Visual Studio 拡張機能 (VSIX)](https://marketplace.visualstudio.com/items?itemName=CppWinRTTeam.cppwinrt101804264)をインストールし、その拡張機能にC++含まれているいずれかのプロジェクトテンプレートを使用することができます。
-* 既存のプロジェクトの場合は、プロジェクトに[Microsoft. Windows. CppWinRT](https://www.nuget.org/packages/Microsoft.Windows.CppWinRT/) NuGet パッケージをインストールできます。
-
-これらのオプションの詳細については、こちらの[記事](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)を参照してください。
-
-### <a name="configure-your-project-for-app-deployment"></a>アプリの配置用にプロジェクトを構成する
-
-次のいずれかのオプションを選択して、プロジェクトの配置を準備します。
-
-* **MSIX パッケージでアプリをパッケージ化**します。 [Msix パッケージ](https://docs.microsoft.com/windows/msix/)でアプリをパッケージ化すると、多くの展開および実行時の利点が得られます。
-    1. Windows 10 バージョン 1903 SDK (バージョン 10.0.18362) 以降のリリースをインストールします。
-    2. [Windows アプリケーションパッケージプロジェクト](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)をソリューションに追加し、 C++/Win32 プロジェクトへの参照を追加することによって、msix パッケージでアプリをパッケージ化します。
-
-* **Microsoft. Toolkit. SDK パッケージをインストール**します。 アプリを MSIX パッケージにパッケージ化しない場合[は、6.0.0 (バージョン](https://www.nuget.org/packages/Microsoft.Toolkit.Win32.UI.SDK)v1.0 以降) をインストールすることができます。この場合、 このパッケージには、XAML Islands をアプリで使用できるようにする、いくつかのビルドおよび実行時アセットが用意されています。
-
-> [!NOTE]
-> 以前のバージョンの手順では、プロジェクトのアプリケーションマニフェストに `maxversiontested` 要素を追加しました。 上記のオプションのいずれかを使用している限り、この要素をマニフェストに追加する必要はありません。
-
-### <a name="additional-requirements-for-custom-uwp-controls"></a>カスタム UWP コントロールの追加要件
-
-カスタム UWP コントロール (たとえば、連携する複数の UWP コントロールで構成されるユーザーコントロール) をホストしている場合は、[このセクション](#host-a-custom-uwp-control)の追加の手順に従う必要があります。 また、アプリでコンパイルできるように、カスタムコントロールのソースコードも必要です。
+XAML アイランドには、Windows 10 バージョン 1903 (以降) と、それに対応する Windows SDK のビルドが必要です。 C++ Win32 アプリで XAML アイランドを使用するには、[このセクション](#configure-the-project)の説明に従ってプロジェクトを設定する必要があります。
 
 ## <a name="architecture-of-the-api"></a>API のアーキテクチャ
 
@@ -107,6 +81,9 @@ Windows Community Toolkit の[Windowsxamlhost](https://docs.microsoft.com/window
 
 * コントロールの Windows フォームバージョンについては、[こちらを参照](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/tree/master/Microsoft.Toolkit.Forms.UI.XamlHost)してください。 Windows フォームのバージョンは、 [system.string から派生します](https://docs.microsoft.com/dotnet/api/system.windows.forms.control)。
 
+> [!NOTE]
+> WPF と Windows フォームアプリで直接 UWP XAML ホスティング API を使用するのではなく、Windows Community Toolkit で[Xaml アイランド .net コントロール](xaml-islands.md#wpf-and-windows-forms-applications)を使用することを強くお勧めします。 この記事の WPF と Windows フォームのサンプルリンクは、説明を目的としたものです。
+
 ## <a name="host-a-standard-uwp-control"></a>標準の UWP コントロールをホストする
 
 このセクションでは、UWP XAML ホスティング API を使用して、新しいC++ Win32 アプリで標準の uwp コントロール (つまり、Windows SDK または WinUI ライブラリによって提供されるコントロール) をホストするプロセスについて説明します。 このコードは、[単純な XAML Islands サンプル](https://github.com/microsoft/Xaml-Islands-Samples/tree/master/Standalone_Samples/CppWinRT_Basic_Win32App)に基づいています。このセクションでは、コードの最も重要な部分について説明します。 既存C++の Win32 アプリプロジェクトがある場合は、プロジェクトのこれらの手順とコード例を調整できます。
@@ -117,15 +94,36 @@ Windows Community Toolkit の[Windowsxamlhost](https://docs.microsoft.com/window
 
 2. **ソリューションエクスプローラー**で、ソリューションノードを右クリックし、 **[ソリューション]** の再ターゲット をクリックして、 **10.0.18362.0**またはそれ以降の SDK リリースを選択し、 **[OK]** をクリックします。
 
-3. [Microsoft. Windows. CppWinRT](https://www.nuget.org/packages/Microsoft.Windows.CppWinRT/) NuGet パッケージをインストールします。
+3. [Microsoft. Windows. cppwinrt](https://www.nuget.org/packages/Microsoft.Windows.CppWinRT/) NuGet パッケージをインストールして、プロジェクトで[ C++/WinRT](/windows/uwp/cpp-and-winrt-apis)のサポートを有効にします。
 
     1. **ソリューションエクスプローラー**でプロジェクトを右クリックし、 **[NuGet パッケージの管理]** を選択します。
     2. **[参照]** タブを選択し、「 [Microsoft. Windows. cppwinrt](https://www.nuget.org/packages/Microsoft.Windows.CppWinRT/)パッケージ」を検索して、このパッケージの最新バージョンをインストールします。
 
+    > [!NOTE]
+    > 新しいプロジェクトの場合は、別の方法として、 [ C++Visual Studio 拡張機能 (VSIX)](https://marketplace.visualstudio.com/items?itemName=CppWinRTTeam.cppwinrt101804264)をインストールC++し、その拡張機能に含まれているいずれかのプロジェクトテンプレートを使用することもできます。 詳細については、こちらの[記事](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)を参照してください。
+
 4. 次のようにして、 [Microsoft. Toolkit. UI](https://www.nuget.org/packages/Microsoft.Toolkit.Win32.UI.SDK) NuGet パッケージをインストールします。
 
     1. **[NuGet パッケージマネージャー]** ウィンドウで、 **[プレリリースを含める]** が選択されていることを確認します。
-    2. **[参照]** タブを選択し、 [6.0.0 パッケージを](https://www.nuget.org/packages/Microsoft.Toolkit.Win32.UI.SDK)検索して、このパッケージのバージョン v (またはそれ以降) をインストールします。
+    2. **[参照]** タブを選択し、 **6.0.0 パッケージを**検索して、このパッケージのバージョン v (またはそれ以降) をインストールします。 このパッケージには、XAML Islands をアプリで使用できるようにする、いくつかのビルドおよび実行時アセットが用意されています。
+
+5. [アセンブリマニフェスト](https://docs.microsoft.com/windows/desktop/SbsCs/application-manifests)の `maxVersionTested` 値を設定して、アプリケーションが Windows 10 バージョン1903以降と互換性があることを指定します。
+
+    1. プロジェクトにアセンブリマニフェストがまだない場合は、新しい XML ファイルをプロジェクトに追加し、「 **app.xaml**」という名前を指定します。
+    2. アセンブリマニフェストに、次の例に示すように、**互換性**要素と子要素を含めます。 **Maxversiontested**された要素の**Id**属性を、ターゲットとしている windows 10 のバージョン番号に置き換えます (これは windows 10 バージョン1903以降のリリースである必要があります)。
+
+        ```xml
+        <?xml version="1.0" encoding="UTF-8"?>
+        <assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0">
+            <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
+                <application>
+                    <!-- Windows 10 -->
+                    <maxversiontested Id="10.0.18362.0"/>
+                    <supportedOS Id="{8e0f7a12-bfb3-4fe8-b9a5-48fd50a15a9a}" />
+                </application>
+            </compatibility>
+        </assembly>
+        ```
 
 ### <a name="use-the-xaml-hosting-api-to-host-a-uwp-control"></a>XAML ホスティング API を使用して UWP コントロールをホストする
 
@@ -343,9 +341,9 @@ XAML ホスティング API を使用して UWP コントロールをホスト�
 * **C++32**
   * [HelloWindowsDesktop](https://github.com/microsoft/Xaml-Islands-Samples/blob/master/Standalone_Samples/CppWinRT_Basic_Win32App/Win32DesktopApp/HelloWindowsDesktop.cpp)ファイルを参照してください。
   * [Xamlbridge .cpp](https://github.com/microsoft/Xaml-Islands-Samples/blob/master/Samples/Win32/SampleCppApp/XamlBridge.cpp)ファイルを参照してください。
-* **WPF:** Windows Community Toolkit の[WindowsXamlHostBase.cs](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/blob/master/Microsoft.Toolkit.Wpf.UI.XamlHost/WindowsXamlHostBase.cs)ファイルと[WindowsXamlHost.cs](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/blob/master/Microsoft.Toolkit.Wpf.UI.XamlHost/WindowsXamlHost.cs)ファイルを参照してください。  
+* **WPF**Windows Community Toolkit の[WindowsXamlHostBase.cs](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/blob/master/Microsoft.Toolkit.Wpf.UI.XamlHost/WindowsXamlHostBase.cs)ファイルと[WindowsXamlHost.cs](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/blob/master/Microsoft.Toolkit.Wpf.UI.XamlHost/WindowsXamlHost.cs)ファイルを参照してください。  
 
-* **Windows フォーム:** Windows Community Toolkit の[WindowsXamlHostBase.cs](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/blob/master/Microsoft.Toolkit.Forms.UI.XamlHost/WindowsXamlHostBase.cs)ファイルと[WindowsXamlHost.cs](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/blob/master/Microsoft.Toolkit.Forms.UI.XamlHost/WindowsXamlHost.cs)ファイルを参照してください。
+* **Windows フォーム：** Windows Community Toolkit の[WindowsXamlHostBase.cs](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/blob/master/Microsoft.Toolkit.Forms.UI.XamlHost/WindowsXamlHostBase.cs)ファイルと[WindowsXamlHost.cs](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/blob/master/Microsoft.Toolkit.Forms.UI.XamlHost/WindowsXamlHost.cs)ファイルを参照してください。
 
 ## <a name="host-a-custom-uwp-control"></a>カスタム UWP コントロールをホストする
 
@@ -353,7 +351,7 @@ C++ Win32 アプリでカスタム UWP コントロール (自分で定義した
 
 カスタム UWP コントロールをホストするには、次のプロジェクトとコンポーネントが必要です。
 
-* **アプリのプロジェクトとソースコード**。 XAML アイランドをホストするための[前提条件](#prerequisites)を満たすようにプロジェクトが構成されていることを確認します。
+* **アプリのプロジェクトとソースコード**。 XAML アイランドをホストするように[プロジェクトが構成され](#configure-the-project)ていることを確認します。
 
 * **カスタム UWP コントロール**。 アプリを使用してコンパイルできるように、ホストするカスタム UWP コントロールのソースコードが必要になります。 通常、カスタムコントロールは、 C++ Win32 プロジェクトと同じソリューションで参照する UWP クラスライブラリプロジェクトで定義されます。
 
@@ -374,8 +372,8 @@ C++ Win32 アプリでカスタム UWP コントロールをホストするに�
 
 4. C++ Win32 プロジェクトの場合:
 
-  * UWP アプリプロジェクトへの参照と、ソリューション内の UWP クラスライブラリプロジェクトへの参照を追加します。
-  * `WinMain` 関数またはその他のエントリポイントコードで、前に UWP アプリプロジェクトで定義した `XamlApplication` クラスのインスタンスを作成します。 たとえば、 [XAML アイランドのサンプル](https://github.com/microsoft/Xaml-Islands-Samples)のC++ Win32 サンプルにある[次のコード行](https://github.com/microsoft/Xaml-Islands-Samples/blob/master/Standalone_Samples/CppWinRT_Desktop_Win32App/DesktopWin32App/DesktopWin32App.cpp#L46)を参照してください。
+    * UWP アプリプロジェクトへの参照と、ソリューション内の UWP クラスライブラリプロジェクトへの参照を追加します。
+    * `WinMain` 関数またはその他のエントリポイントコードで、前に UWP アプリプロジェクトで定義した `XamlApplication` クラスのインスタンスを作成します。 たとえば、 [XAML アイランドのサンプル](https://github.com/microsoft/Xaml-Islands-Samples)のC++ Win32 サンプルにある[次のコード行](https://github.com/microsoft/Xaml-Islands-Samples/blob/master/Standalone_Samples/CppWinRT_Desktop_Win32App/DesktopWin32App/DesktopWin32App.cpp#L46)を参照してください。
 
 5. 「 [Xaml ホスティング API を使用して UWP コントロールをホストする](#use-the-xaml-hosting-api-to-host-a-uwp-control)」セクションで説明されている手順に従って、アプリの xaml アイランドでカスタムコントロールをホストします。 ホストするカスタムコントロールのインスタンスを、コード内の**Desktopwindowxamlsource**オブジェクトの[Content](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.desktopwindowxamlsource.content)プロパティに割り当てます。
 
@@ -394,11 +392,11 @@ C++ Win32 アプリケーションの完全な例については、「 [XAML C++
 
 各 XAML アイランドのキーボード入力を正しく処理するには、アプリケーションがすべての Windows メッセージを UWP XAML フレームワークに渡して、特定のメッセージが正しく処理されるようにする必要があります。 これを行うには、アプリケーションでメッセージループにアクセスできる場所で、各 XAML アイランドの**Desktopwindowxamlsource**オブジェクトを**IDesktopWindowXamlSourceNative2** COM インターフェイスにキャストします。 次に、このインターフェイスの**PreTranslateMessage**メソッドを呼び出し、現在のメッセージを渡します。
 
-  * Win32:: アプリはメインメッセージループ内で直接**PreTranslateMessage**を呼び出すことができます。 **C++** 例については、 [Xamlbridge .cpp](https://github.com/microsoft/Xaml-Islands-Samples/blob/master/Samples/Win32/SampleCppApp/XamlBridge.cpp#L16)ファイルを参照してください。
+  * **C++ Win32:** :アプリは、メインメッセージループで**PreTranslateMessage**を直接呼び出すことができます。 例については、 [Xamlbridge .cpp](https://github.com/microsoft/Xaml-Islands-Samples/blob/master/Samples/Win32/SampleCppApp/XamlBridge.cpp#L16)ファイルを参照してください。
 
-  * **WPF:** アプリは、 [Componentdispatcher. ThreadFilterMessage](https://docs.microsoft.com/dotnet/api/system.windows.interop.componentdispatcher.threadfiltermessage)イベントのイベントハンドラーから**PreTranslateMessage**を呼び出すことができます。 例については、Windows Community Toolkit の[WindowsXamlHostBase.Focus.cs](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/blob/master/Microsoft.Toolkit.Wpf.UI.XamlHost/WindowsXamlHostBase.Focus.cs#L177)ファイルを参照してください。
+  * **WPF**アプリは、 [Componentdispatcher. ThreadFilterMessage](https://docs.microsoft.com/dotnet/api/system.windows.interop.componentdispatcher.threadfiltermessage)イベントのイベントハンドラーから**PreTranslateMessage**を呼び出すことができます。 例については、Windows Community Toolkit の[WindowsXamlHostBase.Focus.cs](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/blob/master/Microsoft.Toolkit.Wpf.UI.XamlHost/WindowsXamlHostBase.Focus.cs#L177)ファイルを参照してください。
 
-  * **Windows フォーム:** アプリは[system.windows.forms.control.preprocessmessage](https://docs.microsoft.com/dotnet/api/system.windows.forms.control.preprocessmessage)メソッドのオーバーライドから**PreTranslateMessage**を呼び出すことができます。 例については、Windows Community Toolkit の[WindowsXamlHostBase.KeyboardFocus.cs](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/blob/master/Microsoft.Toolkit.Forms.UI.XamlHost/WindowsXamlHostBase.KeyboardFocus.cs#L100)ファイルを参照してください。
+  * **Windows フォーム：** アプリは[system.windows.forms.control.preprocessmessage](https://docs.microsoft.com/dotnet/api/system.windows.forms.control.preprocessmessage)メソッドのオーバーライドから**PreTranslateMessage**を呼び出すことができます。 例については、Windows Community Toolkit の[WindowsXamlHostBase.KeyboardFocus.cs](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/blob/master/Microsoft.Toolkit.Forms.UI.XamlHost/WindowsXamlHostBase.KeyboardFocus.cs#L100)ファイルを参照してください。
 
 ### <a name="keyboard-focus-navigation"></a>キーボードフォーカスのナビゲーション
 
@@ -412,11 +410,11 @@ UWP XAML ホスティング API は、これらのタスクを実行するのに
 
 これを実用的なサンプルアプリケーションのコンテキストで実行する方法を示す例については、次のコードファイルを参照してください。
 
-  * /Win32: [xamlbridge .cpp](https://github.com/microsoft/Xaml-Islands-Samples/blob/master/Samples/Win32/SampleCppApp/XamlBridge.cpp)ファイルを参照してください。  **C++**
+  * **C++/Win32**:[Xamlbridge .cpp](https://github.com/microsoft/Xaml-Islands-Samples/blob/master/Samples/Win32/SampleCppApp/XamlBridge.cpp)ファイルを参照してください。
 
-  * **WPF:** Windows Community Toolkit の[WindowsXamlHostBase.Focus.cs](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/blob/master/Microsoft.Toolkit.Wpf.UI.XamlHost/WindowsXamlHostBase.Focus.cs)ファイルを参照してください。  
+  * **WPF**Windows Community Toolkit の[WindowsXamlHostBase.Focus.cs](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/blob/master/Microsoft.Toolkit.Wpf.UI.XamlHost/WindowsXamlHostBase.Focus.cs)ファイルを参照してください。  
 
-  * **Windows フォーム:** Windows Community Toolkit の[WindowsXamlHostBase.KeyboardFocus.cs](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/blob/master/Microsoft.Toolkit.Forms.UI.XamlHost/WindowsXamlHostBase.KeyboardFocus.cs)ファイルを参照してください。
+  * **Windows フォーム：** Windows Community Toolkit の[WindowsXamlHostBase.KeyboardFocus.cs](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/blob/master/Microsoft.Toolkit.Forms.UI.XamlHost/WindowsXamlHostBase.KeyboardFocus.cs)ファイルを参照してください。
 
 ### <a name="handle-layout-changes"></a>レイアウトの変更を処理する
 
@@ -424,13 +422,13 @@ UWP XAML ホスティング API は、これらのタスクを実行するのに
 
 * C++ Win32 アプリケーションでは、アプリケーションが WM_SIZE メッセージを処理する際に、[SetWindowPos](https://docs.microsoft.com/windows/desktop/api/winuser/nf-winuser-setwindowpos) 関数を使用してホストされている XAML Island を再配置できます。 例については、「 [Sampleapp](https://github.com/microsoft/Xaml-Islands-Samples/blob/master/Samples/Win32/SampleCppApp/SampleApp.cpp#L170)のコードファイル」を参照してください。
 
-* 親 UI 要素が、 **Desktopwindowxamlsource**でホストしている、 **windows の ui. xaml. uielement**に適合させるために必要な四角形の領域のサイズを取得する必要がある場合は、Windows. ui の[Measure](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.measure)メソッドを呼び出します。 たとえば次のようになります。
+* 親 UI 要素が、 **Desktopwindowxamlsource**でホストしている、 **windows の ui. xaml. uielement**に適合させるために必要な四角形の領域のサイズを取得する必要がある場合は、Windows. ui の[Measure](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.measure)メソッドを呼び出します。 たとえば、次のように入力します。
 
     * WPF アプリケーションでは、 **Desktopwindowxamlsource**をホストする[HwndHost](https://docs.microsoft.com/dotnet/api/system.windows.interop.hwndhost)の[measureoverride](https://docs.microsoft.com/dotnet/api/system.windows.frameworkelement.measureoverride)メソッドからこの操作を実行できます。 例については、Windows Community Toolkit の[WindowsXamlHostBase.Layout.cs](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/blob/master/Microsoft.Toolkit.Wpf.UI.XamlHost/WindowsXamlHostBase.Layout.cs)ファイルを参照してください。
 
     * Windows フォームアプリケーションでは、 **Desktopwindowxamlsource**をホストする[コントロール](https://docs.microsoft.com/dotnet/api/system.windows.forms.control)の[getpreferredsize](https://docs.microsoft.com/dotnet/api/system.windows.forms.control.getpreferredsize)メソッドからこの操作を実行できます。 例については、Windows Community Toolkit の[WindowsXamlHostBase.Layout.cs](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/blob/master/Microsoft.Toolkit.Forms.UI.XamlHost/WindowsXamlHostBase.Layout.cs)ファイルを参照してください。
 
-* 親 UI 要素のサイズが変更されたときに、 **Desktopwindowxamlsource**でホストしているルートの**ui**の[配置](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.arrange)メソッドを呼び出します。 たとえば次のようになります。
+* 親 UI 要素のサイズが変更されたときに、 **Desktopwindowxamlsource**でホストしているルートの**ui**の[配置](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.arrange)メソッドを呼び出します。 たとえば、次のように入力します。
 
     * WPF アプリケーションでは、 **Desktopwindowxamlsource**をホストする[HwndHost](https://docs.microsoft.com/dotnet/api/system.windows.interop.hwndhost)オブジェクトの配置[eoverride](https://docs.microsoft.com/dotnet/api/system.windows.frameworkelement.arrangeoverride)メソッドからこの操作を行うことができます。 例については、Windows Community Toolkit の[WindowsXamlHost.Layout.cs](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/blob/master/Microsoft.Toolkit.Wpf.UI.XamlHost/WindowsXamlHostBase.Layout.cs)ファイルを参照してください。
 
@@ -453,31 +451,43 @@ UWP XAML フレームワークは、ホストされている UWP コントロー
 </assembly>
 ```
 
-## <a name="troubleshooting"></a>[トラブルシューティング]
+## <a name="package-the-app"></a>アプリのパッケージ化
+
+必要に応じて、アプリを[Msix パッケージ](https://docs.microsoft.com/windows/msix)にパッケージ化してデプロイすることもできます。 MSIX は Windows 向けの最新のアプリケーションパッケージ化テクノロジであり、MSI、.appx、App-v、ClickOnce のインストールテクノロジの組み合わせに基づいています。
+
+次の手順では、Visual Studio 2019 の[Windows アプリケーションパッケージプロジェクト](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)を使用して、msix パッケージのソリューションに含まれるすべてのコンポーネントをパッケージ化する方法を示します。 これらの手順は、アプリを MSIX パッケージでパッケージ化する場合にのみ必要です。
+
+1. 新しい[Windows アプリケーションパッケージプロジェクト](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)をソリューションに追加します。 プロジェクトを作成するときに、 **Windows 10 バージョン 1903 (10.0;ビルド 18362)** 。**ターゲットバージョン**と**最小バージョン**の両方に対応します。
+
+2. パッケージプロジェクトで、 **[アプリケーション]** ノードを右クリックし、 **[参照の追加]** を選択します。 プロジェクトの一覧で、ソリューション内のC++[/Win32 デスクトップアプリケーション] プロジェクトを選択し、[ **OK]** をクリックします。
+
+3. パッケージプロジェクトをビルドして実行します。 アプリが実行されていることを確認し、UWP コントロールが想定どおりに表示されることを確認します。
+
+## <a name="troubleshooting"></a>トラブルシューティング
 
 ### <a name="error-using-uwp-xaml-hosting-api-in-a-uwp-app"></a>Uwp アプリで UWP XAML ホスティング API を使用するときのエラー
 
-| 問題 | 解像度 |
+| 問題 | 解決方法 |
 |-------|------------|
-| アプリは、"DesktopWindowXamlSource をアクティブにできません" というメッセージが表示された**COMException**を受け取ります。 この型は UWP アプリでは使用できません。 " または、"WindowsXamlManager をアクティブにできません。 この型は UWP アプリでは使用できません。 " | このエラーは、uwp アプリで UWP XAML ホスティング API (具体的には、 [Desktopwindowxamlsource](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.desktopwindowxamlsource)または[windowsxamlmanager](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.windowsxamlmanager)の型をインスタンス化しようとしている) を使用しようとしていることを示しています。 UWP XAML ホスティング API は、WPF、Windows フォーム、 C++ Win32 アプリケーションなど、uwp 以外のデスクトップアプリでのみ使用することを目的としています。 |
+| アプリは、次のメッセージを含む**COMException**を受け取ります。"DesktopWindowXamlSource をアクティブにできません。 この型は UWP アプリでは使用できません。 " または、"WindowsXamlManager をアクティブにできません。 この型は UWP アプリでは使用できません。 " | このエラーは、uwp アプリで UWP XAML ホスティング API (具体的には、 [Desktopwindowxamlsource](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.desktopwindowxamlsource)または[windowsxamlmanager](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.windowsxamlmanager)の型をインスタンス化しようとしている) を使用しようとしていることを示しています。 UWP XAML ホスティング API は、WPF、Windows フォーム、 C++ Win32 アプリケーションなど、uwp 以外のデスクトップアプリでのみ使用することを目的としています。 |
 
 ### <a name="error-trying-to-use-the-windowsxamlmanager-or-desktopwindowxamlsource-types"></a>WindowsXamlManager または DesktopWindowXamlSource 型を使用しようとしたときにエラーが発生しました
 
-| 問題 | 解像度 |
+| 懸案事項 | 解決方法 |
 |-------|------------|
-| アプリは次のメッセージで例外を受け取ります。 "WindowsXamlManager と DesktopWindowXamlSource は、Windows バージョン10.0.18226.0 以降を対象とするアプリでサポートされています。 アプリケーションマニフェストまたはパッケージマニフェストを確認し、MaxTestedVersion プロパティが更新されていることを確認してください。 " | このエラーは、アプリケーションが UWP XAML ホスティング API で**Windowsxamlmanager**または**Desktopwindowxamlsource**型を使用しようとしましたが、OS は、アプリが Windows 10 バージョン1903以降を対象とするようにビルドされているかどうかを判断できないことを示しています。 UWP XAML ホスティング API は、以前のバージョンの Windows 10 では最初にプレビューとして導入されましたが、Windows 10 バージョン1903以降でのみサポートされています。</p></p>この問題を解決するには、アプリ用の MSIX パッケージを作成してパッケージから実行するか、プロジェクトに[Microsoft. Toolkit. UI. SDK](https://www.nuget.org/packages/Microsoft.Toolkit.Win32.UI.SDK) NuGet パッケージをインストールします。 詳しくは、[このセクション](#configure-your-project-for-app-deployment)をご覧ください。 |
+| アプリは次のメッセージで例外を受け取ります。"WindowsXamlManager と DesktopWindowXamlSource は、Windows バージョン10.0.18226.0 以降を対象とするアプリでサポートされています。 アプリケーションマニフェストまたはパッケージマニフェストを確認し、MaxTestedVersion プロパティが更新されていることを確認してください。 " | このエラーは、アプリケーションが UWP XAML ホスティング API で**Windowsxamlmanager**または**Desktopwindowxamlsource**型を使用しようとしましたが、OS は、アプリが Windows 10 バージョン1903以降を対象とするようにビルドされているかどうかを判断できないことを示しています。 UWP XAML ホスティング API は、以前のバージョンの Windows 10 では最初にプレビューとして導入されましたが、Windows 10 バージョン1903以降でのみサポートされています。</p></p>この問題を解決するには、アプリ用の MSIX パッケージを作成してパッケージから実行するか、プロジェクトに[Microsoft. Toolkit. UI. SDK](https://www.nuget.org/packages/Microsoft.Toolkit.Win32.UI.SDK) NuGet パッケージをインストールします。 詳しくは、[このセクション](#configure-the-project)をご覧ください。 |
 
 ### <a name="error-attaching-to-a-window-on-a-different-thread"></a>別のスレッドのウィンドウへのアタッチエラー
 
-| 問題 | 解像度 |
+| 問題 | 解決方法 |
 |-------|------------|
-| アプリは次のメッセージで**COMException**を受け取ります: "AttachToWindow メソッドは、指定された HWND が別のスレッドで作成されたため失敗しました。" | このエラーは、アプリケーションが**Idesktopwindowxamlsourcenative:: AttachToWindow**メソッドを呼び出し、別のスレッドで作成されたウィンドウの HWND に渡されたことを示します。 このメソッドは、メソッドの呼び出し元のコードと同じスレッド上で作成されたウィンドウの HWND に渡す必要があります。 |
+| アプリは、次のメッセージを含む**COMException**を受け取ります。"AttachToWindow メソッドは、指定された HWND が別のスレッドで作成されたため失敗しました。" | このエラーは、アプリケーションが**Idesktopwindowxamlsourcenative:: AttachToWindow**メソッドを呼び出し、別のスレッドで作成されたウィンドウの HWND に渡されたことを示します。 このメソッドは、メソッドの呼び出し元のコードと同じスレッド上で作成されたウィンドウの HWND に渡す必要があります。 |
 
 ### <a name="error-attaching-to-a-window-on-a-different-top-level-window"></a>別のトップレベルウィンドウ上のウィンドウへのアタッチエラー
 
-| 問題 | 解像度 |
+| 問題 | 解決方法 |
 |-------|------------|
-| アプリは、"AttachToWindow メソッドが失敗しました **" というメッセージが表示**されます。これは、指定した hwnd が、以前に同じスレッドの attachtowindow に渡された hwnd とは異なるトップレベルウィンドウからのものであるためです。 | このエラーは、アプリケーションが**Idesktopwindowxamlsourcenative:: AttachToWindow**メソッドを呼び出し、同じスレッドでこのメソッドの前の呼び出しで指定されたウィンドウとは別のトップレベルウィンドウから降下するウィンドウの HWND を渡したことを示します。</p></p>アプリケーションが特定のスレッドで**Attachtowindow**を呼び出すと、同じスレッド上の他のすべての[Desktopwindowxamlsource](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.desktopwindowxamlsource)オブジェクトは、 **attachtowindow**への最初の呼び出しで渡されたのと同じトップレベルウィンドウの子孫であるウィンドウにのみアタッチできます。 特定のスレッドですべての**desktopwindowxamlsource**オブジェクトが閉じられると、次の**desktopwindowxamlsource**は、任意のウィンドウに再びアタッチできます。</p></p>この問題を解決するには、このスレッドの他のトップレベルウィンドウにバインドされているすべての**desktopwindowxamlsource**オブジェクトを閉じるか、またはこの**desktopwindowxamlsource**に新しいスレッドを作成します。 |
+| アプリは、次のメッセージを含む**COMException**を受け取ります。"AttachToWindow メソッドが失敗しました。指定された HWND が、以前に同じスレッドの AttachToWindow に渡された HWND とは異なるトップレベルウィンドウからのものです。" | このエラーは、アプリケーションが**Idesktopwindowxamlsourcenative:: AttachToWindow**メソッドを呼び出し、同じスレッドでこのメソッドの前の呼び出しで指定されたウィンドウとは別のトップレベルウィンドウから降下するウィンドウの HWND を渡したことを示します。</p></p>アプリケーションが特定のスレッドで**Attachtowindow**を呼び出すと、同じスレッド上の他のすべての[Desktopwindowxamlsource](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.desktopwindowxamlsource)オブジェクトは、 **attachtowindow**への最初の呼び出しで渡されたのと同じトップレベルウィンドウの子孫であるウィンドウにのみアタッチできます。 特定のスレッドですべての**desktopwindowxamlsource**オブジェクトが閉じられると、次の**desktopwindowxamlsource**は、任意のウィンドウに再びアタッチできます。</p></p>この問題を解決するには、このスレッドの他のトップレベルウィンドウにバインドされているすべての**desktopwindowxamlsource**オブジェクトを閉じるか、またはこの**desktopwindowxamlsource**に新しいスレッドを作成します。 |
 
 ## <a name="related-topics"></a>関連トピック
 
