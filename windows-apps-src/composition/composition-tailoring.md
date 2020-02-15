@@ -1,47 +1,47 @@
 ---
 title: コンポジションの調整
-description: 合成 Api を使用すると、UI を調整、パフォーマンスを最適化およびユーザー設定とデバイスの特性に対応します。
+description: コンポジション Api を使用して、UI を調整し、パフォーマンスを最適化し、ユーザー設定とデバイスの特性に対応します。
 ms.date: 07/16/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 9692a8ef21e9f62114b38c6bb5d15199b8c0e04a
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 95a7355241f9ba4cc7b4bb743b78ac09169d65d9
+ms.sourcegitcommit: 2747d9266e1678fca96d3822ce47499ca91a2c70
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67318149"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77213679"
 ---
-# <a name="tailoring-effects--experiences-using-windows-ui"></a>効果 & Windows UI を使用してエクスペリエンスを調整すること
+# <a name="tailoring-effects--experiences-using-windows-ui"></a>Windows UI を使用した効果 & エクスペリエンスの調整
 
-Windows UI は、差別化要因の多くの美しい効果、アニメーション、および手段を提供します。 ただし、パフォーマンスとカスタマイズ性のためのユーザーの期待を満たすが成功したアプリケーションを作成するのに必要です。 ユニバーサル Windows プラットフォームには、さまざまな機能と機能が含まれる、デバイスの大規模で多様なファミリがサポートしています。 すべてのユーザーに対して、包括的なエクスペリエンスを提供するためには、デバイス間で、アプリケーションのスケールをことを確認し、ユーザー設定を尊重する必要があります。 UI を調整することと、デバイスの機能を活用し、快適になり、包括的なユーザー エクスペリエンスを実現する効率的な方法を提供できます。
+Windows UI には、さまざまな視覚効果、アニメーション、および区別のための手段が用意されています。 ただし、パフォーマンスとカスタマイズ可能性に対するユーザーの期待を満たすことは、アプリケーションの正常な作成においても必要となります。 ユニバーサル Windows プラットフォームは、さまざまな機能と機能を備えた大規模で多様なデバイスファミリをサポートしています。 すべてのユーザーに包括的なエクスペリエンスを提供するには、アプリケーションをデバイス間で拡張し、ユーザー設定を考慮する必要があります。 UI の調整により、デバイスの機能を活用し、快適で包括的なユーザーエクスペリエンスを実現するための効率的な方法が提供されます。
 
-パフォーマンスの高い、美しい UI に関して、次の領域の作業を包括的な広範なカテゴリは、UI を調整すること。
+UI の調整は、次の領域に関する高性能で美しい UI の作業を含む広範なカテゴリです。
 
-- 尊重し、効果のユーザー設定に合わせて調整
-- アニメーションのユーザー設定への対応
-- 特定のハードウェア機能の UI を最適化します。
+- ユーザー設定を適用して効果を重視する
+- アニメーションのユーザー設定の対応
+- 特定のハードウェア機能用の UI の最適化
 
-ここでは、上記の領域でビジュアル レイヤーを使用して効果とアニメーションを調整する方法について説明します。優れたエンド ユーザー エクスペリエンスを保証するためにアプリケーションを調整する方法は他にも多くあります。 さまざまなデバイスに合わせて [、UI を調整](/windows/uwp/design/layout/screen-sizes-and-breakpoints-for-responsive-design) し、[レスポンシブな UI を作成](/windows/uwp/design/layout/responsive-design) する方法に関するガイダンス ドキュメントを参照できます。
+ここでは、上記の領域でビジュアル レイヤーを使用して効果とアニメーションを調整する方法について説明します。優れたエンド ユーザー エクスペリエンスを保証するためにアプリケーションを調整する方法は他にも多くあります。 さまざまなデバイス用の UI を[調整](/windows/uwp/design/layout/screen-sizes-and-breakpoints-for-responsive-design)し、応答性の高い[ui を作成](/windows/uwp/design/layout/responsive-design)する方法に関するガイダンスドキュメントをご利用いただけます。
 
-## <a name="user-effects-settings"></a>ユーザー設定の効果
+## <a name="user-effects-settings"></a>ユーザー効果の設定
 
-ユーザーは、さまざまな理由から、アプリケーションが尊重しに適応する必要があります Windows エクスペリエンスをカスタマイズできます。 エンド ユーザーを制御できる 1 つの領域は、システム全体で使用される表示の副作用の種類を変更します。
+ユーザーは、さまざまな理由で Windows エクスペリエンスをカスタマイズすることができます。これは、アプリケーションを尊重し、に適合させる必要があります。 エンドユーザーが制御できる領域の1つは、システム全体で使用される効果の種類を変更することです。
 
-### <a name="transparency-effects-settings"></a>透明度の設定の効果
+### <a name="transparency-effects-settings"></a>透明度効果の設定
 
-ユーザーがカスタマイズできるこのような効果設定を 1 つは、透明効果オン/オフにすることです。 パーソナル化の下で、設定アプリで確認できます > 色、または [設定] アプリを使用 > コンピューターの簡単操作 > 表示します。
+ユーザーがカスタマイズできるエフェクト設定の1つは、透明度の効果をオン/オフにすることです。 これは、設定アプリの [パーソナル化 > の色]、または [設定アプリ] > [アクセスの容易さ > 表示] の順に表示されます。
 
-![透明度オプションの設定](images/tailoring-transparency-setting.png)
+![設定の透明度オプション](images/tailoring-transparency-setting.png)
 
-オンにすると、期待どおりに透明度を使用する影響が表示されます。 これは、アクリル、HostBackdropBrush、または完全に不透明でない任意のカスタム効果グラフに適用されます。
+有効にすると、透明度を使用するすべての効果が想定どおりに表示されます。 これは、Acrylic、HostBackdropBrush、または完全に不透明でない任意のカスタム効果グラフに適用されます。
 
-オフのときアクリル素材が自動的にフォールバックを純色ため、XAML の acrylic ブラシが既定でこのイベントをリッスンします。 ここでは、電卓アプリケーションを適切にフォールバックを純色を透明効果が有効になっていないときに表示されます。
+オフにすると、既定では、XAML の acrylic brush がこのイベントをリッスンしているため、acrylic マテリアルは自動的に純色に戻ります。 ここでは、透明度効果が有効になっていない場合に、電卓アプリが適切に単色に戻ります。
 
-![アクリル電卓](images/tailoring-acrylic.png)
-![アクリル透明度の設定への応答での計算ツール](images/tailoring-acrylic-fallback.png)
+Acrylic](images/tailoring-acrylic.png)
+を使用した計算ツールでは、Acrylic を使用して、透明度の](images/tailoring-acrylic-fallback.png) 設定に対応するを ![します。 ![
 
-ただし、任意のカスタム エフェクト アプリケーションの必要がありますに応答する、 [UISettings.AdvancedEffectsEnabled](https://docs.microsoft.com/uwp/api/windows.ui.viewmanagement.uisettings.advancedeffectsenabledchanged)プロパティまたは[AdvancedEffectsEnabledChanged](https://docs.microsoft.com/uwp/api/windows.ui.viewmanagement.uisettings.advancedeffectsenabledchanged)イベントとスイッチ アウト影響/影響透過性がない効果を使用するグラフ。 この例を次に。
+ただし、カスタム効果の場合、アプリケーションは[AdvancedEffectsEnabled](https://docs.microsoft.com/uwp/api/windows.ui.viewmanagement.uisettings.advancedeffectsenabled)プロパティまたは[AdvancedEffectsEnabledChanged](https://docs.microsoft.com/uwp/api/windows.ui.viewmanagement.uisettings.advancedeffectsenabledchanged)イベントに応答し、透明度のない効果を使用するように効果/効果グラフを切り替える必要があります。 この例を次に示します。
 
 ```cs
 public MainPage()
@@ -59,9 +59,9 @@ private void Uisettings_AdvancedEffectsEnabledChanged(UISettings sender, object 
 
 ## <a name="animations-settings"></a>アニメーションの設定
 
-同様に、アプリケーションがリッスンして、応答する必要があります、 [UISettings.AnimationsEnabled](https://docs.microsoft.com/uwp/api/windows.ui.viewmanagement.uisettings.animationsenabled)アニメーションのことを確認するプロパティがオンまたはオフに設定でユーザー設定に基づいて > コンピューターの簡単操作 > 表示します。
+同様に、設定のユーザー設定に基づいてアニメーションがオンまたはオフになっていることを確認するために、 [Uisettings.](https://docs.microsoft.com/uwp/api/windows.ui.viewmanagement.uisettings.animationsenabled)のプロパティをリッスンして応答する必要があります。これにより、アクセス > 表示 > 簡単になります。
 
-![アニメーション設定のオプション](images/tailoring-animations-setting.png)
+![[設定] の [アニメーション] オプション](images/tailoring-animations-setting.png)
 
 ```cs
 public MainPage()
@@ -73,32 +73,32 @@ public MainPage()
 
 ```
 
-## <a name="leveraging-the-capabilities-api"></a>API の機能を活用します。
+## <a name="leveraging-the-capabilities-api"></a>Capabilities API の活用
 
-利用して、 [CompositionCapabilities](/uwp/api/windows.ui.composition.compositioncapabilities) Api どの合成で各機能は使用とパフォーマンスの高い特定のハードウェアを検出してエンドユーザーの高性能、美しいエクスペリエンスを取得することを確認するデザインの調整デバイスです。 Api は、正常な効果がさまざまなフォーム ファクターでスケーリングを実装するためにハードウェア システムの機能を確認するための手段を提供します。 これにより、簡単に美しいを作成するアプリケーションとシームレスなエンド ユーザー エクスペリエンスを適切に調整できます。
+[CompositionCapabilities](/uwp/api/windows.ui.composition.compositioncapabilities) api を利用することにより、特定のハードウェアで利用可能なコンポジション機能とパフォーマンスが向上したことを検出し、設計を調整して、エンドユーザーがどのデバイスでも高性能で美しいエクスペリエンスを得られるようにすることができます。 これらの Api は、さまざまなフォームファクターに対して優れた効果のスケーリングを実装するためにハードウェアシステムの機能を確認する手段を提供します。 これにより、アプリケーションを適切に調整して、美しいシームレスなエンドユーザーエクスペリエンスを作成することが簡単になります。
 
-この API は、メソッドと効果をアプリケーションの UI の決定事項を評価に使用できるイベント リスナーを提供します。 機能は、システムが複雑な構成と、レンダリング操作を処理する方法もを検出し、使いやすいモデルを利用する開発者向けの情報を返します。
+この API には、アプリケーション UI のスケーリングの決定に影響を与えるために使用できるメソッドとイベントリスナーが用意されています。 この機能は、複雑な合成操作やレンダリング操作をどの程度の方法で処理できるかを検出し、開発者が使用するための使いやすいモデルで情報を返します。
 
-### <a name="using-composition-capabilities"></a>コンポジション機能を使用してください。
+### <a name="using-composition-capabilities"></a>コンポジション機能の使用
 
-CompositionCapabilities 機能は既にアクリル素材を場所、マテリアルはフォールバックして、シナリオとハードウェアに応じてより高いパフォーマンス効果などの機能の活用されています。
+CompositionCapabilities 機能は、Acrylic 資料などの機能に既に利用されています。この場合、シナリオとハードウェアによっては、よりパフォーマンスに優れた効果が適用されます。
 
-API は、いくつかの簡単な手順で既存のコードに追加できます。
+この API は、いくつかの簡単な手順で既存のコードに追加できます。
 
-1. アプリケーションのコンス トラクターで機能オブジェクトを取得します。
+1. アプリケーションのコンストラクターで capabilities オブジェクトを取得します。
 
     ```cs
     _capabilities = CompositionCapabilities.GetForCurrentView();
     ```
 
-1. アプリの機能変更イベント リスナーを登録します。
+1. アプリの機能が変更されたイベントリスナーを登録します。
 
     ```cs
     _capabilities.Changed += HandleCapabilitiesChanged;
     ```
 
-1. コンテンツは、さまざまな機能レベルを処理するイベントのコールバック メソッドを追加します。 これは、次の手順を次のようなことができない可能性がありますもかまいません。
-1. 効果を使用する場合は、まず機能オブジェクトを確認します。 条件付きチェックの使用を検討するか、または効果を調整する方法に応じて、コントロール ステートメントを切り替えます。
+1. さまざまな機能レベルを処理するために、イベントコールバックメソッドにコンテンツを追加します。 これは、次の手順のようになります。
+1. 効果を使用する場合は、まず capabilities オブジェクトを確認します。 効果をどのように調整するかに応じて、条件チェックや switch 制御ステートメントを使用することを検討してください。
 
     ```cs
     if (_capabilities.AreEffectsSupported())
@@ -112,17 +112,17 @@ API は、いくつかの簡単な手順で既存のコードに追加できま�
     }
     ```
 
-全体のコード例で確認できます、 [Windows UI の Github リポジトリ](https://github.com/microsoft/WindowsCompositionSamples/tree/master/SampleGallery/Samples/SDK 15063/CompCapabilities)します。
+完全なコード例については、 [WINDOWS UI Github リポジトリ](https://github.com/microsoft/WindowsCompositionSamples/tree/master/SampleGallery/Samples/SDK 15063/CompCapabilities)を参照してください。
 
-## <a name="fast-vs-slow-effects"></a>低速の効果と高速
+## <a name="fast-vs-slow-effects"></a>高速効果と低速効果
 
-提供されたフィードバックに基づく[AreEffectsSupported](/uwp/api/windows.ui.composition.compositioncapabilities.areeffectssupported)と[AreEffectsFast](/uwp/api/windows.ui.composition.compositioncapabilities.areeffectsfast) CompositionCapabilities API のメソッドは、アプリケーションは、のコストがかかったり、サポートされていない効果をスワップすることもできますその他の効果の任意のデバイス用に最適化されます。 効果をいくつかが明らかに一貫して他のユーザーよりもリソースを使用し、適度に使用する必要があり、その他の効果をより自由に使用できます。 すべての効果のただし、注意する必要があります使用効果グラフのパフォーマンス特性を変更することがありますチェーンといくつかのシナリオの組み合わせとアニメーション化するときに。 次には、個々 のエフェクトのいくつかの経験則パフォーマンス特性を示します。
+アプリケーションでは、CompositionCapabilities API で提供され[ている、サポート](/uwp/api/windows.ui.composition.compositioncapabilities.areeffectssupported)されている Areの[高速](/uwp/api/windows.ui.composition.compositioncapabilities.areeffectsfast)メソッドからのフィードバックに基づいて、デバイス用に最適化されたその他の効果に対して、高価またはサポートされていない影響をスワップすることができます。 一部の効果は、常に他のリソースよりも多くのリソースを消費することがわかっているため、控えめに使用する必要があり、その他の効果はより自由に使用できます。 ただし、すべての効果については、チェーンとアニメーション化を使用して、いくつかのシナリオや組み合わせが効果グラフのパフォーマンス特性を変更することがあります。 次に、個々の効果の thumb パフォーマンス特性の規則をいくつか示します。
 
-- 高パフォーマンスの影響を与えることがわかっている効果、次のように – ガウスぼかしシャドウ マスク、BackDropBrush、HostBackDropBrush、ビジュアル レイヤー。 これらは、ローエンド デバイスの場合は推奨されません[(機能レベル 9.1 9.3)](https://docs.microsoft.com/windows/desktop/direct3d11/overviews-direct3d-11-devices-downlevel-intro)、ハイ エンド デバイスで慎重に使用する必要があります。
-- 中程度のパフォーマンスへの影響を効果にカラー行列を特定ブレンド効果 BlendModes (光度、色、鮮やかさ、および Hue) は、スポット ライト、SceneLightingEffect、および (シナリオによって異なる) BorderEffect します。 ローエンドのデバイスで特定のシナリオでこれらの効果が動作しますが、チェーンとアニメーション化するときに、注意を使用する必要があります。 以下に 2 つの使用を制限して、遷移のみをアニメーション化をお勧めします。
-- 他のすべての効果は、低パフォーマンスに影響し、アニメーション化すると、チェーンのすべての妥当なシナリオでは機能します。
+- パフォーマンスに大きな影響があるとわかっている効果は、ブラー (ガウス)、シャドウマスク、BackDropBrush、HostBackDropBrush、およびレイヤービジュアルのようになります。 これらは、低エンドデバイス[(機能レベル 9.1-9.3)](https://docs.microsoft.com/windows/desktop/direct3d11/overviews-direct3d-11-devices-downlevel-intro)には推奨されません。ハイエンドデバイスでは慎重に使用する必要があります。
+- パフォーマンスに大きな影響を与える効果には、カラーマトリックス、特定の Blend 効果の BlendModes (輝度、色、鮮やかさ、色合い)、スポットライト、SceneLightingEffect、および (シナリオによっては) BorderEffect があります。 これらの効果は、低レベルのデバイスで特定のシナリオで動作する場合がありますが、チェーンとアニメーション化には注意が必要です。 使用を2以下に制限することをお勧めします。また、遷移のみをアニメーション化します。
+- 他のすべての効果は、アニメーション化とチェーン化を行う際に、パフォーマンスへの影響が少なく、すべての適切なシナリオで動作します。
 
-## <a name="related-articles"></a>関連記事
+## <a name="related-articles"></a>関連トピック
 
-- [UWP のレスポンシブ デザイン手法](https://docs.microsoft.com/windows/uwp/design/layout/responsive-design)
+- [UWP の応答性の高い設計手法](https://docs.microsoft.com/windows/uwp/design/layout/responsive-design)
 - [UWP デバイスの調整](https://docs.microsoft.com/windows/uwp/design/layout/screen-sizes-and-breakpoints-for-responsive-design)
