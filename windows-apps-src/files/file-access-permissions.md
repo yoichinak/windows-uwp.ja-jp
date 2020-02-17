@@ -11,12 +11,12 @@ dev_langs:
 - cppwinrt
 - cpp
 - javascript
-ms.openlocfilehash: 9adc872554e0823eb0a4e1fdbebef19b876b6198
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 6a14a011971d8cea7b05758dc1a8a91ccab37edd
+ms.sourcegitcommit: b0930dfeb45e696fe4fa14bdb547de13ba5ade89
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67321411"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77146372"
 ---
 # <a name="file-access-permissions"></a>ファイル アクセス許可
 
@@ -167,6 +167,7 @@ ms.locfileid: "67321411"
 ローカル フォルダー、移動フォルダー、一時フォルダーにファイル ピッカーでアクセスすることはできません。
 
 ### <a name="removable-devices"></a>リムーバブル デバイス
+
 さらに、接続されているデバイス上の一部のファイルに既定でアクセスできます。 これは、[自動再生拡張機能](https://docs.microsoft.com/previous-versions/windows/apps/hh464906(v=win.10))を使って、ユーザーがデバイス (カメラや USB サム ドライブなど) をシステムに接続したときに自動的に起動されるようにする場合に使うことができます。 アプリでアクセスできるファイルの種類は、アプリ マニフェストのファイルの種類の関連付けの宣言で指定されたものだけに制限されます。
 
 もちろん、ファイル ピッカー ([**FileOpenPicker**](https://docs.microsoft.com/uwp/api/Windows.Storage.Pickers.FileOpenPicker) と [**FolderPicker**](https://docs.microsoft.com/uwp/api/Windows.Storage.Pickers.FolderPicker)) を呼び出して、アプリでアクセスするファイルやフォルダーをユーザーが選べるようにすると、リムーバブル デバイス上のファイルやフォルダーにもアクセスできます。 ファイル ピッカーの使い方については、「[ピッカーでファイルやフォルダーを開く](quickstart-using-file-and-folder-pickers.md)」をご覧ください。
@@ -175,6 +176,7 @@ ms.locfileid: "67321411"
 > SD カードやその他のリムーバブル デバイスにアクセスする方法について詳しくは、「[SD カードへのアクセス](access-the-sd-card.md)」をご覧ください。
 
 ## <a name="locations-that-uwp-apps-can-access"></a>UWP アプリからアクセスできる場所
+
 ### <a name="users-downloads-folder"></a>ユーザーの Downloads フォルダー
 
 ダウンロードされたファイルが保存される既定のフォルダーです。
@@ -251,27 +253,27 @@ ms.locfileid: "67321411"
 
 ## <a name="accessing-additional-locations"></a>その他の場所へのアクセス
 
-アプリで、既定の場所以外にあるファイルやフォルダーにアクセスするには、アプリ マニフェストで機能を宣言するか、ファイル ピッカーを呼び出してアプリでアクセスするファイルやフォルダーをユーザーが選べるようにします。詳しくは、「[アプリ機能の宣言](https://docs.microsoft.com/windows/uwp/packaging/app-capability-declarations)」または「[ピッカーでファイルやフォルダーを開く](quickstart-using-file-and-folder-pickers.md)」をご覧ください。
+アプリで、既定の場所以外にあるファイルやフォルダーにアクセスするには、[アプリ マニフェストで機能を宣言](../packaging/app-capability-declarations.md)するか、[ファイル ピッカーを呼び出して](quickstart-using-file-and-folder-pickers.md)アプリでアクセスするファイルやフォルダーをユーザーが選べるようにします。
 
 [AppExecutionAlias](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-uap5-appexecutionalias) 拡張機能を宣言したアプリには、コンソール ウィンドウでアプリが起動されたディレクトリおよびその下位レベルのディレクトリに対する、ファイル システムのアクセス許可が与えられます。
 
-次の表に、機能の宣言や関連付けられた [**Windows.Storage**](https://docs.microsoft.com/uwp/api/Windows.Storage) API の使用によってアクセスできるその他の場所を示します。
+次の表に、1 つ以上の機能の宣言や関連付けられた [**Windows.Storage**](https://docs.microsoft.com/uwp/api/Windows.Storage) API の使用によってアクセスできるその他の場所を示します。
 
-| Location | 機能 | Windows.Storage API |
+| インストール先 | 機能 | Windows.Storage API |
 |----------|------------|---------------------|
-| ユーザーがアクセス権を持つすべてのファイル。 例: ドキュメント、画像、写真、ダウンロード、デスクトップ、OneDrive などです。 | broadFileSystemAccess<br><br>これは、制限付き機能です。 アクセスは、 **[設定]**  >  **[プライバシー]**  >  **[ファイル システム]** で構成できます。 ユーザーは **[設定]** でいつでもアクセスを許可または拒否できるため、アプリがこれらの変更に対して回復力があることを確認する必要があります。 アプリでアクセスできないことがわかった場合は、「[Windows 10 ファイル システムへのアクセスとプライバシー](https://support.microsoft.com/help/4468237/windows-10-file-system-access-and-privacy-microsoft-privacy)」の記事へのリンクを提供し、ユーザーに設定の変更を求めるように選択できます。 ユーザーはアプリを閉じ、設定を切り替え、アプリを再起動する必要があることに注意してください。 アプリの実行中に設定を切り替えると、状態を保存できるようにプラットフォームでアプリが中断され、その後、新しい設定を適用するためにアプリが強制的に終了されます。 2018 年 4 月の更新プログラムでは、アクセス許可の既定値はオンです。 2018 の年 10 月の更新プログラムでは、既定値はオフです。<br /><br />この機能を宣言するアプリを Microsoft Store に提出する場合、アプリでこの機能が必要となる理由およびこの機能の使用目的に関する追加の説明を提供する必要があります。<br>この機能は、[**Windows.Storage**](https://docs.microsoft.com/uwp/api/Windows.Storage) 名前空間の API で動作します。 アプリでこの機能を有効にする方法の例については、この記事の最後の「**例**」セクションを参照してください。 | なし |
-| ドキュメント | DocumentsLibrary <br><br>注:アプリ マニフェストにファイルの種類の関連付けを追加し、この場所でアプリからアクセスできるファイルの種類を具体的に宣言する必要があります。 <br><br>この機能は、アプリが次の条件を満たす場合に使います。<br>- 有効な OneDrive URL またはリソース ID を使った、特定の OneDrive コンテンツへのクロスプラットフォーム オフライン アクセスを容易にする<br>- オフライン時に、開いているファイルをユーザーの OneDrive に自動的に保存する | [KnownFolders.DocumentsLibrary](https://docs.microsoft.com/uwp/api/windows.storage.knownfolders.documentslibrary) |
-| 音楽     | MusicLibrary <br>「[ミュージック、画像、およびビデオ ライブラリのファイルとフォルダー](quickstart-managing-folders-in-the-music-pictures-and-videos-libraries.md)」もご覧ください。 | [KnownFolders.MusicLibrary](https://docs.microsoft.com/uwp/api/windows.storage.knownfolders.musiclibrary) |    
-| 画像  | PicturesLibrary<br> 「[ミュージック、画像、およびビデオ ライブラリのファイルとフォルダー](quickstart-managing-folders-in-the-music-pictures-and-videos-libraries.md)」もご覧ください。 | [KnownFolders.PicturesLibrary](https://docs.microsoft.com/uwp/api/windows.storage.knownfolders.pictureslibrary) |  
-| ビデオ    | VideosLibrary<br>「[ミュージック、画像、およびビデオ ライブラリのファイルとフォルダー](quickstart-managing-folders-in-the-music-pictures-and-videos-libraries.md)」もご覧ください。 | [KnownFolders.VideosLibrary](https://docs.microsoft.com/uwp/api/windows.storage.knownfolders.videoslibrary) |   
-| リムーバブル デバイス  | RemovableDevices <br><br>注  アプリ マニフェストにファイルの種類の関連付けを追加し、この場所でアプリがアクセスできるファイルの種類を具体的に宣言する必要があります。 <br><br>「[SD カードへのアクセス](access-the-sd-card.md)」もご覧ください。 | [KnownFolders.RemovableDevices](https://docs.microsoft.com/uwp/api/windows.storage.knownfolders.removabledevices) |  
-| ホームグループ ライブラリ  | 次の機能が 1 つ以上必要です。 <br>- MusicLibrary <br>- PicturesLibrary <br>- VideosLibrary | [KnownFolders.HomeGroup](https://docs.microsoft.com/uwp/api/windows.storage.knownfolders.homegroup) |      
-| メディア サーバー デバイス (DLNA) | 次の機能が 1 つ以上必要です。 <br>- MusicLibrary <br>- PicturesLibrary <br>- VideosLibrary | [KnownFolders.MediaServerDevices](https://docs.microsoft.com/uwp/api/windows.storage.knownfolders.mediaserverdevices) |
-| 汎用名前付け規則 (UNC) フォルダー | 次の機能の組み合わせが必要です。 <br><br>ホーム ネットワークと社内ネットワークの機能: <br>- PrivateNetworkClientServer <br><br>インターネットとパブリック ネットワークの 1 つ以上の機能: <br>- InternetClient <br>- InternetClientServer <br><br>ドメイン資格情報の機能 (該当する場合):<br>- EnterpriseAuthentication <br><br>注:アプリ マニフェストにファイルの種類の関連付けを追加し、この場所でアプリからアクセスできるファイルの種類を具体的に宣言する必要があります。 | フォルダーを取得する場合: <br>[StorageFolder.GetFolderFromPathAsync](https://docs.microsoft.com/uwp/api/windows.storage.storagefolder.getfolderfrompathasync) <br><br>ファイルを取得する場合: <br>[StorageFile.GetFileFromPathAsync](https://docs.microsoft.com/uwp/api/windows.storage.storagefile.getfilefrompathasync) |
+| ユーザーがアクセス権を持つすべてのファイル。 例: ドキュメント、画像、写真、ダウンロード、デスクトップ、OneDrive などです。 | **broadFileSystemAccess**<br><br>これは、制限付き機能です。 アクセスは、 **[設定]**  >  **[プライバシー]**  >  **[ファイル システム]** で構成できます。 ユーザーは **[設定]** でいつでもアクセスを許可または拒否できるため、アプリがこれらの変更に対して回復力があることを確認する必要があります。 アプリでアクセスできないことがわかった場合は、「[Windows 10 ファイル システムへのアクセスとプライバシー](https://support.microsoft.com/help/4468237/windows-10-file-system-access-and-privacy-microsoft-privacy)」の記事へのリンクを提供し、ユーザーに設定の変更を求めるように選択できます。 ユーザーはアプリを閉じ、設定を切り替え、アプリを再起動する必要があることに注意してください。 アプリの実行中に設定を切り替えると、状態を保存できるようにプラットフォームでアプリが中断され、その後、新しい設定を適用するためにアプリが強制的に終了されます。 2018 年 4 月の更新プログラムでは、アクセス許可の既定値はオンです。 2018 の年 10 月の更新プログラムでは、既定値はオフです。<br /><br />この機能を宣言するアプリを Microsoft Store に提出する場合、アプリでこの機能が必要となる理由およびこの機能の使用目的に関する追加の説明を提供する必要があります。<br/><br/>この機能は、[**Windows.Storage**](https://docs.microsoft.com/uwp/api/Windows.Storage) 名前空間の API で動作します。 アプリでこの機能を有効にする方法の例については、この記事の最後の「**例**」セクションを参照してください。<br/><br/>**注:** この機能は、Xbox ではサポートされていません。 | 該当なし |
+| ドキュメント | **documentsLibrary**<br><br>注: アプリ マニフェストにファイルの種類の関連付けを追加し、この場所でアプリからアクセスできるファイルの種類を具体的に宣言する必要があります。 <br><br>この機能は、アプリが次の条件を満たす場合に使います。<br>- 有効な OneDrive URL またはリソース ID を使った、特定の OneDrive コンテンツへのクロスプラットフォーム オフライン アクセスを容易にする<br>- オフライン時に、開いているファイルをユーザーの OneDrive に自動的に保存する | [KnownFolders.DocumentsLibrary](https://docs.microsoft.com/uwp/api/windows.storage.knownfolders.documentslibrary) |
+| ミュージック     | **musicLibrary** <br>「[ミュージック、画像、およびビデオ ライブラリのファイルとフォルダー](quickstart-managing-folders-in-the-music-pictures-and-videos-libraries.md)」もご覧ください。 | [KnownFolders.MusicLibrary](https://docs.microsoft.com/uwp/api/windows.storage.knownfolders.musiclibrary) |    
+| ピクチャ  | **picturesLibrary**<br> 「[ミュージック、画像、およびビデオ ライブラリのファイルとフォルダー](quickstart-managing-folders-in-the-music-pictures-and-videos-libraries.md)」もご覧ください。 | [KnownFolders.PicturesLibrary](https://docs.microsoft.com/uwp/api/windows.storage.knownfolders.pictureslibrary) |  
+| ビデオ    | **videosLibrary**<br>「[ミュージック、画像、およびビデオ ライブラリのファイルとフォルダー](quickstart-managing-folders-in-the-music-pictures-and-videos-libraries.md)」もご覧ください。 | [KnownFolders.VideosLibrary](https://docs.microsoft.com/uwp/api/windows.storage.knownfolders.videoslibrary) |   
+| リムーバブル デバイス  | **removableStorage**  <br><br>注  アプリ マニフェストにファイルの種類の関連付けを追加し、この場所でアプリがアクセスできるファイルの種類を具体的に宣言する必要があります。 <br><br>「[SD カードへのアクセス](access-the-sd-card.md)」もご覧ください。 | [KnownFolders.RemovableDevices](https://docs.microsoft.com/uwp/api/windows.storage.knownfolders.removabledevices) |  
+| ホームグループ ライブラリ  | 次の機能が 1 つ以上必要です。 <br>- **musicLibrary** <br>- **picturesLibrary** <br>- **videosLibrary** | [KnownFolders.HomeGroup](https://docs.microsoft.com/uwp/api/windows.storage.knownfolders.homegroup) |      
+| メディア サーバー デバイス (DLNA) | 次の機能が 1 つ以上必要です。 <br>- **musicLibrary** <br>- **picturesLibrary** <br>- **videosLibrary** | [KnownFolders.MediaServerDevices](https://docs.microsoft.com/uwp/api/windows.storage.knownfolders.mediaserverdevices) |
+| 汎用名前付け規則 (UNC) フォルダー | 次の機能の組み合わせが必要です。 <br><br>ホーム ネットワークと社内ネットワークの機能: <br>- **privateNetworkClientServer** <br><br>インターネットとパブリック ネットワークの 1 つ以上の機能: <br>- **internetClient** <br>- **internetClientServer** <br><br>ドメイン資格情報の機能 (該当する場合):<br>- **enterpriseAuthentication** <br><br>**注:** アプリ マニフェストにファイルの種類の関連付けを追加し、この場所でアプリからアクセスできるファイルの種類を具体的に宣言する必要があります。 | フォルダーを取得する場合: <br>[StorageFolder.GetFolderFromPathAsync](https://docs.microsoft.com/uwp/api/windows.storage.storagefolder.getfolderfrompathasync) <br><br>ファイルを取得する場合: <br>[StorageFile.GetFileFromPathAsync](https://docs.microsoft.com/uwp/api/windows.storage.storagefile.getfilefrompathasync) |
 
-**例**
+### <a name="example"></a>例
 
-この例では、制限付きの `broadFileSystemAccess` 機能を追加します。 機能を指定するだけでなく、`rescap` 名前空間を追加し、`IgnorableNamespaces` に追加する必要もあります。
+この例では、制限された **broadFileSystemAccess** 機能を追加します。 機能を指定するだけでなく、`rescap` 名前空間を追加し、`IgnorableNamespaces` に追加する必要もあります。
 
 ```xaml
 <Package
