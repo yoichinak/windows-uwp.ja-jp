@@ -2,25 +2,27 @@
 Description: 自分の他のアプリで、自分のアプリの 1 つを宣伝する広告を無料で作成することができます。 これを「自社広告」と呼びます。
 title: 自社広告について
 ms.assetid: C6507C8B-351B-49E7-A194-35AB05BC3358
-ms.date: 10/31/2018
+ms.date: 02/18/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 8f5a42d6c4a4de15105afdec2bc9bc0b4cb27c94
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: b93682b6d1d154a393a0f0af1e09708ad08a05b9
+ms.sourcegitcommit: 6af7ce0e3c27f8e52922118deea1b7aad0ae026e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57649847"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77463424"
 ---
 # <a name="about-house-ads"></a>自社広告について
 
+>[!WARNING]
+> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細情報](https://aka.ms/ad-monetization-shutdown)
 
 自分の他のアプリで、自分のアプリの 1 つを宣伝する広告を無料で作成することができます。 これを「*自社広告*」と呼びます。
 
-家の広告は、構成されているアプリでのみ表示されます。[マイクロソフトから広告を表示](../monetize/display-ads-in-your-app.md)します。
+社内広告は、 [Microsoft からの広告を表示](../monetize/display-ads-in-your-app.md)するように構成されている独自のアプリにのみ表示されます。
 
-自社広告を設定するには、[広告キャンペーンの作成](create-an-ad-campaign-for-your-app.md)時に、**[キャンペーンの種類]** として **[自社広告 (無料)]** を選びます。 広告は、次の条件を満たしている自分のすべてのアプリで、自動的に表示対象になります。
+自社広告を設定するには、**広告キャンペーンの作成**時に、 **[キャンペーンの種類]** として [[自社広告 (無料)]](create-an-ad-campaign-for-your-app.md) を選びます。 広告は、次の条件を満たしている自分のすべてのアプリで、自動的に表示対象になります。
 
 -   アプリは、宣伝されているアプリと同じデバイスの種類である必要があります。
 -   アプリには、少なくとも 1 つの広告ユニットが設定されている必要があります。
@@ -35,5 +37,5 @@ ms.locfileid: "57649847"
 ### <a name="related-topics"></a>関連トピック
 
 
-* [アプリの広告キャンペーンを作成します。](create-an-ad-campaign-for-your-app.md)
-* [よく寄せられる質問](common-questions.md)
+* [アプリの広告キャンペーンを作成する](create-an-ad-campaign-for-your-app.md)
+* [一般的な質問](common-questions.md)

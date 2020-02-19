@@ -1,18 +1,21 @@
 ---
 description: Windows Premium Ads Publishers Program は、パートナー広告ネットワークで高収益のプレミアム広告のターゲットにすることができる、選りすぐりの広告対応アプリのコレクションで構成されます。 このプログラムに含まれるアプリは、使用状況、エンゲージメント、エクスペリエンスの観点からクラス最高です。
 title: Windows Premium Ads Publishers Program
-ms.date: 09/08/2017
+ms.date: 02/18/2020
 ms.topic: article
 keywords: Windows 10, UWP, 広告, Advertising
 ms.localizationpriority: medium
-ms.openlocfilehash: 4db99097516fcead384af6fc9e4c588707b96d41
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.openlocfilehash: ba5708b953efff3b4a7c52286ae1a74c43d3d211
+ms.sourcegitcommit: 6af7ce0e3c27f8e52922118deea1b7aad0ae026e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75684439"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77463754"
 ---
 # <a name="windows-premium-ads-publishers-program"></a>Windows Premium Ads Publishers Program
+
+>[!WARNING]
+> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細情報](https://aka.ms/ad-monetization-shutdown)
 
 Windows 開発者が広告によってアプリを収益化するための継続的な取り組みの一環として、[Windows Premium Ads Publishers Program](https://www.windowspremiumapps.com) を提供しています。 これは、使用状況、エンゲージメント、エクスペリエンスの観点からクラス最高の広告対応アプリとゲームの選りすぐりのコレクションです。 これらのアプリやゲームのビューアビリティは認定されており、エンゲージメントの高い特定可能なユーザーに世界中が注目しています。
 

@@ -1,18 +1,21 @@
 ---
 description: UWP アプリでバナー広告を使用する方法について説明します。
 title: バナー広告
-ms.date: 08/23/2017
+ms.date: 02/18/2020
 ms.topic: article
 keywords: Windows 10, UWP, 広告, AdControl, バナー広告
 ms.localizationpriority: medium
-ms.openlocfilehash: cd3e57ebf5a7f7770adf2a8defcd92e66ad1e3a0
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: d3e4715dee6c1e182ed195288cba7b96612b743b
+ms.sourcegitcommit: 6af7ce0e3c27f8e52922118deea1b7aad0ae026e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74260337"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77463524"
 ---
 # <a name="banner-ads"></a>バナー広告
+
+>[!WARNING]
+> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細情報](https://aka.ms/ad-monetization-shutdown)
 
 このセクションの記事では、Microsoft Advertising SDK の [AdControl](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.adcontrol) クラスを使用して、UWP アプリにバナー広告を追加する方法を示します。
 

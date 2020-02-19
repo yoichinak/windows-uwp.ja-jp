@@ -1,18 +1,21 @@
 ---
 description: マイクロソフトの広告仲介サービスを利用すると、複数の広告ネットワークから広告を表示して、広告収益とアプリ プロモーションの機能を最大限に引き出すことができます。
 title: Microsoft 広告仲介サービス
-ms.date: 06/05/2018
+ms.date: 02/18/2020
 ms.topic: article
 keywords: windows 10, uwp, 広告, 広告, 広告仲介
 ms.localizationpriority: medium
-ms.openlocfilehash: 700a80aff4c991f4fa3bff681ba995b113025fec
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: ad2f60b6b87f81df44bc2f875a722a9e36fdd170
+ms.sourcegitcommit: 6af7ce0e3c27f8e52922118deea1b7aad0ae026e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74259330"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77463984"
 ---
 # <a name="microsoft-ad-mediation-service"></a>Microsoft 広告仲介サービス
+
+>[!WARNING]
+> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細情報](https://aka.ms/ad-monetization-shutdown)
 
 [Microsoft Advertising SDK](https://marketplace.visualstudio.com/items?itemName=AdMediator.MicrosoftAdvertisingSDK) を使用して[アプリに広告を表示する場合](display-ads-in-your-app.md)、必要に応じてマイクロソフトの広告仲介サービスを使って、広告の収益を最大化できます。 この記事では、広告仲介サービスとその目標の概要を示します。
 

@@ -2,19 +2,21 @@
 ms.assetid: 4e7c2388-b94e-4828-a104-14fa33f6eb2d
 description: Windows 10 (UWP) 用の XAML アプリで AdControl クラスを使ってバナー広告を表示する方法について説明します。
 title: XAML および .NET の AdControl
-ms.date: 03/22/2018
+ms.date: 02/18/2020
 ms.topic: article
 keywords: Windows 10, UWP, 広告, 宣伝, AdControl, 広告コントロール, XAML, .NET, チュートリアル
 ms.localizationpriority: medium
-ms.openlocfilehash: beafc002888605ddebac99a67ae1cdac9715de14
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: 55a67d3f0c74492fdf00110c28cb15eb3167a81a
+ms.sourcegitcommit: 6af7ce0e3c27f8e52922118deea1b7aad0ae026e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74259305"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77463484"
 ---
 # <a name="adcontrol-in-xaml-and-net"></a>XAML および .NET の AdControl
 
+>[!WARNING]
+> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細情報](https://aka.ms/ad-monetization-shutdown)
 
 このチュートリアルでは、C# を使用して実装された Windows 10 用のユニバーサル Windows プラットフォーム (UWP) XAML アプリで、[AdControl](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.adcontrol) クラスを使ってバナー広告を表示する方法について説明します。
 

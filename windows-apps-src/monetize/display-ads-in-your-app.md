@@ -2,18 +2,21 @@
 ms.assetid: 63A9EDCF-A418-476C-8677-D8770B45D1D7
 description: Microsoft Advertising SDK は、アプリに広告を表示して収益を得るためのいくつかの方法を提供します。
 title: Microsoft Advertising SDK を使用したアプリでの広告の表示
-ms.date: 06/20/2018
+ms.date: 02/18/2020
 ms.topic: article
 keywords: Windows 10, UWP, 広告, 宣伝, バナー, 広告コントロール, スポット広告
 ms.localizationpriority: medium
-ms.openlocfilehash: 48aacf03d6e424b7b53052e2c292d4a8589a8d9f
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.openlocfilehash: 5f318a68a97e98d3da24da16778988ee40c4e1dd
+ms.sourcegitcommit: 6af7ce0e3c27f8e52922118deea1b7aad0ae026e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75684572"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77463784"
 ---
 # <a name="display-ads-in-your-app-with-the-microsoft-advertising-sdk"></a>Microsoft Advertising SDK を使用したアプリでの広告の表示
+
+>[!WARNING]
+> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細情報](https://aka.ms/ad-monetization-shutdown)
 
 Microsoft Advertising SDK を使用して、Windows 10 用ユニバーサル Windows プラットフォーム (UWP) アプリに広告を配置することで、収益機会を増やせます。 Microsoft の ad 収益化プラットフォームでは、アプリにシームレスに統合できるさまざまな ad 形式が提供されており、多くの一般的な ad ネットワークでの仲介をサポートしています。 マイクロソフトのプラットフォームは、OpenRTB、VAST 2.x、MRAID 2、および VPAID 3 の各標準に準拠しており、MOAT および IAS と互換性があります。 
 
@@ -31,7 +34,7 @@ Microsoft Advertising SDK を使用して、Windows 10 用ユニバーサル Win
 <tbody>
 <tr>
 <td align="left"><img src="images/install-sdk.png" alt="Install SDK icon" /></td>
-<td align="left"><b>開始する</b><br/><br/>
+<td align="left"><b>作業の開始</b><br/><br/>
     <a href="https://marketplace.visualstudio.com/items?itemName=AdMediator.MicrosoftAdvertisingSDK">MICROSOFT ADVERTISING SDK
  をインストールする</a></td>
 <td align="left"><img src="images/write-code.png" alt="Develop icon" /></td>

@@ -2,21 +2,21 @@
 ms.assetid: ca92bed1-ad9e-4947-ad91-87d12de727c0
 description: Microsoft Advertising ライブラリのリリース ノートを確認します。
 title: Advertising ライブラリのリリース ノート
-ms.date: 08/23/2017
+ms.date: 02/18/2020
 ms.topic: article
 keywords: Windows 10, UWP, 広告, 宣伝, リリース ノート
 ms.localizationpriority: medium
-ms.openlocfilehash: 04d3554620cde44fc9907845a7765d023e1ed03e
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: 50eea90dcf8ed59f420953eec5da5b7a0fe6b4b2
+ms.sourcegitcommit: 6af7ce0e3c27f8e52922118deea1b7aad0ae026e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74260207"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77463914"
 ---
 # <a name="release-notes-for-the-advertising-libraries"></a>Advertising ライブラリのリリース ノート
 
-
-
+>[!WARNING]
+> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細情報](https://aka.ms/ad-monetization-shutdown)
 
 このセクションでは、Microsoft Advertising ライブラリの現在のリリースのリリース ノートを示します。 これらのライブラリは、Windows 10、Windows 8.1、Windows Phone 8.1、Windows Phone 8 の XAML および JavaScript/HTML アプリをサポートしています。
 

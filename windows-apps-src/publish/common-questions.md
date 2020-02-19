@@ -2,18 +2,21 @@
 Description: 広告キャンペーンに関してよく寄せられる質問
 title: 広告キャンペーンに関してよく寄せられる質問
 ms.assetid: EAF7CC74-7DE4-4D11-B9A6-29C6EA6E734B
-ms.date: 10/31/2018
+ms.date: 02/18/2020
 ms.topic: article
-keywords: Windows 10, UWP
+keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: c44f93676fd0324ef82ad7b33832bb6653409cda
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.openlocfilehash: be6759ea808e230d3cf504caf03763123babd870
+ms.sourcegitcommit: 6af7ce0e3c27f8e52922118deea1b7aad0ae026e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75685161"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77463734"
 ---
 # <a name="common-questions-about-ad-campaigns"></a>広告キャンペーンに関してよく寄せられる質問
+
+>[!WARNING]
+> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細情報](https://aka.ms/ad-monetization-shutdown)
 
 ### <a name="how-much-does-it-cost-to-run-an-ad-for-my-app"></a>アプリの広告を掲載するにはいくらかかりますか。
 
@@ -25,11 +28,11 @@ ms.locfileid: "75685161"
 
 ### <a name="can-i-run-ads-for-one-of-my-apps-in-my-other-apps"></a>自分のいずれかのアプリの広告を、自分の他のアプリに表示できますか。
 
-対応 そのような広告を「*自社広告*」と呼んでおり、無料で掲載できます。 コミュニティ広告について詳しくは、[この記事](about-house-ads.md)をご覧ください。
+はい。 そのような広告を「*自社広告*」と呼んでおり、無料で掲載できます。 コミュニティ広告について詳しくは、[この記事](about-house-ads.md)をご覧ください。
 
 ### <a name="can-i-cross-promote-my-app-with-apps-from-other-developers-in-the-store"></a>ストアで自分のアプリと他の開発者のアプリを相互に販売促進することはできますか。
 
-対応 そのような広告を「*コミュニティ広告*」と呼んでおり、無料で掲載できます。 [コミュニティ広告にオプトイン](about-community-ads.md#opt-in-to-community-ads)すると、[無料のコミュニティ広告キャンペーンを作成](create-an-ad-campaign-for-your-app.md)して、コミュニティ広告にオプトインした他の開発者とプロモーション用の広告スペースを共有できます。 詳しくは、[この記事](about-community-ads.md)をご覧ください。
+はい。 そのような広告を「*コミュニティ広告*」と呼んでおり、無料で掲載できます。 [コミュニティ広告にオプトイン](about-community-ads.md#opt-in-to-community-ads)すると、[無料のコミュニティ広告キャンペーンを作成](create-an-ad-campaign-for-your-app.md)して、コミュニティ広告にオプトインした他の開発者とプロモーション用の広告スペースを共有できます。 詳しくは、[この記事](about-community-ads.md)をご覧ください。
 
 ### <a name="how-can-i-customize-my-ad"></a>広告はどのようにカスタマイズできますか。
 
@@ -47,7 +50,7 @@ ms.locfileid: "75685161"
 
 次の言語で広告キャンペーンを作成できます。
 
-アラビア語、簡体字中国語、繁体字中国語、デンマーク語、オランダ語、英語、フランス語、ドイツ語、イタリア語、ノルウェー語、ポルトガル語 (ブラジル)、ポルトガル語 (ポルトガル)、スペイン語、スウェーデン語。
+アラビア語、簡体中国語、繁体中国語、デンマーク語、オランダ語、英語、フランス語、ドイツ語、イタリア語、ノルウェー語、ポルトガル語 (ブラジル)、ポルトガル語 (ポルトガル)、スペイン語、スウェーデン語。
 
 ### <a name="when-will-i-be-billed"></a>料金はいつ請求されますか。
 
@@ -55,7 +58,7 @@ ms.locfileid: "75685161"
 
 アカウントの最終請求日から 30 日間の請求金額が 50 米ドルに満たない場合は、その請求金額が翌月の初旬に請求されます。 これにより、お客様のアカウントの広告キャンペーン料金の請求残高が 1 か月以上残ることはありません。
 
-請求書の発行を待たずに、すぐに支払うこともできます。これには、 **[課金の概要]** ページ ( **[プロモーション]**  >  **[請求履歴]** ) で **[今すぐ課金]** を選びます。 ご指定のお支払い方法に請求される金額が、 **[未払い額]** の下に表示されます。
+請求書の発行を待たずに、すぐに支払うこともできます。これには、 **[課金の概要]** ページ ( **[プロモーション]** [請求履歴] > ) で **[今すぐ課金]** を選びます。 ご指定のお支払い方法に請求される金額が、 **[未払い額]** の下に表示されます。
 
 ### <a name="how-do-i-delete-a-credit-card-or-edit-the-details-of-a-credit-card"></a>クレジット カードを削除したり、クレジット カードの詳細を編集したりするにはどうすればよいですか。
 

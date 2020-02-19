@@ -2,30 +2,33 @@
 ms.assetid: 7a61c328-77be-4614-b117-a32a592c9efe
 description: JavaScript/HTML アプリの Microsoft Advertising ライブラリに関する、開発上の一般的な問題に対する解決策について説明します。
 title: HTML と JavaScript のトラブルシューティング ガイド
-ms.date: 08/23/2017
+ms.date: 02/18/2020
 ms.topic: article
 keywords: Windows 10, UWP, 広告, Advertising, AdControl, トラブルシューティング, HTML, JavaScript
 ms.localizationpriority: medium
-ms.openlocfilehash: 01e2781b64629e24cba9b4ac02629a79ee4d998b
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: fb804c312962fc349607b9d55176bfd7279cf8e9
+ms.sourcegitcommit: 6af7ce0e3c27f8e52922118deea1b7aad0ae026e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57633237"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77463794"
 ---
 # <a name="html-and-javascript-troubleshooting-guide"></a>HTML と JavaScript のトラブルシューティング ガイド
 
+>[!WARNING]
+> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細情報](https://aka.ms/ad-monetization-shutdown)
+
 このトピックでは、JavaScript/HTML アプリの Microsoft Advertising ライブラリに関する、開発上の一般的な問題に対する解決策について説明します。
 
-* [HTML](#html)
-  * [表示されない AdControl](#html-notappearing)
-  * [黒いボックスの点滅し、非表示になります](#html-blackboxblinksdisappears)
-  * [広告を更新しません。](#html-adsnotrefreshing)
+* [形式](#html)
+  * [AdControl が表示されない](#html-notappearing)
+  * [黒いボックスが点滅して消えます](#html-blackboxblinksdisappears)
+  * [更新されない広告](#html-adsnotrefreshing)
 
-* [JavaScript](#js)
-  * [表示されない AdControl](#js-adcontrolnotappearing)
-  * [黒いボックスの点滅し、非表示になります](#js-blackboxblinksdisappears)
-  * [広告を更新しません。](#js-adsnotrefreshing)
+* [Java](#js)
+  * [AdControl が表示されない](#js-adcontrolnotappearing)
+  * [黒いボックスが点滅して消えます](#js-blackboxblinksdisappears)
+  * [更新されない広告](#js-adsnotrefreshing)
 
 ## <a name="html"></a>HTML
 
@@ -46,7 +49,7 @@ ms.locfileid: "57633237"
     </head>
     ```
 
-3.  アプリケーション ID と広告ユニット ID を確認します。 これらの Id は、アプリケーション ID とパートナー センターで取得した広告ユニット ID に一致する必要があります。 詳しくは、「[アプリの広告ユニットをセットアップする](set-up-ad-units-in-your-app.md#live-ad-units)」をご覧ください。
+3.  アプリケーション ID と広告ユニット ID を確認します。 これらの Id は、パートナーセンターで取得したアプリケーション ID と ad ユニット ID と一致している必要があります。 詳しくは、「[アプリの広告ユニットをセットアップする](set-up-ad-units-in-your-app.md#live-ad-units)」をご覧ください。
 
     > [!div class="tabbedCodeSnippets"]
     ``` html
@@ -136,7 +139,7 @@ ms.locfileid: "57633237"
 
 11. **AdControl** がビューポートから隠れていないことを確認します。 **AdControl** は、広告が正常に表示されるように、見える必要があります。
 
-12. [ApplicationId](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.adcontrol.applicationid) と [AdUnitId](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.adcontrol.adunitid) の実際の値は、エミュレーターでのテストに使わないようにしてください。 **AdControl** が想定どおりに機能していることを確認するには、**ApplicationId** と **AdUnitId** のどちらについても[テスト値](set-up-ad-units-in-your-app.md#test-ad-units)を使ってください。
+12. [ApplicationId](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.adcontrol.applicationid) と [AdUnitId](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.adcontrol.adunitid) の実際の値は、エミュレーターでのテストに使わないようにしてください。 **AdControl** が想定どおりに機能していることを確認するには、[ApplicationId](set-up-ad-units-in-your-app.md#test-ad-units) と **AdUnitId** のどちらについても**テスト値**を使ってください。
 
 <span id="html-blackboxblinksdisappears"/>
 
@@ -271,7 +274,7 @@ ms.locfileid: "57633237"
     });  
     ```
 
-4.  アプリケーション ID と広告ユニット ID を確認します。 これらの Id は、アプリケーション ID とパートナー センターで取得した広告ユニット ID に一致する必要があります。 詳しくは、「[アプリの広告ユニットをセットアップする](set-up-ad-units-in-your-app.md#live-ad-units)」をご覧ください。
+4.  アプリケーション ID と広告ユニット ID を確認します。 これらの Id は、パートナーセンターで取得したアプリケーション ID と ad ユニット ID と一致している必要があります。 詳しくは、「[アプリの広告ユニットをセットアップする](set-up-ad-units-in-your-app.md#live-ad-units)」をご覧ください。
 
     > [!div class="tabbedCodeSnippets"]
     ``` javascript
@@ -283,7 +286,7 @@ ms.locfileid: "57633237"
 
 5.  **AdControl** の親要素を確認します。 親はアクティブな状態で表示されている必要があります。
 
-6.  **ApplicationId** と **AdUnitId** の実際の値は、エミュレーターでのテストに使わないようにしてください。 **AdControl** が想定どおりに機能していることを確認するには、**ApplicationId** と **AdUnitId** のどちらについても[テスト値](set-up-ad-units-in-your-app.md#test-ad-units)を使ってください。
+6.  **ApplicationId** と **AdUnitId** の実際の値は、エミュレーターでのテストに使わないようにしてください。 **AdControl** が想定どおりに機能していることを確認するには、[ApplicationId](set-up-ad-units-in-your-app.md#test-ad-units) と **AdUnitId** のどちらについても**テスト値**を使ってください。
 
 <span id="js-blackboxblinksdisappears"/>
 
@@ -338,7 +341,7 @@ ms.locfileid: "57633237"
 
 ### <a name="ads-not-refreshing"></a>広告が更新されない
 
-1.  **AdControl** の [IsAutoRefreshEnabled](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.adcontrol.isautorefreshenabled.aspx) プロパティが false に設定されているかどうかを確認します。 既定では、この省略可能なプロパティは **true** に設定されています。 **false** に設定すると、他の広告を取得するために **Refresh** メソッドを使う必要があります。
+1.  [AdControl](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.adcontrol.isautorefreshenabled.aspx) の **IsAutoRefreshEnabled** プロパティが false に設定されているかどうかを確認します。 既定では、この省略可能なプロパティは **true** に設定されています。 **false** に設定すると、他の広告を取得するために **Refresh** メソッドを使う必要があります。
 
 2.  [Refresh](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.adcontrol.refresh.aspx) メソッドの呼び出しを確認します。 自動更新 (**IsAutoRefreshEnabled** が **true**) の場合、他の広告を取得するために **Refresh** を使うことはできません。 手動更新 (**IsAutoRefreshEnabled** が **false**) の場合、デバイスの現在のデータ接続に応じて、少なくとも 30 秒から 60 秒経ってから **Refresh** を呼び出します。
 

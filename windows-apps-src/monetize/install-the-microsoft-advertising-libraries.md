@@ -2,18 +2,21 @@
 ms.assetid: 3aeddb83-5314-447b-b294-9fc28273cd39
 description: Microsoft Advertising SDK をインストールする方法について説明します。
 title: Microsoft Advertising SDK のインストール
-ms.date: 08/23/2017
+ms.date: 02/18/2020
 ms.topic: article
 keywords: Windows 10, UWP, 広告, 宣伝, インストール, SDK, Advertising ライブラリ
 ms.localizationpriority: medium
-ms.openlocfilehash: 37e57d49ba40814891154aef2ec0de6b3b7e560c
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: f3b63ac40041b93372544d586d3feb23940fccc5
+ms.sourcegitcommit: 6af7ce0e3c27f8e52922118deea1b7aad0ae026e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74260269"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77463388"
 ---
 # <a name="install-the-microsoft-advertising-sdk"></a>Microsoft Advertising SDK のインストール
+
+>[!WARNING]
+> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細情報](https://aka.ms/ad-monetization-shutdown)
 
 Windows 10 用の UWP アプリで広告を表示するには、[Microsoft Advertising SDK](https://marketplace.visualstudio.com/items?itemName=AdMediator.MicrosoftAdvertisingSDK) をインストールします。 この SDK は、Visual Studio 2015 およびそれ以降のバージョンの拡張機能です。
 

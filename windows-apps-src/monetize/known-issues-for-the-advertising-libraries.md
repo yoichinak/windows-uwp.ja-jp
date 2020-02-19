@@ -2,18 +2,21 @@
 ms.assetid: 9ca1f880-2ced-46b4-8ea7-aba43d2ff863
 description: Microsoft Advertising SDK の現在のリリースにおける既知の問題について説明します。
 title: アプリ内広告の既知の問題とトラブルシューティング
-ms.date: 04/16/2018
+ms.date: 02/18/2020
 ms.topic: article
 keywords: Windows 10, UWP, 広告, Advertising, 既知の問題, トラブルシューティング
 ms.localizationpriority: medium
-ms.openlocfilehash: 6701ff346f41352a108922f82da82fbf52fd7402
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.openlocfilehash: 34c07a46d31ddf6c8f5b56ffd19059b4d225a72c
+ms.sourcegitcommit: 6af7ce0e3c27f8e52922118deea1b7aad0ae026e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75685090"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77463964"
 ---
 # <a name="known-issues-and-troubleshooting-for-ads-in-apps"></a>アプリ内広告の既知の問題とトラブルシューティング
+
+>[!WARNING]
+> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細情報](https://aka.ms/ad-monetization-shutdown)
 
 このトピックでは、Microsoft Advertising SDK の現在のリリースにおける既知の問題を示します。 トラブルシューティングのガイダンスについては、以下のトピックを参照してください。
 
@@ -63,7 +66,7 @@ ms.locfileid: "75685090"
 
 <span id="reference_errors"/>
 
-## <a name="reference-errors-caused-by-targeting-any-cpu-in-your-project"></a>プロジェクトのターゲットを "Any CPU" に設定すると参照エラーが発生する
+## <a name="reference-errors-caused-by-targeting-any-cpu-in-your-project"></a>プロジェクトのターゲットを "任意の CPU" に設定すると参照エラーが発生する
 
 Microsoft Advertising SDK を使う場合、プロジェクトで**任意の CPU** をターゲットにすることはできません。 プロジェクトのターゲットを **Any CPU** プラットフォームに設定した場合、次のような参照を追加した後で警告が表示される場合があります。
 
@@ -89,7 +92,7 @@ JavaScript/HTML アプリでは、z オーダーの予約済みの MAX-10 の範
 
 **AdControl** によってその親クラスから継承される境界線に関連するプロパティを設定すると、広告の配置に関して問題が発生します。
 
-## <a name="more-information"></a>説明
+## <a name="more-information"></a>詳細
 
 最新の既知の問題についての詳細を調べたり、Microsoft Advertising SDK に関連する質問を投稿したりするには、[フォーラム](https://go.microsoft.com/fwlink/?LinkID=401264)をご利用ください。
 

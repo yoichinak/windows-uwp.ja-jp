@@ -1,34 +1,37 @@
 ---
 description: 広告ユニットの視認性を向上させる方法について説明します。
 title: 広告ユニットの視認性の最適化
-ms.date: 05/07/2018
+ms.date: 02/18/2020
 ms.topic: article
 keywords: windows 10, uwp, 広告, 宣伝, ガイドライン, 視認性
 ms.localizationpriority: medium
-ms.openlocfilehash: 87e21f4e98c58f79f397c369891212eccb196c18
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 6996b656c9bf161538e286dc4c2d63c1d2840bc8
+ms.sourcegitcommit: 6af7ce0e3c27f8e52922118deea1b7aad0ae026e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57662267"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77463944"
 ---
 # <a name="optimize-the-viewability-of-your-ad-units"></a>広告ユニットの視認性の最適化
+
+>[!WARNING]
+> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細情報](https://aka.ms/ad-monetization-shutdown)
 
 [[広告パフォーマンス] レポート](../publish/advertising-performance-report.md)には、広告ユニットの視認性のメトリックが含まれます。 広告業界は配信されるインプレッションだけではなく見やすいインプレッションを重視する方向に移行しているため、視認性は重要なメトリックです。 広告主は見やすいインプレッションに入札する傾向があります。これは、見やすいインプレッションでは広告がユーザーによって表示される可能性が高いためです。  
 
 IAB の視認性のガイドラインに合わせて、バナー広告のインプレッションは、次の条件を満たしている場合に見やすいとみなされます。
 
-* ピクセルの要件:提供情報のピクセルの 50% 以上で、アプリの表示可能な領域でした。
-* 時間の要件:ピクセルの要件を満たすには、継続的な 1 秒の post ad レンダー以上でした。
+* ピクセル要件: 広告の 50% 以上のピクセルがアプリの表示可能領域にあった。
+* 時間の要件: ピクセル要件を満たす時間が広告のレンダリング後、連続で 1 秒以上であった。
 
 ビデオ広告インプレッションは、次の条件を満たしている場合は、見やすいとみなされます。
 
-* ピクセルの要件:提供情報のピクセルの 50% 以上で、アプリの表示可能な一部でした。
-* 時間の要件:ビデオでは、ピクセルの要件を満たすし、投稿 ad レンダリング 2 つの継続的な秒間再生します。
+* ピクセル要件: 広告の 50% 以上のピクセルがアプリの表示可能部分にあった。
+* 時間の要件: ビデオがピクセル要件を満たし、広告のレンダリング後、連続で 2 秒間再生された。
 
 視認性は、次の数式を使用して計算されます。
 
-**見やすさ = [Viewed インプレッション] * 100/[合計の広告のインプレッション]**
+**Viewability = [表示インプレッション] * 100/[広告インプレッションの合計]**
 
 ## <a name="guidelines-to-improve-ad-unit-viewability"></a>広告ユニットの視認性を向上させるためのガイドライン
 

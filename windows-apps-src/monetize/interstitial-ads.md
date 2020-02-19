@@ -2,18 +2,21 @@
 ms.assetid: 1f970d38-2338-470e-b5ba-811402752fc4
 description: Microsoft Advertising SDK を使用して Windows 10 用 UWP アプリにスポット広告を組み込む方法について説明します。
 title: スポット広告
-ms.date: 03/22/2018
+ms.date: 02/18/2020
 ms.topic: article
 keywords: Windows 10, UWP, 広告, 宣伝, 広告コントロール, スポット
 ms.localizationpriority: medium
-ms.openlocfilehash: 98800f1a9a94de20910e932032d8b949bac52dde
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: b953fe0aca3d0ab9b8ce27f2b068c3bf1b869c83
+ms.sourcegitcommit: 6af7ce0e3c27f8e52922118deea1b7aad0ae026e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74259281"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77463954"
 ---
 # <a name="interstitial-ads"></a>スポット広告
+
+>[!WARNING]
+> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細情報](https://aka.ms/ad-monetization-shutdown)
 
 このチュートリアルでは、Windows 10 用のユニバーサル Windows プラットフォーム (UWP) アプリとゲームにスポット広告を組み込む方法について説明します。 C# と C++ を使って JavaScript/HTML アプリと XAML アプリにスポット広告を追加する方法を示す完全なサンプル プロジェクトについては、[GitHub の広告サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Advertising)をご覧ください。
 

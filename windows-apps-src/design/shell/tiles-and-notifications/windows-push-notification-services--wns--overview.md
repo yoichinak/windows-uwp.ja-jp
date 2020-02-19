@@ -7,31 +7,31 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 965d823f48cacf4af4999e45ffd02f421c8927e7
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: 1f53dd0538e4564c50fb5cbcb6986f5cf9661cae
+ms.sourcegitcommit: 6af7ce0e3c27f8e52922118deea1b7aad0ae026e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74259705"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77463822"
 ---
 # <a name="windows-push-notification-services-wns-overview"></a>Windows プッシュ通知サービス (WNS) の概要
  
 
-Windows プッシュ通知サービス (WNS) を利用することで、サード パーティの開発者が独自のクラウド サービスからトースト更新、タイル更新、バッジ更新、直接更新を送ることができます。 これにより、新しい更新を電力効率に優れた信頼できる方法でユーザーに配信するためのメカニズムが提供されます。
+Windows プッシュ Notification Services (WNS) を使用すると、サードパーティの開発者は、独自のクラウドサービスからトースト、タイル、バッジ、生の更新プログラムを送信できます。 これにより、新しい更新を電力効率に優れた信頼できる方法でユーザーに配信するためのメカニズムが提供されます。
 
 ## <a name="how-it-works"></a>方法
 
 
 次の図に、プッシュ通知を送るときの全体のデータ フローを示します。 次の手順で行われます。
 
-1.  アプリがユニバーサル Windows プラットフォームにプッシュ通知チャネルを要求します。
+1.  アプリは WNS からプッシュ通知チャネルを要求します。
 2.  Windows が、通知チャネルを作成するように WNS に要求します。 このチャネルは、Uniform Resource Identifier (URI) の形式で呼び出し元のデバイスに返されます。
-3.  通知チャネルの URI が、Windows によってアプリに返されます。
+3.  通知チャネル URI は WNS によってアプリに返されます。
 4.  アプリから独自のクラウド サービスに URI を送ります。 その後で、URI をユーザー独自のクラウド サービスに保存し、通知を送るときに URI にアクセスできるようにします。 この URI は、独自のアプリと独自のサービスの間のインターフェイスです。このインターフェイスは、セキュリティで保護された安全な Web 標準に従って実装する必要があります。
 5.  送られる更新情報がクラウド サービスにある場合、チャネルの URI を使って WNS に通知されます。 この処理では、通知ペイロードを含む HTTP POST 要求が Secure Sockets Layer (SSL) 経由で発行されます。 この手順では認証が必要になります。
 6.  WNS が要求を受け取り、適切なデバイスに通知をルーティングします。
 
-![プッシュ通知の WNS データ フローの図](images/wns-diagram-01.png)
+![プッシュ通知の WNS データ フローの図](images/wns-diagram-01.jpg)
 
 ## <a name="registering-your-app-and-receiving-the-credentials-for-your-cloud-service"></a>アプリの登録とクラウド サービスの資格情報の取得
 
@@ -68,7 +68,7 @@ WNS の認証方式は、[OAuth 2.0](https://tools.ietf.org/html/draft-ietf-oaut
 1.  クラウド サービスから WNS に、OAuth 2.0 プロトコルに従って HTTPS 経由で資格情報が送られます。 これにより、WNS でサービスが認証されます。
 2.  認証に成功すると、WNS からアクセス トークンが返されます。 このアクセス トークンを、有効期限切れになるまで以降のすべての通知要求で使います。
 
-![クラウド サービス認証の WNS の図](images/wns-diagram-02.png)
+![クラウド サービス認証の WNS の図](images/wns-diagram-02.jpg)
 
 WNS に対する認証では、クラウド サービスからの HTTP 要求の送信に Secure Sockets Layer (SSL) を使います。 パラメーターの形式は "application/x-www-for-urlencoded" です。 [クライアント\_id] フィールドにパッケージ SID を指定し、[クライアント\_シークレット] フィールドに秘密キーを入力します。 構文について詳しくは、[アクセス トークン要求](https://docs.microsoft.com/previous-versions/windows/apps/hh465435(v=win.10))のリファレンスをご覧ください。
 
@@ -137,7 +137,7 @@ WNS はクラウド サービスを認証し、成功した場合、"200 OK" と
 
 次の図はデータ フローを示しています。
 
-![通知送信の WNS の図](images/wns-diagram-03.png)
+![通知送信の WNS の図](images/wns-diagram-03.jpg)
 
 ### <a name="important-notes"></a>重要な注意
 

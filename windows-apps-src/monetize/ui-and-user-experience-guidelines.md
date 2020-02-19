@@ -2,25 +2,28 @@
 ms.assetid: 7a38a352-6e54-4949-87b1-992395a959fd
 description: アプリ内広告の UI とユーザー エクスペリエンスのガイドラインについて説明します。
 title: 広告の UI とユーザー エクスペリエンスのガイドライン
-ms.date: 05/11/2018
+ms.date: 02/18/2020
 ms.topic: article
 keywords: Windows 10, UWP, 広告, 宣伝, ガイドライン, ベスト プラクティス
 ms.localizationpriority: medium
-ms.openlocfilehash: cf7f61f427ef0b1a0ff5b6f3b66d02d13d02e4ab
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 2ce51f1ec99b080de6483b1d703492050c7a434c
+ms.sourcegitcommit: 6af7ce0e3c27f8e52922118deea1b7aad0ae026e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67320684"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77463924"
 ---
 # <a name="ui-and-user-experience-guidelines-for-ads"></a>広告の UI とユーザー エクスペリエンスのガイドライン
+
+>[!WARNING]
+> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細情報](https://aka.ms/ad-monetization-shutdown)
 
 この記事では、アプリ内のバナー広告、スポット広告、ネイティブ広告を使って優れたエクスペリエンスを提供するためのガイドラインを示します。 アプリの外観を設計する方法については、「[設計および UI](https://developer.microsoft.com/windows/apps/design)」をご覧ください。
 
 > [!IMPORTANT]
 > アプリ内での広告の使用は、Microsoft Store ポリシーに準拠している必要があります。準拠するポリシーには、[ポリシー 10.10](https://docs.microsoft.com/legal/windows/agreements/store-policies#1010-advertising-conduct-and-content) (広告行為と広告コンテンツ) などがありますが、これに限定されるわけではありません。 特に、アプリ内のバナー広告またはスポット広告の実装は、Microsoft Store ポリシー、[ポリシー 10.10.1](https://docs.microsoft.com/legal/windows/agreements/store-policies#1010-advertising-conduct-and-content) の要件を満たしている必要があります。 この記事では、このポリシーに違反する実装の例を示します。 これらの例は、このポリシーの適切な理解を助ける手段として、情報提供のみを目的として提供されています。 これらの例は、すべてを網羅しているわけではありません。ここに記載されていなくても、Microsoft Store ポリシーに違反する例は多数存在する可能性があります。
 
-## <a name="general-best-practices"></a>一般的なベスト プラクティス
+## <a name="general-best-practices"></a>一般的なヒント集
 
 この記事のさまざまな種類の広告のガイドラインを確認する前に、まずこれらの一般的なベスト プラクティスを確認し、広告収益を向上させてください。
 
@@ -33,7 +36,7 @@ ms.locfileid: "67320684"
 
 ## <a name="guidelines-for-banner-ads"></a>バナー広告のガイドライン
 
-以下のセクションでは、[AdControl](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.adcontrol) を使ってアプリ内で[バナー広告](banner-ads.md)を実装する場合の推奨事項と、Microsoft Store ポリシーの[ポリシー 10.10.1](https://docs.microsoft.com/legal/windows/agreements/store-policies#1010-advertising-conduct-and-content) に違反する実装の例を紹介します。
+以下のセクションでは、[AdControl](banner-ads.md) を使ってアプリ内で[バナー広告](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.adcontrol)を実装する場合の推奨事項と、Microsoft Store ポリシーの[ポリシー 10.10.1](https://docs.microsoft.com/legal/windows/agreements/store-policies#1010-advertising-conduct-and-content) に違反する実装の例を紹介します。
 
 ### <a name="best-practices"></a>ベスト プラクティス
 
@@ -65,19 +68,19 @@ ms.locfileid: "67320684"
 
 このセクションでは、Microsoft Store ポリシーの[ポリシー 10.10.1](https://docs.microsoft.com/legal/windows/agreements/store-policies#1010-advertising-conduct-and-content) に違反するバナー広告シナリオの例を示します。 これらの例は、このポリシーの適切な理解を助ける手段として、説明目的にのみ提供されています。 これらの例は、すべてを網羅しているわけではありません。ここに記載されていなくても、ポリシー 10.10.1 に違反する例は多数存在する可能性があります。
 
-* [AdControl](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.adcontrol) の不透明度を変更したり、(最初に [AdControl.Suspend](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.adcontrol.suspend) を呼び出さずに) **AdControl**の上に他のコントロールを配置するなど、バナー広告をユーザーが表示する能力を妨げる操作を行う。
+* [AdControl](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.adcontrol) の不透明度を変更したり、(最初に **AdControl.Suspend** を呼び出さずに) [AdControl](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.adcontrol.suspend)の上に他のコントロールを配置するなど、バナー広告をユーザーが表示する能力を妨げる操作を行う。
 
 * ユーザーがアプリでタスクを実行するにはバナーをクリックする必要がある。またはアプリの設計結果として、ユーザーにバナー広告を強制的にクリックさせる。
 
 * [AdControl](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.adcontrol) オブジェクトのスワップ、またはユーザー操作を伴わない強制的なページ更新など、任意の手段でバナー広告の組み込み最短更新タイマーを回避する。
 
-* ライブ広告ユニット (つまり、パートナー センターから入手する ad 単位) を使用して、開発およびテスト中に、またはエミュレーターでします。
+* 開発とテストの間、またはエミュレーターでライブ ad ユニット (つまり、パートナーセンターから取得した ad ユニット) を使用します。
 
 * アプリのコンテキストで実行している Microsoft Advertising ライブラリ以外の手段で広告サービスを呼び出すコードを記述または配布する。
 
 * ドキュメントに記載されていないインターフェイスや、Microsoft Advertising ライブラリで作成された、**WebView** や **MediaElement** などの子オブジェクトを操作する。
 
-* 通常よりもページに広告を許可するには、広告のサイズを小さくための viewbox に広告を配置します。
+* 広告のサイズを小さくするために広告を viewbox に配置し、通常よりも多くの広告を1ページで実行できるようにします。
 
 <span id="interstitialbestpractices10" />
 
@@ -157,7 +160,7 @@ ms.locfileid: "67320684"
 
 * 連鎖的な広告の単なるバックアップとして、スポット広告を要求する。 スポット広告を要求し、[InterstitialAd.AdReady](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.interstitialad.adready) イベントを受信した場合、アプリに表示できる次のスポット広告は、[InterstitialAd.Show](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.interstitialad.show) メソッド経由で表示できる必要があります。
 
-* ライブ広告ユニット (つまり、パートナー センターから入手する ad 単位) を使用して、開発およびテスト中に、またはエミュレーターでします。
+* 開発とテストの間、またはエミュレーターでライブ ad ユニット (つまり、パートナーセンターから取得した ad ユニット) を使用します。
 
 * アプリのコンテキストで実行している Microsoft Advertising ライブラリ以外の手段で広告サービスを呼び出すコードを記述または配布する。
 
@@ -169,7 +172,7 @@ ms.locfileid: "67320684"
 
 ### <a name="register-the-container-for-your-native-ad"></a>ネイティブ広告のコンテナーを登録する
 
-コードで、[NativeAdV2](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.nativeadv2) オブジェクトの [RegisterAdContainer](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.nativeadv2.registeradcontainer) メソッドを呼び出して、ネイティブ広告のコンテナーとして機能する UI 要素と、必要に応じて広告のクリック可能なターゲットとして登録する特定のコントロールを登録する必要があります。 これは、広告インプレッションと広告クリックを適切に追跡するために必要です。
+コードで、[NativeAdV2](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.nativeadv2.registeradcontainer) オブジェクトの [RegisterAdContainer](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.nativeadv2) メソッドを呼び出して、ネイティブ広告のコンテナーとして機能する UI 要素と、必要に応じて広告のクリック可能なターゲットとして登録する特定のコントロールを登録する必要があります。 これは、広告インプレッションと広告クリックを適切に追跡するために必要です。
 
 **RegisterAdContainer** メソッドには、次の 2 つのオーバーロードを使用できます。
 

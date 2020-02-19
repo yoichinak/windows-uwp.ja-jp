@@ -2,30 +2,33 @@
 ms.assetid: 141900dd-f1d3-4432-ac8b-b98eaa0b0da2
 description: XAML アプリの Microsoft Advertising ライブラリに関する、開発上の一般的な問題に対する解決策について説明します。
 title: XAML と C# のトラブルシューティング ガイド
-ms.date: 08/23/2017
+ms.date: 02/18/2020
 ms.topic: article
 keywords: Windows 10, UWP, 広告, 宣伝, AdControl, トラブルシューティング, XAML, C#
 ms.localizationpriority: medium
-ms.openlocfilehash: 94af97e1e678c6ee92aaa731057c5f67185e25c5
-ms.sourcegitcommit: 6a7dd4da2fc31ced7d1cdc6f7cf79c2e55dc5833
+ms.openlocfilehash: 9783036d00fc56b904e6d362f55ddaaf8375a872
+ms.sourcegitcommit: 6af7ce0e3c27f8e52922118deea1b7aad0ae026e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58334660"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77463744"
 ---
 # <a name="xaml-and-c-troubleshooting-guide"></a>XAML と C# のトラブルシューティング ガイド
+
+>[!WARNING]
+> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細情報](https://aka.ms/ad-monetization-shutdown)
 
 このトピックでは、XAML アプリの Microsoft Advertising ライブラリに関する、開発上の一般的な問題に対する解決策について説明します。
 
 * [XAML](#xaml)
-  * [表示されない AdControl](#xaml-notappearing)
-  * [黒いボックスの点滅し、非表示になります](#xaml-blackboxblinksdisappears)
-  * [広告を更新しません。](#xaml-adsnotrefreshing)
+  * [AdControl が表示されない](#xaml-notappearing)
+  * [黒いボックスが点滅して消えます](#xaml-blackboxblinksdisappears)
+  * [更新されない広告](#xaml-adsnotrefreshing)
 
 * [C#](#csharp)
-  * [表示されない AdControl](#csharp-adcontrolnotappearing)
-  * [黒いボックスの点滅し、非表示になります](#csharp-blackboxblinksdisappears)
-  * [広告を更新しません。](#csharp-adsnotrefreshing)
+  * [AdControl が表示されない](#csharp-adcontrolnotappearing)
+  * [黒いボックスが点滅して消えます](#csharp-blackboxblinksdisappears)
+  * [更新されない広告](#csharp-adsnotrefreshing)
 
 <span id="xaml"/>
 
@@ -37,7 +40,7 @@ ms.locfileid: "58334660"
 
 1.  Package.appxmanifest で **[インターネット (クライアント)]** 機能が選択されていることを確認します。
 
-2.  アプリケーション ID と広告ユニット ID を確認します。 これらの Id は、アプリケーション ID とパートナー センターで取得した広告ユニット ID に一致する必要があります。 詳しくは、「[アプリの広告ユニットをセットアップする](set-up-ad-units-in-your-app.md#live-ad-units)」をご覧ください。
+2.  アプリケーション ID と広告ユニット ID を確認します。 これらの Id は、パートナーセンターで取得したアプリケーション ID と ad ユニット ID と一致している必要があります。 詳しくは、「[アプリの広告ユニットをセットアップする](set-up-ad-units-in-your-app.md#live-ad-units)」をご覧ください。
 
     > [!div class="tabbedCodeSnippets"]
     ``` xml
@@ -79,7 +82,7 @@ ms.locfileid: "58334660"
 
 7.  **AdControl** がビューポートから隠れていないことを確認します。 **AdControl** は、広告が正常に表示されるように、見える必要があります。
 
-8.  **ApplicationId** と **AdUnitId** の実際の値は、エミュレーターでのテストに使わないようにしてください。 **AdControl** が想定どおりに機能していることを確認するには、**ApplicationId** と **AdUnitId** のどちらについても[テスト値](set-up-ad-units-in-your-app.md#test-ad-units)を使ってください。
+8.  **ApplicationId** と **AdUnitId** の実際の値は、エミュレーターでのテストに使わないようにしてください。 **AdControl** が想定どおりに機能していることを確認するには、[ApplicationId](set-up-ad-units-in-your-app.md#test-ad-units) と **AdUnitId** のどちらについても**テスト値**を使ってください。
 
 <span id="xaml-blackboxblinksdisappears"/>
 
@@ -173,7 +176,7 @@ ms.locfileid: "58334660"
     > [!div class="tabbedCodeSnippets"]
     [!code-csharp[AdControl](./code/AdvertisingSamples/AdControlSamples/cs/MiscellaneousSnippets.cs#Snippet1)]
 
-3.  アプリケーション ID と広告ユニット ID を確認します。 これらの Id は、アプリケーション ID とパートナー センターで取得した広告ユニット ID に一致する必要があります。 詳しくは、「[アプリの広告ユニットをセットアップする](set-up-ad-units-in-your-app.md#live-ad-units)」をご覧ください。
+3.  アプリケーション ID と広告ユニット ID を確認します。 これらの Id は、パートナーセンターで取得したアプリケーション ID と ad ユニット ID と一致している必要があります。 詳しくは、「[アプリの広告ユニットをセットアップする](set-up-ad-units-in-your-app.md#live-ad-units)」をご覧ください。
 
     > [!div class="tabbedCodeSnippets"]
     ``` cs
@@ -216,7 +219,7 @@ ms.locfileid: "58334660"
 
 8.  **AdControl** の親を確認します。 親はアクティブな状態で表示されている必要があります。
 
-9. **ApplicationId** と **AdUnitId** の実際の値は、エミュレーターでのテストに使わないようにしてください。 **AdControl** が想定どおりに機能していることを確認するには、**ApplicationId** と **AdUnitId** のどちらについても[テスト値](set-up-ad-units-in-your-app.md#test-ad-units)を使ってください。
+9. **ApplicationId** と **AdUnitId** の実際の値は、エミュレーターでのテストに使わないようにしてください。 **AdControl** が想定どおりに機能していることを確認するには、[ApplicationId](set-up-ad-units-in-your-app.md#test-ad-units) と **AdUnitId** のどちらについても**テスト値**を使ってください。
 
 <span id="csharp-blackboxblinksdisappears"/>
 
@@ -246,7 +249,7 @@ ms.locfileid: "58334660"
 
 ### <a name="ads-not-refreshing"></a>広告が更新されない
 
-1.  **AdControl** の [IsAutoRefreshEnabled](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.adcontrol.isautorefreshenabled.aspx) プロパティが false に設定されているかどうかを確認します。 既定では、この省略可能なプロパティは **true** に設定されています。 **false** に設定すると、他の広告を取得するために **Refresh** メソッドを使う必要があります。
+1.  [AdControl](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.adcontrol.isautorefreshenabled.aspx) の **IsAutoRefreshEnabled** プロパティが false に設定されているかどうかを確認します。 既定では、この省略可能なプロパティは **true** に設定されています。 **false** に設定すると、他の広告を取得するために **Refresh** メソッドを使う必要があります。
 
 2.  [Refresh](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.adcontrol.refresh.aspx) メソッドの呼び出しを確認します。 自動更新 (**IsAutoRefreshEnabled** が **true**) の場合、他の広告を取得するために **Refresh** を使うことはできません。 手動更新 (**IsAutoRefreshEnabled** が **false**) の場合、デバイスの現在のデータ接続に応じて、少なくとも 30 秒から 60 秒経ってから **Refresh** を呼び出します。
 
