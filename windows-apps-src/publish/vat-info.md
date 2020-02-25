@@ -6,12 +6,12 @@ ms.date: 10/31/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 0be47e5edeee0d00843d06297857f39977e085f4
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: d6b90b000564c1c6929154c3ac3b79c129e3fff6
+ms.sourcegitcommit: 71f9013c41fc1038a9d6c770cea4c5e481c23fbc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74258954"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77507146"
 ---
 # <a name="vat-info"></a>付加価値税情報
 
@@ -21,7 +21,7 @@ ms.locfileid: "74258954"
 ## <a name="understanding-vat-numbers"></a>VAT 番号について
 
 
-付加価値税 (VAT) 番号は、欧州連合の国と地域に使用されている識別番号です。 詳しくは、欧州連合の公式 [VIES サイト](https://go.microsoft.com/fwlink/p/?LinkId=181246)をご覧ください。
+付加価値税 (VAT) 番号は、欧州連合の国と地域に使用されている識別番号です。 詳しくは、欧州連合の公式 [VIES サイト](http://ec.europa.eu/taxation_customs/vies/vieshome.do)をご覧ください。
 
 ## <a name="accepted-formats-for-vat-numbers"></a>VAT 番号で使用される形式
 
@@ -29,7 +29,7 @@ ms.locfileid: "74258954"
 Microsoft では税務に関する助言を提供しておらず、次の情報はガイダンスとしてのみ提供しています。 Microsoft に対して VAT 番号を提供するうえでこのガイダンスが十分でない場合は、最新の変更について管轄の税務機関に確認してください。
 
 <table Responsive="true">
-<tr><th>国/地域</th><th>付加価値税情報</th></tr>
+<tr><th>[国/地域]</th><th>付加価値税情報</th></tr>
 <tr><td data-th="Country/region">オーストリア
 </td><td data-th="VAT info">
 <ul>
@@ -98,7 +98,7 @@ Microsoft では税務に関する助言を提供しておらず、次の情報�
 <li>例: 12345678</li>
 </ul>
 </td></tr>
-<tr><td data-th="Country/region">フランス</td><td data-th="VAT info">
+<tr><td data-th="Country/region">France</td><td data-th="VAT info">
 <ul>
 <li>VAT 番号形式: 11 桁の数字</li>
 <li>国/地域コード: FR</li>
@@ -106,7 +106,7 @@ Microsoft では税務に関する助言を提供しておらず、次の情報�
 <li>注: 最初の文字または 2 番目の文字、あるいは最初の文字および 2 番目の文字にアルファベットが含まれ (I または Q を除く)、その後に 9 桁の数値が続く場合があります。</li>
 </ul>
 </td></tr>
-<tr><td data-th="Country/region">ドイツ</td><td data-th="VAT info">
+<tr><td data-th="Country/region">Germany</td><td data-th="VAT info">
 <ul>
 <li>VAT 番号形式: 9 桁の数字</li>
 <li>国/地域コード: DE</li>

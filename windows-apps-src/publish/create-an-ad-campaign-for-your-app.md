@@ -6,17 +6,17 @@ ms.date: 02/18/2020
 ms.topic: article
 keywords: Windows 10、UWP、広告、キャンペーン、プロモーション
 ms.localizationpriority: medium
-ms.openlocfilehash: e804260a312c963c380f4d09b00cc276b385c2ff
-ms.sourcegitcommit: 6af7ce0e3c27f8e52922118deea1b7aad0ae026e
+ms.openlocfilehash: aa5c3c160d3bb69a2ba478606a3c3e04e935088d
+ms.sourcegitcommit: 71f9013c41fc1038a9d6c770cea4c5e481c23fbc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77463724"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77507066"
 ---
 # <a name="create-an-ad-campaign-for-your-app"></a>アプリの広告キャンペーンの作成
 
 >[!WARNING]
-> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細](https://aka.ms/ad-monetization-shutdown)
+> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細](https://social.msdn.microsoft.com/Forums/windowsapps/en-US/db8d44cb-1381-47f7-94d3-c6ded3fea36f/microsoft-ad-monetization-platform-shutting-down-june-1st?forum=aiamgr)
 
 [パートナーセンター](https://partner.microsoft.com/dashboard)で広告キャンペーンを作成して、アプリを昇格させ、ユーザーベースを拡張することができます。 既定では、パートナーセンターでのアプリの設定に基づいて、広告の対象読者を選択しますが、必要に応じて独自のユーザーを定義することもできます。 広告テンプレートの既定のセットを使ったり、独自の広告のデザインをアップロードすることもできます。 広告キャンペーンについて詳しくは、「[広告キャンペーンに関してよく寄せられる質問](common-questions.md)」をご覧ください。
 

@@ -6,17 +6,17 @@ ms.date: 02/18/2020
 ms.topic: article
 keywords: Windows 10, UWP, 広告, Advertising, 既知の問題, トラブルシューティング
 ms.localizationpriority: medium
-ms.openlocfilehash: 34c07a46d31ddf6c8f5b56ffd19059b4d225a72c
-ms.sourcegitcommit: 6af7ce0e3c27f8e52922118deea1b7aad0ae026e
+ms.openlocfilehash: f39d8512398c43ea65037de82434e3740bac7ff2
+ms.sourcegitcommit: 71f9013c41fc1038a9d6c770cea4c5e481c23fbc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77463964"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77506735"
 ---
 # <a name="known-issues-and-troubleshooting-for-ads-in-apps"></a>アプリ内広告の既知の問題とトラブルシューティング
 
 >[!WARNING]
-> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細情報](https://aka.ms/ad-monetization-shutdown)
+> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細情報](https://social.msdn.microsoft.com/Forums/windowsapps/en-US/db8d44cb-1381-47f7-94d3-c6ded3fea36f/microsoft-ad-monetization-platform-shutting-down-june-1st?forum=aiamgr)
 
 このトピックでは、Microsoft Advertising SDK の現在のリリースにおける既知の問題を示します。 トラブルシューティングのガイダンスについては、以下のトピックを参照してください。
 
@@ -51,7 +51,7 @@ ms.locfileid: "77463964"
 
 アプリにテスト広告が表示される場合は、コードが正常に動作していて広告を表示できることを示します。 問題が発生した場合は、[製品サポート](https://developer.microsoft.com/windows/support)にお問い合わせください。 このページで、 **[お問い合わせ]** を選択します。
 
-[フォーラム](https://go.microsoft.com/fwlink/?LinkID=401264)に質問を投稿することもできます。
+[フォーラム](https://social.msdn.microsoft.com/forums/windowsapps/en-US/home?category=windowsapps)に質問を投稿することもできます。
 
 ## <a name="test-ads-are-showing-in-your-app-instead-of-live-ads"></a>ライブ広告ではなくテスト広告がアプリに表示される
 
@@ -94,7 +94,7 @@ JavaScript/HTML アプリでは、z オーダーの予約済みの MAX-10 の範
 
 ## <a name="more-information"></a>詳細
 
-最新の既知の問題についての詳細を調べたり、Microsoft Advertising SDK に関連する質問を投稿したりするには、[フォーラム](https://go.microsoft.com/fwlink/?LinkID=401264)をご利用ください。
+最新の既知の問題についての詳細を調べたり、Microsoft Advertising SDK に関連する質問を投稿したりするには、[フォーラム](https://social.msdn.microsoft.com/forums/windowsapps/en-US/home?category=windowsapps)をご利用ください。
 
  
 

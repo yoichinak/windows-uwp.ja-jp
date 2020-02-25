@@ -6,17 +6,17 @@ ms.date: 02/18/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: d79e65b2937e7ec6db57e00b31b44b1796203a50
-ms.sourcegitcommit: 6af7ce0e3c27f8e52922118deea1b7aad0ae026e
+ms.openlocfilehash: 7f7ee8f95ad1471c73d5ac9e7bb08796dadd6411
+ms.sourcegitcommit: 71f9013c41fc1038a9d6c770cea4c5e481c23fbc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77463974"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77507026"
 ---
 # <a name="manage-your-ad-campaign"></a>広告キャンペーンの管理
 
 >[!WARNING]
-> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細情報](https://aka.ms/ad-monetization-shutdown)
+> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細情報](https://social.msdn.microsoft.com/Forums/windowsapps/en-US/db8d44cb-1381-47f7-94d3-c6ded3fea36f/microsoft-ad-monetization-platform-shutting-down-june-1st?forum=aiamgr)
 
 [パートナーセンター](https://partner.microsoft.com/dashboard)でアプリの広告キャンペーンを管理するには、左側のナビゲーションメニューで **[惹き]** を展開し、 **[ad キャンペーン]** を選択します。 アプリに関連付けられたすべての広告キャンペーンが、各広告キャンペーンのインプレッション数、クリック数、インストール数と合わせて表示されます。 インプレッション数、クリック数、インストール数について詳しくは、「[[広告キャンペーン] レポート](promote-your-app-report.md)」でこれらの用語の定義をご覧ください。
 

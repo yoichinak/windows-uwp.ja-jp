@@ -5,17 +5,17 @@ ms.date: 02/18/2020
 ms.topic: article
 keywords: windows 10, uwp, 広告, 宣伝, ガイドライン, 視認性
 ms.localizationpriority: medium
-ms.openlocfilehash: 6996b656c9bf161538e286dc4c2d63c1d2840bc8
-ms.sourcegitcommit: 6af7ce0e3c27f8e52922118deea1b7aad0ae026e
+ms.openlocfilehash: 06d870fbc631611bcfc453698cd9aa4fc844da5d
+ms.sourcegitcommit: 71f9013c41fc1038a9d6c770cea4c5e481c23fbc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77463944"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77506807"
 ---
 # <a name="optimize-the-viewability-of-your-ad-units"></a>広告ユニットの視認性の最適化
 
 >[!WARNING]
-> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細情報](https://aka.ms/ad-monetization-shutdown)
+> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細情報](https://social.msdn.microsoft.com/Forums/windowsapps/en-US/db8d44cb-1381-47f7-94d3-c6ded3fea36f/microsoft-ad-monetization-platform-shutting-down-june-1st?forum=aiamgr)
 
 [[広告パフォーマンス] レポート](../publish/advertising-performance-report.md)には、広告ユニットの視認性のメトリックが含まれます。 広告業界は配信されるインプレッションだけではなく見やすいインプレッションを重視する方向に移行しているため、視認性は重要なメトリックです。 広告主は見やすいインプレッションに入札する傾向があります。これは、見やすいインプレッションでは広告がユーザーによって表示される可能性が高いためです。  
 

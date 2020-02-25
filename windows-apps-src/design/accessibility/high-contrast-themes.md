@@ -7,12 +7,12 @@ ms.date: 09/28/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 617511d23bcabe342abe7477f617d81cd01182e6
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: 634f85ec64597f14210cf83fd67189f2f54bad4d
+ms.sourcegitcommit: 0a319e2e69ef88b55d472b009b3061a7b82e3ab1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74257782"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77521253"
 ---
 # <a name="high-contrast-themes"></a>ハイ コントラスト テーマ  
 
@@ -95,7 +95,7 @@ Windows では、OS やアプリでハイ コントラスト テーマがサポ�
 
 各 **SystemColor*Color** リソースは、ユーザーがハイ コントラスト テーマに切り替えたときに自動的に色を更新する変数です。 各リソースをいつどこで使用するかについてのガイドラインを以下に示します。
 
-リソース | 使用方法 |
+リソース | 使用法 |
 |--------|-------|
 **SystemColorWindowTextColor** | 本文、見出し、一覧など、操作できないテキスト |
 | **Systemcolorホットライトの色** | ハイパーリンク |
@@ -235,7 +235,7 @@ BrandedPageBackgroundBrush を参照するために、2回、\}を使用して**
 
 ## <a name="related-topics"></a>関連トピック  
 * [アクセシビリティ](accessibility.md)
-* [UI のコントラストと設定のサンプル](https://code.msdn.microsoft.com/windowsapps/High-Contrast-UI-Settings-9a310961)
-* [XAML アクセシビリティのサンプル](https://code.msdn.microsoft.com/windowsapps/XAML-accessibility-sample-d63e820d)
-* [XAML ハイコントラストサンプル](https://code.msdn.microsoft.com/windowsapps/XAML-high-contrast-style-c0ce936f)
+* [UI のコントラストと設定のサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Windows%208%20app%20samples/%5BC%23%5D-Windows%208%20app%20samples/C%23/Windows%208%20app%20samples/XAML%20high%20contrast%20style%20sample%20(Windows%208))
+* [XAML アクセシビリティのサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/XAML%20accessibility%20sample)
+* [XAML ハイコントラストサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Windows%208%20app%20samples/%5BC%23%5D-Windows%208%20app%20samples/C%23/Windows%208%20app%20samples/XAML%20high%20contrast%20style%20sample%20(Windows%208))
 * [**AccessibilitySettings**](https://docs.microsoft.com/uwp/api/Windows.UI.ViewManagement.AccessibilitySettings)

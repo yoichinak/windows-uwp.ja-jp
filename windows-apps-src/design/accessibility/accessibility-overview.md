@@ -6,14 +6,14 @@ label: Accessibility overview
 template: detail.hbs
 ms.date: 02/08/2017
 ms.topic: article
-keywords: Windows 10, UWP
+keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 0065ecd39244d9cbb48bf75d474217aae249e45b
-ms.sourcegitcommit: ae288e85be682f74109510b9f52787fdc3dd2ecd
+ms.openlocfilehash: 22f614d65728c0f5121cadfdcbfb58a7b817a47d
+ms.sourcegitcommit: 0a319e2e69ef88b55d472b009b3061a7b82e3ab1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76860543"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77521280"
 ---
 # <a name="accessibility-overview"></a>アクセシビリティの概要
 
@@ -127,7 +127,7 @@ UI コントロールでは、テーマの XAML リソース ディクショナ�
 
 多くの場合、幅広いユーザーが利用できるようにするために、重要な情報を複数の方法で伝えることができます。 たとえば、アイコンと色の両方を使って情報を目立つようにすると、色覚に障碍があるユーザーが確認しやすくなります。また、効果音と一緒に視覚的な警告も表示すると、聴覚障碍があるユーザーに便利です。
 
-必要に応じて、不要な要素やアニメーションがまったくないアクセシビリティ対応のユーザー インターフェイス要素を代わりに使えるようにしたり、ユーザー操作が効率的になるように簡略化したりできます。 次のコード例は、1 つの [**UserControl**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.UserControl) インスタンスを表示して、ユーザー設定に応じて UserControl の別のインスタンスを表示する方法を示しています。
+必要に応じて、不要な要素やアニメーションがまったくないアクセシビリティ対応のユーザー インターフェイス要素を代わりに使えるようにしたり、ユーザー操作が効率的になるように簡略化したりできます。 次のコード例は、1 つの [**UserControl**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.UserControl) インスタンスを表示して、ユーザー設定に依存する別のインスタンスの代わりに使う方法を示しています。
 
 XAML
 
@@ -200,7 +200,7 @@ private void ShowAccessibleUICheckBox_Click(object sender, RoutedEventArgs e)
 
 ## <a name="assistive-technology-support-in-apps-that-support-xaml--microsoft-directx-interop"></a>XAML/Microsoft DirectX の相互運用機能をサポートするアプリでの支援技術のサポート
 
-([**SwapChainPanel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.SwapChainPanel) または [**SurfaceImageSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Imaging.SurfaceImageSource) を使って) XAML UI にホストされる Microsoft DirectX コンテンツには、既定ではアクセスできません。 ホストされた DirectX コンテンツの UI オートメーション ピアを作成する方法は、[XAML SwapChainPanel DirectX 相互運用性のサンプル](https://code.msdn.microsoft.com/windowsapps/XAML-SwapChainPanel-00cb688b) で確認できます。 この手法を利用すると、ホストされたコンテンツに UI オートメーションを通じてアクセスできるようになります。
+([**SwapChainPanel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.SwapChainPanel) または [**SurfaceImageSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Imaging.SurfaceImageSource) を使って) XAML UI にホストされる Microsoft DirectX コンテンツには、既定ではアクセスできません。 ホストされた DirectX コンテンツの UI オートメーション ピアを作成する方法は、[XAML SwapChainPanel DirectX 相互運用性のサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Windows%208.1%20Store%20app%20samples/%5BC%23%5D-Windows%208.1%20Store%20app%20samples/XAML%20SwapChainPanel%20DirectX%20interop%20sample) で確認できます。 この手法を利用すると、ホストされたコンテンツに UI オートメーションを通じてアクセスできるようになります。
 
 ## <a name="related-topics"></a>関連トピック
 

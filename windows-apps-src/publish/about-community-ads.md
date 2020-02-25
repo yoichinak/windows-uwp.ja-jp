@@ -6,17 +6,17 @@ ms.date: 02/18/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 8da380cb49d584e56f584f3ad321d601d211faf0
-ms.sourcegitcommit: 6af7ce0e3c27f8e52922118deea1b7aad0ae026e
+ms.openlocfilehash: 48d63dae76113c70273f6ff2cba46348b1e24a10
+ms.sourcegitcommit: 71f9013c41fc1038a9d6c770cea4c5e481c23fbc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77463444"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77507016"
 ---
 # <a name="about-community-ads"></a>コミュニティ広告について
 
 >[!WARNING]
-> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細情報](https://aka.ms/ad-monetization-shutdown)
+> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細情報](https://social.msdn.microsoft.com/Forums/windowsapps/en-US/db8d44cb-1381-47f7-94d3-c6ded3fea36f/microsoft-ad-monetization-platform-shutting-down-june-1st?forum=aiamgr)
 
 アプリで[バナーまたはバナースポット広告が表示され](../monetize/display-ads-in-your-app.md)ている場合は、Microsoft Store のアプリを使用して、他の開発者とアプリを無料で昇格させることができます。 この機能を*コミュニティ広告*と呼びます。  
 

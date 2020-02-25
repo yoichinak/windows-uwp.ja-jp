@@ -6,17 +6,17 @@ ms.topic: article
 keywords: Windows 10, UWP, 広告, 宣伝, AdControl, AdMediatorControl, 移行
 ms.assetid: f8d5b2ad-fcdb-4891-bd68-39eeabdf799c
 ms.localizationpriority: medium
-ms.openlocfilehash: a8ccc8e9c76fc0f16bcdfc619d8048307fdfbc57
-ms.sourcegitcommit: 6af7ce0e3c27f8e52922118deea1b7aad0ae026e
+ms.openlocfilehash: 2fa57e02574850704b6c43853980dde32c388557
+ms.sourcegitcommit: 71f9013c41fc1038a9d6c770cea4c5e481c23fbc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77463884"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77507086"
 ---
 # <a name="update-your-app-to-the-latest-advertising-libraries-for-banner-ads"></a>バナー広告用の最新の Advertising ライブラリを使用するようにアプリを更新する
 
 >[!WARNING]
-> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細情報](https://aka.ms/ad-monetization-shutdown)
+> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細情報](https://social.msdn.microsoft.com/Forums/windowsapps/en-US/db8d44cb-1381-47f7-94d3-c6ded3fea36f/microsoft-ad-monetization-platform-shutting-down-june-1st?forum=aiamgr)
 
 2017 年 4 月 1 日の時点で、サポートされていない広告 SDK リリースを使うアプリにはバナー広告が提供されなくなりました。 ユニバーサル Windows プラットフォーム (UWP) アプリで **AdControl** を使用してバナー広告を表示している場合、この記事の情報を使用して、サポートされていない広告 SDK を使用しているかどうかを判断し、アプリをサポートされる SDK に移行します。
 

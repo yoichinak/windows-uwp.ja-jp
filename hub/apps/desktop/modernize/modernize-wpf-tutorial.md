@@ -8,12 +8,12 @@ author: mcleanbyron
 keywords: windows 10、uwp、windows フォーム、wpf、xaml islands
 ms.localizationpriority: medium
 ms.custom: RS5, 19H1
-ms.openlocfilehash: 397c301564c0d4799c6b41db209da9659725103d
-ms.sourcegitcommit: 3e7a4f7605dfb4e87bac2d10b6d64f8b35229546
+ms.openlocfilehash: 21049c995d467209b22fe8ea5c40d303911f2c2c
+ms.sourcegitcommit: 0a319e2e69ef88b55d472b009b3061a7b82e3ab1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77089308"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77521289"
 ---
 # <a name="tutorial-modernize-a-wpf-app"></a>チュートリアル: WPF アプリの最新化 
 
@@ -69,7 +69,7 @@ Visual Studio 2019 では、次のワークロードとオプション機能を�
 
 チュートリアルを開始する前に、Contoso の経費アプリのソースコードをダウンロードし、Visual Studio でコードをビルドできることを確認します。
 
-1. [Appconsult WinAppsModernization ワークショップリポジトリ](https://github.com/Microsoft/AppConsult-WinAppsModernizationWorkshop)の **[リリース]** タブからアプリのソースコードをダウンロードします。 直接リンクは[https://aka.ms/wamwc](https://aka.ms/wamwc)です。
+1. [Appconsult WinAppsModernization ワークショップリポジトリ](https://github.com/Microsoft/AppConsult-WinAppsModernizationWorkshop)の **[リリース]** タブからアプリのソースコードをダウンロードします。 直接リンクは[https://github.com/microsoft/AppConsult-WinAppsModernizationWorkshop/releases](https://github.com/microsoft/AppConsult-WinAppsModernizationWorkshop/releases)です。
 2. Zip ファイルを開き、すべてのコンテンツを**C:\\** ドライブのルートに抽出します。 **C:\WinAppsModernizationWorkshop**という名前のフォルダーが作成されます。
 3. Visual Studio 2019 を開き、 **C:\WinAppsModernizationWorkshop\Lab\Exercise1\01-Start\ContosoExpenses\ContosoExpenses.sln**ファイルをダブルクリックしてソリューションを開きます。
 4. **[スタート]** ボタンまたは CTRL キーを押しながら F5 キーを押して、Contoso の経費の WPF プロジェクトをビルド、実行、およびデバッグできることを確認します。

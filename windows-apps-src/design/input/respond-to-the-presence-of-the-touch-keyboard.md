@@ -7,12 +7,12 @@ template: detail.hbs
 keywords: キーボード, アクセシビリティ, ナビゲーション, フォーカス, テキスト, 入力, ユーザーの操作
 ms.date: 07/13/2018
 ms.topic: article
-ms.openlocfilehash: c752a5df96c22b945865c0c3a465f22391aa54bc
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: e26bbe00bba8b3d91d7ee842cb4d9c984a941f2b
+ms.sourcegitcommit: 0a319e2e69ef88b55d472b009b3061a7b82e3ab1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74258281"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77521363"
 ---
 # <a name="respond-to-the-presence-of-the-touch-keyboard"></a>タッチ キーボードの表示への応答
 
@@ -66,7 +66,7 @@ ms.locfileid: "74258281"
 
     ![タッチ キーボードが表示または非表示になっているフォーム](images/touch-keyboard-pan1.png)
 
-    場合によっては、画面にずっと表示されたままであることが必要な UI 要素もあります。 フォーム コントロールがパン領域に含まれ、重要な UI 要素が静的であるように UI を設計します。 次に、例を示します。
+    場合によっては、画面にずっと表示されたままであることが必要な UI 要素もあります。 フォーム コントロールがパン領域に含まれ、重要な UI 要素が静的であるように UI を設計します。 例 :
 
     ![常に表示されている必要がある領域を含むフォーム](images/touch-keyboard-pan2.png)
 
@@ -208,7 +208,7 @@ void Scenario2_ShowHideEvents::OnHiding(InputPane^ /*sender*/, InputPaneVisibili
 }
 ```
 
-## <a name="related-articles"></a>関連記事
+## <a name="related-articles"></a>関連トピック
 
 - [キーボード操作](keyboard-interactions.md)
 - [キーボードのアクセシビリティ](https://docs.microsoft.com/windows/uwp/accessibility/keyboard-accessibility)
@@ -220,7 +220,7 @@ void Scenario2_ShowHideEvents::OnHiding(InputPane^ /*sender*/, InputPaneVisibili
 
 **サンプルのアーカイブ**
 
-- [入力: タッチキーボードのサンプル](https://code.msdn.microsoft.com/windowsapps/Touch-keyboard-sample-43532fda)
+- [入力: タッチキーボードのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/TouchKeyboard)
 - [スクリーンキーボードサンプルの外観への対応](https://code.msdn.microsoft.com/windowsapps/keyboard-events-sample-866ba41c)
 - [XAML テキスト編集のサンプル](https://code.msdn.microsoft.com/windowsapps/XAML-text-editing-sample-fb0493ad)
-- [XAML アクセシビリティのサンプル](https://code.msdn.microsoft.com/windowsapps/XAML-accessibility-sample-d63e820d)
+- [XAML アクセシビリティのサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/XAML%20accessibility%20sample)

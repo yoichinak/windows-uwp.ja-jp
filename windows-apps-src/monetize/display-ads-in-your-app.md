@@ -6,17 +6,17 @@ ms.date: 02/18/2020
 ms.topic: article
 keywords: Windows 10, UWP, 広告, 宣伝, バナー, 広告コントロール, スポット広告
 ms.localizationpriority: medium
-ms.openlocfilehash: 5f318a68a97e98d3da24da16778988ee40c4e1dd
-ms.sourcegitcommit: 6af7ce0e3c27f8e52922118deea1b7aad0ae026e
+ms.openlocfilehash: d693b8a4e07e66eded7d1580291c552e7ab9ca64
+ms.sourcegitcommit: 71f9013c41fc1038a9d6c770cea4c5e481c23fbc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77463784"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77507226"
 ---
 # <a name="display-ads-in-your-app-with-the-microsoft-advertising-sdk"></a>Microsoft Advertising SDK を使用したアプリでの広告の表示
 
 >[!WARNING]
-> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細情報](https://aka.ms/ad-monetization-shutdown)
+> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細情報](https://social.msdn.microsoft.com/Forums/windowsapps/en-US/db8d44cb-1381-47f7-94d3-c6ded3fea36f/microsoft-ad-monetization-platform-shutting-down-june-1st?forum=aiamgr)
 
 Microsoft Advertising SDK を使用して、Windows 10 用ユニバーサル Windows プラットフォーム (UWP) アプリに広告を配置することで、収益機会を増やせます。 Microsoft の ad 収益化プラットフォームでは、アプリにシームレスに統合できるさまざまな ad 形式が提供されており、多くの一般的な ad ネットワークでの仲介をサポートしています。 マイクロソフトのプラットフォームは、OpenRTB、VAST 2.x、MRAID 2、および VPAID 3 の各標準に準拠しており、MOAT および IAS と互換性があります。 
 
@@ -114,7 +114,7 @@ Microsoft Advertising SDK の使用に関するその他のヘルプについて
 |  タスク    | リソース |               
 |----------|-------|
 | 広告のバグを報告したり個別のサポートを受けたりする     | [サポート ページ](https://developer.microsoft.com/windows/support)にアクセスし、 **[アプリ内広告]** を選択します。        |
-| コミュニティ サポートを受ける     | [フォーラム](https://go.microsoft.com/fwlink/?LinkID=401264)をご覧ください。       |
+| コミュニティ サポートを受ける     | [フォーラム](https://social.msdn.microsoft.com/forums/windowsapps/en-US/home?category=windowsapps)をご覧ください。       |
 | バナーやスポット広告をアプリに追加する方法を説明するサンプル プロジェクトをダウンロードします。     | 「[GitHub の広告サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Advertising)」をご覧ください。       |
 | Windows アプリの最新の収益機会について学ぶ     | 「[アプリの収益の獲得](https://developer.microsoft.com/store/monetize)」をご覧ください。        |
 

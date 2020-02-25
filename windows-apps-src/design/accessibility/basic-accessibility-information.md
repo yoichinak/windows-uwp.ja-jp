@@ -8,12 +8,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: d39d2f094dd85c29b51a19e1affcf0d292183ede
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: fa9ba2b8c9b327a51218dfc5f100c147f2d566e8
+ms.sourcegitcommit: 0a319e2e69ef88b55d472b009b3061a7b82e3ab1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74257772"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77521263"
 ---
 # <a name="expose-basic-accessibility-information"></a>基本的なアクセシビリティ情報の開示  
 
@@ -32,8 +32,8 @@ ms.locfileid: "74257772"
 | 要素型 | 説明 |
 |--------------|-------------|
 | 静的テキスト | [  **TextBlock**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock) 要素と [**RichTextBlock**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RichTextBlock) 要素については、アクセシビリティ対応の名前が表示 (内部) テキストから自動的に決定されます。 この要素のテキストはすべて名前として使われます。 「[内部テキストに基づく名前](#name_from_inner_text)」をご覧ください。 |
-| イメージ | XAML の [**Image**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Image) 要素は、HTML の **img** の **alt** 属性やこれに類似する要素に、直接相当するものではありません。 [  **AutomationProperties.Name**](https://docs.microsoft.com/dotnet/api/system.windows.automation.automationproperties.name) を使って名前を指定するか、キャプション手法を使います。 「[画像のアクセシビリティ対応の名前](#images)」をご覧ください。 |
-| フォーム要素 | フォーム要素のアクセシビリティ対応の名前は、その要素に表示されるラベルと同じにする必要があります。 「[ラベルと LabeledBy](#labels)」をご覧ください。 |
+| [画像] | XAML の [**Image**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Image) 要素は、HTML の **img** の **alt** 属性やこれに類似する要素に、直接相当するものではありません。 [  **AutomationProperties.Name**](https://docs.microsoft.com/dotnet/api/system.windows.automation.automationproperties.name) を使って名前を指定するか、キャプション手法を使います。 「[画像のアクセシビリティ対応の名前](#images)」をご覧ください。 |
+| Form 要素 | フォーム要素のアクセシビリティ対応の名前は、その要素に表示されるラベルと同じにする必要があります。 「[ラベルと LabeledBy](#labels)」をご覧ください。 |
 | ボタンとリンク | ボタンやリンクでは、「[内部テキストに基づく名前](#name_from_inner_text)」に記載されているのと同じ規則を使って、表示テキストに基づく名前が既定でアクセシビリティ対応の名前として使われます。 画像のみが含まれるボタンの場合は、[**AutomationProperties.Name**](https://docs.microsoft.com/dotnet/api/system.windows.automation.automationproperties.name) を使って、そのボタンで想定する操作にテキストのみのボタンを指定します。 |
 
 パネルなどのコンテナー要素では通常、アクセシビリティ対応の名前としてコンテンツが昇格されることはありません。 これは、名前とそれに対応する役割を報告する必要があるのは項目のコンテンツであり、コンテナーではないからです。 コンテナー要素では、Microsoft UI オートメーションの表示で子が含まれるのは、支援技術のロジックが走査できる要素であると報告される場合があります。 ただし、支援技術を利用するユーザーは通常、コンテナーについて意識する必要はないため、ほとんどのコンテナーには名前が付けられません。
@@ -141,7 +141,7 @@ XAML
 <span id="ACCESSIBLE_NAMES_FROM_DYNAMIC_DATA"/>
 
 ## <a name="accessible-names-from-dynamic-data"></a>動的データからのアクセシビリティ対応の名前  
-Windows では、*データ バインディング*という機能によって、関連付けられたデータ ソースから取得される値を表示するのに使うことができる、多くのコントロールがサポートされています。 一覧にデータ項目を設定するときに、最初の一覧に入力した後で、データがバインドされた一覧項目にアクセシビリティ対応の名前を設定する必要がある場合があります。 詳しくは、[XAML アクセシビリティ サンプル](https://code.msdn.microsoft.com/windowsapps/XAML-accessibility-sample-d63e820d) のシナリオ 4 をご覧ください。
+Windows では、*データ バインディング*という機能によって、関連付けられたデータ ソースから取得される値を表示するのに使うことができる、多くのコントロールがサポートされています。 一覧にデータ項目を設定するときに、最初の一覧に入力した後で、データがバインドされた一覧項目にアクセシビリティ対応の名前を設定する必要がある場合があります。 詳しくは、[XAML アクセシビリティ サンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/XAML%20accessibility%20sample) のシナリオ 4 をご覧ください。
 
 <span id="Accessible_names_and_localization"/>
 <span id="accessible_names_and_localization"/>
@@ -157,5 +157,5 @@ Windows では、*データ バインディング*という機能によって、
 ## <a name="related-topics"></a>関連トピック  
 * [アクセシビリティ](accessibility.md)
 * [**AutomationProperties.Name**](https://docs.microsoft.com/dotnet/api/system.windows.automation.automationproperties.name)
-* [XAML アクセシビリティのサンプル](https://code.msdn.microsoft.com/windowsapps/XAML-accessibility-sample-d63e820d)
+* [XAML アクセシビリティのサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/XAML%20accessibility%20sample)
 * [アクセシビリティ テスト](accessibility-testing.md)
