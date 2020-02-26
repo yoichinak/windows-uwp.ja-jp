@@ -8,12 +8,12 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: 35ddf17d121a06e453e9b51e023e859f0c1cd0ab
-ms.sourcegitcommit: 3e7a4f7605dfb4e87bac2d10b6d64f8b35229546
+ms.openlocfilehash: b6bd46bcdec639cee2bc867c2c4e71cccbb13cfb
+ms.sourcegitcommit: a2a3c887f6da47a6638ce5286199ea31ee7780e4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77089348"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77606692"
 ---
 # <a name="host-a-custom-uwp-control-in-a-wpf-app-using-xaml-islands"></a>XAML アイランドを使用した WPF アプリでのカスタム UWP コントロールのホスト
 
@@ -91,7 +91,7 @@ WPF (または Windows フォーム) アプリでカスタム UWP コントロ�
     ```csharp
     namespace MyUWPApp
     {
-        sealed partial class App : Microsoft.Toolkit.Win32.UI.XamlHost.XamlApplication
+        public sealed partial class App : Microsoft.Toolkit.Win32.UI.XamlHost.XamlApplication
         {
             public App()
             {
@@ -305,7 +305,7 @@ WPF アプリでカスタム UWP コントロールをホストするには、�
         </PropertyGroup>
         ```
 
-    4. プロジェクトファイルを保存して閉じます。
+    4. プロジェクト ファイルを保存して閉じます。
     5. WPF プロジェクトノードを右クリックし、 **[プロジェクトの再読み込み]** をクリックします。
 
 4. パッケージプロジェクトをビルドして実行します。 WPF が実行され、UWP カスタムコントロールが想定どおりに表示されることを確認します。
