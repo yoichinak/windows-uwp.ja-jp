@@ -71,7 +71,27 @@
     - name: Speech
       href: apps/speech.md
     - name: 機能とテクノロジ
-      href: apps/features-and-technologies.md
+      items:
+        - name: 概要
+          href: apps/features-and-technologies.md
+        - name: .NET での ETW トレースの処理
+          items:
+            - name: 概要
+              href: apps/trace-processing/overview.md
+            - name: 最初のトレースを処理する
+              href: apps/trace-processing/quickstart.md
+            - name: トレース データへのアクセス
+              href: apps/trace-processing/tutorial.md
+            - name: TraceProcessor の拡張
+              href: apps/trace-processing/extensibility.md
+            - name: シンボルの読み込み
+              href: apps/trace-processing/symbols.md
+            - name: ストリーミングの使用
+              href: apps/trace-processing/streaming.md
+            - name: サンプル
+              href: 'https://github.com/microsoft/eventtracing-processing-samples'
+            - name: 参照先
+              href: apps/trace-processing/reference.md
     - name: 最新のドキュメントの更新
       href: apps/whats-new/latest-doc-updates.md
 - name: Windows でビルドする
