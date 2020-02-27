@@ -8,12 +8,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 8b566b1960435a856b82a7be605ef5e1f7ba86e2
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: 7f794cc6f23cf3f4beaf5bc3c9558ceaf2ccc8a6
+ms.sourcegitcommit: 0a319e2e69ef88b55d472b009b3061a7b82e3ab1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74257792"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77521314"
 ---
 # <a name="accessible-text-requirements"></a>アクセシビリティに対応したテキストの要件  
 
@@ -95,7 +95,7 @@ _既定の選択がある場合の例_
 _既定の選択がない例_
 
 ### <a name="xaml-implementation"></a>XAML の実装  
-XAML の既定の [**AutosuggestBox**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.autosuggestbox) を使用している場合、既にすべての準備が完了しています。 [  **TextBox**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox) と一覧を使って独自の自動提案エクスペリエンスを作成している場合は、[TextBox**で一覧を**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.automationproperties.getcontrolledpeers)AutomationProperties.ControlledPeers として設定する必要があります。 **** ControlledPeers[**プロパティを追加または削除するたびに、このプロパティの**AutomationPropertyChanged](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.automationproperties.getcontrolledpeers) イベントを発生させる必要があります。また、この記事で既に説明したシナリオのタイプに応じて、独自の [**SelectionItemPatternOnElementSelected**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.peers.automationevents) イベントまたは [**LayoutInvalidated**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.peers.automationevents) イベントを発生させる必要があります。
+XAML の既定の [**AutosuggestBox**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.autosuggestbox) を使用している場合、既にすべての準備が完了しています。 [  **TextBox**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox) と一覧を使って独自の自動提案エクスペリエンスを作成している場合は、[TextBox**で一覧を**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.automationproperties.getcontrolledpeers)AutomationProperties.ControlledPeers として設定する必要があります。 ControlledPeers[**プロパティを追加または削除するたびに、このプロパティの**AutomationPropertyChanged](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.automationproperties.getcontrolledpeers) イベントを発生させる必要があります。また、この記事で既に説明したシナリオのタイプに応じて、独自の [**SelectionItemPatternOnElementSelected**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.peers.automationevents) イベントまたは [**LayoutInvalidated**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.peers.automationevents) イベントを発生させる必要があります。
 
 ### <a name="html-implementation"></a>HTML の実装  
 HTML で組み込みのコントロールを使っている場合は、UIA 実装が既にマップされています。 既に準備されている実装の例を次に示します。
@@ -186,6 +186,6 @@ private async void UISettings_TextScaleFactorChanged(Windows.UI.ViewManagement.U
 * [テキストの拡大縮小](https://docs.microsoft.com/windows/uwp/design/input/text-scaling)
 * [アクセシビリティ](accessibility.md)
 * [基本的なアクセシビリティ情報](basic-accessibility-information.md)
-* [XAML テキスト表示のサンプル](https://code.msdn.microsoft.com/windowsapps/XAML-text-display-sample-2593ba0a)
-* [XAML テキスト編集のサンプル](https://code.msdn.microsoft.com/windowsapps/XAML-text-editing-sample-fb0493ad)
-* [XAML アクセシビリティのサンプル](https://code.msdn.microsoft.com/windowsapps/XAML-accessibility-sample-d63e820d) 
+* [XAML テキスト表示のサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Windows%208%20app%20samples/%5BC%23%5D-Windows%208%20app%20samples/C%23/Windows%208%20app%20samples/XAML%20text%20display%20sample%20(Windows%208))
+* [XAML テキスト編集のサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Windows%208%20app%20samples/%5BC%23%5D-Windows%208%20app%20samples/C%23/Windows%208%20app%20samples/XAML%20text%20editing%20sample%20(Windows%208))
+* [XAML アクセシビリティのサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/XAML%20accessibility%20sample) 
