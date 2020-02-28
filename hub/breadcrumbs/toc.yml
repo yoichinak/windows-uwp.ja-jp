@@ -16,7 +16,7 @@
             - name: デスクトップ アプリの現代化
               tocHref: /windows/apps/desktop/modernize/
               topicHref: /windows/apps/desktop/modernize/
-            - name: .NET での ETW トレースの処理
+            - name: .NET TraceProcessing
               tocHref: /windows/apps/trace-processing/
               topicHref: /windows/apps/trace-processing/overview
         - name: 開発環境
