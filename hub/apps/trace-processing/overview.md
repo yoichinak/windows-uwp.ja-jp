@@ -5,14 +5,14 @@ author: maiak
 ms.author: maiak
 ms.date: 02/23/2020
 ms.topic: overview
-ms.openlocfilehash: 1283a6b183673cbfb0d3d27290fc24ae6b020302
-ms.sourcegitcommit: 4fdab7be28aca18cb3879fc205eb49edc4f9a96b
+ms.openlocfilehash: bc2ec3035e097a8cab15b556d1b1793385b8aeb9
+ms.sourcegitcommit: 7f1b64f62bc3a82ebcd3807c809363df46919195
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77629074"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77705757"
 ---
-# <a name="process-event-tracing-for-windows-etw-traces-in-net"></a>.NET でのプロセス Windows イベントトレーシング (ETW) トレース
+# <a name="process-etw-traces-in-net"></a>.NET での ETW トレースの処理
 
 [Windows イベントトレーシング (ETW)](https://docs.microsoft.com/windows/win32/etw/event-tracing-portal)は、Windows オペレーティングシステムに組み込まれている強力なトレースコレクションシステムです。 Windows には、ETW との緊密な統合があります。これには、コンテキストの切り替え、メモリの割り当て、プロセスの作成と終了などのイベントについて、システムの動作に関するデータが含まれます。 ETW から利用できるシステム全体のデータを使用すると、エンドツーエンドのパフォーマンス分析や、システム全体のさまざまなコンポーネント間の相互作用を調べる必要があるその他の質問に適したものになります。
 
@@ -28,7 +28,7 @@ Microsoft では、Windows の新しいビルドのパフォーマンスを測�
 
 次の手順では、[最初のトレースを処理](quickstart.md)します。
 
-## <a name="in-this-section"></a>このセクションの内容
+## <a name="related-topics"></a>関連トピック
 
 * [トレースデータへのアクセス](tutorial.md)
 * [TraceProcessor の拡張](extensibility.md)
