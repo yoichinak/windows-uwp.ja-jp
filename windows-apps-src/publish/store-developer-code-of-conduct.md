@@ -1,30 +1,29 @@
 ---
 title: 開発者倫理規定
 description: お客様は、Microsoft Store のアプリの開発者として、アプリ開発者契約およびお客様と Microsoft の間で締結されたその他のライセンスまたは契約の条件に従うものとします。
-layout: LandingPage
-ms.date: 10/26/2017
+ms.date: 02/25/2020
 ms.topic: article
 keywords: Microsoft Store ポリシー契約
 ms.localizationpriority: high
 ms.assetid: 2B84B877-794A-468F-A478-DA09E4694513
-ms.openlocfilehash: a9e96431594cf1a046741659011e546807294f7a
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: d81333b38908a10f88d886d766353aae455b1f47
+ms.sourcegitcommit: 5309019fa2a7c02e4e3f0c4076b75fc63546b6f0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66826449"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77607238"
 ---
 # <a name="developer-code-of-conduct"></a>開発者倫理規定
 
 お客様は、Microsoft Store のアプリの開発者として、[アプリ開発者契約](https://docs.microsoft.com/legal/windows/agreements/app-developer-agreement)およびお客様と Microsoft の間で締結されたその他のライセンスまたは契約の条件に従うものとします。 本倫理規定は、参照のために提供されるものであり、契約を置き換えるものではありません。
 
 
-## <a name="1-publisher-name"></a>1. 発行者名
+## <a name="1-publisher-name"></a>1.発行者名
 
 お客様の発行者名は一意でなければなりません。 お客様のアカウントが特定の会社、政府機関、その他の組織に由来すると表明する場合は、そうした表明を行うことに対して必ず許諾を得てください。 これには、誤解を招きやすい発行者名や、よく知られた個人または法人の名前と類似する発行者名を使用することが含まれますが、これに限定されません。
 
 
-## <a name="2-store-account-in-good-standing"></a>2. Store アカウントの良好な状態の維持
+## <a name="2-store-account-in-good-standing"></a>2.Store アカウントの良好な状態の維持
 
 お客様の Store 開発者アカウントは良好な状態に維持しなければなりません。 これには、正確かつ最新の情報を Microsoft に提供すること、Microsoft のポリシーまたはアプリ開発者契約に違反しないこと、Store でアクティブな状態を維持することが含まれますが、これらに限定されません。
 

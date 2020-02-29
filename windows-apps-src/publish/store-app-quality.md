@@ -1,18 +1,17 @@
 ---
 title: アプリの品質
 description: ユーザーと開発者の両方にとって、Store 内のアプリに楽しみと意義を感じられることが非常に重要です。 ここでは、開発者がその目的を達成できるように、アプリの品質のいくつかの主要な側面について概要を示します。
-layout: LandingPage
-ms.date: 10/26/2017
+ms.date: 07/25/2017
 ms.topic: article
 keywords: Microsoft Store ポリシー契約
 ms.localizationpriority: high
 ms.assetid: B15D4F19-4E6A-4C27-AD64-F03014D11BA9
-ms.openlocfilehash: 550ffeac8912769fc7e319d819f4de67f6d36cf1
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: d093a7b49a8c5ac00ca927614365d1b548e2f63a
+ms.sourcegitcommit: 5309019fa2a7c02e4e3f0c4076b75fc63546b6f0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66826419"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77607262"
 ---
 # <a name="app-quality"></a>アプリの品質
 
@@ -66,7 +65,7 @@ Store ページに掲載されたメタデータ (アイコン、タイトル、
 
 ダウンロードから収益を上げようとしている場合、魅力的なこと、楽しいこと、または役に立つことを提供する必要があります。
 
-- またその価値が持続する必要があります。 次に、例を示します。
+- またその価値が持続する必要があります。 たとえば、次のように入力します。
     - 料理アプリであれば、複数回使用できるだけの豊富なレシピが含まれていますか。
     - スポーツ チームアプリであれば、最新の成績を頻繁に更新していますか。それとも、確定した結果をまとめただけですか。
     - ゲームであれば、興味深いゲームプレイができ、そのたびに異なる結果が得られますか。

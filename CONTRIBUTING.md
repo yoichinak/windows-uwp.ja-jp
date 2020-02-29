@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: a91c080805bca5d536aad3755ca7edf052d1fe0e
-ms.sourcegitcommit: b8087f8b6cf8367f8adb7d6db4581d9aa47b4861
+ms.openlocfilehash: ffd5481fec0ebf6db24d9af95b8a11d05a043170
+ms.sourcegitcommit: 0a319e2e69ef88b55d472b009b3061a7b82e3ab1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67414057"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77521223"
 ---
 # <a name="contributing-to-uwp-conceptual-documentation"></a>UWP の概念に関するドキュメントへの投稿
 
@@ -26,7 +26,7 @@ Microsoft の従業員**ではない**場合は、[パブリック コンテン�
 
 編集を開始すると、GitHub によって公式のリポジトリが個人用 GitHub アカウントに自動的にフォークされ、そのアカウントで変更を加えることができるようになります。 完了したら、**docs** ブランチに戻すプル要求を提出します。
 
-### <a name="pull-requests"></a>プル要求
+### <a name="pull-requests"></a>Pull requests
 
 ご自分のプル要求を送信すると、それはコンテンツ品質チェックリストに対して評価され、Microsoft の基本的な基準を満たしているかどうかが確認されます。 パスした場合は、それは、さらなるレビューのために、UWP ドキュメント チームのメンバーに割り当てられます。 パスしなかった場合、どのような変更を加えるべきかが示されます。
 
@@ -44,7 +44,7 @@ Microsoft の従業員である場合は、[プライベート コンテンツ �
 
 既存の記事をより幅広く変更する、画像を追加または変更する、新しい記事を投稿する場合は、プライベート コンテンツ リポジトリのローカルの複製を作成します。 詳細については、[Windows オーサリング ガイドの手順](https://review.docs.microsoft.com/windows-authoring-guide/uwp/conceptual/)に従ってください。
 
-### <a name="pull-requests"></a>プル要求
+### <a name="pull-requests"></a>Pull requests
 
 内部リポジトリ内でプル要求を作成する場合は、ご自分のブランチをその作成元のブランチに必ずマージしてください。
 
@@ -56,4 +56,4 @@ Microsoft の従業員である場合は、[プライベート コンテンツ �
 
 自分で編集するのではなくドキュメントに関するフィードバックを提供する場合は、[公開リポジトリ内に懸案事項を作成](https://github.com/MicrosoftDocs/windows-uwp/issues)することができます。 **[Issues]\(懸案事項\)** タブを選択し、 **[New issue]\(新しい懸案事項\)** ボタンを選択します。 必ずトピックのタイトルとページの URL を含めてください。 その懸案事項はレビューのために UWP ドキュメンテーション チームのメンバーに割り当てられます。
 
-* 内部の懸案事項については、[WDG Content Request Tool](https://aka.ms/pubrequest) を使用してください。
+* 内部の懸案事項については、[WDG Content Request Tool](http://sesuw2-iis02a/WSCPubRequest/WindowsContentRequestTool.aspx) を使用してください。

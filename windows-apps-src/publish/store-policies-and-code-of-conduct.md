@@ -1,18 +1,17 @@
 ---
 title: Microsoft Store のポリシーと倫理規定
 description: ここでは、Microsoft Store アプリとコンテンツに適用される Microsoft Store のポリシーおよびアプリの品質基準と、開発者が従う必要のある倫理規定を示します。
-layout: LandingPage
-ms.date: 10/26/2017
+ms.date: 02/25/2020
 ms.topic: article
 keywords: Microsoft Store ポリシー契約
 ms.localizationpriority: high
 ms.assetid: 9DA14ADF-B4FB-4EC8-8D63-4B9152476BE0
-ms.openlocfilehash: 624b40fd5980fe66bbdf538845d81082e91c5aec
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: a58ccb4ae9af163b84cc1f5b05a7b4784ac3749c
+ms.sourcegitcommit: 5309019fa2a7c02e4e3f0c4076b75fc63546b6f0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66826439"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77607260"
 ---
 # <a name="store-policies-and-code-of-conduct"></a>Microsoft Store のポリシーと倫理規定
 
