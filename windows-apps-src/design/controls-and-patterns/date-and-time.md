@@ -12,12 +12,12 @@ design-contact: ksulliv
 dev-contact: joyate
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 1e489aa8cbf8b63885f039847b291404393444e9
-ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
+ms.openlocfilehash: 13901e044cbf6a14ac0ede6e9ed0f451859e49a1
+ms.sourcegitcommit: 4fdab7be28aca18cb3879fc205eb49edc4f9a96b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71339389"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77629153"
 ---
 # <a name="calendar-date-and-time-controls"></a>カレンダー、日付、および時刻コントロール
 
@@ -87,7 +87,7 @@ ms.locfileid: "71339389"
 
 ### <a name="time-picker"></a>時刻の選択コントロール
 
-**TimePicker** は、予定や出発時刻などの 1 つの時刻を選択する場合に使用します。 ユーザーまたはコードによって設定された静的な表示であるため、更新して現在の時刻を表示することはできません。 
+**TimePicker** は、予定や出発時刻などの 1 つの時刻を選択する場合に使用します。 ユーザーまたはコードによって設定された静的な表示であるため、更新して現在の時刻を表示することはできません。
 
 エントリ ポイントには、選んだ時刻が表示されます。ユーザーがエントリ ポイントを選ぶと、選択ツール サーフェスが中央から縦方向に展開されて、時刻を選べるようになります。 時刻の選択は他の UI をオーバーレイし、他の UI を別の位置に移動させることはありません。
 
@@ -108,12 +108,12 @@ ms.locfileid: "71339389"
 
 XAML の日付のコントロールでは、Windows でサポートされる各カレンダー システムがサポートされます。 それらのカレンダーは [Windows.Globalization.CalendarIdentifiers](https://docs.microsoft.com/uwp/api/Windows.Globalization.CalendarIdentifiers) クラスで指定されます。 各コントロールは、アプリの既定の言語に適したカレンダーを使います。または、**CalendarIdentifier** プロパティを設定して特定のカレンダー システムを使うこともできます。
 
-時刻の選択コントロールでは、[Windows.Globalization.ClockIdentifiers](https://docs.microsoft.com/uwp/api/Windows.Globalization.ClockIdentifiers) クラスで指定される各クロック システムがサポートされます。 [ClockIdentifier](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.timepicker.clockidentifier) プロパティを設定し、12 時間形式または 24 時間形式を指定できます。 プロパティの型は文字列ですが、ClockIdentifiers クラスの静的な文字列プロパティに対応する値を使用する必要があります。 それらを次に示します。TwelveHour (文字列 "12HourClock") と TwentyFourHour (文字列 "24HourClock")。 既定値は "12HourClock" です。
-
+時刻の選択コントロールでは、[Windows.Globalization.ClockIdentifiers](https://docs.microsoft.com/uwp/api/Windows.Globalization.ClockIdentifiers) クラスで指定される各クロック システムがサポートされます。 [ClockIdentifier](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.timepicker.clockidentifier) プロパティを設定し、12 時間形式または 24 時間形式を指定できます。 プロパティの型は文字列ですが、ClockIdentifiers クラスの静的な文字列プロパティに対応する値を使用する必要があります。 使用できるオプションを次に示します。TwelveHour (文字列 "12HourClock") と TwentyFourHour (文字列 "24HourClock")。 既定値は "12HourClock" です。
 
 ### <a name="datetime-and-calendar-values"></a>DateTime と Calendar の値
 
-XAML の日付および時刻コントロールで使用される日付オブジェクトでは、プログラミング言語によって表現方法が異なります。 
+XAML の日付および時刻コントロールで使用される日付オブジェクトでは、プログラミング言語によって表現方法が異なります。
+
 - C# および Visual Basic では、.NET の一部である [System.DateTimeOffset](https://docs.microsoft.com/dotnet/api/system.datetimeoffset) 構造体が使用されます。 
 - C++/CX では、[Windows::Foundation::DateTime](https://docs.microsoft.com/windows/desktop/api/windows.foundation/ns-windows-foundation-datetime) 構造体が使用されます。 
 
@@ -121,15 +121,19 @@ XAML の日付および時刻コントロールで使用される日付オブジ
 
 .NET では、[DateTime](https://docs.microsoft.com/dotnet/api/system.datetime) という名前の型もサポートされます。これは、暗黙的に [DateTimeOffset](https://docs.microsoft.com/dotnet/api/system.datetimeoffset) と読み替えることができます。 したがって、.NET コードで値を設定するために "DateTime" 型が使用されていた場合、それは実際には DateTimeOffset です。 DateTime と DateTimeOffset の違いについて詳しくは、「[DateTimeOffset](https://docs.microsoft.com/dotnet/api/system.datetimeoffset)クラス」の「注釈」をご覧ください。
 
-> **注:** &nbsp;&nbsp;日付オブジェクトを受け取るプロパティは、XAML 属性文字列として設定することはできません。これは、Windows ランタイム XAML パーサーには、文字列を DateTime/DateTimeOffset オブジェクトとして日付に変換する変換ロジックがないためです。 通常、それらの値はコードで設定します。 考えられる別の方法として、データ オブジェクトとして (またはデータ コンテキストで) 利用可能な日付を定義し、その日付をデータとしてアクセスできる [\{Binding\} マークアップ拡張](../../xaml-platform/binding-markup-extension.md)表現を参照する XAML 属性をプロパティとして設定することができます。
+> [!NOTE]
+> 日付オブジェクトを受け取るプロパティは、XAML 属性文字列として設定することはできません。これは、Windows ランタイム XAML パーサーには、文字列を DateTime/DateTimeOffset オブジェクトとして日付に変換する変換ロジックがないためです。 通常、それらの値はコードで設定します。 考えられる別の方法として、データ オブジェクトとして (またはデータ コンテキストで) 利用可能な日付を定義し、その日付をデータとしてアクセスできる [\{Binding\} マークアップ拡張](../../xaml-platform/binding-markup-extension.md)表現を参照する XAML 属性をプロパティとして設定することができます。
 
-## <a name="get-the-sample-code"></a>サンプル コードを入手する
-* [XAML UI の基本のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlUIBasics)
+## <a name="get-the-sample-code"></a>サンプル コードの入手
 
+- [XAML UI の基本のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlUIBasics)
+- [カレンダーのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Calendar)
+- [日付と時刻の書式設定のサンプル](https://github.com/microsoft/Windows-universal-samples/tree/master/Samples/DateTimeFormatting)
 
 ## <a name="related-topics"></a>関連トピック
 
-**開発者向け (XAML)**
+### <a name="for-developers-xaml"></a>開発者向け (XAML)
+
 - [CalendarView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CalendarView)
 - [CalendarDatePicker クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CalendarDatePicker)
 - [DatePicker クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.DatePicker)
