@@ -1,19 +1,19 @@
 ---
 Description: アプリで最新の Windows 10 機能を使用できるように、パッケージ化されていないデスクトップアプリに id を付与する方法について説明します。
 title: パッケージ化されていないデスクトップ アプリに ID を付与する
-ms.date: 10/25/2019
+ms.date: 02/28/2020
 ms.topic: article
 keywords: windows 10、デスクトップ、パッケージ、id、MSIX、Win32
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 10ed6b8e1bd5efce4c9d4429d91849b1333505b6
-ms.sourcegitcommit: 0a319e2e69ef88b55d472b009b3061a7b82e3ab1
+ms.openlocfilehash: ae05a00cac19fdd349aa48160b88cde6b84e26b0
+ms.sourcegitcommit: 620e4a51e2486ec2cb7190176b3d9bf3d7b5b6af
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77521353"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78222028"
 ---
 # <a name="grant-identity-to-non-packaged-desktop-apps"></a>パッケージ化されていないデスクトップ アプリに ID を付与する
 
@@ -137,7 +137,7 @@ SignTool.exe sign /fd SHA256 /a /f <path to certificate>\MyCertificate.pfx  /p <
 
 ### <a name="add-the-package-identity-metadata-to-your-desktop-application-manifest"></a>デスクトップアプリケーションマニフェストにパッケージ id メタデータを追加する
 
-また、デスクトップアプリと[side-by-side アプリケーションマニフェスト](https://docs.microsoft.com/windows/win32/sbscs/application-manifests)を追加し、アプリの id 属性を宣言する属性を持つ **\<.msix\>** 要素を含める必要があります。 これらの属性の値は、実行可能ファイルが起動されたときにアプリの id を決定するために OS によって使用されます。
+また、デスクトップアプリと[side-by-side アプリケーションマニフェスト](https://docs.microsoft.com/windows/win32/sbscs/application-manifests)を追加し、アプリの id 属性を宣言する属性を持つ[&lt;.msix&gt;](https://docs.microsoft.com/windows/win32/sbscs/application-manifests#msix)要素を含める必要があります。 これらの属性の値は、実行可能ファイルが起動されたときにアプリの id を決定するために OS によって使用されます。
 
 次の例は、 **\<.msix\>** 要素を含む side-by-side アプリケーションマニフェストを示しています。
 
