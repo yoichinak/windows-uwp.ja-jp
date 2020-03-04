@@ -16,7 +16,7 @@ ms.locfileid: "75684959"
 # <a name="websockets"></a>WebSocket
 WebSocket は、クライアントとサーバー間の高速で安全な双方向通信を、HTTP(S) を使った Web 経由で実現するメカニズムを提供し、UTF-8 メッセージとバイナリ メッセージの両方をサポートします。
 
-[WebSocket プロトコル](https://tools.ietf.org/html/rfc6455)では、データがすぐに、全二重の 1 つのソケット接続によって転送され、両方のエンドポイント間のメッセージの送受信をリアルタイムで実行できます。 WebSocket はマルチプレイヤー ゲーム (リアルタイムとターン制のどちらも)、ソーシャル ネットワークのインスタント通知、株価や天気予報のリアルタイム表示、セキュリティや高速なデータ転送を必要とするアプリなど、Microsoft Store アプリでの使用に適しています。
+[WebSocket プロトコル](https://tools.ietf.org/html/rfc6455)では、データがすぐに、全二重の 1 つのソケット接続によって転送され、両方のエンドポイント間のメッセージの送受信をリアルタイムで実行できます。 WebSocket はマルチプレイヤー ゲーム (リアルタイムとターン制のどちらも)、ソーシャル ネットワークのインスタント通知、株価や天気予報のリアルタイム表示、セキュリティや高速なデータ転送を必要とする他のアプリでの使用に適しています。
 
 WebSocket 接続を確立するには、クライアントとサーバー間で専用の HTTP ベースのハンドシェイクをやり取りします。 成功した場合、直前に確立された TCP 接続を使って、アプリケーション レイヤー プロトコルが HTTP から WebSocket に "アップグレード" されます。 この時点で、HTTP は完全に不要となります。WebSocket 接続が閉じるまで、データの送受信を、両方のエンドポイントから WebSocket プロトコルを使って行うことができます。
 
@@ -32,7 +32,7 @@ WebSocket 接続を確立するには、クライアントとサーバー間で�
 | [UDP またはデータグラム ソケット](sockets.md#build-a-basic-udp-socket-client-and-server)に似ていますが (頻繁に送信される小さいメッセージに使用されるという意味で)、TCP の信頼性、パケット順序の保証、輻輳制御が提供されます。 | [TCP またはストリーム ソケット](sockets.md#build-a-basic-tcp-socket-client-and-server)に似ています。 |
 
 ## <a name="secure-your-connection-with-tlsssl"></a>TLS/SSL による接続の保護
-ほとんどの場合、セキュリティ保護された WebSocket 接続を使って、送受信するデータを暗号化できます。 ファイアウォールやプロキシなどの多くの中継点は、暗号化されていない WebSocket 接続を拒否するため、接続の成功率も高くなります。 [WebSocket プロトコル](https://tools.ietf.org/html/rfc6455#section-3)には、以下の 2 つの URI スキームが定義されています。
+ほとんどの場合、セキュリティ保護された WebSocket 接続を使って、送受信するデータを暗号化します。 ファイアウォールやプロキシなどの多くの中継点は、暗号化されていない WebSocket 接続を拒否するため、接続の成功率も高くなります。 [WebSocket プロトコル](https://tools.ietf.org/html/rfc6455#section-3)には、以下の 2 つの URI スキームが定義されています。
 
 | URI スキーム | 目的 |
 | - | - |
@@ -622,7 +622,7 @@ auto connectTask = Concurrency::create_task(streamWebSocket->ConnectAsync(ref ne
 パラメーター検証エラーの場合、例外からの **HRESULT** を使ってエラーの詳細情報を確認することもできます。 考えられる **HRESULT** 値は、SDK インストールに含まれる `Winerror.h` に一覧表示されています (たとえば、`C:\Program Files (x86)\Windows Kits\10\Include\<VERSION>\shared` フォルダーにあります)。 ほとんどのパラメーター検証エラーの場合、返される **HRESULT** は **E_INVALIDARG** です。
 
 ## <a name="setting-timeouts-on-websocket-operations"></a>WebSocket の操作に対してタイムアウトを設定する
-**MessageWebSocket** と **StreamWebSocket** では、内部システム サービスを使って WebSocket クライアントに要求を送信し、サーバーからの応答を受信します。 WebSocket の接続操作で既定されているタイムアウト値は 60 秒です。 WebSocket をサポートする HTTP サーバーが、WebSocket の接続要求に応答できない場合 (一時的にダウンするか、ネットワーク停止によってブロックされる) は、内部システム サービスが 60 秒待った後でエラーを返します。 このエラーによって、WebSocket の **ConnectAsync** メソッドに例外がスローされます。 WebSocket 接続確立後の送受信操作では、既定のタイムアウト値は 30 秒です。
+**MessageWebSocket** と **StreamWebSocket** では、内部システム サービスを使って WebSocket クライアントの要求を送信し、サーバーからの応答を受信します。 WebSocket の接続操作で既定されているタイムアウト値は 60 秒です。 WebSocket をサポートする HTTP サーバーが、WebSocket の接続要求に応答できない場合 (一時的にダウンするか、ネットワーク停止によってブロックされる) は、内部システム サービスが 60 秒待った後でエラーを返します。 このエラーによって、WebSocket の **ConnectAsync** メソッドに例外がスローされます。 WebSocket 接続確立後の送受信操作では、既定のタイムアウト値は 30 秒です。
 
 URI 内の HTTP サーバー名に対する名前クエリで複数の IP アドレスが返されると、内部システム サービスが最大で 5 つのサイトの IP アドレスに接続を試みます (各アドレスについて既定のタイムアウト時間である 60 秒待ちます)。 したがって、アプリでは例外を処理する前に複数の IP アドレスへの接続を数分間待機する可能性があります。 この動作は、ユーザーからはアプリが停止しているかのように見えることがあります。 
 
