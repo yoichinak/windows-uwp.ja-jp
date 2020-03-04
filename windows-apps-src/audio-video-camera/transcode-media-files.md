@@ -1,19 +1,19 @@
 ---
 ms.assetid: A1A0D99A-DCBF-4A14-80B9-7106BEF045EC
-description: Windows.Media.Transcoding API を使うと、ビデオ ファイルをある形式から別の形式にトランスコードできます。
-title: メディア ファイルのトランスコード
+description: Windows.Media.Transcoding API を使って、ビデオ ファイルをある形式から別の形式にコード変換できます。
+title: メディア ファイルのコード変換
 ms.date: 02/08/2017
 ms.topic: article
-keywords: Windows 10, UWP
+keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 38aef2779908e173712bda0f35ca9e0651fb786b
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.openlocfilehash: 58cc932ee8801835c44282de159900e3bb167e01
+ms.sourcegitcommit: c9bab19599c0eb2906725fd86d0696468bb919fa
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75683875"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78256165"
 ---
-# <a name="transcode-media-files"></a>メディア ファイルのトランスコード
+# <a name="transcode-media-files"></a>メディア ファイルのコード変換
 
 
 
@@ -41,7 +41,7 @@ ms.locfileid: "75683875"
 
 ### <a name="methods-for-creating-audio-only-encoding-profiles"></a>オーディオ専用のエンコード プロファイルを作成するメソッド
 
-認証方法  |[プロファイル]  |
+メソッド  |Profile  |
 ---------|---------|
 [**CreateAlac**](https://docs.microsoft.com/uwp/api/windows.media.mediaproperties.mediaencodingprofile.createalac)     |Apple Lossless Audio Codec (ALAC) オーディオ         |
 [**CreateFlac**](https://docs.microsoft.com/uwp/api/windows.media.mediaproperties.mediaencodingprofile.createflac)     |Free Lossless Audio Codec (FLAC) オーディオ         |
@@ -52,7 +52,7 @@ ms.locfileid: "75683875"
 
 ### <a name="methods-for-creating-audio--video-encoding-profiles"></a>オーディオ/ビデオのエンコード プロファイルを作成するメソッド
 
-認証方法  |[プロファイル]  |
+メソッド  |Profile  |
 ---------|---------|
 [**CreateAvi**](https://docs.microsoft.com/uwp/api/windows.media.mediaproperties.mediaencodingprofile.createavi) |AVI |
 [**CreateHevc**](https://docs.microsoft.com/uwp/api/windows.media.mediaproperties.mediaencodingprofile.createhevc) |High Efficiency Video Coding (HEVC) ビデオ、H.265 ビデオとも呼ばれます |
@@ -70,7 +70,7 @@ ms.locfileid: "75683875"
 
 ## <a name="transcode-the-file"></a>ファイルのコード変換を行う
 
-ファイルのコード変換を行うには、新しい [**MediaTranscoder**](https://docs.microsoft.com/uwp/api/Windows.Media.Transcoding.MediaTranscoder) オブジェクトを作成し、[**MediaTranscoder.PrepareFileTranscodeAsync**](https://docs.microsoft.com/uwp/api/windows.media.transcoding.mediatranscoder.preparefiletranscodeasync) メソッドを呼び出します。 ソース ファイル、出力先ファイル、エンコード プロファイルを渡します。 次に、非同期コード変換操作から返された [**PrepareTranscodeResult**](https://docs.microsoft.com/uwp/api/Windows.Media.Transcoding.PrepareTranscodeResult) オブジェクト上の [**TranscodeAsync**](https://docs.microsoft.com/uwp/api/windows.media.transcoding.preparetranscoderesult.transcodeasync) メソッドを呼び出します。
+ファイルのコード変換を行うには、新しい [**MediaTranscoder**](https://docs.microsoft.com/uwp/api/Windows.Media.Transcoding.MediaTranscoder) オブジェクトを作成し、[**MediaTranscoder.PrepareFileTranscodeAsync**](https://docs.microsoft.com/uwp/api/windows.media.transcoding.mediatranscoder.preparefiletranscodeasync) メソッドを呼び出します。 ソース ファイル、出力先ファイル、エンコード プロファイルを渡します。 次に、非同期コード変換操作から返された [**PrepareTranscodeResult**](https://docs.microsoft.com/uwp/api/windows.media.transcoding.preparetranscoderesult.transcodeasync) オブジェクト上の [**TranscodeAsync**](https://docs.microsoft.com/uwp/api/Windows.Media.Transcoding.PrepareTranscodeResult) メソッドを呼び出します。
 
 [!code-cs[TranscodeTranscodeFile](./code/TranscodeWin10/cs/MainPage.xaml.cs#SnippetTranscodeTranscodeFile)]
 
@@ -79,22 +79,5 @@ ms.locfileid: "75683875"
 非同期の [**TranscodeAsync**](https://docs.microsoft.com/uwp/api/windows.media.transcoding.preparetranscoderesult.transcodeasync) の進行状況が変化したときに応答するイベントを登録できます。 これらのイベントは、ユニバーサル Windows プラットフォーム (UWP) アプリの非同期プログラミング フレームワークの一部であり、コード変換 API に固有のものではありません。
 
 [!code-cs[TranscodeCallbacks](./code/TranscodeWin10/cs/MainPage.xaml.cs#SnippetTranscodeCallbacks)]
-
-
-## <a name="encode-a-metadata-stream"></a>メタデータ ストリームをエンコードする
-Windows 10 バージョン1803以降では、メディアファイルのトランスコードを行うときに、時間指定のメタデータを含めることができます。 上記のビデオトランスコード例では、 [**MediaEncodingProfile**](https://docs.microsoft.com/uwp/api/windows.media.mediaproperties.mediaencodingprofile.createmp4)のような組み込みのメディアエンコードプロファイルの作成方法を使用していますが、エンコードするメタデータの種類をサポートするために、メタデータエンコードプロファイルを手動で作成する必要があります。
-
-コーディングプロファイルでメタデータを作成するための最初の手順は、トランスコードされるメタデータのエンコーディングを記述した **[TimedMetadataEncodingProperties]** オブジェクトを作成することです。 Subtype プロパティは、メタデータの型を指定する GUID です。 各メタデータ型のエンコードの詳細は専用であり、Windows では提供されません。 この例では、GoPro metadata (gprs) の GUID が使用されます。 次に、 [**Setformatuserdata**](https://docs.microsoft.com/uwp/api/windows.media.mediaproperties.timedmetadataencodingproperties.setformatuserdata)を呼び出して、メタデータ形式に固有のストリーム形式を記述するデータのバイナリ blob を設定します。 次に、エンコード caching から**TimedMetadataStreamDescriptor**(https://docs.microsoft.com/uwp/api/windows.media.core.timedmetadatastreamdescriptor) が作成されます。トラックラベルと名前は、アプリケーションが endcoded 化されたストリームを読み取ってメタデータストリームを識別し、必要に応じて UI にストリーム名を表示できるようにするためのものです。 
- 
-[!code-cs[GetStreamDescriptor](./code/TranscodeWin10/cs/MainPage.xaml.cs#SnippetGetStreamDescriptor)]
-
-**TimedMetadataStreamDescriptor**を作成した後、ファイルでエンコードするビデオ、オーディオ、およびメタデータを記述する**MediaEncodingProfile**を作成できます。 最後の例で作成した**TimedMetadataStreamDescriptor**は、この例のヘルパー関数に渡され、 [**SetTimedMetadataTracks**](https://docs.microsoft.com/uwp/api/windows.media.mediaproperties.mediaencodingprofile.settimedmetadatatracks)を呼び出すことによって**MediaEncodingProfile**に追加されます。
-
-[!code-cs[GetMediaEncodingProfile](./code/TranscodeWin10/cs/MainPage.xaml.cs#SnippetGetMediaEncodingProfile)]
- 
-
- 
-
-
 
 

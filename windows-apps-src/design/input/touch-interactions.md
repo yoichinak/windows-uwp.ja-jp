@@ -8,19 +8,19 @@ keywords: タッチ, ポインター, 入力, ユーザーの操作
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 25398f0b48e88e2cebe81f62cc62ac1d9bd92d5c
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: 2277be481326aa5ae5a76c900160108bcd29fb84
+ms.sourcegitcommit: c9bab19599c0eb2906725fd86d0696468bb919fa
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74258216"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78256145"
 ---
 # <a name="touch-interactions"></a>タッチ操作
 
 
 タッチがユーザーの主な入力方法になるという想定でアプリを設計します。 UWP コントロールを使う場合は、タッチパッド、マウス、ペン/スタイラスをサポートするために追加のプログラミングを行う必要はありません。UWP アプリでは、それらが無料で提供されます。
 
-ただし、タッチ用に最適化された UI が従来の UI よりも常に優れているとは限らないことに留意してください。 どちらの UI にも、テクノロジとアプリに固有の長所と短所があります。 タッチ操作主体の UI に移行する際に、タッチ (タッチパッドを含む)、ペン/スタイラス、マウス、キーボードの各入力の主な違いを理解することが重要です。
+ただし、タッチ用に最適化された UI が従来の UI よりも常に優れているとは限らないことに留意してください。 どちらの UI にも、テクノロジとアプリに固有の長所と短所があります。 タッチによる最初の UI への移行では、タッチ、タッチパッド、ペン/スタイラス、マウス、キーボード入力の主な違いを理解することが重要です。
 
 > **重要な API**: [**Windows.UI.Xaml.Input**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input)、[**Windows.UI.Core**](https://docs.microsoft.com/uwp/api/Windows.UI.Core)、[**Windows.Devices.Input**](https://docs.microsoft.com/uwp/api/Windows.Devices.Input)
 
@@ -72,9 +72,8 @@ ms.locfileid: "74258216"
 <tr><td>タップ、ドラッグ、スライド、ピンチ、回転などのジェスチャによるオブジェクトの直接操作をサポートします。</td><td>マウス、ペン/スタイラス、キーボードは間接的な入力デバイスなので、直接操作はサポートされません。</td><td>マウスと同じです。</td></tr>
 </tbody></table>
 
-
-
-**注**   間接入力には25年を超える洗練があるという利点がありました。 ホバーすると表示されるヒントなどの機能は、タッチパッド、マウス、ペン/スタイラス、キーボード入力での UI の操作を解決するために特別に設計されています。 このような UI 機能は、他のデバイスのユーザー エクスペリエンスを損なうことなく、タッチ入力で充実したエクスペリエンスを提供するために再設計されました。
+> [!NOTE]
+> 間接的な入力には、25 年以上の改良を経ているという利点があります。 ホバーすると表示されるヒントなどの機能は、タッチパッド、マウス、ペン/スタイラス、キーボード入力での UI の操作を解決するために特別に設計されています。 このような UI 機能は、他のデバイスのユーザー エクスペリエンスを損なうことなく、タッチ入力で充実したエクスペリエンスを提供するために再設計されました。
 
  
 
@@ -151,7 +150,8 @@ ms.locfileid: "74258216"
 -   複合操作をサポートしてください。 たとえば、ピンチによるズームを行いながら指をドラッグしてパンできるようにします。
 -   対話式操作を時間で区別しないでください。 実行にかかる時間に関係なく、同じ対話式操作を行うと同じ結果が得られるようにします。 時間ベースのアクティブ化では、ユーザーは遅延を強いられるので、直接操作のイマーシブの特性が損なわれ、システムの応答性が低く感じられるようになります。
 
-    この例外は、特定の時間指定の対話を使用して学習や探索 (たとえば、プレスアンドホールド) を支援する場合**に  ます**。
+   > [!NOTE]
+   > この例外が発生するのは、特定の時間指定の対話を使用して、学習と探索 (たとえば、プレスアンドホールド) を支援する場合です。
 
      
 
@@ -192,15 +192,15 @@ ms.locfileid: "74258216"
 
 UWP でサポートされている基本的なタッチ ジェスチャのセットを以下に示します。
 
-| 名前           | 種類                 | 説明                                                                            |
+| Name           | 種類                 | 説明                                                                            |
 |----------------|----------------------|----------------------------------------------------------------------------------------|
 | タップ            | 静的ジェスチャ       | 1 本の指で画面をタッチし、その指を上げます。                                            |
-| 長押し | 静的ジェスチャ       | 1 本の指で画面をタッチし、そのまま押し続けます。                                      |
+| プレス アンド ホールド | 静的ジェスチャ       | 1 本の指で画面をタッチし、そのまま押し続けます。                                      |
 | スライド          | 操作ジェスチャ | 1 本または複数の指で画面をタッチし、同じ方向に動かします。                   |
 | スワイプ          | 操作ジェスチャ | 1 本または複数の指で画面をタッチし、同じ方向に少しだけ動かします。  |
 | 回転           | 操作ジェスチャ | 2 本以上の指で画面をタッチし、時計回りまたは反時計回りに動かします。 |
 | ピンチ          | 操作ジェスチャ | 2 本以上の指で画面をタッチし、それらの指を近づけていきます。                         |
-| ストレッチ        | 操作ジェスチャ | 2 本以上の指で画面をタッチし、それらの指を離していきます。                           |
+| Stretch        | 操作ジェスチャ | 2 本以上の指で画面をタッチし、それらの指を離していきます。                           |
 
  
 
@@ -231,7 +231,7 @@ For more info about gestures, manipulations, and interactions, see [Custom user 
 | [**終了したポインター**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerexited)               | ポインターが要素のヒット テスト領域から出たときに発生します。  |
 | [**ポインタが取り消されました**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointercanceled)           | タッチによる接触が異常に失われたときに発生します。               |
 | [**PointerCaptureLost**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointercapturelost)     | 別の要素でポインター キャプチャが行われたときに発生します。    |
-| [**PointerWheelChanged**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerwheelchanged)   | マウス ホイールのデルタ値が変化すると発生します。         |
+| [**PointerWheelChanged**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerwheelchanged)   | マウスホイールのデルタ値が変化したときと、タッチパッドが pinched たときに発生します。         |
 | [**PointerRoutedEventArgs**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.PointerRoutedEventArgs) | すべてのポインター イベントのデータを提供します。                         |
 
  
@@ -414,6 +414,9 @@ End Sub
 
 操作イベントを使うと、ドラッグ、ズーム、長押しなどの操作を検出できます。
 
+> [!NOTE]
+> タッチパッドは操作イベントを発生させません。 代わりに、タッチパッド入力に対してポインターイベントが発生します。
+
 操作イベントと、関連するイベント引数の一覧を示します。
 
 | イベント/クラス                                                                                               | 説明                                                                                                                               |
@@ -436,7 +439,8 @@ End Sub
 
 次に、1 つ以上の [**ManipulationDelta**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.manipulationdelta) イベントが発生します。 たとえば、画面をタッチして画面上で指をドラッグした場合です。 最後に、対話的操作が完了すると [**ManipulationCompleted**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.manipulationcompleted) イベントが発生します。
 
-**注**  タッチスクリーンモニターがない場合は、マウスとマウスホイールインターフェイスを使用して、シミュレーターで操作イベントコードをテストできます。
+> [!NOTE]
+> タッチスクリーンモニターがない場合は、マウスとマウスホイールインターフェイスを使用して、シミュレーターで操作イベントコードをテストできます。
 
  
 
@@ -584,7 +588,7 @@ End Sub
 -   できる限り、操作の区別に使われた数の指は使わないようにします。
 
 
-## <a name="related-articles"></a>関連記事
+## <a name="related-articles"></a>関連トピック
 
 * [ポインター入力の処理](handle-pointer-input.md)
 * [入力デバイスの識別](identify-input-devices.md)
