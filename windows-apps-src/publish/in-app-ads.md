@@ -6,14 +6,17 @@ ms.date: 03/25/2019
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: e12641695dd72cddcfb6b51f6cd2f20fa66ddf41
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: 96994566d19e03f1d85b751242331f04fef098ad
+ms.sourcegitcommit: 0426013dc04ada3894dd41ea51ed646f9bb17f6d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74259001"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78290346"
 ---
 # <a name="in-app-ads"></a>アプリ内広告
+
+>[!WARNING]
+> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細情報](https://social.msdn.microsoft.com/Forums/windowsapps/en-US/db8d44cb-1381-47f7-94d3-c6ded3fea36f/microsoft-ad-monetization-platform-shutting-down-june-1st?forum=aiamgr)
 
 [パートナーセンター](https://partner.microsoft.com/dashboard)の [**収益化**&gt; の**アプリ内広告**] ページを使用して、次の ad ユニットを作成および管理します。
 
