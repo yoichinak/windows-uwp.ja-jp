@@ -7,11 +7,11 @@ ms.topic: article
 keywords: windows 10, uwp, 開発者アカウント, 個人, 会社, ビジネス
 ms.localizationpriority: medium
 ms.openlocfilehash: 1ac6c3e7c89c091d1080364b8fbbb35d484aee49
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.sourcegitcommit: 0426013dc04ada3894dd41ea51ed646f9bb17f6d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74260061"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78853494"
 ---
 # <a name="account-types-locations-and-fees"></a>アカウントの種類、場所、料金
 
@@ -29,7 +29,7 @@ ms.locfileid: "74260061"
 
 この 2 つのアカウントの種類には、次のような重要な違いがあります。
 
-| 個人のアカウント | 会社のアカウント |
+| 個人のアカウント | 会社アカウント |
 |--------------------|-----------------|
 | <ul><li>約 19 米ドルの費用がかかる (1 回限りの登録料。正確な金額は、国または地域によって異なる)</li><li>短いアカウント検証プロセス</li></ul> | <ul><li>約 99 米ドルの費用がかかる (1 回限りの登録料。正確な金額は、国または地域によって異なる)</li><li>より厳格なアカウントの確認が必要になる</li><li>所在地の国または地域で、その会社が会社として認識されている必要がある</li><li>機能が制限されたアプリを提出できる ([Microsoft Store ポリシー](store-policies.md#1014-account-type)の説明に従う)</li></ul> |
 
@@ -47,7 +47,7 @@ ms.locfileid: "74260061"
 
 次の表内の**登録料**とは、開発者アカウントに登録する場合にかかる現在の料金です。 これは、1 回限りの料金であり、更新料は発生しません。 以下の価格は変更される可能性があることにご注意ください。
 
-| 国/地域                    | 個人登録料金 | 会社登録料金 |
+| [国/地域]                    | 個人登録料金 | 会社登録料金 |
 |-----------------------------------|---------------------|------------------|
 | アフガニスタン                       | 19 USD              | 99 USD           |
 | アルバニア                           | 19 USD              | 99 USD           |
@@ -108,11 +108,11 @@ ms.locfileid: "74260061"
 | フェロー諸島                     | 19 USD              | 99 USD           |  
 | フィジー諸島                              | 19 USD              | 99 USD           |  
 | フィンランド                           | 14 EUR              | 75 EUR           |  
-| フランス                            | 14 EUR              | 75 EUR           |  
+| France                            | 14 EUR              | 75 EUR           |  
 | ガボン                             | 19 USD              | 99 USD           |  
 | ガンビア                        | 19 USD              | 99 USD           |  
-| ジョージア                           | 19 USD              | 99 USD           |  
-| ドイツ                           | 14 EUR              | 75 EUR           |  
+| Georgia                           | 19 USD              | 99 USD           |  
+| Germany                           | 14 EUR              | 75 EUR           |  
 | ガーナ                             | 19 USD              | 99 USD           |  
 | ギリシャ                            | 14 EUR              | 75 EUR           |  
 | グリーンランド                         | 19 USD              | 99 USD           |  
@@ -123,7 +123,7 @@ ms.locfileid: "74260061"
 | ガイアナ                            | 19 USD              | 99 USD           |  
 | ハイチ                             | 19 USD              | 99 USD           |  
 | ホンジュラス                          | 19 USD              | 99 USD           |  
-| 香港特別行政区                     | 147 HKD             | 760 HKD          |  
+| 香港                     | 147 HKD             | 760 HKD          |  
 | ハンガリー                           | 4,237 HUF            | 18,800 HUF        |  
 | アイスランド                           | 2,319 ISK            | 11,929 ISK        |
 | インド                             | 1,201 INR            | 4,500 INR         |  
@@ -133,12 +133,12 @@ ms.locfileid: "74260061"
 | イスラエル                            | 67 ILS              | 350 ILS          |  
 | イタリア                             | 14 EUR              | 75 EUR           |  
 | ジャマイカ                           | 19 USD              | 99 USD           |  
-| 日本                             | 1,847 JPY            | 9,800 JPY         |  
+| Japan                             | 1,847 JPY            | 9,800 JPY         |  
 | ヨルダン                            | 13 JOD              | 70 JOD           |  
 | カザフスタン                        | 2,897 KZT            | 15,038 KZT        |  
 | ケニア                             | 1,900 KES            | 9,999 KES         |  
 | キリバス                          | 19 USD              | 99 USD           |  
-| 韓国                             | 21,216 KRW           | 108,000 KRW       |  
+| Korea                             | 21,216 KRW           | 108,000 KRW       |  
 | クウェート                            | 5 KWD               | 28 KWD           |  
 | キルギス                        | 19 USD              | 99 USD           |  
 | ラオス                              | 19 USD              | 99 USD           |  
@@ -222,7 +222,7 @@ ms.locfileid: "74260061"
 | ティモール・レステ                       | 19 USD              | 99 USD           |  
 | トーゴ                              | 19 USD              | 99 USD           |  
 | トンガ                             | 19 USD              | 99 USD           |  
-| トリニダードトバゴ               | 122 TTD             | 636 TTD          |  
+| トリニダード・トバゴ               | 122 TTD             | 636 TTD          |  
 | チュニジア                           | 31 TND              | 140 TND          |  
 | トルコ                            | 37 TRY              | 160 TRY          |  
 | トルクメニスタン                      | 19 USD              | 99 USD           |  

@@ -10,11 +10,11 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: 440f758e5db8bd77d3f26290eb59d7684e5f87a3
-ms.sourcegitcommit: 789bfe3756c5c47f7324b96f482af636d12c0ed3
+ms.sourcegitcommit: 0426013dc04ada3894dd41ea51ed646f9bb17f6d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68867652"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78853063"
 ---
 # <a name="gamepad-and-remote-control-interactions"></a>ゲームパッドとリモコンの操作
 
@@ -22,7 +22,7 @@ ms.locfileid: "68867652"
 
 ***多くの相互作用エクスペリエンスは、ゲームパッド、リモートコントロール、キーボードで共有されます。***
 
-ユニバーサル Windows プラットフォーム (UWP) アプリケーションで相互作用エクスペリエンスを構築します。これにより、アプリは、従来の入力タイプの Pc、ラップトップ、タブレット (マウス、キーボード、タッチなど) と入力の両方を通じて使用可能でアクセスできるようになります。ゲームパッドやリモコンなど、テレビと Xbox の*10 フィート*のエクスペリエンスの一般的なエクスペリエンス。
+ユニバーサル Windows プラットフォーム (UWP) アプリケーションで相互作用エクスペリエンスを構築します。これにより、アプリが使用可能であり、Pc、ラップトップ、タブレット (マウス、キーボード、タッチなど) の従来の入力タイプと、ゲームパッドやリモコンなどのテレビおよび Xbox の*10 フィート*のエクスペリエンスの一般的な入力の種類を使用してアクセスできるようになります。
 
 *10 フィート*のエクスペリエンスにおける UWP アプリケーションの全般的な設計ガイダンスについては、「 [Xbox と TV の設計](../devices/designing-for-tv.md)」を参照してください。
 
@@ -73,21 +73,21 @@ PC でキーボードやマウス、電話とタブレットでタッチを使�
 
 | ボタン                    | ゲームパッド   | リモコン    |
 |---------------------------|-----------|-------------------|
-| A/[選択] ボタン           | [はい]       | [はい]               |
+| A/[選択] ボタン           | はい       | はい               |
 | B/[戻る] ボタン             | はい       | はい               |
-| 方向パッド   | [はい]       | はい               |
+| 方向パッド   | はい       | はい               |
 | メニュー ボタン               | はい       | はい               |
-| 表示ボタン               | [はい]       | はい               |
+| 表示ボタン               | はい       | はい               |
 | X ボタン、Y ボタン           | はい       | いいえ                |
 | 左スティック                | はい       | いいえ                |
-| 右スティック               | [はい]       | いいえ                |
-| 左トリガー、右トリガー   | [はい]       | いいえ                |
-| L ボタン、R ボタン    | [はい]       | いいえ                |
+| 右スティック               | はい       | いいえ                |
+| 左トリガー、右トリガー   | はい       | いいえ                |
+| L ボタン、R ボタン    | はい       | いいえ                |
 | OneGuide ボタン           | いいえ        | はい               |
-| [音量] ボタン             | いいえ        | [はい]               |
-| チャネル ボタン            | いいえ        | [はい]               |
+| [音量] ボタン             | いいえ        | はい               |
+| チャネル ボタン            | いいえ        | はい               |
 | メディア コントロール ボタン     | いいえ        | はい               |
-| [ミュート] ボタン               | いいえ        | [はい]               |
+| [ミュート] ボタン               | いいえ        | はい               |
 
 ### <a name="built-in-button-support"></a>組み込みボタンのサポート
 
@@ -96,11 +96,11 @@ UWP は、既存のキーボード入力動作をゲームパッドとリモコ�
 | キーボード              | ゲームパッド/リモコン                        |
 |-----------------------|---------------------------------------|
 | 方向キー            | 方向パッド (ゲームパッドの左スティックも同じ)    |
-| Space キー              | A/[選択] ボタン                       |
+| スペース バー              | A/[選択] ボタン                       |
 | 以下に                 | A/[選択] ボタン                       |
 | Esc キー                | B/[戻る] ボタン*                        |
 
-\*B ボタンの[KeyDown](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.keydown)イベントと[KeyUp](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.keyup)イベントのどちらもアプリによって処理されない場合、 [Systemnavigationmanager. backrequested](https://docs.microsoft.com/uwp/api/windows.ui.core.systemnavigationmanager.backrequested)イベントが発生します。これにより、アプリ内でナビゲーションが戻るはずです。 ただし、次のコード スニペットのように、これを自分で実装する必要があります。
+\*B ボタンの[KeyDown](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.keydown)イベントと[KeyUp](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.keyup)イベントのどちらもアプリによって処理されない場合、 [Systemnavigationmanager. backrequested](https://docs.microsoft.com/uwp/api/windows.ui.core.systemnavigationmanager.backrequested)イベントが発生します。これにより、アプリ内でナビゲーションが戻ります。 ただし、次のコード スニペットのように、これを自分で実装する必要があります。
 
 ```csharp
 // This code goes in the MainPage class
@@ -155,21 +155,21 @@ Xbox One の UWP アプリでは、**メニュー** ボタンを押してコン�
 
 次の表に、UWP に組み込まれているアクセラレータのサポートと自分で実装することができるアクセラレータのサポートを示します。 一貫性のあるわかりやすいユーザー エクスペリエンスを提供するために、これらの動作をカスタム UI で利用してください。
 
-| 相互作用   | キーボード/マウス   | ゲームパッド      | 組み込み済み:  | 推奨: |
+| ［対話］   | キーボード/マウス   | ゲームパッド      | 組み込み済み:  | 推奨: |
 |---------------|------------|--------------|----------------|------------------|
 | ページ アップ/ダウン  | ページ アップ/ダウン | 左/右トリガー | [CalendarView](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CalendarView)、[ListBox](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListBox)、[ListViewBase](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListViewBase)、[ListView](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView)、`ScrollViewer`、[Selector](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Primitives.Selector)、[LoopingSelector](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Primitives.LoopingSelector)、[ComboBox](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ComboBox)、[FlipView](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.FlipView) | 垂直スクロールをサポートするビュー
 | ページの左/右 | なし | L/R ボタン | [Pivot](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Pivot)、[ListBox](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListBox)、[ListViewBase](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListViewBase)、[ListView](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView)、`ScrollViewer`、[Selector](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Primitives.Selector)、[LoopingSelector](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Primitives.LoopingSelector)、[FlipView](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.FlipView) | 水平スクロールをサポートするビュー
 | ズーム イン/アウト        | Ctrl + 正符号 (+)/マイナス記号 (-) | 左/右トリガー | なし | `ScrollViewer`、ズームインとズームアウトをサポートするビュー |
 | ナビゲーション ウィンドウを開く/閉じる | なし | 表示 | なし | ナビゲーション ウィンドウ |
 | 検索 | なし | Y ボタン | なし | アプリのメインの検索機能へのショートカット |
-| [コンテキストメニューを開く](#commandbar-and-contextflyout) | 右クリック | メニュー ボタン | [ContextFlyout アウト](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement.ContextFlyout) | コンテキスト メニュー |
+| [コンテキストメニューを開く](#commandbar-and-contextflyout) | 右ボタンのクリック | メニュー ボタン | [ContextFlyout アウト](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement.ContextFlyout) | コンテキスト メニュー |
 
 ## <a name="xy-focus-navigation-and-interaction"></a>XY フォーカス ナビゲーションと操作
 
 アプリがキーボードの適切なフォーカス ナビゲーションをサポートしている場合、ゲームパッドとリモコンでも適切にサポートされます。
 方向キーを使ったナビゲーションは**方向パッド** (とゲームパッドの**左スティック**) にマップされ、UI 要素の対話式操作は **Enter/[選択]** キーにマップされます (「[ゲームパッドとリモコン](#gamepad-and-remote-control)」を参照してください)。
 
-多くのイベントやプロパティがキーボードとゲームパッドの両方で使用されます。キーボードとゲームパッドはいずれも `KeyDown` イベントと `KeyUp` イベントを発生させ、`IsTabStop="True"` プロパティと `Visibility="Visible"` プロパティを持つコントロール間のみを移動します。 キーボードの設計ガイダンスについては、「[キーボード操作](../input/keyboard-interactions.md)」をご覧ください。
+多くのイベントやプロパティがキーボードとゲームパッドの両方で使用されます。キーボードとゲームパッドはいずれも &mdash; イベントと `KeyDown` イベントを発生させ、`KeyUp` プロパティと `IsTabStop="True"` プロパティを持つコントロール間のみを移動します。 キーボードの設計ガイダンスについては、「[キーボード操作](../input/keyboard-interactions.md)」をご覧ください。
 
 キーボードのサポートが適切に実装されている場合、アプリはかなり適切に機能します。ただし、すべてのシナリオをサポートするためには追加の作業が必要になります。 最適なユーザー エクスペリエンスを提供するために、アプリ固有のニーズについて考えてください。
 
@@ -195,7 +195,7 @@ page.GotFocus += (object sender, RoutedEventArgs e) =>
 XY ナビゲーションが期待どおりに動作しない場合の一般的な理由には、次の 3 つがあります。
 
 * [IsTabStop](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.istabstop) プロパティまたは [Visibility](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.visibility) プロパティが正しく設定されていません。
-* フォーカスを取得するコントロールが、実際には想定以上の大きさです。XY ナビゲーションでは、関心のあるものをレンダリングするコントロールの部分だけでなく、コントロールの合計サイズ ([ActualWidth](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.actualwidth) と [ActualHeight](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.actualheight)) が考慮されます。
+* フォーカスを取得するコントロールが、実際には想定以上の大きさです。XY ナビゲーションでは、関心のあるものをレンダリングするコントロールの部分だけでなく、コントロールの合計サイズ (&mdash;ActualWidth[ と ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.actualwidth)ActualHeight[) が考慮されます。
 * フォーカス対応コントロールが別のコントロールの上に配置されています。XY ナビゲーションでは、重なり合ったコントロールはサポートされません。
 
 これらの問題を解決しても XY ナビゲーションが引き続き機能しない場合は、「[既定のナビゲーションのオーバーライド](#overriding-the-default-navigation)」で説明されている方法を使って、フォーカスを取得する要素を手動で指定できます。
@@ -273,7 +273,7 @@ XY フォーカス ナビゲーションはユーザーの動作を上下左右�
 
 ### <a name="path-of-least-clicks"></a>最小回数のクリック数
 
-ユーザーが最も一般的なタスクを最小クリック回数で実行できるようにしてください。 次の例では、(最初にフォーカスがある) **再生**ボタンとよく使われる要素の間に [TextBlock](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock) が配置されているため、優先順位の高いタスクの間に不要な要素が入り込んでいます。
+ユーザーが最も一般的なタスクを最小クリック回数で実行できるようにしてください。 次の例では、(最初にフォーカスがある) [再生](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock)ボタンとよく使われる要素の間に **TextBlock** が配置されているため、優先順位の高いタスクの間に不要な要素が入り込んでいます。
 
 ![ナビゲーションのベスト プラクティスは最小限のクリックのパスを提供すること](images/designing-for-tv/2d-navigation-best-practices-provide-path-with-least-clicks.png)
 
@@ -284,15 +284,15 @@ XY フォーカス ナビゲーションはユーザーの動作を上下左右�
 
 ### <a name="commandbar-and-contextflyout"></a>CommandBar と ContextFlyout
 
-[CommandBar](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CommandBar)を使用する場合は、「問題」に[記載されているリストをスクロールする際の問題に注意してください。長いスクロールリスト/グリッド](#problem-ui-elements-located-after-long-scrolling-list-grid)の後に配置されている UI 要素。 次の図は、`CommandBar` がリストやグリッドの下にある UI レイアウトです。 ユーザーはリストやグリッド全体をスクロールしなければ `CommandBar` に到達できません。
+「[問題: 長いスクロールをするリストやグリッドの後にある UI 要素](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CommandBar)」で説明するように、[CommandBar](#problem-ui-elements-located-after-long-scrolling-list-grid) を使う場合はリストのスクロールの問題に配慮してください。 次の図は、`CommandBar` がリストやグリッドの下にある UI レイアウトです。 ユーザーはリストやグリッド全体をスクロールしなければ `CommandBar` に到達できません。
 
 ![リストやグリッドの下にある CommandBar](images/designing-for-tv/2d-navigation-best-practices-commandbar-and-contextflyout.png)
 
-`CommandBar` *上*にリスト/グリッドを配置するとどうなりますか。 リストやグリッドを下へスクロールしたユーザーは `CommandBar` に戻るために上へスクロールして戻る必要がありますが、前の構成よりもナビゲーションはわずかに少なくなります。 ただし、これは、アプリの最初のフォーカスが `CommandBar` の横または上に配置されている場合です。最初のフォーカスがリストやグリッドの下にある場合、この方法はうまく機能しません。 これらの `CommandBar` 項目があまりアクセスする必要のないグローバルな操作の項目の場合 (**同期** ボタンなど)、リストやグリッドの上に置いても問題ありません。
+`CommandBar` をリスト/グリッドの*上*に配置するとどうなりますか。 リストやグリッドを下へスクロールしたユーザーは `CommandBar` に戻るために上へスクロールして戻る必要がありますが、前の構成よりもナビゲーションはわずかに少なくなります。 ただし、これは、アプリの最初のフォーカスが `CommandBar` の横または上に配置されている場合です。最初のフォーカスがリストやグリッドの下にある場合、この方法はうまく機能しません。 これらの `CommandBar` 項目があまりアクセスする必要のないグローバルな操作の項目の場合 (**同期** ボタンなど)、リストやグリッドの上に置いても問題ありません。
 
 `CommandBar` の項目を縦方向に重ねることはできませんが、UI レイアウトで適切な場合はスクロール方向と異なる向き (たとえば、縦方向にスクロールするリストの左右や、横方向にスクロールするリストの上下) に項目を配置することも検討できます。
 
-ユーザーが項目に簡単にアクセスできる必要がある `CommandBar` をアプリで使う場合、それらの項目を [ContextFlyout](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.contextflyout) 内に配置して `CommandBar` から削除することを検討できます。 `ContextFlyout`は[UIElement](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement)のプロパティであり、その要素に関連付けられた[コンテキストメニュー](../controls-and-patterns/dialogs-and-flyouts/index.md)です。 PC では、`ContextFlyout` を持つ要素を右クリックすると、そのコンテキスト メニューがポップアップ表示されます。 Xbox One では、このような要素にフォーカスがあるときに**メニュー** ボタンを押すと、コンテキスト メニューがポップアップ表示されます。
+ユーザーが項目に簡単にアクセスできる必要がある `CommandBar` をアプリで使う場合、それらの項目を [ContextFlyout](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.contextflyout) 内に配置して `CommandBar` から削除することを検討できます。 `ContextFlyout` は[UIElement](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement)のプロパティであり、その要素に関連付けられた[コンテキストメニュー](../controls-and-patterns/dialogs-and-flyouts/index.md)です。 PC では、`ContextFlyout` を持つ要素を右クリックすると、そのコンテキスト メニューがポップアップ表示されます。 Xbox One では、このような要素にフォーカスがあるときに**メニュー** ボタンを押すと、コンテキスト メニューがポップアップ表示されます。
 
 ### <a name="ui-layout-challenges"></a>UI レイアウトの問題
 
@@ -311,13 +311,13 @@ XY フォーカス ナビゲーションの特性により、一部の UI レイ
 
 ![架空の不動産アプリ](images/designing-for-tv/2d-focus-navigation-and-interaction-real-estate-app.png)
 
-#### 問題 : 長いスクロールリスト/グリッドの後に配置された UI 要素<a name="problem-ui-elements-located-after-long-scrolling-list-grid"></a>
+#### 問題: 長いスクロールをするリストやグリッドの後にある UI 要素 <a name="problem-ui-elements-located-after-long-scrolling-list-grid"></a>
 
-次の図に示すプロパティの [ListView](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView) は、非常に長いスクロールをするリストです。 この `ListView` で[エンゲージメント](#focus-engagement)が要求され*ない*場合、ユーザーがリストに移動するとフォーカスはリストの最初の項目に設定されます。 ユーザーが **[前へ]** または **[次へ]** ボタンにアクセスするには、リスト内のすべての項目を移動する必要があります。 このような、リスト全体を移動する必要がある設計は、ユーザーがそのエクスペリエンスを許容できるほどリストが短くなければ煩わしくなるため、その他のオプションを検討することをお勧めします。
+次の図に示すプロパティの [ListView](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView) は、非常に長いスクロールをするリストです。 この [ で](#focus-engagement)エンゲージメント*が要求され*ない`ListView`場合、ユーザーがリストに移動するとフォーカスはリストの最初の項目に設定されます。 ユーザーが **[前へ]** または **[次へ]** ボタンにアクセスするには、リスト内のすべての項目を移動する必要があります。 このような、リスト全体を移動する必要がある設計は、ユーザーがそのエクスペリエンスを許容できるほどリストが短くなければ煩わしくなるため、その他のオプションを検討することをお勧めします。
 
 ![不動産アプリ: 50 個の項目があるリストは、下のボタンに移動するまでに 51 回のクリックが必要](images/designing-for-tv/2d-focus-navigation-and-interaction-real-estate-app-list.png)
 
-#### <a name="solutions"></a>解決策
+#### <a name="solutions"></a>ソリューション
 
 **UI の再配置<a name="ui-rearrange"></a>**
 
@@ -333,14 +333,14 @@ XY フォーカス ナビゲーションの特性により、一部の UI レイ
 
 ![不動産アプリ: エンゲージメントの要求を設定して 1 クリックのみで [前へ]/[次へ] ボタンにアクセス](images/designing-for-tv/2d-focus-navigation-and-interaction-engagement.png)
 
-#### <a name="problem-scrollviewer-without-any-focusable-elements"></a>問題 : フォーカスを持つ要素を持たない ScrollViewer
+#### <a name="problem-scrollviewer-without-any-focusable-elements"></a>問題: フォーカス可能な要素がない ScrollViewer
 
 XY フォーカス ナビゲーションは、フォーカス可能な UI 要素に 1 回で移動できることを前提としているため、フォーカス可能な要素を 1 つも含まない [ScrollViewer](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ScrollViewer) (この例ではテキストのみの要素) は、ユーザーが `ScrollViewer` のすべてのコンテンツを表示することができない状況を招く可能性があります。
 この問題の解決策とその他の関連するシナリオについては、「[フォーカス エンゲージメント](#focus-engagement)」をご覧ください。
 
-![不動産アプリ:テキストのみを含む ScrollViewer](images/designing-for-tv/2d-focus-navigation-and-interaction-scrollviewer.png)
+![不動産アプリ: テキストのみが含まれる ScrollViewer](images/designing-for-tv/2d-focus-navigation-and-interaction-scrollviewer.png)
 
-#### <a name="problem-free-scrolling-ui"></a>問題 : フリースクロールの UI
+#### <a name="problem-free-scrolling-ui"></a>問題: 自由スクロール UI
 
 描画面や次の例にある地図など、アプリに自由スクロール UI が必要な場合、XY フォーカス ナビゲーションのみでは機能しません。
 このような場合は、[マウス モード](#mouse-mode)をオンにして、ユーザーが UI 要素内を自由に移動できるようにします。
@@ -473,7 +473,7 @@ HTML/JavaScript のサンプル コードなどの詳細情報については、
 
 ### <a name="light-dismiss-overlay"></a>簡易非表示オーバーレイ
 
-ユーザーが現在ゲーム コントローラーまたはリモコンで操作している UI 要素にユーザーの注意を引きつけるために、アプリが Xbox One で実行されている場合は、UWP ではポップアップ UI 以外の領域をカバーする「スモーク」レイヤーが自動的に追加されます。 このための追加作業は必要ありませんが、UI を設計する際に留意してください。 いずれかの `FlyoutBase` で `LightDismissOverlayMode` プロパティを設定して、スモーク レイヤーを有効または無効にすることができます。既定の設定は `Auto` で、Xbox では有効になり、その他の場所では無効になります。 詳しくは、「[モーダルと簡易非表示](../controls-and-patterns/menus.md)」をご覧ください。
+ユーザーが現在ゲーム コントローラーまたはリモコンで操作している UI 要素にユーザーの注意を引きつけるために、アプリが Xbox One で実行されている場合は、UWP ではポップアップ UI 以外の領域をカバーする「スモーク」レイヤーが自動的に追加されます。 このための追加作業は必要ありませんが、UI を設計する際に留意してください。 いずれかの `LightDismissOverlayMode` で `FlyoutBase` プロパティを設定して、スモーク レイヤーを有効または無効にすることができます。既定の設定は `Auto` で、Xbox では有効になり、その他の場所では無効になります。 詳しくは、「[モーダルと簡易非表示](../controls-and-patterns/menus.md)」をご覧ください。
 
 ## <a name="focus-engagement"></a>フォーカス エンゲージメント
 
@@ -482,7 +482,7 @@ HTML/JavaScript のサンプル コードなどの詳細情報については、
 > [!NOTE]
 > フォーカス エンゲージメントを設定しても、キーボードなどの他の入力デバイスには影響しません。
 
-[FrameworkElement](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.FrameworkElement) オブジェクトのプロパティ `IsFocusEngagementEnabled` を `True` に設定すると、コントロールがフォーカス エンゲージメントを要求するよう設定されます。 この場合、コントロールを "獲得" して操作するには、ユーザーが **A/[選択]** ボタンをクリックする必要があります。 終了したら、**B/[戻る]** ボタンをクリックしてコントロールのエンゲージメントを解除すると、コントロールから移動できるようになります。
+`IsFocusEngagementEnabled`FrameworkElement[ オブジェクトのプロパティ ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.FrameworkElement) を `True` に設定すると、コントロールがフォーカス エンゲージメントを要求するよう設定されます。 この場合、コントロールを "獲得" して操作するには、ユーザーが **A/[選択]** ボタンをクリックする必要があります。 終了したら、**B/[戻る]** ボタンをクリックしてコントロールのエンゲージメントを解除すると、コントロールから移動できるようになります。
 
 > [!NOTE]
 > `IsFocusEngagementEnabled` は新しい API で、まだ文書化されていません。
@@ -510,7 +510,7 @@ HTML/JavaScript のサンプル コードなどの詳細情報については、
 
 `Slider` でフォーカス エンゲージメントを要求すると、ユーザーは方向パッド/左スティックを右に 2 回押すだけで右側のボタンに移動できます。 この解決策は、UI の調整なしで予期する動作を実現できるので便利です。
 
-### <a name="items-controls"></a>項目コントロール
+### <a name="items-controls"></a>アイテム コントロール
 
 [Slider](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Slider) コントロール以外にもエンゲージメントを要求できるコントロールがあります。
 
@@ -529,7 +529,7 @@ HTML/JavaScript のサンプル コードなどの詳細情報については、
 ボタンに移動するには、ユーザーは `ListView` のすべての項目を移動していく必要があります。
 `ListView` に大量のデータが含まれている場合は、この操作に手間がかかり、最適なユーザー エクスペリエンスになりません。
 
-この問題を解決するには、`ListView` でプロパティ `IsFocusEngagementEnabled="True"` を設定し、エンゲージメントを要求します。
+この問題を解決するには、`IsFocusEngagementEnabled="True"` でプロパティ `ListView` を設定し、エンゲージメントを要求します。
 この結果、ユーザーは下に押すだけで `ListView` まで迅速にスキップできます。 ただし、一覧にエンゲージメントを設定しないと、一覧をスクロールしたり、一覧から項目を選んだりすることはできません。エンゲージメントを設定するには、フォーカスがある状態で **A/[選択]** ボタンを押します。エンゲージメントを解除するには、**B/[戻る]** ボタンを押します。
 
 ![エンゲージメントが要求される ListView](images/designing-for-tv/focus-engagement-list-and-grid-controls-2.png)
@@ -538,32 +538,32 @@ HTML/JavaScript のサンプル コードなどの詳細情報については、
 
 これらのコントロールと少し異なる点は、[ScrollViewer](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ScrollViewer) です。ScrollViewer には、考慮すべき独自の Quirk があります。 フォーカス可能なコンテンツを含む `ScrollViewer` がある場合、`ScrollViewer` に移動すると既定でフォーカス可能なコンテンツ間を移動できます。 `ListView` の場合と同様に、`ScrollViewer` 以外の場所に移動するには、各項目をスクロールする必要があります。
 
-`ScrollViewer` にフォーカス可能なコンテンツが*ない*場合 (テキストのみが含まれる場合など)、ユーザーが **A/[選択]** ボタンを使って `ScrollViewer` にエンゲージメントを設定できるように、`IsFocusEngagementEnabled="True"` を設定できます。 エンゲージメントの設定後、**方向パッド/左スティック**を使ってテキストをスクロールできます。作業が終わったら、**B/[戻る]** ボタンを押してエンゲージメントを解除できます。
+`ScrollViewer` にフォーカス可能なコンテンツが*ない*場合 (テキストのみが含まれる場合など)、ユーザーが &mdash;A/[選択]&mdash; ボタンを使って `IsFocusEngagementEnabled="True"` にエンゲージメントを設定できるように、`ScrollViewer` を設定できます。 エンゲージメントの設定後、**方向パッド/左スティック**を使ってテキストをスクロールできます。作業が終わったら、**B/[戻る]** ボタンを押してエンゲージメントを解除できます。
 
-別の方法としては、ユーザーがコントロールにエンゲージメントを設定しなくてすむように `ScrollViewer` で `IsTabStop="True"` を設定します。`ScrollViewer` 内にフォーカス可能な要素がない場合にも、**D パッド/左スティック**を使って、単にフォーカスしてからスクロールできます。
+別の方法としては、ユーザーがコントロールにエンゲージメントを設定しなくてすむように `IsTabStop="True"` で `ScrollViewer` を設定します。&mdash; 内にフォーカス可能な要素がない場合にも、**D パッド/左スティック**を使って、単にフォーカスしてからスクロールできます。
 
 ### <a name="focus-engagement-defaults"></a>フォーカス エンゲージメントの既定値
 
 一部のコントロールでは、フォーカスのトラップがよく発生するため、既定の設定でフォーカス エンゲージメントを要求する方が良い場合があります。また、コントロールによっては既定でフォーカス エンゲージメントが無効になっていますが、有効にする方が良い場合があります。 次の表は、これらのコントロールと、既定のフォーカス エンゲージメントの動作を示します。
 
-| コントロール               | フォーカス エンゲージメントの既定値  |
+| Control               | フォーカス エンゲージメントの既定値  |
 |-----------------------|---------------------------|
-| CalendarDatePicker    | 基準                        |
-| FlipView              | Off                       |
-| GridView              | Off                       |
-| ListBox               | Off                       |
-| ListView              | Off                       |
-| ScrollViewer          | Off                       |
-| SemanticZoom          | Off                       |
-| スライダー                | 基準                        |
+| CalendarDatePicker    | オン                        |
+| flipView              | オフ                       |
+| GridView              | オフ                       |
+| ListBox               | オフ                       |
+| ListView              | オフ                       |
+| ScrollViewer          | オフ                       |
+| SemanticZoom          | オフ                       |
+| [スライダー]                | オン                        |
 
 他のすべての UWP コントロールは、`IsFocusEngagementEnabled="True"` のとき、動作の変更または視覚的な変更はありません。
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>要約
 
 特定のデバイスまたはエクスペリエンスに最適化された UWP アプリケーションを構築できますが、ユニバーサル Windows プラットフォームでは、2フィートと10フィートの両方のエクスペリエンスで、入力に関係なく、デバイス全体で正常に使用できるアプリを構築することもできます。デバイスまたはユーザーの機能。 この記事に記載されている推奨事項を使用すると、アプリが TV と PC の両方で使用できるようになります。
 
-## <a name="related-articles"></a>関連記事
+## <a name="related-articles"></a>関連トピック
 
 - [Xbox およびテレビ向け設計](../devices/designing-for-tv.md)
 - [ユニバーサル Windows プラットフォーム (UWP) アプリ用のデバイス入門](index.md)

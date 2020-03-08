@@ -6,11 +6,11 @@ ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、プロジェクション、処理、イベント、デリゲート
 ms.localizationpriority: medium
 ms.openlocfilehash: b64fbe93198af95402161873c1d68d0da41f33f7
-ms.sourcegitcommit: d37a543cfd7b449116320ccfee46a95ece4c1887
+ms.sourcegitcommit: 0426013dc04ada3894dd41ea51ed646f9bb17f6d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68270111"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78853401"
 ---
 # <a name="handle-events-by-using-delegates-in-cwinrt"></a>C++/WinRT でのデリゲートを使用したイベントの処理
 
@@ -195,7 +195,7 @@ Button::Click_revoker Click(winrt::auto_revoke_t,
 
 ### <a name="if-your-auto-revoke-delegate-fails-to-register"></a>自動取り消しのデリゲートの登録が失敗する場合
 
-デリゲートを登録するときに [**winrt::auto_revoke**](/uwp/cpp-ref-for-winrt/auto-revoke-t) を指定しようとして、結果が [**winrt::hresult_no_interface**](/uwp/cpp-ref-for-winrt/error-handling/hresult-no-interface) 例外である場合、通常それはイベント ソースで弱い参照がサポートされていないことを意味します。 たとえば、[**Windows.UI.Composition** ](/uwp/api/windows.ui.composition) 名前空間ではよくあることです。 このような場合は、自動取り消し機能を使用できません。 イベント ハンドラーの手動取り消しにフォールバックする必要があります。
+デリゲートを登録するときに [**winrt::auto_revoke**](/uwp/cpp-ref-for-winrt/auto-revoke-t) を指定しようとして、結果が [**winrt::hresult_no_interface**](/uwp/cpp-ref-for-winrt/error-handling/hresult-no-interface) 例外である場合、通常それはイベント ソースで弱い参照がサポートされていないことを意味します。 たとえば、[**Windows.UI.Composition**](/uwp/api/windows.ui.composition) 名前空間ではよくあることです。 このような場合は、自動取り消し機能を使用できません。 イベント ハンドラーの手動取り消しにフォールバックする必要があります。
 
 ## <a name="delegate-types-for-asynchronous-actions-and-operations"></a>非同期アクションと非同期操作のデリゲート型
 

@@ -7,16 +7,16 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: 73da4a2a590c5f1d860bb480c6d81b01e5e93819
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.sourcegitcommit: 0426013dc04ada3894dd41ea51ed646f9bb17f6d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66359876"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78853189"
 ---
 # <a name="listview-and-gridview-ui-optimization"></a>ListView と GridView の UI の最適化
 
 
-**注**  詳細については、「//build/ セッション[が大幅に向上パフォーマンスのユーザー大きな GridView と ListView にデータの量と対話する際に](https://channel9.msdn.com/events/build/2013/3-158)します。
+**注**   詳細については、 [GridView および ListView でユーザーが大量のデータを操作すると](https://channel9.msdn.com/events/build/2013/3-158)、build/session を使用してパフォーマンスが劇的に向上します。
 
 [  **ListView**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView) と [**GridView**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.GridView) のパフォーマンスと起動時間を、UI の仮想化や要素の削減、項目の段階的な更新を通して向上させます。 データ仮想化の手法については、[ListView と GridView のデータ仮想化](listview-and-gridview-data-optimization.md)」をご覧ください。
 
@@ -30,9 +30,9 @@ ms.locfileid: "66359876"
 
 ## <a name="ui-virtualization"></a>UI の仮想化
 
-UI の仮想化は、実行できる最も重要な改善策です。 これは、項目を表す UI 要素がオンデマンドで作成されることを意味します。 1,000 項目のコレクションにバインドされている項目コントロールでは、すべての項目の UI を同時に作成しても、同時に全部を表示することはできないため、リソースを無駄に使うことになります。 [**ListView** ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView)と[ **GridView** ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.GridView) (とその他の標準[ **ItemsControl**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ItemsControl)-コントロールの派生)使用するには、UI の仮想化を実行します。 数ページ先にある項目がスクロールされて表示されそうになると、フレームワークがその項目用の UI を生成してキャッシュします。 項目がもう一度表示される可能性が低い場合、フレームワークはメモリを解放します。
+UI の仮想化は、実行できる最も重要な改善策です。 これは、項目を表す UI 要素がオンデマンドで作成されることを意味します。 1,000 項目のコレクションにバインドされている項目コントロールでは、すべての項目の UI を同時に作成しても、同時に全部を表示することはできないため、リソースを無駄に使うことになります。 [**ListView**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView)と[**GridView**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.GridView) (およびその他の標準の[**ItemsControl**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ItemsControl)派生コントロール) は、UI の仮想化を実行します。 数ページ先にある項目がスクロールされて表示されそうになると、フレームワークがその項目用の UI を生成してキャッシュします。 項目がもう一度表示される可能性が低い場合、フレームワークはメモリを解放します。
 
-カスタム項目パネル テンプレート ([**ItemsPanel**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemspanel) をご覧ください) を用意する場合は、[**ItemsWrapGrid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ItemsWrapGrid) や [**ItemsStackPanel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ItemsStackPanel) などの仮想パネルを必ず使用してください。 [  **VariableSizedWrapGrid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.VariableSizedWrapGrid)、[**WrapGrid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.WrapGrid)、または [**StackPanel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.StackPanel) を使用した場合、仮想化は得られません。 また、次[ **ListView** ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView)を使用する場合にのみ、イベントが発生した、 [ **ItemsWrapGrid** ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ItemsWrapGrid)または[ **ItemsStackPanel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ItemsStackPanel):[**ChoosingGroupHeaderContainer**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase.choosinggroupheadercontainer)、 [ **ChoosingItemContainer**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase.choosingitemcontainer)、および[ **ContainerContentChanging** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase.containercontentchanging).
+カスタム項目パネル テンプレート ([**ItemsPanel**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemspanel) をご覧ください) を用意する場合は、[**ItemsWrapGrid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ItemsWrapGrid) や [**ItemsStackPanel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ItemsStackPanel) などの仮想パネルを必ず使用してください。 [  **VariableSizedWrapGrid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.VariableSizedWrapGrid)、[**WrapGrid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.WrapGrid)、または [**StackPanel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.StackPanel) を使用した場合、仮想化は得られません。 また、[**ChoosingGroupHeaderContainer**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView)、[**ChoosingItemContainer**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ItemsWrapGrid)、[**ContainerContentChanging**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ItemsStackPanel) の各 [**ListView**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase.choosinggroupheadercontainer) イベントは、[**ItemsWrapGrid**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase.choosingitemcontainer) または [**ItemsStackPanel**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase.containercontentchanging) を使用したときにのみ発生します。
 
 表示される可能性のある要素の作成はフレームワークが行う必要があるため、ビューポートの概念は UI の仮想化にとって非常に重要です。 一般的に、[**ItemsControl**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ItemsControl) のビューポートは論理コントロールの範囲を指します。 たとえば、[**ListView**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView) のビューポートは **ListView** 要素の幅と高さです。 一部のパネルでは子要素に制限のない空間を与えることができます。たとえば [**ScrollViewer**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ScrollViewer) や [**Grid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid) では、行または列のサイズが自動的に調整されます。 このようなパネルに仮想化された **ItemsControl** を配置すると、すべての項目を表示できるスペースが用意され、仮想化の意味がなくなります。 仮想化を復元するには、**ItemsControl** に幅と高さを設定します。
 
@@ -81,7 +81,7 @@ UI の仮想化は、実行できる最も重要な改善策です。 これは�
 
 一時的なプレースホルダーの視覚効果機能は、既定でオンになっています。それは [**ShowsScrollingPlaceholders**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase.showsscrollingplaceholders) プロパティによって制御されます。 高速なパン/スクロールが行われている間、この機能は、滑らかな動きを維持したまま、完全に表示されていない項目が存在することを示す視覚的なヒントをユーザーに与えます。 次のいずれかの手法を使う場合は、必要に応じて **ShowsScrollingPlaceholders** を false に設定して、プレースホルダーが表示されないようにすることができます。
 
-**X: フェーズを使用してプログレッシブ データ テンプレートの更新**
+**X:Phase を使用したプログレッシブデータテンプレートの更新**
 
 [x:Phase 属性](https://docs.microsoft.com/windows/uwp/xaml-platform/x-phase-attribute)と [{x:Bind}](https://docs.microsoft.com/windows/uwp/xaml-platform/x-bind-markup-extension) バインドを使って段階的なデータ テンプレートの更新を実装する方法を次に示します。
 
@@ -145,7 +145,7 @@ UI の仮想化は、実行できる最も重要な改善策です。 これは�
 
 3.  今すぐアプリを実行し、グリッド ビューですばやくパン/スクロールすると、新しい項目が画面に表示されるとき、項目は最初は濃い灰色の四角形としてレンダリングされ ([**ShowsScrollingPlaceholders**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase.showsscrollingplaceholders) プロパティが既定で **true** に設定されているためです)、次にタイトルが表示され、その後にサブタイトルと説明が表示されることがわかります。
 
-**プログレッシブ データ テンプレートでは、ContainerContentChanging を使用して更新プログラムします。**
+**ContainerContentChanging を使用したプログレッシブデータテンプレートの更新**
 
 [  **ContainerContentChanging**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase.containercontentchanging) の一般的な戦略は、**Opacity** を使ってすぐに表示する必要がない要素を非表示にすることです。 要素をリサイクルすると以前の値が保持されるため、新しいデータ項目の値で更新するまで、要素を非表示にします。 イベント引数で **Phase** プロパティを使って、どの要素を更新して表示するかを決めます。 追加のフェーズが必要な場合は、コールバックを登録します。
 
@@ -250,7 +250,7 @@ UI の仮想化は、実行できる最も重要な改善策です。 これは�
 
 **ChoosingItemContainer イベント**
 
-[**ChoosingItemContainer** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase.choosingitemcontainer)イベントを提供することができますです (**ListViewItem**/**GridViewItem**) に、 [ **ListView**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView)/[**GridView** ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.GridView)スタートアップまたはリサイクル中に新しい項目が必要なときにします。 コンテナーが表示するデータ項目の種類に基づいてコンテナーを作成できます (次の例で示します)。 **ChoosingItemContainer** は、より効率よく、異なる項目に異なるデータ テンプレートを使用するための方法です。 **ChoosingItemContainer** を使って実現できるものとして、コンテナーのキャッシュがあります。 たとえば、5 種類のテンプレートがあり、そのうちの 1 つのテンプレートが、他と比べて 1 桁多く発生している場合、ChoosingItemContainer を使うと、必要な比率で項目を作成できるだけでなく、キャッシュされた要素とリサイクルに利用できる要素も適切な数に維持されます。 [**ChoosingGroupHeaderContainer** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase.choosinggroupheadercontainer)グループ ヘッダーの同じ機能を提供します。
+[**ChoosingItemContainer**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase.choosingitemcontainer)は、起動時またはリサイクル中に新しい項目が必要になったときに、 [**ListView**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView)/[**GridView**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.GridView)に項目 (**ListViewItem**/**GridViewItem**) を提供できるようにするイベントです。 コンテナーが表示するデータ項目の種類に基づいてコンテナーを作成できます (次の例で示します)。 **ChoosingItemContainer** は、より効率よく、異なる項目に異なるデータ テンプレートを使用するための方法です。 **ChoosingItemContainer** を使って実現できるものとして、コンテナーのキャッシュがあります。 たとえば、5 種類のテンプレートがあり、そのうちの 1 つのテンプレートが、他と比べて 1 桁多く発生している場合、ChoosingItemContainer を使うと、必要な比率で項目を作成できるだけでなく、キャッシュされた要素とリサイクルに利用できる要素も適切な数に維持されます。 [**ChoosingGroupHeaderContainer**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase.choosinggroupheadercontainer)では、グループヘッダーと同じ機能が提供されます。
 
 ```csharp
 // Example shows how to use ChoosingItemContainer to return the correct
@@ -312,7 +312,7 @@ private void ListView_ChoosingItemContainer
 }
 ```
 
-**項目テンプレート セレクター**
+**項目テンプレートセレクター**
 
 項目テンプレート セレクター ([**DataTemplateSelector**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.DataTemplateSelector)) により、アプリで、表示されるデータ項目の種類に基づいて、実行時に異なる項目テンプレートを返すことができます。 これにより、開発の生産性は向上しますが、すべてのデータ項目について、すべての項目テンプレートを再利用できるわけではないため、UI の仮想化はより難しくなります。
 

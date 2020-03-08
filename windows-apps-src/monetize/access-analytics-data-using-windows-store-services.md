@@ -8,11 +8,11 @@ keywords: Windows 10, UWP, Store サービス, Microsoft Store 分析 API
 ms.localizationpriority: medium
 ms.custom: RS5
 ms.openlocfilehash: 3b732da8f92c258647f905e6939dc3cb1b9c9f87
-ms.sourcegitcommit: 3e47987fb4f86a6349ffe8262675f50971c77472
+ms.sourcegitcommit: 0426013dc04ada3894dd41ea51ed646f9bb17f6d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74954066"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78853359"
 ---
 # <a name="access-analytics-data-using-store-services"></a>ストア サービスを使った分析データへのアクセス
 
@@ -48,7 +48,7 @@ Azure AD アプリケーションをパートナーセンターアカウント�
 
 <span id="obtain-an-azure-ad-access-token" />
 
-## <a name="step-2-obtain-an-azure-ad-access-token"></a>手順 2. Azure AD のアクセス トークンを取得する
+## <a name="step-2-obtain-an-azure-ad-access-token"></a>手順 2: Azure AD のアクセス トークンを取得する
 
 Microsoft Store 分析 API のいずれかのメソッドを呼び出す前に、まず API の各メソッドの **Authorization** ヘッダーに渡す Azure AD アクセス トークンを取得する必要があります。 アクセス トークンを取得した後、アクセス トークンを使用できるのは、その有効期限が切れるまでの 60 分間です。 トークンの有効期限が切れた後は、トークンを更新してそれ以降の API 呼び出しで引き続き使用できます。
 
@@ -89,7 +89,7 @@ Azure AD アクセス トークンを取得したら、Microsoft Store 分析 AP
 |---------------|--------------------|
 | 取得、変換、インストール、および使用 |  <ul><li>[アプリの購入を取得](get-app-acquisitions.md)する (レガシ)</li><li>[アプリ取得じょうごデータを取得](get-acquisition-funnel-data.md)する (レガシ)</li><li>[チャネルによるアプリ変換の取得](get-app-conversions-by-channel.md)</li><li>[アドオンの購入を取得する](get-in-app-acquisitions.md)</li><li>[サブスクリプションのアドオンの取得](get-subscription-acquisitions.md)</li><li>[チャンネル別のアドオン変換を取得する](get-add-on-conversions-by-channel.md)</li><li>[アプリのインストールを取得する](get-app-installs.md)</li><li>[アプリの使用量を毎日取得する](get-app-usage-daily.md)</li><li>[月単位のアプリの使用状況の取得](get-app-usage-monthly.md)</li></ul> |
 | アプリのエラー | <ul><li>[エラーレポートデータの取得](get-error-reporting-data.md)</li><li>[アプリのエラーの詳細を取得する](get-details-for-an-error-in-your-app.md)</li><li>[アプリでエラーのスタックトレースを取得する](get-the-stack-trace-for-an-error-in-your-app.md)</li><li>[アプリでエラーの CAB ファイルをダウンロードする](download-the-cab-file-for-an-error-in-your-app.md)</li></ul> |
-| 分析情報 | <ul><li>[アプリの洞察データを取得する](get-insights-data-for-your-app.md)</li></ul>  |
+| イン | <ul><li>[アプリの洞察データを取得する](get-insights-data-for-your-app.md)</li></ul>  |
 | 評価とレビュー | <ul><li>[アプリの評価を取得する](get-app-ratings.md)</li><li>[アプリのレビューを取得する](get-app-reviews.md)</li></ul> |
 | アプリ内広告と広告キャンペーン | <ul><li>[Ad パフォーマンスデータを取得する](get-ad-performance-data.md)</li><li>[Ad キャンペーンのパフォーマンスデータを取得する](get-ad-campaign-performance-data.md)</li></ul> |
 
@@ -100,9 +100,9 @@ Azure AD アクセス トークンを取得したら、Microsoft Store 分析 AP
 | シナリオ       | メソッド      |
 |---------------|--------------------|
 | インストール |  <ul><li>[デスクトップアプリケーションのインストールを取得する](get-desktop-app-installs.md)</li></ul> |
-| ブロック |  <ul><li>[デスクトップアプリケーションのアップグレードブロックを取得する](get-desktop-block-data.md)</li><li>[デスクトップアプリケーションのアップグレードブロックの詳細を取得する](get-desktop-block-data-details.md)</li></ul> |
+| Blocks |  <ul><li>[デスクトップアプリケーションのアップグレードブロックを取得する](get-desktop-block-data.md)</li><li>[デスクトップアプリケーションのアップグレードブロックの詳細を取得する](get-desktop-block-data-details.md)</li></ul> |
 | アプリケーション エラー |  <ul><li>[デスクトップアプリケーションのエラーレポートデータを取得する](get-desktop-application-error-reporting-data.md)</li><li>[デスクトップアプリケーションでエラーの詳細を取得する](get-details-for-an-error-in-your-desktop-application.md)</li><li>[デスクトップアプリケーションでエラーのスタックトレースを取得する](get-the-stack-trace-for-an-error-in-your-desktop-application.md)</li><li>[デスクトップアプリケーションでエラーの CAB ファイルをダウンロードする](download-the-cab-file-for-an-error-in-your-desktop-application.md)</li></ul> |
-| 分析情報 | <ul><li>[デスクトップアプリケーションの洞察データを取得する](get-insights-data-for-your-desktop-app.md)</li></ul>  |
+| イン | <ul><li>[デスクトップアプリケーションの洞察データを取得する](get-insights-data-for-your-desktop-app.md)</li></ul>  |
 
 ### <a name="methods-for-xbox-live-services"></a>Xbox Live サービス向けのメソッド
 

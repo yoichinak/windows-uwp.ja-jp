@@ -8,11 +8,11 @@ keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.custom: RS5
 ms.openlocfilehash: 8568a4613b5bb62b98edc7edd302a42153e5e33b
-ms.sourcegitcommit: 445320ff0ee7323d823194d4ec9cfa6e710ed85d
+ms.sourcegitcommit: 0426013dc04ada3894dd41ea51ed646f9bb17f6d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72281791"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78853213"
 ---
 # <a name="introduction-to-uwp-app-design"></a>UWP アプリ設計の概要
 
@@ -112,7 +112,7 @@ UWP コントロールとコントロールに基づいて作成できるパタ�
 
 ![アクセント カラーの gif](images/intro-style.gif)
 
-## <a name="shell"></a>シェル
+## <a name="shell"></a>Shell
 
 :::row:::
     :::column:::
@@ -144,7 +144,7 @@ UWP アプリではスマート操作が使用されます。 クリックの発
 
 同様に、UWP では、さまざまなデバイスに合わせてアプリを自動的にスケーリングしますが、[特定のデバイス向けに UWP アプリを最適化](../devices/index.md)することもできます。
 
-## <a name="usability"></a>ユーザビリティ
+## <a name="usability"></a>使いやすさ
 
 <img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/REYaAb?ver=727c">
 

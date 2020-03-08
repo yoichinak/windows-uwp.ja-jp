@@ -7,11 +7,11 @@ keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.custom: RS5
 ms.openlocfilehash: 37d0ca71adf43891628a02d60d6873e7934d749b
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.sourcegitcommit: 0426013dc04ada3894dd41ea51ed646f9bb17f6d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74258185"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78853146"
 ---
 #  <a name="screen-sizes-and-breakpoints"></a>画面のサイズとブレークポイント
 
@@ -40,7 +40,7 @@ UWP アプリは、Windows 10 を実行している任意のデバイスで実�
 </thead>
 <tbody>
 <tr class="even">
-<td style="vertical-align:top;">小</td>
+<td style="vertical-align:top;">S</td>
 <td style="vertical-align:top;">640 ピクセル以下</td>
 <td style="vertical-align:top;">4&quot; ～ 6&quot;; 20&quot; ～ 65&quot;</td>
 <td style="vertical-align:top;">電話、テレビ</td>
@@ -54,7 +54,7 @@ UWP アプリは、Windows 10 を実行している任意のデバイスで実�
 <td style="vertical-align:top;">960 x 540</td>
 </tr>
 <tr class="even">
-<td style="vertical-align:top;">大</td>
+<td style="vertical-align:top;">L</td>
 <td style="vertical-align:top;">1008 ピクセル以上</td>
 <td style="vertical-align:top;">13&quot; 以上</td>
 <td style="vertical-align:top;">PC、ノート PC、Surface Hub</td>
@@ -76,7 +76,7 @@ UWP アプリは、すべての Windows 10 デバイスでアプリが判読可�
 
 ## <a name="general-recommendations"></a>一般的な推奨事項
 
-### <a name="small"></a>小
+### <a name="small"></a>S
 - ウィンドウの左右の余白を 12 ピクセルに設定して、アプリ ウィンドウの左右の端の間で視覚的な区切りを作成します。
 - 手に届きやすいように[アプリ バー](../controls-and-patterns/app-bars.md)をウィンドウの下部にドッキングします。
 - 一度に 1 つの列/領域を使用します。
@@ -92,7 +92,7 @@ UWP アプリは、すべての Windows 10 デバイスでアプリが判読可�
 - アイコンの幅の狭いストリップが常に表示されるように[ナビゲーション ウィンドウ](../controls-and-patterns/navigationview.md)を小片モードにします。
 - [テレビのエクスペリエンス](https://docs.microsoft.com/windows/uwp/design/devices/designing-for-tv?redirectedfrom=MSDN)の調整を検討します。
 
-### <a name="large"></a>大
+### <a name="large"></a>L
 - ウィンドウの左右の余白を 24 ピクセルに設定して、アプリ ウィンドウの左右の端の間で視覚的な区切りを作成します。
 - [アプリ バー](../controls-and-patterns/app-bars.md)などのコマンド要素をアプリ ウィンドウの上部に配置します。
 - 最大で 3 つの列/領域を使用します。
