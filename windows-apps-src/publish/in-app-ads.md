@@ -10,8 +10,8 @@ ms.openlocfilehash: 96994566d19e03f1d85b751242331f04fef098ad
 ms.sourcegitcommit: 0426013dc04ada3894dd41ea51ed646f9bb17f6d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78290346"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78852863"
 ---
 # <a name="in-app-ads"></a>アプリ内広告
 

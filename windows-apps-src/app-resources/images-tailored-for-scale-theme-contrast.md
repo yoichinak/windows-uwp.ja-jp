@@ -7,11 +7,11 @@ ms.topic: article
 keywords: Windows 10, UWP, リソース, 画像, アセット, MRT, 修飾子
 ms.localizationpriority: medium
 ms.openlocfilehash: 2aadcb8dc3d414db7951dc571855e01bddb03a99
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.sourcegitcommit: 0426013dc04ada3894dd41ea51ed646f9bb17f6d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75683645"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78852544"
 ---
 # <a name="load-images-and-assets-tailored-for-scale-theme-high-contrast-and-others"></a>表示倍率、テーマ、ハイ コントラスト、その他の設定に合わせた画像とアセットの読み込み
 アプリで、[表示倍率](../design/layout/screen-sizes-and-breakpoints-for-responsive-design.md)、テーマ、ハイ コントラスト、その他の実行時のコンテキストに合わせた画像リソース ファイル (またはその他のアセット ファイル) を読み込むことができます。 これらの画像は、命令型コードや XAML マークアップ (**Image** の **Source** プロパティなど) から参照できます。 また、Visual Studio マニフェスト&mdash;デザイナーの [ビジュアルアセット] タブの [アプリアイコン] の値として、またはタイルや toasts で、アプリパッケージのマニフェストソースファイル (`Package.appxmanifest` ファイル&mdash;) にも表示されます。 画像のファイル名に修飾子を使用し、必要に応じて [**ResourceContext**](/uwp/api/windows.applicationmodel.resources.core.resourcecontext?branch=live) を使って動的に読み込むことによって、ユーザーの実行時の表示倍率、テーマ、ハイ コントラスト、言語、その他のコンテキストの設定に最も一致する最適な画像ファイルを読み込むことができます。
@@ -86,7 +86,7 @@ var storagefile = await Windows.Storage.StorageFile.GetFileFromApplicationUriAsy
 this.myXAMLWebViewElement.Source = new Uri("ms-appx-web:///Pages/default.html");
 ```
 
-これらの例に示されているどのシナリオの場合も、[UriKind](https://docs.microsoft.com/dotnet/api/system.urikind) を推測する [Uri コンストラクター](https://docs.microsoft.com/dotnet/api/system.uri.-ctor?view=netcore-2.0#System_Uri__ctor_System_String_)のオーバーロードを使用します。 スキームと機関を含む有効な絶対 URI を指定するか、上記の例のように、機関の既定をアプリのパッケージに自動的に設定します。
+これらの例に示されているどのシナリオの場合も、[UriKind](https://docs.microsoft.com/dotnet/api/system.uri.-ctor?view=netcore-2.0#System_Uri__ctor_System_String_) を推測する [Uri コンストラクター](https://docs.microsoft.com/dotnet/api/system.urikind)のオーバーロードを使用します。 スキームと機関を含む有効な絶対 URI を指定するか、上記の例のように、機関の既定をアプリのパッケージに自動的に設定します。
 
 これらの URI の例で、スキーム ("`ms-appx`" または "`ms-appx-web`") の後に "`://`" が続き、その後に絶対パスが続くことに注意してください。 絶対パスでは、先頭の "`/`" によって、パスはパッケージのルートからのパスとして解釈されます。
 
@@ -158,7 +158,7 @@ bitmapImage.SetSourceAsync(imageFileStream);
 this.myXAMLImageElement.Source = bitmapImage;
 ```
 
-グローバル レベルで同じ効果を実現するために、既定の **ResourceContext** で修飾子の値を上書きすることが*できます*。 ただし、その代わりに、[**ResourceContext.SetGlobalQualifierValue**](/uwp/api/windows.applicationmodel.resources.core.resourcecontext.setglobalqualifiervalue?branch=live#Windows_ApplicationModel_Resources_Core_ResourceContext_SetGlobalQualifierValue_System_String_System_String_Windows_ApplicationModel_Resources_Core_ResourceQualifierPersistence_) を呼び出すことをお勧めします。 **SetGlobalQualifierValue** の呼び出しで一度値を設定すると、ResourceContext を検索に使用するたびに、これらの値が既定の **ResourceContext** で有効になります。 既定では、[**ResourceManager**](/uwp/api/windows.applicationmodel.resources.core.resourcemanager?branch=live) クラスは、既定の **ResourceContext** を使用します。
+グローバル レベルで同じ効果を実現するために、既定の *ResourceContext* で修飾子の値を上書きすることが**できます**。 ただし、その代わりに、[**ResourceContext.SetGlobalQualifierValue**](/uwp/api/windows.applicationmodel.resources.core.resourcecontext.setglobalqualifiervalue?branch=live#Windows_ApplicationModel_Resources_Core_ResourceContext_SetGlobalQualifierValue_System_String_System_String_Windows_ApplicationModel_Resources_Core_ResourceQualifierPersistence_) を呼び出すことをお勧めします。 **SetGlobalQualifierValue** の呼び出しで一度値を設定すると、ResourceContext を検索に使用するたびに、これらの値が既定の **ResourceContext** で有効になります。 既定では、[**ResourceManager**](/uwp/api/windows.applicationmodel.resources.core.resourcemanager?branch=live) クラスは、既定の **ResourceContext** を使用します。
 
 ```csharp
 Windows.ApplicationModel.Resources.Core.ResourceContext.SetGlobalQualifierValue("Contrast", "high");
@@ -167,7 +167,7 @@ this.myXAMLImageElement.Source = new Windows.UI.Xaml.Media.Imaging.BitmapImage(n
 ```
 
 ## <a name="updating-images-in-response-to-qualifier-value-change-events"></a>修飾子の値の変更イベントへの応答で画像を更新する
-実行中のアプリは、既定のリソースのコンテキストで修飾子の値に影響を与えるシステム設定の変更に応答できます。 これらのシステム設定のいずれかが、[**ResourceContext.QualifierValues**](/uwp/api/windows.applicationmodel.resources.core.resourcecontext.QualifierValues) の [**MapChanged**](/uwp/api/windows.foundation.collections.iobservablemap-2.mapchanged?branch=live) イベントを呼び出します。
+実行中のアプリは、既定のリソースのコンテキストで修飾子の値に影響を与えるシステム設定の変更に応答できます。 これらのシステム設定のいずれかが、[**ResourceContext.QualifierValues**](/uwp/api/windows.foundation.collections.iobservablemap-2.mapchanged?branch=live) の [**MapChanged**](/uwp/api/windows.applicationmodel.resources.core.resourcecontext.QualifierValues) イベントを呼び出します。
 
 このイベントへの応答で、既定の **ResourceContext** を使用して画像を再読み込みすることができます。これは、[**ResourceManager**](/uwp/api/windows.applicationmodel.resources.core.resourcemanager?branch=live) が既定で使用するものです。
 

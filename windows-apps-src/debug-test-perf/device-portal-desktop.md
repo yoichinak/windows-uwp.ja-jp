@@ -7,11 +7,11 @@ ms.topic: article
 keywords: windows 10、uwp、デバイスポータル
 ms.localizationpriority: medium
 ms.openlocfilehash: 73f7e827c0ec8ca289d3523da06601de978a91d2
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.sourcegitcommit: 0426013dc04ada3894dd41ea51ed646f9bb17f6d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75681973"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78853429"
 ---
 # <a name="device-portal-for-windows-desktop"></a>Windows デスクトップ用 Device Portal
 
@@ -22,7 +22,7 @@ Windows Device Portal では、診断情報を表示し、ブラウザー ウィ
 - CPU、メモリ、I/O、ネットワーク、および GPU の使用率のライブ グラフを表示する
 - プロセス ダンプを収集する
 - ETW トレースを収集する 
-- サイドローディングしたアプリの分離ストレージを操作する
+- サイドローディングされたアプリの分離ストレージを操作する
 
 ## <a name="set-up-device-portal-on-windows-desktop"></a>Windows デスクトップで Device Portal をセットアップする
 
@@ -61,17 +61,17 @@ Windows デスクトップの Device Portal では、標準のページのセッ
 - アプリ マネージャー
 - エクスプローラー
 - 実行中のプロセス
-- [パフォーマンス]
-- Debug
+- パフォーマンス テスト
+- デバッグ
 - Windows イベント トレーシング (ETW)
 - パフォーマンス トレース
 - デバイス マネージャー
-- のネットワーク
+- ネットワーク
 - クラッシュ データ
 - 機能
 - Mixed Reality
 - ストリーミング インストール デバッガー
-- インストール先
+- 場所
 - スクラッチ
 
 ## <a name="more-device-portal-options"></a>Device Portal のその他のオプション
@@ -129,7 +129,7 @@ Windows 10 のプレリリースビルドで開発者パッケージをインス
 
 従量制インターネット接続を使用している場合は、このエラーが表示されることがあります。 従量制課金接続で開発者パッケージをダウンロードすることはできません。
 
-## <a name="see-also"></a>「
+## <a name="see-also"></a>参照
 
 * [Windows デバイスポータルの概要](device-portal.md)
 * [デバイスポータルコア API リファレンス](https://docs.microsoft.com/windows/uwp/debug-test-perf/device-portal-api-core)

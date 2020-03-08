@@ -9,11 +9,11 @@ ms.topic: article
 keywords: Windows 10, UWP, ローカライズの可否, ローカライズ, RTL, LTR
 ms.localizationpriority: medium
 ms.openlocfilehash: e428dd068337ecd79992e8e27cd193bed112d9c2
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.sourcegitcommit: 0426013dc04ada3894dd41ea51ed646f9bb17f6d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57645307"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78852543"
 ---
 # <a name="adjust-layout-and-fonts-and-support-rtl"></a>レイアウトやフォントの調整と RTL のサポート
 RTL (右から左) のテキストの方向を含め、複数の言語のレイアウトやフォントをサポートするアプリを設計します。 テキストの方向はスクリプトに書き込みが行われて表示される方向であり、ページの UI 要素は目で走査されます。
@@ -45,7 +45,7 @@ RTL に対応するために左右反転が必要な画像がアプリに含ま�
 <Image ... FlowDirection="RightToLeft" />
 ```
 
-画像を正しく反転させるためにアプリで別の画像が必要な場合は、`LayoutDirection` 修飾子 ([言語、スケール、その他の修飾子用にリソースを調整する](../../app-resources/tailor-resources-lang-scale-contrast.md#layoutdirection) の LayoutDirection セクションを参照) を指定してリソース管理システムを使用できます。 アプリのランタイム言語が RTL 言語に設定されている場合 (「[ユーザー プロファイルの言語とアプリ マニフェストの言語について](manage-language-and-region.md)」を参照)、システムは `file.layoutdir-rtl.png` という名前が付いたイメージを選びます。 画像の一部を反転させ、他の部分は反転させないという場合には、この方法が必要になることもあります。
+画像を正しく反転させるためにアプリで別の画像が必要な場合は、`LayoutDirection` 修飾子 ([言語、スケール、その他の修飾子用にリソースを調整する](../../app-resources/tailor-resources-lang-scale-contrast.md#layoutdirection) の LayoutDirection セクションを参照) を指定してリソース管理システムを使用できます。 アプリのランタイム言語が RTL 言語に設定されている場合 (「`file.layoutdir-rtl.png`ユーザー プロファイルの言語とアプリ マニフェストの言語について[」を参照)、システムは ](manage-language-and-region.md) という名前が付いたイメージを選びます。 画像の一部を反転させ、他の部分は反転させないという場合には、この方法が必要になることもあります。
 
 ## <a name="handling-right-to-left-rtl-languages"></a>右から左に書く (RTL) 言語の処理
 右から左に書く (RTL) 言語用にアプリをローカライズする場合、[**FrameworkElement.FlowDirection**](/uwp/api/Windows.UI.Xaml.FrameworkElement.FlowDirection) プロパティを使用し、左右対称のパディングと余白を設定します。 [  **Grid**](/uwp/api/Windows.UI.Xaml.Controls.Grid?branch=live) などのレイアウト パネルは、設定した **FlowDirection** の値を使って自動的に拡大縮小と反転を行います。
@@ -120,10 +120,10 @@ else
 すべての言語で単一コード行を使用する代わりに、この手法は、翻訳者が翻訳される各言語用にこのプロパティ リソースを正しく "翻訳する" ことに依存します。そのため、この手法を使用する場合は、余分な人的ミスが生じることに注意してください。
 
 ## <a name="important-apis"></a>重要な API
-* [FrameworkElement.FlowDirection](/uwp/api/Windows.UI.Xaml.FrameworkElement.FlowDirection)
-* [LanguageFont](/uwp/api/Windows.Globalization.Fonts.LanguageFont?branch=live)
+* [System.windows.flowdirection>](/uwp/api/Windows.UI.Xaml.FrameworkElement.FlowDirection)
+* [言語のフォント](/uwp/api/Windows.Globalization.Fonts.LanguageFont?branch=live)
 
 ## <a name="related-topics"></a>関連トピック
 * [UI とアプリ パッケージ マニフェスト内の文字列をローカライズする](../../app-resources/localize-strings-ui-manifest.md)
-* [言語、スケール、およびその他の修飾子のためのリソースを調整します。](../../app-resources/tailor-resources-lang-scale-contrast.md)
-* [ユーザー プロファイルの言語とアプリ マニフェストの言語を理解します。](manage-language-and-region.md)
+* [言語、スケール、およびその他の修飾子用にリソースを調整する](../../app-resources/tailor-resources-lang-scale-contrast.md)
+* [ユーザープロファイルの言語とアプリマニフェストの言語について](manage-language-and-region.md)
