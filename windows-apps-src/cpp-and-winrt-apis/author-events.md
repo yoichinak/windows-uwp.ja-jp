@@ -6,11 +6,11 @@ ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 作成者, イベント
 ms.localizationpriority: medium
 ms.openlocfilehash: 6fb9b98ec362b59ad2593bbce24654f1dcfc7638
-ms.sourcegitcommit: 27cb7c4539bb6417d32883824ccea160bb948c15
+ms.sourcegitcommit: 0426013dc04ada3894dd41ea51ed646f9bb17f6d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74830782"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78853286"
 ---
 # <a name="author-events-in-cwinrt"></a>C++/WinRT でのイベントの作成
 

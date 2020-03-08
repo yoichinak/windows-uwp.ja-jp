@@ -7,11 +7,11 @@ ms.topic: article
 keywords: Windows 10, UWP, Microsoft Store 申請 API, アドオンの申請, アプリ内製品, IAP
 ms.localizationpriority: medium
 ms.openlocfilehash: c8204382a4e341083ce825a9424181cdd75771e1
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.sourcegitcommit: 0426013dc04ada3894dd41ea51ed646f9bb17f6d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74260237"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78852521"
 ---
 # <a name="manage-add-on-submissions"></a>アドオンの申請の管理
 
@@ -228,20 +228,20 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 
 このリソースには、次の値があります。
 
-| Value      | 種類   | 説明        |
+| 値      | 種類   | 説明        |
 |------------|--------|----------------------|
 | id            | string  | 申請 ID。 この ID は、[アドオンの申請の作成](create-an-add-on-submission.md)要求、[すべてのアドオンの取得](get-all-add-ons.md)要求、[アドオンの取得](get-an-add-on.md)要求に対する応答データで確認できます。 パートナーセンターで作成された送信の場合、この ID はパートナーセンターの [送信] ページの URL でも利用できます。  |
 | contentType           | string  |  アドオンで提供されている[コンテンツの種類](../publish/enter-add-on-properties.md#content-type)です。 次のいずれかの値を使用できます。 <ul><li>NotSet</li><li>BookDownload</li><li>EMagazine</li><li>ENewspaper</li><li>MusicDownload</li><li>MusicStream</li><li>OnlineDataStorage</li><li>VideoDownload</li><li>VideoStream</li><li>Asp</li><li>OnlineDownload</li></ul> |  
-| keywords           | array  | アドオンの[キーワード](../publish/enter-add-on-properties.md#keywords)の文字列を最大 10 個含む配列です。 アプリでは、これらのキーワードを使ってアドオンを照会できます。   |
+| キーワード           | array  | アドオンの[キーワード](../publish/enter-add-on-properties.md#keywords)の文字列を最大 10 個含む配列です。 アプリでは、これらのキーワードを使ってアドオンを照会できます。   |
 | lifetime           | string  |  アドオンの有効期間です。 次のいずれかの値を使用できます。 <ul><li>Forever</li><li>OneDay</li><li>ThreeDays</li><li>FiveDays</li><li>OneWeek</li><li>TwoWeeks</li><li>OneMonth</li><li>TwoMonths</li><li>ThreeMonths</li><li>SixMonths</li><li>OneYear</li></ul> |
-| listings           | オブジェクト  |  キーと値のペアのディクショナリです。各キーは 2 文字の ISO 3166-1 alpha-2 の国コードで、各値はアドオンの登録情報が保持される[登録情報リソース](#listing-object)です。  |
-| pricing           | オブジェクト  | アドオンの価格設定情報が保持される[価格リソース](#pricing-object)です。   |
-| targetPublishMode           | string  | 申請の公開モードです。 次のいずれかの値を使用できます。 <ul><li>即時</li><li>Manual</li><li>SpecificDate</li></ul> |
+| listings           | object  |  キーと値のペアのディクショナリです。各キーは 2 文字の ISO 3166-1 alpha-2 の国コードで、各値はアドオンの登録情報が保持される[登録情報リソース](#listing-object)です。  |
+| pricing           | object  | アドオンの価格設定情報が保持される[価格リソース](#pricing-object)です。   |
+| targetPublishMode           | string  | 申請の公開モードです。 次のいずれかの値を使用できます。 <ul><li>即時</li><li>手動</li><li>SpecificDate</li></ul> |
 | targetPublishDate           | string  | *targetPublishMode* が SpecificDate に設定されている場合、ISO 8601 形式での申請の公開日です。  |
 | tag           | string  |  アドオンの[カスタムの開発者データ](../publish/enter-add-on-properties.md#custom-developer-data)(この情報は従来*タグ*と呼ばれていました)。   |
 | visibility  | string  |  アドオンの可視性です。 次のいずれかの値を使用できます。 <ul><li>Hidden</li><li>パブリック</li><li>Private</li><li>NotSet</li></ul>  |
-| status  | string  |  申請の状態。 次のいずれかの値を使用できます。 <ul><li>なし</li><li>Canceled</li><li>PendingCommit</li><li>CommitStarted</li><li>CommitFailed</li><li>PendingPublication</li><li>公開</li><li>公開済み</li><li>PublishFailed</li><li>PreProcessing</li><li>PreProcessingFailed</li><li>認定</li><li>CertificationFailed</li><li>リリース</li><li>ReleaseFailed</li></ul>   |
-| statusDetails           | オブジェクト  |  エラーに関する情報など、申請のステータスに関する追加情報が保持される[ステータスの詳細に関するリソース](#status-details-object)です。 |
+| 状態  | string  |  申請の状態。 次のいずれかの値を使用できます。 <ul><li>なし</li><li>Canceled</li><li>PendingCommit</li><li>CommitStarted</li><li>CommitFailed</li><li>PendingPublication</li><li>公開</li><li>発行済み</li><li>PublishFailed</li><li>PreProcessing</li><li>PreProcessingFailed</li><li>資格</li><li>CertificationFailed</li><li>解放</li><li>ReleaseFailed</li></ul>   |
+| statusDetails           | object  |  エラーに関する情報など、申請のステータスに関する追加情報が保持される[ステータスの詳細に関するリソース](#status-details-object)です。 |
 | fileUploadUrl           | string  | 申請のパッケージのアップロードに使用する共有アクセス署名 (SAS) URI です。 申請用に新しいパッケージを追加する場合は、パッケージを含む ZIP アーカイブをこの URI にアップロードします。 詳しくは、「[アドオンの申請の作成](#create-an-add-on-submission)」をご覧ください。  |
 | friendlyName  | string  |  パートナーセンターに表示される送信のフレンドリ名。 この値は、申請を作成するときに生成されます。  |
 
@@ -251,10 +251,10 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 
 このリソースには[アドオンの登録情報](../publish/create-add-on-store-listings.md)が保持されます。 このリソースには、次の値があります。
 
-| Value           | 種類    | 説明       |
+| 値           | 種類    | 説明       |
 |-----------------|---------|------|
-|  説明               |    string     |   アドオンの登録情報についての説明です。   |     
-|  icon               |   オブジェクト      |アドオンの登録情報に使用されるアイコンのデータが保持される[アイコン リソース](#icon-object)です。    |
+|  description               |    string     |   アドオンの登録情報についての説明です。   |     
+|  アイコン●あいこん○               |   object      |アドオンの登録情報に使用されるアイコンのデータが保持される[アイコン リソース](#icon-object)です。    |
 |  title               |     string    |   アドオンの登録情報のタイトルです。   |  
 
 <span id="icon-object" />
@@ -263,7 +263,7 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 
 このリソースにはアドオンの登録情報のアイコン データが保持されます。 このリソースには、次の値があります。
 
-| Value           | 種類    | 説明     |
+| 値           | 種類    | 説明     |
 |-----------------|---------|------|
 |  fileName               |    string     |   申請用にアップロードした ZIP アーカイブに含まれているアイコン ファイルの名前です。 このアイコンには、300 x 300 ピクセルの .png ファイルを使用する必要があります。   |     
 |  fileStatus               |   string      |  アイコン ファイルの状態です。 次のいずれかの値を使用できます。 <ul><li>なし</li><li>PendingUpload</li><li>Uploaded</li><li>PendingDelete</li></ul>   |
@@ -274,9 +274,9 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 
 このリソースにはアドオンの価格設定情報が保持されます。 このリソースには、次の値があります。
 
-| Value           | 種類    | 説明    |
+| 値           | 種類    | 説明    |
 |-----------------|---------|------|
-|  marketSpecificPricings               |    オブジェクト     |  キーと値のペアのディクショナリです。各キーは 2 文字の ISO 3166-1 alpha-2 の国コードで、各値は[価格帯](#price-tiers)です。 これらの項目は、[特定の市場でのアドオンのカスタム価格](https://docs.microsoft.com/windows/uwp/publish/set-iap-pricing-and-availability)を表します。 このディクショナリに含まれる項目は、指定された市場の *priceId* の値によって指定されている基本価格を上書きします。     |     
+|  marketSpecificPricings               |    object     |  キーと値のペアのディクショナリです。各キーは 2 文字の ISO 3166-1 alpha-2 の国コードで、各値は[価格帯](#price-tiers)です。 これらの項目は、[特定の市場でのアドオンのカスタム価格](https://docs.microsoft.com/windows/uwp/publish/set-iap-pricing-and-availability)を表します。 このディクショナリに含まれる項目は、指定された市場の *priceId* の値によって指定されている基本価格を上書きします。     |     
 |  sales               |   array      |  **推奨されなくなった値**です。 アドオンの販売情報が保持される[セール リソース](#sale-object)の配列です。     |     
 |  priceId               |   string      |  アドオンの[基本価格](#price-tiers)を規定する[価格帯](https://docs.microsoft.com/windows/uwp/publish/set-iap-pricing-and-availability)です。    |    
 |  isAdvancedPricingModel               |   boolean      |  **true** の場合、開発者アカウントは 0.99 USD ～ 1999.99 USD の拡張された価格セットにアクセスできます。 **false** の場合、開発者アカウントは 0.99 USD ～ 999.99 USD の元の価格帯セットにアクセスできます。 各種価格帯について詳しくは、「[価格帯](#price-tiers)」をご覧ください。<br/><br/>**注**&nbsp;&nbsp;このフィールドは読み取り専用です。   |
@@ -295,13 +295,13 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 
 このリソースには、次の値があります。
 
-| Value           | 種類    | 説明           |
+| 値           | 種類    | 説明           |
 |-----------------|---------|------|
 |  name               |    string     |   セールの名前です。    |     
 |  basePriceId               |   string      |  セールの基本価格として使用する[価格帯](#price-tiers)です。    |     
 |  startDate               |   string      |   ISO 8601 形式で表したセールの開始日です。  |     
 |  endDate               |   string      |  ISO 8601 形式で表したセールの終了日です。      |     
-|  marketSpecificPricings               |   オブジェクト      |   キーと値のペアのディクショナリです。各キーは 2 文字の ISO 3166-1 alpha-2 の国コードで、各値は[価格帯](#price-tiers)です。 これらの項目は、[特定の市場でのアドオンのカスタム価格](https://docs.microsoft.com/windows/uwp/publish/set-iap-pricing-and-availability)を表します。 このディクショナリに含まれる項目は、指定された市場の *basePriceId* の値によって指定されている基本価格を上書きします。    |
+|  marketSpecificPricings               |   object      |   キーと値のペアのディクショナリです。各キーは 2 文字の ISO 3166-1 alpha-2 の国コードで、各値は[価格帯](#price-tiers)です。 これらの項目は、[特定の市場でのアドオンのカスタム価格](https://docs.microsoft.com/windows/uwp/publish/set-iap-pricing-and-availability)を表します。 このディクショナリに含まれる項目は、指定された市場の *basePriceId* の値によって指定されている基本価格を上書きします。    |
 
 <span id="status-details-object" />
 
@@ -309,11 +309,11 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 
 このリソースには、申請の状態についての追加情報が保持されます。 このリソースには、次の値があります。
 
-| Value           | 種類    | 説明       |
+| 値           | 種類    | 説明       |
 |-----------------|---------|------|
-|  errors               |    オブジェクト     |   申請のエラーの詳細が保持される[ステータスの詳細リソース](#status-detail-object)の配列です。   |     
-|  warnings               |   オブジェクト      | 申請の警告の詳細が保持される[ステータスの詳細リソース](#status-detail-object)の配列です。     |
-|  certificationReports               |     オブジェクト    |   申請の認定レポート データへのアクセスを提供する[認定レポート リソース](#certification-report-object)です。 認定されなかった場合に、これらのレポートから詳しい情報を知ることができます。    |  
+|  errors               |    object     |   申請のエラーの詳細が保持される[ステータスの詳細リソース](#status-detail-object)の配列です。   |     
+|  警告               |   object      | 申請の警告の詳細が保持される[ステータスの詳細リソース](#status-detail-object)の配列です。     |
+|  certificationReports               |     object    |   申請の認定レポート データへのアクセスを提供する[認定レポート リソース](#certification-report-object)です。 認定されなかった場合に、これらのレポートから詳しい情報を知ることができます。    |  
 
 <span id="status-detail-object" />
 
@@ -321,10 +321,10 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 
 このリソースには、申請に関連するエラーや警告についての追加情報が保持されます。 このリソースには、次の値があります。
 
-| Value           | 種類    | 説明    |
+| 値           | 種類    | 説明    |
 |-----------------|---------|------|
 |  code               |    string     |   エラーや警告の種類を説明する[申請ステータス コード](#submission-status-code)です。   |     
-|  details               |     string    |  問題についての詳細が含まれるメッセージです。     |
+|  詳細               |     string    |  問題についての詳細が含まれるメッセージです。     |
 
 <span id="certification-report-object" />
 
@@ -332,7 +332,7 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 
 このリソースは、申請の認定レポート データへのアクセスを提供します。 このリソースには、次の値があります。
 
-| Value           | 種類    | 説明               |
+| 値           | 種類    | 説明               |
 |-----------------|---------|------|
 |     date            |    string     |  レポートが生成された日付と時刻 (ISO 8601 形式)。    |
 |     reportUrl            |    string     |  レポートにアクセスできる URL です。    |
@@ -347,9 +347,9 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 
 次の値は、[価格リソース](#pricing-object)における、アドオンの申請に利用できる価格帯を表します。
 
-| Value           | 説明       |
+| 値           | 説明       |
 |-----------------|------|
-|  基本               |   価格帯が設定されていない場合、アドオンの基本価格が使用されます。      |     
+|  ベース               |   価格帯が設定されていない場合、アドオンの基本価格が使用されます。      |     
 |  NotAvailable              |   アドオンは指定された地域で提供されていません。    |     
 |  Free              |   アドオンは無償です。    |    
 |  Tier*xxxx*               |   アドオンの価格帯を指定する文字列 (**Tier<em>xxxx</em>** の形式)。 現在のところ、次の範囲の価格帯がサポートされています。<br/><br/><ul><li>*価格リソース*の [isAdvancedPricingModel](#pricing-object) 値が **true** の場合、アカウントで利用可能な価格帯値は **Tier1012** - **Tier1424** です。</li><li>*価格リソース*の [isAdvancedPricingModel](#pricing-object) 値が **false** の場合、アカウントで利用可能な価格帯値は **Tier2** - **Tier96** です。</li></ul>各レベルに関連付けられている市場固有の価格を含め、開発者アカウントで使用できる価格レベルの完全なテーブルを確認するには、パートナーセンターで任意のアプリの送信の **[価格と可用性]** ページにアクセスし、[**市場とカスタム価格** **] セクション**の **[テーブルの表示]** リンクをクリックします。     |
@@ -360,7 +360,7 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 
 次の値は、申請の状態コードを表します。
 
-| Value           |  説明      |
+| 値           |  説明      |
 |-----------------|---------------|
 |  なし            |     コードが指定されていません。         |     
 |      InvalidArchive        |     パッケージが含まれる ZIP アーカイブは無効であるか、認識できないアーカイブ形式です。  |
