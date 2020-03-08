@@ -12,11 +12,11 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: 9544988837d44f42d963b268a2ce3d37cce83952
-ms.sourcegitcommit: a28a32fff9d15ecf4a9d172cd0a04f4d993f9d76
+ms.sourcegitcommit: 0426013dc04ada3894dd41ea51ed646f9bb17f6d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "66364108"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78853518"
 ---
 # <a name="xaml-theme-resources"></a>XAML テーマ リソース
 
@@ -65,7 +65,7 @@ XAML フレームワークには、"Light" と "Dark" のテーマに合わせ�
 
 次の表は、XAML フレームワークで提供されている "Light" と "Dark" のリソースについて、(\#aarrggbb の形式を使用して) 色のキー、簡易名、文字列表現を一覧にしたものです。 キーは、アプリでリソースを参照するときに使われます。 "Light/Dark 簡易名" は、後で説明するブラシの名前付け規則の一部として使われます。
 
-| Key                             | Light/Dark 簡易名 | 明るい      | 暗い       |
+| キー                             | Light/Dark 簡易名 | 淡色      | 濃色       |
 |---------------------------------|------------------------|------------|------------|
 | SystemAltHighColor              | AltHigh                | \#FFFFFFFF | \#FF000000 |
 | SystemAltLowColor               | AltLow                 | \#33FFFFFF | \#33000000 |
@@ -94,43 +94,43 @@ XAML フレームワークには、"Light" と "Dark" のテーマに合わせ�
 
 :::row:::
     :::column:::
-        #### Light theme
+        #### <a name="light-theme"></a>淡色テーマ
     :::column-end:::
     :::column:::
-        #### Dark theme
-    :::column-end:::
-:::row-end:::
-
-#### <a name="base"></a>基本
-
-:::row:::
-    :::column:::
-        ![The base light theme](images/themes/light-base.png)
-    :::column-end:::
-    :::column:::
-        ![The base dark theme](images/themes/dark-base.png)
+        #### <a name="dark-theme"></a>濃色テーマ
     :::column-end:::
 :::row-end:::
 
-#### <a name="alt"></a>代替
+#### <a name="base"></a>ベース
 
 :::row:::
     :::column:::
-        ![The alt light theme](images/themes/light-alt.png)
+        ![淡色テーマ (基本)](images/themes/light-base.png)
     :::column-end:::
     :::column:::
-        ![The alt dark theme](images/themes/dark-alt.png)
+        ![濃色テーマ (基本)](images/themes/dark-base.png)
     :::column-end:::
 :::row-end:::
 
-#### <a name="list"></a>一覧
+#### <a name="alt"></a>Alt
 
 :::row:::
     :::column:::
-        ![The list light theme](images/themes/light-list.png)
+        ![淡色テーマ (代替)](images/themes/light-alt.png)
     :::column-end:::
     :::column:::
-        ![The list dark theme](images/themes/dark-list.png)
+        ![濃色テーマ (代替)](images/themes/dark-alt.png)
+    :::column-end:::
+:::row-end:::
+
+#### <a name="list"></a>List
+
+:::row:::
+    :::column:::
+        ![淡色テーマ (リスト)](images/themes/light-list.png)
+    :::column-end:::
+    :::column:::
+        ![濃色テーマ (リスト)](images/themes/dark-list.png)
     :::column-end:::
 :::row-end:::
 
@@ -138,10 +138,10 @@ XAML フレームワークには、"Light" と "Dark" のテーマに合わせ�
 
 :::row:::
     :::column:::
-        ![The chrome light theme](images/themes/light-chrome.png)
+        ![淡色テーマ (クロム)](images/themes/light-chrome.png)
     :::column-end:::
     :::column:::
-        ![The chrome dark theme](images/themes/dark-chrome.png)
+        ![濃色テーマ (クロム)](images/themes/dark-chrome.png)
     :::column-end:::
 :::row-end:::
 
@@ -151,12 +151,12 @@ XAML フレームワークによって提供されるリソースのセットの
 
 次の表は、Windows システム パレットから派生したリソース オブジェクトとして XAML に用意されているシステム全体の色を示します。 "簡単操作での名前" 列は、その色が Windows の設定の UI でどのように表現されるかを示しています。 "HighContrast 簡易名" 列は、その色が XAML コモン コントロールにどのように適用されるかをひとことで表す単語になっています。 これは、後で説明するブラシの名前付け規則の一部として使われます。 "初期既定値" 列は、システムがハイ コントラストで動作していない場合に使われる値を示します。
 
-| Key                           | 簡単操作での名前            | HighContrast 簡易名 | 初期既定値 |
+| キー                           | 簡単操作での名前            | HighContrast 簡易名 | 初期既定値 |
 |-------------------------------|--------------------------------|--------------------------|-----------------|
 | SystemColorButtonFaceColor    | **ボタン テキスト** (背景)   | 背景               | \#FFF0F0F0      |
-| SystemColorButtonTextColor    | **ボタン テキスト** (前景)   | Foreground               | \#FF000000      |
+| SystemColorButtonTextColor    | **ボタン テキスト** (前景)   | フォアグラウンド               | \#FF000000      |
 | SystemColorGrayTextColor      | **選択不可のテキスト**              | 無効                 | \#FF6D6D6D      |
-| SystemColorHighlightColor     | **選択されたテキスト** (背景) | Highlight                | \#FF3399FF      |
+| SystemColorHighlightColor     | **選択されたテキスト** (背景) | 強調表示                | \#FF3399FF      |
 | SystemColorHighlightTextColor | **選択されたテキスト** (前景) | HighlightAlt             | \#FFFFFFFF      |
 | SystemColorHotlightColor      | **ハイパーリンク**                 | ハイパーリンク                | \#FF0066CC      |
 | SystemColorWindowColor        | **背景**                 | PageBackground           | \#FFFFFFFF      |
@@ -177,7 +177,7 @@ Windows には複数のハイ コントラスト テーマが用意されてい�
 
 ### <a name="theme-dependent-brushes"></a>テーマ依存のブラシ
 
-システム テーマ リソース ディクショナリの [SolidColorBrush](/uwp/api/Windows.UI.Xaml.Media.SolidColorBrush) リソースの [Color](/uwp/api/Windows.UI.Xaml.Media.SolidColorBrush.Color) プロパティは、前のセクションに示したカラー リソースを使って設定されます。 XAML 要素に色を適用するには、ブラシ リソースが使われます。 ブラシ リソースのキーは、`SystemControl[Simple HighContrast name][Simple light/dark name]Brush` という名前付け形式に従います。 たとえば、`SystemControlBackroundAltHighBrush` と記述します。
+システム テーマ リソース ディクショナリの [SolidColorBrush](/uwp/api/Windows.UI.Xaml.Media.SolidColorBrush) リソースの [Color](/uwp/api/Windows.UI.Xaml.Media.SolidColorBrush.Color) プロパティは、前のセクションに示したカラー リソースを使って設定されます。 XAML 要素に色を適用するには、ブラシ リソースが使われます。 ブラシ リソースのキーは、`SystemControl[Simple HighContrast name][Simple light/dark name]Brush` という名前付け形式に従います。 たとえば、`SystemControlBackroundAltHighBrush` のように指定します。
 
 このブラシの色の値が実行時にどのように決定されるかを見てみましょう。 "Light" と "Dark" の各リソース ディクショナリでは、このブラシは次のように定義されています。
 
@@ -191,8 +191,8 @@ Windows には複数のハイ コントラスト テーマが用意されてい�
 
 | Theme        | 色の簡易名 | カラー リソース             | ランタイム値                                              |
 |--------------|-------------------|----------------------------|------------------------------------------------------------|
-| 明るい        | AltHigh           | SystemAltHighColor         | \#FFFFFFFF                                                 |
-| 暗い         | AltHigh           | SystemAltHighColor         | \#FF000000                                                 |
+| 淡色        | AltHigh           | SystemAltHighColor         | \#FFFFFFFF                                                 |
+| 濃色         | AltHigh           | SystemAltHighColor         | \#FF000000                                                 |
 | HighContrast | 背景        | SystemColorButtonFaceColor | 設定でボタンの背景として指定された色。 |
 
 独自の XAML 要素に適用するブラシを決めるには、`SystemControl[Simple HighContrast name][Simple light/dark name]Brush` という名前付けスキームを使います。
@@ -375,7 +375,7 @@ themeresources.xaml ファイルには、UI 上のテキスト コンテナー (
 </Style>
 ```
 
-**注意**:  [RichTextBlock](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RichTextBlock) スタイルには、[TextBlock](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock) に含まれているテキスト見本スタイルのすべては含まれていません。これは主に、**RichTextBlock** のブロック ベースのドキュメント オブジェクト モデルでは、個々のテキスト要素への属性の設定がより簡単になっているためです。 また、XAML コンテンツ プロパティを使って [TextBlock.Text](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock.text) を設定する方式では、スタイルを設定できるテキスト要素が存在しない状況になるため、コンテナーにスタイルを設定する必要があります。 これに対して **RichTextBlock** では、テキスト コンテンツは常に [Paragraph](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Documents.Paragraph) などの固有のテキスト要素になり、そこにページ ヘッダーやページ サブヘッダー、類似のテキスト見本定義の XAML スタイルを適用できるため、この問題はありません。
+**注**:  [RichTextBlock](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RichTextBlock) スタイルには、[TextBlock](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock) に含まれているテキスト見本スタイルのすべては含まれていません。これは主に、**RichTextBlock** のブロック ベースのドキュメント オブジェクト モデルでは、個々のテキスト要素への属性の設定がより簡単になっているためです。 また、XAML コンテンツ プロパティを使って [TextBlock.Text](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock.text) を設定する方式では、スタイルを設定できるテキスト要素が存在しない状況になるため、コンテナーにスタイルを設定する必要があります。 これに対して **RichTextBlock** では、テキスト コンテンツは常に [Paragraph](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Documents.Paragraph) などの固有のテキスト要素になり、そこにページ ヘッダーやページ サブヘッダー、類似のテキスト見本定義の XAML スタイルを適用できるため、この問題はありません。
 
 ## <a name="miscellaneous-named-styles"></a>その他の名前付きスタイル
 
@@ -396,7 +396,7 @@ themeresources.xaml ファイルには、UI 上のテキスト コンテナー (
         Click="Button_Click"/>
 ```
 
-次のようになります。
+これは、次のように表示されます。
 
 ![テキストのような外観にスタイル設定されたボタン](images/styles-textblock-button-style.png)
 
@@ -412,7 +412,7 @@ themeresources.xaml ファイルには、UI 上のテキスト コンテナー (
 <Button Style="{StaticResource NavigationBackButtonNormalStyle}" />
 ```
 
-次のようになります。
+これは、次のように表示されます。
 
 !["戻る" ボタンとしてスタイル設定されたボタン](images/styles-back-button-normal.png)
 
