@@ -6,11 +6,11 @@ ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、ポート、移行、相互運用、ABI
 ms.localizationpriority: medium
 ms.openlocfilehash: 91602c75cdaddc325407529ab4d231db46ecca39
-ms.sourcegitcommit: 412bf5bb90e1167d118699fbf71d0e6864ae79bd
+ms.sourcegitcommit: 0426013dc04ada3894dd41ea51ed646f9bb17f6d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72586718"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78853269"
 ---
 # <a name="interop-between-cwinrt-and-the-abi"></a>C++/WinRT と ABI 間の相互運用
 
@@ -304,7 +304,7 @@ void GetSample(_Out_ ISample** pp);
 static_assert(std::is_same_v<winrt::default_interface<winrt::Sample>, winrt::ISample>);
 ```
 
-| 操作 | 方法 | 説明 |
+| 操作 | 方法 | メモ |
 |-|-|-|
 | **winrt::Sample** から **ISample\*** を抽出する | `p = reinterpret_cast<ISample*>(get_abi(s));` | *s* はオブジェクトをまだ所有しています。 |
 | **winrt::Sample** から **ISample\*** をデタッチする | `p = reinterpret_cast<ISample*>(detach_abi(s));` | *s* はオブジェクトを所有しなくなります。 |
@@ -342,7 +342,7 @@ HSTRING h;
 void GetString(_Out_ HSTRING* value);
 ```
 
-| 操作 | 方法 | 説明 |
+| 操作 | 方法 | メモ |
 |-|-|-|
 | **hstring** から **HSTRING** を抽出する | `h = static_cast<HSTRING>(get_abi(s));` | *s* は文字列をまだ所有しています。 |
 | **hstring** から **HSTRING** をデタッチする | `h = reinterpret_cast<HSTRING>(detach_abi(s));` | *s* は文字列を所有しなくなります。 |
