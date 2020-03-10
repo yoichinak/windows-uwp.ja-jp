@@ -5,12 +5,12 @@ ms.date: 07/12/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, Windows UI ライブラリ, WinUI
 ms.localizationpriority: medium
-ms.openlocfilehash: 5d0066abb2a6eb15f1d31aaf930ed2c0f0faf81a
-ms.sourcegitcommit: 4e74c920f1fef507c5cdf874975003702d37bcbb
+ms.openlocfilehash: aadf177bc4a44f67550dba1f6f706525b8460857
+ms.sourcegitcommit: c9bab19599c0eb2906725fd86d0696468bb919fa
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68372712"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78256175"
 ---
 # <a name="a-simple-cwinrt-windows-ui-library-example"></a>単純な C++/WinRT Windows UI ライブラリの例
 
@@ -21,7 +21,9 @@ ms.locfileid: "68372712"
 
 ## <a name="create-a-blank-app-hellowinuicppwinrt"></a>空のアプリ (HelloWinUICppWinRT) を作成する
 
-Visual Studio で **[空のアプリ (C++WinRT)]** プロジェクト テンプレートを使用して新しいプロジェクトを作成して、*HelloWinUICppWinRT* という名前を付けます。
+Visual Studio で **[空のアプリ (C++WinRT)]** プロジェクト テンプレートを使用して新しいプロジェクトを作成します。 **(ユニバーサル Windows)** テンプレートではなく、 **(C++/WinRT)** テンプレートを使用していることをご確認ください。
+
+新しいプロジェクトの名前を *HelloWinUICppWinRT* に設定し、(フォルダー構造がチュートリアルと一致するように) **[ソリューションとプロジェクトを同じディレクトリに配置する]** チェック ボックスをオフにします。
 
 ## <a name="install-the-microsoftuixaml-nuget-package"></a>Microsoft.UI.Xaml NuGet パッケージをインストールする
 
@@ -39,7 +41,7 @@ Visual Studio で **[空のアプリ (C++WinRT)]** プロジェクト テンプ�
 
 ## <a name="add-a-winui-control-to-mainpage"></a>MainPage に WinUI コントロールを追加する
 
-次に、`MainPage.xaml` を開きます。 既存の **Application** の開始タグには、いくつかの xml 名前空間宣言があります。 xml 名前空間宣言 `xmlns:muxc="using:Microsoft.UI.Xaml.Controls"` を追加します。 次に、既存の **Pages** の開始タグと終了タグの間に次のマークアップを貼り付けて、既存の **StackPanel** 要素を上書きします。
+次に、`MainPage.xaml` を開きます。 既存の **Page** の開始タグには、いくつかの xml 名前空間宣言があります。 xml 名前空間宣言 `xmlns:muxc="using:Microsoft.UI.Xaml.Controls"` を追加します。 次に、既存の **Pages** の開始タグと終了タグの間に次のマークアップを貼り付けて、既存の **StackPanel** 要素を上書きします。
 
 ```xaml
 <muxc:NavigationView PaneTitle="Welcome">
@@ -47,11 +49,11 @@ Visual Studio で **[空のアプリ (C++WinRT)]** プロジェクト テンプ�
 </muxc:NavigationView>
 ```
 
-## <a name="edit-mainpageh-and-cpp-as-necessary"></a>必要に応じて MainPage.h および .cpp を編集する
+## <a name="edit-mainpagecpp-and-h-as-necessary"></a>必要に応じて MainPage.cpp および .h を編集する
 
-NuGet パッケージを C++/WinRT プロジェクト (先ほど追加した **Microsoft.UI.Xaml** パッケージなど) に追加すると、ツールによって、プロジェクトの `\Generated Files\winrt` フォルダーに一連のプロジェクション ヘッダーが生成されます。 これらのヘッダー ファイルをプロジェクトに取り込んで、これらの新しい型への参照が解決されるようにするには、それらをインクルードする必要があります。
+`MainPage.cpp` で、**MainPage::ClickHandler** の実装内のコードを削除します。これは、XAML マークアップに *myButton* がなくなったためです。
 
-このため、`MainPage.h` で、次のようになるようにインクルードを編集します。 複数の XAML ページから WinUI を使用する場合は、代わりにプリコンパイル済みヘッダー ファイル (通常は `pch.h`) にそれらのファイルをインクルードできます。
+`MainPage.h` で、次のようになるようにインクルードを編集します。 複数の XAML ページから WinUI を使用する場合は、代わりにプリコンパイル済みヘッダー ファイル (通常は `pch.h`) にそれらのファイルをインクルードできます。
 
 ```cppwinrt
 #include "MainPage.g.h"
@@ -59,9 +61,11 @@ NuGet パッケージを C++/WinRT プロジェクト (先ほど追加した **M
 #include "winrt/Microsoft.UI.Xaml.XamlTypeInfo.h"
 ```
 
-最後に、`MainPage.cpp` で、**MainPage::ClickHandler** の実装内のコードを削除します。これは、XAML マークアップに *myButton* がなくなったためです。
+次にプロジェクトをビルドします。
 
-これでプロジェクトをビルドして実行できるようになりました。
+NuGet パッケージを C++/WinRT プロジェクト (先ほど追加した **Microsoft.UI.Xaml** パッケージなど) に追加して、プロジェクトをビルドすると、ツールによって、プロジェクトの `\Generated Files\winrt` フォルダーに一連のプロジェクション ヘッダー ファイルが生成されます。 チュートリアルに従うと、`\HelloWinUICppWinRT\HelloWinUICppWinRT\Generated Files\winrt` フォルダーが作成されます。 上記の `MainPage.h` に加えた変更により、これらのプロジェクション ヘッダー ファイルがプロジェクトに含まれるようになります。 これは、NuGet パッケージの型への参照が解決されるようにするために必要です。
+
+これでプロジェクトを実行できるようになりました。
 
 ![単純な C++/WinRT Windows UI ライブラリのスクリーンショット](images/winui.png)
 
