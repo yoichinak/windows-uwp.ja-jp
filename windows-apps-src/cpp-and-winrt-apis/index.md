@@ -6,11 +6,11 @@ ms.topic: article
 keywords: windows 10、uwp、標準、c++、cpp、winrt、プロジェクション
 ms.localizationpriority: medium
 ms.openlocfilehash: 61a54edc236f94bec44420471a176a2014fcdb0d
-ms.sourcegitcommit: 0426013dc04ada3894dd41ea51ed646f9bb17f6d
+ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78852493"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79208798"
 ---
 # <a name="cwinrt"></a>C++/WinRT
 
