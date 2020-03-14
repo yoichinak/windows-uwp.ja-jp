@@ -7,11 +7,11 @@ ms.topic: article
 keywords: Windows 10, UWP, Microsoft Store 申請 API, フライトの申請
 ms.localizationpriority: medium
 ms.openlocfilehash: 4e96f6d2495583fcee4d16e54a5c8a5e208fec27
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74259254"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79210778"
 ---
 # <a name="manage-package-flight-submissions"></a>パッケージ フライトの申請の管理
 
@@ -255,16 +255,16 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 
 このリソースには、次の値があります。
 
-| Value      | 種類   | 説明              |
+| 値      | 種類   | 説明              |
 |------------|--------|------------------------------|
 | id            | string  | 申請の ID です。  |
 | flightId           | string  |  申請が関連付けられているパッケージ フライトの ID です。  |  
-| status           | string  | 申請の状態。 次のいずれかの値を使用できます。 <ul><li>なし</li><li>Canceled</li><li>PendingCommit</li><li>CommitStarted</li><li>CommitFailed</li><li>PendingPublication</li><li>公開</li><li>公開済み</li><li>PublishFailed</li><li>PreProcessing</li><li>PreProcessingFailed</li><li>認定</li><li>CertificationFailed</li><li>リリース</li><li>ReleaseFailed</li></ul>   |
-| statusDetails           | オブジェクト  |  エラーに関する情報など、申請のステータスに関する追加情報が保持される[ステータスの詳細に関するリソース](#status-details-object)です。  |
+| 状態           | string  | 申請の状態。 次のいずれかの値を使用できます。 <ul><li>なし</li><li>Canceled</li><li>PendingCommit</li><li>CommitStarted</li><li>CommitFailed</li><li>PendingPublication</li><li>公開</li><li>発行済み</li><li>PublishFailed</li><li>PreProcessing</li><li>PreProcessingFailed</li><li>資格</li><li>CertificationFailed</li><li>解放</li><li>ReleaseFailed</li></ul>   |
+| statusDetails           | object  |  エラーに関する情報など、申請のステータスに関する追加情報が保持される[ステータスの詳細に関するリソース](#status-details-object)です。  |
 | flightPackages           | array  | 申請の各パッケージに関する詳細を提供する[フライト パッケージ リソース](#flight-package-object)が含まれています。   |
-| packageDeliveryOptions    | オブジェクト  | 申請の段階的なパッケージのロールアウトと必須の更新の設定が含まれた[パッケージ配布オプション リソース](#package-delivery-options-object)です。   |
+| packageDeliveryOptions    | object  | 申請の段階的なパッケージのロールアウトと必須の更新の設定が含まれた[パッケージ配布オプション リソース](#package-delivery-options-object)です。   |
 | fileUploadUrl           | string  | 申請のパッケージのアップロードに使用する共有アクセス署名 (SAS) URI です。 申請用に新しいパッケージを追加する場合は、パッケージを含む ZIP アーカイブをこの URI にアップロードします。 詳しくは、「[パッケージ フライトの申請の作成](#create-a-package-flight-submission)」をご覧ください。  |
-| targetPublishMode           | string  | 申請の公開モードです。 次のいずれかの値を使用できます。 <ul><li>即時</li><li>Manual</li><li>SpecificDate</li></ul> |
+| targetPublishMode           | string  | 申請の公開モードです。 次のいずれかの値を使用できます。 <ul><li>即時</li><li>手動</li><li>SpecificDate</li></ul> |
 | targetPublishDate           | string  | *targetPublishMode* が SpecificDate に設定されている場合、ISO 8601 形式での申請の公開日です。  |
 | notesForCertification           | string  |  テスト アカウントの資格情報や、機能のアクセスおよび検証手順など、審査担当者に対して追加情報を提供します。 詳しくは、「[認定の注意書き](https://docs.microsoft.com/windows/uwp/publish/notes-for-certification)」をご覧ください。 |
 
@@ -274,11 +274,11 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 
 このリソースには、申請の状態についての追加情報が保持されます。 このリソースには、次の値があります。
 
-| Value           | 種類    | 説明                   |
+| 値           | 種類    | 説明                   |
 |-----------------|---------|------|
-|  errors               |    オブジェクト     |   申請のエラーの詳細が保持される[ステータスの詳細リソース](#status-detail-object)の配列です。   |     
-|  warnings               |   オブジェクト      | 申請の警告の詳細が保持される[ステータスの詳細リソース](#status-detail-object)の配列です。     |
-|  certificationReports               |     オブジェクト    |   申請の認定レポート データへのアクセスを提供する[認定レポート リソース](#certification-report-object)です。 認定されなかった場合に、これらのレポートから詳しい情報を知ることができます。    |  
+|  errors               |    object     |   申請のエラーの詳細が保持される[ステータスの詳細リソース](#status-detail-object)の配列です。   |     
+|  警告               |   object      | 申請の警告の詳細が保持される[ステータスの詳細リソース](#status-detail-object)の配列です。     |
+|  certificationReports               |     object    |   申請の認定レポート データへのアクセスを提供する[認定レポート リソース](#certification-report-object)です。 認定されなかった場合に、これらのレポートから詳しい情報を知ることができます。    |  
 
 
 <span id="status-detail-object" />
@@ -287,10 +287,10 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 
 このリソースには、申請に関連するエラーや警告についての追加情報が保持されます。 このリソースには、次の値があります。
 
-| Value           | 種類    | 説明       |
+| 値           | 種類    | 説明       |
 |-----------------|---------|------|
 |  code               |    string     |   エラーや警告の種類を説明する[申請ステータス コード](#submission-status-code)です。 |  
-|  details               |     string    |  問題についての詳細が含まれるメッセージです。     |
+|  詳細               |     string    |  問題についての詳細が含まれるメッセージです。     |
 
 
 <span id="certification-report-object" />
@@ -299,7 +299,7 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 
 このリソースは、申請の認定レポート データへのアクセスを提供します。 このリソースには、次の値があります。
 
-| Value           | 種類    | 説明         |
+| 値           | 種類    | 説明         |
 |-----------------|---------|------|
 |     date            |    string     |  レポートが生成された日付と時刻 (ISO 8601 形式)。    |
 |     reportUrl            |    string     |  レポートにアクセスできる URL です。    |
@@ -333,14 +333,14 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 > [!NOTE]
 > [パッケージ フライトの申請の更新](update-a-flight-submission.md)のメソッドを呼び出す場合、要求本文に必要なのは、このオブジェクトの *fileName*、*fileStatus*、*minimumDirectXVersion*、*minimumSystemRam* の値のみです。 その他の値は、パートナーセンターによって設定されます。
 
-| Value           | 種類    | 説明              |
+| 値           | 種類    | 説明              |
 |-----------------|---------|------|
 | fileName   |   string      |  パッケージの名前。    |  
 | fileStatus    | string    |  パッケージの状態です。 次のいずれかの値を使用できます。 <ul><li>なし</li><li>PendingUpload</li><li>Uploaded</li><li>PendingDelete</li></ul>    |  
 | id    |  string   |  パッケージを一意に識別する ID です。 この値は、パートナーセンターによって使用されます。   |     
-| version    |  string   |  アプリ パッケージのバージョンです。 詳しくは、「[パッケージ バージョンの番号付け](https://docs.microsoft.com/windows/uwp/publish/package-version-numbering)」をご覧ください。   |   
-| architecture    |  string   |  アプリ パッケージのアーキテクチャ (ARM など) です。   |     
-| languages    | array    |  アプリがサポートする言語の言語コードの配列です。 詳しくは、「[サポートされる言語パックと既定の](https://docs.microsoft.com/windows/uwp/publish/supported-languages)」をご覧ください。    |     
+| バージョン    |  string   |  アプリ パッケージのバージョンです。 詳しくは、「[パッケージ バージョンの番号付け](https://docs.microsoft.com/windows/uwp/publish/package-version-numbering)」をご覧ください。   |   
+| アーキテクチャ    |  string   |  アプリ パッケージのアーキテクチャ (ARM など) です。   |     
+| 言語    | array    |  アプリがサポートする言語の言語コードの配列です。 詳しくは、「[サポートされる言語パックと既定の](https://docs.microsoft.com/windows/uwp/publish/supported-languages)」をご覧ください。    |     
 | capabilities    |  array   |  パッケージに必要な機能の配列です。 機能について詳しくは、「[アプリ機能の宣言](https://docs.microsoft.com/windows/uwp/packaging/app-capability-declarations)」をご覧ください。   |     
 | minimumDirectXVersion    |  string   |  アプリ パッケージによってサポートされる DirectX の最小バージョンです。 これは Windows 8.x をターゲットにするアプリにしか設定できません。その他バージョンをターゲットにするアプリでは無視されます。 次のいずれかの値を使用できます。 <ul><li>なし</li><li>DirectX93</li><li>DirectX100</li></ul>   |     
 | minimumSystemRam    | string    |  アプリ パッケージに必要な RAM の最小サイズです。 これは Windows 8.x をターゲットにするアプリにしか設定できません。その他バージョンをターゲットにするアプリでは無視されます。 次のいずれかの値を使用できます。 <ul><li>なし</li><li>Memory2GB</li></ul>   |    
@@ -369,9 +369,9 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 
 このリソースには、次の値があります。
 
-| Value           | 種類    | 説明        |
+| 値           | 種類    | 説明        |
 |-----------------|---------|------|
-| packageRollout   |   オブジェクト      |   申請の段階的なパッケージのロールアウトの設定が含まれた[パッケージのロールアウトのリソース](#package-rollout-object)です。    |  
+| packageRollout   |   object      |   申請の段階的なパッケージのロールアウトの設定が含まれた[パッケージのロールアウトのリソース](#package-rollout-object)です。    |  
 | isMandatoryUpdate    | boolean    |  この申請のパッケージを自己インストールのアプリの更新のために必須として扱うかどうかを指定します。 自己インストールのアプリの更新のために必須なパッケージについて詳しくは、「[アプリのパッケージの更新をダウンロードしてインストールする](../packaging/self-install-package-updates.md)」をご覧ください。    |  
 | mandatoryUpdateEffectiveDate    |  date   |  この申請のパッケージが必須となる日時 (ISO 8601 形式、UTC タイムゾーン)。   |        
 
@@ -381,7 +381,7 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 
 このリソースには、申請の段階的な[パッケージのロールアウトの設定](#manage-gradual-package-rollout)が含まれています。 このリソースには、次の値があります。
 
-| Value           | 種類    | 説明        |
+| 値           | 種類    | 説明        |
 |-----------------|---------|------|
 | isPackageRollout   |   boolean      |  申請の段階的なパッケージのロールアウトが有効化されているかどうかを示します。    |  
 | packageRolloutPercentage    | float    |  段階的なロールアウトでパッケージを受信するユーザーの割合。    |  

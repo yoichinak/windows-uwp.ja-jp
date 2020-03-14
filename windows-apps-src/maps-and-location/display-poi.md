@@ -7,11 +7,11 @@ ms.topic: article
 keywords: Windows 10, UWP, 地図, 位置情報, プッシュピン
 ms.localizationpriority: medium
 ms.openlocfilehash: 6bf8009232dbe3afcab2af28b76785fb261200f7
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74259375"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79210298"
 ---
 # <a name="display-points-of-interest-on-a-map"></a>関心のあるポイントの地図への表示
 
@@ -165,7 +165,7 @@ public void AddLandmarkPhoto()
 
 このコードには、少し詳しく説明するに値する部分が 3 つあります。画像、リファレンス カメラ、および [**NormalizedAnchorPoint**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapbillboard.NormalizedAnchorPoint) のことです。
 
-### <a name="image"></a>Image
+### <a name="image"></a>イメージ
 
 この例は、プロジェクトの **Assets** フォルダーに保存されたカスタム画像を示しています。 [  **MapBillboard**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapbillboard.Image) の [**Image**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapbillboard) プロパティでは、[**RandomAccessStreamReference**](https://docs.microsoft.com/uwp/api/Windows.Storage.Streams.RandomAccessStreamReference) 型の値が想定されています。 この型では、Windows.Storage.Streams[**名前空間用に**using](https://docs.microsoft.com/uwp/api/Windows.Storage.Streams) ステートメントが必要になります。
 

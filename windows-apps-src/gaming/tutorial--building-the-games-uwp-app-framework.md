@@ -7,11 +7,11 @@ ms.topic: article
 keywords: Windows 10, UWP, ゲーム, DirectX
 ms.localizationpriority: medium
 ms.openlocfilehash: af5d73e0a786e33aff6274cd63ee5ae6ac77c133
-ms.sourcegitcommit: 49a34e957433966ac8d4822b5822f21087aa61c3
+ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74153697"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79210868"
 ---
 #  <a name="define-the-uwp-app-framework"></a>UWP アプリ フレームワークの定義
 
@@ -403,7 +403,7 @@ void App::Uninitialize()
 -   その他のセットアップの処理と非同期のオブジェクト作成やリソース読み込みには **Load** を使います。 一時ファイルまたは一時データを作成する必要がある場合は (手続き的に生成されるアセットなど)、その処理もこのメソッドで行います。
 
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次のステップ:
 
 ここでは、DirectX を使った UWP ゲームの基本的な構造について説明します。 このチュートリアルの他の部分で参照するので、ここで説明した 5 つのメソッドを覚えておいてください。 次に、「[ゲームのフロー管理](tutorial-game-flow-management.md)」で、ゲームを続行するために、ゲームの状態とイベント処理を管理する方法について詳しく説明します。
 

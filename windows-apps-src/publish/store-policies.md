@@ -7,18 +7,18 @@ keywords: Microsoft Store ポリシー契約
 ms.localizationpriority: high
 ms.assetid: F02A720E-2899-4863-8945-9AB99158BCA1
 ms.openlocfilehash: a68247637395c3f68bf1140479bc94cb8e0fcc33
-ms.sourcegitcommit: 0426013dc04ada3894dd41ea51ed646f9bb17f6d
-ms.translationtype: MT
+ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78853446"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79209357"
 ---
 # <a name="microsoft-store-policies"></a>Microsoft Store ポリシー
 
 
-**ドキュメントのバージョン: 7.12**
+**ドキュメントのバージョン:7.12**
 
-**ドキュメントの日付: 2019 年10月1日**
+**発行日: 2019 年 10 月 1 日**
 
 > [!NOTE]
 > この契約に最近加えられた変更の概要については、「[変更履歴](store-policies-change-history.md)」を参照してください。
@@ -473,7 +473,7 @@ Microsoft Store での配布のために提供されるコンテンツおよび�
 ---
 <sup>1</sup>"Store" または "Microsoft Store" とは、顧客にアプリを提供するために名称を問わず Microsoft が所有または運用するプラットフォームを指します。 別段の定めがない限り、Store には Microsoft Store、Windows ストア、Xbox ストア、ビジネス向け Microsoft ストア、教育機関向け Microsoft ストアを含みます。
 
-### <a name="see-also"></a>参照
+### <a name="see-also"></a>関連項目
 
 - [Microsoft Store のポリシーの変更履歴](store-policies-change-history.md)
 - [Microsoft Store のポリシーと倫理規定](store-policies-and-code-of-conduct.md)

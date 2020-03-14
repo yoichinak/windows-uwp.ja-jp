@@ -4,14 +4,14 @@ title: アプリ パッケージ管理のガイダンス
 ms.assetid: 55405D0B-5C1E-43C8-91A1-4BFDD336E6AB
 ms.date: 10/31/2018
 ms.topic: article
-keywords: Windows 10, UWP
+keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: 9f5caa2610e19234cfd83119d570f858c540b401
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75685132"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79210198"
 ---
 # <a name="guidance-for-app-package-management"></a>アプリ パッケージ管理のガイダンス
 
@@ -33,7 +33,7 @@ ms.locfileid: "75685132"
 > 2018年10月31日の時点で、新しく作成された製品には、Windows 8.x/Windows Phone 8.x 以前を対象とするパッケージを含めることはできません。 詳細については、こちらの[ブログ投稿](https://blogs.windows.com/windowsdeveloper/2018/08/20/important-dates-regarding-apps-with-windows-phone-8-x-and-earlier-and-windows-8-8-1-packages-submitted-to-microsoft-store)を参照してください。
 
 
-## <a name="removing-an-app-from-the-store"></a>アプリをストアから削除する
+## <a name="removing-an-app-from-the-store"></a>アプリを Microsoft Store から削除する
 
 ユーザーへのアプリの提供を停止し、事実上 "非公開" にする必要が生じることがあります。 これを行うには、 **[アプリの概要]** ページで **[アプリの提供を停止する]** をクリックします。 アプリを入手不可にすることを確認すると、そのアプリは数時間以内に Store に表示されなくなり、([プロモーション コード](generate-promotional-codes.md)があり、Windows 10 デバイスを使用している場合を除き) 新しいユーザーがアプリを入手することはできなくなります。
 

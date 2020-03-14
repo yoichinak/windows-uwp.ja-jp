@@ -11,11 +11,11 @@ template: detail.hbs
 ms.topic: article
 ms.localizationpriority: medium
 ms.openlocfilehash: 5a2f73fe6280d3a86510ce48f47017dd4897139a
-ms.sourcegitcommit: 0426013dc04ada3894dd41ea51ed646f9bb17f6d
+ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78853211"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79208987"
 ---
 # <a name="xaml-styles"></a>XAML スタイル
 

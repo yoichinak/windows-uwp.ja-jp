@@ -7,11 +7,11 @@ ms.topic: article
 keywords: Windows 10, UWP, リソース, 画像, アセット, MRT, 修飾子
 ms.localizationpriority: medium
 ms.openlocfilehash: 2aadcb8dc3d414db7951dc571855e01bddb03a99
-ms.sourcegitcommit: 0426013dc04ada3894dd41ea51ed646f9bb17f6d
+ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78852544"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79209878"
 ---
 # <a name="load-images-and-assets-tailored-for-scale-theme-high-contrast-and-others"></a>表示倍率、テーマ、ハイ コントラスト、その他の設定に合わせた画像とアセットの読み込み
 アプリで、[表示倍率](../design/layout/screen-sizes-and-breakpoints-for-responsive-design.md)、テーマ、ハイ コントラスト、その他の実行時のコンテキストに合わせた画像リソース ファイル (またはその他のアセット ファイル) を読み込むことができます。 これらの画像は、命令型コードや XAML マークアップ (**Image** の **Source** プロパティなど) から参照できます。 また、Visual Studio マニフェスト&mdash;デザイナーの [ビジュアルアセット] タブの [アプリアイコン] の値として、またはタイルや toasts で、アプリパッケージのマニフェストソースファイル (`Package.appxmanifest` ファイル&mdash;) にも表示されます。 画像のファイル名に修飾子を使用し、必要に応じて [**ResourceContext**](/uwp/api/windows.applicationmodel.resources.core.resourcecontext?branch=live) を使って動的に読み込むことによって、ユーザーの実行時の表示倍率、テーマ、ハイ コントラスト、言語、その他のコンテキストの設定に最も一致する最適な画像ファイルを読み込むことができます。

@@ -6,11 +6,11 @@ ms.topic: article
 keywords: Windows 10, UWP, 店舗販売時点管理, POS
 ms.localizationpriority: medium
 ms.openlocfilehash: a2fa7e107d890a5be7c8d27af03289b839ec3c09
-ms.sourcegitcommit: 0426013dc04ada3894dd41ea51ed646f9bb17f6d
+ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78852459"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79209988"
 ---
 # <a name="pointofservice-device-objects"></a>PointOfService デバイス オブジェクト
 

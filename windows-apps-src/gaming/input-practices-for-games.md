@@ -7,11 +7,11 @@ ms.topic: article
 keywords: Windows 10, UWP, ゲーム, 入力
 ms.localizationpriority: medium
 ms.openlocfilehash: 8235b2c2029b2bb3b9351263a3c908879b4beba9
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75684981"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79210568"
 ---
 # <a name="input-practices-for-games"></a>ゲームの入力プラクティス
 
@@ -315,7 +315,7 @@ if (buttonArrangement == buttonSelection)
 
 コードが、バッテリー残量の割合に基づいて何かアクションを実行する (UI の描画など) 場合、上記の値に準拠しているかどうかを確認します。 たとえば、コントローラーのバッテリー残量が少ないときにプレイヤーに警告を表示する場合は、10% に達したときに表示します。
 
-## <a name="see-also"></a>「
+## <a name="see-also"></a>関連項目
 
 * [Windows. system.object クラス](https://docs.microsoft.com/uwp/api/windows.system.user)
 * [Windows. IGameController インターフェイス](https://docs.microsoft.com/uwp/api/windows.gaming.input.igamecontroller)

@@ -9,11 +9,11 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.openlocfilehash: d1f01774d5950dbb73cff2e5c38f16167b4b812b
-ms.sourcegitcommit: 0426013dc04ada3894dd41ea51ed646f9bb17f6d
+ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78852449"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79209718"
 ---
 # <a name="integrate-your-desktop-app-with-windows-10-and-uwp"></a>デスクトップアプリを Windows 10 および UWP と統合する
 

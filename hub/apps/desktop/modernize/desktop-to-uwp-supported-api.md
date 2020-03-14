@@ -3,18 +3,18 @@ Description: パッケージ デスクトップ アプリは、UWP アプリに�
 title: パッケージ デスクトップ アプリで利用可能な UWP API (デスクトップ ブリッジ)
 ms.date: 04/19/2019
 ms.topic: article
-keywords: Windows 10, UWP
+keywords: windows 10, uwp
 ms.assetid: 142b9c9b-3f7d-41b6-80da-1505de2810f9
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: 19H1
 ms.openlocfilehash: 60a735af077d2121868e2613cb0f33e194e4330c
-ms.sourcegitcommit: cc108c791842789464c38a10e5d596c9bd878871
+ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/20/2019
-ms.locfileid: "75302536"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79209668"
 ---
 # <a name="uwp-apis-available-to-desktop-apps"></a>デスクトップアプリで使用できる UWP Api
 
@@ -27,19 +27,19 @@ ms.locfileid: "75302536"
 | 予定、連絡先、メール | 一部の Api は現在サポートされていません。 |
 | 認証とユーザー ID | 一部の Api は現在サポートされていません。 |
 | バックグラウンド タスク | デスクトップアプリではバックグラウンドタスクを登録できますが、バックグラウンドタスク<i>として</i>実行できるのは完全な UWP アプリだけです。 詳しくは、[GitHub のバックグラウンド タスク サンプル](https://github.com/Microsoft/DesktopBridgeToUWP-Samples/tree/master/Samples/BackgroundTasksSample)をご覧ください。 |
-| [Bluetooth] | 一部の Api は現在サポートされていません。 |
+| Bluetooth | 一部の Api は現在サポートされていません。 |
 | チャットと電話 | デスクトップアプリは、UWP に完全に移植されるまで、モバイルでは実行できません。 |
 | コントラクトによるアクティブ化 | コントラクトによってアクティブにできるのは、完全な UWP アプリだけです。 |
 | 暗号化 | 一部の Api は現在サポートされていません。 |
 | 位置情報 | 一部の Api は現在サポートされていません。 |
 | ファイルおよびフォルダー ピッカー | Id を持つアプリは、完全なファイルシステムアクセス権を持っており、UWP ピッカーを必要としません。 |
-| [Media] | 一部の Api は現在サポートされていません。 |
-| Point of Service | 一部の Api は現在サポートされていません。 |
+| メディア | 一部の Api は現在サポートされていません。 |
+| 店舗販売時点管理 | 一部の Api は現在サポートされていません。 |
 | スマート カード | 一部の Api は現在サポートされていません。 |
 | PlayReady | 一部の Api は現在サポートされていません。 |
-| [VPN] | 一部の Api は現在サポートされていません。 |
+| ［VPN］ | 一部の Api は現在サポートされていません。 |
 | ウォレット | デスクトップアプリは、UWP に完全に移植されるまで、モバイルでは実行できません。 |
-| XAML UI | Windows 10、バージョン1809、およびそれ以前のリリースでは、デスクトップアプリでの UWP XAML コンテンツのホストはサポートされていません。 Windows 10 バージョン1903 以降では、 [XAML Islands](xaml-islands.md)を使用して UWP XAML コンテンツをホストできます。  |
+| XAML UI | Windows 10、バージョン1809、およびそれ以前のリリースでは、デスクトップアプリでの UWP XAML コンテンツのホストはサポートされていません。 Windows 10 バージョン1903以降では、 [Xaml アイランド](xaml-islands.md)を使用して UWP xaml コンテンツをホストできます。  |
 
 場合によっては、これらの領域の API が正常に機能しているように見えることがあります。 ただし、API がサポート対象と明示されていない場合、予想外の副作用や動作が生じる可能性があるため使わないでください。 これらの API は、今後のリリースでサポートされる可能性があります。 それまでの間、代わりに関連する Win32 または .NET API をアプリに使ってください。
 
@@ -131,7 +131,7 @@ UWP Api の使用方法の例については、GitHub の[デスクトップブ�
 * [Windows. Devices. スマートカード接続](https://docs.microsoft.com/uwp/api/Windows.Devices.SmartCards.SmartCardConnection)
 * [Windows. スマートカード (SmartCardReader)](https://docs.microsoft.com/uwp/api/Windows.Devices.SmartCards.SmartCardReader)
 * [AsyncActionCompletedHandler](https://docs.microsoft.com/uwp/api/windows.foundation.asyncactioncompletedhandler)
-* [Windows. Foundation. AsyncActionProgressHandler](https://msdn.microsoft.com/library/windows/apps/Windows.Foundation.AsyncActionProgressHandler<TProgress>)
+* [Windows. Foundation. AsyncActionProgressHandler](https://msdn.microsoft.com/library/windows/apps/Windows.Foundation.AsyncActionProgressHandler<TProgress>)<TProgress>
 * [AsyncActionWithProgressCompletedHandler<TProgress>](https://msdn.microsoft.com/library/windows/apps/Windows.Foundation.AsyncActionWithProgressCompletedHandler<TProgress>)
 * [AsyncOperationCompletedHandler<TResult>](https://msdn.microsoft.com/library/windows/apps/Windows.Foundation.AsyncOperationCompletedHandler<TResult>)
 * [VectorChangedEventHandler (Windows の基本コレクション)<T>](https://docs.microsoft.com/uwp/api/windows.foundation.collections.vectorchangedeventhandler)
@@ -381,6 +381,6 @@ UWP Api の使用方法の例については、GitHub の[デスクトップブ�
 
 [DualApiPartition](https://docs.microsoft.com/uwp/api/Windows.Foundation.Metadata.DualApiPartitionAttribute)がある api は、すべてのデスクトップアプリでサポートされています。これには、パッケージ id を持つ api や、パッケージ id のない api が含まれます。 デスクトップアプリケーションから呼び出す API がサポートされているかどうかを判断するには、 [WinRT 名前空間のリファレンスドキュメント](https://docs.microsoft.com/uwp/api/)で目的のクラスまたはメンバーの参照記事を見つけます。 次に、参照記事の**Attributes**セクションに[DualApiPartition](https://docs.microsoft.com/uwp/api/Windows.Foundation.Metadata.DualApiPartitionAttribute)属性が含まれているかどうかを確認します。
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次のステップ:
 
 ご質問がある場合は、 Stack Overflow でお問い合わせください。 Microsoft のチームでは、これらの[タグ](https://stackoverflow.com/questions/tagged/project-centennial+or+desktop-bridge)をチェックしています。 [こちら](https://social.msdn.microsoft.com/Forums/en-US/home?filter=alltypes&sort=relevancedesc&searchTerm=%5BDesktop%20Converter%5D)から質問することもできます。

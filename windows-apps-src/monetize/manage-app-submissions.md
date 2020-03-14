@@ -7,11 +7,11 @@ ms.topic: article
 keywords: Windows 10, UWP, Microsoft Store 申請 API, アプリの申請
 ms.localizationpriority: medium
 ms.openlocfilehash: 0575127096a016c54c1ee84c1e57c2f22054384b
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74260224"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79210828"
 ---
 # <a name="manage-app-submissions"></a>アプリの申請の管理
 
@@ -335,16 +335,16 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 
 このリソースには、次の値があります。
 
-| Value      | 種類   | 説明      |
+| 値      | 種類   | 説明      |
 |------------|--------|-------------------|
 | id            | string  | 申請 ID。 この ID は、[アプリの申請の作成](create-an-app-submission.md)要求、[すべてのアプリの取得](get-all-apps.md)要求、[アプリの取得](get-an-app.md)要求に対する応答データで確認できます。 パートナーセンターで作成された送信の場合、この ID はパートナーセンターの [送信] ページの URL でも利用できます。  |
 | applicationCategory           | string  |   アプリの[カテゴリとサブカテゴリ](https://docs.microsoft.com/windows/uwp/publish/category-and-subcategory-table)を指定する文字列です。 カテゴリとサブカテゴリは、アンダースコア "_" で 1 つの文字列に連結します (例: **BooksAndReference_EReader**)。      |  
-| pricing           |  オブジェクト  | アプリの価格設定情報が保持される[価格リソース](#pricing-object)です。        |   
+| pricing           |  object  | アプリの価格設定情報が保持される[価格リソース](#pricing-object)です。        |   
 | visibility           |  string  |  アプリの可視性です。 次のいずれかの値を使用できます。 <ul><li>Hidden</li><li>パブリック</li><li>Private</li><li>NotSet</li></ul>       |   
-| targetPublishMode           | string  | 申請の公開モードです。 次のいずれかの値を使用できます。 <ul><li>即時</li><li>Manual</li><li>SpecificDate</li></ul> |
+| targetPublishMode           | string  | 申請の公開モードです。 次のいずれかの値を使用できます。 <ul><li>即時</li><li>手動</li><li>SpecificDate</li></ul> |
 | targetPublishDate           | string  | *targetPublishMode* が SpecificDate に設定されている場合、ISO 8601 形式での申請の公開日です。  |  
-| listings           |   オブジェクト  |  キーと値のペアのディクショナリです。各キーは国コード、各値はアプリの登録情報を含む[登録情報リソース](#listing-object) オブジェクトです。       |   
-| hardwarePreferences           |  array  |   アプリの[ハードウェアの基本設定](https://docs.microsoft.com/windows/uwp/publish/enter-app-properties)を定義する文字列の配列です。 次のいずれかの値を使用できます。 <ul><li>タッチ</li><li>キーボード</li><li>マウス</li><li>Camera</li><li>NfcHce</li><li>Nfc</li><li>BluetoothLE</li><li>Telephony</li></ul>     |   
+| listings           |   object  |  キーと値のペアのディクショナリです。各キーは国コード、各値はアプリの登録情報を含む[登録情報リソース](#listing-object) オブジェクトです。       |   
+| hardwarePreferences           |  array  |   アプリの[ハードウェアの基本設定](https://docs.microsoft.com/windows/uwp/publish/enter-app-properties)を定義する文字列の配列です。 次のいずれかの値を使用できます。 <ul><li>タッチ</li><li>キーボード</li><li>マウス</li><li>カメラ</li><li>NfcHce</li><li>Nfc</li><li>BluetoothLE</li><li>Telephony</li></ul>     |   
 | automaticBackupEnabled           |  boolean  |   OneDrive への自動バックアップにアプリのデータを含めることができるかどうかを示します。 詳しくは、「[アプリの宣言](https://docs.microsoft.com/windows/uwp/publish/app-declarations)」をご覧ください。   |   
 | canInstallOnRemovableMedia           |  boolean  |   ユーザーがアプリをリムーバブル記憶域にインストールできるかどうかを示します。 詳しくは、「[アプリの宣言](https://docs.microsoft.com/windows/uwp/publish/app-declarations)」をご覧ください。     |   
 | isGameDvrEnabled           |  boolean |   アプリのゲーム録画が有効になっているかどうかを示します。    |   
@@ -352,14 +352,14 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 | hasExternalInAppProducts           |     boolean          |   ユーザーが Microsoft Store コマース システムを使わないで購入することをアプリが許可するかどうかを示します。 詳しくは、「[アプリの宣言](https://docs.microsoft.com/windows/uwp/publish/app-declarations)」をご覧ください。     |   
 | meetAccessibilityGuidelines           |    boolean           |  アプリがアクセシビリティ ガイドラインを満たことをテストされているかどうかを示します。 詳しくは、「[アプリの宣言](https://docs.microsoft.com/windows/uwp/publish/app-declarations)」をご覧ください。      |   
 | notesForCertification           |  string  |   アプリの[認定の注意書き](https://docs.microsoft.com/windows/uwp/publish/notes-for-certification)が含まれます。    |    
-| status           |   string  |  申請の状態。 次のいずれかの値を使用できます。 <ul><li>なし</li><li>Canceled</li><li>PendingCommit</li><li>CommitStarted</li><li>CommitFailed</li><li>PendingPublication</li><li>公開</li><li>公開済み</li><li>PublishFailed</li><li>PreProcessing</li><li>PreProcessingFailed</li><li>認定</li><li>CertificationFailed</li><li>リリース</li><li>ReleaseFailed</li></ul>      |    
-| statusDetails           |   オブジェクト  | エラーに関する情報など、申請のステータスに関する追加情報が保持される[ステータスの詳細に関するリソース](#status-details-object)です。       |    
+| 状態           |   string  |  申請の状態。 次のいずれかの値を使用できます。 <ul><li>なし</li><li>Canceled</li><li>PendingCommit</li><li>CommitStarted</li><li>CommitFailed</li><li>PendingPublication</li><li>公開</li><li>発行済み</li><li>PublishFailed</li><li>PreProcessing</li><li>PreProcessingFailed</li><li>資格</li><li>CertificationFailed</li><li>解放</li><li>ReleaseFailed</li></ul>      |    
+| statusDetails           |   object  | エラーに関する情報など、申請のステータスに関する追加情報が保持される[ステータスの詳細に関するリソース](#status-details-object)です。       |    
 | fileUploadUrl           |   string  | 申請のパッケージのアップロードに使用する共有アクセス署名 (SAS) URI です。 申請用に新しいパッケージ、登録情報の画像、またはトレーラー ファイルを追加する場合は、パッケージと画像を含む ZIP アーカイブをこの URI にアップロードします。 詳しくは、「[アプリの申請の作成](#create-an-app-submission)」をご覧ください。       |    
 | applicationPackages           |   array  | 申請の各パッケージに関する詳細を提供する[アプリケーション パッケージ リソース](#application-package-object)の配列です。 |    
-| packageDeliveryOptions    | オブジェクト  | 申請の段階的なパッケージのロールアウトと必須の更新の設定が含まれた[パッケージ配布オプション リソース](#package-delivery-options-object)です。  |
+| packageDeliveryOptions    | object  | 申請の段階的なパッケージのロールアウトと必須の更新の設定が含まれた[パッケージ配布オプション リソース](#package-delivery-options-object)です。  |
 | enterpriseLicensing           |  string  |  アプリのエンタープライズ ライセンス動作を示す[エンタープライズ ライセンス値](#enterprise-licensing)のいずれかです。  |    
 | allowMicrosoftDecideAppAvailabilityToFutureDeviceFamilies           |  boolean   |  [アプリを将来の Windows 10 デバイス ファミリで利用できるようにする](https://docs.microsoft.com/windows/uwp/publish/set-app-pricing-and-availability)ことを Microsoft が許可されているかどうかを示すします。    |    
-| allowTargetFutureDeviceFamilies           | オブジェクト   |  キーと値のペアのディクショナリです。各キーは [Windows 10 デバイス ファミリ](https://docs.microsoft.com/windows/uwp/publish/set-app-pricing-and-availability) を表し、各値は指定されたデバイス ファミリをアプリがターゲットにできるかどうかを示すブール値です。     |    
+| allowTargetFutureDeviceFamilies           | object   |  キーと値のペアのディクショナリです。各キーは [Windows 10 デバイス ファミリ](https://docs.microsoft.com/windows/uwp/publish/set-app-pricing-and-availability) を表し、各値は指定されたデバイス ファミリをアプリがターゲットにできるかどうかを示すブール値です。     |    
 | friendlyName           |   string  |  パートナーセンターに表示される送信のフレンドリ名。 この値は、申請を作成するときに生成されます。       |  
 | trailers           |  array |   アプリの登録情報用のビデオ トレーラーを表す[トレーラー リソース](#trailer-object)を 15 個まで格納する配列です。<br/><br/>   |  
 
@@ -370,10 +370,10 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 
 このリソースにはアプリの価格設定情報が保持されます。 このリソースには、次の値があります。
 
-| Value           | 種類    | 説明        |
+| 値           | 種類    | 説明        |
 |-----------------|---------|------|
 |  trialPeriod               |    string     |  アプリの試用期間を示す文字列です。 次のいずれかの値を使用できます。 <ul><li>NoFreeTrial</li><li>OneDay</li><li>TrialNeverExpires</li><li>SevenDays</li><li>FifteenDays</li><li>ThirtyDays</li></ul>    |
-|  marketSpecificPricings               |    オブジェクト     |  キーと値のペアのディクショナリです。各キーは 2 文字の ISO 3166-1 alpha-2 の国コードで、各値は[価格帯](#price-tiers)です。 これらの項目は、[特定の市場でのアプリのカスタム価格](https://docs.microsoft.com/windows/uwp/publish/define-pricing-and-market-selection)を表します。 このディクショナリに含まれる項目は、指定された市場の *priceId* の値によって指定されている基本価格を上書きします。      |     
+|  marketSpecificPricings               |    object     |  キーと値のペアのディクショナリです。各キーは 2 文字の ISO 3166-1 alpha-2 の国コードで、各値は[価格帯](#price-tiers)です。 これらの項目は、[特定の市場でのアプリのカスタム価格](https://docs.microsoft.com/windows/uwp/publish/define-pricing-and-market-selection)を表します。 このディクショナリに含まれる項目は、指定された市場の *priceId* の値によって指定されている基本価格を上書きします。      |     
 |  sales               |   array      |  **推奨されなくなった値**です。 アプリの販売情報が保持される[販売リソース](#sale-object)の配列です。   |     
 |  priceId               |   string      |  アプリの[基本価格](#price-tiers)を規定する[価格帯](https://docs.microsoft.com/windows/uwp/publish/define-pricing-and-market-selection)です。   |     
 |  isAdvancedPricingModel               |   boolean      |  **true** の場合、開発者アカウントは 0.99 USD ～ 1999.99 USD の拡張された価格セットにアクセスできます。 **false** の場合、開発者アカウントは 0.99 USD ～ 999.99 USD の元の価格帯セットにアクセスできます。 各種価格帯について詳しくは、「[価格帯](#price-tiers)」をご覧ください。<br/><br/>**注**&nbsp;&nbsp;このフィールドは読み取り専用です。   |
@@ -392,13 +392,13 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 
 このリソースには、次の値があります。
 
-| Value           | 種類    | 説明    |
+| 値           | 種類    | 説明    |
 |-----------------|---------|------|
 |  name               |    string     |   セールの名前です。    |     
 |  basePriceId               |   string      |  セールの基本価格として使用する[価格帯](#price-tiers)です。    |     
 |  startDate               |   string      |   ISO 8601 形式で表したセールの開始日です。  |     
 |  endDate               |   string      |  ISO 8601 形式で表したセールの終了日です。      |     
-|  marketSpecificPricings               |   オブジェクト      |   キーと値のペアのディクショナリです。各キーは 2 文字の ISO 3166-1 alpha-2 の国コードで、各値は[価格帯](#price-tiers)です。 これらの項目は、[特定の市場でのアプリのカスタム価格](https://docs.microsoft.com/windows/uwp/publish/define-pricing-and-market-selection)を表します。 このディクショナリに含まれる項目は、指定された市場の *basePriceId* の値によって指定されている基本価格を上書きします。    |
+|  marketSpecificPricings               |   object      |   キーと値のペアのディクショナリです。各キーは 2 文字の ISO 3166-1 alpha-2 の国コードで、各値は[価格帯](#price-tiers)です。 これらの項目は、[特定の市場でのアプリのカスタム価格](https://docs.microsoft.com/windows/uwp/publish/define-pricing-and-market-selection)を表します。 このディクショナリに含まれる項目は、指定された市場の *basePriceId* の値によって指定されている基本価格を上書きします。    |
 
 
 <span id="listing-object" />
@@ -407,10 +407,10 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 
 このリソースにはアプリの登録情報が保持されます。 このリソースには、次の値があります。
 
-| Value           | 種類    | 説明                  |
+| 値           | 種類    | 説明                  |
 |-----------------|---------|------|
-|  baseListing               |   オブジェクト      |  アプリの[基本の登録情報](#base-listing-object)です。これはすべてのプラットフォームで既定の登録情報となります。   |     
-|  platformOverrides               | オブジェクト |   キーと値のペアのディクショナリです。各キーは、登録情報を上書きするプラットフォームを示す文字列を表し、各値は、指定されたプラットフォームで上書きする登録情報を示す[基本の登録情報](#base-listing-object)リソース (description から title までの値のみが保持されています) を表します。 キーには次の値を設定できます。 <ul><li>Unknown</li><li>Windows80</li><li>Windows81</li><li>WindowsPhone71</li><li>WindowsPhone80</li><li>WindowsPhone81</li></ul>     |      |     
+|  baseListing               |   object      |  アプリの[基本の登録情報](#base-listing-object)です。これはすべてのプラットフォームで既定の登録情報となります。   |     
+|  platformOverrides               | object |   キーと値のペアのディクショナリです。各キーは、登録情報を上書きするプラットフォームを示す文字列を表し、各値は、指定されたプラットフォームで上書きする登録情報を示す[基本の登録情報](#base-listing-object)リソース (description から title までの値のみが保持されています) を表します。 キーには次の値を設定できます。 <ul><li>不明</li><li>Windows80</li><li>Windows81</li><li>WindowsPhone71</li><li>WindowsPhone80</li><li>WindowsPhone81</li></ul>     |      |     
 
 <span id="base-listing-object" />
 
@@ -418,18 +418,18 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 
 このリソースにはアプリの基本の登録情報が保持されます。 このリソースには、次の値があります。
 
-| Value           | 種類    | 説明       |
+| 値           | 種類    | 説明       |
 |-----------------|---------|------|
 |  copyrightAndTrademarkInfo                |   string      |  (省略可能) [著作権や商標の情報](https://docs.microsoft.com/windows/uwp/publish/create-app-descriptions)です。  |
-|  keywords                |  array       |  結果にアプリが表示される確率を高める[キーワード](https://docs.microsoft.com/windows/uwp/publish/create-app-descriptions)の配列です。    |
+|  キーワード                |  array       |  結果にアプリが表示される確率を高める[キーワード](https://docs.microsoft.com/windows/uwp/publish/create-app-descriptions)の配列です。    |
 |  licenseTerms                |    string     | アプリの[ライセンス条項](https://docs.microsoft.com/windows/uwp/publish/create-app-descriptions) (省略可能) です。     |
 |  privacyPolicy                |   string      |   この値は使われなくなりました。 アプリのプライバシーポリシーの URL を設定または変更するには、パートナーセンターの [[プロパティ](../publish/enter-app-properties.md#privacy-policy-url)] ページでこれを行う必要があります。 この値は、申請 API の呼び出しから省略することができます。 この値を設定しても無視されます。       |
 |  supportContact                |   string      |  この値は使われなくなりました。 アプリのサポート担当者の URL または電子メールアドレスを設定または変更するには、パートナーセンターの [[プロパティ](../publish/enter-app-properties.md#support-contact-info)] ページでこの操作を行う必要があります。 この値は、申請 API の呼び出しから省略することができます。 この値を設定しても無視されます。        |
 |  websiteUrl                |   string      |  この値は使われなくなりました。 アプリの web ページの URL を設定または変更するには、パートナーセンターの [[プロパティ](../publish/enter-app-properties.md#website)] ページでこれを行う必要があります。 この値は、申請 API の呼び出しから省略することができます。 この値を設定しても無視されます。      |    
-|  説明               |    string     |   アプリの登録情報の[説明](https://docs.microsoft.com/windows/uwp/publish/create-app-descriptions)です。   |     
-|  features               |    array     |  アプリの[機能](https://docs.microsoft.com/windows/uwp/publish/create-app-descriptions)を示す最大 20 個の文字列の配列です。     |
+|  description               |    string     |   アプリの登録情報の[説明](https://docs.microsoft.com/windows/uwp/publish/create-app-descriptions)です。   |     
+|  機能               |    array     |  アプリの[機能](https://docs.microsoft.com/windows/uwp/publish/create-app-descriptions)を示す最大 20 個の文字列の配列です。     |
 |  releaseNotes               |  string       |  アプリの[リリース ノート](https://docs.microsoft.com/windows/uwp/publish/create-app-descriptions)です。    |
-|  images               |   array      |  アプリの登録情報の[画像とアイコン](#image-object)のリソースの配列です。  |
+|  イメージ               |   array      |  アプリの登録情報の[画像とアイコン](#image-object)のリソースの配列です。  |
 |  recommendedHardware               |   array      |  アプリの[推奨されるハードウェア構成](../publish/create-app-store-listings.md#additional-information)を示す最大 11 個の文字列の配列です。     |
 |  minimumHardware               |     string    |  アプリの[最小ハードウェア構成](../publish/create-app-store-listings.md#additional-information)を示す最大 11 個の文字列の配列です。    |  
 |  title               |     string    |   アプリの登録情報のタイトルです。   |  
@@ -445,12 +445,12 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 
 このリソースにはアプリの登録情報の画像とアイコンのデータが保持されます。 アプリの登録情報の画像とアイコンについて詳しくは、「[アプリのスクリーンショットと画像](../publish/app-screenshots-and-images.md)」をご覧ください。 このリソースには、次の値があります。
 
-| Value           | 種類    | 説明           |
+| 値           | 種類    | 説明           |
 |-----------------|---------|------|
 |  fileName               |    string     |   申請用にアップロードした ZIP アーカイブに含まれている画像ファイルの名前です。    |     
 |  fileStatus               |   string      |  画像ファイルの状態です。 次のいずれかの値を使用できます。 <ul><li>なし</li><li>PendingUpload</li><li>Uploaded</li><li>PendingDelete</li></ul>   |
 |  id  |  string  | 画像の ID です。 この値は、パートナーセンターによって指定されます。  |
-|  説明  |  string  | 画像の説明です。  |
+|  description  |  string  | 画像の説明です。  |
 |  imageType  |  string  | 画像の種類を示します。 現在サポートされている文字列は次のとおりです。 <p/>[スクリーン ショット画像](../publish/app-screenshots-and-images.md#screenshots): <ul><li>Screenshot (デスクトップのスクリーンショットにはこの値を使用します)</li><li>MobileScreenshot</li><li>XboxScreenshot</li><li>SurfaceHubScreenshot</li><li>HoloLensScreenshot</li></ul><p/>[ストア ロゴ](../publish/app-screenshots-and-images.md#store-logos):<ul><li>StoreLogo9x16 </li><li>StoreLogoSquare</li><li>Icon (1:1 の 300 x 300 ピクセルのロゴにはこの値を使用します)</li></ul><p/>[プロモーション画像](../publish/app-screenshots-and-images.md#promotional-images): <ul><li>PromotionalArt16x9</li><li>PromotionalArtwork2400X1200</li></ul><p/>[Xbox 画像](../publish/app-screenshots-and-images.md#xbox-images): <ul><li>XboxBrandedKeyArt</li><li>XboxTitledHeroArt</li><li>XboxFeaturedPromotionalArt</li></ul><p/>[オプションのプロモーション画像](../publish/app-screenshots-and-images.md#optional-promotional-images): <ul><li>SquareIcon358X358</li><li>BackgroundImage1000X800</li><li>PromotionalArtwork414X180</li></ul><p/> <!-- The following strings are also recognized for this field, but they correspond to image types that are no longer for listings in the Store.<ul><li>PromotionalArtwork846X468</li><li>PromotionalArtwork558X756</li><li>PromotionalArtwork414X468</li><li>PromotionalArtwork558X558</li><li>WideIcon358X173</li><li>Unknown</li></ul> -->   |
 
 
@@ -486,7 +486,7 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 
 このリソースには、次の値があります。
 
-| Value           | 種類    | 説明        |
+| 値           | 種類    | 説明        |
 |-----------------|---------|------|
 |  genres               |    array     |  ゲームのジャンルを説明する次の 1 つ以上の文字列の配列です。 <ul><li>Games_ActionAndAdventure</li><li>Games_CardAndBoard</li><li>Games_Casino</li><li>Games_Educational</li><li>Games_FamilyAndKids</li><li>Games_Fighting</li><li>Games_Music</li><li>Games_Platformer</li><li>Games_PuzzleAndTrivia</li><li>Games_RacingAndFlying</li><li>Games_RolePlaying</li><li>Games_Shooter</li><li>Games_Simulation</li><li>Games_Sports</li><li>Games_Strategy</li><li>Games_Word</li></ul>    |
 |  isLocalMultiplayer               |    boolean     |  ゲームでローカル マルチプレイヤーがサポートされているかどうかを示します。      |     
@@ -499,7 +499,7 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 |  localCooperativeMaxPlayers               |   int      |   ゲームでサポートされるローカル協力プレイの最大プレイヤー数を指定します。  |     
 |  isBroadcastingPrivilegeGranted               |   boolean      |  ゲームでブロードキャストがサポートされているかどうかを示します。   |     
 |  isCrossPlayEnabled               |   boolean      |   ゲームで Windows 10 PC と Xbox のプレイヤー間でのマルチプレイヤー セッションがサポートされているかどうかを示します。  |     
-|  kinectDataForExternal               |   string      |  次の各文字列値は、ゲームで Kinect データを収集し、外部サービスに送信できるかどうかを示します。 <ul><li>NotSet</li><li>Unknown</li><li>有効</li><li>無効</li></ul>   |
+|  kinectDataForExternal               |   string      |  次の各文字列値は、ゲームで Kinect データを収集し、外部サービスに送信できるかどうかを示します。 <ul><li>NotSet</li><li>不明</li><li>有効</li><li>無効</li></ul>   |
 
 > [!NOTE]
 > *gamingOptions* リソースは、Microsoft Store 申請 API が開発者向けに最初にリリースされた後、2017 年 5 月に追加されました。 このリソースが導入される前に申請 API を通じててアプリの申請を作成し、その申請がまだ審査中の場合、申請を正常にコミットするか削除するまで、アプリの申請に対するこのリソースは null になります。 アプリの申請で *gamingOptions* リソースが利用できない場合、*アプリの取得*メソッドから返される[アプリケーション リソース](get-app-data.md#application_object)の [hasAdvancedListingPermission](get-an-app.md) フィールドは false になります。
@@ -510,11 +510,11 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 
 このリソースには、申請の状態についての追加情報が保持されます。 このリソースには、次の値があります。
 
-| Value           | 種類    | 説明         |
+| 値           | 種類    | 説明         |
 |-----------------|---------|------|
-|  errors               |    オブジェクト     |   申請のエラーの詳細が保持される[ステータスの詳細リソース](#status-detail-object)の配列です。    |     
-|  warnings               |   オブジェクト      | 申請の警告の詳細が保持される[ステータスの詳細リソース](#status-detail-object)の配列です。      |
-|  certificationReports               |     オブジェクト    |   申請の認定レポート データへのアクセスを提供する[認定レポート リソース](#certification-report-object)です。 認定されなかった場合に、これらのレポートから詳しい情報を知ることができます。   |  
+|  errors               |    object     |   申請のエラーの詳細が保持される[ステータスの詳細リソース](#status-detail-object)の配列です。    |     
+|  警告               |   object      | 申請の警告の詳細が保持される[ステータスの詳細リソース](#status-detail-object)の配列です。      |
+|  certificationReports               |     object    |   申請の認定レポート データへのアクセスを提供する[認定レポート リソース](#certification-report-object)です。 認定されなかった場合に、これらのレポートから詳しい情報を知ることができます。   |  
 
 
 <span id="status-detail-object" />
@@ -523,10 +523,10 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 
 このリソースには、申請に関連するエラーや警告についての追加情報が保持されます。 このリソースには、次の値があります。
 
-| Value           | 種類    | 説明        |
+| 値           | 種類    | 説明        |
 |-----------------|---------|------|
 |  code               |    string     |   エラーや警告の種類を説明する[申請ステータス コード](#submission-status-code)です。   |     
-|  details               |     string    |  問題についての詳細が含まれるメッセージです。     |
+|  詳細               |     string    |  問題についての詳細が含まれるメッセージです。     |
 
 
 <span id="application-package-object" />
@@ -567,14 +567,14 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 > [!NOTE]
 > [アプリの申請の更新](update-an-app-submission.md)のメソッドを呼び出す場合、要求本文に必要なのは、このオブジェクトの *fileName*、*fileStatus*、*minimumDirectXVersion*、*minimumSystemRam* の値のみです。 その他の値は、パートナーセンターによって設定されます。
 
-| Value           | 種類    | 説明                   |
+| 値           | 種類    | 説明                   |
 |-----------------|---------|------|
 | fileName   |   string      |  パッケージの名前。    |  
 | fileStatus    | string    |  パッケージの状態です。 次のいずれかの値を使用できます。 <ul><li>なし</li><li>PendingUpload</li><li>Uploaded</li><li>PendingDelete</li></ul>    |  
 | id    |  string   |  パッケージを一意に識別する ID です。 この値は、パートナーセンターによって提供されます。   |     
-| version    |  string   |  アプリ パッケージのバージョンです。 詳しくは、「[パッケージ バージョンの番号付け](https://docs.microsoft.com/windows/uwp/publish/package-version-numbering)」をご覧ください。   |   
-| architecture    |  string   |  パッケージのアーキテクチャ (ARM など) です。   |     
-| languages    | array    |  アプリがサポートする言語の言語コードの配列です。 詳しくは、「[サポートされている言語](https://docs.microsoft.com/windows/uwp/publish/supported-languages)」をご覧ください。    |     
+| バージョン    |  string   |  アプリ パッケージのバージョンです。 詳しくは、「[パッケージ バージョンの番号付け](https://docs.microsoft.com/windows/uwp/publish/package-version-numbering)」をご覧ください。   |   
+| アーキテクチャ    |  string   |  パッケージのアーキテクチャ (ARM など) です。   |     
+| 言語    | array    |  アプリがサポートする言語の言語コードの配列です。 詳しくは、「[サポートされている言語](https://docs.microsoft.com/windows/uwp/publish/supported-languages)」をご覧ください。    |     
 | capabilities    |  array   |  パッケージに必要な機能の配列です。 機能について詳しくは、「[アプリ機能の宣言](https://docs.microsoft.com/windows/uwp/packaging/app-capability-declarations)」をご覧ください。   |     
 | minimumDirectXVersion    |  string   |  アプリ パッケージによってサポートされる DirectX の最小バージョンです。 Windows 8.x をターゲットとするアプリでのみ設定できます。 その他の OS バージョンをターゲットとするアプリの場合、[アプリの申請の更新](update-an-app-submission.md)メソッドの呼び出し時にはこの値が存在している必要がありますが、指定した値は無視されます。 次のいずれかの値を使用できます。 <ul><li>なし</li><li>DirectX93</li><li>DirectX100</li></ul>   |     
 | minimumSystemRam    | string    |  アプリ パッケージに必要な RAM の最小サイズです。 Windows 8.x をターゲットとするアプリでのみ設定できます。 その他の OS バージョンをターゲットとするアプリの場合、[アプリの申請の更新](update-an-app-submission.md)メソッドの呼び出し時にはこの値が存在している必要がありますが、指定した値は無視されます。 次のいずれかの値を使用できます。 <ul><li>なし</li><li>Memory2GB</li></ul>   |       
@@ -588,7 +588,7 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 
 このリソースは、申請の認定レポート データへのアクセスを提供します。 このリソースには、次の値があります。
 
-| Value           | 種類    | 説明             |
+| 値           | 種類    | 説明             |
 |-----------------|---------|------|
 |     date            |    string     |  レポートが生成された日付と時刻 (ISO 8601 形式)。    |
 |     reportUrl            |    string     |  レポートにアクセスできる URL です。    |
@@ -617,9 +617,9 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 
 このリソースには、次の値があります。
 
-| Value           | 種類    | 説明        |
+| 値           | 種類    | 説明        |
 |-----------------|---------|------|
-| packageRollout   |   オブジェクト      |  申請の段階的なパッケージのロールアウトの設定が含まれた[パッケージのロールアウトのリソース](#package-rollout-object)です。   |  
+| packageRollout   |   object      |  申請の段階的なパッケージのロールアウトの設定が含まれた[パッケージのロールアウトのリソース](#package-rollout-object)です。   |  
 | isMandatoryUpdate    | boolean    |  この申請のパッケージを自己インストールのアプリの更新のために必須として扱うかどうかを指定します。 自己インストールのアプリの更新のために必須なパッケージについて詳しくは、「[アプリのパッケージの更新をダウンロードしてインストールする](../packaging/self-install-package-updates.md)」をご覧ください。    |  
 | mandatoryUpdateEffectiveDate    |  date   |  この申請のパッケージが必須となる日時 (ISO 8601 形式、UTC タイムゾーン)。   |        
 
@@ -629,7 +629,7 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 
 このリソースには、申請の段階的な[パッケージのロールアウトの設定](#manage-gradual-package-rollout)が含まれています。 このリソースには、次の値があります。
 
-| Value           | 種類    | 説明        |
+| 値           | 種類    | 説明        |
 |-----------------|---------|------|
 | isPackageRollout   |   boolean      |  申請の段階的なパッケージのロールアウトが有効化されているかどうかを示します。    |  
 | packageRolloutPercentage    | float    |  段階的なロールアウトでパッケージを受信するユーザーの割合。    |  
@@ -673,12 +673,12 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 
 このリソースには、次の値があります。
 
-| Value           | 種類    | 説明        |
+| 値           | 種類    | 説明        |
 |-----------------|---------|------|
 |  id               |    string     |   トレーラーの ID です。 この値は、パートナーセンターによって提供されます。   |
 |  videoFileName               |    string     |    申請用のファイルが含まれた ZIP アーカイブ内のトレーラー ビデオ ファイルの名前です。    |     
 |  videoFileId               |   string      |  トレーラー ビデオ ファイルの ID です。 この値は、パートナーセンターによって提供されます。   |     
-|  trailerAssets               |   オブジェクト      |  キーと値のペアのディクショナリです。各キーは言語コードであり、各値はトレーラーの追加のロケール固有アセットを含む[トレーラー アセット リソース](#trailer-assets-object)です。 サポートされている言語コードについて詳しくは、「[サポートされている言語](https://docs.microsoft.com/windows/uwp/publish/supported-languages)」をご覧ください。    |     
+|  trailerAssets               |   object      |  キーと値のペアのディクショナリです。各キーは言語コードであり、各値はトレーラーの追加のロケール固有アセットを含む[トレーラー アセット リソース](#trailer-assets-object)です。 サポートされている言語コードについて詳しくは、「[サポートされている言語](https://docs.microsoft.com/windows/uwp/publish/supported-languages)」をご覧ください。    |     
 
 > [!NOTE]
 > *trailers* リソースは、Microsoft Store 申請 API が開発者向けに最初にリリースされた後、2017 年 5 月に追加されました。 このリソースが導入される前に申請 API を通じててアプリの申請を作成し、その申請がまだ審査中の場合、申請を正常にコミットするか削除するまで、アプリの申請に対するこのリソースは null になります。 アプリの申請で *trailers* リソースが利用できない場合、*アプリの取得*メソッドから返される[アプリケーション リソース](get-app-data.md#application_object)の [hasAdvancedListingPermission](get-an-app.md) フィールドは false になります。
@@ -689,7 +689,7 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 
 このリソースには、[トレーラー リソース](#trailer-object)で定義されているトレーラー用の追加のロケール固有アセットが保持されます。 このリソースには、次の値があります。
 
-| Value           | 種類    | 説明        |
+| 値           | 種類    | 説明        |
 |-----------------|---------|------|
 | title   |   string      |  トレーラーのローカライズされたタイトルです。 タイトルは、ユーザーがトレーラーを全画面表示モードで再生すると表示されます。     |  
 | imageList    | array    |   1 つの[画像](#image-for-trailer-object)リソースが含まれた配列で、トレーラーのサムネイル画像を提供します。 この配列には 1 つの[画像](#image-for-trailer-object)リソースのみを含めることができます。  |   
@@ -701,11 +701,11 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 
 このリソースは、トレーラーのサムネイル画像を記述しています。 このリソースには、次の値があります。
 
-| Value           | 種類    | 説明           |
+| 値           | 種類    | 説明           |
 |-----------------|---------|------|
 |  fileName               |    string     |   申請用にアップロードした ZIP アーカイブに含まれているサムネイル画像ファイルの名前です。    |     
 |  id  |  string  | サムネイル画像の ID です。 この値は、パートナーセンターによって提供されます。  |
-|  説明  |  string  | サムネイル画像の説明です。 この値はメタデータのみです。ユーザーには表示されません。   |
+|  description  |  string  | サムネイル画像の説明です。 この値はメタデータのみです。ユーザーには表示されません。   |
 
 <span/>
 
@@ -719,9 +719,9 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 
 次の値は、[価格リソース](#pricing-object)における、アプリの申請に利用できる価格帯を表します。
 
-| Value           | 説明        |
+| 値           | 説明        |
 |-----------------|------|
-|  基本               |   価格帯が設定されていない場合、アプリの基本価格が使用されます。      |     
+|  ベース               |   価格帯が設定されていない場合、アプリの基本価格が使用されます。      |     
 |  NotAvailable              |   アプリは指定された地域で提供されていません。    |     
 |  Free              |   アプリは無償です。    |    
 |  Tier*xxx*               |   アプリの価格帯を指定する文字列 (**Tier<em>xxxx</em>** の形式)。 現在のところ、次の範囲の価格帯がサポートされています。<br/><br/><ul><li>*価格リソース*の [isAdvancedPricingModel](#pricing-object) 値が **true** の場合、アカウントで利用可能な価格帯値は **Tier1012** - **Tier1424** です。</li><li>*価格リソース*の [isAdvancedPricingModel](#pricing-object) 値が **false** の場合、アカウントで利用可能な価格帯値は **Tier2** - **Tier96** です。</li></ul>各レベルに関連付けられている市場固有の価格を含め、開発者アカウントで使用できる価格レベルの完全なテーブルを確認するには、パートナーセンターで任意のアプリの送信の **[価格と可用性]** ページにアクセスし、[**市場とカスタム価格** **] セクション**の **[テーブルの表示]** リンクをクリックします。    |
@@ -737,7 +737,7 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 > アプリに対する組織のライセンス オプションは申請 API を通じて構成できますが、この API を使って[ビジネス向け Microsoft Store や教育機関向け Microsoft Store でのボリューム購入](../publish/organizational-licensing.md)の申請を公開することはできません。 教育のために Microsoft Store のビジネス向けおよび Microsoft Store に送信を発行するには、パートナーセンターを使用する必要があります。
 
 
-| Value           |  説明      |
+| 値           |  説明      |
 |-----------------|---------------|
 | なし            |     ストアで管理される (オンラインの) ボリューム ライセンスがある企業に、アプリの利用を許可しません。         |     
 | オンライン        |     ストアで管理される (オンラインの) ボリューム ライセンスがある企業に、アプリの利用を許可します。  |
@@ -750,7 +750,7 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 
 次の値は、申請の状態コードを表します。
 
-| Value           |  説明      |
+| 値           |  説明      |
 |-----------------|---------------|
 | なし            |     コードが指定されていません。         |     
 | InvalidArchive        |     パッケージが含まれる ZIP アーカイブは無効であるか、認識できないアーカイブ形式です。  |

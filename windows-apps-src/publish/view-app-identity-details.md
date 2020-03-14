@@ -7,11 +7,11 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: 07c2d3308d204d37e246a9a56c0a7203a1340dc0
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74259889"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79210428"
 ---
 # <a name="view-app-identity-details"></a>アプリ ID の詳細の表示
 
@@ -29,7 +29,7 @@ ms.locfileid: "74259889"
 -   **パッケージ/Id/パブリッシャー**
 -   **パッケージ/プロパティ/PublisherDisplayName**
 
-詳しくは、[パッケージ マニフェスト スキーマのリファレンス**の「** ](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-identity)Identity[](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/schema-root)」をご覧ください。
+詳しくは、[パッケージ マニフェスト スキーマのリファレンス](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/schema-root)の「[**Identity**](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-identity)」をご覧ください。
 
 また、アプリ ID を宣言するこれらの値により、パッケージが属している "パッケージ ファミリ" が確定されます。 個々のパッケージには、アーキテクチャやバージョンなど、その他の詳細が含まれています。
 
@@ -38,8 +38,8 @@ ms.locfileid: "74259889"
 
 次の値は、アプリのパッケージ ファミリを参照するが、マニフェストには含まれていないその他の値です。
 
--   **パッケージ ファミリ名 (PFN)** : この値は特定の Windows API で使われます。
--   **パッケージ SID**: アプリに WNS の通知を渡すには、この値が必要になります。 詳しくは、「[Windows プッシュ通知サービスの概要](../design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview.md)」をご覧ください。
+-   **パッケージファミリ名 (PFN)** :この値は、特定の Windows Api で使用されます。
+-   **パッケージ SID**:この値は、WNS 通知をアプリに送信するために必要になります。 詳しくは、「[Windows プッシュ通知サービスの概要](../design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview.md)」をご覧ください。
 
 
 ## <a name="link-to-your-apps-listing"></a>アプリの登録情報へのリンク

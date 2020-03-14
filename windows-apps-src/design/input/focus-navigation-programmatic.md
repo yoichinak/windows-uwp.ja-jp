@@ -11,11 +11,11 @@ dev-contact: niallm
 doc-status: Published
 ms.localizationpriority: medium
 ms.openlocfilehash: d919a86a44110d5b3b444fdf47d41f31637ccb6b
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75684501"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79210008"
 ---
 # <a name="programmatic-focus-navigation"></a>プログラムによるフォーカス ナビゲーション
 
@@ -26,7 +26,7 @@ UWP アプリケーションでフォーカスをプログラムによって移�
 [TryMoveFocus](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.focusmanager#Windows_UI_Xaml_Input_FocusManager_TryMoveFocus_Windows_UI_Xaml_Input_FocusNavigationDirection_) は、フォーカスを持つ要素から、指定された方向にあるフォーカス可能な次の要素にフォーカスを移動します。[FindNextElement](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.focusmanager#Windows_UI_Xaml_Input_FocusManager_FindNextElement_Windows_UI_Xaml_Input_FocusNavigationDirection_) は、指定されたナビゲーションの方向に基づいてフォーカスを受け取る要素 ([DependencyObject](https://docs.microsoft.com/uwp/api/windows.ui.xaml.dependencyobject)) を取得します (方向ナビゲーションのみ、タブ ナビゲーションのエミュレートには使用できません)。
 
 > [!NOTE]
-> [FindNextFocusableElement](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.focusmanager#Windows_UI_Xaml_Input_FocusManager_FindNextFocusableElement_Windows_UI_Xaml_Input_FocusNavigationDirection_) ではなく、[FindNextElement](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.focusmanager#Windows_UI_Xaml_Input_FocusManager_FindNextElement_Windows_UI_Xaml_Input_FocusNavigationDirection_) メソッドの使用をお勧めします。FindNextFocusableElement は UIElement を取得し、この UIElement はフォーカス可能な次の要素が UIElement ではない場合 (Hyperlink オブジェクトなどの場合) に null を返すためです。 
+> [FindNextFocusableElement](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.focusmanager#Windows_UI_Xaml_Input_FocusManager_FindNextElement_Windows_UI_Xaml_Input_FocusNavigationDirection_) ではなく、[FindNextElement](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.focusmanager#Windows_UI_Xaml_Input_FocusManager_FindNextFocusableElement_Windows_UI_Xaml_Input_FocusNavigationDirection_) メソッドの使用をお勧めします。FindNextFocusableElement は UIElement を取得し、この UIElement はフォーカス可能な次の要素が UIElement ではない場合 (Hyperlink オブジェクトなどの場合) に null を返すためです。 
 
 ## <a name="find-a-focus-candidate-within-a-scope"></a>スコープ内でフォーカス候補を見つける
 
@@ -250,7 +250,7 @@ private void OnGettingFocus(UIElement sender, GettingFocusEventArgs args)
 }
 ```
 
-[CommandBar](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.commandbar) の [LosingFocus](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement#Windows_UI_Xaml_UIElement_LosingFocus) イベントを処理し、メニューが閉じたときにフォーカスを設定する方法を次に示します。
+[CommandBar](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement#Windows_UI_Xaml_UIElement_LosingFocus) の [LosingFocus](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.commandbar) イベントを処理し、メニューが閉じたときにフォーカスを設定する方法を次に示します。
 
 ```XAML
 <CommandBar x:Name="MyCommandBar" LosingFocus="OnLosingFocus">
@@ -325,7 +325,7 @@ private void OnLosingFocus(UIElement sender, LosingFocusEventArgs args)
 }
 ```
 
-## <a name="related-articles"></a>関連記事
+## <a name="related-articles"></a>関連トピック
 
 - [キーボード、ゲームパッド、リモートコントロール、およびユーザー補助ツールのフォーカスナビゲーション](focus-navigation.md)
 - [キーボード操作](keyboard-interactions.md)

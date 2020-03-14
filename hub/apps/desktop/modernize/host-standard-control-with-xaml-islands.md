@@ -8,12 +8,12 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: d6e8704d61589731f09de7c16b0eae987d593968
-ms.sourcegitcommit: 3ceba13cb0f991f751e5a95d0f82e27631500338
+ms.openlocfilehash: 4bc474c3414969f27468a8daf262df0ae6e3b57e
+ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77600799"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79209788"
 ---
 # <a name="host-a-standard-uwp-control-in-a-wpf-app-using-xaml-islands"></a>XAML アイランドを使用して WPF アプリで標準の UWP コントロールをホストする
 
@@ -31,12 +31,10 @@ WPF (または Windows フォーム) アプリで UWP コントロールをホ�
 
 * **アプリのプロジェクトとソースコード**。 [Windowsxamlhost](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost)コントロールを使用して標準のファーストパーティ UWP コントロールをホストすることは、.NET Framework または .net Core 3 を対象とするアプリでサポートされています。
 
-* **Xamlapplication から派生するルートアプリケーションクラスを定義する UWP アプリプロジェクト**。 WPF または Windows フォームプロジェクトは、Windows Community Toolkit によって提供される、Microsoft の Toolkit... [UI. Xamlhost](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/tree/master/Microsoft.Toolkit.Win32.UI.XamlApplication)クラスのインスタンスにアクセスできる必要があります。 このオブジェクトは、アプリケーションの現在のディレクトリにあるアセンブリ内のカスタム UWP XAML 型のメタデータを読み込むためのルートメタデータプロバイダーとして機能します。
-
-    これを行うには、WPF または Windows フォームプロジェクトと同じソリューションに**空のアプリ (ユニバーサル Windows)** プロジェクトを追加し、`XamlApplication`から派生するようにこのプロジェクトの既定の `App` クラスを変更してから、アプリのエントリポイントコードにこのオブジェクトのインスタンスを作成することをお勧めします。
+* **Xamlapplication から派生するルートアプリケーションクラスを定義する UWP アプリプロジェクト**。 WPF または Windows フォームプロジェクトは、Windows Community Toolkit によって提供される、Microsoft の Toolkit... [UI. Xamlhost](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/tree/master/Microsoft.Toolkit.Win32.UI.XamlApplication)クラスのインスタンスにアクセスできる必要があります。 これを行うには、WPF または Windows フォームアプリのソリューションの一部である別の UWP アプリプロジェクトにこのオブジェクトを定義することをお勧めします。 このオブジェクトは、アプリケーションの現在のディレクトリにあるアセンブリ内のカスタム UWP XAML 型のメタデータを読み込むためのルートメタデータプロバイダーとして機能します。
 
     > [!NOTE]
-    > このコンポーネントは、ファーストパーティ UWP コントロールのホストなど、単純な XAML アイランドのシナリオには必要ありませんが、アプリでは、カスタム UWP コントロールをホストするなど、XAML アイランドのあらゆるシナリオをサポートするために、この `XamlApplication` オブジェクトが必要です。 したがって、XAML アイランドを使用するソリューションでは、常に `XamlApplication` オブジェクトを定義することをお勧めします。
+    > `XamlApplication` オブジェクトは、ファーストパーティ UWP コントロールをホストするためには必要ありませんが、アプリは、カスタム UWP コントロールをホストするなど、XAML アイランドのあらゆるシナリオをサポートするためにこのオブジェクトを必要とします。 したがって、XAML アイランドを使用するソリューションでは、常に `XamlApplication` オブジェクトを定義することをお勧めします。
 
     > [!NOTE]
     > ソリューションには、`XamlApplication` オブジェクトを定義するプロジェクトを1つだけ含めることができます。 アプリ内のすべてのカスタム UWP コントロールは、同じ `XamlApplication` オブジェクトを共有します。 `XamlApplication` オブジェクトを定義するプロジェクトには、XAML アイランドで UWP コントロールをホストするために使用される他のすべての UWP ライブラリおよびプロジェクトへの参照が含まれている必要があります。
@@ -69,7 +67,10 @@ WPF (または Windows フォーム) アプリで UWP コントロールをホ�
 
 ## <a name="define-a-xamlapplication-class-in-a-uwp-app-project"></a>UWP アプリプロジェクトでの XamlApplication クラスの定義
 
-次に、WPF プロジェクトと同じソリューションに UWP アプリプロジェクトを追加します。 このプロジェクトの既定の `App` クラスを修正して、Windows Community Toolkit によって提供される、 [Microsoft の toolkit](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/tree/master/Microsoft.Toolkit.Win32.UI.XamlApplication) .........................。 このクラスの目的の詳細については、[このセクション](#required-components)を参照してください。
+次に、UWP アプリプロジェクトをソリューションに追加し、このプロジェクトの既定の `App` クラスを修正して、Windows Community Toolkit によって提供される、 [Microsoft の Toolkit.](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/tree/master/Microsoft.Toolkit.Win32.UI.XamlApplication) .............................。
+
+> [!NOTE]
+> ファーストパーティ UWP コントロールをホストする場合、この手順は必要ありませんが、アプリには、カスタム UWP コントロールのホストなど、XAML アイランドのあらゆるシナリオをサポートするために `XamlApplication` オブジェクトが必要です。 したがって、XAML アイランドを使用するソリューションでは、常に `XamlApplication` オブジェクトを定義することをお勧めします。
 
 1. **ソリューションエクスプローラー**で、[ソリューション] ノードを右クリックし、[ -> **新しいプロジェクト**の**追加**] を選択します。
 2. ソリューションに **[空白のアプリ (ユニバーサル Windows)]** プロジェクトを追加します。 ターゲットバージョンと最小バージョンの両方が**Windows 10 バージョン 1903**以降に設定されていることを確認します。
@@ -107,7 +108,7 @@ WPF (または Windows フォーム) アプリで UWP コントロールをホ�
 
 ## <a name="instantiate-the-xamlapplication-object-in-the-entry-point-of-your-wpf-app"></a>WPF アプリのエントリポイントで XamlApplication オブジェクトをインスタンス化する
 
-次に、WPF アプリのエントリポイントにコードを追加して、UWP プロジェクトで定義した `App` クラスのインスタンスを作成します (これは、`XamlApplication`から派生したクラスです)。 このオブジェクトの目的の詳細については、[このセクション](#required-components)を参照してください。
+次に、WPF アプリのエントリポイントにコードを追加して、UWP プロジェクトで定義した `App` クラスのインスタンスを作成します (これは、`XamlApplication`から派生したクラスです)。
 
 1. WPF プロジェクトで、プロジェクトノードを右クリックし、[**新しい項目**の**追加** -> ]、 **[クラス]** の順に選択します。 クラスに「 **Program** 」という名前を指定し、 **[追加]** をクリックします。
 
