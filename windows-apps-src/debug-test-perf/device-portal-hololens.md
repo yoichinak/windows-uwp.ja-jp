@@ -6,12 +6,12 @@ ms.date: 01/03/2019
 ms.topic: article
 keywords: windows 10、uwp、デバイスポータル
 ms.localizationpriority: medium
-ms.openlocfilehash: 5a9cdf03aa574ea0762d73514a209367f27822ba
-ms.sourcegitcommit: 33fcf67cf96ce8574df2e50cafc4ca7c18234c4b
+ms.openlocfilehash: 059ce14f85ebe7d955ba2da8897ab47109f74a72
+ms.sourcegitcommit: 1d6d05d28358e087d9ee8829d76c5fbbac0225cb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76530784"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79401971"
 ---
 # <a name="device-portal-for-hololens"></a>HoloLens 用 Device Portal
 
@@ -22,7 +22,7 @@ ms.locfileid: "76530784"
 
 1. HoloLens の電源を入れ、デバイスを装着します。
 2. HoloLens (第1世代) の[開始ジェスチャ](https://docs.microsoft.com/hololens/hololens2-basic-usage#start-gesture)または[ブルーム](https://developer.microsoft.com/mixed-reality#Bloom)ジェスチャを実行して、メインメニューを起動します。
-3. **[設定]** タイルを見つめ、hololens (第1世代) で[エアタップ](https://developer.microsoft.com/mixed-reality#Press_and_release)ジェスチャを実行するか、hololens 2 で[タッチまたはハンドレイを使用](https://docs.microsoft.com/hololens/hololens2-basic-usage)して選択します。 選択すると、設定アプリが起動します。
+3. **[設定]** タイルを見つめ、hololens (1 番目の Gen) で[tap](https://developer.microsoft.com/mixed-reality#Press_and_release)ジェスチャを実行するか、hololens 2 で[タッチまたはハンドレイを使用](https://docs.microsoft.com/hololens/hololens2-basic-usage)して選択します。 選択すると、設定アプリが起動します。
 4. **[Update]** (更新) メニュー項目を選択します。
 5. **[For developers]** (開発者向け) メニュー項目を選択します。
 6. **[Developer Mode]** (開発者モード) を有効にします。
@@ -84,24 +84,24 @@ HoloLens で初めて Device Portal に接続するときは、ユーザー名�
 
 ## <a name="device-portal-pages"></a>Device Portal のページ 
 
-### <a name="home"></a>[ホーム] 
+### <a name="home"></a>ホーム 
 
 Device Portal セッションは Home (ホーム) ページから始まります。 他のページにアクセスするには、ホーム ページの左側にあるナビゲーション バーを使います。
 
 ページの最上部にあるツール バーでは、よく使われる状態や機能にアクセスできます。
-- **[Online]** (オンライン): デバイスが Wi-Fi に接続しているかどうかを示します。
+- **Online** (オンライン): デバイスが Wi-Fi に接続しているかどうかを示します。
 - **[Shutdown]** (シャットダウン): デバイスをオフにします。
 - **[Restart]** (再起動): デバイスの電源を入れ直します。
-- **[Security]** (セキュリティ): [Device Security] (デバイスのセキュリティ) ページを開きます。
+- **Security** (セキュリティ): [Device Security] (デバイスのセキュリティ) ページを開きます。
 - **[Cool]** (低温): デバイスの温度を示します。
-- **[A/C]** : デバイスが電源に接続され、充電されているかどうかを示します。
+- **A/C**: デバイスが電源に接続され、充電されているかどうかを示します。
 - **[Help]** (ヘルプ): REST インターフェイスのドキュメント ページを開きます。
 
 ホーム ページには次の情報が表示されます。
-- **[Device** Status] (デバイスの状態): デバイスの正常性を監視し、重大なエラーを報告します。
+- **Device** Status (デバイスの状態): デバイスの正常性を監視し、重大なエラーを報告します。
 - **[Windows information]** (Windows の情報): HoloLens の名前と、現在インストールされている Windows のバージョンを表示します。
 - **[Preferences]** (設定) セクションには次の設定が含まれます。
-    - **[IPD]** : 瞳孔間距離 (IPD) を設定します。これは、ユーザーがまっすぐ前を向いたときの瞳孔の中心間の距離をミリメートル単位で示すものです。 設定はすぐに反映されます。 既定値は、デバイスのセットアップ時に自動的に計算された値です。
+    - **[IPD]** : 瞳孔間距離 (IPD) を設定します。これは、ユーザーがまっすぐ前を向いたときの瞳孔の中心間の距離をミリメートル単位で示すものです。 設定はすぐに反映されます。 既定値は、デバイスのセットアップ時に自動的に計算された値です。 **HoloLens (第1世代) のみ有効。 Hololens 2 は目の位置を計算します。** 
     - **[Device name]** (デバイス名): HoloLens に名前を割り当てます。 この値を変更した場合、変更を有効にするにはデバイスを再起動する必要があります。 [Save] (保存) をクリックすると、デバイスを今すぐ再起動するか、後で再起動するかをたずねるダイアログが表示されます。
     - **[Sleep settings]** (スリープの設定): デバイスが電源に接続されているときとバッテリで動作しているときの、スリープ状態に移行するまでの待ち時間の長さを設定します。
 
@@ -122,9 +122,9 @@ Device Portal セッションは Home (ホーム) ページから始まります
 
 - [Surface reconstruction] (サーフェスの認識): [Update] (更新) をクリックまたはタップすると、デバイスから最新の空間マッピング メッシュを表示します。 全体の処理が完了するまでには、最大で数秒かかる可能性があります。 3D ビューではメッシュは自動的に更新されないため、デバイスから最新のメッシュを取得するには、手動で [Update] (更新) をクリックする必要があります。 [Save] (保存) をクリックすると、現在の空間マッピング メッシュを obj ファイルとして PC に保存します。
 
-### <a name="mixed-reality-capture"></a>Mixed Reality Capture (複合現実キャプチャ) 
+### <a name="mixed-reality-capture"></a>Mixed Reality キャプチャ 
 
-[Mixed Reality Capture] (複合現実キャプチャ) ページを使うと、HoloLens からメディア ストリームを保存できます。
+Mixed Reality キャプチャ ページを使うと、HoloLens からメディア ストリームを保存できます。
 - 設定: 次の設定をオンにして、キャプチャするメディア ストリームを制御します。- [Holograms] (ホログラム): ビデオ ストリームのホログラフィック コンテンツをキャプチャします。 ホログラムは、ステレオではなくモノラルでレンダリングされます。
 - **[PV camera]** (PV カメラ): 写真/ビデオ カメラからビデオ ストリームをキャプチャします。
 - **[Mic Audio]** (マイク オーディオ): マイク配列からオーディオをキャプチャします。
@@ -132,7 +132,7 @@ Device Portal セッションは Home (ホーム) ページから始まります
 - **[Live preview quality]** (ライブ プレビューの品質): ライブ プレビューの画面解像度、フレーム レート、ストリーミング レートを選択します。
 
 - [Live preview] (ライブ プレビュー) ボタンをクリックまたはタップすると、キャプチャ ストリームを表示します。 [Stop live preview] (ライブ プレビューの停止) は、キャプチャ ストリームを停止します。
-- [Record] (記録) をクリックまたはタップすると、指定された設定を使って複合現実ストリームのレコーディングを開始します。 [Stop recording] (記録の終了) は、レコーディングを終了して保存します。
+- [Record] (記録) をクリックまたはタップすると、指定された設定を使って Mixed Reality ストリームのレコーディングを開始します。 [Stop recording] (記録の終了) は、レコーディングを終了して保存します。
 - [Take photo] (写真の撮影) をクリックまたはタップすると、キャプチャ ストリームから静止画像を取得します。
 - **[Videos and photos]** (ビデオと写真): デバイスで取得されたビデオと写真のキャプチャの一覧を表示します。
 
@@ -174,7 +174,7 @@ HoloLens の System Performance (システム パフォーマンス) ツール�
 
 [Virtual keyboard] (仮想キーボード) の下にある領域をクリックまたはタップすると、HoloLens にキー入力を送信できるようになります。 [Input text] (テキストの入力) テキスト ボックスに入力し、[Send] (送信) をクリックまたはタップすると、アクティブなアプリにキー入力が送信されます。
 
-## <a name="see-also"></a>「
+## <a name="see-also"></a>参照
 
 * [Windows デバイスポータルの概要](device-portal.md)
 * [デバイス ポータル コア API リファレンス](https://docs.microsoft.com/windows/uwp/debug-test-perf/device-portal-api-core)(すべての Windows 10 デバイスに共通する API)
