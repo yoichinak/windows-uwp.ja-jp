@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 4c8fda22a565972e4157777c1db537a8f8d9ba20
-ms.sourcegitcommit: 20af365ce85d3d7d3a8d07c4cba5d0f1fbafd85d
+ms.openlocfilehash: d148df8de9086aaaec004525c3ee4865e4320c4e
+ms.sourcegitcommit: eb24481869d19704dd7bcf34e5d9f6a9be912670
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77034003"
+ms.lasthandoff: 03/17/2020
+ms.locfileid: "79453362"
 ---
 # <a name="xbind-markup-extension"></a>{x:Bind} マークアップ拡張
 
@@ -30,7 +30,7 @@ XAML のコンパイル時に、 **{x:Bind}** は、データ ソースのプロ
 
 -   [{x:Bind} サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlBind)
 -   [QuizGame](https://github.com/microsoft/Windows-appsample-networkhelper)
--   [XAML UI の基本サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlUIBasics)
+-   [XAML コントロール ギャラリー](https://github.com/Microsoft/Xaml-Controls-Gallery)
 
 ## <a name="xaml-attribute-usage"></a>XAML 属性の使用方法
 
@@ -46,7 +46,7 @@ XAML のコンパイル時に、 **{x:Bind}** は、データ ソースのプロ
 <object property="{x:Bind pathToFunction.functionName(functionParameter1, functionParameter2, ...), bindingProperties}" .../>
 ```
 
-| 項目 | 説明 |
+| 用語 | 説明 |
 |------|-------------|
 | _propertyPath_ | バインドのプロパティ パスを指定する文字列。 詳しくは、以下の「[プロパティ パス](#property-path)」をご覧ください。 |
 | _bindingProperties_ |
@@ -54,7 +54,7 @@ XAML のコンパイル時に、 **{x:Bind}** は、データ ソースのプロ
 | _propName_ | Binding オブジェクトで設定するプロパティの文字列名。 たとえば、"Converter" です。 |
 | _value_ | プロパティに設定する値。 引数の構文は、設定されているプロパティによって異なります。 値がそれ自体マークアップ拡張である _propName_=_value_ の使用例を示します: `Converter={StaticResource myConverterClass}`。 詳しくは、以下の「[{x:Bind} で設定できるプロパティ](#properties-that-you-can-set-with-xbind)」をご覧ください。 |
 
-## <a name="examples"></a>使用例
+## <a name="examples"></a>例
 
 ```XAML
 <Page x:Class="QuizGame.View.HostView" ... >
@@ -85,8 +85,7 @@ XAML のコンパイル時に、 **{x:Bind}** は、データ ソースのプロ
 
 C++/CX の場合、 **{x:Bind}** はページまたはデータ モデルのプライベート フィールドおよびプロパティにバインドできません。バインドできるようにするには、パブリック プロパティが必要です。 バインド用のサーフェス領域を CX クラス/インターフェイスとして公開し、関連するメタデータを取得できるようにする必要があります。 **\[バインド**可能な\]属性は必要ありません。
 
-**x:Bind** では、**ElementName=xxx** をバインド式の一部として使用する必要はありません。 代わりに、要素の名前をバインドのパスの最初の部分として使用できます。名前付き要素は、ルートバインディングソースを表すページ内のフィールドまたはユーザーコントロールになります。 
-
+**x:Bind** では、**ElementName=xxx** をバインド式の一部として使用する必要はありません。 代わりに、要素の名前をバインドのパスの最初の部分として使用できます。名前付き要素は、ルートバインディングソースを表すページ内のフィールドまたはユーザーコントロールになります。
 
 ### <a name="collections"></a>コレクション
 
@@ -104,10 +103,80 @@ C++/CX の場合、 **{x:Bind}** はページまたはデータ モデルのプ�
 
 ### <a name="casting"></a>キャスト
 
-コンパイル済みのバインドは、厳密に型指定され、パスの各ステップの型を解決します。 返される型にメンバーがない場合は、コンパイル時に失敗します。 キャストを指定して、オブジェクトの実際の型をバインディングに通知することができます。 次の場合、**obj** は型オブジェクトのプロパティですが、テキスト ボックスを含んでいます。したがって、**Text="{x:Bind ((TextBox)obj).Text}"** または **Text="{x:Bind obj.(TextBox.Text)}"** を使用できます。
-**Text = "{x:Bind ((data: SampleDataGroup) groups3\[0\]) の groups3 フィールド。Title} "** はオブジェクトの辞書であるため、 **Data: SampleDataGroup**にキャストする必要があります。 既定の XAML 名前空間の一部ではないコード名前空間にオブジェクトの型をマップするための xml **data:** 名前空間のプレフィックスの使用法に注意してください。
+コンパイル済みのバインドは、厳密に型指定され、パスの各ステップの型を解決します。 返される型にメンバーがない場合は、コンパイル時に失敗します。 キャストを指定して、オブジェクトの実際の型をバインディングに通知することができます。
+
+次の場合、**obj** は型オブジェクトのプロパティですが、テキスト ボックスを含んでいます。したがって、**Text="{x:Bind ((TextBox)obj).Text}"** または **Text="{x:Bind obj.(TextBox.Text)}"** を使用できます。
+
+**groups3** **Text = "{x:Bind ((data: SampleDataGroup) groups3\[0\]) の groups3 フィールド。Title} "** はオブジェクトの辞書であるため、 **Data: SampleDataGroup**にキャストする必要があります。 既定の XAML 名前空間の一部ではないコード名前空間にオブジェクトの型をマップするための xml **data:** 名前空間のプレフィックスの使用法に注意してください。
 
 _注: スタイルC#のキャスト構文は、添付プロパティの構文よりも柔軟であり、今後推奨される構文です。_
+
+#### <a name="pathless-casting"></a>パスキャスト
+
+ネイティブバインドパーサーは、関数パラメーターとして `this` を表すキーワードを提供していませんが、関数パラメーターとして使用できるパスキャスト (`{x:Bind (x:String)}`など) をサポートしています。 したがって、`{x:Bind MethodName((namespace:TypeOfThis))}` は、概念的には `{x:Bind MethodName(this)}`と同等のものを実行するための有効な方法です。
+
+例:
+
+`Text="{x:Bind local:MainPage.GenerateSongTitle((local:SongItem))}"`
+
+```xaml
+<Page
+    x:Class="AppSample.MainPage"
+    ...
+    xmlns:local="using:AppSample">
+
+    <Grid>
+        <ListView ItemsSource="{x:Bind Songs}">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="local:SongItem">
+                    <TextBlock
+                        Margin="12"
+                        FontSize="40"
+                        Text="{x:Bind local:MainPage.GenerateSongTitle((local:SongItem))}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>
+```
+
+```csharp
+namespace AppSample
+{
+    public class SongItem
+    {
+        public string TrackName { get; private set; }
+        public string ArtistName { get; private set; }
+
+        public SongItem(string trackName, string artistName)
+        {
+            ArtistName = artistName;
+            TrackName = trackName;
+        }
+    }
+
+    public sealed partial class MainPage : Page
+    {
+        public List<SongItem> Songs { get; }
+        public MainPage()
+        {
+            Songs = new List<SongItem>()
+            {
+                new SongItem("Track 1", "Artist 1"),
+                new SongItem("Track 2", "Artist 2"),
+                new SongItem("Track 3", "Artist 3")
+            };
+
+            this.InitializeComponent();
+        }
+
+        public static string GenerateSongTitle(SongItem song)
+        {
+            return $"{song.TrackName} - {song.ArtistName}";
+        }
+    }
+}
+```
 
 ## <a name="functions-in-binding-paths"></a>バインディング パス内の関数
 
