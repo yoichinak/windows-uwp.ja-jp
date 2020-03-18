@@ -5,12 +5,12 @@ ms.date: 07/12/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, Windows UI ライブラリ, WinUI
 ms.localizationpriority: medium
-ms.openlocfilehash: aadf177bc4a44f67550dba1f6f706525b8460857
-ms.sourcegitcommit: c9bab19599c0eb2906725fd86d0696468bb919fa
+ms.openlocfilehash: 0dce8e7ea08b18921f228b3da2e679a9edb02228
+ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78256175"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79200980"
 ---
 # <a name="a-simple-cwinrt-windows-ui-library-example"></a>単純な C++/WinRT Windows UI ライブラリの例
 
@@ -53,7 +53,7 @@ Visual Studio で **[空のアプリ (C++WinRT)]** プロジェクト テンプ�
 
 `MainPage.cpp` で、**MainPage::ClickHandler** の実装内のコードを削除します。これは、XAML マークアップに *myButton* がなくなったためです。
 
-`MainPage.h` で、次のようになるようにインクルードを編集します。 複数の XAML ページから WinUI を使用する場合は、代わりにプリコンパイル済みヘッダー ファイル (通常は `pch.h`) にそれらのファイルをインクルードできます。
+`MainPage.h` で、次のようになるようにインクルードを編集します。
 
 ```cppwinrt
 #include "MainPage.g.h"
@@ -63,7 +63,10 @@ Visual Studio で **[空のアプリ (C++WinRT)]** プロジェクト テンプ�
 
 次にプロジェクトをビルドします。
 
-NuGet パッケージを C++/WinRT プロジェクト (先ほど追加した **Microsoft.UI.Xaml** パッケージなど) に追加して、プロジェクトをビルドすると、ツールによって、プロジェクトの `\Generated Files\winrt` フォルダーに一連のプロジェクション ヘッダー ファイルが生成されます。 チュートリアルに従うと、`\HelloWinUICppWinRT\HelloWinUICppWinRT\Generated Files\winrt` フォルダーが作成されます。 上記の `MainPage.h` に加えた変更により、これらのプロジェクション ヘッダー ファイルがプロジェクトに含まれるようになります。 これは、NuGet パッケージの型への参照が解決されるようにするために必要です。
+NuGet パッケージを C++/WinRT プロジェクト (先ほど追加した **Microsoft.UI.Xaml** パッケージなど) に追加して、プロジェクトをビルドすると、ツールによって、プロジェクトの `\Generated Files\winrt` フォルダーに一連のプロジェクション ヘッダー ファイルが生成されます。 チュートリアルに従うと、`\HelloWinUICppWinRT\HelloWinUICppWinRT\Generated Files\winrt` フォルダーが作成されます。 上記の `MainPage.h` に加えた編集により、WinUI のプロジェクション ヘッダー ファイルが **MainPage** に表示されるようになります。 また、**MainPage** 内の **Microsoft::UI::Xaml::Controls::NavigationView** 型への参照が解決されるようにするために必要です。
+
+> [!IMPORTANT]
+> 実際のアプリケーションでは、WinUI プロジェクション ヘッダー ファイルを **MainPage** だけではなく、プロジェクト内の "*すべて*" の XAML ページに表示できるようにします。 その場合は、2 つの WinUI プロジェクション ヘッダー ファイルのインクルードをプリコンパイル済みヘッダー ファイル (通常は `pch.h`) 内に移動します。 プロジェクト内の任意の場所から NuGet パッケージ内の型への参照が解決されます。 このチュートリアルで作成するような 1 ページの最小のアプリケーションの場合、`pch.h` を使用する必要はなく、`MainPage.h` のヘッダーを含めるのが適切です。
 
 これでプロジェクトを実行できるようになりました。
 

@@ -5,18 +5,19 @@ ms.date: 07/08/2019
 ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、同時実行、非同期、非同期、非同期操作
 ms.localizationpriority: medium
-ms.openlocfilehash: 06fadae3e33da3289726f45e7222617d51843015
-ms.sourcegitcommit: 6fbf645466278c1f014c71f476408fd26c620e01
+ms.openlocfilehash: 949f8c407e0a49c87cbb45c01117a7e2e1525010
+ms.sourcegitcommit: 5f22e596443ff4645ebf68626d8a4d275d8a865f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72816680"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79083179"
 ---
 # <a name="concurrency-and-asynchronous-operations-with-cwinrt"></a>C++/WinRT を使用した同時実行操作と非同期操作
 
-このトピックでは、[C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) を使用した Windows ランタイムの非同期オブジェクトの作成方法と利用方法について説明します。
+> [!IMPORTANT]
+> このトピックでは、"*コルーチン*" と `co_await` の概念について説明します。これは、UI "*および*" UI のないアプリケーションの両方で使用することをお勧めします。 わかりやすくするために、この入門トピックのコード例のほとんどは、**Windows コンソール アプリケーション (C++/WinRT)** プロジェクトを示しています。 このトピック内の後述のコード例でコルーチンを使用しますが、便宜上、コンソール アプリケーションの例では、終了する直前にブロッキング **get** 関数呼び出しも使用して、出力の印刷を完了する前にアプリケーションが終了しないようにしています。 それ (ブロッキング **get** 関数の呼び出し) は、UI スレッドからは行いません。 代わりに、`co_await` ステートメントを使用します。 UI アプリケーションで使用する手法の詳細については、「[より高度な同時実行操作と非同期操作](concurrency-2.md)」を参照してください。
 
-このトピックを読んだ後、[より高度な同時実行操作と非同期操作](concurrency-2.md)に関する記事で、他のシナリオも参照してください。
+この入門トピックでは、[C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) を使用した Windows ランタイムの非同期オブジェクトを作成および利用する方法について少し説明します。 このトピックを読んだ後、特に UI アプリケーションで使用する方法については、「[より高度な同時実行操作と非同期操作](concurrency-2.md)」も参照してください。
 
 ## <a name="asynchronous-operations-and-windows-runtime-async-functions"></a>非同期操作と Windows ランタイムの "非同期" 関数
 
@@ -29,7 +30,9 @@ ms.locfileid: "72816680"
 
 各非同期操作は、**winrt::Windows::Foundation** C++/WinRT の名前空間で対応する型に投影されます。 また、C++/WinRT には内部 await アダプター構造体も含まれます。 これを直接使用することはありませんが、この構造体により、これらの非同期操作型のいずれかを返す関数の結果を一緒に待機するように `co_await` ステートメントを記述することができます。 その後、これらの型を返す独自のコルーチンを作成できます。
 
-たとえば、非同期の Windows 関数である [**SyndicationClient::RetrieveFeedAsync**](https://docs.microsoft.com/uwp/api/windows.web.syndication.syndicationclient.retrievefeedasync) は、[**IAsyncOperationWithProgress&lt;TResult, TProgress&gt;** ](/uwp/api/windows.foundation.iasyncoperationwithprogress_tresult_tprogress_) 型の非同期操作オブジェクトを返します。 それでは、C++/WinRT を使用してそのような API を呼び出すためのいくつかの方法 (最初はブロック、次に非ブロック) を見てみましょう。
+たとえば、非同期の Windows 関数である [**SyndicationClient::RetrieveFeedAsync**](https://docs.microsoft.com/uwp/api/windows.web.syndication.syndicationclient.retrievefeedasync) は、[**IAsyncOperationWithProgress&lt;TResult, TProgress&gt;** ](/uwp/api/windows.foundation.iasyncoperationwithprogress_tresult_tprogress_) 型の非同期操作オブジェクトを返します。
+
+それでは、C++/WinRT を使用してそのような API を呼び出すためのいくつかの方法 (最初はブロック、次に非ブロック) を見てみましょう。 基本的なアイデアを示すために、次の複数のコード例では、**Windows コンソールアプリケーション (C++/WinRT)** プロジェクトを使用します。 UI アプリケーションにより適した手法については、「[より高度な同時実行操作と非同期操作](concurrency-2.md)」を参照してください。
 
 ## <a name="block-the-calling-thread"></a>呼び出しスレッドのブロック
 
@@ -111,6 +114,8 @@ int main()
 コルーチンは別のコルーチンに集約することができます。 または、**get** を呼び出してブロックするか、完了するまで待機します (結果が存在する場合には取得します)。 または、Windows ランタイムをサポートする別のプログラミング言語に渡すことができます。
 
 また、デリゲートを使用して、非同期アクションおよび操作の完了イベントと進行状況イベントを処理することもできます。 詳細とコード例については、「[非同期アクションと操作のデリゲート型](handle-events.md#delegate-types-for-asynchronous-actions-and-operations)」をご覧ください。
+
+見てわかるように、上記のコード例では、引き続き、**main** の終了直前にブロッキング **get** 関数呼び出しを使用しています。 これは、出力の印刷が完了する前にアプリケーションが終了しないようにすることのみが目的です。
 
 ## <a name="asynchronously-return-a-windows-runtime-type"></a>Windows ランタイム型を非同期的に返す
 

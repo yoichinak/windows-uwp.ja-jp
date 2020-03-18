@@ -6,11 +6,11 @@ ms.topic: article
 keywords: windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、プロジェクション、実装、インプリメント、ランタイム クラス、ライセンス認証
 ms.localizationpriority: medium
 ms.openlocfilehash: 84c0e9315950541e51bf49f5c0eec370f3188c4d
-ms.sourcegitcommit: 58f6643510a27d6b9cd673da850c191ee23b813e
+ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74701485"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79209277"
 ---
 # <a name="author-apis-with-cwinrt"></a>C++/WinRT での API の作成
 
@@ -459,7 +459,7 @@ MySpecializedToggleButtonAutomationPeer::MySpecializedToggleButtonAutomationPeer
 ...
 ```
 
-基底クラス コンストラクターは、**ToggleButton** を期待します。 **ToggleButton** となるのは **MySpecializedToggleButton** *です*。
+基底クラス コンストラクターは、**ToggleButton** を期待します。 **MySpecializedToggleButton** は **ToggleButton** "*です*"。
 
 (基底クラスにコンストラクター パラメーターを渡すために) 上記で説明した編集を行うまで、コンパイラは、コンストラクターにフラグを設定し、(この場合は)  **MySpecializedToggleButtonAutomationPeer_base&lt;MySpecializedToggleButtonAutomationPeer&gt;** と呼ばれる型で利用可能な適切な既定のコンストラクターがないことを指摘します。 実際には、実装型の基底クラスの基底クラスです。
 
@@ -469,7 +469,7 @@ MySpecializedToggleButtonAutomationPeer::MySpecializedToggleButtonAutomationPeer
 
 - **winrt::MyProject**。 この名前空間には投影型が含まれます。 投影型のオブジェクトはプロキシです。基本的に基になるオブジェクトへのスマート ポインターであり、基になるオブジェクトは自分のプロジェクト内で実装されている場合も、別のコンパイル単位内で実装されている場合もあります。
 - **winrt::MyProject::implementation**。 この名前空間には、実装型が含まれます。 実装型のオブジェクトはポインターではありません。値であり、完全な C++ スタック オブジェクトです。 実装型を直接構築しないでください。代わりに、[**winrt::make**](/uwp/cpp-ref-for-winrt/make) を呼び出し、テンプレート パラメーターとして実装型を渡します。 このトピックでは前に動作する **winrt::make** の例を示しました。別の例については、「[XAML コントロール: C++/WinRT プロパティへのバインド](binding-property.md#add-a-property-of-type-bookstoreviewmodel-to-mainpage)」をご覧ください。 「[直接割当ての診断](/windows/uwp/cpp-and-winrt-apis/diag-direct-alloc)」もご覧ください。
-- **winrt::MyProject::factory_implementation**。 この名前空間にはファクトリが含まれます。 この名前空間のオブジェクトでは、[ **IActivationFactory**](/windows/win32/api/activation/nn-activation-iactivationfactory) がサポートされています。
+- **winrt::MyProject::factory_implementation**。 この名前空間にはファクトリが含まれます。 この名前空間のオブジェクトでは、[**IActivationFactory**](/windows/win32/api/activation/nn-activation-iactivationfactory) がサポートされています。
 
 次の表では、異なるコンテキストで使う必要がある最小限の名前空間の修飾を示します。
 
@@ -489,7 +489,7 @@ MySpecializedToggleButtonAutomationPeer::MySpecializedToggleButtonAutomationPeer
 
 以下では、型が必要な C++/WinRT のさまざまな機能と、必要な型の種類 (投影型、実装型、両方) を示します。
 
-|機能|受け入れられる型|説明|
+|機能|受け入れられる型|メモ|
 |-|-|-|
 |`T` (スマート ポインターを表す)|投影|誤った実装型の使用については、「[名前空間: 投影型、実装型、ファクトリ](#namespaces-projected-types-implementation-types-and-factories)」の注意をご覧ください。|
 |`agile_ref<T>`|Both|実装型を使う場合は、コンストラクターの引数を `com_ptr<T>` にする必要があります。|

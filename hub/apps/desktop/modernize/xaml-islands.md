@@ -8,12 +8,12 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: high
 ms.custom: 19H1
-ms.openlocfilehash: 96705faff278c4cab31e0ab271bc31d08261401b
-ms.sourcegitcommit: 1455e12a50f98823bfa3730c1d90337b1983b711
+ms.openlocfilehash: 061ad7a3f63fc92dd2f865f8870c7de5edf862af
+ms.sourcegitcommit: 756217c559155e172087dee4d762d328c6529db6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76814012"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78935355"
 ---
 # <a name="host-uwp-xaml-controls-in-desktop-apps-xaml-islands"></a>デスクトップ アプリで UWP XAML コントロールをホストする (XAML Islands)
 
@@ -53,7 +53,7 @@ WPF および Windows フォーム アプリケーションには、特定の UW
 
 ### <a name="host-controls"></a>ホスト コントロール
 
-使用できるラップされたコントロールに含まれているもの以外のシナリオでは、Windows Community Toolkit で使用できる [WindowsXamlHost](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) コントロールを WPF および Windows フォーム アプリケーションに使用することもできます。
+使用できるラップされたコントロールに含まれていないカスタム コントロールやその他のシナリオでは、Windows Community Toolkit で使用できる [WindowsXamlHost](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) コントロールを WPF および Windows フォーム アプリケーションに使用することもできます。
 
 | Control | サポートされる最小 OS | 説明 |
 |-----------------|-------------------------------|-------------|
@@ -81,16 +81,6 @@ XAML Island .NET コントロールには、Windows 10 バージョン 1903 以�
 
 * カスタム UWP コントロールをホストしている場合、WPF または Windows フォーム プロジェクトは .NET Core 3 をターゲットにする必要があります。 .NET Framework をターゲットとするアプリでは、カスタム UWP コントロールのホストはサポートされません。 また、カスタム コントロールを参照するには、いくつかの追加の手順を実行する必要があります。 詳細については、「[XAML アイランドを使用した WPF アプリでのカスタム UWP コントロールのホスト](host-custom-control-with-xaml-islands.md)」を参照してください。
 
-* これらの手順の以前のバージョンでは、WPF または Windows フォーム プロジェクトのアプリケーション マニフェストに `maxversiontested` 要素を追加していました。 上記の NuGet パッケージの最新バージョンを使用している限り、マニフェストにこの要素を追加する処理は不要になりました。
-
-### <a name="architecture-of-xaml-island-net-controls"></a>XAML Island .NET コントロールのアーキテクチャ
-
-ここでは、UWP XAML ホスティング API の上に、どのような種類の XAML Island コントロールが構造的に構成されているかを簡単に説明します。
-
-![ホスト コントロール アーキテクチャ](images/xaml-islands/host-controls.png)
-
-この図の下部に表示されている API は、Windows SDK に付属しています。 ラップされたコントロールとホスト コントロールは、Windows Community Toolkit の NuGet パッケージを介して使用できます。
-
 ### <a name="web-view-controls"></a>Web ビュー コントロール
 
 Windows Community Toolkit には、WPF および Windows フォーム アプリケーションで Web コンテンツをホストするための次の .NET コントロールも用意されています。 これらのコントロールは、XAML Island コントロールと同様のデスクトップ アプリの最新化シナリオでよく使用され、XAML Island コントロールと同じ [Microsoft.Toolkit.Win32 リポジトリ](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32) リポジトリで保守されています。
@@ -113,6 +103,33 @@ UWP XAML ホスティング API は、いくつかの Windows ランタイム �
 
 > [!NOTE]
 > Windows Community Toolkit のラップされたコントロールとホスト コントロールには、UWP XAML ホスティング API が内部的に使用され、キーボード ナビゲーションやレイアウトの変更など、UWP XAML ホスティング API を直接使用した場合には独自に処理する必要があるすべての動作が実装されています。 WPF および Windows フォーム アプリケーションの場合、UWP XAML ホスティング API ではなく、これらのコントロールを使用することを強くお勧めします。これは、API に関する実装の詳細の多くを抽象化できるためです。
+
+## <a name="architecture-of-xaml-islands"></a>XAML Islands のアーキテクチャ
+
+ここでは、UWP XAML ホスティング API の上に、どのような種類の XAML Island コントロールが構造的に構成されているかを簡単に説明します。
+
+![ホスト コントロール アーキテクチャ](images/xaml-islands/host-controls.png)
+
+この図の下部に表示されている API は、Windows SDK に付属しています。 ラップされたコントロールとホスト コントロールは、Windows Community Toolkit の NuGet パッケージを介して使用できます。
+
+## <a name="window-host-context-for-xaml-islands"></a>XAML Islands のウィンドウ ホスト コンテキスト
+
+デスクトップ アプリで XAML Islands をホストすると、XAML コンテンツの複数のツリーを同じスレッド上で同時に実行できます。 XAML Island で XAML コンテンツのツリーのルート要素にアクセスし、それがホストされているコンテキストに関する関連情報を取得するには、[XamlRoot](https://docs.microsoft.com/uwp/api/windows.ui.xaml.xamlroot) クラスを使用します。 [CoreWindow](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow)、[ApplicationView](https://docs.microsoft.com/uwp/api/windows.ui.viewmanagement.applicationview)、および [Window](https://docs.microsoft.com/uwp/api/windows.ui.xaml.window) クラスでは、XAML Islands に関する正しい情報が提供されません。 [CoreWindow](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow) および [Window](https://docs.microsoft.com/uwp/api/windows.ui.xaml.window) オブジェクトはスレッドに存在し、アプリからアクセスできますが、意味のある境界と表示は返されません (常に非表示で、サイズは 1x1 です)。 詳細については、[ウィンドウ化ホスト](/windows/uwp/design/layout/show-multiple-views#windowing-hosts)に関するページを参照してください。
+
+たとえば、XAML Island でホストされている UWP コントロールが含まれるウィンドウの境界を示す四角形を取得するには、コントロールの [XamlRoot.Size](https://docs.microsoft.com/uwp/api/windows.ui.xaml.xamlroot.size) プロパティを使用します。 XAML Island でホストできるすべての UWP コントロールは、[Windows.UI.Xaml.UIElement](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement) から派生するため、コントロールの [XamlRoot](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.xamlroot) プロパティを使用して、**XamlRoot** オブジェクトにアクセスできます。
+
+```csharp
+Size windowSize = myUWPControl.XamlRoot.Size;
+```
+
+境界を示す四角形を取得するために [CoreWindows.Bounds](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.bounds) プロパティを使用しないでください。
+
+```csharp
+// This will return incorrect information for a UWP control that is hosted in a XAML Island.
+Rect windowSize = CoreWindow.GetForCurrentThread().Bounds;
+```
+
+XAML Islands のコンテキストで避ける必要がある一般的なウィンドウ関連 API の表と、推奨される [XamlRoot](https://docs.microsoft.com/uwp/api/windows.ui.xaml.xamlroot) の置換については、[こちらのセクション](/windows/uwp/design/layout/show-multiple-views#make-code-portable-across-windowing-hosts)の表を参照してください。
 
 ## <a name="feature-roadmap"></a>機能ロードマップ
 

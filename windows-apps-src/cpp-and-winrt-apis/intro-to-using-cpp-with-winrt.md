@@ -6,11 +6,11 @@ ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 概要
 ms.localizationpriority: medium
 ms.openlocfilehash: fd267f96ca6931252ab3130d363447ae79820108
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74255102"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79209137"
 ---
 # <a name="introduction-to-cwinrt"></a>C++/WinRT の概要
 &nbsp;
@@ -44,7 +44,7 @@ Visual Studio のサポートでは、Visual Studio 2019 または Visual Studio
 
 C++/WinRT 用の Visual Studio プロジェクト テンプレートは、以下のセクションで説明されます。 最新バージョンの VSIX 拡張機能がインストールされた新しい C++/WinRT プロジェクトを作成する場合、新しい C++/WinRT プロジェクトで自動的に [Microsoft.Windows.CppWinRT NuGet パッケージ](https://www.nuget.org/packages/Microsoft.Windows.CppWinRT/)がインストールされます。 **Microsoft.Windows.CppWinRT** NuGet パッケージでは、C++/WinRT のビルド (MSBuild プロパティとターゲット) がサポートされ、自分のプロジェクトを (NuGet パッケージのみ (VSIX 拡張機能以外) がインストールされる) 開発マシンとビルド エージェントとの間で移植できるようになります。
 
-または、**Microsoft.Windows.CppWinRT** NuGet パッケージを手動でインストールすることで、既存のプロジェクトを変換できます。 最新バージョンの VSIX 拡張機能をインストール (または更新) した後、Visual Studio で既存のプロジェクトを開いて、 **[プロジェクト]** \> **[NuGet パッケージの管理]** \> **[参照]** の順にクリックし、検索ボックスに「**Microsoft.Windows.CppWinRT**」を入力するか貼り付けます。検索結果の項目を選択し、 **[インストール]** をクリックしてそのプロジェクトのパッケージをインストールします。 そのパッケージを追加したら、`cppwinrt.exe` ツールの呼び出しを含む、プロジェクトの C++/WinRT MSBuild サポートを取得できます。
+または、**Microsoft.Windows.CppWinRT** NuGet パッケージを手動でインストールすることで、既存のプロジェクトを変換できます。 最新バージョンの VSIX 拡張機能をインストール (または更新) した後、Visual Studio で既存のプロジェクトを開いて、 **[プロジェクト]** \> **[NuGet パッケージの管理]** \> **[参照]** をクリックし、検索ボックスに「**Microsoft.Windows.CppWinRT**」を入力するか貼り付けます。検索結果の項目を選択し、 **[インストール]** をクリックして、そのプロジェクトのパッケージをインストールします。 そのパッケージを追加したら、`cppwinrt.exe` ツールの呼び出しを含む、プロジェクトの C++/WinRT MSBuild サポートを取得できます。
 
 > [!IMPORTANT]
 > 1\.0.190128.4 より前の VSIX 拡張機能のバージョンで作成された (作業するためにアップグレードされた) プロジェクトがある場合は、「[VSIX 拡張機能の以前のバージョン](#earlier-versions-of-the-vsix-extension)」を参照してください。 そのセクションには、プロジェクトの構成に関する重要な情報が含まれ、最新バージョンの VSIX 拡張機能を使用するためにアップグレードする必要があるものを把握します。
@@ -110,7 +110,7 @@ IDL ファイルでは、コンポーネント、それらの既定インター�
 ...
 ```
 
-**Microsoft.Windows.CppWinRT** NuGet パッケージを手動でインストールすることで、自分のプロジェクトをアップグレードできます。 最新バージョンの VSIX 拡張機能をインストール (またはアップグレード) した後、Visual Studio で自分のプロジェクトを開いて、 **[プロジェクト]** \> **[NuGet パッケージの管理]** \> **[参照]** の順にクリックし、検索ボックスに「**Microsoft.Windows.CppWinRT**」を入力するか貼り付けます。検索結果の項目を選択し、 **[インストール]** をクリックして自分のプロジェクトのパッケージをインストールします。
+**Microsoft.Windows.CppWinRT** NuGet パッケージを手動でインストールすることで、自分のプロジェクトをアップグレードできます。 最新バージョンの VSIX 拡張機能をインストール (またはアップグレード) した後、Visual Studio で自分のプロジェクトを開いて、 **[プロジェクト]** \> **[NuGet パッケージの管理]** \> **[参照]** をクリックし、検索ボックスに「**Microsoft.Windows.CppWinRT**」を入力するか貼り付けます。検索結果の項目を選択し、 **[インストール]** をクリックして自分のプロジェクトのパッケージをインストールします。
 
 ### <a name="created-with-or-upgraded-to-between-101810022-and-101901283"></a>1\.0.181002.2 から 1.0.190128.3 の間で作成 (またはアップグレード)
 プロジェクトが 1.0.181002.2 から 1.0.190128.3 (含む) の間の VSIX 拡張機能のバージョンで作成された場合、**Microsoft.Windows.CppWinRT** NuGet パッケージはプロジェクト テンプレートによってプロジェクトに自動的にインストールされています。 この範囲の VSIX 拡張機能のバージョンを使用するために、以前のプロジェクトをアップグレードしている可能性もあります。 この操作を行った場合、&mdash;ビルドのサポートは引き続きこの範囲内の VSIX 拡張機能のバージョンでも表されるため&mdash;ご利用のアップグレードされたプロジェクトでは **Microsoft.Windows.CppWinRT** NuGet パッケージをインストールしている、またはしていない可能性があります。
