@@ -11,12 +11,12 @@ dev_langs:
 - vb
 - cppwinrt
 - cpp
-ms.openlocfilehash: 796ee7ed1454515817f5fc994ccb9242d2a2918c
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: eadb0d1547387789fc202b833294e761f2faf22c
+ms.sourcegitcommit: eb24481869d19704dd7bcf34e5d9f6a9be912670
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74259865"
+ms.lasthandoff: 03/17/2020
+ms.locfileid: "79448593"
 ---
 # <a name="custom-dependency-properties"></a>カスタム依存関係プロパティ
 
@@ -62,7 +62,7 @@ Windows ランタイムまたは Windows ランタイム アプリの次の機�
 - プロパティ名をプロパティ システムに登録して ([**Register**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.dependencyproperty.register) を呼び出す)、所有者型とプロパティ値の型を指定します。
   - [  **Register**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.dependencyproperty.register) にはプロパティ メタデータを要求する必須パラメーターがあります。 これに **null** を指定するか、プロパティ変更動作や、[**ClearValue**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.dependencyobject.clearvalue) を呼び出すことによって復元できるメタデータ ベースの既定値が必要な場合は、[**PropertyMetadata**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.propertymetadata) のインスタンスを指定します。
 - [  **DependencyProperty**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.DependencyProperty) 識別子を所有者型の **public static readonly** プロパティ メンバーとして定義します。
-- 実装する言語で使うプロパティ アクセサー モデルに従ってラッパー プロパティを定義します。 ラッパー プロパティ名は、Register[**で使った**name](https://docs.microsoft.com/uwp/api/windows.ui.xaml.dependencyproperty.register) 文字列と一致する必要があります。 **** GetValue と [**SetValue**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.dependencyobject.getvalue) を呼び出し、独自のプロパティの識別子をパラメーターとして渡すことで、[get**アクセサーと**set](https://docs.microsoft.com/uwp/api/windows.ui.xaml.dependencyobject.setvalue) アクセサーを実装して、ラップする依存関係プロパティにラッパーを関連付けます。
+- 実装する言語で使うプロパティ アクセサー モデルに従ってラッパー プロパティを定義します。 ラッパー プロパティ名は、Register[**で使った**name](https://docs.microsoft.com/uwp/api/windows.ui.xaml.dependencyproperty.register) 文字列と一致する必要があります。 **GetValue** と [**SetValue**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.dependencyobject.getvalue) を呼び出し、独自のプロパティの識別子をパラメーターとして渡すことで、[get**アクセサーと**set](https://docs.microsoft.com/uwp/api/windows.ui.xaml.dependencyobject.setvalue) アクセサーを実装して、ラップする依存関係プロパティにラッパーを関連付けます。
 - (省略可能) ラッパーに [**ContentPropertyAttribute**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Markup.ContentPropertyAttribute) などの属性を配置します。
 
 > [!NOTE]
@@ -441,7 +441,7 @@ static void OnVisibilityValueChanged(DependencyObject^ d, DependencyPropertyChan
 
 コレクション型の依存関係プロパティでは、いくつかの実装の問題を追加で考慮する必要があります。
 
-コレクション型の依存関係プロパティは、Windows ランタイム API では比較的まれです。 ほとんどの場合、項目が [**DependencyObject**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.DependencyObject) サブクラスであるコレクションを使うことができますが、コレクション プロパティ自体は従来の CLR または C++ プロパティとして実装されます。 これは、依存関係プロパティが関与するいくつかの典型的なシナリオにはコレクションが必ずしも適さないためです。 次に、例を示します。
+コレクション型の依存関係プロパティは、Windows ランタイム API では比較的まれです。 ほとんどの場合、項目が [**DependencyObject**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.DependencyObject) サブクラスであるコレクションを使うことができますが、コレクション プロパティ自体は従来の CLR または C++ プロパティとして実装されます。 これは、依存関係プロパティが関与するいくつかの典型的なシナリオにはコレクションが必ずしも適さないためです。 例 :
 
 - 通常は、コレクションをアニメーション化しません。
 - 通常、スタイルまたはテンプレートを持つコレクションには項目を事前設定しません。
@@ -472,12 +472,12 @@ Windows ランタイムには、カスタム依存関係プロパティを読み
 
 ### <a name="registering-the-dependency-properties-for-ccx-apps"></a>C++/CX アプリの依存関係プロパティの登録
 
-C++/CX のプロパティ登録の実装は、C# より込み入っています。それは、ヘッダー ファイルと実装ファイルに分かれているためと、実装ファイルのルート スコープでの初期化が好ましくないためです (Visual C++コンポーネント拡張 (C++/cx) は、静的初期化子コードをルートスコープから直接**DllMain**にC#配置しますが、コンパイラは静的初期化子をクラスに割り当て、 **DllMain**の読み込みロックの問題を回避します)。 ここでのベスト プラクティスは、クラスごとに 1 つ、そのクラスの依存関係プロパティの登録をすべて実行するヘルパー関数を宣言することです。 続いて、アプリで使う各カスタム クラスについて、使う各カスタム クラスが公開したヘルパー登録関数を参照する必要があります。 [ の前に、Application constructor](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.-ctor)`App::App()` (`InitializeComponent`) の一環として各ヘルパー登録関数を 1 回だけ呼び出します。 そのコンストラクターは、アプリが実際に初めて参照されたときにだけ実行され、たとえば中断されたアプリが再開された場合には実行されません。 また、前の C++ 登録の例に示すように、各Register[**呼び出し時の**nullptr](https://docs.microsoft.com/uwp/api/windows.ui.xaml.dependencyproperty.register) チェックが重要です。これによって、関数の呼び出し元がプロパティを 2 回登録できないことが保証されます。 このようなチェックをしないで 2 回、登録を呼び出すと、プロパティ名が重複するためアプリはおそらくクラッシュします。 [XAML ユーザー コントロールとカスタム コントロールのサンプルに関するページ](https://code.msdn.microsoft.com/windowsapps/XAML-user-and-custom-a8a9505e)でサンプルの C++/CX バージョンのコードを参照すると、この実装パターンを確認できます。
+C++/CX のプロパティ登録の実装は、C# より込み入っています。それは、ヘッダー ファイルと実装ファイルに分かれているためと、実装ファイルのルート スコープでの初期化が好ましくないためです (Visual C++コンポーネント拡張 (C++/cx) は、静的初期化子コードをルートスコープから直接**DllMain**にC#配置しますが、コンパイラは静的初期化子をクラスに割り当て、 **DllMain**の読み込みロックの問題を回避します)。 ここでのベスト プラクティスは、クラスごとに 1 つ、そのクラスの依存関係プロパティの登録をすべて実行するヘルパー関数を宣言することです。 続いて、アプリで使う各カスタム クラスについて、使う各カスタム クラスが公開したヘルパー登録関数を参照する必要があります。 [ の前に、Application constructor](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.-ctor)`App::App()` (`InitializeComponent`) の一環として各ヘルパー登録関数を 1 回だけ呼び出します。 そのコンストラクターは、アプリが実際に初めて参照されたときにだけ実行され、たとえば中断されたアプリが再開された場合には実行されません。 また、前の C++ 登録の例に示すように、各Register[**呼び出し時の**nullptr](https://docs.microsoft.com/uwp/api/windows.ui.xaml.dependencyproperty.register) チェックが重要です。これによって、関数の呼び出し元がプロパティを 2 回登録できないことが保証されます。 このようなチェックをしないで 2 回、登録を呼び出すと、プロパティ名が重複するためアプリはおそらくクラッシュします。 [XAML ユーザー コントロールとカスタム コントロールのサンプルに関するページ](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/master/Official%20Windows%20Platform%20Sample/XAML%20user%20and%20custom%20controls%20sample)でサンプルの C++/CX バージョンのコードを参照すると、この実装パターンを確認できます。
 
 ## <a name="related-topics"></a>関連トピック
 
 - [**DependencyObject**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.DependencyObject)
 - [**DependencyProperty. Register**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.dependencyproperty.register)
 - [依存関係プロパティの概要](dependency-properties-overview.md)
-- [XAML ユーザーとカスタム コントロールのサンプル](https://code.msdn.microsoft.com/windowsapps/XAML-user-and-custom-a8a9505e)
+- [XAML ユーザーとカスタム コントロールのサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/master/Official%20Windows%20Platform%20Sample/XAML%20user%20and%20custom%20controls%20sample)
  
