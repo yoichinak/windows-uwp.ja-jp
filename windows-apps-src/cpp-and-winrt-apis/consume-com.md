@@ -5,12 +5,12 @@ ms.date: 04/24/2019
 ms.topic: article
 keywords: windows 10、uwp、標準、c ++、cpp、winrt、COM、コンポーネント、クラス、インターフェイス
 ms.localizationpriority: medium
-ms.openlocfilehash: 88012d96b7c769094cb80d0f34b77060291a3eef
-ms.sourcegitcommit: 80ea5e05f8c15700f6c6fa3d1ed37e479568762b
+ms.openlocfilehash: 4a9bdfcee8811e52587eb4fcd59913a731b799a2
+ms.sourcegitcommit: cab95379459ad378163aa4469c9dc6c509cc8c43
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75928814"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79511005"
 ---
 # <a name="consume-com-components-with-cwinrt"></a>C++/WinRT での COM コンポーネントの使用
 
@@ -18,7 +18,7 @@ ms.locfileid: "75928814"
 
 このトピックの末尾には、最小限の Direct2D アプリケーションの完全なソース コード一覧が掲載されています。 ここでは、そのコードの抜粋を取り上げ、それを使い、C++/WinRT ライブラリのさまざまな機能を使用し、C++/WinRT を使って COM コンポーネントを利用する方法を説明します。
 
-## <a name="com-smart-pointers-winrtcom_ptruwpcpp-ref-for-winrtcom-ptr"></a>COM スマート ポインター ([**winrt::com_ptr**](/uwp/cpp-ref-for-winrt/com-ptr))
+## <a name="com-smart-pointers-winrtcom_ptr"></a>COM スマート ポインター ([**winrt::com_ptr**](/uwp/cpp-ref-for-winrt/com-ptr))
 
 COM を使ってプログラミングする場合は、オブジェクトではなくインターフェイスを直接使って作業します (これは、COM が進化したものである Windows ランタイム API のバックグラウンドにも当てはまります)。 たとえば、COM クラスに対して関数を呼び出すには、そのクラスをアクティブ化し、インターフェイスを取得してから、そのインターフェイスに対して関数を呼び出します。 オブジェクトの状態にアクセスするには、そのデータ メンバーに直接アクセスしないでください。代わりに、インターフェイスに対してアクセサー関数とミューテーター関数を呼び出します。
 
@@ -127,7 +127,7 @@ winrt::check_hresult(D2D1CreateFactory(
 
 ## <a name="com-functions-that-take-an-iunknown-interface-pointer"></a>**IUnknown** インターフェイス ポインターを受け取る COM 関数
 
-[**winrt::get_unknown**](/uwp/cpp-ref-for-winrt/windows-foundation-iunknown#get_unknown-function) free 関数を呼び出して、**com_ptr** を **IUnknown** インターフェイス ポインターを受け取る関数に渡すことができます。
+[**winrt::get_unknown**](/uwp/cpp-ref-for-winrt/get-unknown) free 関数を呼び出して、**com_ptr** を **IUnknown** インターフェイス ポインターを受け取る関数に渡すことができます。
 
 ```cppwinrt
 winrt::check_hresult(factory->CreateSwapChainForCoreWindow(
