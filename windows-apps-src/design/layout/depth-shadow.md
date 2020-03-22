@@ -3,19 +3,18 @@ author: knicholasa
 description: Z 深度、つまり相対的な深さ、および影は、ユーザーが自然かつ効率的にフォーカスを得るために、アプリに深さを組み込む方法の2つの方法です。
 title: UWP アプリの Z 深度とシャドウ
 template: detail.hbs
-ms.author: nichola
 ms.date: 04/19/2019
 ms.topic: article
 ms.custom: 19H1
 keywords: windows 10, uwp
 pm-contact: chigy
 ms.localizationpriority: medium
-ms.openlocfilehash: 5e9197be38d1edfdad41a434132f318cdf3f45ea
-ms.sourcegitcommit: 445320ff0ee7323d823194d4ec9cfa6e710ed85d
+ms.openlocfilehash: 216974ba564a192f94473469f3a7a49191ef2192
+ms.sourcegitcommit: af4050f69168c15b0afaaa8eea66a5ee38b88fed
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72282416"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80081385"
 ---
 # <a name="z-depth-and-shadow"></a>Z 深度とシャドウ
 
@@ -39,7 +38,7 @@ UWP アプリでは、美しい方法ではなく、特別な目的で影を使�
 
 ## <a name="themeshadow"></a>ThemeShadow
 
-ThemeShadow 型を任意の XAML 要素に適用して、x、y、z 座標に基づいて影を適切に描画できます。 ThemeShadow も、その他の環境仕様に合わせて自動的に調整されます。
+[ThemeShadow](/uwp/api/windows.ui.xaml.media.themeshadow)型を任意の XAML 要素に適用して、x、y、z 座標に基づいて影を適切に描画できます。 ThemeShadow も、その他の環境仕様に合わせて自動的に調整されます。
 
 - 照明、ユーザーテーマ、アプリ環境、およびシェルの変更に適応します。
 - Z の深さに基づいて、要素に自動的に影を適用します。 
@@ -160,12 +159,12 @@ DropShadow は環境に自動的に応答せず、光源を使用しません。
 ## <a name="which-shadow-should-i-use"></a>どのシャドウを使用すればよいですか。
 
 | プロパティ | ThemeShadow | DropShadow |
-| - | - | - | - |
+| - | - | - |
 | **最小 SDK** | Windows 10 バージョン1903 | 14393 |
-| **適応性** | 〇 | X |
-| **Customization** | X | 〇 |
+| **適応性** | はい | いいえ |
+| **Customization** | いいえ | はい |
 | **光源** | 自動 (既定ではグローバルですが、アプリごとに上書きできます) | なし |
-| **3D 環境でサポート** | 〇 | X |
+| **3D 環境でサポート** | はい | いいえ |
 
 - Shadow の目的は、単純な視覚的な取り扱いではなく、意味のある階層を提供することに注意してください。
 - 一般に、環境に自動的に適応する ThemeShadow を使用することをお勧めします。

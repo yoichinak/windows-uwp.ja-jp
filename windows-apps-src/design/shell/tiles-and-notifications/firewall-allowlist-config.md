@@ -4,17 +4,16 @@ Description: 多くの企業では、ファイアウォールを使用して不�
 title: ファイアウォール許可リストへの WNS トラフィックの追加
 ms.assetid: 2125B09F-DB90-4515-9AA6-516C7E9ACCCD
 template: detail.hbs
-ms.author: mijacobs
 ms.date: 05/20/2019
 ms.topic: article
 keywords: windows 10、uwp、WNS、windows notification service、通知、windows、ファイアウォール、トラブルシューティング、IP、トラフィック、エンタープライズ、ネットワーク、IPv4、VIP、FQDN、パブリック IP アドレス
 ms.localizationpriority: medium
-ms.openlocfilehash: fa0153a395144382aee3f764f0f7d9316afa9c5e
-ms.sourcegitcommit: ff086bae50e61a351b8c53867ed6579e43d8cf1f
+ms.openlocfilehash: 34e66249c5b44cbfecd81b9238eda2b1e5412b9a
+ms.sourcegitcommit: af4050f69168c15b0afaaa8eea66a5ee38b88fed
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76265023"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80080663"
 ---
 # <a name="enterprise-firewall-and-proxy-configurations-to-support-wns-traffic"></a>WNS トラフィックをサポートするためのエンタープライズファイアウォールとプロキシ構成
 
@@ -26,7 +25,7 @@ ms.locfileid: "76265023"
 > [!Note]
 > Windows クライアントは、すべてのプロキシをサポートし**ていません**。 WNS への接続は直接接続である必要があります。
 
-**準備中** さまざまなネットワーク構成、プロキシ、およびファイアウォールを積極的に調査しています。 このページは、一般的なエンタープライズシナリオと WNS サポートについて、さらに詳しく説明します。
+**もうすぐです！** さまざまなネットワーク構成、プロキシ、およびファイアウォールを積極的に調査しています。 このページは、一般的なエンタープライズシナリオと WNS サポートについて、さらに詳しく説明します。
 
 
 ## <a name="what-information-should-be-added-to-the-allowlist"></a>許可リストに追加する必要がある情報

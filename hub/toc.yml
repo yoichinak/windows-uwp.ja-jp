@@ -48,8 +48,6 @@
               href: apps/desktop/modernize/desktop-to-uwp-extend.md
             - name: パッケージ アプリの配布
               href: apps/desktop/modernize/desktop-to-uwp-distribute.md
-        - name: パッケージ化されていないデスクトップ アプリに ID を付与する
-          href: apps/desktop/modernize/grant-identity-to-nonpackaged-apps.md
         - name: 'チュートリアル: WPF アプリの現代化'
           items:
             - name: 概要
@@ -64,6 +62,8 @@
               href: apps/desktop/modernize/modernize-wpf-tutorial-4.md
             - name: MSIX によるパッケージとデプロイ
               href: apps/desktop/modernize/modernize-wpf-tutorial-5.md
+        - name: パッケージ化されていないデスクトップ アプリに ID を付与する
+          href: apps/desktop/modernize/grant-identity-to-nonpackaged-apps.md
     - name: Fluent Design System
       href: apps/fluent-design-system.md
     - name: アクセシビリティ
@@ -71,27 +71,7 @@
     - name: Speech
       href: apps/speech.md
     - name: 機能とテクノロジ
-      items:
-        - name: 概要
-          href: apps/features-and-technologies.md
-        - name: .NET での ETW トレースの処理
-          items:
-            - name: 概要
-              href: apps/trace-processing/overview.md
-            - name: 最初のトレースを処理する
-              href: apps/trace-processing/quickstart.md
-            - name: トレース データへのアクセス
-              href: apps/trace-processing/tutorial.md
-            - name: TraceProcessor の拡張
-              href: apps/trace-processing/extensibility.md
-            - name: シンボルの読み込み
-              href: apps/trace-processing/symbols.md
-            - name: ストリーミングの使用
-              href: apps/trace-processing/streaming.md
-            - name: サンプル
-              href: 'https://github.com/microsoft/eventtracing-processing-samples'
-            - name: 参照先
-              href: apps/trace-processing/reference.md
+      href: apps/features-and-technologies.md
     - name: 最新のドキュメントの更新
       href: apps/whats-new/latest-doc-updates.md
 - name: Windows でビルドする
