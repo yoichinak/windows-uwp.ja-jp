@@ -27,7 +27,7 @@
 - name: オーディオ、ビデオ、カメラ
   href: ../audio-video-camera/index.md
   items:
-    - name: Camera
+    - name: カメラ
       href: ../audio-video-camera/camera.md
       items:
         - name: Windows の組み込みカメラ UI を使った写真とビデオのキャプチャ
@@ -299,7 +299,7 @@
           href: ../debug-test-perf/loose-file-registration.md
         - name: ベータ テスト
           href: ../debug-test-perf/beta-testing.md
-        - name: Windows Device Portal
+        - name: Windows デバイス ポータル
           href: ../debug-test-perf/device-portal.md
           items:
             - name: デスクトップ用 Device Portal
@@ -322,7 +322,7 @@
               items:
                 - name: Windows デスクトップ ブリッジ アプリのテスト
                   href: ../debug-test-perf/windows-desktop-bridge-app-tests.md
-        - name: パフォーマンス
+        - name: '[パフォーマンス]'
           href: ../debug-test-perf/performance-and-xaml-ui.md
           items:
             - name: パフォーマンスの計画
@@ -741,11 +741,11 @@
     - name: C++/WinRT
       href: ../cpp-and-winrt-apis/index.md
       items:
-        - name: 概要
-          href: ../cpp-and-winrt-apis/intro-to-using-cpp-with-winrt.md
         - name: はじめに
+          href: ../cpp-and-winrt-apis/intro-to-using-cpp-with-winrt.md
+        - name: 開始
           href: ../cpp-and-winrt-apis/get-started.md
-        - name: 新着情報
+        - name: 新機能
           href: ../cpp-and-winrt-apis/news.md
         - name: よく寄せられる質問
           href: ../cpp-and-winrt-apis/faq.md
@@ -1024,7 +1024,7 @@
               href: ../contacts-and-calendar/my-people-notifications.md
         - name: 連絡先の選択
           href: ../contacts-and-calendar/selecting-contacts.md
-        - name: メールの送信
+        - name: 電子メールの送信
           href: ../contacts-and-calendar/sending-email.md
         - name: SMS メッセージの送信
           href: ../contacts-and-calendar/sending-an-sms-message.md
@@ -1095,7 +1095,7 @@
               href: ../devices-sensors/pos-basics-claim.md
             - name: 周辺機器の共有
               href: ../devices-sensors/pos-basics-sharing.md
-            - name: 概要
+            - name: はじめに
               href: ../devices-sensors/pos-get-started.md
         - name: ハードウェア サポート
           href: ../devices-sensors/pos-device-support.md
@@ -1115,7 +1115,7 @@
               items:
                 - name: システム要件
                   href: ../devices-sensors/pos-camerabarcode-system-requirements.md
-                - name: 概要
+                - name: はじめに
                   href: ../devices-sensors/pos-camerabarcode-get-started.md
                 - name: カメラ プレビューのホスティング
                   href: ../devices-sensors/pos-camerabarcode-hosting-preview.md
@@ -1164,7 +1164,7 @@
               href: ../devices-sensors/gatt-client.md
             - name: GATT サーバー
               href: ../devices-sensors//gatt-server.md
-            - name: 公開通知
+            - name: 開示通知(旧称「提供情報」)
               href: ../devices-sensors/ble-beacon.md
         - name: Bluetooth に関する開発者向け FAQ
           href: ../devices-sensors/bluetooth-dev-faq.md
@@ -1234,11 +1234,11 @@
               href: ../porting/getting-started-getting-around-in-visual-studio.md
             - name: '概要: コモン コントロール'
               href: ../porting/getting-started-common-controls.md
-            - name: '概要: ナビゲーション'
+            - name: '概要: ［ナビゲーション］'
               href: ../porting/getting-started-navigation.md
             - name: '概要: アニメーション'
               href: ../porting/getting-started-animation.md
-            - name: '概要: 次にすること'
+            - name: '概要: 次に行うことは何ですか?'
               href: ../porting/getting-started-what-next.md
         - name: Windows 10 を使用するための Mac のセットアップ
           href: ../porting/setting-up-your-mac-with-windows-10.md
@@ -1354,6 +1354,8 @@
               href: ../launch-resume/extend-your-app-with-services-extensions-packages.md
             - name: アプリ拡張機能の作成とホスト
               href: ../launch-resume/how-to-create-an-extension.md
+            - name: ホステッド アプリの作成
+              href: ../launch-resume/hosted-apps.md
         - name: バックグラウンド タスクによるアプリのサポート
           href: ../launch-resume/support-your-app-with-background-tasks.md
           items:

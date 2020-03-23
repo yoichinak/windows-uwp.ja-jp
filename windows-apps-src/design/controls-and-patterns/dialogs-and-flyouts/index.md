@@ -11,21 +11,18 @@ design-contact: kimsea
 dev-contact: niallm
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 43d63b1831766ecdf65fe1c1d7fd15457f728f83
-ms.sourcegitcommit: 789bfe3756c5c47f7324b96f482af636d12c0ed3
+ms.openlocfilehash: 37ab62a6e6c2e294e8d6b5222eab4a1a9ae25a2e
+ms.sourcegitcommit: af4050f69168c15b0afaaa8eea66a5ee38b88fed
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68867446"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80081008"
 ---
 # <a name="dialogs-and-flyouts"></a>ダイアログとポップアップ
 
-
-
 ダイアログ ボックスとポップアップは、通知、許可、またはユーザーからの追加の情報を必要とする状況が発生したときに表示される一時的な UI 要素です。
 
-> **重要な API**:[ContentDialog クラス](/uwp/api/Windows.UI.Xaml.Controls.ContentDialog)、[Flyout クラス](/uwp/api/Windows.UI.Xaml.Controls.Flyout)
-
+> **プラットフォーム API:** [ContentDialog クラス](/uwp/api/Windows.UI.Xaml.Controls.ContentDialog)、[Flyout クラス](/uwp/api/Windows.UI.Xaml.Controls.Flyout)
 
 :::row:::
     :::column:::
@@ -47,7 +44,7 @@ ms.locfileid: "68867446"
 :::row-end:::
 
 
-## <a name="is-this-the-right-control"></a>適切なコントロールの選択
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 ダイアログとポップアップにより、ユーザーが重要な情報を認識していることを確認できますが、ユーザー エクスペリエンスは中断されます。 ダイアログはモーダル (ブロック) であるため、ユーザーは中断され、ダイアログの操作を行うまで他の操作を行うことはできません。 ポップアップの煩わしさはダイアログより低くなりますが、多用すると、煩わしくなります。
 
@@ -103,7 +100,7 @@ ms.locfileid: "68867446"
 <table>
 <th align="left">XAML コントロール ギャラリー<th>
 <tr>
-<td><img src="../images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td><img src="../images/xaml-controls-gallery-app-icon-sm.png" alt="XAML controls gallery"></img></td>
 <td>
     <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合、こちらをクリックしてアプリを開き、<a href="xamlcontrolsgallery:/item/ContentDialog">ContentDialog</a> または <a href="xamlcontrolsgallery:/item/Flyout">Flyout</a> の動作を確認してください。</p>
     <ul>
