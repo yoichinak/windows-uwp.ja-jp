@@ -1,21 +1,80 @@
 ---
 description: C++/WinRT に関するニュースと変更内容です。
 title: C++/WinRT の新機能
-ms.date: 04/23/2019
+ms.date: 03/16/2020
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 新機能
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: d5a2c3d10f2cbfcc608d212a9465ca738e1ca15e
-ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
+ms.openlocfilehash: 734544a1294c6a97e70afcbf7ce6b5efc13cf841
+ms.sourcegitcommit: eb24481869d19704dd7bcf34e5d9f6a9be912670
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79209107"
+ms.lasthandoff: 03/17/2020
+ms.locfileid: "79448583"
 ---
 # <a name="whats-new-in-cwinrt"></a>C++/WinRT の新機能
 
 C++/WinRT の後続バージョンがリリースされると、このトピックに新機能と変更点が記載されます。
+
+## <a name="rollup-of-recent-improvementsadditions-as-of-march-2020"></a>2020 年 3 月現在における最新の機能強化および追加のロールアップ
+
+### <a name="up-to-23-shorter-build-times"></a>ビルド時間を最大 23% 短縮
+
+C++/WinRT と C++ コンパイラ チームは、ビルド時間短縮のために可能なすべてのことを共同で行ってきました。 コンパイラ分析に注力し、C++ コンパイラでコンパイル時のオーバーヘッドを解消できるように C++/WinRT の内部を再構築する方法と、C++/WinRT ライブラリを処理するために C++ コンパイラ自体を改善する方法を見つけ出しました。 C++/WinRT はコンパイラ用に最適化されており、コンパイラも C++/WinRT 用に最適化されています。
+
+たとえば、すべての C++/WinRT プロジェクション名前空間ヘッダーを含むプリコンパイル済みヘッダー (PCH) を構築するという最悪のシナリオを考えてみましょう。
+
+| バージョン | PCH のサイズ (バイト) | 回数 |
+| - | - | - |
+| 7 月からの C++/WinRT、および Visual C++ 16.3 | 3,004,104,632 | 31 |
+| バージョン 2.0.200316.3 の C++/WinRT、および Visual C++ 16.5 | 2,393,515,336 | 24 |
+
+サイズが 20% 削減され、ビルド時間が 23% 短縮されます。
+
+### <a name="improved-msbuild-support"></a>MSBuild サポートの向上
+
+さまざまなシナリオを対象とした [MSBuild](/visualstudio/msbuild/msbuild?view=vs-2019) サポートを向上させるために、多くの取り組みを行ってきました。
+
+### <a name="even-faster-factory-caching"></a>ファクトリ キャッシュのさらなる高速化
+
+インライン ホット パスを向上させるために、ファクトリ キャッシュのインライン化を改善し、より高速な実行を実現しました。
+
+&mdash;後述の[最適化された EH コード生成](#optimized-exception-handling-eh-code-generation)の説明にあるように、この改善はコード サイズには影響せず、アプリケーションで C++ 例外処理を頻繁に使用する場合は、Visual Studio 2019 16.3 以降で作成された新しいプロジェクトで既定でオンになっている `/d2FH4` オプションを使用してバイナリを縮小できます。
+
+### <a name="more-efficient-boxing"></a>より効率的なボックス化
+
+XAML アプリケーションで使用する場合、[**winrt:: box_value**](/uwp/cpp-ref-for-winrt/box-value) がより効率的になりました ([ボックス化とボックス化解除](/windows/uwp/cpp-and-winrt-apis/boxing)に関するページを参照してください)。 また、多数のボックス化を実行するアプリケーションでは、コード サイズも小さくなります。
+
+### <a name="support-for-implementing-com-interfaces-that-implement-iinspectable"></a>IInspectable を実装する COM インターフェイスの実装のサポート
+
+[**IInspectable**](/windows/win32/api/inspectable/nn-inspectable-iinspectable) を実装するためだけに (Windows ランタイム以外の) COM インターフェイスを実装する必要がある場合は、C++/WinRT を使用してそうすることができます。 [IInspectable を実装する COM インターフェイス](https://github.com/microsoft/xlang/pull/603)に関するページを参照してください。
+
+### <a name="module-locking-improvements"></a>モジュール ロックの機能強化
+
+モジュール ロックの制御により、カスタム ホスティング シナリオと、モジュール レベル ロックの完全な排除の両方が可能になりました。 [モジュール ロックの機能強化](https://github.com/microsoft/xlang/pull/583)に関するページを参照してください。
+
+### <a name="support-for-non-windows-runtime-error-information"></a>Windows ランタイム以外のエラー情報のサポート
+
+一部の API では (一部の Windows ランタイム API でも)、Windows ランタイム エラー発生 API を使用せずにエラーが報告されます。 このような場合、C++/WinRT では COM エラー情報が使用されるようになりました。 [WinRT 以外のエラー情報に対する C++/WinRT サポート](https://github.com/microsoft/xlang/pull/582)に関するページを参照してください。
+
+### <a name="enable-c-module-support"></a>C++ モジュール サポートの有効化 
+
+C++ モジュール サポートが再度有効になりましたが、まだ試験的な段階にすぎません。 この機能は、C++ コンパイラではまだ完全ではありません。
+
+### <a name="more-efficient-coroutine-resumption"></a>コルーチン再開のさらなる効率化
+
+C++/WinRT コルーチンは既に良好なパフォーマンスを発揮していますが、さらに向上させるための方法の調査は引き続き行われています。 [コルーチン再開のスケーラビリティの向上](https://github.com/microsoft/xlang/pull/546)に関するページを参照してください。
+
+### <a name="new-when_all-and-when_any-async-helpers"></a>新しい非同期ヘルパー **when_all** および **when_any**
+
+**when_all** ヘルパー関数は、指定されたすべての awaitable が完了したときに完了する [**IAsyncAction**](/uwp/api/windows.foundation.iasyncaction) オブジェクトを作成します。 **when_any** ヘルパーは、指定された awaitable のいずれかが完了したときに完了する **IAsyncAction** を作成します。 
+
+[when_any 非同期ヘルパーの追加](https://github.com/microsoft/xlang/pull/520)および [when_all 非同期ヘルパーの追加](https://github.com/microsoft/xlang/pull/516)に関するページを参照してください。
+
+### <a name="other-optimizations-and-additions"></a>その他の最適化と追加
+
+さらに、多数のバグ修正、軽度の最適化、および追加が導入されました。これには、デバッグを簡略化し、内部および既定の実装を最適化するためのさまざまな機能強化が含まれています。 完全な一覧については、こちらのリンクを参照してください。[https://github.com/microsoft/xlang/pulls?q=is%3Apr+is%3Aclosed](https://github.com/microsoft/xlang/pulls?q=is%3Apr+is%3Aclosed)
 
 ## <a name="news-and-changes-in-cwinrt-20"></a>C++/WinRT 2.0 の新機能と変更点
 

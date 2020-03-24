@@ -11,12 +11,12 @@ design-contact: Judysa
 doc-status: Published
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: e30e9b2bed5cb4c0b7876ff1c597bb7d1243008a
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.openlocfilehash: fb0101597a38553f56579913a9c40502fcdbf051
+ms.sourcegitcommit: 1d6d05d28358e087d9ee8829d76c5fbbac0225cb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75684163"
+ms.lasthandoff: 03/17/2020
+ms.locfileid: "79434229"
 ---
 # <a name="icons-for-uwp-apps"></a>UWP アプリのアイコン
 
@@ -211,4 +211,4 @@ SVG ファイルのように、ジオメトリはベクトルに基づくリソ�
 
 ## <a name="related-articles"></a>関連記事
 
-* [タイルとアイコン アセットのガイドライン](../shell/tiles-and-notifications/app-assets.md)
+* [アプリのアイコンとロゴ](app-icons-and-logos.md)

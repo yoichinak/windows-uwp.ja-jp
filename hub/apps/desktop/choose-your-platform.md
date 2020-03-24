@@ -8,12 +8,12 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 keywords: windows win32, デスクトップ開発
-ms.openlocfilehash: d0d87f8e4b6524471ff5e2ada9012a22641b06d7
-ms.sourcegitcommit: ddf0137929945eddf01041a81aa4d26038e70f46
+ms.openlocfilehash: bf8a5970d1999427023592f919ef0b92737fa934
+ms.sourcegitcommit: cab95379459ad378163aa4469c9dc6c509cc8c43
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74392091"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79510985"
 ---
 # <a name="choose-your-app-platform"></a>アプリ プラットフォームの選択
 
@@ -26,9 +26,13 @@ Windows PC 用の新しいデスクトップ アプリケーションを作成�
 
 これらのアプリケーション プラットフォームでは、従来の Windows デスクトップで実行される Word、Excel、Photoshop などのデスクトップ アプリを作成し、その環境固有の機能を最大限に活用することができます。 ただし、これらのプラットフォームの一部はいくつかの特徴を共有し、特定の種類のアプリケーションにより適しています。
 
-* **UWP、WPF、Windows フォーム**。 これらのプラットフォームは、特に開発者の生産性、洗練されたカスタマイズ可能な UI、アプリケーションのセキュリティの領域において、マネージド ランタイム環境 (UWP 用の Windows ランタイムと、Windows フォームと WPF 用の .NET) を提供します。 これらのフレームワークは、UI を迅速に作成するためのビジュアル デザイナーと UI マークアップをサポートしているため、基幹業務アプリケーションに特に適しています。
+* **UWP**。 このプラットフォームには、Windows 10 を実行するすべてのデバイスに共通の型システム、API、およびアプリケーション モデルが用意されています。 UWP アプリケーションは、ネイティブでもマネージドでもかまいません。 
 
-* **Win32 API**。 WIN32 API (Windows API とも呼ばれます) は、Windows とハードウェアへの直接アクセスを必要とするネイティブ C/C++ の Windows アプリケーションのために用意された最初のプラットフォームです。 .NET や WinRT などのマネージド ランタイム環境に依存することなく、最上級の開発環境を提供します。 これにより、Win32 API 最高レベルのパフォーマンスとシステム ハードウェアへの直接アクセスを必要とするアプリケーションに適したプラットフォームになっています。
+* **WPF と Windows フォーム**。 これらのプラットフォームには、.NET で実行されるマネージド アプリケーションに共通の型システム、API、およびアプリケーション モデルが用意されています。
+
+* **Win32 API**。 WIN32 API (Windows API とも呼ばれます) は、Windows とハードウェアへの直接アクセスを必要とするネイティブ C/C++ の Windows アプリケーションのために用意された最初のプラットフォームです。 これにより、Win32 API 最高レベルのパフォーマンスとシステム ハードウェアへの直接アクセスを必要とするアプリケーションに適したプラットフォームになっています。
+
+UWP と .NET はどちらも Visual Studio と緊密に統合されています。 これには、特に開発者の生産性、洗練されたカスタマイズ可能な UI、アプリケーションのセキュリティの領域において、多くの利点があります。 これらのフレームワークは、UI を迅速に作成するためのビジュアル デザイナーと UI マークアップをサポートしているため、基幹業務アプリケーションに特に適しています。
 
 この記事は、これらのプラットフォームについて詳しく説明し、アプリケーションに最適なプラットフォームを決定するのに役立ちます。 
 
@@ -43,7 +47,7 @@ UWP は、Windows PC 用のデスクトップ アプリケーションを作成�
 
 UWP の詳細については、次の記事を参照してください。
 
-* [作業の開始](/windows/uwp/get-started/)
+* [作業開始](/windows/uwp/get-started/)
 * [設計と UI](/windows/uwp/design/)
 * [テクノロジと機能](/windows/uwp/develop/)
 * [API リファレンス](/uwp/)
@@ -86,9 +90,9 @@ C++ で Win32 API を使用すると、WinRT や .NET などのマネージド �
 * 効率的で安全なコンテナーとアルゴリズム。
 * DirectX、特に Direct3D および DirectCompute (UWP は DirectX 相互運用機能も提供)。
 
-詳しくは、次の記事をご覧ください。
+詳細については、以下の記事を参照してください。
 
-* [作業の開始](/windows/win32/desktop-programming/)
+* [作業開始](/windows/win32/desktop-programming/)
 * [初めての Win32 および C++ アプリの作成](/windows/win32/learnwin32/learn-to-program-for-windows/)
 * [テクノロジと機能](/windows/win32/desktop-app-technologies)
 * [API リファレンス](/windows/win32/apiindex/windows-api-list/)
@@ -104,7 +108,7 @@ C++ で Win32 API を使用すると、WinRT や .NET などのマネージド �
 | **言語**      |   C\#、 C++/WinRT、 C++/CX、VB、JavaScript   |  C\#、 C++/CLI (C++ マネージド拡張)、F\#、VB |  C\#、 C++/CLI (C++ マネージド拡張)、F\#、VB   |
 | **UI ランタイム** |    ネイティブ (C++WinRT および C++/CX) とマネージド (.NET ネイティブ)  |  マネージド (.NET Framework および .NET Core 3) |   マネージド (.NET Framework および .NET Core 3)   |
 | **オープン ソース** | [はい (Windows UI ライブラリのみ)](https://github.com/Microsoft/microsoft-ui-xaml)  |  [はい (.NET Core のみ)](https://github.com/dotnet/wpf) | [はい (.NET Core のみ)](https://github.com/dotnet/winforms)  |
-| **XAML をサポート** |   〇   |  〇  |   X   |
+| **XAML をサポート** |   はい   |  はい  |   いいえ   |
 | **特長**  |  <ul><li>UI の XAML マークアップ</li><li>豊富でカスタマイズ可能な UX</li><li>既存のコードベースは .NET Standard 対応</li><li>高 DPI サポート</li><li>Windows デバイス間での複数の入力の種類のサポート (タッチ、ペン、ゲームパッド、マウス、キーボードなど)</li><li>Xbox、HoloLens、IoT、または Surface Hub のサポート</li><li>オプションの高密度 (コンパクト) UI</li><li>ネイティブ C++ のサポート</li><li>最適化されたバッテリー寿命</li><li>最新のアクセシビリティ サポート (スクリーン リーダーなど)</li><li>リッチ テキスト データ機能 (組み込みのスペル チェックなど)</li><li>手描き入力のサポート</li><li>アプリケーション コンテナーによるセキュリティで保護された実行 (たとえば、信頼されていないコンテンツのサンドボックス化)</li></ul>  |  <ul><li>UI の XAML マークアップ</li><li>豊富でカスタマイズ可能な UX</li><li>Microsoft とパートナーのコントロールの大規模なコレクション</li><li>高密度 UI</li><li>Windows 7 のサポート</li><li>入力検証のプラットフォームのサポート</li></ul> | <ul><li>迅速なアプリケーション開発</li><li>UI を構築するための WYSIWYG エディター</li><li>Microsoft とパートナーのコントロールの大規模なコレクション</li><li>高密度 UI</li><li>Windows 7 のサポート</li><li>キーボードとマウス入力</li></ul>          |
 | **サポートが限定されているシナリオ** |  <ul><li>複数のウィンドウのサポート <sup>1</sup></li><li>入力検証のプラットフォームのサポート <sup>1</sup></li><li>Windows 7 はサポートされません</li><li>一部の UWP API では、Windows 10 の特定の最小バージョンが必要です</li><li>完全なプラットフォームのサポートとシェルの統合 (たとえば、現在、UWP はシステム トレイの統合またはすべてのデバイスへのフル アクセスをサポートしていません)</li><li>ディスク上のすべてのファイルへの直接アクセス</li><li>ADO.NET</li><li>.NET Standard 以外または Windows アプリ認定キット以外に準拠した API を使用する既存のコードベース クラス ライブラリ</li><li>ローカル ネットワーク ループバックのサポート (つまり、アプリがターゲット デバイスにループバックの除外を作成せずに localhost と通信する必要がある場合)</li><li>集中型のファイル I/O</li></ul>     |  <ul><li>高 DPI サポート <sup>2</sup></li><li>タッチ入力 <sup>2</sup></li></ul>  |  <ul><li>高 DPI サポート <sup>2</sup></li><li>タッチ入力 <sup>2</sup></li><li>カスタマイズ可能な UI</li><li>豊富なグラフィックスとユーザー エクスペリエンス (タッチやアニメーションなど)</li><li>ビューとデータ モデルの豊富な抽象化</li></ul>    |   |
 

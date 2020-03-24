@@ -5,15 +5,18 @@ ms.date: 04/23/2019
 ms.topic: article
 keywords: wwindows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 頻繁, 質問, 質問, faq
 ms.localizationpriority: medium
-ms.openlocfilehash: b0ec2c5a05e7c4e9309311fa22ad863d06597a53
-ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
+ms.openlocfilehash: 167286226adb6d26a6cdd4ee4a26bdcc58e4b5ed
+ms.sourcegitcommit: eb24481869d19704dd7bcf34e5d9f6a9be912670
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79209177"
+ms.lasthandoff: 03/17/2020
+ms.locfileid: "79448579"
 ---
 # <a name="frequently-asked-questions-about-cwinrt"></a>C++/WinRT についてよく寄せられる質問
 [C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) での Windows ランタイム API の作成と使用に関する質問への回答です。
+
+> [!IMPORTANT]
+> C++/WinRT に関するリリース ノートについては、「[C++/WinRT 2.0 の新機能と変更点](news.md#news-and-changes-in-cwinrt-20)」を参照してください。
 
 > [!NOTE]
 > 質問の内容が、表示されたエラー メッセージに関するものである場合は、「[C++/WinRT に関する問題のトラブルシューティング](troubleshooting.md)」のトピックも参照してください。
