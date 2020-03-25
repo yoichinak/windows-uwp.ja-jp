@@ -6,12 +6,12 @@ ms.author: mattwoj
 manager: jken
 ms.topic: article
 ms.date: 03/19/2020
-ms.openlocfilehash: ae86947b461e3fb748b67043827ffeebfc5cb0d2
-ms.sourcegitcommit: af4050f69168c15b0afaaa8eea66a5ee38b88fed
+ms.openlocfilehash: 2a7a5983dcc7e330a30cf53b93c73f36f811d17d
+ms.sourcegitcommit: c660def841abc742600fbcf6ed98e1f4f7beb8cc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80108105"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80218472"
 ---
 # <a name="contribute-to-windows-docs-and-be-entered-to-win-some-swag"></a>Windows ドキュメントに投稿し、物申すを獲得するために入力する
 
@@ -27,7 +27,7 @@ Windows のドキュメントを使用する場合は、共同作成者のコミ
     - **Windows Hardware Developer** - [ツールとドライバー](https://docs.microsoft.com/windows-hardware/drivers/)
 3. ページの上部にある **[編集]** ボタンを選択して、ドキュメントページを修正します。 これにより、GitHub の markdown ソースファイルに移動します。
 4. 変更が完了したら、 プル要求 (PR) をファイルします。
-5. [@WindowsDocs](https://twitter.com/WindowsDocs) twitter アカウントにアクセスし、PR へのリンクを含むコンテストの投稿に返信してください。
+5. PR へのリンクを含む[@WindowsDocs コンテストの投稿](https://twitter.com/WindowsDocs/status/1242088720209268736)に返信します。
 
 共同作成者のコミュニティにご協力いただき、ありがとうございます。
 

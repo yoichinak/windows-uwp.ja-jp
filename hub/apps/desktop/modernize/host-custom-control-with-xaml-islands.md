@@ -8,16 +8,16 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: d881fc42e453e2ace0a44543c3e204aa154958b7
-ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
+ms.openlocfilehash: b1ac53e0a6b6e01cd2129e2b1893f91fae2ef0fe
+ms.sourcegitcommit: c660def841abc742600fbcf6ed98e1f4f7beb8cc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79209798"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80218602"
 ---
 # <a name="host-a-custom-uwp-control-in-a-wpf-app-using-xaml-islands"></a>XAML アイランドを使用した WPF アプリでのカスタム UWP コントロールのホスト
 
-この記事では、Windows Community Toolkit の[Windowsxamlhost](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost)コントロールを使用して、.net Core 3 を対象とする WPF アプリでカスタム UWP コントロールをホストする方法について説明します。 カスタムコントロールには、Windows SDK からのいくつかのファーストパーティ UWP コントロールが含まれており、UWP コントロールの1つのプロパティを WPF アプリの文字列にバインドします。 この記事では、 [WinUI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)からファーストパーティの UWP コントロールをホストする方法についても説明します。
+この記事では、Windows Community Toolkit の[Windowsxamlhost](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost)コントロールを使用して、.net Core 3 を対象とする WPF アプリでカスタム UWP コントロールをホストする方法について説明します。 カスタムコントロールには、Windows SDK からのいくつかのファーストパーティ UWP コントロールが含まれており、UWP コントロールの1つのプロパティを WPF アプリの文字列にバインドします。 この記事では、 [WinUI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)から UWP コントロールをホストする方法についても説明します。
 
 この記事では、WPF アプリでこれを行う方法について説明しますが、プロセスは Windows フォームアプリに似ています。 WPF と Windows フォームアプリで UWP コントロールをホストする方法の概要については、こちらの[記事](xaml-islands.md#wpf-and-windows-forms-applications)を参照してください。
 
@@ -231,7 +231,7 @@ WPF アプリでカスタム UWP コントロールをホストするには、�
 
 ## <a name="add-a-control-from-the-winui-library-to-the-custom-control"></a>コントロールを WinUI ライブラリからカスタムコントロールに追加する
 
-従来、UWP コントロールは Windows 10 OS の一部としてリリースされ、Windows SDK を通じて開発者が使用できるようになりました。 [WinUI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)は、Windows SDK からのファーストパーティ UWP コントロールの更新バージョンが Windows SDK リリースに関連付けられていない NuGet パッケージで配布される、別の方法です。 このライブラリには、Windows SDK と既定の UWP プラットフォームの一部ではない新しいコントロールも含まれています。 詳細については、「 [WinUI ライブラリのロードマップ](https://github.com/microsoft/microsoft-ui-xaml/blob/master/docs/roadmap.md)」を参照してください。
+従来、UWP コントロールは Windows 10 OS の一部としてリリースされ、Windows SDK を通じて開発者が使用できるようになりました。 [WinUI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)は、Windows SDK からの UWP コントロールの更新バージョンが Windows SDK リリースに関連付けられていない NuGet パッケージに配布される代替の方法です。 このライブラリには、Windows SDK と既定の UWP プラットフォームの一部ではない新しいコントロールも含まれています。 詳細については、「 [WinUI ライブラリのロードマップ](https://github.com/microsoft/microsoft-ui-xaml/blob/master/docs/roadmap.md)」を参照してください。
 
 このセクションでは、WPF アプリでこのコントロールをホストできるように、WinUI ライブラリからユーザーコントロールに UWP コントロールを追加する方法について説明します。
 
@@ -286,6 +286,9 @@ WPF アプリでカスタム UWP コントロールをホストするには、�
 必要に応じて、WPF アプリを[Msix パッケージ](https://docs.microsoft.com/windows/msix)にパッケージ化してデプロイすることもできます。 MSIX は Windows 向けの最新のアプリケーションパッケージ化テクノロジであり、MSI、.appx、App-v、ClickOnce のインストールテクノロジの組み合わせに基づいています。
 
 次の手順では、Visual Studio 2019 の[Windows アプリケーションパッケージプロジェクト](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)を使用して、msix パッケージのソリューションに含まれるすべてのコンポーネントをパッケージ化する方法を示します。 これらの手順は、WPF アプリを MSIX パッケージでパッケージ化する場合にのみ必要です。 これらの手順には、現在、カスタム UWP コントロールをホストするシナリオに固有のいくつかの回避策が含まれていることに注意してください。
+
+> [!NOTE]
+> アプリケーションを展開用の[Msix パッケージ](https://docs.microsoft.com/windows/msix)にパッケージ化しない場合は、アプリを実行するコンピューターに[ C++ Visual Runtime](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads)がインストールされている必要があります。
 
 1. 新しい[Windows アプリケーションパッケージプロジェクト](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)をソリューションに追加します。 プロジェクトを作成するときに、 **Windows 10 バージョン 1903 (10.0;ビルド 18362)** 。**ターゲットバージョン**と**最小バージョン**の両方に対応します。
 

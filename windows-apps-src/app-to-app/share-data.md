@@ -6,17 +6,20 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 08dbe9ed7aaa732172d488712aa47d6d3631508a
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 2be088edd732a22acb11be5fc209ff25c84bae17
+ms.sourcegitcommit: c660def841abc742600fbcf6ed98e1f4f7beb8cc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67317703"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80218352"
 ---
 # <a name="share-data"></a>データの共有
 
 
 この記事では、ユニバーサル Windows プラットフォーム (UWP) アプリで、共有コントラクトをサポートする方法について説明します。 共有コントラクトは、テキスト、リンク、写真、ビデオなどのデータをアプリ間ですばやく共有するための簡単な方法です。 たとえば、ユーザーがソーシャル ネットワーキング アプリを使って友人と Web ページを共有する場合や、後で参照するためにリンクをメモ帳アプリで保存する場合があります。
+
+> [!NOTE]
+> この記事のコード例は、UWP アプリ向けに書かれています。 WPF、Windows フォーム、またC++は Win32 デスクトップアプリでは、 [idatatransの managerinterop](https://docs.microsoft.com/windows/win32/api/shobjidl_core/nn-shobjidl_core-idatatransfermanagerinterop)インターフェイスを使用して、特定のウィンドウの[datatransのマネージャー](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.datatransfermanager)オブジェクトを取得する必要があります。 詳細については、 [ShareSource](https://github.com/microsoft/Windows-classic-samples/tree/master/Samples/ShareSource)サンプルを参照してください。
 
 ## <a name="set-up-an-event-handler"></a>イベント ハンドラーのセットアップ
 
@@ -34,7 +37,7 @@ ms.locfileid: "67317703"
 
 -   プレーンテキスト
 -   Uniform Resource Identifier (URI)
--   HTML (HTML)
+-   HTML
 -   書式付きテキスト
 -   ビットマップ
 -   ファイル
@@ -93,7 +96,7 @@ async void OnDeferredImageRequestedHandler(DataProviderRequest request)
 }
 ```
 
-## <a name="see-also"></a>関連項目 
+## <a name="see-also"></a>参照 
 
 * [アプリ間通信](index.md)
 * [データの受信](receive-data.md)
@@ -101,7 +104,7 @@ async void OnDeferredImageRequestedHandler(DataProviderRequest request)
 * [DataPackagePropertySet](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.datapackagepropertyset)
 * [DataRequest](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.datarequest)
 * [DataRequested](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.datatransfermanager.datarequested)
-* [FailWithDisplayText](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.datarequest.failwithdisplaytext)
-* [ShowShareUi](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.datatransfermanager.showshareui)
+* [FailWithDisplayText テキストテキスト](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.datarequest.failwithdisplaytext)
+* [Show/Ui](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.datatransfermanager.showshareui)
  
 

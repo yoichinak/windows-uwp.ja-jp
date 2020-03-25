@@ -6,25 +6,22 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, オーディオ, DirectX
 ms.localizationpriority: medium
-ms.openlocfilehash: fa90b22e2661a748454231fea8838bb51b3c621c
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 47190e98bd20f217742709e600f260776e1615a6
+ms.sourcegitcommit: 520a858435cad1900d4dc9a29fde61c168c8ce23
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66367310"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80229437"
 ---
 # <a name="audio-for-games"></a>ゲームのオーディオ
 
-
-
 ミュージックやサウンドを開発して DirectX ゲームに組み込む方法と、オーディオ信号を処理してダイナミック サウンドやポジショナル サウンドを作成する方法について説明します。
 
-オーディオのプログラミングには、DirectX の XAudio2 ライブラリを使用することをお勧めします。ここでも同ライブラリを使用しています。 XAudio2 は、ゲーム開発における信号処理とオーディオ ミキシングの基礎を提供する下位レベルのオーディオ ライブラリです。多様なフォーマットがサポートされています。
+オーディオプログラミングでは、DirectX で[XAudio2](/windows/win32/xaudio2/xaudio2-apis-portal)ライブラリを使用するか、Windows ランタイム[audio グラフ](/windows/uwp/audio-video-camera/audio-graphs)api を使用することをお勧めします。 ここでは XAudio2 を使用します。 XAudio2 は、ゲーム開発における信号処理とオーディオ ミキシングの基礎を提供する下位レベルのオーディオ ライブラリです。多様なフォーマットがサポートされています。
 
 [Microsoft メディア ファンデーション](https://docs.microsoft.com/windows/desktop/medfound/microsoft-media-foundation-sdk)を使用してシンプルなサウンドやミュージックの再生を実装することもできます。 Microsoft メディア ファンデーションは、オーディオとビデオの両方に対応したメディア ファイルやストリームの再生用として設計されていますが、ゲームに利用することもできます。特に、ゲーム中の映画的なシーンや非対話型のコンポーネントに利用できます。
 
 ## <a name="concepts-at-a-glance"></a>概要
-
 
 このセクションで使用するオーディオ プログラミングの概念について以下に説明します。
 
@@ -38,13 +35,11 @@ ms.locfileid: "66367310"
 
 ## <a name="design-considerations"></a>設計時の考慮事項
 
-
 オーディオは、ゲームの設計と開発の面できわめて重要な役割を果たします。 凡庸なゲームであっても、記憶に残るサウンドトラックや優れたボイスワーク、サウンド ミキシング、全体に秀逸なオーディオ制作が取り入れられているという単純な理由から、こうしたゲームに伝説的な評価を与えるゲーム プレーヤーも少なくありません。 ミュージックとサウンドはゲームの個性を決定するだけでなく、ゲーム全体の輪郭を定義したり、他の類似したゲームからの差別化を図ったりするための主因にもなります。 ゲームのオーディオ プロファイルの設計と開発に向けて投入した努力は、必ずそれなりの価値があるものです。
 
 3D ポジショナル オーディオは、3D グラフィックスがもたらす没入感に新たな次元を加えるものです。 実世界のシミュレーションや映画のようなシーンの再現を目指した、複雑なゲームを開発している場合は、3D ポジショナル オーディオを利用して、プレーヤーをゲームの世界に引き込むことをお勧めします。
 
 ## <a name="directx-audio-development-roadmap"></a>DirectX オーディオ開発のロードマップ
-
 
 ### <a name="xaudio2-conceptual-resources"></a>XAudio2 の概念に関するリソース
 
@@ -67,15 +62,15 @@ XAudio2 は、DirectX 用のオーディオ ミキシング ライブラリで�
 <td align="left"><p>XAudio2 でサポートされるオーディオ プログラミング機能を一覧します。</p></td>
 </tr>
 <tr class="even">
-<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/xaudio2/getting-started">XAudio2 の概要</a></p></td>
+<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/xaudio2/getting-started">XAudio2 でのはじめに</a></p></td>
 <td align="left"><p>XAudio2 の概念、XAudio2 のバージョン、RIFF オーディオ形式について説明します。</p></td>
 </tr>
 <tr class="odd">
-<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/xaudio2/common-audio-concepts">一般的なオーディオ プログラミングの概念</a></p></td>
+<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/xaudio2/common-audio-concepts">一般的なオーディオプログラミングの概念</a></p></td>
 <td align="left"><p>オーディオ開発者が知っておくべき一般的なオーディオ概念に関する概要を説明します。</p></td>
 </tr>
 <tr class="even">
-<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/xaudio2/xaudio2-voices">XAudio2 音声</a></p></td>
+<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/xaudio2/xaudio2-voices">XAudio2 の声</a></p></td>
 <td align="left"><p>XAudio2 のボイスの概要について説明します。XAudio2 のボイスは、オーディオ データをサブミックス、操作、マスタリングするときに使われます。</p></td>
 </tr>
 <tr class="odd">
@@ -83,15 +78,15 @@ XAudio2 は、DirectX 用のオーディオ ミキシング ライブラリで�
 <td align="left"><p>XAudio2 のコールバックについて説明します。XAudio2 のコールバックは、オーディオ再生の中断を防止するために使われます。</p></td>
 </tr>
 <tr class="even">
-<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/xaudio2/audio-graphs">XAudio2 オーディオ グラフ</a></p></td>
+<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/xaudio2/audio-graphs">XAudio2 オーディオグラフ</a></p></td>
 <td align="left"><p>XAudio2 のオーディオ処理グラフについて説明します。オーディオ処理グラフでは、クライアントから一連のオーディオ ストリームを入力として受け取り処理して、最終結果をオーディオ デバイスに配信します。</p></td>
 </tr>
 <tr class="odd">
-<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/xaudio2/xaudio2-audio-effects">XAudio2 オーディオ特殊効果</a></p></td>
+<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/xaudio2/xaudio2-audio-effects">XAudio2 オーディオ効果</a></p></td>
 <td align="left"><p>XAudio2 のオーディオ エフェクトについて説明します。オーディオ エフェクトは、受信したオーディオ データを転送する前に何らかの処理 (リバーブ エフェクトなど) を実行します。</p></td>
 </tr>
 <tr class="even">
-<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/xaudio2/xaudio2-streaming-audio-data">XAudio2 にオーディオ データをストリーミングします。</a></p></td>
+<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/xaudio2/xaudio2-streaming-audio-data">XAudio2 を使用してオーディオデータをストリーミングする</a></p></td>
 <td align="left"><p>XAudio2 を使ったオーディオ ストリーミングについて説明します。</p></td>
 </tr>
 <tr class="odd">
@@ -99,13 +94,11 @@ XAudio2 は、DirectX 用のオーディオ ミキシング ライブラリで�
 <td align="left"><p>X3DAudio について説明します。X3DAudio は XAudio2 と連携して、3D 空間内の1点からサウンドが聞こえてくるような効果を生み出す API です。</p></td>
 </tr>
 <tr class="even">
-<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/xaudio2/programming-reference">XAudio2 プログラミング リファレンス</a></p></td>
+<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/xaudio2/programming-reference">XAudio2 プログラミングリファレンス</a></p></td>
 <td align="left"><p>XAudio2 API の詳しいリファレンスです。</p></td>
 </tr>
 </tbody>
 </table>
-
- 
 
 ### <a name="xaudio2-how-to-resources"></a>XAudio2 の操作方法に関するリソース
 
@@ -122,77 +115,75 @@ XAudio2 は、DirectX 用のオーディオ ミキシング ライブラリで�
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><p>「<a href="https://docs.microsoft.com/windows/desktop/xaudio2/how-to--initialize-xaudio2">XAudio2 を初期化します。</a></p></td>
+<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/xaudio2/how-to--initialize-xaudio2">方法: XAudio2 を初期化する</a></p></td>
 <td align="left"><p>XAudio2 エンジンのインスタンスを作成してからマスタリング ボイスを作成して、XAudio2 をオーディオ再生用に初期化する方法について説明します。</p></td>
 </tr>
 <tr class="even">
-<td align="left"><p>「<a href="https://docs.microsoft.com/windows/desktop/xaudio2/how-to--load-audio-data-files-in-xaudio2">XAudio2 にオーディオ データ ファイルを読み込む</a></p></td>
+<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/xaudio2/how-to--load-audio-data-files-in-xaudio2">方法: XAudio2 でオーディオデータファイルを読み込む</a></p></td>
 <td align="left"><p>XAudio2 でオーディオ データを再生するために必要な構造体を設定する方法について説明します。</p></td>
 </tr>
 <tr class="odd">
-<td align="left"><p>「<a href="https://docs.microsoft.com/windows/desktop/xaudio2/how-to--play-a-sound-with-xaudio2">XAudio2 で音を鳴らす</a></p></td>
+<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/xaudio2/how-to--play-a-sound-with-xaudio2">方法: XAudio2 を使用してサウンドを再生する</a></p></td>
 <td align="left"><p>XAudio2 で以前読み込まれたオーディオ データを再生する方法について説明します。</p></td>
 </tr>
 <tr class="even">
-<td align="left"><p>「<a href="https://docs.microsoft.com/windows/desktop/xaudio2/how-to--use-submix-voices">サブミックス ボイスを使用します。</a></p></td>
+<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/xaudio2/how-to--use-submix-voices">方法: サブミックスの音声を使用する</a></p></td>
 <td align="left"><p>ボイス グループを設定して、その出力を同じサブミックス ボイスに送信する方法について説明します。</p></td>
 </tr>
 <tr class="odd">
-<td align="left"><p>「<a href="https://docs.microsoft.com/windows/desktop/xaudio2/how-to--use-source-voice-callbacks">ソースの音声のコールバックを使用します。</a></p></td>
+<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/xaudio2/how-to--use-source-voice-callbacks">方法: ソース音声コールバックを使用する</a></p></td>
 <td align="left"><p>XAudio2 のソース ボイスのコールバックを使う方法について説明します。</p></td>
 </tr>
 <tr class="even">
-<td align="left"><p>「<a href="https://docs.microsoft.com/windows/desktop/xaudio2/how-to--use-engine-callbacks">エンジンのコールバックを使用します。</a></p></td>
+<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/xaudio2/how-to--use-engine-callbacks">方法: エンジンコールバックを使用する</a></p></td>
 <td align="left"><p>XAudio2 のエンジン コールバックを使う方法について説明します。</p></td>
 </tr>
 <tr class="odd">
-<td align="left"><p>「<a href="https://docs.microsoft.com/windows/desktop/xaudio2/how-to--build-a-basic-audio-processing-graph">オーディオ処理の基本的なグラフを作成します。</a></p></td>
+<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/xaudio2/how-to--build-a-basic-audio-processing-graph">方法: 基本的なオーディオ処理グラフを構築する</a></p></td>
 <td align="left"><p>単一のマスタリング ボイスと単一のソース ボイスから構築されたオーディオ処理グラフを作る方法について説明します。</p></td>
 </tr>
 <tr class="even">
-<td align="left"><p>「<a href="https://docs.microsoft.com/windows/desktop/xaudio2/how-to--dynamically-add-or-remove-voices-from-an-audio-graph">動的に追加またはオーディオのグラフからの音声を削除します。</a></p></td>
-<td align="left"><p>追加または」の手順に従って作成されているグラフからサブミックス音声を削除する方法について説明します<a href="https://docs.microsoft.com/windows/desktop/xaudio2/how-to--build-a-basic-audio-processing-graph">方法。ビルドのオーディオ処理の基本的なグラフ</a>します。</p></td>
+<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/xaudio2/how-to--dynamically-add-or-remove-voices-from-an-audio-graph">方法: オーディオグラフから音声を動的に追加または削除する</a></p></td>
+<td align="left"><p>「<a href="https://docs.microsoft.com/windows/desktop/xaudio2/how-to--build-a-basic-audio-processing-graph">方法: 基本的なオーディオ処理グラフの作成</a>」の手順に従って作られたグラフに対して、サブミックス ボイスを追加または削除する方法について説明します。</p></td>
 </tr>
 <tr class="odd">
-<td align="left"><p>「<a href="https://docs.microsoft.com/windows/desktop/xaudio2/how-to--create-an-effect-chain">効果チェーンを作成します。</a></p></td>
+<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/xaudio2/how-to--create-an-effect-chain">方法: 効果チェーンを作成する</a></p></td>
 <td align="left"><p>エフェクト チェーンをボイスに適用して、そのボイスのオーディオ データに対してカスタム処理を加える方法について説明します。</p></td>
 </tr>
 <tr class="even">
-<td align="left"><p>「<a href="https://docs.microsoft.com/windows/desktop/xaudio2/how-to--create-an-xapo">作成、XAPO</a></p></td>
+<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/xaudio2/how-to--create-an-xapo">方法: XAPO を作成する</a></p></td>
 <td align="left"><p>XAudio2 オーディオ処理オブジェクト (XAPO) を作るために <a href="https://docs.microsoft.com/windows/desktop/api/xapo/nn-xapo-ixapo"><strong>IXAPO</strong></a> を実装する方法について説明します。</p></td>
 </tr>
 <tr class="odd">
-<td align="left"><p>「<a href="https://docs.microsoft.com/windows/desktop/xaudio2/how-to--add-run-time-parameter-support-to-an-xapo">実行時のパラメーターのサポート、XAPO を追加します。</a></p></td>
+<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/xaudio2/how-to--add-run-time-parameter-support-to-an-xapo">方法: ランタイムパラメーターのサポートを XAPO に追加する</a></p></td>
 <td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/api/xapo/nn-xapo-ixapoparameters">  <strong>IXAPOParameters</strong></a> インターフェイスを実装して XAPO にランタイム パラメーター サポートを追加する方法について説明します。</p></td>
 </tr>
 <tr class="even">
-<td align="left"><p>「<a href="https://docs.microsoft.com/windows/desktop/xaudio2/how-to--use-an-xapo-in-xaudio2">XAudio2 で、XAPO を使用します。</a></p></td>
+<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/xaudio2/how-to--use-an-xapo-in-xaudio2">方法: XAudio2 で XAPO を使用する</a></p></td>
 <td align="left"><p>XAudio2 のエフェクト チェーンで XAPO を使って実装されるエフェクトを使う方法について説明します。</p></td>
 </tr>
 <tr class="odd">
-<td align="left"><p>「<a href="https://docs.microsoft.com/windows/desktop/xaudio2/how-to--use-xapofx-in-xaudio2">XAPOFX XAudio2 での使用</a></p></td>
+<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/xaudio2/how-to--use-xapofx-in-xaudio2">方法: XAudio2 で XAPOFX を使用する</a></p></td>
 <td align="left"><p>XAudio2 のエフェクト チェーンで XAPOFX に含まれるエフェクトの 1 つを使う方法について説明します。</p></td>
 </tr>
 <tr class="even">
-<td align="left"><p>「<a href="https://docs.microsoft.com/windows/desktop/xaudio2/how-to--stream-a-sound-from-disk">ディスクからのサウンドを Stream</a></p></td>
+<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/xaudio2/how-to--stream-a-sound-from-disk">方法: ディスクからサウンドをストリーム配信する</a></p></td>
 <td align="left"><p>オーディオ バッファーの読み取り用に別のスレッドを作って XAudio2 でオーディオ データをストリームし、コールバックを使ってそのスレッドを制御する方法について説明します。</p></td>
 </tr>
 <tr class="odd">
-<td align="left"><p>「<a href="https://docs.microsoft.com/windows/desktop/xaudio2/how-to--integrate-x3daudio-with-xaudio2">XAudio2 X3DAudio と統合します。</a></p></td>
+<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/xaudio2/how-to--integrate-x3daudio-with-xaudio2">方法: X3DAudio と XAudio2 を統合する</a></p></td>
 <td align="left"><p>X3DAudio を使ってXAudio2 のボイスの音量やピッチの値、XAudio2 内蔵のリバーブ エフェクトのパラメーターを指定する方法について説明します。</p></td>
 </tr>
 <tr class="even">
-<td align="left"><p>「<a href="https://docs.microsoft.com/windows/desktop/xaudio2/how-to--group-audio-methods-as-an-operation-set">操作セットとしてグループ オーディオ メソッド</a></p></td>
+<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/xaudio2/how-to--group-audio-methods-as-an-operation-set">方法: オーディオメソッドを操作セットとしてグループ化する</a></p></td>
 <td align="left"><p>XAudio2 の操作セットを使ってメソッドをグループ化し、これらのメソッドを同時に有効にする方法について説明します。</p></td>
 </tr>
 <tr class="odd">
-<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/xaudio2/debugging-audio-glitches-in-xaudio2">XAudio2 のオーディオの故障のデバッグ</a></p></td>
+<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/xaudio2/debugging-audio-glitches-in-xaudio2">XAudio2 でのオーディオの異常のデバッグ</a></p></td>
 <td align="left"><p>XAudio2 のデバッグ ログ レベルを設定する方法について説明します。</p></td>
 </tr>
 </tbody>
 </table>
-
- 
 
 ### <a name="media-foundation-resources"></a>メディア ファンデーションに関するリソース
 
@@ -211,31 +202,31 @@ XAudio2 は、DirectX 用のオーディオ ミキシング ライブラリで�
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/medfound/about-the-media-foundation-sdk">メディア ファンデーションについて</a></p></td>
+<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/medfound/about-the-media-foundation-sdk">メディアファンデーションについて</a></p></td>
 <td align="left"><p>このセクションでは、メディア ファンデーション API とメディア ファンデーション API をサポートするために使用可能なツールに関する一般的な情報について説明します。</p></td>
 </tr>
 <tr class="even">
-<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/medfound/media-foundation-programming--essential-concepts">メディア ファンデーション:基本的な概念</a></p></td>
+<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/medfound/media-foundation-programming--essential-concepts">メディアファンデーション: 重要な概念</a></p></td>
 <td align="left"><p>メディア ファンデーション アプリケーションを作る前に知っておく必要がある概念をいくつか紹介します。</p></td>
 </tr>
 <tr class="odd">
-<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/medfound/media-foundation-architecture">Media Foundation のアーキテクチャ</a></p></td>
+<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/medfound/media-foundation-architecture">メディアファンデーションアーキテクチャ</a></p></td>
 <td align="left"><p>Microsoft メディア ファンデーションの一般的な設計と、Microsoft メディア ファンデーションで使われるメディア プリミティブと処理パイプラインについて説明します。</p></td>
 </tr>
 <tr class="even">
-<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/medfound/audio-video-capture">オーディオ/ビデオのキャプチャ</a></p></td>
+<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/medfound/audio-video-capture">オーディオ/ビデオキャプチャ</a></p></td>
 <td align="left"><p>Microsoft メディア ファンデーションを使ってオーディオやビデオのキャプチャを実行する方法について説明します。</p></td>
 </tr>
 <tr class="odd">
-<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/medfound/audio-video-playback">オーディオ/ビデオの再生</a></p></td>
+<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/medfound/audio-video-playback">オーディオ/ビデオ再生</a></p></td>
 <td align="left"><p>アプリでオーディオ/ビデオの再生を実装する方法について説明します。</p></td>
 </tr>
 <tr class="even">
-<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/medfound/supported-media-formats-in-media-foundation">メディア ファンデーションのメディア形式をサポート</a></p></td>
+<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/medfound/supported-media-formats-in-media-foundation">メディアファンデーションでサポートされているメディア形式</a></p></td>
 <td align="left"><p>Microsoft メディア ファンデーションでネイティブ サポートされるメディア形式を一覧します (サード パーティによっては、カスタム プラグインを作ることによって、追加の形式をサポートできます)。</p></td>
 </tr>
 <tr class="odd">
-<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/medfound/encoding-and-file-authoring">エンコーディングとファイルの作成</a></p></td>
+<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/medfound/encoding-and-file-authoring">エンコードとファイルの作成</a></p></td>
 <td align="left"><p>Microsoft メディア ファンデーションを使ってオーディオやビデオのエンコード、メディア ファイルのオーサリングを実行する方法について説明します。</p></td>
 </tr>
 <tr class="even">
@@ -243,17 +234,15 @@ XAudio2 は、DirectX 用のオーディオ ミキシング ライブラリで�
 <td align="left"><p>Windows Media オーディオおよびビデオのコーデックが備えている機能を使い、圧縮されたデータ ストリームを生成、消費する方法について説明します。</p></td>
 </tr>
 <tr class="odd">
-<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/medfound/media-foundation-programming-reference">Media Foundation のプログラミング リファレンス</a></p></td>
+<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/medfound/media-foundation-programming-reference">メディアファンデーションプログラミングリファレンス</a></p></td>
 <td align="left"><p>メディア ファンデーション API のリファレンス情報です。</p></td>
 </tr>
 <tr class="even">
-<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/medfound/media-foundation-sdk-samples">Media Foundation SDK のサンプル</a></p></td>
+<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/medfound/media-foundation-sdk-samples">メディアファンデーション SDK のサンプル</a></p></td>
 <td align="left"><p>メディア ファンデーションを使う方法について示すサンプル アプリの一覧です。</p></td>
 </tr>
 </tbody>
 </table>
-
- 
 
 ### <a name="windows-runtime-xaml-media-types"></a>Windows ランタイム XAML メディア タイプ
 
@@ -272,7 +261,7 @@ XAudio2 は、DirectX 用のオーディオ ミキシング ライブラリで�
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><p><a href="https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.MediaElement"><strong>Windows.UI.Xaml.Controls.MediaElement</strong></a></p></td>
+<td align="left"><p><a href="https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.MediaElement"><strong>Windows. UI. .Xaml. MediaElement</strong></a></p></td>
 <td align="left"><p>オーディオ、ビデオ、またはその両方を格納するオブジェクトを表す XAML 要素です。</p></td>
 </tr>
 <tr class="even">
@@ -294,26 +283,12 @@ XAudio2 は、DirectX 用のオーディオ ミキシング ライブラリで�
 </tbody>
 </table>
 
- 
-
-## <a name="reference"></a>リファレンス
-
+## <a name="reference"></a>参照
 
 -   [XAudio2 の概要](https://docs.microsoft.com/windows/desktop/xaudio2/xaudio2-introduction)
--   [XAudio2 プログラミング ガイド](https://docs.microsoft.com/windows/desktop/xaudio2/programming-guide)
--   [Microsoft Media Foundation の概要](https://docs.microsoft.com/windows/desktop/medfound/microsoft-media-foundation-sdk)
-
- 
+-   [XAudio2 プログラミングガイド](https://docs.microsoft.com/windows/desktop/xaudio2/programming-guide)
+-   [Microsoft メディアファンデーションの概要](https://docs.microsoft.com/windows/desktop/medfound/microsoft-media-foundation-sdk)
 
 ## <a name="related-topics"></a>関連トピック
 
-
--   [XAudio2 プログラミング ガイド](https://docs.microsoft.com/windows/desktop/xaudio2/programming-guide)
-
- 
-
- 
-
-
-
-
+-   [XAudio2 プログラミングガイド](https://docs.microsoft.com/windows/desktop/xaudio2/programming-guide)

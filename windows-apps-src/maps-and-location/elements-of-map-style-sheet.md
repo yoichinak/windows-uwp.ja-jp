@@ -7,12 +7,12 @@ ms.date: 03/19/2017
 ms.topic: article
 keywords: Windows 10, UWP, マップ, マップ スタイル シート
 ms.localizationpriority: medium
-ms.openlocfilehash: b59e8c3c6d9c4c299e441964be1afb4e02051e23
-ms.sourcegitcommit: 5264d7499ddbe21199a63d74a294206069f90f8b
+ms.openlocfilehash: b2e6e57721a5667a9ca38b21eee2a618353cd30b
+ms.sourcegitcommit: c660def841abc742600fbcf6ed98e1f4f7beb8cc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78287452"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80218562"
 ---
 # <a name="map-style-sheet-reference"></a>マップ スタイル シート リファレンス
 
@@ -263,6 +263,7 @@ Microsoft マッピングテクノロジでは、_マップスタイルシート
 | shadedReliefVisible          | Bool    |  ✔   |  ✔   |  ✔   |  ✔   |  ✔   | 地図上の高度シェーディングを描画するかどうかを示すフラグ。 |
 | shadowColor                  | 色   |      |      |      |  ✔   |  ✔   | 影を使用する影の背景色。 |
 | spaceColor                   | 色   |  ✔   |  ✔   |  ✔   |  ✔   |  ✔   | 地図の周囲の領域の ARGB カラー値。 |
+| terrainFlat                  | Bool    |      |      |      |      |      | 地形をマップ上でフラット (無効) にする必要があるかどうかを示すフラグ。 |
 | useDefaultImageColors        | Bool    |  ✔   |  ✔   |  ✔   |  ✔   |  ✔   | イメージ内の色のパレットエントリを検索するのではなく、SVG の元の色を使用する必要があるかどうかを示すフラグ。 |
 
 <a id="mapelement" />

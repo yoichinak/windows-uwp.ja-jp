@@ -8,16 +8,16 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: 4bc474c3414969f27468a8daf262df0ae6e3b57e
-ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
+ms.openlocfilehash: 3f2a0a6ee6b22fa7d08e7fc746c4ec2ad4ebffa7
+ms.sourcegitcommit: c660def841abc742600fbcf6ed98e1f4f7beb8cc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79209788"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80218592"
 ---
 # <a name="host-a-standard-uwp-control-in-a-wpf-app-using-xaml-islands"></a>XAML アイランドを使用して WPF アプリで標準の UWP コントロールをホストする
 
-この記事では、 [XAML アイランド](xaml-islands.md)を使用して WPF アプリで標準の uwp コントロール (つまり、Windows SDK または WinUI ライブラリによって提供されるファーストパーティ uwp コントロール) をホストする2つの方法について説明します。
+この記事では、 [XAML アイランド](xaml-islands.md)を使用して WPF アプリで標準の uwp コントロール (Windows SDK によって提供されるファーストパーティ uwp コントロール) をホストする2つの方法について説明します。
 
 * この例では、Windows Community Toolkit でラップされた[コントロール](xaml-islands.md#wrapped-controls)を使用して UWP [System.windows.controls.inkcanvas>](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas)コントロールと[inktoolbar](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar)コントロールをホストする方法を示します。 これらのコントロールは、少数の便利な UWP コントロールのインターフェイスと機能をラップします。 WPF または Windows フォームプロジェクトのデザイン画面に直接追加し、デザイナーの他の WPF や Windows フォームコントロールと同様に使用できます。
 
@@ -291,6 +291,9 @@ UWP XAML アイランドを使用するようにプロジェクトを構成し�
 必要に応じて、WPF アプリを[Msix パッケージ](https://docs.microsoft.com/windows/msix)にパッケージ化してデプロイすることもできます。 MSIX は Windows 向けの最新のアプリケーションパッケージ化テクノロジであり、MSI、.appx、App-v、ClickOnce のインストールテクノロジの組み合わせに基づいています。
 
 次の手順では、Visual Studio 2019 の[Windows アプリケーションパッケージプロジェクト](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)を使用して、msix パッケージのソリューションに含まれるすべてのコンポーネントをパッケージ化する方法を示します。 これらの手順は、WPF アプリを MSIX パッケージでパッケージ化する場合にのみ必要です。
+
+> [!NOTE]
+> アプリケーションを展開用の[Msix パッケージ](https://docs.microsoft.com/windows/msix)にパッケージ化しない場合は、アプリを実行するコンピューターに[ C++ Visual Runtime](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads)がインストールされている必要があります。
 
 1. 新しい[Windows アプリケーションパッケージプロジェクト](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)をソリューションに追加します。 プロジェクトを作成するときに、 **Windows 10 バージョン 1903 (10.0;ビルド 18362)** 。**ターゲットバージョン**と**最小バージョン**の両方に対応します。
 

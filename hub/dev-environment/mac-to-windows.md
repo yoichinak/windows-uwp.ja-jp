@@ -9,12 +9,12 @@ ms.technology: windows-nodejs
 keywords: Mac から Windows、ショートカットキーのマッピング、Unix から Windows への移行、Mac から Windows への移行、Macintosh ユーザー用の Windows の使用、開発環境の変更、Windows への Mac OS X、ヘルプを参照してください。Mac から PC への移行
 ms.localizationpriority: medium
 ms.date: 09/19/2019
-ms.openlocfilehash: a4e71143730184db094df2a7e8f1416cbaf244c4
-ms.sourcegitcommit: f5bb4e35d1373b982259e61547b3b1765da0e78c
+ms.openlocfilehash: 8c23fa3e6791a3cd78d259b40e68606a30fd9395
+ms.sourcegitcommit: c660def841abc742600fbcf6ed98e1f4f7beb8cc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74881270"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80218442"
 ---
 # <a name="guide-for-changing-your-dev-environment-from-mac-to-windows"></a>開発環境を Mac から Windows に変更するためのガイド
 
@@ -22,26 +22,28 @@ ms.locfileid: "74881270"
 
 アプリの開発では、Xcode と最も近いものが[Visual Studio](https://visualstudio.microsoft.com)になります。 また、前に戻る必要があると思われる場合は、 [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/)のバージョンもあります。 クロスプラットフォームのソースコード編集 (および多数のプラグイン) の場合[Visual Studio Code](https://code.visualstudio.com/?wt.mc_id=DX_841432)は最も一般的な選択肢です。
 
-## <a name="keyboard-shortcuts"></a>[キーボード ショートカット]
+## <a name="keyboard-shortcuts"></a>キーボード ショートカット
 
-| **操作** | **Mac** | **Windows** |
+| **運用** | **Mac** | **Windows** |
 |---------------|--------------------|---------------------|
-| [コピー] | コマンド + C | Ctrl + C |
-| 切り取り | コマンド + X | Ctrl + X |
-| Paste | コマンド + V | Ctrl + V |
-| 元に戻す | コマンド + Z | Ctrl + Z |
-| [保存] | コマンド + S | Ctrl + S |
-| まず、 | コマンド + O | Ctrl + O |
+| コピー | コマンド + C | Ctrl+C |
+| 切り取り | コマンド + X | Ctrl+X |
+| 貼り付け | コマンド + V | Ctrl+V |
+| 元に戻す | コマンド + Z | Ctrl+Z |
+| 保存 | コマンド + S | Ctrl + S |
+| 開く | コマンド + O | Ctrl + O |
 | コンピューターのロック | コマンド + コントロール + Q | WindowsKey + L |
 | デスクトップを表示する | Command + F3 | WindowsKey + D |
+| ファイルブラウザーを開く | コマンド + N | WindowsKey + E |
 | ウィンドウを最小化する | コマンド + M | WindowsKey + M |
-| [検索] | コマンド + スペース | WindowsKey |
+| 検索 | コマンド + スペース | WindowsKey |
 | アクティブウィンドウを閉じる | コマンド + W | Ctrl + W |
 | 現在のタスクの切り替え | コマンド + Tab | Alt + Tab |
+| ウィンドウを全画面表示に最大化 | Ctrl + Command + F | WindowsKey + Up |
 | 画面の保存 (スクリーンショット) | コマンド + Shift + 3 | WindowsKey + Shift + S |
 | ウィンドウの保存 | コマンド + Shift + 4 | WindowsKey + Shift + S |
 | 項目の情報またはプロパティを表示する | コマンド + I | Alt + Enter |
- | [すべての項目を選択] | コマンド + A | Ctrl + A |
+ | [すべての項目を選択] | コマンド + A | Ctrl&lt;/localizedText&gt; + &lt;localizedText&gt;A |
 | リスト内の複数の項目を選択する (非連続) | をクリックし、各項目をクリックします。 | コントロールをクリックし、各項目をクリックします。 |
 | 特殊文字の入力 | Option + 文字キー | Alt + 文字キー|
 
@@ -49,17 +51,17 @@ ms.locfileid: "74881270"
 
 注: これらのショートカットの中には、Surface デバイスのトラックパッドや他のサードパーティ製のラップトップなど、"Precision トラックパッド" が必要です。
 
- **操作** | **Mac** | **Windows** |
+ **運用** | **Mac** | **Windows** |
 |---------------|--------------------|---------------------|
-| スクロールする | 2本の指の垂直方向のスワイプ | 2本の指の垂直方向のスワイプ |
+| Scroll | 2本の指の垂直方向のスワイプ | 2本の指の垂直方向のスワイプ |
 | ズーム | 2本の指のピンチインと out | 2本の指のピンチインと out |
 | ビューを前後にスワイプする | 2本の横方向のスワイプ | 2本の横方向のスワイプ |
 | 仮想ワークスペースの切り替え | 4本の横方向のスワイプ | 4本の横方向のスワイプ |
 | 現在開いているアプリを表示する | 4本の上向きスワイプ | 3本の上向きスワイプ |
-| アプリを切り替える | 該当なし | 3本の横方向のスワイプが遅い |
+| アプリを切り替える | N/A | 3本の横方向のスワイプが遅い |
 | デスクトップにアクセス | 4本の指を拡散する | 指を下に3本スワイプ |
 | Cortana/アクションセンターを開く | 右から2本の指スライド | 3本の指タップ |
-| 追加情報を開く | 3本の指タップ | 該当なし |
+| 追加情報を開く | 3本の指タップ | N/A |
 |スタートパッドの表示/アプリの開始 | 4本の指を使用したピンチ | 4本の指でタップ |
 
 注: トラックパッドオプションは、両方のプラットフォームで構成できます。
@@ -80,11 +82,15 @@ Windows のコマンドラインは DOS コマンドを受け取り、Windows �
 
 3. Windows Subsystem for Linux (WSL)
 
-WSL を使用すると、Linux シェルを Windows 内で実行できます。 これは、インストールされている特定の Linux ディストリビューションに応じて、 *bash** またはその他のシェルを実行できることを意味します。 WSL を使用すると、Mac ユーザーに最もなじみのある環境を提供できます。 たとえば、Windows のコマンドラインの場合**と同じ**ように、現在のディレクトリ内のファイルを一覧**表示すること**ができます。 Instaling と WSL の使用方法については、windows [10 用 Windows Subsystem For Linux のインストールガイド](https://docs.microsoft.com/windows/wsl/install-win10)を参照してください。
+WSL を使用すると、Linux シェルを Windows 内で実行できます。 これは、インストールされている特定の Linux ディストリビューションに応じて、 *bash** またはその他のシェルを実行できることを意味します。 WSL を使用すると、Mac ユーザーに最もなじみのある環境を提供できます。 たとえば、Windows のコマンドラインの場合**と同じ**ように、現在のディレクトリ内のファイルを一覧**表示すること**ができます。 WSL のインストールと使用の詳細については、windows [10 用 Windows Subsystem For Linux のインストール](https://docs.microsoft.com/windows/wsl/install-win10)に関するガイドを参照してください。
+
+4. Windows ターミナル (プレビュー)
+
+Windows ターミナルは、従来の Windows コマンドライン、PowerShell、Windows Subsystem for Linux など、さまざまなソースのコマンドラインツールとシェルを組み合わせるアプリケーションです。 現在はプレビュー段階にありますが、複数のタブ、分割ペイン、カスタムテーマとスタイル、完全な Unicode のサポートなど、いくつかの便利な機能が alreaedy に含まれています。 Windows ターミナルは、 [windows 10 の Microsoft Store](https://www.microsoft.com/en-us/p/windows-terminal-preview/9n0dx20hk701?activetab=pivot:overviewtab)からインストールできます。
 
 ## <a name="apps-and-utilities"></a>アプリとユーティリティ
 
- **アプリ** | **Mac** | **Windows** |
+ **アプリケーション** | **Mac** | **Windows** |
 |---------------|--------------------|---------------------|
 | 設定と基本設定 | システム設定 | 設定 |
 | タスク マネージャー | アクティビティ モニター | タスク マネージャー |
