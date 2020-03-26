@@ -22,12 +22,22 @@
           items:
             - name: 概要
               href: apps/desktop/modernize/xaml-islands.md
-            - name: WPF アプリでの標準 UWP コントロールのホスト
-              href: apps/desktop/modernize/host-standard-control-with-xaml-islands.md
-            - name: WPF アプリでのカスタム UWP コントロールのホスト
-              href: apps/desktop/modernize/host-custom-control-with-xaml-islands.md
-            - name: UWP XAML を使用した C++ Win32 アプリでの API のホスト
-              href: apps/desktop/modernize/using-the-xaml-hosting-api.md
+            - name: WPF アプリと Windows フォーム アプリでの XAML Islands
+              items:
+                - name: 標準 UWP コントロールをホストする
+                  href: apps/desktop/modernize/host-standard-control-with-xaml-islands.md
+                - name: カスタム UWP コントロールをホストする
+                  href: apps/desktop/modernize/host-custom-control-with-xaml-islands.md
+            - name: C++ Win32 アプリでの XAML Islands
+              items:
+                - name: API をホストしている UWP XAML の使用
+                  href: apps/desktop/modernize/using-the-xaml-hosting-api.md
+                - name: 標準 UWP コントロールをホストする
+                  href: apps/desktop/modernize/host-standard-control-with-xaml-islands-cpp.md
+                - name: カスタム UWP コントロールをホストする
+                  href: apps/desktop/modernize/host-custom-control-with-xaml-islands-cpp.md
+                - name: 高度なシナリオ
+                  href: apps/desktop/modernize/advanced-scenarios-xaml-islands-cpp.md
         - name: ビジュアル レイヤーの使用 (Windows.UI.Composition)
           items:
             - name: 概要

@@ -6,12 +6,12 @@ ms.date: 03/23/2018
 ms.topic: article
 keywords: 概要, windows 10, uwp, xaml, c#
 ms.localizationpriority: medium
-ms.openlocfilehash: 4f78bdfec6c6e06ffc542bc7741b875e952bc169
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.openlocfilehash: 9183d9e2134d376400d2d6b85901477ff7b27413
+ms.sourcegitcommit: c660def841abc742600fbcf6ed98e1f4f7beb8cc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75684890"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80218582"
 ---
 # <a name="get-started-with-windows-10-apps"></a>Windows 10 アプリの概要
 
@@ -30,7 +30,7 @@ ms.locfileid: "75684890"
                         <h3>Windows 10 アプリの詳細</h3>
                         <p>Windows 10 とユニバーサル Windows プラットフォームを使うと、あらゆる種類の Windows デバイスで動作し、見た目が良いアプリを作成したり、最新の機能で既存のアプリを更新したりすることができます。</p>
                         <ul>
-                          <li><a href="//docs.microsoft.com/windows/uwp/get-started/universal-application-platform-guide">UWP アプリとは</a></li>
+                          <li><a href="//docs.microsoft.com/windows/uwp/get-started/universal-application-platform-guide">Windows アプリとは</a></li>
                         </ul>
                     </div>
                 </div>
@@ -113,7 +113,7 @@ ms.locfileid: "75684890"
                     <h3>サンプル</h3>
                     <p>Windows 10 プラットフォームを直接試し、API の動作を確認することができます。</p>
                     <br>
-                    <p><a href="//docs.microsoft.com/windows/uwp/get-started/get-uwp-app-samples">UWP アプリ サンプルの使用</a></p>
+                    <p><a href="//docs.microsoft.com/windows/uwp/get-started/get-uwp-app-samples">Windows アプリのサンプルの使用</a></p>
                     <p><a href="//github.com/Microsoft/Windows-appsample-customers-orders-database">顧客注文データベース</a></p>
                     <p><a href="//github.com/Microsoft/Windows-appsample-remote-system-sessions">クイズ ゲーム (Project Rome)</a></p>
                     <p><a href="//developer.microsoft.com/windows/samples">Windows コード サンプル ポータル</a></p>
