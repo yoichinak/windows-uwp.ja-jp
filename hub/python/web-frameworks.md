@@ -8,12 +8,12 @@ ms.topic: article
 keywords: python, windows 10, microsoft, windows での python , wsl を使用した python web , linux 用 windows サブシステムを使用した python web アプリ, windows での python web 開発, windows での flask アプリ, windows での django アプリ, python web, windows での flask web 開発, windows での django web 開発, python を使用した windows web 開発, vs code python web 開発, リモート wsl 拡張機能, ubuntu, wsl, venv, pip, microsoft python 拡張機能, windows での python の実行, windows での python の使用, windows での python を使用した構築
 ms.localizationpriority: medium
 ms.date: 07/19/2019
-ms.openlocfilehash: d883007168e0baf35f8a0ab0827505b683cfd291
-ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
+ms.openlocfilehash: 8cbc8343764e4de57bd418ecdb36bd606b037c68
+ms.sourcegitcommit: c660def841abc742600fbcf6ed98e1f4f7beb8cc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79208977"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80218482"
 ---
 # <a name="get-started-using-python-for-web-development-on-windows"></a>Windows で Web 開発に Python を使用する
 
@@ -325,7 +325,7 @@ Python はインタープリター言語であり、さまざまな種類のイ�
 
 16. 変更したすべてのファイルを保存します。
 
-17. VS Code ターミナルで、`python manage.py runserver` を使用して開発サーバーを実行し、ブラウザーで `http://127.0.0.1:8000/` を開いて、ページの "Hello, Django" の表示を確認します。
+17. VS Code ターミナルで、`python3 manage.py runserver` を使用して開発サーバーを実行し、ブラウザーで `http://127.0.0.1:8000/` を開いて、ページの "Hello, Django" の表示を確認します。
 
 以上、VS Code と Linux 用 Windows サブシステムを使用して Django Web アプリケーションを作成しました。 VS Code と Django を使用した、さらに詳しいチュートリアルについては、[Visual Studio Code の Django チュートリアル](https://code.visualstudio.com/docs/python/tutorial-django)を参照してください。
 

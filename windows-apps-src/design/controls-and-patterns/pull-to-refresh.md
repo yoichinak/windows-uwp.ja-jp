@@ -12,12 +12,12 @@ design-contact: kimsea
 dev-contact: stpete
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 2f276c1a4abb57c5505a39afc538cc6f7319a23d
-ms.sourcegitcommit: bf95c8b29145a224957a940512394e6aa97cb90f
+ms.openlocfilehash: faff0857679d50f6995640bbf9bf0222bb0d2e37
+ms.sourcegitcommit: af4050f69168c15b0afaaa8eea66a5ee38b88fed
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71061946"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80081611"
 ---
 # <a name="pull-to-refresh"></a>引っ張って更新
 
@@ -27,7 +27,7 @@ ms.locfileid: "71061946"
 
 ![引っ張って更新 gif](images/Pull-To-Refresh.gif)
 
-## <a name="is-this-the-right-control"></a>適切なコントロールの選択
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 ユーザーが定期的に更新するデータのリストやグリッドがあり、アプリがタッチ操作主体のデバイスで実行されることが多いときは、引っ張って更新を使います。
 
@@ -38,7 +38,7 @@ ms.locfileid: "71061946"
 <table>
 <th align="left">XAML コントロール ギャラリー<th>
 <tr>
-<td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td><img src="images/xaml-controls-gallery-app-icon-sm.png" alt="XAML controls gallery"></img></td>
 <td>
     <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合、こちらをクリックして<a href="xamlcontrolsgallery:/item/PullToRefresh">アプリを開き、PullToRefresh の動作を確認</a>してください。</p>
     <ul>
@@ -86,7 +86,7 @@ ms.locfileid: "71061946"
 
     視覚的に、アイコンが 100% の不透明度に切り替わり、切り替えの過程でサイズは最大 150％ になり、その後 100％ に戻ります。
 
-### <a name="pending"></a>保留中
+### <a name="pending"></a>Pending
 
 ユーザーがしきい値を超えてリストをプルした場合、ビジュアライザーは**保留中**状態になります。
 
@@ -349,7 +349,7 @@ public class ListItemData
 }
 ```
 
-## <a name="get-the-sample-code"></a>サンプル コードを入手する
+## <a name="get-the-sample-code"></a>サンプル コードの入手
 
 - [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - インタラクティブな形で XAML コントロールのすべてを参照できます。
 

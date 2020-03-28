@@ -12,12 +12,12 @@ design-contact: kimsea
 dev-contact: ranjeshj
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 06cd49ce68de6f1c7a7a29b94c80f0a004a2eca3
-ms.sourcegitcommit: 6b29f0cbdc6e66b44150b3b60e95d67e1f7f56bf
+ms.openlocfilehash: e198e65052e9ef79ee38863260bce1c1f798ba38
+ms.sourcegitcommit: af4050f69168c15b0afaaa8eea66a5ee38b88fed
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74478531"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80081737"
 ---
 # <a name="collections-and-lists"></a>コレクションとリスト
 
@@ -47,7 +47,7 @@ ms.locfileid: "74478531"
 <table>
 <th align="left">XAML コントロール ギャラリー<th>
 <tr>
-<td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td><img src="images/xaml-controls-gallery-app-icon-sm.png" alt="XAML controls gallery"></img></td>
 <td>
     <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合は、<a href="xamlcontrolsgallery:/item/ListView">ListView</a>、<a href="xamlcontrolsgallery:/item/GridView">GridView</a>、<a href="xamlcontrolsgallery:/item/FlipView">FlipView</a>、<a href="xamlcontrolsgallery:/item/TreeView">TreeView</a>、および <a href="xamlcontrolsgalley:/item/ItemsRepeater">ItemsRepeater</a> の動作を確認してください。</p>
     <ul>
@@ -62,7 +62,7 @@ ms.locfileid: "74478531"
 
 リスト ビューは、通常、単一列の垂直方向に並べられたレイアウトで、テキストの多い項目を表現します。 それらを使用して、項目の分類、グループ ヘッダーの割り当て、項目のドラッグ アンド ドロップ、コンテンツの管理、および項目の順序変更を行うことができます。
 
-### <a name="is-this-the-right-control"></a>適切なコントロールの選択
+### <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 リスト ビューは、次の用途で使います。
 
@@ -128,7 +128,7 @@ ms.locfileid: "74478531"
 
 グリッド ビューは、画像ベースのコンテンツのコレクションを配置および閲覧する場合に適しています。 グリッド ビュー レイアウトでは、スクロールが垂直方向、パンが水平方向で行われます。 項目はラップされたレイアウトで表示され、左から右、上から下への読み取り順序で表示されます。
 
-### <a name="is-this-the-right-control"></a>適切なコントロールの選択
+### <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 リスト ビューは、次の用途で使います。
 
@@ -185,7 +185,7 @@ ms.locfileid: "74478531"
 
 フリップ ビューは、画像ベースのコンテンツ コレクションの閲覧に適しています。特に、一度に 1 つの画像のみを表示することを目的とするエクスペリエンスに適しています。 フリップ ビューでは、ユーザーがコレクション項目を (垂直方向または水平方向に) 移動させて "ページをめくるように表示" することができ、ユーザーの操作後に各項目が 1 つずつ表示されます。
 
-### <a name="is-this-the-right-control"></a>適切なコントロールの選択
+### <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 フリップ ビューは、次の用途で使います。
 
@@ -227,7 +227,7 @@ ms.locfileid: "74478531"
 
 ツリー ビューは、はっきりと示す必要がある重要な階層が存在するテキストベースのコレクションを表示する場合に適しています。 ツリー ビューの項目は折りたたみ/展開可能であるビジュアル階層で表示されます。アイコンを使用して補完でき、ツリー ビュー間でドラッグ アンド ドロップできます。 ツリー ビューでは、N レベルの入れ子が可能です。
 
-### <a name="is-this-the-right-control"></a>適切なコントロールの選択
+### <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 ツリー ビューは、次の用途で使います。
 
@@ -266,7 +266,7 @@ ms.locfileid: "74478531"
 
 ItemsRepeater は、このページに示された他のコレクション コントロールとは異なり、プロパティを定義せずに単にページに配置するだけでスタイルや対話機能が提供されることはありません。 ItemsRepeater は、どちらかといえば、開発者が独自のカスタム コレクション コントロールを作成するために使用できる構成要素であり、特にこの記事の他のコントロールの使用では実現できないコントロールを作成するために使用できます。 ItemsRepeater は、ニーズに合わせて調整できるデータ主導のハイパフォーマンス パネルです。
 
-### <a name="is-this-the-right-control"></a>適切なコントロールの選択
+### <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 ItemsRepeater は、次に該当する場合に使用します。
 
@@ -316,7 +316,7 @@ ItemsRepeater は、次に該当する場合に使用します。
 </tr>
 </table>
 
-## <a name="get-the-sample-code"></a>サンプル コードを入手する
+## <a name="get-the-sample-code"></a>サンプル コードの入手
 
 - [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - インタラクティブな形で XAML コントロールのすべてを参照できます。
 
