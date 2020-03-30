@@ -1,20 +1,20 @@
 ---
-description: このトピックでは、C# コードを C++/WinRT の同等のコードに移植する方法について説明します。
+description: このトピックでは、[C#](/visualstudio/get-started/csharp) プロジェクト内のソース コードを [C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) の同等のコードに移植することに関する技術的な詳細を取り上げています。
 title: C# から C++/WinRT への移行
 ms.date: 07/15/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 移植, 移行, C#
 ms.localizationpriority: medium
-ms.openlocfilehash: 17900829388bfe0b3cc325e27d0807b139ccaa27
-ms.sourcegitcommit: 2c6aac8a0cc02580df0987f0b7dba5924e3472d6
+ms.openlocfilehash: f7cd35dbf211b14dfb886fc9ba4305cd7ce56e5e
+ms.sourcegitcommit: f288bcc108f9850671662c7b76c55c8313e88b42
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74958962"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80290054"
 ---
 # <a name="move-to-cwinrt-from-c"></a>C# から C++/WinRT への移行
 
-このトピックでは、[C#](/visualstudio/get-started/csharp) プロジェクト内のコードを [C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) の同等のコードに移植する方法について説明します。
+このトピックでは、[C#](/visualstudio/get-started/csharp) プロジェクト内のソース コードを [C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) の同等のコードに移植することに関する技術的な詳細を取り上げています。
 
 ## <a name="register-an-event-handler"></a>イベント ハンドラーの登録
 
@@ -193,7 +193,7 @@ auto s{ std::to_wstring(i) }; // s is a std::wstring with value L"2".
 
 また、C++/WinRT では、限られた数の型のための [**winrt:: to_hstring**](/uwp/cpp-ref-for-winrt/to-hstring) もサポートしています。 stringify が必要なその他の型のオーバーロードを追加する必要があります。
 
-| 言語 | Stringify int | Stringify enum |
+| Language | Stringify int | Stringify enum |
 | - | - | - |
 | C# | `string result = "hello, " + intValue.ToString();`<br>`string result = $"hello, {intValue}";` | `string result = "status: " + status.ToString();`<br>`string result = $"status: {status}";` |
 | C++/WinRT | `hstring result = L"hello, " + to_hstring(intValue);` | `// must define overload (see below)`<br>`hstring result = L"status: " + to_hstring(status);` |
@@ -279,7 +279,7 @@ C# は Windows ランタイム文字列を参照型として表しますが、C+
 | 宣言 | `object o;`<br>`string s;` | `IInspectable o;`<br>`hstring s;` |
 | 文字列型のカテゴリ | 参照型 | 値の種類 |
 | null **HSTRING** による投影 | `""` | `hstring{}` |
-| null と `""` が同一かどうか | X | 〇 |
+| null と `""` が同一かどうか | いいえ | はい |
 | null の有効性 | `s = null;`<br>`s.Length` により NullReferenceException が生成される | `s = hstring{};`<br>`s.size() == 0` (有効) |
 | オブジェクトに null 文字列を割り当てる場合 | `o = (string)null;`<br>`o == null` | `o = box_value(hstring{});`<br>`o != nullptr` |
 | オブジェクトに `""` を割り当てる場合 | `o = "";`<br>`o != null` | `o = box_value(hstring{L""});`<br>`o != nullptr` |
