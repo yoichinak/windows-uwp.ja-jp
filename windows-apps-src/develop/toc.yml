@@ -160,6 +160,8 @@
           href: ../app-to-app/receive-data.md
         - name: コピーと貼り付け
           href: ../app-to-app/copy-and-paste.md
+    - name: プロセス間通信 (IPC)
+      href: ../communication/interprocess-communication.md
     - name: ネットワークと Web サービス
       href: ../networking/index.md
       items:
