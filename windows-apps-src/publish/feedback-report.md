@@ -6,14 +6,17 @@ ms.date: 10/31/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 47eb494ac1b61caac0549f89254ae5d60a7ddf4c
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: 50ffec5beafd88ddc852e4d9b2fb995fb12bd939
+ms.sourcegitcommit: 56d777134bc85f049e281e34660de612ac938a01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74259015"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80417436"
 ---
 # <a name="feedback-report"></a>フィードバック レポート
+
+> [!WARNING]
+> フィードバックレポート2020年4月15日に廃止されました。このレポートは、2020年4月15日以降はサポートされなくなります。 このレポートのデータは、この日以降は更新されず、今後通知されることなくレポートが削除されます。 フィードバックハブでは、お客様から直接受信したフィードバックを引き続き表示できます。
 
 パートナーセンターの**フィードバックレポート**では、Windows 10 のお客様がフィードバックハブを通じて送信した問題、提案、およびアップ投票を確認できます。 パートナーセンターでこのデータを表示したり、データをエクスポートしてオフラインで表示したりすることができます。
 
