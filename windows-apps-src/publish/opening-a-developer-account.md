@@ -2,16 +2,16 @@
 ms.assetid: 284EBA1F-BFB4-4CDA-9F05-4927CDACDAA7
 title: 開発者アカウントを開く
 description: パートナーセンターで Microsoft Store およびその他の Microsoft プログラムの Windows 開発者アカウントに登録する方法の概要を次に示します。
-ms.date: 10/31/2018
+ms.date: 3/30/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: d00fcee11b8cf813144a6f8ea021dc40829056d2
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: 0ab3dcc5f774de6bd7ce422ecdcec61b26cc9a4b
+ms.sourcegitcommit: 9aef3bc26a56b8d266b3089d509f79b119234b6f
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74259960"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80538195"
 ---
 # <a name="opening-a-developer-account"></a>開発者アカウントを開く
 
@@ -24,6 +24,9 @@ ms.locfileid: "74259960"
 
 > [!NOTE]
 > 場合によっては、開発者アカウントに登録するときに表示される画面とフィールドが、次の手順で説明されている内容とは多少異なる場合があります。 しかし、基本的な情報とプロセスは、これらの手順と同じです。
+
+> [!NOTE]
+> いくつかのロケールのユーザーが登録の完了を完了できない場合があるという既知の問題があります。 解決されたことを確認できるまで、partner.microsoft.com でサインアッププロセスを開始すると、ブラウザーのロケールタグを**en-us**に手動で変更することをお勧めします。
 
 1.  [登録ページ](https://developer.microsoft.com/store/register)にアクセスし、 **[サインアップ]** を選択します。
 2.  Microsoft アカウントでサインインしていない場合は、ここでサインインするか、新しい Microsoft アカウントを作成します。 ここで使用する Microsoft アカウントは、開発者アカウントへのサインインに使用するものです。
