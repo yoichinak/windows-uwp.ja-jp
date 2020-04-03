@@ -3,21 +3,21 @@ description: ペン、Surface Dial、その他の種類の入力に合わせて�
 title: 入力と操作
 keywords: アプリの入力, UWP アプリケーションのカスタマイズ
 label: Input and interactions
-layout: LandingPage
 template: detail.hbs
 ms.date: 02/08/2017
 ms.topic: article
 ms.assetid: b771d452-c3ac-4d97-8482-eaf81bf34306
 ms.localizationpriority: medium
-ms.openlocfilehash: 12ca16eea1bb3b5ced72add427333e7e5988f876
-ms.sourcegitcommit: 09edf480f2224e29e190fad8518f680c16e21c6d
+ms.openlocfilehash: c2d7db47a0731323cbbb45c471428a2496f8d479
+ms.sourcegitcommit: 08cb5a4ca2e02179ad6b768c841fe3d5216bcae3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65065303"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80614940"
 ---
-![入力アイコン](../images/inputs-2x.png)
 # <a name="input-and-interactions"></a>入力と操作
+
+![入力アイコン](../images/inputs-2x.png)
 
 <!-- <div>
   <img src="images/keyboard/keyboard-hero.jpg" alt="" />
@@ -28,109 +28,54 @@ UWP アプリは、さまざまな入力を自動的に処理し、さまざま�
 
 このセクションの設計とコーディングの手順は、特定の種類の入力用に UWP アプリをカスタマイズする場合に役立ちます。
 
-<ul class="panelContent cardsH" style="margin-left: 1px">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <!-- <div class="cardImageOuter">
-                        <div class="cardImage" style="background-color: #f2f2f2" >
-                        <a href="input-primer.md">
-                            <img src="images/input-interactions/icons-inputdevices03.png" alt=" " style="display: block; width: 100%; height: auto;" />
-                            </a>
-                        </div>
-                    </div>  -->
-                    <div class="cardText">
-                        <h3><a href="input-primer.md">入力の基本情報</a></h3>
-                        <p>特定のフォームファクターと組み合わせて使うときの各入力デバイスの種類とその動作、機能、制限事項を把握しておきましょう。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <!-- <div class="cardImageOuter">
-                        <div class="cardImage" style="background-color: #f2f2f2">
-                        <a href="identify-input-devices.md">
-                            <img src="images/landing-page/fluentdesign-app-sm.png" alt=" " style="display: block; width: 100%; height: auto;"/>
-                            </a>
-                        </div>
-                    </div> -->
-                    <div class="cardText">
-                        <h3><a href="gaze-interactions.md">新しい視線入力</a></h3>
-                        <p>ユーザーの目と手の場所と動きに基づいてユーザーの視線を追跡します。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-</ul>
+:::row:::
+    :::column:::
+        <h3 style="margin-top: 10px; margin-bottom: 0px"><a href="input-primer.md">入力の基本情報</a></h3>
+        <p style="margin-top: 0px; margin-bottom: 50px">特定のフォームファクターと組み合わせて使うときの各入力デバイスの種類とその動作、機能、制限事項を把握しておきましょう。</p>
+    :::column-end:::
+    :::column:::
+        <h3 style="margin-top: 10px; margin-bottom: 0px"><a href="gaze-interactions.md">視線入力</a></h3>
+        <p style="margin-top: 0px; margin-bottom: 50px">ユーザーの目と手の場所と動きに基づいてユーザーの視線を追跡します。</p>
+    :::column-end:::
+:::row-end:::
 
 <!-- 
 ## Input primer
 
 See our <b>[Input primer](index.md)</b> to familiarize yourself with each input device type and its behaviors, capabilities, and limitations when paired with certain form factors. -->
 
+:::row:::
+    :::column:::
+        <h2 style="margin-top: 10px; margin-bottom: 0px">入力</h2>
+        <a href="/windows/uwp/design/input/identify-input-devices">入力デバイスの識別</a><br/>
+        <a href="/windows/uwp/design/input/handle-pointer-input">ポインター</a><br/>
+        <a href="/windows/uwp/design/input/pen-and-stylus-interactions">ペンと Windows Ink</a><br/>
+        <a href="/windows/uwp/design/input/touch-interactions">タッチ</a><br/>
+        <a href="/windows/uwp/design/input/mouse-interactions">マウス</a><br/>
+        <a href="/windows/uwp/design/input/keyboard-interactions">キーボード</a><br/>
+        <a href="/windows/uwp/design/input/gamepad-and-remote-interactions">ゲームパッドとリモコン</a><br/>
+        <a href="/windows/uwp/design/input/touchpad-interactions">タッチパッド</a><br/>
+        <a href="/windows/uwp/design/input/windows-wheel-interactions">Surface Dial</a><br/>
+        <a href="/windows/uwp/design/input/multiple-input-design-guidelines">複数の入力</a><br/>
+        <a href="/windows/uwp/design/input/input-injection">入力の挿入</a><br/>
+        <a href="/windows/uwp/design/input/custom-text-input">カスタム テキスト入力</a><br/>
+    :::column-end:::
+    :::column:::
+        <h2 style="margin-top: 10px; margin-bottom: 0px">操作</h2>
+        <a href="/windows/uwp/design/input/drag-and-drop">ドラッグ アンド ドロップ</a><br/>
+        <a href="/windows/uwp/design/input/guidelines-for-panning">パン</a><br/>
+        <a href="/windows/uwp/design/input/guidelines-for-rotation">回転</a><br/>
+        <a href="/windows/uwp/design/input/guidelines-for-textselection">テキストと画像の選択</a><br/>
+        <a href="/windows/uwp/design/input/guidelines-for-targeting">ターゲット設定</a><br/>
+        <a href="/windows/uwp/design/input/guidelines-for-visualfeedback">視覚的なフィードバック</a><br/>
+    :::column-end:::
+    :::column:::
+        <h2 style="margin-top: 10px; margin-bottom: 0px">音声と AI</h2>
+        <a href="/windows/uwp/design/input/speech-interactions">音声認識</a><br/>
+        <a href="/windows/uwp/design/input/cortana-interactions">Cortana</a><br/>
+    :::column-end:::
+:::row-end:::
 
-<ul class="panelContent cardsL" style="margin-left: 1px">
-    <li>              
-        <div style="display:block" class="cardSize">
-            <div style="display:block" class="cardPadding">
-                <div style="display:block" class="card">
-                    <div style="display:block" class="cardText">
-                        <h3>入力</h3>
-                        <p style="display: block;"><a  href="/windows/uwp/design/input/identify-input-devices">入力デバイスの識別</a></p>
-                        <p style="display: block;"><a  href="/windows/uwp/design/input/handle-pointer-input">ポインター</a></p>
-                        <p style="display: block;"><a  href="/windows/uwp/design/input/pen-and-stylus-interactions">ペンと Windows Ink</a></p>
-                        <p style="display: block;"><a  href="/windows/uwp/design/input/touch-interactions">タッチ</a></p>
-                        <p style="display: block;"><a  href="/windows/uwp/design/input/mouse-interactions">マウス</a></p>
-                        <p style="display: block;"><a  href="/windows/uwp/design/input/keyboard-interactions">キーボード</a></p>
-                        <p style="display: block;"><a  href="/windows/uwp/design/input/gamepad-and-remote-interactions">ゲームパッドとリモコン</a></p>
-                        <p style="display: block;"><a  href="/windows/uwp/design/input/touchpad-interactions">タッチパッド</a></p>
-                        <p style="display: block;"><a  href="/windows/uwp/design/input/windows-wheel-interactions">Surface Dial</a></p>
-                        <p style="display: block;"><a  href="/windows/uwp/design/input/multiple-input-design-guidelines">複数の入力</a></p>
-                        <p style="display: block;"><a  href="/windows/uwp/design/input/input-injection">入力の挿入</a></p>
-                        <p style="display: block;"><a  href="/windows/uwp/design/input/custom-text-input">カスタム テキスト入力</a></p>                        
-                    </div>
-                </div>
-            </div>
-        </div>        
-    </li>  
-    <li>              
-        <div style="display:block" class="cardSize">
-            <div style="display:block" class="cardPadding">
-                <div style="display:block" class="card">
-                    <div style="display:block" class="cardText">
-                        <h3>操作</h3>
-                        <p style="display: block;"><a  href="/windows/uwp/design/input/drag-and-drop">ドラッグ アンド ドロップ</a></p>
-                        <p style="display: block;"><a  href="/windows/uwp/design/input/guidelines-for-panning">パン</a></p>
-                        <p style="display: block;"><a  href="/windows/uwp/design/input/guidelines-for-rotation">回転</a></p>
-                        <p style="display: block;"><a  href="/windows/uwp/design/input/guidelines-for-textselection">テキストと画像の選択</a></p>
-                        <p style="display: block;"><a  href="/windows/uwp/design/input/guidelines-for-targeting">ターゲット設定</a></p>
-                        <p style="display: block;"><a  href="/windows/uwp/design/input/guidelines-for-visualfeedback">視覚的なフィードバック</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>        
-    </li>
-    <li>              
-        <div style="display:block" class="cardSize">
-            <div style="display:block" class="cardPadding">
-                <div style="display:block" class="card">
-                    <div style="display:block" class="cardText">
-                        <h3>音声と AI</h3>
-                        <p style="display: block;"><a  href="/windows/uwp/design/input/speech-interactions">音声認識</a></p>
-                        <p style="display: block;"><a  href="/windows/uwp/design/input/cortana-interactions">Cortana</a></p>  
-                    </div>
-                </div>
-            </div>
-        </div>        
-    </li>            
-       
-</ul>
 
 <!-- <div class="side-by-side">
 <div class="side-by-side-content">
