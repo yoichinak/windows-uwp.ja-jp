@@ -6,12 +6,12 @@ ms.date: 06/11/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 13e6f4ac59a99463cd891e936f51449baf4ea7c2
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: 4c388b9b81744c0d27d96c1f97b4e405af63eaef
+ms.sourcegitcommit: fc5db2e26db65be025e9f62044b4d29bb1744f8d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74259538"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80524084"
 ---
 # <a name="create-a-hello-world-app-in-ccx"></a>"Hello world" アプリを C++/CX で作成する
 
@@ -23,7 +23,7 @@ Microsoft Visual Studio では、Extensible Application Markup Language (XAML) �
 > [!NOTE]
 > このチュートリアルでは、Visual Studio Community 2019 を使います。 異なるバージョンの Visual Studio を使っている場合には、見た目が多少異なることがあります。
 
-## <a name="before-you-start"></a>開始前の作業
+## <a name="before-you-start"></a>開始する前に
 
 -   このチュートリアルを完了するには、Windows 10 が実行されているコンピューターで、Visual Studio Community、または Community バージョン以外のいずれかの Visual Studio を使う必要があります。 ツールをダウンロードするには、[ツールの入手に関するページ](https://visualstudio.microsoft.com/downloads/)をご覧ください。
 -   このトピックは、C++/CX、XAML、そして「[XAML の概要](https://docs.microsoft.com/windows/uwp/xaml-platform/xaml-overview)」で説明されている概念について基本的な知識があることを前提としています。
@@ -45,7 +45,7 @@ C++ を使った Windows デスクトップのプログラミングに関する�
 
 -   Visual C++ コンパイラでネイティブ マシン コードにコンパイルされるアプリを引き続き作成します。 C++/CX で作成された UWP アプリは、マネージド ランタイム環境では実行されません。
 
-### <a name="whats-new"></a>最新情報
+### <a name="whats-new"></a>新機能
 
 -   UWP アプリとユニバーサル Windows アプリの設計原則は、デスクトップ アプリの設計原則とは大きく異なります。 ウィンドウの境界線、ラベル、ダイアログ ボックスなどの強調は解除され、 コンテンツが最も目立つように表示されます。 優れたユニバーサル Windows アプリには、こうした原則が計画段階の初期から活かされています。
 
@@ -255,7 +255,7 @@ MainPage::MainPage()
 
    デザイナーは、レンダリング中にハンドルされない例外が発生すると、読み込みに失敗します。 デザイナーでのレンダリングでは、ページの設計時のバージョンが実行されます。 これは、ユーザー コードの実行を無効にする場合に便利です。 そのためには、 **[ツール]、[オプション]** の順にクリックして、開いたダイアログ ボックスで設定を変更します。 **[XAML デザイナー]** で、 **[プロジェクト コードを XAML デザイナーで実行する (サポートされている場合)]** チェック ボックスをオフにします。
 
-5.  MainPage.xaml.cpp で、作成した **Button\_Click** イベント ハンドラーに次のコードを追加します。 このコードは、`nameInput`[**TextBox**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox) コントロールからユーザー名を取得し、それを使ってあいさつを作ります。 結果は、`greetingOutput`[**TextBlock**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock) に表示されます。
+5.  MainPage.xaml.cpp で、作成した **Button\_Click** イベント ハンドラーに次のコードを追加します。 このコードは、`nameInput` [**TextBox**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox) コントロールからユーザー名を取得し、それを使ってあいさつを作ります。 結果は、`greetingOutput` [**TextBlock**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock) に表示されます。
 
     ```cpp
     void HelloWorld::MainPage::Button_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
@@ -391,11 +391,11 @@ MainPage::MainPage()
 -   `inputPanel` 要素の [**Orientation**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.stackpanel.orientation) を **Horizontal** から **Vertical** に変更します。
 -   4 DIP の上余白を `inputButton` 要素に追加します。
 
-### <a name="summary"></a>概要
+### <a name="summary"></a>要約
 
 これで、最初のチュートリアルは終わりです。 このチュートリアルでは、Windows ユニバーサル アプリにコンテンツを追加する方法、そのコンテンツで対話式操作を実現する方法、見た目を変更する方法の 3 点について説明しました。
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
 Windows 8.1 や Windows Phone 8.1 を対象とする Windows ユニバーサル アプリ プロジェクトがある場合は、そのプロジェクトを Windows 10 に移植できます。 この移植を自動的に行うプロセスはありませんが、手動で実行することができます。 新しい Windows ユニバーサル プロジェクトを使って開発を始めることで、最新のプロジェクト システム構造を入手し、お使いのコード ファイルをプロジェクトのディレクトリ構造にコピーしたり、項目をプロジェクトに追加したりすることができます。また、このトピックのガイダンスに従い、[**VisualStateManager**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.VisualStateManager) を使って XAML を書き換えることもできます。 詳しくは、「[Windows ランタイム 8 プロジェクトのユニバーサル Windows プラットフォーム (UWP) プロジェクトへの移植](https://docs.microsoft.com/windows/uwp/porting/w8x-to-uwp-porting-to-a-uwp-project)」と「[ユニバーサル Windows プラットフォームへの移植 (C++)](https://msdn.microsoft.com/library/mt186164.aspx)」をご覧ください。
 

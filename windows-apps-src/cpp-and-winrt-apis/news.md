@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 新機能
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 734544a1294c6a97e70afcbf7ce6b5efc13cf841
-ms.sourcegitcommit: eb24481869d19704dd7bcf34e5d9f6a9be912670
+ms.openlocfilehash: 3057a3d13ba1e7d368dd6bf8820710030687a04d
+ms.sourcegitcommit: 7dcf74b11aa0cb2f3ff4ab10caf26ba769f96dfb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/17/2020
-ms.locfileid: "79448583"
+ms.lasthandoff: 04/04/2020
+ms.locfileid: "80662384"
 ---
 # <a name="whats-new-in-cwinrt"></a>C++/WinRT の新機能
 
@@ -89,7 +89,7 @@ C++/WinRT コルーチンは既に良好なパフォーマンスを発揮して�
 
 - 必要に応じてプロジェクトごとにプラットフォーム プロジェクション ヘッダーを生成する `cppwinrt.exe` ツールは、Microsoft.Windows.CppWinRT NuGet パッケージに含まれるようになります。 その結果、`cppwinrt.exe` ツールは Windows SDK に依存しなくなります (ただし、互換性の理由から、ツールには引き続き SDK が付属しています)。
 - 並列ビルドを有効にするため、`cppwinrt.exe` では各プラットフォーム/構成固有の中間フォルダー ($IntDir) の下に、プロジェクション ヘッダーが生成されるようになりました。
-- プロジェクト ファイルを手動でカスタマイズする場合のため、C++/WinRT のビルドのサポート (プロパティ/ターゲット) が完全にドキュメント化されるようになりました。 Microsoft.Windows.CppWinRT NuGet パッケージの [readme](https://github.com/microsoft/xlang/tree/master/src/package/cppwinrt/nuget/readme.md#customizing) をご覧ください。
+- プロジェクト ファイルを手動でカスタマイズする場合のため、C++/WinRT のビルドのサポート (プロパティ/ターゲット) が完全にドキュメント化されるようになりました。 Microsoft.Windows.CppWinRT NuGet パッケージの [readme](https://github.com/microsoft/cppwinrt/blob/master/nuget/readme.md#customizing) をご覧ください。
 - 多くのバグ修正が行われました。
 
 ### <a name="changes-to-cwinrt-for-version-20"></a>バージョン 2.0 での C++/WinRT の変更点
@@ -98,7 +98,7 @@ C++/WinRT コルーチンは既に良好なパフォーマンスを発揮して�
 
 `cppwinrt.exe` ツールでは、Windows ランタイム メタデータ (`.winmd`) ファイルが取得され、それに基づいて、メタデータで記述されている API を "*プロジェクト*" するヘッダー ファイル ベースの標準 C++ ライブラリが生成されます。 それにより、C++/WinRT のコードからそれらの API を使用できます。
 
-このツールは完全なオープン ソース プロジェクトになり、GitHub で入手できます。 [Microsoft\/xlang](https://github.com/Microsoft/xlang) に移動し、**src** > **tool** > **cppwinrt** の順にクリックします。
+このツールは完全なオープン ソース プロジェクトになり、GitHub で入手できます。 [Microsoft\/cppwinrt](https://github.com/microsoft/cppwinrt) にアクセスしてください。
 
 #### <a name="xlang-libraries"></a>xlang ライブラリ
 

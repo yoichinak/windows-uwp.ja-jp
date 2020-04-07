@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: ffd5481fec0ebf6db24d9af95b8a11d05a043170
-ms.sourcegitcommit: 0a319e2e69ef88b55d472b009b3061a7b82e3ab1
+ms.openlocfilehash: 5340c8375be9cf33a8f56fdba7bd36e9743767ab
+ms.sourcegitcommit: df0cd9c82d1c0c17ccde424e3c4a6ff680c31a35
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77521223"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80482309"
 ---
 # <a name="contributing-to-uwp-conceptual-documentation"></a>UWP の概念に関するドキュメントへの投稿
 
@@ -22,7 +22,7 @@ Microsoft の従業員**ではない**場合は、[パブリック コンテン�
 
 あなたが既にパブリック コンテンツ リポジトリにいる場合、まずは、変更するファイルに移動します。 そこから、表示されたコンテンツの上にある鉛筆アイコンを選択して編集を開始します。
 
-または、docs.microsoft.com のページを表示している場合は、ページの右上部分にある **[編集]** ボタンをクリックします。 これにより、リポジトリ内にある関連付けされたソース ファイルにリダイレクトされます。
+または、[docs.microsoft.com](https://docs.microsoft.com) のページを表示している場合は、ページの右上部分にある **[編集]** ボタンをクリックします。 これにより、リポジトリ内にある関連付けされたソース ファイルにリダイレクトされます。
 
 編集を開始すると、GitHub によって公式のリポジトリが個人用 GitHub アカウントに自動的にフォークされ、そのアカウントで変更を加えることができるようになります。 完了したら、**docs** ブランチに戻すプル要求を提出します。
 
