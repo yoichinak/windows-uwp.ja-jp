@@ -13,12 +13,12 @@ design-contact: kimsea
 dev-contact: llongley
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 31371c2b2a4826939de428fb6d7c082b78d05843
-ms.sourcegitcommit: 6951827b7d0948618e1fbb082c28794c7f23f83c
+ms.openlocfilehash: b008b12c5f92d56c127c5ec8026d305d3d57a869
+ms.sourcegitcommit: af4050f69168c15b0afaaa8eea66a5ee38b88fed
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70923152"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80081680"
 ---
 # <a name="menus-and-context-menus"></a>メニューとショートカット メニュー
 
@@ -26,15 +26,17 @@ ms.locfileid: "70923152"
 
 ![一般的なコンテキスト メニューの例](images/contextmenu_rs2_icons.png)
 
-| **Windows UI ライブラリを入手する** |
-| - |
-| このコントロールは、Windows UI ライブラリの NuGet パッケージの一部として組み込まれており、パッケージには、UWP アプリの新しいコントロールと UI 機能が含まれています。 インストール手順などの詳細については、[Windows UI ライブラリの概要](https://docs.microsoft.com/uwp/toolkits/winui/)に関するページを参照してください。 |
+**Windows UI ライブラリを入手する**
 
-| **プラットフォーム API** | **Windows UI ライブラリ API** |
+|  |  |
 | - | - |
-| [MenuFlyout クラス](/uwp/api/windows.ui.xaml.controls.menuflyout)、[MenuBar クラス](/uwp/api/windows.ui.xaml.controls.menubar)、[ContextFlyout プロパティ](/uwp/api/windows.ui.xaml.uielement.contextflyout)、[FlyoutBase.AttachedFlyout プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.flyoutbase#xaml-attached-properties) | [MenuBar クラス](/uwp/api/microsoft.ui.xaml.controls.menubar) |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | **MenuBar** コントロールは、Windows UI ライブラリの NuGet パッケージの一部として組み込まれており、パッケージには、UWP アプリの新しいコントロールと UI 機能が含まれています。 インストール手順などの詳細については、[Windows UI ライブラリの概要](https://docs.microsoft.com/uwp/toolkits/winui/)に関するページを参照してください。 |
 
-## <a name="is-this-the-right-control"></a>適切なコントロールの選択
+> **Windows UI ライブラリ API:** [MenuBar クラス](/uwp/api/microsoft.ui.xaml.controls.menubar)
+>
+> **プラットフォーム API:** [MenuFlyout クラス](/uwp/api/windows.ui.xaml.controls.menuflyout)、[MenuBar クラス](/uwp/api/windows.ui.xaml.controls.menubar)、[ContextFlyout プロパティ](/uwp/api/windows.ui.xaml.uielement.contextflyout)、[FlyoutBase.AttachedFlyout プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.flyoutbase#xaml-attached-properties)
+
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 メニューとコンテキスト メニューは、コマンドを整理してユーザーに要求されるまで非表示にすることによって、スペースを節約します。 特定のコマンドを頻繁に使っていて、利用可能なスペースがある場合は、メニューを使って移動しなくてもよいように、メニュー内ではなく、独自の要素に直接配置することを検討してください。
 
@@ -57,7 +59,7 @@ MenuBar を CommandBar と組み合わせて使うこともできます。 MenuB
 <table>
 <th align="left">XAML コントロール ギャラリー<th>
 <tr>
-<td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td><img src="images/xaml-controls-gallery-app-icon-sm.png" alt="XAML controls gallery"></img></td>
 <td>
     <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合、こちらをクリックして<a href="xamlcontrolsgallery:/item/MenuFlyout">アプリを開き、MenuFlyout の動作を確認</a>してください。</p>
     <ul>
@@ -266,7 +268,7 @@ private void ChangeColorItem_Click(object sender, RoutedEventArgs e)
 </muxc:MenuBar>
 ```
 
-## <a name="get-the-sample-code"></a>サンプル コードを入手する
+## <a name="get-the-sample-code"></a>サンプル コードの入手
 
 - [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - インタラクティブな形で XAML コントロールのすべてを参照できます。
 - [XAML コンテキスト メニューのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlContextMenu)
