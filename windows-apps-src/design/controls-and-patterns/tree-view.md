@@ -1,6 +1,6 @@
 ---
 description: ItemsSource を階層データ ソースにバインドして展開可能なツリー ビューを作成することができます。または、TreeViewNode オブジェクトを自分で作成して管理することもできます。
-title: ツリー ビュー
+title: ツリー構造
 label: Tree view
 template: detail.hbs
 ms.date: 07/24/2019
@@ -14,12 +14,12 @@ dev_langs:
 - csharp
 - vb
 ms.custom: RS5, 19H1
-ms.openlocfilehash: 8e18455a39441d46e13e5a9a72291c9cd379c310
-ms.sourcegitcommit: 9effd88952bd26611f7b0a0e7baa68aba7d0ee8d
+ms.openlocfilehash: 9c451eba40b5c36843a32efbc80de40866f2f0dc
+ms.sourcegitcommit: af4050f69168c15b0afaaa8eea66a5ee38b88fed
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68616532"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80081451"
 ---
 # <a name="treeview"></a>TreeView
 
@@ -34,13 +34,15 @@ XAML の [TreeView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.
 - **TreeViewItem** 内の任意の型のコンテンツ
 - ツリー ビュー間のドラッグ アンド ドロップ
 
-| **Windows UI ライブラリを入手する** |
-| - |
-| このコントロールは、Windows UI ライブラリの NuGet パッケージの一部として組み込まれており、パッケージには、UWP アプリの新しいコントロールと UI 機能が含まれています。 インストール手順などの詳細については、[Windows UI ライブラリの概要](https://docs.microsoft.com/uwp/toolkits/winui/)に関するページを参照してください。 |
+**Windows UI ライブラリを入手する**
 
-| **プラットフォーム API** | **Windows UI ライブラリ API** |
+|  |  |
 | - | - |
-| [TreeView クラス](/uwp/api/windows.ui.xaml.controls.treeview)、[TreeViewNode クラス](/uwp/api/windows.ui.xaml.controls.treeviewnode)、[TreeView.ItemsSource プロパティ](/uwp/api/windows.ui.xaml.controls.treeview.itemssource) | [TreeView クラス](/uwp/api/microsoft.ui.xaml.controls.treeview)、[TreeViewNode クラス](/uwp/api/microsoft.ui.xaml.controls.treeviewnode)、[TreeView.ItemsSource プロパティ](/uwp/api/microsoft.ui.xaml.controls.treeview.itemssource) |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | **TreeView** コントロールは、Windows UI ライブラリの NuGet パッケージの一部として組み込まれており、パッケージには、UWP アプリの新しいコントロールと UI 機能が含まれています。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+
+> **Windows UI ライブラリ API:** [TreeView クラス](/uwp/api/microsoft.ui.xaml.controls.treeview)、[TreeViewNode クラス](/uwp/api/microsoft.ui.xaml.controls.treeviewnode)、[TreeView.ItemsSource プロパティ](/uwp/api/microsoft.ui.xaml.controls.treeview.itemssource)
+>
+> **プラットフォーム API:** [TreeView クラス](/uwp/api/windows.ui.xaml.controls.treeview)、[TreeViewNode クラス](/uwp/api/windows.ui.xaml.controls.treeviewnode)、[TreeView.ItemsSource プロパティ](/uwp/api/windows.ui.xaml.controls.treeview.itemssource)
 
 このドキュメントでは、XAML で **muxc** エイリアスを使って、プロジェクトに含めた Windows UI Library API を表します。 [Page](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.page) 要素にこれを追加しました。
 
@@ -58,7 +60,7 @@ using muxc = Microsoft.UI.Xaml.Controls;
 Imports muxc = Microsoft.UI.Xaml.Controls
 ```
 
-## <a name="is-this-the-right-control"></a>適切なコントロールの選択
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 - 項目に入れ子になった一覧項目が含まれているとき、それらの項目とピアやノードとの階層関係を視覚的に示すことが重要になる場合は、**TreeView** を使用します。
 
@@ -69,7 +71,7 @@ Imports muxc = Microsoft.UI.Xaml.Controls
 <table>
 <th align="left">XAML コントロール ギャラリー<th>
 <tr>
-<td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td><img src="images/xaml-controls-gallery-app-icon-sm.png" alt="XAML controls gallery"></img></td>
 <td>
     <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合、こちらをクリックして<a href="xamlcontrolsgallery:/item/TreeView">アプリを開き、TreeView の動作を確認</a>してください。</p>
     <ul>
