@@ -12,25 +12,29 @@ design-contact: kimsea
 dev-contact: mitra
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: c69c5e64d75e03ce5bb2ef0d82c3b816fe78a770
-ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
+ms.openlocfilehash: b91ca2de98142bf267cc42b56fba14a49a87bb06
+ms.sourcegitcommit: af4050f69168c15b0afaaa8eea66a5ee38b88fed
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71339424"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80081235"
 ---
 # <a name="check-boxes"></a>チェック ボックス
 
- 
-
 チェック ボックスは、アクション項目の選択や選択解除を行うときに使います。 また、チェック ボックスはユーザーが選択する単一の項目や複数の項目の一覧に対して使うことができます。 コントロールには 3 つの選択状態 (選択されていない、選択されている、不確定) があります。 不確定状態は、選択されていない状態と選択されている状態の両方がサブ選択肢のコレクションに含まれている場合に使います。
-
-> **重要な API**:[CheckBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CheckBox)、[Checked イベント](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.togglebutton.checked)、[IsChecked プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.togglebutton.ischecked)
 
 ![チェック ボックスの状態の例](images/templates-checkbox-states-default.png)
 
+**Windows UI ライブラリを入手する**
 
-## <a name="is-this-the-right-control"></a>適切なコントロールの選択
+|  |  |
+| - | - |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | Windows UI ライブラリ 2.2 以降には、丸めた角を使用するこのコントロールの新しいテンプレートが含まれます。 詳しくは、「[角の半径](/windows/uwp/design/style/rounded-corner)」をご覧ください。 WinUI は、UWP アプリの新しいコントロールと UI 機能が含まれる NuGet パッケージです。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+
+> **プラットフォーム API:** [CheckBox クラス](/uwp/api/Windows.UI.Xaml.Controls.CheckBox)、[Checked イベント](/uwp/api/windows.ui.xaml.controls.primitives.togglebutton.checked)、[IsChecked プロパティ](/uwp/api/windows.ui.xaml.controls.primitives.togglebutton.ischecked)
+
+
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 **1 つのチェック ボックス**を使うのは、"このアカウントを記憶する" ログイン シナリオや、 サービス契約の条項など、はい/いいえの二者択一の選択肢の場合です。
 
@@ -54,7 +58,7 @@ ms.locfileid: "71339424"
 
 <table>
 <tr>
-<td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td><img src="images/xaml-controls-gallery-app-icon-sm.png" alt="XAML controls gallery"></img></td>
 <td>
     <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合、こちらをクリックして<a href="xamlcontrolsgallery:/item/CheckBox">アプリを開き、CheckBox の動作を確認</a>してください。</p>
     <ul>
@@ -185,7 +189,7 @@ private void toppingsCheckbox_Click(object sender, RoutedEventArgs e)
 
 CheckBox コントロールは [ToggleButton](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.togglebutton) を継承します。また、このコントロールには 3 つの状態を指定できます。 
 
-状態 | プロパティ | Value
+State | プロパティ | 値
 ------|----------|------
 オン | IsChecked | **true** 
 オフ | IsChecked | **false** 
@@ -298,7 +302,7 @@ private void SetCheckedState()
 
     ![3 つのオプションがあるラジオ ボタン グループ: [Not spicy]、[Spicy]、[Extra spicy]](images/spicyoptions.png)
 
-## <a name="get-the-sample-code"></a>サンプル コードを入手する
+## <a name="get-the-sample-code"></a>サンプル コードの入手
 
 - [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - インタラクティブな形で XAML コントロールのすべてを参照できます。
 

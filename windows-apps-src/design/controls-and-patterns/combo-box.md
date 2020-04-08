@@ -10,12 +10,12 @@ pm-contact: stmoy
 design-contact: ''
 doc-status: Draft
 ms.localizationpriority: medium
-ms.openlocfilehash: 351e234577b1a07b33bdcdbb92642c3697342503
-ms.sourcegitcommit: 9625f8fb86ff6473ac2851e600bc02e996993660
+ms.openlocfilehash: 31b3bcc2388a98941fc5e8aa44d18beee53de5c7
+ms.sourcegitcommit: af4050f69168c15b0afaaa8eea66a5ee38b88fed
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72163701"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80081099"
 ---
 # <a name="combo-box-and-list-box"></a>コンボ ボックスとリスト ボックス
 
@@ -23,13 +23,19 @@ ms.locfileid: "72163701"
 
 コンボ ボックスを閉じると、現在の選択が表示されるか、選択された項目がない場合は空です。 ユーザーがコンボ ボックスを展開すると、選択可能な項目の一覧が表示されます。
 
-> **重要な API**:[ComboBox クラス](/uwp/api/Windows.UI.Xaml.Controls.ComboBox)、[IsEditable プロパティ](/uwp/api/windows.ui.xaml.controls.combobox.iseditable)、[Text プロパティ](/uwp/api/Windows.UI.Xaml.Controls.ComboBox)、[TextSubmitted イベント](/uwp/api/Windows.UI.Xaml.Controls.ComboBox)
-
-ヘッダーが表示されたコンパクトな状態のコンボ ボックス。
-
 ![コンパクトな状態のドロップダウン リストの例](images/combo_box_collapsed.png)
 
-## <a name="is-this-the-right-control"></a>適切なコントロールの選択
+> _ヘッダーが表示されたコンパクトな状態のコンボ ボックス。_
+
+**Windows UI ライブラリを入手する**
+
+|  |  |
+| - | - |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | Windows UI ライブラリ 2.2 以降には、丸めた角を使用するこのコントロールの新しいテンプレートが含まれます。 詳しくは、「[角の半径](/windows/uwp/design/style/rounded-corner)」をご覧ください。 WinUI は、UWP アプリの新しいコントロールと UI 機能が含まれる NuGet パッケージです。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+
+> **プラットフォーム API:** [ComboBox クラス](/uwp/api/Windows.UI.Xaml.Controls.ComboBox)、[IsEditable プロパティ](/uwp/api/windows.ui.xaml.controls.combobox.iseditable)、[Text プロパティ](/uwp/api/Windows.UI.Xaml.Controls.ComboBox)、[TextSubmitted イベント](/uwp/api/Windows.UI.Xaml.Controls.ComboBox)
+
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 - 1 行のテキストで十分に表すことができる項目のセットから、ユーザーが単一の値を選ぶことができるようにするには、ドロップダウン リストを使います。
 - 複数のテキスト行や画像が含まれる項目を表示するには、コンボ ボックスではなくリスト ビューまたはグリッド ビューを使います。
@@ -41,7 +47,7 @@ ms.locfileid: "72163701"
 <table>
 <th align="left">XAML コントロール ギャラリー<th>
 <tr>
-<td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td><img src="images/xaml-controls-gallery-app-icon-sm.png" alt="XAML controls gallery"></img></td>
 <td>
     <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合、こちらをクリックして<a href="xamlcontrolsgallery:/item/ComboBox">アプリを開き、ComboBox の動作を確認</a>してください。</p>
     <ul>
@@ -240,13 +246,13 @@ private void FontSizeComboBox_TextSubmitted(ComboBox sender, ComboBoxTextSubmitt
 {
     if (byte.TryParse(e.Text, out double newValue))
     {
-        // Update the app’s font size.
+        // Update the app's font size.
         _fontSize = newValue;
     }
     else
     {
         // If the item is invalid, reject it and revert the text.
-        // Mark the event as handled so the framework doesn’t update the selected item.
+        // Mark the event as handled so the framework doesn't update the selected item.
         sender.Text = sender.SelectedValue.ToString();
         e.Handled = true;
     }
@@ -279,7 +285,7 @@ private void FavoriteColorComboBox_TextSubmitted(ComboBox sender, ComboBoxTextSu
     else
     {
         // If the item is invalid, reject it but do not revert the text.
-        // Mark the event as handled so the framework doesn’t update the selected item.
+        // Mark the event as handled so the framework doesn't update the selected item.
         e.Handled = true;
     }
 }
@@ -299,7 +305,7 @@ bool IsValid(string Text)
 
 リスト ボックスを使うと、ユーザーはコレクションから 1 つまたは複数の項目を選択できます。 リスト ボックスはドロップダウン リストと似ていますが、常に開いている点がドロップダウン リストと異なります。リスト ボックスには、コンパクトな (展開されていない) 状態がありません。 すべての項目を表示する領域がない場合には、リスト内の項目をスクロールできます。
 
-### <a name="is-this-the-right-control"></a>適切なコントロールの選択
+### <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 - リスト ボックスは、リスト内の項目が重要であるため目立つように表示する場合や、項目一式を表示するための十分な画面領域がある場合に便利です。
 - リスト ボックスでは、重要な選択で完全な代替セットにユーザーの注意を向ける必要があります。 ドロップダウン リストの場合はまず、選択した項目にユーザーの注意を引き付けます。
@@ -321,7 +327,7 @@ bool IsValid(string Text)
 - ブランドのガイドラインで別のフォントが指示されていない限り、既定のフォントを使います。
 - コマンドの実行または他のコントロールの動的な表示と非表示の切り替えのためにリスト ボックスを使わないでください。
 
-## <a name="get-the-sample-code"></a>サンプル コードを入手する
+## <a name="get-the-sample-code"></a>サンプル コードの入手
 
 - [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - インタラクティブな形で XAML コントロールのすべてを参照できます。
 - [AutoSuggestBox サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlAutoSuggestBox)

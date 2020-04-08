@@ -8,7 +8,7 @@ keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: 5f08c2cc39bb4cdf9a49351f70143a0f86df1fb7
 ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74254724"
@@ -18,11 +18,11 @@ ms.locfileid: "74254724"
 
 
 
-**  サンプル**データの必要な程度とその程度に役立つことは、バインドが[{Binding} マークアップ拡張機能](https://docs.microsoft.com/windows/uwp/xaml-platform/binding-markup-extension)と[{x:Bind} markup extension](https://docs.microsoft.com/windows/uwp/xaml-platform/x-bind-markup-extension)のどちらを使用しているかによって異なります。 ここで説明する手法は [**DataContext**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.datacontext) の使用に基づいているため、この手法が適しているのは **{Binding}** のみですが、 **{x:Bind}** を使う場合は、バインドで少なくともプレースホルダー値がデザイン サーフェイスに表示されるため (項目コントロールの場合でも)、サンプル データの必要性は比較的低くなります。
+**注**  サンプル データの必要性 (および有用性) は、バインドで [{Binding} マークアップ拡張](https://docs.microsoft.com/windows/uwp/xaml-platform/binding-markup-extension)と [{x:Bind} マークアップ拡張](https://docs.microsoft.com/windows/uwp/xaml-platform/x-bind-markup-extension)のどちらを使うかによって決まります。 ここで説明する手法は [**DataContext**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.datacontext) の使用に基づいているため、この手法が適しているのは **{Binding}** のみですが、 **{x:Bind}** を使う場合は、バインドで少なくともプレースホルダー値がデザイン サーフェイスに表示されるため (項目コントロールの場合でも)、サンプル データの必要性は比較的低くなります。
 
 アプリで Microsoft Visual Studio や Blend for Visual Studio のデザイン サーフェイスにライブ データを表示できない場合や、プライバシーやパフォーマンスなどの理由で表示するのが望ましくない場合があります。 アプリのレイアウト、テンプレート、その他の視覚的なプロパティを操作するためにコントロールにデータを設定するには、さまざまな方法で設計時のサンプル データを使うことができます。 サンプル データは、スケッチ (プロトタイプ) アプリを開発する場合にも便利で、時間の節約になります。 スケッチやプロトタイプで実行時にサンプル データを使うと、実際のライブ データに接続しなくてもアイデアを実証できます。
 
-**{Binding} をデモンストレーションするサンプルアプリ**
+**{Binding} の使い方を示すサンプル アプリ**
 
 -   [Bookstore1](https://codeload.github.com/MicrosoftDocs/windows-topic-specific-samples/zip/Bookstore1Universal_10) アプリのダウンロード。
 -   [Bookstore2](https://codeload.github.com/MicrosoftDocs/windows-topic-specific-samples/zip/Bookstore2Universal_10) アプリのダウンロード。
@@ -44,7 +44,7 @@ public MainPage()
 
 ![デザイン性の乏しい UI。](images/displaying-data-in-the-designer-01.png)
 
-この問題を解決するための最初の方法では、その **DataContext** の割り当てをコメント アウトして、代わりにページのマークアップで **DataContext** を設定します。 これにより、実行時だけでなく設計時にもライブ データが表示されるようになります。 これを行うには、まず、XAML ページを開きます。 次に、 **[ドキュメントアウトライン]** ウィンドウで、ルートのデザイン可能な要素 (通常はラベル **\[Page\]** ) をクリックして選択します。 **[プロパティ]** ウィンドウで **[DataContext]** プロパティを見つけて ([共通] カテゴリにあります)、 **[新規]** をクリックします。 **[オブジェクトの選択]** ダイアログ ボックスで目的のビュー モデルの種類をクリックし、 **[OK]** をクリックします。
+この問題を解決するための最初の方法では、その **DataContext** の割り当てをコメント アウトして、代わりにページのマークアップで **DataContext** を設定します。 これにより、実行時だけでなく設計時にもライブ データが表示されるようになります。 これを行うには、まず、XAML ページを開きます。 次に、 **[ドキュメント アウトライン]** ウィンドウでルート デザイン要素 (通常は **\[Page\]** というラベルが付いています) をクリックして選択します。 **[プロパティ]** ウィンドウで **[DataContext]** プロパティを見つけて ([共通] カテゴリにあります)、 **[新規]** をクリックします。 **[オブジェクトの選択]** ダイアログ ボックスで目的のビュー モデルの種類をクリックし、 **[OK]** をクリックします。
 
 ![DataContext を設定するための UI。](images/displaying-data-in-the-designer-02.png)
 
@@ -99,7 +99,7 @@ else
 
 **d:DataContext** 属性およびその他のすべての設計時属性について詳しくは、[設計時の属性に関するページ](https://msdn.microsoft.com/library/ff602277(v=VS.95).aspx)をご覧ください。このページは、ユニバーサル Windows プラットフォーム (UWP) アプリに対しても有効です。
 
-[**Collectionviewsource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.CollectionViewSource)には、 **DataContext**プロパティはありませんが、 **Source**プロパティがあります。 そのため、**CollectionViewSource** に設計時専用のサンプル データを設定するために使うことができる **d:Source** プロパティがあります。
+[**CollectionViewSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.CollectionViewSource) には **DataContext** プロパティはありませんが、**Source** プロパティがあります。 そのため、**CollectionViewSource** に設計時専用のサンプル データを設定するために使うことができる **d:Source** プロパティがあります。
 
 ``` xaml
     <Page.Resources>
@@ -139,7 +139,7 @@ XAML ではなく JSON のサンプル データ ファイルを使う場合は�
         d:Source="{d:DesignInstance Type=local:Recordings, IsDesignTimeCreatable=True}"/>
 ```
 
-**IsDesignTimeCreatable** プロパティは、デザイン ツールがこのクラスのインタンスを実際に作成する必要があることを示します。したがって、このクラスにはパブリックの既定のコンストラクターがあり、そのコンストラクターにデータ (実際のデータかサンプル データ) が設定されることがわかります。 **IsDesignTimeCreatable** を設定しない場合 (または **False** に設定した場合) は、デザイン サーフェイスに表示されるサンプル データは取得されません。 この場合、デザインツールはすべて、バインド可能なプロパティのクラスを解析し、 **[データ]** パネルと **[データバインディングの作成]** ダイアログボックスに表示します。
+**IsDesignTimeCreatable** プロパティは、デザイン ツールがこのクラスのインタンスを実際に作成する必要があることを示します。したがって、このクラスにはパブリックの既定のコンストラクターがあり、そのコンストラクターにデータ (実際のデータかサンプル データ) が設定されることがわかります。 **IsDesignTimeCreatable** を設定しない場合 (または **False** に設定した場合) は、デザイン サーフェイスに表示されるサンプル データは取得されません。 その場合、デザイン ツールは、クラスを解析してバインド可能なプロパティを特定し、それらを **[データ]** パネルと **[データ バインディングの作成]** ダイアログに表示するだけです。
 
 <a name="sample-data-for-prototyping"></a>プロトタイプを作るためのサンプル データ
 --------------------------------------------------------
@@ -148,6 +148,6 @@ XAML ではなく JSON のサンプル データ ファイルを使う場合は�
 
 クラスを指定する代わりに、 **[データ]** パネルで直接サンプル データ ソースのスキーマを設計できます。 **[データ]** パネルでサンプル データの値を編集することもできます。ファイルを開いて編集する必要はありません (必要であればそうすることもできます)。
 
-**[新しいサンプル データ]** 機能は、[d:DataContext**ではなく**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.datacontext)DataContext を使うため、スケッチやプロトタイプの設計時だけでなく実行時にもサンプル データを使うことができます。 また、 **[データ]** パネルにより、設計とバインドの作業が大幅に高速化されます。 たとえば、コレクション プロパティを **[データ]** パネルからデザイン サーフェイスにドラッグするだけで、データがバインドされた項目コントロールと必要なテンプレートが生成されて、すぐにビルドして実行できるようになります。
+**[新しいサンプル データ]** 機能は、**d:DataContext** ではなく [**DataContext**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.datacontext) を使うため、スケッチやプロトタイプの設計時だけでなく実行時にもサンプル データを使うことができます。 また、 **[データ]** パネルにより、設計とバインドの作業が大幅に高速化されます。 たとえば、コレクション プロパティを **[データ]** パネルからデザイン サーフェイスにドラッグするだけで、データがバインドされた項目コントロールと必要なテンプレートが生成されて、すぐにビルドして実行できるようになります。
 
 ![プロトタイプを作るためのサンプル データ。](images/displaying-data-in-the-designer-04.png)

@@ -8,7 +8,7 @@ keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: b9a129e8b780e85df2c38c50ab712641d3849a34
 ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71339852"
@@ -22,7 +22,7 @@ ms.locfileid: "71339852"
 
 UI スレッドを使って、UI スレッドへのほぼすべての変更を行う必要があります。これには、UI の種類の作成、そのメンバーへのアクセスも含まれます。 UI はバックグラウンド スレッドから更新できませんが、[**CoreDispatcher.RunAsync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync) を使ってこのスレッドにメッセージを投稿し、コードをそこで実行することができます。
 
-> **注**  1 つの例外として、別のレンダリング スレッドがあります。これは、入力の処理方法や基本レイアウトに影響を与えない UI の変更を適用できます。 たとえば、レイアウトに影響を及ぼさない多くのアニメーションと切り替えは、このレンダリング スレッド上で実行できます。
+> **注**  1 つの例外は、入力の処理方法や基本的なレイアウトに影響を及ぼさない UI 変更を適用できる別のレンダリング スレッドがあることです。 たとえば、レイアウトに影響を及ぼさない多くのアニメーションと切り替えは、このレンダリング スレッド上で実行できます。
 
 ## <a name="delay-element-instantiation"></a>要素のインスタンス化の遅延
 
@@ -31,7 +31,7 @@ UI スレッドを使って、UI スレッドへのほぼすべての変更を�
 -   [x:Load attribute](../xaml-platform/x-load-attribute.md) または [x:DeferLoadStrategy](https://docs.microsoft.com/windows/uwp/xaml-platform/x-deferloadstrategy-attribute) を使って要素のインスタンス化を遅らせます。
 -   プログラムを使って、要素をツリーにオンデマンドで挿入します。
 
-[**RunIdleAsync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runidleasync)キューは、UI スレッドがビジー状態でないときに処理されるように動作します。
+[**CoreDispatcher.RunIdleAsync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runidleasync) キューにより、UI スレッドはビジーになっていない状態を処理できます。
 
 ## <a name="use-asynchronous-apis"></a>非同期 API の使用
 
@@ -41,11 +41,11 @@ UI スレッドを使って、UI スレッドへのほぼすべての変更を�
 
 すばやく戻るイベント ハンドラーを記述します。 かなりの量の作業を実行する必要がある場合は、バックグラウンド スレッドで実行し、戻るようにスケジュールします。
 
-C# では **await** 演算子、Visual Basic では **Await** 演算子、C++ ではデリゲートを使って、作業を非同期で実行するようスケジュールできます。 ただし、これは、スケジュールした作業がバックグラウンド スレッドで実行されることを保証するものではありません。 ユニバーサル Windows プラットフォーム (UWP) API の多くは、作業をバックグラウンド スレッドで実行するようスケジュールしますが、**await** またはデリゲートのみを使ってアプリのコードを呼び出すと、そのデリゲートまたはメソッドは UI スレッドで実行されます。 アプリのコードをバックグラウンド スレッドで実行する場合は、それを明示的に指定する必要があります。 とC# Visual Basic では、コードを[**実行**](https://docs.microsoft.com/dotnet/api/system.threading.tasks.task.run)に渡すことによってこれを実現できます。
+C# では **await** 演算子、Visual Basic では **Await** 演算子、C++ ではデリゲートを使って、作業を非同期で実行するようスケジュールできます。 ただし、これは、スケジュールした作業がバックグラウンド スレッドで実行されることを保証するものではありません。 ユニバーサル Windows プラットフォーム (UWP) API の多くは、作業をバックグラウンド スレッドで実行するようスケジュールしますが、**await** またはデリゲートのみを使ってアプリのコードを呼び出すと、そのデリゲートまたはメソッドは UI スレッドで実行されます。 アプリのコードをバックグラウンド スレッドで実行する場合は、それを明示的に指定する必要があります。 C# および Visual Basic の場合、これはコードを [**Task.Run**](https://docs.microsoft.com/dotnet/api/system.threading.tasks.task.run) に渡すことで実現できます。
 
 UI 要素には UI スレッドからしかアクセスできないことに注意してください。 バックグラウンドの作業を起動する前に、UI スレッドを使って UI 要素にアクセスするか、バックグラウンド スレッドで [**CoreDispatcher.RunAsync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync) または [**CoreDispatcher.RunIdleAsync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runidleasync) を使います。
 
-バックグラウンド スレッドで実行できる作業の例として、ゲームでのコンピューター AI の計算があります。 コンピューターの次の動作を計算するコードは、実行に長い時間がかかる場合があります。
+バックグラウンド スレッドで実行できる作業の例として、ゲームでのコンピューター AI の計算があります。 コンピューターの次の動きを計算するコードは実行に長い時間がかかる場合があります。
 
 ```csharp
 public class AsyncExample
@@ -101,7 +101,7 @@ public class AsyncExample
 
 この例では、UI スレッドの応答性を確保するために、`NextMove_Click` ハンドラーが **await** で戻ります。 ただし、バックグラウンド スレッドで実行される `ComputeNextMove` が完了すると、そのハンドラーで実行が回復します。 ハンドラーの残りのコードにより、UI がその結果で更新されます。
 
-> また、UWP 用の[**ThreadPool**](https://docs.microsoft.com/uwp/api/Windows.System.Threading.ThreadPool)と[**threadpooltimer**](https://docs.microsoft.com/uwp/api/windows.system.threading.threadpooltimer) API もあります。これは、同様のシナリオで使用できます **。  ** 詳しくは、「[スレッド化と非同期プログラミング](https://docs.microsoft.com/windows/uwp/threading-async/index)」をご覧ください。
+> **注**  UWP 用の [**ThreadPool**](https://docs.microsoft.com/uwp/api/Windows.System.Threading.ThreadPool) API と [**ThreadPoolTimer**](https://docs.microsoft.com/uwp/api/windows.system.threading.threadpooltimer) API もあり、これを類似のシナリオで使うこともできます。 詳しくは、「[スレッド化と非同期プログラミング](https://docs.microsoft.com/windows/uwp/threading-async/index)」をご覧ください。
 
 ## <a name="related-topics"></a>関連トピック
 

@@ -7,20 +7,26 @@ ms.topic: article
 keywords: windows 10, uwp
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 24c7bd8828ec036135233f569ee7add5d39ffb32
-ms.sourcegitcommit: 136416e8e2eb0565bb6eb99e42482c1723ccb8c7
+ms.openlocfilehash: ce9e3775f4b0f78d17f0ffdf3d6381f2e8a233d9
+ms.sourcegitcommit: af4050f69168c15b0afaaa8eea66a5ee38b88fed
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76890427"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80081532"
 ---
 # <a name="tabview"></a>TabView
 
 TabView コントロールは、一連のタブとそれぞれの内容を表示するための手段です。 TabView は、ユーザーに新しいタブを再配置したり、開いたり、閉じたりする機能を提供しながら、コンテンツの複数のページ (またはドキュメント) を表示する場合に便利です。
 
-> **重要な API**:[TabView クラス](/uwp/api/microsoft.ui.xaml.controls.tabview)、[TabViewItem クラス](/uwp/api/microsoft.ui.xaml.controls.tabviewitem)
-
 ![TabView の例](images/tabview/tab-introduction.png)
+
+**Windows UI ライブラリを入手する**
+
+|  |  |
+| - | - |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | **TabView** コントロールは、UWP アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリの一部として含まれています。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+
+> **Windows UI ライブラリ API**: [TabView クラス](/uwp/api/microsoft.ui.xaml.controls.tabview)、[TabViewItem クラス](/uwp/api/microsoft.ui.xaml.controls.tabviewitem)
 
 ## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 

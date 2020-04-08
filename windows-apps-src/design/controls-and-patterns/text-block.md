@@ -11,12 +11,12 @@ pm-contact: miguelrb
 design-contact: ksulliv
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 18c402b321c073b8b3450b14ca124e82b0fb9b1c
-ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
+ms.openlocfilehash: 4f609f7ec989cf334d6b21a32ee8bde0e43203f0
+ms.sourcegitcommit: af4050f69168c15b0afaaa8eea66a5ee38b88fed
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71340211"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80081500"
 ---
 # <a name="text-block"></a>テキスト ブロック
 
@@ -24,22 +24,22 @@ ms.locfileid: "71340211"
 
  テキスト ブロックは、アプリで読み取り専用テキストを表示するためのプライマリ コントロールです。 これを使用すると、単一行または複数行のテキスト、インライン ハイパーリンク、書式 (太字、斜体、下線付きなど) が設定されたテキストを表示できます。
  
- > **重要な API**:[TextBlock クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock)、[Text プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock.text)、[Inlines プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock.inlines)
+ > **プラットフォーム API**: [TextBlock クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock)、[Text プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock.text)、[Inlines プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock.inlines)
 
-## <a name="is-this-the-right-control"></a>適切なコントロールの選択
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 テキスト ブロックは、一般的に、リッチ テキスト ブロックより使い方が簡単で、テキスト レンダリングのパフォーマンスが優れているため、ほとんどのアプリで UI テキストに適しています。 [Text](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock.text) プロパティの値を取得することによって、アプリ内でテキスト ブロックのテキストに容易にアクセスして使用することができます。 テキストのレンダリング方法をカスタマイズするための書式設定オプションも、同じものが数多く用意されています。
 
 テキスト内に改行を配置することはできますが、テキスト ブロックは単一の段落を表示するために設計されており、テキストのインデントはサポートされていません。 複数の段落、段組テキスト、インライン UI 要素 (画像など) をサポートする必要がある場合は、**RichTextBlock** を使います。
 
-適切なテキスト コントロールの選択について詳しくは、「[テキスト コントロール](text-controls.md)」をご覧ください。
+適切なテキスト コントロールの選択の詳細については、「[テキスト コントロール](text-controls.md)」の記事をご覧ください。
 
 ## <a name="examples"></a>例
 
 <table>
 <th align="left">XAML コントロール ギャラリー<th>
 <tr>
-<td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td><img src="images/xaml-controls-gallery-app-icon-sm.png" alt="XAML controls gallery"></img></td>
 <td>
     <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合、こちらをクリックして<a href="xamlcontrolsgallery:/item/TextBlock">アプリを開き、TextBlock の動作を確認</a>してください。</p>
     <ul>
@@ -188,7 +188,7 @@ Windows.UI.Xaml.Documents.Typography.SetStylisticSet4(textBlock1, true);
 <TextBlock>12 x <Run Typography.Fraction="Slashed">1/3</Run> = 4.</TextBlock>
 ```
 
-## <a name="get-the-sample-code"></a>サンプル コードを入手する
+## <a name="get-the-sample-code"></a>サンプル コードの入手
 
 - [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - インタラクティブな形で XAML コントロールのすべてを参照できます。
 

@@ -1,16 +1,15 @@
 ---
 title: ユニバーサル Windows プラットフォーム (UWP) アプリのコマンド処理
 description: XamlUICommand クラスと StandardUICommand クラスを (ICommand インターフェイスと共に) 使用し、使用しているデバイスや入力の種類に関係なく、さまざまな型のコントロール型でコマンドを共有し、管理する方法。
-author: Karl-Bridge-Microsoft
 ms.service: ''
 ms.topic: overview
 ms.date: 09/13/2019
-ms.openlocfilehash: cd34c9444c68b8e959f449124fe4ae294ec14fc4
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: 57e4a135e97c0a8f5d09834f2eb8c729c6422af0
+ms.sourcegitcommit: af4050f69168c15b0afaaa8eea66a5ee38b88fed
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74257713"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80081752"
 ---
 # <a name="commanding-in-universal-windows-platform-uwp-apps-using-standarduicommand-xamluicommand-and-icommand"></a>StandardUICommand、XamlUICommand、ICommand を使用するユニバーサル Windows プラットフォーム (UWP) アプリのコマンド処理
 
@@ -63,7 +62,7 @@ ms.locfileid: "74257713"
 | ---------------- | -------------- | ----------------- | -------------------- | ----------------- |
 | 項目の削除      | ショートカット メニュー   | ホバー ボタン      | DEL キー              | スワイプして削除   |
 | フラグの設定        | ショートカット メニュー   | ホバー ボタン      | Ctrl + Shift + G         | スワイプしてフラグを設定     |
-| データの更新     | ショートカット メニュー   | 該当なし               | F5 キー               | 引っ張って更新   |
+| データの更新     | ショートカット メニュー   | なし               | F5 キー               | 引っ張って更新   |
 | お気に入りに追加 | ショートカット メニュー   | ホバー ボタン      | F、Ctrl + S            | スワイプしてお気に入りに追加 |
 
 **コンテキスト メニューを常に提供する** 従来のコンテキスト コマンドまたは CommandBarFlyout に関連するすべてのコンテキスト コマンドを含めることをお勧めします。いずれも、入力の種類を問わず、サポートされています。 たとえば、ポインターのホバー イベント中にのみコマンドが公開される場合、タッチ専用デバイスでは利用できません。
@@ -1084,7 +1083,7 @@ namespace UICommand1
 }
 ```
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>要約
 
 ユニバーサル Windows プラットフォームからは、コントロールの種類、デバイス、入力の種類を問わず、コマンドを共有し、管理するアプリを構築できる堅牢かつ柔軟なコマンド処理システムが与えられます。
 
@@ -1096,7 +1095,7 @@ UWP アプリのコマンドを構築するときは、次の手法を使用し�
 - 事前定義された一連のプロパティに独自の値を指定し、XamlUICommand オブジェクトを定義する
 - 事前定義された一連のプロパティや値を利用し、StandardUICommand オブジェクトを作成する
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
 [XamlUICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.xamluicommand) と [StandardUICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.standarduicommand) の実装を実演する完全な例については、[XAML コントロール ギャラリー](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlUIBasics) サンプルをご覧ください。
 

@@ -11,12 +11,12 @@ pm-contact: miguelrb
 design-contact: ksulliv
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 71f8298456b3c297994d6aa11d815a6b46ba7ff4
-ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
+ms.openlocfilehash: 9f90ce11c9a35200121722f3b0a0ac7d7047e819
+ms.sourcegitcommit: af4050f69168c15b0afaaa8eea66a5ee38b88fed
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71340365"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80081557"
 ---
 # <a name="rich-text-block"></a>リッチ テキスト ブロック
 
@@ -24,22 +24,22 @@ ms.locfileid: "71340365"
 
 リッチ テキスト ブロックは、段落、インライン UI 要素、複雑なテキスト レイアウトなどのサポートが必要な場合に使用できる、高度なテキスト レイアウト用のいくつかの機能を提供します。
 
-> **重要な API**:[RichTextBlock クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RichTextBlock)、[RichTextBlockOverflow クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RichTextBlockOverflow)、[Paragraph クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Documents.Paragraph)、[Typography クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Documents.Typography)
+> **プラットフォーム API**: [RichTextBlock クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RichTextBlock)、[RichTextBlockOverflow クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RichTextBlockOverflow)、[Paragraph クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Documents.Paragraph)、[Typography クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Documents.Typography)
 
-## <a name="is-this-the-right-control"></a>適切なコントロールの選択
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 複数の段落、段組などの複雑なテキスト レイアウト、インライン UI 要素 (画像など) をサポートする必要がある場合は、**RichTextBlock** を使います。
 
 **TextBlock** を使用して、アプリ内の読み取り専用テキストの大半を表示します。 これを使用すると、単一行または複数行のテキスト、インライン ハイパーリンク、書式 (太字、斜体、下線付きなど) が設定されたテキストを表示できます。 TextBlock は、よりシンプルなコンテンツ モデルを提供します。そのため、一般に使い方がより簡単で、テキスト レンダリングのパフォーマンスも RichTextBlock より優れています。 ほとんどのアプリで UI テキストに適しています。 テキスト内に改行を配置することはできますが、TextBlock は単一の段落を表示するために設計されており、テキストのインデントはサポートされていません。
 
-適切なテキスト コントロールの選択について詳しくは、「[テキスト コントロール](text-controls.md)」をご覧ください。
+適切なテキスト コントロールの選択の詳細については、「[テキスト コントロール](text-controls.md)」の記事をご覧ください。
 
 ## <a name="examples"></a>例
 
 <table>
 <th align="left">XAML コントロール ギャラリー<th>
 <tr>
-<td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td><img src="images/xaml-controls-gallery-app-icon-sm.png" alt="XAML controls gallery"></img></td>
 <td>
     <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合、こちらをクリックして<a href="xamlcontrolsgallery:/item/RichTextBlock">アプリを開き、RichTextBlock の動作を確認</a>してください。</p>
     <ul>
@@ -149,7 +149,7 @@ RichTextBlock に格納されるのはプレーン テキストですが、各�
 
 文字体裁およびフォントのガイドラインに関するトピックをご覧ください。
 
-## <a name="get-the-sample-code"></a>サンプル コードを入手する
+## <a name="get-the-sample-code"></a>サンプル コードの入手
 
 - [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - インタラクティブな形で XAML コントロールのすべてを参照できます。
 

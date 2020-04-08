@@ -8,12 +8,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: de7a430248841722aedd960cd485ea24499fdd00
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.openlocfilehash: 43d0471b6e7ebc36df4f80a1b214b0721ae25570
+ms.sourcegitcommit: af4050f69168c15b0afaaa8eea66a5ee38b88fed
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75684274"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80081412"
 ---
 # <a name="web-view"></a>Web ビュー
 
@@ -30,7 +30,7 @@ Web ビュー コントロールでは、Microsoft Edge レンダリング エ�
 <table>
 <th align="left">XAML コントロール ギャラリー<th>
 <tr>
-<td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td><img src="images/xaml-controls-gallery-app-icon-sm.png" alt="XAML controls gallery"></img></td>
 <td>
     <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合、こちらをクリックして<a href="xamlcontrolsgallery:/item/WebView">アプリを開き、WebView の動作を確認</a>してください。</p>
     <ul>
@@ -59,7 +59,7 @@ Web ビュー コントロールでは、Microsoft Edge レンダリング エ�
 
 WebView は Control サブクラスではありませんが、キーボードの入力フォーカスを受け取って、タブ順に関与します。 ただし、[Focus](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.focus) メソッド、そして [GotFocus](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.gotfocus) イベントと [LostFocus](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.lostfocus) イベントを提供しますが、タブ関連のプロパティはありません。 タブ順での位置は、XAML ドキュメントの順序での位置と同じです。 タブ順には、入力フォーカスを受け取ることができる Web ビューのコンテンツの要素がすべて含まれています。 
 
-[WebView](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.WebView) クラスのページの「Event」表からも分かるとおり、Web ビューは、[KeyDown](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.keydown) や [KeyUp](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.keyup)、[PointerPressed](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerpressed) といった [UIElement](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement) から継承されたユーザー入力イベントのほとんどをサポートしていません。 その代わり、[InvokeScriptAsync](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.invokescriptasync) を JavaScript の **eval** 関数と共に使って、HTML イベント ハンドラーを利用したり、HTML イベント ハンドラーの **window.external.notify** を通じて [WebView.ScriptNotify](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.scriptnotify) に対応するアプリに通知したりできます。
+[WebView](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.WebView) クラスのページの「Event」表からもわかるとおり、Web ビューは、[KeyDown](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.keydown) や [KeyUp](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.keyup)、[PointerPressed](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerpressed) といった [UIElement](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement) から継承されたユーザー入力イベントのほとんどをサポートしていません。 その代わり、[InvokeScriptAsync](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.invokescriptasync) を JavaScript の **eval** 関数と共に使って、HTML イベント ハンドラーを利用したり、HTML イベント ハンドラーの **window.external.notify** を通じて [WebView.ScriptNotify](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.scriptnotify) に対応するアプリに通知したりできます。
 
 ### <a name="navigating-to-content"></a>コンテンツに移動する
 

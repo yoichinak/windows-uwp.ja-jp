@@ -1,21 +1,21 @@
 ---
 ms.assetid: 414ACC73-2A72-465C-BD15-1B51CB2334F2
 title: パッケージの更新プログラムを Microsoft Store からダウンロードしてインストールする
-description: パートナーセンターでパッケージを必須としてマークし、パッケージの更新プログラムをダウンロードしてインストールするためのコードをアプリに記述する方法について説明します。
+description: パートナー センターでパッケージを必須としてマークする方法と、パッケージ更新をダウンロードしてインストールするためのコードをアプリ内に記述する方法について説明します。
 ms.date: 04/04/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: cb1ac05bdc5dcaaf31074f1b89e5bbb35e4f850d
 ms.sourcegitcommit: 350d6e6ba36800df582f9715c8d21574a952aef1
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 07/31/2019
 ms.locfileid: "68682724"
 ---
 # <a name="download-and-install-package-updates-from-the-store"></a>パッケージの更新プログラムを Microsoft Store からダウンロードしてインストールする
 
-Windows 10 バージョン 1607 以降では、[Windows.Services.Store](https://docs.microsoft.com/uwp/api/windows.services.store) 名前空間で [StoreContext](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext) クラスのメソッドを使用して、現在のアプリに対するパッケージ更新がないかプログラムによって Microsoft Store でチェックし、更新後のパッケージをダウンロードしてインストールすることができます。 また、必須の更新プログラムがインストールされるまで、パートナーセンターで必須としてマークしたパッケージに対してクエリを実行し、アプリの機能を無効にすることもできます。
+Windows 10 バージョン 1607 以降では、[Windows.Services.Store](https://docs.microsoft.com/uwp/api/windows.services.store) 名前空間で [StoreContext](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext) クラスのメソッドを使用して、現在のアプリに対するパッケージ更新がないかプログラムによって Microsoft Store でチェックし、更新後のパッケージをダウンロードしてインストールすることができます。 また、パートナー センターで必須としてマークしたパッケージを照会し、必須の更新がインストールされるまでアプリ内の機能を無効にすることもできます。
 
 Windows 10 バージョン 1803 で導入された追加の [StoreContext](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext) メソッドを使うと、パッケージの更新プログラムを背後で (ユーザーに通知 UI を表示せずに) ダウンロードおよびインストールしたり、[オプション パッケージ](/windows/msix/package/optional-packages)をアンインストールしたり、アプリのダウンロードおよびインストール キューにあるパッケージの情報を取得したりすることができます。
 
@@ -193,14 +193,14 @@ private async Task InstallUpdate(IReadOnlyList<StorePackageUpdate> storePackageU
 
 ## <a name="mandatory-package-updates"></a>必須のパッケージの更新プログラム
 
-Windows 10 バージョン1607以降を対象とするアプリのパートナーセンターでパッケージ送信を作成する場合は、パッケージを[必須としてマーク](../publish/upload-app-packages.md#mandatory-update)し、必要になった日付と時刻を指定することができます。 このプロパティが設定されている場合、利用可能なパッケージの更新が検出されると、アプリは更新パッケージが必須であることを認識し、更新がインストールされるまで、その動作を変更することができます (機能を無効にするなど)。
+パートナー センターで Windows 10 バージョン 1607 以降を対象としたアプリのパッケージ申請を作成する際には、[パッケージを必須としてマーク](../publish/upload-app-packages.md#mandatory-update)し、それが必須になる日時を指定できます。 このプロパティが設定されている場合、利用可能なパッケージの更新が検出されると、アプリは更新パッケージが必須であることを認識し、更新がインストールされるまで、その動作を変更することができます (機能を無効にするなど)。
 
 > [!NOTE]
 > パッケージ更新の必須ステータスは Microsoft によって強制されるものではありません。アプリの必須更新プログラムをインストールする必要があることをユーザーに示すための UI は、OS では提供されていません。 必須設定は、開発者が自身のコード内でアプリの必須更新プログラムを強制するために使用するものです。  
 
 パッケージ申請を必須としてマークするには、次の手順に従います。
 
-1. [パートナーセンター](https://partner.microsoft.com/dashboard)にサインインし、アプリの [概要] ページに移動します。
+1. [パートナー センター](https://partner.microsoft.com/dashboard)にサインインし、アプリの概要ページに移動します。
 2. 必須にするパッケージ更新が含まれている申請の名前をクリックします。
 3. 申請の **[パッケージ]** ページに移動します。 このページの下部で、 **[この更新を必須にします]** を選択した後、パッケージ更新が必須になる日時を選択します。 このオプションは、申請内のすべての UWP パッケージに適用されます。
 

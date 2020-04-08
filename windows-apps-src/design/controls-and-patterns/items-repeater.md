@@ -7,12 +7,12 @@ ms.date: 02/01/2019
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 38f289b21980e2a77fd8669c39750e9b989aa742
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.openlocfilehash: 3b7eb2aa8f753c3e8b956ed722d1f807362bc204
+ms.sourcegitcommit: af4050f69168c15b0afaaa8eea66a5ee38b88fed
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75684393"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80081722"
 ---
 # <a name="itemsrepeater"></a>ItemsRepeater
 
@@ -22,11 +22,15 @@ ms.locfileid: "75684393"
 
 [ItemsRepeater](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater) は概念的に、ListView などの完全なコントロールとしてではなく、データドリブン パネルと考えることができます。 表示されるデータ項目のコレクション、各データ項目の UI 要素を生成する項目テンプレート、要素のサイズと位置を設定する方法を決定するレイアウトを指定します。 その後、ItemsRepeater でデータ ソースに基づいた子要素が生成され、項目テンプレートとレイアウトで指定されたとおりに表示されます。 表示される項目が同種である必要はありません。これは、データ テンプレート セレクターで指定する条件に基づいてデータ項目を表すために、ItemsRepeater でコンテンツを読み込むことができるためです。
 
-| **Windows UI ライブラリを入手する** |
-| - |
-| このコントロールは、Windows UI ライブラリの NuGet パッケージの一部として組み込まれており、パッケージには、UWP アプリの新しいコントロールと UI 機能が含まれています。 インストール手順などの詳細については、[Windows UI ライブラリの概要](https://docs.microsoft.com/uwp/toolkits/winui/)に関するページを参照してください。 |
+**Windows UI ライブラリを入手する**
 
-> **重要な API**:[ItemsRepeater クラス](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater)、[ScrollViewer クラス](/uwp/api/windows.ui.xaml.controls.scrollviewer)
+|  |  |
+| - | - |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | **ItemsRepeater** コントロールは、Windows UI ライブラリの NuGet パッケージの一部として組み込まれており、パッケージには、UWP アプリの新しいコントロールと UI 機能が含まれています。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+
+> **Windows UI ライブラリ API:** [ItemsRepeater クラス](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater)
+>
+> **プラットフォーム API:** [ScrollViewer クラス](/uwp/api/windows.ui.xaml.controls.scrollviewer)
 
 ## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
@@ -46,7 +50,7 @@ ItemsRepeater には組み込みの項目コレクションはありません。
 <table>
 <th align="left">XAML コントロール ギャラリー<th>
 <tr>
-<td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td><img src="images/xaml-controls-gallery-app-icon-sm.png" alt="XAML controls gallery"></img></td>
 <td>
     <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合は、こちらをクリックしてアプリを開き、<a href="xamlcontrolsgallery:/item/ItemsRepeater">ItemsRepeater</a> の動作を確認してください。</p>
     <ul>

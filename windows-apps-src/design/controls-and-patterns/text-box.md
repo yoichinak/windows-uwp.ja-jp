@@ -11,12 +11,12 @@ pm-contact: miguelrb
 design-contact: ksulliv
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 07da54dddfffe082aa5633ac8eac3f342aaa6a5c
-ms.sourcegitcommit: cc108c791842789464c38a10e5d596c9bd878871
+ms.openlocfilehash: 0167d1f0ed69f8354fa6ee7cd77387aee9aee842
+ms.sourcegitcommit: af4050f69168c15b0afaaa8eea66a5ee38b88fed
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/20/2019
-ms.locfileid: "75302716"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80081507"
 ---
 # <a name="text-box"></a>テキスト ボックス
 
@@ -24,7 +24,13 @@ TextBox コントロールによって、ユーザーはアプリにテキスト
 
 TextBox には、テキスト入力を簡略化するための多くの機能があります。 テキストのコピーと貼り付けをサポートする、使い慣れた組み込みのコンテキスト メニューが付属しています。 [すべてクリア] ボタンによって、ユーザーは入力されているすべてのテキストを簡単に削除できます。 スペル チェック機能も組み込まれており、既定で有効になっています。
 
-> **重要な API**:[TextBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox)、[Text プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.text)
+**Windows UI ライブラリを入手する**
+
+|  |  |
+| - | - |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | Windows UI ライブラリ 2.2 以降には、丸めた角を使用するこのコントロールの新しいテンプレートが含まれます。 詳しくは、「[角の半径](/windows/uwp/design/style/rounded-corner)」をご覧ください。 WinUI は、UWP アプリの新しいコントロールと UI 機能が含まれる NuGet パッケージです。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+
+> **プラットフォーム API**: [TextBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox)、[Text プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.text)
 
 ## <a name="is-this-the-right-control"></a>適切なコントロールの選択
 
@@ -45,7 +51,7 @@ TextBox を読み取り専用にすることはできますが、これは一時
 <table>
 <th align="left">XAML コントロール ギャラリー<th>
 <tr>
-<td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td><img src="images/xaml-controls-gallery-app-icon-sm.png" alt="XAML controls gallery"></img></td>
 <td>
     <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合、こちらをクリックして<a href="xamlcontrolsgallery:/item/TextBox">アプリを開き、TextBox の動作を確認</a>してください。</p>
     <ul>
@@ -143,7 +149,7 @@ IsEnabled
 
 > **注**&nbsp;&nbsp;TextBox および RichEditBox では、TextWrapping プロパティの **WrapWholeWords** 値をサポートしていません。 TextBox.TextWrapping または RichEditBox.TextWrapping の値として WrapWholeWords を使用しようとすると、無効な引数の例外がスローされます。
 
-複数行のテキスト ボックスは、その [Height](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.height) プロパティや [MaxHeight](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.maxheight) プロパティ、または親コンテナーによって制限されていない場合、テキストを入力すると垂直方向に拡大し続けます。 複数行テキスト ボックスが、表示領域を越えて拡大しないことをテストし、表示領域を越える場合は拡大を制限する必要があります。 複数行テキスト ボックスの適切な高さを常に指定し、ユーザーが入力するときにテキスト ボックスの高さの拡大を許可しないことをお勧めします。
+複数行のテキスト ボックスは、その [Height](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.height) プロパティや [MaxHeight](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.maxheight) プロパティ、または親コンテナーによって制限されていない場合、テキストを入力すると垂直方向に拡大し続けます。 複数行テキスト ボックスが、表示領域を超えて拡大しないことをテストし、表示領域を超える場合は拡大を制限する必要があります。 複数行テキスト ボックスの適切な高さを常に指定し、ユーザーが入力するときにテキスト ボックスの高さの拡大を許可しないことをお勧めします。
 
 スクロール ホイールまたはタッチを使用したスクロールは、必要に応じて自動的に有効になります。 ただし、垂直スクロール バーは、既定では表示されません。 垂直スクロール バーを表示するには、次に示すように、埋め込みの ScrollViewer で [ScrollViewer.VerticalScrollBarVisibility](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.scrollviewer.verticalscrollbarvisibility) を **Auto** に設定します。
 

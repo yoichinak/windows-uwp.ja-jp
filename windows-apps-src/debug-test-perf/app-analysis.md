@@ -3,11 +3,11 @@ title: アプリの分析
 description: アプリを分析してパフォーマンスの問題を調べます。
 ms.date: 02/08/2017
 ms.topic: article
-keywords: Windows 10, UWP
+keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: e2977877b839f40e07b3eaa03b8349fb8439a401
 ms.sourcegitcommit: 05be6929cd380a9dd241cc1298fd53f11c93d774
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 10/30/2019
 ms.locfileid: "73062753"
@@ -22,7 +22,7 @@ App Analysis の規則とは、それに基づいてアプリがチェックさ�
 
 ## <a name="decoded-image-size-larger-than-render-size"></a>デコードされた画像サイズがレンダリング後のサイズよりも大きい
 
-画像が非常に高い解像度でキャプチャされた場合、アプリで画像データをデコードするときに CPU をより多く使用し、ディスクから画像を読み込んだ後でより多くのメモリを使用することにつながる可能性があります。 ただし、画像を元のサイズよりも小さいサイズでのみ表示する場合、高解像度の画像をデコードしてメモリに保存するのは無意味です。 この場合、DecodePixelWidth プロパティと DecodePixelHeight プロパティを使って、画面上に描画される正確なサイズのバージョンの画像を作成することができます。
+画像を非常に高い解像度でキャプチャすると、アプリで画像データをデコードする際の CPU 負荷が大きくなり、ディスクから画像を読み込んだときに大容量のメモリが使用されます。 ただし、画像を元のサイズよりも小さいサイズでのみ表示する場合、高解像度の画像をデコードしてメモリに保存するのは無意味です。 この場合、DecodePixelWidth プロパティと DecodePixelHeight プロパティを使って、画面上に描画される正確なサイズのバージョンの画像を作成することができます。
 
 ### <a name="impact"></a>影響
 
@@ -36,9 +36,9 @@ App Analysis の規則とは、それに基づいてアプリがチェックさ�
 
 #### <a name="image-is-being-called-when-the-imagesource-is-not-in-the-live-tree"></a>ImageSource がライブ ツリーに存在しないときに画像を呼び出している
 
-BitmapImage は、SetSourceAsync または UriSource によってコンテンツを設定した後、ライブ XAML ツリーに接続されます。 ソースを設定する前に、常に [**BitmapImage**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Imaging.BitmapImage) をライブ ツリーにアタッチする必要があります。 マークアップで画像要素またはブラシが指定されているときは、常にこのことが当てはまります。 次に例を示します。 
+BitmapImage は、SetSourceAsync または UriSource によってコンテンツを設定した後、ライブ XAML ツリーに接続されます。 ソースを設定する前に、常に [**BitmapImage**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Imaging.BitmapImage) をライブ ツリーにアタッチする必要があります。 画像要素またはブラシがマークアップで指定されているときは、常にこれが自動的に適用されます。 次に例を示します。 
 
-**ライブツリーの例**
+**ライブ ツリーの例**
 
 例 1 (良い例): マークアップで指定された Uniform Resource Identifier (URI)。
 
@@ -60,7 +60,7 @@ myImage.Source = bitmapImage;
 bitmapImage.UriSource = new URI("ms-appx:///Assets/cool-image.png", UriKind.RelativeOrAbsolute);
 ```
 
-例 2: System.windows.media.imaging.bitmapimage> の UriSource をツリーに接続する前に設定します。
+例 2 分離コード (悪い例): BitmapImage の UriSource を設定した後に、ツリーに BitmapImage を接続。
 
 ```vb
 var bitmapImage = new BitmapImage();
@@ -70,7 +70,7 @@ myImage.Source = bitmapImage;
 
 #### <a name="image-brush-is-non-rectangular"></a>イメージ ブラシが四角形でない 
 
-画像が四角形以外のブラシに使用されている場合、画像の拡大縮小が行われない、ソフトウェア ラスタライズ パスが使用されます。 また、ソフトウェアとハードウェアの両方のメモリに画像のコピーを保存する必要があります。 たとえば、画像が楕円形のブラシとして使われる場合、大きい可能性がある画像全体は内部で 2 回保存されます。 四角形以外のブラシを使用する場合は、アプリで画像を事前に拡大縮小し、レンダリング時のおよそのサイズにしておく必要があります。
+画像が四角形以外のブラシに使用されている場合、画像の拡大縮小が行われない、ソフトウェア ラスタライズ パスが使用されます。 さらに、ソフトウェアとハードウェアの両方のメモリに画像のコピーを保存して必要があります。 たとえば、画像が楕円形のブラシとして使われる場合、大きい可能性がある画像全体は内部で 2 回保存されます。 四角形以外のブラシを使用する場合は、アプリで画像を事前に拡大縮小し、レンダリング時のおよそのサイズにしておく必要があります。
 
 代わりに、[**DecodePixelWidth**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.bitmapimage.decodepixelwidth) プロパティと [**DecodePixelHeight**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.bitmapimage.decodepixelheight) プロパティを使って、明示的にデコード サイズを設定することで、画面上に描画される正確なサイズのバージョンの画像を作成できます。
 
@@ -105,7 +105,7 @@ myImage.Source = bitmapImage;
 
 #### <a name="image-is-using-ninegrid-property"></a>イメージで NineGrid プロパティが使用されている
 
-画像が [**NineGrid**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.image.ninegrid) 用に使用されている場合、画像の拡大縮小が行われない、ソフトウェア ラスタライズ パスが使用されます。 また、ソフトウェアとハードウェアの両方のメモリに画像のコピーを保存する必要があります。 **NineGrid** を使用する場合は、アプリで画像を事前に拡大縮小し、レンダリング時のおよそのサイズにしておく必要があります。
+画像が [**NineGrid**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.image.ninegrid) 用に使用されている場合、画像の拡大縮小が行われない、ソフトウェア ラスタライズ パスが使用されます。 さらに、ソフトウェアとハードウェアの両方のメモリに画像のコピーを保存して必要があります。 **NineGrid** を使用する場合は、アプリで画像を事前に拡大縮小し、レンダリング時のおよそのサイズにしておく必要があります。
 
 NineGrid プロパティを使用しているイメージは、自然なサイズのデコードにフォールバックします。 元のイメージに ninegrid 効果を追加することを検討してください。
 
@@ -131,7 +131,7 @@ DecodePixelWidth/Height が画面に表示される画像よりも大きいサ�
 
 この規則がトリガーされるのは、読み込み時に要素が折りたたまれているためです。 要素を折りたたんだり、不透明度を 0 に設定したりしても、要素の作成は回避されません。 この規則は、既定値が false に設定された、ブール値と Visibility 値のコンバーターを使うアプリによって発生する可能性があります。
 
-### <a name="solution"></a>ソリューション
+### <a name="solution"></a>解決策
 
 [x:Load 属性](../xaml-platform/x-load-attribute.md)または [x:DeferLoadStrategy](https://docs.microsoft.com/windows/uwp/xaml-platform/x-deferloadstrategy-attribute) を使って、UI の要素の読み込みを遅らせて、必要に応じて読み込むことができます。 最初のフレームで表示しない UI について処理を延期する場合は、この方法をお勧めします。 要素は必要に応じてその都度読み込むか、後で実行する一連のロジックの一部として読み込むことができます。 読み込みをトリガーするには、読み込む要素に対して findName を呼び出します。 x:Load は x:DeferLoadStrategy の機能を拡張して、要素をアンロードできるようにしたり、読み込み状態を x:Bind によって制御できるようにしたりします。
 
@@ -151,7 +151,7 @@ UI の仮想化は、コレクションのパフォーマンスを向上させ�
 
 表示される可能性のある要素の作成はフレームワークが行う必要があるため、ビューポートの概念は UI の仮想化にとって非常に重要です。 一般的に、ItemsControl のビューポートは論理コントロールの範囲を指します。 たとえば、ListView のビューポートは ListView 要素の幅と高さです。 一部のパネルでは子要素に制限のない空間を与えることができます。たとえば ScrollViewer や Grid では、行または列のサイズが自動的に調整されます。 このようなパネルに仮想化された ItemsControl を配置すると、すべての項目を表示できるスペースが用意され、仮想化の意味がなくなります。 
 
-### <a name="solution"></a>ソリューション
+### <a name="solution"></a>解決策
 
 仮想化を復元するには、使用する ItemsControl に幅と高さを設定します。
 
@@ -169,7 +169,7 @@ UI スレッドのブロックとは、オフスレッドで実行されて UI �
 
 UI のプラットフォーム コードと UI 用のアプリのコードはすべて、同じ UI スレッドで実行されます。 このスレッドでは一度に 1 つの命令しか実行できないため、アプリのコードの実行に長い時間がかかるとイベントを処理できず、フレームワークはレイアウトを実行したりユーザー操作を表す新しいイベントを生成したりできません。 アプリの応答性は、作業の処理に UI スレッドを使えるかどうかに関係します。
 
-### <a name="solution"></a>ソリューション
+### <a name="solution"></a>解決策
 
 アプリが部分的に機能していない場合でも、アプリで操作を受け付けることができます。 たとえば、アプリが表示するデータの取得に時間がかかっている場合に、データを非同期で取得することによって、そのコードをアプリの起動コードとは別に実行できます。 データが利用できる状態であれば、アプリのユーザー インターフェイスにデータを表示することができます。 アプリの高い応答性を維持するため、このプラットフォームの API の大部分に非同期バージョンが用意されています。 非同期 API を使うと、アクティブな実行スレッドが長時間ブロックされた状態になるのを防ぐことができます。 UI スレッドから API を呼び出す場合、提供されている限りは非同期バージョンを使ってください。
 
@@ -183,9 +183,9 @@ UI のプラットフォーム コードと UI 用のアプリのコードはす
 
 ### <a name="cause"></a>原因
 
-アプリで、{x:Bind} の代わりに {Binding} が使用されています。 {Binding} を使うと、多大なワーキング セットと CPU オーバーヘッドが生じます。 {Binding} を作成すると一連の割り当てが発生し、バインディング ターゲットの更新がリフレクションやボックス化の原因となる可能性があります。
+アプリで、{x:Bind} の代わりに {Binding} が使用されています。 {Binding} を使うと、多大なワーキング セットと CPU オーバーヘッドが生じます。 {Binding} を作成すると一連の割り当てが行われるほか、バインディング ターゲットの更新がリフレクションやボックス化の原因となる可能性があります。
 
-### <a name="solution"></a>ソリューション
+### <a name="solution"></a>解決策
 
 {x:Bind} マークアップ拡張を使用してビルド時にバインディングをコンパイルします。 {x:Bind} バインディング (多くの場合、コンパイル済みバインドと呼ばれます) はパフォーマンスが高く、コンパイル時にバインド式を検証したり、ページの部分クラスとして生成されたコード ファイル内にブレークポイントを設定し、デバッグを行ったりできます。 
 
@@ -197,19 +197,19 @@ ResourceDictionaries は通常、ある程度グローバル レベルでリソ�
 
 ### <a name="impact"></a>影響
 
-x:Name が設定されたリソースは、ResourceDictionary が作成されるとすぐにインスタンス化されます。 これは、x: Name がプラットフォームに対し、アプリがこのリソースへのフィールド アクセスを必要としており、プラットフォームは参照を作成するものを何か作成する必要があると指示するからです。
+x:Name が設定されたリソースは、ResourceDictionary が作成されるとすぐにインスタンス化されます。 x:Name は、アプリがこのリソースへのフィールド アクセスを必要としていることをプラットフォームに伝達します。その結果、プラットフォームでは参照を作成する何かを作成する必要が生じるため、リソースがインスタンス化されることになります。
 
 ### <a name="cause"></a>原因
 
 アプリで、リソースに対して x:Name が設定されています。
 
-### <a name="solution"></a>ソリューション
+### <a name="solution"></a>解決策
 
 分離コードのリソースを参照しない場合、x: Name ではなく X:key を使用します。
 
 ## <a name="collections-control-is-using-a-non-virtualizing-panel"></a>コレクション コントロールが非仮想化パネルを使っている
 
-カスタム項目パネル テンプレート (ItemsPanel をご覧ください) を用意する場合は、ItemsWrapGrid や ItemsStackPanel などの仮想パネルを必ず使用してください。 VariableSizedWrapGrid、WrapGrid、または StackPanel を使用した場合、仮想化は得られません。 また、ChoosingGroupHeaderContainer、ChoosingItemContainer、ContainerContentChanging の各 ListView イベントは、ItemsWrapGrid または ItemsStackPanel を使用したときにのみ発生します。
+カスタム項目パネル テンプレート (ItemsPanel をご覧ください) を用意する場合は、ItemsWrapGrid や ItemsStackPanel などの仮想パネルを必ず使用してください。 VariableSizedWrapGrid、WrapGrid、または StackPanel を使用した場合、仮想化は得られません。 また、次の ListView イベントは、ItemsWrapGrid または ItemsStackPanel を使用したときにのみ発生します。ChoosingGroupHeaderContainer、ChoosingItemContainer、ContainerContentChanging。
 
 UI の仮想化は、コレクションのパフォーマンスを向上させることができる最も重要な機能です。 これは、項目を表す UI 要素がオンデマンドで作成されることを意味します。 1,000 項目のコレクションにバインドされている項目コントロールでは、すべての項目の UI を同時に作成しても、同時に全部を表示することはできないため、リソースを無駄に使うことになります。 UI の仮想化は、ListView と GridView (およびその他の ItemsControl から派生した標準コントロール) によって実行されます。 数ページ先にある項目がスクロールされて表示されそうになると、フレームワークがその項目用の UI を生成してキャッシュします。 項目がもう一度表示される可能性が低い場合、フレームワークはメモリを解放します。
 
@@ -223,11 +223,11 @@ UI の仮想化は、コレクションのパフォーマンスを向上させ�
 
 仮想化をサポートしていないパネルが使われています。
 
-### <a name="solution"></a>ソリューション
+### <a name="solution"></a>解決策
 
 ItemsWrapGrid や ItemsStackPanel などの仮想化パネルを使います。
 
-## <a name="accessibility-uia-elements-with-no-name"></a>アクセシビリティ: 名前のない UIA 要素
+## <a name="accessibility-uia-elements-with-no-name"></a>アクセシビリティ:名前のない UIA 要素
 
 XAML では、AutomationProperties.Name を設定することで名前を指定できます。 多くのオートメーション ピアでは、AutomationProperties.Name を設定していない場合、UIA に既定の名前が指定されます。 
 
@@ -239,13 +239,13 @@ XAML では、AutomationProperties.Name を設定することで名前を指定�
 
 要素の UIA 名が null または空です。 この規則では、AutomationProperties.Name の値ではなく、UIA に指定された名前がチェックされます。
 
-### <a name="solution"></a>ソリューション
+### <a name="solution"></a>解決策
 
 コントロールの XAML 内の AutomationProperties.Name プロパティに、ローカライズされた適切な文字列を設定します。
 
-アプリケーションによっては、名前を指定するのではなく、Raw ツリー以外のすべてのツリーから UIA 要素を削除して修正する方法が適切である場合があります。 XAML では、`AutomationProperties.AccessibilityView = "Raw"`を設定することによってこれを行うことができます。
+アプリケーションによっては、名前を指定するのではなく、Raw ツリー以外のすべてのツリーから UIA 要素を削除して修正する方法が適切である場合があります。 XAML でこれを行うには、`AutomationProperties.AccessibilityView = "Raw"` を設定します。
 
-## <a name="accessibility-uia-elements-with-the-same-controltype-should-not-have-the-same-name"></a>アクセシビリティ: 同じ Controltype の UIA 要素は同じ名前を持つことはできない
+## <a name="accessibility-uia-elements-with-the-same-controltype-should-not-have-the-same-name"></a>アクセシビリティ:同じ Controltype の UIA 要素は同じ名前を持つことはできない
 
 同じ UIA の親を持つ 2 つの UIA 要素に、同じ Name と ControlType を設定してはなりません。 2 つのコントロールの ControlTypes が異なる場合は、同じ Name を指定することができます。 
 
@@ -259,7 +259,7 @@ XAML では、AutomationProperties.Name を設定することで名前を指定�
 
 同じ UIA の親を持つ複数の UIA 要素に、同じ Name と ControlType が指定されています。
 
-### <a name="solution"></a>ソリューション
+### <a name="solution"></a>解決策
 
 XAML で AutomationProperties.Name を使用して名前を設定します。 一覧でこの問題が頻繁に発生する場合は、バインディングを使って AutomationProperties.Name の値をデータ ソースにバインドします。
 

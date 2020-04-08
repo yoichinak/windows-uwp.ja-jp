@@ -1,92 +1,92 @@
 ---
 title: Win32 でのビジュアル レイヤーの使用
-description: Win32 デスクトップ アプリの UI を強化するために、ビジュアル レイヤーを使用します。
+description: ビジュアル レイヤーを使用して、Win32 デスクトップ アプリの UI を拡張します。
 template: detail.hbs
 ms.date: 03/18/2019
 ms.topic: article
-keywords: UWP、レンダリング、合成、win32
+keywords: UWP, レンダリング, コンポジション, win32
 ms.author: jimwalk
 author: jwmsft
 ms.localizationpriority: medium
 ms.openlocfilehash: c9b4ec38b0dd1f6eca3f43cfded74c6292c08100
 ms.sourcegitcommit: d1c3e13de3da3f7dce878b3735ee53765d0df240
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 05/24/2019
 ms.locfileid: "66215195"
 ---
 # <a name="using-the-visual-layer-with-win32"></a>Win32 でのビジュアル レイヤーの使用
 
-Windows ランタイムの合成 Api を使用することができます (とも呼ばれる、[ビジュアル レイヤー](/windows/uwp/composition/visual-layer)) Win32 アプリを Windows 10 のユーザー用に光を最新のエクスペリエンスを作成します。
+Win32 アプリで Windows ランタイム コンポジション API ([ビジュアル レイヤー](/windows/uwp/composition/visual-layer)とも呼ばれる) を使用して、Windows 10 ユーザーの利便性を高める最新のエクスペリエンスを作成できます。
 
-このチュートリアルの完成したコードは GitHub で入手できます。[Win32 HelloComposition サンプル](https://github.com/Microsoft/Windows.UI.Composition-Win32-Samples/tree/master/cpp/HelloComposition)します。
+このチュートリアルの完全なコードは、GitHub で入手できます。[Win32 HelloComposition サンプル](https://github.com/Microsoft/Windows.UI.Composition-Win32-Samples/tree/master/cpp/HelloComposition).
 
-その UI コンポジションを正確に制御を必要とするユニバーサルの Windows アプリケーションへのアクセスがある、 [Windows.UI.Composition](/uwp/api/windows.ui.composition) UI の構成し、表示方法をきめ細かに制御する名前空間。 この合成 API はただしでは、UWP アプリに限定されません。 Win32 デスクトップ アプリケーションでは、UWP と Windows 10 の最新のコンポジション システムを利用できます。
+UI コンポジションを正確に制御する必要があるユニバーサル Windows アプリケーションでは、[Windows.UI.Composition](/uwp/api/windows.ui.composition) 名前空間にアクセスして、UI の構成とレンダリングの方法をきめ細かく制御できます。 ただし、このコンポジション API は UWP アプリに限定されません。 Win32 デスクトップ アプリケーションでは、UWP と Windows 10 で最新のコンポジション システムを利用できます。
 
 ## <a name="prerequisites"></a>前提条件
 
-UWP API をホストしているが、これらの前提条件です。
+UWP ホスティング API には、これらの前提条件があります。
 
-- Win32 でも UWP を使用してアプリ開発の知識があると仮定します。 For more info, see:
-  - [Win32 の概要とC++](/windows/desktop/learnwin32/learn-to-program-for-windows)
-  - [Windows 10 アプリを概要します。](/windows/uwp/get-started/)
-  - [Windows 10 のデスクトップ アプリケーションを拡張します。](/windows/uwp/porting/desktop-to-uwp-enhance)
+- Win32 と UWP を使用したアプリ開発に関するいくらかの知識があることを前提としています。 For more info, see:
+  - [Win32 と C++ の概要](/windows/desktop/learnwin32/learn-to-program-for-windows)
+  - [Windows 10 アプリの概要](/windows/uwp/get-started/)
+  - [Windows 10 向けのデスクトップ アプリを強化する](/windows/uwp/porting/desktop-to-uwp-enhance)
 - Windows 10 バージョン 1803 以降
-- Windows 10 SDK 17134 またはそれ以降
+- Windows 10 SDK 17134 以降
 
-## <a name="how-to-use-composition-apis-from-a-win32-desktop-application"></a>Win32 デスクトップ アプリケーションから合成 Api を使用する方法
+## <a name="how-to-use-composition-apis-from-a-win32-desktop-application"></a>Win32 デスクトップ アプリケーションからコンポジション API を使用する方法
 
-このチュートリアルでは、単純な Win32 を作成C++アプリを UWP の合成要素を追加します。 焦点は正しく、プロジェクトの構成、相互運用機能のコードの作成、および Windows 合成 Api を使用して単純なものを描画します。 次のような完成したアプリが表示されます。
+このチュートリアルでは、単純な Win32 C++ アプリを作成し、UWP コンポジション要素を追加します。 Windows Composition API を使用して、プロジェクトを正しく構成し、相互運用コードを作成して、シンプルなものを描画することに焦点を合わせています。 完成したアプリは次のようになります。
 
 ![実行中のアプリの UI](images/visual-layer-interop/win32-comp-interop-app-ui.png)
 
-## <a name="create-a-c-win32-project-in-visual-studio"></a>作成、 C++ Visual Studio での Win32 プロジェクト
+## <a name="create-a-c-win32-project-in-visual-studio"></a>Visual Studio で C++ Win32 プロジェクトを作成する
 
-最初の手順では、Visual Studio で、Win32 アプリ プロジェクトを作成します。
+最初の手順は、Visual Studio で Win32 アプリ プロジェクトを作成することです。
 
-新しい Win32 アプリケーション プロジェクトを作成するC++という_HelloComposition_:
+C++ で _HelloComposition_ という名前の新しい Win32 アプリケーションプロジェクトを作成するには:
 
-1. Visual Studio を開き、選択**ファイル** > **新規** > **プロジェクト**します。
+1. Visual Studio を開き、 **[ファイル]**  >  **[新規作成]**  >  **[プロジェクト]** の順に選択します。
 
-    **新しいプロジェクト**ダイアログ ボックスが開きます。
-1. 下、**インストール済み**カテゴリで、展開、 **Visual C++** ノードをクリックして**Windows デスクトップ**します。
-1. 選択、 **Windows デスクトップ アプリケーション**テンプレート。
-1. 名前を入力します_HelloComposition_、 をクリックし、 **OK**します。
+    **[新しいプロジェクト]** ダイアログ ボックスが開きます。
+1. **[インストール済み]** カテゴリで、 **[Visual C++]** ノードを展開し、 **[Windows デスクトップ]** を選択します。
+1. **[Windows デスクトップ アプリケーション]** テンプレートを選択します。
+1. 名前「_HelloComposition_」を入力し、 **[OK]** をクリックします。
 
-    Visual Studio では、プロジェクトを作成し、メイン アプリケーション ファイルのエディターを開きます。
+    Visual Studio によってプロジェクトが作成され、メイン アプリ ファイルのエディターが開きます。
 
-## <a name="configure-the-project-to-use-windows-runtime-apis"></a>Windows ランタイム Api を使用してプロジェクトを構成します。
+## <a name="configure-the-project-to-use-windows-runtime-apis"></a>Windows ランタイム API を使用するようにプロジェクトを構成する
 
-使用して Windows ランタイム (WinRT) アプリの Win32 Api を使用するC++/WinRT です。 追加する Visual Studio プロジェクトを構成する必要があるC++/WinRT サポートします。
+Win32 アプリで Windows ランタイム (WinRT) API を使用するには、C++/WinRT を使用します。 C++/WinRT サポートを追加するには、Visual Studio プロジェクトを構成する必要があります。
 
-(詳細については、次を参照してください。[概要C++/WinRT - 追加する Windows デスクトップ アプリケーション プロジェクトを変更するC++/WinRT サポート](/windows/uwp/cpp-and-winrt-apis/get-started.md#modify-a-windows-desktop-application-project-to-add-cwinrt-support))。
+(詳細については、[「C++/WinRT の使用を開始する」 - 「Windows デスクトップ アプリケーション プロジェクトを変更して C++/WinRT のサポートを追加する」](/windows/uwp/cpp-and-winrt-apis/get-started.md#modify-a-windows-desktop-application-project-to-add-cwinrt-support)を参照してください)。
 
-1. **プロジェクト**] メニューの [プロジェクトのプロパティを開きます (_HelloComposition プロパティ_) を指定した値に設定は、次の設定を確認してください。
+1. **[プロジェクト]** メニューで、プロジェクトのプロパティ (_HelloComposition Properties_) を開き、次の設定が指定した値に設定されていることを確認します。
 
-    - **構成**、_すべての構成_します。 **プラットフォーム**、_すべてのプラットフォーム_します。
-    - **構成プロパティ** > **全般** > **Windows SDK バージョン** = _10.0.17763.0_以上
+    - **[構成]** では、 _[すべての構成]_ を選択します。 **[プラットフォーム]** では、 _[すべてのプラットフォーム]_ を選択します。
+    - **[構成プロパティ]**  >  **[全般]**  >  **[Windows SDK バージョン]**  = _10.0.17763.0_ 以上
 
-    ![SDK バージョンを設定](images/visual-layer-interop/sdk-version.png)
+    ![SDK バージョンの設定](images/visual-layer-interop/sdk-version.png)
 
-    - **C/C++**  > **言語** >   **C++言語標準** = _ISO C++ 17 標準 (/stf:c + + 17)_
+    - **[C/C++]**  >  **[言語]**  >  **[C++ 言語標準]**  = _ISO C++ 17 Standard (/stf:c++17)_
 
-    ![標準的な言語を設定します。](images/visual-layer-interop/language-standard.png)
+    ![言語標準の設定](images/visual-layer-interop/language-standard.png)
 
-    - **リンカー** > **入力** > **追加の依存関係**含める必要があります"_windowsapp.lib_"。 これは、一覧に含まれていませんを追加します。
+    - **[リンカー]**  >  **[入力]**  >  **[追加の依存ファイル]** に "_windowsapp.lib_" を含める必要があります。 リストに含まれていない場合は、それを追加します。
 
-    ![リンカーの依存関係を追加します。](images/visual-layer-interop/linker-dependencies.png)
+    ![リンカーの依存関係の追加](images/visual-layer-interop/linker-dependencies.png)
 
-1. プリコンパイル済みヘッダーを更新します。
+1. プリコンパイル済みヘッダーを更新します
 
-    - 名前を変更`stdafx.h`と`stdafx.cpp`に`pch.h`と`pch.cpp`、それぞれします。
-    - プロジェクトのプロパティを設定**C/C++**  > **プリコンパイル済みヘッダー** > **プリコンパイル済みヘッダー ファイル**に*pch.h*します。
-    - 検索し、置換`#include "stdafx.h"`で`#include "pch.h"`ですべてのファイル。
+    - `stdafx.h` と `stdafx.cpp` の名前をそれぞれ `pch.h` と `pch.cpp` に変更します。
+    - プロジェクトのプロパティ **[C/C++]**  >  **[プリコンパイル済みヘッダー]**  >  **[プリコンパイル済みヘッダー ファイル]** を *pch.h* に設定します。
+    - すべてのファイルで、`#include "stdafx.h"` を検索して `#include "pch.h"` に置換します。
 
-        (**編集** > **検索し、置換** > **ファイル内の検索**)
+        ( **[編集]**  >  **[検索と置換]**  >  **[フォルダーを指定して検索]** )
 
-        ![検索し、置換 stdafx.h](images/visual-layer-interop/replace-stdafx.png)
+        ![stdafx.h の検索と置換](images/visual-layer-interop/replace-stdafx.png)
 
-    - `pch.h`、含める`winrt/base.h`と`unknwn.h`します。
+    - `pch.h` に、`winrt/base.h` と `unknwn.h` を含めます。
 
         ```cppwinrt
         // reference additional headers your program requires here
@@ -94,28 +94,28 @@ UWP API をホストしているが、これらの前提条件です。
         #include <winrt/base.h>
         ```
 
-進む前にエラーがないかどうかを確認するには、この時点でプロジェクトをビルドすることをお勧めします。
+この時点でプロジェクトをビルドして、続行する前にエラーが発生しないことを確認することをお勧めします。
 
-## <a name="create-a-class-to-host-composition-elements"></a>ホストの合成要素のクラスを作成します。
+## <a name="create-a-class-to-host-composition-elements"></a>コンポジション要素をホストするクラスを作成する
 
-コンテンツのホストにビジュアル レイヤーで作成、クラスを作成 (_CompositionHost_) を相互運用機能を管理し、合成要素を作成します。 これは、構成などの合成 Api をホストするための大部分を実行します。
+ビジュアル レイヤーによって作成したコンテンツをホストするには、クラス (_CompositionHost_) を作成して、相互運用を管理し、コンポジション要素を作成します。 ここでは、以下のような Composition API をホストするための構成の大半を行います。
 
-- 取得、[コンポジター](/uwp/api/windows.ui.composition.compositor)が作成され、オブジェクトを管理、 [Windows.UI.Composition](/uwp/api/windows.ui.composition)名前空間。
-- 作成、 [DispatcherQueueController](/uwp/api/windows.system.dispatcherqueuecontroller)/[DispatcherQueue](/uwp/api/windows.system.dispatcherqueue) WinRT Api のタスクを管理します。
-- 作成、 [DesktopWindowTarget](/uwp/api/windows.ui.composition.desktop.desktopwindowtarget)と合成オブジェクトを表示する合成コンテナー。
+- [Compositor](/uwp/api/windows.ui.composition.compositor) を取得します。これにより、[Windows.UI.Composition](/uwp/api/windows.ui.composition) 名前空間のオブジェクトを作成および管理します。
+- [DispatcherQueueController](/uwp/api/windows.system.dispatcherqueuecontroller)/[DispatcherQueue](/uwp/api/windows.system.dispatcherqueue) を作成して、WinRT API のタスクを管理します。
+- コンポジション オブジェクトを表示するために [DesktopWindowTarget](/uwp/api/windows.ui.composition.desktop.desktopwindowtarget) とコンポジション コンテナーを作成します。
 
-このクラスをシングルトン スレッド処理の問題を回避すること。 たとえば、CompositionHost のと同じスレッド上の 2 番目のインスタンスをインスタンス化すると、エラーが発生するは、スレッドあたりの 1 つのディスパッチャー キューのみ作成します。
+スレッドの問題を回避するため、このクラスはシングルトンにします。 たとえば、スレッドごとに作成できるディスパッチャー キューは 1 つだけであるため、同じスレッドで 2 つ目の CompositionHost のインスタンスをインスタンス化すると、エラーが発生します。
 
 > [!TIP]
-> 必要がある場合は、すべてのコードは、チュートリアルを使用すると適切な場所にいるかどうかを確認するチュートリアルの最後に完全なコードを確認します。
+> チュートリアルを進めながら、必要に応じて、チュートリアルの最後にある完全なコードを確認して、すべてのコードが適切な場所にあることを確認してください。
 
 1. プロジェクトに新しいクラス ファイルを追加します。
-    - **ソリューション エクスプ ローラー**を右クリックして、 _HelloComposition_プロジェクト。
-    - コンテキスト メニューで選択**追加** > **クラス.** .
-    - **クラスの追加**ダイアログ ボックスで、クラス名_CompositionHost.cs_、 をクリックし、**追加**します。
+    - **ソリューション エクスプローラー**で、_HelloComposition_ プロジェクトを右クリックします。
+    - コンテキスト メニューで、 **[追加]**  >  **[クラス...]** を選択します。
+    - **[クラスの追加]** ダイアログ ボックスで、クラスに _CompositionHost.cs_ という名前を付けて、 **[追加]** をクリックします。
 
-1. ヘッダーを含めると_using_合成相互運用機能に必要な。
-    - CompositionHost.h でこれらの追加_が含まれています_ファイルの上部にあります。
+1. コンポジション相互運用機能に必要なヘッダーと _using_ を含めます。
+    - CompositionHost.h で、ファイルの先頭に、これらの _include_ を追加します。
 
     ```cppwinrt
     #pragma once
@@ -124,7 +124,7 @@ UWP API をホストしているが、これらの前提条件です。
     #include <DispatcherQueue.h>
     ```
 
-    - CompositionHost.cpp でこれらの追加_using_後に、ファイルの上部にある_が含まれています_します。
+    - CompositionHost.cpp で、ファイルの先頭のすべての _include_ の後に、_using_ を追加します。
 
     ```cppwinrt
     using namespace winrt;
@@ -135,9 +135,9 @@ UWP API をホストしているが、これらの前提条件です。
     using namespace Windows::Foundation::Numerics;
     ```
 
-1. シングルトン パターンを使用するクラスを編集します。
-    - CompositionHost.h でプライベート コンス トラクターを確認します。
-    - 宣言のパブリック静的_GetInstance_メソッド。
+1. シングルトン パターンを使用するようにクラスを編集します。
+    - CompositionHost.h で、コンストラクターをプライベートにします。
+    - パブリック静的 _GetInstance_ メソッドを宣言します。
 
     ```cppwinrt
     class CompositionHost
@@ -151,7 +151,7 @@ UWP API をホストしているが、これらの前提条件です。
     };
     ```
 
-    - CompositionHost.cpp、追加の定義、 _GetInstance_メソッド。
+    - CompositionHost.cpp で、_GetInstance_ メソッドの定義を追加します。
 
     ```cppwinrt
     CompositionHost* CompositionHost::GetInstance()
@@ -161,7 +161,7 @@ UWP API をホストしているが、これらの前提条件です。
     }
     ```
 
-1. CompositionHost.h には、変数のプライベート メンバーを宣言、コンポジター、DispatcherQueueController、および DesktopWindowTarget。
+1. CompositionHost.h で、Compositor、DispatcherQueueController、および DesktopWindowTarget のプライベート メンバー変数を宣言します。
 
     ```cppwinrt
     winrt::Windows::UI::Composition::Compositor m_compositor{ nullptr };
@@ -169,17 +169,17 @@ UWP API をホストしているが、これらの前提条件です。
     winrt::Windows::UI::Composition::Desktop::DesktopWindowTarget m_target{ nullptr };
     ```
 
-1. 合成相互運用オブジェクトを初期化するためにパブリック メソッドを追加します。
+1. コンポジション相互運用オブジェクトを初期化するパブリック メソッドを追加します。
     > [!NOTE]
-    > _初期化_、呼び出すことが、 _EnsureDispatcherQueue_、 _CreateDesktopWindowTarget_、および_CreateCompositionRoot_メソッド。 次の手順では、これらのメソッドを作成します。
+    > _Initialize_ では、_EnsureDispatcherQueue_、_CreateDesktopWindowTarget_、および _CreateCompositionRoot_ メソッドを呼び出します。 これらのメソッドは、次の手順で作成します。
 
-    - という名前のパブリック メソッドを宣言で CompositionHost.h、_初期化_を引数として、HWND を受け取る。
+    - CompositionHost.h で、HWND を引数として受け取る _Initialize_ という名前のパブリック メソッドを宣言します。
 
     ```cppwinrt
     void Initialize(HWND hwnd);
     ```
 
-    - CompositionHost.cpp、追加の定義、_初期化_メソッド。
+    - CompositionHost.cpp で、_Initialize_ メソッドの定義を追加します。
 
     ```cppwinrt
     void CompositionHost::Initialize(HWND hwnd)
@@ -192,17 +192,17 @@ UWP API をホストしているが、これらの前提条件です。
     }
     ```
 
-1. Windows 合成を使用するスレッドのディスパッチャー キューを作成します。
+1. Windows Composition を使用するスレッドで、ディスパッチャー キューを作成します。
 
-    ディスパッチャー キューを持つため、このメソッドは 1 つ目の初期化中にスレッドには、コンポジターを作成する必要があります。
+    Compositor は、ディスパッチャー キューがあるスレッドで作成される必要があるため、このメソッドは初期化中に最初に呼び出されます。
 
-    - という名前のプライベート メソッドを宣言で CompositionHost.h、 _EnsureDispatcherQueue_します。
+    - CompositionHost.h で、_EnsureDispatcherQueue_ という名前のプライベート メソッドを宣言します。
 
     ```cppwinrt
     void EnsureDispatcherQueue();
     ```
 
-    - CompositionHost.cpp、追加の定義、 _EnsureDispatcherQueue_メソッド。
+    - CompositionHost.cpp で、_EnsureDispatcherQueue_ メソッドの定義を追加します。
 
     ```cppwinrt
     void CompositionHost::EnsureDispatcherQueue()
@@ -225,14 +225,14 @@ UWP API をホストしているが、これらの前提条件です。
     }
     ```
 
-1. 合成ターゲットとしては、アプリのウィンドウを登録します。
-    - という名前のプライベート メソッドを宣言で CompositionHost.h、 _CreateDesktopWindowTarget_を引数として、HWND を受け取る。
+1. アプリのウィンドウをコンポジション ターゲットとして登録します。
+    - CompositionHost.h で、引数として HWND を受け取る _CreateDesktopWindowTarget_ という名前のプライベート メソッドを宣言します。
 
     ```cppwinrt
     void CreateDesktopWindowTarget(HWND window);
     ```
 
-    - CompositionHost.cpp、追加の定義、 _CreateDesktopWindowTarget_メソッド。
+    - CompositionHost.cpp で、_CreateDesktopWindowTarget_ メソッドの定義を追加します。
 
     ```cppwinrt
     void CompositionHost::CreateDesktopWindowTarget(HWND window)
@@ -246,14 +246,14 @@ UWP API をホストしているが、これらの前提条件です。
     }
     ```
 
-1. ビジュアル オブジェクトを保持するためにルート ビジュアル コンテナーを作成します。
-    - という名前のプライベート メソッドを宣言で CompositionHost.h、 _CreateCompositionRoot_します。
+1. ビジュアル オブジェクトを保持するルート ビジュアル コンテナーを作成します。
+    - CompositionHost.h で、_CreateCompositionRoot_ という名前のプライベート メソッドを宣言します。
 
     ```cppwinrt
     void CreateCompositionRoot();
     ```
 
-    - CompositionHost.cpp、追加の定義、 _CreateCompositionRoot_メソッド。
+    - CompositionHost.cpp で、_CreateCompositionRoot_ メソッドの定義を追加します。
 
     ```cppwinrt
     void CompositionHost::CreateCompositionRoot()
@@ -265,24 +265,24 @@ UWP API をホストしているが、これらの前提条件です。
     }
     ```
 
-エラーがないかどうかを確認するには、現在のプロジェクトをビルドします。
+ここでプロジェクトをビルドして、エラーが発生しないことを確認します。
 
-これらのメソッドは、ビジュアル レイヤーの UWP と Win32 Api の間の相互運用機能に必要なコンポーネントを設定します。 これで、アプリにコンテンツを追加できます。
+これらのメソッドでは、UWP ビジュアル レイヤーと Win32 API 間の相互運用に必要なコンポーネントをセットアップします。 これで、アプリにコンテンツを追加できるようになりました。
 
-### <a name="add-composition-elements"></a>合成要素を追加します。
+### <a name="add-composition-elements"></a>コンポジション要素を追加する
 
-インフラストラクチャを導入するに表示する合成コンテンツを生成できます。
+インフラストラクチャが配置されたので、表示するコンポジション コンテンツを生成できるようになりました。
 
-この例では、ランダムに色付きの正方形を作成するコードを追加する[SpriteVisual](/uwp/api/windows.ui.composition.spritevisual)短い遅延の後に削除すると、そのアニメーションとします。
+この例では、短い遅延の後にドロップさせるアニメーションを使用して、ランダムに色付けされた正方形 [SpriteVisual](/uwp/api/windows.ui.composition.spritevisual) を作成するコードを追加します。
 
-1. 合成要素を追加します。
-    - CompositionHost.h でという名前のパブリック メソッドを宣言_AddElement_を受け取る 3 **float**引数として値。
+1. コンポジション要素を追加します。
+    - CompositionHost.h で、3 つの **float** 値を引数として受け取る _AddElement_ という名前のパブリック メソッドを宣言します。
 
     ```cppwinrt
     void AddElement(float size, float x, float y);
     ```
 
-    - CompositionHost.cpp、追加の定義、 _AddElement_メソッド。
+    - CompositionHost.cpp で、_AddElement_ メソッドの定義を追加します。
 
     ```cppwinrt
     void CompositionHost::AddElement(float size, float x, float y)
@@ -320,11 +320,11 @@ UWP API をホストしているが、これらの前提条件です。
     }
     ```
 
-## <a name="create-and-show-the-window"></a>作成し、ウィンドウを表示します。
+## <a name="create-and-show-the-window"></a>ウィンドウを作成して表示する
 
-ここで、Win32 UI には、ボタンと UWP コンポジションのコンテンツを追加できます。
+これで、Win32 UI にボタンと UWP コンポジション コンテンツを追加できるようになりました。
 
-1. ファイルの上部にある、HelloComposition.cpp 含める_CompositionHost.h_BTN_ADD を定義し、CompositionHost のインスタンスを取得します。
+1. HelloComposition.cpp で、ファイルの先頭に _CompositionHost.h_ をインクルードし、BTN_ADD を定義して、CompositionHost のインスタンスを取得します。
 
     ```cppwinrt
     #include "CompositionHost.h"
@@ -335,14 +335,14 @@ UWP API をホストしているが、これらの前提条件です。
     CompositionHost* compHost = CompositionHost::GetInstance();
     ```
 
-1. `InitInstance`メソッドを作成するウィンドウのサイズを変更します。 (このコマンドラインで次のように変更します`CW_USEDEFAULT, 0`に`900, 672`。)。
+1. `InitInstance` メソッドで、作成されるウィンドウのサイズを変更します。 (この行では、`CW_USEDEFAULT, 0` を `900, 672` に変更します)。
 
     ```cppwinrt
     HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
         CW_USEDEFAULT, 0, 900, 672, nullptr, nullptr, hInstance, nullptr);
     ```
 
-1. WndProc 関数に、追加`case WM_CREATE`を_メッセージ_の switch ブロックです。 ここで、CompositionHost を初期化し、ボタンを作成します。
+1. WndProc 関数で、_message_ switch ブロックに `case WM_CREATE` を追加します。 この場合は、CompositionHost を初期化して、ボタンを作成します。
 
     ```cppwinrt
     case WM_CREATE:
@@ -358,9 +358,9 @@ UWP API をホストしているが、これらの前提条件です。
     break;
     ```
 
-1. WndProc 関数では、UI に合成要素を追加するボタンのクリックを処理します。 
+1. また、WndProc 関数で、ボタン クリックを処理し、コンポジション要素を UI に追加します。 
 
-    追加`case BTN_ADD`を_wmId_ WM_COMMAND ブロック内の switch ブロックです。
+    WM_COMMAND ブロック内の _wmId_ switch ブロックに `case BTN_ADD` を追加します。
 
     ```cppwinrt
     case BTN_ADD: // addButton click
@@ -373,17 +373,17 @@ UWP API をホストしているが、これらの前提条件です。
     }
     ```
 
-ビルドして、アプリを実行することができますようになりました。 必要がある場合は、すべてのコードは、適切な場所にいるかどうかを確認するチュートリアルの最後に完全なコードを確認します。
+これで、アプリをビルドして実行できるようになりました。 必要に応じて、チュートリアルの最後にある完全なコードを確認して、すべてのコードが適切な場所にあることを確認してください。
 
-アプリを実行する ボタンをクリックすると、UI に追加するアニメーションの正方形が表示されます。
+アプリを実行して、ボタンをクリックすると、UI に追加されたアニメーションの正方形が表示されるはずです。
 
 ## <a name="additional-resources"></a>その他の資料
 
 - [Win32 HelloComposition サンプル (GitHub)](https://github.com/Microsoft/Windows.UI.Composition-Win32-Samples/tree/master/cpp/HelloComposition)
-- [Win32 の概要とC++](/windows/desktop/learnwin32/learn-to-program-for-windows)
-- [Windows 10 アプリの概要](/windows/uwp/get-started/)(UWP)
-- [Windows 10 のデスクトップ アプリケーションの拡張](/windows/uwp/porting/desktop-to-uwp-enhance)(UWP)
-- [名前空間の Windows.UI.Composition](/uwp/api/windows.ui.composition) (UWP)
+- [Win32 と C++ の概要](/windows/desktop/learnwin32/learn-to-program-for-windows)
+- [Windows 10 アプリの概要](/windows/uwp/get-started/) (UWP)
+- [Windows 10 向けのデスクトップ アプリを強化する](/windows/uwp/porting/desktop-to-uwp-enhance) (UWP)
+- [Windows.UI.Composition 名前空間](/uwp/api/windows.ui.composition) (UWP)
 
 ## <a name="complete-code"></a>コードを完成させる
 
@@ -530,7 +530,7 @@ void CompositionHost::AddElement(float size, float x, float y)
 }
 ```
 
-### <a name="hellocompositioncpp-partial"></a>HelloComposition.cpp (部分的)
+### <a name="hellocompositioncpp-partial"></a>HelloComposition.cpp (一部)
 
 ```cppwinrt
 #include "pch.h"

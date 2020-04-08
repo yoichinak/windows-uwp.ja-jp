@@ -12,12 +12,12 @@ design-contact: kimsea
 dev-contact: niallm
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: d5014532be613e8284a1e2d6496f71b9f2b8e892
-ms.sourcegitcommit: 5002836b3c8d3e0f2970da1333ec8f42da861ae3
+ms.openlocfilehash: 00c51fed9f2d327afe6f493891b2744243501ea1
+ms.sourcegitcommit: af4050f69168c15b0afaaa8eea66a5ee38b88fed
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77071254"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80080961"
 ---
 # <a name="dialog-controls"></a>ダイアログ コントロール
 
@@ -25,21 +25,26 @@ ms.locfileid: "77071254"
 
 ![ダイアログの例](../images/dialogs/dialog_RS2_delete_file.png)
 
+**Windows UI ライブラリを入手する**
 
-> **重要な API**:[ContentDialog クラス](/uwp/api/Windows.UI.Xaml.Controls.ContentDialog)
+|  |  |
+| - | - |
+| ![WinUI ロゴ](../images/winui-logo-64x64.png) | Windows UI ライブラリ 2.2 以降には、丸めた角を使用するこのコントロールの新しいテンプレートが含まれます。 詳しくは、「[角の半径](/windows/uwp/design/style/rounded-corner)」をご覧ください。 WinUI は、UWP アプリの新しいコントロールと UI 機能が含まれる NuGet パッケージです。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+
+> **プラットフォーム API:** [ContentDialog クラス](/uwp/api/Windows.UI.Xaml.Controls.ContentDialog)
 
 ## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 重要な情報をユーザーに通知したり、アクションが完了する前に確認や追加情報を要求したりするには、ダイアログを使用します。
 
-どのようなときにダイアログを使い、どのようなときにポップアップ (似たコントロール) を使うかに関する推奨事項については、「[ダイアログとポップアップ](index.md)」をご覧ください。 
+どのようなときにダイアログを使い、どのようなときにポップアップ (似たコントロール) を使うかに関する推奨事項については、「[ダイアログとポップアップ](index.md)」をご覧ください。
 
 ## <a name="examples"></a>例
 
 <table>
 <th align="left">XAML コントロール ギャラリー<th>
 <tr>
-<td><img src="../images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td><img src="../images/xaml-controls-gallery-app-icon-sm.png" alt="XAML controls gallery"></img></td>
 <td>
     <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合、こちらをクリックしてアプリを開き、<a href="xamlcontrolsgallery:/item/ContentDialog">ContentDialog</a> または <a href="xamlcontrolsgallery:/item/Flyout">Flyout</a> の動作を確認してください。</p>
     <ul>
@@ -66,7 +71,7 @@ ms.locfileid: "77071254"
     - アクション ボタンのテキストは簡潔にします。 短い文字列にすると、ユーザーがすばやく確実に選択できるようになります。
     - 安全で非破壊的なアクションに加え、必要に応じて、主な説明に関連する 1 つまたは 2 つのアクション ボタンをユーザーに対して表示できます。 このような "処理実行" アクション ボタンでは、ダイアログの重要な点を確認します。 このような "処理実行" アクションを追加するには、PrimaryButton API と SecondaryButton API を使用します。
     - "処理実行" アクション ボタンは一番左のボタンとして表示されます。 安全で非破壊的なアクションは一番右のボタンとして表示されます。
-    - 必要に応じて、ダイアログの 3 つのボタンのうちの 1 つを既定のボタンとして区別できます。 ボタンの 1 つを区別するには DefaultButton API を使用します。  
+    - 必要に応じて、ダイアログの 3 つのボタンのうちの 1 つを既定のボタンとして区別できます。 ボタンの 1 つを区別するには DefaultButton API を使用します。
 -   パスワード フィールドの検証エラーなど、ページの特定の場所に関連するエラーでは、ダイアログを使わずに、アプリのキャンバス自体を使ってインライン エラーを表示します。
 - ダイアログ エクスペリエンスを構築するには、[ContentDialog クラス](/uwp/api/Windows.UI.Xaml.Controls.ContentDialog)を使います。 非推奨の MessageDialog API は使わないでください。
 
@@ -236,8 +241,8 @@ private async void DisplaySubscribeDialog()
 ```
 
 ## <a name="confirmation-dialogs-okcancel"></a>確認ダイアログ ([OK]/[キャンセル])
-確認ダイアログ ボックスにより、ユーザーはアクションを実行するかどうかを確認できます。 アクションを確認するか、キャンセルを選択することができます。  
-一般的な確認ダイアログ ボックスには、確認 ([OK]) ボタンと [キャンセル] ボタンの 2 つのボタンがあります。  
+確認ダイアログ ボックスにより、ユーザーはアクションを実行するかどうかを確認できます。 アクションを確認するか、キャンセルを選択することができます。
+一般的な確認ダイアログ ボックスには、確認 ([OK]) ボタンと [キャンセル] ボタンの 2 つのボタンがあります。
 
 <ul>
     <li>

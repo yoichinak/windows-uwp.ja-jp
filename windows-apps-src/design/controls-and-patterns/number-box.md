@@ -7,21 +7,28 @@ ms.topic: article
 keywords: windows 10, uwp
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: bcabe0867e21b20f97405d514b16bef2165821fb
-ms.sourcegitcommit: be25b7628b1ff22175a682e670539947db2fa85a
+ms.openlocfilehash: 5307448b6209228cd8c4550a739c6db15091ba54
+ms.sourcegitcommit: af4050f69168c15b0afaaa8eea66a5ee38b88fed
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74852864"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80081671"
 ---
 # <a name="number-box"></a>数値ボックス
 
 数値の表示と編集に使用できるコントロールを表します。 検証、増分ステップ、乗算、除算、加算、減算などの基本的な式のインライン計算をサポートしています。
 
+![一般的なコンテキスト メニューの例](images/contextmenu_rs2_icons.png)
 
-**重要な API:** [NumberBox クラス](https://docs.microsoft.com/uwp/api/microsoft.ui.xaml.controls.NumberBox)
+**Windows UI ライブラリを入手する**
 
-## <a name="is-this-the-right-control"></a>適切なコントロールの選択 
+|  |  |
+| - | - |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | **NumberBox** コントロールは、UWP アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリの一部として含まれています。 インストール手順などの詳細については、[Windows UI ライブラリの概要](https://docs.microsoft.com/uwp/toolkits/winui/)に関するページを参照してください。 |
+
+**Windows UI ライブラリ API:** [NumberBox クラス](https://docs.microsoft.com/uwp/api/microsoft.ui.xaml.controls.NumberBox)
+
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 NumberBox コントロールを使用して、数学的な入力を捕捉および表示することができます。 数値以外も受け付ける編集可能なテキスト ボックスが必要な場合は、[TextBox](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox) コントロールを使用します。 パスワードやその他の機密情報の入力を受け付ける編集可能なテキスト ボックスが必要な場合は、[PasswordBox](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.passwordbox) を参照してください。 検索語句を入力するためのテキスト ボックスが必要な場合は、[AutoSuggestBox](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.autosuggestbox) を参照してください。 書式を適用したテキストを入力または編集する必要がある場合は、[RichEditBox](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.richeditbox) を参照してください。
 
@@ -30,7 +37,7 @@ NumberBox コントロールを使用して、数学的な入力を捕捉およ�
 <table>
 <th align="left">XAML コントロール ギャラリー<th>
 <tr>
-<td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td><img src="images/xaml-controls-gallery-app-icon-sm.png" alt="XAML controls gallery"></img></td>
 <td>
     <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合、こちらをクリックして<a href="xamlcontrolsgallery:/item/TextBox">アプリを開き、NumberBox の動作を確認</a>してください。</p>
     <ul>
@@ -166,7 +173,7 @@ private void SetNumberBoxNumberFormatter()
 
 小数点とコンマに関しては、ユーザーが使用する書式設定は、NumberBox 用に構成された書式によって置き換えられます。 入力検証エラーはトリガーされません。 
 
-## <a name="remarks"></a>注釈
+## <a name="remarks"></a>コメント
 
 ### <a name="input-scope"></a>入力スコープ
 

@@ -1,76 +1,76 @@
 ---
-Description: アプリケーションのさまざまな部分を別のウィンドウで表示するには、AppWindow クラスを使用します。
-title: AppWindow クラスを使用して、アプリのセカンダリウィンドウを表示する
+Description: AppWindow クラスを使用して、アプリのさまざまな部分を個別のウィンドウに表示します。
+title: AppWindow クラスを使用してアプリのセカンダリ ウィンドウを表示する
 ms.date: 07/19/2019
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: 9b89d9100157cf40266bb983e258aa187f65dc93
 ms.sourcegitcommit: 789bfe3756c5c47f7324b96f482af636d12c0ed3
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 08/09/2019
 ms.locfileid: "68867464"
 ---
-# <a name="show-multiple-views-with-appwindow"></a>AppWindow での複数のビューの表示
+# <a name="show-multiple-views-with-appwindow"></a>AppWindow を使用して複数のビューを表示する
 
-[Appwindow](/uwp/api/windows.ui.windowmanagement.appwindow)とそれに関連する api は、各ウィンドウで同じ UI スレッドを操作しながら、セカンダリウィンドウにアプリのコンテンツを表示できるようにすることで、マルチウィンドウアプリの作成を簡略化します。
+[AppWindow](/uwp/api/windows.ui.windowmanagement.appwindow) とその関連 API を使用すると、アプリのコンテンツをセカンダリ ウィンドウに表示しながら、引き続き各ウィンドウにわたって同じ UI スレッドで作業できるため、マルチウィンドウ アプリの作成が簡略化されます。
 
 > [!NOTE]
-> AppWindow は現在プレビューの段階です。 これは、AppWindow を使用するアプリをストアに送信できることを意味しますが、一部のプラットフォームおよびフレームワークコンポーネントは AppWindow で動作しないことがわかっています (「[制限事項](/uwp/api/windows.ui.windowmanagement.appwindow#limitations)」を参照してください)。
+> AppWindow は現在、プレビュー段階です。 つまり、AppWindow を使用するアプリを Store に送信することはできますが、一部のプラットフォームおよびフレームワーク コンポーネントが AppWindow では動作しないことがわかっています (「[制限事項](/uwp/api/windows.ui.windowmanagement.appwindow#limitations)」を参照)。
 
-ここでは、という`HelloAppWindow`サンプルアプリを使用して、複数のウィンドウについていくつかのシナリオを紹介します。 サンプルアプリでは、次の機能を示しています。
+ここでは、`HelloAppWindow` という名前のサンプル アプリを使用して、複数のウィンドウのシナリオをいくつか示します。 このサンプル アプリは、次の機能を示しています。
 
-- メインページからコントロールをドッキング解除し、新しいウィンドウで開きます。
-- 新しいウィンドウでページの新しいインスタンスを開きます。
-- プログラムによってアプリ内の新しいウィンドウのサイズを変更します。
-- ContentDialog をアプリの適切なウィンドウに関連付けます。
+- メイン ページからコントロールのドッキングを解除し、それを新しいウィンドウで開く。
+- Page の新しいインスタンスを新しいウィンドウで開く。
+- アプリで新しいウィンドウのサイズと位置をプログラムで設定する。
+- アプリで ContentDialog を適切なウィンドウに関連付ける。
 
-![1つのウィンドウを持つサンプルアプリ](images/hello-app-window-single.png)
+![1 つのウィンドウを持つサンプル アプリ](images/hello-app-window-single.png)
   
-> _1つのウィンドウを持つサンプルアプリ_
+> _1 つのウィンドウを持つサンプル アプリ_
 
-![ドッキングが解除されたカラーピッカーとセカンダリウィンドウを使用したサンプルアプリ](images/hello-app-window-multi.png)
+![ドッキング解除されたカラー ピッカーとセカンダリ ウィンドウを持つサンプル アプリ](images/hello-app-window-multi.png)
 
-> _ドッキングが解除されたカラーピッカーとセカンダリウィンドウを使用したサンプルアプリ_
+> _ドッキング解除されたカラー ピッカーとセカンダリ ウィンドウを持つサンプル アプリ_
 
-> **重要な API**:[Windows. UI. WindowManagement 名前空間](/uwp/api/windows.ui.windowmanagement)、 [appwindow クラス](/uwp/api/windows.ui.windowmanagement.appwindow)
+> **重要な API**:[Windows.UI.WindowManagement 名前空間](/uwp/api/windows.ui.windowmanagement)、[AppWindow クラス](/uwp/api/windows.ui.windowmanagement.appwindow)
 
 ## <a name="api-overview"></a>API の概要
 
-[Windowmanagement](/uwp/api/windows.ui.windowmanagement)名前空間の[appwindow](/uwp/api/windows.ui.windowmanagement.appwindow)クラスおよびその他の api は、Windows 10 バージョン1903以降で使用できます (SDK 18362)。 アプリが以前のバージョンの Windows 10 を対象としている場合は、 [ApplicationView を使用してセカンダリウィンドウを作成](application-view.md)する必要があります。 WindowManagement Api はまだ開発中であり、API リファレンスドキュメントに記載されている[制限](/uwp/api/windows.ui.windowmanagement.appwindow#limitations)があります。
+[WindowManagement](/uwp/api/windows.ui.windowmanagement) 名前空間内の [AppWindow](/uwp/api/windows.ui.windowmanagement.appwindow) クラスやその他の API は、Windows 10 バージョン 1903 (SDK 18362) から使用できます。 アプリが以前のバージョンの Windows 10 を対象としている場合は、[ApplicationView を使用してセカンダリ ウィンドウを作成する](application-view.md)必要があります。 WindowManagement API はまだ開発段階にあり、API リファレンス ドキュメントで説明されているように[制限事項](/uwp/api/windows.ui.windowmanagement.appwindow#limitations)があります。
 
-ここでは、AppWindow でコンテンツを表示するために使用する重要な Api の一部を示します。
+AppWindow でコンテンツを表示するために使用する重要な API のいくつかを次に示します。
 
 ### <a name="appwindow"></a>AppWindow
 
-[Appwindow](/uwp/api/windows.ui.windowmanagement.appwindow)クラスを使用すると、Windows ランタイムアプリの一部をセカンダリウィンドウに表示できます。 概念は[Applicationview](/uwp/api/windows.ui.viewmanagement.applicationview)に似ていますが、動作と有効期間は同じではありません。 AppWindow の主な機能は、各インスタンスが、作成元の UI 処理スレッド (イベントディスパッチャーを含む) を共有することです。これにより、マルチウィンドウアプリが簡略化されます。
+[AppWindow](/uwp/api/windows.ui.windowmanagement.appwindow) クラスを使用すると、Windows ランタイム アプリの一部をセカンダリ ウィンドウに表示できます。 概念的には [ApplicationView](/uwp/api/windows.ui.viewmanagement.applicationview) に似ていますが、動作や有効期間が異なります。 AppWindow の主な機能は、各インスタンスが、作成元である同じ UI 処理スレッド (イベント ディスパッチャーを含む) を共有することです。これにより、マルチウィンドウ アプリが簡略化されます。
 
-XAML コンテンツは AppWindow にのみ接続できます。ネイティブ DirectX または Holographic コンテンツはサポートされていません。 ただし、DirectX コンテンツをホストする XAML [SwapChainPanel](/uwp/api/windows.ui.xaml.controls.swapchainpanel)を表示することができます。
+XAML コンテンツは自分の AppWindow にしか接続できず、ネイティブな DirectX またはホログラフィック コンテンツのサポートはありません。 ただし、DirectX コンテンツをホストする XAML [SwapChainPanel](/uwp/api/windows.ui.xaml.controls.swapchainpanel) を表示できます。
 
 ### <a name="windowingenvironment"></a>WindowingEnvironment
 
-[WindowingEnvironment](/uwp/api/windows.ui.windowmanagement.windowingenvironment) API を使用すると、必要に応じてアプリを調整できるように、アプリが表示されている環境について知ることができます。 環境でサポートされているウィンドウの種類を説明します。たとえば、アプリ`Overlapped`が PC で実行されている場合や`Tiled` 、アプリが Xbox 上で実行されている場合などです。 また、アプリケーションが論理ディスプレイに表示される領域を記述する DisplayRegion オブジェクトのセットも提供します。
+[WindowingEnvironment](/uwp/api/windows.ui.windowmanagement.windowingenvironment) API を使用すると、アプリが提供されている環境について知ることができるため、必要に応じてアプリを適応させることができます。 この API では、環境がサポートするウィンドウの種類が説明されます。たとえば、アプリが PC で実行されている場合は `Overlapped`、アプリが Xbox で実行されている場合は `Tiled` です。 また、アプリを表示できる論理ディスプレイ上の領域を説明する、一連の DisplayRegion オブジェクトも提供されます。
 
 ### <a name="displayregion"></a>DisplayRegion
 
-[Displayregion](/uwp/api/windows.ui.windowmanagement.displayregion) API は、論理ディスプレイでユーザーにビューを表示できる領域について説明します。たとえば、デスクトップ PC では、完全な表示はタスクバーの領域を引いたものになります。 これは、必ずしもバッキングモニターの物理的な表示領域との1:1 マッピングではありません。 同じモニター内に複数のディスプレイ領域が存在する場合や、表示領域がすべての側面で同一である場合は複数のモニターにまたがるように構成できます。
+[DisplayRegion](/uwp/api/windows.ui.windowmanagement.displayregion) API は、ビューをユーザーに表示できる論理ディスプレイ上の領域を説明します。たとえば、デスクトップ PC では、これはフル ディスプレイからタスク バーの領域を引いたものです。 これは必ずしも、バッキング モニターの物理ディスプレイ領域との 1:1 のマッピングではありません。 同じモニター内に複数のディスプレイ領域が存在できます。あるいは、これらのモニターがすべての側面で同種である場合は、複数のモニターにまたがるように DisplayRegion を構成できます。
 
 ### <a name="appwindowpresenter"></a>AppWindowPresenter
 
-[Appwindowpresenter](/uwp/api/windows.ui.windowmanagement.appwindowpresenter) API を使用すると、や`FullScreen` `CompactOverlay`などの事前定義された構成に windows を簡単に切り替えることができます。 これらの構成により、ユーザーは、構成をサポートする任意のデバイスで一貫したエクスペリエンスを提供できます。
+[AppWindowPresenter](/uwp/api/windows.ui.windowmanagement.appwindowpresenter) API を使用すると、ウィンドウを `FullScreen` や `CompactOverlay` などの事前定義済みの構成に容易に切り替えることができます。 これらの構成により、ユーザーには、その構成をサポートするすべてのデバイスにわたって一貫したエクスペリエンスが提供されます。
 
 ### <a name="uicontext"></a>UIContext
 
-[Uicontext](/uwp/api/windows.ui.uicontext)は、アプリのウィンドウまたはビューの一意の識別子です。 これは自動的に作成され、 [UIElement. uicontext](/uwp/api/windows.ui.xaml.uielement.uicontext)プロパティを使用して uicontext を取得できます。 XAML ツリー内のすべての UIElement の UIContext は同じです。
+[UIContext](/uwp/api/windows.ui.uicontext) は、アプリ ウィンドウまたはビューの一意識別子です。 これは自動的に作成され、ユーザーは [UIElement.UIContext](/uwp/api/windows.ui.xaml.uielement.uicontext) プロパティを使用して UIContext を取得できます。 XAML ツリー内のすべての UIElement に同じ UIContext が割り当てられます。
 
- Uicontext が重要なのは、 [Window. Current](/uwp/api/Windows.UI.Xaml.Window.Current)と`GetForCurrentView`パターンなどの api は、操作対象のスレッドごとに1つの XAML ツリーを持つ単一の applicationview/corewindow を持つことに依存しているためです。 これは、AppWindow を使用する場合ではなく、UIContext を使用して特定のウィンドウを識別するためです。
+ [Window.Current](/uwp/api/Windows.UI.Xaml.Window.Current) などの API や `GetForCurrentView` パターンは、操作するスレッドごとに単一の XAML ツリーに単一の ApplicationView/CoreWindow を持つことに依存しているため、UIContext は重要です。 これは AppWindow を使用するケースではないため、代わりに UIContext を使用して特定のウィンドウを識別します。
 
 ### <a name="xamlroot"></a>XamlRoot
 
-[Xamlroot](/uwp/api/windows.ui.xaml.xamlroot)クラスは、XAML 要素ツリーを保持し、ウィンドウホストオブジェクト (たとえば、 [Appwindow](/uwp/api/windows.ui.windowmanagement.appwindow)や[applicationview](/uwp/api/windows.ui.viewmanagement.applicationview)) に接続し、サイズや可視性などの情報を提供します。 XamlRoot オブジェクトを直接作成することはありません。 代わりに、XAML 要素を AppWindow にアタッチするときに1つのが作成されます。 その後、UIElement の[ルート](/uwp/api/windows.ui.xaml.uielement.xamlroot)プロパティを使用して、xamlroot を取得できます。
+[XamlRoot](/uwp/api/windows.ui.xaml.xamlroot) クラスは XAML 要素ツリーを保持し、それをウィンドウ ホスト オブジェクト ([AppWindow](/uwp/api/windows.ui.windowmanagement.appwindow) や [ApplicationView](/uwp/api/windows.ui.viewmanagement.applicationview) など) に接続して、サイズや可視性などの情報を提供します。 XamlRoot オブジェクトは、ユーザーが直接作成するわけではありません。 代わりに、ユーザーが XAML 要素を AppWindow にアタッチしたときに作成されます。 その後、[UIElement.XamlRoot](/uwp/api/windows.ui.xaml.uielement.xamlroot) プロパティを使用して XamlRoot を取得できます。
 
-UIContext と XamlRoot の詳細については、「[ウィンドウホスト間でコードの移植性を確保](show-multiple-views.md#make-code-portable-across-windowing-hosts)する」を参照してください。
+UIContext と XamlRoot の詳細については、[コードをウィンドウ化ホストにわたって移植可能にする方法](show-multiple-views.md#make-code-portable-across-windowing-hosts)に関するページを参照してください。
 
 ## <a name="show-a-new-window"></a>新しいウィンドウを表示する
 
@@ -78,42 +78,42 @@ UIContext と XamlRoot の詳細については、「[ウィンドウホスト�
 
 **新しいウィンドウを表示するには**
 
-1. 静的な[appwindow. TryCreateAsync](/uwp/api/windows.ui.windowmanagement.appwindow.trycreateasync)メソッドを呼び出して、新しい[appwindow](/uwp/api/windows.ui.windowmanagement.appwindow)を作成します。
+1. 静的 [AppWindow.TryCreateAsync](/uwp/api/windows.ui.windowmanagement.appwindow.trycreateasync) メソッドを呼び出して、新しい [AppWindow](/uwp/api/windows.ui.windowmanagement.appwindow) を作成します。
 
     ```csharp
     AppWindow appWindow = await AppWindow.TryCreateAsync();
     ```
 
-1. ウィンドウコンテンツを作成します。
+1. ウィンドウ コンテンツを作成します。
 
-    通常は、XAML[フレーム](/uwp/api/Windows.UI.Xaml.Controls.Frame)を作成してから、アプリのコンテンツを定義した xaml[ページ](/uwp/api/Windows.UI.Xaml.Controls.Page)にフレームを移動します。 フレームとページの詳細については、「 [2 つのページ間のピアツーピアナビゲーション](../basics/navigate-between-two-pages.md)」を参照してください。
+    通常は、XAML [Frame](/uwp/api/Windows.UI.Xaml.Controls.Frame) を作成した後、Frame からアプリのコンテンツを定義した XAML [Page](/uwp/api/Windows.UI.Xaml.Controls.Page) に移動します。 フレームとページの詳細については、[2 ページ間でのピア ツー ピアのナビゲーション](../basics/navigate-between-two-pages.md)に関するページを参照してください。
 
     ```csharp
     Frame appWindowContentFrame = new Frame();
     appWindowContentFrame.Navigate(typeof(AppWindowMainPage));
     ```
 
-    ただし、すべての XAML コンテンツは、フレームやページだけでなく、AppWindow に表示することもできます。 たとえば、 [Colorpicker](/uwp/api/windows.ui.xaml.controls.colorpicker)などの1つのコントロールだけを表示することも、DirectX コンテンツをホストする[SwapChainPanel](/uwp/api/windows.ui.xaml.controls.swapchainpanel)を表示することもできます。
+    ただし、AppWindow では Frame と Page だけでなく、任意の XAML コンテンツを表示できます。 たとえば、1 つのコントロール ([ColorPicker](/uwp/api/windows.ui.xaml.controls.colorpicker) など) だけを表示したり、DirectX コンテンツをホストする [SwapChainPanel](/uwp/api/windows.ui.xaml.controls.swapchainpanel) を表示したりできます。
 
-1. [ElementCompositionPreview](/api/windows.ui.xaml.hosting.elementcompositionpreview.setappwindowcontent)メソッドを呼び出して、XAML コンテンツを appwindow にアタッチします。
+1. [ElementCompositionPreview.SetAppWindowContent](/api/windows.ui.xaml.hosting.elementcompositionpreview.setappwindowcontent) メソッドを呼び出して、XAML コンテンツを AppWindow にアタッチします。
 
     ```csharp
     ElementCompositionPreview.SetAppWindowContent(appWindow, appWindowContentFrame);
     ```
 
-    このメソッドを呼び出すと、 [xamlroot](/uwp/api/windows.ui.xaml.xamlroot)オブジェクトが作成され、指定した UIElement の[xamlroot](/uwp/api/windows.ui.xaml.uielement.xamlroot)プロパティとして設定されます。
+    このメソッドを呼び出すと、[XamlRoot](/uwp/api/windows.ui.xaml.xamlroot) オブジェクトが作成され、指定された UIElement の [XamlRoot](/uwp/api/windows.ui.xaml.uielement.xamlroot) プロパティとして設定されます。
 
-    このメソッドは、AppWindow インスタンスごとに1回だけ呼び出すことができます。 コンテンツが設定されると、この AppWindow インスタンスの SetAppWindowContent への呼び出しは失敗します。 また、null の UIElement オブジェクトを渡して AppWindow コンテンツを切断しようとすると、呼び出しは失敗します。
+    このメソッドは、AppWindow インスタンスあたり 1 回しか呼び出すことができません。 コンテンツが設定された後に、この AppWindow インスタンスで SetAppWindowContent をさらに呼び出すと失敗します。 また、null の UIElement オブジェクトを渡すことによって AppWindow コンテンツとの接続を解除しようとすると、その呼び出しは失敗します。
 
-1. 新しいウィンドウを表示するには、 [Appwindow. TryShowAsync](/uwp/api/windows.ui.windowmanagement.appwindow.tryshowasync)メソッドを呼び出します。
+1. [AppWindow.TryShowAsync](/uwp/api/windows.ui.windowmanagement.appwindow.tryshowasync) メソッドを呼び出して、新しいウィンドウを表示します。
 
     ```csharp
     await appWindow.TryShowAsync();
     ```
 
-## <a name="release-resources-when-a-window-is-closed"></a>ウィンドウが閉じられたときにリソースを解放する
+## <a name="release-resources-when-a-window-is-closed"></a>ウィンドウが閉じられたらリソースを解放する
 
-XAML リソース (AppWindow コンテンツ) と AppWindow への参照を解放するには、常に[appwindow. Closed](/uwp/api/windows.ui.windowmanagement.appwindow.closed)イベントを処理する必要があります。
+XAML リソース (AppWindow コンテンツ) と AppWindow への参照を解放するには、常に [AppWindow.Closed](/uwp/api/windows.ui.windowmanagement.appwindow.closed) イベントを処理する必要があります。
 
 ```csharp
 appWindow.Closed += delegate
@@ -123,13 +123,13 @@ appWindow.Closed += delegate
 };
 ```
 
-## <a name="track-instances-of-appwindow"></a>AppWindow のインスタンスの追跡
+## <a name="track-instances-of-appwindow"></a>AppWindow のインスタンスを追跡する
 
-アプリでの複数のウィンドウの使用方法によっては、作成した AppWindow のインスタンスを追跡する必要がある場合と、ない場合があります。 この`HelloAppWindow`例は、通常、 [appwindow](/uwp/api/windows.ui.windowmanagement.appwindow)を使用するさまざまな方法を示しています。 ここでは、これらのウィンドウが追跡される理由とその方法について説明します。
+アプリで複数のウィンドウを使用する方法に応じて、作成した AppWindow のインスタンスを追跡する必要がある場合とない場合があります。 `HelloAppWindow` の例は、一般に [AppWindow](/uwp/api/windows.ui.windowmanagement.appwindow) を使用する可能性があるいくつかの異なる方法を示しています。 ここでは、これらのウィンドウの追跡が必要な理由とその方法について調べます。
 
 ### <a name="simple-tracking"></a>単純な追跡
 
-[カラーピッカー] ウィンドウは1つの XAML コントロールをホストし、カラーピッカーと対話するためのコード`MainPage.xaml.cs`はすべてファイルに存在します。 [カラーピッカー] ウィンドウでは、1つのインスタンスのみが許可`MainWindow`され、基本的にはの拡張機能です。 1つのインスタンスのみが作成されるようにするために、[カラーピッカー] ウィンドウはページレベル変数で追跡されます。 新しいカラーピッカーウィンドウを作成する前に、インスタンスが存在するかどうかを確認し、存在する場合は、新しいウィンドウを作成する手順をスキップし、既存のウィンドウで[Tryshowasync](/uwp/api/windows.ui.windowmanagement.appwindow.tryshowasync)を呼び出します。
+カラー ピッカー ウィンドウは 1 つの XAML コントロールをホストし、カラー ピッカーを操作するためのコードはすべて `MainPage.xaml.cs` ファイル内に存在します。 カラー ピッカー ウィンドウは 1 つのインスタンスのみを許可し、基本的には `MainWindow` の拡張です。 確実に 1 つのインスタンスだけが作成されるようにするために、カラー ピッカー ウィンドウはページ レベルの変数で追跡されます。 新しいカラー ピッカー ウィンドウを作成する前に、インスタンスが存在するかどうかを確認し、存在する場合は、新しいウィンドウを作成する手順をスキップして、単に既存のウィンドウで [TryShowAsync](/uwp/api/windows.ui.windowmanagement.appwindow.tryshowasync) を呼び出します。
 
 ```csharp
 AppWindow colorPickerAppWindow;
@@ -151,17 +151,17 @@ private async void DetachColorPickerButton_Click(object sender, RoutedEventArgs 
 }
 ```
 
-### <a name="track-an-appwindow-instance-in-its-hosted-content"></a>ホストされたコンテンツでの AppWindow インスタンスの追跡
+### <a name="track-an-appwindow-instance-in-its-hosted-content"></a>ホストされているコンテンツで AppWindow インスタンスを追跡する
 
-この`AppWindowPage`ウィンドウは、完全な XAML ページをホストし、ページと対話するための`AppWindowPage.xaml.cs`コードはに存在します。 複数のインスタンスを許可し、それぞれが独立して機能します。
+`AppWindowPage` ウィンドウは完全な XAML ページをホストし、そのページを操作するためのコードは `AppWindowPage.xaml.cs` 内に存在します。 これは、それぞれが独立に機能する複数のインスタンスを許可します。
 
-このページの機能を使用すると、ウィンドウを操作したり`FullScreen` 、 `CompactOverlay`またはに設定したり、 [appwindow](/uwp/api/windows.ui.windowmanagement.appwindow.changed)をリッスンして、ウィンドウに関する情報を表示したりすることができます。 これらの api を呼び出すため`AppWindowPage`に、は、それをホストしている appwindow インスタンスへの参照を必要とします。
+このページの機能を使用すると、ウィンドウを操作してそれを `FullScreen` または `CompactOverlay` に設定できます。また、ウィンドウに関する情報を表示するために [AppWindow.Changed](/uwp/api/windows.ui.windowmanagement.appwindow.changed) イベントもリッスンします。 これらの API を呼び出すために、`AppWindowPage` には、それをホストしている AppWindow インスタンスへの参照が必要です。
 
-これだけで必要な場合は、で`AppWindowPage`プロパティを作成し、作成時に[appwindow](/uwp/api/windows.ui.windowmanagement.appwindow)インスタンスを割り当てることができます。
+それが必要なすべてである場合は、`AppWindowPage` でプロパティを作成し、作成するときにそれに [AppWindow](/uwp/api/windows.ui.windowmanagement.appwindow) インスタンスを割り当てることができます。
 
 **AppWindowPage.xaml.cs**
 
-で`AppWindowPage`、appwindow 参照を保持するプロパティを作成します。
+`AppWindowPage` で、AppWindow 参照を保持するプロパティを作成します。
 
 ```csharp
 public sealed partial class AppWindowPage : Page
@@ -174,7 +174,7 @@ public sealed partial class AppWindowPage : Page
 
 **MainPage.xaml.cs**
 
-で`MainPage`、ページインスタンスへの参照を取得し、新しく作成された appwindow をの`AppWindowPage`プロパティに割り当てます。
+`MainPage` で、ページ インスタンスへの参照を取得し、新しく作成された AppWindow を `AppWindowPage` のプロパティに割り当てます。
 
 ```csharp
 private async void ShowNewWindowButton_Click(object sender, RoutedEventArgs e)
@@ -195,15 +195,15 @@ private async void ShowNewWindowButton_Click(object sender, RoutedEventArgs e)
 }
 ```
 
-### <a name="tracking-app-windows-using-uicontext"></a>UIContext を使用してアプリウィンドウを追跡する
+### <a name="tracking-app-windows-using-uicontext"></a>UIContext を使用したアプリ ウィンドウの追跡
 
-また、アプリの他の部分から[Appwindow](/uwp/api/windows.ui.windowmanagement.appwindow)インスタンスにアクセスできるようにすることもできます。 たとえば、[ `MainPage`すべて閉じる] ボタンを使用して、appwindow のすべての追跡対象インスタンスを閉じることができます。
+アプリの他の部分から [AppWindow](/uwp/api/windows.ui.windowmanagement.appwindow) インスタンスにアクセスできるようにすることもできます。 たとえば、`MainPage` には、追跡されている AppWindow のすべてのインスタンスを閉じる [すべて閉じる] ボタンが存在する可能性があります。
 
-この場合は、 [Uicontext](/uwp/api/windows.ui.uicontext)一意識別子を使用して、[ディクショナリ](/dotnet/api/system.collections.generic.dictionary-2?view=dotnet-uwp-10.0)内のウィンドウインスタンスを追跡する必要があります。
+この場合、[Dictionary](/dotnet/api/system.collections.generic.dictionary-2?view=dotnet-uwp-10.0) 内のウィンドウ インスタンスを追跡するには [UIContext](/uwp/api/windows.ui.uicontext) の一意識別子を使用する必要があります。
 
 **MainPage.xaml.cs**
 
-で`MainPage`、静的なプロパティとしてディクショナリを作成します。 次に、作成時にこのページをディクショナリに追加し、ページを閉じたときに削除します。 [ElementCompositionPreview](/api/windows.ui.xaml.hosting.elementcompositionpreview.setappwindowcontent)を呼び出した後、コンテンツ[フレーム](/uwp/api/Windows.UI.Xaml.Controls.Frame)(`appWindowContentFrame.UIContext`) から uicontext を取得できます。
+`MainPage` で、Dictionary を静的プロパティとして作成します。 次に、作成した Dictionary にページを追加し、ページが閉じられたら Dictionary を削除します。 [ElementCompositionPreview.SetAppWindowContent](/api/windows.ui.xaml.hosting.elementcompositionpreview.setappwindowcontent) を呼び出した後、コンテンツの [Frame](/uwp/api/Windows.UI.Xaml.Controls.Frame) (`appWindowContentFrame.UIContext`) から UIContext を取得できます。
 
 ```csharp
 public sealed partial class MainPage : Page
@@ -256,7 +256,7 @@ public sealed partial class MainPage : Page
 
 **AppWindowPage.xaml.cs**
 
-`AppWindowPage`コードで[appwindow](/uwp/api/windows.ui.windowmanagement.appwindow)インスタンスを使用するには、ページの[uicontext](/uwp/api/windows.ui.uicontext)を使用して、の`MainPage`静的ディクショナリから取得します。 これは、UIContext が null でないように、コンストラクターではなく、ページの[読み込ま](/uwp/api/windows.ui.xaml.frameworkelement.loaded)れたイベントハンドラーで実行する必要があります。 UIContext は、ページ`this.UIContext`から取得できます。
+`AppWindowPage` コードで [AppWindow](/uwp/api/windows.ui.windowmanagement.appwindow) インスタンスを使用するには、ページの [UIContext](/uwp/api/windows.ui.uicontext) を使用して `MainPage` の静的な Dictionary から取得します。 UIContext が null にならないように、これはコンストラクターではなく、ページの [Loaded](/uwp/api/windows.ui.xaml.frameworkelement.loaded) イベント ハンドラーで実行する必要があります。 UIContext は、Page `this.UIContext` から取得できます。
 
 ```csharp
 public sealed partial class AppWindowPage : Page
@@ -284,29 +284,29 @@ public sealed partial class AppWindowPage : Page
 ```
 
 > [!NOTE]
-> この`HelloAppWindow`例では、の`AppWindowPage`ウィンドウを追跡する両方の方法を示していますが、通常はどちらか一方を使用します。
+> `HelloAppWindow` の例は、`AppWindowPage` でウィンドウを追跡する両方の方法を示していますが、一般には両方ではなく、そのどちらかを使用します。
 
-## <a name="request-window-size-and-placement"></a>要求ウィンドウのサイズと配置
+## <a name="request-window-size-and-placement"></a>ウィンドウのサイズと位置を要求する
 
-[Appwindow](/uwp/api/windows.ui.windowmanagement.appwindow)クラスには、ウィンドウのサイズと配置を制御するために使用できるいくつかのメソッドがあります。 メソッド名によって示されるように、システムは環境要因に応じて、要求された変更を無視することがあります。
+[AppWindow](/uwp/api/windows.ui.windowmanagement.appwindow) クラスには、ウィンドウのサイズと位置を制御するために使用できるいくつかのメソッドがあります。 メソッド名が暗に示しているように、システムが要求された変更に従うかどうかは環境要因によって異なります。
 
-[Requestsize](/uwp/api/windows.ui.windowmanagement.appwindow.requestsize)を呼び出して、次のように、目的のウィンドウサイズを指定します。
+目的のウィンドウ サイズを指定するには、[RequestSize](/uwp/api/windows.ui.windowmanagement.appwindow.requestsize) を次のように呼び出します。
 
 ```csharp
 colorPickerAppWindow.RequestSize(new Size(300, 428));
 ```
 
-ウィンドウの配置を管理するためのメソッドの名前は_Requestmove *_ :[RequestMoveAdjacentToCurrentView](/uwp/api/windows.ui.windowmanagement.appwindow.requestmoveadjacenttocurrentview)、 [RequestMoveAdjacentToWindow](/uwp/api/windows.ui.windowmanagement.appwindow.requestmoveadjacenttowindow)、 [RequestMoveRelativeToDisplayRegion](/uwp/api/windows.ui.windowmanagement.appwindow.requestmoverelativetodisplayregion)、 [requestmovetodisplayregion](/uwp/api/windows.ui.windowmanagement.appwindow.requestmovetodisplayregion)。
+ウィンドウの位置を管理するためのメソッドには、次のように _RequestMove*_ という名前が付けられています。[RequestMoveAdjacentToCurrentView](/uwp/api/windows.ui.windowmanagement.appwindow.requestmoveadjacenttocurrentview)、[RequestMoveAdjacentToWindow](/uwp/api/windows.ui.windowmanagement.appwindow.requestmoveadjacenttowindow)、[RequestMoveRelativeToDisplayRegion](/uwp/api/windows.ui.windowmanagement.appwindow.requestmoverelativetodisplayregion)、[RequestMoveToDisplayRegion](/uwp/api/windows.ui.windowmanagement.appwindow.requestmovetodisplayregion)。
 
-この例では、このコードによってウィンドウが、ウィンドウが生成されるメインビューの横に移動します。
+次の例では、このコードはウィンドウを、そのウィンドウの生成元のメイン ビューの横に移動します。
 
 ```csharp
 colorPickerAppWindow.RequestMoveAdjacentToCurrentView();
 ```
 
-ウィンドウの現在のサイズと配置に関する情報を取得するには、 [Getplacement](/uwp/api/windows.ui.windowmanagement.appwindow.getplacement)を呼び出します。 これにより、ウィンドウの現在の[Displayregion](/uwp/api/windows.ui.windowmanagement.appwindowplacement.displayregion)、 [Offset](/uwp/api/windows.ui.windowmanagement.appwindowplacement.offset)、および[Size](/uwp/api/windows.ui.windowmanagement.appwindowplacement.size)を提供する[appwindowplacement](/uwp/api/windows.ui.windowmanagement.appwindowplacement)オブジェクトが返されます。
+ウィンドウの現在のサイズと位置に関する情報を取得するには、[GetPlacement](/uwp/api/windows.ui.windowmanagement.appwindow.getplacement) を呼び出します。 これにより、ウィンドウの現在の [DisplayRegion](/uwp/api/windows.ui.windowmanagement.appwindowplacement.displayregion)、[Offset](/uwp/api/windows.ui.windowmanagement.appwindowplacement.offset)、[Size](/uwp/api/windows.ui.windowmanagement.appwindowplacement.size) を提供する [AppWindowPlacement](/uwp/api/windows.ui.windowmanagement.appwindowplacement) オブジェクトが返されます。
 
-たとえば、このコードを呼び出して、ウィンドウを画面の右上隅に移動できます。 このコードは、ウィンドウが表示された後に呼び出す必要があります。それ以外の場合、GetPlacement の呼び出しによって返されるウィンドウサイズは 0, 0 になり、オフセットは正しくありません。
+たとえば、ウィンドウをディスプレイの右上隅に移動するには、次のコードを呼び出すことができます。 このコードは、ウィンドウが表示された後に呼び出す必要があります。そうしないと、GetPlacement の呼び出しによって返されるウィンドウの Size は 0,0 になり、オフセットは不正確になります。
 
 ```csharp
 DisplayRegion displayRegion = window.GetPlacement().DisplayRegion;
@@ -318,15 +318,15 @@ window.RequestMoveRelativeToDisplayRegion(displayRegion, new Point(horizontalOff
 
 ## <a name="request-a-presentation-configuration"></a>プレゼンテーション構成を要求する
 
-[Appwindowpresenter](/uwp/api/windows.ui.windowmanagement.appwindowpresenter)クラスでは、表示されているデバイスに適した定義済みの構成を使用して、 [appwindow](/uwp/api/windows.ui.windowmanagement.appwindow)を表示できます。 [Appwindowプレゼンテーション構成](/uwp/api/windows.ui.windowmanagement.appwindowpresentationconfiguration)値を使用して、ウィンドウをまたは`FullScreen` `CompactOverlay`モードにすることができます。
+[AppWindowPresenter](/uwp/api/windows.ui.windowmanagement.appwindowpresenter) クラスを使用すると、表示されるデバイスに適した事前定義済みの構成を使用して [AppWindow](/uwp/api/windows.ui.windowmanagement.appwindow) を表示できます。 [AppWindowPresentationConfiguration](/uwp/api/windows.ui.windowmanagement.appwindowpresentationconfiguration) 値を使用すると、ウィンドウを `FullScreen` または `CompactOverlay` モードで配置できます。
 
-この例では、次の操作を実行する方法を示します。
+この例は、次の操作を行う方法を示しています。
 
-- 使用可能なウィンドウのプレゼンテーションが変更された場合に通知を受けるには、 [Appwindow. Changed](/uwp/api/windows.ui.windowmanagement.appwindow.changed)イベントを使用します。
-- [Appwindow. プレゼンター](/uwp/api/windows.ui.windowmanagement.appwindow.presenter)プロパティを使用して、現在の[appwindowプレゼンター](/uwp/api/windows.ui.windowmanagement.appwindowpresenter)を取得します。
-- 特定の[Appwindowwebservice](/uwp/api/windows.ui.windowmanagement.appwindowpresentationkind)がサポートされているかどうかを確認するには、 [Ispresentationsupported](/uwp/api/windows.ui.windowmanagement.appwindowpresenter.ispresentationsupported)を呼び出します。
-- [GetConfiguration](/uwp/api/windows.ui.windowmanagement.appwindowpresenter.getconfiguration)を呼び出して、現在使用されている構成の種類を確認します。
-- [Requestpresentation](/uwp/api/windows.ui.windowmanagement.appwindowpresenter.requestpresentation)を呼び出して、現在の構成を変更します。
+- 使用可能なウィンドウ プレゼンテーションが変更された場合に通知を受けるようにするには、[AppWindow.Changed](/uwp/api/windows.ui.windowmanagement.appwindow.changed) イベントを使用します。
+- 現在の [AppWindowPresenter](/uwp/api/windows.ui.windowmanagement.appwindowpresenter) を取得するには、[AppWindow.Presenter](/uwp/api/windows.ui.windowmanagement.appwindow.presenter) プロパティを使用します。
+- 特定の [AppWindowPresentationKind](/uwp/api/windows.ui.windowmanagement.appwindowpresentationkind) がサポートされているかどうかを確認するには、[IsPresentationSupported](/uwp/api/windows.ui.windowmanagement.appwindowpresenter.ispresentationsupported) を呼び出します。
+- 現在どのような種類の構成が使用されているかを確認するには、[GetConfiguration](/uwp/api/windows.ui.windowmanagement.appwindowpresenter.getconfiguration) を呼び出します。
+- 現在の構成を変更するには、[RequestPresentation](/uwp/api/windows.ui.windowmanagement.appwindowpresenter.requestpresentation) を呼び出します。
 
 ```csharp
 private void Window_Changed(AppWindow sender, AppWindowChangedEventArgs args)
@@ -401,13 +401,13 @@ private void FullScreenButton_Click(object sender, RoutedEventArgs e)
 }
 ```
 
-## <a name="reuse-xaml-elements"></a>XAML 要素の再利用
+## <a name="reuse-xaml-elements"></a>XAML 要素を再利用する
 
-[Appwindow](/uwp/api/windows.ui.windowmanagement.appwindow)では、同じ UI スレッドを持つ複数の XAML ツリーを使用できます。 ただし、XAML 要素は XAML ツリーに一度だけ追加できます。 UI の一部を1つのウィンドウから別のウィンドウに移動する場合は、XAML ツリー内での配置を管理する必要があります。
+[AppWindow](/uwp/api/windows.ui.windowmanagement.appwindow) を使用すると、同じ UI スレッドで複数の XAML ツリーを保持できます。 ただし、XAML 要素は XAML ツリーに 1 回しか追加できません。 UI の一部をあるウィンドウから別のウィンドウに移動したい場合は、XAML ツリー内のその位置を管理する必要があります。
 
-この例では、[カラーピッカー](/uwp/api/windows.ui.xaml.controls.colorpicker)コントロールを再利用して、メインウィンドウとセカンダリウィンドウの間で移動する方法を示します。
+この例は、[ColorPicker](/uwp/api/windows.ui.xaml.controls.colorpicker) コントロールをメイン ウィンドウとセカンダリ ウィンドウの間で移動するときに、そのコントロールを再利用する方法を示しています。
 
-カラーピッカーはの`MainPage`xaml で宣言され、 `MainPage` xaml ツリーに配置されます。
+カラー ピッカーは `MainPage` の XAML で宣言され、それによって `MainPage` の XAML ツリーに配置されます。
 
 ```xaml
 <StackPanel x:Name="colorPickerContainer" Grid.Column="1" Background="WhiteSmoke">
@@ -420,14 +420,14 @@ private void FullScreenButton_Click(object sender, RoutedEventArgs e)
 </StackPanel>
 ```
 
-新しい appwindow に配置するためにカラーピッカーをデタッチしたら、最初にその親コンテナーから削除する`MainPage`ことによって、それを XAML ツリーから削除する必要があります。 ただし、この例では必須ではありませんが、親コンテナーも非表示になります。
+カラー ピッカーが新しい AppWindow への配置のためにデタッチされた場合は、まず、それをその親コンテナーから削除することによって `MainPage` の XAML ツリーから削除する必要があります。 必須ではありませんが、この例では親コンテナーの非表示化も行っています。
 
 ```csharp
 colorPickerContainer.Children.Remove(colorPicker);
 colorPickerContainer.Visibility = Visibility.Collapsed;
 ```
 
-その後、新しい XAML ツリーに追加できます。 ここでは、まず ColorPicker の親コンテナーとなる[グリッド](/uwp/api/windows.ui.xaml.controls.grid)を作成し、グリッドの子として colorpicker を追加します。 (これにより、後でこの XAML ツリーから ColorPicker を簡単に削除できます)。次に、グリッドを新しいウィンドウの XAML ツリーのルートとして設定します。
+この後、それを新しい XAML ツリーに追加できます。 ここでは、まず ColorPicker の親コンテナーになる [Grid](/uwp/api/windows.ui.xaml.controls.grid) を作成し、ColorPicker をそのグリッドの子として追加します。 (これにより、後で ColorPicker をこの XAML ツリーから容易に削除できます。)次に、グリッドを新しいウィンドウの XAML ツリーのルートとして設定します。
 
 ```csharp
 Grid appWindowRootGrid = new Grid();
@@ -440,7 +440,7 @@ colorPickerAppWindow = await AppWindow.TryCreateAsync();
 ElementCompositionPreview.SetAppWindowContent(colorPickerAppWindow, appWindowRootGrid);
 ```
 
-[Appwindow](/uwp/api/windows.ui.windowmanagement.appwindow)が終了したら、プロセスを逆にします。 まず、[グリッド](/uwp/api/windows.ui.xaml.controls.grid)から[colorpicker](/uwp/api/windows.ui.xaml.controls.colorpicker)を削除し、で`MainPage` [StackPanel](/uwp/api/windows.ui.xaml.controls.stackpanel)の子として追加します。
+[AppWindow](/uwp/api/windows.ui.windowmanagement.appwindow) が閉じられたら、このプロセスを逆に実行します。 まず、[Grid](/uwp/api/windows.ui.xaml.controls.grid) から [ColorPicker](/uwp/api/windows.ui.xaml.controls.colorpicker) を削除し、それを `MainPage` の [StackPanel](/uwp/api/windows.ui.xaml.controls.stackpanel) の子として追加します。
 
 ```csharp
 // When the window is closed, be sure to release XAML resources
@@ -495,11 +495,11 @@ private async void DetachColorPickerButton_Click(object sender, RoutedEventArgs 
 }
 ```
 
-## <a name="show-a-dialog-box"></a>ダイアログボックスを表示する
+## <a name="show-a-dialog-box"></a>ダイアログ ボックスを表示する
 
-既定では、コンテンツ ダイアログはルート [ApplicationView](/uwp/api/windows.ui.viewmanagement.applicationview) を基準としてモーダルに表示されます。 [Appwindow](/uwp/api/windows.ui.windowmanagement.appwindow)内で[contentdialog](/uwp/api/windows.ui.xaml.controls.contentdialog)を使用する場合は、ダイアログの xamlroot を XAML ホストのルートに手動で設定する必要があります。
+既定では、コンテンツ ダイアログはルート [ApplicationView](/uwp/api/windows.ui.viewmanagement.applicationview) を基準としてモーダルに表示されます。 [ContentDialog](/uwp/api/windows.ui.xaml.controls.contentdialog) を [AppWindow](/uwp/api/windows.ui.windowmanagement.appwindow) の内部で使用する場合は、ダイアログの XamlRoot を XAML ホストのルートに手動で設定する必要があります。
 
-これを行うには、ContentDialog の[xamlroot](/uwp/api/windows.ui.xaml.uielement.xamlroot)プロパティを、appwindow 内に既にある要素と同じ[xamlroot](/uwp/api/windows.ui.xaml.xamlroot)に設定します。 ここでは、このコードはボタンの[click](/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.click)イベントハンドラー内にあるため、_送信側_(クリックされたボタン) を使用して xamlroot を取得できます。
+それを行うには、ContentDialog の [XamlRoot](/uwp/api/windows.ui.xaml.uielement.xamlroot) プロパティを、既に AppWindow 内にある要素と同じ [XamlRoot](/uwp/api/windows.ui.xaml.xamlroot) に設定します。 ここでは、このコードはボタンの [Click](/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.click) イベント ハンドラーの内部にあるため、_送信者_ (クリックされた Button) を使用して XamlRoot を取得できます。
 
 ```csharp
 if (ApiInformation.IsApiContractPresent("Windows.Foundation.UniversalApiContract", 8))
@@ -508,9 +508,9 @@ if (ApiInformation.IsApiContractPresent("Windows.Foundation.UniversalApiContract
 }
 ```
 
-メインウィンドウ (ApplicationView) に加えて、1つまたは複数の AppWindows が開いている場合、モーダルダイアログボックスによってルートになっているウィンドウのみがブロックされるため、各ウィンドウはダイアログを開くことができます。 ただし、一度に1つのスレッドごとに開くことができる[Contentdialog](/uwp/api/windows.ui.xaml.controls.contentdialog)は1つだけです。 2 つの ContentDialog を開こうとすると、個別の AppWindow で開く場合でも、例外がスローされます。
+メイン ウィンドウ (ApplicationView) に加えて 1 つ以上の AppWindows が開いている場合、モーダル ダイアログではそのルートになっているウィンドウのみがブロックされるため、各ウィンドウがダイアログを開こうと試みることができます。 ただし、開くことができるのは、一度にスレッドあたり 1 つの [ContentDialog](/uwp/api/windows.ui.xaml.controls.contentdialog) だけです。 2 つの ContentDialog を開こうとすると、個別の AppWindow で開く場合でも、例外がスローされます。
 
-これを管理するには、別のダイアログが既に開い`try/catch`ている場合に例外をキャッチするために、少なくともブロックでダイアログを開いておく必要があります。
+これを管理するには、別のダイアログが既に開いている場合の例外をキャッチするために、少なくとも `try/catch` ブロックでダイアログを開く必要があります。
 
 ```csharp
 try
@@ -523,7 +523,7 @@ catch (Exception)
 }
 ```
 
-ダイアログを管理する別の方法として、現在開いているダイアログを追跡して、新しいダイアログを開く前に閉じます。 ここでは、この目的のため`MainPage`に`CurrentDialog` 、という静的プロパティを作成します。
+ダイアログを管理するための別の方法として、現在開いているダイアログを追跡し、新しいダイアログを開こうとする前にそれを閉じることもできます。 ここでは、この目的のために、`MainPage` で `CurrentDialog` という名前の静的プロパティを作成します。
 
 ```csharp
 public sealed partial class MainPage : Page
@@ -535,7 +535,7 @@ public sealed partial class MainPage : Page
 }
 ```
 
-次に、現在開いているダイアログがあるかどうかを確認し、存在する場合は、 [Hide](/uwp/api/windows.ui.xaml.controls.contentdialog.hide)メソッドを呼び出して閉じます。 最後に、新しいダイアログをに`CurrentDialog`割り当てて、表示しようとします。
+次に、現在開いているダイアログが存在するかどうかを確認し、存在する場合は、[Hide](/uwp/api/windows.ui.xaml.controls.contentdialog.hide) メソッドを呼び出してそれを閉じます。 最後に、`CurrentDialog` に新しいダイアログを割り当て、それを表示しようとします。
 
 ```csharp
 private async void DialogButton_Click(object sender, RoutedEventArgs e)
@@ -572,7 +572,7 @@ private async void DialogButton_Click(object sender, RoutedEventArgs e)
 }
 ```
 
-プログラムによってダイアログを閉じることが望ましくない場合は、 `CurrentDialog`として割り当てないでください。 ここでは、をクリック`Ok`したときにのみ、無視する必要がある重要なダイアログを示します。`MainPage` は`CurrentDialog`として割り当てられていないため、プログラムで閉じようとすることはありません。
+プログラムでダイアログを閉じることが望ましくない場合は、それを `CurrentDialog` として割り当てないでください。 この `MainPage` には、ユーザーが [`Ok`] をクリックしたときにのみ破棄される重要なダイアログが示されています。 これは `CurrentDialog` として割り当てられていないため、プログラムで閉じようとはされません。
 
 ```csharp
 public sealed partial class MainPage : Page
@@ -805,7 +805,7 @@ namespace HelloAppWindow
 
 ```
 
-### <a name="appwindowpagexaml"></a>AppWindowPage .xaml
+### <a name="appwindowpagexaml"></a>AppWindowPage.xaml
 
 ```xaml
 <Page

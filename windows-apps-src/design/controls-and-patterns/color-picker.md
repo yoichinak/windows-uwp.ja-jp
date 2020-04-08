@@ -11,23 +11,30 @@ design-contact: ksulliv
 dev-contact: llongley
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: b791768d4ccd78b46fef2d4e494ce06ef9f6ca6a
-ms.sourcegitcommit: 05be6929cd380a9dd241cc1298fd53f11c93d774
+ms.openlocfilehash: f287f738c39e21ea76ff2595cc34ac715a1b52ca
+ms.sourcegitcommit: af4050f69168c15b0afaaa8eea66a5ee38b88fed
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73062216"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80081193"
 ---
 # <a name="color-picker"></a>カラー ピッカー
 
 カラー ピッカーは、色を参照し、選ぶために使用します。 既定では、ユーザーはカラー ピッカーを使って、カラー スペクトルで色を参照するか、Red-Green-Blue (RGB)、Hue-Saturation-Value (HSV)、または 16 進数のテキスト ボックスのいずれかで色を指定できます。
 
-> **重要な API**:[ColorPicker クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.colorpicker)、[Color プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.colorpicker.Color)、[ColorChanged イベント](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.colorpicker.ColorChanged)
-
 ![既定のカラー ピッカー](images/color-picker-default.png)
 
+**Windows UI ライブラリを入手する**
 
-## <a name="is-this-the-right-control"></a>適切なコントロールの選択
+|  |  |
+| - | - |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | **ColorPicker** コントロールは、Windows UI ライブラリの NuGet パッケージの一部として組み込まれており、パッケージには、UWP アプリの新しいコントロールと UI 機能が含まれています。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+
+> **Windows UI ライブラリ API:** [ColorPicker クラス](/uwp/api/microsoft.ui.xaml.controls.colorpicker)、[Color プロパティ](/uwp/api/microsoft.ui.xaml.controls.colorpicker.Color)、[ColorChanged イベント](/uwp/api/microsoft.ui.xaml.controls.colorpicker.ColorChanged)
+>
+> **プラットフォーム API:** [ColorPicker クラス](/uwp/api/windows.ui.xaml.controls.colorpicker)、[Color プロパティ](/uwp/api/windows.ui.xaml.controls.colorpicker.Color)、[ColorChanged イベント](/uwp/api/windows.ui.xaml.controls.colorpicker.ColorChanged)
+
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 アプリでユーザーが色を選べるようにするには、カラー ピッカーを使います。 たとえば、フォントの色、背景、またはアプリのテーマの色など、色の設定を変更するために、カラー ピッカーを使います。
 
@@ -38,7 +45,7 @@ ms.locfileid: "73062216"
 <table>
 <th align="left">XAML コントロール ギャラリー<th>
 <tr>
-<td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td><img src="images/xaml-controls-gallery-app-icon-sm.png" alt="XAML controls gallery"></img></td>
 <td>
     <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合、こちらをクリックして<a href="xamlcontrolsgallery:/item/ColorPicker">アプリを開き、ColorPicker の動作を確認</a>してください。</p>
     <ul>
@@ -207,7 +214,7 @@ ColorPicker コントロールの構成に使うことができるすべての�
   - 選択内容の適用や取り消しを行う確定ボタンとキャンセル ボタンを提供します。 戻るボタンを押すか、ポップアップ外の領域をタップすると、ポップアップを閉じます。ユーザーの選択内容は保存されません。
   - または、ポップアップ外の領域をタップするか、戻るボタンを押すと、ポップアップを閉じ、ユーザーの選択内容を適用します。
 
-## <a name="get-the-sample-code"></a>サンプル コードを入手する
+## <a name="get-the-sample-code"></a>サンプル コードの入手
 
 - [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - インタラクティブな形で XAML コントロールのすべてを参照できます。
 

@@ -11,12 +11,12 @@ dev-contact: ''
 doc-status: Published
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: c0d12b3b043546cd908fb474fa8ca9656d8dc56e
-ms.sourcegitcommit: bac5574a1f47a5b38c984a5482272c9e49a9c91e
+ms.openlocfilehash: 17eb1a2f24e9fd893fee1a0aff349989577375c7
+ms.sourcegitcommit: af4050f69168c15b0afaaa8eea66a5ee38b88fed
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71100849"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80081701"
 ---
 # <a name="navigation-view"></a>ナビゲーション ビュー
 
@@ -25,13 +25,19 @@ NavigationView コントロールでは、ご利用のアプリの最上位の�
 ![上部のナビゲーション](images/nav-view-header.png)<br/>
 _ナビゲーション ビューでは上部と左側の両方のナビゲーションのウィンドウまたはメニューがサポートされます_
 
+**Windows UI ライブラリを入手する**
+
+|  |  |
+| - | - |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | **NavigationView** コントロールは、Windows UI ライブラリの NuGet パッケージの一部として組み込まれており、パッケージには、UWP アプリの新しいコントロールと UI 機能が含まれています。 インストール手順などの詳細については、[Windows UI ライブラリの概要](https://docs.microsoft.com/uwp/toolkits/winui/)に関するページを参照してください。 |
+
 > **プラットフォーム API**: [Windows.UI.Xaml.Controls.NavigationView クラス](/uwp/api/windows.ui.xaml.controls.navigationview)
 >
 > **Windows UI ライブラリ API**: [Microsoft.UI.Xaml.Controls.NavigationView クラス](/uwp/api/microsoft.ui.xaml.controls.navigationview)
 >
 > _上部_のナビゲーションなどの NavigationView の一部の機能には、Windows 10 バージョン 1809 ([SDK 17763 ](https://developer.microsoft.com/windows/downloads/windows-10-sdk)) 以降、または [Windows UI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)が必要です。
 
-## <a name="is-this-the-right-control"></a>適切なコントロールの選択
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 NavigationView は次の場合に役に立つアダプティブ ナビゲーション コントロールです。
 
@@ -46,7 +52,7 @@ NavigationView は次の場合に役に立つアダプティブ ナビゲーシ�
 <table>
 <th align="left">XAML コントロール ギャラリー<th>
 <tr>
-<td><img src="images/XAML-controls-gallery-app-icon.png" alt="XAML controls gallery" width="168"></img></td>
+<td><img src="images/XAML-controls-gallery-app-icon-sm.png" alt="XAML controls gallery" width="168"></img></td>
 <td>
     <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合、こちらをクリックして<a href="xamlcontrolsgallery:/item/NavigationView">アプリを開き、NavigationView の動作を確認</a>してください。</p>
     <ul>
@@ -65,7 +71,7 @@ PaneDisplayMode プロパティを使用すれば、NavigationView でさまざ�
 
 :::row:::
     :::column:::
-    ### <a name="top"></a>Top
+    ### <a name="top"></a>上
     ウィンドウはコンテンツの上に配置されます。</br>
     `PaneDisplayMode="Top"`
     :::column-end:::
@@ -83,7 +89,7 @@ PaneDisplayMode プロパティを使用すれば、NavigationView でさまざ�
 
 :::row:::
     :::column:::
-    ### <a name="left"></a>Left
+    ### <a name="left"></a>左
     ウィンドウはコンテンツの左側に展開および配置されます。</br>
     `PaneDisplayMode="Left"`
     :::column-end:::
@@ -119,7 +125,7 @@ PaneDisplayMode プロパティを使用すれば、NavigationView でさまざ�
     :::column-end:::
 :::row-end:::
 
-### <a name="auto"></a>Auto
+### <a name="auto"></a>自動
 
 既定では、PaneDisplayMode は Auto に設定されます。自動モードでは、ナビゲーション ビューは、ウィンドウが狭いときは LeftMinimal または LeftCompact となり、ウィンドウが広くなると Left に切り替わります。 詳細については、「[アダプティブ動作](#adaptive-behavior)」セクションを参照してください。
 
@@ -250,7 +256,7 @@ NavigationView が**Minimal** モードの場合はコンテンツ領域に 12 �
 
 既定では、ナビゲーション ビューは、利用可能な画面領域の大きさに基づいて自動的に表示モードが変わります。 [CompactModeThresholdWidth](/uwp/api/windows.ui.xaml.controls.navigationview.compactmodethresholdwidth) プロパティおよび [ExpandedModeThresholdWidth](/uwp/api/windows.ui.xaml.controls.navigationview.expandedmodethresholdwidth) プロパティでは、表示モードが変更されるブレークポイントが指定されます。 これらの値を変更することで、アダプティブ表示モードの動作をカスタマイズできます。
 
-### <a name="default"></a>Default
+### <a name="default"></a>既定
 
 PaneDisplayMode を既定値である **Auto** に設定すると、アダプティブ動作は次のようになります。
 
@@ -356,7 +362,7 @@ _PaneDisplayMode が LeftMinimal に設定されたナビゲーション ビュ�
 > [!TIP]
 > AdaptiveTrigger.MinWindowWidth を使用すると、ウィンドウの幅が指定された最小幅よりも広くなったときに表示状態がトリガーされます。 つまり、既定の XAML によって狭いウィンドウが定義され、VisualState によってウィンドウが広くなったときに適用する変更が定義されます。 ナビゲーション ビューの既定の PaneDisplayMode は Auto です。したがって、ウィンドウの幅が CompactModeThresholdWidth 以下である場合は、LeftMinimal ナビゲーションが使用されます。 ウィンドウが広くなると、VisualState によって既定値がオーバーライドされ、Top ナビゲーションが使用されます。
 
-## <a name="navigation"></a>ナビゲーション
+## <a name="navigation"></a>［ナビゲーション］
 
 ナビゲーション ビューではナビゲーション タスクは自動的に実行されません。 ユーザーがナビゲーション項目をタップすると、ナビゲーション ビューではその項目が選択済みとして表示され、[ItemInvoked](/uwp/api/windows.ui.xaml.controls.navigationview.ItemInvoked) イベントが発生します。 タップによって新しい項目が選択されると、[SelectionChanged](/uwp/api/windows.ui.xaml.controls.navigationview.SelectionChanged) イベントも発生します。
 
@@ -379,12 +385,12 @@ Minimal モードまたは Compact モードでは、ナビゲーション ビ�
 
 :::row:::
     :::column:::
-        ![Navigation view back button in the left navigation pane](images/leftnav-back.png)<br/>
-        _The back button in the left navigation pane_
+        ![左側のナビゲーション ウィンドウのナビゲーション ビューの [戻る] ボタン](images/leftnav-back.png)<br/>
+        _左側のナビゲーション ウィンドウの [戻る] ボタン_
     :::column-end:::
     :::column:::
-        ![Navigation view back button in the top navigation pane](images/topnav-back.png)<br/>
-        _The back button in the top navigation pane_
+        ![上部ナビゲーション ウィンドウのナビゲーション ビューの [戻る] ボタン](images/topnav-back.png)<br/>
+        _上部ナビゲーション ウィンドウの [戻る] ボタン_
     :::column-end:::
 :::row-end:::
 
@@ -658,9 +664,9 @@ void MainPage::NavView_ItemInvoked(Windows::Foundation::IInspectable const & /* 
 
 | 表示モード | テーマ リソース |
 | ------------ | -------------- |
-| Left | NavigationViewExpandedPaneBackground |
+| 左 | NavigationViewExpandedPaneBackground |
 | LeftCompact<br/>LeftMinimal | NavigationViewDefaultPaneBackground |
-| Top | NavigationViewTopPaneBackground |
+| 上 | NavigationViewTopPaneBackground |
 
 この例では、App.xaml 内でテーマ リソースをオーバーライドする方法を示します。 テーマ リソースをオーバーライドする場合、最低でも "Default" および "HighContrast" のリソース辞書は常に指定し、"Light" または "Dark" リソース用の辞書は必要に応じて指定します。 詳細については、[ResourceDictionary.ThemeDictionaries](/uwp/api/windows.ui.xaml.resourcedictionary.themedictionaries) に関するページを参照してください。
 
@@ -722,7 +728,7 @@ void MainPage::NavView_ItemInvoked(Windows::Foundation::IInspectable const & /* 
 <muxc:NavigationView x:Name="NavView" IsTitleBarAutoPaddingEnabled="False">
 ```
 
-#### <a name="remarks"></a>注釈
+#### <a name="remarks"></a>コメント
 NavigationView のヘッダー領域の位置をさらに調整するには、Page リソース内などの *NavigationViewHeaderMargin* XAML テーマ リソースをオーバーライドします。
 
 ```Xaml

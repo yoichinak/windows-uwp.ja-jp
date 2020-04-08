@@ -11,12 +11,12 @@ pm-contact: predavid
 design-contact: kimsea
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 0821ebaa300d6641cf4efe8f96f1ae8878877a88
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: 35613366078531a9e342df0b4314d049fde844e9
+ms.sourcegitcommit: af4050f69168c15b0afaaa8eea66a5ee38b88fed
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74258139"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80081571"
 ---
 # <a name="semantic-zoom"></a>セマンティック ズーム
 
@@ -37,7 +37,7 @@ ms.locfileid: "74258139"
 -   グループ ヘッダーをタップするとビューが切り替わります。 ピンチしてビューを切り替える方法を有効にできます。
 -   アクティブなヘッダーによりビューが切り替わります。
 
-## <a name="is-this-the-right-control"></a>適切なコントロールの選択
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 **SemanticZoom** コントロールは、グループ化されたデータ セットを表示する際、データが大きすぎて 1 ページや 2 ページでは表示しきれない場合に使用します。
 
@@ -48,7 +48,7 @@ ms.locfileid: "74258139"
 <table>
 <th align="left">XAML コントロール ギャラリー<th>
 <tr>
-<td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td><img src="images/xaml-controls-gallery-app-icon-sm.png" alt="XAML controls gallery"></img></td>
 <td>
     <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合、こちらをクリックして<a href="xamlcontrolsgallery:/item/SemanticZoom">アプリを開き、SemanticZoom の動作を確認</a>してください。</p>
     <ul>
@@ -73,7 +73,7 @@ ms.locfileid: "74258139"
 
 ## <a name="create-a-semantic-zoom"></a>セマンティック ズームの作成
 
-**SemanticZoom**コントロールには、独自の視覚的表現はありません。 SemanticZoom は、コンテンツを表示する 2 つのコントロール (通常は **ListView** コントロールと **GridView** コントロール) 間の切り替えを管理する、ホスト コントロールです。  開発者は、これらのビュー コントロールを SemanticZoom の [ZoomedInView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.semanticzoom.zoomedinview) プロパティと [ZoomedOutView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.semanticzoom.zoomedoutview) プロパティに設定します。
+**SemanticZoom** コントロールには、独自の視覚的表現はありません。 SemanticZoom は、コンテンツを表示する 2 つのコントロール (通常は **ListView** コントロールと **GridView** コントロール) 間の切り替えを管理する、ホスト コントロールです。  開発者は、これらのビュー コントロールを SemanticZoom の [ZoomedInView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.semanticzoom.zoomedinview) プロパティと [ZoomedOutView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.semanticzoom.zoomedoutview) プロパティに設定します。
 
 セマンティック ズームに必要な 3 つの要素は次のとおりです。
 - グループ化されたデータ ソース。 (グループは、拡大表示されたビューの GroupStyle 定義によって定義されます。)
@@ -193,7 +193,7 @@ private void SemanticZoom_ViewChangeStarted(object sender, SemanticZoomViewChang
 -   グループ化せずに並べ替えたコレクションには並べ替え順序を使います (日付の場合は時系列順、名前の一覧の場合はアルファベット順など)。
 
 
-## <a name="get-the-sample-code"></a>サンプル コードを入手する
+## <a name="get-the-sample-code"></a>サンプル コードの入手
 
 - [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - インタラクティブな形で XAML コントロールのすべてを参照できます。
 
@@ -202,7 +202,7 @@ private void SemanticZoom_ViewChangeStarted(object sender, SemanticZoomViewChang
 
 - [ナビゲーション デザインの基本](../basics/navigation-basics.md)
 - [リスト ビューとグリッド ビュー](listview-and-gridview.md)
-- [項目コンテナーとテンプレート](item-containers-templates.md)
+- [項目コンテナーやテンプレート](item-containers-templates.md)
 
 
 

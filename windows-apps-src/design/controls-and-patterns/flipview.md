@@ -11,23 +11,26 @@ pm-contact: predavid
 design-contact: kimsea
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: ff6031878b9189ca3794e2a9c68c85b76e5d21a7
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: ef17fdc69f7a9f25831c5c17419768ff32874f80
+ms.sourcegitcommit: af4050f69168c15b0afaaa8eea66a5ee38b88fed
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74257442"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80080943"
 ---
 # <a name="flip-view"></a>フリップ ビュー
 
- 
-
 コレクション内の画像やその他の項目 (アルバムの写真や製品の詳細ページの項目など) を一度に 1 つずつ表示するには、フリップ ビュー コントロールを使います。 タッチ デバイスでは、項目をスワイプしてコレクション内を移動します。 マウスでは、マウスをホバーするとナビゲーション ボタンが表示されます。 キーボードでは、方向キーを使ってコレクション内を移動します。
 
-> **重要な API**:[FlipView クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.flipview)、[ItemsSource プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemssource)、[ItemTemplate プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemtemplate)
+**Windows UI ライブラリを入手する**
 
+|  |  |
+| - | - |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | Windows UI ライブラリ 2.2 以降には、丸めた角を使用するこのコントロールの新しいテンプレートが含まれます。 詳しくは、「[角の半径](/windows/uwp/design/style/rounded-corner)」をご覧ください。 WinUI は、UWP アプリの新しいコントロールと UI 機能が含まれる NuGet パッケージです。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
 
-## <a name="is-this-the-right-control"></a>適切なコントロールの選択
+> **プラットフォーム API:** [FlipView クラス](/uwp/api/windows.ui.xaml.controls.flipview)、[ItemsSource プロパティ](/uwp/api/windows.ui.xaml.controls.itemscontrol.itemssource)、[ItemTemplate プロパティ](/uwp/api/windows.ui.xaml.controls.itemscontrol.itemtemplate)
+
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 フリップ ビューは、小規模から中規模のコレクション (最大で 25 個程度の項目を含むコレクション) の画像を参照する場合に最適です。 このようなコレクションの例として、製品の詳細ページ内の項目やフォト アルバム内の写真などがあります。 多くの場合、大規模なコレクションで FlipView を使うことはお勧めしませんが、このコントロールは、フォト アルバム内の個々の画像を表示するためによく使われます。
 
@@ -36,7 +39,7 @@ ms.locfileid: "74257442"
 <table>
 <th align="left">XAML コントロール ギャラリー<th>
 <tr>
-<td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td><img src="images/xaml-controls-gallery-app-icon-sm.png" alt="XAML controls gallery"></img></td>
 <td>
     <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合、こちらをクリックして<a href="xamlcontrolsgallery:/item/FlipView">アプリを開き、FlipView の動作を確認</a>してください。</p>
     <ul>
@@ -130,7 +133,7 @@ ItemsSource が `itemsViewSource` という名前の [**CollectionViewSource**](
 
 ### <a name="specify-the-look-of-the-items"></a>項目の表示方法の指定
 
-既定では、データ項目は、バインドされているデータ オブジェクトの文字列表現としてフリップ ビューに表示されます。 通常は、リッチな表現でデータを表示する必要があります。 フリップ ビューでの項目の表示方法を正確に指定するには、[**DataTemplate**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.DataTemplate) を作成します。 DataTemplate の XAML では、個々の項目を表示するために使うコントロールのレイアウトと外観を定義します。 レイアウト内のコントロールは、データ オブジェクトのプロパティにバインドすることも、インラインでコンテンツを定義することもできます。 DataTemplate は、FlipView の [**ItemTemplate**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemtemplate) プロパティに割り当てます。
+既定では、データ項目は、バインドされているデータ オブジェクトの文字列表現としてフリップ ビューに表示されます。 通常は、よりリッチな表現でデータを表示する必要があります。 フリップ ビューでの項目の表示方法を正確に指定するには、[**DataTemplate**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.DataTemplate) を作成します。 DataTemplate の XAML では、個々の項目を表示するために使うコントロールのレイアウトと外観を定義します。 レイアウト内のコントロールは、データ オブジェクトのプロパティにバインドすることも、インラインでコンテンツを定義することもできます。 DataTemplate は、FlipView の [**ItemTemplate**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemtemplate) プロパティに割り当てます。
 
 この例では、FlipView の ItemTemplate がインラインで定義されています。 画像名を表示するためにオーバーレイが画像に追加されます。 
 
@@ -225,7 +228,7 @@ ItemsSource が `itemsViewSource` という名前の [**CollectionViewSource**](
 
 </table>
 
-## <a name="get-the-sample-code"></a>サンプル コードを入手する
+## <a name="get-the-sample-code"></a>サンプル コードの入手
 
 - [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - インタラクティブな形で XAML コントロールのすべてを参照できます。
 

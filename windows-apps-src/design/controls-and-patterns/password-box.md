@@ -12,35 +12,39 @@ pm-contact: miguelrb
 design-contact: ksulliv
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: dfa010d3e50208df31dad9d838486e72f38787c2
-ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
+ms.openlocfilehash: ecc4dbebcee5e99d78f8523cf78c9dbd5a20b334
+ms.sourcegitcommit: af4050f69168c15b0afaaa8eea66a5ee38b88fed
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71340243"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80081657"
 ---
 # <a name="password-box"></a>パスワード ボックス
 
- 
-
 パスワード ボックスは、プライバシーの目的で入力文字が非表示になるテキスト入力ボックスです。 パスワード ボックスは、入力されたテキストの代わりに代替文字が表示される点を除けば、テキスト ボックスに似ています。 この代替文字は、構成できます。
-
-> **重要な API**:[PasswordBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.PasswordBox)、[Password プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.passwordbox.password)、[PasswordChar プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.passwordbox.passwordchar)、[PasswordRevealMode プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.passwordbox.passwordrevealmode)、[PasswordChanged イベント](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.passwordbox.passwordchanged)
 
 既定では、ユーザーは表示ボタンを押すことによってパスワード ボックスでパスワードを表示できます。 表示ボタンを無効にしたり、別の方法でパスワードを表示できるようにしたりすることもできます (チェック ボックスなど)。
 
-## <a name="is-this-the-right-control"></a>適切なコントロールの選択
+**Windows UI ライブラリを入手する**
 
-**PasswordBox** コントロールを使用して、パスワードや、社会保障番号などの機密データを収集できます。
+|  |  |
+| - | - |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | Windows UI ライブラリ 2.2 以降には、丸めた角を使用するこのコントロールの新しいテンプレートが含まれます。 詳しくは、「[角の半径](/windows/uwp/design/style/rounded-corner)」をご覧ください。 WinUI は、UWP アプリの新しいコントロールと UI 機能が含まれる NuGet パッケージです。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
 
-適切なテキスト コントロールの選択について詳しくは、「[テキスト コントロール](text-controls.md)」をご覧ください。
+> **プラットフォーム API**: [PasswordBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.PasswordBox)、[Password プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.passwordbox.password)、[PasswordChar プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.passwordbox.passwordchar)、[PasswordRevealMode プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.passwordbox.passwordrevealmode)、[PasswordChanged イベント](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.passwordbox.passwordchanged)
+
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
+
+**PasswordBox** コントロールを使用して、パスワードや、社会保障番号などのプライベート データを収集できます。
+
+適切なテキスト コントロールの選択の詳細については、「[テキスト コントロール](text-controls.md)」の記事をご覧ください。
 
 ## <a name="examples"></a>例
 
 <table>
 <th align="left">XAML コントロール ギャラリー<th>
 <tr>
-<td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td><img src="images/xaml-controls-gallery-app-icon-sm.png" alt="XAML controls gallery"></img></td>
 <td>
     <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合、こちらをクリックして<a href="xamlcontrolsgallery:/item/PasswordBox">アプリを開き、PasswordBox の動作を確認</a>してください。</p>
     <ul>
@@ -183,14 +187,14 @@ private void CheckBox_Changed(object sender, RoutedEventArgs e)
 
 ## <a name="recommendations"></a>推奨事項
 
--   パスワード ボックスの目的がわかりにくい場合は、ラベルまたはプレース ホルダー テキストを使用します。 ラベルは、テキスト入力ボックスに値が存在するかどうかに関係なく表示します。 プレースホルダー テキストはテキスト入力ボックスの内側に表示され、値を入力すると非表示になります。
+-   パスワード ボックスの目的がわかりにくい場合は、ラベルまたはプレース ホルダー テキストを使用します。 ラベルは、テキスト入力ボックスに値が存在するかどうかに関係なく表示されます。 プレースホルダー テキストはテキスト入力ボックスの内側に表示され、値を入力すると非表示になります。
 -   パスワード ボックスは、入力できる値の範囲に適した幅になるようにします。 単語の長さは言語によって異なるため、アプリを世界対応にする場合は、ローカライズを考慮に入れて幅を調整します。
 -   パスワード入力ボックスのすぐ横に、他のコントロールを配置しないようにします。 パスワード ボックスには、入力したパスワードをユーザーが確認するための、パスワード表示ボタンがあります。他のコントロールをすぐ横に配置すると、ユーザーが他のコントロールを操作しようとしたときに、誤ってパスワードが表示される可能性があります。 これを防ぐには、パスワード入力ボックスと他のコントロールの間には少し間隔をおくか、他のコントロールを次の行に配置します。
 -   アカウントの作成時は、新しいパスワードの入力用および新しいパスワードの確認用として、2 つのパスワード ボックスを提示することを検討します。
 -   ログイン時は 1 つのパスワード ボックスのみを表示します。
 -   PIN の入力にパスワード ボックスを使う場合は、確認ボタンを使う代わりに、最後の数値が入力されたらすぐに応答を返すことを検討します。
 
-## <a name="get-the-sample-code"></a>サンプル コードを入手する
+## <a name="get-the-sample-code"></a>サンプル コードの入手
 
 - [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - インタラクティブな形で XAML コントロールのすべてを参照できます。
 

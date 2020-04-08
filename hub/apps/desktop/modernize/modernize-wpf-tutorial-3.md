@@ -1,5 +1,5 @@
 ---
-description: このチュートリアルでは、UWP XAML ユーザーインターフェイスを追加する方法、MSIX パッケージを作成する方法、およびその他の最新のコンポーネントを WPF アプリに組み込む方法について説明します。
+description: このチュートリアルでは、UWP XAML ユーザー インターフェイスを追加し、MSIX パッケージを作成し、さらに他の最新のコンポーネントを WPF アプリに組み込む方法について説明します。
 title: XAML Islands を使用した UWP CalendarView コントロールの追加
 ms.topic: article
 ms.date: 06/27/2019
@@ -10,41 +10,41 @@ ms.localizationpriority: medium
 ms.custom: RS5, 19H1
 ms.openlocfilehash: 830c1cdf2e24e716d51642bc65b5b6783d0d784a
 ms.sourcegitcommit: 6bb794c6e309ba543de6583d96627fbf1c177bef
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 08/20/2019
 ms.locfileid: "69643373"
 ---
-# <a name="part-3-add-a-uwp-calendarview-control-using-xaml-islands"></a>第 3 部:XAML Islands を使用した UWP CalendarView コントロールの追加
+# <a name="part-3-add-a-uwp-calendarview-control-using-xaml-islands"></a>パート 3: XAML Islands を使用した UWP CalendarView コントロールの追加
 
-これは、Contoso の支出という名前の WPF デスクトップアプリのサンプルを最新化する方法を示すチュートリアルの3番目の部分です。 サンプルアプリをダウンロードするためのチュートリアル、前提条件、および手順の概要につい[ては、「チュートリアル:WPF アプリ](modernize-wpf-tutorial.md)を最新化します。 この記事では、[パート 2](modernize-wpf-tutorial-2.md)を既に完了していることを前提としています。
+これは、Contoso Expenses という名前のサンプル WPF デスクトップ アプリを現代化する方法を示すチュートリアルの 3 番目の部分です。 チュートリアルの概要、前提条件、サンプル アプリをダウンロードするための手順については、「[チュートリアル: WPF アプリの現代化](modernize-wpf-tutorial.md)」を参照してください。 この記事では、読者が[パート 2](modernize-wpf-tutorial-2.md) を既に完了していることを前提にしています。
 
-このチュートリアルの架空のシナリオでは、Contoso 開発チームは、タッチ対応デバイスで経費報告書の日付を簡単に選択できるようにしたいと考えています。 チュートリアルのこの部分では、UWP [CalendarView](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/calendar-view)コントロールをアプリに追加します。 これは、タスクバーの Windows 10 の日付と時刻の機能で使用されるコントロールと同じです。
+このチュートリアルの架空のシナリオでは、Contoso 開発チームは、タッチ対応デバイスで経費報告書の日付を簡単に選択できるようにしたいと考えています。 チュートリアルのこの部分では、アプリに UWP [CalendarView](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/calendar-view) コントロールを追加します。 これは、タスク バーにある Windows 10 の日付と時刻の機能で使用されるものと同じコントロールです。
 
-![CalendarViewControl イメージ](images/wpf-modernize-tutorial/CalendarViewControl.png)
+![CalendarViewControl の画像](images/wpf-modernize-tutorial/CalendarViewControl.png)
 
-[パート 2](modernize-wpf-tutorial-2.md)で追加した**system.windows.controls.inkcanvas>** コントロールとは異なり、Windows Community TOOLKIT には、WPF アプリで使用できる UWP **CalendarView**のラップされたバージョンが用意されていません。 別の方法として、汎用[Windowsxamlhost](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost)コントロールで**system.windows.controls.inkcanvas>** をホストします。 このコントロールを使用して、Windows SDK または WinUI ライブラリ、またはサードパーティによって作成された任意のカスタム UWP コントロールによって提供されるファーストパーティ UWP コントロールをホストできます。 **Windowsxamlhost**コントロールは、 `Microsoft.Toolkit.Wpf.UI.XamlHost`パッケージ NuGet パッケージによって提供されます。 このパッケージは、 `Microsoft.Toolkit.Wpf.UI.Controls` [パート 2](modernize-wpf-tutorial-2.md)でインストールした NuGet パッケージに含まれています。
+[パート 2](modernize-wpf-tutorial-2.md) で追加した **InkCanvas** コントロールとは異なり、Windows コミュニティ ツールキットには、WPF アプリで使用できる UWP **CalendarView** のラップされたバージョンが用意されていません。 別の方法として、汎用の [WindowsXamlHost](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) コントロールで **InkCanvas** をホストします。 このコントロールを使用すると、Windows SDK または WinUI ライブラリによって提供される任意のファーストパーティ UWP コントロールや、サードパーティによって作成された任意のカスタム UWP コントロールをホストできます。 **WindowsXamlHost** コントロールは、`Microsoft.Toolkit.Wpf.UI.XamlHost` NuGet パッケージによって提供されます。 このパッケージは、[パート 2](modernize-wpf-tutorial-2.md) でインストールした `Microsoft.Toolkit.Wpf.UI.Controls` NuGet パッケージに含まれています。
 
 > [!NOTE]
-> このチュートリアルでは、Windows SDK によって提供されるファーストパーティの **CalendarView** コントロールをホストするために [windowsxamlhost](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost)を使用する方法についてのみ説明します。 カスタムコントロールをホストする方法を示すチュートリアルについては、「[XAML Islands を使用した WPF アプリでのカスタム UWP コントロールのホスト](host-custom-control-with-xaml-islands.md)」を参照してください。
+> このチュートリアルでは、[WindowsXamlHost](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) を使用して、Windows SDK によって提供されるファーストパーティ **CalendarView** コントロールをホストする方法のみを示します。 カスタム コントロールをホストする方法を示すチュートリアルについては、[XAML Islands を使用した WPF アプリでのカスタム UWP コントロールのホスト](host-custom-control-with-xaml-islands.md)に関するページを参照してください。
 
-**Windowsxamlhost**コントロールを使用するには、WPF アプリのコードから WinRT api を直接呼び出す必要があります。 `Microsoft.Windows.SDK.Contracts` NuGet パッケージには、アプリから WinRT api を呼び出すことができるようにするために必要な参照が含まれています。 このパッケージは、 `Microsoft.Toolkit.Wpf.UI.Controls` [パート 2](modernize-wpf-tutorial-2.md)でインストールした NuGet パッケージにも含まれています。
+**WindowsXamlHost** コントロールを使用するには、WPF アプリのコードから直接 WinRT API を呼び出す必要があります。 `Microsoft.Windows.SDK.Contracts` NuGet パッケージには、アプリから WinRT API を呼び出せるようにするために必要な参照が含まれています。 このパッケージはまた、[パート 2](modernize-wpf-tutorial-2.md) でインストールした `Microsoft.Toolkit.Wpf.UI.Controls` NuGet パッケージにも含まれています。
 
 ## <a name="add-the-windowsxamlhost-control"></a>WindowsXamlHost コントロールを追加する
 
-1. **ソリューションエクスプローラー**で、 **ContosoExpenses**プロジェクトの**Views**フォルダーを展開し、 **addnewexpense .xaml**ファイルをダブルクリックします。 これは、一覧に新しい費用を追加するために使用されるフォームです。 現在のバージョンのアプリでの表示方法を次に示します。
+1. **ソリューション エクスプローラー**で、**ContosoExpenses.Core** プロジェクトの **Views** フォルダーを展開し、**AddNewExpense.xaml** ファイルをダブルクリックします。 これは、一覧に新しい経費を追加するために使用されるフォームです。 それが現在のバージョンのアプリでどのように表示されるかを次に示します。
 
-    ![新しい支出の追加](images/wpf-modernize-tutorial/AddNewExpense.png)
+    ![新しい経費を追加する](images/wpf-modernize-tutorial/AddNewExpense.png)
 
-    WPF に含まれる日付選択コントロールは、従来のコンピューターでマウスとキーボードを使用するためのものです。 コントロールのサイズが小さく、カレンダーの各日の間にスペースが制限されているため、タッチスクリーンで日付を選択することは実際には現実的ではありません。
+    WPF に含まれている日付の選択コントロールは、マウスとキーボードが接続された従来のコンピューターを対象としています。 コントロールのサイズが小さく、カレンダー内の各日の間の領域が制限されているため、タッチ スクリーンでの日付の選択は実際には不可能です。
 
-2. **Addnewexpense .xaml**ファイルの先頭で、次の属性を**Window**要素に追加します。
+2. **AddNewExpense.xaml** ファイルの先頭で、**Window** 要素に次の属性を追加します。
 
     ```xml
     xmlns:xamlhost="clr-namespace:Microsoft.Toolkit.Wpf.UI.XamlHost;assembly=Microsoft.Toolkit.Wpf.UI.XamlHost"
     ```
 
-    この属性を追加すると、**ウィンドウ**要素は次のようになります。
+    この属性を追加した後、**Window** 要素は次のようになります。
 
     ```xml
     <Window x:Class="ContosoExpenses.Views.AddNewExpense"
@@ -60,7 +60,7 @@ ms.locfileid: "69643373"
             Background="{StaticResource AddNewExpenseBackground}">
     ```
 
-3. **Window**要素の**Height**属性を450から800に変更します。 UWP **CalendarView**コントロールは、WPF の日付の選択よりも多くの領域を必要とするため、この操作が必要になります。
+3. **Window** 要素の **Height** 属性を 450 から 800 に変更します。 これは、UWP **CalendarView** コントロールには WPF の日付の選択より広い領域が要るために必要です。
 
     ```xml
     <Window x:Class="ContosoExpenses.Views.AddNewExpense"
@@ -76,38 +76,38 @@ ms.locfileid: "69643373"
             Background="{StaticResource AddNewExpenseBackground}">
     ```
 
-4. ファイルの末尾付近にある要素を見つけ、この要素を次のXAMLに置き換えます。`DatePicker`
+4. ファイルの最後の近くにある `DatePicker` 要素を見つけ、この要素を次の XAML に置き換えます。
 
     ```xml
     <xamlhost:WindowsXamlHost InitialTypeName="Windows.UI.Xaml.Controls.CalendarView" Grid.Column="1" Grid.Row="6" Margin="5, 0, 0, 0" x:Name="CalendarUwp"  />
     ```
 
-    この XAML は**Windowsxamlhost**コントロールを追加します。 **Initialtypename**プロパティは、ホストする UWP コントロールの完全な名前 (この例では、 **CalendarView**) を示しています。
+    この XAML が **WindowsXamlHost** コントロールを追加します。 **InitialTypeName** プロパティは、ホストする UWP コントロールのフルネーム (この場合は、**Windows.UI.Xaml.Controls.CalendarView**) を示します。
 
-5. F5 キーを押して、デバッガーでアプリをビルドして実行します。 一覧から従業員を選択し、 **[新しい経費の追加]** ボタンを押します。 次のページが新しい UWP **CalendarView**コントロールをホストしていることを確認します。
+5. デバッガーで F5 キーを押して、アプリをビルドして実行します。 一覧から従業員を選択した後、 **[Add new expense] (新しい経費の追加)** ボタンを押します。 次のページに新しい UWP **CalendarView** コントロールがホストされていることを確認します。
 
     ![CalendarView ラッパー](images/wpf-modernize-tutorial/CalendarViewWrapper.png)
 
 6. アプリを閉じます。
 
-## <a name="interact-with-the-windowsxamlhost-control"></a>WindowsXamlHost コントロールとの対話
+## <a name="interact-with-the-windowsxamlhost-control"></a>WindowsXamlHost コントロールを操作する
 
-次に、選択した日付を処理して画面に表示し、**経費**オブジェクトを設定してデータベースに保存するようにアプリを更新します。
+次に、選択された日付を処理するようにアプリを更新し、それを画面に表示してから、データベースに保存する **Expense** オブジェクトを設定します。
 
-UWP [CalendarView](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CalendarView)には、このシナリオに関連する2つのメンバーが含まれています。
+UWP [CalendarView](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CalendarView) には、このシナリオに関連する次の 2 つのメンバーが含まれています。
 
-- **SelectedDates**プロパティには、ユーザーが選択した日付が格納されます。
-- **Selectedchanged changed**イベントは、ユーザーが日付を選択したときに発生します。
+- **SelectedDates** プロパティには、ユーザーによって選択された日付が含まれます。
+- **SelectedDatesChanged** イベントは、ユーザーが日付を選択したときに生成されます。
 
-ただし、 **Windowsxamlhost**コントロールは、*任意*の種類の UWP コントロールの汎用ホストコントロールです。 そのため、 **SelectedDates**という名前のプロパティや selected という名前のイベントは、 **CalendarView**コントロールに固有であるため、公開**さ**れません。 これらのメンバーにアクセスするには、 **Windowsxamlhost**を**CalendarView**型にキャストするコードを記述する必要があります。 これを行うには、 **Windowsxamlhost**コントロールの**childchanged**イベントに応答します。これは、ホストされているコントロールがレンダリングされたときに発生します。
+ただし、**WindowsXamlHost** コントロールは、*任意の*種類の UWP コントロールのための汎用のホスト コントロールです。 そのため、**SelectedDates** という名前のプロパティまたは **SelectedDatesChanged** という名前のイベントは、**CalendarView** コントロールに固有であるため公開されません。 これらのメンバーにアクセスするには、**WindowsXamlHost** 型を **CalendarView** 型にキャストするコードを記述する必要があります。 これを行うための最適な場所は、ホストされているコントロールがレンダリングされたときに生成される **WindowsXamlHost** コントロールの **ChildChanged** イベントへの応答です。
 
-1. **Addnewexpense .xaml**ファイルで、前に追加した**windowsxamlhost**コントロールの**childchanged**イベントのイベントハンドラーを追加します。 完了すると、 **Windowsxamlhost**要素は次のようになります。
+1. **AddNewExpense.xaml** ファイルで、前に追加した **WindowsXamlHost** コントロールの **ChildChanged** イベントのイベント ハンドラーを追加します。 完了すると、**WindowsXamlHost** 要素は次のようになります。
 
     ```xml
     <xamlhost:WindowsXamlHost InitialTypeName="Windows.UI.Xaml.Controls.CalendarView" Grid.Column="1" Grid.Row="6" Margin="5, 0, 0, 0" x:Name="CalendarUwp"  ChildChanged="CalendarUwp_ChildChanged" />
     ```
 
-2. 同じファイルで、メイン**グリッド**の **[rowdefinitions]** 要素を見つけます。 子要素のリストの末尾に、**高さ**が**Auto**に等しい**rowdefinition**要素をもう1つ追加します。 完了すると、 **RowDefinitions**要素は次のようになります (9 つの**rowdefinitions**要素があるはずです)。
+2. 同じファイルで、メイン **Grid** の **Grid.RowDefinitions** 要素を見つけます。 子要素の一覧の最後に **Height** が **Auto** に等しい **RowDefinition** 要素をもう 1 つ追加します。 完了すると、**Grid.RowDefinitions** 要素は次のようになります (**RowDefinition** 要素が 9 つになっています)。
 
     ```xml
     <Grid.RowDefinitions>
@@ -123,20 +123,20 @@ UWP [CalendarView](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.C
     </Grid.RowDefinitions>
     ```
 
-4. **Windowsxamlhost**要素の後、ファイルの末尾付近にある**Button**要素の前に、次の XAML を追加します。
+4. ファイルの最後の近くにある **WindowsXamlHost** 要素の後でかつ **Button** 要素の前に次の XAML を追加します。
 
     ```xml
     <TextBlock Text="Selected date:" FontSize="16" FontWeight="Bold" Grid.Row="7" Grid.Column="0" />
     <TextBlock Text="{Binding Path=Date}" FontSize="16" Grid.Row="7" Grid.Column="1" />
     ```
 
-5. ファイルの末尾付近にある**Button**要素を探し、 **Grid**プロパティを**7**から**8**に変更します。 これにより、新しい行が追加されたため、グリッド内の1行下にボタンが移動します。
+5. ファイルの最後の近くにある **Button** 要素を見つけ、**Grid.Row** プロパティを **7** から **8** に変更します。 新しい行を追加したため、これによりグリッド内でボタンが 1 行下にシフトされます。
 
     ```xml
     <Button Content="Save" Grid.Row="8" Grid.Column="0" Command="{Binding Path=SaveExpenseCommand}" Margin="5, 12, 0, 0" HorizontalAlignment="Left" Width="180" />
     ```
 
-6. **AddNewExpense.xaml.cs**コードファイルを開きます。
+6. **AddNewExpense.xaml.cs** コード ファイルを開きます。
 
 7. ファイルの先頭に次のステートメントを追加します。
 
@@ -144,7 +144,7 @@ UWP [CalendarView](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.C
     using Microsoft.Toolkit.Wpf.UI.XamlHost;
     ```
 
-8. 次のイベント ハンドラーを `AddNewExpense` クラスに追加します。 このコードは、XAML ファイルで前に宣言した**Windowsxamlhost**コントロールの**childchanged**イベントを実装します。
+8. `AddNewExpense` クラスに次のイベント ハンドラーを追加します。 このコードは、XAML ファイル内で前に宣言した **WindowsXamlHost** コントロールの **ChildChanged** イベントを実装します。
 
     ```csharp
     private void CalendarUwp_ChildChanged(object sender, System.EventArgs e)
@@ -167,13 +167,13 @@ UWP [CalendarView](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.C
     }
     ```
 
-    このコードでは、 **Windowsxamlhost**コントロールの**子**プロパティを使用して UWP **CalendarView**コントロールにアクセスします。 次に、このコードは、ユーザーがカレンダーから日付を選択したときにトリガーされる**Selectedchanged changed**イベントをサブスクライブします。 このイベントハンドラーは、新しい**経費**オブジェクトが作成されてデータベースに保存される、選択された日付をビューモデルに渡します。 これを行うために、このコードでは、MVVM Light NuGet パッケージによって提供されるメッセージングインフラストラクチャを使用します。 このコードは、 **SelectedDateMessage**という名前のメッセージをビューモデルに送信し、そのメッセージを受信して、選択された値で**日付**プロパティを設定します。 このシナリオでは、 **CalendarView**コントロールは単一選択モード用に構成されているため、コレクションに含まれる要素は1つだけになります。
+    このコードでは、**WindowsXamlHost** コントロールの **Child** プロパティを使用して UWP **CalendarView** コントロールにアクセスします。 このコードは次に、ユーザーがカレンダーから日付を選択したときにトリガーされる **SelectedDatesChanged** イベントをサブスクライブします。 このイベント ハンドラーは、選択された日付を ViewModel に渡します。そこで新しい **Expense** オブジェクトが作成され、データベースに保存されます。 これを行うために、このコードでは、MVVM Light NuGet パッケージによって提供されるメッセージング インフラストラクチャを使用します。 このコードが **SelectedDateMessage** という名前のメッセージを ViewModel に送信すると、ViewModel がそれを受信し、**Date** プロパティを選択された値に設定します。 このシナリオでは、**CalendarView** コントロールは単一選択モードで構成されているため、コレクションには 1 つの要素しか含まれません。
 
-    この時点では、 **SelectedDateMessage**クラスの実装がないため、プロジェクトはコンパイルされません。 次の手順では、このクラスを実装します。
+    この時点では、**SelectedDateMessage** クラスの実装がないため、プロジェクトはまだコンパイルされません。 このクラスは、次の手順で実装されます。
 
-9. **ソリューションエクスプローラー**で、 **Messages**フォルダーを右クリックし、 **[> クラス]** を選択します。 新しいクラスに**SelectedDateMessage**という名前を指定し、 **[追加]** をクリックします。
+9. **ソリューション エクスプローラー**で、**Messages** フォルダーを右クリックし、 **[追加] -> [クラス]** の順に選択します。 新しいクラスに **SelectedDateMessage** という名前を付け、 **[追加]** をクリックします。
 
-10. **SelectedDateMessage.cs**コードファイルの内容を次のコードに置き換えます。 このコードは、(MVVM Light NuGet `GalaSoft.MvvmLight.Messaging`パッケージからの) 名前空間の using ステートメントを追加し、 **messagebase**クラスから継承して、パブリックコンストラクターを通じて初期化される**DateTime**プロパティを追加します。 完了すると、ファイルは次のようになります。
+10. **SelectedDateMessage.cs** コード ファイルの内容を次のコードに置き換えます。 このコードは、`GalaSoft.MvvmLight.Messaging` 名前空間の using ステートメントを (MVVM Light NuGet パッケージから) 追加し、**MessageBase** クラスから継承し、パブリック コンストラクター経由で初期化される **DateTime** プロパティを追加します。 完了すると、ファイルは次のようになります。
 
     ```csharp
     using GalaSoft.MvvmLight.Messaging;
@@ -193,9 +193,9 @@ UWP [CalendarView](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.C
     }
     ```
 
-11. 次に、このメッセージを受信して、ビューモデルの**Date**プロパティを設定するように、モデルビューを更新します。 **ソリューションエクスプローラー**で、 **viewmodel**フォルダーを展開し、 **AddNewExpenseViewModel.cs**ファイルを開きます。
+11. 次に、このメッセージを受信するように ViewModel を更新し、ViewModel の **Date** プロパティを設定します。 **ソリューション エクスプローラー**で、**ViewModels** フォルダーを展開し、**AddNewExpenseViewModel.cs** ファイルを開きます。
 
-12. `AddNewExpenseViewModel`クラスのパブリックコンストラクターを探し、次のコードをコンストラクターの末尾に追加します。 このコードは、 **SelectedDateMessage**を受信するように登録し、 **SelectedDate**プロパティを使用して選択した日付を抽出し、それを使用して、ビューモデルによって公開される**日付**プロパティを設定します。 このプロパティは、前に追加した**TextBlock**コントロールにバインドされているため、ユーザーが選択した日付を確認できます。
+12. `AddNewExpenseViewModel` クラスのパブリック コンストラクターを見つけ、そのコンストラクターの最後に次のコードを追加します。 このコードは、**SelectedDateMessage** を受信するように登録し、選択された日付を **SelectedDate** プロパティ経由でそこから抽出します。それを使用して、ViewModel によって公開される **Date** プロパティを設定します。 このプロパティは、前に追加した **TextBlock** コントロールにバインドされているため、ユーザーによって選択された日付を確認できます。
 
     ```csharp
     Messenger.Default.Register<SelectedDateMessage>(this, message =>
@@ -204,7 +204,7 @@ UWP [CalendarView](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.C
     });
     ```
 
-    完了すると、コンストラクターは`AddNewExpenseViewModel`次のようになります。 
+    完了すると、`AddNewExpenseViewModel` コンストラクターは次のようになります。 
 
     ```csharp
     public AddNewExpenseViewModel(IDatabaseService databaseService, IStorageService storageService)
@@ -222,14 +222,14 @@ UWP [CalendarView](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.C
     ```
 
     > [!NOTE]
-    > 同じコードファイル内のメソッドは、経費をデータベースに保存する作業を行います。`SaveExpenseCommand` このメソッドは、 **Date**プロパティを使用して新しい**経費**オブジェクトを作成します。 このプロパティは、作成したメッセージに`SelectedDateMessage`よって CalendarView コントロールによって設定されるようになりました。
+    > 同じコード ファイル内の `SaveExpenseCommand` メソッドは、経費をデータベースに保存する作業を行います。 このメソッドでは、**Date** プロパティを使用して、新しい **Expense** オブジェクトを作成します。 このプロパティは、今作成した `SelectedDateMessage` メッセージ経由で **CalendarView** コントロールによって設定されるようになります。
 
-13. F5 キーを押して、デバッガーでアプリをビルドして実行します。 利用可能な従業員の1つを選択し、 **[新しい費用の追加]** ボタンをクリックします。 フォーム内のすべてのフィールドを入力し、新しい**CalendarView**コントロールから日付を選択します。 選択した日付が、コントロールの下に文字列として表示されていることを確認します。
+13. デバッガーで F5 キーを押して、アプリをビルドして実行します。 選択可能な従業員のいずれかを選択し、 **[Add new expense] (新しい経費の追加)** ボタンをクリックします。 フォームのすべてのフィールドに入力し、新しい **CalendarView** コントロールから日付を選択します。 選択した日付がそのコントロールの下に文字列として表示されることを確認します。
 
-14. **[保存]** ボタンを押します。 フォームが閉じられ、新しい経費が経費の一覧の最後に追加されます。 支出日を含む最初の列は、 **CalendarView**コントロールで選択した日付にする必要があります。
+14. **[保存]** ボタンを押します。 フォームが閉じられ、新しい経費が経費の一覧の最後に追加されます。 経費の日付のある最初の列が **CalendarView** コントロールで選択した日付になっています。
 
 ## <a name="next-steps"></a>次の手順
 
-このチュートリアルのこの時点で、WPF の日付と時刻の制御は、マウスやキーボードの入力に加えてタッチおよびデジタルペンをサポートする UWP **CalendarView**コントロールに置き換えられました。 Windows Community Toolkit には、WPF アプリで直接使用できる UWP **CalendarView**コントロールのラップされたバージョンが用意されていませんが、汎用[windowsxamlhost](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost)コントロールを使用してコントロールをホストすることができました。
+チュートリアルのこの時点で、WPF の日付と時刻コントロールが、マウスとキーボードの入力に加えてタッチとデジタル ペンをサポートする UWP **CalendarView** コントロールに正常に置き換えられました。 Windows コミュニティ ツールキットには、WPF アプリで直接使用できる UWP **CalendarView** コントロールのラップされたバージョンが用意されていませんが、汎用の [WindowsXamlHost](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) コントロールを使用してそのコントロールをホストすることができました。
 
-これで、パート 4 [の準備ができました。Windows 10 のユーザーアクティビティと通知](modernize-wpf-tutorial-4.md)を追加します。
+これで、「[パート 4: Windows 10 ユーザー アクティビティと通知の追加](modernize-wpf-tutorial-4.md)」に進む準備ができました。

@@ -12,16 +12,14 @@ design-contact: kimsea
 dev-contact: mitra
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: f623c18db5af8e503965c0c4518e35e263791a51
-ms.sourcegitcommit: 61194375c0889b73ee2b978c444c4b90a576b3e4
+ms.openlocfilehash: ad18426a36503c9a540343565c20297502810b76
+ms.sourcegitcommit: af4050f69168c15b0afaaa8eea66a5ee38b88fed
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71039154"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80081649"
 ---
 # <a name="radio-buttons"></a>ラジオ ボタン
-
-> **重要な API**:[RadioButton クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RadioButton)、[Checked イベント](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Primitives.ToggleButton.Checked)、[IsChecked プロパティ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Primitives.ToggleButton.IsChecked)
 
 ラジオ ボタンを使用すると、ユーザーはセットから 1 つのオプションを選択できます。 各オプションは、1 つのラジオ ボタンによって表されます。ユーザーは、ラジオ ボタン グループの中から、1 つのラジオ ボタンだけを選ぶことができます。
 
@@ -29,7 +27,9 @@ ms.locfileid: "71039154"
 
 ![ラジオ ボタン](images/controls/radio-button.png)
 
-## <a name="is-this-the-right-control"></a>適切なコントロールの選択
+> **プラットフォーム API**: [RadioButton クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RadioButton)、[Checked イベント](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Primitives.ToggleButton.Checked)、[IsChecked プロパティ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Primitives.ToggleButton.IsChecked)
+
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 ユーザーに 2 つ以上の相互排他的なオプションを提示するには、ラジオ ボタンを使います。
 
@@ -62,7 +62,7 @@ ms.locfileid: "71039154"
 <table>
 <th align="left">XAML コントロール ギャラリー<th>
 <tr>
-<td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td><img src="images/xaml-controls-gallery-app-icon-sm.png" alt="XAML controls gallery"></img></td>
 <td>
     <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合、こちらをクリックして<a href="xamlcontrolsgallery:/item/RadioButton">アプリを開き、RadioButton の動作を確認</a>してください。</p>
     <ul>
@@ -187,9 +187,9 @@ private void BorderRadioButton_Checked(object sender, RoutedEventArgs e)
 
 ![ラジオ ボタンの間隔ガイドライン](images/radiobutton-redlines.png)
 
-## <a name="get-the-sample-code"></a>サンプル コードを入手する
+## <a name="get-the-sample-code"></a>サンプル コードの入手
 
-- [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - インタラクティブな形で XAML コントロールのすべてを参照できます。
+- [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - 対話形式で XAML コントロールのすべてを参照できます。
 
 ## <a name="related-topics"></a>関連トピック
 

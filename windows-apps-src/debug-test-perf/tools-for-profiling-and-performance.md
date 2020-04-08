@@ -8,7 +8,7 @@ keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: ae0fc2eca3d32a0e491ef0d8ca00ef22c05eb27f
 ms.sourcegitcommit: 698a86640b365dc1ca772fb6f53ca556dc284ed6
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 08/09/2019
 ms.locfileid: "68935761"
@@ -20,10 +20,10 @@ Microsoft には、ユニバーサル Windows プラットフォーム (UWP) ア
 
 **Visual Studio の XAML UI の応答ツール**。 アプリ内でのパフォーマンスの影響を測定するために使用する最適なツールの 1 つは、XAML UI の応答ツールです。 このツールは、さらに多くのシナリオに対応できるように[更新されました](https://devblogs.microsoft.com/wpf/new-ui-performance-analysis-tool-for-wpf-applications/)。
 
-関連項目:
+次の用語も参照:
 
 |           |             |
 |-----------|-------------|
-| [Visual Studio 診断ツールを使用した UWP アプリのパフォーマンスの分析](https://docs.microsoft.com/visualstudio/profiling/profiling-tools) | Visual Studio プロファイラーには、プログラムの実行時に時間がかかっているアプリのコードの場所が表示されるため、アプリ、関数、アルゴリズムのパフォーマンスのボトルネックを見つけることができます。 |
-| [XAML のパフォーマンス:XAML でビルドされたユニバーサル Windows アプリエクスペリエンスを最大限に活用するための手法](https://channel9.msdn.com/Events/Build/2015/3-698) | この //build セッションでは、新しいプラットフォーム機能、新しいツール機能、XAML ベースのユニバーサル Windows アプリのパフォーマンスを大幅に高める新しい手法について説明します。 |
-| [Visual Studio の新しい XAML ツール](https://channel9.msdn.com/Events/Build/2015/2-697) | この //build セッションでは、再設計された Blend のエクスペリエンス、UI デバッグ ツール、XAML エディターの拡張機能など、Visual Studio 2015 のいくつかの新機能について説明します。 これらのツールは、Visual Studio 2019 でも使用できます。 |
+| [Visual Studio 診断ツールを使った UWP アプリのパフォーマンスの分析](https://docs.microsoft.com/visualstudio/profiling/profiling-tools) | Visual Studio プロファイラーには、プログラムの実行時に時間がかかっているアプリのコードの場所が表示されるため、アプリ、関数、アルゴリズムのパフォーマンスのボトルネックを見つけることができます。 |
+| [XAML パフォーマンス:XAML を使って構築されたユニバーサル Windows アプリのエクスペリエンスを最大化する手法](https://channel9.msdn.com/Events/Build/2015/3-698) | この //build セッションでは、新しいプラットフォーム機能、新しいツール機能、XAML ベースのユニバーサル Windows アプリのパフォーマンスを大幅に高める新しい手法について説明します。 |
+| [Visual Studio の新しい XAML ツール](https://channel9.msdn.com/Events/Build/2015/2-697) | この //build セッションでは、再設計された Blend のエクスペリエンス、UI デバッグ ツール、XAML エディターの拡張機能など、Visual Studio 2015 のいくつかの新機能について説明します。 これらのツールは、Visual Studio 2019 でも使用できます |

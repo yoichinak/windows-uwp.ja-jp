@@ -8,12 +8,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 97eae5f3-c16b-4aa5-b4a1-dd892cf32ead
 ms.localizationpriority: medium
-ms.openlocfilehash: b665145eac8599bae69aaf4b1951d267bf79f7a7
-ms.sourcegitcommit: 05be6929cd380a9dd241cc1298fd53f11c93d774
+ms.openlocfilehash: 892e8e9bdeed562a83e566266a7391e9c24b2ad3
+ms.sourcegitcommit: af4050f69168c15b0afaaa8eea66a5ee38b88fed
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73062105"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80081726"
 ---
 # <a name="inking-controls"></a>インク コントロール
 
@@ -38,7 +38,7 @@ InkCanvas コントロールにはインク ストロークの既定の設定を
 > **重要な API**:[InkCanvas クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas)、[InkToolbar クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar)、[InkPresenter クラス](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkpresenter)、[Windows.UI.Input.Inking](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking)
 
 
-## <a name="is-this-the-right-control"></a>適切なコントロールの選択
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 ユーザーにインク設定を提供せずに、アプリで基本的な手書き入力機能を有効にする必要がある場合、InkCanvas を使います。
 
@@ -54,7 +54,7 @@ InkCanvas コントロールにはインク ストロークの既定の設定を
 <table>
 <th align="left">XAML コントロール ギャラリー<th>
 <tr>
-<td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td><img src="images/xaml-controls-gallery-app-icon-sm.png" alt="XAML controls gallery"></img></td>
 <td>
     <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合、こちらをクリックして<a href="xamlcontrolsgallery:/item/InkCanvas">アプリを開き、InkCanvas の動作を確認</a>してください。</p>
     <ul>
@@ -158,11 +158,11 @@ InkToolbar はトップ レベルの項目にすることもできますが、�
 - 手書き入力の基本的な機能と設定を提供するには、InkToolbar コントロールと InkCanvas を使います。 InkCanvas と InkToolbar は共に、プログラムでカスタマイズできます。
 - InkToolbar と手書き入力全般は、アクティブなペンを通じて最適なエクスペリエンスを実現します。 ただし、アプリで必要な場合は、マウスやタッチによる手書き入力をサポートできます。
 - タッチ入力による手書き入力をサポートする場合、トグル ボタンに Segoe MLD2 アセット フォントの ED5F アイコンを使うと共に、"タッチによる手書き" というヒントを表示することをお勧めします。
-- ストローク選択を提供する場合は、「選択ツール」ツールチップを使用して、ツール ボタンの Segoe MLD2 アセット フォントの EF20 アイコンを使用することをお勧めします。
+- ストローク選択を提供する場合は、"選択ツール" ツールチップを使用して、ツール ボタンの Segoe MLD2 アセット フォントの EF20 アイコンを使用することをお勧めします。
 - 複数の InkCanvas を使う場合、1 つの InkToolbar を使ってキャンバス間の手書き入力を制御することをお勧めします。
 - 最高のパフォーマンスを得るには、既定のツールとカスタム ツールの両方にカスタム ポップアップを作成するのではなく、既定のポップアップを変更することをお勧めします。
 
-## <a name="get-the-sample-code"></a>サンプル コードを入手する
+## <a name="get-the-sample-code"></a>サンプル コードの入手
 
 - [SimpleInk のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/SimpleInk) - InkCanvas コントロールと InkToolbar コントロールのカスタマイズ機能と拡張機能に関する 8 個のシナリオを示しています。 各シナリオでは、一般的な手書き入力の状況とコントロールの実装に関する基本的なガイダンスが提供されています。
 - [ComplexInk のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/ComplexInk) - 高度な手書き入力のシナリオを示しています。

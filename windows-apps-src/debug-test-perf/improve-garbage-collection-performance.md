@@ -8,7 +8,7 @@ keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: f9e7cc16b65f4ee2727fae5a711da9372ee91c01
 ms.sourcegitcommit: 445320ff0ee7323d823194d4ec9cfa6e710ed85d
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 10/11/2019
 ms.locfileid: "72282188"
@@ -18,7 +18,7 @@ ms.locfileid: "72282188"
 
 C# と Visual Basic で記述されたユニバーサル Windows プラットフォーム (UWP) アプリは、.NET ガベージ コレクターによって、自動的にメモリ管理が行われます。 このセクションでは、UWP アプリでの .NET ガーベジ コレクターの動作とパフォーマンスに関するベスト プラクティスについて説明します。 .NET ガーベジ コレクターのしくみと、ガーベジ コレクターのパフォーマンスをデバッグおよび分析するためのツールについて詳しくは、「[ガベージ コレクション](https://docs.microsoft.com/dotnet/standard/garbage-collection/index)」をご覧ください。
 
-**注:** ガベージコレクターの既定の動作に介入する必要がある  、アプリに関する一般的なメモリの問題を厳密に示すことになります。 詳しくは、「[Memory Usage Tool while debugging in Visual Studio 2015 (Visual Studio でのユーザー モード デバッグの設定)](https://devblogs.microsoft.com/devops/memory-usage-tool-while-debugging-in-visual-studio-2015/)」をご覧ください。 このトピックは、C# と Visual Basic にのみ適用されます。
+**注**  ガベージ コレクターの既定の動作に介入が必要な場合、アプリに関して一般的なメモリの問題があることを強く示唆しています。 詳しくは、「[Memory Usage Tool while debugging in Visual Studio 2015 (Visual Studio でのユーザー モード デバッグの設定)](https://devblogs.microsoft.com/devops/memory-usage-tool-while-debugging-in-visual-studio-2015/)」をご覧ください。 このトピックは、C# と Visual Basic にのみ適用されます。
 
  
 
@@ -42,7 +42,7 @@ C# と Visual Basic で記述されたユニバーサル Windows プラットフ
 
 [  **GC.Collect(n)** ](https://docs.microsoft.com/dotnet/api/system.gc.collect#System_GC_Collect_System_Int32_) を呼び出すと、ジェネレーション別にガベージ コレクションを実行できます。n には、コレクションを実行するジェネレーション (0、1、または 2) を指定します。
 
-**注**  ガベージコレクターは多くのヒューリスティックを使用してコレクションの実行に最適な時間を決定し、コレクションを強制することは、多くの場合、CPU の不要な使用になるため、アプリではガベージコレクションを強制しないことをお勧めします。 ただし、アプリ内のたくさんのオブジェクトが使われなくなることがわかっており、そのメモリをシステムに返す必要がある場合は、ガベージ コレクションを強制的に実行してもかまいません。 たとえば、ゲームの読み込みシーケンスの最後にコレクションを実行すると、ゲームプレイが始まる前にメモリを解放できます。
+**注**  アプリでは、ガベージ コレクションを強制的に実行しないでください。ガーベジ コレクターはコレクションの実行に最も適したタイミングを判断するためにさまざまなヒューリスティックを使うため、コレクションを強制的に実行すると、多くの場合は CPU が不必要に使われます。 ただし、アプリ内のたくさんのオブジェクトが使われなくなることがわかっており、そのメモリをシステムに返す必要がある場合は、ガベージ コレクションを強制的に実行してもかまいません。 たとえば、ゲームの読み込みシーケンスの最後にコレクションを実行すると、ゲームプレイが始まる前にメモリを解放できます。
  
 ガベージ コレクションが誤って何度も実行されないようにするには、[**GCCollectionMode**](https://docs.microsoft.com/dotnet/api/system.gccollectionmode) を **Optimized** に設定します。 これにより、コレクションが妥当で生産的であると判断した場合にのみ、ガベージ コレクターがコレクションを開始するようになります。
 
@@ -74,7 +74,7 @@ C# と Visual Basic で記述されたユニバーサル Windows プラットフ
 
 ### <a name="avoid-reference-rich-objects"></a>参照の多いオブジェクトの回避
 
-ガーベジ コレクターは、オブジェクト間の参照の追跡をアプリのルートから開始して、有効なオブジェクトを特定します。 詳しくは、「[ガベージ コレクションの実行時の動作](https://docs.microsoft.com/dotnet/standard/garbage-collection/fundamentals)」をご覧ください。 オブジェクトに参照がたくさん含まれていると、ガーベジ コレクターの処理が増えます。 一般的な手法 (特にラージオブジェクトの場合) では、参照の豊富なオブジェクトを参照を含まないオブジェクトに変換します (たとえば、参照を格納するのではなく、インデックスを格納します)。 当然、この手法を使うことができるのは、論理的に可能な場合に限られます。
+ガーベジ コレクターは、オブジェクト間の参照の追跡をアプリのルートから開始して、有効なオブジェクトを特定します。 詳しくは、「[ガベージ コレクションの実行時の動作](https://docs.microsoft.com/dotnet/standard/garbage-collection/fundamentals)」をご覧ください。 オブジェクトに参照がたくさん含まれていると、ガーベジ コレクターの処理が増えます。 一般的な手法としては (特に大きなオブジェクトの場合)、参照の多いオブジェクトを参照のないオブジェクトに変換します (たとえば、参照を保存する代わりに、インデックスを保存します)。 当然、この手法を使うことができるのは、論理的に可能な場合に限られます。
 
 オブジェクト参照をインデックスに置き換えると、アプリに複雑な変更が加わり、混乱を招く可能性があります。また、この手法は、大きなオブジェクトに多数の参照が含まれている場合が最も効果的です。 アプリでのガベージ コレクションの実行時間の長さが、参照の多いオブジェクトに関連していることがわかっている場合にのみ行ってください。
 

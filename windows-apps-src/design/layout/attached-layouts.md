@@ -1,5 +1,5 @@
 ---
-Description: ItemsRepeater コントロールなどのコンテナーで使用するために、添付されたレイアウトを定義できます。
+Description: ItemsRepeater コントロールなどのコンテナーで使用するために、接続されているレイアウトを定義できます。
 title: AttachedLayout
 label: AttachedLayout
 template: detail.hbs
@@ -9,16 +9,16 @@ keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: dc23e86f85c5db3dd10c5cec152047be387d4513
 ms.sourcegitcommit: 445320ff0ee7323d823194d4ec9cfa6e710ed85d
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 10/11/2019
 ms.locfileid: "72282291"
 ---
-# <a name="attached-layouts"></a>添付されたレイアウト
+# <a name="attached-layouts"></a>接続されているレイアウト
 
-レイアウトロジックを別のオブジェクトにデリゲートするコンテナー (パネルなど) は、添付されたレイアウトオブジェクトに依存して、子要素のレイアウト動作を提供します。  アタッチされたレイアウトモデルでは、アプリケーションが実行時に項目のレイアウトを変更する柔軟性が提供されます。また、UI のさまざまな部分 (たとえば、列内に配置されているように見えるテーブルの行の項目など) 間でレイアウトの側面を簡単に共有することができます。
+レイアウト ロジックを別のオブジェクトにデリゲートするコンテナー (パネルなど) は、接続されたレイアウト オブジェクトに依存して、子要素のレイアウト動作を提供します。  接続されたレイアウト モデルにより、アプリケーションで実行時に項目のレイアウトを変更する柔軟性が提供され、または、UI のさまざまな部分間で、レイアウトの側面を簡単に共有できます (たとえば、列内で位置合わせされているように見える表の行内の項目など)。
 
-このトピックでは、アタッチされたレイアウト (仮想化と非仮想化)、理解する必要がある概念とクラス、およびそれらを決定する際に考慮する必要があるトレードオフについて説明します。
+このトピックでは、接続されているレイアウト (仮想化と非仮想化) の作成に必要なもの、理解する必要がある概念とクラス、およびそれらを決定する際に考慮する必要があるトレードオフについて説明します。
 
 | **Windows UI ライブラリを入手する** |
 | - |
@@ -29,7 +29,7 @@ ms.locfileid: "72282291"
 > * [ScrollViewer](/uwp/api/windows.ui.xaml.controls.scrollviewer)
 > * [ItemsRepeater](/windows/uwp/design/controls-and-patterns/items-repeater)
 > * [レイアウト](/uwp/api/microsoft.ui.xaml.controls.layout)
->     * [非 Virtualizinglayout](/uwp/api/microsoft.ui.xaml.controls.nonvirtualizinglayout)
+>     * [NonVirtualizingLayout](/uwp/api/microsoft.ui.xaml.controls.nonvirtualizinglayout)
 >     * [VirtualizingLayout](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout)
 > * [LayoutContext](/uwp/api/microsoft.ui.xaml.controls.layoutcontext)
 >     * [NonVirtualizingLayoutContext](/uwp/api/microsoft.ui.xaml.controls.nonvirtualizinglayoutcontext)
@@ -38,33 +38,33 @@ ms.locfileid: "72282291"
 
 ## <a name="key-concepts"></a>主要概念
 
-レイアウトを実行するには、すべての要素に対して2つの質問に回答する必要があります。
+レイアウトの実行には、すべての要素に対して 2 つの質問に答える必要があります。
 
-1. この要素の***サイズ***を指定してください。
+1. この要素の***サイズ***はどのくらいにしますか?
 
-2. この要素の***位置***はどのようなものですか。
+2. この要素の***位置***はどうしますか?
 
-これらの質問に答える XAML のレイアウトシステムは、[カスタムパネル](/windows/uwp/design/layout/custom-panels-overview)の説明の一部として簡単に説明されています。
+これらの質問に答える XAML のレイアウト システムについては、[カスタム パネル](/windows/uwp/design/layout/custom-panels-overview)の説明の一部として簡単に取り上げています。
 
 ### <a name="containers-and-context"></a>コンテナーとコンテキスト
 
-概念的には、XAML の[パネル](/uwp/api/windows.ui.xaml.controls.panel)には、フレームワークの2つの重要なロールがあります。
+概念上、XAML の [パネル](/uwp/api/windows.ui.xaml.controls.panel) は、フレームワークにおける 2 つの重要な役割を占めます。
 
-1. 子要素を含むことができ、要素のツリーに分岐が導入されます。
-2. これらの子には、特定のレイアウト戦略が適用されます。
+1. それには、子要素を含めることができ、要素のツリーに分岐を導入します。
+2. それらの子には、特定のレイアウト戦略が適用されます。
 
-このため、XAML のパネルはレイアウトと同義であることがよくありますが、技術的に言えば、レイアウトだけではありません。
+このため、XAML のパネルはレイアウトと同義にされることがよくありますが、技術的にいえば、レイアウトより多くのことを実行します。
 
-また、 [Itemsrepeater](/windows/uwp/design/controls-and-patterns/items-repeater)はパネルのように動作しますが、パネルとは異なり、プログラムで UIElement の子を追加または削除できる子プロパティを公開しません。  代わりに、子の有効期間は、データ項目のコレクションに対応するように、フレームワークによって自動的に管理されます。  パネルからは派生していませんが、動作し、パネルのようなフレームワークによって処理されます。
+[ItemsRepeater](/windows/uwp/design/controls-and-patterns/items-repeater) もパネルのように動作しますが、パネルと異なり、プログラムによって UIElement の子を追加または削除できる Children プロパティを公開していません。  代わりに、その子の有効期間は、フレームワークによって、データ項目のコレクションに対応するように自動的に管理されます。  それはパネルから派生していませんが、パネルのように動作し、フレームワークから処理されます。
 
 > [!NOTE]
-> [LayoutPanel](/uwp/api/microsoft.ui.xaml.controls.layoutpanel)は、Panel から派生したコンテナーであり、関連付けられている[レイアウト](/uwp/api/microsoft.ui.xaml.controls.layoutpanel.layout)オブジェクトにロジックを委任します。  LayoutPanel は*プレビュー*段階であり、現在、WinUI パッケージの*プレリリース版*でのみ使用できます。
+> [LayoutPanel](/uwp/api/microsoft.ui.xaml.controls.layoutpanel) は、パネルから派生したコンテナーであり、接続されている [Layout](/uwp/api/microsoft.ui.xaml.controls.layoutpanel.layout) オブジェクトにそのロジックをデリゲートします。  LayoutPanel は*プレビュー*段階にあり、現在、WinUI パッケージの*プレリリース*でのみ使用できます。
 
 #### <a name="containers"></a>コンテナー
 
-概念的には、[パネル](/uwp/api/windows.ui.xaml.controls.panel)は要素のコンテナーであり、[背景](/uwp/api/windows.ui.xaml.controls.panel.background)のピクセルをレンダリングする機能も備えています。  パネルには、一般的なレイアウトロジックを使いやすいパッケージにカプセル化する方法が用意されています。
+概念上、[パネル](/uwp/api/windows.ui.xaml.controls.panel)は、[バックグラウンド](/uwp/api/windows.ui.xaml.controls.panel.background)のピクセルをレンダリングする機能も備えている要素のコンテナーです。  パネルは、一般的なレイアウト ロジックを、使いやすいパッケージにカプセル化する方法を提供します。
 
-**添付レイアウト**の概念により、コンテナーとレイアウトの2つのロールがより明確に区別されます。  コンテナーがレイアウトロジックを別のオブジェクトにデリゲートする場合は、次のスニペットに示すように、そのオブジェクトを、添付されたレイアウトで呼び出します。 LayoutPanel など、 [FrameworkElement](/uwp/api/windows.ui.xaml.frameworkelement)から継承されたコンテナーは、XAML のレイアウト処理 (たとえば、高さや幅) に入力を提供する共通プロパティを自動的に公開します。
+**接続されているレイアウト**の概念により、コンテナーとレイアウトの 2 つの役割の区別が明確になります。  次のスニペットに示すように、コンテナーがそのレイアウト ロジックを別のオブジェクトにデリゲートする場合、そのオブジェクトを、接続されているレイアウトと呼びます。 LayoutPanel などの [FrameworkElement](/uwp/api/windows.ui.xaml.frameworkelement) から継承されたコンテナーは、XAML のレイアウト プロセスに入力を提供する共通プロパティ (たとえば、高さや幅) を自動的に公開します。
 
 ```xaml
 <LayoutPanel>
@@ -77,11 +77,11 @@ ms.locfileid: "72282291"
 </LayoutPanel>
 ```
 
-レイアウト処理中、コンテナーは、アタッチされた*UniformGridLayout*に依存して子を測定し、配置します。
+レイアウト プロセス時に、コンテナーは、接続されている *UniformGridLayout* に依存して、その子を測定し、配置します。
 
 #### <a name="per-container-state"></a>コンテナーごとの状態
 
-レイアウトが添付されている場合は、次のスニペットのように、レイアウトオブジェクトの1つのインスタンスを*多数*のコンテナーに関連付けることができます。そのため、ホストコンテナーに依存したり、直接参照したりすることはできません。  次に、例を示します。
+接続されているレイアウトによって、次のスニペットのように、レイアウト オブジェクトの 1 つのインスタンスが*多数の*コンテナーに関連付けられることがあります。そのため、ホスト コンテナーに依存したり、直接参照したりしないでください。  たとえば、次のように入力します。
 
 ```xaml
 <!-- ... --->
@@ -94,74 +94,74 @@ ms.locfileid: "72282291"
 <!-- ... --->
 ```
 
-このような状況では、 *ExampleLayout*は、レイアウトの計算で使用する状態と、その状態が格納される場所を慎重に考慮して、一方のパネルの要素のレイアウトには影響を及ぼさないようにする必要があります。  MeasureOverride ロジックと ArrangeOverride ロジックが*静的*プロパティの値に依存するカスタムパネルに似ています。
+この状況の場合、*ExampleLayout* では、レイアウトの計算で使用する状態と、その状態が格納される場所を慎重に検討して、1 つのパネルの要素のレイアウトが他のパネルに影響を及ぼさないようにする必要があります。  MeasureOverride ロジックと ArrangeOverride ロジックがその*静的*プロパティの値に依存するカスタム パネルに似ています。
 
 #### <a name="layoutcontext"></a>LayoutContext
 
-[Layoutcontext](/uwp/api/microsoft.ui.xaml.controls.layoutcontext)の目的は、これらの課題に対処することです。  これにより、アタッチされたレイアウトは、2つの間に直接的な依存関係を導入せずに、子要素の取得などのホストコンテナーと対話する機能を提供します。 また、コンテキストを使用すると、コンテナーの子要素に関連する可能性のある任意の状態をレイアウトで格納できます。
+[LayoutContext](/uwp/api/microsoft.ui.xaml.controls.layoutcontext) の目的は、それらの課題に対処することです。  これにより、接続されているレイアウトに、双方の間に直接の依存関係を導入しなくても、子要素の取得などのホスト コンテナーと対話する機能が得られます。 そのコンテキストにより、レイアウトで、コンテナーの子要素に関連する可能性のある、必要な任意の状態を格納することもできます。
 
-単純な非仮想化レイアウトでは、状態を維持する必要がなく、問題が発生しないことがよくあります。 ただし、グリッドなどのより複雑なレイアウトでは、値の再計算を避けるために、メジャーと整列呼び出しの間の状態を維持することができます。
+シンプルな非仮想化レイアウトでは、多くの場合に状態を維持する必要はなく、問題になりません。 ただし、グリッドなどのより複雑なレイアウトでは、値の再計算を避けるために、測定と整列の呼び出しの間で状態を維持するように選択することがあります。
 
-仮想化レイアウトでは、*多くの場合*、メジャーと配置の間、および反復的なレイアウトパスの間で一定の状態を維持する必要があります。
+レイアウトを仮想化することは、*多くの場合に*、測定と整列の両方の間に加えて、反復的レイアウト パス間で状態を維持する必要があります。
 
 #### <a name="initializing-and-uninitializing-per-container-state"></a>コンテナーごとの状態の初期化と初期化解除
 
-レイアウトがコンテナーにアタッチされると、その[Initializeforcontextcore](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout.initializeforcontextcore)メソッドが呼び出され、状態を格納するためにオブジェクトを初期化する機会が提供されます。
+レイアウトがコンテナーに接続されると、その [InitializeForContextCore](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout.initializeforcontextcore) メソッドが呼び出され、状態を格納するためにオブジェクトを初期化する機会が得られます。
 
-同様に、レイアウトがコンテナーから削除されると、 [Uninitializeforcontextcore](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout.uninitializeforcontextcore)メソッドが呼び出されます。  これにより、そのコンテナーに関連付けられた状態をクリーンアップする機会がレイアウトに与えられます。
+同様に、レイアウトがコンテナーから削除されると、[UninitializeForContextCore](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout.uninitializeforcontextcore) メソッドが呼び出されます。  これにより、レイアウトには、そのコンテナーに関連付けられた状態をクリーンアップする機会が与えられます。
 
-レイアウトの状態オブジェクトは、コンテキストの[Layoutstate](/uwp/api/microsoft.ui.xaml.controls.layoutcontext.layoutstate)プロパティを使用して格納し、コンテナーから取得できます。
+レイアウトの状態オブジェクトは、コンテキストの [LayoutState](/uwp/api/microsoft.ui.xaml.controls.layoutcontext.layoutstate) プロパティによって、コンテナーに格納し、コンテナーから取得できます。
 
 ### <a name="ui-virtualization"></a>UI の仮想化
 
-UI の仮想化とは、_必要に_なるまで ui オブジェクトの作成を遅らせることを意味します。  これはパフォーマンスの最適化です。  スクロール以外のシナリオでは、_必要に応じ_て、アプリ固有の任意の数に基づいて決定できます。  そのような場合は、アプリで[x:Load](../../xaml-platform/x-load-attribute.md)の使用を検討する必要があります。 レイアウトに特別な処理は必要ありません。
+UI の仮想化とは、_必要になるタイミング_まで、UI オブジェクトの作成を遅らせることを意味します。  これはパフォーマンス最適化です。  非スクロール シナリオでは、_必要になるタイミング_の決定は、アプリ固有の任意の数のものに基づくことがあります。  このような場合、アプリでは [x:Load](../../xaml-platform/x-load-attribute.md) の使用を検討する必要があります。 これにより、レイアウトに特別な処理は必要ありません。
 
-リストなどのスクロールベースのシナリオでは、_必要に応じ_て "ユーザーに表示されるかどうか" を決定します。これは、レイアウトプロセス中の配置場所に大きく依存し、特別な考慮が必要です。  このドキュメントでは、このシナリオを中心に説明します。
+リストなどのスクロールベースのシナリオでは、_必要になるタイミング_の判断は、多くの場合に "ユーザーに表示されるか" に基づきます。これは、レイアウト プロセス時にそれが配置された場所に大きく依存し、特別な考慮が必要です。  このドキュメントでは、このシナリオを中心に説明します。
 
 > [!NOTE]
-> このドキュメントでは説明しませんが、スクロールシナリオで UI 仮想化を有効にするのと同じ機能を、スクロール以外のシナリオでも適用できます。  たとえば、表示されている領域とオーバーフローメニューの間で要素をリサイクルまたは移動することによって、表示されるコマンドの有効期間を管理し、使用可能な領域の変化に応答する、データドリブンのツールバーコントロール。
+> このドキュメントでは取り上げませんが、スクロール シナリオで UI 仮想化を有効にする同じ機能を、非スクロール シナリオでも適用できます。  たとえば、それに表示されるコマンドの有効期間を管理し、表示される領域とオーバーフロー メニューの間で要素をリサイクルまたは移動することによって、使用可能な領域の変更に対応するデータドリブンのツールバー コントロールがあります。
 
-## <a name="getting-started"></a>作業の開始
+## <a name="getting-started"></a>はじめに
 
 まず、作成する必要があるレイアウトで UI 仮想化をサポートする必要があるかどうかを決定します。
 
 **注意すべき点がいくつかあります。**
 
-1. 非仮想化レイアウトは、簡単に作成できます。 項目の数が常に小さい場合は、仮想化されていないレイアウトを作成することをお勧めします。
-2. プラットフォームには、一般的なニーズに対応するために、 [Itemsrepeater](/windows/uwp/design/controls-and-patterns/items-repeater#change-the-layout-of-items)および[LayoutPanel](/uwp/api/microsoft.ui.xaml.controls.layoutpanel)と連携する一連の添付レイアウトが用意されています。  カスタムレイアウトを定義する必要があることを判断する前に、それらについて理解しておいてください。
-3. レイアウトの仮想化では、仮想化されていないレイアウトと比較して、CPU とメモリのコスト/複雑さ/オーバーヘッドが常に増加します。  一般的な経験則として、レイアウトを管理する必要がある子が、ビューポートのサイズの3倍の領域に収まっている場合、仮想化レイアウトがあまり大きくない可能性があります。 3倍のサイズについては、このドキュメントで後ほど詳しく説明しますが、Windows でのスクロールの非同期の性質と、仮想化への影響によるものです。
+1. 非仮想化レイアウトの方が簡単に作成できます。 項目の数が常に少ない場合は、非仮想化レイアウトを作成することをお勧めします。
+2. プラットフォームには、一般的なニーズに対応するために、[ItemsRepeater](/windows/uwp/design/controls-and-patterns/items-repeater#change-the-layout-of-items) と [LayoutPanel](/uwp/api/microsoft.ui.xaml.controls.layoutpanel) と連携する、一連の接続されているレイアウトが用意されています。  カスタム レイアウトを定義する必要があると決定する前に、それらについて理解してください。
+3. 仮想化レイアウトでは、非仮想化レイアウトと比較して、CPU とメモリのコスト/複雑さ/オーバーヘッドが常にいくらか増加します。  一般的な経験則として、レイアウトで管理する必要がある子が、ビューポートのサイズの 3 倍の領域に収まる場合、仮想化レイアウトによる利益はあまり大きくない可能性があります。 3 倍のサイズについては、このドキュメントの後で詳しく説明しますが、Windows でのスクロールの非同期的性質と、仮想化へのその影響によるものです。
 
 > [!TIP]
-> 参照のポイントとして、 [ListView](/uwp/api/windows.ui.xaml.controls.listview) (および[itemsrepeater](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater)) の既定の設定では、項目の数が現在のビューポートのサイズの3倍になるまで、リサイクルは開始されません。
+> 評価基準として、[ListView](/uwp/api/windows.ui.xaml.controls.listview) (および [ItemsRepeater](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater)) の既定の設定は、項目の数が現在のビューポートの 3 倍のサイズを満たすまで、リサイクルが開始されないことです。
 
-**基本データ型の選択**
+**基本型の選択**
 
-![アタッチされたレイアウト階層](images/xaml-attached-layout-hierarchy.png)
+![接続されているレイアウト階層](images/xaml-attached-layout-hierarchy.png)
 
-基本[レイアウト](/uwp/api/microsoft.ui.xaml.controls.layout)の型には、添付されたレイアウトを作成するための開始点として機能する2つの派生型があります。
+基本 [Layout](/uwp/api/microsoft.ui.xaml.controls.layout) 型には、接続されているレイアウトを作成するための開始点として使用できる 2 つの派生型があります。
 
-1. [非 Virtualizinglayout](/uwp/api/microsoft.ui.xaml.controls.nonvirtualizinglayout)
+1. [NonVirtualizingLayout](/uwp/api/microsoft.ui.xaml.controls.nonvirtualizinglayout)
 2. [VirtualizingLayout](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout)
 
 ## <a name="non-virtualizing-layout"></a>非仮想化レイアウト
 
-仮想化されていないレイアウトを作成する方法は、[カスタムパネル](/windows/uwp/design/layout/custom-panels-overview)を作成したユーザーになじみのあるものにする必要があります。  同じ概念が適用されます。  主な違いは、[非 Virtualizinglayoutcontext](/uwp/api/microsoft.ui.xaml.controls.nonvirtualizinglayoutcontext)を使用して[子](/uwp/api/microsoft.ui.xaml.controls.nonvirtualizinglayoutcontext.children)コレクションにアクセスすることです。レイアウトでは、状態を保存することができます。
+非仮想化レイアウトを作成する方法は、[カスタム パネル](/windows/uwp/design/layout/custom-panels-overview)を作成したことがある誰でもなじみがあると感じるはずです。  同じ概念が適用されます。  主な違いは、[NonVirtualizingLayoutContext](/uwp/api/microsoft.ui.xaml.controls.nonvirtualizinglayoutcontext) を使用して、[Children](/uwp/api/microsoft.ui.xaml.controls.nonvirtualizinglayoutcontext.children) コレクションにアクセスすることと、レイアウトで状態を格納するように選択できることです。
 
-1. (パネルではなく) 基本型の[Nonvirtualizinglayout](/uwp/api/microsoft.ui.xaml.controls.nonvirtualizinglayout)から派生します。
-2. *(省略可能)* 変更時にレイアウトを無効にする依存関係プロパティを定義します。
-3. _(**新規**/省略可能)_ [Initializeforcontextcore](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout.initializeforcontextcore)の一部として、レイアウトに必要な状態オブジェクトを初期化します。 コンテキストで提供される[Layoutstate](/uwp/api/microsoft.ui.xaml.controls.layoutcontext.layoutstate)を使用して、ホストコンテナーでそのファイルを一時退避します。
-4. [Measureoverride](/uwp/api/microsoft.ui.xaml.controls.nonvirtualizinglayout.measureoverride)をオーバーライドし、すべての子で[Measure](/uwp/api/windows.ui.xaml.uielement.measure)メソッドを呼び出します。
-5. 並べ替え[Eoverride](/uwp/api/microsoft.ui.xaml.controls.nonvirtualizinglayout.arrangeoverride)をオーバーライドし、すべての子の[配置](/uwp/api/windows.ui.xaml.uielement.arrange)メソッドを呼び出します。
-6. *(**新規**/省略可能)* [Uninitializeforcontextcore](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout.uninitializeforcontextcore)の一部として保存された状態をクリーンアップします。
+1. 基本型 [NonVirtualizingLayout](/uwp/api/microsoft.ui.xaml.controls.nonvirtualizinglayout) (パネルではなく) から派生します。
+2. *(省略可能)* 変更されるとレイアウトを無効にする依存関係プロパティを定義します。
+3. _(**新規**/省略可能)_ レイアウトに必要な状態オブジェクトを [InitializeForContextCore](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout.initializeforcontextcore) の一部として初期化します。 コンテキストによって提供される [LayoutState](/uwp/api/microsoft.ui.xaml.controls.layoutcontext.layoutstate) を使用して、ホスト コンテナーでそれを一時退避します。
+4. すべての子で [MeasureOverride](/uwp/api/microsoft.ui.xaml.controls.nonvirtualizinglayout.measureoverride) をオーバーライドし、[Measure](/uwp/api/windows.ui.xaml.uielement.measure) メソッドを呼び出します。
+5. すべての子で [ArrangeOverride](/uwp/api/microsoft.ui.xaml.controls.nonvirtualizinglayout.arrangeoverride) をオーバーライドし、[Arrange](/uwp/api/windows.ui.xaml.uielement.arrange) メソッドを呼び出します。
+6. *(**新規**/省略可能)* 保存された状態を [UninitializeForContextCore](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout.uninitializeforcontextcore) の一部としてクリーンアップします。
 
-### <a name="example-a-simple-stack-layout-varying-sized-items"></a>例: 単純なスタックレイアウト (可変サイズの項目)
+### <a name="example-a-simple-stack-layout-varying-sized-items"></a>例:シンプルなスタック レイアウト (さまざまなサイズの項目)
 
 ![MyStackLayout](images/xaml-attached-layout-mystacklayout.png)
 
-さまざまなサイズの項目の仮想化されていない基本的なスタックレイアウトを次に示します。 レイアウトの動作を調整するためのプロパティがありません。 次の実装では、レイアウトがコンテナーによって提供されるコンテキストオブジェクトにどのように依存しているかを示します。
+次に、さまざまなサイズの項目のきわめて基本的な非仮想化スタック レイアウトを示します。 これには、レイアウトの動作を調整するためのプロパティがありません。 以下の実装では、レイアウトが、次の操作のために、コンテナーによって提供されるコンテキスト オブジェクトにどのように依存しているかを示しています。
 
-1. 子の数を取得します。
-2. 各子要素にインデックスでアクセスします。
+1. 子の数を取得する、および
+2. インデックスによって各子要素にアクセスする。
 
 ```csharp
 public class MyStackLayout : NonVirtualizingLayout
@@ -207,99 +207,99 @@ public class MyStackLayout : NonVirtualizingLayout
 </LayoutPanel>
 ```
 
-## <a name="virtualizing-layouts"></a>レイアウトの仮想化
+## <a name="virtualizing-layouts"></a>仮想化レイアウト
 
-仮想化以外のレイアウトと同様に、仮想化レイアウトの大まかな手順は同じです。  複雑さは、主にビューポート内でどの要素が使用されるかを決定することであり、実現する必要があります。
+非仮想化レイアウトと同様に、仮想化レイアウトの大まかな手順は同じです。  複雑さは主に、どの要素がビューポート内に収まり、実現する必要があるかを判断することにあります。
 
-1. 基本型の[Virtualizinglayout](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout)から派生します。
-2. Optional変更するとレイアウトが無効になる依存関係プロパティを定義します。
-3. [Initializeforcontextcore](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout.initializeforcontextcore)の一部としてレイアウトで必要となる状態オブジェクトを初期化します。 コンテキストで提供される[Layoutstate](/uwp/api/microsoft.ui.xaml.controls.layoutcontext.layoutstate)を使用して、ホストコンテナーでそのファイルを一時退避します。
-4. [Measureoverride](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout.measureoverride)をオーバーライドし、実現する必要のある各子に対して[Measure](/uwp/api/windows.ui.xaml.uielement.measure)メソッドを呼び出します。
-   1. [Getorcreateelementat](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.getorcreateelementat)メソッドは、フレームワークによって準備された UIElement (たとえば、適用されたデータバインディング) を取得するために使用されます。
-5. 並べ替え[Eoverride](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout.arrangeoverride)をオーバーライドし、実現された各子の[配置](/uwp/api/windows.ui.xaml.uielement.arrange)メソッドを呼び出します。
-6. Optional[Uninitializeforcontextcore](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout.uninitializeforcontextcore)の一部として保存された状態をクリーンアップします。
+1. 基本型 [VirtualizingLayout](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout) から派生します。
+2. (省略可能) 変更されるとレイアウトを無効にする依存関係プロパティを定義します。
+3. レイアウトに必要とされる状態オブジェクトを [InitializeForContextCore](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout.initializeforcontextcore) の一部として初期化します。 コンテキストによって提供される [LayoutState](/uwp/api/microsoft.ui.xaml.controls.layoutcontext.layoutstate) を使用して、ホスト コンテナーでそれを一時退避します。
+4. 実現する必要がある各子について、[MeasureOverride](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout.measureoverride) をオーバーライドし、[Measure](/uwp/api/windows.ui.xaml.uielement.measure) メソッドを呼び出します。
+   1. [GetOrCreateElementAt](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.getorcreateelementat) メソッドを使用して、フレームワークによって準備された UIElement (適用されるデータ バインディングなど) を取得します。
+5. 実現される各子について、[ArrangeOverride](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout.arrangeoverride) をオーバーライドし、[Arrange](/uwp/api/windows.ui.xaml.uielement.arrange) メソッドを呼び出します。
+6. (省略可能) 保存された状態を [UninitializeForContextCore](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout.uninitializeforcontextcore) の一部としてクリーンアップします。
 
 > [!TIP]
-> [Measureoverride](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout)によって返される値は、仮想化されたコンテンツのサイズとして使用されます。
+> [MeasureOverride](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout) によって返される値は、仮想化されたコンテンツのサイズとして使用されます。
 
-仮想化レイアウトを作成するときは、2つの一般的な方法を検討する必要があります。  どちらを選択するかは、「要素のサイズをどのように決定するか」に大きく依存します。  データセット内の項目のインデックスを把握しておく必要がある場合、またはデータ自体が最終的なサイズを決定する場合は、**データに依存**していると考えます。  これらはより簡単に作成できます。  ただし、項目のサイズを判断する唯一の方法は、UI を作成して測定することです。次に、**コンテンツに依存**しているとします。  これらはより複雑です。
+仮想化レイアウトを作成する場合に、2 つの一般的な方法を検討する必要があります。  どちらを選択するかは、"要素のサイズをどれくらいに決定するか" に大きく依存します。  データ セット内の項目のインデックスがわかれば十分な場合、またはデータ自体によって、その最終的なサイズを決定する場合、それを**データ依存**とみなします。  これらはより簡単に作成できます。  ただし、項目のサイズを判断する唯一の方法が、UI を作成して測定することである場合、それを**コンテンツ依存**と呼ぶことになります。  これらはより複雑です。
 
-### <a name="the-layout-process"></a>レイアウトプロセス
+### <a name="the-layout-process"></a>レイアウト プロセス
 
-データやコンテンツに依存するレイアウトのどちらを作成する場合でも、レイアウトプロセスと Windows の非同期スクロールの影響について理解することが重要です。
+データ依存またはコンテンツ依存のどちらのレイアウトを作成する場合でも、レイアウト プロセスと Windows の非同期スクロールの影響を理解することが重要です。
 
-画面に表示される UI を起動するためにフレームワークによって実行される手順を次に示します。
+起動から、画面に UI を表示するまで、フレームワークによって実行される手順をきわめて簡単に説明すると、
 
 1. マークアップを解析します。
 
 2. 要素のツリーを生成します。
 
-3. レイアウトパスを実行します。
+3. レイアウト パスを実行します。
 
-4. レンダーパスを実行します。
+4. レンダー パスを実行します。
 
-UI の仮想化を使用すると、手順2で通常実行される要素の作成は遅延されるか、または、ビューポートを埋めるために十分なコンテンツが作成されたことを確認した後に早く終了します。 仮想化コンテナー (たとえば、ItemsRepeater) は、このプロセスを実行するために、添付されたレイアウトに従います。 これは、仮想化レイアウトに必要な追加情報を表示する[Virtualizinglayoutcontext](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext)を使用して、アタッチされたレイアウトを提供します。
+UI 仮想化では、手順 2 で通常行われる要素の作成は、後に回すか、またはビューポートを埋めるために十分なコンテンツが作成されたと判断されたら、早期に終了させます。 仮想化コンテナー (たとえば、ItemsRepeater) では、その接続されているレイアウトに従って、このプロセスを進めます。 これは、接続されているレイアウトに、仮想化レイアウトに必要な追加情報を表示する [VirtualizingLayoutContext](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext) を提供します。
 
-**RealizationRect (ビューポート)**
+**RealizationRect (つまりビューポート)**
 
-Windows でのスクロールは、UI スレッドに対して非同期に行われます。 フレームワークのレイアウトによって制御されることはありません。  代わりに、システムのコンポジターで相互作用と移動が発生します。 このアプローチの利点は、パンコンテンツを常に 60 fps で実行できることです。  ただし、レイアウトに示されているような "ビューポート" は、画面に実際に表示されている内容に比べて若干古い場合があります。 ユーザーは、すばやくスクロールすると、UI スレッドの速度を追い越し始めて、新しいコンテンツや "black to black" を生成することができます。 このため、仮想化レイアウトでは、ビューポートよりも大きい領域を埋めるのに十分な準備済み要素の追加バッファーを生成する必要があります。 スクロール中に負荷が高くなると、ユーザーには引き続きコンテンツが表示されます。
+Windows でのスクロールは、UI スレッドに非同期で行われます。 フレームワークのレイアウトによって制御されません。  代わりに、システムのコンポジターで相互作用と移動が行われます。 このアプローチの利点は、コンテンツのパンが常に 60 fps で実行できることです。  ただし、レイアウトからわかるように "ビューポート" は、画面に実際に表示されているものと比べて若干古い場合があります。 ユーザーがすばやくスクロールすると、UI スレッドの速度を超えてしまい、新しいコンテンツや "真っ暗へのパン" が発生することがあります。 このため、仮想化レイアウトでは、多くの場合に、ビューポートよりも大きい領域を埋めるのに十分な準備済み要素の追加バッファーを生成する必要があります。 スクロール中に負荷が大きくなっても、ユーザーには引き続きコンテンツが表示されます。
 
-![実現 rect](images/xaml-attached-layout-realizationrect.png)
+![realization rect](images/xaml-attached-layout-realizationrect.png)
 
-要素の作成はコストがかかるため、コンテナー (たとえば、 [Itemsrepeater](/windows/uwp/design/controls-and-patterns/items-repeater)) を仮想化すると、最初に、関連付けられているレイアウトに、ビューポートに一致する[realizationrect](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.realizationrect)が提供されます。 アイドル状態のとき、コンテナーは、より大きな実現化を使用してレイアウトを繰り返し呼び出すことで、準備されたコンテンツのバッファーを拡張することがあります。 この動作は、高速起動時間と優れたパンエクスペリエンスのバランスを取るためのパフォーマンスの最適化です。 ItemsRepeater が生成する最大バッファーサイズは、 [VerticalCacheLength](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater.verticalcachelength)プロパティと[HorizontalCacheLength](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater.verticalcachelength)プロパティによって制御されます。
+要素の作成にはコストがかかるため、仮想化コンテナー (たとえば、[ItemsRepeater](/windows/uwp/design/controls-and-patterns/items-repeater)) では、最初に、接続されているレイアウトに、ビューポートに一致する [RealizationRect](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.realizationrect) が提供されます。 アイドル時に、コンテナーでは、徐々に大きい realization rect を使用して、レイアウトを繰り返し呼び出すことで、準備済みコンテンツのバッファーを大きくしていくことができます。 この動作は、高速の起動時間と優れたパン エクスペリエンスのバランスを取るように試みるパフォーマンス最適化です。 ItemsRepeater が生成する最大バッファー サイズは、その [VerticalCacheLength](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater.verticalcachelength) プロパティと [HorizontalCacheLength](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater.verticalcachelength) プロパティによって制御されます。
 
 **要素の再利用 (リサイクル)**
 
-レイアウトでは、実行するたびに、 [Realizationrect](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.realizationrect)に収まるように要素のサイズと位置を設定する必要があります。 既定では、 [Virtualizinglayout](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout)は、各レイアウトパスの最後に未使用の要素をリサイクルします。
+レイアウトは、実行されるたびに [RealizationRect](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.realizationrect) を満たすように、要素のサイズと位置を設定することが期待されます。 既定で、[VirtualizingLayout](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout) によって、各レイアウト パスの最後で未使用の要素がリサイクルされます。
 
-[Measureoverride](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout.measureoverride)および[layouteoverride](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout.arrangeoverride)の一部としてレイアウトに渡される[virtualizinglayoutcontext](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext)は、仮想化レイアウトに必要な追加情報を提供します。 最も一般的に使用される機能のいくつかを次に示します。
+[MeasureOverride](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout.measureoverride) と [ArrangeOverride](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout.arrangeoverride) の一部として、レイアウトに渡される [VirtualizingLayoutContext](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext) によって、仮想化レイアウトに必要な追加情報が提供されます。 それが提供する最も一般的に使用されるもののいくつかは、次を実行する機能です。
 
-1. データ内の項目数 ([ItemCount](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.itemcount)) を照会します。
-2. [GetItemAt](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.getitemat)メソッドを使用して特定の項目を取得します。
-3. レイアウトが実現された要素で塗りつぶす必要があるビューポートとバッファーを表す、 [Realizationrect](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.realizationrect)を取得します。
-4. [Getorcreateelement](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.getorcreateelementat)メソッドを使用して、特定の項目の UIElement を要求します。
+1. データの項目数を照会する ([ItemCount](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.itemcount))。
+2. [GetItemAt](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.getitemat) メソッドを使用して、特定の項目を取得する。
+3. レイアウトが実現される要素で満たす必要があるビューポートとバッファーを表す [RealizationRect](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.realizationrect) を取得する。
+4. [GetOrCreateElement](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.getorcreateelementat) メソッドによって、特定の項目の UIElement を要求する。
 
-特定のインデックスの要素を要求すると、その要素はレイアウトのそのパスに対して "使用中" としてマークされます。 要素がまだ存在しない場合は、その要素が認識され、自動的に使用できるように準備されます (たとえば、System.windows.datatemplate> で定義されている UI ツリーの拡大、任意のデータバインディングの処理など)。  それ以外の場合は、既存のインスタンスのプールから取得されます。
+特定のインデックスの要素を要求すると、その要素は、レイアウトのそのパスに "使用中" とマークされます。 要素がまだ存在していない場合、それが実現され、自動的に使用の準備が行われます (たとえば、DataTemplate で定義されている UI ツリーの拡張、任意のデータ バインディングの処理など)。  そうでない場合、既存のインスタンスのプールから取得されます。
 
-各メジャーパスの最後では、"使用中" とマークされていない既存の、実現された要素は、 [SuppressAutoRecycle](/uwp/api/microsoft.ui.xaml.controls.elementrealizationoptions)のオプションが[Getorcreateelementat](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.getorcreateelementat)メソッドを介して取得されたときに使用された場合を除き、自動的に再利用可能と見なされます。 フレームワークによって自動的にリサイクルプールに移動され、使用できるようになります。 その後、別のコンテナーで使用するためにプルされる可能性があります。 要素の再親に関連するコストが発生するため、可能であればフレームワークはこれを回避しようとします。
+[GetOrCreateElementAt](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.getorcreateelementat) メソッドを使用して要素を取得したときに、[SuppressAutoRecycle](/uwp/api/microsoft.ui.xaml.controls.elementrealizationoptions) を実行するオプションが使用されていない限り、各メジャー パスの最後で、"使用中" とマークされていない既存の実現された要素は、再利用可能と見なされます。 フレームワークによって、それが自動的にリサイクル プールに移動され、使用できるようになります。 その後、別のコンテナーで使用するためにプルできます。 要素を再度ペアレンティングすることに関連するコストがあるため、フレームワークでは可能な限りこれを回避しようとします。
 
-仮想化レイアウトが各メジャーの先頭で認識している要素が、実現されていない要素である場合、その再利用を最適化できます。 フレームワークの既定の動作に依存するのではなく、 レイアウトでは、 [RecycleElement](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.recycleelement)メソッドを使用して、事前にの要素をリサイクルプールに移動できます。  新しい要素を要求する前にこのメソッドを呼び出すと、既に要素に関連付けられていないインデックスに対して、後で[Getorcreateelementat](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.getorcreateelementat)要求を発行するときに、これらの既存の要素が使用可能になります。
+仮想化レイアウトで、各測定の開始時に、realization rect 内に収まらなくなる要素がわかっている場合、その再利用を最適化できます。 フレームワークの既定の動作に依存しません。 レイアウトでは、[RecycleElement](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.recycleelement) メソッドを使用して、事前に要素をリサイクル プールに移動できます。  新しい要素を要求する前に、このメソッドを呼び出すと、後でレイアウトがまだ要素に関連付けられていないインデックスに対して、[GetOrCreateElementAt](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.getorcreateelementat) 要求を発行したときに、それらの既存の要素が使用できるようになります。
 
-VirtualizingLayoutContext には、レイアウト作成者がコンテンツに依存するレイアウトを作成するための2つの追加のプロパティが用意されています。 詳細については、後で詳しく説明します。
+VirtualizingLayoutContext には、コンテンツ依存レイアウトを作成するレイアウト作成者向けに 2 つの追加のプロパティが用意されています。 それらについては、後で詳しく説明します。
 
-1. レイアウトへの省略可能な_入力_を提供する[RecommendedAnchorIndex](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.recommendedanchorindex) 。
-2. レイアウトの省略可能な_出力_である[layoutorigin](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.layoutorigin) 。
+1. レイアウトに省略可能な_入力_を提供する [RecommendedAnchorIndex](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.recommendedanchorindex)。
+2. レイアウトの省略可能な_出力_である [LayoutOrigin](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.layoutorigin)。
 
-## <a name="data-dependent-virtualizing-layouts"></a>データ依存の仮想化レイアウト
+## <a name="data-dependent-virtualizing-layouts"></a>データ依存仮想化レイアウト
 
-表示するコンテンツを測定しなくても、すべての項目のサイズがわかると、仮想化レイアウトがより簡単になります。  このドキュメントでは、通常、データの検査が必要になるため、**データレイアウト**として仮想化レイアウトのこのカテゴリを参照します。  データに基づいて、アプリは、データの一部であるか、以前は設計によって決定されたことが原因で、既知のサイズのビジュアル表現を選択できます。
+表示するコンテンツを測定しなくても、すべての項目のサイズがわかっている場合、仮想化レイアウトがより簡単になります。  この仮想化レイアウトのカテゴリには、通常データの検査が含まれるため、このドキュメントでは単に**データ レイアウト**と呼びます。  データに基づいて、アプリでは既知のサイズ (おそらくデータの一部であるか、以前に設計によって決定されているために) のビジュアル表現を選択できます。
 
-一般的なアプローチでは、次のようにレイアウトを使用します。
+一般的な方法として、レイアウトで次を実行します。
 
 1. すべての項目のサイズと位置を計算します。
-2. [Measureoverride](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout.measureoverride)の一部として:
-   1. ビューポート内に表示する項目を決定するには、 [Realizationrect](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.realizationrect)を使用します。
-   2. [Getorcreateelementat](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.getorcreateelementat)メソッドを使用して、項目を表すべき UIElement を取得します。
-   3. 事前に計算されたサイズで UIElement を[測定](/uwp/api/windows.ui.xaml.uielement.measure)します。
-3. Arrange [Eoverride](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout.arrangeoverride)の一部として、各認識される UIElement を事前に計算された位置に[配置](/uwp/api/windows.ui.xaml.uielement.arrange)します。
+2. [MeasureOverride](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout.measureoverride) の一部として:
+   1. [RealizationRect](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.realizationrect) を使用して、ビューポート内に表示する項目を決定します。
+   2. [GetOrCreateElementAt](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.getorcreateelementat) メソッドを使用して、項目を表現する必要がある UIElement を取得します。
+   3. 事前に計算されたサイズで UIElemen を[Measure (測定)](/uwp/api/windows.ui.xaml.uielement.measure) します。
+3. [ArrangeOverride](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout.arrangeoverride) の一部として、事前に計算された位置で、実現される各 UIElement を[Arrange (配置)](/uwp/api/windows.ui.xaml.uielement.arrange) します。
 
 > [!NOTE]
-> データレイアウトアプローチは、多くの場合、_データの仮想化_と互換性がありません。  特に、メモリに読み込まれるデータは、ユーザーに表示されるデータを入力するために必要なデータのみです。  データの仮想化は、データが常駐している場所をスクロールダウンすると、データの遅延または増分読み込みを指していません。  代わりに、スクロールして表示されなくなった項目がメモリから解放されるタイミングを参照します。  データレイアウトでデータレイアウトの一部としてすべてのデータ項目を検査すると、データの仮想化が想定どおりに動作しなくなる可能性があります。  例外とは、すべてのサイズが同じであることを前提とした UniformGridLayout のようなレイアウトです。
+> データ レイアウト アプローチは、多くの場合に、_データ仮想化_と互換性がありません。  特に、メモリに読み込まれるデータだけが、ユーザーに表示されるものを満たすために必要なデータである場合です。  データ仮想化は、そのデータが存在したままになっている場所をユーザーが下にスクロールしたときのデータの遅延または増分読み込みを指しているのではありません。  代わりに、スクロールして表示されなくなったときに、項目がメモリから解放されるタイミングを示します。  データ レイアウトの一部としてすべてのデータ項目を検査するデータ レイアウトを使用すると、データ仮想化が想定どおりに動作しなくなることがあります。  例外は、すべてのもののサイズが同じであると仮定する UniformGridLayout のようなレイアウトです。
 
 > [!TIP]
-> さまざまな状況で他のユーザーによって使用されるコントロールライブラリのカスタムコントロールを作成する場合、データレイアウトを選択することはできません。
+> 多様な状況で他のユーザーによって使用されるコントロール ライブラリのカスタム コントロールを作成する場合、データ レイアウトは選択肢とならない可能性があります。
 
-### <a name="example-xbox-activity-feed-layout"></a>例: Xbox アクティビティフィードのレイアウト
+### <a name="example-xbox-activity-feed-layout"></a>例:Xbox アクティビティ フィード レイアウト
 
-Xbox アクティビティフィードの UI では繰り返しパターンが使用されます。このパターンでは、各行にワイドタイルが含まれ、その後に2つの細いタイルが適用されます。 このレイアウトでは、すべての項目のサイズは、データセット内の項目の位置と、タイルの既知のサイズ (幅と幅の比較) の関数です。
+Xbox アクティビティ フィードの UI では繰り返しパターンが使用され、各行にワイド タイルが含まれ、その後に、後続の行で反転させられる 2 つのナロー タイルが続きます。 このレイアウトでは、すべての項目のサイズは、データ セット内の項目の位置と、タイルの既知のサイズ (ワイドとナロー) の関数になります。
 
-![Xbox アクティビティフィード](images/xaml-attached-layout-activityfeedscreenshot.png)
+![Xbox アクティビティ フィード](images/xaml-attached-layout-activityfeedscreenshot.png)
 
-次のコードでは、アクティビティフィード用のカスタムの仮想化 UI について説明します。これは、**データレイアウト**に対して実行する一般的なアプローチを示すためのものです。
+次のコードでは、アクティビティ フィードのカスタム仮想化 UI とはどのようなものかを説明し、**データ レイアウト**に採用できる一般的なアプローチを示します。
 
 <table>
 <td>
-    <p><strong style="font-weight: semi-bold">XAML コントロールギャラリー</strong>アプリがインストールされている場合は、ここをクリックしてアプリを開き、このサンプルレイアウトで動作している<a href="xamlcontrolsgallery:/item/ItemsRepeater">itemsrepeater</a>を確認します。</p>
+    <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合は、ここをクリックしてアプリを開き、このサンプル レイアウトでの <a href="xamlcontrolsgallery:/item/ItemsRepeater">ItemsRepeater</a> の動作を参照してください。</p>
     <ul>
     <li><a href="https://www.microsoft.com/store/productId/9MSVH128X2ZT">XAML コントロール ギャラリー アプリを入手する (Microsoft Store)</a></li>
     <li><a href="https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlUIBasics">ソース コード (GitHub) を入手する</a></li>
@@ -582,11 +582,11 @@ internal class ActivityFeedLayoutState
 }
 ```
 
-### <a name="optional-managing-the-item-to-uielement-mapping"></a>Optional項目を UIElement マッピングに管理する
+### <a name="optional-managing-the-item-to-uielement-mapping"></a>(省略可能) 項目と UIElement のマッピングの管理
 
-既定では、 [Virtualizinglayoutcontext](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext)は、認識される要素と、それが表すデータソース内のインデックスとの間のマッピングを維持します。  レイアウトでは、既定の自動リサイクル動作を妨げる[Getorcreateelementat](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.getorcreateelementat)メソッドを使用して要素を取得するときに、常に[SuppressAutoRecycle](/uwp/api/microsoft.ui.xaml.controls.elementrealizationoptions)のオプションを要求することによって、このマッピングを管理することを選択できます。  たとえば、スクロールが1方向に制限されていて、それが考慮される項目が常に連続している場合 (つまり、最初の要素と最後の要素のインデックスを知っていれば、動詞する必要があるすべての要素を把握できるようにする場合など) に、レイアウトを選択できます。lized).
+既定で、[VirtualizingLayoutContext](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext) は、実現される要素と、それらが表すデータ ソース内のインデックスとの間のマッピングを維持します。  レイアウトでは、既定の自動リサイクル動作を妨げる [GetOrCreateElementAt](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.getorcreateelementat) メソッドを使用して要素を取得する際に、[SuppressAutoRecycle](/uwp/api/microsoft.ui.xaml.controls.elementrealizationoptions) を実行するオプションを常に要求することによって、このマッピング自体を管理できます。  たとえば、スクロールが 1 方向に制限されていて、考慮される項目が常に連続している (つまり、最初の要素と最後の要素のインデックスを知っていれば、実現すべきすべての要素を知るのに十分である) ときにのみ使用される場合は、レイアウトでこれを行うように選択できます。
 
-#### <a name="example-xbox-activity-feed-measure"></a>例: Xbox アクティビティフィードメジャー
+#### <a name="example-xbox-activity-feed-measure"></a>例:Xbox アクティビティ フィードの測定
 
 次のスニペットは、マッピングを管理するために、前のサンプルの MeasureOverride に追加できる追加のロジックを示しています。
 
@@ -660,59 +660,59 @@ internal class ActivityFeedLayoutState
 }
 ```
 
-## <a name="content-dependent-virtualizing-layouts"></a>コンテンツ依存の仮想化レイアウト
+## <a name="content-dependent-virtualizing-layouts"></a>コンテンツ依存仮想化レイアウト
 
-項目の UI コンテンツを測定して正確なサイズを判断する必要がある場合は、**コンテンツに依存するレイアウト**です。  また、項目のサイズを指定するレイアウトではなく、それぞれの項目のサイズを変更する必要があるレイアウトであると考えることもできます。 このカテゴリに分類されるレイアウトの仮想化は、さらに複雑になります。
-
-> [!NOTE]
-> コンテンツに依存するレイアウトでは、データの仮想化が中断されることはありません。
-
-### <a name="estimations"></a>予測
-
-コンテンツに依存するレイアウトでは、予測に基づいて、実現されていないコンテンツのサイズと実現コンテンツの位置の両方を推測します。 これらの推定値が変更されると、結果として得られるコンテンツはスクロール可能な領域内で定期的に移動します。 これにより、軽減されない場合に、ユーザーエクスペリエンスが非常に困難になります。 潜在的な問題と軽減策については、こちらを参照してください。
+最初に項目の UI コンテンツを測定して、その正確なサイズを算出する必要がある場合、それは**コンテンツ依存レイアウト**です。  また、レイアウトが項目にそのサイズを伝えるのではなく、各項目がそれ自体のサイズを測定する必要があるレイアウトと考えることもできます。 このカテゴリに分類される仮想化レイアウトは、さらに複雑になります。
 
 > [!NOTE]
-> すべてのアイテムの正確なサイズを把握し、それらのアイテムの正確なサイズを把握しているデータレイアウトでは、これらの問題を完全に回避できます。
+> コンテンツ依存レイアウトでは、データ仮想化が解除されることはありません (解除されないはずです)。
 
-**スクロールアンカー**
+### <a name="estimations"></a>推定
 
-XAML には、スクロールコントロールで[IScrollAnchorPovider](/uwp/api/windows.ui.xaml.controls.iscrollanchorprovider)インターフェイスを実装することによって[スクロール](/uwp/api/windows.ui.xaml.controls.iscrollanchorprovider)がサポートされるようにすることで、急激なビューポートの移動を軽減するメカニズムがあります。 ユーザーがコンテンツを操作すると、スクロールコントロールは、追跡対象としてオプトインされた候補のセットから要素を継続的に選択します。 アンカー要素の位置がレイアウト中にシフトする場合、スクロールコントロールはビューポートを自動的に移動してビューポートを維持します。
+コンテンツ依存レイアウトでは、推定に基づいて、実現されないコンテンツのサイズと実現されるコンテンツの位置の両方が推測されます。 これらの推定が変更されるたびに、実現されるコンテンツはスクロール可能な領域内で定期的に移動させられます。 これが軽減されない場合、きわめてイライラする不快なユーザー エクスペリエンスになります。 この潜在的な問題と軽減策について、ここで説明します。
 
-レイアウトに対して指定された[RecommendedAnchorIndex](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.recommendedanchorindex)の値は、スクロールコントロールによって選択された現在のアンカー要素を反映する場合があります。 また、開発者が、 [Itemsrepeater](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater)で[getorcreateelement](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater.getorcreateelement)メソッドを使用してインデックスの要素を認識するように明示的に要求した場合、そのインデックスは次のレイアウトパスで[RecommendedAnchorIndex](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.recommendedanchorindex)として指定されます。 これにより、開発者が要素を認識し、その後、 [Startbring@ view](/uwp/api/windows.ui.xaml.uielement.startbringintoview)メソッドを使用して表示されるように要求する可能性のあるシナリオに対して、レイアウトを準備できます。
+> [!NOTE]
+> すべての項目を考慮し、すべての項目の正確なサイズ、実現されるかどうか、それらの位置を把握しているデータ レイアウトでは、これらの問題を完全に回避できます。
 
-[RecommendedAnchorIndex](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.recommendedanchorindex)は、コンテンツに依存するレイアウトが項目の位置を推定するときに最初に配置する必要がある、データソース内の項目のインデックスです。 他の実現項目を配置するための開始点として機能します。
+**スクロール アンカー設定**
+
+XAML には、[IScrollAnchorPovider](/uwp/api/windows.ui.xaml.controls.iscrollanchorprovider) インターフェイスを実装することによって、[スクロール アンカー設定](/uwp/api/windows.ui.xaml.controls.iscrollanchorprovider)をサポートするスクロール コントロールを使用して、急激なビューポートの移動を軽減するメカニズムがあります。 ユーザーがコンテンツを操作するたびに、スクロール コントロールによって、オプトインされた一連の候補から、追跡対象とされる要素が絶えず選択されます。 レイアウト中にアンカー要素の位置が移動した場合、スクロール コントロールはそのビューポートを自動的に移動して、ビューポートを維持します。
+
+レイアウトに指定された [RecommendedAnchorIndex](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.recommendedanchorindex) の値は、スクロール コントロールによって選択された、現在選択されているアンカー要素を反映している場合があります。 または、開発者が、[ItemsRepeater](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater) で [GetOrCreateElement](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater.getorcreateelement) メソッドを使用して、インデックスに対して要素が実現されるように明示的に要求した場合、そのインデックスは、次のレイアウト パスで [RecommendedAnchorIndex](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.recommendedanchorindex) として指定されます。 これにより、開発者が要素を実現し、その後 [StartBringIntoView](/uwp/api/windows.ui.xaml.uielement.startbringintoview) メソッドによって、それがビューに表示されるように要求するという可能性のあるシナリオのために、レイアウトを準備できます。
+
+[RecommendedAnchorIndex](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.recommendedanchorindex) は、コンテンツ依存レイアウトで、その項目の位置を推定するときに最初に配置する必要がある、データソース内の項目のインデックスです。 それは、他の実現される項目を配置するための開始点として機能するはずです。
 
 **スクロールバーへの影響**
 
-スクロールが固定されていても、コンテンツのサイズが大きく変化することが原因で、レイアウトの推定値がかなり異なる場合は、スクロールバーのつまみの位置が移動する可能性があります。  ユーザーがドラッグしているときにマウスポインターの位置を追跡できない場合は、ユーザーに対して目障りを実行できます。
+スクロール アンカー設定を使用しても、コンテンツのサイズが大きく変化することなどの原因で、レイアウトの推定が著しく変化する場合、スクロールバーのつまみの位置が跳び回るように見えることがあります。  ユーザーがマウス ポインターをドラッグしているときに、つまみがポインターの位置を追跡しているように見えなければ、ユーザーが不快に感じる可能性があります。
 
-レイアウトの精度が高くなるほど、ユーザーがスクロールバーのつまみを表示する確率が低くなります。
+レイアウトの推定の精度が高くなるほど、スクロールバーのつまみが跳び回って見える可能性が低くなります。
 
 ### <a name="layout-corrections"></a>レイアウトの修正
 
-実際の見積もりを合理化するには、コンテンツに依存するレイアウトを準備する必要があります。  たとえば、ユーザーがコンテンツの一番上までスクロールし、レイアウトによって最初の要素が認識されている場合、要素の開始元の要素を基準とした要素の予想位置が、の原点 (x:0) 以外の場所になることがあります。, y:0). この場合、レイアウトで[layoutorigin](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.layoutorigin)プロパティを使用して、新しいレイアウトの原点として計算された位置を設定できます。  結果はスクロールの固定に似ており、スクロールコントロールのビューポートは、レイアウトによって報告されたコンテンツの位置を考慮して自動的に調整されます。
+事実によってその推定を正当化するように、コンテンツ依存レイアウトを準備する必要があります。  たとえば、ユーザーがコンテンツの一番上までスクロールし、レイアウトが最初の要素を実現する場合、要素が始まっている要素に相対的な、要素の予想される位置によって、要素が (x:0, y:0) の原点以外の場所に表示されることがあります。 これが発生する場合、レイアウトでは [LayoutOrigin](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.layoutorigin) プロパティを使用して、新しいレイアウトの原点として計算した位置を設定できます。  最終結果はスクロール アンカー設定に似ており、スクロール コントロールのビューポートが、レイアウトによって報告されたコンテンツの位置を考慮して、自動的に調整されます。
 
 ![LayoutOrigin の修正](images/xaml-attached-layout-origincorrection.png)
 
 ### <a name="disconnected-viewports"></a>切断されたビューポート
 
-レイアウトの[Measureoverride](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout.measureoverride)メソッドから返されるサイズは、コンテンツのサイズで最適な推測を表します。これは、後続の各レイアウトで変更される可能性があります。  ユーザーがスクロールすると、レイアウトは、更新された[Realizationrect](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.realizationrect)で継続的に再評価されます。
+レイアウトの [MeasureOverride](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout.measureoverride) メソッドから返されるサイズは、後続の各レイアウトで変更される可能性があるコンテンツのサイズについての最適な推測を表します。  ユーザーがスクロールするたびに、更新された [RealizationRect](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.realizationrect) によって、レイアウトが絶えず再評価されます。
 
-ユーザーが、レイアウトの観点から、ビューポートを使用できるようになったときに、その前の位置が現在の位置と重ならないように、大きなジャンプを行うようにユーザーが設定した場合。  これは、スクロールの非同期の性質が原因です。 また、レイアウトを使用するアプリでは、現在認識されていない項目に対して要素を表示するように要求したり、レイアウトによって追跡される現在の範囲の外に配置すると推定されたりすることもできます。
+ユーザーがきわめてすばやくドラッグすると、レイアウトの観点から、前の位置が現在の位置と重ならず、ビューポートが大きくジャンプするように見える可能性があります。  これは、スクロールの非同期性に原因があります。 また、レイアウトを使用しているアプリでは、現在実現されておらず、レイアウトによって追跡される現在の範囲外に配置されていると推定される項目に対して、要素を表示するように要求する可能性もあります。
 
-レイアウトで推測が正しくないことが検出された場合、または予期しないビューポートのシフトが見られる場合は、その開始位置を方向を確認する必要があります。  XAML コントロールの一部として出荷される仮想化レイアウトは、表示されるコンテンツの性質に対する制限を減らすことで、コンテンツに依存するレイアウトとして開発されます。
+レイアウトでその推測が正しくないことが検出された場合、または予期しないビューポートの移動が確認された場合は、その開始位置を再設定する必要があります。  XAML コントロールの一部として出荷される仮想化レイアウトは、表示されるコンテンツの性質に対する制限が少ないため、コンテンツ依存レイアウトとして開発されます。
 
 
-### <a name="example-simple-virtualizing-stack-layout-for-variable-sized-items"></a>例: 可変サイズの項目の単純な仮想化スタックレイアウト
+### <a name="example-simple-virtualizing-stack-layout-for-variable-sized-items"></a>例:可変サイズの項目のシンプルな仮想化スタック レイアウト
 
-次のサンプルでは、可変サイズの項目の単純なスタックレイアウトを示しています。
+次のサンプルでは、以下のような可変サイズの項目のシンプルなスタック レイアウトを示しています。
 
-* UI の仮想化をサポートします。
-* 予測を使用して、実現されていない項目のサイズを推測します。
-* 非連続的なビューポートのシフトを認識し、
-* レイアウトの修正を適用して、それらのシフトを考慮します。
+* UI の仮想化をサポートする、
+* 推定を使用して、実現されない項目のサイズを推測する、
+* 非連続的なビューポートの移動の可能性に対応する、および
+* それらの移動を考慮して、レイアウトの修正を適用する。
 
-**使用法: マークアップ**
+**使用方法:マークアップ**
 
 ```xaml
 <ScrollViewer>
@@ -741,7 +741,7 @@ XAML には、スクロールコントロールで[IScrollAnchorPovider](/uwp/ap
 </ScrollViewer>
 ```
 
-**分離コード: Main.cs**
+**分離コード:Main.cs**
 
 ```csharp
 string _lorem = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam laoreet erat vel massa rutrum, eget mollis massa vulputate. Vivamus semper augue leo, eget faucibus nulla mattis nec. Donec scelerisque lacus at dui ultricies, eget auctor ipsum placerat. Integer aliquet libero sed nisi eleifend, nec rutrum arcu lacinia. Sed a sem et ante gravida congue sit amet ut augue. Donec quis pellentesque urna, non finibus metus. Proin sed ornare tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam laoreet erat vel massa rutrum, eget mollis massa vulputate. Vivamus semper augue leo, eget faucibus nulla mattis nec. Donec scelerisque lacus at dui ultricies, eget auctor ipsum placerat. Integer aliquet libero sed nisi eleifend, nec rutrum arcu lacinia. Sed a sem et ante gravida congue sit amet ut augue. Donec quis pellentesque urna, non finibus metus. Proin sed ornare tellus.";
@@ -757,7 +757,7 @@ var data = new ObservableCollection<Recipe>(Enumerable.Range(0, 300).Select(k =>
 repeater.ItemsSource = data;
 ```
 
-**コード: VirtualizingStackLayout.cs**
+**コード:VirtualizingStackLayout.cs**
 
 ```csharp
 // This is a sample layout that stacks elements one after

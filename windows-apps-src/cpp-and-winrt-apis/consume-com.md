@@ -5,12 +5,12 @@ ms.date: 04/24/2019
 ms.topic: article
 keywords: windows 10、uwp、標準、c ++、cpp、winrt、COM、コンポーネント、クラス、インターフェイス
 ms.localizationpriority: medium
-ms.openlocfilehash: 4a9bdfcee8811e52587eb4fcd59913a731b799a2
-ms.sourcegitcommit: cab95379459ad378163aa4469c9dc6c509cc8c43
+ms.openlocfilehash: 6a286056fc0c44d01482e23e52df0fa80eca0515
+ms.sourcegitcommit: c660def841abc742600fbcf6ed98e1f4f7beb8cc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/18/2020
-ms.locfileid: "79511005"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80218522"
 ---
 # <a name="consume-com-components-with-cwinrt"></a>C++/WinRT での COM コンポーネントの使用
 
@@ -127,14 +127,7 @@ winrt::check_hresult(D2D1CreateFactory(
 
 ## <a name="com-functions-that-take-an-iunknown-interface-pointer"></a>**IUnknown** インターフェイス ポインターを受け取る COM 関数
 
-[**winrt::get_unknown**](/uwp/cpp-ref-for-winrt/get-unknown) free 関数を呼び出して、**com_ptr** を **IUnknown** インターフェイス ポインターを受け取る関数に渡すことができます。
-
-```cppwinrt
-winrt::check_hresult(factory->CreateSwapChainForCoreWindow(
-    ...
-    winrt::get_unknown(CoreWindow::GetForCurrentThread()),
-    ...));
-```
+[**winrt::get_unknown**](/uwp/cpp-ref-for-winrt/get-unknown) free 関数を呼び出して、**com_ptr** を **IUnknown** インターフェイス ポインターを受け取る関数に渡すことができます。 コード例については、そのトピックを参照してください。
 
 ## <a name="passing-and-returning-com-smart-pointers"></a>COM スマート ポインターの受け渡し
 
@@ -171,7 +164,7 @@ void ExampleFunction(winrt::com_ptr<ID3D11Device> const& device)
 
 このソース コード例をビルドして実行する場合は、まず Visual Studio で新しい**コア アプリ (C++/WinRT)** を作成します。 `Direct2D` はプロジェクトに適した名前ですが、任意の名前を付けることができます。
 
-`pch.h` を開き、`windows.h` のインクルードの直後に `#include <unknwn.h>` を追加します。
+`pch.h` を開き、`windows.h` のインクルードの直後に `#include <unknwn.h>` を追加します。 これは、[**winrt:: get_unknown**](/uwp/cpp-ref-for-winrt/get-unknown) を使用しているためです。 **winrt::get_unknown** を使用するときは常に、そのヘッダーが別のヘッダーにインクルードされている場合でも、明示的に `#include <unknwn.h>` することをお勧めします。
 
 `App.cpp` を開き、内容全体を削除し、以下の一覧に貼り付けます。
 

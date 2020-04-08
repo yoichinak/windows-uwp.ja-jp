@@ -10,25 +10,35 @@ design-contact: kimsea
 dev-contact: mitra
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: bb6cc29260f5891cda74879618b59bb3762b7f18
-ms.sourcegitcommit: f561efbda5c1d47b85601d91d70d86c5332bbf8c
+ms.openlocfilehash: edeebf177cf438931bb318ea19cd292a9c9b27c0
+ms.sourcegitcommit: af4050f69168c15b0afaaa8eea66a5ee38b88fed
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72690419"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80081597"
 ---
 # <a name="rating-control"></a>評価コントロール
 
 評価コントロールでは、ユーザーが評価の確認と設定を行うことができます。評価には、コンテンツやサービスに関する満足度が反映されます。 ユーザーはタッチ、ペン、マウス、ゲームパッド、キーボードで評価コントロールを操作できます。 次のガイダンスでは、評価コントロールの機能を使用して、柔軟性とカスタマイズを提供する方法を示します。
 
-> **重要な API**:[RatingControl クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.ratingcontrol)
+![評価コントロールの例](images/rating_rs2_doc_ratings_intro.png)
+
+**Windows UI ライブラリを入手する**
+
+|  |  |
+| - | - |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | **RatingControl** コントロールは、Windows UI ライブラリの NuGet パッケージの一部として組み込まれており、パッケージには、UWP アプリの新しいコントロールと UI 機能が含まれています。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+
+> **Windows UI ライブラリ API:** [RatingControl クラス](/uwp/api/microsoft.ui.xaml.controls.ratingcontrol)
+>
+> **プラットフォーム API:** [RatingControl クラス](/uwp/api/windows.ui.xaml.controls.ratingcontrol)
 
 ## <a name="examples"></a>例
 
 <table>
 <th align="left">XAML コントロール ギャラリー<th>
 <tr>
-<td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td><img src="images/xaml-controls-gallery-app-icon-sm.png" alt="XAML controls gallery"></img></td>
 <td>
     <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合、こちらをクリックして<a href="xamlcontrolsgallery:/item/RatingControl">アプリを開き、RatingControl の動作を確認</a>してください。</p>
     <ul>
@@ -38,8 +48,6 @@ ms.locfileid: "72690419"
 </td>
 </tr>
 </table>
-
-![評価コントロールの例](images/rating_rs2_doc_ratings_intro.png)
 
 ### <a name="editable-rating-with-placeholder-value"></a>編集可能な評価とプレースホルダーの値
 
@@ -95,6 +103,6 @@ private void RatingChanged(RatingControl sender, object args)
 -   増加アニメーションの無効化
 -   星の数のカスタマイズ
 
-## <a name="get-the-sample-code"></a>サンプル コードを入手する
+## <a name="get-the-sample-code"></a>サンプル コードの入手
 
 - [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - インタラクティブな形で XAML コントロールのすべてを参照できます。
