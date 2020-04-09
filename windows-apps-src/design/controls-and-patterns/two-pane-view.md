@@ -6,12 +6,12 @@ ms.date: 01/22/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 7a070a72324408746f67b8814554160a76ee0ce4
-ms.sourcegitcommit: e4b48989c91cd77ba73c90d9eb9cd67b88d52f21
+ms.openlocfilehash: e151e06f0ebc838671aa1100d96e8e6f14de0739
+ms.sourcegitcommit: 8be8ed1ef4e496055193924cd8cea2038d2b1525
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/12/2020
-ms.locfileid: "79191679"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80614135"
 ---
 # <a name="two-pane-view"></a>2 つのペインからなるビュー
 
@@ -25,25 +25,18 @@ TwoPaneView コントロールは、すべての Windows デバイス上で動�
 > [!NOTE]
 > "_デュアルスクリーン デバイス_" は、固有の機能を持つ特殊な種類のデバイスです。 これは、複数のモニターが搭載されたデスクトップ デバイスとは同じではありません。 デュアルスクリーン デバイスの詳細については、「[デュアルスクリーン デバイスの概要](/dual-screen/introduction)」を参照してください。 (複数のモニターに合わせてアプリを最適化する方法の詳細については、「[Show multiple views](/windows/uwp/design/layout/show-multiple-views)」 (複数のビューの表示) を参照してください。)
 
-| Windows UI ライブラリを入手する |
-| - |
-| このコントロールは、Windows UI ライブラリの NuGet パッケージの一部として組み込まれており、パッケージには、UWP アプリの新しいコントロールと UI 機能が含まれています。 インストール手順などの詳細については、[Windows UI ライブラリの概要](/uwp/toolkits/winui/)に関するページを参照してください。 |
+**Windows UI ライブラリを入手する**
 
-| プラットフォーム API | Windows UI ライブラリ API |
+|  |  |
 | - | - |
-| [TwoPaneView クラス](/uwp/api/windows.ui.xaml.controls.twopaneview) | [TwoPaneView クラス](/uwp/api/microsoft.ui.xaml.controls.twopaneview) |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | **TwoPaneView** コントロールは、UWP アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリの一部として含まれています。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
 
-このドキュメントでは、XAML で **muxc** エイリアスを使って、プロジェクトに含めた Windows UI Library API を表します。 [Page](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.page) 要素にこれを追加しました。
+> **Windows UI ライブラリ API:** [TwoPaneView クラス](/uwp/api/microsoft.ui.xaml.controls.twopaneview)
 
-```xaml
-xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
-```
-
-コードビハインドでは、C# でも **muxc** エイリアスを使って、プロジェクトに含めた Windows UI Library API を表します。 この **using** ステートメントは、ファイルの先頭に追加されています。
-
-```csharp
-using muxc = Microsoft.UI.Xaml.Controls;
-```
+> [!TIP]
+> このドキュメントでは、XAML で **muxc** エイリアスを使って、プロジェクトに含めた Windows UI Library API を表します。 [Page](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.page) 要素にこれを追加しました。`xmlns:muxc="using:Microsoft.UI.Xaml.Controls"`
+>
+>コードビハインドでは、C# でも **muxc** エイリアスを使って、プロジェクトに含めた Windows UI Library API を表します。 この **using** ステートメントは、ファイルの先頭に追加されています。`using muxc = Microsoft.UI.Xaml.Controls;`
 
 ## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
@@ -73,7 +66,7 @@ using muxc = Microsoft.UI.Xaml.Controls;
 
 2 ペイン ビューには、コンテンツが配置される 2 つのペインがあります。 ウィンドウに使用できる空間に応じて、ペインのサイズと配置が調整されます。 使用できるペインのレイアウトは、[TwoPaneViewMode](/uwp/api/microsoft.ui.xaml.controls.twopaneviewmode) 列挙体によって定義されます。
 
-| 列挙値 | 説明 |
+| 列挙値&nbsp; | 説明 |
 | - | - |
 | `SinglePane` | [PanePriority](/uwp/api/microsoft.ui.xaml.controls.twopaneview.panepriority) プロパティの指定に従い、1 つのペインのみが表示されます。 |
 | `Wide` | [WideModeConfiguration](/uwp/api/microsoft.ui.xaml.controls.twopaneview.widemodeconfiguration) プロパティの指定に従い、ペインが横並びで表示されるか、単一のペインが表示されます。 |
