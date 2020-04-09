@@ -6,20 +6,20 @@ ms.date: 02/21/2018
 ms.topic: article
 keywords: Windows 10、UWP、ゲーム、.NET、Unity
 ms.localizationpriority: medium
-ms.openlocfilehash: 878a598c8a0b71e4ee394f7f98c215e5462b44e7
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: df93fbeb3a879a84873827a5ead926f96b02adcc
+ms.sourcegitcommit: 8ee0752099170aaf96c7cb105f7cc039b6e7ff06
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66368432"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80968058"
 ---
 # <a name="missing-net-apis-in-unity-and-uwp"></a>Unity や UWP で不足している .NET API
 
 .NET を使用して UWP ゲームを作成する場合、Unity エディターで使用できる一部の API やスタンドアロン PC ゲーム用の一部の API が UWP 用に存在しないことがあります。 これは、UWP アプリ用 .NET には、名前空間ごとに、フル バージョンの .NET Framework で提供される型のサブセットが含まれるためです。
 
-さらに、Unity の Mono など一部のゲーム エンジンは、UWP 用の .NET とは完全な互換性のない別の種類の .NET を使用しています。 したがって、ゲームを作成しているときにすべて正常に動作エディターが、UWP のビルドに移動するときにこのようなエラーが発生する可能性があります。**型または名前空間する 'フォーマッタ' が 'System.Runtime.Serialization' 名前空間に存在しません (する、アセンブリ参照が存在しますか?)**
+さらに、Unity の Mono など一部のゲーム エンジンは、UWP 用の .NET とは完全な互換性のない別の種類の .NET を使用しています。 したがって、ゲームを作成する際に、エディターでは問題なく動作しても、UWP 用にビルドすると、"**型または名前空間の名前 'Formatters' は名前空間 'System.Runtime.Serialization' に存在しません (アセンブリ参照があることを確認してください)** " というエラーが出力される可能性があります。
 
-さいわい、拡張メソッドとで説明されている置換型としての Unity はこれらの不足している Api の一部[ユニバーサル Windows プラットフォーム.NET バックエンドをスクリプトで .NET の種類が見つからない](https://docs.unity3d.com/Manual/windowsstore-missingtypes.html)します。 ただし、必要な機能がここにない場合は、「[Windows ストア アプリ用 .NET の概要](https://docs.microsoft.com/previous-versions/windows/apps/br230302(v=vs.140))」で説明している方法に従って、WinRT または UWP 用 .NET の API を使用するようにコードを変換できます  (このページでは、Windows 8 について説明していますが、Windows 10 の UWP アプリにも適用できます)。
+幸いなことに、Unity では、これらの不足している API の一部を拡張メソッドや置換型として提供しています。詳しくは、[ユニバーサル Windows プラットフォームの .NET Scripting Backend で不足している .NET 型に関するページ](https://docs.unity3d.com/Manual/windowsstore-missingtypes.html)をご覧ください。 ただし、必要な機能がここにない場合は、「[Windows ストア アプリ用 .NET の概要](https://docs.microsoft.com/previous-versions/windows/apps/br230302(v=vs.140))」で説明している方法に従って、WinRT または UWP 用 .NET の API を使用するようにコードを変換できます (このページでは、Windows 8 について説明していますが、Windows 10 の UWP アプリにも適用できます)。
 
 ## <a name="net-standard"></a>.NET Standard
 
@@ -43,7 +43,7 @@ UWP のビルドで問題が発生した場合に最初に行うことは、 **[
 
 一般的に、 **[Scripting Runtime Version] (スクリプト ランタイム バージョン)** と **[Api Compatibility Level] (API 互換性レベル)** については、.NET Framework との互換性を高め、より多くの .NET API を使用できるようにするために、利用可能な最新バージョンを選択してください。
 
-![構成:スクリプトのランタイム バージョンです。スクリプトのバックエンドApi の互換性レベル](images/missing-dot-net-apis-in-unity-1.png)
+![構成: スクリプト ランタイム バージョン、スクリプト バックエンド、API 互換性レベル](images/missing-dot-net-apis-in-unity-1.png)
 
 ## <a name="platform-dependent-compilation"></a>プラットフォーム依存のコンパイル
 
@@ -60,7 +60,7 @@ UWP アプリとして実行する場合にのみコードをコンパイルす�
 ```
 
 > [!NOTE]
-> `NETFX_CORE` コンパイルするかどうかにチェックだけを目的とC#.NET スクリプト バックエンドに対してコード。 IL2CPP など、他のスクリプト バックエンドを使用している場合は、代わりに `UNITY_WSA_10_0` を使用します。
+> `NETFX_CORE` は、.NET スクリプトバックエンドに対してC#コードをコンパイルしているかどうかを確認することだけを目的としています。 別のスクリプトバックエンド (IL2CPP など) を使用している場合は、代わりに[`ENABLE_WINMD_SUPPORT`](https://docs.unity3d.com/Manual/windowsstore-code-snippets.html)を使用します。
 
 プラットフォーム依存のコンパイル ディレクティブの一覧については、[プラットフォーム依存のコンパイルに関するページ](https://docs.unity3d.com/Manual/PlatformDependentCompilation.html)をご覧ください。
 
@@ -96,7 +96,7 @@ private void Save()
 
 重要な注意事項は、[Close](https://docs.microsoft.com/dotnet/api/system.io.stream.close) メソッドは、.NET Standard 2.0 以降でのみ利用できることです (ただし、Unity は拡張メソッドを提供しています)。 代わりに、[Dispose](https://docs.microsoft.com/dotnet/api/system.io.stream.dispose) を使用します。
 
-### <a name="threading"></a>スレッド
+### <a name="threading"></a>スレッド化
 
 [System.Threading](https://docs.microsoft.com/dotnet/api/system.threading) 名前空間の一部の型 ([ThreadPool](https://docs.microsoft.com/dotnet/api/system.threading.threadpool) など) は、以前のバージョンの .NET Standard では使用できません。 このような場合は、代わりに [Windows.System.Threading](https://docs.microsoft.com/uwp/api/windows.system.threading) 名前空間を使用できます。
 
@@ -142,8 +142,8 @@ WinRT セキュリティ API の使用方法の詳細については、「[セ�
 
 **System.Net.Mail** の場合は、[Windows.ApplicationModel.Email](https://docs.microsoft.com/uwp/api/windows.applicationmodel.email) 名前空間を使用します。 詳細については、「[メールの送信](https://docs.microsoft.com/windows/uwp/contacts-and-calendar/sending-email)」を参照してください。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-* [ユニバーサル Windows プラットフォーム:.NET バックエンドをスクリプトに不足している .NET の種類](https://docs.unity3d.com/Manual/windowsstore-missingtypes.html)
-* [.NET の UWP アプリの概要](https://docs.microsoft.com/previous-versions/windows/apps/br230302(v=vs.140))
-* [Unity UWP への移植のガイド](https://unity3d.com/partners/microsoft/porting-guides)
+* [ユニバーサル Windows プラットフォーム: .NET Scripting バックエンドに .NET 型がない](https://docs.unity3d.com/Manual/windowsstore-missingtypes.html)
+* [UWP アプリ用 .NET の概要](https://docs.microsoft.com/previous-versions/windows/apps/br230302(v=vs.140))
+* [Unity UWP 移植ガイド](https://unity3d.com/partners/microsoft/porting-guides)

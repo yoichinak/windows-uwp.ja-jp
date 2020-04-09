@@ -7,12 +7,12 @@ ms.topic: article
 keywords: windows 10, uwp
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 5307448b6209228cd8c4550a739c6db15091ba54
-ms.sourcegitcommit: af4050f69168c15b0afaaa8eea66a5ee38b88fed
+ms.openlocfilehash: 0eada4c65933151eb6d40b7e3cfdbf31369d6d35
+ms.sourcegitcommit: 8be8ed1ef4e496055193924cd8cea2038d2b1525
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80081671"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80614118"
 ---
 # <a name="number-box"></a>数値ボックス
 
@@ -24,9 +24,14 @@ ms.locfileid: "80081671"
 
 |  |  |
 | - | - |
-| ![WinUI ロゴ](images/winui-logo-64x64.png) | **NumberBox** コントロールは、UWP アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリの一部として含まれています。 インストール手順などの詳細については、[Windows UI ライブラリの概要](https://docs.microsoft.com/uwp/toolkits/winui/)に関するページを参照してください。 |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | **NumberBox** コントロールでは、UWP アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリが必要になります。 インストール手順などの詳細については、[Windows UI ライブラリの概要](https://docs.microsoft.com/uwp/toolkits/winui/)に関するページを参照してください。 |
 
 **Windows UI ライブラリ API:** [NumberBox クラス](https://docs.microsoft.com/uwp/api/microsoft.ui.xaml.controls.NumberBox)
+
+> [!TIP]
+> このドキュメントでは、XAML で **muxc** エイリアスを使って、プロジェクトに含めた Windows UI Library API を表します。 [Page](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.page) 要素にこれを追加しました。`xmlns:muxc="using:Microsoft.UI.Xaml.Controls"`
+>
+>コードビハインドでは、C# でも **muxc** エイリアスを使って、プロジェクトに含めた Windows UI Library API を表します。 この **using** ステートメントは、ファイルの先頭に追加されています。`using muxc = Microsoft.UI.Xaml.Controls;`
 
 ## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
@@ -50,20 +55,20 @@ NumberBox コントロールを使用して、数学的な入力を捕捉およ�
 
 ### <a name="create-a-simple-numberbox"></a>単純な NumberBox の作成
 
-次に示すのは、既定の外観を示す基本的な NumberBox の XAML です。 ユーザーに表示されるデータと、アプリに保存されているデータの同期が保たれていることを保証するには、[x:Bind](/windows/uwp/xaml-platform/x-bind-markup-extension#property-path) を使用します。 
-
+次に示すのは、既定の外観を示す基本的な NumberBox の XAML です。 ユーザーに表示されるデータと、アプリに保存されているデータの同期が保たれていることを保証するには、[x:Bind](/windows/uwp/xaml-platform/x-bind-markup-extension#property-path) を使用します。
 
 ```xaml
-<NumberBox Value="{x:Bind Path=ViewModel.NumberBoxValue, Mode=TwoWay}" />
+<muxc:NumberBox Value="{x:Bind Path=ViewModel.NumberBoxValue, Mode=TwoWay}" />
 ```
+
 ![フォーカスがある入力フィールド。0 を示している。](images/numberbox-basic.png)
 
 ### <a name="labeling-numberbox"></a>NumberBox のラベル付け
 
-NumberBox の目的が明確でない場合は、`Header` または `PlaceholderText` を使用します。 `Header` は、NumberBox に値が存在するかどうかに関係なく表示されます。 
+NumberBox の目的が明確でない場合は、`Header` または `PlaceholderText` を使用します。 `Header` は、NumberBox に値が存在するかどうかに関係なく表示されます。
 
 ```xaml
-<NumberBox Header="Enter a number:"
+<muxc:NumberBox Header="Enter a number:"
     Value="{x:Bind Path=ViewModel.NumberBoxValue, Mode=TwoWay}" />
 ```
 
@@ -72,7 +77,7 @@ NumberBox の目的が明確でない場合は、`Header` または `Placeholder
 `PlaceholderText` は NumberBox 内に表示され、`Value` が NaN に設定されているとき、または入力がユーザーによってクリアされたときにのみ表示されます。
 
 ```xaml
-<NumberBox PlaceholderText="1+2^2"
+<muxc:NumberBox PlaceholderText="1+2^2"
     Value="{x:Bind Path=ViewModel.NumberBoxValue, Mode=TwoWay}" />
 ```
 
@@ -82,9 +87,8 @@ NumberBox の目的が明確でない場合は、`Header` または `Placeholder
 
 `AcceptsExpression` プロパティを true に設定すると、NumberBox で、標準の演算順序を使用して、乗算、除算、加算、減算などの基本的なインライン式を評価できるようになります。 評価は、フォーカスが失われたとき、またはユーザーが "Enter" キーを押したときにトリガーされます。 式が評価された後、式の元の形式は保持されません。
 
-XAML
 ```xaml
-<NumberBox Value="{x:Bind Path=ViewModel.NumberBoxValue, Mode=TwoWay}"
+<muxc:NumberBox Value="{x:Bind Path=ViewModel.NumberBoxValue, Mode=TwoWay}"
     AcceptsExpression="True" />
 ```
 
@@ -96,15 +100,14 @@ NumberBox にフォーカスがあり、ユーザーが次の操作を行った�
 - 上方向キーを押す
 - 下方向キーを押す
 
-NumberBox にフォーカスがあり、ユーザーが PageUp または PageDown キーを押したときに NumberBox 内の値がどれだけ変動するかを構成するには、`LargeChange` プロパティを使用します。 
+NumberBox にフォーカスがあり、ユーザーが PageUp または PageDown キーを押したときに NumberBox 内の値がどれだけ変動するかを構成するには、`LargeChange` プロパティを使用します。
 
-クリックすると `SmallChange` プロパティで指定された量だけ NumberBox の値を増減できるボタンを有効にするには、`SpinButtonPlacementMode` プロパティを使用します。 次のステップで最大値または最小値を超える場合、これらのボタンは無効になります。 
+クリックすると `SmallChange` プロパティで指定された量だけ NumberBox の値を増減できるボタンを有効にするには、`SpinButtonPlacementMode` プロパティを使用します。 次のステップで最大値または最小値を超える場合、これらのボタンは無効になります。
 
-コントロールの横にボタンを表示するには、`SpinButtonPlacementMode` を `Inline` に設定します。 
+コントロールの横にボタンを表示するには、`SpinButtonPlacementMode` を `Inline` に設定します。
 
-XAML
-```XAML
-<NumberBox Value="{x:Bind Path=ViewModel.NumberBoxValue, Mode=TwoWay}"
+```xaml
+<muxc:NumberBox Value="{x:Bind Path=ViewModel.NumberBoxValue, Mode=TwoWay}"
     SmallChange="10"
     LargeChange="100"
     SpinButtonPlacementMode="Inline" />
@@ -112,11 +115,10 @@ XAML
 
 ![下方向ボタンと上方向ボタンが横に付いた NumberBox。](images/numberbox-spinbutton-inline.png)
 
-NumberBox にフォーカスがあるときにのみフライアウト形式でボタンを表示するには、`SpinButtonPlacementMode` を `Compact` に設定します。  
+NumberBox にフォーカスがあるときにのみフライアウト形式でボタンを表示するには、`SpinButtonPlacementMode` を `Compact` に設定します。
 
-XAML
-```XAML
-<NumberBox Value="{x:Bind Path=ViewModel.NumberBoxValue, Mode=TwoWay}"
+```xaml
+<muxc:NumberBox Value="{x:Bind Path=ViewModel.NumberBoxValue, Mode=TwoWay}"
     SmallChange="10"
     LargeChange="100"
     SpinButtonPlacementMode="Compact" />
@@ -130,31 +132,28 @@ XAML
 
 `ValidationMode` を `InvalidInputOverwritten` に設定すると、NumberBox がフォーカスを失うか "Enter" キーが押されるかして評価がトリガーされたときに、数値でないか式が正しくないため無効である入力を最後の有効な値で上書きすることができます。
 
-XAML
-```XAML
-<NumberBox Header="Quantity"
+```xaml
+<muxc:NumberBox Header="Quantity"
     Value="{x:Bind Path=ViewModel.NumberBoxValue, Mode=TwoWay}"
     ValidationMode="InvalidInputOverwritten" />
 ```
 
-`ValidationMode` を `Disabled` に設定すると、カスタム入力検証を構成できます。  
+`ValidationMode` を `Disabled` に設定すると、カスタム入力検証を構成できます。
 
-小数点とコンマに関しては、ユーザーが使用する書式設定は、NumberBox 用に構成された書式によって置き換えられます。 入力検証エラーはトリガーされません。 
+小数点とコンマに関しては、ユーザーが使用する書式設定は、NumberBox 用に構成された書式によって置き換えられます。 入力検証エラーはトリガーされません。
 
-### <a name="formatting-input"></a>入力の書式設定 
+### <a name="formatting-input"></a>入力の書式設定
 
 [数値の書式](/uwp/api/windows.globalization.numberformatting)を使用すると、書式クラスのインスタンスを構成して `NumberFormatter` プロパティに割り当てることによって、数値ボックスの値を書式設定することができます。 10 進数、通貨、パーセント、有効数字は、使用できる数値書式クラスの例です。 丸めも数値の書式プロパティによって定義されることに注意してください。
 
-次の例では、DecimalFormatter を使用して、NumberBox の値を整数部 1 桁と小数部 2 桁に書式設定し、最も近い 0.25 の倍数に丸めます。  
+次の例では、DecimalFormatter を使用して、NumberBox の値を整数部 1 桁と小数部 2 桁に書式設定し、最も近い 0.25 の倍数に丸めます。
 
-XAML
-```XAML
-<NumberBox  x:Name="FormattedNumberBox"
+```xaml
+<muxc:NumberBox  x:Name="FormattedNumberBox"
     Value="{x:Bind Path=ViewModel.NumberBoxValue, Mode=TwoWay}" />
 ```
 
-C#
-```C#
+```csharp
 private void SetNumberBoxNumberFormatter()
 {
     IncrementNumberRounder rounder = new IncrementNumberRounder();
@@ -171,19 +170,19 @@ private void SetNumberBoxNumberFormatter()
 
 ![NumberBox の値は 0.00 です。](images/numberbox-formatted.png)
 
-小数点とコンマに関しては、ユーザーが使用する書式設定は、NumberBox 用に構成された書式によって置き換えられます。 入力検証エラーはトリガーされません。 
+小数点とコンマに関しては、ユーザーが使用する書式設定は、NumberBox 用に構成された書式によって置き換えられます。 入力検証エラーはトリガーされません。
 
 ## <a name="remarks"></a>コメント
 
 ### <a name="input-scope"></a>入力スコープ
 
-`Number` は[入力スコープ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.InputScopeNameValue)に使用されます。 この入力スコープは 0 ～ 9 の数字を操作するためのものです。 これは上書きできますが、代替の InputScope 型は明示的にサポートされません。 
+`Number` は[入力スコープ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.InputScopeNameValue)に使用されます。 この入力スコープは 0 ～ 9 の数字を操作するためのものです。 これは上書きできますが、代替の InputScope 型は明示的にサポートされません。
 
 ### <a name="not-a-number"></a>数値がない
 
-NumberBox の入力がクリアされると、数値が存在しないことを示すために `Value` が `NaN` に設定されます。 
+NumberBox の入力がクリアされると、数値が存在しないことを示すために `Value` が `NaN` に設定されます。
 
-### <a name="expression-evaluation"></a>式の評価 
+### <a name="expression-evaluation"></a>式の評価
 
 NumberBox では、中置記法を使用して式を評価します。 使用できる演算子は、優先順位の順に次のとおりです。
 
@@ -191,9 +190,9 @@ NumberBox では、中置記法を使用して式を評価します。 使用で
 * */
 * +-
 
-かっこを使用して優先順位規則をオーバーライドできることに注意してください。 
+かっこを使用して優先順位規則をオーバーライドできることに注意してください。
 
 ## <a name="recommendations"></a>推奨事項
 
-* `Text` および `Value` を使用すると、NumberBox の値を String または Double として簡単に捕捉でき、値の型変換は必要ありません。 NumberBox の値をプログラムで変更するときは、`Value` プロパティを使用して変更することをお勧めします。 `Value` は初期設定で `Text` を上書きします。 初期設定後、一方への変更はもう一方に反映されますが、プログラムによる変更には常に `Value` を使用するようにすれば、NumberBox が `Text` 経由で数字以外の文字を受け付けるという概念的な誤解を避けることができます。  
-* `Header` または `PlaceholderText` を使用して、NumberBox が数字のみを入力として受け付けることをユーザーに知らせます。 "one" のようにつづられた数字表現は、許容値に解決されません。 
+* `Text` および `Value` を使用すると、NumberBox の値を String または Double として簡単に捕捉でき、値の型変換は必要ありません。 NumberBox の値をプログラムで変更するときは、`Value` プロパティを使用して変更することをお勧めします。 `Value` は初期設定で `Text` を上書きします。 初期設定後、一方への変更はもう一方に反映されますが、プログラムによる変更には常に `Value` を使用するようにすれば、NumberBox が `Text` 経由で数字以外の文字を受け付けるという概念的な誤解を避けることができます。
+* `Header` または `PlaceholderText` を使用して、NumberBox が数字のみを入力として受け付けることをユーザーに知らせます。 "one" のようにつづられた数字表現は、許容値に解決されません。

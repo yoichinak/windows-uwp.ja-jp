@@ -2,7 +2,7 @@
 Description: 教育のヒントは、コンテキスト情報を提供する半永続的で内容豊富なポップアップです。
 title: 教育のヒント
 template: detail.hbs
-ms.date: 04/19/2019
+ms.date: 04/01/2020
 ms.topic: article
 keywords: windows 10, uwp
 pm-contact: yulikl
@@ -10,12 +10,12 @@ design-contact: kimsea
 dev-contact: niallm
 ms.custom: 19H1
 ms.localizationpriority: medium
-ms.openlocfilehash: 6276ef9bcb6b01fd557057d3d36939350314015b
-ms.sourcegitcommit: af4050f69168c15b0afaaa8eea66a5ee38b88fed
+ms.openlocfilehash: 06734c854f0097db5fa96e35d4123dde8bda8a95
+ms.sourcegitcommit: 8be8ed1ef4e496055193924cd8cea2038d2b1525
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80081053"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80614141"
 ---
 # <a name="teaching-tip"></a>教育のヒント
 
@@ -27,16 +27,20 @@ ms.locfileid: "80081053"
 
 |  |  |
 | - | - |
-| ![WinUI ロゴ](../images/winui-logo-64x64.png) | **TeachingTip** コントロールは、Windows UI ライブラリの NuGet パッケージの一部として組み込まれており、パッケージには、UWP アプリの新しいコントロールと UI 機能が含まれています。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+| ![WinUI ロゴ](../images/winui-logo-64x64.png) | **TeachingTip** コントロールでは、UWP アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリが必要になります。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
 
 > **Windows UI ライブラリ API:** [TeachingTip クラス](/uwp/api/microsoft.ui.xaml.controls.teachingtip)
+
+> [!TIP]
+> このドキュメントでは、XAML で **muxc** エイリアスを使って、プロジェクトに含めた Windows UI Library API を表します。 [Page](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.page) 要素にこれを追加しました。`xmlns:muxc="using:Microsoft.UI.Xaml.Controls"`
+>
+>コードビハインドでは、C# でも **muxc** エイリアスを使って、プロジェクトに含めた Windows UI Library API を表します。 この **using** ステートメントは、ファイルの先頭に追加されています。`using muxc = Microsoft.UI.Xaml.Controls;`
 
 ## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 **TeachingTip** コントロールを使用して、新規または重要な更新および機能にユーザーの注意を向けたり、重要ではないがユーザーのエクスペリエンスを改善できるオプションをユーザーにリマインドしたり、タスクの完了方法をユーザーに説明したりします。
 
 教育のヒントは一時的なものであるため、エラーまたは重要な状態変更をユーザーに知らせるためのコントロールとしては推奨されません。
-
 
 ## <a name="examples"></a>例
 
@@ -68,14 +72,12 @@ ms.locfileid: "80081053"
 
 ![簡易非表示の教育のヒントが右下隅に表示されているサンプル アプリ。 ヒントのタイトルには "Saving automatically" (自動的に保存) と記載されており、サブタイトルには "We save your changes as you go - so you never have to." (変更内容は作業中に保存されるため、保存操作は不要です) と記載されています。](../images/teaching-tip-light-dismiss.png)
 
-
 ### <a name="create-a-teaching-tip"></a>教育のヒントを作成する
 
 ここでは、タイトルとサブタイトルが付いた TeachingTip の既定の外観を示す、ターゲットを指定した教育のヒント コントロールの XAML を扱います。
 なお、教育のヒントは要素ツリーまたはコード ビハインドの任意の場所に表示できます。 以下の例では ResourceDictionary 内に配置されます。
 
-XAML
-```XAML
+```xaml
 <Button x:Name="SaveButton" Content="Save">
     <Button.Resources>
         <muxc:TeachingTip x:Name="AutoSaveTip"
@@ -87,8 +89,7 @@ XAML
 </Button>
 ```
 
-C#
-```C#
+```csharp
 public MainPage()
 {
     this.InitializeComponent();
@@ -109,8 +110,7 @@ public MainPage()
 
 すべてのヒントが画面の要素に関連しているわけではありません。 これらのシナリオでは Target プロパティを設定しないでください。代わりに、教育のヒントは XAML ルートの端を基準として表示されます。 ただし教育のヒントでは、TailVisibility プロパティを "Collapsed" に設定することによって、UI 要素を基準とした配置を維持しながらテールを削除することができます。 次の例は、ターゲット非指定の教育のヒントを表しています。
 
-XAML
-```XAML
+```xaml
 <Button x:Name="SaveButton" Content="Save" />
 
 <muxc:TeachingTip x:Name="AutoSaveTip"
@@ -131,8 +131,7 @@ XAML
 
 PreferredPlacement が "BottomLeft" に設定されたターゲット指定の教育のヒントは、テールがターゲットの下部中央に配置され、教育のヒントの本文が左寄せされた状態で表示されます。
 
-XAML
-```XAML
+```xaml
 <Button x:Name="SaveButton" Content="Save">
     <Button.Resources>
         <muxc:TeachingTip x:Name="AutoSaveTip"
@@ -147,11 +146,9 @@ XAML
 
 ![左下隅の教育のヒントによってターゲットに指定された [保存] ボタンがあるサンプル アプリ。 ヒントのタイトルには "Saving automatically" (自動的に保存) と記載されており、サブタイトルには "We save your changes as you go - so you never have to." (変更内容は作業中に保存されるため、保存操作は不要です) と記載されています。 教育のヒントの右上隅に、閉じるボタンがあります。](../images/teaching-tip-targeted-preferred-placement.png)
 
-
 PreferredPlacement が "BottomLeft" に設定されたターゲット非指定の教育のヒントが、XAML ルートの左下隅に表示されます。
 
-XAML
-```XAML
+```xaml
 <Button x:Name="SaveButton" Content="Save" />
 
 <muxc:TeachingTip x:Name="AutoSaveTip"
@@ -175,8 +172,7 @@ XAML
 
 次の例では、PlacementMargin の Left/Top/Right/Bottom がすべて 80 に設定された場合のターゲット非指定のヒントを示しています。
 
-XAML
-```XAML
+```xaml
 <Button x:Name="SaveButton" Content="Save" />
 
 <muxc:TeachingTip x:Name="AutoSaveTip"
@@ -194,8 +190,7 @@ XAML
 
 Content プロパティを使用して、教育のヒントにコンテンツを追加できます。 教育のヒントのサイズで収納できるコンテンツよりも多くのコンテンツを表示する場合、ユーザーがコンテンツ領域をスクロールできるスクロール バーが自動的に有効になります。
 
-XAML
-```XAML
+```xaml
 <Button x:Name="SaveButton" Content="Save">
     <Button.Resources>
         <muxc:TeachingTip x:Name="AutoSaveTip"
@@ -221,8 +216,7 @@ XAML
 
 ActionButtonContent プロパティ (および必要に応じて、ActionButtonCommand および ActionButtonCommandParameter プロパティ) を設定して、カスタム アクション ボタンを追加できます。
 
-XAML
-```XAML
+```xaml
 <Button x:Name="SaveButton" Content="Save">
     <Button.Resources>
         <muxc:TeachingTip x:Name="AutoSaveTip"
@@ -230,7 +224,7 @@ XAML
             Title="Saving automatically"
             Subtitle="We save your changes as you go - so you never have to."
             ActionButtonContent="Disable"
-            ActionButtonCommand="DisableAutoSave"
+            ActionButtonCommand="{x:Bind DisableAutoSaveCommand}"
             CloseButtonContent="Got it!">
                 <StackPanel>
                     <CheckBox x:Name="HideTipsCheckBox" Content="Don't show tips at start up" IsChecked="{x:Bind HidingTips, Mode=TwoWay}" />
@@ -247,8 +241,7 @@ XAML
 
 HeroContent プロパティを設定することによって、端から端までのコンテンツを教育のヒントに追加できます。 ヒーロー コンテンツの場所は、HeroContentPlacement プロパティを設定して教育のヒントの上または下に設定できます。
 
-XAML
-```XAML
+```xaml
 <Button x:Name="SaveButton" Content="Save">
     <Button.Resources>
         <muxc:TeachingTip x:Name="AutoSaveTip"
@@ -269,8 +262,7 @@ XAML
 
 IconSource プロパティを使用して、タイトルおよびサブタイトルの横にアイコンを追加できます。 推奨されるアイコンのサイズは 16px、24px、および 32px です。
 
-XAML
-```XAML
+```xaml
 <Button x:Name="SaveButton" Content="Save">
     <Button.Resources>
         <muxc:TeachingTip x:Name="AutoSaveTip"
@@ -293,8 +285,7 @@ XAML
 
 簡易非表示が有効な教育のヒントからは、閉じるボタンが自動的に削除され、簡易非表示の動作であることがユーザーに示されます。
 
-XAML
-```XAML
+```xaml
 <Button x:Name="SaveButton" Content="Save" />
 
 <muxc:TeachingTip x:Name="AutoSaveTip"
@@ -308,12 +299,11 @@ XAML
 
 ### <a name="escaping-the-xaml-root-bounds"></a>XAML ルートの境界をエスケープする
 
-Windows のバージョン 19H1 以上では、ShouldConstrainToRootBounds プロパティを設定することによって、教育のヒントは XAML ルートと画面の境界をエスケープすることができます。 このプロパティを有効にすると、教育のヒントは XAML ルートの境界の内側または画面に留まろうとせず、PreferredPlacement モードで設定された位置に常に配置されます。 最適なユーザー エクスペリエンスを確保するには、IsLightDismissEnabled プロパティを有効にして、XAML ルートの中央に最も近い PreferredPlacement モードを設定することをお勧めします。
+Windows 10 バージョン 1903 (ビルド 18362) 以降では、教育のヒントで `ShouldConstrainToRootBounds` プロパティを設定して、XAML ルートと画面の境界をエスケープすることができます。 このプロパティを有効にすると、教育のヒントは XAML ルートの境界の内側または画面に留まろうとせず、設定された `PreferredPlacement` モードの位置に常に配置されます。 最適なユーザー エクスペリエンスを確保するには、`IsLightDismissEnabled` プロパティを有効にして、XAML ルートの中央に最も近い `PreferredPlacement` モードを設定することをお勧めします。
 
 以前のバージョンの Windows では、このプロパティは無視され、教育のヒントは常に XAML ルートの境界内に配置されます。
 
-XAML
-```XAML
+```xaml
 <Button x:Name="SaveButton" Content="Save" />
 
 <muxc:TeachingTip x:Name="AutoSaveTip"
@@ -331,10 +321,10 @@ XAML
 
 Closing イベントを使用して、教育のヒントのクローズをキャンセルしたり延期したりすることができます。 これは教育のヒントを開いたままにしたり、アクションの実行またはカスタム アニメーションの表示の時間を確保するために使用できます。 教育のヒントのクローズをキャンセルすると、IsOpen は true に戻りますが、延期の間は false のままになります。 プログラムによるクローズもキャンセルできます。
 
-**注: 教育のヒントの完全な表示を許可する配置オプションが存在しない場合、教育のヒントは、使用可能な閉じるボタンのない状態で表示されるのではなく、閉じることを強制するためにイベントのライフ サイクルを通じて繰り返されます。アプリが Closing イベントをキャンセルした場合、教育のヒントは使用可能な閉じるボタンがない状態で開いたままになることがあります。**
+> [!NOTE]
+> 教育のヒントの完全な表示を許可する配置オプションが存在しない場合、教育のヒントは、使用可能な閉じるボタンのない状態で表示されるのではなく、閉じることを強制するためにイベントのライフ サイクルを通じて繰り返されます。 アプリが Closing イベントをキャンセルした場合、教育のヒントは使用可能な閉じるボタンがない状態で開いたままになることがあります。
 
-XAML
-```XAML
+```xaml
 <muxc:TeachingTip x:Name="EnableNewSettingsTip"
     Title="New ways to protect your privacy!"
     Subtitle="Please close this tip and review our updated privacy policy and privacy settings."
@@ -342,18 +332,18 @@ XAML
 </muxc:TeachingTip>
 ```
 
-C#
-```C#
-public void OnTipClosing(object sender, TeachingTipClosingEventArgs args)
+```csharp
+private void OnTipClosing(muxc.TeachingTip sender, muxc.TeachingTipClosingEventArgs args)
 {
-    if (args.Reason == TeachingTipCloseReason.CloseButton)
+    if (args.Reason == muxc.TeachingTipCloseReason.CloseButton)
     {
         using(args.GetDeferral())
         {
-            bool success = await UpdateUserSettings(User thisUsersID);
+            bool success = UpdateUserSettings(User thisUsersID);
             if(!success)
             {
-                //We were not able to update the settings! Don't close the tip and display the reason why.
+                // We were not able to update the settings!
+                // Don't close the tip and display the reason why.
                 args.Cancel = true;
                 ShowLastErrorMessage();
             }
@@ -362,19 +352,18 @@ public void OnTipClosing(object sender, TeachingTipClosingEventArgs args)
 }
 ```
 
-## <a name="remarks"></a>コメント
+## <a name="recommendations"></a>推奨事項
 
-### <a name="related-articles"></a>関連記事
-
-* [ダイアログとポップアップ](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/dialogs-and-flyouts/index)
-
-### <a name="recommendations"></a>推奨事項
 * ヒントは一時的なものであるため、アプリケーションのエクスペリエンスにとって重要な情報やオプションを含めるべきではありません。
 * 教育のヒントを過剰な頻度で表示しないようにしてください。 教育のヒントは、長いセッションまたは複数のセッションで時間をずらして表示された場合に、個人の注意を惹く可能性が最も高くなります。
 * ヒントは簡潔にし、トピックを明確にしてください。 調査によると、ユーザーはヒントを活用するかどうかを決める前に、平均して 3 つから 5 つの単語しか読まず、2 つから 3 つの単語しか理解していません。
 * 教育のヒントのゲームパッド アクセシビリティは保証されません。 ゲームパッド入力を予測するアプリケーションの場合は、「[ゲームパッドとリモコンの操作]( https://docs.microsoft.com/windows/uwp/design/input/gamepad-and-remote-interactions#xy-focus-navigation-and-interaction)」を参照してください。 アプリの UI で考えられるすべての構成を使用して、それぞれの教育のヒントについてのゲームパッドのアクセシビリティをテストすることをお勧めします。
 * 教育のヒントが XAML ルートをエスケープすることを有効にするときは、IsLightDismissEnabled プロパティも有効にして、XAML ルートの中央に最も近い PreferredPlacement モードを設定することをお勧めします。
 
-### <a name="reconfiguring-an-open-teaching-tip"></a>開いている教育のヒントを再構成する
+## <a name="reconfiguring-an-open-teaching-tip"></a>開いている教育のヒントを再構成する
 
 一部のコンテンツおよびプロパティは、教育のヒントが開いているときに再構成でき、すぐに有効になります。 アイコン プロパティ、アクション ボタン、閉じるボタン、および簡易非表示と明示的非表示との間での再構成など、その他のコンテンツおよびプロパティの場合はいずれも、これらのプロパティの変更を有効にするには、教育のヒントを閉じて再び開く必要があります。 教育のヒントが開いているときに手動非表示から簡易非表示に非表示動作を変更すると、簡易非表示の動作が有効になる前に、教育のヒントから閉じるボタンが削除され、ヒントが画面に表示されたままになることがあるため注意してください。
+
+## <a name="related-articles"></a>関連記事
+
+* [ダイアログとポップアップ](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/dialogs-and-flyouts/index)
