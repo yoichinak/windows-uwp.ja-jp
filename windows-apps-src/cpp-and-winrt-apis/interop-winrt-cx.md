@@ -1,16 +1,16 @@
 ---
-description: このトピックでは、C++/CX と C++/WinRT オブジェクト間の変換に使用できる 2 つのヘルパー関数について説明します。
+description: このトピックでは、[C++/CX](/cpp/cppcx/visual-c-language-reference-c-cx) と [C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) オブジェクト間の変換に使用できる 2 つのヘルパー関数について説明します。
 title: C++/WinRT と C++/CX 間の相互運用
 ms.date: 10/09/2018
 ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、ポート、移行、相互運用、C++/CX
 ms.localizationpriority: medium
-ms.openlocfilehash: d9b0c676276fa0974144f03b12c3037a42069641
-ms.sourcegitcommit: d37a543cfd7b449116320ccfee46a95ece4c1887
+ms.openlocfilehash: 0e54937391d3317f1b37415036aabc88a6cfaa41
+ms.sourcegitcommit: f288bcc108f9850671662c7b76c55c8313e88b42
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68270061"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80290024"
 ---
 # <a name="interop-between-cwinrt-and-ccx"></a>C++/WinRT と C++/CX 間の相互運用
 
@@ -18,7 +18,7 @@ ms.locfileid: "68270061"
 
 このトピックでは、同じプロジェクト内の C++/CX と C++/WinRT オブジェクト間の変換に使用できる 2 つのヘルパー関数について説明します。 それらを使用して、2 つの言語プロジェクションを使用するコード間で相互運用することができます。または、C++/CX から C++/WinRT にコードを移植するときにそれらの関数を使用できます。
 
-## <a name="fromcx-and-tocx-functions"></a>from_cx and to_cx 関数
+## <a name="from_cx-and-to_cx-functions"></a>from_cx and to_cx 関数
 以下のヘルパー関数では、C++/CX オブジェクトを同等の C++/WinRT オブジェクトに変換します。 この関数は、C++/CX オブジェクトを基礎となる [**IUnknown**](https://docs.microsoft.com/windows/desktop/api/unknwn/nn-unknwn-iunknown) インターフェイス ポインターにキャストします。 次に、このポインター上で [**QueryInterface**](https://docs.microsoft.com/windows/desktop/api/unknwn/nf-unknwn-iunknown-queryinterface(q_)) を呼び出し、C++/WinRT オブジェクトの既定のインターフェイスを照会します。 **QueryInterface**は、C++/CX safe_cast 拡張と同等の Windows ランタイム アプリケーション バイナリ インターフェイス (ABI) です。 [  **winrt::put_abi**](/uwp/cpp-ref-for-winrt/put-abi) 関数は、別の値に設定できるように C++/WinRT オブジェクトの基礎となる **IUnknown** インターフェイス ポインターのアドレスを取得します。
 
 ```cppwinrt
@@ -51,7 +51,7 @@ C++/CX プロジェクトのコードを徐々に C++/WinRT に移植するシ�
 
 このプロジェクト例では、異なる断片コードの名前空間のエイリアスを使用して、C++/WinRT プロジェクションと C++/CX プロジェクション間で生じる可能性のある他の名前空間の競合を処理する方法についても説明します。
 
-- **[Visual C++]** \> **[Windows ユニバーサル]**  > **Core アプリ (C++/WinRT)** プロジェクトを作成します。
+- **[Visual C++]** \> **[Windows ユニバーサル]**  >  **[Core アプリ (C++/WinRT)]** プロジェクトを作成します。
 - プロジェクトのプロパティで、 **[C/C++]** \> **[全般]** \> **[Windows ランタイム拡張機能の使用]** \> **[はい (/ZW)]** を選択します。 これにより、C++/CX に対するプロジェクトのサポートがオンになります。
 - `App.cpp` の内容を、以下に示すコード リストで置き換えます。
 

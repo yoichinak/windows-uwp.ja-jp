@@ -8,7 +8,7 @@ keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: 59397f12ec66bfa2864d830eaf80a9dcaaf06592
 ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74257882"
@@ -36,8 +36,8 @@ ms.locfileid: "74257882"
 | ファースト (高速)                    | ほとんど遅延を感じない      | 100 ミリ秒 | 200 ミリ秒 | アプリ バーを起動する、ボタンを押す (最初の応答)                        |
 | Typical (標準)                 | 速いが、高速ではない             | 300 ミリ秒 | 500 ミリ秒 | サイズ変更、セマンティック ズーム                                                        |
 | Responsive (応答)              | 速くはないが、反応はよい | 500 ミリ秒 | 1 秒         | 別のページに移動する、中断状態からアプリを再開する          |
-| Launch                  | 操作に干渉する          | 1 秒         | 3 秒        | アプリを初めて起動する、アプリを終了後にもう一度起動する |
-| 継続性              | 反応がよいと感じない      | 500 ミリ秒 | 5 秒        | インターネットからファイルをダウンロードする                                            |
+| 起動                  | 操作に干渉する          | 1 秒         | 3 秒        | アプリを初めて起動する、アプリを終了後にもう一度起動する |
+| 継続              | 反応がよいと感じない      | 500 ミリ秒 | 5 秒        | インターネットからファイルをダウンロードする                                            |
 | Captive (占有)                 | 遅い、ユーザーが切り替えを検討する可能性がある    | 500 ミリ秒 | 10 秒       | ストアから複数のアプリをインストールする                                         |
 
  
@@ -47,7 +47,7 @@ ms.locfileid: "74257882"
 
 <!-- DHALE: used HTML table here b/c WDCML src used rowspans -->
 <table>
-<tr><th>シナリオ</th><th>時点</th><th>ユーザー エクスペリエンス</th><th>インタラクション クラス</th></tr>
+<tr><th>シナリオ</th><th>時点</th><th>ユーザーの作業</th><th>インタラクション クラス</th></tr>
 <tr><td rowspan="3">レシピ ページに移動する </td><td>最初の応答</td><td>ページの切り替えアニメーションが始まった</td><td>Fast (高速) (100 から 200 ミリ秒)</td></tr>
 <tr><td>Responsive (応答)</td><td>材料のリストが読み込まれた、画像は表示されていない</td><td>Responsive (応答) (500 ミリ秒から 1 秒)</td></tr>
 <tr><td>ページが表示された</td><td>すべてのコンテンツが読み込まれた、画像が表示された</td><td>Continuous (継続) (500 ミリ秒から 5 秒)</td></tr>
@@ -88,7 +88,7 @@ ms.locfileid: "74257882"
 -   ストーリーボードに設定されたアニメーションよりテーマ切り替えやテーマ アニメーションを優先的に使います。 詳しくは、「[アニメーションの概要](https://docs.microsoft.com/windows/uwp/graphics/animations-overview)」をご覧ください。 ストーリーボードに設定されたアニメーションでは、画面を定期的に更新して CPU とグラフィックス パイプラインを常にアクティブにしておく必要があることを忘れないようにします。 バッテリーを節約するために、ユーザーがアプリを操作していない場合はアニメーションを実行しないようにします。
 -   読み込む画像は、[**GetThumbnailAsync**](https://docs.microsoft.com/uwp/api/windows.storage.storagefile.getthumbnailasync) メソッドを使って、そのときのビューに適したサイズで読み込む必要があります。
 
-**CPU、メモリ、および電源**
+**CPU、メモリ、電源**
 
 -   優先度の低い作業は、優先度の低いスレッドやコアで実行するようにスケジュールを設定します。 [非同期プログラミング](https://docs.microsoft.com/windows/uwp/threading-async/asynchronous-programming-universal-windows-platform-apps)、[**Dispatcher**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.window.dispatcher) プロパティ、[**CoreDispatcher**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreDispatcher) クラスをご覧ください。
 -   一時停止中のメモリ使用量の多いリソース (メディアなど) を解放することで、アプリのメモリ使用量を最小限に抑えます。
@@ -165,19 +165,19 @@ using (myLoggingActivity = new LoggingActivity("MyLoggingActivity"), myLoggingCh
 -   さまざまなハードウェア構成 (オールインワン PC、デスクトップ PC、ノート PC、タブレット) でテストを行います。
 -   さまざまな画面サイズでテストを行います。 画面サイズが大きいとより多くのコンテンツを表示できますが、すべてのコンテンツを表示するとパフォーマンスに悪影響が出る可能性があります。
 -   テストに影響する可変状態をできるだけ取り除きます。
-    -   テスト デバイスのバックグラウンド アプリを停止します。 これを行うには、Windows の スタート メニューから **設定** を選択し &gt; **パーソナル化**&gt;**ロック画面** をクリックします。 アクティブなアプリを選択し、 **[なし]** を選択します。
+    -   テスト デバイスのバックグラウンド アプリを停止します。 これを行うには、Windows で、[スタート] メニューの **[設定]** &gt; **[個人設定]** &gt; **[ロック画面]** の順に選択します。 アクティブなアプリを選択し、 **[なし]** を選択します。
     -   テスト デバイスに展開する前に、リリース構成でビルドすることで、アプリをネイティブ コードにコンパイルします。
     -   自動メンテナンスがテスト デバイスのパフォーマンスに影響しないようにするため、メンテナンスを手動でトリガーして完了するまで待ちます。 Windows の [スタート] メニューで、 **[セキュリティとメンテナンス]** を検索します。 **[メンテナンス]** 領域の **[自動メンテナンス]** で、 **[メンテナンスの開始]** を選択し、状態が **[メンテナンスは進行中です]** から別の状態に変化するまで待ちます。
     -   一貫性のある測定結果が得られるように、アプリを複数回実行して、テストのランダム要素を排除します。
 -   低電力での利用可能性をテストします。 ユーザーのデバイスは、開発用のコンピューターに比べ、大幅に低電力である可能性があります。 Windows は、モバイル デバイスなどの低電力デバイスでの動作を考慮して設計されています。 プラットフォームで動作するアプリが、これらのデバイスでも高いパフォーマンスを発揮できるようにする必要があります。 経験則として、低電力デバイスでの実行速度はデスクトップ コンピューターの約 1/4 であると考えられるため、これに応じて目標を設定します。
 -   アプリのパフォーマンスを測定するには、Microsoft Visual Studio や Windows Performance Analyzer のようなツールを組み合わせて使います。 Visual Studio は、ソース コードのリンク設定など、アプリに焦点を当てた分析を行うように設計されています。 Windows Performance Analyzer は、システム情報、タッチ操作イベントに関する情報、ディスクの入出力 (I/O) に関する情報、グラフィックス処理ユニット (GPU) のコストに関する情報の提供など、システムに焦点を当てた分析を行うように設計されています。 どちらのツールでも、トレースをキャプチャしてエクスポートし、共有トレースと事後検証トレースを再開することができます。
--   証明書のストアにアプリを送信する前に、「 [Windows アプリ認定キットのテスト](windows-app-certification-kit-tests.md)」の「パフォーマンステスト」セクションと「 [UWP アプリのテストケース](https://docs.microsoft.com/previous-versions/windows/apps/dn275879(v=win.10))」の「パフォーマンスと安定性」セクションで説明したように、パフォーマンスに関連するテストケースをテスト計画に組み込んでください。
+-   認定を受けるためにアプリをストアに提出する前に、[Windows アプリ認定キット テスト](windows-app-certification-kit-tests.md)の「パフォーマンスのテスト」セクションと [UWP アプリのテスト ケース](https://docs.microsoft.com/previous-versions/windows/apps/dn275879(v=win.10))の「パフォーマンスと安定性」セクションの説明に従って、パフォーマンス関連のテスト ケースをテスト プランに組み込みます。
 
 詳しくは、次のリソースとプロファイリング ツールをご覧ください。
 
 -   [Windows Performance Analyzer](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh448170(v=win.10))
 -   [Windows パフォーマンス ツールキット](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh162945(v=win.10))
--   [Visual Studio 診断ツールを使用したパフォーマンスの分析](https://docs.microsoft.com/visualstudio/profiling/profiling-tools?view=vs-2015)
+-   [Visual Studio 診断ツールを使用してパフォーマンスを分析する](https://docs.microsoft.com/visualstudio/profiling/profiling-tools?view=vs-2015)
 -   //build/ セッション「[XAML Performance (XAML のパフォーマンス)](https://channel9.msdn.com/Events/Build/2015/3-698)」
 -   //build/ セッション「[New XAML Tools in Visual Studio 2015 (Visual Studio 2015 の新しい XAML ツール)](https://channel9.msdn.com/Events/Build/2015/2-697)」
 

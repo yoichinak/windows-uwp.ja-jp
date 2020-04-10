@@ -1,14 +1,14 @@
 ---
 description: アプリがプロセス ライフタイム管理と連携する方法をデバッグしてテストするためのツールと手法。
-title: プロセスの有効期間管理のテストとデバッグ
+title: プロセス ライフタイム管理のテストとデバッグ
 ms.date: 04/08/2019
 ms.topic: article
-keywords: Windows 10, UWP
+keywords: windows 10, uwp
 ms.assetid: 8ac6d127-3475-4512-896d-80d1e1d66ccd
 ms.localizationpriority: medium
 ms.openlocfilehash: 6912d7faa3a86dade13b60eac5654aef8a52173d
 ms.sourcegitcommit: ae9c1646398bb5a4a888437628eca09ae06e6076
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 12/03/2019
 ms.locfileid: "74735017"

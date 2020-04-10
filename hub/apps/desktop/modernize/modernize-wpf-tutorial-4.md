@@ -1,6 +1,6 @@
 ---
-description: このチュートリアルでは、UWP XAML ユーザー インターフェイスを追加、MSIX パッケージを作成およびその他の最新コンポーネントを WPF アプリに組み込む方法を示します。
-title: Windows 10 ユーザーのアクティビティと通知を追加します。
+description: このチュートリアルでは、UWP XAML ユーザー インターフェイスを追加し、MSIX パッケージを作成し、さらに他の最新のコンポーネントを WPF アプリに組み込む方法について説明します。
+title: Windows 10 ユーザー アクティビティと通知の追加
 ms.topic: article
 ms.date: 06/27/2019
 ms.author: mcleans
@@ -10,36 +10,36 @@ ms.localizationpriority: medium
 ms.custom: RS5, 19H1
 ms.openlocfilehash: 8443ac25ba678986046b967a90a8899eaffb76aa
 ms.sourcegitcommit: 1eec0e4fd8a5ba82803fdce6e23fcd01b9488523
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 06/27/2019
 ms.locfileid: "67420121"
 ---
-# <a name="part-4-add-windows-10-user-activities-and-notifications"></a>パート 4:Windows 10 ユーザーのアクティビティと通知を追加します。
+# <a name="part-4-add-windows-10-user-activities-and-notifications"></a>パート 4: Windows 10 ユーザー アクティビティと通知の追加
 
-これは、Contoso の経費をという名前のサンプル WPF デスクトップ アプリの近代化する方法を説明するチュートリアルの第 4 部です。 チュートリアル、前提条件、およびサンプル アプリをダウンロードする手順の概要については、次を参照してください。[チュートリアル。WPF アプリの近代化](modernize-wpf-tutorial.md)します。 この記事では、既に完了している前提としています。[パート 3](modernize-wpf-tutorial-3.md)します。
+これは、Contoso Expenses という名前のサンプル WPF デスクトップ アプリを現代化する方法を示すチュートリアルの 4 番目の部分です。 チュートリアルの概要、前提条件、サンプル アプリをダウンロードするための手順については、「[チュートリアル: WPF アプリの現代化](modernize-wpf-tutorial.md)」を参照してください。 この記事では、読者が[パート 3](modernize-wpf-tutorial-3.md) を既に完了していることを前提にしています。
 
-このチュートリアルの前のパートで UWP XAML コントロールを XAML Islands を使用してアプリを追加しました。 として、この製品は、有効にしても、アプリをあらゆる WinRT API を呼び出します。 これは、UWP XAML コントロールだけでなく、Windows 10 で提供されるその他の多くの機能を使用するアプリの営業案件を開きます。
+このチュートリアルの前のパートでは、XAML Islands を使用して UWP XAML コントロールをアプリに追加しました。 この副次的効果として、アプリで任意の WinRT API を呼び出すことができるようにもなりました。 これにより、UWP XAML コントロールだけでなく、Windows 10 で提供される他の多くの機能を、アプリで使用できるようになります。
 
-このチュートリアルのシナリオでは、架空の contoso 社の開発チームをアプリに 2 つの新しい機能を追加する決定が: アクティビティと通知します。 このチュートリアルのこの部分は、これらの機能を実装する方法を示します。
+このチュートリアルの架空のシナリオの Contoso 開発チームは、2 つの新しい機能として、アクティビティと通知をアプリに追加することにしました。 チュートリアルのこのパートでは、これらの機能を実装する方法について説明します。
 
-## <a name="add-a-user-activity"></a>ユーザー アクティビティを追加します。
+## <a name="add-a-user-activity"></a>ユーザー アクティビティを追加する
 
-Windows 10 では、アプリがファイルを開くか、特定のページを表示するなど、ユーザーによって実行されるアクティビティを追跡できます。 これらのアクティビティはタイムライン、Windows 10 バージョン 1803 で導入された機能を迅速に、過去に戻るし、以前に開始したアクティビティを再開できますを通じて提供されます。
+Windows 10 では、ファイルを開いたり、特定のページを表示するといった、ユーザーが実行したアクティビティを、アプリで追跡できます。 その後、これらのアクティビティは、Windows 10 バージョン 1803 で導入された機能であるタイムラインで利用でき、ユーザーは過去にすばやく戻って、以前に開始したアクティビティを再開できます。
 
-![Windows のタイムラインの画像](images/wpf-modernize-tutorial/WindowsTimeline.png)
+![Windows タイムラインのイメージ](images/wpf-modernize-tutorial/WindowsTimeline.png)
 
-使用してユーザーのアクティビティが追跡される[Microsoft Graph](https://developer.microsoft.com/graph/)します。 ただし、Windows 10 アプリを構築する場合は、Microsoft graph REST のエンドポイントと直接やり取りする必要はありません。 代わりに、便利な一連の WinRT Api を使用することができます。 ユーザーが、アプリ内の経費を開くたびに追跡するために、Contoso 経費アプリケーションでこれらの WinRT Api を使用して Adaptive Cards を使用して、アクティビティを作成するユーザーを有効になります。
+ユーザー アクティビティは、[Microsoft Graph](https://developer.microsoft.com/graph/) を使用して追跡されます。 ただし、Windows 10 アプリを構築するときに、Microsoft Graph によって提供される REST エンドポイントを直接操作する必要はありません。 代わりに、WinRT API の便利なセットを使用できます。 Contoso Expenses アプリでこれらの WinRT API を使用して、ユーザーがアプリ内で経費を開くたびに追跡し、アダプティブ カードを使用してユーザーがアクティビティを作成できるようにします。
 
-### <a name="introduction-to-adaptive-cards"></a>Adaptive Cards の概要
+### <a name="introduction-to-adaptive-cards"></a>アダプティブ カードの概要
 
-このセクションの簡単な概要を提供する[Adaptive Cards](https://docs.microsoft.com/adaptive-cards/)します。 この情報を必要としない場合は、スキップして右に移動して、[アダプティブ カードを追加](#add-an-adaptive-card)指示します。
+このセクションでは、[アダプティブ カード](https://docs.microsoft.com/adaptive-cards/)の概要について簡単に説明します。 この情報が不要な場合は、このステップを省略して、[アダプティブ カードの追加](#add-an-adaptive-card)の説明にすぐ進んでもかまいません。
 
-Adaptive Cards は、一貫性のある一般的な方法でカードのコンテンツを交換する開発者を有効にします。 アダプティブのカードは、そのコンテンツは、テキスト、イメージ、アクション、および含めることができますを定義する JSON ペイロードで表されます。
+アダプティブ カードを使用すると、開発者は共通の一貫した方法でカードのコンテンツを交換することができます。 アダプティブ カードはコンテンツを定義する JSON ペイロードによって記述されており、テキスト、画像、アクション、その他を含むことができます。
 
-アダプティブのカードは、コンテンツだけとコンテンツのない外観を定義します。 アダプティブのカードを受信する場合、プラットフォームには、最も適切なスタイルを使用してコンテンツをレンダリングできます。 Adaptive Cards を設計する方法は、使用[レンダラー](https://docs.microsoft.com/adaptive-cards/rendering-cards/getting-started)、これは、JSON ペイロードを実行して、ネイティブ UI に変換することです。 たとえば、UI では、WPF や UWP アプリでは、AXML for Android アプリの場合、または HTML web サイトまたはチャット ボットの XAML 可能性があります。
+アダプティブ カードで定義されているのはコンテンツだけであり、コンテンツの表示方法は定義されていません。 アダプティブ カードを受け取ったプラットフォームでは、最適なスタイルを使用してコンテンツを表示できます。 アダプティブ カードを設計するには、[レンダラー](https://docs.microsoft.com/adaptive-cards/rendering-cards/getting-started)を使用します。レンダラーは、JSON ペイロードを受け取り、それをネイティブ UI に変換することができます。 たとえば、UI として、WPF アプリや UWP アプリでは XAML を、Android アプリでは AXML を、Web サイトやボット チャットでは HTML を使用できます。
 
-単純なアダプティブ カード ペイロードの例を次に示します。
+簡単なアダプティブ カードのペイロードの例を次に示します。
 
 ```json
 {
@@ -133,42 +133,42 @@ Adaptive Cards は、一貫性のある一般的な方法でカードのコン�
 }
 ```
 
-次の図は、この JSON を表示する方法によってさまざまな方法で ta Teams のチャネル、Cortana と Windows 通知します。
+次の図は、Teams チャネル、Cortana、Windows 通知により、この JSON がさまざまな方法でどのように表示されるかを示したものです。
 
-![アダプティブ カード レンダリング イメージ](images/wpf-modernize-tutorial/AdaptiveCards.png)
+![アダプティブ カードのレンダリングの画像](images/wpf-modernize-tutorial/AdaptiveCards.png)
 
-アダプティブ カードでは、Windows アクティビティの表示方法のために、タイムラインで重要な役割を果たします。 タイムライン内に表示される各サムネイルは、実際にアダプティブ カードです。 そのため、アプリ内のユーザー アクティビティを作成しようとしている、するように求められますがアダプティブのカードのレンダリングを提供します。
+アダプティブ カードは、Windows によってアクティビティがレンダリングされる方法であるため、タイムラインで重要な役割を果たします。 タイムライン内に表示される各サムネイルは、実際にはアダプティブ カードです。 そのため、アプリ内でユーザー アクティビティを作成するときに、それをレンダリングするためのアダプティブ カードを指定するように求められます。
 
 > [!NOTE]
-> アダプティブのカードのデザインでのブレーンストーミングする優れた方法を使用して[オンライン デザイナー](https://adaptivecards.io/designer/)します。 (イメージ、テキスト、列など) のビルディング ブロックでカードを設計し、対応する JSON を取得する可能性があります。 最終的な設計のアイデアがある場合は後、と呼ばれるライブラリを使用することができます[Adaptive Cards](https://www.nuget.org/packages/AdaptiveCards/)アダプティブ カードを使用して、ビルドを容易にできるようにC#プレーンな JSON は、デバッグおよびビルドが困難ではなくクラス。
+> アダプティブ カードの設計をブレーンストーミングするための優れた方法は、[オンライン デザイナー](https://adaptivecards.io/designer/)を使用することです。 構成要素 (画像、テキスト、列など) を使用してカードを設計し、対応する JSON を取得することができます。 最終的な設計が決まったら、[AdaptiveCards](https://www.nuget.org/packages/AdaptiveCards/) という名前のライブラリを使用し、デバッグやビルドが難しい場合がある、単純な JSON ではなく C# のクラスを使用してアダプティブ カードを簡単に作成できます。
 
-### <a name="add-an-adaptive-card"></a>アダプティブのカードを追加します。
+### <a name="add-an-adaptive-card"></a>アダプティブ カードを追加する
 
-1. 右クリックして、 **ContosoExpenses.Core**ソリューション エクスプ ローラーでプロジェクト**NuGet パッケージの管理**します。
+1. ソリューション エクスプローラーで **ContosoExpenses.Core** プロジェクトを右クリックし、 **[NuGet パッケージの管理]** を選択します。
 
-2. **NuGet パッケージ マネージャー**ウィンドウで、をクリックして**参照**します。 検索、`Newtonsoft.Json`パッケージ化し、最新のバージョンをインストールします。 これは一般的な JSON 操作ライブラリ mainipulate アダプティブ カードが必要な JSON 文字列のために使用されます。
+2. **[NuGet パッケージ マネージャー]** ウィンドウで、 **[参照]** をクリックします。 `Newtonsoft.Json` パッケージを探し、利用可能な最新バージョンをインストールします。 これは、アダプティブ カードで必要な JSON 文字列の操作に使用する一般的な JSON 操作ライブラリです。
 
     ![NewtonSoft.Json NuGet パッケージ](images/wpf-modernize-tutorial/JsonNetNuGet.png)
 
     > [!NOTE]
-    > インストールしていない場合、`Newtonsoft.Json`とは別にパッケージ化、The Adaptive Cards ライブラリは、古いバージョンの参照、`Newtonsoft.Json`パッケージを .NET Core 3.0 をサポートしていません。
+    > `Newtonsoft.Json` パッケージを個別にインストールしないと、AdaptiveCards ライブラリでは、.NET Core 3.0 がサポートされていない古いバージョンの `Newtonsoft.Json` パッケージが参照されます。
 
-2. **NuGet パッケージ マネージャー**ウィンドウで、をクリックして**参照**します。 検索、`AdaptiveCards`パッケージ化し、最新のバージョンをインストールします。
+2. **[NuGet パッケージ マネージャー]** ウィンドウで、 **[参照]** をクリックします。 `AdaptiveCards` パッケージを探し、利用可能な最新バージョンをインストールします。
 
-    ![アダプティブのカードの NuGet パッケージ](images/wpf-modernize-tutorial/AdaptiveCardsNuGet.png)
+    ![AdaptiveCards NuGet パッケージ](images/wpf-modernize-tutorial/AdaptiveCardsNuGet.png)
 
-3. **ソリューション エクスプ ローラー**を右クリックし、 **ContosoExpenses.Core**プロジェクトで、選択**追加]、[クラス**します。 クラスの名前**TimelineService.cs**  をクリック**OK**します。
+3. **ソリューション エクスプローラー**で **ContosoExpenses.Core** プロジェクトを右クリックし、 **[追加] > [クラス]** の順に選択します。 クラスに **TimelineService.cs** という名前を指定し、 **[OK]** をクリックします。
 
-4. **TimelineService.cs**ファイルで、ファイルの先頭に次のステートメントを追加します。
+4. **TimelineService.cs** ファイルで、次のステートメントをファイルの先頭に追加します。
 
     ```csharp
     using AdaptiveCards;
     using ContosoExpenses.Data.Models;
     ```
 
-5. ファイルの名前空間が宣言されている変更`ContosoExpenses.Core`に`ContosoExpenses`します。
+5. ファイルで宣言されている名前空間を `ContosoExpenses.Core` から `ContosoExpenses` に変更します。
 
-5. 次のメソッドを追加、`TimelineService`クラス。
+5. 次のメソッドを `TimelineService` クラスに追加します。
 
    ```csharp
     private string BuildAdaptiveCard(Expense expense)
@@ -231,20 +231,20 @@ Adaptive Cards は、一貫性のある一般的な方法でカードのコン�
 
 #### <a name="about-the-code"></a>コードについて
 
-このメソッドは受信、**経費**をレンダリングする経費とそれに関するすべての情報を持つオブジェクトは新しい**AdaptiveCard**オブジェクト。 メソッドは、カードに、次を追加します。
+このメソッドは、レンダリングする経費関連のすべての情報が含まれる **Expense** オブジェクトを受け取り、新しい **AdaptiveCard** オブジェクトを構築します。 このメソッドでは、次のものがカードに追加されます。
 
-- 経費の説明を使用するタイトル。
-- これは、Contoso ロゴ イメージです。
-- 経費の量。
+- 経費の説明を使用したタイトル。
+- Contoso ロゴの画像。
+- 経費の金額。
 - 経費の日付。
 
-最後の 3 つの要素は、Contoso ロゴおよび経費の詳細を並行して配置することができるように、2 つの異なる列に分割されます。 ヘルプで、対応する JSON 文字列を返します、オブジェクトが構築された後、 **ToJson**メソッド。
+最後の 3 つの要素は 2 つの異なる列に分かれているため、Contoso のロゴと経費に関する詳細情報を並べて配置できます。 オブジェクトが構築された後、メソッドからは、**ToJson** メソッドを利用して対応する JSON 文字列が返されます。
 
-### <a name="define-the-user-activity"></a>ユーザー アクティビティを定義します。
+### <a name="define-the-user-activity"></a>ユーザー アクティビティを定義する
 
-アダプティブのカードを定義するには、それに基づくユーザー アクティビティを作成できます。
+アダプティブ カードの定義が済んだので、それを基にしてユーザー アクティビティを作成できます。
 
-1. 先頭に次のステートメントを追加**TimelineService.cs**ファイル。
+1. 次のステートメントを **TimelineService.cs** ファイルの先頭に追加します。
 
     ```csharp
     using Windows.ApplicationModel.UserActivities;
@@ -253,9 +253,9 @@ Adaptive Cards は、一貫性のある一般的な方法でカードのコン�
     ```
 
     > [!NOTE]
-    > これらは、UWP の名前空間です。 これらを解決するため、`Microsoft.Toolkit.Wpf.UI.Controls`手順 2. でインストールされている NuGet パッケージにはへの参照が含まれています、`Microsoft.Windows.SDK.Contracts`をパッケージ化できる、 **ContosoExpenses.Core** .NET は、その場合でも、WinRT Api を参照するプロジェクトCore 3 のプロジェクトです。
+    > これらは UWP 名前空間です。 これらは、ステップ 2 でインストールした `Microsoft.Toolkit.Wpf.UI.Controls` NuGet パッケージに `Microsoft.Windows.SDK.Contracts` パッケージへの参照が含まれているため解決され、.NET Core 3 プロジェクトであっても **ContosoExpenses.Core** プロジェクトで WinRT API を参照できるようになります。
 
-2. 次のフィールド宣言を追加、`TimelineService`クラス。
+2. 次のフィールド宣言を `TimelineService` クラスに追加します。
 
     ```csharp
     private UserActivityChannel _userActivityChannel;
@@ -263,7 +263,7 @@ Adaptive Cards は、一貫性のある一般的な方法でカードのコン�
     private UserActivitySession _userActivitySession;
     ```
 
-3. 次のメソッドを追加、`TimelineService`クラス。
+3. 次のメソッドを `TimelineService` クラスに追加します。
 
     ```csharp
     public async Task AddToTimeline(Expense expense)
@@ -284,40 +284,40 @@ Adaptive Cards は、一貫性のある一般的な方法でカードのコン�
     }
     ```
 
-4. 変更を保存**TimelineService.cs**します。
+4. 変更内容を **TimelineService.cs** に保存します。
 
 #### <a name="about-the-code"></a>コードについて
 
-`AddToTimeline`メソッドはまず、取得、 **UserActivityChannel**ユーザー アクティビティを格納するために必要なオブジェクト。 新しいユーザー アクティビティを使用して、作成し、 **GetOrCreateUserActivityAsync**メソッドで、一意の識別子が必要です。 これにより、アクティビティが既に存在する場合、アプリを更新できます。それ以外の場合、新しくを作成されます。 識別子を渡すには、構築しているアプリケーションの種類によって異なります。
+`AddToTimeline` メソッドでは、最初に、ユーザー アクティビティを格納するために必要な **UserActivityChannel** オブジェクトが取得されます。 次に、**GetOrCreateUserActivityAsync** メソッドを使用して、新しいユーザー アクティビティが作成されます。これには、一意の識別子が必要です。 これにより、アクティビティが既に存在する場合は、アプリでそれを更新できます。そうでないと、新しいものが作成されます。 渡す識別子は、構築しているアプリケーションの種類によって異なります。
 
-* タイムラインは最新のものだけが表示されるように、同じアクティビティを常に更新する場合は、固定の識別子を使用することができます (など**経費**)。
-* として、別のすべてのアクティビティを追跡するためにするタイムラインがそれらのすべてを表示するようにする場合は、動的な識別子を使用することができます。
+* タイムラインで最新のアクティビティのみが表示されるように、同じアクティビティを常に更新する場合は、固定の識別子 (**Expenses** など) を使用できます。
+* タイムラインですべてのアクティビティが表示されるように、すべてのアクティビティを異なるものとして追跡する場合は、動的な識別子を使用できます。
 
-このシナリオで、アプリは開かれている各経費として追跡、別のユーザー アクティビティ コード、キーワードを使用して各識別子を作成するため**経費-** 後に一意の経費 id。
+このシナリオのアプリでは、開かれている各経費を異なるユーザー アクティビティとして追跡するので、コードでは、キーワード **Expense-** の後に一意の経費 ID を加えたものを使用して、各識別子を作成します。
 
-メソッドを作成した後、 **UserActivity**オブジェクトに、次の情報を持つオブジェクトが設定されます。
+メソッドでは、**UserActivity** オブジェクトが作成された後、次の情報がオブジェクトに設定されます。
 
-* **ActivationUri**アクティビティ タイムラインでは、ユーザーがクリックしたときに呼び出されます。 コードと呼ばれるカスタム プロトコルを使用して**contosoexpenses**後で、アプリを処理します。
-* **VisualElements**アクティビティの視覚的な外観を定義するプロパティのセットを含むオブジェクトです。 このコードを設定、 **DisplayText** (タイムライン内のエントリ上に表示されるタイトルです)、**コンテンツ**します。 
+* ユーザーがタイムラインでアクティビティをクリックしたときに呼び出される **ActivationUri**。 コードでは、後でアプリによって処理される **contosoexpenses** という名前のカスタム プロトコルが使用されます。
+* **VisualElements** オブジェクト。これには、アクティビティの外観を定義する一連のプロパティが含まれています。 このコードでは、**DisplayText** (タイムラインのエントリの上部に表示されるタイトル) と **Content** が設定されます。 
 
-これは、前に定義したアダプティブ カードが役割を果たします。 アプリのデザインを終えたら、アダプティブ カード以前コンテンツとしてメソッドを渡します。 しかし、Windows 10 が別のオブジェクトを使用して、によって使用されるものと比較してカードを表す、 `AdaptiveCards` NuGet パッケージ。 そのため、メソッドを使用して、カードを再作成されます、 **CreateAdaptiveCardFromJson**によって公開されるメソッド、 **AdaptiveCardBuilder**クラス。 メソッドでは、ユーザー アクティビティが作成された後、アクティビティを保存し、新しいセッションを作成します。
+ここで、前に定義したアダプティブ カードが役割を果たします。 アプリでは、前にコンテンツとして設計したアダプティブ カードがメソッドに渡されます。 ただし、Windows 10 では、`AdaptiveCards` NuGet パッケージによって使用されるものとは異なるオブジェクトを使用して、カードが表示されます。 そのため、メソッドでは、**AdaptiveCardBuilder** クラスによって公開されている **CreateAdaptiveCardFromJson** メソッドを使用してカードが再作成されます。 メソッドによってユーザー アクティビティが作成されて保存され、新しいセッションが作成されます。
 
-タイムラインでのアクティビティ、ユーザーがクリックしたときに、 **contosoexpenses://** プロトコルが有効にし、URL には、選択した経費明細を取得するアプリに必要な情報にが含まれます。 オプションのタスクとして、ユーザーがタイムラインを使用する場合、アプリケーションが正しくが反応するためのプロトコルのアクティブ化を実装できます。
+ユーザーがタイムラインでアクティビティをクリックすると、**contosoexpenses://** プロトコルがアクティブになり、選択された経費をアプリで取得するために必要な情報が URL に挿入されます。 オプションのタスクとして、ユーザーがタイムラインを使用したときにアプリケーションが正しく動作するように、プロトコルのアクティブ化を実装することもできます。
 
-### <a name="integrate-the-application-with-timeline"></a>タイムラインと、アプリケーションを統合します。
+### <a name="integrate-the-application-with-timeline"></a>アプリケーションをタイムラインと統合する
 
-タイムラインと対話するクラスを作成したら、これをアプリケーションのエクスペリエンスを強化するために使用開始できます。 使用する最適な場所、 **AddToTimeline**によって公開されるメソッド、 **TimelineService**クラスは、ユーザーの経費の詳細ページを開いた場合。
+タイムラインと対話するクラスを作成したので、それを使用してアプリケーションのエクスペリエンスの拡張を始めることができます。 **TimelineService** クラスによって公開されている **AddToTimeline** メソッドを使用するのに最も適した場所は、ユーザーが経費の詳細ページを開いたときです。
 
-1. **ContosoExpenses.Core**プロジェクトで、展開、 **ViewModels**フォルダーとオープン、 **ExpenseDetailViewModel.cs**ファイル。 これは、コスト detail のウィンドウをサポートするビューモデルです。
+1. **ContosoExpenses.Core** プロジェクトで、**ViewModels** フォルダーを展開して、**ExpenseDetailViewModel.cs** ファイルを開きます。 これは、経費詳細のウィンドウをサポートする ViewModel です。
 
-2. パブリック コンス トラクターを検索、 **ExpenseDetailViewModel**クラスし、コンス トラクターの末尾に次のコードを追加します。 メソッドを呼び出して、経費ウィンドウが開かれるたびに、 **AddToTimeline**メソッドを現在の経費を渡します。 **TimelineService**クラスでは、この情報を使用して、経費の情報を使用して、ユーザー アクティビティを作成します。
+2. **ExpenseDetailViewModel** クラスのパブリック コンストラクターを見つけ、そのコンストラクターの最後に次のコードを追加します。 経費ウィンドウが開かれるたびに、そのメソッドによって **AddToTimeline** メソッドが呼び出され、現在の経費が渡されます。 **TimelineService** クラスでは、この情報を使用して、経費情報を使用するユーザー アクティビティが作成されます。
 
     ```csharp
     TimelineService timeline = new TimelineService();
     timeline.AddToTimeline(expense);
     ```
 
-    完了したら、コンス トラクターは次のようになります。
+    完了すると、コンストラクターは次のようになります。
 
     ```csharp
     public ExpensesDetailViewModel(IDatabaseService databaseService, IStorageService storageService)
@@ -334,42 +334,42 @@ Adaptive Cards は、一貫性のある一般的な方法でカードのコン�
     }
     ```
 
-3. F5 キーを押してビルドして、デバッガーでアプリを実行します。 一覧から、従業員を選択し、経費をします。 詳細 ページで、経費、日付、および量の説明に注意してください。
+3. デバッガーで F5 キーを押して、アプリをビルドして実行します。 一覧から従業員を選択し、経費を選択します。 詳細ページで、経費の説明、日付、金額を確認します。
 
-4. キーを押して**開始 + タブ**タイムラインを開きます。
+4. [開始] を選択し、**Tab** キーを押して、タイムラインを開きます。
 
-5. 」のセクションが表示されるまで、現在開いているアプリケーションの一覧をスクロールして**本日**します。 このセクションでは、最新のユーザー アクティビティの一部を示します。 をクリックして、**すべてのアクティビティを参照してください。** リンクの横に、**本日**見出し。
+5. 現在開いているアプリケーションの一覧を下にスクロールして、 **[今日]** というセクションを表示します。 このセクションには、最新のユーザー アクティビティの一部が表示されます。 **[今日]** の隣にある **[See all activities]\(すべてのアクティビティを表示する\)** リンクをクリックします。
 
-6. アプリケーションで選択した経費に関する情報を新しいカードが表示されることを確認します。
+6. アプリケーションで選択した経費に関する情報が表示された新しいカードがあることを確認します。
 
-    ![Contoso 経費のタイムライン](images/wpf-modernize-tutorial/ContosoExpensesTimeline.png)
+    ![Contoso の経費のタイムライン](images/wpf-modernize-tutorial/ContosoExpensesTimeline.png)
 
-7. その他の費用を開いた場合は、ユーザーのアクティビティとして追加される新しいカードが表示されます。 アクティビティごとに異なる id を使用して、アプリで開く経費ごとに、カードを作成することに注意してください。
+7. 他の経費を開くと、ユーザー アクティビティとして追加された新しいカードが表示されます。 コードではアクティビティごとに異なる識別子が使用されているので、アプリで経費を開くたびにカードが作成されることに注意してください。
 
 8. アプリを閉じます。
 
-## <a name="add-a-notification"></a>通知を追加します。
+## <a name="add-a-notification"></a>通知を追加する
 
-Contoso 社の開発チームが、追加しようとしています。 2 番目の機能は、新しい費用は、データベースに保存されるたびに、ユーザーに表示される通知です。 これを行うには、WinRT Api を使用して開発者に公開される Windows 10 では、組み込みの通知システムを利用できます。 この通知システムには、多くの利点があります。
+Contoso 開発チームが追加したい 2 番目の機能は、新しい経費がデータベースに保存されるたびにユーザーに表示される通知です。 これを行うには、Windows 10 に組み込まれている通知システムを利用します。これは、WinRT API によって開発者に公開されます。 この通知システムには多くの利点があります。
 
-- 通知は、OS の残りの部分と一致します。
-- アクションにつながるです。
-- アクション センターに格納するため、後で確認できます。
+- OS の他の部分と一貫した通知になります。
+- アクションを実行できます。
+- アクション センターに保存されるため、後で確認できます。
 
-アプリに通知を追加します。
+通知をアプリに追加するには:
 
-1. **ソリューション エクスプ ローラー**を右クリックし、 **ContosoExpenses.Core**プロジェクトで、選択**追加]、[クラス**します。 クラスの名前**NotificationService.cs**  をクリック**OK**します。
+1. **ソリューション エクスプローラー**で **ContosoExpenses.Core** プロジェクトを右クリックし、 **[追加] > [クラス]** の順に選択します。 クラスに **NotificationService.cs** という名前を指定し、 **[OK]** をクリックします。
 
-2. **NotificationService.cs**ファイルで、ファイルの先頭に次のステートメントを追加します。
+2. **NotificationService.cs** ファイルで、次のステートメントをファイルの先頭に追加します。
 
     ```csharp
     using Windows.Data.Xml.Dom;
     using Windows.UI.Notifications;
     ```
 
-3. ファイルの名前空間が宣言されている変更`ContosoExpenses.Core`に`ContosoExpenses`します。
+3. ファイルで宣言されている名前空間を `ContosoExpenses.Core` から `ContosoExpenses` に変更します。
 
-4. 次のメソッドを追加、`NotificationService`クラス。
+4. 次のメソッドを `NotificationService` クラスに追加します。
 
     ```csharp
     public void ShowNotification(string description, double amount)
@@ -391,18 +391,18 @@ Contoso 社の開発チームが、追加しようとしています。 2 番目
     }
     ```
 
-    トースト通知は、テキスト、イメージ、アクション、および含めることができる XML ペイロードで表されます。 サポートされているすべての要素を検索する[ここ](https://docs.microsoft.com/windows/uwp/design/shell/tiles-and-notifications/toast-schema)します。 このコードでは、2 つの行のテキストの非常に単純なスキーマを使用します。 タイトルと本文。 XML ペイロードを定義してでを読み込むと、コード、 **XmlDocument**オブジェクト内の XML をラップして、 **ToastNotification**オブジェクトし、それを使用して説明を**ToastNotificationManager**クラス。
+    トースト通知は XML ペイロードによって表され、テキスト、画像、アクションなどを含むことができます。 サポートされているすべての要素は、[こちら](https://docs.microsoft.com/windows/uwp/design/shell/tiles-and-notifications/toast-schema)で確認できます。 このコードでは、テキストがタイトルと本文の 2 行の非常にシンプルなスキーマを使用します。 コードでは、XML ペイロードが定義されて **XmlDocument** オブジェクトに読み込まれた後、XML が **ToastNotification** オブジェクト内にラップされ、**ToastNotificationManager** クラスを使用して表示されます。
 
-5. **ContosoExpenses.Core**プロジェクトで、展開、 **ViewModels**フォルダーとオープン、 **AddNewExpenseViewModel.cs**ファイル。 
+5. **ContosoExpenses.Core** プロジェクトで、**ViewModels** フォルダーを展開して、**AddNewExpenseViewModel.cs** ファイルを開きます。 
 
-6. 検索、`SaveExpenseCommand`メソッドで、ユーザーが新しい経費を保存する ボタンを押したときに発生します。 呼び出しの直後後にこのメソッドは、次のコードを追加、`SaveExpense`メソッド。
+6. `SaveExpenseCommand` メソッドを見つけます。このメソッドは、ユーザーがボタンをクリックして新しい経費を保存したときにトリガーされます。 次のコードを、このメソッドで `SaveExpense` メソッドを呼び出している直後に追加します。
 
     ```csharp
     NotificationService notificationService = new NotificationService();
     notificationService.ShowNotification(expense.Description, expense.Cost);
     ```
 
-    済んだら、`SaveExpenseCommand`メソッドは、次のようになります。
+    完了すると、`SaveExpenseCommand` メソッドは次のようになります。
 
     ```csharp
     private RelayCommand _saveExpenseCommand;
@@ -441,14 +441,14 @@ Contoso 社の開発チームが、追加しようとしています。 2 番目
     }
     ```
 
-7. F5 キーを押してビルドして、デバッガーでアプリを実行します。 一覧から、従業員を選択し、クリックして、**新しい経費の追加**ボタンをクリックします。 キーを押して、フォームのすべてのフィールドを完了**保存**します。
+7. デバッガーで F5 キーを押して、アプリをビルドして実行します。 一覧から従業員を選択して、 **[Add new expense]\(新しい経費の追加\)** ボタンをクリックします。 フォームのすべてのフィールドを入力し、 **[Save]\(保存\)** をクリックします。
 
 8. 次の例外が表示されます。
 
     ![トースト通知エラー](images/wpf-modernize-tutorial/ToastNotificationError.png)
 
-この例外は、Contoso 経費アプリケーションは、パッケージ id にまだがないという事実は発生します。 通知 API など、一部の WinRT Api では、アプリでの使用にパッケージ id が必要です。 UWP アプリでは、MSIX パッケージ経由でのみ配布するために、既定ではパッケージ id を受け取ります。 パッケージ id を取得する MSIX パッケージを使用して他の種類の WPF アプリを含む、Windows アプリを展開することもできます。 このチュートリアルの次の部分では、これを行う方法を説明します。
+この例外は、Contoso Expenses アプリにパッケージ ID がまだないことが原因で発生します。 Notifications API を含む一部の WinRT API では、アプリで API を使用するにはパッケージ ID が事前に必要です。 UWP アプリは、MSIX パッケージ経由でのみ配布できるため、既定でパッケージ ID を受け取ります。 WPF アプリを含む他の種類の Windows アプリは、パッケージ ID を取得するために、MSIX パッケージを使用して配置することもできます。 このチュートリアルの次のパートでは、その方法について説明します。
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
-この時点で、チュートリアルでは正常に追加したユーザー アクティビティ、Windows のタイムラインと連携するアプリと、ユーザーが新しい経費を作成するときにトリガーされるアプリに通知も追加します。 ただし、アプリが通知 API を使用するパッケージ id が必要なため、通知は機能まだしません。 アプリをパッケージ id を取得し、その他の展開の利点、MSIX パッケージを作成する方法については、次を参照してください。[パート 5。パッケージ化し、デプロイを MSIX](modernize-wpf-tutorial-5.md)します。
+このチュートリアルでは、ここまでで、Windows タイムラインと統合するアプリにユーザー アクティビティを追加し、ユーザーが新しい経費を作成するとトリガーされる通知をアプリに追加しました。 ただし、アプリで Notifications API を使用するにはパッケージ ID が必要であるため、通知はまだ機能していません。 MSIX パッケージを構築し、アプリでパッケージ ID を取得したり他の配置の利点を利用したりする方法については、「[パート 5: MSIX によるパッケージ化と配置](modernize-wpf-tutorial-5.md)」を参照してください。
