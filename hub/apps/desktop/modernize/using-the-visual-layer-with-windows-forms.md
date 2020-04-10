@@ -1,6 +1,6 @@
 ---
 title: Windows フォームでのビジュアル レイヤーの使用
-description: 既存の Windows フォームのコンテンツと組み合わせてビジュアル レイヤーの Api を使用して、高度なアニメーションや効果を作成するための手法について説明します。
+description: ビジュアル レイヤー API を既存の Windows フォーム コンテンツと組み合わせて使用し、高度なアニメーションや効果を作成する方法について説明します。
 ms.date: 03/18/2019
 ms.topic: article
 keywords: windows 10, uwp
@@ -9,84 +9,84 @@ author: jwmsft
 ms.localizationpriority: medium
 ms.openlocfilehash: 9da9dee48beef6e3c1cd38ffbe9761ed89fd940d
 ms.sourcegitcommit: 93d0b2996b4742b33cd6d641e036f42672cf5238
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 08/23/2019
 ms.locfileid: "69999639"
 ---
 # <a name="using-the-visual-layer-with-windows-forms"></a>Windows フォームでのビジュアル レイヤーの使用
 
-Windows ランタイムの合成 Api を使用することができます (とも呼ばれる、[ビジュアル レイヤー](/windows/uwp/composition/visual-layer)) で、Windows フォーム アプリで Windows 10 のユーザー用に光を最新のエクスペリエンスを作成します。
+Windows フォーム アプリで Windows ランタイムの Composition API ([ビジュアル レイヤー](/windows/uwp/composition/visual-layer)とも呼ばれる) を使用して、Windows 10 ユーザーの利便性を高める最新のエクスペリエンスを作成できます。
 
-このチュートリアルの完全なコードについては、GitHub を参照してください。[HelloComposition サンプルを Windows フォーム](https://github.com/Microsoft/Windows.UI.Composition-Win32-Samples/tree/master/dotnet/WinForms/HelloComposition)します。
+このチュートリアルの完全なコードは、GitHub で入手できます。[Windows フォーム HelloComposition サンプル](https://github.com/Microsoft/Windows.UI.Composition-Win32-Samples/tree/master/dotnet/WinForms/HelloComposition)
 
 ## <a name="prerequisites"></a>前提条件
 
-UWP ホスティング API には、これらの前提条件があります。
+UWP ホスティング API には、次の前提条件があります。
 
-- Windows フォームと UWP を使用したアプリ開発に関する知識があることを前提としています。 For more info, see:
+- Windows フォームと UWP を使用したアプリ開発に関する一定の知識があることを前提としています。 For more info, see:
   - [Windows フォームについて](/dotnet/framework/winforms/getting-started-with-windows-forms)
-  - [Windows 10 アプリを使ってみる](/windows/uwp/get-started/)
-  - [Windows 10 用にデスクトップアプリケーションを拡張する](/windows/uwp/porting/desktop-to-uwp-enhance)
+  - [Windows 10 アプリの概要](/windows/uwp/get-started/)
+  - [Windows 10 向けのデスクトップ アプリケーションの強化](/windows/uwp/porting/desktop-to-uwp-enhance)
 - .NET Framework 4.7.2 以降
-- Windows 10 バージョン1803以降
+- Windows 10 バージョン 1803 以降
 - Windows 10 SDK 17134 以降
 
-## <a name="how-to-use-composition-apis-in-windows-forms"></a>Windows フォームでコンポジション Api を使用する方法
+## <a name="how-to-use-composition-apis-in-windows-forms"></a>Windows フォームで Composition API を使用する方法
 
-このチュートリアルでは、単純な Windows フォーム UI を作成し、アニメーション化されたコンポジション要素を追加します。 Windows フォームと合成の両方のコンポーネントが単純に保持されますが、表示される相互運用コードは、コンポーネントの複雑さに関係なく同じです。 完成したアプリは次のようになります。
+このチュートリアルでは、シンプルな Windows フォーム UI を作成して、アニメーション化したコンポジション要素をそこに追加します。 Windows フォームとコンポジション要素は両方ともシンプルになっていますが、示されている相互運用コードは、コンポーネントの複雑さに関係なく同じです。 完成したアプリは次のようになります。
 
 ![実行中のアプリの UI](images/visual-layer-interop/wf-comp-interop-app-ui.png)
 
-## <a name="create-a-windows-forms-project"></a>Windows フォームプロジェクトを作成する
+## <a name="create-a-windows-forms-project"></a>Windows フォーム プロジェクトを作成する
 
-最初の手順では、アプリケーション定義と UI のメインフォームを含む Windows フォームアプリプロジェクトを作成します。
+最初の手順は、Windows フォーム アプリ プロジェクトを作成することであり、アプリケーション定義と UI のメイン フォームが含まれます。
 
-C# _HelloComposition_という名前の新しい Windows フォームアプリケーションプロジェクトを作成するには、次のようにします。
+Visual C# で _HelloComposition_ という名前の新しい Windows フォーム アプリケーション プロジェクトを作成するには:
 
-1. Visual Studio を開き、[**ファイル** > ] [**新しい** > **プロジェクト**] を選択します。<br/>**[新しいプロジェクト]** ダイアログボックスが開きます。
-1. **[インストール済み]** カテゴリで、**ビジュアルC#** ノードを展開し、 **[Windows デスクトップ]** を選択します。
-1. **[Windows フォームアプリ (.NET Framework)]** テンプレートを選択します。
-1. 名前として _「HelloComposition」_ を入力し、[Framework **.NET Framework 4.7.2**] を選択して、[ **OK]** をクリックします。
+1. Visual Studio を開き、 **[ファイル]**  >  **[新規作成]**  >  **[プロジェクト]** の順に選択します。<br/>**[新しいプロジェクト]** ダイアログが開きます。
+1. **[インストール済み]** カテゴリで、 **[Visual C#]** ノードを展開し、 **[Windows デスクトップ]** を選択します。
+1. **[Windows フォーム アプリケーション (.NET Framework)]** テンプレートを選択します。
+1. 名前「_HelloComposition_」を入力し、 **[.NET Framework 4.7.2]** フレームワークを選択して、 **[OK]** をクリックします。
 
-Visual Studio によってプロジェクトが作成され、Form1.cs という名前の既定のアプリケーションウィンドウのデザイナーが開きます。
+Visual Studio によってプロジェクトが作成され、Form1.cs という名前の既定のアプリケーション ウィンドウのデザイナーが開きます。
 
-## <a name="configure-the-project-to-use-windows-runtime-apis"></a>Windows ランタイム Api を使用するようにプロジェクトを構成する
+## <a name="configure-the-project-to-use-windows-runtime-apis"></a>Windows ランタイム API を使用するようにプロジェクトを構成する
 
-Windows フォームアプリで Windows ランタイム (WinRT) Api を使用するには、Windows ランタイムにアクセスするように Visual Studio プロジェクトを構成する必要があります。 さらに、ベクターはコンポジション Api によって広く使用されるため、ベクターを使用するために必要な参照を追加する必要があります。
+Windows フォーム アプリで Windows ランタイム (WinRT) API を使用するには、Windows ランタイムにアクセスするように、Visual Studio プロジェクトを構成する必要があります。 さらに、Composition API ではベクトルが広範囲に使用されるため、ベクトルを使用するために必要な参照を追加する必要があります。
 
-NuGet パッケージは、これらの両方のニーズに対応するために使用できます。 これらのパッケージの最新バージョンをインストールして、必要な参照をプロジェクトに追加します。  
+NuGet パッケージは、これらの両方のニーズに対処するために使用できます。 これらのパッケージの最新バージョンをインストールして、プロジェクトに必要な参照を追加します。  
 
-- PackageReference (既定のパッケージ管理形式は、既定ではに設定されている必要があります[)。](https://www.nuget.org/packages/Microsoft.Windows.SDK.Contracts)
+- [Microsoft.Windows.SDK.Contracts](https://www.nuget.org/packages/Microsoft.Windows.SDK.Contracts) (既定のパッケージ管理形式を PackageReference に設定する必要があります。)
 - [System.Numerics.Vectors](https://www.nuget.org/packages/System.Numerics.Vectors/)
 
 > [!NOTE]
-> NuGet パッケージを使用してプロジェクトを構成することをお勧めしますが、必要な参照を手動で追加することもできます。 詳細については、「 [Windows 10 用のデスクトップアプリケーションの拡張](/windows/uwp/porting/desktop-to-uwp-enhance)」を参照してください。 次の表に、参照を追加する必要があるファイルを示します。
+> NuGet パッケージを使用してプロジェクトを構成することをお勧めしますが、必要な参照を手動で追加できます。 詳細については、[Windows 10 向けのデスクトップ アプリの強化](/windows/uwp/porting/desktop-to-uwp-enhance)に関する記事を参照してください。 次の表に、参照を追加する必要があるファイルを示します。
 
-|ファイル|Location|
+|ファイル|インストール先|
 |--|--|
 |System.Runtime.WindowsRuntime|C:\Windows\Microsoft.NET\Framework\v4.0.30319|
-|Windows.Foundation.UniversalApiContract.winmd|C:\Program files (x86) \windows Kits\10\References\<*sdk バージョン*> \Windows.Foundation.UniversalApiContract\<*バージョン*>|
-|Windows.Foundation.FoundationContract.winmd|C:\Program files (x86) \windows Kits\10\References\<*sdk バージョン*> \Windows.Foundation.FoundationContract\<*バージョン*>|
-|System.string. vector. .dll|C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Numerics.Vectors\v4.0_4.0.0.0__b03f5f7f11d50a3a|
-|System.string|C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2|
+|Windows.Foundation.UniversalApiContract.winmd|C:\Program Files (x86)\Windows Kits\10\References\<*SDK バージョン*>\Windows.Foundation.UniversalApiContract\<*バージョン*>|
+|Windows.Foundation.FoundationContract.winmd|C:\Program Files (x86)\Windows Kits\10\References\<*SDK バージョン*>\Windows.Foundation.FoundationContract\<*バージョン*>|
+|System.Numerics.Vectors.dll|C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Numerics.Vectors\v4.0_4.0.0.0__b03f5f7f11d50a3a|
+|System.Numerics.dll|C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2|
 
-## <a name="create-a-custom-control-to-manage-interop"></a>相互運用を管理するためのカスタムコントロールを作成する
+## <a name="create-a-custom-control-to-manage-interop"></a>相互運用を管理するためのカスタム コントロールを作成する
 
-派生したカスタム コントロールを作成するビジュアル レイヤーで作成するコンテンツのホストに[コントロール](/dotnet/api/system.windows.forms.control)します。 このコントロールでは、ウィンドウにアクセスする[処理](/dotnet/api/system.windows.forms.control.handle)、ビジュアル レイヤーコンテンツのコンテナーを作成するために必要があります。
+ビジュアル レイヤーを使って作成したコンテンツをホストするには、[コントロール](/dotnet/api/system.windows.forms.control)から派生したカスタム コントロールを作成します。 このコントロールを使用して、ビジュアル レイヤー コンテンツ用のコンテナーを作成するために必要なウィンドウ [ハンドル](/dotnet/api/system.windows.forms.control.handle)にアクセスできます。
 
-これにより、構成の大部分をホストして、合成 Api をホストすることができます。 このコントロールでは、[プラットフォーム呼び出しサービス (PInvoke)](/cpp/dotnet/calling-native-functions-from-managed-code)と[COM 相互運用機能](/dotnet/api/system.runtime.interopservices.comimportattribute)を使用して、コンポジション api を Windows フォームアプリに取り込むことができます。 PInvoke と COM 相互運用の詳細については、「[アンマネージコードとの相互運用](/dotnet/framework/interop/index)」を参照してください。
+Composition API をホストするための構成のほとんどを、ここで行います。 このコントロールでは、[プラットフォーム呼び出しサービス (PInvoke)](/cpp/dotnet/calling-native-functions-from-managed-code) と [COM 相互運用](/dotnet/api/system.runtime.interopservices.comimportattribute)を使用して、Composition API を Windows フォーム アプリに取り込みます。 PInvoke と COM 相互運用の詳細については、「[アンマネージド コードとの相互運用](/dotnet/framework/interop/index)」を参照してください。
 
 > [!TIP]
-> 必要に応じて、チュートリアルの最後にある完全なコードを確認して、チュートリアルで作業するときにすべてのコードが適切な場所にあることを確認します。
+> チュートリアルを進めながら、必要に応じて、チュートリアルの最後にある完全なコードを確認して、すべてのコードが適切な場所にあることを確認してください。
 
-1. [コントロール](/dotnet/api/system.windows.forms.control)から派生した新しいカスタムコントロールファイルをプロジェクトに追加します。
-    - **ソリューションエクスプローラー**で、 _HelloComposition_プロジェクトを右クリックします。
-    - コンテキストメニューで、[**新しい項目**の**追加** > ] を選択します。
-    - **[新しい項目の追加]** ダイアログで、 **[カスタムコントロール]** を選択します。
-    - コントロールに_CompositionHost.cs_という名前を指定し、 **[追加]** をクリックします。 デザインビューで CompositionHost.cs が開きます。
+1. [Control](/dotnet/api/system.windows.forms.control) から派生する新しいカスタム コントロール ファイルをプロジェクトに追加します。
+    - **ソリューション エクスプローラー**で、_HelloComposition_ プロジェクトを右クリックします。
+    - コンテキスト メニューで、 **[追加]**  >  **[新しい項目...]** の順に選択します。
+    - **[新しい項目の追加]** ダイアログで、 **[カスタム コントロール]** を選択します。
+    - コントロールに _CompositionHost.cs_ という名前を付けて、 **[追加]** をクリックします。 デザイン ビューで CompositionHost.cs が開かれます。
 
-1. CompositionHost.cs のコードビューに切り替え、次のコードをクラスに追加します。
+1. CompositionHost.cs のコード ビューに切り替えて、次のコードをクラスに追加します。
 
     ```csharp
     // Add
@@ -114,7 +114,7 @@ NuGet パッケージは、これらの両方のニーズに対応するため�
 
 1. コードをコンストラクターに追加します。
 
-    コンストラクターでは、 _InitializeCoreDispatcher_メソッドと_initcomposition_メソッドを呼び出します。 これらのメソッドは、次の手順で作成します。
+    コンストラクター内で _InitializeCoreDispatcher_ メソッドと _InitComposition_ メソッドを呼び出します。 これらのメソッドは、次の手順で作成します。
 
     ```csharp
     public CompositionHost()
@@ -132,8 +132,8 @@ NuGet パッケージは、これらの両方のニーズに対応するため�
     }
     ```
 
-1. [CoreDispatcher](/uwp/api/windows.ui.core.coredispatcher)を使用してスレッドを初期化します。 コアディスパッチャーは、windows メッセージの処理と WinRT Api のイベントのディスパッチを担当します。 CoreDispatcher を持つスレッドで、**コンポジター**の新しいインスタンスを作成する必要があります。
-    - _InitializeCoreDispatcher_という名前のメソッドを作成し、ディスパッチャーキューを設定するためのコードを追加します。
+1. [CoreDispatcher](/uwp/api/windows.ui.core.coredispatcher) でスレッドを初期化します。 コア ディスパッチャーは、ウィンドウ メッセージの処理と WinRT API のイベントのディスパッチを担当します。 **Compositor** の新しいインスタンスは、CoreDispatcher があるスレッド上で作成する必要があります。
+    - _InitializeCoreDispatcher_ という名前のメソッドを作成し、ディスパッチャー キューをセットアップするコードを追加します。
 
     ```csharp
     // Add
@@ -152,7 +152,7 @@ NuGet パッケージは、これらの両方のニーズに対応するため�
     }
     ```
 
-    - ディスパッチャーキューには PInvoke 宣言が必要です。 この宣言は、クラスのコードの末尾に配置します。 (クラスコードを整理するために、このコードをリージョン内に配置します)。
+    - ディスパッチャー キューには、PInvoke 宣言が必要になります。 クラスのコードの末尾にこの宣言を配置します (クラス コードを整理しておくために、ここでは、このコードをリージョン内に配置します)。
 
     ```csharp
     #region PInvoke declarations
@@ -211,9 +211,9 @@ NuGet パッケージは、これらの両方のニーズに対応するため�
     #endregion PInvoke declarations
     ```
 
-    これで、ディスパッチャーキューの準備が完了し、コンポジションコンテンツの初期化と作成を開始できるようになりました。
+    これで、ディスパッチャー キューを準備できたので、コンポジション コンテンツの初期化と作成を開始できます。
 
-1. [コンポジター](/uwp/api/windows.ui.composition.compositor)を初期化します。 コンポジターがさまざまな型を作成するファクトリを[Windows.UI.Composition](/uwp/api/windows.ui.composition)ビジュアル レイヤー、効果のシステム、およびアニメーション システムにまたがる名前空間。 また、コンポジタークラスは、ファクトリから作成されたオブジェクトの有効期間も管理します。
+1. [Compositor](/uwp/api/windows.ui.composition.compositor) を初期化します。 Compositor は、ビジュアル レイヤー、効果システム、およびアニメーション システムにまたがる [Windows.UI.Composition](/uwp/api/windows.ui.composition) 名前空間にさまざまな型を作成するファクトリです。 また、Compositor クラスでは、ファクトリから作成されたオブジェクトの有効期間も管理されます。
 
     ```csharp
     private void InitComposition(IntPtr hwndHost)
@@ -236,7 +236,7 @@ NuGet パッケージは、これらの両方のニーズに対応するため�
     }
     ```
 
-    - **ICompositorDesktopInterop**と**ICOMPOSITIONTARGET**には COM インポートが必要です。 このコードは、 _CompositionHost_クラスの後、名前空間宣言の内部に配置します。
+    - **ICompositorDesktopInterop** と **ICompositionTarget** には COM インポートが必要です。 このコードは _CompositionHost_ クラスの後に、名前空間の宣言内に配置します。
 
     ```csharp
     #region COM Interop
@@ -285,23 +285,23 @@ NuGet パッケージは、これらの両方のニーズに対応するため�
     #endregion COM Interop
     ```
 
-## <a name="create-a-custom-control-to-host-composition-elements"></a>合成要素をホストするカスタムコントロールを作成する
+## <a name="create-a-custom-control-to-host-composition-elements"></a>コンポジション要素をホストするカスタム コントロールを作成する
 
-コンポジション要素を生成して管理するコードは、CompositionHost から派生した別のコントロールに配置することをお勧めします。 これにより、CompositionHost クラスで作成した相互運用コードを再利用できます。
+コンポジション要素を生成して CompositionHost から派生した別のコントロール内に管理するコードを挿入することをお勧めします。 これにより、CompositionHost クラスで作成した相互運用コードを引き続き再利用できます。
 
-ここでは、CompositionHost から派生したカスタムコントロールを作成します。 このコントロールは、フォームに追加できるように、Visual Studio のツールボックスに追加されます。
+ここでは、CompositionHost から派生したカスタム コントロールを作成します。 このコントロールは、フォームに追加できるように、Visual Studio のツールボックスに追加されます。
 
-1. CompositionHost から派生した新しいカスタムコントロールファイルをプロジェクトに追加します。
-    - **ソリューションエクスプローラー**で、 _HelloComposition_プロジェクトを右クリックします。
-    - コンテキストメニューで、[**新しい項目**の**追加** > ] を選択します。
-    - **[新しい項目の追加]** ダイアログで、 **[カスタムコントロール]** を選択します。
-    - コントロールに_CompositionHostControl.cs_という名前を指定し、 **[追加]** をクリックします。 デザインビューで CompositionHostControl.cs が開きます。
+1. CompositionHost から派生した新しいカスタム コントロール ファイルをプロジェクトに追加します。
+    - **ソリューション エクスプローラー**で、_HelloComposition_ プロジェクトを右クリックします。
+    - コンテキスト メニューで、 **[追加]**  >  **[新しい項目...]** の順に選択します。
+    - **[新しい項目の追加]** ダイアログで、 **[カスタム コントロール]** を選択します。
+    - コントロールに _CompositionHostControl.cs_ という名前を付けて、 **[追加]** をクリックします。 デザイン ビューで CompositionHostControl.cs が開かれます。
 
-1. CompositionHostControl.cs デザインビューのプロパティペインで、 **BackColor**プロパティを**controllight**に設定します。
+1. CompositionHostControl.cs のデザイン ビューのプロパティ ペインで、**BackColor** プロパティを **ControlLight** に設定します。
 
-    背景色の設定は任意です。 ここでは、フォームの背景に対してカスタムコントロールを表示できるようにします。
+    背景色の設定は省略可能です。 ここでは、フォームの背景に対してカスタム コントロールを表示できるようにします。
 
-1. CompositionHostControl.cs のコードビューに切り替えて、CompositionHost から派生するようにクラス宣言を更新します。
+1. CompositionHostControl.cs のコード ビューに切り替えて、CompositionHost から派生するようにクラス宣言を更新します。
 
     ```csharp
     class CompositionHostControl : CompositionHost
@@ -316,15 +316,15 @@ NuGet パッケージは、これらの両方のニーズに対応するため�
     }
     ```
 
-### <a name="add-composition-elements"></a>コンポジション要素の追加
+### <a name="add-composition-elements"></a>コンポジション要素を追加する
 
-インフラストラクチャが整ったら、アプリの UI にコンポジションコンテンツを追加できるようになりました。
+インフラストラクチャが配置されたので、コンポジション コンテンツをアプリの UI に追加できるようになりました。
 
-この例では、単純な[SpriteVisual](/uwp/api/windows.ui.composition.spritevisual)を作成してアニメーション化するコードを CompositionHostControl クラスに追加します。
+この例では、シンプルな [SpriteVisual](/uwp/api/windows.ui.composition.spritevisual) を作成してアニメーション化するコードを CompositionHostControl クラスに追加します。
 
-1. 合成要素を追加します。
+1. コンポジション要素を追加します。
 
-    CompositionHostControl.cs で、これらのメソッドを CompositionHostControl クラスに追加します。
+    CompositionHostControl.cs で、次のメソッドを CompositionHostControl クラスに追加します。
 
     ```csharp
     // Add
@@ -362,28 +362,28 @@ NuGet パッケージは、これらの両方のニーズに対応するため�
     }
     ```
 
-## <a name="add-the-control-to-your-form"></a>フォームにコントロールを追加する
+## <a name="add-the-control-to-your-form"></a>コントロールをフォームに追加する
 
-合成コンテンツをホストするカスタムコントロールを作成したので、それをアプリの UI に追加できます。 ここでは、前の手順で作成した CompositionHostControl のインスタンスを追加します。 CompositionHostControl は、Visual Studio の [ツールボックス] の [ **_プロジェクト名_コンポーネント**] に自動的に追加されます。
+コンポジション コンテンツをホストするカスタム コントロールを用意できたので、次は、それをアプリ UI に追加します。 ここでは、前の手順で作成した CompositionHostControl のインスタンスを追加します。 CompositionHostControl は、Visual Studio ツールボックスの **[<_プロジェクト名_> コンポーネント]** の下に自動的に追加されます。
 
-1. Form1.CS デザインビューで、UI にボタンを追加します。
+1. Form1.CS デザイン ビューで、UI にボタンを追加します。
 
-    - ボタンを [ツールボックス] から Form1 にドラッグします。 フォームの左上隅に配置します。 (コントロールの配置を確認するには、チュートリアルの冒頭にあるイメージを参照してください)。
-    - プロパティ ペインで、 **Text** プロパティを_button1_から _コンポジション要素の追加_ に変更します。
+    - ツールボックスから Form1 上にボタンをドラッグします。 フォームの左上隅に配置します (コントロールの配置を確認するには、チュートリアルの冒頭にあるイメージを参照してください)。
+    - プロパティ ペインで、**Text** プロパティを _button1_ から "_Add composition element (コンポジション要素の追加)_ " に変更します。
     - すべてのテキストが表示されるように、ボタンのサイズを変更します。
 
-    (詳細については[、「方法:Windows フォーム](/dotnet/framework/winforms/controls/how-to-add-controls-to-windows-forms)にコントロールを追加します。)
+    (詳細については、[方法: Windows フォームにコントロールを追加する](/dotnet/framework/winforms/controls/how-to-add-controls-to-windows-forms)」を参照してください。)
 
 1. UI に CompositionHostControl を追加します。
 
-    - ツールボックスから Form1 に CompositionHostControl をドラッグします。 ボタンの右側に配置します。
-    - CompositionHost のサイズを変更して、フォームの残りの部分を埋めるようにします。
+    - ツールボックスから Form1 上に CompositionHostControl をドラッグします。 それをボタンの右に配置します。
+    - フォームの残りの部分を埋めるように、CompositionHost のサイズを変更します。
 
-1. ボタンのクリックイベントを処理します。
+1. ボタンのクリック イベントを処理します。
 
-   - プロパティペインで、[稲妻] をクリックして [イベント] ビューに切り替えます。
-   - [イベント] ボックスの一覧で、 **click**イベントを選択し、「 *Button_Click*」と入力して、enter キーを押します。
-   - このコードは Form1.cs に追加されています。
+   - プロパティ ペインで、稲妻をクリックして [イベント] ビューに切り替えます。
+   - イベントの一覧で、**Click** イベントを選択して、「*Button_Click*」と入力して、Enter キーを押します。
+   - 次のコードが Form1.cs に追加されます。
 
     ```csharp
     private void Button_Click(object sender, EventArgs e)
@@ -392,9 +392,9 @@ NuGet パッケージは、これらの両方のニーズに対応するため�
     }
     ```
 
-1. 新しい要素を作成するには、ボタンクリックハンドラーにコードを追加します。
+1. ボタン クリック ハンドラーにコードを追加して、新しい要素を作成します。
 
-    - Form1.cs で、前に作成した*Button_Click*イベントハンドラーにコードを追加します。 このコードは、CompositionHostControl1 を呼び出して、ランダムに生成されたサイズとオフセットを持つ新しい要素を作成し_ます。_ (CompositionHostControl のインスタンスは、フォームにドラッグしたときに自動的に_compositionHostControl1_という名前になりました)。
+    - Form1.cs 上で、前に作成した*Button_Click*イベント ハンドラーにコードを追加します。 このコードでは _CompositionHostControl1.AddElement_ を呼び出して、ランダムに生成されたサイズとオフセットで新しい要素を作成します。 (CompositionHostControl のインスタンスには、フォーム上にドラッグしたときに、_compositionHostControl1_ という名前が自動的に付けられました。)
 
     ```csharp
     // Add
@@ -410,19 +410,19 @@ NuGet パッケージは、これらの両方のニーズに対応するため�
     }
     ```
 
-これで、Windows フォームアプリをビルドして実行できるようになりました。 このボタンをクリックすると、UI にアニメーション化された正方形が表示されます。
+これで、Windows フォーム アプリをビルドして実行できるようになりました。 ボタンをクリックすると、UI に追加したアニメーション化された正方形が表示されるはずです。
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
-同じインフラストラクチャ上に構築するより詳細な例については、 [Windows フォームのビジュアル レイヤーの統合サンプル](https://github.com/Microsoft/Windows.UI.Composition-Win32-Samples/tree/master/dotnet/WinForms/VisualLayerIntegration)GitHub でします。
+同じインフラストラクチャ上にビルドされるより完全な例については、GitHub の「[Windows フォーム ビジュアル レイヤー統合サンプル](https://github.com/Microsoft/Windows.UI.Composition-Win32-Samples/tree/master/dotnet/WinForms/VisualLayerIntegration)」を参照してください。
 
 ## <a name="additional-resources"></a>その他の資料
 
-- [Windows フォームでのはじめに](/dotnet/framework/winforms/getting-started-with-windows-forms).NET
-- [アンマネージコードとの相互運用](/dotnet/framework/interop/).NET
-- [Windows 10 アプリを使って](/windows/uwp/get-started/)みるUWP
-- [Windows 10 用にデスクトップアプリケーションを拡張](/windows/uwp/porting/desktop-to-uwp-enhance)するUWP
-- [Windows. UI. コンポジション名前空間](/uwp/api/windows.ui.composition)UWP
+- [Windows フォームについて](/dotnet/framework/winforms/getting-started-with-windows-forms) (.NET)
+- [アンマネージド コードとの相互運用](/dotnet/framework/interop/) (.NET)
+- [Windows 10 アプリの概要](/windows/uwp/get-started/) (UWP)
+- [Windows 10 向けのデスクトップ アプリケーションの強化](/windows/uwp/porting/desktop-to-uwp-enhance) (UWP)
+- [Windows.UI.Composition 名前空間](/uwp/api/windows.ui.composition) (UWP)
 
 ## <a name="complete-code"></a>コードを完成させる
 

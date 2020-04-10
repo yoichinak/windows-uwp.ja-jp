@@ -1,27 +1,27 @@
 ---
 Description: Windows UI とコンポーネントによるデスクトップ アプリケーションの拡張
-title: Windows UI とコンポーネントを使用したアプリの拡張
+title: Windows UI とコンポーネントでアプリを拡張する
 ms.date: 06/08/2018
 ms.topic: article
-keywords: Windows 10, UWP
+keywords: windows 10, uwp
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.openlocfilehash: a38f5fa7f3ef99f5970ec5d476fb65761aa39db4
 ms.sourcegitcommit: cc108c791842789464c38a10e5d596c9bd878871
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 12/20/2019
 ms.locfileid: "75302586"
 ---
-# <a name="extend-your-desktop-app-with-modern-uwp-components"></a>最新の UWP コンポーネントでデスクトップアプリを拡張する
+# <a name="extend-your-desktop-app-with-modern-uwp-components"></a>最新の UWP コンポーネントでデスクトップ アプリを拡張する
 
-一部の Windows 10 エクスペリエンス (タッチ対応 UI ページなど) は、最新のアプリ コンテナー内で実行する必要があります。 これらのエクスペリエンスを追加する場合は、UWP プロジェクトと Windows ランタイムコンポーネントでデスクトップアプリケーションを拡張します。
+一部の Windows 10 エクスペリエンス (タッチ対応 UI ページなど) は、最新のアプリ コンテナー内で実行する必要があります。 こうしたエクスペリエンスを追加するには、UWP プロジェクトと Windows ランタイム コンポーネントを使ってデスクトップ アプリケーションを拡張します。
 
-多くの場合、デスクトップアプリケーションから Windows ランタイム Api を直接呼び出すことができるため、このガイドを確認する前に、「 [Windows 10 用の拡張](desktop-to-uwp-enhance.md)」を参照してください。
+多くの場合、デスクトップ アプリケーションから Windows ランタイム API を直接呼び出すことができます。そのため、このガイドを確認する前に、[Windows 10 のための強化](desktop-to-uwp-enhance.md)に関する記事をご覧ください。
 
 > [!NOTE]
-> この記事で説明されている機能を使用するには、デスクトップアプリに[パッケージ id](modernize-packaged-apps.md)があることが必要です。これには、[デスクトップアプリを msix パッケージでパッケージ化](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-root)するか、[スパースパッケージを使用してアプリ id を付与](grant-identity-to-nonpackaged-apps.md)します。
+> この記事で説明されている機能を使用するには、[デスクトップ アプリを MSIX パッケージにパッケージ化する](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-root)か、または[スパース パッケージを使用してアプリ ID を付与する](grant-identity-to-nonpackaged-apps.md)ことで、デスクトップ アプリに[パッケージ ID ](modernize-packaged-apps.md)を付与する必要があります。
 
 準備ができたら始めましょう。
 
@@ -37,13 +37,13 @@ UWP プロジェクトとランタイム コンポーネントを 1 つ以上ソ
 
 ![開始プロジェクトを拡張する](images/desktop-to-uwp/extend-start-project.png)
 
-ソリューションにパッケージプロジェクトが含まれていない場合は、「 [Visual Studio を使用してデスクトップアプリケーションをパッケージ化](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)する」を参照してください。
+ソリューションにパッケージ プロジェクトが含まれていない場合は、[Visual Studio を使ったデスクトップ アプリケーションのパッケージ化](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)に関する記事を参照してください。
 
-### <a name="configure-the-desktop-application"></a>デスクトップアプリケーションを構成する
+### <a name="configure-the-desktop-application"></a>デスクトップ アプリケーションを構成する
 
-デスクトップアプリケーションが Windows ランタイム Api を呼び出すために必要なファイルを参照していることを確認します。
+デスクトップ アプリケーションに Windows ランタイム API を呼び出すために必要なファイルへの参照があることを確認します。
 
-これを行うには、「[プロジェクトのセットアップ](desktop-to-uwp-enhance.md#set-up-your-project)」セクションを参照してください。
+これを行うには、「[プロジェクトの設定](desktop-to-uwp-enhance.md#set-up-your-project)」セクションを参照してください。
 
 ### <a name="add-a-uwp-project"></a>UWP プロジェクトを追加する
 
@@ -65,9 +65,9 @@ UWP プロジェクトとランタイム コンポーネントを 1 つ以上ソ
 
 ![UWP プロジェクトのあるソリューション](images/desktop-to-uwp/uwp-project-reference.png)
 
-### <a name="optional-add-a-windows-runtime-component"></a>OptionalWindows ランタイムコンポーネントを追加する
+### <a name="optional-add-a-windows-runtime-component"></a>(省略可能) Windows ランタイム コンポーネントを追加する
 
-いくつかのシナリオを実現するには、Windows ランタイムコンポーネントにコードを追加する必要があります。
+いくつかのシナリオを実現するには、Windows ランタイム コンポーネントにコードを追加する必要があります。
 
 ![ランタイム コンポーネントのアプリ サービス](images/desktop-to-uwp/add-runtime-component.png)
 
@@ -77,7 +77,7 @@ UWP プロジェクトとランタイム コンポーネントを 1 つ以上ソ
 
 ### <a name="build-your-solution"></a>ソリューションをビルドする
 
-ソリューションをビルドして、エラーが表示されないようにします。 エラーが発生した場合は、 **Configuration Manager**を開き、プロジェクトが同じプラットフォームを対象としていることを確認します。
+ソリューションをビルドして、エラーが発生していないことを確認します。 エラーが発生した場合は、**構成マネージャー**を開き、プロジェクトが確実に同じプラットフォームを対象とするようにします。
 
 ![構成マネージャー](images/desktop-to-uwp/config-manager.png)
 
@@ -94,21 +94,21 @@ UWP プロジェクトとランタイム コンポーネントで行うことが
 ![アダプティブ デザイン](images/desktop-to-uwp/extend-xaml-ui.png)
 
 >[!NOTE]
->この例では、UWP プロジェクトをソリューションに追加することによって XAML UI を示します。 これは、デスクトップアプリケーションで XAML Ui を表示するために安定してサポートされる方法です。 代わりに、この方法では、XAML Island を使用して、デスクトップ アプリケーションに直接 UWP XAML コントロールを追加します。 XAML Islandsは、現在開発者プレビューとして使用できます。 ご自身のプロトタイプ コードでこれらを試すことはお勧めしますが、現時点では運用コードで使用することはお勧めしません。 これらの API とコントロールは、将来の Windows リリースでも成熟し安定し続けるでしょう。 XAML Islands の詳細については、[デスクトップ アプリケーションでの UWP コントロール](xaml-islands.md)を参照してください。
+>この例では、UWP プロジェクトをソリューションに追加して、XAML UI を表示しています。 これは、デスクトップ アプリケーションで XAML UI を表示するためにサポートされている安定した方法です。 この方法の代わりに、XAML Island を使用して UWP XAML コントロールをデスクトップ アプリケーションに直接追加することもできます。 XAML Islands は現在、開発者プレビューとして使用できます。 ご自身のプロトタイプ コードでこれらを試すことはお勧めしますが、現時点では運用コードで使用することはお勧めしません。 これらの API とコントロールは、引き続き今後の Windows リリースで完成度が高められ、安定したものになる予定です。 XAML Islands の詳細については、[デスクトップ アプリケーションでの UWP コントロール ](xaml-islands.md)に関する記事を参照してください
 
 ### <a name="the-design-pattern"></a>設計パターン
 
 XAML ベースの UI を表示するには、以下の手順を実行します。
 
-1: [ソリューションをセットアップする](#solution-setup)
+:1:[ソリューションをセットアップする](#solution-setup)
 
-2: [XAML UI を作成する](#xaml-UI)
+:2:[XAML UI を作成する](#xaml-UI)
 
-3: [プロトコル拡張機能を UWP プロジェクトに追加する](#add-a-protocol-extension)
+:3:[プロトコル拡張機能を UWP プロジェクトに追加する](#add-a-protocol-extension)
 
-4: [デスクトップ アプリから UWP アプリを起動する](#start)
+:4:[デスクトップ アプリから UWP アプリを起動する](#start)
 
-5: [UWP プロジェクトで目的のページを表示する](#parse)
+:5:[UWP プロジェクトで目的のページを表示する](#parse)
 
 <a id="solution-setup" />
 
@@ -152,7 +152,7 @@ XAML UI を UWP プロジェクトに追加します。 基本的なマップの
 
 ### <a name="add-a-protocol-extension"></a>プロトコル拡張機能を追加する
 
-**ソリューションエクスプローラー**で、ソリューション内のパッケージプロジェクトの**package.appxmanifest**ファイルを開き、この拡張機能を追加します。
+**ソリューション エクスプローラー**で、ソリューション内にパッケージ プロジェクトの **package.appxmanifest** ファイルを開き、この拡張機能を追加します。
 
 ```xml
 <Extensions>
@@ -220,7 +220,7 @@ protected override void OnActivated(Windows.ApplicationModel.Activation.IActivat
 }
 ```
 
-XAML ページの背後にあるコードで、``OnNavigatedTo`` メソッドをオーバーライドして、ページに渡されたパラメーターを使用します。 この場合、このページに渡された緯度と経度を使用してマップに場所を表示します。
+XAML ページの背後にあるコードで、ページに渡されたパラメーターを使用するように ``OnNavigatedTo`` メソッドをオーバーライドします。 この場合、このページに渡された緯度と経度を使用してマップに場所を表示します。
 
 ```csharp
 protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -251,33 +251,33 @@ protected override void OnNavigatedTo(NavigationEventArgs e)
 
 デスクトップ アプリケーションを共有ターゲットにすることで、共有をサポートしている他のアプリのデータ (画像など) をユーザーが簡単に共有できるようになります。
 
-たとえば、ユーザーは、Microsoft Edge (Photos アプリ) から画像を共有するアプリケーションを選択できます。 この機能を備えた WPF サンプルアプリケーションを次に示します。
+たとえば、ユーザーは、Microsoft Edge やフォト アプリから画像を共有するためにアプリケーションを選択できます。 その機能を備えた WPF サンプル アプリケーションを次に示します。
 
-![共有ターゲット](images/desktop-to-uwp/share-target.png)の順に移動します。
+![共有ターゲット](images/desktop-to-uwp/share-target.png)。
 
-完全なサンプルについては、[こちら](https://github.com/Microsoft/Windows-Packaging-Samples/tree/master/ShareTarget)を参照してください。
+完全なサンプルについては、[こちら](https://github.com/Microsoft/Windows-Packaging-Samples/tree/master/ShareTarget)を参照してください
 
 ### <a name="the-design-pattern"></a>設計パターン
 
 アプリケーションを共有ターゲットにするには、以下の手順を実行します。
 
-:1: [共有ターゲットの拡張機能を追加する](#share-extension)
+:1:[共有ターゲットの拡張機能を追加する](#share-extension)
 
-: 2: [OnShareTargetActivated イベントハンドラーをオーバーライドし](#override)ます。
+:2:[OnShareTargetActivated イベント ハンドラーをオーバーライドする](#override)
 
-: 3: [UWP プロジェクトにデスクトップ拡張機能を追加する](#desktop-extensions)
+:3:[UWP プロジェクトにデスクトップ拡張機能を追加する](#desktop-extensions)
 
-: 4:[完全信頼プロセス拡張機能を追加し](#full-trust)ます。
+:4:[完全信頼のプロセス拡張機能を追加する](#full-trust)
 
-: 5:[デスクトップアプリケーションを変更して、共有ファイルを取得](#modify-desktop)します。
+:5:[共有ファイルを取得するようにデスクトップ アプリケーションを変更する](#modify-desktop)
 
 <a id="share-extension" />
 
-次の手順  
+次の手順に従います  
 
 ### <a name="add-a-share-target-extension"></a>共有ターゲットの拡張機能を追加する
 
-**ソリューションエクスプローラー**で、ソリューション内のパッケージプロジェクトの**package.appxmanifest**ファイルを開き、共有ターゲットの拡張機能を追加します。
+**ソリューション エクスプローラー**で、ソリューション内にパッケージ プロジェクトの **package.appxmanifest** ファイルを開き、共有ターゲットの拡張機能を追加します。
 
 ```xml
 <Extensions>
@@ -295,15 +295,15 @@ protected override void OnNavigatedTo(NavigationEventArgs e)
 </Extensions>  
 ```
 
-UWP プロジェクトによって生成された実行可能ファイルの名前と、エントリ ポイント クラスの名前を指定します。 このマークアップは、UWP アプリの実行可能ファイルの名前が `ShareTarget.exe`であることを前提としています。
+UWP プロジェクトによって生成された実行可能ファイルの名前と、エントリ ポイント クラスの名前を指定します。 このマークアップでは、UWP アプリの実行可能ファイルの名前が `ShareTarget.exe` であることを前提としています。
 
-アプリとの間で共有できるようにするファイルの種類を指定することも必要です。 この例では、 [WPF PhotoStoreDemo](https://github.com/Microsoft/WPF-Samples/tree/master/Sample%20Applications/PhotoStoreDemo)デスクトップアプリケーションをビットマップイメージの共有ターゲットとしています。そのため、サポートされているファイルの種類に `Bitmap` を指定します。
+アプリとの間で共有できるようにするファイルの種類を指定することも必要です。 この例では、[WPF PhotoStoreDemo](https://github.com/Microsoft/WPF-Samples/tree/master/Sample%20Applications/PhotoStoreDemo) デスクトップ アプリケーションをビットマップ イメージの共有ターゲットとしています。そのため、サポートされているファイルの種類に `Bitmap` を指定します。
 
 <a id="override" />
 
-### <a name="override-the-onsharetargetactivated-event-handler"></a>OnShareTargetActivated イベントハンドラーをオーバーライドします。
+### <a name="override-the-onsharetargetactivated-event-handler"></a>OnShareTargetActivated イベント ハンドラーをオーバーライドする
 
-UWP プロジェクトの**App**クラスで**OnShareTargetActivated**イベントハンドラーをオーバーライドします。
+UWP プロジェクトの **App** クラスで、**OnShareTargetActivated** イベント ハンドラーをオーバーライドします。
 
 このイベント ハンドラーは、ユーザーがファイルを共有するためにアプリを選択するときに呼び出されます。
 
@@ -330,21 +330,21 @@ private async void shareWithDesktopApplication(ShareOperation shareOperation)
 }
 ```
 
-このコードでは、ユーザーによって共有されているイメージをアプリのローカルストレージフォルダーに保存します。 後で、同じフォルダーからイメージをプルするようにデスクトップアプリケーションを変更します。 デスクトップアプリケーションは、UWP アプリと同じパッケージに含まれているため、これを行うことができます。
+このコードでは、ユーザーによって共有されているイメージをアプリのローカル ストレージ フォルダーに保存します。 後で、その同じフォルダーからイメージをプルするように、デスクトップ アプリケーションを変更します。 デスクトップ アプリケーションは、UWP アプリと同じパッケージに含まれているために、これを行うことができます。
 
 <a id="desktop-extensions" />
 
-### <a name="add-desktop-extensions-to-the-uwp-project"></a>UWP プロジェクトへのデスクトップ拡張機能の追加
+### <a name="add-desktop-extensions-to-the-uwp-project"></a>UWP プロジェクトにデスクトップ拡張機能を追加する
 
-Uwp 拡張機能**の Windows デスクトップ拡張**機能を uwp アプリプロジェクトに追加します。
+UWP アプリ プロジェクトに **[Windows Desktop Extensions for the UWP]** 拡張機能を追加します。
 
 ![デスクトップ拡張機能](images/desktop-to-uwp/desktop-extensions.png)
 
 <a id="full-trust" />
 
-### <a name="add-the-full-trust-process-extension"></a>完全信頼プロセス拡張機能を追加する
+### <a name="add-the-full-trust-process-extension"></a>完全信頼のプロセス拡張機能を追加する
 
-**ソリューションエクスプローラー**で、ソリューション内のパッケージプロジェクトの**package.appxmanifest**ファイルを開き、このファイルを前に追加した共有ターゲット拡張機能の横に完全信頼プロセス拡張機能を追加します。
+**ソリューション エクスプローラー**で、ソリューション内にパッケージ プロジェクトの **package.appxmanifest** ファイルを開き、以前にこのファイルに追加している共有ターゲット拡張機能の横に、完全信頼のプロセス拡張機能を追加します。
 
 ```xml
 <Extensions>
@@ -354,19 +354,19 @@ Uwp 拡張機能**の Windows デスクトップ拡張**機能を uwp アプリ�
 </Extensions>  
 ```
 
-この拡張機能により、UWP アプリは、ファイルを共有するデスクトップアプリケーションを起動できるようになります。 たとえば、 [WPF PhotoStoreDemo](https://github.com/Microsoft/WPF-Samples/tree/master/Sample%20Applications/PhotoStoreDemo)デスクトップアプリケーションの実行可能ファイルを参照します。
+この拡張機能によって、UWP アプリでは、ファイルを共有するデスクトップ アプリケーションを起動できるようになります。 例では、[WPF PhotoStoreDemo](https://github.com/Microsoft/WPF-Samples/tree/master/Sample%20Applications/PhotoStoreDemo) デスクトップ アプリケーションの実行可能ファイルを参照しています。
 
 <a id="modify-desktop" />
 
-### <a name="modify-the-desktop-application-to-get-the-shared-file"></a>デスクトップアプリケーションを変更して共有ファイルを取得する
+### <a name="modify-the-desktop-application-to-get-the-shared-file"></a>共有ファイルを取得するようにデスクトップ アプリケーションを変更する
 
-デスクトップアプリケーションを変更して、共有ファイルを検索して処理します。 この例では、UWP アプリによって、共有ファイルがローカルアプリデータフォルダーに保存されています。 そのため、 [WPF PhotoStoreDemo](https://github.com/Microsoft/WPF-Samples/tree/master/Sample%20Applications/PhotoStoreDemo)デスクトップアプリケーションを変更して、そのフォルダーから写真をプルします。
+共有ファイルを検索して処理するように、デスクトップ アプリケーションを変更します。 この例では、UWP アプリによって、ローカル アプリ データ フォルダー内に共有ファイルが保存されました。 そのため、そのフォルダーから写真をプルするように、[WPF PhotoStoreDemo](https://github.com/Microsoft/WPF-Samples/tree/master/Sample%20Applications/PhotoStoreDemo) デスクトップ アプリケーションを変更します。
 
 ```csharp
 Photos.Path = Windows.Storage.ApplicationData.Current.LocalFolder.Path;
 ```
 
-ユーザーによって既に開かれているデスクトップアプリケーションのインスタンスの場合は、 [FileSystemWatcher](https://docs.microsoft.com/dotnet/api/system.io.filesystemwatcher)イベントを処理し、ファイルの場所へのパスを渡すこともできます。 これにより、デスクトップアプリケーションの開いているインスタンスで共有写真が表示されます。
+ユーザーによって既に開かれているデスクトップ アプリケーションのインスタンスでは、[FileSystemWatcher](https://docs.microsoft.com/dotnet/api/system.io.filesystemwatcher) イベントを処理して、ファイルの場所へのパスを渡すこともできます。 これにより、開かれたデスクトップ アプリケーションのインスタンスでは、共有された写真が表示されます。
 
 ```csharp
 ...
@@ -396,7 +396,7 @@ private void Watcher_Created(object sender, FileSystemEventArgs e)
 
 バックグラウンド タスクを追加して、アプリが一時停止されているときでもコードを実行できます。 バックグラウンド タスクは、ユーザーの操作を必要としない小さなタスクに最適です。 たとえば、タスクはメールのダウンロード、受信チャット メッセージに関するトースト通知の表示、システムの状態の変化に対する対応を行うことができます。
 
-バックグラウンドタスクを登録する WPF サンプルアプリケーションを次に示します。
+バックグラウンド タスクを登録する WPF サンプル アプリケーションを以下に示します。
 
 ![バックグラウンド タスク](images/desktop-to-uwp/sample-background-task.png)
 
@@ -408,11 +408,11 @@ private void Watcher_Created(object sender, FileSystemEventArgs e)
 
 バックグラウンド サービスを作成するには、以下の手順を実行します。
 
-:1: [バックグラウンド タスクの実装](#implement-task)
+:1:[バックグラウンド タスクの実装](#implement-task)
 
-:2: [バックグラウンド タスクの構成](#configure-background-task)
+:2:[バックグラウンド タスクの構成](#configure-background-task)
 
-:3: [バックグラウンド タスクの登録](#register-background-task)
+:3:[バックグラウンド タスクの登録](#register-background-task)
 
 <a id="implement-task" />
 
@@ -459,7 +459,7 @@ public sealed class SiteVerifier : IBackgroundTask
 
 ### <a name="configure-the-background-task"></a>バックグラウンド タスクの構成
 
-マニフェストデザイナーで、ソリューション内のパッケージプロジェクトの**package.appxmanifest**ファイルを開きます。
+マニフェスト デザイナーで、ソリューション内にパッケージ プロジェクトの **package.appxmanifest** ファイルを開きます。
 
 **[宣言]** タブで、 **[バックグラウンド タスク]** 宣言を追加します。
 
@@ -469,7 +469,7 @@ public sealed class SiteVerifier : IBackgroundTask
 
 ![Timer プロパティ](images/desktop-to-uwp/timer-property.png)
 
-バックグラウンドタスクを実装する Windows ランタイムコンポーネント内のクラスの完全修飾名を指定します。
+バックグラウンド タスクを実装する Windows ランタイム コンポーネントで、クラスの完全修飾名を指定します。
 
 ![Timer プロパティ](images/desktop-to-uwp/background-task-entry-point.png)
 
@@ -503,4 +503,4 @@ public void RegisterBackgroundTask(String triggerName)
 
 ## <a name="find-answers-to-your-questions"></a>質問に対する回答を見つける
 
-ご質問がある場合は、 Stack Overflow でお問い合わせください。 Microsoft のチームでは、これらの[タグ](https://stackoverflow.com/questions/tagged/project-centennial+or+desktop-bridge)をチェックしています。 [こちら](https://social.msdn.microsoft.com/Forums/en-US/home?filter=alltypes&sort=relevancedesc&searchTerm=%5BDesktop%20Converter%5D)から質問することもできます。
+ご質問があるでしょうか。 Stack Overflow でお問い合わせください。 Microsoft のチームでは、これらの[タグ](https://stackoverflow.com/questions/tagged/project-centennial+or+desktop-bridge)をチェックしています。 [こちら](https://social.msdn.microsoft.com/Forums/en-US/home?filter=alltypes&sort=relevancedesc&searchTerm=%5BDesktop%20Converter%5D)から質問することもできます。

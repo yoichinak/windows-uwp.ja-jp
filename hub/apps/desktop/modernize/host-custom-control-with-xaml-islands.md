@@ -8,12 +8,12 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: b1ac53e0a6b6e01cd2129e2b1893f91fae2ef0fe
-ms.sourcegitcommit: c660def841abc742600fbcf6ed98e1f4f7beb8cc
+ms.openlocfilehash: fa8dd744120d5751dcf8c10a090ccc31094000d2
+ms.sourcegitcommit: df0cd9c82d1c0c17ccde424e3c4a6ff680c31a35
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80218602"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80482502"
 ---
 # <a name="host-a-custom-uwp-control-in-a-wpf-app-using-xaml-islands"></a>XAML Islands を使用して WPF アプリでカスタム UWP コントロールをホストする
 
@@ -29,7 +29,7 @@ WPF (または Windows フォーム) アプリでカスタム UWP コントロ�
 
 * **カスタム UWP コントロール**。 アプリと共にコンパイルできるように、ホストするカスタム UWP コントロールのソース コードを用意する必要があります。 通常、カスタム コントロールは、WPF プロジェクトまたは Windows フォーム プロジェクトと同じソリューションで参照されている UWP クラス ライブラリ プロジェクトで定義します。
 
-* **XamlApplication から派生するルート Application クラスが定義されている UWP アプリ プロジェクト**。 WPF プロジェクトまたは Windows フォーム プロジェクトでは、Windows Community Toolkit によって提供される [Microsoft.Toolkit.Win32.UI.XamlHost.XamlApplication](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/tree/master/Microsoft.Toolkit.Win32.UI.XamlApplication) クラスのインスタンスにアクセスできる必要があります。 これを行うには、WPF アプリまたは Windows フォーム アプリのソリューションの一部である別の UWP アプリ プロジェクト内でこのオブジェクトを定義することをお勧めします。 このオブジェクトは、アプリケーションの現在のディレクトリにあるアセンブリ内のカスタム UWP XAML 型に対するメタデータを読み込むための、ルート メタデータ プロバイダーとして機能します。
+* **XamlApplication から派生するルート Application クラスが定義されている UWP アプリ プロジェクト**。 WPF プロジェクトまたは Windows フォーム プロジェクトでは、カスタムの UWP XAML コントロールを検出て読み込めるように、Windows Community Toolkit によって提供される [Microsoft.Toolkit.Win32.UI.XamlHost.XamlApplication](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/tree/master/Microsoft.Toolkit.Win32.UI.XamlApplication) クラスのインスタンスにアクセスできる必要があります。 これを行うには、WPF アプリまたは Windows フォーム アプリのソリューションの一部である別の UWP アプリ プロジェクト内でこのオブジェクトを定義することをお勧めします。 
 
     > [!NOTE]
     > `XamlApplication` オブジェクトは、ソリューション内の 1 つのプロジェクトだけで定義されている必要があります。 アプリ内のすべてのカスタム UWP コントロールで、同じ `XamlApplication` オブジェクトを共有します。 `XamlApplication` オブジェクトが定義されているプロジェクトには、XAML Island で UWP コントロールをホストするために使用される他のすべての UWP ライブラリとプロジェクトへの参照が含まれている必要があります。
@@ -67,7 +67,7 @@ WPF (または Windows フォーム) アプリでカスタム UWP コントロ�
 
 ## <a name="define-a-xamlapplication-class-in-a-uwp-app-project"></a>UWP アプリ プロジェクトで XamlApplication クラスを定義する
 
-次に、UWP アプリ プロジェクトをソリューションに追加し、このプロジェクトの既定の `App` クラスを、Windows Community Toolkit によって提供される [Microsoft.Toolkit.Win32.UI.XamlHost.XamlApplication](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/tree/master/Microsoft.Toolkit.Win32.UI.XamlApplication) クラスから派生するように変更します。 アプリでは、このクラスをルート メタデータ プロバイダーとして使用して、アプリケーションの現在のディレクトリにあるアセンブリ内のカスタム UWP XAML 型に対するメタデータを読み込みます。
+次に、UWP アプリ プロジェクトをソリューションに追加し、このプロジェクトの既定の `App` クラスを、Windows Community Toolkit によって提供される [Microsoft.Toolkit.Win32.UI.XamlHost.XamlApplication](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/tree/master/Microsoft.Toolkit.Win32.UI.XamlApplication) クラスから派生するように変更します。 このクラスは [IXamlMetadaraProvider](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Markup.IXamlMetadataProvider) インターフェイスをサポートしています。これにより、アプリは実行時にアプリケーションの現在のディレクトリにある、アセンブリ内のカスタム UWP XAML コントロールのメタデータを検出して読み込むことができます。 このクラスでは、現在のスレッドの UWP XAML フレームワークも初期化されます。 
 
 1. **ソリューション エクスプローラー**で、ソリューション ノードを右クリックし、 **[追加]**  ->  **[新しいプロジェクト]** を選択します。
 2. ソリューションに **[空白のアプリ (ユニバーサル Windows)]** プロジェクトを追加します。 対象バージョンと最小バージョンの両方が **Windows 10 バージョン 1903** 以降に設定されていることを確認します。
@@ -105,7 +105,7 @@ WPF (または Windows フォーム) アプリでカスタム UWP コントロ�
 
 ## <a name="instantiate-the-xamlapplication-object-in-the-entry-point-of-your-wpf-app"></a>WPF アプリのエントリ ポイントで XamlApplication オブジェクトをインスタンス化する
 
-次に、先に UWP プロジェクトで定義した `App` クラス (これは、`XamlApplication` から派生するようになったクラスです) のインスタンスを作成するためのコードを、WPF アプリのエントリ ポイントに追加します。 このオブジェクトは、アプリケーションの現在のディレクトリにあるアセンブリ内のカスタム UWP XAML 型に対するメタデータを読み込むための、ルート メタデータ プロバイダーとして機能します。
+次に、先に UWP プロジェクトで定義した `App` クラス (これは、`XamlApplication` から派生するようになったクラスです) のインスタンスを作成するためのコードを、WPF アプリのエントリ ポイントに追加します。
 
 1. WPF プロジェクトでプロジェクト ノードを右クリックし、 **[追加]**  ->  **[新しい項目]** を選択して、 **[クラス]** を選択します。 クラスに **Program** という名前を指定し、 **[追加]** をクリックします。
 

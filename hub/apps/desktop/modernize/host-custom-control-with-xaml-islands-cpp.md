@@ -8,12 +8,12 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: 2f34c9c56cf9db5dfcfd702b97f2d34273b86e6a
-ms.sourcegitcommit: c660def841abc742600fbcf6ed98e1f4f7beb8cc
+ms.openlocfilehash: 23d7fbf129e9cf53a9510200aa4e3836dffa602f
+ms.sourcegitcommit: df0cd9c82d1c0c17ccde424e3c4a6ff680c31a35
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80226316"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80482642"
 ---
 # <a name="host-a-custom-uwp-control-in-a-c-win32-app"></a>C++ Win32 アプリでカスタム UWP コントロールをホストする
 
@@ -45,20 +45,20 @@ ms.locfileid: "80226316"
 4. **[NuGet パッケージの管理]** ウィンドウで、次の追加の NuGet パッケージをインストールします。
 
     * [Microsoft.Toolkit.Win32.UI.SDK](https://www.nuget.org/packages/Microsoft.Toolkit.Win32.UI.SDK) (バージョン v6.0.0 以降)。 このパッケージでは、XAML Islands がアプリで動作できるようにする、いくつかのビルド資産と実行時資産が提供されています。
-    * [Microsoft.Toolkit.Win32.UI.XamlApplication](https://www.nuget.org/packages/Microsoft.Toolkit.Win32.UI.XamlApplication) (バージョン v6.0.0 以降)。
+    * [Microsoft.Toolkit.Win32.UI.XamlApplication](https://www.nuget.org/packages/Microsoft.Toolkit.Win32.UI.XamlApplication) (バージョン v6.0.0 以降)。 このパッケージは、このチュートリアルの後半で使用する [Microsoft.Toolkit.Win32.UI.XamlHost.XamlApplication](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/tree/master/Microsoft.Toolkit.Win32.UI.XamlApplication) クラスを定義します。
     * [Microsoft.VCRTForwarders.140](https://www.nuget.org/packages/Microsoft.VCRTForwarders.140)。
 
 5. ソリューションをビルドし、正常にビルドされたことを確認します。
 
 ## <a name="create-a-uwp-app-project"></a>UWP アプリ プロジェクトを作成する
 
-次に、**UWP (C++/WinRT)** アプリ プロジェクトをソリューションに追加し、このプロジェクトの構成にいくつかの変更を行います。 このチュートリアルの後半では、カスタム UWP XAML コントロールを実装するためのコードをこのプロジェクトに追加し、Windows Community Toolkit によって提供される [Microsoft.Toolkit.Win32.UI.XamlHost.XamlApplication](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/tree/master/Microsoft.Toolkit.Win32.UI.XamlApplication) クラスのインスタンスを定義します。 アプリでは、カスタム UWP XAML 型のメタデータを読み込むためのルート メタデータ プロバイダーとして、このクラスを使用します。
+次に、**UWP (C++/WinRT)** アプリ プロジェクトをソリューションに追加し、このプロジェクトの構成にいくつかの変更を行います。 このチュートリアルの後半では、カスタム UWP XAML コントロールを実装するためのコードをこのプロジェクトに追加し、[Microsoft.Toolkit.Win32.UI.XamlHost.XamlApplication](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/tree/master/Microsoft.Toolkit.Win32.UI.XamlApplication) クラスのインスタンスを定義します。 
 
 1. **ソリューション エクスプローラー**で、ソリューション ノードを右クリックし、 **[追加]**  ->  **[新しいプロジェクト]** を選択します。
 
 2. ソリューションに**空のアプリ (C++/WinRT)** プロジェクトを追加します。 プロジェクトの名前を **MyUWPApp** にして、対象バージョンと最小バージョンの両方が **Windows 10 バージョン 1903** 以降に設定されていることを確認します。
 
-3. **MyUWPApp** プロジェクトに、[Microsoft.Toolkit.Win32.UI.XamlApplication](https://www.nuget.org/packages/Microsoft.Toolkit.Win32.UI.XamlApplication) NuGet パッケージをインストールします。
+3. **MyUWPApp** プロジェクトに、[Microsoft.Toolkit.Win32.UI.XamlApplication](https://www.nuget.org/packages/Microsoft.Toolkit.Win32.UI.XamlApplication) NuGet パッケージをインストールします。 このパッケージは、このチュートリアルの後半で使用する [Microsoft.Toolkit.Win32.UI.XamlHost.XamlApplication](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/tree/master/Microsoft.Toolkit.Win32.UI.XamlApplication) クラスを定義します。
 
     1. **MyUWPApp** プロジェクトを右クリックし、 **[NuGet パッケージの管理]** を選択します。
     2. **[参照]** タブを選択し、[Microsoft.Toolkit.Win32.UI.XamlApplication](https://www.nuget.org/packages/Microsoft.Toolkit.Win32.UI.XamlApplication) パッケージを見つけて、このパッケージの 6.0.0 以降のバージョンをインストールします。
@@ -150,7 +150,7 @@ ms.locfileid: "80226316"
 これで、**MyUWPApp** プロジェクトにコードを追加し、次のタスクを実行できるようになりました。
 
 * カスタム UWP XAML コントロールを実装します。 このチュートリアルでこの後、**MyDesktopWin32App** プロジェクトでこのコントロールをホストするコードを追加します。
-* Windows Community Toolkit の [Microsoft.Toolkit.Win32.UI.XamlHost.XamlApplication](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/tree/master/Microsoft.Toolkit.Win32.UI.XamlApplication) クラスから派生する型を定義します。 このクラスは、カスタム UWP XAML 型のメタデータを読み込むためのルート メタデータ プロバイダーとして使用します。
+* Windows Community Toolkit の [Microsoft.Toolkit.Win32.UI.XamlHost.XamlApplication](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/tree/master/Microsoft.Toolkit.Win32.UI.XamlApplication) クラスから派生する型を定義します。
 
 ### <a name="define-a-custom-uwp-xaml-control"></a>カスタム UWP XAML コントロールを定義する
 
@@ -181,7 +181,7 @@ ms.locfileid: "80226316"
 
 ### <a name="define-a-xamlapplication-class"></a>XamlApplication クラスを定義する
 
-次に、**MyUWPApp** プロジェクトの既定の **App** クラスを、Windows Community Toolkit によって提供される [Microsoft.Toolkit.Win32.UI.XamlHost.XamlApplication](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/tree/master/Microsoft.Toolkit.Win32.UI.XamlApplication) クラスから派生するように変更します。 このチュートリアルで後ほど、デスクトップ プロジェクトを更新して、カスタム UWP XAML 型のメタデータを読み込むためのルート メタデータ プロバイダーとして、このクラスのインスタンスを作成します。
+次に、**MyUWPApp** プロジェクトの既定の **App** クラスを、Windows Community Toolkit によって提供される [Microsoft.Toolkit.Win32.UI.XamlHost.XamlApplication](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/tree/master/Microsoft.Toolkit.Win32.UI.XamlApplication) クラスから派生するように変更します。 このクラスは [IXamlMetadaraProvider](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Markup.IXamlMetadataProvider) インターフェイスをサポートしています。これにより、アプリは実行時にアプリケーションの現在のディレクトリにある、アセンブリ内のカスタム UWP XAML コントロールのメタデータを検出して読み込むことができます。 このクラスでは、現在のスレッドの UWP XAML フレームワークも初期化されます。 このチュートリアルの後の方で、デスクトップ プロジェクトを更新して、このクラスのインスタンスを作成します。
 
   > [!NOTE]
   > `XamlApplication` オブジェクトは、XAML Islands を使用する各ソリューション内の 1 つのプロジェクトだけで、定義されている必要があります。 アプリ内のすべてのカスタム UWP XAML コントロールで、同じ `XamlApplication` オブジェクトを共有します。 

@@ -1,32 +1,32 @@
 ---
 ms.assetid: 6AA037C0-35ED-4B9C-80A3-5E144D7EE94B
 title: WinAppDeployCmd.exe ツールを使ったアプリのインストール
-description: Windows アプリケーションの展開 (WinAppDeployCmd) は、windows 10 PC から任意の Windows 10 デバイスにユニバーサル Windows プラットフォーム (UWP) アプリを展開するために使用できるコマンドラインツールです。
+description: Windows アプリケーションの展開ツール (WinAppDeployCmd.exe) は、Windows 10 PC から Windows 10 デバイスにユニバーサル Windows プラットフォーム (UWP) アプリを展開するために利用できるコマンド ライン ツールです。
 ms.date: 09/30/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: d6c8383a5b0041d5edf6e0c2c8d94acf82572d13
 ms.sourcegitcommit: afc25d41229d4e340c9557651b35e016d7595c3a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 09/09/2019
 ms.locfileid: "70808441"
 ---
 # <a name="install-apps-with-the-winappdeploycmdexe-tool"></a>WinAppDeployCmd.exe ツールを使ったアプリのインストール
 
-Windows アプリケーションの展開 (WinAppDeployCmd) は、windows 10 PC から任意の Windows 10 デバイスにユニバーサル Windows プラットフォーム (UWP) アプリを展開するために使用できるコマンドラインツールです。 このツールを使用すると、Windows 10 デバイスが USB によって接続されている場合、または同じサブネットで使用可能な場合に、Microsoft Visual Studio またはそのアプリのソリューションを必要とせずに、アプリパッケージを展開できます。 最初にパッケージ化することなく、リモート PC や Xbox One にアプリを展開することもできます。 この記事では、このツールを使って UWP アプリをインストールする方法について説明します。
+Windows アプリケーションの展開ツール (WinAppDeployCmd.exe) は、Windows 10 PC から Windows 10 デバイスにユニバーサル Windows プラットフォーム (UWP) アプリを展開するために利用できるコマンド ライン ツールです。 Windows 10 デバイスが USB で接続されている場合、または同じサブネット上で利用できる場合は、このツールを使用して、Microsoft Visual Studio や該当のアプリ用のソリューションを必要とせずにアプリ パッケージを展開できます。 最初にパッケージ化することなく、リモート PC や Xbox One にアプリを展開することもできます。 この記事では、このツールを使って UWP アプリをインストールする方法について説明します。
 
-WinAppDeployCmd ツールをコマンドプロンプトまたはスクリプトファイルから実行するには、Windows 10 SDK がインストールされている必要があります。 WinAppDeployCmd を使用してアプリをインストールする場合、これは .appx/. msix ファイルまたは Package.appxmanifest (ルースファイルの場合) を使用して、Windows 10 デバイスにアプリをサイドロードします。 このコマンドによって、アプリに必要な証明書はインストールされません。 アプリを実行するには、Windows 10 デバイスが開発者モードであるか、または証明書が既にインストールされている必要があります。
+Windows 10 SDK がインストールされていれば、WinAppDeployCmd ツールをコマンド プロンプトまたはスクリプト ファイルから実行できます。 WinAppDeployCmd.exe を使ってアプリをインストールすると、.appx/.msix ファイルや AppxManifest (ルーズ ファイルの場合) を使用して Windows 10 デバイスにアプリがサイドローディングされます。 このコマンドによって、アプリに必要な証明書はインストールされません。 アプリを実行するには、Windows 10 デバイスでは開発者モードになっているか、証明書を既にインストール済みであることが必要になります。
 
 モバイル デバイスに展開するには、最初にパッケージを作成する必要があります。 詳しくは、[こちら](/windows/msix/package/packaging-uwp-apps)をご覧ください。
 
-**Winappdeploycmd**ツールは、WINDOWS 10 PC にあります。**C:\\Program Files (x86)\\Windows kit\\10\\bin\\SDKVersion&gt;x86\\winappdeploycmd(に基づく)\\&lt;** SDK のインストールパス。
+**WinAppDeployCmd.exe** ツールは、Windows 10 PC 上の次の場所に配置されます: **C:\\Program Files (x86)\\Windows Kits\\10\\bin\\&lt;SDK バージョン&gt;\\x86\\WinAppDeployCmd.exe** (SDK のインストール パスに基づきます)。
 
 > [!NOTE]
 > SDK のバージョン 15063 以降では、SDK はバージョン固有のフォルダー内にサイド バイ サイドでインストールされます。 以前の SDK (14393 以前) は、親フォルダーに直接書き込まれます。
 
-まず、Windows 10 デバイスを同じサブネットに接続するか、USB 接続を使用して Windows 10 コンピューターに直接接続します。 この記事ではその後、このコマンドの次の構文と例を使って UWP アプリを展開します。
+まず、Windows 10 デバイスを同じサブネットに接続するか、USB 接続を使って Windows 10 コンピューターに直接接続します。 この記事ではその後、このコマンドの次の構文と例を使って UWP アプリを展開します。
 
 ## <a name="winappdeploycmd-syntax-and-options"></a>WinAppDeployCmd の構文とオプション
 
@@ -61,7 +61,7 @@ WinAppDeployCmd deletecreds -credserver <server> -ip <address>
 
 次の表では、**WinAppDeployCmd.exe** のコマンドについて説明します。
 
-| **Command**  | **[説明]**                                                     |
+| **コマンド**  | **説明**                                                     |
 |--------------|---------------------------------------------------------------------|
 | デバイス      | 利用可能なネットワーク デバイスの一覧を表示します。                         |
 | インストール      | ターゲット デバイスに UWP アプリ パッケージをインストールします。                     |
@@ -76,7 +76,7 @@ WinAppDeployCmd deletecreds -credserver <server> -ip <address>
 
 次の表では、**WinAppDeployCmd.exe** のオプションについて説明します。
 
-| **Command**  | **[説明]**  |
+| **コマンド**  | **説明**  |
 |--------------|------------------|
 | -h (-help)       | コマンド、オプション、引数を表示します。 |
 | -ip              | ターゲット デバイスの IP アドレス。 |
@@ -94,7 +94,7 @@ WinAppDeployCmd deletecreds -credserver <server> -ip <address>
 
 次の表では、**WinAppDeployCmd.exe** のオプションについて説明します。
 
-| **引数**           | **[説明]**                                                              |
+| **引数**           | **説明**                                                              |
 |------------------------|------------------------------------------------------------------------------|
 | &lt;x&gt;              | タイムアウト (秒単位) (既定値は 10 です)                                          |
 | &lt;address&gt;        | ターゲット デバイスの IP アドレスと一意の識別子。                        |
@@ -109,7 +109,7 @@ WinAppDeployCmd deletecreds -credserver <server> -ip <address>
 
 ## <a name="winappdeploycmdexe-examples"></a>WinAppDeployCmd.exe の例
 
-ここでは、 **Winappdeploycmd**の構文を使用してコマンドラインからを展開する方法の例をいくつか示します。
+**WinAppDeployCmd.exe** の構文を使用して、コマンドラインから展開する方法の例を次に示します。
 
 展開できるデバイスを表示します。 コマンドは 3 秒でタイムアウトになります。
 
@@ -117,7 +117,7 @@ WinAppDeployCmd deletecreds -credserver <server> -ip <address>
 WinAppDeployCmd devices 3
 ```
 
-PC のダウンロードディレクトリにある MyApp パッケージから、デバイスとの接続を確立するために A1B2C3 の PIN を使用して、IP アドレス192.168.0.1 の Windows 10 デバイスにアプリをインストールします。
+PC のダウンロード ディレクトリにある MyApp.appx パッケージからアプリを、IP アドレスが 192.168.0.1、PIN が A1B2C3 の Windows 10 デバイスにインストールして、デバイスとの接続を確立します。
 
 ``` CMD
 WinAppDeployCmd install -file "Downloads\MyApp.appx" -ip 192.168.0.1 -pin A1B2C3
@@ -129,7 +129,7 @@ WinAppDeployCmd install -file "Downloads\MyApp.appx" -ip 192.168.0.1 -pin A1B2C3
 WinAppDeployCmd uninstall -package Company.MyApp_1.0.0.1_x64__qwertyuiop -ip 192.168.0.1
 ```
 
-指定されたアプリパッケージを使用して、Windows 10 デバイスに既にインストールされているアプリを、IP アドレス192.168.0.1 で更新します。
+指定したアプリ パッケージを使って、IP アドレスが 192.168.0.1 の Windows 10 デバイスに既にインストールされているアプリを更新します。
 
 ``` CMD
 WinAppDeployCmd update -file "Downloads\MyApp.appx" -ip 192.168.0.1

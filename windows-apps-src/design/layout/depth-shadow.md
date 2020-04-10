@@ -1,6 +1,6 @@
 ---
 author: knicholasa
-description: Z 深度、つまり相対的な深さ、および影は、ユーザーが自然かつ効率的にフォーカスを得るために、アプリに深さを組み込む方法の2つの方法です。
+description: Z 深度 (相対的な深さ) とシャドウは、ユーザーが自然かつ効率的に注目できるように、アプリに深度を組み入れるための 2 つの方法です。
 title: UWP アプリの Z 深度とシャドウ
 template: detail.hbs
 ms.date: 04/19/2019
@@ -11,71 +11,71 @@ pm-contact: chigy
 ms.localizationpriority: medium
 ms.openlocfilehash: 216974ba564a192f94473469f3a7a49191ef2192
 ms.sourcegitcommit: af4050f69168c15b0afaaa8eea66a5ee38b88fed
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/21/2020
 ms.locfileid: "80081385"
 ---
 # <a name="z-depth-and-shadow"></a>Z 深度とシャドウ
 
-![斜めに並べられた4つの灰色の四角形を、もう一方に重ねて表示する gif。 Gif はアニメーション化されており、影が表示されたり消えたりします。](images/elevation-shadow/shadow.gif)
+![斜めに並べられた 4 つの灰色の四角形が、互いに重ね合って表示された gif があります。 gif は、影が表示されたり消えたりするように、アニメーション化されています。](images/elevation-shadow/shadow.gif)
 
-UI で要素のビジュアル階層を作成すると、UI を簡単にスキャンし、注目すべき重要なことを伝えることができます。 UI の選択要素を取り込む操作である昇格は、多くの場合、ソフトウェアでこのような階層を実現するために使用されます。 この記事では、z depth と shadow を使用して UWP アプリで昇格を作成する方法について説明します。
+UI に要素の視覚的な階層を作成すると、その UI では注目すべき重要な部分を簡単にスキャンして伝えることができるようになります。 昇格は、UI の選択要素を前面に移動する操作であり、多くの場合、ソフトウェア内でこのような階層を実現するために使用されます。 この記事では、Z 深度とシャドウを使用して UWP アプリに昇格を作成する方法について説明します。
 
-Z 深度は、z 軸に沿った2つのサーフェイス間の距離を示すために3D アプリ作成者の間で使用される用語です。 これは、オブジェクトをビューアーに閉じる方法を示しています。 X/y 座標については、z 方向に同様の概念と考えることをお勧めします。
+Z 深度とは、z 軸に沿った 2 つのサーフェイス間の距離を示すために、3D アプリ作成者の間で使用されている用語です。 オブジェクトが閲覧者にどの程度近いかを示します。 x/y 座標とほぼ同じ概念ですが、それが z 方向になると考えてください。
 
 ## <a name="why-use-z-depth"></a>Z 深度を使用する理由
 
-物理的な世界では、お近くのオブジェクトに注目する傾向があります。 この空間性質をデジタル UI にも適用できます。 たとえば、要素をユーザーの近くに移動すると、ユーザーは要素にフォーカスを直感的ます。 Z 軸の近くに UI 要素を移動すると、オブジェクト間の視覚的な階層を確立し、ユーザーがアプリで自然に効率的にタスクを完了できるようにすることができます。
+物理的な世界では、自分により近接しているオブジェクトに注目する傾向があります。 この空間上の性質はデジタル UI にも適用できます。 たとえば、要素をユーザーのより近くに移動すると、ユーザーは直感的にその要素に注目します。 z 軸上で UI 要素をより近くに移動することで、ユーザーがアプリ内で自然かつ効率的にタスクを完了できるように、オブジェクト間に視覚的な階層を確立することができます。
 
 ## <a name="what-is-shadow"></a>シャドウとは
 
-影は、ユーザーが昇格を意識する1つの方法です。 管理者特権を持つオブジェクトの上にあるライトは、次の画面に影を作成します。 オブジェクトが大きいほど、シャドウが大きくなります。 UI の昇格されたオブジェクトには、影を付ける必要はありませんが、昇格の外観を作成するのに役立ちます。
+シャドウは、ユーザーが昇格を知覚するための 1 つの方法です。 昇格されたオブジェクトの上の照明によって、下のサーフェイスに影を作成します。 オブジェクトの位置が高いほど、影はより大きく柔らかくなります。 UI 上で昇格されたオブジェクトに必ずシャドウが必要なわけではありませんが、昇格の外観を作り出すのに役立ちます。
 
-UWP アプリでは、美しい方法ではなく、特別な目的で影を使用する必要があります。 使用するシャドウの数が多すぎると、ユーザーにフォーカスするシャドウの機能が低下したり、削除されたりします。
+UWP アプリでは、審美的な方法としてではなく、目的指向でシャドウを使用する必要があります。 使用するシャドウの数が多すぎると、ユーザーの注目を促すシャドウの働きが低下または除去されてしまいます。
 
-標準コントロールを使用すると、ThemeShadow の影が UI に自動的に組み込まれます。 ただし、ThemeShadow または DropShadow Api を使用して、UI に影を手動で含めることができます。 
+標準コントロールを使用すると、ThemeShadow のシャドウが UI に自動的に組み込まれます。 ただし、ThemeShadow API または DropShadow API のどちらかを使用して、UI に手動でシャドウを組み入れることもできます。 
 
 ## <a name="themeshadow"></a>ThemeShadow
 
-[ThemeShadow](/uwp/api/windows.ui.xaml.media.themeshadow)型を任意の XAML 要素に適用して、x、y、z 座標に基づいて影を適切に描画できます。 ThemeShadow も、その他の環境仕様に合わせて自動的に調整されます。
+[ThemeShadow](/uwp/api/windows.ui.xaml.media.themeshadow) の種類は任意の XAML 要素に適用され、x、y、z 座標に基づいてシャドウを適切に描画できます。 また、ThemeShadow は、その他の環境仕様に合わせて自動的に調整されます。
 
-- 照明、ユーザーテーマ、アプリ環境、およびシェルの変更に適応します。
-- Z の深さに基づいて、要素に自動的に影を適用します。 
-- では、移動時と昇格時に要素の同期が維持されます。
-- では、アプリケーション間でシャドウの一貫性を維持します。
+- 照明、ユーザー テーマ、アプリ環境、およびシェルの変更に適応します。
+- Z 深度に基づいて、要素に自動的にシャドウを適用します。 
+- 移動時および昇格の変更時には、要素の同期が維持されます。
+- シャドウの一貫性は、アプリケーション全体やアプリケーション間で維持されます。
 
-ThemeShadow が MenuFlyout アウトに実装された方法を次に示します。 MenuFlyout インには、メインサーフェイスが32ピクセルに昇格し、追加のカスケードメニューが開かれているメニューの上に 8 px を超える機能が組み込まれています。
+ThemeShadow が MenuFlyout 上にどのように実装されているかを、次に示します。 MenuFlyout では、メイン サーフェイスが 32 px に昇格され、その他の各カスケード メニューは開かれた元のメニューより +8 px 上に開かれるように、エクスペリエンスが組み込まれています。
 
-![ThemeShadow のスクリーンショットは、入れ子になった3つのメニューを含む MenuFlyout アウトに適用されます。 1つ目のメニューは、[32px] と表示されます。前のメニューから開いた各メニューは、8ピクセルを超えて背景に影が付きます。](images/elevation-shadow/themeshadow-menuflyout.png)
+![MenuFlyout に ThemeShadow が適用され、3 つのメニューが入れ子になって開かれているスクリーンショット。 1 つ目のメニューは 32 px 昇格され、それに続いて前のメニューから開かれる各メニューは、背景にはっきりとシャドウが残るようにさらに 8 px 昇格されています。](images/elevation-shadow/themeshadow-menuflyout.png)
 
-### <a name="themeshadow-in-common-controls"></a>コモンコントロールの ThemeShadow
+### <a name="themeshadow-in-common-controls"></a>コモン コントロールでの ThemeShadow
 
-次の一般的なコントロールは、ThemeShadow を自動的に使用して、特に指定されていない限り、32px 深度から影をキャストします。
+次のコモン コントロールでは、特に指定されていない限り、ThemeShadow が自動的に使用されて 32 px の深度からシャドウが投影されます。
 
-- [ショートカットメニュー](../controls-and-patterns/menus.md)、[コマンドバー](../controls-and-patterns/app-bars.md)、[コマンドバーポップアップ](../controls-and-patterns/command-bar-flyout.md)、[メニューバー](../controls-and-patterns/menus.md#create-a-menu-bar)
-- ダイアログ[と flyouts](../controls-and-patterns/dialogs.md) (64px)
+- [コンテキスト メニュー](../controls-and-patterns/menus.md)、[コマンド バー](../controls-and-patterns/app-bars.md)、[コマンド バー ポップアップ](../controls-and-patterns/command-bar-flyout.md)、[MenuBar](../controls-and-patterns/menus.md#create-a-menu-bar)
+- [ダイアログとポップアップ](../controls-and-patterns/dialogs.md) (64 px でのダイアログ)
 - [NavigationView](../controls-and-patterns/navigationview.md)
-- [ComboBox](../controls-and-patterns/combo-box.md)、 [Dropdownbutton、SplitButton、ToggleSplitButton](../controls-and-patterns/buttons.md)
+- [ComboBox](../controls-and-patterns/combo-box.md)、[DropDownButton、SplitButton、ToggleSplitButton](../controls-and-patterns/buttons.md)
 - [TeachingTip](../controls-and-patterns/dialogs-and-flyouts/teaching-tip.md)
 - [AutoSuggestBox](../controls-and-patterns/auto-suggest-box.md) 
-- [カレンダー/日付/時刻の指定](../controls-and-patterns/date-and-time.md)
-- [ツールヒント](../controls-and-patterns/tooltips.md)(16px)
-- [Media transport control](../controls-and-patterns/media-playback.md#media-transport-controls)、 [inktoolbar](../controls-and-patterns/inking-controls.md)
+- [カレンダー/日付/時刻の選択](../controls-and-patterns/date-and-time.md)
+- [Tooltip](../controls-and-patterns/tooltips.md) (16px)
+- [メディア トランスポート コントロール](../controls-and-patterns/media-playback.md#media-transport-controls)、[InkToolbar](../controls-and-patterns/inking-controls.md)
 - [接続型アニメーション](../motion/connected-animation.md)
 
-注: Flyouts は、Windows 10 バージョン1903またはそれより新しい SDK に対してコンパイルされた場合にのみ ThemeShadow を適用します。
+注: ポップアップには、Windows 10 バージョン 1903 以上の新しい SDK に対してコンパイルされた場合にのみ、ThemeShadow が適用されます。
 
-### <a name="themeshadow-in-popups"></a>ThemeShadow のポップアップ
+### <a name="themeshadow-in-popups"></a>ポップアップでの ThemeShadow
 
-多くの場合、ユーザーの注意とクイックアクションが必要なシナリオでは、アプリの UI でポップアップが使用されます。 これらは、アプリの UI で階層を作成するために shadow を使用する場合の優れた例です。
+ユーザーの注目と迅速なアクションが必要なシナリオでは、多くの場合、アプリの UI にポップアップが使用されます。 これらは、シャドウを使用してアプリの UI に階層を作成することがふさわしい例です。
 
-ThemeShadow は、[ポップアップ](/uwp/api/windows.ui.xaml.controls.primitives.popup)の XAML 要素に適用されると、自動的に影をキャストします。 その背後にあるアプリの背景コンテンツとその下にある他の開いているポップアップに影をキャストします。
+ThemeShadow は、[Popup](/uwp/api/windows.ui.xaml.controls.primitives.popup) 内の任意の XAML 要素に適用されると、自動的にシャドウを投影します。 背後にあるアプリの背景コンテンツと、下にあるそれ以外の開かれたポップアップに対して、シャドウが投影されます。
 
-ポップアップで ThemeShadow を使用するには、`Shadow` プロパティを使用して、ThemeShadow を XAML 要素に適用します。 次に、要素をその背後にある他の要素から昇格させます。たとえば、`Translation` プロパティの z コンポーネントを使用します。
-ほとんどのポップアップ UI では、アプリの背景コンテンツに対して相対的な既定の昇格が32有効ピクセルになります。
+ポップアップに ThemeShadow を使用するには、`Shadow` プロパティを使用して ThemeShadow を XAML 要素に適用します。 次に、たとえば `Translation` プロパティの z コンポーネントを使用して、要素をその背後にある他の要素から昇格させます。
+ほとんどのポップアップ UI では、アプリの背景コンテンツに対して推奨される相対的な既定の昇格は 32 有効ピクセルになります。
 
-次の例では、アプリの背景コンテンツとその背後にあるその他のポップアップに影をキャストするポップアップの四角形を示しています。
+この例では、ポップアップの 1 つの四角形が、アプリの背景コンテンツとその背後にあるその他のポップアップに対して、シャドウを投影している状態を示しています。
 
 ```xaml
 <Popup>
@@ -92,13 +92,13 @@ ThemeShadow は、[ポップアップ](/uwp/api/windows.ui.xaml.controls.primiti
 PopupRectangle.Translation += new Vector3(0, 0, 32);
 ```
 
-![影付きの単一の四角形ポップアップ。](images/elevation-shadow/PopupRectangle.png)
+![1 つの四角形のシャドウ付きポップアップ。](images/elevation-shadow/PopupRectangle.png)
 
-### <a name="disabling-default-themeshadow-on-custom-flyout-controls"></a>カスタムポップアップコントロールの既定の ThemeShadow を無効にする
+### <a name="disabling-default-themeshadow-on-custom-flyout-controls"></a>カスタム ポップアップ コントロール上の既定の ThemeShadow を無効にする
 
-[フライアウト](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.flyout)、 [DatePickerFlyout](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.datepickerflyout)、 [Menuflyout アウト](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.menuflyout)または[TimePickerFlyout](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.timepickerflyout)に基づくコントロールは、自動的に ThemeShadow を使用して影をキャストします。
+[Flyout](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.flyout)、[DatePickerFlyout](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.datepickerflyout)、[MenuFlyout](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.menuflyout) または [TimePickerFlyout](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.timepickerflyout) に基づくコントロールでは、自動的に ThemeShadow が使用されてシャドウが投影されます。
 
-既定の影がコントロールのコンテンツに対して正しく表示されない場合は、関連付けられている FlyoutPresenter の[IsDefaultShadowEnabled](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.flyoutpresenter.isdefaultshadowenabled)プロパティを `false` に設定して無効にすることができます。
+既定のシャドウがコントロールのコンテンツに対して正しく表示されない場合は、関連付けられている FlyoutPresenter 上で [IsDefaultShadowEnabled](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.flyoutpresenter.isdefaultshadowenabled) プロパティを `false` に設定することで、無効にすることができます。
 
 ```xaml
 <Flyout>
@@ -110,13 +110,13 @@ PopupRectangle.Translation += new Vector3(0, 0, 32);
 </Flyout>
 ```
 
-### <a name="themeshadow-in-other-elements"></a>他の要素の ThemeShadow
+### <a name="themeshadow-in-other-elements"></a>他の要素内の ThemeShadow
 
-一般に、影の使用について慎重に検討し、意味のある視覚的階層が導入されている場合にその使用を制限することをお勧めします。 ただし、高度なシナリオが必要になった場合に備えて、任意の UI 要素から影をキャストする方法を提供します。
+一般に、シャドウの使用については慎重に検討して、意味のある視覚的な階層が導入されるケースにその使用を限定することをお勧めします。 ただし、シャドウが必要になる高度なシナリオが発生した場合に備えて、任意の UI 要素からシャドウを投影する方法が提供されています。
 
-ポップアップに含まれていない XAML 要素から影をキャストするには、`ThemeShadow.Receivers` コレクションでシャドウを受け取ることができる他の要素を明示的に指定する必要があります。 レシーバーをビジュアルツリー内のキャスターの先祖にすることはできません。
+ポップアップに含まれていない XAML 要素からシャドウを投影するには、`ThemeShadow.Receivers` コレクションでシャドウを受け取ることができる他の要素を明示的に指定する必要があります。 ビジュアル ツリー内で、投影先を投影元の先祖にすることはできません。
 
-この例では、影を下のグリッドにキャストする2つの四角形を示します。
+この例では、背後にあるグリッドにシャドウを投影する 2 つの四角形を示します。
 
 ```xaml
 <Grid>
@@ -140,33 +140,33 @@ Rectangle1.Translation += new Vector3(0, 0, 16);
 Rectangle2.Translation += new Vector3(120, 0, 32);
 ```
 
-![2つの水色の四角形の横に影が付きます。](images/elevation-shadow/SharedShadow.png)
+![2 つの水色の四角形が横に並べられ、どちらにもシャドウがあります。](images/elevation-shadow/SharedShadow.png)
 
-### <a name="performance-best-practices-for-themeshadow"></a>ThemeShadow のパフォーマンスのベストプラクティス
+### <a name="performance-best-practices-for-themeshadow"></a>ThemeShadow のパフォーマンスのベスト プラクティス
 
-1. システムは、5 ~ 5 の魔法の受信者のペアの上限を設定し、これを超えた場合はシャドウをオフにします。 システムによって強制された上限である5つの受信者のペアを維持します。
+1. システムでは、投影元と投影先のペアに 5 組までの制限を設定しており、これを超過すると、シャドウがオフになります。 投影元と投影先のペアは、必ず、システムによって適用される上限の 5 組までにしてください。
 
-2. カスタムのレシーバー要素の数を必要最小限に制限します。
+2. カスタムの投影先要素の数は、必要最小限に抑えてください。
 
-3. 複数のレシーバー要素が同じ昇格にある場合は、代わりに1つの親要素をターゲットとして、それらを結合してみてください。
+3. 複数の投影先要素が同じ昇格にある場合は、代わりに 1 つの親要素をターゲットにして、それらの結合を試みてください。
 
-4. 複数の要素が同じ種類のシャドウを同じレシーバー要素にキャストする場合は、シャドウを共有リソースとして追加して再利用します。
+4. 複数の要素によって同じ種類のシャドウが同じ投影先要素に投影される場合は、そのシャドウを共有リソースとして追加して、再利用してください。
 
 ## <a name="drop-shadow"></a>ドロップ シャドウ
 
-DropShadow は環境に自動的に応答せず、光源を使用しません。 実装の例については、 [Dropshadow クラス](https://docs.microsoft.com/uwp/api/windows.ui.composition.dropshadow)を参照してください。
+DropShadow では自動的な環境への応答は行われず、光源を使用しません。 実装の例については、「[DropShadow クラス](https://docs.microsoft.com/uwp/api/windows.ui.composition.dropshadow)」を参照してください。
 
-## <a name="which-shadow-should-i-use"></a>どのシャドウを使用すればよいですか。
+## <a name="which-shadow-should-i-use"></a>どのシャドウを使用すればよいか
 
 | プロパティ | ThemeShadow | DropShadow |
 | - | - | - |
-| **最小 SDK** | Windows 10 バージョン1903 | 14393 |
+| **最小の SDK** | Windows 10 バージョン 1903 | 14393 |
 | **適応性** | はい | いいえ |
-| **Customization** | いいえ | はい |
-| **光源** | 自動 (既定ではグローバルですが、アプリごとに上書きできます) | なし |
-| **3D 環境でサポート** | はい | いいえ |
+| **カスタマイズ** | いいえ | はい |
+| **光源** | 自動 (既定ではグローバルだが、アプリごとにオーバーライドできる) | None |
+| **3D 環境でのサポートの状況** | はい | いいえ |
 
-- Shadow の目的は、単純な視覚的な取り扱いではなく、意味のある階層を提供することに注意してください。
-- 一般に、環境に自動的に適応する ThemeShadow を使用することをお勧めします。
-- パフォーマンスに関する考慮事項については、影の数を制限したり、他の視覚の取り扱いを使用したり、DropShadow を使用したりします。
-- ビジュアル階層を実現する高度なシナリオがある場合は、他の視覚処理 (色など) の使用を検討してください。 Shadow が必要な場合は、DropShadow を使用します。
+- シャドウの目的は、単純な視覚的処理ではなく、意味のある階層の提供であることを念頭に置いてください。
+- 通常は、環境に自動的に適応する ThemeShadow を使用することをお勧めします。
+- パフォーマンスに関する懸念事項に対応するには、シャドウ数の制限、他の視覚処理の使用、または DropShadow の使用を行います。
+- より高度なシナリオで視覚的な階層を実現する場合は、他の視覚処理 (色など) の使用を検討してください。 シャドウが必要な場合は、DropShadow を使用します。
