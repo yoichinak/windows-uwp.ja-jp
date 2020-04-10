@@ -181,6 +181,8 @@
           href: ../networking/web-feeds.md
         - name: バックグラウンド転送
           href: ../networking/background-transfers.md
+    - name: 名前付きオブジェクトの共有中
+      href: ../communication/sharing-named-objects.md
 - name: データとファイル
   items:
     - name: アプリ リソース
