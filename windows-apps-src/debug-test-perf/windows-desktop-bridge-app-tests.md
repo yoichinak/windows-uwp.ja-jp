@@ -1,62 +1,62 @@
 ---
 ms.assetid: 2f76c520-84a3-4066-8eb3-ecc0ecd198a7
 title: Windows デスクトップ ブリッジ アプリのテスト
-description: デスクトップブリッジの組み込みテストを使用して、デスクトップアプリが UWP アプリへの変換用に最適化されていることを確認します。
+description: デスクトップ ブリッジの組み込みテスト使って、お使いのデスクトップ アプリが UWP アプリへの変換に最適化されていることを確実にします。
 ms.date: 12/18/2017
 ms.topic: article
 keywords: windows 10、uwp、アプリ認定
 ms.localizationpriority: medium
 ms.openlocfilehash: c7ffd500f3b616367ac26dffbbfc03d43b507dac
 ms.sourcegitcommit: 3e7a4f7605dfb4e87bac2d10b6d64f8b35229546
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/08/2020
 ms.locfileid: "77089408"
 ---
 # <a name="windows-desktop-bridge-app-tests"></a>Windows デスクトップ ブリッジ アプリのテスト
 
-[デスクトップブリッジアプリ](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-root)は、[デスクトップブリッジ](https://developer.microsoft.com/windows/bridges/desktop)を使用してユニバーサル Windows プラットフォーム (UWP) アプリに変換された Windows デスクトップアプリケーションです。 Windows デスクトップ アプリケーションは、変換後、Windows 10 デスクトップをターゲットとする UWP アプリ パッケージ (.appx または .appxbundle) の形式でパッケージ化され、処理と展開が行われます。
+[デスクトップ ブリッジ アプリ](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-root)は、[デスクトップ ブリッジ](https://developer.microsoft.com/windows/bridges/desktop)を使用してユニバーサル Windows プラットフォーム (UWP) アプリに変換された Windows デスクトップ アプリケーションです。 Windows デスクトップ アプリケーションは、変換後、Windows 10 デスクトップをターゲットとする UWP アプリ パッケージ (.appx または .appxbundle) の形式でパッケージ化され、処理と展開が行われます。
 
 ## <a name="required-versus-optional-tests"></a>必須のテストとオプションのテスト
-Windows デスクトップブリッジアプリのオプションのテストは情報提供のみを目的としており、Microsoft Store のオンボード中にアプリを評価するためには使用されません。 品質の高いアプリを生成するために、これらのテスト結果を調査することをお勧めします。 ストアの配布準備の全体的な合格/不合格の基準は、これらのオプションのテストではなく、必須のテストで決定されます。
+Windows デスクトップ ブリッジ アプリのオプションのテストは、情報提供のみの目的で提供されており、Microsoft Store に配布準備をする場合のユーザー アプリの評価には使用できません。 これらのテストの結果は、アプリの品質向上のために確認することをお勧めします。 ストアの配布準備の全体的な合格/不合格の基準は、これらのオプションのテストではなく、必須のテストで決定されます。
 
 ## <a name="current-optional-tests"></a>現在のオプションのテスト
 
-### <a name="1-digitally-signed-file-test"></a>1. デジタル署名されたファイルのテスト 
+### <a name="1-digitally-signed-file-test"></a>1.デジタル署名されたファイルのテスト 
 **背景**  
 このテストでは、すべてのポータブル実行可能ファイル (PE) ファイルに有効な署名が含まれていることを確認します。 デジタル署名されたファイルの存在によって、ユーザーはソフトウェアが正規品であると知ることができます。
 
 **テストの詳細**  
 テストでは、パッケージ内のすべてのポータブル実行可能ファイルをスキャンし、そのヘッダーの署名を確認します。 すべての PE ファイルがデジタル署名されていることを推奨します。 PE ファイルのいずれかが署名されていない場合、警告が生成されます。
  
-**是正措置**  
+**問題への対応**  
 ファイルにデジタル署名することを常にお勧めします。 詳しくは、「[コード署名の概要](https://docs.microsoft.com/previous-versions/windows/internet-explorer/ie-developer/platform-apis/ms537361(v=vs.85))」をご覧ください。
 
-### <a name="2-file-association-verbs"></a>2. ファイルの関連付けの動詞 
+### <a name="2-file-association-verbs"></a>2.ファイルの関連付けの動詞 
 **背景**  
 このテストでは、パッケージのレジストリをスキャンして、任意のファイルの関連付け動詞が登録されているかどうかを確認します。 
 
 **テストの詳細**  
 変換されたデスクトップ アプリケーションは、幅広いユニバーサル Windows プラットフォーム API を使用して拡張できます。 このテストでは、アプリ内の UWP バイナリが UWP 以外の API を呼び出していないことを確認します。 UWP バイナリでは、**AppContainer** フラグが設定されています。
 
-**是正措置**  
-これらの拡張機能とその適切な使用方法については、「[Desktop to UWP Bridge: アプリの拡張機能](https://docs.microsoft.com/windows/apps/desktop/modernize/desktop-to-uwp-extensions)」をご覧ください。 
+**問題への対応**  
+[Desktop to UWP Bridge: アプリの拡張機能](https://docs.microsoft.com/windows/apps/desktop/modernize/desktop-to-uwp-extensions)に関するページで、これらの拡張機能とそれらの正しい使用方法をご確認ください。 
 
-### <a name="3-debug-configuration-test"></a>3. デバッグ構成のテスト
-このテストでは、msix または .appx がデバッグビルドでないことを確認します。
+### <a name="3-debug-configuration-test"></a>3.デバッグ構成のテスト
+このテストでは、.msix や .appx がデバッグ ビルドではないことを検証します。
  
 **背景**  
-Microsoft Store に対して認定を受けるには、デバッグ用にアプリをコンパイルしないでください。また、実行可能ファイルのデバッグバージョンを参照することはできません。 また、アプリがこのテストに合格するよう最適化されたコードをビルドする必要もあります。
+Microsoft Store で認定されるには、アプリをデバッグ用にコンパイルせず、デバッグ版の実行可能ファイルを参照しないようにする必要があります。 また、アプリがこのテストに合格するよう最適化されたコードをビルドする必要もあります。
  
 **テストの詳細**  
 アプリをテストして、デバッグ用のビルドでないことと、どのデバッグ用のフレームワークにもリンクされていないことを確認します。
  
-**是正措置**  
-* Microsoft Store に送信する前に、アプリをリリースビルドとしてビルドします。
+**問題への対応**  
+* アプリを Microsoft Store に提出する前に、リリース用ビルドとしてビルドします。
 * 適切なバージョンの .NET フレームワークがインストールされていることを確認します。
 * アプリがフレームワークのデバッグ バージョンにリンクされていないことと、リリース バージョンで構築されたことを確認します。 このアプリに .NET コンポーネントが含まれている場合は、適切なバージョンの .NET Framework がインストールされていることを確認します。
 
-### <a name="4-package-sanity-test"></a>4. パッケージ サニティ テスト
+### <a name="4-package-sanity-test"></a>4.パッケージ サニティ テスト
 #### <a name="41-archive-files-usage"></a>4.1 アーカイブ ファイルの使用状況
 
 **背景**  
@@ -65,7 +65,7 @@ Microsoft Store に対して認定を受けるには、デバッグ用にアプ�
 **テストの詳細**  
 このテストでは、アーカイブ ファイルや自己展開型コンテンツに含まれている実行可能ファイルをすべてチェックします。 このような種類のコンテンツに格納されている実行可能ファイルは、Windows ストアへのオンボード時に署名されないため、Windows 10 S システムではアプリが期待どおりに動作しない場合があります。
  
-**是正措置**
+**問題への対応**
 * テストによってフラグ付けされたファイルを評価して、Windows 10 S 環境で実行した場合にアプリに影響がないかどうかを確認します。
 * アプリが影響を受ける場合は、アーカイブ ファイルから実行可能ファイルを削除します。また、自己展開型アーカイブを使って実行可能ファイルをディスク上に配置しないようにします。 これにより、アプリの機能が失われることを回避できます。
 
@@ -77,14 +77,14 @@ Microsoft Store に対して認定を受けるには、デバッグ用にアプ�
 **テストの詳細**  
 このテストでは、アプリが実行可能ファイルの起動を試みていないかどうかをチェックします。これは Windows 10 S システムでは制限されます。 この機能に依存するアプリは、Windows 10 S システムでは正しく動作しない可能性があります。 
 
-**是正措置**  
+**問題への対応**  
 * テストによってフラグ付けされたエントリのうち、アプリの一部ではない実行可能ファイルの起動を呼び出しているものを特定し、それらの呼び出しを削除します。 
 * フラグ付けされたファイルがアプリケーションの一部である場合は、この警告を無視できます。
 
 
 ## <a name="current-required-tests"></a>現在の必須のテスト
 
-### <a name="1-app-capabilities-test-special-use-capabilities"></a>1. アプリの機能のテスト (特殊な用途の機能)
+### <a name="1-app-capabilities-test-special-use-capabilities"></a>1.アプリの機能のテスト (特殊な用途の機能)
 
 **背景**  
 特殊な用途の機能は、特殊なシナリオ向けの機能です。 会社アカウントだけがこれらの機能を使うことができます。 
@@ -97,20 +97,20 @@ Microsoft Store に対して認定を受けるには、デバッグ用にアプ�
 
 これらの機能のいずれかが宣言される場合は、テストにより警告がユーザーに表示されます。 
 
-**是正措置**  
+**問題への対応**  
 アプリが必要としない場合は、特殊な用途の機能を削除することを検討してください。 さらに、これらの機能は、追加の登録ポリシー レビューの対象となります。
 
-### <a name="2-app-manifest-resources-tests"></a>2. アプリ マニフェストのリソースのテスト 
+### <a name="2-app-manifest-resources-tests"></a>2.アプリ マニフェストのリソースのテスト 
 #### <a name="21-app-resources-validation"></a>2.1 アプリ リソースの検証
 アプリのマニフェストで宣言されている文字列や画像に誤りがある場合、そのアプリは正しくインストールされない可能性があります。 これらのエラーがあるアプリをインストールすると、アプリのロゴなどの画像が適切に表示されません。    
 
 **テストの詳細**  
 アプリ マニフェストで定義されているリソースを調べて、それらのリソースが存在し有効であることを確認します。
 
-**是正措置**  
+**問題への対応**  
 次の表をガイドとして使用してください。
 
-エラー メッセージ | コメント
+エラー メッセージ | 備考
 --------------|---------
 The image {image name} defines both Scale and TargetSize qualifiers; you can define only one qualifier at a time. (イメージ {image name} には Scale 修飾子と TargetSize 修飾子が定義されていますが、一度に定義可能な修飾子は 1 つだけです。) | さまざまな解像度に合わせて画像をカスタマイズできます。 実際のメッセージでは、{imageName} にエラーの発生した画像の名前が入ります。 各画像で Scale と TargetSize のいずれかが修飾子として定義されていることを確認します。 
 The image {image name} failed the size restrictions. (イメージ {image name} がサイズ制限を超えました。)  | すべてのアプリ画像が適切なサイズ制限に従っていることを確認します。 実際のメッセージでは、{imageName} にエラーの発生した画像の名前が入ります。 
@@ -121,7 +121,7 @@ The image “BadgeLogo” has an ABGR value {value} at position (x, y) that is n
 The image must define at least one variant without a TargetSize qualifier. (画像では、TargetSize 修飾子がないバージョンが少なくとも 1 つ定義されている必要があります。) It must define a Scale qualifier or leave Scale and TargetSize unspecified, which defaults to Scale-100. (Scale 修飾子が定義されているか、または Scale と TargetSize が指定されていないままである必要があり、既定では Scale-100 です。)  | 詳しくは、[レスポンシブ デザイン](https://docs.microsoft.com/windows/uwp/layout/screen-sizes-and-breakpoints-for-responsive-design)と[アプリ リソース](https://docs.microsoft.com/windows/uwp/design/app-settings/store-and-retrieve-app-data)に関するガイドをご覧ください。 
 The package is missing a "resources.pri" file. (パッケージに "resources.pri" ファイルがありません。)  | アプリ マニフェストにローカライズ可能なコンテンツがある場合は、アプリのパッケージに有効な resources.pri ファイルが含まれていることを確認します。 
 The "resources.pri" file must contain a resource map with a name that matches the package name {package full name} ("resources.pri" ファイルには、パッケージ名 {package full name} と名前が一致するリソース マップが含まれている必要があります。)  | このエラーが表示される場合は、マニフェストが変更され、resources.pri 内のリソース マップの名前がマニフェストのパッケージ名と一致しなくなった可能性があります。 実際のメッセージでは、{package full name} には resources.pri に含まれている必要があるパッケージ名が入ります。 この問題を解決するには、resources.pri をリビルドする必要があります。その場合は、アプリのパッケージをリビルドするのが最も簡単です。 
-The "resources.pri" file must not have AutoMerge enabled. ("resources.pri" ファイルは AutoMerge を有効にしないでください。)  | MakePRI.exe では、AutoMerge というオプションがサポートされています。 AutoMerge の規定値は "off" です。 オンにすると、AutoMerge が実行時にアプリの言語パックを単一の resources.pri にマージします。 Microsoft Store を通じて配布する予定のアプリでは、このことをお勧めしません。 Microsoft Store を通じて配布されるアプリのリソース pri は、アプリのパッケージのルートにあり、アプリがサポートするすべての言語参照が含まれている必要があります。 
+The "resources.pri" file must not have AutoMerge enabled. ("resources.pri" ファイルは AutoMerge を有効にしないでください。)  | MakePRI.exe では、AutoMerge というオプションがサポートされています。 AutoMerge の規定値は "off" です。 オンにすると、AutoMerge が実行時にアプリの言語パックを単一の resources.pri にマージします。 これは、Microsoft Store で配布するアプリには推奨されません。 Microsoft Store で配布するアプリの resources.pri は、アプリのパッケージのルートに置き、アプリがサポートする言語のリファレンスをすべて含む必要があります。 
 The string {string} failed the max length restriction of {number} characters. (文字列 {string} が {number} 文字の最大文字数の制限を満たしていません。)  | 「[アプリ パッケージの要件](https://docs.microsoft.com/windows/uwp/publish/app-package-requirements)」をご覧ください。 実際のメッセージでは、{string} が問題の文字列に置き換わり、{number} に最大文字数が入ります。 
 The string {string} must not have leading/trailing whitespace. (文字列 {string} の先頭または末尾を空白にすることはできません。)  | アプリ マニフェストの要素のスキーマでは、先頭および末尾の空白は許可されていません。 実際のメッセージでは、{string} が問題の文字列に置き換わります。 resources.pri のマニフェスト フィールドのローカライズされた値において、先頭または末尾にスペースが挿入されていないことを確認します。 
 The string must be non-empty (greater than zero in length) (文字列を空にすることはできません (文字数が 0 より大きい必要があります)。)  | 詳しくは、「[アプリ パッケージの要件](https://docs.microsoft.com/windows/uwp/publish/app-package-requirements)」をご覧ください。 
@@ -139,10 +139,10 @@ The {filename} file must not contain a reverse map section. ({filename} ファ�
 **テストの詳細**  
 このテストは、アプリで使われている画像が SDK サンプルまたは Visual Studio の既定の画像でないことを検証します。 
 
-**是正措置**  
+**問題への対応**  
 既定の画像を、もっとアプリを明確に表すものに置き換えます。
 
-### <a name="3-package-compliance-tests"></a>3. パッケージの適合性のテスト
+### <a name="3-package-compliance-tests"></a>3.パッケージの適合性のテスト
 #### <a name="31-app-manifest"></a>3.1 アプリ マニフェスト
 アプリ マニフェストのコンテンツをテストし、コンテンツが正しいかどうかを確認します。
 
@@ -153,12 +153,12 @@ The {filename} file must not contain a reverse map section. ({filename} ファ�
 「[アプリ パッケージの要件](https://docs.microsoft.com/windows/uwp/publish/app-package-requirements)」の説明に従って、アプリ マニフェストを調べてコンテンツが正しいかどうかを確認します。 このテストでは、次のチェックが行われます。
 * **ファイル拡張子とプロトコル**  
 アプリは、関連付けることができるファイルの種類を宣言できます。 多くの一般的ではないファイルの種類を宣言すると、ユーザー エクスペリエンスが低下します。 このテストは、アプリに関連付けることができるファイル拡張子の数を制限します。
-* **フレームワークの依存関係ルール**  
+* **フレームワークの依存関係規則**  
 このテストは、アプリが UWP への適切な依存関係を宣言しているかどうかをチェックします。 不適切な依存関係がある場合は、このテストは失敗します。 アプリがターゲットとする OS のバージョンと依存関係のあるフレームワークとの間に不整合がある場合は、テストは失敗します。 アプリがフレーム ワーク DLL の "Preview" 版を参照している場合にも、テストは失敗します。
-* **プロセス間通信 (IPC) の検証**  
-このテストでは、デスクトップ ブリッジ アプリがデスクトップ コンポーネントとアプリ コンテナーの外側で通信しないかどうかをチェックします。 プロセス間通信は、サイドローディングが行われたアプリのみを対象としています。 [ と同じ名前でActivatableClassAttribute](https://docs.microsoft.com/uwp/schemas/appxpackage/appxmanifestschema/element-activatableclassattribute)`DesktopApplicationPath` を指定しているアプリは、このテストに合格しません。  
+* **プロセス間通信 (IPC) の確認**  
+このテストでは、デスクトップ ブリッジ アプリがデスクトップ コンポーネントとアプリ コンテナーの外側で通信しないかどうかをチェックします。 プロセス間通信は、サイドローディングが行われたアプリのみを対象としています。 `DesktopApplicationPath` と同じ名前で [**ActivatableClassAttribute**](https://docs.microsoft.com/uwp/schemas/appxpackage/appxmanifestschema/element-activatableclassattribute) を指定しているアプリは、このテストに合格しません。  
 
-**是正措置**  
+**問題への対応**  
 「[アプリ パッケージの要件](https://docs.microsoft.com/windows/uwp/publish/app-package-requirements)」で説明されている要件に照らして、アプリのマニフェストを確認します。
 
 
@@ -171,7 +171,7 @@ The {filename} file must not contain a reverse map section. ({filename} ファ�
 **テストの詳細**  
 このテストでは、バンドル内の .appx パッケージの合計数が 512 未満であり、バンドル内の "main" パッケージが 1 つだけであることを確認します。 また、バンドルのバージョンのリビジョン番号が 0 に設定されているかも確認します。 
 
-**是正措置**  
+**問題への対応**  
 アプリ パッケージとバンドルが、「**テストの詳細**」に示されている要件を満たしていることを確認します。
 
 
@@ -182,11 +182,11 @@ The {filename} file must not contain a reverse map section. ({filename} ファ�
 **テストの詳細**  
 このテストは、registry.dat ファイル内を調べて、新しいサービスやドライバーが登録されていることを示す特定のレジストリの場所が更新されていないか確認します。 アプリがドライバーまたはサービスをインストールしようとする場合、テストは失敗します。  
 
-**是正措置**  
+**問題への対応**  
 エラーを確認し、必要はない場合、対象のサービスまたはドライバーを削除します。 アプリがこれらに依存している場合は、ストアに登録するには、アプリを修正する必要があります。
 
 
-### <a name="4-platform-appropriate-files-test"></a>4. プラットフォーム対応ファイル テスト
+### <a name="4-platform-appropriate-files-test"></a>4.プラットフォーム対応ファイル テスト
 混在するバイナリをインストールするアプリは、ユーザーのプロセッサ アーキテクチャによってはクラッシュしたり、正しく動作しない場合があります。 
 
 **背景**  
@@ -195,14 +195,14 @@ The {filename} file must not contain a reverse map section. ({filename} ファ�
 **テストの詳細**  
 アプリ パッケージのプロセッサ アーキテクチャ宣言と相互参照される場合に、各ファイルの PE ヘッダー内のビット "bitness" が適切かどうかを検証します。 
 
-**是正措置**  
+**問題への対応**  
 アプリ マニフェストで指定されたアーキテクチャでサポートされるファイルのみをアプリ パッケージが含むことを確認するために、次のガイドラインに従ってください。 
 * アプリのターゲット プロセッサ アーキテクチャがニュートラル プロセッサ タイプの場合、アプリ パッケージは、x86、x64、または ARM のバイナリ タイプまたはイメージ タイプのファイルを含むことはできません。
 * アプリのターゲット プロセッサ アーキテクチャが x86 プロセッサ タイプの場合、アプリ パッケージは、x86 バイナリ タイプまたはイメージ タイプのファイルのみを含む必要があります。 パッケージが x64 ないし ARM バイナリ形式またはイメージ形式を含む場合は、アプリはテストに合格しません。
 * アプリのターゲット プロセッサ アーキテクチャが x64 プロセッサ タイプの場合、アプリ パッケージは、x64 バイナリ タイプまたはイメージ タイプのファイルを含む必要があります。 この場合は、パッケージに x86 ファイルを含めることもできますが、主なアプリ エクスペリエンスでは x64 バイナリを使ってください。 パッケージが ARM バイナリ タイプまたはイメージ タイプのファイルを含む場合、または x86 バイナリ タイプまたはイメージ タイプのファイル*のみ*を含む場合、パッケージはテストに合格しません。
 * アプリのターゲット プロセッサ アーキテクチャが ARM プロセッサ タイプの場合、アプリ パッケージは、ARM バイナリ タイプまたはイメージ タイプのファイルのみを含む必要があります。 パッケージが x64 または x86 バイナリ形式またはイメージ形式のファイルを含む場合は、パッケージはテストに合格しません。 
 
-### <a name="5-supported-api-test"></a>5. サポートされる API のテスト
+### <a name="5-supported-api-test"></a>5.サポートされる API のテスト
 アプリで非標準 API が使われていないかどうかを確認します。 
 
 **背景**  
@@ -210,38 +210,38 @@ The {filename} file must not contain a reverse map section. ({filename} ファ�
  
 **テストの詳細**  
 このテストでは、アプリ内のすべての UWP コンポーネントを確認します。
-* バイナリのインポートアドレステーブルをチェックすることで、アプリパッケージ内の各マネージバイナリが UWP アプリ開発でサポートされていない Win32 API に依存していないことを確認します。
+* バイナリのインポート アドレス テーブルをチェックすることで、アプリ パッケージ内の各マネージ バイナリが、UWP アプリの開発でサポートされていない Win32 API に依存していないことを確認します。
 * アプリ パッケージ内の管理された各バイナリが承認済みのプロファイル外部の機能に依存していないことを確認します。 
 
-**是正措置**  
+**問題への対応**  
 この問題を修正するには、アプリが、デバッグ用ビルドとしてではなく、リリース用ビルドとしてコンパイルされていることを確認します。 
 
 > [!NOTE]
-> アプリのデバッグビルドでは、アプリが[UWP アプリの api のみを](https://docs.microsoft.com/uwp/)使用している場合でも、このテストは失敗します。 エラーメッセージを確認して、UWP アプリに許可されている api ではない API が存在することを確認します。 
+> アプリが [UWP アプリ用の API](https://docs.microsoft.com/uwp/) のみを使っている場合でも、デバッグ用ビルドのアプリではこのテストに合格しません。 エラー メッセージを確認して、UWP アプリ用の API ではない API を特定します。 
 
 > [!NOTE]
-> C++デバッグ構成でビルドされたアプリは、構成が UWP アプリの Windows SDK の Api のみを使用する場合でも、このテストに失敗します。 詳細については、「 [UWP アプリの Windows api に代わる](https://docs.microsoft.com/uwp/win32-and-com/win32-and-com-for-uwp-apps)方法」を参照してください。
+> 構成で UWP アプリ用 Windows SDK のみを使っている場合でも、デバッグ構成内で構築された C++ アプリではこのテストに合格しません。 詳細については、[UWP アプリでの代替の Windows API](https://docs.microsoft.com/uwp/win32-and-com/win32-and-com-for-uwp-apps) に関する記事をご覧ください。
 
-### <a name="6-user-account-control-uac-test"></a>6. ユーザー アカウント制御 (UAC) のテスト  
+### <a name="6-user-account-control-uac-test"></a>6.ユーザー アカウント制御 (UAC) のテスト  
 
 **背景**  
 アプリが実行時のユーザー アカウント制御を要求しないことを確認します。
 
 **テストの詳細**  
-アプリは、Microsoft Store ポリシーごとに管理者昇格または UIAccess を要求できません。 管理者特権のセキュリティ アクセス許可はサポートされていません。 
+アプリでは、Microsoft Store のポリシーにより管理者の昇格や UIAccess を要求することはできません。 管理者特権のセキュリティ アクセス許可はサポートされていません。 
 
-**是正措置**  
+**問題への対応**  
 アプリは、対話ユーザーとして実行する必要があります。 詳しくは、「[UI オートメーション セキュリティの概要](https://docs.microsoft.com/dotnet/framework/ui-automation/ui-automation-security-overview?redirectedfrom=MSDN)」をご覧ください。
 
  
-### <a name="7-windows-runtime-metadata-validation"></a>7. Windows ランタイム メタデータ検証
+### <a name="7-windows-runtime-metadata-validation"></a>7.Windows ランタイム メタデータ検証
 **背景**  
 アプリに付属するコンポーネントが、UWP 型システムに準拠していることを確認します。
 
 **テストの詳細**  
 このテストは、適切な型の使用に関連するさまざまなフラグをスローします。
 
-**是正措置**  
+**問題への対応**  
 * **ExclusiveTo 属性**  
 UWP クラスに別の ExclusiveTo クラスとしてマークされたインターフェイスが実装されていないことを確認します。
 * **一般的なメタデータの正確性**  
@@ -250,13 +250,13 @@ UWP クラスに別の ExclusiveTo クラスとしてマークされたインタ
 UWP クラスのすべてのプロパティに `get` メソッドがあることを確認します (`set` メソッドは省略可能です)。 すべてのプロパティについて、`get` メソッドによって返される型が `set` メソッドの入力パラメーターの型と一致することを確認します。
 * **型の場所**  
 UWP のすべての型のメタデータが、アプリ パッケージで最も長い名前空間対応の名前を持つ .winmd ファイルにあることを確認します。
-* **型名の大文字と小文字の区別**  
+* **型名の大文字小文字の区別**  
 すべての UWP 型のアプリ パッケージ内に大文字と小文字が区別されない一意の名前が存在することを確認します。 また、UWP 型名が、アプリ パッケージ内で名前空間名として使われていないことも確認します。
 * **型名の正確性**  
 グローバル名前空間または Windows の最上位名前空間に UWP 型がないことを確認します。
  
 
-### <a name="8-windows-security-features-tests"></a>8. Windows のセキュリティ機能のテスト
+### <a name="8-windows-security-features-tests"></a>8.Windows のセキュリティ機能のテスト
 Windows 既定のセキュリティ保護を変更すると、ユーザーが危険にさらされるリスクが増大します。 
 
 #### <a name="81-banned-file-analyzer"></a>8.1 禁止されたファイルのアナライザー
@@ -265,11 +265,11 @@ Windows 既定のセキュリティ保護を変更すると、ユーザーが危
 
 **テストの詳細**  
 現在、Windows アプリ認定キットの禁止されたファイルのチェック機能で次のファイルの有無がチェックされます。
-* *JavaScript\js\veapicore.js*  
+* *Bing.Maps.JavaScript\js\veapicore.js*  
 このチェックは、通常、アプリでファイルの最新の公式リリースではなく、"Release Preview" バージョンが使われていると失敗します。 
 
-**是正措置**  
-これを修正するには、最新バージョンの UWP アプリ用[Bing MAPS SDK](https://www.bingmapsportal.com/)を使用します。
+**問題への対応**  
+これを修正するには、最新バージョンの UWP アプリ用 [Bing Maps SDK](https://www.bingmapsportal.com/) を使います。
 
 #### <a name="82-private-code-signing"></a>8.2 プライベート コードの署名
 アプリ パッケージ内にプライベート コードの署名バイナリが存在するかテストします。 
@@ -280,7 +280,7 @@ Windows 既定のセキュリティ保護を変更すると、ユーザーが危
 **テストの詳細**  
 アプリ パッケージ内でプライベート署名キーを含むことを示す .pfx または .snk という拡張子を持つファイルについて確認します。 
 
-**是正措置**  
+**問題への対応**  
 パッケージからプライベート コードの署名キー (.pfx ファイルや .snk ファイルなど) を削除します。
 
 

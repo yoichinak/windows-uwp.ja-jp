@@ -1,14 +1,14 @@
 ---
-Description: 配置、余白、および余白のプロパティを使用して、ページ上の要素のレイアウトを調整します。
+Description: 配置、余白、およびパディングのプロパティを使用して、ページ上の要素のレイアウトを調整します。
 title: レイアウトの配置、余白、およびパディング
 ms.date: 03/19/2018
 ms.topic: article
-keywords: Windows 10, UWP
+keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.custom: RS5
 ms.openlocfilehash: 0d7f702d145740703b9fbc4ca2e7fd8eba8957cc
 ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/06/2020
 ms.locfileid: "75684463"
@@ -22,26 +22,26 @@ UWP アプリでは、ほとんどのユーザー インターフェイス (UI) 
 
 ![サイズを示す図](images/dimensions.svg)
 
-- [**高さ**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.height)と[**幅**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.width)要素のサイズを指定します。 既定値は、数学的に NaN (非数) です。 柔軟な動作のために[有効ピクセル単位](../basics/design-and-ui-intro.md#effective-pixels-and-scaling)で測定された固定値を設定することも、**自動サイズ変更**または[比例サイズ変更](layout-panels.md#grid)を行うこともできます。
+- [**Height**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.height) と [**Width**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.width) は要素のサイズを指定します。 既定値は、数学的に NaN (非数) です。 柔軟な動作のために[有効ピクセル単位](../basics/design-and-ui-intro.md#effective-pixels-and-scaling)で測定された固定値を設定することも、**自動サイズ変更**または[比例サイズ変更](layout-panels.md#grid)を行うこともできます。
 
-- [**Actualheight**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.actualheight)と[**actualheight**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.actualwidth)は、実行時に要素のサイズを指定する読み取り専用プロパティです。 柔軟なレイアウトが拡大または縮小する場合、[**SizeChanged**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.sizechanged) イベントで値が変化します。 なお、[**RenderTransform**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.rendertransform) では ActualHeight と ActualWidth 値は変更されません。
+- [**ActualHeight**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.actualheight) と [**ActualWidth**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.actualwidth) は、実行時の要素のサイズを指定する読み取り専用プロパティです。 柔軟なレイアウトが拡大または縮小する場合、[**SizeChanged**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.sizechanged) イベントで値が変化します。 なお、[**RenderTransform**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.rendertransform) では ActualHeight と ActualWidth 値は変更されません。
 
-- [**Minwidth**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.minwidth)/[**Maxwidth**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.maxwidth)と[**minwidth**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.minheight)/[**maxwidth**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.maxheight)では、流動的なサイズ変更を可能にすると同時に、要素のサイズを制限する値を指定します。
+- [**MinWidth**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.minwidth)/[**MaxWidth**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.maxwidth) と [**MinHeight**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.minheight)/[**MaxHeight**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.maxheight) は柔軟なサイズ変更が有効な場合に、要素のサイズを制限する値を指定します。
 
-- [**FontSize**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock.fontsize)およびその他のテキストプロパティは、テキスト要素のレイアウトサイズを制御します。 テキストの要素には、明示的に宣言されたサイズはありませんが、計算された ActualWidth と ActualHeight があります。 
+- [**FontSize**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock.fontsize) とその他のテキストのプロパティは、テキスト要素のレイアウトのサイズを制御します。 テキストの要素には、明示的に宣言されたサイズはありませんが、計算された ActualWidth と ActualHeight があります。 
 
 ## <a name="alignment"></a>配置
 配置は、UI の外観を揃え、整理し、バランスをとり、また視覚的な階層と関係を確立するためにも使用することができます。
 
 ![配置を示す図](images/alignment.svg)
 
-- [**水平**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.horizontalalignment)方向の配置と垂直方向の[**配置**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.verticalalignment)では、親コンテナー内の要素をどのように配置するかを指定します。
+- [**HorizontalAlignment**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.horizontalalignment) と [**VerticalAlignment**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.verticalalignment) は、親コンテナー内の要素の配置方法を指定します。
     - **HorizontalAlignment** の値は、**Left**、**Center**、**Right**、**Stretch** です。
     - **VerticalAlignment** の値は、**Top**、**Center**、**Bottom**、**Stretch** です。
 
 - **Stretch** は、両方のプロパティの既定値であり、要素が親コンテナーで提供されたスペース全体に配置されます。 実数の Height と Width は、Stretch の値をキャンセルし、代わりに Center 値として機能します。 Button などの一部のコントロールでは、その既定のスタイルで既定の Stretch 値がオーバーライドされます。
 
-- [**水平 contentalignment**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.horizontalcontentalignment)と[**垂直 contentalignment**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.verticalcontentalignment)は、コンテナー内での子要素の配置方法を指定します。
+- [**HorizontalContentAlignment**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.horizontalcontentalignment) と [**VerticalContentAlignment**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.verticalcontentalignment) は、コンテナー内の子要素の配置方法を指定します。
 
 - 配置は、レイアウト パネル内のクリッピングに影響します。 たとえば、`HorizontalAlignment="Left"` では、コンテンツが ActualWidth より大きい場合に要素の右側がクリップされます。
 
@@ -53,7 +53,7 @@ UWP アプリでは、ほとんどのユーザー インターフェイス (UI) 
 ![xaml 余白とパディングの図](images/xaml-layout-margins-padding.svg)
 
 ### <a name="margin"></a>余白
-[**Margin**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.margin)は、要素の周囲の空白の量を制御します。 Margin は、ActualHeight と ActualWidth にピクセルを追加せず、入力イベントのヒット テストとソースのための要素の一部と見なされることもありません。
+[**Margin**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.margin) は、要素を囲む空白のスペースの量を制御します。 Margin は、ActualHeight と ActualWidth にピクセルを追加せず、入力イベントのヒット テストとソースのための要素の一部と見なされることもありません。
 
 - 余白の値は均等または別個です。 `Margin="20"` を使用すると、左右と上下の端で要素に 20 ピクセルの均等な余白が適用されます。 `Margin="0,10,5,25"` を使用すると、値は、左、上、右、下に (この順番で) 適用されます。 
 
@@ -64,14 +64,14 @@ UWP アプリでは、ほとんどのユーザー インターフェイス (UI) 
 - 余白の値は最後に制約があり、コンテナーが要素をクリップまたは制約する場合があるため、余白には注意してください。 余白の値は、要素のレンダリングが表示されない原因になる可能性があります。Margin を適用すると要素のサイズを 0 に制限できます。
 
 ### <a name="padding"></a>余白
-[**Padding**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.padding)は、要素の内側の境界線とその子のコンテンツまたは要素の間の余白の大きさを制御します。 正の Padding 値は、要素のコンテンツ領域が小さくなります。 
+[**Padding**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.padding) は、要素の内側の境界線と、その子コンテンツまたは要素の間のスペースの量を制御します。 正の Padding 値は、要素のコンテンツ領域が小さくなります。 
 
 Margin とは異なり、Padding は FrameworkElement のプロパティではありません。 いくつかのクラスがあり、それぞれ独自の Padding プロパティを定義しています。
 
--   [**コントロール。 Padding**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.padding): すべての[**コントロール**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls)の派生クラスに継承されます。 コンテンツのないコントロールもあるため、それらのコントロールでは、プロパティを設定しても効果はありません。 コントロールに境界線がある場合は、パディングがその内部に適用されます。
--   [**罫線。境界線**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.border.padding)の[**太さ**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.border.borderthickness)/[**borderthickness**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.border.borderbrush)と[**子**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.border.child)要素の間のスペースを定義します。
--   [**ItemsPresenter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemspresenter.padding): 項目コントロール内の項目を表示し、各項目の周囲に指定された埋め込みを配置します。
--   [**TextBlock**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock.padding)と[**RichTextBlock**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.richtextblock.padding): テキスト要素のテキストを囲む境界ボックスを展開します。 これらのテキスト要素には、**背景**がないため、視覚的な表示が難しい場合があります。 このため、代わりに [**Block**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.documents.block) コンテナーで  [**Margin**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.documents.block.margin) 設定を使用します。
+-   [**Control.Padding**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.padding): すべての [**Control**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls) 派生クラスに継承されます。 コンテンツのないコントロールもあるため、それらのコントロールでは、プロパティを設定しても効果はありません。 コントロールに境界線がある場合は、パディングがその内部に適用されます。
+-   [**Border.Padding**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.border.padding): [**BorderThickness**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.border.borderthickness)/[**BorderBrush**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.border.borderbrush) によって作成された四角形の線と [**Child**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.border.child) 要素の間のスペースを定義します。
+-   [**ItemsPresenter.Padding**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemspresenter.padding): 指定されたパディングを各項目の周囲に配置して、アイテム コントロールの項目の外観を向上させます。
+-   [**TextBlock.Padding**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock.padding) および [**RichTextBlock.Padding**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.richtextblock.padding): テキスト要素のテキストの周囲まで境界ボックスを拡大します。 これらのテキスト要素には、**背景**がないため、視覚的な表示が難しい場合があります。 このため、代わりに [**Block**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.documents.block) コンテナーで  [**Margin**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.documents.block.margin) 設定を使用します。
 
 このような場合のそれぞれで、要素に Margin プロパティもあります。 Margin と Padding の両方が適用される場合、これらは加算可能です。外部のコンテナーと内部のコンテンツの間に見える距離は、余白とパディングを加算したものになります。
 
@@ -91,7 +91,7 @@ Margin とは異なり、Padding は FrameworkElement のプロパティでは�
 ![余白とパディングを正の値に設定した TextBox](images/xaml-layout-textbox-with-margins-padding.svg)
 
 
-## <a name="style-resources"></a>スタイル リソース
+## <a name="style-resources"></a>Style リソース
 コントロールに対して各プロパティ値を個別に設定する必要はありません。 通常、プロパティ値を [**Style**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Style) リソースとしてグループ化し、Style をコントロールに適用する方が効率的です。 これは、特に、同じプロパティ値を多くのコントロールに適用する必要がある場合に当てはまります。 スタイルの使用について詳しくは、「[XAML スタイル](../controls-and-patterns/xaml-styles.md)」をご覧ください。
 
 ## <a name="general-recommendations"></a>一般的な推奨事項
@@ -104,9 +104,9 @@ Margin とは異なり、Padding は FrameworkElement のプロパティでは�
 ![推奨ガター](images/12-gutter.svg)
 
 ## <a name="related-topics"></a>関連トピック
-* [**FrameworkElement. Height**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.height)
-* [**FrameworkElement. Width**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.width)
-* [**FrameworkElement の配置**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.horizontalalignment)
-* [**FrameworkElement。垂直方向の配置**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.verticalalignment)
-* [**FrameworkElement. Margin**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.margin)
-* [**コントロール。余白**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.padding)
+* [**FrameworkElement.Height**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.height)
+* [**FrameworkElement.Width**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.width)
+* [**FrameworkElement.HorizontalAlignment**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.horizontalalignment)
+* [**FrameworkElement.VerticalAlignment**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.verticalalignment)
+* [**FrameworkElement.Margin**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.margin)
+* [**Control.Padding**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.padding)

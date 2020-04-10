@@ -8,14 +8,14 @@ ms.localizationpriority: medium
 ms.custom: RS5
 ms.openlocfilehash: 37d0ca71adf43891628a02d60d6873e7934d749b
 ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/13/2020
 ms.locfileid: "79210178"
 ---
 #  <a name="screen-sizes-and-breakpoints"></a>画面のサイズとブレークポイント
 
-UWP アプリは、Windows 10 を実行している任意のデバイスで実行できます (電話、タブレット、デスクトップ、テレビなど)。 Windows 10 エコシステム全体にわたって多数のデバイスターゲットと画面サイズがあるため、各デバイスの UI を最適化するのではなく、いくつかのキー幅のカテゴリ ("ブレークポイント" とも呼ばれます) を設計することをお勧めします。 
+UWP アプリは、Windows 10 を実行している任意のデバイスで実行できます (電話、タブレット、デスクトップ、テレビなど)。 Windows 10 エコシステム全般に大量のデバイス ターゲットと画面サイズが存在するため、各デバイス用に UI を最適化するのではなく、いくつかの主要な幅カテゴリ ("ブレークポイント" とも呼ばれる) 用に設計することをお勧めします。 
 - 小 (640 ピクセル以下)
 - 中 (641 ピクセル ～ 1007 ピクセル)
 - 大 (1008 ピクセル以上)
@@ -40,21 +40,21 @@ UWP アプリは、Windows 10 を実行している任意のデバイスで実�
 </thead>
 <tbody>
 <tr class="even">
-<td style="vertical-align:top;">S</td>
+<td style="vertical-align:top;">小</td>
 <td style="vertical-align:top;">640 ピクセル以下</td>
 <td style="vertical-align:top;">4&quot; ～ 6&quot;; 20&quot; ～ 65&quot;</td>
 <td style="vertical-align:top;">電話、テレビ</td>
 <td style="vertical-align:top;">320 x 569、360 x 640、480 x 854</td>
 </tr>
 <tr class="odd">
-<td style="vertical-align:top;">中</td>
+<td style="vertical-align:top;">中間</td>
 <td style="vertical-align:top;">641 ピクセル～ 1007 ピクセル</td>
 <td style="vertical-align:top;">7&quot; ～ 12&quot;</td>
 <td style="vertical-align:top;">ファブレット、タブレット</td>
 <td style="vertical-align:top;">960 x 540</td>
 </tr>
 <tr class="even">
-<td style="vertical-align:top;">L</td>
+<td style="vertical-align:top;">大</td>
 <td style="vertical-align:top;">1008 ピクセル以上</td>
 <td style="vertical-align:top;">13&quot; 以上</td>
 <td style="vertical-align:top;">PC、ノート PC、Surface Hub</td>
@@ -76,7 +76,7 @@ UWP アプリは、すべての Windows 10 デバイスでアプリが判読可�
 
 ## <a name="general-recommendations"></a>一般的な推奨事項
 
-### <a name="small"></a>S
+### <a name="small"></a>小
 - ウィンドウの左右の余白を 12 ピクセルに設定して、アプリ ウィンドウの左右の端の間で視覚的な区切りを作成します。
 - 手に届きやすいように[アプリ バー](../controls-and-patterns/app-bars.md)をウィンドウの下部にドッキングします。
 - 一度に 1 つの列/領域を使用します。
@@ -84,7 +84,7 @@ UWP アプリは、すべての Windows 10 デバイスでアプリが判読可�
 - [ナビゲーション ウィンドウ](../controls-and-patterns/navigationview.md)をオーバーレイ モードにして画面領域を節約します。
 - [マスター/詳細要素](../controls-and-patterns/master-details.md)を使用している場合は、上下に並べる表示モードを使用して画面領域を節約します。
 
-### <a name="medium"></a>中
+### <a name="medium"></a>中間
 - ウィンドウの左右の余白を 24 ピクセルに設定して、アプリ ウィンドウの左右の端の間で視覚的な区切りを作成します。
 - [アプリ バー](../controls-and-patterns/app-bars.md)などのコマンド要素をアプリ ウィンドウの上部に配置します。
 - 最大で 2 つの列/領域を使用します。
@@ -92,7 +92,7 @@ UWP アプリは、すべての Windows 10 デバイスでアプリが判読可�
 - アイコンの幅の狭いストリップが常に表示されるように[ナビゲーション ウィンドウ](../controls-and-patterns/navigationview.md)を小片モードにします。
 - [テレビのエクスペリエンス](https://docs.microsoft.com/windows/uwp/design/devices/designing-for-tv?redirectedfrom=MSDN)の調整を検討します。
 
-### <a name="large"></a>L
+### <a name="large"></a>大
 - ウィンドウの左右の余白を 24 ピクセルに設定して、アプリ ウィンドウの左右の端の間で視覚的な区切りを作成します。
 - [アプリ バー](../controls-and-patterns/app-bars.md)などのコマンド要素をアプリ ウィンドウの上部に配置します。
 - 最大で 3 つの列/領域を使用します。
@@ -100,6 +100,6 @@ UWP アプリは、すべての Windows 10 デバイスでアプリが判読可�
 - 常に表示されるように[ナビゲーション ウィンドウ](../controls-and-patterns/navigationview.md)を固定モードにします。
 
 >[!TIP] 
-> [**携帯電話の**](https://docs.microsoft.com/windows-hardware/design/device-experiences/continuum-phone?redirectedfrom=MSDN)場合、ユーザーは互換性のある Windows 10 mobile デバイスをモニター、マウス、キーボードに接続して、携帯電話をラップトップのように機能させることができます。 特定のブレークポイント向けに設計するときは、この新機能に注意してください。携帯電話が常にそのサイズ クラスで維持されるわけではありません。
+> [**電話用 Continuum**](https://docs.microsoft.com/windows-hardware/design/device-experiences/continuum-phone?redirectedfrom=MSDN) を使用すると、ユーザーは互換性のある Windows 10 Mobile デバイスをモニター、マウス、キーボードに接続して、その電話をノート PC のように動作させることができます。 特定のブレークポイント向けに設計するときは、この新機能に注意してください。携帯電話が常にそのサイズ クラスで維持されるわけではありません。
 
 

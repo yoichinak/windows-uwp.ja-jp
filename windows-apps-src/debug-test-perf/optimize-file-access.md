@@ -4,11 +4,11 @@ title: ファイル アクセスの最適化
 description: ファイル システムに効率的にアクセスすることで、ディスクの待ち時間とメモリ/CPU サイクルによるパフォーマンスの問題を回避するユニバーサル Windows プラットフォーム (UWP) アプリを作成します。
 ms.date: 02/08/2017
 ms.topic: article
-keywords: Windows 10, UWP
+keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: 3114bc7a86f7f7f4d22c69c814735c146352efbd
 ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/06/2020
 ms.locfileid: "75681953"
@@ -133,7 +133,7 @@ ms.locfileid: "75681953"
 
 ### <a name="buffering-between-uwp-and-net-streams"></a>UWP ストリームと .NET ストリーム間のバッファリング
 
-UWP ストリーム ([**Windows.Storage.Streams.IInputStream**](https://docs.microsoft.com/uwp/api/Windows.Storage.Streams.IInputStream)、[**IOutputStream**](https://docs.microsoft.com/uwp/api/Windows.Storage.Streams.IOutputStream) など) から .NET ストリーム ([**System.IO.Stream**](https://docs.microsoft.com/dotnet/api/system.io.stream)) への変換が必要になるケースは少なくありません。 たとえば、UWP アプリを作成しているとき、ストリームを扱う従来の .NET コードを、UWP のファイル システムで利用する場合に活用できます。 これを有効にするために、UWP アプリ用の .NET Api には、.NET と UWP ストリーム型の間の変換を可能にする拡張メソッドが用意されています。 詳しくは、「[**WindowsRuntimeStreamExtensions**](https://docs.microsoft.com/dotnet/api/system.io.windowsruntimestreamextensions)」をご覧ください。
+UWP ストリーム ([**Windows.Storage.Streams.IInputStream**](https://docs.microsoft.com/uwp/api/Windows.Storage.Streams.IInputStream)、[**IOutputStream**](https://docs.microsoft.com/uwp/api/Windows.Storage.Streams.IOutputStream) など) から .NET ストリーム ([**System.IO.Stream**](https://docs.microsoft.com/dotnet/api/system.io.stream)) への変換が必要になるケースは少なくありません。 たとえば、UWP アプリを作成しているとき、ストリームを扱う従来の .NET コードを、UWP のファイル システムで利用する場合に活用できます。 UWP アプリ用の .NET API には、これを可能にする .NET と UWP 間のストリーム型変換を行う拡張メソッドがあります。 詳しくは、「[**WindowsRuntimeStreamExtensions**](https://docs.microsoft.com/dotnet/api/system.io.windowsruntimestreamextensions)」をご覧ください。
 
 UWP のストリームを .NET のストリームに変換するとき、実質的には、基になる UWP ストリーム用のアダプターを作成することになります。 場合によっては、UWP ストリームのメソッド呼び出しに伴うコストが実行時に発生します。 このことがアプリの実行速度に影響を及ぼす可能性があり、特に、小規模な読み取り/書き込み操作を高頻度で何度も実行するケースにおいて顕著に表れます。
 
@@ -196,7 +196,7 @@ UWP のストリーム アダプターには、アプリの実行速度を高め
 
 大きなデータ セットの読み取りまたは書き込みを行う場合、そのスループットを向上させるには、[**AsStreamForRead**](https://docs.microsoft.com/dotnet/api/system.io.windowsruntimestreamextensions.asstreamforread?view=dotnet-uwp-10.0)、[**AsStreamForWrite**](https://docs.microsoft.com/dotnet/api/system.io.windowsruntimestreamextensions.asstreamforwrite?view=dotnet-uwp-10.0)、[**AsStream**](https://docs.microsoft.com/dotnet/api/system.io.windowsruntimestreamextensions.asstream?view=dotnet-uwp-10.0) の各拡張メソッドに指定するバッファー サイズを増やします。 これによって、ストリーム アダプターに割り当てられる内部バッファーのサイズが大きくなります。 たとえば、大きなファイルから取得したストリームを XML パーサーに渡すと、パーサーが、ストリームから小刻みにデータを読み取り、多数の読み取りが連続して発生することがあります。 バッファーを大きくすると、基になる UWP ストリームに対する呼び出しの回数を減らし、パフォーマンスを大きく高めることができます。
 
-> **   約**80 KB を超えるバッファーサイズを設定する場合は注意が必要です。これにより、ガベージコレクターヒープで断片化が発生する可能性があります (「[ガベージコレクションのパフォーマンスの向上](improve-garbage-collection-performance.md)」を参照してください)。 次のコード例では、81,920 バイトのバッファーを持つマネージ ストリーム アダプターを作成しています。
+> **注**   約 80 KB を超えるバッファー サイズを設定するときは注意が必要です。ガベージ コレクターのヒープが断片化する可能性があるためです (「[ガベージ コレクションのパフォーマンスの向上](improve-garbage-collection-performance.md)」を参照)。 次のコード例では、81,920 バイトのバッファーを持つマネージ ストリーム アダプターを作成しています。
 
 > [!div class="tabbedCodeSnippets"]
 ```csharp

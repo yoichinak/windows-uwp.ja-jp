@@ -1,5 +1,5 @@
 ---
-description: このチュートリアルでは、UWP XAML ユーザーインターフェイスを追加する方法、MSIX パッケージを作成する方法、およびその他の最新のコンポーネントを WPF アプリに組み込む方法について説明します。
+description: このチュートリアルでは、UWP XAML ユーザー インターフェイスを追加し、MSIX パッケージを作成し、その他の最新のコンポーネントをお使いの WPF アプリに組み込む方法について説明します。
 title: XAML Islands を使用した UWP InkCanvas コントロールの追加
 ms.topic: article
 ms.date: 01/24/2020
@@ -10,45 +10,45 @@ ms.localizationpriority: medium
 ms.custom: RS5, 19H1
 ms.openlocfilehash: 945cc2f1cf225c194e5820990bdbeda584069e4c
 ms.sourcegitcommit: 1455e12a50f98823bfa3730c1d90337b1983b711
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/29/2020
 ms.locfileid: "76814042"
 ---
-# <a name="part-2-add-a-uwp-inkcanvas-control-using-xaml-islands"></a>パート 2: XAML アイランドを使用した UWP System.windows.controls.inkcanvas> コントロールの追加
+# <a name="part-2-add-a-uwp-inkcanvas-control-using-xaml-islands"></a>パート 2: XAML Islands を使用した UWP InkCanvas コントロールの追加
 
-これは、Contoso の支出という名前の WPF デスクトップアプリのサンプルを最新化する方法を示すチュートリアルの2番目の部分です。 サンプルアプリをダウンロードするためのチュートリアル、前提条件、および手順の概要については、「[チュートリアル: WPF アプリの](modernize-wpf-tutorial.md)最新化」を参照してください。 この記事では、既に[パート 1](modernize-wpf-tutorial-1.md)を完了していることを前提としています。
+これは、Contoso Expenses という名前のサンプル WPF デスクトップ アプリを最新化する方法を示すチュートリアルの 2 番目の部分です。 チュートリアルの概要、前提条件、サンプル アプリをダウンロードする手順については、「[チュートリアル:WPF アプリの最新化](modernize-wpf-tutorial.md)」を参照してください。 この記事では、読者が[パート 1](modernize-wpf-tutorial-1.md) を既に完了していることを前提にしています。
 
-このチュートリアルの架空のシナリオでは、Contoso 開発チームは、デジタル署名のサポートを Contoso の経費アプリに追加する必要があります。 UWP **system.windows.controls.inkcanvas>** コントロールは、テキストと図形を認識する機能のようなデジタルインクと AI を使用した機能をサポートするため、このシナリオに適したオプションです。 これを行うには、Windows Community Toolkit で使用可能な[system.windows.controls.inkcanvas>](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/inkcanvas)ラップされた UWP コントロールを使用します。 このコントロールは、WPF アプリで使用する UWP **system.windows.controls.inkcanvas>** コントロールのインターフェイスと機能をラップします。 ラップされた UWP コントロールの詳細については、次を参照してください。[デスクトップ アプリ (XAML Islands) でコントロールをホスト UWP XAML](xaml-islands.md)します。
+このチュートリアルの架空のシナリオでは、Contoso 開発チームが Contoso の経費アプリにデジタル署名を追加したいと考えています。 このシナリオには、デジタル インクや AI を利用したテキストや図形認識機能などをサポートする UWP **InkCanvas** コントロールが適した選択肢です。 これを行うには、Windows コミュニティ ツールキットにある [InkCanvas](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/inkcanvas) でラップされた UWP コントロールを使用します。 このコントロールでは、WPF アプリで使用できるよう UWP **InkCanvas** コントロールのインターフェイスと機能がラップされています。 ラップされた UWP コントロールの詳細については、「[デスクトップ アプリで UWP XAML コントロールをホストする (XAML Islands)](xaml-islands.md)」を参照してください。
 
 > [!NOTE]
-> このチュートリアルでは、WPF アプリは Windows SDK からのファーストパーティ UWP コントロールのみをホストします。 このため、このチュートリアルでは、[ここで](host-standard-control-with-xaml-islands.md#required-components)説明するように、このクラスのインスタンスを定義する手順を省略[します。](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/tree/master/Microsoft.Toolkit.Win32.UI.XamlApplication)
+> このチュートリアルでは、WPF アプリは Windows SDK のファーストパーティ UWP コントロールのみをホストします。 つまり、このチュートリアルでは、[ここ](host-standard-control-with-xaml-islands.md#required-components)で説明する、[Microsoft.Toolkit.Win32.UI.XamlHost.XamlApplication](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/tree/master/Microsoft.Toolkit.Win32.UI.XamlApplication) クラスのインスタンスを定義する手順が省略されています。
 
-## <a name="configure-the-project-to-use-xaml-islands"></a>XAML Islandsを使用するプロジェクトを構成します。
+## <a name="configure-the-project-to-use-xaml-islands"></a>XAML Islands を使用するためのプロジェクトの構成
 
-追加する前に、 **InkCanvas** UWP XAML Islandsをサポートするためにプロジェクトを構成する最初必要である Contoso 経費アプリを制御します。
+**InkCanvas** コントロールを Contoso の経費アプリに追加する前に、プロジェクトで UWP XAML Islands をサポートする構成をまず実行する必要があります。
 
-1. Visual Studio 2019 で**ソリューションエクスプローラー**で**ContosoExpenses**プロジェクトを右クリックし、 **[NuGet パッケージの管理]** を選択します。
+1. Visual Studio 2019 の**ソリューション エクスプローラー**で **ContosoExpenses.Core** プロジェクトを右クリックし、 **[NuGet パッケージの管理]** を選択します。
 
     ![Visual Studio の [NuGet パッケージの管理] メニュー](images/wpf-modernize-tutorial//ManageNuGetPackages.png)
 
-2. **[NuGet パッケージマネージャー]** ウィンドウで、 **[参照]** をクリックします。 `Microsoft.Toolkit.Wpf.UI.Controls` パッケージを検索し、バージョン6.0.0 以降のバージョンをインストールします。
+2. **[NuGet パッケージ マネージャー]** ウィンドウで、 **[参照]** をクリックします。 `Microsoft.Toolkit.Wpf.UI.Controls` パッケージを検索し、バージョン 6.0.0 以降のバージョンをインストールします。
 
     > [!NOTE]
-    > このパッケージには、WPF アプリケーションでは、UWP XAML Islandsをホストするためのすべての必要なインフラストラクチャが含まれています。 など、 **InkCanvas** UWP コントロールをラップします。 Windows フォームアプリには、`Microsoft.Toolkit.Forms.UI.Controls` という名前の同様のパッケージを使用できます。
+    > このパッケージには、**InkCanvas** でラップされた UWP コントロールを含む、WPF アプリで UWP XAML Islands をホストするために必要なすべてのインフラストラクチャが含まれています。 Windows フォーム アプリ用には、`Microsoft.Toolkit.Forms.UI.Controls` という名前の同様のパッケージがあります。
 
-3. **ソリューションエクスプローラー**で **[ContosoExpenses]** プロジェクト を右クリックし、[**追加] > [新しい項目**] の順に選択します。
+3. **ソリューション エクスプローラー**で **ContosoExpenses.Core** プロジェクトを右クリックし、 **[追加]、[新しい項目]** の順に選択します。
 
-4. **[アプリケーションマニフェストファイル]** を選択し、「 **app.xaml**」という名前を指定して、 **[追加]** をクリックします。 アプリケーションマニフェストの詳細については、こちらの[記事](https://docs.microsoft.com/windows/desktop/SbsCs/application-manifests)を参照してください。
+4. **アプリケーション マニフェスト ファイル**を選択し、**app.manifest** という名前を付け、 **[追加]** をクリックします。 アプリケーション マニフェストの詳細については、[こちらの記事](https://docs.microsoft.com/windows/desktop/SbsCs/application-manifests)を参照してください。
 
-5. マニフェストファイルで、Windows 10 の次の `<supportedOS>` 要素のコメントを解除します。
+5. このマニフェスト ファイルで、次の Windows 10 の `<supportedOS>` 要素をコメント解除します。
 
     ```xml
     <!-- Windows 10 -->
     <supportedOS Id="{8e0f7a12-bfb3-4fe8-b9a5-48fd50a15a9a}" />
     ```
 
-6. マニフェストファイルで、次のコメントが付いた `<application>` 要素を見つけます。
+6. マニフェスト ファイルで、次のコメントが付いた `<application>` 要素を探します。
 
     ```xml
     <!--
@@ -60,7 +60,7 @@ ms.locfileid: "76814042"
     -->
     ```
 
-7. このセクションを削除し、次の XML に置き換えます。 これにより、アプリケーションが DPI 対応になり、Windows 10 でサポートされるさまざまなスケーリング要因をより適切に処理できるようになります。
+7. このセクションを削除し、次の XML と置き換えます。 これにより、アプリは DPI 対応になり、Windows 10 がサポートするその他のスケーリング要因より適切に処理するようになります。
 
     ```xml
     <application xmlns="urn:schemas-microsoft-com:asm.v3">
@@ -71,29 +71,29 @@ ms.locfileid: "76814042"
     </application>
     ```
 
-8. `app.manifest` ファイルを保存して閉じます。
+8. `app.manifest` ファイルを保存し、閉じます。
 
-9. **ソリューションエクスプローラー**で、 **ContosoExpenses**プロジェクトを右クリックし、 **[プロパティ]** を選択します。
+9. **ソリューション エクスプローラー**で **ContosoExpenses.Core** プロジェクトを右クリックし、 **[プロパティ]** を選択します。
 
-10. **[アプリケーション]** タブの **[リソース]** セクションで、 **[マニフェスト]** ドロップダウンが **[app.xaml]** に設定されていることを確認します。
+10. **[アプリケーション]** タブの **[リソース]** セクションで、 **[マニフェスト]** ドロップダウンが **[app.manifest]** に設定されていることを確認します。
 
-    ![.NET Core アプリケーションマニフェスト](images/wpf-modernize-tutorial/NetCoreAppManifest.png)
+    ![.NET Core アプリ マニフェスト](images/wpf-modernize-tutorial/NetCoreAppManifest.png)
 
-11. プロジェクトプロパティへの変更を保存します。
+11. プロジェクト プロパティに変更を保存します。
 
-## <a name="add-an-inkcanvas-control-to-the-app"></a>System.windows.controls.inkcanvas> コントロールをアプリに追加する
+## <a name="add-an-inkcanvas-control-to-the-app"></a>アプリへの InkCanvas コントロールの追加
 
-追加する準備ができました UWP XAML Islandsを使用するプロジェクトを構成したところ、 [InkCanvas](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/inkcanvas)をアプリに UWP コントロールをラップします。
+これでご自分のプロジェクトで UWP XAML Islands を使用する構成が完了したので、アプリに [InkCanvas](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/inkcanvas) でラップされた UWP コントロールを追加できます。
 
-1. **ソリューションエクスプローラー**で、ContosoExpenses プロジェクトの**Views**フォルダーを展開し、[ **] ファイルを**ダブルクリックします。
+1. **ソリューション エクスプローラー**で、**ContosoExpenses.Core** プロジェクトの **[ビュー]** フォルダーを展開し、**ExpenseDetail.xaml** ファイルをダブルクリックします。
 
-2. XAML ファイルの先頭付近にある**ウィンドウ**要素に、次の属性を追加します。 これは、 [system.windows.controls.inkcanvas>](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/inkcanvas)ラップされた UWP コントロールの XAML 名前空間を参照します。
+2. XAML ファイル上部付近の **Window** 要素に、次の属性を追加します。 これにより、[InkCanvas](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/inkcanvas) でラップされた UWP コントロールの XAML 名前空間が参照されるようになります。
 
     ```xml
     xmlns:toolkit="clr-namespace:Microsoft.Toolkit.Wpf.UI.Controls;assembly=Microsoft.Toolkit.Wpf.UI.Controls"
     ```
 
-    この属性を追加すると、**ウィンドウ**要素は次のようになります。
+    **Window** 要素は、この属性の追加後、次のようになります。
 
     ```xml
     <Window x:Class="ContosoExpenses.Views.ExpenseDetail"
@@ -110,7 +110,7 @@ ms.locfileid: "76814042"
             Background="{StaticResource HorizontalBackground}">
     ```
 
-4. [`<!-- Chart -->`] コメントの直前にある [終了] `</Grid>` タグを見つけ**ます。** 終了 `</Grid>` タグの直前に、次の XAML を追加します。 この XAML は、 **system.windows.controls.inkcanvas>** コントロール (前に名前空間として定義した**toolkit**キーワードで始まります) と、コントロールのヘッダーとして機能する単純な**TextBlock**を追加します。
+4. **ExpenseDetail.xaml** ファイルで、`<!-- Chart -->` の直前にある `</Grid>` 終了タグを探します。 次の XAML を、`</Grid>` 終了タグの直前に追加します。 この XAML により (前に名前空間として定義した **toolkit** キーワードで始まる) **InkCanvas** コントロールと、コントロールのヘッダーとして機能する単純な **TextBlock** が追加されます。
 
     ```xml
     <TextBlock Text="Signature:" FontSize="16" FontWeight="Bold" Grid.Row="5" />
@@ -118,40 +118,40 @@ ms.locfileid: "76814042"
     <toolkit:InkCanvas x:Name="Signature" Grid.Row="6" />
     ```
 
-5. このファイル**を保存します**。
+5. **ExpenseDetail.xaml** ファイルを保存します。
 
 6. F5 キーを押して、デバッガーでアプリを実行します。
 
-7. 一覧から従業員を選択し、使用可能な経費の1つを選択します。 [経費詳細] ページに、 **system.windows.controls.inkcanvas>** コントロールの領域が含まれていることに注意してください。
+7. 一覧から従業員を選択し、使用可能な経費の 1 つを選択します。 経費詳細ページに、**InkCanvas** コントロール用の領域が用意されたことに注目してください。
 
-    ![インクキャンバスのペンのみ](images/wpf-modernize-tutorial/InkCanvasPenOnly.png)
+    ![インク キャンバス ペンのみ](images/wpf-modernize-tutorial/InkCanvasPenOnly.png)
 
-    表面のようなデジタルペンをサポートするデバイスがあり、このラボを物理マシンで実行している場合は、「」に進んで、使用してみてください。 画面にデジタルインクが表示されます。 ただし、ペンに対応したデバイスを持っておらず、マウスでサインインしようとすると、何も起こりません。 この問題が発生するのは、既定ではデジタルペンに対してのみ**system.windows.controls.inkcanvas>** コントロールが有効になっているためです。 ただし、この動作は変更できます。
+    デジタル ペンをサポートする Surface などのデバイスがあり、この演習を物理マシンで実行している場合は、このままそれの使用を継続してください。 画面にデジタル インクが表示されます。 ペン対応のデバイスを使用しておらず、ご自分のマウスで署名しようとしている場合は、何も起こりません。 これは、**InkCanvas** コントロールがデジタル ペンに対してのみ既定で有効になるためです。 ただし、この動作は変更できます。
 
-8. アプリを終了し、 **ContosoExpenses**プロジェクトの**Views**フォルダーの下にある**ExpenseDetail.xaml.cs**ファイルをダブルクリックします。
+8. アプリを閉じ、**ContosoExpenses.Core** プロジェクトの **[参照]** フォルダーの下の **ExpenseDetail.xaml.cs** ファイルをダブルクリックします。
 
-9. クラスの先頭に、次の名前空間宣言を追加します。
+9. このクラスの上部に、次の名前空間宣言を追加します。
 
     ```csharp
     using Microsoft.Toolkit.Win32.UI.Controls.Interop.WinRT;
     ```
 
-10. `ExpenseDetail()` コンストラクターを見つけます。
+10. `ExpenseDetail()` コンストラクターを探します。
 
-11. `InitializeComponent()` メソッドの後に次のコード行を追加し、コードファイルを保存します。
+11. `InitializeComponent()` メソッドの後に次のコード行を追加し、コード ファイルを保存します。
 
     ```csharp
     Signature.InkPresenter.InputDeviceTypes = CoreInputDeviceTypes.Mouse | CoreInputDeviceTypes.Pen;
     ```
 
-    **InkPresenter**オブジェクトを使用して、既定のインク操作をカスタマイズできます。 このコードでは、 **Inputdevicetypes**プロパティを使用して、マウスおよびペン入力を有効にします。
+    **InkPresenter** オブジェクトを使用し、既定のインク動作をカスタマイズします。 このコードでは、**InputDeviceTypes** プロパティを使用して、マウスおよびペン入力を有効にします。
 
-12. F5 キーをもう一度押して、デバッガーでアプリをリビルドして実行します。 一覧から従業員を選択し、使用可能な経費の1つを選択します。
+12. F5 キーを再度押して、デバッガーでアプリをリビルドして実行します。 一覧から従業員を選択し、使用可能な経費の 1 つを選択します。
 
-13. マウスで署名スペースに何かを描画してみましょう。 今度は、画面にインクが表示されます。
+13. マウスで署名スペースに何かを描画してみましょう。 今回は画面にインクが表示されます。
 
-    ![Signature](images/wpf-modernize-tutorial/Signature.png)
+    ![署名](images/wpf-modernize-tutorial/Signature.png)
 
 ## <a name="next-steps"></a>次の手順
 
-このチュートリアルのこの時点で、UWP **system.windows.controls.inkcanvas>** コントロールが Contoso の経費アプリに追加されました。 これで、 [「パート 3: XAML アイランドを使用した UWP CalendarView コントロールの追加](modernize-wpf-tutorial-3.md)」の準備ができました。
+このチュートリアルのこの時点では、Contoso の経費アプリに UWP **InkCanvas** コントロールが追加されています。 これで、「[パート 3:XAML Islands を使用した UWP CalendarView コントロールの追加](modernize-wpf-tutorial-3.md)」に進むことができます。

@@ -5,11 +5,11 @@ description: Windows Device Portal コア REST API について説明します�
 ms.custom: 19H1
 ms.date: 04/19/2019
 ms.topic: article
-keywords: windows 10、uwp、デバイスポータル
+keywords: windows 10, uwp, デバイス ポータル
 ms.localizationpriority: medium
 ms.openlocfilehash: 9e091cc7ad62f69b9e76541101555493609b8a06
 ms.sourcegitcommit: 8d945e0406818e614eacdc962493e570cc7615ed
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/15/2020
 ms.locfileid: "75955308"
@@ -36,7 +36,7 @@ ms.locfileid: "75955308"
 
 | URI パラメーター | 説明 |
 | :------          | :------ |
-| package   | (**必須**) インストールするパッケージのファイル名。 |
+| パッケージ   | (**必須**) インストールするパッケージのファイル名。 |
 
 **要求ヘッダー**
 
@@ -59,10 +59,10 @@ ms.locfileid: "75955308"
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -85,7 +85,7 @@ ms.locfileid: "75955308"
 
 | URI パラメーター | 説明 |
 | :------          | :------ |
-| package   | (**必須**) インストールするパッケージのファイル名。 |
+| パッケージ   | (**必須**) インストールするパッケージのファイル名。 |
 
 **要求ヘッダー**
 
@@ -108,10 +108,10 @@ ms.locfileid: "75955308"
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -161,9 +161,9 @@ ms.locfileid: "75955308"
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -222,9 +222,9 @@ ms.locfileid: "75955308"
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -265,10 +265,10 @@ ms.locfileid: "75955308"
 | 204 | インストールは実行中です |
 | 404 | インストール操作は見つかりませんでした |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -289,7 +289,7 @@ ms.locfileid: "75955308"
 
 | URI パラメーター | 説明 |
 | :------          | :------ |
-| package   | (**必須**) ターゲット アプリの PackageFullName (GET /api/app/packagemanager/packages から) |
+| パッケージ   | (**必須**) ターゲット アプリの PackageFullName (GET /api/app/packagemanager/packages から) |
 
 **要求ヘッダー**
 
@@ -307,14 +307,14 @@ ms.locfileid: "75955308"
 
 |  HTTP 状態コード      | 説明 | 
 | :------     | :----- |
-|  200 | [OK] を選びます | 
+|  200 | OK | 
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -377,21 +377,21 @@ ms.locfileid: "75955308"
 
 |  HTTP 状態コード      | 説明 | 
 | :------     | :----- |
-|  200 | [OK] を選びます | 
+|  200 | OK | 
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
 
 <hr>
 
-## <a name="bluetooth"></a>[Bluetooth]
+## <a name="bluetooth"></a>Bluetooth
 
 <hr>
 
@@ -399,7 +399,7 @@ ms.locfileid: "75955308"
 
 **要求**
 
-次の要求形式を使用して、コンピューターにインストールされている Bluetooth 無線の一覧を取得できます。 これは、同じ JSON データを使用して、WebSocket 接続にもアップグレードできます。
+次の要求形式を使用して、コンピューターにインストールされている Bluetooth 無線の一覧を取得できます。 これは、同じ JSON データを使用して、WebSocket 接続にアップグレードすることもできます。
  
 | 認証方法        | 要求 URI |
 | :------          | :------ |
@@ -441,13 +441,13 @@ ms.locfileid: "75955308"
 
 | HTTP 状態コード | 説明 |
 | :------             | :------ |
-| 200              | [OK] を選びます |
+| 200              | OK |
 | 4XX              | エラー コード |
 | 5XX              | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -470,7 +470,7 @@ ms.locfileid: "75955308"
 | URI パラメーター | 説明 |
 | :------          | :------ |
 | ID            | (**必須**) Bluetooth 無線のデバイス ID であり、base 64 でエンコードされている必要があります。 |
-| State (状態)         | (**必須**)これは、`"On"` または `"Off"`にすることができます。 |
+| State         | (**必須**) これは、`"On"` または `"Off"` にすることができます。 |
 
 **要求ヘッダー**
 
@@ -488,13 +488,13 @@ ms.locfileid: "75955308"
 
 | HTTP 状態コード | 説明 |
 | :------             | :------ |
-| 200              | [OK] を選びます |
+| 200              | OK |
 | 4XX              | エラー コード |
 | 5XX              | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -503,7 +503,7 @@ ms.locfileid: "75955308"
 
 **要求**
 
-現在ペアリングされている Bluetooth デバイスの一覧を取得するには、次の要求形式を使用します。 これは、同じ JSON データを使用して WebSocket 接続にアップグレードできます。 WebSocket 接続の有効期間中は、デバイスの一覧が変更される可能性があります。 更新が行われるたびに、WebSocket 接続を介してデバイスの完全な一覧が送信されます。
+現在ペアリングされている Bluetooth デバイスの一覧を取得するには、次の要求形式を使用します。 これは、同じ JSON データを使用して、WebSocket 接続にアップグレードすることもできます。 WebSocket 接続の有効期間中、デバイスの一覧が変更される可能性があります。 更新が行われるたびに、WebSocket 接続を介してデバイスの完全な一覧が送信されます。
 
 | 認証方法        | 要求 URI       |
 | :---          | :---              |
@@ -524,7 +524,7 @@ ms.locfileid: "75955308"
 
 **応答**
 
-応答には、現在ペアリングされている Bluetooth デバイスの JSON 配列が含まれています。
+応答には、現在ペアリングされている Bluetooth デバイスの JSON 配列が含まれます。
 ```json
 {"PairedDevices": [
     {
@@ -534,14 +534,14 @@ ms.locfileid: "75955308"
     },...
 ]}
 ```
-デバイスをこのシステムのオーディオに使用できる場合は、 *Audioconnectionstatus*フィールドが表示されます。 (ポリシーとオプションのコンポーネントがこの影響を受ける可能性があります)。*Audioconnectionstatus*は、"Connected" または "Disconnected" になります。
+デバイスをこのシステムのオーディオに使用できる場合は、*AudioConnectionStatus* フィールドが表示されます (ポリシーとオプションのコンポーネントがこの影響を受ける可能性があります)。*AudioConnectionStatus* は、"Connected" または "Disconnected" のいずれかです。
 
 ---
 ### <a name="get-a-list-of-available-bluetooth-devices"></a>利用可能な Bluetooth デバイスの一覧を取得する
 
 **要求**
 
-ペアリングに使用できる Bluetooth デバイスの一覧を取得するには、次の要求形式を使用します。 これは、同じ JSON データを使用して WebSocket 接続にアップグレードできます。 WebSocket 接続の有効期間中は、デバイスの一覧が変更される可能性があります。 更新が行われるたびに、WebSocket 接続を介してデバイスの完全な一覧が送信されます。
+ペアリングに使用できる Bluetooth デバイスの一覧を取得するには、次の要求形式を使用します。 これは、同じ JSON データを使用して、WebSocket 接続にアップグレードすることもできます。 WebSocket 接続の有効期間中、デバイスの一覧が変更される可能性があります。 更新が行われるたびに、WebSocket 接続を介してデバイスの完全な一覧が送信されます。
 
 | 認証方法        | 要求 URI          |
 | :---          | :---                 |
@@ -562,7 +562,7 @@ ms.locfileid: "75955308"
 
 **応答**
 
-応答には、現在ペアリングに使用できる Bluetooth デバイスの JSON 配列が含まれています。
+応答には、現在ペアリングに利用可能な Bluetooth デバイスの JSON 配列が含まれます。
 ```json
 {"AvailableDevices": [
     {
@@ -573,21 +573,21 @@ ms.locfileid: "75955308"
 ```
 
 ---
-### <a name="connect-a-bluetooth-device"></a>Bluetooth デバイスの接続
+### <a name="connect-a-bluetooth-device"></a>Bluetooth デバイスを接続する
 
 **要求**
 
-デバイスをこのシステムのオーディオに使用できる場合、はデバイスに接続します。 (ポリシーとオプションのコンポーネントがこの影響を受ける可能性があります)。
+デバイスをこのシステムのオーディオに使用できる場合、デバイスに接続します (ポリシーとオプションのコンポーネントがこの影響を受ける可能性があります)。
 
 | 認証方法       | 要求 URI           |
 | :---         | :---                  |
-| POST         | /apidevice |
+| POST         | /api/bt/connectdevice |
 
 **URI パラメーター**
 
 | URI パラメーター | 説明 |
 | :---          | :--- |
-| ID            | (**必須**)Bluetooth デバイスのアソシエーションエンドポイント ID。 Base64 でエンコードされている必要があります。 |
+| ID            | (**必須**) Bluetooth デバイスのアソシエーション エンドポイント ID。Base64 でエンコードされている必要があります。 |
 
 **要求ヘッダー**
 
@@ -605,33 +605,33 @@ ms.locfileid: "75955308"
 
 | HTTP 状態コード | 説明 |
 | :---             | :--- |
-| 200              | [OK] を選びます |
+| 200              | OK |
 | 4XX              | エラー コード |
 | 5XX              | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
 
 ---
-### <a name="disconnect-a-bluetooth-device"></a>Bluetooth デバイスの切断
+### <a name="disconnect-a-bluetooth-device"></a>Bluetooth デバイスを切断する
 
 **要求**
 
-デバイスをこのシステムのオーディオに使用できる場合は、デバイスが切断されます。 (ポリシーとオプションのコンポーネントがこの影響を受ける可能性があります)。
+デバイスをこのシステムのオーディオに使用できる場合は、デバイスを切断します (ポリシーとオプションのコンポーネントがこの影響を受ける可能性があります)。
 
 | 認証方法       | 要求 URI              |
 | :---         | :---                     |
-| POST         | //またはデバイスを切断する |
+| POST         | /api/bt/disconnectdevice |
 
 **URI パラメーター**
 
 | URI パラメーター | 説明 |
 | :---          | :--- |
-| ID            | (**必須**)Bluetooth デバイスのアソシエーションエンドポイント ID。 Base64 でエンコードされている必要があります。 |
+| ID            | (**必須**) Bluetooth デバイスのアソシエーション エンドポイント ID。Base64 でエンコードされている必要があります。 |
 
 **要求ヘッダー**
 
@@ -649,13 +649,13 @@ ms.locfileid: "75955308"
 
 | HTTP 状態コード | 説明 |
 | :---             | :--- |
-| 200              | [OK] を選びます |
+| 200              | OK |
 | 4XX              | エラー コード |
 | 5XX              | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -708,14 +708,14 @@ ms.locfileid: "75955308"
 
 |  HTTP 状態コード      | 説明 | 
 | :------     | :----- |
-|  200 | [OK] を選びます | 
+|  200 | OK | 
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * IoT
 
 <hr>
@@ -795,12 +795,12 @@ ms.locfileid: "75955308"
 
 |  HTTP 状態コード      | 説明 | 
 | :------     | :----- |
-|  200 | [OK] を選びます | 
+|  200 | OK | 
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * IoT
 
 <hr>
@@ -842,14 +842,14 @@ ms.locfileid: "75955308"
 
 |  HTTP 状態コード      | 説明 | 
 | :------     | :----- |
-|  200 | [OK] を選びます | 
+|  200 | OK | 
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Window Mobile (Windows Insider Program のみ)
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -895,14 +895,14 @@ ms.locfileid: "75955308"
 
 |  HTTP 状態コード      | 説明 | 
 | :------     | :----- |
-|  200 | [OK] を選びます | 
+|  200 | OK | 
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Window Mobile (Windows Insider Program のみ)
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -944,14 +944,14 @@ ms.locfileid: "75955308"
 
 |  HTTP 状態コード      | 説明 | 
 | :------     | :----- |
-|  200 | [OK] を選びます | 
+|  200 | OK | 
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Window Mobile (Windows Insider Program のみ)
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -992,14 +992,14 @@ ms.locfileid: "75955308"
 
 |  HTTP 状態コード      | 説明 | 
 | :------     | :----- |
-|  200 | [OK] を選びます | 
+|  200 | OK | 
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Window Mobile (Windows Insider Program のみ)
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -1043,14 +1043,14 @@ ms.locfileid: "75955308"
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-|  200 | [OK] を選びます | 
+|  200 | OK | 
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Window Mobile (Windows Insider Program のみ)
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -1091,12 +1091,12 @@ ms.locfileid: "75955308"
 
 |  HTTP 状態コード      | 説明 | 
 | :------     | :----- |
-|  200 | [OK] を選びます | 
+|  200 | OK | 
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Window Mobile (Windows Insider Program のみ)
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -1143,11 +1143,11 @@ ms.locfileid: "75955308"
 
 |  HTTP 状態コード      | 説明 | 
 | :------     | :----- |
-|  200 | [OK] を選びます | 
+|  200 | OK | 
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * IoT
 
 <hr>
@@ -1190,13 +1190,13 @@ ms.locfileid: "75955308"
 
 |  HTTP 状態コード      | 説明 | 
 | :------     | :----- |
-|  200 | [OK] を選びます | 
+|  200 | OK | 
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * IoT
 
 <hr>
@@ -1240,11 +1240,11 @@ ms.locfileid: "75955308"
 
 0: 無効
 
-1: 完全メモリ ダンプ (使用中のすべてのメモリを収集)
+1:完全なメモリ ダンプ (使用中のすべてのメモリを収集)
 
-2: カーネル メモリ ダンプ (ユーザー モード メモリを無視)
+2:カーネル メモリ ダンプ (ユーザー モード メモリは無視)
 
-3: 限られたカーネル ミニダンプ
+3:制限付きカーネル ミニダンプ
 
 **状態コード**
 
@@ -1252,13 +1252,13 @@ ms.locfileid: "75955308"
 
 |  HTTP 状態コード      | 説明 | 
 | :------     | :----- |
-|  200 | [OK] を選びます | 
+|  200 | OK | 
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * IoT
 
 <hr>
@@ -1296,13 +1296,13 @@ ms.locfileid: "75955308"
 
 |  HTTP 状態コード      | 説明 | 
 | :------     | :----- |
-|  200 | [OK] を選びます | 
+|  200 | OK | 
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * IoT
 
 <hr>
@@ -1344,13 +1344,13 @@ ms.locfileid: "75955308"
 
 |  HTTP 状態コード      | 説明 | 
 | :------     | :----- |
-|  200 | [OK] を選びます | 
+|  200 | OK | 
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * IoT
 
 <hr>
@@ -1375,7 +1375,7 @@ ms.locfileid: "75955308"
 | autoreboot   | (**オプション**) true または false。 これは、エラーやロックの発生後に、システムが自動的に再起動するかどうかを示します。 |
 | dumptype   | (**オプション**) dump タイプ。 サポートされる値については、「[CrashDumpType 列挙体](https://docs.microsoft.com/previous-versions/azure/reference/dn802457(v=azure.100))」をご覧ください。|
 | maxdumpcount   | (**オプション**) 保存するダンプの最大数。 |
-| overwrite   | (**オプション**) true または false。 これは、*maxdumpcount* で指定されているダンプ カウンターの制限に達した場合に古いダンプを上書きするかどうかを示します。 |
+| overwrite   | (**オプション**) true または false。 これは、*maxdumpcount*で指定されているダンプ カウンターの制限に達した場合に古いダンプを上書きするかどうかを示します。 |
 
 **要求ヘッダー**
 
@@ -1393,13 +1393,13 @@ ms.locfileid: "75955308"
 
 |  HTTP 状態コード      | 説明 | 
 | :------     | :----- |
-|  200 | [OK] を選びます | 
+|  200 | OK | 
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * IoT
 
 <hr>
@@ -1441,14 +1441,14 @@ ms.locfileid: "75955308"
 
 |  HTTP 状態コード      | 説明 | 
 | :------     | :----- |
-|  200 | [OK] を選びます | 
+|  200 | OK | 
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -1480,7 +1480,7 @@ ms.locfileid: "75955308"
 
 payload objects は、追加のキーと値のペア (文字列: 文字列) で、元の ETW イベントから提供されます。
 
-次に例を示します。
+例:
 ```json
 {
     "ID" : 42, 
@@ -1544,12 +1544,12 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 
 |  HTTP 状態コード      | 説明 | 
 | :------     | :----- |
-|  200 | [OK] を選びます | 
+|  200 | OK | 
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -1595,10 +1595,10 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 
 - 標準の状態コード。
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -1645,14 +1645,14 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-|  200 | [OK] を選びます | 
+|  200 | OK | 
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -1696,14 +1696,14 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |
+| 200 | OK |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -1748,14 +1748,14 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 
 |  HTTP 状態コード      | 説明 | 
 | :------     | :----- |
-| 200 | [OK] を選びます |
+| 200 | OK |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -1805,14 +1805,14 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |
+| 200 | OK |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -1860,14 +1860,14 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |
+| 200 | OK |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -1917,14 +1917,14 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |
+| 200 | OK |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -1972,14 +1972,14 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |
+| 200 | OK |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -2003,7 +2003,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | URI パラメーター | 説明 |
 | :------          | :------ |
-| 名前 | (**必須**) コンピューターの新しい名前。 base64 でエンコードされている必要があります。 |
+| name | (**必須**) コンピューターの新しい名前。 base64 でエンコードされている必要があります。 |
 
 **要求ヘッダー**
 
@@ -2021,12 +2021,12 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |
+| 200 | OK |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -2087,13 +2087,13 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |
+| 200 | OK |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -2152,14 +2152,14 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |
+| 200 | OK |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -2192,7 +2192,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 **応答**
 
-応答には、CPU と GPU の使用量、メモリ アクセス、ネットワーク アクセスなど、システムのパフォーマンス統計情報が含まれます。 この情報は JSON 形式で、テンプレートは次のとおりです。
+応答には、CPU と GPU の使用量、メモリ アクセス、ネットワーク アクセスなど、パフォーマンスの統計情報が含まれます。 この情報は JSON 形式で、テンプレートは次のとおりです。
 ```json
 {
     "AvailablePages": int,
@@ -2231,21 +2231,21 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |
+| 200 | OK |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
 
 <hr>
 
-## <a name="power"></a>[電源]
+## <a name="power"></a>Power
 
 <hr>
 
@@ -2294,14 +2294,14 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |
+| 200 | OK |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -2343,13 +2343,13 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |
+| 200 | OK |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * IoT
 
 <hr>
@@ -2387,13 +2387,13 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |
+| 200 | OK |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * IoT
 
 <hr>
@@ -2434,13 +2434,13 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |
+| 200 | OK |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -2450,7 +2450,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 **要求**
 
-次の要求形式を使用して、アクティブな電源設定を行うことができます。
+次の要求形式を使用して、アクティブな電源設定を設定できます。
  
 | 認証方法      | 要求 URI |
 | :------     | :----- |
@@ -2481,13 +2481,13 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |
+| 200 | OK |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * IoT
 
 <hr>
@@ -2528,11 +2528,11 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |
+| 200 | OK |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * IoT
 
 <hr>
@@ -2570,13 +2570,13 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |
+| 200 | OK |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * IoT
 
 <hr>
@@ -2622,13 +2622,13 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |
+| 200 | OK |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * IoT
 
 <hr>
@@ -2666,18 +2666,18 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |
+| 200 | OK |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * IoT
 
 <hr>
 
-## <a name="remote-control"></a>リモコン
+## <a name="remote-control"></a>リモート コントロール
 
 <hr>
 
@@ -2712,12 +2712,12 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |
+| 200 | OK |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -2755,14 +2755,14 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |
+| 200 | OK |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -2791,7 +2791,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | URI パラメーター | 説明 |
 | :---          | :--- |
 | appid   | (**必須**) 起動するアプリの PRAID。 この値は、hex64 エンコードされている必要があります。 |
-| package   | (**必須**) 起動するアプリ パッケージの完全な名前。 この値は、hex64 エンコードされている必要があります。 |
+| パッケージ   | (**必須**) 起動するアプリ パッケージの完全な名前。 この値は、hex64 エンコードされている必要があります。 |
 
 **要求ヘッダー**
 
@@ -2809,14 +2809,14 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |
+| 200 | OK |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -2840,7 +2840,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | URI パラメーター | 説明 |
 | :---          | :--- |
-| package   | (**必須**) 停止するアプリ パッケージの完全な名前。 この値は、hex64 エンコードされている必要があります。 |
+| パッケージ   | (**必須**) 停止するアプリ パッケージの完全な名前。 この値は、hex64 エンコードされている必要があります。 |
 | forcestop   | (**オプション**) 値が **yes** の場合は、システムがすべてのプロセスを強制的に停止することを示します。 |
 
 **要求ヘッダー**
@@ -2859,14 +2859,14 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |
+| 200 | OK |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -2908,19 +2908,19 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |
+| 200 | OK |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
 <hr>
 
-## <a name="networking"></a>のネットワーク
+## <a name="networking"></a>ネットワーク
 
 <hr>
 
@@ -2997,14 +2997,14 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |
+| 200 | OK |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -3015,7 +3015,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 **要求**
 
-静的 IP と DNS を使用して IPV4 構成を設定します。 静的 IP が指定されていない場合は、DHCP が有効になります。 静的 IP を指定する場合は、DNS も指定する必要があります。
+静的 IP と DNS を使用して IPV4 構成を設定します。 静的 IP を指定しない場合、DHCP が有効になります。 静的 IP を指定する場合、DNS も指定する必要があります。
  
 | 認証方法      | 要求 URI |
 | :------     | :----- |
@@ -3026,12 +3026,12 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | URI パラメーター | 説明 |
 | :---          | :--- |
-| AdapterName | (**必須**)ネットワークインターフェイスの GUID。 |
+| AdapterName | (**必須**) ネットワーク インターフェイスの GUID。 |
 | IPAddress | 設定する静的 IP アドレス。 |
-| ネット | ( *IPAddress*が null でない場合は**必須**)静的サブネットマスク。 |
-| DefaultGateway | ( *IPAddress*が null でない場合は**必須**)静的なデフォルトゲートウェイ。 |
-| PrimaryDNS | ( *IPAddress*が null でない場合は**必須**)設定する静的プライマリ DNS。 |
-| セカンダリ Dns | ( *Primarydns*が null でない場合は**必須**)設定する静的セカンダリ DNS。 |
+| SubnetMask | (*IPAddress* が null でない場合は**必須**) 静的サブネット マスク。 |
+| DefaultGateway | (*IPAddress* が null でない場合は**必須**) 既定の静的ゲートウェイ。 |
+| PrimaryDNS | (*IPAddress* が null でない場合は**必須**) 設定する静的プライマリ DNS。 |
+| SecondayDNS | (*PrimaryDNS* が null でない場合は**必須**) 設定する静的セカンダリ DNS。 |
 
 わかりやすくするために、インターフェイスを DHCP に設定するには、ネットワーク上の `AdapterName` のみをシリアル化します。
 
@@ -3057,14 +3057,14 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |
+| 200 | OK |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -3120,14 +3120,14 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |
+| 200 | OK |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -3151,7 +3151,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | URI パラメーター | 説明 |
 | :------          | :------ |
-| interface   | (**必須**) ワイヤレス ネットワークの検索に使用するネットワーク インターフェイスの GUID (括弧は不要)。 |
+| インターフェイス   | (**必須**) ワイヤレス ネットワークの検索に使用するネットワーク インターフェイスの GUID (括弧は不要)。 |
 
 **要求ヘッダー**
 
@@ -3191,14 +3191,14 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |
+| 200 | OK |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -3222,7 +3222,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | URI パラメーター | 説明 |
 | :------          | :------ |
-| interface   | (**必須**) ネットワークへの接続に使用するネットワーク インターフェイスの GUID。 |
+| インターフェイス   | (**必須**) ネットワークへの接続に使用するネットワーク インターフェイスの GUID。 |
 | op   | (**必須**) 実行するアクションを示します。 設定可能な値は、connect または disconnect です。|
 | ssid   | ( ***op* == connect の場合は必須**) 接続先 SSID。 |
 | key   | ( ***op* == connect で、ネットワークで認証が必要な場合は必須**) 共有キー。 |
@@ -3244,12 +3244,12 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |
+| 200 | OK |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -3273,7 +3273,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | URI パラメーター | 説明 |
 | :------          | :------ |
-| interface   | (**必須**) 削除するプロファイルに関連付けられたネットワーク インターフェイスの GUID。 |
+| インターフェイス   | (**必須**) 削除するプロファイルに関連付けられたネットワーク インターフェイスの GUID。 |
 | プロファイル   | (**必須**) 削除するプロファイルの名前。 |
 
 **要求ヘッダー**
@@ -3292,12 +3292,12 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |
+| 200 | OK |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -3326,8 +3326,8 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | URI パラメーター | 説明 |
 | :------          | :------ |
 | ユーザー   | (**必須**) レポートに関連付けられたユーザー名。 |
-| type   | (**必須**) レポートの種類。 これは **queried** または **archived** のいずれかになります。 |
-| 名前   | (**必須**) レポートの名前。 base64 でエンコードされている必要があります。 |
+| 型   | (**必須**) レポートの種類。 これは **queried** または **archived** のいずれかになります。 |
+| name   | (**必須**) レポートの名前。 base64 でエンコードされている必要があります。 |
 | ファイル   | (**必須**) レポートからダウンロードするファイルの名前。 base64 でエンコードされている必要があります。 |
 
 **要求ヘッダー**
@@ -3348,13 +3348,13 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |
+| 200 | OK |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -3378,8 +3378,8 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | URI パラメーター | 説明 |
 | :------          | :------ |
 | ユーザー   | (**必須**) レポートに関連付けられたユーザー。 |
-| type   | (**必須**) レポートの種類。 これは **queried** または **archived** のいずれかになります。 |
-| 名前   | (**必須**) レポートの名前。 base64 でエンコードされている必要があります。 |
+| 型   | (**必須**) レポートの種類。 これは **queried** または **archived** のいずれかになります。 |
+| name   | (**必須**) レポートの名前。 base64 でエンコードされている必要があります。 |
 
 **要求ヘッダー**
 
@@ -3404,13 +3404,13 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |
+| 200 | OK |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -3463,13 +3463,13 @@ WER 報告の形式は次のとおりです。
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |
+| 200 | OK |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -3519,14 +3519,14 @@ WPR セッション状態の形式は次のとおりです。
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |
+| 200 | OK |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -3576,14 +3576,14 @@ WPR セッション状態の形式は次のとおりです。
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |
+| 200 | OK |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -3614,7 +3614,7 @@ WPR セッション状態の形式は次のとおりです。
 
 **応答**
 
--  なし。  **注:** これは時間のかかる処理です。  ETL のディスクへの書き込みが終了すると、制御が戻ります。
+-  なし。  **注:** これは時間のかかる操作です。  ETL のディスクへの書き込みが終了すると、制御が戻ります。
 
 **状態コード**
 
@@ -3622,14 +3622,14 @@ WPR セッション状態の形式は次のとおりです。
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |
+| 200 | OK |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -3679,14 +3679,14 @@ WPR セッション状態の形式は次のとおりです。
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |
+| 200 | OK |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -3717,7 +3717,7 @@ WPR セッション状態の形式は次のとおりです。
 
 **応答**
 
-- なし。  **注:** これは時間のかかる処理です。  ETL のディスクへの書き込みが終了すると、制御が戻ります。  
+- なし。  **注:** これは時間のかかる操作です。  ETL のディスクへの書き込みが終了すると、制御が戻ります。  
 
 **状態コード**
 
@@ -3725,14 +3725,14 @@ WPR セッション状態の形式は次のとおりです。
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |
+| 200 | OK |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -3778,14 +3778,14 @@ WPR トレース セッションの状態の形式は次のとおりです。
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |
+| 200 | OK |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -3836,14 +3836,14 @@ WPR トレース セッションの状態の形式は次のとおりです。
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |
+| 200 | OK |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -3886,14 +3886,14 @@ WPR トレース セッションの状態の形式は次のとおりです。
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |
+| 200 | OK |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -3936,14 +3936,14 @@ WPR トレース セッションの状態の形式は次のとおりです。
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |
+| 200 | OK |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -3993,14 +3993,14 @@ WPR トレース セッションの状態の形式は次のとおりです。
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |
+| 200 | OK |
 | 5XX | サーバー エラー |
 
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -4039,14 +4039,14 @@ DNS-SD によって現在アドバタイズされているすべてのタグを�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |
+| 200 | OK |
 | 5XX | サーバー エラー |
 
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -4087,13 +4087,13 @@ DNS-SD によって現在アドバタイズされている 1 つのタグを削�
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |
+| 200 | OK |
 
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -4134,14 +4134,14 @@ DNS-SD アドバタイズにタグを追加します。
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |
+| 200 | OK |
 | 401 | タグ領域のオーバーフロー。  提供されたタグが、結果として生成される DNS-SD サービス レコードに対して長すぎます。 |
 
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -4191,10 +4191,10 @@ DNS-SD アドバタイズにタグを追加します。
 | 5XX | エラー コード |
 
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * Xbox
 * IoT
@@ -4248,14 +4248,14 @@ DNS-SD アドバタイズにタグを追加します。
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |
+| 200 | OK |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * Xbox
 * IoT
@@ -4298,13 +4298,13 @@ DNS-SD アドバタイズにタグを追加します。
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
 | 200 | 要求したファイル |
-| 404 | ファイルが見つかりません |
+| 404 | ファイルが見つからない |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * Xbox
 * IoT
@@ -4350,14 +4350,14 @@ DNS-SD アドバタイズにタグを追加します。
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |の順に移動します。 ファイルの名前が変更されました
-| 404 | ファイルが見つかりません |
+| 200 | OK |。 ファイルの名前が変更されました
+| 404 | ファイルが見つからない |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * Xbox
 * IoT
@@ -4401,14 +4401,14 @@ DNS-SD アドバタイズにタグを追加します。
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |の順に移動します。 ファイルが削除されます。 |
-| 404 | ファイルが見つかりません |
+| 200 | OK |。 ファイルが削除されます。 |
+| 404 | ファイルが見つからない |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * Xbox
 * IoT
@@ -4449,14 +4449,14 @@ DNS-SD アドバタイズにタグを追加します。
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | [OK] を選びます |の順に移動します。 ファイルがアップロードされます。 |
+| 200 | OK |。 ファイルがアップロードされます。 |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイスファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * Xbox
 * IoT

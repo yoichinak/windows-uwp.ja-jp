@@ -3,12 +3,12 @@ title: バージョン アダプティブ コード
 description: ApiInformation を使って、以前のバージョンとの互換性を保ちながら新しい API を利用します
 ms.date: 02/08/2017
 ms.topic: article
-keywords: Windows 10, UWP
+keywords: windows 10, uwp
 ms.assetid: 3293e91e-6888-4cc3-bad3-61e5a7a7ab4e
 ms.localizationpriority: medium
 ms.openlocfilehash: 2c03475c0c4007508a18c17645dbe99eeb7d6cb0
 ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/06/2020
 ms.locfileid: "75681983"
@@ -21,7 +21,7 @@ ApiInformation に関する重要な背景情報、API コントラクト、Visu
 
 ### <a name="runtime-api-checks"></a>ランタイム API チェック
 
-呼び出す API が存在するかどうかをテストするために、コードの条件で [Windows.Foundation.Metadata.ApiInformation](https://docs.microsoft.com/uwp/api/windows.foundation.metadata.apiinformation) クラスを使います。 このテストの条件は、アプリの実行時に必ず評価されますが、API が存在するデバイスに対してのみ **true** と評価され、呼び出しが可能になります。 これにより、特定の OS バージョンでのみ利用できる API を使うアプリを作成するためのバージョン アダプティブ コードを記述できます。
+呼び出す API が存在するかどうかをテストするには、コード内の条件で [Windows.Foundation.Metadata.ApiInformation](https://docs.microsoft.com/uwp/api/windows.foundation.metadata.apiinformation) クラスを使います。 この条件は、アプリがどこで実行された場合でも評価されますが、API が存在して呼び出すことができるデバイスでのみ **true** と評価されます。 これにより、特定の OS バージョンでのみ利用できる API を使うアプリを作成するためのバージョン アダプティブ コードを記述できます。
 
 ここでは、Windows Insider Preview の新機能をターゲットにするための具体的な例を示します。 **ApiInformation** を使う場合の一般的な概要については、[デバイス ファミリの概要に関する記事](https://docs.microsoft.com/uwp/extension-sdks/device-families-overview#writing-code)と [API コントラクトを使った機能の動的な検出に関するブログの投稿](https://blogs.windows.com/buildingapps/2015/09/15/dynamically-detecting-features-with-api-contracts-10-by-10/)をご覧ください。
 
@@ -42,7 +42,7 @@ ApiInformation に関する重要な背景情報、API コントラクト、Visu
 
 ここで、以下のオプションを比較します。
 
-**アプリコード**
+**アプリケーション コード**
 
 使う状況:
 - すべてのアダプティブ コード シナリオにお勧めします。ただし、拡張可能なトリガー用に以下に定義されている特定のケースは除きます。
@@ -71,9 +71,9 @@ ApiInformation に関する重要な背景情報、API コントラクト、Visu
 
 このセクションでは、Windows 10 バージョン 1607 (Windows Insider Preview) で新しく追加された API を使うアダプティブ コードの例をいくつか示します。
 
-### <a name="example-1-new-enum-value"></a>例 1: 新しい列挙値
+### <a name="example-1-new-enum-value"></a>例 1:新しい列挙値
 
-Windows 10 バージョン 1607 では、[InputScopeNameValue](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.inputscopenamevalue) 列挙体に新しい値 **ChatWithoutEmoji** が追加されています。 この新しい入力スコープの入力動作は、**Chat** 入力スコープ (スペルチェック、オートコンプリート、大文字の自動設定) と同じですが、絵文字ボタンのないタッチ キーボードにマップされます。 これは、独自の絵文字ピッカーを作成し、タッチ キーボードに組み込まれている絵文字ボタンを無効にする場合に便利です。 
+Windows 10 バージョン 1607 では、[InputScopeNameValue](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.inputscopenamevalue) 列挙体に新しい値の**ChatWithoutEmoji** が追加されています。 この新しい入力スコープの入力動作は、**Chat** 入力スコープ (スペルチェック、オートコンプリート、大文字の自動設定) と同じですが、絵文字ボタンのないタッチ キーボードにマップされます。 これは、独自の絵文字ピッカーを作成し、タッチ キーボードに組み込まれている絵文字ボタンを無効にする場合に便利です。 
 
 次の例は、**ChatWithoutEmoji** 列挙値が存在するかどうかを確認し、存在する場合は **TextBox** の [InputScope](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.inputscope) プロパティを設定する方法を示しています。 アプリが実行されているシステムにこの列挙値が存在しない場合、**InputScope** は **Chat** に設定されます。 ここに示されているコードは、Page コンストラクターまたは Page.Loaded イベント ハンドラーに配置できます。
 
@@ -303,7 +303,7 @@ public MainPage()
 
 コントロール上のプロパティ値や列挙値の変更など、残りの UI に影響しない、異なる OS バージョン間での小さな UI の変更がある場合のみ、アダプティブ コードに状態トリガーを使ってください。
 
-### <a name="example-1-new-property"></a>例 1: 新しいプロパティ
+### <a name="example-1-new-property"></a>例 1:新しいプロパティ
 
 拡張可能な状態トリガーを設定する最初の手順は、[StateTriggerBase](https://docs.microsoft.com/uwp/api/windows.ui.xaml.statetriggerbase) クラスのサブクラスを作成して、API の有無に基づいてアクティブになるカスタム トリガーを作成することです。 この例は、プロパティの有無が XAML に設定されている `_isPresent` 変数に一致する場合にアクティブ化されるトリガーを示しています。
 
@@ -445,5 +445,5 @@ class IsEnumPresentTrigger : StateTriggerBase
 
 ## <a name="related-articles"></a>関連記事
 
-- [デバイスファミリの概要](https://docs.microsoft.com/uwp/extension-sdks/device-families-overview)
-- [API コントラクトを使用して機能を動的に検出する](https://blogs.windows.com/buildingapps/2015/09/15/dynamically-detecting-features-with-api-contracts-10-by-10/)
+- [デバイス ファミリの概要](https://docs.microsoft.com/uwp/extension-sdks/device-families-overview)
+- [API コントラクトを使った機能の動的な検出](https://blogs.windows.com/buildingapps/2015/09/15/dynamically-detecting-features-with-api-contracts-10-by-10/)

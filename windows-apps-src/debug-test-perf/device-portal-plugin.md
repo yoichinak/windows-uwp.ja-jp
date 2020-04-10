@@ -4,11 +4,11 @@ title: Device Portal 用のカスタム プラグインの作成
 description: Windows Device Portal を使用して Web ページをホストし、診断情報を提供する UWP アプリを作成する方法について説明します。
 ms.date: 03/24/2017
 ms.topic: article
-keywords: windows 10、uwp、デバイスポータル
+keywords: windows 10, uwp, デバイス ポータル
 ms.localizationpriority: medium
 ms.openlocfilehash: 4881fe961979243849728d3f835c449e0f71f4b4
 ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/06/2020
 ms.locfileid: "75683845"
@@ -22,7 +22,7 @@ Creators Update 以降では、Device Portal を使用してアプリの診断�
 ## <a name="create-a-new-uwp-app-project"></a>新しい UWP アプリ プロジェクトを作成する
 このガイドでは、わかりやすくするためにすべてを 1 つのソリューションで作成します。
 
-Microsoft Visual Studio 2019 で、新しい UWP アプリプロジェクトを作成します。 [ファイル] > [新しい > プロジェクト] の順に選択し、[ C#空のアプリ (Windows ユニバーサル)] を選択して [次へ] をクリックします。 [新しいプロジェクトの構成] ダイアログボックスを使用します。 プロジェクトに "DevicePortalProvider" という名前を指定し、[作成] をクリックします。 これは、アプリ サービスを格納するアプリです。 Windows 10 の作成者の更新プログラム (10.0;ビルド 15063) "をサポートします。  Visual Studio の更新や新しい SDK のインストールが必要になる場合があります。詳しくは、[こちら](https://blogs.windows.com/buildingapps/2017/04/05/updating-tooling-windows-10-creators-update/)をご覧ください。 
+Microsoft Visual Studio 2019 で、新しい UWP アプリ プロジェクトを作成します。 [ファイル] > [新規] > [プロジェクト] の順に選択し、C# に空のアプリ (Windows ユニバーサル) を選択して [次へ] をクリックします。 [新しいプロジェクトの構成] ダイアログ ボックスで、 プロジェクトに "DevicePortalProvider" という名前を指定し、[作成] をクリックします。 これは、アプリ サービスを格納するアプリです。 サポートする "Windows 10 Creators Update (10.0、ビルド 15063)" を確実に選択します。  Visual Studio の更新や新しい SDK のインストールが必要になる場合があります。詳しくは、[こちら](https://blogs.windows.com/buildingapps/2017/04/05/updating-tooling-windows-10-creators-update/)をご覧ください。 
 
 ## <a name="add-the-deviceportalprovider-extension-to-your-packageappxmanifest-file"></a>package.appxmanifest ファイルに devicePortalProvider 拡張機能を追加する
 アプリを Device Portal プラグインとして機能させるために、*package.appxmanifest* ファイルにコードを追加する必要があります。 最初に、ファイルの先頭に次の名前空間の定義を追加します。 また、これらを `IgnorableNamespaces` 属性にも追加します。
@@ -108,7 +108,7 @@ public void Run(IBackgroundTaskInstance taskInstance) {
 }
 ```
 
-要求処理ループを完了するために、アプリによって処理される必要がある2つのイベントがあります: **Closed**、デバイスポータルサービスがシャットダウンするたび、および受信 HTTP 要求を表示し、デバイスポータルプロバイダーの主な機能を提供する[**requestreceived**](https://docs.microsoft.com/uwp/api/windows.system.diagnostics.deviceportal.deviceportalconnectionrequestreceivedeventargs)。 
+要求処理ループを完了するには、次の 2 つのイベントがアプリによって処理される必要があります。Device Portal サービスがシャットダウンするたびに発生する **Closed** と、着信 HTTP 要求を処理し、Device Portal プロバイダーのメイン機能を提供する [**RequestReceived**](https://docs.microsoft.com/uwp/api/windows.system.diagnostics.deviceportal.deviceportalconnectionrequestreceivedeventargs) です。 
 
 ## <a name="handle-the-requestreceived-event"></a>RequestReceived イベントを処理する
 **RequestReceived** イベントは、プラグインの指定されたハンドラー ルートで行われる各 HTTP 要求について 1 回生成されます。 Device Portal プロバイダーの要求処理ループは、NodeJS Express での要求処理ループと似ています。イベントと共に要求と応答のオブジェクトが提供され、ハンドラーは応答オブジェクトを入力することで応答します。 Device Portal プロバイダーでは、**RequestReceived** イベントとそのハンドラーが [**Windows.Web.Http.HttpRequestMessage**](https://docs.microsoft.com/uwp/api/windows.web.http.httprequestmessage) オブジェクトと [**HttpResponseMessage**](https://docs.microsoft.com/uwp/api/windows.web.http.httpresponsemessage) オブジェクトを使用します。   
@@ -188,7 +188,7 @@ Device Portal プロバイダーによって提供される静的コンテンツ
 2.  [デバッグ] タブの [開始動作] で、[起動しないが、開始時にマイ コードをデバッグする] を選択します。  
 ![プラグインをデバッグ モードにする](images/device-portal/plugin-debug-mode.png)
 3.  RequestReceived ハンドラー関数にブレークポイントを設定します。
-requestreceived ハンドラーの ![ブレークポイント](images/device-portal/plugin-requestreceived-breakpoint.png)
+![RequestReceived ハンドラーでのブレークポイント](images/device-portal/plugin-requestreceived-breakpoint.png)
 > [!NOTE] 
 > ビルドのアーキテクチャがターゲットのアーキテクチャと正確に一致することを確認してください。 64 ビット PC を使用している場合は、AMD64 ビルドを使って展開する必要があります。 
 4.  F5 キーを押してアプリを展開します。
@@ -196,7 +196,7 @@ requestreceived ハンドラーの ![ブレークポイント](images/device-por
 6.  ブラウザーで、プロバイダーの名前空間にアクセスすると、ブレークポイントにヒットします。
 
 ## <a name="related-topics"></a>関連トピック
-* [Windows デバイスポータルの概要](device-portal.md)
+* [Windows Device Portal の概要](device-portal.md)
 * [App Service の作成と利用](https://docs.microsoft.com/windows/uwp/launch-resume/how-to-create-and-consume-an-app-service)
 
 

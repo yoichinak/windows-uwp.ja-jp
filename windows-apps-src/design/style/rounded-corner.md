@@ -4,12 +4,12 @@ description: 角の丸めの原則、デザイン方法、カスタマイズ オ
 ms.date: 10/08/2019
 ms.topic: article
 keywords: windows 10, uwp, 角の半径, 丸め
-ms.openlocfilehash: 84cd27bf8c65ed65a6ee2b0f044e0ffb3ef86bf0
-ms.sourcegitcommit: 49af415e4eefea125c023b7071adaa5dc482e223
+ms.openlocfilehash: a83473b5ad836633bc195aa2b5afe87fa092e0ee
+ms.sourcegitcommit: 3c3730e968fba89b21459390735614cd4c9d9c67
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74799926"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80320429"
 ---
 # <a name="corner-radius"></a>角の半径
 
@@ -40,7 +40,7 @@ WinUI 2.2 以降の NuGet パッケージをインストールすると、WinUI 
 **コントロール**
 
 - AutoSuggestBox
-- Button
+- ボタン
   - ContentDialog のボタン
 - CalendarDatePicker
 - チェック ボックス
@@ -180,9 +180,21 @@ WinUI 2.2 以降の NuGet パッケージをインストールすると、WinUI 
 
 選択したいくつかのコントロールの丸みだけを変更したい場合、対象のコントロールの [CornerRadius](/uwp/api/windows.ui.xaml.controls.control.cornerradius) プロパティを直接変更することができます。
 
-|Default | 変更されたプロパティ |
+|既定 | 変更されたプロパティ |
 |:-- |:-- |
 |![DefaultCheckBox](images/rounded-corner/default-checkbox.png)| ![CustomCheckBox](images/rounded-corner/custom-checkbox.png)|
 |`<CheckBox Content="Checkbox"/>` | `<CheckBox Content="Checkbox" CornerRadius="5"/> ` |
 
 コントロールの `CornerRadius` プロパティを変更しても、すべてのコントロールの角に効果が発揮されるわけではありません。 角を丸めたいコントロールについて、`CornerRadius` プロパティの効果が実際に、また期待どおりに発揮されるようにするには、まず、`ControlCornerRadius` または `OverlayCornerRadius` グローバル リソースが対象のコントロールに影響を及ぼすことを確認します。 影響が及ばない場合、丸めたいコントロールに実際に角があることを確認してください。 コントロールの多くは実際の境界をレンダリングせず、したがって `CornerRadius` プロパティを適切に使用できません。
+
+### <a name="basing-custom-styles-on-winui"></a>WinUI でのカスタム スタイルの基本
+
+スタイルに適切な `BasedOn` 属性を指定することで、WinUI の角を丸めたスタイルに基づいてカスタム スタイルを作成できます。 たとえば、WinUI ボタン スタイルに基づいてカスタム ボタン スタイルを作成するには、次の手順を行います。
+
+```xaml
+<Style x:Key="MyCustomButtonStyle" BasedOn="{StaticResource DefaultButtonStyle}">
+   ...
+</Style>
+```
+
+通常、WinUI コントロール スタイルでは、次のような一貫した名前付け規則に従います: "DefaultXYZStyle"。この場合、"XYZ" はコントロールの名前です。 完全参照の場合は、WinUI リポジトリ内の XAML ファイルを参照できます。
