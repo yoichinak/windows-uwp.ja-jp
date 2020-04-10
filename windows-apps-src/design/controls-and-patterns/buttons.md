@@ -13,12 +13,12 @@ dev-contact: mitra
 doc-status: Published
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: a3cd8a0c988df08047b10911a4d4f55e3ba1cb6e
-ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
+ms.openlocfilehash: e098283bae6f58b927892c680a4981d83f9e31e8
+ms.sourcegitcommit: af4050f69168c15b0afaaa8eea66a5ee38b88fed
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79209307"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80081384"
 ---
 # <a name="buttons"></a>ボタン
 
@@ -33,20 +33,22 @@ Control | 説明
 [ボタン](/uwp/api/windows.ui.xaml.controls.button) | 直ちに操作を開始しするボタン。 [Click](/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.click) イベントまたは[コマンド](/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.command) バインディングと共に使用することができます。
 [RepeatButton](/uwp/api/windows.ui.xaml.controls.primitives.repeatbutton) | 押されている間は継続的に [Click](/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.click) イベントを発生させるボタン。
 [HyperlinkButton](/uwp/api/windows.ui.xaml.controls.hyperlinkbutton) | ハイパーリンクのようなスタイルに設定された、ナビゲーションに使用されるボタン。 ハイパーリンクについて詳しくは、「[ハイパーリンク](hyperlinks.md)」をご覧ください。
-[DropDownButton](/uwp/api/windows.ui.xaml.controls.dropdownbutton) | アタッチされたポップアップを開くシェブロンが付いたボタン。
-[SplitButton](/uwp/api/windows.ui.xaml.controls.splitbutton) | 2 つの側面を持つボタン。 一方の側に操作を示し、もう一方の側でメニューを開きます。
-[ToggleSplitButton](/uwp/api/windows.ui.xaml.controls.togglesplitbutton) | 2 つの側面を持つトグル ボタン。 一方の側でオンとオフを切り替え、もう一方の側でメニューを開きます。
+[DropDownButton](/uwp/api/windows.ui.xaml.controls.dropdownbutton) | ![WinUI ロゴ](images/winui-logo-16x16.png) アタッチされたポップアップを開くシェブロンが付いたボタン。
+[SplitButton](/uwp/api/windows.ui.xaml.controls.splitbutton) | ![WinUI ロゴ](images/winui-logo-16x16.png) 2 つの側面を持つボタン。 一方の側に操作を示し、もう一方の側でメニューを開きます。
+[ToggleSplitButton](/uwp/api/windows.ui.xaml.controls.togglesplitbutton) | ![WinUI ロゴ](images/winui-logo-16x16.png) 2 つの側面を持つトグル ボタン。 一方の側でオンとオフを切り替え、もう一方の側でメニューを開きます。
 [ToggleButton](/uwp/api/windows.ui.xaml.controls.primitives.togglebutton) | オンまたはオフにできるボタン。
 
-| **Windows UI ライブラリを入手する** |
-| - |
-| **DropDownButton**、**SplitButton**、**ToggleSplitButton** は、Windows UI ライブラリの NuGet パッケージの一部として組み込まれており、パッケージには、UWP アプリの新しいコントロールと UI 機能が含まれています。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+**Windows UI ライブラリを入手する**
 
-| **プラットフォーム API** | **Windows UI ライブラリ API** |
+|  |  |
 | - | - |
-| [Click イベント](/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.click)<br/> [Command プロパティ](/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.command) | [DropDownButton クラス](/uwp/api/microsoft.ui.xaml.controls.dropdownbutton)<br/> [SplitButton クラス](/uwp/api/microsoft.ui.xaml.controls.splitbutton)<br/> [ToggleSplitButton クラス](/uwp/api/microsoft.ui.xaml.controls.togglesplitbutton) |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | **DropDownButton**、**SplitButton**、**ToggleSplitButton** は、Windows UI ライブラリの NuGet パッケージの一部として組み込まれており、パッケージには、UWP アプリの新しいコントロールと UI 機能が含まれています。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
 
-## <a name="is-this-the-right-control"></a>適切なコントロールの選択
+> **Windows UI ライブラリ API:** [DropDownButton クラス](/uwp/api/microsoft.ui.xaml.controls.dropdownbutton)、[SplitButton クラス](/uwp/api/microsoft.ui.xaml.controls.splitbutton)、[ToggleSplitButton クラス](/uwp/api/microsoft.ui.xaml.controls.togglesplitbutton)
+>
+> **プラットフォーム API:** [Click イベント](/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.click)、[Command プロパティ](/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.command)
+
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 **Button** コントロールを使用すると、ユーザーは直ちに操作を開始できます (フォームの送信など)。
 
@@ -68,7 +70,7 @@ Control | 説明
 <table>
 <th align="left">XAML コントロール ギャラリー<th>
 <tr>
-<td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td><img src="images/xaml-controls-gallery-app-icon-sm.png" alt="XAML controls gallery"></img></td>
 <td>
     <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong>がインストールされている場合、こちらをクリックして<a href="xamlcontrolsgallery:/item/Button">アプリを開き、Button の動作を確認</a>してください。</p>
     <ul>

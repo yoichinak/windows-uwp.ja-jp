@@ -1,12 +1,12 @@
 ---
 title: ユニバーサル Windows プラットフォーム (UWP) アプリにおけるガイド付き最適化のプロファイル (PGO) の実行
-description: ユニバーサル Windows プラットフォーム (UWP) アプリにガイド付き最適化のプロファイル (PGO) を適用する手順について説明します。
+description: ユニバーサル Windows プラットフォーム (UWP) アプリに対してガイド付き最適化のプロファイル (PGO) を適用するための手順を説明するガイドです。
 ms.date: 02/08/2017
 ms.localizationpriority: medium
 ms.topic: article
 ms.openlocfilehash: c784812d2e070aba0857cb84e5729b1426717b8d
 ms.sourcegitcommit: 05be6929cd380a9dd241cc1298fd53f11c93d774
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 10/30/2019
 ms.locfileid: "73062366"
@@ -17,7 +17,7 @@ ms.locfileid: "73062366"
 
 Visual Studio 2015 Update 3 を使用して既定の DirectX 11 アプリ (UWP) テンプレートに PGO を適用する方法の基本的なチュートリアルを次に示します。
  
-このガイド全体のスクリーンショットは、次の新しいプロジェクトに基づいています: ![新しいプロジェクト ダイアログ](images/pgo-001.png)
+このガイド全体にわたって、スクリーンショットは次の新しいプロジェクトに基づきます。![[新しいプロジェクト] ダイアログ ボックス](images/pgo-001.png)
 
 PGO を DirectX 11 アプリ テンプレートに適用するには、次の手順に従います。
 
@@ -67,9 +67,9 @@ PGO を DirectX 11 アプリ テンプレートに適用するには、次の手
   pgosweep.exe App1.exe "C:\Users\<USER>\Documents\Visual Studio 2015\Projects\App1\Release\App1\App1!1.pgc"
   ```
  
-  さらに収集する場合は、`App1!CoreScenario.pgc`、`App1!UseCase5.pgc` などのようにもできます.pgc の名前をこのように付け、ビルドの出力場所が .pgd の隣である場合、手順 9 でリンクするときに自動的にマージされます。
+  さらに収集する場合は、`App1!CoreScenario.pgc`、`App1!UseCase5.pgc` などのようにもできます。.pgc の名前をこのように付け、ビルドの出力場所が .pgd の隣である場合、手順 9 でリンクするときに自動的にマージされます。
  
-8. 省略可能: 既定では、手順 7 で指定したように名前を付け、.pgd の隣に配置した .pgc ファイルはすべて、リンクするときにマージされ、平等に重み付けされますが、特定の実行に重みを付ける方法をより詳細に制御することもできます。 これを行うには、**pgomgr.exe** ツールを使用します。このツールも、最初に `pgort140.dll` のコピーを見つけたフォルダーと同じフォルダーにあります。 たとえば、`CoreScenario` の実行を他の実行の優先度の 3 倍でマージするには、次のコマンドを使用します。
+8. 省略可能:既定では、手順 7 で指定したように名前を付け、.pgd の隣に配置した .pgc ファイルはすべて、リンクするときにマージされ、平等に重み付けされますが、特定の実行に重みを付ける方法をより詳細に制御することもできます。 これを行うには、**pgomgr.exe** ツールを使用します。このツールも、最初に `pgort140.dll` のコピーを見つけたフォルダーと同じフォルダーにあります。 たとえば、`CoreScenario` の実行を他の実行の優先度の 3 倍でマージするには、次のコマンドを使用します。
  
  ```
  pgomgr.exe -merge:3 "C:\Users\<USER>\Documents\Visual Studio 2015\Projects\App1\Release\App1\App1!CoreScenario.pgc" "C:\Users\<USER>\Documents\Visual Studio 2015\Projects\App1\Release\App1\App1.pgd"

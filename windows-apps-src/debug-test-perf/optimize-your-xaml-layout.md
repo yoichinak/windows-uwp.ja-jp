@@ -1,14 +1,14 @@
 ---
 ms.assetid: 79CF3927-25DE-43DD-B41A-87E6768D5C35
 title: XAML レイアウトの最適化
-description: レイアウトは、XAML アプリの高価な部分を指定できます (& a)\#8212; 両方の CPU 使用率とメモリのオーバーヘッド。 ここでは、XAML アプリのレイアウトのパフォーマンスを向上させるための簡単な手順を示します。
+description: レイアウトは、CPU 使用率とメモリ オーバーヘッドの両方で、XAML アプリの負荷の高い部分です。 ここでは、XAML アプリのレイアウトのパフォーマンスを向上させるための簡単な手順を示します。
 ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: 92dca27a4cfb02f5d1bcb722683eca89ec16a6d6
 ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 05/29/2019
 ms.locfileid: "66362223"
@@ -18,7 +18,7 @@ ms.locfileid: "66362223"
 
 **重要な API**
 
--   [**パネル**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Panel)
+-   [**Panel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Panel)
 
 レイアウトは、UI の視覚的な構造を定義するプロセスです。 XAML でレイアウトを記述するための主要なメカニズムはパネルです。パネルは、UI 要素を内部に配置して整列できるコンテナー オブジェクトです。 レイアウトは、CPU 使用率とメモリ オーバーヘッドの両方で、XAML アプリの負荷の高い部分です。 ここでは、XAML アプリのレイアウトのパフォーマンスを向上させるための簡単な手順を示します。
 
@@ -42,7 +42,7 @@ ms.locfileid: "66362223"
 
 これらの例では、同じ UI を実装するための 3 つの方法を示しています。 どの実装を選択した場合も画面上のピクセル数をほぼ同じ結果になりますが、実装の詳細は大きく異なります。
 
-オプション 1:入れ子になった[ **StackPanel** ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.StackPanel)要素
+オプション 1:入れ子になった [**StackPanel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.StackPanel) 要素
 
 これは最も簡単なモデルですが、5 つのパネル要素を使用し、大きなオーバーヘッドが生じます。
 
@@ -70,7 +70,7 @@ ms.locfileid: "66362223"
 </StackPanel>
 ```
 
-オプション 2:1 つ[**グリッド**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid)
+オプション 2:1 つの [**Grid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid)
 
 [  **Grid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid) は多少複雑になりますが、1 つのパネル要素のみを使用します。
 
@@ -103,7 +103,7 @@ ms.locfileid: "66362223"
 </Grid>
 ```
 
-オプション 3: 1 つ[ **RelativePanel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RelativePanel):
+オプション 3: 1 つの [**RelativePanel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RelativePanel):
 
 この 1 つのパネルも、入れ子になったパネルを使用する場合よりも少し複雑ですが、[**Grid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid) よりも理解しやすく、保守が容易になる可能性があります。
 
@@ -134,7 +134,7 @@ ms.locfileid: "66362223"
 
 一般的な UI 要件として、要素が互いに重なり合ったレイアウトがあります。 通常、この方法で要素を配置するために、パディング、余白、整列、変換が使用されます。 XAML [**Grid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid) コントロールは、重なり合った要素のレイアウトのパフォーマンスを向上させるために最適化されています。
 
-**重要な**  改善を表示するには、1 つのセルを使用して、 [**グリッド**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid)します。 [  **RowDefinitions**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.grid.rowdefinitions) や [**ColumnDefinitions**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.grid.columndefinitions) は定義しないでください。
+**重要**  パフォーマンスの向上を確認するために、単一セルの [**Grid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid) を使用します。 [  **RowDefinitions**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.grid.rowdefinitions) や [**ColumnDefinitions**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.grid.columndefinitions) は定義しないでください。
 
 ### <a name="examples"></a>例
 
@@ -160,7 +160,7 @@ ms.locfileid: "66362223"
 
 ## <a name="use-a-panels-built-in-border-properties"></a>パネルの組み込みの境界線プロパティを使う
 
-[**グリッド**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid)、 [ **StackPanel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.StackPanel)、 [ **RelativePanel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RelativePanel)、および[ **ContentPresenter** ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ContentPresenter)コントロールを追加せずには、周囲に境界線を描画できる組み込みの罫線のプロパティがある[**境界線**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Border)要素XAML です。 組み込みの境界線をサポートする新しいプロパティは次のとおりです。**BorderBrush**、 **BorderThickness**、**コーナー**、および**Padding**します。 これらはそれぞれ [**DependencyProperty**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.DependencyProperty) であり、バインディングやアニメーションで使用することができます。 これらは、個別の **Border** 要素を完全に置き換えるように設計されています。
+[**Grid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid)、[**StackPanel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.StackPanel)、[**RelativePanel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RelativePanel)、[**ContentPresenter**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ContentPresenter) の各コントロールには組み込みの境界線プロパティがあり、XAML に [**Border**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Border) 要素を追加せずに周囲に境界線を描画できます。 組み込みの境界線をサポートする新しいプロパティは、**BorderBrush**、**BorderThickness**、**CornerRadius**、**Padding** です。 これらはそれぞれ [**DependencyProperty**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.DependencyProperty) であり、バインディングやアニメーションで使用することができます。 これらは、個別の **Border** 要素を完全に置き換えるように設計されています。
 
 UI でこれらのパネルの周囲に [**Border**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Border) 要素を使っている場合は、代わりに組み込みの境界線を使うことによって、アプリのレイアウト構造内で余分な要素を削減できます。 既に説明したように、特に繰り返される UI の場合は、大幅に要素を削減できます。
 
@@ -175,11 +175,11 @@ UI でこれらのパネルの周囲に [**Border**](https://docs.microsoft.com/
 
 ## <a name="use-sizechanged-events-to-respond-to-layout-changes"></a>**SizeChanged** イベントを使ってレイアウトの変更に応答する
 
-[ **FrameworkElement** ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.FrameworkElement)クラス レイアウトの変更に対応するための 2 つの類似イベントを公開します。[**LayoutUpdated** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.layoutupdated)と[ **SizeChanged**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.sizechanged)します。 レイアウト時に、要素のサイズが変更された場合、これらのイベントのいずれかを使用して通知を受信していることがあります。 2 つのイベントのセマンティクスは異なり、どちらを選択するかは、パフォーマンスに関する重要な考慮事項です。
+[**FrameworkElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.FrameworkElement) クラスは、レイアウト変更に応答するための次の 2 つの類似したイベントを公開します。[**LayoutUpdated**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.layoutupdated) と [**SizeChanged**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.sizechanged)。 レイアウト時に、要素のサイズが変更された場合、これらのイベントのいずれかを使用して通知を受信していることがあります。 2 つのイベントのセマンティクスは異なり、どちらを選択するかは、パフォーマンスに関する重要な考慮事項です。
 
 パフォーマンスを向上させるには、ほとんどの場合 [**SizeChanged**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.sizechanged) が適切な選択肢です。 **SizeChanged** のセマンティクスは直感的です。 このイベントは、レイアウト中に [**FrameworkElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.FrameworkElement) のサイズが更新されたときに発生します。
 
-[**LayoutUpdated** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.layoutupdated)レイアウト中に発生することもがグローバルのセマンティクスがあります: 任意の要素が更新されるたびにすべての要素に対して発生しました。 イベント ハンドラーではローカルな処理のみを行うことが一般的であり、この場合、コードは必要以上に頻繁に実行されます。 **LayoutUpdated** は、サイズを変更せずに要素が再配置されたことを知る必要がある場合 (一般的ではありません) にのみ使用します。
+[**LayoutUpdated**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.layoutupdated) もレイアウト時に発生しますが、そのセマンティクスはグローバルです。任意の要素が更新されるたびにすべての要素について発生します。 イベント ハンドラーではローカルな処理のみを行うことが一般的であり、この場合、コードは必要以上に頻繁に実行されます。 **LayoutUpdated** は、サイズを変更せずに要素が再配置されたことを知る必要がある場合 (一般的ではありません) にのみ使用します。
 
 ## <a name="choosing-between-panels"></a>パネルの選択
 
