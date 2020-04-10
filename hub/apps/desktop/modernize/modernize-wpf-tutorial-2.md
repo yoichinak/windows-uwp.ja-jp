@@ -8,21 +8,18 @@ author: mcleanbyron
 keywords: windows 10、uwp、windows フォーム、wpf、xaml islands
 ms.localizationpriority: medium
 ms.custom: RS5, 19H1
-ms.openlocfilehash: 945cc2f1cf225c194e5820990bdbeda584069e4c
-ms.sourcegitcommit: 1455e12a50f98823bfa3730c1d90337b1983b711
+ms.openlocfilehash: 6bb90fb9cbe7c9f54f60fd1920f0e73e174a3772
+ms.sourcegitcommit: df0cd9c82d1c0c17ccde424e3c4a6ff680c31a35
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76814042"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80482586"
 ---
 # <a name="part-2-add-a-uwp-inkcanvas-control-using-xaml-islands"></a>パート 2: XAML Islands を使用した UWP InkCanvas コントロールの追加
 
 これは、Contoso Expenses という名前のサンプル WPF デスクトップ アプリを最新化する方法を示すチュートリアルの 2 番目の部分です。 チュートリアルの概要、前提条件、サンプル アプリをダウンロードする手順については、「[チュートリアル:WPF アプリの最新化](modernize-wpf-tutorial.md)」を参照してください。 この記事では、読者が[パート 1](modernize-wpf-tutorial-1.md) を既に完了していることを前提にしています。
 
 このチュートリアルの架空のシナリオでは、Contoso 開発チームが Contoso の経費アプリにデジタル署名を追加したいと考えています。 このシナリオには、デジタル インクや AI を利用したテキストや図形認識機能などをサポートする UWP **InkCanvas** コントロールが適した選択肢です。 これを行うには、Windows コミュニティ ツールキットにある [InkCanvas](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/inkcanvas) でラップされた UWP コントロールを使用します。 このコントロールでは、WPF アプリで使用できるよう UWP **InkCanvas** コントロールのインターフェイスと機能がラップされています。 ラップされた UWP コントロールの詳細については、「[デスクトップ アプリで UWP XAML コントロールをホストする (XAML Islands)](xaml-islands.md)」を参照してください。
-
-> [!NOTE]
-> このチュートリアルでは、WPF アプリは Windows SDK のファーストパーティ UWP コントロールのみをホストします。 つまり、このチュートリアルでは、[ここ](host-standard-control-with-xaml-islands.md#required-components)で説明する、[Microsoft.Toolkit.Win32.UI.XamlHost.XamlApplication](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/tree/master/Microsoft.Toolkit.Win32.UI.XamlApplication) クラスのインスタンスを定義する手順が省略されています。
 
 ## <a name="configure-the-project-to-use-xaml-islands"></a>XAML Islands を使用するためのプロジェクトの構成
 
@@ -144,7 +141,7 @@ ms.locfileid: "76814042"
     Signature.InkPresenter.InputDeviceTypes = CoreInputDeviceTypes.Mouse | CoreInputDeviceTypes.Pen;
     ```
 
-    **InkPresenter** オブジェクトを使用し、既定のインク動作をカスタマイズします。 このコードでは、**InputDeviceTypes** プロパティを使用して、マウスおよびペン入力を有効にします。
+    **InkPresenter** オブジェクトを使用して、既定のインク エクスペリエンスをカスタマイズできます。 このコードでは、**InputDeviceTypes** プロパティを使用して、マウスおよびペン入力を有効にします。
 
 12. F5 キーを再度押して、デバッガーでアプリをリビルドして実行します。 一覧から従業員を選択し、使用可能な経費の 1 つを選択します。
 

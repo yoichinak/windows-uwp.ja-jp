@@ -8,12 +8,12 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: ae05a00cac19fdd349aa48160b88cde6b84e26b0
-ms.sourcegitcommit: 620e4a51e2486ec2cb7190176b3d9bf3d7b5b6af
+ms.openlocfilehash: 6b77cc7b2f39a987df4c832f7a8daeb7e2722def
+ms.sourcegitcommit: f2f61a43f5bc24b829e8db679ffaca3e663c00e9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78222028"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80588713"
 ---
 # <a name="grant-identity-to-non-packaged-desktop-apps"></a>パッケージ化されていないデスクトップ アプリに ID を付与する
 
@@ -124,7 +124,7 @@ Windows 10 Insider Preview Build 10.0.19000.0 以降では、アプリで*スパ
 次の例は、コマンド ラインからスパース パッケージを作成する方法を示しています。  
 
 ```Console
-MakeAppx.exe  pack  /d  <path to directory that contains manifest>  /p  <output path>\MyPackage.msix  /nv
+MakeAppx.exe pack /d <path to directory that contains manifest> /p <output path>\MyPackage.msix /nv
 ```
 
 スパース パッケージがターゲット コンピューターに正常にインストールされるようにするには、ターゲット コンピューター上で信頼されている証明書を使用してそのパッケージに署名する必要があります。 開発目的の新しい自己署名証明書を作成し、Windows SDK で使用できる [SignTool](https://docs.microsoft.com/windows/msix/package/sign-app-package-using-signtool) を使用してスパース パッケージに署名することができます。
@@ -132,7 +132,7 @@ MakeAppx.exe  pack  /d  <path to directory that contains manifest>  /p  <output 
 次の例は、コマンド ラインからスパース パッケージに署名する方法を示しています。
 
 ```Console
-SignTool.exe sign /fd SHA256 /a /f <path to certificate>\MyCertificate.pfx  /p <certificate password>  <path to sparse package>\MyPackage.msix
+SignTool.exe sign /fd SHA256 /a /f <path to certificate>\MyCertificate.pfx /p <certificate password> <path to sparse package>\MyPackage.msix
 ```
 
 ### <a name="add-the-package-identity-metadata-to-your-desktop-application-manifest"></a>デスクトップ アプリケーション マニフェストにパッケージ ID メタデータを追加する
