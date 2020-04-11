@@ -10,12 +10,12 @@ design-contact: rybick
 dev-contact: jevansa
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: c6995ab6116d4e3bda8e21c397ab3b4985732763
-ms.sourcegitcommit: 4fdab7be28aca18cb3879fc205eb49edc4f9a96b
+ms.openlocfilehash: 9739933f9fd23c6f169c24c4f789e53ba894708d
+ms.sourcegitcommit: 252dbf4483d58dd7093a79726a29923109eebee5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77639769"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80696629"
 ---
 # <a name="acrylic-material"></a>アクリル素材
 
@@ -76,15 +76,6 @@ XAML コントロール ギャラリー アプリがインストールされて�
 ナビゲーション サーフェスでアプリ内アクリルを使用する場合、アプリでのフローを向上させるために、アクリル ウィンドウの下でコンテンツを拡張することを検討してください。 NavigationView を使用すると、これが自動的に行われます。 ただし、ストライプ効果が生成されないようにするには、複数のアクリルを端と端を接して配置しないでください。これを行うと、2 つのぼやけたサーフェス間に不要な継ぎ目が作成される場合があります。 アクリルは、デザインで視覚的な調和をとるためのツールですが、正しく使用しないと、視覚的なノイズになる場合があります。
 
 次の使用パターンを検討して、アクリルをアプリに組み込むのに最適な方法を決定してください。
-
-### <a name="horizontal-navigation-or-commanding"></a>水平方向のナビゲーションまたはコマンド実行
-
-アプリでは NavigationView を利用できず、独自にアクリルを追加することを検討している場合は、比較的半透明なアクリル (濃淡の不透明度が 60%) を使用することをお勧めします。
- - ペインが他のアプリ コンテンツ上でオーバーレイとして開くときは、[60% のアプリ内アクリル](#acrylic-theme-resources)にする必要があります
-
-![アプリ内での水平方向のコマンド実行を使用したマップ アプリ](images/Maps_In_App_Acrylic_1.png)
-
-また、コンテンツを上部のアクリルの下で広げたりスクロールさせたりすることで、アプリでよりイマーシブでシームレスなエクスペリエンスを実現できます。
 
 ### <a name="vertical-panes"></a>垂直方向のウィンドウ
 
@@ -202,7 +193,7 @@ XAML コントロール ギャラリー アプリがインストールされて�
 
 アクリル ブラシを追加するには、濃色テーマ、淡色テーマ、ハイ コントラスト テーマの 3 つのリソースを定義します。 ハイ コントラストでは、濃色/淡色の AcrylicBrush と同じ x:Key で SolidColorBrush を使用することをお勧めします。
 
-> [!Note] 
+> [!Note]
 > TintLuminosityOpacity 値を指定しない場合、その値は、TintColor および TintOpacity に基づいてシステムによって自動的に調整されます。
 
 ```xaml

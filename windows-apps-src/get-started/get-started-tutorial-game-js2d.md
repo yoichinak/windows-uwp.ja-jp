@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 01af8254-b073-445e-af4c-e474528f8aa3
 ms.localizationpriority: medium
-ms.openlocfilehash: 92a1567fe72d46e53bf218c033fc59e8c98a2981
-ms.sourcegitcommit: 09571e1c6a01fabed773330aa7ead459a47d94f7
+ms.openlocfilehash: 4ef4255c8ea1eb9db34f652e5974a4f341e5500d
+ms.sourcegitcommit: 74627903a18b14c1af68269b0a8c85840caa1898
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76929270"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80759451"
 ---
 # <a name="create-a-uwp-game-in-javascript"></a>JavaScript で UWP ゲームを作成する
 
@@ -30,7 +30,7 @@ Microsoft Store にアプリを公開するには、そのアプリを UWP (ユ�
 
 このプロジェクトは、Visual Studio を使って JavaScript で構築します。 少し変更を加えると、Web サイトでホスティングすることも、他のプラットフォームに合わせることもできます。 
 
-**注:** これはアプリを Microsoft Store に公開できる状態にするために、JavaScript やサード パーティのライブラリの使用方法を示すことを目的としたものであり、完全な (または、おもしろい) ゲームではありません。
+**注:** これはアプリを Microsoft Store に公開できる状態にするために、JavaScript やサード パーティのライブラリの使用方法を示すことを目的としたものであり、完全な (または、おもしろい) ゲームではありません。 
 
 
 ## <a name="requirements"></a>要件
@@ -42,6 +42,7 @@ Microsoft Store にアプリを公開するには、そのアプリを UWP (ユ�
 
 このプロジェクトでは、CreateJS という JavaScript フレームワークを使用します。 CreateJS は、MIT ライセンスの下にリリースされている無料のツール セットであり、スプライト ベースのゲームを簡単に作成できるように設計されています。 CreateJS ライブラリは、既にプロジェクトに含まれています (ソリューション エクスプローラー ビューで *js/easeljs-0.8.2.min.js* および *js/preloadjs-0.6.2.min.js* を探してください)。 CreateJS の詳細については、[CreateJS ホーム ページ](https://www.createjs.com)をご覧ください。
 
+**注:** Javascript UWP アプリの開発は、Visual Studio 2019 ではサポートされていません。 Javascript UWP アプリを開発するには、Visual Studio 2017 を使用する必要があります。
 
 ## <a name="getting-started"></a>はじめに
 
