@@ -11,12 +11,12 @@ design-contact: kimsea
 dev-contact: niallm
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 37ab62a6e6c2e294e8d6b5222eab4a1a9ae25a2e
-ms.sourcegitcommit: af4050f69168c15b0afaaa8eea66a5ee38b88fed
+ms.openlocfilehash: c61d1478c38df315a3fe3c20151de8c2bfbca4e2
+ms.sourcegitcommit: 23c5d8dfaeb6edbca780637ffd26fe892db27519
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80081008"
+ms.lasthandoff: 04/11/2020
+ms.locfileid: "81123584"
 ---
 # <a name="dialogs-and-flyouts"></a>ダイアログとポップアップ
 
@@ -24,15 +24,12 @@ ms.locfileid: "80081008"
 
 > **プラットフォーム API:** [ContentDialog クラス](/uwp/api/Windows.UI.Xaml.Controls.ContentDialog)、[Flyout クラス](/uwp/api/Windows.UI.Xaml.Controls.Flyout)
 
-:::row:::
-    :::column:::
 **ダイアログ**
 
 ![ダイアログの例](../images/dialogs/dialog_RS2_delete_file.png)
 
 ダイアログは、状況依存のアプリ情報を表示するモーダル UI オーバーレイです。 ダイアログは、明示的に閉じられるまでアプリ ウィンドウの対話式操作をブロックします。 多くの場合、ユーザーに何らかの操作を要求します。
-    :::column-end:::
-    :::column::: 
+
 **ポップアップ**
 
 ![ポップアップの例](../images/flyout-example2.png)
@@ -40,9 +37,6 @@ ms.locfileid: "80081008"
 ポップアップ (flyout) は、ユーザーが現在操作している内容に関係する UI を表示する軽量な状況依存のポップアップです。 このポップアップは、配置ロジックとサイズ設定ロジックを備えており、セカンダリ コントロールを表示する場合、または項目の詳細を表示する場合に使うことができます。
 
 ダイアログとは異なり、ポップアップは、それ以外の場所をタップまたはクリックするか、Esc キーまたは戻るボタンを押すか、アプリ ウィンドウのサイズを変更するか、デバイスの向きを変更することで、すばやく閉じることができます。
-    :::column-end:::
-:::row-end:::
-
 
 ## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
@@ -52,8 +46,6 @@ ms.locfileid: "80081008"
 
 ダイアログは操作をブロックし、ポップアップはブロックしないため、ダイアログの使用は、ユーザーが他のすべてを中断して情報や回答の提供に集中する必要がある状況に限定する必要があります。 一方ポップアップは、ユーザーに情報を知らせるが、ユーザーがそれを無視してもよい場合に使用します。
 
-:::row:::
-    :::column:::
    <p><b>ダイアログの用途</b> <br/>
 <ul>
 <li>続行前にユーザーが読んだり確認したりする<b>必要のある重要な</b>情報を表示する場合。 たとえば、次のものがあります。
@@ -69,17 +61,14 @@ ms.locfileid: "80081008"
 <li>アプリからユーザーにブロック質問を表示する必要がある場合 (アプリで自動的に選ぶことができない場合など) ブロック質問とは、無視したり先送りにしたりできない質問です。この質問では、ユーザーに明確な選択肢を提示する必要があります。</li>
 </ul>
 </p>
-    :::column-end:::
-    :::column:::
+
+
    <p><b>ポップアップの用途</b> <br/>
 <ul>
 <li>操作を完了する前に、必要な追加情報を収集する場合。</li>
 <li>一部の場合のみに意味がある情報を表示する場合。 たとえばフォト ギャラリー アプリで、ユーザーが画像のサムネイルをクリックした場合に、大きな画像を表示するためにポップアップを使用できます。</li>
 <li>詳細やページ上の項目の長い説明などの詳しい情報の表示。</li>
 </ul></p>
-    :::column-end:::
-:::row-end:::
-
 
 ## <a name="ways-to-avoid-using-dialogs-and-flyouts"></a>ダイアログとポップアップを使用しないようにする方法
 
