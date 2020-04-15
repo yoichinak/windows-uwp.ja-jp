@@ -1,5 +1,5 @@
 ---
-Description: この記事では、次の 4 つの通知オプションをについて説明します (& a)\#8212; ローカル、予定、定期的、およびプッシュ (& a)\#8212; タイルおよびバッジの更新プログラムを配信し、トースト通知の内容。
+Description: この記事では、タイルとバッジの更新とトースト通知コンテンツを配信する\#8212、ローカル、スケジュール、定期的、およびプッシュ &\#の4つの通知オプション & について説明します。
 title: 通知配信方法の選択
 ms.assetid: FDB43EDE-C5F2-493F-952C-55401EC5172B
 label: Choose a notification delivery method
@@ -8,12 +8,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: b1ea41a509b1673b7c4f5812d34db93dd6b0c93e
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 80a06f5199c49f5fcd7a08dc9c9baef18ee19db9
+ms.sourcegitcommit: 017f2f1492f3220da0fae8b4c99de7206a185dff
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66365943"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81385850"
 ---
 # <a name="choose-a-notification-delivery-method"></a>通知配信方法の選択
 
@@ -28,8 +28,8 @@ ms.locfileid: "66365943"
 通知を配信するためにアプリで使用できるメカニズムには、次の 4 種類があります。
 
 -   **地元の**
--   **[スケジュール]**
--   **定期的です**
+-   **予定**
+-   **周期**
 -   **プッシュ**
 
 次の表は、通知配信の種類をまとめたものです。
@@ -51,7 +51,7 @@ ms.locfileid: "66365943"
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">ローカル</td>
+<td align="left">Local</td>
 <td align="left">タイル、バッジ、トースト</td>
 <td align="left">アプリが実行されている間、タイルやバッジを直接更新している間、またはトースト通知を送信している間に通知を送信する API 呼び出しのセットです。</td>
 <td align="left"><ul>
@@ -103,8 +103,8 @@ ms.locfileid: "66365943"
 
 API 呼び出しはローカルですが、通知では Web 画像を参照できます。 Web 画像が、ダウンロードできない場合、破損している場合、または画像の仕様を満たしていない場合、タイルとトーストでは応答が次のように異なります。
 
--   タイル:更新プログラムは表示されません。
--   トースト:通知が表示されますが、イメージの削除
+-   タイル: 更新情報が表示されません。
+-   トースト: 通知が表示されますが、画像は削除されます。
 
 既定では、ローカル トースト通知は 3 日後に有効期限が切れ、ローカル タイル通知には有効期限がありません。 これらの既定値を、具体的な通知に適した有効期限で上書きすることをお勧めします (トースト通知の有効期限は、最大 3 日間です)。 
 
@@ -112,7 +112,7 @@ API 呼び出しはローカルですが、通知では Web 画像を参照で�
 
 -   [ローカル タイル通知の送信](sending-a-local-tile-notification.md)
 -   [ローカル トースト通知の送信](send-local-toast.md)
--   [ユニバーサル Windows プラットフォーム (UWP) 通知コード サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Notifications)
+-   [ユニバーサル Windows プラットフォーム (UWP) 通知コードサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Notifications)
 
 ## <a name="scheduled-notifications"></a>スケジュールされた通知
 
@@ -125,7 +125,8 @@ API 呼び出しはローカルですが、通知では Web 画像を参照で�
 
 詳しくは、次のトピックをご覧ください。
 
--   [ユニバーサル Windows プラットフォーム (UWP) 通知コード サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Notifications)
+-   [トースト通知のスケジュール設定](scheduled-toast.md)
+-   [ユニバーサル Windows プラットフォーム (UWP) 通知コードサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Notifications)
 
 ## <a name="periodic-notifications"></a>定期的な通知
 
@@ -139,7 +140,7 @@ API 呼び出しはローカルですが、通知では Web 画像を参照で�
 詳しくは、次のトピックをご覧ください。
 
 -   [定期的な通知の概要](periodic-notification-overview.md)
--   [ユニバーサル Windows プラットフォーム (UWP) 通知コード サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Notifications)
+-   [ユニバーサル Windows プラットフォーム (UWP) 通知コードサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Notifications)
 
 ## <a name="push-notifications"></a>プッシュ通知
 
@@ -154,7 +155,7 @@ API 呼び出しはローカルですが、通知では Web 画像を参照で�
 
 -   [Windows プッシュ通知サービス (WNS) の概要](windows-push-notification-services--wns--overview.md)
 -   [プッシュ通知のガイドライン](https://docs.microsoft.com/windows/uwp/controls-and-patterns/tiles-and-notifications-windows-push-notification-services--wns--overview)
--   [ユニバーサル Windows プラットフォーム (UWP) 通知コード サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Notifications)
+-   [ユニバーサル Windows プラットフォーム (UWP) 通知コードサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Notifications)
 
 
 ## <a name="related-topics"></a>関連トピック
@@ -166,7 +167,7 @@ API 呼び出しはローカルですが、通知では Web 画像を参照で�
 * [トースト通知のガイドライン](https://docs.microsoft.com/windows/uwp/controls-and-patterns/tiles-badges-notifications)
 * [定期的な通知の概要](periodic-notification-overview.md)
 * [Windows プッシュ通知サービス (WNS) の概要](windows-push-notification-services--wns--overview.md)
-* [ユニバーサル Windows プラットフォーム (UWP) の通知は GitHub のサンプルをコードします。](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Notifications)
+* [GitHub のユニバーサル Windows プラットフォーム (UWP) 通知コードサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Notifications)
  
 
  

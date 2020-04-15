@@ -362,6 +362,8 @@
                       href: shell/tiles-and-notifications/send-local-toast-desktop.md
                     - name: C++ WRL アプリ
                       href: shell/tiles-and-notifications/send-local-toast-desktop-cpp-wrl.md
+            - name: トーストのスケジュールを設定する
+              href: shell/tiles-and-notifications/scheduled-toast.md
             - name: カスタム オーディオ
               href: shell/tiles-and-notifications/custom-audio-on-toasts.md
             - name: 進行状況バー
