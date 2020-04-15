@@ -1,17 +1,17 @@
 ---
 title: Windows 10 ビルド 18362 の新着情報
 description: Windows 10 ビルド 18362 と新しい開発者ツールでは、ユニバーサル Windows プラットフォームによって強化されたツール、機能、エクスペリエンスを利用できます。
-keywords: 新着情報, 新機能, 更新, 更新プログラム, 機能, 新規, Windows 10, 最新, 開発者, 18362、可能性
+keywords: 新着情報, 新機能, Windows, Windows 10, 更新, 更新プログラム, 機能, 新規, 最新, 開発者, 18362, 可能性
 ms.date: 04/19/2019
 ms.topic: article
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: 59b5b6dc3b359aa68b8282375a0fcb1716cdef50
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.openlocfilehash: 334dac56c12bf914cb767787bddc06b1c5dc9da2
+ms.sourcegitcommit: 74627903a18b14c1af68269b0a8c85840caa1898
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75684730"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80759378"
 ---
 # <a name="whats-new-in-windows-10-for-developers-build-18362"></a>Windows 10 ビルド 18362 の開発者向け新着情報
 

@@ -12,12 +12,12 @@ design-contact: kimsea
 dev-contact: mitra
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: ad18426a36503c9a540343565c20297502810b76
-ms.sourcegitcommit: af4050f69168c15b0afaaa8eea66a5ee38b88fed
+ms.openlocfilehash: 1e7fb764f3d21c260080d8846df3c66c65dccdb5
+ms.sourcegitcommit: 23c5d8dfaeb6edbca780637ffd26fe892db27519
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80081649"
+ms.lasthandoff: 04/11/2020
+ms.locfileid: "81123616"
 ---
 # <a name="radio-buttons"></a>ラジオ ボタン
 
@@ -73,9 +73,9 @@ ms.locfileid: "80081649"
 </tr>
 </table>
 
-Microsoft Edge ブラウザーでのラジオ ボタンの設定です。
+ブラウザーの設定でのラジオ ボタン。
 
-![Microsoft Edge ブラウザーでのラジオ ボタンの設定](images/control-examples/radio-buttons-edge.png)
+![ブラウザーの設定でのラジオ ボタン](images/control-examples/radio-buttons-edge.png)
 
 ## <a name="create-a-radio-button"></a>ラジオ ボタンの作成
 

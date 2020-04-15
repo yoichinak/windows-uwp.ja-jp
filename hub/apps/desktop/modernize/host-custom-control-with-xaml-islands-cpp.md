@@ -8,12 +8,12 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: 23d7fbf129e9cf53a9510200aa4e3836dffa602f
-ms.sourcegitcommit: df0cd9c82d1c0c17ccde424e3c4a6ff680c31a35
+ms.openlocfilehash: 93badc28c9c4fa1684836fc4a883e54661e8d4dc
+ms.sourcegitcommit: 7112e4ec3f19d46a1fc4d81d1c29fd9c01522610
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80482642"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80986967"
 ---
 # <a name="host-a-custom-uwp-control-in-a-c-win32-app"></a>C++ Win32 アプリでカスタム UWP コントロールをホストする
 
@@ -377,9 +377,11 @@ ms.locfileid: "80482642"
 4. **ソリューション エクスプローラー**で、**MyDesktopWin32App (アンロード済み)** を右クリックして、 **[プロジェクトの再読み込み]** を選択します。
 
 5. **MyDesktopWin32App** を右クリックし、 **[プロパティ]** を選択して、左側のペインで **[C/C++]** ノードをクリックします。 **[追加のインクルード ディレクトリ]** のマクロが、前のステップで行ったプロジェクト ファイルの変更で定義されていることを確認します。
+
     ![C/C++ プロジェクトの設定](images/xaml-islands/xaml-island-cpp-7.png)
 
 6. **[プロパティ ページ]** ダイアログで、 **[マニフェスト ツール]**  ->  **[入出力]** を展開します。 **[DPI 認識]** プロパティを **[モニターごとの高い DPI 認識]** に設定します。 このプロパティを設定しなかった場合、特定の高 DPI シナリオでマニフェスト構成エラーが発生することがあります。
+
     ![C/C++ プロジェクトの設定](images/xaml-islands/xaml-island-cpp-8.png)
 
 ## <a name="host-the-custom-uwp-xaml-control-in-the-desktop-project"></a>デスクトップ プロジェクトでカスタム UWP XAML コントロールをホストする

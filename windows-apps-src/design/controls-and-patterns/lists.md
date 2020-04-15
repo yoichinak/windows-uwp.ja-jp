@@ -12,12 +12,12 @@ design-contact: kimsea
 dev-contact: ranjeshj
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: e198e65052e9ef79ee38863260bce1c1f798ba38
-ms.sourcegitcommit: af4050f69168c15b0afaaa8eea66a5ee38b88fed
+ms.openlocfilehash: 75bc81f4295fb76f5a7cc61b3cadd1496f57dc4c
+ms.sourcegitcommit: 1b06c27e7fa4726fd950cbeaf05206c0a070e3c7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80081737"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80893482"
 ---
 # <a name="collections-and-lists"></a>コレクションとリスト
 
@@ -38,6 +38,8 @@ ms.locfileid: "80081737"
 これらの (ItemsRepeater を除く) 各コントロールには、組み込みのスタイル設定と操作が用意されています。 ただし、コレクション ビューとその中の項目の視覚的な外観をカスタマイズするには、[DataTemplate](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.DataTemplate) を使用します。 データ テンプレートの詳細とコレクション ビューの外観のカスタマイズについては、「[項目コンテナーやテンプレート](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/item-containers-templates)」を参照してください。
 
 これらの (ItemsRepeater を除く) 各コントロールには、1 つまたは複数の項目を選択できるようにするための組み込みの動作も含まれています。 詳細については、「[選択モードの概要](selection-modes.md)」を参照してください。
+
+この記事で説明されていないシナリオの 1 つは、コレクションをテーブルまたは複数の列で表示することです。 この形式でコレクションを表示する場合は、[Windows Community Toolkit](https://docs.microsoft.com/windows/communitytoolkit/) の [DataGrid コントロール](https://docs.microsoft.com/windows/communitytoolkit/controls/datagrid)の使用を検討してください。 
 
 > **Windows 10 Fall Creators Update - 動作の変更** 既定では、UWP アプリでは、アクティブ ペンは、選択の実行ではなく、リストのスクロール/パン (タッチ、タッチパッド、パッシブ ペンなどと同様に) をするようになりました。
 > アプリが以前の動作に依存している場合は、ペン スクロールを上書きして、以前の動作に戻すことができます。 詳しくは、[ScrollViewer クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.scrollviewer)の API リファレンス トピックをご覧ください。
