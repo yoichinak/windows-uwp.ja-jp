@@ -12,12 +12,12 @@ design-contact: kimsea
 dev-contact: ranjeshj
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: e95a9a1f6a0d34e377f48c5b19497eb638fb186e
-ms.sourcegitcommit: 27cb7c4539bb6417d32883824ccea160bb948c15
+ms.openlocfilehash: c130505ec79ca83698fd79df26464969afe79c36
+ms.sourcegitcommit: 1b06c27e7fa4726fd950cbeaf05206c0a070e3c7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74830828"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80893472"
 ---
 # <a name="list-view-and-grid-view"></a>リスト ビューとグリッド ビュー
 
@@ -36,7 +36,7 @@ ListView と GridView は、コレクションと併用すると多くのメリ�
 ## <a name="differences-between-listview-and-gridview"></a>ListView と GridView の違い
 
 ### <a name="listview"></a>ListView
-ListView では、データを縦方向の 1 列に並べて表示します。 ListView は、焦点としてテキストが含まれる項目や、アルファベット順など、上から下へ読み取ることを意図したコレクションの場合に適しています。 ListView の一般的な使用例としては、メッセージや検索結果の一覧などがあります。
+ListView では、データを縦方向の 1 列に並べて表示します。 ListView は、焦点としてテキストが含まれる項目や、アルファベット順など、上から下へ読み取ることを意図したコレクションの場合に適しています。 ListView の一般的な使用例としては、メッセージや検索結果の一覧などがあります。 複数の列またはテーブルのような形式で表示する必要があるコレクションでは、ListView を使用しては "_ならず_"、代わりに [DataGrid](https://docs.microsoft.com/windows/communitytoolkit/controls/datagrid) を使用する必要があります。
 
 ![グループ化されたデータを表示するリスト ビュー](images/listview-grouped-example-resized-final.png)
 
@@ -212,7 +212,7 @@ ListView または GridView のデータ テンプレートでは、項目やデ
 しかし、通常はもっとリッチな表現でデータを表示する必要があります。 ListView/GridView で項目を表示する方法を正確に指定するには、[DataTemplate](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.DataTemplate) を作成します。 DataTemplate の XAML では、個々の項目を表示するために使うコントロールのレイアウトと外観を定義します。 レイアウト内のコントロールでは、データ オブジェクトのプロパティにバインドすることも、静的コンテンツをインラインで定義することもできます。 
 
 > [!NOTE]
-> DataTemplate で [x:Bind markup extension](https://docs.microsoft.com/windows/uwp/xaml-platform/x-bind-markup-extension) を使う場合、DataTemplate に DataType (`x:DataType`) を指定する必要があります。
+> DataTemplate で [x:Bind マークアップ拡張](https://docs.microsoft.com/windows/uwp/xaml-platform/x-bind-markup-extension)を使う場合、DataTemplate に DataType (`x:DataType`) を指定する必要があります。
 
 #### <a name="simple-listview-data-template"></a>単純な ListView データ テンプレート
 この例では、データ項目は単純な文字列です。 DataTemplate は ListView 定義内にインラインで定義し、文字列の左側に画像を追加し、文字列を青緑色で表示します。 これは、上記の方法 1 とオプション 1 を使用して作成したものと同じ ListView です。
@@ -378,11 +378,11 @@ ListView または GridView に項目を追加すると、コントロールに�
 
 有効にする操作: | 使用する設定: | 処理するイベント: | 選択された項目の取得に使うプロパティ:
 ----------------------------|---------------------|--------------------|--------------------------------------------
-操作なし | [SelectionMode](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase.selectionmode) = **None**、[IsItemClickEnabled](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase.isitemclickenabled) = **False** | 該当なし | 該当なし 
+操作なし | [SelectionMode](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase.selectionmode) = **None**、[IsItemClickEnabled](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase.isitemclickenabled) = **False** | なし | なし 
 単一選択 | SelectionMode = **Single**、IsItemClickEnabled = **False** | [SelectionChanged](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.selector.selectionchanged) | [SelectedItem](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.selector.selecteditem)、[SelectedIndex](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.selector.selectedindex)  
 複数選択 | SelectionMode = **Multiple**、IsItemClickEnabled = **False** | [SelectionChanged](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.selector.selectionchanged) | [SelectedItems](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase.selecteditems)  
 拡張選択 | SelectionMode = **Extended**、IsItemClickEnabled = **False** | [SelectionChanged](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.selector.selectionchanged) | [SelectedItems](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase.selecteditems)  
-Click | SelectionMode = **None**、IsItemClickEnabled = **True** | [ItemClick](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase.itemclick) | 該当なし 
+クリック | SelectionMode = **None**、IsItemClickEnabled = **True** | [ItemClick](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase.itemclick) | なし 
 
 > **注**&nbsp;&nbsp;Windows 10 以降では、IsItemClickEnabled を有効にして ItemClick イベントを発生させる場合でも、SelectionMode を Single、Multiple、Extended のいずれにも設定できます。 その場合、ItemClick イベントが最初に発生し、次に SelectionChanged イベントが発生します。 ただし ItemClick イベント ハンドラーで別のページに移動するような場合では、SelectionChanged イベントが発生せず、項目が選択されません。
 
@@ -403,7 +403,7 @@ myGridView.SelectionMode = ListViewSelectionMode.None;
 myGridView.IsItemClickEnabled = true;
 ```
 
-### <a name="read-only"></a>読み取り専用かどうか
+### <a name="read-only"></a>読み取り専用
 
 SelectionMode プロパティを **ListViewSelectionMode.None** に設定することで、項目の選択を無効にすることができます。 これによりコントロールが読み取り専用モードになり、ユーザーの操作には使われず、データの表示のみに使われます。 コントロール自体は無効にならず、項目の選択のみが無効になります。
 
@@ -413,7 +413,7 @@ SelectionMode プロパティを **ListViewSelectionMode.None** に設定する�
 
 修飾キー | 操作
 -------------|------------
-なし | <li>ユーザーはスペース バー、マウスのクリック、タッチ操作のタップを使って 1 つの項目を選択できます。</li>
+None | <li>ユーザーはスペース バー、マウスのクリック、タッチ操作のタップを使って 1 つの項目を選択できます。</li>
 Ctrl | <li>ユーザーはスペース バー、マウスのクリック、タッチ操作のタップを使って 1 つの項目の選択を解除できます。</li><li>方向キーを使うと、選択した項目とは関係なくフォーカスを移動できます。</li>
 
 SelectionMode が **Single** の場合、[SelectedItem](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.selector.selecteditem) プロパティから選択したデータ項目を取得できます。 [SelectedIndex](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.selector.selectedindex) プロパティを使って、選択した項目のコレクション内のインデックスを取得できます。 項目が選択されていない場合、SelectedItem は **null** になり、SelectedIndex は -1 になります。 
@@ -426,8 +426,8 @@ SelectionMode が **Single** の場合、[SelectedItem](https://docs.microsoft.c
 
 修飾キー | 操作
 -------------|------------
-なし | <li>ユーザーは、スペース バー、マウスのクリック、タッチ操作のタップを使って、フォーカスのある項目の選択状態を切り替えることで、複数の項目を選択できます。</li><li>方向キーを使うと、選択した項目とは関係なくフォーカスを移動できます。</li>
-Shift | <li>ユーザーは、選択する最初の項目をクリックまたはタップした後、選択する最後の項目をクリックまたはタップすることで、複数の項目を連続的に選択できます。</li><li>方向キーを使用すると、Shift キーが押されたときに選択された項目を起点として連続的に選択することができます。</li>
+None | <li>ユーザーは、スペース バー、マウスのクリック、タッチ操作のタップを使って、フォーカスのある項目の選択状態を切り替えることで、複数の項目を選択できます。</li><li>方向キーを使うと、選択した項目とは関係なくフォーカスを移動できます。</li>
+Shift キー | <li>ユーザーは、選択する最初の項目をクリックまたはタップした後、選択する最後の項目をクリックまたはタップすることで、複数の項目を連続的に選択できます。</li><li>方向キーを使用すると、Shift キーが押されたときに選択された項目を起点として連続的に選択することができます。</li>
 
 ### <a name="extended-selection"></a>拡張選択
 
@@ -435,9 +435,9 @@ Shift | <li>ユーザーは、選択する最初の項目をクリックまた�
 
 修飾キー | 操作
 -------------|------------
-なし | <li>**Single** の選択と同じです。</li>
+None | <li>**Single** の選択と同じです。</li>
 Ctrl | <li>ユーザーは、スペース バー、マウスのクリック、タッチ操作のタップを使って、フォーカスのある項目の選択状態を切り替えることで、複数の項目を選択できます。</li><li>方向キーを使うと、選択した項目とは関係なくフォーカスを移動できます。</li>
-Shift | <li>ユーザーは、選択する最初の項目をクリックまたはタップした後、選択する最後の項目をクリックまたはタップすることで、複数の項目を連続的に選択できます。</li><li>方向キーを使用すると、Shift キーが押されたときに選択された項目を起点として連続的に選択することができます。</li>
+Shift キー | <li>ユーザーは、選択する最初の項目をクリックまたはタップした後、選択する最後の項目をクリックまたはタップすることで、複数の項目を連続的に選択できます。</li><li>方向キーを使用すると、Shift キーが押されたときに選択された項目を起点として連続的に選択することができます。</li>
 
 SelectionMode が **Multiple** または **Extended** の場合、選択したデータ項目を [SelectedItems](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase.selecteditems) プロパティから取得できます。 
 
@@ -606,7 +606,7 @@ private void DeselectAllButton_Click(object sender, RoutedEventArgs e)
 
 ListView コントロールと GridView コントロールは、項目内、項目間、および他の ListView コントロールと GridView コントロール間での項目のドラッグ アンド ドロップをサポートします。 ドラッグ アンド ドロップのパターンの実装について詳しくは、「[ドラッグ アンド ドロップ](../input/drag-and-drop.md)」をご覧ください。
 
-## <a name="get-the-sample-code"></a>サンプル コードを入手する
+## <a name="get-the-sample-code"></a>サンプル コードの入手
 
 - [XAML ListView と GridView のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlListView)- ListView と GridView コントロールを示しています。
 - [XAML ドラッグ アンド ドロップのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlDragAndDrop) - ListView コントロールを使用したドラッグ アンド ドロップを示します。
@@ -615,5 +615,5 @@ ListView コントロールと GridView コントロールは、項目内、項�
 ## <a name="related-articles"></a>関連記事
 
 - [リスト](lists.md)
-- [項目コンテナーとテンプレート](item-containers-templates.md)
+- [項目コンテナーやテンプレート](item-containers-templates.md)
 - [ドラッグ アンド ドロップ](../input/drag-and-drop.md)
