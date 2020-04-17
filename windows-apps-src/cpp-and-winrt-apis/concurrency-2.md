@@ -5,12 +5,12 @@ ms.date: 07/23/2019
 ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、同時実行、非同期、非同期、非同期操作
 ms.localizationpriority: medium
-ms.openlocfilehash: 4a671a319be49e07d3a8fcdacb569c4ae76e299b
-ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
+ms.openlocfilehash: bbdce669faa73b1db2071173014dec474160affb
+ms.sourcegitcommit: 8b7b677c7da24d4f39e14465beec9c4a3779927d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79209257"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81266950"
 ---
 # <a name="more-advanced-concurrency-and-asynchrony-with-cwinrt"></a>C++/WinRT でのより高度な同時実行操作と非同期操作
 
@@ -538,7 +538,7 @@ int main()
 
 ## <a name="reporting-progress"></a>進行状況を報告する
 
-コルーチンで [**IAsyncActionWithProgress**](/uwp/api/windows.foundation.iasyncactionwithprogress_tprogress_) または [**IAsyncOperationWithProgress**](/uwp/api/windows.foundation.iasyncoperationwithprogress_tresult_tprogress_) のいずれかを返す場合、[**winrt::get_progress_token**](/uwp/cpp-ref-for-winrt/get-progress-token) 関数によって返されるオブジェクトを取得し、それを使用して進行状況ハンドラーに進行状況を報告することができます。 次にコード例を示します。
+コルーチンで [**IAsyncActionWithProgress**](/uwp/api/windows.foundation.iasyncactionwithprogress-1) または [**IAsyncOperationWithProgress**](/uwp/api/windows.foundation.iasyncoperationwithprogress-2) のいずれかを返す場合、[**winrt::get_progress_token**](/uwp/cpp-ref-for-winrt/get-progress-token) 関数によって返されるオブジェクトを取得し、それを使用して進行状況ハンドラーに進行状況を報告することができます。 次にコード例を示します。
 
 ```cppwinrt
 // main.cpp
@@ -835,9 +835,9 @@ property_value.GetInt32Array(my_array); // Unbox back into an array.
 
 ## <a name="important-apis"></a>重要な API
 * [IAsyncAction インターフェイス](/uwp/api/windows.foundation.iasyncaction)
-* [IAsyncActionWithProgress&lt;TProgress&gt; インターフェイス](/uwp/api/windows.foundation.iasyncactionwithprogress_tprogress_)
-* [IAsyncOperation&lt;TResult&gt; インターフェイス](/uwp/api/windows.foundation.iasyncoperation_tresult_)
-* [IAsyncOperationWithProgress&lt;TResult, TProgress&gt; インターフェイス](/uwp/api/windows.foundation.iasyncoperationwithprogress_tresult_tprogress_)
+* [IAsyncActionWithProgress&lt;TProgress&gt; インターフェイス](/uwp/api/windows.foundation.iasyncactionwithprogress-1)
+* [IAsyncOperation&lt;TResult&gt; インターフェイス](/uwp/api/windows.foundation.iasyncoperation-1)
+* [IAsyncOperationWithProgress&lt;TResult, TProgress&gt; インターフェイス](/uwp/api/windows.foundation.iasyncoperationwithprogress-2)
 * [SyndicationClient::RetrieveFeedAsync メソッド](/uwp/api/windows.web.syndication.syndicationclient.retrievefeedasync)
 * [winrt::fire_and_forget](/uwp/cpp-ref-for-winrt/fire-and-forget)
 * [winrt::get_cancellation_token](/uwp/cpp-ref-for-winrt/get-cancellation-token)
