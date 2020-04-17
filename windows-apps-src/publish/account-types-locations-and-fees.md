@@ -6,12 +6,12 @@ ms.date: 10/31/2018
 ms.topic: article
 keywords: windows 10, uwp, 開発者アカウント, 個人, 会社, ビジネス
 ms.localizationpriority: medium
-ms.openlocfilehash: 1ac6c3e7c89c091d1080364b8fbbb35d484aee49
-ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
+ms.openlocfilehash: a7ab3d40b48caecc82fafef4df964b7a1dbf8071
+ms.sourcegitcommit: a7effa01ca1c810e792b60f89ba38ce3bf0b310e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79210908"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81545092"
 ---
 # <a name="account-types-locations-and-fees"></a>アカウントの種類、場所、料金
 
@@ -93,7 +93,7 @@ ms.locfileid: "79210908"
 | コートジボワール                     | 19 USD              | 99 USD           |  
 | クロアチア                           | 107 HRK             | 500 HRK          |  
 | キプロス                            | 14 EUR              | 75 EUR           |  
-| チェコ共和国                    | 365 CZK             | 1,720 CZK         |  
+| Czechia                           | 365 CZK             | 1,720 CZK         |  
 | デンマーク                           | 106 DKK             | 530 DKK          |  
 | ジブチ                          | 19 USD              | 99 USD           | 
 | ドミニカ国                          | 19 USD              | 99 USD           | 

@@ -6,12 +6,12 @@ ms.date: 10/31/2018
 ms.topic: article
 keywords: Windows 10, UWP, 市場, 国, 地域
 ms.localizationpriority: medium
-ms.openlocfilehash: 3621e9c6af0daa84a9762989a14c79f35471b73c
-ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
+ms.openlocfilehash: 0b1a51a98746594a8563de2f309bec9cb5dda0b3
+ms.sourcegitcommit: a7effa01ca1c810e792b60f89ba38ce3bf0b310e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79210968"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81545052"
 ---
 # <a name="define-market-selection"></a>市場の選択の定義
 
@@ -139,7 +139,7 @@ Microsoft Store は、世界中の 200 以上の国と地域のお客様が利�
     <td>クロアチア</td>
     <td>キュラソー島</td>
     <td>キプロス</td>
-    <td>チェコ共和国 *</td>
+    <td>Czechia *</td>
   </tr>
   <tr>
     <td>デンマーク *</td>
@@ -439,7 +439,7 @@ Commerce Expansion Adjustment は、有効日現在、指定された国/地域�
 | チリ                | ギフト カード       | 2.24%                         | 2016 年 3 月     |
 | 中国                | ギフト カード       | 2.24%                         | 2016 年 3 月     |
 | コロンビア             | ギフト カード       | 2.24%                         | 2016 年 3 月     |
-| チェコ共和国       | ギフト カード       | 2.24%                         | 2016 年 3 月     |
+| Czechia              | ギフト カード       | 2.24%                         | 2016 年 3 月     |
 | デンマーク              | ギフト カード       | 2.24%                         | 2016 年 3 月     |
 | フィンランド              | ギフト カード       | 2.24%                         | 2016 年 3 月     |
 | France               | ギフト カード       | 2.24%                         | 2016 年 3 月     |
@@ -476,7 +476,7 @@ Commerce Expansion Adjustment は、有効日現在、指定された国/地域�
 
 ## <a name="rest-of-world-markets-for-windows-8x"></a>Windows 8.x の "その他の国と地域" 市場
 
-以前に発行されたアプリに Windows 8.x をターゲットとするパッケージが含まれている場合は、Windows 8.x でストアを使用しているお客様にとっては、個別の市場として表示されていても、多くの市場が1つの "世界の残り" 市場として扱われることに注意してください。パートナーセンターで。
+以前に発行されたアプリに Windows 8.x をターゲットとするパッケージが含まれている場合は、パートナーセンターで個別の市場として表示されていても、Windows 8.x で店舗を使用しているお客様にとっては、市場の数が1つの "世界の残りの部分" として扱われることに注意し
 
 アプリの送信時に既定の市場選択をそのままにした場合、このことを気にする必要はなく、アプリはすべての市場で利用できるようになります。 ただし、特定の市場を除外する場合は、これらの "残りの部分" 市場を除外することに注意してください。これは、Windows 8 または Windows 8.1 のお客様にとって、"世界の中"*市場では*アプリを利用できないことを意味します。
 

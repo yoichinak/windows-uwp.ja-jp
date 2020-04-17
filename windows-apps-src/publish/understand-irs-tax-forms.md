@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp, 課税, irs, 米国内国歳入庁, 税, 所得税, 1099
 ms.assetid: 1e475b96-f953-457c-864f-b6f4cb4c309f
 ms.localizationpriority: medium
-ms.openlocfilehash: 55143f109398aae1988b7ac0d060cda138e7e48e
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: e01e1615cb05ab7b0f3d3fa12861e46b231642a8
+ms.sourcegitcommit: a7effa01ca1c810e792b60f89ba38ce3bf0b310e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74258966"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81545072"
 ---
 # <a name="understand-irs-tax-forms-issued-by-microsoft"></a>マイクロソフトが発行する IRS の税関連の書類について
 
@@ -44,7 +44,7 @@ ms.locfileid: "74258966"
 <tr><td>Windows、Office、Azure</td><td>Microsoft アイルランドの運用に限定されています (マイクロソフトは microsoft corporation によって microsoft corporation の修飾された仲介役として機能します)。</td><td>Microsoft の1か所<br>南部&nbsp;郡&nbsp;ビジネス&nbsp;公園<br>Leopardstown, ダブリン18アイルランド</td></tr>
 <tr><td>掲載</td><td>Microsoft アイルランドの操作は制限されています (支払いは microsoft online inc. によって行われます)。 microsoft アイルランドは、microsoft Online Inc. の支払いエージェントとして機能します)。</td><td>Microsoft の1か所<br>南部&nbsp;郡&nbsp;ビジネス&nbsp;公園<br>Leopardstown, ダブリン18アイルランド</td></tr>
 <tr><td>広告</td><td>Microsoft Online Inc.</td><td>6100 Neil の道路<br>Reno、NV 89511 USA</td></tr>
-<tr><td colspan="3">* 次の国の市民の広告は、Microsoft アイルランドに限定されています。オーストリア、ベルギー、ブルガリア、クロアチア、キプロス、チェコ共和国、デンマーク、エストニア、フィンランド、フランス、ドイツ、ギリシャ、ハンガリー、アイルランド、マン島、イタリア、ラトビア、リヒテンシュタイン、リトアニア、ルクセンブルク、マルタ、モナコ、オランダ、ノルウェー、ポーランド、ポルトガル、ルーマニア、スロバキア、スロベニア、南アフリカ、スペイン、スウェーデン、スイス、英国</td></tr>
+<tr><td colspan="3">* 次の国の市民による収益の提供は、Microsoft アイルランドの操作に限定されています。オーストリア、ベルギー、ブルガリア、クロアチア、キプロス、Czechia、デンマーク、エストニア、フィンランド、フランス、ドイツ、ギリシャ、ハンガリー、アイルランド、マン島、イタリア、ラトビア、リヒテンシュタイン、リトアニア、ルクセンブルク、マルタ、モナコ、オランダ、ノルウェー、ポーランド、ポルトガル、ルーマニア、スロバキア、スロベニア、南アフリカ、スペイン、スウェーデン、スイス、英国</td></tr>
 </table>
 
 ## <a name="for-developers-located-in-the-united-states"></a>米国在住の開発者の場合

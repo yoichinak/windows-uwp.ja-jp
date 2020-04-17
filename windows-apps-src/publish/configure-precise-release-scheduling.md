@@ -5,12 +5,12 @@ ms.date: 10/31/2018
 ms.topic: article
 keywords: windows 10, uwp, スケジュール, リリース日, 日付, 公開
 ms.localizationpriority: medium
-ms.openlocfilehash: eebd98d8e1ce39ef8d9876ab4749bcc76012f9fa
-ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
+ms.openlocfilehash: 98f4ca9cb1b0b9bf2178fc0b80d0819e15448d24
+ms.sourcegitcommit: a7effa01ca1c810e792b60f89ba38ce3bf0b310e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79210388"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81545042"
 ---
 # <a name="configure-precise-release-scheduling"></a>正確なリリース スケジュールの構成
 
@@ -76,7 +76,7 @@ ms.locfileid: "79210388"
 
 ## <a name="global-time-zones"></a>グローバルタイムゾーン
 
-次の表は、各市場で使用されている特定のタイムゾーンを示しています。そのため、送信時に現地時刻 (午前9時ローカルでのリリースなど) を使用する場合、各市場でリリースされる時間を確認できます。特に、複数の時間がかかる市場では、カナダのようなものです。
+次の表は、各市場で使用される特定のタイムゾーンを示しています。そのため、送信時にローカル時刻 (午前9時ローカルでのリリースなど) を使用する場合は、各市場でリリースされる時間を調べることができます。特に、カナダのような複数のタイムゾーンがある市場で役に立ちます。
 
 | 市場 | タイム ゾーン |
 |--------|-----------|
@@ -139,7 +139,7 @@ ms.locfileid: "79210388"
 | クロアチア  |  (UTC + 01:00)サラエボ、スコピエ、ワルシャワ、ザグレブ |
 | CuraÃを参照してください  |  (UTC-04:00)クイアバ |
 | キプロス  |  (UTC + 02:00)キシナウ |
-| チェコ共和国  |  (UTC + 01:00)ベオグラード、ブラチスラバ、ブダペスト、リュブリャナ、プラハ |
+| Czechia  |  (UTC + 01:00)ベオグラード、ブラチスラバ、ブダペスト、リュブリャナ、プラハ |
 | デンマーク  |  (UTC + 01:00)ブリュッセル、コペンハーゲン、レアルマドリード、パリ |
 | ジブチ  |  (UTC + 03:00)ナイロビ |
 | ドミニカ国  |  (UTC-04:00)大西洋標準時 (カナダ) |
