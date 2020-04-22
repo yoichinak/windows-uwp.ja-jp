@@ -6,12 +6,12 @@ ms.date: 10/31/2018
 ms.topic: article
 keywords: windows 10, uwp, ビジネス向け Store, 教育機関向け Store, 組織, ボリューム ライセンス, 企業, 教育機関 Store, ビジネス Store, ボリューム購入, 一括
 localizationpriority: high
-ms.openlocfilehash: 8cfa4d4a18112ef1cad793048399d04835ff4633
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 880e472b9a6ed19bae85c00b4014b431e3185f61
+ms.sourcegitcommit: a7effa01ca1c810e792b60f89ba38ce3bf0b310e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67320581"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81545022"
 ---
 # <a name="organizational-licensing-options"></a>組織のライセンス オプション
 
@@ -71,7 +71,7 @@ ms.locfileid: "67320581"
 - カナダ
 - クロアチア
 - キプロス
-- チェコ共和国
+- チェコ
 - デンマーク
 - エストニア
 - フィンランド
