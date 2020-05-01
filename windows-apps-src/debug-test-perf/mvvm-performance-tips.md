@@ -7,10 +7,10 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: 9027362eccfb8130b181bee26a57f13ce1e1af66
-ms.sourcegitcommit: fca0132794ec187e90b2ebdad862f22d9f6c0db8
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/24/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "63785435"
 ---
 # <a name="mvvm-and-language-performance-tips"></a>MVVM と言語のパフォーマンスに関するヒント
@@ -20,7 +20,7 @@ ms.locfileid: "63785435"
 
 ## <a name="the-model-view-viewmodel-mvvm-pattern"></a>Model-View-ViewModel (MVVM) パターン
 
-Model-View-ViewModel (MVVM) パターンは、多くの XAML アプリで共通です (MVVM は、Fowler の Model-View-Presenter パターンの説明によく似ていますが、これは XAML に合わせて調整されました)。 MVVM パターンの問題は、このパターンが原因となり、誤ってアプリのレイヤーおよび割り当てが過剰になる可能性があることです。 MVVM を使用する利点は次のとおりです。
+Model-View-ViewModel (MVVM) パターンは、多くの XAML アプリで共通です  (MVVM は、Fowler の Model-View-Presenter パターンの説明によく似ていますが、これは XAML に合わせて調整されました)。 MVVM パターンの問題は、このパターンが原因となり、誤ってアプリのレイヤーおよび割り当てが過剰になる可能性があることです。 MVVM を使用する利点は次のとおりです。
 
 -   **問題の分離**。 問題を細かく分割することは常に有用であり、MVVM や MVC などのパターンは、アプリ (または 1 つのコントロール) を、実際のビュー、ビューの論理モデル (ビュー モデル)、ビューに依存しないアプリのロジック (モデル) に細かく分割するための方法です。 具体的には、設計者は 1 つのツールを使ってビューを所有する、開発者は別のツールを使ってモデルを所有する、デザイン インテグレーターは両方のツールを使ってビュー モデルを所有することが、一般的なワークフローです。
 -   **単体テスト**。 ビューに依存せずに、つまりウィンドウの作成や入力の促進などに依存せずに、ビュー モデル (および結果としてモデル) の単体テストを実行できます。 ビューを小さく保つことにより、ウィンドウを作成することなく、アプリの大部分をテストできます。

@@ -7,10 +7,10 @@ ms.topic: article
 keywords: windows 10, uwp, デバイス ポータル
 ms.localizationpriority: medium
 ms.openlocfilehash: 3aeb068908adf6d6c40a50cee3aececba1861ee8
-ms.sourcegitcommit: fca0132794ec187e90b2ebdad862f22d9f6c0db8
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/24/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "63801383"
 ---
 # <a name="device-portal-api-reference-for-hololens"></a>HoloLens 用 Device Portal API リファレンス
@@ -32,19 +32,19 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 **URI パラメーター**
 
-- None
+- なし
 
 **要求ヘッダー**
 
-- None
+- なし
 
 **要求本文**
 
-- None
+- なし
 
 **応答**
 
-- None
+- なし
 
 **状態コード**
 
@@ -63,19 +63,19 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 **URI パラメーター**
 
-- None
+- なし
 
 **要求ヘッダー**
 
-- None
+- なし
 
 **要求本文**
 
-- None
+- なし
 
 **応答**
 
-- None
+- なし
 
 **状態コード**
 
@@ -94,19 +94,19 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 **URI パラメーター**
 
-- None
+- なし
 
 **要求ヘッダー**
 
-- None
+- なし
 
 **要求本文**
 
-- None
+- なし
 
 **応答**
 
-- None
+- なし
 
 **状態コード**
 
@@ -126,19 +126,19 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 **URI パラメーター**
 
-- None
+- なし
 
 **要求ヘッダー**
 
-- None
+- なし
 
 **要求本文**
 
-- None
+- なし
 
 **応答**
 
-- None
+- なし
 
 **状態コード**
 
@@ -166,15 +166,15 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 **要求ヘッダー**
 
-- None
+- なし
 
 **要求本文**
 
-- None
+- なし
 
 **応答**
 
-- None
+- なし
 
 **状態コード**
 
@@ -202,15 +202,15 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 **要求ヘッダー**
 
-- None
+- なし
 
 **要求本文**
 
-- None
+- なし
 
 **応答**
 
-- None
+- なし
 
 **状態コード**
 
@@ -240,15 +240,15 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 **要求ヘッダー**
 
-- None
+- なし
 
 **要求本文**
 
-- None
+- なし
 
 **応答**
 
-- None
+- なし
 
 **状態コード**
 
@@ -269,25 +269,25 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 **URI パラメーター**
 
-- None
+- なし
 
 **要求ヘッダー**
 
-- None
+- なし
 
 **要求本文**
 
-- None
+- なし
 
 **応答**
 
 返される可能性のある値を次の表に示します。
 
-| 値 | 説明 |
+| Value | 説明 |
 | --- | --- |
 | 1 | Normal |
 | 2 で保護されたプロセスとして起動されました | 中 |
-| 3 | ［重大］ |
+| 3 で保護されたプロセスとして起動されました | ［重大］ |
 
 **状態コード**
 
@@ -316,15 +316,15 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 **要求ヘッダー**
 
-- None
+- なし
 
 **要求本文**
 
-- None
+- なし
 
 **応答**
 
-- None
+- なし
 
 **状態コード**
 
@@ -343,19 +343,19 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 **URI パラメーター**
 
-- None
+- なし
 
 **要求ヘッダー**
 
-- None
+- なし
 
 **要求本文**
 
-- None
+- なし
 
 **応答**
 
-- None
+- なし
 
 **状態コード**
 
@@ -374,19 +374,19 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 **URI パラメーター**
 
-- None
+- なし
 
 **要求ヘッダー**
 
-- None
+- なし
 
 **要求本文**
 
-- None
+- なし
 
 **応答**
 
-- None
+- なし
 
 **状態コード**
 
@@ -405,19 +405,19 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 **URI パラメーター**
 
-- None
+- なし
 
 **要求ヘッダー**
 
-- None
+- なし
 
 **要求本文**
 
-- None
+- なし
 
 **応答**
 
-- None
+- なし
 
 **状態コード**
 
@@ -444,15 +444,15 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 **要求ヘッダー**
 
-- None
+- なし
 
 **要求本文**
 
-- None
+- なし
 
 **応答**
 
-- None
+- なし
 
 **状態コード**
 
@@ -477,19 +477,19 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 | URI パラメーター | 説明 |
 | :---          | :--- |
-| 記録   | (**必須**) 削除するレコーディングの名前。 |
+| recording   | (**必須**) 削除するレコーディングの名前。 |
 
 **要求ヘッダー**
 
-- None
+- なし
 
 **要求本文**
 
-- None
+- なし
 
 **応答**
 
-- None
+- なし
 
 **状態コード**
 
@@ -508,19 +508,19 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 **URI パラメーター**
 
-- None
+- なし
 
 **要求ヘッダー**
 
-- None
+- なし
 
 **要求本文**
 
-- None
+- なし
 
 **応答**
 
-- None
+- なし
 
 **状態コード**
 
@@ -543,19 +543,19 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 | URI パラメーター | 説明 |
 | :---          | :--- |
-| 記録   | (**必須**) 対象とするレコーディングの名前。 |
+| recording   | (**必須**) 対象とするレコーディングの名前。 |
 
 **要求ヘッダー**
 
-- None
+- なし
 
 **要求本文**
 
-- None
+- なし
 
 **応答**
 
-- None
+- なし
 
 **状態コード**
 
@@ -574,19 +574,19 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 **URI パラメーター**
 
-- None
+- なし
 
 **要求ヘッダー**
 
-- None
+- なし
 
 **要求本文**
 
-- None
+- なし
 
 **応答**
 
-- None
+- なし
 
 **状態コード**
 
@@ -609,19 +609,19 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 | URI パラメーター | 説明 |
 | :---          | :--- |
-| 記録   | (**必須**) 対象とするレコーディングの名前。 |
+| recording   | (**必須**) 対象とするレコーディングの名前。 |
 
 **要求ヘッダー**
 
-- None
+- なし
 
 **要求本文**
 
-- None
+- なし
 
 **応答**
 
-- None
+- なし
 
 **状態コード**
 
@@ -644,19 +644,19 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 | URI パラメーター | 説明 |
 | :---          | :--- |
-| 記録   | (**必須**) 読み込むレコーディングの名前。 |
+| recording   | (**必須**) 読み込むレコーディングの名前。 |
 
 **要求ヘッダー**
 
-- None
+- なし
 
 **要求本文**
 
-- None
+- なし
 
 **応答**
 
-- None
+- なし
 
 **状態コード**
 
@@ -679,19 +679,19 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 | URI パラメーター | 説明 |
 | :---          | :--- |
-| 記録   | (**必須**) 一時停止するレコーディングの名前。 |
+| recording   | (**必須**) 一時停止するレコーディングの名前。 |
 
 **要求ヘッダー**
 
-- None
+- なし
 
 **要求本文**
 
-- None
+- なし
 
 **応答**
 
-- None
+- なし
 
 **状態コード**
 
@@ -714,19 +714,19 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 | URI パラメーター | 説明 |
 | :---          | :--- |
-| 記録   | (**必須**) 再生するレコーディングの名前。 |
+| recording   | (**必須**) 再生するレコーディングの名前。 |
 
 **要求ヘッダー**
 
-- None
+- なし
 
 **要求本文**
 
-- None
+- なし
 
 **応答**
 
-- None
+- なし
 
 **状態コード**
 
@@ -749,19 +749,19 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 | URI パラメーター | 説明 |
 | :---          | :--- |
-| 記録   | (**必須**) 停止するレコーディングの名前。 |
+| recording   | (**必須**) 停止するレコーディングの名前。 |
 
 **要求ヘッダー**
 
-- None
+- なし
 
 **要求本文**
 
-- None
+- なし
 
 **応答**
 
-- None
+- なし
 
 **状態コード**
 
@@ -784,19 +784,19 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 | URI パラメーター | 説明 |
 | :---          | :--- |
-| 記録   | (**必須**) アンロードするレコーディングの名前。 |
+| recording   | (**必須**) アンロードするレコーディングの名前。 |
 
 **要求ヘッダー**
 
-- None
+- なし
 
 **要求本文**
 
-- None
+- なし
 
 **応答**
 
-- None
+- なし
 
 **状態コード**
 
@@ -815,19 +815,19 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 **URI パラメーター**
 
-- None
+- なし
 
 **要求ヘッダー**
 
-- None
+- なし
 
 **要求本文**
 
-- None
+- なし
 
 **応答**
 
-- None
+- なし
 
 **状態コード**
 
@@ -848,19 +848,19 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 **URI パラメーター**
 
-- None
+- なし
 
 **要求ヘッダー**
 
-- None
+- なし
 
 **要求本文**
 
-- None
+- なし
 
 **応答**
 
-- None
+- なし
 
 **状態コード**
 
@@ -894,15 +894,15 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 **要求ヘッダー**
 
-- None
+- なし
 
 **要求本文**
 
-- None
+- なし
 
 **応答**
 
-- None
+- なし
 
 **状態コード**
 
@@ -921,19 +921,19 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 **URI パラメーター**
 
-- None
+- なし
 
 **要求ヘッダー**
 
-- None
+- なし
 
 **要求本文**
 
-- None
+- なし
 
 **応答**
 
-- None
+- なし
 
 **状態コード**
 
@@ -962,15 +962,15 @@ DELETE | /api/holographic/mrc/file |
 
 **要求ヘッダー**
 
-- None
+- なし
 
 **要求本文**
 
-- None
+- なし
 
 **応答**
 
-- None
+- なし
 
 **状態コード**
 
@@ -998,15 +998,15 @@ DELETE | /api/holographic/mrc/file |
 
 **要求ヘッダー**
 
-- None
+- なし
 
 **要求本文**
 
-- None
+- なし
 
 **応答**
 
-- None
+- なし
 
 **状態コード**
 
@@ -1025,19 +1025,19 @@ DELETE | /api/holographic/mrc/file |
 
 **URI パラメーター**
 
-- None
+- なし
 
 **要求ヘッダー**
 
-- None
+- なし
 
 **要求本文**
 
-- None
+- なし
 
 **応答**
 
-- None
+- なし
 
 **状態コード**
 
@@ -1056,19 +1056,19 @@ DELETE | /api/holographic/mrc/file |
 
 **URI パラメーター**
 
-- None
+- なし
 
 **要求ヘッダー**
 
-- None
+- なし
 
 **要求本文**
 
-- None
+- なし
 
 **応答**
 
-- None
+- なし
 
 **状態コード**
 
@@ -1087,19 +1087,19 @@ DELETE | /api/holographic/mrc/file |
 
 **URI パラメーター**
 
-- None
+- なし
 
 **要求ヘッダー**
 
-- None
+- なし
 
 **要求本文**
 
-- None
+- なし
 
 **応答**
 
-- None
+- なし
 
 **状態コード**
 
@@ -1118,19 +1118,19 @@ DELETE | /api/holographic/mrc/file |
 
 **URI パラメーター**
 
-- None
+- なし
 
 **要求ヘッダー**
 
-- None
+- なし
 
 **要求本文**
 
-- None
+- なし
 
 **応答**
 
-- None
+- なし
 
 **状態コード**
 
@@ -1149,19 +1149,19 @@ DELETE | /api/holographic/mrc/file |
 
 **URI パラメーター**
 
-- None
+- なし
 
 **要求ヘッダー**
 
-- None
+- なし
 
 **要求本文**
 
-- None
+- なし
 
 **応答**
 
-- None
+- なし
 
 **状態コード**
 
@@ -1180,19 +1180,19 @@ DELETE | /api/holographic/mrc/file |
 
 **URI パラメーター**
 
-- None
+- なし
 
 **要求ヘッダー**
 
-- None
+- なし
 
 **要求本文**
 
-- None
+- なし
 
 **応答**
 
-- None
+- なし
 
 **状態コード**
 
@@ -1211,19 +1211,19 @@ DELETE | /api/holographic/mrc/file |
 
 **URI パラメーター**
 
-- None
+- なし
 
 **要求ヘッダー**
 
-- None
+- なし
 
 **要求本文**
 
-- None
+- なし
 
 **応答**
 
-- None
+- なし
 
 **状態コード**
 
@@ -1255,15 +1255,15 @@ DELETE | /api/holographic/mrc/file |
 
 **要求ヘッダー**
 
-- None
+- なし
 
 **要求本文**
 
-- None
+- なし
 
 **応答**
 
-- None
+- なし
 
 **状態コード**
 
@@ -1293,15 +1293,15 @@ DELETE | /api/holographic/mrc/file |
 
 **要求ヘッダー**
 
-- None
+- なし
 
 **要求本文**
 
-- None
+- なし
 
 **応答**
 
-- None
+- なし
 
 **状態コード**
 
@@ -1331,15 +1331,15 @@ DELETE | /api/holographic/mrc/file |
 
 **要求ヘッダー**
 
-- None
+- なし
 
 **要求本文**
 
-- None
+- なし
 
 **応答**
 
-- None
+- なし
 
 **状態コード**
 
@@ -1369,15 +1369,15 @@ DELETE | /api/holographic/mrc/file |
 
 **要求ヘッダー**
 
-- None
+- なし
 
 **要求本文**
 
-- None
+- なし
 
 **応答**
 
-- None
+- なし
 
 **状態コード**
 

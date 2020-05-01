@@ -7,10 +7,10 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: 2eca388b37cc95803b7ecb94bc0b0b5b990f5de3
-ms.sourcegitcommit: fca0132794ec187e90b2ebdad862f22d9f6c0db8
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/24/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "63798246"
 ---
 # <a name="beta-testing"></a>ベータ テスト
@@ -38,7 +38,7 @@ ms.locfileid: "63798246"
 
 ベータ テストは、アプリをリリースする前のテストの最終段階として実施するのが最適です。 その時点では、自分たちでできるだけ徹底的にアプリをテストしていて、すべての明示的なユース ケースについてテストが終了しています。 ベータ テストは、その他のテスト方法の代わりにはなりません。 ベータ テストの内容は決められていないため、参加者がコード内のすべてのバグを発見できないこともあります。ベータ テスターは操作内容を自分で決めており、彼らがアプリのすべての機能を調べる可能性は高くないからです。 しかし、ベータ テストのフィードバックによって、実際の使用による最後のフィードバックが得られ、公開前に予測していなかった問題が明らかになります。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 [パートナー センター](https://partner.microsoft.com/dashboard)で、アプリがどのオペレーティング システムを対象とするかにかかわらず、アプリをテスターのみに限定して配布できます。 別の名前やパッケージ ID を使って別バージョンのアプリを作る必要はありません。自身でテストを行い、アプリを公開する準備が整ったら新しい提出を作成することもできます。 (もちろん、必要であれば、テスト用に別のアプリを作ることもできます。 作る場合、そのアプリには、最終的なパブリック アプリの名前とは違う名前を付ける必要があります。)
 

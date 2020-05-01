@@ -1,7 +1,6 @@
-items:
 - name: 新着情報
   href: whats-new/toc.yml
-- name: はじめに
+- name: 開始
   href: get-started/toc.yml
 - name: 設計と UI
   href: design/toc.yml
@@ -13,9 +12,3 @@ items:
   href: publish/toc.yml
 - name: API リファレンス
   href: /uwp/
-ms.openlocfilehash: 694733290f7b44ed6b7c88eaf6bcb9a5e0e71309
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57583243"

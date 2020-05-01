@@ -12,10 +12,10 @@ design-contact: ksulliv
 doc-status: Published
 ms.localizationpriority: medium
 ms.openlocfilehash: 5c6eb22fbe0488fa9a36160ce9e704d10727e4c9
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "66364482"
 ---
 # <a name="search-and-find-in-page"></a>検索とページ内検索
@@ -24,7 +24,7 @@ ms.locfileid: "66364482"
 
 検索は、ユーザーがアプリでコンテンツを見つけることができる 2 つの方法のうちの 1 つです。 この記事のガイダンスでは、検索エクスペリエンスの構成要素、検索スコープ、実装、コンテキストでの検索の例について説明します。
 
-> **重要な API**:[AutoSuggestBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.AutoSuggestBox)
+> **重要な API**: [AutoSuggestBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.AutoSuggestBox)
 
 ## <a name="elements-of-the-search-experience"></a>検索エクスペリエンスの構成要素
 

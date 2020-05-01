@@ -6,13 +6,13 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: b947d0b6cc83dc6bca45efb7103a933e79972e3b
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67317450"
 ---
-# <a name="version-adaptive-apps-use-new-apis-while-maintaining-compatibility-with-previous-versions"></a>バージョン アダプティブ アプリ:以前のバージョンとの互換性を保ちながら、新しい API を使う
+# <a name="version-adaptive-apps-use-new-apis-while-maintaining-compatibility-with-previous-versions"></a>バージョン アダプティブ アプリ: 以前のバージョンとの互換性を保ちながら新しい API を使う
 
 Windows 10 SDK の各リリースには、ユーザーが利用したくなるような魅力的な新機能が追加されています。 ただし、すべてのユーザーがデバイスを最新バージョンの Windows 10 に同時に更新するわけではないため、できるだけ幅広いデバイスでアプリが動作するようにする必要があります。 ここでは、アプリが以前のバージョンの Windows 10 で動作するだけでなく、最新の更新プログラムがインストールされたデバイスでアプリを実行したときに新機能を利用できるように、アプリを設計する方法について説明します。
 
@@ -26,8 +26,8 @@ Windows 10 SDK の各リリースには、ユーザーが利用したくなる�
 
 複数の Windows 10 バージョンをサポートするための最初の手順は、Visual Studio プロジェクトで、サポートされる*ターゲット*と*最小*の OS/SDK バージョンを指定することです。
 
-- *Target*:Visual Studio がアプリ コードをコンパイルし、すべてのツールを実行する際に対象となる SDK バージョン。 この SDK バージョンに含まれているすべての API とリソースは、コンパイル時にアプリ コードで使うことができます。
-- *最小*:アプリを実行できる (ストアからの展開先となる) 以前の OS バージョンと、Visual Studio がアプリ マークアップ コードをコンパイルする際に対象となるバージョンをサポートする SDK バージョン。 
+- *ターゲット*: Visual Studio がアプリ コードをコンパイルし、すべてのツールを実行する際に対象となる SDK バージョン。 この SDK バージョンに含まれているすべての API とリソースは、コンパイル時にアプリ コードで使うことができます。
+- *最小*: アプリを実行できる (ストアからの展開先となる) 以前の OS バージョンと、Visual Studio がアプリ マークアップ コードをコンパイルする際に対象となるバージョンをサポートする SDK バージョン。 
 
 実行時には展開先の OS バージョンに対してアプリが実行されるため、そのバージョンで利用できないリソースを使ったり、そのような API を呼び出したりすると、アプリによって例外がスローされます。 ランタイム チェックを使って適切な API を呼び出す方法については、この記事の後半で説明します。
 

@@ -7,10 +7,10 @@ keywords: 概要, uwp, windows 10, 学習トラック, 設定, 設定の保存, 
 ms.localizationpriority: medium
 ms.custom: RS5
 ms.openlocfilehash: 490dd8f0f3841fae089626ec9c283d54cc0d8cd9
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "66370494"
 ---
 # <a name="save-and-load-settings-in-a-uwp-app"></a>UWP アプリでの設定の保存と読み込み
@@ -51,9 +51,9 @@ composite["FontSize"] = 11;
 roamingSettings.Values["RoamingFontInfo"] = composite;
  ```
 
-まず、`Windows.Storage.ApplicationData.Current.LocalSettings` でローカル設定データ ストアの **ApplicationDataContainer** を取得することで、ローカル デバイスに設定を保存します。 このインスタンスに割り当てるキー/値ペアのディクショナリは、ローカル デバイス設定データ ストアに保存されます。
+まず、**でローカル設定データ ストアの**ApplicationDataContainer`Windows.Storage.ApplicationData.Current.LocalSettings` を取得することで、ローカル デバイスに設定を保存します。 このインスタンスに割り当てるキー/値ペアのディクショナリは、ローカル デバイス設定データ ストアに保存されます。
 
-同様のパターンを使用して、ローミング設定を保存します。 まず、`Windows.Storage.ApplicationData.Current.RoamingSettings` を使用してローミング設定データ ストアの **ApplicationDataContainer** を取得します。 次に、このインスタンスにキーと値のペアを割り当てます。  これらのキーと値のペアは、デバイス間で自動的にローミングされます。
+同様のパターンを使用して、ローミング設定を保存します。 まず、**を使用してローミング設定データ ストアの**ApplicationDataContainer`Windows.Storage.ApplicationData.Current.RoamingSettings` を取得します。 次に、このインスタンスにキーと値のペアを割り当てます。  これらのキーと値のペアは、デバイス間で自動的にローミングされます。
 
 上のコード スニペットでは、**ApplicationDataCompositeValue** は複数のキーと値のペアを格納します。 コンポジット値は、相互に同期しなくなることがあってはならない複数の設定があるときに役立ちます。 **ApplicationDataCompositeValue** を保存すると、単位として、または自動的に値が保存され読み込まれます。 これにより、関連する設定は個別ではなく単位としてローミングされるため、同期しなくなることはありません。
 
@@ -74,9 +74,9 @@ if (composite != null)
 }
 ```
 
-`Windows.Storage.ApplicationData.Current.LocalSettings` を使用してローカル設定データ ストアの **ApplicationDataContainer** インスタンスをまず取得することで、ローカル デバイスから設定を読み込みます。 次に、それを使用してキーと値のペアを取得します。
+**を使用してローカル設定データ ストアの**ApplicationDataContainer`Windows.Storage.ApplicationData.Current.LocalSettings` インスタンスをまず取得することで、ローカル デバイスから設定を読み込みます。 次に、それを使用してキーと値のペアを取得します。
 
-同様のパターンに従って、ローミング設定を読み込みます。 まず、`Windows.Storage.ApplicationData.Current.RoamingSettings` を使用してローミング設定データ ストアから **ApplicationDataContainer** インスタンスを取得します。 そのインスタンスからキーと値のペアにアクセスします。 設定にアクセスしているデバイスにデータがまだローミングされていない場合は、null の **ApplicationDataContainer** を取得します。 上のコード例に `if (composite != null)` チェックインがあるのはこのためです。
+同様のパターンに従って、ローミング設定を読み込みます。 まず、**を使用してローミング設定データ ストアから**ApplicationDataContainer`Windows.Storage.ApplicationData.Current.RoamingSettings` インスタンスを取得します。 そのインスタンスからキーと値のペアにアクセスします。 設定にアクセスしているデバイスにデータがまだローミングされていない場合は、null の **ApplicationDataContainer** を取得します。 上のコード例に `if (composite != null)` チェックインがあるのはこのためです。
 
 ## <a name="useful-apis-and-docs"></a>便利な API とドキュメント
 

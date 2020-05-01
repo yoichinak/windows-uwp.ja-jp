@@ -6,10 +6,10 @@ ms.topic: article
 keywords: Windows 10, uwp, xBind
 ms.localizationpriority: medium
 ms.openlocfilehash: 879be9591bae36a1dbcd485387fbb4ac7f502fea
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "66360081"
 ---
 # <a name="functions-in-xbind"></a>x:Bind の関数
@@ -108,7 +108,7 @@ namespace MyNamespace
 - 引数の型は渡されるデータと一致する必要があります。縮小変換は行われません。
 - 関数の戻り値の型は、バインディングを使用しているプロパティの型と一致する必要があります。
 
-バインディング エンジンでは、関数名で起動されたプロパティ変更通知に反応し、必要に応じてバインディングが再評価されます。 たとえば、次のように入力します。
+バインディング エンジンでは、関数名で起動されたプロパティ変更通知に反応し、必要に応じてバインディングが再評価されます。 たとえば、次のようになります。
 
 ```xaml
 <DataTemplate x:DataType="local:Person">

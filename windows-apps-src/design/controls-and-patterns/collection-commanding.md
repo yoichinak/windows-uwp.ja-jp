@@ -13,10 +13,10 @@ dev-contact: niallm
 doc-status: Published
 ms.localizationpriority: medium
 ms.openlocfilehash: 1d520f811c9929721bfcb9d1c83fbff6a4891091
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "63801141"
 ---
 # <a name="contextual-commanding-for-collections-and-lists"></a>コレクションとリストのコンテキスト コマンドの実行
@@ -25,7 +25,7 @@ ms.locfileid: "63801141"
 
 多くのアプリに、リスト、グリッド、ツリーの形で、ユーザーが操作できるコンテンツのコレクションが含まれています。 たとえば、ユーザーは、項目の削除、名前の変更、フラグ付け、更新ができる可能性があります。 この記事では、どのような種類の入力でも、最善のエクスペリエンスが得られるように、そのような操作をコンテキスト コマンドを使って実装する方法を説明します。  
 
-> **重要な API**:[ICommand インターフェイス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.ICommand)、[UIElement.ContextFlyout プロパティ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement.ContextFlyout)、[INotifyPropertyChanged インターフェイス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.inotifypropertychanged)
+> **Important API**: [ICommand インターフェイス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.ICommand)、[UIElement.ContextFlyout プロパティ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement.ContextFlyout)、[INotifyPropertyChanged インターフェイス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.inotifypropertychanged)
 
 ![各種入力方法で、お気に入りのコマンドを実行する](images/ContextualCommand_AddFavorites.png)
 
@@ -55,7 +55,7 @@ ms.locfileid: "63801141"
 > [!NOTE]
 > ユーザーは、どの種類のデバイスからでも、すべてのコマンドにアクセスできる必要があります。 たとえば、アプリのコマンドがホバー ボタン ポインター アクセラレータでしか公開されない場合、タッチ ユーザーはコマンドにアクセスできません。 少なくとも、すべてのコマンドにアクセスできるコンテキスト メニューを使います。  
 
-## <a name="example-the-podcastobject-data-model"></a>以下に例を示します。PodcastObject データ モデル
+## <a name="example-the-podcastobject-data-model"></a>例: PodcastObject データ モデル
 
 推奨されるコマンド実行のデモとして、この記事では、ポッドキャスト アプリ用のポッドキャスト リストを作成します。 コード例では、ユーザーがリストから特定のポッドキャストを "お気に入り" に追加できるようにする方法を示しています。
 
@@ -236,7 +236,7 @@ public sealed partial class PodcastUserControl : UserControl
 
 | 入力    | コンテキスト アクション                          |
 | -------- | --------------------------------------- |
-| マウス    | 右クリック                             |
+| マウス    | 右クリックします。                             |
 | キーボード | Shift + F10、メニュー ボタン                  |
 | タッチ    | 項目を長押し                      |
 | ペン      | バレル ボタンを押す、項目を長押し |
@@ -370,13 +370,13 @@ protected override void OnPointerExited(PointerRoutedEventArgs e)
 
 ### <a name="touch-accelerators"></a>タッチ アクセラレータ
 
-#### <a name="swipe"></a>スワイプ
+#### <a name="swipe"></a>Swipe
 
 ![項目をスワイプしてコマンドを表示](images/ContextualCommand_Swipe.png)
 
 スワイプによるコマンド実行は、タッチ デバイスを操作しているユーザーが、よく使われるセカンダリ操作をタッチを使って実行できるようにするタッチ アクセラレータです。 スワイプはタッチ ユーザーが、スワイプして削除やスワイプして呼び出すなどの一般的な操作を使って、コンテンツをすばやく自然に操作することを可能にします。 詳しくは、[スワイプによるコマンドの実行](swipe.md)についての記事をご覧ください。
 
-コレクションにスワイプを組み込むためには、2 つのコンポーネントが必要です: コマンドをホストする SwipeItems と、項目をラップしてスワイプにより操作できるようにする SwipeControl。
+コレクションにスワイプを組み込むには、コマンドをホストする SwipeItems と、項目をラップしてスワイプにより操作できるようにする SwipeControl の 2 つのコンポーネントが必要です。
 
 SwipeItems は、PodcastUserControl 内の Resource として定義できます。 次の例では、SwipeItems に、項目をお気に入りに追加するコマンドが含まれています。
 

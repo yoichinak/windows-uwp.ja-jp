@@ -10,10 +10,10 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: 0e5b46223ea7dfa5e43b5a50a04a4c3f31307d49
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "63796314"
 ---
 # <a name="content-design-basics-for-uwp-apps"></a>UWP アプリのコンテンツ デザインの基本
@@ -45,7 +45,7 @@ ms.locfileid: "63796314"
 
 [マスター/詳細](../controls-and-patterns/master-details.md)モデルは、リスト ビュー (マスター) とコンテンツ ビュー (詳細) で構成されます。 両方のウィンドウは固定されていて、垂直方向にスクロールできます。 リスト項目とコンテンツ ビューの間には明確な関係があります。マスター ビューで項目が選択されると、詳細ビューがそれに応じて更新されます。 詳細ビューのナビゲーションが提供されるだけでなく、マスター ビュー内の項目を追加および削除することができます。
 
-### <a name="details"></a>詳細
+### <a name="details"></a>説明
 
 ![複数のビュー](images/multi-view.png)
 

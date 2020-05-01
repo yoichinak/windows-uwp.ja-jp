@@ -1,19 +1,19 @@
 ---
 ms.assetid: 64F7FC51-E8AC-4098-9C5F-0172E4724B5C
-title: '[パフォーマンス]'
+title: パフォーマンス
 description: ユーザーは、高い応答性と自然な使用感、そしてバッテリーが消耗しないことをアプリに期待しています。
 ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: c13fb0f1b3d982d372896547bf2e47d978532ea4
-ms.sourcegitcommit: d38e2f31c47434cd6dbbf8fe8d01c20b98fabf02
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/06/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "70393447"
 ---
-# <a name="performance"></a>[パフォーマンス]
+# <a name="performance"></a>パフォーマンス
 
 
 ユーザーは、高い応答性と自然な使用感、そしてバッテリーが消耗しないことをアプリに期待しています。 技術的には、パフォーマンスは機能要件ではありませんが、パフォーマンスを機能として扱うことで、ユーザーの期待に沿うことができます。 鍵となる要因は、目標の明確化と測定の実施です。 パフォーマンスが重要なシナリオを決定し、優れたパフォーマンスとは何を意味するかを定義します。 次に、プロジェクトの初期とライフサイクル全体で十分な回数の測定を行って、目標を達成できることを確認します。 このセクションでは、パフォーマンスのワークフローの整理、アニメーション エラーやフレーム レートの問題の解決、および起動時間、ページ ナビゲーションの時間、メモリ使用量の調整を行う方法を示します。

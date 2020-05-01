@@ -6,10 +6,10 @@ ms.topic: article
 keywords: windows 10, uwp, MySQL, データベース
 ms.localizationpriority: medium
 ms.openlocfilehash: bfed9c0a0c4198095b9be48fe71832bdfca67718
-ms.sourcegitcommit: 139717a79af648a9231821bdfcaf69d8a1e6e894
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67713789"
 ---
 # <a name="use-a-mysql-database"></a>MySQL データベースの使用

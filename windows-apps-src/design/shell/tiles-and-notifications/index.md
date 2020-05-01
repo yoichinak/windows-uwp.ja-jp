@@ -9,11 +9,11 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: 8a87fe2bbff1768da43d6cb366b173077555270f
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.sourcegitcommit: f727b68e86a86c94eff00f67ed79a1c12666e7bc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57583388"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "63806975"
 ---
 # <a name="tiles-badges-and-notifications-for-uwp-apps"></a>UWP アプリのタイル、バッジ、通知
  
@@ -33,7 +33,7 @@ ms.locfileid: "57583388"
 <p><em>プッシュ通知</em>または <em>直接通知</em>は、Windows プッシュ通知サービス (WNS) またはバックグラウンド タスクのいずれかからアプリに送信される通知です。 これらの通知には、関心のあるイベントが発生したことをユーザーに通知することで応答するか、お好みの方法で応答することができます。</p>
 
  
-## <a name="tiles"></a>タイル
+## <a name="tiles"></a>Tiles
 | 記事 | 説明 |
 | --- | --- |
 | [タイルの作成](creating-tiles.md) | アプリの既定のタイルをカスタマイズし、さまざまな画面サイズのアセットを提供します。 |

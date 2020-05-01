@@ -13,10 +13,10 @@ doc-status: Published
 ms.localizationpriority: medium
 ms.custom: RS5
 ms.openlocfilehash: 31cf2134fb8f77809b75a5abf3e6980443452059
-ms.sourcegitcommit: 789bfe3756c5c47f7324b96f482af636d12c0ed3
+ms.sourcegitcommit: f727b68e86a86c94eff00f67ed79a1c12666e7bc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68867405"
 ---
 # <a name="motion-for-uwp-apps"></a>UWP アプリのモーション
@@ -74,21 +74,21 @@ Fluent モーションはアプリで目的を果たします。 これは、ユ
 
 :::row:::
     :::column:::
-### <a name="timing-and-easingtiming-and-easingmd"></a>[タイミングとイージング](timing-and-easing.md)
+### <a name="timing-and-easing"></a>[タイミングとイージング](timing-and-easing.md)
 タイミングとイージングは、UI 内で出入りしたり、移動したりするオブジェクトのモーションを自然に感じさせる重要な要素です。
     :::column-end:::
     :::column:::
-### <a name="directionality-and-gravitydirectionality-and-gravitymd"></a>[方向性と重力](directionality-and-gravity.md)
+### <a name="directionality-and-gravity"></a>[方向性と重力](directionality-and-gravity.md)
 方向指示は、ユーザーがエクスペリエンス全体を通じて行う取り組みの強固な概念的モデルを提供するのに役立ちます。 方向性は、重力などのエネルギーの影響を受け、これにより移動の自然な感覚が強化されます。
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-### <a name="page-transitionspage-transitionsmd"></a>[ページ切り替え効果](page-transitions.md)
+### <a name="page-transitions"></a>[ページ切り替え効果](page-transitions.md)
 ページ切り替え効果により、ユーザーがアプリ内のページ間を移動するため、ページ間の関係がフィードバックされます。 ユーザーがナビゲーション階層内の場所を理解するのに役立ちます。
     :::column-end:::
     :::column:::
-### <a name="connected-animationconnected-animationmd"></a>[接続型アニメーション](connected-animation.md)
+### <a name="connected-animation"></a>[接続型アニメーション](connected-animation.md)
 接続型アニメーションを使用すると、2 つの異なるビューの間で要素が切り替わる様子をアニメーション化することによって、動的で魅力的なナビゲーション エクスペリエンスを作成できます。
     :::column-end:::
 :::row-end:::
