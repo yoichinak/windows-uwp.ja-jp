@@ -7,10 +7,10 @@ keywords: windows 10, uwp
 ms.assetid: 2d935f53-84db-4108-86dc-cb6a0749782f
 ms.localizationpriority: medium
 ms.openlocfilehash: aecb0a6e6a7d9dfbe05a43b760b044d032fff4e1
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.sourcegitcommit: f727b68e86a86c94eff00f67ed79a1c12666e7bc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75685033"
 ---
 # <a name="uwp-on-xbox-one"></a>Xbox One の UWP
@@ -51,7 +51,7 @@ Channel 9 の以下の講演は、Xbox でのすばらしいアプリの開発�
 * [UWP 開発 1: アダプティブ UI のビルド](https://channel9.msdn.com/Events/Build/2016/L724-R1)
 * [ブラウザーに留まらない Web アプリ: クロス プラットフォームとクロス デバイスの遭遇](https://channel9.msdn.com/Events/Build/2016/B888)
 
-## <a name="see-also"></a>「
+## <a name="see-also"></a>関連項目
 
 - [Windows 10 UWP アプリの自動起動](automate-launching-uwp-apps.md)
 - [ゲーム開発用の CPUSets](cpusets-games.md)

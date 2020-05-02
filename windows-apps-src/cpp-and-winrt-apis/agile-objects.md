@@ -6,10 +6,10 @@ ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、アジャイル、オブジェクト、アジリティ、IAgileObject
 ms.localizationpriority: medium
 ms.openlocfilehash: 82dff619e6fa3934f69b93090bee90de6359ca07
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "66360331"
 ---
 # <a name="agile-objects-in-cwinrt"></a>C++/WinRT でのアジャイル オブジェクト
@@ -87,7 +87,7 @@ struct MyRuntimeClass: MyRuntimeClassT<MyRuntimeClass, winrt::non_agile>
 
 アジリティをオプトアウトするかどうかに関係なく、**IMarshal** を自分で実装できます。 たとえば、**winrt::non_agile** マーカーを使用して既定のアジリティの実装を回避し、自分で **IMarshal** を実装できます&mdash;marshal-by-value (値渡しのマーシャリング) セマンティクスをサポートするためなど。
 
-## <a name="agile-references-winrtagileref"></a>アジャイル リファレンス (winrt::agile_ref)
+## <a name="agile-references-winrtagile_ref"></a>アジャイル リファレンス (winrt::agile_ref)
 
 アジャイルではないオブジェクトを使用していて、ただしいくつかの可能性のあるアジャイルのコンテキストでそれを渡す必要がある場合、1 つのオプションは、[**winrt::agile_ref**](/uwp/cpp-ref-for-winrt/agile-ref) 構造体のテンプレートを使用して、非アジャイル型のインスタンス、または非アジャイル オブジェクトのインターフェイスへのアジャイルのリファレンスを取得することです。
 

@@ -6,20 +6,20 @@ ms.topic: article
 keywords: Windows 10, UWP, WinRT API, インデクサー, 検索
 localizationpriority: medium
 ms.openlocfilehash: 2a77bfc37d853efd28bde9bc3043d072888822f2
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "66369264"
 ---
 # <a name="using-supplemental-properties"></a>補足プロパティの使用  
 
-## <a name="summary"></a>概要  
+## <a name="summary"></a>要約  
 - 補足プロパティを使用することで、アプリでは、ファイルを変更することなく、プロパティでファイルにタグを付けることができます 
 - 計算が難しいプロパティがある場合や、ファイルを変更できない場合に役立ちます 
 - 補足プロパティの使用は、Windows プロパティ システムで他のプロパティを使用するのと同じです  
 
-## <a name="introduction"></a>概要 
+## <a name="introduction"></a>はじめに 
 ここ数年の魅力的な新しいアプリの多くでは、ユーザー ファイルで CPU 負荷の高い操作を実行し、作成日などの基本的なもの以外の便利なプロパティをファイルから抽出する必要があります。 これらのアプリでは、イメージのオブジェクト認識、メールのインテント抽出、およびテキスト分析を行ってドキュメントをまとめます。 これは、ほとんどのコンシューマー PC で現在、どの程度強力なコンピューティングを利用できるかに基づきます。   
 
 このメタデータをすぐに検索できるようにすることで、ユーザーの生産性を指数関数的に向上させることができます。 あなたの娘が画像に存在することを認識するだけでも興味深いことですが、彼女がその祖母と一緒にいる画像を検索できることははるかに便利です。 コンピューターの使用のエクスペリエンスが、より個人的で生き生きとしたものに感じられます。 あなたが大切な思い出を見つけられるように、コンピューター内の誰かが手を差し伸べるようなものです。 

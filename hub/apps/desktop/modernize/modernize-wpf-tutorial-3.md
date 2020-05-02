@@ -9,10 +9,10 @@ keywords: windows 10、uwp、windows フォーム、wpf、xaml islands
 ms.localizationpriority: medium
 ms.custom: RS5, 19H1
 ms.openlocfilehash: 830c1cdf2e24e716d51642bc65b5b6783d0d784a
-ms.sourcegitcommit: 6bb794c6e309ba543de6583d96627fbf1c177bef
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/20/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "69643373"
 ---
 # <a name="part-3-add-a-uwp-calendarview-control-using-xaml-islands"></a>パート 3: XAML Islands を使用した UWP CalendarView コントロールの追加

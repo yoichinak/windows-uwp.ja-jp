@@ -6,10 +6,10 @@ ms.date: 11/03/2017
 ms.topic: article
 keywords: Windows 10, UWP, Fluent
 ms.openlocfilehash: 9328c3f156acd13fd8947e01e924bf0d6849c0a6
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75684403"
 ---
 # <a name="item-templates-for-list-view"></a>リスト ビューの項目テンプレート

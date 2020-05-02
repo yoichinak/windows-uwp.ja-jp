@@ -7,10 +7,10 @@ keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.custom: RS5
 ms.openlocfilehash: cb2aef514c8787b5afe11ea5a2818012bfdf2f41
-ms.sourcegitcommit: 445320ff0ee7323d823194d4ec9cfa6e710ed85d
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "72282422"
 ---
 # <a name="typography"></a>文字体裁
@@ -19,7 +19,7 @@ ms.locfileid: "72282422"
 
 言語の視覚的表現である文字体裁において、何よりも重要な役割は情報を伝達することです。 スタイルによってその目的が邪魔されてはなりません。 この記事では、ユーザーが簡単かつ効率的にコンテンツを理解できるように、UWP アプリで文字体裁のスタイルを決定する方法について説明します。
 
-## <a name="font"></a>Font
+## <a name="font"></a>フォント
 
 アプリ全体で同じフォントを使用してください。UWP アプリの既定のフォントである **Segoe UI** に統一することをお勧めします。 このフォントは、常に最適な読みやすさが維持されるサイズとピクセル密度を備え、システムのコンテンツを清潔で軽快、かつオープンに美しく表示します。
 
@@ -144,7 +144,7 @@ UWP 書体見本は、ユーザーがコンテンツを読みやすいように�
     :::column-end:::
 :::row-end:::
 
-**注意**:表示領域が不明確な場合 (領域が異なる背景色によって明確に表示されていない場合など)、または詳細テキストへのリンクがある場合は、省略記号を使用します。
+**注**:表示領域が不明確な場合 (領域が異なる背景色によって明確に表示されていない場合など)、または詳細テキストへのリンクがある場合は、省略記号を使用します。
 
 ## <a name="languages"></a>言語 
 
@@ -161,7 +161,7 @@ Segoe UI は、英語、ヨーロッパの各言語、ギリシャ語、ヘブ�
 <tr class="header">
 <th align="left">フォント ファミリー</th>
 <th align="left">スタイル</th>
-<th align="left">説明</th>
+<th align="left">メモ</th>
 </tr>
 </thead>
 <tbody>
@@ -234,7 +234,7 @@ Segoe UI は、英語、ヨーロッパの各言語、ギリシャ語、ヘブ�
 <tr class="header">
 <th align="left">フォント ファミリー</th>
 <th align="left">スタイル</th>
-<th align="left">説明</th>
+<th align="left">メモ</th>
 </tr>
 </thead>
 <tbody>
@@ -277,7 +277,7 @@ Segoe UI は、英語、ヨーロッパの各言語、ギリシャ語、ヘブ�
 <tr class="header">
 <th align="left">フォント ファミリー</th>
 <th align="left">スタイル</th>
-<th align="left">説明</th>
+<th align="left">メモ</th>
 </tr>
 </thead>
 <tbody>
@@ -313,7 +313,7 @@ Segoe UI は、英語、ヨーロッパの各言語、ギリシャ語、ヘブ�
 <tr class="header">
 <th align="left">フォント ファミリー</th>
 <th align="left">スタイル</th>
-<th align="left">説明</th>
+<th align="left">メモ</th>
 </tr>
 </thead>
 <tbody>

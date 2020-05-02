@@ -8,10 +8,10 @@ ms.author: jimwalk
 author: jwmsft
 ms.localizationpriority: medium
 ms.openlocfilehash: a2f30ba67acc12d622acd09f9fae872ee2058a2f
-ms.sourcegitcommit: d1c3e13de3da3f7dce878b3735ee53765d0df240
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/24/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "66215150"
 ---
 # <a name="using-the-visual-layer-with-wpf"></a>WPF でのビジュアル レイヤーの使用
@@ -27,7 +27,7 @@ UWP XAML ホスティング API には、これらの前提条件があります
 - WPF と UWP を使用したアプリ開発に関するいくらかの知識があることを前提としています。 For more info, see:
   - [概要 (WPF)](/dotnet/framework/wpf/getting-started/)
   - [Windows 10 アプリの概要](/windows/uwp/get-started/)
-  - [Windows 10 向けのデスクトップ アプリを強化する](/windows/uwp/porting/desktop-to-uwp-enhance)
+  - [Windows 10 向けのデスクトップ アプリケーションの強化](/windows/uwp/porting/desktop-to-uwp-enhance)
 - .NET Framework 4.7.2 以降
 - Windows 10 バージョン 1803 以降
 - Windows 10 SDK 17134 以降
@@ -46,7 +46,7 @@ Visual C# で _HelloComposition_ という名前の新しい WPF アプリケー
 
 1. Visual Studio を開き、 **[ファイル]**  >  **[新規作成]**  >  **[プロジェクト]** の順に選択します。
 
-    **[新しいプロジェクト]** ダイアログ ボックスが開きます。
+    **[新しいプロジェクト]** ダイアログが開きます。
 1. **[インストール済み]** カテゴリで、 **[Visual C#]** ノードを展開し、 **[Windows デスクトップ]** を選択します。
 1. **[WPF アプリ (.NET Framework)]** テンプレートを選択します。
 1. 名前「_HelloComposition_」を入力し、 **[.NET Framework 4.7.2]** Framework を選択して、 **[OK]** をクリックします。
@@ -57,19 +57,19 @@ Visual C# で _HelloComposition_ という名前の新しい WPF アプリケー
 
 WPF アプリで Windows ランタイム (WinRT) API を使用するには、Windows ランタイムにアクセスするように、Visual Studio プロジェクトを構成する必要があります。 さらに、Composition API ではベクトルが広範囲に使用されるため、ベクトルを使用するために必要な参照を追加する必要があります。
 
-これらの両方のニーズに対処するために、NuGet を使用できます。 これらのパッケージの最新バージョンをインストールして、プロジェクトに必要な参照を追加します。  
+NuGet パッケージは、これらの両方のニーズに対処するために使用できます。 これらのパッケージの最新バージョンをインストールして、プロジェクトに必要な参照を追加します。  
 
-- [Microsoft.Windows.SDK.Contracts](https://www.nuget.org/packages/Microsoft.Windows.SDK.Contracts) (既定のパッケージ管理形式を PackageReference に設定する必要があります)。
+- [Microsoft.Windows.SDK.Contracts](https://www.nuget.org/packages/Microsoft.Windows.SDK.Contracts) (既定のパッケージ管理形式を PackageReference に設定する必要があります。)
 - [System.Numerics.Vectors](https://www.nuget.org/packages/System.Numerics.Vectors/)
 
 > [!NOTE]
-> NuGet パッケージを使用してプロジェクトを構成することをお勧めしますが、必要な参照を手動で追加できます。 詳しくは、「[Windows 10 向けのデスクトップ アプリを強化する](/windows/uwp/porting/desktop-to-uwp-enhance)」をご覧ください。 次の表に、参照を追加する必要があるファイルを示します。
+> NuGet パッケージを使用してプロジェクトを構成することをお勧めしますが、必要な参照を手動で追加できます。 詳細については、[Windows 10 向けのデスクトップ アプリの強化](/windows/uwp/porting/desktop-to-uwp-enhance)に関する記事を参照してください。 次の表に、参照を追加する必要があるファイルを示します。
 
 |ファイル|インストール先|
 |--|--|
 |System.Runtime.WindowsRuntime|C:\Windows\Microsoft.NET\Framework\v4.0.30319|
-|Windows.Foundation.UniversalApiContract.winmd|C:\Program Files (x86)\Windows Kits\10\References\<*sdk version*>\Windows.Foundation.UniversalApiContract\<*version*>|
-|Windows.Foundation.FoundationContract.winmd|C:\Program Files (x86)\Windows Kits\10\References\<*sdk version*>\Windows.Foundation.FoundationContract\<*version*>|
+|Windows.Foundation.UniversalApiContract.winmd|C:\Program Files (x86)\Windows Kits\10\References\<*SDK バージョン*>\Windows.Foundation.UniversalApiContract\<*バージョン*>|
+|Windows.Foundation.FoundationContract.winmd|C:\Program Files (x86)\Windows Kits\10\References\<*SDK バージョン*>\Windows.Foundation.FoundationContract\<*バージョン*>|
 |System.Numerics.Vectors.dll|C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Numerics.Vectors\v4.0_4.0.0.0__b03f5f7f11d50a3a|
 |System.Numerics.dll|C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2|
 
@@ -639,7 +639,7 @@ UserControl は、コンポジション コンテンツを作成して管理す�
 - [概要 (WPF)](/dotnet/framework/wpf/getting-started/) (.NET)
 - [アンマネージ コードとの相互運用](/dotnet/framework/interop/) (.NET)
 - [Windows 10 アプリの概要](/windows/uwp/get-started/) (UWP)
-- [Windows 10 向けのデスクトップ アプリを強化する](/windows/uwp/porting/desktop-to-uwp-enhance) (UWP)
+- [Windows 10 向けのデスクトップ アプリケーションの強化](/windows/uwp/porting/desktop-to-uwp-enhance) (UWP)
 - [Windows.UI.Composition 名前空間](/uwp/api/windows.ui.composition) (UWP)
 
 ## <a name="complete-code"></a>コードを完成させる

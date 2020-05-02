@@ -7,10 +7,10 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: d6c8383a5b0041d5edf6e0c2c8d94acf82572d13
-ms.sourcegitcommit: afc25d41229d4e340c9557651b35e016d7595c3a
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "70808441"
 ---
 # <a name="install-apps-with-the-winappdeploycmdexe-tool"></a>WinAppDeployCmd.exe ツールを使ったアプリのインストール
@@ -83,7 +83,7 @@ WinAppDeployCmd deletecreds -credserver <server> -ip <address>
 | -g (-guid)       | ターゲット デバイスの一意の識別子。|
 | -d (-dependency) | (省略可能) パッケージの依存関係のそれぞれの依存パスを指定します。 パスを指定しない場合、ツールはアプリ パッケージのルート ディレクトリと SDK のディレクトリで依存関係を探します。|
 | -f (-file)       | インストール、更新、またはアンインストールするアプリ パッケージのファイル パス。|
-| -p (-package)    | アンインストールするアプリ パッケージの完全なパッケージ名 (list コマンドを使って、デバイスに既にインストールされているパッケージの完全な名前を見つけることができます)。 |
+| -p (-package)    | アンインストールするアプリ パッケージの完全なパッケージ名  (list コマンドを使って、デバイスに既にインストールされているパッケージの完全な名前を見つけることができます)。 |
 | -pin             | ターゲット デバイスとの接続を確立するために求められた場合に指定する PIN。 (認証が必要な場合に -pin オプションを指定して再試行するように求められます) |
 | -credserver      | ターゲットが使用するネットワーク資格情報のサーバー名。 |
 | -credusername    | ターゲットが使用するネットワーク資格情報のユーザー名。 |
@@ -96,7 +96,7 @@ WinAppDeployCmd deletecreds -credserver <server> -ip <address>
 
 | **引数**           | **説明**                                                              |
 |------------------------|------------------------------------------------------------------------------|
-| &lt;x&gt;              | タイムアウト (秒単位) (既定値は 10 です)                                          |
+| &lt;x&gt;              | タイムアウト (秒単位)  (既定値は 10 です)                                          |
 | &lt;address&gt;        | ターゲット デバイスの IP アドレスと一意の識別子。                        |
 | &lt;a&gt;&lt;b&gt; ... | アプリ パッケージの依存関係のそれぞれの依存パス。                    |
 | &lt;p&gt;              | 接続を確立するためのデバイス設定に示されている、英数字 PIN。 |

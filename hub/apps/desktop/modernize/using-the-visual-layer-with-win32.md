@@ -9,10 +9,10 @@ ms.author: jimwalk
 author: jwmsft
 ms.localizationpriority: medium
 ms.openlocfilehash: c9b4ec38b0dd1f6eca3f43cfded74c6292c08100
-ms.sourcegitcommit: d1c3e13de3da3f7dce878b3735ee53765d0df240
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/24/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "66215195"
 ---
 # <a name="using-the-visual-layer-with-win32"></a>Win32 でのビジュアル レイヤーの使用
@@ -382,7 +382,7 @@ Win32 アプリで Windows ランタイム (WinRT) API を使用するには、C
 - [Win32 HelloComposition サンプル (GitHub)](https://github.com/Microsoft/Windows.UI.Composition-Win32-Samples/tree/master/cpp/HelloComposition)
 - [Win32 と C++ の概要](/windows/desktop/learnwin32/learn-to-program-for-windows)
 - [Windows 10 アプリの概要](/windows/uwp/get-started/) (UWP)
-- [Windows 10 向けのデスクトップ アプリを強化する](/windows/uwp/porting/desktop-to-uwp-enhance) (UWP)
+- [Windows 10 向けのデスクトップ アプリケーションの強化](/windows/uwp/porting/desktop-to-uwp-enhance) (UWP)
 - [Windows.UI.Composition 名前空間](/uwp/api/windows.ui.composition) (UWP)
 
 ## <a name="complete-code"></a>コードを完成させる

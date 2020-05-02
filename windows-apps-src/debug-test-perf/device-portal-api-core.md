@@ -8,10 +8,10 @@ ms.topic: article
 keywords: windows 10, uwp, デバイス ポータル
 ms.localizationpriority: medium
 ms.openlocfilehash: 9e091cc7ad62f69b9e76541101555493609b8a06
-ms.sourcegitcommit: 8d945e0406818e614eacdc962493e570cc7615ed
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75955308"
 ---
 # <a name="device-portal-core-api-reference"></a>デバイス ポータル コア API リファレンス
@@ -534,7 +534,7 @@ ms.locfileid: "75955308"
     },...
 ]}
 ```
-デバイスをこのシステムのオーディオに使用できる場合は、*AudioConnectionStatus* フィールドが表示されます (ポリシーとオプションのコンポーネントがこの影響を受ける可能性があります)。*AudioConnectionStatus* は、"Connected" または "Disconnected" のいずれかです。
+デバイスをこのシステムのオーディオに使用できる場合は、*AudioConnectionStatus* フィールドが表示されます  (ポリシーとオプションのコンポーネントがこの影響を受ける可能性があります)。*AudioConnectionStatus* は、"Connected" または "Disconnected" のいずれかです。
 
 ---
 ### <a name="get-a-list-of-available-bluetooth-devices"></a>利用可能な Bluetooth デバイスの一覧を取得する
@@ -577,7 +577,7 @@ ms.locfileid: "75955308"
 
 **要求**
 
-デバイスをこのシステムのオーディオに使用できる場合、デバイスに接続します (ポリシーとオプションのコンポーネントがこの影響を受ける可能性があります)。
+デバイスをこのシステムのオーディオに使用できる場合、デバイスに接続します  (ポリシーとオプションのコンポーネントがこの影響を受ける可能性があります)。
 
 | 認証方法       | 要求 URI           |
 | :---         | :---                  |
@@ -621,7 +621,7 @@ ms.locfileid: "75955308"
 
 **要求**
 
-デバイスをこのシステムのオーディオに使用できる場合は、デバイスを切断します (ポリシーとオプションのコンポーネントがこの影響を受ける可能性があります)。
+デバイスをこのシステムのオーディオに使用できる場合は、デバイスを切断します  (ポリシーとオプションのコンポーネントがこの影響を受ける可能性があります)。
 
 | 認証方法       | 要求 URI              |
 | :---         | :---                     |

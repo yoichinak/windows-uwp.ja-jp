@@ -9,17 +9,17 @@ ms.custom: RS5
 ms.author: mcleans
 author: mcleanbyron
 ms.openlocfilehash: f46d6ba99d4342e1e4fe7a9926082a5981fd690a
-ms.sourcegitcommit: 11c5cb559c949b6fe645499c2265434885882d8e
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/01/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74666907"
 ---
 # <a name="the-fluent-design-system-for-windows-app-creators"></a>Windows アプリ作成者用の Fluent Design System
 
 ![Fluent Design のヘッダー](images/fluent/fluentdesign-app-header.jpg)
 
-## <a name="introduction"></a>概要
+## <a name="introduction"></a>はじめに
 
 Fluent Design System は、順応性が高く、親近感があり、美しいユーザー インターフェイスを作成するためのシステムです。
 

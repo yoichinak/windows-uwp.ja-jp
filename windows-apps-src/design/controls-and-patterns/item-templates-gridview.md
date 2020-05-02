@@ -6,10 +6,10 @@ ms.date: 11/03/2017
 ms.topic: article
 keywords: Windows 10, UWP, Fluent
 ms.openlocfilehash: 17c14d7147cafa17e78bd13bf6684a99d87cbdfd
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75684408"
 ---
 # <a name="item-templates-for-grid-view"></a>グリッド ビューの項目テンプレート

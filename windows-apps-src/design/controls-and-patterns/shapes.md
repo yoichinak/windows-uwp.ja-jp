@@ -7,10 +7,10 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: e78fddf1a0dae39d4479a4a1786a36687337c75e
-ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "71340236"
 ---
 # <a name="draw-shapes"></a>図形の描画
@@ -169,7 +169,7 @@ layoutRoot.Children.Add(line1);
 
 [  **Polyline**](/uwp/api/Windows.UI.Xaml.Shapes.Polyline) は、[**Polygon**](/uwp/api/Windows.UI.Xaml.Shapes.Polygon) と同様に、図形の境界線を点のセットによって定義しますが、**Polyline** では最後の点が最初の点に接続されません。
 
-**注**   [**Polyline**](/uwp/api/Windows.UI.Xaml.Shapes.Polyline) の始点と終点が等しくなるように明示的に [**Points**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.polyline.points) を設定することもできますが、その場合は、[**Polygon**](/uwp/api/Windows.UI.Xaml.Shapes.Polygon) を使うのが一般的です。
+**注**  [**Polyline**](/uwp/api/Windows.UI.Xaml.Shapes.Polyline) の始点と終点が等しくなるように明示的に [**Points**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.polyline.points) を設定することもできますが、その場合は、[**Polygon**](/uwp/api/Windows.UI.Xaml.Shapes.Polygon) を使うのが一般的です。
 
 [  **Polyline**](/uwp/api/Windows.UI.Xaml.Shapes.Polyline) の [**Fill**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.shape.fill) を指定した場合、**Polyline** に対して設定された [**Points**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.polyline.points) の始点と終点が交わらなくても、図形の内部領域が **Fill** によって塗りつぶされます。 **Polyline** で **Fill** を指定しなかった場合のレンダリングは、複数の [**Line**](/uwp/api/Windows.UI.Xaml.Shapes.Line) 要素を個別に指定し、前の直線の終点が次の直線の始点と交わるようにした場合と同様の結果となります。
 

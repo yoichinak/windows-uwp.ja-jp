@@ -9,10 +9,10 @@ keywords: NodeJS, Node.js, Windows 10, Microsoft, ラーニング NodeJS, Window
 ms.localizationpriority: medium
 ms.date: 09/19/2019
 ms.openlocfilehash: a8ce1d08136a74504e1b3bad26feadd61b72068f
-ms.sourcegitcommit: 60d2d15dd0d365f82e4e90e4bc34b40cf5b4a247
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "72517789"
 ---
 # <a name="get-started-with-nodejs-web-frameworks-on-windows"></a>Windows での Node.js Web フレームワークの概要
@@ -21,7 +21,7 @@ Windows で Node.js Web フレームワーク (Next.js、Nuxt.js、Gatsby を含
 
 ## <a name="prerequisites"></a>前提条件
 
-このガイドでは、読者が [WSL 2 を使用して Node.js 開発環境を設定する](./setup-on-wsl2.md)手順を既に完了していることを前提にしています。これには、次のような操作が含まれます。
+このガイドでは、読者が [WSL 2 を使用して Node.js 開発環境を設定する](./setup-on-wsl2.md)手順を既に完了していることを前提にしています。これには以下が含まれます。
 
 - Windows 10 Insider Preview ビルド 18932 以降をインストールします。
 - Windows で WSL 2 機能を有効にします。

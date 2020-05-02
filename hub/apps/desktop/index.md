@@ -8,10 +8,10 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.openlocfilehash: c27826980127674b4a4356af8a3c36056e86bd83
-ms.sourcegitcommit: cf88f5e8e1de476ed2635e791a5e5e82ae4bd8cf
+ms.sourcegitcommit: f727b68e86a86c94eff00f67ed79a1c12666e7bc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74056859"
 ---
 # <a name="build-desktop-apps-for-windows-pcs"></a>Windows PC 用のデスクトップ アプリの構築
@@ -43,22 +43,22 @@ Windows PC 用のデスクトップ アプリを構築するプラットフォ�
 <tr class="odd">
 <td><a href="https://docs.microsoft.com/windows/uwp/">ユニバーサル Windows プラットフォーム (UWP)</a></td>
 <td><p>Windows 10 のアプリおよびゲーム用の最先端のプラットフォームです。 UWP コントロールと API を排他的に使用する UWP アプリをビルドすることも、他のプラットフォームのいずれかを使用して構築されたデスクトップ アプリで UWP コントロールと API を使用することもできます。</p></td>
-<td><a href="/windows/uwp/get-started/">作業の開始</a><br/><a href="/uwp/">API リファレンス</a><br/><a href="https://github.com/Microsoft/Windows-universal-samples">サンプル</a></td>
+<td><a href="/windows/uwp/get-started/">作業開始</a><br/><a href="/uwp/">API リファレンス</a><br/><a href="https://github.com/Microsoft/Windows-universal-samples">サンプル</a></td>
 </tr>
 <tr class="even">
 <td><a href="https://docs.microsoft.com/windows/win32/">Win32</a></td>
 <td><p>Windows とハードウェアへの直接アクセスを必要とするネイティブ C/C++ の Windows アプリのために用意されたプラットフォームです。</p></td>
-<td><a href="/windows/win32/desktop-programming/">作業の開始</a><br/><a href="/windows/win32/apiindex/windows-api-list/">API リファレンス</a><br/><a href="https://github.com/Microsoft/Windows-classic-samples">サンプル</a></td>
+<td><a href="/windows/win32/desktop-programming/">作業開始</a><br/><a href="/windows/win32/apiindex/windows-api-list/">API リファレンス</a><br/><a href="https://github.com/Microsoft/Windows-classic-samples">サンプル</a></td>
 </tr>
 <tr class="odd">
 <td><a href="https://docs.microsoft.com/dotnet/framework/wpf/">WPF</a></td>
 <td><p>XAML UI モデルを使用して多彩なグラフィックで管理される Windows アプリ用に構築された .NET ベースのプラットフォームです。 これらのアプリは、<a href="https://docs.microsoft.com/dotnet/core/whats-new/dotnet-core-3-0">.NET Core 3</a> または完全な .NET Framework を対象にすることができます。</p></td>
-<td><a href="/dotnet/framework/wpf/getting-started/">作業の開始</a><br/><a href="https://docs.microsoft.com/dotnet/api/index">API リファレンス (.NET)</a><br/><a href="https://github.com/Microsoft/WPF-Samples">サンプル</a></td>
+<td><a href="/dotnet/framework/wpf/getting-started/">作業開始</a><br/><a href="https://docs.microsoft.com/dotnet/api/index">API リファレンス (.NET)</a><br/><a href="https://github.com/Microsoft/WPF-Samples">サンプル</a></td>
 </tr>
 <tr class="even">
 <td><a href="https://docs.microsoft.com/dotnet/framework/winforms/">Windows フォーム</a></td>
 <td><p>軽量の UI モデルを使用して管理される基幹業務アプリ用に設計された .NET ベースのプラットフォームです。 これらのアプリは、<a href="https://docs.microsoft.com/dotnet/core/whats-new/dotnet-core-3-0">.NET Core 3</a> または完全な .NET Framework を対象にすることができます。</p></td>
-<td><a href="/dotnet/framework/winforms/getting-started-with-windows-forms">作業の開始</a><br/><a href="https://docs.microsoft.com/dotnet/api/index">API リファレンス (.NET)</a><br/><a href="https://code.msdn.microsoft.com/windowsdesktop/site/search?f%5B0%5D.Type=Technology&f%5B0%5D.Value=Windows%20Forms">サンプル</a></td>
+<td><a href="/dotnet/framework/winforms/getting-started-with-windows-forms">作業開始</a><br/><a href="https://docs.microsoft.com/dotnet/api/index">API リファレンス (.NET)</a><br/><a href="https://code.msdn.microsoft.com/windowsdesktop/site/search?f%5B0%5D.Type=Technology&f%5B0%5D.Value=Windows%20Forms">サンプル</a></td>
 </tr>
 </tbody>
 </table>
@@ -77,7 +77,7 @@ Windows PC 用のデスクトップ アプリを構築するプラットフォ�
 
 <br/>
 
-| 記事 | 説明 |
+| アーティクル | 説明 |
 |---------|-------------|
 | [デスクトップ アプリの現代化](/windows/apps/desktop/modernize) | WPF、Windows フォーム、C++ Win32 アプリなどの、任意のデスクトップ アプリで使用できる最新の Windows 10 および UWP 開発機能について説明します。 |
 | [チュートリアル: WPF アプリの現代化](/windows/apps/desktop/modernize/modernize-wpf-tutorial) | UWP インクと予定表のコントロールをアプリに追加し、MSIX パッケージにパッケージ化することで既存の WPF の基幹業務サンプル アプリを現代化する手順について説明します。  |
@@ -88,7 +88,7 @@ Windows 用の新しいデスクトップ アプリを作成する場合の、�
 
 <br/>
 
-| 記事 | 説明 |
+| アーティクル | 説明 |
 |---------|-------------|
 | [アプリ プラットフォームの選択](choose-your-platform.md) | 主要なデスクトップ アプリ プラットフォームの詳細な比較が提供されるため、ニーズに適したプラットフォームを選択するのに役立ちます。 この記事では、各プラットフォームのドキュメントへの便利なリンクも提供します。 |
 | [デスクトップ アプリの現代化](/windows/apps/desktop/modernize) | WPF、Windows フォーム、C++ Win32 アプリなどの、任意のデスクトップ アプリで使用できる最新の Windows 10 および UWP 開発機能について説明します。 |

@@ -11,10 +11,10 @@ design-contact: ''
 doc-status: Draft
 ms.localizationpriority: medium
 ms.openlocfilehash: b72d7fced63a4c3ef4b1b233afcbb9f9874d9a3f
-ms.sourcegitcommit: 81e29e66f0cb1e13c3daa3a239e4dcc4dd674a66
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/05/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68796719"
 ---
 # <a name="content-links-in-text-controls"></a>テキスト コントロールのコンテンツ リンク
@@ -154,7 +154,7 @@ Places ピッカーは、Uri ルート https://maps.windows.com/ で ContentLink
 - LinkContentKind が "Places" でない場合、これは**マップ** アプリを指定の場所に開こうとします。 たとえば、これは ContentLinkChanged イベント ハンドラーで LinkContentKind を変更した場合に発生する可能性があります。
 - マップ アプリで Uri を開くことができない場合、マップは既定のブラウザーで開かれます。 これは通常、ユーザーの _Web サイト用のアプリ_設定で**マップ** アプリを使用して Uri を開くことができない場合に発生します。
 
-##### <a name="people"></a>People
+##### <a name="people"></a>ユーザー
 
 People ピッカーは、**ms-people** プロトコルを使用する Uri で ContentLinkInfo を作成します。
 

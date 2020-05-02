@@ -11,10 +11,10 @@ dev_langs:
 - cppwinrt
 - cppcx
 ms.openlocfilehash: 0a967c923d9f8616a3a05af5bb0ebb612251d3b8
-ms.sourcegitcommit: 035b03f1247eae4e9359ee7db66429d4e1c1d09b
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/30/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "71674544"
 ---
 # <a name="data-binding-overview"></a>データ バインディングの概要
@@ -502,7 +502,7 @@ XAML 構文について詳しくは、「[XAML を使った UI の作成](https:
 C++/WinRT または Visual C++ コンポーネント拡張 (C++/CX) を使用している場合、[{Binding}](https://docs.microsoft.com/windows/uwp/xaml-platform/binding-markup-extension) マークアップ拡張を使用するには、バインド先のランタイム クラスに [**BindableAttribute**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.BindableAttribute) 属性を追加する必要があります。 [{x:Bind}](https://docs.microsoft.com/windows/uwp/xaml-platform/x-bind-markup-extension) を使用するために、その属性は必要ありません。
 
 > [!IMPORTANT]
-> [C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) を使用している場合、Windows SDK バージョン 10.0.17763.0 (Windows 10 バージョン 1809)以降がインストールされていれば、[**BindableAttribute** ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.BindableAttribute) 属性を使用できます。 その属性がない場合、[{Binding}](https://docs.microsoft.com/windows/uwp/xaml-platform/binding-markup-extension) マークアップ拡張を使用できるようにするには、[ICustomPropertyProvider](/uwp/api/windows.ui.xaml.data.icustompropertyprovider) および [ICustomProperty](/uwp/api/windows.ui.xaml.data.icustomproperty) インターフェイスを実装する必要があります。
+> [C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) を使用している場合、Windows SDK バージョン 10.0.17763.0 (Windows 10 バージョン 1809) 以降がインストールされていれば、[**BindableAttribute**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.BindableAttribute) 属性を使用できます。 その属性がない場合、[{Binding}](https://docs.microsoft.com/windows/uwp/xaml-platform/binding-markup-extension) マークアップ拡張を使用できるようにするには、[ICustomPropertyProvider](/uwp/api/windows.ui.xaml.data.icustompropertyprovider) および [ICustomProperty](/uwp/api/windows.ui.xaml.data.icustomproperty) インターフェイスを実装する必要があります。
 
 まず、[**SelectedItem**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.selector.selecteditem) の手法を示します。
 

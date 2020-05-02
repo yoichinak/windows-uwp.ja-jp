@@ -7,10 +7,10 @@ keywords: windows 10, uwp
 ms.assetid: 5d5f7af2-41a9-4749-ad16-4503c64bb80c
 ms.localizationpriority: medium
 ms.openlocfilehash: 4300bdc0224a18874a7ff9153195f81f8bb8d101
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75685056"
 ---
 # <a name="create-a-uwp-game-in-monogame-2d"></a>MonoGame 2D で UWP ゲームを作成する
@@ -570,7 +570,7 @@ if (!gameStarted)
 
 **課題:** テキストを水平方向だけでなく垂直方向でも中央揃えにするには、上の手順をどのように変更しますか?
 
-ゲームを実行してみましょう。 導入のスプラッシュ スクリーンは表示されますか? ブロッコリが再生成されるたびに、スコア カウントが加算されますか?
+ゲームを実行してみましょう。 導入のスプラッシュ スクリーンは表示されますか?  ブロッコリが再生成されるたびに、スコア カウントが加算されますか?
 
 ![導入のスプラッシュ](images/monogame-tutorial-3.png)
 

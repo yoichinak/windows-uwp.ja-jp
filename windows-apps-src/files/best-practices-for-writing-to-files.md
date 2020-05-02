@@ -6,10 +6,10 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: dcbeffc7e3db8f3df9c197e8c388f30faf7ad03d
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75685247"
 ---
 # <a name="best-practices-for-writing-to-files"></a>ファイルへの書き込みに関するベスト プラクティス
@@ -194,6 +194,6 @@ else
 
 [.NET での並列プログラミングに関するブログ](https://devblogs.microsoft.com/pfxteam/)は、並列プログラミングについてのガイダンスの優れたリソースです。 具体的には、[AsyncReaderWriterLock についての投稿](https://devblogs.microsoft.com/pfxteam/building-async-coordination-primitives-part-7-asyncreaderwriterlock/)で、同時読み取りアクセスを許可している間に、書き込みのためのファイルへの排他的アクセスを維持する方法について説明されています。 I/O のシリアル化がパフォーマンスに影響することに注意してください。
 
-## <a name="see-also"></a>「
+## <a name="see-also"></a>関連項目
 
 * [ファイルの作成、書き込み、および読み取り](quickstart-reading-and-writing-files.md)

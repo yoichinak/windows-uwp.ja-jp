@@ -6,10 +6,10 @@ ms.date: 08/14/2018
 ms.topic: article
 ms.localizationpriority: medium
 ms.openlocfilehash: 723cae783ba16fe5be9bb2076f96d4a5f823d733
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74258832"
 ---
 # <a name="whats-new-in-the-windows-developer-docs-in-august-2018"></a>Windows 開発者向けドキュメントの最新情報、2018 年 8 月
@@ -40,7 +40,7 @@ Windows 10 の[ツールと SDK をインストール](https://developer.microso
 
 詳細については、[パッケージ サポート フレームワークを使用した MSIX パッケージへのランタイム修正の適用](../porting/package-support-framework.md)に関するページをご覧ください。
 
-## <a name="developer-guidance"></a>開発者向けガイダンス
+## <a name="developer-guidance"></a>開発者ガイド
 
 ### <a name="web-api-extensions"></a>Web API の拡張機能
 
@@ -64,10 +64,10 @@ Unity 用の Xbox Live プラグインには、Xbox Live の署名、統計、�
 
 One Dev Question ビデオ シリーズでは、ベテランの Microsoft 開発者が Windows 開発、チーム カルチャ、および歴史に関する一連の質問に答えています。 最新の質問に対してお答えした内容を以下に示します。
 
-Raymond Chen:
+Raymond Chen: 
 
 * [カーネルはビデオ ドライバーを再起動するタイミングをどのように認識しますか?](https://youtu.be/3SNAdyO1l5c)
 
-Larry Osterman:
+Larry Osterman: 
 
 * [Windows の Burgermaster オブジェクトの背景にあるストーリーを教えてください。](https://youtu.be/0TDSbyAIvX0)

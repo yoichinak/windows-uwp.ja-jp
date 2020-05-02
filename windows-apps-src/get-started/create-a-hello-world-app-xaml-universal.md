@@ -7,10 +7,10 @@ ms.topic: article
 keywords: windows 10, uwp, 初めてのアプリ, hello world
 ms.localizationpriority: medium
 ms.openlocfilehash: 93c78845a218620a8a46fc4439733734099b9853
-ms.sourcegitcommit: 13ce25364201223e21e2e5e89f99bc7aa4d93f56
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73847604"
 ---
 # <a name="create-a-hello-world-app-xaml"></a>"Hello, world" アプリを作成する (XAML)
@@ -112,7 +112,7 @@ ms.locfileid: "73847604"
 
     ![ソリューション エクスプローラーのウィンドウ](images/win10-cs-04.png)
 
-2.  左側の縦方向に配置された **[ツールボックス]** タブをクリックして UI コントロールの一覧を開きます (タイトル バーのピン アイコンをクリックすると、このウィンドウを表示したままにすることができます)。
+2.  左側の縦方向に配置された **[ツールボックス]** タブをクリックして UI コントロールの一覧を開きます  (タイトル バーのピン アイコンをクリックすると、このウィンドウを表示したままにすることができます)。
 
     ![ソリューション エクスプローラーのウィンドウ](images/win10-cs-05.png)
 
@@ -155,14 +155,14 @@ ms.locfileid: "73847604"
 
 **ローカル コンピューターでデバッグを開始するには**
 
-1.  **[標準]** ツール バーの [ターゲット デバイス] メニュー (![[デバッグの開始] メニュー](images/startdebug-full.png)) で、 **[ローカル コンピューター]** が選択されていることを確認します (既定で選択されています)。
+1.  **[標準]** ツール バーの [ターゲット デバイス] メニュー (![[デバッグの開始] メニュー](images/startdebug-full.png)) で、 **[ローカル コンピューター]** が選択されていることを確認します  (既定で選択されています)。
 2.  ツール バーの **[デバッグの開始]** ボタン (![[デバッグの開始] ボタン](images/startdebug-sm.png)) をクリックします。
 
-   または
+   \- または -
 
    **[デバッグ]** メニューの **[デバッグの開始]** をクリックします。
 
-   または
+   \- または -
 
    F5 キーを押します。
 
@@ -180,11 +180,11 @@ Windows キーを押して **[スタート]** メニューを開き、すべて�
 
    ツール バーの **[デバッグの停止]** ボタン (![[デバッグの停止] ボタン](images/stopdebug.png)) をクリックします。
 
-   または
+   \- または -
 
    **[デバッグ]** メニューの **[デバッグの停止]** をクリックします。
 
-   または
+   \- または -
 
    アプリ ウィンドウを閉じます。
 
@@ -224,12 +224,12 @@ private async void Button_Click(object sender, RoutedEventArgs e)
 
 ### <a name="what-did-we-just-do"></a>ここで実行したこと
 
-このコードでは、いくつか Windows API を使用して音声合成オブジェクトを作成し、読み上げるテキストを指定します (SpeechSynthesis の使い方について詳しくは、[SpeechSynthesis 名前空間](https://docs.microsoft.com/uwp/api/windows.media.speechsynthesis)のドキュメントをご覧ください)。
+このコードでは、いくつか Windows API を使用して音声合成オブジェクトを作成し、読み上げるテキストを指定します  (SpeechSynthesis の使い方について詳しくは、[SpeechSynthesis 名前空間](https://docs.microsoft.com/uwp/api/windows.media.speechsynthesis)のドキュメントをご覧ください)。
 
 アプリを実行し、ボタンをクリックすると、コンピューター (または電話) が "Hello, World!" を文字どおりにしゃべります。
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>要約
 
 これで、Windows 10 と UWP 用の初めてのアプリを作成しました。
 

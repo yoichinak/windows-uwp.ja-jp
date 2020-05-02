@@ -7,15 +7,15 @@ keywords: windows 10, uwp
 ms.assetid: fb4249b2-f93c-4993-9e4d-57a62c04be66
 ms.localizationpriority: medium
 ms.openlocfilehash: b4ce91e32b14bdf81b40b24e810e0bd86bcaa99b
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67321084"
 ---
 # <a name="creating-a-3d-javascript-game-using-threejs"></a>three.js を使用して 3D JavaScript ゲームを作成する
 
-## <a name="introduction"></a>概要
+## <a name="introduction"></a>はじめに
 
 Web 開発者や JavaScript 作者にとって、JavaScript で UWP アプリを開発することは、作成したアプリを世界中に向けて公開するための簡単な方法です。 C# や C++ のような言語を学習する必要はありません。
 
@@ -38,7 +38,7 @@ Web 開発者や JavaScript 作者にとって、JavaScript で UWP アプリを
 -   Visual Studio。 無料の Visual Studio Community Edition は、[Visual Studio ホームページ](https://visualstudio.com/)からダウンロードできます。
 このプロジェクトでは、**three.js** という JavaScript ライブラリを使用します。 **three.js** は、MIT ライセンスの下でリリースされています。 このライブラリは、プロジェクト内に既に存在します (ソリューション エクスプローラー ビューで `js/libs` を探してください)。 このライブラリについて詳しくは、[**three.js**](https://threejs.org/) のホーム ページをご覧ください。
 
-## <a name="getting-started"></a>概要
+## <a name="getting-started"></a>はじめに
 
 アプリの完全なソース コードは、[GitHub](https://github.com/Microsoft/Windows-appsample-get-started-js3d) にあります。
 
@@ -66,7 +66,7 @@ F5 キーを押してアプリを起動します。 ウィンドウが開き、�
 このゲームを開始すると、画面上をクリックするよう求めるメッセージが表示されます。 マウスで位置を探すことができるように、[Pointer Lock API](https://developer.mozilla.org/docs/Web/API/Pointer_Lock_API) が使用されています。 移動は、W キー、A キー、S キー、D キー、方向キーを押すことで操作できます。
 このゲームの目的は、恐竜から常に離れていることです。 恐竜は、十分近くなると、圏外に出るか近付きすぎてゲームに負けるまで、プレイヤーを追いかけ始めます。
 
-### <a name="1-setting-up-your-initial-html-file"></a>1. 初期 HTML ファイルをセットアップする
+### <a name="1-setting-up-your-initial-html-file"></a>1.初期 HTML ファイルをセットアップする
 
 最初に、小さな HTML を **index.html** 内に追加します。 このファイルは、アプリが含まれる既定の Web ページです。
 
@@ -94,7 +94,7 @@ F5 キーを押してアプリを起動します。 ウィンドウが開き、�
 
 スターター HTML を準備できたので、**main.js** に移動し、いくつかのグラフィックスを作成しましょう。
 
-### <a name="2-creating-your-scene"></a>2. シーンを作成する
+### <a name="2-creating-your-scene"></a>2.シーンを作成する
 
 このセクションでは、ゲームの基盤を追加します。
 
@@ -402,7 +402,7 @@ CodePen を使うと、立方体の色を変更したり、`init()` 関数の `c
 <iframe height='300' scrolling='no' title='Maze building' src='//codepen.io/MicrosoftEdgeDocumentation/embed/JWKYzG/?height=300&theme-id=23761&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a> で、Microsoft Edge Docs (<a href='https://codepen.io/MicrosoftEdgeDocumentation'>@MicrosoftEdgeDocumentation</a>) による Pen (<a href='https://codepen.io/MicrosoftEdgeDocumentation/pen/JWKYzG/'>Maze building</a>) をご覧ください。
 </iframe>
 
-### <a name="4-allowing-the-player-to-look-around"></a>4。プレイヤーによる探検を可能にする
+### <a name="4-allowing-the-player-to-look-around"></a>4.プレイヤーによる探検を可能にする
 
 では、迷路に入り、探検を開始しましょう。 これを行うには、**PointerLockControls.js** ライブラリとカメラを使います。
 
@@ -490,7 +490,7 @@ animate();
 </iframe>
 
 
-### <a name="5-adding-player-movement"></a>5。プレイヤーの動きを追加する
+### <a name="5-adding-player-movement"></a>5.プレイヤーの動きを追加する
 
 プレイヤーに動きを提供する方法を理解するには、数学の勉強に戻る必要があります。 特定のベクトル (direction) に沿って、速度 (movement) を `camera` に適用します。
 
@@ -638,7 +638,7 @@ function animatePlayer(delta) {
 
 ---
 
-これで終了です。 プレイヤーによって制御されるカメラで、自由に見回し、動き回ることができます。 まだ、壁に入り込むことができますが、これについては後で考えましょう。 次は、恐竜を追加します。
+お疲れさまでした。 プレイヤーによって制御されるカメラで、自由に見回し、動き回ることができます。 まだ、壁に入り込むことができますが、これについては後で考えましょう。 次は、恐竜を追加します。
 
 <iframe height='300' scrolling='no' title='Move around' src='//codepen.io/MicrosoftEdgeDocumentation/embed/qrbKZg/?height=300&theme-id=23761&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a> で、Microsoft Edge Docs (<a href='https://codepen.io/MicrosoftEdgeDocumentation'>@MicrosoftEdgeDocumentation</a>) による Pen (<a href='https://codepen.io/MicrosoftEdgeDocumentation/pen/qrbKZg/'>Move around</a>) をご覧ください。
 </iframe>
@@ -646,7 +646,7 @@ function animatePlayer(delta) {
 > [!NOTE]
 > UWP アプリでこれらのコントロールを使用する場合、動きの遅延や `keyUp` イベントの未登録エラーが発生することがあります。 この問題については調査中であり、サンプルの該当部分も間もなく修正される予定です。
 
-### <a name="6-load-that-dino"></a>6。恐竜を読み込む
+### <a name="6-load-that-dino"></a>6.恐竜を読み込む
 
 このプロジェクト リポジトリを複製またはダウンロードした場合は、`models` フォルダー内に `dino.json` があります。 この JSON ファイルは、Blender で作成され、エクスポートされた 3D の恐竜です。
 

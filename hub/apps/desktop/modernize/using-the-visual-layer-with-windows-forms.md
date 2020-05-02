@@ -8,10 +8,10 @@ ms.author: jimwalk
 author: jwmsft
 ms.localizationpriority: medium
 ms.openlocfilehash: 9da9dee48beef6e3c1cd38ffbe9761ed89fd940d
-ms.sourcegitcommit: 93d0b2996b4742b33cd6d641e036f42672cf5238
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/23/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "69999639"
 ---
 # <a name="using-the-visual-layer-with-windows-forms"></a>Windows フォームでのビジュアル レイヤーの使用
@@ -24,7 +24,7 @@ Windows フォーム アプリで Windows ランタイムの Composition API ([�
 
 UWP ホスティング API には、次の前提条件があります。
 
-- Windows フォームと UWP を使用したアプリ開発に関する一定の知識があることを前提としています。 詳細については、以下を参照してください。
+- Windows フォームと UWP を使用したアプリ開発に関する一定の知識があることを前提としています。 For more info, see:
   - [Windows フォームについて](/dotnet/framework/winforms/getting-started-with-windows-forms)
   - [Windows 10 アプリの概要](/windows/uwp/get-started/)
   - [Windows 10 向けのデスクトップ アプリケーションの強化](/windows/uwp/porting/desktop-to-uwp-enhance)
@@ -152,7 +152,7 @@ Composition API をホストするための構成のほとんどを、ここで�
     }
     ```
 
-    - ディスパッチャー キューには、PInvoke 宣言が必要になります。 クラスのコードの末尾にこの宣言を配置します (クラス コードを整理しておくために、ここでは、このコードをリージョン内に配置します)。
+    - ディスパッチャー キューには、PInvoke 宣言が必要になります。 クラスのコードの末尾にこの宣言を配置します  (クラス コードを整理しておくために、ここでは、このコードをリージョン内に配置します)。
 
     ```csharp
     #region PInvoke declarations
@@ -368,7 +368,7 @@ Composition API をホストするための構成のほとんどを、ここで�
 
 1. Form1.CS デザイン ビューで、UI にボタンを追加します。
 
-    - ツールボックスから Form1 上にボタンをドラッグします。 フォームの左上隅に配置します (コントロールの配置を確認するには、チュートリアルの冒頭にあるイメージを参照してください)。
+    - ツールボックスから Form1 上にボタンをドラッグします。 フォームの左上隅に配置します  (コントロールの配置を確認するには、チュートリアルの冒頭にあるイメージを参照してください)。
     - プロパティ ペインで、**Text** プロパティを _button1_ から "_Add composition element (コンポジション要素の追加)_ " に変更します。
     - すべてのテキストが表示されるように、ボタンのサイズを変更します。
 
