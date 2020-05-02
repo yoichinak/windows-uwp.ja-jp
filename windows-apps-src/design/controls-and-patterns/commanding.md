@@ -5,10 +5,10 @@ ms.service: ''
 ms.topic: overview
 ms.date: 09/13/2019
 ms.openlocfilehash: 2ad2a84a78006eafcdfa47d1faef533bea2224ff
-ms.sourcegitcommit: 23c5d8dfaeb6edbca780637ffd26fe892db27519
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/11/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81123603"
 ---
 # <a name="commanding-in-universal-windows-platform-uwp-apps-using-standarduicommand-xamluicommand-and-icommand"></a>StandardUICommand、XamlUICommand、ICommand を使用するユニバーサル Windows プラットフォーム (UWP) アプリのコマンド処理

@@ -1,19 +1,19 @@
-- name: Docs
-  tocHref: /
-  topicHref: /
+- name: Windows
+  tocHref: /windows/
+  topicHref: /windows/
   items:
-    - name: Windows
-      tocHref: /windows/
-      topicHref: /windows/
+    - name: アプリ
+      tocHref: /windows/apps/
+      topicHref: /windows/apps/
       items:
         - name: UWP
           tocHref: /windows/uwp/
           topicHref: /windows/uwp/index
           items:
-            - name: 新着情報
+            - name: 新機能
               tocHref: /windows/uwp/whats-new/
               topicHref: /windows/uwp/whats-new/windows-10-version-latest
-            - name: はじめに
+            - name: 開始
               tocHref: /windows/uwp/get-started/
               topicHref: /windows/uwp/get-started/
             - name: 設計と UI
@@ -44,7 +44,7 @@
                 - name: デバイス
                   tocHref: /windows/uwp/design/devices/
                   topicHref: /windows/uwp/design/devices/index
-                - name: ユーザビリティ
+                - name: 使いやすさ
                   tocHref: /windows/uwp/design/usability/
                   topicHref: /windows/uwp/design/usability/index
                   items:
@@ -94,7 +94,7 @@
                 - name: デバイス、センサー、および電源
                   tocHref: /windows/uwp/devices-sensors/
                   topicHref: /windows/uwp/devices-sensors/index
-                - name: エンタープライズ
+                - name: Enterprise
                   tocHref: /windows/uwp/enterprise/
                   topicHref: /windows/uwp/enterprise/index
                 - name: ファイル、フォルダー、およびライブラリ
@@ -151,7 +151,7 @@
                 - name: UWP バージョンの選択
                   tocHref: /windows/uwp/choose-a-uwp-version/
                   topicHref: /windows/uwp/choose-a-uwp-version/index
-                - name: サービス
+                - name: '[サービス]'
                   tocHref: /windows/uwp/microsoft-services/
                   topicHref: /windows/uwp/microsoft-services/index
             - name: ゲームの開発

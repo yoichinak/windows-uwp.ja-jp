@@ -6,10 +6,10 @@ ms.date: 11/07/2017
 ms.topic: article
 keywords: Windows 10, UWP, Fluent
 ms.openlocfilehash: b6533864748b4245b16ec7bcea9d2a831ff1c88a
-ms.sourcegitcommit: 85fd390b1e602707bd9342cb4b84b97ae0d8b831
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76520447"
 ---
 # <a name="forms"></a>フォーム

@@ -13,10 +13,10 @@ dev-contact: stpete
 doc-status: Published
 ms.localizationpriority: medium
 ms.openlocfilehash: fa4ff0cbc2bd361b241f660f9c6b28f03bc7c24c
-ms.sourcegitcommit: af4050f69168c15b0afaaa8eea66a5ee38b88fed
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80080893"
 ---
 # <a name="hyperlinks"></a>ハイパーリンク
@@ -28,7 +28,7 @@ ms.locfileid: "80080893"
 ![ハイパーリンク ボタン](images/controls/hyperlink-button.png)
 
 
-## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか? 
 
 ユーザーがテキストを選び、そのテキストに関する詳しい情報が表示される場所に移動するとき、この操作に応答するテキストが必要となる場合に、ハイパーリンクを使います。
 
@@ -105,7 +105,7 @@ helpLinkButton.NavigateUri = new Uri("http://www.contoso.com");
 
 ## <a name="handle-navigation"></a>ナビゲーションの処理
 
-どちらの種類のハイパーリンクでも同様にナビゲーションを処理します。**NavigateUri** プロパティを設定するか、または**クリック**イベントを処理することができます。
+どちらの種類のハイパーリンクでも同様にナビゲーションを処理します。**NavigateUri** プロパティを設定するか、または**クリック**イベントを処理することができます。 
 
 **URI に移動**
 

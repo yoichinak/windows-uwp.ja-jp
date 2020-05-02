@@ -12,10 +12,10 @@ dev_langs:
 - cpp
 - javascript
 ms.openlocfilehash: b9529632fe582da438d6d17e31ffbdd963714a7c
-ms.sourcegitcommit: beebd7e361212a696070deaa22b0729c0b1515f6
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81608657"
 ---
 # <a name="file-access-permissions"></a>ファイル アクセス許可

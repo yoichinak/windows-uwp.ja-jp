@@ -8,10 +8,10 @@ keywords: windows 10, uwp
 doc-status: Published
 ms.localizationpriority: medium
 ms.openlocfilehash: d0e4a290da0d67560715f80bf20fc6ae4d44a8f6
-ms.sourcegitcommit: 8b7b677c7da24d4f39e14465beec9c4a3779927d
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81266960"
 ---
 # <a name="number-box"></a>数値ボックス
@@ -31,7 +31,7 @@ ms.locfileid: "81266960"
 >
 >コードビハインドでは、C# でも **muxc** エイリアスを使って、プロジェクトに含めた Windows UI Library API を表します。 この **using** ステートメントは、ファイルの先頭に追加されています。`using muxc = Microsoft.UI.Xaml.Controls;`
 
-## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか? 
 
 NumberBox コントロールを使用して、数学的な入力を捕捉および表示することができます。 数値以外も受け付ける編集可能なテキスト ボックスが必要な場合は、[TextBox](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox) コントロールを使用します。 パスワードやその他の機密情報の入力を受け付ける編集可能なテキスト ボックスが必要な場合は、[PasswordBox](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.passwordbox) を参照してください。 検索語句を入力するためのテキスト ボックスが必要な場合は、[AutoSuggestBox](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.autosuggestbox) を参照してください。 書式を適用したテキストを入力または編集する必要がある場合は、[RichEditBox](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.richeditbox) を参照してください。
 

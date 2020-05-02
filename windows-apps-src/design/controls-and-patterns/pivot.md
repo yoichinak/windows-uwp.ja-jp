@@ -11,10 +11,10 @@ dev-contact: llongley
 doc-status: Published
 ms.localizationpriority: medium
 ms.openlocfilehash: 6d55c24dbf84e16e0bb4dedc9eaf2b89982e2993
-ms.sourcegitcommit: af4050f69168c15b0afaaa8eea66a5ee38b88fed
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80081619"
 ---
 # <a name="pivot"></a>Pivot
@@ -51,7 +51,7 @@ Pivot コントロールは、[NavigationView](navigationview.md) と同様に�
 
 ![既定のフォーカスでは選択されたヘッダーが下線付きで表示される](images/pivot_focus_selectedHeader.png)
 
-## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか? 
 
 一般的な上部ナビゲーションとタブのパターンを達成するには、自動的にさまざまな画面サイズに適合し、より多くのカスタマイズが可能な [NavigationView](navigationview.md) を使用することをお勧めします。
 

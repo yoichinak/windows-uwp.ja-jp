@@ -13,10 +13,10 @@ doc-status: Draft
 ms.localizationpriority: medium
 ms.custom: RS5
 ms.openlocfilehash: 6b85177e5d3d0f4a2a37010ba9122861216a4b6b
-ms.sourcegitcommit: af4050f69168c15b0afaaa8eea66a5ee38b88fed
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80081955"
 ---
 # <a name="command-bar-flyout"></a>コマンド バーのポップアップ
@@ -30,7 +30,7 @@ ms.locfileid: "80081955"
 コマンド バーのポップアップには、"*折りたたみ*" と "*展開*" の 2 つの表示モードがあります。
 
 - 折りたたみモードでは、プライマリ コマンドのみが表示されます。 コマンド バーのポップアップにプライマリとセカンダリの両方のコマンドが含まれる場合は、省略記号 \[***\] によって表される "see more" (詳細表示) ボタンが表示されます。 これにより、ユーザーは展開モードに切り替えることでセカンダリ コマンドにアクセスできます。
-- 展開モードでは、プライマリとセカンダリの両方のコマンドが表示されます (コントロールにセカンダリ項目のみが含まれる場合、それらの項目は MenuFlyout コントロールと同様の方法で表示されます)。
+- 展開モードでは、プライマリとセカンダリの両方のコマンドが表示されます  (コントロールにセカンダリ項目のみが含まれる場合、それらの項目は MenuFlyout コントロールと同様の方法で表示されます)。
 
 **Windows UI ライブラリを入手する**
 
@@ -44,7 +44,7 @@ ms.locfileid: "80081955"
 >
 > CommandBarFlyout には、Windows 10 Version 1809 ([SDK 17763](https://developer.microsoft.com/windows/downloads/windows-10-sdk)) 以降、または [Windows UI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)が必要です。
 
-## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか? 
 
 アプリ キャンバス上の要素のコンテキスト内でボタンやメニュー項目などのコマンドのコレクションをユーザーに表示するには、CommandBarFlyout コントロールを使用します。
 

@@ -7,10 +7,10 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: 1cf9d4866ddb72da0a284bcdcff07e3420f2880e
-ms.sourcegitcommit: 4657ac3be576b1d6dcd938d73a2f6a7e060ab17b
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80404916"
 ---
 # <a name="networking-basics"></a>ネットワークの基本

@@ -5,12 +5,12 @@ ms.date: 07/08/2019
 ms.topic: article
 keywords: windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、プロジェクション、実装、インプリメント、ランタイム クラス、ライセンス認証
 ms.localizationpriority: medium
-ms.openlocfilehash: 84c0e9315950541e51bf49f5c0eec370f3188c4d
-ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
+ms.openlocfilehash: fcdeaec3728306de420baa4a2aea06ef1952641e
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79209277"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82255266"
 ---
 # <a name="author-apis-with-cwinrt"></a>C++/WinRT での API の作成
 
@@ -239,7 +239,7 @@ Visual Studio プロジェクトと項目テンプレートでは、ランタイ
 例をいくつか紹介します。
 
 - パラメーターの型を緩和できます。 たとえば、IDL でメソッドが **SomeClass** を受け取る場合、実装ではそれを **IInspectable** に変更できます。 これができるのは、すべての **SomeClass** を **IInspectable** に転送できるためです (もちろん、逆はできません)。
-- コピー可能なパラメーターを参照渡しではなく値で受け取ることができます。 たとえば、`SomeClass` を `SomeClass const&` に変更します。 コルーチンに参照をキャプチャしないようにする必要があるときは、それが必要です (「[パラメーターの引き渡し](/windows/uwp/cpp-and-winrt-apis/concurrency#parameter-passing)」をご覧ください)。
+- コピー可能なパラメーターを参照渡しではなく値で受け取ることができます。 たとえば、`SomeClass const&` を `SomeClass` に変更します。 コルーチンに参照をキャプチャしないようにする必要があるときは、それが必要です (「[パラメーターの引き渡し](/windows/uwp/cpp-and-winrt-apis/concurrency#parameter-passing)」をご覧ください)。
 - 戻り値を緩和できます。 たとえば、**void** を [**winrt::fire_and_forget**](/uwp/cpp-ref-for-winrt/fire-and-forget) に変更できます。
 
 最後の 2 つは、非同期イベント ハンドラーを作成する場合に非常に便利です。

@@ -8,12 +8,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 8f1717a59399fb95f7b71a38ee8d2d46de4ca765
-ms.sourcegitcommit: e11e0f65930665579d1f296861234893e82bf8fb
+ms.openlocfilehash: 32038d6e25ec450dae59d0c1d7e9c8703fdc8018
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80301418"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82148700"
 ---
 # <a name="controls-by-function"></a>機能別コントロール
 
@@ -222,7 +222,7 @@ Windows の XAML UI フレームワークには、UI 開発をサポートする
 ### <a name="date-picker"></a>日付の選択コントロール
 ユーザーが日付を選択できるコントロール。
 
-![日付の選択コントロール](images/controls/date-picker.png)
+![日付の選択コントロール](images/controls_datepicker_expand.png)
 
 ```xaml
 <DatePicker Header="Arrival Date"/>
@@ -235,7 +235,7 @@ Windows の XAML UI フレームワークには、UI 開発をサポートする
 ### <a name="time-picker"></a>時刻の選択コントロール
 ユーザーが時間値を設定できるコントロール。
 
-![TimePicker コントロール](images/controls/time-picker.png) 
+![TimePicker コントロール](images/controls_timepicker_expand.png)
 
 ```xaml
 <TimePicker Header="Arrival Time"/>
@@ -433,7 +433,7 @@ Windows の XAML UI フレームワークには、UI 開発をサポートする
 参照 :[RelativePanel](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RelativePanel)
 
 ### <a name="scroll-bar"></a>スクロール バー
-「スクロール ビューアー」をご覧ください (ScrollBar は ScrollViewer の要素です。 通常、スタンドアロン コントロールとしては使用しません)。
+「スクロール ビューアー」をご覧ください  (ScrollBar は ScrollViewer の要素です。 通常、スタンドアロン コントロールとしては使用しません)。
 
 参照 :[ScrollBar](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Primitives.ScrollBar)
  

@@ -12,10 +12,10 @@ dev-contact: llongley
 doc-status: Published
 ms.localizationpriority: medium
 ms.openlocfilehash: f287f738c39e21ea76ff2595cc34ac715a1b52ca
-ms.sourcegitcommit: af4050f69168c15b0afaaa8eea66a5ee38b88fed
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80081193"
 ---
 # <a name="color-picker"></a>カラー ピッカー
@@ -34,7 +34,7 @@ ms.locfileid: "80081193"
 >
 > **プラットフォーム API:** [ColorPicker クラス](/uwp/api/windows.ui.xaml.controls.colorpicker)、[Color プロパティ](/uwp/api/windows.ui.xaml.controls.colorpicker.Color)、[ColorChanged イベント](/uwp/api/windows.ui.xaml.controls.colorpicker.ColorChanged)
 
-## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか? 
 
 アプリでユーザーが色を選べるようにするには、カラー ピッカーを使います。 たとえば、フォントの色、背景、またはアプリのテーマの色など、色の設定を変更するために、カラー ピッカーを使います。
 

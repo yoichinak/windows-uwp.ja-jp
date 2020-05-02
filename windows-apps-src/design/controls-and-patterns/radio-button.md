@@ -13,10 +13,10 @@ dev-contact: mitra
 doc-status: Published
 ms.localizationpriority: medium
 ms.openlocfilehash: 1e7fb764f3d21c260080d8846df3c66c65dccdb5
-ms.sourcegitcommit: 23c5d8dfaeb6edbca780637ffd26fe892db27519
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/11/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81123616"
 ---
 # <a name="radio-buttons"></a>ラジオ ボタン
@@ -29,7 +29,7 @@ ms.locfileid: "81123616"
 
 > **プラットフォーム API**: [RadioButton クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RadioButton)、[Checked イベント](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Primitives.ToggleButton.Checked)、[IsChecked プロパティ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Primitives.ToggleButton.IsChecked)
 
-## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか? 
 
 ユーザーに 2 つ以上の相互排他的なオプションを提示するには、ラジオ ボタンを使います。
 
@@ -177,7 +177,8 @@ private void BorderRadioButton_Checked(object sender, RoutedEventArgs e)
 -   ラジオ ボタンのテキスト コンテンツは、1 行に収まるように作成します。
 -   テキスト コンテンツが動的な場合、ボタンのサイズがどのように変わり、周囲の視覚効果にどのような影響が生じるかを検討してください。
 -   ブランドのガイドラインで別のフォントが指示されていない限り、既定のフォントを使います。
--   2 つのラジオ ボタン グループを並べて配置しないようにします。 2 つのラジオ ボタン グループが並んでいると、どのボタンがどのグループに属しているかがわかりにくくなります。
+-   2 つのラジオ ボタン グループを並べて配置しないようにします。 
+2 つのラジオ ボタン グループが並んでいると、どのボタンがどのグループに属しているかがわかりにくくなります。
 
 ## <a name="additional-usage-guidance"></a>その他の使い方のガイダンス
 

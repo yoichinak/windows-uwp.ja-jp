@@ -9,10 +9,10 @@ keywords: windows 10、uwp、windows フォーム、wpf、xaml islands
 ms.localizationpriority: medium
 ms.custom: RS5, 19H1
 ms.openlocfilehash: 27906d9d389c065ab1fdf7124151cd1915f850eb
-ms.sourcegitcommit: 8a88a05ad89aa180d41a93152632413694f14ef8
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76726015"
 ---
 # <a name="part-5-package-and-deploy-with-msix"></a>パート 5: MSIX によるパッケージとデプロイ

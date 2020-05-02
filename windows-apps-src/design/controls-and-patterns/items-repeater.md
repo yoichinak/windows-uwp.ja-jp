@@ -8,10 +8,10 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: 5782c6e9ba42fed07c2b1382f2d17b1d311d0a13
-ms.sourcegitcommit: 1b06c27e7fa4726fd950cbeaf05206c0a070e3c7
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80893462"
 ---
 # <a name="itemsrepeater"></a>ItemsRepeater
@@ -32,7 +32,7 @@ ms.locfileid: "80893462"
 >
 > **プラットフォーム API:** [ScrollViewer クラス](/uwp/api/windows.ui.xaml.controls.scrollviewer)
 
-## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか? 
 
 データ コレクション用のカスタム表示を作成するには、[ItemsRepeater](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater) を使用します。 これは基本的な一連の項目を表示するために使用できますが、多くの場合、カスタム コントロールのテンプレートで表示要素として使用します。
 

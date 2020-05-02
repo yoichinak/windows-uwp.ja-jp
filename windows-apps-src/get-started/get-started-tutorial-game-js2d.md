@@ -7,10 +7,10 @@ keywords: windows 10, uwp
 ms.assetid: 01af8254-b073-445e-af4c-e474528f8aa3
 ms.localizationpriority: medium
 ms.openlocfilehash: 4ef4255c8ea1eb9db34f652e5974a4f341e5500d
-ms.sourcegitcommit: 74627903a18b14c1af68269b0a8c85840caa1898
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80759451"
 ---
 # <a name="create-a-uwp-game-in-javascript"></a>JavaScript で UWP ゲームを作成する
@@ -216,7 +216,7 @@ function animate_clouds()
 
 これで、プレイヤーがキーを押すかマウスをクリックしたときに呼び出される 2 つの関数を使用できます。 どちらのイベントでも **userDidSomething()** が呼び出されます。この関数では gamestate 変数を調べて、今ゲームで何が行われているかを判断し、その結果、次に何が必要かを決定します。
 
-Gamestate は、ゲームで一般的に使用される設計パターンです。 発生する動作はすべて、ticker タイマーによって呼び出される **gameLoop()** 関数の中で実行されます。 gameLoop() では、変数を使用して、ゲームがプレイ中か、"ゲーム オーバー状態"、"プレイ準備完了状態、または作者が定義した他の状態であるかを追跡します。 この状態の変数は、switch ステートメント内でテストされ、その結果によって他のどの関数を呼び出すかが決まります。 状態が "playing" に設定されている場合は、恐竜にジャンプさせ、樽を動かす関数が呼び出されます。 一方、何らかの手段で恐竜が倒されると、gamestate 変数が "ゲーム オーバー状態" に設定され、"Game over!" というメッセージが表示されます。 ゲームの設計パターンに興味がある場合は、『[Game Programming Patterns](https://gameprogrammingpatterns.com/)』(邦題『Game Programming Patterns ソフトウェア開発の問題解決メニュー』) という書籍が役立ちます。
+Gamestate は、ゲームで一般的に使用される設計パターンです。 発生する動作はすべて、ticker タイマーによって呼び出される **gameLoop()** 関数の中で実行されます。 gameLoop() では、変数を使用して、ゲームがプレイ中か、"ゲーム オーバー状態"、"プレイ準備完了状態、または作者が定義した他の状態であるかを追跡します。 この状態の変数は、switch ステートメント内でテストされ、その結果によって他のどの関数を呼び出すかが決まります。 状態が "playing" に設定されている場合は、恐竜にジャンプさせ、樽を動かす関数が呼び出されます。 一方、何らかの手段で恐竜が倒されると、gamestate 変数が "ゲーム オーバー状態" に設定され、"Game over!"  というメッセージが表示されます。 ゲームの設計パターンに興味がある場合は、『[Game Programming Patterns](https://gameprogrammingpatterns.com/)』(邦題『Game Programming Patterns ソフトウェア開発の問題解決メニュー』) という書籍が役立ちます。
 
 アプリをもう一度実行すると、ついにプレイを開始できます。 Space キーを押す (または、マウスをクリックするか画面をタップする) と、ゲームが始まります。 
 

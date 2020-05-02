@@ -11,10 +11,10 @@ dev-contact: niallm
 ms.custom: 19H1
 ms.localizationpriority: medium
 ms.openlocfilehash: 06734c854f0097db5fa96e35d4123dde8bda8a95
-ms.sourcegitcommit: 8be8ed1ef4e496055193924cd8cea2038d2b1525
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80614141"
 ---
 # <a name="teaching-tip"></a>教育のヒント
@@ -36,7 +36,7 @@ ms.locfileid: "80614141"
 >
 >コードビハインドでは、C# でも **muxc** エイリアスを使って、プロジェクトに含めた Windows UI Library API を表します。 この **using** ステートメントは、ファイルの先頭に追加されています。`using muxc = Microsoft.UI.Xaml.Controls;`
 
-## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか? 
 
 **TeachingTip** コントロールを使用して、新規または重要な更新および機能にユーザーの注意を向けたり、重要ではないがユーザーのエクスペリエンスを改善できるオプションをユーザーにリマインドしたり、タスクの完了方法をユーザーに説明したりします。
 

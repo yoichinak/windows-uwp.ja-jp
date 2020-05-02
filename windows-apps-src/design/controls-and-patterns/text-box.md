@@ -11,12 +11,12 @@ pm-contact: miguelrb
 design-contact: ksulliv
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 0167d1f0ed69f8354fa6ee7cd77387aee9aee842
-ms.sourcegitcommit: af4050f69168c15b0afaaa8eea66a5ee38b88fed
+ms.openlocfilehash: 26e64c286124537eeb20af6c46f16e83edc88414
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80081507"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "81643759"
 ---
 # <a name="text-box"></a>テキスト ボックス
 
@@ -267,7 +267,7 @@ private void TextBox1_SelectionChanged(object sender, RoutedEventArgs e)
 
 > **重要**&nbsp;&nbsp;入力値の種類の設定によって、入力の検証が実行されるわけではありません。また、ユーザーが、ハードウェア キーボードやその他の入力デバイスから入力できなくなることもありません。 必要に応じて、コードで入力を検証する必要があります。
 
-タッチ キーボードに影響するその他のプロパティとして、[IsSpellCheckEnabled](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.isspellcheckenabled)、[IsTextPredictionEnabled](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.istextpredictionenabled)、[PreventKeyboardDisplayOnProgrammaticFocus](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.preventkeyboarddisplayonprogrammaticfocus) があります (IsSpellCheckEnabled は、ハードウェア キーボードを使用する場合にも TextBox に影響します)。
+タッチ キーボードに影響するその他のプロパティとして、[IsSpellCheckEnabled](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.isspellcheckenabled)、[IsTextPredictionEnabled](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.istextpredictionenabled)、[PreventKeyboardDisplayOnProgrammaticFocus](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.preventkeyboarddisplayonprogrammaticfocus) があります  (IsSpellCheckEnabled は、ハードウェア キーボードを使用する場合にも TextBox に影響します)。
 
 詳細な情報と例については、「[入力値の種類を使ったタッチ キーボードの変更](https://docs.microsoft.com/windows/uwp/design/input/use-input-scope-to-change-the-touch-keyboard)」とプロパティのドキュメントをご覧ください。
 
@@ -294,11 +294,11 @@ private void TextBox1_SelectionChanged(object sender, RoutedEventArgs e)
 
 - 特定の書式のデータを入力するには、短い固定サイズの単一行テキスト入力コントロールのセットを使用します。
 
-    ![書式付きのデータ入力](images/textinput_example_productkey.png)
+    ![書式付きのデータ入力](images/textinput-example-productkey.png)
 
 - 文字列を入力または編集するには、単一行の、制約のないテキスト入力コントロールと、ユーザーが有効な値を選択できるように補助するコマンド ボタンを組み合わせて使用します。
 
-    ![補助付きのデータ入力](images/textinput_example_assisted.png)
+    ![補助付きのデータ入力](images/textinput-example-assisted.png)
 
 ### <a name="multi-line-text-input-controls"></a>複数行テキスト入力コントロール
 
