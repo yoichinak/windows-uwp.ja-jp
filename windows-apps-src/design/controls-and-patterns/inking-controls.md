@@ -9,10 +9,10 @@ keywords: windows 10, uwp
 ms.assetid: 97eae5f3-c16b-4aa5-b4a1-dd892cf32ead
 ms.localizationpriority: medium
 ms.openlocfilehash: 892e8e9bdeed562a83e566266a7391e9c24b2ad3
-ms.sourcegitcommit: af4050f69168c15b0afaaa8eea66a5ee38b88fed
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80081726"
 ---
 # <a name="inking-controls"></a>インク コントロール
@@ -38,7 +38,7 @@ InkCanvas コントロールにはインク ストロークの既定の設定を
 > **重要な API**:[InkCanvas クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas)、[InkToolbar クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar)、[InkPresenter クラス](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkpresenter)、[Windows.UI.Input.Inking](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking)
 
 
-## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか? 
 
 ユーザーにインク設定を提供せずに、アプリで基本的な手書き入力機能を有効にする必要がある場合、InkCanvas を使います。
 
@@ -137,13 +137,13 @@ InkToolbar は、次のような 2 つの異なるボタンの種類のグルー
 - カスタム トグル – アプリで定義された機能の状態をオンまたはオフに設定します。 オンにすると、機能はアクティブなツールと連携して動作します。
 
 > [!NOTE]
-> 組み込みのボタンの表示順序を変更することはできません。 既定の表示順序は、次のとおりです: ボールペン、鉛筆、蛍光ペン、消しゴム、ルーラー。 カスタム ペンは最後の既定のペンに追加され、カスタム ツール ボタンは最後のペン ボタンと消しゴム ボタンの間に追加され、カスタム トグル ボタンはルーラー ボタンの後に追加されます (カスタム ボタンは、指定されている順序で追加されます)。
+> 組み込みのボタンの表示順序を変更することはできません。 既定の表示順序は、次のとおりです: ボールペン、鉛筆、蛍光ペン、消しゴム、ルーラー。 カスタム ペンは最後の既定のペンに追加され、カスタム ツール ボタンは最後のペン ボタンと消しゴム ボタンの間に追加され、カスタム トグル ボタンはルーラー ボタンの後に追加されます  (カスタム ボタンは、指定されている順序で追加されます)。
 
 InkToolbar はトップ レベルの項目にすることもできますが、通常は "手書き入力" ボタンまたはコマンドを使って公開されます。 Segoe MLD2 アセット フォントの EE56 グリフをトップ レベルのアイコンとして使うことをお勧めします。
 
 ## <a name="inktoolbar-interaction"></a>InkToolbar の操作
 
-組み込みのすべてのペン ボタンとツール ボタンには、インクのプロパティと、ペン先の形状とサイズを設定できるポップアップ メニューが含まれています。 ポップアップがあることを示すために、ボタンには "拡張グリフ" ![InkToolbar グリフ](images/ink-tools-glyph.png) が表示されます。
+組み込みのすべてのペン ボタンとツール ボタンには、インクのプロパティと、ペン先の形状とサイズを設定できるポップアップ メニューが含まれています。 ポップアップがあることを示すために、ボタンには "拡張グリフ"  ![InkToolbar グリフ](images/ink-tools-glyph.png)  が表示されます。
 
 ポップアップは、アクティブなツールのボタンが再選択されたときに表示されます。 色やサイズが変更されると、ポップアップは自動的に閉じられ、手書き入力を再開できます。 カスタム ペンやカスタム ツールでは、既定のポップアップを使うことも、カスタム ポップアップを指定することもできます。
 

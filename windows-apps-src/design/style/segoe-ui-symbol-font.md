@@ -9,12 +9,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: b2003553ae7bf41b9c472f59528b46f39a07900c
-ms.sourcegitcommit: cd185e16d976f2d149312d39d560681538070e3b
+ms.openlocfilehash: c91053197cff231ec9fac85263b33306a3735ccd
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75737655"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82034216"
 ---
 # <a name="segoe-mdl2-icons"></a>Segoe MDL2 アイコン
 
@@ -153,9 +153,9 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
   <td>E712</td>
   <td>[詳細]</td>
  </tr>
-<tr><td><img src="images/segoe-mdl/E713.png" width="32" height="32" alt="Settings" /></td>
+<tr><td><img src="images/segoe-mdl/E713.png" width="32" height="32" alt="Setting" /></td>
   <td>E713</td>
-  <td>Settings</td>
+  <td>設定</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E714.png" width="32" height="32" alt="Video" /></td>
   <td>E714</td>
@@ -1343,7 +1343,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E893.png" width="32" height="32" alt="Next" /></td>
   <td>E893</td>
-  <td>ボタンをクリックします。</td>
+  <td> ボタンをクリックします。</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E894.png" width="32" height="32" alt="Clear" /></td>
   <td>E894</td>
@@ -1455,7 +1455,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
  </tr>
 <tr><td><img src="images/segoe-mdl/E8B0.png" width="32" height="32" alt="Click" /></td>
   <td>E8B0</td>
-  <td>Click</td>
+  <td>クリック</td>
  </tr>
 <tr><td><img src="images/segoe-mdl/E8B1.png" width="32" height="32" alt="Shuffle" /></td>
   <td>E8B1</td>
