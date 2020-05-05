@@ -6,17 +6,19 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 76026c4f499a068bab689eadf050e0ec6277bbe8
-ms.sourcegitcommit: d38e2f31c47434cd6dbbf8fe8d01c20b98fabf02
+ms.openlocfilehash: 39759bec429bfe7952777d9669b7971a09136116
+ms.sourcegitcommit: f727b68e86a86c94eff00f67ed79a1c12666e7bc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70393683"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82034136"
 ---
 # <a name="windows-runtime-components"></a>Windows ランタイム コンポーネント
-Windows ランタイム コンポーネントは自己完結型オブジェクトで、C#、Visual Basic、JavaScript、C++ など、すべての言語からインスタンス化して使用することができます。
 
-Visual Studio と C#、Visual Basic、または C++ を使って、ユニバーサル Windows プラットフォーム (UWP) アプリで使用できる Windows ランタイム コンポーネントを作成できます。
+Windows ランタイム コンポーネントは自己完結型のソフトウェア モジュールで、C#、C++/WinRT、Visual Basic、JavaScript、C++/CX など、すべての言語から参照して使用することができます。 Visual Studio を使って、ユニバーサル Windows プラットフォーム (UWP) アプリで利用できる Windows ランタイム コンポーネントを作成できます。
+
+> [!NOTE]
+> C++ 開発者の場合、新しいアプリケーションには [C++/WinRT](../cpp-and-winrt-apis/intro-to-using-cpp-with-winrt.md) を使用することをお勧めします。 C++/WinRT は Windows ランタイム (WinRT) API の標準的な最新の C++17 言語プロジェクションで、ヘッダー ファイル ベースのライブラリとして実装され、最新の Windows API への最上位アクセス権を提供するように設計されています。 C++/WinRT を使用して Windows ランタイム コンポーネントを作成する方法については、「[C++/WinRT でのイベントの作成](../cpp-and-winrt-apis/author-events.md)」を参照してください。
 
 | トピック | 説明 |
 |-------|-------------|

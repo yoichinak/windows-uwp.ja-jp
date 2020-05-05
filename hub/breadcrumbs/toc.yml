@@ -1,40 +1,58 @@
-- name: Docs
-  tocHref: /
-  topicHref: /
+- name: Windows
+  tocHref: /windows/
+  topicHref: /windows/
   items:
-    - name: Windows
-      tocHref: /windows/
-      topicHref: /windows/
+    - name: アプリ
+      tocHref: /windows/apps/
+      topicHref: /windows/apps/
       items:
-        - name: アプリ
-          tocHref: /windows/apps/
-          topicHref: /windows/apps/
+        - name: デスクトップ アプリの構築
+          tocHref: /windows/apps/desktop/
+          topicHref: /windows/apps/desktop/
+        - name: デスクトップ アプリの現代化
+          tocHref: /windows/apps/desktop/modernize/
+          topicHref: /windows/apps/desktop/modernize/
           items:
-            - name: デスクトップ アプリの構築
-              tocHref: /windows/apps/desktop/
-              topicHref: /windows/apps/desktop/
-            - name: デスクトップ アプリの現代化
-              tocHref: /windows/apps/desktop/modernize/
-              topicHref: /windows/apps/desktop/modernize/
-            - name: .NET TraceProcessing
-              tocHref: /windows/apps/trace-processing/
-              topicHref: /windows/apps/trace-processing/overview
-        - name: 開発環境
-          tocHref: /windows/dev-environment/
-          topicHref: /windows/dev-environment/
-          items:
-            - name: Python
-              tocHref: /windows/python/
-              topicHref: /windows/python/
-            - name: Node.js
-              tocHref: /windows/nodejs/
-              topicHref: /windows/nodejs/
-            - name: Mac-to-Windows
-              tocHref: /windows/dev-environment/mac-to-windows/
-              topicHref: /windows/dev-environment/mac-to-windows/
-            - name: 開発者環境
-              tocHref: /windows/dev-environment/wsl
-              topicHref: /windows/wsl/about
-            - name: 開発者環境
-              tocHref: /windows/dev-environment/wsl
-              topicHref: /windows/wsl/wsl2-about
+            - name: Windows ランタイム API の呼び出し
+              topicHref: /windows/apps/desktop/modernize/desktop-to-uwp-enhance
+            - name: XAML Islands
+              topicHref: /windows/apps/desktop/modernize/xaml-islands
+            - name: ビジュアル レイヤー
+              topicHref: /windows/apps/desktop/modernize/visual-layer-in-desktop-apps
+            - name: パッケージ ID が必要な機能
+              topicHref: /windows/apps/desktop/modernize/modernize-packaged-apps
+            - name: 'チュートリアル: WPF アプリの現代化'
+              topicHref: /windows/apps/desktop/modernize/modernize-wpf-tutorial
+        - name: .NET TraceProcessing
+          tocHref: /windows/apps/trace-processing/
+          topicHref: /windows/apps/trace-processing/overview
+        - name: Windows 10X 用の開発
+          topicHref: /windows/apps/10x/faq
+        - name: Fluent Design System
+          topicHref: /windows/apps/fluent-design-system
+        - name: アクセシビリティ
+          topicHref: /windows/apps/accessibility
+        - name: Speech
+          topicHref: /windows/apps/speech
+        - name: 機能とテクノロジ
+          topicHref: /windows/apps/features-and-technologies
+        - name: 最新のドキュメントの更新
+          topicHref: /windows/apps/whats-new/latest-doc-updates
+    - name: 開発環境
+      tocHref: /windows/dev-environment/
+      topicHref: /windows/dev-environment/
+      items:
+        - name: Python
+          tocHref: /windows/python/
+          topicHref: /windows/python
+        - name: Node.js
+          tocHref: /windows/nodejs/
+          topicHref: /windows/nodejs
+        - name: Android
+          tocHref: /windows/android/
+          topicHref: /windows/android/overview
+        - name: Mac-to-Windows
+          topicHref: /windows/dev-environment/mac-to-windows
+        - name: Linux 用 Windows サブシステム
+          tocHref: /windows/dev-environment/wsl
+          topicHref: /windows/wsl/about

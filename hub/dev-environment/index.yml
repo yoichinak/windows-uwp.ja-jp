@@ -1,5 +1,5 @@
 ### YamlMime:Landing
-title: Windows でビルドする
+title: Windows の開発環境
 summary: Python、Node.js、Windows Subsystem for Linux、Windows ターミナル、Docker、MongoDB、PostgreSQL などを使用できるように開発環境をセットアップします。
 metadata:
   author: mattwojo
@@ -9,12 +9,12 @@ metadata:
   ms.date: 09/15/2019
   ms.prod: dev-environment
   ms.topic: landing-page
-  ms.openlocfilehash: aaeb8b3818baf9b02d767222c2144a9066079362
-  ms.sourcegitcommit: 860e8303da3e36624f603ce3273d68911c696e5d
+  ms.openlocfilehash: 62e4cc8c5788780988b79d079ff4a6834a525a51
+  ms.sourcegitcommit: 0808a2719c007b3d7f55714e197ad080a1631a57
   ms.translationtype: HT
   ms.contentlocale: ja-JP
-  ms.lasthandoff: 10/22/2019
-  ms.locfileid: "72777271"
+  ms.lasthandoff: 05/01/2020
+  ms.locfileid: "82630640"
 landingContent:
 - title: Python の概要
   linkLists:
@@ -44,7 +44,7 @@ landingContent:
     links:
     - text: よく寄せられる質問
       url: ../python/faqs.md
-    - text: その他のリソース
+    - text: その他の情報
       url: ../python/resources.md
 - title: Node.js の概要
   linkLists:
@@ -72,6 +72,34 @@ landingContent:
       url: ../nodejs/web-frameworks.md#get-started-with-nuxtjs
     - text: Gatsby.js による Web アプリのセットアップ
       url: ../nodejs/web-frameworks.md#get-started-with-gatsbyjs
+- title: Android の概要
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Windows での Android 開発の概要
+      url: ../android/overview.md
+    - text: Android 用のクロスプラットフォーム フレームワークの比較
+      url: ../android/overview.md#cross-platform
+  - linkListType: get-started
+    links:
+    - text: ネイティブ Android
+      url: ../android/overview.md#native-android
+    - text: Xamarin.Android
+      url: ../android/xamarin-android.md
+    - text: Xamarin.Forms
+      url: ../android/xamarin-forms.md
+    - text: React Native
+      url: ../android/react-native.md
+    - text: PWA (Cordova、Ionic、PhoneGap)
+      url: ../android/pwa.md
+    - text: ゲーム開発
+      url: ../android/overview.md#game-development
+  - linkListType: concept
+    links:
+    - text: Android デバイスまたはエミュレーターでのテスト
+      url: ../android/emulator.md
+    - text: パフォーマンスを向上させるための Windows Defender 設定の更新
+      url: ../android/defender-settings.md
 - title: Windows Subsystem for Linux (WSL)
   linkLists:
   - linkListType: overview

@@ -6,12 +6,12 @@ ms.date: 04/17/2019
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: 0c86290c9765eba5186e777f8de7b3b86967be9e
-ms.sourcegitcommit: 0a319e2e69ef88b55d472b009b3061a7b82e3ab1
+ms.openlocfilehash: b966d00455bce390457e148c60b57296375ac2fa
+ms.sourcegitcommit: ef723e3d6b1b67213c78da696838a920c66d5d30
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77521343"
+ms.lasthandoff: 05/02/2020
+ms.locfileid: "82730241"
 ---
 # <a name="modernize-your-desktop-apps"></a>デスクトップ アプリの現代化
 
@@ -36,11 +36,11 @@ MSIX パッケージにデスクトップ Windows アプリをパッケージ化
 
 詳細については、「[.NET Core 3.0 の新機能](https://docs.microsoft.com/dotnet/core/whats-new/dotnet-core-3-0)」をご覧ください。
 
-## <a name="uwp-apis"></a>UWP API
+## <a name="windows-runtime-apis"></a>Windows ランタイム API
 
-多くの UWP API を WPF、Windows フォーム、または C++ Win32 デスクトップ アプリで直接呼び出して、Windows 10 ユーザーの利便性を高めるモダン エクスペリエンスを統合できます。 たとえば、UWP API を呼び出して、トースト通知をデスクトップ アプリに追加できます。
+多くの Windows ランタイム API を WPF、Windows フォーム、または C++ Win32 デスクトップ アプリで直接呼び出して、Windows 10 ユーザーの利便性を高めるモダン エクスペリエンスを統合できます。 たとえば、Windows ランタイム API を呼び出して、トースト通知をデスクトップ アプリに追加できます。
 
-詳細については、「[Use UWP APIs in desktop apps (デスクトップ アプリでの UWP API の使用)](desktop-to-uwp-enhance.md)」を参照してください。
+詳しくは、[デスクトップ アプリでの Windows ランタイム API の使用](desktop-to-uwp-enhance.md)に関する記事をご覧ください。
 
 ## <a name="host-uwp-controls-xaml-islands"></a>UWP コントロールのホスト (XAML Islands)
 
@@ -50,18 +50,18 @@ Windows 10、バージョン 1903 以降では、ウィンドウ ハンドル (H
 
 ## <a name="use-the-visual-layer-in-desktop-apps"></a>デスクトップ アプリでのビジュアル レイヤーの使用
 
-UWP 以外のデスクトップ アプリで UWP API を使用して WPF、Windows フォーム、C++ Win32 アプリの外観や機能を高めたり、UWP でのみ利用可能な最新の Windows 10 UI 機能を活用したりできるようになりました。 これは、XAML  Islands を使用してホストできる組み込みの UWP コントロールだけにとどまらないカスタム エクスペリエンスを作成する必要がある場合に便利です。
+UWP 以外のデスクトップ アプリで Windows ランタイム API を使用して WPF、Windows フォーム、C++ Win32 アプリの外観や機能を高めたり、UWP でのみ利用可能な最新の Windows 10 UI 機能を活用したりできるようになりました。 これは、XAML  Islands を使用してホストできる組み込みの UWP コントロールだけにとどまらないカスタム エクスペリエンスを作成する必要がある場合に便利です。
 
 詳しくは、「[Modernize your desktop app using the Visual layer (ビジュアル レイヤーを使用したデスクトップ アプリの現代化)](visual-layer-in-desktop-apps.md)」をご覧ください。
 
 ## <a name="additional-features-available-to-apps-with-package-identity"></a>パッケージ ID を持つアプリで利用できる追加機能
 
-一部の最新の Windows 10 エクスペリエンスは、[パッケージ ID](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-identity) を持つデスクトップ アプリでのみ利用可能です。 これらの機能には、特定の UWP API、パッケージ拡張機能、UWP コンポーネントなどがあります。 詳しくは、「[パッケージ ID が必要な機能](modernize-packaged-apps.md)」を参照してください。
+一部の最新の Windows 10 エクスペリエンスは、[パッケージ ID](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-identity) を持つデスクトップ アプリでのみ利用可能です。 これらの機能には、特定の Windows ランタイム API、パッケージ拡張機能、UWP コンポーネントなどがあります。 詳しくは、「[パッケージ ID が必要な機能](modernize-packaged-apps.md)」を参照してください。
 
 デスクトップ アプリに ID を付与する方法はいくつかあります。
 
 * [MSIX パッケージ](/windows/msix/desktop/desktop-to-uwp-root)でパッケージ化します。 MSIX は、すべての Windows アプリ、WPF、Windows フォーム、Win32 アプリ用のユニバーサルなパッケージ化エクスペリエンスを提供するモダンなアプリ パッケージ形式です。 これは、堅牢なインストールと更新のエクスペリエンス、柔軟な機能システムによる管理されたセキュリティ モデル、Microsoft Store のサポート、エンタープライズ管理、および多くのカスタム配布モデルを提供します。 詳しくは、MSIX ドキュメントの「[デスクトップ アプリケーションのパッケージ化](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-root)」をご覧ください。
-* デスクトップ アプリを配置するために MSIX パッケージを導入できない場合、Windows 10 Insider Preview Build 10.0.19000.0 以降では、パッケージ マニフェストのみを含む "*スパース MSIX パッケージ*" を作成することでパッケージ ID を付与できます。 詳細については、「[パッケージ化されていないデスクトップ アプリに ID を付与する](grant-identity-to-nonpackaged-apps.md)」を参照してください。
+* デスクトップ アプリを配置するために MSIX パッケージを導入できない場合、Windows 10 バージョン 2004 では、パッケージ マニフェストのみを含む "*スパース MSIX パッケージ*" を作成することでパッケージ ID を付与できます。 詳細については、「[パッケージ化されていないデスクトップ アプリに ID を付与する](grant-identity-to-nonpackaged-apps.md)」を参照してください。
 
 <a id="desktop-uwp-controls"/>
 
