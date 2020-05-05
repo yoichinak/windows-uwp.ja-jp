@@ -12,10 +12,10 @@ dev-contact: ranjeshj
 doc-status: Published
 ms.localizationpriority: medium
 ms.openlocfilehash: d7b781e6074468fbe73446e4057e36ff31266d05
-ms.sourcegitcommit: 9625f8fb86ff6473ac2851e600bc02e996993660
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "72165099"
 ---
 # <a name="selection-mode-overview"></a>選択モードの概要
@@ -25,9 +25,9 @@ ms.locfileid: "72165099"
 ## <a name="different-selection-modes"></a>さまざまな選択モード
 選択モードには、次の 3 つがあります。
 
-- 単一:ユーザーは同時に 1 つの項目だけを選ぶことができます。
-- 複数:ユーザーは修飾キーを使わずに複数の項目を選ぶことができます。
-- 拡張:ユーザーは、Shift キーを押すなど修飾キーを使って複数の項目を選ぶことができます。
+- 単一: ユーザーは同時に 1 つの項目だけを選ぶことができます。
+- 複数: ユーザーは修飾キーを使わずに複数の項目を選ぶことができます。
+- 拡張: ユーザーは、Shift キーを押すなど修飾キーを使って複数の項目を選ぶことができます。
 
 ## <a name="selection-mode-examples"></a>選択モードの例
 ### <a name="here-is-a-listview-with-single-selection-mode-enabled"></a>次に示すのは、単一選択モードが有効になっている ListView です。

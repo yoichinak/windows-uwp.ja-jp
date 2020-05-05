@@ -6,10 +6,10 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: e2977877b839f40e07b3eaa03b8349fb8439a401
-ms.sourcegitcommit: 05be6929cd380a9dd241cc1298fd53f11c93d774
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73062753"
 ---
 # <a name="app-analysis-overview"></a>App Analysis の概要
@@ -209,7 +209,7 @@ x:Name が設定されたリソースは、ResourceDictionary が作成される
 
 ## <a name="collections-control-is-using-a-non-virtualizing-panel"></a>コレクション コントロールが非仮想化パネルを使っている
 
-カスタム項目パネル テンプレート (ItemsPanel をご覧ください) を用意する場合は、ItemsWrapGrid や ItemsStackPanel などの仮想パネルを必ず使用してください。 VariableSizedWrapGrid、WrapGrid、または StackPanel を使用した場合、仮想化は得られません。 また、次の ListView イベントは、ItemsWrapGrid または ItemsStackPanel を使用したときにのみ発生します。ChoosingGroupHeaderContainer、ChoosingItemContainer、ContainerContentChanging。
+カスタム項目パネル テンプレート (ItemsPanel をご覧ください) を用意する場合は、ItemsWrapGrid や ItemsStackPanel などの仮想パネルを必ず使用してください。 VariableSizedWrapGrid、WrapGrid、または StackPanel を使用した場合、仮想化は得られません。 また、ChoosingGroupHeaderContainer、ChoosingItemContainer、ContainerContentChanging の各 ListView イベントは、ItemsWrapGrid または ItemsStackPanel を使用したときにのみ発生します。
 
 UI の仮想化は、コレクションのパフォーマンスを向上させることができる最も重要な機能です。 これは、項目を表す UI 要素がオンデマンドで作成されることを意味します。 1,000 項目のコレクションにバインドされている項目コントロールでは、すべての項目の UI を同時に作成しても、同時に全部を表示することはできないため、リソースを無駄に使うことになります。 UI の仮想化は、ListView と GridView (およびその他の ItemsControl から派生した標準コントロール) によって実行されます。 数ページ先にある項目がスクロールされて表示されそうになると、フレームワークがその項目用の UI を生成してキャッシュします。 項目がもう一度表示される可能性が低い場合、フレームワークはメモリを解放します。
 
@@ -227,7 +227,7 @@ UI の仮想化は、コレクションのパフォーマンスを向上させ�
 
 ItemsWrapGrid や ItemsStackPanel などの仮想化パネルを使います。
 
-## <a name="accessibility-uia-elements-with-no-name"></a>アクセシビリティ:名前のない UIA 要素
+## <a name="accessibility-uia-elements-with-no-name"></a>アクセシビリティ: 名前のない UIA 要素
 
 XAML では、AutomationProperties.Name を設定することで名前を指定できます。 多くのオートメーション ピアでは、AutomationProperties.Name を設定していない場合、UIA に既定の名前が指定されます。 
 
@@ -245,7 +245,7 @@ XAML では、AutomationProperties.Name を設定することで名前を指定�
 
 アプリケーションによっては、名前を指定するのではなく、Raw ツリー以外のすべてのツリーから UIA 要素を削除して修正する方法が適切である場合があります。 XAML でこれを行うには、`AutomationProperties.AccessibilityView = "Raw"` を設定します。
 
-## <a name="accessibility-uia-elements-with-the-same-controltype-should-not-have-the-same-name"></a>アクセシビリティ:同じ Controltype の UIA 要素は同じ名前を持つことはできない
+## <a name="accessibility-uia-elements-with-the-same-controltype-should-not-have-the-same-name"></a>アクセシビリティ: 同じ Controltype の UIA 要素は同じ名前を持つことはできない
 
 同じ UIA の親を持つ 2 つの UIA 要素に、同じ Name と ControlType を設定してはなりません。 2 つのコントロールの ControlTypes が異なる場合は、同じ Name を指定することができます。 
 

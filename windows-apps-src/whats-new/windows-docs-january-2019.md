@@ -6,10 +6,10 @@ ms.date: 01/17/2019
 ms.topic: article
 ms.localizationpriority: medium
 ms.openlocfilehash: 7947fb6e71a9f2ddbedcd8e3ee8bab7b720dc444
-ms.sourcegitcommit: 6169660ea437915265165c4631d9702587e4793d
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74902473"
 ---
 # <a name="whats-new-in-the-windows-developer-docs-in-january-2019"></a>Windows 開発者向けドキュメントの最新情報、2019 年 1 月
@@ -28,7 +28,7 @@ Microsoft Learn は、新しい実践的な学習とトレーニングの機会�
 
 ### <a name="direct-3d-12"></a>Direct 3D 12
 
-[Direct3D 12 のレンダー パス](/windows/desktop/direct3d12/direct3d-12-render-passes)では、レンダラーがタイルベースの遅延レンダリング (TBDR) などの手法に基づいている場合、レンダラーのパフォーマンスを向上させることができます。 この手法では、ご利用のレンダラーで GPU の効率が改善されるように支援します。そのために、ご利用のアプリケーションがリソース レンダリングの順序付けの要件とデータの依存関係をより適切に識別できるようにして、オフチップ メモリとの間のメモリ トラフィックを削減します。
+[Direct3D 12 のレンダリング パス](/windows/desktop/direct3d12/direct3d-12-render-passes)では、レンダラーがタイルベースの遅延レンダリング (TBDR) などの手法に基づいている場合、レンダラーのパフォーマンスを向上させることができます。 この手法では、ご利用のレンダラーで GPU の効率が改善されるように支援します。そのために、ご利用のアプリケーションがリソース レンダリングの順序付けの要件とデータの依存関係をより適切に識別できるようにして、オフチップ メモリとの間のメモリ トラフィックを削減します。
 
 ### <a name="msix-modification-packages"></a>MSIX 修正パッケージ
 
@@ -52,7 +52,7 @@ Microsoft は [WinML API のランディング ページ](/windows/ai/api-refere
 
 ![WinML グラフィック](images/winml-graphic.png)
 
-## <a name="developer-guidance"></a>開発者向けガイダンス
+## <a name="developer-guidance"></a>開発者ガイド
 
 ### <a name="choose-your-platform"></a>プラットフォームの選択
 
@@ -78,14 +78,14 @@ VSCode とは何か、その使用方法、および作成方法については�
 
 ### <a name="one-dev-question"></a>One Dev Question
 
-One Dev Question ビデオ シリーズでは、ベテランの Microsoft 開発者が Windows 開発、チーム カルチャ、および歴史に関する一連の質問に答えています。 最新の質問に対してお答えした内容を以下に示します。
+One Dev Question ビデオ シリーズでは、ベテランの Microsoft 開発者が Windows 開発、チーム カルチャー、および歴史に関する一連の質問に答えています。 最新の質問に対してお答えした内容を以下に示します。
 
-Raymond Chen:
+Raymond Chen: 
 
 * [Program Files と Program Files (x86) があるのはなぜですか?](https://youtu.be/qRb6otsHG5c)
 * [Microsoft でのあなたの最初のインタビューはどのようなものでしたか?](https://youtu.be/MfzzbNp8kfw)
 
-Larry Osterman:
+Larry Osterman: 
 
 * [COM はなぜそれほど複雑なのですか?](https://youtu.be/-gkXAV-StVA)
 * [Microsoft に対するあなたの最初のインタビューはどのようなものでしたか?](https://youtu.be/N7o9eJpFYco)

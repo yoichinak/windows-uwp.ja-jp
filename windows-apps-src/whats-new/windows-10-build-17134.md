@@ -6,17 +6,17 @@ ms.date: 04/10/2018
 ms.topic: article
 ms.localizationpriority: medium
 ms.openlocfilehash: cce2c6c36918a117ba6aee25987be9060b3ec148
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74258865"
 ---
 # <a name="whats-new-in-windows-10-for-developers-build-17134"></a>Windows 10 ビルド 17134 の開発者向け新着情報
 
 Windows 10 ビルド 17134 (April Update またはバージョン 1803 とも呼ばれます) では、Visual Studio 2019 や更新された SDK と組み合わせて使うことで、優れたユニバーサル Windows プラットフォーム アプリを作成するためのツール、機能、エクスペリエンスが利用可能になります。 Windows 10 の[ツールと SDK をインストール](https://developer.microsoft.com/windows/downloads#_blank)すると、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
 
-ここには、Windows 開発者にとって重要なこのリリースの新機能、強化された機能、ガイダンスを集めました。 Windows SDK に追加されたすべての新しい名前空間の一覧については、「[Windows 10 ビルド 17134 API の変更点](windows-10-build-17134-api-diff.md)」をご覧ください。 Windows 10 での注目すべき機能について詳しくは、「[Windows 10 の優れた機能](https://developer.microsoft.com/windows/windows-10-for-developers)」をご覧ください。 また、Windows プラットフォームに過去に追加された機能と今後追加される機能の概要については、[Windows 開発者向けプラットフォーム機能に関するページ](https://developer.microsoft.com/windows/platform/features)をご覧ください。
+ここには、Windows 開発者にとって重要なこのリリースの新機能、強化された機能、ガイダンスを集めました。 Windows SDK に追加されたすべての新しい名前空間の一覧については、「[Windows 10 ビルド 17134 API の変更点](windows-10-build-17134-api-diff.md)」をご覧ください。 Windows 10 での注目すべき機能について詳しくは、「[Windows 10 の優れた機能](https://developer.microsoft.com/windows/windows-10-for-developers)」をご覧ください。 また、Windows プラットフォームに過去に追加された機能と今後追加される機能の概要については、[Windows 開発者向けプラットフォーム機能](https://developer.microsoft.com/windows/platform/features)に関するページをご覧ください。
 
 ## <a name="design--ui"></a>設計および UI
 
@@ -34,23 +34,23 @@ Fluent Design の更新 | 多くの Fluent Design ページが新しい情報と
 ナビゲーション ビュー | [ナビゲーション ビュー](../design/controls-and-patterns/navigationview.md) コントロールでは、アプリ内でトップレベルのナビゲーションを行うための折りたたみ可能なナビゲーション メニューを提供します。 このコントロールは、ナビゲーション ウィンドウ (またはハンバーガー メニュー) パターンを実装し、ウィンドウの表示モードをさまざまなウィンドウ サイズに自動的に合わせます。
 表示フォーカス | 新しい[表示フォーカス](../design/style/reveal-focus.md)効果では、Xbox One やテレビ画面などのエクスペリエンスに発光効果を提供します。 ユーザーがゲームパッドやキーボードのフォーカスをボタンなどのフォーカス可能な要素に移動したときに、その要素の境界線がアニメーション化されます。
 サウンド | XAML では、**SpatialAudioMode** プロパティで 3D オーディオがサポートされるようになりました。 構成方法については、「[サウンド](../design/style/sound.md)」をご覧ください。
-タイル | [追跡可能なタイル通知](../design/shell/tiles-and-notifications/chaseable-tile-notifications.md)が JavaScript ベースの UWP アプリでサポートされるようになりました。<br><br>セカンダリ タイルとバッジの通知が[デスクトップ ブリッジ アプリでサポートされるようになりました](../design/shell/tiles-and-notifications/secondary-tiles-desktop-pinning.md#send-tile-notifications)。
+Tiles | [追跡可能なタイル通知](../design/shell/tiles-and-notifications/chaseable-tile-notifications.md)が JavaScript ベースの UWP アプリでサポートされるようになりました。<br><br>セカンダリ タイルとバッジの通知が[デスクトップ ブリッジ アプリでサポートされるようになりました](../design/shell/tiles-and-notifications/secondary-tiles-desktop-pinning.md#send-tile-notifications)。
 ツリー ビュー | [TreeView](../design/controls-and-patterns/tree-view.md) コントロールを使用すると、階層リストが有効になり、入れ子になった項目を含むノードを展開したり、折りたたんだりすることができるようになります。 フォルダー構造や入れ子になった関係を UI で視覚的に示すために使用できます。
 記述スタイル | 文体と語調に関する記事を更新および拡張し、[記述スタイルに関するガイダンス](../design/style/writing-style.md)を作成しました。 この新しいガイドでは、アプリ内に効果的なテキストを作成するための原則と、エラー メッセージやダイアログなどのコントロールに使用する記述スタイルのベスト プラクティスを示しています。
 
 ## <a name="gaming"></a>ゲーム
 機能 | 説明
  :------ | :------
-ゲーム開発の概要 | Windows 10 用のゲーム開発に関心をお持ちですか? 新しい[ゲーム開発の作業の概要](../gaming/getting-started.md)ページでは、セットアップ、登録、アプリとゲームの申請準備のために必要な作業全体の概要を示します。
+ゲーム開発の概要 | Windows 10 用のゲーム開発に関心をお持ちですか?  新しい[ゲーム開発の作業の概要](../gaming/getting-started.md)ページでは、セットアップ、登録、アプリとゲームの申請準備のために必要な作業全体の概要を示します。
 グラフィックス アダプター | 以下の DXGI API が追加されました。これらは、グラフィックス アダプターの基本設定と削除に関連しています。 </br> * [IDXGIFactory6](https://docs.microsoft.com/windows/desktop/api/dxgi1_6/nn-dxgi1_6-idxgifactory6) インターフェイスでは、GPU 基本設定に基づいてグラフィックス アダプターを列挙する単一のメソッドが有効になります。 </br> * [DXGIDeclareAdapterRemovalSupport](https://docs.microsoft.com/windows/desktop/api/dxgi1_6/nf-dxgi1_6-dxgideclareadapterremovalsupport) 関数を使用すると、グラフィックス デバイスの削除に対してプロセスで対応可能であると示すことができます。 </br> * [DXGI_GPU_PREFERENCE](https://docs.microsoft.com/windows/desktop/api/dxgi1_6/ne-dxgi1_6-dxgi_gpu_preference) 列挙では、アプリを実行する GPU の基本設定を記述します。
 
-## <a name="develop-windows-apps"></a>Windows アプリを開発
+## <a name="develop-windows-apps"></a>Windows アプリの開発
 
 機能 | 説明
  :------ | :------
 アダプティブ カード | [アダプティブ カード](https://docs.microsoft.com/adaptive-cards/)は、カード交換のオープン フォーマットであり、開発者は一貫性のある共通した方法で UI コンテンツを交換できます。 アダプティブ カードでは JSON オブジェクトとしてコンテンツを記述し、ホスト アプリケーションの外観に自動的に適合するようにレンダリングできます。
 アプリ リソース グループ | [AppResourceGroupInfo](https://docs.microsoft.com/uwp/api/windows.system.appresourcegroupinfo) クラスには、アプリの状態を中断、アクティブ (再開済み)、または終了の状態に移行する処理を開始するための新しいメソッドが含まれています。
-ファイル システムへの幅広いアクセス | **broadFileSystemAccess** 機能を使用すると、ファイル ピッカー スタイルのプロンプトを使用しなくても、アプリはファイル システムに対して、アプリを実行中のユーザーと同じアクセス許可を獲得できます。 詳しくは、「[ファイル アクセス許可](../files/file-access-permissions.md)」と、「[アプリ機能の宣言](../packaging/app-capability-declarations.md)」の **broadFileSystemAccess** をご覧ください。
+ファイル システムへの幅広いアクセス | **broadFileSystemAccess** 機能を使用すると、ファイル ピッカー スタイルのプロンプトを使用しなくても、アプリはファイル システムに対して、アプリを実行中のユーザーと同じアクセス許可を獲得できます。 詳しくは、「[ファイル アクセス許可](../files/file-access-permissions.md)」と、「**アプリ機能の宣言**」の [broadFileSystemAccess](../packaging/app-capability-declarations.md) をご覧ください。
 C++/WinRT | [C++/WinRT](https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/) は、Windows ランタイム (WinRT) API 用に新しく完全に標準化された、最新の C++17 言語プロジェクションです。 ヘッダー ファイルに単独で実装され、最新の Windows API への最上位のアクセス権を提供するように設計されています。 C++/WinRT を使うと、標準に準拠した C++17 のコンパイラを使用して WinRT API を作成し利用することができます。 C++ アプリケーション (Win32 から UWP への変換) では、C++/WinRT を使用することで、コードを標準として維持し、最新でクリーンなコードを保つことができます。また、アプリケーションを軽量かつ高速なアプリケーションとしてそのまま利用できます。
 コンソール UWP アプリ | C++ /WinRT または /CX の UWP コンソール アプリを作成して、DOS や PowerShell などのコンソール ウィンドウで実行できるようになりました。 コンソール アプリでは、入出力にコンソール ウィンドウを使用します。 UWP コンソール アプリは、Microsoft Store に公開することも、アプリの一覧に追加することもできます。また、プライマリ タイルとしてスタート メニューにピン留めすることもできます。 詳しくは、「[ユニバーサル Windows プラットフォーム コンソール アプリの作成](../launch-resume/console-uwp.md)」をご覧ください。
 拡張されたアプリ マニフェスト機能 | アプリ パッケージ マニフェストのスキーマに、機能がいくつか追加されました。それらの機能には、ファイル システムへの広範なアクセス、店舗販売時点管理 (POS) デバイスでのバーコード スキャナーの有効化、UWP コンソール アプリの定義などがあります。 詳しくは、「[app manifest changes in Windows 10](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/what-s-changed-in-windows-10)」(Windows 10 でのアプリ マニフェストの変更) をご覧ください。
@@ -114,7 +114,7 @@ Xbox Live クリエーターズ プログラムでは、開発者は、UWP ゲ�
 
 ### <a name="one-dev-question---why-was-docments-and-settings-renamed-users"></a>One Dev Question - "Documents and Settings" が "Users" という名前に変更された理由
 
-Documents and Settings ディレクトリの名前が変更された理由を知りたくありませんか? [Raymond Chen が、名前の由来や変更された理由について説明します](https://www.youtube.com/watch?v=4vDHQewVmM8&index=1&list=PLWs4_NfqMtoxjy3LrIdf2oamq1coolpZ7)。 Windows やその歴史における開発の詳細については、[Raymond のブログ](https://devblogs.microsoft.com/oldnewthing/)をご覧ください。
+Documents and Settings ディレクトリの名前が変更された理由を知りたくありませんか?  [Raymond Chen が、名前の由来や変更された理由について説明します](https://www.youtube.com/watch?v=4vDHQewVmM8&index=1&list=PLWs4_NfqMtoxjy3LrIdf2oamq1coolpZ7)。 Windows やその歴史における開発の詳細については、[Raymond のブログ](https://devblogs.microsoft.com/oldnewthing/)をご覧ください。
 
 
 ## <a name="samples"></a>サンプル

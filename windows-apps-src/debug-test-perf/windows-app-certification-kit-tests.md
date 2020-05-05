@@ -7,10 +7,10 @@ ms.topic: article
 keywords: Windows 10, UWP, アプリ認定
 ms.localizationpriority: medium
 ms.openlocfilehash: 9de761a0b127d7218c7dc2bb4c6862626b7c60e4
-ms.sourcegitcommit: 3e7a4f7605dfb4e87bac2d10b6d64f8b35229546
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77089428"
 ---
 # <a name="windows-app-certification-kit-tests"></a>Windows アプリ認定キットのテスト
@@ -45,7 +45,7 @@ Windows アプリ認定キットで [**IApplicationActivationManager::ActivateAp
 テスト プラットフォームが [**ActivateApplication**](https://docs.microsoft.com/windows/desktop/api/shobjidl_core/nf-shobjidl_core-iapplicationactivationmanager-activateapplication) の前提条件を満たしているにもかかわらずアプリの起動に失敗する場合は、アクティブ化イベント ログを確認して問題のトラブルシューティングを行うことができます。 イベント ログでこのようなエントリを見つけるには、次の手順を実行します。
 
 1.  eventvwr.exe を開き、アプリケーションとサービス ログ\\Microsoft\\Windows\\Immersive-Shell フォルダーに移動します。
-2.  ビューをフィルター処理し、次のイベント ID を表示します: 5900 から 6000。
+2.  ビューをフィルター処理してイベント ID 5900 ～ 6000 を表示します。
 3.  アプリが起動しなかった理由を説明している可能性のある情報のログ エントリを確認します。
 
 問題のあるファイルをトラブルシューティングして問題を特定し、修正します。 アプリをリビルドして再テストします。 また、ダンプ ファイルが Windows アプリ認定キットのログ フォルダーに生成されたかどうかを確認します。ダンプ ファイルもアプリのデバッグに使用できます。
@@ -164,7 +164,7 @@ BinScope Binary Analyzer テストは、次のセキュリティ関連機能が�
 
 ### <a name="span-idbinscope-1spanallowpartiallytrustedcallersattribute"></a><span id="binscope-1"></span>AllowPartiallyTrustedCallersAttribute
 
-**Windows アプリ認定キットのエラー メッセージ:** APTCACheck テストに失敗しました
+**Windows アプリ認定キットのエラー メッセージ:** APTCACheck Test failed
 
 AllowPartiallyTrustedCallersAttribute (APTCA) 属性を使うと、署名されたアセンブリで、部分的に信頼されたコードから完全に信頼されたコードにアクセスできます。 アセンブリに APTCA 属性を適用すると、アセンブリが有効な間は、部分的に信頼された呼び出し元からそのアセンブリにアクセスできます。これにより、セキュリティが侵害されるおそれがあります。
 
@@ -178,7 +178,7 @@ AllowPartiallyTrustedCallersAttribute (APTCA) 属性を使うと、署名され�
 
 ### <a name="span-idbinscope-2spansafeseh-exception-handling-protection"></a><span id="binscope-2"></span>/SafeSEH 例外処理の保護
 
-**Windows アプリ認定キットのエラー メッセージ:** SafeSEHCheck テストに失敗しました
+**Windows アプリ認定キットのエラー メッセージ:** SafeSEHCheck Test failed
 
 例外ハンドラーは、アプリがゼロ除算エラーなどの例外的な状況に陥った場合に実行されます。 関数が呼び出されると例外ハンドラーのアドレスがスタックに格納されるため、悪意のあるソフトウェアがスタックを上書きしようとした場合は、バッファー オーバーフローによる攻撃を受けやすくなることがあります。
 
@@ -192,7 +192,7 @@ AllowPartiallyTrustedCallersAttribute (APTCA) 属性を使うと、署名され�
 
 ### <a name="span-idbinscope-3spandata-execution-prevention"></a><span id="binscope-3"></span>データ実行防止
 
-**Windows アプリ認定キットのエラー メッセージ:** NXCheck テストに失敗しました
+**Windows アプリ認定キットのエラー メッセージ:** NXCheck Test failed
 
 このテストでは、データ セグメントに格納されたコードが、アプリで実行されないことを確認します。
 
@@ -206,7 +206,7 @@ DEP 対応の CPU でアプリをテストし、DEP の結果として見つか�
 
 ### <a name="span-idbinscope-4spanaddress-space-layout-randomization"></a><span id="binscope-4"></span>アドレス空間レイアウトのランダム化
 
-**Windows アプリ認定キットのエラー メッセージ:** DBCheck テストに失敗しました
+**Windows アプリ認定キットのエラー メッセージ:** DBCheck Test failed
 
 アドレス空間レイアウトのランダム化 (ASLR) を使うと、実行可能なイメージがメモリの予測不可能な場所に読み込まれます。これにより、特定の仮想アドレスにプログラムを読み込むことを想定している悪意のあるソフトウェアは、計画どおりに動作しにくくなります。 アプリとアプリで使うすべてのコンポーネントは、ASLR をサポートする必要があります。
 
@@ -222,7 +222,7 @@ DEP 対応の CPU でアプリをテストし、DEP の結果として見つか�
 
 ### <a name="span-idbinscope-5spanreadwrite-shared-pe-section"></a><span id="binscope-5"></span>共有されている PE セクションの読み取り/書き込み
 
-**Windows アプリ認定キットのエラー メッセージ:** SharedSectionsCheck テストに失敗しました。
+**Windows アプリ認定キットのエラー メッセージ:** SharedSectionsCheck Test failed.
 
 共有されている書き込み可能なセクションがあるバイナリ ファイルは、セキュリティの脅威です。 共有する書き込み可能なセクションを含むアプリは、必須の場合を除き、ビルドしないでください。 [  **CreateFileMapping**](https://docs.microsoft.com/windows/desktop/api/winbase/nf-winbase-createfilemappinga) または [**MapViewOfFile**](https://docs.microsoft.com/windows/desktop/api/memoryapi/nf-memoryapi-mapviewoffile) を使って適切に保護された共有メモリ オブジェクトを作成します。
 
@@ -236,7 +236,7 @@ DEP 対応の CPU でアプリをテストし、DEP の結果として見つか�
 
 ### <a name="appcontainercheck"></a>AppContainerCheck
 
-**Windows アプリ認定キットのエラー メッセージ:** AppContainerCheck テストに失敗しました。
+**Windows アプリ認定キットのエラー メッセージ:** AppContainerCheck Test failed.
 
 AppContainerCheck は、実行可能なバイナリの PE (Portable Executable) ヘッダーに **appcontainer** ビットが設定されているかを検証します。 すべての .exe ファイルとすべてのアンマネージ DLL で **appcontainer** ビットが設定されていないと、アプリは正しく動作しません。
 
@@ -252,7 +252,7 @@ AppContainerCheck は、実行可能なバイナリの PE (Portable Executable) 
 
 ### <a name="span-idbinscope-7spanexecutableimportscheck"></a><span id="binscope-7"></span>ExecutableImportsCheck
 
-**Windows アプリ認定キットのエラー メッセージ:** ExecutableImportsCheck テストに失敗しました。
+**Windows アプリ認定キットのエラー メッセージ:** ExecutableImportsCheck Test failed.
 
 移植可能な実行可能ファイル (PE) イメージで、実行可能コード セクションにインポート テーブルが置かれていると、このテストが不合格になります。 これは、Visual C++ リンカーの */merge* フラグを " */merge:.rdata=.text*" に設定して、PE イメージの .rdata マージを有効にすると生じることがあります。
 
@@ -266,7 +266,7 @@ AppContainerCheck は、実行可能なバイナリの PE (Portable Executable) 
 
 ### <a name="span-idbinscope-8spanwxcheck"></a><span id="binscope-8"></span>WXCheck
 
-**Windows アプリ認定キットのエラー メッセージ:** WXCheck テストに失敗しました。
+**Windows アプリ認定キットのエラー メッセージ:** WXCheck Test failed.
 
 このチェックでは、書き込み可能または実行可能としてマップされたページがバイナリに含まれていないことを確認します。 これは、書き込み可能および実行可能なセクションがバイナリに含まれている場合、またはバイナリの *SectionAlignment* が *PAGE\-SIZE* よりも小さい場合に発生する可能性があります。
 
@@ -371,7 +371,7 @@ WinJS.Binding.optimizeBindingReferences の値を確認します。
 次の表をガイダンスとして使います。
 
 <table>
-<tr><th>エラー メッセージ</th><th>備考</th></tr>
+<tr><th>エラー メッセージ</th><th>コメント</th></tr>
 <tr><td>
 <p>The image {image name} defines both Scale and TargetSize qualifiers; you can define only one qualifier at a time. (イメージ {image name} には Scale 修飾子と TargetSize 修飾子が定義されていますが、一度に定義可能な修飾子は 1 つだけです。)</p>
 </td><td>
@@ -559,7 +559,7 @@ Microsoft Store では、すべてのアプリケーションで、Direct3D を�
 
 ### <a name="corrective-action"></a>問題への対応
 
-アプリは中断されそうになった時は常に [**Trim**](https://docs.microsoft.com/windows/desktop/api/dxgi1_3/nn-dxgi1_3-idxgidevice3) インターフェイスで [**IDXGIDevice3**](https://docs.microsoft.com/windows/desktop/api/dxgi1_3/nf-dxgi1_3-idxgidevice3-trim) API を呼び出す必要があります。
+アプリは中断されそうになった時は常に [**Trim**](https://docs.microsoft.com/windows/desktop/api/dxgi1_3/nf-dxgi1_3-idxgidevice3-trim) インターフェイスで [**IDXGIDevice3**](https://docs.microsoft.com/windows/desktop/api/dxgi1_3/nn-dxgi1_3-idxgidevice3) API を呼び出す必要があります。
 
 ## <a name="app-capabilities-test"></a>アプリ機能のテスト
 

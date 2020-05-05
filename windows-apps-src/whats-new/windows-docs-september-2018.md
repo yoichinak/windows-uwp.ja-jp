@@ -6,10 +6,10 @@ ms.date: 09/10/2018
 ms.topic: article
 ms.localizationpriority: medium
 ms.openlocfilehash: 85e41a26343c9e4c6eb239cbfdd74dc946d5b657
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74258802"
 ---
 # <a name="whats-new-in-the-windows-developer-docs-in-september-2018"></a>Windows 開発者向けドキュメントの最新情報、2018 年 9 月
@@ -36,7 +36,7 @@ Windows 10 の[ツールと SDK をインストール](https://developer.microso
 
 Windows UI ライブラリの詳細については、[NuGet パッケージに含まれる API 名前空間を示すこちらの一覧](https://docs.microsoft.com/uwp/api/overview/winui/)を参照してください。
 
-## <a name="developer-guidance"></a>開発者向けガイダンス
+## <a name="developer-guidance"></a>開発者ガイド
 
 ### <a name="how-blur-effects-work"></a>ぼかし効果のしくみ
 
@@ -52,9 +52,9 @@ Microsoft の UWP ドキュメントを対象にした[共同作成のガイダ�
 
 ### <a name="one-dev-question"></a>One Dev Question
 
-One Dev Question ビデオ シリーズでは、ベテランの Microsoft 開発者が Windows 開発、チーム カルチャ、および歴史に関する一連の質問に答えています。 最新の質問に対してお答えした内容を以下に示します。
+One Dev Question ビデオ シリーズでは、ベテランの Microsoft 開発者が Windows 開発、チーム カルチャー、および歴史に関する一連の質問に答えています。 最新の質問に対してお答えした内容を以下に示します。
 
-Aaron Gustafson:
+Aaron Gustafson: 
 
 * [プログレッシブ Web アプリに関する 6 本のビデオ](https://www.youtube.com/playlist?list=PLWs4_NfqMtoyPHoI-CIB71mEq-om6m35I)
 
@@ -62,6 +62,6 @@ Chris Heilmann
 
 * [webhint ツールに関する 4 本のビデオ](https://www.youtube.com/watch?v=eXfmxmiA00Y&list=PLWs4_NfqMtow00LM-vgyECAlMDxx84Q2v)
 
-Larry Osterman:
+Larry Osterman: 
 
 * [Windows ランタイム内にあるのは COM のどの部分ですか?](https://youtu.be/_nsMjHqRn1w)

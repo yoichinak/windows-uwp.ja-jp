@@ -1,26 +1,26 @@
 ---
 title: カスタム スタイルを作成する
-description: この記事では、XAML に含まれる UI 要素のスタイルの基本について説明します
+description: この記事では、XAML に含まれる UI 要素のスタイルの基本について説明します。
 keywords: XAML, UWP, 概要
 ms.date: 08/31/2017
 ms.topic: article
 ms.localizationpriority: medium
 ms.openlocfilehash: 0e9e0a426d51fddaf4ff509438176e9db7a3e474
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75684127"
 ---
 # <a name="tutorial-create-custom-styles"></a>チュートリアル: カスタム スタイルを作成する
 
 このチュートリアルでは、XAML アプリの UI をカスタマイズする方法を示します。 警告: このチュートリアルにユニコーンが登場するかどうかは保証できません。 (後で登場します!)  
 
-## <a name="prerequisites"></a>前提条件
+## <a name="prerequisites"></a>必要条件
 * [Visual Studio 2019、Windows 10 SDK (10.0.15063.468 以降)](https://developer.microsoft.com/windows/downloads)
 
 ## <a name="part-0-get-the-code"></a>パート 0: コードを入手する
-このラボの開始点は、PhotoLab サンプル リポジトリ ([xaml-basics-starting-points/style/ フォルダー](https://github.com/Microsoft/Windows-appsample-photo-lab/tree/master/xaml-basics-starting-points/style)) にあります。 このリポジトリを複製してダウンロードした後、Visual Studio 2019 で PhotoLab.sln を開くことによって、プロジェクトを編集できます。
+この演習の開始点は、PhotoLab サンプル リポジトリ ([xaml-basics-starting-points/style/ フォルダー](https://github.com/Microsoft/Windows-appsample-photo-lab/tree/master/xaml-basics-starting-points/style)) です。 このリポジトリを複製してダウンロードした後、Visual Studio 2019 で PhotoLab.sln を開くことによって、プロジェクトを編集できます。
 
 PhotoLab アプリには、2 つのプライマリ ページが用意されています。
 
@@ -47,7 +47,7 @@ PhotoLab アプリには、2 つのプライマリ ページが用意されて�
 <!-- TODO: Update folder -->
 1. リポジトリをダウンロードした後、xaml-basics-starting-points/style/ フォルダーの **PhotoLab.sln** を開き、ソリューション プラットフォームを x86 または x64 (ARM は除く) に設定します。 
 
-    F5 キーを押して、アプリをコンパイルし、実行します。 最初の画面には、画像のギャラリーが表示されます。 いずれかの画像をクリックして、画像の詳細ページに移動します。 移動したら [編集] ボタンをクリックして、これから作業を行う編集コントロールを確認します。 アプリを終了し、Visual Studio に戻ります。  
+    F5 キーを押して、アプリをコンパイルし、実行します。 最初の画面には、画像のギャラリーが表示されます。 いずれかのイメージをクリックして、イメージの詳細ページに移動します。 移動したら [編集] ボタンをクリックして、これから作業を行う編集コントロールを確認します。 アプリケーションを終了し、Visual Studio に戻ります。  
 
 2. [ソリューション エクスプローラー] パネルで、**DetailPage.xaml** をダブルクリックして開きます。 
 
@@ -66,9 +66,9 @@ PhotoLab アプリには、2 つのプライマリ ページが用意されて�
     
     ![ボリューム スライダー](../basics/images/xaml-basics/style-volume-slider.png)
     
-    どうやら多角形を扱う作業のようですね! 多角形を定義するには、点のセットを指定し、塗りつぶしを行います。 幅 200 ピクセル、高さ 20 ピクセルの多角形を作成し、グラデーションで塗りつぶしてみましょう。
+    どうやら多角形を扱う作業のようですね!  多角形を定義するには、点のセットを指定し、塗りつぶしを行います。 幅 200 ピクセル、高さ 20 ピクセルの多角形を作成し、グラデーションで塗りつぶしてみましょう。
     
-    DetailPage.xaml で、露出スライダーのコードを見つけ、その直前に Polygon 要素を作成します。 
+    DetailPage.xaml で、露出 (Exposure) スライダーのコードを見つけ、直前に Polygon 要素を作成します。 
 
     * 露出スライダーと同じ行に多角形を配置するために、**Grid.Row** を "2" に設定します。 
     * 三角形の図形を定義するために、**Points** プロパティを "0,20 200,20 200,0" に設定します。
@@ -108,8 +108,8 @@ PhotoLab アプリには、2 つのプライマリ ページが用意されて�
     ```
 
     注:
-    * 周囲の XAML を見ると、これらの要素が Grid に含まれていることがわかります。 露出スライダーと同じ行 (Grid.Row="2") に多角形を配置したため、どちらも同じ位置に表示されます。 スライダーが図形の上にレンダリングされるように、スライダーの前に多角形を配置しました。
-    * この三角形が空き領域に合わせた大きさになるように、多角形で Stretch="Fill" および HorizontalAlignment="Stretch" を設定しました。 スライダーの幅が縮小または拡大されると、これに合わせて多角形も縮小または拡大されます。 
+    * 周囲の XAML を見ると、これらの要素が Grid に含まれていることがわかります。 露出スライダーと同じ行 (Grid.Row="2") に多角形を配置したため、どちらも同じ位置に表示されます。 図形の最上部にスライダーを表示できるように、スライダーの前に多角形を配置しました。
+    * この三角形が空き領域に合わせた大きさになるように、Polygon で Stretch="Fill" および HorizontalAlignment="Stretch" を設定しました。 スライダーの幅が縮小または拡大されると、これに合わせて多角形も縮小または拡大されます。 
 
 4. アプリをコンパイルして実行します。 これでスライダーはすばらしい外観になりました。
 
@@ -177,11 +177,11 @@ PhotoLab アプリには、2 つのプライマリ ページが用意されて�
 
 XAML スタイルの利点の 1 つは、記述するコードの量を劇的に削減し、アプリの外観を更新する作業がずっと簡単になることです。
 
-スタイルを定義するには、スタイルの適用対象となるコントロールが含まれる要素の [Resources](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.Resources) プロパティに [Style](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Style) 要素を追加します。  スタイルを **Page.Resources** プロパティに追加すると、ページ全体で、そのスタイルにアクセスできるようになります。 App.xaml ファイル内で **Application.Resources** プロパティにスタイルを追加すると、ページ全体で、そのスタイルにアクセスできるようになります。
+スタイルを定義するには、スタイルの適用対象となるコントロールが含まれる要素の [Resources](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Style) プロパティに [Style](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.Resources) 要素を追加します。  スタイルを **Page.Resources** プロパティに追加すると、ページ全体で、そのスタイルにアクセスできるようになります。 App.xaml ファイル内で **Application.Resources** プロパティにスタイルを追加すると、ページ全体で、そのスタイルにアクセスできるようになります。
 
 名前付きスタイルと標準スタイルを作成することができます。 名前付きスタイルは、特定のコントロールに明示的に適用する必要があります。標準スタイルは、指定された **TargetType** に一致するすべてのコントロールに適用されます。 
 
-この例では、最初のスタイルには **x:Key** 属性が含まれており、ターゲットとなる型は **Button** です。 最初のボタンの **Style** プロパティはこのキーに設定されているため、このスタイルは名前付きスタイルであり、明示的に適用される必要があります。 2 番目のスタイルは、ターゲットとなる型が **Button** で、スタイルに **x:Key** 属性が含まれないため、2 番目のボタンに自動的に適用されます。
+この例では、最初のスタイルには **x:Key** 属性が含まれており、ターゲットとなる型は **Button** です。 最初のボタンの **Style** プロパティはこのキーに設定されているため、このスタイルは名前付きスタイルであり、明示的に適用する必要があります。 2 番目のスタイルは、ターゲットとなる型が **Button** で、スタイルに **x:Key** 属性が含まれないため、2 番目のボタンに自動的に適用されます。
 
 
 ```XAML
@@ -204,7 +204,7 @@ XAML スタイルの利点の 1 つは、記述するコードの量を劇的に
 </Grid>
 ```
 
-アプリにスタイルを追加してみましょう。 DetailsPage.xaml で、露出、温度、濃淡の各スライダーに隣接するテキスト ブロックを確認します。 これらのテキスト ブロックはそれぞれ、スライダーの値を表示しています。 露出スライダーのテキスト ブロックは次のとおりです。 **Margin**、**VerticalAlignment**、**Padding** の各プロパティが設定されていることがわかります。
+アプリにスタイルを追加してみましょう。 DetailsPage.xaml で、露出、温度、濃淡の各スライダーに隣接するテキスト ブロックを確認します。 これらの各テキスト ブロックでは、スライダーの値を表示します。 露出スライダーのテキスト ブロックは次のとおりです。 **Margin**、**VerticalAlignment**、**Padding** の各プロパティが設定されていることがわかります。
 
 ```XAML
 <TextBlock Grid.Row="2"
@@ -214,12 +214,12 @@ XAML スタイルの利点の 1 つは、記述するコードの量を劇的に
 ```
 他のテキスト ブロックをご覧ください。同じプロパティが同じ値に設定されています。 これらをスタイルに使うと良さそうです。
 
-### <a name="create-a-value-text-block-style"></a>値テキスト ブロックのスタイルを作成する
+### <a name="create-a-value-text-block-style"></a>有用なテキスト ブロック スタイルを作成する
 
 <!-- TODO: add second starting point -->
 1. DetailsPage.xaml を開きます。
 
-2. **EditControlsGrid** という名前の **Grid** コントロールを見つけます。 これには、スライダーとテキスト ボックスが含まれています。 グリッドでスライダー用にスタイルが既に定義されています。 
+2. **EditControlsGrid** という名前の **Grid** コントロールを見つけます。 これには、スライダーとテキスト ボックスが含まれています。 グリッドにより、スライダーのスタイルが既に定義されています。 
 
     ```XAML
     <Grid x:Name="EditControlsGrid"
@@ -341,7 +341,7 @@ XAML スタイルの利点の 1 つは、記述するコードの量を劇的に
 
 ## <a name="part-3-use-a-control-template-to-make-a-fancy-slider"></a>パート 3: コントロール テンプレートを使用して装飾的なスライダーを作成する
 
-パート 1 で、見栄えを良くするために、スライダーの背後に図形を追加した方法を覚えていますか?
+パート 1 で、見栄えを良くするために、スライダーの背後に図形を追加した方法を覚えていますか? 
 
 それで作業は完了しましたが、同じ効果を得るためのもっと良い方法があります。コントロール テンプレートを作成することです。 
 
@@ -612,7 +612,7 @@ XAML スタイルの利点の 1 つは、記述するコードの量を劇的に
 
     長い XAML ですね。 コントロール テンプレートは強力な機能ですが、かなり複雑であるため、通常は、既定のテンプレートから開始することをお勧めします。 
     
-3. 追加した **ControlTemplate** 内で、**HorizontalTemplate** という名前のグリッド コントロールを見つけます。 このグリッドで変更するテンプレートの部分を定義します。
+3. 追加した **ControlTemplate** 内で、**HorizontalTemplate** という名前のグリッド コントロールを見つけます。 このグリッドは、変更するテンプレートの部分を定義します。
 
     ```XAML
     <Grid x:Name="HorizontalTemplate" MinHeight="44">
@@ -672,7 +672,7 @@ XAML スタイルの利点の 1 つは、記述するコードの量を劇的に
         </Polygon>           
     ```
 
-6. **Polygon.Fill** 設定を削除します。 **Fill** に "{TemplateBinding Background}" を設定します。 これにより、スライダーの **Background** プロパティを設定すると、多角形の **Fill** プロパティが設定されるようになります。 
+6. **Polygon.Fill** 設定を削除します。 **Fill** を "{TemplateBinding Background}" に設定します。 これにより、スライダーの **Background** プロパティを設定すると、多角形の **Fill** プロパティが設定されるようになります。 
 
     **変更前**
     ```XAML

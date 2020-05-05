@@ -7,10 +7,10 @@ keywords: windows 10, uwp
 ms.assetid: 8ac6d127-3475-4512-896d-80d1e1d66ccd
 ms.localizationpriority: medium
 ms.openlocfilehash: 6912d7faa3a86dade13b60eac5654aef8a52173d
-ms.sourcegitcommit: ae9c1646398bb5a4a888437628eca09ae06e6076
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74735017"
 ---
 # <a name="testing-and-debugging-tools-for-process-lifetime-management-plm"></a>プロセス ライフタイム管理 (PLM) のテスト ツールとデバッグ ツール
@@ -27,7 +27,7 @@ Visual Studio 2015 の組み込みのデバッガーを使うと、UWP 専用の
 
 PLMDebug.exe は、アプリケーション パッケージの PLM の状態を制御できるようにするコマンド ライン ツールであり、Windows SDK の一部としてリリースされています。 インストール後、ツールは既定で *C:\Program Files (x86)\Windows Kits\10\Debuggers\x64* に配置されます。
 
-PLMDebug を使うと、一部のデバッガーで必要とされるインストール済みアプリ パッケージの PLM を無効にすることもできます。 PLM を無効にすると、ランタイム ブローカー サービスでは、デバッグ前にアプリを終了できなくなります。 PLM を無効にするには、UWP アプリの*完全なパッケージ名* (短い名前、パッケージ ファミリ名、またはパッケージの AUMID は機能しません) が後に続く、 **/enableDebug** スイッチを使います。
+PLMDebug を使うと、一部のデバッガーで必要とされるインストール済みアプリ パッケージの PLM を無効にすることもできます。 PLM を無効にすると、ランタイム ブローカー サービスでは、デバッグ前にアプリを終了できなくなります。 PLM を無効にするには、UWP アプリの**完全なパッケージ名** (短い名前、パッケージ ファミリ名、またはパッケージの AUMID は機能しません) が後に続く、 */enableDebug* スイッチを使います。
 
 ```cmd
 plmdebug /enableDebug [PackageFullName]

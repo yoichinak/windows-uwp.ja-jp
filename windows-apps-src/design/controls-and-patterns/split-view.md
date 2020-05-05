@@ -13,17 +13,17 @@ dev-contact: tpaine
 doc-status: Published
 ms.localizationpriority: medium
 ms.openlocfilehash: e5df29f4ce91bd272fd921b23b5fc05b6655d4c0
-ms.sourcegitcommit: af4050f69168c15b0afaaa8eea66a5ee38b88fed
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80081538"
 ---
 # <a name="split-view-control"></a>分割ビュー コントロール
 
 分割ビュー コントロールには、展開/折りたたみ可能なウィンドウとコンテンツ領域があります。
 
-> **重要な API**:[SplitView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.SplitView)
+> **重要な API**: [SplitView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.SplitView)
 
 SplitView を使ってハブを表示する Microsoft Edge アプリの例を次に示します。
 
@@ -48,7 +48,7 @@ SplitView を使ってハブを表示する Microsoft Edge アプリの例を次
 
     このモードでは、ウィンドウの狭い部分が常にアイコンを表示できるだけの大きさで表示されます。 閉じたウィンドウの既定の幅は 48 ピクセルで、この値は `CompactPaneLength` で変更できます。 ウィンドウを開くと、コンテンツを押しのけるようにして、コンテンツの利用可能な領域が小さくなります。
 
-## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
+## <a name="is-this-the-right-control"></a>適切なコントロールの選択
 
 分割ビュー コントロールを使って、ユーザーが補足的なウィンドウを開いたり閉じたりできる "引き出し" エクスペリエンスを作成することができます。 たとえば、SplitView を使用して[マスター/詳細](master-details.md)パターンを構築できます。
 
@@ -93,9 +93,9 @@ SplitView を使ってハブを表示する Microsoft Edge アプリの例を次
 </SplitView>
 ```
 
-## <a name="get-the-sample-code"></a>サンプル コードの入手
+## <a name="get-the-sample-code"></a>サンプル コードを入手する
 
-- [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - 対話形式で XAML コントロールのすべてを参照できます。
+- [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - インタラクティブな形で XAML コントロールのすべてを参照できます。
 
 ## <a name="related-topics"></a>関連トピック
 - [ナビゲーション ウィンドウのパターン](navigationview.md)

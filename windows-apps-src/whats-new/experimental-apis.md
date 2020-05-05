@@ -6,10 +6,10 @@ ms.topic: article
 keywords: windows 10, uwp, 試験的, api
 ms.localizationpriority: medium
 ms.openlocfilehash: 542e007d07d490c2f18077e646f7598bfd2587c3
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75684910"
 ---
 # <a name="experimental-apis"></a>試験的な API
@@ -23,7 +23,7 @@ Intellisense を利用すると、API が試験的なものであるかどうか
 
 これらの警告は、実稼働プロジェクトで試験的な API に対する依存関係を作成するのを防ぐ場合に役立ちます。 試験的なプロジェクトでは、これらの警告を無視したり、無効にしたりすることができます。
 
-既定では、これらの API が実行時に無効になっており、これらの API を呼び出すとランタイム例外が発生します。 このもう一つのセーフガードにより、不注意による依存関係の作成や、試験的な API を使用するアプリの広範な配布を防ぐことができます。
+既定では、これらの API は実行時に無効になっており、これらの API を呼び出すとランタイム例外が発生します。 このもう一つのセーフガードにより、不注意による依存関係の作成や、試験的な API を使用するアプリの広範な配布を防ぐことができます。
 
 これらの API を試験用に有効にするには、[Windows デバイス ポータル (WDP)](https://docs.microsoft.com/windows/uwp/debug-test-perf/device-portal) 機能のプラグインをターゲット デバイスで使用し、呼び出す API に対応する機能を有効にします。
 
@@ -31,4 +31,4 @@ Intellisense を利用すると、API が試験的なものであるかどうか
 
 ## <a name="providing-feedback"></a>フィードバックの提供
 
-試験的な API を試し、フィードバックを提供する場合は、[Windows フィードバック Hub](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub) の **"開発者向けプラットフォーム"** カテゴリをご利用ください。
+試験的な API を試し、フィードバックを提供する場合は、**Windows フィードバック Hub** の ["開発者向けプラットフォーム"](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub) カテゴリをご利用ください。

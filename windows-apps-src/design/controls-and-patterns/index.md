@@ -9,10 +9,10 @@ ms.topic: article
 ms.assetid: ce2e611c-c419-4a14-9095-b88ac711d1b8
 ms.localizationpriority: medium
 ms.openlocfilehash: 63907b3bfe3fc6dece900f1a7c09ac535e859471
-ms.sourcegitcommit: c660def841abc742600fbcf6ed98e1f4f7beb8cc
+ms.sourcegitcommit: f727b68e86a86c94eff00f67ed79a1c12666e7bc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80218452"
 ---
 # <a name="controls-for-windows-apps"></a>Windows アプリ用のコントロール
@@ -32,7 +32,7 @@ XAML と C# でコントロールを追加し、スタイルを指定するた�
 :::row:::
     :::column:::
       <p><b><a href="controls-and-events-intro.md">コントロールを追加し、イベントを処理する</a></b> <br/>
-アプリにコントロールを追加するには、3 つの重要な手順があります。アプリの UI にコントロールを追加し、コントロールのプロパティを設定し、コントロールを動作させるためのコードをコントロールのイベント ハンドラーに追加します。</p>
+アプリにコントロールを追加するには、アプリの UI にコントロールを追加する、コントロールのプロパティを設定する、コントロールを動作させるためのコードをコントロールのイベント ハンドラーに追加するといった、3 つの重要な手順があります。</p>
     :::column-end:::
     :::column:::
       <p><b><a href="xaml-styles.md">コントロールのスタイル指定</a></b> <br/>

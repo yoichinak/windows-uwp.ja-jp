@@ -7,10 +7,10 @@ ms.topic: article
 keywords: windows 10, uwp, セキュリティ
 ms.localizationpriority: medium
 ms.openlocfilehash: cb5687c1a6744c34231c9b368da7c691c8e77642
-ms.sourcegitcommit: 445320ff0ee7323d823194d4ec9cfa6e710ed85d
+ms.sourcegitcommit: f727b68e86a86c94eff00f67ed79a1c12666e7bc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "72282438"
 ---
 # <a name="security"></a>セキュリティ
@@ -19,7 +19,7 @@ ms.locfileid: "72282438"
 
 このセクションには、Windows 10 のユニバーサル Windows プラットフォーム (UWP) アプリをセキュリティで保護されたアプリとしてビルドする方法に関する記事が含まれています。
 
-## <a name="introduction"></a>概要 
+## <a name="introduction"></a>はじめに 
 
 Windows または UWP での開発が初めての場合は、最初に「[安全な Windows アプリの開発について](intro-to-secure-windows-app-development.md)」をご覧ください。 この初級レベルの記事では、アプリのセキュリティに関する考慮事項の概要と Windows 10 で使用できるさまざまな機能について説明しています。
 
@@ -31,7 +31,7 @@ Windows または UWP での開発が初めての場合は、最初に「[安全
 <tr><th>トピック</th><th>説明</th></tr>
 <tr><td><a href="credential-locker.md">資格情報保管ボックス</a></td><td>この記事では、アプリで資格情報保管ボックスを使ってユーザーの資格情報を安全に保管し取得する方法、およびユーザーの Microsoft アカウントを使ってデバイス間でこれらの資格情報をローミングする方法について説明します。</td></tr>
 
-<tr><td><a href="fingerprint-biometrics.md">指紋生体認証</a> </td><td>この記事では、アプリに指紋生体認証を追加する方法について説明します。 特定の操作に対してユーザーの同意を得る必要がある場合は、指紋認証の要求を含めると、アプリのセキュリティを高めることができます。 たとえば、アプリ内購入を承認する前や制限されたリソースにアクセスする前に指紋認証を要求できます。 指紋認証は、<a href="https://docs.microsoft.com/uwp/api/Windows.Security.Credentials.UI">Windows.Security.Credentials.UI</a> 名前空間の <a href="https://docs.microsoft.com/uwp/api/Windows.Security.Credentials.UI.UserConsentVerifier">UserConsentVerifier</a> クラスを使って管理されます。</td></tr>
+<tr><td><a href="fingerprint-biometrics.md">指紋生体認証</a> </td><td>この記事では、アプリに指紋生体認証を追加する方法について説明します。 特定の操作に対してユーザーの同意を得る必要がある場合は、指紋認証の要求を含めると、アプリのセキュリティを高めることができます。 たとえば、アプリ内購入を承認する前や制限されたリソースにアクセスする前に指紋認証を要求できます。 指紋認証は、<a href="https://docs.microsoft.com/uwp/api/Windows.Security.Credentials.UI.UserConsentVerifier">Windows.Security.Credentials.UI</a> 名前空間の <a href="https://docs.microsoft.com/uwp/api/Windows.Security.Credentials.UI">UserConsentVerifier</a> クラスを使って管理されます。</td></tr>
 <tr><td><a href="microsoft-passport.md">Microsoft Passport と Windows Hello</a></td><td>この記事では、新しい Windows 10 の Microsoft Passport テクノロジについて説明します。また、開発者がこのテクノロジを実装してアプリやバックエンド サービスを保護する方法についても説明します。 従来の資格情報の脅威を軽減するこれらのテクノロジの特定の機能に着目し、Windows 10 ロールアウトに含まれるこれらのテクノロジの設計と展開の方法について説明します。 </td></tr>
 <tr><td><a href="microsoft-passport-login.md">Microsoft Passport ログイン アプリの作成</a></td><td>従来のユーザー名とパスワードの認証システムの代わりに Microsoft Passport を使う Windows 10 UWP (ユニバーサル Windows プラットフォーム) アプリの作成方法に関する詳しいチュートリアルのパート 1 です。</td></tr>
 <tr><td><a href="microsoft-passport-login-auth-service.md">Microsoft Passport ログイン サービスの作成</a></td><td>Windows 10 UWP (ユニバーサル Windows プラットフォーム) アプリで従来のユーザー名とパスワードの認証システムの代わりに Microsoft Passport を使う方法に関する詳しいチュートリアルのパート 2 です。</td></tr>
@@ -50,7 +50,7 @@ Windows または UWP での開発が初めての場合は、最初に「[安全
 |-------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [証明書の概要](certificates.md)                                      | この記事では、アプリでの証明書の利用について説明します。 デジタル証明書は、公開キーを個人、コンピューター、組織にバインドするために、公開キーの暗号化で使われます。 バインドされた識別情報は、あるエンティティを別のエンティティに対して認証する際に最も頻繁に使われます。 たとえば、証明書は、Web サーバーをユーザーに対して、また、ユーザーを Web サーバーに対して認証するためによく使われます。 証明書要求を作成し、発行された証明書をインストールまたはインポートすることができます。 また、証明書階層で証明書を登録することもできます。 |
 | [暗号化キー](cryptographic-keys.md)                                   | この記事では、標準のキー派生関数を使ってキーを派生させる方法、および対称キーと非対称キーを使ってコンテンツを暗号化する方法について説明します。                                                                                                                                                                                                                                                                                                                                                                         |
-| [データ保護](data-protection.md)                                         | この記事では、[Windows.Security.Cryptography.DataProtection](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.DataProtection) 名前空間の [DataProtectionProvider](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.DataProtection.DataProtectionProvider) クラスを使って、UWP アプリでデジタル データの暗号化と暗号化解除を行う方法について説明します。                                                                                                                                                                                                              |
+| [データ保護](data-protection.md)                                         | この記事では、[Windows.Security.Cryptography.DataProtection](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.DataProtection.DataProtectionProvider) 名前空間の [DataProtectionProvider](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.DataProtection) クラスを使って、UWP アプリでデジタル データの暗号化と暗号化解除を行う方法について説明します。                                                                                                                                                                                                              |
 | [MAC、ハッシュ、および署名](macs-hashes-and-signatures.md)               | この記事では、メッセージ認証コード (MAC)、ハッシュ、署名をアプリで使って、メッセージの改ざんを検出する方法について説明します。                                                                                                                                                                                                                                                                                                                                                                                |
 | [暗号化に関する輸出制限の順守](export-restrictions-on-cryptography.md) | アプリでの暗号化が、登録されない可能性がある方法で使われていないかどうかを判断する場合に、この情報を利用してください。                                                                                                                                                                                                                                                                                                                                                                                                     |
 | [一般的な暗号化タスク](common-cryptography-tasks.md)                     | これらの記事では、乱数の生成、バッファーの比較、文字列とバイナリ データの間の変換、バイト配列間のコピー、データのエンコードとデコードなど、一般的な暗号化タスクのコード例が示されています。                                                                                                                                                                                                                                                                                    |

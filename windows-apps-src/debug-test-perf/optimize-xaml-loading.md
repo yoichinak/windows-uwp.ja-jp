@@ -7,10 +7,10 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: beb6dde4036019e004d94e5f60e8f3583c78d775
-ms.sourcegitcommit: de34aabd90a92a083dfa17d4f8a98578597763f4
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/28/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "72980026"
 ---
 # <a name="optimize-your-xaml-markup"></a>XAML マークアップの最適化
@@ -28,7 +28,7 @@ XAML プラットフォームでは大量の要素を表示できますが、目
 
 アプリの起動時に作成される UI 要素の数は、UI コントロールがどのように配置されているかによって左右されます。 レイアウトの最適化について詳しくは、「[XAML レイアウトの最適化](optimize-your-xaml-layout.md)」をご覧ください。
 
-データ テンプレートでは、データ項目ごとに各要素が繰り返し作成されるため、要素数が非常に重要になります。 リストやグリッドで要素数を減らす方法については、「[ListView と GridView の UI の最適化](optimize-gridview-and-listview.md)」の「*項目ごとの要素の削減*」をご覧ください。
+データ テンプレートでは、データ項目ごとに各要素が繰り返し作成されるため、要素数が非常に重要になります。 リストやグリッドで要素数を減らす方法については、「*ListView と GridView の UI の最適化*」の「[項目ごとの要素の削減](optimize-gridview-and-listview.md)」をご覧ください。
 
 ここでは、アプリの起動時に読み込む必要のある要素数を減らすための方法をいくつか見ていきます。
 
@@ -36,7 +36,7 @@ XAML プラットフォームでは大量の要素を表示できますが、目
 
 すぐには表示されない要素が XAML マークアップに含まれている場合は、それらの要素が表示されるまで読み込みを延期することができます。 たとえば、タブのような UI では、セカンダリ タブなどの非表示のコンテンツの作成を遅らせることができます。 また、データを表示するときには、既定では項目をグリッド ビューで表示し、後からリスト表示に切り替えるオプションを用意する方法があります。 これにより、必要になるまでリストの読み込みを遅らせることができます。
 
-要素が表示されるタイミングを制御するには、[Visibility](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.Visibility) プロパティの代わりに [x:Load attribute](../xaml-platform/x-load-attribute.md) を使います。 要素の Visibility が **Collapsed** に設定されている場合、その要素はレンダリング パスではスキップされますが、オブジェクト インスタンスのメモリ使用のコストは発生します。 代わりに x:Load を使用すると、オブジェクト インスタンスは必要になるまで作成されないため、メモリ コストはさらに低くなります。 欠点は、UI が読み込まれていないときに、小さなメモリ オーバーヘッド (約 600 バイト) が発生することです。
+要素が表示されるタイミングを制御するには、[Visibility](../xaml-platform/x-load-attribute.md) プロパティの代わりに [x:Load attribute](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.Visibility) を使います。 要素の Visibility が **Collapsed** に設定されている場合、その要素はレンダリング パスではスキップされますが、オブジェクト インスタンスのメモリ使用のコストは発生します。 代わりに x:Load を使用すると、オブジェクト インスタンスは必要になるまで作成されないため、メモリ コストはさらに低くなります。 欠点は、UI が読み込まれていないときに、小さなメモリ オーバーヘッド (約 600 バイト) が発生することです。
 
 > [!NOTE]
 > 要素の遅延読み込みには、[x:Load](../xaml-platform/x-load-attribute.md) 属性または [x:DeferLoadStrategy](../xaml-platform/x-deferloadstrategy-attribute.md) 属性を使うことができます。 x:Load 属性は、Windows 10 Creators Update (Version 1703、SDK ビルド 15063) 以降で使用できます。 x:Load を使用するには、Visual Studio プロジェクトの対象とする最小バージョンを *Windows 10 Creators Update (10.0、ビルド 15063)* にする必要があります。 それより前のバージョンを対象とする場合は、x:DeferLoadStrategy を使います。
@@ -289,7 +289,7 @@ XAML プラットフォームは、よく使われるオブジェクトをキャ
 
 ### <a name="composite-elements"></a>複合要素
 
-複数の要素を重ねて効果を作成する代わりに、複合要素を使います。 次の例では、結果は 2 色の図形になり、上半分は黒 ([Grid](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid) の背景)、下半分は灰色 (**Grid** の黒い背景の上にアルファ ブレンドされた半透明の白い [Rectangle](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle)) で表示されます。 この場合、結果を得るために必要なピクセルの 150% が塗りつぶされることになります。
+複数の要素を重ねて効果を作成する代わりに、複合要素を使います。 次の例では、結果は 2 色の図形になり、上半分は黒 ([Grid](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid) の背景)、下半分は灰色 ([Grid](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle) の黒い背景の上にアルファ ブレンドされた半透明の白い **Rectangle**) で表示されます。 この場合、結果を得るために必要なピクセルの 150% が塗りつぶされることになります。
 
 **非効率的**
 
@@ -350,7 +350,7 @@ XAML プラットフォームは、よく使われるオブジェクトをキャ
 
 ### <a name="borders"></a>境界線
 
-オブジェクトの周りに境界線を描画するには、[Border](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.border) 要素を使います。 次の例では、[TextBox](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox) を囲む間に合わせの境界線として [Grid](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid) を使用しています。 この方法では、中央のセル内のすべてのピクセルが複数回描画されます。
+オブジェクトの周りに境界線を描画するには、[Border](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.border) 要素を使います。 次の例では、[TextBox](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid) を囲む間に合わせの境界線として [Grid](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox) を使用しています。 この方法では、中央のセル内のすべてのピクセルが複数回描画されます。
 
 **非効率的**
 
@@ -385,7 +385,7 @@ XAML プラットフォームは、よく使われるオブジェクトをキャ
 
 ### <a name="cache-static-content"></a>静的コンテンツのキャッシュ
 
-過剰な描画の別の原因として、多数の要素を重ね合わせて作成される図形があります。 複合図形を含む [UIElement](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement) で [CacheMode](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.CacheMode) を **BitmapCache** に設定すると、プラットフォームによって要素がいったんビットマップにレンダリングされ、何度も描画する代わりに、そのビットマップが各フレームで使われます。
+過剰な描画の別の原因として、多数の要素を重ね合わせて作成される図形があります。 複合図形を含む [UIElement](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.CacheMode) で **CacheMode** を [BitmapCache](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement) に設定すると、プラットフォームによって要素がいったんビットマップにレンダリングされ、何度も描画する代わりに、そのビットマップが各フレームで使われます。
 
 **非効率的**
 

@@ -9,10 +9,10 @@ ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
 ms.openlocfilehash: 0808b5173f697fcca8d5e117f857d3861c327ae3
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.sourcegitcommit: f727b68e86a86c94eff00f67ed79a1c12666e7bc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74258120"
 ---
 #  <a name="ui-considerations-for-uwp-devices"></a>UWP デバイスの UI に関する考慮事項
@@ -52,7 +52,7 @@ UI に関する考慮事項
 -   Xbox コントローラーなどのゲームパッドが使われることがあります。
 
 デバイスの標準的な機能
--   Camera
+-   カメラ
 -   マイク
 
 ## <a name="tablets-and-2-in-1s"></a>タブレットと 2 in 1
@@ -84,7 +84,7 @@ UI に関する考慮事項
 -   音声 (ときどき)
 
 デバイスの標準的な機能
--   Camera
+-   カメラ
 -   マイク
 -   移動センサー (複数)
 -   位置センサー (複数)
@@ -160,7 +160,7 @@ UI に関する考慮事項
 
 デバイスの標準的な機能
 -   マイク
--   Camera
+-   カメラ
 -   移動センサー (複数)
 -   位置センサー (複数)
 
@@ -194,7 +194,7 @@ UI に関する考慮事項
 -   タッチパッド (リモート)
 
 デバイスの標準的な機能
--   Camera
+-   カメラ
 -   マイク
 
  

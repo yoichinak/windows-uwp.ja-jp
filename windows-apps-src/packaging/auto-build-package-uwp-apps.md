@@ -7,10 +7,10 @@ keywords: windows 10, uwp
 ms.assetid: f9b0d6bd-af12-4237-bc66-0c218859d2fd
 ms.localizationpriority: medium
 ms.openlocfilehash: 70415c9f3d58625cfdc651ec67c8a9f37c23cffa
-ms.sourcegitcommit: 3e7a4f7605dfb4e87bac2d10b6d64f8b35229546
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77089498"
 ---
 # <a name="set-up-automated-builds-for-your-uwp-app"></a>UWP アプリの自動ビルドを設定する
@@ -62,7 +62,7 @@ steps:
 
 ```
 
-既定のテンプレートでは、.csproj ファイルに指定されている証明書でのパッケージへの署名が試行されます。 ビルド中にパッケージに署名する場合は、秘密キーにアクセスできる必要があります。 それ以外の場合は、YAML ファイルの `msbuildArgs` セクションにパラメーター `/p:AppxPackageSigningEnabled=false` を追加することにより、署名を無効にできます。
+既定のテンプレートでは、.csproj ファイルに指定されている証明書でのパッケージへの署名が試行されます。 ビルド中にパッケージに署名する場合は、秘密キーにアクセスできる必要があります。 それ以外の場合は、YAML ファイルの `/p:AppxPackageSigningEnabled=false` セクションにパラメーター `msbuildArgs` を追加することにより、署名を無効にできます。
 
 ## <a name="add-your-project-certificate-to-the-secure-files-library"></a>セキュア ファイル ライブラリにプロジェクト証明書を追加する
 

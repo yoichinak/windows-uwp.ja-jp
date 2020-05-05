@@ -9,10 +9,10 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: a07fc5c669d3c9cd374a4a031fba2ee6ef6d5756
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74257288"
 ---
 # <a name="images-and-image-brushes"></a>画像とイメージ ブラシ
@@ -44,7 +44,7 @@ ms.locfileid: "74257288"
 
 ## <a name="create-an-image"></a>画像を作成する
 
-### <a name="image"></a>Image
+### <a name="image"></a>イメージ
 [Image](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Image) オブジェクトを使ってイメージを作成する方法を次の例に示します。
 
 
@@ -60,7 +60,7 @@ ms.locfileid: "74257288"
 
 ### <a name="imagebrush"></a>ImageBrush
 
-[ImageBrush](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.ImageBrush) オブジェクトを使うと、[Brush](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Brush) オブジェクトを受け付ける領域を、画像を使ってペイントできます。 たとえば、[Ellipse](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Shapes.Ellipse) の [Fill](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.shape.fill) プロパティまたは [Canvas](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Canvas) の [Background](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.background) プロパティの値に ImageBrush を使うことができます。
+[ImageBrush](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.ImageBrush) オブジェクトを使うと、[Brush](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Brush) オブジェクトを受け付ける領域を、画像を使ってペイントできます。 たとえば、[Ellipse](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.shape.fill) の [Fill](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Shapes.Ellipse) プロパティまたは [Canvas](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.background) の [Background](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Canvas) プロパティの値に ImageBrush を使うことができます。
 
 次の例は、ImageBrush を使って Ellipse をペイントする方法を示しています。
 
@@ -78,10 +78,10 @@ ms.locfileid: "74257288"
 
 ### <a name="stretch-an-image"></a>画像を拡大する
 
-**Image** の [Width](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.width) 値または [Height](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.height) 値を設定しないと、**Source** で指定した画像の寸法で表示されます。 **Width** と **Height** を設定すると、画像を表示する領域を囲む四角形が作成されます。 この囲まれた領域に画像を描く方法は、[Stretch](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.image.stretch) プロパティを使って指定できます。 Stretch プロパティには、[Stretch](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Stretch) 列挙体で定義されている次の値を指定します。
+[Image](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.width) の [Width](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.height) 値または **Height** 値を設定しないと、**Source** で指定した画像の寸法で表示されます。 **Width** と **Height** を設定すると、画像を表示する領域を囲む四角形が作成されます。 この囲まれた領域に画像を描く方法は、[Stretch](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.image.stretch) プロパティを使って指定できます。 Stretch プロパティには、[Stretch](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Stretch) 列挙体で定義されている次の値を指定します。
 
--   **なし**:画像は拡大されず、出力領域全体に描かれません。 この Stretch の設定には注意してください。囲まれた領域よりもソース画像が大きいと、画像はクリップされます。ユーザーは意図的な [Clip](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.clip) で行うような制御をビューポートに対して行うことができないため、通常このことは望ましくありません。
--   **Uniform**: 画像は、出力領域の大きさに合わせて拡大されます。 ただし、コンテンツの縦横比は保たれます。 これが既定値です。
+-   **None**: 画像は拡大されず、出力領域全体に描かれません。 この Stretch の設定には注意してください。囲まれた領域よりもソース画像が大きいと、画像はクリップされます。ユーザーは意図的な [Clip](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.clip) で行うような制御をビューポートに対して行うことができないため、通常このことは望ましくありません。
+-   **Uniform**: 画像は、出力領域の大きさに合わせて拡大されます。 ただし、コンテンツの縦横比は保たれます。 これは、既定値です。
 -   **UniformToFill**: 画像は拡大され、出力領域を完全に塗りつぶすように描かれますが、元の縦横比は保たれます。
 -   **Fill**: 画像は、出力領域の大きさに合わせて拡大されます。 コンテンツの高さと幅は個々に拡大されるので、元の画像の縦横比は保たれません。 つまり、出力領域を完全に塗りつぶすために、画像がゆがむことがあります。
 

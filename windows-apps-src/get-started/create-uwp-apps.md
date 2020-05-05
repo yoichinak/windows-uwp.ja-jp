@@ -6,10 +6,10 @@ ms.topic: article
 keywords: windows 10, uwp, 概要
 ms.localizationpriority: medium
 ms.openlocfilehash: 85795ceccdde1ab49c0b6af65bf0299514879e6c
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75685221"
 ---
 # <a name="start-coding"></a>コーディングの開始
@@ -58,7 +58,7 @@ ms.locfileid: "75685221"
 | 領域 | 説明 |
 | --- | --- |
 | **新機能** | Windows 10 の各メジャー アップデートでは、ドキュメントが新しいガイダンスで拡張されています。 これらのドキュメントには、すべてのリリースで追加した機能と開発者向けガイダンスだけでなく、新しい API の一覧に関する情報が含まれます。 </br>   [最新の Windows 10 リリースでの開発者向け新機能](../whats-new/windows-10-version-latest.md) </br> ただし、ドキュメントが更新されるのはメジャー リリースのときだけではありません。 常に開発者が参照するための新しい情報が追加されています。次の最新のドキュメントで最新情報を提供します。 </br>   [ドキュメントの新着情報](../whats-new/windows-docs-latest.md) |
-| **設計と UI** | アプリの外観と UI に関するすべての情報がドキュメントのこの領域に含まれています。XAML マークアップ言語の特定の情報に興味がある場合、または自分のドキュメント用に独自の外観を作成したい場合は、ここから始めてください。 </br>   [UWP アプリの設計の基本](../design/basics/index.md) |
+| **設計と UI** | アプリの外観と UI に関するすべての情報がドキュメントのこのエリアに含まれています。XAML マークアップ言語の特定の情報に興味がある場合、または自分のドキュメント用に独自の外観を作成したい場合は、ここから始めてください。 </br>   [UWP アプリの設計の基本](../design/basics/index.md) |
 | **アプリを開発する** | Windows 10 の特定の機能に関する詳細情報が必要である場合、または UWP 開発で行うことができる内容を確認することにのみ関心がある場合は、ドキュメントのこのエリアを確認してください。 </br>   [UWP アプリの機能](../develop/index.md) </br> Windows 10 アプリの API リファレンスは、関連する一連のドキュメントでホストされており、以下で参照できます。 </br>   [Windows UWP 名前空間](https://docs.microsoft.com/uwp/api/) </br>   [ファイルおよび XML スキーマ](https://docs.microsoft.com/uwp/schemas/) |
 | **ゲームの開発** | これらのドキュメントには、Windows または Xbox でゲームを開発する方法に関する情報が含まれます。 これには、セットアップ手順、開発者プログラム、および DirectX または Xbox の機能を使用したプログラミングに関する手順が含まれます。 </br>   [ゲーム開発の概要](../gaming/getting-started.md) |
 | **公開** | これらのドキュメントには、アプリの申請から価格の設定、販売促進と顧客エンゲージメントまで、Windows ストアにアプリを公開する方法に関する情報が含まれます。 </br>   [Windows ストアでのアプリの公開](../publish/index.md) |
@@ -67,7 +67,7 @@ ms.locfileid: "75685221"
 
 Web 開発や、Mixed Reality のような一部の専用の Windows 10 プラットフォームには、独自のドキュメントのセットがあります。 これらの機能を使用してアプリを開発することに関心がある場合は、次のドキュメントを確認してください。
 
-| Docs | 説明 |
+| ドキュメント | 説明 |
 | --- | --- |
 | **Microsoft Azure** | クラウドの開発と Microsoft Azure に関する情報は、[Microsoft Azure 開発者向けドキュメント](https://docs.microsoft.com/azure/)を参照してください。 |
 | **Web 開発** | Microsoft Edge、WebVR、およびその他の Windows Web 開発機能に関する情報は、[Microsoft Edge 開発者ドキュメント](https://docs.microsoft.com/microsoft-edge/)を参照してください。 |

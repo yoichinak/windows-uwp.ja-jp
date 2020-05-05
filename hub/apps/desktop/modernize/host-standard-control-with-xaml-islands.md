@@ -9,19 +9,19 @@ author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: 19H1
 ms.openlocfilehash: ed6aa406cd1372819c25bd43b59cd416130b09e0
-ms.sourcegitcommit: df0cd9c82d1c0c17ccde424e3c4a6ff680c31a35
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80482510"
 ---
 # <a name="host-a-standard-uwp-control-in-a-wpf-app-using-xaml-islands"></a>XAML Islands を使用して WPF アプリで標準 UWP コントロールをホストする
 
 この記事では、[XAML Islands](xaml-islands.md) を使用して、WPF アプリで標準 UWP コントロール (つまり、Windows SDK によって提供されるファーストパーティ UWP コントロール) をホストする 2 つの方法について説明します。
 
-* Windows Community Toolkit の[ラップされたコントロール](xaml-islands.md#wrapped-controls)を使用して、UWP の [InkCanvas](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) コントロールと [InkToolbar](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar) コントロールをホストする方法を示します。 これらのコントロールでは、便利な UWP コントロールの小さいセットのインターフェイスと機能がラップされています。 これらを WPF プロジェクトまたは Windows フォーム プロジェクトのデザイン サーフェイスに直接追加し、他の WPF コントロールや Windows フォーム コントロールと同じようにデザイナーで使用できます。
+* Windows Community Toolkit の[ラップされたコントロール](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas)を使用して、UWP の [InkCanvas](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar) コントロールと [InkToolbar](xaml-islands.md#wrapped-controls) コントロールをホストする方法を示します。 これらのコントロールでは、便利な UWP コントロールの小さいセットのインターフェイスと機能がラップされています。 これらを WPF プロジェクトまたは Windows フォーム プロジェクトのデザイン サーフェイスに直接追加し、他の WPF コントロールや Windows フォーム コントロールと同じようにデザイナーで使用できます。
 
-* また、Windows Community Toolkit の [WindowsXamlHost](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) コントロールを使用して、UWP の [CalendarView](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CalendarView) コントロールをホストする方法についても説明します。 ラップされたコントロールとして使用できるのは少数の UWP コントロールだけであり、他の標準 UWP コントロールをホストするには [WindowsXamlHost](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) を使用できます。
+* また、Windows Community Toolkit の [WindowsXamlHost](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CalendarView) コントロールを使用して、UWP の [CalendarView](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) コントロールをホストする方法についても説明します。 ラップされたコントロールとして使用できるのは少数の UWP コントロールだけであり、他の標準 UWP コントロールをホストするには [WindowsXamlHost](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) を使用できます。
 
 この記事では、WPF アプリで UWP コントロールをホストする方法について説明しますが、Windows フォーム アプリでもプロセスはほぼ同じです。
 
@@ -48,7 +48,7 @@ WPF (または Windows フォーム) アプリで UWP コントロールをホ�
 2. [パッケージ参照](https://docs.microsoft.com/nuget/consume-packages/package-references-in-project-files)が有効になっていることを確認します。
 
     1. Visual Studio で、 **[ツール] -> [NuGet パッケージ マネージャー] -> [パッケージ マネージャー設定]** の順にクリックします。
-    2. **[既定のパッケージ管理形式]** で **[PackageReference]** が選択されていることを確認します。
+    2. **[既定のパッケージ管理形式]** に **[PackageReference]** が選択されていることを確認します。
 
 3. **ソリューション エクスプローラー**で WPF プロジェクトを右クリックし、 **[NuGet パッケージの管理]** を選択します。
 
@@ -134,7 +134,7 @@ WPF (または Windows フォーム) アプリで UWP コントロールをホ�
 
 4. プロパティの **[アプリケーション]** タブで、 **[スタートアップ オブジェクト]** ドロップダウンをクリックし、前のステップで追加した `Program` クラスの完全修飾名を選択します。 
     > [!NOTE]
-    > 既定の WPF プロジェクトで生成されるコード ファイルでは、変更を意図されていない `Main` エントリ ポイント関数が定義されています。 このステップでは、プロジェクトのエントリ ポイントを新しい `Program` クラスの `Main` メソッドに変更します。これにより、アプリのスタートアップ プロセスの可能な限り早い段階で実行されるコードを追加できるようになります。 
+    > 既定の WPF プロジェクトで生成されるコード ファイルでは、変更を意図されていない `Main` エントリ ポイント関数が定義されています。 このステップでは、プロジェクトのエントリ ポイントを新しい `Main` クラスの `Program` メソッドに変更します。これにより、アプリのスタートアップ プロセスの可能な限り早い段階で実行されるコードを追加できるようになります。 
 
 5. プロジェクトのプロパティへの変更を保存します。
 
@@ -312,7 +312,7 @@ UWP XAML Islands を使用するようにプロジェクトを構成したので
 ## <a name="related-topics"></a>関連トピック
 
 * [デスクトップ アプリで UWP XAML コントロールをホストする (XAML Islands)](xaml-islands.md)
-* [XAML Islands コード サンプル](https://github.com/microsoft/Xaml-Islands-Samples)
+* [XAML Islands のコード サンプル](https://github.com/microsoft/Xaml-Islands-Samples)
 * [InkCanvas](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/inkcanvas)
 * [InkToolbar](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/inktoolbar)
 * [WindowsXamlHost](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost)

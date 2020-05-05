@@ -8,10 +8,10 @@ ms.topic: article
 keywords: Windows 10, UWP, リソース, 画像, アセット, MRT, 修飾子
 ms.localizationpriority: medium
 ms.openlocfilehash: 5b45f33e9849a46e22250640b88a85ea16143231
-ms.sourcegitcommit: 3e7a4f7605dfb4e87bac2d10b6d64f8b35229546
+ms.sourcegitcommit: f727b68e86a86c94eff00f67ed79a1c12666e7bc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77089325"
 ---
 # <a name="app-resources-and-the-resource-management-system"></a>アプリ リソースとリソース管理システム
@@ -25,7 +25,7 @@ ms.locfileid: "77089325"
 
 アプリのローカライズの価値提案の詳細については、「[グローバリゼーションとローカライズ](../design/globalizing/globalizing-portal.md)」をご覧ください。
 
-| アーティクル | 説明 |
+| 記事 | 説明 |
 |---------|-------------|
 | [リソース管理システム](resource-management-system.md) | ビルド時に、リソース管理システムは、アプリとしてパッケージ化されているリソースのさまざまなバリエーションすべてのインデックスを作成します。 実行時に、システムは、有効になっているユーザーやコンピューターの設定を検出し、それらの設定に最適なリソースを読み込みます。 |
 | [リソース管理システムでのリソースの照合と選択の仕組み](how-rms-matches-and-chooses-resources.md) | リソースを要求すると、現在のリソース コンテキストにある程度一致するリソース候補がいくつか存在する場合があります。 リソース管理システムはすべての候補を分析して、返すのに最もよい候補を決定します。 このトピックでは、そのプロセスの詳細について説明し、例を示します。 |

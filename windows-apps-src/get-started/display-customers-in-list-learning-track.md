@@ -7,10 +7,10 @@ keywords: 概要, uwp, windows 10, 学習トラック, データ バインディ
 ms.localizationpriority: medium
 ms.custom: RS5
 ms.openlocfilehash: 3cebf51bdf9fa9942a0b88ed7b4cf66204671781
-ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "71340338"
 ---
 # <a name="display-customers-in-a-list"></a>一覧での顧客の表示
@@ -104,9 +104,9 @@ public sealed partial class MainPage : Page
 
 一覧で顧客を表示しましたが、データ バインディングではさらに多くのことができます。 UI から直接データを編集できるとしたらどうでしょうか。 これを行うには、まずデータ バインディングの 3 つのモデルについて説明しましょう。
 
-* *1 回限り*:このデータ バインディングは一度だけアクティブ化され、変更に対応しません。
-* *一方向*:このデータ バインディングは、データ ソースに対して行われた変更で UI を更新します。
-* *双方向*:このデータ バインディングは、データ ソースに対して行われた変更で UI を更新します。また、UI 内で行われた変更でデータを更新します。
+* *1 回限り*: このデータ バインディングは一度だけアクティブ化され、変更に対応しません。
+* *一方向*: このデータ バインディングは、データ ソースに対して行われた変更で UI を更新します。
+* *双方向*: このデータ バインディングは、データ ソースに対して行われた変更で UI を更新します。また、UI 内で行われた変更でデータを更新します。
 
 以前のコード スニペットに従った場合、行ったバインディングでは x:Bind を使用し、モードを使用しないため、1 回限りのバインディングになります。 UI から直接 Customers を編集する場合は、データからの変更が Customer オブジェクトに戻されるように、双方向のバインディングに変更する必要があります。 詳細については、「[データ バインディングの詳細](../data-binding/data-binding-in-depth.md)」を参照してください。
 
@@ -155,7 +155,7 @@ public class Customer : INotifyPropertyChanged
 
 ## <a name="going-further"></a>追加情報
 
-双方向バインディングで顧客の一覧を作成したので、リンクしたドキュメントに自由に戻ってテストしてください。 基本および詳細なバインディングの手順を説明したチュートリアルが必要な場合、または[マスター/詳細パターン](../design/controls-and-patterns/master-details.md)のようなコントロールを調査してより強力な UI を作成する場合は、[データ バインディングのチュートリアル](../data-binding/xaml-basics-data-binding.md)を参照することもできます。
+双方向バインディングで顧客の一覧を作成したので、リンクしたドキュメントに自由に戻ってテストしてください。 基本および詳細なバインディングの手順を説明したチュートリアルが必要な場合、または[マスター/詳細パターン](../data-binding/xaml-basics-data-binding.md)のようなコントロールを調査してより強力な UI を作成する場合は、[データ バインディングのチュートリアル](../design/controls-and-patterns/master-details.md)を参照することもできます。
 
 ## <a name="useful-apis-and-docs"></a>便利な API とドキュメント
 

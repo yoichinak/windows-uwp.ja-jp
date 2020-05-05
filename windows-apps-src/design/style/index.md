@@ -8,17 +8,17 @@ ms.assetid: 4df395d2-f10e-4e0e-9bf2-660f82b8a9fa
 ms.localizationpriority: medium
 ms.custom: RS5
 ms.openlocfilehash: 98479932313c8c78177870b4c20521980526fc32
-ms.sourcegitcommit: c660def841abc742600fbcf6ed98e1f4f7beb8cc
+ms.sourcegitcommit: f727b68e86a86c94eff00f67ed79a1c12666e7bc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80218612"
 ---
 # <a name="style-for-windows-apps"></a>Windows アプリのスタイル
 
 ![スタイル アイコン](../images/style-2x.png)
 
-アプリはスタイルによってさらに引き立ちます。ここで説明するスタイル ガイドラインは、色、文字体裁、アクリル素材や表示ハイライトなどの新機能を使用して Fluent Design を作成するのに役立ちます。
+アプリはスタイルによってさらに引き立ちます。ここで説明するスタイル ガイドラインは、色、文字体裁、アクリル素材や表示ハイライトなどの新機能を通じて Fluent Design を作成するために役立ちます。
 
 :::row:::
     :::column:::
@@ -63,7 +63,7 @@ ms.locfileid: "80218612"
     :::column:::
 ![ヒーロー イメージ](images/header-sound.svg)
 ### <a name="sound"></a>[サウンド](sound.md)
-サウンドを使用して、アプリケーションのユーザー エクスペリエンスの完成をサポートし、アプリケーションのオーディオ面の特徴を際立たせます。オーディオは、すべてのプラットフォームで Windows の使い勝手を一致させるために必要なものです。
+サウンドは、アプリケーションのユーザー エクスペリエンスの完成をサポートし、アプリケーションのオーディオ面の特徴を際立たせます。オーディオは、すべてのプラットフォームで Windows の使い勝手を一致させるために必要なものです。
     :::column-end:::
     :::column:::
 ![ヒーロー イメージ](images/header-writing-style.gif)

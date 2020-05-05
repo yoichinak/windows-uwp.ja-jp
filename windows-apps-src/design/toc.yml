@@ -212,7 +212,7 @@
       href: controls-and-patterns/search.md
     - name: 状態と情報
       items:
-        - name: ［進行状況］
+        - name: 進行状況
           href: controls-and-patterns/progress-controls.md
         - name: ヒント
           href: controls-and-patterns/tooltips.md
@@ -246,7 +246,7 @@
   items:
     - name: 概要
       href: style/index.md
-    - name: Color
+    - name: 色
       href: style/color.md
     - name: 文字体裁
       href: style/typography.md
@@ -353,11 +353,13 @@
             - name: トーストのコンテンツのスキーマ
               href: shell/tiles-and-notifications/toast-schema.md
             - name: ローカル トーストの送信
-              href: shell/tiles-and-notifications/send-local-toast.md
               items:
+                - name: UWP アプリ
+                  href: shell/tiles-and-notifications/send-local-toast.md
                 - name: デスクトップ アプリ
-                  href: shell/tiles-and-notifications/toast-desktop-apps.md
                   items:
+                    - name: 概要
+                      href: shell/tiles-and-notifications/toast-desktop-apps.md
                     - name: 'C# アプリ'
                       href: shell/tiles-and-notifications/send-local-toast-desktop.md
                     - name: C++ WRL アプリ
@@ -427,7 +429,7 @@
           href: input/save-and-load-ink.md
         - name: Ink ツール バーの追加
           href: input/ink-toolbar.md
-    - name: Touch
+    - name: タッチ
       href: input/touch-interactions.md
     - name: マウス
       href: input/mouse-interactions.md

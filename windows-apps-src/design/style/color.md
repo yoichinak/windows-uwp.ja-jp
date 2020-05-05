@@ -8,10 +8,10 @@ design-contact: karenmui
 ms.localizationpriority: medium
 ms.custom: RS5
 ms.openlocfilehash: 7ab504657ae5e3142eb7db1d9517a013e9aaf5f3
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75684582"
 ---
 # <a name="color"></a>色
@@ -62,7 +62,7 @@ UWP アプリでは、淡色または濃色のアプリケーション テーマ
 
 ### <a name="changing-the-theme"></a>テーマの変更
 
-テーマを変更するには、`App.xaml` ファイルで **RequestedTheme** プロパティを変更します。
+テーマを変更するには、**ファイルで**RequestedTheme`App.xaml` プロパティを変更します。
 
 ```XAML
 <Application
@@ -82,7 +82,7 @@ UWP アプリでは、淡色または濃色のアプリケーション テーマ
 
 アプリのテーマを指定しない場合は、必ず淡色テーマと濃色テーマの両方でアプリをテストして、あらゆる条件でアプリが判読できることを確認します。
 
-**注**:Visual Studio では、RequestedTheme の既定値が淡色に設定されているため、両方をテストするには、RequestedTheme を変更する必要があります。
+**注**: Visual Studio では、RequestedTheme の既定値が淡色に設定されているため、両方をテストするには、RequestedTheme を変更する必要があります。
 
 ## <a name="theme-brushes"></a>テーマ ブラシ
 

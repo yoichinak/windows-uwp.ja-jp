@@ -6,10 +6,10 @@ ms.date: 08/03/2017
 ms.topic: article
 ms.localizationpriority: medium
 ms.openlocfilehash: 824cdb74a809ae3f9ae2ed202a9889535021f711
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75684720"
 ---
 # <a name="whats-new-in-the-windows-developer-docs-in-august-2017"></a>Windows 開発者向けドキュメントの最新情報、2017 年 8 月
@@ -28,7 +28,7 @@ Visual Studio 2019 用の新しい [Windows Template Studio](https://marketplace
 
 ### <a name="conditional-xaml"></a>条件付き XAML
 
-[バージョン アダプティブ アプリ](../debug-test-perf/version-adaptive-apps.md)の作成を可能にする[条件付き XAML](../debug-test-perf/conditional-xaml.md) をプレビューできるようになりました。 条件付き XAML では、XAML マークアップで ApiInformation.IsApiContractPresent メソッドを使用できるため、分離コードを使わなくても、API の有無に基づいてマークアップでプロパティの設定やオブジェクトのインスタンス化を行うことができます。
+[バージョン アダプティブ アプリ](../debug-test-perf/conditional-xaml.md)の作成を可能にする[条件付き XAML](../debug-test-perf/version-adaptive-apps.md) をプレビューできるようになりました。 条件付き XAML では、XAML マークアップで ApiInformation.IsApiContractPresent メソッドを使用できるため、分離コードを使わなくても、API の有無に基づいてマークアップでプロパティの設定やオブジェクトのインスタンス化を行うことができます。
 
 ### <a name="game-mode"></a>ゲーム モード
 
@@ -45,7 +45,7 @@ Visual Studio 2019 用の新しい [Windows Template Studio](https://marketplace
 
 ### <a name="data-schemas-for-store-products"></a>Store 製品のデータ スキーマ
 
-記事「[ストア製品のデータ スキーマ](../monetize/data-schemas-for-store-products.md)」が追加されました。 この記事では、[StoreProduct](https://docs.microsoft.com/uwp/api/windows.services.store.storeproduct) や [StoreAppLicense](https://docs.microsoft.com/uwp/api/windows.services.store.storeapplicense) など、[Windows.Services.Store](https://docs.microsoft.com/uwp/api/windows.services.store) 名前空間のいくつかのオブジェクトで利用できるストア関連のデータ用のスキーマを示します。
+記事「[ストア製品のデータ スキーマ](../monetize/data-schemas-for-store-products.md)」が追加されました。 この記事では、[StoreProduct](https://docs.microsoft.com/uwp/api/windows.services.store) や [StoreAppLicense](https://docs.microsoft.com/uwp/api/windows.services.store.storeproduct) など、[Windows.Services.Store](https://docs.microsoft.com/uwp/api/windows.services.store.storeapplicense) 名前空間のいくつかのオブジェクトで利用できるストア関連のデータ用のスキーマを示します。
 
 ### <a name="desktop-bridge"></a>デスクトップ ブリッジ
 

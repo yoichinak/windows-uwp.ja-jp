@@ -11,10 +11,10 @@ template: detail.hbs
 ms.topic: article
 ms.localizationpriority: medium
 ms.openlocfilehash: 5a2f73fe6280d3a86510ce48f47017dd4897139a
-ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79208987"
 ---
 # <a name="xaml-styles"></a>XAML スタイル
@@ -35,7 +35,7 @@ XAML フレームワークを使って、さまざまな方法でアプリの外
 
 [Style](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Style) の定義では、1 つの [TargetType](https://docs.microsoft.com/uwp/api/windows.ui.xaml.style.targettype) 属性と、1 つ以上の [Setter](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Setter) 要素が必要になります。 **TargetType** 属性は、スタイルを適用する [FrameworkElement](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.FrameworkElement) 型を指定する文字列です。 **TargetType** の値では、Windows ランタイムか、参照先アセンブリ内で使用できるカスタム型で定義される **FrameworkElement** から派生した型を指定する必要があります。 適用しようとしているスタイルの **TargetType** 属性の指定内容と異なるコントロールやコントロールの型にスタイルを適用しようとすると、例外が発生します。
 
-それぞれの [Setter](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Setter) 要素に、[Property](https://docs.microsoft.com/uwp/api/windows.ui.xaml.setter.property) と [Value](https://docs.microsoft.com/uwp/api/windows.ui.xaml.setter.value) が必要です。 この 2 つのプロパティは、それぞれ、その設定が適用されるコントロールのプロパティと、そのプロパティに対して設定される値を指定します。 **Setter.Value** は、属性構文またはプロパティ要素構文を使って設定できます。 次の XAML は前に示したボタンに適用されたスタイルを示しています。 この XAML では、最初の 2 つの **Setter** 要素に属性構文を使っていますが、[BorderBrush](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.borderbrush) プロパティ用の最後の**Setter** にはプロパティ要素構文を使っています。 この例では [x:Key attribute](../../xaml-platform/x-key-attribute.md) 属性を使っていないため、スタイルはボタンに対して暗黙的に適用されます。 スタイルの暗黙的または明示的な適用については、次のセクションで説明します。
+それぞれの [Setter](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Setter) 要素に、[Property](https://docs.microsoft.com/uwp/api/windows.ui.xaml.setter.property) と [Value](https://docs.microsoft.com/uwp/api/windows.ui.xaml.setter.value) が必要です。 この 2 つのプロパティは、それぞれ、その設定が適用されるコントロールのプロパティと、そのプロパティに対して設定される値を指定します。 **Setter.Value** は、属性構文またはプロパティ要素構文を使って設定できます。 次の XAML は前に示したボタンに適用されたスタイルを示しています。 この XAML では、最初の 2 つの **Setter** 要素に属性構文を使っていますが、**BorderBrush** プロパティ用の最後の[Setter](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.borderbrush) にはプロパティ要素構文を使っています。 この例では [x:Key attribute](../../xaml-platform/x-key-attribute.md) 属性を使っていないため、スタイルはボタンに対して暗黙的に適用されます。 スタイルの暗黙的または明示的な適用については、次のセクションで説明します。
 
 ```XAML
 <Page.Resources>
@@ -66,8 +66,8 @@ XAML フレームワークを使って、さまざまな方法でアプリの外
 
 スタイルをリソースとして定義した場合、それをコントロールに適用するには 2 つの方法があります。
 
--   暗黙的な適用。[Style](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Style) に対して [TargetType](https://docs.microsoft.com/uwp/api/windows.ui.xaml.style.targettype) のみを指定します。
--   明示的な適用。[Style](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Style) に対して [TargetType](https://docs.microsoft.com/uwp/api/windows.ui.xaml.style.targettype) と [x:Key](../../xaml-platform/x-key-attribute.md) 属性を設定した後、ターゲット コントロールの [Style](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.style) プロパティに、明示的キーを使う [{StaticResource} markup extension](https://docs.microsoft.com/windows/uwp/xaml-platform/staticresource-markup-extension) 参照を設定します。
+-   暗黙的な適用。[Style](https://docs.microsoft.com/uwp/api/windows.ui.xaml.style.targettype) に対して [TargetType](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Style) のみを指定します。
+-   明示的な適用。[Style](https://docs.microsoft.com/uwp/api/windows.ui.xaml.style.targettype) に対して [TargetType](../../xaml-platform/x-key-attribute.md) と [x:Key](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Style) 属性を設定した後、ターゲット コントロールの [Style](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.style) プロパティに、明示的キーを使う [{StaticResource} markup extension](https://docs.microsoft.com/windows/uwp/xaml-platform/staticresource-markup-extension) 参照を設定します。
 
 スタイルに [x:Key](../../xaml-platform/x-key-attribute.md) 属性が含まれる場合、そのスタイルをコントロールに適用するには、コントロールの [Style](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.style) プロパティをキーで指定されたスタイルに設定する必要があります。 一方、x:Key attribute 属性を含まないスタイルは、ターゲットとなる型のすべてのコントロールに自動的に適用されます。それ以外の場合、これには明示的なスタイル設定がありません。
 
@@ -111,7 +111,7 @@ XAML フレームワークを使って、さまざまな方法でアプリの外
 
 ![継承スタイルを使ってスタイルを適用したボタン。](images/styles-buttons-based-on.png)
 
-基本スタイルは [ContentControl](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ContentControl) をターゲットとし、[Height](/uwp/api/Windows.UI.Xaml.FrameworkElement.Height) プロパティと [Width](/uwp/api/Windows.UI.Xaml.FrameworkElement.Width) プロパティを設定します。 このスタイルに基づくスタイルは、**ContentControl** から派生した [CheckBox](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CheckBox) と [Button](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Button) をターゲットとします。 各継承スタイルでは、[BorderBrush](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.borderbrush) プロパティと [Foreground](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.foreground) プロパティに異なる色を設定しています (通常、**CheckBox** の周囲には境界線を配置しません。 ここでは、スタイルの効果を示すためにこのように設定しています)。
+基本スタイルは [ContentControl](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ContentControl) をターゲットとし、[Height](/uwp/api/Windows.UI.Xaml.FrameworkElement.Height) プロパティと [Width](/uwp/api/Windows.UI.Xaml.FrameworkElement.Width) プロパティを設定します。 このスタイルに基づくスタイルは、[ContentControl](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CheckBox) から派生した [CheckBox](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Button) と **Button** をターゲットとします。 各継承スタイルでは、[BorderBrush](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.borderbrush) プロパティと [Foreground](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.foreground) プロパティに異なる色を設定しています  (通常、**CheckBox** の周囲には境界線を配置しません。 ここでは、スタイルの効果を示すためにこのように設定しています)。
 
 ```XAML
 <Page.Resources>
@@ -165,7 +165,7 @@ XAML フレームワークを使って、さまざまな方法でアプリの外
 </Page.Resources>
 ```
 
-PointerOver (マウスがボタンの上に置かれている)、**PointerPressed** (ボタンが押された)、Disabled (ボタンが有効でない) などの状態に使用します。 元の軽量なスタイル設定名にこれらの末尾が追加されます: **ButtonBackgroundPointerOver**、**ButtonForegroundPointerPressed**、**ButtonBorderBrushDisabled**。これらのブラシも変更することで、コントロールの色をアプリのテーマと統一できます。
+PointerOver (マウスがボタンの上に置かれている)、**PointerPressed** (ボタンが押された)、Disabled (ボタンが有効でない) などの状態に使用します。 これらの末尾は元の軽量なスタイル設定の名前に追加され、**ButtonBackgroundPointerOver**、**ButtonForegroundPointerPressed**、**ButtonBorderBrushDisabled** などとなります。これらのブラシを変更すると、コントロールがアプリのテーマと一貫した色となります。
 
 これらのブラシを配置すると、**App.Resources** レベルでオーバーライドし、(単一ページではなく) アプリ全体のすべてのボタンを変更します。
 
@@ -208,4 +208,4 @@ PointerOver (マウスがボタンの上に置かれている)、**PointerPresse
 
 ## <a name="the-template-property"></a>テンプレート プロパティ
 
-スタイル setter は、[Control](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Control) の [Template](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.template) プロパティに使うことができ、実際に、一般的な XAML スタイルとアプリの XAML リソースの主要な部分を構成しています。 詳しくは、「[コントロール テンプレート](control-templates.md)」をご覧ください。
+スタイル setter は、[Control](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.template) の [Template](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Control) プロパティに使うことができ、実際に、一般的な XAML スタイルとアプリの XAML リソースの主要な部分を構成しています。 詳しくは、「[コントロール テンプレート](control-templates.md)」をご覧ください。

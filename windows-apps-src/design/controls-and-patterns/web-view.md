@@ -9,17 +9,17 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: 43d0471b6e7ebc36df4f80a1b214b0721ae25570
-ms.sourcegitcommit: af4050f69168c15b0afaaa8eea66a5ee38b88fed
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80081412"
 ---
 # <a name="web-view"></a>Web ビュー
 
 Web ビュー コントロールでは、Microsoft Edge レンダリング エンジンを使って、Web コンテンツをレンダリングするアプリにビューが埋め込まれます。 また、Web ビュー コントロールでは、ハイパーリンクの表示と動作が可能です。
 
-> **重要な API**:[WebView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.WebView)
+> **重要な API**: [WebView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.WebView)
 
 ## <a name="is-this-the-right-control"></a>適切なコントロールの選択
 
@@ -59,11 +59,11 @@ Web ビュー コントロールでは、Microsoft Edge レンダリング エ�
 
 WebView は Control サブクラスではありませんが、キーボードの入力フォーカスを受け取って、タブ順に関与します。 ただし、[Focus](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.focus) メソッド、そして [GotFocus](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.gotfocus) イベントと [LostFocus](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.lostfocus) イベントを提供しますが、タブ関連のプロパティはありません。 タブ順での位置は、XAML ドキュメントの順序での位置と同じです。 タブ順には、入力フォーカスを受け取ることができる Web ビューのコンテンツの要素がすべて含まれています。 
 
-[WebView](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.WebView) クラスのページの「Event」表からもわかるとおり、Web ビューは、[KeyDown](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.keydown) や [KeyUp](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.keyup)、[PointerPressed](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerpressed) といった [UIElement](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement) から継承されたユーザー入力イベントのほとんどをサポートしていません。 その代わり、[InvokeScriptAsync](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.invokescriptasync) を JavaScript の **eval** 関数と共に使って、HTML イベント ハンドラーを利用したり、HTML イベント ハンドラーの **window.external.notify** を通じて [WebView.ScriptNotify](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.scriptnotify) に対応するアプリに通知したりできます。
+[WebView](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.WebView) クラスのページの「Event」表からもわかるとおり、Web ビューは、[KeyDown](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement) や [KeyUp](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.keydown)、[PointerPressed](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.keyup) といった [UIElement](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerpressed) から継承されたユーザー入力イベントのほとんどをサポートしていません。 その代わり、[InvokeScriptAsync](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.invokescriptasync) を JavaScript の **eval** 関数と共に使って、HTML イベント ハンドラーを利用したり、HTML イベント ハンドラーの **window.external.notify** を通じて [WebView.ScriptNotify](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.scriptnotify) に対応するアプリに通知したりできます。
 
 ### <a name="navigating-to-content"></a>コンテンツに移動する
 
-Web ビューには、基本的なナビゲーション用のいくつかの API が提供されています: [GoBack](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.goback)、[GoForward](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.goforward)、[Stop](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.stop)、[Refresh](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.refresh)、[CanGoBack](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.cangoback)、[CanGoForward](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.cangoforward)。 これらを使うと、一般的な Web 閲覧機能をアプリに追加できます。 
+Web ビューには、[GoBack](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.goback)、[GoForward](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.goforward)、[Stop](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.stop)、[Refresh](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.refresh)、[CanGoBack](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.cangoback)、そして [CanGoForward](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.cangoforward) という基本的な操作用の API が用意されています。 これらを使うと、一般的な Web 閲覧機能をアプリに追加できます。 
 
 Web ビューの初期コンテンツを設定するには、XAML の [Source](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.source) プロパティを使います。 XAML パーサーは文字列を [Uri](https://docs.microsoft.com/uwp/api/Windows.Foundation.Uri) に自動的に変換します。 
 
@@ -86,9 +86,9 @@ Web コンテンツを読み込むには、[Navigate](https://docs.microsoft.com
 webView1.Navigate("http://www.contoso.com");
 ```
 
-POST 要求と HTTP ヘッダーを有する URI へと移動するには、[NavigateWithHttpRequestMessage](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.navigatewithhttprequestmessage) メソッドを使います。 このメソッドは、[HttpRequestMessage.Method](https://docs.microsoft.com/uwp/api/windows.web.http.httprequestmessage.method) プロパティの値として [HttpMethod.Post](https://docs.microsoft.com/uwp/api/windows.web.http.httpmethod.post) と [HttpMethod.Get](https://docs.microsoft.com/uwp/api/windows.web.http.httpmethod.get) のみをサポートします。 
+POST 要求と HTTP ヘッダーを有する URI へと移動するには、[NavigateWithHttpRequestMessage](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.navigatewithhttprequestmessage) メソッドを使います。 このメソッドは、[HttpRequestMessage.Method](https://docs.microsoft.com/uwp/api/windows.web.http.httpmethod.post) プロパティの値として [HttpMethod.Post](https://docs.microsoft.com/uwp/api/windows.web.http.httpmethod.get) と [HttpMethod.Get](https://docs.microsoft.com/uwp/api/windows.web.http.httprequestmessage.method) のみをサポートします。 
 
-圧縮されておらず、暗号化もされていないコンテンツをアプリの [LocalFolder](/uwp/api/windows.storage.applicationdata.localfolder) データ ストアまたは [TemporaryFolder](/uwp/api/windows.storage.applicationdata.temporaryfolder) データ ストアから読み込むには、**Navigate** メソッドを、[ms-appdata](/windows/uwp/app-resources/uri-schemes) スキームを使う **Uri** と共に用います。 このスキームを Web ビューがサポートするには、ローカル フォルダーまたは一時フォルダーの下にサブフォルダーを設け、そこにコンテンツを配置する必要があります。 これにより、「ms-appdata:///local/*フォルダー*/*ファイル*.html」や「ms-appdata:///temp/*フォルダー*/*ファイル*.html」といった URI への移動が可能になります (圧縮され、暗号化されたファイルを読み込む場合は、[NavigateToLocalStreamUri](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.navigatetolocalstreamuri) に関するページをご覧ください)。 
+圧縮されておらず、暗号化もされていないコンテンツをアプリの [LocalFolder](/uwp/api/windows.storage.applicationdata.localfolder) データ ストアまたは [TemporaryFolder](/uwp/api/windows.storage.applicationdata.temporaryfolder) データ ストアから読み込むには、**Navigate** メソッドを、**ms-appdata** スキームを使う [Uri](/windows/uwp/app-resources/uri-schemes) と共に用います。 このスキームを Web ビューがサポートするには、ローカル フォルダーまたは一時フォルダーの下にサブフォルダーを設け、そこにコンテンツを配置する必要があります。 これにより、「ms-appdata:///local/*フォルダー*/*ファイル*.html」や「ms-appdata:///temp/*フォルダー*/*ファイル*.html」といった URI への移動が可能になります  (圧縮され、暗号化されたファイルを読み込む場合は、[NavigateToLocalStreamUri](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.navigatetolocalstreamuri) に関するページをご覧ください)。 
 
 これらの第 1 レベルのサブフォルダーは、他の第 1 レベルのサブフォルダー内のコンテンツから分離されます。 たとえば「ms-appdata:///temp/folder1/file.html」に移動はできますが、このファイル内のリンクに「ms-appdata:///temp/folder2/file.html」は指定できません。 ただし、**ms-appx-web** スキームを使ってアプリ パッケージの HTML コンテンツにリンクしたり、**http** または **https** の URI スキームを使って Web コンテンツにリンクしたりすることはできます。
 
@@ -96,7 +96,7 @@ POST 要求と HTTP ヘッダーを有する URI へと移動するには、[Nav
 webView1.Navigate("ms-appdata:///local/intro/welcome.html");
 ```
 
-アプリ パッケージからコンテンツを読み込むには、**Navigate** メソッドを [ms-appx-web](https://docs.microsoft.com/previous-versions/windows/apps/jj655406(v=win.10)) スキームを使った **Uri** と共に用います。 
+アプリ パッケージからコンテンツを読み込むには、**Navigate** メソッドを **ms-appx-web** スキームを使った [Uri](https://docs.microsoft.com/previous-versions/windows/apps/jj655406(v=win.10)) と共に用います。 
 
 ```csharp
 webView1.Navigate("ms-appx-web:///help/about.html");
@@ -106,7 +106,7 @@ webView1.Navigate("ms-appx-web:///help/about.html");
 
 ### <a name="responding-to-navigation-events"></a>ナビゲーション イベントを処理する
 
-Web ビュー コントロールでは、ナビゲーションやコンテンツの読み込みの状態に対する処理に使うことができるイベントがいくつか用意されています。 ルート Web ビューのコンテンツの場合、イベントは次の順序で発生します: [NavigationStarting](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.navigationstarting)、[ContentLoading](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.contentloading)、[DOMContentLoaded](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.domcontentloaded)、[NavigationCompleted](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.navigationcompleted)
+Web ビュー コントロールでは、ナビゲーションやコンテンツの読み込みの状態に対する処理に使うことができるイベントがいくつか用意されています。 ルートとなる Web ビュー コンテンツについて、イベントは次の順番で発生します。[NavigationStarting](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.navigationstarting)、[ContentLoading](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.contentloading)、[DOMContentLoaded](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.domcontentloaded)、[NavigationCompleted](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.navigationcompleted)
 
 
 **NavigationStarting** - Web ビューが新しいコンテンツに移動する前に発生します。 WebViewNavigationStartingEventArgs.Cancel プロパティを "true" に設定することで、このイベントのハンドラーで移動をキャンセルできます。 
@@ -152,7 +152,7 @@ private void webView1_DOMContentLoaded(WebView sender, WebViewDOMContentLoadedEv
 }
 ```
 
-**NavigationCompleted** - Web ビューが現在のコンテンツの読み込みを完了したとき、またはナビゲーションが失敗したときに発生します。 ナビゲーションが失敗したかどうかを判断するには、[WebViewNavigationCompletedEventArgs](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.WebViewNavigationCompletedEventArgs) クラスの [IsSuccess](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webviewnavigationcompletedeventargs.issuccess) プロパティと [WebErrorStatus](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webviewnavigationcompletedeventargs.weberrorstatus) プロパティを確認します。 
+**NavigationCompleted** - Web ビューが現在のコンテンツの読み込みを完了したとき、またはナビゲーションが失敗したときに発生します。 ナビゲーションが失敗したかどうかを判断するには、[WebViewNavigationCompletedEventArgs](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webviewnavigationcompletedeventargs.issuccess) クラスの [IsSuccess](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webviewnavigationcompletedeventargs.weberrorstatus) プロパティと [WebErrorStatus](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.WebViewNavigationCompletedEventArgs) プロパティを確認します。 
 
 ```csharp
 webView1.NavigationCompleted += webView1_NavigationCompleted;
@@ -181,7 +181,7 @@ Web ビューのコンテンツの各 **iframe** についても、同様のイ�
 
 長時間実行されているスクリプトや、Web ビューが読み込めないコンテンツ、安全でないコンテンツに関する警告など潜在的な問題があれば、それに対処することができます。 
 
-スクリプトを実行中にアプリが応答しないような場合があったとします。 Web ビューにより JavaScript が実行され、スクリプトを中断する機会が提供される際に、[LongRunningScriptDetected](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.longrunningscriptdetected) イベントが定期的に発生します。 スクリプトがどれくらいの時間実行されているか調べるには、[WebViewLongRunningScriptDetectedEventArgs](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.WebViewLongRunningScriptDetectedEventArgs) の [ExecutionTime](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webviewlongrunningscriptdetectedeventargs.executiontime) プロパティを確認します。 スクリプトを停止するには、イベント引数の [StopPageScriptExecution](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webviewlongrunningscriptdetectedeventargs.stoppagescriptexecution) プロパティを **true** に設定します。 停止されたスクリプトは、以降の Web ビューのナビゲーションでもう一度読み込まれるまで、再実行されません。 
+スクリプトを実行中にアプリが応答しないような場合があったとします。 Web ビューにより JavaScript が実行され、スクリプトを中断する機会が提供される際に、[LongRunningScriptDetected](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.longrunningscriptdetected) イベントが定期的に発生します。 スクリプトがどれくらいの時間実行されているか調べるには、[WebViewLongRunningScriptDetectedEventArgs](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webviewlongrunningscriptdetectedeventargs.executiontime) の [ExecutionTime](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.WebViewLongRunningScriptDetectedEventArgs) プロパティを確認します。 スクリプトを停止するには、イベント引数の [StopPageScriptExecution](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webviewlongrunningscriptdetectedeventargs.stoppagescriptexecution) プロパティを **true** に設定します。 停止されたスクリプトは、以降の Web ビューのナビゲーションでもう一度読み込まれるまで、実行されません。 
 
 Web ビュー コントロールは、任意のファイルの種類をホストすることができません。 Web ビューでホストできないコンテンツを読み込もうすると、[UnviewableContentIdentified](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.unviewablecontentidentified) イベントが発生します。 このイベントを処理してユーザーに通知することも、[Launcher](https://docs.microsoft.com/uwp/api/Windows.System.Launcher) クラスを使ってファイルを外部のブラウザーまたは別のアプリにリダイレクトすることもできます。
 
@@ -241,7 +241,7 @@ private void webView_PermissionRequested(WebView sender, WebViewPermissionReques
 }
 ```
 
-アプリが許可の要求に応答するにあたってユーザーの入力をはじめ非同期の操作を要求する場合は、[WebViewPermissionRequest](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.WebViewPermissionRequest) の [Defer](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webviewpermissionrequest.defer) メソッドを使い、後で処理できる [WebViewDeferredPermissionRequest](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.WebViewDeferredPermissionRequest) を作成します。 [WebViewPermissionRequest.Defer](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webviewpermissionrequest.defer) に関するページをご覧ください。 
+アプリが許可の要求に応答するにあたってユーザーの入力をはじめ非同期の操作を要求する場合は、[WebViewPermissionRequest](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webviewpermissionrequest.defer) の [Defer](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.WebViewPermissionRequest) メソッドを使い、後で処理できる [WebViewDeferredPermissionRequest](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.WebViewDeferredPermissionRequest) を作成します。 [WebViewPermissionRequest.Defer](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webviewpermissionrequest.defer) に関するページをご覧ください。 
 
 Web ビューでホストされている Web サイトからユーザーが安全にログアウトしなければならない場合や、セキュリティが重要であるような場合は、静的メソッドである [ClearTemporaryWebDataAsync](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.cleartemporarywebdataasync) を呼び出し、当該の Web ビュー セッションでローカルにキャッシュされたコンテンツをすべて消去します。 これにより、悪意あるユーザーが重要なデータにアクセスするのを防ぎます。 
 
@@ -271,13 +271,13 @@ private async void Button_Click(object sender, RoutedEventArgs e)
 }
 ```
 
-Web ビューのコンテンツのスクリプトでは、**window.external.notify** を文字列型パラメーターと共に使って、情報をアプリに戻せます。 これらのメッセージを受け取るには、[ScriptNotify](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.scriptnotify) イベントを処理します。 
+Web ビューのコンテンツのスクリプトは、文字列型パラメーターの **window.external.notify** を使えば、情報をアプリに戻せます。 これらのメッセージを受け取るには、[ScriptNotify](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.scriptnotify) イベントを処理します。 
 
-外部の Web ページを有効にして、window.external.notify を呼び出した際に **ScriptNotify** イベントを発生させるには、当該のページの URI をアプリの宣言の **ApplicationContentUriRules** セクションに含める必要があります (これは、Microsoft Visual Studio の Package.appxmanifest デザイナーにある [コンテンツ URI] タブで実行できます)。この一覧の URI には HTTPS を使用する必要があり、サブドメインのワイルドカード (たとえば `https://*.microsoft.com`) を含めることができますが、ドメインのワイルドカード (たとえば `https://*.com` や `https://*.*`) を含めることはできません。 マニフェスト要件は、アプリ パッケージから生成されたコンテンツには適用されず、ms-local-stream:// URI を使うか、[NavigateToString](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.navigatetostring) を使って読み込まれるかのいずれかです。 
+外部の Web ページを有効にして、window.external.notify を呼び出した際に **ScriptNotify** イベントを発生させるには、当該のページの URI をアプリの宣言の **ApplicationContentUriRules** セクションに含める必要があります  (これは、Package.appxmanifest デザイナーの [コンテンツ URI] タブにある Microsoft Visual Studio で可能です)。この一覧にある URI は HTTPS を使う必要があります。また、サブドメインのワイルドカード (たとえば、`https://*.microsoft.com`) を含めることはできますが、ドメインのワイルドカード (たとえば、`https://*.com` や `https://*.*`) を含めることはできません。 マニフェスト要件は、アプリ パッケージから生成されたコンテンツには適用されず、ms-local-stream:// URI を使うか、[NavigateToString](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.navigatetostring) を使って読み込まれるかのいずれかです。 
 
 ### <a name="accessing-the-windows-runtime-in-a-web-view"></a>Web ビューの Windows ランタイムにアクセスする
 
-[AddWebAllowedObject](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.addweballowedobject) メソッドを使うと、Windows ランタイム コンポーネントから Web ビューの JavaScript コンテンツにネイティブ クラスのインスタンスを挿入できます。 これにより、その Web ビューの JavaScript コンテンツにあるオブジェクトの、ネイティブのメソッドやプロパティ、イベントにフル アクセスできるようになります。 クラスは、[AllowForWeb](https://docs.microsoft.com/uwp/api/Windows.Foundation.Metadata.AllowForWebAttribute) 属性で修飾される必要があります。 
+[AddWebAllowedObject](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.addweballowedobject) メソッドを使うと、Windows ランタイム コンポーネントから Web ビューの JavaScript コンテンツにネイティブ クラスのインスタンスを挿入できます。 それにより、その Web ビューの JavaScript コンテンツにあるオブジェクトの、ネイティブのメソッドやプロパティ、イベントにフルにアクセスできるようになります。 クラスは、[AllowForWeb](https://docs.microsoft.com/uwp/api/Windows.Foundation.Metadata.AllowForWebAttribute) 属性で修飾される必要があります。 
 
 たとえば、次のコードでは、Windows ランタイム コンポーネントからインポートされた `MyClass` のインスタンスが Web ビューに挿入されます。
 
@@ -311,7 +311,7 @@ private void webView_NavigationStarting(WebView sender, WebViewNavigationStartin
 
 ### <a name="options-for-web-content-hosting"></a>Web コンテンツのホスティングのオプション
 
-[WebView.Settings](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.settings) プロパティ ([WebViewSettings](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.WebViewSettings) 型のプロパティ) を使うと、JavaScript と IndexedDB のオン/オフをコントロールできます。 たとえば、Web ビューで完全に静的なコンテンツを表示するような場合は、JavaScript を無効にすることでパフォーマンスを高められます。
+[WebView.Settings](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.settings) プロパティ ([WebViewSettings](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.WebViewSettings) 型のプロパティ) を使うと、JavaScript と IndexedDB のオン/ オフをコントロールできます。 たとえば、Web ビューで完全に静的なコンテンツを表示するような場合は、JavaScript を無効にすることでパフォーマンスを高められます。
 
 ### <a name="capturing-web-view-content"></a>Web ビューのコンテンツをキャプチャする
 
@@ -336,7 +336,7 @@ UI スレッドから外れてコンテンツをホストしている Web ビュ
 
 ## <a name="get-the-sample-code"></a>サンプル コードを入手する
 
-- [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - 対話形式で XAML コントロールのすべてを参照できます。
+- [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - インタラクティブな形で XAML コントロールのすべてを参照できます。
 
 ## <a name="related-topics"></a>関連トピック
 

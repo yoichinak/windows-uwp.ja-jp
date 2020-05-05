@@ -7,10 +7,10 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: eb3ff12e4b616edd7b87cab7f13aa060f301fc52
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75683835"
 ---
 # <a name="optimize-background-activity"></a>バックグラウンド アクティビティの最適化
@@ -39,7 +39,7 @@ Windows 10 Version 1607 以降を実行するデスクトップ デバイスや�
 
 ![バックグラウンド タスクのアクセス許可がオフ](images/background-task-permissions-off.png)
 
-アプリでは、[**BackgroundExecutionManager.RequestAccessAsync()** ](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundexecutionmanager.requestaccessasync) メソッドの呼び出しによって返される [**BackgroundAccessStatus**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundaccessstatus) 列挙値で、現在のバックグラウンド アクティビティのアクセス許可の設定を確認できます。
+アプリでは、[**BackgroundExecutionManager.RequestAccessAsync()** ](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundaccessstatus) メソッドの呼び出しによって返される [**BackgroundAccessStatus**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundexecutionmanager.requestaccessasync) 列挙値で、現在のバックグラウンド アクティビティのアクセス許可の設定を確認できます。
 
 しかし、アプリに信頼できるアクティビティ管理が実装されていない場合、ユーザーはそのアプリに対するバックグラウンドのアクセス許可を一切拒否する可能性があります。このことは、開発者とユーザーの双方にとって望ましいことではありません。 アプリをバックグラウンドで実行するためのアクセス許可が拒否されているときに、ユーザーの操作を完了するためにバックグラウンド アクティビティが必要である場合は、ユーザーに通知し、設定アプリに誘導することができます。 これを行うには、[設定アプリを起動](https://docs.microsoft.com/windows/uwp/launch-resume/launch-settings-app)して、[バックグラウンド アプリ] ページや [バッテリ使用量の詳細] ページに移動します。
 

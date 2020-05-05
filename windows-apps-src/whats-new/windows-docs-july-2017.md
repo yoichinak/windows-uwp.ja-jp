@@ -6,10 +6,10 @@ ms.date: 07/05/2017
 ms.topic: article
 ms.localizationpriority: medium
 ms.openlocfilehash: 65c3c2fb4b7a5a7f0b5f4b3c89773f3e21bd654d
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75684739"
 ---
 # <a name="whats-new-in-the-windows-developer-docs-in-july-2017"></a>Windows 開発者向けドキュメントの最新情報、2017 年 7 月
@@ -74,7 +74,7 @@ Windows 10 の[ツールと SDK をインストール](https://developer.microso
 
 * 新しい価格と利用可能状況のオプションでは、[価格変更のスケジュール](../publish/set-and-schedule-app-pricing.md)や[正確なリリース日の設定](..//publish/configure-precise-release-scheduling.md)を行うことができます。
 
-* [Store 登録情報のインポートとエクスポート](../publish/import-and-export-store-listings.md)を使うと、更新にかかる時間を短縮できます。これは特に、登録情報を多数の言語で提供している場合に役立ちます。
+* [ストア登録情報のインポートとエクスポート](../publish/import-and-export-store-listings.md)を使うと、更新にかかる時間を短縮できます。これは特に、登録情報を多数の言語で提供している場合に役立ちます。
 
 ### <a name="my-people"></a>マイ連絡先
 

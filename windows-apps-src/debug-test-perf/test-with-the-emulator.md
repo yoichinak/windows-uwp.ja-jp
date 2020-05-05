@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 4f2cb92dca3da2d1f8e3eccfade6558f363c5b13
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: 0b38cf60f1f890649af33ad34f244bc348af2832
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74257866"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82148692"
 ---
 # <a name="test-with-the-microsoft-emulator-for-windows-10-mobile"></a>Microsoft Emulator for Windows 10 Mobile を使ったテスト
 
@@ -54,7 +54,7 @@ Microsoft Emulator for Windows 10 Mobile は、Windows Phone OS 7.1 より前の
 ### <a name="installing"></a>［インストール中］
 Microsoft Emulator for Windows 10 Mobile は、Windows 10 SDK の一部としてリリースされています。 Windows 10 SDK とエミュレーターは、Visual Studio の一部としてインストールできます。 「[Visual Studio 2015 RC 用の Windows 10 開発ツールをインストールする手順](https://developer.microsoft.com/windows/downloads)」をご覧ください。
 
-Microsoft Emulator for Windows 10 Mobile は、[Microsoft Emulator のセットアップ](https://go.microsoft.com/fwlink/p/?LinkID=615095)を使ってインストールすることもできます。
+Microsoft Emulator for Windows 10 Mobile は、[Microsoft Emulator のセットアップ](https://download.microsoft.com/download/E/3/4/E347E8C5-BD79-49AF-941C-D08893A45268/emulator/EmulatorSetup.exe)を使ってインストールすることもできます。
 
 ### <a name="uninstalling"></a>アンインストール
 
@@ -362,7 +362,7 @@ NFC 対応スマート カード リーダーの中には、一部の種類の N
 
 | [プロファイル] | 時速               | 秒速 | 説明 | 
 |---------|------------------------------|------------------|-------------|
-| Speed Limit (制限速度) | ルートの速度制限 | 適用できません   | ポストされた制限速度でルートをスキャンします。 |
+| Speed Limit (制限速度) | ルートの速度制限 | 該当なし   | ポストされた制限速度でルートをスキャンします。 |
 | Walking (ウォーキング)     | 5 km/時                   | 1.39 m           | 自然な歩行ペースの 5 km/時でルートをスキャンします。 |
 | Biking (自転車移動)      | 25 km/時                  | 6.94 m           | 自然な自転車移動ペースの 25 km/時でルートをスキャンします。 |
 | ファースト (高速)        |                          |                  |ポストされた制限速度よりも高速でルートをスキャンします。 | 
@@ -564,8 +564,8 @@ NFC 対応スマート カード リーダーの中には、一部の種類の N
 | 機能            | Windows Phone 8.0 カメラ | Windows Phone 8.1 カメラ  |
 |--------------------|--------------------------|---------------------------|
 | 解決方法         | 640 x 480 (VGA)          | 640 x 480 (VGA) 以上 |
-| 自動フォーカス          | はい                      | はい                       |
-| Flash              | いいえ                       | はい                       |
+| 自動フォーカス          | ○                      | ○                       |
+| Flash              | ×                       | ○                       |
 | ズーム               | 2x (デジタルまたは光学)  | 2x (デジタルまたは光学)   |
 | ビデオ解像度   | 640 x 480 (VGA)          | 640 x 480 (VGA) 以上 |
 | プレビュー解像度 | 640 x 480 (VGA)          | 640 x 480 (VGA)           |
@@ -619,7 +619,7 @@ Windows Phone エミュレーターのフレーム レート カウンターを�
 
 エミュレーターの既知の問題と、問題が発生した場合の推奨される解決策を次に示します。
 
-### <a name="error-message-failed-while-removing-virtual-ethernet-switch"></a>エラー メッセージ:"仮想イーサネット スイッチの削除中にエラーが発生しました"
+### <a name="error-message-failed-while-removing-virtual-ethernet-switch"></a>エラー メッセージ: "仮想イーサネット スイッチの削除中にエラーが発生しました"
 
 新しい Windows 10 Insider Preview ビルドへの更新後など、状況によっては、エミュレーターに関連付けられている仮想ネットワーク スイッチが、ユーザー インターフェイスを使って削除できなくなることがあります。
 
@@ -646,13 +646,13 @@ Microsoft Emulator には、すべての VM、差分ディスク、およびエ�
 ハードウェア アクセラレータを無効にするには
 
 1. レジストリ エディターを起動します。
-2. 存在しない場合は、次のレジストリ サブキーを作成します。HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Xde\10.0
+2. 存在しない場合は、次のレジストリ サブキーを作成します。HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Xde\10.0。
 3. [10.0] フォルダーを右クリックし、 **[新規]** をポイントして、 **[DWORD 値]** をクリックします。
 4. 「**DisableRemoteFx**」と入力し、Enter キーを押します。
 5. **[DisableRemoteFx]** をダブルクリックして、 **[値]** データ ボックスに「1」と入力します。次に、 **[10 進数]** オプションを選択して **[OK]** をクリックします。
 6. レジストリ エディタを閉じます。
 
-**注:** このレジストリ値を設定した後、Visual Studio で起動した構成について、Hyper-V マネージャーで仮想マシンを削除し、ソフトウェア レンダリングされたグラフィックを使ってエミュレーターを再起動します。
+**注** このレジストリ値を設定した後、Visual Studio で起動した構成について、Hyper-V マネージャーで仮想マシンを削除し、ソフトウェア レンダリングされたグラフィックを使ってエミュレーターを再起動します。
 
 ## <a name="support-resources"></a>サポート資料
 

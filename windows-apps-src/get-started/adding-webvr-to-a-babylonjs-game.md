@@ -6,10 +6,10 @@ ms.topic: article
 keywords: WebVR、Edge、Web 開発、Babylon、Babylonjs、Babylon.js、JavaScript
 ms.localizationpriority: medium
 ms.openlocfilehash: ff350f8ce08f566b8c95c3c46faad330923e4b2e
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75685199"
 ---
 # <a name="adding-webvr-support-to-a-3d-babylonjs-game"></a>3D の Babylon.js ゲームに WebVR サポートを追加する
@@ -20,7 +20,7 @@ Babylon.js を使って 3D ゲームを作成したことがあり、仮想現�
 
 
 
-## <a name="prerequisites"></a>前提条件
+## <a name="prerequisites"></a>必要条件
 
 - テキスト エディター ([Visual Studio Code](https://code.visualstudio.com/download) など)
 - コンピューターに接続されている Xbox コントローラー
@@ -109,7 +109,7 @@ startUI.isVisible = false;
 VR アプリケーションで 2 種類のカメラを備えて、複数のシナリオをサポートすることは、推奨されるプラクティスです。 このゲームでは、ヘッドセットの接続を必要とする 1 つのカメラと、ヘッドセットを使用しないもう 1 つのカメラをサポートします。 ゲームでどちらを使用するかを判断するため、最初にヘッドセットが検出されたかどうかをチェックする必要があります。 これを行うために、[`navigator.getVRDisplays()`](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/getVRDisplays) を使用します。
 
 
-次のコードを、**main.js** の `window.addEventListener('DOMContentLoaded')` の前に追加します。
+次のコードを、`window.addEventListener('DOMContentLoaded')`main.js**の** の前に追加します。
 ```javascript
 var headset;
 // If a VR headset is connected, get its info
@@ -164,7 +164,7 @@ Babylon.js では、[`WebVRFreeCamera`](https://doc.babylonjs.com/api/classes/ba
 
 ![イマーシブのプロンプト](images/immersiveview.png)
 
-また、`WebVRFreeCamera` に切り替える前に `UniversalCamera` ビューを表示するコード断片を追加できます。これにより、ユーザーには、青いウィンドウの代わりにゲームが表示されます。 
+また、`UniversalCamera` に切り替える前に `WebVRFreeCamera` ビューを表示するコード断片を追加できます。これにより、ユーザーには、青いウィンドウの代わりにゲームが表示されます。 
 
 `engine.runRenderLoop(function () {` の後に以下を追加します。
 ```javascript
@@ -178,7 +178,7 @@ Babylon.js では、[`WebVRFreeCamera`](https://doc.babylonjs.com/api/classes/ba
             }
 ```
 
-### <a name="step-3-adding-gamepad-support"></a>手順 3:ゲームパッドのサポートの追加
+### <a name="step-3-adding-gamepad-support"></a>手順 3: ゲームパッドのサポートを追加する
 
 `WebVRFreeCamera` は、初期状態ではゲームパッドをサポートしないため、ゲームパッドのボタンをキーボードの方向キーにマッピングします。 カメラの `inputs` プロパティを詳細に設定することで、これを行います。 左のアナログ スティックの上、下、左、右を方向キーに対応させるコードを追加します。これでゲームパッドを使えるようになります。
 

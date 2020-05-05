@@ -9,10 +9,10 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: c08dad36929c7889f1896404df862230040e3499
-ms.sourcegitcommit: 9625f8fb86ff6473ac2851e600bc02e996993660
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "72163705"
 ---
 # <a name="guidelines-for-app-settings"></a>アプリ設定のガイドライン
@@ -83,8 +83,8 @@ ms.locfileid: "72163705"
 
 
 アプリでユーザーがアプリのカラー モードを選択できるようにする場合は、"アプリ モードを選ぶ" という見出しを持つ[ラジオ ボタン](../controls-and-patterns/radio-button.md)または[コンボ ボックス](../controls-and-patterns/combo-box.md)を使ってこれらのオプションを表示します。 オプションは次のようになっている必要があります。
-- 明るい
-- 暗い
+- 淡色
+- 濃色
 - Windows の既定
 
 また、Windows 設定アプリの [色] ページへのハイパーリンクを追加して、ユーザーが現在の既定のアプリ モードにアクセスして変更できるようにすることもお勧めします。 ハイパーリンク テキストには、"Windows の色の設定" という文字列を使用します。

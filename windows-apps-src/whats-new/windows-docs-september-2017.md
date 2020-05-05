@@ -6,10 +6,10 @@ ms.date: 09/06/2017
 ms.topic: article
 ms.localizationpriority: medium
 ms.openlocfilehash: fb63a5f7cefbccbedc09b0c74d9daea9d26b63a8
-ms.sourcegitcommit: ae9c1646398bb5a4a888437628eca09ae06e6076
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74734957"
 ---
 # <a name="whats-new-in-the-windows-developer-docs-in-september-2017"></a>Windows 開発者向けドキュメントの最新情報、2017 年 9 月
@@ -26,11 +26,11 @@ Windows 10 の[ツールと SDK をインストール](https://developer.microso
 
 Xbox Live クリエーターズ プログラムは現在実施中で、Windows 10 PC と Xbox One 本体上で実行できる UWP ゲームを簡単に作成して公開できます。 詳細については、「[Xbox Live クリエーターズ プログラムの概要](https://docs.microsoft.com/gaming/xbox-live/get-started-with-creators/get-started-with-xbox-live-creators.md)」をご覧ください。
 
-## <a name="developer-guidance"></a>開発者向けガイダンス
+## <a name="developer-guidance"></a>開発者ガイド
 
 ### <a name="xaml-basics-tutorials"></a>XAML の基本チュートリアル
 
-新しい [PhotoLab サンプル](https://github.com/Microsoft/Windows-appsample-photo-lab)を加え、4 つの [XAML の基本チュートリアル](https://docs.microsoft.com/windows/uwp/design/basics/xaml-basics-ui)が作成され、XAML のプログラミングの重要な 4 つの側面である、ユーザー インターフェイス、データ バインディング、カスタム スタイル、およびアダプティブ レイアウトについて説明しています。 各チュートリアル トラックは、部分的に完成したバージョンの PhotoLab サンプルから始まり、ステップ バイ ステップで、最終的なアプリの不足しているコンポーネントを 1 つ作成します。 
+新しい [PhotoLab サンプル](https://docs.microsoft.com/windows/uwp/design/basics/xaml-basics-ui)を加え、4 つの [XAML の基本チュートリアル](https://github.com/Microsoft/Windows-appsample-photo-lab)が作成され、XAML のプログラミングの重要な 4 つの側面である、ユーザー インターフェイス、データ バインディング、カスタム スタイル、およびアダプティブ レイアウトについて説明しています。 各チュートリアル トラックは、部分的に完成したバージョンの PhotoLab サンプルから始まり、ステップ バイ ステップで、最終的なアプリの不足しているコンポーネントを 1 つ作成します。 
 
 ![PhotoLab サンプルのフォト ギャラリー ページのスクリーンショット](images/PhotoLab-gallery-page.png)  
 

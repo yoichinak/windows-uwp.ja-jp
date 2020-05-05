@@ -7,10 +7,10 @@ ms.topic: article
 keywords: Windows 10, UWP, 収益化, エンゲージメント, プロモーション, ストア サービス
 ms.localizationpriority: medium
 ms.openlocfilehash: 7beee974bceceab02984ae6499a9c5db0b0281b9
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.sourcegitcommit: f727b68e86a86c94eff00f67ed79a1c12666e7bc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74259301"
 ---
 # <a name="monetization-engagement-and-store-services"></a>収益化、エンゲージメント、Microsoft Store サービス
@@ -94,7 +94,7 @@ Microsoft Store の手数料に関する説明とアプリの収益を受け取�
         ![分析](images/monetize-analytics-pie-chart.png)
     :::column-end:::
     :::column span="2":::
-**分析**
+**Analytics**
 
 詳細な分析レポートを使って、アプリ内広告のパフォーマンスを確認でき、広告の収益を最大化するのに必要な情報が得られます。 このデータをプログラムで取得するために使える RESTful API も提供します。
 

@@ -7,10 +7,10 @@ keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.custom: RS5
 ms.openlocfilehash: 0d7f702d145740703b9fbc4ca2e7fd8eba8957cc
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75684463"
 ---
 # <a name="alignment-margin-padding"></a>配置、余白、パディング
@@ -71,7 +71,7 @@ Margin とは異なり、Padding は FrameworkElement のプロパティでは�
 -   [**Control.Padding**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.padding): すべての [**Control**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls) 派生クラスに継承されます。 コンテンツのないコントロールもあるため、それらのコントロールでは、プロパティを設定しても効果はありません。 コントロールに境界線がある場合は、パディングがその内部に適用されます。
 -   [**Border.Padding**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.border.padding): [**BorderThickness**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.border.borderthickness)/[**BorderBrush**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.border.borderbrush) によって作成された四角形の線と [**Child**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.border.child) 要素の間のスペースを定義します。
 -   [**ItemsPresenter.Padding**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemspresenter.padding): 指定されたパディングを各項目の周囲に配置して、アイテム コントロールの項目の外観を向上させます。
--   [**TextBlock.Padding**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock.padding) および [**RichTextBlock.Padding**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.richtextblock.padding): テキスト要素のテキストの周囲まで境界ボックスを拡大します。 これらのテキスト要素には、**背景**がないため、視覚的な表示が難しい場合があります。 このため、代わりに [**Block**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.documents.block) コンテナーで  [**Margin**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.documents.block.margin) 設定を使用します。
+-   [**TextBlock.Padding**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock.padding) および [**RichTextBlock.Padding**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.richtextblock.padding): テキスト要素のテキストの周囲まで境界ボックスを拡大します。 これらのテキスト要素には、**背景**がないため、視覚的な表示が難しい場合があります。 このため、代わりに [**Block**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.documents.block.margin) コンテナーで  [**Margin**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.documents.block) 設定を使用します。
 
 このような場合のそれぞれで、要素に Margin プロパティもあります。 Margin と Padding の両方が適用される場合、これらは加算可能です。外部のコンテナーと内部のコンテンツの間に見える距離は、余白とパディングを加算したものになります。
 

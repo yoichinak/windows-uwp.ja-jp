@@ -7,10 +7,10 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: c4b1a0dab6bf1eb3301ba9fb97abd95fd896c53e
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74259163"
 ---
 # <a name="which-networking-technology"></a>アプリに適したネットワーク テクノロジ
@@ -22,7 +22,7 @@ UWP 開発者が利用できるネットワーク テクノロジの概要と、
 
 別のデバイスとの通信を独自のプロトコルで実行する場合は、[ソケット](sockets.md)を使います。
 
-ユニバーサル Windows プラットフォーム (UWP) 開発者は、次の 2 つのソケットの実装を利用できます: [**Windows.Networking.Sockets**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets)、および [Winsock](https://docs.microsoft.com/windows/desktop/WinSock/windows-sockets-start-page-2)。 新しいコードを記述するなら、Windows.Networking.Sockets には、UWP 開発者向けに設計された最新の API であるという利点があります。 クロスプラット フォームのネットワーク ライブラリや既存の Winsock コードを使う場合、または Winsock API の方が適している場合は、Winsock を使います。
+ユニバーサル Windows プラットフォーム (UWP) 開発者は、[**Windows.Networking.Sockets**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets) と [Winsock](https://docs.microsoft.com/windows/desktop/WinSock/windows-sockets-start-page-2) という 2 つのソケットの実装を利用できます。 新しいコードを記述するなら、Windows.Networking.Sockets には、UWP 開発者向けに設計された最新の API であるという利点があります。 クロスプラット フォームのネットワーク ライブラリや既存の Winsock コードを使う場合、または Winsock API の方が適している場合は、Winsock を使います。
 
 ### <a name="when-to-use-sockets"></a>ソケットを使う状況
 

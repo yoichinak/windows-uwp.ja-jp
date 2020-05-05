@@ -7,10 +7,10 @@ ms.topic: article
 keywords: windows 10, uwp, デバイス ポータル
 ms.localizationpriority: medium
 ms.openlocfilehash: fb9cd2861fe826d9e8d112f2729d2922c68194ce
-ms.sourcegitcommit: 445320ff0ee7323d823194d4ec9cfa6e710ed85d
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "72281892"
 ---
 # <a name="device-portal-for-mobile"></a>モバイル用 Device Portal
@@ -31,7 +31,7 @@ Device Portal に接続するには、電話の設定でデバイスの検出と
 
 ![開発者モードのデバイス検出設定](images/device-portal/mob-dev-mode-pairing.png)
 
-Device Portal に接続するには、3 つの方法から選択できます。USB、ローカル ホスト、ローカル ネットワーク (VPN やテザリングを含む)。
+Device Portal に接続するには、USB、ローカル ホスト、ローカル ネットワーク (VPN やテザリングを含む) の 3 つの方法のいずれかを使うことができます。
 
 **Device Portal に接続するには**
 
@@ -83,5 +83,5 @@ Windows Mobile Device Portal には、任意のプロセスを強制終了する
 
 ## <a name="see-also"></a>関連項目
 
-* [Windows デバイス ポータルの概要](device-portal.md)
+* [Windows Device Portal の概要](device-portal.md)
 * [デバイス ポータル コア API リファレンス](https://docs.microsoft.com/windows/uwp/debug-test-perf/device-portal-api-core)
