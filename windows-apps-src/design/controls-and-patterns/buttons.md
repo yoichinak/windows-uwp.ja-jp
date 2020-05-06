@@ -14,10 +14,10 @@ doc-status: Published
 ms.localizationpriority: medium
 ms.custom: RS5
 ms.openlocfilehash: e098283bae6f58b927892c680a4981d83f9e31e8
-ms.sourcegitcommit: af4050f69168c15b0afaaa8eea66a5ee38b88fed
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80081384"
 ---
 # <a name="buttons"></a>ボタン
@@ -48,7 +48,7 @@ Control | 説明
 >
 > **プラットフォーム API:** [Click イベント](/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.click)、[Command プロパティ](/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.command)
 
-## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか? 
 
 **Button** コントロールを使用すると、ユーザーは直ちに操作を開始できます (フォームの送信など)。
 
@@ -231,7 +231,7 @@ private void Decrease_Click(object sender, RoutedEventArgs e)
 
 ### <a name="example---drop-down-button"></a>例 - ドロップダウン ボタン
 
-この例では、**RichEditBox** コントロールに段落配置用のコマンドを含むポップアップ付きのドロップダウン ボタンを作成する方法を示します (詳細な情報とコードについては、「[リッチ エディット ボックス](rich-edit-box.md)」を参照してください)。
+この例では、**RichEditBox** コントロールに段落配置用のコマンドを含むポップアップ付きのドロップダウン ボタンを作成する方法を示します  (詳細な情報とコードについては、「[リッチ エディット ボックス](rich-edit-box.md)」を参照してください)。
 
 ![配置コマンドを含むドロップダウン ボタン](images/drop-down-button-align.png)
 
@@ -298,7 +298,7 @@ private void AlignmentMenuFlyoutItem_Click(object sender, RoutedEventArgs e)
 
 ### <a name="example---split-button"></a>例 - 分割ボタン
 
-この例では、**RichEditBox** コントロール内で選択されたテキストの前景色を変更するために使う分割ボタンの作成方法を示します (詳細な情報とコードについては、「[リッチ エディット ボックス](rich-edit-box.md)」を参照してください)。
+この例では、**RichEditBox** コントロール内で選択されたテキストの前景色を変更するために使う分割ボタンの作成方法を示します  (詳細な情報とコードについては、「[リッチ エディット ボックス](rich-edit-box.md)」を参照してください)。
 分割ボタンのポップアップでは、[BottomEdgeAlignedLeft](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.flyoutplacementmode) を [Placement](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.flyoutbase.placement) プロパティの既定値として使用します。 この値のオーバーライドはできません。
 
 ![前景色を選択するための分割ボタン](images/split-button-rtb.png)
@@ -411,7 +411,7 @@ public sealed partial class MainPage : Page
 
 ### <a name="example---toggle-split-button"></a>例 - 分割トグル ボタン
 
-次の例では、**RichEditBox** コントロールの分割トグル ボタンを使用して箇条書きの書式設定のオンとオフを切り替え、箇条書きのスタイルを変更する方法を示します (詳細な情報とコードについては、「[リッチ エディット ボックス](rich-edit-box.md)」を参照してください)。
+次の例では、**RichEditBox** コントロールの分割トグル ボタンを使用して箇条書きの書式設定のオンとオフを切り替え、箇条書きのスタイルを変更する方法を示します  (詳細な情報とコードについては、「[リッチ エディット ボックス](rich-edit-box.md)」を参照してください)。
 分割トグル ボタンのポップアップでは、[BottomEdgeAlignedLeft](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.flyoutplacementmode) が [Placement](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.flyoutbase.placement) プロパティの既定値として使われます。 この値のオーバーライドはできません。
 
 ![箇条書きのスタイルを選択するための分割トグル ボタン](images/toggle-split-button-open.png)
