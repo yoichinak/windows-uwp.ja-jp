@@ -1,43 +1,43 @@
 ---
-title: UWP で VAPID を使用して代替のプッシュ チャネル
-description: UWP アプリから VAPID プロトコルを使用した代替のプッシュ チャネルを使用して、手順
+title: UWP で VAPID を使用する代替プッシュチャネル
+description: Windows アプリから VAPID プロトコルで代替プッシュチャネルを使用する方法
 ms.date: 01/10/2017
 ms.topic: article
-keywords: windows 10、uwp、WinRT API では、WNS
+keywords: windows 10、uwp、WinRT API、WNS
 localizationpriority: medium
-ms.openlocfilehash: 6512eb891967b6c17bc4845d5e47639ae3c97d31
-ms.sourcegitcommit: 0c97c025d751082db3424cb9941bf6688d9b7381
+ms.openlocfilehash: 382dca376e2393d83c2803043b61db76226b3995
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835019"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970867"
 ---
-# <a name="alternate-push-channels-using-vapid-in-uwp"></a>UWP で VAPID を使用して代替のプッシュ チャネル 
-以降、Fall Creators Update では、UWP アプリはプッシュ通知を送信するのに VAPID 認証を使用できます。  
+# <a name="alternate-push-channels-using-vapid-in-windows"></a>Windows で VAPID を使用する代替プッシュチャネル 
+Windows アプリでは、VAPID 認証を使用してプッシュ通知を送信できるようになります。  
 
 > [!NOTE]
-> これらの Api は、他の web サイトをホストしている、自分でチャネルを作成する web ブラウザーを対象としています。  Web アプリに webpush 通知を追加しようとする場合は、サービスのワーカーを作成すると、通知を送信する W3C および WhatWG 標準に準拠するをお勧めします。
+> これらの Api は、他の web サイトをホストし、その代わりにチャネルを作成する web ブラウザーを対象としています。  Web アプリに web プッシュ通知を追加する場合は、サービスワーカーを作成して通知を送信するための W3C および WhatWG 標準に従うことをお勧めします。
 
-## <a name="introduction"></a>概要
-Web 標準のプッシュの導入により、web サイトは、アプリ、web サイトにユーザーが登録されていない場合でも、通知を送信するようにより機能できます。
+## <a name="introduction"></a>はじめに
+Web プッシュ標準の導入により、web サイトがアプリのように動作し、ユーザーが web サイトにいない場合でも通知を送信できるようになります。
 
-仕入先でのプッシュのサーバーで認証する web サイト作成された VAPID 認証プロトコルに依存しない方法です。 VAPID プロトコルを使用して、すべてのベンダーと web サイトが実行されているブラウザーを知らなくてもプッシュ通知を送信することができます。 これは、各プラットフォームのプッシュのさまざまなプロトコルの実装を大幅に強化です。 
+VAPID 認証プロトコルが作成され、web サイトがベンダーに依存しない方法でプッシュサーバーで認証できるようになりました。 VAPID プロトコルを使用しているすべてのベンダーが、web サイトが実行されているブラウザーがわからなくてもプッシュ通知を送信できます。 これは、プラットフォームごとに異なるプッシュプロトコルを実装した場合よりも大幅に改善されています。 
 
-UWP アプリは、VAPID を使用してもこれらの利点を使用したプッシュ通知を送信します。 これらのプロトコルでは、新しいアプリの開発時間を節約でき、既存のアプリのクロス プラットフォーム サポートを簡略化することができます。 さらに、エンタープライズ アプリまたはアプリのサイドロードできますようになりましたなく通知を送信 Microsoft Store での登録します。 うまくいけば、これがすべてのプラットフォームでユーザーと交流する新しい方法を開きます。  
+Windows アプリは、VAPID を使用して、これらの利点も含めてプッシュ通知を送信できます。 これらのプロトコルを使用すると、新しいアプリの開発時間を短縮し、既存のアプリのクロスプラットフォームサポートを簡素化できます。 さらに、enterprise apps またはサイドロードアプリでは、Microsoft Store に登録しなくても通知を送信できるようになりました。 これにより、すべてのプラットフォームでユーザーと連携する新しい方法が開きます。  
 
 ## <a name="alternate-channels"></a>代替チャネル 
-UWP では、これらの VAPID チャネルは代替チャネルと呼ばれ、web のプッシュ チャネルと同様の機能を提供します。 1 つのアプリから複数のチャネルを許可して、アプリのバック グラウンド タスクを実行して、メッセージの暗号化を有効にするトリガーできます。 別のチャネルの種類の違いの詳細についてを参照してください[適切なチャネルを選択する](channel-types.md)します。
+UWP では、これらの VAPID チャネルは代替チャネルと呼ばれ、web プッシュチャネルに同様の機能を提供します。 アプリのバックグラウンドタスクをトリガーして、メッセージの暗号化を有効にし、1つのアプリから複数のチャネルを許可することができます。 チャネルの種類の違いの詳細については、「[適切なチャネルの選択](channel-types.md)」を参照してください。
 
-代替のチャネルを使用するは、プッシュ通知へのアクセス、アプリは、プライマリ チャネルを使用できない場合、または web サイトとアプリのコードを共有する場合に優れた方法です。 簡単では、web 標準のプッシュを使用するか、または前にプッシュ通知を Windows で作業するすべてのユーザーにとって馴染み深いは、チャネルを設定します。
+アプリでプライマリチャネルを使用できない場合や、web サイトとアプリの間でコードを共有する場合は、代替チャネルを使用してプッシュ通知にアクセスすることをお勧めします。 チャネルの設定は、web プッシュ標準を使用しているユーザー、または以前に Windows プッシュ通知を使用していたユーザーにとって、簡単で使いやすいものです。
 
 ## <a name="code-example"></a>コードの例
 
-UWP アプリ用の別のチャネルの設定の基本的なプロセスは、プライマリまたはセカンダリ チャネルの設定に似ています。 最初に、チャネルでの登録、 [WNS server](windows-push-notification-services--wns--overview.md)します。 次に、バック グラウンド タスクとして実行する登録します。 通知が送信され、バック グラウンド タスクがトリガーされた、イベントを処理します。  
+Windows アプリの代替チャネルを設定する基本的なプロセスは、プライマリチャネルまたはセカンダリチャネルを設定することと似ています。 まず、 [WNS サーバー](windows-push-notification-services--wns--overview.md)でチャネルに登録します。 次に、バックグラウンドタスクとして実行するように登録します。 通知が送信され、バックグラウンドタスクがトリガーされた後、イベントを処理します。  
 
-### <a name="get-a-channel"></a>チャネルを取得します。 
-代替のチャネルを作成するには、アプリが 2 つの情報を提供する必要があります。 そのサーバーとそれを作成するチャネルの名前の公開キー。 サーバー キーに関する詳細については、web プッシュ仕様でがサーバーの標準的な web プッシュ ライブラリを使用するキーを生成することをお勧めします。  
+### <a name="get-a-channel"></a>チャネルを取得する 
+代替チャネルを作成するには、アプリが2つの情報を提供する必要があります。サーバーの公開キーと、作成するチャネルの名前です。 サーバーキーの詳細については、web プッシュの仕様を参照してください。ただし、キーを生成するには、サーバーで標準の web プッシュライブラリを使用することをお勧めします。  
 
-チャネル ID は、アプリが複数の代替チャネルを作成するために特に重要です。 各チャネルは、そのチャネルを介して送信されるすべての通知ペイロードに含まれる一意の ID で識別される必要があります。  
+アプリでは複数の代替チャネルを作成できるため、チャネル ID は特に重要です。 各チャネルは、そのチャネルで送信されたすべての通知ペイロードに含まれる一意の ID によって識別される必要があります。  
 
 ```csharp
 private async void AppCreateVAPIDChannelAsync(string appChannelId, IBuffer applicationServerKey) 
@@ -57,13 +57,13 @@ private async void AppCreateVAPIDChannelAsync(string appChannelId, IBuffer appli
     AppPassChannelToSite(webChannel.Uri); 
 } 
 ```
-アプリでは、そのサーバーへのバックアップのチャネルに送信し、ローカルに保存します。 チャネルの区別および期限切れにならないようにするためにチャネルを更新するアプリをチャネル ID をローカルに保存できます。
+アプリは、チャネルをサーバーに送信し、ローカルに保存します。 チャネル ID をローカルに保存すると、アプリはチャネルを区別し、チャネルを更新して、期限切れにならないようにすることができます。
 
-プッシュ通知チャネルの他の型がすべてのように、web のチャネルが期限切れできます。 チャネルが、アプリを知ることがなく期限切れにならないことを防ぐために、アプリが起動されるたびに新しいチャネルを作成します。    
+他のすべての種類のプッシュ通知チャネルと同様に、web チャネルの有効期限が切れます。 アプリを認識せずにチャネルの期限が切れないようにするには、アプリが起動されるたびに新しいチャネルを作成します。    
 
-### <a name="register-for-a-background-task"></a>バック グラウンド タスクに登録します。 
+### <a name="register-for-a-background-task"></a>バックグラウンドタスクに登録する 
 
-アプリには、代替のチャネルが作成、フォア グラウンドまたはバック グラウンドでの通知を受信するに登録する必要があります。 次の例は、バック グラウンドで通知を受信する 1 つのプロセス モデルを使用して登録します。  
+アプリで代替チャネルを作成したら、フォアグラウンドまたはバックグラウンドで通知を受け取るように登録する必要があります。 次の例では、を登録して、1つのプロセスモデルを使用して通知をバックグラウンドで受信します。  
 
 ```csharp
 var builder = new BackgroundTaskBuilder(); 
@@ -71,9 +71,9 @@ builder.Name = "Push Trigger";
 builder.SetTrigger(new PushNotificationTrigger()); 
 BackgroundTaskRegistration task = builder.Register(); 
 ```
-### <a name="receive-the-notifications"></a>通知を受け取る 
+### <a name="receive-the-notifications"></a>通知を受信する 
 
-通知を受信するアプリを登録すると、受信した通知を処理できるように、必要があります。 1 つのアプリが複数のチャネルを登録するためには、通知を処理する前にチャネル ID を確認してください。  
+アプリが通知を受信するように登録されると、受信通知を処理できる必要があります。 1つのアプリで複数のチャネルを登録できるため、通知を処理する前にチャネル ID を必ず確認してください。  
 
 ```csharp
 protected override void OnBackgroundActivated(BackgroundActivatedEventArgs args) 
@@ -100,16 +100,16 @@ protected override void OnBackgroundActivated(BackgroundActivatedEventArgs args)
 } 
 ```
 
-プライマリ チャネルから通知が送られて場合に、チャネルの ID は設定されませんに注意してください。  
+通知がプライマリチャネルから送信される場合、チャネル ID は設定されないことに注意してください。  
 
-## <a name="note-on-encryption"></a>暗号化に注意してください。 
+## <a name="note-on-encryption"></a>暗号化に関する注意 
 
-どのような暗号化方式をより役に立つアプリを使用できます。 場合によっては、標準の TLS サーバーとすべての Windows デバイスの間に依存するで十分です。 それ以外の場合、web プッシュ暗号化スキームまたは設計の別のスキームを使用する際に必要があります。  
+アプリにとって役に立つ任意の暗号化スキームを使用できます。 場合によっては、サーバーと任意の Windows デバイス間で TLS 標準を利用するだけで十分です。 それ以外の場合は、web プッシュ暗号化スキームを使用するか、または別の設計を使用することをお勧めします。  
 
-別の形式の暗号化を使用する場合は、キー、生の使用です。ヘッダーのプロパティです。 すべてのプッシュのサーバーに POST 要求に含まれていた暗号化ヘッダーが含まれています。 そこから、アプリは、メッセージを解読するのにキーを使用できます。  
+別の形式の暗号化を使用する場合、キーは raw を使用することになります。Headers プロパティ。 プッシュサーバーへの POST 要求に含まれていたすべての暗号化ヘッダーが含まれています。 そこから、アプリはキーを使用してメッセージを復号化できます。  
 
 ## <a name="related-topics"></a>関連トピック
-- [通知チャネルの種類](channel-types.md)
+- [通知チャンネルの種類](channel-types.md)
 - [Windows プッシュ通知サービス (WNS)](windows-push-notification-services--wns--overview.md)
 - [PushNotificationChannel クラス](https://docs.microsoft.com/uwp/api/windows.networking.pushnotifications.pushnotificationchannel)
 - [PushNotificationChannelManager クラス](https://docs.microsoft.com/uwp/api/windows.networking.pushnotifications.pushnotificationchannelmanager)

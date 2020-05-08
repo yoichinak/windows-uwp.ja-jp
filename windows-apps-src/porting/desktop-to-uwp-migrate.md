@@ -1,42 +1,42 @@
 ---
-Description: デスクトップ アプリケーションおよび UWP アプリ間で共有コード
-title: デスクトップ アプリケーションおよび UWP アプリ間で共有コード
+Description: デスクトップアプリケーションと UWP アプリの間でコードを共有する
+title: デスクトップアプリケーションと UWP アプリの間でコードを共有する
 ms.date: 10/03/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 344ee7060edcee3376e271fc21e104490d8724d7
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 4c07a3bbff4b29d2b59ef7d6d8a5912ce3675a4e
+ms.sourcegitcommit: ef723e3d6b1b67213c78da696838a920c66d5d30
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67319710"
+ms.lasthandoff: 05/02/2020
+ms.locfileid: "82730351"
 ---
-# <a name="move-from-a-desktop-application-to-uwp"></a>デスクトップ アプリケーションから UWP への移行
+# <a name="move-from-a-desktop-application-to-uwp"></a>デスクトップアプリケーションから UWP への移行
 
-.NET Framework (WPF と Windows フォームを含む) を使用して構築された既存のデスクトップ アプリケーションがある場合またはC++Win32 Api では、Windows 10 とユニバーサル Windows プラットフォーム (UWP) に移動するためのいくつかのオプションがあります。
+.NET Framework (WPF と Windows フォームを含む) または C++ の Win32 Api を使用して構築された既存のデスクトップアプリケーションがある場合は、ユニバーサル Windows プラットフォーム (UWP) と Windows 10 に移行するためのいくつかのオプションがあります。
 
-## <a name="package-your-desktop-application-in-an-msix-package"></a>MSIX パッケージ内のデスクトップ、アプリケーションをパッケージ化します。
+## <a name="package-your-desktop-application-in-an-msix-package"></a>MSIX パッケージでデスクトップアプリケーションをパッケージ化する
 
-Windows 10 の多数の機能へのアクセスを取得する MSIX パッケージをデスクトップ アプリケーションをパッケージ化することができます。 MSIX は、UWP、WPF、Windows フォーム、Win32 アプリを含む、あらゆる Windows アプリ用のユニバーサル パッケージ化エクスペリエンスを提供するモダンな Windows アプリ パッケージ形式です。 MSIX パッケージにデスクトップ Windows アプリをパッケージ化することで、堅牢なインストール、更新エクスペリエンス、柔軟な機能システムによる管理されたセキュリティ モデル、Microsoft Store のサポート、エンタープライズ管理、および多くのカスタム配布モデルにアクセスできます。 ソース コードがあるかどうか、またはのみ (MSI、または、APP-V のインストーラー) などの既存のインストーラー ファイルがあるかどうか、アプリケーションをパッケージ化することができます。 アプリケーションをパッケージ化したら、パッケージの拡張機能とその他の UWP コンポーネントなどの UWP 機能を統合できます。
+デスクトップアプリケーションを MSIX パッケージにパッケージ化して、さらに多くの Windows 10 機能にアクセスできます。 MSIX は、UWP、WPF、Windows フォーム、Win32 アプリを含む、あらゆる Windows アプリ用のユニバーサル パッケージ化エクスペリエンスを提供するモダンな Windows アプリ パッケージ形式です。 MSIX パッケージにデスクトップ Windows アプリをパッケージ化することで、堅牢なインストール、更新エクスペリエンス、柔軟な機能システムによる管理されたセキュリティ モデル、Microsoft Store のサポート、エンタープライズ管理、および多くのカスタム配布モデルにアクセスできます。 ソースコードがあるかどうか、または既存のインストーラーファイル (MSI や App-v インストーラーなど) があるかどうかにかかわらず、アプリケーションをパッケージ化することができます。 アプリケーションをパッケージ化した後、パッケージ拡張機能やその他の UWP コンポーネントなどの UWP 機能を統合できます。
 
-詳細については、次を参照してください。[デスクトップ アプリケーション (デスクトップ ブリッジ) パッケージ](/windows/msix/desktop/desktop-to-uwp-root)と[パッケージ id が必要な機能](/windows/apps/desktop/modernize/modernize-packaged-apps)します。
+詳細については、「[パッケージデスクトップアプリケーション (デスクトップブリッジ)](/windows/msix/desktop/desktop-to-uwp-root) 」および「[パッケージ id を必要とする機能](/windows/apps/desktop/modernize/modernize-packaged-apps)」を参照してください。
 
-## <a name="use-uwp-apis"></a>UWP Api を使用して、
+## <a name="use-windows-runtime-apis"></a>Windows ランタイム Api を使用する
 
-多くの UWP API を WPF、Windows フォーム、または C++ Win32 デスクトップ アプリで直接呼び出して、Windows 10 ユーザーの利便性を高めるモダン エクスペリエンスを統合できます。 たとえば、UWP API を呼び出して、トースト通知をデスクトップ アプリに追加できます。
+多くの Windows ランタイム API を WPF、Windows フォーム、または C++ Win32 デスクトップ アプリで直接呼び出して、Windows 10 ユーザーの利便性を高めるモダン エクスペリエンスを統合できます。 たとえば、Windows ランタイム API を呼び出して、トースト通知をデスクトップ アプリに追加できます。
 
-詳細については、「[Use UWP APIs in desktop apps (デスクトップ アプリでの UWP API の使用)](/windows/apps/desktop/modernize/desktop-to-uwp-enhance)」を参照してください。
+詳しくは、[デスクトップ アプリでの Windows ランタイム API の使用](/windows/apps/desktop/modernize/desktop-to-uwp-enhance)に関する記事をご覧ください。
 
-## <a name="migrate-a-net-framework-app-to-a-uwp-app"></a>移行、.NET Framework アプリを UWP アプリ
+## <a name="migrate-a-net-framework-app-to-a-uwp-app"></a>UWP アプリへの .NET Framework アプリの移行
 
-アプリケーションを .NET Framework で実行する場合は、.NET Standard 2.0 を利用して UWP アプリに移行することができます。 .NET Standard 2.0 クラス ライブラリにことができますし、.NET Standard 2.0 ライブラリを参照する UWP アプリを作成すると、多くのコードに移動します。 
+アプリケーションが .NET Framework で実行されている場合は、.NET Standard 2.0 を利用して UWP アプリに移行することができます。 .NET Standard 2.0 クラスライブラリにできるだけ多くのコードを移動し、.NET Standard 2.0 ライブラリを参照する UWP アプリを作成します。 
 
 ### <a name="share-code-in-a-net-standard-20-library"></a>.NET Standard 2.0 ライブラリでコードを共有する
 
-.NET Framework でアプリケーションを実行する場合は、することができますに .NET Standard 2.0 クラス ライブラリのコードを配置します。 標準で定義されている API を使用しているコードは、UWP アプリで再利用できます。 .NET Standard 2.0 に含まれる API が大幅に増えたため、.NET Standard ライブラリでのコード共有は、従来よりずっと簡単になっています。
+アプリケーションが .NET Framework で実行されている場合は、.NET Standard 2.0 クラスライブラリにできるだけ多くのコードを配置します。 標準で定義されている API を使用しているコードは、UWP アプリで再利用できます。 .NET Standard 2.0 に含まれる API が大幅に増えたため、.NET Standard ライブラリでのコード共有は、従来よりずっと簡単になっています。
 
-詳細については、通知するビデオを次に示します。
+詳細については、こちらのビデオをご覧ください。
 
 > [!VIDEO https://www.youtube-nocookie.com/embed/YI4MurjfMn8?list=PLRAdsfhKI4OWx321A_pr-7HhRNk7wOLLY&amp;ecver=1]
 
@@ -76,13 +76,13 @@ Windows 10 の多数の機能へのアクセスを取得する MSIX パッケー
 
 コードの一部はプラットフォーム固有でありデスクトップ アプリケーション プロジェクト内に残す必要があります。
 
-#### <a name="example-migrating-data-access-code-to-a-net-standard-20-library"></a>以下に例を示します.NET Standard 2.0 ライブラリへのデータ アクセス コードの移行
+#### <a name="example-migrating-data-access-code-to-a-net-standard-20-library"></a>例: .NET Standard 2.0 ライブラリにデータ アクセス コードを移行する
 
-Northwind サンプル データベースから顧客を表示する非常に基本的な Windows フォーム アプリケーションがあると仮定します。
+ここでは、Northwind サンプルデータベースの顧客を表示する、非常に基本的な Windows フォームアプリケーションを使用しているとします。
 
 ![Windows フォーム アプリ](images/desktop-to-uwp/win-forms-app.png)
 
-このプロジェクトには、.NET Standard 2.0 クラス ライブラリおよび **Northwind** という静的クラスが含まれています。 このコードでは ``SQLConnection`` クラス、``SqlCommand`` クラス、``SqlDataReader`` クラスが使用されており、これらのクラスが .NET Standard 2.0 にないため、**Northwind** クラスに移行してもコンパイルできません。
+このプロジェクトには、.NET Standard 2.0 クラス ライブラリおよび **Northwind** という静的クラスが含まれています。 このコードを**Northwind**クラスに移動すると、、 ``SQLConnection`` ``SqlCommand``、および``SqlDataReader``の各クラス、および .NET Standard 2.0 では使用できないクラスが使用されるため、コンパイルされません。
 
 ```csharp
 public static ArrayList GetCustomerNames()
@@ -166,7 +166,7 @@ public partial class Customers : Form
 }
 ```
 
-### <a name="create-a-uwp-app"></a>UWP アプリを作成します。
+### <a name="create-a-uwp-app"></a>UWP アプリの作成
 
 これで、ソリューションに UWP アプリを追加する準備ができました。
 
@@ -234,7 +234,7 @@ UWP の場合と同様、.NET Standard 2.0 クラス ライブラリに用意さ
 
 まず、**Android**、**iOS**、または**クロス プラットフォーム**のプロジェクトをソリューションに追加します。
 
-これらのテンプレートは、 **[新しいプロジェクトの追加]** ダイアログ ボックスの **[Visual C#]** グループにあります。
+これらのテンプレートは、**[新しいプロジェクトの追加]** ダイアログ ボックスの **[Visual C#]** グループにあります。
 
 ![Xamarin アプリ](images/desktop-to-uwp/xamarin-projects.png)
 
@@ -282,10 +282,10 @@ Android プロジェクト、iOS プロジェクト、およびクロスプラ�
 
 ## <a name="next-steps"></a>次のステップ
 
-**質問の回答を検索**
+**質問に対する回答を見つける**
 
-ご質問がある場合は、 Stack Overflow でお問い合わせください。 Microsoft のチームでは、これらの[タグ](https://stackoverflow.com/questions/tagged/project-centennial+or+desktop-bridge)をチェックしています。 [こちら](https://social.msdn.microsoft.com/Forums/en-US/home?filter=alltypes&sort=relevancedesc&searchTerm=%5BDesktop%20Converter%5D)から質問することもできます。
+ご不明な点がありますか? Stack Overflow でお問い合わせください。 Microsoft のチームでは、これらの[タグ](https://stackoverflow.com/questions/tagged/project-centennial+or+desktop-bridge)をチェックしています。 [こちら](https://social.msdn.microsoft.com/Forums/en-US/home?filter=alltypes&sort=relevancedesc&searchTerm=%5BDesktop%20Converter%5D)から質問することもできます。
 
-**ご意見や機能を提案します。**
+**フィードバックの提供または機能の提案を行う**
 
-[UserVoice](https://wpdev.uservoice.com/forums/110705-universal-windows-platform/category/161895-desktop-bridge-centennial) のページをご覧ください。
+「[UserVoice](https://wpdev.uservoice.com/forums/110705-universal-windows-platform/category/161895-desktop-bridge-centennial)」を参照してください

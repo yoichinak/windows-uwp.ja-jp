@@ -6,16 +6,16 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 22e035639709005417084d564145d9de218009a8
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: d6fa8740fba35ae6a50d91846bab79a4858de076
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66366681"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970487"
 ---
 # <a name="animations-in-xaml"></a>XAML でのアニメーション
 
-UWP のアニメーションは、アプリに躍動感と双方向性を与えます。 Windows ランタイム アニメーション ライブラリのアニメーションを使って、Windows の見た目や操作感を自分のアプリに取り入れることができます。 ここでは、アニメーションの概要と、それぞれのアニメーションが適用される通常のシナリオ例について説明します。
+アニメーションを使用すると、動きとインタラクティビティを追加してアプリを強化できます。 Windows ランタイム アニメーション ライブラリのアニメーションを使って、Windows の見た目や操作感を自分のアプリに取り入れることができます。 ここでは、アニメーションの概要と、それぞれのアニメーションが適用される通常のシナリオ例について説明します。
 
 > [!TIP]
 > XAML 用の Windows ランタイム コントロールには、特定の種類のアニメーションが、アニメーション ライブラリから取得される組み込みの動作として含まれています。 こうしたコントロールを利用することで、アニメーション化された見た目や操作感を自分でプログラミングしなくてもアプリに取り入れることができます。
@@ -48,15 +48,15 @@ Windows ランタイム アニメーション システムとアニメーショ�
 
 アニメーション ライブラリには、次のアニメーションが用意されています。 アニメーションの名前をクリックすると、主な使用シナリオ、その定義方法、アニメーション例の詳しい情報が表示されます。
 
--   [ページ遷移](#page-transition):内のページ遷移アニメーションを[**フレーム**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Frame)します。
--   [コンテンツと entrance の遷移](#content-transition-and-entrance-transition):ビューの内外に 1 つの部分または一連のコンテンツをアニメーション化します。
--   [フェードの入力/出力、およびクロスフェード](#fade-in-out-and-crossfade):一時的な要素またはコントロールを示しています。 または、コンテンツ領域を更新します。
--   [ポインター アップ/ダウン](#pointer-up-down):タイルには、タップまたはクリックの視覚的なフィードバックを提供します。
--   [位置変更](#reposition):新しい位置に要素を移動します。
--   [ポップアップの表示/非表示](#show-hide-popup):コンテキストの UI のビューの上部に表示されます。
--   [端の UI の表示/非表示](#show-hide-edge-ui):ビューの内外には、パネルなどの大規模な UI を含め、edge ベースの UI にスライドします。
--   [リスト項目の変更](#list-item-changes):追加するか、項目を並べ替え、一覧から項目を削除します。
--   [ドラッグ/ドロップ](#drag-drop):ドラッグ アンド ドロップ操作中に視覚的なフィードバックを提供します。
+-   [ページ切り替え](#page-transition): [**Frame**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Frame) 内のページ切り替えをアニメーション化します。
+-   [コンテンツ切り替えと開始切り替え](#content-transition-and-entrance-transition): コンテンツの断片やまとまりをアニメーション化して画面に表示したり、画面から消したりします。
+-   [フェード イン/アウトとクロスフェード](#fade-in-out-and-crossfade): 一時的な要素またはコントロールを表示し、コンテンツ領域を更新します。
+-   [ポインター アップ/ダウン](#pointer-up-down): タイルでのタップまたはクリックの視覚的なフィードバックを提供します。
+-   [位置の変更](#reposition): 要素を新しい位置に移動します。
+-   [ポップアップの表示/非表示](#show-hide-popup): コンテキストに沿った UI を画面上に表示します。
+-   [エッジ (端) UI の表示/非表示](#show-hide-edge-ui): パネルのように大きな UI も含めて、端に基づく UI をスライドして画面に表示したり、画面から消したりします。
+-   [リスト項目の変更](#list-item-changes): リストについて項目の追加、項目の削除、項目の並べ替えを行います。
+-   [ドラッグ/ドロップ](#drag-drop): ドラッグ アンド ドロップ操作中に視覚的なフィードバックを提供します。
 
 ### <a name="page-transition"></a>ページ切り替え
 
@@ -68,7 +68,7 @@ Windows ランタイム アニメーション システムとアニメーショ�
 
 コンテンツ切り替えアニメーション ([**ContentThemeTransition**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.ContentThemeTransition)) を使って、コンテンツの断片やまとまりを移動して現在の画面に表示したり、画面から消したりします。 たとえば、コンテンツ切り替えアニメーションは、ページが最初に読み込まれたとき、またはページの 1 セクションのコンテンツを変更したときに表示できなかったコンテンツを表示する場合に使われます。
 
-[**EntranceThemeTransition** ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.EntranceThemeTransition)ページまたは UI の大きな部分が最初に読み込まれるときに、コンテンツに適用可能な動きを表します。 したがって、最初にコンテンツを表示するときは、コンテンツ切り替え時とは異なるフィードバックとすることができます。 [**EntranceThemeTransition** ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.EntranceThemeTransition)と同じですが、 [ **NavigationThemeTransition** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.navigationthemetransition)既定のパラメーター以外の使用可能性がありますが、 [ **フレーム**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Frame)します。
+[**EntranceThemeTransition**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.EntranceThemeTransition) は、ページまたは UI の大きなセクションが最初に読み込まれたときに、コンテンツに適用できるモーションを表します。 したがって、最初にコンテンツを表示するときは、コンテンツ切り替え時とは異なるフィードバックとすることができます。 [**EntranceThemeTransition**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.EntranceThemeTransition) は、既定のパラメーターを指定した場合の [**NavigationThemeTransition**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.navigationthemetransition) と同じですが、[**Frame**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Frame) の外部で使用できます。
  
  
 <span id="fade-in-out-and-crossfade"/>
@@ -83,7 +83,7 @@ Windows ランタイム アニメーション システムとアニメーショ�
 
 ### <a name="pointer-updown"></a>ポインター アップ/ダウン
 
-[  **PointerUpThemeAnimation**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.PointerUpThemeAnimation) アニメーションと [**PointerDownThemeAnimation**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.PointerDownThemeAnimation) アニメーションを使って、タイルでのタップやクリックが正常に行われたことについてユーザーにフィードバックを提供します。 たとえば、ユーザーがタイルを下にクリックまたはタップすると、ポインター ダウン アニメーションが再生されます。 クリックまたはタップが解放されると、ポインター アップ アニメーションが再生されます。
+[**PointerUpThemeAnimation**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.PointerUpThemeAnimation) アニメーションと [**PointerDownThemeAnimation**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.PointerDownThemeAnimation) アニメーションを使って、タイルでのタップやクリックが正常に行われたことについてユーザーにフィードバックを提供します。 たとえば、ユーザーがタイルを下にクリックまたはタップすると、ポインター ダウン アニメーションが再生されます。 クリックまたはタップが解放されると、ポインター アップ アニメーションが再生されます。
 
 ### <a name="reposition"></a>位置の変更
 
@@ -93,19 +93,19 @@ Windows ランタイム アニメーション システムとアニメーショ�
 
 ### <a name="showhide-popup"></a>ポップアップの表示/非表示
 
-[  **PopInThemeAnimation**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.PopInThemeAnimation) と [**PopOutThemeAnimation**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.PopOutThemeAnimation) を使って、[**Popup**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Primitives.Popup) や類似のコンテキストに沿った UI を現在の画面に表示し、画面から消します。 [**PopupThemeTransition** ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.PopupThemeTransition)が光をする場合に有益なフィードバックをテーマの切り替えがポップアップを閉じます。
+[**PopInThemeAnimation**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.PopInThemeAnimation) と [**PopOutThemeAnimation**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.PopOutThemeAnimation) を使って、[**Popup**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Primitives.Popup) や類似のコンテキストに沿った UI を現在の画面に表示し、画面から消します。 [**PopupThemeTransition**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.PopupThemeTransition) は、ポップアップを簡易非表示にする場合、便利なフィードバックとなるテーマ切り替えです。
 
 <span id="show-hide-edge-ui"/>
 
 ### <a name="showhide-edge-ui"></a>エッジ (端) UI の表示/非表示
 
-[  **EdgeUIThemeTransition**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.EdgeUIThemeTransition) アニメーションを使って、端に基づく小さい UI をスライドして画面に表示したり、画面から消したりします。 たとえば、画面の上部や下部にカスタムのアプリ バーを表示したり、画面の上部にエラーや警告の UI サーフェスを表示したりするときに、これらのアニメーションを使います。
+[**EdgeUIThemeTransition**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.EdgeUIThemeTransition) アニメーションを使って、端に基づく小さい UI をスライドして画面に表示したり、画面から消したりします。 たとえば、画面の上部や下部にカスタムのアプリ バーを表示したり、画面の上部にエラーや警告の UI サーフェスを表示したりするときに、これらのアニメーションを使います。
 
 ウィンドウまたはパネルの表示や非表示には [**PaneThemeTransition**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.PaneThemeTransition) アニメーションを使います。 これはカスタム キーボードや作業ウィンドウのような端に基づく大きな UI 用です。
 
 ### <a name="list-item-changes"></a>リスト項目の変更
 
-[  **AddDeleteThemeTransition**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.AddDeleteThemeTransition) アニメーションは、既にあるリストに項目の追加時または削除時のアニメーション動作を追加するときに使います。 追加時の切り替えの場合、最初にリスト内の既にある項目の位置が変更され、新しい項目用のスペースが確保されてから、新しい項目が追加されます。 削除時の切り替えの場合、リストから項目が削除され、必要に応じて、残りのリスト項目の位置が変更されます。
+[**AddDeleteThemeTransition**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.AddDeleteThemeTransition) アニメーションは、既にあるリストに項目の追加時または削除時のアニメーション動作を追加するときに使います。 追加時の切り替えの場合、最初にリスト内の既にある項目の位置が変更され、新しい項目用のスペースが確保されてから、新しい項目が追加されます。 削除時の切り替えの場合、リストから項目が削除され、必要に応じて、残りのリスト項目の位置が変更されます。
 
 項目のリスト内の位置が変わった場合に適用される別の [**ReorderThemeTransition**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.ReorderThemeTransition) もあります。 これは、項目を削除してそれを新しい位置に追加するときに使われる関連する削除/追加アニメーションとは異なるアニメーションになります。
 
@@ -125,14 +125,14 @@ Windows ランタイム アニメーション システムとアニメーショ�
 
 | UI の種類 | 推奨されるアニメーション |
 |---------|-----------------------|
-| ダイアログ ボックス | [**FadeInThemeAnimation** ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.FadeInThemeAnimation)と[ **FadeOutThemeAnimation**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.FadeOutThemeAnimation) |
-| ポップアップ | [**PopInThemeAnimation** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.popinthemeanimation.popinthemeanimation)と[ **PopOutThemeAnimation**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.popoutthemeanimation.popoutthemeanimation) |
-| ヒント | [**FadeInThemeAnimation** ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.FadeInThemeAnimation)と[ **FadeOutThemeAnimation**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.FadeOutThemeAnimation) |
-| コンテキスト メニュー | [**PopInThemeAnimation** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.popinthemeanimation.popinthemeanimation)と[ **PopOutThemeAnimation**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.popoutthemeanimation.popoutthemeanimation) |
+| ダイアログ ボックス | [**FadeInThemeAnimation**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.FadeInThemeAnimation) と [**FadeOutThemeAnimation**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.FadeOutThemeAnimation) |
+| ポップアップ | [**PopInThemeAnimation**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.popinthemeanimation.popinthemeanimation) と [**PopOutThemeAnimation**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.popoutthemeanimation.popoutthemeanimation) |
+| ヒント | [**FadeInThemeAnimation**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.FadeInThemeAnimation) と [**FadeOutThemeAnimation**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.FadeOutThemeAnimation) |
+| コンテキスト メニュー | [**PopInThemeAnimation**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.popinthemeanimation.popinthemeanimation) と [**PopOutThemeAnimation**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.popoutthemeanimation.popoutthemeanimation) |
 | コマンド バー | [**EdgeUIThemeTransition**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.edgeuithemetransition.edgeuithemetransition) |
 | 作業ウィンドウまたは端に基づくパネル | [**PaneThemeTransition**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.panethemetransition.panethemetransition) |
 | 各種 UI コンテナーのコンテンツ | [**ContentThemeTransition**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.contentthemetransition.contentthemetransition) |
-| コントロールに対して (または他に該当するアニメーションがない場合に) 適用する | [**FadeInThemeAnimation** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.fadeinthemeanimation.fadeinthemeanimation)と[ **FadeOutThemeAnimation**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.FadeOutThemeAnimation) |
+| コントロールに対して (または他に該当するアニメーションがない場合に) 適用する | [**FadeInThemeAnimation**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.fadeinthemeanimation.fadeinthemeanimation) と [**FadeOutThemeAnimation**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.FadeOutThemeAnimation) |
 
  
 
@@ -293,7 +293,7 @@ void BlankPage::RemoveButton_Click(Platform::Object^ sender, Windows::UI::Xaml::
 
 | API | 説明 |
 |-----|-------------|
-| [**NavigationThemeTransition**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.navigationthemetransition) | [  **Frame**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Frame) 内でのページ ナビゲーションに Windows パーソナリティ アニメーションを提供します。 |
+| [**NavigationThemeTransition**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.navigationthemetransition) | [**Frame**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Frame) 内でのページ ナビゲーションに Windows パーソナリティ アニメーションを提供します。 |
 | [**AddDeleteThemeTransition**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.AddDeleteThemeTransition) | コントロールの子やコンテンツが追加されたり削除されたりしたときの切り替え動作のアニメーションです。 ここでいうコントロールは通常、項目コンテナーです。 |
 | [**ContentThemeTransition**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.ContentThemeTransition) | コントロールのコンテンツが変化しているときの切り替え動作のアニメーションです。 このアニメーションは、[**AddDeleteThemeTransition**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.AddDeleteThemeTransition) に追加する形で適用することができます。 |
 | [**EdgeUIThemeTransition**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.EdgeUIThemeTransition) | (小さい) エッジ UI の切り替え動作のアニメーションです。 |
@@ -349,7 +349,7 @@ void BlankPage::Rectangle_Tapped(Object^ sender, PointerRoutedEventArgs^ e)
 
 切り替え効果のアニメーションとは異なり、テーマ アニメーションでは、アニメーションを自動的に実行する組み込みのトリガー (切り替え) がありません。 XAML でテーマ アニメーションを定義するときは、[**Storyboard**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.Storyboard) を使ってそれを格納する必要があります。 アニメーションの既定の動作を変更することもできます。 たとえば、[**FadeOutThemeAnimation**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.FadeOutThemeAnimation) の [**Duration**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.timeline.duration) の時間値を増やすと、フェード アウトの速度を遅くすることができます。
 
-**注**  の基本的なアニメーションの手法を示すためを使用してアプリのコードのメソッドを呼び出して、アニメーションを開始する[**ストーリー ボード**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.Storyboard)します。 制御できますが、どのように**ストーリー ボード**アニメーションを使用して実行、 [**開始**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.storyboard.begin)、 [**停止**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.storyboard.stop)、 [**一時停止**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.storyboard.pause)、および[**再開**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.storyboard.resume) **ストーリー ボード**メソッド。 ただし、これはライブラリ アニメーションをアプリに含める通常の方法ではありません。 むしろ、通常は、コントロールまたは要素に適用される XAML スタイルとテンプレートにライブラリ アニメーションを統合します。 テンプレートと表示状態の説明はもう少し込み入ったものになります。 ただし、表示状態でライブラリ アニメーションを使用する方法については、「[表示状態用にストーリーボードに設定されたアニメーション](https://docs.microsoft.com/previous-versions/windows/apps/jj819808(v=win.10))」トピックの一部として取り上げています。
+**メモ**  基本的なアニメーション技法を示すために、アプリケーションコードを使用して、[**ストーリーボード**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.Storyboard)のメソッドを呼び出すことによってアニメーションを開始しています。 ストーリーボードの[**開始**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.storyboard.begin)、[**停止**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.storyboard.stop)、[**一時停止**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.storyboard.pause)、[**再開**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.storyboard.resume)の**各メソッドを**使用して、**ストーリーボード**アニメーションを実行する方法を制御できます。 ただし、これはライブラリ アニメーションをアプリに含める通常の方法ではありません。 むしろ、通常は、コントロールまたは要素に適用される XAML スタイルとテンプレートにライブラリ アニメーションを統合します。 テンプレートと表示状態の説明はもう少し込み入ったものになります。 ただし、表示状態でライブラリ アニメーションを使用する方法については、「[表示状態用にストーリーボードに設定されたアニメーション](https://docs.microsoft.com/previous-versions/windows/apps/jj819808(v=win.10))」トピックの一部として取り上げています。
 
  
 
@@ -367,8 +367,8 @@ void BlankPage::Rectangle_Tapped(Object^ sender, PointerRoutedEventArgs^ e)
 | [**PopInThemeAnimation**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.PopInThemeAnimation) | コントロールのポップイン コンポーネントが表示されるときに適用される事前構成済みのアニメーションです。 このアニメーションには、不透明度と変換が組み合わされています。 |
 | [**PopOutThemeAnimation**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.PopOutThemeAnimation) | コントロールのポップイン コンポーネントが閉じたり削除されたりするときに適用される事前構成済みのアニメーションです。 このアニメーションには、不透明度と変換が組み合わされています。 |
 | [**RepositionThemeAnimation**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.RepositionThemeAnimation) | オブジェクトの位置が変更されたときに適用される事前構成済みのアニメーションです。 |
-| [**SplitCloseThemeAnimation**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.SplitCloseThemeAnimation) | [  **ComboBox**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.combobox) を開閉するときのスタイルのアニメーションでターゲット UI を非表示にする事前構成済みのアニメーションです。 |
-| [**SplitOpenThemeAnimation**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.SplitOpenThemeAnimation) | [  **ComboBox**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.combobox) を開閉するときのスタイルのアニメーションでターゲット UI を表示する事前構成済みのアニメーションです。 |
+| [**SplitCloseThemeAnimation**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.SplitCloseThemeAnimation) | [**ComboBox**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.combobox) を開閉するときのスタイルのアニメーションでターゲット UI を非表示にする事前構成済みのアニメーションです。 |
+| [**SplitOpenThemeAnimation**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.SplitOpenThemeAnimation) | [**ComboBox**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.combobox) を開閉するときのスタイルのアニメーションでターゲット UI を表示する事前構成済みのアニメーションです。 |
 | [**DrillInThemeAnimation**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.drillinthemeanimation) | マスター ページから詳細ページのように、ユーザーが論理階層を順方向に移動するときに実行される事前構成済みのアニメーションを表します。 |
 | [**DrillOutThemeAnimation**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.drilloutthemeanimation) | 詳細ページからマスター ページのように、ユーザーが論理階層を逆方向に移動するときに実行される事前構成済みのアニメーションを表します。 |
 
@@ -380,7 +380,7 @@ void BlankPage::Rectangle_Tapped(Object^ sender, PointerRoutedEventArgs^ e)
 
 アニメーション化するためには、アニメーション化しているプロパティが*依存関係プロパティ*である必要があります。 依存関係プロパティについて詳しくは、「[依存関係プロパティの概要](https://docs.microsoft.com/windows/uwp/xaml-platform/dependency-properties-overview)」をご覧ください。 ストーリーボードに設定されたカスタム アニメーションの作成について詳しくは、対象に選ぶ方法や制御方法も含め、「[ストーリーボードに設定されたアニメーション](storyboarded-animations.md)」をご覧ください。
 
-ストーリーボードに設定されたカスタム アニメーションを定義する際に XAML のアプリ UI 定義で最大となるのは、XAML でコントロールの表示状態を定義する場合です。 これを行うのは、新たにコントロール クラスを作成するか、既にあるコントロールのうち、コントロール テンプレートに表示状態があるものに対してもう一度テンプレートを作成する場合です。 詳しくは、「[表示状態用にストーリーボードに設定されたアニメーション](https://docs.microsoft.com/previous-versions/windows/apps/jj819808(v=win.10))」をご覧ください。
+ストーリーボードに設定されたカスタム アニメーションを定義する際に XAML のアプリ UI 定義で最大となるのは、XAML でコントロールの表示状態を定義する場合です。 これを行うのは、新たにコントロール クラスを作成するか、既にあるコントロールのうち、コントロール テンプレートに表示状態があるものに対してもう一度テンプレートを作成する場合です。 詳細については、「 [Storyboarded アニメーション for visual states](https://docs.microsoft.com/previous-versions/windows/apps/jj819808(v=win.10))」を参照してください。
 
  
 

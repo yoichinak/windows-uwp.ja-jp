@@ -9,14 +9,14 @@ pm-contact: stmoy
 design-contact: conrwi
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 6e17b1c18fc8e643ac788e5e13ac78cae49a35ef
-ms.sourcegitcommit: 6d743cf9c3e09f87ea2879b8e1f2dc4a1b1a16fe
+ms.openlocfilehash: 385c11e48695c2486fd5a2b72633923454e2f8ea
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74166077"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970637"
 ---
-# <a name="connected-animation-for-uwp-apps"></a>UWP アプリ用の接続型アニメーション
+# <a name="connected-animation-for-windows-apps"></a>Windows アプリの接続されたアニメーション
 
 接続型アニメーションを使用すると、2 つの異なるビューの間で要素が切り替わる様子をアニメーション化することによって、動的で魅力的なナビゲーション エクスペリエンスを作成できます。 これにより、ユーザーはコンテキストを維持して、ビューの間の継続性を実現することができます。
 
@@ -25,7 +25,7 @@ ms.locfileid: "74166077"
 > **重要な api**: [connectedanimation クラス](/uwp/api/windows.ui.xaml.media.animation.connectedanimation)、 [connectedanimation service クラス](/uwp/api/windows.ui.xaml.media.animation.connectedanimationservice)
 
 
-## <a name="examples"></a>例
+## <a name="examples"></a>使用例
 
 <table>
 <th align="left">XAML コントロール ギャラリー<th>
@@ -55,7 +55,7 @@ ms.locfileid: "74166077"
 
 ## <a name="connected-animation-and-the-fluent-design-system"></a>接続型アニメーションと Fluent Design System
 
- Fluent Design System では、ライト、深度、モーション、マテリアル、スケールを取り入れた、モダンで目を引く UI を作成できます。 接続型アニメーションは、アプリに動きを加える Fluent Design System コンポーネントです。 詳しくは、[UWP 用の Fluent Design の概要に関するページ](/windows/apps/fluent-design-system)をご覧ください。
+ Fluent Design System では、ライト、深度、モーション、マテリアル、スケールを取り入れた、モダンで目を引く UI を作成できます。 接続型アニメーションは、アプリに動きを加える Fluent Design System コンポーネントです。 詳細については、「 [Fluent Design の概要](/windows/apps/fluent-design-system)」を参照してください。
 
 ## <a name="why-connected-animation"></a>接続型アニメーションを使用する理由
 
@@ -100,9 +100,9 @@ Windows 10 バージョン1809以降では、接続されたアニメーショ�
 
 | 構成 | DefaultDuration に従いますか。 | DefaultEasingFunction を尊重しますか。 |
 | - | - | - |
-| 重力 | 〇 | ○* <br/> *A から B への基本的な変換では、このイージング関数が使用されますが、"重力 dip" には独自のイージング関数があります。* *  |
-| [直接] | X <br/> *150ミリ秒を超えてアニメーション化します。*| X <br/> *減速イージング関数を使用します。* |
-| 基本 | 〇 | 〇 |
+| 重力 | はい | はい* <br/> **A から B への基本的な変換では、このイージング関数を使用しますが、"重力 dip" には独自のイージング関数があります。*  |
+| 直接 | いいえ <br/> *150ミリ秒を超えてアニメーション化します。*| いいえ <br/> *減速イージング関数を使用します。* |
+| 基本 | はい | はい |
 
 ## <a name="how-to-implement-connected-animation"></a>接続されたアニメーションを実装する方法
 
@@ -242,7 +242,7 @@ protected override void OnNavigatedTo(NavigationEventArgs e)
 
 ## <a name="connected-animation-in-list-and-grid-experiences"></a>リスト エクスペリエンスとグリッド エクスペリエンスでの接続型アニメーション
 
-多くの場合、リスト コントロールやグリッド コントロール間の切り替えで接続型アニメーションの作成が必要になります。 [ListView](/uwp/api/windows.ui.xaml.controls.listview)と[GridView](/uwp/api/windows.ui.xaml.controls.gridview)の2つのメソッドを使用し[て、この](/uwp/api/windows.ui.xaml.controls.listviewbase.prepareconnectedanimation)プロセス[](/uwp/api/windows.ui.xaml.controls.listviewbase.trystartconnectedanimationasync)を簡略化することができます。
+多くの場合、リスト コントロールやグリッド コントロール間の切り替えで接続型アニメーションの作成が必要になります。 [ListView](/uwp/api/windows.ui.xaml.controls.listview)と[GridView](/uwp/api/windows.ui.xaml.controls.gridview)の2つのメソッドを使用し[て、この](/uwp/api/windows.ui.xaml.controls.listviewbase.prepareconnectedanimation)プロセス[TryStartConnectedAnimationAsync](/uwp/api/windows.ui.xaml.controls.listviewbase.trystartconnectedanimationasync)を簡略化することができます。
 
 たとえば、データ テンプレート内に "PortraitEllipse" という名前の要素を含んでいる **ListView** があるとします。
 
@@ -268,7 +268,7 @@ void PrepareAnimationWithItem(ContactsItem item)
 }
 ```
 
-詳細ビューから戻るときなど、この要素を変換先として使用するアニメーションを開始するには、 [Trystartconnectedanimation async](/uwp/api/windows.ui.xaml.controls.listviewbase.trystartconnectedanimationasync)を使用します。 ListView のデータソースを読み込んだ場合、Trystartconnectedanimation Async は、対応する項目コンテナーが作成されるまでアニメーションの開始を待機します。
+詳細ビューから戻るときなど、この要素を変換先として使用するアニメーションを開始するには、 [Trystartconnectedanimation async](/uwp/api/windows.ui.xaml.controls.listviewbase.trystartconnectedanimationasync)を使用します。 ListView のデータ ソースが読み込まれると、TryStartConnectedAnimationAsync は、対応する項目コンテナーが作成されるまで、アニメーションが開始されるのを待機します。
 
 ```csharp
 private void ContactsListView_Loaded(object sender, RoutedEventArgs e)

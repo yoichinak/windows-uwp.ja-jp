@@ -8,12 +8,12 @@ ms.date: 11/20/2017
 ms.topic: article
 keywords: windows 10, uwp, トースト通知, 対話型トースト, アダプティブ トースト, トーストのコンテンツ, トースト ペイロード
 ms.localizationpriority: medium
-ms.openlocfilehash: 5b424da3b9413c7528cb6f6a6a888e9fe2cc7cb7
-ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
+ms.openlocfilehash: bda62b76973adb7b6cfe068cdd9ca33b1a54454c
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79209858"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970927"
 ---
 # <a name="toast-content"></a>トーストのコンテンツ
 
@@ -22,14 +22,14 @@ ms.locfileid: "79209858"
 > **重要な API**: [UWP Community Toolkit Notifications NuGet パッケージ](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/)
 
 > [!NOTE]
-> Windows 8.1 と Windows Phone 8.1 のレガシテンプレートを表示するには、[従来のトーストテンプレートカタログ](https://docs.microsoft.com/previous-versions/windows/apps/hh761494(v=win.10))を参照してください。
+> Windows 8.1 や Windows Phone 8.1 の従来のテンプレートについては、「[トースト テンプレート カタログ (Windows ランタイム アプリ)](https://docs.microsoft.com/previous-versions/windows/apps/hh761494(v=win.10))」をご覧ください。
 
 
-## <a name="getting-started"></a>概要
+## <a name="getting-started"></a>作業の開始
 
-**通知ライブラリをインストールします。** XML の代わりに C# を使って通知を生成する場合は、[Microsoft.Toolkit.Uwp.Notifications](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/) という名前の NuGet パッケージをインストールします (「notifications uwp」を検索してください)。 この記事で示している C# のサンプルでは、NuGet パッケージの Version 1.0.0 を使っています。
+**Notifications ライブラリをインストールします。** XML の代わりに C# を使って通知を生成する場合は、[Microsoft.Toolkit.Uwp.Notifications](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/) という名前の NuGet パッケージをインストールします (「notifications uwp」を検索してください)。 この記事で示している C# のサンプルでは、NuGet パッケージの Version 1.0.0 を使っています。
 
-**通知ビジュアライザーをインストールします。** この無料の UWP アプリは、Visual Studio の XAML エディター/デザイン ビューと同様、トーストの編集時に視覚的なプレビューが即座に表示されるため、対話型トースト通知のデザインに便利です。 詳しくは、「[Notifications Visualizer](notifications-visualizer.md)」をご覧になるか、[Notifications Visualizer を Microsoft Store からダウンロード](https://www.microsoft.com/store/apps/notifications-visualizer/9nblggh5xsl1)してください。
+**Notifications Visualizer をインストールします。** この無料の Windows アプリは、Visual Studio の [XAML エディター]/[デザイン] ビューと同様に、編集するときにトーストの瞬時プレビューを提供することで、対話型トースト通知をデザインするのに役立ちます。 詳しくは、「[Notifications Visualizer](notifications-visualizer.md)」をご覧になるか、[Notifications Visualizer を Microsoft Store からダウンロード](https://www.microsoft.com/store/apps/notifications-visualizer/9nblggh5xsl1)してください。
 
 
 ## <a name="sending-a-toast-notification"></a>トースト通知の送信
@@ -88,7 +88,7 @@ ToastContent content = new ToastContent()
 ![トースト通知の構造体](images/adaptivetoasts-structure.jpg)
 
 
-## <a name="visual"></a>Visual
+## <a name="visual"></a>ビジュアル
 
 各トーストでは visual を指定し、その中に汎用トースト バインディングを設定する必要があります。この汎用トースト バインディングには、テキストや画像などを含めることができます。 これらの要素は、デスクトップ、電話、タブレット、Xbox など、さまざまな Windows デバイスでレンダリングされます。
 
@@ -103,7 +103,7 @@ visual セクションとその子要素でサポートされているすべて�
 
 ## <a name="text-elements"></a>テキスト要素
 
-各トーストには少なくとも 1 つのテキスト要素が必須であり、それ以外に 2 つのテキスト要素 (いずれも [**AdaptiveText**](toast-schema.md#adaptivetext) 型) を追加することができます。
+各トーストには少なくとも1つの text 要素が必要です。また、 [**AdaptiveText**](toast-schema.md#adaptivetext)型のテキスト要素を2つ含めることができます。
 
 <img alt="Toast with title and description" src="images/toast-title-and-description.jpg" width="364"/>
 
@@ -148,7 +148,7 @@ new ToastBindingGeneric()
 
 <img alt="Toast with app logo override" src="images/toast-applogooverride.jpg" width="364"/>
 
-**HintCrop** プロパティを使って、画像のトリミングを変更できます。 たとえば、**Circle** を使うと、画像が丸くトリミングされます。 その他の場合、画像は正方形です。 画像サイズは 100% のスケーリングで 48x48 ピクセルです。
+**HintCrop** プロパティを使って、画像のトリミングを変更できます。 たとえば、**円**は円でトリミングされたイメージになります。 その他の場合、画像は正方形です。 画像サイズは 100% のスケーリングで 48x48 ピクセルです。
 
 ```csharp
 new ToastBindingGeneric()
@@ -323,7 +323,7 @@ ToastContent toastContent = new ToastContent()
 
 ### <a name="columns-and-text-elements"></a>列とテキスト要素
 
-列といくつかの詳細なアダプティブ テキスト要素が使われている例を次に示します。 テキスト要素は **AdaptiveGroup** 内にあるため、すべてのリッチ アダプティブ スタイル指定プロパティをサポートします。
+列といくつかの詳細なアダプティブ テキスト要素が使われている例を次に示します。 テキスト要素は**AdaptiveGroup**内にあるため、すべてのリッチアダプティブスタイルプロパティをサポートしています。
 
 <img alt="Toast with additional text" src="images/toast-additionaltext.jpg" width="364"/>
 
@@ -794,7 +794,7 @@ ToastContent content = new ToastContent()
 
 システムの再通知操作と無視操作を使うには、次の手順を実行します。
 
--   **ToastButtonSnooze** または **ToastButtonDismiss** を指定する
+-   **Toastbuttonsnooze 通知**または**toastbuttonbuttonを**指定します
 -   必要に応じてカスタムのコンテンツ文字列を指定する
     -   文字列を指定しない場合、"Snooze" と "Dismiss" のローカライズされた文字列が自動的に使われます。
 -   必要に応じて **SelectionBoxId** を指定する
@@ -879,6 +879,6 @@ ToastContent content = new ToastContent()
  
 ## <a name="related-topics"></a>関連トピック
 
-* [ローカルトーストを送信し、アクティブ化を処理する](send-local-toast.md)
-* [GitHub の通知ライブラリ (UWP Community Toolkit の一部)](https://github.com/windows-toolkit/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.Notifications)
-* [言語、スケール、およびハイコントラストに対するタイルとトースト通知のサポート](tile-toast-language-scale-contrast.md)
+* [ローカル トースト通知の送信](send-local-toast.md)
+* [GitHub の通知ライブラリ (UWP コミュニティ ツールキットの一部)](https://github.com/windows-toolkit/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.Notifications)
+* [言語、スケール、ハイ コントラストに合わせたタイルとトースト通知のサポート](tile-toast-language-scale-contrast.md)

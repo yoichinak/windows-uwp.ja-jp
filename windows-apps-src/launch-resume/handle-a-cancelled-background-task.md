@@ -10,12 +10,12 @@ dev_langs:
 - csharp
 - cppwinrt
 - cpp
-ms.openlocfilehash: c59982c174909a3fb8ab0b21d5dd792969cfeebc
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: d2b6ba88587f4f536d4fe6fc2750a520166fde18
+ms.sourcegitcommit: 2571af6bf781a464a4beb5f1aca84ae7c850f8f9
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74259473"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82606351"
 ---
 # <a name="handle-a-cancelled-background-task"></a>取り消されたバックグラウンド タスクの処理
 
@@ -23,7 +23,7 @@ ms.locfileid: "74259473"
 
 -   [**BackgroundTaskCanceledEventHandler**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundtaskcanceledeventhandler)
 -   [**IBackgroundTaskInstance**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.IBackgroundTaskInstance)
--   [**ApplicationData. Current**](https://docs.microsoft.com/uwp/api/windows.storage.applicationdata.current)
+-   [**ApplicationData.Current**](https://docs.microsoft.com/uwp/api/windows.storage.applicationdata.current)
 
 取り消し要求を認識し、作業を停止して、固定ストレージを使っているアプリに取り消しを報告するバックグラウンド タスクの作成方法について説明します。
 
@@ -38,7 +38,7 @@ ms.locfileid: "74259473"
 > [!NOTE]
 > デスクトップ以外のすべてのデバイス ファミリでは、デバイスのメモリが少なくなった場合、バックグラウンド タスクが終了することがあります。 メモリ不足の例外が表示されない場合、またはアプリがそれを処理しない場合、バックグラウンドタスクは警告なしで終了し、OnCanceled イベントは発生しません。 こうすることで、フォアグラウンドのアプリのユーザー エクスペリエンスが保証されます。 バックグラウンド タスクは、このシナリオを処理できるように設計する必要があります。
 
-次のように **OnCanceled** という名前のメソッドを作成します。 このメソッドは、バックグラウンド タスクに対して取り消し要求が出されると、Windows ランタイムによって呼び出されるエントリ ポイントです。
+次のように、 **Oncanceled**という名前のメソッドを作成します。 このメソッドは、バックグラウンド タスクに対して取り消し要求が出されると、Windows ランタイムによって呼び出されるエントリ ポイントです。
 
 ```csharp
 private void OnCanceled(
@@ -67,7 +67,7 @@ void ExampleBackgroundTask::OnCanceled(
 }
 ```
 
-**\_CancelRequested**というフラグ変数をバックグラウンドタスククラスに追加します。 この変数は、いつ取り消し要求が出されたかを示すために使います。
+** \_Cancelrequested**というフラグ変数を background task クラスに追加します。 この変数は、いつ取り消し要求が出されたかを示すために使います。
 
 ```csharp
 volatile bool _CancelRequested = false;
@@ -83,9 +83,9 @@ private:
     volatile bool CancelRequested;
 ```
 
-手順 1. で作成した**Oncanceled**メソッドで、フラグ変数 **\_cancelrequested**を**true**に設定します。
+手順 1. で作成した**oncanceled**メソッドで、flag 変数** \_cancelrequested**を**true**に設定します。
 
-フル[バックグラウンドタスクのサンプル]( https://go.microsoft.com/fwlink/p/?linkid=227509) **oncanceled**メソッドは **\_cancelrequested**を**true**に設定し、役に立つ可能性のあるデバッグ出力を書き込みます。
+フル[バックグラウンドタスクのサンプル]( https://code.msdn.microsoft.com/windowsapps/Background-Task-Sample-9209ade9) **oncanceled**メソッドは、 ** \_cancelrequested**を**true**に設定し、役に立つ可能性のあるデバッグ出力を書き込みます。
 
 ```csharp
 private void OnCanceled(IBackgroundTaskInstance sender, BackgroundTaskCancellationReason reason)
@@ -131,9 +131,9 @@ taskInstance->Canceled += ref new BackgroundTaskCanceledEventHandler(this, &Exam
 
 ## <a name="handle-cancellation-by-exiting-your-background-task"></a>バックグラウンド タスクを終了することによって、取り消しを処理します。
 
-キャンセル要求を受信すると、バックグラウンド作業を行うメソッドは、 **\_cancelrequested**が**true**に設定されていることを認識することで、作業を停止して終了する必要があります。 インプロセスバックグラウンドタスクの場合、これは**Onbackgroundactivated 化**されたメソッドからを返すことを意味します。 アウトプロセスのバックグラウンドタスクの場合、これは**Run**メソッドからを返すことを意味します。
+キャンセル要求を受信すると、バックグラウンド作業を行うメソッドは、 ** \_cancelrequested**が**true**に設定されていることを認識することで、作業を停止して終了する必要があります。 インプロセスバックグラウンドタスクの場合、これは**Onbackgroundactivated 化**されたメソッドからを返すことを意味します。 アウトプロセスのバックグラウンドタスクの場合、これは**Run**メソッドからを返すことを意味します。
 
-バックグラウンド タスク クラスの処理中にフラグ変数を確認するようにコードを変更します。 CancelRequested が true に設定**され**ている場合は、作業を続行しません。\_
+バックグラウンド タスク クラスの処理中にフラグ変数を確認するようにコードを変更します。 Cancelrequested が true に設定** \_され**ている場合は、作業を停止します。
 
 [バックグラウンドタスクのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/BackgroundTask)には、バックグラウンドタスクが取り消された場合に定期的なタイマーコールバックを停止するチェックが含まれています。
 
@@ -253,7 +253,7 @@ else
 }
 ```
 
-## <a name="remarks"></a>注釈
+## <a name="remarks"></a>Remarks
 
 [バックグラウンド タスクのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/BackgroundTask)をダウンロードして、メソッドのコンテキストに従ってコード例を確認できます。
 
@@ -402,7 +402,7 @@ void ExampleBackgroundTask::Run(IBackgroundTaskInstance^ taskInstance)
 
 ## <a name="related-topics"></a>関連トピック
 
-- [インプロセス バックグラウンド タスクの作成と登録](create-and-register-an-inproc-background-task.md)
+- [インプロセスバックグラウンドタスクを作成して登録](create-and-register-an-inproc-background-task.md)します。
 - [アウトプロセス バックグラウンド タスクの作成と登録](create-and-register-a-background-task.md)
 - [アプリケーション マニフェストでのバックグラウンド タスクの宣言](declare-background-tasks-in-the-application-manifest.md)
 - [バックグラウンド タスクのガイドライン](guidelines-for-background-tasks.md)
@@ -414,4 +414,4 @@ void ExampleBackgroundTask::Run(IBackgroundTaskInstance^ taskInstance)
 - [バックグラウンド タスクのライブ タイルの更新](update-a-live-tile-from-a-background-task.md)
 - [メンテナンス トリガーの使用](use-a-maintenance-trigger.md)
 - [バックグラウンド タスクのデバッグ](debug-a-background-task.md)
-- [UWP アプリで中断イベント、再開イベント、およびバックグラウンドイベントをトリガーする方法 (デバッグ時)](https://msdn.microsoft.com/library/windows/apps/hh974425(v=vs.110).aspx)
+- [UWP アプリで一時停止イベント、再開イベント、バックグラウンド イベントをトリガーする方法 (デバッグ時)](https://msdn.microsoft.com/library/windows/apps/hh974425(v=vs.110).aspx)

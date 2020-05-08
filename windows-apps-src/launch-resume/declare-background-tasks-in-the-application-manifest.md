@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10、uwp、バックグラウンドタスク
 ms.localizationpriority: medium
-ms.openlocfilehash: 53fb8c0b213705a5a79680356bb4f1773594dcdc
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: 32472f698381f4b109f280f0b964f00cdbcec66a
+ms.sourcegitcommit: 2571af6bf781a464a4beb5f1aca84ae7c850f8f9
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74260484"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82606201"
 ---
 # <a name="declare-background-tasks-in-the-application-manifest"></a>アプリケーション マニフェストでのバックグラウンド タスクの宣言
 
@@ -90,7 +90,7 @@ ms.locfileid: "74260484"
 
 2.  Task Type 属性のリストを、このバックグラウンド タスクで使われるタスク登録の種類を示すように変更します。 バックグラウンド タスクを複数の種類のトリガーで登録する場合は、必要な Task 要素と Type 属性を個々に追加します。
 
-    **メモ**  使用している各トリガーの種類が一覧表示されていること、またはバックグラウンドタスクが宣言されていないトリガーの型に登録されていないことを確認してください ( [**register**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundtaskbuilder.register)メソッドは失敗し、例外をスローします)。
+    **注:**  使用している各トリガーの種類を一覧表示するか、バックグラウンドタスクが宣言されていないトリガーの型に登録しないようにしてください ( [**register**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundtaskbuilder.register)メソッドは失敗し、例外がスローされます)。
 
     次の抜粋例は、システム イベント トリガーとプッシュ通知の使用法を示します。
 
@@ -107,7 +107,7 @@ ms.locfileid: "74260484"
 
 アプリで登録する追加のバックグラウンド タスク クラスごとに、手順 2. を繰り返します。
 
-次に、[バックグラウンド タスク サンプル]( https://go.microsoft.com/fwlink/p/?linkid=227509)の完全な Application 要素の例を示します。 これは、計 3 種類のトリガーで 2 つのバックグラウンド タスク クラスを使う例を示します。 この例の Extensions セクションをコピーし、必要に応じて変更して、アプリケーション マニフェストでバックグラウンド タスクを宣言します。
+次に、[バックグラウンド タスク サンプル]( https://code.msdn.microsoft.com/windowsapps/Background-Task-Sample-9209ade9)の完全な Application 要素の例を示します。 これは、計 3 種類のトリガーで 2 つのバックグラウンド タスク クラスを使う例を示します。 この例の Extensions セクションをコピーし、必要に応じて変更して、アプリケーション マニフェストでバックグラウンド タスクを宣言します。
 
 ```xml
 <Applications>
@@ -213,7 +213,7 @@ BackgroundTaskHost.exe プロセスで実行されるが、同じアプリのバ
 
 ```xml
 <Package
-    xmlns:uap4="http://schemas.microsoft.com/appx/manifest/uap/windows10/4"
+    xmlns:uap4="https://schemas.microsoft.com/appx/manifest/uap/windows10/4"
     ...
     <Applications>
         <Application ...>
@@ -230,7 +230,7 @@ BackgroundTaskHost.exe プロセスで実行されるが、同じアプリのバ
 ```
 
 > [!NOTE]
-> `ResourceGroup` と共に `ServerName` または `SupportsMultipleInstances` を指定することはできません。
+> `SupportsMultipleInstances` と共に `ResourceGroup` または `ServerName` を指定することはできません。
 
 ## <a name="related-topics"></a>関連トピック
 

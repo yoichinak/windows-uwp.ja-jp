@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: a76b451a3d268e418ae24998afdd29d32bb43ed6
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: 538fbc33d161f5f91033427af76438f49d3d3b68
+ms.sourcegitcommit: 28bd367ab8acc64d4b6f3f73adca12100cbd359f
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74260137"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148582"
 ---
 # <a name="selecting-an-approach-to-ios-and-uwp-app-development"></a>iOS と UWP のアプリ開発方法の選択
 
@@ -54,7 +54,7 @@ Windows と iOS はまったく違うものに見えるかもしれませんが�
 
     主要なビジネス ロジックが、Objective-C や Swift ではなく C++ で作成されている場合、そのコードを少し変更するだけでプロジェクトで使用できます。 そして、他の Windows でアプリと同様に、XAML を使って UI を定義し、必要に応じて C++ コードを呼び出すことができます。
 
--   [角度を使用して Windows で OpenGL ES を実行する](https://github.com/microsoft/angle/wiki)
+-   [ANGLE を使った Windows での OpenGL ES の実行](https://github.com/microsoft/angle/wiki)
 
     OpenGL ES 2.0 プロジェクトを移植する中間の手順で ANGLE を使います。 ANGLE では、OpenGL ES API 呼び出しを DirectX 11 API 呼び出しに変換することにより、Windows で OpenGL ES コンテンツを実行することができます。
 
@@ -64,11 +64,11 @@ Windows と iOS はまったく違うものに見えるかもしれませんが�
 
     ゲーム作成環境。
 
--   [コンストラクト2]( https://go.microsoft.com/fwlink/p/?LinkID=320481)
+-   [Construct 2]( https://www.scirra.com/)
 
     ゲーム作成環境。
 
--   [チタン製 Studio](https://www.appcelerator.com/platform/titanium-studio/)
+-   [Titanium Studio](https://www.appcelerator.com/platform/titanium-studio/)
 
     クロスプラットフォームの作成環境。
 
@@ -76,7 +76,7 @@ Windows と iOS はまったく違うものに見えるかもしれませんが�
 
     スプライト処理と物理モデリング用のクロスプラットフォームのコード ライブラリ。
 
--   [影響 (js)](https://impactjs.com/)
+-   [Impact.js](https://impactjs.com/)
 
     HTML ベースのゲーム ライブラリ。
 

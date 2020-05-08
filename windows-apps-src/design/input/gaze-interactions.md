@@ -1,6 +1,6 @@
 ---
 title: 視線の操作
-Description: UWP アプリを設計および最適化して、視線およびヘッドトラッカーからの入力を見つめているユーザーに最適なエクスペリエンスを提供する方法について説明します。
+Description: Windows アプリを設計および最適化して、視線とヘッドのトラッカーからの入力を見つめているユーザーに最適なエクスペリエンスを提供する方法について説明します。
 label: Gaze interactions
 template: detail.hbs
 keywords: 視線, 視線追跡, 頭の追跡, 視線ポイント, 入力, ユーザーの操作, アクセシビリティ, ユーザビリティ
@@ -11,14 +11,14 @@ dev-contact: Austin Hodges
 doc-status: Draft
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 6176bdce1a725c1024af9f4ecf0c37cabb0f5376
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.openlocfilehash: 4cfd84d54ecd1425b3b7e66c54c96fbd78c2dd46
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75684233"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970127"
 ---
-# <a name="gaze-interactions-and-eye-tracking-in-uwp-apps"></a>UWP アプリでの視線の操作と視線追跡
+# <a name="gaze-interactions-and-eye-tracking-in-windows-apps"></a>Windows アプリでの対話と視線の追跡
 
 ![視線追跡ヒーロー](images/gaze/eyecontrolbanner1.png)
 
@@ -31,22 +31,22 @@ ms.locfileid: "75684233"
 
 ## <a name="overview"></a>概要
 
-視線入力は、Windows および UWP アプリケーションを操作して使用するための強力な手段です。これは、ALS などの神経原性筋萎縮症や、筋肉や神経の機能障害を含むその他の障碍を持つユーザーの支援技術として特に役立ちます。
+Neuro を使用すると、Windows アプリケーションを操作して使用するための強力な手段となります。これは特に、muscular 病名 (ALS など) や、障害のある筋肉またはの機能を伴う他の障碍を持つユーザーのための補助技術として役に立ちます。
 
 さらに、視線入力は、ゲーム (ターゲット把握や追跡を含む) や従来の生産性向上アプリケーション、キオスクだけでなく、従来の入力デバイス (キーボード、マウス、タッチ) が使用できないか、ユーザーの両手を他のタスク (買い袋を持つなど) のために開放することが便利である可能性のあるその他の対話型シナリオで、同様に魅力的な機会をもたらします。
 
 > [!NOTE]
-> 視線追跡ハードウェアのサポートは、**Windows 10 Fall Creators Update** で[視線制御](https://support.microsoft.com/help/4043921/windows-10-get-started-eye-control)と共に導入されました。視線制御は、ユーザーが目を使用して画面上のポインターを制御し、スクリーン キーボードで入力し、音声合成を使用して人々とやり取りすることができる組み込み機能です。 視線追跡ハードウェアと対話できるアプリケーションを構築するための UWP Api ([windows... Preview](https://docs.microsoft.com/uwp/api/windows.devices.input.preview)) のセットは、 **Windows 10 April 2018 Update (バージョン1803、ビルド 17134)** 以降で使用できます。
+> 視線追跡ハードウェアのサポートは、**Windows 10 Fall Creators Update** で[視線制御](https://support.microsoft.com/help/4043921/windows-10-get-started-eye-control)と共に導入されました。視線制御は、ユーザーが目を使用して画面上のポインターを制御し、スクリーン キーボードで入力し、音声合成を使用して人々とやり取りすることができる組み込み機能です。 視線追跡ハードウェアと対話できるアプリケーションを構築するための一連の Windows ランタイム Api ([windows](https://docs.microsoft.com/uwp/api/windows.devices.input.preview)) は、 **Windows 10 April 2018 Update (バージョン1803、ビルド 17134)** 以降で使用できます。
 
-## <a name="privacy"></a>[プライバシー]
+## <a name="privacy"></a>プライバシー
 
-視線追跡デバイスで収集された機密性が高い可能性のある個人データのために、UWP アプリケーションのアプリ マニフェストで `gazeInput` 機能を宣言することが必要になります (次の「**セットアップ**」セクションを参照してください)。 宣言すると、アプリが最初に実行されたときに Windows によって自動的にユーザーに同意ダイアログ ボックスが表示されます。ここでは、ユーザーはアプリが視線追跡デバイスと通信して、このデータにアクセスできるようにアクセス許可を付与する必要があります。
+視線追跡デバイスによって収集された機密性の高い個人データにより、アプリケーション`gazeInput`のアプリマニフェストで機能を宣言する必要があります (次の**セットアップ**セクションを参照してください)。 宣言すると、アプリが最初に実行されたときに Windows によって自動的にユーザーに同意ダイアログ ボックスが表示されます。ここでは、ユーザーはアプリが視線追跡デバイスと通信して、このデータにアクセスできるようにアクセス許可を付与する必要があります。
 
 さらに、アプリが視線追跡データを収集、保存、転送する場合は、アプリのプライバシーに関する声明でこれを宣言し、[Microsoft Store ポリシー](https://docs.microsoft.com/legal/windows/agreements/store-policies)と[アプリ開発者契約](https://docs.microsoft.com/legal/windows/agreements/app-developer-agreement)の**個人情報**のその他すべての要件に従う必要があります。
 
-## <a name="setup"></a>[セットアップ]
+## <a name="setup"></a>セットアップ
 
-UWP アプリで視線入力 API を使用するには、次の作業を行う必要があります。 
+Windows アプリで宝石入力 Api を使用するには、次のことを行う必要があります。 
 
 - アプリ マニフェストで `gazeInput` 機能を指定します。
 
@@ -64,13 +64,13 @@ UWP アプリで視線入力 API を使用するには、次の作業を行う�
 
 ## <a name="basic-eye-tracking"></a>基本的な視線追跡
 
-この例では、UWP アプリケーション内でユーザーの視線を追跡し、基本的なヒット テストでタイミング関数を使用して、ユーザーが特定の要素で視線のフォーカスをどの程度維持できるかを示す方法を示します。
+この例では、Windows アプリ内でユーザーの宝石を追跡し、タイミング関数と基本的なヒットテストを使用して、特定の要素に対してどの程度のフォーカスを維持できるかを示す方法を示します。
 
 小さな楕円を使用して視線のポイントがアプリケーションのビューポート内のどこにあるかを示しますが、[Windows コミュニティ ツールキット](https://docs.microsoft.com/windows/communitytoolkit/)の [RadialProgressBar](https://docs.microsoft.com/windows/communitytoolkit/controls/radialprogressbar) はキャンバス上でランダムに配置されます。 進行状況バーで注視フォーカスが検出されると、タイマーが開始し、進行状況バーが 100% に達したときに、キャンバスで、進行状況バーがランダムに移動します。
 
 ![タイマーのサンプルを使用した視線追跡](images/gaze/gaze-input-timed2.gif)
 
-*タイマーサンプルを使用した宝石追跡*
+*タイマーのサンプルを使用した視線追跡*
 
 **このサンプルは、 [「宝石入力のサンプル (基本)](https://github.com/MicrosoftDocs/windows-topic-specific-samples/archive/uwp-gazeinput-basic.zip) 」からダウンロードしてください。**
 
@@ -499,9 +499,9 @@ UWP アプリで視線入力 API を使用するには、次の作業を行う�
     ```
 6. 最後に、このアプリの視線フォーカス タイマーを管理するために使用する方法を示します。
 
-    `DoesElementContainPoint` は、宝石ポインターが進行状況バーの上にあるかどうかを確認します。 超えている場合は、視線タイマーを開始し、それぞれの視線タイマー ティックで進行状況バーをインクリメントします。
+    `DoesElementContainPoint`見つめポインターがプログレスバーの上にあるかどうかを確認します。 超えている場合は、視線タイマーを開始し、それぞれの視線タイマー ティックで進行状況バーをインクリメントします。
 
-    `SetGazeTargetLocation` は進行状況バーの初期位置を設定し、進行状況バーが完了した場合は、進行状況バーをランダムな場所に移動します。
+    `SetGazeTargetLocation`進行状況バーの初期位置を設定します。進行状況バーが完了した場合は、進行状況バーがランダムな場所に移動します。
 
     ```csharp
     /// <summary>
@@ -596,12 +596,12 @@ UWP アプリで視線入力 API を使用するには、次の作業を行う�
     }
     ```
 
-## <a name="see-also"></a>「
+## <a name="see-also"></a>関連項目
 
-### <a name="resources"></a>参照情報
+### <a name="resources"></a>リソース
 
-- [Windows コミュニティツールキットの宝石ライブラリ](https://docs.microsoft.com/windows/communitytoolkit/gaze/gazeinteractionlibrary)
+- [Windows コミュニティ ツールキットの視線ライブラリ](https://docs.microsoft.com/windows/communitytoolkit/gaze/gazeinteractionlibrary)
 
 ### <a name="topic-samples"></a>トピックのサンプル
 
-- [見つめサンプル (basic) (C#)](https://github.com/MicrosoftDocs/windows-topic-specific-samples/archive/uwp-gazeinput-basic.zip)
+- [視線のサンプル (基本) (C#)](https://github.com/MicrosoftDocs/windows-topic-specific-samples/archive/uwp-gazeinput-basic.zip)

@@ -12,12 +12,12 @@ design-contact: conrwi
 dev-contact: stpete
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: ac195916e76ad7b3f03adc39a293422d0d58f7a4
-ms.sourcegitcommit: 8be8ed1ef4e496055193924cd8cea2038d2b1525
+ms.openlocfilehash: d659683d6871d9d48fd17b73c74477e7bd03e258
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80614084"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970497"
 ---
 # <a name="parallax"></a>視差
 
@@ -27,7 +27,7 @@ ms.locfileid: "80614084"
 >
 > **プラットフォーム api**: [ParallaxView クラス](/uwp/api/Windows.UI.Xaml.Controls.Parallaxview)、[垂直シフトプロパティ](/uwp/api/Windows.UI.Xaml.Controls.Parallaxview.VerticalShift)、[水平シフトプロパティ](/uwp/api/Windows.UI.Xaml.Controls.Parallaxview.HorizontalShift)
 
-## <a name="examples"></a>例
+## <a name="examples"></a>使用例
 
 <table>
 <th align="left">XAML コントロール ギャラリー<th>
@@ -45,7 +45,7 @@ ms.locfileid: "80614084"
 
 ## <a name="parallax-and-the-fluent-design-system"></a>視差と Fluent Design System
 
- Fluent Design System では、ライト、深度、モーション、マテリアル、スケールを取り入れた、モダンで目を引く UI を作成できます。 視差は、アプリにモーション、深度、スケールを追加する Fluent Design System コンポーネントです。 詳しくは、[UWP 用の Fluent Design の概要に関するページ](/windows/apps/fluent-design-system)をご覧ください。
+ Fluent Design System では、ライト、深度、モーション、マテリアル、スケールを取り入れた、モダンで目を引く UI を作成できます。 視差は、アプリにモーション、深度、スケールを追加する Fluent Design System コンポーネントです。 詳細については、「 [Fluent Design の概要](/windows/apps/fluent-design-system)」を参照してください。
 
 ## <a name="how-it-works-in-a-user-interface"></a>ユーザー インターフェイスでのしくみ
 
@@ -61,7 +61,7 @@ UI では、UI のスクロールやパンを行うときに、さまざまな�
 ParallaxView コントロールを使用するには、ソース要素と背景要素を用意し、[VerticalShift](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Parallaxview.VerticalShift) プロパティ (垂直スクロール用) や [HorizontalShift](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Parallaxview.HorizontalShift) プロパティ (水平スクロール用) を 0 より大きい値に設定します。 
 * Source プロパティは、前景要素への参照を受け取ります。 視差効果を発生させるには、前景が [ScrollViewer](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ScrollViewer) であるか、前景が ScrollViewer を含んでいる要素 ([ListView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listview) や [RichTextBox](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RichEditBox) など) であることがj必要です。 
 
-* 背景要素を設定するには、その要素を ParallaxView コントロールの子として追加します。 背景要素には、[Image](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement) など、どのような [UIElement](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Image) でも使用できます。また、追加の UI 要素を含んでいるパネルも使用できます。 
+* 背景要素を設定するには、その要素を ParallaxView コントロールの子として追加します。 背景要素には、[Image](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Image) など、どのような [UIElement](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement) でも使用できます。また、追加の UI 要素を含んでいるパネルも使用できます。 
 
 視差効果を作成するには、ParallaxView が背景要素を介して動作するようにする必要があります。 [Grid](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.grid) パネルや [Canvas](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.canvas) パネルを使用すると、項目を相互に重ねることができ、それらの項目は ParallaxView コントロールで適切に動作します。  
 
@@ -121,8 +121,8 @@ VerticalShift プロパティと HorizontalShift プロパティでは、視差�
 - ListViewItems に画像が含まれている場合は、ListViewItems で視差を使用することを検討してください
 - どこでも使用しないで、使いすぎてその影響を軽減することができます。
 
-## <a name="related-articles"></a>関連トピック
+## <a name="related-articles"></a>関連記事
 
 - [ParallaxView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Parallaxview) 
 - [UWP 用 Fluent Design](/windows/apps/fluent-design-system)
-- [システムのサイエンス: Fluent 設計と深さ](https://medium.com/microsoft-design/science-in-the-system-fluent-design-and-depth-fb6d0f23a53f)
+- [システムの科学: Fluent Design と奥行き](https://medium.com/microsoft-design/science-in-the-system-fluent-design-and-depth-fb6d0f23a53f)

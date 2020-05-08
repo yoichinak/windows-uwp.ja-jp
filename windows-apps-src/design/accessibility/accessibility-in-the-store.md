@@ -1,5 +1,5 @@
 ---
-Description: ユニバーサル Windows プラットフォーム (UWP) アプリがアクセシビリティ対応であると Microsoft Store で宣言するための要件について説明します。
+Description: Microsoft Store で Windows アプリをアクセス可能として宣言するための要件について説明します。
 ms.assetid: 59FA3B87-75A6-4B30-BA7C-A0E769D68050
 title: ストア内のアクセシビリティ
 label: Accessibility in the Store
@@ -8,18 +8,18 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 8f00bb9449d9e48518d16e08fa6b6665eecd2f85
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: ad128aca1a633c5ce33830b5ee9231f7a794a60c
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66359742"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82969677"
 ---
 # <a name="accessibility-in-the-store"></a>ストア内のアクセシビリティ  
 
 
 
-ユニバーサル Windows プラットフォーム (UWP) アプリがアクセシビリティ対応であると Microsoft Store で宣言するための要件について説明します。
+Microsoft Store で Windows アプリをアクセス可能として宣言するための要件について説明します。
 
 Microsoft Store で認定を受けるためにアプリを提出している間に、アプリがアクセシビリティ対応であることを宣言することができます。 アクセシビリティ対応アプリであることを宣言すると、視覚に障碍があるユーザーのように、アクセシビリティ対応アプリに興味を持っているユーザーが簡単にそのアプリを見つけられるようになります。 ユーザーは、Microsoft Store での検索時に**アクセシビリティ対応**のフィルターを使うことで、アクセシビリティ対応アプリを見つけます。 また、アクセシビリティ対応アプリであることを宣言すると、アプリの説明に**アクセシビリティ対応**のタグが追加されます。
 
@@ -40,7 +40,7 @@ Microsoft Store で認定を受けるためにアプリを提出している間�
     * キーボード ショートカットを使ってアプリの主な機能を利用する。
     * キーボードがないデバイスで、タブと矢印を同等に扱うためにナレーターのタッチ ジェスチャを使う。
 * アプリの UI が視覚上のアクセシビリティに対応している。最低でも 4.5:1 のテキスト コントラスト比がある、情報を伝えるときに色だけに依存していない、など。
-* [  **Inspect**](https://docs.microsoft.com/windows/desktop/WinAuto/inspect-objects)、[**UIAVerify**](https://docs.microsoft.com/windows/desktop/WinAuto/ui-automation-verify) などのアクセシビリティ テスト ツールを使ってアクセシビリティの実装が検証されていて、このようなツールで報告される優先度 1 のエラーをすべて解決している。
+* [**Inspect**](https://docs.microsoft.com/windows/desktop/WinAuto/inspect-objects)、[**UIAVerify**](https://docs.microsoft.com/windows/desktop/WinAuto/ui-automation-verify) などのアクセシビリティ テスト ツールを使ってアクセシビリティの実装が検証されていて、このようなツールで報告される優先度 1 のエラーをすべて解決している。
 * ナレーター、拡大鏡、スクリーン キーボード、ハイ コントラスト テーマ、調整された DPI 設定を使って、エンド ツー エンドでアプリの主なシナリオを検証している。
 
 これらの手順と、その実行に役立つリソースへのリンクを確認する場合は、「[アクセシビリティのチェック リスト](accessibility-checklist.md)」をご覧ください。

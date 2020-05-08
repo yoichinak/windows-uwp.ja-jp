@@ -6,28 +6,26 @@ ms.date: 10/23/2017
 ms.topic: article
 keywords: Windows 10, UWP, リソース, 画像, アセット, MRT, 修飾子
 ms.localizationpriority: medium
-ms.openlocfilehash: c6674fc38d41e3a18709dcb81edc95d164f9f86c
-ms.sourcegitcommit: 46890e7f3c1287648631c5e318795f377764dbd9
+ms.openlocfilehash: c23eced05d7539c869a40db1f2b641282b75f503
+ms.sourcegitcommit: 963316e065cf36c17b6360c3f89fba93a1a94827
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58320595"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82868898"
 ---
 # <a name="compile-resources-manually-with-makepriexe"></a>MakePri.exe を使用して手動でリソースをコンパイルする
 
 MakePri.exe は、PRI ファイルを作成およびダンプするために使用できるコマンド ライン ツールです。 このツールは、Microsoft Visual Studio の MSBuild の一部として統合されていますが、パッケージを手動で作成したり、カスタム ビルド システムを使って作成する場合にも使うことができます。
 
 > [!NOTE]
-> チェックするときに MakePri.exe がインストールされている、**管理されているアプリの UWP 用 Windows SDK** Windows ソフトウェア開発キットのインストール中にオプション。 パスにインストールされて`%WindowsSdkDir%bin\<WindowsTargetPlatformVersion>\x64\makepri.exe`(およびその他のアーキテクチャのという名前のフォルダーの)。 たとえば、`C:\Program Files (x86)\Windows Kits\10\bin\10.0.17713.0\x64\makepri.exe` と記述します。
-
-PRI ファイルのサイズ制限は、64 キロバイトです。
+> Windows ソフトウェア開発キットのインストール時に [ **UWP 管理対象アプリの Windows SDK** ] オプションをオンにすると、makepri がインストールされます。 パス`%WindowsSdkDir%bin\<WindowsTargetPlatformVersion>\x64\makepri.exe` (および他のアーキテクチャ用に指定されたフォルダー) にインストールされます。 たとえば、`C:\Program Files (x86)\Windows Kits\10\bin\10.0.17713.0\x64\makepri.exe` のようにします。
 
 ## <a name="in-this-section"></a>このセクションの内容
 |トピック|説明|
 |-|-|
 | [MakePri.exe のコマンド ライン オプション](makepri-exe-command-options.md) | MakePri.exe には、`createconfig`、`dump`、`new`、`resourcepack`、`versioned` コマンドのセットが含まれます。 このトピックでは、コマンド ライン オプションの使用について説明します。 |
 | [MakePri.exe 構成ファイル](makepri-exe-configuration.md) | ここでは、MakePri.exe XML 構成ファイルのスキーマについて説明します。 |
-| [MakePri.exe 形式に固有のインデクサー](makepri-exe-format-specific-indexers.md) | このトピックでは、リソースのインデックスを生成するために MakePri.exe ツールによって使われる形式に固有のインデクサーについて説明します。 |
+| [MakePri.exe の形式に固有のインデクサー](makepri-exe-format-specific-indexers.md) | このトピックでは、リソースのインデックスを生成するために MakePri.exe ツールによって使われる形式に固有のインデクサーについて説明します。 |
 
 ## <a name="makepriexe-command-line-options"></a>MakePri.exe のコマンド ライン オプション
 
@@ -43,13 +41,13 @@ MakePri.exe は、通常、`new`、`versioned`、`resourcepack` オプション�
 
 ## <a name="makepriexe-warnings-and-error-messages"></a>MakePri.exe の警告およびエラー メッセージ
 
-### <a name="resources-found-for-languages-languages-but-no-resources-found-for-default-languages-languages-change-the-default-language-or-qualify-resources-with-the-default-language"></a>既定の言語のリソースの言語 '< 言語 >' が見つかりませんでしたが、リソースが見つかりません: '< 言語 >'。 既定の言語を変更するか、既定の言語でのリソースを限定します。
+### <a name="resources-found-for-languages-languages-but-no-resources-found-for-default-languages-languages-change-the-default-language-or-qualify-resources-with-the-default-language"></a>言語 ' <言語 ' > ' のリソースが見つかりましたが、既定の言語: ' <言語 > ' のリソースが見つかりませんでした。 既定の言語を変更するか、既定の言語でリソースを修飾します。
 
-MakePri.exe または MSBuild ファイルなど、言語修飾子でマークされる表示される特定の名前付きリソースの文字列リソースを検出した場合、この警告が表示されますが、既定の言語の候補が検出されません。 ファイルやフォルダーの名前に修飾子を使用するプロセスについては、「[言語、スケール、その他の修飾子用にリソースを調整する](tailor-resources-lang-scale-contrast.md)」をご覧ください。 ファイルやフォルダーの名前に言語名を含めることはできますが、リソースはその明示された既定の言語に対して修飾されているとは見なされません。 たとえば、プロジェクトで使う既定の言語が "en-US" で、"de/logo.png" という名前のファイルがプロジェクトにある場合に、既定の言語の "en-US" でマークされたファイルがないと、この警告が出力されます。 この警告が出力されないようにするには、ファイルまたは文字列リソースを既定の言語で修飾するか、または既定の言語を変更する必要があります。 既定の言語を変更するには、Visual Studio でソリューションを開いた状態で、`Package.appxmanifest` を開きます。 [アプリケーション] タブで、既定の言語が適切に設定されている ("en"や "en-us" など) ことを確認します。
+この警告は、指定された名前付きリソースに対して、language 修飾子でマークされているように見えても、既定の言語の候補が見つからない場合に、ファイルまたは文字列リソースを検出すると表示されます。 ファイルやフォルダーの名前に修飾子を使用するプロセスについては、「[言語、スケール、その他の修飾子用にリソースを調整する](tailor-resources-lang-scale-contrast.md)」をご覧ください。 ファイルやフォルダーの名前に言語名を含めることはできますが、リソースはその明示された既定の言語に対して修飾されているとは見なされません。 たとえば、プロジェクトで使う既定の言語が "en-US" で、"de/logo.png" という名前のファイルがプロジェクトにある場合に、既定の言語の "en-US" でマークされたファイルがないと、この警告が出力されます。 この警告が出力されないようにするには、ファイルまたは文字列リソースを既定の言語で修飾するか、または既定の言語を変更する必要があります。 既定の言語を変更するには、Visual Studio でソリューションを開いた状態で、`Package.appxmanifest` を開きます。 [アプリケーション] タブで、既定の言語が適切に設定されている ("en"や "en-us" など) ことを確認します。
 
-### <a name="no-default-or-neutral-resource-given-for-resource-identifier-the-application-may-throw-an-exception-for-certain-user-configurations-when-retrieving-the-resources"></a>ない既定のインスタンスまたはニュートラル リソースが指定された '<resource identifier>'。 アプリケーション例外がスローされる特定のユーザーの構成、リソースを取得するときにします。
+### <a name="no-default-or-neutral-resource-given-for-resource-identifier-the-application-may-throw-an-exception-for-certain-user-configurations-when-retrieving-the-resources"></a>'<resource identifier>' に既定のリソースまたはニュートラルリソースが指定されていません。 アプリケーションは、リソースを取得するときに、特定のユーザー構成に対して例外をスローすることがあります。
 
-MakePri.exe または MSBuild ファイルなどのリソースはクリアいません言語修飾子でマークされる表示されるリソースを検出した場合、この警告が表示されます。 修飾子はありますが、実行時にそのリソース識別子に対して特定のリソース候補を返すことができるという保証がありません。 特定の言語、住んでいる地域、またはその他の修飾子のリソース候補について、既定値であるかまたはユーザーのコンテキストに常に一致することが検出されない場合、この警告が表示されます。 実行時、ユーザーの言語設定や住んでいる地域などの特定のユーザー構成に関して (**[設定]** > **[時刻と言語]** > **[地域と言語]**)、リソースを取得するために使われた API が予期しない例外をスローすることがあります。 この警告が出力されないようにするには、既定のリソースを用意する必要があります。たとえば、プロジェクトの既定の言語やグローバルな住んでいる地域 (homeregion-001) のリソースを用意します。
+この警告は、リソースが不明確な言語修飾子でマークされているように見えるファイルまたはリソースを検出すると、表示されます。 修飾子はありますが、実行時にそのリソース識別子に対して特定のリソース候補を返すことができるという保証がありません。 特定の言語、住んでいる地域、またはその他の修飾子のリソース候補について、既定値であるかまたはユーザーのコンテキストに常に一致することが検出されない場合、この警告が表示されます。 実行時に、ユーザーの言語設定やホームの場所 (**設定** > **時間 & 言語** > **領域 & 言語**) などの特定のユーザー構成については、リソースの取得に使用される api が予期しない例外をスローすることがあります。 この警告が出力されないようにするには、既定のリソースを用意する必要があります。たとえば、プロジェクトの既定の言語やグローバルな住んでいる地域 (homeregion-001) のリソースを用意します。
 
 ## <a name="using-makepriexe-in-a-build-system"></a>ビルド システムでの MakePri.exe の使用
 
@@ -63,6 +61,6 @@ MakePri.exe または MSBuild ファイルなどのリソースはクリアい�
 
 ## <a name="related-topics"></a>関連トピック
 * [MakePri.exe のコマンド ライン オプション](makepri-exe-command-options.md)
-* [MakePri.exe の構成](makepri-exe-configuration.md)
-* [MakePri.exe 形式に固有のインデクサー](makepri-exe-format-specific-indexers.md)
-* [言語、スケール、およびその他の修飾子のためのリソースを調整します。](tailor-resources-lang-scale-contrast.md)
+* [MakePri.exe 構成](makepri-exe-configuration.md)
+* [MakePri.exe の形式に固有のインデクサー](makepri-exe-format-specific-indexers.md)
+* [言語、スケール、その他の修飾子用にリソースを調整する](tailor-resources-lang-scale-contrast.md)

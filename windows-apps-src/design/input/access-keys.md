@@ -1,5 +1,5 @@
 ---
-Description: ポインター デバイス (タッチやマウスなど) の代わりにキーボードを使ってアプリの表示される UI をすばやく移動して操作する直感的な方法をユーザーに用意することにより、UWP アプリの使いやすさとアクセシビリティの両方を高める方法について説明します。
+Description: Windows アプリの使いやすさとアクセシビリティの両方を向上させる方法について説明します。ユーザーは、ポインターデバイス (タッチやマウスなど) ではなく、キーボードを使用して、アプリの表示可能な UI をすばやく移動したり、操作したりすることができます。
 title: アクセス キーの設計ガイドライン
 label: Access keys design guidelines
 keywords: キーボード, アクセス キー, keytip, キーのヒント, アクセシビリティ, ナビゲーション, フォーカス, テキスト, 入力, ユーザーの操作
@@ -11,12 +11,12 @@ design-contact: kimsea
 dev-contact: niallm
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: f73bb15d2746dbac4403ca6daffb603588cf7a58
-ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
+ms.openlocfilehash: c0d5808c462beb72341fd83c6fc4c1cfc0178b2f
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71340098"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970977"
 ---
 # <a name="access-keys"></a>アクセス キー
 
@@ -27,7 +27,7 @@ ms.locfileid: "71340098"
 > [!NOTE]
 > キーボードは、特定の障碍を持つユーザーにとっては不可欠であり ([キーボードのアクセシビリティ](https://docs.microsoft.com/windows/uwp/accessibility/keyboard-accessibility)をご覧ください)、アプリをより効率的に操作することを望むユーザーにとって重要なツールでもあります。
 
-ユニバーサル Windows プラットフォーム (UWP) には、キーボード ベースのアクセス キー、およびキーのヒントと呼ばれる視覚的な合図を利用した関連する UI フィードバックの両方について、さまざまなプラットフォーム コントロールに対応した組み込みのサポートが用意されています。
+Windows アプリは、キーヒントと呼ばれる視覚的な手掛かりを通じて、キーボードベースのアクセスキーと関連付けられた UI フィードバックの両方のプラットフォームコントロールに対して、組み込みのサポートを提供します。
 
 ## <a name="overview"></a>概要
 
@@ -44,7 +44,7 @@ Microsoft Office アプリでは、アクセス キーが広範にサポート�
 
 ![Microsoft Word におけるアクセス キーの KeyTip バッジ](images/accesskeys/keytip-badges-word.png)
 
-_Microsoft Word のアクセスキーの KeyTip バッジ_
+_Microsoft Word におけるアクセス キーの KeyTip バッジ_
 
 コントロールにアクセス キーを追加するには、**AccessKey プロパティ**を使います。 このプロパティの値は、アクセス キーの順序、ショートカット (1 文字の英数字の場合)、キーのヒントを指定します。
 
@@ -72,11 +72,11 @@ UI に適切な場合は必ずアクセス キーを指定し、すべてのカ�
 
 次の図は、Word における 2 つのアクセス キー スコープを示しています。 最初の図は、ユーザーがタブとその他の最上位レベルのコマンドを選択できるようにするプライマリ アクセス キーを示しています。2 つ目の図は、[ホーム] タブのセカンダリ アクセス キーを示しています。
 
-microsoft word](images/accesskeys/primary-access-keys-word.png)
-のプライマリアクセスキーを ![microsoft _word のプライマリアクセスキー_
+![Microsoft word](images/accesskeys/primary-access-keys-word.png)
+_のプライマリアクセスキー_ microsoft word のプライマリアクセスキー
 
-microsoft word でセカンダリアクセスキーを ![](images/accesskeys/secondary-access-keys-word.png)
-microsoft _word でセカンダリアクセスキー_を使用する
+![Microsoft word](images/accesskeys/secondary-access-keys-word.png)
+_の_セカンダリアクセスキー microsoft word のセカンダリアクセスキー
 
 アクセス キーは、異なるスコープの要素用に複製することができます。 前の例では、"2" はプライマリ スコープにおける [元に戻す] のアクセス キーであり、セカンダリ スコープにおける "斜体" のアクセス キーでもあります。
 
@@ -110,11 +110,11 @@ microsoft _word でセカンダリアクセスキー_を使用する
 
 ![CommandBar のプライマリ アクセス キー](images/accesskeys/primary-access-keys-commandbar.png)
 
-_CommandBar のプライマリスコープとサポートされているアクセスキー_
+_CommandBar のプライマリ スコープとサポートされているアクセス キー_
 
 ![CommandBar のセカンダリ アクセス キー](images/accesskeys/secondary-access-keys-commandbar.png)
 
-_CommandBar のセカンダリスコープとサポートされているアクセスキー_
+_CommandBar のセカンダリ スコープとサポートされているアクセス キー_
 
 ### <a name="windows-10-creators-update-and-older"></a>Windows 10 Creators Update 以降
 
@@ -233,13 +233,13 @@ public class CommandBarHack : CommandBar
 
 ![英語およびスペイン語のリソース文字列フォルダー](images/accesskeys/resource-string-folders.png)
 
-_英語とスペイン語のリソース文字列フォルダー_
+_英語およびスペイン語のリソース文字列フォルダー_
 
 ローカライズされたアクセス キーは、プロジェクトの resources.resw ファイルで指定されます。
 
 ![resources.resw ファイルで指定された AccessKey プロパティを指定する](images/accesskeys/resource-resw-file.png)
 
-_リソース. resw ファイルで指定されている AccessKey プロパティを指定します_
+_resources.resw ファイルで指定された AccessKey プロパティを指定する_
 
 詳しくは、「[UI リソースの翻訳](https://docs.microsoft.com/previous-versions/windows/apps/hh965329(v=win.10))」をご覧ください。
 
@@ -265,7 +265,7 @@ _キーヒントの自動配置の例_
 
     a.  キーのヒントが他のキーのヒントと**重なる**のを回避してください。  
 
-3.  **読み取りやすい:** ユーザーがキーのヒントを簡単に読み取ることができるようにします。
+3.  **簡単なスキャン:** ユーザーは、重要なヒントを簡単にざっと見ることができます。
 
     a.  キーのヒントは、ヒント相互および UI 要素に**揃えて**配置する必要があります。
     b.  キーのヒントはできる限り**グループ分け**する必要があります。 
@@ -278,7 +278,7 @@ _キーヒントの自動配置の例_
 
 ![キーのヒントの配置モード](images/accesskeys/keytip-postion-modes.png)
 
-_キーヒント配置モード_
+_キーのヒントの配置モード_
 
 コントロールの中心線は、キーのヒントの垂直方向および水平方向の配置の計算に使われます。
 
@@ -320,7 +320,7 @@ _主要なヒントの垂直方向および水平方向のオフセットを設�
 
 ![キーのヒントの配置モード](images/accesskeys/keytips-screen-edge.png)
 
-_画面の端によってキーヒントが自動的に再配置されます。_
+_画面の端によりキーのヒントの位置が自動的に変更される_
 
 ## <a name="key-tip-style"></a>キーのヒントのスタイル
 
@@ -330,7 +330,7 @@ _画面の端によってキーヒントが自動的に再配置されます。_
 
 ![キーのヒントの配置モード](images/accesskeys/keytip-customization.png)
 
-_主要ヒントのカスタマイズオプション_
+_キーのヒントのカスタマイズ オプション_
 
 この例は、これらのアプリケーション リソースを変更する方法を示しています。
 

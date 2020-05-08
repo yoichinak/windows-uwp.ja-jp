@@ -1,5 +1,5 @@
 ---
-Description: キーボード ナビゲーション、色とコントラストの設定、サポート支援技術を備えたアクセシビリティ対応 Windows 10 UWP アプリの開発について説明します。
+Description: キーボード操作、色とコントラストの設定、支援技術のサポートなど、アクセス可能な Windows アプリを開発する方法について説明します。
 ms.assetid: 9311D23A-B340-42F0-BEFE-9261442AF108
 title: 包括性を備えた Windows 10 アプリの開発
 label: Developing inclusive Windows 10 apps
@@ -8,16 +8,16 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 08f9d3f20974c1e1ce7ef62c01c26a44d3ff4889
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: f3d2866b3e04d2fa531e9bd538badd96205a8c65
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67319233"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82969427"
 ---
 # <a name="developing-inclusive-windows-apps"></a>包括的な Windows アプリの開発  
 
-この記事では、アクセシビリティに対応したユニバーサル Windows プラットフォーム (UWP) アプリを開発する方法について説明します。 特に、この記事では、アプリの論理的な階層を設計する方法を理解していることが前提となっています。 キーボード ナビゲーション、色とコントラストの設定、サポート支援技術を備えたアクセシビリティ対応 Windows 10 UWP アプリの開発について説明します。
+この記事では、ユーザー補助 Windows アプリアプリを開発する方法について説明します。 特に、この記事では、アプリの論理的な階層を設計する方法を理解していることが前提となっています。 キーボード操作、色とコントラストの設定、支援技術のサポートなど、アクセス可能な Windows アプリを開発する方法について説明します。
 
 まだお読みでない場合にはまず、「[包括性を備えたソフトウェアの設計](designing-inclusive-software.md)」をご覧ください。
 
@@ -82,8 +82,8 @@ UWP アプリでは、システム カラーを上書きしない限り、既定
 
 ## <a name="related-topics"></a>関連トピック  
 * [包括的なソフトウェアの設計](designing-inclusive-software.md)  
-* [包括的なデザイン](https://www.microsoft.com/design/inclusive/)
-* [ユーザー補助のプラクティスを回避するには](practices-to-avoid.md)
-* [ユーザー補助の工学ソフトウェア](https://www.microsoft.com/download/details.aspx?id=19262)
-* [Microsoft アクセシビリティ開発者ハブ](https://developer.microsoft.com/windows/accessible-apps)
+* [包括性を備えた設計](https://www.microsoft.com/design/inclusive/)
+* [アクセシビリティ対応にするために避ける事項](practices-to-avoid.md)
+* [アクセシビリティ ソフトウェアのエンジニアリング](https://www.microsoft.com/download/details.aspx?id=19262)
+* [Microsoft アクセシビリティデベロッパーハブ](https://developer.microsoft.com/windows/accessible-apps)
 * [ユーザー補助](accessibility.md)

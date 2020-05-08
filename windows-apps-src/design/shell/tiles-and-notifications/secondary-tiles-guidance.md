@@ -1,5 +1,5 @@
 ---
-Description: UWP アプリでセカンダリ タイルを使用する必要がある場合について説明します。
+Description: Windows アプリでセカンダリタイルを使用するタイミングと場所について説明します。
 title: セカンダリタイルの設計ガイダンス
 label: Secondary tiles
 template: detail.hbs
@@ -7,12 +7,12 @@ ms.date: 05/25/2017
 ms.topic: article
 keywords: Windows 10、UWP、セカンダリ タイル、ガイダンス、ガイドライン、ベスト プラクティス
 ms.localizationpriority: medium
-ms.openlocfilehash: 875513840d8dc752fe336241fa54710aebad6103
-ms.sourcegitcommit: 2d709ddcc31f52d2a4ace1134aea45057d99a615
+ms.openlocfilehash: 400b0d48fd68c720d613325d1938c0c4a70931a7
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74782578"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82971027"
 ---
 # <a name="secondary-tile-guidance"></a>セカンダリ タイルのガイダンス
 
@@ -23,7 +23,7 @@ ms.locfileid: "74782578"
 > セカンダリ タイルをスタート メニューにピン留めできるのはユーザーだけです。アプリでプログラムによってピン留めすることはできません。 タイルの削除もユーザーがコントロールし、セカンダリ タイルをスタート メニューや親アプリ内から削除することができます。
 
 
-## <a name="recommendations"></a>推奨事項
+## <a name="recommendations"></a>Recommendations
 
 アプリでセカンダリ タイルを有効にするときは、以下の推奨事項を考慮してください。
 
@@ -45,10 +45,10 @@ ms.locfileid: "74782578"
 * スタート画面のすべてのタイルと同様に、セカンダリ タイルは新しいコンテンツで頻繁に更新できる動的な表示機能です。 セカンダリ タイルでは、他のタイルと同じメカニズムを使って通知や最新情報を表示できます。 詳しくは、「[通知配信方法の選択](choosing-a-notification-delivery-method.md)」をご覧ください。
 
 
-## <a name="related"></a>関連情報
+## <a name="related"></a>関連項目
 
-* [セカンダリタイルの概要](secondary-tiles.md)
-* [セカンダリタイルのピン留め](secondary-tiles-pinning.md)
-* [資産のタイル](app-assets.md)
-* [タイルコンテンツのドキュメント](create-adaptive-tiles.md)
+* [セカンダリ タイルの概要](secondary-tiles.md)
+* [セカンダリ タイルをピン留めする](secondary-tiles-pinning.md)
+* [タイル アセット](app-assets.md)
+* [タイル コンテンツのドキュメント](create-adaptive-tiles.md)
 * [ローカル タイル通知の送信](sending-a-local-tile-notification.md)

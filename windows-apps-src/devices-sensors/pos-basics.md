@@ -1,16 +1,16 @@
 ---
 title: サービスポイントの基礎
-description: この記事には、PointOfService UWP API の概要に関する情報が含まれています。
+description: この記事では、PointOfService Windows ランタイム Api の概要について説明します。
 ms.date: 12/3/2019
 ms.topic: article
 keywords: Windows 10, UWP, 店舗販売時点管理, POS
 ms.localizationpriority: medium
-ms.openlocfilehash: 4749b66cc5ce2593aead75d65993f70106da7c8b
-ms.sourcegitcommit: 2d709ddcc31f52d2a4ace1134aea45057d99a615
+ms.openlocfilehash: cb8acf5f7dce8e81d72850a4dbd097083b240864
+ms.sourcegitcommit: ef723e3d6b1b67213c78da696838a920c66d5d30
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74782584"
+ms.lasthandoff: 05/02/2020
+ms.locfileid: "82730044"
 ---
 # <a name="point-of-service-basics"></a>サービスポイントの基礎
 
@@ -22,7 +22,7 @@ ms.locfileid: "74782584"
 | [デバイスの列挙](pos-basics-enumerating.md)        | システムが利用できるデバイスを照会するために使用するデバイス セレクターを定義し、このセレクターを使用して POS デバイスを列挙する方法について説明します。  |
 | [デバイスオブジェクトの作成](pos-basics-deviceobject.md)  | 周辺機器の読み取り専用のプロパティにアクセスできるようにする PointOfService デバイス オブジェクトを作成し、排他的使用のために周辺機器を要求する方法について説明します。 |
 | [要求と有効化](pos-basics-claim.md)  | PointOfService ペリフェラルを予約して排他的に使用し、i/o 操作を有効にする方法について説明します。  |
-| [他のユーザーとの周辺機器の共有](pos-basics-sharing.md) | 複数の Pc が各コンピューターに接続された専用の周辺機器ではなく、共有周辺機器に依存している環境で、ネットワークまたは Bluetooth で接続された周辺機器を他のコンピューターと共有する方法について説明します。
+| [周辺機器の共有](pos-basics-sharing.md) | 複数の Pc が各コンピューターに接続された専用の周辺機器ではなく、共有周辺機器に依存している環境で、ネットワークまたは Bluetooth で接続された周辺機器を他のコンピューターと共有する方法について説明します。
 | [PointOfService エンドツーエンド](pos-get-started.md)  | これは、上の例を利用して、PointOfService ペリフェラルと対話する方法のエンドツーエンドの例です。 |
 |
 
@@ -40,8 +40,8 @@ ms.locfileid: "74782584"
 
 
 ## <a name="sample-code"></a>サンプル コード
-+ [バーコードスキャナーのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/BarcodeScanner)
-+ [キャッシュドロワーのサンプル]( https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/CashDrawer)
-+ [線の表示のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/LineDisplay)
-+ [磁気ストライプリーダーのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/MagneticStripeReader)
-+ [POSPrinter サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/PosPrinter)
++ [バーコード スキャナーのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/BarcodeScanner)
++ [キャッシュ ドロワーのサンプル]( https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/CashDrawer)
++ [ライン ディスプレイのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/LineDisplay)
++ [磁気ストライプ リーダーのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/MagneticStripeReader)
++ [POS プリンターのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/PosPrinter)
