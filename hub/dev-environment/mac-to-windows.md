@@ -9,12 +9,12 @@ ms.technology: windows-nodejs
 keywords: Mac から Windows、ショートカット キーのマッピング、Unix から Windows への移行、Mac から Windows への移行、MacBook から Surface への移行のサポート、Macintosh ユーザーの Windows の使用方法、Macintosh から Windows への切り替え、開発環境の変更のサポート、Mac OS X から Windows へ、Mac から PC への移行のサポート
 ms.localizationpriority: medium
 ms.date: 09/19/2019
-ms.openlocfilehash: 8c23fa3e6791a3cd78d259b40e68606a30fd9395
-ms.sourcegitcommit: c660def841abc742600fbcf6ed98e1f4f7beb8cc
+ms.openlocfilehash: 457abcec97247afcc0d63c983c8a6cda2de51c66
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80218442"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "81643699"
 ---
 # <a name="guide-for-changing-your-dev-environment-from-mac-to-windows"></a>開発環境を Mac から Windows に変更するためのガイド
 
@@ -82,11 +82,11 @@ Windows コマンド ラインは DOS コマンドを受け付け、Windows で�
 
 3. Windows Subsystem for Linux (WSL)
 
-WSL を使用すると、Windows 内で Linux シェルを実行できます。 つまり、選択またはインストールされている特定の Linux ディストリビューションに応じて、*bash** やその他のシェルを実行できます。 WSL を使用すると、Mac ユーザーに最もなじみがある種類の環境を提供できます。 たとえば、現在のディレクトリ内のファイルを一覧表示するには、Windows コマンド ラインでのように **dir** ではなく、**ls** を実行します。 WSL のインストールと使用の詳細については、「[Windows 10 用 Windows Subsystem for Linux のインストール ガイド](https://docs.microsoft.com/windows/wsl/install-win10)」を参照してください。
+WSL を使用すると、Windows 内で Linux シェルを実行できます。 つまり、選択またはインストールされている特定の Linux ディストリビューションに応じて、**bash** やその他のシェルを実行できます。 WSL を使用すると、Mac ユーザーに最もなじみがある種類の環境を提供できます。 たとえば、現在のディレクトリ内のファイルを一覧表示するには、Windows コマンド ラインでのように **dir** ではなく、**ls** を実行します。 WSL のインストールと使用の詳細については、「[Windows 10 用 Windows Subsystem for Linux のインストール ガイド](https://docs.microsoft.com/windows/wsl/install-win10)」を参照してください。
 
 4. Windows ターミナル (プレビュー)
 
-Windows ターミナルは、従来の Windows コマンド ライン、PowerShell、Linux 用 Windows サブシステムなど、さまざまなソースのコマンドライン ツールとシェルを組み合わせたアプリケーションです。 現在はまだプレビュー段階にありますが、複数のタブ、分割ウィンドウ、カスタム テーマとスタイル、完全な Unicode のサポートなど、いくつかの便利な機能がすでに含まれています。 Windows ターミナルは、[Windows 10 の Microsoft Store](https://www.microsoft.com/en-us/p/windows-terminal-preview/9n0dx20hk701?activetab=pivot:overviewtab) からインストールできます。
+Windows ターミナルは、従来の Windows コマンド ライン、PowerShell、Linux 用 Windows サブシステムなど、さまざまなソースのコマンドライン ツールとシェルを組み合わせたアプリケーションです。 現在はまだプレビュー段階にありますが、複数のタブ、分割ペイン、カスタム テーマとスタイル、完全な Unicode のサポートなど、いくつかの便利な機能が既に含まれています。 Windows ターミナルは、[Windows 10 の Microsoft Store](https://www.microsoft.com/en-us/p/windows-terminal-preview/9n0dx20hk701?activetab=pivot:overviewtab) からインストールできます。
 
 ## <a name="apps-and-utilities"></a>アプリとユーティリティ
 

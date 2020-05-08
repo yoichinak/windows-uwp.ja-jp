@@ -5,12 +5,12 @@ ms.date: 07/10/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 受け渡し, パラメーター, ABI
 ms.localizationpriority: medium
-ms.openlocfilehash: c1e172fc4dbd5b865add1828a98dc1a030d5dc6f
-ms.sourcegitcommit: 8b4c1fdfef21925d372287901ab33441068e1a80
+ms.openlocfilehash: 9c5ce6a30e68fe6fc26316bc2f41c6e2556b98ef
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844352"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82255256"
 ---
 # <a name="passing-parameters-into-the-abi-boundary"></a>ABI 境界へのパラメーターの受け渡し
 
@@ -25,7 +25,7 @@ C++/WinRT の **winrt::param** 名前空間の型では、一般的なケース�
 
 **winrt::param::hstring** では、**HSTRING** を受け取る API へのパラメーターの引き渡しが簡略化されます。
 
-|渡すことができる型|説明|
+|渡すことができる型|メモ|
 |-|-|
 |`{}`|空の文字列を渡します。|
 |**winrt::hstring**||
@@ -45,15 +45,15 @@ C++/WinRT の **winrt::param** 名前空間の型では、一般的なケース�
 
 Windows ランタイム コレクションは、既に **IIterable** です。
 
-|渡すことができる型|同期|Async|説明|
+|渡すことができる型|同期|Async|メモ|
 |-|-|-|-|
-| `nullptr` | 〇 | 〇 | 基になるメソッドで `nullptr` がサポートされていることを確認する必要があります。|
-| **IIterable\<T\>** | 〇 | 〇 | または、それに変換可能なもの。|
-| **std::vector\<T\> const&** | 〇 | X ||
-| **std::vector\<T\>&&** | 〇 | 〇 | 変更を防ぐため、内容は反復子に移動されます。|
-| **std::initializer_list\<T\>** | 〇 | 〇 | 非同期バージョンでは、項目がコピーされます。|
-| **std::initializer_list\<U\>** | 〇 | X | **U** は **T** に変換できる必要があります。|
-| `{ ForwardIt begin, ForwardIt end }` | 〇 | X | `*begin` は **T** に変換できる必要があります。|
+| `nullptr` | はい | はい | 基になるメソッドで `nullptr` がサポートされていることを確認する必要があります。|
+| **IIterable\<T\>** | はい | はい | または、それに変換可能なもの。|
+| **std::vector\<T\> const&** | はい | いいえ ||
+| **std::vector\<T\>&&** | はい | はい | 変更を防ぐため、内容は反復子に移動されます。|
+| **std::initializer_list\<T\>** | はい | はい | 非同期バージョンでは、項目がコピーされます。|
+| **std::initializer_list\<U\>** | はい | いいえ | **U** は **T** に変換できる必要があります。|
+| `{ ForwardIt begin, ForwardIt end }` | はい | いいえ | `*begin` は **T** に変換できる必要があります。|
 
 **U** が **T** に変換可能であっても、**IIterable\<U\>** と **std::vector\<U\>** は許可されないことに注意してください。**std::vector\<U\>** の場合は、二重反復子バージョン (詳細は後述) を使用できます。
 
@@ -81,16 +81,16 @@ requestData.SetStorageItems({ storageFiles.begin(), storageFiles.end() }); // Bu
 
 反復子が `RandomAcessIt` である場合、[**IIterator\<T\>.GetMany(T\[\])** ](/uwp/api/windows.foundation.collections.iiterator-1.getmany) の実装はさらに効率的になります。 それ以外の場合は、範囲に対して複数のパスができます。
 
-|渡すことができる型|同期|Async|説明|
+|渡すことができる型|同期|Async|メモ|
 |-|-|-|-|
-| `nullptr` | 〇 | 〇 | 基になるメソッドで `nullptr` がサポートされていることを確認する必要があります。|
-| **IIterable\<IKeyValuePair\<K, V\>\>** | 〇 | 〇 | または、それに変換可能なもの。|
-| **std::map\<K, V\> const&** | 〇 | X ||
-| **std::map\<K, V\>&&** | 〇 | 〇 | 変更を防ぐため、内容は反復子に移動されます。|
-| **std::unordered_map\<K, V\> const&** | 〇 | X ||
-| **std::unordered_map\<K, V\>&&** | 〇 | 〇 | 変更を防ぐため、内容は反復子に移動されます。|
-| **std::initializer_list\<std::pair\<K, V\>\>** | 〇 | 〇 | 型 **K** と **V** は、厳密に一致する必要があります。 キーが重複することはできません。 非同期バージョンでは、項目がコピーされます。|
-| `{ ForwardIt begin, ForwardIt end }` | 〇 | X | `begin->first` および `begin->second` はそれぞれ、**K** および **V** に変換できる必要があります。|
+| `nullptr` | はい | はい | 基になるメソッドで `nullptr` がサポートされていることを確認する必要があります。|
+| **IIterable\<IKeyValuePair\<K, V\>\>** | はい | はい | または、それに変換可能なもの。|
+| **std::map\<K, V\> const&** | はい | いいえ ||
+| **std::map\<K, V\>&&** | はい | はい | 変更を防ぐため、内容は反復子に移動されます。|
+| **std::unordered_map\<K, V\> const&** | はい | いいえ ||
+| **std::unordered_map\<K, V\>&&** | はい | はい | 変更を防ぐため、内容は反復子に移動されます。|
+| **std::initializer_list\<std::pair\<K, V\>\>** | はい | はい | 型 **K** と **V** は、厳密に一致する必要があります。 キーが重複することはできません。 非同期バージョンでは、項目がコピーされます。|
+| `{ ForwardIt begin, ForwardIt end }` | はい | いいえ | `begin->first` および `begin->second` はそれぞれ、**K** および **V** に変換できる必要があります。|
 
 ## <a name="vector-view-parameters"></a>ベクトル ビューのパラメーター
 
@@ -98,14 +98,14 @@ requestData.SetStorageItems({ storageFiles.begin(), storageFiles.end() }); // Bu
 
 [**IVector\<T\>.GetView**](/uwp/api/windows.foundation.collections.ivector-1.getview) を使って、**IVector** から **IVectorView** を取得できます。
 
-|渡すことができる型|同期|Async|説明|
+|渡すことができる型|同期|Async|メモ|
 |-|-|-|-|
-| `nullptr` | 〇 | 〇 | 基になるメソッドで `nullptr` がサポートされていることを確認する必要があります。|
-| **IVectorView\<T\>** | 〇 | 〇 | または、それに変換可能なもの。|
-| **std::vector\<T\>const&** | 〇 | X ||
-| **std::vector\<T\>&&** | 〇 | 〇 | 変更を防ぐため、内容はビューに移動されます。|
-| **std::initializer_list\<T\>** | 〇 | 〇 | 型は正確に一致する必要があります。 非同期バージョンでは、項目がコピーされます。|
-| `{ ForwardIt begin, ForwardIt end }` | 〇 | X | `*begin` は **T** に変換できる必要があります。|
+| `nullptr` | はい | はい | 基になるメソッドで `nullptr` がサポートされていることを確認する必要があります。|
+| **IVectorView\<T\>** | はい | はい | または、それに変換可能なもの。|
+| **std::vector\<T\>const&** | はい | いいえ ||
+| **std::vector\<T\>&&** | はい | はい | 変更を防ぐため、内容はビューに移動されます。|
+| **std::initializer_list\<T\>** | はい | はい | 型は正確に一致する必要があります。 非同期バージョンでは、項目がコピーされます。|
+| `{ ForwardIt begin, ForwardIt end }` | はい | いいえ | `*begin` は **T** に変換できる必要があります。|
 
 二重反復子バージョンを使って、直接引き渡す場合の要件に適合しないものから、ベクトル ビューを作成できます。 ただし、ベクトルではランダム アクセスがサポートされているため、`RandomAcessIter` を渡すことをお勧めします。
 
@@ -115,21 +115,21 @@ requestData.SetStorageItems({ storageFiles.begin(), storageFiles.end() }); // Bu
 
 **IMap::GetView** を使って、**IMap** から **IMapView** を取得できます。
 
-|渡すことができる型|同期|Async|説明|
+|渡すことができる型|同期|Async|メモ|
 |-|-|-|-|
-| `nullptr` | 〇 | 〇 | 基になるメソッドで `nullptr` がサポートされていることを確認する必要があります。|
-| **IMapView\<K, V\>** | 〇 | 〇 | または、それに変換可能なもの。|
-| **std::map\<K, V\> const&** | 〇 | X ||
-| **std::map\<K, V\>&&** | 〇 | 〇 | 変更を防ぐため、内容はビューに移動されます。|
-| **std::unordered_map\<K, V\> const&**  | 〇 | X ||
-| **std::unordered_map\<K, V\>&&** | 〇 | 〇 | 変更を防ぐため、内容はビューに移動されます。|
-| **std::initializer_list\<std::pair\<K, V\>\>** | 〇 | 〇 | 同期バージョンと非同期バージョンの両方で、項目がコピーされます。 キーが重複してはなりません。|
+| `nullptr` | はい | はい | 基になるメソッドで `nullptr` がサポートされていることを確認する必要があります。|
+| **IMapView\<K, V\>** | はい | はい | または、それに変換可能なもの。|
+| **std::map\<K, V\> const&** | はい | いいえ ||
+| **std::map\<K, V\>&&** | はい | はい | 変更を防ぐため、内容はビューに移動されます。|
+| **std::unordered_map\<K, V\> const&**  | はい | いいえ ||
+| **std::unordered_map\<K, V\>&&** | はい | はい | 変更を防ぐため、内容はビューに移動されます。|
+| **std::initializer_list\<std::pair\<K, V\>\>** | はい | はい | 同期バージョンと非同期バージョンの両方で、項目がコピーされます。 キーが重複してはなりません。|
 
 ## <a name="vector-parameters"></a>ベクトルのパラメーター
 
 **winrt::param::vector\<T\>** では、**IVector\<T\>** を受け取る API へのパラメーターの引き渡しが簡略化されます。
 
-|渡すことができる型|説明|
+|渡すことができる型|メモ|
 |-|-|
 | `nullptr` | 基になるメソッドで `nullptr` がサポートされていることを確認する必要があります。|
 | **IVector\<T\>** | または、それに変換可能なもの。|
@@ -142,7 +142,7 @@ requestData.SetStorageItems({ storageFiles.begin(), storageFiles.end() }); // Bu
 
 **winrt::param::map\<T\>** では、**IMap\<T\>** を受け取る API へのパラメーターの引き渡しが簡略化されます。
 
-|渡すことができる型|説明|
+|渡すことができる型|メモ|
 |-|-|
 | `nullptr` | 基になるメソッドで `nullptr` がサポートされていることを確認する必要があります。|
 | **IMap\<T\>** | または、それに変換可能なもの。|
@@ -156,7 +156,7 @@ requestData.SetStorageItems({ storageFiles.begin(), storageFiles.end() }); // Bu
 
 **winrt::array_view\<T\>** は **winrt::param** 名前空間内にありませんが、C スタイルの配列 ("*準拠する配列*" とも呼ばれます) であるパラメーターに使用されます。
 
-|渡すことができる型|説明|
+|渡すことができる型|メモ|
 |-|-|
 | `{}` | 空の配列。|
 | **array** | C の準拠する配列 (つまり `C array[N];`)。**C** は **T** に変換でき、`sizeof(C) == sizeof(T)` です。 |
@@ -164,3 +164,5 @@ requestData.SetStorageItems({ storageFiles.begin(), storageFiles.end() }); // Bu
 | **std::vector<C>** | **C** の C++ **std::vector**。**C** は **T** に変換でき、`sizeof(C) == sizeof(T)` です。 |
 | `{ T*, T* }` | ポインターのペアは、範囲 [開始、終了) を表します。|
 | **std::initializer_list\<T\>** ||
+
+また、ブログ記事「[Windows ランタイム ABI 境界全体で C スタイルの配列を渡すためのさまざまなパターン](https://devblogs.microsoft.com/oldnewthing/20200205-00/?p=103398)」も参照してください。

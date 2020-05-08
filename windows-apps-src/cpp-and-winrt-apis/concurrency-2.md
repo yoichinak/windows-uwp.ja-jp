@@ -5,12 +5,12 @@ ms.date: 07/23/2019
 ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、同時実行、非同期、非同期、非同期操作
 ms.localizationpriority: medium
-ms.openlocfilehash: bbdce669faa73b1db2071173014dec474160affb
-ms.sourcegitcommit: 8b7b677c7da24d4f39e14465beec9c4a3779927d
+ms.openlocfilehash: 26a0ea1ec70f4ae4255030541a6513541db1fb99
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81266950"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82267502"
 ---
 # <a name="more-advanced-concurrency-and-asynchrony-with-cwinrt"></a>C++/WinRT でのより高度な同時実行操作と非同期操作
 
@@ -673,7 +673,7 @@ IAsyncAction Async(HANDLE event)
 IAsyncAction Async(winrt::handle event)
 {
     co_await DoWorkAsync();
-    co_await resume_on_signal(event); // The incoming handle *is* not valid here.
+    co_await resume_on_signal(event); // The incoming handle *is* valid here.
 }
 ```
 
@@ -717,7 +717,7 @@ IAsyncAction SampleCaller()
 
 ## <a name="asynchronous-timeouts-made-easy"></a>非同期タイムアウトを簡単に
 
-C++/WinRT では、C++ コルーチンに対応するために多くの労力が費やされています。 同時実行コードの記述に対するそれらの効果は革新的です。 このセクションでは、非同期性の詳細は重要ではなく、必要なのはその場ですぐに結果を取得することだけであるケースについて説明します。 そのため、C++/WinRT での [**IAsyncAction**](/uwp/api/windows.foundation.iasyncaction) Windows ランタイムの非同期操作インターフェイスの実装には、**std::function** で提供されているものに似た **get** 関数があります。
+C++/WinRT では、C++ コルーチンに対応するために多くの労力が費やされています。 同時実行コードの記述に対するそれらの効果は革新的です。 このセクションでは、非同期性の詳細は重要ではなく、必要なのはその場ですぐに結果を取得することだけであるケースについて説明します。 そのため、C++/WinRT での [**IAsyncAction**](/uwp/api/windows.foundation.iasyncaction) Windows ランタイムの非同期操作インターフェイスの実装には、**std::future** で提供されているものに似た **get** 関数があります。
 
 ```cppwinrt
 using namespace winrt::Windows::Foundation;
@@ -731,7 +731,7 @@ int main()
 
 **get** 関数は無制限でブロックしますが、非同期オブジェクトは完了します。 非同期オブジェクトの有効期間は非常に短くなる傾向があるため、多くの場合これが必要なもののすべてです。
 
-ただし、それだけでは不十分であり、多少の時間が経過した後で待機を破棄しなければならない場合があります。 そのコードは、Windows ランタイムによって提供されている構成要素を使用して常に記述できます。 ただし、現在は、C++/WinRT によって提供されている **wait_for** 関数によって、作業ははるかに簡単になっています。 それは **IAsyncAction** でも実装され、これも **std::function** によって提供されるものに似ています。
+ただし、それだけでは不十分であり、多少の時間が経過した後で待機を破棄しなければならない場合があります。 そのコードは、Windows ランタイムによって提供されている構成要素を使用して常に記述できます。 ただし、現在は、C++/WinRT によって提供されている **wait_for** 関数によって、作業ははるかに簡単になっています。 それは **IAsyncAction** でも実装され、これも **std::future** によって提供されるものに似ています。
 
 ```cppwinrt
 using namespace std::chrono_literals;

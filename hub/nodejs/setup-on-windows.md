@@ -8,12 +8,12 @@ ms.topic: article
 keywords: Node.js, windows 10, ネイティブ Windows, Windows 上に直接
 ms.localizationpriority: medium
 ms.date: 09/19/2019
-ms.openlocfilehash: 456aac17f61ab0add3d35a48c74e151fa15e9e83
-ms.sourcegitcommit: 8efeb6672f759b1ea7e3e9e2f90e764480791142
+ms.openlocfilehash: fe1943da8c1de4f4fced5dec67079522d83f9a19
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75728473"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82173468"
 ---
 # <a name="set-up-your-nodejs-development-environment-directly-on-windows"></a>Node.js 開発環境を Windows 上に直接設定する
 
@@ -38,6 +38,7 @@ Node.js をインストールするには、複数の方法があります。 �
     ![Node のバージョンが表示されていない NVM リスト](../images/windows-nvm-powershell-no-node.png)
 
 6. Node.js の現在のリリースをインストールします (最新の機能強化をテストするためですが、LTS バージョンよりも問題が発生する可能性が高くなります): `nvm install latest`
+
 7. まず、`nvm list available` を実行して LTS の現在のバージョン番号を調べた後、Node.js の最新の安定した LTS リリースをインストールします (推奨)。次に、`nvm install <version>`(`<version>` を、インストールするバージョン番号に置き換えます。たとえば、`nvm install 12.14.0`) を実行して、そのバージョン番号の LTS をインストールします。
 
     ![使用可能なバージョンの NVM リスト](../images/windows-nvm-list.png)
@@ -46,8 +47,10 @@ Node.js をインストールするには、複数の方法があります。 �
 
     ![インストールされている Node のバージョンを示す NVM リスト](../images/windows-nvm-node-installs.png)
 
-9. 現在既定である Node.js のバージョンを確認するには、`node --version` を入力します。
+9. 必要なバージョン番号の Node.js をインストールしたら、`nvm use <version>` を入力して、使用するバージョンを選択します (`<version>` を番号で置き換え、`nvm use 12.9.0` のようにします)。
+
 10. プロジェクトに使用する Node.js のバージョンを変更するには、新しいプロジェクト ディレクトリを作成し (`mkdir NodeTest`)、ディレクトリ `cd NodeTest` を入力します。次に、`<version>`を、使用するバージョン番号 (たとえば、v10.16.3) に置き換えて、`nvm use <version>` を入力します。
+
 11. `npm --version` を実行して、インストールされている npm のバージョンを確認します。このバージョン番号は、Node.js の現在のバージョンに関連付けられている npm のバージョンに自動的に変更されます。
 
 ## <a name="alternative-version-managers"></a>代替のバージョン マネージャー

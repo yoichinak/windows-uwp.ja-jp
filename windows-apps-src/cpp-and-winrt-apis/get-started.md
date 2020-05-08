@@ -6,10 +6,10 @@ ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 取得, 取得, 開始
 ms.localizationpriority: medium
 ms.openlocfilehash: c058a727e09f00e01664c314d8c198f3f25e841e
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74255130"
 ---
 # <a name="get-started-with-cwinrt"></a>C++/WinRT の使用を開始する
@@ -149,7 +149,7 @@ C++/WinRT には C++17 標準の機能が使用されるので、プロジェク
 
 C++/WinRT 言語のプロジェクションは、特定の Windows Runtime free (非メンバー) 関数と、[WindowsApp.lib](/uwp/win32-and-com/win32-apis) アンブレラ ライブラリへのリンクを必要とするエントリ ポイントに依存します。 このセクションでは、リンカーを満たす 3 つの方法について説明します。
 
-1 つ目の選択肢は、Visual Studio プロジェクトに C++/WinRT MSBuild のプロパティとターゲットをすべて追加することです。 そのためには、[Microsoft.Windows.CppWinRT NuGet パッケージ](https://www.nuget.org/packages/Microsoft.Windows.CppWinRT/)をプロジェクトにインストールします。 Visual Studio でプロジェクションを開き、 **[プロジェクト]** \> **[NuGet パッケージの管理]** \> **[参照]** の順にクリックし、検索ボックスに「**Microsoft.Windows.CppWinRT**」を入力するか貼り付けます。検索結果の項目を選択し、 **[インストール]** をクリックしてそのプロジェクトのパッケージをインストールします。
+1 つ目の選択肢は、Visual Studio プロジェクトに C++/WinRT MSBuild のプロパティとターゲットをすべて追加することです。 そのためには、[Microsoft.Windows.CppWinRT NuGet パッケージ](https://www.nuget.org/packages/Microsoft.Windows.CppWinRT/)をプロジェクトにインストールします。 Visual Studio でプロジェクトを開き、 **[プロジェクト]** \> **[NuGet パッケージの管理]** \> **[参照]** をクリックし、検索ボックスに「**Microsoft.Windows.CppWinRT**」を入力するか貼り付けます。検索結果の項目を選択し、 **[インストール]** をクリックして、そのプロジェクトのパッケージをインストールします。
 
 プロジェクト リンク設定を使用して明示的に `WindowsApp.lib` をリンクすることもできます。 また、このようにソース コード (たとえば `pch.h` など) で実行することもできます。
 

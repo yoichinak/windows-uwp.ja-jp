@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 強, 弱, 参照
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 781b63f9f32a0fdf7edee6479b60fd82822cc745
-ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
+ms.openlocfilehash: dc991ff485d9e4ba90264e1b8082a40e0f4ab801
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79209237"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82267483"
 ---
 # <a name="strong-and-weak-references-in-cwinrt"></a>C++/WinRT の強参照と弱参照
 
@@ -359,7 +359,7 @@ void OnCompositionScaleChanged(Windows::UI::Xaml::Controls::SwapChainPanel const
 
 ## <a name="weak-references-in-cwinrt"></a>C++/WinRT の弱参照
 
-以上、弱参照の使用を確認しました。 一般的に、弱参照は循環参照から抜けるときに最適です。 たとえば、XAML ベースの UI フレームワークのネイティブ実装の場合、フレームワーク設計の歴史的背景に起因し、C++/WinRT の弱参照メカニズムは循環参照を処理するために必要になります。 ただし、XAML 以外では、弱参照はおそらく使用する必要はありません (本質的に XAML 固有のものがあるというわけではありません)。 むしろ、通常は、循環参照や弱参照が必要とならないように独自の C++/WinRT API を設計することができるはずです。 
+以上、弱参照の使用を確認しました。 一般的に、弱参照は循環参照から抜けるときに最適です。 たとえば、XAML ベースの UI フレームワークのネイティブ実装の場合&mdash;フレームワーク設計の歴史的背景が理由で&mdash;C++/WinRT の弱参照メカニズムは循環参照を処理するために必要になります。 ただし、XAML 以外では、弱参照はおそらく使用する必要はありません (本質的に XAML 固有のものがあるというわけではありません)。 むしろ、通常は、循環参照や弱参照が必要とならないように独自の C++/WinRT API を設計することができるはずです。 
 
 宣言するすべての型について、いつどこで弱参照が必要になるかが C++/WinRT に対してすぐに明白になるわけではありません。 したがって、C++/WinRT では構造体テンプレート [**winrt::implements**](/uwp/cpp-ref-for-winrt/implements) で弱参照サポートを自動的に提供し、そこから直接的または間接的に独自の C++/WinRT の型を派生します。 利用に応じた料金制度であるため、オブジェクトが [**IWeakReferenceSource**](/windows/desktop/api/weakreference/nn-weakreference-iweakreferencesource) で実際に照会されない限り料金はかかりません。 また、[そのサポートを除外する](#opting-out-of-weak-reference-support)ことを明示的に選択することができます。
 

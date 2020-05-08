@@ -5,12 +5,12 @@ ms.date: 04/23/2019
 ms.topic: article
 keywords: wwindows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 頻繁, 質問, 質問, faq
 ms.localizationpriority: medium
-ms.openlocfilehash: d942fd58619c12192fd8429c0e8aeb5aa070fd4d
-ms.sourcegitcommit: 2a80888843bb53cc1f926dcdfc992cf065539a67
+ms.openlocfilehash: 95f5ad82831b6b07e0bbc2127947f777f0cd50e5
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81005452"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "81759927"
 ---
 # <a name="frequently-asked-questions-about-cwinrt"></a>C++/WinRT についてよく寄せられる質問
 [C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) での Windows ランタイム API の作成と使用に関する質問への回答です。
@@ -82,6 +82,8 @@ Windows ランタイム クラス (ランタイム クラス) を*使用*する�
 - **IClosable::Close** の呼び出しが必要になるような、シャットダウンの競合や破壊的に近い支配が関係する場合はほとんどありません。 たとえば、**Windows.UI.Composition** を使用していて、設定順序でオブジェクトを破棄する場合、その代わりとして、C++/WinRT ラッパーを破棄することができます。
 - オブジェクトに対する残りの最後の参照を自分が持っていることが確実でない場合 (オブジェクトを他の API に渡し、そこで参照が保持されている可能性があるため)、**IClosable::Close** を呼び出すのはよいアイデアです。
 - 不明な場合は、破棄時にラッパーによって呼び出されるのを待つのではなく、手動で **IClosable::Close** を呼び出すのが安全です。
+
+それで、自分が最後の参照を持っていることが分かっている場合は、ラッパー デストラクターに処理させることができます。 最後の参照が消える前にクローズする必要がある場合は、**Close** を呼び出す必要があります。 例外を適切に処理するには、resource-acquisition-is-initialization (RAII) 型で **Close** を実行する必要があります (アンワインド時にクローズされるようにする)。 C++/WinRT には **unique_close** ラッパーはありませんが、自分で作成することができます。
 
 ## <a name="can-i-use-llvmclang-to-compile-with-cwinrt"></a>LLVM/Clang を使用して C++/WinRT でコンパイルすることはできますか。
 C++/WinRT の LLVM および Clang ツール チェーンはサポートしていませんが、C++/WinRT の標準への準拠を検証するためにそれを内部で使用します。 たとえば、マイクロソフトが内部で行っている内容をエミュレートする場合は、次に説明するような実験を試してみることができます。
