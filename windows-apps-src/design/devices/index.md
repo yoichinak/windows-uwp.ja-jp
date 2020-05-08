@@ -1,6 +1,6 @@
 ---
-Description: ユニバーサル Windows プラットフォーム (UWP) アプリをサポートするデバイスを理解すると、各フォーム ファクター向けの最適なユーザー エクスペリエンスを提供するために役立ちます。
-title: UWP デバイスの UI に関する考慮事項
+Description: Windows アプリをサポートするデバイスを理解することは、各フォーム ファクター向けの最適なユーザー エクスペリエンスを提供するために役立ちます。
+title: Windows デバイスの UI に関する考慮事項
 ms.assetid: 7665044E-F007-495D-8D56-CE7C2361CDC4
 label: Device primer
 template: detail.hbs
@@ -8,18 +8,18 @@ keywords: デバイス, 入力, 操作
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 0808b5173f697fcca8d5e117f857d3861c327ae3
-ms.sourcegitcommit: f727b68e86a86c94eff00f67ed79a1c12666e7bc
+ms.openlocfilehash: 121025dc5e87e7e3953b9517144e36ab382795bb
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74258120"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82968208"
 ---
-#  <a name="ui-considerations-for-uwp-devices"></a>UWP デバイスの UI に関する考慮事項
+#  <a name="ui-considerations-for-windows-devices"></a>Windows デバイスの UI に関する考慮事項
 
 ![デバイス](../images/devices-2x.png)
 
-ユニバーサル Windows プラットフォーム (UWP) アプリをサポートするデバイスを理解すると、各フォーム ファクター向けの最適なユーザー エクスペリエンスを提供するために役立ちます。
+Windows アプリをサポートするデバイスを理解することは、各フォーム ファクター向けの最適なユーザー エクスペリエンスを提供するために役立ちます。
 
 ![Windows デバイス](images/device-primer/device-primer-ramp.png)
 
@@ -77,7 +77,7 @@ UI に関する考慮事項
 -   システムの戻るボタンはナビゲーション バーに配置されます。
 
 入力
--   タッチ
+-   Touch
 -   スタイラス
 -   外部キーボード (ときどき)
 -   マウス (ときどき)
@@ -96,7 +96,7 @@ UI に関する考慮事項
 
 ソファーに座りながらゲームパッドやリモコンを使って部屋の反対側にあるテレビを操作することを、**10 フィート エクスペリエンス**といいます。 通常は画面から約 10 フィート (約 3 m) の距離に座るため、このように呼ばれています。 この場合、たとえば PC の操作 (*2 フィート* エクスペリエンスと呼ばれます) には見られない、特有の課題があります。 テレビ画面に接続し、ゲームパッドやリモコンを使うこともある Xbox One やその他のデバイス向けアプリを開発している場合、この点を常に意識しておく必要があります。
 
-10 フィート エクスペリエンスを提供する UWP アプリの設計は、ここに記載されているその他のデバイス カテゴリでの設計とは非常に異なります。 詳しくは、「[Xbox およびテレビ向け設計](designing-for-tv.md)」をご覧ください。
+10 フィート エクスペリエンスを提供する Windows アプリの設計は、ここに記載されているその他のデバイス カテゴリでの設計とは非常に異なります。 詳しくは、「[Xbox およびテレビ向け設計](designing-for-tv.md)」をご覧ください。
 
 画面サイズ
 - 24 インチ以上
@@ -155,7 +155,7 @@ UI に関する考慮事項
 -   横方向と縦方向の両方で、スクリーン キーボードが表示されているときに、アプリ バーを表示するための十分な画面領域があることを確認します。
 
 入力
--   タッチ
+-   Touch
 -   音声
 
 デバイスの標準的な機能
@@ -187,7 +187,7 @@ UI に関する考慮事項
 -   システムの戻るボタンはオプションです。 アプリの開発者が表示するように選択した場合、アプリのタイトル バーに表示されます。
 
 入力
--   タッチ
+-   Touch
 -   ペン
 -   音声
 -   キーボード (スクリーン/リモート)

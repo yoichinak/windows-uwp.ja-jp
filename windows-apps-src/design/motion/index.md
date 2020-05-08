@@ -1,6 +1,6 @@
 ---
 Description: 目的がはっきりとしており、適切にデザインされたモーションは、アプリに強い印象を与え、精巧で完成度の高い操作性を感じさせます。 コンテキストの変化がわかりやすく、視覚的な切り替えがエクスペリエンスに結び付きます。
-title: UWP アプリでのモーションとアニメーション
+title: Windows アプリのモーション
 ms.assetid: 21AA1335-765E-433A-85D8-560B340AE966
 label: Motion
 template: detail.hbs
@@ -12,14 +12,14 @@ design-contact: jeffarn
 doc-status: Published
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 31cf2134fb8f77809b75a5abf3e6980443452059
-ms.sourcegitcommit: f727b68e86a86c94eff00f67ed79a1c12666e7bc
+ms.openlocfilehash: 49fc31729bc8f195bacf1d743c570aa5293b33de
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68867405"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970337"
 ---
-# <a name="motion-for-uwp-apps"></a>UWP アプリのモーション
+# <a name="motion-for-windows-apps"></a>Windows アプリのモーション
 
 ![モーション アイコン](../images/motion-2x.png)
 
@@ -56,7 +56,7 @@ Fluent モーションはアプリで目的を果たします。 これは、ユ
 ![機能的なモーションの UI の例](images/functional.gif)
 > ページ切り替えは、目的に特化されています。 ページが相互に関連する方法に関するヒントを提供します。 パフォーマンスが最適でない場合でも速く感じられるような方法で移動します。
 
-### <a name="continuous"></a>継続性
+### <a name="continuous"></a>継続
 
 ポイントからポイントへの滑らか動きは、自然に目を引きつけ、ユーザーを誘導します。 適切にユーザーのタスクをまとめて、よりコンシューマブルで親しみやすく感じられるようにします。
 

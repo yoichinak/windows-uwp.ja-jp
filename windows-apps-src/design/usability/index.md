@@ -1,24 +1,24 @@
 ---
 description: 世界中のユーザーに対してアプリを包括的にしてアクセシビリティ対応にする方法について説明します。
 keywords: UWP アプリのアクセシビリティ, グローバリゼーション, インクルーシブ デザイン アプリ, アクセシビリティ アプリの要件
-title: UWP アプリの操作性 - Windows アプリ開発
+title: Windows アプリの操作性 - Windows アプリ開発
 template: detail.hbs
 ms.date: 10/18/2017
 ms.topic: article
 ms.assetid: e6bb3464-dd8e-402c-9c56-dd9e51002a49
 ms.localizationpriority: medium
-ms.openlocfilehash: c725839a29c093c78eb977538da4c43d906051c6
-ms.sourcegitcommit: f727b68e86a86c94eff00f67ed79a1c12666e7bc
+ms.openlocfilehash: 2fac74f92ec814a84ecc9eb9d2ae64986af7e572
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80614958"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970577"
 ---
-# <a name="usability-for-uwp-apps"></a>UWP アプリの操作性
+# <a name="usability-for-windows-apps"></a>Windows アプリの操作性
 
 少しの配慮で細かい点に注意するだけで、単に優れたユーザー エクスペリエンスから、世界中のユーザーのニーズを満たす真に包括的なユーザー エクスペリエンスに変えることができます。
 
-このセクションに示す設計とコーディングの手順に従って、アクセシビリティ機能の追加、グローバリゼーションとローカライズの有効化、ユーザーによるエクスペリエンスのカスタマイズの有効化、必要に応じたヘルプの提供を行うと、UWP アプリをより包括的なアプリにすることができます。
+このセクションに示す設計とコーディングの手順に従って、アクセシビリティ機能の追加、グローバリゼーションとローカライズの有効化、ユーザーによるエクスペリエンスのカスタマイズの有効化、必要に応じたヘルプの提供を行うと、Windows アプリをより包括的なアプリにすることができます。
 
 ## <a name="accessibility"></a>アクセシビリティ
 
@@ -33,7 +33,7 @@ ms.locfileid: "80614958"
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-<p><b><a href="../accessibility/accessibility-overview.md">Accessibility overview</a></b> <br/> This article is an overview of the concepts and technologies related to accessibility scenarios for UWP apps.</p>
+<p><b><a href="../accessibility/accessibility-overview.md">Accessibility overview</a></b> <br/> This article is an overview of the concepts and technologies related to accessibility scenarios for Windows apps.</p>
                     </div>
                 </div>
             </div>
@@ -44,7 +44,7 @@ ms.locfileid: "80614958"
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-<p><b><a href="../accessibility/designing-inclusive-software.md">Designing inclusive software</a></b><br/>Learn about evolving inclusive design with Universal Windows Platform (UWP) apps for Windows 10.  Design and build inclusive software with accessibility in mind.</p>
+<p><b><a href="../accessibility/designing-inclusive-software.md">Designing inclusive software</a></b><br/>Learn about evolving inclusive design with Windows app apps for Windows 10.  Design and build inclusive software with accessibility in mind.</p>
                     </div>
                 </div>
             </div>
@@ -55,7 +55,7 @@ ms.locfileid: "80614958"
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-<p><b><a href="../accessibility/developing-inclusive-windows-apps.md">Developing inclusive Windows apps</a></b><br/> This article is a roadmap for developing accessible UWP apps.</p>
+<p><b><a href="../accessibility/developing-inclusive-windows-apps.md">Developing inclusive Windows apps</a></b><br/> This article is a roadmap for developing accessible Windows apps.</p>
                     </div>
                 </div>
             </div>
@@ -66,7 +66,7 @@ ms.locfileid: "80614958"
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-<p><b><a href="../accessibility/accessibility-testing.md">Accessibility testing</a> </b><br/>Testing procedures to follow to ensure that your UWP app is accessible.</p>
+<p><b><a href="../accessibility/accessibility-testing.md">Accessibility testing</a> </b><br/>Testing procedures to follow to ensure that your Windows app is accessible.</p>
                     </div>
                 </div>
             </div>
@@ -77,7 +77,7 @@ ms.locfileid: "80614958"
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-<p><b><a href="../accessibility/accessibility-in-the-store.md">Accessibility in the Store</a></b><br/>Describes the requirements for declaring your UWP app as accessible in the Microsoft Store.</p>
+<p><b><a href="../accessibility/accessibility-in-the-store.md">Accessibility in the Store</a></b><br/>Describes the requirements for declaring your Windows app as accessible in the Microsoft Store.</p>
                     </div>
                 </div>
             </div>
@@ -88,7 +88,7 @@ ms.locfileid: "80614958"
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-<p><b><a href="../accessibility/accessibility-checklist.md">Accessibility checklist</a></b><br/>Provides a checklist to help you ensure that your UWP app is accessible.</p>
+<p><b><a href="../accessibility/accessibility-checklist.md">Accessibility checklist</a></b><br/>Provides a checklist to help you ensure that your Windows app is accessible.</p>
                     </div>
                 </div>
             </div>
@@ -121,7 +121,7 @@ ms.locfileid: "80614958"
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-<p><b><a href="../accessibility/high-contrast-themes.md">High-contrast themes</a></b><br/>Describes the steps needed to ensure your UWP app is usable when a high-contrast theme is active. </p>
+<p><b><a href="../accessibility/high-contrast-themes.md">High-contrast themes</a></b><br/>Describes the steps needed to ensure your Windows app is usable when a high-contrast theme is active. </p>
                     </div>
                 </div>
             </div>
@@ -132,7 +132,7 @@ ms.locfileid: "80614958"
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-<p><b><a href="../accessibility/accessible-text-requirements.md">Accessible text requirements</a></b><br/>This topic describes best practices for accessibility of text in an app, by assuring that colors and backgrounds satisfy the necessary contrast ratio. This topic also discusses the Microsoft UI Automation roles that text elements in a UWP app can have, and best practices for text in graphics.</p>                    
+<p><b><a href="../accessibility/accessible-text-requirements.md">Accessible text requirements</a></b><br/>This topic describes best practices for accessibility of text in an app, by assuring that colors and backgrounds satisfy the necessary contrast ratio. This topic also discusses the Microsoft UI Automation roles that text elements in a Windows app can have, and best practices for text in graphics.</p>                    
                     </div>
                 </div>
             </div>
@@ -143,7 +143,7 @@ ms.locfileid: "80614958"
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-<p><b><a href="../accessibility/practices-to-avoid.md">Accessibility practices to avoid</a></b><br/>Lists the practices to avoid if you want to create an accessible UWP app.</p>                    
+<p><b><a href="../accessibility/practices-to-avoid.md">Accessibility practices to avoid</a></b><br/>Lists the practices to avoid if you want to create an accessible Windows app.</p>                    
                     </div>
                 </div>
             </div>
