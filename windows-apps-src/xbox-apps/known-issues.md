@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: a7b82570-1f99-4bc3-ac78-412f6360e936
 ms.localizationpriority: medium
-ms.openlocfilehash: 34425a0e754d62a1d9d7716bca3576463aec3ba5
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: dbf9d40d4dc2cfedaa78cbca5b16c4cc26d2d4e1
+ms.sourcegitcommit: ef723e3d6b1b67213c78da696838a920c66d5d30
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74259725"
+ms.lasthandoff: 05/02/2020
+ms.locfileid: "82730073"
 ---
 # <a name="known-issues-with-uwp-on-xbox-developer-program"></a>Xbox 開発者プログラムの UWP の既知の問題
 
@@ -36,7 +36,7 @@ ms.locfileid: "74259725"
 3. 本体からアプリを起動します。
 4. アプリを起動できるように、PIN またはパスワードを入力します。
 5. アプリが起動します。
-6. アプリを閉じます。
+6. アプリケーションを閉じます。
 7. F5 キーを使用して VS から起動すると、プロンプトを表示せずにアプリが起動します。
 
 この時点では、アプリのアンインストールと再インストールを行っても、ユーザーをサインアウトさせるまで、アクセス許可は_固定_されます。
@@ -58,14 +58,14 @@ System.UnauthorizedAccessException: Access is denied. (Excep_FromHResult 0x80070
 
 Xbox One デバイスでは、範囲 [57344, 65535] に含まれるポートへのユニバーサル Windows プラットフォーム (UWP) アプリのバインドは制限されています。 実行時にはこの範囲のポートへのバインドは成功しているように見えても、ネットワーク トラフィックはアプリに到達する前にエラーや警告なしで破棄される可能性があります。 できる限りポート 0 にアプリをバインドし、システムによってローカル ポートが選択されるようにしてください。 使用するポートを指定する必要がある場合は、範囲 [1025, 49151] 内のポート番号を使用する必要があります。この場合、IANA レジストリと競合しないように、確認してください。 詳しくは、[サービス名およびトランスポート プロトコル ポート番号のレジストリ](https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml)についてのページをご覧ください。
 
-## <a name="uwp-api-coverage"></a>UWP API カバレッジ
+## <a name="windows-runtime-api-coverage"></a>Windows ランタイム API カバレッジ
 
-Xbox では、すべての UWP API がサポートされているわけではありません。 動作しないことが確認されている API の一覧については、「[Xbox でまだサポートされていない UWP 機能](https://docs.microsoft.com/uwp/extension-sdks/uwp-limitations-on-xbox?redirectedfrom=MSDN)」をご覧ください。 他の API に問題が見つかった場合は、フォーラムでご報告ください。 
+すべての Windows ランタイム Api が Xbox でサポートされているわけではありません。 動作しないことが確認されている API の一覧については、「[Xbox でまだサポートされていない UWP 機能](https://docs.microsoft.com/uwp/extension-sdks/uwp-limitations-on-xbox?redirectedfrom=MSDN)」をご覧ください。 他の API に問題が見つかった場合は、フォーラムでご報告ください。 
 
 
 ## <a name="navigating-to-wdp-causes-a-certificate-warning"></a>WDP に移動すると証明書の警告が表示される
 
-提供された証明書についての、次のスクリーン ショットのような警告が表示されます。これは、Xbox One 本体によって署名されたセキュリティ証明書が、既知の信頼された発行元とは見なされないためです。 Windows Device Portal にアクセスするには、 **[このサイトの閲覧を続行する]** をクリックします。
+提供された証明書についての、次のスクリーン ショットのような警告が表示されます。これは、Xbox One 本体によって署名されたセキュリティ証明書が、既知の信頼された発行元とは見なされないためです。 Windows Device Portal にアクセスするには、**[このサイトの閲覧を続行する]** をクリックします。
 
 ![Web サイトのセキュリティ証明書の警告](images/security_cert_warning.jpg)
 

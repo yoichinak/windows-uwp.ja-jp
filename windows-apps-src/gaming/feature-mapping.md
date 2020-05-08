@@ -6,21 +6,21 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, DirectX 9, DirectX 11, 移植
 ms.localizationpriority: medium
-ms.openlocfilehash: c5c86ad836c94d990f5728ce9f7cfe49c754ce19
-ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
+ms.openlocfilehash: e0643773ca529540284f0749de6e91349f4e9c47
+ms.sourcegitcommit: ef723e3d6b1b67213c78da696838a920c66d5d30
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79210608"
+ms.lasthandoff: 05/02/2020
+ms.locfileid: "82730235"
 ---
 # <a name="map-directx-9-features-to-directx-11-apis"></a>DirectX 11 API への DirectX 9 の機能のマッピング
 
 
 
-**要約**
+**まとめ**
 
--   [DirectX ポートを計画する](plan-your-directx-port.md)
--   [Direct3D 9 から Direct3D 11 への重要な変更点](understand-direct3d-11-1-concepts.md)
+-   [DirectX の移植の計画](plan-your-directx-port.md)
+-   [Direct3D 9 と Direct3D 11 の間の重要な変更点](understand-direct3d-11-1-concepts.md)
 -   機能のマッピング
 
 
@@ -66,7 +66,7 @@ Visual Studio は、シェーダー オブジェクトをコンパイルする�
 
 シェーダー リソースの読み込みの概要については、「[チュートリアル: DirectX 11 とユニバーサル Windows プラットフォーム (UWP) への簡単な Direct3D 9 アプリの移植](walkthrough--simple-port-from-direct3d-9-to-11-1.md)」をご覧ください。
 
-Direct3D 11 ではシェーダーモデル5が導入されました。これには、Direct3D の特徴レベル 11\_0 (以上) が必要です。 「[Direct3D 11 の HLSL シェーダー モデル 5 の機能](https://docs.microsoft.com/windows/desktop/direct3dhlsl/overviews-direct3d-11-hlsl)」をご覧ください。
+Direct3D 11 ではシェーダーモデル5が導入されました\_。これには direct3d の機能レベル 11 0 以上が必要です。 「[Direct3D 11 の HLSL シェーダー モデル 5 の機能](https://docs.microsoft.com/windows/desktop/direct3dhlsl/overviews-direct3d-11-hlsl)」をご覧ください。
 
 ## <a name="replace-xnamath-and-d3dxmath"></a>XNAMath と D3DXMath の置き換え
 
@@ -82,7 +82,7 @@ DirectSound では、UWP はサポートされていません。
 
 -   ゲームにサウンド効果を追加するには [XAudio2](https://docs.microsoft.com/windows/desktop/xaudio2/xaudio2-apis-portal) を使います。
 
-##  <a name="replace-directinput-with-xinput-and-uwp-apis"></a>XInput と UWP API への DirectInput の置き換え
+##  <a name="replace-directinput-with-xinput-and-windows-runtime-apis"></a>DirectInput を XInput および Windows ランタイム Api に置き換える
 
 
 DirectInput では、UWP はサポートされていません。
@@ -102,16 +102,16 @@ DirectShow は DirectX API (または Windows API) にはもう含まれてい�
 Microsoft DirectPlay は推奨されなくなりました。 ゲームでネットワーク サービスを使う場合は、UWP の要件に準拠しているネットワーク コードを提供する必要があります。 次の API を使います。
 
 -   [UWP アプリの Win32 と COM (ネットワーク) (Windows)](https://docs.microsoft.com/uwp/win32-and-com/win32-and-com-for-uwp-apps)
--   [**Windows. ネットワーク名前空間 (Windows)** ](https://docs.microsoft.com/uwp/api/Windows.Networking)
--   [**Windows. ネットワークソケットの名前空間 (Windows)** ](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets)
--   [**Windows. Connectivity 名前空間 (Windows)** ](https://docs.microsoft.com/uwp/api/Windows.Networking.Connectivity)
--   [**Windows. ApplicationModel. Background 名前空間 (Windows)** ](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background)
+-   [**Windows.Networking 名前空間 (Windows)**](https://docs.microsoft.com/uwp/api/Windows.Networking)
+-   [**Windows.Networking.Sockets 名前空間 (Windows)**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets)
+-   [**Windows.Networking.Connectivity 名前空間 (Windows)**](https://docs.microsoft.com/uwp/api/Windows.Networking.Connectivity)
+-   [**Windows.ApplicationModel.Background 名前空間 (Windows)**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background)
 
 次の記事は、ネットワーク機能を追加し、アプリのパッケージ マニフェストでネットワークのサポートを宣言するうえで役立ちます。
 
--   [ソケットを使用した接続 ( C#/vb/C++および XAML を使用した UWP アプリ) (Windows)](https://docs.microsoft.com/previous-versions/windows/apps/hh452976(v=win.10))
--   [Websocket を使用した接続 ( C#/vb/C++および XAML を使用した UWP アプリ) (Windows)](https://docs.microsoft.com/previous-versions/windows/apps/hh994396(v=win.10))
--   [Web サービスへの接続 (/Vb/ C#C++および XAML を使用した UWP アプリ) (Windows)](https://docs.microsoft.com/previous-versions/windows/apps/hh761504(v=win.10))
+-   [ソケットを使った接続 (C#/VB/C++ と XAML を使った UWP アプリ) (Windows)](https://docs.microsoft.com/previous-versions/windows/apps/hh452976(v=win.10))
+-   [WebSocket を使った接続 (C#/VB/C++ と XAML を使った UWP アプリ) (Windows)](https://docs.microsoft.com/previous-versions/windows/apps/hh994396(v=win.10))
+-   [Web サービスへの接続 (C#/VB/C++ と XAML を使った UWP アプリ) (Windows)](https://docs.microsoft.com/previous-versions/windows/apps/hh761504(v=win.10))
 -   [ネットワークの基本](https://docs.microsoft.com/windows/uwp/networking/networking-basics)
 
 アプリの中断中は、すべての UWP アプリ (ゲームを含む) で特定の種類のバックグラウンド タスクを使って接続を維持します。 中断されている間、ゲームが接続状態を保存する必要がある場合は、「[ネットワークの基本](https://docs.microsoft.com/windows/uwp/networking/networking-basics)」をご覧ください。
@@ -146,8 +146,8 @@ Direct3D 9 から Direct3D 11 にコードの変換を行う場合は、次の�
 <p><a href="https://docs.microsoft.com/windows/desktop/api/dxgi1_3/nn-dxgi1_3-idxgidevice3">IDXGIDevice3</a></p></td>
 </tr>
 <tr class="odd">
-<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-present">IDirect3DDevice9: 再送信:P</a></p></td>
-<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/api/dxgi1_2/nf-dxgi1_2-idxgiswapchain1-present1">IDXGISwapChain1::P resent1</a></p></td>
+<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-present">IDirect3DDevice9::Present</a></p></td>
+<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/api/dxgi1_2/nf-dxgi1_2-idxgiswapchain1-present1">IDXGISwapChain1::Present1</a></p></td>
 </tr>
 <tr class="even">
 <td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9helper/nf-d3d9helper-idirect3ddevice9-testcooperativelevel">IDirect3DDevice9::TestCooperativeLevel</a></p></td>
@@ -187,50 +187,50 @@ Direct3D 9 から Direct3D 11 にコードの変換を行う場合は、次の�
 <p><a href="https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11samplerstate">ID3D11SamplerState</a></p></td>
 </tr>
 <tr class="odd">
-<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-drawindexedprimitive">IDirect3DDevice9::D rawIndexedPrimitive</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-drawprimitive">IDirect3DDevice9::D rawPrimitive</a></p></td>
-<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-draw">である id3d11devicecontext::D raw</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-drawindexed">である id3d11devicecontext::D rawIndexed</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d10/nf-d3d10-id3d10device-drawindexedinstanced">である id3d11devicecontext::D rawIndexedInstanced 化</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d10/nf-d3d10-id3d10device-drawinstanced">である id3d11devicecontext::D rawInstanced 化</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d10/nf-d3d10-id3d10device-iasetprimitivetopology">である id3d11devicecontext:: IASetPrimitiveTopology</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d10/nf-d3d10-id3d10device-drawauto">である id3d11devicecontext::D rawAuto</a></p></td>
+<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-drawindexedprimitive">IDirect3DDevice9::DrawIndexedPrimitive</a></p>
+<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-drawprimitive">IDirect3DDevice9::DrawPrimitive</a></p></td>
+<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-draw">ID3D11DeviceContext::Draw</a></p>
+<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-drawindexed">ID3D11DeviceContext::DrawIndexed</a></p>
+<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d10/nf-d3d10-id3d10device-drawindexedinstanced">ID3D11DeviceContext::DrawIndexedInstanced</a></p>
+<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d10/nf-d3d10-id3d10device-drawinstanced">ID3D11DeviceContext::DrawInstanced</a></p>
+<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d10/nf-d3d10-id3d10device-iasetprimitivetopology">ID3D11DeviceContext::IASetPrimitiveTopology</a></p>
+<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d10/nf-d3d10-id3d10device-drawauto">ID3D11DeviceContext::DrawAuto</a></p></td>
 </tr>
 <tr class="even">
-<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-beginscene">IDirect3DDevice9:: BeginScene</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-endscene">IDirect3DDevice9:: EndScene</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-drawprimitiveup">IDirect3DDevice9::D rawPrimitiveUP</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-drawindexedprimitiveup">IDirect3DDevice9::D rawIndexedPrimitiveUP</a></p></td>
+<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-beginscene">IDirect3DDevice9::BeginScene</a></p>
+<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-endscene">IDirect3DDevice9::EndScene</a></p>
+<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-drawprimitiveup">IDirect3DDevice9::DrawPrimitiveUP</a></p>
+<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-drawindexedprimitiveup">IDirect3DDevice9::DrawIndexedPrimitiveUP</a></p></td>
 <td align="left"><p>直接相当する要素はなし</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9helper/nf-d3d9helper-idirect3ddevice9-showcursor">IDirect3DDevice9::ShowCursor</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-setcursorposition">IDirect3DDevice9:: Setカーソルの位置</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-setcursorproperties">IDirect3DDevice9:: Setカーソルのプロパティ</a></p></td>
+<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-setcursorposition">IDirect3DDevice9::SetCursorPosition</a></p>
+<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-setcursorproperties">IDirect3DDevice9::SetCursorProperties</a></p></td>
 <td align="left"><p>標準的なカーソル API を使います。</p></td>
 </tr>
 <tr class="even">
-<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-reset">IDirect3DDevice9:: Reset</a></p></td>
+<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-reset">IDirect3DDevice9::Reset</a></p></td>
 <td align="left"><p>LOST デバイスと POOL_MANAGED はもう存在しません。 <a href="https://docs.microsoft.com/windows/desktop/api/dxgi1_2/nf-dxgi1_2-idxgiswapchain1-present1">IDXGISwapChain1::Present1</a> は戻り値 <a href="https://docs.microsoft.com/windows/desktop/direct3ddxgi/dxgi-error">DXGI_ERROR_DEVICE_REMOVED</a> で失敗する可能性があります。</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-drawrectpatch">IDirect3DDevice9:DrawRectPatch</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-drawtripatch">IDirect3DDevice9: DrawTriPatch</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-lightenable">IDirect3DDevice9: ライトの有効化</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-multiplytransform">IDirect3DDevice9: 乗数 Ytransform</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/direct3d9/id3dxeffectstatemanager--setlight">IDirect3DDevice9: SetLight</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9helper/nf-d3d9helper-idirect3ddevice9-setmaterial">IDirect3DDevice9: SetMaterial</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9helper/nf-d3d9helper-idirect3ddevice9-setnpatchmode">IDirect3DDevice9: Setnパッチモード</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9helper/nf-d3d9helper-idirect3ddevice9-settransform">IDirect3DDevice9: SetTransform</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-setfvf">IDirect3DDevice9: SetFVF</a></p>
+<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-drawtripatch">IDirect3DDevice9:DrawTriPatch</a></p>
+<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-lightenable">IDirect3DDevice9:LightEnable</a></p>
+<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-multiplytransform">IDirect3DDevice9:MultiplyTransform</a></p>
+<p><a href="https://docs.microsoft.com/windows/desktop/direct3d9/id3dxeffectstatemanager--setlight">IDirect3DDevice9:SetLight</a></p>
+<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9helper/nf-d3d9helper-idirect3ddevice9-setmaterial">IDirect3DDevice9:SetMaterial</a></p>
+<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9helper/nf-d3d9helper-idirect3ddevice9-setnpatchmode">IDirect3DDevice9:SetNPatchMode</a></p>
+<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9helper/nf-d3d9helper-idirect3ddevice9-settransform">IDirect3DDevice9:SetTransform</a></p>
+<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-setfvf">IDirect3DDevice9:SetFVF</a></p>
 <p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9helper/nf-d3d9helper-idirect3ddevice9-settexturestagestate">IDirect3DDevice9:SetTextureStageState</a></p></td>
 <td align="left"><p>固定関数パイプラインは推奨されなくなりました。</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3d9-checkdepthstencilmatch">IDirect3DDevice9:CheckDepthStencilMatch</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3d9-checkdeviceformat">IDirect3DDevice9: CheckDeviceFormat</a></p>
+<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3d9-checkdeviceformat">IDirect3DDevice9:CheckDeviceFormat</a></p>
 <p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3d9-getdevicecaps">IDirect3DDevice9:GetDeviceCaps</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-validatedevice">IDirect3DDevice9: ValidateDevice</a></p></td>
+<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-validatedevice">IDirect3DDevice9:ValidateDevice</a></p></td>
 <td align="left"><p>互換性ビットは機能レベルに置き換えられます。 特定の機能レベルでは、いくつかの形式と機能の使用のみオプションです。 これは <a href="https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11device-checkfeaturesupport">ID3D11Device::CheckFeatureSupport</a> と <a href="https://docs.microsoft.com/windows/desktop/api/d3d10/nf-d3d10-id3d10device-checkformatsupport">ID3D11Device::CheckFormatSupport</a> でチェックできます。</p></td>
 </tr>
 </tbody>
@@ -341,8 +341,8 @@ Direct3D 9 形式から DXGI 形式への変換を行う場合は、次の表を
 <tr class="odd">
 <td align="left"><p>D3DFMT_L8</p></td>
 <td align="left"><p>DXGI_FORMAT_R8_UNORM</p>
-<div class="alert">Swizzle をシェーダーで使用して、他のコンポーネントと赤を複製し、Direct3D 9 の動作を取得  
-<strong>ことに注意</strong>してください。
+<div class="alert">
+<strong>注:</strong>    r swizzle をシェーダーで使用して、他のコンポーネントと赤を複製し、Direct3D 9 の動作を取得します。
 </div>
 <div>
  
@@ -352,7 +352,7 @@ Direct3D 9 形式から DXGI 形式への変換を行う場合は、次の表を
 <td align="left"><p>D3DFMT_A8L8</p></td>
 <td align="left"><p>DXGI_FORMAT_R8G8_UNORM</p>
 <div class="alert">
-<strong>注</strong>   シェーダーで Swizzle を使用して赤を複製し、アルファコンポーネントに緑を移動して Direct3D 9 の動作を取得します。
+<strong>注:</strong>   シェーダーで swizzle を使用して赤を複製し、アルファコンポーネントに緑を移動して Direct3D 9 の動作を取得します。
 </div>
 <div>
  
@@ -398,7 +398,7 @@ Direct3D 9 形式から DXGI 形式への変換を行う場合は、次の表を
 <td align="left"><p>D3DFMT_R8G8_B8G8</p></td>
 <td align="left"><p>DXGI_FORMAT_G8R8_G8B8_UNORM</p>
 <div class="alert">
-<strong>   Direct3D</strong> 9 では、データは 255.0 f によってスケールアップされましたが、これはシェーダーで処理できます。
+<strong>Note</strong>   Direct3D 9 では、データは 255.0 f によってスケールアップされましたが、シェーダーで処理できます。
 </div>
 <div>
  
@@ -412,7 +412,7 @@ Direct3D 9 形式から DXGI 形式への変換を行う場合は、次の表を
 <td align="left"><p>D3DFMT_G8R8_G8B8</p></td>
 <td align="left"><p>DXGI_FORMAT_R8G8_B8G8_UNORM</p>
 <div class="alert">
-<strong>   Direct3D</strong> 9 では、データは 255.0 f によってスケールアップされましたが、これはシェーダーで処理できます。
+<strong>Note</strong>   Direct3D 9 では、データは 255.0 f によってスケールアップされましたが、シェーダーで処理できます。
 </div>
 <div>
  
@@ -426,7 +426,7 @@ Direct3D 9 形式から DXGI 形式への変換を行う場合は、次の表を
 <td align="left"><p>D3DFMT_DXT2</p></td>
 <td align="left"><p>DXGI_FORMAT_BC1_UNORM と DXGI_FORMAT_BC1_UNORM_SRGB</p>
 <div class="alert">
-<strong>   DXT1</strong>と DXT2 は API/ハードウェアの観点と同じです。 唯一の違いは、プリマルチプライ済みアルファが使われるかどうかです。これはアプリケーションで追跡でき、別の形式は必要ありません。
+<strong>注</strong>   DXT1 と DXT2 は、API/ハードウェアの観点と同じです。 唯一の違いは、プリマルチプライ済みアルファが使われるかどうかです。これはアプリケーションで追跡でき、別の形式は必要ありません。
 </div>
 <div>
  
@@ -439,8 +439,8 @@ Direct3D 9 形式から DXGI 形式への変換を行う場合は、次の表を
 <tr class="even">
 <td align="left"><p>D3DFMT_DXT4</p></td>
 <td align="left"><p>DXGI_FORMAT_BC2_UNORM と DXGI_FORMAT_BC2_UNORM_SRGB</p>
-<div class="alert">DXT3 と DXT4 は、API/ハードウェアの観点と同じである
-<strong>ことに注意</strong>してください。  。 唯一の違いは、プリマルチプライ済みアルファが使われるかどうかです。これはアプリケーションで追跡でき、別の形式は必要ありません。
+<div class="alert">
+<strong>注</strong>   DXT3 と DXT4 は、API/ハードウェアの観点と同じです。 唯一の違いは、プリマルチプライ済みアルファが使われるかどうかです。これはアプリケーションで追跡でき、別の形式は必要ありません。
 </div>
 <div>
  
@@ -505,8 +505,8 @@ Direct3D 9 形式から DXGI 形式への変換を行う場合は、次の表を
 <tr class="odd">
 <td align="left"><p>D3DFMT_L16</p></td>
 <td align="left"><p>DXGI_FORMAT_R16_UNORM</p>
-<div class="alert">D3D9 の動作を取得するために、シェーダーで swizzle を使用して、他のコンポーネントと赤を複製してください
-<strong>。  </strong>
+<div class="alert">
+<strong>注</strong>   D3D9 の動作を取得するには、シェーダーで swizzle を使用して、赤を他のコンポーネントに複製します。
 </div>
 <div>
  
@@ -579,8 +579,8 @@ Direct3D 9 形式から DXGI 形式への変換を行う場合は、次の表を
 <tr class="even">
 <td align="left"><p>D3DDECLTYPE_UBYTE4</p></td>
 <td align="left"><p>DXGI_FORMAT_R8G8B8A8_UINT</p>
-<div class="alert">シェーダーが UINT 値を取得する   に
-<strong>注意</strong>してください。ただし、Direct3D 9 スタイルの整数浮動小数点値が必要な場合は、0.0 f, 1.0 f...255)。 UINT はシェーダー内の float32 にのみ変換できます。
+<div class="alert">
+<strong>シェーダーは UINT</strong>   値を取得しますが、Direct3D 9 スタイルの整数浮動小数点値が必要な場合は (0.0 f, 1.0 f...255)。 UINT はシェーダー内の float32 にのみ変換できます。
 </div>
 <div>
  
@@ -589,8 +589,8 @@ Direct3D 9 形式から DXGI 形式への変換を行う場合は、次の表を
 <tr class="odd">
 <td align="left"><p>D3DDECLTYPE_SHORT2</p></td>
 <td align="left"><p>DXGI_FORMAT_R16G16_SINT</p>
-<div class="alert">シェーダーはシント値を
-<strong>取得   ます</strong>が、Direct3D 9 スタイルの整数浮動小数点型が必要な場合は、シントをシェーダー内の float32 に変換するだけで済みます。
+<div class="alert">
+<strong>シェーダーはシント</strong>  値を取得しますが、Direct3D 9 スタイルの整数浮動小数点型が必要な場合は、シントをシェーダー内の float32 に変換するだけで済みます。
 </div>
 <div>
  
@@ -599,8 +599,8 @@ Direct3D 9 形式から DXGI 形式への変換を行う場合は、次の表を
 <tr class="even">
 <td align="left"><p>D3DDECLTYPE_SHORT4</p></td>
 <td align="left"><p>DXGI_FORMAT_R16G16B16A16_SINT</p>
-<div class="alert">シェーダーはシント値を
-<strong>取得   ます</strong>が、Direct3D 9 スタイルの整数浮動小数点型が必要な場合は、シントをシェーダー内の float32 に変換するだけで済みます。
+<div class="alert">
+<strong>シェーダーはシント</strong>  値を取得しますが、Direct3D 9 スタイルの整数浮動小数点型が必要な場合は、シントをシェーダー内の float32 に変換するだけで済みます。
 </div>
 <div>
  
@@ -646,7 +646,7 @@ Direct3D 9 形式から DXGI 形式への変換を行う場合は、次の表を
 <td align="left"><p>FourCC 'ATI1'</p></td>
 <td align="left"><p>DXGI_FORMAT_BC4_UNORM</p>
 <div class="alert">
-<strong>注</strong>   には、10.0 以降の機能レベルが必要です
+<strong>メモ</strong>  機能レベル10.0 以降が必要です
 </div>
 <div>
  
@@ -656,7 +656,7 @@ Direct3D 9 形式から DXGI 形式への変換を行う場合は、次の表を
 <td align="left"><p>FourCC 'ATI2'</p></td>
 <td align="left"><p>DXGI_FORMAT_BC5_UNORM</p>
 <div class="alert">
-<strong>注</strong>   には、10.0 以降の機能レベルが必要です
+<strong>メモ</strong>  機能レベル10.0 以降が必要です
 </div>
 <div>
  

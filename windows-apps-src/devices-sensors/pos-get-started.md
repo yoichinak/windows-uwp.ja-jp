@@ -1,22 +1,22 @@
 ---
 title: POS (店舗販売時点管理) の概要
-description: この記事には、POS (店舗販売時点管理) UWP API の概要に関する情報が含まれています。
+description: この記事では、サービス Windows ランタイム Api のポイントの概要について説明します。
 ms.date: 05/02/2018
 ms.topic: article
 keywords: Windows 10, UWP, 店舗販売時点管理, POS
 ms.localizationpriority: medium
-ms.openlocfilehash: d059f0e33f7343fa0ac9919a243008ed486e31ff
-ms.sourcegitcommit: fca0132794ec187e90b2ebdad862f22d9f6c0db8
+ms.openlocfilehash: f5f19d1337a7ae49f46ab65d8420fedb775eeb2f
+ms.sourcegitcommit: ef723e3d6b1b67213c78da696838a920c66d5d30
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63772736"
+ms.lasthandoff: 05/02/2020
+ms.locfileid: "82730382"
 ---
 # <a name="getting-started-with-point-of-service"></a>POS (店舗販売時点管理) の概要
 
 POS (店舗販売時点管理または販売時点管理) デバイスとは、小売トランザクションを進めやすくするために使われるコンピューター周辺機器です。 POS デバイスの例として、電子レジスター、バーコード スキャナー、磁気ストライプ リーダー、レシート プリンターなどがあります。
 
-ここでは、ユニバーサル Windows プラットフォーム (UWP) PointOfService API を使った POS デバイスとのやり取りの基本について説明します。 ここで取り上げる内容には、デバイスの列挙、デバイス機能の確認、デバイスの要求、デバイスの共有が含まれます。 例としてバーコード スキャナーを使いますが、ここで説明するガイダンスのほとんどは、あらゆる UWP 互換 POS デバイスに適用されます  (サポートされているデバイスの一覧については、「[POS デバイスのサポート](pos-device-support.md)」をご覧ください)。
+ここでは、サービス Api の Windows ランタイムポイントを使用して、ポイントサービスデバイスとのやり取りの基本について説明します。 ここで取り上げる内容には、デバイスの列挙、デバイス機能の確認、デバイスの要求、デバイスの共有が含まれます。 例としてバーコード スキャナーを使いますが、ここで説明するガイダンスのほとんどは、あらゆる UWP 互換 POS デバイスに適用されます  (サポートされているデバイスの一覧については、「[POS デバイスのサポート](pos-device-support.md)」をご覧ください)。
 
 ## <a name="finding-and-connecting-to-point-of-service-peripherals"></a>POS 周辺機器の検出と接続
 
@@ -152,7 +152,7 @@ catch (Exception ex)
 ```
 
 ### <a name="retaining-the-device"></a>デバイスの再起動
-ネットワークまたは Bluetooth 接続経由で POS デバイスを使っているときに、デバイスをネットワーク上の他のアプリと共有したい場合があります  (これについての詳細については、次を参照してください[共有デバイス](#sharing-a-device-between-apps)。)。その他の場合は、長時間にわたる使用のデバイスに保持します。 この例では、他のアプリからデバイスを解放するように要求されても、要求したバーコード スキャナーを保持し続ける方法を示します。
+ネットワークまたは Bluetooth 接続経由で POS デバイスを使っているときに、デバイスをネットワーク上の他のアプリと共有したい場合があります  (これについては「[デバイスの共有](#sharing-a-device-between-apps)」をご覧ください)。また、デバイスを長時間にわたって保持することが必要になる場合もあります。 この例では、他のアプリからデバイスを解放するように要求されても、要求したバーコード スキャナーを保持し続ける方法を示します。
 
 ```Csharp
 claimedBarcodeScanner.ReleaseDeviceRequested += claimedBarcodeScanner_ReleaseDeviceRequested;
@@ -163,7 +163,7 @@ void claimedBarcodeScanner_ReleaseDeviceRequested(object sender, ClaimedBarcodeS
 }
 ```
 
-## <a name="input-and-output"></a>入力と出力
+## <a name="input-and-output"></a>入出力
 
 デバイスを要求したら、デバイスを使う準備はほとんど完了です。 デバイスから入力を受け取るには、データを受信するデリゲートを設定して有効にする必要があります。 次の例では、バーコード スキャナー デバイスを要求し、デコード プロパティを設定します。その後、**EnableAsync** を呼び出して、デコードされたデバイス入力を有効にします。 このプロセスはデバイス クラスによって異なるため、バーコード デバイス以外のデリゲートを設定する方法のガイダンスについては、関連する [UWP アプリのサンプル](https://github.com/Microsoft/Windows-universal-samples#devices-and-sensors)をご覧ください。
 
@@ -209,8 +209,8 @@ if (claimedBarcodeScanner != null)
 
 ## <a name="see-also"></a>関連項目
 + [バーコード スキャナーのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/BarcodeScanner)
-+ [現金引き出しサンプル]( https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/CashDrawer)
-+ [ライン サンプルを表示](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/LineDisplay)
++ [キャッシュ ドロワーのサンプル]( https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/CashDrawer)
++ [ライン ディスプレイのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/LineDisplay)
 + [磁気ストライプ リーダーのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/MagneticStripeReader)
-+ [POSPrinter サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/PosPrinter)
++ [POS プリンターのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/PosPrinter)
 

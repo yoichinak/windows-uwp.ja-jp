@@ -1,5 +1,5 @@
 ---
-Description: タッチパッド向けに最適化される一方で、さまざまな入力デバイスで一貫した機能を提供する、直観的で独特なユーザー操作エクスペリエンスを備えたユニバーサル Windows プラットフォーム (UWP) アプリを作成します。
+Description: タッチパッド用に最適化されているが、入力デバイス間で機能的に一貫性がある、直感的で特徴的なユーザー操作エクスペリエンスを備えた Windows アプリアプリを作成します。
 title: タッチパッド操作
 ms.assetid: CEDEA30A-FE94-4553-A7FB-6C1FA44F06AB
 label: Touchpad interactions
@@ -8,12 +8,12 @@ keywords: タッチパッド, PTP, タッチ, ポインター, 入力, ユーザ
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 991d85edd9c0a51412d33b48e364974d2095410e
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: afbdf5c672328acfc60a82f9f66c75dc52370c99
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74258231"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970237"
 ---
 # <a name="touchpad-design-guidelines"></a>タッチパッドの設計ガイドライン
 
@@ -29,7 +29,7 @@ ms.locfileid: "74258231"
 
 -   標準のタッチパッド、または Windows 高精度タッチパッド。
 
-    高精度タッチパッドは、ユニバーサル Windows プラットフォーム (UWP) デバイス向けに最適化されています。 高精度タッチパッドを使用すると、システムが指の追跡や手のひら検出などの一部のタッチパッド操作をネイティブに処理でき、さまざまなデバイス全体での一貫した操作を実現しやすくなります。
+    Precision タッチパッド向けは Windows アプリデバイス用に最適化されています。 高精度タッチパッドを使用すると、システムが指の追跡や手のひら検出などの一部のタッチパッド操作をネイティブに処理でき、さまざまなデバイス全体での一貫した操作を実現しやすくなります。
 
 -   タッチパッドへの 1 本以上の指の直接的な接触。
 -   タッチ接触の動き (または、時間のしきい値に基づく動きの欠落)。
@@ -40,7 +40,7 @@ ms.locfileid: "74258231"
 -   マウス、ペンなどの代替の入力方式として見なす。
 -   他の入力方法の外観を補完するために使う (ペンで描画したインク ストロークをこするなど)。
 
-タッチパッドは、間接的なマルチタッチ入力と、マウスのようなポインティング デバイスの精密入力を組み合わせたものです。 この組み合わせにより、タッチパッドはタッチに最適化された UI にも、生産性アプリとデスクトップ環境で使用される一般的に小さなターゲットにも適しています。 UWP アプリの設計をタッチ入力用に最適化し、既定のタッチパッドのサポートを利用します。
+タッチパッドは、間接的なマルチタッチ入力と、マウスのようなポインティング デバイスの精密入力を組み合わせたものです。 この組み合わせにより、タッチパッドはタッチに最適化された UI にも、生産性アプリとデスクトップ環境で使用される一般的に小さなターゲットにも適しています。 タッチ入力用に Windows アプリのデザインを最適化し、既定でタッチパッドのサポートを取得します。
 
 タッチパッドでサポートされている操作エクスペリエンスは複合的なので、[**PointerEntered**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerentered) イベントを使って、タッチ入力の組み込みサポートの他にマウス スタイル UI コマンドも提供することをお勧めします。 たとえば、コンテンツをパンするだけでなく、"前へ" ボタンと "次へ" ボタンを使ってコンテンツのページをフリップできるようにします。
 
@@ -55,11 +55,11 @@ ms.locfileid: "74258231"
 
 ![標準のタッチパッドの設定](images/mouse-touchpad-settings-standard.png)
 
-<sup>標準\\ タッチパッド\\ 設定</sup>
+<sup>標準\\タッチ\\パッドの設定</sup>
 
 ![Windows 高精度タッチパッドの設定](images/mouse-touchpad-settings-ptp.png)
 
-<sup>Windows\\ Precision\\ タッチパッド\\ 設定</sup>
+<sup>Windows\\ Precision\\の\\タッチパッドの設定</sup>
 
 以下に、一般的なタスクを実行するためのタッチパッドに最適化されたジェスチャの例を示します。
 
@@ -151,20 +151,19 @@ ms.locfileid: "74258231"
 
 ## <a name="related-articles"></a>関連記事
 
+- [ポインター入力の処理](handle-pointer-input.md)
+- [入力デバイスの識別](identify-input-devices.md)
 
-* [ポインター入力の処理](handle-pointer-input.md)
-* [入力デバイスの識別](identify-input-devices.md)
-**サンプル**
-* [基本的な入力サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/BasicInput)
-* [低待機時間入力サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/LowLatencyInput)
-* [ユーザー操作モードのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/UserInteractionMode)
-* [フォーカスの視覚効果のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlFocusVisuals)
-**サンプルのアーカイブ**
-* [入力: デバイス機能のサンプル](https://code.msdn.microsoft.com/windowsapps/Input-device-capabilities-31b67745)
-* [入力: XAML ユーザー入力イベントのサンプル](https://code.msdn.microsoft.com/windowsapps/Input-3dff271b)
-* [XAML のスクロール、パン、ズームのサンプル](https://code.msdn.microsoft.com/windowsapps/xaml-scrollviewer-pan-and-949d29e9)
-* [入力: GestureRecognizer でのジェスチャと操作](https://code.msdn.microsoft.com/windowsapps/Manipulations-and-gestures-362b6b59)
- 
+### <a name="samples"></a>サンプル
 
+- [基本的な入力のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/BasicInput)
+- [待機時間が短い入力のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/LowLatencyInput)
+- [ユーザー操作モードのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/UserInteractionMode)
+- [フォーカスの視覚効果のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlFocusVisuals)
 
+### <a name="archive-samples"></a>サンプルのアーカイブ
 
+- [入力: デバイス機能のサンプルに関するページ](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Windows%208%20app%20samples/%5BC%23%5D-Windows%208%20app%20samples/C%23/Windows%208%20app%20samples/Input%20Device%20capabilities%20sample%20(Windows%208))
+- [入力: XAML ユーザー入力イベントのサンプルに関するページ](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Input%20XAML%20user%20input%20events%20sample)
+- [XAML のスクロール、パン、ズームのサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Universal%20Windows%20app%20samples/111487-Universal%20Windows%20app%20samples/XAML%20scrolling%2C%20panning%2C%20and%20zooming%20sample)
+- [入力: GestureRecognizer によるジェスチャと操作](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Input%20Gestures%20and%20manipulations%20with%20GestureRecognizer)

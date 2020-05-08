@@ -1,6 +1,6 @@
 ---
 Description: タイル、バッジ、トースト、通知を使用して、アプリへのエントリ ポイントを提供し、ユーザーに最新情報を提示する方法について説明します。
-title: UWP アプリ向けのバッジ通知
+title: Windows アプリのバッジ通知
 ms.assetid: 48ee4328-7999-40c2-9354-7ea7d488c538
 label: Tiles, badges, and notifications
 template: detail.hbs
@@ -8,14 +8,14 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 7e0c3802f0b6163ad5f0e179d90148bae543aeab
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 1d3aa9658e8a57a7993eb79d164b1e17ac23b9ac
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67320848"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970877"
 ---
-# <a name="badge-notifications-for-uwp-apps"></a>UWP アプリ向けのバッジ通知
+# <a name="badge-notifications-for-windows-apps"></a>Windows アプリのバッジ通知
 
  
 
@@ -34,8 +34,8 @@ ms.locfileid: "67320848"
 
 <table>
     <tr>
-        <th>Value</th>
-        <th>バッジ</th>
+        <th>[値]</th>
+        <th>Badge</th>
         <th>XML</th>
     </tr>
     <tr>
@@ -55,17 +55,17 @@ ms.locfileid: "67320848"
 
 <table>
 <tr>
-    <th>状況</th>
+    <th>Status</th>
     <th>グリフ</th>
     <th>XML</th>
 </tr>
 <tr>
-    <td>なし</td>
+    <td>none</td>
     <td>(バッジは表示されません。)</td>
     <td>`<badge value="none"/>`</td>
 </tr>
 <tr>
-    <td>activity (アクティビティ)</td>
+    <td>activity</td>
     <td><img src="images/badges/badge-activity.png" alt="Glyph" /></td>
     <td>`<badge value="activity"/>`</td>
 </tr>
@@ -75,7 +75,7 @@ ms.locfileid: "67320848"
     <td>`<badge value="alarm"/>`</td>
 </tr>
 <tr>
-    <td>alert (警告)</td>
+    <td>アラート</td>
     <td><img src="images/badges/badge-alert.png" alt="Glyph" /></td>
     <td>`<badge value="alert"/>`</td>
 </tr>
@@ -85,7 +85,7 @@ ms.locfileid: "67320848"
     <td>`<badge value="attention"/>`</td>
 </tr>
 <tr>
-    <td>available (利用可能)</td>
+    <td>利用可能</td>
     <td><img src="images/badges/badge-available.png" alt="Glyph" /></td>
     <td>`<badge value="available"/>`</td>
 </tr>
@@ -100,7 +100,7 @@ ms.locfileid: "67320848"
     <td>`<badge value="busy"/>`</td>
 </tr>
 <tr>
-    <td>error (エラー)</td>
+    <td>エラー</td>
     <td><img src="images/badges/badge-error.png" alt="Glyph" /></td>
     <td>`<badge value="error"/>`</td>
 </tr>
@@ -128,7 +128,7 @@ ms.locfileid: "67320848"
 
 ## <a name="create-a-badge"></a>バッジの作成
 
-これらの例では、バッジの更新プログラムを作成する方法を示します。
+これらの例では、バッジの更新を作成する方法を示します。
 
 ### <a name="create-a-numeric-badge"></a>数値バッジの作成
 
@@ -194,7 +194,7 @@ private void clearBadge()
 }
 ````
 
-## <a name="get-the-sample-code"></a>サンプル コードを入手する
+## <a name="get-the-sample-code"></a>サンプル コードの取得
 
 * [通知のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Notifications)<br/> ライブ タイルを作り、バッジの更新を送信し、トースト通知を表示する方法を示します。 
 

@@ -6,18 +6,18 @@ ms.date: 04/16/2018
 ms.topic: article
 keywords: Windows 10, UWP, アプリ内購入, IAP, 受領通知, Windows.ApplicationModel.Store
 ms.localizationpriority: medium
-ms.openlocfilehash: a26d98de58c954f1bec588b335483de08404862b
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: ba87de0755469f373f9000f3d96d3021c9197985
+ms.sourcegitcommit: 28bd367ab8acc64d4b6f3f73adca12100cbd359f
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74259223"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148882"
 ---
 # <a name="use-receipts-to-verify-product-purchases"></a>受領通知を使った製品購入の確認
 
 製品購入が成功した Microsoft Store の各トランザクションでは、必要に応じてトランザクションの受領通知を返すことができます。 この通知は、ユーザーに対する製品と金銭的コストの一覧を掲載します。
 
-この情報は、ユーザーがアプリを購入したことや、Microsoft Store からアドオン (アプリ内製品または IAP とも呼ばれます) の購入が行われたことをアプリで確認する必要がある場合に役立ちます。 たとえば、ダウンロードしたコンテンツを提供するゲームを想像してください。 ゲーム コンテンツを購入したユーザーが別のデバイスでゲームをする場合、そのユーザーが既にコンテンツを所有していることを確認する必要があります。 以下にその方法を示します。
+この情報は、ユーザーがアプリを購入したことや、Microsoft Store からアドオン (アプリ内製品または IAP とも呼ばれます) の購入が行われたことをアプリで確認する必要がある場合に役立ちます。 たとえば、ダウンロードしたコンテンツを提供するゲームを想像してください。 ゲーム コンテンツを購入したユーザーが別のデバイスでゲームをする場合、そのユーザーが既にコンテンツを所有していることを確認する必要があります。 ここではその方法を説明します。
 
 > [!IMPORTANT]
 > この記事では、[Windows.ApplicationModel.Store](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Store) 名前空間のメンバーを使って、アプリ内での購入の受領通知を取得および検証する方法について説明します。 アプリ内購入に [Windows.Services.Store](https://docs.microsoft.com/uwp/api/Windows.Services.Store) 名前空間 (Windows 10 バージョン 1607 で導入され、Visual Studio で **Windows 10 Anniversary Edition (10.0、ビルド 14393)** 以降のリリースをターゲットにするプロジェクトでも利用できる) を使用している場合、この名前空間では、アプリ内購入の購入受領通知を取得するための API が提供されません。 ただし、Microsoft Store コレクション API の REST メソッドを使うと、購入トランザクションのデータを取得することができます。 詳しくは、「[アプリ内購入の受領通知](in-app-purchases-and-trials.md#receipts)」をご覧ください。
@@ -87,7 +87,7 @@ ms.locfileid: "74259223"
 
 ## <a name="validating-a-receipt"></a>通知の検証
 
-受領通知の真正を検証するには、バックエンド システム (Web サービスやそれに類するサービス) でパブリック証明書を使って受領通知の署名を確認する必要があります。 この証明書を取得するには、URL ```https://go.microsoft.com/fwlink/p/?linkid=246509&cid=CertificateId``` (```CertificateId``` は受領通知の **CertificateId** の値) を使用します。
+受領通知の真正を検証するには、バックエンド システム (Web サービスやそれに類するサービス) でパブリック証明書を使って受領通知の署名を確認する必要があります。 この証明書を取得するには```https://lic.apps.microsoft.com/licensing/certificateserver/?cid=CertificateId%60%60%60, where ```、証明書 id ' ' ' を使用して、受信確認の**certificateid**値を指定します。
 
 検証プロセスの例を以下に示します。 このコードは、**System.Security** アセンブリへの参照を含む .NET Framework コンソール アプリケーションで実行されます。
 
@@ -104,17 +104,17 @@ ms.locfileid: "74259223"
 
 このファイルのルート要素は、**Receipt** 要素です。これには、アプリとアプリ内での購入に関する情報が含まれています。 この要素には、次の子要素が含まれます。
 
-|  要素  |  必須  |  数量  |  説明   |
+|  要素  |  必須  |  Quantity  |  説明   |
 |-------------|------------|--------|--------|
-|  [AppReceipt](#appreceipt)  |    X        |  0 または 1  |  現在のアプリの購入情報が含まれています。            |
-|  [ProductReceipt](#productreceipt)  |     X       |  0 以上    |   現在のアプリのアプリ内での購入に関する情報が含まれています。     |
-|  署名  |      〇      |  1   |   この要素は、標準の [XML-DSIG コンストラクト](https://www.w3.org/TR/xmldsig-core/)です。 これには、受領通知の検証に使用する **SignatureValue** 要素に加え、**SignedInfo** 要素が含まれています。      |
+|  [AppReceipt](#appreceipt)  |    いいえ        |  0 または 1  |  現在のアプリの購入情報が含まれています。            |
+|  [ProductReceipt](#productreceipt)  |     いいえ       |  0 以上    |   現在のアプリのアプリ内での購入に関する情報が含まれています。     |
+|  署名  |      はい      |  1   |   この要素は、標準の [XML-DSIG コンストラクト](https://www.w3.org/TR/xmldsig-core/)です。 これには、受領通知の検証に使用する **SignatureValue** 要素に加え、**SignedInfo** 要素が含まれています。      |
 
 **Receipt** には次の属性があります。
 
 |  属性  |  説明   |
 |-------------|-------------------|
-|  **バージョン**  |    受領通知のバージョン番号            |
+|  **Version**  |    受領通知のバージョン番号            |
 |  **CertificateId**  |     受領通知の署名に使用された証明サムプリント          |
 |  **ReceiptDate**  |    受領通知が署名され、ダウンロードされた日付です。           |  
 |  **ReceiptDeviceId**  |   この受領通知の要求に使用するデバイスを識別します。         |  |
@@ -129,10 +129,10 @@ ms.locfileid: "74259223"
 
 |  属性  |  説明   |
 |-------------|-------------------|
-|  **番号**  |    購入を識別します。           |
+|  **Id**  |    購入を識別します。           |
 |  **AppId**  |     OS がアプリに対して使用するパッケージ ファミリ名です。           |
 |  **LicenseType**  |    ユーザーがアプリの通常版を購入した場合は、**Full** です。 ユーザーがアプリの試用版をダウンロードした場合は、**Trial** です。           |  
-|  **PurchaseDate**  |    アプリが取得された日付です。          |  |
+|  **購入日**  |    アプリが取得された日付です。          |  |
 
 <span id="productreceipt" />
 
@@ -144,11 +144,11 @@ ms.locfileid: "74259223"
 
 |  属性  |  説明   |
 |-------------|-------------------|
-|  **番号**  |    購入を識別します。           |
+|  **Id**  |    購入を識別します。           |
 |  **AppId**  |     ユーザーが購入に使ったアプリを識別します。           |
 |  **Id**  |     購入した製品を識別します。           |
 |  **ProductType**  |    製品の種類を示します。 現在サポートされている値は、**Durable** のみです。          |  
-|  **PurchaseDate**  |    購入した日付です。          |  |
+|  **購入日**  |    購入した日付です。          |  |
 
  
 

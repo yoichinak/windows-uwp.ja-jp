@@ -8,16 +8,16 @@ ms.date: 05/20/2019
 ms.topic: article
 keywords: windows 10、uwp、WNS、windows notification service、通知、windows、ファイアウォール、トラブルシューティング、IP、トラフィック、エンタープライズ、ネットワーク、IPv4、VIP、FQDN、パブリック IP アドレス
 ms.localizationpriority: medium
-ms.openlocfilehash: 34e66249c5b44cbfecd81b9238eda2b1e5412b9a
-ms.sourcegitcommit: af4050f69168c15b0afaaa8eea66a5ee38b88fed
+ms.openlocfilehash: 7f87dc0cc174a22f474c91a58f3ffeb738822fa8
+ms.sourcegitcommit: 963316e065cf36c17b6360c3f89fba93a1a94827
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80080663"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82868908"
 ---
 # <a name="enterprise-firewall-and-proxy-configurations-to-support-wns-traffic"></a>WNS トラフィックをサポートするためのエンタープライズファイアウォールとプロキシ構成
 
-## <a name="background"></a>背景
+## <a name="background"></a>バックグラウンド
 多くの企業では、ファイアウォールを使用して、不要なネットワークトラフィックとポートをブロックしています。残念ながら、これは Windows Notification Service の通信などの重要な機能もブロックする可能性があります。 つまり、WNS を介して送信されるすべての通知は、特定のネットワーク構成で削除されます。 これを回避するために、ネットワーク管理者は、承認済みの WNS Fqdn または Vip の一覧を除外リストに追加して、WNS トラフィックがファイアウォールを通過できるようにすることができます。 次に、さまざまなプロキシの種類のサポートに加え、追加の方法と用途について詳しく説明します。
 
 ## <a name="proxy-support"></a>プロキシのサポート
@@ -60,6 +60,10 @@ Windows Notification Service によって使用される Fqdn、Vip、および 
         <IpRange Subnet=""/>
         <!-- See the file in Download Center for the complete list of IP ranges -->
     </ClientIPsIPv4>
+    <IdentityServiceDNS>
+        <DNS FQDN="login.microsoftonline.com"/>
+        <DNS FQDN="login.live.com"/>
+    </IdentityServiceDNS>
 </WNSPublicIpAddresses>
 
 ```
@@ -82,10 +86,10 @@ Windows Notification Service によって使用される Fqdn、Vip、および 
 
 ## <a name="related-topics"></a>関連トピック
 
-* [クイックスタート: プッシュ通知の送信](https://docs.microsoft.com/previous-versions/windows/apps/hh868252(v=win.10))
-* [通知チャネルを要求、作成、および保存する方法](https://docs.microsoft.com/previous-versions/windows/apps/hh465412(v=win.10))
-* [実行中のアプリケーションの通知をインターセプトする方法](https://docs.microsoft.com/previous-versions/windows/apps/jj709907(v=win.10))
-* [Windows プッシュ通知サービス (WNS) を使用して認証する方法](https://docs.microsoft.com/previous-versions/windows/apps/hh465407(v=win.10))
-* [プッシュ通知サービスの要求と応答のヘッダー](https://docs.microsoft.com/previous-versions/windows/apps/hh465435(v=win.10))
-* [プッシュ通知のガイドラインとチェックリスト](https://docs.microsoft.com/windows/uwp/controls-and-patterns/tiles-and-notifications-windows-push-notification-services--wns--overview)
+* [クイック スタート: プッシュ通知の送信](https://docs.microsoft.com/previous-versions/windows/apps/hh868252(v=win.10))
+* [通知チャネルを要求、作成、保存する方法](https://docs.microsoft.com/previous-versions/windows/apps/hh465412(v=win.10))
+* [実行中のアプリの通知を中断する方法](https://docs.microsoft.com/previous-versions/windows/apps/jj709907(v=win.10))
+* [Windows プッシュ通知サービス (WNS) に対して認証する方法](https://docs.microsoft.com/previous-versions/windows/apps/hh465407(v=win.10))
+* [プッシュ通知サービスの要求ヘッダーと応答ヘッダー](https://docs.microsoft.com/previous-versions/windows/apps/hh465435(v=win.10))
+* [プッシュ通知のガイドラインとチェック リスト](https://docs.microsoft.com/windows/uwp/controls-and-patterns/tiles-and-notifications-windows-push-notification-services--wns--overview)
  

@@ -7,12 +7,12 @@ ms.date: 05/25/2017
 ms.topic: article
 keywords: Windows 10、デスクトップ ブリッジ、セカンダリ タイル、ピン留め、クイックスタート、コード サンプル、例、デスクトップ アプリケーション、Win32、WinForms、WPF
 ms.localizationpriority: medium
-ms.openlocfilehash: cd6debb076aac4286c8cb9a33730ade4942b5030
-ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
+ms.openlocfilehash: 7ddcd96eadbb6d2edbc3a72fa58ff3cc8931a09b
+ms.sourcegitcommit: ef723e3d6b1b67213c78da696838a920c66d5d30
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79209918"
+ms.lasthandoff: 05/02/2020
+ms.locfileid: "82730363"
 ---
 # <a name="pin-secondary-tiles-from-desktop-application"></a>デスクトップ アプリケーションからセカンダリ タイルをピン留めする
 
@@ -29,7 +29,7 @@ WPF または WinForms アプリケーションからのセカンダリ タイ�
 
 ## <a name="package-your-app-with-desktop-bridge"></a>デスクトップ ブリッジを使ったアプリのパッケージ化
 
-デスクトップ ブリッジを使ってアプリをパッケージ化していない場合、UWP API を使用する前に、[デスクトップ ブリッジを使ってアプリをパッケージ化する](https://docs.microsoft.com/windows/uwp/porting/desktop-to-uwp-root)必要があります。
+アプリをデスクトップブリッジでパッケージ化していない場合は、Windows ランタイム Api を使用する前に、まずこの設定を[行う必要があり](https://docs.microsoft.com/windows/uwp/porting/desktop-to-uwp-root)ます。
 
 
 ## <a name="enable-access-to-iinitializewithwindow-interface"></a>IInitializeWithWindow インターフェイスへのアクセスを有効にする
@@ -97,8 +97,8 @@ bool isPinned = await tile.RequestCreateAsync();
 
 ## <a name="resources"></a>リソース
 
-* [完全なコードサンプル](https://github.com/Microsoft/DesktopBridgeToUWP-Samples/tree/master/Samples/SecondaryTileSample)
-* [セカンダリタイルの概要](secondary-tiles.md)
-* [セカンダリタイルのピン留め (UWP)](secondary-tiles-pinning.md)
-* [Desktop Bridge](https://developer.microsoft.com/windows/bridges/desktop)
-* [デスクトップブリッジのコードサンプル](https://github.com/Microsoft/DesktopBridgeToUWP-Samples)
+* [完全なコード例](https://github.com/Microsoft/DesktopBridgeToUWP-Samples/tree/master/Samples/SecondaryTileSample)
+* [セカンダリ タイルの概要](secondary-tiles.md)
+* [セカンダリ タイルをピン留めする (UWP)](secondary-tiles-pinning.md)
+* [デスクトップブリッジ](https://developer.microsoft.com/windows/bridges/desktop)
+* [デスクトップ ブリッジのコード サンプル](https://github.com/Microsoft/DesktopBridgeToUWP-Samples)

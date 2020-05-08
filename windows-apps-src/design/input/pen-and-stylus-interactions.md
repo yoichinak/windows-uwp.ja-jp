@@ -1,28 +1,28 @@
 ---
-Description: ペン デバイスやスタイラス デバイスからのカスタム操作 (自然な筆記/描画エクスペリエンスのためのデジタル インクなど) をサポートするユニバーサル Windows プラットフォーム (UWP) アプリを作成します。
-title: UWP アプリでのペン操作と Windows Ink
+Description: ペンやスタイラスデバイスからのカスタム対話をサポートする Windows アプリアプリを構築します。自然な書き込みや描画を行うためのデジタルインクも含まれます。
+title: Windows アプリでのペン操作と Windows インク
 ms.assetid: 3DA4F2D2-5405-42A1-9ED9-3A87BCD84C43
-label: Pen interactions and Windows Ink in UWP apps
+label: Pen interactions and Windows Ink in Windows apps
 template: detail.hbs
 keywords: Windows Ink, Windows の手書き入力, DirectInk, InkPresenter, InkCanvas, 手書き認識, ユーザー操作, 入力
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: a8d4299eb361fb804419af687bdcaa25ffa54bb8
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.openlocfilehash: c2cda9b2775ac1e0dca2cd37d1082bc6d75b1bad
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75684474"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82968387"
 ---
-# <a name="pen-interactions-and-windows-ink-in-uwp-apps"></a>UWP アプリでのペン操作と Windows Ink
+# <a name="pen-interactions-and-windows-ink-in-windows-apps"></a>Windows アプリでのペン操作と Windows インク
 
-![表面ペン](images/ink/hero-small.png)  
+![Surface ペン](images/ink/hero-small.png)  
 *Surface ペン* ([Microsoft ストア](https://www.microsoft.com/p/surface-pen/8zl5c82qmg6b)で購入できます)。
 
 ## <a name="overview"></a>概要
 
-ペン入力向けにユニバーサル Windows プラットフォーム (UWP) アプリを最適化して、標準の [**ポインター デバイス**](https://docs.microsoft.com/uwp/api/Windows.Devices.Input.PointerDevice) 機能と最良の Windows Ink エクスペリエンスをユーザーに提供します。
+Windows アプリアプリをペン入力用に最適化して、標準の[**ポインターデバイス**](https://docs.microsoft.com/uwp/api/Windows.Devices.Input.PointerDevice)機能とユーザーに最適な Windows インクエクスペリエンスの両方を提供します。
 
 > [!NOTE]
 > ここでは主に、Windows Ink プラットフォームについて説明します。 ポインター入力処理 (マウス、タッチ、タッチパッドに類似) の概要については、「[ポインター入力の処理](handle-pointer-input.md)」をご覧ください。
@@ -30,7 +30,7 @@ ms.locfileid: "75684474"
 | ビデオ |   |
 | --- | --- |
 | <iframe src="https://channel9.msdn.com/Blogs/One-Dev-Minute/Using-Ink-in-Your-UWP-App/player" width="300" height="200" allowFullScreen frameBorder="0"></iframe> | <iframe src="https://channel9.msdn.com/Events/Ignite/2016/BRK2060/player" width="300" height="200" allowFullScreen frameBorder="0"></iframe> |
-| *UWP アプリでインクを使用する* | *Windows のペンとインクを使用して、より魅力的なエンタープライズアプリを構築する* |
+| *Windows アプリでインクを使用する* | *Use Windows Pen and Ink to build more engaging enterprise apps (Windows ペンとインクを使ったより魅力的なエンタープライズ アプリの構築)* |
 
 Windows Ink プラットフォームでペン デバイスを使うと、自然な形でデジタルの手書きノート、描画、コメントを作れます。 このプラットフォームは、デジタイザー入力のインク データとしてのキャプチャ、インク データの生成、インク データの管理、出力デバイスのインク ストロークとしてのインク データのレンダリング、手書き認識によるインクからテキストへの変換をサポートします。
 
@@ -45,11 +45,11 @@ Windows Ink UX のガイドラインについては、「[手描き入力コン�
 
 ## <a name="components-of-the-windows-ink-platform"></a>Windows Ink プラットフォームのコンポーネント
 
-| Component | 説明 |
+| コンポーネント | 説明 |
 | --- | --- |
-| [**System.windows.controls.inkcanvas>** ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) | 既定では、ペンからのすべての入力をインクストロークまたは消去ストロークとして受信して表示する XAML UI プラットフォームコントロール。<br/>InkCanvas の使用方法について詳しくは、「[Windows インク ストロークのテキスト認識](convert-ink-to-text.md)」と「[Windows Ink ストローク データの保存と取得](save-and-load-ink.md)」をご覧ください。 |
-| [**System.windows.controls.inkpresenter>** ](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking.InkPresenter) | [  **InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) コントロールと共にインスタンス化される分離コード オブジェクトです ([**InkCanvas.InkPresenter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) プロパティによって公開されます)。 **InkCanvas** によって公開される既定の手描き入力機能のすべてと、追加のカスタマイズや個人用設定のための包括的な API のセットを提供します。<br/>InkPresenter の使用方法について詳しくは、「[Windows Ink ストロークのテキスト認識](convert-ink-to-text.md)」と「[Windows Ink ストローク データの保存と取得](save-and-load-ink.md)」をご覧ください。 |
-| [**InkToolbar**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar) | 関連付けられた[**system.windows.controls.inkcanvas>** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas)のインク関連の機能をアクティブにする、カスタマイズ可能で拡張可能なボタンのコレクションを含む XAML UI プラットフォームコントロール。<br/>InkToolbar の使用方法について詳しくは、「[InkToolbar をユニバーサル Windows プラットフォーム (UWP) 手描き入力アプリに追加する](ink-toolbar.md)」をご覧ください。 |
+| [**System.windows.controls.inkcanvas>**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) | 既定でペンからのすべての入力を受け取ってインク ストロークか消去ストロークとして表示する XAML UI プラットフォーム コントロールです。<br/>InkCanvas の使用方法について詳しくは、「[Windows インク ストロークのテキスト認識](convert-ink-to-text.md)」と「[Windows Ink ストローク データの保存と取得](save-and-load-ink.md)」をご覧ください。 |
+| [**System.windows.controls.inkpresenter>**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking.InkPresenter) | [**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) コントロールと共にインスタンス化される分離コード オブジェクトです ([**InkCanvas.InkPresenter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) プロパティによって公開されます)。 **InkCanvas** によって公開される既定の手描き入力機能のすべてと、追加のカスタマイズや個人用設定のための包括的な API のセットを提供します。<br/>InkPresenter の使用方法について詳しくは、「[Windows Ink ストロークのテキスト認識](convert-ink-to-text.md)」と「[Windows Ink ストローク データの保存と取得](save-and-load-ink.md)」をご覧ください。 |
+| [**InkToolbar**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar) | 関連付けられた [**InkCanvas**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas) のインク関連機能をアクティブ化する、カスタマイズと拡張が可能なボタンのコレクションが含まれている XAML UI プラットフォーム コントロールです。<br/>InkToolbar の使用方法の詳細については、「 [Windows アプリインクアプリに InkToolbar を追加する](ink-toolbar.md)」を参照してください。 |
 | [**IInkD2DRenderer**](https://docs.microsoft.com/windows/desktop/api/inkrenderer/nn-inkrenderer-iinkd2drenderer) | 既定の [**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) コントロールの代わりに、ユニバーサル Windows アプリが指定した Direct2D デバイス コンテキストにインク ストロークをレンダリングできます。 これにより、手描き入力エクスペリエンスの全面的なカスタマイズが実現されます。<br/>詳しくは、「[複雑なインクのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/ComplexInk)」をご覧ください。 |
 
 ## <a name="basic-inking-with-inkcanvas"></a>InkCanvas による基本的な手描き入力
@@ -89,25 +89,25 @@ Windows Ink UX のガイドラインについては、「[手描き入力コン�
 
 | ![空の InkCanvas と背景画像](images/ink_basic_1_small.png) | ![インク ストロークを含む InkCanvas](images/ink_basic_2_small.png) | ![1 つのストロークが消去された InkCanvas](images/ink_basic_3_small.png) |
 | --- | --- | ---|
-| 空の [**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) と背景画像。 | インク ストロークを含む [**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas)。 | ストロークの一部が削除された [**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas)  (削除が部分ではなく全体にどのように影響するかに注意してください)。 |
+| 背景画像を含む空白の[**system.windows.controls.inkcanvas>**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) 。 | インクストロークを含む[**system.windows.controls.inkcanvas>**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) 。 | ストロークの一部が削除された [**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas)  (削除が部分ではなく全体にどのように影響するかに注意してください)。 |
 
-[  **InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) コントロールでサポートされている手書き入力機能は、[**InkPresenter**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking.InkPresenter) という分離コード オブジェクトによって提供されます。
+[**System.windows.controls.inkcanvas>**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas)コントロールでサポートされるインク機能は、 [**InkPresenter**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking.InkPresenter)と呼ばれる分離コードオブジェクトによって提供されます。
 
-基本的な手書き入力では [**InkPresenter**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking.InkPresenter) のことを気にする必要はありませんが、 [  **InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) の手書き入力動作をカスタマイズしたり構成したりするには、対応する **InkPresenter** オブジェクトにアクセスする必要があります。
+基本的な手書き入力では [**InkPresenter**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking.InkPresenter) のことを気にする必要はありませんが、 [**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) の手書き入力動作をカスタマイズしたり構成したりするには、対応する **InkPresenter** オブジェクトにアクセスする必要があります。
 
 ## <a name="basic-customization-with-inkpresenter"></a>InkPresenter による基本的なカスタマイズ
 
-[  **InkPresenter**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking.InkPresenter) オブジェクトは、各 [**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) コントロールと共にインスタンス化されます。
+[**InkPresenter**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking.InkPresenter) オブジェクトは、各 [**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) コントロールと共にインスタンス化されます。
 
 > [!NOTE]
-> [  **InkPresenter**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking.InkPresenter) を直接インスタンス化することはできません。 代わりに、[**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) の [**InkPresenter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) プロパティを通じてアクセスします。 
+> [**InkPresenter**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking.InkPresenter) を直接インスタンス化することはできません。 代わりに、[**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) の [**InkPresenter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) プロパティを通じてアクセスします。 
 
-[  **InkPresenter**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking.InkPresenter) には、対応する [**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) コントロールの既定の手書き入力動作のすべてに加えて、ストロークの追加のカスタマイズのための包括的な API のセット、および手描き入力 (標準および変更) の細かい管理を提供します。 たとえば、ストロークのプロパティ、サポートされている入力デバイスの種類、入力をオブジェクトで処理するかアプリに渡して処理するかなどを指定できます。
+[**InkPresenter**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking.InkPresenter) には、対応する [**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) コントロールの既定の手書き入力動作のすべてに加えて、ストロークの追加のカスタマイズのための包括的な API のセット、および手描き入力 (標準および変更) の細かい管理を提供します。 たとえば、ストロークのプロパティ、サポートされている入力デバイスの種類、入力をオブジェクトで処理するかアプリに渡して処理するかなどを指定できます。
 
 > [!NOTE]
 > 標準のインク入力 (ペン先または消しゴムの先端やボタン) は、セカンダリ ハードウェア アフォーダンス (ペン バレル ボタン、マウスの右ボタン、または類似のメカニズムなど) で変更されません。 
 
-既定では、インクはペン入力のみをサポートします。 次の例では、ペンとマウスの両方の入力データをインク ストロークとして解釈するように [**InkPresenter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) を構成しています。 [  **InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) へのストロークのレンダリングに使うインク ストロークの最初の属性も設定しています。
+既定では、インクはペン入力のみをサポートします。 次の例では、ペンとマウスの両方の入力データをインク ストロークとして解釈するように [**InkPresenter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) を構成しています。 [**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) へのストロークのレンダリングに使うインク ストロークの最初の属性も設定しています。
 
 マウスとタッチによる手描き入力を有効化するには、[**InkPresenter**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkpresenter) の [**InputDeviceTypes**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkpresenter.InputDeviceTypes) プロパティを、必要な [**CoreInputDeviceTypes**](https://docs.microsoft.com/uwp/api/windows.ui.core.coreinputdevicetypes) 値の組み合わせに設定します。
 
@@ -196,11 +196,11 @@ private void OnPenColorChanged(object sender, SelectionChangedEventArgs e)
 }
 ```
 
-次の画像は、[**InkPresenter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) によるペン入力の処理とカスタマイズがどのように行われるかを示しています。
+これらの画像は、ペン入力が[**InkPresenter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter)によってどのように処理およびカスタマイズされるかを示しています。
 
 | ![既定の黒のインク ストロークを含む InkCanvas](images/ink-basic-custom-1-small.png) | ![ユーザーが選択した赤のインク ストロークを含む InkCanvas](images/ink-basic-custom-2-small.png) |
 | --- | --- |
-| 既定の黒のインク ストロークを含む [**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas)。 | ユーザーが選択した赤のインク ストロークを含む [**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas)。 | 
+| 既定の黒のインク ストロークを含む [**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas)。 | ユーザーが赤のインクストロークを選択した[**system.windows.controls.inkcanvas>**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) 。 | 
 
 手書き入力と消去以外の機能 (ストロークの選択など) を提供するには、アプリで処理するために [**InkPresenter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) では未処理のままパススルーする入力をアプリで識別する必要があります。
 
@@ -257,9 +257,9 @@ Windows Ink プラットフォームには、変更された入力を必要と�
 
 3.  次に、ペンとマウスの両方の入力データをインク ストロークとして解釈するように [**InkPresenter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) を構成し、[**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) へのストロークのレンダリングに使うインク ストロークの最初の属性をいくつか設定します。
 
-    ここで最も重要なのは、[InkPresenter](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) の [**InputProcessingConfiguration**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkpresenter.inputprocessingconfiguration) プロパティを使って、変更された入力がアプリで処理されるように指定することです。 **InputProcessingConfiguration.RightDragAction** に [**InkInputRightDragAction.LeaveUnprocessed**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking.InkInputRightDragAction) という値を割り当てて、変更された入力を指定します。 この値が設定されると、[InkPresenter](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) によって [InkUnprocessedInput](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkunprocessedinput) クラス (ユーザーが処理できるポインター イベントのセット) にパススルーされます。
+    ここで最も重要なのは、[InkPresenter](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) の [**InputProcessingConfiguration**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkpresenter.inputprocessingconfiguration) プロパティを使って、変更された入力はアプリで処理するように指定することです。 **InputProcessingConfiguration.RightDragAction** に [**InkInputRightDragAction.LeaveUnprocessed**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking.InkInputRightDragAction) という値を割り当てて、変更された入力を指定します。 この値が設定されると、[InkPresenter](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) によって [InkUnprocessedInput](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkunprocessedinput) クラス (ユーザーが処理できるポインター イベントのセット) にパススルーされます。
 
-    [  **InkPresenter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) によってパススルーされる [**PointerPressed**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkunprocessedinput.pointerpressed)、[**PointerMoved**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkunprocessedinput.pointermoved)、[**PointerReleased**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkunprocessedinput.pointerreleased) の各未処理イベントのリスナーが割り当てられます。 選択機能はすべてこれらのイベントのハンドラーに実装します。
+    [**InkPresenter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) によってパススルーされる [**PointerPressed**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkunprocessedinput.pointerpressed)、[**PointerMoved**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkunprocessedinput.pointermoved)、[**PointerReleased**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkunprocessedinput.pointerreleased) の各未処理イベントのリスナーが割り当てられます。 選択機能はすべてこれらのイベントのハンドラーに実装します。
 
     最後に、[**InkPresenter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) の [**StrokeStarted**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkstrokeinput.strokestarted) イベントと [**StrokesErased**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkpresenter.strokeserased) イベントのリスナーを割り当てます。 これらのイベントのハンドラーを使って、新しいストロークが開始された場合や既にあるストロークが消去された場合に選択 UI をクリーンアップします。
 
@@ -308,7 +308,7 @@ Windows Ink プラットフォームには、変更された入力を必要と�
         }
       ```
 
-4.  次に、[**InkPresenter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) によってパススルーされる [**PointerPressed**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkunprocessedinput.pointerpressed)、[**PointerMoved**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkunprocessedinput.pointermoved)、[**PointerReleased**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkunprocessedinput.pointerreleased) の未処理イベントのハンドラーを定義します。
+4.  次に、選択された未処理の[**ポインター**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkunprocessedinput.pointerpressed)、[**ポインターの移動**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkunprocessedinput.pointermoved)、および[**InkPresenter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter)によって渡された[**ポインター解放**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkunprocessedinput.pointerreleased)イベントのハンドラーを定義します。
 
     なげなわストロークと境界の四角形を含むすべての選択機能をこれらのハンドラーに実装します。
 
@@ -448,9 +448,9 @@ Windows Ink プラットフォームには、変更された入力を必要と�
 
 カスタム ドライ レンダリングでは、手書き入力を管理して、既定の [**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) コントロールの代わりにユニバーサル Windows アプリの Direct2D デバイス コンテキストにレンダリングするための [**IInkD2DRenderer**](https://docs.microsoft.com/windows/desktop/api/inkrenderer/nn-inkrenderer-iinkd2drenderer) オブジェクトが必要です。
 
-[  **ActivateCustomDrying**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkpresenter.activatecustomdrying) を ([**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) が読み込まれる前に) 呼び出すと、[**SurfaceImageSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Imaging.SurfaceImageSource) または [**VirtualSurfaceImageSource**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.virtualsurfaceimagesource) へのインク ストロークのドライ レンダリングの方法をカスタマイズするための [**InkSynchronizer**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking.InkSynchronizer) オブジェクトが作成されます。 
+[**ActivateCustomDrying**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkpresenter.activatecustomdrying) を ([**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) が読み込まれる前に) 呼び出すと、[**SurfaceImageSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Imaging.SurfaceImageSource) または [**VirtualSurfaceImageSource**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.virtualsurfaceimagesource) へのインク ストロークのドライ レンダリングの方法をカスタマイズするための [**InkSynchronizer**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking.InkSynchronizer) オブジェクトが作成されます。 
 
-[  **SurfaceImageSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Imaging.SurfaceImageSource) と [**VirtualSurfaceImageSource**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.virtualsurfaceimagesource) はどちらも、アプリがアプリケーションのコンテンツに描画し、組み込むための DirectX 共有サーフェスを提供します。ただし VSIS は、効率的なパンやズームのために、画面よりも大きい仮想サーフェスを提供します。 これらのサーフェスの表示更新は XAML の UI スレッドと同期されるため、インクをいずれかにレンダリングしたとき、同時にウェット インクが InkCanvas から取り除かれる場合があります。 
+[**SurfaceImageSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Imaging.SurfaceImageSource) と [**VirtualSurfaceImageSource**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.virtualsurfaceimagesource) はどちらも、アプリがアプリケーションのコンテンツに描画し、組み込むための DirectX 共有サーフェスを提供します。ただし VSIS は、効率的なパンやズームのために、画面よりも大きい仮想サーフェスを提供します。 これらのサーフェスの表示更新は XAML の UI スレッドと同期されるため、インクをいずれかにレンダリングしたとき、同時にウェット インクが InkCanvas から取り除かれる場合があります。 
 
 ドライ インクを [SwapChainPanel](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.swapchainpanel) 用にカスタマイズすることもできますが、UI スレッドとの同期は保証されません。インクを SwapChainPanel にレンダリングしたタイミングと、インクが InkCanvas から取り除かれるタイミングの間にずれが生じる可能性があります。
 
@@ -464,36 +464,38 @@ Windows Ink プラットフォームには、変更された入力を必要と�
 
 | トピック | 説明 |
 | --- | --- |
-| [インク ストロークを認識する](convert-ink-to-text.md) | インク ストロークを手書き認識によりテキストに変換したり、カスタム認識により図形に変換したりします。 |
+| [インク ストロークの認識](convert-ink-to-text.md) | インク ストロークを手書き認識によりテキストに変換したり、カスタム認識により図形に変換したりします。 |
 | [インク ストロークの保存と取得](save-and-load-ink.md) | 埋め込みの Ink Serialized Format (ISF) メタデータを使って、インク ストローク データをグラフィックス交換形式 (GIF) ファイルに保存します。 |
-| [InkToolbar を UWP 手描き入力アプリに追加する](ink-toolbar.md) | 既定の InkToolbar をユニバーサル Windows プラットフォーム (UWP) 手書き入力アプリに追加し、カスタム ペン ボタンを InkToolbar に追加して、カスタム ペン ボタンをカスタム ペン定義にバインドします。 |
+| [Windows インクアプリに InkToolbar を追加する](ink-toolbar.md) | Windows アプリインクアプリに既定の InkToolbar を追加し、InkToolbar にカスタムペンボタンを追加して、カスタムペンボタンをカスタムペン定義にバインドします。 |
 
 ## <a name="related-articles"></a>関連記事
 
-* [はじめに: UWP アプリでインクをサポートする](../../get-started/ink-walkthrough.md)
-* [ポインター入力の処理](handle-pointer-input.md)
-* [入力デバイスの識別](identify-input-devices.md)
+- [はじめに: Windows アプリでインクをサポートする](../../get-started/ink-walkthrough.md)
+- [ポインター入力の処理](handle-pointer-input.md)
+- [入力デバイスの識別](identify-input-devices.md)
 
-**API**
+### <a name="apis"></a>API
 
-* [**Windows. Devices. Input**](https://docs.microsoft.com/uwp/api/Windows.Devices.Input)
-* [**Windows. UI. 入力**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking)
-* [**Windows. UI. 入力**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking.Core)
+- [**Windows. Devices. Input**](https://docs.microsoft.com/uwp/api/Windows.Devices.Input)
+- [**Windows. UI. 入力**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking)
+- [**Windows. UI. 入力**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking.Core)
 
-**サンプル**
-* [入門チュートリアル: UWP アプリでインクをサポートする](https://github.com/Microsoft/Windows-tutorials-inputs-and-devices/tree/master/GettingStarted-Ink)
-* [単純なインクのC#サンプルC++(/)](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/SimpleInk)
-* [複雑なインクのC++サンプル ()](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/ComplexInk)
-* [Ink サンプル (JavaScript)](https://go.microsoft.com/fwlink/p/?LinkID=620308)
-* [色分けブックのサンプル](https://github.com/Microsoft/Windows-appsample-coloringbook)
-* [ファミリノートのサンプル](https://github.com/Microsoft/Windows-appsample-familynotes)
-* [基本的な入力サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/BasicInput)
-* [低待機時間入力サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/LowLatencyInput)
-* [ユーザー操作モードのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/UserInteractionMode)
-* [フォーカスの視覚効果のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlFocusVisuals)
+### <a name="samples"></a>サンプル
 
-**サンプルのアーカイブ**
-* [入力: デバイス機能のサンプル](https://code.msdn.microsoft.com/windowsapps/Input-device-capabilities-31b67745)
-* [入力: XAML ユーザー入力イベントのサンプル](https://code.msdn.microsoft.com/windowsapps/Input-3dff271b)
-* [XAML のスクロール、パン、ズームのサンプル](https://code.msdn.microsoft.com/windowsapps/xaml-scrollviewer-pan-and-949d29e9)
-* [入力: GestureRecognizer でのジェスチャと操作](https://code.msdn.microsoft.com/windowsapps/Manipulations-and-gestures-362b6b59)
+- [入門チュートリアル: Windows アプリでインクをサポートする](https://github.com/Microsoft/Windows-tutorials-inputs-and-devices/tree/master/GettingStarted-Ink)
+- [単純なインクのサンプル (C#/C++)](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/SimpleInk)
+- [複雑なインクのサンプル (C++)](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/ComplexInk)
+- [インクのサンプル (JavaScript)](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Windows%208%20app%20samples/%5BJavaScript%5D-Windows%208%20app%20samples/JavaScript/Windows%208%20app%20samples/Input%20Ink%20sample%20(Windows%208))
+- [塗り絵帳のサンプル](https://github.com/Microsoft/Windows-appsample-coloringbook)
+- [Family Notes のサンプル](https://github.com/Microsoft/Windows-appsample-familynotes)
+- [基本的な入力のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/BasicInput)
+- [待機時間が短い入力のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/LowLatencyInput)
+- [ユーザー操作モードのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/UserInteractionMode)
+- [フォーカスの視覚効果のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlFocusVisuals)
+
+### <a name="archive-samples"></a>サンプルのアーカイブ
+
+- [入力: デバイス機能のサンプルに関するページ](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Windows%208%20app%20samples/%5BC%23%5D-Windows%208%20app%20samples/C%23/Windows%208%20app%20samples/Input%20Device%20capabilities%20sample%20(Windows%208))
+- [入力: XAML ユーザー入力イベントのサンプルに関するページ](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Input%20XAML%20user%20input%20events%20sample)
+- [XAML のスクロール、パン、ズームのサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Universal%20Windows%20app%20samples/111487-Universal%20Windows%20app%20samples/XAML%20scrolling%2C%20panning%2C%20and%20zooming%20sample)
+- [入力: GestureRecognizer によるジェスチャと操作](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Input%20Gestures%20and%20manipulations%20with%20GestureRecognizer)

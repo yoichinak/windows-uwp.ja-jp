@@ -1,6 +1,6 @@
 ---
-Description: モーションは方向性と重力を Fluent 方法について説明します。
-title: 方向性と重力 - UWP アプリでのアニメーション
+Description: Fluent モーションが方向性と重力をどのように使用するかについて説明します。
+title: Windows アプリにおける方向性と重力のアニメーション
 label: Directionality and gravity
 template: detail.hbs
 ms.date: 10/02/2018
@@ -11,12 +11,12 @@ design-contact: jeffarn
 doc-status: Draft
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 8f1e36f0febeeaac5a12d408d7be8a717f0ab398
-ms.sourcegitcommit: 7c3b88198178d6f6a535f35e1bf8665410d41d92
+ms.openlocfilehash: ddcfac5e36500a8fc6dc41c7c86037f5a1483203
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569121"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970647"
 ---
 # <a name="directionality-and-gravity"></a>方向性と重力
 
@@ -43,11 +43,11 @@ ms.locfileid: "67569121"
 
 :::row:::
     :::column:::
-移動の方向は、物理運動に対応します。 自然界と同じように、オブジェクトは任意の x 軸、y 軸、z 軸で移動します。 このようにして、私たちは画面上のオブジェクトの動きを考えます。
-オブジェクトを移動するときに、不自然の競合を回避します。 場所オブジェクトからに進みとスクロールの方向やレイアウトの階層など、シーン内の使用可能性がある上位のコンストラクトを常にサポートに留意してください。
+移動の方向は、物理的な動きに相当します。 自然界と同じように、オブジェクトは任意の x 軸、y 軸、z 軸で移動します。 このようにして、私たちは画面上のオブジェクトの動きを考えます。
+オブジェクトを移動する場合は、不自然な衝突を避ける必要があります。 オブジェクトの取得元と移動先に注意してください。また、スクロール方向やレイアウト階層など、シーンで使用できる上位レベルのコンストラクトを常にサポートします。
     :::column-end:::
     :::column:::
-        ![direction backward in](images/Direction.gif)
+        ![逆方向へのイン](images/Direction.gif)
     :::column-end:::
 :::row-end:::
 
@@ -65,7 +65,7 @@ ms.locfileid: "67569121"
 
 ナビゲーションにより画面上の項目が置き換えられると、既存のシーンの移動先と、新しいシーンの移動元を示すことが重要です。
 
-これには次のようないくつかの利点があります。
+これにはいくつかの利点があります。
 
 - 空間に対するユーザーの概念的モデルが確立されます。
 - 既存のシーンの継続時間により、後続のシーンに対してコンテンツをアニメーション化する準備をするためのより長い時間が提供されます。
@@ -75,34 +75,34 @@ ms.locfileid: "67569121"
 
 :::row:::
     :::column:::
-**順方向で**得点でコンテンツが送信されるコンテンツと衝突しない方法で、シーンを入力します。 コンテンツは、シーンに減速します。
+**転送**送信コンテンツと競合しない方法でシーンを入力するようにします。 コンテンツをシーンに減速します。
     :::column-end:::
     :::column:::
-        ![direction forward in](images/forwardIN.gif)
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-**順方向アウト**コンテンツがすぐに終了します。 オブジェクトは、画面外高速化します。
-    :::column-end:::
-    :::column:::
-        ![direction forward out](images/forwardOUT.gif)
+        ![転送方向](images/forwardIN.gif)
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-**旧バージョンとの**と順方向では、同じが逆になります。
+**転送**コンテンツはすぐに終了します。 オブジェクトは、画面を加速します。
     :::column-end:::
     :::column:::
-        ![direction backward in](images/backwardIN.gif)
+        ![方向に進む](images/forwardOUT.gif)
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-**旧バージョンとアウト**が逆に、転送すると同じです。
+**後方**フォワードインと同じですが、逆になります。
     :::column-end:::
     :::column:::
-        ![direction backward out](images/backwardOUT.gif)
+        ![逆方向へのイン](images/backwardIN.gif)
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+**バックアウト**フォワードアウトと同じですが、逆になります。
+    :::column-end:::
+    :::column:::
+        ![逆方向](images/backwardOUT.gif)
     :::column-end:::
 :::row-end:::
 
@@ -118,5 +118,5 @@ ms.locfileid: "67569121"
 
 ## <a name="related-articles"></a>関連記事
 
-- [アニメーションの概要](index.md)
-- [タイミングと、簡略化](timing-and-easing.md)
+- [モーションの概要](index.md)
+- [タイミングとイージング](timing-and-easing.md)

@@ -8,24 +8,24 @@ ms.date: 11/02/2017
 ms.topic: article
 keywords: Windows 10, UWP, グローバリゼーション, ローカライズの可否, ローカライズ
 ms.localizationpriority: medium
-ms.openlocfilehash: 18c68baf991b3fd939a6e6ee681700977a5a5eb9
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: f08c8178781c82e8961fd180d4b75912359b4da9
+ms.sourcegitcommit: ef723e3d6b1b67213c78da696838a920c66d5d30
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74258085"
+ms.lasthandoff: 05/02/2020
+ms.locfileid: "82730272"
 ---
 # <a name="guidelines-for-globalization"></a>グローバリゼーションのガイドライン
 
-言語とカルチャの構成が異なるシステムで適切に機能するようにアプリを設計して開発します。 [  **グローバリゼーション**](/uwp/api/Windows.Globalization?branch=live) API を使用してデータの書式を設定します。言語、地域、文字の分類、書記体系、日付や時刻の書式設定、数値、通貨、重さ、並べ替えのルールに関する前提条件をコードに記述することを回避します。
+言語とカルチャの構成が異なるシステムで適切に機能するようにアプリを設計して開発します。 [**グローバリゼーション**](/uwp/api/Windows.Globalization?branch=live) API を使用してデータの書式を設定します。言語、地域、文字の分類、書記体系、日付や時刻の書式設定、数値、通貨、重さ、並べ替えのルールに関する前提条件をコードに記述することを回避します。
 
 | 推奨 | 説明 |
 | ------------- | ----------- |
 | 文字列を操作して比較するときには、カルチャを考慮する。 | たとえば、文字列を比較する前に、文字列の大文字と小文字を変更しないでください。 「[文字列の使用に関する推奨事項](/dotnet/standard/base-types/best-practices-strings?branch=live#recommendations_for_string_usage)」を参照してください。 |
 | 文字列やその他のデータの照合 (並べ替え) を行うときは、常にアルファベット順に行われると想定しない。 | ラテン文字を使わない言語の場合、照合は発音またはペン ストロークの数などの要素に基づいて行われます。 ラテン文字を使う言語でも、常にアルファベット順の並べ替えを行うわけではありません。 たとえば、一部のカルチャでは電話帳はアルファベット順では並んでいない場合があります。 Windows によって並べ替えが自動的に行われますが、自分で独自の並べ替えアルゴリズムを作る場合は、必ず、アプリの対象市場で使われている並べ替え方法を考慮してください。 |
 | 数値、日付、時刻、住所、電話番号を適切に書式設定する。 | これらの形式は、カルチャ、地域、言語、市場によって異なります。 これらのデータを表示する場合は、 [**グローバリゼーション**](/uwp/api/Windows.Globalization?branch=live) API を使って特定のユーザーに適した形式を取得します。 「[日付、時刻、数値の形式のグローバル化](use-global-ready-formats.md)」を参照してください。 姓名の表示順序と住所の形式も異なる場合があります。 標準の日付、時刻の表示と数値の表示を使います。 標準の DatePicker と TimePicker コントロールを使います。 標準のアドレス情報を使います。 |
-| 国際的な計測単位と通貨をサポートする。 | 使われる単位と尺度は国によって異なりますが、最も使われているのはメートル法とヤード ポンド法です。 長さ、温度、範囲などの計測を扱う場合は、正しいシステム計測をサポートしてください。 [  **GeographicRegion.CurrenciesInUse**](/uwp/api/windows.globalization.geographicregion.CurrenciesInUse) プロパティを使って、地域で使用されている通貨のセットを取得します。 |
-| 文字エンコードに Unicode を使う。 | 既定では、Microsoft Visual Studio は、すべてのドキュメントに Unicode 文字エンコードを使います。 別のエディターを使っている場合は、適切な Unicode 文字エンコードでソース ファイルが保存されるようにしてください。 UWP API はどれも、UTF-16 エンコードの文字列を返します。 |
+| 国際的な計測単位と通貨をサポートする。 | 使われる単位と尺度は国によって異なりますが、最も使われているのはメートル法とヤード ポンド法です。 長さ、温度、範囲などの計測を扱う場合は、正しいシステム計測をサポートしてください。 [**GeographicRegion.CurrenciesInUse**](/uwp/api/windows.globalization.geographicregion.CurrenciesInUse) プロパティを使って、地域で使用されている通貨のセットを取得します。 |
+| 文字エンコードに Unicode を使う。 | 既定では、Microsoft Visual Studio は、すべてのドキュメントに Unicode 文字エンコードを使います。 別のエディターを使っている場合は、適切な Unicode 文字エンコードでソース ファイルが保存されるようにしてください。 Windows ランタイム API はどれも、UTF-16 エンコードの文字列を返します。 |
 | 国際的な用紙サイズをサポートする。 | 最も一般的な用紙サイズは国によって異なるため、用紙サイズによって変化する機能 (印刷など) を含める場合には、必ず一般的な国際サイズをサポートし、テストしてください。 |
 | キーボードまたは IME の言語を記録する。 | アプリがユーザーにテキスト入力を求めるときに、現在有効なキーボード レイアウトまたは入力方式エディター (IME) の言語タグが記録されるようにします。 こうすると、その入力が後で表示されるときに適切な書式設定でユーザーに提示されます。 現在の入力言語の取得には、[**Language.CurrentInputMethodLanguageTag**](/uwp/api/windows.globalization.language.CurrentInputMethodLanguageTag) プロパティを使います。 |
 | 言語からユーザーの地域を想定する、または地域からユーザーの言語を想定することはしない。 | 言語と地域は別の概念です。 特定の地理的な言語バリアント (en-GB (英国で話される英語) など) を話しても、住んでいる国または地域はまったく異なる場合があります。 UI テキストなどのためにアプリがユーザーの言語について認識する必要があるか、ライセンスなどのためにアプリがユーザーの地域について認識する必要があるかを検討してください。 詳細については、「[ユーザー プロファイルの言語とアプリ マニフェストの言語について](manage-language-and-region.md)」を参照してください。 |
@@ -36,23 +36,23 @@ ms.locfileid: "74258085"
 
 ## <a name="important-apis"></a>重要な API
  
-* [グローバライズ](/uwp/api/Windows.Globalization?branch=live)
+* [グローバリゼーション](/uwp/api/Windows.Globalization?branch=live)
 * [GeographicRegion.CurrenciesInUse](/uwp/api/windows.globalization.geographicregion.CurrenciesInUse)
-* [Language. Currentinputmethodlanguage タグ](/uwp/api/windows.globalization.language.CurrentInputMethodLanguageTag)
-* [Windows. グローバリゼーション. フォント](/uwp/api/windows.globalization.fonts?branch=live)
+* [Language.CurrentInputMethodLanguageTag](/uwp/api/windows.globalization.language.CurrentInputMethodLanguageTag)
+* [Windows.Globalization.Fonts](/uwp/api/windows.globalization.fonts?branch=live)
 
 ## <a name="related-topics"></a>関連トピック
 
 * [文字列の使用に関する推奨事項](/dotnet/standard/base-types/best-practices-strings?branch=live#recommendations_for_string_usage)
-* [日付/時刻/数値形式をグローバライズする](use-global-ready-formats.md)
-* [ユーザープロファイルの言語とアプリマニフェストの言語について](manage-language-and-region.md)
-* [BCP-47 言語タグ](https://tools.ietf.org/html/bcp47)
-* [アプリリソースとリソース管理システム](../../app-resources/index.md)
+* [日付、時刻、数値の形式のグローバル化](use-global-ready-formats.md)
+* [ユーザー プロファイルの言語とアプリ マニフェストの言語について](manage-language-and-region.md)
+* [BCP-47 言語タグに関するページ](https://tools.ietf.org/html/bcp47)
+* [アプリ リソースとリソース管理システム](../../app-resources/index.md)
 * [リソース管理システムでの言語タグの照合の仕組み](../../app-resources/how-rms-matches-lang-tags.md)
 * [レイアウトやフォントの調整と RTL のサポート](adjust-layout-and-fonts--and-support-rtl.md)
-* [国際対応フォント](loc-international-fonts.md)
+* [国際フォント](loc-international-fonts.md)
 * [アプリをローカライズ可能にする](prepare-your-app-for-localization.md)
 
 ## <a name="samples"></a>サンプル
 
-* [グローバリゼーションの設定のサンプル](https://code.msdn.microsoft.com/windowsapps/Globalization-preferences-6654eb36)
+* [グローバリゼーション設定サンプルに関するページ](https://code.msdn.microsoft.com/windowsapps/Globalization-preferences-6654eb36)

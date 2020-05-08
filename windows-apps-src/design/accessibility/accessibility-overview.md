@@ -1,5 +1,5 @@
 ---
-Description: この記事では、ユニバーサル Windows プラットフォーム (UWP) アプリのアクセシビリティ シナリオに関連する概念とテクノロジの概要を示します。
+Description: この記事では、Windows アプリのユーザー補助のシナリオに関連する概念とテクノロジの概要について説明します。
 ms.assetid: AA053196-F331-4CBE-B032-4E9CBEAC699C
 title: アクセシビリティの概要
 label: Accessibility overview
@@ -8,16 +8,16 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 22f614d65728c0f5121cadfdcbfb58a7b817a47d
-ms.sourcegitcommit: 0a319e2e69ef88b55d472b009b3061a7b82e3ab1
+ms.openlocfilehash: 386ea9a5ea9b66b0756963da10f72c3dbed53ff9
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77521280"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82969657"
 ---
 # <a name="accessibility-overview"></a>アクセシビリティの概要
 
-この記事では、ユニバーサル Windows プラットフォーム (UWP) アプリのアクセシビリティ シナリオに関連する概念とテクノロジの概要を示します。
+この記事では、Windows アプリのユーザー補助のシナリオに関連する概念とテクノロジの概要について説明します。
 
 > [!VIDEO https://channel9.msdn.com/Blogs/One-Dev-Minute/Developing-Apps-for-Accessibility/player]
 
@@ -107,7 +107,7 @@ XAML 向けのコントロールには、キーボードのサポートと、ス
 
 * ツールでは、テキストをタブ順のトラバーサルの一部として読み取るか、ドキュメント全体の表示の一部として読み取るかどうかを決める必要があります。 テキストの表示に適した要素を選ぶか、これらのテキスト要素のプロパティを調整することで、この決定の制御に役立てることができます。 各テキスト要素には、固有の目的があり、その目的には通常、対応する UI オートメーションの役割があります。 不適切な要素を使うと、誤った役割が UI オートメーションに報告され、支援技術を使うユーザーの混乱を招くことになります。
 * 視覚に障碍があり、背景に対するコントラストが適切でないとテキストを読み取ることが困難なユーザーが多数います。 視覚に障碍がないアプリの開発者には、こうしたユーザーが受ける影響は直感的には理解できません。 たとえば、色覚に障碍がある場合、設計で不適切な色を選ぶと、テキストを読むことができないユーザーもいます。 当初は Web コンテンツ用に作成された、アクセシビリティに関する推奨事項には、これらの問題をアプリで回避するためのコントラストの基準も定義されています。 詳しくは、「[アクセシビリティに対応したテキストの要件](accessible-text-requirements.md)」をご覧ください。
-* テキストが単に小さすぎるために読むことが難しい場合もよくあります。 この問題は、アプリの UI のテキストを最初から適切な大きさにすることで防止できます。 ただし、大量のテキストを表示するアプリや、テキストと他の視覚要素が混在するアプリでは、こうした変更が難しい場合があります。 このような場合は、ディスプレイを拡大できるシステム機能とアプリが正しくやり取りできるようにすることで、アプリ内のテキストも拡大します (一部のユーザーはアクセシビリティのオプションとして DPI の値を変更します。 このオプションは、 **[コンピューターの簡単操作]** の **[画面上の項目を拡大します]** から利用できます。この操作は、**コントロール パネル**の UI の **[デスクトップのカスタマイズ]**  /  **[ディスプレイ]** にリダイレクトされます)。
+* テキストが単に小さすぎるために読むことが難しい場合もよくあります。 この問題は、アプリの UI のテキストを最初から適切な大きさにすることで防止できます。 ただし、大量のテキストを表示するアプリや、テキストと他の視覚要素が混在するアプリでは、こうした変更が難しい場合があります。 このような場合は、ディスプレイを拡大できるシステム機能とアプリが正しくやり取りできるようにすることで、アプリ内のテキストも拡大します  (一部のユーザーはアクセシビリティのオプションとして DPI の値を変更します。 このオプションを使用すると、**画面上でより****簡単にアクセス**できるようになります。これにより、**コントロールパネル**の UI にリダイレクトされ、**外観と個人用設定** / の**表示**が可能になります)。
 
 <span id="Supporting_high-contrast_themes"/>
 <span id="supporting_high-contrast_themes"/>
@@ -192,7 +192,7 @@ private void ShowAccessibleUICheckBox_Click(object sender, RoutedEventArgs e)
 
 ## <a name="assistive-technology-support-in-custom-controls"></a>カスタム コントロールでの支援技術のサポート
 
-カスタム コントロールを作るときは、1 つ以上の [**AutomationPeer**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Automation.Peers.AutomationPeer) サブクラスを実装または拡張してアクセシビリティをサポートすることをお勧めします。 基本コントロール クラスで使われていたのと同じピア クラスを使う場合は、派生クラスのオートメーション サポートは基本レベルで十分ですが、 そのことをテストする必要があります。また、そのような場合でも、新しいコントロール クラスのクラス名を正しく報告できるように、ピアを実装することをお勧めします。 カスタム オートメーション ピアを実装するにはいくつかの手順を実行する必要があります。 詳しくは、「[カスタム オートメーション ピア](custom-automation-peers.md)」をご覧ください。
+カスタム コントロールを作るときは、1 つ以上の [**AutomationPeer**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Automation.Peers.AutomationPeer) サブクラスを実装または拡張してアクセシビリティをサポートすることをお勧めします。 基本コントロール クラスで使われていたのと同じピア クラスを使う場合は、派生クラスのオートメーション サポートは基本レベルで十分ですが、 そのことをテストする必要があります。また、そのような場合でも、新しいコントロール クラスのクラス名を正しく報告できるように、ピアを実装することをお勧めします。 カスタム オートメーション ピアを実装するにはいくつかの手順を実行する必要があります。 詳細については、「[カスタムオートメーションピア](custom-automation-peers.md)」を参照してください。
 
 <span id="Assistive_technology_support_in_apps_that_support_XAML___Microsoft_DirectX_interop"/>
 <span id="assistive_technology_support_in_apps_that_support_xaml___microsoft_directx_interop"/>
@@ -205,7 +205,7 @@ private void ShowAccessibleUICheckBox_Click(object sender, RoutedEventArgs e)
 ## <a name="related-topics"></a>関連トピック
 
 * [**Windows. UI. .Xaml. オートメーション**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Automation)
-* [ユーザー補助のための設計](https://docs.microsoft.com/windows/uwp/accessibility/accessibility-overview)
-* [XAML アクセシビリティのサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/master/Official%20Windows%20Platform%20Sample/XAML%20accessibility%20sample)
-* [アクセシビリティ](accessibility.md)
-* [ナレーターを使ってみる](https://support.microsoft.com/help/22798/windows-10-complete-guide-to-narrator)
+* [アクセシビリティのための設計](https://docs.microsoft.com/windows/uwp/accessibility/accessibility-overview)
+* [XAML アクセシビリティ サンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/master/Official%20Windows%20Platform%20Sample/XAML%20accessibility%20sample)
+* [ユーザー補助](accessibility.md)
+* [ナレーターの概要](https://support.microsoft.com/help/22798/windows-10-complete-guide-to-narrator)

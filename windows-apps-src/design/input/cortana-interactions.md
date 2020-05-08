@@ -1,5 +1,5 @@
 ---
-Description: UWP アプリをアクティブ化して単一の操作を実行する音声コマンドを使って、Cortana の基本機能を拡張します。
+Description: Windows アプリをアクティブ化して1つのアクションを実行する音声コマンドを使用して、Cortana の基本的な機能を拡張します。
 title: Cortana の操作
 ms.assetid: 4C11A7CF-DA26-4CA1-A9B9-FE52670101F5
 label: Cortana
@@ -8,14 +8,14 @@ keywords: Cortana, Cortana のキャンバス, Cortana の設計, ユーザー �
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: fa9001492228cee7427c2b18f2692a6a33fbb16b
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: 09a2ed3b3f12b47b7b6d8665225ee9d830827839
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74258031"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970897"
 ---
-# <a name="cortana-interactions-in-uwp-apps"></a>UWP アプリでの Cortana の操作
+# <a name="cortana-interactions-in-windows-apps"></a>Windows アプリにおける Cortana のやり取り
 
 Cortana には堅牢かつ包括的な機能拡張フレームワークが用意されています。このフレームワークにより、アプリまたはサービスの機能を Cortana のエクスペリエンスにシームレスに組み込むことができます。
 
@@ -25,18 +25,18 @@ Cortanaの機能とサービスに関する開発者向けドキュメントは�
 
 最初に、「[Cortana Skills Kit overview](https://docs.microsoft.com/cortana/skills/overview)」(Cortana スキル キットの概要) をご覧ください。
 
-音声コマンドを使って UWP アプリの機能で Cortana を拡張する方法については、[Cortana の音声コマンドに関するページ](https://docs.microsoft.com/cortana/voice-commands/vcd)をご覧ください。 
+音声コマンドを使用して Windows アプリから Cortana を拡張する方法については、「 [cortana voice コマンド](https://docs.microsoft.com/cortana/voice-commands/vcd)」を参照してください。 
 
 ## <a name="related-articles"></a>関連記事
 
-* [**VCD の要素と属性 version 1.2**](https://docs.microsoft.com/uwp/schemas/voicecommands/voice-command-elements-and-attributes-1-2)
+* [**VCD 要素および属性 v1.2**](https://docs.microsoft.com/uwp/schemas/voicecommands/voice-command-elements-and-attributes-1-2)
 
-**デザイナー向け**
+**デザイナー**
 * [音声認識のデザイン ガイドライン](speech-interactions.md)
-* [音声コマンドの Cortana デザインガイドライン](https://docs.microsoft.com/cortana/voice-commands/voicecommand-design-guidelines)
+* [音声コマンド用の Cortana の設計ガイドライン](https://docs.microsoft.com/cortana/voice-commands/voicecommand-design-guidelines)
 
 **サンプル**
-* [Cortana voice コマンドのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/CortanaVoiceCommand)
+* [Cortana 音声コマンドのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/CortanaVoiceCommand)
  
 
  

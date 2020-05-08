@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10、UWP、ゲーム、プログラミング
 ms.localizationpriority: medium
-ms.openlocfilehash: 3ecf6e4c28695d789a133c96d6fa04ceb705ef3e
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: a87b979dc48f8977047599cac6a32ba0d901bd63
+ms.sourcegitcommit: 2571af6bf781a464a4beb5f1aca84ae7c850f8f9
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74258538"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82606361"
 ---
 # <a name="game-programming-resources"></a>ゲーム プログラミング リソース
 
@@ -24,7 +24,7 @@ Windows でのゲーム プログラミングについて詳しくは、次の�
 
 
 -   [グラフィックスとゲーム](https://docs.microsoft.com/windows/desktop/graphics-and-multimedia)
--   [OpenGL リファレンス](https://www.opengl.org/sdk/docs/man4/)
+-   [OpenGL リファレンスに関するページ](https://www.opengl.org/sdk/docs/man4/)
 
 ## <a name="game-design-guidance"></a>ゲーム設計のガイダンス
 
@@ -34,15 +34,15 @@ Windows でのゲーム プログラミングについて詳しくは、次の�
 ## <a name="blogs"></a>ブログ
 
 
--   [Windows と DirectX SDK のゲーム]( https://go.microsoft.com/fwlink/p/?LinkID=288873)
--   [DirectX 開発者向けブログ]( https://go.microsoft.com/fwlink/p/?LinkID=288874)
--   [Shawn Hargreaves のブログ]( https://go.microsoft.com/fwlink/p/?LinkID=288872) (XNA のゲームの情報)
+-   [Windows と DirectX SDK 向けのゲームに関するブログ]( https://blogs.msdn.com/b/chuckw/)
+-   [DirectX 開発者向けブログ]( https://blogs.msdn.com/b/directx/)
+-   [Shawn Hargreaves のブログ]( https://blogs.msdn.com/b/shawnhar/) (XNA のゲームの情報)
 
 ## <a name="toolkits"></a>ツールキット
 
 
--   [DirectX ツールキット](  https://go.microsoft.com/fwlink/p/?LinkID=248929)
--   [DirectXTex テクスチャ処理ライブラリ](  https://go.microsoft.com/fwlink/p/?LinkID=248926)
+-   [DirectX ツール キット](  https://github.com/Microsoft/DirectXTK)
+-   [DirectXTex テクスチャ処理ライブラリに関するページ](  https://github.com/Microsoft/DirectXTex)
 -   Microsoft Visual Studio [ グラフィックス診断](https://docs.microsoft.com/visualstudio/debugger/overview-of-visual-studio-graphics-diagnostics?view=vs-2015) に関するページ
 -   [Win2D](https://github.com/Microsoft/Win2D) - GPU アクセラレーションを使った即時モードの 2D グラフィックス レンダリング用の、使いやすい Windows ランタイム API です。
 -   [Microsoft Store の角度](https://github.com/microsoft/angle/wiki)-OPENGL es api 呼び出しを DIRECTX 11 api 呼び出しに変換することにより、Windows で opengl es コンテンツを実行します。

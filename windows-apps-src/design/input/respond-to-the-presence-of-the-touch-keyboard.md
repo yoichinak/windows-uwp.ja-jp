@@ -7,12 +7,12 @@ template: detail.hbs
 keywords: キーボード, アクセシビリティ, ナビゲーション, フォーカス, テキスト, 入力, ユーザーの操作
 ms.date: 07/13/2018
 ms.topic: article
-ms.openlocfilehash: e26bbe00bba8b3d91d7ee842cb4d9c984a941f2b
-ms.sourcegitcommit: 0a319e2e69ef88b55d472b009b3061a7b82e3ab1
+ms.openlocfilehash: 76b468eedd136522a4af9fb5880049278548865d
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77521363"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970267"
 ---
 # <a name="respond-to-the-presence-of-the-touch-keyboard"></a>タッチ キーボードの表示への応答
 
@@ -27,21 +27,21 @@ ms.locfileid: "77521363"
 
 <sup>既定のレイアウトモードでのタッチキーボード</sup>
 
-タッチ キーボードによって、タッチをサポートするデバイスのテキスト入力が有効になります。 ユニバーサル Windows プラットフォーム (UWP) のテキスト入力コントロールでは、ユーザーが編集可能な入力フィールドをタップしたときに、既定でタッチ キーボードが表示されます。 タッチ キーボードは、通常、ユーザーがフォーム内のコントロール間を移動している間は表示されますが、この動作はフォーム内の他のコントロールの種類に基づいて異なります。
+タッチ キーボードによって、タッチをサポートするデバイスのテキスト入力が有効になります。 Windows アプリのテキスト入力コントロールは、ユーザーが編集可能な入力フィールドをタップしたときに、既定でタッチキーボードを呼び出します。 タッチ キーボードは、通常、ユーザーがフォーム内のコントロール間を移動している間は表示されますが、この動作はフォーム内の他のコントロールの種類に基づいて異なります。
 
-標準のテキスト入力コントロールから派生しないカスタムテキスト入力コントロールで、対応するタッチキーボード動作をサポートするには、 <a href="https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Automation.Peers.AutomationPeer">AutomationPeer</a>クラスを使用して、コントロールを Microsoft ui オートメーションに公開し、適切な ui オートメーションコントロールパターンを実装する必要があります。 「[キーボードのアクセシビリティ](https://docs.microsoft.com/windows/uwp/design/accessibility/keyboard-accessibility)」と「[カスタム オートメーション ピア](https://docs.microsoft.com/windows/uwp/design/accessibility/custom-automation-peers)」をご覧ください。
+標準のテキスト入力コントロールから派生していないカスタム テキスト入力コントロールで対応するタッチ キーボードの動作をサポートするには、<a href="https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Automation.Peers.AutomationPeer">AutomationPeer</a> クラスを使ってコントロールを Microsoft UI オートメーションに公開し、適切な UI オートメーション コントロール パターンを実装する必要があります。 「[キーボードのアクセシビリティ](https://docs.microsoft.com/windows/uwp/design/accessibility/keyboard-accessibility)」と「[カスタム オートメーション ピア](https://docs.microsoft.com/windows/uwp/design/accessibility/custom-automation-peers)」をご覧ください。
 
 このサポートがカスタム コントロールに追加されると、タッチ キーボードの表示に適切に応答できます。
 
-**応募**
+**前提条件:**
 
 このトピックは、「[キーボード操作](keyboard-interactions.md)」に基づいています。
 
 標準のキーボード操作、キーボード入力とイベントの処理、UI オートメーションの基本を理解している必要があります。
 
-ユニバーサル Windows プラットフォーム (UWP) アプリを開発するのが初めての場合は、以下のトピックに目を通して、ここで説明されているテクノロジをよく理解できるようにしてください。
+Windows アプリアプリの開発に慣れていない場合は、以下のトピックを参照して、ここで説明するテクノロジについて理解してください。
 
-- [初めてのアプリの作成](https://docs.microsoft.com/windows/uwp/get-started/your-first-app)
+- [最初のアプリを作成する](https://docs.microsoft.com/windows/uwp/get-started/your-first-app)
 - 「[イベントとルーティング イベントの概要](https://docs.microsoft.com/windows/uwp/xaml-platform/events-and-routed-events-overview)」に記載されているイベントの説明
 
 **ユーザーエクスペリエンスのガイドライン:**
@@ -60,13 +60,13 @@ ms.locfileid: "77521363"
 
 - 操作している入力フィールドをユーザーが常に見られるようにします。
 
-    タッチ キーボードによって画面の大部分が見えなくなるため、UWP では、ユーザーがフォームのコントロール間を移動するときに、フォーカスのある入力フィールドをスクロールしてビューに表示します。これには、現在ビューに表示されていないコントロールも含まれます。
+    タッチキーボードは画面の大部分を occludes しているため、ユーザーがフォーム上のコントロールを移動すると、フォーカスが設定された入力フィールドが表示されるようになります。現在表示されていないコントロールも含まれます。
 
-    UI をカスタマイズする場合は、 [**Inputpane**](https://docs.microsoft.com/uwp/api/Windows.UI.ViewManagement.InputPane)オブジェクトによって公開されるイベントの[表示](https://docs.microsoft.com/uwp/api/windows.ui.viewmanagement.inputpane.showing)と[非表示](https://docs.microsoft.com/uwp/api/windows.ui.viewmanagement.inputpane.hiding)を処理することで、タッチキーボードの外観に同様の動作を提供します。
+    UI をカスタマイズする場合は、[**InputPane**](https://docs.microsoft.com/uwp/api/Windows.UI.ViewManagement.InputPane) オブジェクトで公開される [Showing](https://docs.microsoft.com/uwp/api/windows.ui.viewmanagement.inputpane.showing) イベントと [Hiding](https://docs.microsoft.com/uwp/api/windows.ui.viewmanagement.inputpane.hiding) イベントを処理して、タッチ キーボードの表示について同様の動作を提供します。
 
     ![タッチ キーボードが表示または非表示になっているフォーム](images/touch-keyboard-pan1.png)
 
-    場合によっては、画面にずっと表示されたままであることが必要な UI 要素もあります。 フォーム コントロールがパン領域に含まれ、重要な UI 要素が静的であるように UI を設計します。 例 :
+    場合によっては、画面にずっと表示されたままであることが必要な UI 要素もあります。 フォーム コントロールがパン領域に含まれ、重要な UI 要素が静的であるように UI を設計します。 次に例を示します。
 
     ![常に表示されている必要がある領域を含むフォーム](images/touch-keyboard-pan2.png)
 
@@ -208,19 +208,19 @@ void Scenario2_ShowHideEvents::OnHiding(InputPane^ /*sender*/, InputPaneVisibili
 }
 ```
 
-## <a name="related-articles"></a>関連トピック
+## <a name="related-articles"></a>関連記事
 
 - [キーボード操作](keyboard-interactions.md)
 - [キーボードのアクセシビリティ](https://docs.microsoft.com/windows/uwp/accessibility/keyboard-accessibility)
 - [カスタム オートメーション ピア](https://docs.microsoft.com/windows/uwp/accessibility/custom-automation-peers)
 
-**サンプル**
+### <a name="samples"></a>サンプル
 
-- [タッチキーボードのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/TouchKeyboard)
+- [タッチ キーボードのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/TouchKeyboard)
 
-**サンプルのアーカイブ**
+### <a name="archive-samples"></a>サンプルのアーカイブ
 
-- [入力: タッチキーボードのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/TouchKeyboard)
-- [スクリーンキーボードサンプルの外観への対応](https://code.msdn.microsoft.com/windowsapps/keyboard-events-sample-866ba41c)
-- [XAML テキスト編集のサンプル](https://code.msdn.microsoft.com/windowsapps/XAML-text-editing-sample-fb0493ad)
-- [XAML アクセシビリティのサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/XAML%20accessibility%20sample)
+- [入力: タッチ キーボードのサンプルに関するページ](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/TouchKeyboard)
+- [スクリーン キーボードを表示したときの対応のサンプルのページ](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Responding%20to%20the%20appearance%20of%20the%20on-screen%20keyboard%20sample)
+- [XAML テキスト編集のサンプルに関するページ](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Windows%208%20app%20samples/%5BVB%5D-Windows%208%20app%20samples/VB/Windows%208%20app%20samples/XAML%20text%20editing%20sample%20(Windows%208))
+- [XAML アクセシビリティ サンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/XAML%20accessibility%20sample)
