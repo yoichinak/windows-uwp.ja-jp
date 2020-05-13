@@ -11,12 +11,12 @@ pm-contact: chigy
 design-contact: kimsea
 dev-contact: niallm
 doc-status: Published
-ms.openlocfilehash: 1d883243b60b2b2693fbf0f21315008e556b5743
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 44cb122f70825df3ceef043d84e57cd077780749
+ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970757"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83234707"
 ---
 # <a name="keyboard-interactions"></a>キーボード操作
 
@@ -89,13 +89,13 @@ UWP は、あらゆる入力の種類とエクスペリエンスで適切に動�
 
 キーボードでコントロール (ナビゲーション要素を含む) を操作するには、そのコントロールがフォーカスを取得する必要があります。 コントロールがキーボードフォーカスを受け取る方法の1つは、タブナビゲーションを使用して、アプリケーションのタブオーダーでタブストップとして識別することによって、そのコントロールにアクセスできるようにすることです。
 
-コントロールがタブオーダーに含まれるようにするには、 [IsEnabled](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control#Windows_UI_Xaml_Controls_Control_IsEnabled)プロパティを**true**に設定し、 [istabstop](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Control#Windows_UI_Xaml_Controls_Control_IsTabStop)プロパティを**true**に設定する必要があります。
+コントロールがタブオーダーに含まれるようにするには、 [IsEnabled](/uwp/api/windows.ui.xaml.controls.control#Windows_UI_Xaml_Controls_Control_IsEnabled)プロパティを**true**に設定し、 [istabstop](/uwp/api/Windows.UI.Xaml.Controls.Control#Windows_UI_Xaml_Controls_Control_IsTabStop)プロパティを**true**に設定する必要があります。
 
-タブオーダーからコントロールを明示的に除外するには、 [Istabstop](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Control#Windows_UI_Xaml_Controls_Control_IsTabStop)プロパティを**false**に設定します。
+タブオーダーからコントロールを明示的に除外するには、 [Istabstop](/uwp/api/Windows.UI.Xaml.Controls.Control#Windows_UI_Xaml_Controls_Control_IsTabStop)プロパティを**false**に設定します。
 
 既定では、タブ オーダーには UI 要素が作成される順序が反映されます。 たとえば、`StackPanel` には `Button`、`Checkbox`、`TextBox` が含まれ、タブ オーダーは `Button`、`Checkbox`、`TextBox` です。
 
-[TabIndex](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Control#Windows_UI_Xaml_Controls_Control_TabIndex) プロパティを設定することで、既定のタブ オーダーを上書きできます。
+[TabIndex](/uwp/api/Windows.UI.Xaml.Controls.Control#Windows_UI_Xaml_Controls_Control_TabIndex) プロパティを設定することで、既定のタブ オーダーを上書きできます。
 
 #### <a name="tab-order-should-be-logical-and-predictable"></a>タブ オーダーは、論理的かつ予測可能でなければなりません。
 
@@ -119,7 +119,7 @@ UWP は、あらゆる入力の種類とエクスペリエンスで適切に動�
 
 初期フォーカスは、アプリケーションやページが最初に起動またはアクティブ化されたときにフォーカスを受け取る UI 要素を指定します。 キーボードを使用する場合は、ユーザーがアプリケーションの UI との対話を開始する、この要素からのものです。
 
-UWP アプリの場合、初期フォーカスはフォーカスを受け取ることができる最上位の [TabIndex](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Control#Windows_UI_Xaml_Controls_Control_TabIndex) を持つ要素に設定されます。 コンテナー コントロールの子要素は無視されます。 TIE の場合、表示ツリー内の最初の要素がフォーカスを受け取ります。
+UWP アプリの場合、初期フォーカスはフォーカスを受け取ることができる最上位の [TabIndex](/uwp/api/Windows.UI.Xaml.Controls.Control#Windows_UI_Xaml_Controls_Control_TabIndex) を持つ要素に設定されます。 コンテナー コントロールの子要素は無視されます。 TIE の場合、表示ツリー内の最初の要素がフォーカスを受け取ります。
 
 #### <a name="set-initial-focus-on-the-most-logical-element"></a>初期フォーカスは、最も論理的な要素に設定します。
 
@@ -143,8 +143,8 @@ UWP アプリの場合、初期フォーカスはフォーカスを受け取る�
 -   **Tab キー**を使うと、実行可能な/アクティブなコントロール間をタブ オーダーで移動します。
 -   **Shift + Tab** キーを使うと、コントロールを逆タブ オーダーで移動します。 ユーザーが方向キーを使ってコントロール内を移動した場合、フォーカスはコントロール内の最後の既知の値に設定されます。
 -   **方向キー**を使うと、コントロール固有の "内部ナビゲーション" が表示されます。ユーザーが "内部ナビゲーション" に入ると、方向キーを使ってもコントロール外に移動しません。 次に例をいくつか示します。
-    -   上方向キーまたは下方向キー `ListView`を押すと、との間でフォーカスが移動します`MenuFlyout`
-    -   およびに対して現在`Slider`選択されている値を変更する`RatingsControl`
+    -   上方向キーまたは下方向キー `ListView` を押すと、との間でフォーカスが移動します`MenuFlyout`
+    -   およびに対して現在選択されている値を変更する `Slider``RatingsControl`
     -   カレットを内に移動する`TextBox`
     -   項目を展開する/折りたたむ`TreeView`
 
@@ -307,7 +307,7 @@ Windows のシステムショートカットの一覧については、「 [wind
 
 ユーザーは、UI 領域に似たような関連するコントロールのグループがあるとき、方向キー ナビゲーションがサポートされることを期待します。
 -   `AppBarButtons`で`CommandBar`
--   `ListItems`また`GridItems`は`ListView`内部または`GridView`
+-   `ListItems`また `GridItems` `ListView` は内部または`GridView`
 -   `Buttons`中に`ContentDialog`
 
 UWP コントロールは、方向キー ナビゲーションを既定でサポートします。 カスタム レイアウトおよびコントロール グループでは、`XYFocusKeyboardNavigation="Enabled"` を使って同様の動作を提供します。
@@ -345,9 +345,9 @@ UWP コントロールは、方向キー ナビゲーションを既定でサポ
 
 レイアウトがコントロール グループのよく知られている UI パターンに従っている場合、グループに 1 つのタブ位置を割り当てるとユーザーのナビゲーション効率を向上することがあります。
 
-たとえば、次のようになります。
+その例は次のとおりです。
 -   `RadioButtons`
--   と`ListViews`似ていて、1つののように動作する`ListView`
+-   `ListViews`と似ていて、1つののように動作する`ListView`
 -   タイルのグリッドと外観や動作が似ている UI (スタート メニューのタイルなど)
 
 #### <a name="specifying-control-group-behavior"></a>コントロール グループの動作を指定する
@@ -405,8 +405,8 @@ Xbox のゲームパッドとリモコンは、UWP の多くのキーボード�
 | Space         | A ボタン                            | [選択] ボタン       |
 | 次に、         | A ボタン                            | [選択] ボタン       |
 | エスケープ特殊文字        | B ボタン                            | 戻るボタン         |
-| Home/End      | N/A                                 | N/A                 |
-| PageUp/PageDown  | 縦スクロールはトリガー ボタン、横スクロールはバンパー ボタン   | N/A                 |
+| Home/End      | 該当なし                                 | 該当なし                 |
+| PageUp/PageDown  | 縦スクロールはトリガー ボタン、横スクロールはバンパー ボタン   | 該当なし                 |
 
 ゲームパッドとリモコンを使う UWP アプリを設計する際に注意すべきいくつかキーの相違点は次のとおりです。
 -   テキストを入力するには、ユーザーは A を押してテキスト コントロールをアクティブ化する必要があります。
@@ -419,7 +419,7 @@ Xbox のゲームパッドとリモコンは、UWP の多くのキーボード�
 
 #### <a name="directional-navigation"></a>方向ナビゲーション 
 
-方向ナビゲーションは、UWP [Focus Manager](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.FocusManager) ヘルパー クラスにより管理されます。このヘルパー クラスは、方向キーが押されたことを認識し (方向キー、方向パッド)、対応する視覚的な向きにフォーカスを移動しようとします。
+方向ナビゲーションは、UWP [Focus Manager](/uwp/api/Windows.UI.Xaml.Input.FocusManager) ヘルパー クラスにより管理されます。このヘルパー クラスは、方向キーが押されたことを認識し (方向キー、方向パッド)、対応する視覚的な向きにフォーカスを移動しようとします。
 
 キーボードとは異なり、アプリが[マウスモード](gamepad-and-remote-interactions.md#mouse-mode)を終了すると、アプリケーション全体に対して方向のナビゲーションが適用され、ゲームパッドとリモートコントロールを使用できます。 方向ナビゲーションの最適化の詳細については[、「ゲームパッドとリモートコントロールの対話](gamepad-and-remote-interactions.md)」を参照してください。
 
@@ -501,6 +501,7 @@ List 項目と GridView 項目の複数の行と列を移動する場合、必�
 
 カスタムコントロールでも、これらの同じ動作をエミュレートすることをお勧めします。 この動作を実装する方法のコードサンプルについては、「[プログラムフォーカスナビゲーション](focus-navigation-programmatic.md#find-the-first-and-last-focusable-element)のドキュメント」を参照してください。
 
+
 ## <a name="test-your-app"></a>アプリをテストする
 
 サポートされているすべての入力デバイスを使ってアプリをテストし、UI 要素が一貫した直感的な方法で移動できることと、要素と目的のタブ位置の予期しない干渉がないことを確認してください。
@@ -510,6 +511,7 @@ List 項目と GridView 項目の複数の行と列を移動する場合、必�
 * [入力デバイスの識別](identify-input-devices.md)
 * [タッチ キーボードの表示への応答](respond-to-the-presence-of-the-touch-keyboard.md)
 * [フォーカスの視覚効果のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlFocusVisuals)
+* [NavigationView コントロールのキーボードの詳細](/windows/uwp/design/controls-and-patterns/navigationview#hierarchical-navigation) 
 
 ## <a name="appendix"></a>付録
 
@@ -560,7 +562,7 @@ List 項目と GridView 項目の複数の行と列を移動する場合、必�
 
 キーボード操作に成功すると、ユーザーはキーボードのみを使って基本のアプリ シナリオを実行できます。つまり、ユーザーはすべての対話型要素にアクセスし、既定の機能をアクティブにすることができます。 成功の度合いには、キーボード ナビゲーション、アクセシビリティ対応のアクセス キー、上級ユーザー用のアクセラレータ (ショートカット) キーなど、さまざまな要因が影響します。
 
-**注**  タッチキーボードでは、トグルとほとんどのシステムコマンドがサポートされていません。
+**メモ**   タッチキーボードは、トグルとほとんどのシステムコマンドをサポートしていません。
 
 #### <a name="on-screen-keyboard"></a>スクリーン キーボード
 ソフトウェア キーボードと同様、スクリーン キーボードは、物理的なキーボードの代わりに使うことができる視覚的なソフトウェア キーボードです。タッチ、マウス、ペン/スタイラス、またはその他のポインティング デバイスを通じてデータを入力します (タッチ スクリーンは必須ではありません)。 スクリーン キーボードは、物理的なキーボードが存在しないシステムや、運動障碍により一般的な物理入力デバイスを使うことができないユーザーのために用意されています。 スクリーン キーボードは、ハードウェア キーボードの機能のすべて、または少なくともほとんどをエミュレートします。

@@ -1,5 +1,5 @@
 ---
-Description: Notifications Visualizer は、Microsoft Store の新しい Windows アプリで、開発者が Windows 10 のアダプティブ ライブ タイルをデザインする際に役立ちます。
+Description: 通知ビジュアライザーは、開発者が Windows 10 用のアダプティブライブタイルを設計するのに役立つ、ストアの新しい Windows アプリです。
 title: Notifications Visualizer
 ms.assetid: FCBB7BB1-2C79-484B-8FFC-26FE1934EC1C
 template: detail.hbs
@@ -7,19 +7,19 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: c8d355570ef7002d1424457bf29f8161680f2c77
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 5f9dc51a8ba387018a50e95702db1c539e889a5d
+ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82971037"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83234684"
 ---
 # <a name="notifications-visualizer"></a>Notifications Visualizer
 
  
 
 
-通知ビジュアライザーは、開発者が Windows 10 のアダプティブライブタイルと対話型トースト通知をデザインするのに役立つ、[ストア](https://www.microsoft.com/store/apps/notifications-visualizer/9nblggh5xsl1)の新しい Windows アプリアプリです。
+通知ビジュアライザーは、開発者が Windows 10 のアダプティブライブタイルと対話型トースト通知をデザインするのに役立つ、[ストア](https://www.microsoft.com/store/apps/notifications-visualizer/9nblggh5xsl1)の新しい Windows アプリです。
 
 
 ## <a name="overview"></a>概要
@@ -34,11 +34,11 @@ Notifications Visualizer では、Visual Studio の XAML エディター/デザ�
 
 Notifications Visualizer を使うと、アプリ自体を編集、展開しなくても、アダプティブ タイルとトーストのペイロードを作成してテストすることができます。 適切な表示のペイロードが完成したら、そのペイロードをアプリに統合できます。 詳しくは、「[ローカル タイル通知の送信](sending-a-local-tile-notification.md)」および 「[ローカル トースト通知の送信](send-local-toast.md)」をご覧ください。
 
-**注**  通知ビジュアライザーによる Windows の [スタート] メニューとトースト通知のシミュレーションは、必ずしも完全に正確ではありません。また、一部の高度なペイロードプロパティはサポートされていません。 タイルやトーストを適切にデザインしたら、意図したとおりに表示されることを確認するために、タイルをスタート メニューにピン留めしたり、トーストを表示したりしてテストします。
+**メモ**   通知ビジュアライザーの Windows の [スタート] メニューとトースト通知のシミュレーションは、常に完全に正確ではありません。また、一部の高度なペイロードプロパティはサポートされていません。 タイルやトーストを適切にデザインしたら、意図したとおりに表示されることを確認するために、タイルをスタート メニューにピン留めしたり、トーストを表示したりしてテストします。
 
  
 
-## <a name="features"></a>特徴
+## <a name="features"></a>機能
 
 Notifications Visualizer にはさまざまなサンプル ペイロードが付属しており、アダプティブ ライブ タイルや対話型トーストの機能を実際に確認して、作成を開始する際の参考にすることができます。 さまざまなテキスト オプション、グループ/サブグループ、背景画像を試すことができます。また、さまざまなデバイスや画面にタイルがどのように対応するかを確認することもできます。 サンプルに変更を加えたら、今後利用するために、更新したペイロードをファイルに保存できます。
 

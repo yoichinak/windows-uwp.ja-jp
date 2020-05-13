@@ -13,16 +13,16 @@ design-contact: jeffarn
 dev-contact: niallm
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 24cc85c255f26b61603690d6b39c3a6ffdcbb544
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 5025a63f5c96365ba1f14311b9c68ed41f4fc5aa
+ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970727"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83234594"
 ---
 # <a name="designing-for-xbox-and-tv"></a>Xbox およびテレビ向け設計
 
-Windows アプリアプリを設計して、Xbox One と tv 画面で適切に機能していることを確認します。
+Windows アプリを設計して、Xbox One と tv 画面で適切に機能していることを確認します。
 
 *10 フィート*のエクスペリエンスにおける UWP アプリケーションの対話エクスペリエンスに関するガイダンスについては、「[ゲームパッドとリモートコントロールの対話](../input/gamepad-and-remote-interactions.md)」を参照してください。
 
@@ -106,7 +106,7 @@ Xbox One ではこのようなシステム設定はありません。ただし�
 Xbox One ではアプリは 1080 p (1920 x 1080 ピクセル) で表示されます。 そのため、PC などの他のデバイスからアプリを移植する場合は、[アダプティブ手法](../layout/screen-sizes-and-breakpoints-for-responsive-design.md)を利用して 960 x 540 ピクセル、100% のスケーリング (または HTML アプリの場合、1280 x 720 ピクセル、100% のスケーリング) で UI が適切に表示されるようにしてください。
 
 Xbox 用の設計では、1 つの解像度 (1920 x 1080) だけを考慮すればよいため、PC の設計とは少し異なります。
-より良い解決策&mdash;を持つテレビをユーザーが持っているかどうかは問題ではありません。 UWP アプリは常に1080p にスケーリングされます。
+より良い解決策を持つテレビをユーザーが持っているかどうかは問題ではありません &mdash; 。 UWP アプリは常に1080p にスケーリングされます。
 
 また、テレビの解像度に関係なく、アプリが Xbox One で実行されている場合は適切なアセット サイズが 200% (または HTML アプリの場合は 150%) のセットから取得されます。
 
@@ -333,7 +333,7 @@ UWP にはフォーカス表示を [VisibleBounds](https://docs.microsoft.com/uw
 > [!NOTE]
 > このコード スニペットは `ListView` 専用です。`GridView` のスタイルの場合、[ControlTemplate](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ControlTemplate) と [Style](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Style) の両方の [TargetType](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.controltemplate.targettype) 属性を `GridView` に設定します。
 
-項目をどのように表示するかを細かく制御するには、アプリケーションがバージョン1803以降を対象としている場合は、 [UIElement. Bringare View要求さ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.bringintoviewrequested)れたイベントを使用できます。 次のコードスニペットのように、 **ListView**/**GridView**の[ItemsPanel](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemspanel)に配置して、内部**ScrollViewer**の前にキャッチすることができます。
+項目をどのように表示するかを細かく制御するには、アプリケーションがバージョン1803以降を対象としている場合は、 [UIElement. Bringare View要求さ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.bringintoviewrequested)れたイベントを使用できます。 次のコードスニペットのように、 **ListView**GridView の[ItemsPanel](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemspanel)に配置して、 / **GridView**内部**ScrollViewer**の前にキャッチすることができます。
 
 ```xaml
 <GridView x:Name="gridView">
@@ -413,7 +413,7 @@ PC でアクセント カラーを選べるように、ユーザーは Xbox One 
 
 ### <a name="tv-safe-colors"></a>テレビ セーフ カラー
 
-色の RGB 値は、赤、緑、青の輝度を表します。 Tv は極端な輝度&mdash;を処理しないので、奇数の縞模様を生成したり、特定のテレビで色を薄く表示したりすることができます。 また、高輝度色はブルーミング (隣接するピクセルが同じ色を描画する現象) を起こす可能性があります。 どのような色をテレビ セーフ カラーと見なすかについてはいくつかの考え方がありますが、一般に、RGB 値 16 ～ 235 (16 進数では 10 ～ EB) の色はテレビで使っても安全です。
+色の RGB 値は、赤、緑、青の輝度を表します。 Tv は極端な輝度を処理しないので &mdash; 、奇数の縞模様を生成したり、特定のテレビで色を薄く表示したりすることができます。 また、高輝度色はブルーミング (隣接するピクセルが同じ色を描画する現象) を起こす可能性があります。 どのような色をテレビ セーフ カラーと見なすかについてはいくつかの考え方がありますが、一般に、RGB 値 16 ～ 235 (16 進数では 10 ～ EB) の色はテレビで使っても安全です。
 
 ![テレビ セーフ カラーの範囲](images/designing-for-tv/tv-safe-colors-2.png)
 
@@ -462,7 +462,7 @@ DirectX 11 または DirectX 12 を使ってアプリを開発し、UI または
 
 入れ子になった UI は、コンテナー UI 要素内部に囲まれた、操作できる入れ子になったアイテムを公開します。入れ子になったアイテムとコンテナー アイテムはどちらも互いに、個別のフォーカスを取得することが可能です。
 
-入れ子になった UI がうまく機能する入力の種類もありますが、XY ナビゲーションに依存するゲームパッドやリモコンでは、うまく機能するとは限りません。 このトピックのガイダンスに従い、UI が 10 フィート環境に最適化され、ユーザーが対話可能なすべての要素に容易にアクセスできるようにしてください。 一般的な解決策の1つは、入れ子に`ContextFlyout`なった UI 要素をに配置することです。
+入れ子になった UI がうまく機能する入力の種類もありますが、XY ナビゲーションに依存するゲームパッドやリモコンでは、うまく機能するとは限りません。 このトピックのガイダンスに従い、UI が 10 フィート環境に最適化され、ユーザーが対話可能なすべての要素に容易にアクセスできるようにしてください。 一般的な解決策の1つは、入れ子になった UI 要素をに配置することです `ContextFlyout` 。
 
 入れ子になった UI について詳しくは、「[リスト項目の入れ子になった UI](../controls-and-patterns/nested-ui.md)」をご覧ください。
 
@@ -566,6 +566,6 @@ bool IsTenFoot = (Windows.System.Profile.AnalyticsInfo.VersionInfo.DeviceFamily 
 
 ## <a name="related-articles"></a>関連記事
 
-- [Windows アプリアプリのデバイス入門](index.md)
+- [Windows アプリのデバイス入門](index.md)
 - [ゲームパッドとリモコンの操作](../input/gamepad-and-remote-interactions.md)
 - [UWP アプリのサウンド](../style/sound.md)

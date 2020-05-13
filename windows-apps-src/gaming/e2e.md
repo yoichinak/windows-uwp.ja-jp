@@ -6,12 +6,12 @@ ms.date: 04/16/2018
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム、ゲーム開発
 ms.localizationpriority: medium
-ms.openlocfilehash: de18e77137941acfba6e9cb3fb6421de8fe156f0
-ms.sourcegitcommit: ef723e3d6b1b67213c78da696838a920c66d5d30
+ms.openlocfilehash: 5f7c124c1d77cbce140cb42cdc07682dad8f78f2
+ms.sourcegitcommit: 0f2ae8f97daac440c8e86dc07d11d356de29515c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/02/2020
-ms.locfileid: "82730250"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83280252"
 ---
 # <a name="windows-10-game-development-guide"></a>Windows 10 ゲーム開発ガイド
 
@@ -119,7 +119,7 @@ Xbox Live クリエーターズ プログラムでは、だれでも Xbox Live �
 
 専用の開発キットがなくても、製品版ハードウェアのみを使用して、クリエーターズ プログラムでゲームを展開、設計、公開することができます。 作業を始めるには、Xbox One で[開発者モードのアクティブ化用アプリ](https://docs.microsoft.com/windows/uwp/xbox-apps/devkit-activation)をダウンロードします。
 
-さらに多くの Xbox Live 機能、専用のマーケティングおよび開発サポート、およびメインの Xbox One ストアでおすすめとなる機会を、 [ID@Xbox](https://www.xbox.com/Developers/id)プログラムに適用します。
+さらに多くの Xbox Live 機能、専用のマーケティングおよび開発サポート、およびメインの Xbox One ストアでおすすめとなる機会を、プログラムに適用し [ID@Xbox](https://www.xbox.com/Developers/id) ます。
 
 <table>
     <colgroup>
@@ -134,7 +134,7 @@ Xbox Live クリエーターズ プログラムでは、だれでも Xbox Live �
 
 #### <a name="idxbox"></a>ID@Xbox
 
-ID@Xbox プログラムを利用すると、認定されたゲーム開発者は Windows や Xbox One 向けに自分でゲームを公開することができます。 Xbox One 向けの開発を行ったり、ゲーマースコア、達成度、ランキングなどの Xbox Live 機能を自分の Windows 10 ゲームでも実現したいと検討されているなら、ID@Xbox にサインアップしてください。 ID@Xbox 開発者になると、創造性を発揮し、成功の可能性を最大限に引き出すためのツールやサポートを利用できます。 パートナーセンターで開発者アカウントID@Xboxを登録する前に、最初にを適用することをお勧めします。
+ID@Xbox プログラムを利用すると、認定されたゲーム開発者は Windows や Xbox One 向けに自分でゲームを公開することができます。 Xbox One 向けの開発を行ったり、ゲーマースコア、達成度、ランキングなどの Xbox Live 機能を自分の Windows 10 ゲームでも実現したいと検討されているなら、ID@Xbox にサインアップしてください。 ID@Xbox 開発者になると、創造性を発揮し、成功の可能性を最大限に引き出すためのツールやサポートを利用できます。 パートナーセンターで開発者アカウントを登録する前に、最初にを適用することをお勧め ID@Xbox します。
 
 <table>
     <colgroup>
@@ -218,7 +218,7 @@ Windows 10 ゲームとアプリのサンプルが数多く用意されており
     </tr>
     <tr>
         <td>Windows ゲームのサンプル (MSDN コード ギャラリー)</td>
-        <td><a href="https://code.msdn.microsoft.com/windowsapps/site/search?f%5B0%5D.Type=SearchText&f%5B0%5D.Value=game&f%5B1%5D.Type=Contributors&f%5B1%5D.Value=Microsoft&f%5B1%5D.Text=Microsoft">Microsoft Store ゲームのサンプル</a></td>
+        <td><a href="https://docs.microsoft.com/samples/browse/?term=games">Microsoft Store ゲームのサンプル</a></td>
     </tr>
     <tr>
         <td>JavaScript 2D ゲームのサンプル</td>
@@ -1496,7 +1496,7 @@ HDR のフル カラー機能を使用するゲーム コンテンツを構築�
 </table>
 
 
-### <a name="globalization-and-localization"></a>グローバリゼーションとローカライズ
+### <a name="globalization-and-localization"></a>グローバリゼーションとローカリゼーション
 
 Windows プラットフォーム用の多言語対応ゲームを開発し、Microsoft の有力製品に組み込まれている地域と言語の機能について説明します。
 
@@ -1834,7 +1834,7 @@ Xbox Live は、世界中の何百万ものゲーマーを結びつける最高�
     </tr>
     <tr>
         <td>サンプル</td>
-        <td><a href="https://github.com/Microsoft/xbox-live-samples/tree/master/Samples/ID%40XboxSDK">開発者向けID@Xboxのコードサンプル</a></td>
+        <td><a href="https://github.com/Microsoft/xbox-live-samples/tree/master/Samples/ID%40XboxSDK">開発者向けのコードサンプル ID@Xbox</a></td>
     </tr>  
     <tr>
         <td>Xbox Live のゲーム開発の概要 (ビデオ)</td>
@@ -1855,7 +1855,7 @@ Xbox Live は、世界中の何百万ものゲーマーを結びつける最高�
 </table>
 
 
-## <a name="additional-resources"></a>その他の技術情報
+## <a name="additional-resources"></a>その他のリソース
 
 <table>
     <colgroup>

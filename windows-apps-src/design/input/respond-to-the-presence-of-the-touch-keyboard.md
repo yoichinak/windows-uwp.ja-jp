@@ -7,12 +7,12 @@ template: detail.hbs
 keywords: キーボード, アクセシビリティ, ナビゲーション, フォーカス, テキスト, 入力, ユーザーの操作
 ms.date: 07/13/2018
 ms.topic: article
-ms.openlocfilehash: 76b468eedd136522a4af9fb5880049278548865d
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 969d0c24c86a47e72cbfec08d835c25b6e6779c4
+ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970267"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83234886"
 ---
 # <a name="respond-to-the-presence-of-the-touch-keyboard"></a>タッチ キーボードの表示への応答
 
@@ -39,7 +39,7 @@ ms.locfileid: "82970267"
 
 標準のキーボード操作、キーボード入力とイベントの処理、UI オートメーションの基本を理解している必要があります。
 
-Windows アプリアプリの開発に慣れていない場合は、以下のトピックを参照して、ここで説明するテクノロジについて理解してください。
+Windows アプリの開発に慣れていない場合は、以下のトピックを参照して、ここで説明するテクノロジについて理解してください。
 
 - [最初のアプリを作成する](https://docs.microsoft.com/windows/uwp/get-started/your-first-app)
 - 「[イベントとルーティング イベントの概要](https://docs.microsoft.com/windows/uwp/xaml-platform/events-and-routed-events-overview)」に記載されているイベントの説明

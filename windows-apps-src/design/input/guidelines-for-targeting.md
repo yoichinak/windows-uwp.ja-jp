@@ -8,16 +8,16 @@ ms.date: 03/18/2019
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 199c120dcc85e5c113d6d4d529699a3f2fb28aa1
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 13737e9aeb906e0430b2a18dd75ae1fce3a75956
+ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970087"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83234586"
 ---
 # <a name="guidelines-for-touch-targets"></a>タッチ ターゲットのガイドライン
 
-Windows アプリアプリケーションのすべての対話型 UI 要素は、デバイスの種類や入力方法に関係なく、ユーザーが正確にアクセスして使用できる大きさである必要があります。
+Windows アプリケーションのすべての対話型 UI 要素は、デバイスの種類や入力方法に関係なく、ユーザーが正確にアクセスして使用できる大きさである必要があります。
 
 タッチ入力をサポートする (また、タッチの連絡先領域の比較的不不正確な性質) には、対象のサイズとコントロールのレイアウトに関してさらに最適化が必要です。これは、タッチデジタイザーによって報告されるより複雑な入力データのセットを使用して、ユーザーが意図している (または最も可能性がある) ターゲットを特定する
 
@@ -40,7 +40,7 @@ Windows アプリアプリケーションのすべての対話型 UI 要素は�
 
 アプリケーションでは、 *Fluent Compact のサイズ変更*により、より高いレベルの情報密度を表示できます。 コンパクトなサイズ変更では、UI 要素を 32x32 window.epx.codesnippet ターゲットに揃えます。これにより、UI 要素をより厳密なグリッドに揃え、システムレベルのスケーリングに基づいて適切に拡大縮小できます。
 
-### <a name="examples"></a>使用例
+### <a name="examples"></a>例
 
 コンパクトなサイズ変更は、ページレベルまたはグリッドレベルで適用できます。
 

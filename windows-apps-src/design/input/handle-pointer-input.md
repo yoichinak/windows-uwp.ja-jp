@@ -1,5 +1,5 @@
 ---
-Description: Windows アプリアプリケーションで、タッチ、マウス、ペン/スタイラス、タッチパッドなどのポインティングデバイスからの入力データの受信、処理、および管理を行います。
+Description: Windows アプリケーションで、タッチ、マウス、ペン/スタイラス、タッチパッドなどのポインティングデバイスからの入力データの受信、処理、および管理を行います。
 title: ポインター入力の処理
 ms.assetid: BDBC9E33-4037-4671-9596-471DCF855C82
 label: Handle pointer input
@@ -8,16 +8,16 @@ keywords: ペン, マウス, タッチパッド, タッチ, ポインター, 入
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: db3b87bd187c64b04615fb6722e4e1f2b666b7dc
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 609f6f1ad33c3736d9ac99ec40cbbfe7ade9500a
+ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970067"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83234828"
 ---
 # <a name="handle-pointer-input"></a>ポインター入力の処理
 
-Windows アプリアプリケーションで、ポインティングデバイス (タッチ、マウス、ペン/スタイラス、タッチパッドなど) からの入力データの受信、処理、および管理を行います。
+Windows アプリケーションで、ポインティングデバイス (タッチ、マウス、ペン/スタイラス、タッチパッドなど) からの入力データの受信、処理、および管理を行います。
 
 > [!Important]
 > 明確で適切に定義された要件があり、プラットフォーム コントロールが対応している操作ではシナリオがサポートされない場合にのみ、カスタムの操作を作成してください。  
@@ -52,7 +52,7 @@ Windows アプリは、次のポインターイベントをリッスンできま
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">event</th>
+<th align="left">Event</th>
 <th align="left">説明</th>
 </tr>
 </thead>
@@ -72,7 +72,7 @@ Windows アプリは、次のポインターイベントをリッスンできま
 <td align="left"><p><a href="https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointercapturelost"><strong>PointerCaptureLost</strong></a></p></td>
 <td align="left"><p>別の UI 要素がポインターをキャプチャした場合、ポインターが離された場合、別のポインターがプログラムでキャプチャされた場合に発生します。</p>
 <div class="alert">
-<strong>Note</strong>  対応するポインターキャプチャイベントがないことに注意してください。
+<strong>メモ</strong>   対応するポインターキャプチャイベントがありません。
 </div>
 <div>
  
@@ -132,7 +132,7 @@ Windows アプリは、次のポインターイベントをリッスンできま
 
 ### <a name="create-the-ui"></a>UI を作成する
 
-この例では、ポインター入力[Rectangle](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.rectangle)を使用`Target`するオブジェクトとして四角形 () を使用します。 ポインターの状態が変わると、ターゲットの色が変わります。
+この例では、ポインター入力[Rectangle](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.rectangle)を使用する `Target` オブジェクトとして四角形 () を使用します。 ポインターの状態が変わると、ターゲットの色が変わります。
 
 ポインターの移動に従って動く浮動の [TextBlock](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock) に、各ポインターの詳細が表示されます。 ポインター イベント自体は、四角形の右側にある [RichTextBlock](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RichTextBlock) で報告されます。
 

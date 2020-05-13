@@ -8,18 +8,18 @@ ms.date: 07/13/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: b5462dcd5714c765853174ae62f56f99c5d5cdcc
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 15386febd99180c30671a313465b11f7fe63ffd0
+ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82969523"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83234114"
 ---
 # <a name="custom-automation-peers"></a>カスタム オートメーション ピア  
 
 Microsoft UI オートメーションに対するオートメーション ピアの概念について説明します。また、独自のカスタム UI クラスに対してオートメーションのサポートを提供する方法についても説明します。
 
-UI オートメーションにより、オートメーション クライアントが多様な UI プラットフォームやフレームワークのユーザー インターフェイスを検証、または操作するときに利用できるフレームワークが提供されます。 Windows アプリアプリを作成する場合、UI に使用するクラスには既に UI オートメーションのサポートが用意されています。 既にある非シール クラスから派生させて、新しい種類の UI コントロールやサポート クラスを定義することもできます。 これを行う手順の間に、既定の UI オートメーション サポートでは対応していないがアクセシビリティ サポートを必要とする動作が、クラスによって追加されることがあります。 この場合は、基本実装で使用されている[**AutomationPeer**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Automation.Peers.AutomationPeer)クラスから派生することによって、既存の UI オートメーションサポートを拡張し、ピア実装に必要なサポートを追加して、新しいピアを作成する必要があることを Windows アプリ制御インフラストラクチャに通知します。
+UI オートメーションにより、オートメーション クライアントが多様な UI プラットフォームやフレームワークのユーザー インターフェイスを検証、または操作するときに利用できるフレームワークが提供されます。 Windows アプリを作成する場合、UI に使用するクラスには既に UI オートメーションのサポートが用意されています。 既にある非シール クラスから派生させて、新しい種類の UI コントロールやサポート クラスを定義することもできます。 これを行う手順の間に、既定の UI オートメーション サポートでは対応していないがアクセシビリティ サポートを必要とする動作が、クラスによって追加されることがあります。 この場合は、基本実装で使用されている[**AutomationPeer**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Automation.Peers.AutomationPeer)クラスから派生することによって、既存の UI オートメーションサポートを拡張し、ピア実装に必要なサポートを追加して、新しいピアを作成する必要があることを Windows アプリ制御インフラストラクチャに通知します。
 
 UI オートメーションにより、スクリーン リーダーなどのアクセシビリティ アプリや支援技術だけでなく、品質保証 (テスト) コードも有効になります。 いずれのシナリオについても、UI オートメーション クライアントでは、ユーザー インターフェイス要素を検証し、アプリの外部の他のコードからアプリに対するユーザー操作のシミュレーションを行うことができます。 すべてのプラットフォームでの UI オートメーションとそれより広い意味の詳細については、「 [Ui automation の概要](https://docs.microsoft.com/windows/desktop/WinAuto/uiauto-uiautomationoverview)」を参照してください。
 
@@ -76,7 +76,7 @@ UWP は、Windows フォーム、Windows Presentation Foundation (WPF)、Microso
 
 フレームワークのオートメーション ピアの実装方法にかかわらず、UI オートメーション クライアントの機能は、UWP に縛られるものではありません。実際、支援技術などの既にある UI オートメーション クライアントでは、COM などの他のプログラミング モデルが使われていることがよくあります。 COM では、クライアントから **QueryInterface** を呼び出すことで、必要なパターンや、プロパティ、イベント、またはツリーの検査のための一般的な UI オートメーション フレームワークを実装する COM コントロール パターン インターフェイスを取得できます。 パターンの場合は、そのインターフェイス コードが、UI オートメーション フレームワークにより、アプリの UI オートメーション プロバイダーとその関連ピアに対して実行されている UWP コードにマーシャリングされます。
 
-C\#または Microsoft Visual Basic を使用する UWP アプリなどのマネージコードフレームワークのコントロールパターンを実装する場合は、COM インターフェイス表現を使用する代わりに、.NET Framework インターフェイスを使用してこれらのパターンを表すことができます。 たとえば、**Invoke** というパターンの Microsoft .NET プロバイダーによる実装に対応した UI オートメーション パターン インターフェイスは、[**IInvokeProvider**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Automation.Provider.IInvokeProvider) となります。
+C または Microsoft Visual Basic を使用する UWP アプリなどのマネージコードフレームワークのコントロールパターンを実装する場合は \# 、COM インターフェイス表現を使用する代わりに、.NET Framework インターフェイスを使用してこれらのパターンを表すことができます。 たとえば、**Invoke** というパターンの Microsoft .NET プロバイダーによる実装に対応した UI オートメーション パターン インターフェイスは、[**IInvokeProvider**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Automation.Provider.IInvokeProvider) となります。
 
 コントロール パターン、プロバイダー インターフェイス、それらの目的の一覧については、「[コントロール パターンとインターフェイス](control-patterns-and-interfaces.md)」をご覧ください。 コントロール型の一覧については、「[UI オートメーション コントロール型の概要](https://docs.microsoft.com/windows/desktop/WinAuto/uiauto-controltypesoverview)」を参照してください。
 
@@ -456,7 +456,7 @@ public class IndexCardAutomationPeer : FrameworkElementAutomationPeer, IExpandCo
 
 UI オートメーションのイベントは、次のカテゴリに分類されます。
 
-| event | 説明 |
+| Event | 説明 |
 |-------|-------------|
 | プロパティの変更 | UI オートメーション要素またはコントロール パターンのプロパティが変更されたときに発生します。 たとえば、クライアントでアプリのチェック ボックス コントロールを監視する必要がある場合は、[**ToggleState**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.provider.itoggleprovider.togglestate) プロパティのプロパティ変更イベントをリッスンするように登録します。 チェック ボックス コントロールがオンまたはオフになると、プロバイダーがこのイベントを発生させるため、クライアントで必要に応じて対処できます。 |
 | 要素のアクション | ユーザーまたはプログラムによる操作の結果として UI が変更された場合に発生します (ボタンがクリックされた場合、**Invoke** パターンによって呼び出された場合など)。 |
@@ -529,10 +529,10 @@ UWP アプリのテキスト コントロールの 1 つから派生させ、テ
 
 ピアに渡されたパラメーターについて入力を検証することは許容されます。たとえば、**null** が渡された場合、それを有効な値として扱わない実装では [**ArgumentNullException**](https://docs.microsoft.com/dotnet/api/system.argumentnullexception) をスローすることができます。 ただし、ピアで実行される後続の操作がある場合、ホストしているコントロールとピアとのやり取りには非同期的な性質があることに注意が必要です。 ピアで実行した操作によって、必ずしもコントロールの UI スレッドがブロックされるとは限りません (そのような動作になることはほとんどありません)。 したがって、ピアの作成時やオートメーション ピア メソッドの初回の呼び出し時に、あるオブジェクトが使用可能であったり、特定のプロパティが設定されていたりしても、処理を行っている間にコントロールの状態が変わる可能性があります。 このような場合にスローできる専用の例外が 2 つあります。
 
-* 自身の API に渡された元の情報に基づいてピアの所有者または関連するピア要素にアクセスできない場合は、[**ElementNotAvailableException**](https://docs.microsoft.com/dotnet/api/system.windows.automation.elementnotavailableexception) をスローします。 たとえば、ピアでメソッドを実行しようとしているときに、モーダル ダイアログが閉じられたなどの理由で、UI から所有者が削除された場合が当てはまります。 Non-.NET クライアントの場合、これは[**UIA\_E\_elementnotavailable**](https://docs.microsoft.com/windows/desktop/WinAuto/uiauto-error-codes)にマップされます。
-* 所有者はまだ存在するものの、その所有者が [**IsEnabled**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.isenabled)`=`**false** などのモードになっていて、ピアで実行しようとしている特定の変更をプログラムで実現することができない場合は、[**ElementNotEnabledException**](https://docs.microsoft.com/dotnet/api/system.windows.automation.elementnotenabledexception) をスローします。 Non-.NET クライアントの場合、これは[**UIA\_E\_elementnotenabled**](https://docs.microsoft.com/windows/desktop/WinAuto/uiauto-error-codes)にマップされます。
+* 自身の API に渡された元の情報に基づいてピアの所有者または関連するピア要素にアクセスできない場合は、[**ElementNotAvailableException**](https://docs.microsoft.com/dotnet/api/system.windows.automation.elementnotavailableexception) をスローします。 たとえば、ピアでメソッドを実行しようとしているときに、モーダル ダイアログが閉じられたなどの理由で、UI から所有者が削除された場合が当てはまります。 Non-.NET クライアントの場合、これは[**UIA \_ E \_ elementnotavailable**](https://docs.microsoft.com/windows/desktop/WinAuto/uiauto-error-codes)にマップされます。
+* 所有者はまだ存在するものの、その所有者が [**IsEnabled**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.isenabled)`=`**false** などのモードになっていて、ピアで実行しようとしている特定の変更をプログラムで実現することができない場合は、[**ElementNotEnabledException**](https://docs.microsoft.com/dotnet/api/system.windows.automation.elementnotenabledexception) をスローします。 Non-.NET クライアントの場合、これは[**UIA \_ E \_ elementnotenabled**](https://docs.microsoft.com/windows/desktop/WinAuto/uiauto-error-codes)にマップされます。
 
-他にも、ピア サポートからの例外のスローに関して、ピアでは比較的保守的な対応をとる必要があります。 ほとんどのクライアントでは、ピアからの例外を処理することができないため、発生した例外は、ユーザーに選択を求める対話操作に変換されます。 このため、ピアでの操作が失敗するたびに例外をスローするよりは、ピアの実装内で例外をキャッチし、再スローもせずに何もしない戦略の方が適している場合があります。 また、多くの UI オートメーション クライアントはマネージ コードで作られているわけではない点にも考慮する必要があります。 ほとんどは COM で記述されており、ピアへのアクセスが終了する UI オートメーションクライアントメソッドを呼び出すたびに、 **HRESULT**で**S\_OK**を確認するだけです。
+他にも、ピア サポートからの例外のスローに関して、ピアでは比較的保守的な対応をとる必要があります。 ほとんどのクライアントでは、ピアからの例外を処理することができないため、発生した例外は、ユーザーに選択を求める対話操作に変換されます。 このため、ピアでの操作が失敗するたびに例外をスローするよりは、ピアの実装内で例外をキャッチし、再スローもせずに何もしない戦略の方が適している場合があります。 また、多くの UI オートメーション クライアントはマネージ コードで作られているわけではない点にも考慮する必要があります。 ほとんどは COM で記述されており、ピアへのアクセスが終了する UI オートメーションクライアントメソッドを呼び出すたびに、 **HRESULT**で**S \_ OK**を確認するだけです。
 
 <span id="related_topics"/>
 

@@ -1,5 +1,5 @@
 ---
-Description: アクセス可能な Windows アプリアプリを作成する場合に回避する方法を示します。
+Description: アクセス可能な Windows アプリを作成する場合に回避する方法を示します。
 ms.assetid: 024A9B70-9821-45BB-93F1-61C0B2ECF53E
 title: アクセシビリティ対応にするために避ける事項
 label: Accessibility practices to avoid
@@ -8,16 +8,16 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 95c23a00ebc9ee2563340fbd5594d53ac7edb066
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 75dad7eb676bd2d2a9d95fa57122085329e5e144
+ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970007"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83233941"
 ---
 # <a name="accessibility-practices-to-avoid"></a>アクセシビリティ対応にするために避ける事項
 
-アクセス可能な Windows アプリアプリを作成する場合は、回避するために、次の手順の一覧を参照してください。 
+アクセス可能な Windows アプリを作成する場合は、回避するために、次の手順の一覧を参照してください。 
 
 * Microsoft UI オートメーションサポートを既に実装している**既定の Windows コントロールまたはコントロールを使用できる場合は、カスタム UI 要素を作成しないよう**にしてください。 Windows の標準コントロールは、既定でアクセシビリティに対応しており、追加する必要があるのは、通常、アプリ固有のわずかなアクセシビリティ属性のみです。 それに対し、純粋なカスタム コントロールに [**AutomationPeer**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Automation.Peers.AutomationPeer) サポートを実装するのは、これより複雑です (「[カスタム オートメーション ピア](custom-automation-peers.md)」をご覧ください)。
 * **静的テキストなどの非対話型の要素をタブ オーダーに含めないようにします** (たとえば、対話的に操作できない要素に[**TabIndex**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.tabindex) プロパティを設定することは避けます)。 非対話型の要素をタブ オーダーに含めると、キーボード ナビゲーションの効率が下がるため、キーボードのアクセシビリティ ガイドラインで推奨されていません。 多くの支援技術では、支援技術のユーザーにアプリのインターフェイスを表示する方法に関するロジックの一部として、要素をフォーカスする機能とタブ オーダーが使われています。 タブ オーダーにテキスト専用要素が含まれると、タブ オーダーに対話型の要素 (ボタン、チェック ボックス、テキスト入力フィールド、コンボ ボックス、リストなど) しか含まれていないと想定しているユーザーを混乱させる可能性があります。

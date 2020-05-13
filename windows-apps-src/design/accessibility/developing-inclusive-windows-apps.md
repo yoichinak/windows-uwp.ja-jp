@@ -8,16 +8,16 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: f3d2866b3e04d2fa531e9bd538badd96205a8c65
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 37fb7cc81d1a86a159526af5d580a02482d13f9a
+ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82969427"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83233974"
 ---
 # <a name="developing-inclusive-windows-apps"></a>包括的な Windows アプリの開発  
 
-この記事では、ユーザー補助 Windows アプリアプリを開発する方法について説明します。 特に、この記事では、アプリの論理的な階層を設計する方法を理解していることが前提となっています。 キーボード操作、色とコントラストの設定、支援技術のサポートなど、アクセス可能な Windows アプリを開発する方法について説明します。
+この記事では、ユーザー補助 Windows アプリを開発する方法について説明します。 特に、この記事では、アプリの論理的な階層を設計する方法を理解していることが前提となっています。 キーボード操作、色とコントラストの設定、支援技術のサポートなど、アクセス可能な Windows アプリを開発する方法について説明します。
 
 まだお読みでない場合にはまず、「[包括性を備えたソフトウェアの設計](designing-inclusive-software.md)」をご覧ください。
 

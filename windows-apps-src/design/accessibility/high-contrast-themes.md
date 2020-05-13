@@ -1,5 +1,5 @@
 ---
-description: ハイコントラストテーマがアクティブな場合に Windows アプリアプリを使用できるようにするために必要な手順について説明します。
+description: ハイコントラストテーマがアクティブな場合に Windows アプリを使用できるようにするために必要な手順について説明します。
 ms.assetid: FD7CA6F6-A8F1-47D8-AA6C-3F2EC3168C45
 title: ハイ コントラスト テーマ
 template: detail.hbs
@@ -7,12 +7,12 @@ ms.date: 09/28/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 118f604b8c8c95a863773270825ff4db5c5a1b3a
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: ce3fe9ea96f4b4ce2f541fb5f7a9682a0dee5e0e
+ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82969457"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83234038"
 ---
 # <a name="high-contrast-themes"></a>ハイ コントラスト テーマ  
 
@@ -95,7 +95,7 @@ Windows では、OS やアプリでハイ コントラスト テーマがサポ�
 
 各 **SystemColor*Color** リソースは、ユーザーがハイ コントラスト テーマに切り替えたときに自動的に色を更新する変数です。 各リソースをいつどこで使用するかについてのガイドラインを以下に示します。
 
-リソース | 使用方法 |
+リソース | 使用法 |
 |--------|-------|
 **SystemColorWindowTextColor** | 本文、見出し、一覧など、操作できないテキスト |
 | **SystemColorHotlightColor** | ハイパーリンク |
@@ -154,7 +154,7 @@ Windows では、OS やアプリでハイ コントラスト テーマがサポ�
 <Grid Background="{ThemeResource BrandedPageBackgroundBrush}">
 ```
 
-**BrandedPageBackgroundBrush**を参照するために、1回は**systemcolorwindowcolor**を参照するために2回、もう一度** \{使用されるかどう\} **かに注意してください。 実行時に正しいテーマを使うためには、両方の参照がアプリに必要です。 ここで、アプリでハイ コントラストの機能をテストすると良いでしょう。 ハイ コントラスト テーマに切り替えると、グリッドの背景が自動的に更新されます。 また、別のハイ コントラスト テーマに切り替えたときにも更新されます。
+**BrandedPageBackgroundBrush**を参照するために、1回は**Systemcolorwindowcolor**を参照するために2回、もう一度**使用されるかどう \{ \} **かに注意してください。 実行時に正しいテーマを使うためには、両方の参照がアプリに必要です。 ここで、アプリでハイ コントラストの機能をテストすると良いでしょう。 ハイ コントラスト テーマに切り替えると、グリッドの背景が自動的に更新されます。 また、別のハイ コントラスト テーマに切り替えたときにも更新されます。
 
 ## <a name="when-to-use-borders"></a>境界線を使う状況
 

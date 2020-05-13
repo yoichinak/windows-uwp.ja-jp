@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, ネットワーク, DirectX
 ms.localizationpriority: medium
-ms.openlocfilehash: 2e693016fa6b87f231c1cbbfac4c2e55d44623c9
-ms.sourcegitcommit: 2571af6bf781a464a4beb5f1aca84ae7c850f8f9
+ms.openlocfilehash: d2d1487c708b8618feec5cb735fb8af260608e00
+ms.sourcegitcommit: 0f2ae8f97daac440c8e86dc07d11d356de29515c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82606371"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83280272"
 ---
 # <a name="networking-for-games"></a>ゲームのネットワーク
 
@@ -121,7 +121,7 @@ Networking API は、例外の原因についての詳しい情報を取得す�
 
 スローされた例外の [**DatagramSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.DatagramSocket)、[**StreamSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamSocket)、[**StreamSocketListener**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamSocketListener) の操作結果で発生したエラー。 例外の原因は、**HRESULT** として表現されるエラー値です。 [**SocketError.GetStatus**](https://docs.microsoft.com/uwp/api/windows.networking.sockets.socketerror.getstatus) メソッドは、ネットワーク エラーをソケット操作から [**SocketErrorStatus**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.SocketErrorStatus) 列挙値に変換するために使われます。 ほとんどの **SocketErrorStatus** 列挙値は、ネイティブ Windows ソケット操作から返されるエラーに対応しています。 アプリは特定の **SocketErrorStatus** 列挙値に対するフィルター処理を行い、例外の原因に応じてアプリの動作を変更できます。
 
-パラメーター検証エラーの場合、アプリは例外からの **HRESULT** を使って、その例外の原因となったエラーの詳細情報を確認することもできます。 使うことができる **HRESULT** 値は、*Winerror.h* ヘッダー ファイルに記載されています。 ほとんどのパラメーター検証エラーの場合、返される**HRESULT**は**\_E invalidarg**です。
+パラメーター検証エラーの場合、アプリは例外からの **HRESULT** を使って、その例外の原因となったエラーの詳細情報を確認することもできます。 使うことができる **HRESULT** 値は、*Winerror.h* ヘッダー ファイルに記載されています。 ほとんどのパラメーター検証エラーの場合、返される**HRESULT**は**E \_ invalidarg**です。
 
 ストリーム ソケット接続の実行時に発生する例外を処理するコードの追加
 
@@ -273,7 +273,7 @@ using namespace Windows::Networking::Sockets;
 
 C++ を使うアプリでは、アプリの実行中に例外が発生したときに、[**Platform::Exception**](https://docs.microsoft.com/cpp/cppcx/platform-exception-class) がエラーを表します。 [**Platform::Exception::HResult**](https://docs.microsoft.com/cpp/cppcx/platform-exception-class#hresult) プロパティは、特定の例外に割り当てられた **HRESULT** を返します。 [**Platform:: Exception:: Message**](https://docs.microsoft.com/cpp/cppcx/platform-exception-class#message)プロパティは、 **HRESULT**値に関連付けられているシステム指定の文字列を返します。 使うことができる **HRESULT** 値は、*Winerror.h* ヘッダー ファイルに記載されています。 アプリは特定の **HRESULT** 値に対するフィルター処理を行い、例外の原因に応じてアプリの動作を変更できます。
 
-ほとんどのパラメーター検証エラーの場合、返される**HRESULT**は**\_E invalidarg**です。 一部の無効なメソッド呼び出しでは、返される **HRESULT** は **E\_ILLEGAL\_METHOD\_CALL** です。
+ほとんどのパラメーター検証エラーの場合、返される**HRESULT**は**E \_ invalidarg**です。 一部の無効なメソッド呼び出しでは、返される **HRESULT** は **E\_ILLEGAL\_METHOD\_CALL** です。
 
 [**HttpClient**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpClient) を使って HTTP サーバーに接続するときに発生する例外を処理するコードの追加
 
@@ -388,7 +388,7 @@ using namespace Windows::Web::Http;
 
 **サンプル**
 
-* [DatagramSocket のサンプル](https://code.msdn.microsoft.com/windowsapps/StreamSocket-Sample-8c573931)
+* [DatagramSocket のサンプル](https://github.com/microsoft/VCSamples/tree/master/VC2012Samples/Windows%208%20samples/C%2B%2B/Windows%208%20app%20samples/ControlChannelTrigger%20StreamSocket%20sample%20(Windows%208))
 * [HttpClient のサンプル]( https://code.msdn.microsoft.com/windowsapps/HttpClient-sample-55700664)
-* [近接通信のサンプル](https://code.msdn.microsoft.com/windowsapps/Proximity-Sample-88129731)
+* [近接通信のサンプル](https://github.com/microsoft/VCSamples/tree/master/VC2012Samples/Windows%208%20samples/C%2B%2B/Windows%208%20app%20samples/Proximity%20sample%20(Windows%208))
 * [StreamSocket のサンプル](https://code.msdn.microsoft.com/windowsapps/StreamSocket-Sample-8c573931)

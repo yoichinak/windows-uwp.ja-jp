@@ -8,16 +8,16 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: e0591a62134f09c1b3a9d115d038020e95f0c139
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 2d6ddf03541e94f89d0950a4f4c03eebaa0e396e
+ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970717"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83234477"
 ---
 # <a name="mouse-interactions"></a>マウス操作
 
-タッチ入力用に Windows アプリアプリの設計を最適化し、既定で基本的なマウスサポートを利用します。 
+タッチ入力用に Windows アプリのデザインを最適化し、既定で基本的なマウスサポートを利用します。 
 
 ![マウス](images/input-patterns/input-mouse.jpg)
 
@@ -59,7 +59,7 @@ ms.locfileid: "82970717"
 <td align="left"><p>右クリックによる選択とコマンド</p></td>
 <td align="left"><p>右クリックして、ナビゲーション バー (使用できる場合) と、グローバル コマンドを含むアプリ バーを表示します。 要素を右クリックして選択し、その要素に対応する状況依存のコマンドを備えたアプリ バーを表示します。</p>
 <div class="alert">
-<strong>メモ</strong>  選択項目またはアプリバーのコマンドが適切な UI 動作でない場合は、右クリックしてコンテキストメニューを表示します。 ただし、すべてのコマンド動作にアプリ バーを使うことを強くお勧めします。
+<strong>メモ</strong>   選択またはアプリバーのコマンドが適切な UI 動作でない場合にコンテキストメニューを表示するには、右クリックします。 ただし、すべてのコマンド動作にアプリ バーを使うことを強くお勧めします。
 </div>
 <div>
  

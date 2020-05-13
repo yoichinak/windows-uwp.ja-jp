@@ -7,12 +7,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 9651af0c9caaae58bad82b2e33c1b0621b205054
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 6a3429607ecd9245dd10722fbb47d06d7aa6ef75
+ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970457"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83234833"
 ---
 # <a name="code-generated-by-the-push-notification-wizard"></a>プッシュ通知ウィザードにより生成されるコード
  
@@ -42,7 +42,7 @@ var <mobile-service-name>Client = new Microsoft.WindowsAzure.MobileServices.Mobi
 ## <a name="registration-for-push-notifications"></a>プッシュ通知への登録
 
 
-Push. register.\*では、uploadchannel メソッドによってデバイスが登録され、プッシュ通知が受信されます。 ストアは、アプリのインストールされたインスタンスを追跡し、プッシュ通知チャネルを提供します。 「[**PushNotificationChannelManager**](https://docs.microsoft.com/uwp/api/Windows.Networking.PushNotifications.PushNotificationChannelManager)」をご覧ください。
+Push. register. では \* 、UploadChannel メソッドによってデバイスが登録され、プッシュ通知が受信されます。 ストアは、アプリのインストールされたインスタンスを追跡し、プッシュ通知チャネルを提供します。 「[**PushNotificationChannelManager**](https://docs.microsoft.com/uwp/api/Windows.Networking.PushNotifications.PushNotificationChannelManager)」をご覧ください。
 
 クライアント コードは、JavaScript のバックエンドと .NET のバックエンドの両方に似ています。 既定では、JavaScript バックエンド サービスのプッシュ通知を追加すると、notifyAllUsers カスタム API のサンプル呼び出しが UploadChannel メソッドに挿入されます。
 
@@ -207,7 +207,7 @@ function sendNotifications(request) {
 
 sendNotifications 関数は、1 つの通知をトースト通知として送信します。 他の種類のプッシュ通知を使うこともできます。
 
-**ヒント**  : スクリプトの編集中にヘルプを表示する方法については、「[サーバー側 JavaScript での IntelliSense の有効化](https://blogs.msdn.com/b/visualstudio/archive/2013/07/26/enabling-intellisense-for-mobile-services-javascript-in-visual-studio.aspx)」を参照してください。
+**ヒント**   スクリプトの編集中にヘルプを表示する方法については、「[サーバー側 JavaScript での IntelliSense の有効化](https://blogs.msdn.com/b/visualstudio/archive/2013/07/26/enabling-intellisense-for-mobile-services-javascript-in-visual-studio.aspx)」を参照してください。
 
  
 
@@ -220,7 +220,7 @@ Windows では、プッシュ通知ではない通知がサポートされてい
 
 Windows は、プッシュ通知に応答するため、アプリが実行されていないときにこれらの通知のほとんどを処理できます。 たとえば、プッシュ通知は、ローカル メール アプリが実行されていないときでも新しいメール メッセージを受信したことをユーザーに知らせることができます。 Windows は、テキスト メッセージの先頭行のようなメッセージを表示することで、トースト通知を処理します。 Windows は、ライブ タイルを更新して新しいメール メッセージの数を反映することで、タイル通知またはバッジ通知を処理します。 このように、新しい情報をチェックするように促すプロンプトをアプリのユーザーに表示できます。 アプリは、実行中に直接通知を受け取ることができるため、直接通知を使ってアプリにデータを送ることができます。 アプリが実行されていない場合、プッシュ通知を監視するバックグラウンド タスクを設定できます。
 
-Windows アプリアプリのガイドラインに従ってプッシュ通知を使用する必要があります。これらの通知ではユーザーのリソースが使用されるため、超過した場合は邪魔になる可能性があるためです。 「[プッシュ通知のガイドラインとチェック リスト](https://docs.microsoft.com/windows/uwp/controls-and-patterns/tiles-and-notifications-windows-push-notification-services--wns--overview)」をご覧ください。
+Windows アプリのガイドラインに従ってプッシュ通知を使用する必要があります。これらの通知はユーザーのリソースを使用するため、超過した場合は邪魔になる可能性があるためです。 「[プッシュ通知のガイドラインとチェック リスト](https://docs.microsoft.com/windows/uwp/controls-and-patterns/tiles-and-notifications-windows-push-notification-services--wns--overview)」をご覧ください。
 
 プッシュ通知でライブ タイルを更新する場合は、「[タイルとバッジのガイドラインとチェック リスト](https://docs.microsoft.com/windows/uwp/controls-and-patterns/tiles-and-notifications-creating-tiles)」のガイドラインにも従ってください。
 
@@ -233,7 +233,7 @@ Window Azure のモバイル サービスの柔軟性が不十分な場合、C# 
 
 モバイル サービスでスケジュール済みタスクを実行して、プッシュ通知を送ることもできます。 「[Mobile Services での繰り返し発生するジョブのスケジュール](https://azure.microsoft.com/documentation/articles/mobile-services-schedule-recurring-tasks/)」をご覧ください。
 
-**警告**  プッシュ通知ウィザードを1回実行した後は、もう一度ウィザードを実行して別のモバイルサービスの登録コードを追加しないでください。 このウィザードをプロジェクトごとに複数回実行すると、生成されるコードで [**CreatePushNotificationChannelForApplicationAsync**](https://docs.microsoft.com/uwp/api/Windows.Networking.PushNotifications.PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync) メソッドの呼び出しが重複し、ランタイムの例外が発生します。 複数のモバイル サービスのプッシュ通知を登録するには、ウィザードを 1 回だけ実行し、登録コードを上書きして、**CreatePushNotificationChannelForApplicationAsync** の呼び出しが同時に実行されないようにしてください。 たとえば、ウィザードで生成されたコードを push. register で移動することで、これを実現できます。\* onlaunched 上げイベントの外部にある**Createpushnotificationchannelforapplicationasync**の呼び出しを含めますが、その詳細はアプリのアーキテクチャによって異なります。
+**警告**   プッシュ通知ウィザードを1回実行した後は、もう一度ウィザードを実行して別のモバイルサービスの登録コードを追加しないでください。 このウィザードをプロジェクトごとに複数回実行すると、生成されるコードで [**CreatePushNotificationChannelForApplicationAsync**](https://docs.microsoft.com/uwp/api/Windows.Networking.PushNotifications.PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync) メソッドの呼び出しが重複し、ランタイムの例外が発生します。 複数のモバイル サービスのプッシュ通知を登録するには、ウィザードを 1 回だけ実行し、登録コードを上書きして、**CreatePushNotificationChannelForApplicationAsync** の呼び出しが同時に実行されないようにしてください。 たとえば、ウィザードで生成されたコードを push. register \* で移動することで、これを実現できます。OnLaunched 上げイベントの外部にある**Createpushnotificationchannelforapplicationasync**の呼び出しを含めますが、その詳細はアプリのアーキテクチャによって異なります。
 
  
 

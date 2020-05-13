@@ -6,19 +6,19 @@ keywords: インク, 手描き入力, チュートリアル
 ms.date: 01/25/2018
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: a1b4dc6fbec0e16428035348114b1b160d50cff0
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: d0df2b531510d86591c44bc69f6ed5c6ad9f200f
+ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82968147"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83234624"
 ---
 # <a name="tutorial-support-ink-in-your-windows-app"></a>チュートリアル: Windows アプリでインクをサポートする
 
 ![Surface ペン](images/ink/ink-hero-small.png)  
 *Surface ペン* ([Microsoft ストア](https://www.microsoft.com/p/surface-pen/8zl5c82qmg6b)で購入できます)。
 
-このチュートリアルでは、Windows Ink での書き込みと描画をサポートする基本的な Windows アプリアプリを作成する手順について説明します。 使用するサンプル アプリは GitHub ([サンプル コード](#sample-code)) からダウンロードできます。このサンプル アプリのスニペットは、各手順でのさまざまな機能と関連する Windows Ink API ([Windows Ink プラットフォームのコンポーネント](#components-of-the-windows-ink-platform)をご覧ください) の使い方を示します。
+このチュートリアルでは、Windows Ink での書き込みと描画をサポートする基本的な Windows アプリを作成する手順について説明します。 使用するサンプル アプリは GitHub ([サンプル コード](#sample-code)) からダウンロードできます。このサンプル アプリのスニペットは、各手順でのさまざまな機能と関連する Windows Ink API ([Windows Ink プラットフォームのコンポーネント](#components-of-the-windows-ink-platform)をご覧ください) の使い方を示します。
 
 次の点を中心に説明します。
 * 基本的なインクのサポートを追加する
@@ -33,13 +33,13 @@ ms.locfileid: "82968147"
 
 Windows Ink を使うと、ユーザーに、ペンと紙の体験とほぼ同等のデジタル エクスペリエンスを提供できます。すばやく手書きでメモを取ったり、ホワイトボードのデモに注釈を書き込んだり、建築製図や工業図面の作成から、個人的な作品の制作まで行えます。
 
-## <a name="prerequisites"></a>前提条件
+## <a name="prerequisites"></a>必須コンポーネント
 
 * 現在のバージョンの Windows 10 を実行するコンピューター (または仮想マシン)。
 * [Visual Studio 2019 と RS2 SDK](https://developer.microsoft.com/windows/downloads)
 * [Windows 10 SDK (10.0.15063.0)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * 構成によっては、 [Microsoft.netcore.universalwindowsplatform](https://www.nuget.org/packages/Microsoft.NETCore.UniversalWindowsPlatform) NuGet パッケージをインストールし、システム設定で**開発者モード**を有効にすることが必要になる場合があります > (開発者向け > & のセキュリティ-> 開発者向けの機能を使用します)。
-* Visual Studio を使用した Windows アプリアプリの開発に慣れていない場合は、このチュートリアルを開始する前に、次のトピックを参照してください。  
+* Visual Studio を使用した Windows アプリの開発に慣れていない場合は、このチュートリアルを開始する前に、次のトピックを参照してください。  
     * [準備](https://docs.microsoft.com/windows/uwp/get-started/get-set-up)
     * ["Hello, world" アプリを作成する (XAML)](https://docs.microsoft.com/windows/uwp/get-started/create-a-hello-world-app-xaml-universal)
 * **[オプション]** デジタル ペンと、そのデジタル ペンからの入力をサポートしているディスプレイを搭載したコンピューター。
@@ -79,7 +79,7 @@ RadialController サンプル アプリをダウンロードしたら、実行�
 3. F5 キーを押して、コンパイル、展開、および実行します。  
 
    > [!NOTE]
-   > または、 **[デバッグ]** > [**デバッグの開始**] メニュー項目を選択するか、ここに表示されている [**ローカルコンピューター**の実行] ボタンを選択します。
+   > または、 **[デバッグ**  >  ] [**デバッグの開始**] メニュー項目を選択するか、ここに表示されている [**ローカルコンピューター**の実行] ボタンを選択します。
    > ![Visual Studio のプロジェクトのビルド ボタン](images/ink/ink-vsrun-small.png)
 
 アプリ ウィンドウが開き、スプラッシュ画面が数秒表示されて、次のような初期画面が表示されます。
@@ -112,7 +112,7 @@ RadialController サンプル アプリをダウンロードしたら、実行�
 ```
 
 4. MainPage.xaml ファイルを開きます。
-5. この手順のタイトルでマークされているコードを\<探します ("!--step 2: Basic インク with system.windows.controls.inkcanvas>-->")。
+5. この手順のタイトルでマークされているコードを探します (" \< !--step 2: Basic インク With system.windows.controls.inkcanvas>-->")。
 6. 以下の行のコメントを解除します。  
 
 ``` xaml
@@ -165,7 +165,7 @@ RadialController サンプル アプリをダウンロードしたら、実行�
 
 ### <a name="in-the-sample"></a>このサンプルを使って、次を行います:
 1. MainPage.xaml ファイルを開きます。
-2. この手順のタイトルでマークされたコードを探し\<ます ("!--手順 4: インクツールバーの追加-->")。
+2. この手順のタイトルでマークされたコードを探し \< ます ("!--手順 4: インクツールバーの追加-->")。
 3. 以下の行のコメントを解除します。  
 
 ``` xaml
@@ -212,14 +212,14 @@ RadialController サンプル アプリをダウンロードしたら、実行�
 > [!NOTE]
 > 手書き認識は [**ペンと Windows Ink**] の設定を使って改善できます。
 > 1. スタート メニューを開き、[**設定**] を選択します。
-> 2. [設定] 画面で、[**デバイス** > ] [**ペン & Windows Ink**] を選択します。
+> 2. [設定] 画面で、[**デバイス**] [  >  **ペン & Windows Ink**] を選択します。
 > ![Windows Ink ワークスペースのスケッチパッドの InkToolbar](images/ink/ink-settings-small.png)
 > 3. [**手書き入力を認識します**] を選択して、[**手書き認識の個人用設定**] ダイアログを開きます。
 > ![Windows Ink ワークスペースのスケッチパッドの InkToolbar](images/ink/ink-settings-handwritingpersonalization-small.png)
 
 ### <a name="in-the-sample"></a>このサンプルを使って、次を行います:
 1. MainPage.xaml ファイルを開きます。
-2. この手順のタイトルでマークされたコードを探し\<ます ("!--step 5: Support 手書き認識-->")。
+2. この手順のタイトルでマークされたコードを探し \< ます ("!--step 5: Support 手書き認識-->")。
 3. 以下の行のコメントを解除します。  
 
 ``` xaml
@@ -347,7 +347,7 @@ Windows Ink は、Windowsでサポートされている多くの言語のテキ�
 
 ### <a name="in-the-sample"></a>このサンプルを使って、次を行います:
 1. MainPage.xaml ファイルを開きます。
-2. このステップのタイトルでマークされたコードを探し\<ます ("!--手順 6: 図形を認識します-->")
+2. このステップのタイトルでマークされたコードを探し \< ます ("!--手順 6: 図形を認識します-->")
 3. この行のコメントを解除します。  
 
 ``` xaml
@@ -402,7 +402,7 @@ ISF ファイルは、インク ストロークのプロパティと動作に関
 
 ### <a name="in-the-sample"></a>このサンプルを使って、次を行います:
 1. MainPage.xaml ファイルを開きます。
-2. この手順のタイトルでマークされているコードを\<探します ("!--手順 7: インクの保存と読み込み-->")。
+2. この手順のタイトルでマークされているコードを探します (" \< !--手順 7: インクの保存と読み込み-->")。
 3. 以下の行のコメントを解除します。 
 
 ``` xaml

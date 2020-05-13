@@ -1,5 +1,5 @@
 ---
-Description: ペンやスタイラスデバイスからのカスタム対話をサポートする Windows アプリアプリを構築します。自然な書き込みや描画を行うためのデジタルインクも含まれます。
+Description: ペンやスタイラスデバイス (自然な書き込みと描画のためのデジタルインクなど) からのカスタム対話をサポートする Windows アプリを構築します。
 title: Windows アプリでのペン操作と Windows インク
 ms.assetid: 3DA4F2D2-5405-42A1-9ED9-3A87BCD84C43
 label: Pen interactions and Windows Ink in Windows apps
@@ -8,12 +8,12 @@ keywords: Windows Ink, Windows の手書き入力, DirectInk, InkPresenter, InkC
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: c2cda9b2775ac1e0dca2cd37d1082bc6d75b1bad
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 1c9986ee6d4dacc929a8c2d243becf7d5c9d973e
+ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82968387"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83234905"
 ---
 # <a name="pen-interactions-and-windows-ink-in-windows-apps"></a>Windows アプリでのペン操作と Windows インク
 
@@ -22,7 +22,7 @@ ms.locfileid: "82968387"
 
 ## <a name="overview"></a>概要
 
-Windows アプリアプリをペン入力用に最適化して、標準の[**ポインターデバイス**](https://docs.microsoft.com/uwp/api/Windows.Devices.Input.PointerDevice)機能とユーザーに最適な Windows インクエクスペリエンスの両方を提供します。
+Windows アプリをペン入力用に最適化して、標準の[**ポインターデバイス**](https://docs.microsoft.com/uwp/api/Windows.Devices.Input.PointerDevice)機能とユーザーに最適な windows インクエクスペリエンスの両方を提供します。
 
 > [!NOTE]
 > ここでは主に、Windows Ink プラットフォームについて説明します。 ポインター入力処理 (マウス、タッチ、タッチパッドに類似) の概要については、「[ポインター入力の処理](handle-pointer-input.md)」をご覧ください。

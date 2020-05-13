@@ -1,5 +1,5 @@
 ---
-Description: タッチパッド用に最適化されているが、入力デバイス間で機能的に一貫性がある、直感的で特徴的なユーザー操作エクスペリエンスを備えた Windows アプリアプリを作成します。
+Description: タッチパッド用に最適化されているが、入力デバイス間で機能的に一貫性がある、直感的で独特なユーザー操作エクスペリエンスを備えた Windows アプリを作成します。
 title: タッチパッド操作
 ms.assetid: CEDEA30A-FE94-4553-A7FB-6C1FA44F06AB
 label: Touchpad interactions
@@ -8,12 +8,12 @@ keywords: タッチパッド, PTP, タッチ, ポインター, 入力, ユーザ
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: afbdf5c672328acfc60a82f9f66c75dc52370c99
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: ffc3ce96c7e8c2ad4a34aecd1ca85ff644bdef97
+ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970237"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83234484"
 ---
 # <a name="touchpad-design-guidelines"></a>タッチパッドの設計ガイドライン
 
@@ -55,11 +55,11 @@ ms.locfileid: "82970237"
 
 ![標準のタッチパッドの設定](images/mouse-touchpad-settings-standard.png)
 
-<sup>標準\\タッチ\\パッドの設定</sup>
+<sup>標準 \\ タッチパッドの \\ 設定</sup>
 
 ![Windows 高精度タッチパッドの設定](images/mouse-touchpad-settings-ptp.png)
 
-<sup>Windows\\ Precision\\の\\タッチパッドの設定</sup>
+<sup>Windows \\ Precision の \\ タッチパッドの \\ 設定</sup>
 
 以下に、一般的なタスクを実行するためのタッチパッドに最適化されたジェスチャの例を示します。
 

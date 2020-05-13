@@ -8,12 +8,12 @@ keywords: スピーチ, 音声, 音声認識, 自然言語, ディクテーシ�
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 9cd347b115a920c71ca1eb9b5f466adf05c69c64
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: a1db38120252febefd55933fa106f473b3f920d8
+ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82968247"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83234861"
 ---
 # <a name="specify-the-speech-recognizer-language"></a>音声認識エンジンの言語の指定
 
@@ -31,7 +31,7 @@ ms.locfileid: "82968247"
 
 音声認識と認識の制約についての基本的な知識が必要です。
 
-Windows アプリアプリの開発に慣れていない場合は、以下のトピックを参照して、ここで説明するテクノロジについて理解してください。
+Windows アプリの開発に慣れていない場合は、以下のトピックを参照して、ここで説明するテクノロジについて理解してください。
 
 -   [最初のアプリを作成する](https://docs.microsoft.com/windows/uwp/get-started/your-first-app)
 -   「[イベントとルーティング イベントの概要](https://docs.microsoft.com/windows/uwp/xaml-platform/events-and-routed-events-overview)」に記載されているイベントの説明
@@ -56,7 +56,7 @@ var language = SpeechRecognizer.SystemSpeechLanguage;
 
 インストールされている言語はデバイスによって異なる場合があります。 特定の制約を使う際にある言語に依存する場合は、その言語が存在するかどうかを確認してください。
 
-**注**  新しい言語パックをインストールした後に再起動が必要です。 指定された言語がサポート\_さ\_れていない場合、またはインストールが完了していない場合は、エラーコード sperr が見つからないという例外 (0x8004503a) が発生します。
+**メモ**   新しい言語パックをインストールすると、再起動が必要になります。 \_指定された言語がサポートされていない場合、またはインストールが完了していない場合は、エラーコード SPERR が見つからないという例外 \_ (0x8004503a) が発生します。
 
  
 

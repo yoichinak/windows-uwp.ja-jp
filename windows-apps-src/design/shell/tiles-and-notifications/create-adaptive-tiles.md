@@ -8,16 +8,16 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: b91b5d8ce39f34c6065f6dce61e90a752b36c8ef
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: bbc0f23ad712850e565814febe5b7e681e58a85d
+ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82971067"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83234573"
 ---
 # <a name="create-adaptive-tiles"></a>アダプティブ タイルの作成
 
-アダプティブ タイル テンプレートは Windows 10 の新機能であり、シンプルで柔軟なマークアップ言語を使って、さまざまな画面密度に合わせて変化する独自のタイル通知コンテンツをデザインできるようになります。 この記事では、Windows アプリのアダプティブ ライブ タイルを作成する方法について説明します。 アダプティブ タイルのすべての要素と属性の一覧については、「[アダプティブ タイルのスキーマ](../tiles-and-notifications/tile-schema.md)」をご覧ください 
+アダプティブ タイル テンプレートは Windows 10 の新機能であり、シンプルで柔軟なマークアップ言語を使って、さまざまな画面密度に合わせて変化する独自のタイル通知コンテンツをデザインできるようになります。 この記事では、Windows アプリのアダプティブライブタイルを作成する方法について説明します。 アダプティブ タイルのすべての要素と属性の一覧については、「[アダプティブ タイルのスキーマ](../tiles-and-notifications/tile-schema.md)」をご覧ください 
 
 (必要に応じて、Windows 10 の通知をデザインするときは、[Windows 8 タイル テンプレート カタログ](https://docs.microsoft.com/previous-versions/windows/apps/hh761491(v=win.10))のプリセット テンプレートを引き続き使えます)。
 
@@ -208,7 +208,7 @@ TileContent content = new TileContent()
 
 通知ペイロード内で branding 属性を使って、ライブ タイルの下部でブランディング (表示名とコーナー ロゴ) を制御できます。 表示なし ("none")、名前のみ表示 ("name")、ロゴのみ表示 ("logo")、名前とロゴの両方を表示 ("nameAndLogo") のいずれかを選べます。
 
-**注**  Windows mobile ではコーナーロゴがサポートされていないため、"logo" と "nameandlogo" は既定で Mobile の "name" に設定されています。
+**メモ**   Windows Mobile はコーナーロゴをサポートしていないため、"logo" と "nameAndLogo" は既定で Mobile の "name" に設定されています。
 
  
 
@@ -280,7 +280,7 @@ TileContent content = new TileContent()
 
 通知ペイロード内でブランディングを指定しない場合は、ベース タイルのプロパティによってブランディングが決まります。 ベース タイルに表示名が表示される場合、ブランディングは既定で "name" に設定されます。 表示名が表示されない場合、ブランディングは既定で "none" に設定されます。
 
-**Note**  これは、既定のブランドが "logo" である Windows 8.x からの変更点に注意してください。
+**メモ**   これは Windows 8.x から変更されたもので、既定のブランドは "logo" でした。
 
  
 
@@ -406,7 +406,7 @@ new AdaptiveText()
 
 ![アダプティブ タイルのテキスト スタイル](images/adaptive-tiles-textstyles.png)
 
-**Note**  ヒントスタイルが指定されていない場合は、既定で caption に設定されます。
+**メモ**   ヒントスタイルが指定されていない場合、スタイルは既定で caption に設定されます。
 
  
 
@@ -414,7 +414,7 @@ new AdaptiveText()
 
 |                                |                           |             |
 |--------------------------------|---------------------------|-------------|
-| &lt;テキストヒント-style = "\*"/&gt; | フォントの高さ               | フォントの太さ |
+| &lt;テキストヒント-style = " \* "/&gt; | フォントの高さ               | フォントの太さ |
 | caption                        | 12 epx (有効ピクセル) | 通常     |
 | body                           | 15 epx                    | 通常     |
 | base                           | 15 epx                    | 中太字    |
@@ -485,7 +485,7 @@ new AdaptiveText()
 
 デバイスや画面間でのエクスペリエンスを最大限に高めるには、複数のグループを用意します。 複数のグループを使うと、タイルをより大きい画面に合わせて調整できます。
 
-**Note**  グループの有効な子はサブグループだけであることに注意してください。
+**メモ**   グループの有効な子はサブグループだけです。
 
  
 
@@ -679,7 +679,7 @@ private static AdaptiveGroup CreateGroup(string from, string subject, string bod
 
 ![サブグループ、重み合計が 100](images/adaptive-tiles-subgroups03.png)
 
-**注**  8 ピクセルの余白は、列の間に自動的に追加されます。
+**メモ**   列の間に8ピクセルの余白が自動的に追加されます。
 
  
 

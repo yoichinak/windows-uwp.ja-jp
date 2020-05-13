@@ -1,5 +1,5 @@
 ---
-Description: タイルとは、スタート メニュー上でアプリを表すものです。 すべてのアプリにはタイルがあります。 Microsoft Visual Studio で新しい Windows アプリアプリプロジェクトを作成すると、アプリの名前とロゴを表示する既定のタイルが含まれます。
+Description: タイルとは、スタート メニュー上でアプリを表すものです。 すべてのアプリにはタイルがあります。 Microsoft Visual Studio で新しい Windows アプリプロジェクトを作成すると、アプリの名前とロゴを表示する既定のタイルが含まれます。
 title: Windows アプリのタイル
 ms.assetid: 09C7E1B1-F78D-4659-8086-2E428E797653
 label: Tiles
@@ -8,18 +8,18 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 0882ac67766bc2ce037133cf8a39b5393f616e13
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 8823116b8fed3503ccf0dadc488956c93ae6c32b
+ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970997"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83234458"
 ---
 # <a name="tiles-for-windows-apps"></a>Windows アプリのタイル
 
  
 
-*タイル*は、[スタート] メニューのアプリの表現です。 すべてのアプリにはタイルがあります。 Microsoft Visual Studio で新しい Windows アプリアプリプロジェクトを作成すると、アプリの名前とロゴを表示する既定のタイルが含まれます。このタイルは、アプリを初めてインストールしたときに Windows に表示されます。 アプリをインストールしたら、新しい情報 (ニュース ヘッドライン、最新の未読メッセージの件名など) をユーザーに伝えるようにタイルを変更するなど、通知を通じてタイルの内容を変更できます。
+*タイル*は、[スタート] メニューのアプリの表現です。 すべてのアプリにはタイルがあります。 Microsoft Visual Studio で新しい Windows アプリプロジェクトを作成すると、アプリの名前とロゴを表示する既定のタイルが含まれます。このタイルは、アプリを初めてインストールしたときに Windows に表示されます。 アプリをインストールしたら、新しい情報 (ニュース ヘッドライン、最新の未読メッセージの件名など) をユーザーに伝えるようにタイルを変更するなど、通知を通じてタイルの内容を変更できます。
 
 ## <a name="configure-the-default-tile"></a>既定のタイルを構成する
 
@@ -55,11 +55,11 @@ Visual Studio で新しいプロジェクトを作成すると、アプリの名
 
     拡大/縮小された画像の名前付け規則は次のとおりです。
     
-    *&lt;&gt;**イメージ名&gt; &lt;* ファクター。*イメージファイル拡張子&gt; &lt;* 
+    * &lt; イメージ名 &gt; *。スケール* &lt; ファクター &gt; *。* &lt;イメージファイル拡張子 &gt; * 
 
     例: SplashScreen.scale-100.png
 
-    イメージを参照するときは、 * &lt;イメージ名&gt;* として参照します。*イメージファイル拡張子&gt; (この例では "SplashScreen")。 &lt;* 指定した画像からデバイスに合わせて拡大/縮小された画像が自動的に選択されます。
+    イメージを参照するときは、 * &lt; イメージ名 &gt; *として参照します。* &lt;イメージファイル拡張子 &gt; * (この例では "SplashScreen")。 指定した画像からデバイスに合わせて拡大/縮小された画像が自動的に選択されます。
 
 -   強制ではありませんが、幅広で大きいタイル サイズに合ったロゴを用意して、ユーザーの側でアプリのタイルをそのサイズに変更できるようにすることを強くお勧めします。 追加の画像を指定するには、**DefaultTile** 要素を作成し、**Wide310x150Logo** および **Square310x310Logo** 属性を使って、その画像を指定します。
 ```    XML

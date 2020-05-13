@@ -1,17 +1,17 @@
 ---
-description: この記事では、Windows アプリアプリにドラッグアンドドロップを追加する方法について説明します。
+description: この記事では、Windows アプリでドラッグアンドドロップを追加する方法について説明します。
 title: ドラッグ アンド ドロップ
 ms.assetid: A15ED2F5-1649-4601-A761-0F6C707A8B7E
 ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: e14ab0d7e6ef8b79ce29addf37ec1fc52b737923
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 52fb9c5d6b9c594be1ad4f1fa1a4421d99cae5fa
+ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970157"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83234610"
 ---
 # <a name="drag-and-drop"></a>ドラッグ アンド ドロップ
 
