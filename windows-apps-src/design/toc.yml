@@ -546,6 +546,8 @@
           href: accessibility/basic-accessibility-information.md
         - name: キーボードのアクセシビリティ
           href: accessibility/keyboard-accessibility.md
+        - name: スクリーン リーダーとハードウェア システムのボタン
+          href: accessibility/system-button-narration.md
         - name: ランドマークと見出し
           href: accessibility/landmarks-and-headings.md
         - name: ハイ コントラスト テーマ

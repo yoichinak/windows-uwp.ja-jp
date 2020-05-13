@@ -1,10 +1,15 @@
-- name: Windows 10 ビルド 18362 の開発者向け新着情報
-  href: ../whats-new/windows-10-build-18362.md
+- name: Windows 10 ビルド 19041 の開発者向け新着情報
+  href: ../whats-new/windows-10-build-19041.md
   items:
-    - name: Windows 10 ビルド 18362 での API の追加
-      href: ../whats-new/windows-10-build-18362-api-diff.md
+    - name: Windows 10 ビルド 19041 での API の追加
+      href: ../whats-new/windows-10-build-19041-api-diff.md
 - name: Windows 10 の以前のバージョン
   items:
+    - name: Windows 10 ビルド 18362 の開発者向け新着情報
+      href: ../whats-new/windows-10-build-18362.md
+      items:
+        - name: Windows 10 ビルド 18362 での API の追加
+          href: ../whats-new/windows-10-build-18362-api-diff.md
     - name: Windows 10 ビルド 17763 の開発者向け新着情報
       href: ../whats-new/windows-10-build-17763.md
       items:
