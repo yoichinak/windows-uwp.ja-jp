@@ -12,12 +12,12 @@ design-contact: ksulliv
 dev-contact: joyate
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 0f32a22534bd79576c3c052853ce80f25da1da26
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 9b1ae96b3a66a2c4644789fe0e2e38d5bded80a4
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80081478"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82967957"
 ---
 # <a name="time-picker"></a>時刻の選択コントロール
  
@@ -30,12 +30,12 @@ TimePicker は、ユーザーがタッチ、マウス、またはキーボード
 
 |  |  |
 | - | - |
-| ![WinUI ロゴ](images/winui-logo-64x64.png) | Windows UI ライブラリ 2.2 以降には、丸めた角を使用するこのコントロールの新しいテンプレートが含まれます。 詳しくは、「[角の半径](/windows/uwp/design/style/rounded-corner)」をご覧ください。 WinUI は、UWP アプリの新しいコントロールと UI 機能が含まれる NuGet パッケージです。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | Windows UI ライブラリ 2.2 以降には、丸めた角を使用するこのコントロールの新しいテンプレートが含まれます。 詳しくは、「[角の半径](/windows/uwp/design/style/rounded-corner)」をご覧ください。 WinUI は、Windows アプリの新しいコントロールと UI 機能が含まれる NuGet パッケージです。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
 
 > **プラットフォーム API**: [TimePicker クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TimePicker)、[Time プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.timepicker.time)
 
 
-## <a name="is-this-the-right-control"></a>これは適切なコントロールですか? 
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 時刻の選択コントロールを使って、ユーザーが 1 つの時刻を選べるようにします。
 
 適切なコントロールの選択について詳しくは、「[日付と時刻コントロール](date-and-time.md)」をご覧ください。

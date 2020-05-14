@@ -11,12 +11,12 @@ pm-contact: predavid
 design-contact: kimsea
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: ef17fdc69f7a9f25831c5c17419768ff32874f80
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: f4871b4a43284052a89d0fd37412528840e1ea5a
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80080943"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82968737"
 ---
 # <a name="flip-view"></a>フリップ ビュー
 
@@ -26,11 +26,11 @@ ms.locfileid: "80080943"
 
 |  |  |
 | - | - |
-| ![WinUI ロゴ](images/winui-logo-64x64.png) | Windows UI ライブラリ 2.2 以降には、丸めた角を使用するこのコントロールの新しいテンプレートが含まれます。 詳しくは、「[角の半径](/windows/uwp/design/style/rounded-corner)」をご覧ください。 WinUI は、UWP アプリの新しいコントロールと UI 機能が含まれる NuGet パッケージです。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | Windows UI ライブラリ 2.2 以降には、丸めた角を使用するこのコントロールの新しいテンプレートが含まれます。 詳しくは、「[角の半径](/windows/uwp/design/style/rounded-corner)」をご覧ください。 WinUI は、Windows アプリの新しいコントロールと UI 機能が含まれる NuGet パッケージです。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
 
 > **プラットフォーム API:** [FlipView クラス](/uwp/api/windows.ui.xaml.controls.flipview)、[ItemsSource プロパティ](/uwp/api/windows.ui.xaml.controls.itemscontrol.itemssource)、[ItemTemplate プロパティ](/uwp/api/windows.ui.xaml.controls.itemscontrol.itemtemplate)
 
-## <a name="is-this-the-right-control"></a>これは適切なコントロールですか? 
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 フリップ ビューは、小規模から中規模のコレクション (最大で 25 個程度の項目を含むコレクション) の画像を参照する場合に最適です。 このようなコレクションの例として、製品の詳細ページ内の項目やフォト アルバム内の写真などがあります。 多くの場合、大規模なコレクションで FlipView を使うことはお勧めしませんが、このコントロールは、フォト アルバム内の個々の画像を表示するためによく使われます。
 

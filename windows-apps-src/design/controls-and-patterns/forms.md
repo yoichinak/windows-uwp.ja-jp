@@ -1,16 +1,16 @@
 ---
-Description: UWP アプリでのフォームのレイアウト ガイドライン。
+Description: Windows アプリでのフォームのレイアウト ガイドライン。
 title: フォーム
 template: detail.hbs
 ms.date: 11/07/2017
 ms.topic: article
 keywords: Windows 10, UWP, Fluent
-ms.openlocfilehash: b6533864748b4245b16ec7bcea9d2a831ff1c88a
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 69ffaf4ff67d4ee78e78c195d759ae242a069e8e
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76520447"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82968513"
 ---
 # <a name="forms"></a>フォーム
 フォームは、ユーザーからデータを収集して送信するコントロールのグループです。 通常、フォームは、ページの設定、調査、アカウントの作成、その他に使われます。 
@@ -62,7 +62,7 @@ ms.locfileid: "76520447"
 
 [アクセシビリティ対応の設計にする](../accessibility/accessibility.md)には、個別のコントロールとコントロールのグループのすべてに、人間とスクリーン リーダーの両方のためにわかりやすいラベルを付けます。 
 
-フォント スタイルは既定の [UWP 書体見本](../style/typography.md)を使います。 ページのタイトルには `TitleTextBlockStyle` を、グループの見出しには `SubtitleTextBlockStyle` を、コントロールのラベルには `BodyTextBlockStyle` を使います。
+フォント スタイルには既定の [Windows 書体見本](../style/typography.md)を使います。 ページのタイトルには `TitleTextBlockStyle` を、グループの見出しには `SubtitleTextBlockStyle` を、コントロールのラベルには `BodyTextBlockStyle` を使います。
 
 <div class="mx-responsive-img">
 <table>
@@ -149,7 +149,7 @@ Control | vmmblue_2
 ### <a name="additional-controls"></a>その他のコントロール 
 UWP コントロールの完全な一覧については、[機能別コントロールのインデックス](controls-by-function.md)に関する記事をご覧ください。
 
-さらに複雑な UI コントロールおよびカスタム UI コントロールについては、[Telerik](https://www.telerik.com/)、[SyncFusion](https://www.syncfusion.com/uwp-ui-controls)、[DevExpress](https://www.devexpress.com/Products/NET/Controls/Win10Apps/)、[Infragistics](https://www.infragistics.com/products/universal-windows-platform)、[ComponentOne](https://www.componentone.com/Studio/Platform/UWP)、[ActiPro](https://www.actiprosoftware.com/products/controls/universal) などの企業から入手できる UWP リソースをご覧ください。
+さらに複雑な UI コントロールおよびカスタム UI コントロールについては、[Telerik](https://www.telerik.com/)、[SyncFusion](https://www.syncfusion.com/uwp-ui-controls)、[DevExpress](https://www.devexpress.com/Products/NET/Controls/Win10Apps/)、[Infragistics](https://www.infragistics.com/products/universal-windows-platform)、[ComponentOne](https://www.componentone.com/Studio/Platform/UWP)、[ActiPro](https://www.actiprosoftware.com/products/controls/universal) などの企業から入手できるリソースをご覧ください。
 
 ## <a name="one-column-form-example"></a>1 列のフォームの例
 この例では、Acrylic の[マスター/詳細](master-details.md)[リスト ビュー](lists.md)および [NavigationView](navigationview.md) コントロールを使います。

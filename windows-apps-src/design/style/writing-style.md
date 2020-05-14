@@ -6,12 +6,12 @@ ms.date: 05/07/2018
 ms.topic: article
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: f5f38fdfb3ba9fd32a6e06ec19cdbfb6c3b09f24
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 8d79d4f3394bcf8f7892f2c6dc3d4e0ca72972ab
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68867685"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970607"
 ---
 # <a name="writing-style"></a>記述スタイル
 
@@ -103,7 +103,7 @@ ms.locfileid: "68867685"
 
 :::row:::
     :::column:::
-![推奨](images/do.svg) ユニバーサル Windows プラットフォーム (UWP) の設計ガイダンスは、美しく洗練されたアプリを設計および構築するのに役立つリソースです。 すべての UWP アプリに含まれている設計機能を使うと、デバイスに応じてスケーリングするユーザー インターフェイス (UI) を構築できます。
+![推奨](images/do.svg) Windows アプリのデザイン ガイダンスは、美しく洗練されたアプリをデザインおよび構築するのに役立つリソースです。 すべての Windows アプリに含まれているこのデザイン機能を使用すると、デバイスに応じてスケーリングするユーザー インターフェイス (UI) を構築できます。
     :::column-end:::
     :::column:::
     :::column-end:::

@@ -8,12 +8,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 0b7c21e5e6305c7b2941b46db562c93da0fdfe39
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.openlocfilehash: 5ae8094ac3fbb1de8958b1cc138953d3e1b887cc
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75684386"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970387"
 ---
 # <a name="masterdetails-pattern"></a>マスターと詳細パターン
 
@@ -24,6 +24,9 @@ ms.locfileid: "75684386"
 > **重要な API**:[ListView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView)、[SplitView クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.splitview)
 
 ![マスターと詳細パターンの例](images/HIGSecOne_MasterDetail.png)
+
+> [!TIP]
+> このパターンを実装する XAML コントロールを使用したい場合は、Windows Community Toolkit の [MasterDetailsView XAML コントロール](/windows/communitytoolkit/controls/masterdetailsview)をお勧めします。
 
 ## <a name="is-this-the-right-pattern"></a>これは適切なパターンですか?
 
@@ -61,7 +64,7 @@ ms.locfileid: "75684386"
 
 詳細ビュー ページの場合、最も意味のある[コンテンツ要素](../layout/layout-panels.md)を使います。 多くの個別フィールドがある場合は、**グリッド** レイアウトを使って要素をフォームに配置することを検討します。
 
-ページ間の移動については、「[UWP アプリのナビゲーション履歴と前に戻る移動](../basics/navigation-history-and-backwards-navigation.md)」を参照してください。
+ページ間の移動については、「[Windows アプリでのナビゲーション履歴と前に戻る移動](../basics/navigation-history-and-backwards-navigation.md)」をご覧ください。
 
 ## <a name="side-by-side-style"></a>左右に並べて表示するスタイル
 
@@ -98,6 +101,9 @@ ms.locfileid: "75684386"
 - [Windows Template Studio マスター/詳細のサンプル](https://github.com/Microsoft/WindowsTemplateStudio/tree/master/templates/Uwp/Pages/MasterDetail)
 - [顧客注文データベースのサンプル](https://github.com/Microsoft/Windows-appsample-customers-orders-database)
 - [RSS リーダーのサンプル](https://github.com/Microsoft/Windows-appsample-rssreader)
+
+> [!TIP]
+> このパターンを実装する XAML コントロールを使用したい場合は、Windows Community Toolkit の [MasterDetailsView XAML コントロール](/windows/communitytoolkit/controls/masterdetailsview)をお勧めします。
 
 ## <a name="related-articles"></a>関連記事
 

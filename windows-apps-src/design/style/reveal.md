@@ -10,12 +10,12 @@ design-contact: conrwi
 dev-contact: jevansa
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 63a7ee8550b72356199645f54b587480275c2bcd
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 26e756b52d4faf18eff2fc684c7db94bca058642
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75685080"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82971077"
 ---
 # <a name="reveal-highlight"></a>表示ハイライト
 
@@ -105,7 +105,7 @@ ms.locfileid: "75685080"
 </Grid>
 ```
 
-または、RevealBorderBrush の TargetTheme を黒に変更します。 注意:  TargetTheme が黒に設定されている場合、表示効果は白になりますが、これが白に設定されている場合、表示効果の境界線は灰色になります。
+または、RevealBorderBrush の TargetTheme を黒に変更します。 注意: TargetTheme が黒に設定されている場合、表示効果は白になりますが、これが白に設定されている場合、表示効果の境界線は灰色になります。
 
 ```xaml
  <RevealBorderBrush x:Key="MyLightBorderBrush" TargetTheme="Dark" Color="{ThemeResource SystemAccentColor}" FallbackColor="{ThemeResource SystemAccentColor}" />
@@ -166,7 +166,7 @@ ms.locfileid: "75685080"
 
 コントロール テンプレートの変更について詳しくは、[XAML コントロール テンプレート](../controls-and-patterns/control-templates.md)に関する記事をご覧ください。
 
-テンプレートのカスタマイズに使うことができる一連のシステム表示ブラシが作成されました。 たとえば、**ButtonRevealBackground** ブラシを使ってカスタム ボタンの背景を作成したり、カスタム一覧に **ListViewItemRevealBackground** ブラシを使ったりすることができます  (XAML でのリソースのしくみについて詳しくは、[Xaml リソース ディクショナリに関する記事](../controls-and-patterns/resourcedictionary-and-xaml-resource-references.md)をご覧ください)。
+テンプレートのカスタマイズに使うことができる一連のシステム表示ブラシが作成されました。 たとえば、**ButtonRevealBackground** ブラシを使ってカスタム ボタンの背景を作成したり、カスタム一覧に **ListViewItemRevealBackground** ブラシを使ったりすることができます (XAML でのリソースのしくみについて詳しくは、[Xaml リソース ディクショナリに関する記事](../controls-and-patterns/resourcedictionary-and-xaml-resource-references.md)をご覧ください)。
 
 ### <a name="full-template-example"></a>テンプレート全体の例
 
@@ -282,7 +282,7 @@ ms.locfileid: "75685080"
 
 ## <a name="reveal-and-the-fluent-design-system"></a>表示と Fluent Design System
 
- Fluent Design System では、ライト、深度、モーション、マテリアル、スケールを取り入れた、モダンで目を引く UI を作成できます。 表示は、アプリに発光効果を加える Fluent Design System コンポーネントです。 詳しくは、[UWP 用の Fluent Design の概要に関するページ](/windows/apps/fluent-design-system)をご覧ください。
+ Fluent Design System では、ライト、深度、モーション、マテリアル、スケールを取り入れた、モダンで目を引く UI を作成できます。 表示は、アプリに発光効果を加える Fluent Design System コンポーネントです。 詳しくは、[Fluent Design の概要](/windows/apps/fluent-design-system)に関するページをご覧ください。
 
 ## <a name="related-articles"></a>関連記事
 

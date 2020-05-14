@@ -13,12 +13,12 @@ design-contact: kimsea
 dev-contact: llongley
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: b008b12c5f92d56c127c5ec8026d305d3d57a869
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 884bd2e1eded5e3c0dfa92f1488fe0b8661af18d
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80081680"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970357"
 ---
 # <a name="menus-and-context-menus"></a>メニューとショートカット メニュー
 
@@ -30,13 +30,13 @@ ms.locfileid: "80081680"
 
 |  |  |
 | - | - |
-| ![WinUI ロゴ](images/winui-logo-64x64.png) | **MenuBar** コントロールは、Windows UI ライブラリの NuGet パッケージの一部として組み込まれており、パッケージには、UWP アプリの新しいコントロールと UI 機能が含まれています。 インストール手順などの詳細については、[Windows UI ライブラリの概要](https://docs.microsoft.com/uwp/toolkits/winui/)に関するページを参照してください。 |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | **MenuBar** コントロールは、Windows アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリの一部として含まれています。 インストール手順などの詳細については、[Windows UI ライブラリの概要](https://docs.microsoft.com/uwp/toolkits/winui/)に関するページを参照してください。 |
 
 > **Windows UI ライブラリ API:** [MenuBar クラス](/uwp/api/microsoft.ui.xaml.controls.menubar)
 >
 > **プラットフォーム API:** [MenuFlyout クラス](/uwp/api/windows.ui.xaml.controls.menuflyout)、[MenuBar クラス](/uwp/api/windows.ui.xaml.controls.menubar)、[ContextFlyout プロパティ](/uwp/api/windows.ui.xaml.uielement.contextflyout)、[FlyoutBase.AttachedFlyout プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.flyoutbase#xaml-attached-properties)
 
-## <a name="is-this-the-right-control"></a>これは適切なコントロールですか? 
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 メニューとコンテキスト メニューは、コマンドを整理してユーザーに要求されるまで非表示にすることによって、スペースを節約します。 特定のコマンドを頻繁に使っていて、利用可能なスペースがある場合は、メニューを使って移動しなくてもよいように、メニュー内ではなく、独自の要素に直接配置することを検討してください。
 

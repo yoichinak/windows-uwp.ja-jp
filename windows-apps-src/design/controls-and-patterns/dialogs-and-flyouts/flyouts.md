@@ -11,12 +11,12 @@ design-contact: kimsea
 dev-contact: niallm
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 320586fb8fe7f71eaea2d4b12c0dd731a1f721db
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 1e008f08d9bf98e309d895f2916ea8aaf84e8464
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80080968"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82969907"
 ---
 # <a name="flyouts"></a>ポップアップ
 
@@ -28,11 +28,11 @@ ms.locfileid: "80080968"
 
 |  |  |
 | - | - |
-| ![WinUI ロゴ](../images/winui-logo-64x64.png) | Windows UI ライブラリ 2.2 以降には、丸めた角を使用するこのコントロールの新しいテンプレートが含まれます。 詳しくは、「[角の半径](/windows/uwp/design/style/rounded-corner)」をご覧ください。 WinUI は、UWP アプリの新しいコントロールと UI 機能が含まれる NuGet パッケージです。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+| ![WinUI ロゴ](../images/winui-logo-64x64.png) | Windows UI ライブラリ 2.2 以降には、丸めた角を使用するこのコントロールの新しいテンプレートが含まれます。 詳しくは、「[角の半径](/windows/uwp/design/style/rounded-corner)」をご覧ください。 WinUI は、Windows アプリの新しいコントロールと UI 機能が含まれる NuGet パッケージです。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
 
 > **プラットフォーム API:** [Flyout クラス](/uwp/api/Windows.UI.Xaml.Controls.Flyout)
 
-## <a name="is-this-the-right-control"></a>これは適切なコントロールですか? 
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 * [ヒント](../tooltips.md)や[コンテキスト メニュー](../menus.md)の変わりにポップアップを使用しないようにします。 指定した時間が経過すると非表示になる短い説明を表示するには、ヒントを使います。 UI 要素に関連した状況依存の操作 (コピーや貼り付けなど) には、コンテキスト メニューを使います。
 

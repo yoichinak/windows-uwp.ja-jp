@@ -10,12 +10,12 @@ design-contact: kimsea
 dev-contact: niallm
 ms.custom: 19H1
 ms.localizationpriority: medium
-ms.openlocfilehash: 06734c854f0097db5fa96e35d4123dde8bda8a95
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 479a289ff15ab6a3db7a51d52f4bf3b075e8a64b
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80614141"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82968783"
 ---
 # <a name="teaching-tip"></a>教育のヒント
 
@@ -27,7 +27,7 @@ ms.locfileid: "80614141"
 
 |  |  |
 | - | - |
-| ![WinUI ロゴ](../images/winui-logo-64x64.png) | **TeachingTip** コントロールでは、UWP アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリが必要になります。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+| ![WinUI ロゴ](../images/winui-logo-64x64.png) | **TeachingTip** コントロールでは、Windows アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリが必要になります。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
 
 > **Windows UI ライブラリ API:** [TeachingTip クラス](/uwp/api/microsoft.ui.xaml.controls.teachingtip)
 
@@ -36,7 +36,7 @@ ms.locfileid: "80614141"
 >
 >コードビハインドでは、C# でも **muxc** エイリアスを使って、プロジェクトに含めた Windows UI Library API を表します。 この **using** ステートメントは、ファイルの先頭に追加されています。`using muxc = Microsoft.UI.Xaml.Controls;`
 
-## <a name="is-this-the-right-control"></a>これは適切なコントロールですか? 
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 **TeachingTip** コントロールを使用して、新規または重要な更新および機能にユーザーの注意を向けたり、重要ではないがユーザーのエクスペリエンスを改善できるオプションをユーザーにリマインドしたり、タスクの完了方法をユーザーに説明したりします。
 

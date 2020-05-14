@@ -11,20 +11,20 @@ design-contact: Judysa
 doc-status: Published
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: fb0101597a38553f56579913a9c40502fcdbf051
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 7c44baee7d3201e2e554604405afe337007dd510
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79434229"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970957"
 ---
-# <a name="icons-for-uwp-apps"></a>UWP アプリのアイコン
+# <a name="icons-for-windows-apps"></a>Windows アプリのアイコン
 
 ![ヘッダー画像のアイコン](images/icons/header-icons.png)
 
 アイコンによって、アクション、概念、または製品を簡略化したビジュアルが提供されます。 シンボリック イメージに意味を凝縮することによって、アイコンは言語の壁を乗り越えることができ、非常に価値のあるリソースである画面領域を節約するのに役立ちます。 
 
-アイコンはアプリ内、およびアプリの外部に表示されます。 
+アイコンはアプリ内とアプリ外部に表示されます。 
 
 :::row:::
     :::column:::
@@ -43,7 +43,7 @@ ms.locfileid: "79434229"
 
 ## <a name="when-to-use-icons"></a>アイコンを使用するタイミング
 
-アイコンは領域を節約できますが、アイコンをいつ使用する必要があるか説明します。 
+アイコンを使用すると、領域を節約できますが、どのような場合に使用しますか? 
 
 :::row:::
     :::column:::
@@ -80,7 +80,7 @@ ms.locfileid: "79434229"
 ### <a name="use-a-predefined-icon"></a>定義済みのアイコンを使用します。
 :::row:::
     :::column:::
-Microsoft は、Segoe MDL2 アセット フォントの形式で 1,000 個を超えるアイコンを提供しています。 フォントからアイコンを取得するのは直感的ではない可能性がありますが、マイクロソフトのフォントの表示テクノロジでは、これらのアイコンが任意のディスプレイ、解像度、サイズではっきりと鮮明に表示されます。 手順については、「[Segoe MDL2 アイコン](segoe-ui-symbol-font.md)」を参照してください。
+Microsoft は、Segoe MDL2 アセット フォントの形式で 1,000 個を超えるアイコンを提供しています。 フォントからアイコンを取得するのは直感的ではない可能性がありますが、Microsoft のフォント表示テクノロジでは、これらのアイコンが任意のディスプレイ、解像度、サイズではっきりと鮮明に表示されます。 手順については、「[Segoe MDL2 アイコン](segoe-ui-symbol-font.md)」を参照してください。
     :::column-end:::
     :::column:::
         ![定義済みアイコン イメージ](images/icons/predefined-icon.png)
@@ -137,7 +137,7 @@ SVG ファイルのように、ジオメトリはベクトルに基づくリソ�
 
 アイコンは標準ボタンに配置することができます。 ボタンはより広範な場所で使用できるため、アクション アイコンが表示される場所に関して、柔軟性がやや高くなります。 
 
-ボタンにアイコンを追加する方法は次のようにいくつかあります。
+ボタンにアイコンを追加する方法は、次のようにいくつかあります。
 
 :::row:::
     :::column span="2":::
@@ -205,7 +205,7 @@ SVG ファイルのように、ジオメトリはベクトルに基づくリソ�
 + [BitmapIcon](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.bitmapicon) - アイコンは指定された **URI** を持つビットマップ画像ファイルに基づきます。
 + [PathIcon](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.pathicon) - アイコンは [Path](/uwp/api/windows.ui.xaml.shapes.path) データに基づきます。
 
-コマンド バーの詳細については、「[コマンド バーの記事](../controls-and-patterns/app-bars.md)」を参照してください。 
+コマンド バーの詳細については、「[コマンド バー](../controls-and-patterns/app-bars.md)」の記事を参照してください。 
 
 
 

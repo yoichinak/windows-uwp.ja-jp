@@ -10,12 +10,12 @@ design-contact: kimsea
 dev-contact: mitra
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: edeebf177cf438931bb318ea19cd292a9c9b27c0
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: d242107789f7c7575b5796c30d371dbe8bb0a412
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80081597"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970797"
 ---
 # <a name="rating-control"></a>評価コントロール
 
@@ -27,7 +27,7 @@ ms.locfileid: "80081597"
 
 |  |  |
 | - | - |
-| ![WinUI ロゴ](images/winui-logo-64x64.png) | **RatingControl** コントロールは、Windows UI ライブラリの NuGet パッケージの一部として組み込まれており、パッケージには、UWP アプリの新しいコントロールと UI 機能が含まれています。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | **RatingControl** コントロールは、Windows アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリの一部として含まれています。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
 
 > **Windows UI ライブラリ API:** [RatingControl クラス](/uwp/api/microsoft.ui.xaml.controls.ratingcontrol)
 >

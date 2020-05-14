@@ -14,12 +14,12 @@ dev_langs:
 - csharp
 - vb
 ms.custom: RS5, 19H1
-ms.openlocfilehash: ab5b509aa69dc54d18ef3643d7ccd46bc2984676
-ms.sourcegitcommit: 8be8ed1ef4e496055193924cd8cea2038d2b1525
+ms.openlocfilehash: 41674ecb468023ac6e97cc01d1867478e8a3d70d
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80614103"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970427"
 ---
 # <a name="treeview"></a>TreeView
 
@@ -38,7 +38,7 @@ XAML の [TreeView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.
 
 |  |  |
 | - | - |
-| ![WinUI ロゴ](images/winui-logo-64x64.png) | **TreeView** コントロールは、Windows UI ライブラリの NuGet パッケージの一部として組み込まれており、パッケージには、UWP アプリの新しいコントロールと UI 機能が含まれています。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | **TreeView** コントロールは、Windows UI ライブラリの NuGet パッケージの一部として組み込まれており、パッケージには、Windows アプリの新しいコントロールと UI 機能が含まれています。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
 
 > **Windows UI ライブラリ API:** [TreeView クラス](/uwp/api/microsoft.ui.xaml.controls.treeview)、[TreeViewNode クラス](/uwp/api/microsoft.ui.xaml.controls.treeviewnode)、[TreeView.ItemsSource プロパティ](/uwp/api/microsoft.ui.xaml.controls.treeview.itemssource)
 >
@@ -472,7 +472,7 @@ End Sub
 
 複数選択を有効にすると、各ツリー ビュー ノードの横にチェック ボックスが表示され、選択した項目が強調表示されます。 ユーザーは、チェック ボックスを使用して項目を選択または選択解除できます。項目は引き続きクリックして呼び出すことができます。
 
-親ノードを選択または選択解除すると、そのノードの下にあるすべての子ノードが選択または選択解除されます。 親ノードの下にある子の全部ではなく一部を選択した場合、親ノードのチェック ボックスは不定として (黒いボックスで塗りつぶされて) 表示されます。
+親ノードを選択または選択解除すると、そのノードの下にあるすべての子ノードが選択または選択解除されます。 親ノードの下にある子の全部ではなく一部を選択した場合、親ノードのチェック ボックスは不確定状態として表示されます。
 
 ![ツリー ビューでの複数選択](images/treeview-selection.png)
 

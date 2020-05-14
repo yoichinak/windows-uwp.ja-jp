@@ -8,12 +8,12 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 keywords: windows win32, デスクトップ開発
-ms.openlocfilehash: bf8a5970d1999427023592f919ef0b92737fa934
-ms.sourcegitcommit: cab95379459ad378163aa4469c9dc6c509cc8c43
+ms.openlocfilehash: 906126c14dd32a9c0196d53deab5bc36c07f4bef
+ms.sourcegitcommit: ef723e3d6b1b67213c78da696838a920c66d5d30
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/18/2020
-ms.locfileid: "79510985"
+ms.lasthandoff: 05/02/2020
+ms.locfileid: "82729845"
 ---
 # <a name="choose-your-app-platform"></a>アプリ プラットフォームの選択
 
@@ -31,6 +31,8 @@ Windows PC 用の新しいデスクトップ アプリケーションを作成�
 * **WPF と Windows フォーム**。 これらのプラットフォームには、.NET で実行されるマネージド アプリケーションに共通の型システム、API、およびアプリケーション モデルが用意されています。
 
 * **Win32 API**。 WIN32 API (Windows API とも呼ばれます) は、Windows とハードウェアへの直接アクセスを必要とするネイティブ C/C++ の Windows アプリケーションのために用意された最初のプラットフォームです。 これにより、Win32 API 最高レベルのパフォーマンスとシステム ハードウェアへの直接アクセスを必要とするアプリケーションに適したプラットフォームになっています。
+
+Windows 10 では、これらのすべてのプラットフォームで [Windows UI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui) を使用したユーザー インターフェイスの作成がサポートされています。 WinUI には、既存の XAML コントロールの拡張版と新しいコントロールの両方を含む、最新のコントロールのセットが用意されています。 最大限に活用できるようにするため、WinUI では以前のバージョンの Windows 10 もサポートされています。
 
 UWP と .NET はどちらも Visual Studio と緊密に統合されています。 これには、特に開発者の生産性、洗練されたカスタマイズ可能な UI、アプリケーションのセキュリティの領域において、多くの利点があります。 これらのフレームワークは、UI を迅速に作成するためのビジュアル デザイナーと UI マークアップをサポートしているため、基幹業務アプリケーションに特に適しています。
 
@@ -110,7 +112,7 @@ C++ で Win32 API を使用すると、WinRT や .NET などのマネージド �
 | **オープン ソース** | [はい (Windows UI ライブラリのみ)](https://github.com/Microsoft/microsoft-ui-xaml)  |  [はい (.NET Core のみ)](https://github.com/dotnet/wpf) | [はい (.NET Core のみ)](https://github.com/dotnet/winforms)  |
 | **XAML をサポート** |   はい   |  はい  |   いいえ   |
 | **特長**  |  <ul><li>UI の XAML マークアップ</li><li>豊富でカスタマイズ可能な UX</li><li>既存のコードベースは .NET Standard 対応</li><li>高 DPI サポート</li><li>Windows デバイス間での複数の入力の種類のサポート (タッチ、ペン、ゲームパッド、マウス、キーボードなど)</li><li>Xbox、HoloLens、IoT、または Surface Hub のサポート</li><li>オプションの高密度 (コンパクト) UI</li><li>ネイティブ C++ のサポート</li><li>最適化されたバッテリー寿命</li><li>最新のアクセシビリティ サポート (スクリーン リーダーなど)</li><li>リッチ テキスト データ機能 (組み込みのスペル チェックなど)</li><li>手描き入力のサポート</li><li>アプリケーション コンテナーによるセキュリティで保護された実行 (たとえば、信頼されていないコンテンツのサンドボックス化)</li></ul>  |  <ul><li>UI の XAML マークアップ</li><li>豊富でカスタマイズ可能な UX</li><li>Microsoft とパートナーのコントロールの大規模なコレクション</li><li>高密度 UI</li><li>Windows 7 のサポート</li><li>入力検証のプラットフォームのサポート</li></ul> | <ul><li>迅速なアプリケーション開発</li><li>UI を構築するための WYSIWYG エディター</li><li>Microsoft とパートナーのコントロールの大規模なコレクション</li><li>高密度 UI</li><li>Windows 7 のサポート</li><li>キーボードとマウス入力</li></ul>          |
-| **サポートが限定されているシナリオ** |  <ul><li>複数のウィンドウのサポート <sup>1</sup></li><li>入力検証のプラットフォームのサポート <sup>1</sup></li><li>Windows 7 はサポートされません</li><li>一部の UWP API では、Windows 10 の特定の最小バージョンが必要です</li><li>完全なプラットフォームのサポートとシェルの統合 (たとえば、現在、UWP はシステム トレイの統合またはすべてのデバイスへのフル アクセスをサポートしていません)</li><li>ディスク上のすべてのファイルへの直接アクセス</li><li>ADO.NET</li><li>.NET Standard 以外または Windows アプリ認定キット以外に準拠した API を使用する既存のコードベース クラス ライブラリ</li><li>ローカル ネットワーク ループバックのサポート (つまり、アプリがターゲット デバイスにループバックの除外を作成せずに localhost と通信する必要がある場合)</li><li>集中型のファイル I/O</li></ul>     |  <ul><li>高 DPI サポート <sup>2</sup></li><li>タッチ入力 <sup>2</sup></li></ul>  |  <ul><li>高 DPI サポート <sup>2</sup></li><li>タッチ入力 <sup>2</sup></li><li>カスタマイズ可能な UI</li><li>豊富なグラフィックスとユーザー エクスペリエンス (タッチやアニメーションなど)</li><li>ビューとデータ モデルの豊富な抽象化</li></ul>    |   |
+| **サポートが限定されているシナリオ** |  <ul><li>複数のウィンドウのサポート <sup>1</sup></li><li>入力検証のプラットフォームのサポート <sup>1</sup></li><li>Windows 7 はサポートされません</li><li>一部の Windows ランタイム API では、Windows 10 の特定の最小バージョンが必要です</li><li>完全なプラットフォームのサポートとシェルの統合 (たとえば、現在、UWP はシステム トレイの統合またはすべてのデバイスへのフル アクセスをサポートしていません)</li><li>ディスク上のすべてのファイルへの直接アクセス</li><li>ADO.NET</li><li>.NET Standard 以外または Windows アプリ認定キット以外に準拠した API を使用する既存のコードベース クラス ライブラリ</li><li>ローカル ネットワーク ループバックのサポート (つまり、アプリがターゲット デバイスにループバックの除外を作成せずに localhost と通信する必要がある場合)</li><li>集中型のファイル I/O</li></ul>     |  <ul><li>高 DPI サポート <sup>2</sup></li><li>タッチ入力 <sup>2</sup></li></ul>  |  <ul><li>高 DPI サポート <sup>2</sup></li><li>タッチ入力 <sup>2</sup></li><li>カスタマイズ可能な UI</li><li>豊富なグラフィックスとユーザー エクスペリエンス (タッチやアニメーションなど)</li><li>ビューとデータ モデルの豊富な抽象化</li></ul>    |   |
 
 <sup>1</sup> Windows 10 の今後のリリースでこのシナリオに対処する機能が公開されています。
 

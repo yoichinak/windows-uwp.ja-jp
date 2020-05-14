@@ -11,12 +11,12 @@ design-contact: ksulliv
 dev-contact: llongley
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: f287f738c39e21ea76ff2595cc34ac715a1b52ca
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 6e7661beb52438640c570e1a5ec4d7f60502e119
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80081193"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82968907"
 ---
 # <a name="color-picker"></a>カラー ピッカー
 
@@ -28,13 +28,13 @@ ms.locfileid: "80081193"
 
 |  |  |
 | - | - |
-| ![WinUI ロゴ](images/winui-logo-64x64.png) | **ColorPicker** コントロールは、Windows UI ライブラリの NuGet パッケージの一部として組み込まれており、パッケージには、UWP アプリの新しいコントロールと UI 機能が含まれています。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | **ColorPicker** コントロールは、Windows アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリの一部として含まれています。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
 
 > **Windows UI ライブラリ API:** [ColorPicker クラス](/uwp/api/microsoft.ui.xaml.controls.colorpicker)、[Color プロパティ](/uwp/api/microsoft.ui.xaml.controls.colorpicker.Color)、[ColorChanged イベント](/uwp/api/microsoft.ui.xaml.controls.colorpicker.ColorChanged)
 >
 > **プラットフォーム API:** [ColorPicker クラス](/uwp/api/windows.ui.xaml.controls.colorpicker)、[Color プロパティ](/uwp/api/windows.ui.xaml.controls.colorpicker.Color)、[ColorChanged イベント](/uwp/api/windows.ui.xaml.controls.colorpicker.ColorChanged)
 
-## <a name="is-this-the-right-control"></a>これは適切なコントロールですか? 
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 アプリでユーザーが色を選べるようにするには、カラー ピッカーを使います。 たとえば、フォントの色、背景、またはアプリのテーマの色など、色の設定を変更するために、カラー ピッカーを使います。
 
@@ -220,7 +220,7 @@ ColorPicker コントロールの構成に使うことができるすべての�
 
 ## <a name="related-articles"></a>関連記事
 
-- [UWP アプリのペン操作とスタイラス操作](../input/pen-and-stylus-interactions.md)
+- [Windows アプリのペン操作とスタイラス操作](../input/pen-and-stylus-interactions.md)
 - [手描き入力](inking-controls.md)
 
 <!--

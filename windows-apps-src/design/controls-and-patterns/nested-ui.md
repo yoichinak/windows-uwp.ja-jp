@@ -11,12 +11,12 @@ pm-contact: chigy
 design-contact: kimsea
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: aa672c99dc83e7955c4d4f91b5bc34620c48ed01
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: d2372044076e1885602dec806df95ad60e789cdd
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "66364550"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82968087"
 ---
 # <a name="nested-ui-in-list-items"></a>リスト項目の入れ子になった UI
 
@@ -26,7 +26,7 @@ ms.locfileid: "66364550"
 
 入れ子になった UI を使用することで、重要な操作をスムーズに行うことができるようになる追加のオプションをユーザーに提供できます。 ただし、公開する操作の数が増えるにつれて、UI は複雑になります。 この UI パターンの使用を決めた場合は十分に注意することが必要です。 この記事では、特定の UI に最適な一連の操作の判断に役立つガイドラインを提供します。
 
-> **重要な API**: [ListView クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listview)、[GridView クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.gridview)
+> **重要な API**:[ListView クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listview)、[GridView クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.gridview)
 
 この記事では、[ListView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listview) 項目および [GridView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.gridview) 項目の入れ子になった UI の作成について説明します。 このセクションでは、入れ子になった UI の他の例については取り上げませんが、これらの概念は他でも利用できます。 始める前に、UI における ListView コントロールまたは GridView コントロールの使用について、一般的なガイダンスを理解している必要があります。この一般的なガイダンスについては、「[リスト](lists.md)」と「[リスト ビューとグリッド ビュー](listview-and-gridview.md)」の記事をご覧ください。
 
@@ -56,9 +56,9 @@ ms.locfileid: "66364550"
 
 ## <a name="options-for-secondary-actions"></a>セカンダリ操作のオプション
 
-リスト UI を作成する場合にまず必要なことは、UWP でサポートされるすべての入力方法が考慮されていることを確認することです。 さまざまな種類の入力について詳しくは、「[操作の基本情報](../input/index.md)」をご覧ください。
+リスト UI を作成する場合にまず必要なことは、Windows でサポートされるすべての入力方法が考慮されていることを確認することです。 さまざまな種類の入力について詳しくは、「[操作の基本情報](../input/index.md)」をご覧ください。
 
-UWP でサポートされているすべての入力にアプリが対応していることを確認したら、メイン リストのアクセラレータとして公開するほどに、アプリのセカンダリ操作が重要であるかどうかを判断する必要があります。 公開する操作が増えるほど、UI が複雑になることに注意してください。 セカンダリ操作をメイン リスト UI に公開する必要性は本当にあるのでしょうか。ないとしたら、どこか他の場所に配置できるでしょうか。
+Windows でサポートされているすべての入力にアプリが対応していることを確認したら、メイン リストのアクセラレータとして公開するほどに、アプリの 2 次的なアクションが重要であるかどうかを判断する必要があります。 公開する操作が増えるほど、UI が複雑になることに注意してください。 セカンダリ操作をメイン リスト UI に公開する必要性は本当にあるのでしょうか。ないとしたら、どこか他の場所に配置できるでしょうか。
 
 どのような入力からでも常時その操作にアクセスできる必要がある場合は、追加の操作をメイン リスト UI に公開することを検討してみましょう。
 
@@ -97,7 +97,7 @@ UWP でサポートされているすべての入力にアプリが対応して�
 
 ## <a name="consider-all-inputs"></a>すべての入力を検討
 
-入れ子になった UI を使用することに決めたら、すべての入力の種類を使ってユーザー エクスペリエンスを評価します。 前述のように、入れ子になった UI は、一部の種類の入力では適切に動作します。 ただし、他の入力方法でも常に適切に動作するとは限りません。 特に、キーボード、コントローラー、およびリモート入力では、入れ子になった UI 要素にアクセスすることが難くなる可能性があります。 UWP がすべての入力の種類で機能するように、後述のガイダンスに従ってください。
+入れ子になった UI を使用することに決めたら、すべての入力の種類を使ってユーザー エクスペリエンスを評価します。 前述のように、入れ子になった UI は、一部の種類の入力では適切に動作します。 ただし、他の入力方法でも常に適切に動作するとは限りません。 特に、キーボード、コントローラー、およびリモート入力では、入れ子になった UI 要素にアクセスすることが難くなる可能性があります。 Windows がすべての入力の種類で機能するように、後述のガイダンスに従ってください。
 
 ## <a name="nested-ui-handling"></a>入れ子になった UI の処理
 

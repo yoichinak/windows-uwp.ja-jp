@@ -1,6 +1,6 @@
 ---
-Description: ユニバーサル Windows プラットフォーム (UWP) API を使用して Windows 10 ユーザー向けデスクトップ アプリケーションを強化します。
-title: デスクトップ アプリで UWP API を使用する
+Description: Windows ランタイム API を使用して Windows 10 ユーザー向けデスクトップ アプリケーションを強化します。
+title: デスクトップ アプリで Windows ランタイム API を呼び出す
 ms.date: 08/20/2019
 ms.topic: article
 keywords: windows 10, uwp
@@ -8,24 +8,24 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: 78d9760c5ef21b29d09babaace0f4379b6a51209
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 444699c00a17dd90fe4c08c44ff56d540cadb3d6
+ms.sourcegitcommit: ef723e3d6b1b67213c78da696838a920c66d5d30
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75302606"
+ms.lasthandoff: 05/02/2020
+ms.locfileid: "82729867"
 ---
-# <a name="call-uwp-apis-in-desktop-apps"></a>デスクトップ アプリで UWP API を呼び出す
+# <a name="call-windows-runtime-apis-in-desktop-apps"></a>デスクトップ アプリで Windows ランタイム API を呼び出す
 
 ユニバーサル Windows プラットフォーム (UWP) API を使用して、Windows 10 ユーザーの利便性を高める最新のエクスペリエンスをデスクトップ アプリに追加できます。
 
-まず、必要な参照を含むプロジェクトを設定します。 次に、コードから UWP API を呼び出して、Windows 10 エクスペリエンスをデスクトップ アプリに追加します。 Windows 10 ユーザー向けに個別にビルドすることも、実行する Windows のバージョンに関係なくすべてのユーザー向けに同じバイナリを配布することもできます。
+まず、必要な参照を含むプロジェクトを設定します。 次に、コードから Windows ランタイム API を呼び出して、Windows 10 エクスペリエンスをデスクトップ アプリに追加します。 Windows 10 ユーザー向けに個別にビルドすることも、実行する Windows のバージョンに関係なくすべてのユーザー向けに同じバイナリを配布することもできます。
 
-一部の UWP API は、[パッケージ ID](modernize-packaged-apps.md) を保持するデスクトップ アプリのみでサポートされています。 詳細については、[使用可能な UWP API](desktop-to-uwp-supported-api.md) に関する記事を参照してください。
+一部の Windows ランタイム API は、[パッケージ ID](modernize-packaged-apps.md) を持つデスクトップ アプリのみでサポートされています。 詳しくは、[利用可能な Windows ランタイム API](desktop-to-uwp-supported-api.md) に関する記事をご覧ください。
 
 ## <a name="set-up-your-project"></a>プロジェクトを設定する
 
-UWP API を使用するには、プロジェクトにいくつかの変更を加える必要があります。
+Windows ランタイム API を使用するには、プロジェクトにいくつかの変更を加える必要があります。
 
 ### <a name="modify-a-net-project-to-use-windows-runtime-apis"></a>Windows ランタイム API を使用するように .NET プロジェクトを変更する
 
@@ -61,7 +61,7 @@ UWP API を使用するには、プロジェクトにいくつかの変更を加
 
 2. 以下のファイルへの参照を追加します。
 
-    |ファイル|インストール先|
+    |ファイル|Location|
     |--|--|
     |System.Runtime.WindowsRuntime|C:\Windows\Microsoft.NET\Framework\v4.0.30319|
     |System.Runtime.WindowsRuntime.UI.Xaml|C:\Windows\Microsoft.NET\Framework\v4.0.30319|
@@ -255,4 +255,4 @@ void UWP::ShowToast()
 
 ## <a name="find-answers-to-your-questions"></a>質問に対する回答を見つける
 
-ご質問があるでしょうか。 Stack Overflow でお問い合わせください。 Microsoft のチームでは、これらの[タグ](https://stackoverflow.com/questions/tagged/project-centennial+or+desktop-bridge)をチェックしています。 [こちら](https://social.msdn.microsoft.com/Forums/en-US/home?filter=alltypes&sort=relevancedesc&searchTerm=%5BDesktop%20Converter%5D)から質問することもできます。
+ご質問がある場合は、 Stack Overflow でお問い合わせください。 Microsoft のチームでは、これらの[タグ](https://stackoverflow.com/questions/tagged/project-centennial+or+desktop-bridge)をチェックしています。 [こちら](https://social.msdn.microsoft.com/Forums/en-US/home?filter=alltypes&sort=relevancedesc&searchTerm=%5BDesktop%20Converter%5D)から質問することもできます。

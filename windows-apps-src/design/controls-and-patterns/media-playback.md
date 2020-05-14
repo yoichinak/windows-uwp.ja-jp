@@ -9,12 +9,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 49058568acccfa32c9c354a7e2570a5734c0c577
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: bc12d76cf34b5a631435a7535567aab0cafb0f44
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80081690"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970377"
 ---
 # <a name="media-player"></a>メディア プレーヤー
 
@@ -24,13 +24,13 @@ ms.locfileid: "80081690"
 
 ![トランスポート コントロールを含むメディア プレーヤー要素](images/controls/mtc_double_video_inprod.png)
 
-> **重要な API**: [MediaPlayerElement クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement)、[MediaTransportControls クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediatransportcontrols)
+> **重要な API**:[MediaPlayerElement クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement)、[MediaTransportControls クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediatransportcontrols)
 
 
 > [!NOTE]
 > **MediaPlayerElement** は Windows 10 バージョン 1607 以降でのみ使用できます。 Windows 10 の以前のバージョン用にアプリを開発する場合は、代わりに [MediaElement](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.MediaElement) を使用する必要があります。 このページの推奨事項はすべて MediaElement にも適用されます。
 
-## <a name="is-this-the-right-control"></a>適切なコントロールの選択
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 アプリでオーディオまたはビデオを再生する場合は、メディア プレーヤーを使います。 画像のコレクションを表示するには、[フリップ ビュー](flipview.md)を使います。
 
@@ -55,7 +55,7 @@ Windows 10 Get Started アプリのメディア プレイヤー。
 ![Windows 10 Get Started アプリのメディア要素](images/control-examples/mtc_getstarted_example.png)
 
 ## <a name="create-a-media-player"></a>メディア プレーヤーの作成
-XAML で [MediaPlayerElement](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement) オブジェクトを作成してアプリにメディアを追加し、オーディオやビデオ ファイルを指定する [MediaSource](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement.source) に [Source](https://docs.microsoft.com/uwp/api/windows.media.core.mediasource) を設定します。
+XAML で [MediaPlayerElement](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement) オブジェクトを作成してアプリにメディアを追加し、オーディオやビデオ ファイルを指定する [MediaSource](https://docs.microsoft.com/uwp/api/windows.media.core.mediasource) に [Source](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement.source) を設定します。
 
 この XAML は [MediaPlayerElement](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement) を作成し、その [Source](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement.source) プロパティをアプリのローカルにあるビデオ ファイルの URI に設定するコードを示します。 ページが読み込まれると、**MediaPlayerElement** によって再生が開始します。 メディアがすぐに再生されないようにするには、[AutoPlay](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement.autoplay) プロパティを **false** に設定します。
 
@@ -65,7 +65,7 @@ XAML で [MediaPlayerElement](https://docs.microsoft.com/uwp/api/windows.ui.xaml
                     Width="400" AutoPlay="True"/>
 ```
 
-この XAML は、組み込みのトランスポート コントロールを有効化し、さらに [AutoPlay](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement) プロパティを [false](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement.autoplay) に設定した **MediaPlayerElement** を作成します。
+この XAML は、組み込みのトランスポート コントロールを有効化し、さらに [AutoPlay](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement.autoplay) プロパティを **false** に設定した [MediaPlayerElement](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement) を作成します。
 
 
 ```xaml
@@ -101,7 +101,7 @@ XAML で [MediaPlayerElement](https://docs.microsoft.com/uwp/api/windows.ui.xaml
 
  
 
-次のコードでは、XAML で定義した [MediaPlayerElement](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement.source) の [Source](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement) プロパティを、[TextBox](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox) に入力したファイルのパスに設定してみます。
+次のコードでは、XAML で定義した [MediaPlayerElement](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement) の [Source](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement.source) プロパティを、[TextBox](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox) に入力したファイルのパスに設定してみます。
 
 ```xaml
 <TextBox x:Name="txtFilePath" Width="400"
@@ -143,9 +143,9 @@ private void LoadMediaFromString(string path)
 }
 ```
 
-メディア ソースをアプリに埋め込まれたメディア ファイルに設定するには、[ms-appx:///](https://docs.microsoft.com/uwp/api/windows.foundation.uri) で始まるパスで **Uri** を初期化し、その Uri で [MediaSource](https://docs.microsoft.com/uwp/api/windows.media.core.mediasource) を作成してから、[Source](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement.source) をその Uri に設定します。 たとえば、**Videos** サブフォルダーにある **video1.mp4** というファイルのパスは、**ms-appx:///Videos/video1.mp4** のようになります。
+メディア ソースをアプリに埋め込まれたメディア ファイルに設定するには、**ms-appx:///** で始まるパスで [Uri](https://docs.microsoft.com/uwp/api/windows.foundation.uri) を初期化し、その Uri で [MediaSource](https://docs.microsoft.com/uwp/api/windows.media.core.mediasource) を作成してから、[Source](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement.source) をその Uri に設定します。 たとえば、**Videos** サブフォルダーにある **video1.mp4** というファイルのパスは、**ms-appx:///Videos/video1.mp4** のようになります。
 
-次のコードは、XAML で以前に定義した [MediaPlayerElement](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement.source) の [Source](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement) プロパティを **ms-appx:///Videos/video1.mp4** に設定します。
+次のコードは、XAML で以前に定義した [MediaPlayerElement](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement) の [Source](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement.source) プロパティを **ms-appx:///Videos/video1.mp4** に設定します。
 
 ```csharp
 private void LoadEmbeddedAppFile()
@@ -177,14 +177,14 @@ private void LoadEmbeddedAppFile()
 
 1.  ユーザーがメディア ファイルを選べるようにするには、[FileOpenPicker](https://docs.microsoft.com/uwp/api/Windows.Storage.Pickers.FileOpenPicker) を呼び出します。
 
-    [FileOpenPicker](https://docs.microsoft.com/uwp/api/Windows.Storage.Pickers.FileOpenPicker) クラスを使って、メディア ファイルを選びます。 [FileOpenPicker](https://docs.microsoft.com/uwp/api/windows.storage.pickers.fileopenpicker.filetypefilter) が表示するファイルの種類を指定する **FileTypeFilter** を設定します。 [PickSingleFileAsync](https://docs.microsoft.com/uwp/api/windows.storage.pickers.fileopenpicker.picksinglefileasync) を呼び出して、ファイル ピッカーを起動し、ファイルを取得します。
+    [FileOpenPicker](https://docs.microsoft.com/uwp/api/Windows.Storage.Pickers.FileOpenPicker) クラスを使って、メディア ファイルを選びます。 **FileOpenPicker** が表示するファイルの種類を指定する [FileTypeFilter](https://docs.microsoft.com/uwp/api/windows.storage.pickers.fileopenpicker.filetypefilter) を設定します。 [PickSingleFileAsync](https://docs.microsoft.com/uwp/api/windows.storage.pickers.fileopenpicker.picksinglefileasync) を呼び出して、ファイル ピッカーを起動し、ファイルを取得します。
 
 2.  [MediaSource](https://docs.microsoft.com/uwp/api/windows.media.core.mediasource) を使用して、選んだメディア ファイルを [MediaPlayerElement.Source](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement.source) として設定します。
 
-    [FileOpenPicker](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageFile) から返された [StorageFile](https://docs.microsoft.com/uwp/api/Windows.Storage.Pickers.FileOpenPicker) を使用するには、[MediaSource](https://docs.microsoft.com/uwp/api/windows.media.core.mediasource.createfromstoragefile) で [CreateFromStorageFile](https://docs.microsoft.com/uwp/api/windows.media.core.mediasource) メソッドを呼び出して、それを [MediaPlayerElement](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement.source) の [Source](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement) として設定する必要があります。 その後、[MediaPlayerElement.MediaPlayer](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplayer.play) で [Play](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement.mediaplayer) を呼び出して、メディアを開始します。
+    [FileOpenPicker](https://docs.microsoft.com/uwp/api/Windows.Storage.Pickers.FileOpenPicker) から返された [StorageFile](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageFile) を使用するには、[MediaSource](https://docs.microsoft.com/uwp/api/windows.media.core.mediasource) で [CreateFromStorageFile](https://docs.microsoft.com/uwp/api/windows.media.core.mediasource.createfromstoragefile) メソッドを呼び出して、それを [MediaPlayerElement](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement) の [Source](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement.source) として設定する必要があります。 その後、[MediaPlayerElement.MediaPlayer](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement.mediaplayer) で [Play](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplayer.play) を呼び出して、メディアを開始します。
 
 
-この例は、[FileOpenPicker](https://docs.microsoft.com/uwp/api/Windows.Storage.Pickers.FileOpenPicker) を使ってファイルを選び、そのファイルを [MediaPlayerElement](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement.source) の [Source](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement) に設定する方法を示しています。
+この例は、[FileOpenPicker](https://docs.microsoft.com/uwp/api/Windows.Storage.Pickers.FileOpenPicker) を使ってファイルを選び、そのファイルを [MediaPlayerElement](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement) の [Source](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement.source) に設定する方法を示しています。
 
 ```xaml
 <MediaPlayerElement x:Name="mediaPlayer"/>
@@ -227,7 +227,7 @@ async private System.Threading.Tasks.Task SetLocalMedia()
 -   別のデバイスにメディアをストリーミングしているとき。
 -   メディアがオーディオのみであるとき。
 
-[Source](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement) がアルバムのトラックに設定され、[PosterSource](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement.source) がアルバムの表紙の画像を設定された [MediaPlayerElement](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement.PosterSource) を以下に示します。
+[Source](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement.source) がアルバムのトラックに設定され、[PosterSource](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement.PosterSource) がアルバムの表紙の画像を設定された [MediaPlayerElement](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement) を以下に示します。
 
 ```xaml
 <MediaPlayerElement Source="ms-appx:///Media/Track1.mp4" PosterSource="Media/AlbumCover.png"/>
@@ -258,7 +258,7 @@ private DisplayRequest appDisplayRequest = null;
 
 3.  ビデオの再生が再生エラーによって停止、一時停止、中断したときには必ず、[RequestRelease](https://docs.microsoft.com/uwp/api/windows.system.display.displayrequest.requestrelease) を呼び出して表示要求を解放します。 アプリにアクティブな表示要求がなくなった場合、Windows は、デバイスが使われていないときには表示を暗くし、最終的には電源をオフにしてバッテリーを節約します。
 
-    各 [MediaPlayerElement.MediaPlayer](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement.mediaplayer) には、[PlaybackRate](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplayer.playbacksession)、[PlaybackState](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplaybacksession)、[Position](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplaybacksession.playbackrate) など、メディア再生のさまざまな側面を制御する [MediaPlaybackSession](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplaybacksession.playbackstate) 型の [PlaybackSession](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplaybacksession.position) があります。 ここでは、[MediaPlayer.PlaybackSession](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplaybacksession.playbackstatechanged) で [PlaybackStateChanged](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplayer.playbacksession) イベントを使って、表示要求を解放する必要がある状況を検出します。 次に、[NaturalVideoHeight](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplaybacksession.naturalvideoheight) プロパティを使って、オーディオ ファイルとビデオ ファイルのどちらが再生されているかを確認し、ビデオが再生されている場合にのみ画面をアクティブなままにします。
+    各 [MediaPlayerElement.MediaPlayer](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement.mediaplayer) には、[PlaybackRate](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplaybacksession.playbackrate)、[PlaybackState](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplaybacksession.playbackstate)、[Position](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplaybacksession.position) など、メディア再生のさまざまな側面を制御する [MediaPlaybackSession](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplaybacksession) 型の [PlaybackSession](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplayer.playbacksession) があります。 ここでは、[MediaPlayer.PlaybackSession](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplayer.playbacksession) で [PlaybackStateChanged](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplaybacksession.playbackstatechanged) イベントを使って、表示要求を解放する必要がある状況を検出します。 次に、[NaturalVideoHeight](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplaybacksession.naturalvideoheight) プロパティを使って、オーディオ ファイルとビデオ ファイルのどちらが再生されているかを確認し、ビデオが再生されている場合にのみ画面をアクティブなままにします。
 
     ```xaml
     <MediaPlayerElement x:Name="mpe" Source="ms-appx:///Media/video1.mp4"/>
@@ -390,11 +390,11 @@ mp.MediaPlayer.RealTimePlayback = true;
 
 既定のコントロールはメディア再生に最適化されていますが、アプリに最適なエクスペリエンスを実現するために、必要なカスタム オプションをメディア プレーヤーに追加できます。 カスタム コントロールの追加について詳しくは、「[カスタム トランスポート コントロールを作成する](custom-transport-controls.md)」をご覧ください。
 
-## <a name="get-the-sample-code"></a>サンプル コードを入手する
+## <a name="get-the-sample-code"></a>サンプル コードの入手
 
 - [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - インタラクティブな形で XAML コントロールのすべてを参照できます。
 
 ## <a name="related-articles"></a>関連記事
 
-- [UWP アプリのコマンド設計の基本](https://docs.microsoft.com/windows/uwp/layout/commanding-basics)
-- [UWP アプリのコンテンツ デザインの基本](https://docs.microsoft.com/windows/uwp/layout/content-basics)
+- [Windows アプリのコマンド デザインの基本](https://docs.microsoft.com/windows/uwp/layout/commanding-basics)
+- [Windows アプリのコンテンツ デザインの基本](https://docs.microsoft.com/windows/uwp/layout/content-basics)

@@ -6,12 +6,12 @@ ms.date: 12/18/2017
 ms.topic: article
 keywords: windows 10、uwp、アプリ認定
 ms.localizationpriority: medium
-ms.openlocfilehash: c7ffd500f3b616367ac26dffbbfc03d43b507dac
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 37c382fb81a4527b730840142643ff72b9020127
+ms.sourcegitcommit: ef723e3d6b1b67213c78da696838a920c66d5d30
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77089408"
+ms.lasthandoff: 05/02/2020
+ms.locfileid: "82730292"
 ---
 # <a name="windows-desktop-bridge-app-tests"></a>Windows デスクトップ ブリッジ アプリのテスト
 
@@ -22,7 +22,7 @@ Windows デスクトップ ブリッジ アプリのオプションのテスト�
 
 ## <a name="current-optional-tests"></a>現在のオプションのテスト
 
-### <a name="1-digitally-signed-file-test"></a>1.デジタル署名されたファイルのテスト 
+### <a name="1-digitally-signed-file-test"></a>1. デジタル署名されたファイルのテスト 
 **背景**  
 このテストでは、すべてのポータブル実行可能ファイル (PE) ファイルに有効な署名が含まれていることを確認します。 デジタル署名されたファイルの存在によって、ユーザーはソフトウェアが正規品であると知ることができます。
 
@@ -32,12 +32,12 @@ Windows デスクトップ ブリッジ アプリのオプションのテスト�
 **問題への対応**  
 ファイルにデジタル署名することを常にお勧めします。 詳しくは、「[コード署名の概要](https://docs.microsoft.com/previous-versions/windows/internet-explorer/ie-developer/platform-apis/ms537361(v=vs.85))」をご覧ください。
 
-### <a name="2-file-association-verbs"></a>2.ファイルの関連付けの動詞 
+### <a name="2-file-association-verbs"></a>2. ファイルの関連付けの動詞 
 **背景**  
 このテストでは、パッケージのレジストリをスキャンして、任意のファイルの関連付け動詞が登録されているかどうかを確認します。 
 
 **テストの詳細**  
-変換されたデスクトップ アプリケーションは、幅広いユニバーサル Windows プラットフォーム API を使用して拡張できます。 このテストでは、アプリ内の UWP バイナリが UWP 以外の API を呼び出していないことを確認します。 UWP バイナリでは、**AppContainer** フラグが設定されています。
+変換されたデスクトップ アプリは、幅広い Windows ランタイム API を使用して拡張できます。 このテストでは、アプリ内の UWP バイナリが Windows ランタイム API 以外を呼び出していないことを確認します。 UWP バイナリでは、**AppContainer** フラグが設定されています。
 
 **問題への対応**  
 [Desktop to UWP Bridge: アプリの拡張機能](https://docs.microsoft.com/windows/apps/desktop/modernize/desktop-to-uwp-extensions)に関するページで、これらの拡張機能とそれらの正しい使用方法をご確認ください。 
@@ -56,7 +56,7 @@ Microsoft Store で認定されるには、アプリをデバッグ用にコン�
 * 適切なバージョンの .NET フレームワークがインストールされていることを確認します。
 * アプリがフレームワークのデバッグ バージョンにリンクされていないことと、リリース バージョンで構築されたことを確認します。 このアプリに .NET コンポーネントが含まれている場合は、適切なバージョンの .NET Framework がインストールされていることを確認します。
 
-### <a name="4-package-sanity-test"></a>4.パッケージ サニティ テスト
+### <a name="4-package-sanity-test"></a>4。パッケージ サニティ テスト
 #### <a name="41-archive-files-usage"></a>4.1 アーカイブ ファイルの使用状況
 
 **背景**  
@@ -84,7 +84,7 @@ Microsoft Store で認定されるには、アプリをデバッグ用にコン�
 
 ## <a name="current-required-tests"></a>現在の必須のテスト
 
-### <a name="1-app-capabilities-test-special-use-capabilities"></a>1.アプリの機能のテスト (特殊な用途の機能)
+### <a name="1-app-capabilities-test-special-use-capabilities"></a>1. アプリの機能のテスト (特殊な用途の機能)
 
 **背景**  
 特殊な用途の機能は、特殊なシナリオ向けの機能です。 会社アカウントだけがこれらの機能を使うことができます。 
@@ -100,7 +100,7 @@ Microsoft Store で認定されるには、アプリをデバッグ用にコン�
 **問題への対応**  
 アプリが必要としない場合は、特殊な用途の機能を削除することを検討してください。 さらに、これらの機能は、追加の登録ポリシー レビューの対象となります。
 
-### <a name="2-app-manifest-resources-tests"></a>2.アプリ マニフェストのリソースのテスト 
+### <a name="2-app-manifest-resources-tests"></a>2. アプリ マニフェストのリソースのテスト 
 #### <a name="21-app-resources-validation"></a>2.1 アプリ リソースの検証
 アプリのマニフェストで宣言されている文字列や画像に誤りがある場合、そのアプリは正しくインストールされない可能性があります。 これらのエラーがあるアプリをインストールすると、アプリのロゴなどの画像が適切に表示されません。    
 
@@ -110,7 +110,7 @@ Microsoft Store で認定されるには、アプリをデバッグ用にコン�
 **問題への対応**  
 次の表をガイドとして使用してください。
 
-エラー メッセージ | 備考
+エラー メッセージ | コメント
 --------------|---------
 The image {image name} defines both Scale and TargetSize qualifiers; you can define only one qualifier at a time. (イメージ {image name} には Scale 修飾子と TargetSize 修飾子が定義されていますが、一度に定義可能な修飾子は 1 つだけです。) | さまざまな解像度に合わせて画像をカスタマイズできます。 実際のメッセージでは、{imageName} にエラーの発生した画像の名前が入ります。 各画像で Scale と TargetSize のいずれかが修飾子として定義されていることを確認します。 
 The image {image name} failed the size restrictions. (イメージ {image name} がサイズ制限を超えました。)  | すべてのアプリ画像が適切なサイズ制限に従っていることを確認します。 実際のメッセージでは、{imageName} にエラーの発生した画像の名前が入ります。 
@@ -186,7 +186,7 @@ The {filename} file must not contain a reverse map section. ({filename} ファ�
 エラーを確認し、必要はない場合、対象のサービスまたはドライバーを削除します。 アプリがこれらに依存している場合は、ストアに登録するには、アプリを修正する必要があります。
 
 
-### <a name="4-platform-appropriate-files-test"></a>4.プラットフォーム対応ファイル テスト
+### <a name="4-platform-appropriate-files-test"></a>4。プラットフォーム対応ファイル テスト
 混在するバイナリをインストールするアプリは、ユーザーのプロセッサ アーキテクチャによってはクラッシュしたり、正しく動作しない場合があります。 
 
 **背景**  
@@ -202,7 +202,7 @@ The {filename} file must not contain a reverse map section. ({filename} ファ�
 * アプリのターゲット プロセッサ アーキテクチャが x64 プロセッサ タイプの場合、アプリ パッケージは、x64 バイナリ タイプまたはイメージ タイプのファイルを含む必要があります。 この場合は、パッケージに x86 ファイルを含めることもできますが、主なアプリ エクスペリエンスでは x64 バイナリを使ってください。 パッケージが ARM バイナリ タイプまたはイメージ タイプのファイルを含む場合、または x86 バイナリ タイプまたはイメージ タイプのファイル*のみ*を含む場合、パッケージはテストに合格しません。
 * アプリのターゲット プロセッサ アーキテクチャが ARM プロセッサ タイプの場合、アプリ パッケージは、ARM バイナリ タイプまたはイメージ タイプのファイルのみを含む必要があります。 パッケージが x64 または x86 バイナリ形式またはイメージ形式のファイルを含む場合は、パッケージはテストに合格しません。 
 
-### <a name="5-supported-api-test"></a>5.サポートされる API のテスト
+### <a name="5-supported-api-test"></a>5。サポートされる API のテスト
 アプリで非標準 API が使われていないかどうかを確認します。 
 
 **背景**  
@@ -222,7 +222,7 @@ The {filename} file must not contain a reverse map section. ({filename} ファ�
 > [!NOTE]
 > 構成で UWP アプリ用 Windows SDK のみを使っている場合でも、デバッグ構成内で構築された C++ アプリではこのテストに合格しません。 詳細については、[UWP アプリでの代替の Windows API](https://docs.microsoft.com/uwp/win32-and-com/win32-and-com-for-uwp-apps) に関する記事をご覧ください。
 
-### <a name="6-user-account-control-uac-test"></a>6.ユーザー アカウント制御 (UAC) のテスト  
+### <a name="6-user-account-control-uac-test"></a>6。ユーザー アカウント制御 (UAC) のテスト  
 
 **背景**  
 アプリが実行時のユーザー アカウント制御を要求しないことを確認します。

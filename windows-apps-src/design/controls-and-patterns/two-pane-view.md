@@ -6,12 +6,12 @@ ms.date: 01/22/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: e151e06f0ebc838671aa1100d96e8e6f14de0739
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: bc080a58bc3e381fc26ddcc6a42af28e2dacaa65
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80614135"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970447"
 ---
 # <a name="two-pane-view"></a>2 つのペインからなるビュー
 
@@ -29,7 +29,7 @@ TwoPaneView コントロールは、すべての Windows デバイス上で動�
 
 |  |  |
 | - | - |
-| ![WinUI ロゴ](images/winui-logo-64x64.png) | **TwoPaneView** コントロールは、UWP アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリの一部として含まれています。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | **TwoPaneView** コントロールは、Windows アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリの一部として含まれています。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
 
 > **Windows UI ライブラリ API:** [TwoPaneView クラス](/uwp/api/microsoft.ui.xaml.controls.twopaneview)
 
@@ -38,7 +38,7 @@ TwoPaneView コントロールは、すべての Windows デバイス上で動�
 >
 >コードビハインドでは、C# でも **muxc** エイリアスを使って、プロジェクトに含めた Windows UI Library API を表します。 この **using** ステートメントは、ファイルの先頭に追加されています。`using muxc = Microsoft.UI.Xaml.Controls;`
 
-## <a name="is-this-the-right-control"></a>これは適切なコントロールですか? 
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 コンテンツに 2 つの異なる領域があり、次に該当する場合は 2 ペイン ビューを使用します。
 

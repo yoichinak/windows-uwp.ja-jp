@@ -5,12 +5,12 @@ ms.date: 04/18/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 概要
 ms.localizationpriority: medium
-ms.openlocfilehash: 250e3626c5abee43cf3b8ca3320c78ec4f8f9751
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: ddf2cd876ac629f4cb3c49e349e43dee8fdb0c7a
+ms.sourcegitcommit: ef723e3d6b1b67213c78da696838a920c66d5d30
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80662393"
+ms.lasthandoff: 05/02/2020
+ms.locfileid: "82730301"
 ---
 # <a name="introduction-to-cwinrt"></a>C++/WinRT の概要
 &nbsp;
@@ -29,8 +29,8 @@ C++/WinRT は、[C++/CX](/cpp/cppcx/visual-c-language-reference-c-cx?branch=live
 ## <a name="language-projections"></a>言語プロジェクション
 Windows ランタイムは、コンポーネント オブジェクト モデル (COM) API に基づいており、*言語プロジェクション*を使用してアクセスするよう設計されています。 プロジェクションは、COM の詳細を隠し、特定の言語により自然なプログラミング エクスペリエンスを提供します。
 
-### <a name="the-cwinrt-language-projection-in-the-windows-uwp-api-reference-content"></a>Windows UWP API リファレンス コンテンツにおける C++/WinRT 言語プロジェクション
-[Windows UWP API](https://docs.microsoft.com/uwp/api/) の閲覧中に、右上隅の **[言語] (Language)** コンボ ボックスをクリックして **[C++/WinRT]** を選択し、API 構文ブロックを C++/WinRT 言語プロジェクションで表示されるように表示します。
+### <a name="the-cwinrt-language-projection-in-the-windows-runtime-api-reference-content"></a>Windows ランタイム API リファレンス コンテンツにおける C++/WinRT 言語プロジェクション
+[Windows ランタイム API](https://docs.microsoft.com/uwp/api/) の閲覧中に、右上隅の **[言語]** ボックスをクリックして **[C++/WinRT]** を選択すると、C++/WinRT 言語プロジェクションで使用された API 構文ブロックを表示できます。
 
 ## <a name="visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package"></a>C++/WinRT、XAML、VSIX 拡張機能、NuGet パッケージの Visual Studio のサポート
 Visual Studio のサポートでは、Visual Studio 2019 または Visual Studio 2017 が必要になります (バージョン 15.6 以上、Microsoft では 15.7 以上をお勧めします)。 Visual Studio インストーラーから、**ユニバーサル Windows プラットフォーム開発** ワークロードをインストールします。 まだ行っていない場合は、 **[インストールの詳細]**  >  **[ユニバーサル Windows プラットフォーム開発]** で **[C++ (v14x) ユニバーサル Windows プラットフォーム ツール]** オプションを選択します。 また、Windows の **[設定]**  >  **[更新 \& セキュリティ]**  >  **[開発者向け]** で、 **[アプリのサイドロード]** オプションではなく、 **[開発者モード]** オプションを選びます。
@@ -151,4 +151,4 @@ IDL ファイルでは、コンポーネント、それらの既定インター�
 * [C++/WinRT の使用を開始する](get-started.md)
 * [標準的な C++ のデータ型と C++/WinRT](std-cpp-data-types.md)
 * [C++/WinRT での文字列の処理](strings.md)
-* [Windows UWP API](https://docs.microsoft.com/uwp/api/)
+* [Windows ランタイム API](https://docs.microsoft.com/uwp/api/)

@@ -5,12 +5,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: ee49b5fe5b5956e9069ea196c4d2e029b3a15763
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: e7d6ea614a9d85eadfcb807c6e6100dbe15ed0c4
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68729519"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970737"
 ---
 # <a name="show-multiple-views-for-an-app"></a>アプリの複数のビューの表示
 
@@ -32,11 +32,11 @@ ms.locfileid: "68729519"
 
 各アプリのレイアウトはそれぞれ異なりますが、「新しいウィンドウ」ボタンを予測可能な場所に含めることを推奨します。たとえば、新しいウィンドウで開くことができるコンテンツの右上隅などです。 さらに、[新しいウィンドウで開く] ための[コンテキスト メニュー](../controls-and-patterns/menus.md) オプションを含めることを検討します。
 
-アプリの別のインスタンス (同じインスタンスの別のウィンドウではなく) を作成するには、「[マルチインスタンスの UWP アプリの作成](../../launch-resume/multi-instance-uwp.md)」を参照してください。
+アプリの別のインスタンス (同じインスタンスの別のウィンドウではなく) を作成するには、[マルチインスタンスの Windows アプリの作成](../../launch-resume/multi-instance-uwp.md)に関するページをご覧ください。
 
 ## <a name="windowing-hosts"></a>ウィンドウ化ホスト
 
-アプリ内で UWP コンテンツをホストできるさまざまな方法があります。
+アプリ内で Windows コンテンツをホストできるさまざまな方法があります。
 
 - [CoreWindow](/uwp/api/windows.ui.core.corewindow)/[ApplicationView](/uwp/api/windows.ui.viewmanagement.applicationview)
 
@@ -47,7 +47,7 @@ ms.locfileid: "68729519"
     ApplicationView を使用して、アプリでセカンダリ ウィンドウを表示する方法については、「[ApplicationView の使用](application-view.md)」を参照してください。
 - [AppWindow](/uwp/api/windows.ui.windowmanagement.appwindow)
 
-    AppWindow により、作成元と同じ UI スレッドを操作するため、マルチウィンドウ UWP アプリの作成が簡単になります。
+    AppWindow は作成元と同じ UI スレッド上で動作するので、これを使用することでマルチウィンドウ Windows アプリの作成が簡単になります。
 
     [WindowManagement](/uwp/api/windows.ui.windowmanagement) 名前空間内の AppWindow クラスやその他の API は、Windows 10 バージョン 1903 (SDK 18362) 以降で使用できます。 アプリで以前のバージョンの Windows 10 を対象としている場合は、ApplicationView を使用して、セカンダリ ウィンドウを作成する必要があります。
 

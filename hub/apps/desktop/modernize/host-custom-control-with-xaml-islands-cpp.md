@@ -1,19 +1,19 @@
 ---
 description: この記事では、XAML ホスティング API を使用して C++ Win32 アプリでカスタム UWP コントロールをホストする方法を示します。
 title: XAML ホスティング API を使用して C++ Win32 アプリでカスタム UWP コントロールをホストする
-ms.date: 03/23/2020
+ms.date: 04/07/2020
 ms.topic: article
 keywords: Windows 10, UWP, C++, Win32, XAML Islands, カスタム コントロール, ユーザー コントロール, コントロールのホスト
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: 93badc28c9c4fa1684836fc4a883e54661e8d4dc
-ms.sourcegitcommit: 7112e4ec3f19d46a1fc4d81d1c29fd9c01522610
+ms.openlocfilehash: eac2574d48864ba8b8dc907c8a7ec43ef266358b
+ms.sourcegitcommit: 2571af6bf781a464a4beb5f1aca84ae7c850f8f9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80986967"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82606338"
 ---
 # <a name="host-a-custom-uwp-control-in-a-c-win32-app"></a>C++ Win32 アプリでカスタム UWP コントロールをホストする
 
@@ -513,13 +513,79 @@ ms.locfileid: "80986967"
 9. ファイルを保存します。
 10. ソリューションをビルドし、正常にビルドされたことを確認します。
 
+## <a name="add-a-control-from-the-winui-library-to-the-custom-control"></a>WinUI ライブラリのコントロールをカスタム コントロールに追加する
+
+従来、UWP コントロールは Windows 10 OS の一部としてリリースされ、開発者は Windows SDK を通じてそれを使用できました。 [WinUI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/) はそれに代わる方法であり、Windows SDK の UWP コントロールの更新バージョンが、Windows SDK のリリースに関連付けられていない NuGet パッケージで配布されます。 また、このライブラリには、Windows SDK および既定の UWP プラットフォームの一部ではない新しいコントロールも含まれています。 詳しくは、[WinUI ライブラリのロードマップ](https://github.com/microsoft/microsoft-ui-xaml/blob/master/docs/roadmap.md)をご覧ください。
+
+このセクションでは、WinUI ライブラリからユーザー コントロールに UWP コントロールを追加する方法について説明します。
+
+1. **MyUWPApp** プロジェクトで、最新のプレリリースまたはリリース バージョンの [Microsoft.UI.Xaml](https://www.nuget.org/packages/Microsoft.UI.Xaml) NuGet パッケージをインストールします。
+
+    > [!NOTE]
+    > お使いのデスクトップ アプリが [MSIX パッケージ](https://docs.microsoft.com/windows/msix)にパッケージ化されている場合は、[Microsoft.UI.Xaml](https://www.nuget.org/packages/Microsoft.UI.Xaml) NugGet パッケージのプレリリースまたはリリース バージョンのいずれかを使用できます。 お使いのデスクトップ アプリが MSIX を使用してパッケージ化されていない場合は、プレリリース バージョンの [Microsoft.UI.Xaml](https://www.nuget.org/packages/Microsoft.UI.Xaml) NuGet パッケージをインストールする必要があります。
+
+2. このプロジェクトの pch.h ファイルで、次の `#include` ステートメントを追加し、変更を保存します。 これらのステートメントは、一連の必要なプロジェクション ヘッダーを WinUI ライブラリからプロジェクトに取り込みます。 この手順は、WinUI ライブラリを使用する任意の C++/WinRT プロジェクトに必要です。 詳しくは、[こちらの記事](https://docs.microsoft.com/uwp/toolkits/winui/getting-started#additional-steps-for-a-cwinrt-project)をご覧ください。
+
+    ```cpp
+    #include "winrt/Microsoft.UI.Xaml.Automation.Peers.h"
+    #include "winrt/Microsoft.UI.Xaml.Controls.Primitives.h"
+    #include "winrt/Microsoft.UI.Xaml.Media.h"
+    #include "winrt/Microsoft.UI.Xaml.XamlTypeInfo.h"
+    ```
+
+3. 同じプロジェクトの App.xaml ファイルで、次の子要素を `<xaml:XamlApplication>` 要素に追加し、変更を保存します。
+
+    ```xml
+    <Application.Resources>
+        <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
+    </Application.Resources>
+    ```
+
+    この要素を追加した後、このファイルの内容は次のようになります。
+
+    ```xml
+    <Toolkit:XamlApplication
+        x:Class="MyUWPApp.App"
+        xmlns:Toolkit="using:Microsoft.Toolkit.Win32.UI.XamlHost"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="using:MyUWPApp">
+        <Application.Resources>
+            <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls"/>
+        </Application.Resources>
+    </Toolkit:XamlApplication>
+    ```
+
+4. 同じプロジェクトで、MyUserControl.xaml ファイルを開き、次の名前空間宣言を `<UserControl>` 要素に追加します。
+
+    ```xml
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
+    ```
+
+5. 同じファイルで、`<StackPanel>` の子として `<winui:RatingControl />` 要素を追加し、変更を保存します。 この要素により、WinUI ライブラリの [RatingControl](https://docs.microsoft.com/uwp/api/microsoft.ui.xaml.controls.ratingcontrol ) クラスのインスタンスが追加されます。 この要素を追加した後の `<StackPanel>` は、次のようになります。
+
+    ```xml
+    <StackPanel HorizontalAlignment="Center" Spacing="10" 
+                Padding="20" VerticalAlignment="Center">
+        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" 
+                       Text="Hello from XAML Islands" FontSize="30" />
+        <TextBlock HorizontalAlignment="Center" Margin="15" TextWrapping="Wrap"
+                       Text="😍❤💋🌹🎉😎�🐱‍👤" FontSize="16" />
+        <Button HorizontalAlignment="Center" 
+                x:Name="Button" Click="ClickHandler">Click Me</Button>
+        <winui:RatingControl />
+    </StackPanel>
+    ```
+
+6. ソリューションをビルドし、正常にビルドされたことを確認します。
+
 ## <a name="test-the-app"></a>アプリをテストする
 
 ソリューションを実行し、次のウィンドウで **MyDesktopWin32App** が開かれることを確認します。
 
 ![MyDesktopWin32App アプリ](images/xaml-islands/xaml-island-cpp-9.png)
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 XAML Islands をホストする多くのデスクトップ アプリケーションでは、スムーズなユーザー エクスペリエンスを提供するために処理する必要があるシナリオが他にもあります。 たとえば、デスクトップ アプリケーションでは、XAML Islands でのキーボード入力、XAML Islands と他の UI 要素の間でのフォーカス ナビゲーション、およびレイアウトの変更を処理することが、必要になる場合があります。
 

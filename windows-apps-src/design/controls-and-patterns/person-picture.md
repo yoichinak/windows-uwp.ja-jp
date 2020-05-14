@@ -11,12 +11,12 @@ design-contact: kimsea
 dev-contact: kefodero
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: c73414e897cde652d03c9ebb92528b4504241ba3
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: a43c6592b5a9b243a19f3491ea54c05d10e7b0f7
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80081643"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970837"
 ---
 # <a name="person-picture-control"></a>ユーザー画像コントロール
 
@@ -30,11 +30,11 @@ ms.locfileid: "80081643"
 
 |  |  |
 | - | - |
-| ![WinUI ロゴ](images/winui-logo-64x64.png) | **PersonPicture** コントロールは、Windows UI ライブラリの NuGet パッケージの一部として組み込まれており、パッケージには、UWP アプリの新しいコントロールと UI 機能が含まれています。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | **PersonPicture** コントロールは、Windows アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリの一部として含まれています。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
 
 > **プラットフォーム API**: [PersonPicture クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.personpicture)、[Contact クラス](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Contacts.Contact)、[ContactManager クラス](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Contacts.ContactManager)
 
-## <a name="is-this-the-right-control"></a>これは適切なコントロールですか? 
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 ユーザーと連絡先情報を表示するときはユーザー画像を使います。 このコントロールの使用例をいくつか紹介します。
 

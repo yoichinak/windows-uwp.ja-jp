@@ -6,16 +6,16 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 37d0ca71adf43891628a02d60d6873e7934d749b
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: f79b7247a7e1a1889c530a16c280f490db51042e
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79210178"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970747"
 ---
 #  <a name="screen-sizes-and-breakpoints"></a>画面のサイズとブレークポイント
 
-UWP アプリは、Windows 10 を実行している任意のデバイスで実行できます (電話、タブレット、デスクトップ、テレビなど)。 Windows 10 エコシステム全般に大量のデバイス ターゲットと画面サイズが存在するため、各デバイス用に UI を最適化するのではなく、いくつかの主要な幅カテゴリ ("ブレークポイント" とも呼ばれる) 用に設計することをお勧めします。 
+Windows アプリは、Windows を実行している任意のデバイスで実行できます (電話、タブレット、デスクトップ、テレビなど)。 Windows 10 エコシステム全般に大量のデバイス ターゲットと画面サイズが存在するため、各デバイス用に UI を最適化するのではなく、いくつかの主要な幅カテゴリ ("ブレークポイント" とも呼ばれる) 用に設計することをお勧めします。 
 - 小 (640 ピクセル以下)
 - 中 (641 ピクセル ～ 1007 ピクセル)
 - 大 (1008 ピクセル以上)

@@ -9,18 +9,18 @@ design-contact: tbd
 dev-contact: tbd
 doc-status: not-published
 ms.localizationpriority: medium
-ms.openlocfilehash: 36c8c6248b356bbb17da72b53b0480a27999b875
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 274481b2a282b025a637f7f6cc54dc0161c3e61d
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74257692"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82968757"
 ---
 # <a name="contact-card"></a>連絡先カード
 
-連絡先カードには、[Contact](/uwp/api/Windows.ApplicationModel.Contacts.Contact) の名前、電話番号、住所などの連絡先情報が表示されます (個人や企業を表すためにメカニズム UWP によって使用される)。  連絡先カードを使用して、ユーザーは連絡先情報を編集することもできます。 コンパクトな連絡先カードを表示するか、追加の情報を含む完全な連絡先カードを表示することができます。
+連絡先カードには、[Contact](/uwp/api/Windows.ApplicationModel.Contacts.Contact) (個人や企業を表すために Windows によって使用されるメカニズム) で使用されている名前、電話番号、住所などの連絡先情報が表示されます。  連絡先カードを使用して、ユーザーは連絡先情報を編集することもできます。 コンパクトな連絡先カードを表示するか、追加の情報を含む完全な連絡先カードを表示することができます。
 
-> **重要な API**: [ShowContactCard メソッド](/uwp/api/windows.applicationmodel.contacts.contactmanager.showcontactcard),   [ShowFullContactCard メソッド](/uwp/api/windows.applicationmodel.contacts.contactmanager.showfullcontactcard),  [IsShowContactCardSupported メソッド](/uwp/api/windows.applicationmodel.contacts.contactmanager.IsShowContactCardSupported),  [Contact クラス](/uwp/api/Windows.ApplicationModel.Contacts.Contact)  
+> **重要な API**:[ShowContactCard メソッド](/uwp/api/windows.applicationmodel.contacts.contactmanager.showcontactcard)、[ShowFullContactCard メソッド](/uwp/api/windows.applicationmodel.contacts.contactmanager.showfullcontactcard)、[IsShowContactCardSupported メソッド](/uwp/api/windows.applicationmodel.contacts.contactmanager.IsShowContactCardSupported)、[Contact クラス](/uwp/api/Windows.ApplicationModel.Contacts.Contact)  
 
 連絡先カードを表示する方法は 2 つあります。  
 * 簡易非表示に対応したポップアップに表示される標準的な連絡先カード -- ユーザーが連作先カードの外部をクリックすると、連絡先カードは消えます。 
@@ -38,7 +38,7 @@ ms.locfileid: "74257692"
 </figure>
 
 
-## <a name="is-this-the-right-control"></a>適切なコントロールの選択
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 連絡先の連絡先情報を表示する場合は、連絡先カードを使用します。 連絡先の名前と画像のみを表示する場合は、[ユーザー画像コントロール](person-picture.md) を使用します。 
 
@@ -146,7 +146,7 @@ private void OnUserClickShowContactCard(object sender, RoutedEventArgs e)
 
 ## <a name="show-a-full-contact-card"></a>完全な連絡先カードの表示
 
-完全な連絡先カードを表示するには、[ShowContactCard](/uwp/api/windows.applicationmodel.contacts.contactmanager.showfullcontactcard) メソッドではなく [ShowFullContactCard](/uwp/api/windows.applicationmodel.contacts.contactmanager.showcontactcard) メソッドを呼び出します。
+完全な連絡先カードを表示するには、[ShowContactCard](/uwp/api/windows.applicationmodel.contacts.contactmanager.showcontactcard) メソッドではなく [ShowFullContactCard](/uwp/api/windows.applicationmodel.contacts.contactmanager.showfullcontactcard) メソッドを呼び出します。
 
 ```csharp
 private void onUserClickShowContactCard() 

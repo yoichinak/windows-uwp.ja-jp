@@ -12,12 +12,12 @@ design-contact: kimsea
 dev-contact: niallm
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 1d520f811c9929721bfcb9d1c83fbff6a4891091
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: b97041e305cfaac2a5fe202212741a282dccdb54
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "63801141"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82968877"
 ---
 # <a name="contextual-commanding-for-collections-and-lists"></a>コレクションとリストのコンテキスト コマンドの実行
 
@@ -25,13 +25,13 @@ ms.locfileid: "63801141"
 
 多くのアプリに、リスト、グリッド、ツリーの形で、ユーザーが操作できるコンテンツのコレクションが含まれています。 たとえば、ユーザーは、項目の削除、名前の変更、フラグ付け、更新ができる可能性があります。 この記事では、どのような種類の入力でも、最善のエクスペリエンスが得られるように、そのような操作をコンテキスト コマンドを使って実装する方法を説明します。  
 
-> **Important API**: [ICommand インターフェイス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.ICommand)、[UIElement.ContextFlyout プロパティ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement.ContextFlyout)、[INotifyPropertyChanged インターフェイス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.inotifypropertychanged)
+> **重要な API**:[ICommand インターフェイス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.ICommand)、[UIElement.ContextFlyout プロパティ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement.ContextFlyout)、[INotifyPropertyChanged インターフェイス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.inotifypropertychanged)
 
 ![各種入力方法で、お気に入りのコマンドを実行する](images/ContextualCommand_AddFavorites.png)
 
 ## <a name="creating-commands-for-all-input-types"></a>あらゆる種類の入力に対応するコマンドを作成する
 
-ユーザーは[さまざまなデバイスや入力方法](../devices/index.md)を使って UWP アプリを操作できるため、アプリでは入力方法に依存しないコンテキスト メニューと、各種入力方法専用のアクセラレータの両方でコマンドを公開する必要があります。 両方を含めることで、入力方法やデバイスの種類に関わらず、コンテンツに対してコマンドをすばやく呼び出すことができます。
+ユーザーは[さまざまなデバイスや入力方法](../devices/index.md)を使って Windows アプリを操作できるため、アプリでは入力方法に依存しないコンテキスト メニューと、各種入力方法専用のアクセラレータの両方でコマンドを公開する必要があります。 両方を含めることで、入力方法やデバイスの種類に関わらず、コンテンツに対してコマンドをすばやく呼び出すことができます。
 
 次の表に、いくつかの典型的なコレクションのコマンドと、これらのコマンドを公開する方法を示します。 
 
@@ -39,7 +39,7 @@ ms.locfileid: "63801141"
 | ---------------- | -------------- | ----------------- | -------------------- | ----------------- |
 | 項目の削除      | ショートカット メニュー   | ホバー ボタン      | DEL キー              | スワイプして削除   |
 | フラグの設定        | ショートカット メニュー   | ホバー ボタン      | Ctrl + Shift + G         | スワイプしてフラグを設定     |
-| データの更新     | ショートカット メニュー   | 該当なし               | F5 キー               | 引っ張って更新   |
+| データの更新     | ショートカット メニュー   | なし               | F5 キー               | 引っ張って更新   |
 | お気に入りに追加 | ショートカット メニュー   | ホバー ボタン      | F、Ctrl + S            | スワイプしてお気に入りに追加 |
 
 
@@ -55,7 +55,7 @@ ms.locfileid: "63801141"
 > [!NOTE]
 > ユーザーは、どの種類のデバイスからでも、すべてのコマンドにアクセスできる必要があります。 たとえば、アプリのコマンドがホバー ボタン ポインター アクセラレータでしか公開されない場合、タッチ ユーザーはコマンドにアクセスできません。 少なくとも、すべてのコマンドにアクセスできるコンテキスト メニューを使います。  
 
-## <a name="example-the-podcastobject-data-model"></a>例: PodcastObject データ モデル
+## <a name="example-the-podcastobject-data-model"></a>例:PodcastObject データ モデル
 
 推奨されるコマンド実行のデモとして、この記事では、ポッドキャスト アプリ用のポッドキャスト リストを作成します。 コード例では、ユーザーがリストから特定のポッドキャストを "お気に入り" に追加できるようにする方法を示しています。
 
@@ -238,7 +238,7 @@ public sealed partial class PodcastUserControl : UserControl
 | -------- | --------------------------------------- |
 | マウス    | 右クリックします。                             |
 | キーボード | Shift + F10、メニュー ボタン                  |
-| タッチ    | 項目を長押し                      |
+| Touch    | 項目を長押し                      |
 | ペン      | バレル ボタンを押す、項目を長押し |
 | ゲームパッド  | メニュー ボタン                             |
 
@@ -376,7 +376,7 @@ protected override void OnPointerExited(PointerRoutedEventArgs e)
 
 スワイプによるコマンド実行は、タッチ デバイスを操作しているユーザーが、よく使われるセカンダリ操作をタッチを使って実行できるようにするタッチ アクセラレータです。 スワイプはタッチ ユーザーが、スワイプして削除やスワイプして呼び出すなどの一般的な操作を使って、コンテンツをすばやく自然に操作することを可能にします。 詳しくは、[スワイプによるコマンドの実行](swipe.md)についての記事をご覧ください。
 
-コレクションにスワイプを組み込むには、コマンドをホストする SwipeItems と、項目をラップしてスワイプにより操作できるようにする SwipeControl の 2 つのコンポーネントが必要です。
+コレクションにスワイプを組み込むためには、2 つのコンポーネントが必要です: コマンドをホストする SwipeItems と、項目をラップしてスワイプにより操作できるようにする SwipeControl。
 
 SwipeItems は、PodcastUserControl 内の Resource として定義できます。 次の例では、SwipeItems に、項目をお気に入りに追加するコマンドが含まれています。
 
@@ -445,7 +445,7 @@ private void SwipeItem_Invoked(SwipeItem sender, SwipeItemInvokedEventArgs args)
 
 ## <a name="dos-and-donts"></a>推奨と非推奨
 
-* どの種類の UWP デバイスでも、ユーザーがすべてのコマンドにアクセスできるようにします。
+* どの種類の Windows デバイスでも、ユーザーがすべてのコマンドにアクセスできるようにします。
 * コレクション項目に対するコマンド全部にアクセスできるコンテキスト メニューを含めます。 
 * 頻繁に使われるコマンドについては、入力アクセラレータを提供します。 
 * コマンドの実装には [ICommand インターフェイス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.ICommand) を使う。 

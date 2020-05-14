@@ -12,12 +12,12 @@ design-contact: jeffarn
 dev-contact: mitra
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 66dc74e73207feb9b155adffc116f857dcb3027d
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 34eca0c822b0da96cae39463777c5c3e9888240c
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80081625"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970807"
 ---
 # <a name="progress-controls"></a>プログレス コントロール
 
@@ -27,14 +27,14 @@ ms.locfileid: "80081625"
 
 |  |  |
 | - | - |
-| ![WinUI ロゴ](images/winui-logo-64x64.png) | **ProgressBar** コントロールは、Windows UI ライブラリの NuGet パッケージの一部として組み込まれており、パッケージには、UWP アプリの新しいコントロールと UI 機能が含まれています。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | **ProgressBar** コントロールは、Windows アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリの一部として含まれています。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
 
-> **Windows UI ライブラリ API:** [ProgressBar クラス](https://docs.microsoft.com/uwp/api/Microsoft.UI.Xaml.Controls.ProgressBar)、[IsIndeterminate プロパティ](https://docs.microsoft.com/uwp/api/microsoft.ui.xaml.controls.progressbar.isindeterminate)
+> **Windows UI ライブラリ API:** [ProgressBar クラス](https://docs.microsoft.com/uwp/api/Microsoft.UI.Xaml.Controls.ProgressBar)、[IsIndeterminate プロパティ](https://docs.microsoft.com/uwp/api/Microsoft.ui.xaml.controls.progressbar.isindeterminate)、[ProgressRing クラス](https://docs.microsoft.com/uwp/api/Microsoft.UI.Xaml.Controls.ProgressRing)、[IsActive プロパティ](https://docs.microsoft.com/uwp/api/Microsoft.ui.xaml.controls.progressring.isactive)
 >
 > **プラットフォーム API:** [ProgressBar クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ProgressBar)、[IsIndeterminate プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.progressbar.isindeterminate)、[ProgressRing クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ProgressRing)、[IsActive プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.progressring.isactive)
 
 > [!NOTE]
-> ProgressBar コントロールには 2 つのバージョンがあります。プラットフォームにあって Windows.UI.Xaml 名前空間によって表されるものと、Windows UI ライブラリにあって Microsoft.UI.Xaml 名前空間によって表されるものです。 これら 2 つのバージョン間で、ProgressBar 用の API は同じですが、コントロールの外観は異なります。 このドキュメントでは、新しい方である Windows UI ライブラリ バージョンの画像を示します。
+> ProgressBar コントロールと ProgressRing コントロールには 2 つのバージョンがあります。プラットフォームにあって Windows.UI.Xaml 名前空間によって表されるものと、Windows UI ライブラリにあって Microsoft.UI.Xaml 名前空間によって表されるものです。 ProgressRing と ProgressBar の API は同じですが、コントロールの外観は 2 つのバージョン間で異なります。 このドキュメントでは、新しい方である Windows UI ライブラリ バージョンの画像を示します。
 このドキュメントでは、XAML で **muxc** エイリアスを使って、プロジェクトに含めた Windows UI Library API を表します。 [Page](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.page) 要素にこれを追加しました。
 
 ```xaml
@@ -195,7 +195,7 @@ progressRing.IsActive = true;
 <muxc:ProgressBar Width="100" Foreground="Green"/>
 ```
 
-ProgressRing の前景色を変更すると、ドットの色が変更されます。 ProgressBar の foreground プロパティを変更すると、バーの塗りつぶしの色が変更されます。バーの塗りつぶされない部分を変更するには、background プロパティを上書きします。
+ProgressRing の前景色を変更すると、リングの塗りつぶし色が変更されます。 ProgressBar の foreground プロパティを変更すると、バーの塗りつぶしの色が変更されます。バーの塗りつぶされない部分を変更するには、background プロパティを上書きします。
 
 **待機カーソルの表示**
 

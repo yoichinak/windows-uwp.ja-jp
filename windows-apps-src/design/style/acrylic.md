@@ -10,12 +10,12 @@ design-contact: rybick
 dev-contact: jevansa
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 9739933f9fd23c6f169c24c4f789e53ba894708d
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 8d969c5282fa03fb11d108d2b2c8e0fe44dfde49
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80696629"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82968457"
 ---
 # <a name="acrylic-material"></a>アクリル素材
 
@@ -36,7 +36,7 @@ ms.locfileid: "80696629"
 
 ## <a name="acrylic-and-the-fluent-design-system"></a>アクリルと Fluent Design System
 
- Fluent Design System では、ライト、深度、モーション、マテリアル、スケールを取り入れた、モダンで目を引く UI を作成できます。 アクリルは、アプリに物理的なテクスチャ (マテリアル) と深度を追加する Fluent Design System コンポーネントです。 詳しくは、[UWP 用の Fluent Design の概要に関するページ](/windows/apps/fluent-design-system)をご覧ください。
+ Fluent Design System では、ライト、深度、モーション、マテリアル、スケールを取り入れた、モダンで目を引く UI を作成できます。 アクリルは、アプリに物理的なテクスチャ (マテリアル) と深度を追加する Fluent Design System コンポーネントです。 詳しくは、[Fluent Design の概要](/windows/apps/fluent-design-system)に関するページをご覧ください。
 
  ## <a name="video-summary"></a>ビデオの概要
 
@@ -102,7 +102,7 @@ XAML コントロール ギャラリー アプリがインストールされて�
 
 また次の場合には、背景アクリルのみ、その透明度とテクスチャを単色で置き換えることができます。
  - アプリ ウィンドウがデスクトップで非アクティブ化されている場合
- - UWP アプリが、電話、Xbox、HoloLens、またはタブレット モードで実行されている場合
+ - Windows アプリが、電話、Xbox、HoloLens、またはタブレット モードで実行されている場合
 
 ### <a name="legibility-considerations"></a>見やすくするための考慮事項
 アプリによりユーザーに表示されるすべてのテキストでは、[コントラスト比を適切な値にする](../accessibility/accessible-text-requirements.md)ことが重要です。 ハイカラーの黒や白のテキスト、またはミディアムカラーの灰色のテキストがアクリル上で適切なコントラスト比になるように、アクリルのレシピを最適化しています。 プラットフォームによって提供されるテーマ リソースは、既定で、濃淡の色のコントラストが 80% の不透明度に設定されます。 ハイカラーの本文テキストをアクリル上に配置する場合、濃淡の不透明度を下げて、見やすさを維持することができます。 ダーク モードでは濃淡の不透明度を 70% にすることができ、ライト モードのアクリルでは 50% の不透明度でコントラスト比が満たされます。

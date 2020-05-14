@@ -9,12 +9,12 @@ design-contact: Judysa
 doc-status: Published
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 25d9df392d6ed2725b171fe6513334a39458410b
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 0ad8b78538a2b047501361072a017658ba152e73
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75684596"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82971007"
 ---
 # <a name="app-icons-and-logos"></a>アプリのアイコンとロゴ 
 
@@ -60,7 +60,7 @@ Visual Studio では、既定でアイコン アセットがアセット サブ�
 
 :::row:::
    :::column:::
-      Windows では、ディスプレイの DPI (1 インチあたりのドット数) と、デバイスの視聴距離に基づいて各ディスプレイの倍率が自動的に設定されます  
+      Windows では、ディスプレイの DPI (1 インチあたりのドット数) と、デバイスの視聴距離に基づいて各ディスプレイの倍率が自動的に設定されます 
       (ユーザーは、 **[設定] &gt; [ディスプレイ] &gt; [拡大縮小とレイアウト]** のページに移動して既定値を上書きできます)。
    :::column-end:::
    :::column:::
@@ -185,7 +185,7 @@ Visual Studio で画像ファイルが生成され、プロジェクトに追加
 
 Square150x150Logo-scale-100.png、Square150x150Logo-scale-200.png、Square150x150Logo-scale-400.png
 
-Visual Studio では既定でバッジ ロゴが生成されません。 これは、バッジ ロゴが独特であり、他のアプリ アイコンと一致していることがまずないためです。 詳細については、「[UWP アプリ向けのバッジ通知](/windows/uwp/design/shell/tiles-and-notifications/badges)」をご覧ください。 
+Visual Studio では既定でバッジ ロゴが生成されません。 これは、バッジ ロゴが独特であり、他のアプリ アイコンと一致していることがまずないためです。 詳しくは、「[Windows アプリ向けのバッジ通知](/windows/uwp/design/shell/tiles-and-notifications/badges)」をご覧ください。 
 
 
 ## <a name="more-about-app-icon-assets"></a>アプリ アイコン アセットの詳細
@@ -253,13 +253,13 @@ Windows では、ターゲット ベースのアセットが既定で色付き�
 
 
 ## <a name="more-about-splash-screen-assets"></a>スプラッシュ スクリーン アセットの詳細
-スプラッシュ スクリーンの詳細については、[UWP のスプラッシュ スクリーンに関する記事](/windows/uwp/launch-resume/splash-screens)をご覧ください。
+スプラッシュ スクリーンについて詳しくは、[Windows アプリのスプラッシュ スクリーン](/windows/uwp/launch-resume/splash-screens)に関する記事をご覧ください。
 
 ## <a name="more-about-badge-logo-assets"></a>バッジ ロゴ アセットの詳細
 
 資産ジェネレーターを使用して必要なアセットをすべて生成する場合、バッジ ロゴは既定で生成されません。これは、バッジ ロゴが他のアプリ アセットと大きく異なっているからです。 バッジ ロゴは、通知やアプリのタイルに表示される状態の画像です。 
 
-詳細については、[UWP アプリ向けのバッジ通知に関する記事](/windows/uwp/design/shell/tiles-and-notifications/badges)をご覧ください。
+詳しくは、「[Windows アプリ向けのバッジ通知](/windows/uwp/design/shell/tiles-and-notifications/badges)」をご覧ください。
 
 
 ## <a name="customizing-asset-padding"></a>アセットの埋め込みのカスタマイズ

@@ -8,12 +8,12 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: fa8dd744120d5751dcf8c10a090ccc31094000d2
-ms.sourcegitcommit: df0cd9c82d1c0c17ccde424e3c4a6ff680c31a35
+ms.openlocfilehash: 5f3e4eee486edd47901fc2b97a6e10c880cb04b1
+ms.sourcegitcommit: 2571af6bf781a464a4beb5f1aca84ae7c850f8f9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80482502"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82606301"
 ---
 # <a name="host-a-custom-uwp-control-in-a-wpf-app-using-xaml-islands"></a>XAML Islands を使用して WPF アプリでカスタム UWP コントロールをホストする
 
@@ -235,7 +235,10 @@ WPF アプリでカスタム UWP コントロールをホストするには、�
 
 このセクションでは、WinUI ライブラリからユーザー コントロールに UWP コントロールを追加して、WPF アプリでそのコントロールをホストできるようにする方法について説明します。
 
-1. UWP アプリ プロジェクトで、最新バージョンの [Microsoft.UI.Xaml](https://www.nuget.org/packages/Microsoft.UI.Xaml) NuGet パッケージをインストールします。
+1. UWP アプリ プロジェクトで、最新のリリース バージョンまたはプレリリース バージョンの [Microsoft.UI.Xaml](https://www.nuget.org/packages/Microsoft.UI.Xaml) NuGet パッケージをインストールします。
+
+    > [!NOTE]
+    > お使いのデスクトップ アプリが [MSIX パッケージ](https://docs.microsoft.com/windows/msix)にパッケージ化されている場合は、[Microsoft.UI.Xaml](https://www.nuget.org/packages/Microsoft.UI.Xaml) NugGet パッケージのプレリリース バージョンまたはリリース バージョンのいずれかを使用できます。 お使いのデスクトップ アプリが MSIX を使用してパッケージ化されていない場合は、プレリリース バージョンの [Microsoft.UI.Xaml](https://www.nuget.org/packages/Microsoft.UI.Xaml) NuGet パッケージをインストールする必要があります。
 
 2. このプロジェクトの App.xaml ファイルで、次の子要素を `<xaml:XamlApplication>` 要素に追加します。
 
@@ -268,7 +271,7 @@ WPF アプリでカスタム UWP コントロールをホストするには、�
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     ```
 
-5. 同じファイルで、`<StackPanel>` の子として `<winui:RatingControl />` 要素を追加します。 この要素により、WinUI ライブラリの [RatingControl](https://docs.microsoft.com/uwp/api/microsoft.ui.xaml.controls.ratingcontrol?view=winui-2.2) クラスのインスタンスが追加されます。 この要素を追加した後の `<StackPanel>` は、次のようになります。
+5. 同じファイルで、`<StackPanel>` の子として `<winui:RatingControl />` 要素を追加します。 この要素により、WinUI ライブラリの [RatingControl](https://docs.microsoft.com/uwp/api/microsoft.ui.xaml.controls.ratingcontrol) クラスのインスタンスが追加されます。 この要素を追加した後の `<StackPanel>` は、次のようになります。
 
     ```xml
     <StackPanel Background="LightCoral">

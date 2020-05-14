@@ -12,12 +12,12 @@ pm-contact: miguelrb
 design-contact: ksulliv
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: ecc4dbebcee5e99d78f8523cf78c9dbd5a20b334
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 57002a1edafd5dd7a367220fc0425fdc52b711d1
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80081657"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970847"
 ---
 # <a name="password-box"></a>パスワード ボックス
 
@@ -29,11 +29,11 @@ ms.locfileid: "80081657"
 
 |  |  |
 | - | - |
-| ![WinUI ロゴ](images/winui-logo-64x64.png) | Windows UI ライブラリ 2.2 以降には、丸めた角を使用するこのコントロールの新しいテンプレートが含まれます。 詳しくは、「[角の半径](/windows/uwp/design/style/rounded-corner)」をご覧ください。 WinUI は、UWP アプリの新しいコントロールと UI 機能が含まれる NuGet パッケージです。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | Windows UI ライブラリ 2.2 以降には、丸めた角を使用するこのコントロールの新しいテンプレートが含まれます。 詳しくは、「[角の半径](/windows/uwp/design/style/rounded-corner)」をご覧ください。 WinUI は、Windows アプリの新しいコントロールと UI 機能が含まれる NuGet パッケージです。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
 
 > **プラットフォーム API**: [PasswordBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.PasswordBox)、[Password プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.passwordbox.password)、[PasswordChar プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.passwordbox.passwordchar)、[PasswordRevealMode プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.passwordbox.passwordrevealmode)、[PasswordChanged イベント](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.passwordbox.passwordchanged)
 
-## <a name="is-this-the-right-control"></a>これは適切なコントロールですか? 
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 **PasswordBox** コントロールを使用して、パスワードや、社会保障番号などのプライベート データを収集できます。
 

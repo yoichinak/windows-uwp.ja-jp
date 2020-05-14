@@ -13,12 +13,12 @@ dev-contact: mitra
 doc-status: Published
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: e098283bae6f58b927892c680a4981d83f9e31e8
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 4f0814621c67c01d5d1a73235faf02d3d753f2c2
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80081384"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970057"
 ---
 # <a name="buttons"></a>ボタン
 
@@ -42,13 +42,13 @@ Control | 説明
 
 |  |  |
 | - | - |
-| ![WinUI ロゴ](images/winui-logo-64x64.png) | **DropDownButton**、**SplitButton**、**ToggleSplitButton** は、Windows UI ライブラリの NuGet パッケージの一部として組み込まれており、パッケージには、UWP アプリの新しいコントロールと UI 機能が含まれています。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | **DropDownButton**、**SplitButton**、**ToggleSplitButton** は、Windows アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリの一部として含まれています。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
 
 > **Windows UI ライブラリ API:** [DropDownButton クラス](/uwp/api/microsoft.ui.xaml.controls.dropdownbutton)、[SplitButton クラス](/uwp/api/microsoft.ui.xaml.controls.splitbutton)、[ToggleSplitButton クラス](/uwp/api/microsoft.ui.xaml.controls.togglesplitbutton)
 >
 > **プラットフォーム API:** [Click イベント](/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.click)、[Command プロパティ](/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.command)
 
-## <a name="is-this-the-right-control"></a>これは適切なコントロールですか? 
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 **Button** コントロールを使用すると、ユーザーは直ちに操作を開始できます (フォームの送信など)。
 
@@ -231,7 +231,7 @@ private void Decrease_Click(object sender, RoutedEventArgs e)
 
 ### <a name="example---drop-down-button"></a>例 - ドロップダウン ボタン
 
-この例では、**RichEditBox** コントロールに段落配置用のコマンドを含むポップアップ付きのドロップダウン ボタンを作成する方法を示します  (詳細な情報とコードについては、「[リッチ エディット ボックス](rich-edit-box.md)」を参照してください)。
+この例では、**RichEditBox** コントロールに段落配置用のコマンドを含むポップアップ付きのドロップダウン ボタンを作成する方法を示します (詳細な情報とコードについては、「[リッチ エディット ボックス](rich-edit-box.md)」を参照してください)。
 
 ![配置コマンドを含むドロップダウン ボタン](images/drop-down-button-align.png)
 
@@ -298,7 +298,7 @@ private void AlignmentMenuFlyoutItem_Click(object sender, RoutedEventArgs e)
 
 ### <a name="example---split-button"></a>例 - 分割ボタン
 
-この例では、**RichEditBox** コントロール内で選択されたテキストの前景色を変更するために使う分割ボタンの作成方法を示します  (詳細な情報とコードについては、「[リッチ エディット ボックス](rich-edit-box.md)」を参照してください)。
+この例では、**RichEditBox** コントロール内で選択されたテキストの前景色を変更するために使う分割ボタンの作成方法を示します (詳細な情報とコードについては、「[リッチ エディット ボックス](rich-edit-box.md)」を参照してください)。
 分割ボタンのポップアップでは、[BottomEdgeAlignedLeft](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.flyoutplacementmode) を [Placement](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.flyoutbase.placement) プロパティの既定値として使用します。 この値のオーバーライドはできません。
 
 ![前景色を選択するための分割ボタン](images/split-button-rtb.png)
@@ -411,7 +411,7 @@ public sealed partial class MainPage : Page
 
 ### <a name="example---toggle-split-button"></a>例 - 分割トグル ボタン
 
-次の例では、**RichEditBox** コントロールの分割トグル ボタンを使用して箇条書きの書式設定のオンとオフを切り替え、箇条書きのスタイルを変更する方法を示します  (詳細な情報とコードについては、「[リッチ エディット ボックス](rich-edit-box.md)」を参照してください)。
+次の例では、**RichEditBox** コントロールの分割トグル ボタンを使用して箇条書きの書式設定のオンとオフを切り替え、箇条書きのスタイルを変更する方法を示します (詳細な情報とコードについては、「[リッチ エディット ボックス](rich-edit-box.md)」を参照してください)。
 分割トグル ボタンのポップアップでは、[BottomEdgeAlignedLeft](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.flyoutplacementmode) が [Placement](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.flyoutbase.placement) プロパティの既定値として使われます。 この値のオーバーライドはできません。
 
 ![箇条書きのスタイルを選択するための分割トグル ボタン](images/toggle-split-button-open.png)
@@ -550,10 +550,10 @@ private void ApplyListStyle(string listStyle)
 
 ## <a name="back-buttons"></a>戻るボタン
 
-戻るボタンは、バック スタックまたはユーザーのナビゲーション履歴を使って "戻る" ナビゲーションを実現する、システム指定の UI 要素です。 独自の "戻る" ボタンを作成する必要はありませんが、前に戻る移動で適切なエクスペリエンスを提供するために作業が必要になることがあります。 詳しくは、「[UWP アプリのナビゲーション履歴と前に戻る移動](../basics/navigation-history-and-backwards-navigation.md)」をご覧ください。
+戻るボタンは、バック スタックまたはユーザーのナビゲーション履歴を使って "戻る" ナビゲーションを実現する、システム指定の UI 要素です。 独自の "戻る" ボタンを作成する必要はありませんが、前に戻る移動で適切なエクスペリエンスを提供するために作業が必要になることがあります。 詳しくは、「[Windows アプリでのナビゲーション履歴と前に戻る移動](../basics/navigation-history-and-backwards-navigation.md)」をご覧ください。
 
 
-## <a name="get-the-sample-code"></a>サンプル コードを入手する
+## <a name="get-the-sample-code"></a>サンプル コードの入手
 
 - [XAML コントロール ギャラリー](https://github.com/Microsoft/Xaml-Controls-Gallery): このサンプルでは、対話形式ですべての XAML コントロールが示されます。
 

@@ -1,18 +1,18 @@
 ---
-description: UWP アプリでアクセント カラーとテーマを使用する方法について説明します。
-title: UWP アプリでの色使い
+description: Windows アプリでアクセント カラーとテーマを使用する方法について説明します。
+title: Windows アプリの色
 ms.date: 04/07/2019
 ms.topic: article
 keywords: windows 10, uwp
 design-contact: karenmui
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 7ab504657ae5e3142eb7db1d9517a013e9aaf5f3
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: f5e103b7661c53fb70561dd1bd654188be2704ff
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75684582"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970767"
 ---
 # <a name="color"></a>色
 
@@ -20,7 +20,7 @@ ms.locfileid: "75684582"
 
 色は、アプリの中でユーザーに情報を伝える直感的な方法です。操作可能な要素の強調、ユーザー操作に対するフィードバックの提供、インターフェイスの連続感の演出を色によって行うことができます。
 
-UWP アプリでの色使いは、主にアクセント カラーとテーマによって指定します。 この記事では、アプリで色を使用する方法と、アクセント カラーとテーマ リソースを使用して、任意のテーマに対応して UWP アプリを使用できるように設定する方法について説明します。
+Windows アプリでの色使いは、主にアクセント カラーとテーマによって決まります。 この記事では、アプリで色を使用する方法と、アクセント カラーとテーマのリソースを使用して任意のテーマで Windows アプリを使用できるように設定する方法について説明します。
 
 ## <a name="color-principles"></a>色使いの原則
 
@@ -48,7 +48,7 @@ Windows では、ユーザーがアクセント カラーや淡色/濃色のテ�
 
 ## <a name="themes"></a>テーマ
 
-UWP アプリでは、淡色または濃色のアプリケーション テーマを使用できます。 テーマは、アプリの背景、テキスト、アイコン、[コモン コントロール](../controls-and-patterns/index.md)に反映されます。
+Windows アプリでは、淡色または濃色のアプリケーション テーマを使用できます。 テーマは、アプリの背景、テキスト、アイコン、[コモン コントロール](../controls-and-patterns/index.md)に反映されます。
 
 ### <a name="light-theme"></a>淡色テーマ
 
@@ -58,11 +58,11 @@ UWP アプリでは、淡色または濃色のアプリケーション テーマ
 
 ![濃色テーマ](images/color/dark-theme.svg)
 
-既定では、UWP アプリのテーマは、ユーザーが Windows の設定で選択したテーマか、デバイスの既定のテーマ (Xbox では黒など) に設定されます。 ただし、UWP アプリのテーマを設定することもできます。
+既定では、Windows アプリのテーマは、ユーザーが Windows の設定で選択したテーマか、デバイスの既定のテーマ (Xbox では黒など) に設定されます。 ただし、Windows アプリのテーマを設定することもできます。
 
 ### <a name="changing-the-theme"></a>テーマの変更
 
-テーマを変更するには、**ファイルで**RequestedTheme`App.xaml` プロパティを変更します。
+テーマを変更するには、`App.xaml` ファイルで **RequestedTheme** プロパティを変更します。
 
 ```XAML
 <Application
@@ -82,7 +82,7 @@ UWP アプリでは、淡色または濃色のアプリケーション テーマ
 
 アプリのテーマを指定しない場合は、必ず淡色テーマと濃色テーマの両方でアプリをテストして、あらゆる条件でアプリが判読できることを確認します。
 
-**注**: Visual Studio では、RequestedTheme の既定値が淡色に設定されているため、両方をテストするには、RequestedTheme を変更する必要があります。
+**注**:Visual Studio では、RequestedTheme の既定値が淡色に設定されているため、両方をテストするには、RequestedTheme を変更する必要があります。
 
 ## <a name="theme-brushes"></a>テーマ ブラシ
 

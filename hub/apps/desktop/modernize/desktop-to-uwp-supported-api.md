@@ -1,6 +1,6 @@
 ---
-Description: パッケージ デスクトップ アプリは、UWP アプリに完全に移行されていない場合でも、さまざまなユニバーサル Windows プラットフォーム (UWP) API を使うことができます。 この記事では、パッケージ アプリが使うことができるクラスについて説明します。
-title: パッケージ デスクトップ アプリで利用可能な UWP API (デスクトップ ブリッジ)
+Description: パッケージ化されたデスクトップ アプリは、UWP アプリに完全に移行されていない場合でも、さまざまな Windows ランタイム API を使うことができます。 この記事では、パッケージ アプリが使うことができるクラスについて説明します。
+title: パッケージ化されたデスクトップ アプリで利用可能な Windows ランタイム API (デスクトップ ブリッジ)
 ms.date: 04/19/2019
 ms.topic: article
 keywords: windows 10, uwp
@@ -9,20 +9,20 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: 60a735af077d2121868e2613cb0f33e194e4330c
-ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
+ms.openlocfilehash: 68c2427fe6b02385325f0f224cc837912621f6bb
+ms.sourcegitcommit: ef723e3d6b1b67213c78da696838a920c66d5d30
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79209668"
+ms.lasthandoff: 05/02/2020
+ms.locfileid: "82729851"
 ---
-# <a name="uwp-apis-available-to-desktop-apps"></a>デスクトップ アプリで使用できる UWP API
+# <a name="windows-runtime-apis-available-to-desktop-apps"></a>デスクトップ アプリで使用できる Windows ランタイム API
 
 デスクトップ アプリは、UWP アプリに完全に移行されていない場合でも、さまざまなユニバーサル Windows プラットフォーム (UWP) API を使用することができます。 この記事では、デスクトップ アプリで使用することができるクラスを一覧します。
 
-多くの UWP API では、デスクトップ アプリで[パッケージ ID](modernize-packaged-apps.md) を使用する必要があります。 ほとんどの UWP API は、パッケージ ID を持つアプリでの使用に適しています。 ただし、一部の機能領域はまだ十分にテストされていないか、現在のところは意図したとおりに機能しません。
+多くの Windows ランタイム API では、デスクトップ アプリで[パッケージ ID](modernize-packaged-apps.md) を使用する必要があります。 ほとんどの Windows ランタイム API は、パッケージ ID を持つアプリでの使用に適しています。 ただし、一部の機能領域はまだ十分にテストされていないか、現在のところは意図したとおりに機能しません。
 
-| Feature area (機能領域) | 詳細情報 |
+| Feature area (機能領域) | 詳細 |
 |--------------|---------|
 | 予定、連絡先、メール | 現在、すべての API がサポートされているわけではありません。 |
 | 認証とユーザー ID | 現在、すべての API がサポートされているわけではありません。 |
@@ -45,9 +45,9 @@ ms.locfileid: "79209668"
 
 ## <a name="list-of-apis"></a>API の一覧
 
-デスクトップ アプリでサポートされる UWP API の完全な一覧を次に示します。 [パッケージ ID を持つアプリでのみサポートされる API](#new) または[すべてのデスクトップ アプリでサポートされている API](#both) を確認できます。
+デスクトップ アプリでサポートされている Windows ランタイム API の完全な一覧を次に示します。 [パッケージ ID を持つアプリでのみサポートされる API](#new) または[すべてのデスクトップ アプリでサポートされている API](#both) を確認できます。
 
-UWP API の使用方法の例については、GitHub で[デスクトップ ブリッジのサンプル](https://github.com/Microsoft/DesktopBridgeToUWP-Samples)に関するページと「[ユニバーサル Windows プラットフォーム (UWP) のアプリ サンプル](https://github.com/Microsoft/Windows-universal-samples)」をご覧ください。 Windows 用アプリの構築に関するブログの[デスクトップ アプリケーションからの Windows 10 API の呼び出しに関する投稿](https://blogs.windows.com/buildingapps/2017/01/25/calling-windows-10-apis-desktop-application/)もご覧ください。
+Windows ランタイム API の使用方法の例については、GitHub で[デスクトップ ブリッジのサンプル](https://github.com/Microsoft/DesktopBridgeToUWP-Samples)に関するページと「[ユニバーサル Windows プラットフォーム (UWP) のアプリ サンプル](https://github.com/Microsoft/Windows-universal-samples)」をご覧ください。 Windows 用アプリの構築に関するブログの[デスクトップ アプリケーションからの Windows 10 API の呼び出しに関する投稿](https://blogs.windows.com/buildingapps/2017/01/25/calling-windows-10-apis-desktop-application/)もご覧ください。
 
 <a id="new" />
 
@@ -381,6 +381,6 @@ UWP API の使用方法の例については、GitHub で[デスクトップ ブ
 
 [DualApiPartition](https://docs.microsoft.com/uwp/api/Windows.Foundation.Metadata.DualApiPartitionAttribute) を持つ API は、すべてのデスクトップ アプリでサポートされています。これには、パッケージ ID を持つものと、パッケージ ID を持たないものが含まれます。 デスクトップ アプリケーションから呼び出す API がサポートされているかどうかを判断するには、[WinRT 名前空間のリファレンス ドキュメント](https://docs.microsoft.com/uwp/api/)で関心があるクラスまたはメンバーの参照記事をご覧ください。 次に、参照記事の **Attributes** セクションに [DualApiPartition](https://docs.microsoft.com/uwp/api/Windows.Foundation.Metadata.DualApiPartitionAttribute) 属性が含まれているかどうかを確認します。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-ご質問があるでしょうか。 Stack Overflow でお問い合わせください。 Microsoft のチームでは、これらの[タグ](https://stackoverflow.com/questions/tagged/project-centennial+or+desktop-bridge)をチェックしています。 [こちら](https://social.msdn.microsoft.com/Forums/en-US/home?filter=alltypes&sort=relevancedesc&searchTerm=%5BDesktop%20Converter%5D)から質問することもできます。
+ご質問がある場合は、 Stack Overflow でお問い合わせください。 Microsoft のチームでは、これらの[タグ](https://stackoverflow.com/questions/tagged/project-centennial+or+desktop-bridge)をチェックしています。 [こちら](https://social.msdn.microsoft.com/Forums/en-US/home?filter=alltypes&sort=relevancedesc&searchTerm=%5BDesktop%20Converter%5D)から質問することもできます。

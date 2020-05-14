@@ -7,12 +7,12 @@ ms.date: 02/01/2019
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 5782c6e9ba42fed07c2b1382f2d17b1d311d0a13
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: c66fc2b07b5ee5ce87b6c1f37657b3eec49f3105
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80893462"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970407"
 ---
 # <a name="itemsrepeater"></a>ItemsRepeater
 
@@ -26,13 +26,13 @@ ms.locfileid: "80893462"
 
 |  |  |
 | - | - |
-| ![WinUI ロゴ](images/winui-logo-64x64.png) | **ItemsRepeater** コントロールは、Windows UI ライブラリの NuGet パッケージの一部として組み込まれており、パッケージには、UWP アプリの新しいコントロールと UI 機能が含まれています。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | **ItemsRepeater** コントロールは、Windows アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリの一部として含まれています。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
 
 > **Windows UI ライブラリ API:** [ItemsRepeater クラス](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater)
 >
 > **プラットフォーム API:** [ScrollViewer クラス](/uwp/api/windows.ui.xaml.controls.scrollviewer)
 
-## <a name="is-this-the-right-control"></a>これは適切なコントロールですか? 
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 データ コレクション用のカスタム表示を作成するには、[ItemsRepeater](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater) を使用します。 これは基本的な一連の項目を表示するために使用できますが、多くの場合、カスタム コントロールのテンプレートで表示要素として使用します。
 
@@ -774,7 +774,7 @@ public class MyPage : Page
 
 ## <a name="enable-accessibility"></a>アクセシビリティを有効にする
 
-[ItemsRepeater](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater) では、既定のアクセシビリティ エクスペリエンスは提供されません。 [UWP アプリのユーザビリティ](/windows/uwp/design/usability)に関するドキュメントに、確実にアプリで包括的なユーザー エクスペリエンスを提供するのに役立つ豊富な情報が示されています。 ItemsRepeater を使ってカスタム コントロールを作成する場合は、必ず、[カスタム オートメーション ピア](/windows/uwp/design/accessibility/custom-automation-peers)に関するドキュメントを参照してください。
+[ItemsRepeater](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater) では、既定のアクセシビリティ エクスペリエンスは提供されません。 [Windows アプリのユーザビリティ](/windows/uwp/design/usability)に関するドキュメントでは、確実にアプリで包括的なユーザー エクスペリエンスを提供できるようにするために役立つ情報が豊富に示されています。 ItemsRepeater を使ってカスタム コントロールを作成する場合は、必ず、[カスタム オートメーション ピア](/windows/uwp/design/accessibility/custom-automation-peers)に関するドキュメントを参照してください。
 
 ### <a name="keyboarding"></a>キーボード操作
 ItemsRepeater で提供されるフォーカス移動のためのキーボード操作の最小限のサポートは、XAML の[キーボード操作の 2D 方向ナビゲーション](/windows/uwp/design/input/focus-navigation#2d-directional-navigation-for-keyboard)に関する記述に基づいています。

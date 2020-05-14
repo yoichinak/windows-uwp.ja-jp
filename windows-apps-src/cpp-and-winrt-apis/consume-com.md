@@ -5,12 +5,12 @@ ms.date: 04/24/2019
 ms.topic: article
 keywords: windows 10、uwp、標準、c ++、cpp、winrt、COM、コンポーネント、クラス、インターフェイス
 ms.localizationpriority: medium
-ms.openlocfilehash: 6a286056fc0c44d01482e23e52df0fa80eca0515
-ms.sourcegitcommit: c660def841abc742600fbcf6ed98e1f4f7beb8cc
+ms.openlocfilehash: 1b6ce3ce56b4afbf4c45b406c8af369bee4b55bb
+ms.sourcegitcommit: 2dbf4a3f3473c1d3a0ad988bcbae6e75dfee3640
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80218522"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82619326"
 ---
 # <a name="consume-com-components-with-cwinrt"></a>C++/WinRT での COM コンポーネントの使用
 
@@ -127,7 +127,13 @@ winrt::check_hresult(D2D1CreateFactory(
 
 ## <a name="com-functions-that-take-an-iunknown-interface-pointer"></a>**IUnknown** インターフェイス ポインターを受け取る COM 関数
 
-[**winrt::get_unknown**](/uwp/cpp-ref-for-winrt/get-unknown) free 関数を呼び出して、**com_ptr** を **IUnknown** インターフェイス ポインターを受け取る関数に渡すことができます。 コード例については、そのトピックを参照してください。
+[**com_ptr::get**](/uwp/cpp-ref-for-winrt/com-ptr#com_ptrget-function) を使用して、**com_ptr** を **IUnknown** インターフェイス ポインターを受け取る関数に渡すことができます。
+
+[**winrt::get_unknown**](/uwp/cpp-ref-for-winrt/get-unknown) 関数を使用して、プロジェクションされた型のオブジェクトの基になる生の [IUnknown インターフェイス](/windows/win32/api/unknwn/nn-unknwn-iunknown)のアドレス (つまり、それに対するポインター) を返すことができます。 その後、そのアドレスを、**IUnknown** インターフェイス ポインターを受け取る関数に渡すことができます。
+
+"*プロジェクションされた型*" については、「[C++/WinRT での API の使用](/windows/uwp/cpp-and-winrt-apis/consume-apis)」をご覧ください。
+
+**get_unknown** のコード例については、[**winrt::get_unknown**](/uwp/cpp-ref-for-winrt/get-unknown) に関するページか、このトピックの「[最小限の Direct2D アプリケーションの完全なソース コード一覧](/windows/uwp/cpp-and-winrt-apis/consume-com#full-source-code-listing-of-a-minimal-direct2d-application)」をご覧ください。
 
 ## <a name="passing-and-returning-com-smart-pointers"></a>COM スマート ポインターの受け渡し
 

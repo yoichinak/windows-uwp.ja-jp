@@ -7,16 +7,16 @@ keywords: windows 10, uwp
 ms.author: jimwalk
 author: jwmsft
 ms.localizationpriority: medium
-ms.openlocfilehash: 249291c59a31036fa967ac338209404557b57503
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 33a5f0bc31a8fe1421f7ab0de5f229d2feb77915
+ms.sourcegitcommit: ef723e3d6b1b67213c78da696838a920c66d5d30
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "66215170"
+ms.lasthandoff: 05/02/2020
+ms.locfileid: "82730135"
 ---
 # <a name="using-the-visual-layer-in-desktop-apps"></a>デスクトップ アプリでのビジュアル レイヤーの使用
 
-UWP 以外のデスクトップ アプリケーションで UWP API を使用して、WPF、Windows フォーム、C++ Win32 アプリケーションの外観や機能を強化したり、UWP 経由でのみ使用できる最新の Windows 10 UI 機能を利用したりできるようになりました。
+UWP 以外のデスクトップ アプリケーションで Windows ランタイム API を使用して WPF、Windows フォーム、C++ Win32 アプリケーションの外観や機能を高めたり、UWP でのみ利用可能な最新の Windows 10 UI 機能を活用したりできるようになりました。
 
 多くのシナリオでは、[XAML Islands](xaml-islands.md) を使用して最新の XAML コントロールをアプリに追加できます。 ただし、組み込みのコントロールを超えるカスタム エクスペリエンスを作成する必要がある場合は、ビジュアル レイヤー API にアクセスできます。
 
@@ -97,7 +97,7 @@ UWP 以外のデスクトップ アプリケーションで UWP API を使用し
 - 2 つの異なる UI テクノロジ (WPF とビジュアル レイヤーなど) が一緒に使用されている場合、それらのテクノロジは画面へのそれぞれのピクセルの描画に責任を負い、ピクセルを共有することはできません。 その結果、ビジュアル レイヤー コンテンツは常に、他の UI コンテンツの上にレンダリングされます。 (これは_空域_の問題と呼ばれます。)ビジュアル レイヤー コンテンツがホスト UI と共にサイズを変更し、他のコンテンツを遮らないようにするために、追加のコーディングとテストが必要になることがあります。
 - デスクトップ アプリケーションでホストされているコンテンツは、DPI に合わせて自動的にサイズを変更したり、スケーリングしたりしません。 コンテンツが DPI の変更に対処するようにするために、追加の手順が必要になることがあります。 (詳細については、プラットフォーム固有のチュートリアルを参照してください。)
 
-## <a name="additional-resources"></a>その他の情報
+## <a name="additional-resources"></a>その他のリソース
 
 - [ビジュアル レイヤー](/windows/uwp/composition/visual-layer)
 - [コンポジションのビジュアル](/windows/uwp/composition/composition-visual-tree)

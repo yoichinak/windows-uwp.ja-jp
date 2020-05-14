@@ -1,5 +1,5 @@
 ---
-Description: UWP アプリ内でのユーザーのナビゲーション履歴を横断するための戻る移動を実装する方法について説明します。
+Description: Windows アプリ内でのユーザーのナビゲーション履歴を横断して実行される、前に戻る移動を実装する方法について説明します。
 title: ナビゲーション履歴と前に戻る移動
 template: detail.hbs
 op-migration-status: ready
@@ -7,18 +7,18 @@ ms.date: 04/09/2019
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 05b435eb6f070634507c143bd028d2cb051c97bc
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 0601aea88d0705377490fb4adf26ce3da9c4e573
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74735027"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82969148"
 ---
-# <a name="navigation-history-and-backwards-navigation-for-uwp-apps"></a>UWP アプリのナビゲーション履歴と前に戻る移動
+# <a name="navigation-history-and-backwards-navigation-for-windows-apps"></a>Windows アプリでのナビゲーション履歴と前に戻る移動
 
 > **重要な API**:[BackRequested イベント](https://docs.microsoft.com/uwp/api/Windows.UI.Core.SystemNavigationManager.BackRequested)、[SystemNavigationManager クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Core.SystemNavigationManager)、[OnNavigatedTo](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.page.onnavigatedto#Windows_UI_Xaml_Controls_Page_OnNavigatedTo_Windows_UI_Xaml_Navigation_NavigationEventArgs_)
 
-ユニバーサル Windows プラットフォーム (UWP) では、アプリのユーザーのナビゲーションの履歴内の移動や、デバイスによってはアプリ間の移動について、一貫性のある "戻る" ナビゲーション システムを提供します。
+Windows アプリでは、アプリ内でのユーザーのナビゲーション履歴の横断や、デバイスによってはアプリ間の移動が可能な、一貫性のある "戻る" ナビゲーション システムが提供されています。
 
 アプリに前に戻る移動を実装するには、アプリの UI の左上隅に[戻るボタン](#back-button)を配置します。 アプリで [NavigationView](../controls-and-patterns/navigationview.md) コントロールを使用する場合は、[NavigationView の組み込みの戻るボタン](../controls-and-patterns/navigationview.md#backwards-navigation)を使用できます。
 

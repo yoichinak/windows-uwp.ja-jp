@@ -11,12 +11,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: f5d0c2f5c5aa6c5d5bfcaee8e9b0ec14bbcd4ff3
-ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
+ms.openlocfilehash: 8ed4515a90df50a1ff8c0d6b82eb8cda5a4a78c9
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71339376"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82968747"
 ---
 # <a name="control-templates"></a>コントロール テンプレート
 
@@ -172,9 +172,9 @@ XAML フレームワークで、コントロール テンプレートを作る�
 
 |                                      |                                                                                                                                                                                                                                                                                                                                                |                                                   |
 |--------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------|
-| 状態の遷移                     | 動作                                                                                                                                                                                                                                                                                                                                   | 遷移完了時の CheckBox の外観 |
-| `Unchecked` から `Checked`。       | `Checked`[ **VisualState**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.VisualState) の [**Setter**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Setter) 値が適用され、`CheckGlyph` の [**Opacity**](/uwp/api/Windows.UI.Xaml.UIElement.Opacity) が 1 となる。                                                                                                                                                         | X が表示される。                                |
-| `Checked` から `Indeterminate`。   | `Indeterminate`[ **VisualState**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.VisualState) の [**Setter**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Setter) 値が適用され、`IndeterminateGlyph` の [**Opacity**](/uwp/api/Windows.UI.Xaml.UIElement.Opacity) が 1 となる。 `Checked` **VisualState** の **Setter** 値が削除され、`CheckGlyph` の [**Opacity**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.brush.opacity) が 0 となる。 | 円が表示される。                            |
+| 状態の変化                     | 動作                                                                                                                                                                                                                                                                                                                                   | 遷移完了時の CheckBox の外観 |
+| `Unchecked` から `Checked`。       | `Checked` [**VisualState**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.VisualState) の [**Setter**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Setter) 値が適用され、`CheckGlyph` の [**Opacity**](/uwp/api/Windows.UI.Xaml.UIElement.Opacity) が 1 となる。                                                                                                                                                         | X が表示される。                                |
+| `Checked` から `Indeterminate`。   | `Indeterminate` [**VisualState**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.VisualState) の [**Setter**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Setter) 値が適用され、`IndeterminateGlyph` の [**Opacity**](/uwp/api/Windows.UI.Xaml.UIElement.Opacity) が 1 となる。 `Checked` **VisualState** の **Setter** 値が削除され、`CheckGlyph` の [**Opacity**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.brush.opacity) が 0 となる。 | 円が表示される。                            |
 | `Indeterminate` から `Unchecked`。 | `Indeterminate` [**VisualState**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.VisualState) の [**Setter**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Setter) 値が削除され、`IndeterminateGlyph` の [**Opacity**](/uwp/api/Windows.UI.Xaml.UIElement.Opacity) が 0 となる。                                                                                                                                           | 何も表示されない。                             |
 
  
@@ -186,7 +186,7 @@ XAML フレームワークで、コントロール テンプレートを作る�
 
 ## <a name="controls-and-accessibility"></a>コントロールとアクセシビリティ
 
-コントロールのテンプレートを新しく作成するときは、コントロールの動作と外見を変更する以外にも、アクセシビリティ フレームワークに対する表現方法も変更することができます。 ユニバーサル Windows プラットフォーム (UWP) は、アクセシビリティのための Microsoft UI オートメーション フレームワークをサポートしています。 既定のコントロールとそのテンプレートはいずれも、UI オートメーションの共通のコントロール型と、その目的や機能に合ったパターンをサポートしています。 支援技術などの UI オートメーション クライアントが、これらのコントロール型とパターンを解釈することにより、アクセシビリティ対応アプリの UI という、より大きな枠組みを構成する要素としてコントロールを利用することができます。
+コントロールのテンプレートを新しく作成するときは、コントロールの動作と外見を変更する以外にも、アクセシビリティ フレームワークに対する表現方法も変更することができます。 Windows アプリでは、アクセシビリティのための Microsoft UI オートメーション フレームワークがサポートされています。 既定のコントロールとそのテンプレートはいずれも、UI オートメーションの共通のコントロール型と、その目的や機能に合ったパターンをサポートしています。 支援技術などの UI オートメーション クライアントが、これらのコントロール型とパターンを解釈することにより、アクセシビリティ対応アプリの UI という、より大きな枠組みを構成する要素としてコントロールを利用することができます。
 
 基本的なコントロールのロジックを分離すると共に、UI オートメーションのアーキテクチャに求められるいくつかの要件を満たすために、コントロール クラスのアクセシビリティ機能は、別個のクラス (オートメーション ピア) に置かれています。 オートメーション ピアは、折に触れてコントロール テンプレートと対話します。テンプレート内の特定の名前付きパーツの存在を頼りにその機能 (支援技術によってボタン アクションを呼び出すなど) を実現しているためです。
 
@@ -200,7 +200,7 @@ XAML コントロールのスタイルとテンプレートについて説明す
 
 XAML の例を見ると、一部の属性について [{ThemeResource} マークアップ拡張機能](../../xaml-platform/themeresource-markup-extension.md) を使うリソース参照があることがわかるでしょう。 この手法では、現在アクティブであるテーマに応じて値が変わるリソースを 1 つのコントロール テンプレートで使用できます。 この点はブラシと色に特に重要です。システム全体に暗い、明るい、またはハイコントラストのいずれのテーマを適用するかをユーザーが選択できるようにすることが、テーマの主な目的であるためです。 XAML リソース システムを使うアプリはそのテーマに適切な一連のリソースを使用できます。そのため、アプリの UI のテーマの選択にはユーザーのシステム全体のテーマの選択が反映されます。
 
-## <a name="get-the-sample-code"></a>サンプル コードを入手する
+## <a name="get-the-sample-code"></a>サンプル コードの入手
 
 * [XAML コントロール ギャラリーのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlUIBasics)
 * [カスタム テキスト編集コントロールのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/CustomEditControl)

@@ -1,29 +1,29 @@
 ---
-title: UWP アプリのページ レイアウト
-description: アプリを設計する場合、最初に検討すべきことは、レイアウト構造です。 この記事では、必要な UI 要素およびそれらのページ上の配置場所など、基本的なページ レイアウトの一般的な構造について説明します。 UWP アプリの場合、通常、各ページは、ナビゲーション、コマンド、コンテンツの各要素で構成されます。
+title: Windows アプリのページ レイアウト
+description: アプリを設計する場合、最初に検討すべきことは、レイアウト構造です。 この記事では、必要な UI 要素およびそれらのページ上の配置場所など、基本的なページ レイアウトの一般的な構造について説明します。 Windows アプリの場合、通常、各ページは、ナビゲーション、コマンド、コンテンツの各要素で構成されます。
 ms.date: 03/19/2018
 ms.topic: article
 keywords: windows 10, uwp
 localizationpriority: medium
-ms.openlocfilehash: 7333cebc945715412e3ff1140ca26e1ed5368704
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 3dbdf8d006472c288369fd528e89663aca5a9e10
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75684545"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970887"
 ---
 # <a name="page-layout"></a>ページのレイアウト
 
-UWP アプリの場合、通常、各[**ページ**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Page)は、ナビゲーション、コマンド、コンテンツの各要素で構成されます。 
+Windows アプリの場合、通常、各[**ページ**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Page)は、ナビゲーション、コマンド、コンテンツの各要素で構成されます。 
 
-アプリを複数のページで構成することができます。ユーザーが UWP アプリを起動すると、アプリケーション コードによって、[**フレーム**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Frame)が作成され、アプリケーションの[**ウィンドウ**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.window)内に配置されます。 フレームは、アプリケーションの[**ページ**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Page) インスタンス間を[移動](../basics/navigate-between-two-pages.md)できます。 
+アプリは複数のページで構成することができます。ユーザーが Windows アプリを起動すると、アプリケーション コードによって、[**フレーム**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Frame)が作成され、アプリケーションの[**ウィンドウ**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.window)内に配置されます。 フレームは、アプリケーションの[**ページ**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Page) インスタンス間を[移動](../basics/navigate-between-two-pages.md)できます。 
 
 ほとんどのページは一般的なレイアウト構造に従うため、この記事では、必要な UI 要素、それらのページ上の配置場所について説明します。 
 
 ![ページ構造](images/page-components.svg)
 
 ## <a name="navigation"></a>［ナビゲーション］
-アプリのレイアウトは、ナビゲーション モデルの選択から始まります。ナビゲーション モデルでは、ユーザーがアプリ内のページ間を移動する方法を定義します。 この記事では、2 つの一般的なナビゲーション パターン (左側のナビゲーションと上部ナビゲーション) について説明します。 他のナビゲーション オプションの選択に関するガイダンスについては、「[UWP アプリのナビゲーション デザインの基本](../basics/navigation-basics.md)」を参照してください。
+アプリのレイアウトは、ナビゲーション モデルの選択から始まります。ナビゲーション モデルでは、ユーザーがアプリ内のページ間を移動する方法を定義します。 この記事では、2 つの一般的なナビゲーション パターン (左側のナビゲーションと上部ナビゲーション) について説明します。 他のナビゲーション オプションの選択に関するガイダンスについては、[Windows アプリのナビゲーション デザインの基本](../basics/navigation-basics.md)に関するページをご覧ください。
 
 ![上部および左側のナビゲーション パターン](images/top-left-nav.svg)
 
@@ -91,7 +91,7 @@ UWP アプリの場合、通常、各[**ページ**](https://docs.microsoft.com/
 [フォーム](../controls-and-patterns/forms.md)は、ユーザーからデータを収集して送信するコントロールのグループです。 すべてではなくても、ほとんどのアプリが、設定ページ、ログイン ポータル、フィードバック Hub、アカウントの作成などのために、何らかのフォームを使用しています。 
 
 ## <a name="sample-apps"></a>サンプル アプリ
-これらのパターンを実装する方法については、[UWP サンプル アプリ](https://developer.microsoft.com/windows/samples)を参照してください。
+これらのパターンを実装する方法については、[Windows サンプル アプリ](https://developer.microsoft.com/windows/samples)を確認してください。
 - [BuildCast ビデオ プレーヤー](https://github.com/Microsoft/BuildCast)
 - [ランチ スケジューラ](https://github.com/Microsoft/Windows-appsample-lunch-scheduler)
 - [塗り絵帳](https://github.com/Microsoft/Windows-appsample-coloringbook)

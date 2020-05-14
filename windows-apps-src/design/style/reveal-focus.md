@@ -9,12 +9,12 @@ pm-contact: chphilip
 design-contact: ''
 dev-contact: stevenki
 ms.localizationpriority: medium
-ms.openlocfilehash: 824476cb098d0ff561fca67497a896586c70b8fb
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 098c46499e65c34e3699b09e137ea94c40590ef7
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75681963"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82968008"
 ---
 # <a name="reveal-focus"></a>表示フォーカス
 
@@ -168,7 +168,7 @@ ms.locfileid: "75681963"
 
 ## <a name="reveal-focus-and-the-fluent-design-system"></a>表示フォーカスと Fluent Design System
 
-表示フォーカスは、アプリに発光効果を加える Fluent Design System コンポーネントです。 Fluent Design System およびその他のコンポーネントについて詳しくは、[UWP 用の Fluent Design の概要](/windows/apps/fluent-design-system)をご覧ください。
+表示フォーカスは、アプリに発光効果を加える Fluent Design System コンポーネントです。 Fluent Design System およびその他のコンポーネントについて詳しくは、[Fluent Design の概要](/windows/apps/fluent-design-system)をご覧ください。
 
 ## <a name="related-articles"></a>関連記事
 

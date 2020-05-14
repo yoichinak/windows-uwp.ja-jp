@@ -12,12 +12,12 @@ design-contact: kimsea
 dev-contact: stpete
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: e1e4874051554a8b725c7921a60a2c2429b18bc1
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 2f0b0ca87e86d487708a55e6aa75bf106c40c384
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80081463"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970557"
 ---
 # <a name="tooltips"></a>ツール ヒント
 
@@ -29,35 +29,35 @@ ms.locfileid: "80081463"
 
 |  |  |
 | - | - |
-| ![WinUI ロゴ](images/winui-logo-64x64.png) | Windows UI ライブラリ 2.2 以降には、丸めた角を使用するこのコントロールの新しいテンプレートが含まれます。 詳しくは、「[角の半径](/windows/uwp/design/style/rounded-corner)」をご覧ください。 WinUI は、UWP アプリの新しいコントロールと UI 機能が含まれる NuGet パッケージです。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | Windows UI ライブラリ 2.2 以降には、丸めた角を使用するこのコントロールの新しいテンプレートが含まれます。 詳しくは、「[角の半径](/windows/uwp/design/style/rounded-corner)」をご覧ください。 WinUI は、Windows アプリの新しいコントロールと UI 機能が含まれる NuGet パッケージです。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
 
 > **プラットフォーム API**: [ToolTip クラス](/uwp/api/Windows.UI.Xaml.Controls.ToolTip)、[ToolTipService クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.tooltipservice)
 
-## <a name="is-this-the-right-control"></a>これは適切なコントロールですか? 
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 ユーザーに操作の実行を指示する前に、ヒントを使ってコントロールに関する詳しい情報を表示します。 ヒントは慎重に使い、タスクを完了しようとしているユーザーにとって明らかに重要である場合にのみ追加します。 1 つの目安は、情報が同じエクスペリエンスのどこかで入手できる場合、ヒントは必要ありません。 価値あるヒントによって、不明瞭な操作を明確にします。
 
 ヒントはどのような場合に使えばよいでしょうか。 それを判断するには、以下の質問を考えます。
 
-- **情報はポインターのホバーに基づいて表示すべきですか?** 
+- **情報はポインターのホバーに基づいて表示すべきですか?**
     そうでない場合は、別のコントロールを使います。 ヒントは、ユーザーの操作の結果としてのみ表示します。自動的には表示しません。
 
-- **コントロールにはテキスト ラベルがありますか?** 
+- **コントロールにはテキスト ラベルがありますか?**
     ない場合は、ヒントを使ってラベルを表示します。 UX の設計では、ほとんどのコントロールにインラインでラベルを付けることをお勧めします。それらのコントロールには、ヒントは必要ありません。 アイコンだけが表示されるツール バー コントロールとコマンド ボタンには、ヒントが必要です。
 
-- **説明や追加情報がオブジェクトに対して役立ちますか?** 
+- **説明や追加情報がオブジェクトに対して役立ちますか?**
     そうであれば、ヒントを使います。 ただし、このテキストは、主要なタスクに必須なものではなく、補助的なものである必要があります。 必須なものであれば、直接 UI に配置して、ユーザーが探さなくても済むようにします。
 
-- **表示する補助的な情報は、エラー、警告、または状態ですか?** 
+- **表示する補助的な情報は、エラー、警告、または状態ですか?**
     その場合は、ポップアップなど、他の UI 要素を使います。
 
-- **ユーザーがヒントを操作する必要がありますか?** 
+- **ユーザーがヒントを操作する必要がありますか?**
     その場合は、別のコントロールを使います。 ヒントはマウスを動かすと消えるため、ユーザーはヒントを操作できません。
 
-- **ユーザーが補助的な情報を印刷する必要がありますか?** 
+- **ユーザーが補助的な情報を印刷する必要がありますか?**
     その場合は、別のコントロールを使います。
 
-- **ユーザーがヒントを煩わしいと感じますか?** 
+- **ユーザーがヒントを煩わしいと感じますか?**
     その場合は、別の手段を使うことを検討します。何もしない、という選択肢もあります。 煩わしいと感じる可能性があってもヒントを使う場合は、ユーザーがヒントをオフにできるようにします。
 
 ## <a name="example"></a>例

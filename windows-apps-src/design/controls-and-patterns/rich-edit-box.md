@@ -11,12 +11,12 @@ pm-contact: miguelrb
 design-contact: ksulliv
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: d3acd69b2b0e3a1bd97b6aa917991d4b2c88d075
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: cf2eebdc97a1052dd3f4a3e00dd3a911cb80bace
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80081587"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970667"
 ---
 # <a name="rich-edit-box"></a>リッチ エディット ボックス
 
@@ -26,11 +26,11 @@ ms.locfileid: "80081587"
 
 |  |  |
 | - | - |
-| ![WinUI ロゴ](images/winui-logo-64x64.png) | Windows UI ライブラリ 2.2 以降には、丸めた角を使用するこのコントロールの新しいテンプレートが含まれます。 詳しくは、「[角の半径](/windows/uwp/design/style/rounded-corner)」をご覧ください。 WinUI は、UWP アプリの新しいコントロールと UI 機能が含まれる NuGet パッケージです。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | Windows UI ライブラリ 2.2 以降には、丸めた角を使用するこのコントロールの新しいテンプレートが含まれます。 詳しくは、「[角の半径](/windows/uwp/design/style/rounded-corner)」をご覧ください。 WinUI は、Windows アプリの新しいコントロールと UI 機能が含まれる NuGet パッケージです。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
 
 > **プラットフォーム API**: [RichEditBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RichEditBox)、[Document プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.richeditbox.document)、[IsReadOnly プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.richeditbox.isreadonly)、[IsSpellCheckEnabled プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.richeditbox.isspellcheckenabled)
 
-## <a name="is-this-the-right-control"></a>これは適切なコントロールですか? 
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 **RichEditBox** を使用して、テキスト ファイルを表示および編集します。 その他の標準的なテキスト入力ボックスを使用するように、RichEditBox を使用してアプリにユーザー入力を行わないでください。 代わりに、アプリとは別のテキスト ファイルを操作するために使用します。 通常は、RichEditBox に入力されたテキストを .rtf ファイルに保存します。
 -   複数行テキスト ボックスの主な目的が読み取り専用ドキュメントの作成 (ブログのエントリ、メール メッセージのコンテンツなど) であり、ドキュメントでリッチ テキストが必要な場合は、代わりに[リッチ テキスト ブロック](/windows/uwp/design/controls-and-patterns/rich-text-block)を使います。

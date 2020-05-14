@@ -12,12 +12,12 @@ design-contact: kimsea
 dev-contact: ranjeshj
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 75bc81f4295fb76f5a7cc61b3cadd1496f57dc4c
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 9896003fb1d55a2dbb57468848edd66a3d8d8d88
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80893482"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970397"
 ---
 # <a name="collections-and-lists"></a>コレクションとリスト
 
@@ -41,7 +41,7 @@ ms.locfileid: "80893482"
 
 この記事で説明されていないシナリオの 1 つは、コレクションをテーブルまたは複数の列で表示することです。 この形式でコレクションを表示する場合は、[Windows Community Toolkit](https://docs.microsoft.com/windows/communitytoolkit/) の [DataGrid コントロール](https://docs.microsoft.com/windows/communitytoolkit/controls/datagrid)の使用を検討してください。 
 
-> **Windows 10 Fall Creators Update - 動作の変更** 既定では、UWP アプリでは、アクティブ ペンは、選択の実行ではなく、リストのスクロール/パン (タッチ、タッチパッド、パッシブ ペンなどと同様に) をするようになりました。
+> **Windows 10 Fall Creators Update - 動作の変更** 既定では、Windows アプリでのアクティブなペンは、選択の実行ではなく、リストのスクロールやパンを (タッチ、タッチパッド、パッシブなペンなどと同様に) するようになりました。
 > アプリが以前の動作に依存している場合は、ペン スクロールを上書きして、以前の動作に戻すことができます。 詳しくは、[ScrollViewer クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.scrollviewer)の API リファレンス トピックをご覧ください。
 
 ## <a name="examples"></a>例
@@ -64,7 +64,7 @@ ms.locfileid: "80893482"
 
 リスト ビューは、通常、単一列の垂直方向に並べられたレイアウトで、テキストの多い項目を表現します。 それらを使用して、項目の分類、グループ ヘッダーの割り当て、項目のドラッグ アンド ドロップ、コンテンツの管理、および項目の順序変更を行うことができます。
 
-### <a name="is-this-the-right-control"></a>これは適切なコントロールですか? 
+### <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 リスト ビューは、次の用途で使います。
 
@@ -130,7 +130,7 @@ ms.locfileid: "80893482"
 
 グリッド ビューは、画像ベースのコンテンツのコレクションを配置および閲覧する場合に適しています。 グリッド ビュー レイアウトでは、スクロールが垂直方向、パンが水平方向で行われます。 項目はラップされたレイアウトで表示され、左から右、上から下への読み取り順序で表示されます。
 
-### <a name="is-this-the-right-control"></a>これは適切なコントロールですか? 
+### <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 リスト ビューは、次の用途で使います。
 
@@ -187,7 +187,7 @@ ms.locfileid: "80893482"
 
 フリップ ビューは、画像ベースのコンテンツ コレクションの閲覧に適しています。特に、一度に 1 つの画像のみを表示することを目的とするエクスペリエンスに適しています。 フリップ ビューでは、ユーザーがコレクション項目を (垂直方向または水平方向に) 移動させて "ページをめくるように表示" することができ、ユーザーの操作後に各項目が 1 つずつ表示されます。
 
-### <a name="is-this-the-right-control"></a>これは適切なコントロールですか? 
+### <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 フリップ ビューは、次の用途で使います。
 
@@ -229,7 +229,7 @@ ms.locfileid: "80893482"
 
 ツリー ビューは、はっきりと示す必要がある重要な階層が存在するテキストベースのコレクションを表示する場合に適しています。 ツリー ビューの項目は折りたたみ/展開可能であるビジュアル階層で表示されます。アイコンを使用して補完でき、ツリー ビュー間でドラッグ アンド ドロップできます。 ツリー ビューでは、N レベルの入れ子が可能です。
 
-### <a name="is-this-the-right-control"></a>これは適切なコントロールですか? 
+### <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 ツリー ビューは、次の用途で使います。
 
@@ -268,7 +268,7 @@ ms.locfileid: "80893482"
 
 ItemsRepeater は、このページに示された他のコレクション コントロールとは異なり、プロパティを定義せずに単にページに配置するだけでスタイルや対話機能が提供されることはありません。 ItemsRepeater は、どちらかといえば、開発者が独自のカスタム コレクション コントロールを作成するために使用できる構成要素であり、特にこの記事の他のコントロールの使用では実現できないコントロールを作成するために使用できます。 ItemsRepeater は、ニーズに合わせて調整できるデータ主導のハイパフォーマンス パネルです。
 
-### <a name="is-this-the-right-control"></a>これは適切なコントロールですか? 
+### <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 ItemsRepeater は、次に該当する場合に使用します。
 
