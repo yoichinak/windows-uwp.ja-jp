@@ -12,12 +12,12 @@ design-contact: kimsea
 dev-contact: mitra
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: b91ca2de98142bf267cc42b56fba14a49a87bb06
-ms.sourcegitcommit: af4050f69168c15b0afaaa8eea66a5ee38b88fed
+ms.openlocfilehash: 3fca2695cbb57375964beff0f8a3fd9be603228c
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80081235"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82968927"
 ---
 # <a name="check-boxes"></a>チェック ボックス
 
@@ -29,7 +29,7 @@ ms.locfileid: "80081235"
 
 |  |  |
 | - | - |
-| ![WinUI ロゴ](images/winui-logo-64x64.png) | Windows UI ライブラリ 2.2 以降には、丸めた角を使用するこのコントロールの新しいテンプレートが含まれます。 詳しくは、「[角の半径](/windows/uwp/design/style/rounded-corner)」をご覧ください。 WinUI は、UWP アプリの新しいコントロールと UI 機能が含まれる NuGet パッケージです。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | Windows UI ライブラリ 2.2 以降には、丸めた角を使用するこのコントロールの新しいテンプレートが含まれます。 詳しくは、「[角の半径](/windows/uwp/design/style/rounded-corner)」をご覧ください。 WinUI は、Windows アプリの新しいコントロールと UI 機能が含まれる NuGet パッケージです。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
 
 > **プラットフォーム API:** [CheckBox クラス](/uwp/api/Windows.UI.Xaml.Controls.CheckBox)、[Checked イベント](/uwp/api/windows.ui.xaml.controls.primitives.togglebutton.checked)、[IsChecked プロパティ](/uwp/api/windows.ui.xaml.controls.primitives.togglebutton.ischecked)
 
@@ -89,11 +89,33 @@ checkBox1.Content = "I agree to the terms of service.";
 
 ### <a name="bind-to-ischecked"></a>IsChecked にバインドする
 
-チェック ボックスがオンになっているかオフになっているかを判断するには、[IsChecked](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.togglebutton.ischecked) プロパティを使います。 IsChecked プロパティの値を他のバイナリ値にバインドできます。 ただし、IsChecked は [null 許容](https://docs.microsoft.com/dotnet/api/system.nullable-1)のブール値であるため、値コンバーターを使ってブール値にバインドする必要があります。
+チェック ボックスがオンになっているかオフになっているかを判断するには、[IsChecked](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.togglebutton.ischecked) プロパティを使います。 IsChecked プロパティの値を他のバイナリ値にバインドできます。
+ただし、IsChecked は [Null 許容](https://docs.microsoft.com/dotnet/api/system.nullable-1)のブール値であるため、キャストまたは値コンバーターを使ってブール型プロパティにバインドする必要があります。 これは、使用している実際のバインディングの種類によって異なります。考えられる各型については、次の例を参照してください。 
 
 次の例では、サービス条件に同意するためのチェック ボックスの **IsChecked** プロパティが送信ボタンの [IsEnabled](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.isenabled) プロパティにバインドされます。 送信ボタンは、サービス条件に同意した場合にのみ有効です。
 
-> 注&nbsp;&nbsp;ここには関連するコードのみ掲載しています。 データ バインディングと値コンバーターについて詳しくは、「[データ バインディングの概要](../../data-binding/data-binding-quickstart.md)」をご覧ください。
+#### <a name="using-xbind"></a>x:Bind の使用
+
+> 注&nbsp;&nbsp;ここには関連するコードのみ掲載しています。 データ バインディングについて詳しくは、「[データ バインディングの概要](../../data-binding/data-binding-quickstart.md)」をご覧ください。 特定の {x:Bind} の情報 (キャストなど) について詳しくは[こちら](https://docs.microsoft.com/windows/uwp/xaml-platform/x-bind-markup-extension)をご覧ください。
+
+```xaml
+<StackPanel Grid.Column="2" Margin="40">
+    <CheckBox x:Name="termsOfServiceCheckBox" Content="I agree to the terms of service."/>
+    <Button Content="Submit" 
+            IsEnabled="{x:Bind (x:Boolean)termsOfServiceCheckBox.IsChecked, Mode=OneWay}"/>
+</StackPanel>
+```
+
+チェック ボックスを**不確定**状態にもできる場合は、バインディングの [FallbackValue](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.fallbackvalue) プロパティを使用して、この状態を表すブール値を指定します。 この場合、[送信] ボタンも有効にしないようにします。
+
+```xaml
+<Button Content="Submit" 
+        IsEnabled="{x:Bind (x:Boolean)termsOfServiceCheckBox.IsChecked, Mode=OneWay, FallbackValue=False}"/>
+```
+
+#### <a name="using-xbind-or-binding"></a>x:Bind または Binding の使用
+
+> 注:&nbsp;&nbsp;ここには {x:Bind} を使用する関連コードのみ掲載しています。 {Binding} の例では、{x:Bind} を {Binding} に置き換えます。 データ バインディング、値コンバーター、{x:Bind} と {Binding} マークアップ拡張機能の相違点について詳しくは、「[データ バインディングの概要](../../data-binding/data-binding-quickstart.md)」をご覧ください。
 
 ```xaml
 ...
@@ -110,6 +132,7 @@ checkBox1.Content = "I agree to the terms of service.";
                         Converter={StaticResource NullableBooleanToBooleanConverter}, Mode=OneWay}"/>
 </StackPanel>
 ```
+
 
 ```csharp
 public class NullableBooleanToBooleanConverter : IValueConverter
