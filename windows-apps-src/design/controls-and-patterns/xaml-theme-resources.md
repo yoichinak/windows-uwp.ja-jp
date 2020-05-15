@@ -11,12 +11,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: f2097a35d87594251ed2c0a04be06ccdb705902f
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: fc05ce50c19a04d5b90d225746c9af6569f49bd3
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80249856"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970437"
 ---
 # <a name="xaml-theme-resources"></a>XAML テーマ リソース
 
@@ -57,7 +57,7 @@ XAML のテーマ リソースは、アクティブなシステム テーマに�
 
 XAML における *Windows 色見本*は、"Light"、"Dark"、"HighContrast" の各テーマの色のセットを組み合わせることで構成されます。 システム テーマを変更する場合でも、システム テーマを独自の XAML 要素に適用する場合でも、カラー リソースがどのように構成されるかを理解することが重要です。
 
-UWP アプリで色を適用する方法の詳細については、「[UWP アプリでの色使い](../style/color.md)」をご覧ください。
+Windows アプリで色を適用する方法について詳しくは、[Windows アプリでの色使い](../style/color.md)に関する記事をご覧ください。
 
 ### <a name="light-and-dark-theme-colors"></a>Light テーマと Dark テーマの色
 
@@ -147,7 +147,7 @@ XAML フレームワークには、"Light" と "Dark" のテーマに合わせ�
 
 ### <a name="windows-system-high-contrast-colors"></a>Windows システムのハイ コントラストの色
 
-XAML フレームワークによって提供されるリソースのセットのほかに、Windows のシステム パレットから派生するカラー値のセットがあります。 これらの色は、Windows ランタイムやユニバーサル Windows プラットフォーム (UWP) アプリに固有のものではありません。 しかし、"HighContrast" テーマでシステムが動作しているとき (およびアプリが実行されているとき) には、XAML [Brush](/uwp/api/Windows.UI.Xaml.Media.Brush) リソースの多くでこれらの色が使われます。 XAML フレームワークには、このようなシステム全体の色がキーを持つリソースとして用意されています。 これらのキーは、`SystemColor[name]Color` という名前付け形式に従います。
+XAML フレームワークによって提供されるリソースのセットのほかに、Windows のシステム パレットから派生するカラー値のセットがあります。 これらの色は、Windows ランタイムや Windows アプリに固有のものではありません。 しかし、"HighContrast" テーマでシステムが動作しているとき (およびアプリが実行されているとき) には、XAML [Brush](/uwp/api/Windows.UI.Xaml.Media.Brush) リソースの多くでこれらの色が使われます。 XAML フレームワークには、このようなシステム全体の色がキーを持つリソースとして用意されています。 これらのキーは、`SystemColor[name]Color` という名前付け形式に従います。
 
 次の表は、Windows システム パレットから派生したリソース オブジェクトとして XAML に用意されているシステム全体の色を示します。 "簡単操作での名前" 列は、その色が Windows の設定の UI でどのように表現されるかを示しています。 "HighContrast 簡易名" 列は、その色が XAML コモン コントロールにどのように適用されるかをひとことで表す単語になっています。 これは、後で説明するブラシの名前付け規則の一部として使われます。 "初期既定値" 列は、システムがハイ コントラストで動作していない場合に使われる値を示します。
 
@@ -224,7 +224,7 @@ themeresources.xaml ファイルには、UI 上のテキスト コンテナー (
 <TextBlock Text="Caption" Style="{StaticResource CaptionTextBlockStyle}"/>
 ```
 
-アプリで UWP 書体見本を使用する方法のガイダンスについては、「[UWP アプリの文字体裁](../style/typography.md)」をご覧ください。
+アプリで Windows 書体見本を使用する方法のガイダンスについては、「[Windows アプリの文字体裁](../style/typography.md)」をご覧ください。
 
 ### <a name="basetextblockstyle"></a>BaseTextBlockStyle
 

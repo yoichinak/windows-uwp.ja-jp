@@ -12,12 +12,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 3fe1389e3c3db28f834217b4f163c48633c32d14
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 68ca40a48b8b8d04bcd8b01584856233e9a99e7c
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "71340169"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970207"
 ---
 # <a name="boxpanel-an-example-custom-panel"></a>BoxPanel、カスタム パネルの例
 
@@ -47,7 +47,7 @@ ms.locfileid: "71340169"
 
 まず、[**Panel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Panel) からカスタム クラスを派生させます。 このために最も簡単と思われる方法は、このクラスのための別のコード ファイルを定義することです。これには、Microsoft Visual Studio の**ソリューション エクスプローラー**でプロジェクトに対してコンテキスト メニューの **[追加]**  |  **[新しい項目]**  |  **[クラス]** をクリックします。 このクラス (とファイル) に、`BoxPanel` という名前を付けます。
 
-クラスのテンプレート ファイルが、多くの **using** ステートメントで始まることはありません。このステートメントは、特にユニバーサル Windows プラットフォーム (UWP) アプリ用ではないためです。 まず、**using** ステートメントを追加します。 また、テンプレート ファイルはいくつかの **using** ステートメントで始まっていますが、おそらく不要と思われるため、削除することができます。 次に示すのは、一般的なカスタム パネル コードに必要となる型を解決できる **using** ステートメントの候補の一覧です。
+クラスのテンプレート ファイルは、特に Windows アプリ用ではないため、多くの **using** ステートメントで始まることはありません。 まず、**using** ステートメントを追加します。 また、テンプレート ファイルはいくつかの **using** ステートメントで始まっていますが、おそらく不要と思われるため、削除することができます。 次に示すのは、一般的なカスタム パネル コードに必要となる型を解決できる **using** ステートメントの候補の一覧です。
 
 ```CSharp
 using System;

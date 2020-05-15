@@ -1,16 +1,16 @@
 ---
 Description: レイアウト パネルを使って、アプリの UI 要素を配置し、グループ化します。
-title: ユニバーサル Windows プラットフォーム (UWP) アプリのレイアウト パネル
+title: Windows アプリのレイアウト パネル
 ms.date: 04/02/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 9322ba847aeb7eb64c2654e1105582478a0d3b47
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 68aceb1fe4b0136bac9f8ff342f079f0dc23c1c7
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79210208"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970947"
 ---
 # <a name="layout-panels"></a>レイアウト パネル
 
@@ -182,7 +182,7 @@ StackPanel では、子要素のサイズを明示的に設定しない場合、
 
 **Auto** サイズ変更またはスター サイズ指定を使うと、列または行内でスペースを分散できます。 UI 要素がコンテンツや親コンテナーに合わせてサイズ変更できるようにするには、自動サイズ変更を使います。 グリッドの行と列を使って、自動サイズ変更を行うこともできます。 自動サイズ変更を使うには、UI 要素の Height や Width を **Auto** に設定します。
 
-比例サイズ変更 (*スター サイズ指定*とも呼ばれる) を使うと、使用可能なスペースが加重比率によりグリッドの行と列の間で分散されます。 XAML では、スター値は \* (重み付きのスター サイズ指定の場合は *n*\*) として表されます。 たとえば、2 段組レイアウトで 1 つの列と、幅が 5 倍の列とを指定するには、\*\*ColumnDefinition[**要素の**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.columndefinition.width)Width[ **プロパティで "5**" と "](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ColumnDefinition)" を使います。
+比例サイズ変更 (*スター サイズ指定*とも呼ばれる) を使うと、使用可能なスペースが加重比率によりグリッドの行と列の間で分散されます。 XAML では、スター値は \* (重み付きのスター サイズ指定の場合は *n*\*) として表されます。 たとえば、2 段組レイアウトで 1 つの列と、幅が 5 倍の列とを指定するには、[**ColumnDefinition**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ColumnDefinition) 要素の [**Width**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.columndefinition.width) プロパティで "5\*" と "\*" を使います。
 
 次の例では、4 つの列を含む [**Grid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid) で、固定、自動、比例サイズ指定を組み合わせています。
 
@@ -270,8 +270,8 @@ Canvas パネルは慎重に使用する必要があります。 UI 要素の位
 
 ## <a name="panels-for-itemscontrol"></a>ItemsControl 用のパネル
 
-[  **ItemsControl**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemspanel) に項目を表示するための [**ItemsPanel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ItemsControl) としてのみ使用できる特殊な用途のパネルがいくつかあります。 このようなパネルには、[**ItemsStackPanel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ItemsStackPanel)、[**ItemsWrapGrid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ItemsWrapGrid)、[**VirtualizingStackPanel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.VirtualizingStackPanel)、[**WrapGrid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.WrapGrid) があります。 一般的な UI のレイアウトに、これらのパネルを使うことはできません。
+[  **ItemsControl**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ItemsControl) に項目を表示するための [**ItemsPanel**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemspanel) としてのみ使用できる特殊な用途のパネルがいくつかあります。 このようなパネルには、[**ItemsStackPanel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ItemsStackPanel)、[**ItemsWrapGrid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ItemsWrapGrid)、[**VirtualizingStackPanel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.VirtualizingStackPanel)、[**WrapGrid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.WrapGrid) があります。 一般的な UI のレイアウトに、これらのパネルを使うことはできません。
 
-## <a name="get-the-sample-code"></a>サンプル コードを入手する
+## <a name="get-the-sample-code"></a>サンプル コードの入手
 
 - [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - インタラクティブな形で XAML コントロールのすべてを参照できます。

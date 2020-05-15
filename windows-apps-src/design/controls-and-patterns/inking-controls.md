@@ -8,18 +8,18 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 97eae5f3-c16b-4aa5-b4a1-dd892cf32ead
 ms.localizationpriority: medium
-ms.openlocfilehash: 892e8e9bdeed562a83e566266a7391e9c24b2ad3
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 848d682b2672e1a397e3ac867ae981c707873e8e
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80081726"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970417"
 ---
 # <a name="inking-controls"></a>インク コントロール
 
 
 
-ユニバーサル Windows プラットフォーム (UWP) アプリでの手書き入力を容易にする、[InkCanvas](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas) と [InkToolbar](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar) という 2 つのコントロールがあります。
+Windows アプリでの手描き入力を容易にする、[InkCanvas](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas) と [InkToolbar](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar) という 2 つのコントロールがあります。
 
 InkCanvas コントロールは、インク ストローク (色と太さの既定の設定を使用) か消去ストロークのいずれかとしてペン入力をレンダリングします。 このコントロールは透明なオーバーレイで、インク ストロークの既定のプロパティを変更するための組み込みの UI は含まれていません。
 
@@ -38,7 +38,7 @@ InkCanvas コントロールにはインク ストロークの既定の設定を
 > **重要な API**:[InkCanvas クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas)、[InkToolbar クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar)、[InkPresenter クラス](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkpresenter)、[Windows.UI.Input.Inking](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking)
 
 
-## <a name="is-this-the-right-control"></a>これは適切なコントロールですか? 
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 ユーザーにインク設定を提供せずに、アプリで基本的な手書き入力機能を有効にする必要がある場合、InkCanvas を使います。
 
@@ -84,7 +84,7 @@ InkCanvas と InkToolbar は、**Windows Ink ワークスペース**の**スケ�
 ```
 
 > [!NOTE]
-> InkPresenter 使った InkCanvas のカスタマイズについて詳しくは、[「UWP アプリでのペン操作と Windows Ink」](https://docs.microsoft.com/windows/uwp/design/input/pen-and-stylus-interactions)の記事をご覧ください。
+> InkPresenter を使った InkCanvas のカスタマイズについて詳しくは、[Windows アプリでのペン操作と Windows Ink](https://docs.microsoft.com/windows/uwp/design/input/pen-and-stylus-interactions) に関する記事をご覧ください。
 
 InkToolbar コントロールは、InkCanvas と組み合わせて使う必要があります。 InkToolbar (組み込みのすべてのツールが含まれています) をアプリに組み込むには、さらに次の 1 行のマークアップを追加する必要があります。
 
@@ -137,13 +137,13 @@ InkToolbar は、次のような 2 つの異なるボタンの種類のグルー
 - カスタム トグル – アプリで定義された機能の状態をオンまたはオフに設定します。 オンにすると、機能はアクティブなツールと連携して動作します。
 
 > [!NOTE]
-> 組み込みのボタンの表示順序を変更することはできません。 既定の表示順序は、次のとおりです: ボールペン、鉛筆、蛍光ペン、消しゴム、ルーラー。 カスタム ペンは最後の既定のペンに追加され、カスタム ツール ボタンは最後のペン ボタンと消しゴム ボタンの間に追加され、カスタム トグル ボタンはルーラー ボタンの後に追加されます  (カスタム ボタンは、指定されている順序で追加されます)。
+> 組み込みのボタンの表示順序を変更することはできません。 既定の表示順序は、次のとおりです: ボールペン、鉛筆、蛍光ペン、消しゴム、ルーラー。 カスタム ペンは最後の既定のペンに追加され、カスタム ツール ボタンは最後のペン ボタンと消しゴム ボタンの間に追加され、カスタム トグル ボタンはルーラー ボタンの後に追加されます (カスタム ボタンは、指定されている順序で追加されます)。
 
 InkToolbar はトップ レベルの項目にすることもできますが、通常は "手書き入力" ボタンまたはコマンドを使って公開されます。 Segoe MLD2 アセット フォントの EE56 グリフをトップ レベルのアイコンとして使うことをお勧めします。
 
 ## <a name="inktoolbar-interaction"></a>InkToolbar の操作
 
-組み込みのすべてのペン ボタンとツール ボタンには、インクのプロパティと、ペン先の形状とサイズを設定できるポップアップ メニューが含まれています。 ポップアップがあることを示すために、ボタンには "拡張グリフ"  ![InkToolbar グリフ](images/ink-tools-glyph.png)  が表示されます。
+組み込みのすべてのペン ボタンとツール ボタンには、インクのプロパティと、ペン先の形状とサイズを設定できるポップアップ メニューが含まれています。 ポップアップがあることを示すために、ボタンには "拡張グリフ" ![InkToolbar グリフ](images/ink-tools-glyph.png) が表示されます。
 
 ポップアップは、アクティブなツールのボタンが再選択されたときに表示されます。 色やサイズが変更されると、ポップアップは自動的に閉じられ、手書き入力を再開できます。 カスタム ペンやカスタム ツールでは、既定のポップアップを使うことも、カスタム ポップアップを指定することもできます。
 
@@ -170,6 +170,6 @@ InkToolbar はトップ レベルの項目にすることもできますが、�
 
 ## <a name="related-articles"></a>関連記事
 
-- [UWP アプリでのペン操作と Windows Ink](https://docs.microsoft.com/windows/uwp/design/input/pen-and-stylus-interactions)
+- [Windows アプリでのペン操作と Windows Ink](https://docs.microsoft.com/windows/uwp/design/input/pen-and-stylus-interactions)
 - [Windows Ink のストロークをテキストおよび図形として認識する](https://docs.microsoft.com/windows/uwp/design/input/convert-ink-to-text)
 - [Windows Ink ストローク データの保存と取得](https://docs.microsoft.com/windows/uwp/design/input/save-and-load-ink)

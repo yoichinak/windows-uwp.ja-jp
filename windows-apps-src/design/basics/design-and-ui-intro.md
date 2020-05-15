@@ -1,24 +1,24 @@
 ---
 Description: すべての UWP アプリに含まれているユニバーサル デザイン機能は、さまざまなデバイス間で美しく拡大縮小されるアプリを構築するのに役立ちます。
-title: ユニバーサル Windows プラットフォーム (UWP) アプリ設計の概要 (Windows アプリ)
+title: Windows アプリ デザインの概要 (Windows アプリ)
 ms.assetid: 50A5605E-3A91-41DB-800A-9180717C1E86
 ms.date: 05/05/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 8568a4613b5bb62b98edc7edd302a42153e5e33b
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: d0e7ad60e8c709cf4a7b075b1d7307bbd61ed79c
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79209317"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82969357"
 ---
 # <a name="introduction-to-uwp-app-design"></a>UWP アプリ設計の概要
 
 ![サンプルの照明アプリ](images/introUWP-header.jpg)
 
-ユニバーサル Windows プラットフォーム (UWP) の設計ガイダンスは、美しく洗練されたアプリを設計および構築するのに役立つリソースです。
+Windows アプリのデザイン ガイダンスは、美しく洗練されたアプリをデザインおよび構築するのに役立つリソースです。
 
 これは規範的な規則の一覧ではなく、進化する [Fluent Design System](/windows/apps/fluent-design-system)、およびアプリ構築コミュニティのニーズに適応するように設計された生きたドキュメントです。
 
@@ -26,7 +26,7 @@ ms.locfileid: "79209317"
 
 ## <a name="effective-pixels-and-scaling"></a>有効ピクセルとスケーリング
 
-UWP アプリは、テレビからタブレットまたは PC まで、すべての [Windows 10 デバイス](../devices/index.md)で実行されます。 それでは、さまざまなデバイスや画面サイズで見栄えの良い UI をどのように設計しますか? 
+UWP アプリは、テレビからタブレットまたは PC まで、すべての [Windows 10 デバイス](../devices/index.md)で実行されます。 それでは、さまざまなデバイスや画面サイズで見栄えの良い UI をどのように設計しますか?
 
 ![さまざまなデバイス上にある同じアプリ](images/universal-image-1.jpg)
 
@@ -49,7 +49,7 @@ UWP は、すべてのデバイスと画面サイズで読みやすく、操作�
     :::column span:::
 UWP アプリでは、UI 要素のサイズ、余白、および位置は、必ず **4 epx の倍数**にする必要があります。
 
-UWP のスケールはデバイスによって異なり、100%、125%、150%、175%、200%、225%、250%、300%、350%、および 400% のスケール プラトーがあります。 基本単位は 4 になりますが、これは、整数以外の数値によってスケーリングできる唯一の整数であるためです (例: 4*1.5 = 6)。 4 の倍数の使用によってすべての UI 要素のピクセル全体が整列し、UI 要素のエッジがすっきりとシャープになります  (この要件はテキストには適用されません。テキストのサイズと位置に制限はありません)。
+UWP のスケールはデバイスによって異なり、100%、125%、150%、175%、200%、225%、250%、300%、350%、および 400% のスケール プラトーがあります。 基本単位は 4 になりますが、これは、整数以外の数値によってスケーリングできる唯一の整数であるためです (例: 4*1.5 = 6)。 4 の倍数の使用によってすべての UI 要素のピクセル全体が整列し、UI 要素のエッジがすっきりとシャープになります (この要件はテキストには適用されません。テキストのサイズと位置に制限はありません)。
     :::column-end:::
     :::column:::
 ![グリッド](images/4epx.svg)
@@ -64,7 +64,7 @@ UWP アプリは、すべてのデバイスに合わせて自動的に拡大縮�
 
 :::row:::
     :::column:::
-Windows 10 デバイスで UWP アプリが起動されると、[フレーム](/uwp/api/windows.ui.xaml.window)がある[ウィンドウ](/uwp/api/windows.ui.xaml.controls.frame)で起動し、[ページ](/uwp/api/windows.ui.xaml.controls.page) インスタンス間を移動できます。
+Windows 10 デバイスで UWP アプリが起動されると、[フレーム](/uwp/api/windows.ui.xaml.controls.frame)がある[ウィンドウ](/uwp/api/windows.ui.xaml.window)で起動し、[ページ](/uwp/api/windows.ui.xaml.controls.page) インスタンス間を移動できます。
     :::column-end:::
     :::column:::
 ![Frame](images/frame.svg)
@@ -170,7 +170,7 @@ UWP アプリではスマート操作が使用されます。 クリックの発
 
 > [!VIDEO https://channel9.msdn.com/Blogs/One-Dev-Minute/Designing-Universal-Windows-Platform-apps/player]
 
-## <a name="next-fluent-design-system"></a>次: Fluent Design System
+## <a name="next-fluent-design-system"></a>次へ: Fluent Design System
 
 Fluent Design (Microsoft のデザイン システム) の背後にある原則や、UWP アプリに組み込むことができる多くの機能について確認する場合は、引き続き「[Fluent Design System](/windows/apps/fluent-design-system)」をご覧ください。
 

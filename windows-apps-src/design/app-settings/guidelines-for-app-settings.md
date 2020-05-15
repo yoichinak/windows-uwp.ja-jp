@@ -8,16 +8,16 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: c08dad36929c7889f1896404df862230040e3499
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 9c35bc6cfcf36543482bcb42d0ccda7fd3102ac9
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "72163705"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970037"
 ---
 # <a name="guidelines-for-app-settings"></a>アプリ設定のガイドライン
 
-アプリ設定は、ユニバーサル Windows プラットフォーム (UWP) アプリの中で、ユーザーによるカスタマイズが可能な部分であり、アプリ設定ページからアクセスします。 たとえば、ニュース リーダー アプリでは、表示するニュース ソースや画面に表示する記事の数を指定できる場合があります。また、天気予報アプリでは、摂氏または華氏を選ぶことができます。 この記事では、アプリ設定の作成と表示に関する推奨事項とベスト プラクティスを示します。
+アプリ設定は、Windows アプリの中でもユーザーによるカスタマイズが可能な部分であり、アプリ設定ページからアクセスします。 たとえば、ニュース リーダー アプリでは、表示するニュース ソースや画面に表示する記事の数を指定できる場合があります。また、天気予報アプリでは、摂氏または華氏を選ぶことができます。 この記事では、アプリ設定の作成と表示に関する推奨事項とベスト プラクティスを示します。
 
 ## <a name="when-to-provide-a-settings-page"></a>設定ページを提供する場面
 

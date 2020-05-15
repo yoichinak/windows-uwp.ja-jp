@@ -12,12 +12,12 @@ dev-contact: llongley
 doc-status: Draft
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 6b85177e5d3d0f4a2a37010ba9122861216a4b6b
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 9388df4159d7e9acd68c75163465339183b41314
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80081955"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82968797"
 ---
 # <a name="command-bar-flyout"></a>コマンド バーのポップアップ
 
@@ -30,13 +30,13 @@ ms.locfileid: "80081955"
 コマンド バーのポップアップには、"*折りたたみ*" と "*展開*" の 2 つの表示モードがあります。
 
 - 折りたたみモードでは、プライマリ コマンドのみが表示されます。 コマンド バーのポップアップにプライマリとセカンダリの両方のコマンドが含まれる場合は、省略記号 \[***\] によって表される "see more" (詳細表示) ボタンが表示されます。 これにより、ユーザーは展開モードに切り替えることでセカンダリ コマンドにアクセスできます。
-- 展開モードでは、プライマリとセカンダリの両方のコマンドが表示されます  (コントロールにセカンダリ項目のみが含まれる場合、それらの項目は MenuFlyout コントロールと同様の方法で表示されます)。
+- 展開モードでは、プライマリとセカンダリの両方のコマンドが表示されます (コントロールにセカンダリ項目のみが含まれる場合、それらの項目は MenuFlyout コントロールと同様の方法で表示されます)。
 
 **Windows UI ライブラリを入手する**
 
 |  |  |
 | - | - |
-| ![WinUI ロゴ](images/winui-logo-64x64.png) | **CommandBarFlyout** コントロールは、Windows UI ライブラリの NuGet パッケージの一部として組み込まれており、パッケージには、UWP アプリの新しいコントロールと UI 機能が含まれています。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | **CommandBarFlyout** コントロールは、Windows アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリの一部として含まれています。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
 
 >**Windows UI ライブラリ API**: [CommandBarFlyout クラス](/uwp/api/microsoft.ui.xaml.controls.commandbarflyout)、[TextCommandBarFlyout クラス](/uwp/api/microsoft.ui.xaml.controls.textcommandbarflyout)
 >
@@ -44,7 +44,7 @@ ms.locfileid: "80081955"
 >
 > CommandBarFlyout には、Windows 10 Version 1809 ([SDK 17763](https://developer.microsoft.com/windows/downloads/windows-10-sdk)) 以降、または [Windows UI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)が必要です。
 
-## <a name="is-this-the-right-control"></a>これは適切なコントロールですか? 
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 アプリ キャンバス上の要素のコンテキスト内でボタンやメニュー項目などのコマンドのコレクションをユーザーに表示するには、CommandBarFlyout コントロールを使用します。
 
@@ -417,5 +417,5 @@ TextCommandBarFlyout はカスタマイズできず、各テキスト コント�
 
 ## <a name="related-articles"></a>関連記事
 
-- [UWP アプリのコマンド設計の基本](../basics/commanding-basics.md)
+- [Windows アプリのコマンド デザインの基本](../basics/commanding-basics.md)
 - [CommandBar クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CommandBar)

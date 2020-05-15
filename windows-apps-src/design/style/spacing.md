@@ -6,16 +6,16 @@ ms.date: 04/19/2019
 ms.topic: article
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: 08853a201eff063b49dcc69d5827c9b54e324b75
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 5bcc7d45646651cdb60228a3c08123378eedb960
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75684870"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970617"
 ---
 # <a name="control-size-and-density"></a>コントロールのサイズと密度
 
-コントロールのサイズと密度の組み合わせを使って、ユニバーサル Windows プラットフォーム (UWP) アプリケーションを最適化し、アプリの機能と対話の要件に最適なユーザー エクスペリエンスを提供します。
+コントロールのサイズと密度の組み合わせを使って、Windows アプリを最適化し、アプリの機能と対話の要件に最適なユーザー エクスペリエンスを提供します。
 
 既定では、UWP アプリは低密度 (または `Standard`) のレイアウトでレンダリングされます。 ただし、WinUI 2.1 以降では、情報量の多い UI や同様の特殊なシナリオのための高密度 (または`Compact`) レイアウト オプションもサポートされます。 これは、基本的なスタイル リソースで指定できます (次の例を参照)。
 
@@ -44,7 +44,7 @@ ms.locfileid: "75684870"
 **Standard サイズは、タッチ入力とポインター入力の両方に対応するように設計されています。**
 
 > [!NOTE]
->有効ピクセルとスケーリングについて詳しくは、「[UWP アプリ設計の概要](../basics/design-and-ui-intro.md#effective-pixels-and-scaling)」をご覧ください
+>有効ピクセルとスケーリングについて詳しくは、[Windows アプリ デザインの概要](../basics/design-and-ui-intro.md#effective-pixels-and-scaling)に関するページをご覧ください。
 >
 > システム レベルのスケーリングについて詳しくは、「[配置、余白、パディング](../layout/alignment-margin-padding.md)」をご覧ください。
 

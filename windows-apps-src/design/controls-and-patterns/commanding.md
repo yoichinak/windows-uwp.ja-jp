@@ -1,19 +1,19 @@
 ---
-title: ユニバーサル Windows プラットフォーム (UWP) アプリのコマンド処理
+title: Windows アプリでのコマンド実行
 description: XamlUICommand クラスと StandardUICommand クラスを (ICommand インターフェイスと共に) 使用し、使用しているデバイスや入力の種類に関係なく、さまざまな型のコントロール型でコマンドを共有し、管理する方法。
 ms.service: ''
 ms.topic: overview
 ms.date: 09/13/2019
-ms.openlocfilehash: 2ad2a84a78006eafcdfa47d1faef533bea2224ff
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 24df2f6c67fe5a501461d5ce5e9c18a147c54672
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81123603"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82968767"
 ---
-# <a name="commanding-in-universal-windows-platform-uwp-apps-using-standarduicommand-xamluicommand-and-icommand"></a>StandardUICommand、XamlUICommand、ICommand を使用するユニバーサル Windows プラットフォーム (UWP) アプリのコマンド処理
+# <a name="commanding-in-windows-app-apps-using-standarduicommand-xamluicommand-and-icommand"></a>StandardUICommand、XamlUICommand、ICommand を使用する Windows アプリのコマンド実行
 
-このトピックでは、ユニバーサル Windows プラットフォーム (UWP) アプリケーションのコマンド処理について説明します。 具体的には、[XamlUICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.xamluicommand) クラスと [StandardUICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.standarduicommand) クラスを (ICommand インターフェイスと共に) 使用し、使用しているデバイスや入力の種類に関係なく、さまざまな型のコントロールでコマンドを共有し、管理する方法について説明します。
+このトピックでは、Windows アプリでのコマンド実行について説明します。 具体的には、[XamlUICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.xamluicommand) クラスと [StandardUICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.standarduicommand) クラスを (ICommand インターフェイスと共に) 使用し、使用しているデバイスや入力の種類に関係なく、さまざまな型のコントロールでコマンドを共有し、管理する方法について説明します。
 
 ![共有コマンドで共通する使用方法を表す図: 複数の UI サーフェスと "お気に入り" コマンド](images/commanding/generic-commanding.png)
 
@@ -67,9 +67,9 @@ ms.locfileid: "81123603"
 
 **コンテキスト メニューを常に提供する** 従来のコンテキスト コマンドまたは CommandBarFlyout に関連するすべてのコンテキスト コマンドを含めることをお勧めします。いずれも、入力の種類を問わず、サポートされています。 たとえば、ポインターのホバー イベント中にのみコマンドが公開される場合、タッチ専用デバイスでは利用できません。
 
-## <a name="commands-in-uwp-applications"></a>UWP アプリケーションのコマンド
+## <a name="commands-in-windows-applications"></a>Windows アプリケーションのコマンド
 
-UWP アプリケーションのコマンド処理方法は、いくつかの方法で共有し、管理できます。 分離コードで、クリックなど、標準的な操作にイベント ハンドラーを定義したり (UI の複雑度によっては、かなり非効率的になることがあります)、標準的な操作のイベント リスナーを共有ハンドラーにバインドしたり、コマンド ロジックを表す ICommand 実装にコントロールの Command プロパティをバインドしたりできます。
+Windows アプリケーションのコマンド実行エクスペリエンスは、いくつかの方法で共有および管理できます。 分離コードで、クリックなど、標準的な操作にイベント ハンドラーを定義したり (UI の複雑度によっては、かなり非効率的になることがあります)、標準的な操作のイベント リスナーを共有ハンドラーにバインドしたり、コマンド ロジックを表す ICommand 実装にコントロールの Command プロパティをバインドしたりできます。
 
 コマンド サーフェス全体で、機能が豊富で包括的なユーザー エクスペリエンスを効率的かつ、コード重複を最小限に抑えて提供するには、このトピックで説明するコマンド バインド機能を利用することをお勧めします (標準的なイベント処理については、個々のイベント トピックをご覧ください)。
 
@@ -614,7 +614,7 @@ private void ListViewSwipeContainer_PointerExited(object sender, PointerRoutedEv
 
 ## <a name="command-experiences-using-the-icommand-interface"></a>ICommand インターフェイスを使用したコマンド エクスペリエンス
 
-標準の UWP コントロール (ボタン、リスト、選択、暦、予測テキスト) からは、さまざまな共通コマンド操作の基本が提供されます。 コントロールの種類の完全一覧については、[UWP アプリのコントロールとパターン](index.md)に関するページを参照してください。
+標準の UWP コントロール (ボタン、リスト、選択、暦、予測テキスト) からは、さまざまな共通コマンド操作の基本が提供されます。 コントロールの種類の完全な一覧については、[Windows アプリのコントロールとパターン](index.md)に関するページをご覧ください。
 
 構造化されたコマンド処理をサポートする最も基本的な方法は、ICommand インターフェイスの実装を定義することです ([Windows.UI.Xaml.Input.ICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.icommand) for C++ または [System.Windows.Input.ICommand](https://docs.microsoft.com/dotnet/api/system.windows.input.icommand) for C#)。  この ICommand インスタンスはその後、ボタンなどのコントロールにバインドできます。
 
@@ -1087,7 +1087,7 @@ namespace UICommand1
 
 ユニバーサル Windows プラットフォームからは、コントロールの種類、デバイス、入力の種類を問わず、コマンドを共有し、管理するアプリを構築できる堅牢かつ柔軟なコマンド処理システムが与えられます。
 
-UWP アプリのコマンドを構築するときは、次の手法を使用してください。
+Windows アプリのコマンドを構築するときは、次の手法を使用してください。
 
 - XAML/分離コードのイベントを待ち受け、処理する
 - クリックなど、イベント処理メソッドにバインドする
@@ -1101,7 +1101,7 @@ UWP アプリのコマンドを構築するときは、次の手法を使用し�
 
 ## <a name="see-also"></a>関連項目
 
-[UWP アプリのコントロールとパターン](index.md)
+[Windows アプリのコントロールとパターン](index.md)
 
 ### <a name="samples"></a>サンプル
 

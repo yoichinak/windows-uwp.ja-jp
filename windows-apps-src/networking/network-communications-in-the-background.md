@@ -6,16 +6,20 @@ ms.date: 06/14/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 8db29561afa06a2f6a2be67565d59e9387240d1c
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 29c6609a2e57abede7fe606be8c028e503270d4c
+ms.sourcegitcommit: f910b29d35ac7afd0b759640bcac1d2fee399b3d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74259195"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82973278"
 ---
 # <a name="network-communications-in-the-background"></a>バックグラウンドでのネットワーク通信
+
+> [!NOTE]
+> **一部の情報はリリース前の製品に関する事項であり、正式版がリリースされるまでに大幅に変更される可能性があります。ここに記載された情報について、Microsoft は明示または黙示を問わずいかなる保証をするものでもありません。**
+
 フォアグラウンドでないときにネットワーク通信を続けるため、アプリはバックグラウンド タスクと次のいずれかのオプションを使うことができます。
-- ソケット ブローカー:  長期的な接続にソケットを使うアプリは、フォアグラウンドから離れるときにソケットの所有権をシステムのソケット ブローカーに委任できます。 ブローカーは、トラフィックがソケットに到着したときにアプリをアクティブ化して所有権をアプリに戻し、その後にアプリが着信トラフィックを処理します。
+- ソケット ブローカー: 長期的な接続にソケットを使うアプリは、フォアグラウンドから離れるときにソケットの所有権をシステムのソケット ブローカーに委任できます。 ブローカーは、トラフィックがソケットに到着したときにアプリをアクティブ化して所有権をアプリに戻し、その後にアプリが着信トラフィックを処理します。
 - コントロール チャネル トリガー。 
 
 ## <a name="performing-network-operations-in-background-tasks"></a>バックグラウンド タスクでのネットワーク操作の実行
@@ -56,7 +60,7 @@ ms.locfileid: "74259195"
            await _tcpListener.BindServiceNameAsync("my-service-name");
 ```
 
-ソケットが正しくセットアップされたら、アプリが中断する直前に、ソケットで **TransferOwnership** を呼び出してソケット ブローカーに転送します。 ブローカーはソケットを監視し、データが受信されたらバックグラウンド タスクをアクティブにします。 次の例には、**StreamSocketListener** ソケットの転送を実行する **TransferOwnership** ユーティリティ関数が含まれています  (さまざまな種類の各ソケットに独自の **TransferOwnership** メソッドがあるため、転送する所有権を持つソケットに適したメソッドを呼び出す必要があります。 **OnSuspending** コードの読みやすさを維持するため、コードにはオーバーロードされた **TransferOwnership** ヘルパーを含め、使用するソケットの種類ごとに 1 つずつ実装することをお勧めします)。
+ソケットが正しくセットアップされたら、アプリが中断する直前に、ソケットで **TransferOwnership** を呼び出してソケット ブローカーに転送します。 ブローカーはソケットを監視し、データが受信されたらバックグラウンド タスクをアクティブにします。 次の例には、**StreamSocketListener** ソケットの転送を実行する **TransferOwnership** ユーティリティ関数が含まれています (さまざまな種類の各ソケットに独自の **TransferOwnership** メソッドがあるため、転送する所有権を持つソケットに適したメソッドを呼び出す必要があります。 **OnSuspending** コードの読みやすさを維持するため、コードにはオーバーロードされた **TransferOwnership** ヘルパーを含め、使用するソケットの種類ごとに 1 つずつ実装することをお勧めします)。
 
 アプリは、次のうち適切なメソッドを使って、ソケットの所有権をソケット ブローカーに転送し、バックグラウンド タスクの ID を渡します。
 -   [  **DatagramSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.DatagramSocket) の [**TransferOwnership**](https://docs.microsoft.com/uwp/api/windows.networking.sockets.datagramsocket.transferownership) メソッドのいずれか
@@ -160,6 +164,10 @@ case SocketActivityTriggerReason.SocketClosed:
 WebSocket、[**IXMLHTTPRequest2**](https://docs.microsoft.com/previous-versions/windows/desktop/api/msxml6/nn-msxml6-ixmlhttprequest2)、[**System.Net.Http.HttpClient**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpClient)、または [**Windows.Web.Http.HttpClient**](/uwp/api/windows.web.http.httpclient) を使っている場合は、[**ControlChannelTrigger**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) を使う必要があります。
 
 ## <a name="controlchanneltrigger-with-websockets"></a>ControlChannelTrigger と WebSocket
+
+> [!IMPORTANT]
+> このセクションで説明される機能 (**ControlChannelTrigger と WebSockets**) は、10.0.15063.0 およびそれ以前のバージョンの SDK でサポートされています。 また、これはプレリリース バージョンの [Windows 10 Insider Preview](https://www.microsoft.com/software-download/windowsinsiderpreviewSDK) でもサポートされています。
+
 [  **ControlChannelTrigger**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) で [**MessageWebSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.MessageWebSocket) または [**StreamWebSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamWebSocket) を使う場合は、特別な注意事項がいくつかあります。 **ControlChannelTrigger** で **MessageWebSocket** または **StreamWebSocket** を使う際には、トランスポート固有の使用パターンとベスト プラクティスに従う必要があります。 また、**StreamWebSocket** でパケットを受け取る要求の処理方法にも、これらの注意事項が関係します。 **MessageWebSocket** でパケットを受け取るための要求には影響しません。
 
 [  **ControlChannelTrigger**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) で [**MessageWebSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.MessageWebSocket) または [**StreamWebSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamWebSocket) を使う際に従う必要のある使用パターンとベスト プラクティスを次に示します。

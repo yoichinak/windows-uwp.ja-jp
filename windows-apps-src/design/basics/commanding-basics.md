@@ -1,6 +1,6 @@
 ---
-Description: ユニバーサル Windows プラットフォーム (UWP) アプリでは、コマンド要素は、ユーザーがメール送信、項目の削除、フォームの送信などのアクションを実行できる対話型の UI 要素です。
-title: ユニバーサル Windows プラットフォーム (UWP) アプリのコマンド設計の基本
+Description: Windows アプリのコマンド要素は、ユーザーがメール送信、項目の削除、フォームの送信などのアクションを実行できる対話型の UI 要素です。
+title: Windows アプリのコマンド デザインの基本
 ms.assetid: 1DB48285-07B7-4952-80EF-02B57D4469F2
 label: Command design basics
 template: detail.hbs
@@ -10,16 +10,16 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 6be51c274078d3b8db5ae50033bbf714ec4aa12a
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 26d649e5a27ae7eef0131964f5c277f3539da73f
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80081404"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82969377"
 ---
-# <a name="command-design-basics-for-uwp-apps"></a>UWP アプリのコマンド設計の基本
+# <a name="command-design-basics-for-windows-apps"></a>Windows アプリのコマンド デザインの基本
 
-ユニバーサル Windows プラットフォーム (UWP) アプリでは、"*コマンド要素*" は、ユーザーがメール送信、項目の削除、フォームの送信などのアクションを実行できる対話型の UI 要素です。 "*コマンド インターフェイス*" は、共通のコマンド要素、それをホストするコマンド サーフェス、サポートされている対話、提供されているエクスペリエンスで構成されます。
+Windows アプリの "*コマンド要素*" は、ユーザーがメール送信、項目の削除、フォームの送信などのアクションを実行できる対話型の UI 要素です。 "*コマンド インターフェイス*" は、共通のコマンド要素、それをホストするコマンド サーフェス、サポートされている対話、提供されているエクスペリエンスで構成されます。
 
 ## <a name="provide-the-best-command-experience"></a>最善のコマンド エクスペリエンスを提供する
 
@@ -33,7 +33,7 @@ ms.locfileid: "80081404"
 - ファイルを開く、保存する、削除する
 - コンテンツの編集または作成
 
-クリエイティブにコマンド エクスペリエンスを設計してください。 アプリでサポートする入力デバイスと、各デバイスに対するアプリでの対応方法を選択します。 最大限の範囲の機能と設定をサポートすることにより、アプリの使いやすさ、移植性、アクセシビリティが最大になります (詳しくは [Commanding design for Universal Windows Platform (UWP) apps (ユニバーサル Windows プラットフォーム (UWP) アプリ向けのコマンドのデザイン)](../controls-and-patterns/commanding.md) に関する記事を参照)。
+クリエイティブにコマンド エクスペリエンスを設計してください。 アプリでサポートする入力デバイスと、各デバイスに対するアプリでの対応方法を選択します。 幅広い機能と設定をサポートすることにより、アプリの使いやすさ、移植性、アクセシビリティを最大限に引き出せます (詳しくは、[Windows アプリ向けのコマンド デザイン](../controls-and-patterns/commanding.md)に関する記事をご覧ください)。
 
 
 
@@ -43,7 +43,7 @@ When designing a command interface, the most important decision is choosing what
 
 ## <a name="choose-the-right-command-elements"></a>適切なコマンド要素を選択する
 
-適切な要素をコマンド インターフェイスで使うことが、直感的で使いやすいアプリとなるか、使いにくくてややこしいアプリとなるかの分かれ目になります。 ユニバーサル Windows プラットフォーム (UWP) では、包括的なコマンド要素のセットを使用できます。 最も一般的な UWP のコマンド要素を次に示します。
+適切な要素をコマンド インターフェイスで使うことが、直感的で使いやすいアプリとなるか、使いにくくてややこしいアプリとなるかの分かれ目になります。 Windows アプリでは、包括的なコマンド要素のセットを使用できます。 最も一般的な UWP のコマンド要素を次に示します。
 
 :::row:::
     :::column:::

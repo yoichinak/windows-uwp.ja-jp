@@ -2,7 +2,7 @@
 Description: NavigationView は、ご利用のアプリの最上位のナビゲーション パターンを実装するアダプティブ コントロールです。
 title: ナビゲーション ビュー
 template: detail.hbs
-ms.date: 10/02/2018
+ms.date: 05/02/2020
 ms.topic: article
 keywords: windows 10, uwp
 pm-contact: yulikl
@@ -11,12 +11,12 @@ dev-contact: ''
 doc-status: Published
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 17eb1a2f24e9fd893fee1a0aff349989577375c7
-ms.sourcegitcommit: af4050f69168c15b0afaaa8eea66a5ee38b88fed
+ms.openlocfilehash: 85cd58233de0feeded449e55cb1175087a64e61d
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80081701"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970367"
 ---
 # <a name="navigation-view"></a>ナビゲーション ビュー
 
@@ -29,13 +29,13 @@ _ナビゲーション ビューでは上部と左側の両方のナビゲーシ
 
 |  |  |
 | - | - |
-| ![WinUI ロゴ](images/winui-logo-64x64.png) | **NavigationView** コントロールは、Windows UI ライブラリの NuGet パッケージの一部として組み込まれており、パッケージには、UWP アプリの新しいコントロールと UI 機能が含まれています。 インストール手順などの詳細については、[Windows UI ライブラリの概要](https://docs.microsoft.com/uwp/toolkits/winui/)に関するページを参照してください。 |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | **NavigationView** コントロールは、Windows アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリの一部として含まれています。 インストール手順などの詳細については、[Windows UI ライブラリの概要](https://docs.microsoft.com/uwp/toolkits/winui/)に関するページを参照してください。 |
 
 > **プラットフォーム API**: [Windows.UI.Xaml.Controls.NavigationView クラス](/uwp/api/windows.ui.xaml.controls.navigationview)
 >
 > **Windows UI ライブラリ API**: [Microsoft.UI.Xaml.Controls.NavigationView クラス](/uwp/api/microsoft.ui.xaml.controls.navigationview)
 >
-> _上部_のナビゲーションなどの NavigationView の一部の機能には、Windows 10 バージョン 1809 ([SDK 17763 ](https://developer.microsoft.com/windows/downloads/windows-10-sdk)) 以降、または [Windows UI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)が必要です。
+> "_上部_" や "_階層型_" のナビゲーションなど、NavigationView の一部の機能には、Windows 10 バージョン 1809 ([SDK 17763](https://developer.microsoft.com/windows/downloads/windows-10-sdk)) 以降、または [Windows UI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)が必要です。
 
 ## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
@@ -648,6 +648,242 @@ void MainPage::NavView_ItemInvoked(Windows::Foundation::IInspectable const & /* 
     }
 }
 ```
+## <a name="hierarchical-navigation"></a>階層型ナビゲーション
+アプリによっては、ナビゲーション項目の単純なリストだけでは対応しきれない、より複雑な階層構造が存在する場合があります。 最上位レベルのナビゲーション項目を使用してページのカテゴリを表示し、特定のページを子項目で表示することができます。 これは、他のページにリンクされているだけのハブスタイルのページがある場合にも便利です。 このような場合には、階層型の NavigationView を作成する必要があります。
+
+入れ子になったナビゲーション項目の階層型リストをペインに表示するには、**NavigationViewItem** の `MenuItems` プロパティか `MenuItemsSource` プロパティを使用します。
+各 NavigationViewItem には、他の NavigationViewItems と整理のための要素 (項目ヘッダーや区切り記号など) 含めることができます。 `MenuItemsSource` を使用するときに階層型リストを表示するには、`ItemTemplate` が NavigationViewItem になるように設定し、その `MenuItemsSource` プロパティを階層の次のレベルにバインドします。
+
+NavigationViewItem には入れ子になったレベルをいくつでも含めることができますが、アプリのナビゲーション階層は浅く保つことをお勧めします。 使いやすさと理解しやすさを考慮すると、レベルは 2 つが理想的でしょう。
+
+NavigationView では、Top、Left、LeftCompact のペイン表示モードで階層が表示されます。 各ペイン表示モードで展開されたサブツリーは次のようになります。
+
+![階層構造を備えた NavigationView](images/navigation-view-hierarchy-labeled.png)
+
+### <a name="adding-a-hierarchy-of-items-in-markup"></a>マークアップでの項目の階層の追加
+マークアップでアプリのナビゲーション階層を宣言します。
+
+```Xaml
+<!-- xmlns:muxc="using:Microsoft.UI.Xaml.Controls" -->
+<muxc:NavigationView>
+    <muxc:NavigationView.MenuItems>
+        <muxc:NavigationViewItem Content="Home" Icon="Home" ToolTipService.ToolTip="Home"/>
+        <muxc:NavigationViewItem Content="Collections" Icon="Keyboard" ToolTipService.ToolTip="Collections">
+            <muxc:NavigationViewItem.MenuItems>
+                <muxc:NavigationViewItem Content="Notes" Icon="Page" ToolTipService.ToolTip="Notes"/>
+                <muxc:NavigationViewItem Content="Mail" Icon="Mail" ToolTipService.ToolTip="Mail"/>
+            </muxc:NavigationViewItem.MenuItems>
+        </muxc:NavigationViewItem>
+    </muxc:NavigationView.MenuItems>
+</muxc:NavigationView>
+```
+
+### <a name="adding-a-hierarchy-of-items-using-data-binding"></a>データ バインディングを使用した項目の階層の追加
+
+メニュー項目の階層を NavigationView に追加する方法 
+* MenuItemsSource プロパティを階層型データにバインドする
+* 項目テンプレートを NavigationViewMenuItem として定義し、その内容をメニュー項目のラベルに設定し、その MenuItemsSource プロパティを階層の次のレベルにバインドする
+
+この例では、**展開**と**折りたたみ**のイベントも示されています。 これらのイベントは、子があるメニュー項目に対して発生します。
+
+```xaml
+<!-- xmlns:muxc="using:Microsoft.UI.Xaml.Controls" -->
+<DataTemplate x:Key="NavigationViewMenuItem" x:DataType="local:Category">
+    <muxc:NavigationViewItem Content="{x:Bind Name}" MenuItemsSource="{x:Bind Children}"/>
+</DataTemplate>
+<muxc:NavigationView x:Name="navview" 
+    MenuItemsSource="{x:Bind categories, Mode=OneWay}" 
+    MenuItemTemplate="{StaticResource NavigationViewMenuItem}" 
+    ItemInvoked="{x:Bind OnItemInvoked}" 
+    Expanding="OnItemExpanding" 
+    Collapsed="OnItemCollapsed" 
+    PaneDisplayMode="Left">
+    
+    <StackPanel Margin="10,10,0,0">
+        <TextBlock Margin="0,10,0,0" x:Name="ExpandingItemLabel" Text="Last Expanding: N/A"/>
+        <TextBlock x:Name="CollapsedItemLabel" Text="Last Collapsed: N/A"/>
+    </StackPanel>    
+</muxc:NavigationView>
+```
+
+```csharp
+public class Category
+{
+    public String Name { get; set; }
+    public String Icon { get; set; }
+    public ObservableCollection<Category> Children { get; set; }
+}
+    
+public sealed partial class HierarchicalNavigationViewDataBinding : Page
+{
+    public HierarchicalNavigationViewDataBinding()
+    {
+        this.InitializeComponent();
+    }  
+    
+    public ObservableCollection<Category> Categories = new ObservableCollection<Category>()
+    {
+        new Category(){
+            Name = "Menu Item 1",
+            Icon = "Icon",
+            Children = new ObservableCollection<Category>() {
+               new Category(){
+                    Name = "Menu Item 2",
+                    Icon = "Icon",
+                    Children = new ObservableCollection<Category>() {
+                        new Category() { 
+                            Name  = "Menu Item 2", 
+                            Icon = "Icon",
+                            Children = new ObservableCollection<Category>() {
+                                new Category() { Name  = "Menu Item 3", Icon = "Icon" },
+                                new Category() { Name  = "Menu Item 4", Icon = "Icon" }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        new Category(){
+            Name = "Menu Item 5",
+            Icon = "Icon",
+            Children = new ObservableCollection<Category>() {
+                new Category(){
+                    Name = "Menu Item 6",
+                    Icon = "Icon",
+                    Children = new ObservableCollection<Category>() {
+                        new Category() { Name  = "Menu Item 7", Icon = "Icon" },
+                        new Category() { Name  = "Menu Item 8", Icon = "Icon" }
+                    }
+                }
+            }
+        },
+        new Category(){ Name = "Menu Item 9", Icon = "Icon" }
+    };
+    private void OnItemInvoked(object sender, NavigationViewItemInvokedEventArgs e)
+    {
+        var clickedItem = e.InvokedItem;
+        var clickedItemContainer = e.InvokedItemContainer;
+    }
+    private void OnItemExpanding(object sender, NavigationViewItemExpandingEventArgs e)
+    {
+        var nvib = e.ExpandingItemContainer;
+        var name = "Last Expanding: " + nvib.Content.ToString();
+        ExpandingItemLabel.Text = name;
+    }
+    private void OnItemCollapsed(object sender, NavigationViewItemCollapsedEventArgs e)
+    {
+        var nvib = e.CollapsedItemContainer;
+        var name = "Last Collapsed: " + nvib.Content;
+        CollapsedItemLabel.Text = name;
+    }
+}
+```
+### <a name="selection"></a>選択
+既定では、すべての項目に対して子を含めることができるほか、呼び出し、選択を行えます。
+ナビゲーション オプションの階層型ツリーをユーザーに提供する場合、親項目を選択不可にすることができます。たとえば、アプリにその親項目に関連付けられたリンク先ページが存在しない場合などです。 親項目が選択可能 "_である_" 場合は、左展開または Top のペイン表示モードの使用をお勧めします。 LeftCompact モードでは、その呼び出しのたびにユーザーが子サブツリーを開くために親項目に移動することになります。
+
+項目を選択すると、選択インジケーターが Left モードの場合は左端に沿って、Top モードの場合は下端に合わせて表示されます。 親項目が選択されている Left モードおよび Top モードの NavigationViews を次に示します。
+
+![親が選択された状態の Left モードの NavigationView](images/navigation-view-selection.png)
+
+![親が選択された状態の Top モードの NavigationView](images/navigation-view-selection-top.png)
+
+選択した項目は、常に表示されたままとは限りません。 折りたたまれた、または展開されていないサブツリー内の子が選択された場合、最初に表示される先祖が選択済みとして表示されます。 サブツリーが展開されている場合または展開された場合、選択インジケーターは選択された項目に戻ります。
+
+たとえば、上の図では、ユーザーがカレンダー項目を選択した後、そのサブツリーを折りたたむことができます。 この場合、カレンダーで最初に表示される先祖はアカウントなので、選択インジケーターはアカウント項目の下に表示されます。 ユーザーがサブツリーを再度展開すると、選択インジケーターはカレンダー項目に戻ります。 
+
+NavigationView では、選択インジケーターは全体で 1 つだけ表示されます。
+
+Top と Left どちらのモードも、NavigationViewItems の矢印をクリックすると、サブツリーが展開されるか折りたたまれます。 NavigationViewItem の "_別の場所_" をクリックまたはタップすると、`ItemInvoked` イベントがトリガーされ、サブツリーも折りたたまれるか展開されます。
+
+項目が呼び出されたときに選択インジケーターが表示されないようにするには、その項目の [SelectsOnInvoked](https://docs.microsoft.com/uwp/api/microsoft.ui.xaml.controls.navigationviewitem.selectsoninvoked?view=winui-2.3) プロパティを次のように False に設定します。
+
+```xaml
+<!-- xmlns:muxc="using:Microsoft.UI.Xaml.Controls" -->
+<DataTemplate x:Key="NavigationViewMenuItem" x:DataType="local:Category">
+    <muxc:NavigationViewItem Content="{x:Bind Name}" 
+        MenuItemsSource="{x:Bind Children}"
+        SelectsOnInvoked="{x:Bind IsLeaf}" />
+</DataTemplate>
+<muxc:NavigationView x:Name="navview" 
+    MenuItemsSource="{x:Bind categories, Mode=OneWay}" 
+    MenuItemTemplate="{StaticResource NavigationViewMenuItem}">
+   
+</muxc:NavigationView>
+```
+
+```csharp
+public class Category
+{
+    public String Name { get; set; }
+    public String Icon { get; set; }
+    public ObservableCollection<Category> Children { get; set; }
+    public bool IsLeaf { get; set; }
+}
+    
+public sealed partial class HierarchicalNavigationViewDataBinding : Page
+{
+    public HierarchicalNavigationViewDataBinding()
+    {
+        this.InitializeComponent();
+    }      
+    
+    public ObservableCollection<Category> Categories = new ObservableCollection<Category>()
+    {
+        new Category(){
+            Name = "Menu Item 1",
+            Icon = "Icon",
+            Children = new ObservableCollection<Category>() {
+                new Category(){
+                    Name = "Menu Item 2",
+                    Icon = "Icon",
+                    Children = new ObservableCollection<Category>() {
+                        new Category() { 
+                            Name  = "Menu Item 2", 
+                            Icon = "Icon",
+                            Children = new ObservableCollection<Category>() {
+                                new Category() { Name  = "Menu Item 3", Icon = "Icon", IsLeaf = true },
+                                new Category() { Name  = "Menu Item 4", Icon = "Icon", IsLeaf = true }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        new Category(){
+            Name = "Menu Item 5",
+            Icon = "Icon",
+            Children = new ObservableCollection<Category>() {
+                new Category(){
+                    Name = "Menu Item 6",
+                    Icon = "Icon",
+                    Children = new ObservableCollection<Category>() {
+                        new Category() { Name  = "Menu Item 7", Icon = "Icon", IsLeaf = true },
+                        new Category() { Name  = "Menu Item 8", Icon = "Icon", IsLeaf = true }
+                    }
+                }
+            }
+        },
+        new Category(){ Name = "Menu Item 9", Icon = "Icon", IsLeaf = true }
+    };
+}
+```
+
+### <a name="keyboarding-within-hierarchical-navigationview"></a>階層型 NavigationView 内でのキーボード操作
+ユーザーは、[キーボード](https://docs.microsoft.com/windows/uwp/design/input/keyboard-interactions)を使用してナビゲーション ビューの周囲にフォーカスを移動できます。 方向キーはペイン内の "内部ナビゲーション" を表示し、[ツリー ビュー](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/tree-view)でのアクションに従います。 キー アクションは、NavigationView 内を移動するとき、または HierarchicalNavigationView の Top および LeftCompact モードで表示されるポップアップ メニュー内を移動するときに変更されます。 階層型の NavigationView で各キーが実行できる特定のアクションを次に示します。
+
+| キー      |      Left モード      |  Top モード | ポップアップ  |
+|----------|------------------------|--------------|------------|
+| ［上へ］ |現在フォーカスされている項目のすぐ上の項目にフォーカスを移動します。 | 何も実行しません。 |現在フォーカスされている項目のすぐ上の項目にフォーカスを移動します。|
+| ［下へ］|現在フォーカスされている項目のすぐ下にフォーカスを移動します。* | 何も実行しません。 | 現在フォーカスされている項目のすぐ下にフォーカスを移動します。* |
+| 権限 |何も実行しません。  |現在フォーカスされている項目の右隣の項目にフォーカスを移動します。 |何も実行しません。|
+| 左 |何も実行しません。 | 現在フォーカスされている項目の左隣の項目にフォーカスを移動します。  |何も実行しません。 |
+| Space または Enter |項目に子がある場合、フォーカスを変更せずに項目を展開するか折りたたみます。   | 項目に子がある場合、子をポップアップとして展開し、ポップアップの最初の項目にフォーカスを置きます。 | 項目を呼び出すか選択して、ポップアップを閉じます。 |
+| Esc | 何も実行しません。 | 何も実行しません。 | ポップアップを閉じます。|
+
+Space または Enter キーでは常に項目の呼び出しまたは選択を行います。
+
+\* 項目が視覚的に隣接している必要はありません。ペインの一覧の最後の項目にあるフォーカスは設定項目に移動します。 
 
 ## <a name="navigation-view-customization"></a>ナビゲーション ビューのカスタマイズ
 
@@ -744,4 +980,4 @@ NavigationView のヘッダー領域の位置をさらに調整するには、Pa
 - [NavigationView クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.navigationview)
 - [マスター/詳細](master-details.md)
 - [ナビゲーションの基本](../basics/navigation-basics.md)
-- [UWP 用 Fluent Design の概要](/windows/apps/fluent-design-system)
+- [Fluent Design の概要](/windows/apps/fluent-design-system)
