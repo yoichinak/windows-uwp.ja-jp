@@ -12,18 +12,18 @@ dev-contact: llongley
 doc-status: Draft
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 9388df4159d7e9acd68c75163465339183b41314
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: bdd18fea2fe563fcee835e6b61e24d6a9b03d029
+ms.sourcegitcommit: f945df77f8a19961ba053ee62e593ec8e015038f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 05/08/2020
-ms.locfileid: "82968797"
+ms.locfileid: "82989825"
 ---
 # <a name="command-bar-flyout"></a>コマンド バーのポップアップ
 
 コマンド バーのポップアップを使用すると、UI キャンバス上の要素に関連した移動可能なツールバーにコマンドを表示することによって、一般的なタスクへの簡単なアクセスをユーザーに提供できます。
 
-![展開されたテキスト コマンド バーのポップアップ](images/command-bar-flyout-header.png)
+![展開されたテキスト コマンド バーのポップアップ](images/command-bar-flyout-text-full.png)
 
 [CommandBar](app-bars.md) と同様に、CommandBarFlyout には、コマンドを追加するために使用できる **PrimaryCommands** プロパティと **SecondaryCommands** プロパティがあります。 コマンドは、どちらかまたは両方のコレクションに配置できます。 プライマリとセカンダリのコマンドが、どのような場合にどのような方法で表示されるかは、表示モードによって異なります。
 
