@@ -79,7 +79,7 @@ MainPage::MainPage()
 void MainPage::ClickHandler(IInspectable const& /* sender */, RoutedEventArgs const& /* args */) { ... }
 ```
 
-**RoutedEventHandler** の作成には他の方法もあります。 次に、[**RoutedEventHandler**](/uwp/api/windows.ui.xaml.routedeventhandler) のドキュメント内にある構文ブロックを示します (Web ページの右上の [*言語*] ドロップダウンから **[C++/WinRT]** を選択します)。 さまざまなコンストラクターがあることに注意してください。ラムダ、自由関数、メンバー関数へのオブジェクトとポインター (上記で使用したもの) を受け取ります。
+**RoutedEventHandler** の作成には他の方法もあります。 次に、[**RoutedEventHandler**](/uwp/api/windows.ui.xaml.routedeventhandler) のドキュメント内にある構文ブロックを示します (Web ページの右上の **[言語]** ドロップダウンから [*C++/WinRT*] を選択します)。 さまざまなコンストラクターがあることに注意してください。ラムダ、自由関数、メンバー関数へのオブジェクトとポインター (上記で使用したもの) を受け取ります。
 
 ```cppwinrt
 struct RoutedEventHandler : winrt::Windows::Foundation::IUnknown
@@ -96,7 +96,7 @@ struct RoutedEventHandler : winrt::Windows::Foundation::IUnknown
 また、関数呼び出し演算子の構文も確認に役立ちます。 必要なデリケートのパラメーターを通知します。 ご覧のように、この場合、関数呼び出し演算子の構文は **MainPage::ClickHandler** のパラメーターと一致します。
 
 > [!NOTE]
-> 特定のイベントについて、そのデリゲートの詳細とそのデリゲートのパラメーターを把握するには、まずイベント自体のドキュメント トピックに進みます。 例として [UIElement.KeyDown イベント](/uwp/api/windows.ui.xaml.uielement.keydown)を見てみましょう。 そのトピックにアクセスし、[*言語*] ドロップ ダウンから **[C++ /WinRT]** を選択します。 トピックの冒頭にある構文ブロックで、これを確認します。
+> 特定のイベントについて、そのデリゲートの詳細とそのデリゲートのパラメーターを把握するには、まずイベント自体のドキュメント トピックに進みます。 例として [UIElement.KeyDown イベント](/uwp/api/windows.ui.xaml.uielement.keydown)を見てみましょう。 そのトピックにアクセスし、 **[言語]** ドロップ ダウンから [*C++ /WinRT*] を選択します。 トピックの冒頭にある構文ブロックで、これを確認します。
 > 
 > ```cppwinrt
 > // Register

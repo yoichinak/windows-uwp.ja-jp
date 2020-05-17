@@ -282,7 +282,7 @@ Next item
 
 この例では [**KnownFolders.PicturesLibrary**](/uwp/api/windows.storage.knownfolders.pictureslibrary) にある月ごとにグループ化されたすべてのファイルにクエリを実行し、今回はサブフォルダーに再帰的に呼び出します。 まず、[**StorageFolder.CreateFolderQuery**](/uwp/api/windows.storage.storagefolder.createfolderquery) を呼び出し、[**CommonFolderQuery.GroupByMonth**](/uwp/api/windows.storage.search.commonfolderquery) の値をメソッドに渡します。 これで、[**StorageFolderQueryResult**](/uwp/api/windows.storage.search.storagefolderqueryresult) オブジェクトが取得されます。
 
-次に、仮想フォルダーを表す [**StorageFolder**](/uwp/api/windows.storage.search.storagefolderqueryresult.getfoldersasync) のオブジェクトを返す [**StorageFolderQueryResult.GetFoldersAsync**](/uwp/api/windows.storage.storagefolder) を呼び出します。 ここでは月でグループ化されているため、各仮想フォルダーは同じ月にあるファイルのグループを表します。
+次に、仮想フォルダーを表す [**StorageFolder**](/uwp/api/windows.storage.storagefolder) のオブジェクトを返す [**StorageFolderQueryResult.GetFoldersAsync**](/uwp/api/windows.storage.search.storagefolderqueryresult.getfoldersasync) を呼び出します。 ここでは月でグループ化されているため、各仮想フォルダーは同じ月にあるファイルのグループを表します。
 
 ```csharp
 StorageFolder picturesFolder = KnownFolders.PicturesLibrary;

@@ -155,7 +155,7 @@ public class Customer : INotifyPropertyChanged
 
 ## <a name="going-further"></a>追加情報
 
-双方向バインディングで顧客の一覧を作成したので、リンクしたドキュメントに自由に戻ってテストしてください。 基本および詳細なバインディングの手順を説明したチュートリアルが必要な場合、または[マスター/詳細パターン](../data-binding/xaml-basics-data-binding.md)のようなコントロールを調査してより強力な UI を作成する場合は、[データ バインディングのチュートリアル](../design/controls-and-patterns/master-details.md)を参照することもできます。
+双方向バインディングで顧客の一覧を作成したので、リンクしたドキュメントに自由に戻ってテストしてください。 基本および詳細なバインディングの手順を説明したチュートリアルが必要な場合、または[マスター/詳細パターン](../design/controls-and-patterns/master-details.md)のようなコントロールを調査してより強力な UI を作成する場合は、[データ バインディングのチュートリアル](../data-binding/xaml-basics-data-binding.md)を参照することもできます。
 
 ## <a name="useful-apis-and-docs"></a>便利な API とドキュメント
 

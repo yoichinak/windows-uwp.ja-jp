@@ -31,4 +31,4 @@ Intellisense を利用すると、API が試験的なものであるかどうか
 
 ## <a name="providing-feedback"></a>フィードバックの提供
 
-試験的な API を試し、フィードバックを提供する場合は、**Windows フィードバック Hub** の ["開発者向けプラットフォーム"](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub) カテゴリをご利用ください。
+試験的な API を試し、フィードバックを提供する場合は、[Windows フィードバック Hub](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub) の **"開発者向けプラットフォーム"** カテゴリをご利用ください。

@@ -28,7 +28,7 @@ Visual Studio 2019 用の新しい [Windows Template Studio](https://marketplace
 
 ### <a name="conditional-xaml"></a>条件付き XAML
 
-[バージョン アダプティブ アプリ](../debug-test-perf/conditional-xaml.md)の作成を可能にする[条件付き XAML](../debug-test-perf/version-adaptive-apps.md) をプレビューできるようになりました。 条件付き XAML では、XAML マークアップで ApiInformation.IsApiContractPresent メソッドを使用できるため、分離コードを使わなくても、API の有無に基づいてマークアップでプロパティの設定やオブジェクトのインスタンス化を行うことができます。
+[バージョン アダプティブ アプリ](../debug-test-perf/version-adaptive-apps.md)の作成を可能にする[条件付き XAML](../debug-test-perf/conditional-xaml.md) をプレビューできるようになりました。 条件付き XAML では、XAML マークアップで ApiInformation.IsApiContractPresent メソッドを使用できるため、分離コードを使わなくても、API の有無に基づいてマークアップでプロパティの設定やオブジェクトのインスタンス化を行うことができます。
 
 ### <a name="game-mode"></a>ゲーム モード
 
@@ -45,7 +45,7 @@ Visual Studio 2019 用の新しい [Windows Template Studio](https://marketplace
 
 ### <a name="data-schemas-for-store-products"></a>Store 製品のデータ スキーマ
 
-記事「[ストア製品のデータ スキーマ](../monetize/data-schemas-for-store-products.md)」が追加されました。 この記事では、[StoreProduct](https://docs.microsoft.com/uwp/api/windows.services.store) や [StoreAppLicense](https://docs.microsoft.com/uwp/api/windows.services.store.storeproduct) など、[Windows.Services.Store](https://docs.microsoft.com/uwp/api/windows.services.store.storeapplicense) 名前空間のいくつかのオブジェクトで利用できるストア関連のデータ用のスキーマを示します。
+記事「[ストア製品のデータ スキーマ](../monetize/data-schemas-for-store-products.md)」が追加されました。 この記事では、[StoreProduct](https://docs.microsoft.com/uwp/api/windows.services.store.storeproduct) や [StoreAppLicense](https://docs.microsoft.com/uwp/api/windows.services.store.storeapplicense) など、[Windows.Services.Store](https://docs.microsoft.com/uwp/api/windows.services.store) 名前空間のいくつかのオブジェクトで利用できるストア関連のデータ用のスキーマを示します。
 
 ### <a name="desktop-bridge"></a>デスクトップ ブリッジ
 

@@ -19,9 +19,9 @@ ms.locfileid: "80482510"
 
 この記事では、[XAML Islands](xaml-islands.md) を使用して、WPF アプリで標準 UWP コントロール (つまり、Windows SDK によって提供されるファーストパーティ UWP コントロール) をホストする 2 つの方法について説明します。
 
-* Windows Community Toolkit の[ラップされたコントロール](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas)を使用して、UWP の [InkCanvas](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar) コントロールと [InkToolbar](xaml-islands.md#wrapped-controls) コントロールをホストする方法を示します。 これらのコントロールでは、便利な UWP コントロールの小さいセットのインターフェイスと機能がラップされています。 これらを WPF プロジェクトまたは Windows フォーム プロジェクトのデザイン サーフェイスに直接追加し、他の WPF コントロールや Windows フォーム コントロールと同じようにデザイナーで使用できます。
+* Windows Community Toolkit の[ラップされたコントロール](xaml-islands.md#wrapped-controls)を使用して、UWP の [InkCanvas](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) コントロールと [InkToolbar](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar) コントロールをホストする方法を示します。 これらのコントロールでは、便利な UWP コントロールの小さいセットのインターフェイスと機能がラップされています。 これらを WPF プロジェクトまたは Windows フォーム プロジェクトのデザイン サーフェイスに直接追加し、他の WPF コントロールや Windows フォーム コントロールと同じようにデザイナーで使用できます。
 
-* また、Windows Community Toolkit の [WindowsXamlHost](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CalendarView) コントロールを使用して、UWP の [CalendarView](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) コントロールをホストする方法についても説明します。 ラップされたコントロールとして使用できるのは少数の UWP コントロールだけであり、他の標準 UWP コントロールをホストするには [WindowsXamlHost](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) を使用できます。
+* また、Windows Community Toolkit の [WindowsXamlHost](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) コントロールを使用して、UWP の [CalendarView](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CalendarView) コントロールをホストする方法についても説明します。 ラップされたコントロールとして使用できるのは少数の UWP コントロールだけであり、他の標準 UWP コントロールをホストするには [WindowsXamlHost](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) を使用できます。
 
 この記事では、WPF アプリで UWP コントロールをホストする方法について説明しますが、Windows フォーム アプリでもプロセスはほぼ同じです。
 
@@ -134,7 +134,7 @@ WPF (または Windows フォーム) アプリで UWP コントロールをホ�
 
 4. プロパティの **[アプリケーション]** タブで、 **[スタートアップ オブジェクト]** ドロップダウンをクリックし、前のステップで追加した `Program` クラスの完全修飾名を選択します。 
     > [!NOTE]
-    > 既定の WPF プロジェクトで生成されるコード ファイルでは、変更を意図されていない `Main` エントリ ポイント関数が定義されています。 このステップでは、プロジェクトのエントリ ポイントを新しい `Main` クラスの `Program` メソッドに変更します。これにより、アプリのスタートアップ プロセスの可能な限り早い段階で実行されるコードを追加できるようになります。 
+    > 既定の WPF プロジェクトで生成されるコード ファイルでは、変更を意図されていない `Main` エントリ ポイント関数が定義されています。 このステップでは、プロジェクトのエントリ ポイントを新しい `Program` クラスの `Main` メソッドに変更します。これにより、アプリのスタートアップ プロセスの可能な限り早い段階で実行されるコードを追加できるようになります。 
 
 5. プロジェクトのプロパティへの変更を保存します。
 

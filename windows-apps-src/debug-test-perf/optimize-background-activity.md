@@ -39,7 +39,7 @@ Windows 10 Version 1607 以降を実行するデスクトップ デバイスや�
 
 ![バックグラウンド タスクのアクセス許可がオフ](images/background-task-permissions-off.png)
 
-アプリでは、[**BackgroundExecutionManager.RequestAccessAsync()** ](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundaccessstatus) メソッドの呼び出しによって返される [**BackgroundAccessStatus**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundexecutionmanager.requestaccessasync) 列挙値で、現在のバックグラウンド アクティビティのアクセス許可の設定を確認できます。
+アプリでは、[**BackgroundExecutionManager.RequestAccessAsync()** ](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundexecutionmanager.requestaccessasync) メソッドの呼び出しによって返される [**BackgroundAccessStatus**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundaccessstatus) 列挙値で、現在のバックグラウンド アクティビティのアクセス許可の設定を確認できます。
 
 しかし、アプリに信頼できるアクティビティ管理が実装されていない場合、ユーザーはそのアプリに対するバックグラウンドのアクセス許可を一切拒否する可能性があります。このことは、開発者とユーザーの双方にとって望ましいことではありません。 アプリをバックグラウンドで実行するためのアクセス許可が拒否されているときに、ユーザーの操作を完了するためにバックグラウンド アクティビティが必要である場合は、ユーザーに通知し、設定アプリに誘導することができます。 これを行うには、[設定アプリを起動](https://docs.microsoft.com/windows/uwp/launch-resume/launch-settings-app)して、[バックグラウンド アプリ] ページや [バッテリ使用量の詳細] ページに移動します。
 

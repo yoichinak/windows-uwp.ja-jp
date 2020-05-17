@@ -60,7 +60,7 @@ ms.locfileid: "74257288"
 
 ### <a name="imagebrush"></a>ImageBrush
 
-[ImageBrush](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.ImageBrush) オブジェクトを使うと、[Brush](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Brush) オブジェクトを受け付ける領域を、画像を使ってペイントできます。 たとえば、[Ellipse](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.shape.fill) の [Fill](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Shapes.Ellipse) プロパティまたは [Canvas](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.background) の [Background](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Canvas) プロパティの値に ImageBrush を使うことができます。
+[ImageBrush](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.ImageBrush) オブジェクトを使うと、[Brush](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Brush) オブジェクトを受け付ける領域を、画像を使ってペイントできます。 たとえば、[Ellipse](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Shapes.Ellipse) の [Fill](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.shape.fill) プロパティまたは [Canvas](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Canvas) の [Background](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.background) プロパティの値に ImageBrush を使うことができます。
 
 次の例は、ImageBrush を使って Ellipse をペイントする方法を示しています。
 
@@ -78,7 +78,7 @@ ms.locfileid: "74257288"
 
 ### <a name="stretch-an-image"></a>画像を拡大する
 
-[Image](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.width) の [Width](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.height) 値または **Height** 値を設定しないと、**Source** で指定した画像の寸法で表示されます。 **Width** と **Height** を設定すると、画像を表示する領域を囲む四角形が作成されます。 この囲まれた領域に画像を描く方法は、[Stretch](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.image.stretch) プロパティを使って指定できます。 Stretch プロパティには、[Stretch](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Stretch) 列挙体で定義されている次の値を指定します。
+**Image** の [Width](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.width) 値または [Height](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.height) 値を設定しないと、**Source** で指定した画像の寸法で表示されます。 **Width** と **Height** を設定すると、画像を表示する領域を囲む四角形が作成されます。 この囲まれた領域に画像を描く方法は、[Stretch](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.image.stretch) プロパティを使って指定できます。 Stretch プロパティには、[Stretch](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Stretch) 列挙体で定義されている次の値を指定します。
 
 -   **None**: 画像は拡大されず、出力領域全体に描かれません。 この Stretch の設定には注意してください。囲まれた領域よりもソース画像が大きいと、画像はクリップされます。ユーザーは意図的な [Clip](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.clip) で行うような制御をビューポートに対して行うことができないため、通常このことは望ましくありません。
 -   **Uniform**: 画像は、出力領域の大きさに合わせて拡大されます。 ただし、コンテンツの縦横比は保たれます。 これは、既定値です。

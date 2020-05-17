@@ -109,7 +109,7 @@ startUI.isVisible = false;
 VR アプリケーションで 2 種類のカメラを備えて、複数のシナリオをサポートすることは、推奨されるプラクティスです。 このゲームでは、ヘッドセットの接続を必要とする 1 つのカメラと、ヘッドセットを使用しないもう 1 つのカメラをサポートします。 ゲームでどちらを使用するかを判断するため、最初にヘッドセットが検出されたかどうかをチェックする必要があります。 これを行うために、[`navigator.getVRDisplays()`](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/getVRDisplays) を使用します。
 
 
-次のコードを、`window.addEventListener('DOMContentLoaded')`main.js**の** の前に追加します。
+次のコードを、**main.js** の `window.addEventListener('DOMContentLoaded')` の前に追加します。
 ```javascript
 var headset;
 // If a VR headset is connected, get its info
@@ -164,7 +164,7 @@ Babylon.js では、[`WebVRFreeCamera`](https://doc.babylonjs.com/api/classes/ba
 
 ![イマーシブのプロンプト](images/immersiveview.png)
 
-また、`UniversalCamera` に切り替える前に `WebVRFreeCamera` ビューを表示するコード断片を追加できます。これにより、ユーザーには、青いウィンドウの代わりにゲームが表示されます。 
+また、`WebVRFreeCamera` に切り替える前に `UniversalCamera` ビューを表示するコード断片を追加できます。これにより、ユーザーには、青いウィンドウの代わりにゲームが表示されます。 
 
 `engine.runRenderLoop(function () {` の後に以下を追加します。
 ```javascript

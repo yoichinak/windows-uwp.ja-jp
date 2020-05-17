@@ -156,7 +156,7 @@ contentParts 配列には、アップロード用の各 [**IStorageFile**](https
 
     [!code-js[uploadFile](./code/backgroundtransfer/upload_quickstart/js/main.js#Snippetupload_quickstart_C "Restart interrupted upload operation")]
 
-1.  次に、持続している操作を列挙してそれらを配列に格納する関数を定義します。 [  **UploadOperation**](https://docs.microsoft.com/uwp/api/Windows.Networking.BackgroundTransfer.UploadOperation) に対するコールバックを再び割り当てるために呼び出される **load** メソッドは、アプリの終了後も持続する場合、このセクションでこの後定義する UploadOp クラス内にあることに注意してください。
+1.  次に、持続している操作を列挙してそれらを配列に格納する関数を定義します。 [**UploadOperation**](https://docs.microsoft.com/uwp/api/Windows.Networking.BackgroundTransfer.UploadOperation) に対するコールバックを再び割り当てるために呼び出される **load** メソッドは、アプリの終了後も持続する場合、このセクションでこの後定義する UploadOp クラス内にあることに注意してください。
 
     [!code-js[uploadFile](./code/backgroundtransfer/upload_quickstart/js/main.js#Snippetupload_quickstart_D "Enumerate persisted operations")]
 
@@ -168,7 +168,7 @@ contentParts 配列には、アップロード用の各 [**IStorageFile**](https
 以下に、基本的なダウンロードを作成および初期化する例と、前のアプリ セッションから続いている操作を列挙および再び取り込む例を示します。
 
 ### <a name="configure-and-start-a-background-transfer-file-download"></a>バックグラウンド転送によるファイルのダウンロードを構成して開始する
-URI とファイル名を表す文字列を使って、[**Uri**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Uri) オブジェクトと要求されたファイルを格納する [**StorageFile**](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageFile) とを作成する方法を次の例で示します。 この例では、新しいファイルが定義済みの場所に自動的に配置されます。 または、[**FileSavePicker**](https://docs.microsoft.com/uwp/api/Windows.Storage.Pickers.FileSavePicker) を使ってユーザーがファイルを保存するデバイスの場所を指定できるようになります。 [  **DownloadOperation**](https://docs.microsoft.com/uwp/api/Windows.Networking.BackgroundTransfer.DownloadOperation) に対するコールバックを再び割り当てるために呼び出される **load** メソッドは、アプリの終了以降も持続する場合、このセクションでこの後定義する DownloadOp クラス内にあることに注意してください。
+URI とファイル名を表す文字列を使って、[**Uri**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Uri) オブジェクトと要求されたファイルを格納する [**StorageFile**](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageFile) とを作成する方法を次の例で示します。 この例では、新しいファイルが定義済みの場所に自動的に配置されます。 または、[**FileSavePicker**](https://docs.microsoft.com/uwp/api/Windows.Storage.Pickers.FileSavePicker) を使ってユーザーがファイルを保存するデバイスの場所を指定できるようになります。 [**DownloadOperation**](https://docs.microsoft.com/uwp/api/Windows.Networking.BackgroundTransfer.DownloadOperation) に対するコールバックを再び割り当てるために呼び出される **load** メソッドは、アプリの終了以降も持続する場合、このセクションでこの後定義する DownloadOp クラス内にあることに注意してください。
 
 [!code-js[uploadFile](./code/backgroundtransfer/download_quickstart/js/main.js#Snippetdownload_quickstart_A)]
 

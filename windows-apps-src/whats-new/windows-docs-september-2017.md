@@ -30,7 +30,7 @@ Xbox Live クリエーターズ プログラムは現在実施中で、Windows 1
 
 ### <a name="xaml-basics-tutorials"></a>XAML の基本チュートリアル
 
-新しい [PhotoLab サンプル](https://docs.microsoft.com/windows/uwp/design/basics/xaml-basics-ui)を加え、4 つの [XAML の基本チュートリアル](https://github.com/Microsoft/Windows-appsample-photo-lab)が作成され、XAML のプログラミングの重要な 4 つの側面である、ユーザー インターフェイス、データ バインディング、カスタム スタイル、およびアダプティブ レイアウトについて説明しています。 各チュートリアル トラックは、部分的に完成したバージョンの PhotoLab サンプルから始まり、ステップ バイ ステップで、最終的なアプリの不足しているコンポーネントを 1 つ作成します。 
+新しい [PhotoLab サンプル](https://github.com/Microsoft/Windows-appsample-photo-lab)を加え、4 つの [XAML の基本チュートリアル](https://docs.microsoft.com/windows/uwp/design/basics/xaml-basics-ui)が作成され、XAML のプログラミングの重要な 4 つの側面である、ユーザー インターフェイス、データ バインディング、カスタム スタイル、およびアダプティブ レイアウトについて説明しています。 各チュートリアル トラックは、部分的に完成したバージョンの PhotoLab サンプルから始まり、ステップ バイ ステップで、最終的なアプリの不足しているコンポーネントを 1 つ作成します。 
 
 ![PhotoLab サンプルのフォト ギャラリー ページのスクリーンショット](images/PhotoLab-gallery-page.png)  
 

@@ -122,7 +122,7 @@ private void MigrateUserData()
 
 例として、.NET ベースのパッケージ アプリでの方法を次に示します。
 
-このスニペットの完全なコンテキストを確認するには、「**WPF picture viewer with transition/migration/uninstallation**」というサンプルの [MainWindow.cs](https://github.com/Microsoft/DesktopBridgeToUWP-Samples/tree/master/Samples/DesktopAppTransition) ファイルを参照してください。
+このスニペットの完全なコンテキストを確認するには、「[WPF picture viewer with transition/migration/uninstallation](https://github.com/Microsoft/DesktopBridgeToUWP-Samples/tree/master/Samples/DesktopAppTransition)」というサンプルの **MainWindow.cs** ファイルを参照してください。
 
 ```csharp
 private void RemoveDesktopApp()

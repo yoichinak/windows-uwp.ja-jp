@@ -16,7 +16,7 @@ ms.locfileid: "81545022"
 # <a name="organizational-licensing-options"></a>組織のライセンス オプション
 
 
-アプリの申請の **[価格と使用可能状況]** ページの [[組織のライセンス]](set-app-pricing-and-availability.md#organizational-licensing) セクションでは、ビジネス向け Microsoft ストアと教育機関向け Microsoft ストアでアプリのボリューム購入を提供するかどうかと、その提供方法を指定できます。
+アプリの申請の [[価格と使用可能状況]](set-app-pricing-and-availability.md#organizational-licensing) ページの **[組織のライセンス]** セクションでは、ビジネス向け Microsoft ストアと教育機関向け Microsoft ストアでアプリのボリューム購入を提供するかどうかと、その提供方法を指定できます。
 
 これらの設定を通じて、ユーザー用に複数のライセンスを取得し展開する組織 (ビジネスおよび教育機関) にアプリを提供することができ、PC、タブレット、電話など、各種 Windows 10 デバイスを使用する組織を取り込むチャンスを拡大できます。
 

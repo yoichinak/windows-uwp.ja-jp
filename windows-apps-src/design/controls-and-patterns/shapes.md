@@ -69,7 +69,7 @@ layoutRoot.Children.Add(ellipse1);
 
 [  **Rectangle**](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle) は、コーナーを角丸にすることもできます。 角丸コーナーを作成するには、[**RadiusX**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.rectangle.radiusx) および [**RadiusY**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.rectangle.radiusy) プロパティの値を指定します。 これらのプロパティは、コーナーの曲線を定義する楕円形の X 軸と Y 軸を指定します。 **RadiusX** の最大値は [**Width**](/uwp/api/Windows.UI.Xaml.FrameworkElement.Width) の 1/2 であり、**RadiusY** の最大値は [**Height**](/uwp/api/Windows.UI.Xaml.FrameworkElement.Height) の 1/2 です。
 
-次の例では、[**Width**](/uwp/api/Windows.UI.Xaml.FrameworkElement.Width) が 200 で [**Height**](/uwp/api/Windows.UI.Xaml.FrameworkElement.Height) が 100 の [**Rectangle**](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle) を作成します。 [  **Fill**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.shape.fill) には値が [**Blue**](https://docs.microsoft.com/uwp/api/windows.ui.colors.blue) の [**SolidColorBrush**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.SolidColorBrush) を使い、[**Stroke**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.shape.stroke) には値が [**Black**](https://docs.microsoft.com/uwp/api/windows.ui.colors.black) の **SolidColorBrush** を使っています。 [  **StrokeThickness**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.shape.strokethickness) は 3 に設定します。 [  **RadiusX**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.rectangle.radiusx) プロパティを 50、[**RadiusY**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.rectangle.radiusy) プロパティを 10 に設定することで、**Rectangle** を角丸コーナーにしています。
+次の例では、[**Width**](/uwp/api/Windows.UI.Xaml.FrameworkElement.Width) が 200 で [**Height**](/uwp/api/Windows.UI.Xaml.FrameworkElement.Height) が 100 の [**Rectangle**](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle) を作成します。 [**Fill**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.shape.fill) には値が [**Blue**](https://docs.microsoft.com/uwp/api/windows.ui.colors.blue) の [**SolidColorBrush**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.SolidColorBrush) を使い、[**Stroke**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.shape.stroke) には値が [**Black**](https://docs.microsoft.com/uwp/api/windows.ui.colors.black) の **SolidColorBrush** を使っています。 [  **StrokeThickness**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.shape.strokethickness) は 3 に設定します。 [  **RadiusX**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.rectangle.radiusx) プロパティを 50、[**RadiusY**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.rectangle.radiusy) プロパティを 10 に設定することで、**Rectangle** を角丸コーナーにしています。
 
 ```xaml
 <Rectangle Fill="Blue"
@@ -112,7 +112,7 @@ layoutRoot.Children.Add(rectangle1);
 
 始点と終点が同じ [**Point**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Point) 値となるような点を明示的に宣言する必要はありません。 [  **Polygon**](/uwp/api/Windows.UI.Xaml.Shapes.Polygon) のレンダリング ロジックが、閉じた図形を想定して暗黙的に終点を始点に接続します。
 
-次の例では、4 つの点を `(10,200)`、`(60,140)`、`(130,140)`、`(180,200)` に設定した [**Polygon**](/uwp/api/Windows.UI.Xaml.Shapes.Polygon) を作成します。 [  **Fill**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.shape.fill) には、[**SolidColorBrush**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.SolidColorBrush) の [**LightBlue**](https://docs.microsoft.com/uwp/api/windows.ui.colors.lightblue) 値を使います。[**Stroke**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.shape.stroke) には値を割り当てていないので、境界の輪郭は描画されません。
+次の例では、4 つの点を `(10,200)`、`(60,140)`、`(130,140)`、`(180,200)` に設定した [**Polygon**](/uwp/api/Windows.UI.Xaml.Shapes.Polygon) を作成します。 [**Fill**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.shape.fill) には、[**SolidColorBrush**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.SolidColorBrush) の [**LightBlue**](https://docs.microsoft.com/uwp/api/windows.ui.colors.lightblue) 値を使います。[**Stroke**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.shape.stroke) には値を割り当てていないので、境界の輪郭は描画されません。
 
 ```xaml
 <Polygon Fill="LightBlue"
@@ -147,7 +147,7 @@ layoutRoot.Children.Add(polygon1);
 
 [  **Line**](/uwp/api/Windows.UI.Xaml.Shapes.Line) は、座標空間において 2 点間に描画される単純な直線です。 **Line** は内部領域を持たないため、[**Fill**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.shape.fill) に何か値を指定してもすべて無視されます。 **Line** には、[**Stroke**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.shape.stroke) プロパティと [**StrokeThickness**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.shape.strokethickness) プロパティの値を必ず指定してください。指定しないと、**Line** はレンダリングされません。
 
-[  **Line**](/uwp/api/Windows.UI.Xaml.Shapes.Line) 図形を指定する際、[**Point**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Point) 値は使いません。[**X1**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.line.x1)、[**Y1**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.line.y1)、[**X2**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.line.x2)、[**Y2**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.line.y2) のそれぞれに対して個別に [**Double**](https://docs.microsoft.com/dotnet/api/system.double) 値を指定します。 これで、水平方向または垂直方向の直線に対する最低限のマークアップは完成します。 たとえば、長さ 400 ピクセルの水平方向の直線を定義するには、`<Line Stroke="Red" X2="400"/>` とします。 その他の X,Y プロパティは既定で 0 に設定されるため、点で見た場合、この XAML は `(0,0)` から `(400,0)` に直線を描画していることになります。 (0,0) 以外の点から開始する必要がある場合は、[**TranslateTransform**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.TranslateTransform) を使って **Line** 全体を移動することができます。
+[**Line**](/uwp/api/Windows.UI.Xaml.Shapes.Line) 図形を指定する際、[**Point**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Point) 値は使いません。[**X1**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.line.x1)、[**Y1**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.line.y1)、[**X2**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.line.x2)、[**Y2**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.line.y2) のそれぞれに対して個別に [**Double**](https://docs.microsoft.com/dotnet/api/system.double) 値を指定します。 これで、水平方向または垂直方向の直線に対する最低限のマークアップは完成します。 たとえば、長さ 400 ピクセルの水平方向の直線を定義するには、`<Line Stroke="Red" X2="400"/>` とします。 その他の X,Y プロパティは既定で 0 に設定されるため、点で見た場合、この XAML は `(0,0)` から `(400,0)` に直線を描画していることになります。 (0,0) 以外の点から開始する必要がある場合は、[**TranslateTransform**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.TranslateTransform) を使って **Line** 全体を移動することができます。
 
 ```xaml
 <Line Stroke="Red" X2="400"/>
@@ -171,7 +171,7 @@ layoutRoot.Children.Add(line1);
 
 **注**  [**Polyline**](/uwp/api/Windows.UI.Xaml.Shapes.Polyline) の始点と終点が等しくなるように明示的に [**Points**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.polyline.points) を設定することもできますが、その場合は、[**Polygon**](/uwp/api/Windows.UI.Xaml.Shapes.Polygon) を使うのが一般的です。
 
-[  **Polyline**](/uwp/api/Windows.UI.Xaml.Shapes.Polyline) の [**Fill**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.shape.fill) を指定した場合、**Polyline** に対して設定された [**Points**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.polyline.points) の始点と終点が交わらなくても、図形の内部領域が **Fill** によって塗りつぶされます。 **Polyline** で **Fill** を指定しなかった場合のレンダリングは、複数の [**Line**](/uwp/api/Windows.UI.Xaml.Shapes.Line) 要素を個別に指定し、前の直線の終点が次の直線の始点と交わるようにした場合と同様の結果となります。
+[**Polyline**](/uwp/api/Windows.UI.Xaml.Shapes.Polyline) の [**Fill**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.shape.fill) を指定した場合、**Polyline** に対して設定された [**Points**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.polyline.points) の始点と終点が交わらなくても、図形の内部領域が **Fill** によって塗りつぶされます。 **Polyline** で **Fill** を指定しなかった場合のレンダリングは、複数の [**Line**](/uwp/api/Windows.UI.Xaml.Shapes.Line) 要素を個別に指定し、前の直線の終点が次の直線の始点と交わるようにした場合と同様の結果となります。
 
 [  **Polygon**](/uwp/api/Windows.UI.Xaml.Shapes.Polygon) の場合と同様に、[**Points**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.polyline.points) プロパティによって境界線を構成する点のコレクションが定義されます。 XAML では、これらの点をコンマ区切り一覧で定義します。 コード ビハインドでは、[**PointCollection**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.PointCollection) を使って点のコレクションを定義し、それぞれの点を [**Point**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Point) 構造体としてコレクションに追加します。
 
@@ -202,7 +202,7 @@ polyline1.Points = points;
 layoutRoot.Children.Add(polyline1);
 ```
 
-この [**Polyline**](/uwp/api/Windows.UI.Xaml.Shapes.Polyline) をレンダリングすると、次のようになります。 [  **Polygon**](/uwp/api/Windows.UI.Xaml.Shapes.Polygon) とは異なり、[**Stroke**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.shape.stroke) の最初と最後の点が接続されないことに注意してください。
+この [**Polyline**](/uwp/api/Windows.UI.Xaml.Shapes.Polyline) をレンダリングすると、次のようになります。 [**Polygon**](/uwp/api/Windows.UI.Xaml.Shapes.Polygon) とは異なり、[**Stroke**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.shape.stroke) の最初と最後の点が接続されないことに注意してください。
 
 ![レンダリングされた Polyline。](images/shapes-polyline.jpg)
 

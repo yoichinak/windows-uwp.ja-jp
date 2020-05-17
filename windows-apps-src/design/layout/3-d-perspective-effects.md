@@ -47,7 +47,7 @@ ms.locfileid: "66365248"
 
 ## <a name="planeprojection-class"></a>PlaneProjection クラス
 
-[  **PlaneProjection**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement) を使って [**UIElement**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.projection) の [**Projection**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.PlaneProjection) プロパティを設定することで、UIElement に 3D 効果を適用できます。 **PlaneProjection** は、変換を空間内でどのようにレンダリングするかを定義します。 単純な場合の例を次に示します。
+[**PlaneProjection**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.PlaneProjection) を使って [**UIElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement) の [**Projection**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.projection) プロパティを設定することで、UIElement に 3D 効果を適用できます。 **PlaneProjection** は、変換を空間内でどのようにレンダリングするかを定義します。 単純な場合の例を次に示します。
 
 ```xml
 <Image Source="kid.png">
@@ -174,4 +174,4 @@ ms.locfileid: "66365248"
 
 ## <a name="positioning-an-object"></a>オブジェクトの配置
 
-[  **PlaneProjection**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Matrix3DProjection) を使って対応できる場合よりもさらに複雑な疑似 3D のシナリオに対しては、[**Matrix3DProjection**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Media3D.Matrix3D) 型および [**Matrix3D**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.PlaneProjection) 型を使うことができます。 **Matrix3DProjection** には、どの [**UIElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement) にも適用できる完全な 3D 変換マトリックスが備えられているため、任意のモデル変換マトリックスおよび視点マトリックスを要素に適用できます。 これらの API は最小限のものであるため、使用する場合は、3D 変換マトリックスを正しく作成するコードを記述する必要があります。 そのため、単純な 3D シナリオには、**PlaneProjection** を使う方が簡単です。
+[**PlaneProjection**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.PlaneProjection) を使って対応できる場合よりもさらに複雑な疑似 3D のシナリオに対しては、[**Matrix3DProjection**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Matrix3DProjection) 型および [**Matrix3D**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Media3D.Matrix3D) 型を使うことができます。 **Matrix3DProjection** には、どの [**UIElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement) にも適用できる完全な 3D 変換マトリックスが備えられているため、任意のモデル変換マトリックスおよび視点マトリックスを要素に適用できます。 これらの API は最小限のものであるため、使用する場合は、3D 変換マトリックスを正しく作成するコードを記述する必要があります。 そのため、単純な 3D シナリオには、**PlaneProjection** を使う方が簡単です。

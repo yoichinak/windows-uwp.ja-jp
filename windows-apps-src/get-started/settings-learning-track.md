@@ -51,9 +51,9 @@ composite["FontSize"] = 11;
 roamingSettings.Values["RoamingFontInfo"] = composite;
  ```
 
-まず、**でローカル設定データ ストアの**ApplicationDataContainer`Windows.Storage.ApplicationData.Current.LocalSettings` を取得することで、ローカル デバイスに設定を保存します。 このインスタンスに割り当てるキー/値ペアのディクショナリは、ローカル デバイス設定データ ストアに保存されます。
+まず、`Windows.Storage.ApplicationData.Current.LocalSettings` でローカル設定データ ストアの **ApplicationDataContainer** を取得することで、ローカル デバイスに設定を保存します。 このインスタンスに割り当てるキー/値ペアのディクショナリは、ローカル デバイス設定データ ストアに保存されます。
 
-同様のパターンを使用して、ローミング設定を保存します。 まず、**を使用してローミング設定データ ストアの**ApplicationDataContainer`Windows.Storage.ApplicationData.Current.RoamingSettings` を取得します。 次に、このインスタンスにキーと値のペアを割り当てます。  これらのキーと値のペアは、デバイス間で自動的にローミングされます。
+同様のパターンを使用して、ローミング設定を保存します。 まず、`Windows.Storage.ApplicationData.Current.RoamingSettings` を使用してローミング設定データ ストアの **ApplicationDataContainer** を取得します。 次に、このインスタンスにキーと値のペアを割り当てます。  これらのキーと値のペアは、デバイス間で自動的にローミングされます。
 
 上のコード スニペットでは、**ApplicationDataCompositeValue** は複数のキーと値のペアを格納します。 コンポジット値は、相互に同期しなくなることがあってはならない複数の設定があるときに役立ちます。 **ApplicationDataCompositeValue** を保存すると、単位として、または自動的に値が保存され読み込まれます。 これにより、関連する設定は個別ではなく単位としてローミングされるため、同期しなくなることはありません。
 
@@ -74,9 +74,9 @@ if (composite != null)
 }
 ```
 
-**を使用してローカル設定データ ストアの**ApplicationDataContainer`Windows.Storage.ApplicationData.Current.LocalSettings` インスタンスをまず取得することで、ローカル デバイスから設定を読み込みます。 次に、それを使用してキーと値のペアを取得します。
+`Windows.Storage.ApplicationData.Current.LocalSettings` を使用してローカル設定データ ストアの **ApplicationDataContainer** インスタンスをまず取得することで、ローカル デバイスから設定を読み込みます。 次に、それを使用してキーと値のペアを取得します。
 
-同様のパターンに従って、ローミング設定を読み込みます。 まず、**を使用してローミング設定データ ストアから**ApplicationDataContainer`Windows.Storage.ApplicationData.Current.RoamingSettings` インスタンスを取得します。 そのインスタンスからキーと値のペアにアクセスします。 設定にアクセスしているデバイスにデータがまだローミングされていない場合は、null の **ApplicationDataContainer** を取得します。 上のコード例に `if (composite != null)` チェックインがあるのはこのためです。
+同様のパターンに従って、ローミング設定を読み込みます。 まず、`Windows.Storage.ApplicationData.Current.RoamingSettings` を使用してローミング設定データ ストアから **ApplicationDataContainer** インスタンスを取得します。 そのインスタンスからキーと値のペアにアクセスします。 設定にアクセスしているデバイスにデータがまだローミングされていない場合は、null の **ApplicationDataContainer** を取得します。 上のコード例に `if (composite != null)` チェックインがあるのはこのためです。
 
 ## <a name="useful-apis-and-docs"></a>便利な API とドキュメント
 

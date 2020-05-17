@@ -141,7 +141,7 @@ UWP プロジェクトから、ソリューションの **DataAccessLibrary** �
 
 ![データ アクセス クラス ライブラリ](images/ref-class-library.png)
 
-UWP プロジェクトの ``using``App.xaml.cs**および**MainPage.xaml.cs**ファイルに、次の** ステートメントを追加します。
+UWP プロジェクトの **App.xaml.cs** および **MainPage.xaml.cs** ファイルに、次の ``using`` ステートメントを追加します。
 
 ```csharp
 using DataAccessLibrary;
@@ -201,7 +201,7 @@ public async static void InitializeDatabase()
 
 この例では、データベースに ``sqlliteSample.db`` という名前を付けますが、インスタンス化するすべての [SqliteConnection](https://docs.microsoft.com/dotnet/api/microsoft.data.sqlite.sqliteconnection?view=msdata-sqlite-2.0.0) オブジェクトでその名前を使用する限り、任意の名前を使用することができます。
 
-UWP プロジェクトの **App.xaml.cs** ファイルのコンストラクターで、``InitializeDatabase``DataAccess**クラスの** メソッドを呼び出します。
+UWP プロジェクトの **App.xaml.cs** ファイルのコンストラクターで、**DataAccess** クラスの ``InitializeDatabase`` メソッドを呼び出します。
 
 ```csharp
 public App()
@@ -306,7 +306,7 @@ UWP プロジェクトの **MainPage.xaml** ファイルに、次の XAML を追
 
 この基本的なユーザー インターフェイスでは、SQLite データベースに追加する文字列を入力するための ``TextBox`` をユーザーに提供します。 この UI の ``Button`` を、SQLite データベースからデータを取得して、``ListView`` にそのデータを表示するイベント ハンドラーに接続します。
 
-**MainPage.xaml.cs** ファイルで、次のハンドラーを追加します。 これは、UI で ``Click`` の ``Button`` イベントに関連付けたメソッドです。
+**MainPage.xaml.cs** ファイルで、次のハンドラーを追加します。 これは、UI で ``Button`` の ``Click`` イベントに関連付けたメソッドです。
 
 ```csharp
 private void AddData(object sender, RoutedEventArgs e)

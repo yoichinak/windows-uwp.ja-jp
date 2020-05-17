@@ -62,7 +62,7 @@ steps:
 
 ```
 
-既定のテンプレートでは、.csproj ファイルに指定されている証明書でのパッケージへの署名が試行されます。 ビルド中にパッケージに署名する場合は、秘密キーにアクセスできる必要があります。 それ以外の場合は、YAML ファイルの `/p:AppxPackageSigningEnabled=false` セクションにパラメーター `msbuildArgs` を追加することにより、署名を無効にできます。
+既定のテンプレートでは、.csproj ファイルに指定されている証明書でのパッケージへの署名が試行されます。 ビルド中にパッケージに署名する場合は、秘密キーにアクセスできる必要があります。 それ以外の場合は、YAML ファイルの `msbuildArgs` セクションにパラメーター `/p:AppxPackageSigningEnabled=false` を追加することにより、署名を無効にできます。
 
 ## <a name="add-your-project-certificate-to-the-secure-files-library"></a>セキュア ファイル ライブラリにプロジェクト証明書を追加する
 

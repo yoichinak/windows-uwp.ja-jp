@@ -248,7 +248,7 @@ Visual Studio プロジェクトと項目テンプレートでは、ランタイ
 
 このセクションでは、[**IStringable**](/uwp/api/windows.foundation.istringable) および [**IClosable**](/uwp/api/windows.foundation.iclosable) インターフェイスを実装する、**MyType** という名前の実装型を例として見ていきましょう。
 
-[  **winrt::implements**](/uwp/cpp-ref-for-winrt/implements) から直接 **MyType** を派生できます (ランタイム クラスではありません)。
+[**winrt::implements**](/uwp/cpp-ref-for-winrt/implements) から直接 **MyType** を派生できます (ランタイム クラスではありません)。
 
 ```cppwinrt
 #include <winrt/Windows.Foundation.h>

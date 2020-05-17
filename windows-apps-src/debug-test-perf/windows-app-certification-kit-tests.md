@@ -559,7 +559,7 @@ Microsoft Store では、すべてのアプリケーションで、Direct3D を�
 
 ### <a name="corrective-action"></a>問題への対応
 
-アプリは中断されそうになった時は常に [**Trim**](https://docs.microsoft.com/windows/desktop/api/dxgi1_3/nf-dxgi1_3-idxgidevice3-trim) インターフェイスで [**IDXGIDevice3**](https://docs.microsoft.com/windows/desktop/api/dxgi1_3/nn-dxgi1_3-idxgidevice3) API を呼び出す必要があります。
+アプリは中断されそうになった時は常に [**Trim**](https://docs.microsoft.com/windows/desktop/api/dxgi1_3/nn-dxgi1_3-idxgidevice3) インターフェイスで [**IDXGIDevice3**](https://docs.microsoft.com/windows/desktop/api/dxgi1_3/nf-dxgi1_3-idxgidevice3-trim) API を呼び出す必要があります。
 
 ## <a name="app-capabilities-test"></a>アプリ機能のテスト
 

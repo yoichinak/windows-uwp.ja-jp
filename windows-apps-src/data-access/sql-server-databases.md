@@ -103,7 +103,7 @@ public class Product : INotifyPropertyChanged
 
 ### <a name="retrieve-products-from-the-sql-server-database"></a>SQL Server データベースから製品を取得します。
 
-Northwind サンプル データベースから製品を取得し、[インスタンスの ](https://docs.microsoft.com/dotnet/api/system.collections.objectmodel.observablecollection-1)ObservableCollection``Product`` コレクションとしてそれらを返すメソッドを作成します。
+Northwind サンプル データベースから製品を取得し、``Product``インスタンスの [ObservableCollection](https://docs.microsoft.com/dotnet/api/system.collections.objectmodel.observablecollection-1) コレクションとしてそれらを返すメソッドを作成します。
 
 ```csharp
 public ObservableCollection<Product> GetProducts(string connectionString)
@@ -205,7 +205,7 @@ public ObservableCollection<Product> GetProducts(string connectionString)
 
 ### <a name="show-products-in-the-listview"></a>ListView で製品を表示する
 
-**MainPage.xaml.cs** ファイルを開き、``MainPage``ListView**の**ItemSource[ プロパティを ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listview) インスタンスの [ObservableCollection](https://docs.microsoft.com/dotnet/api/system.collections.objectmodel.observablecollection-1) に設定するコードを、``Product`` クラスのコンストラクターに追加します。
+**MainPage.xaml.cs** ファイルを開き、[ListView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listview) の **ItemSource** プロパティを ``Product`` インスタンスの [ObservableCollection](https://docs.microsoft.com/dotnet/api/system.collections.objectmodel.observablecollection-1) に設定するコードを、``MainPage`` クラスのコンストラクターに追加します。
 
 ```csharp
 public MainPage()

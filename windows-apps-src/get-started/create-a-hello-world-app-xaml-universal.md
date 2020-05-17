@@ -112,7 +112,7 @@ ms.locfileid: "73847604"
 
     ![ソリューション エクスプローラーのウィンドウ](images/win10-cs-04.png)
 
-2.  左側の縦方向に配置された **[ツールボックス]** タブをクリックして UI コントロールの一覧を開きます  (タイトル バーのピン アイコンをクリックすると、このウィンドウを表示したままにすることができます)。
+2.  左側の縦方向に配置された **[ツールボックス]** タブをクリックして UI コントロールの一覧を開きます (タイトル バーのピン アイコンをクリックすると、このウィンドウを表示したままにすることができます)。
 
     ![ソリューション エクスプローラーのウィンドウ](images/win10-cs-05.png)
 
@@ -155,7 +155,7 @@ ms.locfileid: "73847604"
 
 **ローカル コンピューターでデバッグを開始するには**
 
-1.  **[標準]** ツール バーの [ターゲット デバイス] メニュー (![[デバッグの開始] メニュー](images/startdebug-full.png)) で、 **[ローカル コンピューター]** が選択されていることを確認します  (既定で選択されています)。
+1.  **[標準]** ツール バーの [ターゲット デバイス] メニュー (![[デバッグの開始] メニュー](images/startdebug-full.png)) で、 **[ローカル コンピューター]** が選択されていることを確認します (既定で選択されています)。
 2.  ツール バーの **[デバッグの開始]** ボタン (![[デバッグの開始] ボタン](images/startdebug-sm.png)) をクリックします。
 
    \- または -
@@ -224,7 +224,7 @@ private async void Button_Click(object sender, RoutedEventArgs e)
 
 ### <a name="what-did-we-just-do"></a>ここで実行したこと
 
-このコードでは、いくつか Windows API を使用して音声合成オブジェクトを作成し、読み上げるテキストを指定します  (SpeechSynthesis の使い方について詳しくは、[SpeechSynthesis 名前空間](https://docs.microsoft.com/uwp/api/windows.media.speechsynthesis)のドキュメントをご覧ください)。
+このコードでは、いくつか Windows API を使用して音声合成オブジェクトを作成し、読み上げるテキストを指定します (SpeechSynthesis の使い方について詳しくは、[SpeechSynthesis 名前空間](https://docs.microsoft.com/uwp/api/windows.media.speechsynthesis)のドキュメントをご覧ください)。
 
 アプリを実行し、ボタンをクリックすると、コンピューター (または電話) が "Hello, World!" を文字どおりにしゃべります。
 

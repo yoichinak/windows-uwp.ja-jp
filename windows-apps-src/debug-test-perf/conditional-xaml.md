@@ -59,7 +59,7 @@ IsPropertyPresent(ControlType, PropertyName) | IsPropertyNotPresent(ControlType,
 
 この例では、アプリが Fall Creators Update 以降で実行されている場合に、テキスト ブロックのコンテンツとして "Hello, Conditional XAML" と表示します。以前のバージョンで実行されている場合、コンテンツは何も表示されません。
 
-まず、"contract5Present" というプレフィックスのカスタム名前空間を定義し、 https://schemas.microsoft.com/winfx/2006/xaml/presentation) TextBlock.Text[ プロパティを含むスキーマとして、既定の XAML 名前空間 (](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock.Text) を使います。 これを条件付き名前空間にするために、スキーマの後に区切り文字 '?'  を追加します。
+まず、"contract5Present" というプレフィックスのカスタム名前空間を定義し、[TextBlock.Text](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock.Text) プロパティを含むスキーマとして、既定の XAML 名前空間 (https://schemas.microsoft.com/winfx/2006/xaml/presentation) を使います。 これを条件付き名前空間にするために、スキーマの後に区切り文字 '?' を追加します。
 
 次に、Fall Creators Update 以降を実行しているデバイスで **true** を返す条件を定義します。 ApiInformation の **IsApiContractPresent** メソッドを使って、UniversalApiContract の 5 番目のバージョンをチェックします。 バージョン 5 の UniversalApiContract は Fall Creators Update (SDK 16299) でリリースされました。
 
@@ -183,7 +183,7 @@ xmlns:contract5Present="http://schemas.microsoft.com/winfx/2006/xaml/presentatio
 </Rectangle>
 ```
 
-あるプロパティを、条件付き名前空間に依存する別のプロパティにバインドする場合は、両方のプロパティで同じ条件を使う必要があります。 次の例では、`colorPicker.Color` は "contract5Present" 条件付き名前空間に依存するため、SolidColorBrush.Color プロパティにも "contract5Present" プレフィックスを付ける必要があります  (または、Color プロパティの代わりに SolidColorBrush に "contract5Present" プレフィックスを付けることもできます)。そうしないと、コンパイル時エラーが発生します。
+あるプロパティを、条件付き名前空間に依存する別のプロパティにバインドする場合は、両方のプロパティで同じ条件を使う必要があります。 次の例では、`colorPicker.Color` は "contract5Present" 条件付き名前空間に依存するため、SolidColorBrush.Color プロパティにも "contract5Present" プレフィックスを付ける必要があります (または、Color プロパティの代わりに SolidColorBrush に "contract5Present" プレフィックスを付けることもできます)。そうしないと、コンパイル時エラーが発生します。
 
 ```xaml
 <SolidColorBrush contract5Present:Color="{x:Bind colorPicker.Color, Mode=OneWay}"/>

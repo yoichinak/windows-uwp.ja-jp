@@ -15,7 +15,7 @@ ms.locfileid: "68682724"
 ---
 # <a name="download-and-install-package-updates-from-the-store"></a>パッケージの更新プログラムを Microsoft Store からダウンロードしてインストールする
 
-Windows 10 バージョン 1607 以降では、[Windows.Services.Store](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext) 名前空間で [StoreContext](https://docs.microsoft.com/uwp/api/windows.services.store) クラスのメソッドを使用して、現在のアプリに対するパッケージ更新がないかプログラムによって Microsoft Store でチェックし、更新後のパッケージをダウンロードしてインストールすることができます。 また、パートナー センターで必須としてマークしたパッケージを照会し、必須の更新がインストールされるまでアプリ内の機能を無効にすることもできます。
+Windows 10 バージョン 1607 以降では、[Windows.Services.Store](https://docs.microsoft.com/uwp/api/windows.services.store) 名前空間で [StoreContext](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext) クラスのメソッドを使用して、現在のアプリに対するパッケージ更新がないかプログラムによって Microsoft Store でチェックし、更新後のパッケージをダウンロードしてインストールすることができます。 また、パートナー センターで必須としてマークしたパッケージを照会し、必須の更新がインストールされるまでアプリ内の機能を無効にすることもできます。
 
 Windows 10 バージョン 1803 で導入された追加の [StoreContext](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext) メソッドを使うと、パッケージの更新プログラムを背後で (ユーザーに通知 UI を表示せずに) ダウンロードおよびインストールしたり、[オプション パッケージ](/windows/msix/package/optional-packages)をアンインストールしたり、アプリのダウンロードおよびインストール キューにあるパッケージの情報を取得したりすることができます。
 
@@ -31,9 +31,9 @@ Windows 10 バージョン 1803 で導入された追加の [StoreContext](https
 このコード例では、次のことを前提条件としています。
 
 * コードは、[Page](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.page) のコンテキスト内で実行されます。
-* **Page** には、ダウンロード操作のステータスを提供するための、[ という ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.progressbar)ProgressBar```downloadProgressBar``` が含まれます。
+* **Page** には、ダウンロード操作のステータスを提供するための、```downloadProgressBar``` という [ProgressBar](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.progressbar) が含まれます。
 * コード ファイルには、**Windows.Services.Store**、**Windows.Threading.Tasks**、および**Windows.UI.Popups** 名前空間の **using** ステートメントがあります。
-* アプリは、アプリを起動したユーザーのコンテキストでのみ動作するシングル ユーザー アプリです。 [マルチ ユーザー アプリ](https://docs.microsoft.com/windows/uwp/xbox-apps/multi-user-applications) の場合は、[GetDefault](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.User) メソッドの代わりに **GetForUser** メソッドを使用して、[StoreContext](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.GetDefault) オブジェクトを取得してください。
+* アプリは、アプリを起動したユーザーのコンテキストでのみ動作するシングル ユーザー アプリです。 [マルチ ユーザー アプリ](https://docs.microsoft.com/windows/uwp/xbox-apps/multi-user-applications) の場合は、[GetDefault](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.GetDefault) メソッドの代わりに [GetForUser](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.User) メソッドを使用して、**StoreContext** オブジェクトを取得してください。
 
 ```csharp
 private StoreContext context = null;
@@ -99,7 +99,7 @@ Windows 10 バージョン 1803 以降では、[TrySilentDownloadStorePackageUpd
 
 このコード例では、次のことを前提条件としています。
 * コード ファイルに **Windows.Services.Store** 名前空間と **System.Threading.Tasks** 名前空間を使うための **using** ステートメントがある。
-* アプリは、アプリを起動したユーザーのコンテキストでのみ動作するシングル ユーザー アプリです。 [マルチ ユーザー アプリ](https://docs.microsoft.com/windows/uwp/xbox-apps/multi-user-applications) の場合は、[GetDefault](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.User) メソッドの代わりに **GetForUser** メソッドを使用して、[StoreContext](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.GetDefault) オブジェクトを取得してください。
+* アプリは、アプリを起動したユーザーのコンテキストでのみ動作するシングル ユーザー アプリです。 [マルチ ユーザー アプリ](https://docs.microsoft.com/windows/uwp/xbox-apps/multi-user-applications) の場合は、[GetDefault](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.GetDefault) メソッドの代わりに [GetForUser](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.User) メソッドを使用して、**StoreContext** オブジェクトを取得してください。
 
 > [!NOTE]
 > この例のコードにより呼び出されている **IsNowAGoodTimeToRestartApp**、**RetryDownloadAndInstallLater**、**RetryInstallLater** の各メソッドは、アプリの設計の必要に応じて実装することを目的としたプレースホルダー メソッドです。
@@ -330,7 +330,7 @@ Windows 10 バージョン 1803 以降では、[RequestUninstallStorePackageAsyn
 
 次のコード例は、[RequestUninstallStorePackageAsync](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.requestuninstallstorepackageasync) を呼び出す方法を示しています。 この例では、次のことを前提条件としています。
 * コード ファイルに **Windows.Services.Store** 名前空間と **System.Threading.Tasks** 名前空間を使うための **using** ステートメントがある。
-* アプリは、アプリを起動したユーザーのコンテキストでのみ動作するシングル ユーザー アプリです。 [マルチ ユーザー アプリ](https://docs.microsoft.com/windows/uwp/xbox-apps/multi-user-applications) の場合は、[GetDefault](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.User) メソッドの代わりに **GetForUser** メソッドを使用して、[StoreContext](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.GetDefault) オブジェクトを取得してください。
+* アプリは、アプリを起動したユーザーのコンテキストでのみ動作するシングル ユーザー アプリです。 [マルチ ユーザー アプリ](https://docs.microsoft.com/windows/uwp/xbox-apps/multi-user-applications) の場合は、[GetDefault](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.GetDefault) メソッドの代わりに [GetForUser](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.User) メソッドを使用して、**StoreContext** オブジェクトを取得してください。
 
 ```csharp
 public async Task UninstallPackage(Windows.ApplicationModel.Package package)
@@ -373,7 +373,7 @@ Windows 10 バージョン 1803 以降では、[GetAssociatedStoreQueueItemsAsyn
 
 次のコード例は、[GetAssociatedStoreQueueItemsAsync](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.getassociatedstorequeueitemsasync) を呼び出し、現在のアプリの進行中のパッケージ更新プログラムの一覧を取得して、各パッケージのステータス情報を表示する方法を示しています。 この例では、次のことを前提条件としています。
 * コード ファイルに **Windows.Services.Store** 名前空間と **System.Threading.Tasks** 名前空間を使うための **using** ステートメントがある。
-* アプリは、アプリを起動したユーザーのコンテキストでのみ動作するシングル ユーザー アプリです。 [マルチ ユーザー アプリ](https://docs.microsoft.com/windows/uwp/xbox-apps/multi-user-applications) の場合は、[GetDefault](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.User) メソッドの代わりに **GetForUser** メソッドを使用して、[StoreContext](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.GetDefault) オブジェクトを取得してください。
+* アプリは、アプリを起動したユーザーのコンテキストでのみ動作するシングル ユーザー アプリです。 [マルチ ユーザー アプリ](https://docs.microsoft.com/windows/uwp/xbox-apps/multi-user-applications) の場合は、[GetDefault](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.GetDefault) メソッドの代わりに [GetForUser](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.User) メソッドを使用して、**StoreContext** オブジェクトを取得してください。
 
 > [!NOTE]
 > この例のコードにより呼び出されている **MarkUpdateInProgressInUI**、**RemoveItemFromUI**、**MarkInstallCompleteInUI**、**MarkInstallErrorInUI**、**MarkInstallPausedInUI** の各メソッドは、アプリの設計の必要に応じて実装することを目的としてプレースホルダー メソッドです。
