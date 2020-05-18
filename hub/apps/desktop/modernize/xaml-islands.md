@@ -8,12 +8,12 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: high
 ms.custom: 19H1
-ms.openlocfilehash: dbae7ada227b4f3019a2e17c91e6b06b7f2f276f
-ms.sourcegitcommit: 0acdafcf75fcd19e5c3181eb16defcfee3918cb2
+ms.openlocfilehash: d050e2b4a7659f8910ce603ec7e90b703cc7722f
+ms.sourcegitcommit: 2571af6bf781a464a4beb5f1aca84ae7c850f8f9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81441867"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82606241"
 ---
 # <a name="host-uwp-xaml-controls-in-desktop-apps-xaml-islands"></a>デスクトップ アプリで UWP XAML コントロールをホストする (XAML Islands)
 
@@ -129,6 +129,8 @@ UWP XAML ホスティング API は、いくつかの Windows ランタイム �
 
 ### <a name="supported-only-with-workarounds"></a>回避策を使用した場合にのみサポートされる
 
+:heavy_check_mark:XAML Island の [WinUI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)からの UWP コントロールをホスティングすることは、XAML Island の現在のリリースで条件付きでサポートされています。 デスクトップ アプリで [MSIX パッケージ](https://docs.microsoft.com/windows/msix)を使用して展開している場合は、[Microsoft.UI.Xaml](https://www.nuget.org/packages/Microsoft.UI.Xaml) NugGet パッケージのプレリリースまたはリリース バージョンからの WinUI コントロールをホスティングできます。 お使いのデスクトップ アプリが MSIX を使用してパッケージ化されていない場合は、プレリリース バージョンの [Microsoft.UI.Xaml](https://www.nuget.org/packages/Microsoft.UI.Xaml) NuGet パッケージをインストールしている場合にのみ、WinUI コントロールをホスティングできます。
+
 :heavy_check_mark:XAML Island で XAML コンテンツのツリーのルート要素にアクセスし、それがホストされているコンテキストに関する関連情報を取得するために、[CoreWindow](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow)、[ApplicationView](https://docs.microsoft.com/uwp/api/windows.ui.viewmanagement.applicationview)、[Window](https://docs.microsoft.com/uwp/api/windows.ui.xaml.window) クラスを使用しないでください。 代わりに、[XamlRoot](https://docs.microsoft.com/uwp/api/windows.ui.xaml.xamlroot) クラスを使用します。 詳しくは、[このセクション](#window-host-context-for-xaml-islands)をご覧ください。
 
 :heavy_check_mark:WPF、Windows フォーム、または C++ Win32 アプリからの[共有コントラクト](/windows/uwp/app-to-app/share-data)をサポートするには、アプリで [IDataTransferManagerInterop](https://docs.microsoft.com/windows/win32/api/shobjidl_core/nn-shobjidl_core-idatatransfermanagerinterop) インターフェイスを使用して、特定のウィンドウの共有操作を開始するために [DataTransferManager](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.datatransfermanager) オブジェクトを取得する必要があります。 このインターフェイスを WPF アプリで使用する方法を示すサンプルについては、[ShareSource サンプル](https://github.com/microsoft/Windows-classic-samples/tree/master/Samples/ShareSource)を参照してください。
@@ -150,6 +152,8 @@ UWP XAML ホスティング API は、いくつかの Windows ランタイム �
 :no_entry_sign: `@Places` および `@People` コンテンツ リンクを使用するテキスト コントロール。 この機能について詳しくは、[この記事](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/content-links)をご覧ください。
 
 :no_entry_sign: XAML Islands では、[TextBox](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox)、[RichEditBox](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.richeditbox)、[AutoSuggestBox](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.autosuggestbox) などのテキスト入力を受け入れるコントロールを含む [ContentDialog](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ContentDialog) のホストはサポートされていません。 これを行うと、入力コントロールはキーが押されても適切に応答しません。 XAML Island を使用して同様の機能を実現するには、入力コントロールを含む [Popup](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Primitives.Popup) をホストすることをお勧めします。
+
+:no_entry_sign: 現在、XAML Island では、ホストされた [Windows.UI.Xaml.Controls.Image](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Image) コントロール内、または [Windows.UI.Xaml.Media.Imaging.SvgImageSource](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.svgimagesource) オブジェクトを使用した SVG ファイルの表示はサポートされていません。 回避策として、表示したい画像ファイルを、JPG や PNG などのラスターベース形式に変換してください。
 
 ### <a name="window-host-context-for-xaml-islands"></a>XAML Islands のウィンドウ ホスト コンテキスト
 
