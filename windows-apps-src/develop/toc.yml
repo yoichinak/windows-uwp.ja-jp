@@ -819,6 +819,8 @@
           items:
             - name: 値のカテゴリと参照
               href: ../cpp-and-winrt-apis/cpp-value-categories.md
+    - name: 'C#/WinRT'
+      href: ../csharp-winrt/index.md
     - name: セキュリティ
       href: ../security/index.md
       items:
