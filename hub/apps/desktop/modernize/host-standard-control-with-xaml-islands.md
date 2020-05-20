@@ -180,7 +180,7 @@ UWP XAML Islands を使用するようにプロジェクトを構成したので
     ```
 
     > [!NOTE]
-    > また、 **[ツールボックス]** の **[Windows Community Toolkit]** セクションからデザイナーにドラッグすることで、これらのコントロールや他のラップされたコントロールをウィンドウに追加することもできます。
+    > また、**[ツールボックス]** の **[Windows Community Toolkit]** セクションからデザイナーにドラッグすることで、これらのコントロールや他のラップされたコントロールをウィンドウに追加することもできます。
 
 4. **MainWindow.xaml** ファイルを保存します。
 
@@ -295,7 +295,7 @@ UWP XAML Islands を使用するようにプロジェクトを構成したので
 > [!NOTE]
 > 配置用に [MSIX パッケージ](https://docs.microsoft.com/windows/msix)にアプリケーションをパッケージ化しない場合は、アプリを実行するコンピューターに [Visual C++ ランタイム](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads)がインストールされている必要があります。
 
-1. ソリューションに新しい [Windows アプリケーション パッケージ プロジェクト](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)を追加します。 プロジェクトを作成するときに、 **[ターゲット バージョン]** と **[最小バージョン]** の両方に対して、**Windows 10 バージョン 1903 (10.0、ビルド 18362)** を選択します。
+1. ソリューションに新しい [Windows アプリケーション パッケージ プロジェクト](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)を追加します。 プロジェクトを作成するときに、**[ターゲット バージョン]** と **[最小バージョン]** の両方に対して、**Windows 10 バージョン 1903 (10.0、ビルド 18362)** を選択します。
 
 2. パッケージ プロジェクトで、 **[アプリケーション]** ノードを右クリックして **[参照の追加]** を選択します。 プロジェクトの一覧でソリューション内の WPF プロジェクトを選択し、 **[OK]** をクリックします。
 
