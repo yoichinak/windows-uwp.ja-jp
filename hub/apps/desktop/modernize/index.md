@@ -6,12 +6,12 @@ ms.date: 04/17/2019
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: b966d00455bce390457e148c60b57296375ac2fa
-ms.sourcegitcommit: ef723e3d6b1b67213c78da696838a920c66d5d30
+ms.openlocfilehash: 86586cfc0f054181f08cd3cd75731e6c53ea4b92
+ms.sourcegitcommit: d0f479f1955881afb62c2af249db5d0b053b63e5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/02/2020
-ms.locfileid: "82730241"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83579929"
 ---
 # <a name="modernize-your-desktop-apps"></a>デスクトップ アプリの現代化
 
@@ -21,6 +21,17 @@ Windows 10 とユニバーサル Windows プラットフォーム (UWP) に用�
 
 > [!NOTE]
 > デスクトップ アプリを Windows 10 に移行するのにサポートが必要な場合 [Desktop App Assure](https://docs.microsoft.com/FastTrack/win-10-desktop-app-assure) サービスでは、自身のアプリを Windows 10 に移植する開発者に直接無償のサポートが提供されます。 このプログラムは、すべての ISV と条件に適合する企業が使用できます。 ご利用資格とプログラム自体について詳しくは、[https://docs.microsoft.com/fasttrack/win-10-app-assure-assistance-offered](https://docs.microsoft.com/fasttrack/win-10-app-assure-assistance-offered) をご覧ください。 すぐに開始するには、[リクエストを送信](https://fasttrack.microsoft.com/dl/daa)してください。
+
+## <a name="windows-ui-library"></a>Windows UI ライブラリ
+
+Windows UI ライブラリは、Windows 10 アプリ用のコントロールとその他のユーザー インターフェイス要素を提供する NuGet パッケージのセットです。 WinUI は、ダウンレベル バージョンの Windows 10 を対象とする UWP アプリ用の UWP コントロールの新しいバージョンと更新バージョンを提供するツールキットとして開始されました。 WinUI のスコープが拡張されて、UWP、.NET、Win32 において Windows 10 アプリ向けの最新のネイティブ ユーザー インターフェイス (UI) プラットフォームになりました。
+
+デスクトップ アプリでは、次の方法で WinUI を使用できます。
+
+* WPF、Windows フォーム、および C++/Win32 の既存のアプリを更新して、これらのアプリで [XAML Islands](xaml-islands.md) を使用して WinUI 2.x コントロールをホストできます。
+* [WinUi 3.0 Preview 1](../../winui/winui3/index.md) からは、[全面的に WinUI ベースの UI を使用する .NET アプリと C++/Win32 アプリ](../../winui/winui3/get-started-winui3-for-desktop.md)を作成できます。
+
+「[Windows UI (WinUI) ライブラリ](../../winui/index.md)」をご覧ください。
 
 ## <a name="msix-packages"></a>MSIX パッケージ
 
@@ -61,7 +72,7 @@ UWP 以外のデスクトップ アプリで Windows ランタイム API を使�
 デスクトップ アプリに ID を付与する方法はいくつかあります。
 
 * [MSIX パッケージ](/windows/msix/desktop/desktop-to-uwp-root)でパッケージ化します。 MSIX は、すべての Windows アプリ、WPF、Windows フォーム、Win32 アプリ用のユニバーサルなパッケージ化エクスペリエンスを提供するモダンなアプリ パッケージ形式です。 これは、堅牢なインストールと更新のエクスペリエンス、柔軟な機能システムによる管理されたセキュリティ モデル、Microsoft Store のサポート、エンタープライズ管理、および多くのカスタム配布モデルを提供します。 詳しくは、MSIX ドキュメントの「[デスクトップ アプリケーションのパッケージ化](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-root)」をご覧ください。
-* デスクトップ アプリを配置するために MSIX パッケージを導入できない場合、Windows 10 バージョン 2004 では、パッケージ マニフェストのみを含む "*スパース MSIX パッケージ*" を作成することでパッケージ ID を付与できます。 詳細については、「[パッケージ化されていないデスクトップ アプリに ID を付与する](grant-identity-to-nonpackaged-apps.md)」を参照してください。
+* デスクトップ アプリを配置するために MSIX パッケージを導入できない場合、Windows 10 バージョン 2004 以降では、パッケージ マニフェストのみを含む "*スパース MSIX パッケージ*" を作成することでパッケージ ID を付与できます。 詳細については、「[パッケージ化されていないデスクトップ アプリに ID を付与する](grant-identity-to-nonpackaged-apps.md)」を参照してください。
 
 <a id="desktop-uwp-controls"/>
 
@@ -79,12 +90,6 @@ UWP 以外のデスクトップ アプリで Windows ランタイム API を使�
 | [ComboBox](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/combo-box#make-a-combo-box-editable) | コンボ ボックスを、ユーザーがコントロール内に一覧表示されていない値を入力できるように、編集可能にできるようになりました。  |
 | [TreeView](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/tree-view) | データ バインディング、項目テンプレート、ドラッグ アンド ドロップを有効にするようにツリー ビューを構成できるようになりました。  |
 | [DataGridView](https://docs.microsoft.com/windows/communitytoolkit/controls/datagrid) |   行と列に柔軟にデータ コレクションを表示できます。 このコントロールは、[Windows コミュニティ ツールキット](https://docs.microsoft.com/windows/uwpcommunitytoolkit/)で入手できます。  |
-
-## <a name="windows-ui-library"></a>Windows UI ライブラリ
-
-Windows UI ライブラリは、UWP アプリ用の新しいコントロールとその他のユーザー インターフェイス要素を提供する NuGet パッケージのセットです。 Windows UI ライブラリの API は以前のバージョンの Windows 10 で動作するため、ユーザーが最新バージョンの Windows 10 を実行していなくてもアプリは動作します。 これにより、新しいコントロールが Windows UI ライブラリでリリースされたときにこれらを導入することができます。バージョン チェックや条件付き XAML を含める必要がありません。
-
-「[Windows UI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。
 
 ## <a name="other-technologies-for-modern-desktop-apps"></a>モダン デスクトップ アプリ向けのその他のテクノロジ
 

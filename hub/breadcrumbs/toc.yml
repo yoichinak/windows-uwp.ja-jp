@@ -9,20 +9,72 @@
         - name: デスクトップ アプリの構築
           tocHref: /windows/apps/desktop/
           topicHref: /windows/apps/desktop/
-        - name: デスクトップ アプリの現代化
-          tocHref: /windows/apps/desktop/modernize/
-          topicHref: /windows/apps/desktop/modernize/
           items:
-            - name: Windows ランタイム API の呼び出し
-              topicHref: /windows/apps/desktop/modernize/desktop-to-uwp-enhance
-            - name: XAML Islands
-              topicHref: /windows/apps/desktop/modernize/xaml-islands
-            - name: ビジュアル レイヤー
-              topicHref: /windows/apps/desktop/modernize/visual-layer-in-desktop-apps
-            - name: パッケージ ID が必要な機能
-              topicHref: /windows/apps/desktop/modernize/modernize-packaged-apps
-            - name: 'チュートリアル: WPF アプリの現代化'
-              topicHref: /windows/apps/desktop/modernize/modernize-wpf-tutorial
+            - name: デスクトップ アプリの現代化
+              tocHref: /windows/apps/desktop/modernize/
+              topicHref: /windows/apps/desktop/modernize/
+              items:
+                - name: Windows ランタイム API の呼び出し
+                  topicHref: /windows/apps/desktop/modernize/desktop-to-uwp-enhance
+                  items:
+                    - name: 利用可能な Windows ランタイム API
+                      topicHref: /windows/apps/desktop/modernize/desktop-to-uwp-supported-api
+                - name: XAML Islands
+                  topicHref: /windows/apps/desktop/modernize/xaml-islands
+                  items:
+                    - name: WPF アプリでの標準 UWP コントロールのホスト
+                      topicHref: /windows/apps/desktop/modernize/host-standard-control-with-xaml-islands
+                    - name: WPF アプリでのカスタム UWP コントロールのホスト
+                      topicHref: /windows/apps/desktop/modernize/host-custom-control-with-xaml-islands
+                    - name: API をホストしている UWP XAML の使用
+                      topicHref: /windows/apps/desktop/modernize/using-the-xaml-hosting-api
+                    - name: C++ Win32 アプリで標準 UWP コントロールをホストする
+                      topicHref: /windows/apps/desktop/modernize/host-standard-control-with-xaml-islands-cpp
+                    - name: C++ Win32 アプリでカスタム UWP コントロールをホストする
+                      topicHref: /windows/apps/desktop/modernize/host-custom-control-with-xaml-islands-cpp
+                    - name: C++ Win32 アプリでの XAML Islands の高度なシナリオ
+                      topicHref: /windows/apps/desktop/modernize/advanced-scenarios-xaml-islands-cpp
+                - name: ビジュアル レイヤー
+                  topicHref: /windows/apps/desktop/modernize/visual-layer-in-desktop-apps
+                  items:
+                    - name: WPF
+                      topicHref: /windows/apps/desktop/modernize/using-the-visual-layer-with-wpf
+                    - name: Windows フォーム
+                      topicHref: /windows/apps/desktop/modernize/using-the-visual-layer-with-windows-forms
+                    - name: Win32
+                      topicHref: /windows/apps/desktop/modernize/using-the-visual-layer-with-win32
+                - name: パッケージ ID が必要な機能
+                  topicHref: /windows/apps/desktop/modernize/modernize-packaged-apps
+                  items:
+                    - name: パッケージ拡張機能との統合
+                      topicHref: /windows/apps/desktop/modernize/desktop-to-uwp-extensions
+                    - name: UWP コンポーネントによる拡張
+                      topicHref: /windows/apps/desktop/modernize/desktop-to-uwp-extend
+                    - name: パッケージ化されたデスクトップ アプリを配布する
+                      topicHref: /windows/apps/desktop/modernize/desktop-to-uwp-distribute
+                - name: 'チュートリアル: WPF アプリの現代化'
+                  topicHref: /windows/apps/desktop/modernize/modernize-wpf-tutorial
+                  items:
+                    - name: 第 1 部
+                      topicHref: /windows/apps/desktop/modernize/modernize-wpf-tutorial-1
+                    - name: 第 2 部
+                      topicHref: /windows/apps/desktop/modernize/modernize-wpf-tutorial-2
+                    - name: 第 3 部
+                      topicHref: /windows/apps/desktop/modernize/modernize-wpf-tutorial-3
+                    - name: 第 4 部
+                      topicHref: /windows/apps/desktop/modernize/modernize-wpf-tutorial-4
+                    - name: 第 5 部
+                      topicHref: /windows/apps/desktop/modernize/modernize-wpf-tutorial-5
+        - name: Windows UI ライブラリ (WinUI)
+          tocHref: /windows/apps/winui/
+          topicHref: /windows/apps/winui/
+          items:
+            - name: WinUI 3
+              tocHref: /windows/apps/winui/winui3/
+              topicHref: /windows/apps/winui/winui3
+            - name: WinUI 2
+              tocHref: /windows/apps/winui/winui2/
+              topicHref: /windows/apps/winui/winui2
         - name: .NET TraceProcessing
           tocHref: /windows/apps/trace-processing/
           topicHref: /windows/apps/trace-processing/overview
@@ -42,6 +94,9 @@
       tocHref: /windows/dev-environment/
       topicHref: /windows/dev-environment/
       items:
+        - name: Windows パッケージ マネージャー
+          tocHref: /windows/package-manager/
+          topicHref: /windows/package-manager
         - name: Python
           tocHref: /windows/python/
           topicHref: /windows/python

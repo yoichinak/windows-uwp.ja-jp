@@ -1,6 +1,36 @@
 - name: Windows の開発環境
   href: index.yml
   items:
+    - name: Windows パッケージ マネージャー
+      items:
+        - name: 概要
+          href: ../package-manager/index.md
+        - name: winget ツールの使用
+          items:
+            - name: 概要
+              href: ../package-manager/winget/index.md
+            - name: hash コマンド
+              href: ../package-manager/winget/hash.md
+            - name: help コマンド
+              href: ../package-manager/winget/help.md
+            - name: install コマンド
+              href: ../package-manager/winget/install.md
+            - name: search コマンド
+              href: ../package-manager/winget/search.md
+            - name: show コマンド
+              href: ../package-manager/winget/show.md
+            - name: source コマンド
+              href: ../package-manager/winget/source.md
+            - name: validate コマンド
+              href: ../package-manager/winget/validate.md
+        - name: パッケージの送信
+          items:
+            - name: 概要
+              href: ../package-manager/package/index.md
+            - name: パッケージ マニフェストを作成する
+              href: ../package-manager/package/manifest.md
+            - name: リポジトリにマニフェストを送信する
+              href: ../package-manager/package/repository.md
     - name: Python を使った開発
       items:
         - name: 概要
@@ -33,7 +63,7 @@
           href: ../nodejs/databases.md
         - name: コンテナーの概要
           href: ../nodejs/containers.md
-    - name: Android で開発
+    - name: Android を使った開発
       items:
         - name: 概要
           href: ../android/overview.md

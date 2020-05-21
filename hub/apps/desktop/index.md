@@ -7,12 +7,12 @@ keywords: windows win32, デスクトップ開発
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: c27826980127674b4a4356af8a3c36056e86bd83
-ms.sourcegitcommit: f727b68e86a86c94eff00f67ed79a1c12666e7bc
+ms.openlocfilehash: 5a55a1578fba7052396ecec725db2678ea8bd6ff
+ms.sourcegitcommit: d0f479f1955881afb62c2af249db5d0b053b63e5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74056859"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83580019"
 ---
 # <a name="build-desktop-apps-for-windows-pcs"></a>Windows PC 用のデスクトップ アプリの構築
 
@@ -62,6 +62,9 @@ Windows PC 用のデスクトップ アプリを構築するプラットフォ�
 </tr>
 </tbody>
 </table>
+
+> [!NOTE]
+> これらのアプリケーション プラットフォームは、一連の UI フレームワークおよび UI コントロールを備えています。従来の Windows デスクトップで実行される Word、Excel、Photoshop などのデスクトップ アプリを作成し、その環境固有の機能を最大限に活用できます。 Windows 10 では、この各プラットフォームで Windows UI (WinUI) ライブラリ を使用したユーザー インターフェイスの作成がサポートされています。 デスクトップ アプリ用の WinUI の詳細については、[こちらのセクション](choose-your-platform.md#windows-ui-library)を参照してください。
 
 ## <a name="update-existing-desktop-apps-for-windows-10"></a>Windows 10 用に既存のデスクトップ アプリを更新する
 

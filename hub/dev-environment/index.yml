@@ -9,13 +9,29 @@ metadata:
   ms.date: 09/15/2019
   ms.prod: dev-environment
   ms.topic: landing-page
-  ms.openlocfilehash: 62e4cc8c5788780988b79d079ff4a6834a525a51
-  ms.sourcegitcommit: 0808a2719c007b3d7f55714e197ad080a1631a57
+  ms.openlocfilehash: da9899c3851779853c1f99cb829c98d44f61586f
+  ms.sourcegitcommit: d0f479f1955881afb62c2af249db5d0b053b63e5
   ms.translationtype: HT
   ms.contentlocale: ja-JP
-  ms.lasthandoff: 05/01/2020
-  ms.locfileid: "82630640"
+  ms.lasthandoff: 05/19/2020
+  ms.locfileid: "83579949"
 landingContent:
+- title: Windows パッケージ マネージャー
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 概要
+      url: ../package-manager/index.md
+  - linkListType: get-started
+    links:
+    - text: winget ツールの使用
+      url: ../package-manager/winget/index.md
+    - text: パッケージの送信
+      url: ../package-manager/package/index.md
+  - linkListType: reference
+    links:
+    - text: winget コマンド
+      url: ../package-manager/winget/index.md#commands
 - title: Python の概要
   linkLists:
   - linkListType: get-started

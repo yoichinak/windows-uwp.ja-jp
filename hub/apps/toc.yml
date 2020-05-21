@@ -7,72 +7,105 @@
           href: desktop/index.md
         - name: アプリ プラットフォームの選択
           href: desktop/choose-your-platform.md
-    - name: デスクトップ アプリの現代化
+        - name: デスクトップ アプリの現代化
+          items:
+            - name: 概要
+              href: desktop/modernize/index.md
+            - name: Windows ランタイム API の呼び出し
+              items:
+                - name: 概要
+                  href: desktop/modernize/desktop-to-uwp-enhance.md
+                - name: 利用可能な Windows ランタイム API
+                  href: desktop/modernize/desktop-to-uwp-supported-api.md
+            - name: UWP XAML コントロールのホスト (XAML Islands)
+              items:
+                - name: 概要
+                  href: desktop/modernize/xaml-islands.md
+                - name: WPF アプリと Windows フォーム アプリでの XAML Islands
+                  items:
+                    - name: 標準 UWP コントロールをホストする
+                      href: desktop/modernize/host-standard-control-with-xaml-islands.md
+                    - name: カスタム UWP コントロールをホストする
+                      href: desktop/modernize/host-custom-control-with-xaml-islands.md
+                - name: C++ Win32 アプリでの XAML Islands
+                  items:
+                    - name: API をホストしている UWP XAML の使用
+                      href: desktop/modernize/using-the-xaml-hosting-api.md
+                    - name: 標準 UWP コントロールをホストする
+                      href: desktop/modernize/host-standard-control-with-xaml-islands-cpp.md
+                    - name: カスタム UWP コントロールをホストする
+                      href: desktop/modernize/host-custom-control-with-xaml-islands-cpp.md
+                    - name: 高度なシナリオ
+                      href: desktop/modernize/advanced-scenarios-xaml-islands-cpp.md
+            - name: ビジュアル レイヤーの使用 (Windows.UI.Composition)
+              items:
+                - name: 概要
+                  href: desktop/modernize/visual-layer-in-desktop-apps.md
+                - name: WPF
+                  href: desktop/modernize/using-the-visual-layer-with-wpf.md
+                - name: Windows フォーム
+                  href: desktop/modernize/using-the-visual-layer-with-windows-forms.md
+                - name: Win32
+                  href: desktop/modernize/using-the-visual-layer-with-win32.md
+            - name: パッケージ ID が必要な機能
+              items:
+                - name: 概要
+                  href: desktop/modernize/modernize-packaged-apps.md
+                - name: パッケージ拡張機能との統合
+                  href: desktop/modernize/desktop-to-uwp-extensions.md
+                - name: UWP コンポーネントによる拡張
+                  href: desktop/modernize/desktop-to-uwp-extend.md
+                - name: パッケージ アプリの配布
+                  href: desktop/modernize/desktop-to-uwp-distribute.md
+            - name: 'チュートリアル: WPF アプリの現代化'
+              items:
+                - name: 概要
+                  href: desktop/modernize/modernize-wpf-tutorial.md
+                - name: Contoso Expenses　アプリの .NET Core 3 への移行
+                  href: desktop/modernize/modernize-wpf-tutorial-1.md
+                - name: XAML Islands を使用した UWP InkCanvas コントロールの追加
+                  href: desktop/modernize/modernize-wpf-tutorial-2.md
+                - name: XAML Islands を使用した UWP CalendarView コントロールの追加
+                  href: desktop/modernize/modernize-wpf-tutorial-3.md
+                - name: Windows 10 ユーザー アクティビティと通知の追加
+                  href: desktop/modernize/modernize-wpf-tutorial-4.md
+                - name: MSIX によるパッケージとデプロイ
+                  href: desktop/modernize/modernize-wpf-tutorial-5.md
+            - name: パッケージ化されていないデスクトップ アプリに ID を付与する
+              href: desktop/modernize/grant-identity-to-nonpackaged-apps.md
+    - name: Windows UI ライブラリ (WinUI)
       items:
         - name: 概要
-          href: desktop/modernize/index.md
-        - name: Windows ランタイム API の呼び出し
+          href: winui/index.md
+        - name: Windows UI ライブラリ 3.0 Preview 1
           items:
-            - name: 概要
-              href: desktop/modernize/desktop-to-uwp-enhance.md
-            - name: 利用可能な Windows ランタイム API
-              href: desktop/modernize/desktop-to-uwp-supported-api.md
-        - name: UWP XAML コントロールのホスト (XAML Islands)
+            - name: ダウンロードおよびリリース ノート
+              href: winui/winui3/index.md
+            - name: デスクトップ アプリ用の WinUI 3.0 の概要
+              href: winui/winui3/get-started-winui3-for-desktop.md
+        - name: Windows UI 2.x ライブラリ
+          href: winui/winui2/index.md
           items:
-            - name: 概要
-              href: desktop/modernize/xaml-islands.md
-            - name: WPF アプリと Windows フォーム アプリでの XAML Islands
+            - name: セットアップ
               items:
-                - name: 標準 UWP コントロールをホストする
-                  href: desktop/modernize/host-standard-control-with-xaml-islands.md
-                - name: カスタム UWP コントロールをホストする
-                  href: desktop/modernize/host-custom-control-with-xaml-islands.md
-            - name: C++ Win32 アプリでの XAML Islands
+                - name: 開始
+                  href: winui/winui2/getting-started.md
+                - name: NuGet パッケージの一覧
+                  href: winui/winui2/nuget-packages.md
+            - name: のリリース ノート
               items:
-                - name: API をホストしている UWP XAML の使用
-                  href: desktop/modernize/using-the-xaml-hosting-api.md
-                - name: 標準 UWP コントロールをホストする
-                  href: desktop/modernize/host-standard-control-with-xaml-islands-cpp.md
-                - name: カスタム UWP コントロールをホストする
-                  href: desktop/modernize/host-custom-control-with-xaml-islands-cpp.md
-                - name: 高度なシナリオ
-                  href: desktop/modernize/advanced-scenarios-xaml-islands-cpp.md
-        - name: ビジュアル レイヤーの使用 (Windows.UI.Composition)
-          items:
-            - name: 概要
-              href: desktop/modernize/visual-layer-in-desktop-apps.md
-            - name: WPF
-              href: desktop/modernize/using-the-visual-layer-with-wpf.md
-            - name: Windows フォーム
-              href: desktop/modernize/using-the-visual-layer-with-windows-forms.md
-            - name: Win32
-              href: desktop/modernize/using-the-visual-layer-with-win32.md
-        - name: パッケージ ID が必要な機能
-          items:
-            - name: 概要
-              href: desktop/modernize/modernize-packaged-apps.md
-            - name: パッケージ拡張機能との統合
-              href: desktop/modernize/desktop-to-uwp-extensions.md
-            - name: UWP コンポーネントによる拡張
-              href: desktop/modernize/desktop-to-uwp-extend.md
-            - name: パッケージ アプリの配布
-              href: desktop/modernize/desktop-to-uwp-distribute.md
-        - name: 'チュートリアル: WPF アプリの現代化'
-          items:
-            - name: 概要
-              href: desktop/modernize/modernize-wpf-tutorial.md
-            - name: Contoso Expenses　アプリの .NET Core 3 への移行
-              href: desktop/modernize/modernize-wpf-tutorial-1.md
-            - name: XAML Islands を使用した UWP InkCanvas コントロールの追加
-              href: desktop/modernize/modernize-wpf-tutorial-2.md
-            - name: XAML Islands を使用した UWP CalendarView コントロールの追加
-              href: desktop/modernize/modernize-wpf-tutorial-3.md
-            - name: Windows 10 ユーザー アクティビティと通知の追加
-              href: desktop/modernize/modernize-wpf-tutorial-4.md
-            - name: MSIX によるパッケージとデプロイ
-              href: desktop/modernize/modernize-wpf-tutorial-5.md
-        - name: パッケージ化されていないデスクトップ アプリに ID を付与する
-          href: desktop/modernize/grant-identity-to-nonpackaged-apps.md
+                - name: 概要
+                  href: winui/winui2/release-notes/index.md
+                - name: WinUI 2.4
+                  href: winui/winui2/release-notes/winui-2.4.md
+                - name: WinUI 2.3
+                  href: winui/winui2/release-notes/winui-2.3.md
+                - name: WinUI 2.2
+                  href: winui/winui2/release-notes/winui-2.2.md
+                - name: WinUI 2.1
+                  href: winui/winui2/release-notes/winui-2.1.md
+                - name: WinUI 2.0
+                  href: winui/winui2/release-notes/winui-2.0.md
     - name: Windows 10X 用の開発
       items:
         - name: Windows 10X 開発の FAQ
@@ -87,3 +120,5 @@
       href: features-and-technologies.md
     - name: 最新のドキュメントの更新
       href: whats-new/latest-doc-updates.md
+    - name: Microsoft Build 2020 に関連するドキュメント
+      href: whats-new/build2020-docs.md
