@@ -8,38 +8,27 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 keywords: windows win32, デスクトップ開発
-ms.openlocfilehash: 906126c14dd32a9c0196d53deab5bc36c07f4bef
-ms.sourcegitcommit: ef723e3d6b1b67213c78da696838a920c66d5d30
+ms.openlocfilehash: c14b092b9cce9ce7e3b180eaedef657e2d3d03db
+ms.sourcegitcommit: d0f479f1955881afb62c2af249db5d0b053b63e5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/02/2020
-ms.locfileid: "82729845"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83580009"
 ---
 # <a name="choose-your-app-platform"></a>アプリ プラットフォームの選択
 
 Windows PC 用の新しいデスクトップ アプリケーションを作成する場合は、まず、どのアプリケーション プラットフォームを使用するかを決定します。 Windows には、次の 4 つの主要なアプリケーション プラットフォームが用意されており、それぞれに長所があります。
 
-* [ユニバーサル Windows プラットフォーム (UWP)](#uwp)
-* [WPF (.NET)](#wpf)
-* [Windows フォーム (.NET)](#windows-forms)
-* [Win32](#win32)
+* [ユニバーサル Windows プラットフォーム (UWP)](#uwp): このプラットフォームには、Windows 10 を実行するすべてのデバイスに共通の型システム、API、およびアプリケーション モデルが用意されています。 UWP アプリケーションは、ネイティブでもマネージドでもかまいません。
+* [WPF](#wpf) と [Windows フォーム](#windows-forms): これらの .NET ベースのプラットフォームには、マネージド アプリケーションに共通の型システム、API、およびアプリケーション モデルが用意されています。
+* [Win32](#win32): これは、Windows とハードウェアへの直接アクセスを必要とするネイティブ C/C++ の Windows アプリケーション向けの最初のプラットフォームです。 これにより、Win32 API 最高レベルのパフォーマンスとシステム ハードウェアへの直接アクセスを必要とするアプリケーションに適したプラットフォームになっています。
 
-これらのアプリケーション プラットフォームでは、従来の Windows デスクトップで実行される Word、Excel、Photoshop などのデスクトップ アプリを作成し、その環境固有の機能を最大限に活用することができます。 ただし、これらのプラットフォームの一部はいくつかの特徴を共有し、特定の種類のアプリケーションにより適しています。
+これらの各プラットフォームには、一連の UI フレームワークおよび UI コントロールが備わっています。それを使用すると、従来の Windows デスクトップで実行される Word、Excel、Photoshop などのデスクトップ アプリを作成し、その環境固有の機能を最大限に活用できます。 Windows 10 では、この各プラットフォームで [Windows UI (WinUI) ライブラリ](#windows-ui-library)を使用したユーザー インターフェイスの作成がサポートされています。
 
-* **UWP**。 このプラットフォームには、Windows 10 を実行するすべてのデバイスに共通の型システム、API、およびアプリケーション モデルが用意されています。 UWP アプリケーションは、ネイティブでもマネージドでもかまいません。 
-
-* **WPF と Windows フォーム**。 これらのプラットフォームには、.NET で実行されるマネージド アプリケーションに共通の型システム、API、およびアプリケーション モデルが用意されています。
-
-* **Win32 API**。 WIN32 API (Windows API とも呼ばれます) は、Windows とハードウェアへの直接アクセスを必要とするネイティブ C/C++ の Windows アプリケーションのために用意された最初のプラットフォームです。 これにより、Win32 API 最高レベルのパフォーマンスとシステム ハードウェアへの直接アクセスを必要とするアプリケーションに適したプラットフォームになっています。
-
-Windows 10 では、これらのすべてのプラットフォームで [Windows UI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui) を使用したユーザー インターフェイスの作成がサポートされています。 WinUI には、既存の XAML コントロールの拡張版と新しいコントロールの両方を含む、最新のコントロールのセットが用意されています。 最大限に活用できるようにするため、WinUI では以前のバージョンの Windows 10 もサポートされています。
-
-UWP と .NET はどちらも Visual Studio と緊密に統合されています。 これには、特に開発者の生産性、洗練されたカスタマイズ可能な UI、アプリケーションのセキュリティの領域において、多くの利点があります。 これらのフレームワークは、UI を迅速に作成するためのビジュアル デザイナーと UI マークアップをサポートしているため、基幹業務アプリケーションに特に適しています。
-
-この記事は、これらのプラットフォームについて詳しく説明し、アプリケーションに最適なプラットフォームを決定するのに役立ちます。 
+これらのプラットフォームの一部はいくつかの特徴を共有し、特定の種類のアプリケーションにより適しています。 たとえば、UWP と .NET はどちらも Visual Studio と緊密に統合されています。 これには、特に開発者の生産性、洗練されたカスタマイズ可能な UI、アプリケーションのセキュリティの領域において、多くの利点があります。 これらのフレームワークは、UI を迅速に作成するためのビジュアル デザイナーと UI マークアップをサポートしているため、基幹業務アプリケーションに特に適しています。
 
 > [!NOTE]
-> どのアプリ プラットフォームを選択しても、ユニバーサル Windows プラットフォーム (UWP) の多くの機能を使用して、Windows 10 でアプリの最新のエクスペリエンスを提供できます。 たとえば、デスクトップ アプリが WPF、Windows フォーム、または Win32 API を使用して構築されている場合でも、MSIX パッケージの展開や UWP XAML コントロールなど、UWP で初めて導入された多くの機能を使用できます。 詳しくは、「[デスクトップ アプリの現代化](modernize/index.md)」を参照してください。
+> どのアプリ プラットフォームを選択しても、Windows 10 の多くの機能を使用して、アプリで最新のエクスペリエンスを実現できます。 たとえば、デスクトップ アプリが WPF、Windows フォーム、または Win32 API を使用して構築されている場合でも、MSIX パッケージの展開を引き続き利用できます。 デスクトップ アプリを現代化するためのすべての方法の詳細については、「[デスクトップ アプリの現代化](modernize/index.md)」を参照してください。
 
 ## <a name="uwp"></a>UWP
 
@@ -99,6 +88,16 @@ C++ で Win32 API を使用すると、WinRT や .NET などのマネージド �
 * [テクノロジと機能](/windows/win32/desktop-app-technologies)
 * [API リファレンス](/windows/win32/apiindex/windows-api-list/)
 * [サンプル](https://github.com/Microsoft/Windows-classic-samples)
+
+## <a name="windows-ui-library"></a>Windows UI ライブラリ
+
+Windows 10 では、メインのデスクトップ プラットフォームそれぞれで、[Windows UI (WinUI) ライブラリ](../winui/index.md)を使用したユーザー インターフェイスの作成もサポートされています。 WinUI は、ダウンレベル バージョンの Windows 10 を対象とする UWP アプリ用の UWP コントロールの新しいバージョンと更新バージョンを提供するツールキットとして開始されました。 WinUI のスコープが拡張されて、UWP、.NET、Win32 において Windows 10 アプリ向けの最新のネイティブ ユーザー インターフェイス (UI) プラットフォームになりました。
+
+デスクトップ アプリでは、次の方法で WinUI を使用できます。
+
+* UWP アプリでは、Windows SDK によって提供される UWP コントロールの代わりに、WinUI コントロールを使用できます。
+* WPF、Windows フォーム、および C++/Win32 の既存のアプリを更新して、これらのアプリで [XAML Islands](modernize/xaml-islands.md) を使用して WinUI 2.x コントロールをホストできます。
+* [WinUi 3.0 Preview 1](../winui/winui3/index.md) からは、[全面的に WinUI ベースの UI を使用する .NET アプリと C++/Win32 アプリ](../winui/winui3/get-started-winui3-for-desktop.md)を作成できます。
 
 ## <a name="platform-comparison-uwp-wpf-and-windows-forms"></a>プラットフォームの比較:UWP、WPF、Windows フォーム
 

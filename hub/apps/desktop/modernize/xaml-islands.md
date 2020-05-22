@@ -8,12 +8,12 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: high
 ms.custom: 19H1
-ms.openlocfilehash: d050e2b4a7659f8910ce603ec7e90b703cc7722f
-ms.sourcegitcommit: 2571af6bf781a464a4beb5f1aca84ae7c850f8f9
+ms.openlocfilehash: 4175fdf2cbb10912c22e0b0058629819c87dbc63
+ms.sourcegitcommit: d0f479f1955881afb62c2af249db5d0b053b63e5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82606241"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83579919"
 ---
 # <a name="host-uwp-xaml-controls-in-desktop-apps-xaml-islands"></a>デスクトップ アプリで UWP XAML コントロールをホストする (XAML Islands)
 
@@ -129,7 +129,7 @@ UWP XAML ホスティング API は、いくつかの Windows ランタイム �
 
 ### <a name="supported-only-with-workarounds"></a>回避策を使用した場合にのみサポートされる
 
-:heavy_check_mark:XAML Island の [WinUI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)からの UWP コントロールをホスティングすることは、XAML Island の現在のリリースで条件付きでサポートされています。 デスクトップ アプリで [MSIX パッケージ](https://docs.microsoft.com/windows/msix)を使用して展開している場合は、[Microsoft.UI.Xaml](https://www.nuget.org/packages/Microsoft.UI.Xaml) NugGet パッケージのプレリリースまたはリリース バージョンからの WinUI コントロールをホスティングできます。 お使いのデスクトップ アプリが MSIX を使用してパッケージ化されていない場合は、プレリリース バージョンの [Microsoft.UI.Xaml](https://www.nuget.org/packages/Microsoft.UI.Xaml) NuGet パッケージをインストールしている場合にのみ、WinUI コントロールをホスティングできます。
+:heavy_check_mark:XAML Island の [WinUI 2.x ライブラリ](../../winui/index.md)のコントロールをホストすることは、XAML Island の現在のリリースで条件付きでサポートされています。 デスクトップ アプリで [MSIX パッケージ](https://docs.microsoft.com/windows/msix)を使用して展開している場合は、[Microsoft.UI.Xaml](https://www.nuget.org/packages/Microsoft.UI.Xaml) NugGet パッケージのプレリリースまたはリリース バージョンからの WinUI コントロールをホスティングできます。 お使いのデスクトップ アプリが MSIX を使用してパッケージ化されていない場合は、プレリリース バージョンの [Microsoft.UI.Xaml](https://www.nuget.org/packages/Microsoft.UI.Xaml) NuGet パッケージをインストールしている場合にのみ、WinUI コントロールをホスティングできます。 [WinUI 3.0 ライブラリ](../../winui/winui3/index.md)のコントロールのホストは、今後のリリースでサポートされる予定です。
 
 :heavy_check_mark:XAML Island で XAML コンテンツのツリーのルート要素にアクセスし、それがホストされているコンテキストに関する関連情報を取得するために、[CoreWindow](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow)、[ApplicationView](https://docs.microsoft.com/uwp/api/windows.ui.viewmanagement.applicationview)、[Window](https://docs.microsoft.com/uwp/api/windows.ui.xaml.window) クラスを使用しないでください。 代わりに、[XamlRoot](https://docs.microsoft.com/uwp/api/windows.ui.xaml.xamlroot) クラスを使用します。 詳しくは、[このセクション](#window-host-context-for-xaml-islands)をご覧ください。
 
