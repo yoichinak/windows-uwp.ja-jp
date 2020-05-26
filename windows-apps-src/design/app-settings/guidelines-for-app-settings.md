@@ -8,12 +8,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 9c35bc6cfcf36543482bcb42d0ccda7fd3102ac9
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: a9b27094a5861151b907dc7787828068122e4a54
+ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970037"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83233984"
 ---
 # <a name="guidelines-for-app-settings"></a>アプリ設定のガイドライン
 

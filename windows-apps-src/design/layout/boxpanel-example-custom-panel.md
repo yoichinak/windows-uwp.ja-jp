@@ -12,12 +12,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 68ca40a48b8b8d04bcd8b01584856233e9a99e7c
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: b4aad4ecc4d45d2fca3d429d872a0e7c73ddeaa1
+ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970207"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83233695"
 ---
 # <a name="boxpanel-an-example-custom-panel"></a>BoxPanel、カスタム パネルの例
 

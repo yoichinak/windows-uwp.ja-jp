@@ -6,16 +6,16 @@ ms.date: 04/19/2019
 ms.topic: article
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: 5bcc7d45646651cdb60228a3c08123378eedb960
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 634393e700538dc5db43b2d4065c6742fd7673f1
+ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970617"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83234335"
 ---
 # <a name="control-size-and-density"></a>コントロールのサイズと密度
 
-コントロールのサイズと密度の組み合わせを使って、Windows アプリを最適化し、アプリの機能と対話の要件に最適なユーザー エクスペリエンスを提供します。
+コントロールのサイズと密度の組み合わせを使って、Windows アプリケーションを最適化し、アプリの機能と対話式操作の要件に最適なユーザー エクスペリエンスを提供します。
 
 既定では、UWP アプリは低密度 (または `Standard`) のレイアウトでレンダリングされます。 ただし、WinUI 2.1 以降では、情報量の多い UI や同様の特殊なシナリオのための高密度 (または`Compact`) レイアウト オプションもサポートされます。 これは、基本的なスタイル リソースで指定できます (次の例を参照)。
 

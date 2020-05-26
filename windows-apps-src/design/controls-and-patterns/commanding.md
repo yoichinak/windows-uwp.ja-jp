@@ -1,19 +1,19 @@
 ---
-title: Windows アプリでのコマンド実行
+title: Windows アプリでのコマンド処理
 description: XamlUICommand クラスと StandardUICommand クラスを (ICommand インターフェイスと共に) 使用し、使用しているデバイスや入力の種類に関係なく、さまざまな型のコントロール型でコマンドを共有し、管理する方法。
 ms.service: ''
 ms.topic: overview
 ms.date: 09/13/2019
-ms.openlocfilehash: 24df2f6c67fe5a501461d5ce5e9c18a147c54672
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 5ab46a479e882b9975f24731dfcbb6e433126f80
+ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82968767"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83233762"
 ---
-# <a name="commanding-in-windows-app-apps-using-standarduicommand-xamluicommand-and-icommand"></a>StandardUICommand、XamlUICommand、ICommand を使用する Windows アプリのコマンド実行
+# <a name="commanding-in-windows-apps-using-standarduicommand-xamluicommand-and-icommand"></a>StandardUICommand、XamlUICommand、ICommand を使用する Windows アプリでのコマンド処理
 
-このトピックでは、Windows アプリでのコマンド実行について説明します。 具体的には、[XamlUICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.xamluicommand) クラスと [StandardUICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.standarduicommand) クラスを (ICommand インターフェイスと共に) 使用し、使用しているデバイスや入力の種類に関係なく、さまざまな型のコントロールでコマンドを共有し、管理する方法について説明します。
+このトピックでは、Windows アプリケーションでのコマンド処理について説明します。 具体的には、[XamlUICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.xamluicommand) クラスと [StandardUICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.standarduicommand) クラスを (ICommand インターフェイスと共に) 使用し、使用しているデバイスや入力の種類に関係なく、さまざまな型のコントロールでコマンドを共有し、管理する方法について説明します。
 
 ![共有コマンドで共通する使用方法を表す図: 複数の UI サーフェスと "お気に入り" コマンド](images/commanding/generic-commanding.png)
 

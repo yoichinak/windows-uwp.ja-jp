@@ -11,12 +11,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: fc05ce50c19a04d5b90d225746c9af6569f49bd3
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: b16ad72541f34e40d1b0cf534082eb68b0843141
+ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970437"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83234719"
 ---
 # <a name="xaml-theme-resources"></a>XAML テーマ リソース
 

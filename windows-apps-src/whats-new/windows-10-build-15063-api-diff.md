@@ -1,17 +1,17 @@
 ---
 title: Windows 10 Creators Update API の変更点
 description: 開発者は、次の一覧を使用して、Windows 10 ビルド 15063 での新しい名前空間や変更された名前空間を確認できます。
-keywords: 新着情報, 新機能, 更新プログラム, Windows 10, 1703, creators, 15063
+keywords: Windows 10, 1703, 15063
 ms.date: 11/02/2017
 ms.topic: article
 ms.assetid: d1f6739d-eaea-4c5d-b79a-9f7214e42727
 ms.localizationpriority: medium
-ms.openlocfilehash: fb258c23e38fb2aee5f6f5194371bb72940e51b5
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 85c58e915e4dc60c416bfe3f33c78d4bb5253ec9
+ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "63780433"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83234735"
 ---
 # <a name="new-apis-in-windows-10-build-15063"></a>Windows 10 ビルド 15063 の新しい API
 

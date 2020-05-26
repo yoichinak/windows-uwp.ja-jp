@@ -4,12 +4,12 @@ description: Windows UI ライブラリをインストールして使用する�
 ms.topic: reference
 ms.date: 05/08/2020
 keywords: windows 10, uwp, ツールキット sdk
-ms.openlocfilehash: 2205a95dfd342503674662d5cb0e4ed598eda870
-ms.sourcegitcommit: d0f479f1955881afb62c2af249db5d0b053b63e5
+ms.openlocfilehash: 585475df4138c6a5d4d8b885582137c972a64287
+ms.sourcegitcommit: 3a7f9f05f0127bc8e38139b219e30a8df584cad3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83580409"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83775871"
 ---
 # <a name="getting-started-with-the-windows-ui-library"></a>Windows UI ライブラリの概要
 
@@ -18,7 +18,7 @@ ms.locfileid: "83580409"
 ライブラリは、新規または既存の任意の Visual Studio プロジェクトに追加できる NuGet パッケージとして提供されています。
 
 > [!NOTE]
-> WinUI 3.0 の早期プレビューを試す方法の詳細については、「[WinUI 3.0 (Alpha)](../winui3/index.md)」を参照してください。
+> WinUI 3.0 の早期プレビューを試す方法の詳細については、「[WinUI 3.0 プレビュー 1](../winui3/index.md)」を参照してください。
 
 ## <a name="download-and-install-the-windows-ui-library"></a>Windows UI ライブラリのダウンロードとインストール
 
@@ -39,12 +39,12 @@ ms.locfileid: "83580409"
 
 4. App.xaml リソースに Windows UI (WinUI) テーマ リソースを追加します。 これを行うには、他のアプリケーション リソースがあるかどうかに応じて 2 つの方法があります。
 
-    a。 他のアプリケーション リソースがない場合は、Application.Resources に `<XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls"/>` を追加します。 
+    a。 他のアプリケーション リソースがない場合は、Application.Resources に `<XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls"/>` を追加します。
 
     ``` XAML
     <Application>
         <Application.Resources>
-            <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" /> 
+            <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
         </Application.Resources>
     </Application>
     ```
@@ -57,7 +57,7 @@ ms.locfileid: "83580409"
             <ResourceDictionary>
                 <ResourceDictionary.MergedDictionaries>
                     <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
-                </ResourceDictionary.MergedDictionaries> 
+                </ResourceDictionary.MergedDictionaries>
             </ResourceDictionary>
         </Application.Resources>
     </Application>
@@ -102,6 +102,6 @@ WinUI は、GitHub でホストされているオープン ソース プロジ�
 
 [Windows UI ライブラリ リポジトリ](https://aka.ms/winui)のバグ レポート、機能要求、およびコミュニティ コードの投稿を歓迎します。
 
-## <a name="other-resources"></a>その他のリソース 
+## <a name="other-resources"></a>その他のリソース
 
 UWP を初めて使用する場合は、開発者ポータルの「[UWP 開発の概要](https://developer.microsoft.com/windows/getstarted)」ページにアクセスすることをお勧めします。

@@ -8,12 +8,12 @@ ms.topic: article
 keywords: python, windows 10, microsoft, windows での python , wsl を使用した python web , linux 用 windows サブシステムを使用した python web アプリ, windows での python web 開発, windows での flask アプリ, windows での django アプリ, python web, windows での flask web 開発, windows での django web 開発, python を使用した windows web 開発, vs code python web 開発, リモート wsl 拡張機能, ubuntu, wsl, venv, pip, microsoft python 拡張機能, windows での python の実行, windows での python の使用, windows での python を使用した構築
 ms.localizationpriority: medium
 ms.date: 07/19/2019
-ms.openlocfilehash: 8cbc8343764e4de57bd418ecdb36bd606b037c68
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 3ae3b04738152ff1a142e1599cc05357006456b9
+ms.sourcegitcommit: 2af814b7f94ee882f42fae8f61130b9cc9833256
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80218482"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83717141"
 ---
 # <a name="get-started-using-python-for-web-development-on-windows"></a>Windows で Web 開発に Python を使用する
 
@@ -25,30 +25,18 @@ Web アプリケーションを構築するときは、WSL に Python をイン�
 
 Web 開発以外に Python を使用している場合は、Microsoft Store を使用して Windows 10 に Python を直接インストールすることをお勧めします。 WSL は、GUI デスクトップまたはアプリケーション (PyGame、Gnome、KDE など) をサポートしていません。 このような場合は、Windows に直接 Python をインストールして使用してください。 Python を初めて使用する場合は、[初心者向けの Windows での Python の使用](./beginners.md)に関する記事をご覧ください。 お使いのオペレーティング システムでの一般的なタスクの自動化に関心がある場合は、次のガイドを参照してください:[Windows で Python を使用してスクリプト作成と自動化を開始する](./scripting.md)。 一部の高度なシナリオでは、[python.org](https://www.python.org/downloads/windows/) から特定の Python リリースを直接ダウンロードすることを検討するか、Anaconda、Jython、PyPy、WinPython、IronPython などの[代替手段をインストール](https://www.python.org/download/alternatives)することを検討してください。これは、別の実装を選択する具体的な理由がある、より高度な Python プログラマの場合にのみお勧めします。
 
-## <a name="enable-windows-subsystem-for-linux"></a>Linux 用 Windows サブシステムを有効化する
+## <a name="install-windows-subsystem-for-linux"></a>Linux 用 Windows サブシステムをインストールする
 
-WSL を利用すると、GNU/Linux 環境 (これにはほとんどのコマンドライン ツール、ユーティリティ、アプリケーションが含まれます) を直接 Windows 上で実行できます。この環境は、変更されることなく Windows ファイル システムと完全に統合され、Visual Studio Code をはじめとする開発ツールも使用できます。 WSL を有効化する前に、[最新バージョンの Windows 10](https://www.microsoft.com/software-download/windows10) を使用していることを確認してください。
+WSL を使用すると、Windows と、Visual Studio Code、Outlook などの使い慣れたツールと直接統合された GNU/Linux コマンド ライン環境を実行できます。
 
-コンピューターで WSL を有効化するには、次の手順を実行する必要があります。
+WSL (または WSL 2) を有効にしてインストールするには、[WSL インストール ドキュメント](https://docs.microsoft.com/windows/wsl/install-win10)の手順に従います。 これらの手順には、Linux ディストリビューション (Ubuntu など) の選択が含まれています。
 
-1. **[スタート]** メニュー (左下の Windows アイコン) に移動し、「Windows の機能の有効化または無効化」と入力し、 **[コントロール パネル]** へのリンクを選択して、 **[Windows の機能]** ポップアップメニューを開きます。 一覧から "Windows Subsystem for Linux" を探し、チェックボックスをオンにして機能を有効にします。
+WSL と Linux ディストリビューションをインストールしたら、Linux ディストリビューション (Windows の [スタート] メニューにあります) を開き、コマンド `lsb_release -dc` を使用してバージョンとコードネームを確認します。
 
-2. メッセージが表示されたら、コンピューターを再起動します。
-
-## <a name="install-a-linux-distribution"></a>Linux ディストリビューションをインストールする
-
-WSL 上で実行できる Linux ディストリビューションは複数あります。 Microsoft Store でお気に入りのものを探してインストールできます。 最新であり、広く普及しており、サポートが充実している [Ubuntu 18.04 LTS](https://www.microsoft.com/store/productId/9N9TNGVNDL3Q) から始めることをお勧めします。
-
-1. この [Ubuntu 18.04 LTS](https://www.microsoft.com/store/productId/9N9TNGVNDL3Q) リンクを開き、Microsoft Store を開いて、 **[入手]** を選択します。 *(ダウンロードのサイズが大きいため、インストールに時間がかかる場合があります。)*
-
-2. ダウンロードが完了したら、Microsoft Store から **[起動]** を選択するか、 **[スタート]** メニューに「Ubuntu 18.04 LTS」と入力して起動します。
-
-3. ディストリビューションを初めて実行すると、アカウント名とパスワードの作成を求められます。 これ以降、既定でこのユーザーとして自動的にサインインします。 任意のユーザー名とパスワードを選択できます。 これらはご自分の Windows ユーザー名とは関係ありません。
-
-現在使用している Linux ディストリビューションは、`lsb_release -d` と入力することで確認できます。 使用中の Ubuntu ディストリビューションを更新するには、`sudo apt update && sudo apt upgrade` を使用します。 パッケージを常に最新にするために、定期的な更新をお勧めします。 Windows はこの更新を自動的に処理しません。 Microsoft Store から入手できる他の Linux ディストリビューションへのリンク、別のインストール方法、またはトラブルシューティングについては、「[Windows 10 用 Windows Subsystem for Linux のインストール ガイド](https://docs.microsoft.com/windows/wsl/install-win10)」を参照してください。
+最新のパッケージであることを確認するために、インストールした直後も含めて、Linux ディストリビューションを定期的に更新することをお勧めします。 Windows はこの更新を自動的に処理しません。 使用中のディストリビューションを更新するには、コマンド `sudo apt update && sudo apt upgrade` を使用します。  
 
 > [!TIP]
-> 複数のコマンド ライン (Ubuntu、PowerShell、Windows コマンド プロンプトなど) を使用する予定がある場合や、(テキスト、背景色、キー バインドなど) [ターミナルをカスタマイズする](https://github.com/microsoft/terminal/blob/master/doc/user-docs/UsingJsonSettings.md)場合は、新しい [Windows ターミナル](https://github.com/microsoft/terminal/blob/master/doc/user-docs/index.md)を試すことを検討してください。
+> 複数のタブ (コマンド プロンプト、PowerShell、複数の Linux ディストリビューション間をすばやく切り替える) の有効化、カスタム キー バインド (タブを開くまたは閉じる、コピーと貼り付けを行うなどのためのショートカット キー) の作成、検索機能の使用、カスタム テーマ (配色、フォント スタイルとサイズ、背景画像/ぼかし/透明度) の設定を行うために、[新しい Windows ターミナルを Microsoft Store からインストールする](https://www.microsoft.com/store/apps/9n0dx20hk701)ことを検討してください。 [詳しくはこちらをご覧ください](https://docs.microsoft.com/windows/terminal)。
 
 ## <a name="set-up-visual-studio-code"></a>Visual Studio Code を設定する
 
@@ -72,7 +60,7 @@ VS Code を使用して、[IntelliSense](https://code.visualstudio.com/docs/edit
 ![Ubuntu ターミナル](../images/ubuntu-terminal.png)
 
 > [!TIP]
-> Linux 用 Windows サブシステム (WSL) を使用する際に覚えておく必要がある重要な点は、**2 つの異なるファイル システムをまたいで作業している**ことです。1 つは Windows ファイル システム、もう 1 つは Linux ファイル システム (WSL)、この例では Ubuntu です。 パッケージをインストールおよびファイルを保存する場所に注意する必要があります。 あるバージョンのツールまたはパッケージを Windows ファイル システムにインストールし、まったく別のバージョンを Linux ファイル システムにインストールすることが可能です。 Windows ファイル システムでツールを更新しても Linux ファイル システムのツールには影響がなく、逆も同様です。 WSL は、お使いのコンピューター上の固定ドライブを、お使いの Linux ディストリビューションの `/mnt/<drive>` フォルダー配下にマウントします。 たとえば、Windows の C: ドライブは `/mnt/c/` 配下にマウントされます。 Ubuntu ターミナルから Windows のファイルにアクセスし、それらのファイルに対して Linux のアプリやツールを使用することが可能であり、逆も同様です。 多くの Web ツールは元々 Linux 向けに開発され、Linux の運用環境に配置されるため、Python Web 開発では Linux のファイル システムで作業することをお勧めします。 そうすることで、(Windows でファイル名の大文字と小文字が区別されないといった) ファイル システムのセマンティクスが混在することも回避できます。 とはいえ、WSL は Linux と Windows の両ファイル システム間の行き来をサポートするようになったため、どちらのファイル システムでもファイルをホストできます。 [詳しくはこちらをご覧ください](https://devblogs.microsoft.com/commandline/do-not-change-linux-files-using-windows-apps-and-tools/)。 また、嬉しいお知らせとして、[近日中に Windows で WSL2 の提供が始まり](https://devblogs.microsoft.com/commandline/wsl-2-is-now-available-in-windows-insiders/)、いくつかの大きな改善が提供されます。 [Windows Insiders ビルド 18917 で今すぐお試しいただく](https://docs.microsoft.com/windows/wsl/wsl2-install)ことができます。
+> Linux 用 Windows サブシステム (WSL) を使用する際に覚えておく必要がある重要な点は、**2 つの異なるファイル システムをまたいで作業している**ことです。1 つは Windows ファイル システム、もう 1 つは Linux ファイル システム (WSL)、この例では Ubuntu です。 パッケージをインストールおよびファイルを保存する場所に注意する必要があります。 あるバージョンのツールまたはパッケージを Windows ファイル システムにインストールし、まったく別のバージョンを Linux ファイル システムにインストールすることが可能です。 Windows ファイル システムでツールを更新しても Linux ファイル システムのツールには影響がなく、逆も同様です。 WSL は、お使いのコンピューター上の固定ドライブを、お使いの Linux ディストリビューションの `/mnt/<drive>` フォルダー配下にマウントします。 たとえば、Windows の C: ドライブは `/mnt/c/` 配下にマウントされます。 Ubuntu ターミナルから Windows のファイルにアクセスし、それらのファイルに対して Linux のアプリやツールを使用することが可能であり、逆も同様です。 多くの Web ツールは元々 Linux 向けに開発され、Linux の運用環境に配置されるため、Python Web 開発では Linux のファイル システムで作業することをお勧めします。 そうすることで、(Windows でファイル名の大文字と小文字が区別されないといった) ファイル システムのセマンティクスが混在することも回避できます。 とはいえ、WSL は Linux と Windows の両ファイル システム間の行き来をサポートするようになったため、どちらのファイル システムでもファイルをホストできます。 [詳しくはこちらをご覧ください](https://devblogs.microsoft.com/commandline/do-not-change-linux-files-using-windows-apps-and-tools/)。
 
 ## <a name="install-python-pip-and-venv"></a>Python、pip、venv をインストールする
 
@@ -99,7 +87,7 @@ Ubuntu 18.04 LTS には Python 3.6 が既にインストールされています
 
 ## <a name="open-a-wsl---remote-window"></a>WSL - Remote ウィンドウを開く
 
-VS Code では、(以前にインストールした) Remote - WSL 拡張機能を使用して、Linux サブシステムをリモート サーバーとして扱います。 これにより、WSL を統合開発環境として使用できるようになります。 [詳しくはこちらをご覧ください](https://code.visualstudio.com/docs/remote/wsl)。 
+VS Code では、(以前にインストールした) Remote - WSL 拡張機能を使用して、Linux サブシステムをリモート サーバーとして扱います。 これにより、WSL を統合開発環境として使用できるようになります。 [詳しくはこちらをご覧ください](https://code.visualstudio.com/docs/remote/wsl)。
 
 1. `code .` と入力して、Ubuntu ターミナルから VS Code でプロジェクト フォルダーを開きます ("." は、現在のフォルダーを開くよう VS Code に指示します)。
 

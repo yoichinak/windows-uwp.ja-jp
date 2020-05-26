@@ -1,17 +1,17 @@
 ---
 title: Windows 10 ビルド 17763 の API の変更
 description: 開発者は、次の一覧を使用して、Windows 10 ビルド 17763 での新しい名前空間や変更された名前空間を確認できます。
-keywords: 新着情報, 新機能, 更新プログラム, Windows 10, 最新, api, 17763, october
+keywords: Windows 10, API, 17763, 1809
 ms.date: 10/02/2018
 ms.topic: article
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 8fd6d2c41cd2f632f22819f452b2f203fd8ac309
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 0e21cf153cb86571f83b496461a1da383b387158
+ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "63780338"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83234798"
 ---
 # <a name="new-apis-in-windows-10-build-17763"></a>Windows 10 ビルド 17763 の新しい API
 

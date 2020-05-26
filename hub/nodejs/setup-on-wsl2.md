@@ -8,72 +8,39 @@ ms.topic: article
 keywords: NodeJS, Node.js, Windows 10, Microsoft, ラーニング NodeJS, Windows 上のノード, WSL 上のノード, Windows 上の Linux 上のノード, Windows 上のインストール ノード, NodeJS と VS Code, Windows 上のノードでの開発, Windows 上の NodeJS での開発, WSL 上のインストール ノード, Linux 用 Windows サブシステム上の NodeJS
 ms.localizationpriority: medium
 ms.date: 09/19/2019
-ms.openlocfilehash: c987f5bea387c630a1b9ef23c928d7a1bb8fadfc
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 1ea8973e1db665d1fe66ef6b5f5699319131d605
+ms.sourcegitcommit: 2af814b7f94ee882f42fae8f61130b9cc9833256
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75835380"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83717131"
 ---
 # <a name="set-up-your-nodejs-development-environment-with-wsl-2"></a>WSL 2 を使用して Node.js 開発環境を設定する
 
-以下に示すのは、Linux 用 Windows サブシステム (WSL) を使用して Node.js 開発環境を設定するのに役立つステップバイステップ ガイドです。 現在、このガイドでは [WSL 2](https://devblogs.microsoft.com/commandline/wsl-2-is-now-available-in-windows-insiders/) をインストールして使用するために、Windows Insider Preview ビルドをインストールして実行する必要があります。 WSL 2 の速度とパフォーマンスは、特に Node.js に関して、WSL 1 よりも大幅に向上しています。 Node.js Web 開発用の npm モジュールとチュートリアルの多くは Linux ユーザー向けに記述されており、Linux ベースのパッケージ ツールとインストール ツールを使用しています。 ほとんどの Web アプリも Linux に配置されるため、WSL 2 を使用することで、開発環境と運用環境の間で一貫性が確保されます。
+以下に示すのは、Linux 用 Windows サブシステム (WSL) を使用して Node.js 開発環境を設定するのに役立つステップバイステップ ガイドです。
+
+更新された WSL 2 をインストールして実行することをお勧めします。そうすることで、[Docker Desktop](https://docs.docker.com/docker-for-windows/wsl-tech-preview/#download) を実行する機能など、パフォーマンス速度とシステム コールの互換性の大幅な向上の恩恵を受けることができます。 Node.js Web 開発用の npm モジュールとチュートリアルの多くは Linux ユーザー向けに記述されており、Linux ベースのパッケージ ツールとインストール ツールを使用しています。 ほとんどの Web アプリも Linux に配置されるため、WSL 2 を使用することで、開発環境と運用環境の間で一貫性が確保されます。
 
 > [!NOTE]
 > Windows 上で Node.js を直接使用することに取り組んでいる場合、または Windows Server 運用環境の使用を計画している場合は、[ご利用の Node.js 開発環境を Windows 上で直接設定する](./setup-on-windows.md)ためのガイドを参照してください。
 
-## <a name="install-windows-10-insider-preview-build"></a>Windows 10 Insider Preview ビルドをインストールする
-
-1. **[Windows 10 の最新バージョンをインストールします](https://www.microsoft.com/software-download/windows10)** : **[今すぐ更新]** を選択して、更新アシスタントをダウンロードします。 ダウンロードが完了したら、更新アシスタントを開いて、最新バージョンの Windows が現在実行されているかどうかを確認します。そのようになっていない場合は、アシスタント ウィンドウ内の **[今すぐ更新]** を選択して、ご利用のコンピューターを更新します。 " *(Windows 10 の最新バージョンを実行している場合、この手順は省略可能です)。* "
-
-    ![Windows 更新アシスタント](../images/windows-update-assistant2019.png)
-
-2. **[[スタート] > [設定] > [Windows Insider Program] の順に移動します](ms-settings:windowsinsider)** : [Windows Insider Program] ウィンドウで、 **[開始]** 、 **[アカウントをリンクする]** の順に選択します。
-
-    ![Windows Insider Program の設定](../images/windows-insider-program-settings.png)
-
-3. **[Windows Insider として登録します](https://insider.windows.com/getting-started/#register)** : 自分が Insider プログラムに登録されていない場合は、[Microsoft アカウント](https://account.microsoft.com/account) を使用してそれを行う必要があります。
-
-    ![Windows Insider の登録](../images/windows-insider-account.png)
-
-4. **[ファスト リング]** 更新プログラムまたは、 **[Skip ahead to the next Windows release]\(次の Windows リリースへスキップ\)** コンテンツの受け取りを選択します。 確定し、 **[後で再起動]** を選択します。 再起動する前に、いくつかの追加設定を変更する必要があります。
-
-    ![Windows Insider ファスト リング](../images/windows-insider-fast.png)
-
-## <a name="enable-windows-subsystem-for-linux-and-virtual-machine-platform"></a>Linux 用 Windows サブシステムと仮想マシン プラットフォームを有効にする
-
-1. 引き続き **[Windows の設定]** において、 **[Windows の機能の有効化または無効化]** を検索します。
-2. **[Windows の機能]** リストが表示されたら、スクロールして **[仮想マシンプラットフォーム]** と **[Linux 用 Windows サブシステム]** を見つけます。確実に両方とも有効にするためにチェックボックスをオンにしてから **[OK]** を選択します。
-3. メッセージが表示されたら、コンピューターを再起動します。
-
-    ![Windows の機能を有効にする](../images/windows-feature-settings.png)
-
-## <a name="install-a-linux-distribution"></a>Linux ディストリビューションをインストールする
-
-WSL 上で実行できる Linux ディストリビューションは複数あります。 Microsoft Store でお気に入りのものを探してインストールできます。 最新であり、広く普及しており、サポートが充実している [Ubuntu 18.04 LTS](https://www.microsoft.com/store/productId/9N9TNGVNDL3Q) から始めることをお勧めします。
-
-1. この [Ubuntu 18.04 LTS](https://www.microsoft.com/store/productId/9N9TNGVNDL3Q) リンクを開き、Microsoft Store を開いて、 **[入手]** を選択します。 *(ダウンロードのサイズが大きいため、インストールに時間がかかる場合があります。)*
-
-2. ダウンロードが完了したら、Microsoft Store から **[起動]** を選択するか、 **[スタート]** メニューに「Ubuntu 18.04 LTS」と入力して起動します。
-
-3. ディストリビューションを初めて実行すると、アカウント名とパスワードの作成を求められます。 これ以降、既定でこのユーザーとして自動的にサインインします。 任意のユーザー名とパスワードを選択できます。 これらはご自分の Windows ユーザー名とは関係ありません。
-
-    ![Microsoft Store での Linux ディストリビューション](../images/store-linux-distros.png)
-
-現在使用している Linux ディストリビューションは、`lsb_release -dc` と入力することで確認できます。 使用中の Ubuntu ディストリビューションを更新するには、`sudo apt update && sudo apt upgrade` を使用します。 パッケージを常に最新にするために、定期的な更新をお勧めします。 Windows はこの更新を自動的に処理しません。 Microsoft Store から入手できる他の Linux ディストリビューションへのリンク、別のインストール方法、またはトラブルシューティングについては、「[Windows 10 用 Windows Subsystem for Linux のインストール ガイド](https://docs.microsoft.com/windows/wsl/install-win10)」を参照してください。
-
 ## <a name="install-wsl-2"></a>WSL 2 のインストール
 
-WSL 2 とは、WSL の[新しいバージョンのアーキテクチャ](https://docs.microsoft.com/windows/wsl/wsl2-about)です。Linux ディストリビューションと Windows のやりとりを変更することで、パフォーマンスが向上し、システム コールの完全な互換性が追加されています。
+WSL 2 を有効にしてインストールするには、[WSL インストール ドキュメント](https://docs.microsoft.com/windows/wsl/install-win10)の手順に従います。 これらの手順には、Linux ディストリビューション (Ubuntu など) の選択が含まれています。
 
-1. PowerShell で、コマンド `wsl -l` を入力して、ご利用のコンピューターにインストールされている WSL ディストリビューションの一覧を表示します。 この一覧に Ubuntu-18.04 が表示されているのがわかるはずです。
-2. ここで、コマンド `wsl --set-version Ubuntu-18.04 2` を入力して、WSL 2 を使用するように Ubuntu のインストールを設定します。
-3. `wsl --list --verbose` (または `wsl -l -v`) を使用して、インストールされた各ディストリビューションで使用されている WSL のバージョンを確認します。
+WSL 2 と Linux ディストリビューションをインストールしたら、Linux ディストリビューション (Windows の [スタート] メニューにあります) を開き、コマンド `lsb_release -dc` を使用してバージョンとコードネームを確認します。
 
-    ![Linux 用 Windows サブシステムのセット バージョン](../images/wsl-versions.png)
+最新のパッケージであることを確認するために、インストールした直後も含めて、Linux ディストリビューションを定期的に更新することをお勧めします。 Windows はこの更新を自動的に処理しません。 使用中のディストリビューションを更新するには、コマンド `sudo apt update && sudo apt upgrade` を使用します。  
 
-> [!TIP]
-> 同じ手順 (PowerShell を使用) に従って、WSL 2 にインストールした Linux ディストリビューションを設定することができます。その場合は、"Ubuntu-18.04" をターゲットとするインストール済みのディストリビューションの名前に変更するだけです。 WSL 1 に戻すには、上記と同じコマンドを実行しますが、"2" を "1" に置き換えます。  また、次のように入力すれば、新しくインストールされたディストリビューションの既定値として WSL 2 を設定することもできます: `wsl --set-default-version 2`
+## <a name="install-windows-terminal-optional"></a>Windows ターミナルをインストールする (省略可能)
+
+新しい Windows ターミナルでは、複数のタブ (コマンド プロンプト、PowerShell、複数の Linux ディストリビューション間をすばやく切り替える) が有効になり、カスタム キー バインド (タブを開くまたは閉じる、コピーと貼り付けを行うなどのためのショートカット キー) を作成でき、検索機能、カスタム テーマ (配色、フォント スタイルとサイズ、背景画像/ぼかし/透明度) を使用できます。 [詳しくはこちらをご覧ください](https://docs.microsoft.com/windows/terminal)。
+
+1. [Microsoft Store で Windows ターミナル (プレビュー)](https://www.microsoft.com/store/apps/9n0dx20hk701) を取得します: ストアを介してインストールすると、更新プログラムが自動的に処理されます。
+
+2. インストールが完了したら、Windows ターミナルを開き、 **[設定]** を選択して、`settings.json` ファイルによってターミナルをカスタマイズします。
+
+    ![Windows ターミナルの設定](../images/windows-terminal-settings.png)
 
 ## <a name="install-nvm-nodejs-and-npm"></a>nvm、node.js、および npm をインストールする
 
@@ -97,10 +64,9 @@ Node.js をインストールするには、複数の方法があります。 �
     ![LTS と現在の Node バージョンを表示した NVM リスト](../images/nvm-node-installed.png)
 
 9. Node.js がインストールされており、現在の既定のバージョンであることを確認します: `node --version` を使用 次に、npm があることも確認します: `npm --version` を使用。(`which node` または `which npm` を使用して、既定のバージョンで使用されているパスを確認することもできます)。
-10. プロジェクトに使用する Node.js のバージョンを変更するには、新しいプロジェクト ディレクトリ `mkdir NodeTest` を作成し、ディレクトリ `cd NodeTest` を入力します。次に `nvm use node` を入力して現在のバージョンに切り替えるか、または `nvm use --lts` を入力して LTS のバージョンに切り替えます。 また、`nvm use v8.2.1` のように、インストールした追加のバージョンに固有の番号を使用することもできます  (使用可能な Node.js のバージョンをすべて一覧表示するには、コマンド `nvm ls-remote` を使用します)。
+10. プロジェクトに使用する Node.js のバージョンを変更するには、新しいプロジェクト ディレクトリ `mkdir NodeTest` を作成し、ディレクトリ `cd NodeTest` を入力します。次に `nvm use node` を入力して現在のバージョンに切り替えるか、または `nvm use --lts` を入力して LTS のバージョンに切り替えます。 また、`nvm use v8.2.1` のように、インストールした追加のバージョンに固有の番号を使用することもできます (使用可能な Node.js のバージョンをすべて一覧表示するには、コマンド `nvm ls-remote` を使用します)。
 
-> [!TIP]
-> NVM を使用して Node.js と NPM をインストールする場合は、SUDO コマンドを使用して新しいパッケージをインストールする必要はありません。
+NVM を使用して Node.js と NPM をインストールする場合は、SUDO コマンドを使用して新しいパッケージをインストールする必要はありません。
 
 > [!NOTE]
 > 発行時、最新バージョンとして NVM v0.35.2 が提供されていました。 [GitHub プロジェクト ページで NVM の最新リリース](https://github.com/nvm-sh/nvm)を確認し、最新バージョンを含むように上記のコマンドを調整することができます。
@@ -111,7 +77,7 @@ cURL を使用してより新しいバージョンの NVM をインストール�
 nvm は現在、最も一般的なノード用バージョン マネージャーですが、考慮すべき代替がいくつかあります。
 
 - [n](https://www.npmjs.com/package/n#installation) は従来から用いられてきた `nvm` の代替です。同じことを実現しますがコマンドが若干異なります。また、Bash スクリプトではなく、`npm` を介してインストールされます。
-- [fnm](https://github.com/Schniz/fnm#using-a-script) はより新しいバージョン マネージャーであり、`nvm` よりもはるかに高速であると言われています  ([Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) も使用されます)。
+- [fnm](https://github.com/Schniz/fnm#using-a-script) はより新しいバージョン マネージャーであり、`nvm` よりもはるかに高速であると言われています ([Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) も使用されます)。
 - [Volta](https://github.com/volta-cli/volta#installing-volta) は LinkedIn チームからの新しいバージョン マネージャーであり、速度の向上とクロスプラットフォーム サポートを特長として挙げています。
 - [asdf-vm](https://asdf-vm.com/#/core-manage-asdf-vm) は、ike gvm、nvm、rbenv、pyenv (その他多数) などの複数の言語を 1 つにまとめた単一の CLI です。
 - [nvs](https://github.com/jasongin/nvs) (Node Version Switcher) は、クロスプラットフォームの `nvm` の代わりであり、[VS Code との統合](https://github.com/jasongin/nvs/blob/master/doc/VSCODE.md)が可能です。
@@ -124,7 +90,7 @@ Node.js プロジェクトには、**Visual Studio Code** と **Remote WSL 拡�
 - プロジェクトは、Linux で自動的にビルドされます。
 - Linux で実行されるご自分のすべての拡張機能を使用できます ([ES Lint、NPM Intellisense、ES6 スニペットなど](https://marketplace.visualstudio.com/items?itemName=waderyan.nodejs-extension-pack))。
 
-ご利用のコンソール内からすばやく変更を加える場合は、ターミナルベースのテキスト エディター (vim、emacs、nano) も役に立ちます  ([この記事](https://medium.com/linode-cube/emacs-nano-or-vim-choose-your-terminal-based-text-editor-wisely-8f3826c92a68)では、相違点について説明すると共に、それぞれの使用方法について簡単に説明します)。
+ご利用のコンソール内からすばやく変更を加える場合は、ターミナルベースのテキスト エディター (vim、emacs、nano) も役に立ちます ([この記事](https://medium.com/linode-cube/emacs-nano-or-vim-choose-your-terminal-based-text-editor-wisely-8f3826c92a68)では、相違点について説明すると共に、それぞれの使用方法について簡単に説明します)。
 
 > [!NOTE]
 > 一部の GUI エディター (Atom、Sublime Text、Eclipse) では、WSL 共有ネットワークの場所 (\\wsl$\Ubuntu\home\) にアクセスする際に問題が発生する可能性があります。さらに、Windows ツールを使用して Linux ファイルのビルドが試みられますが、これは不要な場合があります。 この互換性は、VS Code の Remote-WSL 拡張機能によって自動的に処理されます。
@@ -162,16 +128,6 @@ Node.js 拡張パックをインストールするには、次の手順を行い
 - [Debugger for Chrome](https://code.visualstudio.com/blogs/2016/02/23/introducing-chrome-debugger-for-vs-code):Node.js を使用してサーバー側で開発を完了したら、クライアント側を開発してテストする必要があります。 この拡張機能により、ご利用の VS Code エディターと Chrome ブラウザーのデバッグ サービスが統合され、効率がより向上します。
 - [他のエディターからのキーマップ](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Downloads): これらの拡張機能は、別のテキスト エディター (Atom、Sublime、Vim、eMacs、Notepad++ など) から移行する場合に、ご利用の環境を快適に保つのに役立ちます。
 - [設定の同期](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync): GitHub を使用して、異なるインストール間で VS Code の設定を同期させることができます。 複数のコンピューターで作業する場合、この機能によってコンピューター間で環境の一貫性を保つことができます。
-
-## <a name="install-windows-terminal-optional"></a>Windows ターミナルをインストールする (省略可能)
-
-新しい Windows ターミナルでは、複数のタブ (コマンド プロンプト、PowerShell、複数の Linux ディストリビューション間をすばやく切り替える)、カスタム キー バインド (タブを開くまたは閉じる、コピーと貼り付けを行うなどのための独自のショートカット キーを作成する)、絵文字 ☺、カスタム テーマ (配色、フォント スタイルとサイズ、背景画像/ぼかし/透明度) を有効にすることができます。 [詳しくはこちらをご覧ください](https://devblogs.microsoft.com/commandline/)。
-
-1. [Microsoft Store で Windows ターミナル (プレビュー)](https://www.microsoft.com/store/apps/9n0dx20hk701) を取得します: ストアを介してインストールすると、更新プログラムが自動的に処理されます。
-
-2. インストールが完了したら、Windows ターミナルを開き、 **[設定]** を選択して、`profile.json` ファイルによってターミナルをカスタマイズします。 [Windows ターミナルの [設定] の編集方法の詳細を確認してください](https://github.com/microsoft/terminal/blob/master/doc/user-docs/UsingJsonSettings.md)。
-
-    ![Windows ターミナルの設定](../images/windows-terminal-settings.png)
 
 ## <a name="set-up-git-optional"></a>Git を設定する (省略可能)
 

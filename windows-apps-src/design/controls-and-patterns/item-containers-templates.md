@@ -12,12 +12,12 @@ design-contact: kimsea
 dev-contact: ranjeshj
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 2445f1b718532fd0862c276e8fadf12e88fe36ac
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: d0834a905c50b92003c3aa78ff8226d35c25e5dd
+ms.sourcegitcommit: ddc65c170834bcce524b5e1d36e6755eae1e3af2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79209077"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83729889"
 ---
 # <a name="item-containers-and-templates"></a>項目コンテナーとテンプレート
 
@@ -313,7 +313,7 @@ GridView でデータを表示したい場合があります。 グリッド レ
 
 - ホバー – 薄い灰色の四角形がデータ テンプレートの下に描画されます。  
 - 選択 – 薄い青色の四角形がデータ テンプレートの下に描画されます。 
-- キーボード フォーカス – 白黒の点線で表された境界線が項目テンプレートの上に描画されます。 
+- キーボード フォーカス - 項目テンプレートの上に描画される[視認性の高いフォーカス表示](/windows/uwp/design/input/guidelines-for-visualfeedback#high-visibility-focus-visuals)。
 
 ![リスト ビューの状態のビジュアル](images/listview-state-visuals.png)
 

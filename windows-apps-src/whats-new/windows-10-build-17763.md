@@ -1,17 +1,17 @@
 ---
 title: Windows 10 ビルド 17763 の新着情報
 description: Windows 10 ビルド 17763 と新しい開発者ツールでは、ユニバーサル Windows プラットフォームによって強化されたツール、機能、エクスペリエンスを利用できます。
-keywords: 新着情報, 新機能, 更新, 更新プログラム, 機能, 新規, Windows 10, 最新, 開発者, 17763
+keywords: Windows 10, 17763, 1809
 ms.date: 10/03/2018
 ms.topic: article
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: d26d88377aec4306ad0711724760ec13e6568d85
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 77b47866bc064baec7c0ecf556eb615f67af0554
+ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75684765"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83234387"
 ---
 # <a name="whats-new-in-windows-10-for-developers-build-17763"></a>Windows 10 ビルド 17763 の開発者向け新着情報
 

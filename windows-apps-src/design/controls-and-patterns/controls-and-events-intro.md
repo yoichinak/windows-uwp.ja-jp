@@ -8,12 +8,15 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: af04bfcc9b105b19ace18086921a17cc609e5d71
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+dev_langs:
+- csharp
+- cppwinrt
+ms.openlocfilehash: addb4e7d929fb0222deda63494546d731f01cecd
+ms.sourcegitcommit: 3a7f9f05f0127bc8e38139b219e30a8df584cad3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82969987"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83775795"
 ---
 # <a name="intro-to-controls-and-patterns"></a>コントロールとパターンの概要
 
@@ -102,6 +105,9 @@ Foreground プロパティを設定した後の結果の XAML を次に示しま
 ```csharp
 Button1.Foreground = new SolidColorBrush(Windows.UI.Colors.Beige);
 ```
+```cppwinrt
+Button1().Foreground(Media::SolidColorBrush(Windows::UI::Colors::Beige()));
+```
 
 ## <a name="create-an-event-handler"></a>イベント ハンドラーの作成 
 
@@ -122,6 +128,22 @@ private void Button_Click(object sender, RoutedEventArgs e)
     b.Foreground = new SolidColorBrush(Windows.UI.Colors.Blue);
 }
 ```
+```cppwinrt
+#MainPage.h
+struct MainPage : MainPageT<MainPage>
+    {
+        MainPage();
+        ...
+        void Button1_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Windows::UI::Xaml::RoutedEventArgs const& e);
+    };
+    
+#MainPage.cpp
+void MainPage::Button1_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Windows::UI::Xaml::RoutedEventArgs const& e)
+    {
+        auto b{ sender.as<winrt::Windows::UI::Xaml::Controls::Button>() };
+        b.Foreground(Media::SolidColorBrush(Windows::UI::Colors::Blue()));
+    }
+```
 
 また、イベント ハンドラーを XAML で関連付けることもできます。 XAML エディターで、処理するイベント名を入力します。 入力を始めると、Visual Studio に IntelliSense ウィンドウが表示されます。 イベントを指定した後は、IntelliSense ウィンドウで `<New Event Handler>` をダブルクリックして新しいイベント ハンドラーを既定の名前で作成するか、一覧から既にあるイベント ハンドラーを選びます。 
 
@@ -139,6 +161,9 @@ private void Button_Click(object sender, RoutedEventArgs e)
 
 ```csharp
 Button1.Click += new RoutedEventHandler(Button_Click);
+```
+```cppwinrt
+Button1().Click({ this, &MainPage::Button1_Click });
 ```
 
 ## <a name="related-topics"></a>関連トピック

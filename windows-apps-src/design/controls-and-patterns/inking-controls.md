@@ -8,12 +8,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 97eae5f3-c16b-4aa5-b4a1-dd892cf32ead
 ms.localizationpriority: medium
-ms.openlocfilehash: 848d682b2672e1a397e3ac867ae981c707873e8e
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: b9a4d0fb13b28babb3d99d0f763d9e7dc6decd2b
+ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970417"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83233784"
 ---
 # <a name="inking-controls"></a>インク コントロール
 

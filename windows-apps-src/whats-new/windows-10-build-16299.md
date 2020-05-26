@@ -1,16 +1,16 @@
 ---
 title: Windows 10 ビルド 16299 の新着情報
 description: Windows 10 ビルド 16299 と新しい開発者ツールでは、ユニバーサル Windows プラットフォームによって強化されたツール、機能、エクスペリエンスを利用できます。
-keywords: 新着情報, 新機能, 更新, 更新プログラム, 機能, 新規, Windows 10, 1709, 10 月, 最新, 開発者, 16299, Fall Creators
+keywords: Windows 10, 1709, 16299, Fall Creators
 ms.date: 11/02/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: c54321d1d9db95a33d2de6363a79d93243c07d1f
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: fc4f0a50a70531d9d0591c1153aad1ab23e8250d
+ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74258889"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83234213"
 ---
 # <a name="whats-new-in-windows-10-for-developers-build-16299"></a>Windows 10 ビルド 16299 の開発者向け新着情報
 
@@ -37,9 +37,9 @@ UI コントロール | 新しいコントロールを使用すると、優れ�
 
 機能 | 説明
  :------ | :------
-ゲームのブロードキャスト |  **[Windows.Media.AppBroadcasting](https://docs.microsoft.com/uwp/api/windows.media.appbroadcasting)** 名前空間の新しい API を使うと、システムが提供するゲーム ブロードキャスト UI をアプリが起動できるようになります。 </br>ブロードキャストが開始または停止したときにアプリに通知するイベントを登録することもできます。  **[Windows.Media.AppRecording](https://docs.microsoft.com/uwp/api/windows.media.apprecording)** 名前空間の新しい API を使うと、ゲームプレイのオーディオおよびビデオを録画または録音して画面をキャプチャできます。 </br>システムがブロードキャストに埋め込むメタデータを提供してストリームをキャプチャすることもできるため、アプリはゲームプレイ イベントと同期された表示エクスペリエンスを提供できるようになります。 これらの機能について詳しくは、「[ゲームのブロードキャストとキャプチャ](../gaming/game-broadcast-and-capture.md)」をご覧ください。
+ゲームのブロードキャスト | **[Windows.Media.AppBroadcasting](https://docs.microsoft.com/uwp/api/windows.media.appbroadcasting)** 名前空間の新しい API を使うと、システムが提供するゲーム ブロードキャスト UI をアプリが起動できるようになります。 </br>ブロードキャストが開始または停止したときにアプリに通知するイベントを登録することもできます。 **[Windows.Media.AppRecording](https://docs.microsoft.com/uwp/api/windows.media.apprecording)** 名前空間の新しい API を使うと、ゲームプレイのオーディオおよびビデオを録画または録音して画面をキャプチャできます。 </br>システムがブロードキャストに埋め込むメタデータを提供してストリームをキャプチャすることもできるため、アプリはゲームプレイ イベントと同期された表示エクスペリエンスを提供できるようになります。 これらの機能について詳しくは、「[ゲームのブロードキャストとキャプチャ](../gaming/game-broadcast-and-capture.md)」をご覧ください。
 ゲーム チャット オーバーレイ | [GameChatOverlay クラス](https://docs.microsoft.com/uwp/api/windows.gaming.ui.gamechatoverlay)は、既定のゲーム チャット オーバーレイ インスタンスを取得するメソッド、オーバーレイの目的の位置を設定するメソッド、メッセージを追加するメソッドを提供します。
-ゲーム デバイス情報 | さまざまなコンソール機能があるため、ユニバーサル Windows プラットフォーム (UWP) ゲームの開発者には、ハードウェアの最適な使用方法を実行時に選択するため、ゲームが実行されているコンソールの種類を決定する方法が必要です。  **&lt;gamingdeviceinformation.h&gt;** の[ゲーム デバイス情報](https://docs.microsoft.com/previous-versions/windows/desktop/gamingdvcinfo/gaming-device-information-portal?redirectedfrom=MSDN) API がこの機能を提供します。
+ゲーム デバイス情報 | さまざまなコンソール機能があるため、ユニバーサル Windows プラットフォーム (UWP) ゲームの開発者には、ハードウェアの最適な使用方法を実行時に選択するため、ゲームが実行されているコンソールの種類を決定する方法が必要です。 **&lt;gamingdeviceinformation.h&gt;** の[ゲーム デバイス情報](https://docs.microsoft.com/previous-versions/windows/desktop/gamingdvcinfo/gaming-device-information-portal?redirectedfrom=MSDN) API がこの機能を提供します。
 ゲーム モード | ユニバーサル Windows プラットフォーム (UWP) 用の[ゲーム モード](https://docs.microsoft.com/previous-versions/windows/desktop/gamemode/game-mode-portal) API では、Windows 10 のゲーム モードを利用することで最適化されたゲーム エクスペリエンスを実現できます。 これらの API は **&lt;expandedresources.h&gt;** ヘッダーに含まれています。
 ゲーム モニター | [GameMonitor クラス](https://docs.microsoft.com/uwp/api/windows.gaming.ui.gamemonitor)を使うと、アプリがデバイスのアクセス許可の状態を監視するゲームを取得し、必要に応じてゲームの監視を有効にするようユーザーに確認できるようになります。
 TruePlay | [TruePlay](https://docs.microsoft.com/previous-versions//mt808781(v=vs.85)?redirectedfrom=MSDN) は、PC ゲーム内での不正な行為の防止するための新しいツール セットを開発者に提供します。 TruePlay に登録されているゲームは、保護されたプロセスで実行されるため、一般的な種類の攻撃が軽減されます。 ユニバーサル Windows プラットフォーム (UWP) 用の TruePlay API を使うと、Windows 10 PC におけるゲームとゲーム監視システムの間の操作を制限することができます。 これらの API は **&lt;gamemonitor.h&gt;** ヘッダーに含まれています。

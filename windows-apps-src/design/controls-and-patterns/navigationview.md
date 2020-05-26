@@ -11,12 +11,12 @@ dev-contact: ''
 doc-status: Published
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 85cd58233de0feeded449e55cb1175087a64e61d
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 7f05b58a74b6270f0893dd4be238eb766629fb77
+ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970367"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83234016"
 ---
 # <a name="navigation-view"></a>ナビゲーション ビュー
 
@@ -29,13 +29,13 @@ _ナビゲーション ビューでは上部と左側の両方のナビゲーシ
 
 |  |  |
 | - | - |
-| ![WinUI ロゴ](images/winui-logo-64x64.png) | **NavigationView** コントロールは、Windows アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリの一部として含まれています。 インストール手順などの詳細については、[Windows UI ライブラリの概要](https://docs.microsoft.com/uwp/toolkits/winui/)に関するページを参照してください。 |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | **NavigationView** コントロールは、Windows アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリの一部として含まれています。 インストール手順などの詳細については、[Windows UI ライブラリの概要](/uwp/toolkits/winui/)に関するページを参照してください。 |
 
 > **プラットフォーム API**: [Windows.UI.Xaml.Controls.NavigationView クラス](/uwp/api/windows.ui.xaml.controls.navigationview)
 >
 > **Windows UI ライブラリ API**: [Microsoft.UI.Xaml.Controls.NavigationView クラス](/uwp/api/microsoft.ui.xaml.controls.navigationview)
 >
-> "_上部_" や "_階層型_" のナビゲーションなど、NavigationView の一部の機能には、Windows 10 バージョン 1809 ([SDK 17763](https://developer.microsoft.com/windows/downloads/windows-10-sdk)) 以降、または [Windows UI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)が必要です。
+> "_上部_" や "_階層型_" のナビゲーションなど、NavigationView の一部の機能には、Windows 10 バージョン 1809 ([SDK 17763](https://developer.microsoft.com/windows/downloads/windows-10-sdk)) 以降、または [Windows UI ライブラリ](/uwp/toolkits/winui/)が必要です。
 
 ## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
@@ -65,7 +65,7 @@ NavigationView は次の場合に役に立つアダプティブ ナビゲーシ�
 
 ## <a name="display-modes"></a>表示モード
 
-> PaneDisplayMode プロパティには、Windows 10 バージョン 1809 ([SDK 17763](https://developer.microsoft.com/windows/downloads/windows-10-sdk)) 以降、または [Windows UI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)が必要です。
+> PaneDisplayMode プロパティには、Windows 10 バージョン 1809 ([SDK 17763](https://developer.microsoft.com/windows/downloads/windows-10-sdk)) 以降、または [Windows UI ライブラリ](/uwp/toolkits/winui/)が必要です。
 
 PaneDisplayMode プロパティを使用すれば、NavigationView でさまざまなナビゲーション スタイルまたは表示モードを構成することができます。
 
@@ -156,7 +156,7 @@ NavigationView ウィンドウには、次のものを含めることができ�
 
 また、左側のウィンドウには次のものが含まれています。
 
-- ウィンドウの開閉を切り替えるメニュー ボタン。 [IsPaneToggleButtonVisible](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.navigationview.IsPaneToggleButtonVisible) プロパティを使うと、ウィンドウが開いたとき、大きなアプリ ウィンドウで、このボタンを非表示にすることを選択できます。
+- ウィンドウの開閉を切り替えるメニュー ボタン。 [IsPaneToggleButtonVisible](/uwp/api/windows.ui.xaml.controls.navigationview.IsPaneToggleButtonVisible) プロパティを使うと、ウィンドウが開いたとき、大きなアプリ ウィンドウで、このボタンを非表示にすることを選択できます。
 
 ナビゲーション ビューには、ウィンドウの左上隅に配置された [戻る] ボタンがあります。 ただし、これを使用しても、後方ナビゲーションの処理と、バック スタックへのコンテンツの追加は自動的には行われません。 前に戻る処理を有効にするには、「[後方ナビゲーション](#backwards-navigation)」セクションを参照してください。
 
@@ -185,7 +185,7 @@ NavigationView ウィンドウには、次のものを含めることができ�
 
 #### <a name="pane-footer"></a>ウィンドウのフッター
 
-[PaneFooter](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.navigationview.PaneFooter) プロパティに自由形式のコンテンツを追加すると、それをウィンドウのフッターに配置することができます。
+[PaneFooter](/uwp/api/windows.ui.xaml.controls.navigationview.PaneFooter) プロパティに自由形式のコンテンツを追加すると、それをウィンドウのフッターに配置することができます。
 
 :::row:::
     :::column:::
@@ -200,9 +200,9 @@ NavigationView ウィンドウには、次のものを含めることができ�
 
 #### <a name="pane-title-and-header"></a>ウィンドウのタイトルとヘッダー
 
-[PaneTitle](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.navigationview.PaneTitle) プロパティを設定することで、ウィンドウのヘッダー領域にテキスト コンテンツを配置できます。 このプロパティは文字列を取り、メニュー ボタンの横にテキストを表示します。
+[PaneTitle](/uwp/api/windows.ui.xaml.controls.navigationview.PaneTitle) プロパティを設定することで、ウィンドウのヘッダー領域にテキスト コンテンツを配置できます。 このプロパティは文字列を取り、メニュー ボタンの横にテキストを表示します。
 
-画像やロゴなどのテキスト以外のコンテンツを追加するには、[PaneHeader](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.navigationview.PaneHeader) プロパティに追加することで、ウィンドウのヘッダーに任意の要素を配置できます。
+画像やロゴなどのテキスト以外のコンテンツを追加するには、[PaneHeader](/uwp/api/windows.ui.xaml.controls.navigationview.PaneHeader) プロパティに追加することで、ウィンドウのヘッダーに任意の要素を配置できます。
 
 PaneTitle と PaneHeader の両方を設定した場合、コンテンツはメニュー ボタンの横に水平に積み上げられ、PaneTitle はメニュー ボタンに最も近くなります。
 
@@ -219,7 +219,7 @@ PaneTitle と PaneHeader の両方を設定した場合、コンテンツはメ�
 
 #### <a name="pane-content"></a>ウィンドウのコンテンツ
 
-自由形式のコンテンツは、[PaneCustomContent](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.navigationview.PaneCustomContent) プロパティに追加することでウィンドウに配置できます。
+自由形式のコンテンツは、[PaneCustomContent](/uwp/api/windows.ui.xaml.controls.navigationview.PaneCustomContent) プロパティに追加することでウィンドウに配置できます。
 
 :::row:::
     :::column:::
@@ -403,10 +403,10 @@ Minimal モードまたは Compact モードでは、ナビゲーション ビ�
 このコードでは、移動先である次の名前を含むページが、ご利用のアプリに含まれていることを前提としています。_HomePage_、_AppsPage_、_GamesPage_、_MusicPage_、_MyContentPage_、および _SettingsPage_。 これらのページのコードは示されていません。
 
 > [!IMPORTANT]
-> アプリのページに関する情報は [ValueTuple](https://docs.microsoft.com/dotnet/api/system.valuetuple) に格納されています。 この構造体を使用するには、ご利用のアプリ プロジェクトの最小バージョンが SDK 17763 以上である必要があります。 前のバージョンの Windows 10 をターゲットとする NavigationView の WinUI バージョンを使用する場合は、代わりに [System.ValueTuple NuGet パッケージ](https://www.nuget.org/packages/System.ValueTuple/)を使用することができます。
+> アプリのページに関する情報は [ValueTuple](/dotnet/api/system.valuetuple) に格納されています。 この構造体を使用するには、ご利用のアプリ プロジェクトの最小バージョンが SDK 17763 以上である必要があります。 前のバージョンの Windows 10 をターゲットとする NavigationView の WinUI バージョンを使用する場合は、代わりに [System.ValueTuple NuGet パッケージ](https://www.nuget.org/packages/System.ValueTuple/)を使用することができます。
 
 > [!IMPORTANT]
-> このコードでは、NavigationView の [Windows UI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/) バージョンの使い方を示します。 プラットフォーム バージョンの NavigationView を代わりに使用する場合、アプリ プロジェクトの最小バージョンは SDK 17763 以上である必要があります。 プラットフォーム バージョンを使用するには、`muxc:` へのすべての参照を削除します。
+> このコードでは、NavigationView の [Windows UI ライブラリ](/uwp/toolkits/winui/) バージョンの使い方を示します。 プラットフォーム バージョンの NavigationView を代わりに使用する場合、アプリ プロジェクトの最小バージョンは SDK 17763 以上である必要があります。 プラットフォーム バージョンを使用するには、`muxc:` へのすべての参照を削除します。
 
 ```xaml
 <!-- xmlns:muxc="using:Microsoft.UI.Xaml.Controls" -->
@@ -467,7 +467,7 @@ Minimal モードまたは Compact モードでは、ナビゲーション ビ�
 ```
 
 > [!IMPORTANT]
-> このコードでは、NavigationView の [Windows UI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/) バージョンの使い方を示します。 プラットフォーム バージョンの NavigationView を代わりに使用する場合、アプリ プロジェクトの最小バージョンは SDK 17763 以上である必要があります。 プラットフォーム バージョンを使用するには、`muxc` へのすべての参照を削除します。
+> このコードでは、NavigationView の [Windows UI ライブラリ](/uwp/toolkits/winui/) バージョンの使い方を示します。 プラットフォーム バージョンの NavigationView を代わりに使用する場合、アプリ プロジェクトの最小バージョンは SDK 17763 以上である必要があります。 プラットフォーム バージョンを使用するには、`muxc` へのすべての参照を削除します。
 
 ```csharp
 // Add "using" for WinUI controls.
@@ -651,7 +651,7 @@ void MainPage::NavView_ItemInvoked(Windows::Foundation::IInspectable const & /* 
 ## <a name="hierarchical-navigation"></a>階層型ナビゲーション
 アプリによっては、ナビゲーション項目の単純なリストだけでは対応しきれない、より複雑な階層構造が存在する場合があります。 最上位レベルのナビゲーション項目を使用してページのカテゴリを表示し、特定のページを子項目で表示することができます。 これは、他のページにリンクされているだけのハブスタイルのページがある場合にも便利です。 このような場合には、階層型の NavigationView を作成する必要があります。
 
-入れ子になったナビゲーション項目の階層型リストをペインに表示するには、**NavigationViewItem** の `MenuItems` プロパティか `MenuItemsSource` プロパティを使用します。
+入れ子になったナビゲーション項目の階層型リストをペインに表示するには、**NavigationViewItem** の [MenuItems](/uwp/api/microsoft.ui.xaml.controls.navigationviewitem.menuitems?view=winui-2.4) プロパティか [MenuItemsSource](/uwp/api/microsoft.ui.xaml.controls.navigationviewitem.menuitemssource?view=winui-2.4) プロパティを使用します。
 各 NavigationViewItem には、他の NavigationViewItems と整理のための要素 (項目ヘッダーや区切り記号など) 含めることができます。 `MenuItemsSource` を使用するときに階層型リストを表示するには、`ItemTemplate` が NavigationViewItem になるように設定し、その `MenuItemsSource` プロパティを階層の次のレベルにバインドします。
 
 NavigationViewItem には入れ子になったレベルをいくつでも含めることができますが、アプリのナビゲーション階層は浅く保つことをお勧めします。 使いやすさと理解しやすさを考慮すると、レベルは 2 つが理想的でしょう。
@@ -684,7 +684,7 @@ NavigationView では、Top、Left、LeftCompact のペイン表示モードで�
 * MenuItemsSource プロパティを階層型データにバインドする
 * 項目テンプレートを NavigationViewMenuItem として定義し、その内容をメニュー項目のラベルに設定し、その MenuItemsSource プロパティを階層の次のレベルにバインドする
 
-この例では、**展開**と**折りたたみ**のイベントも示されています。 これらのイベントは、子があるメニュー項目に対して発生します。
+この例では、[Expanding](/uwp/api/microsoft.ui.xaml.controls.navigationview.expanding?view=winui-2.4) イベントと [Collapsed](/uwp/api/microsoft.ui.xaml.controls.navigationview.collapsed?view=winui-2.4) イベントも示されています。 これらのイベントは、子があるメニュー項目に対して発生します。
 
 ```xaml
 <!-- xmlns:muxc="using:Microsoft.UI.Xaml.Controls" -->
@@ -796,7 +796,7 @@ NavigationView では、選択インジケーターは全体で 1 つだけ表�
 
 Top と Left どちらのモードも、NavigationViewItems の矢印をクリックすると、サブツリーが展開されるか折りたたまれます。 NavigationViewItem の "_別の場所_" をクリックまたはタップすると、`ItemInvoked` イベントがトリガーされ、サブツリーも折りたたまれるか展開されます。
 
-項目が呼び出されたときに選択インジケーターが表示されないようにするには、その項目の [SelectsOnInvoked](https://docs.microsoft.com/uwp/api/microsoft.ui.xaml.controls.navigationviewitem.selectsoninvoked?view=winui-2.3) プロパティを次のように False に設定します。
+項目が呼び出されたときに選択インジケーターが表示されないようにするには、その項目の [SelectsOnInvoked](/uwp/api/microsoft.ui.xaml.controls.navigationviewitem.selectsoninvoked?view=winui-2.3) プロパティを次のように False に設定します。
 
 ```xaml
 <!-- xmlns:muxc="using:Microsoft.UI.Xaml.Controls" -->
@@ -870,13 +870,13 @@ public sealed partial class HierarchicalNavigationViewDataBinding : Page
 ```
 
 ### <a name="keyboarding-within-hierarchical-navigationview"></a>階層型 NavigationView 内でのキーボード操作
-ユーザーは、[キーボード](https://docs.microsoft.com/windows/uwp/design/input/keyboard-interactions)を使用してナビゲーション ビューの周囲にフォーカスを移動できます。 方向キーはペイン内の "内部ナビゲーション" を表示し、[ツリー ビュー](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/tree-view)でのアクションに従います。 キー アクションは、NavigationView 内を移動するとき、または HierarchicalNavigationView の Top および LeftCompact モードで表示されるポップアップ メニュー内を移動するときに変更されます。 階層型の NavigationView で各キーが実行できる特定のアクションを次に示します。
+ユーザーは、[キーボード](/windows/uwp/design/input/keyboard-interactions)を使用してナビゲーション ビューの周囲にフォーカスを移動できます。 方向キーはペイン内の "内部ナビゲーション" を表示し、[ツリー ビュー](/windows/uwp/design/controls-and-patterns/tree-view)でのアクションに従います。 キー アクションは、NavigationView 内を移動するとき、または HierarchicalNavigationView の Top および LeftCompact モードで表示されるポップアップ メニュー内を移動するときに変更されます。 階層型の NavigationView で各キーが実行できる特定のアクションを次に示します。
 
 | キー      |      Left モード      |  Top モード | ポップアップ  |
 |----------|------------------------|--------------|------------|
-| 上 |現在フォーカスされている項目のすぐ上の項目にフォーカスを移動します。 | 何も実行しません。 |現在フォーカスされている項目のすぐ上の項目にフォーカスを移動します。|
-| 下 |現在フォーカスされている項目のすぐ下にフォーカスを移動します。* | 何も実行しません。 | 現在フォーカスされている項目のすぐ下にフォーカスを移動します。* |
-| 右 |何も実行しません。  |現在フォーカスされている項目の右隣の項目にフォーカスを移動します。 |何も実行しません。|
+| ［上へ］ |現在フォーカスされている項目のすぐ上の項目にフォーカスを移動します。 | 何も実行しません。 |現在フォーカスされている項目のすぐ上の項目にフォーカスを移動します。|
+| ［下へ］|現在フォーカスされている項目のすぐ下にフォーカスを移動します。* | 何も実行しません。 | 現在フォーカスされている項目のすぐ下にフォーカスを移動します。* |
+| 権限 |何も実行しません。  |現在フォーカスされている項目の右隣の項目にフォーカスを移動します。 |何も実行しません。|
 | 左 |何も実行しません。 | 現在フォーカスされている項目の左隣の項目にフォーカスを移動します。  |何も実行しません。 |
 | Space または Enter |項目に子がある場合、フォーカスを変更せずに項目を展開するか折りたたみます。   | 項目に子がある場合、子をポップアップとして展開し、ポップアップの最初の項目にフォーカスを置きます。 | 項目を呼び出すか選択して、ポップアップを閉じます。 |
 | Esc | 何も実行しません。 | 何も実行しません。 | ポップアップを閉じます。|
@@ -907,7 +907,7 @@ Space または Enter キーでは常に項目の呼び出しまたは選択を�
 この例では、App.xaml 内でテーマ リソースをオーバーライドする方法を示します。 テーマ リソースをオーバーライドする場合、最低でも "Default" および "HighContrast" のリソース辞書は常に指定し、"Light" または "Dark" リソース用の辞書は必要に応じて指定します。 詳細については、[ResourceDictionary.ThemeDictionaries](/uwp/api/windows.ui.xaml.resourcedictionary.themedictionaries) に関するページを参照してください。
 
 > [!IMPORTANT]
-> このコードでは、AcrylicBrush の [Windows UI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/) バージョンの使い方を示します。 プラットフォーム バージョンの AcrylicBrush を代わりに使用する場合、アプリ プロジェクトの最小バージョンは SDK 16299 以上である必要があります。 プラットフォーム バージョンを使用するには、`muxm:` へのすべての参照を削除します。
+> このコードでは、AcrylicBrush の [Windows UI ライブラリ](/uwp/toolkits/winui/) バージョンの使い方を示します。 プラットフォーム バージョンの AcrylicBrush を代わりに使用する場合、アプリ プロジェクトの最小バージョンは SDK 16299 以上である必要があります。 プラットフォーム バージョンを使用するには、`muxm:` へのすべての参照を削除します。
 
 ```xaml
 <Application
@@ -953,10 +953,10 @@ Space または Enter キーでは常に項目の呼び出しまたは選択を�
 ```
 
 ### <a name="top-whitespace"></a>先頭の空白
-一部のアプリでは、[そのウィンドウのタイトル バーをカスタマイズ](https://docs.microsoft.com/windows/uwp/design/shell/title-bar)するように選択できるため、そのアプリのコンテンツがタイトル バー領域に拡張される可能性があります。 NavigationView が、 **[ExtendViewIntoTitleBar](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplicationviewtitlebar.extendviewintotitlebar) API を使用**してタイトル バーに拡張されるアプリ内のルート要素である場合、[ドラッグ可能な領域](https://docs.microsoft.com/windows/uwp/design/shell/title-bar#draggable-regions)との重なりを避けるためその対話型要素の位置が自動的に調整されます。 
+一部のアプリでは、[そのウィンドウのタイトル バーをカスタマイズ](/windows/uwp/design/shell/title-bar)するように選択できるため、そのアプリのコンテンツがタイトル バー領域に拡張される可能性があります。 NavigationView が、 **[ExtendViewIntoTitleBar](/uwp/api/windows.applicationmodel.core.coreapplicationviewtitlebar.extendviewintotitlebar) API を使用**してタイトル バーに拡張されるアプリ内のルート要素である場合、[ドラッグ可能な領域](/windows/uwp/design/shell/title-bar#draggable-regions)との重なりを避けるためその対話型要素の位置が自動的に調整されます。 
 ![アプリのタイトル バーへの拡張](images/navigation-view-with-titlebar-padding.png)
 
-[Window.SetTitleBar](https://docs.microsoft.com/uwp/api/windows.ui.xaml.window.settitlebar) メソッドを呼び出して、ドラッグ可能な領域がアプリによって指定され、戻るボタンやメニュー ボタンをアプリ ウィンドウの上部近くに配置したい場合は、`IsTitleBarAutoPaddingEnabled` を False に設定します。
+[Window.SetTitleBar](/uwp/api/windows.ui.xaml.window.settitlebar) メソッドを呼び出して、ドラッグ可能な領域がアプリによって指定され、戻るボタンやメニュー ボタンをアプリ ウィンドウの上部近くに配置したい場合は、`IsTitleBarAutoPaddingEnabled` を False に設定します。
 
 ![余白なしのアプリのタイトル バーへの拡張](images/navigation-view-no-titlebar-padding.png)
 
@@ -973,11 +973,11 @@ NavigationView のヘッダー領域の位置をさらに調整するには、Pa
 </Page.Resources>
 ```
 
-このテーマ リソースによって、[NavigationView.Header](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.navigationview.header) の周囲の余白が変更されます。
+このテーマ リソースによって、[NavigationView.Header](/uwp/api/windows.ui.xaml.controls.navigationview.header) の周囲の余白が変更されます。
 
 ## <a name="related-topics"></a>関連トピック
 
-- [NavigationView クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.navigationview)
+- [NavigationView クラス](/uwp/api/windows.ui.xaml.controls.navigationview)
 - [マスター/詳細](master-details.md)
 - [ナビゲーションの基本](../basics/navigation-basics.md)
 - [Fluent Design の概要](/windows/apps/fluent-design-system)

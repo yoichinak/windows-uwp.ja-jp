@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: aa60db28003c4f231cf36b653c5e69b422978c1a
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 28dc4a62bf580da41d424c98c186413dc96a8aae
+ms.sourcegitcommit: 3a7f9f05f0127bc8e38139b219e30a8df584cad3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "71340066"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83775826"
 ---
 # <a name="transforms-overview"></a>変換の概要
 
@@ -37,6 +37,8 @@ UI 要素の相対座標系を変更して、Windows ランタイム API で変�
 XAML レイアウトでは、変換はレイアウト パスの完了後に適用されます。利用可能なスペースの計算や他のレイアウトに関する決定は、変換が適用される前に行われています。 レイアウトが最優先されるため、レイアウト時にスペースを割り当てる、[**Grid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid) セルなどのレイアウト コンテナー内にある要素を変換した場合に、予期しない結果になる可能性があります。 変換された要素は、途中で切れたり隠されたりことがあります。親コンテナー内のスペースを分割するとき、変換後のサイズを計算していなかったスペースに描画されるためです。 変換結果を試し、いくつかの設定の調整が必要になる場合があります。 たとえば、アダプティブ レイアウトやスター サイズ指定に頼るのではなく、**Center** プロパティを変更したり、レイアウト スペースの固定ピクセル値を宣言したりすることで、親が十分なスペースを確実に割り当てるようにすることが必要になる場合があります。
 
 **移行のメモ:** Windows Presentation Foundation (WPF) には、レイアウト パスの前に変換を適用する **LayoutTransform** プロパティがありました。 ただし、Windows ランタイム XAML では **LayoutTransform** のプロパティがサポートされていません。 (Microsoft Silverlight にも、このプロパティはありませんでした。)
+
+もう 1 つの方法として、Windows Community Toolkit には、アプリケーションの FrameworkElement にマトリックス変換を適用する [LayoutTransformControl](/windows/communitytoolkit/controls/LayoutTransformControl) が用意されています。
 
 ## <a name="span-idapplying_a_transform_to_a_ui_elementspanspan-idapplying_a_transform_to_a_ui_elementspanspan-idapplying_a_transform_to_a_ui_elementspanapplying-a-transform-to-a-ui-element"></a><span id="Applying_a_transform_to_a_UI_element"></span><span id="applying_a_transform_to_a_ui_element"></span><span id="APPLYING_A_TRANSFORM_TO_A_UI_ELEMENT"></span>UI 要素への変換の適用
 

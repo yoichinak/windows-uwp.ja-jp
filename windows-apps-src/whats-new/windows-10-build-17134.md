@@ -1,16 +1,16 @@
 ---
 title: Windows 10 ビルド 17134 の新着情報
 description: Windows 10 ビルド 17134 と新しい開発者ツールでは、ユニバーサル Windows プラットフォームによって強化されたツール、機能、エクスペリエンスを利用できます。
-keywords: 新着情報, 新機能, 更新, 更新プログラム, 機能, 新規, Windows 10, 最新, 開発者, 17134
+keywords: Windows 10, 17134, 1803
 ms.date: 04/10/2018
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: cce2c6c36918a117ba6aee25987be9060b3ec148
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 12c788cae02cdc5a0cf8e26f02ea03264960ce49
+ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74258865"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83234372"
 ---
 # <a name="whats-new-in-windows-10-for-developers-build-17134"></a>Windows 10 ビルド 17134 の開発者向け新着情報
 
@@ -41,7 +41,7 @@ Tiles | [追跡可能なタイル通知](../design/shell/tiles-and-notifications
 ## <a name="gaming"></a>ゲーム
 機能 | 説明
  :------ | :------
-ゲーム開発の概要 | Windows 10 用のゲーム開発に関心をお持ちですか?  新しい[ゲーム開発の作業の概要](../gaming/getting-started.md)ページでは、セットアップ、登録、アプリとゲームの申請準備のために必要な作業全体の概要を示します。
+ゲーム開発の概要 | Windows 10 用のゲーム開発に関心をお持ちですか? 新しい[ゲーム開発の作業の概要](../gaming/getting-started.md)ページでは、セットアップ、登録、アプリとゲームの申請準備のために必要な作業全体の概要を示します。
 グラフィックス アダプター | 以下の DXGI API が追加されました。これらは、グラフィックス アダプターの基本設定と削除に関連しています。 </br> * [IDXGIFactory6](https://docs.microsoft.com/windows/desktop/api/dxgi1_6/nn-dxgi1_6-idxgifactory6) インターフェイスでは、GPU 基本設定に基づいてグラフィックス アダプターを列挙する単一のメソッドが有効になります。 </br> * [DXGIDeclareAdapterRemovalSupport](https://docs.microsoft.com/windows/desktop/api/dxgi1_6/nf-dxgi1_6-dxgideclareadapterremovalsupport) 関数を使用すると、グラフィックス デバイスの削除に対してプロセスで対応可能であると示すことができます。 </br> * [DXGI_GPU_PREFERENCE](https://docs.microsoft.com/windows/desktop/api/dxgi1_6/ne-dxgi1_6-dxgi_gpu_preference) 列挙では、アプリを実行する GPU の基本設定を記述します。
 
 ## <a name="develop-windows-apps"></a>Windows アプリの開発
@@ -50,7 +50,7 @@ Tiles | [追跡可能なタイル通知](../design/shell/tiles-and-notifications
  :------ | :------
 アダプティブ カード | [アダプティブ カード](https://docs.microsoft.com/adaptive-cards/)は、カード交換のオープン フォーマットであり、開発者は一貫性のある共通した方法で UI コンテンツを交換できます。 アダプティブ カードでは JSON オブジェクトとしてコンテンツを記述し、ホスト アプリケーションの外観に自動的に適合するようにレンダリングできます。
 アプリ リソース グループ | [AppResourceGroupInfo](https://docs.microsoft.com/uwp/api/windows.system.appresourcegroupinfo) クラスには、アプリの状態を中断、アクティブ (再開済み)、または終了の状態に移行する処理を開始するための新しいメソッドが含まれています。
-ファイル システムへの幅広いアクセス | **broadFileSystemAccess** 機能を使用すると、ファイル ピッカー スタイルのプロンプトを使用しなくても、アプリはファイル システムに対して、アプリを実行中のユーザーと同じアクセス許可を獲得できます。 詳しくは、「[ファイル アクセス許可](../files/file-access-permissions.md)」と、「**アプリ機能の宣言**」の [broadFileSystemAccess](../packaging/app-capability-declarations.md) をご覧ください。
+ファイル システムへの幅広いアクセス | **broadFileSystemAccess** 機能を使用すると、ファイル ピッカー スタイルのプロンプトを使用しなくても、アプリはファイル システムに対して、アプリを実行中のユーザーと同じアクセス許可を獲得できます。 詳しくは、「[ファイル アクセス許可](../files/file-access-permissions.md)」と、「[アプリ機能の宣言](../packaging/app-capability-declarations.md)」の **broadFileSystemAccess** をご覧ください。
 C++/WinRT | [C++/WinRT](https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/) は、Windows ランタイム (WinRT) API 用に新しく完全に標準化された、最新の C++17 言語プロジェクションです。 ヘッダー ファイルに単独で実装され、最新の Windows API への最上位のアクセス権を提供するように設計されています。 C++/WinRT を使うと、標準に準拠した C++17 のコンパイラを使用して WinRT API を作成し利用することができます。 C++ アプリケーション (Win32 から UWP への変換) では、C++/WinRT を使用することで、コードを標準として維持し、最新でクリーンなコードを保つことができます。また、アプリケーションを軽量かつ高速なアプリケーションとしてそのまま利用できます。
 コンソール UWP アプリ | C++ /WinRT または /CX の UWP コンソール アプリを作成して、DOS や PowerShell などのコンソール ウィンドウで実行できるようになりました。 コンソール アプリでは、入出力にコンソール ウィンドウを使用します。 UWP コンソール アプリは、Microsoft Store に公開することも、アプリの一覧に追加することもできます。また、プライマリ タイルとしてスタート メニューにピン留めすることもできます。 詳しくは、「[ユニバーサル Windows プラットフォーム コンソール アプリの作成](../launch-resume/console-uwp.md)」をご覧ください。
 拡張されたアプリ マニフェスト機能 | アプリ パッケージ マニフェストのスキーマに、機能がいくつか追加されました。それらの機能には、ファイル システムへの広範なアクセス、店舗販売時点管理 (POS) デバイスでのバーコード スキャナーの有効化、UWP コンソール アプリの定義などがあります。 詳しくは、「[app manifest changes in Windows 10](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/what-s-changed-in-windows-10)」(Windows 10 でのアプリ マニフェストの変更) をご覧ください。
@@ -114,7 +114,7 @@ Xbox Live クリエーターズ プログラムでは、開発者は、UWP ゲ�
 
 ### <a name="one-dev-question---why-was-docments-and-settings-renamed-users"></a>One Dev Question - "Documents and Settings" が "Users" という名前に変更された理由
 
-Documents and Settings ディレクトリの名前が変更された理由を知りたくありませんか?  [Raymond Chen が、名前の由来や変更された理由について説明します](https://www.youtube.com/watch?v=4vDHQewVmM8&index=1&list=PLWs4_NfqMtoxjy3LrIdf2oamq1coolpZ7)。 Windows やその歴史における開発の詳細については、[Raymond のブログ](https://devblogs.microsoft.com/oldnewthing/)をご覧ください。
+Documents and Settings ディレクトリの名前が変更された理由を知りたくありませんか? [Raymond Chen が、名前の由来や変更された理由について説明します](https://www.youtube.com/watch?v=4vDHQewVmM8&index=1&list=PLWs4_NfqMtoxjy3LrIdf2oamq1coolpZ7)。 Windows やその歴史における開発の詳細については、[Raymond のブログ](https://devblogs.microsoft.com/oldnewthing/)をご覧ください。
 
 
 ## <a name="samples"></a>サンプル
