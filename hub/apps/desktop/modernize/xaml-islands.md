@@ -66,7 +66,7 @@ WPF および Windows フォーム アプリケーションには、特定の UW
 |-----------------|-------------------------------|-------------|
 | [WindowsXamlHost](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) | Windows 10 バージョン 1903 | [Windows.UI.Xaml.UIElement](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement) から派生した UWP コントロールをホストできます。たとえば、Windows SDK で提供されるファーストパーティ UWP コントロールや、カスタム コントロールなどです。 |
 
-**WindowsXamlHost** コントロールの使用方法を示すチュートリアルについては、[WPF アプリでの標準 UWP コントロールのホスト](host-standard-control-with-xaml-islands.md)に関する記事と「[XAML アイランドを使用した WPF アプリでのカスタム UWP コントロールのホスト](host-custom-control-with-xaml-islands.md)」を参照してください。
+**WindowsXamlHost** コントロールの使用方法を示すチュートリアルについては、[WPF アプリでの標準 UWP コントロールのホスト](host-standard-control-with-xaml-islands.md)に関する記事と「[XAML Islands を使用した WPF アプリでのカスタム UWP コントロールのホスト](host-custom-control-with-xaml-islands.md)」を参照してください。
 
 > [!NOTE]
 > **WindowsXamlHost** コントロールを使用したカスタム UWP コントロールのホストは、.NET Core 3 をターゲットとする WPF および Windows フォーム アプリでのみサポートされています。 Windows SDK で提供されるファーストパーティ UWP コントロールのホストは、.NET Framework または .NET Core 3 をターゲットとするアプリでサポートされています。
@@ -86,7 +86,7 @@ XAML Island .NET コントロールには、Windows 10 バージョン 1903 以�
 
 * ホスト コントロール パッケージは、ラップされたコントロール パッケージにも含まれています。 ラップされたコントロール パッケージをインストールすると、両方のコントロール セットを使用できます。
 
-* カスタム UWP コントロールをホストしている場合、WPF または Windows フォーム プロジェクトは .NET Core 3 をターゲットにする必要があります。 .NET Framework をターゲットとするアプリでは、カスタム UWP コントロールのホストはサポートされません。 また、カスタム コントロールを参照するには、いくつかの追加の手順を実行する必要があります。 詳細については、「[XAML アイランドを使用した WPF アプリでのカスタム UWP コントロールのホスト](host-custom-control-with-xaml-islands.md)」を参照してください。
+* カスタム UWP コントロールをホストしている場合、WPF または Windows フォーム プロジェクトは .NET Core 3 をターゲットにする必要があります。 .NET Framework をターゲットとするアプリでは、カスタム UWP コントロールのホストはサポートされません。 また、カスタム コントロールを参照するには、いくつかの追加の手順を実行する必要があります。 詳細については、「[XAML Islands を使用した WPF アプリでのカスタム UWP コントロールのホスト](host-custom-control-with-xaml-islands.md)」を参照してください。
 
 ### <a name="web-view-controls"></a>Web ビュー コントロール
 
