@@ -17,7 +17,7 @@ ms.locfileid: "81266910"
 > [!NOTE]
 > サンプルは、Windows 10 バージョン 1903 (10.0、ビルド 18362)、および Visual Studio 2019 をターゲットにしてテストされています。 必要に応じて、プロジェクトのプロパティを使用して、プロジェクトのターゲットを Windows 10 バージョン 1809 (10.0、ビルド 17763) に変更したり、Visual Studio 2017 でサンプルを開いたりすることができます。
 
-サンプル アプリケーションを複製またはダウンロードするには、コード サンプル ギャラリーの「[Photo Editor C++/WinRT サンプル アプリケーション](/samples/microsoft/windows-appsample-photo-editor/photo-editor-cwinrt-sample-application/)」を参照してください。
+サンプル アプリケーションをクローンまたはダウンロードするには、コード サンプル ギャラリーの「[Photo Editor C++/WinRT サンプル アプリケーション](/samples/microsoft/windows-appsample-photo-editor/photo-editor-cwinrt-sample-application/)」を参照してください。
 
 フォト エディター アプリケーションは、[C++/WinRT](intro-to-using-cpp-with-winrt.md) 言語プロジェクションでの開発を紹介するユニバーサル Windows プラットフォーム (UWP) のサンプル アプリケーションです。 サンプル アプリケーションを使用すると、**画像**ライブラリから写真を取得し、関連する写真効果で選択したイメージを編集できます。 サンプルのソース コードには、C++/WinRT プロジェクションを使用して実行された&mdash;[データ バインディング](binding-property.md)や[非同期アクションと非同期操作](concurrency.md)&mdash;など多くの一般的な方法が含まれています。 このサンプルで示されている特定の機能の一部を次に示します。
 
