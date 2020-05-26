@@ -48,9 +48,9 @@ Microsoft Store にアプリを公開するには、そのアプリを UWP (ユ�
 
 アプリの完全なソース コードは、[GitHub](https://github.com/Microsoft/Windows-appsample-get-started-js2d) にあります。
 
-最も簡単に始める方法は、GitHub のページで、緑色の **[Clone or download]** (複製またはダウンロード) ボタンをクリックし、 **[Open in Visual Studio]** (Visual Studio で開く) を選択することです。 
+最も簡単に始める方法は、GitHub のページで、緑色の **[Clone or download]**\(クローンまたはダウンロード\) ボタンをクリックし、 **[Open in Visual Studio]**\(Visual Studio で開く\) を選択することです。 
 
-![リポジトリを複製する](images/JS2D_2.png)
+![リポジトリをクローンする](images/JS2D_2.png)
 
 [GitHub プロジェクト](https://docs.microsoft.com/windows/uwp/get-started/get-uwp-app-samples)は、zip ファイルとしてダウンロードすることも、その他の標準的な方法で操作することもできます。
 
