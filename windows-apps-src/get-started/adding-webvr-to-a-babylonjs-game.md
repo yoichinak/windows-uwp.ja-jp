@@ -32,11 +32,11 @@ Babylon.js を使って 3D ゲームを作成したことがあり、仮想現�
 
 ## <a name="getting-started"></a>はじめに
 
-最も簡単に始める方法としては、[Windows-tutorials-web GitHub repo](https://github.com/Microsoft/Windows-tutorials-web) に移動して、緑色の **[Clone or download]** (複製またはダウンロード) ボタンを押し、 **[Open in Visual Studio]** (Visual Studio で開く) を選択します。
+最も簡単に始める方法としては、[Windows-tutorials-web GitHub repo](https://github.com/Microsoft/Windows-tutorials-web) に移動して、緑色の **[Clone or download]**\(クローンまたはダウンロード\) ボタンを押し、 **[Open in Visual Studio]**\(Visual Studio で開く\) を選択します。
 
-![[Clone or download] (複製またはダウンロード) ボタン](images/3dclone.png)
+![[Clone or download] (クローンまたはダウンロード) ボタン](images/3dclone.png)
 
-プロジェクトを複製しない場合は、zip ファイルとしてダウンロードすることもできます。
+プロジェクトをクローンしない場合は、zip ファイルとしてダウンロードすることもできます。
 [[Before](https://github.com/Microsoft/Windows-tutorials-web/tree/master/BabylonJS-game-with-WebVR/before)] と [[After](https://github.com/Microsoft/Windows-tutorials-web/tree/master/BabylonJS-game-with-WebVR/after)] という 2 つのフォルダーがあります。 [Before] フォルダーは VR 機能が追加される前のゲームで、[After] フォルダーは、VR サポートを追加して完成したゲームです。
 
 [Before] と [After] のフォルダーには、次のファイルが含まれています。
