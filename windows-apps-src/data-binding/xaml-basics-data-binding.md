@@ -25,7 +25,7 @@ ms.locfileid: "67820343"
 * [Visual Studio 2019 と Windows 10 SDK の最新バージョン](https://developer.microsoft.com/windows/downloads)。
 
 ## <a name="part-0-get-the-code"></a>パート 0: コードを入手する
-この演習の開始点は、PhotoLab サンプル リポジトリ ([xaml-basics-starting-points/data-binding](https://github.com/Microsoft/Windows-appsample-photo-lab/tree/master/xaml-basics-starting-points/data-binding) フォルダー) です。 このリポジトリを複製またはダウンロードした後、Visual Studio 2019 で PhotoLab.sln を開くことによって、プロジェクトを編集できます。
+この演習の開始点は、PhotoLab サンプル リポジトリ ([xaml-basics-starting-points/data-binding](https://github.com/Microsoft/Windows-appsample-photo-lab/tree/master/xaml-basics-starting-points/data-binding) フォルダー) です。 このリポジトリをクローンまたはダウンロードした後、Visual Studio 2019 で PhotoLab.sln を開くことによって、プロジェクトを編集できます。
 
 PhotoLab アプリには、2 つのプライマリ ページが用意されています。
 
