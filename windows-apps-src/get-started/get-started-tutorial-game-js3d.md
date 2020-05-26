@@ -42,11 +42,11 @@ Web 開発者や JavaScript 作者にとって、JavaScript で UWP アプリを
 
 アプリの完全なソース コードは、[GitHub](https://github.com/Microsoft/Windows-appsample-get-started-js3d) にあります。
 
-最も簡単に始める方法は、GitHub のページで、緑色の [Clone or download] (複製またはダウンロード) ボタンをクリックし、[Open in Visual Studio] (Visual Studio で開く) を選択することです。 
+最も簡単に始める方法は、GitHub のページで、緑色の [Clone or download]\(クローンまたはダウンロード\) ボタンをクリックし、[Open in Visual Studio]\(Visual Studio で開く\) を選択することです。 
 
-![[Clone or download] (複製またはダウンロード) ボタン](images/3dclone.png)
+![[Clone or download] (クローンまたはダウンロード) ボタン](images/3dclone.png)
 
-プロジェクトを複製しない場合は、zip ファイルとしてダウンロードすることもできます。
+プロジェクトをクローンしない場合は、zip ファイルとしてダウンロードすることもできます。
 ソリューションを Visual Studio に読み込むと、次のようなファイルが表示されます。
 -   Images/ - UWP アプリに必要なさまざまなアイコンが含まれるフォルダー。
 - css/ - 使用する CSS が含まれるフォルダー。
@@ -648,7 +648,7 @@ function animatePlayer(delta) {
 
 ### <a name="6-load-that-dino"></a>6.恐竜を読み込む
 
-このプロジェクト リポジトリを複製またはダウンロードした場合は、`models` フォルダー内に `dino.json` があります。 この JSON ファイルは、Blender で作成され、エクスポートされた 3D の恐竜です。
+このプロジェクト リポジトリをクローンまたはダウンロードした場合は、`models` フォルダー内に `dino.json` があります。 この JSON ファイルは、Blender で作成され、エクスポートされた 3D の恐竜です。
 
 
 この恐竜を読み込むには、さらにグローバル変数を追加する必要があります。
