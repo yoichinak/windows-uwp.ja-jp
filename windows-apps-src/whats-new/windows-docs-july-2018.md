@@ -93,6 +93,6 @@ Larry Osterman:
 
 ### <a name="photo-editor-cwinrt"></a>フォト エディター C++/WinRT
 
-フォト エディター サンプル アプリは、[C++/WinRT](../cpp-and-winrt-apis/intro-to-using-cpp-with-winrt.md) 言語プロジェクションでの開発を紹介します。 このアプリを使用すると、**画像**ライブラリから写真を取得し、選択した画像を関連する写真効果を使って編集できます。 [サンプルはこちらで複製またはダウンロードできます。](https://github.com/Microsoft/Windows-appsample-photo-editor)
+フォト エディター サンプル アプリは、[C++/WinRT](../cpp-and-winrt-apis/intro-to-using-cpp-with-winrt.md) 言語プロジェクションでの開発を紹介します。 このアプリを使用すると、**画像**ライブラリから写真を取得し、選択した画像を関連する写真効果を使って編集できます。 [サンプルはこちらでクローンまたはダウンロードできます。](https://github.com/Microsoft/Windows-appsample-photo-editor)
 
 ![動作中のサンプルの例](images/photo-editor-banner.png)
