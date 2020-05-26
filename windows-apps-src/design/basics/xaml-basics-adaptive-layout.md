@@ -37,7 +37,7 @@ ms.locfileid: "75684152"
 このチュートリアルでは、PhotoLab サンプルの簡易バージョンから開始します。 
 
 1. [https://github.com/Microsoft/Windows-appsample-photo-lab](https://github.com/Microsoft/Windows-appsample-photo-lab) に移動します。 これで、サンプルの GitHub ページが表示されます。 
-2. 次に、サンプルを複製またはダウンロードする必要があります。 **[Clone or download]\(クローンまたはダウンロード\)** ボタンをクリックします。 サブメニューが表示されます。
+2. 次に、サンプルをクローンまたはダウンロードする必要があります。 **[Clone or download]\(クローンまたはダウンロード\)** ボタンをクリックします。 サブメニューが表示されます。
     <figure>
         <img src="../basics/images/xaml-basics/clone-repo.png" alt="The Clone or download menu on GitHub">
         <figcaption>写真ラボ サンプルの GitHub ページの <b>[Clone or download]\(クローンまたはダウンロード\)</b> メニュー。</figcaption>
@@ -53,7 +53,7 @@ ms.locfileid: "75684152"
 
     **GitHub に慣れている場合:**
 
-    a。 リポジトリのマスター ブランチをローカルに複製します。
+    a。 リポジトリのマスター ブランチをローカルにクローンします。
 
     b. `Windows-appsample-photo-lab\xaml-basics-starting-points\adaptive-layout` ディレクトリに移動します。
 
