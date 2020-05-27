@@ -9,12 +9,12 @@ pm-contact: stmoy
 design-contact: conrwi
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 385c11e48695c2486fd5a2b72633923454e2f8ea
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: ad94d7b887e28ac01156592ac47cfc9ac4783193
+ms.sourcegitcommit: 3a7f9f05f0127bc8e38139b219e30a8df584cad3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970637"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83775906"
 ---
 # <a name="connected-animation-for-windows-apps"></a>Windows アプリの接続されたアニメーション
 
@@ -25,7 +25,7 @@ ms.locfileid: "82970637"
 > **重要な api**: [connectedanimation クラス](/uwp/api/windows.ui.xaml.media.animation.connectedanimation)、 [connectedanimation service クラス](/uwp/api/windows.ui.xaml.media.animation.connectedanimationservice)
 
 
-## <a name="examples"></a>使用例
+## <a name="examples"></a>例
 
 <table>
 <th align="left">XAML コントロール ギャラリー<th>
@@ -55,7 +55,7 @@ ms.locfileid: "82970637"
 
 ## <a name="connected-animation-and-the-fluent-design-system"></a>接続型アニメーションと Fluent Design System
 
- Fluent Design System では、ライト、深度、モーション、マテリアル、スケールを取り入れた、モダンで目を引く UI を作成できます。 接続型アニメーションは、アプリに動きを加える Fluent Design System コンポーネントです。 詳細については、「 [Fluent Design の概要](/windows/apps/fluent-design-system)」を参照してください。
+ Fluent Design System では、ライト、深度、モーション、マテリアル、スケールを取り入れた、モダンで目を引く UI を作成できます。 接続型アニメーションは、アプリに動きを加える Fluent Design System コンポーネントです。 詳しくは、[Fluent Design の概要](/windows/apps/fluent-design-system)に関するページをご覧ください。
 
 ## <a name="why-connected-animation"></a>接続型アニメーションを使用する理由
 
@@ -102,7 +102,7 @@ Windows 10 バージョン1809以降では、接続されたアニメーショ�
 | - | - | - |
 | 重力 | はい | はい* <br/> **A から B への基本的な変換では、このイージング関数を使用しますが、"重力 dip" には独自のイージング関数があります。*  |
 | 直接 | いいえ <br/> *150ミリ秒を超えてアニメーション化します。*| いいえ <br/> *減速イージング関数を使用します。* |
-| 基本 | はい | はい |
+| Basic | はい | はい |
 
 ## <a name="how-to-implement-connected-animation"></a>接続されたアニメーションを実装する方法
 
@@ -271,7 +271,7 @@ void PrepareAnimationWithItem(ContactsItem item)
 詳細ビューから戻るときなど、この要素を変換先として使用するアニメーションを開始するには、 [Trystartconnectedanimation async](/uwp/api/windows.ui.xaml.controls.listviewbase.trystartconnectedanimationasync)を使用します。 ListView のデータ ソースが読み込まれると、TryStartConnectedAnimationAsync は、対応する項目コンテナーが作成されるまで、アニメーションが開始されるのを待機します。
 
 ```csharp
-private void ContactsListView_Loaded(object sender, RoutedEventArgs e)
+private async void ContactsListView_Loaded(object sender, RoutedEventArgs e)
 {
     ContactsItem item = GetPersistedItem(); // Get persisted item
     if (item != null)

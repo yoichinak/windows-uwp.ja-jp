@@ -1,21 +1,21 @@
 ---
 title: ARM 版 Windows 10
 description: この記事では、ARM でエクスペリエンスとアプリがどのように実行されるかの概要、どのような制限事項があるか、詳しい情報を参照できる場所について説明します。
-ms.date: 02/15/2018
+ms.date: 05/22/2020
 ms.topic: article
 keywords: windows 10 s, 常時接続, ARM, ARM64, x86 エミュレーション
 ms.localizationpriority: medium
-ms.openlocfilehash: 1a72fbaf4982f2a053298f10279eacba6a46d05d
-ms.sourcegitcommit: 8a88a05ad89aa180d41a93152632413694f14ef8
+ms.openlocfilehash: 006de4f1f04ffb98d46b6ceb981d3d0fba311026
+ms.sourcegitcommit: e51f9489d8c977c3498afb1a75c91f96ac3a642b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76726005"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83854748"
 ---
 # <a name="windows-10-on-arm"></a>ARM 版 Windows 10
 もともと、Windows 10 (Windows 10 Mobile とは区別されます) は、x86 および x64 プロセッサを搭載した PC でのみ実行できました。 現在、Windows 10 desktop は、ARM64 プロセッサを搭載したコンピューターで実行できます。 ARM CPU アーキテクチャが持つ省電力の性質により、これらの PC のバッテリーが終日持つようになり、モバイル データ ネットワークがサポートされるようになります。 これらの PC にはアプリケーションの互換性が十分に備わっており、既存の x86 win32 アプリケーションを変更せずに実行できます。 詳細やデモについては、「[常時接続されている PC の Channel 9 ビデオ](https://channel9.msdn.com/Events/Build/2017/P4171)」を参照してください。
 
-ここでは、 *"ARM"* という用語を、ARM64 (一般に *AArch64* とも呼ばれます) プロセッサで Windows 10 のデスクトップ バージョンを実行する PC の省略形として使っています。  ここでは、 *"ARM32"* という用語を、32 ビット ARM アーキテクチャ (他のドキュメントでは一般に *ARM* と呼ばれます) の省略形として使っています。
+ここでは、*"ARM"* という用語を、ARM64 (一般に *AArch64* とも呼ばれます) プロセッサで Windows 10 のデスクトップ バージョンを実行する PC の省略形として使っています。  ここでは、*"ARM32"* という用語を、32 ビット ARM アーキテクチャ (他のドキュメントでは一般に *ARM* と呼ばれます) の省略形として使っています。
 
 ## <a name="apps-and-experiences-on-arm"></a>ARM でのアプリとエクスペリエンス
 
@@ -35,6 +35,19 @@ ARM 上の Windows 10 は、Microsoft Store からすべての x86、ARM32、お
 ### <a name="win32-apps"></a>Win32 アプリ
 UWP アプリに加えて、ARM 上の Windows 10 では、PC と同じように、優れたパフォーマンスとシームレスなユーザーエクスペリエンスで、x86 Win32 アプリを変更せずに実行することもできます。 これらの x86 Win32 アプリは ARM 用に再コンパイルする必要がなく、ARM プロセッサで実行されていることを認識していません。 64ビットの x64 Win32 アプリはサポートされていませんが、ほとんどのアプリには x86 バージョンが用意されています。  アプリのアーキテクチャを選択した場合は、ARM PC 上の Windows 10 でアプリを実行するために、32ビットの x86 バージョンを選択するだけです。
 
+## <a name="downloads"></a>ダウンロード
+
+Visual Studio 2019 では、ARM 上の Windows 10 用のツールをいくつかダウンロードできます。 Visual Studio 2017 を使用するユーザー stil は、インストーラーを使用して、同等のツールとパッケージを検索してインストールできます。 これらの手順を実行するには、Visual Studio 2019 を使用している必要があることに注意してください。
+
+### <a name="visual-c-redistributable"></a>Visual C++ 再頒布可能パッケージ
+
+Visual C++ Redist パッケージは、ARM アプリで使用できます。 [Visual studio downlaods のページ](https://visualstudio.microsoft.com/downloads/)にアクセスして、[**すべてのダウンロード**] を表示し、**他のツールとフレームワーク**を開き、[ **Microsoft Visual C++ 再頒布可能2019パッケージ**] に移動します。 **ARM64**ラジオボタンを選択し、[**ダウンロード**] をクリックします。
+
+### <a name="remote-tools"></a>リモート ツール
+
+ARM アプリでは Remote Tools for Visual Studio を使用できます。 [Visual studio downlaods ページ](https://visualstudio.microsoft.com/downloads/)にアクセスし、[**すべてのダウンロード**]、[ **Tools for Visual Studio 2019] の**順にスクロールして、 **Remote Tools for Visual Studio 2019**エントリに移動します。 **ARM64*オプションボタンを選択し、[**ダウンロード**] をクリックします。
+
+
 ## <a name="in-this-section"></a>このセクションの内容
 |トピック | 説明 |
 |-----|-----|
@@ -47,4 +60,4 @@ UWP アプリに加えて、ARM 上の Windows 10 では、PC と同じように
 |トピック | 説明 |
 |-----|-----|
 |[WDK を使った ARM64 ドライバーのビルド](https://docs.microsoft.com/windows-hardware/drivers/develop/building-arm64-drivers)|ARM64 ドライバーをビルドするための手順。 |
-| [ARM での x86 アプリのデバッグ](https://docs.microsoft.com/windows-hardware/drivers/debugger/debugging-arm64) | ARM で x86 アプリをデバッグするためのガイダンス。 |
+| [ARM における x86 アプリのデバッグ](https://docs.microsoft.com/windows-hardware/drivers/debugger/debugging-arm64) | ARM で x86 アプリをデバッグするためのガイダンス。 |

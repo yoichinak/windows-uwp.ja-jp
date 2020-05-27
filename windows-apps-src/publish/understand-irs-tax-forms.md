@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp, 課税, irs, 米国内国歳入庁, 税, 所得税, 1099
 ms.assetid: 1e475b96-f953-457c-864f-b6f4cb4c309f
 ms.localizationpriority: medium
-ms.openlocfilehash: e01e1615cb05ab7b0f3d3fa12861e46b231642a8
-ms.sourcegitcommit: a7effa01ca1c810e792b60f89ba38ce3bf0b310e
+ms.openlocfilehash: ab115b5cb2b64c6f5bd05b166e904773948a876c
+ms.sourcegitcommit: e51f9489d8c977c3498afb1a75c91f96ac3a642b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81545072"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83854708"
 ---
 # <a name="understand-irs-tax-forms-issued-by-microsoft"></a>マイクロソフトが発行する IRS の税関連の書類について
 
@@ -21,13 +21,13 @@ ms.locfileid: "81545072"
 
 ## <a name="types-of-tax-forms"></a>税関連の書類の種類
 
-| IRS の税関連の書類 | 説明 | 対象 |
+| IRS の税関連の書類 | 説明 | 可用性 |
 |--------------|-------------|--------------|
-|1099-MISC、1099-K | マイクロソフトのマーケットプレースへの参加に関する販売アクティビティや開発者への支払いに関連します。 | 印刷されるフォームは postmarked**年1月 31**日以前になります。また、pdf コピーは、[パートナーセンター](https://partner.microsoft.com/dashboard) (**アカウント設定 > 税プロファイル**) で同時に利用できます。 |
-|1042-S | 米国の源泉徴収税の対象になる開発者への支払いに関連します。 | 印刷されるフォームは、 **3 月 15**日以前に postmarked ます。また、pdf コピーは、パートナーセンター (**アカウント設定 > 税プロファイル**) で同時に利用できます。 |
+|1099-MISC、1099-K | マイクロソフトのマーケットプレースへの参加に関する販売アクティビティや開発者への支払いに関連します。 | 印刷されたフォームは、postmarked**年1月 31**日以前に使用できます。また、pdf コピーは、[パートナーセンター](https://partner.microsoft.com/dashboard) ([**支払い] および [税金 > 支払と税金プロファイル**] の下の**パートナーセンターの開発者設定**) で同時に利用できます。 |
+|1042-S | 米国の源泉徴収税の対象になる開発者への支払いに関連します。 | 印刷されるフォームは、 **3 月 15**日以前に postmarked されます。また、pdf コピーは、パートナーセンター ([**支払い] および [税金 > 支払と税プロファイル**の下の**パートナーセンターの開発者設定**) で同時に利用できます。  |
 
 > [!NOTE]
-> IRS 税のフォームで使用する住所は、[税金プロファイル](setting-up-your-payout-account-and-tax-forms.md#tax-forms)のアドレスから取得されます。 住所を変更した場合は、 **[税プロファイル]** の住所も変更するようにしてください。
+> IRS 税のフォームで使用する住所は、[税金プロファイル](setting-up-your-payout-account-and-tax-forms.md#tax-forms)のアドレスから取得されます。 住所を変更した場合は、**[税プロファイル]** の住所も変更するようにしてください。
 
 税金のフォームは、次のアドレスから送信されます。
 
@@ -41,8 +41,8 @@ ms.locfileid: "81545072"
 **米国以外の市民:**
 <table>
 <tr><th>ビジネスグループ</th><th>法人</th><th>Address</th></tr>
-<tr><td>Windows、Office、Azure</td><td>Microsoft アイルランドの運用に限定されています (マイクロソフトは microsoft corporation によって microsoft corporation の修飾された仲介役として機能します)。</td><td>Microsoft の1か所<br>南部&nbsp;郡&nbsp;ビジネス&nbsp;公園<br>Leopardstown, ダブリン18アイルランド</td></tr>
-<tr><td>掲載</td><td>Microsoft アイルランドの操作は制限されています (支払いは microsoft online inc. によって行われます)。 microsoft アイルランドは、microsoft Online Inc. の支払いエージェントとして機能します)。</td><td>Microsoft の1か所<br>南部&nbsp;郡&nbsp;ビジネス&nbsp;公園<br>Leopardstown, ダブリン18アイルランド</td></tr>
+<tr><td>Windows、Office、Azure</td><td>Microsoft アイルランドの運用に限定されています (マイクロソフトは microsoft corporation によって microsoft corporation の修飾された仲介役として機能します)。</td><td>One Microsoft Place<br>南 &nbsp; 郡の &nbsp; 事業 &nbsp; パーク<br>Leopardstown, ダブリン18アイルランド</td></tr>
+<tr><td>掲載</td><td>Microsoft アイルランドの操作は制限されています (支払いは microsoft online inc. によって行われます)。 microsoft アイルランドは、microsoft Online Inc. の支払いエージェントとして機能します)。</td><td>One Microsoft Place<br>南 &nbsp; 郡の &nbsp; 事業 &nbsp; パーク<br>Leopardstown, ダブリン18アイルランド</td></tr>
 <tr><td>広告</td><td>Microsoft Online Inc.</td><td>6100 Neil の道路<br>Reno、NV 89511 USA</td></tr>
 <tr><td colspan="3">* 次の国の市民による収益の提供は、Microsoft アイルランドの操作に限定されています。オーストリア、ベルギー、ブルガリア、クロアチア、キプロス、Czechia、デンマーク、エストニア、フィンランド、フランス、ドイツ、ギリシャ、ハンガリー、アイルランド、マン島、イタリア、ラトビア、リヒテンシュタイン、リトアニア、ルクセンブルク、マルタ、モナコ、オランダ、ノルウェー、ポーランド、ポルトガル、ルーマニア、スロバキア、スロベニア、南アフリカ、スペイン、スウェーデン、スイス、英国</td></tr>
 </table>
@@ -61,7 +61,7 @@ ms.locfileid: "81545072"
   <tr> 
      <td valign="top">(i) Windows 10 の Microsoft Store 経由でブラジルおよび中国で販売したアプリまたは (ii) Minecraft Marketplace マーケットプレースでの売り上げについて、<b>10 ドル以上の支払い額</b>を受け取りました。<br>
 <br>
-<b>もしくは</b><br>
+<b>OR</b><br>
 <br>
 適用されている課税年度 (インセンティブ支払いやコンテストからの支払いなど) において、マイクロソフトからのアプリの販売に関連しない支払いを $600 以上受け取りました。</td>
     <td valign="top"><b>1099-MISC</b>:<br>支払者: Microsoft Corporation<br>中: * * * * * 4442<br><br><b>重要</b>: 特定のビジネスエンティティは、Microsoft から受け取った支払い額に関係なく、1099のその他のフォームを受信しません。  詳細については、税務の専門家にお問い合わせください。</td>
@@ -97,25 +97,25 @@ ms.locfileid: "81545072"
     <td valign="top">マイクロソフトが 1042-S フォームを送った理由は、米国の税務当局に申告義務があると見なされている、源泉徴収税の対象になった収益を、マイクロソフトが開発者に対して支払ったためです。  フォーム 1042-S は、この報告義務のために使用されます。</td>
   </tr>
   <tr>
-    <td valign="top"><b>フォームで何を行う必要がありますか。</b></td>
+    <td valign="top"><b>この書類にどのように対応する必要がありますか。</b></td>
     <td valign="top">一般的に、開発者側で特別な対応は必要ありません。 フォーム 1402-S は、開発者が管轄の税務当局に任意の形式の税額控除を申請する場合に役立つ可能性があります。  このトピックについて詳しくは、税金アドバイザーにお問い合わせください。</td>
   </tr>
   <tr>
-    <td valign="top"><b>W8 フォームを完了したときに支払いに課税されたのはなぜですか。</b></td>
-    <td valign="top">税金は次のいずれかの場合に源泉徴収されます。<br>W8 の税務条約のセクションを正しく完了していない 
-     1.、<br>米国が含まれている税条約がない国に居住している 
-     2. ます。<br><br>いつでもパートナーセンターにアクセスして、更新された W8 フォームを送信できます。<br><br><b>注</b>: すべての収入が税金源泉徴収の対象になるとは限りません。</td>
+    <td valign="top"><b>W8 フォームをすべて記入した際に支払いが源泉徴収されたのはなぜですか。</b></td>
+    <td valign="top">税金は次のいずれかの場合に源泉徴収されます。<br>
+     1.W8 の税務条約のセクションを正しく完了していません。<br>
+     2.米国の税金条約がない国に居住しています。<br><br>いつでもパートナーセンターにアクセスして、更新された W8 フォームを送信できます。<br><br><b>注</b>: すべての収入が税金源泉徴収の対象になるとは限りません。</td>
   </tr>
   <tr>
     <td valign="top"><b>有効な条約情報を含む更新された W8 フォームを送信しました。Microsoft は、源泉徴収された税金を返金できますか。</b></td>
     <td valign="top">源泉徴収された税金を払い戻すことはできません。 これらの税金について地域で控除を請求できるかどうか、または IRS から払い戻しを求められるかどうかについては、税金アドバイザーにご相談ください。</td>
   </tr>
   <tr>
-    <td valign="top"><b>1042-S フォームで報告される売上</b></td>
+    <td valign="top"><b>フォーム 104-S ではどのような売り上げが報告されますか。</b></td>
     <td valign="top"><b>源泉徴収の対象として分類された、米国在住の購入者に対する</b>売り上げのみ報告義務があります。  その他の売り上げはすべて報告義務があるとは見なされていません。</td>
   </tr>
   <tr>
-    <td valign="top"><b>1つの封筒で 1042-S という同じ形式のコピーを3つ取得したのはなぜですか。</b></td>
+    <td valign="top"><b>同じフォーム 1042-S が 3 部同封されていたのはなぜですか。</b></td>
     <td valign="top">IRS 規則により、次の 3 つの目的で書類を 3 部提供する必要があります。
 <ul>
 <li>受取人の記録のため</li>
