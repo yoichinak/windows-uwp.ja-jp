@@ -3,12 +3,12 @@ title: WinUI 3.0 Preview 1 (2020 年 5 月)
 description: WinUI 3.0 Preview の概要。
 ms.date: 05/14/2020
 ms.topic: article
-ms.openlocfilehash: 9141fe7ff215f28557020c7f76dd35c3560edfe5
-ms.sourcegitcommit: d0f479f1955881afb62c2af249db5d0b053b63e5
+ms.openlocfilehash: 3aac14807f8455eb9a9294c40ddc76ddfa224659
+ms.sourcegitcommit: 7e8c7f89212c88dcc0274c69d2c3365194c0954a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83580139"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83688487"
 ---
 # <a name="windows-ui-library-30-preview-1-may-2020"></a>Windows UI ライブラリ 3.0 Preview 1 (2020 年 5 月)
 
@@ -64,12 +64,12 @@ Visual Studio 2019 バージョン 16.7 Preview 1 をインストールします
 
 Visual Studio Preview をインストールする際、次のワークロードを含める必要があります。
 
-- .NET Win32 開発
+- .NET デスクトップ開発
 - ユニバーサル Windows プラットフォームの開発
 
 C++ アプリをビルドするには、次のワークロードも含める必要があります。
 
-- C++ による Win32 開発
+- C++ によるデスクトップ開発
 - ユニバーサル Windows プラットフォーム ワークロードの "*C++ (v142) ユニバーサル Windows プラットフォーム ツール*" のオプション コンポーネント
 
 ### <a name="visual-studio-project-templates"></a>Visual Studio プロジェクト テンプレート
@@ -133,24 +133,30 @@ WinUI 3.0 Preview 1 は、Windows 10 April 2018 Update (バージョン 1803 - �
 - MapControl
 - NavigationView を使用した階層型ナビゲーション
 - SwapChainPanel は透明度をサポートしていません
-- C# では、`System.WeakReference<T>` ではなく `WinRT.WeakReference<T>` を使用する必要があります。
 - グローバルな表示でフォールバック動作 (純色ブラシ) を使用します
 - 今回のリリースでは XAML Islands はサポートしていません
 - サードパーティ製エコシステム ライブラリは完全には機能しません
 - IME は機能しません
 - Windows.UI.Text 名前空間のメソッドを呼び出すことはできません
-  
+
+### <a name="known-issues"></a>既知の問題
+
+- C# デスクトップ アプリ:
+   - Windows オブジェクト (Xaml オブジェクトを含む) への弱い参照には、`System.WeakReference<T>` ではなく `WinRT.WeakReference<T>` を使用する必要があります。
+   - [Point](https://docs.microsoft.com/uwp/api/Windows.Foundation.Point)、[Rect](https://docs.microsoft.com/uwp/api/Windows.Foundation.Rect)、および [Size](https://docs.microsoft.com/uwp/api/Windows.Foundation.Size) 構造体は、Double 型ではなく Float 型のメンバーを持ちます。
+
+
 ## <a name="xaml-controls-gallery-winui-30-preview-1-branch"></a>XAML コントロール ギャラリー (WinUI 3.0 Preview 1 ブランチ)
 
-すべての WinUI 3.0 Preview 1 コントロールおよび機能を含むサンプル アプリについては、[XAML コントロール ギャラリーの WinUI 3.0 Preview 1 ブランチ](https://github.com/microsoft/Xaml-Controls-Gallery/tree/winui3preview1)を参照してください。
+すべての WinUI 3.0 Preview 1 コントロールおよび機能を含むサンプル アプリについては、[XAML コントロール ギャラリーの WinUI 3.0 Preview 1 ブランチ](https://github.com/microsoft/Xaml-Controls-Gallery/tree/winui3preview)を参照してください。
 
 ![WinUI 3.0 Preview 1 XAML コントロール ギャラリー アプリ](images/WinUI3XamlControlsGallery.png)<br/>
 *WinUI 3.0 Preview 1 XAML コントロール ギャラリー アプリの例*
 
-サンプルをダウンロードするには、次のコマンドを使用して **winui3preview1** ブランチを複製します。
+サンプルをダウンロードするには、次のコマンドを使用して **winui3preview** ブランチを複製します。
 
-> `git clone --single-branch --branch winui3preview1 https://github.com/microsoft/Xaml-Controls-Gallery.git`
+> `git clone --single-branch --branch winui3preview https://github.com/microsoft/Xaml-Controls-Gallery.git`
 
-複製した後、確実に、ローカルの Git 環境で **winui3preview1** ブランチに切り替えてください。
+複製した後、確実に、ローカルの Git 環境で **winui3preview** ブランチに切り替えてください。
 
-> `git checkout winui3preview1`
+> `git checkout winui3preview`
