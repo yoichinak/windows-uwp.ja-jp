@@ -6,14 +6,19 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10、UWP、マップ認証キー、マップ コントロール
 ms.localizationpriority: medium
-ms.openlocfilehash: ab0d1900398c313021600c18338ecc1201241410
-ms.sourcegitcommit: f806d5f3b0c1e046c903d3388092c0e059d21858
+ms.openlocfilehash: 2f4a76edfe5772665564cb8890ffcdf56205a2f7
+ms.sourcegitcommit: d1eba7cf79cd2885b5bf8f5501bc44a569ab9864
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83790993"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84172594"
 ---
 # <a name="request-a-maps-authentication-key"></a>マップ認証キーの要求
+
+> [!WARNING]
+> オンラインマップサービスは、以前のバージョンの Windows 10 では使用できない場合があります。 次のバージョンでは、MapControl によってマップと Api が Windows に表示されなくなる場合があります。これらの名前空間は、結果を返さない場合があります。
+> - Windows 10 バージョン1607以前のバージョン: マップサービスは、2020年10月から世界中で利用できなくなります。
+> - Windows 10 バージョン1703以前のバージョン:[中国で販売](https://docs.microsoft.com/windows-hardware/customize/desktop/unattend/microsoft-windows-mapcontrol-desktop-chinavariantwin10)されている一部のデバイスでは、マップサービスを利用できません
 
 [**MapControl**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl) や [**Windows.Services.Maps**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps) 名前空間のマップ サービスを [ユニバーサル Windows アプリ](https://docs.microsoft.com/windows/uwp/get-started/universal-application-platform-guide) で使うには、そのアプリを認証する必要があります。 アプリを認証するには、マップ認証キーを指定する必要があります。 このトピックでは、[Bing Maps Developer Center](https://www.bingmapsportal.com/) にマップ認証キーを要求し、アプリに追加する方法について説明します。
 
