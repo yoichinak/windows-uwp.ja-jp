@@ -7,12 +7,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 299a25bb92c5afdb86ebc1569a1f98916baa3d09
-ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
+ms.openlocfilehash: add292dd5b58c3e8da1a0ce2c2371bf211b2a617
+ms.sourcegitcommit: 7704c888a28edc7ab0515a75afac93d1dda4d693
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83233957"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84151951"
 ---
 # <a name="introduction-to-windows-app-design"></a>Windows アプリ デザインの概要
 
@@ -120,7 +120,7 @@ UWP アプリでは、Windows [シェル](../shell/tiles-and-notifications/creat
 
 タイルは、[スタート] メニューとアプリの起動時に表示され、アプリで何が行われるのかを簡単に示します。 タイルのパワーは、背後にあるコンテンツ、および提供するインテリジェンスと技術によるものです。
 
-UWP アプリには 4 つのタイル サイズ (小、中、横長、大) があり、アプリのアイコンと ID でカスタマイズできます。 UWP アプリのタイルのデザインに関するガイダンスについては、「[タイルとアイコン アセットのガイドライン](../shell/tiles-and-notifications/app-assets.md)」をご覧ください。
+UWP アプリには 4 つのタイル サイズ (小、中、横長、大) があり、アプリのアイコンと ID でカスタマイズできます。 UWP アプリのタイルのデザインに関するガイダンスについては、「[タイルとアイコン アセットのガイドライン](../style/app-icons-and-logos.md)」をご覧ください。
     :::column-end:::
     :::column:::
 ![スタート メニューのタイル](images/shell.svg)
