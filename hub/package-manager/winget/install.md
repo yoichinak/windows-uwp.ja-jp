@@ -6,12 +6,12 @@ ms.author: kevinla
 ms.date: 04/28/2020
 ms.topic: overview
 ms.localizationpriority: medium
-ms.openlocfilehash: c903c923a82edc03ffdce9c5790060cb65232cf8
-ms.sourcegitcommit: d0f479f1955881afb62c2af249db5d0b053b63e5
+ms.openlocfilehash: 8c460ccd18bb1bb12e5322e0e08a17edbd9692f7
+ms.sourcegitcommit: 5a145eda92b5915393e58006867cdd8b98e922f5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83824993"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84166243"
 ---
 # <a name="install-command-winget"></a>install コマンド (winget)
 
@@ -47,14 +47,33 @@ ms.locfileid: "83824993"
 | **--name**   |  検索をアプリケーションの名前に限定します。 |  
 | **--moniker**   | 検索をアプリケーション用に一覧表示されているモニカーに限定します。 |  
 | **-v、--version**  |  インストールする正確なバージョンを指定できます。 指定しない場合、latest によって最新バージョンのアプリケーションがインストールされます。 |  
-| **--tag**   |   検索を、アプリケーション用に一覧表示されているタグに限定します。 |  
-| **-s、-source**   |  検索を、指定されたソース名に制限します。 この後にソース名を指定する必要があります。 |  
-| **e、-exact**   |   大文字小文字の区別の検査を含め、クエリで正確な文字列を使用します。 部分文字列の既定の動作は使用されません。 |  
-| **-i、-interactive** |  対話型モードでインストーラーを実行します。 既定のエクスペリエンスでは、インストーラーの進行状況が表示されます。 |  
-| **-h、-silent** |  サイレント モードでインストーラーを実行します。 これにより、すべての UI が抑制されます。 既定のエクスペリエンスでは、インストーラーの進行状況が表示されます。 |  
+| **-s、--source**   |  検索を、指定されたソース名に制限します。 この後にソース名を指定する必要があります。 |  
+| **-e、--exact**   |   大文字小文字の区別の検査を含め、クエリで正確な文字列を使用します。 部分文字列の既定の動作は使用されません。 |  
+| **-i、--interactive** |  対話型モードでインストーラーを実行します。 既定のエクスペリエンスでは、インストーラーの進行状況が表示されます。 |  
+| **-h、--silent** |  サイレント モードでインストーラーを実行します。 これにより、すべての UI が抑制されます。 既定のエクスペリエンスでは、インストーラーの進行状況が表示されます。 |  
 | **-o、--log**  |  ログ記録をログ ファイルに送信します。 書き込み権限を持っているファイルへのパスを指定する必要があります。 |
-| **-override** | インストーラーに直接渡される文字列。    |
+| **--override** | インストーラーに直接渡される文字列。    |
 | **-l、--location** |    インストールする場所 (サポートされている場合)。 |
+
+### <a name="example-queries"></a>クエリの例
+
+次の例では、アプリケーションの特定のバージョンをインストールします。
+
+```CMD
+winget install powertoys --version 0.15.2
+```
+
+次の例では、アプリケーションをその ID からインストールします。
+
+```CMD
+winget install --id Microsoft.PowerToys
+```
+
+次の例では、バージョンと ID によってアプリケーションをインストールします。
+
+```CMD
+winget install --id Microsoft.PowerToys --version 0.15.2
+```
 
 ## <a name="multiple-selections"></a>複数選択
 
@@ -72,7 +91,7 @@ ms.locfileid: "83824993"
 
 ### <a name="log-files"></a>ログ ファイル
 
-リダイレクトされない限り、winget のログ ファイルは次のフォルダーに配置されます:  ** \%temp%\\AICLI\\ *.log**
+リダイレクトされない限り、winget のログ ファイルは次のフォルダーに配置されます: **\%temp%\\AICLI\\*.log**
 
 ## <a name="related-topics"></a>関連トピック
 

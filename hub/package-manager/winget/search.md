@@ -6,12 +6,12 @@ ms.author: kevinla
 ms.date: 04/28/2020
 ms.topic: overview
 ms.localizationpriority: medium
-ms.openlocfilehash: edbd11724ed523f7d6efc57af9a8ef3a7e06bf5a
-ms.sourcegitcommit: d0f479f1955881afb62c2af249db5d0b053b63e5
+ms.openlocfilehash: 5a176c1138ebfe3f3a9eb2cbef02dad745cfe170
+ms.sourcegitcommit: 8193aef04deb3514eb2d34bfe5cb9424ba12cd76
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83824963"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83865019"
 ---
 # <a name="search-command-winget"></a>search コマンド (winget)
 
@@ -49,7 +49,7 @@ search コマンドにフィルターやオプションが含まれていない�
 | **--id**        |   検索をアプリケーションの ID に限定します。 ID には、発行元とアプリケーション名が含まれます。 |
 | **--name**      |  検索をアプリケーションの名前に限定します。 |
 | **--moniker**  |    検索を指定されたモニカーに限定します。 |
-|  **--tag**    |  検索をアプリケーション用に一覧表示されているタグに限定します。 |
+| **--tag**    |  検索をアプリケーション用に一覧表示されているタグに限定します。 |
 | **--command**   |   検索をアプリケーションの名前に限定します。 |
 
 文字列は部分文字列として扱われます。 また、既定の検索では大文字と小文字は区別されません。 たとえば、`winget search micro` では以下が返される可能性があります。
@@ -64,7 +64,7 @@ search コマンドにフィルターやオプションが含まれていない�
 
 | オプション  | 説明 |
  --------------|-------------|
-| **e、--exact**  |     大文字小文字の区別の検査を含め、クエリで正確な文字列を使用します。 部分文字列の既定の動作は使用されません。  |  
+| **-e、--exact**  |     大文字小文字の区別の検査を含め、クエリで正確な文字列を使用します。 部分文字列の既定の動作は使用されません。  |  
 | **-n、--count**      |  表示の出力を、指定した数に制限します。 |
 | **-s、--source**     |  検索を、指定した[ソース](source.md)名に制限します。  |
 

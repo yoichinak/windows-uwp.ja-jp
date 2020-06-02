@@ -6,16 +6,19 @@ ms.author: kevinla
 ms.date: 04/28/2020
 ms.topic: overview
 ms.localizationpriority: medium
-ms.openlocfilehash: b44f20021a0fa33da862e2361be60b730b041b49
-ms.sourcegitcommit: d0f479f1955881afb62c2af249db5d0b053b63e5
+ms.openlocfilehash: cb897f25324ab8a516d18f5defe7cffa3e6a0109
+ms.sourcegitcommit: 5a145eda92b5915393e58006867cdd8b98e922f5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83824973"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84166251"
 ---
 # <a name="source-command-winget"></a>source コマンド (winget)
 
 [!INCLUDE [preview-note](../../includes/package-manager-preview.md)]
+
+> [!NOTE]
+> **source** コマンドは、現在内部でのみ使用されています。 追加のソースは、現時点ではサポートされていません。
 
 [winget](index.md) ツールの **source** コマンドは、Windows パッケージ マネージャーによってアクセスされるリポジトリを管理します。 **source** コマンドを使用すると、リポジトリを**追加**、**削除**、**一覧表示**、および**更新**できます。
 
@@ -70,22 +73,24 @@ source では、ソースを操作するための次のサブ コマンドがサ
 
 | 種類  | 説明 |
 |--------------|-------------|
-| **Microsoft.PreIndexed.Package** | ソースの種類 \<既定>。 |
+| **Microsoft.PreIndexed.Package** | ソース \<default> の種類。 |
 
 ## <a name="list"></a>list
 
 **list** サブ コマンドは、現在有効になっているソースを列挙します。 このサブ コマンドは、特定のソースの詳細も提供します。
 
-使用方法: `winget list [-n, --name] \<name>`
+使用方法: `winget source list [-n, --name] \<name>`
 
 ### <a name="list-all"></a>list all
 
 **list** サブコマンドは、単独で、サポートされているソースの完全一覧を表示します。 たとえば、次のように入力します。
 
 ```CMD
-> C:\winget list
-> Current sources:
->     Contoso ->  https://www.contoso.com/cache
+> C:\winget source list
+> Name   Arg
+> -----------------------------------------
+> winget https://winget.azureedge.net/cache
+
 ```
 
 ### <a name="list-source-details"></a>list source details
@@ -111,7 +116,7 @@ source では、ソースを操作するための次のサブ コマンドがサ
 
 **update** サブ コマンドは、個々のソースまたはすべてに対して更新を強制します。
 
-使用方法: `winget update [-n, --name] \<name>`
+使用方法: `winget source update [-n, --name] \<name>`
 
 ### <a name="update-all"></a>update all
 
@@ -119,7 +124,7 @@ source では、ソースを操作するための次のサブ コマンドがサ
 
 ### <a name="update-source"></a>更新ソース
 
-**update** サブ コマンドと **--name** オプションを組み合わせて、個々のソースを指示して更新することができます。 次に例を示します。`C:\winget update --name contoso`
+**update** サブ コマンドと **--name** オプションを組み合わせて、個々のソースを指示して更新することができます。 次に例を示します。`C:\winget source update --name contoso`
 
 ## <a name="remove"></a>削除
 

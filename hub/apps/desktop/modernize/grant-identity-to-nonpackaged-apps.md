@@ -8,12 +8,12 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: d870c82a3e4a8bc6c2ce923026010eff953eead2
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: c90400c577110f326c693a6c06d28582033a86f6
+ms.sourcegitcommit: eae9859ee06c1e5e4afa08d8d3da072ad06d24a8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82107715"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84110381"
 ---
 # <a name="grant-identity-to-non-packaged-desktop-apps"></a>パッケージ化されていないデスクトップ アプリに ID を付与する
 
@@ -157,9 +157,9 @@ SignTool.exe sign /fd SHA256 /a /f <path to certificate>\MyCertificate.pfx /p <c
 
 ## <a name="register-your-sparse-package-at-run-time"></a>実行時にスパース パッケージを登録する
 
-デスクトップ アプリにパッケージ ID を付与するには、[**PackageManager**](https://docs.microsoft.com/uwp/api/windows.management.deployment.packagemanager) クラスの **AddPackageByUriAsync** メソッドを使用して、スパース パッケージを登録する必要があります。 このメソッドは、Windows 10 バージョン 2004 以降で使うことができます。 アプリを初めて実行するときにスパース パッケージを登録するコードをアプリに追加したり、デスクトップ アプリのインストール中にパッケージを登録するコードを実行したりできます (たとえば、MSI を使用してデスクトップ アプリをインストールする場合、カスタム アクションからこのコードを実行できます)。
+デスクトップ アプリにパッケージ ID を付与するには、[**PackageManager**](https://docs.microsoft.com/uwp/api/windows.management.deployment.packagemanager) クラスの [**AddPackageByUriAsync**](https://docs.microsoft.com/uwp/api/windows.management.deployment.packagemanager.addpackagebyuriasync) メソッドを使用して、スパース パッケージを登録する必要があります。 このメソッドは、Windows 10 バージョン 2004 以降で使うことができます。 アプリを初めて実行するときにスパース パッケージを登録するコードをアプリに追加したり、デスクトップ アプリのインストール中にパッケージを登録するコードを実行したりできます (たとえば、MSI を使用してデスクトップ アプリをインストールする場合、カスタム アクションからこのコードを実行できます)。
 
-次の例は、スパース パッケージを登録する方法を示しています。 このコードでは **AddPackageOptions** オブジェクトが作成されます。このオブジェクトには、パッケージ マニフェストがパッケージ外部のコンテンツを参照できる外部の場所へのパスが含まれています。 次に、このオブジェクトが **AddPackageByUriAsync** メソッドに渡されて、スパース パッケージが登録されます。 また、このメソッドは、署名されたスパース パッケージの場所を URI として受け取ります。 詳細な例については、関連する[サンプル](#sample)の `StartUp.cs` コードファイルを参照してください。
+次の例は、スパース パッケージを登録する方法を示しています。 このコードでは [**AddPackageOptions**](https://docs.microsoft.com/uwp/api/windows.management.deployment.addpackageoptions) オブジェクトが作成されます。このオブジェクトには、パッケージ マニフェストがパッケージ外部のコンテンツを参照できる外部の場所へのパスが含まれています。 次に、このオブジェクトが **AddPackageByUriAsync** メソッドに渡されて、スパース パッケージが登録されます。 また、このメソッドは、署名されたスパース パッケージの場所を URI として受け取ります。 詳細な例については、関連する[サンプル](#sample)の `StartUp.cs` コードファイルを参照してください。
 
 ```csharp
 private static bool registerSparsePackage(string externalLocation, string sparsePkgPath)

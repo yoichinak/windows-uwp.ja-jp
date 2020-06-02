@@ -6,12 +6,12 @@ ms.author: denelon
 ms.date: 04/29/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 4c1a8ab3c6a2cc697729fb5551e686a465bf6a0c
-ms.sourcegitcommit: 3a7f9f05f0127bc8e38139b219e30a8df584cad3
+ms.openlocfilehash: c5ebcc564b4db16c1d16385cbeaf7fd6d82c8f18
+ms.sourcegitcommit: 8193aef04deb3514eb2d34bfe5cb9424ba12cd76
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83825123"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83865029"
 ---
 # <a name="submit-your-manifest-to-the-repository"></a>リポジトリにマニフェストを送信する
 
@@ -93,7 +93,7 @@ winget validate \<manifest-file>
 
 3. `push` コマンドを使用して、リモート リポジトリに変更をプッシュします。
     ```CMD
-    `git push`
+    git push
     ```
 
 ### <a name="step-5-create-a-pull-request"></a>手順 5:プル要求の作成
