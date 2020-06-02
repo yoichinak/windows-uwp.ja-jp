@@ -5,12 +5,12 @@ ms.date: 07/15/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 移植, 移行, C#
 ms.localizationpriority: medium
-ms.openlocfilehash: 804c22b782dada9c0bde3c379ebfe5a37f1dcff9
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 38ad2d4f2b0af65424e6d9fa50f2c21b626e1914
+ms.sourcegitcommit: 3125d5e2e32831481790266f44967851585888b3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81759931"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84172833"
 ---
 # <a name="move-to-cwinrt-from-c"></a>C# から C++/WinRT への移行
 
@@ -24,10 +24,10 @@ ms.locfileid: "81759931"
 
 行うべき移植に関する変更の種類については、4 つのカテゴリに分類できます。
 
-- [**言語プロジェクションでの移植**](#port-the-language-projection)。 Windows ランタイム (WinRT) では様々なプログラミング言語への "*プロジェクション*" が行われます。 これらの言語プロジェクションのそれぞれは、対応するプログラミング言語にとって自然なものになるように設計されています。 C# の場合、一部の Windows ランタイムの型は .NET の型としてプロジェクションが行われます。 それで、たとえば [**System.Collections.Generic.IReadOnlyList\<T\>** ](/dotnet/api/system.collections.generic.ireadonlylist-1) は [**Windows.Foundation.Collections.IVectorView\<T\>** ](/uwp/api/windows.foundation.collections.ivectorview-1) に変換することになります。 また C# では、一部の Windows ランタイムの操作は便利な C# の言語機能としてプロジェクションが行われます。 一例として、C# では、`+=` の演算子構文を使用して、イベント処理デリゲートの登録を行います。 それで、そのような言語の機能は、実行されている基本的な操作 (この例ではイベント登録) に変換することになります。
+- [**言語プロジェクションでの移植**](#port-the-language-projection)。 Windows ランタイム (WinRT) では様々なプログラミング言語への "*プロジェクション*" が行われます。 これらの言語プロジェクションのそれぞれは、対応するプログラミング言語にとって自然なものになるように設計されています。 C# の場合、一部の Windows ランタイムの型は .NET の型としてプロジェクションが行われます。 そのため、たとえば [**System.Collections.Generic.IReadOnlyList\<T\>** ](/dotnet/api/system.collections.generic.ireadonlylist-1) は [**Windows.Foundation.Collections.IVectorView\<T\>** ](/uwp/api/windows.foundation.collections.ivectorview-1) に変換することになります。 また C# では、一部の Windows ランタイムの操作は便利な C# の言語機能としてプロジェクションが行われます。 一例として、C# では、`+=` の演算子構文を使用して、イベント処理デリゲートの登録を行います。 それで、そのような言語の機能は、実行されている基本的な操作 (この例ではイベント登録) に変換することになります。
 - [**言語構文の移植**](#port-language-syntax)。 これらの変更の多くは単純な機械的な変換で、あるシンボルを他のシンボルに置き換えます。 たとえば、ドット (`.`) を 2 重コロン (`::`) に変更します。
 - [**言語プロシージャの移植**](#port-language-procedure)。 これらのうちの一部は単純で、変更の繰り返しです (`myObject.MyProperty` から `myObject.MyProperty()` など)。 大きな変更が必要なものもあります (**System.Text.StringBuilder** を使用するプロシージャを、**std::wostringstream** を使用するものに移植する、など)。
-- [**C++/WinRT に特有のタスクの移植**](#porting-tasks-that-are-specific-to-cwinrt)。 Windows ランタイムの特定の詳細は、背後で C# によって暗黙的に処理されます。 これらの詳細は、C++/WinRT で明示的に処理されます。 一例として、`.idl` ファイルを使用してランタイム クラスを定義することがあります。
+- [**C++/WinRT に特有の移植関連のタスク**](#porting-related-tasks-that-are-specific-to-cwinrt) Windows ランタイムの特定の詳細は、背後で C# によって暗黙的に処理されます。 これらの詳細は、C++/WinRT で明示的に処理されます。 一例として、`.idl` ファイルを使用してランタイム クラスを定義することがあります。
 
 このトピックの残りの部分は、この分類に従って構成されています。
 
@@ -88,6 +88,21 @@ namespace winrt::MyProject::implementation
     }
 };
 ```
+
+最後のシナリオでは、移植する C# プロジェクトをマークアップからのイベント ハンドラーに*バインド*します (そのシナリオの背景の詳細については、「[x:Bind の 関数](/windows/uwp/data-binding/function-bindings)」を参照してください)。
+
+```xaml
+<Button x:Name="OpenButton" Click="{x:Bind OpenButton_Click}" />
+```
+
+このマークアップをより単純な `Click="OpenButton_Click"` に変更することもできます。 または、必要であれば、そのマークアップをそのままにしておくこともできます。 これをサポートするために必要なのは、IDL でイベント ハンドラーを宣言することだけです。
+
+```idl
+void OpenButton_Click(Object sender, Windows.UI.Xaml.RoutedEventArgs e);
+```
+
+> [!NOTE]
+> 関数を[ファイア アンド フォーゲット](/windows/uwp/cpp-and-winrt-apis/concurrency-2#fire-and-forget)として "*実装*" する場合でも、これを `void` として宣言します。
 
 ## <a name="port-language-syntax"></a>言語構文の移植
 
@@ -230,7 +245,7 @@ C# には、文字列の作成用に組み込みの [**StringBuilder**](/dotnet/
 
 [**BuildClipboardFormatsOutputString** メソッドの移植](/windows/uwp/cpp-and-winrt-apis/clipboard-to-winrt-from-csharp#buildclipboardformatsoutputstring)および [**DisplayChangedFormats** メソッドの移植](/windows/uwp/cpp-and-winrt-apis/clipboard-to-winrt-from-csharp#displaychangedformats) に関する記事も参照してください。
 
-## <a name="porting-tasks-that-are-specific-to-cwinrt"></a>C++/WinRT に特有のタスクの移植
+## <a name="porting-related-tasks-that-are-specific-to-cwinrt"></a>C++/WinRT に特有の移植関連のタスク
 
 ### <a name="define-your-runtime-classes-in-idl"></a>IDL でランタイム クラスを定義する
 
@@ -365,10 +380,10 @@ XAML データ バインディングでは、項目ソースが **[IIterable](/u
 - **IBindableVector** および **INotifyCollectionChanged**
 - **IBindableVector** および **IBindableObservableVector**
 - **IBindableVector** 単独 (変更には対応しません)
-- **Ivector\<IInspectable\>**
+- **IVector\<IInspectable\>**
 - **IBindableIterable** (要素を反復処理してプライベート コレクションに保存します)
 
-**IVector\<T\>** などのジェネリック インターフェイスは、実行時に検出できません。 各 **IVector\<\>T** には別のインターフェイス識別子 (IID) があり、これが **T** の関数です。すべての開発者は **T** のセットを自由に拡張できるため、XAML バインディングのコードではクエリを実行する完全なセットを明確に理解することができません。 この制約は C# では問題ではありません。**IEnumerable\<T\>** を実装するすべての CLR オブジェクトは **IEnumerable** を自動的に実装するためです。 これは、ABI レベルでは、**IObservableVector\<T\>** を実装するすべてのオブジェクトが **IObservableVector\<IInspectable\>** を自動的に実装することを意味します。
+**IVector\<T\>** などのジェネリック インターフェイスは、実行時に検出できません。 各 **IVector\<T\>** には別のインターフェイス識別子 (IID) があり、これが **T** の関数です。すべての開発者は **T** のセットを自由に拡張できるため、XAML バインディングのコードではクエリを実行する完全なセットを明確に理解することができません。 この制約は C# では問題ではありません。**IEnumerable\<T\>** を実装するすべての CLR オブジェクトは **IEnumerable** を自動的に実装するためです。 これは、ABI レベルでは、**IObservableVector\<T\>** を実装するすべてのオブジェクトが **IObservableVector\<IInspectable\>** を自動的に実装することを意味します。
 
 C++/WinRT ではその保証は提供されていません。 C++/WinRT ランタイム クラスが **IObservableVector\<T\>** を実装する場合は、**IObservableVector\<IInspectable\>** の実装も何らかの形で提供されるとは想定できません。
 
