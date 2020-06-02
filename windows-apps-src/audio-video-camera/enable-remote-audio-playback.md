@@ -1,18 +1,18 @@
 ---
 description: この記事では、AudioPlaybackConnection を使用して、Bluetooth に接続されたリモートデバイスがローカルコンピューターでオーディオを再生できるようにする方法について説明します。
-title: Bluetooth に接続されたリモートデバイスからオーディオ再生を有効にする
+title: Bluetooth 接続のリモート デバイスからオーディオ再生を有効にする
 ms.date: 05/03/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: f03fc963e533ff29d49c326611c45437baa14f6c
-ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
+ms.openlocfilehash: 3d4a4ab7664833308fe059e8bf07f68adea82b3e
+ms.sourcegitcommit: cc645386b996f6e59f1ee27583dcd4310f8fb2a6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83234955"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84262753"
 ---
-# <a name="enable-audio-playback-from-remote-bluetooth-connected-devices"></a>Bluetooth に接続されたリモートデバイスからオーディオ再生を有効にする
+# <a name="enable-audio-playback-from-remote-bluetooth-connected-devices"></a>Bluetooth 接続のリモート デバイスからオーディオ再生を有効にする
 
 この記事では、 [Audioplaybackconnection](/uwp/api/windows.media.audio.audioplaybackconnection)を使用して、Bluetooth に接続されたリモートデバイスがローカルコンピューターでオーディオを再生できるようにする方法について説明します。
 
@@ -24,7 +24,7 @@ Windows 10 以降では、バージョン2004のリモートオーディオソ�
 
 この記事の例では、次の単純な XAML UI を使用します。ここでは、使用可能なリモートデバイスを表示する**ListView**コントロール、接続状態を表示する**TextBlock** 、および接続を有効、無効、および開くための3つのボタンを定義しています。
 
-:::code language="xml" source="~/../snippets-windows/windows-uwp/audio-video-camera/AudioPlaybackConnectionExample/MainPage.xaml" id="snippet_AudioPlaybackConnectionXAML":::
+:::code language="xml" source="~/../snippets-windows/windows-uwp/audio-video-camera/AudioPlaybackConnectionExample/cs/MainPage.xaml" id="snippet_AudioPlaybackConnectionXAML":::
 
 ## <a name="use-devicewatcher-to-monitor-for-remote-devices"></a>DeviceWatcher を使用してリモートデバイスを監視する
 
@@ -34,15 +34,15 @@ Windows 10 以降では、バージョン2004のリモートオーディオソ�
 
 [Devicewatcher を呼び出します。開始](/uwp/api/windows.devices.enumeration.devicewatcher.start)して、オーディオ再生接続をサポートしている接続デバイスの監視を開始します。 この例では、UI のメイン**グリッド**コントロールが読み込まれるときに、デバイスマネージャーを起動します。 **Devicewatcher**の使用方法の詳細については、「[デバイスの列挙](/windows/uwp/devices-sensors/enumerate-devices)」を参照してください。
 
-:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/AudioPlaybackConnectionExample/MainPage.xaml.cs" id="snippet_MainGridLoaded":::
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/AudioPlaybackConnectionExample/cs/MainPage.xaml.cs" id="snippet_MainGridLoaded":::
 
 
 デバイスウォッチャーの**追加**イベントでは、検出された各デバイスは[deviceinformation](/uwp/api/Windows.Devices.Enumeration.DeviceInformation)オブジェクトによって表されます。 検出された各デバイスを、UI の**ListView**コントロールにバインドされている観測可能なコレクションに追加します。
 
-:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/AudioPlaybackConnectionExample/MainPage.xaml.cs" id="snippet_DeclareDevices":::
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/AudioPlaybackConnectionExample/cs/MainPage.xaml.cs" id="snippet_DeclareDevices":::
 
 
-:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/AudioPlaybackConnectionExample/MainPage.xaml.cs" id="snippet_DeviceWatcher_Added":::
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/AudioPlaybackConnectionExample/cs/MainPage.xaml.cs" id="snippet_DeviceWatcher_Added":::
 
 
 ## <a name="enable-and-release-audio-playback-connections"></a>オーディオ再生接続の有効化と解放
@@ -53,9 +53,9 @@ Windows 10 以降では、バージョン2004のリモートオーディオソ�
 
 接続が正常に作成された場合は、新しい**Audioplaybackconnection**オブジェクトをアプリのディクショナリに追加し、オブジェクトの[StateChanged](/uwp/api/windows.media.audio.audioplaybackconnection.statechanged)イベントのハンドラーを登録します。さらに、新しい接続が有効になったことをシステムに通知するには、[startasync](/uwp/api/windows.media.audio.audioplaybackconnection.startasync)呼び出します。 
 
-:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/AudioPlaybackConnectionExample/MainPage.xaml.cs" id="snippet_DeclareConnections":::
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/AudioPlaybackConnectionExample/cs/MainPage.xaml.cs" id="snippet_DeclareConnections":::
 
-:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/AudioPlaybackConnectionExample/MainPage.xaml.cs" id="snippet_EnableAudioPlaybackConnection":::
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/AudioPlaybackConnectionExample/cs/MainPage.xaml.cs" id="snippet_EnableAudioPlaybackConnection":::
 
 
 ## <a name="open-the-audio-playback-connection"></a>オーディオ再生接続を開く
@@ -63,23 +63,23 @@ Windows 10 以降では、バージョン2004のリモートオーディオソ�
 前の手順では、オーディオ再生接続が作成されましたが、 [Open](/uwp/api/windows.media.audio.audioplaybackconnection.open)または[openasync](/uwp/api/windows.media.audio.audioplaybackconnection.openasync)を呼び出すことによって接続が開かれるまで、サウンドの再生は開始されません。 [**オーディオ再生接続を開く**] ボタンをクリックし、[ハンドラー] をクリックして現在選択されているデバイスを取得し、ID を使用してアプリの接続の辞書から**Audioplaybackconnection**を取得します。 **Openasync**への呼び出しを待機し、返された[Audioplaybackconnectionopenresultstatus](/uwp/api/windows.media.audio.audioplaybackconnectionopenresult)オブジェクトの**状態**の値を確認して、接続が正常に開かれたかどうかを確認し、存在する場合は接続状態のテキストボックスを更新します。
 
 
-:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/AudioPlaybackConnectionExample/MainPage.xaml.cs" id="snippet_OpenAudioPlaybackConnectionButton":::
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/AudioPlaybackConnectionExample/cs/MainPage.xaml.cs" id="snippet_OpenAudioPlaybackConnectionButton":::
 
 ## <a name="monitor-audio-playback-connection-state"></a>オーディオ再生の接続状態を監視する
 
 接続の状態が変化するたびに、 [ConnectionStateChanged](/uwp/api/windows.media.audio.audioplaybackconnection.statechanged)イベントが発生します。 この例では、このイベントのハンドラーによって状態テキストボックスが更新されます。 Ui スレッドで更新が行われるようにするには、必ず、 [Dispatcher](/uwp/api/windows.ui.core.coredispatcher.runasync)の呼び出し内の ui を更新してください。
 
-:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/AudioPlaybackConnectionExample/MainPage.xaml.cs" id="snippet_ConnectionStateChanged":::
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/AudioPlaybackConnectionExample/cs/MainPage.xaml.cs" id="snippet_ConnectionStateChanged":::
 
 ## <a name="release-connections-and-handle-removed-devices"></a>接続を解放し、削除されたデバイスを処理する
 
 この例では、[**オーディオ再生接続のリリース**] ボタンを使用して、ユーザーがオーディオ再生接続を解放できるようにします。 このイベントのハンドラーでは、現在選択されているデバイスを取得し、デバイスの ID を使用して、辞書内の**Audioplaybackconnection**を検索します。 **Dispose**を呼び出して参照を解放し、関連付けられているすべてのリソースを解放して、ディクショナリから接続を削除します。
 
-:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/AudioPlaybackConnectionExample/MainPage.xaml.cs" id="snippet_ReleaseAudioPlaybackConnectionButton":::
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/AudioPlaybackConnectionExample/cs/MainPage.xaml.cs" id="snippet_ReleaseAudioPlaybackConnectionButton":::
 
 接続が有効になっているとき、または開いている間にデバイスが削除された場合は、そのケースを処理する必要があります。 これを行うには、デバイスウォッチャーの[devicewatcher](/uwp/api/windows.devices.enumeration.devicewatcher.removed)イベントのハンドラーを実装します。 まず、削除されたデバイスの ID を使用して、アプリの**ListView**コントロールにバインドされている観測可能なコレクションからデバイスを削除します。 次に、このデバイスに関連付けられている接続がアプリのディクショナリ内にある場合は、 **Dispose**が呼び出されて、関連付けられているリソースが解放され、その後、接続がディクショナリから削除されます。 これらはすべて、ui の更新が UI スレッドで実行されるようにするために、Dispatcher の呼び出し内で行われ**ます。**
 
-:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/AudioPlaybackConnectionExample/MainPage.xaml.cs" id="snippet_DeviceWatcher_Removed":::
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/AudioPlaybackConnectionExample/cs/MainPage.xaml.cs" id="snippet_DeviceWatcher_Removed":::
 
 ## <a name="related-topics"></a>関連トピック
 

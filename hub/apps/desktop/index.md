@@ -7,12 +7,12 @@ keywords: windows win32, デスクトップ開発
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: 5a55a1578fba7052396ecec725db2678ea8bd6ff
-ms.sourcegitcommit: d0f479f1955881afb62c2af249db5d0b053b63e5
+ms.openlocfilehash: d052ad0f670bccd9b32d2e3643520dd6129ed22a
+ms.sourcegitcommit: cc645386b996f6e59f1ee27583dcd4310f8fb2a6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83580019"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84262743"
 ---
 # <a name="build-desktop-apps-for-windows-pcs"></a>Windows PC 用のデスクトップ アプリの構築
 
@@ -58,7 +58,7 @@ Windows PC 用のデスクトップ アプリを構築するプラットフォ�
 <tr class="even">
 <td><a href="https://docs.microsoft.com/dotnet/framework/winforms/">Windows フォーム</a></td>
 <td><p>軽量の UI モデルを使用して管理される基幹業務アプリ用に設計された .NET ベースのプラットフォームです。 これらのアプリは、<a href="https://docs.microsoft.com/dotnet/core/whats-new/dotnet-core-3-0">.NET Core 3</a> または完全な .NET Framework を対象にすることができます。</p></td>
-<td><a href="/dotnet/framework/winforms/getting-started-with-windows-forms">作業開始</a><br/><a href="https://docs.microsoft.com/dotnet/api/index">API リファレンス (.NET)</a><br/><a href="https://code.msdn.microsoft.com/windowsdesktop/site/search?f%5B0%5D.Type=Technology&f%5B0%5D.Value=Windows%20Forms">サンプル</a></td>
+<td><a href="/dotnet/framework/winforms/getting-started-with-windows-forms">作業開始</a><br/><a href="https://docs.microsoft.com/dotnet/api/index">API リファレンス (.NET)</a></td>
 </tr>
 </tbody>
 </table>
