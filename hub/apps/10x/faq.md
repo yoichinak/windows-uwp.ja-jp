@@ -2,18 +2,22 @@
 Description: Windows 10 に関する基本的な開発者の質問に対する回答について説明します。
 title: Windows 10 開発者向け FAQ
 ms.topic: article
-ms.date: 04/1/2020
+ms.date: 06/02/2020
 ms.localizationpriority: medium
 ms.author: quradic
 author: QuinnRadich
-ms.openlocfilehash: d168faf16bdd8a88e0cd4c52c680781061bfcf0d
-ms.sourcegitcommit: dadbc20564e4b0c0ecbab5fd5649dbf8ab08095a
+ms.openlocfilehash: 3ba14e33c098d3515522a9a5907065751fafba87
+ms.sourcegitcommit: 13bda6040988461a61b1b5561fde2f7a54835ccd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80581956"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84318238"
 ---
 # <a name="windows-10x-developer-faq"></a>Windows 10 開発者向け FAQ
+
+> [!IMPORTANT]
+> 最近、Windows 10 および Windows 10 10 の優先順位付けに関するいくつかの変更を発表しました。
+> これらの発表には、Windows 10 倍のフォームファクターの優先度の変更が含まれます。 [詳細については、こちらを参照してください。](https://blogs.windows.com/windowsexperience/2020/05/04/accelerating-innovation-in-windows-10-to-meet-customers-where-they-are/)
 
 Windows 10 は、デュアル画面デバイスで使用できるように最適化された Windows ファミリの製品ラインです。 開発者は、アプリを Windows 10 に最適化することで、より広範な対象ユーザーに配信できます。これにより、モバイルおよびデュアルスクリーンの対象ユーザーに固有の新機能を利用できるだけでなく、同じ幅の Windows 10 機能と豊富なデスクトップサポートも利用できます。 [Windows 10 は、2019の遅延について発表](https://blogs.windows.com/windowsexperience/2019/10/02/introducing-windows-10x-enabling-dual-screen-pcs-in-2020/#6qxkItE2XMPu24uw.97)しました。今後、2020のリリースを予定しています。
 
@@ -29,7 +33,7 @@ Windows 10 は、デュアル画面デバイスで使用できるように最適
 
 ### <a name="does-this-replace-desktop-windows-10"></a>これにより、デスクトップの Windows 10 が置換されるのですか。
 
-No: Windows 10 は、Windows 10 のデスクトップリリースと並行してリリースされます。 Windows 10 のデスクトップリリースでは、最新のデスクトップアプリケーションのストーリーに対する拡張機能と機能強化が引き続き提供されます。 Windows 10 は、デュアルスクリーンプラットフォームをサポートするために最適化された別のプラットフォームです。
+いいえ。 Windows 10 は、Windows 10 のデスクトップリリースと並行してリリースされます。 Windows 10 のデスクトップリリースでは、最新のデスクトップアプリケーションのストーリーに対する拡張機能と機能強化が引き続き提供されます。 Windows 10 は、デュアルスクリーンプラットフォームをサポートするために最適化された別のプラットフォームです。
 
 ### <a name="when-will-windows-10x-be-released"></a>Windows 10 がリリースされるのはいつですか。
 
