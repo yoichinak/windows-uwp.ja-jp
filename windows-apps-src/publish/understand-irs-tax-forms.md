@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp, 課税, irs, 米国内国歳入庁, 税, 所得税, 1099
 ms.assetid: 1e475b96-f953-457c-864f-b6f4cb4c309f
 ms.localizationpriority: medium
-ms.openlocfilehash: ab115b5cb2b64c6f5bd05b166e904773948a876c
-ms.sourcegitcommit: e51f9489d8c977c3498afb1a75c91f96ac3a642b
+ms.openlocfilehash: 4a385c9c351dc0bb5db857fe7d1f5f267347f1f1
+ms.sourcegitcommit: 31c925736391ab166c06f34258564b00aeebd83a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83854708"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84428917"
 ---
 # <a name="understand-irs-tax-forms-issued-by-microsoft"></a>マイクロソフトが発行する IRS の税関連の書類について
 
@@ -32,20 +32,21 @@ ms.locfileid: "83854708"
 税金のフォームは、次のアドレスから送信されます。
 
 **米国市民:**
-<table>
-<tr><th>ビジネスグループ</th><th>法人</th><th>Address</th></tr>
-<tr><td>Windows、Office、Azure</td><td>Microsoft Corporation</td><td>One Microsoft Way<br>Redmond WA 98052 USA</td></tr>
-<tr><td>広告</td><td>Microsoft Online Inc.</td><td>6100 Neil の道路<br>Reno、NV 89511 USA</td></tr>
-<table> 
+
+| ビジネスグループ         | 法人          | Address                                          |
+|------------------------|-----------------------|--------------------------------------------------|
+| Windows、Office、Azure | Microsoft Corporation | One Microsoft Way<br>Redmond, WA 98052 USA       |
+| 広告            | Microsoft Online Inc. | 6880シエラレオネセンター Parkway<br>Reno、NV 98511 USA |
 
 **米国以外の市民:**
-<table>
-<tr><th>ビジネスグループ</th><th>法人</th><th>Address</th></tr>
-<tr><td>Windows、Office、Azure</td><td>Microsoft アイルランドの運用に限定されています (マイクロソフトは microsoft corporation によって microsoft corporation の修飾された仲介役として機能します)。</td><td>One Microsoft Place<br>南 &nbsp; 郡の &nbsp; 事業 &nbsp; パーク<br>Leopardstown, ダブリン18アイルランド</td></tr>
-<tr><td>掲載</td><td>Microsoft アイルランドの操作は制限されています (支払いは microsoft online inc. によって行われます)。 microsoft アイルランドは、microsoft Online Inc. の支払いエージェントとして機能します)。</td><td>One Microsoft Place<br>南 &nbsp; 郡の &nbsp; 事業 &nbsp; パーク<br>Leopardstown, ダブリン18アイルランド</td></tr>
-<tr><td>広告</td><td>Microsoft Online Inc.</td><td>6100 Neil の道路<br>Reno、NV 89511 USA</td></tr>
-<tr><td colspan="3">* 次の国の市民による収益の提供は、Microsoft アイルランドの操作に限定されています。オーストリア、ベルギー、ブルガリア、クロアチア、キプロス、Czechia、デンマーク、エストニア、フィンランド、フランス、ドイツ、ギリシャ、ハンガリー、アイルランド、マン島、イタリア、ラトビア、リヒテンシュタイン、リトアニア、ルクセンブルク、マルタ、モナコ、オランダ、ノルウェー、ポーランド、ポルトガル、ルーマニア、スロバキア、スロベニア、南アフリカ、スペイン、スウェーデン、スイス、英国</td></tr>
-</table>
+| ビジネスグループ         | 法人          | Address                                          |
+|------------------------|-----------------------|--------------------------------------------------|
+| Windows、Office、Azure | Microsoft アイルランドの運用に限定されています (マイクロソフトは microsoft corporation によって microsoft corporation の修飾された仲介役として機能します)。 | One Microsoft Place<br>南 &nbsp; 郡の &nbsp; 事業 &nbsp; パーク<br>Leopardstown, ダブリン18アイルランド|
+| 広告\*          | Microsoft アイルランドの操作は制限されています (支払いは microsoft online inc. によって行われます)。 microsoft アイルランドは、microsoft Online Inc. の支払いエージェントとして機能します)。 | One Microsoft Place<br>南 &nbsp; 郡の &nbsp; 事業 &nbsp; パーク<br>Leopardstown, ダブリン18アイルランド |
+| 広告            | Microsoft Online Inc. | 6880シエラレオネセンター Parkway<br>Reno、NV 98511 USA |
+
+>[!NOTE]
+> \*次の国の市民による収益の提供は、Microsoft アイルランドの操作に限定されています。オーストリア、ベルギー、ブルガリア、クロアチア、キプロス、Czechia、デンマーク、エストニア、フィンランド、フランス、ドイツ、ギリシャ、ハンガリー、アイルランド、マン島、イタリア、ラトビア、リヒテンシュタイン、リトアニア、ルクセンブルク、マルタ、モナコ、オランダ、ノルウェー、ポーランド、ポルトガル、ルーマニア、スロバキア、スロベニア、南アフリカ、スペイン、スウェーデン、スイス、英国
 
 ## <a name="for-developers-located-in-the-united-states"></a>米国在住の開発者の場合
 
