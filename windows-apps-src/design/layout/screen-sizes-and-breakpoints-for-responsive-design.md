@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: f79b7247a7e1a1889c530a16c280f490db51042e
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 2e385f6b9977eead6aed52215080588e4f9d8c27
+ms.sourcegitcommit: cc645386b996f6e59f1ee27583dcd4310f8fb2a6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970747"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84262773"
 ---
 #  <a name="screen-sizes-and-breakpoints"></a>画面のサイズとブレークポイント
 
@@ -98,8 +98,3 @@ UWP アプリは、すべての Windows 10 デバイスでアプリが判読可�
 - 最大で 3 つの列/領域を使用します。
 - 検索ボックスを表示します。
 - 常に表示されるように[ナビゲーション ウィンドウ](../controls-and-patterns/navigationview.md)を固定モードにします。
-
->[!TIP] 
-> [**電話用 Continuum**](https://docs.microsoft.com/windows-hardware/design/device-experiences/continuum-phone?redirectedfrom=MSDN) を使用すると、ユーザーは互換性のある Windows 10 Mobile デバイスをモニター、マウス、キーボードに接続して、その電話をノート PC のように動作させることができます。 特定のブレークポイント向けに設計するときは、この新機能に注意してください。携帯電話が常にそのサイズ クラスで維持されるわけではありません。
-
-

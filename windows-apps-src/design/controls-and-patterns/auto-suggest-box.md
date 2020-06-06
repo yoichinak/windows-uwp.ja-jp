@@ -12,18 +12,18 @@ pm-contact: miguelrb
 design-contact: ksulliv
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: a8938d8c405a98275232c0905d04b4cf27cbae0e
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 59fef3ea55d6aa0ddfa2ef809634be7565d54f90
+ms.sourcegitcommit: db48036af630f33f0a2f7a908bfdfec945f3c241
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82969087"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84437182"
 ---
 # <a name="auto-suggest-box"></a>自動提案ボックス
 
 AutoSuggestBox を使って、ユーザーが入力と同時に選べる候補リストを表示します。
 
-![自動提案ボックス](images/controls/auto-suggest-box-open.png)
+![自動提案ボックス](images/controls_autosuggest_expanded01.png)
 
 **Windows UI ライブラリを入手する**
 
