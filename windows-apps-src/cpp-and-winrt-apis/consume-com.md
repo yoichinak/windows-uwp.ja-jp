@@ -5,12 +5,12 @@ ms.date: 04/24/2019
 ms.topic: article
 keywords: windows 10、uwp、標準、c ++、cpp、winrt、COM、コンポーネント、クラス、インターフェイス
 ms.localizationpriority: medium
-ms.openlocfilehash: 1b6ce3ce56b4afbf4c45b406c8af369bee4b55bb
-ms.sourcegitcommit: 2dbf4a3f3473c1d3a0ad988bcbae6e75dfee3640
+ms.openlocfilehash: d5fae09192262b63b11175bf08e7a2c522b31abd
+ms.sourcegitcommit: 82d441e3b9da920cf860fad6b59d6b848466c90f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82619326"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84271881"
 ---
 # <a name="consume-com-components-with-cwinrt"></a>C++/WinRT での COM コンポーネントの使用
 
@@ -168,9 +168,19 @@ void ExampleFunction(winrt::com_ptr<ID3D11Device> const& device)
 
 ## <a name="full-source-code-listing-of-a-minimal-direct2d-application"></a>最小限の Direct2D アプリケーションの完全なソース コード一覧
 
-このソース コード例をビルドして実行する場合は、まず Visual Studio で新しい**コア アプリ (C++/WinRT)** を作成します。 `Direct2D` はプロジェクトに適した名前ですが、任意の名前を付けることができます。
+> [!NOTE]
+> &mdash;C++/WinRT Visual Studio Extension (VSIX) と NuGet パッケージ (両者が連携してプロジェクト テンプレートとビルドをサポート) のインストールと使用など、&mdash;C++/WinRT 開発用に Visual Studio を設定する方法については、[Visual Studio での C++/WinRT のサポート](intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)に関する記事を参照してください。
+
+このソースコードの例をビルドして実行する場合は、まず、最新バージョンの C++/WinRT Visual Studio 拡張機能 (VSIX) をインストール (または更新) します。上記の注を参照してください。 次に、Visual Studio で、新しい**コア アプリ (C++/WinRT)** を作成します。 `Direct2D` はプロジェクトに適した名前ですが、任意の名前を付けることができます。 Windows SDK の最新の一般公開された (プレビュー以外の) バージョンを対象とします。
+
+### <a name="step-1-edit-pchh"></a>手順 1. `pch.h` を編集します
 
 `pch.h` を開き、`windows.h` のインクルードの直後に `#include <unknwn.h>` を追加します。 これは、[**winrt:: get_unknown**](/uwp/cpp-ref-for-winrt/get-unknown) を使用しているためです。 **winrt::get_unknown** を使用するときは常に、そのヘッダーが別のヘッダーにインクルードされている場合でも、明示的に `#include <unknwn.h>` することをお勧めします。
+
+> [!NOTE]
+> この手順を省略すると、ビルドエラー " *'get_unknown': 識別子が見つかりません*" が表示されます。
+
+### <a name="step-2-edit-appcpp"></a>手順 2. `App.cpp` を編集します
 
 `App.cpp` を開き、内容全体を削除し、以下の一覧に貼り付けます。
 

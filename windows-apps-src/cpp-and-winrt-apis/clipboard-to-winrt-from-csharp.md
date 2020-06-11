@@ -5,12 +5,12 @@ ms.date: 04/13/2020
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 移植, 移行, C#, サンプル, クリップボード, ケース, スタディ
 ms.localizationpriority: medium
-ms.openlocfilehash: de19d4624cbcf6f102b2eb2067c9f0ff9c583f0b
-ms.sourcegitcommit: 29daa3959304d748e4dec4e6f8e774fade65aa8d
+ms.openlocfilehash: 660eac0cb2b0679815d628f60b77bc5ac01d042f
+ms.sourcegitcommit: 8eae7aec4c4ffb8a0c30e9d03744942fb23958d9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82851606"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84334237"
 ---
 # <a name="porting-the-clipboard-sample-tocwinrtfromcmdasha-case-study"></a>C# から C++/WinRT への Clipboard サンプルの移植 &mdash; ケース スタディ
 
@@ -32,10 +32,11 @@ C# プロジェクトでは、ソース コード ファイルは主に `.cs` �
 
 ## <a name="download-and-test-the-clipboard-sample"></a>Clipboard サンプルをダウンロードしてテストする
 
-[Clipboard サンプル](https://docs.microsoft.com/samples/microsoft/windows-universal-samples/clipboard/)の Web ページにアクセスし、「**Download ZIP (ZIP のダウンロード)** 」をクリックします。 ダウンロードしたファイルを解凍し、フォルダー構造を確認します。
+[Clipboard サンプル](/samples/microsoft/windows-universal-samples/clipboard/)の Web ページにアクセスし、「**Download ZIP (ZIP のダウンロード)** 」をクリックします。 ダウンロードしたファイルを解凍し、フォルダー構造を確認します。
 
-- C# バージョンのサンプル ソース コードは、`cs` という名前のフォルダーに格納されています。 C# バージョンで使用される他のファイルは、`shared` フォルダーと `SharedContent` フォルダーで見つかります。
-- C++/WinRT バージョンのサンプル ソース コードは、GitHub の[サンプルのリポジトリ](https://github.com/microsoft/Windows-universal-samples/tree/master/Samples/Clipboard)の [cppwinrt フォルダー](https://github.com/microsoft/Windows-universal-samples/tree/master/Samples/Clipboard/cppwinrt)にあります。
+- C# バージョンのサンプル ソース コードは、`cs` という名前のフォルダーに格納されています。
+- C++/WinRT バージョンのサンプル ソース コードは、`cppwinrt` という名前のフォルダーに格納されています。
+- 他のファイル &mdash; C# バージョンと C++/WinRT バージョンの両方で使用される他のファイル &mdash; は、`shared` および `SharedContent` フォルダーにあります。
 
 このトピックのチュートリアルでは、C# のソース コードから移植することにより、Clipboard サンプルの C++/WinRT バージョンを再作成する方法について説明します。 これにより、独自の C# プロジェクトを C++/WinRT に移植する方法を確認できます。
 
@@ -779,7 +780,7 @@ using namespace Windows::UI::Notifications;
 
 コンパイラやリンカーのエラーのよくある原因は、必要な C++/WinRT Windows 名前空間ヘッダー ファイルのインクルードを忘れることです。 可能性のあるエラーについて詳しくは、「[リンカーで "LNK2019: 外部シンボルは未解決です" というエラーが発生するのはなぜですか?](/windows/uwp/cpp-and-winrt-apis/faq#why-is-the-linker-giving-me-a-lnk2019-unresolved-external-symbol-error)」を参照してください。
 
-チュートリアルに従って **DisplayToast** を自分で移植したい場合は、自分の結果と、ダウンロードした Clipboard サンプルの C++/WinRT バージョンのソース コード ([`Windows-universal-samples/Samples/Clipboard/cppwinrt`](https://github.com/microsoft/Windows-universal-samples/tree/master/Samples/Clipboard/cppwinrt)`/Clipboard.sln` にあります) を比較できます。
+チュートリアルに従って **DisplayToast** を自分で移植したい場合は、自分の結果と、ダウンロードした [Clipboard サンプル](/samples/microsoft/windows-universal-samples/clipboard/) ZIP に含まれる C++/WinRT バージョンのソース コードを比較できます。
 
 #### <a name="enableclipboardcontentchangednotifications"></a>**EnableClipboardContentChangedNotifications**
 
@@ -1048,7 +1049,7 @@ void SampleState::DisplayChangedFormats()
 
 上の C++/WinRT バージョンの設計は、若干非効率的です。 最初に、**std::wostringstream** を作成しています。 しかし、**BuildClipboardFormatsOutputString** メソッド (前に移植したもの) も呼び出します。 そのメソッドでは、独自の **std::wostringstream** が作成されます。 そして、そのストリームを **winrt::hstring** に変換して、それを返します。 [**hstring::c_str**](/uwp/cpp-ref-for-winrt/hstring#hstringc_str-function) 関数を呼び出して、返された **hstring** を C スタイルの文字列に戻し、ストリームに挿入します。 **std::wostringstream** を 1 つだけ作成し、それ (への参照) を受け渡して、メソッドが文字列を直接挿入できるようにすると、さらに効率的になります。
 
-Clipboard サンプルの C++/WinRT バージョンの[ソース コード](https://github.com/microsoft/Windows-universal-samples/tree/master/Samples/Clipboard/cppwinrt)では、それが行われています。 そのソース コードに含まれる **SampleState::AddClipboardFormatsOutputString** という名前の新しいプライベート静的メソッドは、出力ストリームへの参照を受け取って操作します。 そして、メソッド **SampleState::DisplayChangedFormats** と **SampleState::BuildClipboardFormatsOutputString** が、その新しいメソッドを呼び出すようにリファクタリングされています。 これは、このトピックのコード リストと機能的には同等ですが、より効率的です。
+(ダウンロードした ZIP に含まれる) [Clipboard サンプル](/samples/microsoft/windows-universal-samples/clipboard/)の C++/WinRT バージョンのソース コードでは、それが行われています。 そのソース コードに含まれる **SampleState::AddClipboardFormatsOutputString** という名前の新しいプライベート静的メソッドは、出力ストリームへの参照を受け取って操作します。 そして、メソッド **SampleState::DisplayChangedFormats** と **SampleState::BuildClipboardFormatsOutputString** が、その新しいメソッドを呼び出すようにリファクタリングされています。 これは、このトピックのコード リストと機能的には同等ですが、より効率的です。
 
 #### <a name="footer_click"></a>**Footer_Click**
 
@@ -1104,7 +1105,7 @@ void MainPage::Footer_Click(Windows::Foundation::IInspectable const& sender, Win
 
 #### <a name="handleclipboardchanged"></a>**HandleClipboardChanged**
 
-このメソッドの移植に関しては、新しいことは何もありません。 サンプルのソース コードで、C# バージョンと C++/WinRT バージョンを比較できます。
+このメソッドの移植に関しては、新しいことは何もありません。 ダウンロードした [Clipboard サンプル](/samples/microsoft/windows-universal-samples/clipboard/) ZIP に含まれる C# および C++/WinRT バージョンのソース コードを比較できます。
 
 #### <a name="onclipboardchanged-and-onwindowactivated"></a>**OnClipboardChanged** と **OnWindowActivated**
 

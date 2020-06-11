@@ -5,12 +5,12 @@ ms.date: 07/12/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, Windows UI ライブラリ, WinUI
 ms.localizationpriority: medium
-ms.openlocfilehash: 0dce8e7ea08b18921f228b3da2e679a9edb02228
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 8242055e3c448e2720226859f2ea10e1ae54794f
+ms.sourcegitcommit: db48036af630f33f0a2f7a908bfdfec945f3c241
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79200980"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84437136"
 ---
 # <a name="a-simple-cwinrt-windows-ui-library-example"></a>単純な C++/WinRT Windows UI ライブラリの例
 
@@ -49,26 +49,28 @@ Visual Studio で **[空のアプリ (C++WinRT)]** プロジェクト テンプ�
 </muxc:NavigationView>
 ```
 
-## <a name="edit-mainpagecpp-and-h-as-necessary"></a>必要に応じて MainPage.cpp および .h を編集する
+## <a name="edit-pchh-as-necessary"></a>必要に応じて pch.h を編集する
+
+NuGet パッケージを C++/WinRT プロジェクト (先ほど追加した **Microsoft.UI.Xaml** パッケージなど) に追加して、プロジェクトをビルドすると、ツールによって、プロジェクトの `\Generated Files\winrt` フォルダーに一連のプロジェクション ヘッダー ファイルが生成されます。 チュートリアルに従うと、`\HelloWinUICppWinRT\HelloWinUICppWinRT\Generated Files\winrt` フォルダーが作成されます。 これらのヘッダー ファイルをプロジェクトに取り込んで、これらの新しい型への参照が解決されるようにするには、プリコンパイル済みヘッダー ファイル (通常は `pch.h`) 内でそれらをインクルードできます。
+
+使用する型に対応するヘッダーのみを含める必要があります。 ただし、次の例は、**Microsoft.UI.Xaml** パッケージ用に生成されたすべてのヘッダー ファイルをインクルードしています。
+
+```cppwinrt
+// pch.h
+...
+#include "winrt/Microsoft.UI.Xaml.Automation.Peers.h"
+#include "winrt/Microsoft.UI.Xaml.Controls.h"
+#include "winrt/Microsoft.UI.Xaml.Controls.Primitives.h"
+#include "winrt/Microsoft.UI.Xaml.Media.h"
+#include "winrt/Microsoft.UI.Xaml.XamlTypeInfo.h"
+...
+```
+
+## <a name="edit-mainpagecpp"></a>MainPage.cpp を編集する
 
 `MainPage.cpp` で、**MainPage::ClickHandler** の実装内のコードを削除します。これは、XAML マークアップに *myButton* がなくなったためです。
 
-`MainPage.h` で、次のようになるようにインクルードを編集します。
-
-```cppwinrt
-#include "MainPage.g.h"
-#include "winrt/Microsoft.UI.Xaml.Controls.h"
-#include "winrt/Microsoft.UI.Xaml.XamlTypeInfo.h"
-```
-
-次にプロジェクトをビルドします。
-
-NuGet パッケージを C++/WinRT プロジェクト (先ほど追加した **Microsoft.UI.Xaml** パッケージなど) に追加して、プロジェクトをビルドすると、ツールによって、プロジェクトの `\Generated Files\winrt` フォルダーに一連のプロジェクション ヘッダー ファイルが生成されます。 チュートリアルに従うと、`\HelloWinUICppWinRT\HelloWinUICppWinRT\Generated Files\winrt` フォルダーが作成されます。 上記の `MainPage.h` に加えた編集により、WinUI のプロジェクション ヘッダー ファイルが **MainPage** に表示されるようになります。 また、**MainPage** 内の **Microsoft::UI::Xaml::Controls::NavigationView** 型への参照が解決されるようにするために必要です。
-
-> [!IMPORTANT]
-> 実際のアプリケーションでは、WinUI プロジェクション ヘッダー ファイルを **MainPage** だけではなく、プロジェクト内の "*すべて*" の XAML ページに表示できるようにします。 その場合は、2 つの WinUI プロジェクション ヘッダー ファイルのインクルードをプリコンパイル済みヘッダー ファイル (通常は `pch.h`) 内に移動します。 プロジェクト内の任意の場所から NuGet パッケージ内の型への参照が解決されます。 このチュートリアルで作成するような 1 ページの最小のアプリケーションの場合、`pch.h` を使用する必要はなく、`MainPage.h` のヘッダーを含めるのが適切です。
-
-これでプロジェクトを実行できるようになりました。
+これでプロジェクトをビルドして実行できるようになりました。
 
 ![単純な C++/WinRT Windows UI ライブラリのスクリーンショット](images/winui.png)
 
