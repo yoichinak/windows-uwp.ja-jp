@@ -10,12 +10,12 @@ pm-contact: chigy
 design-contact: miguelrb
 doc-status: Draft
 ms.localizationpriority: medium
-ms.openlocfilehash: 1e2509743bf9e847fb740816e3552f4172cf644c
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 694ab7a3897bdf13189d61ab70ed05b9169b834c
+ms.sourcegitcommit: 020d0ff0e5abf46b2ed660eac61251b32bf150bc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970707"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84716040"
 ---
 # <a name="keyboard-accelerators"></a>キーボード アクセラレータ
 
@@ -331,7 +331,7 @@ Windows アプリケーション間でキーボードアクセラレータを統
 
 このことは、アプリによる機能の相違のため実現できないこともあります。
 
-| **編集** | **一般的なキーボード アクセラレータ** |
+| **編集中** | **一般的なキーボード アクセラレータ** |
 | ------------- | ----------------------------------- |
 | 編集モードを開始する | Ctrl + E |
 | フォーカスのあるコントロール内またはウィンドウ内のすべての項目を選択する | Ctrl + A |
@@ -349,7 +349,7 @@ Windows アプリケーション間でキーボードアクセラレータを統
 | 選択した項目を削除する (元に戻すオプションなし) | Shift + Del |
 | 太字 | Ctrl + B |
 | Underline | Ctrl + U |
-| [斜体] | Ctrl + I |
+| 斜体 | Ctrl + I |
 
 | **ナビゲーション** | |
 | ------------- | ----------------------------------- |
@@ -359,7 +359,7 @@ Windows アプリケーション間でキーボードアクセラレータを統
 | **その他のアクション** | |
 | ------------- | ----------------------------------- |
 | お気に入りに追加する | Ctrl + D | 
-| 最新の情報に更新 | F5 または Ctrl + R | 
+| 更新 | F5 または Ctrl + R | 
 | 拡大 | Ctrl + + | 
 | 縮小します | Ctrl + - | 
 | 既定の表示倍率に拡大縮小 | Ctrl + 0 | 
@@ -371,7 +371,7 @@ Windows アプリケーション間でキーボードアクセラレータを統
 
 ## <a name="usability-affordances-for-keyboard-accelerators"></a>キーボード アクセラレータのユーザビリティ アフォーダンス
 
-### <a name="tooltips"></a>ツールヒント
+### <a name="tooltips"></a>ツール ヒント
 
 通常、キーボードアクセラレータは、Windows アプリケーションの UI に直接記述されていないので、[ツールヒント](../controls-and-patterns/tooltips.md)を使用すると、ユーザーがフォーカスを移動したり、マウスポインターをコントロールの上に置いたりしたときに自動的に表示されるツールヒントによって発見しやすくなります。 ヒントによって、コントロールにキーボード アクセラレータが関連付けられているかどうかを識別でき、関連付けられている場合は、アクセラレータ キーの組み合わせを識別することができます。
 
@@ -530,8 +530,8 @@ TextBox などのテキスト コントロールに対する [KeyDown](https://d
 プレビュー入力イベントは、他のイベントの前に発生します。 これらのイベントを処理しない場合は、フォーカスのある要素のアクセラレータが呼び出され、これに続いて KeyDown イベントが発生します。 処理されるまで、両方のイベントのバブルが発生します。
 
 
-![キーイベントシーケンス](images/accelerators/accelerators_keyevents.png)
-***キーイベントシーケンス***
+![キーイベントシーケンス ](images/accelerators/accelerators_keyevents.png)
+ ***キーイベントシーケンス***
 
 イベントの順序:
 
@@ -576,8 +576,8 @@ protected override void OnProcessKeyboardAccelerators(
 
 キーボード アクセラレータは、すべてローカライズすることをお勧めします。 これを行うには、標準的な UWP リソース (.resw) ファイルと XAML 宣言の x:Uid 属性を使用します。 この例では、Windows ランタイムによってリソースが自動的に読み込まれます。
 
-![Uwp リソース](images/accelerators/accelerators_localization.png)
-を使用したキーボードアクセスのローカライズ***uwp リソースファイルでのキーボードアクセラレータのローカライズ***
+![UWP リソースを使用したキーボードアクセスのローカライズ ](images/accelerators/accelerators_localization.png)
+ ***uwp リソースファイルでのキーボードアクセラレータのローカライズ***
 
 ``` xaml
 <Button x:Uid="myButton" Click="OnSave">
@@ -602,8 +602,8 @@ void AddAccelerator(
       { 
         Modifiers = keyModifiers, Key = key
       };
-    accelerator.Invoked = handler;
-    this.KeyAccelerators.Add(accelerator);
+    accelerator.Invoked += handler;
+    this.KeyboardAccelerators.Add(accelerator);
   }
 ```
 
