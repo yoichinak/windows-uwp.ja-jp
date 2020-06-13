@@ -6,12 +6,12 @@ ms.date: 05/29/2020
 ms.topic: article
 keywords: windows 10, uwp, 支払い, アプリの販売, アプリの収益, 受け取り, Microsoft Store の手数料, 支払い保留, パーセント
 ms.localizationpriority: medium
-ms.openlocfilehash: 5927e6636f1c5a60b4f3453e0493755176c649ad
-ms.sourcegitcommit: 8eae7aec4c4ffb8a0c30e9d03744942fb23958d9
+ms.openlocfilehash: 0d42677aeda694e2fc8924cee1832b62d98b15e5
+ms.sourcegitcommit: a937963ce63a14c254420926661b9b68be28a8ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84334227"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84746772"
 ---
 # <a name="getting-paid"></a>支払いを受ける
 アプリ、アドオン、広告収益の支払いに関する重要な情報を次に示します。
@@ -20,7 +20,7 @@ ms.locfileid: "84334227"
 > Microsoft Store のアプリの売上から money を受け取るには、[支払いアカウントを設定し、必要な税金のフォームに記入](setting-up-your-payout-account-and-tax-forms.md)する必要があります。
 
 > [!NOTE]
-> 支払いアカウントの構成、不足している支払いの支払い、支払いの使用など、その他の情報に関するサポートをお探しの場合は、[こちら](https://developer.microsoft.com/windows/support)からサポートにお問い合わせください。
+> 支払いに関するサポートが必要な場合 (支払いアカウントの構成、行われていない支払い、支払いの保留など) は、[こちら](https://developer.microsoft.com/windows/support)からサポートにお問い合わせください。
 
 ## <a name="store-fee"></a>Microsoft Store 料金
 
@@ -40,7 +40,7 @@ Microsoft Store の手数料は、アドオンも含めて、Microsoft Store で
 > [!NOTE] 
 > これらの価格帯は、アプリ内で提供するすべてのアドオンにも適用されます。
 
-各価格レベルには、Microsoft Store によって提供される各通貨に対応する値があります。 これらの値は、世界中で同等の小売価格でアプリを販売するために使われます。 ただし、外国為替レートの変動により、正確な販売額は、通貨によって多少異なる場合があります。
+各価格レベルには、Microsoft Store によって提供される各通貨に対応する値があります。 これらの値は、世界中で同等の小売価格でアプリを販売するために使われます。 ただし、外国為替レートの変動により、正確な販売額は、通貨によって多少異なる場合があります。 為替レートは月単位で計算されます。 トランザクションがいつ発生したかに基づいて、適切な換算レートが適用されます。 換算レートと、それが適用された日付範囲は、それぞれ exchangeRate および exchangeRateDate 列の支払いレポートに示されます。
 
 また、特定の市場の現地通貨で選択した自由形式の価格を入力するオプションもあります。 この場合、新しい価格で更新を送信しない限り、(換算レートが変動しても) 価格は調整されません。 
 
