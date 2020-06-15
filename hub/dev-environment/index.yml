@@ -6,32 +6,16 @@ metadata:
   description: Linux 用サブシステムと Python、Node.js などを連携させるために Windows 開発環境をセットアップします。
   manager: jken
   ms.author: mattwoj
-  ms.date: 09/15/2019
+  ms.date: 06/12/2020
   ms.prod: dev-environment
   ms.topic: landing-page
-  ms.openlocfilehash: da9899c3851779853c1f99cb829c98d44f61586f
-  ms.sourcegitcommit: d0f479f1955881afb62c2af249db5d0b053b63e5
+  ms.openlocfilehash: 4d30b505c4ced08a906f443a65d0e7d0a34a5e01
+  ms.sourcegitcommit: a937963ce63a14c254420926661b9b68be28a8ee
   ms.translationtype: HT
   ms.contentlocale: ja-JP
-  ms.lasthandoff: 05/19/2020
-  ms.locfileid: "83579949"
+  ms.lasthandoff: 06/12/2020
+  ms.locfileid: "84746738"
 landingContent:
-- title: Windows パッケージ マネージャー
-  linkLists:
-  - linkListType: overview
-    links:
-    - text: 概要
-      url: ../package-manager/index.md
-  - linkListType: get-started
-    links:
-    - text: winget ツールの使用
-      url: ../package-manager/winget/index.md
-    - text: パッケージの送信
-      url: ../package-manager/package/index.md
-  - linkListType: reference
-    links:
-    - text: winget コマンド
-      url: ../package-manager/winget/index.md#commands
 - title: Python の概要
   linkLists:
   - linkListType: get-started
@@ -116,6 +100,22 @@ landingContent:
       url: ../android/emulator.md
     - text: パフォーマンスを向上させるための Windows Defender 設定の更新
       url: ../android/defender-settings.md
+- title: Windows パッケージ マネージャー
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 概要
+      url: ../package-manager/index.md
+  - linkListType: get-started
+    links:
+    - text: winget ツールの使用
+      url: ../package-manager/winget/index.md
+    - text: パッケージの送信
+      url: ../package-manager/package/index.md
+  - linkListType: reference
+    links:
+    - text: winget コマンド
+      url: ../package-manager/winget/index.md#commands
 - title: Windows Subsystem for Linux (WSL)
   linkLists:
   - linkListType: overview
@@ -123,27 +123,85 @@ landingContent:
     - text: WSL について
       url: https://docs.microsoft.com/windows/wsl/about
     - text: WSL 2 について
-      url: https://docs.microsoft.com/windows/wsl/wsl2-about
-    - text: 1 と 2 の違い
-      url: https://docs.microsoft.com/windows/wsl/wsl2-ux-changes
+      url: https://docs.microsoft.com/windows/wsl/wsl2-index
+    - text: WSL 1 と WSL 2 の比較
+      url: https://docs.microsoft.com/windows/wsl/wsl2-index
   - linkListType: get-started
     links:
-    - text: WSL のインストール
+    - text: WSL をインストールし、WSL 2 に更新する
       url: https://docs.microsoft.com/windows/wsl/install-win10
-    - text: WSL 2 のインストール
-      url: https://docs.microsoft.com/windows/wsl/wsl2-install
-    - text: ユーザー アカウントとアクセス許可
+    - text: Windows Server へのインストール
+      url: https://docs.microsoft.com/windows/wsl/install-on-server
+    - text: ユーザー アカウントとパスワードを作成する
       url: https://docs.microsoft.com/windows/wsl/user-support
+  - linkListType: tutorial
+    links:
+    - text: VS Code で作業を始める
+      url: https://docs.microsoft.com/windows/wsl/tutorials/wsl-vscode
+    - text: Git で作業を始める
+      url: https://docs.microsoft.com/windows/wsl/tutorials/wsl-git
+  - linkListType: concept
+    links:
+    - text: 相互運用性コマンド
+      url: https://docs.microsoft.com/windows/wsl/interop
+    - text: 起動コマンドと構成
+      url: https://docs.microsoft.com/windows/wsl/wsl-config
+    - text: ファイルのアクセス許可
+      url: https://docs.microsoft.com/windows/wsl/file-permissions
+    - text: エンタープライズ向けの WSL を設定する
+      url: https://docs.microsoft.com/windows/wsl/enterprise
+    - text: カスタム ディストリビューションを作成する
+      url: https://docs.microsoft.com/windows/wsl/build-custom-distro
   - linkListType: reference
     links:
-    - text: 複数の配布を管理する
-      url: https://docs.microsoft.com/windows/wsl/wsl-config#managing-multiple-linux-distributions
-    - text: WSL 1 に関する FAQ
-      url: https://docs.microsoft.com/windows/wsl/faq
+    - text: よく寄せられる質問
+      url: https://docs.microsoft.com/windows/wsl/faqaq
     - text: WSL 2 に関する FAQ
       url: https://docs.microsoft.com/windows/wsl/wsl2-faq
     - text: トラブルシューティング
       url: https://docs.microsoft.com/windows/wsl/troubleshooting
+    - text: リリース ノート
+      url: https://docs.microsoft.com/windows/wsl/release-notes
+- title: Windows ターミナル
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Windows ターミナルの概要
+      url: https://docs.microsoft.com/windows/terminal/
+  - linkListType: get-started
+    links:
+    - text: インストールと設定
+      url: https://docs.microsoft.com/windows/terminal/get-started
+    - text: ターミナルのカスタマイズ (グローバル設定)
+      url: https://docs.microsoft.com/windows/terminal/customize-settings/global-settings
+    - text: ターミナルのカスタマイズ (プロファイル設定)
+      url: https://docs.microsoft.com/windows/terminal/customize-settings/profile-settings
+    - text: ターミナルのカスタマイズ (配色)
+      url: https://docs.microsoft.com/windows/terminal/customize-settings/color-schemes
+    - text: ターミナルのカスタマイズ (キー バインド)
+      url: https://docs.microsoft.com/windows/terminal/customize-settings/key-bindings
+  - linkListType: tutorial
+    links:
+    - text: コマンド ライン引数を使用する
+      url: https://docs.microsoft.com/windows/terminal/command-line-arguments?tabs=powershell
+    - text: ターミナルで検索する方法
+      url: https://docs.microsoft.com/windows/terminal/search
+    - text: ターミナルでペインを使用する方法
+      url: https://docs.microsoft.com/windows/terminal/panes
+    - text: 送電線の設定
+      url: https://docs.microsoft.com/windows/terminal/tutorials/powerline-setup
+    - text: SSH の設定
+      url: https://docs.microsoft.com/windows/terminal/tutorials/ssh
+    - text: タブ タイトルの設定
+      url: https://docs.microsoft.com/windows/terminal/tutorials/tab-title
+  - linkListType: reference
+    links:
+    - text: トラブルシューティング
+      url: https://docs.microsoft.com/windows/terminal/troubleshooting
+    - text: Cascadia Code のフォントについて
+      url: https://docs.microsoft.com/windows/terminal/cascadia-code
+    - text: カスタム ターミナル ギャラリー
+      url: https://docs.microsoft.com/windows/terminal/custom-terminal-gallery/retro-command-prompt
 - title: Mac-to-Windows ガイド
   linkLists:
   - linkListType: reference
@@ -158,19 +216,3 @@ landingContent:
       url: mac-to-windows.md#terminal-and-shell
     - text: アプリとユーティリティ
       url: mac-to-windows.md#apps-and-utilities
-- title: Windows ターミナル
-  linkLists:
-  - linkListType: overview
-    links:
-    - text: ターミナルとコンソールの概要
-      url: https://github.com/microsoft/terminal#terminal--console-overview
-  - linkListType: get-started
-    links:
-    - text: Windows ターミナルのインストール
-      url: https://github.com/microsoft/terminal#installing--running-windows-terminal
-    - text: Windows ターミナルを使用する
-      url: https://github.com/microsoft/terminal/blob/master/doc/user-docs/index.md#starting-windows-terminal
-  - linkListType: reference
-    links:
-    - text: Windows ターミナルをカスタマイズする
-      url: https://github.com/microsoft/terminal/blob/master/doc/user-docs/UsingJsonSettings.md
