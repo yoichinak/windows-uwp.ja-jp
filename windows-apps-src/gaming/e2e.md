@@ -6,22 +6,20 @@ ms.date: 04/16/2018
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム、ゲーム開発
 ms.localizationpriority: medium
-ms.openlocfilehash: 5f7c124c1d77cbce140cb42cdc07682dad8f78f2
-ms.sourcegitcommit: 0f2ae8f97daac440c8e86dc07d11d356de29515c
+ms.openlocfilehash: 24414ba36e2ee1af8f391eec38b04d9e17bb7237
+ms.sourcegitcommit: 2e597438dafedde3bde24424ef005bb4c24ba3bf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83280252"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84800328"
 ---
 # <a name="windows-10-game-development-guide"></a>Windows 10 ゲーム開発ガイド
-
 
 Windows 10 ゲーム開発ガイドへようこそ。
 
 このガイドでは、ユニバーサル Windows プラットフォーム (UWP) ゲームの開発に必要なリソースと情報を網羅したコレクションを提供します。 このガイドの英語 (米国) 版は [PDF](https://download.microsoft.com/download/9/C/9/9C9D344F-611F-412E-BB01-259E5C76B17F/Windev_Game_Dev_Guide_Oct_2017.pdf) 形式で利用できます。
 
 ## <a name="introduction-to-game-development-for-the-universal-windows-platform-uwp"></a>ユニバーサル Windows プラットフォーム (UWP) 用ゲーム開発の概要
-
 
 Windows 10 ゲームを作成すると、何百万人もの世界中のプレーヤーとスマートフォン、PC、および Xbox One を通じてアクセスする機会があります。 Windows 版 Xbox、Xbox Live、クロスデバイス マルチプレーヤー、驚異的なゲーム コミュニティ、およびユニバーサル Windows プラットフォーム (UWP) や DirectX 12 などの強力な新機能を使用した Windows 10 ゲームで、あらゆる年代やジャンルのプレーヤーを楽しませることができます。 新しいユニバーサル Windows プラットフォーム (UWP) では、スマートフォン、PC、Xbox One 用の共通 API により、Windows 10 デバイスに関係なくゲームに互換性が与えられます。また、ゲームを各デバイス エクスペリエンス向けに調整するツールやオプションも提供されます。
 
@@ -37,7 +35,6 @@ Windows または Xbox で初めてゲームを開発する場合は、最初に
 
 > [!Note]
 > 一部の機能は、さまざまなプログラムで管理されています。 このガイドでは幅広いリソースを取り上げているため、参加しているプログラムや特定の開発の役割によっては、一部のリソースにアクセスできない場合があります。 developer.xboxlive.com、forums.xboxlive.com、xdi.xboxlive.com、Game Developer Network (GDN) に解決されるリンクなどです。 Microsoft とのパートナーシップの詳細については、「[開発者プログラム](#developer-programs)」を参照してください。
-
 
 ### <a name="game-development-documentation"></a>ゲーム開発に関するドキュメント
 
@@ -108,12 +105,11 @@ Windows または Xbox で初めてゲームを開発する場合は、最初に
 
 さらにマイクロソフトでは、Windows ゲームの開発と公開に役立ついくつかの開発者向けプログラムを提供しています。 パートナーセンターアカウントに登録する前に、適切な権限があるかどうかを確認することをお勧めします。 詳しくは、「[開発者プログラム](#developer-programs)」をご覧ください。
 
-
 ### <a name="developer-programs"></a>開発者プログラム
 
 Microsoft では、Windows ゲームの開発と公開に役立ついくつかの開発者向けプログラムを提供しています。 Xbox One のゲームを開発し、Xbox Live の機能をゲームに統合する場合には、開発者プログラムへの参加を検討してください。 Microsoft Store でゲームを発行するには、[パートナーセンター](https://partner.microsoft.com/dashboard)で開発者アカウントを作成する必要もあります。
 
-#### <a name="xbox-live-creators-program"></a>Xbox Live クリエーターズ プログラム
+#### <a name="xbox-live-creators-program"></a>Xbox Live 作成者のプログラム
 
 Xbox Live クリエーターズ プログラムでは、だれでも Xbox Live を自分のタイトルに統合して、Xbox One や Windows 10 に公開することができます。 認定プロセスが簡素化され、標準的な [Microsoft Store ポリシー](https://docs.microsoft.com/legal/windows/agreements/store-policies)以外に概念の承認はありません。
 
@@ -165,7 +161,6 @@ Xbox のツールおよびミドルウェア プログラムは、ゲームの�
         <td><xboxtlsm@microsoft.com></td>
     </tr>
 </table>
-
 
 ### <a name="game-samples"></a>ゲームのサンプル
 
@@ -234,10 +229,9 @@ Windows 10 ゲームとアプリのサンプルが数多く用意されており
     </tr>      
 </table>
 
-
 ### <a name="developer-forums"></a>開発者フォーラム
 
-開発者フォーラムは、ゲームの開発に関する質疑応答を行ったり、ゲーム開発コミュニティで交流を深めたりするのに適した場所です。 フォーラムは、他の開発者が過去に直面し、解決した困難な問題に対する既存の回答を見つけることができる、優れたリソースでもあります。
+開発者フォーラムは、ゲーム開発の質問に回答し、ゲーム開発コミュニティに接続するための優れた場所です。 フォーラムは、他の開発者が過去に直面し、解決した困難な問題に対する既存の回答を見つけることができる、優れたリソースでもあります。
 
 <table>
     <colgroup>
@@ -246,42 +240,33 @@ Windows 10 ゲームとアプリのサンプルが数多く用意されており
     </colgroup>
     <tr>
         <td>アプリとゲーム開発者フォーラムの公開</td>
-        <td><a href="https://social.msdn.microsoft.com/Forums/home?category=windowsapps">アプリ内での発行と広告</a></td>
+        <td><a href="https://social.msdn.microsoft.com/Forums/en/home?forum=windowsstore%2Cwpsubmit%2Caiaads%2Caiasdk%2Caiamgr">アプリ内での発行と広告</a></td>
     </tr>
     <tr>
         <td>UWP アプリ開発者フォーラム</td>
-        <td><a href="https://social.msdn.microsoft.com/Forums/home?forum=wpdevelop">ユニバーサル Windows プラットフォーム アプリの開発</a></td>
+        <td><a href="https://docs.microsoft.com/answers/topics/uwp.html">ユニバーサル Windows プラットフォーム アプリの開発</a></td>
     </tr>
     <tr>
         <td>デスクトップ アプリケーション開発者フォーラム</td>
-        <td><a href="https://social.msdn.microsoft.com/Forums/home?category=windowsdesktopdev">Windows デスクトップ アプリケーション フォーラム</a></td>
+        <td><a href="https://social.msdn.microsoft.com/Forums/en/home?forum=windowsgeneraldevelopmentissues">Windows デスクトップ アプリケーション フォーラム</a></td>
     </tr>
     <tr>
         <td>DirectX Microsoft Store ゲーム (アーカイブ済みのフォーラムの投稿)</td>
-        <td><a href="https://social.msdn.microsoft.com/Forums/vstudio/home?forum=wingameswithdirectx">DirectX を使った Microsoft Store ゲームの構築 (アーカイブ済み)</a></td>
+        <td><a href="https://social.msdn.microsoft.com/Forums/en/home?forum=wingameswithdirectx">DirectX を使った Microsoft Store ゲームの構築 (アーカイブ済み)</a></td>
     </tr>
     <tr>
         <td>Windows 10 対象パートナー開発者フォーラム</td>
         <td><a href="https://forums.xboxlive.com/users/login.html">XBOX 開発者フォーラム: Windows 10</a></td>
     </tr>
     <tr>
-        <td>DirectX フォーラム</td>
-        <td><a href="https://forums.directxtech.com/index.php">DirectX 12 フォーラム</a></td>
-    </tr>
-    <tr>
-        <td>Azure プラットフォーム フォーラム</td>
-        <td><a href="https://social.msdn.microsoft.com/Forums/home?category=windowsazureplatform">Azure フォーラム</a></td>
-    </tr>
-    <tr>
         <td>Xbox Live フォーラム</td>
-        <td><a href="https://social.msdn.microsoft.com/Forums/en-US/home?forum=xboxlivedev">Xbox Live 開発フォーラム</a></td>
+        <td><a href="https://social.msdn.microsoft.com/Forums/en/home?forum=xboxlivedev">Xbox Live 開発フォーラム</a></td>
     </tr>
     <tr>
         <td>PlayFab フォーラム</td>
         <td><a href="https://community.playfab.com/index.html">PlayFab フォーラム</a></td>
     </tr>
 </table>
-
 
 ### <a name="developer-blogs"></a>開発者ブログ
 
@@ -333,10 +318,8 @@ Windows 10 ゲームとアプリのサンプルが数多く用意されており
         <td><a href="https://blogs.msdn.microsoft.com/appinstaller/">UWP アプリのビルドと展開のチームのブログ</a></td>
     </tr>
 </table>
- 
 
 ## <a name="concept-and-planning"></a>概念と計画
-
 
 概念と計画の段階では、ゲームの全体像とそれを実現するために使用するテクノロジやツールを決定します。
 
@@ -356,7 +339,6 @@ UWP のゲームの開発を開始するとき、グラフィックス、入力�
         <td><a href="game-development-platform-guide.md">UWP アプリのゲーム テクノロジ</a></td>
     </tr>
 </table>
- 
 
 次の 3 つの GDC 2015 のビデオは、Windows 10 のゲーム開発と Windows 10 のゲーム エクスペリエンスの概要を示しています。
 
@@ -402,8 +384,6 @@ UWP のゲームの開発を開始するとき、グラフィックス、入力�
     </tr>
 </table>
 
-
-
 ### <a name="choosing-your-graphics-technology-and-programming-language"></a>グラフィックス テクノロジとプログラミング言語の選択
 
 Windows 10 ゲームでは、複数のプログラミング言語やグラフィックス テクノロジを使うことができます。 どれを選ぶかは、開発しているゲームの種類、開発スタジオの経験や好み、ゲームの具体的な機能要件によって決まります。 C#、C++、JavaScript のどれを使うか、 DirectX、XAML、HTML5 のどれを使うか、
@@ -444,7 +424,6 @@ DirectX のさまざまな機能と緊密なプラットフォーム統合によ
         <td><a href="https://www.youtube.com/channel/UCiaX2B8XiXR70jaN7NK-FpA">Microsoft DirectX 12 とグラフィックスに関する教育</a></td>
     </tr>
 </table>
- 
 
 #### <a name="xaml"></a>XAML
 
@@ -464,7 +443,6 @@ XAML は、アニメーション、ストーリーボード、データ バイ�
         <td><a href="https://docs.microsoft.com/windows/uwp/design/basics/">コントロール、レイアウト、テキスト</a></td>
     </tr>
 </table>
- 
 
 #### <a name="html-5"></a>HTML 5
 
@@ -477,7 +455,7 @@ XAML は、アニメーション、ストーリーボード、データ バイ�
     </colgroup>
     <tr>
         <td>HTML5 とドキュメント オブジェクト モデルに関する情報</td>
-        <td><a href="https://developer.mozilla.org/en-US/docs/Web">HTML と DOM のリファレンス</a></td>
+        <td><a href="https://developer.mozilla.org/docs/Web">HTML と DOM のリファレンス</a></td>
     </tr>
     <tr>
         <td>HTML5 W3C 勧告</td>
@@ -485,8 +463,7 @@ XAML は、アニメーション、ストーリーボード、データ バイ�
     </tr>
 </table>
  
-
-#### <a name="combining-presentation-technologies"></a>プレゼンテーション テクノロジの組み合わせ
+####プレゼンテーションテクノロジの組み合わせ
 
 Microsoft DirectX Graphic Infrastructure (DXGI) には、複数のグラフィックス テクノロジにおける相互運用性と互換性が備わっています。 高パフォーマンスのグラフィックスを実現するため、メニューや他のシンプルな UI には XAML を使い、複雑な 2D および 3D シーンのレンダリングには DirectX を使うことで、XAML と DirectX を組み合わせることができます。 DXGI には、Direct2D、Direct3D、DirectWrite、DirectCompute、Microsoft メディア ファンデーション間の互換性も備わっています。
 
@@ -505,8 +482,7 @@ Microsoft DirectX Graphic Infrastructure (DXGI) には、複数のグラフィ�
     </tr>
 </table>
  
-
-#### <a name="c"></a>C++
+#### C++
 
 C++/CX はオーバーヘッドの低い高パフォーマンスな言語であり、速度、互換性、プラットフォーム アクセスがうまく組み合わせられています。 C++/CX により、DirectX や Xbox Live など、Windows 10 のすばらしいゲーム機能すべてが使いやすくなります。 既にある C++ コードとライブラリを再利用することもできます。 C++/CX を使うと、ガベージ コレクションのオーバーヘッドを生じさせない高速なネイティブ コードが作成されるため、ゲームのパフォーマンスが向上し、電力消費が低くなり、結果としてバッテリ寿命が延びます。 C++/CX を DirectX または XAML と同時に使うか、両方の組み合わせを使って、ゲームを作成することができます。
 
@@ -525,8 +501,7 @@ C++/CX はオーバーヘッドの低い高パフォーマンスな言語であ�
     </tr>
 </table>
  
-
-#### <a name="c"></a>C#
+#### C#
 
 C# ("シー シャープ" と発音) は、タイプ セーフかつオブジェクト指向のシンプルで強力な最新の革新的言語です。 C# を使うと、C スタイル言語の親しみやすさと表現力を維持しながら短期間で開発できます。 C# は使いやすい言語ですが、ポリモーフィズム、デリゲート、ラムダ、クロージャ、反復子メソッド、共変性、統合言語クエリ (LINQ) 式など、多くの高度な言語機能が備わっています。 XAML をターゲットとする場合、ゲームの開発をすぐに始めたい場合、C# を既に使ったことがある場合、C# が最適です。 C# は主に XAML と同時に使われるめ、DirectX を使う場合は、代わりに C++ を選ぶか、ゲームの一部を DirectX とやり取りする C++ コンポーネントとして記述します。 または、C# と C++ 用の即時モード Direct2D グラフィックス ライブラリである [Win2D](https://github.com/Microsoft/Win2D) を使うことを検討します。
 
@@ -541,8 +516,7 @@ C# ("シー シャープ" と発音) は、タイプ セーフかつオブジェ
     </tr>
 </table>
  
-
-#### <a name="javascript"></a>JavaScript
+####Java
 
 JavaScript は、最新の Web アプリケーションやリッチ クライアント アプリケーションに広く使用されている動的なスクリプト言語です。
 
@@ -559,7 +533,6 @@ Windows JavaScript アプリは、ユニバーサル Windows プラットフォ�
     </tr>
 </table>
 
-
 #### <a name="use-windows-runtime-components-to-combine-languages"></a>Windows ランタイムコンポーネントを使用した言語の結合
 
 ユニバーサル Windows プラットフォームでは、異なる言語で記述されたコンポーネントを簡単に組み合わせることができます。 C++、C#、または Visual Basic で Windows ランタイムコンポーネントを作成し、JavaScript、C#、C++、または Visual Basic から呼び出します。 これは、好みの言語でゲームの一部をプログラミングする場合に最適な方法です。 コンポーネントにより、特定の言語でのみ使用可能な外部ライブラリや、既に記述しているレガシ コードを使うこともできるようになります。
@@ -574,7 +547,6 @@ Windows JavaScript アプリは、ユニバーサル Windows プラットフォ�
         <td><a href="https://docs.microsoft.com/windows/uwp/winrt-components/creating-windows-runtime-components-in-cpp">C++/CX を使用した Windows ランタイム コンポーネント</a></td>
     </tr>
 </table>
-
 
 ### <a name="which-version-of-directx-should-your-game-use"></a>ゲームで使う Microsoft DirectX のバージョン
 
@@ -602,7 +574,6 @@ Direct3D 11.3 は低レベル グラフィック API です。よく利用され
         <td><a href="https://docs.microsoft.com/windows/desktop/direct3d12/direct3d-11-on-12">Direct3D 11 on 12</a></td>
     </tr>
 </table>
-
 
 ### <a name="bridges-game-engines-and-middleware"></a>ブリッジ、ゲーム エンジン、ミドルウェア
 
@@ -674,8 +645,7 @@ Microsoft ファミリの一部となった PlayFab は、ライブ ゲームの
     </tr>
 </table>
  
-
-#### <a name="unity"></a>Unity
+#### Unity
 
 Unity は、美しく魅力的な 2D、3D、VR、AR ゲームやアプリを作成するためのプラットフォームを提供します。 クリエイティブな構想をすばやく実現することができ、事実上、あらゆるメディアやデバイスにコンテンツを提供できます。
 
@@ -716,7 +686,7 @@ Unity 5.4 以降では、Unity は Direct3D 12 の開発をサポートします
     </tr>
     <tr>
         <td>Unity ゲームを Microsoft Store に公開する</td>
-        <td><a href="https://unity3d.com/partners/microsoft/porting-guides">移植のガイド</a></td>
+        <td><a href="https://unity3d.com/partners/microsoft/porting-guides">移植ガイド</a></td>
     </tr>
     <tr>
         <td>.NET API に関連するアセンブリ参照が見つからない場合のトラブルシューティング</td>
@@ -736,8 +706,7 @@ Unity 5.4 以降では、Unity は Direct3D 12 の開発をサポートします
     </tr>
 </table>
  
-
-#### <a name="havok"></a>Havok
+####[べきです]
 
 Havok のモジュール化された一連のツールとテクノロジによって、ゲーム クリエーターは新しいレベルの対話式操作と没入感を提供できます。 Havok により、非常にリアルな物理的効果、対話型のシミュレーション、魅力的な映像を実現できます。 Version 2015.1 以上では、x86、64 ビット、ARM 上の Visual Studio 2015 で UWP を正式にサポートします。
 
@@ -760,8 +729,7 @@ Havok のモジュール化された一連のツールとテクノロジによ�
     </tr>
 </table>
  
-
-#### <a name="monogame"></a>MonoGame
+####MonoGame
 
 MonoGame は、オープン ソース、クロスプラット フォームのゲーム開発フレームワークで、当初は Microsoft の XNA Framework 4.0 に基づいていました。 現在、Monogame は、Windows、Windows Phone、Xbox と共に、Linux、macOS、iOS、Android、その他のいくつかのプラットフォームをサポートしています。
 
@@ -787,7 +755,6 @@ MonoGame は、オープン ソース、クロスプラット フォームのゲ
         <td><a href="../get-started/get-started-tutorial-game-mg2d.md">MonoGame 2D で UWP ゲームを作成する</a></td>
     </tr>    
 </table>
-
 
 #### <a name="cocos2d"></a>Cocos2d
 
@@ -815,7 +782,6 @@ Cocos2d-x は、オープン ソース、クロス プラットフォームの�
         <td><a href="https://api.playfab.com/docs/getting-started/cocos2d-x-getting-started-guide">概要 - Cocos2d ゲームからの最初の PlayFab API の呼び出し</a></td>
     </tr>
 </table>
-
 
 #### <a name="unreal-engine"></a>Unreal Engine
 
@@ -902,7 +868,7 @@ BabylonJS は、HTML5、WebGL、WebVR、Web オーディオで 3D ゲームを�
     </tr>
     <tr>
         <td>Direct3D 11 から Direct3D 12 に移植する</td>
-        <td><a href="https://docs.microsoft.com/windows/desktop/direct3d12/porting-from-direct3d-11-to-direct3d-12">Direct3D 11 から Direct3D 12 に移植する</a></td>
+        <td><a href="https://docs.microsoft.com/windows/desktop/direct3d12/porting-from-direct3d-11-to-direct3d-12">Direct3D 11 から Direct3D 12 への移植</a></td>
     </tr>
     <tr>
         <td>OpenGL ES から Direct3D 11 に移植する</td>
@@ -918,9 +884,7 @@ BabylonJS は、HTML5、WebGL、WebVR、Web オーディオで 3D ゲームを�
     </tr>
 </table>
 
-
 ## <a name="prototype-and-design"></a>プロトタイプとデザイン
-
 
 作成するゲームの種類と、ゲームの構築に使うツールとグラフィックス テクノロジが決まったら、すぐにデザインとプロトタイプを開始できます。 ゲームのコアはユニバーサル Windows プラットフォーム アプリであるため、そこから作業を開始します。
 
@@ -945,8 +909,7 @@ Windows 10 ではユニバーサル Windows プラットフォーム (UWP) が�
     </tr>
 </table>
  
-
-### <a name="getting-started-with-uwp-development"></a>UWP 開発の概要
+###UWP 開発の概要
 
 ユニバーサル Windows プラットフォーム アプリを開発するための準備は非常に簡単です。 以下のガイドでは、プロセスの詳しい手順を説明しています。
 
@@ -1034,8 +997,7 @@ Windows デスクトップ ゲームを UWP に移行する際に役立つリン
     </tr>
 </table>
  
-
-### <a name="process-lifetime-management"></a>プロセス ライフタイム管理
+###プロセスの有効期間の管理
 
 プロセス ライフタイム管理、つまりアプリのライフ サイクルは、ユニバーサル Windows プラットフォーム アプリが取り得るさまざまなアクティブ化状態を表します。 ゲームは、アクティブ化、中断、再開、または終了することができ、さまざまな方法でこれらの状態を移行できます。
 
@@ -1054,8 +1016,7 @@ Windows デスクトップ ゲームを UWP に移行する際に役立つリン
     </tr>
 </table>
  
-
-### <a name="designing-game-ux"></a>ゲーム UX の設計
+###Game UX の設計
 
 優れたゲームはすばらしいデザインから始まります。
 
@@ -1086,8 +1047,7 @@ UX デザインとは別に、レベルのデザイン、ペース配分、世�
     </tr>   
 </table>
  
-
-#### <a name="color-guideline-and-palette"></a>色のガイドラインとパレット
+####色のガイドラインとパレット
 
 ゲームで一貫した色のガイドラインに従うと、美しさやナビゲーションの操作性が向上し、メニューや HUD の機能がプレーヤーに伝わりやすくなります。 警告、ダメージ、XP、成績などのゲーム要素の色が一貫していると、UI がわかりやすくなるため、ラベルによって説明する必要性が減ります。
 
@@ -1101,7 +1061,6 @@ UX デザインとは別に、レベルのデザイン、ペース配分、世�
         <td><a href="https://assets.windowsphone.com/499cd2be-64ed-4b05-a4f5-cd0c9ad3f6a3/101_BestPractices_Color_InvariantCulture_Default.zip">ベストプラクティス: 色</a></td>
     </tr>
 </table>
- 
 
 #### <a name="typography"></a>文字体裁
 
@@ -1117,7 +1076,6 @@ UX デザインとは別に、レベルのデザイン、ペース配分、世�
         <td><a href="https://cmsresources.windowsphone.com/devcenter/common/resources/content/101_BestPractices_Typography.pdf">ベスト プラクティス: 文字体裁</a></td>
     </tr>
 </table>
- 
 
 #### <a name="ui-map"></a>UI マップ
 
@@ -1231,7 +1189,7 @@ Direct3D 12 での変更点、および Direct3D 12 を使ってプログラミ�
     </tr>
     <tr>
         <td>Direct3D 11 から Direct3D 12 に移植する方法</td>
-        <td><a href="https://docs.microsoft.com/windows/desktop/direct3d12/porting-from-direct3d-11-to-direct3d-12">Direct3D 11 から Direct3D 12 に移植する</a></td>
+        <td><a href="https://docs.microsoft.com/windows/desktop/direct3d12/porting-from-direct3d-11-to-direct3d-12">Direct3D 11 から Direct3D 12 への移植</a></td>
     </tr>
     <tr>
         <td>リソース バインディングの概念 (対象となる記述子、記述子テーブル、記述子ヒープ、およびルート署名) </td>
@@ -1243,8 +1201,7 @@ Direct3D 12 での変更点、および Direct3D 12 を使ってプログラミ�
     </tr>
 </table>
  
-
-#### <a name="directx-tool-kit-and-libraries"></a>DirectX ツール キットとライブラリ
+####DirectX ツールキットおよびライブラリ
 
 DirectX ツール キット、DirectX テクスチャ処理ライブラリ、DirectXMesh ジオメトリ処理ライブラリ、UVAtlas ライブラリ、DirectXMath ライブラリは、DirectX 開発用のテクスチャ、メッシュ、スプライト、その他のユーティリティ機能とヘルパー クラスを提供します。 これらのライブラリは、開発にかかる時間と労力を減らすのに役立ちます。
 
@@ -1310,9 +1267,7 @@ DirectX ツール キット、DirectX テクスチャ処理ライブラリ、Dir
     </tr>
 </table>
 
-
-## <a name="production"></a>運用
-
+## <a name="production"></a>Production
 
 制作スタジオの準備が整ったら、チーム全体に作業を分散して制作サイクルに移行します。 プロトタイプの調整、リファクタリング、拡張によって、ゲームの完成品に仕上げていきます。
 
@@ -1354,7 +1309,6 @@ DirectX ツール キット、DirectX テクスチャ処理ライブラリ、Dir
         <td><a href="https://blogs.windows.com/buildingapps/2016/02/15/uwp-tile-generator-extension-for-visual-studio/">UWP Tile Generator ツールの使用に関するヒント</a></td>
     </tr>
 </table>
- 
 
 ### <a name="enable-in-app-product-add-on-purchases"></a>アプリ内製品 (アドオン) の購入を有効にする
 
@@ -1367,11 +1321,11 @@ DirectX ツール キット、DirectX テクスチャ処理ライブラリ、Dir
     </colgroup>
     <tr>
         <td>持続性のあるアドオン</td>
-        <td><a href="https://docs.microsoft.com/windows/uwp/monetize/enable-in-app-product-purchases">アプリ内製品購入を有効にする</a></td>
+        <td><a href="https://docs.microsoft.com/windows/uwp/monetize/enable-in-app-product-purchases">アプリ内製品購入の有効化</a></td>
     </tr>
     <tr>
         <td>利用できるアドオン</td>
-        <td><a href="https://docs.microsoft.com/windows/uwp/monetize/enable-consumable-in-app-product-purchases">コンシューマブルなアプリ内製品購入を有効にする</a></td>
+        <td><a href="https://docs.microsoft.com/windows/uwp/monetize/enable-consumable-in-app-product-purchases">コンシューマブルなアプリ内製品購入の有効化</a></td>
     </tr>
     <tr>
         <td>アドオンの詳細と送信</td>
@@ -1383,8 +1337,7 @@ DirectX ツール キット、DirectX テクスチャ処理ライブラリ、Dir
     </tr>
 </table>
  
-
-### <a name="debugging-performance-optimization-and-monitoring"></a>デバッグとパフォーマンスの最適化と監視
+###デバッグ、パフォーマンスの最適化、および監視
 
 パフォーマンスを最適化するには、Windows 10 のゲーム モードを活用し、ハードウェアの機能を最大限に活用して、ゲーマーに可能な限りのゲーム エクスペリエンスを提供します。
 
@@ -1495,7 +1448,6 @@ HDR のフル カラー機能を使用するゲーム コンテンツを構築�
     </tr>   
 </table>
 
-
 ### <a name="globalization-and-localization"></a>グローバリゼーションとローカリゼーション
 
 Windows プラットフォーム用の多言語対応ゲームを開発し、Microsoft の有力製品に組み込まれている地域と言語の機能について説明します。
@@ -1591,7 +1543,6 @@ Windows プラットフォーム用の多言語対応ゲームを開発し、Mic
     </tr>
 </table>
 
-
 ### <a name="policies-and-certification"></a>ポリシーと認定
 
 認定に関する問題によってゲームのリリースを延期しないでください。 ここでは、ポリシーと注意が必要な一般的な認定の問題を示します。
@@ -1614,7 +1565,6 @@ Windows プラットフォーム用の多言語対応ゲームを開発し、Mic
         <td><a href="https://docs.microsoft.com/windows/uwp/publish/avoid-common-certification-failures">一般的な認定エラーの回避</a></td>
     </tr>
 </table>
- 
 
 ### <a name="store-manifest-storemanifestxml"></a>ストア マニフェスト (StoreManifest.xml)
 
@@ -1630,10 +1580,8 @@ Windows プラットフォーム用の多言語対応ゲームを開発し、Mic
         <td><a href="https://docs.microsoft.com/uwp/schemas/storemanifest/storemanifestschema2015/schema-root">StoreManifest のスキーマ (Windows 10)</a></td>
     </tr>
 </table>
- 
 
 ## <a name="game-lifecycle-management"></a>ゲームのライフサイクル管理
-
 
 開発が終了し、ゲームを出荷しても、"ゲーム オーバー" というわけではありません。 バージョン 1 の開発は終了ですが、市場でのゲームの旅は始まったばかりです。 使用状況やエラー レポートの監視、ユーザーからのフィードバックへの対応、ゲームの更新プログラムの公開という作業が必要になります。
 
@@ -1662,8 +1610,7 @@ Windows プラットフォーム用の多言語対応ゲームを開発し、Mic
     </tr>
 </table>
  
-
-### <a name="visual-studio-application-insights"></a>Visual Studio Application Insights
+###Visual Studio Application Insights
 
 Visual Studio Application Insights は、公開されたゲームのパフォーマンス、利用統計情報、および使用状況の分析を提供します。 Application Insights は、リリース後のゲームの問題の検出と解決、使用状況の継続的な監視と向上、プレイヤーがゲームを操作する方法の把握に役立ちます。 Application Insights は SDK をアプリに追加することで動作し、テレメトリを [Azure ポータル](https://portal.azure.com/)に送信します。
 
@@ -1681,7 +1628,6 @@ Visual Studio Application Insights は、公開されたゲームのパフォー
         <td><a href="https://azure.microsoft.com/documentation/articles/app-insights-windows-get-started/">Windows Phone およびストア アプリ向けの Application Insights</a></td>
     </tr>
 </table>
-
 
 ### <a name="third-party-solutions-for-analytics-and-promotion"></a>分析とプロモーションのためのサード パーティ ソリューション
 
@@ -1715,7 +1661,6 @@ Visual Studio Application Insights は、公開されたゲームのパフォー
         <td><a href="https://publisher.vungle.com/sdk/">Windows SDK for Vungle を入手する</a></td>
     </tr>
 </table>
- 
 
 ### <a name="creating-and-managing-content-updates"></a>コンテンツの更新プログラムの作成と管理
 
@@ -1735,7 +1680,6 @@ Visual Studio Application Insights は、公開されたゲームのパフォー
         <td><a href="https://docs.microsoft.com/windows/uwp/publish/package-version-numbering">アプリ パッケージ管理のガイダンス</a></td>
     </tr>
 </table>
-
 
 ## <a name="adding-xbox-live-to-your-game"></a>ゲームへの Xbox Live の追加
 
@@ -1766,7 +1710,6 @@ Xbox Live は、世界中の何百万ものゲーマーを結びつける最高�
         <td><a href="https://docs.microsoft.com/gaming/xbox-live/introduction-to-xbox-live-apis.md">Xbox Live API の概要</a></td>
     </tr>
 </table>
-
 
 ### <a name="for-developers-in-the-xbox-live-creators-program"></a>Xbox Live クリエーターズ プログラム開発者向け
 
@@ -1854,7 +1797,6 @@ Xbox Live は、世界中の何百万ものゲーマーを結びつける最高�
     </tr>
 </table>
 
-
 ## <a name="additional-resources"></a>その他のリソース
 
 <table>
@@ -1879,11 +1821,3 @@ Xbox Live は、世界中の何百万ものゲーマーを結びつける最高�
         <td><a href="https://channel9.msdn.com/Events/GDC/GDC-2015/PC-Games-for-Windows-10">Windows 10 向け PC ゲーム</a></td>
     </tr>
 </table>
-
-
-
- 
-
- 
-
- 
