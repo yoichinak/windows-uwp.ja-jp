@@ -3,22 +3,22 @@ title: Bluetooth に関する開発者向け FAQ
 description: この記事には、UWP Bluetooth API に関連するよく寄せられる質問に対する回答が含まれています。
 ms.date: 02/08/2017
 ms.topic: article
-keywords: Windows 10, UWP
+keywords: windows 10, uwp
 ms.assetid: e7dee32d-3756-430d-a026-32c1ee288a85
 ms.localizationpriority: medium
-ms.openlocfilehash: 584d327fc4882db6d3bf8d0cfd2a84b13023c6f4
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.openlocfilehash: 7ff826be0f5b0b8e9a6723fbb1593663f1748c3d
+ms.sourcegitcommit: d708ac4ec4fac0135dafc0d8c5161ef9fd945ce7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75684838"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85069473"
 ---
 # <a name="bluetooth-developer-faq"></a>Bluetooth に関する開発者向け FAQ
 
 この記事には、UWP Bluetooth API のよく寄せられる質問に対する回答が含まれています。
 
 ## <a name="what-apis-do-i-use-bluetooth-classic-rfcomm-or-bluetooth-low-energy-gatt"></a>どの API を使用すればよいですか。 Bluetooth Classic (RFCOMM) と Bluetooth 低エネルギー (GATT) のどちらですか。
-この一般的なトピックに関してはオンラインでもさまざまな議論が行われています。そこで、この回答では Windows に関しての違いについて説明します。 ここでは、一般的なガイドラインをいくつか示します。
+この一般的なトピックに関してはオンラインでもさまざまな議論が行われています。そこで、この回答では Windows に関しての違いについて説明します。 一般的なガイドラインを次に示します。
 
 ### <a name="bluetooth-le-windowsdevicesbluetoothgenericattributeprofile"></a>Bluetooth LE (Windows.Devices.Bluetooth.GenericAttributeProfile)
 
@@ -63,7 +63,7 @@ Windows 10 リリース1511以降、開発者はペアリングハンドシェ�
 
 Bluetooth RFCOMM (クラシック) を利用する場合は、デバイスをペアリングする必要はありません。 Windows 10 リリース 1607 以降では、簡単に近くにあるデバイスを照会し、そのデバイスに接続できます。 更新された[RFCOMM チャット サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/dev/Samples/BluetoothRfcommChat)で、この機能について説明しています。 
 
-**(14393 以下)** この機能は、Bluetooth 低エネルギー (GATT クライアント) では使用できないため、これらのデバイスにアクセスするために、[設定] ページで、または [Windows.Devices.Enumeration](https://docs.microsoft.com/uwp/api/windows.devices.enumeration) API を使ってペアリングを行う必要があります。
+**(14393 以下)** この機能は、Bluetooth 低エネルギー (GATT Client) では使用できません。そのため、これらのデバイスにアクセスするには、[設定] ページを使用するか、または[Windows の列挙](https://docs.microsoft.com/uwp/api/windows.devices.enumeration)api を使用してペアリングする必要があります。
 
 **(15030 以上)** Bluetooth デバイスのペアリングは不要になりました。 リモート デバイスの現在の状態を照会するために、GetGattServicesAsync や GetCharacteristicsAsync のような新しい非同期 API を使います。 詳しくは、[クライアントのマニュアル](gatt-client.md)をご覧ください。 
 
@@ -77,9 +77,9 @@ Bluetooth RFCOMM (クラシック) を利用する場合は、デバイスをペ
 ## <a name="can-i-access-these-apis-from-win32"></a>Win32 からこれらの API にアクセスできますか。
 
 はい。これらすべての API が機能します。 このブログでは、[デスクトップ アプリケーションから Windows API](https://blogs.windows.com/buildingapps/2017/01/25/calling-windows-10-apis-desktop-application/) を呼び出す方法の詳細を説明しています。 
-## <a name="is-this-functionality-supposed-to-exist-on--insert-sku-here-"></a>この機能は、 *[-Insert SKU here-]* (ここに SKU を挿入) にも表示されますか。
+## <a name="is-this-functionality-supposed-to-exist-on--insert-sku-here-"></a>この機能は、*[-Insert SKU here-]* (ここに SKU を挿入) にも表示されますか。
 
 **Bluetooth LE**: はい、すべての機能が OneCore に含まれ、有効な Bluetooth LE スタックを含む最新のデバイスで利用可能です。 
 > 注意: 周辺機器の役割はハードウェアに依存しており、一部の Windows Server のエディションでは Bluetooth がサポートされていません。 
 
-**BLUETOOTH BR/EDR (クラシック)** : いくつかのバリエーションが存在しますが、ほとんどの場合、プロファイルレベルのサポートは非常に似ています。 [RFCOMM](send-or-receive-files-with-rfcomm.md)に関するドキュメントと、 [PC](https://support.microsoft.com/help/10568/windows-10-supported-bluetooth-profiles)と[電話](https://support.microsoft.com/help/10569/windows-10-mobile-supported-bluetooth-profiles)でサポートされているこれらのプロファイルドキュメントを参照してください。
+**BLUETOOTH BR/EDR (クラシック)**: いくつかのバリエーションが存在しますが、ほとんどの場合、プロファイルレベルのサポートは非常に似ています。 [RFCOMM](send-or-receive-files-with-rfcomm.md)に関するドキュメントと、 [PC](https://support.microsoft.com/help/10568/windows-10-supported-bluetooth-profiles)と[電話](https://support.microsoft.com/help/10569/windows-10-mobile-supported-bluetooth-profiles)でサポートされているこれらのプロファイルドキュメントを参照してください。
