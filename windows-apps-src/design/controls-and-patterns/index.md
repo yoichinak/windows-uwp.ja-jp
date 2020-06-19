@@ -8,12 +8,12 @@ ms.date: 03/23/2020
 ms.topic: article
 ms.assetid: ce2e611c-c419-4a14-9095-b88ac711d1b8
 ms.localizationpriority: medium
-ms.openlocfilehash: 63907b3bfe3fc6dece900f1a7c09ac535e859471
-ms.sourcegitcommit: f727b68e86a86c94eff00f67ed79a1c12666e7bc
+ms.openlocfilehash: 82e6d91b5a4147237cd04b46dc5b69b8151fece9
+ms.sourcegitcommit: 6dd6d61c912daab2cc4defe5ba0cf717339f7765
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80218452"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84978384"
 ---
 # <a name="controls-for-windows-apps"></a>Windows アプリ用のコントロール
 
@@ -32,7 +32,7 @@ XAML と C# でコントロールを追加し、スタイルを指定するた�
 :::row:::
     :::column:::
       <p><b><a href="controls-and-events-intro.md">コントロールを追加し、イベントを処理する</a></b> <br/>
-アプリにコントロールを追加するには、アプリの UI にコントロールを追加する、コントロールのプロパティを設定する、コントロールを動作させるためのコードをコントロールのイベント ハンドラーに追加するといった、3 つの重要な手順があります。</p>
+アプリにコントロールを追加するには、3 つの重要な手順があります。アプリの UI にコントロールを追加し、コントロールのプロパティを設定し、コントロールを動作させるためのコードをコントロールのイベント ハンドラーに追加します。</p>
     :::column-end:::
     :::column:::
       <p><b><a href="xaml-styles.md">コントロールのスタイル指定</a></b> <br/>
@@ -95,8 +95,8 @@ XAML フレームワークを使って、さまざまな方法でアプリの外
 - [ユーザー画像](person-picture.md) ![WinUI ロゴ](images/winui-logo-16x16.png)
 - [ピボット](pivot.md)
 - [進行状況バー](progress-controls.md) ![WinUI ロゴ](images/winui-logo-16x16.png)
-- [進行状況リング](progress-controls.md)
-- [ラジオ ボタン](radio-button.md)
+- [進行状況リング](progress-controls.md) ![WinUI ロゴ](images/winui-logo-16x16.png)
+- [ラジオ ボタン](radio-button.md) ![WinUI ロゴ](images/winui-logo-16x16.png)
 - [評価コントロール](rating.md) ![WinUI ロゴ](images/winui-logo-16x16.png)
 - [繰り返しボタン](buttons.md#create-a-repeat-button)
 - [リッチ エディット ボックス](rich-edit-box.md)
