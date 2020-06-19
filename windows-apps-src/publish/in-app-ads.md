@@ -6,25 +6,25 @@ ms.date: 03/25/2019
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 96994566d19e03f1d85b751242331f04fef098ad
-ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
+ms.openlocfilehash: 11d992baf42f320856134f0e8fba845c5ad61393
+ms.sourcegitcommit: 96b7be654a0922eeb421b5fa51ebfc586abe74fe
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79210698"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84945930"
 ---
 # <a name="in-app-ads"></a>アプリ内広告
 
 >[!WARNING]
 > 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細情報](https://social.msdn.microsoft.com/Forums/windowsapps/en-US/db8d44cb-1381-47f7-94d3-c6ded3fea36f/microsoft-ad-monetization-platform-shutting-down-june-1st?forum=aiamgr)
 
-[パートナーセンター](https://partner.microsoft.com/dashboard)の [**収益化**&gt; の**アプリ内広告**] ページを使用して、次の ad ユニットを作成および管理します。
+**Monetize** &gt; [パートナーセンター](https://partner.microsoft.com/dashboard)の [収益化**のアプリ内広告**] ページを使用して、以下の ad ユニットを作成および管理します。
 
 * [Microsoft Advertising SDK](https://marketplace.visualstudio.com/items?itemName=AdMediator.MicrosoftAdvertisingSDK) を使用するユニバーサル Windows プラットフォーム (UWP) アプリ。
 * 以前に発行された Windows 8.x と Windows Phone 8 .x アプリでは、 [MICROSOFT ADVERTISING SDK For windows と Windows Phone](https://marketplace.visualstudio.com/items?itemName=AdMediator.MicrosoftAdvertisingSDKforWindowsandWindowsPhone8x)2.x が使用されています。
 
 > [!IMPORTANT]
-> 2018年10月31日の時点で、新しく作成された製品には、Windows 8.x/Windows Phone 8.x 以前を対象とするパッケージを含めることはできません。 詳細については、こちらの[ブログ投稿](https://blogs.windows.com/windowsdeveloper/2018/08/20/important-dates-regarding-apps-with-windows-phone-8-x-and-earlier-and-windows-8-8-1-packages-submitted-to-microsoft-store)を参照してください。
+> Windows Phone 8. x SDK を使用してビルドされた新しい XAP パッケージをアップロードすることはできなくなりました。 既に XAP パッケージと共にストアに格納されているアプリは、引き続き Windows 10 Mobile デバイスで動作します。 詳細については、こちらの[ブログ投稿](https://blogs.windows.com/windowsdeveloper/2018/08/20/important-dates-regarding-apps-with-windows-phone-8-x-and-earlier-and-windows-8-8-1-packages-submitted-to-microsoft-store)を参照してください。
 
 これらの SDK をアプリに統合して広告を表示する方法については、「[Microsoft Advertising SDK を使用したアプリでの広告の表示](../monetize/display-ads-in-your-app.md)」をご覧ください。
 
@@ -34,16 +34,16 @@ ms.locfileid: "79210698"
 
 アプリ内の[バナー広告](../monetize/banner-ads.md), [interstitial ad](../monetize/interstitial-ads.md)または[ネイティブ広告](../monetize/native-ads.md)用に広告ユニットを作成するには:
 
-1.  パートナーセンターの [**収益化**&gt; の**アプリ内広告**] ページにアクセスし、 **[ad ユニットの作成]** をクリックします。
+1.  パートナーセンターの [**収益化** &gt; **のアプリ内広告**] ページにアクセスし、[ **ad ユニットの作成**] をクリックします。
 2.  **[アプリ名]** ドロップダウンで、広告ユニットを使用するアプリを選択します。
 3.  **[広告ユニット名]** フィールドに広告ユニットの名前を入力します。 レポートで広告ユニットを識別しやすくするために、任意の説明文字列を指定できます。
 4.  **[広告ユニットの種類]** ドロップダウンで、広告の種類を選択します。
 
-    * アプリにバナー広告が表示されている場合は、 **[バナー]** を選択します。
-    * アプリにスポット video ad またはスポットバナー広告が表示されている場合は、 **[video スポット]** または **[バナースポット]** を選択します (表示するスポット ad の種類に適したオプションを選択してください)。
-    * アプリにネイティブ広告が表示されている場合は、 **[ネイティブ]** を選択します。
+    * アプリにバナー広告が表示されている場合は、[**バナー**] を選択します。
+    * アプリにスポット video ad またはスポットバナー広告が表示されている場合は、[ **video スポット**] または [**バナースポット**] を選択します (表示するスポット ad の種類に適したオプションを選択してください)。
+    * アプリにネイティブ広告が表示されている場合は、[**ネイティブ**] を選択します。
 
-5. **[デバイス ファミリ]** ドロップダウンで、広告ユニットを使うアプリがターゲットとしているデバイス ファミリを選択します。 選択できるオプションには、 **[UWP (Windows 10)]** 、 **[PC/タブレット (Windows 8.1)]** 、 **[モバイル (Windows Phone 8.x)]** があります。
+5. **[デバイス ファミリ]** ドロップダウンで、広告ユニットを使うアプリがターゲットとしているデバイス ファミリを選択します。 選択できるオプションには、**[UWP (Windows 10)]**、**[PC/タブレット (Windows 8.1)]**、**[モバイル (Windows Phone 8.x)]** があります。
 
 6. 必要に応じて、次の追加設定を構成します。
 
@@ -53,16 +53,16 @@ ms.locfileid: "79210698"
 7.  選択したアプリに対して COPPA 準拠を設定していない場合は、[[COPPA 準拠](#coppa)] セクションでオプションを選択します。
 8.  **[広告ユニットを作成]** をクリックします。
 
-新しい ad ユニットを作成すると、[**収益化**&gt; **in app ads** ] ページで使用可能な ad ユニットのテーブルに表示されます。
+作成した新しい広告ユニットは、**[収益化]** &gt; **[アプリ内広告]** ページにある利用可能な広告ユニットの表に表示されます。
 
 <span id="available-ad-units" />
 
 ## <a name="review-and-edit-ad-units"></a>広告ユニットの確認と編集
 
-アカウント内の1つ以上のアプリに対して ad ユニットを作成した後、これらの ad ユニットは、**収益化**&gt; の **[アプリ内広告]** ページの下部にある表に表示されます。 この表には、各広告ユニットの **[アプリケーション ID]** および **[広告ユニット ID]** がその他の情報と共に表示されます。 アプリに広告を表示するには、コードでこれらの値を使う必要があります。 詳しくは、「[アプリの広告ユニットをセットアップする](../monetize/set-up-ad-units-in-your-app.md)」をご覧ください。
+アカウント内で 1 つ以上のアプリに対して広告ユニットを作成すると、これらの広告ユニットが **[収益化]** &gt; **[アプリ内広告]** ページの下部にある表に表示されます。 この表には、各広告ユニットの **[アプリケーション ID]** および **[広告ユニット ID]** がその他の情報と共に表示されます。 アプリに広告を表示するには、コードでこれらの値を使う必要があります。 詳しくは、「[アプリの広告ユニットをセットアップする](../monetize/set-up-ad-units-in-your-app.md)」をご覧ください。
 
-* アプリに[バナー広告](../monetize/banner-ads.md)を表示する場合は、これらの値を [AdControl](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.adcontrol.applicationid) オブジェクトの [ApplicationId](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.adcontrol.adunitid) プロパティと [AdUnitId](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.adcontrol) プロパティに割り当てる必要があります。
-* アプリに[スポット広告](../monetize/interstitial-ads.md)を表示する場合は、[InterstitialAd](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.interstitialad.requestad) オブジェクトの [RequestAd](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.interstitialad) メソッドにこれらの値を渡します。
+* アプリに[バナー広告](../monetize/banner-ads.md)を表示する場合は、これらの値を [AdControl](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.adcontrol) オブジェクトの [ApplicationId](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.adcontrol.applicationid) プロパティと [AdUnitId](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.adcontrol.adunitid) プロパティに割り当てる必要があります。
+* アプリで[スポット広告](../monetize/interstitial-ads.md)が表示されている場合は、 [InterstitialAd](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.interstitialad)オブジェクトの[requestad](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.interstitialad.requestad)メソッドにこれらの値を渡します。
 * アプリが[ネイティブ広告](../monetize/native-ads.md)を表示する場合は、これらの値を**NativeAdsManagerV2**コンストラクターに渡します。
   > [!IMPORTANT]
   > 各広告ユニットは 1 つのアプリのみで使用できます。 同じ広告ユニットを複数のアプリで使うと、その広告ユニットには広告が配信されません。
@@ -87,7 +87,7 @@ UWP 広告ユニットの[仲介設定](#mediation)または広告ユニット�
 アプリ内の UWP 広告ユニットに対して広告仲介設定を構成するには、次の手順を実行します。
 
 1. [広告ユニットを作成](#create-ad-unit)するか、[既にある広告ユニットを選択](#available-ad-units)します。
-2. **[アプリ内の広告]** ページで、 **[仲介の設定]** セクションにアクセスし、設定を構成します。
+2. [**アプリ内の広告**] ページで、[**仲介の設定**] セクションにアクセスし、設定を構成します。
 
     * 既定では、 **[Microsoft**による設定の最適化を許可する] チェックボックスがオンになっています。 このオプションを使うことをお勧めします。 このオプションでは、アプリがサポートする各市場での広告収益を最大化できるように、機械学習アルゴリズムを使ってアプリの広告仲介設定を自動的に選択します。 このオプションを使用する場合は、構成で使用する ad ネットワークを選択することもできます。 構成に含めない ad ネットワークをオフにします。このアルゴリズムでは、アプリが選択された ad ネットワークからの広告のみを受信するようにします。
     * 独自の ad 仲介用設定を選択する場合は、[**既定の設定を変更**する] を選択します。
@@ -96,13 +96,13 @@ UWP 広告ユニットの[仲介設定](#mediation)または広告ユニット�
     > このセクションの残りの手順は、[**既定の設定を変更**する] を選択した場合にのみ適用されます。
 
 3. **[ターゲット]** ドロップダウンで **[ベースライン]** を選択して、既定の広告仲介設定を構成します。 この既定の構成は、市場固有の構成が定義されていないすべての市場に適用されます。
-4. 次に、有料ネットワーク (広告表示に応じて収益が支払われるネットワーク) とその他の広告ネットワーク (広告表示に対する収益の支払いがないネットワーク) について、コントロールに表示するそれぞれの広告の割合を指定します。 これを行うには、 **[有料の広告ネットワーク]** と **[他の広告ネットワーク]** の **[重さ]** フィールドに 0 ～ 100 の値を入力します。  
-5. **[有料の広告ネットワーク]** セクションで、使用する**有料ネットワーク**ごとに [[有効]](#paid-networks) 列のチェック ボックスをオンにします。次に、 **[ランク]** 列の矢印を使ってネットワークをランク順に並べ替えます (これで、コントロールによる各ネットワークの使用頻度が指定されます)。
-6. **[バナー]** または **[バナー (スポット)]** 広告ユニットを選ぶと、 **[他の広告ネットワーク]** という名前のセクションも表示されます。 このセクションのネットワークでは、広告インプレッションに対する収益は生じません。 代わりに、これらのネットワークはアプリ プロモーション キャンペーンなどのソースからの広告を表示します。
+4. 次に、有料ネットワーク (広告表示に応じて収益が支払われるネットワーク) とその他の広告ネットワーク (広告表示に対する収益の支払いがないネットワーク) について、コントロールに表示するそれぞれの広告の割合を指定します。 これを行うには、**[有料の広告ネットワーク]** と **[他の広告ネットワーク]** の **[重さ]** フィールドに 0 ～ 100 の値を入力します。  
+5. [**有料 ad ネットワーク**] セクションで、使用する各[有料ネットワーク](#paid-networks)の [**アクティブ**] 列のチェックボックスをオンにし、[**順位**] 列の矢印を使用してランクでネットワークを並べ替えます (これにより、各ネットワークをコントロールで使用する頻度が指定されます)。
+6. **[バナー]** または **[バナー (スポット)]** 広告ユニットを選ぶと、**[他の広告ネットワーク]** という名前のセクションも表示されます。 このセクションのネットワークでは、広告インプレッションに対する収益は生じません。 代わりに、これらのネットワークはアプリ プロモーション キャンペーンなどのソースからの広告を表示します。
 
-    **[その他の広告ネットワーク]** セクションで、使用する**その他のネットワーク**ごとに [[有効]](#other-networks) 列のチェック ボックスをオンにします。次に、 **[ランク]** 列の矢印を使ってネットワークをランク順に並べ替えます (これで、コントロールによる各ネットワークの使用頻度が指定されます)。 現在サポートされているその他のネットワークは次のとおりです。
+    **[その他の広告ネットワーク]** セクションで、使用する[その他のネットワーク](#other-networks)ごとに **[有効]** 列のチェック ボックスをオンにします。次に、**[ランク]** 列の矢印を使ってネットワークをランク順に並べ替えます (これで、コントロールによる各ネットワークの使用頻度が指定されます)。 現在サポートされているその他のネットワークは次のとおりです。
 
-7. 既定の仲介構成をオーバーライドする市場ごとに、 **[ターゲット]** ドロップダウンで市場を選択し、広告ネットワークの選択とランクを更新します。
+7. 既定の仲介構成をオーバーライドする市場ごとに、**[ターゲット]** ドロップダウンで市場を選択し、広告ネットワークの選択とランクを更新します。
 8. **[広告ユニットを作成]** (新しい広告ユニットを作成している場合) または **[保存]** (既存の広告ユニットを編集している場合) をクリックします。
 
 <span id="paid-networks" />
@@ -150,13 +150,13 @@ UWP 広告ユニットの[仲介設定](#mediation)または広告ユニット�
 | Revcontent | ブラジル、カナダ、フランス、ドイツ、イタリア、日本、スペイン、英国、米国  |
 | Smaato | ブラジル、カナダ、フランス、ドイツ、イタリア、日本、スペイン、英国、米国 |
 | smartclip | オーストリア、ベルギー、デンマーク、フィンランド、ドイツ、イタリア、オランダ、ノルウェー、スウェーデン、スイス  |
-| 低音 | 米国 |
+| 低音 | アメリカ合衆国 |
 
 <span id="coppa" />
 
 ## <a name="coppa-compliance"></a>COPPA 準拠
 
-Ad ユニットを[作成](#create-ad-unit)するか、[既存の ad ユニットを選択](#available-ad-units)すると、 **[COPPA コンプライアンス]** セクションがページの下部に表示されます。このセクションでは、ad ユニット用に選択したアプリに、アプリ認定プロセスの[ストア](../publish/the-app-certification-process.md#in-the-store)ステップのに到達した送信が少なくとも1つある場合があります。
+Ad ユニットを[作成](#create-ad-unit)するか、[既存の ad ユニットを選択](#available-ad-units)すると、[ **COPPA コンプライアンス**] セクションがページの下部に表示されます。このセクションでは、ad ユニット用に選択したアプリに、アプリ認定プロセスの[ストア](../publish/the-app-certification-process.md#in-the-store)ステップのに到達した送信が少なくとも1つある場合があります。
 
 アプリの対象が 13 歳未満の子供である場合、児童オンライン プライバシー保護法 ("COPPA") に従って、このセクションで **[This application is directed at children under the age of 13]** (このアプリは 13 歳未満の子供を対象としています) を選ぶ必要があります。 このオプションを選んだ場合、マイクロソフトはアプリに広告を配信する際に、行動広告サービスを無効にする手順を実行します。
 

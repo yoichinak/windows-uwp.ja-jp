@@ -6,12 +6,12 @@ ms.date: 10/31/2018
 ms.topic: article
 keywords: windows 10, uwp, パッケージ要件, パッケージ, パッケージ形式, サポートされているバージョン, 提出
 ms.localizationpriority: medium
-ms.openlocfilehash: 144e2fefc5802d53187684b6e34cbb2af1d8da0a
-ms.sourcegitcommit: 350d6e6ba36800df582f9715c8d21574a952aef1
+ms.openlocfilehash: 9c478b038ff729f753696d10fc18b21391a3a7de
+ms.sourcegitcommit: 96b7be654a0922eeb421b5fa51ebfc586abe74fe
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68682629"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84945990"
 ---
 # <a name="app-package-requirements"></a>アプリ パッケージの要件
 
@@ -40,7 +40,7 @@ Visual Studio でパッケージを作るときは、必ず、開発者アカウ
 UWP アプリの場合、Visual Studio はアプリバンドル (. .msixbundle または .appxbundle) を生成して、ユーザーがダウンロードするアプリのサイズを小さくすることができます。 その利便性が発揮されるのは、言語固有のアセットや多様な画像倍率のアセット、特定バージョンの Microsoft DirectX に適用されるリソースを定義した場合などです。
 
 > [!NOTE]
-> 1つのアプリバンドルには、すべてのアーキテクチャのパッケージを含めることができます。
+> 1 つのアプリ バンドルには、すべてのアーキテクチャ用のパッケージを含めることができます。
 
 アプリ バンドルが使われている場合、ユーザーは、自分に関係したファイルだけをダウンロードすればよく、すべてのリソースをダウンロードする必要はありません。 アプリ バンドルについて詳しくは、「[アプリのパッケージ化](../packaging/index.md)」と「[Visual Studio で UWP アプリをパッケージ化する](/windows/msix/package/packaging-uwp-apps)」をご覧ください。
 
@@ -51,10 +51,10 @@ UWP アプリの場合、Visual Studio はアプリバンドル (. .msixbundle �
 
 マニフェストの詳細や要件については、[アプリ パッケージ マニフェスト](https://docs.microsoft.com/uwp/schemas/appxpackage/appx-package-manifest) に関するドキュメントをご覧ください。 認定に合格するには、マニフェストがパッケージ マニフェスト スキーマに従っている必要があります。
 
-マニフェストには、アカウントとアプリに関するいくらかの具体的な情報を含める必要があります。 この情報は、ダッシュボードにあるアプリの概要ページの **[アプリの管理]** セクションで [アプリの ID の詳細情報を表示する](view-app-identity-details.md) ことで確認できます。
+マニフェストには、アカウントとアプリに関するいくらかの具体的な情報を含める必要があります。 この情報は、ダッシュボードにあるアプリの概要ページの [**アプリの管理**] セクションで [アプリの ID の詳細情報を表示する](view-app-identity-details.md) ことで確認できます。
 
 > [!NOTE]
-> マニフェスト内の値は大文字と小文字が区別されます。 スペースや句読点なども一致する必要があります。 注意して入力し、間違いがないか確認してください。
+> マニフェスト内の値は、大文字と小文字が区別されます。 スペースや句読点なども一致する必要があります。 注意して入力し、間違いがないか確認してください。
 
 
 アプリバンドル (. .msixbundle または .appxbundle) は、別のマニフェストを使用します。 アプリ バンドル マニフェストの詳細や要件については、[バンドル マニフェスト](https://docs.microsoft.com/uwp/schemas/bundlemanifestschema/bundle-manifest)に関するドキュメントをご覧ください。 .Msixbundle または .appxbundle では、含まれている各パッケージのマニフェストは、 [Identity](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-identity)要素の**ProcessorArchitecture**属性を除き、同じ要素と属性を使用する必要があることに注意してください。
@@ -69,24 +69,24 @@ UWP アプリの場合、Visual Studio はアプリバンドル (. .msixbundle �
 
 | アプリ パッケージの性質 | 要件                                                          |
 |----------------------|----------------------------------------------------------------------|
-| パッケージのサイズ         | . .msixbundle または .appxbundle:バンドルあたり最大 25 GB <br>. Windows 10 を対象とする msix または .appx パッケージ:パッケージあたり最大 25 GB<br>Windows 8.1 を対象とする .appx パッケージ:パッケージあたり最大 8 GB <br> Windows 8 を対象とする .appx パッケージ:パッケージあたり最大 2 GB <br> Windows Phone 8.1 を対象とする .appx パッケージ:パッケージあたり最大 4 GB <br> .xap パッケージ:パッケージあたり最大 1 GB                                                                           |
+| パッケージのサイズ         | .msixbundle または .appxbundle: バンドルあたりの最大 25 GB <br>. パッケージあたりの Windows 10:25 GB の最大サイズを対象とする msix または .appx パッケージ<br>Windows 8.1 を対象とする .appx パッケージ: パッケージあたり最大 8 GB <br> Windows 8 を対象とする .appx パッケージ: パッケージあたり最大 2 GB <br> Windows Phone 8.1 を対象とする .appx パッケージ: パッケージあたり最大 4 GB <br> .xap パッケージ: パッケージあたり最大 1 GB                                                                           |
 | ブロック マップ ハッシュ     | SHA2-256 アルゴリズム                                                   |
 
 > [!IMPORTANT]
-> 2018年10月31日の時点で、新しく作成された製品には、Windows 8.x/Windows Phone 8.x 以前を対象とするパッケージを含めることはできません。 詳細については、こちらの[ブログ投稿](https://blogs.windows.com/windowsdeveloper/2018/08/20/important-dates-regarding-apps-with-windows-phone-8-x-and-earlier-and-windows-8-8-1-packages-submitted-to-microsoft-store)を参照してください。
+> Windows Phone 8. x SDK を使用してビルドされた新しい XAP パッケージをアップロードすることはできなくなりました。 既に XAP パッケージと共にストアに格納されているアプリは、引き続き Windows 10 Mobile デバイスで動作します。 詳細については、こちらの[ブログ投稿](https://blogs.windows.com/windowsdeveloper/2018/08/20/important-dates-regarding-apps-with-windows-phone-8-x-and-earlier-and-windows-8-8-1-packages-submitted-to-microsoft-store)を参照してください。
 
 ## <a name="supported-versions"></a>サポートされているバージョン
 
 UWP アプリの場合、すべてのパッケージは Microsoft Store によりサポートされている Windows 10 のバージョンをターゲットとする必要があります。 パッケージがサポートするバージョンは、アプリ マニフェストの [TargetDeviceFamily](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-targetdevicefamily) 要素の **MinVersion** 属性と **MaxVersionTested** 属性で指定されています。
 
 現時点でサポートされているバージョンの範囲は以下のとおりです。 
-- 最小:10.0.10240.0
-- 最大:10.0.17763.1
+- 最小: 10.0.10240.0
+- 最大値: 10.0.17763.1
 
 
 ## <a name="storemanifest-xml-file"></a>StoreManifest XML ファイル
 
-StoreManifest.xml は、必要に応じてアプリ パッケージに含めることのできる構成ファイルです。 その目的は、Microsoft Store デバイス アプリとしてアプリを宣言する機能や、パッケージ マニフェストの対象外となるデバイスに適用される要件を宣言する機能などを有効にすることです。 使用する場合、StoreManifest はアプリパッケージと一緒に送信され、アプリのメインプロジェクトのルートフォルダーに存在する必要があります。 詳しくは、「[StoreManifest スキーマ](https://docs.microsoft.com/uwp/schemas/storemanifest/store-manifest-schema-portal)」をご覧ください。
+StoreManifest.xml は、必要に応じてアプリ パッケージに含めることのできる構成ファイルです。 その目的は、Microsoft Store デバイス アプリとしてアプリを宣言する機能や、パッケージ マニフェストの対象外となるデバイスに適用される要件を宣言する機能などを有効にすることです。 使用する場合、StoreManifest.xml はアプリパッケージと一緒に送信され、アプリのメインプロジェクトのルートフォルダーに存在する必要があります。 詳しくは、「[StoreManifest スキーマ](https://docs.microsoft.com/uwp/schemas/storemanifest/store-manifest-schema-portal)」をご覧ください。
 
  
 

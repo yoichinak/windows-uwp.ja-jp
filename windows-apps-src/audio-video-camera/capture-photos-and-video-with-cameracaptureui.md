@@ -1,100 +1,102 @@
 ---
 ms.assetid: CC0D6E9B-128D-488B-912F-318F5EE2B8D3
-description: この記事では、CameraCaptureUI クラスを使用して、Windows に組み込まれているカメラ UI を使用して写真やビデオをキャプチャする方法について説明します。
+description: この記事では、 [**CameraCaptureUI**](/uwp/api/windows.media.capture.cameracaptureui)クラスを使用して、Windows に組み込まれているカメラ UI を使用して写真やビデオをキャプチャする方法について説明します。
 title: Windows ビルトインカメラ UI を使用して写真とビデオをキャプチャする
 ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: d582d4815b4fb2168b187a1efff3795cc98aca02
-ms.sourcegitcommit: 99595e4938213aafdb49635d684d8ba8eb3f697a
+dev_langs:
+- csharp
+- cppwinrt
+ms.openlocfilehash: a512f72c01f2082dd067fc867f7434c92d2aa0c8
+ms.sourcegitcommit: 79e4b3a9c53060b64513e2e240f0a4f073cc5dab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69487805"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84978937"
 ---
 # <a name="capture-photos-and-video-with-the-windows-built-in-camera-ui"></a>Windows ビルトインカメラ UI を使用して写真とビデオをキャプチャする
 
+この記事では、 [**CameraCaptureUI**](/uwp/api/windows.media.capture.cameracaptureui)クラスを使用して、Windows に組み込まれているカメラ UI を使用して写真やビデオをキャプチャする方法について説明します。 この機能は簡単に使用できます。 これにより、わずか数行のコードで、ユーザーがキャプチャした写真またはビデオをアプリで取得できるようになります。
 
-
-この記事では、CameraCaptureUI クラスを使用して、Windows に組み込まれているカメラ UI を使用して写真やビデオをキャプチャする方法について説明します。 この機能は簡単に使用できます。 これにより、わずか数行のコードで、ユーザーがキャプチャした写真またはビデオをアプリで取得できるようになります。
-
-独自のカメラ用 UI を用意する場合、またはキャプチャ操作に対してより堅牢で低レベルな制御が必要な場合は、[**MediaCapture**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.MediaCapture) オブジェクトを使用して、独自のキャプチャ操作を実装する必要があります。 詳しくは、「[MediaCapture を使った基本的な写真、ビデオ、およびオーディオのキャプチャ](basic-photo-video-and-audio-capture-with-MediaCapture.md)」をご覧ください。
+独自のカメラ UI を提供する場合、またはシナリオでキャプチャ操作をより堅牢で低レベルで制御する必要がある場合は、 [**MediaCapture**](/uwp/api/Windows.Media.Capture.MediaCapture)クラスを使用して、独自のキャプチャエクスペリエンスを実装する必要があります。 詳しくは、「[MediaCapture を使った基本的な写真、ビデオ、およびオーディオのキャプチャ](basic-photo-video-and-audio-capture-with-MediaCapture.md)」をご覧ください。
 
 > [!NOTE]
-> アプリで CameraCaptureUI のみを使用する場合は、アプリマニフェストファイルで**webcam**または**マイク**の機能を指定しないでください。 この操作を行うと、デバイスのカメラのプライバシー設定にアプリが表示されますが、ユーザーがアプリへのカメラアクセスを拒否しても、CameraCaptureUI がメディアをキャプチャできなくなることはありません。 <p>これは、Windows の組み込みのカメラ アプリが、写真、音声、ビデオのキャプチャをボタンを押して開始する必要がある、信頼されているファースト パーティ アプリであるためです。 CameraCaptureUI を唯一の写真キャプチャメカニズムとして使用する場合に、web カメラまたはマイクの機能を指定すると、アプリが Microsoft Store に送信されたときに Windows アプリケーション認定キットの認定に失敗する可能性があります。<p>
-MediaCapture を使用してオーディオ、写真、またはビデオをプログラムでキャプチャする場合は、アプリマニフェストファイルで webcam またはマイクの機能を指定する必要があります。
+> アプリで**CameraCaptureUI**のみを使用する場合は、アプリマニフェストファイルで**web カメラ**や**マイク**機能を指定しないでください。 この操作を行うと、デバイスのカメラのプライバシー設定にアプリが表示されますが、ユーザーがアプリへのカメラアクセスを拒否しても、 **CameraCaptureUI**がメディアをキャプチャできなくなることはありません。 <p>これは、Windows の組み込みのカメラ アプリが、写真、音声、ビデオのキャプチャをボタンを押して開始する必要がある、信頼されているファースト パーティ アプリであるためです。 **CameraCaptureUI**を唯一の写真キャプチャメカニズムとして使用する場合に、web カメラまたはマイクの機能を指定すると、アプリが Microsoft Store に送信されたときに Windows アプリケーション認定キットの認定に失敗する可能性があります。<p>
+**MediaCapture**を使用してオーディオ、写真、またはビデオをプログラムでキャプチャする場合は、アプリマニフェストファイルで**webcam**または**マイク**の機能を指定する必要があります。
 
 ## <a name="capture-a-photo-with-cameracaptureui"></a>CameraCaptureUI を使った写真のキャプチャ
 
-カメラ キャプチャ UI を使うには、プロジェクトに [**Windows.Media.Capture**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture) 名前空間を含めます。 返された画像ファイルでファイル操作を行うには、[**Windows.Storage**](https://docs.microsoft.com/uwp/api/Windows.Storage) を含めます。
+カメラ キャプチャ UI を使うには、プロジェクトに [**Windows.Media.Capture**](/uwp/api/Windows.Media.Capture) 名前空間を含めます。 返された画像ファイルでファイル操作を行うには、[**Windows.Storage**](/uwp/api/Windows.Storage) を含めます。
 
-[!code-cs[UsingCaptureUI](./code/CameraCaptureUIWin10/cs/MainPage.xaml.cs#SnippetUsingCaptureUI)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/CameraCaptureUIWin10/cs/MainPage.xaml.cs" id="SnippetUsingCaptureUI":::
+:::code language="cppwinrt" source="~/../snippets-windows/windows-uwp/audio-video-camera/CameraCaptureUIWin10/cppwinrt/MainPage.h" id="SnippetUsingCaptureUI":::
 
-写真をキャプチャするには、新しい [**CameraCaptureUI**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.CameraCaptureUI) オブジェクトを作成します。 オブジェクトの[**Photosettings**](https://docs.microsoft.com/uwp/api/windows.media.capture.cameracaptureui.photosettings)プロパティを使用して、写真の画像形式など、返された写真のプロパティを指定できます。 既定では、カメラのキャプチャ UI では、画像が返される前にトリミングがサポートされています。 これは、 [**Allowcropping**](https://docs.microsoft.com/uwp/api/windows.media.capture.cameracaptureuiphotocapturesettings.allowcropping)プロパティを使用して無効にすることができます。 この例では、[**CroppedSizeInPixels**](https://docs.microsoft.com/uwp/api/windows.media.capture.cameracaptureuiphotocapturesettings.croppedsizeinpixels) を設定して、返される画像のサイズが 200 x 200 ピクセルになるよう要求しています。
+写真をキャプチャするには、新しい [**CameraCaptureUI**](/uwp/api/Windows.Media.Capture.CameraCaptureUI) オブジェクトを作成します。 オブジェクトの[**Photosettings**](/uwp/api/windows.media.capture.cameracaptureui.photosettings)プロパティを使用して、写真の画像形式など、返された写真のプロパティを指定できます。 既定では、カメラのキャプチャ UI では、画像が返される前にトリミングがサポートされています。 これは、 [**Allowcropping**](/uwp/api/windows.media.capture.cameracaptureuiphotocapturesettings.allowcropping)プロパティを使用して無効にすることができます。 この例では、[**CroppedSizeInPixels**](/uwp/api/windows.media.capture.cameracaptureuiphotocapturesettings.croppedsizeinpixels) を設定して、返される画像のサイズが 200 x 200 ピクセルになるよう要求しています。
 
 > [!NOTE]
-> **CameraCaptureUI**でのイメージのトリミングは、モバイルデバイスファミリのデバイスではサポートされていません。 アプリがこれらのデバイスで実行されている場合、[**AllowCropping**](https://docs.microsoft.com/uwp/api/windows.media.capture.cameracaptureuiphotocapturesettings.allowcropping) プロパティの値は無視されます。
+> **CameraCaptureUI**でのイメージのトリミングは、モバイルデバイスファミリのデバイスではサポートされていません。 アプリがこれらのデバイスで実行されている場合、[**AllowCropping**](/uwp/api/windows.media.capture.cameracaptureuiphotocapturesettings.allowcropping) プロパティの値は無視されます。
 
-写真をキャプチャすることを指定するには、[**CaptureFileAsync**](https://docs.microsoft.com/uwp/api/windows.media.capture.cameracaptureui.capturefileasync) を呼び出して、[**CameraCaptureUIMode.Photo**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.CameraCaptureUIMode) を指定します。 キャプチャに成功すると、このメソッドは、画像が格納された [**StorageFile**](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageFile) インスタンスを返します。 ユーザーがキャプチャを取り消した場合、返されるオブジェクトは null になります。
+写真をキャプチャすることを指定するには、[**CaptureFileAsync**](/uwp/api/windows.media.capture.cameracaptureui.capturefileasync) を呼び出して、[**CameraCaptureUIMode.Photo**](/uwp/api/Windows.Media.Capture.CameraCaptureUIMode) を指定します。 キャプチャに成功すると、このメソッドは、画像が格納された [**StorageFile**](/uwp/api/Windows.Storage.StorageFile) インスタンスを返します。 ユーザーがキャプチャを取り消した場合、返されるオブジェクトは null になります。
 
-[!code-cs[CapturePhoto](./code/CameraCaptureUIWin10/cs/MainPage.xaml.cs#SnippetCapturePhoto)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/CameraCaptureUIWin10/cs/MainPage.xaml.cs" id="SnippetCapturePhoto":::
+:::code language="cppwinrt" source="~/../snippets-windows/windows-uwp/audio-video-camera/CameraCaptureUIWin10/cppwinrt/MainPage.cpp" id="SnippetCapturePhoto":::
 
 キャプチャした写真が格納されている **StorageFile** は、動的に生成された名前が付けられて、アプリのローカル フォルダーに保存されます。 キャプチャした写真をより効果的に整理するために、ファイルを別のフォルダーに移動できます。
 
-[!code-cs[CopyAndDeletePhoto](./code/CameraCaptureUIWin10/cs/MainPage.xaml.cs#SnippetCopyAndDeletePhoto)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/CameraCaptureUIWin10/cs/MainPage.xaml.cs" id="SnippetCopyAndDeletePhoto":::
+:::code language="cppwinrt" source="~/../snippets-windows/windows-uwp/audio-video-camera/CameraCaptureUIWin10/cppwinrt/MainPage.cpp" id="SnippetCopyAndDeletePhoto":::
 
-アプリで写真を使用するために、[**SoftwareBitmap**](https://docs.microsoft.com/uwp/api/Windows.Graphics.Imaging.SoftwareBitmap)オブジェクトを作成できます。このオブジェクトは、ユニバーサル Windows アプリのさまざまな機能で使用できます。
+アプリで写真を使用するために、[**SoftwareBitmap**](/uwp/api/Windows.Graphics.Imaging.SoftwareBitmap)オブジェクトを作成できます。このオブジェクトは、ユニバーサル Windows アプリのさまざまな機能で使用できます。
 
-最初に、プロジェクトに[**Windows**](https://docs.microsoft.com/uwp/api/Windows.Graphics.Imaging)の画像の名前空間を含めます。
+最初に、プロジェクトに[**Windows**](/uwp/api/Windows.Graphics.Imaging)の画像の名前空間を含めます。
 
-[!code-cs[UsingSoftwareBitmap](./code/CameraCaptureUIWin10/cs/MainPage.xaml.cs#SnippetUsingSoftwareBitmap)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/CameraCaptureUIWin10/cs/MainPage.xaml.cs" id="SnippetUsingSoftwareBitmap":::
+:::code language="cppwinrt" source="~/../snippets-windows/windows-uwp/audio-video-camera/CameraCaptureUIWin10/cppwinrt/MainPage.h" id="SnippetUsingSoftwareBitmap":::
 
-画像ファイルからストリームを取得するには、[**OpenAsync**](https://docs.microsoft.com/uwp/api/windows.storage.istoragefile.openasync) を呼び出します。 ストリームのビットマップ デコーダーを取得するには、[**BitmapDecoder.CreateAsync**](https://docs.microsoft.com/uwp/api/windows.graphics.imaging.bitmapdecoder.createasync) を呼び出します。 次に、 [**Get$ bitmap**](https://docs.microsoft.com/uwp/api/windows.graphics.imaging.bitmapdecoder.getsoftwarebitmapasync)を呼び出して、イメージの**ソフトウェアビットマップ**表現を取得します。
+画像ファイルからストリームを取得するには、[**OpenAsync**](/uwp/api/windows.storage.istoragefile.openasync) を呼び出します。 ストリームのビットマップ デコーダーを取得するには、[**BitmapDecoder.CreateAsync**](/uwp/api/windows.graphics.imaging.bitmapdecoder.createasync) を呼び出します。 次に、 [**Get$ bitmap**](/uwp/api/windows.graphics.imaging.bitmapdecoder.getsoftwarebitmapasync)を呼び出して、イメージの**ソフトウェアビットマップ**表現を取得します。
 
-[!code-cs[SoftwareBitmap](./code/CameraCaptureUIWin10/cs/MainPage.xaml.cs#SnippetSoftwareBitmap)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/CameraCaptureUIWin10/cs/MainPage.xaml.cs" id="SnippetSoftwareBitmap":::
+:::code language="cppwinrt" source="~/../snippets-windows/windows-uwp/audio-video-camera/CameraCaptureUIWin10/cppwinrt/MainPage.cpp" id="SnippetSoftwareBitmap":::
 
-UI に画像を表示するには、XAML ページで [**Image**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Image) コントロールを宣言します。
+UI に画像を表示するには、XAML ページで [**Image**](/uwp/api/Windows.UI.Xaml.Controls.Image) コントロールを宣言します。
 
-[!code-xml[ImageControl](./code/CameraCaptureUIWin10/cs/MainPage.xaml#SnippetImageControl)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/CameraCaptureUIWin10/cs/MainPage.xaml.cs" id="SnippetImageControl":::
+:::code language="cppwinrt" source="~/../snippets-windows/windows-uwp/audio-video-camera/CameraCaptureUIWin10/cppwinrt/MainPage.cpp" id="SnippetImageControl":::
 
-XAML ページでソフトウェア ビットマップを使用するには、[**Windows.UI.Xaml.Media.Imaging**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Imaging) 名前空間の using 指定を含めます。
+XAML ページでソフトウェア ビットマップを使用するには、[**Windows.UI.Xaml.Media.Imaging**](/uwp/api/Windows.UI.Xaml.Media.Imaging) 名前空間の using 指定を含めます。
 
-[!code-cs[UsingSoftwareBitmapSource](./code/CameraCaptureUIWin10/cs/MainPage.xaml.cs#SnippetUsingSoftwareBitmapSource)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/CameraCaptureUIWin10/cs/MainPage.xaml.cs" id="SnippetUsingSoftwareBitmapSource":::
+:::code language="cppwinrt" source="~/../snippets-windows/windows-uwp/audio-video-camera/CameraCaptureUIWin10/cppwinrt/MainPage.h" id="SnippetUsingSoftwareBitmapSource":::
 
-**イメージ**コントロールを使用するには、イメージソースの BGRA8 形式が、前乗算されたアルファまたはアルファなしである必要があります。 静的メソッドの software [**bitmap. Convert**](/uwp/api/windows.graphics.imaging.softwarebitmap.convert)を呼び出して、目的の形式の新しいソフトウェアビットマップを作成します。 次に、新しい software [**bitmapsource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Imaging.SoftwareBitmapSource)オブジェクトを作成し、 [**setbitmapasync**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.softwarebitmapsource.setbitmapasync)を呼び出して、ソフトウェアビットマップをソースに割り当てます。 最後に、キャプチャした写真を UI に表示できるように、**Image** コントロールの [**Source**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.image.source) プロパティを設定します。
+**イメージ**コントロールを使用するには、イメージソースの BGRA8 形式が、前乗算されたアルファまたはアルファなしである必要があります。 静的メソッドの software [**bitmap. Convert**](/uwp/api/windows.graphics.imaging.softwarebitmap.convert)を呼び出して、目的の形式の新しいソフトウェアビットマップを作成します。 次に、新しい software [**bitmapsource**](/uwp/api/Windows.UI.Xaml.Media.Imaging.SoftwareBitmapSource)オブジェクトを作成し、 [**setbitmapasync**](/uwp/api/windows.ui.xaml.media.imaging.softwarebitmapsource.setbitmapasync)を呼び出して、ソフトウェアビットマップをソースに割り当てます。 最後に、キャプチャした写真を UI に表示できるように、**Image** コントロールの [**Source**](/uwp/api/windows.ui.xaml.controls.image.source) プロパティを設定します。
 
-[!code-cs[SetImageSource](./code/CameraCaptureUIWin10/cs/MainPage.xaml.cs#SnippetSetImageSource)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/CameraCaptureUIWin10/cs/MainPage.xaml.cs" id="SnippetSetImageSource":::
+:::code language="cppwinrt" source="~/../snippets-windows/windows-uwp/audio-video-camera/CameraCaptureUIWin10/cppwinrt/MainPage.cpp" id="SnippetSetImageSource":::
 
 ## <a name="capture-a-video-with-cameracaptureui"></a>CameraCaptureUI を使ったビデオのキャプチャ
 
-ビデオをキャプチャするには、新しい [**CameraCaptureUI**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.CameraCaptureUI) オブジェクトを作成します。 オブジェクトの[**Videosettings**](https://docs.microsoft.com/uwp/api/windows.media.capture.cameracaptureui.videosettings)プロパティを使用して、ビデオの形式など、返されるビデオのプロパティを指定できます。
+ビデオをキャプチャするには、新しい [**CameraCaptureUI**](/uwp/api/Windows.Media.Capture.CameraCaptureUI) オブジェクトを作成します。 オブジェクトの[**Videosettings**](/uwp/api/windows.media.capture.cameracaptureui.videosettings)プロパティを使用して、ビデオの形式など、返されるビデオのプロパティを指定できます。
 
-[**CaptureFileAsync**](https://docs.microsoft.com/uwp/api/windows.media.capture.cameracaptureui.capturefileasync)を呼び出し、ビデオをキャプチャする[**ビデオ**](https://docs.microsoft.com/uwp/api/windows.media.capture.cameracaptureui.videosettings)を指定します。 キャプチャに成功すると、このメソッドは、ビデオが格納された [**StorageFile**](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageFile) インスタンスを返します。 キャプチャをキャンセルした場合、返されるオブジェクトは null になります。
+[**CaptureFileAsync**](/uwp/api/windows.media.capture.cameracaptureui.capturefileasync)を呼び出し、ビデオをキャプチャする[**ビデオ**](/uwp/api/windows.media.capture.cameracaptureui.videosettings)を指定します。 キャプチャに成功すると、このメソッドは、ビデオが格納された [**StorageFile**](/uwp/api/Windows.Storage.StorageFile) インスタンスを返します。 キャプチャをキャンセルした場合、返されるオブジェクトは null になります。
 
-[!code-cs[CaptureVideo](./code/CameraCaptureUIWin10/cs/MainPage.xaml.cs#SnippetCaptureVideo)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/CameraCaptureUIWin10/cs/MainPage.xaml.cs" id="SnippetCaptureVideo":::
+:::code language="cppwinrt" source="~/../snippets-windows/windows-uwp/audio-video-camera/CameraCaptureUIWin10/cppwinrt/MainPage.cpp" id="SnippetCaptureVideo":::
 
 キャプチャしたビデオ ファイルをどのように使うかは、アプリのシナリオによって異なります。 この記事の残りの部分では、キャプチャした 1 つ以上のビデオからメディア コンポジションをすばやく作成し、UI に表示する方法を説明します。
 
-まず、XAML ページにビデオコンポジションが表示される[**MediaPlayerElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.MediaPlayerElement)コントロールを追加します。
+まず、XAML ページにビデオコンポジションが表示される[**MediaPlayerElement**](/uwp/api/Windows.UI.Xaml.Controls.MediaPlayerElement)コントロールを追加します。
 
-[!code-xml[MediaElement](./code/CameraCaptureUIWin10/cs/MainPage.xaml#SnippetMediaElement)]
+:::code language="xml" source="~/../snippets-windows/windows-uwp/audio-video-camera/CameraCaptureUIWin10/cs/MainPage.xaml" id="SnippetMediaElement":::
 
+カメラキャプチャ UI からビデオファイルが返されたら、 **[CreateFromStorageFile](/uwp/api/windows.media.core.mediasource.createfromstoragefile)** を呼び出して新しい[**mediasource**](/uwp/api/windows.media.core.mediasource)を作成します。 **MediaPlayerElement** に関連付けられている既定の **[MediaPlayer](/uwp/api/windows.media.playback.mediaplayer)** の **[Play](/uwp/api/windows.media.playback.mediaplayer.Play)** メソッドを呼び出してビデオを再生します。
 
-カメラキャプチャ UI からビデオファイルが返されたら、 **[CreateFromStorageFile](https://docs.microsoft.com/uwp/api/windows.media.core.mediasource.createfromstoragefile)** を呼び出して新しい[**mediasource**](https://docs.microsoft.com/uwp/api/windows.media.core.mediasource)を作成します。 **MediaPlayerElement** に関連付けられている既定の **[MediaPlayer](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplayer)** の **[Play](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplayer.Play)** メソッドを呼び出してビデオを再生します。
-
-[!code-cs[PlayVideo](./code/CameraCaptureUIWin10/cs/MainPage.xaml.cs#SnippetPlayVideo)]
- 
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/CameraCaptureUIWin10/cs/MainPage.xaml.cs" id="SnippetPlayVideo":::
+:::code language="cppwinrt" source="~/../snippets-windows/windows-uwp/audio-video-camera/CameraCaptureUIWin10/cppwinrt/MainPage.cpp" id="SnippetPlayVideo":::
 
 ## <a name="related-topics"></a>関連トピック
 
 * [カメラ](camera.md)
-* [MediaCapture を使用した基本的な写真、ビデオ、オーディオキャプチャ](basic-photo-video-and-audio-capture-with-MediaCapture.md)
-* [**CameraCaptureUI**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.CameraCaptureUI) 
- 
-
- 
-
-
-
-
+* [MediaCapture を使った基本的な写真、ビデオ、およびオーディオのキャプチャ](basic-photo-video-and-audio-capture-with-MediaCapture.md)
+* [CameraCaptureUI](/uwp/api/Windows.Media.Capture.CameraCaptureUI)
