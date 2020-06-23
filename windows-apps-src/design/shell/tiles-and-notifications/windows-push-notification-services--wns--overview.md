@@ -7,20 +7,20 @@ ms.date: 03/06/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: e4a0a2d532341e76d6ff74dda9b6b6a8638c77fd
-ms.sourcegitcommit: b398966fc052b232e03f2e32512a48d3a4444b8c
+ms.openlocfilehash: fa70346dc6033ac1f879a1c2429c3c4222b8c0ec
+ms.sourcegitcommit: 368660812e143de5def5e5328a2eadb178cd5544
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80367676"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85129109"
 ---
 # <a name="windows-push-notification-services-wns-overview"></a>Windows プッシュ通知サービス (WNS) の概要 
 
 Windows プッシュ Notification Services (WNS) を使用すると、サードパーティの開発者は、独自のクラウドサービスからトースト、タイル、バッジ、生の更新プログラムを送信できます。 これにより、新しい更新を電力効率に優れた信頼できる方法でユーザーに配信するためのメカニズムが提供されます。
 
-## <a name="how-it-works"></a>方法
+## <a name="how-it-works"></a>しくみ
 
-次の図に、プッシュ通知を送るときの全体のデータ フローを示します。 次の手順で行われます。
+次の図に、プッシュ通知を送るときの全体のデータ フローを示します。 以下のステップが関係します。
 
 1.  アプリは WNS からプッシュ通知チャネルを要求します。
 2.  Windows が、通知チャネルを作成するように WNS に要求します。 このチャネルは、Uniform Resource Identifier (URI) の形式で呼び出し元のデバイスに返されます。
@@ -42,7 +42,7 @@ WNS を使って通知を送るには、アプリをストア ダッシュボー
 WNS を使用して通知を送信するには、アプリがパートナーセンターのダッシュボードに登録されている必要があります。 これにより、WNS に対する認証を行うときにクラウド サービスで使うアプリの資格情報が提供されます。 これらの資格情報は、パッケージ セキュリティ識別子 (SID) と秘密鍵で構成されます。 この登録を実行するには、[パートナーセンター](https://partner.microsoft.com/dashboard)にサインインします。 アプリを作成した後、資格情報を取得する方法については、「[製品管理-WNS/MPNS](https://apps.dev.microsoft.com/) for instrunctions」を参照してください (live services ソリューションを使用する場合は、このページの**live services サイト**リンクに従ってください)。
 
 登録するには、次の手順を実行します。
-1.    パートナーセンターの [Windows ストアアプリ] ページにアクセスし、個人用 Microsoft アカウント (例: johndoe@outlook.com、janedoe@xboxlive.com) を使用してサインインします。
+1.    パートナーセンターの [Windows ストアアプリ] ページにアクセスし、個人の Microsoft アカウント (例:、) でサインインし johndoe@outlook.com janedoe@xboxlive.com ます。
 2.    サインインしたら、[ダッシュボード] リンクをクリックします。
 3.    ダッシュボードで、[新しいアプリの作成] を選択します。
 
@@ -84,11 +84,11 @@ WNS を使用して通知を送信するには、アプリがパートナーセ�
 
 アプリでは、チャネルの URI の作成が正常に完了すると、その URI に関連付けられるアプリ固有のメタデータと一緒にクラウド サービスに送ります。
 
-### <a name="important-notes"></a>重要な注意
+### <a name="important-notes"></a>重要
 
--   アプリの通知チャネルの URI は、常に同じであるとは限りません。 アプリを実行するたびに新しいチャネルを要求し、URI が変更されたらサービスを更新することをお勧めします。 チャネルの URI の文字列はブラック ボックスと見なし、変更しないようにしてください。 現時点で、チャネルの URI は 30 日が経過すると有効期限切れになります。 Windows 10 アプリがバックグラウンドでチャネルを定期的に更新する場合は、Windows 8.1 の[プッシュ通知と定期的な通知のサンプル](https://code.msdn.microsoft.com/windowsapps/push-and-periodic-de225603)をダウンロードして、そのソースコードまたはその中で示されているパターンを再利用することができます。
+-   アプリの通知チャネルの URI は、常に同じであるとは限りません。 アプリを実行するたびに新しいチャネルを要求し、URI が変更されたらサービスを更新することをお勧めします。 チャネルの URI の文字列はブラック ボックスと見なし、変更しないようにしてください。 現時点で、チャネルの URI は 30 日が経過すると有効期限切れになります。 Windows 10 アプリのバックグラウンドでそのチャネルを定期的に更新する場合は、Windows 8.1 の[プッシュ通知と定期的な通知のサンプル](https://code.msdn.microsoft.com/windowsapps/push-and-periodic-de225603)をダウンロードし、紹介されているソース コードやパターンを再利用することができます。
 -   クラウド サービスとクライアント アプリの間のインターフェイスは開発者が実装します。 独自のサービスに対するアプリの認証プロセスでは、データの送信に HTTPS などのセキュリティで保護されたプロトコルを使うことをお勧めします。
--   クラウド サービスでは、チャネルの URI で必ず "notify.windows.com" ドメインを使うことが重要です。 他のドメインのチャネルに通知をプッシュしないでください。 アプリのコールバックが侵害された場合、悪意のある攻撃者によってチャネルの URI が送信され、WNS がなりすまされるおそれがあります。 ドメインを調べないと、そのような攻撃者に対して、気付かないうちに情報を開示してしまう可能性があります。
+-   クラウド サービスでは、チャネルの URI で必ず "notify.windows.com" ドメインを使うことが重要です。 他のドメインのチャネルに通知をプッシュしないでください。 アプリのコールバックが侵害された場合、悪意のある攻撃者によってチャネルの URI が送信され、WNS がなりすまされるおそれがあります。 ドメインを検査しないと、クラウドサービスがこの攻撃者に知らずに情報を開示する可能性があります。
 -   クラウド サービスが期限切れのチャネルに通知を配信しようとすると、WNS は[応答コード 410](https://docs.microsoft.com/previous-versions/windows/apps/hh465435(v=win.10)) を返します。 このコードを受け取った後、サービスはその URI に対して通知を送らないようにする必要があります。
 
 ## <a name="authenticating-your-cloud-service"></a>クラウド サービスの認証
@@ -104,7 +104,7 @@ WNS の認証方式は、[OAuth 2.0](https://tools.ietf.org/html/draft-ietf-oaut
 
 ![クラウド サービス認証の WNS の図](images/wns-diagram-02.jpg)
 
-WNS に対する認証では、クラウド サービスからの HTTP 要求の送信に Secure Sockets Layer (SSL) を使います。 パラメーターの形式は "application/x-www-for-urlencoded" です。 次の例に示すように、[クライアント\_id] フィールドにパッケージ SID を指定し、[クライアント\_シークレット] フィールドに秘密キーを入力します。 構文について詳しくは、[アクセス トークン要求](https://docs.microsoft.com/previous-versions/windows/apps/hh465435(v=win.10))のリファレンスをご覧ください。
+WNS に対する認証では、クラウド サービスからの HTTP 要求の送信に Secure Sockets Layer (SSL) を使います。 パラメーターの形式は "application/x-www-for-urlencoded" です。 次の例に示すように、[クライアント id] フィールドにパッケージ SID を指定し、 \_ [クライアントシークレット] フィールドに秘密キーを入力し \_ ます。 構文について詳しくは、[アクセス トークン要求](https://docs.microsoft.com/previous-versions/windows/apps/hh465435(v=win.10))のリファレンスをご覧ください。
 
 > [!NOTE]
 > これはほんの一例です。独自のコードで正常に使用できる切り取りと貼り付けのコードではありません。 
@@ -134,7 +134,7 @@ WNS はクラウド サービスを認証し、成功した場合、"200 OK" と
  }
 ```
 
-### <a name="important-notes"></a>重要な注意
+### <a name="important-notes"></a>重要
 
 -   この手順でサポートされる OAuth 2.0 プロトコルは、草案の第 16 版に準拠したものです。
 -   OAuth の Request for Comments (RFC) では、クラウド サービスのことを "クライアント" と表現しています。
@@ -172,7 +172,7 @@ WNS はクラウド サービスを認証し、成功した場合、"200 OK" と
 
 ![通知送信の WNS の図](images/wns-diagram-03.jpg)
 
-### <a name="important-notes"></a>重要な注意
+### <a name="important-notes"></a>重要
 
 -   WNS では、通知の信頼性や待機時間については保証されません。
 -   機密データや重要なデータは通知に含めないでください。
@@ -194,21 +194,21 @@ WNS はクラウド サービスを認証し、成功した場合、"200 OK" と
 ## <a name="push-notifications-and-battery-saver"></a>プッシュ通知とバッテリー セーバー
 
 
-バッテリー セーバーは、デバイスでのバックグラウンド アクティビティを制限することでバッテリーの寿命を延ばします。 Windows 10 では、バッテリが指定したしきい値を下回ったときに、ユーザーが自動的に電源をオンにするように設定できます。 バッテリー セーバーがオンのときは、電力を節約するため、プッシュ通知の受信は無効になります。 ただし、これにはいくつかの例外があります。 次の Windows 10 のバッテリ節約設定 (**設定**アプリにあります) を使用すると、バッテリセーバーが有効になっている場合でも、アプリでプッシュ通知を受信できます。
+バッテリー セーバーは、デバイスでのバックグラウンド アクティビティを制限することでバッテリーの寿命を延ばします。 Windows 10 を使うと、バッテリーが指定されたしきい値を下回ったときに、ユーザーは自動的にバッテリー セーバーをオンになるように設定することができます。 バッテリー セーバーがオンのときは、電力を節約するため、プッシュ通知の受信は無効になります。 ただし、これにはいくつかの例外があります。 次の Windows 10 バッテリ セーバー設定 (**[設定]** アプリにあります) により、バッテリ セーバーがオンになっているときでも、プッシュ通知を受け取ることができます。
 
--   **[バッテリー節約機能がオンのときも、すべてのアプリケーションからのプッシュ通知を許可する]** : この設定では、バッテリー節約機能がオンになっているときでも、すべてのアプリがプッシュ通知を受け取ることができます。 この設定は、デスクトップのエディション (Home、Pro、Enterprise、および教育) に対してのみ適用されることに注意してください。
+-   **[バッテリー節約機能がオンのときも、すべてのアプリケーションからのプッシュ通知を許可する]**: この設定では、バッテリー節約機能がオンになっているときでも、すべてのアプリがプッシュ通知を受け取ることができます。 この設定が適用されるのは、デスクトップ エディション (Home、Pro、Enterprise、Education の各エディション) 用 Windows 10 のみです。
 -   **Always allowed**: この設定では、バッテリ セーバーがオンになっているときでも、プッシュ通知の受け取りを含めて、バックグラウンドで特定のアプリを実行できます。 この一覧は、ユーザーによって手動で管理されます。
 
-これら 2 つの設定の状態を確認する方法はありませんが、バッテリ セーバーの状態を確認することはできます。 Windows 10 では、 [**EnergySaverStatus**](https://docs.microsoft.com/uwp/api/Windows.System.Power.PowerManager.EnergySaverStatus)プロパティを使用して、バッテリセーバーの状態を確認します。 アプリでは、[**EnergySaverStatusChanged**](https://docs.microsoft.com/uwp/api/Windows.System.Power.PowerManager.EnergySaverStatusChanged) イベントを使って、バッテリ セーバーの変更をリッスンすることもできます。
+これら 2 つの設定の状態を確認する方法はありませんが、バッテリ セーバーの状態を確認することはできます。 Windows 10 では、[**EnergySaverStatus**](https://docs.microsoft.com/uwp/api/Windows.System.Power.PowerManager.EnergySaverStatus) プロパティを使って、バッテリ セーバーの状態を確認します。 アプリでは、[**EnergySaverStatusChanged**](https://docs.microsoft.com/uwp/api/Windows.System.Power.PowerManager.EnergySaverStatusChanged) イベントを使って、バッテリ セーバーの変更をリッスンすることもできます。
 
-アプリがプッシュ通知を多用している場合は、バッテリ セーバーがオンの時は通知を受け取らないことをユーザーに通知し、**バッテリ セーバーの設定**を簡単に調整できるようにすることをお勧めします。 Windows 10 の `ms-settings:batterysaver-settings`のバッテリ節約設定の URI スキームを使用して、設定アプリへの便利なリンクを提供することができます。
+アプリがプッシュ通知を多用している場合は、バッテリ セーバーがオンの時は通知を受け取らないことをユーザーに通知し、**バッテリ セーバーの設定**を簡単に調整できるようにすることをお勧めします。 Windows 10 でバッテリ セーバー設定の URI スキーム `ms-settings:batterysaver-settings` を使って、設定アプリへの便利なリンクを提供することができます。
 
 > [!TIP]
 > バッテリの節約設定についてユーザーに通知する場合は、今後メッセージを表示しないようにする方法を用意することをお勧めします。 たとえば、次の例の [`dontAskMeAgainBox`] チェックボックスは、[**LocalSettings**](https://docs.microsoft.com/uwp/api/Windows.Storage.ApplicationData.LocalSettings) でユーザーの設定を保持します。
 
  
 
-Windows 10 でバッテリ節約が有効になっているかどうかを確認する方法の例を次に示します。 この例では、ユーザーに通知し、[設定] アプリを**バッテリ セーバー設定**で起動します。 `dontAskAgainSetting` により、ユーザーは再度通知を表示しないようにする場合に、メッセージを非表示にすることができます。
+Windows 10 でバッテリー セーバーがオンになっているかどうかを確認する方法の例を示します。 この例では、ユーザーに通知し、[設定] アプリを**バッテリ セーバー設定**で起動します。 `dontAskAgainSetting` により、ユーザーは再度通知を表示しないようにする場合に、メッセージを非表示にすることができます。
 
 ```cs
 using System;
@@ -279,13 +279,13 @@ async public void CheckForEnergySaving()
 
 
 * [ローカル タイル通知の送信](sending-a-local-tile-notification.md)
-* [クイックスタート: プッシュ通知の送信](https://docs.microsoft.com/previous-versions/windows/apps/hh868252(v=win.10))
+* [クイック スタート: プッシュ通知の送信](https://docs.microsoft.com/previous-versions/windows/apps/hh868252(v=win.10))
 * [プッシュ通知を使用してバッジを更新する方法](https://docs.microsoft.com/previous-versions/windows/apps/hh465450(v=win.10))
-* [通知チャネルを要求、作成、および保存する方法](https://docs.microsoft.com/previous-versions/windows/apps/hh465412(v=win.10))
-* [実行中のアプリケーションの通知をインターセプトする方法](https://docs.microsoft.com/previous-versions/windows/apps/jj709907(v=win.10))
-* [Windows プッシュ通知サービス (WNS) を使用して認証する方法](https://docs.microsoft.com/previous-versions/windows/apps/hh465407(v=win.10))
-* [プッシュ通知サービスの要求と応答のヘッダー](https://docs.microsoft.com/previous-versions/windows/apps/hh465435(v=win.10))
-* [プッシュ通知のガイドラインとチェックリスト](https://docs.microsoft.com/windows/uwp/controls-and-patterns/tiles-and-notifications-windows-push-notification-services--wns--overview)
+* [通知チャネルを要求、作成、保存する方法](https://docs.microsoft.com/previous-versions/windows/apps/hh465412(v=win.10))
+* [実行中のアプリの通知を中断する方法](https://docs.microsoft.com/previous-versions/windows/apps/jj709907(v=win.10))
+* [Windows プッシュ通知サービス (WNS) に対して認証する方法](https://docs.microsoft.com/previous-versions/windows/apps/hh465407(v=win.10))
+* [プッシュ通知サービスの要求ヘッダーと応答ヘッダー](https://docs.microsoft.com/previous-versions/windows/apps/hh465435(v=win.10))
+* [プッシュ通知のガイドラインとチェック リスト](https://docs.microsoft.com/windows/uwp/controls-and-patterns/tiles-and-notifications-windows-push-notification-services--wns--overview)
 * [直接通知](https://docs.microsoft.com/previous-versions/windows/apps/hh761488(v=win.10))
  
 
