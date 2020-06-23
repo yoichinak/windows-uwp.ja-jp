@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, ネットワーク, DirectX
 ms.localizationpriority: medium
-ms.openlocfilehash: d2d1487c708b8618feec5cb735fb8af260608e00
-ms.sourcegitcommit: 0f2ae8f97daac440c8e86dc07d11d356de29515c
+ms.openlocfilehash: 005dc30bc71d6d9087a3cc15880ffa3936d0a7f7
+ms.sourcegitcommit: 22ed0d4edad5e6bab352e641cf86cf455cf83825
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83280272"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85133965"
 ---
 # <a name="networking-for-games"></a>ゲームのネットワーク
 
@@ -378,7 +378,7 @@ using namespace Windows::Web::Http;
 * [ネットワーク分離機能を構成する方法](https://docs.microsoft.com/previous-versions/windows/apps/hh770532(v=win.10))
 * [ループバックを有効にする方法とネットワーク分離のトラブルシューティングを行う方法](https://docs.microsoft.com/previous-versions/windows/apps/hh780593(v=win.10))
 
-**参照**
+**リファレンス**
 
 * [**DatagramSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.DatagramSocket)
 * [**HttpClient**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpClient)
@@ -389,6 +389,6 @@ using namespace Windows::Web::Http;
 **サンプル**
 
 * [DatagramSocket のサンプル](https://github.com/microsoft/VCSamples/tree/master/VC2012Samples/Windows%208%20samples/C%2B%2B/Windows%208%20app%20samples/ControlChannelTrigger%20StreamSocket%20sample%20(Windows%208))
-* [HttpClient のサンプル]( https://code.msdn.microsoft.com/windowsapps/HttpClient-sample-55700664)
+* [HttpClient のサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/master/Official%20Windows%20Platform%20Sample/HttpClient%20sample)
 * [近接通信のサンプル](https://github.com/microsoft/VCSamples/tree/master/VC2012Samples/Windows%208%20samples/C%2B%2B/Windows%208%20app%20samples/Proximity%20sample%20(Windows%208))
 * [StreamSocket のサンプル](https://code.msdn.microsoft.com/windowsapps/StreamSocket-Sample-8c573931)
