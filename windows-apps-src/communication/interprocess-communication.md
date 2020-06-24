@@ -4,12 +4,12 @@ description: このトピックでは、ユニバーサル Windows プラット�
 ms.date: 03/23/2020
 ms.topic: article
 keywords: windows 10, uwp
-ms.openlocfilehash: 2407a54439157be16b186b48759746238962f8b4
-ms.sourcegitcommit: 2d375e1c34473158134475af401532cc55fc50f4
+ms.openlocfilehash: 5db029db3ffb538802f39aa616c96dbe75601eac
+ms.sourcegitcommit: bf7d4f6739aeeaac735aae3dd0dcbda63a8c5e69
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80888510"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85256382"
 ---
 # <a name="interprocess-communication-ipc"></a>プロセス間通信 (IPC)
 
@@ -23,17 +23,17 @@ App services は、バックグラウンドタスクとして、またはフォ�
 
 App services は、ほぼリアルタイムの待機時間を必要としない、少量のデータを共有する場合に最適です。
 
-## <a name="com"></a>COM
+## <a name="com"></a>COM (COM)
 
 [COM](/windows/win32/com/component-object-model--com--portal)は、相互作用および通信を可能にするバイナリソフトウェアコンポーネントを作成するための分散オブジェクト指向システムです。 開発者は、COM を使用して、アプリケーションの再利用可能なソフトウェアコンポーネントとオートメーションレイヤーを作成します。 COM コンポーネントは、プロセス内またはプロセス外に配置でき、[クライアントとサーバー](/windows/win32/com/com-clients-and-servers)のモデルを介して通信できます。 アウトプロセス COM サーバーは、[オブジェクト間通信](/windows/win32/com/inter-object-communication)の手段として長期間使用されています。
 
 [Runfulltrust](/windows/uwp/packaging/app-capability-declarations#restricted-capabilities)機能を備えたパッケージアプリケーションでは、[パッケージマニフェスト](/uwp/schemas/appxpackage/uapmanifestschema/element-com-extension)を使用して IPC 用のアウトプロセス COM サーバーを登録できます。 これは、[パッケージ COM](https://blogs.windows.com/windowsdeveloper/2017/04/13/com-server-ole-document-support-desktop-bridge/)と呼ばれます。
 
-## <a name="filesystem"></a>ファイル システム
+## <a name="filesystem"></a>ファイルシステム
 
 ### <a name="broadfilesystemaccess"></a>BroadFileSystemAccess
 
-パッケージ化されたアプリケーションは、 [broadFileSystemAccess](/windows/uwp/files/file-access-permissions#accessing-additional-locations)制限機能を宣言することで、広範なファイルシステムを使用して IPC を実行できます。
+パッケージ化されたアプリケーションは、 [broadFileSystemAccess](/windows/uwp/files/file-access-permissions#accessing-additional-locations)制限機能を宣言することで、広範なファイルシステムを使用して IPC を実行できます。 この機能により、 [Windows の Storage](/uwp/api/Windows.Storage) Api と[xxx Fromapp](/previous-versions/windows/desktop/legacy/mt846585(v=vs.85)) Win32 api が広範なファイルシステムにアクセスできるようになります。
 
 既定では、パッケージアプリケーションのファイルシステムを介した IPC は、このセクションで説明する他のメカニズムに限定されます。
 
@@ -73,25 +73,25 @@ App services は、ほぼリアルタイムの待機時間を必要としない�
 
 セキュリティとネットワークの分離を維持するために、IPC のループバック接続は、パッケージアプリケーションでは既定でブロックされます。 信頼されたパッケージアプリケーション間のループバック接続は、[機能](/previous-versions/windows/apps/hh770532(v=win.10))と[マニフェストのプロパティ](/uwp/schemas/appxpackage/uapmanifestschema/element-uap4-loopbackaccessrules)を使用して有効にすることができます。
 
-* ループバック接続に参加するすべてのパッケージ化されたアプリケーションは、[パッケージマニフェスト](/uwp/schemas/appxpackage/uapmanifestschema/element-capability)で `privateNetworkClientServer` 機能を宣言する必要があります。
+* ループバック接続に参加するすべてのパッケージアプリケーションは、 `privateNetworkClientServer` [パッケージマニフェスト](/uwp/schemas/appxpackage/uapmanifestschema/element-capability)で機能を宣言する必要があります。
 * パッケージマニフェスト内で[LoopbackAccessRules](/uwp/schemas/appxpackage/uapmanifestschema/element-uap4-loopbackaccessrules)を宣言することで、2つのパッケージ化されたアプリケーションがループバック経由で通信できるようになります。
     * 各アプリケーションは、 [LoopbackAccessRules](/uwp/schemas/appxpackage/uapmanifestschema/element-uap4-loopbackaccessrules)内の他のアプリケーションを一覧表示する必要があります。 クライアントはサーバーに対して "out" 規則を宣言し、サーバーはサポートされているクライアントの "in" 規則を宣言します。
 
 > [!NOTE]
 > これらの規則でアプリケーションを識別するために必要なパッケージファミリ名は、開発時に Visual Studio のパッケージマニフェストエディターを使用するか、Microsoft Store で公開されたアプリケーションの[パートナーセンター](/windows/uwp/publish/view-app-identity-details)を通じて、または既にインストールされているアプリケーションの[get-appxpackage](/powershell/module/appx/get-appxpackage?view=win10-ps) PowerShell コマンドを使用して見つけることができます。
 
-パッケージ化されていないアプリケーションやサービスには、パッケージ id がないため、 [LoopbackAccessRules](/uwp/schemas/appxpackage/uapmanifestschema/element-uap4-loopbackaccessrules)で宣言することはできません。 [CheckNetIsolation](/previous-versions/windows/apps/hh780593(v=win.10))を介してパッケージ化されていないアプリケーションやサービスとループバック経由で接続するようにパッケージアプリケーションを構成できますが、これは、コンピューターへのローカルアクセスがあるサイドロードまたはデバッグシナリオでのみ可能で、管理者特権が与えられています。
+パッケージ化されていないアプリケーションやサービスには、パッケージ id がないため、 [LoopbackAccessRules](/uwp/schemas/appxpackage/uapmanifestschema/element-uap4-loopbackaccessrules)で宣言することはできません。 パッケージ化されたアプリケーションを[CheckNetIsolation.exe](/previous-versions/windows/apps/hh780593(v=win.10))経由でアンパッケージされたアプリケーションやサービスと共にループバック経由で接続するように構成できますが、これが可能なのは、コンピューターへのローカルアクセスを持つサイドロードまたはデバッグのシナリオと、管理者特権がある場合のみです。
 
-* ループバック接続に参加するすべてのパッケージアプリケーションは、[パッケージマニフェスト](/uwp/schemas/appxpackage/uapmanifestschema/element-capability)で `privateNetworkClientServer` 機能を宣言する必要があります。
-* パッケージ化されたアプリケーションが、パッケージ化されていないアプリケーションまたはサービスに接続している場合は、`CheckNetIsolation.exe LoopbackExempt -a -n=<PACKAGEFAMILYNAME>` を実行して、パッケージアプリケーションのループバックの除外を追加します。
-* パッケージ化されていないアプリケーションまたはサービスがパッケージアプリケーションに接続している場合は、`CheckNetIsolation.exe LoopbackExempt -is -n=<PACKAGEFAMILYNAME>` を実行して、パッケージ化されたアプリケーションが受信ループバック接続を受信できるようにします。
-    * [CheckNetIsolation](/previous-versions/windows/apps/hh780593(v=win.10))は、パッケージアプリケーションが接続をリッスンしている間、継続的に実行されている必要があります。
-    * `-is` フラグは、Windows 10 バージョン1607で導入されました (10.0;ビルド 14393)。
+* ループバック接続に参加するすべてのパッケージアプリケーションは、 `privateNetworkClientServer` [パッケージマニフェスト](/uwp/schemas/appxpackage/uapmanifestschema/element-capability)で機能を宣言する必要があります。
+* パッケージ化されたアプリケーションが、パッケージ化されていないアプリケーションまたはサービスに接続している場合は、を実行して、 `CheckNetIsolation.exe LoopbackExempt -a -n=<PACKAGEFAMILYNAME>` パッケージアプリケーションのループバックの除外対象を追加します。
+* パッケージ化されていないアプリケーションまたはサービスがパッケージアプリケーションに接続している場合は、を実行し `CheckNetIsolation.exe LoopbackExempt -is -n=<PACKAGEFAMILYNAME>` て、パッケージ化されたアプリケーションが受信ループバック接続を受信できるようにします。
+    * [CheckNetIsolation.exe](/previous-versions/windows/apps/hh780593(v=win.10))は、パッケージアプリケーションが接続をリッスンしている間、継続的に実行されている必要があります。
+    * この `-is` フラグは、Windows 10 バージョン1607で導入されました (10.0;ビルド 14393)。
 
 > [!NOTE]
-> [CheckNetIsolation](/previous-versions/windows/apps/hh780593(v=win.10))の `-n` フラグに必要なパッケージファミリ名は、開発時に Visual Studio のパッケージマニフェストエディターを使用するか、Microsoft Store を通じて発行されたアプリケーションの[パートナーセンター](/windows/uwp/publish/view-app-identity-details)を通じて、または既にインストールされているアプリケーションの[get-appxpackage](/powershell/module/appx/get-appxpackage?view=win10-ps) PowerShell コマンドを使用して見つけることができます。
+> CheckNetIsolation.exeのフラグに必要なパッケージファミリ名は、 `-n` 開発時に Visual Studio のパッケージマニフェストエディターを使用するか、Microsoft Store を通じて発行されたアプリケーションの[パートナーセンター](/windows/uwp/publish/view-app-identity-details)を通じて、または既にインストールされているアプリケーションの[get-appxpackage](/powershell/module/appx/get-appxpackage?view=win10-ps) PowerShell コマンドを使用して見つけることができます。 [CheckNetIsolation.exe](/previous-versions/windows/apps/hh780593(v=win.10))
 
-[CheckNetIsolation](/previous-versions/windows/apps/hh780593(v=win.10))は、ネットワークの分離の[問題をデバッグ](/previous-versions/windows/apps/hh780593(v=win.10)#debug-network-isolation-issues)する場合にも役立ちます。
+[CheckNetIsolation.exe](/previous-versions/windows/apps/hh780593(v=win.10))は、ネットワークの[分離に関する問題をデバッグ](/previous-versions/windows/apps/hh780593(v=win.10)#debug-network-isolation-issues)する場合にも役立ちます。
 
 ## <a name="pipes"></a>パイプ
 
@@ -101,9 +101,9 @@ App services は、ほぼリアルタイムの待機時間を必要としない�
 
 * 既定では、パッケージアプリケーションの名前付きパイプは、プロセスが完全に信頼されていない限り、同じパッケージ内のプロセス間でのみサポートされます。
 * 名前付きパイプは、[名前付きオブジェクトを共有](/windows/uwp/communication/sharing-named-objects)するためのガイドラインに従って、パッケージ間で共有できます。
-* パッケージ化されたアプリケーションの名前付きパイプでは、パイプ名に `\\.\pipe\LOCAL\` 構文を使用する必要があります。
+* パッケージ化されたアプリケーションの名前付きパイプでは、パイプ名の構文を使用する必要があり `\\.\pipe\LOCAL\` ます。
 
-## <a name="registry"></a>［レジストリ］
+## <a name="registry"></a>レジストリ
 
 IPC の[レジストリ](/windows/win32/sysinfo/registry-functions)の使用は一般に推奨されていませんが、既存のコードではサポートされています。 パッケージ化されたアプリケーションは、アクセス許可のあるレジストリキーのみにアクセスできます。
 
