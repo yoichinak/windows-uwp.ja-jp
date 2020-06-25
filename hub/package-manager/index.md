@@ -1,17 +1,15 @@
 ---
 title: Windows パッケージ マネージャー
-description: ''
-author: denelon
-ms.author: denelon
+description: Windows パッケージ マネージャーは、Windows 10 にアプリケーションをインストールするためのコマンド ライン ツールと一連のサービスで構成される、包括的なパッケージ マネージャー ソリューションです。
 ms.date: 05/03/2020
 ms.topic: overview
 ms.localizationpriority: medium
-ms.openlocfilehash: 4f7a6533d3dea9c304e9be7d8e689ab537a46449
-ms.sourcegitcommit: d0f479f1955881afb62c2af249db5d0b053b63e5
+ms.openlocfilehash: 5b25f2c651e11a5ff97a630bb802b236771f5441
+ms.sourcegitcommit: 4df8c04fc6c22ec76cdb7bb26f327182f2dacafa
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83580099"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85334621"
 ---
 # <a name="windows-package-manager-preview"></a>Windows パッケージ マネージャー (プレビュー)
 
@@ -27,7 +25,7 @@ Windows パッケージ マネージャーは、Windows 10 にアプリケーシ
 
 ## <a name="windows-package-manager-for-isvs"></a>ISV 向け Windows パッケージ マネージャー
 
-独立系ソフトウェア ベンダー (ISV) は、ツールとアプリケーションを含むソフトウェア パッケージの配布チャネルとして Windows パッケージ マネージャーを使用できます。 ソフトウェア パッケージ (.msix、.msi、または .exe インストーラーを含む) を Windows パッケージ マネージャーに送信するために、Microsoft では GitHub にオープン ソースの **Microsoft コミュニティ パッケージ マニフェスト リポジトリ**を提供しています。ISV は、そこに[パッケージ マニフェスト](package/manifest.md)をアップロードし、Windows パッケージ マネージャーに自身のソフトウェア パッケージが含まれるよう検討してもらうことができます。 マニフェストは自動的に検証されますが、手動で確認される場合もあります。
+独立系ソフトウェア ベンダー (ISV) は、ツールとアプリケーションを含むソフトウェア パッケージの配布チャネルとして Windows パッケージ マネージャーを使用できます。 ソフトウェア パッケージ (.msix、.msi、または .exe インストーラーを含む) を Windows パッケージ マネージャーに送信するために、Mirosoft では GitHub にオープン ソースの **Microsoft コミュニティ パッケージ マニフェスト リポジトリ**を提供しています。ISV は、そこに[パッケージ マニフェスト](package/manifest.md)をアップロードし、Windows パッケージ マネージャーに自身のソフトウェア パッケージが含まれるよう検討してもらうことができます。 マニフェストは自動的に検証されますが、手動で確認される場合もあります。
 
 詳細については、[Windows パッケージ マネージャーへのパッケージの送信](package/repository.md)に関するページを参照してください。
 
