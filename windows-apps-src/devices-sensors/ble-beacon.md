@@ -1,26 +1,31 @@
 ---
 title: Bluetooth アドバタイズ
 description: このセクションでは、API の AdvertisementWatcher と AdvertisementPublisher を使って、ユニバーサル Windows プラットフォーム (UWP) アプリに Bluetooth 低エネルギー (LE) アドバタイズを統合する方法に関する記事を取り上げています。
-ms.date: 02/08/2017
+ms.date: 06/26/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: ff10bbc0-03a7-492c-b5fe-c5b9ce8ca32e
 ms.localizationpriority: medium
-ms.openlocfilehash: 2c4bef6045f75992e0fad503ff2a357d52363008
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: 2300871292e08588b0c2124c67a379d403ae53b3
+ms.sourcegitcommit: 015291bdf2e7d67076c1c85fc025f49c840ba475
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74259687"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85469527"
 ---
 # <a name="bluetooth-le-advertisements"></a>Bluetooth LE アドバタイズ
 
 
 **重要な API**
 
--   [**Windows. デバイス. Bluetooth. 提供情報**](https://docs.microsoft.com/uwp/api/windows.devices.bluetooth.advertisement)
+-   [**Windows.Devices.Bluetooth.Advertisement**](https://docs.microsoft.com/uwp/api/windows.devices.bluetooth.advertisement)
 
 この記事では、ユニバーサル Windows プラットフォーム (UWP) アプリ向けの Bluetooth 低エネルギー (LE) アドバタイズ ビーコンの概要を示します。  
+
+> [!Important]
+> *Package.appxmanifest*で "bluetooth" 機能を宣言する必要があります。
+>
+> `<Capabilities> <DeviceCapability Name="bluetooth" /> </Capabilities>`
 
 ## <a name="overview"></a>概要
 
@@ -43,7 +48,7 @@ ms.locfileid: "74259687"
 
 Bluetooth LE アドバタイズでは、デバイスから特定のペイロードを常時ビーコンできます。これをアドバタイズと呼びます。 近接範囲内にあり、この特定のアドバタイズをリッスンするように設定されたすべての Bluetooth LE 対応デバイスは、このアドバタイズを認識できます。
 
-> **注**: ユーザーのプライバシー保護のため、アドバタイズの寿命はアプリの寿命に関連付けられています。 BluetoothLEAdvertisementPublisher を作成し、バックグラウンド タスクで Start を呼び出して、バックグラウンドでアドバタイズを発行できます。 バックグラウンド タスクについて詳しくは、「[起動、再開、バックグラウンド タスク](https://docs.microsoft.com/windows/uwp/launch-resume/index)」をご覧ください。
+> **注**: ユーザーのプライバシーを確保するために、提供情報の有効期間はアプリの有効期間に関連付けられています。 BluetoothLEAdvertisementPublisher を作成し、バックグラウンド タスクで Start を呼び出して、バックグラウンドでアドバタイズを発行できます。 バックグラウンド タスクについて詳しくは、「[起動、再開、バックグラウンド タスク](https://docs.microsoft.com/windows/uwp/launch-resume/index)」をご覧ください。
 
 ### <a name="basic-publishing"></a>基本的なパブリッシュ
 

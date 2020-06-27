@@ -1,29 +1,31 @@
 ---
-title: ゲーム サンプルの紹介
+title: サンプルゲームを拡張する
 description: UWP DirectX ゲームの XAML オーバーレイを実装する方法について説明します。
 keywords: DirectX, XAML
 ms.date: 10/24/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 39fc465a38aa31e86d5c6162c4b333517c9efb4d
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 06b52e5b6fdba1db83c941e770cd49360085accf
+ms.sourcegitcommit: 20969781aca50738792631f4b68326f9171a3980
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66367691"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85409551"
 ---
-# <a name="extend-the-game-sample"></a>ゲーム サンプルの紹介
+# <a name="extend-the-sample-game"></a>サンプルゲームを拡張する
 
-基本的なユニバーサル Windows プラットフォーム (UWP) DirectX 3D ゲームの主なコンポーネントについて説明してきました。 ビュー プロバイダーやレンダリング パイプラインなどのゲームのフレームワークをセットアップして、基本的なゲーム ループを実装することができます。 また、基本的なユーザー インターフェイス オーバーレイの作成、サウンドの組み込み、コントロールの実装を行うこともできます。 これで独自のゲームを作成することができるはずですが、他のヘルプや情報が必要な場合は以下のリソースを参照してください。
+> [!NOTE]
+> このトピックは、「DirectX チュートリアルシリーズ[を含む simple ユニバーサル Windows プラットフォーム (UWP) ゲームの作成](tutorial--create-your-first-uwp-directx-game.md)」に含まれています。 このリンクのトピックでは、系列のコンテキストを設定します。
 
--   [DirectX のグラフィックスとゲーミング](https://docs.microsoft.com/windows/desktop/directx)
--   [Direct3D 11 の概要](https://docs.microsoft.com/windows/desktop/direct3d11/dx-graphics-overviews)
--   [Direct3D の参照を 11](https://docs.microsoft.com/windows/desktop/direct3d11/d3d11-graphics-reference)
+基本的なユニバーサル Windows プラットフォーム (UWP) DirectX 3D ゲームの主なコンポーネントについて説明してきました。 ビュープロバイダーとレンダリングパイプラインを含むゲームのフレームワークを設定し、基本的なゲームループを実装できます。 また、基本的なユーザー インターフェイス オーバーレイの作成、サウンドの組み込み、コントロールの実装を行うこともできます。 これで独自のゲームを作成することができるはずですが、他のヘルプや情報が必要な場合は以下のリソースを参照してください。
+
+-   [DirectX のグラフィックスとゲーム](/windows/desktop/directx)
+-   [Direct3D 11 の概要](/windows/desktop/direct3d11/dx-graphics-overviews)
+-   [Direct3D 11 のリファレンス](/windows/desktop/direct3d11/d3d11-graphics-reference)
 
 ## <a name="using-xaml-for-the-overlay"></a>オーバーレイに XAML を適用
 
-
-ここで詳しく説明していない方法の 1 つとして、オーバーレイに対し [Direct2D](https://docs.microsoft.com/windows/desktop/Direct2D/direct2d-portal) に代わり XAML を使う方法があります。 XAML には、Direct2D に比べ、ユーザー インターフェイス要素を描画するときの利点が数多くあります。 最も重要な利点は、Windows 10 のルック アンド フィールを組み込むより便利な DirectX ゲームです。 UWP アプリを定義する共通した要素、スタイル、動作の多くが XAML モデルに緊密に統合されるため、ゲーム開発者による実装作業がはるかに容易になります。 作成するゲームのデザインに複雑なユーザー インターフェイスが含まれる場合は、Direct2D の代わりに XAML の使用を検討してください。
+詳しく説明しなかったもう1つの方法は、オーバーレイに対して[Direct2D](/windows/desktop/Direct2D/direct2d-portal)ではなく、XAML を使用することです。 XAML には、Direct2D に比べ、ユーザー インターフェイス要素を描画するときの利点が数多くあります。 最も重要な利点は、Windows 10 の外観を DirectX ゲームに統合する作業が容易になるという点です。 UWP アプリを定義する共通した要素、スタイル、動作の多くが XAML モデルに緊密に統合されるため、ゲーム開発者による実装作業がはるかに容易になります。 作成するゲームのデザインに複雑なユーザー インターフェイスが含まれる場合は、Direct2D の代わりに XAML の使用を検討してください。
 
 XAML を使用して、以前に作成した Direct2D のゲーム インターフェイスに似たインターフェイスを作成できます。
 
@@ -37,12 +39,11 @@ XAML を使用して、以前に作成した Direct2D のゲーム インター�
 
 機能 | XAML| Direct2D
 :----------|:----------- | :-----------
-オーバーレイの定義 | XAML ファイル `\*.xaml` で定義されます。 XAML を理解すると、より複雑なオーバーレイの作成や構成は、Direct2D と比べて簡単になります。| Direct2D プリミティブの集合として定義され、[DirectWrite](https://docs.microsoft.com/windows/desktop/DirectWrite/direct-write-portal) 文字列が手作業で配置され、Direct2D ターゲット バッファーに書き込まれます。 
-ユーザー インターフェイス要素 | XAML ユーザー インターフェイス要素は、[**Windows::UI::Xaml**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml) や [**Windows::UI::Xaml::Controls**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls) を含め、Windows ランタイム XAML API の一部である標準化要素から採用されます。 XAML ユーザー インターフェイス要素の動作を処理するコードは、コード ビハインド ファイル、Main.xaml.cpp で定義されます。 | 四角形と楕円のような単純な図形を描画することができます。
+オーバーレイの定義 | XAML ファイル `\*.xaml` で定義されます。 XAML を理解すると、より複雑なオーバーレイの作成や構成は、Direct2D と比べて簡単になります。| Direct2D プリミティブの集合として定義され、[DirectWrite](/windows/desktop/DirectWrite/direct-write-portal) 文字列が手作業で配置され、Direct2D ターゲット バッファーに書き込まれます。 
+ユーザー インターフェイスの要素 | XAML ユーザー インターフェイス要素は、[**Windows::UI::Xaml**](/uwp/api/Windows.UI.Xaml) や [**Windows::UI::Xaml::Controls**](/uwp/api/Windows.UI.Xaml.Controls) を含め、Windows ランタイム XAML API の一部である標準化要素から採用されます。 XAML ユーザー インターフェイス要素の動作を処理するコードは、コード ビハインド ファイル、Main.xaml.cpp で定義されます。 | 四角形と楕円のような単純な図形を描画することができます。
 ウィンドウのサイズ変更 | ハンドルのサイズ変更やビュー状態変更イベントが自然に処理され、これに伴いオーバーレイが変形されます。 | オーバーレイのコンポーネントを再描画する方法を手動で指定する必要があります。
 
-
-もう 1 つの大きな違いは、[スワップ チェーン](https://docs.microsoft.com/windows/uwp/graphics-concepts/swap-chains)です。 スワップ チェーンを [**Windows::UI::Core::CoreWindow**](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow) オブジェクトに結合する必要はありません。 代わりに、新しい [**SwapChainPanel**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.swapchainpanel) オブジェクトの構築時に、XAML を統合する DirectX アプリによりスワップ チェーンが関連付けられます。 
+もう 1 つの大きな違いは、[スワップ チェーン](/windows/uwp/graphics-concepts/swap-chains)です。 スワップ チェーンを [**Windows::UI::Core::CoreWindow**](/uwp/api/windows.ui.core.corewindow) オブジェクトに結合する必要はありません。 代わりに、新しい [**SwapChainPanel**](/uwp/api/windows.ui.xaml.controls.swapchainpanel) オブジェクトの構築時に、XAML を統合する DirectX アプリによりスワップ チェーンが関連付けられます。 
 
 次のスニペットは、[**DirectXPage.xaml**](https://github.com/Microsoft/Windows-universal-samples/blob/6370138b150ca8a34ff86de376ab6408c5587f5d/Samples/Simple3DGameXaml/cpp/DirectXPage.xaml) ファイルで **SwapChainPanel** の XAML を宣言する方法を示しています。
 ```xml
@@ -54,8 +55,6 @@ XAML を使用して、以前に作成した Direct2D のゲーム インター�
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-
-
     <SwapChainPanel x:Name="DXSwapChainPanel">
 
     <!-- ... XAML user controls and elements -->
@@ -64,7 +63,7 @@ XAML を使用して、以前に作成した Direct2D のゲーム インター�
 </Page>
 ```
 
-**SwapChainPanel** オブジェクトは、アプリ シングルトンによる[起動時](https://github.com/Microsoft/Windows-universal-samples/blob/6370138b150ca8a34ff86de376ab6408c5587f5d/Samples/Simple3DGameXaml/cpp/App.xaml.cpp#L45-L51)に作成された現在のウィンドウ オブジェクトの [**Content**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Window.Content) プロパティとして設定されます。
+**SwapChainPanel** オブジェクトは、アプリ シングルトンによる[起動時](https://github.com/Microsoft/Windows-universal-samples/blob/6370138b150ca8a34ff86de376ab6408c5587f5d/Samples/Simple3DGameXaml/cpp/App.xaml.cpp#L45-L51)に作成された現在のウィンドウ オブジェクトの [**Content**](/uwp/api/Windows.UI.Xaml.Window.Content) プロパティとして設定されます。
 
 ```cpp
 void App::OnLaunched(_In_ LaunchActivatedEventArgs^ /* args */)
@@ -77,10 +76,9 @@ void App::OnLaunched(_In_ LaunchActivatedEventArgs^ /* args */)
 }
 ```
 
+XAML で定義された [**SwapChainPanel**](/uwp/api/Windows.UI.Xaml.Controls.SwapChainPanel) パネル インスタンスに、設定済みのスワップ チェーンを結合するには、下層にある固有の [**ISwapChainPanelNative**](/windows/desktop/api/windows.ui.xaml.media.dxinterop/nn-windows-ui-xaml-media-dxinterop-iswapchainpanelnative) インターフェイス実装に対するポインターを取得し、これに [**ISwapChainPanelNative::SetSwapChain**](/windows/desktop/api/windows.ui.xaml.media.dxinterop/nf-windows-ui-xaml-media-dxinterop-iswapchainpanelnative-setswapchain) を呼び出して、設定済みのスワップ チェーンを渡す必要があります。 
 
-XAML で定義された [**SwapChainPanel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.SwapChainPanel) パネル インスタンスに、設定済みのスワップ チェーンを結合するには、下層にある固有の [**ISwapChainPanelNative**](https://docs.microsoft.com/windows/desktop/api/windows.ui.xaml.media.dxinterop/nn-windows-ui-xaml-media-dxinterop-iswapchainpanelnative) インターフェイス実装に対するポインターを取得し、これに [**ISwapChainPanelNative::SetSwapChain**](https://docs.microsoft.com/windows/desktop/api/windows.ui.xaml.media.dxinterop/nf-windows-ui-xaml-media-dxinterop-iswapchainpanelnative-setswapchain) を呼び出して、設定済みのスワップ チェーンを渡す必要があります。 
-
-[  **DX::DeviceResources::CreateWindowSizeDependentResources**](https://github.com/Microsoft/Windows-universal-samples/blob/6370138b150ca8a34ff86de376ab6408c5587f5d/Samples/Simple3DGameXaml/cpp/Common/DeviceResources.cpp#L218-L521) の次のスニペットは、DirectX/XAML の相互運用機能でこの処理を行う場合の詳細を示しています。
+[**DX::DeviceResources::CreateWindowSizeDependentResources**](https://github.com/Microsoft/Windows-universal-samples/blob/6370138b150ca8a34ff86de376ab6408c5587f5d/Samples/Simple3DGameXaml/cpp/Common/DeviceResources.cpp#L218-L521) の次のスニペットは、DirectX/XAML の相互運用機能でこの処理を行う場合の詳細を示しています。
 
 ```cpp
         ComPtr<IDXGIDevice3> dxgiDevice;
@@ -134,7 +132,6 @@ XAML で定義された [**SwapChainPanel**](https://docs.microsoft.com/uwp/api/
 
 ## <a name="sample"></a>サンプル
 
-このゲームのオーバーレイに XAML を使ったバージョンをダウンロードするには、「[Direct3D シューティング ゲームのサンプル (XAML)](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Simple3DGameXaml)」を参照してください。
+オーバーレイに XAML を使用するこのゲームのバージョンをダウンロードするには、 [Direct3D のサンプルゲーム (xaml)](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Simple3DGameXaml)にアクセスしてください。
 
-
-その他のトピックに示すゲーム サンプルのバージョンとは異なり、XAML のバージョンでは [App.cpp](https://github.com/Microsoft/Windows-universal-samples/blob/6370138b150ca8a34ff86de376ab6408c5587f5d/Samples/Simple3DGameDX/cpp/App.cpp) と [GameInfoOverlay.cpp](https://github.com/Microsoft/Windows-universal-samples/blob/6370138b150ca8a34ff86de376ab6408c5587f5d/Samples/Simple3DGameDX/cpp/GameInfoOverlay.cpp) の代わりに、[App.xaml.cpp](https://github.com/Microsoft/Windows-universal-samples/blob/6370138b150ca8a34ff86de376ab6408c5587f5d/Samples/Simple3DGameXaml/cpp/App.xaml.cpp) と [DirectXPage.xaml.cpp](https://github.com/Microsoft/Windows-universal-samples/blob/6370138b150ca8a34ff86de376ab6408c5587f5d/Samples/Simple3DGameXaml/cpp/DirectXPage.xaml.cpp) の各ファイルでフレームワークを定義しています。
+これらのトピックの残りの部分で説明されているサンプルゲームのバージョンとは異なり、XAML バージョンでは、アプリケーションのフレームワークを、それぞれ、 [、または](https://github.com/Microsoft/Windows-universal-samples/blob/6370138b150ca8a34ff86de376ab6408c5587f5d/Samples/Simple3DGameXaml/cpp/App.xaml.cpp)、[アプリケーションの .cpp](https://github.com/Microsoft/Windows-universal-samples/blob/6370138b150ca8a34ff86de376ab6408c5587f5d/Samples/Simple3DGameDX/cpp/App.cpp) [との](https://github.com/Microsoft/Windows-universal-samples/blob/6370138b150ca8a34ff86de376ab6408c5587f5d/Samples/Simple3DGameDX/cpp/GameInfoOverlay.cpp)両方のファイルに定義[します。](https://github.com/Microsoft/Windows-universal-samples/blob/6370138b150ca8a34ff86de376ab6408c5587f5d/Samples/Simple3DGameXaml/cpp/DirectXPage.xaml.cpp)

@@ -1,40 +1,45 @@
 ---
 title: Bluetooth GATT サーバー
 description: この記事では、ユニバーサル Windows プラットフォーム (UWP) アプリ用の Bluetooth 汎用属性プロファイル (GATT) サーバーの概要と、一般的な使用事例のサンプル コードについて説明します。
-ms.date: 02/08/2017
+ms.date: 06/26/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 3cded3ee7fb2cc3157caa61939e022c3869f5232
-ms.sourcegitcommit: 445320ff0ee7323d823194d4ec9cfa6e710ed85d
+ms.openlocfilehash: 65a4643e6a73e0eb015fc40c7354d0cd307fa0d1
+ms.sourcegitcommit: 015291bdf2e7d67076c1c85fc025f49c840ba475
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72282369"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85469547"
 ---
 # <a name="bluetooth-gatt-server"></a>Bluetooth GATT サーバー
 
+この記事では、ユニバーサル Windows プラットフォーム (UWP) アプリ用の Bluetooth 汎用属性 (GATT) サーバー API を、一般的な GATT サーバー タスクのサンプル コードを使って示します。
 
-**重要な API**
-- [**Windows. デバイス. Bluetooth**](https://docs.microsoft.com/uwp/api/Windows.Devices.Bluetooth)
-- [**Windows. Devices. GenericAttributeProfile**](https://docs.microsoft.com/uwp/api/Windows.Devices.Bluetooth.GenericAttributeProfile)
-
-
-この記事では、ユニバーサル Windows プラットフォーム (UWP) アプリ用の Bluetooth 汎用属性 (GATT) サーバー API を、一般的な GATT サーバー タスクのサンプル コードを使って示します。 
 - サポートされるサービスの定義
 - リモート クライアントで検出できるようにするためのサーバーの公開
 - サービスのサポートのアドバタイズ
 - 読み取り要求や書き込み要求への応答
 - 受信登録しているクライアントへの通知の送信
 
+> [!Important]
+> *Package.appxmanifest*で "bluetooth" 機能を宣言する必要があります。
+>
+> `<Capabilities> <DeviceCapability Name="bluetooth" /> </Capabilities>`
+
+**重要な API**
+
+- [**Windows. デバイス. Bluetooth**](https://docs.microsoft.com/uwp/api/Windows.Devices.Bluetooth)
+- [**Windows. Devices. GenericAttributeProfile**](https://docs.microsoft.com/uwp/api/Windows.Devices.Bluetooth.GenericAttributeProfile)
+
 ## <a name="overview"></a>概要
+
 Windows は、通常、クライアントの役割で動作します。 ただし、Windows を Bluetooth LE GATT サーバーとして動作させることが必要なシナリオが数多く発生します。 多くのクロスプラットフォーム BLE 通信と共に、IoT デバイス向けのほとんどすべてのシナリオでは、Windows が GATT サーバーとして機能する必要があります。 さらに、近くのウェアラブル デバイスに通知を送信することも、このテクノロジを必要とする一般的なシナリオになっています。  
-> 先に進む前に、[GATT クライアント ドキュメント](gatt-client.md)で説明されているすべての概念を理解していることを確認してください。  
 
 サーバーの処理は、サービス プロバイダーと GattLocalCharacteristic を中心に実行されます。 これら2つのクラスには、データの階層を宣言し、実装し、リモートデバイスに公開するために必要な機能が用意されています。
 
 ## <a name="define-the-supported-services"></a>サポートされるサービスの定義
-アプリでは、Windows によって公開される 1 つまたは複数のサービスを宣言できます。 各サービスは、UUID によって一意に識別されます。 
+アプリでは、Windows によって公開される 1 つまたは複数のサービスを宣言できます。 各サービスは、UUID によって一意に識別されます。
 
 ### <a name="attributes-and-uuids"></a>属性と UUID
 各サービス、特性、記述子は、それぞれ一意の 128 ビット UUID によって定義されます。
@@ -144,8 +149,8 @@ GattServiceProviderAdvertisingParameters advParameters = new GattServiceProvider
 };
 serviceProvider.StartAdvertising(advParameters);
 ```
-- **Isdiscoverable**可能:提供情報のリモートデバイスにフレンドリ名をアドバタイズし、デバイスを検出可能にします。
-- **Isconnectable**可能:接続可能な提供情報を周辺役割で使用するためにアドバタイズします。
+- **IsDiscoverable**: 公開通知によってリモート デバイスにフレンドリ名をアドバタイズし、デバイスを検出可能にします。
+- **IsConnectable**: ペリフェラルの役割で使うための接続可能な公開通知をアドバタイズします。
 
 > サービスが検出可能で、接続可能である場合、システムはサービス UUID をアドバタイズ パケットに追加します。  アドバタイズ パケットは 31 バイトだけであり、128 ビットの UUID はそのうちの 16 バイトを使用します。
 
@@ -154,7 +159,7 @@ serviceProvider.StartAdvertising(advParameters);
 ## <a name="respond-to-read-and-write-requests"></a>読み取り要求や書き込み要求への応答
 上で見たように、必要な特性を宣言するときに、GattLocalCharacteristics では 3 種類のイベント ReadRequested、WriteRequested、SubscribedClientsChanged が発生します。
 
-### <a name="read"></a>読み取り
+### <a name="read"></a>Read
 リモート デバイスが特性から値を読み取る場合 (また、その値が定数値ではない場合)、ReadRequested イベントが呼び出されます。 読み取りが呼び出された特性が、引数 (リモート デバイスに関する情報を含む) と共に、デリゲートに渡されます。 
 
 ```csharp
@@ -177,7 +182,7 @@ async void ReadCharacteristic_ReadRequested(GattLocalCharacteristic sender, Gatt
 }
 ``` 
 
-### <a name="write"></a>書き込み
+### <a name="write"></a>Write
 リモート デバイスが特性に値を書き込む場合、リモート デバイスに関する詳細、書き込み先の特性、書き込む値自体を使用して WriteRequested イベントが呼び出されます。 
 
 ```csharp

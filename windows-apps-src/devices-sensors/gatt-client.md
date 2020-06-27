@@ -1,16 +1,16 @@
 ---
 title: Bluetooth GATT クライアント
 description: この記事では、ユニバーサル Windows プラットフォーム (UWP) アプリ用の Bluetooth 汎用属性プロファイル (GATT) クライアントの概要と、一般的な使用事例のサンプル コードについて説明します。
-ms.date: 02/08/2017
+ms.date: 06/26/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: e894b750ba2119e2cca6f316f9671c51386d800c
-ms.sourcegitcommit: e51f9489d8c977c3498afb1a75c91f96ac3a642b
+ms.openlocfilehash: 5c17351cf964ffb05dc60dbaf5c6ced1db467f78
+ms.sourcegitcommit: 015291bdf2e7d67076c1c85fc025f49c840ba475
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83854678"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85469537"
 ---
 # <a name="bluetooth-gatt-client"></a>Bluetooth GATT クライアント
 
@@ -21,6 +21,11 @@ ms.locfileid: "83854678"
 - デバイスでサポートされているサービスやデバイスの特性の列挙
 - 特性の読み取りと書き込み
 - 特性値が変化したときの通知の受信登録
+
+> [!Important]
+> *Package.appxmanifest*で "bluetooth" 機能を宣言する必要があります。
+>
+> `<Capabilities> <DeviceCapability Name="bluetooth" /> </Capabilities>`
 
 > **重要な API**
 >
@@ -196,7 +201,7 @@ if (result == GattCommunicationStatus.Success)
 - Client Characteristic Configuration Descriptor (CCCD) への書き込み
 - Characteristic.ValueChanged イベントの処理
 
-CCCD への書き込みによって、特定の特性値が変化するたびに、このクライアントでその変化を把握する必要があることを、サーバー デバイスに指示します。 そのためには、次の手順に従います。
+CCCD への書き込みによって、特定の特性値が変化するたびに、このクライアントでその変化を把握する必要があることを、サーバー デバイスに指示します。 これを行うには、次の手順を実行します。
 
 ```csharp
 GattCommunicationStatus status = await selectedCharacteristic.WriteClientCharacteristicConfigurationDescriptorAsync(

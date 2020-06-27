@@ -1,65 +1,68 @@
 ---
 title: DirectX ユニバーサル Windows プラットフォーム (UWP) ゲームの作成
-description: この一連のチュートリアルでは、DirectX と C++ を使って基本的なユニバーサル Windows プラットフォーム (UWP) ゲームを作成する方法を説明します。
+description: この一連のチュートリアルでは、DirectX と[C++/WinRT](/windows/uwp/cpp-and-winrt-apis/)を使用して、 **Simple3DGameDX**という名前の基本的なユニバーサル Windows プラットフォーム (UWP) サンプルゲームを作成する方法について説明します。
 ms.assetid: 9edc5868-38cf-58cc-1fb3-8fb85a7ab2c9
-keywords: DirectX ゲームのサンプル, ゲームのサンプル, ユニバーサル Windows プラットフォーム (UWP), Direct3D 11 ゲーム
-ms.date: 12/01/2017
+keywords: DirectX sample game、sample game、ユニバーサル Windows プラットフォーム (UWP)、Direct3D 11 game
+ms.date: 06/24/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: c2ee2795410c083a6dd460a8537115dc8d20de31
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 2e3007cd79546cba8961000cb2aae44b0b0536fe
+ms.sourcegitcommit: 20969781aca50738792631f4b68326f9171a3980
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66367704"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85409571"
 ---
 # <a name="create-a-simple-universal-windows-platform-uwp-game-with-directx"></a>DirectX を使った単純なユニバーサル Windows プラットフォーム (UWP) ゲームの作成
 
-この一連のチュートリアルでは、DirectX と C++ を使って基本的なユニバーサル Windows プラットフォーム (UWP) ゲームを作成する方法を説明します。 アートやメッシュなどのアセットの読み込み、主要なゲーム ループの作成、簡易なレンダリング パイプラインの実装、サウンドやコントロールの追加を行うプロセスなど、ゲームの主要な要素すべてについて説明します。
+この一連のチュートリアルでは、DirectX と[C++/WinRT](/windows/uwp/cpp-and-winrt-apis/)を使用して、 **Simple3DGameDX**という名前の基本的なユニバーサル Windows プラットフォーム (UWP) サンプルゲームを作成する方法について説明します。 ゲームプレイは、単純なファーストユーザー3D 撮影ギャラリーで行われます。
 
-UWP ゲーム開発の手法と考慮事項について説明します。 完全なエンド ツー エンドのゲームを示すのではなく、 むしろ、UWP DirectX ゲーム開発の主要な概念に焦点を当てて、これらの概念に関係する Windows ランタイム固有の考慮事項を示します。
+> [!NOTE]
+> **Simple3DGameDX**サンプルゲーム自体をダウンロードできるリンクは、 [Direct3D サンプルゲーム](/samples/microsoft/windows-universal-samples/simple3dgamedx/)です。 C++/WinRT ソースコードは、という名前のフォルダーに `cppwinrt` あります。 その他の UWP サンプルアプリの詳細については、「 [uwp アプリのサンプルの入手](/windows/uwp/get-started/get-uwp-app-samples)」を参照してください。
 
-## <a name="objective"></a>目標
+これらのチュートリアルでは、アートやメッシュなどのアセットを読み込んだり、メインのゲームループを作成したり、単純なレンダリングパイプラインを実装したり、サウンドやコントロールを追加したりするためのプロセスなど、ゲームの主要な部分について説明します。
 
-UWP DirectX ゲームの基本的な概念とコンポーネントを使い、DirectX を使って UWP ゲームをより快適に設計できるようになること。
+また、UWP ゲームの開発手法と考慮事項についても説明します。 ここでは、主要な UWP DirectX game development の概念に焦点を当て、これらの概念について、Windows ランタイム固有の考慮事項について説明します。
 
-## <a name="what-you-need-to-know-before-starting"></a>始める前に理解しておく必要があること
+## <a name="objective"></a>目的
 
+UWP DirectX ゲームの基本的な概念とコンポーネントについて説明すると共に、DirectX を使用して UWP ゲームをより快適に設計します。
 
-説明を始める前に、次の事項について理解しておく必要があります。
+## <a name="what-you-need-to-know"></a>知っておく必要がある情報
 
--   Microsoft C++ Windows ランタイム言語拡張機能 (C++/CX)。 これは自動参照カウントが組み込まれた Microsoft C++ の更新であり、DirectX 11.1 以降のバージョンを使って UWP ゲームを開発するための言語です。
--   線形代数およびニュートン物理学の基本的な概念。
--   基本的なグラフィックス プログラミング用語。
--   Windows プログラミングの基本的な概念。
--   [Direct2D](https://docs.microsoft.com/windows/desktop/Direct2D/direct2d-portal) および [Direct3D 11](https://docs.microsoft.com/windows/desktop/direct3d11/how-to-use-direct3d-11) API に関する基本的な知識。
+このチュートリアルでは、これらのサブジェクトについて理解している必要があります。
 
-##  <a name="direct3d-uwp-shooting-game-sample"></a>Direct3D UWP シューティング ゲームのサンプル
+- [C++/WinRT](/windows/uwp/cpp-and-winrt-apis/)。 C++/winrt は、Windows ランタイム (WinRT) Api 向けの標準の最新 C++ 17 言語投影であり、ヘッダーファイルベースのライブラリとして実装されており、最新の Windows Api に対するファーストクラスのアクセスを提供するように設計されています。
+- 線形代数およびニュートン物理学の基本的な概念。
+- 基本的なグラフィックス プログラミング用語。
+- Windows プログラミングの基本的な概念。
+- [Direct2D](/windows/desktop/Direct2D/direct2d-portal) および [Direct3D 11](/windows/desktop/direct3d11/how-to-use-direct3d-11) API に関する基本的な知識。
 
+##  <a name="direct3d-uwp-shooting-gallery-sample"></a>Direct3D UWP 撮影ギャラリーのサンプル
 
-このサンプルは、プレイヤーが動く標的に弾を撃つ、簡単なファーストパーソン シューティング ギャラリーを実装しています。 標的に命中するたびにポイントが与えられ、プレイヤーは難度が上がっていく 6 つのレベルを進むことができます。 レベルの最後に、ポイントが集計されて、プレイヤーに最終スコアが与えられます。
+**Simple3DGameDX**サンプルゲームでは、単純なファースト person 3d 撮影ギャラリーが実装されています。プレーヤーは、移動先のボールを発射します。 標的に命中するたびにポイントが与えられ、プレイヤーは難度が上がっていく 6 つのレベルを進むことができます。 レベルの最後に、ポイントが集計されて、プレイヤーに最終スコアが与えられます。
 
-サンプルで示されているゲームの概念は、次のとおりです。
+このサンプルでは、これらのゲームの概念を示します。
 
--   DirectX 11.1 と Windows ランタイムの間の相互運用
--   主観 3D 視点およびカメラ
--   ステレオスコピック 3D 効果
--   3D でのオブジェクト間の衝突検出
--   マウス、タッチ、Xbox コントローラーからのプレイヤーの入力の処理
--   オーディオ ミキシングおよび再生
--   基本的なゲームのステート マシン
+- DirectX 11.1 と Windows ランタイムの間の相互運用
+- 主観 3D 視点およびカメラ
+- ステレオスコピック 3D 効果
+- 衝突-3D のオブジェクト間の検出
+- マウス、タッチ、Xbox コントローラーからのプレイヤーの入力の処理
+- オーディオ ミキシングおよび再生
+- 基本的なゲームの状態-マシン
 
-![実行中のゲーム サンプル](images/simple-dx-game-overview.png)
+![動作中のサンプルゲーム](images/simple-dx-game-overview.png)
 
-| トピック | 説明 |
+|トピック|説明|
 |-------|-------------|
-|[ゲームのプロジェクトを設定します。](tutorial--setting-up-the-games-infrastructure.md) | ゲームを作るための最初の手順は、必要なコード インフラストラクチャ作業の量を最小限に抑えるように Microsoft Visual Studio でプロジェクトを設定することです。 適切なテンプレートを使い、ゲーム開発用にプロジェクトを構成することで、時間や手間を大幅に節約できます。 シンプルなゲーム プロジェクトを設定および構成する手順を紹介します。 |
-| [ゲームの UWP アプリのフレームワークを定義します。](tutorial--building-the-games-uwp-app-framework.md) | UWP DirectX ゲーム オブジェクトで Windows と対話するためのフレームワークを構築します。 これには、中断/再開イベントの処理、ウィンドウのフォーカス、スナップなどの Windows ランタイム プロパティが含まれます。  |
-| [ゲームの流れの管理](tutorial-game-flow-management.md) | プレイヤーとシステムとの対話を有効にする高度なステート マシンを定義します。 UI で全体的なゲームのステート マシンを操作する方法および UWP ゲーム用のイベント ハンドラーを作成する方法について説明します。 |
-| [メイン ゲーム オブジェクトを定義します。](tutorial--defining-the-main-game-loop.md) | ルールを作成することでゲームをプレイする方法を定義します。 |
-| [レンダリングのフレームワーク i:レンダリングの概要](tutorial--assembling-the-rendering-pipeline.md) | グラフィックスを表示するレンダリング フレームワークを作成します。 このトピックは 2 部構成となっています。 レンダリングの概要では、画面に表示するシーンのオブジェクトを表示する方法について説明します。 |
-| [レンダリングのフレームワーク II:ゲームのレンダリング](tutorial-game-rendering.md) | レンダリング トピックの第 2 部では、レンダリングが発生する前に必要なデータを準備する方法について説明します。 |
-| [ユーザー インターフェイスを追加します。](tutorial--adding-a-user-interface.md) | 単純なメニュー オプションとヘッドアップ ディスプレイ コンポーネントを追加し、プレイヤーにフィードバックを提供します。 |
-| [コントロールを追加します。](tutorial--adding-controls.md) | ゲームに移動検索コントロールを追加&mdash;基本タッチ、マウス、およびゲーム コント ローラーのコントロール。 |
-| [サウンドを追加します。](tutorial--adding-sound.md) | [XAudio2](https://docs.microsoft.com/windows/desktop/xaudio2/xaudio2-introduction) API を使用して、ゲームのサウンドを作成する方法について説明します。 |
-| [ゲームのサンプルを拡張します。](tutorial-resources.md) | XAML を使用したオーバーレイの作成など、DirectX ゲーム開発の知識をさらに深めるためのリソースです。 |
+|[ゲーム プロジェクトのセットアップ](tutorial--setting-up-the-games-infrastructure.md)|ゲームを開発するための最初の手順は、Microsoft Visual Studio でプロジェクトを設定することです。 ゲーム開発専用のプロジェクトを構成した後、後でテンプレートの一種として再利用できます。|
+|[ゲームの UWP アプリ フレームワークの定義](tutorial--building-the-games-uwp-app-framework.md)|ユニバーサル Windows プラットフォーム (UWP) ゲームのコーディングの最初の手順は、アプリオブジェクトが Windows と対話できるようにするフレームワークを構築することです。|
+|[ゲームのフロー管理](tutorial-game-flow-management.md)|プレイヤーとシステムとの対話を有効にする高度なステート マシンを定義します。 UI で全体的なゲームのステート マシンを操作する方法および UWP ゲーム用のイベント ハンドラーを作成する方法について説明します。|
+|[メイン ゲーム オブジェクトの定義](tutorial--defining-the-main-game-loop.md)|ここでは、サンプルゲームの主要なオブジェクトの詳細と、それが実装するルールがゲームワールドとの相互作用にどのように変換されるかについて説明します。|
+|[レンダリング フレームワーク I: レンダリングの概要](tutorial--assembling-the-rendering-pipeline.md)|レンダリングパイプラインを開発してグラフィックスを表示する方法について説明します。 レンダリングの概要。|
+|[レンダリング フレームワーク II: ゲームのレンダリング](tutorial-game-rendering.md)|グラフィックスを表示するレンダリング パイプラインをアセンブルする方法について説明します。 ゲームのレンダリング、データのセットアップと準備。|
+|[ユーザー インターフェイスの追加](tutorial--adding-a-user-interface.md)|DirectX UWP ゲームに2D ユーザーインターフェイスオーバーレイを追加する方法について説明します。|
+|[コントロールを追加する](tutorial--adding-controls.md)|ここでは、サンプルゲームが3d ゲームで移動外観コントロールを実装する方法と、基本的なタッチ、マウス、およびゲームコントローラーコントロールを開発する方法について説明します。|
+|[サウンドの追加](tutorial--adding-sound.md)|XAudio2 Api を使用してゲームの音楽とサウンド効果を再生する単純なサウンドエンジンを開発します。|
+|[サンプルゲームを拡張する](tutorial-resources.md)|UWP DirectX ゲームの XAML オーバーレイを実装する方法について説明します。|
