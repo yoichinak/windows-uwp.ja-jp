@@ -3,12 +3,12 @@ title: WinUI 3.0 Preview 1 (2020 年 5 月)
 description: WinUI 3.0 Preview の概要。
 ms.date: 05/14/2020
 ms.topic: article
-ms.openlocfilehash: 3aac14807f8455eb9a9294c40ddc76ddfa224659
-ms.sourcegitcommit: 7e8c7f89212c88dcc0274c69d2c3365194c0954a
+ms.openlocfilehash: cbf61c618685501957e7dec081ae132995f15df5
+ms.sourcegitcommit: 48e047a581fcfcc9a4084d65a78b89f2c01cf4f3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83688487"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85448382"
 ---
 # <a name="windows-ui-library-30-preview-1-may-2020"></a>Windows UI ライブラリ 3.0 Preview 1 (2020 年 5 月)
 
@@ -109,6 +109,7 @@ WinUI 3.0 Preview 1 は、Windows 10 April 2018 Update (バージョン 1803 - �
 
 ### <a name="developer-tools"></a>開発者ツール
 
+- 現時点では、C# および C++/WinRT アプリのみがサポートされています
 - デスクトップ アプリは .NET 5 および C# 8 をサポートしています。また、パッケージ化する必要があります。
 - UWP アプリは .NET Native および C# 7.3 をサポートしています
 - Intellisense が不完全です

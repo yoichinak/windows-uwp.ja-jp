@@ -93,7 +93,7 @@
           items:
             - name: プロジェクトのセットアップ
               href: ../gaming/tutorial--setting-up-the-games-infrastructure.md
-            - name: UWP フレームワーク
+            - name: UWP アプリ フレームワーク
               href: ../gaming/tutorial--building-the-games-uwp-app-framework.md
             - name: ゲームのフロー管理
               href: ../gaming/tutorial-game-flow-management.md
@@ -114,7 +114,7 @@
         - name: Marble Maze
           href: ../gaming/developing-marble-maze-a-windows-store-game-in-cpp-and-directx.md
           items:
-            - name: 基本事項
+            - name: 基本要素
               href: ../gaming/marble-maze-sample-fundamentals.md
             - name: アプリの構造
               href: ../gaming/marble-maze-application-structure.md
@@ -422,7 +422,7 @@
                   href: ../graphics-concepts/bc6h-format.md
                 - name: BC7 形式
                   href: ../graphics-concepts/bc7-format.md
-    - name: 基本事項
+    - name: 基本要素
       href: ../gaming/directx-fundamentals.md
       items:
         - name: 2D グラフィックス
@@ -549,7 +549,7 @@
   items:
     - name: はじめに
       href: ../xbox-apps/getting-started.md
-    - name: 新着情報
+    - name: 新機能
       href: ../xbox-apps/whats-new.md
     - name: Xbox One 開発者モードのアクティブ化
       href: ../xbox-apps/devkit-activation.md
