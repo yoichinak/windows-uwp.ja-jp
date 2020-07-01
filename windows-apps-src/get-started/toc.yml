@@ -32,4 +32,4 @@
     - name: 複雑なアプリを構築する
       href: ../get-started/plan-your-app.md
 - name: Windows アプリのサンプルの使用
-  href: ../get-started/get-uwp-app-samples.md
+  href: ../get-started/get-app-samples.md
