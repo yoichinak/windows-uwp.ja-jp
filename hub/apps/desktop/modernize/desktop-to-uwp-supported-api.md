@@ -9,12 +9,12 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: 68c2427fe6b02385325f0f224cc837912621f6bb
-ms.sourcegitcommit: ef723e3d6b1b67213c78da696838a920c66d5d30
+ms.openlocfilehash: 63648743536dae9f7655f82674ad04255a13f437
+ms.sourcegitcommit: 4df8c04fc6c22ec76cdb7bb26f327182f2dacafa
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/02/2020
-ms.locfileid: "82729851"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85334405"
 ---
 # <a name="windows-runtime-apis-available-to-desktop-apps"></a>デスクトップ アプリで使用できる Windows ランタイム API
 
@@ -49,7 +49,7 @@ ms.locfileid: "82729851"
 
 Windows ランタイム API の使用方法の例については、GitHub で[デスクトップ ブリッジのサンプル](https://github.com/Microsoft/DesktopBridgeToUWP-Samples)に関するページと「[ユニバーサル Windows プラットフォーム (UWP) のアプリ サンプル](https://github.com/Microsoft/Windows-universal-samples)」をご覧ください。 Windows 用アプリの構築に関するブログの[デスクトップ アプリケーションからの Windows 10 API の呼び出しに関する投稿](https://blogs.windows.com/buildingapps/2017/01/25/calling-windows-10-apis-desktop-application/)もご覧ください。
 
-<a id="new" />
+<a id="new"></a>
 
 ### <a name="apis-supported-only-in-apps-with-package-identity"></a>パッケージ ID を持つアプリでのみサポートされる API
 
@@ -375,7 +375,7 @@ Windows ランタイム API の使用方法の例については、GitHub で[�
 * [Windows.UI.StartScreen.JumpList](https://docs.microsoft.com/uwp/api/Windows.UI.StartScreen.JumpList)
 * [Windows.UI.StartScreen.JumpListItem](https://docs.microsoft.com/uwp/api/Windows.UI.StartScreen.JumpListItem)
 
-<a id="both" />
+<a id="both"></a>
 
 ### <a name="apis-supported-in-all-desktop-applications"></a>すべてのデスクトップ アプリケーションでサポートされている API
 

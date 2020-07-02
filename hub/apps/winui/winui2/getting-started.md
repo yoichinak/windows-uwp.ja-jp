@@ -4,12 +4,12 @@ description: Windows UI ライブラリをインストールして使用する�
 ms.topic: reference
 ms.date: 05/08/2020
 keywords: windows 10, uwp, ツールキット sdk
-ms.openlocfilehash: 585475df4138c6a5d4d8b885582137c972a64287
-ms.sourcegitcommit: 3a7f9f05f0127bc8e38139b219e30a8df584cad3
+ms.openlocfilehash: d96efb2f3de3084d74e06e70ff2811a944604f56
+ms.sourcegitcommit: 47899c30a39087bca1f058a4395cf58daacf5ae9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83775871"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85345476"
 ---
 # <a name="getting-started-with-the-windows-ui-library"></a>Windows UI ライブラリの概要
 
@@ -71,7 +71,7 @@ ms.locfileid: "83775871"
     * XAML ページで、ページの上部に参照を追加します
 
         ```xaml
-        xmlns:controls="using:Microsoft.UI.Xaml.Controls"
+        xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
         ```
 
     * コード内で (型名を修飾せずに使用する場合)、using ディレクティブを追加できます。

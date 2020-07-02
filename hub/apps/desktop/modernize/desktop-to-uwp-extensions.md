@@ -8,12 +8,12 @@ ms.assetid: 0a8cedac-172a-4efd-8b6b-67fd3667df34
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: b048de69a8a259509e5a5c54c5f1d61675a25a18
-ms.sourcegitcommit: e51f9489d8c977c3498afb1a75c91f96ac3a642b
+ms.openlocfilehash: d9f5ca95678a8b31ed53cfdf2c4e6433bca504c8
+ms.sourcegitcommit: 4df8c04fc6c22ec76cdb7bb26f327182f2dacafa
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83854725"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85334453"
 ---
 # <a name="integrate-your-desktop-app-with-windows-10-and-uwp"></a>Windows 10 と UWP にデスクトップ アプリを統合する
 
@@ -36,7 +36,7 @@ ms.locfileid: "83854725"
 * [特定の種類のファイルのコンテキスト メニューにオプションを追加する](#add)
 * [URL を使用して特定の種類のファイルを直接開く](#open)
 
-<a id="point" />
+<a id="point"></a>
 
 ### <a name="point-existing-start-tiles-and-taskbar-buttons-to-your-packaged-app"></a>既存のスタート タイルとタスク バー ボタンの参照先をパッケージ アプリに設定する
 
@@ -55,7 +55,6 @@ ms.locfileid: "83854725"
         <DesktopApp ShortcutPath="[path]" />
     </DesktopAppMigration>
 </Extension>
-
 ```
 
 完全なスキーマ リファレンスについては、[こちら](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-rescap3-desktopappmigration)をご覧ください。
@@ -93,7 +92,7 @@ ms.locfileid: "83854725"
 
 [WPF picture viewer with transition/migration/uninstallation](https://github.com/Microsoft/DesktopBridgeToUWP-Samples/tree/master/Samples/DesktopAppTransition)
 
-<a id="make" />
+<a id="make"></a>
 
 ### <a name="make-your-packaged-application-open-files-instead-of-your-desktop-app"></a>デスクトップ アプリではなくパッケージ アプリケーションによってファイルが開かれるように設定する
 
@@ -154,7 +153,7 @@ ms.locfileid: "83854725"
 
 [WPF picture viewer with transition/migration/uninstallation](https://github.com/Microsoft/DesktopBridgeToUWP-Samples/tree/master/Samples/DesktopAppTransition)
 
-<a id="associate" />
+<a id="associate"></a>
 
 ### <a name="associate-your-packaged-application-with-a-set-of-file-types"></a>パッケージ アプリケーションを一連のファイルの種類に関連付ける
 
@@ -212,7 +211,7 @@ ms.locfileid: "83854725"
 
 [WPF picture viewer with transition/migration/uninstallation](https://github.com/Microsoft/DesktopBridgeToUWP-Samples/tree/master/Samples/DesktopAppTransition)
 
-<a id="add" />
+<a id="add"></a>
 
 ### <a name="add-options-to-the-context-menus-of-files-that-have-a-certain-file-type"></a>特定の種類のファイルのコンテキスト メニューにオプションを追加する
 
@@ -279,7 +278,7 @@ ms.locfileid: "83854725"
 
 [WPF picture viewer with transition/migration/uninstallation](https://github.com/Microsoft/DesktopBridgeToUWP-Samples/tree/master/Samples/DesktopAppTransition)
 
-<a id="open" />
+<a id="open"></a>
 
 ### <a name="open-certain-types-of-files-directly-by-using-a-url"></a>URL を使用して特定の種類のファイルを直接開く
 
@@ -341,7 +340,7 @@ ms.locfileid: "83854725"
 * [アプリのファイアウォール例外を作成する](#rules)
 * [DLL ファイルをパッケージの任意のフォルダーに配置する](#load-paths)
 
-<a id="rules" />
+<a id="rules"></a>
 
 ### <a name="create-firewall-exception-for-your-app"></a>アプリのファイアウォール例外を作成する
 
@@ -403,7 +402,7 @@ ms.locfileid: "83854725"
 </Package>
 ```
 
-<a id="load-paths" />
+<a id="load-paths"></a>
 
 ### <a name="place-your-dll-files-into-any-folder-of-the-package"></a>DLL ファイルをパッケージの任意のフォルダーに配置します。
 
@@ -467,7 +466,7 @@ ms.locfileid: "83854725"
 * [ファイルの種類のコンテキスト メニュー ハンドラーを指定する](#context-menu)
 * [クラウド サービスのファイルがエクスプローラーに表示されるようにする](#cloud-files)
 
-<a id="define" />
+<a id="define"></a>
 
 ### <a name="define-how-your-application-behaves-when-users-select-and-open-multiple-files-at-the-same-time"></a>ユーザーが複数のファイルを同時に選択して開いた場合のアプリケーションの動作を定義する
 
@@ -541,7 +540,7 @@ ms.locfileid: "83854725"
 
 ユーザーが 15 個以下のファイルを開いた場合、**MultiSelectModel** 属性の既定値は *Player* になります。 それ以外の場合、既定値は *Document* です。 UWP アプリは常に *Player* として起動されます。
 
-<a id="show" />
+<a id="show"></a>
 
 ### <a name="show-file-contents-in-a-thumbnail-image-within-file-explorer"></a>エクスプ ローラーでサムネイル画像のファイル内容を表示する
 
@@ -604,7 +603,7 @@ ms.locfileid: "83854725"
 </Package>
 ```
 
-<a id="preview" />
+<a id="preview"></a>
 
 ### <a name="show-file-contents-in-the-preview-pane-of-file-explorer"></a>エクスプローラーのプレビュー ウィンドウにファイル内容を表示する
 
@@ -665,7 +664,7 @@ ms.locfileid: "83854725"
 </Package>
 ```
 
-<a id="enable" />
+<a id="enable"></a>
 
 ### <a name="enable-users-to-group-files-by-using-the-kind-column-in-file-explorer"></a>ユーザーがエクスプローラーの [種類] 列を使用してファイルをグループ化できるようにする
 
@@ -733,7 +732,7 @@ ms.locfileid: "83854725"
 </Package>
 ```
 
-<a id="make-file-properties" />
+<a id="make-file-properties"></a>
 
 ### <a name="make-file-properties-available-to-search-index-property-dialogs-and-the-details-pane"></a>ファイルのプロパティを検索、インデックス、プロパティ ダイアログ、詳細ウィンドウに利用できるようにする
 
@@ -790,7 +789,7 @@ ms.locfileid: "83854725"
 </Package>
 ```
 
-<a id="context-menu" />
+<a id="context-menu"></a>
 
 ### <a name="specify-a-context-menu-handler-for-a-file-type"></a>ファイルの種類のコンテキスト メニュー ハンドラーを指定する
 
@@ -888,7 +887,7 @@ ms.locfileid: "83854725"
 </Package>
 ```
 
-<a id="cloud-files" />
+<a id="cloud-files"></a>
 
 ### <a name="make-files-from-your-cloud-service-appear-in-file-explorer"></a>クラウド サービスのファイルがエクスプローラーに表示されるようにする
 
@@ -951,7 +950,7 @@ ms.locfileid: "83854725"
 </Package>
 ```
 
-<a id="start" />
+<a id="start"></a>
 
 ## <a name="start-your-application-in-different-ways"></a>さまざまな方法でアプリケーションを起動する
 
@@ -961,7 +960,7 @@ ms.locfileid: "83854725"
 * [ユーザーがデバイスを自分の PC に接続したときにアプリケーションを起動できるようにする](#autoplay)
 * [Microsoft Store から更新プログラムを受信した後、自動的に再起動する](#updates)
 
-<a id="protocol" />
+<a id="protocol"></a>
 
 ### <a name="start-your-application-by-using-a-protocol"></a>プロトコルを使用してアプリケーションを起動する
 
@@ -1012,7 +1011,7 @@ ms.locfileid: "83854725"
 </Package>
 ```
 
-<a id="alias" />
+<a id="alias"></a>
 
 ### <a name="start-your-application-by-using-an-alias"></a>エイリアスを使用してアプリケーションを起動する
 
@@ -1068,7 +1067,7 @@ ms.locfileid: "83854725"
 
 完全なスキーマ リファレンスについては、[こちら](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-uap-filetypeassociation)をご覧ください。
 
-<a id="executable" />
+<a id="executable"></a>
 
 ### <a name="start-an-executable-file-when-users-log-into-windows"></a>ユーザーが Windows にログオンしたときに実行可能ファイルを起動する
 
@@ -1131,7 +1130,7 @@ ms.locfileid: "83854725"
  </Package>
 ```
 
-<a id="autoplay" />
+<a id="autoplay"></a>
 
 ### <a name="enable-users-to-start-your-application-when-they-connect-a-device-to-their-pc"></a>ユーザーがデバイスを自分の PC に接続したときにアプリケーションを起動できるようにする
 
@@ -1190,7 +1189,7 @@ ms.locfileid: "83854725"
 </Package>
 ```
 
-<a id="updates" />
+<a id="updates"></a>
 
 ### <a name="restart-automatically-after-receiving-an-update-from-the-microsoft-store"></a>Microsoft Store から更新プログラムを受信した後、自動的に再起動する
 
@@ -1203,7 +1202,7 @@ ms.locfileid: "83854725"
 アプリケーションの各アクティブ ウィンドウで [WM_ENDSESSION](https://docs.microsoft.com/windows/desktop/Shutdown/wm-endsession) メッセージを受け取ったら、アプリケーションでデータを保存してシャットダウンする必要があります。
 
 >[!NOTE]
-また、アプリケーションで [WM_ENDSESSION](https://docs.microsoft.com/windows/desktop/Shutdown/wm-endsession) メッセージが処理されない場合は、アクティブ ウィンドウには [WM_CLOSE](https://docs.microsoft.com/windows/desktop/winmsg/wm-close) メッセージも届きます。
+> また、アプリケーションで [WM_ENDSESSION](https://docs.microsoft.com/windows/desktop/Shutdown/wm-endsession) メッセージが処理されない場合は、アクティブ ウィンドウには [WM_CLOSE](https://docs.microsoft.com/windows/desktop/winmsg/wm-close) メッセージも届きます。
 
 この時点で、アプリケーションのプロセスがアプリケーション自体によって 30 秒内に終了されない場合、プロセスはプラットフォームによって強制終了されます。
 
@@ -1217,7 +1216,7 @@ ms.locfileid: "83854725"
 * [他の Windows アプリケーションとフォントを共有する](#fonts)
 * [ユニバーサル Windows プラットフォーム (UWP) アプリから Win32 プロセスを開始する](#win32-process)
 
-<a id="printing" />
+<a id="printing"></a>
 
 ### <a name="make-your-application-appear-as-the-print-target-in-applications-that-support-printing"></a>印刷をサポートするアプリケーションで自分のアプリケーションが印刷先として表示されるようにする
 
@@ -1269,7 +1268,7 @@ ms.locfileid: "83854725"
 
 この拡張機能を使用するサンプルについては、[こちら](https://github.com/Microsoft/DesktopBridgeToUWP-Samples/tree/master/Samples/PrintToPDF)をご覧ください。
 
-<a id="fonts" />
+<a id="fonts"></a>
 
 ### <a name="share-fonts-with-other-windows-applications"></a>他の Windows アプリケーションとフォントを共有する
 
@@ -1317,7 +1316,7 @@ ms.locfileid: "83854725"
 </Package>
 ```
 
-<a id="win32-process" />
+<a id="win32-process"></a>
 
 ### <a name="start-a-win32-process-from-a-universal-windows-platform-uwp-app"></a>ユニバーサル Windows プラットフォーム (UWP) アプリから Win32 プロセスを開始する
 

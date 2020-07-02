@@ -7,12 +7,12 @@ keywords: windows 10, uwp
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: a38f5fa7f3ef99f5970ec5d476fb65761aa39db4
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 73e867071058dfde71979318d6d711d79460f30b
+ms.sourcegitcommit: 4df8c04fc6c22ec76cdb7bb26f327182f2dacafa
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75302586"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85334557"
 ---
 # <a name="extend-your-desktop-app-with-modern-uwp-components"></a>最新の UWP コンポーネントでデスクトップ アプリを拡張する
 
@@ -25,7 +25,7 @@ ms.locfileid: "75302586"
 
 準備ができたら始めましょう。
 
-<a id="setup" />
+<a id="setup"></a>
 
 ## <a name="first-setup-your-solution"></a>まず、ソリューションをセットアップする
 
@@ -110,7 +110,7 @@ XAML ベースの UI を表示するには、以下の手順を実行します�
 
 :5:[UWP プロジェクトで目的のページを表示する](#parse)
 
-<a id="solution-setup" />
+<a id="solution-setup"></a>
 
 ### <a name="setup-your-solution"></a>ソリューションをセットアップする
 
@@ -122,7 +122,7 @@ XAML ベースの UI を表示するには、以下の手順を実行します�
 
 この例では、Windows フォーム プロジェクトは **Landmarks** という名前で、XAML UI を含む UWP プロジェクトは **MapUI** という名前です。
 
-<a id="xaml-UI" />
+<a id="xaml-UI"></a>
 
 ### <a name="create-a-xaml-ui"></a>XAML UI の作成
 
@@ -171,7 +171,7 @@ XAML UI を UWP プロジェクトに追加します。 基本的なマップの
 > [!NOTE]
 > マップ コントロールはインターネットからデータをダウンロードします。そのため、マップ コントロールを使用する場合は、"インターネット クライアント" 機能もマニフェストに追加する必要があります。
 
-<a id="start" />
+<a id="start"></a>
 
 ### <a name="start-the-uwp-app"></a>UWP アプリを起動する
 
@@ -196,7 +196,7 @@ private async void ShowMap(double lat, double lon)
 }
 ```
 
-<a id="parse" />
+<a id="parse"></a>
 
 ### <a name="parse-parameters-and-show-a-page"></a>パラメーターを解析してページを表示する
 
@@ -271,7 +271,7 @@ protected override void OnNavigatedTo(NavigationEventArgs e)
 
 :5:[共有ファイルを取得するようにデスクトップ アプリケーションを変更する](#modify-desktop)
 
-<a id="share-extension" />
+<a id="share-extension"></a>
 
 次の手順に従います  
 
@@ -299,7 +299,7 @@ UWP プロジェクトによって生成された実行可能ファイルの名�
 
 アプリとの間で共有できるようにするファイルの種類を指定することも必要です。 この例では、[WPF PhotoStoreDemo](https://github.com/Microsoft/WPF-Samples/tree/master/Sample%20Applications/PhotoStoreDemo) デスクトップ アプリケーションをビットマップ イメージの共有ターゲットとしています。そのため、サポートされているファイルの種類に `Bitmap` を指定します。
 
-<a id="override" />
+<a id="override"></a>
 
 ### <a name="override-the-onsharetargetactivated-event-handler"></a>OnShareTargetActivated イベント ハンドラーをオーバーライドする
 
@@ -332,7 +332,7 @@ private async void shareWithDesktopApplication(ShareOperation shareOperation)
 
 このコードでは、ユーザーによって共有されているイメージをアプリのローカル ストレージ フォルダーに保存します。 後で、その同じフォルダーからイメージをプルするように、デスクトップ アプリケーションを変更します。 デスクトップ アプリケーションは、UWP アプリと同じパッケージに含まれているために、これを行うことができます。
 
-<a id="desktop-extensions" />
+<a id="desktop-extensions"></a>
 
 ### <a name="add-desktop-extensions-to-the-uwp-project"></a>UWP プロジェクトにデスクトップ拡張機能を追加する
 
@@ -340,7 +340,7 @@ UWP アプリ プロジェクトに **[Windows Desktop Extensions for the UWP]**
 
 ![デスクトップ拡張機能](images/desktop-to-uwp/desktop-extensions.png)
 
-<a id="full-trust" />
+<a id="full-trust"></a>
 
 ### <a name="add-the-full-trust-process-extension"></a>完全信頼のプロセス拡張機能を追加する
 
@@ -356,7 +356,7 @@ UWP アプリ プロジェクトに **[Windows Desktop Extensions for the UWP]**
 
 この拡張機能によって、UWP アプリでは、ファイルを共有するデスクトップ アプリケーションを起動できるようになります。 例では、[WPF PhotoStoreDemo](https://github.com/Microsoft/WPF-Samples/tree/master/Sample%20Applications/PhotoStoreDemo) デスクトップ アプリケーションの実行可能ファイルを参照しています。
 
-<a id="modify-desktop" />
+<a id="modify-desktop"></a>
 
 ### <a name="modify-the-desktop-application-to-get-the-shared-file"></a>共有ファイルを取得するようにデスクトップ アプリケーションを変更する
 
@@ -414,7 +414,7 @@ private void Watcher_Created(object sender, FileSystemEventArgs e)
 
 :3:[バックグラウンド タスクの登録](#register-background-task)
 
-<a id="implement-task" />
+<a id="implement-task"></a>
 
 ### <a name="implement-the-background-task"></a>バックグラウンド タスクの実装
 
@@ -455,7 +455,7 @@ public sealed class SiteVerifier : IBackgroundTask
     }
 ```
 
-<a id="configure-background-task" />
+<a id="configure-background-task"></a>
 
 ### <a name="configure-the-background-task"></a>バックグラウンド タスクの構成
 
@@ -473,7 +473,7 @@ public sealed class SiteVerifier : IBackgroundTask
 
 ![Timer プロパティ](images/desktop-to-uwp/background-task-entry-point.png)
 
-<a id="register-background-task" />
+<a id="register-background-task"></a>
 
 ### <a name="register-the-background-task"></a>バックグラウンド タスクの登録
 

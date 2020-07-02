@@ -8,12 +8,12 @@ ms.assetid: edff3787-cecb-4054-9a2d-1fbefa79efc4
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: 14ad6707b7203dddd9aa7be186e76da677bbd675
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 7eb57e8cea83a4d45087be4c4685ada8d108fa7a
+ms.sourcegitcommit: 4df8c04fc6c22ec76cdb7bb26f327182f2dacafa
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75302706"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85334491"
 ---
 # <a name="distribute-your-packaged-desktop-app"></a>パッケージ化されたデスクトップ アプリを配布する
 
@@ -35,7 +35,7 @@ Microsoft Store に提出する前に、アプリケーションに署名する�
 >[!IMPORTANT]
 > Microsoft Store にアプリケーションを公開する場合は、Windows 10 S を実行するデバイスでアプリケーションが正しく動作することを確認してください。これは、Store 要件です。 「[Windows アプリの Windows 10 S 対応をテストする](/windows/msix/desktop/desktop-to-uwp-test-windows-s)」をご覧ください。
 
-<a id="side-load" />
+<a id="side-load"></a>
 
 ## <a name="distribute-your-application-without-placing-it-onto-the-microsoft-store"></a>Microsoft Store に掲載せずにアプリケーションを配布する
 
@@ -58,7 +58,7 @@ Windows 10 S を実行するデバイスへのアプリケーション配布を�
 
 他のデバイスにアプリケーションをサイドローディング展開する方法については、「[Windows 10 での LOB アプリのサイドローディング](/windows/application-management/sideload-apps-in-windows-10)」をご覧ください。
 
-<a id="transition-users" />
+<a id="transition-users"></a>
 
 ## <a name="transition-users-to-your-packaged-app"></a>パッケージ アプリへのユーザーの移行
 
@@ -126,7 +126,7 @@ private void MigrateUserData()
 
 ```csharp
 private void RemoveDesktopApp()
-{              
+{
     //Typically, you can find your uninstall string at this location.
     String uninstallString = (String)Microsoft.Win32.Registry.GetValue
         (@"HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion" +
