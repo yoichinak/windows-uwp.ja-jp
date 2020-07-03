@@ -6,17 +6,17 @@ ms.date: 05/29/2020
 ms.topic: article
 keywords: windows 10, uwp, 携帯電話会社, 携帯電話への課金, 携帯電話会社による課金
 ms.localizationpriority: medium
-ms.openlocfilehash: 16783e71a170118f470a351a7f5dc4c2a178405e
-ms.sourcegitcommit: 8eae7aec4c4ffb8a0c30e9d03744942fb23958d9
+ms.openlocfilehash: 2be7938faddaf50c96005f32c77f523ebf4061e3
+ms.sourcegitcommit: ae195892efb9d3abd1190776617984d4219c6777
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84334217"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85913233"
 ---
 # <a name="mobile-operator-billing"></a>携帯電話会社による課金
 
 > [!NOTE]
-> 支払いアカウントの構成、不足している支払いの支払い、支払いの使用など、その他の情報に関するサポートをお探しの場合は、[こちら](https://developer.microsoft.com/windows/support)からサポートにお問い合わせください。
+> 支払いに関するサポートが必要な場合 (支払いアカウントの構成、行われていない支払い、支払いの保留など) は、[こちら](https://developer.microsoft.com/windows/support)からサポートにお問い合わせください。
 
 Microsoft Store では、Windows 10 を実行するデバイス、Windows 10 Mobile を実行するスマートフォン、Xbox One 本体用の支払い方法として、携帯電話会社による課金を提供しています。 ユーザーの携帯電話会社でこの機能がサポートされている場合、ユーザーは支払い方法として携帯電話会社による課金を追加し、この支払い方法を使用してモバイル アカウントによる Microsoft Store での購入を行うことができます。
 
@@ -30,16 +30,16 @@ Microsoft Store では、Windows 10 を実行するデバイス、Windows 10 Mob
 | 国/リージョン       | 携帯電話会社                                        |
 |----------------------|---------------------------------------------------------|
 | オーストラリア            | Optus                                                   |
-| オーストリア              | Hutchison 3G Austria、A1 Telekom、T-Mobile / tele.ring  |
+| オーストリア              | A1 テレ、Hutchison 3G オーストリア、T-Mobile/テレ  |
 | ベルギー              | Base、Proximus                                          |
 | Canada               | Telus                                                   |
 | チェコ              | T-Mobile                                                |
 | デンマーク              | 3、TDC / YouSee、Telenor、Telia                         |
 | フィンランド              | DNA、Elisa                                              |
-| フランス               | オレンジ                                                  |
+| フランス               | オレンジ色                                                  |
 | ドイツ              | O2、テレ (Vodafone)、                       |
 | ハンガリー              | Telenor                                                 |
-| イタリア                | Wind、Tre                                               |
+| イタリア                | Tre、風力                                               |
 | マレーシア             | Digi                                                    |
 | オランダ          | /Telfort                                           |
 | ノルウェー               | Telenor/Talkmore、Telia/OneCall                     |
@@ -47,11 +47,11 @@ Microsoft Store では、Windows 10 を実行するデバイス、Windows 10 Mob
 | シンガポール            | M1 限定、StarHub                                     |
 | スロバキア             | Slovak Telekom                                          |
 | 南アフリカ         | Vodacom                                                 |
-| スペイン                | オレンジ                                                  |
-| スウェーデン               | Telenor、3                                              |
-| スイス          | Swisscom、Sunrise                                       |
+| スペイン                | オレンジ色                                                  |
+| スウェーデン               | 3、telenor                                              |
+| スイス          | Swisscom                                       |
 | 台湾               | FarEasTone                                              |
 | トルコ               | Turkcell                                                |
 | アラブ首長国連邦 | Etisalat                                                |
-| United States        | Sprint、Verizon                                         |
-| イギリス       | O2、3 UK、EE                                            |
+| アメリカ合衆国        | Sprint、Verizon                                         |
+| イギリス       | 3英国、EE、O2、Vodaphone                                 |
