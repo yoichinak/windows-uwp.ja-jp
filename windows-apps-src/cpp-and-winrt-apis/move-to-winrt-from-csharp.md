@@ -5,12 +5,12 @@ ms.date: 07/15/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 移植, 移行, C#
 ms.localizationpriority: medium
-ms.openlocfilehash: 38ad2d4f2b0af65424e6d9fa50f2c21b626e1914
-ms.sourcegitcommit: 3125d5e2e32831481790266f44967851585888b3
+ms.openlocfilehash: 21032a99c389e968728fe2dac2875475efc351c4
+ms.sourcegitcommit: 379fd00bfcc6c5f1e3c7e379a367b08641a7f961
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84172833"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819009"
 ---
 # <a name="move-to-cwinrt-from-c"></a>C# から C++/WinRT への移行
 
@@ -24,14 +24,14 @@ ms.locfileid: "84172833"
 
 行うべき移植に関する変更の種類については、4 つのカテゴリに分類できます。
 
-- [**言語プロジェクションでの移植**](#port-the-language-projection)。 Windows ランタイム (WinRT) では様々なプログラミング言語への "*プロジェクション*" が行われます。 これらの言語プロジェクションのそれぞれは、対応するプログラミング言語にとって自然なものになるように設計されています。 C# の場合、一部の Windows ランタイムの型は .NET の型としてプロジェクションが行われます。 そのため、たとえば [**System.Collections.Generic.IReadOnlyList\<T\>** ](/dotnet/api/system.collections.generic.ireadonlylist-1) は [**Windows.Foundation.Collections.IVectorView\<T\>** ](/uwp/api/windows.foundation.collections.ivectorview-1) に変換することになります。 また C# では、一部の Windows ランタイムの操作は便利な C# の言語機能としてプロジェクションが行われます。 一例として、C# では、`+=` の演算子構文を使用して、イベント処理デリゲートの登録を行います。 それで、そのような言語の機能は、実行されている基本的な操作 (この例ではイベント登録) に変換することになります。
-- [**言語構文の移植**](#port-language-syntax)。 これらの変更の多くは単純な機械的な変換で、あるシンボルを他のシンボルに置き換えます。 たとえば、ドット (`.`) を 2 重コロン (`::`) に変更します。
-- [**言語プロシージャの移植**](#port-language-procedure)。 これらのうちの一部は単純で、変更の繰り返しです (`myObject.MyProperty` から `myObject.MyProperty()` など)。 大きな変更が必要なものもあります (**System.Text.StringBuilder** を使用するプロシージャを、**std::wostringstream** を使用するものに移植する、など)。
+- [**言語プロジェクションでの移植**](#changes-that-involve-the-language-projection)。 Windows ランタイム (WinRT) では様々なプログラミング言語への "*プロジェクション*" が行われます。 これらの言語プロジェクションのそれぞれは、対応するプログラミング言語にとって自然なものになるように設計されています。 C# の場合、一部の Windows ランタイムの型は .NET の型としてプロジェクションが行われます。 そのため、たとえば [**System.Collections.Generic.IReadOnlyList\<T\>** ](/dotnet/api/system.collections.generic.ireadonlylist-1) は [**Windows.Foundation.Collections.IVectorView\<T\>** ](/uwp/api/windows.foundation.collections.ivectorview-1) に変換することになります。 また C# では、一部の Windows ランタイムの操作は便利な C# の言語機能としてプロジェクションが行われます。 一例として、C# では、`+=` の演算子構文を使用して、イベント処理デリゲートの登録を行います。 それで、そのような言語の機能は、実行されている基本的な操作 (この例ではイベント登録) に変換することになります。
+- [**言語構文の移植**](#changes-that-involve-the-language-syntax)。 これらの変更の多くは単純な機械的な変換で、あるシンボルを他のシンボルに置き換えます。 たとえば、ドット (`.`) を 2 重コロン (`::`) に変更します。
+- [**言語プロシージャの移植**](#changes-that-involve-procedures-within-the-language)。 これらのうちの一部は単純で、変更の繰り返しです (`myObject.MyProperty` から `myObject.MyProperty()` など)。 大きな変更が必要なものもあります (**System.Text.StringBuilder** を使用するプロシージャを、**std::wostringstream** を使用するものに移植する、など)。
 - [**C++/WinRT に特有の移植関連のタスク**](#porting-related-tasks-that-are-specific-to-cwinrt) Windows ランタイムの特定の詳細は、背後で C# によって暗黙的に処理されます。 これらの詳細は、C++/WinRT で明示的に処理されます。 一例として、`.idl` ファイルを使用してランタイム クラスを定義することがあります。
 
 このトピックの残りの部分は、この分類に従って構成されています。
 
-## <a name="port-the-language-projection"></a>言語プロジェクションでの移植
+## <a name="changes-that-involve-the-language-projection"></a>言語プロジェクションに関連する変更
 
 ||C#|C++/WinRT|関連項目|
 |-|-|-|-|
@@ -39,7 +39,8 @@ ms.locfileid: "84172833"
 |プロジェクション名前空間|`using System;`|`using namespace Windows::Foundation;`||
 ||`using System.Collections.Generic;`|`using namespace Windows::Foundation::Collections;`||
 |コレクションのサイズ|`collection.Count`|`collection.Size()`|[**BuildClipboardFormatsOutputString** メソッドの移植](/windows/uwp/cpp-and-winrt-apis/clipboard-to-winrt-from-csharp#buildclipboardformatsoutputstring)|
-|読み取り専用のコレクション|[**IReadOnlyList\<T\>** ](/dotnet/api/system.collections.generic.ireadonlylist-1)|[**IVectorView\<T\>** ](/uwp/api/windows.foundation.collections.ivectorview-1)|[**BuildClipboardFormatsOutputString** メソッドの移植](/windows/uwp/cpp-and-winrt-apis/clipboard-to-winrt-from-csharp#buildclipboardformatsoutputstring)|
+|一般的なコレクション型|[**IList\<T\>** ](/dotnet/api/system.collections.generic.ilist-1)、および **Add** で要素を追加。|[**IVector\<T\>** ](/uwp/api/windows.foundation.collections.ivector-1)、および **Append** で要素を追加。 いずれかの場所で **std::vector** を使用する場合は、**push_back** で要素を追加。||
+|読み取り専用のコレクション型|[**IReadOnlyList\<T\>** ](/dotnet/api/system.collections.generic.ireadonlylist-1)|[**IVectorView\<T\>** ](/uwp/api/windows.foundation.collections.ivectorview-1)|[**BuildClipboardFormatsOutputString** メソッドの移植](/windows/uwp/cpp-and-winrt-apis/clipboard-to-winrt-from-csharp#buildclipboardformatsoutputstring)|
 |クラス メンバーとしてのイベント ハンドラー デリゲート|`myObject.EventName += Handler;`|`token = myObject.EventName({ get_weak(), &Class::Handler });`|[**EnableClipboardContentChangedNotifications** メソッドの移植](/windows/uwp/cpp-and-winrt-apis/clipboard-to-winrt-from-csharp#enableclipboardcontentchangednotifications)|
 |イベント ハンドラー デリゲートの取り消し|`myObject.EventName -= Handler;`|`myObject.EventName(token);`|[**EnableClipboardContentChangedNotifications** メソッドの移植](/windows/uwp/cpp-and-winrt-apis/clipboard-to-winrt-from-csharp#enableclipboardcontentchangednotifications)|
 |連想コンテナー|[**IDictionary\<K, V\>** ](/dotnet/api/system.collections.generic.idictionary-2)|[**IMap\<K, V\>** ](/uwp/api/windows.foundation.collections.imap-2)||
@@ -104,27 +105,30 @@ void OpenButton_Click(Object sender, Windows.UI.Xaml.RoutedEventArgs e);
 > [!NOTE]
 > 関数を[ファイア アンド フォーゲット](/windows/uwp/cpp-and-winrt-apis/concurrency-2#fire-and-forget)として "*実装*" する場合でも、これを `void` として宣言します。
 
-## <a name="port-language-syntax"></a>言語構文の移植
+## <a name="changes-that-involve-the-language-syntax"></a>言語構文に関連する変更
 
 ||C#|C++/WinRT|関連項目|
 |-|-|-|-|
 |アクセス修飾子|`public \<member\>`|`public:`<br>&nbsp;&nbsp;&nbsp;&nbsp;`\<member\>`|[**Button_Click** メソッドの移植](/windows/uwp/cpp-and-winrt-apis/clipboard-to-winrt-from-csharp#button_click)|
+|データ メンバーへのアクセス|`this.variable`|`this->variable`||
 |非同期アクション|`async Task ...`|`IAsyncAction ...`||
 |非同期操作|`async Task<T> ...`|`IAsyncOperation<T> ...`||
 |fire-and-forget メソッド (つまり、非同期)|`async void ...`|`winrt::fire_and_forget ...`|[**CopyButton_Click** メソッドの移植](/windows/uwp/cpp-and-winrt-apis/clipboard-to-winrt-from-csharp#copybutton_click)|
-|協調的な待機|`await ...`|`co_await ...`|[**CopyButton_Click** メソッドの移植](/windows/uwp/cpp-and-winrt-apis/clipboard-to-winrt-from-csharp#copybutton_click)|
 |列挙型定数へのアクセス|`E.Value`|`E::Value`|[**DisplayChangedFormats** メソッドの移植](/windows/uwp/cpp-and-winrt-apis/clipboard-to-winrt-from-csharp#displaychangedformats)|
+|協調的な待機|`await ...`|`co_await ...`|[**CopyButton_Click** メソッドの移植](/windows/uwp/cpp-and-winrt-apis/clipboard-to-winrt-from-csharp#copybutton_click)|
+|プライベート フィールドとしての投影型のコレクション|`private List<MyRuntimeClass> myRuntimeClasses = new List<MyRuntimeClass>();`|`std::vector`<br>`<MyNamespace::MyRuntimeClass>`<br>`m_myRuntimeClasses;`||
+|GUID の構築|`private static readonly Guid myGuid = new Guid("C380465D-2271-428C-9B83-ECEA3B4A85C1");`|`winrt::guid myGuid{ 0xC380465D, 0x2271, 0x428C, { 0x9B, 0x83, 0xEC, 0xEA, 0x3B, 0x4A, 0x85, 0xC1} };`||
 |名前空間の区切り記号|`A.B.T`|`A::B::T`||
 |Null|`null`|`nullptr`|[**UpdateStatus** メソッドの移植](/windows/uwp/cpp-and-winrt-apis/clipboard-to-winrt-from-csharp#updatestatus)|
+|型オブジェクトの取得|`typeof(MyType)`|`winrt::xaml_typename<MyType>()`|[**Scenarios** プロパティの移植](/windows/uwp/cpp-and-winrt-apis/clipboard-to-winrt-from-csharp#scenarios)|
 |メソッドのパラメーター宣言|`MyType`|`MyType const&`|[パラメーターの引き渡し](/windows/uwp/cpp-and-winrt-apis/concurrency#parameter-passing)|
 |非同期メソッドのパラメーター宣言|`MyType`|`MyType`|[パラメーターの引き渡し](/windows/uwp/cpp-and-winrt-apis/concurrency#parameter-passing)|
 |静的メソッドの呼び出し|`T.Method()`|`T::Method()`||
 |文字列|`string` または **System.String**|[**winrt::hstring**](/uw/cpp-ref-for-winrt/hstring)|[C++/WinRT での文字列の処理](/windows/uwp/cpp-and-winrt-apis/strings)|
 |文字列リテラル|`"a string literal"`|`L"a string literal"`|[コンストラクター、**Current**、**FEATURE_NAME** の移植](/windows/uwp/cpp-and-winrt-apis/clipboard-to-winrt-from-csharp#the-constructor-current-and-feature_name)|
-|逐語的/未加工の文字列リテラル|`@"verbatim string literal"`|`LR"(raw string literal)"`|[**DisplayToast** メソッドの移植](/windows/uwp/cpp-and-winrt-apis/clipboard-to-winrt-from-csharp##displaytoast)|
-|データ メンバーへのアクセス|`this.variable`|`this->variable`||
-|using ディレクティブ|`using A.B.C;`|`using namespace A::B::C;`|[コンストラクター、**Current**、**FEATURE_NAME** の移植](/windows/uwp/cpp-and-winrt-apis/clipboard-to-winrt-from-csharp#the-constructor-current-and-feature_name)|
 |推論された (または推測された) 型|`var`|`auto`|[**BuildClipboardFormatsOutputString** メソッドの移植](/windows/uwp/cpp-and-winrt-apis/clipboard-to-winrt-from-csharp#buildclipboardformatsoutputstring)|
+|using ディレクティブ|`using A.B.C;`|`using namespace A::B::C;`|[コンストラクター、**Current**、**FEATURE_NAME** の移植](/windows/uwp/cpp-and-winrt-apis/clipboard-to-winrt-from-csharp#the-constructor-current-and-feature_name)|
+|逐語的/未加工の文字列リテラル|`@"verbatim string literal"`|`LR"(raw string literal)"`|[**DisplayToast** メソッドの移植](/windows/uwp/cpp-and-winrt-apis/clipboard-to-winrt-from-csharp##displaytoast)|
 
 > [!NOTE]
 > ヘッダー ファイルに特定の名前空間の `using namespace` ディレクティブが含まれていない場合、その名前空間のすべての型名を完全修飾する必要があります。または、コンパイラーがそれらを見つけられるように十分に修飾する必要があります。 例として、[**DisplayToast** メソッドの移植](/windows/uwp/cpp-and-winrt-apis/clipboard-to-winrt-from-csharp##displaytoast)に関する記事を参照してください。
@@ -145,7 +149,7 @@ C# の静的フィールドは、C++/WinRT の静的アクセサーおよびミ�
 
 [C# から C++/WinRT への Clipboard サンプルの移植](/windows/uwp/cpp-and-winrt-apis/clipboard-to-winrt-from-csharp)に関する記事では、"*同じ*" XAML マークアップ (リソースを含む) と資産ファイルを、C# および C++/WinRT プロジェクト全体で使用することができました。 ある場合には、そうするためにマークアップの編集が必要になります。 「[**MainPage** の移植を完了するために必要な XAML とスタイルをコピーする](/windows/uwp/cpp-and-winrt-apis/clipboard-to-winrt-from-csharp#copy-the-xaml-and-styles-necessary-to-finish-up-porting-mainpage)」を参照してください。
 
-## <a name="port-language-procedure"></a>言語プロシージャの移植
+## <a name="changes-that-involve-procedures-within-the-language"></a>言語内のプロシージャに関連する変更
 
 ||C#|C++/WinRT|関連項目|
 |-|-|-|-|
@@ -168,13 +172,39 @@ C# の静的フィールドは、C++/WinRT の静的アクセサーおよびミ�
 |文字列の作成|`StringBuilder builder;`<br>`builder.Append(...);`|`std::wostringstream builder;`<br>`builder << ...;`|[文字列の作成](#string-building)|
 |文字列補間|`$"{i++}) {s.Title}"`|[**winrt::to_hstring**](/uwp/cpp-ref-for-winrt/to-hstring) および [**winrt::hstring::operator+** ](/uwp/cpp-ref-for-winrt/hstring#operator-concatenation-operator)|[**OnNavigatedTo** メソッドの移植](/windows/uwp/cpp-and-winrt-apis/clipboard-to-winrt-from-csharp#onnavigatedto)|
 |比較のための空の文字列|**System.String.Empty**|[**winrt::hstring::empty**](/uwp/cpp-ref-for-winrt/hstring#hstringempty-function)|[**UpdateStatus** メソッドの移植](/windows/uwp/cpp-and-winrt-apis/clipboard-to-winrt-from-csharp#updatestatus)|
+|空の文字列の作成|`var myEmptyString = String.Empty;`|`winrt::hstring myEmptyString{ L"" };`||
 |ディクショナリ操作|`map[k] = v; // replaces any existing`<br>`v = map[k]; // throws if not present`<br>`map.ContainsKey(k)`|`map.Insert(k, v); // replaces any existing`<br>`v = map.Lookup(k); // throws if not present`<br>`map.HasKey(k)`||
 |型変換 (エラー発生時にスロー)|`(MyType)v`|`v.as<MyType>()`|[**Footer_Click** メソッドの移植](/windows/uwp/cpp-and-winrt-apis/clipboard-to-winrt-from-csharp#footer_click)|
 |型変換 (エラー発生時は null)|`v as MyType`|`v.try_as<MyType>()`|[**PasteButton_Click** メソッドの移植](/windows/uwp/cpp-and-winrt-apis/clipboard-to-winrt-from-csharp#pastebutton_click)|
 |x:Name を持つ XAML 要素はプロパティ|`MyNamedElement`|`MyNamedElement()`|[コンストラクター、**Current**、**FEATURE_NAME** の移植](/windows/uwp/cpp-and-winrt-apis/clipboard-to-winrt-from-csharp#the-constructor-current-and-feature_name)|
 |UI スレッドへの切り替え|**CoreDispatcher.RunAsync**|**CoreDispatcher.RunAsync** または [**winrt::resume_foreground**](/uwp/cpp-ref-for-winrt/resume-foreground)|[**NotifyUser** メソッドの移植](/windows/uwp/cpp-and-winrt-apis/clipboard-to-winrt-from-csharp#notifyuser) および [**HistoryAndRoaming** メソッドの移植](/windows/uwp/cpp-and-winrt-apis/clipboard-to-winrt-from-csharp#historyandroaming)|
+|XAML ページの命令型コードでの UI 要素の構築|「[UI 要素の構築](#ui-element-construction)」を参照|「[UI 要素の構築](#ui-element-construction)」を参照||
 
 以下のセクションでは、表内のいくつかの項目について詳細を説明します。
+
+### <a name="ui-element-construction"></a>UI 要素の構築
+
+次のコード例で、XAML ページの命令型コードで UI 要素を構築する方法を示します。
+
+```csharp
+var myTextBlock = new TextBlock()
+{
+    Text = "Text",
+    Style = (Windows.UI.Xaml.Style)this.Resources["MyTextBlockStyle"]
+};
+```
+
+```cppwinrt
+TextBlock myTextBlock;
+myTextBlock.Text(L"Text");
+myTextBlock.Style(
+    winrt::unbox_value<Windows::UI::Xaml::Style>(
+        Resources().Lookup(
+            winrt::box_value(L"MyTextBlockStyle")
+        )
+    )
+);
+```
 
 ### <a name="tostring"></a>ToString()
 
