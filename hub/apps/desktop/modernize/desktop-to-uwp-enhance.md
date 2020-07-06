@@ -8,12 +8,12 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: 444699c00a17dd90fe4c08c44ff56d540cadb3d6
-ms.sourcegitcommit: ef723e3d6b1b67213c78da696838a920c66d5d30
+ms.openlocfilehash: fd561096dc53f85186698c981693693a6d3b9e64
+ms.sourcegitcommit: d95ccb47c616bd32c56e491490a6baf30185c8c5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/02/2020
-ms.locfileid: "82729867"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85295539"
 ---
 # <a name="call-windows-runtime-apis-in-desktop-apps"></a>デスクトップ アプリで Windows ランタイム API を呼び出す
 
@@ -59,16 +59,16 @@ Windows ランタイム API を使用するには、プロジェクトにいく�
 
     ![[参照の追加] ダイアログ ボックス](images/desktop-to-uwp/browse-references.png)
 
-2. 以下のファイルへの参照を追加します。
+2. 次のすべてのファイルへの参照を追加します。
 
-    |ファイル|Location|
+    |ファイル|インストール先|
     |--|--|
-    |System.Runtime.WindowsRuntime|C:\Windows\Microsoft.NET\Framework\v4.0.30319|
-    |System.Runtime.WindowsRuntime.UI.Xaml|C:\Windows\Microsoft.NET\Framework\v4.0.30319|
-    |System.Runtime.InteropServices.WindowsRuntime|C:\Windows\Microsoft.NET\Framework\v4.0.30319|
+    |System.Runtime.WindowsRuntime.dll|C:\Windows\Microsoft.NET\Framework\v4.0.30319|
+    |System.Runtime.WindowsRuntime.UI.Xaml.dll|C:\Windows\Microsoft.NET\Framework\v4.0.30319|
+    |System.Runtime.InteropServices.WindowsRuntime.dll|C:\Windows\Microsoft.NET\Framework\v4.0.30319|
     |windows.winmd|C:\Program Files (x86)\Windows Kits\10\UnionMetadata\\<*SDK バージョン*>\Facade|
-    |Windows.Foundation.UniversalApiContract.winmd|C:\Program Files (x86)\Windows Kits\10\References\\<*SDK バージョン*>\Windows.Foundation.UniversalApiContract\<*バージョン*>|
-    |Windows.Foundation.FoundationContract.winmd|C:\Program Files (x86)\Windows Kits\10\References\\<*SDK バージョン*>\Windows.Foundation.FoundationContract\<*バージョン*>|
+    |Windows.Foundation.UniversalApiContract.winmd|C:\Program Files (x86)\Windows Kits\10\References\\<*SDK バージョン*>\Windows.Foundation.UniversalApiContract\\<*バージョン*>|
+    |Windows.Foundation.FoundationContract.winmd|C:\Program Files (x86)\Windows Kits\10\References\\<*SDK バージョン*>\Windows.Foundation.FoundationContract\\<*バージョン*>|
 
 3. **[プロパティ]** ウィンドウで、各 *.winmd* ファイルの **[ローカルにコピー]** フィールドを **[False]** に設定します。
 
@@ -255,4 +255,4 @@ void UWP::ShowToast()
 
 ## <a name="find-answers-to-your-questions"></a>質問に対する回答を見つける
 
-ご質問がある場合は、 Stack Overflow でお問い合わせください。 Microsoft のチームでは、これらの[タグ](https://stackoverflow.com/questions/tagged/project-centennial+or+desktop-bridge)をチェックしています。 [こちら](https://social.msdn.microsoft.com/Forums/en-US/home?filter=alltypes&sort=relevancedesc&searchTerm=%5BDesktop%20Converter%5D)から質問することもできます。
+ご質問があるでしょうか。 Stack Overflow でお問い合わせください。 Microsoft のチームでは、これらの[タグ](https://stackoverflow.com/questions/tagged/project-centennial+or+desktop-bridge)をチェックしています。 [こちら](https://social.msdn.microsoft.com/Forums/en-US/home?filter=alltypes&sort=relevancedesc&searchTerm=%5BDesktop%20Converter%5D)から質問することもできます。

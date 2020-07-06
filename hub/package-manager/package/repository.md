@@ -1,17 +1,15 @@
 ---
 title: リポジトリにマニフェストを送信する
-description: ''
-author: denelon
-ms.author: denelon
+description: アプリケーションを記述するパッケージ マニフェストを作成したら、マニフェストを Windows パッケージ マネージャー リポジトリに送信する準備ができています。
 ms.date: 04/29/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: c5ebcc564b4db16c1d16385cbeaf7fd6d82c8f18
-ms.sourcegitcommit: 8193aef04deb3514eb2d34bfe5cb9424ba12cd76
+ms.openlocfilehash: 19a66b2d0724eb0f4f8c3f171033e4e616751717
+ms.sourcegitcommit: 4df8c04fc6c22ec76cdb7bb26f327182f2dacafa
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83865029"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85334596"
 ---
 # <a name="submit-your-manifest-to-the-repository"></a>リポジトリにマニフェストを送信する
 
@@ -112,7 +110,7 @@ Windows パッケージ マネージャー リポジトリへのすべてのア�
 
 * マニフェストは、[スキーマの要件](manifest.md#manifest-contents)に準拠していること。
 * マニフェスト内のすべての URL は、安全な Web サイトにつながること。
-* インストーラーとアプリケーションは、ウイルスに感染していないこと。
+* インストーラーとアプリケーションは、ウイルスに感染していないこと。 パッケージは、誤ってマルウェアとして識別される場合があります。 偽陽性であると思われる場合は、インストーラーを[こちら](https://www.microsoft.com/wdsi/filesubmission)から Defender チームに送信して分析を受けることができます。
 * 管理者と非管理者の両方に対して、アプリケーションが正しくインストールされ、アンインストールされること。
 * インストーラーは非対話型モードをサポートしていること。
 * すべてのマニフェスト エントリは正確で、誤解を招くことがないこと。

@@ -14,12 +14,12 @@ dev_langs:
 - csharp
 - vb
 ms.custom: RS5, 19H1
-ms.openlocfilehash: 80072be15a28883e5d29a7393edd112cf6fa47be
-ms.sourcegitcommit: 7e8c7f89212c88dcc0274c69d2c3365194c0954a
+ms.openlocfilehash: d5308f49499f4bdec9db0087cef54ac2fa0bb805
+ms.sourcegitcommit: 69b7fe203d8384d0ade37122ae9d2c4568f6d168
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83688496"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85267169"
 ---
 # <a name="treeview"></a>TreeView
 
@@ -488,6 +488,10 @@ End Sub
 - ユーザーが親ノードを選択すると、その親の下で実体化されたすべての子も選択されます。 同様に、すべての子ノードが選択されている場合、親ノードも選択されます。
 - **SelectAll** メソッドでは、実体化されたノードのみが **SelectedNodes** コレクションに追加されます。
 - 実体化されていない子を含む親ノードが選択された場合、子は実体化されたときに選択されます。
+
+#### <a name="selecteditemselecteditems"></a>SelectedItem/SelectedItems
+
+WinUI 2.2 以降では、TreeView に [SelectedItem](/uwp/api/microsoft.ui.xaml.controls.treeview.selecteditem) および [SelectedItems](/uwp/api/microsoft.ui.xaml.controls.treeview.selecteditems) プロパティが用意されています。 これらのプロパティを使用すると、選択したノードのコンテンツを直接取得できます。 複数選択が有効になっている場合、SelectedItem には、SelectedItems コレクションの最初の項目が格納されます。
 
 ## <a name="code-examples"></a>コード例
 

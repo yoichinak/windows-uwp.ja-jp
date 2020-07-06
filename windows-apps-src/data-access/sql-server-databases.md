@@ -1,16 +1,16 @@
 ---
 title: UWP アプリでの SQL Server データベースの使用
 description: UWP アプリでの SQL Server データベースの使用。
-ms.date: 03/28/2019
+ms.date: 06/26/2020
 ms.topic: article
 keywords: windows 10, UWP, SQL Server, データベース
 ms.localizationpriority: medium
-ms.openlocfilehash: 54907dac63580794b7df42fa2e61162d16be8a1b
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: d5c5c0f107a9e9a2adb0587b544a2c74b8321886
+ms.sourcegitcommit: 48e047a581fcfcc9a4084d65a78b89f2c01cf4f3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75302566"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85448342"
 ---
 # <a name="use-a-sql-server-database-in-a-uwp-app"></a>UWP アプリでの SQL Server データベースの使用
 アプリで [System.Data.SqlClient](https://docs.microsoft.com/dotnet/api/system.data.sqlclient) 名前空間のクラスを使用して、SQL Server データベースに直接接続し、データを保存および取得することができます。
@@ -21,7 +21,7 @@ ms.locfileid: "75302566"
 
 このガイドで示すスニペットは、このもっと[完全なサンプル](https://github.com/StefanWickDev/IgniteDemos/tree/master/NorthwindDemo)に基づいています。
 
-## <a name="first-set-up-your-solution"></a>まず、ソリューションをセットアップする
+## <a name="first-set-up-your-solution"></a>まず、ソリューションをセットアップします。
 
 アプリを SQL Server データベースに直接接続するために、プロジェクトの最小バージョンが Fall Creators Update を対象にしていることを確認します。  UWP プロジェクトのプロパティ ページにその情報があります。
 
@@ -33,21 +33,24 @@ Windows 認証を使用してご利用の SQL Server を認証する場合は、
 
 ![エンタープライズ認証機能](images/enterprise-authentication.png)
 
+> [!IMPORTANT]
+> また、Windows 認証を使用しているかどうかにかかわらず、**インターネット (クライアントとサーバー)** 、**インターネット (クライアント)** 、および**プライベート ネットワーク (クライアントとサーバー)** を選択する必要があります。
+
 <a id="use-data" />
 
 ## <a name="add-and-retrieve-data-in-a-sql-server-database"></a>SQL Server データベースのデータの追加と取得
 
 このセクションでは、以下のことを行います。
 
-:1: 接続文字列を追加します。
+:1:接続文字列を追加します。
 
-:2: 製品データを保持するクラスを作成します。
+:2:製品データを保持するクラスを作成します。
 
-:3: SQL Server データベースから製品を取得します。
+:3:SQL Server データベースから製品を取得します。
 
-:4: 基本的なユーザー インターフェイスを追加します。
+:4:基本的なユーザー インターフェイスを追加します。
 
-:5: UI に製品を追加します。
+:5:UI に製品を追加します。
 
 >[!NOTE]
 > このセクションでは、データ アクセス コードを編成する方法の 1 つを示します。 つまり、[System.Data.SqlClient](https://docs.microsoft.com/dotnet/api/system.data.sqlclient) を使用して、SQL Server データベースのデータを保存および取得する方法の例を示すだけです。 アプリケーションの設計に最も適した方法でコードを編成してください。
@@ -231,7 +234,7 @@ public MainPage()
 
 ![SQL Server Browser サービス](images/sql-browser-service.png)
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
 **簡易データベースを使用して、ユーザー デバイスにデータを保存する**
 

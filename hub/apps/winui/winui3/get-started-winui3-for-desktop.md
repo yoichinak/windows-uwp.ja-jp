@@ -8,25 +8,25 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: high
 ms.custom: 19H1
-ms.openlocfilehash: ab67507153e0ff7065baffa92ea6ec35aee5b132
-ms.sourcegitcommit: d0f479f1955881afb62c2af249db5d0b053b63e5
+ms.openlocfilehash: 8775113c22716259f9449899b577481738dc6c0f
+ms.sourcegitcommit: da1c0ae251883987f105bc2919b2d67846194bc5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83580769"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85198520"
 ---
 # <a name="get-started-with-winui-30-for-desktop-apps"></a>デスクトップ アプリ用の WinUI 3.0 の概要
 
-WinUI 3.0 Preview 1 では、全面的に WinUI ベースのユーザー インターフェイスを使用する、マネージド デスクトップ C#/.NET およびネイティブ C++/Win32 デスクトップ アプリを作成できる新しいプロジェクト テンプレートが導入されています。 これらのプロジェクト テンプレートを使用してアプリを作成すると、アプリケーションのユーザー インターフェイス全体が、WinUI 3.0 で提供されるウィンドウ、コントロール、その他の種類の UI を使用して実装されます。 
+WinUI 3.0 Preview 1 では、全面的に WinUI ベースのユーザー インターフェイスを使用する、マネージド デスクトップ C#/.NET およびネイティブ C++/Win32 デスクトップ アプリを作成できる新しいプロジェクト テンプレートが導入されています。 これらのプロジェクト テンプレートを使用してアプリを作成すると、アプリケーションのユーザー インターフェイス全体が、WinUI 3.0 で提供されるウィンドウ、コントロール、その他の種類の UI を使用して実装されます。
 
-WinUI 3.0 Preview 1 により、Visual Studio 2019 には次の **WinUI in Desktop** プロジェクト テンプレートが追加されます。
+WinUI 3.0 Preview 1 では、WinUI 3.0 を使用するデスクトップ アプリを構築するために、次のプロジェクト テンプレートが Visual Studio 2019 に追加されます。
 
-* .NET 5 を対象とする C# アプリとライブラリ:
-  * [Blank App, Packaged (WinUI in Desktop)]\(空のアプリ、パッケージ (WinUI in Desktop)\)
-  * [Class Library (WinUI in Desktop)]\(クラス ライブラリ (WinUI in Desktop)\)
+* .NET 5 を対象とする C# アプリとライブラリ用のプロジェクト テンプレート:
+  * **[Blank App, Packaged (WinUI in Desktop)]\(空のアプリ、パッケージ (WinUI in Desktop)\)**
+  * **[Class Library (WinUI in Desktop)]\(クラス ライブラリ (WinUI in Desktop)\)**
 
-* C++/Win32 アプリ:
-  * [Blank App, Packaged (WinUI in Desktop)]\(空のアプリ、パッケージ (WinUI in Desktop)\)
+* C++/Win32 アプリ用のプロジェクト テンプレート:
+  * **[Blank App, Packaged (WinUI in Desktop)]\(空のアプリ、パッケージ (WinUI in Desktop)\)**
 
 このアプリ プロジェクト テンプレートにより、WinUI アプリ プロジェクトと、アプリを展開するために [MSIX パッケージ](https://docs.microsoft.com/windows/msix/overview)に組み込むよう構成されている [Windows アプリケーション パッケージ プロジェクト](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)が生成されます。
 
@@ -41,6 +41,9 @@ WinUI 3.0 Preview 1 により、Visual Studio 2019 には次の **WinUI in Deskt
 3. .NET 5 Preview 4 の x64 版と x86 版の両方をインストールします。
     * x64: [https://aka.ms/dotnet/net5/preview4/Sdk/dotnet-sdk-win-x64.exe](https://aka.ms/dotnet/net5/preview4/Sdk/dotnet-sdk-win-x64.exe)
     * x86: [https://aka.ms/dotnet/net5/preview4/Sdk/dotnet-sdk-win-x86.exe](https://aka.ms/dotnet/net5/preview4/Sdk/dotnet-sdk-win-x86.exe)
+
+    > [!NOTE]
+    > WinUI 3.0 Preview 1 には、.NET 5 Preview 4 が必要です。 .NET 5 のこれより後のプレビュー バージョンは、WinUI 3.0 Preview 1 ではサポートされていません。
 
 4. Visual Studio 2019 用の WinUI 3.0 Preview 1 プロジェクト テンプレートを含む VSIX 拡張機能をインストールします。 詳細については、[こちらの手順](index.md#visual-studio-project-templates)を参照してください。
 

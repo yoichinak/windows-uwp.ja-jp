@@ -7,13 +7,13 @@ manager: jken
 ms.topic: article
 keywords: NodeJS, Node.js, Windows 10, Microsoft, ラーニング NodeJS, Windows 上のノード, WSL 上のノード, Windows 上の Linux 上のノード, Windows 上のインストール ノード, NodeJS と VS Code, Windows 上のノードでの開発, Windows 上の NodeJS での開発, WSL 上のインストール ノード, Linux 用 Windows サブシステム上の NodeJS
 ms.localizationpriority: medium
-ms.date: 09/19/2019
-ms.openlocfilehash: 1ea8973e1db665d1fe66ef6b5f5699319131d605
-ms.sourcegitcommit: 2af814b7f94ee882f42fae8f61130b9cc9833256
+ms.date: 06/09/2020
+ms.openlocfilehash: 494db609db577bd2b199f828fcf80e80a5c8c624
+ms.sourcegitcommit: 22ed0d4edad5e6bab352e641cf86cf455cf83825
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83717131"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85133975"
 ---
 # <a name="set-up-your-nodejs-development-environment-with-wsl-2"></a>WSL 2 を使用して Node.js 開発環境を設定する
 
@@ -51,7 +51,12 @@ Node.js をインストールするには、複数の方法があります。 �
 
 1. ご利用の Ubuntu 18.04 コマンドラインを開きます。
 2. `sudo apt-get install curl` を使用して cURL をインストールします (コマンドラインでインターネットからコンテンツをダウンロードするために使用するツール)。
-3. `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash` を使用して nvm をインストールします。
+3. `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash` を使用して nvm をインストールします。
+
+> [!NOTE]
+> 発行時、最新バージョンとして NVM v0.35.3 が提供されていました。 [GitHub プロジェクト ページで NVM の最新リリース](https://github.com/nvm-sh/nvm)を確認し、最新バージョンを含むように上記のコマンドを調整することができます。
+cURL を使用してより新しいバージョンの NVM をインストールすると、古いものが置き換えられ、NVM を使用してインストールした Node のバージョンはそのまま残ります。 たとえば次のようになります。`curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash`
+
 4. インストールを確認するには、`command -v nvm` を入力します。これによって "nvm" が返されるはずです。"コマンドが見つかりません" というメッセージが返される場合または何も応答がない場合は、現在のターミナルを閉じてから再度開き、もう一度やり直してください。 [nvm GitHub リポジトリで詳細を確認してください](https://github.com/nvm-sh/nvm)。
 5. 現在インストールされている Node のバージョンを一覧表示します (この時点では何もないはずです): `nvm ls`
 
@@ -67,10 +72,6 @@ Node.js をインストールするには、複数の方法があります。 �
 10. プロジェクトに使用する Node.js のバージョンを変更するには、新しいプロジェクト ディレクトリ `mkdir NodeTest` を作成し、ディレクトリ `cd NodeTest` を入力します。次に `nvm use node` を入力して現在のバージョンに切り替えるか、または `nvm use --lts` を入力して LTS のバージョンに切り替えます。 また、`nvm use v8.2.1` のように、インストールした追加のバージョンに固有の番号を使用することもできます (使用可能な Node.js のバージョンをすべて一覧表示するには、コマンド `nvm ls-remote` を使用します)。
 
 NVM を使用して Node.js と NPM をインストールする場合は、SUDO コマンドを使用して新しいパッケージをインストールする必要はありません。
-
-> [!NOTE]
-> 発行時、最新バージョンとして NVM v0.35.2 が提供されていました。 [GitHub プロジェクト ページで NVM の最新リリース](https://github.com/nvm-sh/nvm)を確認し、最新バージョンを含むように上記のコマンドを調整することができます。
-cURL を使用してより新しいバージョンの NVM をインストールすると、古いものが置き換えられ、NVM を使用してインストールした Node のバージョンはそのまま残ります。 たとえば次のようになります。`curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash`
 
 ## <a name="alternative-version-managers"></a>代替のバージョン マネージャー
 
@@ -131,11 +132,7 @@ Node.js 拡張パックをインストールするには、次の手順を行い
 
 ## <a name="set-up-git-optional"></a>Git を設定する (省略可能)
 
-共同作業で開発する場合や、(GitHub のような) オープンソース サイトでプロジェクトをホストする場合のために、VS Code では [Git によるバージョン管理](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)がサポートされています。 VS Code の [ソース管理] タブでは、すべての変更が追跡され、一般的な Git コマンド (追加、コミット、プッシュ、プル) が UI に組み込まれています。
-
-1. Git は Linux 用 Windows サブシステム ディストリビューションと共にインストールされが、git 構成ファイルを設定する必要があります。 これを行うには、ターミナルで `git config --global user.name "Your Name"` を入力してから、`git config --global user.email "youremail@domain.com"` を入力します。 まだ Git アカウントを持っていない場合は、[GitHub でそれにサインアップ](https://github.com/join)することができます。 以前に Git を使用したことがない場合、入門用の [GitHub ガイド](https://guides.github.com/)が役に立ちます。 git 構成を編集する必要がある場合は、nano のような組み込みのテキスト エディターを使用してそれを行うことができます: `nano ~/.gitconfig`
-
-2. Node プロジェクトに [.gitignore ファイル](https://help.github.com/en/articles/ignoring-files)を追加することをお勧めします。 GitHub の既定の Node.js 用 gitignore テンプレートは、[こちら](https://github.com/github/gitignore/blob/master/Node.gitignore)です。 [GitHub Web サイトを使用して新しいリポジトリを作成](https://help.github.com/articles/create-a-repo)することを選択した場合は、リポジトリを初期化する場合に利用できるチェックボックスがあります。README ファイル、Node.js プロジェクトに合わせて設定された .gitignore ファイル、必要に応じてライセンスを追加するためのオプションが対象になります。
+WSL で NodeJS プロジェクトの Git をセットアップするには、WSL ドキュメントの「[Linux 用 Windows サブシステムで Git の使用を開始する](https://docs.microsoft.com/windows/wsl/tutorials/wsl-git)」の記事を参照してください。
 
 ## <a name="next-steps"></a>次の手順
 

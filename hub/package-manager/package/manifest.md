@@ -1,17 +1,15 @@
 ---
 title: パッケージ マニフェストを作成する
-description: ''
-author: denelon
-ms.author: denelon
+description: ソフトウェア パッケージを Windows パッケージ マネージャー リポジトリに送信する場合は、まずパッケージ マニフェストを作成します。
 ms.date: 04/29/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 8eceb29abbdc7f765628dbd8dbd6f6d0be21f132
-ms.sourcegitcommit: e2689c72d5b381eafdb1075090d1961f4c1cb37a
+ms.openlocfilehash: 7ecc6687527ca330f466e6a97ef14c0b5c9b56cf
+ms.sourcegitcommit: 4df8c04fc6c22ec76cdb7bb26f327182f2dacafa
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84055156"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85334611"
 ---
 # <a name="create-your-package-manifest"></a>パッケージ マニフェストを作成する
 
@@ -58,7 +56,7 @@ License: string # The open source license or copyright.
 InstallerType: string # Enumeration of supported installer types (exe, msi, msix, inno, wix, nullsoft, appx).
 Installers:
   - Arch: string # Enumeration of supported architectures.
-  - URL: string # Path to download installation file.
+  - Url: string # Path to download installation file.
   - Sha256: string # SHA256 calculated from installer.
 ManifestVersion: 0.1.0
 ```
@@ -164,6 +162,17 @@ ManifestVersion: 0.1.0
 
 > [!NOTE]
 > インストーラーが .exe で、Nullsoft または Inno を使用してビルドされている場合は、これらの値を代わりに指定できます。 Nullsoft または Inno が指定されている場合、クライアントは、インストーラーに対してサイレントおよびサイレントの進行状況のインストール動作を自動的に設定します。
+
+## <a name="installer-switches"></a>インストーラーのスイッチ
+
+多くの場合、コマンド ラインからインストーラーに `-?` を渡すことにより、インストーラーで使用できるサイレント `Switches` を判別することができます。 さまざまなインストーラーの種類で使用できる一般的なサイレント `Swtiches` の一部を次に示します。
+
+| インストーラー | コマンド  | ドキュメント |  
+| :--- | :-- | :--- |  
+| MSI | `/q` | [MSI のコマンドライン オプション](https://docs.microsoft.com/windows/win32/msi/command-line-options) |
+| InstallShield | `/s`  | [InstallShield のコマンドライン パラメーター](https://docs.flexera.com/installshield19helplib/helplibrary/IHelpSetup_EXECmdLine.htm) |
+| Inno Setup | `/SILENT or /VERYSILENT` | [Inno Setup のドキュメント](https://jrsoftware.org/ishelp/) |
+| Nullsoft | `/S` | [Nullsoft サイレント インストーラー/アンインストーラー](https://nsis.sourceforge.io/Docs/Chapter4.html#silent) |
 
 ## <a name="tips-and-best-practices"></a>ヒントとベスト プラクティス
 

@@ -1,17 +1,15 @@
 ---
 title: install コマンド
 description: 指定されたアプリケーションをインストールします。
-author: KevinLaMS
-ms.author: kevinla
 ms.date: 04/28/2020
 ms.topic: overview
 ms.localizationpriority: medium
-ms.openlocfilehash: 8c460ccd18bb1bb12e5322e0e08a17edbd9692f7
-ms.sourcegitcommit: 5a145eda92b5915393e58006867cdd8b98e922f5
+ms.openlocfilehash: 5daae6dabee1201dd9df0b83dc56f98b06b15487
+ms.sourcegitcommit: 4df8c04fc6c22ec76cdb7bb26f327182f2dacafa
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84166243"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85334523"
 ---
 # <a name="install-command-winget"></a>install コマンド (winget)
 
@@ -78,6 +76,12 @@ winget install --id Microsoft.PowerToys --version 0.15.2
 ## <a name="multiple-selections"></a>複数選択
 
 **winget** に指定されたクエリの結果が 1 つのアプリケーションでない場合、**winget** は検索の結果を表示します。 これにより、正しいインストールのために検索を絞り込むうえで必要な追加データが提供されます。
+
+選択を 1 つのファイルに限定するには、**正確な**クエリ オプションと組み合わせてアプリケーションの **ID** を使用するのが最善です。  たとえば、次のように入力します。
+
+```CMD
+winget install --id Git.Git -e 
+```
 
 ## <a name="local-install"></a>ローカル インストール
 

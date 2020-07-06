@@ -5,12 +5,12 @@ ms.date: 06/21/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, XAML, コントロール, バインド, プロパティ
 ms.localizationpriority: medium
-ms.openlocfilehash: 06934c1c3b23c244fb32ffa957cffb926ffd1bb0
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 12a20ae3df6ae83723550bf365aadab99b1b3b7b
+ms.sourcegitcommit: 90fe7a9a5bfa7299ad1b78bbef289850dfbf857d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79209197"
+ms.lasthandoff: 06/13/2020
+ms.locfileid: "84756531"
 ---
 # <a name="xaml-controls-bind-to-a-cwinrt-property"></a>XAML コントロール: C++/WinRT プロパティへのバインド
 XAML コントロールに効果的にバインドできるプロパティは、*監視可能な*プロパティと呼ばれます。 この概念は、*オブザーバー パターン*と呼ばれるソフトウェアの設計パターンに基づいています。 このトピックでは、[C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) で監視可能なプロパティを実装する方法と、これらに XAML コントロールをバインドする方法を示します (背景情報については、「[データ バインディング](/windows/uwp/data-binding)」をご覧ください)。
@@ -56,7 +56,13 @@ namespace Bookstore
 プロジェクト ノードを右クリックし、 **[エクスプローラーでフォルダーを開く]** をクリックします。 これにより、エクスプローラーでプロジェクト フォルダーが開きます。 そこで、スタブ ファイル `BookSku.h` および `BookSku.cpp` をフォルダー `\Bookstore\Bookstore\Generated Files\sources\` からプロジェクト フォルダー `\Bookstore\Bookstore\` にコピーします。 **ソリューション エクスプローラー**で、プロジェクト ノードを選択した状態で、 **[すべてのファイルを表示]** がオンであることを確認します。 コピーしたスタブ ファイルを右クリックし、 **[プロジェクトに含める]** をクリックします。
 
 ## <a name="implement-booksku"></a>**BookSku** を実装する
-ここで、`\Bookstore\Bookstore\BookSku.h` と `BookSku.cpp` を開いてランタイム クラスを実装してみましょう。 `BookSku.h` で、[**winrt::hstring**](/uwp/cpp-ref-for-winrt/hstring) を取るコンストラクター、タイトル文字列を格納するためのプライベート メンバー、およびタイトルが変更されたときに発生させるイベントのための別のプライベート メンバーを追加します。 これらの変更を行うと、`BookSku.h` は次のようになります。
+ここで、`\Bookstore\Bookstore\BookSku.h` と `BookSku.cpp` を開いてランタイム クラスを実装してみましょう。 `BookSku.h` で、次の変更を行います。
+
+- [**winrt::hstring**](/uwp/cpp-ref-for-winrt/hstring) 値を受け取るコンストラクターを追加します。 この値はタイトル文字列です。
+- このタイトル文字列を格納するプライベート メンバーを追加します。
+- タイトルが変更されたときに発生させるイベント用に、別のプライベート メンバーを追加します。
+
+これらの変更を行うと、`BookSku.h` は次のようになります。
 
 ```cppwinrt
 // BookSku.h

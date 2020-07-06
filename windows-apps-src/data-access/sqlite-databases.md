@@ -1,29 +1,29 @@
 ---
 title: UWP アプリでの SQLite データベースの使用
 description: UWP アプリでの SQLite データベースの使用。
-ms.date: 11/30/2018
+ms.date: 06/26/2020
 ms.topic: article
 keywords: windows 10, UWP, SQLite, データベース
 ms.localizationpriority: medium
-ms.openlocfilehash: 7e10dc35464472a16f64ec94cd0fdd78c41eb484
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: c8eb384be08addd75e77f37d6fb579a179e68581
+ms.sourcegitcommit: 48e047a581fcfcc9a4084d65a78b89f2c01cf4f3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75302726"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85448352"
 ---
 # <a name="use-a-sqlite-database-in-a-uwp-app"></a>UWP アプリでの SQLite データベースの使用
 SQLite を使用すると、ユーザーのデバイス上の軽量なデータベースにデータを保存し、取得することができます。 このガイドでその方法を示します。
 
 ## <a name="some-benefits-of-using-sqlite-for-local-storage"></a>ローカル ストレージに SQLite を使用するメリット
 
-:heavy_check_mark: SQLite は軽量で自己完結型です。 その他の依存関係がないコード ライブラリです。 構成する必要がありません。
+:heavy_check_mark:SQLite は軽量で自己完結型です。 その他の依存関係がないコード ライブラリです。 構成する必要がありません。
 
-:heavy_check_mark: データベース サーバーがありません。 クライアントとサーバーは、同じプロセスで実行されます。
+:heavy_check_mark:データベース サーバーはありません。 クライアントとサーバーは、同じプロセスで実行されます。
 
-:heavy_check_mark: SQLite はパブリック ドメインにあるため、アプリで自由に使用して配布できます。
+:heavy_check_mark:SQLite はパブリック ドメインにあるため、アプリで自由に使用して配布できます。
 
-:heavy_check_mark: SQLite はプラットフォームやアーキテクチャにかかわらず動作します。
+:heavy_check_mark:SQLite はプラットフォームやアーキテクチャにかかわらず動作します。
 
 SQLite について詳しくは、[こちら](https://sqlite.org/about.html)をご覧ください。
 
@@ -33,13 +33,13 @@ Entity Framework Core またはオープン ソースの [SQLite ライブラリ
 
 ### <a name="entity-framework-core"></a>Entity Framework Core
 
-Entity Framework (EF) は、ドメイン固有のオブジェクトを使ってリレーショナル データを操作できる、オブジェクト リレーショナル マッパーです。 既に他の .NET アプリでデータを操作するためにこのフレームワークを使用している場合は、そのコードを UWP アプリに移行することができ、アプリは接続文字列を適切に変更すると動作します。
+Entity Framework (EF) は、ドメイン固有のオブジェクトを使ってリレーショナル データを操作できる、オブジェクト リレーショナル マッパーです。 既に他の .NET アプリでデータを操作するためにこのフレームワークを使用している場合は、そのコードを UWP アプリに移行することができ、接続文字列を適切に変更することでアプリが動作します。
 
 これを試すには、[新しいデータベースを使用した、ユニバーサル Windows プラットフォーム (UWP) 上の EF Core の概要](https://docs.microsoft.com/ef/core/get-started/uwp/getting-started)に関するページをご覧ください。
 
 ### <a name="sqlite-library"></a>SQLite ライブラリ
 
-[Microsoft.Data.Sqlite](https://docs.microsoft.com/dotnet/api/microsoft.data.sqlite?view=msdata-sqlite-2.0.0) ライブラリでは、[System.Data.Common](https://docs.microsoft.com/dotnet/api/system.data.common) 名前空間内にインターフェイスを実装しています。 Microsoft はこれらの実装をアクティブに保守します。これらは、低レベルのネイティブ SQLite API の直感的なラッパーを提供します。
+[Microsoft.Data.Sqlite](https://docs.microsoft.com/dotnet/api/microsoft.data.sqlite?view=msdata-sqlite-2.0.0) ライブラリでは、[System.Data.Common](https://docs.microsoft.com/dotnet/api/system.data.common) 名前空間内にインターフェイスを実装しています。 Microsoft では、これらの実装をアクティブに保守しています。これらの実装によって、低レベルのネイティブ SQLite API に関する直感的なラッパーを提供します。
 
 このガイドの残りの部分では、このライブラリの使用について説明します。
 
@@ -85,11 +85,11 @@ UWP プロジェクトの最小バージョンを Fall Creators Update に上げ
 
 2 つ目に、アプリで SQLite ライブラリをパッケージ化する必要はありません。 代わりに、アプリでは Windows と共にインストールされるバージョンの SQLite を使用することができます。 これにより、次のような利点が得られます。
 
-:heavy_check_mark: SQLite バイナリをダウンロードして、アプリの一部としてパッケージ化する必要がないため、アプリケーションのサイズが小さくなります。
+:heavy_check_mark:SQLite バイナリをダウンロードして、アプリの一部としてパッケージ化する必要がないため、アプリケーションのサイズが小さくなります。
 
-:heavy_check_mark: SQLite のバグやセキュリティの脆弱性に対する重要な修正プログラムが公開された場合でも、アプリの新しいバージョンをユーザーに勧める必要がありません。 Windows 版の SQLite は、Microsoft が SQLite.org と連携して保守します。
+:heavy_check_mark:SQLite のバグやセキュリティの脆弱性に対する重要な修正プログラムが公開された場合でも、アプリの新しいバージョンをユーザーに勧める必要がありません。 Windows 版の SQLite は、Microsoft が SQLite.org と連携して保守します。
 
-:heavy_check_mark: SQLite の SDK バージョンが既にメモリーに読み込まれている可能性が高いため、アプリの読み込み時間が高速になる可能性があります。
+:heavy_check_mark:SQLite の SDK バージョンが既にメモリに読み込まれている可能性が高いため、アプリの読み込み時間が高速になる可能性があります。
 
 まず、.NET Standard 2.0 クラス ライブラリをソリューションに追加しましょう。 クラス ライブラリを使用してデータ アクセス コードを含める必要はありません。サンプルの 1 つを使用します。 ライブラリに **DataAccessLibrary** という名前を付け、ライブラリ内のクラスに **DataAccess** という名前を付けます。
 
@@ -98,6 +98,9 @@ UWP プロジェクトの最小バージョンを Fall Creators Update に上げ
 ソリューションを右クリックし、 **[ソリューションの NuGet パッケージの管理]** をクリックします。
 
 ![NuGet パッケージの管理](images/manage-nuget-2.png)
+
+> [!NOTE]
+> .NET Standard クラス ライブラリが UWP アプリのアプリ フォルダーやイメージ資産にアクセスできるようにするには、その**プロパティ**で、**EmbeddedResource** および **CopyAlways** としてマークする必要があります。
 
 この時点で 2 つの選択肢があります。 Windows に含まれている SQLite のバージョンを使用することができます。または、何らかの理由で特定バージョンの SQLite を使用する場合は、パッケージに SQLite ライブラリを含めることができます。
 
@@ -125,15 +128,15 @@ UWP プロジェクトの最小バージョンを Fall Creators Update に上げ
 
 以下の作業を行います。
 
-:1: データ アクセス クラスを準備します。
+:1:データ アクセス クラスを準備します。
 
-:2: SQLite データベースを初期化します。
+:2:SQLite データベースを初期化します。
 
-:3: SQLite データベースにデータを挿入します。
+:3:SQLite データベースにデータを挿入します。
 
-:4: SQLite データベースからデータを取得します。
+:4:SQLite データベースからデータを取得します。
 
-:5: 基本的なユーザー インターフェイスを追加します。
+:5:基本的なユーザー インターフェイスを追加します。
 
 ### <a name="prepare-the-data-access-class"></a>データ アクセス クラスを準備する
 
@@ -319,7 +322,7 @@ private void AddData(object sender, RoutedEventArgs e)
 
 これで完了です。 [Microsoft.Data.Sqlite](https://docs.microsoft.com/dotnet/api/microsoft.data.sqlite?view=msdata-sqlite-2.0.0) を参照して、他に SQLite データベースと連携できるものを確認してください。 UWP アプリでデータを使用するその他の方法については、次のリンクを参照してください。
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
 **アプリを SQL Server データベースに直接接続する**
 

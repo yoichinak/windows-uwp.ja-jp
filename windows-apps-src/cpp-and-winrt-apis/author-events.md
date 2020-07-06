@@ -5,12 +5,12 @@ ms.date: 04/23/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 作成者, イベント
 ms.localizationpriority: medium
-ms.openlocfilehash: fc12bf1abeabd1a1c3cfccfe3c6d3f12ebda65f3
-ms.sourcegitcommit: c4f912ba0313ae49632f81e38d7d2d983ac132ad
+ms.openlocfilehash: e7cb0e10efec9077292faa8f8d72a7dad1da2c1b
+ms.sourcegitcommit: 83f4a528b5e3fc2b140c76fdf2acf734d6d851d4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84200781"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84683381"
 ---
 # <a name="author-events-in-cwinrt"></a>C++/WinRT でのイベントの作成
 
@@ -24,9 +24,9 @@ ms.locfileid: "84200781"
 
 ## <a name="create-a-windows-runtime-component-bankaccountwrc"></a>Windows ランタイム コンポーネントの作成 (BankAccountWRC)
 
-まず、Microsoft Visual Studio で、新しいプロジェクトを作成します。 **Windows ランタイム コンポーネント (C++/WinRT)** プロジェクトを作成し、("銀行口座 Windows ランタイム コンポーネント" 用に) *BankAccountWRC* と名前を付けます。 プロジェクトに *BankAccountWRC* という名前を付けると、このトピックの残りの手順が非常に簡単になります。 まだプロジェクトはまだビルドしないでください。
+まず、Microsoft Visual Studio で、新しいプロジェクトを作成します。 **Windows ランタイム コンポーネント (C++/WinRT)** プロジェクトを作成し、("銀行口座 Windows ランタイム コンポーネント" 用に) *BankAccountWRC* と名前を付けます。 プロジェクトに *BankAccountWRC* という名前を付けると、このトピックの残りの手順が非常に簡単になります。 プロジェクトはまだビルドしないでください。
 
-新しく作成したプロジェクトには、`Class.idl` という名前のファイルが含まれています。 そのファイル `BankAccount.idl` の名前を変更します (`.idl` ファイルの名前を変更すると、依存ファイル `.h` および `.cpp` も自動的に名前変更されます)。 `BankAccount.idl` の内容を、以下のリストで置き換えます。
+新しく作成したプロジェクトには、`Class.idl` という名前のファイルが含まれています。 ソリューション エクスプローラーで、そのファイル `BankAccount.idl` の名前を変更します (`.idl` ファイルの名前を変更すると、依存ファイル `.h` および `.cpp` も自動的に名前変更されます)。 `BankAccount.idl` の内容を、以下のリストで置き換えます。
 
 ```idl
 // BankAccountWRC.idl
@@ -92,6 +92,8 @@ namespace winrt::BankAccountWRC::implementation
 }
 ```
 
+また、両方のファイルから `static_assert` を削除する必要もあります。
+
 > [!NOTE]
 > 自動イベント リボーカーについて詳しくは、「[登録済みデリゲートの取り消し](handle-events.md#revoke-a-registered-delegate)」をご覧ください。 イベント用の自動イベント リボーカーの実装は、無料で手に入ります。 つまり、C++/WinRT プロジェクションによって提供されているイベント リボーカーのオーバーロードを実装する必要はありません。
 
@@ -103,7 +105,7 @@ namespace winrt::BankAccountWRC::implementation
 
 ## <a name="create-a-core-app-bankaccountcoreapp-to-test-the-windows-runtime-component"></a>コア アプリ (BankAccountCoreApp) を作成して Windows ランタイム コンポーネントをテストする
 
-ここで (*BankAccountWRC* ソリューション、または新しいソリューションのいずれかに) 新しいプロジェクトを作成します。 **コア アプリ (C++/WinRT)** プロジェクトを作成し、*BankAccountCoreApp* と名前を付けます。
+ここで (*BankAccountWRC* ソリューション、または新しいソリューションのいずれかに) 新しいプロジェクトを作成します。 **コア アプリ (C++/WinRT)** プロジェクトを作成し、*BankAccountCoreApp* と名前を付けます。 2 つのプロジェクトが同じソリューションに属している場合は、*BankAccountCoreApp* をスタートアップ プロジェクトとして設定します。
 
 > [!NOTE]
 > 既に説明したように、Windows ランタイム コンポーネント (そのプロジェクト名は *BankAccountWRC*) の Windows ランタイム メタデータ ファイルは `\BankAccountWRC\Debug\BankAccountWRC\` フォルダーに作成されます。 このパスの最初のセグメントは、ソリューション ファイルを含むフォルダーの名前です。次のセグメントは、`Debug` という名前のサブディレクトリです。最後のセグメントは、Windows ランタイム コンポーネントの名前を付けられたサブディレクトリです。 プロジェクトに *BankAccountWRC* という名前を指定しなかった場合、メタデータ ファイルは `\<YourProjectName>\Debug\<YourProjectName>\` フォルダーに配置されます。
@@ -155,11 +157,117 @@ struct App : implements<App, IFrameworkViewSource, IFrameworkView>
 
 ウィンドウをクリックするたびに、銀行口座の残高から 1 を減算します。 期待どおりにイベントが発生することを実証するには、**AccountIsInDebit** イベントを処理しているラムダ式内にブレークポイントを置き、アプリを実行して、そのウィンドウ内をクリックします。
 
-## <a name="parameterized-delegates-and-simple-signals-across-an-abi"></a>ABI 間でのパラメータ化されたデリゲートとシンプルなシグナル
+## <a name="parameterized-delegates-across-an-abi"></a>ABI 間でのパラメーター化されたデリゲート
 
 ご利用のイベントがアプリケーション バイナリ インターフェイス (ABI) 間で (コンポーネントと処理を行うそのアプリケーションとの間など) アクセス可能である必要がある場合、そのイベントでは Windows ランタイム デリゲート型が使用される必要があります。 上記の例では、[**Windows::Foundation::EventHandler\<T\>** ](/uwp/api/windows.foundation.eventhandler) Windows ランタイム デリゲート型が使用されています。 [**TypedEventHandler\<TSender, TResult\>** ](/uwp/api/windows.foundation.eventhandler) は、Windows ランタイム デリゲート型のもう 1 つの例です。
 
-これら 2 つのデリゲート型用の型パラメーターは ABI をまたがる必要があるため、型パラメーターも Windows ランタイム型にする必要があります。 それには、ファーストパーティとサードパーティのランタイム クラスに加えて、数値や文字列などのプリミティブ型が含まれます。 その制約を忘れた場合でも、コンパイラがエラー "*WinRT 型である必要があります*" を表示してサポートしてくれます。
+これら 2 つのデリゲート型用の型パラメーターは ABI をまたがる必要があるため、型パラメーターも Windows ランタイム型にする必要があります。 これには、Windows ランタイム クラス、サードパーティ製のランタイム クラス、数値や文字列などのプリミティブ型が含まれます。 その制約を忘れた場合でも、コンパイラがエラー "*WinRT 型である必要があります*" を表示してサポートしてくれます。
+
+次に、コード リスティングの形式での例を示します。 このトピックの前半で作成した **BankAccountWRC** および **BankAccountCoreApp** プロジェクトから開始し、これらのプロジェクト内でコードを編集して、リスティングのコードのように見えるようにします。
+
+最初に示すこのリスティングは、**BankAccountWRC** プロジェクトのためのものです。 次に示すように `BankAccountWRC.idl` を編集してから、プロジェクトをビルドし、前の手順で `BankAccount.h` および `.cpp` について行ったのと同じようにして、`MyEventArgs.h` および `.cpp` をプロジェクトにコピーします (`Generated Files` フォルダーから)。
+
+```cppwinrt
+// BankAccountWRC.idl
+namespace BankAccountWRC
+{
+    [default_interface]
+    runtimeclass MyEventArgs
+    {
+        Single Balance{ get; };
+    }
+
+    [default_interface]
+    runtimeclass BankAccount
+    {
+        ...
+        event Windows.Foundation.EventHandler<BankAccountWRC.MyEventArgs> AccountIsInDebit;
+        ...
+    };
+}
+
+// MyEventArgs.h
+#pragma once
+#include "MyEventArgs.g.h"
+
+namespace winrt::BankAccountWRC::implementation
+{
+    struct MyEventArgs : MyEventArgsT<MyEventArgs>
+    {
+        MyEventArgs() = default;
+        MyEventArgs(float balance);
+        float Balance();
+
+    private:
+        float m_balance{ 0.f };
+    };
+}
+
+// MyEventArgs.cpp
+#include "pch.h"
+#include "MyEventArgs.h"
+#include "MyEventArgs.g.cpp"
+
+namespace winrt::BankAccountWRC::implementation
+{
+    MyEventArgs::MyEventArgs(float balance) : m_balance(balance)
+    {
+    }
+
+    float MyEventArgs::Balance()
+    {
+        return m_balance;
+    }
+}
+
+// BankAccount.h
+...
+struct BankAccount : BankAccountT<BankAccount>
+{
+...
+    winrt::event_token AccountIsInDebit(Windows::Foundation::EventHandler<BankAccountWRC::MyEventArgs> const& handler);
+...
+private:
+    winrt::event<Windows::Foundation::EventHandler<BankAccountWRC::MyEventArgs>> m_accountIsInDebitEvent;
+...
+}
+...
+
+// BankAccount.cpp
+#include "MyEventArgs.h"
+...
+winrt::event_token BankAccount::AccountIsInDebit(Windows::Foundation::EventHandler<BankAccountWRC::MyEventArgs> const& handler) { ... }
+...
+void BankAccount::AdjustBalance(float value)
+{
+    m_balance += value;
+
+    if (m_balance < 0.f)
+    {
+        auto args = winrt::make_self<winrt::BankAccountWRC::implementation::MyEventArgs>(m_balance);
+        m_accountIsInDebitEvent(*this, *args);
+    }
+}
+...
+```
+
+このリスティングは、**BankAccountCoreApp** プロジェクトのためのものです。
+
+```cppwinrt
+// App.cpp
+...
+void Initialize(CoreApplicationView const&)
+{
+    m_eventToken = m_bankAccount.AccountIsInDebit([](const auto&, BankAccountWRC::MyEventArgs args)
+    {
+        float balance = args.Balance();
+        WINRT_ASSERT(balance < 0.f); // Put a breakpoint here.
+    });
+}
+...
+```
+
+## <a name="simple-signals-across-an-abi"></a>ABI 間のシンプルなシグナル
 
 イベントにパラメーターや引数を渡す必要がない場合は、独自のシンプルな Windows ランタイム デリゲート型を定義できます。 以下の例では、**BankAccount** ランタイム クラスのよりシンプルなバージョンを示します。 これは、**SignalDelegate** という名前のデリゲート型を宣言してから、それを使用して、パラメーターを持つイベントではなくシグナル型のイベントを発生させます。
 
