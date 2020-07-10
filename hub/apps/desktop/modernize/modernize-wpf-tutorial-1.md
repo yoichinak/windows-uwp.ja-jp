@@ -8,12 +8,12 @@ author: mcleanbyron
 keywords: windows 10、uwp、windows フォーム、wpf、xaml islands
 ms.localizationpriority: medium
 ms.custom: RS5, 19H1
-ms.openlocfilehash: 6a52e12f9d60ee4abb4b1aed3043a69c25845267
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 9d08dd0f43f1c505124203028c69326e10eea26c
+ms.sourcegitcommit: 6cdba316bdbd85a2429259ebfb59ff94440e234a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "71317103"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85882876"
 ---
 # <a name="part-1-migrate-the-contoso-expenses-app-to-net-core-3"></a>パート 1: Contoso Expenses　アプリの .NET Core 3 への移行
 
@@ -234,7 +234,7 @@ ms.locfileid: "71317103"
 2. **[NuGet パッケージの管理]** を選択します。
 3. **[NuGet パッケージ マネージャー]** ウィンドウで、 **[参照]** をクリックします。 `Microsoft.Windows.Compatibility` パッケージを探し、最新の安定したバージョンをインストールします。
 
-    ![](images/wpf-modernize-tutorial/WindowsCompatibilityPack.png)
+    ![NuGet パッケージのインストール](images/wpf-modernize-tutorial/WindowsCompatibilityPack.png)
 
 4. 次に、**ContosoExpenses.Data** プロジェクトを右クリックし、 **[ビルド]** を選択して、プロジェクトのコンパイルを再試行します。
 
