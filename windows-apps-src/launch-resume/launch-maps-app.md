@@ -387,8 +387,8 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriNewYork, launcherO
 
 | パラメーター | 定義 | 例 | 詳細 |
 |------------|-----------|---------|---------|
-| **変換先緯度** | 目的地の緯度 | 例: destination.latitude=47.6451413797194 | 目的地の緯度です。 有効な緯度の値の範囲は -90 ～ +90 です (両端の値を含む)。 |
-| **変換先経度** | 目的地の経度 | 例: destination.longitude=-122.141964733601 | 目的地の経度です。 有効な経度の値の範囲は -180 ～ +180 です (両端の値を含む)。 |
+| **destination.latitude** | 目的地の緯度 | 例: destination.latitude=47.6451413797194 | 目的地の緯度です。 有効な緯度の値の範囲は -90 ～ +90 です (両端の値を含む)。 |
+| **destination.longitude** | 目的地の経度 | 例: destination.longitude=-122.141964733601 | 目的地の経度です。 有効な経度の値の範囲は -180 ～ +180 です (両端の値を含む)。 |
 | **destination.name** | 目的地の名前 | 例: destination.name=Redmond, WA | 目的地の名前です。 **destination.name** 値をエンコードする必要はありません。 |
 
  
@@ -404,8 +404,8 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriNewYork, launcherO
 
 | パラメーター | 定義 | 例 | 詳細 |
 |-----------|------------|---------|----------|
-| **変換先緯度** | 目的地の緯度 | 例: destination.latitude=47.6451413797194 | 目的地の緯度です。 有効な緯度の値の範囲は -90 ～ +90 です (両端の値を含む)。 |
-| **変換先経度** | 目的地の経度 | 例: destination.longitude=-122.141964733601 | 目的地の経度です。 有効な経度の値の範囲は -180 ～ +180 です (両端の値を含む)。 |
+| **destination.latitude** | 目的地の緯度 | 例: destination.latitude=47.6451413797194 | 目的地の緯度です。 有効な緯度の値の範囲は -90 ～ +90 です (両端の値を含む)。 |
+| **destination.longitude** | 目的地の経度 | 例: destination.longitude=-122.141964733601 | 目的地の経度です。 有効な経度の値の範囲は -180 ～ +180 です (両端の値を含む)。 |
 | **destination.name** | 目的地の名前 | 例: destination.name=Redmond, WA | 目的地の名前です。 **destination.name** 値をエンコードする必要はありません。 |
 
 ## <a name="ms-settings-parameter-reference"></a>ms-settings: のパラメーター リファレンス
