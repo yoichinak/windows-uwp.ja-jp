@@ -12,7 +12,7 @@
         - name: 自動化の概要
           href: ../python/scripting.md
         - name: データベースの概要
-          href: ../python/databases.md
+          href: 'https://docs.microsoft.com/windows/wsl/tutorials/wsl-database'
         - name: よく寄せられる質問
           href: ../python/faqs.md
         - name: 参照情報
@@ -30,7 +30,7 @@
         - name: Web フレームワークの概要
           href: ../nodejs/web-frameworks.md
         - name: データベースの概要
-          href: ../nodejs/databases.md
+          href: '.https://docs.microsoft.com/windows/wsl/tutorials/wsl-database'
         - name: コンテナーの概要
           href: ../nodejs/containers.md
     - name: Android を使った開発
@@ -92,10 +92,10 @@
         - name: 開発環境の変更
           href: mac-to-windows.md
         - name: キーボード ショートカット
-          href: 'mac-to-windows.md#keyboard-shortcuts'
+          href: mac-to-windows.md#keyboard-shortcuts
         - name: トラックパッドのショートカット
-          href: 'mac-to-windows.md#trackpad-shortcuts'
+          href: mac-to-windows.md#trackpad-shortcuts
         - name: ターミナルとシェル
-          href: 'mac-to-windows.md#terminal-and-shell'
+          href: mac-to-windows.md#terminal-and-shell
         - name: アプリとユーティリティ
-          href: 'mac-to-windows.md#apps-and-utilities'
+          href: mac-to-windows.md#apps-and-utilities
