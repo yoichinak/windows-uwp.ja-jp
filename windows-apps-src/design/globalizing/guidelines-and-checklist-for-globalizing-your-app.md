@@ -8,12 +8,12 @@ ms.date: 11/02/2017
 ms.topic: article
 keywords: Windows 10, UWP, グローバリゼーション, ローカライズの可否, ローカライズ
 ms.localizationpriority: medium
-ms.openlocfilehash: f08c8178781c82e8961fd180d4b75912359b4da9
-ms.sourcegitcommit: ef723e3d6b1b67213c78da696838a920c66d5d30
+ms.openlocfilehash: d71cf2289654860b47aef18c117ac9d6d36fab0a
+ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/02/2020
-ms.locfileid: "82730272"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86493247"
 ---
 # <a name="guidelines-for-globalization"></a>グローバリゼーションのガイドライン
 
@@ -55,4 +55,4 @@ ms.locfileid: "82730272"
 
 ## <a name="samples"></a>サンプル
 
-* [グローバリゼーション設定サンプルに関するページ](https://code.msdn.microsoft.com/windowsapps/Globalization-preferences-6654eb36)
+* [グローバリゼーション設定サンプルに関するページ](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Windows%208%20app%20samples/%5BC%23%5D-Windows%208%20app%20samples/C%23/Windows%208%20app%20samples/Globalization%20preferences%20sample%20(Windows%208))

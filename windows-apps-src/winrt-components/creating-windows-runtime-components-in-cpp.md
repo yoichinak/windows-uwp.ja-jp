@@ -1,32 +1,32 @@
 ---
-title: /Cx を使用C++したコンポーネントの Windows ランタイム
-description: このトピックでは、/cx C++を使用して、任意&mdash;の Windows ランタイム言語を使用して構築されたユニバーサル Windows アプリから呼び出すことができるコンポーネントを Windows ランタイムコンポーネントを作成する方法について説明します。
+title: C++/CX を使用した Windows ランタイム コンポーネント
+description: このトピックでは、C++/CX を使って Windows ランタイム コンポーネントを作成する方法を示します。このコンポーネントは、Windows ランタイム言語を使って構築しされたユニバーサル Windows アプリから呼び出すことができます。
 ms.assetid: F7E06AA2-DCEC-427E-BD5D-9CA2A0ED2612
 ms.date: 05/14/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: e6cec29594405bb9a77a9b16805d2ac5a73c13cf
-ms.sourcegitcommit: d38e2f31c47434cd6dbbf8fe8d01c20b98fabf02
+ms.openlocfilehash: c18b2ab7af1b83ab54f98dc85d73ae621524f52f
+ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70393741"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86493197"
 ---
-# <a name="windows-runtime-components-with-ccx"></a>/Cx を使用C++したコンポーネントの Windows ランタイム
+# <a name="windows-runtime-components-with-ccx"></a>C++/CX を使用した Windows ランタイム コンポーネント
 
 > [!NOTE]
-> このトピックは、C++/CX アプリケーションの管理ができるようにすることを目的としています。 ただし、新しいアプリケーションには [C++/WinRT](../cpp-and-winrt-apis/intro-to-using-cpp-with-winrt.md) を使用することをお勧めします。 C++/WinRT は Windows ランタイム (WinRT) API の標準的な最新の C++17 言語プロジェクションであり、ヘッダー ファイル ベースのライブラリとして実装され、最新の Windows API への最上位アクセス権を提供するように設計されています。 /Winrt を使用してC++Windows ランタイムコンポーネントを作成する方法については、「 [/winrt でのイベントのC++](../cpp-and-winrt-apis/author-events.md)作成」を参照してください。
+> このトピックは、C++/CX アプリケーションの管理ができるようにすることを目的としています。 ただし、新しいアプリケーションには [C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) を使用することをお勧めします。 C++/WinRT は Windows ランタイム (WinRT) API の標準的な最新の C++17 言語プロジェクションで、ヘッダー ファイル ベースのライブラリとして実装され、最新の Windows API への最上位アクセス権を提供するように設計されています。 C++/winrt を使用して Windows ランタイムコンポーネントを作成する方法については、「 [c++/winrt](/windows/uwp/winrt-components/create-a-windows-runtime-component-in-cppwinrt)を使用したコンポーネントの Windows ランタイム」を参照してください。
 
-このトピックでは、/cx C++を使用して、任意&mdash;の Windows ランタイム言語 (C#、Visual Basic、 C++、または Javascript) を使用して構築されたユニバーサル Windows アプリから呼び出すことができるコンポーネントを Windows ランタイムコンポーネントを作成する方法について説明します。
+このトピックでは、C++/CX を使用し &mdash; て、任意の Windows ランタイム言語 (C#、Visual Basic、C++、または Javascript) を使用して構築されたユニバーサル Windows アプリから呼び出すことができるコンポーネントを、Windows ランタイムコンポーネントとして作成する方法について説明します。
 
-Windows ランタイムコンポーネントを構築するには、いくつかの理由があります。
+C++ で Windows ランタイムコンポーネントを構築するには、いくつかの理由があります。
 - 複雑な操作または負荷の高い操作で C++ のパフォーマンス上のメリットを得る。
 - 既に作成されテストされている既存のコードを再利用する。
 
-JavaScript プロジェクトまたは .NET プロジェクト、および Windows ランタイム コンポーネント プロジェクトを含むソリューションを構築すると、JavaScript プロジェクト ファイルとコンパイル済みの DLL が 1 つのパッケージにマージされます。これを、シミュレーターを使ってローカルでデバッグしたり、テザリングされたデバイス上でリモートでデバッグしたりすることができます。 また、拡張 SDK としてコンポーネント プロジェクトだけを配布することもできます。 詳しくは、[ソフトウェア開発キットの作成に関するページ](https://docs.microsoft.com/visualstudio/extensibility/creating-a-software-development-kit?view=vs-2015)をご覧ください。
+JavaScript プロジェクトまたは .NET プロジェクト、および Windows ランタイム コンポーネント プロジェクトを含むソリューションを構築すると、JavaScript プロジェクト ファイルとコンパイル済みの DLL が 1 つのパッケージにマージされます。これを、シミュレーターを使ってローカルでデバッグしたり、テザリングされたデバイス上でリモートでデバッグしたりすることができます。 また、拡張 SDK としてコンポーネント プロジェクトだけを配布することもできます。 詳しくは、「[Creating a Software Development Kit](https://docs.microsoft.com/visualstudio/extensibility/creating-a-software-development-kit?view=vs-2015)」(ソフトウェア開発キットの作成) をご覧ください。
 
-一般に、 C++/cx コンポーネントをコーディングする場合は、通常C++のライブラリと組み込み型を使用します。ただし、別の winmd パッケージ内のコードとの間でデータをやり取りする抽象バイナリインターフェイス (ABI) の境界は除きます。 ここでは、Windows ランタイム型と、/Cx がC++サポートする型を作成および操作するための特別な構文を使用します。 さらに、 C++/cx コードでは、デリゲートやイベントなどの型を使用して、コンポーネントから発生させ、JavaScript、Visual Basic、 C++、またはC#で処理できるイベントを実装します。 /Cx 構文のC++詳細については、「 [Visual C++ Language ReferenceC++(/cx)](https://docs.microsoft.com/cpp/cppcx/visual-c-language-reference-c-cx)」を参照してください。
+一般に、C++/CX コンポーネントのコードを記述するときは、通常の C++ ライブラリと組み込み型を使用します。ただし、別の winmd パッケージ内のコードとの間でデータをやり取りする抽象バイナリインターフェイス (ABI) の境界は除きます。 ここでは、これらの型を作成および操作するために C++/CX でサポートされている Windows ランタイム型と特殊な構文を使用します。 さらに、C++/CX コードでは、デリゲートやイベントなどの型を使用して、コンポーネントから発生させ、JavaScript、Visual Basic、C++、または C# で処理できるイベントを実装します。 C++/CX 構文の詳細については、「 [Visual C++ 言語リファレンス (c++/cx)](https://docs.microsoft.com/cpp/cppcx/visual-c-language-reference-c-cx)」を参照してください。
 
 ## <a name="casing-and-naming-rules"></a>大文字小文字の区別と名前付け規則
 
@@ -74,15 +74,15 @@ ResultText.Text = num.ToString();
 ## <a name="ccx-built-in-types-library-types-and-windows-runtime-types"></a>C++/CX 組み込み型、ライブラリ型、および Windows ランタイム型
 アクティブ化可能なクラス (ref クラスとも呼ばれます) は、JavaScript、C#、Visual Basic などの他の言語からインスタンス化できるクラスです。 他の言語から利用できるようにするには、コンポーネントに 1 個以上のアクティブ化可能なクラスを含める必要があります。
 
-Windows ランタイム コンポーネントには、複数のアクティブ化可能なパブリック クラスだけでなく、コンポーネント内部でのみ認識される他のクラスも含めることができます。 [WebHostHidden](https://docs.microsoft.com/uwp/api/windows.foundation.metadata.webhosthiddenattribute)属性を、JavaScript C++に表示されることを意図していない/cx 型に適用します。
+Windows ランタイム コンポーネントには、複数のアクティブ化可能なパブリック クラスだけでなく、コンポーネント内部でのみ認識される他のクラスも含めることができます。 [WebHostHidden](https://docs.microsoft.com/uwp/api/windows.foundation.metadata.webhosthiddenattribute)属性を、JavaScript に表示されることを意図していない C++/cx 型に適用します。
 
-すべてのパブリック クラスが、コンポーネントのメタデータ ファイルと同じ名前を持つ同じルート名前空間に存在する必要があります。 たとえば、A.B.C.MyClass という名前のクラスは、A.winmd、A.B.winmd、または A.B.C.winmd という名前のメタデータ ファイルで定義されている場合のみインスタンス化できます。 DLL の名前は .winmd ファイルの名前と一致する必要はありません。
+すべてのパブリック クラスが、コンポーネントのメタデータ ファイルと同じ名前を持つ同じルート名前空間に存在する必要があります。 たとえば、A.B.C.MyClass という名前のクラスは、A.winmd または A.B.winmd または A.B.C.winmd という名前のメタデータ ファイルで定義されている場合のみインスタンス化できます。 DLL の名前が .winmd ファイル名と一致する必要はありません。
 
 クライアント コードでは、他のクラスと同様に、**new** キーワード (Visual Basic の場合は **New**) を使って、コンポーネントのインスタンスを作成します。
 
 アクティブ化可能なクラスは **public ref class sealed** として宣言する必要があります。 **ref class** キーワードは、Windows ランタイムと互換性のある型としてクラスを作成するようにコンパイラに指示し、sealed キーワードは、クラスが継承できないことを指定します。 現在、Windows ランタイムは汎用の継承モデルをサポートしていません。限定的な継承モデルによって、カスタム XAML コントロールの作成をサポートしています。 詳しくは、「[Ref クラスと構造体 (C++/CX)](https://docs.microsoft.com/cpp/cppcx/ref-classes-and-structs-c-cx)」をご覧ください。
 
-C++/Cx では、すべての数値プリミティブが既定の名前空間で定義されます。 [Platform](https://docs.microsoft.com/cpp/cppcx/platform-namespace-c-cx)名前空間にC++は、Windows ランタイム型システムに固有の/cx クラスが含まれています。 このようなクラスには、[Platform::String](https://docs.microsoft.com/cpp/cppcx/platform-string-class) クラスと [Platform::Object](https://docs.microsoft.com/cpp/cppcx/platform-object-class) クラスがあります。 [Platform::Collections::Map](https://docs.microsoft.com/cpp/cppcx/platform-collections-map-class) クラスや [Platform::Collections::Vector](https://docs.microsoft.com/cpp/cppcx/platform-collections-vector-class) クラスなどの具象コレクション型は、[Platform::Collections](https://docs.microsoft.com/cpp/cppcx/platform-collections-namespace) 名前空間で定義されます。 これらの型によって実装されるパブリック インターフェイスは、[Windows::Foundation::Collections 名前空間 (C++/CX)](https://docs.microsoft.com/cpp/cppcx/windows-foundation-collections-namespace-c-cx) で定義されます。 JavaScript、C#、および Visual Basic で利用されるのは、この種類のインターフェイスです。 詳しくは、「[型システム (C++/CX)](https://docs.microsoft.com/cpp/cppcx/type-system-c-cx)」をご覧ください。
+C++/CX では、すべての数値プリミティブが既定の名前空間で定義されています。 [Platform](https://docs.microsoft.com/cpp/cppcx/platform-namespace-c-cx)名前空間には、Windows ランタイム型システムに固有の C++/cx クラスが含まれています。 このようなクラスには、[Platform::String](https://docs.microsoft.com/cpp/cppcx/platform-string-class) クラスと [Platform::Object](https://docs.microsoft.com/cpp/cppcx/platform-object-class) クラスがあります。 [Platform::Collections::Map](https://docs.microsoft.com/cpp/cppcx/platform-collections-map-class) クラスや [Platform::Collections::Vector](https://docs.microsoft.com/cpp/cppcx/platform-collections-vector-class) クラスなどの具象コレクション型は、[Platform::Collections](https://docs.microsoft.com/cpp/cppcx/platform-collections-namespace) 名前空間で定義されます。 これらの型によって実装されるパブリック インターフェイスは、[Windows::Foundation::Collections 名前空間 (C++/CX)](https://docs.microsoft.com/cpp/cppcx/windows-foundation-collections-namespace-c-cx) で定義されます。 JavaScript、C#、および Visual Basic で利用されるのは、この種類のインターフェイスです。 詳しくは、「[型システム (C++/CX)](https://docs.microsoft.com/cpp/cppcx/type-system-c-cx)」をご覧ください。
 
 ## <a name="method-that-returns-a-value-of-built-in-type"></a>組み込み型の値を返すメソッド
 ```cpp
@@ -128,7 +128,7 @@ namespace CppComponent
 }
 ```
 
-ABI 間でユーザー定義の値構造体を渡すには、/cxでC++定義されている値構造体と同じメンバーを持つ JavaScript オブジェクトを定義します。 その後、オブジェクトがC++ C++/cx 型に暗黙的に変換されるように、そのオブジェクトを/cx メソッドに引数として渡すことができます。
+ABI 間でユーザー定義の値構造体を渡すには、C++/cxで定義されている値構造体と同じメンバーを持つ JavaScript オブジェクトを定義します。 その後、オブジェクトが C++/CX 型に暗黙的に変換されるように、そのオブジェクトを引数として C++/CX メソッドに渡すことができます。
 
 ```javascript
 // Get and set the value struct
@@ -147,7 +147,7 @@ function GetAndSetPlayerData() {
 
 もう 1 つの方法は、IPropertySet を実装するクラスを定義することです (ここでは例は示されていません)。
 
-.NET 言語では、 C++/cx コンポーネントで定義されている型の変数を作成するだけです。
+.NET 言語では、C++/CX コンポーネントで定義されている型の変数を作成するだけです。
 
 ```csharp
 private void GetAndSetPlayerData()
@@ -172,8 +172,8 @@ private void GetAndSetPlayerData()
 }
 ```
 
-## <a name="overloaded-methods"></a>オーバー ロードされたメソッド
-C++/Cx パブリック ref クラスにはオーバーロードされたメソッドを含めることができますが、JavaScript ではオーバーロードされたメソッドを区別する機能が制限されています。 たとえば、以下のシグネチャの相違を区別できます。
+## <a name="overloaded-methods"></a>オーバーロードされたメソッド
+C++/CX パブリック ref クラスにはオーバーロードされたメソッドを含めることができますが、JavaScript ではオーバーロードされたメソッドを区別する機能が制限されています。 たとえば、以下のシグネチャの相違を区別できます。
 
 ```cpp
 public ref class NumberClass sealed
@@ -203,7 +203,7 @@ document.getElementById('P4').innerHTML = num;
 ```
 
 ## <a name="net"></a>.NET
-.NET 言語では、すべてのC++.net クラスと同様に、/cx ref クラスのオーバーロードが認識されます。
+.NET 言語では、すべての .NET クラスと同様に、C++/CX ref クラスのオーバーロードが認識されます。
 
 ## <a name="datetime"></a>DateTime
 Windows ランタイムでは、[Windows::Foundation::DateTime](https://docs.microsoft.com/uwp/api/windows.foundation.datetime) オブジェクトは 1601 年 1 月 1 日の前または後の時間の長さを 100 ナノ秒単位で表した単純な 64 ビットの符号付き整数です。 Windows:Foundation::DateTime オブジェクトには、メソッドはありません。 代わりに、各言語は、その言語にネイティブな方法で DateTime を射影します。 JavaScript では Date オブジェクト、.NET では system.string および DateTimeOffset 型です。
@@ -222,7 +222,7 @@ public:
 };
 ```
 
-DateTime 値を/Cx からC++javascript に渡すと、javascript はそれを日付オブジェクトとして受け入れ、既定で長い形式の日付文字列として表示します。
+C++/CX から JavaScript に DateTime 値を渡すと、JavaScript はそれを日付オブジェクトとして受け入れ、既定で長い形式の日付文字列として表示します。
 
 ```javascript
 function SetAndGetDate() {
@@ -239,7 +239,7 @@ function SetAndGetDate() {
 }
 ```
 
-.NET 言語がC++/cx コンポーネントに system.string を渡すと、メソッドはそれを Windows:: Foundation::D atetime として受け入れます。 コンポーネントが Windows:: Foundation::D ateTime を .NET メソッドに渡すと、フレームワークメソッドはそれを DateTimeOffset として受け入れます。
+.NET 言語が system.string を C++/CX コンポーネントに渡すと、メソッドはそれを Windows:: Foundation::D ateTime として受け入れます。 コンポーネントが Windows:: Foundation::D ateTime を .NET メソッドに渡すと、フレームワークメソッドはそれを DateTimeOffset として受け入れます。
 
 ```csharp
 private void DateTimeExample()
@@ -260,7 +260,7 @@ private void DateTimeExample()
 ```
 
 ## <a name="collections-and-arrays"></a>コレクションと配列
-コレクションは、常に、Windows::Foundation::Collections::IVector^ や Windows::Foundation::Collections::IMap^ などの Windows ランタイム型へのハンドルとして ABI の境界を越えて渡されます。 たとえば、Platform::Collections::Map にハンドルを返す場合、Windows::Foundation::Collections::IMap^ に暗黙的に変換されます。 コレクションインターフェイスは、具象実装を提供する/Cx クラスとC++は別の名前空間で定義されています。 そのインターフェイスを JavaScript 言語と .NET 言語で利用します。 詳しくは、「[コレクション (C++/CX)](https://docs.microsoft.com/cpp/cppcx/collections-c-cx)」と「[Array と WriteOnlyArray (C++/CX)](https://docs.microsoft.com/cpp/cppcx/array-and-writeonlyarray-c-cx)」をご覧ください。
+コレクションは、常に、Windows::Foundation::Collections::IVector^ や Windows::Foundation::Collections::IMap^ などの Windows ランタイム型へのハンドルとして ABI の境界を越えて渡されます。 たとえば、Platform::Collections::Map にハンドルを返す場合、Windows::Foundation::Collections::IMap^ に暗黙的に変換されます。 コレクションインターフェイスは、具体的な実装を提供する C++/CX クラスとは別の名前空間で定義されています。 そのインターフェイスを JavaScript 言語と .NET 言語で利用します。 詳しくは、「[コレクション (C++/CX)](https://docs.microsoft.com/cpp/cppcx/collections-c-cx)」と「[Array と WriteOnlyArray (C++/CX)](https://docs.microsoft.com/cpp/cppcx/array-and-writeonlyarray-c-cx)」をご覧ください。
 
 ## <a name="passing-ivector"></a>IVector を渡す場合
 ```cpp
@@ -345,8 +345,8 @@ private void GetDictionary()
 }
 ```
 
-## <a name="properties"></a>プロパティ
-/Cx コンポーネント拡張のC++パブリック ref クラスは、property キーワードを使用して、パブリックデータメンバーをプロパティとして公開します。 概念は .NET プロパティと同じです。 単純プロパティは機能が暗黙的であるため、データ メンバーに似ています。 非単純プロパティには、明示的な get アクセサーと set アクセサーがあり、値の "バッキング ストア" である名前付きのプライベート変数があります。 この例では、プライベートメンバー変数\_propertyAValue は propertya のバッキングストアです。 プロパティの値が変化するときにイベントを生成できます。またクライアント アプリは、そのイベントを受け取るように登録することができます。
+## <a name="properties"></a>Properties
+C++/CX コンポーネント拡張のパブリック ref クラスは、property キーワードを使用して、パブリックデータメンバーをプロパティとして公開します。 概念は .NET プロパティと同じです。 単純プロパティは機能が暗黙的であるため、データ メンバーに似ています。 非単純プロパティには、明示的な get アクセサーと set アクセサーがあり、値の "バッキング ストア" である名前付きのプライベート変数があります。 この例では、プライベートメンバー変数 \_ propertyAValue は PropertyA のバッキングストアです。 プロパティの値が変化するときにイベントを生成できます。またクライアント アプリは、そのイベントを受け取るように登録することができます。
 
 ```cpp
 //Properties
@@ -393,7 +393,7 @@ nativeObject.propertyB = "What is the meaning of the universe?";
 document.getElementById('P9').innerHTML += nativeObject.propertyB;
 ```
 
-.NET 言語では、.NET オブジェクトのC++場合と同様に、ネイティブ/cx オブジェクトのプロパティにアクセスします。
+.NET 言語では、.NET オブジェクトの場合と同様に、ネイティブ C++/CX オブジェクトのプロパティにアクセスします。
 
 ```csharp
 private void GetAProperty()
@@ -444,7 +444,7 @@ function Button_Click() {
 }
 ```
 
-.NET 言語では、 C++コンポーネント内のイベントをサブスクライブすることは、.net クラスのイベントをサブスクライブすることと同じです。
+.NET 言語では、C++ コンポーネントでイベントをサブスクライブすることは、.NET クラスのイベントをサブスクライブすることと同じです。
 
 ```csharp
 //Subscribe to event and call method that causes it to be fired.
@@ -507,8 +507,8 @@ nativeObject.fireEvent("The answer is ");
 
 C# では、前の例で示したように += 演算子を使うことで、任意の数のイベント ハンドラーがイベントをサブスクライブできるようになります。
 
-## <a name="enums"></a>列挙型
-/Cx のC++Windows ランタイム列挙型は、パブリッククラス enum を使用して宣言されています。これは、標準C++のスコープを持つ列挙型に似ています。
+## <a name="enums"></a>列挙体
+C++/CX の Windows ランタイム列挙型は、パブリッククラス enum を使用して宣言されています。これは、標準 C++ のスコープ列挙型に似ています。
 
 ```cpp
 public enum class Direction {North, South, East, West};
@@ -526,7 +526,7 @@ private:
 };
 ```
 
-列挙値は、/Cx C++と JavaScript の間で整数として渡されます。 必要に応じて、 C++/cx 列挙型と同じ名前付きの値を含む JavaScript オブジェクトを宣言し、次のように使用できます。
+列挙値は、C++/CX と JavaScript の間で整数として渡されます。 必要に応じて、C++/CX 列挙と同じ名前付きの値を含む JavaScript オブジェクトを宣言し、次のように使用できます。
 
 ```javascript
 var Direction = { 0: "North", 1: "South", 2: "East", 3: "West" };
@@ -538,12 +538,12 @@ document.getElementById('P13').innerHTML =
 Direction[curDirection];
 ```
 
-C# と Visual Basic のどちらの言語でも列挙型がサポートされます。 これらの言語にC++は、.net 列挙型と同じようにパブリック列挙型クラスが表示されます。
+C# と Visual Basic のどちらの言語でも列挙型がサポートされます。 これらの言語では、.NET 列挙型と同様に、C++ パブリック列挙型クラスが表示されます。
 
 ## <a name="asynchronous-methods"></a>非同期メソッド
 他の Windows ランタイム オブジェクトによって公開される非同期メソッドを利用するには、[task クラス (同時実行ランタイム)](https://docs.microsoft.com/cpp/parallel/concrt/reference/task-class) を使います。 詳しくは、「[タスクの並列処理 (同時実行ランタイム)](https://docs.microsoft.com/cpp/parallel/concrt/task-parallelism-concurrency-runtime)」をご覧ください。
 
-/Cx でC++非同期メソッドを実装するには、ppltasks.h で定義されている[create\_async](https://docs.microsoft.com/cpp/parallel/concrt/reference/concurrency-namespace-functions?view=vs-2017)関数を使用します。 詳細については、「 [ C++/cx for UWP Apps の非同期操作の作成](https://docs.microsoft.com/cpp/parallel/concrt/creating-asynchronous-operations-in-cpp-for-windows-store-apps)」を参照してください。 例については、「 [ C++/cx Windows ランタイムコンポーネントの作成」および「JavaScript またはC#からの呼び出し](walkthrough-creating-a-basic-windows-runtime-component-in-cpp-and-calling-it-from-javascript-or-csharp.md)」を参照してください。 .NET 言語ではC++、.net で定義されている非同期メソッドと同様に、/cx 非同期メソッドが使用されます。
+C++/CX で非同期メソッドを実装するには、ppltasks.h で定義されている[create \_ async](https://docs.microsoft.com/cpp/parallel/concrt/reference/concurrency-namespace-functions?view=vs-2017)関数を使用します。 詳細については、「 [C++/cx での UWP アプリ用の非同期操作の作成](https://docs.microsoft.com/cpp/parallel/concrt/creating-asynchronous-operations-in-cpp-for-windows-store-apps)」を参照してください。 例については、「 [C++/cx Windows ランタイムコンポーネントの作成」および「JavaScript または C# からの呼び出し](walkthrough-creating-a-basic-windows-runtime-component-in-cpp-and-calling-it-from-javascript-or-csharp.md)」を参照してください。 .NET 言語では、.NET で定義されている非同期メソッドと同様に、C++/CX 非同期メソッドが使用されます。
 
 ## <a name="exceptions"></a>例外
 Windows ランタイムによって定義された任意の例外の型をスローできます。 Windows ランタイムのどの例外の型からもカスタム型は取得できません。 ただし、COMException をスローし、例外をキャッチするコードがアクセスできるカスタム HRESULT を提供できます。 COMException でカスタム メッセージを指定する方法はありません。
@@ -553,9 +553,9 @@ Windows ランタイムによって定義された任意の例外の型をスロ
 
 パッケージ デザイナーで必ず適切な機能を選んでください。 たとえば、Windows ランタイム API を使ってユーザーの画像ライブラリにある画像ファイルを開く場合は、マニフェスト デザイナーの [機能] ウィンドウの [画像ライブラリ] チェック ボックスをオンにします。
 
-JavaScript コードがコンポーネントのパブリック プロパティまたはパブリック メソッドを認識しないと考えられる場合は、JavaScript で camel 規約を使っていることを確認します。 たとえば、LogCalc C++/cx メソッドは、JavaScript では logcalc として参照する必要があります。
+JavaScript コードがコンポーネントのパブリック プロパティまたはパブリック メソッドを認識しないと考えられる場合は、JavaScript で camel 規約を使っていることを確認します。 たとえば、LogCalc C++/CX メソッドは、JavaScript で logCalc として参照する必要があります。
 
-/Cx Windows ランタイムコンポーネントプロジェクトC++をソリューションから削除する場合は、JavaScript プロジェクトからプロジェクト参照も手動で削除する必要があります。 これを行わないと、後続のデバッグまたはビルド操作が妨げられます。 その後、必要に応じてアセンブリ参照を DLL に追加できます。
+C++/CX Windows ランタイムコンポーネントプロジェクトをソリューションから削除する場合は、JavaScript プロジェクトからプロジェクト参照も手動で削除する必要があります。 これを行わないと、後続のデバッグまたはビルド操作が妨げられます。 その後、必要に応じてアセンブリ参照を DLL に追加できます。
 
 ## <a name="related-topics"></a>関連トピック
-* [C++/Cx Windows ランタイムコンポーネントの作成と JavaScript またはからの呼び出しのチュートリアルC#](walkthrough-creating-a-basic-windows-runtime-component-in-cpp-and-calling-it-from-javascript-or-csharp.md)
+* [C++/CX Windows ランタイム コンポーネントの作成と JavaScript または C# からの呼び出しに関するチュートリアル](walkthrough-creating-a-basic-windows-runtime-component-in-cpp-and-calling-it-from-javascript-or-csharp.md)

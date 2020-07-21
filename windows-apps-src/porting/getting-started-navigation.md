@@ -6,35 +6,35 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: dcbc8f6737c2b7450e42ed01a752087d6e9034c1
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: 22d2f73ba6a14ace1319285ca436db4738f84548
+ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74259147"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86493297"
 ---
-# <a name="getting-started-navigation"></a>はじめに: ナビゲーション
+# <a name="getting-started-navigation"></a>概要: ［ナビゲーション］
 
 
 ## <a name="adding-navigation"></a>ナビゲーションの追加
 
 iOS では、アプリのナビゲーション用に **UINavigationController** クラスが用意されています。ビューのプッシュ/ポップ操作を通じて、アプリを定義する **UIViewControllers** の階層を作ることができます。
 
-これに対し、複数のビューを含む Windows 10 アプリは、ナビゲーションのために web サイトのアプローチをさらに活用します。 ユーザーがコントロールをクリックしてページ間を移動し、アプリ内を進むことを考えてみることができます。 詳しくは、「[ナビゲーション デザインの基本](https://docs.microsoft.com/windows/uwp/layout/navigation-basics)」をご覧ください。
+これに対して、複数のビューを含む Windows 10 アプリはナビゲーションに対してさらに多くの Web サイト アプローチを行います。 ユーザーがコントロールをクリックしてページ間を移動し、アプリ内を進むことを考えてみることができます。 詳しくは、「[ナビゲーション デザインの基本](https://docs.microsoft.com/windows/uwp/layout/navigation-basics)」をご覧ください。
 
 Windows 10 アプリでこのナビゲーションを管理する方法の1つは、 [**Frame**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Frame)クラスを使用することです。 以下のチュートリアルでは実際に試す方法を示しています。
 
-以前に開始したソリューションに戻り、**MainPage.xaml** ファイルを開いて、 **[デザイン]** ビューにボタンを追加します。 このボタンの **Content** プロパティを "Button" から "Go To Page" に変更します。 次に、ボタンの **Click** イベントのハンドラーを、次の図に示すように作成します。 作成方法がわからない場合は、前のセクションのチュートリアルを見直してください (ヒント: **[デザイン]** ビューにあるボタンをダブルクリックします)。
+以前に開始したソリューションに戻り、**MainPage.xaml** ファイルを開いて、**[デザイン]** ビューにボタンを追加します。 このボタンの **Content** プロパティを "Button" から "Go To Page" に変更します。 次に、ボタンの **Click** イベントのハンドラーを、次の図に示すように作成します。 作成方法がわからない場合は、前のセクションのチュートリアルを見直してください (ヒント: **[デザイン]** ビューにあるボタンをダブルクリックします)。
 
 ![Visual Studio でのボタンとそのクリック イベントの追加](images/ios-to-uwp/vs-go-to-page.png)
 
-新しいページを追加しましょう。 **[ソリューション]** ビューで、 **[プロジェクト]** メニュー、 **[新しい項目の追加]** の順にタップします。 次の図に示すように、 **[空白のページ]** をタップし、 **[追加]** をタップします。
+新しいページを追加しましょう。 **[ソリューション]** ビューで、**[プロジェクト]** メニュー、**[新しい項目の追加]** の順にタップします。 次の図に示すように、**[空白のページ]** をタップし、**[追加]** をタップします。
 
 ![Visual Studio での新しいページの追加](images/ios-to-uwp/vs-add-new-page.png)
 
-次に、BlankPage.xaml ファイルにボタンを追加します。 ここでは、AppBarButton コントロールを使い、ボタンに "前に戻る矢印" の画像を設定します。 **[XAML]** ビューで、` <AppBarButton Icon="Back"/>` を `<Grid> </Grid>` 要素の間に追加します。
+次に、BlankPage.xaml ファイルにボタンを追加します。 ここでは、AppBarButton コントロールを使い、ボタンに "前に戻る矢印" の画像を設定します。**[XAML]** ビューで、` <AppBarButton Icon="Back"/>` を `<Grid> </Grid>` 要素の間に追加します。
 
-次に、イベントハンドラーをボタンに追加してみましょう。**デザイン**ビューでコントロールをダブルクリックし、次の図に示すように "AppBarButton\_click" というテキスト Microsoft Visual Studio**追加して**、対応するイベントハンドラーを BlankPage.xaml.cs ファイルに追加して表示します。
+次に、イベントハンドラーをボタンに追加してみましょう。**デザイン**ビューでコントロールをダブルクリックし、次の図に示すように、Microsoft Visual Studio "AppBarButton click" というテキストを \_ **クリック**ボックスに追加して、対応するイベントハンドラーを BlankPage.xaml.cs ファイルに追加して表示します。
 
 ![Visual Studio での戻るボタンとそのクリック イベントの追加](images/ios-to-uwp/vs-add-back-button.png)
 
@@ -79,11 +79,11 @@ public BlankPage()
 
 また、**Frame** クラスの [**CacheSize**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.frame.cachesize) プロパティを取得または設定すると、キャッシュするナビゲーションの履歴のページ数を管理できます。
 
-ナビゲーションについて詳しくは、「[ナビゲーション](https://docs.microsoft.com/windows/uwp/layout/navigation-basics)」と「[XAML パーソナリティ アニメーションのサンプル](https://code.msdn.microsoft.com/windowsapps/Personality-Animations-3f857919)」をご覧ください。
+ナビゲーションについて詳しくは、「[ナビゲーション](https://docs.microsoft.com/windows/uwp/layout/navigation-basics)」と「[XAML パーソナリティ アニメーションのサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Windows%208%20app%20samples/%5BC%23%5D-Windows%208%20app%20samples/C%23/Windows%208%20app%20samples/XAML%20personality%20animations%20sample%20(Windows%208))」をご覧ください。
 
-**注**  JAVASCRIPT と HTML を使用した UWP アプリのナビゲーションの詳細については、「[クイックスタート: 単一ページナビゲーションの使用](https://docs.microsoft.com/previous-versions/windows/apps/hh452768(v=win.10))」を参照してください。
+**メモ**   JavaScript と HTML を使用した UWP アプリのナビゲーションの詳細については、「[クイックスタート: 単一ページナビゲーションの使用](https://docs.microsoft.com/previous-versions/windows/apps/hh452768(v=win.10))」を参照してください。
  
-### <a name="next-step"></a>次の手順
+### <a name="next-step"></a>次のステップ
 
-[はじめに: アニメーション](getting-started-animation.md)
+[概要: アニメーション](getting-started-animation.md)
 
