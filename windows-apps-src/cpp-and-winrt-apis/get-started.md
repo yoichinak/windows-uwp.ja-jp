@@ -5,12 +5,12 @@ ms.date: 04/18/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 取得, 取得, 開始
 ms.localizationpriority: medium
-ms.openlocfilehash: c058a727e09f00e01664c314d8c198f3f25e841e
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 968c347927edf0ad44476ec4bdca97aae19bb9a4
+ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74255130"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86493037"
 ---
 # <a name="get-started-with-cwinrt"></a>C++/WinRT の使用を開始する
 
@@ -22,7 +22,7 @@ ms.locfileid: "74255130"
 ## <a name="a-cwinrt-quick-start"></a>C++/WinRT のクイックスタート
 
 > [!NOTE]
-> &mdash;C++/WinRT Visual Studio Extension (VSIX) と NuGet パッケージ (両者が連携してプロジェクト テンプレートとビルドをサポート) のインストールと使用など、&mdash;C++/WinRT 開発用に Visual Studio を設定する方法については、[Visual Studio での C++/WinRT のサポート](intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)に関する記事を参照してください。
+> &mdash;C++/WinRT Visual Studio Extension (VSIX) と NuGet パッケージ (両者が連携してプロジェクト テンプレートとビルドをサポート) のインストールと使用など、&mdash;C++/WinRT 開発用に Visual Studio を設定する方法については、[Visual Studio での C++/WinRT のサポート](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)に関する記事を参照してください。
 
 新しい **Windows コンソール アプリケーション (C++/WinRT)** プロジェクトを作成します。
 

@@ -8,12 +8,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: c593ea76535bec6a9d8ab41f0bcd4f2299162615
-ms.sourcegitcommit: db48036af630f33f0a2f7a908bfdfec945f3c241
+ms.openlocfilehash: fc695b483eefef4210432d5ce55a23ae201740bc
+ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84437210"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86493147"
 ---
 # <a name="controls-by-function"></a>機能別コントロール
 
@@ -324,7 +324,7 @@ Windows の XAML UI フレームワークには、UI 開発をサポートする
 
 デザインと使い方: [Image と ImageBrush](images-imagebrushes.md) 
 
-サンプル コード: [XAML 画像のサンプル](https://code.msdn.microsoft.com/windowsapps/0f5d56ae-5e57-48e1-9cd9-993115b027b9)
+サンプル コード: [XAML コントロール ギャラリー](https://docs.microsoft.com/samples/microsoft/xaml-controls-gallery/xaml-controls-gallery/)
 
 ## <a name="graphics-and-ink"></a>グラフィックスとインク
 
@@ -353,7 +353,7 @@ Windows の XAML UI フレームワークには、UI 開発をサポートする
 
 手順[図形の描画](../../graphics/drawing-shapes.md) 
 
-サンプル コード: [XAML ベクターベース描画のサンプル](https://code.msdn.microsoft.com/windowsapps/Drawing-bfc39296)
+サンプル コード: [XAML ベクターベース描画のサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Windows%208%20app%20samples/%5BC%23%5D-Windows%208%20app%20samples/C%23/Windows%208%20app%20samples/XAML%20vector-based%20drawing%20sample%20(Windows%208))
 
 ## <a name="layout-controls"></a>レイアウト コントロール
 
@@ -433,7 +433,7 @@ Windows の XAML UI フレームワークには、UI 開発をサポートする
 参照 :[RelativePanel](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RelativePanel)
 
 ### <a name="scroll-bar"></a>スクロール バー
-「スクロール ビューアー」をご覧ください  (ScrollBar は ScrollViewer の要素です。 通常、スタンドアロン コントロールとしては使用しません)。
+「スクロール ビューアー」をご覧ください (ScrollBar は ScrollViewer の要素です。 通常、スタンドアロン コントロールとしては使用しません)。
 
 参照 :[ScrollBar](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Primitives.ScrollBar)
  
@@ -453,7 +453,7 @@ Windows の XAML UI フレームワークには、UI 開発をサポートする
 
 デザインと使い方: [スクロール コントロールとパン コントロールのガイド](scroll-controls.md) 
 
-サンプル コード: [XAML のスクロール、パン、ズームのサンプル](https://code.msdn.microsoft.com/windowsapps/xaml-scrollviewer-pan-and-949d29e9)
+サンプル コード: [XAML のスクロール、パン、ズームのサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Windows%208%20app%20samples/%5BC%23%5D-Windows%208%20app%20samples/C%23/Windows%208%20app%20samples/XAML%20scrolling%2C%20panning%2C%20and%20zooming%20sample%20(Windows%208))
 
 ### <a name="stack-panel"></a>スタック パネル
 子要素を水平方向または垂直方向の単一行に配置するレイアウト パネル。
@@ -591,7 +591,7 @@ Web コンテンツをホストするコンテナー コントロール。
 
 デザインと使い方: Web ビューのガイドライン 
 
-サンプル コード: [XAML WebView コントロールのサンプル](https://code.msdn.microsoft.com/windowsapps/XAML-WebView-control-sample-58ad63f7)
+サンプル コード: [XAML WebView コントロールのサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Windows%208%20app%20samples/%5BC%23%5D-Windows%208%20app%20samples/C%23/Windows%208%20app%20samples/XAML%20WebView%20control%20sample%20(Windows%208))
 
 ### <a name="semantic-zoom"></a>セマンティック ズーム
 
@@ -612,7 +612,7 @@ Web コンテンツをホストするコンテナー コントロール。
 
 デザインと使い方: [セマンティック ズーム コントロールのガイド](semantic-zoom.md)
 
-サンプル コード: [XAML GridView のグループ化と SemanticZoom のサンプル](https://code.msdn.microsoft.com/windowsapps/groupedgridview-77c59e8e)
+サンプル コード: [XAML GridView のグループ化と SemanticZoom のサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Windows%208%20app%20samples/%5BC%23%5D-Windows%208%20app%20samples/C%23/Windows%208%20app%20samples/XAML%20GridView%20grouping%20and%20SemanticZoom%20sample%20(Windows%208))
 
 ## <a name="progress-controls"></a>プログレス コントロール
 
@@ -682,7 +682,7 @@ Web コンテンツをホストするコンテナー コントロール。
 
 デザインと使い方: [テキスト コントロール](text-controls.md)、[パスワード ボックス コントロールのガイド](password-box.md) 
 
-サンプル コード: [XAML テキスト表示のサンプル](https://code.msdn.microsoft.com/windowsapps/XAML-text-display-sample-2593ba0a)、[XAML テキスト編集のサンプル](https://code.msdn.microsoft.com/windowsapps/XAML-text-editing-sample-fb0493ad)
+サンプル コード: [XAML テキスト表示のサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Windows%208%20app%20samples/%5BC%23%5D-Windows%208%20app%20samples/C%23/Windows%208%20app%20samples/XAML%20text%20display%20sample%20(Windows%208))、[XAML テキスト編集のサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Windows%208%20app%20samples/%5BC%23%5D-Windows%208%20app%20samples/C%23/Windows%208%20app%20samples/XAML%20text%20editing%20sample%20(Windows%208))
 
 ### <a name="rich-edit-box"></a>リッチ エディット ボックス
 書式付きテキスト、ハイパーリンク、イメージなどを含んだリッチ テキスト ドキュメントを編集できるコントロール。
@@ -695,7 +695,7 @@ Web コンテンツをホストするコンテナー コントロール。
 
 デザインと使い方: [テキスト コントロール](text-controls.md)、[リッチ エディット ボックス コントロールのガイド](rich-edit-box.md)
 
-サンプル コード: [XAML テキストのサンプル](https://code.msdn.microsoft.com/windowsapps/XAML-text-display-sample-2593ba0a)
+サンプル コード: [XAML テキストのサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Windows%208%20app%20samples/%5BC%23%5D-Windows%208%20app%20samples/C%23/Windows%208%20app%20samples/XAML%20text%20display%20sample%20(Windows%208))
 
 ### <a name="search-box"></a>検索ボックス
 「自動提案ボックス」をご覧ください。

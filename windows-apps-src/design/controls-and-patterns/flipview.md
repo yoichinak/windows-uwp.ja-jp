@@ -11,12 +11,12 @@ pm-contact: predavid
 design-contact: kimsea
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: f4871b4a43284052a89d0fd37412528840e1ea5a
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 51c43efc859e20606679b385051684730eee1922
+ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82968737"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86493387"
 ---
 # <a name="flip-view"></a>フリップ ビュー
 
@@ -24,9 +24,10 @@ ms.locfileid: "82968737"
 
 **Windows UI ライブラリを入手する**
 
-|  |  |
-| - | - |
-| ![WinUI ロゴ](images/winui-logo-64x64.png) | Windows UI ライブラリ 2.2 以降には、丸めた角を使用するこのコントロールの新しいテンプレートが含まれます。 詳しくは、「[角の半径](/windows/uwp/design/style/rounded-corner)」をご覧ください。 WinUI は、Windows アプリの新しいコントロールと UI 機能が含まれる NuGet パッケージです。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+<img src="images/winui-logo-64x64.png" alt="WinUI logo"
+     style="float: left; margin-right: 15px;" />
+
+Windows UI ライブラリ 2.2 以降には、丸めた角を使用するこのコントロールの新しいテンプレートが含まれます。 詳しくは、「[角の半径](/windows/uwp/design/style/rounded-corner)」をご覧ください。 WinUI は、Windows アプリの新しいコントロールと UI 機能が含まれる NuGet パッケージです。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。
 
 > **プラットフォーム API:** [FlipView クラス](/uwp/api/windows.ui.xaml.controls.flipview)、[ItemsSource プロパティ](/uwp/api/windows.ui.xaml.controls.itemscontrol.itemssource)、[ItemTemplate プロパティ](/uwp/api/windows.ui.xaml.controls.itemscontrol.itemtemplate)
 
@@ -207,7 +208,7 @@ ItemsSource が `itemsViewSource` という名前の [**CollectionViewSource**](
 
 ![コンテキスト インジケーターの例](images/controls_contextindicator.jpg)
 
-コンテキスト インジケーターを FlipView に追加する方法を示すサンプル コードについては、[XAML FlipView のサンプルに関するページ](https://code.msdn.microsoft.com/windowsapps/XAML-FlipView-control-0ae45312)をご覧ください。
+コンテキスト インジケーターを FlipView に追加する方法を示すサンプル コードについては、[XAML FlipView のサンプルに関するページ](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Windows%208%20app%20samples/%5BC%23%5D-Windows%208%20app%20samples/C%23/Windows%208%20app%20samples/XAML%20FlipView%20control%20sample%20(Windows%208))をご覧ください。
 
 ## <a name="dos-and-donts"></a>推奨と非推奨
 
