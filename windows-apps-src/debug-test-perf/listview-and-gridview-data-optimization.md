@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 7d00a41c5a58935a4ecfe623c71a1264a2dc1132
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 6db47510b28e42ab1ef638af6a980eb4ca7290d4
+ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "71339617"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86493167"
 ---
 # <a name="listview-and-gridview-data-virtualization"></a>ListView と GridView のデータ仮想化
 
@@ -41,7 +41,7 @@ ms.locfileid: "71339617"
 
 このようなデータ ソースは、継続的に拡張できるメモリ内リストです。 項目コントロールは、標準的な [**IList**](https://docs.microsoft.com/dotnet/api/system.collections.ilist) インデクサーとカウント プロパティを使って項目を要求します。 カウントは、データセットの実際のサイズではなく、ローカルでの項目の数を表す必要があります。
 
-項目コントロールは、既存のデータの終わりに近づいたときに [**ISupportIncrementalLoading.HasMoreItems**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.isupportincrementalloading.hasmoreitems) を呼び出します。 **true** が返された場合は、アドバタイズされた読み込む項目数を渡す [**ISupportIncrementalLoading.LoadMoreItemsAsync**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.isupportincrementalloading.loadmoreitemsasync) を呼び出します。 データの読み込み元 (ローカル ディスク、ネットワーク、またはクラウド) に応じて、アドバタイズされた項目数とは異なる数の項目を読み込むことができます。 たとえば、サービスは 50 項目のバッチをサポートしているが、項目コントロールは 10 項目のみを要求している場合、50 項目を読み込むことができます。 バックエンドからデータを読み込んでリストに追加した後、[**INotifyCollectionChanged**](https://docs.microsoft.com/dotnet/api/system.collections.specialized.inotifycollectionchanged) または [**IObservableVector&lt;T&gt;** ](https://docs.microsoft.com/uwp/api/Windows.Foundation.Collections.IObservableVector_T_) 経由で変更通知を発行して、項目コントロールが新しい項目を認識できるようにします。 さらに、実際に読み込んだ項目の数を返します。 アドバタイズされた数よりも少ない項目を読み込むか、項目コントロールが途中でさらにパン/スクロールされた場合は、データ ソースをもう一度呼び出して、さらに項目を読み込むサイクルが続けられます。 詳しくは、Windows 8.1 の [XAML データ バインディングのサンプル](https://code.msdn.microsoft.com/windowsapps/Data-Binding-7b1d67b5)をダウンロードしてご覧ください。また、Windows 10 アプリでソース コードを再利用することもできます。
+項目コントロールは、既存のデータの終わりに近づいたときに [**ISupportIncrementalLoading.HasMoreItems**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.isupportincrementalloading.hasmoreitems) を呼び出します。 **true** が返された場合は、アドバタイズされた読み込む項目数を渡す [**ISupportIncrementalLoading.LoadMoreItemsAsync**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.isupportincrementalloading.loadmoreitemsasync) を呼び出します。 データの読み込み元 (ローカル ディスク、ネットワーク、またはクラウド) に応じて、アドバタイズされた項目数とは異なる数の項目を読み込むことができます。 たとえば、サービスは 50 項目のバッチをサポートしているが、項目コントロールは 10 項目のみを要求している場合、50 項目を読み込むことができます。 バックエンドからデータを読み込んでリストに追加した後、[**INotifyCollectionChanged**](https://docs.microsoft.com/dotnet/api/system.collections.specialized.inotifycollectionchanged) または [**IObservableVector&lt;T&gt;** ](https://docs.microsoft.com/uwp/api/Windows.Foundation.Collections.IObservableVector_T_) 経由で変更通知を発行して、項目コントロールが新しい項目を認識できるようにします。 さらに、実際に読み込んだ項目の数を返します。 アドバタイズされた数よりも少ない項目を読み込むか、項目コントロールが途中でさらにパン/スクロールされた場合は、データ ソースをもう一度呼び出して、さらに項目を読み込むサイクルが続けられます。 詳しくは、Windows 8.1 の [XAML データ バインディングのサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Windows%208%20app%20samples/%5BC%23%5D-Windows%208%20app%20samples/C%23/Windows%208%20app%20samples/XAML%20data%20binding%20sample%20(Windows%208))をダウンロードしてご覧ください。また、Windows 10 アプリでソース コードを再利用することもできます。
 
 ## <a name="random-access-data-virtualization"></a>ランダム アクセスのデータ仮想化
 

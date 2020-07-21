@@ -8,12 +8,12 @@ ms.topic: article
 keywords: NodeJS、Node.js、windows 10、microsoft、nodejs 学習、windows のノード、windows のノード (初心者向け)、windows でノード開発、windows で nodejs 開発
 ms.localizationpriority: medium
 ms.date: 09/19/2019
-ms.openlocfilehash: 433eb5701696f590f10d8b3276481098b9ec073d
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: d40d701dc3ae973e0834d0b329527e69854b9e36
+ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75657084"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86492867"
 ---
 # <a name="get-started-using-nodejs-on-windows-for-beginners"></a>Windows で Node.js を使ってみる (初心者向け)
 
@@ -148,5 +148,5 @@ Node.js には、サーバー側 Web アプリの開発に役立つツールが�
 このガイドでは、Node.js でできる基本的なことをいくつか学習し、VS Code で Node.js コマンド ラインの使用を試し、Express.js で簡単な Web アプリを作成してそれを Web ブラウザーでローカル実行し、いくつかの組み込み Node.js モジュールの使用を試しました。 いくつかの人気のある Node.js Web フレームワークをインストールして使用する方法の詳細については、次のガイドに進んでください。Next.js (React を基盤とし、サーバー側でレンダリングする Web フレームワーク)、Nuxt.js (Vue を基盤とし、サーバー側でレンダリングする Web フレームワーク)、Gatsby (React を基盤とし、静的にレンダリングする Web フレームワーク) について取り上げています。 これを飛ばして、MongoDB、PostgreSQL データベース、または Docker コンテナーを使用する方法を学習することもできます。
 
 - [Windows での Node.js Web フレームワークの概要](./web-frameworks.md)
-- [Node.js アプリのデータベースへの接続の概要](./databases.md)
+- [Node.js アプリのデータベースへの接続の概要](https://docs.microsoft.com/windows/wsl/tutorials/wsl-database)
 - [Node.js で Docker コンテナーを使ってみる](./containers.md)

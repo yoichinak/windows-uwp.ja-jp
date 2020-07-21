@@ -5,12 +5,12 @@ ms.date: 04/24/2019
 ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、XAML、コントロール、バインド、コレクション
 ms.localizationpriority: medium
-ms.openlocfilehash: a98056190d035910a8ed83d2f37799a98b685ce6
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 388e8ebb062dbbb33ffb269f2adcced34a7e577c
+ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "70304515"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86493647"
 ---
 # <a name="xaml-items-controls-bind-to-a-cwinrt-collection"></a>XAML アイテム コントロール: C++/WinRT コレクションへのバインド
 
@@ -22,6 +22,7 @@ XAML アイテム コントロールに効果的にバインドできるコレ�
 > C++/WinRT でランタイム クラスを使用および作成する方法についての理解をサポートするために重要な概念と用語については、「[C++/WinRT での API の使用](consume-apis.md)」と「[C++/WinRT での作成者 API](author-apis.md)」を参照してください。
 
 ## <a name="what-does-observable-mean-for-a-collection"></a>コレクションの*監視可能*とはどういう意味ですか?
+
 コレクションを表すランタイム クラスが、要素が追加されるまたは削除されるたびに [**IObservableVector&lt;T&gt;:: VectorChanged**](/uwp/api/windows.foundation.collections.iobservablevector-1.vectorchanged) イベントを発生することを選択する場合、そのランタイム クラスは監視可能なコレクションです。 XAML アイテム コントロールでは、更新されたコレクションを取得して、現在の要素を表示するためにそれ自体を更新することで、これらのイベントをバインドし、処理することができます。
 
 > [!NOTE]
@@ -93,6 +94,7 @@ Windows::Foundation::Collections::IObservableVector<Bookstore::BookSku> Bookstor
 ```
 
 ## <a name="bind-a-listbox-to-the-bookskus-property"></a>**BookSkus** プロパティに ListBox をバインドします。
+
 メイン UI ページの XAML マークアップが含まれている `MainPage.xaml` を開きます。 **Button** と同じ **StackPanel** 内に次のマークアップを追加します。
 
 ```xaml
@@ -121,9 +123,11 @@ void MainPage::ClickHandler(IInspectable const&, RoutedEventArgs const&)
 ここでプロジェクトをビルドして実行します。 ボタンをクリックして**クリック** イベント ハンドラーを実行します。 **Append** の実装によりイベントが発生し、コレクションが変更されたことを UI が把握できるようにすることが分かります。**ListBox** はその独自の **Items** 値を更新するためにコレクションを再クエリします。 前と同様に、ブックのいずれかのタイトルが変わります。このタイトル変更は、ボタンとリスト ボックス内の両方に反映されます。
 
 ## <a name="important-apis"></a>重要な API
+
 * [IObservableVector&lt;T&gt;::VectorChanged](/uwp/api/windows.foundation.collections.iobservablevector-1.vectorchanged)
 * [winrt::make 関数テンプレート](/uwp/cpp-ref-for-winrt/make)
 
 ## <a name="related-topics"></a>関連トピック
+
 * [C++/WinRT で API を使用する](consume-apis.md)
 * [C++/WinRT で API を作成する](author-apis.md)

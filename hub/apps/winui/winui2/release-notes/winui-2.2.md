@@ -1,14 +1,14 @@
 ---
 title: WinUI 2.2 リリース ノート
 description: 新機能とバグ修正を含む WinUI 2.2 のリリース ノート。
-ms.date: 04/15/2020
+ms.date: 07/15/2020
 ms.topic: article
-ms.openlocfilehash: 2272046bc59865ebcf7958a165805d9ca4c7efce
-ms.sourcegitcommit: d0f479f1955881afb62c2af249db5d0b053b63e5
+ms.openlocfilehash: 6706b0202057b9a3419ec45a43a5f6d4d574327b
+ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83580469"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86493097"
 ---
 # <a name="windows-ui-library-22"></a>Windows UI ライブラリ 2.2
 

@@ -1,14 +1,14 @@
 ---
 title: WinUI 2.0 リリース ノート
 description: WinUI 2.0 のリリース ノート。
-ms.date: 04/15/2020
+ms.date: 07/15/2020
 ms.topic: article
-ms.openlocfilehash: 300a8eaa0077b3a59ef2ac01213cd82b0c76c343
-ms.sourcegitcommit: d0f479f1955881afb62c2af249db5d0b053b63e5
+ms.openlocfilehash: 8518f528c67e11b5ac895bb4e000751993fa1a91
+ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83580659"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86493597"
 ---
 # <a name="windows-ui-library-20"></a>Windows UI ライブラリ 2.0
 
