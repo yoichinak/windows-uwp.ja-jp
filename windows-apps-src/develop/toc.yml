@@ -27,7 +27,7 @@
 - name: オーディオ、ビデオ、カメラ
   href: ../audio-video-camera/index.md
   items:
-    - name: Camera
+    - name: カメラ
       href: ../audio-video-camera/camera.md
       items:
         - name: Windows の組み込みカメラ UI を使った写真とビデオのキャプチャ
@@ -99,6 +99,8 @@
               href: ../audio-video-camera/dash-profile-support.md
         - name: メディアのキャスト
           href: ../audio-video-camera/media-casting.md
+        - name: Bluetooth 接続のリモート デバイスからオーディオ再生を有効にする
+          href: ../audio-video-camera/enable-remote-audio-playback.md
         - name: PlayReady DRM
           href: ../audio-video-camera/playready-client-sdk.md
           items:
@@ -160,6 +162,8 @@
           href: ../app-to-app/receive-data.md
         - name: コピーと貼り付け
           href: ../app-to-app/copy-and-paste.md
+    - name: プロセス間通信 (IPC)
+      href: ../communication/interprocess-communication.md
     - name: ネットワークと Web サービス
       href: ../networking/index.md
       items:
@@ -179,6 +183,8 @@
           href: ../networking/web-feeds.md
         - name: バックグラウンド転送
           href: ../networking/background-transfers.md
+    - name: 名前付きオブジェクトの共有中
+      href: ../communication/sharing-named-objects.md
 - name: データとファイル
   items:
     - name: アプリ リソース
@@ -299,7 +305,7 @@
           href: ../debug-test-perf/loose-file-registration.md
         - name: ベータ テスト
           href: ../debug-test-perf/beta-testing.md
-        - name: Windows Device Portal
+        - name: Windows デバイス ポータル
           href: ../debug-test-perf/device-portal.md
           items:
             - name: デスクトップ用 Device Portal
@@ -322,7 +328,7 @@
               items:
                 - name: Windows デスクトップ ブリッジ アプリのテスト
                   href: ../debug-test-perf/windows-desktop-bridge-app-tests.md
-        - name: パフォーマンス
+        - name: '[パフォーマンス]'
           href: ../debug-test-perf/performance-and-xaml-ui.md
           items:
             - name: パフォーマンスの計画
@@ -553,19 +559,6 @@
                           href: ../monetize/download-the-cab-file-for-an-error-in-your-desktop-application.md
                 - name: Xbox One ゲームと Xbox Live
                   items:
-                    - name: Xbox One ゲームの入手数の取得
-                      href: ../monetize/get-xbox-one-game-acquisitions.md
-                    - name: Xbox One アドオンの入手数の取得
-                      href: ../monetize/get-xbox-one-add-on-acquisitions.md
-                    - name: Xbox One ゲームのエラー報告データの取得
-                      href: ../monetize/get-error-reporting-data-for-your-xbox-one-game.md
-                      items:
-                        - name: Xbox One ゲームのエラーに関する詳細情報の取得
-                          href: ../monetize/get-details-for-an-error-in-your-xbox-one-game.md
-                        - name: Xbox One ゲームのエラーに関するスタック トレースの取得
-                          href: ../monetize/get-the-stack-trace-for-an-error-in-your-xbox-one-game.md
-                        - name: Xbox One ゲームのエラーの CAB ファイルをダウンロードする
-                          href: ../monetize/download-the-cab-file-for-an-error-in-your-xbox-one-game.md
                     - name: Xbox Live の分析データの取得
                       href: ../monetize/get-xbox-live-analytics.md
                       items:
@@ -738,45 +731,15 @@
         - name: 支払い要求 API で支払いを簡略化する
           href: ../monetize/payment-request.md
     - name: アプリのパッケージ化
-      href: ../packaging/index.md
       items:
-        - name: Visual Studio で UWP アプリをパッケージ化する
-          href: ../packaging/packaging-uwp-apps.md
-        - name: 手動でのアプリのパッケージ化
-          href: ../packaging/manual-packaging-root.md
-          items:
-            - name: MakeAppx.exe ツールを使ったアプリ パッケージの作成
-              href: ../packaging/create-app-package-with-makeappx-tool.md
-            - name: パッケージ署名用証明書を作成する
-              href: ../packaging/create-certificate-package-signing.md
-            - name: SignTool を使ってアプリ パッケージに署名する
-              href: ../packaging/sign-app-package-using-signtool.md
-            - name: アセット パッケージとパッケージ圧縮を使った開発
-              href: ../packaging/package-folding.md
-            - name: フラット バンドル アプリ パッケージ
-              href: ../packaging/flat-bundles.md
-            - name: アセット パッケージの概要
-              href: ../packaging/asset-packages.md
-            - name: パッケージ レイアウトを使ったパッケージの作成
-              href: ../packaging/packaging-layout.md
-        - name: アプリ パッケージのアーキテクチャ
-          href: ../packaging/device-architecture.md
-        - name: UWP アプリ ストリーミング インストール
-          href: ../packaging/streaming-install.md
-          items:
-            - name: ソース コンテンツ グループ マップの作成と変換
-              href: ../packaging/create-cgm.md
-        - name: オプション パッケージと関連セットの作成
-          href: ../packaging/optional-packages.md
-          items:
-            - name: 実行可能コードによるオプション パッケージ
-              href: ../packaging/optional-packages-with-executable-code.md
-        - name: WinAppDeployCmd.exe ツールを使ったアプリのインストール
-          href: ../packaging/install-universal-windows-apps-with-the-winappdeploycmd-tool.md
+        - name: 概要
+          href: ../packaging/index.md
         - name: アプリ機能の宣言
           href: ../packaging/app-capability-declarations.md
         - name: UWP アプリの自動ビルドを設定する
           href: ../packaging/auto-build-package-uwp-apps.md
+        - name: WinAppDeployCmd.exe ツールを使ったアプリのインストール
+          href: ../packaging/install-universal-windows-apps-with-the-winappdeploycmd-tool.md
         - name: パッケージの更新プログラムを Microsoft Store からダウンロードしてインストールする
           href: ../packaging/self-install-package-updates.md
 - name: プラットフォーム
@@ -784,11 +747,11 @@
     - name: C++/WinRT
       href: ../cpp-and-winrt-apis/index.md
       items:
-        - name: 概要
-          href: ../cpp-and-winrt-apis/intro-to-using-cpp-with-winrt.md
         - name: はじめに
+          href: ../cpp-and-winrt-apis/intro-to-using-cpp-with-winrt.md
+        - name: 開始
           href: ../cpp-and-winrt-apis/get-started.md
-        - name: 新着情報
+        - name: 新機能
           href: ../cpp-and-winrt-apis/news.md
         - name: よく寄せられる質問
           href: ../cpp-and-winrt-apis/faq.md
@@ -816,6 +779,8 @@
           href: ../cpp-and-winrt-apis/collections.md
         - name: 同時実行操作と非同期操作
           href: ../cpp-and-winrt-apis/concurrency.md
+        - name: より高度な同時実行操作と非同期操作
+          href: ../cpp-and-winrt-apis/concurrency-2.md
         - name: XAML コントロール; プロパティへのバインド
           href: ../cpp-and-winrt-apis/binding-property.md
         - name: XAML アイテム コントロール; コレクションへのバインド
@@ -834,6 +799,8 @@
           href: ../cpp-and-winrt-apis/interop-winrt-cx.md
         - name: WRL から C++/WinRT への移行
           href: ../cpp-and-winrt-apis/move-to-winrt-from-wrl.md
+        - name: 'C# からのサンプル アプリの移植'
+          href: ../cpp-and-winrt-apis/clipboard-to-winrt-from-csharp.md
         - name: 'C# から C++/WinRT への移行'
           href: ../cpp-and-winrt-apis/move-to-winrt-from-csharp.md
         - name: ABI との相互運用
@@ -842,12 +809,18 @@
           href: ../cpp-and-winrt-apis/weak-references.md
         - name: アジャイル オブジェクト
           href: ../cpp-and-winrt-apis/agile-objects.md
+        - name: 直接割当ての診断
+          href: ../cpp-and-winrt-apis/diag-direct-alloc.md
+        - name: 実装の種類の拡張ポイント
+          href: ../cpp-and-winrt-apis/details-about-destructors.md
         - name: 単純な C++/WinRT WinUI の例
           href: ../cpp-and-winrt-apis/simple-winui-example.md
         - name: C++ 言語
           items:
             - name: 値のカテゴリと参照
               href: ../cpp-and-winrt-apis/cpp-value-categories.md
+    - name: 'C#/WinRT'
+      href: ../csharp-winrt/index.md
     - name: セキュリティ
       href: ../security/index.md
       items:
@@ -957,11 +930,11 @@
     - name: Windows ランタイム コンポーネント
       href: ../winrt-components/index.md
       items:
-        - name: C++/CX での Windows ランタイム コンポーネントの作成
+        - name: C++/CX を使用した Windows ランタイム コンポーネント
           href: ../winrt-components/creating-windows-runtime-components-in-cpp.md
-        - name: 'チュートリアル:C++/CX での基本的な Windows ランタイム コンポーネントの作成と JavaScript または C# からの呼び出し'
+        - name: C++/CX Windows ランタイム コンポーネントのチュートリアル
           href: ../winrt-components/walkthrough-creating-a-basic-windows-runtime-component-in-cpp-and-calling-it-from-javascript-or-csharp.md
-        - name: 'C# と Visual Basic での Windows ランタイム コンポーネントの作成'
+        - name: 'C# および Visual Basic を使用した Windows ランタイム コンポーネント'
           href: ../winrt-components/creating-windows-runtime-components-in-csharp-and-visual-basic.md
           items:
             - name: Windows ランタイム コンポーネントのカスタム イベントおよびイベント アクセサー
@@ -972,9 +945,9 @@
               href: ../winrt-components/diagnosing-windows-runtime-component-error-conditions.md
             - name: マネージ Windows ランタイム コンポーネントの配布
               href: ../winrt-components/distributing-a-managed-windows-runtime-component.md
-            - name: .NET Framework での Windows ランタイム型の対応付け
+            - name: .NET での Windows ランタイム型の対応付け
               href: ../winrt-components/net-framework-mappings-of-windows-runtime-types.md
-        - name: 'チュートリアル:単純な Windows ランタイム コンポーネントの作成と JavaScript からの呼び出し'
+        - name: 'C# または Visual Basic Windows ランタイム コンポーネントのチュートリアル'
           href: ../winrt-components/walkthrough-creating-a-simple-windows-runtime-component-and-calling-it-from-javascript.md
         - name: Windows ランタイム コンポーネントでイベントを生成する
           href: ../winrt-components/raising-events-in-windows-runtime-components.md
@@ -1061,7 +1034,7 @@
               href: ../contacts-and-calendar/my-people-notifications.md
         - name: 連絡先の選択
           href: ../contacts-and-calendar/selecting-contacts.md
-        - name: メールの送信
+        - name: 電子メールの送信
           href: ../contacts-and-calendar/sending-email.md
         - name: SMS メッセージの送信
           href: ../contacts-and-calendar/sending-an-sms-message.md
@@ -1132,7 +1105,7 @@
               href: ../devices-sensors/pos-basics-claim.md
             - name: 周辺機器の共有
               href: ../devices-sensors/pos-basics-sharing.md
-            - name: 概要
+            - name: はじめに
               href: ../devices-sensors/pos-get-started.md
         - name: ハードウェア サポート
           href: ../devices-sensors/pos-device-support.md
@@ -1152,7 +1125,7 @@
               items:
                 - name: システム要件
                   href: ../devices-sensors/pos-camerabarcode-system-requirements.md
-                - name: 概要
+                - name: はじめに
                   href: ../devices-sensors/pos-camerabarcode-get-started.md
                 - name: カメラ プレビューのホスティング
                   href: ../devices-sensors/pos-camerabarcode-hosting-preview.md
@@ -1201,7 +1174,7 @@
               href: ../devices-sensors/gatt-client.md
             - name: GATT サーバー
               href: ../devices-sensors//gatt-server.md
-            - name: 公開通知
+            - name: 開示通知(旧称「提供情報」)
               href: ../devices-sensors/ble-beacon.md
         - name: Bluetooth に関する開発者向け FAQ
           href: ../devices-sensors/bluetooth-dev-faq.md
@@ -1271,11 +1244,11 @@
               href: ../porting/getting-started-getting-around-in-visual-studio.md
             - name: '概要: コモン コントロール'
               href: ../porting/getting-started-common-controls.md
-            - name: '概要: ナビゲーション'
+            - name: '概要: ［ナビゲーション］'
               href: ../porting/getting-started-navigation.md
             - name: '概要: アニメーション'
               href: ../porting/getting-started-animation.md
-            - name: '概要: 次にすること'
+            - name: '概要: 次に行うことは何ですか?'
               href: ../porting/getting-started-what-next.md
         - name: Windows 10 を使用するための Mac のセットアップ
           href: ../porting/setting-up-your-mac-with-windows-10.md
@@ -1391,6 +1364,8 @@
               href: ../launch-resume/extend-your-app-with-services-extensions-packages.md
             - name: アプリ拡張機能の作成とホスト
               href: ../launch-resume/how-to-create-an-extension.md
+            - name: ホステッド アプリの作成
+              href: ../launch-resume/hosted-apps.md
         - name: バックグラウンド タスクによるアプリのサポート
           href: ../launch-resume/support-your-app-with-background-tasks.md
           items:

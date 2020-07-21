@@ -12,12 +12,12 @@ design-contact: kimsea
 dev-contact: niallm
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 67ba9f5c9bc4a5e723eb2696d88804df5300eda0
-ms.sourcegitcommit: 4aef8c01ba9321401d5729a1ec6d46452ee76faf
+ms.openlocfilehash: 9208bb85f34e1ad0fd28a89e780ebfca536a8bad
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67468987"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82969897"
 ---
 # <a name="dialog-controls"></a>ダイアログ コントロール
 
@@ -25,21 +25,26 @@ ms.locfileid: "67468987"
 
 ![ダイアログの例](../images/dialogs/dialog_RS2_delete_file.png)
 
+**Windows UI ライブラリを入手する**
 
-> **重要な API**:[ContentDialog クラス](/uwp/api/Windows.UI.Xaml.Controls.ContentDialog)
+|  |  |
+| - | - |
+| ![WinUI ロゴ](../images/winui-logo-64x64.png) | Windows UI ライブラリ 2.2 以降には、丸めた角を使用するこのコントロールの新しいテンプレートが含まれます。 詳しくは、「[角の半径](/windows/uwp/design/style/rounded-corner)」をご覧ください。 WinUI は、Windows アプリの新しいコントロールと UI 機能が含まれる NuGet パッケージです。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
 
-## <a name="is-this-the-right-control"></a>適切なコントロールの選択
+> **プラットフォーム API:** [ContentDialog クラス](/uwp/api/Windows.UI.Xaml.Controls.ContentDialog)
+
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 重要な情報をユーザーに通知したり、アクションが完了する前に確認や追加情報を要求したりするには、ダイアログを使用します。
 
-どのようなときにダイアログを使い、どのようなときにポップアップ (似たコントロール) を使うかに関する推奨事項については、「[ダイアログとポップアップ](index.md)」をご覧ください。 
+どのようなときにダイアログを使い、どのようなときにポップアップ (似たコントロール) を使うかに関する推奨事項については、「[ダイアログとポップアップ](index.md)」をご覧ください。
 
 ## <a name="examples"></a>例
 
 <table>
 <th align="left">XAML コントロール ギャラリー<th>
 <tr>
-<td><img src="../images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td><img src="../images/xaml-controls-gallery-app-icon-sm.png" alt="XAML controls gallery"></img></td>
 <td>
     <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合、こちらをクリックしてアプリを開き、<a href="xamlcontrolsgallery:/item/ContentDialog">ContentDialog</a> または <a href="xamlcontrolsgallery:/item/Flyout">Flyout</a> の動作を確認してください。</p>
     <ul>
@@ -66,7 +71,7 @@ ms.locfileid: "67468987"
     - アクション ボタンのテキストは簡潔にします。 短い文字列にすると、ユーザーがすばやく確実に選択できるようになります。
     - 安全で非破壊的なアクションに加え、必要に応じて、主な説明に関連する 1 つまたは 2 つのアクション ボタンをユーザーに対して表示できます。 このような "処理実行" アクション ボタンでは、ダイアログの重要な点を確認します。 このような "処理実行" アクションを追加するには、PrimaryButton API と SecondaryButton API を使用します。
     - "処理実行" アクション ボタンは一番左のボタンとして表示されます。 安全で非破壊的なアクションは一番右のボタンとして表示されます。
-    - 必要に応じて、ダイアログの 3 つのボタンのうちの 1 つを既定のボタンとして区別できます。 ボタンの 1 つを区別するには DefaultButton API を使用します。  
+    - 必要に応じて、ダイアログの 3 つのボタンのうちの 1 つを既定のボタンとして区別できます。 ボタンの 1 つを区別するには DefaultButton API を使用します。
 -   パスワード フィールドの検証エラーなど、ページの特定の場所に関連するエラーでは、ダイアログを使わずに、アプリのキャンバス自体を使ってインライン エラーを表示します。
 - ダイアログ エクスペリエンスを構築するには、[ContentDialog クラス](/uwp/api/Windows.UI.Xaml.Controls.ContentDialog)を使います。 非推奨の MessageDialog API は使わないでください。
 
@@ -236,8 +241,8 @@ private async void DisplaySubscribeDialog()
 ```
 
 ## <a name="confirmation-dialogs-okcancel"></a>確認ダイアログ ([OK]/[キャンセル])
-確認ダイアログ ボックスにより、ユーザーはアクションを実行するかどうかを確認できます。 アクションを確認するか、キャンセルを選択することができます。  
-一般的な確認ダイアログ ボックスには、確認 ([OK]) ボタンと [キャンセル] ボタンの 2 つのボタンがあります。  
+確認ダイアログ ボックスにより、ユーザーはアクションを実行するかどうかを確認できます。 アクションを確認するか、キャンセルを選択することができます。
+一般的な確認ダイアログ ボックスには、確認 ([OK]) ボタンと [キャンセル] ボタンの 2 つのボタンがあります。
 
 <ul>
     <li>
@@ -250,13 +255,13 @@ private async void DisplaySubscribeDialog()
 
 > 一部のプラットフォームでは、左側ではなく、右側に確認ボタンが配置されます。 それでは、左側に確認ボタンを配置するのはなぜでしょうか。  ユーザーの大部分が右利きであり、右手でスマートフォンを保持すると想定した場合、実際に確認ボタンが左側にある方がボタンを押しやすくなります。これは、ボタンがユーザーの親指が描く円弧上にある可能性が高くなるためです。画面の右側にボタンがある場合、ユーザーは親指を内側に引いて操作しにくい位置に移動する必要があります。
 
-## <a name="contentdialog-in-appwindow-or-xaml-islands"></a>AppWindow 内または XAML アイランド内の ContentDialog
+## <a name="contentdialog-in-appwindow-or-xaml-islands"></a>AppWindow 内または XAML Islands 内の ContentDialog
 
-> 注: このセクションは、Windows 10 バージョン 1903 以降をターゲットとするアプリにのみ適用されます。 それより前のバージョンでは、AppWindow および XAML アイランドは使用できません。 バージョンについて詳しくは、[バージョン アダプティブ アプリ](../../../debug-test-perf/version-adaptive-apps.md)に関する記事をご覧ください。
+> 注記:このセクションは、Windows 10 バージョン 1903 以降をターゲットとするアプリにのみ適用されます。 それより前のバージョンでは、AppWindow および XAML Islands は使用できません。 バージョンについて詳しくは、[バージョン アダプティブ アプリ](../../../debug-test-perf/version-adaptive-apps.md)に関する記事をご覧ください。
 
-既定では、コンテンツ ダイアログはルート [ApplicationView](/uwp/api/windows.ui.viewmanagement.applicationview) を基準としてモーダルに表示されます。 ContentDialog を [AppWindow](/uwp/api/windows.ui.windowmanagement.appwindow) または [XAML アイランド](/windows/apps/desktop/modernize/xaml-islands)の内部で使うときは、ダイアログの [XamlRoot](/uwp/api/windows.ui.xaml.uielement.xamlroot) を XAML ホストのルートに手動で設定する必要があります。
+既定では、コンテンツ ダイアログはルート [ApplicationView](/uwp/api/windows.ui.viewmanagement.applicationview) を基準としてモーダルに表示されます。 ContentDialog を [AppWindow](/uwp/api/windows.ui.windowmanagement.appwindow) または [XAML Islands](/windows/apps/desktop/modernize/xaml-islands)の内部で使うときは、ダイアログの [XamlRoot](/uwp/api/windows.ui.xaml.uielement.xamlroot) を XAML ホストのルートに手動で設定する必要があります。
 
-それを行うには、次に示すように、ContentDialog の XamlRoot プロパティを、AppWindow または XAML アイランドに既に存在する要素と同じ XamlRoot に設定します。
+それを行うには、次に示すように、ContentDialog の XamlRoot プロパティを、AppWindow または XAML Islands に既に存在する要素と同じ XamlRoot に設定します。
 
 ```csharp
 private async void DisplayNoWifiDialog()
@@ -282,7 +287,7 @@ private async void DisplayNoWifiDialog()
 > [!WARNING]
 > 1 つのスレッドで一度に開くことのできる ContentDialog は 1 つだけです。 2 つの ContentDialog を開こうとすると、個別の AppWindow で開く場合でも、例外がスローされます。
 
-## <a name="get-the-sample-code"></a>サンプル コードを入手する
+## <a name="get-the-sample-code"></a>サンプル コードの入手
 
 - [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - インタラクティブな形で XAML コントロールのすべてを参照できます。
 

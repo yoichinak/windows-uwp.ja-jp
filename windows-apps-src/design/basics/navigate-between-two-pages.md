@@ -1,5 +1,5 @@
 ---
-Description: ユニバーサル Windows プラットフォーム (UWP) アプリ内で、基本的な 2 つのページ間のピアツーピア ナビゲーションを有効にする方法について説明します。
+Description: Windows アプリ内で、基本的な 2 つのページ間のピアツーピア ナビゲーションを有効にする方法について説明します。
 title: 2 ページ間でのピア ツー ピアのナビゲーション
 ms.assetid: 0A364C8B-715F-4407-9426-92267E8FB525
 label: Peer-to-peer navigation between two pages
@@ -13,12 +13,12 @@ dev_langs:
 - csharp
 - cppwinrt
 - cpp
-ms.openlocfilehash: 3bc377e87d01106a1a2e7157dbe08f1ab022f52a
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 50211600931fc67c43aa577fabe23f1277a0e897
+ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66361056"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83233824"
 ---
 # <a name="implement-navigation-between-two-pages"></a>2 ページ間でのナビゲーションを実装する
 
@@ -28,7 +28,7 @@ ms.locfileid: "66361056"
 
 ![ピア ツー ピアのナビゲーション](images/peertopeer.png)
 
-## <a name="1-create-a-blank-app"></a>1. 空のアプリの作成
+## <a name="1-create-a-blank-app"></a>1.空のアプリの作成
 
 1.  Microsoft Visual Studio のメニューで、 **[ファイル]**  >  **[新しいプロジェクト]** の順にクリックします。
 2.  **[新しいプロジェクト]** ダイアログ ボックスの左側のウィンドウで、 **[Visual C#]**  >  **[Windows]**  >  **[ユニバーサル]** ノード、または **[Visual C++]**  >  **[Windows]**  >  **[ユニバーサル]** ノードの順にクリックします。
@@ -39,7 +39,7 @@ ms.locfileid: "66361056"
     空白のページが表示されます。
 6.  デバッグを終了して Visual Studio に戻るには、アプリを終了するか、メニューから **[デバッグの停止]** クリックします。
 
-## <a name="2-add-basic-pages"></a>2. 基本ページの追加
+## <a name="2-add-basic-pages"></a>2.基本ページの追加
 
 次に、プロジェクトにページを 2 つ追加します。
 
@@ -418,7 +418,7 @@ void Page2::OnNavigatedTo(NavigationEventArgs^ e)
 
 `Page1` の **HyperlinkButton** の **Click** イベントで `this.Frame.Navigate(typeof(Page2), name.Text)` を呼び出すと、`name.Text` プロパティが `Page2` に渡され、イベント データの値がページに表示されるメッセージに使用されます。
 
-## <a name="4-cache-a-page"></a>4。ページのキャッシュ
+## <a name="4-cache-a-page"></a>4.ページのキャッシュ
 
 ページのコンテンツと状態は既定ではキャッシュされないため、情報をキャッシュする場合は、アプリの各ページでキャッシュを有効にする必要があります。
 
@@ -451,6 +451,6 @@ Page1::Page1()
 ```
 
 ## <a name="related-articles"></a>関連記事
-* [UWP アプリのナビゲーション デザインの基本](https://docs.microsoft.com/windows/uwp/layout/navigation-basics)
-* [タブとピボットのガイドライン](https://docs.microsoft.com/windows/uwp/controls-and-patterns/tabs-pivot)
-* [ナビゲーション ウィンドウのガイドライン](https://docs.microsoft.com/windows/uwp/controls-and-patterns/nav-pane)
+* [Windows アプリのナビゲーション デザインの基本](https://docs.microsoft.com/windows/uwp/layout/navigation-basics)
+* [ピボット](../controls-and-patterns/pivot.md)
+* [ナビゲーション ビュー](../controls-and-patterns/navigationview.md)

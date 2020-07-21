@@ -3,75 +3,75 @@ title: ルーズ ファイルの登録によるアプリの展開
 description: このガイドでは、ルーズ ファイル レイアウトを使用して、Windows 10 アプリをパッケージ化することなく、検証および共有する方法を示します。
 ms.date: 06/01/2018
 ms.topic: article
-keywords: windows 10、uwp、デバイスのポータル、apps manager、デプロイ、sdk
+keywords: windows 10、uwp、デバイス ポータル、アプリ マネージャー、デプロイ、sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 3369f3a982efec258fb5ac2358b2962e84e6cefb
-ms.sourcegitcommit: 139717a79af648a9231821bdfcaf69d8a1e6e894
-ms.translationtype: MT
+ms.openlocfilehash: 7bf3dab97be67a3b97aca4b3132bd9fe18691d15
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67713770"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "75681933"
 ---
 # <a name="deploy-an-app-through-loose-file-registration"></a>ルーズ ファイルの登録によるアプリの展開 
 
-このガイドでは、ルーズ ファイル レイアウトを使用して、Windows 10 アプリをパッケージ化することなく、検証および共有する方法を示します。 圧縮しないファイルのレイアウトを登録すると、開発者をパッケージ化し、アプリをインストールする必要はありませんがアプリをすばやく検証ができます。 
+このガイドでは、ルーズ ファイル レイアウトを使用して、Windows 10 アプリをパッケージ化することなく、検証および共有する方法を示します。 開発者はルーズ ファイル レイアウトを登録すると、アプリをパッケージ化してインストールする必要なく、アプリをすばやく検証できます。 
 
-## <a name="what-is-a-loose-file-layout"></a>圧縮しないファイルのレイアウトとは何ですか。
+## <a name="what-is-a-loose-file-layout"></a>ルーズ ファイル レイアウトとは
 
-圧縮しないファイルのレイアウトは単に、アプリの内容をパッケージ化プロセスを通過するのではなくフォルダーに配置するのです。 パッケージの内容は、「疎」フォルダーで使用可能なパッケージ化されません。 です。 
+ルーズ ファイル レイアウトとは、アプリをパッケージ化する代わりに、フォルダーにアプリの内容を単純に配置する操作です。 パッケージの内容は、パッケージ化されず、フォルダーから "ルーズ" に使用できます。 
 
 > [!WARNING]
-> 圧縮しないファイル レイアウトの登録は、アクティブな開発中のアプリをすばやく検証するには、開発者および設計者です。 このアプローチは、「ドッグフード」するために使用またはアプリのフライトしないでください。 信頼された証明書で署名されたパッケージのアプリで最終的な検証を実行することをお勧めします。 
+> ルーズ ファイル レイアウトの登録は、アプリを積極的に開発している開発者とデザイナーが、アプリをすばやく検証するために使用できます。 この方法は、"社内リリース" またはアプリをフライトするために使用すべきではありません。 最終的な検証は、信頼された証明書で署名されたパッケージ アプリに対して実行することをお勧めします。 
 
-## <a name="advantages-of-loose-file-registration"></a>圧縮しないファイルの登録の利点
+## <a name="advantages-of-loose-file-registration"></a>ルーズ ファイルの登録の利点
 
-- **クイック検証**-ユーザーの圧縮しないファイルのレイアウトを登録し、アプリを起動できますすばやくアプリのファイルが既にアンパックしないため、します。 通常、アプリと同様、ユーザーは設計されたとおりにアプリを使用することになります。 
-- **簡単にネットワークで配布**-圧縮しないファイルがローカル ドライブではなくネットワーク共有内にある、開発者は、ネットワークへのアクセスを持つその他のユーザーにネットワーク共有の場所を送信することができます、および圧縮しないファイルのレイアウトを登録して実行できる場合、アプリ。 これにより、複数のユーザーに同時に、アプリを検証します。 
-- **コラボレーション**-圧縮しないファイルの登録により、アプリを登録中に、ビジュアル アセットで作業を続行するには、開発者および設計者です。 アプリの起動時には、これらの変更が表示されます。 この方法で静的なアセットをのみ変更できることに注意してください。 任意のコードまたは動的に作成されたコンテンツを変更する必要がある場合は、アプリを再コンパイルする必要があります。
+- **検証の迅速化**: アプリ ファイルはまだパッケージ化されていないため、ユーザーは迅速にファイル レイアウトを登録してアプリを起動できます。 通常のアプリと同様に、ユーザーはアプリを設計どおりに使用できます。 
+- **ネットワーク内での容易な配布**: ルーズ ファイルがローカル ドライブではなくネットワーク共有にある場合、開発者がネットワーク共有の場所をネットワークにアクセスできる他のユーザーに送信して、それらのユーザーがルーズ ファイル レイアウトを登録してアプリを実行できるようにすることができます。 これにより、複数のユーザーが同時にアプリを検証できます。 
+- **コラボレーション**: ルーズ ファイルの登録では、開発者とデザイナーは、アプリの登録中にビジュアル資産で作業し続けることができます。 ユーザーはこれらの変更を、アプリの起動後に確認できます。 静的な資産は、この方法でのみ変更できることにご注意ください。 コードまたは動的に作成されたコンテンツを変更する必要がある場合は、アプリを再コンパイルする必要があります。
 
-## <a name="how-to-register-a-loose-file-layout"></a>圧縮しないファイルのレイアウトを登録する方法
+## <a name="how-to-register-a-loose-file-layout"></a>ルーズ ファイル レイアウトを登録する方法
 
-Windows には、ローカルおよびリモート デバイスで圧縮しないファイルのレイアウトを登録する複数の開発者ツールが用意されています。 選択できます`WinDeployAppCmd`(Windows SDK ツール)、Windows Device Portal、PowerShell、および[Visual Studio](https://docs.microsoft.com/windows/uwp/debug-test-perf/deploying-and-debugging-uwp-apps#register-layout-from-network)します。 以下これらのツールを使用して圧縮しないファイルを登録する方法が変わります。 ただし、最初に、次のセットアップがあることを確認します。
+Windows には、ルーズ ファイル レイアウトをローカル デバイスやリモート デバイスに登録する開発者向けツールが複数用意されています。 選択肢には、`WinDeployAppCmd` (Windows SDK ツール)、Windows デバイス ポータル、PowerShell および [Visual Studio](https://docs.microsoft.com/windows/uwp/debug-test-perf/deploying-and-debugging-uwp-apps#register-layout-from-network) があります。 以下では、これらのツールを使用して、ルーズ ファイルを登録する方法について説明します。 しかし、まず次の設定を確実に完了させてください。
 
-- デバイスは、Windows 10 Creators Update (ビルド 14965) 以降である必要があります。
-- 有効にする必要があります[開発者モード](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)と[デバイスの検出](https://docs.microsoft.com/en-us/windows/uwp/get-started/enable-your-device-for-development#device-discovery)すべてのデバイスでします。
+- お使いのデバイスは、Windows 10 Creators Update (ビルド 14965) 以降を使用している必要があります。
+- すべてのデバイスで、[開発者モード](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)と[デバイスの検出](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development#device-discovery)が有効になっている必要があります。
 
 > [!IMPORTANT]
-> 圧縮しないファイルの登録では、ネットワーク共有 (SMB) プロトコルをサポートするデバイスで使用可能なのみです。デスクトップ、Xbox。 
+> ルーズ ファイルの登録は、ネットワーク共有 (SMB) プロトコルをサポートする次のデバイスでのみ使用できます。デスクトップと Xbox。 
 
-### <a name="register-with-windeployappcmd"></a>WinDeployAppCmd 登録します。
+### <a name="register-with-windeployappcmd"></a>WinDeployAppCmd を使用して登録する
 
-以降、Windows 10 Creators Update (ビルド 14965) に対応する SDK ツールを使用している場合を使用できます、`WinDeployAppCmd`コマンド プロンプトでコマンド。
+Windows 10 Creators Update (ビルド 14965) 以降に対応する SDK ツールを使用している場合は、コマンド プロンプトで `WinDeployAppCmd` コマンドを使用できます。
 
 ```cmd
 WinAppDeployCmd.exe registerfiles -remotedeploydir <Network Path> -ip <IP Address> -pin <target machine PIN>
 ```
 
-**ネットワーク パス**– アプリのルーズ ファイルへのパス。
+**Network Path**: アプリのルーズ ファイルへのパス。
 
-**IP アドレス**– ターゲット マシンの IP アドレス。
+**IP Address**: ターゲット マシンの IP アドレス。
 
-**ターゲット マシン PIN** – PIN、ターゲット デバイスとの接続を確立するために、必要な場合。 再試行する求め、`-pin`認証が必要な場合はオプションです。 参照してください[デバイスの検出](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development#device-discovery)に PIN を取得する方法について説明します。
+**target machine PIN**: ターゲット デバイスとの接続を確立するために求められた場合に指定する PIN。 認証が必要な場合には、`-pin` オプションを指定し、再試行が求められます。 PIN を取得する方法については、「[デバイスの検出](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development#device-discovery)」を参照してください。
 
-### <a name="windows-device-portal"></a>Windows Device Portal
+### <a name="windows-device-portal"></a>Windows デバイス ポータル
 
-Windows Device Portal では、すべての Windows 10 デバイスで利用し、テストおよび検証作業する開発者によって使用されます。 すべての対象ユーザーとそのブラウザー UX 開発者コミュニティのおよび REST エンドポイントに対応します。 デバイスのポータルの詳細については、次を参照してください。、 [Windows Device Portal 概要](device-portal.md)します。
+Windows デバイス ポータルは、すべての Windows 10 デバイスから使用でき、開発者が作業をテストおよび検証するために使用できます。 そのブラウザー UX と REST エンドポイントを使用し、開発者コミュニティのすべてのユーザーにサービスが提供できます。 デバイス ポータルについて詳しくは、「[Windows デバイス ポータルの概要](device-portal.md)」をご覧ください。
 
-デバイスのポータルで、圧縮しないファイルのレイアウトを登録するに次の手順に従います。
+デバイス ポータルでルーズ ファイル レイアウトを登録するには、次の手順に従います。
 
-1. 次の手順に従って、デバイス ポータルへの接続、**セットアップ**のセクション、 [Windows Device Portal 概要](device-portal.md)。
-1. Apps Manager タブで、次のように選択します。**ネットワーク共有から登録**します。
-1. 圧縮しないファイルのレイアウトには、ネットワーク共有のパスを入力します。 
-1. ネットワーク共有へのアクセスがない場合、ホスト デバイスの場合は、必要な資格情報の入力を求めるメッセージがあります。
-1. 登録が完了すると、アプリを起動できます。
+1. 「[Windows デバイス ポータルの概要](device-portal.md)」の「**セットアップ**」セクションの手順に従って、デバイス ポータルに接続します。
+1. [Apps Manager]\(アプリ マネージャー\) タブで、 **[Register from Network Share]** \(ネットワーク共有から登録する\) を選択します。
+1. ルーズ ファイル レイアウトにネットワーク共有のパスを入力します。 
+1. ホスト デバイスにネットワーク共有に対するアクセス権がない場合は、必要な資格情報の入力を求めるプロンプトが表示されます。
+1. 登録が完了したら、アプリを起動できます。
 
-Apps Manager ページで、デバイス ポータルの登録することも省略可能な圧縮しないファイルのレイアウトをメイン アプリを選択して、**省略可能なパッケージを指定する**チェック ボックスをオンし、ネットワークを指定する省略可能なアプリのパスを共有します. 
+デバイス ポータルの [Apps Manager]\(アプリ マネージャー\) ページで **[I want to specify optional packages]** \(オプション パッケージを指定する\) チェックボックスをオンにし、オプションのアプリのネットワーク共有パスを指定することにより、お使いのメイン アプリにオプションのルーズ ファイル レイアウトを登録することもできます。 
 
 ### <a name="powershell"></a>PowerShell 
 
-Windows PowerShell を使用して、ローカルのデバイスだけに、ルース ファイル レイアウトを登録することもできます。 リモート デバイスへのレイアウトを登録する必要がある場合は、その他の方法のいずれかを使用する必要があります。 
+Windows PowerShell でも、ルーズ ファイル レイアウトを登録できますが、ローカル デバイスのみに対してです。 レイアウトをリモート デバイスに登録する必要がある場合は、他の方法のいずれかを使用する必要があります。 
 
-圧縮しないファイルのレイアウトを登録するには、PowerShell を起動し、次を入力します。
+ルーズ ファイル レイアウトを登録するには、PowerShell を起動し、次のように入力します。
 
 ```PowerShell
 Add-AppxPackage -Register <path to manifest file>
@@ -80,10 +80,10 @@ Add-AppxPackage -Register <path to manifest file>
 ## <a name="troubleshooting"></a>トラブルシューティング
 
 ### <a name="mapped-network-drives"></a>マップ済みネットワーク ドライブ
-現時点では、マップ済みネットワーク ドライブを圧縮しないファイルの登録のサポートされていません。 ネットワーク共有のパスの完全なマップされたドライブを参照してください。
+現時点では、マップ済みネットワーク ドライブでは、ルーズ ファイルの登録はサポートされていません。 完全なネットワーク共有パスを使用して、マップ済みドライブを参照してください。
 
-### <a name="registration-failure"></a>登録に失敗しました
-登録が行われて、デバイスは、ファイルのレイアウトにアクセスする必要があります。 ファイル レイアウトは、ネットワーク共有でホストされているが場合、は、デバイスにアクセスがあることを確認します。 
+### <a name="registration-failure"></a>登録エラー
+登録を実行するデバイスには、ファイル レイアウトに対するアクセス権が必要です。 ファイル レイアウトがネットワーク共有にホストされている場合は、そのデバイスにアクセス権を確保します。 
 
-### <a name="modifications-to-visual-assets-arent-being-loaded-in-the-app"></a>ビジュアル資産に対する変更は、アプリで読み込まれているはありません。 
-アプリは、起動時にそのビジュアル アセットが読み込まれます。 場合は、アプリを起動した後、ビジュアルの資産に変更が加えられた、最新の変更を表示するアプリを再起動する必要があります。
+### <a name="modifications-to-visual-assets-arent-being-loaded-in-the-app"></a>ビジュアル資産への変更がアプリに読み込まれない 
+アプリは起動時にビジュアル資産を読み込みます。 アプリの起動後にビジュアル資産を変更した場合に最新の変更を表示するには、アプリを再起動する必要があります。

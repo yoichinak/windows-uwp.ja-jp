@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 01af8254-b073-445e-af4c-e474528f8aa3
 ms.localizationpriority: medium
-ms.openlocfilehash: 1d485e6e2926f0065e090e7ef9d2bfab0683f396
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 4ef4255c8ea1eb9db34f652e5974a4f341e5500d
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67318814"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "80759451"
 ---
 # <a name="create-a-uwp-game-in-javascript"></a>JavaScript で UWP ゲームを作成する
 
@@ -21,16 +21,16 @@ ms.locfileid: "67318814"
 ![Walking Dino スプライト シート](images/JS2D_1.png)
 
 
-## <a name="introduction"></a>概要
+## <a name="introduction"></a>はじめに
 
 
 Microsoft Store にアプリを公開すると、さまざまな種類のデバイスを使う膨大な数の人々に、そのアプリを提供 (または販売) することができます。  
 
-Microsoft Store にアプリを公開するには、そのアプリを UWP (ユニバーサル Windows プラットフォーム) アプリとして作成する必要があります。 ただし、UWP はきわめて柔軟であり、多様な言語およびフレームワークをサポートしています。 これを証明するために、いくつかの CreateJS ライブラリを活用して JavaScript で記述されたシンプルなゲームをサンプルとして紹介します。このサンプルでは、スプライトの記述、ゲーム ループの作成、キーボードとマウスのサポート、さまざまな画面サイズへの調整の方法を示します。
+Microsoft Store にアプリを公開するには、そのアプリを UWP (ユニバーサル Windows プラットフォーム) アプリとして作成する必要があります。 ただし、UWP はきわめて柔軟であり、多様な言語およびフレームワークをサポートしています。 これを証明するために、いくつかの CreateJS ライブラリを活用して JavaScript で記述されたシンプルなゲームをサンプルとして紹介します。このサンプルでは、スプライトの描画、ゲーム ループの作成、キーボードとマウスのサポート、さまざまな画面サイズへの調整の方法を示します。
 
 このプロジェクトは、Visual Studio を使って JavaScript で構築します。 少し変更を加えると、Web サイトでホスティングすることも、他のプラットフォームに合わせることもできます。 
 
-**注:** これはアプリを Microsoft Store に公開できる状態にするために、JavaScript やサード パーティのライブラリの使用方法を示すことを目的としたものであり、完全な (または、おもしろい) ゲームではありません。
+**注:** これはアプリを Microsoft Store に公開できる状態にするために、JavaScript やサード パーティのライブラリの使用方法を示すことを目的としたものであり、完全な (または、おもしろい) ゲームではありません。 
 
 
 ## <a name="requirements"></a>要件
@@ -40,16 +40,17 @@ Microsoft Store にアプリを公開するには、そのアプリを UWP (ユ�
 * 現在のバージョンの Windows 10 を実行する Windows コンピューター (または仮想マシン)。
 * Visual Studio。 無料の Visual Studio Community Edition は、[Visual Studio ホームページ](https://visualstudio.com)からダウンロードできます。
 
-このプロジェクトでは、CreateJS という JavaScript フレームワークを使用します。 CreateJS は、MIT ライセンスの下にリリースされる無料のツールであり、スプライト ベースのゲームを簡単に作成できるように設計されています。 CreateJS ライブラリは、既にプロジェクトに含まれています (ソリューション エクスプローラー ビューで *js/easeljs-0.8.2.min.js* および *js/preloadjs-0.6.2.min.js* を探してください)。 CreateJS について詳しくは、[CreateJS ホーム ページ](https://www.createjs.com)をご覧ください。
+このプロジェクトでは、CreateJS という JavaScript フレームワークを使用します。 CreateJS は、MIT ライセンスの下にリリースされている無料のツール セットであり、スプライト ベースのゲームを簡単に作成できるように設計されています。 CreateJS ライブラリは、既にプロジェクトに含まれています (ソリューション エクスプローラー ビューで *js/easeljs-0.8.2.min.js* および *js/preloadjs-0.6.2.min.js* を探してください)。 CreateJS の詳細については、[CreateJS ホーム ページ](https://www.createjs.com)をご覧ください。
 
+**注:** Javascript UWP アプリの開発は、Visual Studio 2019 ではサポートされていません。 Javascript UWP アプリを開発するには、Visual Studio 2017 を使用する必要があります。
 
-## <a name="getting-started"></a>概要
+## <a name="getting-started"></a>はじめに
 
 アプリの完全なソース コードは、[GitHub](https://github.com/Microsoft/Windows-appsample-get-started-js2d) にあります。
 
-最も簡単に始める方法は、GitHub のページで、緑色の **[Clone or download]** (複製またはダウンロード) ボタンをクリックし、 **[Open in Visual Studio]** (Visual Studio で開く) を選択することです。 
+最も簡単に始める方法は、GitHub のページで、緑色の **[Clone or download]**\(クローンまたはダウンロード\) ボタンをクリックし、 **[Open in Visual Studio]**\(Visual Studio で開く\) を選択することです。 
 
-![リポジトリを複製する](images/JS2D_2.png)
+![リポジトリをクローンする](images/JS2D_2.png)
 
 [GitHub プロジェクト](https://docs.microsoft.com/windows/uwp/get-started/get-uwp-app-samples)は、zip ファイルとしてダウンロードすることも、その他の標準的な方法で操作することもできます。
 
@@ -71,10 +72,10 @@ Microsoft Store にアプリを公開するには、そのアプリを UWP (ユ�
 
 F5 キーでゲームを開始した場合は、内部的に何が起こっているのか疑問に思うかもしれません。 その答えは、"ほとんど何も起こっていない" です。現時点では、コードの大部分がコメントアウトされています。今のところ、表示されるのは恐竜だけであり、Space キーを押しても何も起こりません。 
 
-### <a name="1-setting-the-stage"></a>1. ステージを設定する
+### <a name="1-setting-the-stage"></a>1.ステージを設定する
 
-**index.html** を開いて内容を見ると、ほとんど空であることがわかります。 このファイルはアプリを含む既定の Web ページであり、重要な役割は次の 2 つだけです。 1 つ目は、CreateJS の **EaselJS** ライブラリおよび **PreloadJS**  ライブラリと **main.js** (このチュートリアルのソース コード ファイル) の JavaScript ソース コードが含まれていることです。
-2 つ目は、すべてのグラフィックスを表示する場所として、&lt;canvas&gt; タグが定義されていることです。 &lt;canvas&gt; は、HTML5 ドキュメントの標準コンポーネントです。 これには、**main.js** のコードから参照できるように gameCanvas という名前を付けます。 JavaScript で独自のゲームを 1 から記述する場合は、**EaselJS** ファイルと **PreloadJS** ファイルをソリューションにコピーして、canvas オブジェクトを作成する必要があります。
+**index.html** を開いて内容を見ると、ほとんど空であることがわかります。 このファイルはアプリを含む既定の Web ページであり、重要な役割は次の 2 つだけです。 1 つ目は、CreateJS の **EaselJS** ライブラリおよび **PreloadJS** ライブラリと **main.js** (このチュートリアルのソース コード ファイル) の JavaScript ソース コードが含まれていることです。
+2 つ目は、すべてのグラフィックスを表示する場所として、&lt;canvas&gt; タグが定義されていることです。 &lt;canvas&gt; は、HTML5 ドキュメントの標準コンポーネントです。 これには、**main.js** のコードから参照できるように gameCanvas という名前を付けます。 JavaScript で独自のゲームを最初から記述する場合は、**EaselJS** ファイルと **PreloadJS** ファイルをソリューションにコピーして、canvas オブジェクトを作成する必要があります。
 
 EaselJS では、*stage* と呼ばれる新しいオブジェクトが提供されます。 stage は canvas にリンクされ、画像とテキストを表示するために使用されます。 stage に表示するオブジェクトはすべて、まず stage の子として以下のように追加する必要があります。
 
@@ -86,9 +87,9 @@ EaselJS では、*stage* と呼ばれる新しいオブジェクトが提供さ�
 
 それでは、**main.js** を開いてみましょう。
 
-### <a name="2-loading-the-bitmaps"></a>2. ビットマップを読み込む
+### <a name="2-loading-the-bitmaps"></a>2.ビットマップを読み込む
 
-EaselJS では、数種類のグラフィック オブジェクトが提供されます。 単純な図形 (空に使用する青色の長方形など)、ビットマップ (後で追加する雲など)、テキスト オブジェクト、ストライプを作成できます。 スプライトには、(SpriteSheet)[https://createjs.com/docs/easeljs/classes/SpriteSheet.html ] を使用します。SpriteSheet は、複数の画像を含む単一ビットマップです。 たとえば、この SpriteSheet を使用して、共有アニメーションの複数フレームを格納することができます。
+EaselJS では、数種類のグラフィック オブジェクトが提供されます。 単純な図形 (空に使用する青色の長方形など)、ビットマップ (後で追加する雲など)、テキスト オブジェクト、スプライトを作成できます。 スプライトには、(SpriteSheet)[https://createjs.com/docs/easeljs/classes/SpriteSheet.html ] を使用します。SpriteSheet は、複数の画像を含む単一ビットマップです。 たとえば、この SpriteSheet を使用して、恐竜アニメーションの複数のフレームを格納することができます。
 
 ![Walking Dino スプライト シート](images/JS2D_4.png)
 
@@ -158,15 +159,14 @@ EaselJS では、数種類のグラフィック オブジェクトが提供さ�
 ```
 このコードでは、プリロードされた画像をそれぞれ使用する cloud オブジェクトを 3 つ作成し、これらの位置を定義して、stage に追加しています。
 
-アプリをもう一度実行 (press F5 を押す) すると、雲が表示されます。
+アプリをもう一度実行する (F5 キーを押す) と、雲が表示されます。
 
 ### <a name="3-moving-the-clouds"></a>3.雲を動かす
 
 次は、雲が動くようにします。 雲を (または、あらゆる物を) を動かすための秘策は、1 秒に何度も呼び出される [ticker](https://www.createjs.com/docs/easeljs/classes/Ticker.html) 関数をセットアップすることです。 この関数が呼び出されるたびに、少し位置を変えてグラフィックスが再描画されます。
 
 <p data-height="500" data-theme-id="23761" data-slug-hash="vxZVRK" data-default-tab="result" data-user="MicrosoftEdgeDocumentation" data-embed-version="2" data-pen-title="CreateJS - Animating clouds" data-preview="true" data-editable="true" class="codepen"><a href="https://codepen.io">CodePen</a> で、Microsoft Edge Docs (<a href="https://codepen.io/MicrosoftEdgeDocumentation">@MicrosoftEdgeDocumentation</a>) による Pen (<a href="https://codepen.io/MicrosoftEdgeDocumentation/pen/vxZVRK/">CreateJS - Animating clouds</a>) をご覧ください。</p>
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
- そのためのコードは既に **main.js** ファイルに含まれ、CreateJS ライブラリの EaselJS から提供されています。 次のようになります。
+ そのためのコードは既に **main.js** ファイルに含まれ、CreateJS ライブラリの EaselJS から提供されています。 これは、次のように表示されます。
 
 ```
     // Set up the game loop and keyboard handler.
@@ -202,7 +202,7 @@ function animate_clouds()
 
 ここでアプリを実行すると、雲が漂い始めます。 ついに、動かすことができました!
 
-### <a name="4-adding-keyboard-and-mouse-input"></a>4。キーボード/マウス入力を追加する
+### <a name="4-adding-keyboard-and-mouse-input"></a>4.キーボード/マウス入力を追加する
 
 ユーザーが操作できないゲームは、ゲームとは言えません。 そこで、ユーザーがキーボードまたはマウスを使って何かできるようにしてみましょう。 **loadingComplete()** 関数に戻ると、次のようなコードがあります。 コメントを削除してください。
 
@@ -216,7 +216,7 @@ function animate_clouds()
 
 これで、プレイヤーがキーを押すかマウスをクリックしたときに呼び出される 2 つの関数を使用できます。 どちらのイベントでも **userDidSomething()** が呼び出されます。この関数では gamestate 変数を調べて、今ゲームで何が行われているかを判断し、その結果、次に何が必要かを決定します。
 
-Gamestate は、ゲームで一般的に使用される設計パターンです。 発生する動作はすべて、ticker タイマーによって呼び出される **gameLoop()** 関数の中で実行されます。 gameLoop() では、変数を使用して、ゲームがプレイ中か、"ゲーム オーバー状態"、"プレイ準備完了状態、または作者が定義した他の状態であるかを追跡します。 この状態の変数は、switch ステートメント内でテストされ、その結果によって他のどの関数を呼び出すかが決まります。 状態が "playing" に設定されている場合は、恐竜にジャンプさせ、樽を動かす関数が呼び出されます。 一方、何らかの手段で恐竜が倒されると、gamestate 変数が "ゲーム オーバー状態" に設定され、"Game over!" というメッセージが表示されます。 ゲームの設計パターンに興味がある場合は、「[Game Programming Patterns](https://gameprogrammingpatterns.com/)」(ゲーム プログラミングのパターン) という書籍が役立ちます。
+Gamestate は、ゲームで一般的に使用される設計パターンです。 発生する動作はすべて、ticker タイマーによって呼び出される **gameLoop()** 関数の中で実行されます。 gameLoop() では、変数を使用して、ゲームがプレイ中か、"ゲーム オーバー状態"、"プレイ準備完了状態、または作者が定義した他の状態であるかを追跡します。 この状態の変数は、switch ステートメント内でテストされ、その結果によって他のどの関数を呼び出すかが決まります。 状態が "playing" に設定されている場合は、恐竜にジャンプさせ、樽を動かす関数が呼び出されます。 一方、何らかの手段で恐竜が倒されると、gamestate 変数が "ゲーム オーバー状態" に設定され、"Game over!"  というメッセージが表示されます。 ゲームの設計パターンに興味がある場合は、『[Game Programming Patterns](https://gameprogrammingpatterns.com/)』(邦題『Game Programming Patterns ソフトウェア開発の問題解決メニュー』) という書籍が役立ちます。
 
 アプリをもう一度実行すると、ついにプレイを開始できます。 Space キーを押す (または、マウスをクリックするか画面をタップする) と、ゲームが始まります。 
 
@@ -239,7 +239,7 @@ Gamestate は、ゲームで一般的に使用される設計パターンです�
 
 また、ゲームのメイン メカニズムも終了します。
 
-### <a name="5-resizing-support"></a>5。サイズ変更のサポート
+### <a name="5-resizing-support"></a>5.サイズ変更のサポート
 
 これで、ほとんどの作業が終わりました。 ただし、作業を終える前に対処すべき問題がもう 1 つあります。 ゲームの実行中、ウィンドウのサイズを変更してみてください。 オブジェクトの位置が乱れ、ゲームは直ちに混乱状態になります。 この問題は、ウィンドウのサイズ変更イベント用ハンドラーを作成することで処理できます。このイベントは、プレイヤーがウィンドウのサイズを変更したときや、デバイスが回転されて横から縦になったときに発生します。
 
@@ -260,7 +260,7 @@ UWP アプリを作成できたため、(一番先に改善すれば) Microsoft 
 
 このプロセスにはいくつかの手順が必要になります。
 
-1. Windows 開発者として[登録](https://developer.microsoft.com/en-us/store/register)する必要があります。
+1. Windows 開発者として[登録](https://developer.microsoft.com/store/register)する必要があります。
 2. アプリの申請[チェックリスト](https://docs.microsoft.com/windows/uwp/publish/app-submissions)を使用する必要があります。
 3. [認定](https://docs.microsoft.com/windows/uwp/publish/the-app-certification-process)を受けるために、アプリを提出する必要があります。
 
@@ -268,7 +268,7 @@ UWP アプリを作成できたため、(一番先に改善すれば) Microsoft 
 
 ## <a name="suggestions-for-other-features"></a>その他のおすすめ機能
 
-次にすること アプリの質を高めるために追加をお勧めする機能を以下に示します。
+次に行うことは何ですか? アプリの質を高めるために追加をお勧めする機能を以下に示します。
 
 1. 音響効果。 CreateJS ライブラリには、[SoundJS](https://www.createjs.com/soundjs) というライブラリによるサウンドのサポートが含まれています。
 2. ゲームパッドのサポート。 [利用できる API](https://gamedevelopment.tutsplus.com/tutorials/using-the-html5-gamepad-api-to-add-controller-support-to-browser-games--cms-21345) があります。

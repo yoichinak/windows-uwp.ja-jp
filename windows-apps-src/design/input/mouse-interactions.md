@@ -8,16 +8,16 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: a02d562b73f61094f820e74a213614d80c4fb5e1
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 2d6ddf03541e94f89d0950a4f4c03eebaa0e396e
+ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66365845"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83234477"
 ---
 # <a name="mouse-interactions"></a>マウス操作
 
-ユニバーサル Windows プラットフォーム (UWP) アプリの設計をタッチ入力用に最適化し、既定の基本的なマウスのサポートを利用します。 
+タッチ入力用に Windows アプリのデザインを最適化し、既定で基本的なマウスサポートを利用します。 
 
 ![マウス](images/input-patterns/input-mouse.jpg)
 
@@ -59,7 +59,7 @@ ms.locfileid: "66365845"
 <td align="left"><p>右クリックによる選択とコマンド</p></td>
 <td align="left"><p>右クリックして、ナビゲーション バー (使用できる場合) と、グローバル コマンドを含むアプリ バーを表示します。 要素を右クリックして選択し、その要素に対応する状況依存のコマンドを備えたアプリ バーを表示します。</p>
 <div class="alert">
-<strong>注</strong>  選択またはアプリ バーのコマンドが適切な UI の動作ではない場合は、コンテキスト メニューを表示するを右クリックします。 ただし、すべてのコマンド動作にアプリ バーを使うことを強くお勧めします。
+<strong>メモ</strong>   選択またはアプリバーのコマンドが適切な UI 動作でない場合にコンテキストメニューを表示するには、右クリックします。 ただし、すべてのコマンド動作にアプリ バーを使うことを強くお勧めします。
 </div>
 <div>
  
@@ -86,10 +86,10 @@ ms.locfileid: "66365845"
 
 ## <a name="mouse-input-events"></a>マウス入力イベント
 
-ほとんどのマウス入力がすべてでサポートされている共通のルーティングの入力イベントを処理できる[ **UIElement** ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement)オブジェクト。 次のようなクラスがあります。
+ほとんどのマウス入力は、すべての[**UIElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement)オブジェクトでサポートされている一般的なルーティング入力イベントを使用して処理できます。 これには以下が含まれます。
 
-- [**BringIntoViewRequested**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.bringintoviewrequested)
-- [**CharacterReceived**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.characterreceived)
+- [**Bring@ View要求**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.bringintoviewrequested)
+- [**受信した文字**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.characterreceived)
 - [**ContextCanceled**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.contextcanceled)
 - [**ContextRequested**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.contextrequested)
 - [**DoubleTapped**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.doubletapped)
@@ -97,11 +97,11 @@ ms.locfileid: "66365845"
 - [**DragLeave**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.dragleave)
 - [**DragOver**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.dragover)
 - [**DragStarting**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.dragstarting)
-- [**ドロップ**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.drop)
+- [**」**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.drop)
 - [**DropCompleted**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.dropcompleted)
 - [**GettingFocus**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.gettingfocus)
 - [**GotFocus**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.gotfocus)
-- [**保持します。** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.holding)
+- [**Holding**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.holding)
 - [**KeyDown**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.keydown)
 - [**KeyUp**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.keyup)
 - [**LosingFocus**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.losingfocus)
@@ -120,15 +120,14 @@ ms.locfileid: "66365845"
 - [**PointerPressed**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerpressed)
 - [**PointerReleased**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerreleased)
 - [**PointerWheelChanged**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerwheelchanged)
-- [**PreviewKeyDown**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.previewkeydown)
-- [**PreviewKeyUp**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.previewkeyup)
-- [**PointerWheelChanged**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerwheelchanged)
+- [**プレビューの Keydown**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.previewkeydown)
+- [**プレビューの Keyup**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.previewkeyup)
 - [**RightTapped**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.righttapped)
-- [**タップ**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.tapped)
+- [**Tapped**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.tapped)
 
-ただし、ポインター、ジェスチャ、および操作のイベントを使用して (マウス ホイール イベント) などの各デバイスの特定の機能を活用を行う[Windows.UI.Input](https://docs.microsoft.com/uwp/api/windows.ui.input)します。
+ただし、ポインター、ジェスチャ、および[Windows](https://docs.microsoft.com/uwp/api/windows.ui.input)の操作イベントを使用して、各デバイス (マウスホイールイベントなど) の特定の機能を利用できます。
 
-**サンプル:** 参照してください、 [BasicInput サンプル](https://go.microsoft.com/fwlink/p/?LinkID=620302)の。
+**サンプル:** については、 [Basicinput サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/BasicInput)を参照してください。
 
 ## <a name="guidelines-for-visual-feedback"></a>視覚的なフィードバックのガイドライン
 
@@ -152,8 +151,8 @@ ms.locfileid: "66365845"
 - クリック可能な要素には常に矢印カーソル (![矢印カーソル](images/cursor-arrow.png)) を使います。 リンクなどのインタラクティブな要素には手の形のポインティング カーソル (![手の形のポインティング カーソル](images/cursor-pointinghand.png)) を使いません。 代わりに、前に説明したホバー効果を使います。
 - 選択可能なテキストにはテキスト カーソル (![テキスト カーソル](images/cursor-text.png)) を使います。
 - ドラッグやトリミングなど、移動がメインの操作である場合は、移動カーソル (![移動カーソル](images/cursor-move.png)) を使います。 スタート画面のタイルなどでのナビゲーションがメインの操作である場合は、要素に対して移動カーソルを使いません。
-- サイズ変更ができるオブジェクトに対しては、横、縦、対角線のサイズ変更カーソル (![縦のサイズ変更カーソル](images/cursor-vertical.png)、 ![横のサイズ変更カーソル](images/cursor-horizontal.png)、 ![対角線のサイズ変更カーソル (左下、右上)](images/cursor-diagonal2.png)、 ![対角線のサイズ変更カーソル (左上、右下)](images/cursor-diagonal1.png)) を使います。
-- 地図など、固定キャンバス内のコンテンツのパンを行うときは、手でつかむ形のカーソル (![手でつかむ形のカーソル (開いた状態)](images/cursor-pan1.png)、 ![手でつかむ形のカーソル (つかんだ状態)](images/cursor-pan2.png)) を使います。
+- サイズ変更ができるオブジェクトに対しては、横、縦、対角線のサイズ変更カーソル (![縦のサイズ変更カーソル](images/cursor-vertical.png), ![横のサイズ変更カーソル](images/cursor-horizontal.png), ![対角線のサイズ変更カーソル (左下、右上)](images/cursor-diagonal2.png), ![対角線のサイズ変更カーソル (左上、右下)](images/cursor-diagonal1.png)) を使います。
+- 地図など、固定キャンバス内のコンテンツのパンを行うときは、手でつかむ形のカーソル (![手でつかむ形のカーソル (開いた状態)](images/cursor-pan1.png), ![手でつかむ形のカーソル (つかんだ状態)](images/cursor-pan2.png)) を使います。
 
 ## <a name="related-articles"></a>関連記事
 
@@ -163,7 +162,7 @@ ms.locfileid: "66365845"
 
 ### <a name="samples"></a>サンプル
 
-- [基本的な入力サンプル](https://go.microsoft.com/fwlink/p/?LinkID=620302)
-- [低待機時間の入力サンプル](https://go.microsoft.com/fwlink/p/?LinkID=620304)
-- [ユーザー操作モードのサンプル](https://go.microsoft.com/fwlink/p/?LinkID=619894)
-- [フォーカスの視覚効果のサンプル](https://go.microsoft.com/fwlink/p/?LinkID=619895)
+- [基本的な入力のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/BasicInput)
+- [待機時間が短い入力のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/LowLatencyInput)
+- [ユーザー操作モードのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/UserInteractionMode)
+- [フォーカスの視覚効果のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlFocusVisuals)

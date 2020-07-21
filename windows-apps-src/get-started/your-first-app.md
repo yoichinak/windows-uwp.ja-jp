@@ -1,19 +1,19 @@
 ---
 ms.assetid: A77DA371-C0FE-4FAE-9E77-ADC3C9314EDF
-title: 初めてのアプリの作成
+title: 最初のアプリケーションを作成
 description: Windows 10 用のユニバーサル Windows プラットフォーム (UWP) アプリは、好みのプログラミング言語で作成できます。
 ms.date: 01/25/2017
 ms.topic: article
 keywords: windows 10, uwp, 初めてのアプリ, c#, c++, JavaScript
 ms.localizationpriority: medium
-ms.openlocfilehash: c6f66d90e96b0dfe941e4311ebf79cd3b9b5f4ae
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: d0870212df4deb7f12f790107ec988fac3eb69ab
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67318750"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "75685149"
 ---
-# <a name="create-your-first-app"></a>初めてのアプリの作成
+# <a name="create-your-first-app"></a>最初のアプリケーションを作成
 
 [UWP プラットフォーム](universal-application-platform-guide.md)へようこそ。 このチュートリアルは、好みの言語で初めての UWP アプリを作る際に役立ちます。
 
@@ -27,9 +27,9 @@ ms.locfileid: "67318750"
 
 基本を学習したり、知識を再確認したりする場合は、次のリソースをご覧ください。
 
-* [文字どおりの初心者のための C# の基本](https://go.microsoft.com/fwlink/?linkid=850801)
-* [VB Fundamentals for Absolute Beginners (文字どおりの初心者のための VB の基本)](https://go.microsoft.com/fwlink/?linkid=850802)
-* [Windows 10 の開発者向けガイド](https://go.microsoft.com/fwlink/?linkid=850804)
+* [文字どおりの初心者のための C# の基本](https://channel9.msdn.com/Series/CSharp-Fundamentals-for-Absolute-Beginners?l=Lvld4EQIC_2706218949)
+* [VB Fundamentals for Absolute Beginners (文字どおりの初心者のための VB の基本)](https://docs.microsoft.com/learn/?l=jqMOvLKbC_9206218965)
+* [Windows 10 の開発者向けガイド](https://docs.microsoft.com/learn/)
 
 "Hello, World!" よりも少し進んだ内容が必要な場合は、次のチュートリアルを試してください。
 
@@ -61,9 +61,9 @@ Web のスキルを活用し、HTML5、CSS3、JavaScript を使ったアプリ�
 UWP の域を超えて JavaScript と HTML のスキルを拡張し、Web アプリを作成しましょう。WebVR を使用すると、Web に仮想現実を組み込むこともできます。
 
 * [Microsoft Edge 開発者ドキュメント](https://docs.microsoft.com/microsoft-edge/)
-* [Microsoft Edge で WebVR を使用する](https://docs.microsoft.com/en-us/microsoft-edge/webvr/)
+* [Microsoft Edge で WebVR を使用する](https://docs.microsoft.com/microsoft-edge/webvr/)
 
-Web アプリは、ホストされた Web アプリとして UWP フレームワークに簡単にパッケージ化し、Microsoft Store で販売促進できます。
+Web アプリを使用して、ホストされた Web アプリとして UWP フレームワークに簡単にパッケージ化し、Microsoft Store で販売促進できます。
 
 * [ホストされた Web アプリ](https://developer.microsoft.com/windows/pwa)
 * [Web アプリケーションを UWP アプリに変換する](../porting/hwa-create-windows.md)

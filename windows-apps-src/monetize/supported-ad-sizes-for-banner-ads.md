@@ -2,22 +2,25 @@
 ms.assetid: f54ae666-d609-49d6-90ba-e2e62ebc3652
 description: サポートされているバナー広告のサイズについて説明します。
 title: サポートされているバナー広告のサイズ
-ms.date: 08/23/2017
+ms.date: 02/18/2020
 ms.topic: article
 keywords: windows 10, UWP, 広告, Advertising, サイズ, バナー
 ms.localizationpriority: medium
-ms.openlocfilehash: 8cd21be7f0e1f05e1fe4de07053cb18ee5048c6a
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: ec96d744f7a9d2e91b27feae1fe5f3b0c322a450
+ms.sourcegitcommit: 71f9013c41fc1038a9d6c770cea4c5e481c23fbc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57613847"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77506856"
 ---
 # <a name="supported-banner-ad-sizes"></a>サポートされているバナー広告のサイズ
 
-ユニバーサル Windows プラットフォーム (UWP) アプリでは、次のバナー広告のサイズがサポートされています。 インスタンス化すると、 **AdControl**アプリ内のオブジェクトをこれらのサポートされているサイズのいずれかに一致するように width および height プロパティを設定するかどうかを確認します。
+>[!WARNING]
+> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細情報](https://social.msdn.microsoft.com/Forums/windowsapps/en-US/db8d44cb-1381-47f7-94d3-c6ded3fea36f/microsoft-ad-monetization-platform-shutting-down-june-1st?forum=aiamgr)
 
-サイズは、幅 x 高さです。
+ユニバーサル Windows プラットフォーム (UWP) アプリでは、次のバナー広告のサイズがサポートされています。 アプリで**Adcontrol**オブジェクトをインスタンス化するときは、これらのサポートされているサイズのいずれかに合わせて width プロパティと height プロパティを設定してください。
+
+サイズは幅 x 高さです。
 
 * 160 x 600
 * 300 x 50
@@ -28,7 +31,7 @@ ms.locfileid: "57613847"
 * 728 x 90
 
 > [!NOTE]
-> 最良の結果では、Windows 10 Mobile デバイスで、次のサイズを使用してお勧めします。300 x 50、320 x 50 および 640 x 100。
+> 最適なエクスペリエンスを提供するために、Windows 10 Mobile デバイスでは 300 x 50、320 x 50、640 x 100 のサイズを使用することをお勧めします。
 
 次の表に、各バナー広告のサイズを示す例を示します。
 

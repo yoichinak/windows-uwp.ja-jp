@@ -6,19 +6,19 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: f94fcdf33267ab352f5cdc274e07373952b0939b
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
-ms.translationtype: MT
+ms.openlocfilehash: 610b6237071c9d7435ca167c1a89b4ef7c40b333
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66362163"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "71339573"
 ---
 # <a name="optimize-suspendresume"></a>中断/再開の最適化
 
 
 プロセス継続時間システムの使用を合理化することで、中断または終了の後効率的に再開されるユニバーサル Windows プラットフォーム (UWP) アプリを作成します。
 
-## <a name="launch"></a>Launch
+## <a name="launch"></a>起動
 
 中断/終了の後、アプリを再アクティブ化するときは、長い時間が経過したかどうかを確認します。 長時間経過している場合は、ユーザーの古いデータを表示する代わりに、アプリのメイン ランディング ページに戻ることを検討してください。 これにより、起動時間も短縮されます。
 
@@ -60,11 +60,11 @@ UWP のプロセス継続時間システムは、さまざまな理由でアプ�
 
 ### <a name="serializing-data-in-c-and-visual-basic"></a>C# と Visual Basic でのデータのシリアル化
 
-.NET アプリで使うことができるシリアル化技術には、[**System.Xml.Serialization.XmlSerializer**](https://docs.microsoft.com/dotnet/api/system.xml.serialization.xmlserializer?redirectedfrom=MSDN) クラス、[**System.Runtime.Serialization.DataContractSerializer**](https://docs.microsoft.com/dotnet/api/system.runtime.serialization.datacontractserializer?redirectedfrom=MSDN) クラス、[**System.Runtime.Serialization.Json.DataContractJsonSerializer**](https://docs.microsoft.com/dotnet/api/system.runtime.serialization.json.datacontractjsonserializer?redirectedfrom=MSDN) クラスがあります。
+.NET アプリで使うことができるシリアル化技術には、[**System.Xml.Serialization.XmlSerializer**](https://docs.microsoft.com/dotnet/api/system.xml.serialization.xmlserializer) クラス、[**System.Runtime.Serialization.DataContractSerializer**](https://docs.microsoft.com/dotnet/api/system.runtime.serialization.datacontractserializer) クラス、[**System.Runtime.Serialization.Json.DataContractJsonSerializer**](https://docs.microsoft.com/dotnet/api/system.runtime.serialization.json.datacontractjsonserializer) クラスがあります。
 
-パフォーマンスの観点から、[**XmlSerializer**](https://docs.microsoft.com/dotnet/api/system.xml.serialization.xmlserializer?redirectedfrom=MSDN) クラスを使うことをお勧めします。 **XmlSerializer** は、シリアル化と逆シリアル化の処理時間が最も短く、メモリ使用量も低く抑えられます。 **XmlSerializer** と .NET Framework の間には依存関係が少ないため、他のシリアル化技術と比較して、**XmlSerializer** を使うためにアプリに読み込む必要があるモジュールが少なくて済みます。
+パフォーマンスの観点から、[**XmlSerializer**](https://docs.microsoft.com/dotnet/api/system.xml.serialization.xmlserializer) クラスを使うことをお勧めします。 **XmlSerializer** は、シリアル化と逆シリアル化の処理時間が最も短く、メモリ使用量も低く抑えられます。 **XmlSerializer** と .NET Framework の間には依存関係が少ないため、他のシリアル化技術と比較して、**XmlSerializer** を使うためにアプリに読み込む必要があるモジュールが少なくて済みます。
 
-[**DataContractSerializer** ](https://docs.microsoft.com/dotnet/api/system.runtime.serialization.datacontractserializer?redirectedfrom=MSDN)よりも大きい、パフォーマンスに影響がありますが、カスタムのクラスをシリアル化しやすくなります**XmlSerializer**します。 より高いパフォーマンスが必要な場合は、切り替えを検討してください。 通常、複数のシリアライザーを読み込むことは避け、できれば **XmlSerializer** を使うようにしてください (他のシリアライザーの機能を必要とする場合を除く)。
+**XmlSerializer** と比べて、[**DataContractSerializer**](https://docs.microsoft.com/dotnet/api/system.runtime.serialization.datacontractserializer) は、カスタム クラスを比較的容易にシリアル化できる反面、パフォーマンスへの影響は大きくなります。 より高いパフォーマンスが必要な場合は、切り替えを検討してください。 通常、複数のシリアライザーを読み込むことは避け、できれば **XmlSerializer** を使うようにしてください (他のシリアライザーの機能を必要とする場合を除く)。
 
 ### <a name="reduce-memory-footprint"></a>メモリ使用量の削減
 
@@ -85,7 +85,7 @@ UWP のプロセス継続時間システムは、さまざまな理由でアプ�
 
 ## <a name="related-topics"></a>関連トピック
 
-* [アプリに関するガイドラインの中断し、再開](https://docs.microsoft.com/windows/uwp/launch-resume/index)
+* [アプリの中断と再開のガイドライン](https://docs.microsoft.com/windows/uwp/launch-resume/index)
  
 
  

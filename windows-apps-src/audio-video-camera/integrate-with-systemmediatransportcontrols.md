@@ -6,16 +6,21 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 81065c214cc2b0583a99ac88cf1c3e4cd784658a
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: bbcb53a6c88feb989b504f3b94b27d0e969cfdc1
+ms.sourcegitcommit: 26f3b5d24aa1834a527a15967d723a8749f32dc9
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66361685"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80812770"
 ---
 # <a name="integrate-with-the-system-media-transport-controls"></a>システム メディア トランスポート コントロールとの統合
 
 この記事では、システム メディア トランスポート コントロール (SMTC) を操作する方法について説明します。 SMTC は、すべての Windows 10 デバイスに共通する一連のコントロールで、再生に [**MediaPlayer**](https://docs.microsoft.com/uwp/api/Windows.Media.Playback.MediaPlayer) を使うすべての実行中のアプリのメディア再生をユーザーが制御するための一貫した方法を提供します。
+
+システムメディアトランスポートコントロールを使用すると、メディアアプリケーション開発者は、組み込みのシステム UI と統合して、アーティスト、アルバムタイトル、チャプタータイトルなどのメディアメタデータを表示できます。 また、システムトランスポートコントロールを使用すると、ユーザーは、再生を一時停止したり、再生リストの前後をスキップしたりするなど、組み込みのシステム UI を使用してメディアアプリの再生を制御できます。
+
+<img alt="System Media Transtport Controls" src="images/smtc.png" />
+
 
 SMTC との統合を示す完全なサンプルについては、[github のシステム メディア トランスポート コントロールのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/dev/Samples/SystemMediaTransportControls)をご覧ください。
                     
@@ -35,8 +40,13 @@ Windows 10 バージョン 1607 以降、メディアの再生に [**MediaPlayer
 
 [!code-cs[SetMusicProperties](./code/MediaSource_RS1/cs/MainPage.xaml.cs#SnippetSetMusicProperties)]
 
+
+> [!Note]
+> アプリは、システムメディアトランスポートコントロールによって表示される他のメディアメタデータを提供していない場合でも、 [**Type**](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaitemdisplayproperties.type)プロパティの値を設定する必要があります。 この値は、再生中にスクリーンセーバーがアクティブ化されないようにするなど、メディアコンテンツを正しく処理するのに役立ちます。
+
+
 ## <a name="use-commandmanager-to-modify-or-override-the-default-smtc-commands"></a>CommandManager を使って既定の SMTC コマンドを変更またはオーバーライドする
-アプリでは、[**MediaPlaybackCommandManager**](https://docs.microsoft.com/uwp/api/Windows.Media.Playback.MediaPlaybackCommandManager) クラスを使って SMTC コントロールの動作を変更または完全にオーバーライドできます。 [  **CommandManager**](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplayer.commandmanager) プロパティにアクセスすると、**MediaPlayer** クラスのインスタンスごとにコマンド マネージャー インスタンスを取得できます。
+アプリでは、[**MediaPlaybackCommandManager**](https://docs.microsoft.com/uwp/api/Windows.Media.Playback.MediaPlaybackCommandManager) クラスを使って SMTC コントロールの動作を変更または完全にオーバーライドできます。 [**CommandManager**](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplayer.commandmanager) プロパティにアクセスすると、**MediaPlayer** クラスのインスタンスごとにコマンド マネージャー インスタンスを取得できます。
 
 既定では **MediaPlaybackList** の次の項目にスキップする *Next* コマンドなどのすべてのコマンドに、コマンド マネージャーは [**NextReceived**](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplaybackcommandmanager.nextreceived) のような受信イベントと、[**NextBehavior**](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplaybackcommandmanager.nextbehavior) のようにコマンドの動作を管理するオブジェクトを公開します。 
 
@@ -69,7 +79,7 @@ Windows 10 バージョン 1607 以降、メディアの再生に [**MediaPlayer
 最後に、保留オブジェクトで [**Complete**](https://docs.microsoft.com/uwp/api/windows.foundation.deferral.complete) が呼び出されて、システムはコマンドの処理が完了したことを把握できます。
 
 [!code-cs[PreviousReceived](./code/SMTC_RS1/cs/MainPage.xaml.cs#SnippetPreviousReceived)]
-                
+                 
 ## <a name="manual-control-of-the-smtc"></a>SMTC の手動制御
 この記事で既に説明したように、SMTC はアプリによって作成される **MediaPlayer** のすべてのインスタンスに関する情報を自動的に検出して表示します。 **MediaPlayer** のインスタンスを複数使うが、SMTC ではアプリのエントリを 1 つだけ提供する場合、自動統合を使うのではなく、SMTC を手動で制御する必要があります。 また、[**MediaTimelineController**](https://docs.microsoft.com/uwp/api/Windows.Media.MediaTimelineController) を使って 1 つ以上のメディア プレーヤーを制御する場合、手動 SMTC 統合を使う必要があります。 アプリが **MediaPlayer** 以外の API ([**AudioGraph**](https://docs.microsoft.com/uwp/api/Windows.Media.Audio.AudioGraph) クラスなど) を使ってメディアを再生する場合も、ユーザーが SMTC を使ってアプリを制御できるように、手動 SMTC 統合を実装する必要があります。 SMTC を手動で制御する方法について詳しくは、「[システム メディア トランスポート コントロールの手動制御](system-media-transport-controls.md)」をご覧ください。
 
@@ -77,9 +87,9 @@ Windows 10 バージョン 1607 以降、メディアの再生に [**MediaPlayer
 
 ## <a name="related-topics"></a>関連トピック
 * [メディア再生](media-playback.md)
-* [Media Player とオーディオとビデオの再生します。](play-audio-and-video-with-mediaplayer.md)
-* [手動でシステムのメディアのトランスポート コントロールの制御](system-media-transport-controls.md)
-* [Github 上のシステムのメディアの転送コントロール サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/dev/Samples/SystemMediaTransportControls)
+* [MediaPlayer でオーディオとビデオを再生する](play-audio-and-video-with-mediaplayer.md)
+* [システムメディアトランスポートコントロールを手動で制御する](system-media-transport-controls.md)
+* [Github のシステムメディアの制御サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/dev/Samples/SystemMediaTransportControls)
  
 
  

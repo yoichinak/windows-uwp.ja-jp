@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 3e306cfe1ee03e9ef4a0688145c2db7b3addd68e
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 0a4163105b934f5c1e2970fab9f51b76d69d1bd8
+ms.sourcegitcommit: c95915f8a13736705eab74951a12b2cf528ea612
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67318500"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70876228"
 ---
 # <a name="manual-control-of-the-system-media-transport-controls"></a>システム メディア トランスポート コントロールの手動制御
 
@@ -66,6 +66,11 @@ SMTC の手動コントロールの実装が必要になるシナリオがいく
 
 [!code-cs[SystemMediaTransportControlsUpdaterManual](./code/SMTCWin10/cs/MainPage.xaml.cs#SystemMediaTransportControlsUpdaterManual)]
 
+> [!Note]
+> アプリは、システムメディアトランスポートコントロール[によって](https://docs.microsoft.com/uwp/api/windows.media.systemmediatransportcontrolsdisplayupdater.type#Windows_Media_SystemMediaTransportControlsDisplayUpdater_Type
+)表示される他のメディアメタデータを提供していない場合でも、SystemMediaTransportControlsDisplayUpdater プロパティの値を設定する必要があります。 この値は、再生中にスクリーンセーバーがアクティブ化されないようにするなど、メディアコンテンツを正しく処理するのに役立ちます。
+
+
 ## <a name="update-the-system-media-transport-controls-timeline-properties"></a>システム メディア トランスポート コントロールのタイムライン プロパティを更新する
 
 システム トランスポート コントロールには、メディア項目の現在の再生位置、開始時刻、終了時刻など、現在再生中のメディア項目のタイムラインに関する情報が表示されます。 システム メディア トランスポート コントロールのタイムライン プロパティを更新するには、新しい [**SystemMediaTransportControlsTimelineProperties**](https://docs.microsoft.com/uwp/api/Windows.Media.SystemMediaTransportControlsTimelineProperties) オブジェクトを作成します。 再生中のメディア項目の現在の状態を反映するように、オブジェクトのプロパティを設定します。 [  **SystemMediaTransportControls.UpdateTimelineProperties**](https://docs.microsoft.com/uwp/api/windows.media.systemmediatransportcontrols.updatetimelineproperties) を呼び出して、コントロールのタイムラインを更新します。
@@ -74,7 +79,7 @@ SMTC の手動コントロールの実装が必要になるシナリオがいく
 
 -   再生中の項目のタイムラインをシステム コントロールに表示するには、[**StartTime**](https://docs.microsoft.com/uwp/api/windows.media.systemmediatransportcontrolstimelineproperties.starttime)、[**EndTime**](https://docs.microsoft.com/uwp/api/windows.media.systemmediatransportcontrolstimelineproperties.endtime)、および [**Position**](https://docs.microsoft.com/uwp/api/windows.media.systemmediatransportcontrols.playbackpositionchangerequested) の値を指定する必要があります。
 
--   [**MinSeekTime** ](https://docs.microsoft.com/uwp/api/windows.media.systemmediatransportcontrolstimelineproperties.minseektime)と[ **MaxSeekTime** ](https://docs.microsoft.com/uwp/api/windows.media.systemmediatransportcontrolstimelineproperties.maxseektime)シークできるユーザーのタイムライン内の範囲を指定できます。 一般的なシナリオとしては、コンテンツ プロバイダーがメディアに広告を含める場合などがあります。
+-   [**Minseektime**](https://docs.microsoft.com/uwp/api/windows.media.systemmediatransportcontrolstimelineproperties.minseektime)と[**maxseektime**](https://docs.microsoft.com/uwp/api/windows.media.systemmediatransportcontrolstimelineproperties.maxseektime)を使用すると、タイムライン内のユーザーがシークできる範囲を指定できます。 一般的なシナリオとしては、コンテンツ プロバイダーがメディアに広告を含める場合などがあります。
 
     [  **PositionChangeRequest**](https://docs.microsoft.com/uwp/api/windows.media.systemmediatransportcontrols.playbackpositionchangerequested) を発生させるには、[**MinSeekTime**](https://docs.microsoft.com/uwp/api/windows.media.systemmediatransportcontrolstimelineproperties.minseektime) と [**MaxSeekTime**](https://docs.microsoft.com/uwp/api/windows.media.systemmediatransportcontrolstimelineproperties.maxseektime) を設定する必要があります。
 
@@ -111,8 +116,8 @@ SMTC の手動コントロールの実装が必要になるシナリオがいく
 
 ## <a name="related-topics"></a>関連トピック
 * [メディア再生](media-playback.md)
-* [トランスポート コントロールをシステムのメディアと統合します。](integrate-with-systemmediatransportcontrols.md) 
-* [システムのメディア転送サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/dev/Samples/SystemMediaTransportControls) 
+* [システムメディアトランスポートコントロールとの統合](integrate-with-systemmediatransportcontrols.md) 
+* [システムメディアによるポートのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/dev/Samples/SystemMediaTransportControls) 
 
  
 

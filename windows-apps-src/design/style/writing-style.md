@@ -6,12 +6,12 @@ ms.date: 05/07/2018
 ms.topic: article
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: aaaf13c455d3d05d5ccfac6b2bd61418f3e8e5bb
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 8d79d4f3394bcf8f7892f2c6dc3d4e0ca72972ab
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63820522"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970607"
 ---
 # <a name="writing-style"></a>記述スタイル
 
@@ -41,12 +41,10 @@ ms.locfileid: "63820522"
 
 :::row:::
     :::column:::
-        ![Do](images/do.svg)
-        Select **filters** to add effects to your image.
+![推奨](images/do.svg) **[フィルター]** を選択して画像に効果を追加します。
     :::column-end:::
     :::column:::
-        ![Don't](images/dont.svg)
-        If you want to add visual effects or alterations to your image, select **filters.**
+![非推奨](images/dont.svg) 視覚効果や変更を画像に追加する場合は、 **[フィルター]** を選択します。
     :::column-end:::
 :::row-end:::
 
@@ -56,12 +54,10 @@ ms.locfileid: "63820522"
 
 :::row:::
     :::column:::
-        ![Do](images/do.svg)
-        Restart the app to see your changes.
+![推奨](images/do.svg) アプリを再起動して変更内容を表示します。
     :::column-end:::
     :::column:::
-        ![Don't](images/dont.svg)
-        The changes will be applied when the app is restarted.
+![非推奨](images/dont.svg) アプリが再起動されたときに、変更内容が適用されます。
     :::column-end:::
 :::row-end:::
 
@@ -71,12 +67,10 @@ ms.locfileid: "63820522"
 
 :::row:::
     :::column:::
-        ![Do](images/do.svg)
-        We couldn't upload the picture. If this happens again, try restarting the app. But don't worry — your picture will be waiting when you come back.
+![推奨](images/do.svg) 画像をアップロードできませんでした。 もう一度この問題が発生した場合は、アプリを再起動してください。 心配しないでください。再起動すると画像が復元されます。
     :::column-end:::
     :::column:::
-        ![Don't](images/dont.svg)
-        An error occured, and we weren't able to upload the picture. Please try again, and if you encounter this problem again, you may need to restart the app. But don't worry — we've saved your work locally, and it'll be waiting for you when you come back.
+![非推奨](images/dont.svg) エラーが発生したため、画像をアップロードできませんでした。 もう一度やり直してください。この問題をもう一度が発生した場合は、アプリを再起動する必要があります。 心配は要りません。作業内容はローカルに保存されており、再起動すると復元されます。
     :::column-end:::
 :::row-end:::
 
@@ -93,8 +87,7 @@ ms.locfileid: "63820522"
 
 :::row:::
     :::column:::
-        ![Do](images/do.svg)
-        We couldn't save your file to that location.
+![推奨](images/do.svg) その場所にファイルを保存できませんでした。
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -110,8 +103,7 @@ ms.locfileid: "63820522"
 
 :::row:::
     :::column:::
-        ![Do](images/do.svg)
-        The Universal Windows Platform (UWP) design guidance is a resource to help you design and build beautiful, polished apps. With the design features that are included in every UWP app, you can build user interfaces (UI) that scale across a range of devices.
+![推奨](images/do.svg) Windows アプリのデザイン ガイダンスは、美しく洗練されたアプリをデザインおよび構築するのに役立つリソースです。 すべての Windows アプリに含まれているこのデザイン機能を使用すると、デバイスに応じてスケーリングするユーザー インターフェイス (UI) を構築できます。
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -125,8 +117,7 @@ ms.locfileid: "63820522"
 
 :::row:::
     :::column:::
-        ![Do](images/do.svg)
-        When you're happy with your image, select **save** to add it to your gallery. From there, you'll be able to share it with friends.
+![推奨](images/do.svg) 画像に問題がなければ、 **[保存]** をクリックしてギャラリーに追加します。 ギャラリーから、友人と画像を共有できます。
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -140,12 +131,12 @@ ms.locfileid: "63820522"
 
 :::row:::
     :::column:::
-        ![Do](images/do.svg)
-        <b>You’re not connected.</b>
-        * Check that your network cables are plugged in.
-        * Make sure you're not in airplane mode.
-        * See if your wireless switch is turned on.
-        * Restart your router.
+![推奨](images/do.svg)
+<b>接続されていません。</b>
+* ネットワーク ケーブルが接続されていることを確認します。
+* 機内モードでないことを確認します。
+* ワイヤレス スイッチがオンであることを確認します。
+* ルーターを再起動します。
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -159,11 +150,11 @@ ms.locfileid: "63820522"
 
 :::row:::
     :::column:::
-        ![Do](images/do.svg)
-        <b>Which part is giving you trouble?</b>
-        * I forgot your password.
-        * It won't accept password.
-        * Someone else might be using my account.
+![推奨](images/do.svg)
+<b>Which part is giving you trouble? (何でお困りですか)</b>
+* I forgot your password. (パスワードを忘れた)
+* It won't accept password. (パスワードがエラーになる)
+* Someone else might be using my account. (他のユーザーが自分のアカウントを使用している可能性がある)
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -183,12 +174,12 @@ ms.locfileid: "63820522"
 
 :::row:::
     :::column:::
-        ![Do](images/do.svg)
-        <b>You’re not connected.</b>
-        * Check that your network cables are plugged in.
-        * Make sure you're not in airplane mode.
-        * See if your wireless switch is turned on.
-        * Restart your router.
+![推奨](images/do.svg)
+<b>接続されていません。</b>
+* ネットワーク ケーブルが接続されていることを確認します。
+* 機内モードでないことを確認します。
+* ワイヤレス スイッチがオンであることを確認します。
+* ルーターを再起動します。
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -198,16 +189,16 @@ ms.locfileid: "63820522"
 
 :::row:::
     :::column:::
-        Many of the same advice for writing error messages also applies when creating the text for any dialogs in your app. While dialogs are expected by the user, they still interrupt the normal flow of the app, and need to be helpful and concise so the user can get back to what they were doing.
+エラー メッセージの作成に関するアドバイスは、その多くが、アプリのダイアログ向けにテキストを作成する際にも当てはまります。 ユーザーはダイアログが表示されることを想定していますが、それでもアプリの通常の流れを中断することには変わりありません。ダイアログは、ユーザーが表示前の状態に戻ることができるように、有用かつ簡潔である必要があります。
 
-        But most important is the "call and response" between the title of a dialog and its buttons. Make sure that your buttons are clear answers to the question posed by the title, and that their format is consistent across your app.
+しかし最も重要なのは、ダイアログのタイトルとそのボタンが "呼応" していることです。 タイトルの質問に対して、ボタンが明確な答えとなっていること、またタイトルとボタンの形式がアプリ全体で一貫していることを確認してください。
     :::column-end:::
     :::column:::
-        ![Do](images/do.svg)
-        <b>Which part is giving you trouble?</b>
-        1. I forgot my password
-        2. It won't accept my password
-        3. Someone else might be using my account
+![推奨](images/do.svg)
+<b>Which part is giving you trouble? (何でお困りですか)</b>
+1. I forgot my password (パスワードを忘れた)
+2. It won't accept my password (パスワードがエラーになる)
+3. Someone else might be using my account (他のユーザーが自分のパスワードを使用している可能性がある)
     :::column-end:::
 :::row-end:::
 
@@ -215,13 +206,13 @@ ms.locfileid: "63820522"
 
 :::row:::
     :::column:::
-        Text on buttons needs to be concise enough that users can read it all at a glance and clear enough that the button's function is immediately obvious. The longest the text on a button should ever be is a couple short words, and many should be shorter than that.
-        When writing the text for buttons, remember that every button represents an action. Be sure to use the *active voice* in button text, to use words that represent actions rather than reactions.
+ボタンに表示するテキストは、ユーザーが一目で読み取ることができる簡潔さと、ボタンの機能がすぐにわかる明瞭さを備えている必要があります。 ボタンのテキストは、2、3 語の短い単語が上限です。多くはそれよりも短くする必要があります。
+ボタンのテキストを作成する際は、すべてのボタンがアクションを表すことに注意してください。 ボタンのテキストは、必ず*能動態*を使用して、反応ではなく動作を表す単語を使用します。
     :::column-end:::
     :::column:::
-        ![Do](images/do.svg)
-        * Install now
-        * Share
+![推奨](images/do.svg)
+* 今すぐインストール
+* 共有
     :::column-end:::
 :::row-end:::
 

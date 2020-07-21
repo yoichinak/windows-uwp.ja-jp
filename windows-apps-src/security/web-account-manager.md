@@ -6,25 +6,25 @@ ms.topic: article
 keywords: windows 10, uwp, セキュリティ
 ms.assetid: ec9293a1-237d-47b4-bcde-18112586241a
 ms.localizationpriority: medium
-ms.openlocfilehash: 5c1a7de0e9e6817fc4b0bf1ada113f49e798641e
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: e5b835c837ca750f2ccc1ebad9ec119047b02ce7
+ms.sourcegitcommit: 97d2ef33253af210ad2d4f036b4820056ff03f62
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67320546"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85441629"
 ---
 # <a name="web-account-manager"></a>Web アカウント マネージャー
 
-この記事では、Windows 10 Web アカウント マネージャー API を使い、 **[AccountsSettingsPane](https://docs.microsoft.com/uwp/api/Windows.UI.ApplicationSettings.AccountsSettingsPane)** を利用して、ユニバーサル Windows プラットフォーム (UWP) アプリを外部の ID プロバイダー (Microsoft や Facebook など) に接続する方法について説明します。 ユーザーの Microsoft アカウントを使用するためにユーザーの許可を求める方法、アクセス トークンを取得する方法、アクセス トークンを使って基本的な操作 (プロファイル データの取得や OneDrive アカウントへのファイルのアップロードなど) を実行する方法を学習してください。 この手順は、ユーザーの許可を得て、Web アカウント マネージャーをサポートする ID プロバイダーにアクセスするための手順と似ています。
+この記事では、 **[AccountsSettingsPane](https://docs.microsoft.com/uwp/api/Windows.UI.ApplicationSettings.AccountsSettingsPane)** を使用して、Windows 10 Web アカウントマネージャー api を使用して、ユニバーサル WINDOWS プラットフォーム (UWP) アプリを Microsoft や Facebook などの外部 id プロバイダーに接続する方法について説明します。 ユーザーの Microsoft アカウントを使用するためにユーザーの許可を求める方法、アクセス トークンを取得する方法、アクセス トークンを使って基本的な操作 (プロファイル データの取得や OneDrive アカウントへのファイルのアップロードなど) を実行する方法を学習してください。 この手順は、ユーザーの許可を得て、Web アカウント マネージャーをサポートする ID プロバイダーにアクセスするための手順と似ています。
 
 > [!NOTE]
-> 完全なコード サンプルについては、[GitHub の WebAccountManagement サンプル](https://go.microsoft.com/fwlink/p/?LinkId=620621)をご覧ください。
+> 完全なコード サンプルについては、[GitHub の WebAccountManagement サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/WebAccountManagement)をご覧ください。
 
 ## <a name="get-set-up"></a>準備
 
 まず、Visual Studio で新しい空白のアプリを作成します。 
 
-次に、ID プロバイダーに接続するために、アプリをストアに関連付ける必要があります。 これを行うには、プロジェクトを右クリックして、 **[ストア]**  >  **[アプリケーションをストアと関連付ける]** を選択し、ウィザードの指示に従います。 
+次に、ID プロバイダーに接続するために、アプリをストアに関連付ける必要があります。 これを行うには、プロジェクトを右クリックし、[**ストア**] [アプリをストアと関連付ける] の順に選択  >  **Associate app with the store**して、ウィザードの指示に従います。 
 
 3 番目に、シンプルな XAML ボタンと 2 つのテキスト ボックスから成る、非常に基本的な UI を作成します。
 
@@ -76,11 +76,11 @@ private void LoginButton_Click(object sender, RoutedEventArgs e)
 システムは UI シェルのみを提供するため、このウィンドウは空になっています。開発者がこのウィンドウに ID プロバイダーをプログラムで入力します。 
 
 > [!TIP]
-> 必要に応じて、使用 **[ShowAddAccountAsync](https://docs.microsoft.com/uwp/api/windows.ui.applicationsettings.accountssettingspane.showaddaccountasync)** の代わりに **[表示](https://docs.microsoft.com/uwp/api/windows.ui.applicationsettings.accountssettingspane.show#Windows_UI_ApplicationSettings_AccountsSettingsPane_Show)** が返されます、 **[IAsyncAction](https://docs.microsoft.com/uwp/api/Windows.Foundation.IAsyncAction)** 操作の状態を照会します。 
+> 必要に応じて、 **[Show](https://docs.microsoft.com/uwp/api/windows.ui.applicationsettings.accountssettingspane.show#Windows_UI_ApplicationSettings_AccountsSettingsPane_Show)** ではなく**[ShowAddAccountAsync](https://docs.microsoft.com/uwp/api/windows.ui.applicationsettings.accountssettingspane.showaddaccountasync)** を使用して、操作の状態を照会する**[iasyncaction](https://docs.microsoft.com/uwp/api/Windows.Foundation.IAsyncAction)** を返します。 
 
 ## <a name="register-for-accountcommandsrequested"></a>AccountCommandsRequested への登録
 
-ウィンドウにコマンドを追加するには、まず AccountCommandsRequested イベント ハンドラーに登録します。 これにより、ユーザーがウィンドウを表示するよう求めたとき (XAML ボタンのクリックなど) に構築したロジックをシステムが実行するようにできます。 
+ウィンドウにコマンドを追加するには、まず AccountCommandsRequested イベント ハンドラーに登録します。 これにより、ユーザーがペインを表示するように求められたとき (たとえば、XAML ボタンをクリックしたとき) に、ビルドロジックを実行するようシステムに指示します。 
 
 コードビハインドで、OnNavigatedTo イベントと OnNavigatedFrom イベントを上書きし、次のコードを追加します。 
 
@@ -116,7 +116,7 @@ private async void BuildPaneAsync(AccountsSettingsPane s,
 }
 ```
 
-次に、WebAuthenticationCoreManager.FindAccountProviderAsync メソッドを使ってプロバイダーを取得します。 プロバイダーの URL はプロバイダーによって異なり、プロバイダーのドキュメントに記載されています。 Microsoft アカウントと Azure Active Directory では、"https://login.microsoft.com" です。 
+次に、WebAuthenticationCoreManager.FindAccountProviderAsync メソッドを使ってプロバイダーを取得します。 プロバイダーの URL はプロバイダーによって異なり、プロバイダーのドキュメントに記載されています。 Microsoft アカウントと Azure Active Directory の場合、"https \: //login.microsoft.com" になります。 
 
 ```csharp
 private async void BuildPaneAsync(AccountsSettingsPane s,
@@ -133,7 +133,7 @@ private async void BuildPaneAsync(AccountsSettingsPane s,
 
 文字列 "consumers" をオプションの *authority* パラメーターに渡すことにも注意してください。 これは、Microsoft は "消費者 (consumers)" 向けの Microsoft アカウント (MSA) と、"組織 (organizations)" 向けの Azure Active Directory (AAD) という、2 種類の認証を提供しているためです。 "consumers" 権限は、MSA オプションを必要としていることを示します。 企業向けのアプリを開発している場合は、代わりに文字列 "organizations" を使います。
 
-最後に、次のような新しい **[WebAccountProviderCommand](https://docs.microsoft.com/uwp/api/windows.ui.applicationsettings.webaccountprovidercommand)** を作成して、**AccountsSettingsPane** にプロバイダーを追加します。 
+最後に、次のように新しい**[Webaccountprovidercommand](https://docs.microsoft.com/uwp/api/windows.ui.applicationsettings.webaccountprovidercommand)** を作成して、プロバイダーを**AccountsSettingsPane**に追加します。 
 
 ```csharp
 private async void BuildPaneAsync(AccountsSettingsPane s,
@@ -172,13 +172,13 @@ private async void GetMsaTokenAsync(WebAccountProviderCommand command)
 }
 ```
 
-この例では、_スコープ_ パラメーターに文字列 "wl.basic" を渡します。 スコープは、特定のユーザーの提供サービスから要求する情報の種類を表します。 スコープには、名前やメール アドレスなど、ユーザーの基本情報のみへのアクセス権を与えるものや、ユーザーの写真やメールの受信トレイなど、機密情報へのアクセス権を与えるものもあります。 一般的に、アプリではその機能を実行するために必要な最も制限の多いスコープが使われます。 サービス プロバイダーからは、サービス プロバイダーのサービスで使うトークンを取得する場合に必要となるスコープについて示したドキュメントが提供されます。 
+この例では、文字列 "wl" を_スコープ_パラメーターに渡します。 スコープは、特定のユーザーの提供サービスから要求する情報の種類を表します。 スコープには、名前やメール アドレスなど、ユーザーの基本情報のみへのアクセス権を与えるものや、ユーザーの写真やメールの受信トレイなど、機密情報へのアクセス権を与えるものもあります。 一般的に、アプリではその機能を実行するために必要な最も制限の多いスコープが使われます。 サービス プロバイダーからは、サービス プロバイダーのサービスで使うトークンを取得する場合に必要となるスコープについて示したドキュメントが提供されます。 
 
 * Office 365 と Outlook.com のスコープについては、「[v2.0 認証エンドポイントを使用した Office 365 および Outlook.com の API の認証](https://developer.microsoft.com/graph/docs/concepts/auth_overview)」をご覧ください。 
 * OneDrive のスコープについては、「[OneDrive の認証とサインイン](https://dev.onedrive.com/auth/msa_oauth.htm#authentication-scopes)」をご覧ください。 
 
 > [!TIP]
-> (既定の電子メール アドレスを持つユーザー フィールドを設定するには) へのログイン ヒントまたはサインイン エクスペリエンスに関連するその他の特殊なプロパティをアプリを使用する場合一覧で、必要に応じて、 **[WebTokenRequest.AppProperties](https://docs.microsoft.com/uwp/api/windows.security.authentication.web.core.webtokenrequest.appproperties#Windows_Security_Authentication_Web_Core_WebTokenRequest_AppProperties)** プロパティ。 これは、結果、システムは、キャッシュ アカウントの不一致を実行できなくなります。 web アカウントをキャッシュする場合、プロパティを無視します。
+> 必要に応じて、アプリでログインヒント (既定の電子メールアドレスをユーザーフィールドに設定するため) またはサインインエクスペリエンスに関連するその他の特殊なプロパティを使用する場合は、 **[Webtokenrequest. AppProperties](https://docs.microsoft.com/uwp/api/windows.security.authentication.web.core.webtokenrequest.appproperties#Windows_Security_Authentication_Web_Core_WebTokenRequest_AppProperties)** プロパティに一覧表示します。 これにより、システムは web アカウントをキャッシュするときにプロパティを無視するため、キャッシュ内のアカウントの不一致を防ぐことができます。
 
 企業向けのアプリを開発している場合は、Azure Active Directory (AAD) インスタンスに接続し、通常の MSA サービスではなく Microsoft Graph API を使用します。 このシナリオでは、次のコードを代わりに使います。 
 
@@ -194,7 +194,7 @@ private async void GetAadTokenAsync(WebAccountProviderCommand command)
 
 この記事の残りの部分では、引き続き MSA シナリオについて説明しますが、AAD 用のコードもよく似ています。 GitHub の完全なサンプルを含め、AAD/Graph について詳しくは、[Microsoft Graph のドキュメント](https://developer.microsoft.com/graph)をご覧ください。
 
-## <a name="use-the-token"></a>トークンの使用
+## <a name="use-the-token"></a>トークンを使用する
 
 RequestTokenAsync メソッドは、要求の結果を含む WebTokenRequestResult オブジェクトを返します。 要求が成功した場合には、トークンが含まれます。  
 
@@ -250,7 +250,7 @@ private async void GetMsaTokenAsync(WebAccountProviderCommand command)
 
 トークンはユーザーに関する情報を直ちに取得する場合に便利ですが、通常はさまざまな有効期限を持ちます。たとえば、MSA トークンは数時間のみ有効です。 ただし、トークンの有効期限が切れるたびに **AccountsSettingsPane** を再表示する必要はありません。 ユーザーが一度アプリを承認すると、将来使うためにユーザーのアカウント情報を保存できます。 
 
-これを行うには、 **[WebAccount](https://docs.microsoft.com/uwp/api/windows.security.credentials.webaccount)** クラスを使います。 **WebAccount** は、トークンの要求で使ったメソッドと同じメソッドによって返されます。
+これを行うには、 **[WebAccount](https://docs.microsoft.com/uwp/api/windows.security.credentials.webaccount)** クラスを使用します。 **WebAccount** は、トークンの要求で使ったメソッドと同じメソッドによって返されます。
 
 ```csharp
 private async void GetMsaTokenAsync(WebAccountProviderCommand command)
@@ -338,7 +338,7 @@ private void LoginButton_Click(object sender, RoutedEventArgs e)
 
 ## <a name="remove-a-stored-account"></a>保存されたアカウントの削除
 
-Web アカウントを保持するとき、場合によっては、ユーザーが自分のアカウントとアプリの関連付けを解除できるようにする必要があります。 これにより、実質的に「ログイン」アプリの: 起動すると、アカウント情報が自動的に読み込まれますは不要になった。 これを行うには、まず保存されたアカウントとプロバイダーの情報を記憶域から削除します。 次に、 **[SignOutAsync](https://docs.microsoft.com/uwp/api/windows.security.credentials.webaccount.SignOutAsync)** を呼び出してキャッシュをクリアし、アプリが保持している可能性がある既存のトークンをすべて無効にします。 
+Web アカウントを保持するとき、場合によっては、ユーザーが自分のアカウントとアプリの関連付けを解除できるようにする必要があります。 こうすることで、アプリを効果的に "ログアウト" できます。アカウント情報は、起動時に自動的に読み込まれなくなります。 これを行うには、まず保存されたアカウントとプロバイダーの情報を記憶域から削除します。 次に、**[SignOutAsync](https://docs.microsoft.com/uwp/api/windows.security.credentials.webaccount.SignOutAsync)** を呼び出してキャッシュをクリアし、アプリが保持している可能性がある既存のトークンをすべて無効にします。 
 
 ```csharp
 private async Task SignOutAccountAsync(WebAccount account)
@@ -351,7 +351,7 @@ private async Task SignOutAccountAsync(WebAccount account)
 
 ## <a name="add-providers-that-dont-support-webaccountmanager"></a>WebAccountManager をサポートしていないプロバイダーの追加
 
-サービスからの認証をアプリに統合するときに、そのサービスが WebAccountManager をサポートしていない場合でも (Google+ や Twitter など)、そのプロバイダーを **AccountsSettingsPane** に手動で追加できます。 これを行うには、新しい WebAccountProvider オブジェクトを作成し、独自の名前と .png アイコンを指定してから、WebAccountProviderCommands リストに追加します。 いくつかのスタブ コードを次に示します。 
+サービスからの認証をアプリに統合するが、そのサービスが WebAccountManager (Google + または Twitter) をサポートしていない場合でも、そのプロバイダーを手動で**AccountsSettingsPane**に追加することができます。 これを行うには、新しい WebAccountProvider オブジェクトを作成し、独自の名前と .png アイコンを指定してから、WebAccountProviderCommands リストに追加します。 いくつかのスタブ コードを次に示します。 
 
  ```csharp
 private async void BuildPaneAsync(AccountsSettingsPane s, AccountsSettingsPaneCommandsRequestedEventArgs e)
@@ -373,7 +373,7 @@ private async void GetTwitterTokenAsync(WebAccountProviderCommand command)
 ```
 
 > [!NOTE] 
-> この例では、アイコンを **AccountsSettingsPane** に追加し、指定されたメソッド (この場合は GetTwitterTokenAsync) をアイコンのクリック時に実行するだけです。 実際の認証を処理するコードを提供する必要があります。 詳しくは、「(Web 認証ブローカー)[web-authentication-broker]」を参照してください。REST サービスを使った認証のためのヘルパー メソッドが提供されています。 
+> この例では、アイコンを **AccountsSettingsPane** に追加し、指定されたメソッド (この場合は GetTwitterTokenAsync) をアイコンのクリック時に実行するだけです。 実際の認証を処理するコードを提供する必要があります。 詳細については、「 [Web 認証ブローカー](web-authentication-broker.md)」を参照してください。これは、REST サービスを使用して認証するためのヘルパーメソッドを提供します。 
 
 ## <a name="add-a-custom-header"></a>カスタム ヘッダーの追加
 
@@ -430,6 +430,6 @@ private async void BuildPaneAsync(AccountsSettingsPane s, AccountsSettingsPaneCo
 
 [Web 認証ブローカー](web-authentication-broker.md)
 
-[Web アカウント管理のサンプル](https://go.microsoft.com/fwlink/p/?LinkId=620621)
+[Web アカウント管理のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/WebAccountManagement)
 
-[昼食スケジューラ アプリ](https://github.com/Microsoft/Windows-appsample-lunch-scheduler)
+[ランチ スケジューラ アプリ](https://github.com/Microsoft/Windows-appsample-lunch-scheduler)

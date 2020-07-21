@@ -6,12 +6,12 @@ ms.topic: article
 keywords: 概要, uwp, windows 10, 学習トラック, データ バインディング, 一覧
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: c4d339a1eedb798f11d5567be6a48ec2269cf8ac
-ms.sourcegitcommit: 280193dfe5a106fc6b4c85df3ac40535547b855c
+ms.openlocfilehash: 3cebf51bdf9fa9942a0b88ed7b4cf66204671781
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67235156"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "71340338"
 ---
 # <a name="display-customers-in-a-list"></a>一覧での顧客の表示
 
@@ -102,15 +102,15 @@ public sealed partial class MainPage : Page
 
 ## <a name="edit-your-customers-through-the-ui"></a>UI を通じた Customers の編集
 
-一覧で顧客を表示しましたが、データ B バインディングではより多くのことを行うことができます。 UI から直接データを編集できるとしたらどうでしょうか。 これを行うには、まずデータ バインディングの 3 つのモデルについて説明しましょう。
+一覧で顧客を表示しましたが、データ バインディングではさらに多くのことができます。 UI から直接データを編集できるとしたらどうでしょうか。 これを行うには、まずデータ バインディングの 3 つのモデルについて説明しましょう。
 
-* *1 回限り*:このデータ バインディングは一度だけアクティブ化され、変更に対応しません。
-* *一方向*:このデータ バインディングは、データ ソースに対して行われた変更で UI を更新します。
-* *双方向*:このデータ バインディングは、データ ソースに対して行われた変更で UI を更新します。また、UI 内で行われた変更でデータを更新します。
+* *1 回限り*: このデータ バインディングは一度だけアクティブ化され、変更に対応しません。
+* *一方向*: このデータ バインディングは、データ ソースに対して行われた変更で UI を更新します。
+* *双方向*: このデータ バインディングは、データ ソースに対して行われた変更で UI を更新します。また、UI 内で行われた変更でデータを更新します。
 
 以前のコード スニペットに従った場合、行ったバインディングでは x:Bind を使用し、モードを使用しないため、1 回限りのバインディングになります。 UI から直接 Customers を編集する場合は、データからの変更が Customer オブジェクトに戻されるように、双方向のバインディングに変更する必要があります。 詳細については、「[データ バインディングの詳細](../data-binding/data-binding-in-depth.md)」を参照してください。
 
-データ ソースが変更された場合は、双方向バインディングも更新されます。 これが機能するためには、ソースで [**INotifyPropertyChanged**](https://docs.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged?redirectedfrom=MSDN) を実装し、そのプロパティの set アクセス操作子により **PropertyChanged** イベントが発生することを確認する必要があります。 一般的には、次に示すように **OnPropertyChanged** メソッドのようなヘルパー メソッドを呼び出すようにします。
+データ ソースが変更された場合は、双方向バインディングも更新されます。 これが機能するためには、ソースで [**INotifyPropertyChanged**](https://docs.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged) を実装し、そのプロパティの set アクセス操作子により **PropertyChanged** イベントが発生することを確認する必要があります。 一般的には、次に示すように **OnPropertyChanged** メソッドのようなヘルパー メソッドを呼び出すようにします。
 
 ```csharp
 public class Customer : INotifyPropertyChanged
@@ -170,7 +170,7 @@ public class Customer : INotifyPropertyChanged
 | [Binding](../xaml-platform/binding-markup-extension.md) | 以前の Binding マークアップ拡張に関するドキュメントです。 |
 | [ListView](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView) | データ アイテムの垂直のスタックを表示する UI コントロールです。 |
 | [TextBox](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox) | UI で編集可能なテキスト データを表示するための基本的なテキスト コントロールです。 |
-| [INotifyPropertyChanged](https://docs.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged?redirectedfrom=MSDN) | データを監視可能にし、データ バインディングに提供するインターフェイスです。 |
+| [INotifyPropertyChanged](https://docs.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged) | データを監視可能にし、データ バインディングに提供するインターフェイスです。 |
 | [ItemsControl](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ItemsControl) | このクラスの **ItemsSource** プロパティにより、ListView がデータ ソースにバインドされます。 |
 
 ### <a name="useful-docs"></a>役立つドキュメント

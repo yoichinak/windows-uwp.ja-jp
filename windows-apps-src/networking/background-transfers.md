@@ -6,12 +6,12 @@ ms.date: 03/23/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 00cf409177ae077d5df9739321c4464c2c56843d
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: d8a4c354eff34edb0c97e9d95828d4287f9c4b99
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66371414"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "72282491"
 ---
 # <a name="background-transfers"></a>バックグラウンド転送
 ネットワーク経由でファイルを確実にコピーするには、バックグラウンド転送 API を使います。 バックグラウンド転送 API には、アプリの一時停止中はバックグラウンドで実行され、アプリの終了後も実行が続行される高度なアップロード機能とダウンロード機能があります。 この API は、ネットワークの状態を監視し、接続が失われたときに転送の中断と再開を自動的に実行します。転送ではデータ センサーとバッテリー セーバーにも対応し、ダウンロード アクティビティは現在の接続とデバイスのバッテリー状態に基づいて調整されます。 この API は、アップロード HTTP(S) を使った大きなファイルのアップロードとダウンロードに適しています。 FTP もサポートされますが、その対象はダウンロードのみです。
@@ -44,16 +44,16 @@ ms.locfileid: "66371414"
 
 次の表に、電話の現在の状態に応じて、[**BackgroundTransferCostPolicy**](https://docs.microsoft.com/uwp/api/Windows.Networking.BackgroundTransfer.BackgroundTransferCostPolicy) の各値に対して、電話でバックグラウンド転送が許可されるかどうかを示します。 [  **ConnectionCost**](https://docs.microsoft.com/uwp/api/Windows.Networking.Connectivity.ConnectionCost) クラスを使って、電話の現在の状態を判断できます。
 
-| デバイスの状態                                                                                                                      | UnrestrictedOnly | Default | 常に |
+| デバイスの状態                                                                                                                      | UnrestrictedOnly | 既定 | 常に表示する |
 |-----------------------------------------------------------------------------------------------------------------------------------|------------------|---------|--------|
-| WiFi 接続                                                                                                                 | 許可            | 許可   | 許可  |
-| 従量制課金接続、ローミング時以外、データ制限未満、制限内にとどまる見込み                                                   | 拒否             | 許可   | 許可  |
-| 従量制課金接続、ローミング時以外、データ制限未満、制限を超過する見込み                                                       | 拒否             | 拒否    | 許可  |
-| 従量制課金接続、ローミング時、データ制限未満                                                                                     | 拒否             | 拒否    | 許可  |
+| WiFi 接続                                                                                                                 | Allow            | Allow   | Allow  |
+| 従量制課金接続、ローミング時以外、データ制限未満、制限内にとどまる見込み                                                   | 拒否             | Allow   | Allow  |
+| 従量制課金接続、ローミング時以外、データ制限未満、制限を超過する見込み                                                       | 拒否             | 拒否    | Allow  |
+| 従量制課金接続、ローミング時、データ制限未満                                                                                     | 拒否             | 拒否    | Allow  |
 | 従量制課金接続、データ制限超過 この状態は、ユーザーが Data Sense UI で [バックグラウンドでのデータ通信を制限する] を有効にしている場合にのみ発生します。 | 拒否             | 拒否    | 拒否   |
 
 ## <a name="uploading-files"></a>ファイルのアップロード
-バックグラウンド転送を使う場合、アップロードは [**UploadOperation**](https://docs.microsoft.com/uwp/api/Windows.Networking.BackgroundTransfer.UploadOperation) として存在し、操作の再起動や取り消しに使われる多くの制御メソッドを公開します。 アプリのイベント (一時停止、終了など) や接続の変更は、**UploadOperation** を通じてシステムによって自動的に処理されます。アップロードは、アプリの一時停止中も続行し、アプリの終了以降は一時停止して保持されます。 また、[**CostPolicy**](https://docs.microsoft.com/uwp/api/windows.networking.backgroundtransfer.backgrounddownloader.costpolicy) プロパティを設定することで、従量制課金接続がインターネット接続のために使われている間もアプリがアップロードを開始するかどうかを指定します。
+バックグラウンド転送を使う場合、アップロードは [**UploadOperation**](https://docs.microsoft.com/uwp/api/Windows.Networking.BackgroundTransfer.UploadOperation) として存在し、操作の再起動や取り消しに使われる多くの制御メソッドを公開します。 アプリのイベント (一時停止、終了など) や接続の変更は、**UploadOperation** を通じてシステムによって自動的に処理されます。アップロードは、アプリの一時停止中も続行され、アプリの終了以降は一時停止して保持されます。 また、[**CostPolicy**](https://docs.microsoft.com/uwp/api/windows.networking.backgroundtransfer.backgrounddownloader.costpolicy) プロパティを設定することで、従量制課金接続がインターネット接続のために使われている間もアプリがアップロードを開始するかどうかを指定します。
 
 以下に、基本的なアップロードを作成および初期化する例と、前のアプリ セッションから続いている操作を列挙および再び取り込む例を示します。
 
@@ -156,19 +156,19 @@ contentParts 配列には、アップロード用の各 [**IStorageFile**](https
 
     [!code-js[uploadFile](./code/backgroundtransfer/upload_quickstart/js/main.js#Snippetupload_quickstart_C "Restart interrupted upload operation")]
 
-1.  次に、持続している操作を列挙してそれらを配列に格納する関数を定義します。 [  **UploadOperation**](https://docs.microsoft.com/uwp/api/Windows.Networking.BackgroundTransfer.UploadOperation) に対するコールバックを再び割り当てるために呼び出される **load** メソッドは、アプリの終了後も持続する場合、このセクションでこの後定義する UploadOp クラス内にあることに注意してください。
+1.  次に、持続している操作を列挙してそれらを配列に格納する関数を定義します。 [**UploadOperation**](https://docs.microsoft.com/uwp/api/Windows.Networking.BackgroundTransfer.UploadOperation) に対するコールバックを再び割り当てるために呼び出される **load** メソッドは、アプリの終了後も持続する場合、このセクションでこの後定義する UploadOp クラス内にあることに注意してください。
 
     [!code-js[uploadFile](./code/backgroundtransfer/upload_quickstart/js/main.js#Snippetupload_quickstart_D "Enumerate persisted operations")]
 
 ## <a name="downloading-files"></a>ファイルのダウンロード
-バックグラウンド転送を使う場合、各ダウンロードは [**DownloadOperation**](https://docs.microsoft.com/uwp/api/Windows.Networking.BackgroundTransfer.DownloadOperation) として存在し、操作の一時停止、再開、再起動、取り消しに使われる多くの制御メソッドを公開します。 アプリのイベント (一時停止、終了など) や接続の変更は、**DownloadOperation** を通じてシステムによって自動的に処理されます。ダウンロードは、アプリの一時停止中も続行し、アプリの終了以降は一時停止して保持されます。 モバイル ネットワーク シナリオの場合、[**CostPolicy**](https://docs.microsoft.com/uwp/api/windows.networking.backgroundtransfer.backgrounddownloader.costpolicy) プロパティを設定することで、従量制課金接続がインターネット接続のために使われている間もアプリがダウンロードを開始または続行するかどうかを指定します。
+バックグラウンド転送を使う場合、各ダウンロードは [**DownloadOperation**](https://docs.microsoft.com/uwp/api/Windows.Networking.BackgroundTransfer.DownloadOperation) として存在し、操作の一時停止、再開、再起動、取り消しに使われる多くの制御メソッドを公開します。 アプリのイベント (一時停止、終了など) や接続の変更は、**DownloadOperation** を通じてシステムによって自動的に処理されます。ダウンロードは、アプリの一時停止中も続行され、アプリの終了以降は一時停止して保持されます。 モバイル ネットワーク シナリオの場合、[**CostPolicy**](https://docs.microsoft.com/uwp/api/windows.networking.backgroundtransfer.backgrounddownloader.costpolicy) プロパティを設定することで、従量制課金接続がインターネット接続のために使われている間もアプリがダウンロードを開始または続行するかどうかを指定します。
 
 すぐに完了する可能性がある小さいリソースをダウンロードする場合は、バックグラウンド転送ではなく [**HttpClient**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpClient) API を使ってください。
 
 以下に、基本的なダウンロードを作成および初期化する例と、前のアプリ セッションから続いている操作を列挙および再び取り込む例を示します。
 
 ### <a name="configure-and-start-a-background-transfer-file-download"></a>バックグラウンド転送によるファイルのダウンロードを構成して開始する
-URI とファイル名を表す文字列を使って、[**Uri**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Uri) オブジェクトと要求されたファイルを格納する [**StorageFile**](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageFile) とを作成する方法を次の例で示します。 この例では、新しいファイルが定義済みの場所に自動的に配置されます。 または、[**FileSavePicker**](https://docs.microsoft.com/uwp/api/Windows.Storage.Pickers.FileSavePicker) を使ってユーザーがファイルを保存するデバイスの場所を指定できるようになります。 [  **DownloadOperation**](https://docs.microsoft.com/uwp/api/Windows.Networking.BackgroundTransfer.DownloadOperation) に対するコールバックを再び割り当てるために呼び出される **load** メソッドは、アプリの終了以降も持続する場合、このセクションでこの後定義する DownloadOp クラス内にあることに注意してください。
+URI とファイル名を表す文字列を使って、[**Uri**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Uri) オブジェクトと要求されたファイルを格納する [**StorageFile**](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageFile) とを作成する方法を次の例で示します。 この例では、新しいファイルが定義済みの場所に自動的に配置されます。 または、[**FileSavePicker**](https://docs.microsoft.com/uwp/api/Windows.Storage.Pickers.FileSavePicker) を使ってユーザーがファイルを保存するデバイスの場所を指定できるようになります。 [**DownloadOperation**](https://docs.microsoft.com/uwp/api/Windows.Networking.BackgroundTransfer.DownloadOperation) に対するコールバックを再び割り当てるために呼び出される **load** メソッドは、アプリの終了以降も持続する場合、このセクションでこの後定義する DownloadOp クラス内にあることに注意してください。
 
 [!code-js[uploadFile](./code/backgroundtransfer/download_quickstart/js/main.js#Snippetdownload_quickstart_A)]
 
@@ -282,9 +282,9 @@ Visual Studio を使う 4 つのシナリオで、この問題が発生する可
 ## <a name="exceptions-in-windowsnetworkingbackgroundtransfer"></a>Windows.Networking.BackgroundTransfer の例外
 Uniform Resource Identifier (URI) として無効な文字列が、[**Windows.Foundation.Uri**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Uri) オブジェクトのコンストラクターに渡されると、例外がスローされます。
 
-**.NET:** [**Windows.Foundation.Uri**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Uri) 型は、C# や VB では [**System.Uri**](https://docs.microsoft.com/dotnet/api/system.uri?redirectedfrom=MSDN) と表示されます。
+**.NET:** [**Windows.Foundation.Uri**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Uri) 型は、C# や VB では [**System.Uri**](https://docs.microsoft.com/dotnet/api/system.uri) と表示されます。
 
-C# と Visual Basic では、.NET 4.5 の [**System.Uri**](https://docs.microsoft.com/dotnet/api/system.uri?redirectedfrom=MSDN) クラスと、いずれかの [**System.Uri.TryCreate**](https://docs.microsoft.com/dotnet/api/system.uri.trycreate?redirectedfrom=MSDN#overloads) メソッドを使って、URI が作成される前にアプリのユーザーから受け取った文字列をテストすることによって、このエラーを回避できます。
+C# と Visual Basic では、.NET 4.5 の [**System.Uri**](https://docs.microsoft.com/dotnet/api/system.uri) クラスと、いずれかの [**System.Uri.TryCreate**](https://docs.microsoft.com/dotnet/api/system.uri.trycreate#overloads) メソッドを使って、URI が作成される前にアプリのユーザーから受け取った文字列をテストすることによって、このエラーを回避できます。
 
 C++ では、URI として渡される文字列を試行して解析するメソッドはありません。 アプリがユーザーから [**Windows.Foundation.Uri**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Uri) の入力を取得する場合、このコンストラクターを try/catch ブロックに配置する必要があります。 例外がスローされた場合、アプリは、ユーザーに通知し、新しいホスト名を要求することができます。
 

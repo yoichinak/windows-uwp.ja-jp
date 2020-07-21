@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: bc422f57cdc268ea517aff729a9c3e57c80acf69
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 6ac962476ace10e08ef92ed4fff9fb9bf48f0006
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67320612"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "72282261"
 ---
 # <a name="rssatom-feeds"></a>RSS/Atom フィード
 
@@ -32,7 +32,7 @@ Web フィードは、テキストやリンク、画像といった個々のエ�
 
 ユニバーサル Windows プラットフォーム (UWP) では、RSS 形式 (0.91 ～ 2.0) と Atom 形式 (0.3 ～ 1.0) のフィードを取得することができます。 [  **Windows.Web.Syndication**](https://docs.microsoft.com/uwp/api/Windows.Web.Syndication) 名前空間のクラスは、RSS と Atom のどちらの要素も表せるフィードとフィード項目を定義することができます。
 
-加えて、Atom 1.0 形式と RSS 2.0 形式では、公式の仕様には定義されていない要素や属性をフィード ドキュメントに含めることができます。 やがて、こうしたカスタムの要素や属性が、他の Web サービスのデータ形式 (GData、OData など) によって使用されるドメイン固有の情報を定義するための手段となりました。 この追加機能をサポートするため、[**SyndicationNode**](https://docs.microsoft.com/uwp/api/Windows.Web.Syndication.SyndicationNode) クラスは XML 要素全般を表します。 [  **Windows.Data.Xml.Dom**](https://docs.microsoft.com/uwp/api/Windows.Data.Xml.Dom) 名前空間のクラスと **SyndicationNode** クラスを使うことによって、アプリは属性、拡張機能、含まれるすべてのコンテンツにアクセスできるようになります。
+加えて、Atom 1.0 形式と RSS 2.0 形式では、公式の仕様には定義されていない要素や属性をフィード ドキュメントに含めることができます。 やがて、こうしたカスタムの要素や属性が、他の Web サービスのデータ形式 (GData、OData など) によって使用されるドメイン固有の情報を定義するための手段となりました。 この追加機能をサポートするため、[**SyndicationNode**](https://docs.microsoft.com/uwp/api/Windows.Web.Syndication.SyndicationNode) クラスは XML 要素全般を表します。 [**Windows.Data.Xml.Dom**](https://docs.microsoft.com/uwp/api/Windows.Data.Xml.Dom) 名前空間のクラスと **SyndicationNode** クラスを使うことによって、アプリは属性、拡張機能、含まれるすべてのコンテンツにアクセスできるようになります。
 
 概要コンテンツの発行については、UWP による Atom Publication Protocol の実装 ([**Windows.Web.AtomPub**](https://docs.microsoft.com/uwp/api/Windows.Web.AtomPub)) は、Atom および Atom Publication に準拠したフィード コンテンツ操作のみをサポートする点に注意してください。
 

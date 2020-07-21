@@ -8,10 +8,10 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: 15984e00b036bf44d6e4a7f60cb6435ea1add291
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "63808678"
 ---
 # <a name="thumbnail-images"></a>サムネイル画像
@@ -64,17 +64,17 @@ ms.locfileid: "63808678"
 <th> 取得するサムネイル画像の特徴 </th>
 </tr>
 <tr>
-<td> 画像<br /> ビデオ </td>
+<td> ピクチャ<br /> ビデオ </td>
 <td> PicturesView <br />VideosView </td>
-<td> <b>［サイズ］</b>: 中、190 以上を推奨 (画像サイズが 190 × 130 の場合) <br />
+<td> <b>サイズ</b>: 中、190 以上を推奨 (画像サイズが 190 × 130 の場合) <br />
 <b>縦横比</b>: 均一な横長の縦横比 (約 0.7) (サイズが 190 の場合は 190 × 130) <br />
 プレビューの場合はトリミングされます。 <br /> 
 縦横比が統一されているため、画像をグリッド内で揃えるときに便利です。  </td>
 </tr>
 <tr>
-<td> ドキュメント<br />音楽 </td>
+<td> ドキュメント<br />ミュージック </td>
 <td> DocumentsView <br />MusicView <br /> ListView</td>
-<td> <b>［サイズ］</b>: 小、40 × 40 ピクセル以上を推奨 <br />
+<td> <b>サイズ</b>: 小、40 × 40 ピクセル以上を推奨 <br />
 <b>縦横比</b>:  均一な正方形の縦横比  <br />
 縦横比が正方形であるため、アルバム アートのプレビューに最適。 <br /> 
 ドキュメントは、ファイル ピッカーのウィンドウと同じように表示されます (同じアイコンを使用)。 </td>
@@ -83,7 +83,7 @@ ms.locfileid: "63808678"
 <tr>
 <td> 任意の 1 つの項目 (ファイルの種類を考慮しない場合) </td>
 <td> SingleItem </td>
-<td> <b>［サイズ］</b>: 小、40 × 40 ピクセル以上を推奨 <br />
+<td> <b>サイズ</b>: 小、40 × 40 ピクセル以上を推奨 <br />
 <b>縦横比</b>:  均一な正方形の縦横比  <br />
 縦横比が正方形であるため、アルバム アートのプレビューに最適。 <br /> 
 ドキュメントは、ファイル ピッカーのウィンドウと同じように表示されます (同じアイコンを使用)。 </td>
@@ -109,7 +109,7 @@ ms.locfileid: "63808678"
 <img src="images/thumbnail-pic-single-mode.png" alt="Picture thumbnail in single mode"/> </td>
 </tr>
 <tr>
-<td>Video</td>
+<td>ビデオ</td>
 <td>サムネイルには、画像と区別するためのアイコンが追加されます。 <br />
 <img src="images/thumbnail-vid-picvid-modes.png" alt="Video thumbnail in picture or video mode"/></td>
 <td>サムネイルは縦横比が正方形になるようにトリミングされています。 <br />
@@ -118,7 +118,7 @@ ms.locfileid: "63808678"
 <img src="images/thumbnail-vid-single-mode.png" alt="Video thumbnail in single mode"/></td>
 </tr>
 <tr>
-<td>音楽</td>
+<td>ミュージック</td>
 <td>サムネイルは、適切なサイズの背景に配置されたアイコンです。 背景色は、アプリのタイルの背景色によって決まります。 <br />
 <img src="images/thumbnail-music-picvid-modes.png" alt="Music thumbnail in picture or video mode"/></td>
 <td>ファイルにアルバム アートが含まれる場合、サムネイルはアルバム アートになります。  <br />
@@ -129,7 +129,7 @@ ms.locfileid: "63808678"
 それ以外の場合、サムネイルはアイコンです。 </td>
 </tr>
 <tr>
-<td>ドキュメント</td>
+<td>マニュアル名の正式名称</td>
 <td>サムネイルは、適切なサイズの背景に配置されたアイコンです。 背景色は、アプリのタイルの背景色によって決まります。 <br />
 <img src="images/thumbnail-docs-picvid-modes.png" alt="Document thumbnail in picture or video mode"/></td>
 <td>サムネイルは、適切なサイズの背景に配置されたアイコンです。 背景色は、アプリのタイルの背景色によって決まります。 <br />
@@ -140,7 +140,7 @@ ms.locfileid: "63808678"
 <img src="images/thumbnail-doc2-single-mode.png" alt="Document thumbnail icon in single mode"/></td>
 </tr>
 <tr>
-<td>Folder</td>
+<td>フォルダー</td>
 <td>フォルダーに画像ファイルが含まれる場合は、画像のサムネイルが使われます。  <br />
 <img src="images/thumbnail-dir-picvid-modes.png" alt="Folder thumbnail in picture or video mode"/> <br />
 それ以外の場合、サムネイルは取得されません。</td>

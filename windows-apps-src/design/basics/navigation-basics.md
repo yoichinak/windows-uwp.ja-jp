@@ -1,6 +1,6 @@
 ---
-Description: ユニバーサル Windows プラットフォーム (UWP) アプリのナビゲーションは、ナビゲーション構造、ナビゲーション要素、システム レベルの機能から成る柔軟なモデルに基づいています。
-title: UWP アプリのナビゲーションの基本
+Description: Windows アプリのナビゲーションは、ナビゲーション構造、ナビゲーション要素、システム レベルの機能から成る柔軟なモデルに基づいています。
+title: Windows アプリのナビゲーションの基本
 ms.assetid: B65D33BA-AAFE-434D-B6D5-1A0C49F59664
 label: Navigation design basics
 template: detail.hbs
@@ -10,14 +10,14 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 6290b142eee4aff7287b9542b645df89164d173b
-ms.sourcegitcommit: 34671182c26f5d0825c216a6cededc02b0059a9e
+ms.openlocfilehash: ed38be070263bbd619e44daf5c747a97299b3cf7
+ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67286940"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83233857"
 ---
-# <a name="navigation-design-basics-for-uwp-apps"></a>UWP アプリのナビゲーション デザインの基本
+# <a name="navigation-design-basics-for-windows-apps"></a>Windows アプリのナビゲーション デザインの基本
 
 ![ナビゲーションの基本のヘッダー](images/nav/navigation-basics-header.jpg)
 
@@ -27,17 +27,17 @@ ms.locfileid: "67286940"
 
 :::row:::
     :::column:::
-        ![navigation example 1](images/nav/nav-1.svg)
+        ![ナビゲーションの例 1](images/nav/nav-1.svg)
 
 一連のページを順に移動するようにユーザーに求める。
     :::column-end:::
     :::column:::
-        ![navigation example 2](images/nav/nav-2.svg)
+        ![ナビゲーションの例 2](images/nav/nav-2.svg)
 
 ユーザーが任意のページに直接ジャンプできるメニューを提供する。
     :::column-end:::
     :::column:::
-        ![navigation example 3](images/nav/nav-3.svg)
+        ![ナビゲーションの例 3](images/nav/nav-3.svg)
 
 すべてのコンテンツを 1 つのページに配置し、フィルタリングして表示するメカニズムを提供する。
     :::column-end:::
@@ -53,7 +53,7 @@ ms.locfileid: "67286940"
 - **シンプルさ:** 必要以上のことをしないようにします。
 - **明確さ:** 明確なパスとオプションを提供します。
 
-### <a name="consistency"></a>一貫性
+### <a name="consistency"></a>Consistency
 
 ナビゲーションは、ユーザーの期待に沿ったものである必要があります。 ユーザーが使い慣れた[標準コントロール](#use-the-right-controls)を使用し、アイコン、場所、スタイルの標準的な規則に従うことで、ナビゲーションがユーザーにとって直感的で予測可能なものになります。
 
@@ -67,16 +67,16 @@ ms.locfileid: "67286940"
 
 :::row:::
     :::column:::
-        ![do example](images/nav/do.svg)
+        ![実行例](images/nav/do.svg)
 
-        ![navview good](images/nav/navview-good.svg)
+        ![ナビゲーション ビュー良好](images/nav/navview-good.svg)
 
 なじみのあるナビゲーション メニューにナビゲーション項目を表示する。
     :::column-end:::
     :::column:::
-        ![don't example](images/nav/dont.svg)
+        ![推奨されない例](images/nav/dont.svg)
 
-        ![navview bad](images/nav/navview-bad.svg)
+        ![ナビゲーション ビュー問題あり](images/nav/navview-bad.svg)
 
 多数のナビゲーション オプションでユーザーを圧倒する。
     :::column-end:::
@@ -106,10 +106,10 @@ ms.locfileid: "67286940"
 
 :::row:::
     :::column:::
-        ![Pages arranged in a flat structure](images/nav/flat-lateral-structure.svg)
+        ![フラット構造で配置されたページ](images/nav/flat-lateral-structure.svg)
     :::column-end:::
     :::column span="2":::
-        ### Flat/lateral
+        ### <a name="flatlateral"></a>フラット構造/水平構造
 
 フラット構造/水平構造では、ページは横方向に存在します。 どのような順序でもページ間を移動できます。
 
@@ -125,10 +125,10 @@ ms.locfileid: "67286940"
 
 :::row:::
     :::column:::
-        ![Pages arranged in a hierarchy](images/nav/hierarchical-structure.svg)
+        ![階層構造で配置されたページ](images/nav/hierarchical-structure.svg)
     :::column-end:::
     :::column span="2":::
-        ### Hierarchical
+        ### <a name="hierarchical"></a>階層構造
 
 階層構造では、ページはツリー状の構造に配置されています。 それぞれの子ページの親は 1 つですが、親ページは 1 つ以上の子ページを持つことができます。 子ページにアクセスするには、親ページを経由します。
 
@@ -145,10 +145,10 @@ ms.locfileid: "67286940"
 
 :::row:::
     :::column:::
-        ![an app with a hybrid structure](images/nav/combining-structures.svg)
+        ![ハイブリッド構造のアプリ](images/nav/combining-structures.svg)
     :::column-end:::
     :::column span="2":::
-        ### Combining structures
+        ### <a name="combining-structures"></a>構造を組み合わせる
 
 1 つの構造のみを選択する必要はありません。優れた設計のアプリの多くでは両方が使われています。 アプリでは、トップレベルのページにはフラット構造を使って、任意の順序で参照できるようにし、複雑な関係のあるページには階層構造を使うことができます。
 
@@ -165,39 +165,51 @@ ms.locfileid: "67286940"
 
 :::row:::
     :::column:::
-        ![Frame image](images/nav/thumbnail-frame.svg)
+        ![フレーム画像](images/nav/thumbnail-frame.svg)
     :::column-end:::
     :::column span="2":::
-        [**Frame**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Frame)
+        [**フレーム**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Frame)
 
 少数の例外を除き、複数のページがあるアプリではフレームを使用します。 通常、アプリにはフレームと、ナビゲーション ビュー コントロールなどの主要なナビゲーション要素を含むメイン ページがあります。 ユーザーがページを選択すると、フレームがページを読み込んで表示します。
 :::row-end:::
 
 :::row:::
     :::column:::
-        ![tabs and pivot image](images/nav/thumbnail-tabs-pivot.svg)
+        ![タブとピボットの画像](images/nav/thumbnail-tabs-pivot.svg)
     :::column-end:::
     :::column span="2":::
-        [**Top navigation and tabs**](../controls-and-patterns/navigationview.md)
+        [**上部のナビゲーション**](../controls-and-patterns/navigationview.md)
 
-同じレベルにあるページへのリンクの横方向の一覧を表示します。 [NavigationView](../controls-and-patterns/navigationview.md) コントロールは、上部のナビゲーションとタブのパターンを実装します。
+同じレベルにあるページへのリンクの横方向の一覧を表示します。 [NavigationView](../controls-and-patterns/navigationview.md) コントロールは、上部のナビゲーション パターンを実装します。
         
 上部のナビゲーションは次の場合に使用します。
 
 - 画面上にナビゲーション オプションをすべて表示する場合。
 - ご利用のアプリのコンテンツ用にスペースを追加する場合。
 - アイコンでは、ご利用のナビゲーション カテゴリを明確に説明できない場合。
-        
-タブは次の場合に使用します。
-
-- ナビゲーション履歴とページの状態を保存する場合。
-- ユーザーが頻繁にタブ間を切り替えることを前提としている場合。
 
 :::row-end:::
 
 :::row:::
     :::column:::
-         ![tabs and pivot image](images/nav/thumbnail-tabs-pivot.svg)
+        ![タブとピボットの画像](images/nav/thumbnail-tabs-pivot.svg)
+    :::column-end:::
+    :::column span="2":::
+        [**タブ**](../controls-and-patterns/tab-view.md)
+
+水平な一連のタブとそれぞれの内容を表示します。 [TabView](../controls-and-patterns/tab-view.md) コントロールは、ユーザーにタブを再配置したり、開いたり、閉じたりする機能を提供しながら、複数のページ (またはドキュメント) を表示する場合に便利です。
+    
+タブは次の場合に使用します。
+
+- ユーザーが、タブを動的に開いたり、閉じたり、再配置したりできるようにする。
+- 同時に多数のタブが開かれることが予想される。
+- Microsoft Edge などの Web ブラウザーと同様に、タブを使用するアプリケーションのウィンドウ間でユーザーがタブを簡単に移動できるようにしたい。
+
+:::row-end:::
+
+:::row:::
+    :::column:::
+         ![タブとピボットの画像](images/nav/thumbnail-tabs-pivot.svg)
     :::column-end:::
         :::column span="2":::
     [**ピボット**](../controls-and-patterns/pivot.md)
@@ -213,10 +225,10 @@ ms.locfileid: "67286940"
 
 :::row:::
     :::column:::
-        ![navview image](images/nav/thumbnail-navview.svg)
+        ![ナビゲーション ビューの画像](images/nav/thumbnail-navview.svg)
     :::column-end:::
     :::column span="2":::
-        [**Left navigation**](../controls-and-patterns/navigationview.md)
+        [**左側のナビゲーション**](../controls-and-patterns/navigationview.md)
 
 トップレベルのページへのリンクの縦方向の一覧を表示します。 次の場合に使用します。
         
@@ -228,10 +240,10 @@ ms.locfileid: "67286940"
         
 :::row:::
     :::column:::
-        ![Master details image](images/nav/thumbnail-master-detail.svg)
+        ![マスター詳細の画像](images/nav/thumbnail-master-detail.svg)
     :::column-end:::
     :::column span="2":::
-        [**Master/details**](../controls-and-patterns/master-details.md)
+        [**マスターと詳細**](../controls-and-patterns/master-details.md)
 
 項目の一覧 (マスター ビュー) を表示します。 項目を選ぶと、対応するページが詳細セクションに表示されます。 次の場合に使用します。
         
@@ -243,10 +255,10 @@ ms.locfileid: "67286940"
 
 :::row:::
     :::column:::
-        ![Hyperlinks and buttons image](images/nav/thumbnail-hyperlinks-buttons.svg)
+        ![ハイパーリンクとボタンの画像](images/nav/thumbnail-hyperlinks-buttons.svg)
     :::column-end:::
     :::column span="2":::
-        [**Hyperlinks**](../controls-and-patterns/hyperlinks.md)
+        [**ハイパーリンク**](../controls-and-patterns/hyperlinks.md)
 
 埋め込まれたナビゲーション要素は、ページのコンテンツに表示されます。 他のナビゲーション要素はページの全体で一貫性がありますが、それとは異なり、コンテンツに埋め込まれたナビゲーション要素はそれぞれのページに固有のナビゲーション要素です。
 :::row-end:::

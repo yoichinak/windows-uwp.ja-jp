@@ -1,42 +1,44 @@
 ---
 ms.assetid: 6AA037C0-35ED-4B9C-80A3-5E144D7EE94B
 title: WinAppDeployCmd.exe ツールを使ったアプリのインストール
-description: Windows アプリケーションの展開 (WinAppDeployCmd.exe) は、任意の Windows 10 デバイスに Windows 10 PC からユニバーサル Windows プラットフォーム (UWP) アプリをデプロイするために使用できるコマンド ライン ツールです。
+description: Windows アプリケーションの展開ツール (WinAppDeployCmd.exe) は、Windows 10 PC から Windows 10 デバイスにユニバーサル Windows プラットフォーム (UWP) アプリを展開するために利用できるコマンド ライン ツールです。
 ms.date: 09/30/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 06107691a4551ae2af05e63c1db810485273dc9b
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
-ms.translationtype: MT
+ms.openlocfilehash: d6c8383a5b0041d5edf6e0c2c8d94acf82572d13
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66372811"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "70808441"
 ---
 # <a name="install-apps-with-the-winappdeploycmdexe-tool"></a>WinAppDeployCmd.exe ツールを使ったアプリのインストール
 
+Windows アプリケーションの展開ツール (WinAppDeployCmd.exe) は、Windows 10 PC から Windows 10 デバイスにユニバーサル Windows プラットフォーム (UWP) アプリを展開するために利用できるコマンド ライン ツールです。 Windows 10 デバイスが USB で接続されている場合、または同じサブネット上で利用できる場合は、このツールを使用して、Microsoft Visual Studio や該当のアプリ用のソリューションを必要とせずにアプリ パッケージを展開できます。 最初にパッケージ化することなく、リモート PC や Xbox One にアプリを展開することもできます。 この記事では、このツールを使って UWP アプリをインストールする方法について説明します。
 
-Windows アプリケーションの展開 (WinAppDeployCmd.exe) は、任意の Windows 10 デバイスに Windows 10 PC からユニバーサル Windows プラットフォーム (UWP) アプリをデプロイするために使用できるコマンド ライン ツールです。 このツールを使用すると、そのアプリの Microsoft Visual Studio や、ソリューションがなくても、Windows 10 デバイスが USB で接続されているか、同じサブネットと、アプリ パッケージを展開します。 最初にパッケージ化することなく、リモート PC や Xbox One にアプリを展開することもできます。 この記事では、このツールを使って UWP アプリをインストールする方法について説明します。
+Windows 10 SDK がインストールされていれば、WinAppDeployCmd ツールをコマンド プロンプトまたはスクリプト ファイルから実行できます。 WinAppDeployCmd.exe を使ってアプリをインストールすると、.appx/.msix ファイルや AppxManifest (ルーズ ファイルの場合) を使用して Windows 10 デバイスにアプリがサイドローディングされます。 このコマンドによって、アプリに必要な証明書はインストールされません。 アプリを実行するには、Windows 10 デバイスでは開発者モードになっているか、証明書を既にインストール済みであることが必要になります。
 
-コマンド プロンプトまたはスクリプト ファイルから WinAppDeployCmd ツールを実行する Windows 10 SDK で済みます。 WinAppDeployCmd.exe でアプリをインストールするときにこれは、使用.appx/.msix ファイルまたは AppxManifest (圧縮しないファイル) を Windows 10 デバイスにアプリをサイドローディングします。 このコマンドによって、アプリに必要な証明書はインストールされません。 アプリを実行するには、Windows 10 デバイスは開発者モードになってまたは、証明書をインストールを既にする必要があります。
+モバイル デバイスに展開するには、最初にパッケージを作成する必要があります。 詳しくは、[こちら](/windows/msix/package/packaging-uwp-apps)をご覧ください。
 
-モバイル デバイスに展開するには、最初にパッケージを作成する必要があります。 詳しくは、[こちら](https://docs.microsoft.com/windows/uwp/packaging/packaging-uwp-apps)をご覧ください。
+**WinAppDeployCmd.exe** ツールは、Windows 10 PC 上の次の場所に配置されます: **C:\\Program Files (x86)\\Windows Kits\\10\\bin\\&lt;SDK バージョン&gt;\\x86\\WinAppDeployCmd.exe** (SDK のインストール パスに基づきます)。
 
-**WinAppDeployCmd.exe**ツールは Windows 10 PC:**C:\\Program Files (x86)\\Windows キット\\10\\bin\\&lt;SDK バージョン&gt;\\x86\\WinAppDeployCmd.exe** (基づく、インストール パス、sdk)。 
 > [!NOTE]
-> SDK のバージョン 15063 以降では、SDK はバージョン固有のフォルダー内にサイド バイ サイドでインストールされます。  以前の SDK (14393 以前) は、親フォルダーに直接書き込まれます。
+> SDK のバージョン 15063 以降では、SDK はバージョン固有のフォルダー内にサイド バイ サイドでインストールされます。 以前の SDK (14393 以前) は、親フォルダーに直接書き込まれます。
 
-最初に、同じサブネットに、Windows 10 デバイスを接続または USB 接続で Windows 10 コンピューターに直接接続します。 この記事ではその後、このコマンドの次の構文と例を使って UWP アプリを展開します。
+まず、Windows 10 デバイスを同じサブネットに接続するか、USB 接続を使って Windows 10 コンピューターに直接接続します。 この記事ではその後、このコマンドの次の構文と例を使って UWP アプリを展開します。
 
 ## <a name="winappdeploycmd-syntax-and-options"></a>WinAppDeployCmd の構文とオプション
 
 **WinAppDeployCmd.exe** で使用される一般的な構文を次に示します。
-```syntax
+
+```CMD
 WinAppDeployCmd command -option <argument>
 ```
 
 さまざまなコマンドを使用する他の構文例を次に示します。
-```syntax
+
+```CMD
 WinAppDeployCmd devices
 WinAppDeployCmd devices <x>
 WinAppDeployCmd install -file <path> -ip <address>
@@ -59,8 +61,7 @@ WinAppDeployCmd deletecreds -credserver <server> -ip <address>
 
 次の表では、**WinAppDeployCmd.exe** のコマンドについて説明します。
 
-
-| **Command**  | **説明**                                                     |
+| **コマンド**  | **説明**                                                     |
 |--------------|---------------------------------------------------------------------|
 | デバイス      | 利用可能なネットワーク デバイスの一覧を表示します。                         |
 | インストール      | ターゲット デバイスに UWP アプリ パッケージをインストールします。                     |
@@ -73,11 +74,9 @@ WinAppDeployCmd deletecreds -credserver <server> -ip <address>
 | getcreds     | ネットワーク共有からアプリケーションを実行するときにターゲットが使用するネットワーク資格情報を取得します。|
 | deletecreds  | ネットワーク共有からアプリケーションを実行するときにターゲットが使用するネットワーク資格情報を削除します。|
 
-
 次の表では、**WinAppDeployCmd.exe** のオプションについて説明します。
 
-
-| **Command**  | **説明**  |
+| **コマンド**  | **説明**  |
 |--------------|------------------|
 | -h (-help)       | コマンド、オプション、引数を表示します。 |
 | -ip              | ターゲット デバイスの IP アドレス。 |
@@ -93,7 +92,6 @@ WinAppDeployCmd deletecreds -credserver <server> -ip <address>
 | -remotedeploydir | リモート デバイス上のファイルのコピー先の相対ディレクトリ パスと名前。これは既知の自動的に決定されたリモート展開フォルダーになります。 |
 | -deleteextrafile | ソース ディレクトリに一致するようにリモート ディレクトリ内の既存のファイルを消去する必要があるかどうかを指定するスイッチ。 |
 
-
 次の表では、**WinAppDeployCmd.exe** のオプションについて説明します。
 
 | **引数**           | **説明**                                                              |
@@ -102,51 +100,50 @@ WinAppDeployCmd deletecreds -credserver <server> -ip <address>
 | &lt;address&gt;        | ターゲット デバイスの IP アドレスと一意の識別子。                        |
 | &lt;a&gt;&lt;b&gt; ... | アプリ パッケージの依存関係のそれぞれの依存パス。                    |
 | &lt;p&gt;              | 接続を確立するためのデバイス設定に示されている、英数字 PIN。 |
-| &lt;パス&gt;           | ファイル システム パス。                                                            |
+| &lt;path&gt;           | ファイル システム パス。                                                            |
 | &lt;name&gt;           | アンインストールするアプリ パッケージの完全なパッケージ名。                          |
 | &lt;server&gt;         | ファイル ネットワーク上のサーバー。                                                  |
 | &lt;username&gt;       | ファイル ネットワーク上のサーバーにアクセスできる資格情報のユーザー名。      |
 | &lt;password&gt;       | ファイル ネットワーク上のサーバーにアクセスできる資格情報のパスワード。 |
 | &lt;remotedeploydir&gt;| 展開先の場所を基準としたデバイス上のディレクトリ。                      |
 
- 
 ## <a name="winappdeploycmdexe-examples"></a>WinAppDeployCmd.exe の例
 
-**WinAppDeployCmd.exe** の構文を使ってコマンド ラインから展開する方法の例を、次に示します。
+**WinAppDeployCmd.exe** の構文を使用して、コマンドラインから展開する方法の例を次に示します。
 
 展開できるデバイスを表示します。 コマンドは 3 秒でタイムアウトになります。
 
-``` syntax
+``` CMD
 WinAppDeployCmd devices 3
 ```
 
-お客様の PC のダウンロード ディレクトリに、IP アドレス 192.168.0.1 デバイスとの接続を確立するために A1B2C3 暗証番号 (pin) の使用の Windows 10 デバイスである MyApp.appx パッケージから、アプリをインストールします。
+PC のダウンロード ディレクトリにある MyApp.appx パッケージからアプリを、IP アドレスが 192.168.0.1、PIN が A1B2C3 の Windows 10 デバイスにインストールして、デバイスとの接続を確立します。
 
-``` syntax
+``` CMD
 WinAppDeployCmd install -file "Downloads\MyApp.appx" -ip 192.168.0.1 -pin A1B2C3
 ```
 
 指定したパッケージ (その完全な名前に基づく) を、IP アドレスが 192.168.0.1 の Windows 10 デバイスからアンインストールします。 list コマンドを使って、デバイスにインストールされているパッケージの完全な名前を見つけることができます。
 
-``` syntax
+``` CMD
 WinAppDeployCmd uninstall -package Company.MyApp_1.0.0.1_x64__qwertyuiop -ip 192.168.0.1
 ```
 
-IP アドレス 192.168.0.1 が指定されたアプリ パッケージを使用して Windows 10 デバイスに既にインストールされているアプリを更新します。
+指定したアプリ パッケージを使って、IP アドレスが 192.168.0.1 の Windows 10 デバイスに既にインストールされているアプリを更新します。
 
-``` syntax
+``` CMD
 WinAppDeployCmd update -file "Downloads\MyApp.appx" -ip 192.168.0.1
 ```
 
 IP アドレスが 192.168.0.1 である PC または Xbox の展開パスの下にある app1_F5 ディレクトリに、AppxManifest と同じフォルダーにあるアプリのファイルを展開します。
 
-``` syntax
+``` CMD
 WinAppDeployCmd deployfiles -file "C:\apps\App1\AppxManifest.xml" -remotedeploydir app1_F5 -ip 192.168.0.1
 ```
 
 IP アドレスが 192.168.0.1 である PC または Xbox の展開パスの app1_F5 ディレクトリにあるアプリを登録します。
 
-``` syntax
+``` CMD
 WinAppDeployCmd registerfiles -file app1_F5 -ip 192.168.0.1
 ```
 
@@ -155,7 +152,8 @@ WinAppDeployCmd registerfiles -file app1_F5 -ip 192.168.0.1
 PC からの実行を利用すると、バイナリをコピーしなくても Xbox One に UWP アプリケーションを展開できます。バイナリは、Xbox と同じネットワーク上のネットワーク共有でホストされます。  そのためには、開発者によりロック解除された Xbox One と、ルーズ ファイル UWP アプリケーションを Xbox がアクセスできるネットワーク ドライブに用意する必要があります。
 
 アプリを登録するには、次のコマンドを実行します。
-``` syntax
+
+``` CMD
 WinAppDeployCmd registerfiles -ip <Xbox One IP> -remotedeploydir <location of app> -username <user for network> -password <password for user>
 
 ex. WinAppDeployCmd register files -ip 192.168.0.1 -remotedeploydir \\driveA\myAppLocation -username admin -password A1B2C3

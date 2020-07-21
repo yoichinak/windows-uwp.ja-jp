@@ -5,12 +5,12 @@ ms.date: 11/30/2018
 ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、ポート、移行、相互運用、ABI
 ms.localizationpriority: medium
-ms.openlocfilehash: d1def649772f94a03d5a1f352dcec1d32c7b0868
-ms.sourcegitcommit: 5d71c97b6129a4267fd8334ba2bfe9ac736394cd
+ms.openlocfilehash: 4249618a4b26fd7e8129547a679c80c5e2ed6903
+ms.sourcegitcommit: a2b340dc3a28e845830eeb9ce00342a3f7351d62
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67800574"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85835000"
 ---
 # <a name="interop-between-cwinrt-and-the-abi"></a>C++/WinRT と ABI 間の相互運用
 
@@ -108,6 +108,9 @@ int main()
 
 **as** 関数を実装すると、[**QueryInterface**](https://docs.microsoft.com/windows/desktop/api/unknwn/nf-unknwn-iunknown-queryinterface(q_)) が呼び出されます。 [  **AddRef**](https://docs.microsoft.com/windows/desktop/api/unknwn/nf-unknwn-iunknown-addref) のみを呼び出す下位レベルの変換を行う場合は、[**winrt::copy_to_abi**](/uwp/cpp-ref-for-winrt/copy-to-abi) と [**winrt::copy_from_abi**](/uwp/cpp-ref-for-winrt/copy-from-abi) のヘルパー関数を使用できます。 次に、この下位レベル変換を上記のコード例に追加するコード例を示します。
 
+> [!IMPORTANT]
+> ABI 型と相互運用する場合は、使用される ABI 型が C++/WinRT オブジェクトの既定のインターフェイスに対応していることが重要です。 対応していない場合、ABI 型でメソッドを呼び出すと、既定のインターフェイスの同じ vtable スロットにあるメソッドが呼び出され、予期しない結果が発生します。 [**winrt::copy_to_abi**](/uwp/cpp-ref-for-winrt/copy-from-abi) では、すべての ABI 型に対して **void\*** が使用され、呼び出し元が一致しない型を誤って使用することはないものと想定しているため、コンパイル時にこれを防ぐことはできないことにご注意ください。 これは、ABI 型がまったく使用されない可能性があるのに、C++/WinRT ヘッダーに ABI ヘッダーを参照することを要求するのを避けるためです。
+
 ```cppwinrt
 int main()
 {
@@ -117,11 +120,11 @@ int main()
 
     // Convert to an ABI type.
     ptr = nullptr;
-    winrt::copy_to_abi(uri, *ptr.put_void());
+    winrt::copy_to_abi(uriAsIStringable, *ptr.put_void());
 
     // Convert from an ABI type.
     uri = nullptr;
-    winrt::copy_from_abi(uri, ptr.get());
+    winrt::copy_from_abi(uriAsIStringable, ptr.get());
     ptr = nullptr;
 }
 ```
@@ -133,11 +136,11 @@ int main()
 
     // Copy to an owning raw ABI pointer with copy_to_abi.
     abi::IStringable* owning{ nullptr };
-    winrt::copy_to_abi(uri, *reinterpret_cast<void**>(&owning));
+    winrt::copy_to_abi(uriAsIStringable, *reinterpret_cast<void**>(&owning));
 
     // Copy from a raw ABI pointer.
     uri = nullptr;
-    winrt::copy_from_abi(uri, owning);
+    winrt::copy_from_abi(uriAsIStringable, owning);
     owning->Release();
 ```
 
@@ -151,27 +154,27 @@ int main()
     // Lowest-level conversions that only copy addresses
 
     // Convert to a non-owning ABI object with get_abi.
-    abi::IStringable* non_owning{ static_cast<abi::IStringable*>(winrt::get_abi(uri)) };
+    abi::IStringable* non_owning{ static_cast<abi::IStringable*>(winrt::get_abi(uriAsIStringable)) };
     WINRT_ASSERT(non_owning);
 
     // Avoid interlocks this way.
-    owning = static_cast<abi::IStringable*>(winrt::detach_abi(uri));
-    WINRT_ASSERT(!uri);
-    winrt::attach_abi(uri, owning);
-    WINRT_ASSERT(uri);
+    owning = static_cast<abi::IStringable*>(winrt::detach_abi(uriAsIStringable));
+    WINRT_ASSERT(!uriAsIStringable);
+    winrt::attach_abi(uriAsIStringable, owning);
+    WINRT_ASSERT(uriAsIStringable);
 ```
 
-## <a name="convertfromabi-function"></a>convert_from_abi 関数
+## <a name="convert_from_abi-function"></a>convert_from_abi 関数
 このヘルパー関数では、最小限のオーバーヘッドで生の ABI インターフェイス ポインターを同等の C++/WinRT オブジェクトに変換します。
 
 ```cppwinrt
 template <typename T>
 T convert_from_abi(::IUnknown* from)
 {
-    T to{ nullptr };
+    T to{ nullptr }; // `T` is a projected type.
 
     winrt::check_hresult(from->QueryInterface(winrt::guid_of<T>(),
-        reinterpret_cast<void**>(winrt::put_abi(to))));
+        winrt::put_abi(to)));
 
     return to;
 }
@@ -181,7 +184,7 @@ T convert_from_abi(::IUnknown* from)
 
 既に説明したように、C++/WinRT オブジェクトから同等の ABI インターフェイス ポインターへの変換には、ヘルパー関数は必要ありません。 [  **winrt::Windows::Foundation::IUnknown::as**](/uwp/cpp-ref-for-winrt/windows-foundation-iunknown#iunknownas-function) (または [**try_as**](/uwp/cpp-ref-for-winrt/windows-foundation-iunknown#iunknowntry_as-function)) メンバー関数を使用して、要求されたインターフェイスを照会するだけです。 **as** 関数と **try_as** 関数は、要求された ABI 型をラップする [**winrt::com_ptr**](/uwp/cpp-ref-for-winrt/com-ptr) オブジェクトを返します。
 
-## <a name="code-example-using-convertfromabi"></a>convert_from_abi を使用したコード例
+## <a name="code-example-using-convert_from_abi"></a>convert_from_abi を使用したコード例
 次に、このヘルパー関数を表す実践的なコード例を示します。
 
 ```cppwinrt
@@ -213,10 +216,10 @@ namespace sample
     template <typename T>
     T convert_from_abi(::IUnknown* from)
     {
-        T to{ nullptr };
+        T to{ nullptr }; // `T` is a projected type.
 
         winrt::check_hresult(from->QueryInterface(winrt::guid_of<T>(),
-            reinterpret_cast<void**>(winrt::put_abi(to))));
+            winrt::put_abi(to)));
 
         return to;
     }
@@ -304,7 +307,7 @@ void GetSample(_Out_ ISample** pp);
 static_assert(std::is_same_v<winrt::default_interface<winrt::Sample>, winrt::ISample>);
 ```
 
-| 操作 | 方法 | 説明 |
+| 操作 | 方法 | メモ |
 |-|-|-|
 | **winrt::Sample** から **ISample\*** を抽出する | `p = reinterpret_cast<ISample*>(get_abi(s));` | *s* はオブジェクトをまだ所有しています。 |
 | **winrt::Sample** から **ISample\*** をデタッチする | `p = reinterpret_cast<ISample*>(detach_abi(s));` | *s* はオブジェクトを所有しなくなります。 |
@@ -342,7 +345,7 @@ HSTRING h;
 void GetString(_Out_ HSTRING* value);
 ```
 
-| 操作 | 方法 | 説明 |
+| 操作 | 方法 | メモ |
 |-|-|-|
 | **hstring** から **HSTRING** を抽出する | `h = static_cast<HSTRING>(get_abi(s));` | *s* は文字列をまだ所有しています。 |
 | **hstring** から **HSTRING** をデタッチする | `h = reinterpret_cast<HSTRING>(detach_abi(s));` | *s* は文字列を所有しなくなります。 |

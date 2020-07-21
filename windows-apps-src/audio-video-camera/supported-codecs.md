@@ -1,19 +1,19 @@
 ---
 ms.assetid: 9347AD7C-3A90-4073-BFF4-9E8237398343
 description: この記事では、UWP アプリ用のオーディオとビデオのコーデックおよび形式のサポートを示します。
-title: サポートされるコーデック
+title: サポートされているコーデック
 ms.date: 02/08/2017
 ms.topic: article
-keywords: windows 10, uwp
+keywords: Windows 10, UWP
 ms.localizationpriority: medium
-ms.openlocfilehash: 92511c1f5b7ad8991900d80d4ec52659d6e74f88
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 4b122aa6436e55c80276cdd684b7c10cc3c47d28
+ms.sourcegitcommit: 49a34e957433966ac8d4822b5822f21087aa61c3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66361411"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74153713"
 ---
-# <a name="supported-codecs"></a>サポートされるコーデック
+# <a name="supported-codecs"></a>サポートされているコーデック
 
 この記事では、各デバイス ファミリの既定で、UWP アプリで利用可能なオーディオ、ビデオ、イメージのコーデックと形式を示します。 これらの表では、指定のデバイス ファミリの Windows 10 のインストールに含まれているコーデックを示していることに注意してください。 ユーザーやアプリが、利用可能な追加のコーデックをインストールする場合があります。 実行時に、特定のデバイスで現在利用可能なコーデックのセットを照会できます。 詳しくは、「[デバイスにインストールされているコーデックの照会](codec-query.md)」をご覧ください。
 
@@ -1272,7 +1272,7 @@ ms.locfileid: "66361411"
 
  
 
-### <a name="xbox"></a>XBox
+### <a name="xbox"></a>Xbox
 
 <table>
 <colgroup>
@@ -2469,7 +2469,7 @@ ms.locfileid: "66361411"
 
  
 
-### <a name="xbox"></a>XBox
+### <a name="xbox"></a>Xbox
 
 <table>
 <colgroup>
@@ -2749,7 +2749,7 @@ ms.locfileid: "66361411"
 <tr class="even">
 <td align="left">RAW 形式のカメラ</td>
 <td align="left">D<sup>3</sup></td>
-<td align="left">X</td>
+<td align="left">必須ではない</td>
 </tr>
 </table>
 

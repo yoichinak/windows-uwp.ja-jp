@@ -1,5 +1,5 @@
 ---
-Description: ポインター デバイス (タッチやマウスなど) の代わりにキーボードを使ってアプリの表示される UI をすばやく移動して操作する直感的な方法をユーザーに用意することにより、UWP アプリの使いやすさとアクセシビリティの両方を高める方法について説明します。
+Description: Windows アプリの使いやすさとアクセシビリティの両方を向上させる方法について説明します。ユーザーは、ポインターデバイス (タッチやマウスなど) ではなく、キーボードを使用して、アプリの表示可能な UI をすばやく移動したり、操作したりすることができます。
 title: アクセス キーの設計ガイドライン
 label: Access keys design guidelines
 keywords: キーボード, アクセス キー, keytip, キーのヒント, アクセシビリティ, ナビゲーション, フォーカス, テキスト, 入力, ユーザーの操作
@@ -11,12 +11,12 @@ design-contact: kimsea
 dev-contact: niallm
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: b27c5a0446bc9b329b09855f06d58a13723ece1c
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: c0d5808c462beb72341fd83c6fc4c1cfc0178b2f
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67317381"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970977"
 ---
 # <a name="access-keys"></a>アクセス キー
 
@@ -27,7 +27,7 @@ ms.locfileid: "67317381"
 > [!NOTE]
 > キーボードは、特定の障碍を持つユーザーにとっては不可欠であり ([キーボードのアクセシビリティ](https://docs.microsoft.com/windows/uwp/accessibility/keyboard-accessibility)をご覧ください)、アプリをより効率的に操作することを望むユーザーにとって重要なツールでもあります。
 
-ユニバーサル Windows プラットフォーム (UWP) には、キーボード ベースのアクセス キー、およびキーのヒントと呼ばれる視覚的な合図を利用した関連する UI フィードバックの両方について、さまざまなプラットフォーム コントロールに対応した組み込みのサポートが用意されています。
+Windows アプリは、キーヒントと呼ばれる視覚的な手掛かりを通じて、キーボードベースのアクセスキーと関連付けられた UI フィードバックの両方のプラットフォームコントロールに対して、組み込みのサポートを提供します。
 
 ## <a name="overview"></a>概要
 
@@ -44,7 +44,7 @@ Microsoft Office アプリでは、アクセス キーが広範にサポート�
 
 ![Microsoft Word におけるアクセス キーの KeyTip バッジ](images/accesskeys/keytip-badges-word.png)
 
-_Microsoft Word でアクセス キーの KeyTip のバッジ_
+_Microsoft Word におけるアクセス キーの KeyTip バッジ_
 
 コントロールにアクセス キーを追加するには、**AccessKey プロパティ**を使います。 このプロパティの値は、アクセス キーの順序、ショートカット (1 文字の英数字の場合)、キーのヒントを指定します。
 
@@ -72,11 +72,11 @@ UI に適切な場合は必ずアクセス キーを指定し、すべてのカ�
 
 次の図は、Word における 2 つのアクセス キー スコープを示しています。 最初の図は、ユーザーがタブとその他の最上位レベルのコマンドを選択できるようにするプライマリ アクセス キーを示しています。2 つ目の図は、[ホーム] タブのセカンダリ アクセス キーを示しています。
 
-![Microsoft Word のプライマリ アクセス キー](images/accesskeys/primary-access-keys-word.png)
-_Microsoft Word のプライマリ アクセス キー_
+![Microsoft word](images/accesskeys/primary-access-keys-word.png)
+_のプライマリアクセスキー_ microsoft word のプライマリアクセスキー
 
-![Microsoft Word のセカンダリ アクセス キー](images/accesskeys/secondary-access-keys-word.png)
-_Microsoft Word のセカンダリ アクセス キー_
+![Microsoft word](images/accesskeys/secondary-access-keys-word.png)
+_の_セカンダリアクセスキー microsoft word のセカンダリアクセスキー
 
 アクセス キーは、異なるスコープの要素用に複製することができます。 前の例では、"2" はプライマリ スコープにおける [元に戻す] のアクセス キーであり、セカンダリ スコープにおける "斜体" のアクセス キーでもあります。
 
@@ -110,11 +110,11 @@ _Microsoft Word のセカンダリ アクセス キー_
 
 ![CommandBar のプライマリ アクセス キー](images/accesskeys/primary-access-keys-commandbar.png)
 
-_コマンド バーの主なスコープとサポートされているアクセス キー_
+_CommandBar のプライマリ スコープとサポートされているアクセス キー_
 
 ![CommandBar のセカンダリ アクセス キー](images/accesskeys/secondary-access-keys-commandbar.png)
 
-_コマンド バーのセカンダリ範囲とサポートされているアクセス キー_
+_CommandBar のセカンダリ スコープとサポートされているアクセス キー_
 
 ### <a name="windows-10-creators-update-and-older"></a>Windows 10 Creators Update 以降
 
@@ -233,13 +233,13 @@ public class CommandBarHack : CommandBar
 
 ![英語およびスペイン語のリソース文字列フォルダー](images/accesskeys/resource-string-folders.png)
 
-_英語とスペイン語のリソース文字列フォルダー_
+_英語およびスペイン語のリソース文字列フォルダー_
 
 ローカライズされたアクセス キーは、プロジェクトの resources.resw ファイルで指定されます。
 
 ![resources.resw ファイルで指定された AccessKey プロパティを指定する](images/accesskeys/resource-resw-file.png)
 
-_Resources.resw ファイルで指定されたアクセス キーのプロパティを指定します。_
+_resources.resw ファイルで指定された AccessKey プロパティを指定する_
 
 詳しくは、「[UI リソースの翻訳](https://docs.microsoft.com/previous-versions/windows/apps/hh965329(v=win.10))」をご覧ください。
 
@@ -251,21 +251,21 @@ _Resources.resw ファイルで指定されたアクセス キーのプロパテ
 
 ![キーのヒントの自動配置の例](images/accesskeys/auto-keytip-position.png)
 
-_キーのヒントの自動配置の例_
+_キーヒントの自動配置の例_
 
 ただし、キーのヒントの配置より細かく制御する必要がある場合、次のことをお勧めします。
 
-1.  **わかりやすい原則**:ユーザー キーのヒントでは、コントロールを簡単に関連付けることができます。
+1.  **明白な関連付けの原則**: ユーザーが、コントロールをキーのヒントと簡単に関連付けることができるようにします。
 
     a.  キーのヒントは、アクセス キーを持つ要素 (オーナー) の**近く**に配置する必要があります。  
     b.  キーのヒントは、アクセス キーを持つ**有効な要素を覆わないようにする**必要があります。   
     c.  キーのヒントをそのオーナーの近くに配置できない場合、オーナーと重ねる必要があります。 
 
-2.  **探索可能性**:ユーザーは、キーのヒントを持つコントロールをすばやく検出できます。
+2.  **見つけやすさ**: ユーザーが、キーのヒントによってコントロールをすばやく見つけることができるようにします。
 
     a.  キーのヒントが他のキーのヒントと**重なる**のを回避してください。  
 
-3.  **簡単にスキャンします。** ユーザー キーのヒントは簡単に読み飛ばしてかまいません。
+3.  **簡単なスキャン:** ユーザーは、重要なヒントを簡単にざっと見ることができます。
 
     a.  キーのヒントは、ヒント相互および UI 要素に**揃えて**配置する必要があります。
     b.  キーのヒントはできる限り**グループ分け**する必要があります。 
@@ -274,11 +274,11 @@ _キーのヒントの自動配置の例_
 
 要素またはグループごとにキーのヒントの配置をカスタマイズするには、**KeyTipPlacementMode** プロパティを使います。
 
-配置モードがあります。上部、下部にある、Right、Left、非表示、Center、および自動。
+配置モードは、Top、Bottom、Right、Left、Hidden、Center、Auto です。
 
 ![キーのヒントの配置モード](images/accesskeys/keytip-postion-modes.png)
 
-_配置モードのキー ヒント_
+_キーのヒントの配置モード_
 
 コントロールの中心線は、キーのヒントの垂直方向および水平方向の配置の計算に使われます。
 
@@ -303,7 +303,7 @@ KeyTipHorizontalOffset プロパティは、キーのヒントを左または右
 
 ![キーのヒントの配置モード](images/accesskeys/keytip-offsets.png)
 
-_キーのヒントの垂直方向および水平方向のオフセットを設定します。_
+_主要なヒントの垂直方向および水平方向のオフセットを設定する_
 
 ``` xaml
 <Button
@@ -320,7 +320,7 @@ _キーのヒントの垂直方向および水平方向のオフセットを設�
 
 ![キーのヒントの配置モード](images/accesskeys/keytips-screen-edge.png)
 
-_画面の端が自動的にそれ自体の位置を変更するキーのヒント_
+_画面の端によりキーのヒントの位置が自動的に変更される_
 
 ## <a name="key-tip-style"></a>キーのヒントのスタイル
 
@@ -353,14 +353,14 @@ _キーのヒントのカスタマイズ オプション_
 
 XAML フレームワークには、UI オートメーション クライアントがユーザー インターフェイス内の要素に関する情報を検出できるようにするオートメーション プロパティが表示されます。
 
-UIElement または TextElement コントロールで AccessKey プロパティを指定する場合、[AutomationProperties.AccessKey](https://docs.microsoft.com/dotnet/api/system.windows.automation.automationproperties.accesskey?view=netframework-4.8) プロパティを使ってこの値を取得できます。 ナレーターなどのアクセシビリティ クライアントは、要素がフォーカスを取得するたびにこのプロパティの値を読み取ります。
+UIElement または TextElement コントロールで AccessKey プロパティを指定する場合、[AutomationProperties.AccessKey](https://docs.microsoft.com/dotnet/api/system.windows.automation.automationproperties.accesskey) プロパティを使ってこの値を取得できます。 ナレーターなどのアクセシビリティ クライアントは、要素がフォーカスを取得するたびにこのプロパティの値を読み取ります。
 
 ## <a name="related-articles"></a>関連記事
 
-* [キーボードの相互作用](keyboard-interactions.md)
-* [キーボード アクセラレータ](keyboard-accelerators.md)
+* [キーボード操作](keyboard-interactions.md)
+* [キーボードアクセラレータ](keyboard-accelerators.md)
 
 **サンプル**
-* [XAML コントロール ギャラリー (XamlUiBasics とも呼ばれます)](https://github.com/Microsoft/Windows-universal-samples/tree/c2aeaa588d9b134466bbd2cc387c8ff4018f151e/Samples/XamlUIBasics)
+* [XAML コントロールギャラリー (XamlUiBasics 基本)](https://github.com/Microsoft/Windows-universal-samples/tree/c2aeaa588d9b134466bbd2cc387c8ff4018f151e/Samples/XamlUIBasics)
 
 

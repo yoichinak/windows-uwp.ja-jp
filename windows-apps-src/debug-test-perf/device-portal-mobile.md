@@ -4,14 +4,14 @@ title: モバイル用 Device Portal
 description: Windows Device Portal で、モバイル デバイスの構成と管理をリモートから行う方法について説明します。
 ms.date: 02/08/2017
 ms.topic: article
-keywords: windows 10、uwp、デバイス ポータル
+keywords: windows 10, uwp, デバイス ポータル
 ms.localizationpriority: medium
-ms.openlocfilehash: 879f4b9fd8806565eedeabda95f0c24c5b7931d7
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: MT
+ms.openlocfilehash: fb9cd2861fe826d9e8d112f2729d2922c68194ce
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57597227"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "72281892"
 ---
 # <a name="device-portal-for-mobile"></a>モバイル用 Device Portal
 
@@ -31,9 +31,9 @@ Device Portal に接続するには、電話の設定でデバイスの検出と
 
 ![開発者モードのデバイス検出設定](images/device-portal/mob-dev-mode-pairing.png)
 
-デバイスのポータルに接続する 3 つの方法から選択できます。USB、ローカルのホストとローカル ネットワーク (テザリングと VPN を含む)。
+Device Portal に接続するには、USB、ローカル ホスト、ローカル ネットワーク (VPN やテザリングを含む) の 3 つの方法のいずれかを使うことができます。
 
-**デバイスのポータルに接続するには**
+**Device Portal に接続するには**
 
 1. ブラウザーで、使っている接続の種類に応じて次のアドレスを入力します。
 
@@ -66,7 +66,7 @@ Windows Phone の開発者設定ページの [Device Portal] セクションを�
 ## <a name="tool-notes"></a>ツールに関する注意事項
 
 ## <a name="device-portal-pages"></a>Device Portal のページ
-### <a name="processes"></a>Processes (プロセス)
+### <a name="processes"></a>プロセス
 
 Windows Mobile Device Portal には、任意のプロセスを強制終了する機能はありません。 
 
@@ -74,7 +74,7 @@ Windows Mobile Device Portal には、任意のプロセスを強制終了する
 
 - アプリ マネージャー
 - アプリのエクスプローラー (分離ストレージ エクスプローラー)
-- Processes (プロセス)
+- プロセス
 - パフォーマンスのグラフ
 - Windows イベント トレーシング (ETW)
 - パフォーマンス トレース (WPR) 
@@ -84,4 +84,4 @@ Windows Mobile Device Portal には、任意のプロセスを強制終了する
 ## <a name="see-also"></a>関連項目
 
 * [Windows Device Portal の概要](device-portal.md)
-* [デバイス ポータル core API リファレンス](https://docs.microsoft.com/windows/uwp/debug-test-perf/device-portal-api-core)
+* [デバイス ポータル コア API リファレンス](https://docs.microsoft.com/windows/uwp/debug-test-perf/device-portal-api-core)

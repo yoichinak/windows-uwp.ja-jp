@@ -5,14 +5,14 @@ Search.SourceType: Video
 ms.assetid: 9237A5BD-F9DE-4B8C-B689-601201BA8B9A
 ms.date: 01/11/2018
 ms.topic: article
-keywords: windows 10、uwp、バック グラウンド タスク
+keywords: windows 10、uwp、バックグラウンドタスク
 ms.localizationpriority: medium
-ms.openlocfilehash: 280f2253fda7de816ee753798dcab754d58ae847
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: f2700f0e5ffa8c2d1c9f0500e967096763757cd9
+ms.sourcegitcommit: 9aef3bc26a56b8d266b3089d509f79b119234b6f
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66370549"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80538189"
 ---
 # <a name="update-a-live-tile-from-a-background-task"></a>バックグラウンド タスクのライブ タイルの更新
 
@@ -29,10 +29,10 @@ ms.locfileid: "66370549"
 
 ## <a name="create-the-background-task-project"></a>バックグラウンド タスク プロジェクトを作る  
 
-アプリのライブ タイルを有効にするには、新しい Windows ランタイム コンポーネント プロジェクトをソリューションに追加します。 このプロジェクトは個別のアセンブリです。ユーザーがアプリをインストールするとき、OS ではこのプロジェクトがバックグラウンドで読み込まれ、実行されます。
+アプリのライブタイルを有効にするには、新しい Windows ランタイムコンポーネントプロジェクトをソリューションに追加します。 このプロジェクトは個別のアセンブリです。ユーザーがアプリをインストールするとき、OS ではこのプロジェクトがバックグラウンドで読み込まれ、実行されます。
 
 1.  ソリューション エクスプローラーでソリューションを右クリックし、 **[追加]** 、 **[新しいプロジェクト]** の順にクリックします。
-2.  **[新しいプロジェクトの追加]** ダイアログ ボックスで、 **[インストール済み] &gt; [他の言語] &gt; [Visual C#] &gt; [Windows ユニバーサル]** セクションで、 **[Windows ランタイム コンポーネント]** テンプレートを選びます。
+2.  **[新しいプロジェクトの追加]** ダイアログ ボックスで、 **[インストール済み]**  [他の言語]  **[Visual C#] &gt; [Windows ユニバーサル]&gt; セクションで、&gt;[Windows ランタイム コンポーネント]** テンプレートを選びます。
 3.  プロジェクトに BackgroundTasks という名前を付け、 **[OK]** をクリックまたはタップします。 Microsoft Visual Studio によって、新しいプロジェクトがソリューションに追加されます。
 4.  メイン プロジェクトで、BackgroundTasks プロジェクトへの参照を追加します。
 
@@ -114,7 +114,7 @@ namespace BackgroundTasks
             // Create a tile notification for each feed item.
             foreach( var item in feed.Items )
             {
-                XmlDocument tileXml = TileUpdateManager.GetTemplateContent( TileTemplateType.TileWideText03 );
+                XmlDocument tileXml = TileUpdateManager.GetTemplateContent( TileTemplateType.TileWide310x150Text03 );
 
                 var title = item.Title;
                 string titleText = title.Text == null ? String.Empty : title.Text;
@@ -152,7 +152,7 @@ namespace BackgroundTasks
 6.  **[アプリケーション UI]** タブをクリックまたはタップします。
 7.  **[ロック画面通知]** を **[バッジとタイル テキスト]** に設定します。
 8.  **[バッジ ロゴ]** フィールドに、24x24 ピクセルのアイコンへのパスを設定します。
-    **重要な**  このアイコンは、モノクロおよび透明なピクセルのみを使用する必要があります。
+    **重要**  このアイコンでは、白黒および透明ピクセルのみを使用する必要があります。
 9.  **[小さいロゴ]** フィールドに、30x30 ピクセルのアイコンへのパスを設定します。
 10. **[ワイド ロゴ]** フィールドに、310x150 ピクセルのアイコンへのパスを設定します。
 
@@ -161,7 +161,7 @@ namespace BackgroundTasks
 
 [  **BackgroundTaskBuilder**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.BackgroundTaskBuilder) を作って、タスクを登録します。
 
-> **注**  バック グラウンド タスクの登録パラメーターは Windows 8.1 以降、登録時に検証されます。 いずれかの登録パラメーターが有効でない場合は、エラーが返されます。 アプリは、バックグラウンド タスクの登録が失敗するシナリオを処理できる必要があります。たとえば、条件ステートメントを使って登録エラーを確認し、失敗した登録は別のパラメーター値を使ってやり直してみます。
+> **注**  Windows 8.1 以降では、バックグラウンドタスクの登録パラメーターが登録時に検証されます。 いずれかの登録パラメーターが有効でない場合は、エラーが返されます。 アプリは、バックグラウンド タスクの登録が失敗するシナリオを処理できる必要があります。たとえば、条件ステートメントを使って登録エラーを確認し、失敗した登録は別のパラメーター値を使ってやり直してみます。
  
 
 アプリのメイン ページで、**RegisterBackgroundTask** メソッドを追加し、このメソッドを **OnNavigatedTo** イベント ハンドラーで呼び出します。
@@ -213,8 +213,8 @@ namespace ContosoApp
         private async void RegisterBackgroundTask()
         {
             var backgroundAccessStatus = await BackgroundExecutionManager.RequestAccessAsync();
-            if( backgroundAccessStatus == BackgroundAccessStatus.AllowedMayUseActiveRealTimeConnectivity ||
-                backgroundAccessStatus == BackgroundAccessStatus.AllowedWithAlwaysOnRealTimeConnectivity )
+            if( backgroundAccessStatus == BackgroundAccessStatus.AllowedSubjectToSystemPolicy ||
+                backgroundAccessStatus == BackgroundAccessStatus.AlwaysAllowed )
             {
                 foreach( var task in BackgroundTaskRegistration.AllTasks )
                 {
@@ -244,20 +244,20 @@ namespace ContosoApp
 バックグラウンド タスクをデバッグするには、タスクの Run メソッドにブレークポイントを設定します。 **[デバッグの場所]** ツール バーで、バックグラウンド タスクを選びます。 この操作によって、システムで Run メソッドがすぐに呼び出されます。
 
 1.  タスクの Run メソッドにブレークポイントを設定します。
-2.  アプリを展開し実行するには、F5 キーを押すか、 **[デバッグ]、[デバッグの開始]** の順にタップします。
+2.  アプリを展開し実行するには、F5 キーを押すか、 **[デバッグ]、[デバッグの開始]&gt; の順にタップします。
 3.  アプリを起動した後で、Visual Studio に戻ります。
-4.  **[デバッグの場所]** ツール バーが表示されていることを確認します。 **[表示] の [ツール バー]** メニューで確認できます。
+4.  **[デバッグの場所]** ツール バーが表示されていることを確認します。 **[表示] の [ツール バー]&gt; メニューで確認できます。
 5.  **[デバッグの場所]** ツール バーで、 **[中断]** ドロップダウンをクリックし、 **[BlogFeedBackgroundTask]** を選びます。
 6.  Visual Studio では、ブレークポイントで実行が中断します。
-7.  アプリの実行を続けるには、F5 キーを押すか、 **[デバッグ]、[続行]** の順にタップします。
-8.  デバッグを停止するには、Shift キーを押しながら F5 キーを押すか、 **[デバッグ]、[デバッグの停止]** の順にタップします。
+7.  アプリの実行を続けるには、F5 キーを押すか、 **[デバッグ]、[続行]&gt; の順にタップします。
+8.  デバッグを停止するには、Shift キーを押しながら F5 キーを押すか、 **[デバッグ]、[デバッグの停止]&gt; の順にタップします。
 9.  スタート画面にあるアプリのタイルに戻ります。 数秒後、アプリのタイルにタイル通知が表示されます。
 
 ## <a name="related-topics"></a>関連トピック
 
 
 * [**BackgroundTaskBuilder**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.BackgroundTaskBuilder)
-* [**TileUpdateManager**](https://docs.microsoft.com/uwp/api/Windows.UI.Notifications.TileUpdateManager)
+* [**タイル Updatemanager**](https://docs.microsoft.com/uwp/api/Windows.UI.Notifications.TileUpdateManager)
 * [**TileNotification**](https://docs.microsoft.com/uwp/api/Windows.UI.Notifications.TileNotification)
 * [バックグラウンド タスクによるアプリのサポート](support-your-app-with-background-tasks.md)
 * [タイルとバッジのガイドラインとチェックリスト](https://docs.microsoft.com/windows/uwp/controls-and-patterns/tiles-and-notifications-creating-tiles)

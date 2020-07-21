@@ -1,427 +1,113 @@
 ---
-layout: LandingPage
 Description: Windows PC 用のデスクトップ アプリの開発を開始する方法を説明します。これには、新しいアプリ用の適切なアプリ プラットフォームを選択する方法、Windows 10 用の既存のアプリを現代化する方法も含まれます。
 title: Windows PC 用のデスクトップ アプリの構築
-ms.topic: landing-page
-ms.date: 04/18/2019
+ms.topic: article
+ms.date: 11/04/2019
 keywords: windows win32, デスクトップ開発
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: c69c744684d05c3ad64d98fbda30a3ccfdc91080
-ms.sourcegitcommit: f167775291cbc566b72b0859ae6b426d848c5c89
+ms.openlocfilehash: d052ad0f670bccd9b32d2e3643520dd6129ed22a
+ms.sourcegitcommit: cc645386b996f6e59f1ee27583dcd4310f8fb2a6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266413"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84262743"
 ---
 # <a name="build-desktop-apps-for-windows-pcs"></a>Windows PC 用のデスクトップ アプリの構築
 
-<ul class="cardsK panelContent">
-    <li>
-      <a href="choose-your-platform.md">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage bgdAccent1">
-                            <img src="/media/illustrations/biztalk-developer-documentation-1.svg?branch=master" alt="Platforms illustration" data-linktype="external" class="x-hidden-focus">
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>プラットフォームの選択</h3>
-                        <p></p>アプリ プラットフォームを選択して新しいデスクトップ アプリの構築を開始します。UWP、WPF、Windows フォーム、または Win32。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </a>
-    </li>
-    <li>
-      <a href="/windows/apps/desktop/modernize">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage bgdAccent1">
-                            <img src="/media/illustrations/teams-fast-track.svg?branch=master" alt="Modernize illustration" data-linktype="external" class="x-hidden-focus">
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>デスクトップ アプリの現代化</h3>
-                        <p></p>最新の Windows 機能により、既存の WPF、Windows フォーム、および Win32 アプリを強化します。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </a>
-    </li>
-    <li>
-      <a href="../fluent-design-system.md">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage bgdAccent1">
-                            <img src="/media/illustrations/sql-database-develop.svg?branch=master" alt="Design illustration" data-linktype="external" class="x-hidden-focus">
-                        </div>
-                    </div>
-                    <div class="cardText">
-                    <h3>Fluent Design System</h3>
-                    <p>Fluent Design System を使用して Windows アプリのユーザー インターフェイスを設計してコーディングする方法について説明します。</p>
-                  </div>
-                </div>
-            </div>
-        </div>
-      </a>
-    </li>
-</ul>
-<ul class="cardsY panelContent featuredContent">
-       <li>
-            <a href="https://developer.microsoft.com/windows/downloads">
-                <div class="cardSize">
-                    <div class="cardPadding">
-                        <div class="card">
-                            <div class="cardImageOuter">
-                                <div class="cardImage">
-                                    <img data-hoverimage="/media/common/i_tools.svg?branch=master" src="/media/common/i_tools.svg?branch=master" alt="Tools icon" />
-                                </div>
-                            </div>
-                            <div class="cardText">
-                                <h3>ツールのダウンロード</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </li>
-        <li>
-            <a href="https://developer.microsoft.com/windows/samples">
-                <div class="cardSize">
-                    <div class="cardPadding">
-                        <div class="card">
-                            <div class="cardImageOuter">
-                                <div class="cardImage">
-                                    <img data-hoverimage="/media/common/i_code-samples.svg?branch=master" src="/media/common/i_code-samples.svg?branch=master" alt="Samples icon" />
-                                </div>
-                            </div>
-                            <div class="cardText">
-                                <h3>サンプル</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </li>
-       <li>
-            <a href="/windows/desktop/apiindex/api-index-portal">
-                <div class="cardSize">
-                    <div class="cardPadding">
-                        <div class="card">
-                            <div class="cardImageOuter">
-                                <div class="cardImage">
-                                    <img data-hoverimage="/media/common/i_api-reference.svg?branch=master" src="/media/common/i_api-reference.svg?branch=master" alt="API index icon" />
-                                </div>
-                            </div>
-                            <div class="cardText">
-                                <h3>API インデックス</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </li>
-</ul>
-<hr />
-<h2>プラットフォームと機能</h2>
-<ul class="cardsK panelContent">
-    <li>
-      <a href="/windows/uwp">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage bgdAccent1">
-                            <img src="/dotnet/images/hub/net-docs-desktop-1.svg?branch=master" alt="UWP illustration" data-linktype="external" class="x-hidden-focus">
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>ユニバーサル Windows プラットフォーム (UWP)</h3>
-                        <p></p>Windows 10 アプリケーションおよびゲーム用の最先端のプラットフォームです。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </a>
-    </li>
-    <li>
-      <a href="/windows/desktop/index">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage bgdAccent1">
-                            <img src="/media/hubs/windows/win_developer-desktop.svg?branch=master" alt="Win32 illustration" data-linktype="external" class="x-hidden-focus">
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Win32</h3>
-                        <p></p>Windows とハードウェアへの直接アクセスを必要とするネイティブ C/C++ の Windows アプリケーションのために用意された最初のプラットフォームです。 </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </a>
-    </li>
-    <li>
-      <a href="/dotnet/framework/wpf/index">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage bgdAccent1">
-                            <img src="/dotnet/images/hub/net-docs-desktop-2.svg?branch=master" alt="WPF illustration" data-linktype="external" class="x-hidden-focus">
-                        </div>
-                    </div>
-                    <div class="cardText">
-                    <h3>WPF</h3>
-                    <p>XAML UI モデルと .NET Framework へのフル アクセスを備え、Windows マネージド アプリケーション用として実績のあるプラットフォームです。</p>
-                  </div>
-                </div>
-            </div>
-        </div>
-      </a>
-    </li>
-    <li>
-      <a href="/dotnet/framework/winforms/index">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage bgdAccent1">
-                            <img src="/dotnet/images/hub/net-docs-desktop-3.svg?branch=master" alt="Windows Forms illustration" data-linktype="external" class="x-hidden-focus">
-                        </div>
-                    </div>
-                    <div class="cardText">
-                    <h3>Windows フォーム</h3>
-                    <p>軽量 UI モデルと .NET Framework へのフル アクセスを備えた基幹業務アプリケーションをすばやく開発します。 </p>
-                  </div>
-                </div>
-            </div>
-        </div>
-      </a>
-    </li>
-    <li>
-      <a href="/dotnet">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage bgdAccent1">
-                            <img src="/media/illustrations/system-center-virtual-machine.svg?branch=master" alt=".NET illustration" data-linktype="external" class="x-hidden-focus">
-                        </div>
-                    </div>
-                    <div class="cardText">
-                    <h3>.NET</h3>
-                    <p>WPF と Windows フォーム アプリが実行されるインフラストラクチャを提供する強力で包括的な開発プラットフォームです。</p>
-                  </div>
-                </div>
-            </div>
-        </div>
-      </a>
-    </li>
-    <li>
-      <a href="../features-and-technologies.md">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage bgdAccent1">
-                            <img src="/media/illustrations/dynamics-training.svg?branch=master" alt="Features illustration" data-linktype="external" class="x-hidden-focus">
-                        </div>
-                    </div>
-                    <div class="cardText">
-                    <h3>機能とテクノロジ</h3>
-                    <p>Windows 機能がさまざまなアプリ プラットフォームでどのようにサポートされているかを学び、コードでこれらの機能の使用を開始します。</p>
-                  </div>
-                </div>
-            </div>
-        </div>
-      </a>
-    </li>
-</ul>
-<ul class="cardsY panelContent featuredContent">
-       <li>
-            <a href="/windows/desktop/appxpkg/windows-desktop-application-program">
-                <div class="cardSize">
-                    <div class="cardPadding">
-                        <div class="card">
-                            <div class="cardImageOuter">
-                                <div class="cardImage">
-                                    <img data-hoverimage="/media/common/i_code-performance.svg?branch=master" src="/media/common/i_code-performance.svg?branch=master" alt="Performance icon" />
-                                </div>
-                            </div>
-                            <div class="cardText">
-                                <h3>Windows デスクトップ アプリケーション プログラム</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </li>
-        <li>
-            <a href="https://developer.microsoft.com/windows/desktop/app-compatibility">
-                <div class="cardSize">
-                    <div class="cardPadding">
-                        <div class="card">
-                            <div class="cardImageOuter">
-                                <div class="cardImage">
-                                    <img data-hoverimage="/media/common/i_code-quality.svg?branch=master" src="/media/common/i_code-quality.svg?branch=master" alt="App compatibility icon" />
-                                </div>
-                            </div>
-                            <div class="cardText">
-                                <h3>Windows 10 との互換性の維持</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </li>
-       <li>
-            <a href="https://developer.microsoft.com/windows/enterprise">
-                <div class="cardSize">
-                    <div class="cardPadding">
-                        <div class="card">
-                            <div class="cardImageOuter">
-                                <div class="cardImage">
-                                    <img data-hoverimage="/media/common/i_form.svg?branch=master" src="/media/common/i_form.svg?branch=master" alt="Enterprise icon" />
-                                </div>
-                            </div>
-                            <div class="cardText">
-                                <h3>エンタープライズ アプリケーション</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </li>
-</ul>
-<hr/>
-</div>
-<ul class="panelContent cardsW">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>関連ドキュメント</h3>
-                        <p></p>
-                        <p><a href="/windows/msix/desktop/desktop-to-uwp-root">MSIX パッケージ化とデプロイ</a></p>
-                        <p><a href="https://docs.microsoft.com/dotnet">.NET</a></p>
-                        <p><a href="https://docs.microsoft.com/visualstudio/ide/">Visual Studio</a></p>
-                        <p><a href="https://docs.microsoft.com/azure/">Azure</a></p>
-                        <p><a href="https://docs.microsoft.com/xamarin">Xamarin</a></p>
-                        <p><a href="https://docs.microsoft.com/microsoft-edge/progressive-web-apps">プログレッシブ Web アプリ</a></p>
-                        <p><a href="https://docs.microsoft.com/previous-versions/windows/">Windows 8.x 以前のドキュメント アーカイブ</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>その他のテクノロジとツール</h3>
-                        <p></p>
-                        <p><a href="https://docs.microsoft.com/windows/iot-core/">Windows IoT</a></p>
-                        <p><a href="https://docs.microsoft.com/windows/mixed-reality/">Windows Mixed Reality</a></p>
-                        <p><a href="https://docs.microsoft.com/windows/ai/">Windows ML</a></p>
-                        <p><a href="https://docs.microsoft.com/windows/project-rome/">Project Rome</a></p>
-                        <p><a href="https://adaptivecards.io/">アダプティブ カード</a></p>
-                        <p><a href="https://developer.microsoft.com/graph">Microsoft Graph</a></p>
-                        <p><a href="https://docs.microsoft.com/virtualization/#pivot=main&panel=containers">Windows コンテナー</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>コミュニティとサポート</h3>
-                        <p></p>
-                        <p><a href="https://twitter.com/WindowsDocs">Twitter の @WindowsDocs</a></p>
-                        <p><a href="https://aka.ms/OneDevMinute">YouTube の OneDevMinute</a></p>
-                        <p><a href="https://developer.microsoft.com/windows/support">Windows 開発者向けサポート</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    </li>
-</ul>
+この記事では、Windows 用のデスクトップ アプリの構築を開始するために必要な情報、または既存のデスクトップ アプリを更新して Windows 10 で最新のエクスペリエンスを導入するために必要な情報を提供します。
 
-<!-- 
+## <a name="platforms-for-desktop-apps"></a>デスクトップ アプリのプラットフォーム
 
-<ul class="panelContent cardsW">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Community and support</h3>
-                        <p><a href="https://twitter.com/WindowsDocs">@WindowsDocs on Twitter</a></p>
-                        <p><a href="https://aka.ms/OneDevMinute">OneDevMinute on YouTube</a></p>
-                        <p><a href="https://developer.microsoft.com/windows/support">Windows developer support</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Related docs for desktop app development</h3>
-                        <p><a href="https://docs.microsoft.com/previous-versions/windows/">Docs archive for Windows 8.x and earlier</a></p>
-                        <p><a href="/windows/msix/desktop/desktop-to-uwp-root">MSIX packaging and deployment</a></p>
-                        <p><a href="https://docs.microsoft.com/windows/uwp">Universal Windows Platform (UWP)</a></p>
-                        <p><a href="https://docs.microsoft.com/windows/desktop/apiindex/windows-api-list">Windows API (Win32)</a></p>
-                        <p><a href="https://docs.microsoft.com/dotnet">.NET</a></p>
-                        <p><a href="https://docs.microsoft.com/dotnet/framework/wpf">WPF</a></p>
-                        <p><a href="https://docs.microsoft.com/dotnet/framework/winforms">Windows Forms</a></p>
-                        <p><a href="https://docs.microsoft.com/windows/ai/">Windows ML</a></p>
-                        <p><a href="https://docs.microsoft.com/xamarin">Xamarin</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Other technologies and tools</h3>
-                        <p><a href="https://adaptivecards.io/">Adaptive Cards</a></p>
-                        <p><a href="https://docs.microsoft.com/azure/">Azure</a></p>
-                        <p><a href="https://developer.microsoft.com/cortana">Cortana</a></p>
-                        <p><a href="https://developer.microsoft.com/graph">Microsoft Graph</a></p>
-                        <p><a href="https://docs.microsoft.com/microsoft-edge/progressive-web-apps">Progressive Web Apps</a></p>
-                        <p><a href="https://docs.microsoft.com/windows/project-rome/">Project Rome</a></p>
-                        <p><a href="https://docs.microsoft.com/virtualization/#pivot=main&panel=containers">Windows Containers</a></p>
-                        <p><a href="https://docs.microsoft.com/windows/iot-core/">Windows IoT</a></p>
-                        <p><a href="https://docs.microsoft.com/windows/mixed-reality/">Windows Mixed Reality</a></p>
-                        <p><a href="https://docs.microsoft.com/visualstudio/ide/">Visual Studio</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-</ul>
+Windows PC 用のデスクトップ アプリを構築するプラットフォームは、主に 4 つあります。 各プラットフォームには、アプリのライフサイクル、UI コントロールの完全なセット、Windows 機能を使用するための包括的な一連のマネージド API またはネイティブ API へのアクセスを定義するアプリ モデルが用意されています。
 
--->
+次の表は、プラットフォームについて説明しています。 これらのプラットフォームと、各プラットフォームのその他のリソースの詳細な比較については、「[アプリのプラットフォームを選択する](choose-your-platform.md)」を参照してください。
+
+<br/>
+
+<table>
+<colgroup>
+<col width="20%" />
+<col width="60%" />
+<col width="20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>プラットフォーム</th>
+<th>説明</th>
+<th>ドキュメントとリソース</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://docs.microsoft.com/windows/uwp/">ユニバーサル Windows プラットフォーム (UWP)</a></td>
+<td><p>Windows 10 のアプリおよびゲーム用の最先端のプラットフォームです。 UWP コントロールと API を排他的に使用する UWP アプリをビルドすることも、他のプラットフォームのいずれかを使用して構築されたデスクトップ アプリで UWP コントロールと API を使用することもできます。</p></td>
+<td><a href="/windows/uwp/get-started/">作業開始</a><br/><a href="/uwp/">API リファレンス</a><br/><a href="https://github.com/Microsoft/Windows-universal-samples">サンプル</a></td>
+</tr>
+<tr class="even">
+<td><a href="https://docs.microsoft.com/windows/win32/">Win32</a></td>
+<td><p>Windows とハードウェアへの直接アクセスを必要とするネイティブ C/C++ の Windows アプリのために用意されたプラットフォームです。</p></td>
+<td><a href="/windows/win32/desktop-programming/">作業開始</a><br/><a href="/windows/win32/apiindex/windows-api-list/">API リファレンス</a><br/><a href="https://github.com/Microsoft/Windows-classic-samples">サンプル</a></td>
+</tr>
+<tr class="odd">
+<td><a href="https://docs.microsoft.com/dotnet/framework/wpf/">WPF</a></td>
+<td><p>XAML UI モデルを使用して多彩なグラフィックで管理される Windows アプリ用に構築された .NET ベースのプラットフォームです。 これらのアプリは、<a href="https://docs.microsoft.com/dotnet/core/whats-new/dotnet-core-3-0">.NET Core 3</a> または完全な .NET Framework を対象にすることができます。</p></td>
+<td><a href="/dotnet/framework/wpf/getting-started/">作業開始</a><br/><a href="https://docs.microsoft.com/dotnet/api/index">API リファレンス (.NET)</a><br/><a href="https://github.com/Microsoft/WPF-Samples">サンプル</a></td>
+</tr>
+<tr class="even">
+<td><a href="https://docs.microsoft.com/dotnet/framework/winforms/">Windows フォーム</a></td>
+<td><p>軽量の UI モデルを使用して管理される基幹業務アプリ用に設計された .NET ベースのプラットフォームです。 これらのアプリは、<a href="https://docs.microsoft.com/dotnet/core/whats-new/dotnet-core-3-0">.NET Core 3</a> または完全な .NET Framework を対象にすることができます。</p></td>
+<td><a href="/dotnet/framework/winforms/getting-started-with-windows-forms">作業開始</a><br/><a href="https://docs.microsoft.com/dotnet/api/index">API リファレンス (.NET)</a></td>
+</tr>
+</tbody>
+</table>
+
+> [!NOTE]
+> これらのアプリケーション プラットフォームは、一連の UI フレームワークおよび UI コントロールを備えています。従来の Windows デスクトップで実行される Word、Excel、Photoshop などのデスクトップ アプリを作成し、その環境固有の機能を最大限に活用できます。 Windows 10 では、この各プラットフォームで Windows UI (WinUI) ライブラリ を使用したユーザー インターフェイスの作成がサポートされています。 デスクトップ アプリ用の WinUI の詳細については、[こちらのセクション](choose-your-platform.md#windows-ui-library)を参照してください。
+
+## <a name="update-existing-desktop-apps-for-windows-10"></a>Windows 10 用に既存のデスクトップ アプリを更新する
+
+既存の WPF、Windows フォーム、またはネイティブの Win32 デスクトップ アプリをお持ちの場合は、Windows 10 とユニバーサル Windows プラットフォーム (UWP) に用意された多数の機能を使用して、アプリでモダンなエクスペリエンスを実現できます。 これらのほとんどの機能は、独自のペースでアプリに採用できるモジュラー コンポーネントとして利用できます。別のプラットフォーム用にアプリを書き換える必要がありません。
+
+次に示すのは、既存のデスクトップ アプリを強化するために使用できる機能のほんの一部です。
+
+* デスクトップ アプリをパッケージ化して展開するには、[MSIX](/windows/msix/) を使用します。 MSIX は、すべての Windows アプリ用の汎用パッケージ化エクスペリエンスを提供するモダンな Windows アプリ パッケージ形式です。 MSIX は、MSI、.appx、App-V および ClickOnce インストール テクノロジの優れた部分が組み合わされ、安全かつセキュアで信頼性の高いものとなるように構築されています。
+* デスクトップ アプリと Windows 10 のエクスペリエンスを統合するには、[パッケージ拡張](/windows/apps/desktop/modernize/desktop-to-uwp-extensions)を使用します。 たとえば、アプリの開始タイルをポイントしたり、アプリを共有先にしたり、アプリからトースト通知を送信したりできます。
+* デスクトップ アプリで UWP XAML コントロールをホストするには、[XAML Islands](/windows/apps/desktop/modernize/xaml-islands) を使用します。 最新の Windows 10 の UI 機能の多くは、UWP XAML コントロールでのみ使用できます。
+
+詳しくは、次の記事をご覧ください。
+
+<br/>
+
+| アーティクル | 説明 |
+|---------|-------------|
+| [デスクトップ アプリの現代化](/windows/apps/desktop/modernize) | WPF、Windows フォーム、C++ Win32 アプリなどの、任意のデスクトップ アプリで使用できる最新の Windows 10 および UWP 開発機能について説明します。 |
+| [チュートリアル: WPF アプリの現代化](/windows/apps/desktop/modernize/modernize-wpf-tutorial) | UWP インクと予定表のコントロールをアプリに追加し、MSIX パッケージにパッケージ化することで既存の WPF の基幹業務サンプル アプリを現代化する手順について説明します。  |
+
+## <a name="create-new-desktop-apps"></a>新しいデスクトップ アプリを作成する
+
+Windows 用の新しいデスクトップ アプリを作成する場合の、作業の開始に役立つリソースを次に示します。
+
+<br/>
+
+| アーティクル | 説明 |
+|---------|-------------|
+| [アプリ プラットフォームの選択](choose-your-platform.md) | 主要なデスクトップ アプリ プラットフォームの詳細な比較が提供されるため、ニーズに適したプラットフォームを選択するのに役立ちます。 この記事では、各プラットフォームのドキュメントへの便利なリンクも提供します。 |
+| [デスクトップ アプリの現代化](/windows/apps/desktop/modernize) | WPF、Windows フォーム、C++ Win32 アプリなどの、任意のデスクトップ アプリで使用できる最新の Windows 10 および UWP 開発機能について説明します。 |
+| [機能とテクノロジ](/windows/apps/features-and-technologies) | 主要なデスクトップ アプリ プラットフォームを通じてアクセスできる Windows 機能の概要と、関連ドキュメントへのリンクを示します。 |
+
+## <a name="related-documentation-and-technologies"></a>関連ドキュメントとテクノロジ
+
+| リソース | 説明 |
+|---------|-------------|
+| [.NET Core 3.0](https://docs.microsoft.com/dotnet/core/whats-new/dotnet-core-3-0) | .NET Core 3.0 の最新機能について説明します。これには、WPF と Windows フォーム アプリの機能強化が含まれます。 |
+| [WPF および .NET Core 3.0 用のデスクトップ ガイド](https://docs.microsoft.com/dotnet/desktop-wpf/overview/index) | 完全な .NET Framework ではなく、.NET Core 3.0 を対象とする WPF アプリを開発します。  |
+| [Azure](https://docs.microsoft.com/azure/) | Azure クラウド サービスを使用してアプリの公開範囲を拡張します。 |
+| [Visual Studio](https://docs.microsoft.com/visualstudio/) | Visual Studio を使用してアプリとサービスを開発する方法について説明します。 |
+| [MSIX](https://docs.microsoft.com/windows/msix/) | Windows アプリをパッケージ化して、最新の汎用パッケージ化形式で展開します。 |
+| [Windows AI](https://docs.microsoft.com/windows/ai/) | Windows AI を使用して、アプリの複雑な問題に対するインテリジェントなソリューションを構築します。 |
+| [Windows コンテナー](https://docs.microsoft.com/virtualization/windowscontainers/) | アプリケーションとその依存関係を、完全に分離された高速な Windows 環境でパッケージ化します。 |
+| [プログレッシブ Web アプリ](https://docs.microsoft.com/microsoft-edge/progressive-web-apps) | Web アプリを、Windows 10 で UWP アプリとして配布して実行できるプログレッシブ Web アプリに変換します。 |
+| [Xamarin](https://docs.microsoft.com/xamarin/) | .NET コードおよびプラットフォーム固有のユーザー インターフェイスを使用して、Windows、Android、iOS、および macOS 用のクロスプラットフォーム アプリを構築します。 |
+| [Windows 8.x 以前のドキュメント アーカイブ](https://docs.microsoft.com/previous-versions/windows/) | Windows 8.x およびそれ以前のバージョン用のアプリの構築に関するアーカイブ ドキュメントにアクセスします。 |

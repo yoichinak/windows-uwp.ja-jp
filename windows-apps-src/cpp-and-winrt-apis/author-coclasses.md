@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 作成者, COM, コンポーネント
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 8da62908d33c053cee4ba3f55645be9dbdcaada9
-ms.sourcegitcommit: b9268ca84af56ee1c4f4ac0314e2452193369f01
+ms.openlocfilehash: 5ff3677c3624974759d1f6ff21d6e53cf9d33144
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68293373"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "71344510"
 ---
 # <a name="author-com-components-with-cwinrt"></a>C++/WinRT での COM コンポーネントの作成
 
@@ -63,7 +63,7 @@ sample.as<IInitializeWithWindow>()->Initialize(hwnd);
 
 ## <a name="a-simple-example-of-a-com-component"></a>COM コンポーネントの簡単な例
 
-C++/WinRT を使って記述された COM コンポーネントの簡単な例を次に示します。 これは小さいアプリケーションの完全なリストなので、新しい **Windows コンソール アプリケーション (C++/WinRT)** プロジェクトの `pch.h` と `main.cpp` に貼り付けて、コードを作成することができます。
+C++/WinRT を使って記述された COM コンポーネントの簡単な例を次に示します。 これは小さいアプリケーションの完全なリストなので、新しい **Windows コンソール アプリケーション (C++/WinRT)** プロジェクトの `pch.h` と `main.cpp` に貼り付けて、コードを試してみることができます。
 
 ```cppwinrt
 // pch.h

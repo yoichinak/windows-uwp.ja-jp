@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp, セキュリティ
 ms.localizationpriority: medium
-ms.openlocfilehash: 98251ecba05dd27cbe3112a94b6cfcd36440d380
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 6d15173471b7f1ef3f1c6b042671eb85b7a53dc4
+ms.sourcegitcommit: 445320ff0ee7323d823194d4ec9cfa6e710ed85d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66371228"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72282341"
 ---
 # <a name="create-a-windows-hello-login-service"></a>Windows Hello ログイン サービスの作成
 
@@ -19,7 +19,7 @@ ms.locfileid: "66371228"
 
 このプロジェクトを作成するには、C# と XAML の経験がいくらか必要です。 Windows 10 コンピューターで Visual Studio 2015 (Community Edition 以上) を使う必要もあります。
 
-## <a name="exercise-1-server-side-logic"></a>手順 1:サーバー側ロジック
+## <a name="exercise-1-server-side-logic"></a>演習 1: サーバー側のロジック
 
 
 この演習では、最初のタブに組み込まれた Windows Hello アプリケーションを使って作業を開始し、ローカルのモック サーバーとモック データベースを作成します。 このハンズオン ラボの目的は、Windows Hello を既存のシステムに統合する方法を説明することです。 モック サーバーとモック データベースを使うと、関係のない多くの設定が省略されます。 実際のアプリケーションでは、モック オブジェクトを実際のサービスとデータベースに置き換える必要があります。
@@ -182,7 +182,7 @@ ms.locfileid: "66371228"
     }
 ```
 
--   load メソッドでは、InitializeSampleUserAccounts メソッドがコメント アウトされている点に注目してください。このメソッドは、MockStore.cs で作成する必要があります。 このメソッドによりユーザー アカウントの一覧が入力され、ログインできるようになります。 実際には、ユーザー データベースには情報が既に入力されています。 この手順では、ユーザーの一覧を初期化し、読み込みメソッドを呼び出すコンストラクターも作成します。
+-   読み込みメソッドでは、InitializeSampleUserAccounts メソッドがコメント アウトされている点に注目してください。このメソッドは、MockStore.cs で作成する必要があります。 このメソッドによりユーザー アカウントの一覧が入力され、ログインできるようになります。 実際には、ユーザー データベースには情報が既に入力されています。 この手順では、ユーザーの一覧を初期化し、読み込みメソッドを呼び出すコンストラクターも作成します。
 
     ```cs
     namespace PassportLogin.AuthService
@@ -535,7 +535,7 @@ ms.locfileid: "66371228"
     }
     ```
 
-## <a name="exercise-2-client-side-logic"></a>手順 2:クライアント側ロジック
+## <a name="exercise-2-client-side-logic"></a>演習 2: クライアント側のロジック
 
 この演習では、最初のラボのクライアント側ビューとヘルパー クラスを変更して、AuthService クラスを使います。 実際には、AuthService が認証サーバーとなり、Web API を使ってサーバーとの間でデータを送受信する必要があります。 このハンズオン ラボでは、わかりやすいようにクライアントとサーバーはすべてローカルになっています。 目的は、Windows Hello API を使う方法を学習することです。
 
@@ -661,7 +661,7 @@ ms.locfileid: "66371228"
             //If it does here you would Request a challenge from the Server. The client would sign this challenge and the server
             //would check the signed challenge. If it is correct it would allow the user access to the backend.
             //You would likely make a new method called RequestSignAsync to handle all this
-            //e.g. RequestSignAsync(openKeyResult);
+            //for example, RequestSignAsync(openKeyResult);
             //Refer to the second Windows Hello sample for information on how to do this.
 
             //For this sample there is not concept of a server implemented so just return true.
@@ -804,7 +804,7 @@ ms.locfileid: "66371228"
     }
     ```
 
--   使用する場合は、AuthService ボタンで、アカウント、AccountHelper への参照を削除するときに、\_破棄\_ユーザー\_メソッドを削除する をクリックします。 この結果、メソッドは次のようになります。
+-   アカウントを削除するときに AuthService を使用するので、ボタンの AccountHelper への参照を\_忘れ\_ユーザー\_クリックして削除することができます。 この結果、メソッドは次のようになります。
 
     ```cs
     private void Button_Forget_User_Click(object sender, RoutedEventArgs e)
@@ -1060,7 +1060,7 @@ ms.locfileid: "66371228"
     }
     ```
 
--   先ほど追加した GetKeyAttestationAsync メソッドでは、最後の行がコメント アウトされています。新しいメソッドとして作成するのはこの最後の行であり、すべての Windows Hello 情報を AuthService に送信します。 実際の環境では、Web API を使って実際のサーバーにこれを送信する必要があります。
+-   先ほど追加した GetKeyAttestationAsync メソッドでは、最後の行がコメント アウトされている点に注目してください。新しいメソッドとして作成するのはこの最後の行であり、すべての Windows Hello 情報を AuthService に送信します。 実際の環境では、Web API を使って実際のサーバーにこれを送信する必要があります。
 
     ```cs
     using System.Runtime.InteropServices.WindowsRuntime;
@@ -1139,7 +1139,7 @@ ms.locfileid: "66371228"
             //If it does here you would Request a challenge from the Server. The client would sign this challenge and the server
             //would check the signed challenge. If it is correct it would allow the user access to the backend.
             //You would likely make a new method called RequestSignAsync to handle all this
-            //e.g. RequestSignAsync(openKeyResult);
+            //for example, RequestSignAsync(openKeyResult);
             //Refer to the second Windows Hello sample for information on how to do this.
 
             return await RequestSignAsync(account.UserId, openKeyResult);

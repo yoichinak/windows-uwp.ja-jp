@@ -6,21 +6,21 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, DirectX, 移植
 ms.localizationpriority: medium
-ms.openlocfilehash: 247c7cb05027520cb7a39e04ff65579297b66dc9
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 032eeaf2a17ef244287e25e6d9ff32a12c61e137
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66368303"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74258468"
 ---
 # <a name="plan-your-directx-port"></a>DirectX の移植の計画
 
 
 
-**概要**
+**要約**
 
 -   DirectX の移植の計画
--   [Direct3d11 Direct3D 9 からの重要な変更](understand-direct3d-11-1-concepts.md)
+-   [Direct3D 9 から Direct3D 11 への重要な変更点](understand-direct3d-11-1-concepts.md)
 -   [機能のマッピング](feature-mapping.md)
 
 
@@ -35,11 +35,11 @@ Direct3D 9 から Direct3D 11 へのアップグレードは、変更箇所を�
 
 D3DX と DXUT のヘルパー ライブラリは、独自のヘルパー ライブラリか、コミュニティ ツールに置き換える必要があります。 詳しくは、「[DirectX 11 API への DirectX 9 の機能のマッピング](feature-mapping.md)」をご覧ください。
 
-> **注**  を使用することができます、 [DirectX ツール キット](https://go.microsoft.com/fwlink/p/?LinkID=248929)または[DirectXTex](https://go.microsoft.com/fwlink/p/?LinkID=248926) D3DX と DXUT で以前提供されているいくつかの機能を置き換える。
+>    [DirectX ツールキット](https://github.com/Microsoft/DirectXTK)または[directxtex](https://github.com/Microsoft/DirectXTex)を使用して、以前は D3DX と dxut によって提供されていたいくつかの機能を**置き換えることが**できます。
 
  
 
-アセンブリ言語で記述されたシェーダーは、HLSL シェーダー モデル 4 レベル 9 を使用してにアップグレードする必要があります\_1 または 9\_3 つの機能、およびシェーダー効果ライブラリは HLSL の構文のより新しいバージョンに更新する必要があります用に記述します。 詳しくは、「[DirectX 11 API への DirectX 9 の機能のマッピング](feature-mapping.md)」をご覧ください。
+アセンブリ言語で記述されたシェーダーは、シェーダーモデル4レベル 9\_1 または 9\_3 機能を使用して HLSL にアップグレードする必要があります。また、効果ライブラリ用に作成されたシェーダーは、より新しいバージョンの HLSL 構文に更新する必要があります。 詳しくは、「[DirectX 11 API への DirectX 9 の機能のマッピング](feature-mapping.md)」をご覧ください。
 
 さまざまな [Direct3D 機能レベル](https://docs.microsoft.com/windows/desktop/direct3d11/overviews-direct3d-11-devices-downlevel-intro)について確かめてください。 機能レベルは、既知の機能のセットを定義することで、幅広いビデオ ハードウェアを分類するものです。 各セットは 9.1 ～ 11.2 のバージョンの Direct3D にほぼ対応しています。 すべての機能レベルで DirectX 11 API を使います。
 

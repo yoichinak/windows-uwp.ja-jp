@@ -1,16 +1,16 @@
 ---
-title: Windows ドキュメントの最新情報、2017 年 9 月 - UWP アプリの開発
+title: Windows ドキュメントの最新情報、2017 年 9 月
 description: 2017 年 9 月版の Windows 10 開発者向けドキュメントには、新しい機能、ビデオ、開発者向けガイダンスが追加されました
 keywords: 最新情報, 更新, 機能, 開発者向けガイダンス, Windows 10, 1709
 ms.date: 09/06/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 1312c55d98d3e1df2c9e583422df7938c994c2b5
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: fb63a5f7cefbccbedc09b0c74d9daea9d26b63a8
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67320379"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "74734957"
 ---
 # <a name="whats-new-in-the-windows-developer-docs-in-september-2017"></a>Windows 開発者向けドキュメントの最新情報、2017 年 9 月
 
@@ -18,7 +18,7 @@ Windows 開発者向けドキュメントは、Windows プラットフォーム�
 
 Fall Creators Update がすぐそこまで近づいているため、来月に発表される大量のドキュメントにも注目してください。
 
-Windows 10 の[ツールと SDK をインストール](https://go.microsoft.com/fwlink/?LinkId=821431)すると、[新しいユニバーサル Windows アプリを作成](../get-started/your-first-app.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
+Windows 10 の[ツールと SDK をインストール](https://developer.microsoft.com/windows/downloads#_blank)すると、[新しいユニバーサル Windows アプリを作成](../get-started/your-first-app.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
 
 ## <a name="features"></a>機能
 
@@ -26,7 +26,7 @@ Windows 10 の[ツールと SDK をインストール](https://go.microsoft.com/
 
 Xbox Live クリエーターズ プログラムは現在実施中で、Windows 10 PC と Xbox One 本体上で実行できる UWP ゲームを簡単に作成して公開できます。 詳細については、「[Xbox Live クリエーターズ プログラムの概要](https://docs.microsoft.com/gaming/xbox-live/get-started-with-creators/get-started-with-xbox-live-creators.md)」をご覧ください。
 
-## <a name="developer-guidance"></a>開発者向けガイダンス
+## <a name="developer-guidance"></a>開発者ガイド
 
 ### <a name="xaml-basics-tutorials"></a>XAML の基本チュートリアル
 

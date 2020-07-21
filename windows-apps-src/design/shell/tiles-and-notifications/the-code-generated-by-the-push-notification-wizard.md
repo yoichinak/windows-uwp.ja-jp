@@ -7,12 +7,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: e30140a60906cb350940cc5ebd87347878845986
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 6a3429607ecd9245dd10722fbb47d06d7aa6ef75
+ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66365883"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83234833"
 ---
 # <a name="code-generated-by-the-push-notification-wizard"></a>プッシュ通知ウィザードにより生成されるコード
  
@@ -42,7 +42,7 @@ var <mobile-service-name>Client = new Microsoft.WindowsAzure.MobileServices.Mobi
 ## <a name="registration-for-push-notifications"></a>プッシュ通知への登録
 
 
-で push.register します。\*、UploadChannel メソッドは、プッシュ通知を受信するデバイスを登録します。 ストアは、アプリのインストールされたインスタンスを追跡し、プッシュ通知チャネルを提供します。 「[**PushNotificationChannelManager**](https://docs.microsoft.com/uwp/api/Windows.Networking.PushNotifications.PushNotificationChannelManager)」をご覧ください。
+Push. register. では \* 、UploadChannel メソッドによってデバイスが登録され、プッシュ通知が受信されます。 ストアは、アプリのインストールされたインスタンスを追跡し、プッシュ通知チャネルを提供します。 「[**PushNotificationChannelManager**](https://docs.microsoft.com/uwp/api/Windows.Networking.PushNotifications.PushNotificationChannelManager)」をご覧ください。
 
 クライアント コードは、JavaScript のバックエンドと .NET のバックエンドの両方に似ています。 既定では、JavaScript バックエンド サービスのプッシュ通知を追加すると、notifyAllUsers カスタム API のサンプル呼び出しが UploadChannel メソッドに挿入されます。
 
@@ -174,9 +174,9 @@ void mymobileservice1234Push::HandleExceptionsComingFromTheServer()
 ## <a name="server-side-scripts-javascript-backend-only"></a>サーバー側のスクリプト (JavaScript バックエンドのみ)
 
 
-JavaScript バックエンドを使うモバイル サービスの場合、サーバー側のスクリプトは、削除、挿入、読み取り、または更新操作が行われたときに実行されます。 スクリプトにはこれらの操作が実装されていませんが、クライアントから Windows モバイルの REST API への呼び出しによってこれらのイベントがトリガーされると実行されます。 次に、スクリプトは request.execute または request.respond を呼び出して呼び出し元コンテキストに応答を発行することで、コントロールを操作自体に渡します。 「[Azure のモバイル サービスの REST API リファレンス](https://go.microsoft.com/fwlink/p/?linkid=511139)」をご覧ください。
+JavaScript バックエンドを使うモバイル サービスの場合、サーバー側のスクリプトは、削除、挿入、読み取り、または更新操作が行われたときに実行されます。 スクリプトにはこれらの操作が実装されていませんが、クライアントから Windows モバイルの REST API への呼び出しによってこれらのイベントがトリガーされると実行されます。 次に、スクリプトは request.execute または request.respond を呼び出して呼び出し元コンテキストに応答を発行することで、コントロールを操作自体に渡します。 「[Azure のモバイル サービスの REST API リファレンス](https://msdn.microsoft.com/library/azure/jj710108.aspx)」をご覧ください。
 
-サーバー側のスクリプトでは、さまざまな関数を使うことができます。 「[Azure のモバイル サービスでのテーブル操作の登録](https://go.microsoft.com/fwlink/p/?linkid=511140)」をご覧ください。 使用できる関数のリファレンスについては、「[Mobile Services サーバーのスクリプトのリファレンス](https://go.microsoft.com/fwlink/p/?linkid=257676)」をご覧ください。
+サーバー側のスクリプトでは、さまざまな関数を使うことができます。 「[Azure のモバイル サービスでのテーブル操作の登録](https://msdn.microsoft.com/library/azure/dn167708.aspx)」をご覧ください。 使用できる関数のリファレンスについては、「[Mobile Services サーバーのスクリプトのリファレンス](https://msdn.microsoft.com/library/windowsazure/jj554226)」をご覧ください。
 
 また、Notifyallusers.js に次のカスタム API コードが作成されます。
 
@@ -207,7 +207,7 @@ function sendNotifications(request) {
 
 sendNotifications 関数は、1 つの通知をトースト通知として送信します。 他の種類のプッシュ通知を使うこともできます。
 
-**ヒント:**   スクリプトの編集中にヘルプを取得する方法については、次を参照してください。[サーバー側の JavaScript 用 IntelliSense を有効にする](https://go.microsoft.com/fwlink/p/?LinkId=309275)します。
+**ヒント**   スクリプトの編集中にヘルプを表示する方法については、「[サーバー側 JavaScript での IntelliSense の有効化](https://blogs.msdn.com/b/visualstudio/archive/2013/07/26/enabling-intellisense-for-mobile-services-javascript-in-visual-studio.aspx)」を参照してください。
 
  
 
@@ -216,11 +216,11 @@ sendNotifications 関数は、1 つの通知をトースト通知として送信
 
 Windows では、プッシュ通知ではない通知がサポートされています。 通知に関する一般情報については、「[通知配信方法の選択](choosing-a-notification-delivery-method.md)」をご覧ください。
 
-トースト通知は使いやすく、自動的に生成されるチャネル テーブルの Insert.js コードで例を確認できます。 タイル通知かバッジ通知を使う予定の場合、タイルとバッジの XML テンプレートを作成し、テンプレートでパッケージ化された情報のエンコードを指定する必要があります。 「[タイル、バッジ、トースト通知の操作](https://docs.microsoft.com/previous-versions/windows/apps/hh868259(v=win.10))」をご覧ください。
+トースト通知は使いやすく、自動的に生成されるチャネル テーブルの Insert.js コードで例を確認できます。 タイル通知かバッジ通知を使う予定の場合、タイルとバッジの XML テンプレートを作成し、テンプレートでパッケージ化された情報のエンコードを指定する必要があります。 「[タイル、バッジ、およびトースト通知の操作](https://docs.microsoft.com/previous-versions/windows/apps/hh868259(v=win.10))」を参照してください。
 
 Windows は、プッシュ通知に応答するため、アプリが実行されていないときにこれらの通知のほとんどを処理できます。 たとえば、プッシュ通知は、ローカル メール アプリが実行されていないときでも新しいメール メッセージを受信したことをユーザーに知らせることができます。 Windows は、テキスト メッセージの先頭行のようなメッセージを表示することで、トースト通知を処理します。 Windows は、ライブ タイルを更新して新しいメール メッセージの数を反映することで、タイル通知またはバッジ通知を処理します。 このように、新しい情報をチェックするように促すプロンプトをアプリのユーザーに表示できます。 アプリは、実行中に直接通知を受け取ることができるため、直接通知を使ってアプリにデータを送ることができます。 アプリが実行されていない場合、プッシュ通知を監視するバックグラウンド タスクを設定できます。
 
-プッシュ通知は、ユーザーのリソースを消費し、使いすぎると煩わしくなる場合があるため、ユニバーサル Windows プラットフォーム (UWP) アプリに従って使ってください。 「[プッシュ通知のガイドラインとチェック リスト](https://docs.microsoft.com/windows/uwp/controls-and-patterns/tiles-and-notifications-windows-push-notification-services--wns--overview)」をご覧ください。
+Windows アプリのガイドラインに従ってプッシュ通知を使用する必要があります。これらの通知はユーザーのリソースを使用するため、超過した場合は邪魔になる可能性があるためです。 「[プッシュ通知のガイドラインとチェック リスト](https://docs.microsoft.com/windows/uwp/controls-and-patterns/tiles-and-notifications-windows-push-notification-services--wns--overview)」をご覧ください。
 
 プッシュ通知でライブ タイルを更新する場合は、「[タイルとバッジのガイドラインとチェック リスト](https://docs.microsoft.com/windows/uwp/controls-and-patterns/tiles-and-notifications-creating-tiles)」のガイドラインにも従ってください。
 
@@ -231,9 +231,9 @@ Windows は、プッシュ通知に応答するため、アプリが実行され
 
 Window Azure のモバイル サービスの柔軟性が不十分な場合、C# または Visual Basic でサーバー コードを記述する場合、または既にクラウド サービスを持っていてそこからプッシュ通知を送る場合は、Windows プッシュ通知サービス (WNS) を直接呼び出すこともできます。 WNS を直接呼び出すことで、データベースや他の Web サービスからのデータを監視するワーカーの役割など、独自のクラウド サービスからプッシュ通知を送ることができます。 クラウド サービスがプッシュ通知をアプリに送るには、WNS に対して認証する必要があります。 [Windows プッシュ通知サービスに対して認証する方法 (JavaScript)](https://docs.microsoft.com/previous-versions/windows/apps/hh465407(v=win.10)) または [(C#/C++/VB)](https://docs.microsoft.com/previous-versions/windows/apps/hh868206(v=win.10)) に関するページをご覧ください。
 
-モバイル サービスでスケジュール済みタスクを実行して、プッシュ通知を送ることもできます。 「[Mobile Services での繰り返し発生するジョブのスケジュール](https://go.microsoft.com/fwlink/p/?linkid=301694)」をご覧ください。
+モバイル サービスでスケジュール済みタスクを実行して、プッシュ通知を送ることもできます。 「[Mobile Services での繰り返し発生するジョブのスケジュール](https://azure.microsoft.com/documentation/articles/mobile-services-schedule-recurring-tasks/)」をご覧ください。
 
-**警告**  プッシュ通知ウィザードを 1 回、実行すると、2 回目の他のモバイル サービスの登録コードを追加する、ウィザードを実行しません。 このウィザードをプロジェクトごとに複数回実行すると、生成されるコードで [**CreatePushNotificationChannelForApplicationAsync**](https://docs.microsoft.com/uwp/api/Windows.Networking.PushNotifications.PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync) メソッドの呼び出しが重複し、ランタイムの例外が発生します。 複数のモバイル サービスのプッシュ通知を登録するには、ウィザードを 1 回だけ実行し、登録コードを上書きして、**CreatePushNotificationChannelForApplicationAsync** の呼び出しが同時に実行されないようにしてください。 たとえば、これを push.register でウィザードで生成されたコードを移動することによって実現できます。\* (呼び出しを含む**CreatePushNotificationChannelForApplicationAsync**)、OnLaunched 外部イベントではなく、詳細が、アプリケーションのアーキテクチャに依存されます。
+**警告**   プッシュ通知ウィザードを1回実行した後は、もう一度ウィザードを実行して別のモバイルサービスの登録コードを追加しないでください。 このウィザードをプロジェクトごとに複数回実行すると、生成されるコードで [**CreatePushNotificationChannelForApplicationAsync**](https://docs.microsoft.com/uwp/api/Windows.Networking.PushNotifications.PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync) メソッドの呼び出しが重複し、ランタイムの例外が発生します。 複数のモバイル サービスのプッシュ通知を登録するには、ウィザードを 1 回だけ実行し、登録コードを上書きして、**CreatePushNotificationChannelForApplicationAsync** の呼び出しが同時に実行されないようにしてください。 たとえば、ウィザードで生成されたコードを push. register \* で移動することで、これを実現できます。OnLaunched 上げイベントの外部にある**Createpushnotificationchannelforapplicationasync**の呼び出しを含めますが、その詳細はアプリのアーキテクチャによって異なります。
 
  
 
@@ -242,9 +242,9 @@ Window Azure のモバイル サービスの柔軟性が不十分な場合、C# 
 
 * [Windows プッシュ通知サービス (WNS) の概要](windows-push-notification-services--wns--overview.md)
 * [直接通知の概要](raw-notification-overview.md)
-* [Windows に接続する Azure Mobile Services (JavaScript)](https://docs.microsoft.com/previous-versions/windows/apps/dn263160(v=win.10))
-* [Windows に接続する Azure Mobile Services (C#/C+/cli VB)](https://docs.microsoft.com/previous-versions/windows/apps/dn263175(v=win.10))
-* [クイック スタート:(JavaScript) のモバイル サービスのプッシュ通知の追加](https://docs.microsoft.com/previous-versions/windows/apps/dn263163(v=win.10))
+* [Window Azure のモバイル サービスへの接続 (JavaScript)](https://docs.microsoft.com/previous-versions/windows/apps/dn263160(v=win.10))
+* [Window Azure のモバイル サービスへの接続 (C#/C++/VB)](https://docs.microsoft.com/previous-versions/windows/apps/dn263175(v=win.10))
+* [クイック スタート: モバイル サービスでのプッシュ通知の追加 (JavaScript)](https://docs.microsoft.com/previous-versions/windows/apps/dn263163(v=win.10))
  
 
  

@@ -1,17 +1,17 @@
 ---
-description: さまざまなデバイスや画面サイズで、ナビゲーションがわかりやすく見た目にも優れた UWP アプリを設計およびコーディングする方法について説明します。
-title: UWP アプリ用のレイアウトの概要
+description: さまざまなデバイスや画面サイズで、ナビゲーションがわかりやすく見た目にも優れた Windows アプリを設計およびコーディングする方法について説明します。
+title: Windows アプリのレイアウトの概要
 keywords: UWP アプリのレイアウト, ユニバーサル Windows プラットフォーム, アプリの設計, インターフェイス
 ms.date: 03/07/2018
 ms.topic: article
 ms.assetid: 1aa12606-8a99-4db3-8311-90e02fde9cf1
 ms.localizationpriority: medium
-ms.openlocfilehash: 33bb7aa6a5a244f1d7b9dcd178b036ac571032f8
-ms.sourcegitcommit: 09edf480f2224e29e190fad8518f680c16e21c6d
+ms.openlocfilehash: c3647f6a4c3bbc3951fab45380762de472d13533
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65065280"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970777"
 ---
 # <a name="layout"></a>レイアウト
 
@@ -21,52 +21,52 @@ ms.locfileid: "65065280"
 
 :::row:::
     :::column:::
-        ### [Page layout](page-layout.md)
-        Walk through a basic page layout structure.
+### <a name="page-layout"></a>[ページ レイアウト](page-layout.md)
+基本的なページ レイアウト構造について説明します。
     :::column-end:::
     :::column:::
-        ### [Screen sizes and breakpoints](screen-sizes-and-breakpoints-for-responsive-design.md)
-        Learn about screen sizes across the Windows 10 ecosystem and how to design for breakpoints.
-    :::column-end:::
-:::row-end:::
-
-:::row:::
-    :::column:::
-        ### [Responsive design techniques](responsive-design.md)
-        Learn about responsive design techniques that optimize your app's layout for breakpoints.
-    :::column-end:::
-    :::column:::
-        ### [Layouts with XAML](layouts-with-xaml.md)
-        Implement responsive UI in XAML with adaptive or tailored layouts.
+### <a name="screen-sizes-and-breakpoints"></a>[画面のサイズとブレークポイント](screen-sizes-and-breakpoints-for-responsive-design.md)
+Windows 10 エコシステム全体の画面サイズと、ブレークポイントの設計方法について説明します。
     :::column-end:::
 :::row-end:::
 
 :::row:::
     :::column:::
-        ### [Multiple views](show-multiple-views.md)
-        Show independent parts of your app in separate windows.
+### <a name="responsive-design-techniques"></a>[レスポンシブ デザインの手法](responsive-design.md)
+ブレークポイント用にアプリのレイアウトを最適化するレシポンシブ デザインの手法について説明します。
     :::column-end:::
     :::column:::
-        ### [Alignment, margin, padding](alignment-margin-padding.md)
-        Use alignment, margin, and padding to influence layout behavior.
-    :::column-end:::
-:::row-end:::
-
-:::row:::
-    :::column:::
-        ### [Layout panels](layout-panels.md)
-        Learn about each type of layout panel an how to use them to arrange UI elements.
-    :::column-end:::
-    :::column:::
-        ### [Transforms](transforms.md)
-        Use transforms to rotate, skew, and scale elements.
+### <a name="layouts-with-xaml"></a>[XAML を使ったレイアウト](layouts-with-xaml.md)
+アダプティブまたは調整されたレイアウトを使用して、XAML にレスポンスな UI を実装します。
     :::column-end:::
 :::row-end:::
 
 :::row:::
     :::column:::
-        ### [Attached layouts](attached-layouts.md)
-        Learn advanced layout concepts in XAML and how to create a custom virtualizing layout.
+### <a name="multiple-views"></a>[複数のビュー](show-multiple-views.md)
+アプリの独立した部分を別々のウィンドウに表示します。
+    :::column-end:::
+    :::column:::
+### <a name="alignment-margin-padding"></a>[配置、余白、パディング](alignment-margin-padding.md)
+レイアウトの動作に影響する配置、余白、パディングを使用します。
+    :::column-end:::
+:::row-end:::
+
+:::row:::
+    :::column:::
+### <a name="layout-panels"></a>[レイアウト パネル](layout-panels.md)
+各レイアウト パネルの種類を説明し、それらを使って UI 要素を配置する方法について説明します。
+    :::column-end:::
+    :::column:::
+### <a name="transforms"></a>[変換](transforms.md)
+回転、ずれ、スケールの各要素に変換を使用します。
+    :::column-end:::
+:::row-end:::
+
+:::row:::
+    :::column:::
+### <a name="attached-layouts"></a>[接続されているレイアウト](attached-layouts.md)
+XAML の高度なレイアウトの概念と、カスタムの仮想化レイアウトを作成する方法について説明します。
     :::column-end:::
     :::column:::
     :::column-end:::

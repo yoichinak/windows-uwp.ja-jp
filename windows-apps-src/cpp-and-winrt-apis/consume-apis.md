@@ -5,12 +5,12 @@ ms.date: 04/23/2019
 ms.topic: article
 keywords: windows 10、uwp、標準、c++、cpp、winrt、投影、プロジェクション、実装、ランタイム クラス、ライセンス認証
 ms.localizationpriority: medium
-ms.openlocfilehash: 88a4c65b20c2fb805baecb8a90498e8e4ec9b229
-ms.sourcegitcommit: a7a1e27b04f0ac51c4622318170af870571069f6
+ms.openlocfilehash: 66c162b7ae9cd588bea1062ed8c953d94d1b691c
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67717627"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "70393765"
 ---
 # <a name="consume-apis-with-cwinrt"></a>C++/WinRT での API の使用
 
@@ -119,7 +119,9 @@ int main()
 
 ## <a name="delayed-initialization"></a>初期化の遅延
 
-投影された型の既定のコンストラクターでも、Windows ランタイムのバッキング オブジェクトが作成されます。 作業を後に遅らせることができるように、Windows ランタイム オブジェクトを作成しないで投影された型の変数を作成する場合は、これを実行できます。 投影された型の特別な C++/WinRT **std::nullptr_t** コンストラクターを使用して変数またはフィールドを宣言します。 C++/WinRT のプロジェクションでは、すべてのランタイム クラスにこのコンストラクターが挿入されます。
+C++/WinRT には、投影されたそれぞれの型に特別な C++/WinRT **std::nullptr_t** コンストラクターがあります。 その例外の 1 つとして、&mdash;既定のコンストラクターを含む&mdash;すべての投影された型のコンストラクターにより Windows ランタイムのバッキング オブジェクトが作成され、そのオブジェクトへのスマート ポインターが提供されます。 そのため、そのルールは、初期化されていないローカル変数、初期化されていないグローバル変数、初期化されていないメンバー変数など、既定のコンストラクターが使用されるあらゆる場所で適用されます。
+
+一方で、作業を後に遅らせることができるように、Windows ランタイムのバッキング オブジェクトを作成しないで投影された型の変数を作成する場合は、これを実行できます。 その特別な C++/WinRT **std::nullptr_t** コンストラクターを使用して変数またはフィールドを宣言します (これにより C++/WinRT プロジェクションが各ランタイム クラスに組み込まれます)。 次のコード例では、その特殊なコンストラクターを *m_gamerPicBuffer* と共に使用します。
 
 ```cppwinrt
 #include <winrt/Windows.Storage.Streams.h>
@@ -163,6 +165,8 @@ lookup[2] = value;
 std::map<int, TextBlock> lookup;
 lookup.insert_or_assign(2, value);
 ```
+
+「[既定のコンストラクターによるコレクションへの影響](/windows/uwp/cpp-and-winrt-apis/move-to-winrt-from-cx#how-the-default-constructor-affects-collections)」も参照してください。
 
 ### <a name="dont-delay-initialize-by-mistake"></a>誤って遅延初期化しない
 
@@ -375,6 +379,66 @@ Uri account = factory.CreateUri(L"http://www.contoso.com");
 auto factory = winrt::get_activation_factory<BankAccountWRC::BankAccount>();
 BankAccountWRC::BankAccount account = factory.ActivateInstance<BankAccountWRC::BankAccount>();
 ```
+
+## <a name="membertype-ambiguities"></a>メンバー/型のあいまいさ
+
+メンバー関数の名前が型と同じである場合は、あいまいさがあります。 メンバー関数で C++ の修飾されていない名前参照のルールにより、名前空間内で検索する前にクラスが検索されます。 *代入エラーはエラーではない* (SFNAE) のルールは適用されません (これは関数テンプレートのオーバーロードの解決中に適用されます)。 したがって、クラス内の名前が意味を持たない場合、コンパイラはより適切な一致を探し続けません&mdash;エラーを報告するだけです。
+
+```cppwinrt
+struct MyPage : Page
+{
+    void DoWork()
+    {
+        // This doesn't compile. You get the error
+        // "'winrt::Windows::Foundation::IUnknown::as':
+        // no matching overloaded function found".
+        auto style{ Application::Current().Resources().
+            Lookup(L"MyStyle").as<Style>() };
+    }
+}
+```
+
+上記のように、コンパイラは、[**FrameworkElement.Style()** ](/uwp/api/windows.ui.xaml.frameworkelement.style) (C++/WinRT ではメンバー関数) をテンプレート パラメーターとして [**IUnknown:: as**](/uwp/cpp-ref-for-winrt/windows-foundation-iunknown#iunknownas-function) に渡していると認識します。 解決策は、名前 `Style` が強制的に型 [**Windows::UI::Xaml:: Style**](/uwp/api/windows.ui.xaml.style) として解釈されるようにすることです。
+
+```cppwinrt
+struct MyPage : Page
+{
+    void DoWork()
+    {
+        // One option is to fully-qualify it.
+        auto style{ Application::Current().Resources().
+            Lookup(L"MyStyle").as<Windows::UI::Xaml::Style>() };
+
+        // Another is to force it to be interpreted as a struct name.
+        auto style{ Application::Current().Resources().
+            Lookup(L"MyStyle").as<struct Style>() };
+
+        // If you have "using namespace Windows::UI;", then this is sufficient.
+        auto style{ Application::Current().Resources().
+            Lookup(L"MyStyle").as<Xaml::Style>() };
+
+        // Or you can force it to be resolved in the global namespace (into which
+        // you imported the Windows::UI::Xaml namespace when you did
+        // "using namespace Windows::UI::Xaml;".
+        auto style = Application::Current().Resources().
+            Lookup(L"MyStyle").as<::Style>();
+    }
+}
+```
+
+修飾されていない名前参照には、名前の後に `::` が指定されている場合は特別な例外があります。この場合、関数、変数、および列挙値は無視されます。 これにより、次のようなことができます。
+
+```cppwinrt
+struct MyPage : Page
+{
+    void DoSomething()
+    {
+        Visibility(Visibility::Collapsed); // No ambiguity here (special exception).
+    }
+}
+```
+
+`Visibility()` への呼び出しは、[**UIElement.Visibility**](/uwp/api/windows.ui.xaml.uielement.visibility) メンバー関数名に解決されます。 ただし、パラメーター `Visibility::Collapsed` は単語 `Visibility` の後に `::` が続くため、メソッド名は無視され、コンパイラは列挙型クラスを検出します。
 
 ## <a name="important-apis"></a>重要な API
 * [QueryInterface インターフェイス](https://docs.microsoft.com/windows/desktop/api/unknwn/nf-unknwn-iunknown-queryinterface(q_))

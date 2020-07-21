@@ -8,12 +8,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 59678dc5eca7dec0857cadd9249dd19e25b3430b
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: a07fc5c669d3c9cd374a4a031fba2ee6ef6d5756
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67319047"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "74257288"
 ---
 # <a name="images-and-image-brushes"></a>画像とイメージ ブラシ
 
@@ -44,7 +44,7 @@ ms.locfileid: "67319047"
 
 ## <a name="create-an-image"></a>画像を作成する
 
-### <a name="image"></a>Image
+### <a name="image"></a>イメージ
 [Image](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Image) オブジェクトを使ってイメージを作成する方法を次の例に示します。
 
 
@@ -80,8 +80,8 @@ ms.locfileid: "67319047"
 
 **Image** の [Width](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.width) 値または [Height](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.height) 値を設定しないと、**Source** で指定した画像の寸法で表示されます。 **Width** と **Height** を設定すると、画像を表示する領域を囲む四角形が作成されます。 この囲まれた領域に画像を描く方法は、[Stretch](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.image.stretch) プロパティを使って指定できます。 Stretch プロパティには、[Stretch](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Stretch) 列挙体で定義されている次の値を指定します。
 
--   **なし**:画像は拡大されず、出力領域全体に描かれません。 この Stretch の設定には注意してください。囲まれた領域よりもソース画像が大きいと、画像はクリップされます。ユーザーは意図的な [Clip](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.clip) で行うような制御をビューポートに対して行うことができないため、通常このことは望ましくありません。
--   **Uniform**: 画像は、出力領域の大きさに合わせて拡大されます。 ただし、コンテンツの縦横比は保たれます。 これが既定値です。
+-   **None**: 画像は拡大されず、出力領域全体に描かれません。 この Stretch の設定には注意してください。囲まれた領域よりもソース画像が大きいと、画像はクリップされます。ユーザーは意図的な [Clip](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.clip) で行うような制御をビューポートに対して行うことができないため、通常このことは望ましくありません。
+-   **Uniform**: 画像は、出力領域の大きさに合わせて拡大されます。 ただし、コンテンツの縦横比は保たれます。 これは、既定値です。
 -   **UniformToFill**: 画像は拡大され、出力領域を完全に塗りつぶすように描かれますが、元の縦横比は保たれます。
 -   **Fill**: 画像は、出力領域の大きさに合わせて拡大されます。 コンテンツの高さと幅は個々に拡大されるので、元の画像の縦横比は保たれません。 つまり、出力領域を完全に塗りつぶすために、画像がゆがむことがあります。
 
@@ -155,7 +155,7 @@ Windows 10 バージョン 1607 からは、**Image** 要素で、アニメー�
 
 コードを使うよりも、XAML を使って Image と ImageBrush 要素を指定する方が一般的です。 これは、これらの要素が XAML UI 定義の一部としてのデザイン ツールの出力結果である場合が多いためです。
 
-コードを使って Image または ImageBrush を定義する場合は、既定のコンストラクターを使い、次に、関連するソースのプロパティ ([Image.Source](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.image.source) と[ImageBrush.ImageSource](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imagebrush.imagesource)) を設定します。 ソースのプロパティは、コードを使って設定する場合、[BitmapImage](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Imaging.BitmapImage) (URI ではない) を必要と使用します。 ソースがストリームである場合は、[SetSourceAsync](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.bitmapsource.setsourceasync) メソッドを使って値を初期化します。 ソースが、**ms-appx** スキームまたは **ms-resource** スキームを使うアプリ内のコンテンツを含む URI である場合は、URI を受け取る [BitmapImage](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.bitmapimage) コンストラクターを使います。 画像ソースが使えるようになるまで代替コンテンツを表示することが必要であるなど、画像ソースの取得やデコードについてタイミングの問題がある場合は、[ImageOpened](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.bitmapimage.imageopened) イベントを処理することも検討してください。 コードの例については、[XAML 画像のサンプル](https://go.microsoft.com/fwlink/p/?linkid=238575)をご覧ください。
+コードを使って Image または ImageBrush を定義する場合は、既定のコンストラクターを使い、次に、関連するソースのプロパティ ([Image.Source](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.image.source) と[ImageBrush.ImageSource](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imagebrush.imagesource)) を設定します。 ソースのプロパティは、コードを使って設定する場合、[BitmapImage](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Imaging.BitmapImage) (URI ではない) を必要と使用します。 ソースがストリームである場合は、[SetSourceAsync](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.bitmapsource.setsourceasync) メソッドを使って値を初期化します。 ソースが、**ms-appx** スキームまたは **ms-resource** スキームを使うアプリ内のコンテンツを含む URI である場合は、URI を受け取る [BitmapImage](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.bitmapimage) コンストラクターを使います。 画像ソースが使えるようになるまで代替コンテンツを表示することが必要であるなど、画像ソースの取得やデコードについてタイミングの問題がある場合は、[ImageOpened](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.bitmapimage.imageopened) イベントを処理することも検討してください。 コードの例については、[XAML 画像のサンプル](https://code.msdn.microsoft.com/windowsapps/0f5d56ae-5e57-48e1-9cd9-993115b027b9)をご覧ください。
 
 > [!NOTE]
 > コードを利用して画像を確立すると、自動処理を使って、現在のスケール修飾子とカルチャ修飾子で非修飾リソースにアクセスしたり、カルチャとスケールの修飾子で [ResourceManager](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Resources.Core.ResourceManager) と [ResourceMap](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Resources.Core.ResourceMap) を使って、リソースを直接取得したりできます。 詳しくは、「[リソース管理システム](https://docs.microsoft.com/previous-versions/windows/apps/jj552947(v=win.10))」をご覧ください。

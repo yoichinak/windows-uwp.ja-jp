@@ -5,24 +5,24 @@ keywords: 最新情報, 更新, 機能, 開発者向けガイダンス, Windows 
 ms.date: 07/05/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 03bc41ca76f6c6b20f06c98b0e71e2bc5a361992
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 65c3c2fb4b7a5a7f0b5f4b3c89773f3e21bd654d
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65984200"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "75684739"
 ---
 # <a name="whats-new-in-the-windows-developer-docs-in-july-2017"></a>Windows 開発者向けドキュメントの最新情報、2017 年 7 月
 
 Windows 開発者向けドキュメントは、Windows プラットフォームで開発者に提供される新機能の情報を反映して継続的に更新されています。 ここに示す機能概要、開発者向けガイダンス、コード サンプルは最近公開されたもので、Windows 開発者向けの新しい情報や更新情報を含んでいます。
 
-Windows 10 の[ツールと SDK をインストール](https://go.microsoft.com/fwlink/?LinkId=821431)すると、[新しいユニバーサル Windows アプリを作成](../get-started/your-first-app.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
+Windows 10 の[ツールと SDK をインストール](https://developer.microsoft.com/windows/downloads#_blank)すると、[新しいユニバーサル Windows アプリを作成](../get-started/your-first-app.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
 
 ## <a name="features"></a>機能
 
 ### <a name="fluent-design"></a>Fluent Design
 
-次の効果は、[Windows Insider](https://insider.windows.com/) を対象に SDK Preview Build で提供されます。これらの新しい効果は、深度、視点、動きを使って、重要な UI 要素にユーザーが集中できるようにします。
+次の効果は、[Windows Insider](https://insider.windows.com/) を対象に SDK Preview Build で提供されます。これらの新しい効果では、深度、視点、動きを使って、ユーザーが重要な UI 要素に集中できるようにします。
 
 [アクリル素材](../design/style/acrylic.md)は、透明なテクスチャを作成できる、ブラシの種類の 1 つです。 
 
@@ -60,7 +60,7 @@ Windows 10 の[ツールと SDK をインストール](https://go.microsoft.com/
 
 [UWP アプリ用の設計ツールキットとリソース](../design/downloads/index.md)が拡張され、スケッチ ツールキットと Adobe XD ツールキットが追加されました。 既存のツールキットも刷新され、より堅牢なコントロールとレイアウト テンプレートが UWP アプリに提供されます。
 
-### <a name="dashboard-monetization-and-store-services"></a>ダッシュボード、収益化、ストア サービス
+### <a name="dashboard-monetization-and-store-services"></a>ダッシュボード、収益化、Microsoft Store サービス
 
 次の新機能が利用可能になりました。
 
@@ -94,19 +94,19 @@ Windows 10 の[ツールと SDK をインストール](https://go.microsoft.com/
 
 [Windows Insider](https://insider.windows.com/) を対象に SDK Preview Build で提供される新しい TaskbarManager クラスでは、[アプリをタスク バーにピン留めする](../design/shell/pin-to-taskbar.md)ようにユーザーに勧めることができます。
 
-## <a name="developer-guidance"></a>開発者向けガイダンス
+## <a name="developer-guidance"></a>開発者ガイド
 
 ### <a name="media-playback"></a>メディア再生
 
 メディア再生の基本について説明する記事に、新しいセクション「[MediaPlayer を使ったオーディオとビデオの再生](../audio-video-camera/play-audio-and-video-with-mediaplayer.md)」が追加されました。 「[MediaPlayer を使った球面ビデオの再生](../audio-video-camera/play-audio-and-video-with-mediaplayer.md)」セクションでは、球状にエンコードされたビデオの再生方法を示します。サポートされる形式に合わせて視野やビューの向きを調整する方法についても説明しています。 「[フレーム サーバー モードでの MediaPlayer の使用](../audio-video-camera/play-audio-and-video-with-mediaplayer.md#use-mediaplayer-in-frame-server-mode)」セクションでは、[MediaPlayer](https://docs.microsoft.com/uwp/api/Windows.Media.Playback.MediaPlayer) で再生されるメディアから Direct3D サーフェスにフレームをコピーする方法を示します。 これにより、ピクセル シェーダーを使ってリアルタイムの効果を適用するといったシナリオを実現できます。 コード例では、Win2D を使ってビデオ再生にぼかし効果を適用する簡単な実装を紹介しています。
 
-### <a name="media-capture"></a>メディア キャプチャ
+### <a name="media-capture"></a>メディアのキャプチャ
 
-「[MediaFrameReader を使ったメディア フレームの処理](../audio-video-camera/process-media-frames-with-mediaframereader.md)」が更新され、新しい [MultiSourceMediaFrameReader](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.multisourcemediaframereader) クラスの使用方法が追加されました。このクラスを使うと、複数のメディア ソースから時間相関フレームを取得できます。 これは、深度カメラやカラー カメラなどのさまざまなソースからのフレームを処理する必要があり、各ソースからのフレームが時間的に近くなるようにキャプチャする必要がある場合に便利です。 詳しくは、[MultiSourceMediaFrameReader を使った複数のソースからの時間相関フレームの取得](../audio-video-camera/process-media-frames-with-mediaframereader.md#use-multisourcemediaframereader-to-get-time-corellated-frames-from-multiple-sources)に関するセクションをご覧ください。
+「[MediaFrameReader を使ったメディア フレームの処理](../audio-video-camera/process-media-frames-with-mediaframereader.md)」が更新され、新しい [MultiSourceMediaFrameReader](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.multisourcemediaframereader) クラスの使用方法が追加されました。このクラスを使うと、複数のメディア ソースから時間相関フレームを取得できます。 これは、深度カメラやカラー カメラなどのさまざまなソースからのフレームを処理する必要があり、各ソースからのフレームが時間的に近くなるようにキャプチャする必要がある場合に便利です。 詳細については、「[MultiSourceMediaFrameReader を使用して複数のソースから時間相関フレームを取得する](../audio-video-camera/process-media-frames-with-mediaframereader.md#use-multisourcemediaframereader-to-get-time-corellated-frames-from-multiple-sources)」セクションを参照してください。
 
 ### <a name="scoped-search"></a>スコープを指定した検索
 
-docs.microsoft.com の [UWP の概念](../get-started/universal-application-platform-guide.md)と [API リファレンス](https://docs.microsoft.com/en-us/uwp/api/)のドキュメントに、"UWP" というスコープが追加されました。 このスコープを解除しない限り、これらの領域から検索を行うと UWP のドキュメントだけが返されます。
+docs.microsoft.com の [UWP の概念](../get-started/universal-application-platform-guide.md)と [API リファレンス](https://docs.microsoft.com/uwp/api/)のドキュメントに、"UWP" というスコープが追加されました。 このスコープを解除しない限り、これらの領域から検索を行うと UWP のドキュメントだけが返されます。
 
 ![スコープを指定した検索](images/scoped-search.png)
 
@@ -124,7 +124,7 @@ Windows アプリをテストして、Windows S を実行するデバイスで�
 
 ### <a name="shopping-app-sample"></a>ショッピング アプリのサンプル
 
-[ユーザーが絵文字を購入できる基本的なショッピング エクスペリエンスを提供するミニ アプリ](https://github.com/Microsoft/Windows-appsample-shopping)です。 このアプリは、[支払い要求 API](https://docs.microsoft.com/uwp/api/windows.applicationmodel.payments) を使ってチェックアウト処理を実装する方法を示しています。
+[ユーザーが絵文字を購入できる基本的なショッピング エクスペリエンスを提供するミニ アプリ](https://github.com/Microsoft/Windows-appsample-shopping)です。 このアプリでは、[Payment Request API](https://docs.microsoft.com/uwp/api/windows.applicationmodel.payments) を使ってチェックアウト処理を実装する方法を示しています。
 
 ![ショッピング アプリのサンプルのスクリーンショット](images/shoppingcart.png)  
 
@@ -132,12 +132,12 @@ Windows アプリをテストして、Windows S を実行するデバイスで�
 
 ### <a name="accessibility"></a>アクセシビリティ
 
-アプリにアクセシビリティ機能を組み込むと、より幅広いユーザー層をターゲットにすることができます。 まずは[ビデオ](https://channel9.msdn.com/Blogs/One-Dev-Minute/Developing-Apps-for-Accessibility)をご覧になってから、「[アクセシビリティのためのアプリ開発](https://developer.microsoft.com/en-us/windows/accessible-apps)」で詳細を確認してください。
+アプリにアクセシビリティ機能を組み込むと、より幅広いユーザー層をターゲットにすることができます。 まずは[ビデオ](https://channel9.msdn.com/Blogs/One-Dev-Minute/Developing-Apps-for-Accessibility)をご覧になってから、「[アクセシビリティのためのアプリ開発](https://developer.microsoft.com/windows/accessible-apps)」で詳細を確認してください。
 
-### <a name="payments-request-api"></a>支払い要求 API
+### <a name="payments-request-api"></a>Payments Request API
 
-支払い要求 API は、顧客と販売者がオンライン チェック アウト プロセスをシームレスに完了できるように支援します。 まずは[ビデオ](https://channel9.msdn.com/Blogs/One-Dev-Minute/Using-the-Payments-Request-API)をご覧になってから、[支払い要求のドキュメント](https://channel9.msdn.com/Blogs/One-Dev-Minute/Using-the-Payments-Request-API)で詳細を確認してください。
+Payment Request API を使用して、顧客と販売者がオンライン チェック アウト プロセスをシームレスに完了できるように支援します。 まずは[ビデオ](https://channel9.msdn.com/Blogs/One-Dev-Minute/Using-the-Payments-Request-API)をご覧になってから、[支払い要求のドキュメント](https://channel9.msdn.com/Blogs/One-Dev-Minute/Using-the-Payments-Request-API)で詳細を確認してください。
 
 ### <a name="windows-10-iot-core"></a>Windows 10 IoT Core
 
-Windows 10 IoT Core とユニバーサル Windows プラットフォームを利用すると、視覚情報とコンポーネントを連携させるプロジェクトのプロトタイプ作成と構築をすばやく行うことができます。たとえば、ペットを認識して開閉するドアを実現できます。 まずは[ビデオ](https://channel9.msdn.com/Blogs/One-Dev-Minute/Building-a-Pet-Recognition-Door-Using-Windows-10-IoT-Core)をご覧になってから、[Windows 10 IoT Core を使い始める](https://developer.microsoft.com/en-us/windows/iot)方法の詳細を確認してください。
+Windows 10 IoT Core とユニバーサル Windows プラットフォームを利用すると、視覚情報とコンポーネントを連携させるプロジェクトのプロトタイプ作成と構築をすばやく行うことができます。たとえば、ペット認識ドアを実現できます。 まずは[ビデオ](https://channel9.msdn.com/Blogs/One-Dev-Minute/Building-a-Pet-Recognition-Door-Using-Windows-10-IoT-Core)をご覧になってから、[Windows 10 IoT Core を使い始める](https://developer.microsoft.com/windows/iot)方法の詳細を確認してください。

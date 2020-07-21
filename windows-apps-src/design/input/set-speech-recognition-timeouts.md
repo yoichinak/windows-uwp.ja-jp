@@ -8,19 +8,19 @@ keywords: スピーチ, 音声, 音声認識, 自然言語, ディクテーシ�
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: f321b9ec43f2c844854600b8260a7fdc189c0446
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 0df5f6c2e12b3b2e761ce45f95930dc179ef367f
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66365386"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74258259"
 ---
 # <a name="set-speech-recognition-timeouts"></a>音声認識のタイムアウトの設定
 
 
 音声認識エンジンが無音または認識できないサウンド (雑音) を無視し、音声入力を待機する時間の長さを設定します。
 
-> **重要な API**:[**タイムアウト**](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechrecognizer.timeouts)、 [ **SpeechRecognizerTimeouts**](https://docs.microsoft.com/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognizerTimeouts)
+> **重要な API**: [**Timeouts**](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechrecognizer.timeouts)、[**SpeechRecognizerTimeouts**](https://docs.microsoft.com/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognizerTimeouts)
 
 ## <a name="set-a-timeout"></a>タイムアウトの設定
 
@@ -31,7 +31,7 @@ ms.locfileid: "66365386"
 -   BabbleTimeout: SpeechRecognizer が、認識できないサウンド (雑音) のリッスンを継続し、音声入力が終了したと見なし、認識処理を終了するまでの時間の長さ。
 -   EndSilenceTimeout: SpeechRecognizer が (認識結果が生成された後の) 無音を検出し、音声入力が終了したと見なす時間の長さ。
 
-**注**  あたり認識エンジンごとにタイムアウトを設定することができます。
+  タイムアウトは、レコグナイザーごとに設定できることに**注意**してください。
 
  
 
@@ -47,7 +47,7 @@ recognizer.Timeouts.EndSilenceTimeout = TimeSpan.FromSeconds(1.2);
 
 * [音声操作](speech-interactions.md)
 **サンプル**
-* [音声認識と音声合成のサンプル](https://go.microsoft.com/fwlink/p/?LinkID=619897)
+* [音声認識と音声合成のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/SpeechRecognitionAndSynthesis)
  
 
  

@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 9ecb325566733e57c1ae9d1a13c68b25794e9e87
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
-ms.translationtype: MT
+ms.openlocfilehash: ae37ab763b6705fbb3f341569904972ebb181412
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66360039"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "74254682"
 ---
 # <a name="best-practices-for-your-apps-startup-performance"></a>アプリ起動時のパフォーマンスのベスト プラクティス
 
@@ -323,7 +323,7 @@ XAML アプリの起動時のパフォーマンスは、起動時に作成する
 > End Class
 > ```
 
-追加スプラッシュ画面の使用例については、[スプラッシュ画面のサンプル](https://go.microsoft.com/fwlink/p/?linkid=234889)をご覧ください。
+追加スプラッシュ画面の使用例については、[スプラッシュ画面のサンプル](https://code.msdn.microsoft.com/windowsapps/Splash-screen-sample-89c1dc78)をご覧ください。
 
 ### <a name="phase-3"></a>フェーズ 3
 
@@ -339,7 +339,7 @@ XAML アプリの起動時のパフォーマンスは、起動時に作成する
 
 多くの場合、再利用可能なコードは、プロジェクトに含まれるモジュール (DLL) の形で提供されます。 こうしたモジュールを読み込むには、ディスクにアクセスする必要があります。それには、当然負荷が発生します。 これにより、コールド起動に大きな影響が及びますが、ウォーム起動にも影響が及ぶ場合があります。 C# と Visual Basic の場合、CLR はアセンブリをオンデマンドで読み込むことで、その負荷の発生をできるだけ遅らせようとします。 つまり、モジュールは実行されたメソッドによって参照されるまで読み込まれません。 そのため、CLR によって不要なモジュールが読み込まれないように、スタートアップ コードではアプリの起動に必要なアセンブリだけを参照するようにします。 スタートアップ パス内の使われないコード パスに不必要な参照が含まれている場合は、それらのコード パスを別のメソッドに移動すると、不必要な読み込みを回避できます。
 
-また、アプリ モジュールを結合して、モジュールの読み込みを減らすこともできます。 一般的に、2 つの小さなアセンブリよりも、1 つの大きなアセンブリの方が短い時間で読み込むことができます。 常に短くなるわけではないため、開発者の生産性やコードの再利用性に実質的な違いがない場合にのみ、モジュールを結合してください。 [PerfView](https://go.microsoft.com/fwlink/p/?linkid=251609) や [Windows Performance Analyzer (WPA)](https://docs.microsoft.com/previous-versions/windows/desktop/xperf/windows-performance-analyzer--wpa-) などのツールを使うと、起動時に読み込まれるモジュールを調べることができます。
+また、アプリ モジュールを結合して、モジュールの読み込みを減らすこともできます。 一般的に、2 つの小さなアセンブリよりも、1 つの大きなアセンブリの方が短い時間で読み込むことができます。 常に短くなるわけではないため、開発者の生産性やコードの再利用性に実質的な違いがない場合にのみ、モジュールを結合してください。 [PerfView](https://www.microsoft.com/download/details.aspx?id=28567) や [Windows Performance Analyzer (WPA)](https://docs.microsoft.com/previous-versions/windows/desktop/xperf/windows-performance-analyzer--wpa-) などのツールを使うと、起動時に読み込まれるモジュールを調べることができます。
 
 ### <a name="make-smart-web-requests"></a>効率的に Web 要求を行う
 

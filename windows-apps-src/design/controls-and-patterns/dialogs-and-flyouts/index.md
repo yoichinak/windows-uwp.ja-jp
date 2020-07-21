@@ -11,43 +11,34 @@ design-contact: kimsea
 dev-contact: niallm
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: d542c9809eb939553a851508886e34265f269263
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: c61d1478c38df315a3fe3c20151de8c2bfbca4e2
+ms.sourcegitcommit: f727b68e86a86c94eff00f67ed79a1c12666e7bc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57583315"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "81123584"
 ---
 # <a name="dialogs-and-flyouts"></a>ダイアログとポップアップ
 
-
-
 ダイアログ ボックスとポップアップは、通知、許可、またはユーザーからの追加の情報を必要とする状況が発生したときに表示される一時的な UI 要素です。
 
-> **重要な API**:[ContentDialog クラス](/uwp/api/Windows.UI.Xaml.Controls.ContentDialog)、[Flyout クラス](/uwp/api/Windows.UI.Xaml.Controls.Flyout)
+> **プラットフォーム API:** [ContentDialog クラス](/uwp/api/Windows.UI.Xaml.Controls.ContentDialog)、[Flyout クラス](/uwp/api/Windows.UI.Xaml.Controls.Flyout)
 
+**ダイアログ**
 
-:::row:::
-    :::column:::
-        **Dialogs**
-        
-        ![Example of a dialog](../images/dialogs/dialog_RS2_delete_file.png)
+![ダイアログの例](../images/dialogs/dialog_RS2_delete_file.png)
 
-        Dialogs are modal UI overlays that provide contextual app information. Dialogs block interactions with the app window until being explicitly dismissed. They often request some kind of action from the user.
-    :::column-end:::
-    :::column::: 
-        **Flyouts**
+ダイアログは、状況依存のアプリ情報を表示するモーダル UI オーバーレイです。 ダイアログは、明示的に閉じられるまでアプリ ウィンドウの対話式操作をブロックします。 多くの場合、ユーザーに何らかの操作を要求します。
 
-        ![Example of a flyout](../images/flyout-example2.png)
+**ポップアップ**
 
-        A flyout is a lightweight contextual popup that displays UI related to what the user is doing. It includes placement and sizing logic, and can be used to reveal a secondary control or show more detail about an item.
+![ポップアップの例](../images/flyout-example2.png)
 
-        Unlike a dialog, a flyout can be quickly dismissed by tapping or clicking somewhere outside the flyout, pressing the Escape key or Back button, resizing the app window, or changing the device's orientation.
-    :::column-end:::
-:::row-end:::
+ポップアップ (flyout) は、ユーザーが現在操作している内容に関係する UI を表示する軽量な状況依存のポップアップです。 このポップアップは、配置ロジックとサイズ設定ロジックを備えており、セカンダリ コントロールを表示する場合、または項目の詳細を表示する場合に使うことができます。
 
+ダイアログとは異なり、ポップアップは、それ以外の場所をタップまたはクリックするか、Esc キーまたは戻るボタンを押すか、アプリ ウィンドウのサイズを変更するか、デバイスの向きを変更することで、すばやく閉じることができます。
 
-## <a name="is-this-the-right-control"></a>適切なコントロールの選択
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか? 
 
 ダイアログとポップアップにより、ユーザーが重要な情報を認識していることを確認できますが、ユーザー エクスペリエンスは中断されます。 ダイアログはモーダル (ブロック) であるため、ユーザーは中断され、ダイアログの操作を行うまで他の操作を行うことはできません。 ポップアップの煩わしさはダイアログより低くなりますが、多用すると、煩わしくなります。
 
@@ -55,8 +46,6 @@ ms.locfileid: "57583315"
 
 ダイアログは操作をブロックし、ポップアップはブロックしないため、ダイアログの使用は、ユーザーが他のすべてを中断して情報や回答の提供に集中する必要がある状況に限定する必要があります。 一方ポップアップは、ユーザーに情報を知らせるが、ユーザーがそれを無視してもよい場合に使用します。
 
-:::row:::
-    :::column:::
    <p><b>ダイアログの用途</b> <br/>
 <ul>
 <li>続行前にユーザーが読んだり確認したりする<b>必要のある重要な</b>情報を表示する場合。 たとえば、次のものがあります。
@@ -72,17 +61,14 @@ ms.locfileid: "57583315"
 <li>アプリからユーザーにブロック質問を表示する必要がある場合 (アプリで自動的に選ぶことができない場合など) ブロック質問とは、無視したり先送りにしたりできない質問です。この質問では、ユーザーに明確な選択肢を提示する必要があります。</li>
 </ul>
 </p>
-    :::column-end:::
-    :::column:::
+
+
    <p><b>ポップアップの用途</b> <br/>
 <ul>
 <li>操作を完了する前に、必要な追加情報を収集する場合。</li>
 <li>一部の場合のみに意味がある情報を表示する場合。 たとえばフォト ギャラリー アプリで、ユーザーが画像のサムネイルをクリックした場合に、大きな画像を表示するためにポップアップを使用できます。</li>
 <li>詳細やページ上の項目の長い説明などの詳しい情報の表示。</li>
 </ul></p>
-    :::column-end:::
-:::row-end:::
-
 
 ## <a name="ways-to-avoid-using-dialogs-and-flyouts"></a>ダイアログとポップアップを使用しないようにする方法
 
@@ -103,7 +89,7 @@ ms.locfileid: "57583315"
 <table>
 <th align="left">XAML コントロール ギャラリー<th>
 <tr>
-<td><img src="../images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td><img src="../images/xaml-controls-gallery-app-icon-sm.png" alt="XAML controls gallery"></img></td>
 <td>
     <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合、こちらをクリックしてアプリを開き、<a href="xamlcontrolsgallery:/item/ContentDialog">ContentDialog</a> または <a href="xamlcontrolsgallery:/item/Flyout">Flyout</a> の動作を確認してください。</p>
     <ul>

@@ -3,15 +3,15 @@ ms.assetid: 54973C62-9669-4988-934E-9273FB0425FD
 title: デバイスを開発用に有効にする
 description: 開発およびデバッグ用に Windows 10 デバイスを構成します。
 keywords: 開発者用 Visual Studio での作業の開始, 開発者用ライセンス対応デバイス
-ms.date: 04/09/2019
+ms.date: 05/22/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 9c1979f8e8232ee3bfd2e2961307608bf8da7836
-ms.sourcegitcommit: 139717a79af648a9231821bdfcaf69d8a1e6e894
+ms.openlocfilehash: 4402200726da93bb820946c9849d8c15bd1c5d8d
+ms.sourcegitcommit: 48e047a581fcfcc9a4084d65a78b89f2c01cf4f3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67714146"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85448392"
 ---
 # <a name="enable-your-device-for-development"></a>デバイスを開発用に有効にする
 
@@ -40,37 +40,6 @@ ms.locfileid: "67714146"
 > [!NOTE]
 > 開発者モードを有効にするには、管理者のアクセス権が必要です。 組織所有のデバイスの場合は、このオプションが無効になっていることもあります。
 
-デスクトップ デバイス ファミリの設定ページを以下に示します。
-
-![[設定] に移動し、[更新とセキュリティ] を選び、[開発者向け] を選んでオプションを表示する](images/devmode-pc-options.png)
-
-## <a name="which-setting-should-i-choose-sideload-apps-or-developer-mode"></a>選ぶ必要がある設定: アプリのサイドローディングか開発者モードか
-
- デバイスでは、開発者モードを有効にすることも、サイドローディングのみを有効にすることもできます。
-
--   既定の設定は、 *[Microsoft ストア アプリ]* です。 アプリの開発中でない場合や、組織から配布された特殊な内部アプリを使っている場合は、この設定を有効にしておきます。
--   *サイドローディング*では、Microsoft Store の認証を受けていないアプリをインストールし、実行やテストを行うことができます。 たとえば、社内のみで使うアプリなどがあります。
--   *開発者モード*を使用すると、アプリをサイドロードし、Visual Studio からデバッグ モードでアプリを実行することもできます。
-
-既定では、Microsoft Store からのみユニバーサル Windows プラットフォーム (UWP) アプリをインストールできます。 開発者向け機能を使用するように設定を変更すると、デバイスのセキュリティ レベルが変わる場合があります。 未検証のソースからはアプリをインストールしないでください。
-
-### <a name="sideload-apps"></a>アプリのサイドローディング
-
-アプリのサイドロード設定は、通常、Microsoft Store を使わずにカスタム アプリを管理対象デバイスにインストールする必要がある会社や学校によって、または Microsoft 以外のソースからアプリを実行する必要があるユーザーによって、使用されます。 この場合、設定ページのイメージで以前に示したように、*UWP アプリ*設定を無効にするポリシーを組織が適用していることはよくあります。 また、組織は、必要な証明書と、アプリをサイドローディングするインストール場所を提供します。 詳しくは、TechNet の記事「[Windows 10 でのアプリのサイド ローディング](https://docs.microsoft.com/windows/deploy/sideload-apps-in-windows-10)」と「[Microsoft Intune でのアプリ展開の開始](https://docs.microsoft.com/intune/deploy-use/add-apps)」をご覧ください。
-
-デバイス ファミリ固有の情報
-
--   デスクトップ デバイス ファミリの場合:パッケージ ("Add-AppDevPackage.ps1") と共に作成される Windows PowerShell スクリプトを実行して、アプリの実行に必要なアプリ パッケージ (.appx) と証明書をインストールできます。 詳しくは、「[UWP アプリのパッケージ化](../packaging/packaging-uwp-apps.md)」をご覧ください。
-
--   モバイル デバイス ファミリの場合:必要な証明書が既にインストールされている場合は、メールまたは SD カードで受け取ったファイルをタップして、.appx をインストールできます。
-
-
-信頼できる証明書がないデバイスにアプリをインストールすることはできないため、**アプリのサイドローディング**は開発者モードよりも安全です。
-
-> [!NOTE]
-> アプリをサイドローディングする場合は、信頼できるソースからのみアプリをインストールしてください。 サイドローディングしたアプリ (Microsoft Store の認証を受けていないアプリ) をインストールする場合は、そのアプリをサイドローディングする際に必要なすべての権利をお客様が保持していること、およびそのアプリのインストールや実行の結果生じるすべての問題についてお客様が一切の責任を負うことに同意したものと見なされます。 この[プライバシーに関する声明](https://go.microsoft.com/fwlink/?LinkId=521839)の「Windows」&gt;「Microsoft Store」セクションをご覧ください。
-
-
 ### <a name="developer-mode"></a>開発者モード
 
 開発者モードは、開発者用ライセンスに対する Windows 8.1 の要件に置き換わるものです。  サイドローディングだけでなく、開発者モードの設定でデバッグおよび追加の展開オプションを有効にできます。 デバイスを展開先にできるようにする SSH サービスの開始も含まれます。 このサービスを停止するためには、開発者モードを無効にしなければなりません。
@@ -94,12 +63,32 @@ Device Portal について詳しくは、「[Windows Device Portal の概要](..
 
 デバイス固有のセットアップ手順については、以下をご覧ください。
 - [デスクトップ用 Device Portal](https://docs.microsoft.com/windows/uwp/debug-test-perf/device-portal-desktop)
-- [HoloLens 用 Device Portal](https://developer.microsoft.com/mixed-reality)
+- [HoloLens 用 Device Portal](https://docs.microsoft.com/windows/mixed-reality/using-the-windows-device-portal)
 - [IoT 用 Device Portal](https://developer.microsoft.com/windows/iot/docs/DevicePortal)
 - [モバイル用 Device Portal](../debug-test-perf/device-portal-mobile.md)
 - [Xbox 向けのデバイス ポータル](../xbox-apps/device-portal-xbox.md)
 
 開発者モードの有効化または Device Portal について問題が発生した場合には、「[既知の問題](https://social.msdn.microsoft.com/Forums/en-US/home?forum=Win10SDKToolsIssues&sort=relevancedesc&brandIgnore=True&searchTerm=%22device+portal%22)」フォーラムで問題の回避策を見つけるか、または「[開発者モード パッケージのインストール エラー](#failure-to-install-developer-mode-package)」で、開発者モード パッケージをブロック解除するための WSUS サポート技術情報の追加の情報をご覧ください。
+
+### <a name="sideload-apps"></a>アプリのサイドローディング
+
+> [!NOTE]
+> 最新の Windows 10 更新プログラムでは、サイドローディングは既定で有効になっています。 これにより、特別な構成を行わずに、署名済みの MSIX パッケージをデバイスに展開できるようになりました。 以前のバージョンの Windows 10 を使用している場合、既定の設定では Microsoft Store からアプリを実行することのみが許可されており、Microsoft 以外のソースからアプリをインストールするにはサイドローディングを有効にする必要があります。
+
+アプリのサイドロード設定は、通常、Microsoft Store を使わずにカスタム アプリを管理対象デバイスにインストールする必要がある会社や学校によって、または Microsoft 以外のソースからアプリを実行する必要があるユーザーによって、使用されます。 この場合、設定ページのイメージで以前に示したように、*UWP アプリ*設定を無効にするポリシーを組織が適用していることはよくあります。 また、組織は、必要な証明書と、アプリをサイドローディングするインストール場所を提供します。 詳しくは、TechNet の記事「[Windows 10 でのアプリのサイド ローディング](https://docs.microsoft.com/windows/deploy/sideload-apps-in-windows-10)」と「[Microsoft Intune の基本](https://docs.microsoft.com/mem/intune/fundamentals/)」をご覧ください。
+
+デバイス ファミリ固有の情報
+
+-   デスクトップ デバイス ファミリの場合:パッケージ ("Add-AppDevPackage.ps1") と共に作成される Windows PowerShell スクリプトを実行して、アプリの実行に必要なアプリ パッケージ (.appx) と証明書をインストールできます。 詳しくは、「[UWP アプリのパッケージ化](/windows/msix/package/packaging-uwp-apps)」をご覧ください。
+
+-   モバイル デバイス ファミリの場合:必要な証明書が既にインストールされている場合は、メールまたは SD カードで受け取ったファイルをタップして、.appx をインストールできます。
+
+
+信頼できる証明書がないデバイスにアプリをインストールすることはできないため、**アプリのサイドローディング**は開発者モードよりも安全です。
+
+> [!NOTE]
+> アプリをサイドローディングする場合は、信頼できるソースからのみアプリをインストールしてください。 サイドローディングしたアプリ (Microsoft Store の認証を受けていないアプリ) をインストールする場合は、そのアプリをサイドローディングする際に必要なすべての権利をお客様が保持していること、およびそのアプリのインストールや実行の結果生じるすべての問題についてお客様が一切の責任を負うことに同意したものと見なされます。 この[プライバシーに関する声明](https://privacy.microsoft.com/privacystatement)の「Windows」&gt;「Microsoft Store」セクションをご覧ください。
+
 
 ### <a name="ssh"></a>SSH
 
@@ -128,7 +117,7 @@ Windows で使用される既存の SSH サーバーはまだプロトコルに�
  デスクトップ デバイス ファミリの場合、 **[開発者向け]** 設定ページには、開発タスク用 PC を最適化するために使用できる設定へのショートカットが備わっています。 それぞれの設定で、チェック ボックスを選択して **[適用]** をクリックするか、 **[設定の表示]** リンクをクリックして対象オプションの設定ページを開くことができます。
 
 
-## <a name="notes"></a>説明
+## <a name="notes"></a>メモ
 以前のバージョンの Windows 10 Mobile では、クラッシュ ダンプ オプションが [開発者向け設定] メニューに存在していました。  これは、USB 経由だけではなくリモートでも使うことができるように[デバイス ポータル](../debug-test-perf/device-portal.md)に移動しました。  
 
 Windows 10 PC から Windows 10 デバイスへのアプリの展開に使用できるツールはいくつかあります。 デバイスは両方ともワイヤード (有線) またはワイヤレスでネットワークの同じサブネットに接続されているか、または 2 台のデバイスが USB で接続されている必要があります。 どちらの方法を使用しても、アプリ パッケージ (.appx/.appxbundle) のみがインストールされます。証明書はインストールされません。
@@ -187,7 +176,7 @@ Windows 10 Home をお持ちでない場合は、gpedit.msc を使って、グ�
 
     -   **信頼できるすべてのアプリのインストールを許可する**
 
-    - または -
+    または
 
     開発者モードを有効にするには、ポリシーを編集して次の両方を有効にします。
 
@@ -201,26 +190,30 @@ Windows 10 Home をお持ちでない場合は、gpedit.msc を使って、グ�
 1.  **regedit** を実行します。
 2.  サイドローディングを有効にするには、この DWORD の値を 1 に設定します。
 
-    -   **HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\AppModelUnlock\\AllowAllTrustedApps**
+    -   `HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock\AllowAllTrustedApps`
 
-    - または -
+    または
 
     開発者モードを有効にするには、この DWORD の値を 1 に設定します。
 
-    -   **HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\AppModelUnlock\\AllowDevelopmentWithoutDevLicense**
+    -   `HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock\AllowDevelopmentWithoutDevLicense`
 
 **PowerShell を使ってデバイスを有効にする**
 
 1.  管理者特権で PowerShell を実行します。
 2.  サイドローディングを有効にするには、このコマンドを実行します。
 
-    -   **PS C:\\WINDOWS\\system32&gt; reg add "HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\AppModelUnlock" /t REG\_DWORD /f /v "AllowAllTrustedApps" /d "1"**
+    ```powershell
+    PS C:\WINDOWS\system32> reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock" /t REG_DWORD /f /v "AllowAllTrustedApps" /d "1"
+    ```
 
-    - または -
+    または
 
     開発者モードを有効にするには、このコマンドを実行します。
 
-    -   **PS C:\\WINDOWS\\system32&gt; reg add "HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\AppModelUnlock" /t REG\_DWORD /f /v "AllowDevelopmentWithoutDevLicense" /d "1"**
+    ```powershell
+    PS C:\WINDOWS\system32> reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock" /t REG_DWORD /f /v "AllowDevelopmentWithoutDevLicense" /d "1"
+    ```
 
 ## <a name="upgrade-your-device-from-windows-81-to-windows-10"></a>Windows 8.1 から Windows 10 にデバイスをアップグレードする
 
@@ -229,7 +222,7 @@ Windows 8.1 デバイスでアプリを作成またはサイドローディン�
 **開発者用ライセンスを登録解除するには**
 
 1.  管理者特権で PowerShell を実行します。
-2.  **unregister-windowsdeveloperlicense** コマンドを実行します。
+2.  コマンド `unregister-windowsdeveloperlicense` を実行します。
 
 その後、このトピックで説明されているように、開発用のデバイスを有効にする必要があります。これにより、このデバイスで開発を継続できます。 有効にしない場合、アプリをデバッグしたり、パッケージを作成しようとしたりすると、エラーが発生する可能性があります。 このエラーの例を次に示します。
 

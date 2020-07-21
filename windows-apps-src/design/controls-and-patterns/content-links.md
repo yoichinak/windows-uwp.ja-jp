@@ -10,18 +10,18 @@ pm-contact: miguelrb
 design-contact: ''
 doc-status: Draft
 ms.localizationpriority: medium
-ms.openlocfilehash: 3fc54662b29255b73e972bcfb0fa4b6bb2dcf968
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: b72d7fced63a4c3ef4b1b233afcbb9f9874d9a3f
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66363057"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "68796719"
 ---
 # <a name="content-links-in-text-controls"></a>テキスト コントロールのコンテンツ リンク
 
 コンテンツ リンクを使用すると、テキスト コントロールにリッチ データを埋め込むことができます。これによってユーザーは、アプリのコンテキストから離れることなく、人物や場所に関する詳しい情報を見つけることができます。
 
-RichEditBox でユーザーがアンパサンド (@) 記号を使用してエントリにプレフィックスを付けると、そのエントリに一致する人々および/または場所の候補のリストが表示されます。 次に、たとえば、ユーザーが場所を選択すると、その場所の ContentLink がテキストに挿入されます。 ユーザーが RichEditBox からコンテンツ リンクを呼び出すと、その場所に関する地図と追加情報を示したポップアップが表示されます。
+RichEditBox でユーザーがアット マーク (@) を使用してエントリにプレフィックスを付けると、そのエントリに一致する人々および/または場所の候補のリストが表示されます。 次に、たとえば、ユーザーが場所を選択すると、その場所の ContentLink がテキストに挿入されます。 ユーザーが RichEditBox からコンテンツ リンクを呼び出すと、その場所に関する地図と追加情報を示したポップアップが表示されます。
 
 > **重要な API**:[ContentLink クラス](/uwp/api/windows.ui.xaml.documents.contentlink)、[ContentLinkInfo クラス](/uwp/api/windows.ui.text.contentlinkinfo)、[RichEditTextRange クラス](/uwp/api/windows.ui.text.richedittextrange)
 
@@ -154,7 +154,7 @@ Places ピッカーは、Uri ルート https://maps.windows.com/ で ContentLink
 - LinkContentKind が "Places" でない場合、これは**マップ** アプリを指定の場所に開こうとします。 たとえば、これは ContentLinkChanged イベント ハンドラーで LinkContentKind を変更した場合に発生する可能性があります。
 - マップ アプリで Uri を開くことができない場合、マップは既定のブラウザーで開かれます。 これは通常、ユーザーの _Web サイト用のアプリ_設定で**マップ** アプリを使用して Uri を開くことができない場合に発生します。
 
-##### <a name="people"></a>People
+##### <a name="people"></a>ユーザー
 
 People ピッカーは、**ms-people** プロトコルを使用する Uri で ContentLinkInfo を作成します。
 

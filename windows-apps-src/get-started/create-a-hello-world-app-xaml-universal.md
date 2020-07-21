@@ -6,12 +6,12 @@ ms.date: 03/06/2017
 ms.topic: article
 keywords: windows 10, uwp, 初めてのアプリ, hello world
 ms.localizationpriority: medium
-ms.openlocfilehash: 65dfc7b5f9a870f3ccdd5c0c046b996a01c06a00
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 93c78845a218620a8a46fc4439733734099b9853
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67321206"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "73847604"
 ---
 # <a name="create-a-hello-world-app-xaml"></a>"Hello, world" アプリを作成する (XAML)
 
@@ -36,9 +36,7 @@ ms.locfileid: "67321206"
 
 ## <a name="video-summary"></a>ビデオの概要
 
-<iframe src="https://channel9.msdn.com/Blogs/One-Dev-Minute/Writing-Your-First-Windows-10-App/player" width="640" height="360" allowFullScreen frameBorder="0"></iframe>
-
-
+> [!VIDEO https://channel9.msdn.com/Blogs/One-Dev-Minute/Writing-Your-First-Windows-10-App/player]
 
 ## <a name="step-1-create-a-new-project-in-visual-studio"></a>手順 1:Visual Studio で新しいプロジェクトを作る
 
@@ -48,7 +46,7 @@ ms.locfileid: "67321206"
 
 3.  左側のテンプレートの一覧で、 **[インストール済み]、[Visual C#]、[Windows ユニバーサル]** の順に選択し、UWP プロジェクト テンプレートの一覧を表示します。
 
-    ユニバーサル テンプレートが表示されない場合は、UWP アプリを作成するためのコンポーネントがない可能性があります。 インストール プロセスを繰り返して UWP サポートを追加することもできます ( *[新しいプロジェクト]* ダイアログで **[Visual Studio インストーラーを開く]** をクリック)。 「[準備](get-set-up.md)」をご覧ください。
+    ユニバーサル テンプレートが表示されない場合は、UWP アプリを作成するためのコンポーネントがない可能性があります。 インストール プロセスを繰り返して UWP サポートを追加することもできます (*[新しいプロジェクト]* ダイアログで **[Visual Studio インストーラーを開く]** をクリック)。 「[準備](get-set-up.md)」をご覧ください。
 
     ![インストール プロセスを繰り返す方法](images/win10-cs-install.png)
 
@@ -125,7 +123,7 @@ ms.locfileid: "67321206"
     XAML コード ウィンドウを見ると、そこにも Button が追加されたことがわかります。
 
  ```XAML
-<Button x:name="button" Content="Button" HorizontalAlignment="Left" Margin = "152,293,0,0" VerticalAlignment="Top"/>
+<Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin = "152,293,0,0" VerticalAlignment="Top"/>
  ```
 
 4.  ボタンのテキストを変更します。
@@ -133,7 +131,7 @@ ms.locfileid: "67321206"
     XAML コード ビュー内をクリックし、Content の値を "Button" から "Hello, world!" に変更します。
 
 ```XAML
-<Button x:name="button" Content="Hello, world!" HorizontalAlignment="Left" Margin = "152,293,0,0" VerticalAlignment="Top"/>
+<Button x:Name="button" Content="Hello, world!" HorizontalAlignment="Left" Margin = "152,293,0,0" VerticalAlignment="Top"/>
 ```
 
 デザイン キャンバスに表示されたボタンが更新され、新しいテキストが表示されることがわかります。
@@ -157,14 +155,14 @@ ms.locfileid: "67321206"
 
 **ローカル コンピューターでデバッグを開始するには**
 
-1.  **[標準]** ツール バーの [ターゲット デバイス] メニュー (![[デバッグの開始] メニュー](images/startdebug-full.png)) で、 **[ローカル コンピューター]** が選択されていることを確認します (既定で選択されています)。
+1.  **[標準]** ツール バーの [ターゲット デバイス] メニュー (![[デバッグの開始] メニュー](images/startdebug-full.png)) で、**[ローカル コンピューター]** が選択されていることを確認します  (既定で選択されています)。
 2.  ツール バーの **[デバッグの開始]** ボタン (![[デバッグの開始] ボタン](images/startdebug-sm.png)) をクリックします。
 
-   または
+   \- または -
 
    **[デバッグ]** メニューの **[デバッグの開始]** をクリックします。
 
-   または
+   \- または -
 
    F5 キーを押します。
 
@@ -182,11 +180,11 @@ Windows キーを押して **[スタート]** メニューを開き、すべて�
 
    ツール バーの **[デバッグの停止]** ボタン (![[デバッグの停止] ボタン](images/stopdebug.png)) をクリックします。
 
-   または
+   \- または -
 
    **[デバッグ]** メニューの **[デバッグの停止]** をクリックします。
 
-   または
+   \- または -
 
    アプリ ウィンドウを閉じます。
 
@@ -231,7 +229,7 @@ private async void Button_Click(object sender, RoutedEventArgs e)
 アプリを実行し、ボタンをクリックすると、コンピューター (または電話) が "Hello, World!" を文字どおりにしゃべります。
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>要約
 
 これで、Windows 10 と UWP 用の初めてのアプリを作成しました。
 

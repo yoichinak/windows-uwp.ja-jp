@@ -11,36 +11,40 @@ pm-contact: miguelrb
 design-contact: ksulliv
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 00a65324b799b0cf974271da23fdbcb36aa6c8e2
-ms.sourcegitcommit: 4ca51472d0474be96fa3184e311b729f58998234
+ms.openlocfilehash: cf2eebdc97a1052dd3f4a3e00dd3a911cb80bace
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67399616"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970667"
 ---
 # <a name="rich-edit-box"></a>リッチ エディット ボックス
 
- 
-
 書式付きテキスト、ハイパーリンク、イメージなどを含んだリッチ テキスト ドキュメントの入力と編集には、RichEditBox コントロールを使うことができます。 このコントロールの IsReadOnly プロパティを **true** に設定すると、RichEditBox を読み取り専用にできます。
 
-> **重要な API**:[RichEditBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RichEditBox)、[Document プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.richeditbox.document)、[IsReadOnly プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.richeditbox.isreadonly)、[IsSpellCheckEnabled プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.richeditbox.isspellcheckenabled)
+**Windows UI ライブラリを入手する**
 
-## <a name="is-this-the-right-control"></a>適切なコントロールの選択
+|  |  |
+| - | - |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | Windows UI ライブラリ 2.2 以降には、丸めた角を使用するこのコントロールの新しいテンプレートが含まれます。 詳しくは、「[角の半径](/windows/uwp/design/style/rounded-corner)」をご覧ください。 WinUI は、Windows アプリの新しいコントロールと UI 機能が含まれる NuGet パッケージです。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+
+> **プラットフォーム API**: [RichEditBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RichEditBox)、[Document プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.richeditbox.document)、[IsReadOnly プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.richeditbox.isreadonly)、[IsSpellCheckEnabled プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.richeditbox.isspellcheckenabled)
+
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 **RichEditBox** を使用して、テキスト ファイルを表示および編集します。 その他の標準的なテキスト入力ボックスを使用するように、RichEditBox を使用してアプリにユーザー入力を行わないでください。 代わりに、アプリとは別のテキスト ファイルを操作するために使用します。 通常は、RichEditBox に入力されたテキストを .rtf ファイルに保存します。
 -   複数行テキスト ボックスの主な目的が読み取り専用ドキュメントの作成 (ブログのエントリ、メール メッセージのコンテンツなど) であり、ドキュメントでリッチ テキストが必要な場合は、代わりに[リッチ テキスト ブロック](/windows/uwp/design/controls-and-patterns/rich-text-block)を使います。
 -   内部的に使うだけで、ユーザーに再表示しないテキストを取得する場合は、プレーンテキスト入力コントロールを使います。
 -   他のすべてのシナリオでは、プレーンテキスト入力コントロールを使います。
 
-適切なテキスト コントロールの選択について詳しくは、「[テキスト コントロール](text-controls.md)」をご覧ください。
+適切なテキスト コントロールの選択の詳細については、「[テキスト コントロール](text-controls.md)」の記事をご覧ください。
 
 ## <a name="examples"></a>例
 
 <table>
 <th align="left">XAML コントロール ギャラリー<th>
 <tr>
-<td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td><img src="images/xaml-controls-gallery-app-icon-sm.png" alt="XAML controls gallery"></img></td>
 <td>
     <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合、こちらをクリックして<a href="xamlcontrolsgallery:/item/RichEditBox">アプリを開き、RichEditBox の動作を確認</a>してください。</p>
     <ul>
@@ -208,12 +212,12 @@ private void UnderlineButton_Click(object sender, RoutedEventArgs e)
 
 ## <a name="dos-and-donts"></a>推奨と非推奨
 
-- リッチ テキスト ボックスを作る場合は、スタイル設定ボタンを用意し、その動作を実装します。
-- アプリのスタイルに合ったフォントを使います。
+- リッチ テキスト ボックスを作成する場合は、スタイル設定ボタンを用意し、その動作を実装します。
+- アプリのスタイルに合ったフォントを使用します。
 - テキスト コントロールの高さは、典型的な入力が十分に入るように設定します。
 - ユーザーの入力中にテキスト入力コントロールの高さが増加するようにはしません。
-- ユーザーが 1 行しか必要としていない場合は、複数行テキスト ボックスを使いません。
-- プレーンテキスト コントロールで十分な場合に、リッチ テキスト コントロールを使わないでください。
+- ユーザーが 1 行しか必要としていない場合は、複数行テキスト ボックスを使用しません。
+- プレーンテキスト コントロールで十分な場合に、リッチ テキスト コントロールを使用しません。
 
 ## <a name="get-the-sample-code"></a>サンプル コードを入手する
 

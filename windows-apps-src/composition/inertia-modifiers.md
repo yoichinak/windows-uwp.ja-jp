@@ -5,12 +5,12 @@ ms.date: 10/10/2017
 ms.topic: article
 keywords: Windows 10, UWP, アニメーション
 ms.localizationpriority: medium
-ms.openlocfilehash: f99ebc4b98c87a4bc6d77fd2c626f481563e50c5
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 46f20a4f63decfad063332d2e8e494c15563e398
+ms.sourcegitcommit: f2832e1e04cbf472f7fd51c08144489c510ff470
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57639637"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80270397"
 ---
 # <a name="create-snap-points-with-inertia-modifiers"></a>慣性修飾子を使用したスナップ位置の作成
 
@@ -20,9 +20,9 @@ ms.locfileid: "57639637"
 
 ここでは、以下の記事で説明されている概念を理解していることを前提とします。
 
-- [入力に基づくアニメーション](input-driven-animations.md)
-- [カスタム操作 InteractionTracker 経験](interaction-tracker-manipulations.md)
-- [ベースのリレーションのアニメーション](relation-animations.md)
+- [入力ドリブンアニメーション](input-driven-animations.md)
+- [InteractionTracker を使用したカスタム操作エクスペリエンス](interaction-tracker-manipulations.md)
+- [関係ベースのアニメーション](relation-animations.md)
 
 ## <a name="what-are-snap-points-and-why-are-they-useful"></a>スナップ位置の説明、およびスナップ位置が便利である理由
 
@@ -88,16 +88,18 @@ var snapUpModifier = InteractionTrackerInertiaRestingValue.Create(_compositor);
 var snapDownModifier = InteractionTrackerInertiaRestingValue.Create(_compositor);
 ```
 
-スナップの方向が上であるか下であるかは、InteractionTracker がスナップの距離 (スナップ位置間の距離) の範囲内で自然に停止した相対的な位置に基づいて決定されます。 中間点を越えた場合は下方向のスナップ、それ以外の場合は上方向のスナップです  (この例では、スナップの距離は PropertySet に保存されます)。
+スナップの方向が上であるか下であるかは、InteractionTracker がスナップの距離 (スナップ位置間の距離) の範囲内で自然に停止した相対的な位置に基づいて決定されます。 中間点を越えた場合は下方向のスナップ、それ以外の場合は上方向のスナップです (この例では、スナップの距離は PropertySet に保存されます)。
 
 ```csharp
 // Is NaturalRestingPosition less than the halfway point between Snap Points?
 snapUpModifier.Condition = _compositor.CreateExpressionAnimation(
-"this.Target.NaturalRestingPosition.y < (this.StartingValue – ” + “mod(this.StartingValue, prop.snapDistance) + prop.snapDistance / 2)");
+"this.Target.NaturalRestingPosition.y < (this.StartingValue - " + 
+"mod(this.StartingValue, prop.snapDistance) + prop.snapDistance / 2)");
 snapUpModifier.Condition.SetReferenceParameter("prop", _propSet);
 // Is NaturalRestingPosition greater than the halfway point between Snap Points?
 snapDownModifier.Condition = _compositor.CreateExpressionAnimation(
-"this.Target.NaturalRestingPosition.y >= (this.StartingValue – ” + “mod(this.StartingValue, prop.snapDistance) + prop.snapDistance / 2)");
+"this.Target.NaturalRestingPosition.y >= (this.StartingValue - " + 
+"mod(this.StartingValue, prop.snapDistance) + prop.snapDistance / 2)");
 snapDownModifier.Condition.SetReferenceParameter("prop", _propSet);
 ```
 
@@ -111,9 +113,10 @@ snapDownModifier.Condition.SetReferenceParameter("prop", _propSet);
 snapUpModifier.RestingValue = _compositor.CreateExpressionAnimation(
 "this.StartingValue - mod(this.StartingValue, prop.snapDistance)");
 snapUpModifier.RestingValue.SetReferenceParameter("prop", _propSet);
-snapForwardModifier.RestingValue = _compositor.CreateExpressionAnimation(
-"this.StartingValue + prop.snapDistance - mod(this.StartingValue, ” + “prop.snapDistance)");
-snapForwardModifier.RestingValue.SetReferenceParameter("prop", _propSet);
+snapDownModifier.RestingValue = _compositor.CreateExpressionAnimation(
+"this.StartingValue + prop.snapDistance - mod(this.StartingValue, " + 
+"prop.snapDistance)");
+snapDownModifier.RestingValue.SetReferenceParameter("prop", _propSet);
 ```
 
 最後に、InertiaModifier を InteractionTracker に追加します。 以上で、InteractionTracker が InertiaState に移行すると、InertiaModifier の条件が評価され、位置を変更する必要があるかどうかが判断されます。

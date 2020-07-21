@@ -1,27 +1,27 @@
 ---
 title: Windows 10 ビルド 10586 の新着情報 - 2015 年 11 月
 description: Windows 10 ビルド 10586 と新しい開発者ツールでは、新しいユニバーサル Windows プラットフォームによって強化されたツール、機能、エクスペリエンスを利用できます。
-keywords: 新着情報, 新機能, 更新, 更新プログラム, 機能, 新規, Windows 10, 1511, 11 月, 10586
+keywords: 機能, Windows 10, 1511, 10586
 ms.date: 11/02/2017
 ms.topic: article
 ms.assetid: 0d6c65c5-2ad5-46c7-964e-a3a9833c94ce
 ms.localizationpriority: medium
-ms.openlocfilehash: 4b94cf08ea39ec12db48c56541a924e5cdc5efb4
-ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
+ms.openlocfilehash: 14ea5b96c88abeb1586ff8f6695a694b51ee9af0
+ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67820993"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83234743"
 ---
 # <a name="whats-new-in-windows-10-for-developers-build-10586"></a>Windows 10 ビルド 10586 の開発者向け新着情報
 
-Windows 10 ビルド 10586 (November Update またはバージョン 1511 とも呼ばれます) では、Visual Studio 2019 や更新された SDK と組み合わせて使うことで、優れたユニバーサル Windows プラットフォーム アプリを作成するためのツール、機能、エクスペリエンスが利用可能になります。 Windows 10 の[ツールと SDK をインストール](https://go.microsoft.com/fwlink/?LinkId=821431)すると、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
+Windows 10 ビルド 10586 (November Update またはバージョン 1511 とも呼ばれます) では、Visual Studio 2019 や更新された SDK と組み合わせて使うことで、優れたユニバーサル Windows プラットフォーム アプリを作成するためのツール、機能、エクスペリエンスが利用可能になります。 Windows 10 の[ツールと SDK をインストール](https://developer.microsoft.com/windows/downloads#_blank)すると、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
 
 ## <a name="windows-10-build-10586---november-2015"></a>Windows 10 ビルド 10586 - 2015 年 11 月
 
 機能 | 説明
  :---- | :----
- ユーザー エクスペリエンス | 新しい [Windows.UI.StartScreen.JumpList](https://docs.microsoft.com/uwp/api/windows.ui.startscreen) クラスと [Windows.UI.StartScreen.JumpListItem](https://docs.microsoft.com/uwp/api/windows.ui.startscreen) クラスを利用すると、アプリでは、アプリで使用するシステム管理ジャンプ リストの種類をプログラムで選択したり、ジャンプ リストへカスタム タスク エントリ ポイントやカスタム グループを追加することができます。
+ ユーザーの作業 | 新しい [Windows.UI.StartScreen.JumpList](https://docs.microsoft.com/uwp/api/windows.ui.startscreen) クラスと [Windows.UI.StartScreen.JumpListItem](https://docs.microsoft.com/uwp/api/windows.ui.startscreen) クラスを利用すると、アプリでは、アプリで使用するシステム管理ジャンプ リストの種類をプログラムで選択したり、ジャンプ リストへカスタム タスク エントリ ポイントやカスタム グループを追加することができます。
  入力 | [キーボード デリバリー インターセプター](https://docs.microsoft.com/uwp/api/windows.ui.input.keyboarddeliveryinterceptor)。 アプリでショートカット キーやアクセス キー (またはホット キー)、アクセラレータ キー、アプリケーション キーなどの、キーボードからの生の入力のシステム プロセスを上書きしますが、Secure Attention Sequence (SAS) キーの組み合わせは除外します。 Ctrl + Alt + Del と Windows + L を含む Secure Attention Sequence (SAS) キーの組み合わせは引き続きシステムで処理されます。 <br /><br />[UWP アプリ](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow)と[従来の Windows アプリ](https://docs.microsoft.com/previous-versions/windows/desktop/inputmsg/messages)のポインター入力のチェーンはプロセスを超えて処理されます。 プロセス間の入力チェーンを実現する新しいポインター イベント。 <br /><br />[従来のデスクトップ アプリ用のインク プレゼンター](https://docs.microsoft.com/previous-versions/windows/desktop/input_ink/ink-presenter)。 インク プレゼンター API では、アプリの [DirectComposition](https://docs.microsoft.com/windows/desktop/directcomp/directcomposition-portal) ビジュアル ツリーに挿入された [InkPresenter](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking.InkPresenter) オブジェクトを通じて、入力、処理、インク入力 (標準と変更) の描画の Microsoft Win32 アプリによる管理を実現しています。
 ネットワーク | Websocket ユーザー向け: [MessageWebSocket.OutputStream.FlushAsync](https://docs.microsoft.com/uwp/api/windows.storage.streams.datawriter.flushasync) と [StreamWebSocket.OutputStream.FlushAsync](https://docs.microsoft.com/uwp/api/windows.storage.streams.datawriter.flushasync) の実装がすべて完了したので、後は以前に発行された WriteAsync 呼び出しの完了を待ちます。 これにより、[FlushAsync](https://docs.microsoft.com/uwp/api/windows.storage.streams.datawriter.flushasync) 呼び出し時に WebSocket が無効な状態にあると、既存のコードが例外をスローする場合があります。 <br /><br />新しいプロパティ [CookieUsageBehavior](https://docs.microsoft.com/uwp/api/windows.web.http.filters.httpbaseprotocolfilter) が既存の [Windows.Web.Http.Filters.HttpBaseProtocolFilter クラス](https://docs.microsoft.com/uwp/api/windows.web.http.filters.httpbaseprotocolfilter)に追加されました。 これにより、開発者は、システムによる Cookie の処理方法を制御できるようになります。
 ORTC | Microsoft Edge に実装された [ORTC (Object Real-Time Communications)](https://docs.microsoft.com/previous-versions//mt433097(v=vs.85)) を使用すると、ネイティブ Javascript API を通じ、ブラウザー、モバイル デバイス、サーバーの間で直接、Web の音声通話とビデオ通話をリアルタイムで行うことができます。 開発者は ORTC API と、グループ ビデオ通話、サイマルキャスト、スケーラブル ビデオ コーディング (SVC) などのサポートを使用して、Microsoft Edge ブラウザー上に高度なリアルタイム音声/ビデオ コミュニケーション アプリケーションを構築することができるようになりました。 ORTC API を使った Microsoft Edge ブラウザー間の 1 対 1 の音声/ビデオ通話のデモは、[テスト ドライブ サイトとデモ](https://developer.microsoft.com/microsoft-edge/testdrive/demos/ortcdemo)をご覧ください。

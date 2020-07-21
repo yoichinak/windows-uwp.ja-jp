@@ -5,12 +5,12 @@ ms.date: 02/06/2019
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: a6a1d93b1deaad084ff25db946199b678b35703c
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: dcbeffc7e3db8f3df9c197e8c388f30faf7ad03d
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66369509"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "75685247"
 ---
 # <a name="best-practices-for-writing-to-files"></a>ファイルへの書き込みに関するベスト プラクティス
 
@@ -44,7 +44,7 @@ ms.locfileid: "66369509"
 この概念を理解することは、**StorageFile** で I/O を実行する場合に役立ちます。 たとえば、「[ファイルへの書き込み](quickstart-reading-and-writing-files.md#writing-to-a-file)」セクションでは、ファイルへの 3 とおりの書き込み方法が示されています。
 
 * [**FileIO.WriteTextAsync**](https://docs.microsoft.com/uwp/api/windows.storage.fileio.writetextasync) メソッドを使用する。
-* バッファーを作成してから、[**FileIO.WriteBufferAsync**](https://docs.microsoft.com/en-us/uwp/api/windows.storage.fileio.writebufferasync) メソッドを呼び出す。
+* バッファーを作成してから、[**FileIO.WriteBufferAsync**](https://docs.microsoft.com/uwp/api/windows.storage.fileio.writebufferasync) メソッドを呼び出す。
 * ストリームを使用する 4 ステップのモデル:
   1. ファイルを[開き](https://docs.microsoft.com/uwp/api/windows.storage.storagefile.openasync)、ストリームを取得します。
   2. 出力ストリームを[取得](https://docs.microsoft.com/uwp/api/windows.storage.streams.irandomaccessstream.getoutputstreamat)します。
@@ -75,14 +75,14 @@ ms.locfileid: "66369509"
 
 この表には、アプリ開発者が **Write** メソッドを使用するときに発生する一般的なエラー コードが示されています。 表の手順は、前の図の手順に対応しています。
 
-|  エラー名 (値)  |  手順  |  原因  |  解決策  |
+|  エラー名 (値)  |  手順  |  原因  |  ソリューション  |
 |----------------------|---------|----------|-------------|
 |  ERROR_ACCESS_DENIED (0X80070005)  |  5  |  場合によっては前の操作から、削除する対象として元のファイルにマークが付けられる可能性があります。  |  操作を再試行します。</br>ファイルへのアクセスが同期されていることを確認します。  |
 |  ERROR_SHARING_VIOLATION (0x80070020)  |  5  |  元のファイルが別の排他的書き込みによって開かれています。   |  操作を再試行します。</br>ファイルへのアクセスが同期されていることを確認します。  |
 |  ERROR_UNABLE_TO_REMOVE_REPLACED (0x80070497)  |  19 から 20  |  元のファイル (file.txt) が使用中のため、置換できませんでした。 置換の前に、別のプロセスまたは操作でファイルにアクセスされました。  |  操作を再試行します。</br>ファイルへのアクセスが同期されていることを確認します。  |
 |  ERROR_DISK_FULL (0x80070070)  |  7、14、16、20  |  トランザクション処理されたモデルでは余分なファイルが作成され、これにより、余分なストレージが消費されています。  |    |
 |  ERROR_OUTOFMEMORY (0x8007000E)  |  14、16  |  これは、複数の未処理の I/O 操作または大きなファイル サイズが原因で発生する場合があります。  |  ストリームを制御することによる、より詳細な方法でエラーが解決される可能性があります。  |
-|  E_FAIL (0x80004005) |  任意  |  その他  |  操作を再試行します。 それでも失敗する場合は、プラットフォームのエラーである可能性があります。アプリが不整合な状態であるため、終了する必要があります。 |
+|  E_FAIL (0x80004005) |  Any  |  その他  |  操作を再試行します。 それでも失敗する場合は、プラットフォームのエラーである可能性があります。アプリが不整合な状態であるため、終了する必要があります。 |
 
 ## <a name="other-considerations-for-file-states-that-might-lead-to-errors"></a>エラーにつながる可能性のあるファイルの状態に関するその他の考慮事項
 
@@ -102,7 +102,7 @@ ms.locfileid: "66369509"
 
 ### <a name="conflicting-io"></a>競合する I/O
 
-アプリでローカル データのファイルに対して **Write** メソッドを使用すると、同時実行エラーの可能性は低くなる場合がありますが、それでもいくつか注意が必要です。 複数の**書き込み**操作が同時にファイルに送信されている場合、ファイルのデータの最終的な状態については保証されません。 これを軽減するために、アプリでファイルへの**書き込み**操作をシリアル化することをお勧めします。
+アプリでローカル データのファイルに対して **Write** メソッドを使用すると、同時開催エラーの可能性は低くなる場合がありますが、それでもいくつか注意が必要です。 複数の**書き込み**操作が同時にファイルに送信されている場合、ファイルのデータの最終的な状態については保証されません。 これを軽減するために、アプリでファイルへの**書き込み**操作をシリアル化することをお勧めします。
 
 ### <a name="tmp-files"></a>~TMP ファイル
 

@@ -1,23 +1,84 @@
 ---
 description: C++/WinRT に関するニュースと変更内容です。
 title: C++/WinRT の新機能
-ms.date: 04/23/2019
+ms.date: 03/16/2020
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 新機能
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 537150f6fc000794b11ef9236bfd88469d3f6b19
-ms.sourcegitcommit: 5d71c97b6129a4267fd8334ba2bfe9ac736394cd
+ms.openlocfilehash: 3057a3d13ba1e7d368dd6bf8820710030687a04d
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67800583"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "80662384"
 ---
 # <a name="whats-new-in-cwinrt"></a>C++/WinRT の新機能
 
+C++/WinRT の後続バージョンがリリースされると、このトピックに新機能と変更点が記載されます。
+
+## <a name="rollup-of-recent-improvementsadditions-as-of-march-2020"></a>2020 年 3 月現在における最新の機能強化および追加のロールアップ
+
+### <a name="up-to-23-shorter-build-times"></a>ビルド時間を最大 23% 短縮
+
+C++/WinRT と C++ コンパイラ チームは、ビルド時間短縮のために可能なすべてのことを共同で行ってきました。 コンパイラ分析に注力し、C++ コンパイラでコンパイル時のオーバーヘッドを解消できるように C++/WinRT の内部を再構築する方法と、C++/WinRT ライブラリを処理するために C++ コンパイラ自体を改善する方法を見つけ出しました。 C++/WinRT はコンパイラ用に最適化されており、コンパイラも C++/WinRT 用に最適化されています。
+
+たとえば、すべての C++/WinRT プロジェクション名前空間ヘッダーを含むプリコンパイル済みヘッダー (PCH) を構築するという最悪のシナリオを考えてみましょう。
+
+| バージョン | PCH のサイズ (バイト) | 回数 |
+| - | - | - |
+| 7 月からの C++/WinRT、および Visual C++ 16.3 | 3,004,104,632 | 31 |
+| バージョン 2.0.200316.3 の C++/WinRT、および Visual C++ 16.5 | 2,393,515,336 | 24 |
+
+サイズが 20% 削減され、ビルド時間が 23% 短縮されます。
+
+### <a name="improved-msbuild-support"></a>MSBuild サポートの向上
+
+さまざまなシナリオを対象とした [MSBuild](/visualstudio/msbuild/msbuild?view=vs-2019) サポートを向上させるために、多くの取り組みを行ってきました。
+
+### <a name="even-faster-factory-caching"></a>ファクトリ キャッシュのさらなる高速化
+
+インライン ホット パスを向上させるために、ファクトリ キャッシュのインライン化を改善し、より高速な実行を実現しました。
+
+&mdash;後述の[最適化された EH コード生成](#optimized-exception-handling-eh-code-generation)の説明にあるように、この改善はコード サイズには影響せず、アプリケーションで C++ 例外処理を頻繁に使用する場合は、Visual Studio 2019 16.3 以降で作成された新しいプロジェクトで既定でオンになっている `/d2FH4` オプションを使用してバイナリを縮小できます。
+
+### <a name="more-efficient-boxing"></a>より効率的なボックス化
+
+XAML アプリケーションで使用する場合、[**winrt:: box_value**](/uwp/cpp-ref-for-winrt/box-value) がより効率的になりました ([ボックス化とボックス化解除](/windows/uwp/cpp-and-winrt-apis/boxing)に関するページを参照してください)。 また、多数のボックス化を実行するアプリケーションでは、コード サイズも小さくなります。
+
+### <a name="support-for-implementing-com-interfaces-that-implement-iinspectable"></a>IInspectable を実装する COM インターフェイスの実装のサポート
+
+[**IInspectable**](/windows/win32/api/inspectable/nn-inspectable-iinspectable) を実装するためだけに (Windows ランタイム以外の) COM インターフェイスを実装する必要がある場合は、C++/WinRT を使用してそうすることができます。 [IInspectable を実装する COM インターフェイス](https://github.com/microsoft/xlang/pull/603)に関するページを参照してください。
+
+### <a name="module-locking-improvements"></a>モジュール ロックの機能強化
+
+モジュール ロックの制御により、カスタム ホスティング シナリオと、モジュール レベル ロックの完全な排除の両方が可能になりました。 [モジュール ロックの機能強化](https://github.com/microsoft/xlang/pull/583)に関するページを参照してください。
+
+### <a name="support-for-non-windows-runtime-error-information"></a>Windows ランタイム以外のエラー情報のサポート
+
+一部の API では (一部の Windows ランタイム API でも)、Windows ランタイム エラー発生 API を使用せずにエラーが報告されます。 このような場合、C++/WinRT では COM エラー情報が使用されるようになりました。 [WinRT 以外のエラー情報に対する C++/WinRT サポート](https://github.com/microsoft/xlang/pull/582)に関するページを参照してください。
+
+### <a name="enable-c-module-support"></a>C++ モジュール サポートの有効化 
+
+C++ モジュール サポートが再度有効になりましたが、まだ試験的な段階にすぎません。 この機能は、C++ コンパイラではまだ完全ではありません。
+
+### <a name="more-efficient-coroutine-resumption"></a>コルーチン再開のさらなる効率化
+
+C++/WinRT コルーチンは既に良好なパフォーマンスを発揮していますが、さらに向上させるための方法の調査は引き続き行われています。 [コルーチン再開のスケーラビリティの向上](https://github.com/microsoft/xlang/pull/546)に関するページを参照してください。
+
+### <a name="new-when_all-and-when_any-async-helpers"></a>新しい非同期ヘルパー **when_all** および **when_any**
+
+**when_all** ヘルパー関数は、指定されたすべての awaitable が完了したときに完了する [**IAsyncAction**](/uwp/api/windows.foundation.iasyncaction) オブジェクトを作成します。 **when_any** ヘルパーは、指定された awaitable のいずれかが完了したときに完了する **IAsyncAction** を作成します。 
+
+[when_any 非同期ヘルパーの追加](https://github.com/microsoft/xlang/pull/520)および [when_all 非同期ヘルパーの追加](https://github.com/microsoft/xlang/pull/516)に関するページを参照してください。
+
+### <a name="other-optimizations-and-additions"></a>その他の最適化と追加
+
+さらに、多数のバグ修正、軽度の最適化、および追加が導入されました。これには、デバッグを簡略化し、内部および既定の実装を最適化するためのさまざまな機能強化が含まれています。 完全な一覧については、こちらのリンクを参照してください。[https://github.com/microsoft/xlang/pulls?q=is%3Apr+is%3Aclosed](https://github.com/microsoft/xlang/pulls?q=is%3Apr+is%3Aclosed)
+
 ## <a name="news-and-changes-in-cwinrt-20"></a>C++/WinRT 2.0 の新機能と変更点
 
-[C++/WinRT Visual Studio Extension (VSIX)](https://aka.ms/cppwinrt/vsix)、[Microsoft.Windows.CppWinRT NuGet パッケージ](https://www.nuget.org/packages/Microsoft.Windows.CppWinRT/)、`cppwinrt.exe` ツールの入手やインストール方法などの詳細については、「[Visual Studio のサポートの C +/cli WinRT、XAML、VSIX 拡張機能と NuGet パッケージ](intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)」を参照してください。
+[C++/WinRT Visual Studio Extension (VSIX)](https://marketplace.visualstudio.com/items?itemName=CppWinRTTeam.cppwinrt101804264)、[Microsoft.Windows.CppWinRT NuGet パッケージ](https://www.nuget.org/packages/Microsoft.Windows.CppWinRT/)、`cppwinrt.exe` ツールの入手やインストール方法などの詳細については、「[Visual Studio のサポートの C +/cli WinRT、XAML、VSIX 拡張機能と NuGet パッケージ](intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)」を参照してください。
 
 ### <a name="changes-to-the-cwinrt-visual-studio-extension-vsix-for-version-20"></a>バージョン 2.0 の C++/WinRT Visual Studio Extension (VSIX) の変更点
 
@@ -28,7 +89,7 @@ ms.locfileid: "67800583"
 
 - 必要に応じてプロジェクトごとにプラットフォーム プロジェクション ヘッダーを生成する `cppwinrt.exe` ツールは、Microsoft.Windows.CppWinRT NuGet パッケージに含まれるようになります。 その結果、`cppwinrt.exe` ツールは Windows SDK に依存しなくなります (ただし、互換性の理由から、ツールには引き続き SDK が付属しています)。
 - 並列ビルドを有効にするため、`cppwinrt.exe` では各プラットフォーム/構成固有の中間フォルダー ($IntDir) の下に、プロジェクション ヘッダーが生成されるようになりました。
-- プロジェクト ファイルを手動でカスタマイズする場合のため、C++/WinRT のビルドのサポート (プロパティ/ターゲット) が完全にドキュメント化されるようになりました。 「[Microsoft.Windows.CppWinRT NuGet Package](https://github.com/Microsoft/xlang/blob/master/src/package/cppwinrt/nuget/readme.md)」(Microsoft.Windows.CppWinRT NuGet パッケージ) をご覧ください。
+- プロジェクト ファイルを手動でカスタマイズする場合のため、C++/WinRT のビルドのサポート (プロパティ/ターゲット) が完全にドキュメント化されるようになりました。 Microsoft.Windows.CppWinRT NuGet パッケージの [readme](https://github.com/microsoft/cppwinrt/blob/master/nuget/readme.md#customizing) をご覧ください。
 - 多くのバグ修正が行われました。
 
 ### <a name="changes-to-cwinrt-for-version-20"></a>バージョン 2.0 での C++/WinRT の変更点
@@ -37,7 +98,7 @@ ms.locfileid: "67800583"
 
 `cppwinrt.exe` ツールでは、Windows ランタイム メタデータ (`.winmd`) ファイルが取得され、それに基づいて、メタデータで記述されている API を "*プロジェクト*" するヘッダー ファイル ベースの標準 C++ ライブラリが生成されます。 それにより、C++/WinRT のコードからそれらの API を使用できます。
 
-このツールは完全なオープン ソース プロジェクトになり、GitHub で入手できます。 [Microsoft\/xlang](https://github.com/Microsoft/xlang) に移動し、**src** > **tool** > **cppwinrt** の順にクリックします。
+このツールは完全なオープン ソース プロジェクトになり、GitHub で入手できます。 [Microsoft\/cppwinrt](https://github.com/microsoft/cppwinrt) にアクセスしてください。
 
 #### <a name="xlang-libraries"></a>xlang ライブラリ
 
@@ -49,22 +110,14 @@ xlang メタデータ リーダーにより、`cppwinrt.exe` ツール自体の�
  
 `cppwinrt.exe` 2.0 での依存関係は次のとおりです。
  
-- api-ms-win-core-processenvironment-l1-1-0.dll
-- api-ms-win-core-libraryloader-l1-2-0.dll
-- XmlLite.dll
-- api-ms-win-core-memory-l1-1-0.dll
-- api-ms-win-core-handle-l1-1-0.dll
-- api-ms-win-core-file-l1-1-0.dll
-- SHLWAPI.dll
 - ADVAPI32.dll
 - KERNEL32.dll
-- api-ms-win-core-rtlsupport-l1-1-0.dll
-- api-ms-win-core-processthreads-l1-1-0.dll
-- api-ms-win-core-heap-l1-1-0.dll
-- api-ms-win-core-console-l1-1-0.dll
-- api-ms-win-core-localization-l1-2-0.dll
+- SHLWAPI.dll
+- XmlLite.dll
 
-これらの依存関係とは対照的に、`cppwinrt.exe` 1.0 では次のとおりです。
+Windows 10 だけでなく、Windows 7 までの旧バージョンや Windows Vista でも、これらの DLL をすべて利用できます。 そうしたければ、Windows 7 を実行中の古いビルド サーバーでも、`cppwinrt.exe` を実行して、プロジェクトの C++ ヘッダーを生成できるようになりました。 関心がある場合は、手間はかかりますが、[Windows 7 上で C++/WinRT を実行する](https://github.com/kennykerr/win7)こともできます。
+
+上記の一覧を、次の `cppwinrt.exe` 1.0 の依存関係と比べてください。
 
 - ADVAPI32.dll
 - SHELL32.dll
@@ -150,7 +203,9 @@ xlang メタデータ リーダーのため、C++/WinRT では、すべてのパ
 
 ##### <a name="uniform-construction-and-direct-implementation-access"></a>均一コンストラクション、実装への直接アクセス
 
-これら 2 つの最適化により、コンポーネントでは、プロジェクションが実行された型のみを使う場合であっても、独自の実装型に直接アクセスできます。 パブリック API サーフェスを使うだけの場合は、[**make**](/uwp/cpp-ref-for-winrt/make)、[**make_self**](/uwp/cpp-ref-for-winrt/make-self)、[**get_self**](/uwp/cpp-ref-for-winrt/get-self) を使う必要はありません。 呼び出しは実装の直接呼び出しにコンパイルされ、完全にインライン化される可能性さえあります。 均一の構築について詳しくは、FAQ の「["クラスが登録されていません" という例外が発生するのはなぜですか?](faq.md#why-am-i-getting-a-class-not-registered-exception)」をご覧ください。
+これら 2 つの最適化により、コンポーネントでは、プロジェクションが実行された型のみを使う場合であっても、独自の実装型に直接アクセスできます。 パブリック API サーフェスを使うだけの場合は、[**make**](/uwp/cpp-ref-for-winrt/make)、[**make_self**](/uwp/cpp-ref-for-winrt/make-self)、[**get_self**](/uwp/cpp-ref-for-winrt/get-self) を使う必要はありません。 呼び出しは実装の直接呼び出しにコンパイルされ、完全にインライン化される可能性さえあります。
+
+詳細とコード例については、[均一の構築と実装への直接アクセスへのオプトイン](/windows/uwp/cpp-and-winrt-apis/author-apis#opt-in-to-uniform-construction-and-direct-implementation-access)に関する記事を参照してください。
 
 ##### <a name="type-erased-factories"></a>型消去されたファクトリ
 
@@ -186,9 +241,11 @@ fire_and_forget Async(DispatcherQueueController controller)
 
 コルーチン ヘルパーも `[[nodiscard]]` で修飾されるようになったため、使いやすさが向上しています。 それらが動作するための `co_await` を忘れた (または、必要であることを知らなかった) 場合、`[[nodiscard]]` のため、このような誤りではコンパイラの警告が発生します。
 
-#### <a name="help-with-diagnosing-stack-allocations"></a>スタック割り当ての診断でのヘルプ
+#### <a name="help-with-diagnosing-direct-stack-allocations"></a>直接 (スタック) 割り当ての診断でのヘルプ
 
 投影されたクラスと実装クラスの名前は (既定では) 同じで、名前空間のみが異なるため、間違えることがあり、ヘルパーの [**make**](/uwp/cpp-ref-for-winrt/make) ファミリではなく、スタック上に実装を誤って作成する可能性があります。 これは、未解決の参照がまだ処理中にオブジェクトが破棄される可能性があるため、場合によっては診断が困難です。 デバッグ ビルドでは、アサーションによってこれが選択されるようになりました。 アサーションではコルーチン内のスタック割り当ては検出されませんが、それでもそのような誤りのほとんどを把握するのに役立ちます。
+
+詳細については、「[直接割当ての診断](/windows/uwp/cpp-and-winrt-apis/diag-direct-alloc)」を参照してください。
 
 #### <a name="improved-capture-helpers-and-variadic-delegates"></a>強化されたキャプチャ ヘルパーと可変個引数デリゲート
 
@@ -257,6 +314,8 @@ struct MainPage : PageT<MainPage>
 };
 ```
 
+詳細については、[遅延破棄](/windows/uwp/cpp-and-winrt-apis/details-about-destructors#deferred-destruction)に関する記事を参照してください。
+
 #### <a name="improved-support-for-com-style-single-interface-inheritance"></a>COM スタイルの単一インターフェイス継承に対するサポートの向上
 
 Windows ランタイム プログラミングだけでなく、C++/WinRT は COM 専用 API の作成と使用にも使われます。 この更新では、インターフェイス階層が存在する COM サーバーを実装できるようになります。 これには Windows ランタイムには必要ありませんが、一部の COM 実装には必要です。
@@ -269,9 +328,9 @@ Windows ランタイム プログラミングだけでなく、C++/WinRT は COM
 
 [**winrt::event**](/uwp/cpp-ref-for-winrt/event) の実装では、無効なトークン値 (配列に存在しない値) で **remove** メソッドが呼び出された場合が正しく処理されるようになります。
 
-#### <a name="coroutine-locals-are-now-destroyed-before-the-coroutine-returns"></a>コルーチンが戻る前にコルーチンのローカルが破棄される
+#### <a name="coroutine-local-variables-are-now-destroyed-before-the-coroutine-returns"></a>コルーチンが戻る前にコルーチンのローカル変数が破棄される
 
-コルーチン型の従来の実装方法では、コルーチン内のローカルを (最後の中断の前ではなく) コルーチンのリターン/完了の "*後*" で破棄することができました。 この問題を回避するためと他のメリットのため、待機処理の再開は最後の中断まで延期されるようになりました。
+コルーチン型の従来の実装方法では、コルーチン内のローカル変数を (最後の中断の前ではなく) コルーチンのリターン/完了の "*後*" で破棄することができました。 この問題を回避するためと他のメリットのため、待機処理の再開は最後の中断まで延期されるようになりました。
 
 ## <a name="news-and-changes-in-windows-sdk-version-100177630-windows-10-version-1809"></a>Windows SDK バージョン 10.0.17763.0 (Windows 10 バージョン 1809) での新機能と変更点
 
@@ -283,7 +342,7 @@ Windows ランタイム プログラミングだけでなく、C++/WinRT は COM
 | Visual Studio プロジェクト システムの形式が変更されました。 | 後の「[C++/WinRT プロジェクトのターゲットを Windows SDK の後のバージョンに変更する方法](#how-to-retarget-your-cwinrt-project-to-a-later-version-of-the-windows-sdk)」をご覧ください。 |
 | Windows ランタイム関数にコレクション オブジェクトを渡すため、または独自のコレクション プロパティとコレクション型を実装するための、新しい関数と基底クラスがあります。 | 「[C++/WinRT でのコレクション](collections.md)」をご覧ください。 |
 | C++/WinRT ランタイム クラスで [{binding}](/windows/uwp/xaml-platform/binding-markup-extension) マークアップ拡張機能を使用できます。 | 詳細とコード例については、「[データ バインディングの概要](/windows/uwp/data-binding/data-binding-quickstart)」をご覧ください。 |
-| コルーチンの取り消しのサポートにより、取り消しコールバックを登録できます。 | 詳細とコード例については、「[非同期操作の取り消しとキャンセル コールバック](concurrency.md#canceling-an-asychronous-operation-and-cancellation-callbacks)」をご覧ください。 |
+| コルーチンの取り消しのサポートにより、取り消しコールバックを登録できます。 | 詳細とコード例については、「[非同期操作の取り消しとキャンセル コールバック](concurrency-2.md#canceling-an-asynchronous-operation-and-cancellation-callbacks)」をご覧ください。 |
 | メンバー関数を指し示すデリゲートを作成するとき、ハンドラーを登録する時点で、現在のオブジェクト (生の *this* ポインターのインスタンス) に対する強い参照または弱い参照を確立できます。 | 詳細およびコード例については、「[イベント処理デリゲートで *this* ポインターに安全にアクセスする](weak-references.md#safely-accessing-the-this-pointer-with-an-event-handling-delegate)」セクションの「**デリゲートとしてメンバー関数を使用する場合**」サブセクションをご覧ください。 |
 | Visual Studio の C++ 標準への適合性が向上することによって発見されたバグが修正されました。 C++/WinRT の標準準拠の検証に対する LLVM および Clang ツールチェーンの利用も向上しています。 | 次の記事で説明されいている問題が発生しなくなります。[Why won't my new project compile?I'm using Visual Studio 2017 (version 15.8.0 or higher), and SDK version 17134 (新しいプロジェクトがコンパイルされない理由: Visual Studio 2017 (バージョン 15.8.0 以降) と SDK バージョン 17134 を使用している場合)](faq.md#why-wont-my-new-project-compile-im-using-visual-studio-2017-version-1580-or-higher-and-sdk-version-17134) |
 
@@ -296,13 +355,13 @@ Windows ランタイム プログラミングだけでなく、C++/WinRT は COM
 - **破壊的変更**。 [**winrt::handle_type コンストラクター**](/uwp/cpp-ref-for-winrt/handle-type#handle_typehandle_type-constructor) は、明示的にすることで強化されています (それで不適切なコードを記述することが難しくなっています)。 生のハンドル値を割り当てる必要がある場合は、代わりに [**handle_type::attach 関数**](/uwp/cpp-ref-for-winrt/handle-type#handle_typeattach-function) を呼び出します。
 - **破壊的変更**。 **WINRT_CanUnloadNow** と **WINRT_GetActivationFactory** のシグネチャが変更されています。 これらの関数は宣言しないでください。 代わりに、`winrt/base.h` をインクルードしてこれらの関数の宣言を含めます (いずれかの C++/WinRT Windows 名前空間ヘッダー ファイルをインクルードすると、自動的にインクルードされます)。
 - [**winrt::clock struct**](/uwp/cpp-ref-for-winrt/clock) では、**from_FILETIME/to_FILETIME** は非推奨になり、**from_file_time/to_file_time** を代わりに使用します。
-- **IBuffer** パラメーターを必要とする API が簡素化されています。 ほとんどの API ではコレクションまたは配列が優先されますが、かなりの API は C++ で簡単に使用するには **IBuffer** が必要です。 この更新では、C++ 標準ライブラリ コンテナーによって使用されるのと同じデータ名前付け規則を使用して、**IBuffer** 実装の背後にあるデータに直接アクセスできます。 これにより、慣例的に大文字で始まるメタデータの名前との競合も回避されます。
+- **IBuffer** パラメーターを必要とする簡素化された API。 ほとんどの API ではコレクションまたは配列が優先されますが、 **IBuffer** に依存する API を簡単に呼び出せるようにする必要がありました。 この更新では、C++ 標準ライブラリ コンテナーによって使用されるのと同じデータ名前付け規則を使用して、**IBuffer** 実装の背後にあるデータに直接アクセスできます。 この規則により、慣例的に大文字で始まるメタデータの名前との競合も回避されます。
 - コード生成の向上: コード サイズの削減、インライン化の向上、ファクトリ キャッシュの最適化に関するさまざまな改善。
 - 不要な再帰を削除しました。 コマンド ラインで特定の `.winmd` ではなくフォルダーを参照するとき、`cppwinrt.exe` ツールで `.winmd` ファイルが再帰的に検索されなくなります。 `cppwinrt.exe` ツールでは重複の処理もいっそうインテリジェントになり、ユーザー エラーや不適切な形式の `.winmd` ファイルに対する回復性が向上しています。
-- 強化されたスマート ポインター。 以前は、新しい値を移動割り当てすると、イベント リボーカーは失効に失敗しました。 これは、スマート ポインター クラスが自己割り当てを確実に処理しない問題を発見するのに役立ちました。原因は [ **winrt::com_ptr 構造体テンプレート**](/uwp/cpp-ref-for-winrt/com-ptr)でした。 **winrt::com_ptr** を修正しました。また、イベント リボーカーが移動セマンティクスを正しく処理するように修正され、割り当て時に失効するようになりました。
+- 強化されたスマート ポインター。 以前は、新しい値を移動割り当てすると、イベント リボーカーは失効に失敗しました。 これは、スマート ポインター クラスが自己割り当てを確実に処理しない問題を発見するのに役立ちました。原因は [**winrt::com_ptr 構造体テンプレート**](/uwp/cpp-ref-for-winrt/com-ptr)でした。 **winrt::com_ptr** を修正しました。また、イベント リボーカーが移動セマンティクスを正しく処理するように修正され、割り当て時に失効するようになりました。
 
 > [!IMPORTANT]
-> バージョン 1.0.181002.2 とバージョン 1.0.190128.4 の両方で、[C++/WinRT Visual Studio Extension (VSIX)](https://aka.ms/cppwinrt/vsix) に対して重要な変更が行われました。 これらの変更の詳細および既存プロジェクトへの影響については、[C++/WinRT の Visual Studio サポート](intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)に関するページおよび「[VSIX 拡張機能の以前のバージョン](intro-to-using-cpp-with-winrt.md#earlier-versions-of-the-vsix-extension)」をご覧ください。
+> バージョン 1.0.181002.2 とバージョン 1.0.190128.4 の両方で、[C++/WinRT Visual Studio Extension (VSIX)](https://marketplace.visualstudio.com/items?itemName=CppWinRTTeam.cppwinrt101804264) に対して重要な変更が行われました。 これらの変更の詳細および既存プロジェクトへの影響については、[C++/WinRT の Visual Studio サポート](intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)に関するページおよび「[VSIX 拡張機能の以前のバージョン](intro-to-using-cpp-with-winrt.md#earlier-versions-of-the-vsix-extension)」をご覧ください。
 
 ### <a name="isolation-from-windows-sdk-header-files"></a>Windows SDK ヘッダー ファイルからの分離
 

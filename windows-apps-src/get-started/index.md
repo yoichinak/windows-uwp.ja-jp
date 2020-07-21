@@ -1,245 +1,98 @@
 ---
-layout: LandingPage
 description: Windows 10 のユニバーサル Windows プラットフォーム (UWP) とアプリ開発の概要について説明します。
 title: ユニバーサル Windows プラットフォーム (UWP) の概要
 ms.date: 03/23/2018
 ms.topic: article
 keywords: 概要, windows 10, uwp, xaml, c#
 ms.localizationpriority: medium
-ms.openlocfilehash: c3f34d6ff8b23d23589d6899984f53fd6be34aca
-ms.sourcegitcommit: b9e2cd5232ad98f4ef367881b92000a3ae610844
+ms.openlocfilehash: 39f45b7604e71c4b57439f8c3e89548614758484
+ms.sourcegitcommit: f727b68e86a86c94eff00f67ed79a1c12666e7bc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131931"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "80614984"
 ---
-# <a name="get-started-with-windows-10-apps"></a>Windows 10 アプリの概要 
- 
-<p>すべての Windows 10 デバイスで動作するアプリを作成したり、新機能や更新された機能で既存のアプリを強化したりします。</p>  
-<ul class="cardsK panelContent">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage bgdAccent1">
-                            <img src="/media/illustrations/biztalk-developer-documentation-1.svg" alt="Overview illustration" data-linktype="external" class="x-hidden-focus">
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Windows 10 アプリの詳細</h3>
-                        <p>Windows 10 とユニバーサル Windows プラットフォームを使うと、あらゆる種類の Windows デバイスで動作し、見た目が良いアプリを作成したり、最新の機能で既存のアプリを更新したりすることができます。</p>
-                        <ul>
-                          <li><a href="//docs.microsoft.com/windows/uwp/get-started/universal-application-platform-guide">UWP アプリとは</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage bgdAccent1">
-                            <img src="/media/illustrations/biztalk-host-integration-install-configure.svg" alt="Setup illustration" data-linktype="external" class="x-hidden-focus">
-                        </div>
-                    </div>
-                    <div class="cardText">
-                    <h3>準備</h3>
-                    <p>Visual Studio Community と Windows 10 SDK には、優れたアプリを構築するために必要なものがすべて揃っています。無料でご利用いただけます。</p>
-                    <ul>
-                        <li><a href="//docs.microsoft.com/windows/uwp/get-started/get-set-up">ツールと SDK のダウンロード</a></li>
-                    </ul>
-                  </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage bgdAccent1">
-                            <img src="/media/illustrations/team-services-dev-ops-test.svg" alt="Code illustration" data-linktype="external" class="x-hidden-focus">
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>コーディングの開始</h3>
-                        <p>経験豊富な開発者でも初めてアプリを作成する方でも、Windows 10 のプラットフォームとドキュメントを実際に試してみることができます。</p>
-                        <ul>
-                            <li><a href="//docs.microsoft.com/windows/uwp/get-started/create-uwp-apps">コーディングの開始</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-</ul>
-<ul class="panelContent cardsF">
-  <li>
-    <div class="cardSize">
-        <div class="cardPadding">
-            <div class="card">
-                <div class="cardImageOuter">
-                    <div class="cardImage">
-                        <img src="/media/common/i_tasks.svg" alt="Tutorials icon"/>
-                    </div>
-                </div>
-                <div class="cardText">
-                    <h3>チュートリアル</h3>
-                    <p>ガイド付きの学習エクスペリエンスをお探しの場合 これらのチュートリアルが役立ちます。</p>
-                    <br>
-                    <p><a href="//docs.microsoft.com/windows/uwp/design/basics/xaml-basics-ui">UI の基本</a></p>
-                    <p><a href="//docs.microsoft.com/windows/uwp/data-binding/xaml-basics-data-binding">データ バインディング</a></p>
-                    <p><a href="//docs.microsoft.com/windows/uwp/design/basics/xaml-basics-style">カスタム スタイル</a></p>
-                </div>
-            </div>
-        </div>
-    </div>
-  </li>
-  <li>
-    <div class="cardSize">
-        <div class="cardPadding">
-            <div class="card">
-                <div class="cardImageOuter">
-                    <div class="cardImage">
-                        <img src="/media/common/i_code-samples.svg" alt="Samples icon"/>
-                    </div>
-                </div>
-                <div class="cardText">
-                    <h3>サンプル</h3>
-                    <p>Windows 10 プラットフォームを直接試し、API の動作を確認することができます。</p>
-                    <br>
-                    <p><a href="//docs.microsoft.com/windows/uwp/get-started/get-uwp-app-samples">UWP アプリ サンプルの使用</a></p>
-                    <p><a href="//github.com/Microsoft/Windows-appsample-customers-orders-database">顧客注文データベース</a></p>
-                    <p><a href="//github.com/Microsoft/Windows-appsample-remote-system-sessions">クイズ ゲーム (Project Rome)</a></p>
-                    <p><a href="//developer.microsoft.com/windows/samples">Windows コード サンプル ポータル</a></p>
-                </div>
-            </div>
-        </div>
-    </div>
-  </li>
-  <li>
-    <div class="cardSize">
-        <div class="cardPadding">
-            <div class="card">
-                <div class="cardImageOuter">
-                    <div class="cardImage">
-                        <img src="/media/common/i_whats-new.svg" alt="Whats New icon"/>
-                    </div>
-                </div>
-                <div class="cardText">
-                    <h3>新着情報</h3>
-                    <p>視野を広げて、Windows 10 に追加された最新の機能について知ることができます。</p>
-                    <br>
-                    <p><a href="//developer.microsoft.com/windows/windows-10-for-developers">最新バージョンの Windows 10 の優れている点</a></p>
-                    <p><a href="//docs.microsoft.com/windows/uwp/whats-new/windows-10-version-latest">Windows 10 の開発者向け新着情報</a></p>
-                </div>
-            </div>
-        </div>
-    </div>
-  </li>
-</ul>
-    <ul class="cardsY panelContent featuredContent">
-       <li>
-            <a href="//developer.microsoft.com/windows/apps/design">
-                <div class="cardSize">
-                    <div class="cardPadding">
-                        <div class="card">
-                            <div class="cardImageOuter">
-                                <div class="cardImage">
-                                    <img data-hoverimage="/media/common/i_digital-art.svg" src="/media/common/i_digital-art.svg" alt="Icon of tablet and pen" />
-                                </div>
-                            </div>
-                            <div class="cardText">
-                                <h3>設計と UI</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </li>
-        <li>
-            <a href="//docs.microsoft.com/uwp/">
-                <div class="cardSize">
-                    <div class="cardPadding">
-                        <div class="card">
-                            <div class="cardImageOuter">
-                                <div class="cardImage">
-                                    <img data-hoverimage="/media/common/i_api.svg" src="/media/common/i_api-reference.svg" alt="Reference icon" />
-                                </div>
-                            </div>
-                            <div class="cardText">
-                                <h3>API リファレンス</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </li>
-        <li>
-            <a href="//developer.microsoft.com/windows/bridges">
-                <div class="cardSize">
-                    <div class="cardPadding">
-                        <div class="card">
-                            <div class="cardImageOuter">
-                                <div class="cardImage">
-                                    <img data-hoverimage="/media/hubs/windows/win_try-windows.svg" src="/media/hubs/windows/win_try-windows.png" alt="Windows icon" />
-                                </div>
-                            </div>
-                            <div class="cardText">
-                                <h3>Windows へのアプリの移植</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </li>
-    </ul>
-</div>
-<hr />
-<ul class="panelContent cardsW">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>開発者ツール</h3>
-                        <p><a href="//docs.microsoft.com/windows/uwpcommunitytoolkit/">Windows コミュニティ ツールキット</a></p>
-                        <p><a href="//developer.microsoft.com/windows/downloads/virtual-machines">仮想マシン</a></p>
-                        <p><a href="//docs.microsoft.com/windows/wsl/about">Bash on Ubuntu on Windows</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>初めての開発</h3>
-                        <p><a href="//docs.microsoft.com/learn">Microsoft Learn</a></p>
-                        <p><a href="//www.linkedin.com/learning/learning-universal-windows-app-development/welcome">LinkedIn Learning</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>関連ドキュメントについて</h3>
-                        <p><a href="//docs.microsoft.com/dotnet/csharp/index">C# ガイド</a></p>
-                        <p><a href="//docs.microsoft.com/visualstudio/ide/">Visual Studio</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-</ul>
+# <a name="get-started-with-windows-10-apps"></a>Windows 10 アプリの概要
+
+すべての Windows 10 デバイスで動作するアプリを作成したり、新機能や更新された機能で既存のアプリを強化したりします。
+
+<br/>
+
+:::row:::
+    :::column:::
+        <img src="https://docs.microsoft.com/media/illustrations/biztalk-developer-documentation-1.svg" alt="Overview illustration" />
+        <h3 style="margin-top: 10px; margin-bottom: 0px">Windows 10 アプリの詳細</h3>
+        <p style="margin-top: 0px; margin-bottom: 50px">Windows 10 とユニバーサル Windows プラットフォームを使うと、あらゆる種類の Windows デバイスで動作し、見た目が良いアプリを作成したり、最新の機能で既存のアプリを更新したりすることができます。</p>
+        <br>
+        <a href="//docs.microsoft.com/windows/uwp/get-started/universal-application-platform-guide">Windows アプリとは</a><br/>
+        <a href="//developer.microsoft.com/windows/apps/design">設計と UI</a><br/>
+    :::column-end:::
+    :::column:::
+        <img src="https://docs.microsoft.com/media/illustrations/biztalk-host-integration-install-configure.svg" alt="Setup illustration" />
+        <h3 style="margin-top: 10px; margin-bottom: 0px">準備</h3>
+        <p style="margin-top: 0px; margin-bottom: 50px">Visual Studio Community と Windows 10 SDK には、優れたアプリを構築するために必要なものがすべて揃っています。無料でご利用いただけます。</p>
+        <br>
+        <a href="//docs.microsoft.com/windows/uwp/get-started/get-set-up">ツールと SDK のダウンロード</a><br/>
+    :::column-end:::
+    :::column:::
+        <img src="https://docs.microsoft.com/media/illustrations/team-services-dev-ops-test.svg" alt="Code illustration" />
+        <h3 style="margin-top: 10px; margin-bottom: 0px">コーディングの開始</h3>
+        <p style="margin-top: 0px; margin-bottom: 50px">経験豊富な開発者でも初めてアプリを作成する方でも、Windows 10 のプラットフォームとドキュメントを実際に試してみることができます。</p>
+        <br>
+        <a href="//docs.microsoft.com/windows/uwp/get-started/create-uwp-apps">コーディングの開始</a><br/>
+        <a href="//docs.microsoft.com/uwp/">API リファレンス</a><br/>
+    :::column-end:::
+:::row-end:::
+
+<br/>
+
+:::row:::
+    :::column:::
+        <img src="https://docs.microsoft.com/media/illustrations/biztalk-get-started-get-started.svg" alt="Tutorials illustration" />
+        <h3 style="margin-top: 10px; margin-bottom: 0px">チュートリアル</h3>
+        <p style="margin-top: 0px; margin-bottom: 50px">ガイド付きの学習エクスペリエンスをお探しの場合 これらのチュートリアルが役立ちます。</p>
+        <br>
+        <a href="//docs.microsoft.com/windows/uwp/design/basics/xaml-basics-ui">UI の基本</a><br/>
+        <a href="//docs.microsoft.com/windows/uwp/data-binding/xaml-basics-data-binding">データ バインディング</a><br/>
+        <a href="//docs.microsoft.com/windows/uwp/design/basics/xaml-basics-style">カスタム スタイル</a><br/>
+    :::column-end:::
+    :::column:::
+        <img src="https://docs.microsoft.com/media/illustrations/biztalk-get-started-scenarios.svg" alt="Samples illustration" />
+        <h3 style="margin-top: 10px; margin-bottom: 0px">サンプル</h3>
+        <p style="margin-top: 0px; margin-bottom: 50px">Windows 10 プラットフォームを直接試し、API の動作を確認することができます。</p>
+        <br>
+        <a href="//docs.microsoft.com/windows/uwp/get-started/get-uwp-app-samples">Windows アプリのサンプルの使用</a><br/>
+        <a href="//github.com/Microsoft/Windows-appsample-customers-orders-database">顧客注文データベース</a><br/>
+        <a href="//github.com/Microsoft/Windows-appsample-remote-system-sessions">クイズ ゲーム (Project Rome)</a><br/>
+        <a href="//developer.microsoft.com/windows/samples">Windows コード サンプル ポータル</a><br/>
+    :::column-end:::
+    :::column:::
+        <img src="https://docs.microsoft.com/media/illustrations/ms365enterprise-partner-news-2.svg" alt="What's new illustration" />
+        <h3 style="margin-top: 10px; margin-bottom: 0px">新着情報</h3>
+        <p style="margin-top: 0px; margin-bottom: 50px">視野を広げて、Windows 10 に追加された最新の機能について知ることができます。</p>
+        <br>
+        <a href="//developer.microsoft.com/windows/windows-10-for-developers">最新バージョンの Windows 10 の優れている点</a><br/>
+        <a href="//docs.microsoft.com/windows/uwp/whats-new/windows-10-version-latest">Windows 10 の開発者向け新着情報</a><br/>
+    :::column-end:::
+:::row-end:::
+
+<br/>
+
+:::row:::
+    :::column:::
+        <h3 style="margin-top: 10px; margin-bottom: 0px">開発者ツール</h3>
+        <a href="https://github.com/Microsoft/WindowsTemplateStudio/">Windows Template Studio</a><br/>
+        <a href="//docs.microsoft.com/windows/uwpcommunitytoolkit/">Windows コミュニティ ツールキット</a><br/>
+        <a href="//developer.microsoft.com/windows/downloads/virtual-machines">仮想マシン</a><br/>
+        <a href="//docs.microsoft.com/windows/wsl/about">Bash on Ubuntu on Windows</a><br/>
+    :::column-end:::
+    :::column:::
+        <h3 style="margin-top: 10px; margin-bottom: 0px">初めての開発</h3>
+        <a href="//docs.microsoft.com/learn/browse/?products=windows&resource_type=module">Microsoft Learn の Windows</a><br/>
+    :::column-end:::
+    :::column:::
+        <h3 style="margin-top: 10px; margin-bottom: 0px">関連ドキュメントについて</h3>
+        <a href="//docs.microsoft.com/dotnet/csharp/">C# ガイド</a><br/>
+        <a href="//docs.microsoft.com/visualstudio/ide/">Visual Studio</a><br/>
+    :::column-end:::
+:::row-end:::

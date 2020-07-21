@@ -1,46 +1,51 @@
 ---
 title: Bluetooth GATT サーバー
 description: この記事では、ユニバーサル Windows プラットフォーム (UWP) アプリ用の Bluetooth 汎用属性プロファイル (GATT) サーバーの概要と、一般的な使用事例のサンプル コードについて説明します。
-ms.date: 02/08/2017
+ms.date: 06/26/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: f59ae45486ee72f9d901898f6b03674e6b3e299c
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 65a4643e6a73e0eb015fc40c7354d0cd307fa0d1
+ms.sourcegitcommit: 015291bdf2e7d67076c1c85fc025f49c840ba475
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66370091"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85469547"
 ---
 # <a name="bluetooth-gatt-server"></a>Bluetooth GATT サーバー
 
+この記事では、ユニバーサル Windows プラットフォーム (UWP) アプリ用の Bluetooth 汎用属性 (GATT) サーバー API を、一般的な GATT サーバー タスクのサンプル コードを使って示します。
 
-**重要な API**
-- [**Windows.Devices.Bluetooth**](https://docs.microsoft.com/uwp/api/Windows.Devices.Bluetooth)
-- [**Windows.Devices.Bluetooth.GenericAttributeProfile**](https://docs.microsoft.com/uwp/api/Windows.Devices.Bluetooth.GenericAttributeProfile)
-
-
-この記事では、ユニバーサル Windows プラットフォーム (UWP) アプリ用の Bluetooth 汎用属性 (GATT) サーバー API を、一般的な GATT サーバー タスクのサンプル コードを使って示します。 
 - サポートされるサービスの定義
 - リモート クライアントで検出できるようにするためのサーバーの公開
 - サービスのサポートのアドバタイズ
 - 読み取り要求や書き込み要求への応答
 - 受信登録しているクライアントへの通知の送信
 
-## <a name="overview"></a>概要
-Windows は、通常、クライアントの役割で動作します。 ただし、Windows を Bluetooth LE GATT サーバーとして動作させることが必要なシナリオが数多く発生します。 多くのクロスプラットフォーム BLE 通信と共に、IoT デバイス向けのほとんどすべてのシナリオでは、Windows が GATT サーバーとして機能する必要があります。 さらに、近くのウェアラブル デバイスに通知を送信することも、このテクノロジを必要とする一般的なシナリオになっています。  
-> 先に進む前に、[GATT クライアント ドキュメント](gatt-client.md)で説明されているすべての概念を理解していることを確認してください。  
+> [!Important]
+> *Package.appxmanifest*で "bluetooth" 機能を宣言する必要があります。
+>
+> `<Capabilities> <DeviceCapability Name="bluetooth" /> </Capabilities>`
 
-サーバーの処理は、サービス プロバイダーと GattLocalCharacteristic を中心に実行されます。 これら 2 つのクラス宣言、実装、およびリモート デバイスへのデータの階層を公開するために必要な機能が提供されます。
+**重要な API**
+
+- [**Windows. デバイス. Bluetooth**](https://docs.microsoft.com/uwp/api/Windows.Devices.Bluetooth)
+- [**Windows. Devices. GenericAttributeProfile**](https://docs.microsoft.com/uwp/api/Windows.Devices.Bluetooth.GenericAttributeProfile)
+
+## <a name="overview"></a>概要
+
+Windows は、通常、クライアントの役割で動作します。 ただし、Windows を Bluetooth LE GATT サーバーとして動作させることが必要なシナリオが数多く発生します。 多くのクロスプラットフォーム BLE 通信と共に、IoT デバイス向けのほとんどすべてのシナリオでは、Windows が GATT サーバーとして機能する必要があります。 さらに、近くのウェアラブル デバイスに通知を送信することも、このテクノロジを必要とする一般的なシナリオになっています。  
+
+サーバーの処理は、サービス プロバイダーと GattLocalCharacteristic を中心に実行されます。 これら2つのクラスには、データの階層を宣言し、実装し、リモートデバイスに公開するために必要な機能が用意されています。
 
 ## <a name="define-the-supported-services"></a>サポートされるサービスの定義
-アプリでは、Windows によって公開される 1 つまたは複数のサービスを宣言できます。 各サービスは、UUID によって一意に識別されます。 
+アプリでは、Windows によって公開される 1 つまたは複数のサービスを宣言できます。 各サービスは、UUID によって一意に識別されます。
 
 ### <a name="attributes-and-uuids"></a>属性と UUID
 各サービス、特性、記述子は、それぞれ一意の 128 ビット UUID によって定義されます。
 > すべての Windows API では GUID という用語を使用しますが、Bluetooth の標準では、これらを UUID と定義しています。 このドキュメントの説明では、これら 2 つの用語は入れ替え可能であるため、ここでは UUID という用語を使用します。 
 
-属性が標準であり、Bluetooth SIG によって定義されている属性の場合は、対応する 16 ビットの短い ID もあります (たとえば、バッテリ レベル UUID は 0000**2A19**-0000-1000-8000-00805F9B34FB で、短い ID は 0x2A19 です)。 これらの標準的な UUID については、[GattServiceUuids](https://docs.microsoft.com/uwp/api/windows.devices.bluetooth.genericattributeprofile.gattserviceuuids) と [GattCharacteristicUuids](https://docs.microsoft.com/uwp/api/windows.devices.bluetooth.genericattributeprofile.gattcharacteristicuuids) に関するページをご覧ください。
+属性が標準であり、Bluetooth SIG で定義されている場合は、対応する16ビットの短い ID も使用されます (たとえば、バッテリレベル UUID は 0000**2A19**-0000-1000-8000-00805F9B34FB、短い ID は0x2A19 です)。 これらの標準的な UUID については、[GattServiceUuids](https://docs.microsoft.com/uwp/api/windows.devices.bluetooth.genericattributeprofile.gattserviceuuids) と [GattCharacteristicUuids](https://docs.microsoft.com/uwp/api/windows.devices.bluetooth.genericattributeprofile.gattcharacteristicuuids) に関するページをご覧ください。
 
 アプリで独自のカスタム サービスを実装している場合は、カスタム UUID を生成する必要があります。 これは、Visual Studio で [ツール] の [GUID の作成] を選択して簡単に作成できます ("xxxxxxxx-xxxx-...xxxx" 形式で取得するにはオプション 5 を使用します)。 この UUID を使用して、新しいローカル サービス、特性、記述子を宣言できます。
 
@@ -68,7 +73,7 @@ Windows は、通常、クライアントの役割で動作します。 ただ�
 
 > 現時点では、ブロードキャストはサポートされていないことに注意してください。  GattCharacteristicProperty のブロードキャストを指定すると、例外が発生します。
 
-### <a name="build-up-the-hierarchy-of-services-and-characteristics"></a>サービスと特性の階層を構築します。
+### <a name="build-up-the-hierarchy-of-services-and-characteristics"></a>サービスと特性の階層を構築する
 ルート プライマリ サービスの定義を作成してアドバタイズするには、GattServiceProvider を使用します。  各サービスでは、GUID を受け取る独自の ServiceProvider オブジェクトが必要です。 
 
 ```csharp
@@ -144,8 +149,8 @@ GattServiceProviderAdvertisingParameters advParameters = new GattServiceProvider
 };
 serviceProvider.StartAdvertising(advParameters);
 ```
-- **IsDiscoverable**:リモート デバイスでデバイスを探索可能にする提供情報のフレンドリ名をアドバタイズします。
-- **IsConnectable**:周辺のロールで使用するための接続可能な提供情報を通知します。
+- **IsDiscoverable**: 公開通知によってリモート デバイスにフレンドリ名をアドバタイズし、デバイスを検出可能にします。
+- **IsConnectable**: ペリフェラルの役割で使うための接続可能な公開通知をアドバタイズします。
 
 > サービスが検出可能で、接続可能である場合、システムはサービス UUID をアドバタイズ パケットに追加します。  アドバタイズ パケットは 31 バイトだけであり、128 ビットの UUID はそのうちの 16 バイトを使用します。
 
@@ -177,7 +182,7 @@ async void ReadCharacteristic_ReadRequested(GattLocalCharacteristic sender, Gatt
 }
 ``` 
 
-### <a name="write"></a>書き込み
+### <a name="write"></a>Write
 リモート デバイスが特性に値を書き込む場合、リモート デバイスに関する詳細、書き込み先の特性、書き込む値自体を使用して WriteRequested イベントが呼び出されます。 
 
 ```csharp

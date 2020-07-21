@@ -1,27 +1,29 @@
 ---
 ms.assetid: 4b0c86d3-f05b-450b-bf9c-6ab4d3f07d31
 description: このロードマップでは、Windows 10 およびユニバーサル Windows プラットフォーム (UWP) アプリの主要なエンタープライズ機能の概要について説明します。
-title: エンタープライズ
-ms.date: 08/30/2018
+title: Enterprise
+ms.date: 01/16/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: baac4498fcc6dd65d106166f73ca89db89cbfc6b
-ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
+ms.openlocfilehash: 7e17b155966c609537c40050edc4c11ee6935b0d
+ms.sourcegitcommit: f727b68e86a86c94eff00f67ed79a1c12666e7bc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67821005"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "77089468"
 ---
-# <a name="enterprise"></a>エンタープライズ
+# <a name="enterprise"></a>Enterprise
 
 この記事では、Windows 10 アプリ用のユニバーサル Windows プラットフォーム (UWP) で提供される主要なエンタープライズ機能の概要について説明します。 これらのいくつかの機能を詳しく説明するビデオについては、「[Rapidly Construct LOB Applications with UWP and Visual Studio](https://channel9.msdn.com/Events/Build/2018/BRK3502)」 (UWP と Visual Studio で LOB アプリケーションをすばやく構築する) をご覧ください。
+
+## <a name="feature-highlights"></a>機能の概要
 
 <a id="template-studio" />
 
 ### <a name="windows-template-studio"></a>Windows Template Studio
 
-Windows Template Studio は Visual Studio 2017 と Visual Studio 2019 の拡張機能であり、ウィザード ベースのエクスペリエンスを使用して、新しいユニバーサル Windows プラットフォーム (UWP) アプリをより迅速に作成できます。 結果として得られる UWP プロジェクトは、実証済みのパターンとベスト プラクティスを実装するときに、最新の Windows 10 機能を組み込む適切な形式の読み取り可能なコードです。
+Windows Template Studio は Visual Studio 2019 の拡張機能であり、ウィザード ベースのエクスペリエンスを使用して、新しいユニバーサル Windows プラットフォーム (UWP) アプリをより迅速に作成できます。 結果として得られる UWP プロジェクトは、実証済みのパターンとベスト プラクティスを実装するときに、最新の Windows 10 機能を組み込む適切な形式の読み取り可能なコードです。
 
 ![Windows Template Studio](images/windows-template-studio.png)
 
@@ -41,7 +43,7 @@ Windows Template Studio は Visual Studio 2017 と Visual Studio 2019 の拡張�
 
 ### <a name="controls-to-support-enterprise-scenarios"></a>エンタープライズ シナリオをサポートするコントロール
 
-[DataGridView](https://docs.microsoft.com/en-us/windows/communitytoolkit/controls/datagrid) では、行と列に柔軟にデータ コレクションを表示できます。
+[DataGridView](https://docs.microsoft.com/windows/communitytoolkit/controls/datagrid) では、行と列に柔軟にデータ コレクションを表示できます。
 
 [TreeView](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/tree-view) を使用すると、階層リストが有効になり、入れ子になった項目を含むノードを展開したり、折りたたんだりすることができるようになります。 フォルダー構造や入れ子になった関係を UI で視覚的に示すために使用できます。
 
@@ -58,9 +60,9 @@ Windows UI ライブラリは、UWP アプリ用のコントロールとその�
 
 <a id="xaml-islands" />
 
-### <a name="uwp-controls-in-desktop-applications"></a>デスクトップ アプリケーションの UWP コントロール
+### <a name="uwp-controls-in-desktop-applications-xaml-islands"></a>デスクトップ アプリケーションの UWP コントロール (XAML Islands)
 
-Windows 10 では、WPF、Windows フォーム、および C++ Win32 デスクトップ アプリケーションで UWP コントロールを使用できるようになりました。 つまり、Windows Ink や Fluent Design System をサポートするコントロールなど、UWP コントロールでのみ利用可能な最新の Windows 10 UI 機能で、既存のデスクトップ アプリケーションの外観、操作性、機能を拡張することができます。 この機能を XAML Islands といいます。
+Windows 10 では、*XAML Islands*と呼ばれる機能を使って、WPF、Windows フォーム、および C++ Win32 デスクトップ アプリケーションで UWP コントロールを使用できるようになりました。 つまり、Windows Ink や Fluent Design System をサポートするコントロールなど、UWP コントロールでのみ利用可能な最新の Windows 10 UI 機能で、既存のデスクトップ アプリケーションの外観、操作性、機能を拡張することができます。 この機能を XAML Islands といいます。
 
 「[デスクトップ アプリケーションの UWP コントロール](https://docs.microsoft.com/windows/uwp/xaml-platform/xaml-host-controls)」を参照してください。
 
@@ -78,17 +80,15 @@ Windows 10 では、WPF、Windows フォーム、および C++ Win32 デスク�
 
 ### <a name="sql-server-connectivity"></a>SQL Server の接続
 
-アプリで [System.Data.SqlClient](https://docs.microsoft.com/dotnet/api/system.data.sqlclient?redirectedfrom=MSDN&view=netframework-4.7.2) 名前空間のクラスを使用して、SQL Server データベースに直接接続し、データを保存および取得することができます。
+アプリで [System.Data.SqlClient](https://docs.microsoft.com/dotnet/api/system.data.sqlclient) 名前空間のクラスを使用して、SQL Server データベースに直接接続し、データを保存および取得することができます。
 
-「[UWP アプリでの SQL Server データベースの使用](https://docs.microsoft.com/en-us/windows/uwp/data-access/sql-server-databases)」をご覧ください。
+「[UWP アプリでの SQL Server データベースの使用](https://docs.microsoft.com/windows/uwp/data-access/sql-server-databases)」をご覧ください。
 
 <a id="MSIX" />
 
 ### <a name="msix-deployment"></a>MSIX の展開
 
-MSIX は、あらゆる Windows アプリに最新のパッケージ化エクスペリエンスを提供する Windows アプリ パッケージ形式です。 MSIX パッケージ形式では、Win32、WPF、および Windows フォームに対して新たな、最新のパッケージ化および展開機能が有効になるだけでなく、既存のアプリ パッケージとインストール ファイルの機能が維持されます。
-
-MSIX は、.msi、.appx、App-V および ClickOnce インストール テクノロジの組み合わせに基づき、安全な、セキュアで信頼性の高いものとなるように構築されたパッケージ化形式です。
+MSIX は、MSI、.appx、App-V、ClickOnce の優れた機能を組み合わせた Windows アプリのパッケージ形式であり、最新で信頼性の高いパッケージ化エクスペリエンスをすべての Windows アプリに提供します。 MSIX パッケージ形式では、Win32、WPF、および Windows フォームに対して、最新のパッケージ化および展開機能が有効になるだけでなく、既存のアプリ パッケージとインストール ファイルの機能が維持されます。 
 
 ![MSIX アイコン](images/MSIX-App-Package.ico)
 
@@ -125,7 +125,7 @@ Windows 10 には、一連のセキュリティ機能が用意されていま�
 |-------|-------------|
 | [ネットワークの基本](https://docs.microsoft.com/windows/uwp/networking/networking-basics) | このチュートリアルでは、使用する通信プロトコルに関係なく、すべての UWP アプリに関連する基本的なネットワークの概念について説明します。  |
 | [アプリに適したネットワーク テクノロジ](https://docs.microsoft.com/windows/uwp/networking/which-networking-technology) | UWP アプリで利用できるネットワーク テクノロジの概要と、アプリに適したテクノロジの選び方に関する推奨事項について説明します。 |
-| [XML シリアル化および SOAP シリアル化](https://docs.microsoft.com/dotnet/framework/serialization/xml-and-soap-serialization) | XML シリアル化では、オブジェクトが、特定の XML スキーマ定義言語 (XSD) に準拠する XML ストリームに変換されます。 XML と厳密に型指定されたクラス間の変換を行うには、ネイティブの [XDocument](https://docs.microsoft.com/dotnet/api/system.xml.linq.xdocument?redirectedfrom=MSDN) クラスまたは外部ライブラリを使用します。 |
+| [XML シリアル化および SOAP シリアル化](https://docs.microsoft.com/dotnet/framework/serialization/xml-and-soap-serialization) | XML シリアル化では、オブジェクトが、特定の XML スキーマ定義言語 (XSD) に準拠する XML ストリームに変換されます。 XML と厳密に型指定されたクラス間の変換を行うには、ネイティブの [XDocument](https://docs.microsoft.com/dotnet/api/system.xml.linq.xdocument) クラスまたは外部ライブラリを使用します。 |
 | [JSON シリアル化](https://docs.microsoft.com/uwp/api/Windows.Data.Json) | JSON (JavaScript Object Notation) シリアル化は、REST API と通信するための一般的な形式です。 [Newtonsoft Json.NET](https://www.newtonsoft.com/json) は、UWP アプリで完全にサポートされています。 |
 
 ## <a name="devices"></a>デバイス
@@ -136,7 +136,7 @@ Windows 10 には、一連のセキュリティ機能が用意されていま�
 |--------|-------------|
 | [デバイスの列挙](https://docs.microsoft.com/windows/uwp/devices-sensors/enumerate-devices) | この記事では、[Windows.Devices.Enumeration](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration) 名前空間を使って、システムに内部接続されているデバイス、外部接続されているデバイス、ワイヤレス プロトコルまたはネットワーク プロトコル経由で検出できるデバイスを検索する方法について説明します。 デバイスと連携して動作するアプリを構築する場合は、ここから始めてください。 |
 | [印刷とスキャン](https://docs.microsoft.com/windows/uwp/devices-sensors/printing-and-scanning) | アプリから印刷およびスキャンする方法について説明します。販売時点管理 (POS) システム、レシート プリンター、大容量フィーダー スキャナーなどの業務用デバイスに接続する方法やこれらのデバイスを操作する方法についても説明します。 |
-| [Bluetooth](https://docs.microsoft.com/windows/uwp/devices-sensors/bluetooth) | 従来の Bluetooth 接続を使用したデータの送受信やデバイスの制御に加えて、Windows 10 では、Bluetooth 低エネルギー (BTLE) を使用してバックグラウンドでビーコンを送受信できるようになりました。 この BTLE を利用して、通知を表示します。また、ユーザーが特定の場所に近づいた場合や特定の場所から離れた場合の機能を有効にします。 |
+| [Bluetooth](https://docs.microsoft.com/windows/uwp/devices-sensors/bluetooth) | 従来の Bluetooth 接続を使用したデータの送受信やデバイスの制御に加えて、Windows 10 では、Bluetooth 低エネルギー (BTLE) を使用してバックグラウンドでビーコンを送受信できるようになりました。 これを利用して、ユーザーが特定の場所に近づいた場合や特定の場所から離れた場合に、通知を表示したり、機能を有効にしたりします。 |
 | [エンタープライズ共有記憶域](enterprise-shared-storage.md) | デバイスのロックダウン シナリオにおける、同じアプリ内でのデータの共有、また 1 つのアプリの複数のインスタンス間でのデータの共有、さらに複数のアプリ間でのデータの共有について、その方法を説明します。 |
 
 ## <a name="device-targeting"></a>対象となるデバイス
@@ -146,16 +146,17 @@ Windows 10 には、一連のセキュリティ機能が用意されていま�
 | トピック | 説明 |
 |-------|-------------|
 | [UWP アプリ ガイド](https://docs.microsoft.com/windows/uwp/get-started/universal-application-platform-guide) | この入門用ガイドでは、Windows 10 UWP プラットフォームについて説明します。ここでは、デバイス ファミリの説明、対象となるデバイス ファミリを決定する方法、さまざまなデバイスのフォーム ファクターに合わせて UI を対応させることができる新しい UI コントロールとパネル、およびアプリで利用できる API サーフェスを理解し制御する方法を取り上げます。 |
-| [アダプティブ XAML UI コードのサンプル](https://go.microsoft.com/fwlink/p/?LinkId=619992) | このコード サンプルでは、デバイスの種類に関係なく、アプリで利用できるすべてのレイアウト オプションとコントロールが示されています。また、このコード サンプルを使うと、パネルを操作して、目的のレイアウトを実現する方法を確認できます。 さまざまなフォーム ファクターに対する各コントロールの応答方法に加えて、アプリ自体の応答性、およびアダプティブ UI を実現するためのさまざまな方法も示されています。 |
+| [アダプティブ XAML UI コードのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlUIBasics) | このコード サンプルでは、デバイスの種類に関係なく、アプリで利用できるすべてのレイアウト オプションとコントロールが示されています。また、このコード サンプルを使うと、パネルを操作して、目的のレイアウトを実現する方法を確認できます。 さまざまなフォーム ファクターに対する各コントロールの応答方法に加えて、アプリ自体の応答性、およびアダプティブ UI を実現するためのさまざまな方法も示されています。 |
 | [Xamarin のトピック](/xamarin/) | 電話をターゲットとする Xamarin |
 
 ## <a name="deployment"></a>展開
 
-組織のユーザーにアプリを配布するための方法がいくつかあります。 ビジネス向け Microsoft Store や既存のモバイル デバイス管理を使うことも、アプリをデバイスにサイドロードすることもできます。 Microsoft Store に公開すると、一般ユーザーにもアプリを利用可能にすることができます。
+MSIX パッケージを使用して、組織のユーザーにアプリを配布するための方法がいくつかあります。 アプリ インストーラー ベースの展開を構成することも、デバイス管理ツール (Microsoft Endpoint Configuration Manager や Microsoft Intune など) を使用することも、ビジネス向け Microsoft Store に公開することも、アプリをデバイスにサイドロードすることもできます。 Microsoft Store に公開すると、一般ユーザーにもアプリを利用可能にすることができます。
 
 | トピック | 説明 |
 |-------|-------------|
-| [企業に LOB アプリを配布する](https://docs.microsoft.com/windows/uwp/publish/distribute-lob-apps-to-enterprises) | 基幹業務アプリを、ボリューム購入できるように、ビジネス向け Microsoft Store で企業に直接公開できます。一般ユーザーが利用できるようにアプリを公開する必要はありません。 |
+| [MSIX のドキュメント](https://docs.microsoft.com/windows/msix/) | MSIX は、MSI、.appx、App-V、ClickOnce の優れた機能を組み合わせた Windows アプリのパッケージ形式であり、最新で信頼性の高いパッケージ化エクスペリエンスを提供します。 |
+| [企業に LOB アプリを配布する](https://docs.microsoft.com/windows/uwp/publish/distribute-lob-apps-to-enterprises) | 広く一般に利用可能にすることなく、基幹業務アプリを配布する方法について説明します。これには、アプリ インストーラー ベースの展開、Microsoft Endpoint Configuration Manager や Microsoft Intune、ビジネス向け Microsoft Store への公開が含まれます。 |
 | [アプリのサイドローディング](https://docs.microsoft.com/windows/deploy/sideload-apps-in-windows-10) | アプリをサイドローディングすると、署名されたアプリ パッケージをデバイスに展開します。 これらのアプリの署名、ホスティング、配置は維持されます。 アプリのサイドローディングのプロセスは、Windows 10 向けに簡素化されています。             |
 | [Microsoft Store にアプリを公開する](https://developer.microsoft.com/store/publish-apps) | 統合された Microsoft Store では、すべての Windows デバイス向けのすべてのアプリを公開して管理することができます。 市場ごとの価格、配布と表示のコントロール、その他のオプションを使って、アプリの使用可能状況をカスタマイズできます。 |
 

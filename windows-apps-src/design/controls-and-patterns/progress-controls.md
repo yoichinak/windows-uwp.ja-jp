@@ -4,7 +4,7 @@ title: プログレス コントロールのガイドライン
 ms.assetid: FD53B716-C43D-408D-8B07-522BC1F3DF9D
 label: Progress controls
 template: detail.hbs
-ms.date: 05/19/2017
+ms.date: 11/29/2019
 ms.topic: article
 keywords: windows 10, uwp
 pm-contact: kisai
@@ -12,20 +12,44 @@ design-contact: jeffarn
 dev-contact: mitra
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: a409c4b940ad0e194428981f536823d880e56302
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 34eca0c822b0da96cae39463777c5c3e9888240c
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66364489"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970807"
 ---
 # <a name="progress-controls"></a>プログレス コントロール
 
- 
-
 プログレス コントロールは、時間のかかる操作が進行中であることを示すフィードバックをユーザーに返します。 使用されているインジケーターに応じて、進行状況インジケーターが表示されているときはユーザーはアプリを操作できないことを知らせたり、待ち時間の長さを示したりできます。
 
-> **重要な API**:[ProgressBar クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ProgressBar)、[IsIndeterminate プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.progressbar.isindeterminate)、[ProgressRing クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ProgressRing)、[IsActive プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.progressring.isactive)
+**Windows UI ライブラリを入手する**
+
+|  |  |
+| - | - |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | **ProgressBar** コントロールは、Windows アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリの一部として含まれています。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+
+> **Windows UI ライブラリ API:** [ProgressBar クラス](https://docs.microsoft.com/uwp/api/Microsoft.UI.Xaml.Controls.ProgressBar)、[IsIndeterminate プロパティ](https://docs.microsoft.com/uwp/api/Microsoft.ui.xaml.controls.progressbar.isindeterminate)、[ProgressRing クラス](https://docs.microsoft.com/uwp/api/Microsoft.UI.Xaml.Controls.ProgressRing)、[IsActive プロパティ](https://docs.microsoft.com/uwp/api/Microsoft.ui.xaml.controls.progressring.isactive)
+>
+> **プラットフォーム API:** [ProgressBar クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ProgressBar)、[IsIndeterminate プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.progressbar.isindeterminate)、[ProgressRing クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ProgressRing)、[IsActive プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.progressring.isactive)
+
+> [!NOTE]
+> ProgressBar コントロールと ProgressRing コントロールには 2 つのバージョンがあります。プラットフォームにあって Windows.UI.Xaml 名前空間によって表されるものと、Windows UI ライブラリにあって Microsoft.UI.Xaml 名前空間によって表されるものです。 ProgressRing と ProgressBar の API は同じですが、コントロールの外観は 2 つのバージョン間で異なります。 このドキュメントでは、新しい方である Windows UI ライブラリ バージョンの画像を示します。
+このドキュメントでは、XAML で **muxc** エイリアスを使って、プロジェクトに含めた Windows UI Library API を表します。 [Page](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.page) 要素にこれを追加しました。
+
+```xaml
+xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+```
+
+コードビハインドでは、C# でも **muxc** エイリアスを使って、プロジェクトに含めた Windows UI Library API を表します。 この **using** ステートメントは、ファイルの先頭に追加されています。
+
+```csharp
+using muxc = Microsoft.UI.Xaml.Controls;
+```
+
+```vb
+Imports muxc = Microsoft.UI.Xaml.Controls
+```
 
 ## <a name="types-of-progress"></a>プログレス コントロールの種類
 
@@ -37,7 +61,7 @@ ms.locfileid: "66364489"
 
 なお、プログレス コントロールは読み取り専用で、対話型ではありません。 つまり、ユーザーはこれらのコントロールを直接呼び出したり、使ったりすることはできません。
 
-![ProgressBar 状態](images/ProgressBar_TwoStates.png)
+![ProgressBar 状態](images/progress-bar-two-states.png)
 
 *上から下へ、不確定 ProgressBar と確定 ProgressBar*
 
@@ -50,7 +74,7 @@ ms.locfileid: "66364489"
 <table>
 <th align="left">XAML コントロール ギャラリー<th>
 <tr>
-<td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td><img src="images/xaml-controls-gallery-app-icon-sm.png" alt="XAML controls gallery"></img></td>
 <td>
     <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合、こちらをクリックしてアプリを開き、<a href="xamlcontrolsgallery:/item/ProgressBar">ProgressBar</a> または <a href="xamlcontrolsgallery:/item/ProgressRing">ProgressRing</a> の動作を確認してください。</p>
     <ul>
@@ -90,7 +114,7 @@ ms.locfileid: "66364489"
 
 -   **アプリはユーザーがタスクを完了するのを待っているか?**
 
-    待っている場合は、ProgressRing を使って不明の待ち時間をユーザーに示します。
+    その場合は、ProgressRing を使って不明の待ち時間をユーザーに示します。
 
 -   **キーワード**
 
@@ -119,13 +143,13 @@ ms.locfileid: "66364489"
 
 **ProgressBar - 確定**
 
-![ProgressBar の確定状態の例](images/PB_DeterminateExample.png)
+![ProgressBar の確定状態の例](images/progress-bar-determinate-example.png)
 
 最初の例は確定 ProgressBar です。 操作の期間がわかっていて、インストール、ダウンロード、設定などを行うときは、確定 ProgressBar が最良です。
 
 **ProgressBar - 不確定**
 
-![ProgressBar の不確定状態の例](images/PB_IndeterminateExample.png)
+![ProgressBar の不確定状態の例](images/progress-bar-indeterminate-example.png)
 
 操作にどの程度の時間がかかるかがわからないときは、不確定 ProgressBar を使います。 不確定 ProgressBar は、仮想化されたリストに入力し、不確定 ProgressBar から確定 ProgressBar への滑らかな視覚的な遷移を作成するときにも適切です。
 
@@ -137,7 +161,7 @@ ms.locfileid: "66364489"
 
 ![ProgressRing の不確定状態の例](images/PR_IndeterminateExample.png)
 
-ユーザーのそれ以上のアプリとのやり取りが停止されたとき、またはアプリがユーザーの入力を待っているときは、不確定 ProgressRing が使われます。 上記の「サインインしています…」の例は、 ProgressRing の完全なシナリオであり、ユーザーはサインインが完了するまでアプリの使用を続けることはできません。
+ユーザーのそれ以上のアプリとのやり取りが停止されたとき、またはアプリがユーザーの入力を待っているときは、不確定 ProgressRing が使われます。 上記の "サインインしています..." の例は、ProgressRing の完全なシナリオであり、ユーザーはサインインが完了するまでアプリの使用を続けることはできません。
 
 ## <a name="customizing-a-progress-control"></a>プログレス コントロールのカスタマイズ
 
@@ -168,10 +192,10 @@ progressRing.IsActive = true;
 
 ```XAML
 <ProgressRing IsActive="True" Height="100" Width="100" Foreground="Blue"/>
-<ProgressBar Width="100" Foreground="Green"/>
+<muxc:ProgressBar Width="100" Foreground="Green"/>
 ```
 
-ProgressRing の前景色を変更すると、ドットの色が変更されます。 ProgressBar の foreground プロパティを変更すると、バーの塗りつぶしの色が変更されます。バーの塗りつぶされない部分を変更するには、background プロパティを上書きします。
+ProgressRing の前景色を変更すると、リングの塗りつぶし色が変更されます。 ProgressBar の foreground プロパティを変更すると、バーの塗りつぶしの色が変更されます。バーの塗りつぶされない部分を変更するには、background プロパティを上書きします。
 
 **待機カーソルの表示**
 
@@ -181,7 +205,7 @@ ProgressRing の前景色を変更すると、ドットの色が変更されま�
 Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Wait, 10);
 ```
 
-## <a name="get-the-sample-code"></a>サンプル コードを入手する
+## <a name="get-the-sample-code"></a>サンプル コードの入手
 
 - [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - インタラクティブな形で XAML コントロールのすべてを参照できます。
 
@@ -192,4 +216,4 @@ Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows
 
 **開発者向け (XAML)**
 - [プログレス コントロールの追加](https://docs.microsoft.com/previous-versions/windows/apps/hh780651(v=win.10))
-- [Windows Phone 向けのカスタム進行状況不定バーを作成する方法](https://go.microsoft.com/fwlink/p/?LinkID=392426)
+- [Windows Phone 向けのカスタム進行状況不定バーを作成する方法](https://msdn.microsoft.com/library/windows/apps/gg442303.aspx)

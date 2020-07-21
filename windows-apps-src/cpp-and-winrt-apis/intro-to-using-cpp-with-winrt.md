@@ -5,12 +5,12 @@ ms.date: 04/18/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 概要
 ms.localizationpriority: medium
-ms.openlocfilehash: da8452329e353c0bbb4b0cedbfe269fd239f9c78
-ms.sourcegitcommit: 5d71c97b6129a4267fd8334ba2bfe9ac736394cd
+ms.openlocfilehash: ddf2cd876ac629f4cb3c49e349e43dee8fdb0c7a
+ms.sourcegitcommit: ef723e3d6b1b67213c78da696838a920c66d5d30
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67800568"
+ms.lasthandoff: 05/02/2020
+ms.locfileid: "82730301"
 ---
 # <a name="introduction-to-cwinrt"></a>C++/WinRT の概要
 &nbsp;
@@ -29,22 +29,22 @@ C++/WinRT は、[C++/CX](/cpp/cppcx/visual-c-language-reference-c-cx?branch=live
 ## <a name="language-projections"></a>言語プロジェクション
 Windows ランタイムは、コンポーネント オブジェクト モデル (COM) API に基づいており、*言語プロジェクション*を使用してアクセスするよう設計されています。 プロジェクションは、COM の詳細を隠し、特定の言語により自然なプログラミング エクスペリエンスを提供します。
 
-### <a name="the-cwinrt-language-projection-in-the-windows-uwp-api-reference-content"></a>Windows UWP API リファレンス コンテンツにおける C++/WinRT 言語プロジェクション
-[Windows UWP API](https://docs.microsoft.com/uwp/api/) の閲覧中に、右上隅の **[言語] (Language)** コンボ ボックスをクリックして **[C++/WinRT]** を選択し、API 構文ブロックを C++/WinRT 言語プロジェクションで表示されるように表示します。
+### <a name="the-cwinrt-language-projection-in-the-windows-runtime-api-reference-content"></a>Windows ランタイム API リファレンス コンテンツにおける C++/WinRT 言語プロジェクション
+[Windows ランタイム API](https://docs.microsoft.com/uwp/api/) の閲覧中に、右上隅の **[言語]** ボックスをクリックして **[C++/WinRT]** を選択すると、C++/WinRT 言語プロジェクションで使用された API 構文ブロックを表示できます。
 
 ## <a name="visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package"></a>C++/WinRT、XAML、VSIX 拡張機能、NuGet パッケージの Visual Studio のサポート
-Visual Studio のサポートでは、Visual Studio 2019 または Visual Studio 2017 が必要になります (バージョン 15.6 以上、Microsoft では 15.7 以上をお勧めします)。 まだ行っていない場合は、Visual Studio インストーラー内から、( **[インストールの詳細]**  >  **[ユニバーサル Windows プラットフォーム開発]** で) **[C++ (v14x) ユニバーサル Windows プラットフォーム ツール]** オプションをインストールする必要もあります。 また、Windows の **[設定]**  >  **[更新 \& セキュリティ]**  >  **[開発者向け]** で、 **[アプリのサイドロード]** オプションではなく、 **[開発者モード]** オプションを選びます。
+Visual Studio のサポートでは、Visual Studio 2019 または Visual Studio 2017 が必要になります (バージョン 15.6 以上、Microsoft では 15.7 以上をお勧めします)。 Visual Studio インストーラーから、**ユニバーサル Windows プラットフォーム開発** ワークロードをインストールします。 まだ行っていない場合は、 **[インストールの詳細]**  >  **[ユニバーサル Windows プラットフォーム開発]** で **[C++ (v14x) ユニバーサル Windows プラットフォーム ツール]** オプションを選択します。 また、Windows の **[設定]**  >  **[更新 \& セキュリティ]**  >  **[開発者向け]** で、 **[アプリのサイドロード]** オプションではなく、 **[開発者モード]** オプションを選びます。
 
 最新バージョンの Visual Studio と Windows SDK で開発することをお勧めしますが、10.0.17763.0 (Windows 10、バージョン 1809) より前の Windows SDK に付属する C++/WinRT のバージョンを使用している場合、上記で示した Windows 名前空間ヘッダーを使用するには、10.0.17134.0 (Windows 10、バージョン 1803) のプロジェクトで最小の Windows SDK ターゲット バージョンが必要になります。
 
-[Visual Studio Marketplace](https://marketplace.visualstudio.com/) から最新バージョンの [C++/WinRT Visual Studio 拡張機能 (VSIX)](https://aka.ms/cppwinrt/vsix) をダウンロードしてインストールする必要があります。
+[Visual Studio Marketplace](https://marketplace.visualstudio.com/) から最新バージョンの [C++/WinRT Visual Studio 拡張機能 (VSIX)](https://marketplace.visualstudio.com/items?itemName=CppWinRTTeam.cppwinrt101804264) をダウンロードしてインストールする必要があります。
 
 - VSIX 拡張機能では、C++/WinRT 開発を開始できるように、Visual Studio で C++/WinRT プロジェクトとアイテム テンプレートが提供されます。
 - さらに、これにより、C++/WinRT の投影された型の Visual Studio ネイティブのデバッグの視覚化 (NatVis) が提供され、C# デバッグと同様のエクスペリエンスを実現します。 Natvis はデバッグ ビルドで自動で行われます。 シンボル WINRT_NATVIS を定義することで、リリース ビルドを選択できます。
 
 C++/WinRT 用の Visual Studio プロジェクト テンプレートは、以下のセクションで説明されます。 最新バージョンの VSIX 拡張機能がインストールされた新しい C++/WinRT プロジェクトを作成する場合、新しい C++/WinRT プロジェクトで自動的に [Microsoft.Windows.CppWinRT NuGet パッケージ](https://www.nuget.org/packages/Microsoft.Windows.CppWinRT/)がインストールされます。 **Microsoft.Windows.CppWinRT** NuGet パッケージでは、C++/WinRT のビルド (MSBuild プロパティとターゲット) がサポートされ、自分のプロジェクトを (NuGet パッケージのみ (VSIX 拡張機能以外) がインストールされる) 開発マシンとビルド エージェントとの間で移植できるようになります。
 
-または、**Microsoft.Windows.CppWinRT** NuGet パッケージを手動でインストールすることで、既存のプロジェクトを変換できます。 最新バージョンの VSIX 拡張機能をインストール (または更新) した後、Visual Studio で既存のプロジェクトを開いて、 **[プロジェクト]** \> **[NuGet パッケージの管理]** \> **[参照]** の順にクリックし、検索ボックスに「**Microsoft.Windows.CppWinRT**」を入力するか貼り付けます。検索結果の項目を選択し、 **[インストール]** をクリックしてそのプロジェクトのパッケージをインストールします。 そのパッケージを追加したら、`cppwinrt.exe` ツールの呼び出しを含む、プロジェクトの C++/WinRT MSBuild サポートを取得できます。
+または、**Microsoft.Windows.CppWinRT** NuGet パッケージを手動でインストールすることで、既存のプロジェクトを変換できます。 最新バージョンの VSIX 拡張機能をインストール (または更新) した後、Visual Studio で既存のプロジェクトを開いて、 **[プロジェクト]** \> **[NuGet パッケージの管理]** \> **[参照]** をクリックし、検索ボックスに「**Microsoft.Windows.CppWinRT**」を入力するか貼り付けます。検索結果の項目を選択し、 **[インストール]** をクリックして、そのプロジェクトのパッケージをインストールします。 そのパッケージを追加したら、`cppwinrt.exe` ツールの呼び出しを含む、プロジェクトの C++/WinRT MSBuild サポートを取得できます。
 
 > [!IMPORTANT]
 > 1\.0.190128.4 より前の VSIX 拡張機能のバージョンで作成された (作業するためにアップグレードされた) プロジェクトがある場合は、「[VSIX 拡張機能の以前のバージョン](#earlier-versions-of-the-vsix-extension)」を参照してください。 そのセクションには、プロジェクトの構成に関する重要な情報が含まれ、最新バージョンの VSIX 拡張機能を使用するためにアップグレードする必要があるものを把握します。
@@ -62,7 +62,7 @@ C++/WinRT 用の Visual Studio プロジェクト テンプレートは、以下
 
 C++/WinRT では、COM スタイルのプログラミングを使用せずに、標準的な C++ を使用して独自のランタイム クラスを実装することもできます。 ランタイム クラスでは、IDL ファイルで型を記述するだけです。`midl.exe` および `cppwinrt.exe` が実装のスケルトン ソース コード ファイルを自動的に作成します。 または、C++/WinRT の基本クラスから派生することでインターフェイスを実装することもできます。 詳細については、「[C++/WinRT での API の作成](author-apis.md)」を参照してください。
 
-プロジェクトのプロパティによって設定される `cppwinrt.exe` ツールのカスタマイズ オプションの一覧については、[https://github.com/microsoft/xlang/tree/master/src/package/cppwinrt/nuget/readme.md#customizing ] をご覧ください。
+プロジェクトのプロパティによって設定される `cppwinrt.exe` ツールのカスタマイズ オプションの一覧については、Microsoft.Windows.CppWinRT NuGet パッケージの [readme](https://github.com/microsoft/cppwinrt/blob/master/nuget/readme.md#customizing) をご覧ください。
 
 プロジェクト内にインストールされた **Microsoft.Windows.CppWinRT** NuGet パッケージのプレゼンスによって、C++/WinRT MSBuild サポートを使用するプロジェクトを識別できます。
 
@@ -71,7 +71,7 @@ VSIX 拡張機能によって提供される Visual Studio プロジェクト �
 ### <a name="blank-app-cwinrt"></a>空のアプリ (C++/WinRT)
 XAML ユーザー インターフェイスを持つユニバーサル Windows プラットフォーム (UWP) アプリのプロジェクト テンプレートです。
 
-Visual Studio では、各 XAML マークアップ ファイルの背後にあるインターフェイス定義言語 (IDL) (`.idl`) ファイルから実装とヘッダーのスタブを生成するために XAML コンパイラ サポートを提供します。 IDL ファイルで、アプリの XAML ページ内で参照する任意のローカルのランタイム クラスを定義してから、プロジェクトを 1 回ビルドして `Generated Files` で実装テンプレート、`Generated Files\sources` でスタブ型定義を生成します。 次にローカルのランタイム クラスの実装への参照にこれらのスタブ型定義を使用します。 各ランタイム クラスをその独自の IDL ファイル内で宣言することをお勧めします。
+Visual Studio では、各 XAML マークアップ ファイルの背後にあるインターフェイス定義言語 (IDL) (`.idl`) ファイルから実装とヘッダーのスタブを生成するために XAML コンパイラ サポートを提供します。 IDL ファイルで、アプリの XAML ページ内で参照する任意のローカルのランタイム クラスを定義してから、プロジェクトを 1 回ビルドして `Generated Files` で実装テンプレート、`Generated Files\sources` でスタブ型定義を生成します。 次に、ローカルのランタイム クラスの実装への参照にこれらのスタブ型定義を使用します。 「[ランタイム クラスを Midl ファイル (.idl) にファクタリングする](/windows/uwp/cpp-and-winrt-apis/author-apis#factoring-runtime-classes-into-midl-files-idl)」を参照してください。
 
 C++/WinRT に対する Visual Studio 2019 での XAML デザイン サーフェスのサポートは、C# でのパリティに近いです。 Visual Studio 2019 では、 **[プロパティ]** ウィンドウの **[イベント]** タブを使用して、C++/WinRT プロジェクト内にイベント ハンドラーを追加できます。 また、自分のコードに手動でイベント ハンドラーを追加することもできます&mdash;詳細については、「[C++/WinRT でのデリゲートを使用したイベントの処理](handle-events.md)」を参照してください。
 
@@ -91,12 +91,12 @@ Windows Desktop 用の C++/WinRT クライアント アプリケーションに�
 
 このテンプレートは、Windows ランタイム メタデータ (`.winmd`) が IDL から生成され、実装とヘッダーのスタブが Windows ランタイム メタデータから生成される、`midl.exe` > `cppwinrt.exe` ツール チェーンを示します。
 
-IDL ファイルでは、コンポーネント、それらの既定インターフェイス、およびそれらが実装している他のすべてのインターフェイスのランタイム クラスを定義します。 プロジェクトを 1 回ビルドして `module.g.cpp`、`module.h.cpp`、`Generated Files` の実装テンプレート、および `Generated Files\sources` のスタブ型定義を生成します。 次にコンポーネント内のランタイム クラスの実装への参照にこれらのスタブ型定義を使用します。 各ランタイム クラスをその独自の IDL ファイル内で宣言することをお勧めします。
+IDL ファイルでは、コンポーネント、それらの既定インターフェイス、およびそれらが実装している他のすべてのインターフェイスのランタイム クラスを定義します。 プロジェクトを 1 回ビルドして `module.g.cpp`、`module.h.cpp`、`Generated Files` の実装テンプレート、および `Generated Files\sources` のスタブ型定義を生成します。 次にコンポーネント内のランタイム クラスの実装への参照にこれらのスタブ型定義を使用します。 「[ランタイム クラスを Midl ファイル (.idl) にファクタリングする](/windows/uwp/cpp-and-winrt-apis/author-apis#factoring-runtime-classes-into-midl-files-idl)」を参照してください。
 
 ビルドした Windows ランタイム コンポーネントのバイナリとその `.winmd` を、それらを使用する UWP アプリとバンドルします。
 
 ## <a name="earlier-versions-of-the-vsix-extension"></a>VSIX 拡張機能の以前のバージョン
-最新バージョンの [VSIX 拡張機能](https://aka.ms/cppwinrt/vsix)をインストール (またはアップグレード) することをお勧めします。 既定では、それ自体で更新されるように構成されています。 これを行い、1.0.190128.4 以前の VSIX 拡張機能のバージョンで作成されたプロジェクトがある場合、このセクションには新しいバージョンで動作するように、これらのプロジェクトのアップグレードに関する重要な情報が含まれます。 更新しない場合は、引き続きこのセクションでの情報が役に立つことがわかります。
+最新バージョンの [VSIX 拡張機能](https://marketplace.visualstudio.com/items?itemName=CppWinRTTeam.cppwinrt101804264)をインストール (またはアップグレード) することをお勧めします。 既定では、それ自体で更新されるように構成されています。 これを行い、1.0.190128.4 以前の VSIX 拡張機能のバージョンで作成されたプロジェクトがある場合、このセクションには新しいバージョンで動作するように、これらのプロジェクトのアップグレードに関する重要な情報が含まれます。 更新しない場合は、引き続きこのセクションでの情報が役に立つことがわかります。
 
 サポートされる Windows SDK と Visual Studio のバージョン、Visual Studio の構成に関して、上記の「[C++/WinRT、XAML、VSIX 拡張機能、NuGet パッケージの Visual Studio のサポート](#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)」セクションの情報は、以前のバージョンの VSIX 拡張機能に適用されます。 下記の情報は、以前のバージョンで作成された (または作業を行うためにアップグレードされた) 動作とプロジェクトの構成に関して重要な違いについて説明します。
 
@@ -110,7 +110,7 @@ IDL ファイルでは、コンポーネント、それらの既定インター�
 ...
 ```
 
-**Microsoft.Windows.CppWinRT** NuGet パッケージを手動でインストールすることで、自分のプロジェクトをアップグレードできます。 最新バージョンの VSIX 拡張機能をインストール (またはアップグレード) した後、Visual Studio で自分のプロジェクトを開いて、 **[プロジェクト]** \> **[NuGet パッケージの管理]** \> **[参照]** の順にクリックし、検索ボックスに「**Microsoft.Windows.CppWinRT**」を入力するか貼り付けます。検索結果の項目を選択し、 **[インストール]** をクリックして自分のプロジェクトのパッケージをインストールします。
+**Microsoft.Windows.CppWinRT** NuGet パッケージを手動でインストールすることで、自分のプロジェクトをアップグレードできます。 最新バージョンの VSIX 拡張機能をインストール (またはアップグレード) した後、Visual Studio で自分のプロジェクトを開いて、 **[プロジェクト]** \> **[NuGet パッケージの管理]** \> **[参照]** をクリックし、検索ボックスに「**Microsoft.Windows.CppWinRT**」を入力するか貼り付けます。検索結果の項目を選択し、 **[インストール]** をクリックして自分のプロジェクトのパッケージをインストールします。
 
 ### <a name="created-with-or-upgraded-to-between-101810022-and-101901283"></a>1\.0.181002.2 から 1.0.190128.3 の間で作成 (またはアップグレード)
 プロジェクトが 1.0.181002.2 から 1.0.190128.3 (含む) の間の VSIX 拡張機能のバージョンで作成された場合、**Microsoft.Windows.CppWinRT** NuGet パッケージはプロジェクト テンプレートによってプロジェクトに自動的にインストールされています。 この範囲の VSIX 拡張機能のバージョンを使用するために、以前のプロジェクトをアップグレードしている可能性もあります。 この操作を行った場合、&mdash;ビルドのサポートは引き続きこの範囲内の VSIX 拡張機能のバージョンでも表されるため&mdash;ご利用のアップグレードされたプロジェクトでは **Microsoft.Windows.CppWinRT** NuGet パッケージをインストールしている、またはしていない可能性があります。
@@ -147,8 +147,8 @@ IDL ファイルでは、コンポーネント、それらの既定インター�
 
 ## <a name="related-topics"></a>関連トピック
 * [C++/CX](/cpp/cppcx/visual-c-language-reference-c-cx)
-* [C++/WinRT Visual Studio 拡張機能 (VSIX)](https://aka.ms/cppwinrt/vsix)
+* [C++/WinRT Visual Studio 拡張機能 (VSIX)](https://marketplace.visualstudio.com/items?itemName=CppWinRTTeam.cppwinrt101804264)
 * [C++/WinRT の使用を開始する](get-started.md)
 * [標準的な C++ のデータ型と C++/WinRT](std-cpp-data-types.md)
 * [C++/WinRT での文字列の処理](strings.md)
-* [Windows UWP API](https://docs.microsoft.com/uwp/api/)
+* [Windows ランタイム API](https://docs.microsoft.com/uwp/api/)

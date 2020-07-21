@@ -1,76 +1,76 @@
 ---
-description: このチュートリアルでは、UWP XAML ユーザー インターフェイスを追加、MSIX パッケージを作成およびその他の最新コンポーネントを WPF アプリに組み込む方法を示します。
-title: パッケージ化し、MSIX とデプロイ
+description: このチュートリアルでは、UWP XAML ユーザー インターフェイスを追加し、MSIX パッケージを作成し、その他の最新のコンポーネントをお使いの WPF アプリに組み込む方法について説明します。
+title: MSIX によるパッケージとデプロイ
 ms.topic: article
-ms.date: 06/27/2019
+ms.date: 01/23/2020
 ms.author: mcleans
 author: mcleanbyron
-keywords: windows 10、uwp、windows フォーム、wpf、xaml 諸島
+keywords: windows 10、uwp、windows フォーム、wpf、xaml islands
 ms.localizationpriority: medium
 ms.custom: RS5, 19H1
-ms.openlocfilehash: d11ef296b690297d33ebd5d366c2594f70b6d10b
-ms.sourcegitcommit: 1eec0e4fd8a5ba82803fdce6e23fcd01b9488523
-ms.translationtype: MT
+ms.openlocfilehash: 27906d9d389c065ab1fdf7124151cd1915f850eb
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67420102"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "76726015"
 ---
-# <a name="part-5-package-and-deploy-with-msix"></a>パート 5:パッケージ化し、MSIX とデプロイ
+# <a name="part-5-package-and-deploy-with-msix"></a>パート 5: MSIX によるパッケージとデプロイ
 
-これは、Contoso の経費をという名前のサンプル WPF デスクトップ アプリの近代化する方法を説明するチュートリアルの最後の部分です。 チュートリアル、前提条件、およびサンプル アプリをダウンロードする手順の概要については、次を参照してください。[チュートリアル。WPF アプリの近代化](modernize-wpf-tutorial.md)します。 この記事では、既に完了している前提としています。[パート 4](modernize-wpf-tutorial-4.md)します。
+これは、Contoso Expenses という名前のサンプル WPF デスクトップ アプリを最新化する方法を示すチュートリアルの最後の部分です。 チュートリアルの概要、前提条件、サンプル アプリをダウンロードする手順については、「[チュートリアル:WPF アプリの最新化](modernize-wpf-tutorial.md)」を参照してください。 この記事では、読者が[パート 4](modernize-wpf-tutorial-4.md) を既に完了していることを前提にしています。
 
-[パート 4](modernize-wpf-tutorial-4.md)アプリで使用するには通知 API など、一部の WinRT Api がパッケージ id を必要とするについて説明しました。 パッケージ id を取得するには、パッケージを使用して Contoso 経費[MSIX](https://docs.microsoft.com/windows/msix)、パッケージ化し、Windows アプリケーションを展開する Windows 10 で導入された、パッケージ化形式。 MSIX は、開発者と IT プロフェッショナルなどの両方のテーブルに利点があります。
+[パート 4](modernize-wpf-tutorial-4.md) では、Notifications API を含む一部の WinRT API で、アプリで API が使用される前にパッケージ ID が必要であることを学習しました。 パッケージ ID は、Windows アプリケーションをパッケージ化して展開する Windows 10 で導入されたパッケージ化形式である [MSIX](https://docs.microsoft.com/windows/msix) を使用して Contoso の経費をパッケージ化することで取得できます。 MSIX には、次の利点が開発者や IT プロフェッショナルにあります。
 
-- ネットワーク使用率とストレージ領域が最適化されています。
-- クリーン完了、アプリが実行される場所の軽量コンテナーに協力してくれた、アンインストールします。 システムのレジストリ キーと一時ファイルが残っていません。
-- アプリケーションの更新とカスタマイズから OS の更新プログラムを分離します。
-- インストールを簡略化更新、およびプロセスをアンインストールします。 
+- ネットワークの使用と記憶域スペースを最適化する。
+- アプリが軽量のコンテナーで実行されることにより、クリーン アンインストールを実行できる。 システムにレジストリ キーと一時ファイルが残されない。
+- アプリケーションの更新プログラムとカスタマイズから、OS の更新プログラムが切り離される。
+- インストール、更新、およびアンインストール プロセスが単純。
 
-このチュートリアルのこの部分では、MSIX パッケージ内の Contoso 経費アプリケーションをパッケージ化する方法を学習します。
+このチュートリアルのこの部分では、MSIX パッケージで Contoso の経費アプリをパッケージ化する方法について説明します。
 
-## <a name="package-the-application"></a>アプリケーションをパッケージします。
+## <a name="package-the-application"></a>アプリケーションをパッケージ化する
 
-Visual Studio 2019 は、Windows アプリケーション パッケージ プロジェクトを使用して、デスクトップ アプリケーションをパッケージ化する簡単な方法を提供します。 
+Visual Studio 2019 の Windows アプリケーション パッケージ プロジェクトを使用すると、デスクトップ アプリケーションを簡単にパッケージ化できます。 
 
-1. **ソリューション エクスプ ローラー**を右クリックし、 **ContosoExpenses**ソリューション選択**追加]、[新しいプロジェクト**します。
+1. **ソリューション エクスプローラー**で **[ContosoExpenses]** ソリューションを右クリックし、 **[追加]、[新しいプロジェクト]** を選択します。
 
-    ![新しいプロジェクトを追加します。](images/wpf-modernize-tutorial/AddNewProject.png)
+    ![新しいプロジェクトを追加する](images/wpf-modernize-tutorial/AddNewProject.png)
 
-3. **新しいプロジェクトを追加** ダイアログ ボックスで、検索`packaging`、選択、 **Windows アプリケーション パッケージ プロジェクト**プロジェクト テンプレート、C#カテゴリ、およびクリック**次へ**.
+3. **[新しいプロジェクトの追加]** ダイアログボックスで `packaging` を検索し、C# カテゴリの **[Windows アプリケーション パッケージ プロジェクト]** プロジェクト テンプレートを選択して、 **[次へ]** をクリックします。
 
     ![Windows アプリケーション パッケージ プロジェクト](images/wpf-modernize-tutorial/WAP.png)
 
-4. 新しいプロジェクトの名前`ContosoExpenses.Package`クリック**作成**です。
+4. 新しいプロジェクトに `ContosoExpenses.Package` という名前を付け、 **[作成]** をクリックします。
 
-5. 選択**Windows 10、バージョンが 1903 (10.0;18362 をビルドする)** 両方の**ターゲット バージョン**と**最小バージョン** をクリック**OK**します。
+5. **[ターゲット バージョン]** と **[最小バージョン]** の両方に、 **[Windows 10, version 1903 (10.0; Build 18362)]** \(Windows 10 バージョン 1903 (10.0、ビルド 18362)\) を選択し、 **[OK]** をクリックします。
 
-    **ContosoExpenses.Package**プロジェクトに追加されます、 **ContosoExpenses**ソリューション。 このプロジェクトに含まれる、[パッケージ マニフェスト](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/schema-root)アプリケーション、およびいくつかのプログラム メニューのアイコンと、スタート画面にタイルなどの項目に使用される既定のアセットをについて説明します。 ただし、UWP プロジェクトとは異なり、packaging プロジェクトではコードがありません。 その目的は、既存のデスクトップ アプリをパッケージ化します。
+    **ContosoExpenses.Package** プロジェクトが **ContosoExpenses** ソリューションに追加されます。 このプロジェクトには、アプリケーションを説明する[パッケージ マニフェスト](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/schema-root)と、[プログラム] メニューのアイコンやスタート画面のタイルなどの項目に使用される既定の資産が含まれています。 ただし、このパッケージ プロジェクトには、UWP プロジェクトとは異なりコードは含まれせん。 これは、既存のデスクトップ アプリをパッケージ化するためにあります。
 
-6. **ContosoExpenses.Package**プロジェクトを右クリックして、**アプリケーション**ノード選択**参照の追加**します。 このノードは、ソリューションでは、どのアプリケーションをパッケージに含まれますを指定します。
+6. **[ContosoExpenses.Package]** プロジェクトで、 **[アプリケーション]** ノードを右クリックして **[参照の追加]** を選択します。 このノードでは、ご自分のソリューション内のどのアプリケーションをパッケージに含めるかを指定します。
 
-7. プロジェクトの一覧で選択**ContosoExpenses.Core**  をクリック**OK**します。
+6. プロジェクトの一覧で **[ContosoExpenses.Core]** を選択し、 **[OK]** をクリックします。
 
-8. 展開、**アプリケーション**ノードことを確認します、 **ContosoExpense.Core**プロジェクトが参照されているし、太字で強調表示されます。 これは、それが使用されることを出発点として、パッケージを意味します。
+7. **[アプリケーション]** ノードを展開し、 **[ContosoExpense.Core]** プロジェクトが参照されて太字で強調表示されていることを確認します。 これは、これがパッケージの開始点として使用されることを意味します。
 
-9. 右クリックし、 **ContosoExpenses.Package**プロジェクト**スタートアップ プロジェクトとして設定**します。
+8. **[ContosoExpenses.Package]** プロジェクトを右クリックし、 **[スタートアップ プロジェクトに設定]** を選択します。
 
-10. キーを押して**F5**をデバッガーでパッケージ化されたアプリケーションを開始します。
+9. **F5** を押して、デバッガーでパッケージ アプリを起動します。
 
-この時点では、として実行中のパッケージ化、アプリを示すいくつかの変更が発生することができます。
+この時点では、アプリがパッケージとして実行されていることを示す変更がいくつかあるはずです。
 
-- タスク バーで、または、[スタート] メニューのアイコンが、既定の資産に含まれているすべて**Windows アプリケーション パッケージ プロジェクト**します。
-- 右クリックした場合、 **ContosoExpense.Package** [スタート] メニューに表示されるアプリケーションなどの Microsoft Store からダウンロードされたアプリ用に予約が通常のオプションがわかります**アプリ設定**、**レートとレビュー**と**共有**します。
+- タスクバーまたは [スタート] メニューのアイコンが、すべての **Windows アプリケーション パッケージ プロジェクト**に含まれる既定の資産になりました。
+- [スタート] メニューに表示される **[ContosoExpense.Package]** アプリケーションを右クリックすると、Microsoft Store からダウンロードしたアプリ用に一般に予約されている、 **[アプリの設定]** 、 **[評価とレビュー]** 、 **[共有]** などのオプションが表示されます。
 
-    ![[スタート] メニューで ContosoExpenses](images/wpf-modernize-tutorial/StartMenu.png)
+    ![[スタート] メニューの ContosoExpenses](images/wpf-modernize-tutorial/StartMenu.png)
 
-- 右クリックして、アプリをアンインストールする場合は、 **ContosoExpense.Package** [スタート] メニューで選択**アンインストール**します。 アプリはすぐに削除されます、システム上、いまだにを離れることがなく。
+- このアプリをアンインストールする場合は、[スタート] メニューの **[ContosoExpense.Package]** を右クリックし、 **[アンインストール]** を選択します。 このアプリは、システムに何も残さず直ちに削除されます。
 
-## <a name="test-the-notification"></a>通知をテストします。
+## <a name="test-the-notification"></a>通知をテストする
 
-末尾が機能していない通知シナリオをテストできます MSIX で Contoso 経費アプリケーションをパッケージ化したことは、これで[パート 4](modernize-wpf-tutorial-4.md)します。
+これで、MSIX で Contoso の経費アプリをパッケージ化したので、[パート 4](modernize-wpf-tutorial-4.md) の最後で動作していなかった通知シナリオをテストできます。
 
-1. Contoso 経費アプリでは、従業員を一覧から選択し、**新しい経費の追加**ボタンをクリックします。 
-2. キーを押して、フォームのすべてのフィールドを完了**保存**します。
-3. OS 通知を表示することを確認します。
+1. Contoso Expenses アプリで一覧から従業員を選択して、 **[新しい経費の追加]** ボタンをクリックします。
+2. フォームのすべてのフィールドを入力し、 **[保存]** をクリックします。
+3. OS の通知が表示されることを確認します。
 
 ![トースト通知](images/wpf-modernize-tutorial/ToastNotification.png)

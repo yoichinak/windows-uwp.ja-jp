@@ -1,23 +1,23 @@
 ---
 ms.assetid: 414ACC73-2A72-465C-BD15-1B51CB2334F2
 title: パッケージの更新プログラムを Microsoft Store からダウンロードしてインストールする
-description: パートナー センターでのパッケージを必須としてマークし、アプリをダウンロードしてインストール パッケージの更新でコードを記述する方法について説明します。
+description: パートナー センターでパッケージを必須としてマークする方法と、パッケージ更新をダウンロードしてインストールするためのコードをアプリ内に記述する方法について説明します。
 ms.date: 04/04/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: fc5fca95ca475444792fb0209a936bdfc64cb3c6
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
-ms.translationtype: MT
+ms.openlocfilehash: cb1ac05bdc5dcaaf31074f1b89e5bbb35e4f850d
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66372348"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "68682724"
 ---
 # <a name="download-and-install-package-updates-from-the-store"></a>パッケージの更新プログラムを Microsoft Store からダウンロードしてインストールする
 
-Windows 10 バージョン 1607 以降では、[Windows.Services.Store](https://docs.microsoft.com/uwp/api/windows.services.store) 名前空間で [StoreContext](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext) クラスのメソッドを使用して、現在のアプリに対するパッケージ更新がないかプログラムによって Microsoft Store でチェックし、更新後のパッケージをダウンロードしてインストールすることができます。 パートナー センターで必須としてマークし、必須の更新プログラムがインストールされるまで、アプリで機能を無効にするパッケージを照会できます。
+Windows 10 バージョン 1607 以降では、[Windows.Services.Store](https://docs.microsoft.com/uwp/api/windows.services.store) 名前空間で [StoreContext](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext) クラスのメソッドを使用して、現在のアプリに対するパッケージ更新がないかプログラムによって Microsoft Store でチェックし、更新後のパッケージをダウンロードしてインストールすることができます。 また、パートナー センターで必須としてマークしたパッケージを照会し、必須の更新がインストールされるまでアプリ内の機能を無効にすることもできます。
 
-Windows 10 バージョン 1803 で導入された追加の [StoreContext](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext) メソッドを使うと、パッケージの更新プログラムを背後で (ユーザーに通知 UI を表示せずに) ダウンロードおよびインストールしたり、[オプション パッケージ](optional-packages.md)をアンインストールしたり、アプリのダウンロードおよびインストール キューにあるパッケージの情報を取得したりすることができます。
+Windows 10 バージョン 1803 で導入された追加の [StoreContext](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext) メソッドを使うと、パッケージの更新プログラムを背後で (ユーザーに通知 UI を表示せずに) ダウンロードおよびインストールしたり、[オプション パッケージ](/windows/msix/package/optional-packages)をアンインストールしたり、アプリのダウンロードおよびインストール キューにあるパッケージの情報を取得したりすることができます。
 
 これらの機能は、ユーザー ベースが使っているアプリ、オプション パッケージ、関連サービスを、Microsoft Store にある最新バージョンに自動的に維持するために役立ちます。
 
@@ -26,7 +26,7 @@ Windows 10 バージョン 1803 で導入された追加の [StoreContext](https
 このコード例は、[GetAppAndOptionalStorePackageUpdatesAsync](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.getappandoptionalstorepackageupdatesasync) メソッドを使って Microsoft Store から利用可能なパッケージの更新プログラムをすべて見つけ、[RequestDownloadAndInstallStorePackageUpdatesAsync](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.requestdownloadandinstallstorepackageupdatesasync) メソッドを呼び出して更新プログラムをダウンロードおよびインストールする方法を示しています。 このメソッドを使って更新プログラムをダウンロードおよびインストールすると、更新プログラムをダウンロードする前にユーザーの許可を求めるダイアログが OS に表示されます。
 
 > [!NOTE]
-> これらのメソッドでは、アプリの必須のパッケージと[オプション パッケージ](optional-packages.md)がサポートされます。 オプション パッケージは、ダウンロード可能なコンテンツ (DLC) アドオン用や、サイズ制約に対応して大規模アプリを分割する場合、コア アプリから分離して追加コンテンツを出荷する場合に便利です。 オプション パッケージ (DLC アドオンを含む) を使うアプリを Microsoft Store に提出する許可を得るには、「[Windows 開発者向けサポート](https://developer.microsoft.com/windows/support)」をご覧ください。
+> これらのメソッドでは、アプリの必須のパッケージと[オプション パッケージ](/windows/msix/package/optional-packages)がサポートされます。 オプション パッケージは、ダウンロード可能なコンテンツ (DLC) アドオン用や、サイズ制約に対応して大規模アプリを分割する場合、コア アプリから分離して追加コンテンツを出荷する場合に便利です。 オプション パッケージ (DLC アドオンを含む) を使うアプリを Microsoft Store に提出する許可を得るには、「[Windows 開発者向けサポート](https://developer.microsoft.com/windows/support)」をご覧ください。
 
 このコード例では、次のことを前提条件としています。
 
@@ -193,14 +193,14 @@ private async Task InstallUpdate(IReadOnlyList<StorePackageUpdate> storePackageU
 
 ## <a name="mandatory-package-updates"></a>必須のパッケージの更新プログラム
 
-パートナー センターで Windows 10 バージョン 1607 以降を対象とするアプリのパッケージの送信を作成するときに[パッケージを必須としてマーク](../publish/upload-app-packages.md#mandatory-update)日付と時刻を必須になります。 このプロパティが設定されている場合、利用可能なパッケージの更新が検出されると、アプリは更新パッケージが必須であることを認識し、更新がインストールされるまで、その動作を変更することができます (機能を無効にするなど)。
+パートナー センターで Windows 10 バージョン 1607 以降を対象としたアプリのパッケージ申請を作成する際には、[パッケージを必須としてマーク](../publish/upload-app-packages.md#mandatory-update)し、それが必須になる日時を指定できます。 このプロパティが設定されている場合、利用可能なパッケージの更新が検出されると、アプリは更新パッケージが必須であることを認識し、更新がインストールされるまで、その動作を変更することができます (機能を無効にするなど)。
 
 > [!NOTE]
 > パッケージ更新の必須ステータスは Microsoft によって強制されるものではありません。アプリの必須更新プログラムをインストールする必要があることをユーザーに示すための UI は、OS では提供されていません。 必須設定は、開発者が自身のコード内でアプリの必須更新プログラムを強制するために使用するものです。  
 
 パッケージ申請を必須としてマークするには、次の手順に従います。
 
-1. サインインする[パートナー センター](https://partner.microsoft.com/dashboard)し、アプリの概要ページに移動します。
+1. [パートナー センター](https://partner.microsoft.com/dashboard)にサインインし、アプリの概要ページに移動します。
 2. 必須にするパッケージ更新が含まれている申請の名前をクリックします。
 3. 申請の **[パッケージ]** ページに移動します。 このページの下部で、 **[この更新を必須にします]** を選択した後、パッケージ更新が必須になる日時を選択します。 このオプションは、申請内のすべての UWP パッケージに適用されます。
 
@@ -326,7 +326,7 @@ private void HandleMandatoryPackageError()
 
 ## <a name="uninstall-optional-packages"></a>オプション パッケージのアンインストール
 
-Windows 10 バージョン 1803 以降では、[RequestUninstallStorePackageAsync](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.requestuninstallstorepackageasync) メソッドまたは [RequestUninstallStorePackageByStoreIdAsync](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.requestuninstallstorepackagebystoreidasync) メソッドを使って、現在のアプリの[オプション パッケージ](optional-packages.md) (DLC パッケージを含む) をアンインストールできます。 たとえば、オプション パッケージを通じてインストールされるコンテンツを持つアプリがある場合、ユーザーがオプション パッケージをアンインストールしてディスク領域を解放できる UI を用意できます。
+Windows 10 バージョン 1803 以降では、[RequestUninstallStorePackageAsync](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.requestuninstallstorepackageasync) メソッドまたは [RequestUninstallStorePackageByStoreIdAsync](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.requestuninstallstorepackagebystoreidasync) メソッドを使って、現在のアプリの[オプション パッケージ](/windows/msix/package/optional-packages) (DLC パッケージを含む) をアンインストールできます。 たとえば、オプション パッケージを通じてインストールされるコンテンツを持つアプリがある場合、ユーザーがオプション パッケージをアンインストールしてディスク領域を解放できる UI を用意できます。
 
 次のコード例は、[RequestUninstallStorePackageAsync](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.requestuninstallstorepackageasync) を呼び出す方法を示しています。 この例では、次のことを前提条件としています。
 * コード ファイルに **Windows.Services.Store** 名前空間と **System.Threading.Tasks** 名前空間を使うための **using** ステートメントがある。
@@ -463,4 +463,4 @@ private void StoreItem_StatusChanged(StoreQueueItem sender, object args)
 
 ## <a name="related-topics"></a>関連トピック
 
-* [オプション パッケージと関連セットの作成](optional-packages.md)
+* [オプション パッケージと関連セットの作成](/windows/msix/package/optional-packages)

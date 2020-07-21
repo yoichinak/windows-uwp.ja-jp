@@ -1,118 +1,276 @@
 ---
-title: Windows 10 のユーザー補助機能
-description: このページは、アクセス可能な Windows アプリの開発を開始するための情報を提供します。
+title: Windows 10 のアクセシビリティ
+description: このページでは、アクセシビリティ対応 Windows アプリの開発を開始するための情報を提供します。
 ms.topic: article
-ms.date: 04/03/2019
-ms.localizationpriority: medium
+ms.date: 09/12/2019
+keywords: Windows 10 のアクセシビリティ, アクセシビリティ, アクセシビリティ対応 win32 アプリの構築, アクセシビリティ対応 UWP アプリの構築, アクセシビリティ対応 WPF アプリの構築, アクセシビリティ対応 WinForms アプリの構築
 ms.author: kbridge
 author: Karl-Bridge-Microsoft
-keywords: Windows 10、アクセシビリティ、アクセシビリティを備えた WinForms アプリを構築、アクセスの WPF アプリの構築、アクセスの UWP アプリの構築、アクセス可能な win32 アプリの構築のユーザー補助機能
-ms.openlocfilehash: b818b99ebf896b2d2de219d2eedbfd101f3a5caa
-ms.sourcegitcommit: d1c3e13de3da3f7dce878b3735ee53765d0df240
-ms.translationtype: MT
+ms.openlocfilehash: 2739546061febcfc96403ed5520fdcbd8bc2c462
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66214993"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "76725935"
 ---
-# <a name="accessibility-in-windows-10"></a>Windows 10 のユーザー補助機能
+# <a name="accessibility-in-windows-10"></a>Windows 10 のアクセシビリティ
 
-![hero-accessibility-bar-smaller.png](images/hero-accessibility-bar-smaller.png)
+![アクセシビリティのヒーローの画像](images/hero-accessibility-bar-smaller.png)
 
-多くの人の (運転料理、まぶしく、やなどの) 状況、または可能であれば、障害、個人的な好み、特定の作業スタイルでは、これらの制約として使いやすさを向上し、包括的には、アクセシビリティ対応アプリが設計されています。
+## <a name="build-accessibility-into-your-applications-to-empower-people-of-all-abilities"></a>アプリケーションにアクセシビリティを組み込んで、あらゆる人々の能力を高めます
 
-このページは、さまざまな Windows 開発フレームワークが、スクリーン リーダーと情報を読み上げたり、ソフトウェア テストなどのツールを構築する開発者を支援技術である Windows アプリケーションを構築する開発者のユーザー補助をサポートする方法の情報を提供しますエンジニアはアプリケーションのテストの自動化されたスクリプトを作成します。
+電子メディアを含む製品やサービスでアクセシビリティ対応を謳うための条件は、完全かつ成功した体験をできるだけ多くの人に提供するように設計されていることです。
 
-## <a name="platform-specific-documentation"></a>プラットフォーム固有ドキュメント
+(一時的か恒常的かを問わず) 障碍をお持ちの方、個人の趣向、特定の作業スタイル、状況による制約 (共有型の作業スペース、運転中、料理中、まぶしさなど) を考慮し、機能性と使いやすさを向上させることで、アクセシビリティに対応したインクルーシブな Windows アプリケーションを構築します。 一般的なソリューションとしては、ビデオの字幕などの代替形式で情報を提供することや、スクリーン リーダーなどのユーザー補助テクノロジの使用を有効化することなどがあります。
+
+**階段やエレベーターを使う必要があるかどうかにかかわらず、誰もが建物内の同じ部屋に行ける必要があります。**
+
+このページでは、さまざまな Windows 開発フレームワークにおいて、Windows アプリケーションの開発者、スクリーン リーダーや拡大鏡などのツールに代表されるユーザー補助テクノロジの開発者、また、アプリケーションをテストするための自動スクリプトを作成するソフトウェア テスト エンジニアに、アクセシビリティのサポートが提供されるしくみに関しての情報を提供します。
+
+## <a name="platform-specific-documentation"></a>プラットフォームに特化したドキュメント
 
 :::row:::
-    :::column:::
-        ![Universal Windows Platform (UWP)](images/platform-uwp.png)
+   :::column:::
+      ![ユニバーサル Windows プラットフォーム (UWP)](images/platform-uwp.png)
 
-        ### Universal Windows Platform (UWP)
+      **ユニバーサル Windows プラットフォーム (UWP)**
 
-        Develop accessible apps and tools on the modern platform for Windows 10 applications and games on any Windows device (including PCs, phones, Xbox One, HoloLens, and more), and publish them to the Microsoft Store.
+      (PC、携帯電話、Xbox One、HoloLens などの) 各種 Windows デバイスで動作する Windows 10 のアプリケーションとゲームを開発するための最新プラットフォームで、アクセシビリティに対応したアプリやツールを開発し、Microsoft Store に公開します。
 
-        [Designing inclusive software](https://docs.microsoft.com/windows/uwp/accessibility/designing-inclusive-software)
+      [包括的なソフトウェアの設計](https://docs.microsoft.com/windows/uwp/accessibility/designing-inclusive-software)
 
-        [Developing inclusive Windows apps](https://docs.microsoft.com/windows/uwp/accessibility/developing-inclusive-windows-apps)
+      [包括的な Windows アプリの開発](https://docs.microsoft.com/windows/uwp/accessibility/developing-inclusive-windows-apps)
 
-        [Accessibility testing](https://docs.microsoft.com/windows/uwp/accessibility/accessibility-testing)
+      [アクセシビリティ テスト](https://docs.microsoft.com/windows/uwp/accessibility/accessibility-testing)
 
-        [Accessibility in the Store](https://docs.microsoft.com/windows/uwp/accessibility/accessibility-in-the-store)
-    :::column-end:::
-    :::column:::
-        ![Win32 platform apps](images/platform-win32.png)
+      [ストア内のアクセシビリティ](https://docs.microsoft.com/windows/uwp/accessibility/accessibility-in-the-store)
+   :::column-end:::
+   :::column:::
+      ![Win32 プラットフォーム アプリ](images/platform-win32.png)
 
-        ### Win32 platform
+      **Win32 プラットフォーム**
 
-        Develop accessible apps and tools on the original platform for C/C++ Windows applications.
+      C/C++ Windows アプリケーションの元のプラットフォームで、アクセシビリティに対応したアプリやツールを開発します。
 
-        [What's new in Windows accessibility and automation](https://docs.microsoft.com/windows/desktop/accessibility-whatsnew)
+      [Windows のアクセシビリティとオートメーションの新機能](https://docs.microsoft.com/windows/desktop/accessibility-whatsnew) (英語)
 
-        [Developing accessible applications for Windows](https://docs.microsoft.com/windows/desktop/accessibility-appdev)
+      [Windows 向けのアクセシビリティ対応アプリケーションの開発](https://docs.microsoft.com/windows/desktop/accessibility-appdev) (英語)
 
-        [Developing accessible UI frameworks for Windows](https://docs.microsoft.com/windows/desktop/accessibility-uiframeworkdev)
+      [Windows 向けのアクセシビリティ対応 UI フレームワークの開発](https://docs.microsoft.com/windows/desktop/accessibility-uiframeworkdev) (英語)
 
-        [Developing assistive technology for Windows](https://docs.microsoft.com/windows/desktop/accessibility-atdev)
+      [Windows 向けのユーザー補助テクノロジの開発](https://docs.microsoft.com/windows/desktop/accessibility-atdev) (英語)
 
-        [Testing for accessibility](https://docs.microsoft.com/windows/desktop/accessibility-testwithuia)
+      [アクセシビリティのテスト](https://docs.microsoft.com/windows/desktop/accessibility-testwithuia) (英語)
 
-        [Legacy accessibility and automation technology - MSAA to UI Automation](https://docs.microsoft.com/windows/desktop/accessibility-legacy)
+      [従来のアクセシビリティおよびオートメーション テクノロジ - MSAA から UI オートメーションまで](https://docs.microsoft.com/windows/desktop/accessibility-legacy) (英語)
 
-        [Windows Accessibility features](https://docs.microsoft.com/windows/desktop/winauto/about-windows-accessibility-features)
+      [Windows のアクセシビリティ機能](https://docs.microsoft.com/windows/desktop/winauto/about-windows-accessibility-features) (英語)
 
-        [Guidelines for designing accessible apps](https://docs.microsoft.com/windows/desktop/uxguide/inter-accessibility)
-    :::column-end:::
+      [アクセシビリティ対応アプリの設計のガイドライン](https://docs.microsoft.com/windows/desktop/uxguide/inter-accessibility)
+   :::column-end:::
 :::row-end:::
 :::row:::
-    :::column:::
-        ![WPF platform](images/platform-wpf.png)
+   :::column:::
+      ![WPF プラットフォーム](images/platform-wpf2-small.png)
 
-        ### Windows Presentation Foundation (WPF)
+      **Windows Presentation Foundation (WPF)**
 
-        Develop accessible apps and tools on the established platform for managed Windows applications with a XAML UI model and the .NET Framework.
+      Windows マネージド アプリケーション用として実績のあるプラットフォームで、XAML UI モデルと .NET Framework を使用して、アクセシビリティに対応したアプリやツールを開発します。
 
-        [Accessibility Best Practices](https://docs.microsoft.com/dotnet/framework/ui-automation/accessibility-best-practices)
+      [アクセシビリティのベスト プラクティス](https://docs.microsoft.com/dotnet/framework/ui-automation/accessibility-best-practices)
 
-        [UI Automation Fundamentals](https://docs.microsoft.com/dotnet/framework/ui-automation/index)
+      [UI オートメーションの基礎](https://docs.microsoft.com/dotnet/framework/ui-automation/index)
 
-        [UI Automation Providers for Managed Code](https://docs.microsoft.com/dotnet/framework/ui-automation/ui-automation-providers-for-managed-code)
+      [マネージド コードの UI オートメーション プロバイダー](https://docs.microsoft.com/dotnet/framework/ui-automation/ui-automation-providers-for-managed-code)
 
-        [UI Automation Clients for Managed Code](https://docs.microsoft.com/dotnet/framework/ui-automation/ui-automation-clients-for-managed-code)
+      [マネージド コードの UI オートメーション クライアント](https://docs.microsoft.com/dotnet/framework/ui-automation/ui-automation-clients-for-managed-code)
 
-        [UI Automation Control Patterns](https://docs.microsoft.com/dotnet/framework/ui-automation/ui-automation-control-patterns)
+      [UI オートメーション コントロール パターン](https://docs.microsoft.com/dotnet/framework/ui-automation/ui-automation-control-patterns)
 
-        [UI Automation Text Pattern](https://docs.microsoft.com/dotnet/framework/ui-automation/ui-automation-text-pattern)
+      [UI オートメーション テキスト パターン](https://docs.microsoft.com/dotnet/framework/ui-automation/ui-automation-text-pattern)
 
-        [UI Automation Control Types](https://docs.microsoft.com/dotnet/framework/ui-automation/ui-automation-control-types)
+      [UI オートメーション コントロール型](https://docs.microsoft.com/dotnet/framework/ui-automation/ui-automation-control-types)
 
-        [UI Automation Specification and Community Promise](https://docs.microsoft.com/dotnet/framework/ui-automation/ui-automation-specification-and-community-promise)
-        :::column-end:::
-    :::column:::
-        ![Windows Forms platform apps](images/platform-winforms.png)
+      [UI オートメーションの仕様とコミュニティ規約](https://docs.microsoft.com/dotnet/framework/ui-automation/ui-automation-specification-and-community-promise) (英語)
+   :::column-end:::
+   :::column:::
+      ![Windows フォーム プラットフォーム アプリ](images/platform-winforms.png)
 
-        ### Windows Forms (WinForms)
+      **Windows フォーム (WinForms)**
 
-        Develop accessible apps and tools for managed Windows applications with a XAML UI model and the .NET Framework.
+      XAML UI モデルと .NET Framework を使用して、Windows マネージド アプリケーション用の、アクセシビリティに対応したアプリやツールを開発します。
 
-        [Windows Forms Accessibility](https://docs.microsoft.com/dotnet/framework/winforms/advanced/windows-forms-accessibility)
+      [Windows フォームのアクセシビリティ](https://docs.microsoft.com/dotnet/framework/winforms/advanced/windows-forms-accessibility)
 
-        [Creating an Accessible Windows Application](https://docs.microsoft.com/dotnet/framework/winforms/advanced/walkthrough-creating-an-accessible-windows-based-application)
+      [アクセシビリティ対応の Windows アプリケーションの作成](https://docs.microsoft.com/dotnet/framework/winforms/advanced/walkthrough-creating-an-accessible-windows-based-application)
 
-        [Properties on Windows Forms Controls That Support Accessibility Guidelines](https://docs.microsoft.com/dotnet/framework/winforms/advanced/properties-on-windows-forms-controls-that-support-accessibility-guidelines)
+      [ユーザー補助ガイドラインをサポートする Windows フォーム コントロールのプロパティ](https://docs.microsoft.com/dotnet/framework/winforms/advanced/properties-on-windows-forms-controls-that-support-accessibility-guidelines)
 
-        [Providing Accessibility Information for Controls on a Windows Form](https://docs.microsoft.com/dotnet/framework/winforms/controls/providing-accessibility-information-for-controls-on-a-windows-form)
-    :::column-end:::
-<!--         
-    :::column:::
-![.NET platform](images/platform-dotnet.png)
+      [Windows フォーム上のコントロールのユーザー補助情報の提供](https://docs.microsoft.com/dotnet/framework/winforms/controls/providing-accessibility-information-for-controls-on-a-windows-form)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="2":::
+      **Web アクセシビリティ**
 
-        ### .NET
+      アクセシビリティに対応した Web サイトを設計、構築し、Microsoft Edge でテストします。
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column:::
+      [Web アクセシビリティについて](https://docs.microsoft.com/microsoft-edge/accessibility) (英語)
 
-        Develop accessible apps and tools for managed Windows applications with the .NET Framework.
-    :::column-end:::
-    :::column:::
+      [アクセシビリティ対応 Web サイトの設計](https://docs.microsoft.com/microsoft-edge/accessibility/design)
+   :::column-end:::
+   :::column:::
+      [アクセシビリティ対応 Web サイトの構築](https://docs.microsoft.com/microsoft-edge/accessibility/build)
 
-    :::column-end:::
- -->    
+      [アクセシビリティ対応 Web サイトのテスト](https://docs.microsoft.com/microsoft-edge/accessibility/test) (英語)
+   :::column-end:::
+:::row-end:::
+
+## <a name="samples"></a>サンプル
+
+アクセシビリティのためのさまざまな特徴や機能の例を示す、完全な Windows サンプルをダウンロードして実行します。
+
+:::row:::
+   :::column:::
+      [コード サンプル ブラウザー](https://docs.microsoft.com/samples/browse/)
+
+      MSDN コード ギャラリーに代わる新しいサンプル ブラウザーです。
+   :::column-end:::
+   :::column:::
+      [MSDN コード ギャラリー (提供終了)](https://code.msdn.microsoft.com/site/search?query=accessibility&f%5B0%5D.Value=accessibility&f%5B0%5D.Type=SearchText&ac=2)
+
+      Windows、Windows Phone、Microsoft Azure、Office、SharePoint、Silverlight、その他の製品に関するサンプルをダウンロードします。
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column:::
+      [GitHub 上の Windows クラシック サンプル](https://github.com/microsoft/Windows-classic-samples/search?q=accessibility&unscoped_q=accessibility) (英語)
+
+      これらのサンプルは、Windows および Windows Server の機能とプログラミング モデルの例を示しています。 
+   :::column-end:::
+   :::column:::
+      [GitHub 上のユニバーサル Windows プラットフォーム (UWP) サンプル](https://github.com/microsoft/Windows-universal-samples/search?q=accessibility&unscoped_q=accessibility) (英語)
+
+      これらのサンプルでは、Windows 10 用の Windows ソフトウェア開発キット (SDK) における、ユニバーサル Windows プラットフォーム (UWP) のための API 使用パターンの例を示しています。
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="2":::
+      [XAML コントロール ギャラリー](https://github.com/microsoft/Xaml-Controls-Gallery)
+
+      このアプリは、Fluent Design System でサポートされているさまざまな Xaml コントロールの例を示しています。
+   :::column-end:::
+:::row-end:::
+
+## <a name="videos"></a>ビデオ
+
+アクセシビリティ対応 Windows アプリケーションの構築方法、アクセシビリティに関する一般的な課題、それらの課題に対する Microsoft の取り組みなどをビデオで紹介しています。
+
+:::row:::
+   :::column:::
+      **Windows アプリのアクセシビリティ導入入門** (英語)
+   :::column-end:::
+   :::column:::
+      **One Dev Minute: アクセシビリティのためのアプリ開発** (英語)
+   :::column-end:::
+   :::column:::
+      **障碍とアクセシビリティの概要** (英語)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column:::
+      > [!VIDEO https://channel9.msdn.com/Events/Build/2017/P4072/player]
+   :::column-end:::
+   :::column:::
+      > [!VIDEO https://channel9.msdn.com/Blogs/One-Dev-Minute/Developing-Apps-for-Accessibility/player]
+   :::column-end:::
+   :::column:::
+      > [!VIDEO https://www.youtube.com/embed/Kl4CT4DaypM]
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column:::
+      **ハッキングから製品へ: Windows 10 の視線制御** (英語)
+   :::column-end:::
+   :::column:::
+      **Windows 10 のアクセシビリティ** (英語)
+   :::column-end:::
+   :::column:::
+      **アクセシビリティ対応 UWP アプリ構築入門** (英語)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column:::
+      > [!VIDEO https://www.youtube.com/embed/AShNPfmAkvY]
+   :::column-end:::
+   :::column:::
+      > [!VIDEO https://channel9.msdn.com/Events/Build/2016/P541/player]
+   :::column-end:::
+   :::column:::
+      > [!VIDEO https://channel9.msdn.com/Events/Build/2016/P497/player]
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column:::
+      **Windows のアクセシビリティ機能の設計** (英語)
+   :::column-end:::
+   :::column:::
+      **Windows 10 のアクセシビリティ機能: すべての人のために** (英語)
+   :::column-end:::
+   :::column:::
+      **マウス ポインターを見やすくする** (英語)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column:::
+      > [!VIDEO https://www.youtube.com/embed/Y_NJbE7wxlk]
+   :::column-end:::
+   :::column:::
+      > [!VIDEO https://www.youtube.com/embed/BseTf-4q9GA]
+   :::column-end:::
+   :::column:::
+      > [!VIDEO https://www.youtube.com/embed/4UzaF7_T3bw]
+   :::column-end:::
+:::row-end:::
+
+## <a name="other-resources"></a>その他のリソース
+
+:::row:::
+   :::column span="3":::
+      **ブログとニュース**
+
+      Microsoft アクセシビリティの世界からの最新情報。
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column:::
+      [関連ニュース](https://news.microsoft.com/presskits/accessibility/)
+   :::column-end:::
+   :::column:::
+      [アクセシビリティのブログ](https://blogs.microsoft.com/accessibility/) (英語)
+   :::column-end:::
+   :::column:::
+      [Windows UI オートメーションのブログ](https://blogs.msdn.microsoft.com/winuiautomation/) (英語)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="3":::
+      **コミュニティとサポート**
+
+      Windows の開発者とユーザーが意見を交わし、共に学ぶための場所です。
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column:::
+      [Windows コミュニティ - アクセシビリティ](https://community.windows.com/search?q=accessibility) (英語)
+   :::column-end:::
+   :::column:::
+      [Windows のアクセシビリティとオートメーション: 開発フォーラム](https://social.msdn.microsoft.com/Forums/windows/home?forum=windowsaccessibilityandautomation) (英語)
+   :::column-end:::
+   :::column:::
+      [障碍のある方のためのアンサー デスク](https://www.microsoft.com/Accessibility/disability-answer-desk) (英語)
+   :::column-end:::
 :::row-end:::

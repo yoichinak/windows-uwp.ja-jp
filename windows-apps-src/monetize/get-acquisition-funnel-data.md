@@ -5,16 +5,16 @@ ms.date: 08/04/2017
 ms.topic: article
 keywords: Windows 10, UWP, Store サービス, Microsoft Store 分析 API, 入手, ファネル
 ms.localizationpriority: medium
-ms.openlocfilehash: d9ccbb081ef6f39ad795105ee2449de4d8442ab3
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 817ad85bae642d6b09cf77bb5e7b4bf71b08f594
+ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57646197"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86493557"
 ---
 # <a name="get-app-acquisition-funnel-data"></a>アプリの入手に関するファネル データの取得
 
-日付範囲やその他のオプション フィルターを指定して、アプリケーションの入手に関するファネル データを取得するには、Microsoft Store 分析 API の以下のメソッドを使います。 この情報も記載されて、[買収レポート](../publish/acquisitions-report.md#acquisition-funnel)パートナー センターでします。
+日付範囲やその他のオプション フィルターを指定して、アプリケーションの入手に関するファネル データを取得するには、Microsoft Store 分析 API の以下のメソッドを使います。 この情報は、パートナーセンターの[購入レポート](../publish/acquisitions-report.md#acquisition-funnel)でも確認できます。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -24,12 +24,12 @@ ms.locfileid: "57646197"
 * Microsoft Store 分析 API に関するすべての[前提条件](access-analytics-data-using-windows-store-services.md#prerequisites)を満たします (前提条件がまだ満たされていない場合)。
 * このメソッドの要求ヘッダーで使う [Azure AD アクセス トークンを取得](access-analytics-data-using-windows-store-services.md#obtain-an-azure-ad-access-token)します。 アクセス トークンを取得した後、アクセス トークンを使用できるのは、その有効期限が切れるまでの 60 分間です。 トークンの有効期限が切れたら新しいトークンを取得できます。
 
-## <a name="request"></a>要求
+## <a name="request"></a>Request
 
 
 ### <a name="request-syntax"></a>要求の構文
 
-| メソッド | 要求 URI       |
+| 認証方法 | 要求 URI       |
 |--------|----------------------|
 | GET    | ```https://manage.devcenter.microsoft.com/v1.0/my/analytics/funnel``` |
 
@@ -38,17 +38,17 @@ ms.locfileid: "57646197"
 
 | Header        | 種類   | 説明                                                                 |
 |---------------|--------|-----------------------------------------------------------------------------|
-| Authorization | string | 必須。 **Bearer** &lt;*トークン*&gt; という形式の Azure AD アクセス トークン。 |
+| 承認 | string | 必須。 **Bearer** &lt;*トークン*&gt; という形式の Azure AD アクセス トークン。 |
 
 
 ### <a name="request-parameters"></a>要求パラメーター
 
 | パラメーター        | 種類   |  説明      |  必須  
 |---------------|--------|---------------|------|
-| applicationId | string | 入手に関するファネル データを取得するアプリの [ストア ID](in-app-purchases-and-trials.md#store-ids) です。 ストア ID は、たとえば 9WZDNCRFJ3Q8 のような文字列です。 |  〇  |
+| applicationId | string | 入手に関するファネル データを取得するアプリの [ストア ID](in-app-purchases-and-trials.md#store-ids) です。 ストア ID は、たとえば 9WZDNCRFJ3Q8 のような文字列です。 |  はい  |
 | startDate | date | 取得する入手に関するファネル データの日付範囲開始日です。 既定値は現在の日付です。 |  いいえ  |
-| endDate | date | 取得する入手に関するファネル データの日付範囲終了日です。 既定値は現在の日付です。 |  いいえ  |
-| filter | string  | 応答内の行をフィルター処理する 1 つまたは複数のステートメントです。 詳しくは、次の「[フィルター フィールド](#filter-fields)」セクションをご覧ください。 | X   |
+| endDate | 日付 | 取得する入手に関するファネル データの日付範囲終了日です。 既定値は現在の日付です。 |  いいえ  |
+| filter | string  | 応答内の行をフィルター処理する 1 つまたは複数のステートメントです。 詳しくは、次の「[フィルター フィールド](#filter-fields)」セクションをご覧ください。 | いいえ   |
 
  
 ### <a name="filter-fields"></a>フィルター フィールド
@@ -61,8 +61,8 @@ ms.locfileid: "57646197"
 |---------------|-----------------|
 | campaignId | 入手に関連付けられている[カスタム アプリ プロモーション キャンペーン](../publish/create-a-custom-app-promotion-campaign.md)の ID 文字列です。 |
 | market | 入手が発生した市場の ISO 3166 国コードを含む文字列です。 |
-| deviceType | 入手が発生したデバイスの種類を指定する、以下のいずれかの文字列です。<ul><li><strong>PC</strong></li><li><strong>Phone</strong></li><li><strong>Console</strong></li><li><strong>IoT</strong></li><li><strong>Holographic</strong></li><li><strong>Unknown</strong></li></ul> |
-| ageGroup | 入手を完了したユーザーの年齢グループを指定する、以下のいずれかの文字列です。<ul><li><strong>0 ~ 17</strong></li><li><strong>18 ~ 24</strong></li><li><strong>25: 34</strong></li><li><strong>35: 49</strong></li><li><strong>50 またはこれより</strong></li><li><strong>Unknown</strong></li></ul> |
+| deviceType | 入手が発生したデバイスの種類を指定する、以下のいずれかの文字列です。<ul><li><strong>PC</strong></li><li><strong>ダイヤル</strong></li><li><strong>コンソール-Xbox One</strong></li><li><strong>コンソール-Xbox シリーズ X</strong></li><li><strong>IoT</strong></li><li><strong>Holographic</strong></li><li><strong>Unknown</strong></li></ul> |
+| ageGroup | 入手を完了したユーザーの年齢グループを指定する、以下のいずれかの文字列です。<ul><li><strong>0 – 17</strong></li><li><strong>18 – 24</strong></li><li><strong>25 – 34</strong></li><li><strong>35 – 49</strong></li><li><strong>50 or over</strong></li><li><strong>Unknown</strong></li></ul> |
 | gender | 入手を完了したユーザーの性別を指定する、以下のいずれかの文字列です。<ul><li><strong>M</strong></li><li><strong>F</strong></li><li><strong>Unknown</strong></li></ul> |
 
 
@@ -78,24 +78,24 @@ GET https://manage.devcenter.microsoft.com/v1.0/my/analytics/funnel?applicationI
 Authorization: Bearer <your access token>
 ```
 
-## <a name="response"></a>応答
+## <a name="response"></a>[応答]
 
 
 ### <a name="response-body"></a>応答本文
 
-| Value      | 種類   | 説明                  |
+| 値      | 型   | 説明                  |
 |------------|--------|-------------------------------------------------------|
-| Value      | array  | アプリに関する入手のファネル データが含まれるオブジェクトの配列です。 各オブジェクトのデータについて詳しくは、次の「[ファネル値](#funnel-values)」セクションをご覧ください。                  |
-| TotalCount | int    | *Value* 配列のオブジェクトの合計数です。        |
+| 値      | array  | アプリに関する入手のファネル データが含まれるオブジェクトの配列です。 各オブジェクトのデータについて詳しくは、次の「[ファネル値](#funnel-values)」セクションをご覧ください。                  |
+| TotalCount | INT    | *Value* 配列のオブジェクトの合計数です。        |
 
 
 ### <a name="funnel-values"></a>ファネル値
 
 *Value* 配列のオブジェクトには、次の値が含まれます。
 
-| Value               | 種類   | 説明                           |
+| 値               | 種類   | 説明                           |
 |---------------------|--------|-------------------------------------------|
-| MetricType                | string | このオブジェクトに含まれる[ファネル データの種類](../publish/acquisitions-report.md#acquisition-funnel)を指定する以下のいずれかの文字列です。<ul><li><strong>ページビュー</strong></li><li><strong>取得</strong></li><li><strong>インストール</strong></li><li><strong>使用状況</strong></li></ul> |
+| MetricType                | string | このオブジェクトに含まれる[ファネル データの種類](../publish/acquisitions-report.md#acquisition-funnel)を指定する以下のいずれかの文字列です。<ul><li><strong>ページビュー</strong></li><li><strong>取得</strong></li><li><strong>インストール</strong></li><li><strong>使用方法</strong></li></ul> |
 | UserCount       | string | *MetricType* 値によって指定されたファネル手順を実行したユーザーの数です。             |
 
 
@@ -130,5 +130,5 @@ Authorization: Bearer <your access token>
 ## <a name="related-topics"></a>関連トピック
 
 * [取得レポート](../publish/acquisitions-report.md)
-* [Microsoft Store サービスを使用して分析データにアクセス](access-analytics-data-using-windows-store-services.md)
-* [アプリの取得数を取得します。](get-app-acquisitions.md)
+* [Microsoft Store サービスを使った分析データへのアクセス](access-analytics-data-using-windows-store-services.md)
+* [アプリの入手数の取得](get-app-acquisitions.md)

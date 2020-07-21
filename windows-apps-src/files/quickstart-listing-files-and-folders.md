@@ -11,12 +11,12 @@ dev_langs:
 - cppwinrt
 - cpp
 - vb
-ms.openlocfilehash: b561e08227664f723802ffc0ee3f0e16bc34a5cc
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 33b03ae1538001a2a9e77d3d72afd7bb67e9f3dc
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63810727"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "74258581"
 ---
 # <a name="enumerate-and-query-files-and-folders"></a>ファイルとフォルダーの列挙と照会
 
@@ -25,13 +25,13 @@ ms.locfileid: "63810727"
 ユニバーサル Windows プラットフォーム アプリのデータを保存する方法について詳しくは、[ApplicationData](/uwp/api/windows.storage.applicationdata) クラスをご覧ください。
 
 > [!NOTE]
-> 完全なサンプルについては、「[Folder enumeration sample](https://go.microsoft.com/fwlink/p/?linkid=619993)」 (フォルダーの列挙のサンプル) をご覧ください。
+> 完全なサンプルについては、「[Folder enumeration sample](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/FolderEnumeration)」 (フォルダーの列挙のサンプル) をご覧ください。
 
-## <a name="prerequisites"></a>前提条件
+## <a name="prerequisites"></a>必要条件
 
 -   **ユニバーサル Windows プラットフォーム (UWP) アプリの非同期プログラミングについての理解**
 
-    C# や Visual Basic での非同期アプリの作成方法については、「[C# または Visual Basic での非同期 API の呼び出し](/windows/uwp/threading-async/call-asynchronous-apis-in-csharp-or-visual-basic)」をご覧ください。 C++/WinRT での非同期アプリの作成方法については、「[C++/WinRT を使用した同時実行操作と非同期操作](/windows/uwp/cpp-and-winrt-apis/concurrency)」をご覧ください。 C++/CX での非同期アプリの記述方法については、「[C++/CX での非同期プログラミング](/windows/uwp/threading-async/asynchronous-programming-in-cpp-universal-windows-platform-apps)」をご覧ください。
+    C# や Visual Basic での非同期アプリの作成方法については、「[C# または Visual Basic での非同期 API の呼び出し](/windows/uwp/threading-async/call-asynchronous-apis-in-csharp-or-visual-basic)」をご覧ください。 C++/WinRT での非同期アプリの作成方法については、「[C++/WinRT を使用した同時開催操作と非同期操作](/windows/uwp/cpp-and-winrt-apis/concurrency)」をご覧ください。 C++/CX での非同期アプリの記述方法については、「[C++/CX での非同期プログラミング](/windows/uwp/threading-async/asynchronous-programming-in-cpp-universal-windows-platform-apps)」をご覧ください。
 
 -   **場所へのアクセス許可**
 

@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: db2e444b9f13ba41127b362483774c92d45f1f77
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: c4b1a0dab6bf1eb3301ba9fb97abd95fd896c53e
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66372753"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "74259163"
 ---
 # <a name="which-networking-technology"></a>アプリに適したネットワーク テクノロジ
 
@@ -22,7 +22,7 @@ UWP 開発者が利用できるネットワーク テクノロジの概要と、
 
 別のデバイスとの通信を独自のプロトコルで実行する場合は、[ソケット](sockets.md)を使います。
 
-ユニバーサル Windows プラットフォーム (UWP) 開発者は、次の 2 つのソケットの実装を利用できます: [**Windows.Networking.Sockets**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets)、および [Winsock](https://docs.microsoft.com/windows/desktop/WinSock/windows-sockets-start-page-2)。 新しいコードを記述するなら、Windows.Networking.Sockets には、UWP 開発者向けに設計された最新の API であるという利点があります。 クロスプラット フォームのネットワーク ライブラリや既存の Winsock コードを使う場合、または Winsock API の方が適している場合は、Winsock を使います。
+ユニバーサル Windows プラットフォーム (UWP) 開発者は、[**Windows.Networking.Sockets**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets) と [Winsock](https://docs.microsoft.com/windows/desktop/WinSock/windows-sockets-start-page-2) という 2 つのソケットの実装を利用できます。 新しいコードを記述するなら、Windows.Networking.Sockets には、UWP 開発者向けに設計された最新の API であるという利点があります。 クロスプラット フォームのネットワーク ライブラリや既存の Winsock コードを使う場合、または Winsock API の方が適している場合は、Winsock を使います。
 
 ### <a name="when-to-use-sockets"></a>ソケットを使う状況
 
@@ -91,7 +91,7 @@ Windows 10 の新しい機能であるバックグラウンド転送は、フ�
 
 ### <a name="dns-service-discovery"></a>DNS サービス検出
 
-[  **Windows.Networking.ServiceDiscovery.Dnssd**](https://docs.microsoft.com/uwp/api/Windows.Networking.ServiceDiscovery.Dnssd) API により、IETF [RFC 2782](https://go.microsoft.com/fwlink/?LinkId=524158) に記述された DNS-SD プロトコルを使うネットワーク上の他のデバイスにネットワーク サービスをアドバタイズできます。
+[  **Windows.Networking.ServiceDiscovery.Dnssd**](https://docs.microsoft.com/uwp/api/Windows.Networking.ServiceDiscovery.Dnssd) API により、IETF [RFC 2782](https://www.rfc-archive.org/getrfc.php?rfc=2782) に記述された DNS-SD プロトコルを使うネットワーク上の他のデバイスにネットワーク サービスをアドバタイズできます。
 
 ### <a name="communicating-over-bluetooth"></a>Bluetooth 通信
 

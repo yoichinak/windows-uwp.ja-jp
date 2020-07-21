@@ -2,22 +2,25 @@
 ms.assetid: 08b4ae43-69e8-4424-b3c0-a07c93d275c3
 description: アプリで AdControl エラーをキャッチする方法について説明します。
 title: JavaScript ウォークスルーでのエラー処理
-ms.date: 05/11/2018
+ms.date: 02/18/2020
 ms.topic: article
 keywords: Windows 10, UWP, 広告, 宣伝, エラー処理, JavaScript
 ms.localizationpriority: medium
-ms.openlocfilehash: df33dc84823d5bcdc02d892820967b74ff0e5f65
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 918c2d289317b63216f11aecc3ec3c758921c19f
+ms.sourcegitcommit: 71f9013c41fc1038a9d6c770cea4c5e481c23fbc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57645907"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77507136"
 ---
 # <a name="error-handling-in-javascript-walkthrough"></a>JavaScript ウォークスルーでのエラー処理
 
+>[!WARNING]
+> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細情報](https://social.msdn.microsoft.com/Forums/windowsapps/en-US/db8d44cb-1381-47f7-94d3-c6ded3fea36f/microsoft-ad-monetization-platform-shutting-down-june-1st?forum=aiamgr)
+
 このチュートリアルでは、JavaScript アプリで広告関連のエラーをキャッチする方法について説明します。 このチュートリアルでは、[AdControl](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.adcontrol) を使用してバナー広告を表示していますが、その中の一般的な概念はスポット広告やネイティブ広告にも適用されます。
 
-これらの例は、**AdControl** を含む JavaScript アプリがあることを前提としています。 アプリに **AdControl** を追加する方法を示す具体的な手順については、「[HTML 5 および Javascript の AdControl](adcontrol-in-html-5-and-javascript.md)」をご覧ください。 JavaScript/HTML アプリにバナー広告を追加する方法を示す完全なサンプル プロジェクトについては、「[GitHub の広告サンプル](https://aka.ms/githubads)」をご覧ください。
+これらの例は、**AdControl** を含む JavaScript アプリがあることを前提としています。 アプリに **AdControl** を追加する方法を示す具体的な手順については、「[HTML 5 および Javascript の AdControl](adcontrol-in-html-5-and-javascript.md)」をご覧ください。 JavaScript/HTML アプリにバナー広告を追加する方法を示す完全なサンプル プロジェクトについては、「[GitHub の広告サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Advertising)」をご覧ください。
 
 1.  default.html ファイルで、**AdControl** の **div** の **data-win-options** を定義する **onErrorOccurred** イベントの値を追加します。 default.html ファイルで次のコードを探します。
     ``` HTML
@@ -66,4 +69,4 @@ ms.locfileid: "57645907"
 
 ## <a name="related-topics"></a>関連トピック
 
-* [GitHub の広告サンプル](https://aka.ms/githubads)
+* [GitHub の広告サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Advertising)

@@ -12,12 +12,12 @@ design-contact: kimsea
 dev-contact: niallm
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 1d520f811c9929721bfcb9d1c83fbff6a4891091
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: b97041e305cfaac2a5fe202212741a282dccdb54
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63801141"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82968877"
 ---
 # <a name="contextual-commanding-for-collections-and-lists"></a>コレクションとリストのコンテキスト コマンドの実行
 
@@ -31,7 +31,7 @@ ms.locfileid: "63801141"
 
 ## <a name="creating-commands-for-all-input-types"></a>あらゆる種類の入力に対応するコマンドを作成する
 
-ユーザーは[さまざまなデバイスや入力方法](../devices/index.md)を使って UWP アプリを操作できるため、アプリでは入力方法に依存しないコンテキスト メニューと、各種入力方法専用のアクセラレータの両方でコマンドを公開する必要があります。 両方を含めることで、入力方法やデバイスの種類に関わらず、コンテンツに対してコマンドをすばやく呼び出すことができます。
+ユーザーは[さまざまなデバイスや入力方法](../devices/index.md)を使って Windows アプリを操作できるため、アプリでは入力方法に依存しないコンテキスト メニューと、各種入力方法専用のアクセラレータの両方でコマンドを公開する必要があります。 両方を含めることで、入力方法やデバイスの種類に関わらず、コンテンツに対してコマンドをすばやく呼び出すことができます。
 
 次の表に、いくつかの典型的なコレクションのコマンドと、これらのコマンドを公開する方法を示します。 
 
@@ -39,7 +39,7 @@ ms.locfileid: "63801141"
 | ---------------- | -------------- | ----------------- | -------------------- | ----------------- |
 | 項目の削除      | ショートカット メニュー   | ホバー ボタン      | DEL キー              | スワイプして削除   |
 | フラグの設定        | ショートカット メニュー   | ホバー ボタン      | Ctrl + Shift + G         | スワイプしてフラグを設定     |
-| データの更新     | ショートカット メニュー   | 該当なし               | F5 キー               | 引っ張って更新   |
+| データの更新     | ショートカット メニュー   | なし               | F5 キー               | 引っ張って更新   |
 | お気に入りに追加 | ショートカット メニュー   | ホバー ボタン      | F、Ctrl + S            | スワイプしてお気に入りに追加 |
 
 
@@ -55,7 +55,7 @@ ms.locfileid: "63801141"
 > [!NOTE]
 > ユーザーは、どの種類のデバイスからでも、すべてのコマンドにアクセスできる必要があります。 たとえば、アプリのコマンドがホバー ボタン ポインター アクセラレータでしか公開されない場合、タッチ ユーザーはコマンドにアクセスできません。 少なくとも、すべてのコマンドにアクセスできるコンテキスト メニューを使います。  
 
-## <a name="example-the-podcastobject-data-model"></a>以下に例を示します。PodcastObject データ モデル
+## <a name="example-the-podcastobject-data-model"></a>例:PodcastObject データ モデル
 
 推奨されるコマンド実行のデモとして、この記事では、ポッドキャスト アプリ用のポッドキャスト リストを作成します。 コード例では、ユーザーがリストから特定のポッドキャストを "お気に入り" に追加できるようにする方法を示しています。
 
@@ -236,9 +236,9 @@ public sealed partial class PodcastUserControl : UserControl
 
 | 入力    | コンテキスト アクション                          |
 | -------- | --------------------------------------- |
-| マウス    | 右クリック                             |
+| マウス    | 右クリックします。                             |
 | キーボード | Shift + F10、メニュー ボタン                  |
-| タッチ    | 項目を長押し                      |
+| Touch    | 項目を長押し                      |
 | ペン      | バレル ボタンを押す、項目を長押し |
 | ゲームパッド  | メニュー ボタン                             |
 
@@ -370,7 +370,7 @@ protected override void OnPointerExited(PointerRoutedEventArgs e)
 
 ### <a name="touch-accelerators"></a>タッチ アクセラレータ
 
-#### <a name="swipe"></a>スワイプ
+#### <a name="swipe"></a>Swipe
 
 ![項目をスワイプしてコマンドを表示](images/ContextualCommand_Swipe.png)
 
@@ -445,7 +445,7 @@ private void SwipeItem_Invoked(SwipeItem sender, SwipeItemInvokedEventArgs args)
 
 ## <a name="dos-and-donts"></a>推奨と非推奨
 
-* どの種類の UWP デバイスでも、ユーザーがすべてのコマンドにアクセスできるようにします。
+* どの種類の Windows デバイスでも、ユーザーがすべてのコマンドにアクセスできるようにします。
 * コレクション項目に対するコマンド全部にアクセスできるコンテキスト メニューを含めます。 
 * 頻繁に使われるコマンドについては、入力アクセラレータを提供します。 
 * コマンドの実装には [ICommand インターフェイス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.ICommand) を使う。 

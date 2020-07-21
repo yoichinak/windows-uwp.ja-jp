@@ -5,12 +5,12 @@ ms.date: 04/18/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 取得, 取得, 開始
 ms.localizationpriority: medium
-ms.openlocfilehash: 64104124a6342da3f6963c61bafc871838fd00f6
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: c058a727e09f00e01664c314d8c198f3f25e841e
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66721681"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "74255130"
 ---
 # <a name="get-started-with-cwinrt"></a>C++/WinRT の使用を開始する
 
@@ -22,7 +22,7 @@ ms.locfileid: "66721681"
 ## <a name="a-cwinrt-quick-start"></a>C++/WinRT のクイックスタート
 
 > [!NOTE]
-> C++/WinRT Visual Studio Extension (VSIX) と NuGet パッケージ (両者が連携してプロジェクト テンプレートとビルドをサポート) のインストールと使用については、[Visual Studio での C++/WinRT のサポート](intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)に関する記事を参照してください。
+> &mdash;C++/WinRT Visual Studio Extension (VSIX) と NuGet パッケージ (両者が連携してプロジェクト テンプレートとビルドをサポート) のインストールと使用など、&mdash;C++/WinRT 開発用に Visual Studio を設定する方法については、[Visual Studio での C++/WinRT のサポート](intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)に関する記事を参照してください。
 
 新しい **Windows コンソール アプリケーション (C++/WinRT)** プロジェクトを作成します。
 
@@ -113,7 +113,7 @@ std::wcout << titleAsHstring.c_str() << std::endl;
 
 フィードのタイトル テキストを、[**winrt::hstring**](/uwp/cpp-ref-for-winrt/hstring) オブジェクトとして取得します (詳細については「[C++/WinRT での文字列処理](strings.md)」を参照してください)。 次に **c_str** 関数で **hstring** が出力され、C++ 標準ライブラリの文字列で使用されるパターンが反映されます。
 
-おわかりのように、C++/WinRT では、`syndicationItem.Title().Text()` などの、最新のクラスのような C++ の式を奨励しています。 これは、従来の COM プログラミングとは異なる、よりクリーンなプログラミング スタイルです。 直接 COM を初期化し、COM ポインターを操作する必要はありません。
+おわかりのように、C++/WinRT では、`syndicationItem.Title().Text()` などの、最新のクラスのような C++ の式を奨励しています。 これは、従来の COM プログラミングとは異なる、よりクリーンなプログラミング スタイルです。 直接 COM を初期化する必要も、COM ポインターを操作する必要もありません。
 
 HRESULT リターン コードを処理する必要もありません。 C++/WinRT では、エラーの HRESULT を [**winrt::hresult-error**](/uwp/cpp-ref-for-winrt/error-handling/hresult-error) のような自然かつ最新のプログラミング スタイルの例外に変換します。 エラー処理の詳細とコード例の詳細については、「[C++/WinRT でのエラー処理](error-handling.md)」を参照してください。
 
@@ -121,7 +121,7 @@ HRESULT リターン コードを処理する必要もありません。 C++/Win
 
 このセクションでは、Windows デスクトップ アプリケーション プロジェクトに C++/WinRT のサポートを追加する方法を説明します。 既存の Windows デスクトップ アプリケーション プロジェクトがない場合は、まずそれを作成すると、これらの手順を実行できます。 たとえば、Visual Studio を開き、 **[Visual C++]** \> **[Windows デスクトップ]** \> **[Windows デスクトップ アプリケーション]** プロジェクトを作成します。
 
-必要に応じて [C++/WinRT Visual Studio 拡張機能 (VSIX)](https://aka.ms/cppwinrt/vsix) と NuGet パッケージをインストールできます。 詳細については、[C++/WinRT の Visual Studio のサポート](intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)に関する記事を参照してください。
+必要に応じて [C++/WinRT Visual Studio 拡張機能 (VSIX)](https://marketplace.visualstudio.com/items?itemName=CppWinRTTeam.cppwinrt101804264) と NuGet パッケージをインストールできます。 詳細については、[C++/WinRT の Visual Studio のサポート](intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)に関する記事を参照してください。
 
 ### <a name="set-project-properties"></a>プロジェクト プロパティを設定する
 
@@ -149,7 +149,7 @@ C++/WinRT には C++17 標準の機能が使用されるので、プロジェク
 
 C++/WinRT 言語のプロジェクションは、特定の Windows Runtime free (非メンバー) 関数と、[WindowsApp.lib](/uwp/win32-and-com/win32-apis) アンブレラ ライブラリへのリンクを必要とするエントリ ポイントに依存します。 このセクションでは、リンカーを満たす 3 つの方法について説明します。
 
-1 つ目の選択肢は、Visual Studio プロジェクトに C++/WinRT MSBuild のプロパティとターゲットをすべて追加することです。 そのためには、[Microsoft.Windows.CppWinRT NuGet パッケージ](https://www.nuget.org/packages/Microsoft.Windows.CppWinRT/)をプロジェクトにインストールします。 Visual Studio でプロジェクションを開き、 **[プロジェクト]** \> **[NuGet パッケージの管理]** \> **[参照]** の順にクリックし、検索ボックスに「**Microsoft.Windows.CppWinRT**」を入力するか貼り付けます。検索結果の項目を選択し、 **[インストール]** をクリックしてそのプロジェクトのパッケージをインストールします。
+1 つ目の選択肢は、Visual Studio プロジェクトに C++/WinRT MSBuild のプロパティとターゲットをすべて追加することです。 そのためには、[Microsoft.Windows.CppWinRT NuGet パッケージ](https://www.nuget.org/packages/Microsoft.Windows.CppWinRT/)をプロジェクトにインストールします。 Visual Studio でプロジェクトを開き、 **[プロジェクト]** \> **[NuGet パッケージの管理]** \> **[参照]** をクリックし、検索ボックスに「**Microsoft.Windows.CppWinRT**」を入力するか貼り付けます。検索結果の項目を選択し、 **[インストール]** をクリックして、そのプロジェクトのパッケージをインストールします。
 
 プロジェクト リンク設定を使用して明示的に `WindowsApp.lib` をリンクすることもできます。 また、このようにソース コード (たとえば `pch.h` など) で実行することもできます。
 
@@ -158,6 +158,26 @@ C++/WinRT 言語のプロジェクションは、特定の Windows Runtime free 
 ```
 
 これで、C++/WinRT コードをコンパイルしてリンクし、プロジェクトに追加できるようになりました (たとえば、前述の「[C++/C++/WinRT のクイックスタート](#a-cwinrt-quick-start)」セクションと同様のコード)。
+
+## <a name="the-three-main-scenarios-for-cwinrt"></a>C++/WinRT の 3 つの主なシナリオ
+
+C++/WinRT の使用に慣れていき、このドキュメントの残りの部分を完了していくに従って、以下のセクションで説明する 3 つの主なシナリオがあることに気付くでしょう。
+
+### <a name="consuming-windows-runtime-apis-and-types"></a>Windows ランタイム API と型の使用
+
+つまり、API の "*使用*" または "*呼び出し*" です。 たとえば、Bluetooth を使用して通信する、動画をストリーミングして表示する、Windows シェルと統合することなどを目的として、API を呼び出します。 C++/WinRT では、このカテゴリのシナリオが完全かつ徹底的にサポートされています。 詳細については、「[C++/WinRT での API の使用](/windows/uwp/cpp-and-winrt-apis/consume-apis)」を参照してください。
+
+### <a name="authoring-windows-runtime-apis-and-types"></a>Windows ランタイム API と型の作成
+
+つまり、API と型の "*作成*" です。 たとえば、前のセクションで説明した種類の API、グラフィックス API、ストレージとファイル システムの API、ネットワーク API などを生成します。 詳細については、「[C++/WinRT での API の作成](/windows/uwp/cpp-and-winrt-apis/author-apis)」を参照してください。
+
+C++/WinRT を使用した API の作成では、API を実装する前に IDL を使用してその形状を定義する必要があるため、使用よりも少し複雑になります。 「[XAML コントロール: C++/WinRT プロパティへのバインド](/windows/uwp/cpp-and-winrt-apis/binding-property)」に、それを実行するチュートリアルがあります。
+
+### <a name="xaml-applications"></a>XAML アプリケーション
+
+このシナリオは、XAML UI フレームワークでのアプリケーションとコントロールのビルドに関するものです。 XAML アプリケーションでの作業は、使用と作成の組み合わせです。 ただし、XAML は、現在 Windows の主要な UI フレームワークであり、Windows ランタイムに対するその影響はそれに比例しているため、独自のカテゴリのシナリオになる価値があります。
+
+XAML は、リフレクションを提供するプログラミング言語で最適に動作することに注意してください。 C++/WinRT では、XAML フレームワークと相互運用するために、多少の追加作業を実行しなければならない場合があります。 これらのすべてのケースをこのドキュメントで説明します。 開始するのに適しているのは、「[XAML コントロール: C++/WinRT プロパティへのバインド](/windows/uwp/cpp-and-winrt-apis/binding-property)」と「[C++/WinRT による XAML カスタム (テンプレート化) コントロール](/windows/uwp/cpp-and-winrt-apis/xaml-cust-ctrl)」です。
 
 ## <a name="important-apis"></a>重要な API
 * [SyndicationClient::RetrieveFeedAsync メソッド](/uwp/api/windows.web.syndication.syndicationclient.retrievefeedasync)

@@ -7,11 +7,11 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: 2eca388b37cc95803b7ecb94bc0b0b5b990f5de3
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: MT
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57654107"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "63798246"
 ---
 # <a name="beta-testing"></a>ベータ テスト
 
@@ -32,7 +32,7 @@ ms.locfileid: "57654107"
 -   さまざまなデバイスでアプリをテストできます。
 -   他の方法では見つからないパフォーマンスの問題やその他のバグを特定できます。
 -   ユーザー エクスペリエンスの向上につながる実際の使用状況の情報が得られます。
--   Microsoft Store でのパブリックの評価に影響を与えずにフィードバックを受信します。
+-   Microsoft Store で公開される評価に影響を与えずにフィードバックを受け取れます。
 
 ## <a name="when-to-beta-test"></a>ベータ テストを行う時期
 
@@ -40,7 +40,7 @@ ms.locfileid: "57654107"
 
 ## <a name="next-steps"></a>次のステップ
 
-[パートナー センター](https://partner.microsoft.com/dashboard)、ことを制限するアプリの配布のみ、テスト担当者に、どのオペレーティング システムに関係なく対象とするアプリです。 別の名前やパッケージ ID を使って別バージョンのアプリを作る必要はありません。自身でテストを行い、アプリを公開する準備が整ったら新しい提出を作成することもできます。 (もちろん、必要であれば、テスト用に別のアプリを作ることもできます。 作る場合、そのアプリには、最終的なパブリック アプリの名前とは違う名前を付ける必要があります。)
+[パートナー センター](https://partner.microsoft.com/dashboard)で、アプリがどのオペレーティング システムを対象とするかにかかわらず、アプリをテスターのみに限定して配布できます。 別の名前やパッケージ ID を使って別バージョンのアプリを作る必要はありません。自身でテストを行い、アプリを公開する準備が整ったら新しい提出を作成することもできます。 (もちろん、必要であれば、テスト用に別のアプリを作ることもできます。 作る場合、そのアプリには、最終的なパブリック アプリの名前とは違う名前を付ける必要があります。)
 
 ベータ テスト用にアプリをストアに提出する方法については、「[ベータ テストとターゲット配布](../publish/beta-testing-and-targeted-distribution.md)」を参照してください。
 

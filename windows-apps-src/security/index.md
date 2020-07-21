@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp, セキュリティ
 ms.localizationpriority: medium
-ms.openlocfilehash: b3537b0d0186a80a5332a28a61f3775227c911e2
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: cb5687c1a6744c34231c9b368da7c691c8e77642
+ms.sourcegitcommit: f727b68e86a86c94eff00f67ed79a1c12666e7bc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66371351"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "72282438"
 ---
 # <a name="security"></a>セキュリティ
 
@@ -19,7 +19,7 @@ ms.locfileid: "66371351"
 
 このセクションには、Windows 10 のユニバーサル Windows プラットフォーム (UWP) アプリをセキュリティで保護されたアプリとしてビルドする方法に関する記事が含まれています。
 
-## <a name="introduction"></a>概要 
+## <a name="introduction"></a>はじめに 
 
 Windows または UWP での開発が初めての場合は、最初に「[安全な Windows アプリの開発について](intro-to-secure-windows-app-development.md)」をご覧ください。 この初級レベルの記事では、アプリのセキュリティに関する考慮事項の概要と Windows 10 で使用できるさまざまな機能について説明しています。
 
@@ -37,7 +37,7 @@ Windows または UWP での開発が初めての場合は、最初に「[安全
 <tr><td><a href="microsoft-passport-login-auth-service.md">Microsoft Passport ログイン サービスの作成</a></td><td>Windows 10 UWP (ユニバーサル Windows プラットフォーム) アプリで従来のユーザー名とパスワードの認証システムの代わりに Microsoft Passport を使う方法に関する詳しいチュートリアルのパート 2 です。</td></tr>
 <tr><td><a href="smart-cards.md">スマート カード</a></td><td>このトピックでは、アプリでスマート カードを使ってユーザーをセキュリティで保護されたネットワーク サービスに接続する方法のほか、物理スマート カード リーダーにアクセスする方法、仮想スマート カードの作成方法、スマート カードとの通信方法、ユーザーの認証方法、ユーザーの PIN のリセット方法、スマート カードの取り外しや切断の方法などについて説明します。</td></tr>
 <tr><td><a href="share-certificates.md">アプリ間での証明書の共有</a></td><td>ユーザー ID とパスワードの組み合わせよりも安全な認証を必要とする UWP アプリでは、証明書を認証に使うことができます。 証明書認証は、ユーザーの認証時に高レベルの信頼性を提供します。 場合によっては、複数のアプリから複数のサービスのグループに対してユーザーを認証することがあります。 この記事では、1 つの証明書を使って複数のアプリを認証する方法と、セキュリティで保護された Web サービスにアクセスするための証明書をユーザーがインポートできる便利なコードを記述する方法について説明します。</td></tr>
-<tr><td><a href="companion-device-unlock.md">コンパニオン (IoT) デバイスを使った Windows のロック解除</a></td><td>コンパニオン デバイスは、ユーザー認証のエクスペリエンスを強化するために、Windows 10 のデスクトップと組み合わせて使用できるデバイスです。 コンパニオン デバイス フレームワークを使用すると、コンパニオン デバイスは、Windows Hello を利用できない場合 (たとえば、Windows 10 のデスクトップに顔認証のカメラまたは指紋リーダーのデバイスがない場合など) でも、Microsoft Passport のための優れたエクスペリエンスを提供できます。</td></tr>
+<tr><td><a href="companion-device-unlock.md">コンパニオン (IoT) デバイスを使った Windows のロック解除</a></td><td>コンパニオン デバイスは、ユーザー認証のエクスペリエンスを強化するために、Windows 10 のデスクトップと組み合わせて使用できるデバイスです。 コンパニオン デバイス フレームワークを使用すると、Windows Hello を利用できない場合 (たとえば、Windows 10 デスクトップに顔認証用のカメラや指紋リーダー デバイスがない場合) でも、コンパニオン デバイスによって Microsoft Passport のための優れたエクスペリエンスを提供できます。</td></tr>
 <tr><td><a href="web-account-manager.md">Web アカウント マネージャー</a></td><td>この記事では、Windows 10 Web アカウント マネージャー API を使って、AccountsSettingsPane を表示し、ユニバーサル Windows プラットフォーム (UWP) アプリを外部の ID プロバイダー (Microsoft や Facebook など) に接続する方法について説明します。 ユーザーの Microsoft アカウントを使用するためにユーザーの許可を求める方法、アクセス トークンを取得する方法、アクセス トークンを使って基本的な操作 (プロファイル データの取得や OneDrive へのファイルのアップロードなど) を実行する方法を学習してください。 </td></tr>
 <tr><td><a href="web-authentication-broker.md">Web 認証ブローカー</a></td><td>この記事では、OpenID や OAuth などの認証プロトコルを使うオンライン ID プロバイダー (Facebook、Twitter、Flickr、Instagram など) にアプリを接続する方法について説明します。 <a href="https://docs.microsoft.com/uwp/api/windows.security.authentication.web.webauthenticationbroker.authenticateasync">AuthenticateAsync</a> メソッドは、要求をオンライン ID プロバイダーに送信し、アプリがアクセスできるプロバイダー リソースを表すアクセス トークンを返します。</td></tr>
 </table>

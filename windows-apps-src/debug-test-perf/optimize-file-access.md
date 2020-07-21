@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: bc42fecf0a29784c8abe6e61a328d6e5024cc532
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
-ms.translationtype: MT
+ms.openlocfilehash: 3114bc7a86f7f7f4d22c69c814735c146352efbd
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66362268"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "75681953"
 ---
 # <a name="optimize-file-access"></a>ファイル アクセスの最適化
 
@@ -133,7 +133,7 @@ ms.locfileid: "66362268"
 
 ### <a name="buffering-between-uwp-and-net-streams"></a>UWP ストリームと .NET ストリーム間のバッファリング
 
-UWP ストリーム ([**Windows.Storage.Streams.IInputStream**](https://docs.microsoft.com/uwp/api/Windows.Storage.Streams.IInputStream)、[**IOutputStream**](https://docs.microsoft.com/uwp/api/Windows.Storage.Streams.IOutputStream) など) から .NET ストリーム ([**System.IO.Stream**](https://docs.microsoft.com/dotnet/api/system.io.stream?redirectedfrom=MSDN)) への変換が必要になるケースは少なくありません。 たとえば、UWP アプリを作成しているとき、ストリームを扱う従来の .NET コードを、UWP のファイル システムで利用する場合に活用できます。 これを有効にするためには、UWP アプリ用 .NET Api は、.NET と UWP のストリーム型の間で変換するための拡張メソッドを提供します。 詳しくは、「[**WindowsRuntimeStreamExtensions**](https://docs.microsoft.com/dotnet/api/system.io?redirectedfrom=MSDN)」をご覧ください。
+UWP ストリーム ([**Windows.Storage.Streams.IInputStream**](https://docs.microsoft.com/uwp/api/Windows.Storage.Streams.IInputStream)、[**IOutputStream**](https://docs.microsoft.com/uwp/api/Windows.Storage.Streams.IOutputStream) など) から .NET ストリーム ([**System.IO.Stream**](https://docs.microsoft.com/dotnet/api/system.io.stream)) への変換が必要になるケースは少なくありません。 たとえば、UWP アプリを作成しているとき、ストリームを扱う従来の .NET コードを、UWP のファイル システムで利用する場合に活用できます。 UWP アプリ用の .NET API には、これを可能にする .NET と UWP 間のストリーム型変換を行う拡張メソッドがあります。 詳しくは、「[**WindowsRuntimeStreamExtensions**](https://docs.microsoft.com/dotnet/api/system.io.windowsruntimestreamextensions)」をご覧ください。
 
 UWP のストリームを .NET のストリームに変換するとき、実質的には、基になる UWP ストリーム用のアダプターを作成することになります。 場合によっては、UWP ストリームのメソッド呼び出しに伴うコストが実行時に発生します。 このことがアプリの実行速度に影響を及ぼす可能性があり、特に、小規模な読み取り/書き込み操作を高頻度で何度も実行するケースにおいて顕著に表れます。
 
@@ -194,9 +194,9 @@ UWP のストリーム アダプターには、アプリの実行速度を高め
 
 ### <a name="working-with-large-data-sets"></a>大きなデータ セットの操作
 
-大きなデータ セットの読み取りまたは書き込みを行う場合、そのスループットを向上させるには、[**AsStreamForRead**](https://docs.microsoft.com/dotnet/api/system.io?redirectedfrom=MSDN)、[**AsStreamForWrite**](https://docs.microsoft.com/dotnet/api/system.io?redirectedfrom=MSDN)、[**AsStream**](https://docs.microsoft.com/dotnet/api/system.io?redirectedfrom=MSDN) の各拡張メソッドに指定するバッファー サイズを増やします。 これによって、ストリーム アダプターに割り当てられる内部バッファーのサイズが大きくなります。 たとえば、大きなファイルから取得したストリームを XML パーサーに渡すと、パーサーが、ストリームから小刻みにデータを読み取り、多数の読み取りが連続して発生することがあります。 バッファーを大きくすると、基になる UWP ストリームに対する呼び出しの回数を減らし、パフォーマンスを大きく高めることができます。
+大きなデータ セットの読み取りまたは書き込みを行う場合、そのスループットを向上させるには、[**AsStreamForRead**](https://docs.microsoft.com/dotnet/api/system.io.windowsruntimestreamextensions.asstreamforread?view=dotnet-uwp-10.0)、[**AsStreamForWrite**](https://docs.microsoft.com/dotnet/api/system.io.windowsruntimestreamextensions.asstreamforwrite?view=dotnet-uwp-10.0)、[**AsStream**](https://docs.microsoft.com/dotnet/api/system.io.windowsruntimestreamextensions.asstream?view=dotnet-uwp-10.0) の各拡張メソッドに指定するバッファー サイズを増やします。 これによって、ストリーム アダプターに割り当てられる内部バッファーのサイズが大きくなります。 たとえば、大きなファイルから取得したストリームを XML パーサーに渡すと、パーサーが、ストリームから小刻みにデータを読み取り、多数の読み取りが連続して発生することがあります。 バッファーを大きくすると、基になる UWP ストリームに対する呼び出しの回数を減らし、パフォーマンスを大きく高めることができます。
 
-> **注**  注意が必要、ガベージ コレクター ヒープの断片化が生じるとバッファー サイズの設定が約 80 KB より大きい場合 (を参照してください[ガベージ コレクションのパフォーマンスを向上させる](improve-garbage-collection-performance.md)). 次のコード例では、81,920 バイトのバッファーを持つマネージ ストリーム アダプターを作成しています。
+> **注**   約 80 KB を超えるバッファー サイズを設定するときは注意が必要です。ガベージ コレクターのヒープが断片化する可能性があるためです (「[ガベージ コレクションのパフォーマンスの向上](improve-garbage-collection-performance.md)」を参照)。 次のコード例では、81,920 バイトのバッファーを持つマネージ ストリーム アダプターを作成しています。
 
 > [!div class="tabbedCodeSnippets"]
 ```csharp
@@ -208,7 +208,7 @@ Stream managedStream = nativeStream.AsStreamForRead(bufferSize: 81920);
 Dim managedStream As Stream = nativeStream.AsStreamForRead(bufferSize:=81920)
 ```
 
-[  **Stream.CopyTo**](https://docs.microsoft.com/dotnet/api/system.io.stream.copyto?redirectedfrom=MSDN#overloads) メソッドと [**CopyToAsync**](https://docs.microsoft.com/dotnet/api/system.io.stream.copytoasync?redirectedfrom=MSDN#overloads) メソッドでも、ストリーム間のコピー用にローカル バッファーが割り当てられます。 [  **AsStreamForRead**](https://docs.microsoft.com/dotnet/api/system.io?redirectedfrom=MSDN) 拡張メソッドと同様、大きなストリームのコピーでは、既定のバッファー サイズをオーバーライドすることによってパフォーマンスを向上できる場合があります。 次のコード例では、**CopyToAsync** 呼び出しの既定のバッファー サイズを変更しています。
+[  **Stream.CopyTo**](https://docs.microsoft.com/dotnet/api/system.io.stream.copyto) メソッドと [**CopyToAsync**](https://docs.microsoft.com/dotnet/api/system.io.stream.copytoasync) メソッドでも、ストリーム間のコピー用にローカル バッファーが割り当てられます。 [  **AsStreamForRead**](https://docs.microsoft.com/dotnet/api/system.io.windowsruntimestreamextensions.asstreamforread?view=dotnet-uwp-10.0) 拡張メソッドと同様、大きなストリームのコピーでは、既定のバッファー サイズをオーバーライドすることによってパフォーマンスを向上できる場合があります。 次のコード例では、**CopyToAsync** 呼び出しの既定のバッファー サイズを変更しています。
 
 > [!div class="tabbedCodeSnippets"]
 > ```csharp
@@ -236,6 +236,6 @@ Dim managedStream As Stream = nativeStream.AsStreamForRead(bufferSize:=81920)
 
 バッファリングを回避した方がよいケースは他にもあります。読み取りと書き込みの待機時間を短くする必要があり、基になる UWP ストリームから大きなブロック単位で読み取ることが適していないケースが該当します。 たとえば、ネットワーク通信のストリームを使う場合、読み取りと書き込みの待機時間を短くする必要があります。
 
-チャット アプリでは、ネットワーク インターフェイス経由でストリームを使い、メッセージをやり取りすることが考えられます。 この場合、バッファーにメッセージが満たされるまで待機するのではなく、完成したメッセージをすぐに送信する必要があります。 [  **AsStreamForRead**](https://docs.microsoft.com/dotnet/api/system.io?redirectedfrom=MSDN)、[**AsStreamForWrite**](https://docs.microsoft.com/dotnet/api/system.io?redirectedfrom=MSDN)、[**AsStream**](https://docs.microsoft.com/dotnet/api/system.io?redirectedfrom=MSDN) の各拡張メソッドを呼び出す際にバッファー サイズを 0 に設定した場合、そのアダプターでは、バッファーが割り当てられず、すべての呼び出しについて、基になる UWP ストリームが直接操作されます。
+チャット アプリでは、ネットワーク インターフェイス経由でストリームを使い、メッセージをやり取りすることが考えられます。 この場合、バッファーにメッセージが満たされるまで待機するのではなく、完成したメッセージをすぐに送信する必要があります。 [  **AsStreamForRead**](https://docs.microsoft.com/dotnet/api/system.io.windowsruntimestreamextensions.asstreamforread?view=dotnet-uwp-10.0)、[**AsStreamForWrite**](https://docs.microsoft.com/dotnet/api/system.io.windowsruntimestreamextensions.asstreamforwrite?view=dotnet-uwp-10.0)、[**AsStream**](https://docs.microsoft.com/dotnet/api/system.io.windowsruntimestreamextensions.asstream?view=dotnet-uwp-10.0) の各拡張メソッドを呼び出す際にバッファー サイズを 0 に設定した場合、そのアダプターでは、バッファーが割り当てられず、すべての呼び出しについて、基になる UWP ストリームが直接操作されます。
 
 

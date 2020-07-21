@@ -11,11 +11,11 @@ template: detail.hbs
 ms.topic: article
 ms.localizationpriority: medium
 ms.openlocfilehash: 5a2f73fe6280d3a86510ce48f47017dd4897139a
-ms.sourcegitcommit: 3ec8c1d0ea3798cdb2745e7a941a025cf3cf21c8
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67650777"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "79208987"
 ---
 # <a name="xaml-styles"></a>XAML スタイル
 
@@ -165,7 +165,7 @@ XAML フレームワークを使って、さまざまな方法でアプリの外
 </Page.Resources>
 ```
 
-PointerOver (マウスがボタンの上に置かれている)、**PointerPressed** (ボタンが押された)、Disabled (ボタンが有効でない) などの状態に使用します。 元の軽量なスタイル設定名にこれらの末尾が追加されます: **ButtonBackgroundPointerOver**、**ButtonForegroundPointerPressed**、**ButtonBorderBrushDisabled**。これらのブラシも変更することで、コントロールの色をアプリのテーマと統一できます。
+PointerOver (マウスがボタンの上に置かれている)、**PointerPressed** (ボタンが押された)、Disabled (ボタンが有効でない) などの状態に使用します。 これらの末尾は元の軽量なスタイル設定の名前に追加され、**ButtonBackgroundPointerOver**、**ButtonForegroundPointerPressed**、**ButtonBorderBrushDisabled** などとなります。これらのブラシを変更すると、コントロールがアプリのテーマと一貫した色となります。
 
 これらのブラシを配置すると、**App.Resources** レベルでオーバーライドし、(単一ページではなく) アプリ全体のすべてのボタンを変更します。
 

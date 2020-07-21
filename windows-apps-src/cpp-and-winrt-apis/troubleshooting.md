@@ -5,12 +5,12 @@ ms.date: 04/23/2019
 ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、トラブルシューティング、HRESULT、エラー
 ms.localizationpriority: medium
-ms.openlocfilehash: add3875e15ad747422b2e53e5d8f8438b61b3b20
-ms.sourcegitcommit: d37a543cfd7b449116320ccfee46a95ece4c1887
+ms.openlocfilehash: 7c34ca6da522726f07e3f4ff5092b011bd15dd93
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68270100"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "69560156"
 ---
 # <a name="troubleshooting-cwinrt-issues"></a>C++/WinRT に関する問題のトラブルシューティング
 
@@ -41,7 +41,7 @@ XAML 解析例外は診断が難しい場合があります。特に、わかり
 | Windows アプリ認定キットのテストで、ランタイム クラスの 1 つについて、次のようなエラーが発生します。"*Windows 基底クラスから派生しません。すべての構成可能クラスは最終的に、Windows 名前空間内の型から派生する必要があります*"。|基底クラスから派生する任意のランタイム クラス (アプリケーション内で宣言) は*構成可能*クラスと呼ばれます。 構成可能クラスの最終的な基底クラスは、Windows.* 名前空間からの型でなければなりません (例: [**Windows.UI.Xaml.DependencyObject**](/uwp/api/windows.ui.xaml.dependencyobject))。 詳細情報については、「[XAML コントロール: C++/WinRT プロパティへのバインド](binding-property.md)」を参照してください。|
 | C++ コンパイラーが、EventHandler または TypedEventHandler のデリゲート特殊化に関して "*WinRT 型である必要があります*" というエラーを生成します。|代わりに **winrt::delegate&lt;...T&gt;** を使用することを考慮してください。 「[C++/WinRT でのイベントの作成](author-events.md)」を参照してください。|
 | C++ コンパイラーが、Windows ランタイムの非同期操作の特殊化に関して "*WinRT 型である必要があります*" というエラーを生成します。|代わりに並列パターン ライブラリ (PPL) の [**task**](https://docs.microsoft.com/cpp/parallel/concrt/reference/task-class) を返すことを考慮してください。 「[同時実行操作と非同期操作](concurrency.md)」を参照してください。|
-| C++ コンパイラーが、"*エラー C2220: 警告がエラーとして扱われました - 'オブジェクト' ファイルは生成されませんでした*" を生成します。|警告を解決するか、または **[C/C++]**  > **[全般]**  > **[警告をエラーとして扱う]** を **[いいえ (/WX-)]** に設定します。|
+| C++ コンパイラーが、"*エラー C2220: 警告がエラーとして扱われました - 'オブジェクト' ファイルは生成されませんでした*" を生成します。|警告を解決するか、または **[C/C++]**  >  **[全般]**  >  **[警告をエラーとして扱う]** を **[いいえ (/WX-)]** に設定します。|
 | オブジェクトが破棄された後で C++/WinRT オブジェクトのイベント ハンドラーが呼び出されるため、アプリがクラッシュします。|「[イベント処理デリゲートで *this* ポインターに安全にアクセスする](weak-references.md#safely-accessing-the-this-pointer-with-an-event-handling-delegate)」を参照してください。|
 | C++ コンパイラで次のエラーが発生します。"*error C2338: This is only for weak ref support*" (エラー C2338: これは弱参照サポート専用です)。|**テンプレート引数として winrt::no_weak_ref** マーカー構造体を基底クラスに渡した型の、弱参照を要求しています。 「[弱参照サポートの除外](weak-references.md#opting-out-of-weak-reference-support)」を参照してください。|
 | C++ リンカーで次のエラーが発生します。"*エラー LNK2019: 外部シンボルは未解決です*"|「[リンカーで "LNK2019: 外部シンボルは未解決です" というエラーが発生するのはなぜですか?](faq.md#why-is-the-linker-giving-me-a-lnk2019-unresolved-external-symbol-error)」を参照してください。|

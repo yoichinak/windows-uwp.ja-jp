@@ -13,22 +13,22 @@ design-contact: ksulliv
 dev-contact: niallm
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 5559e4204dd50ff989d48ff4508862489f9d3180
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 97507e0d9a954bc102bd4d2bcd825369df4cced7
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66361239"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970047"
 ---
 # <a name="command-bar"></a>コマンド バー
 
 コマンド バーを使うと、ユーザーはアプリの最も一般的なタスクに簡単にアクセスできます。 コマンド バーを使うと、アプリ レベルまたはページに固有のコマンドにアクセスできます。これは、ナビゲーション パターンと共に使用することもできます。
 
-> **重要な API**:[CommandBar クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.commandbar)、[AppBarButton クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.appbarbutton)、[AppBarToggleButton クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.appbartogglebutton)、[AppBarSeparator クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.appbarseparator)
+> **プラットフォーム API:** [CommandBar クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.commandbar)、[AppBarButton クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.appbarbutton)、[AppBarToggleButton クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.appbartogglebutton)、[AppBarSeparator クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.appbarseparator)
 
 ![アイコンを含むコマンド バーの例](images/controls_appbar_icons.png)
 
-## <a name="is-this-the-right-control"></a>適切なコントロールの選択
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 CommandBar コントロールは、汎用的で柔軟、軽量なコントロールです。画像やテキスト ブロックなどの複雑なコンテンツも、[AppBarButton](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.appbarbutton)、[AppBarToggleButton](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.appbartogglebutton)、[AppBarSeparator](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.appbarseparator) コントロールなどの単純なコマンドも表示できます。
 
@@ -40,7 +40,7 @@ CommandBar コントロールは、汎用的で柔軟、軽量なコントロー
 <table>
 <th align="left">XAML コントロール ギャラリー<th>
 <tr>
-<td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td><img src="images/xaml-controls-gallery-app-icon-sm.png" alt="XAML controls gallery"></img></td>
 <td>
     <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合、こちらをクリックして<a href="xamlcontrolsgallery:/item/CommandBar">アプリを開き、CommandBar の動作を確認</a>してください。</p>
     <ul>
@@ -51,9 +51,9 @@ CommandBar コントロールは、汎用的で柔軟、軽量なコントロー
 </tr>
 </table>
 
-Microsoft フォト アプリの展開されたコマンド バーです。
+展開されたコマンド バー。
 
-![Microsoft フォト アプリのコマンドバー](images/control-examples/command-bar-photos.png)
+![展開されたコマンド バー](images/control-examples/command-bar-photos.png)
 
 Windows Phone の Outlook カレンダーのコマンド バーです。
 
@@ -275,12 +275,12 @@ ClosedDisplayMode を変更してユーザーにヒントを表示すると、�
 
 >**タッチ デバイス**:タッチ キーボード、つまりソフト入力パネル (SIP) が表示されているときに、コマンド バーをユーザーに対して表示したままにする必要がある場合、コマンド バーをページの [BottomAppBar](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.page.bottomappbar) プロパティに割り当てると、SIP の表示中はコマンド バーが移動して表示されたままになります。 それ以外の場合は、コマンド バーをインラインおよびアプリのコンテンツに対して相対的に配置します。
 
-## <a name="get-the-sample-code"></a>サンプル コードを入手する
+## <a name="get-the-sample-code"></a>サンプル コードの入手
 
 - [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - インタラクティブな形で XAML コントロールのすべてを参照できます。
-- [XAML コマンド実行のサンプル](https://go.microsoft.com/fwlink/p/?LinkId=620019)
+- [XAML コマンド実行のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlCommanding)
 
 ## <a name="related-articles"></a>関連記事
 
-* [UWP アプリのコマンド設計の基本](../basics/commanding-basics.md)
+* [Windows アプリのコマンド デザインの基本](../basics/commanding-basics.md)
 * [CommandBar クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CommandBar)

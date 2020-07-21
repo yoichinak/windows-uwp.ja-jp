@@ -5,24 +5,24 @@ keywords: 最新情報, 更新, 機能, 開発者向けガイダンス, Windows 
 ms.date: 12/14/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: c715a48e0f9d6dea5939e6363441b0300544c252
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: f785ad5d7898f838435e0a05cf8dea5c778e70f3
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67321906"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "75684751"
 ---
 # <a name="whats-new-in-the-windows-developer-docs-in-december-2017"></a>Windows 開発者向けドキュメントの最新情報、2017 年 12 月
 
 Windows 開発者向けドキュメントは、Windows プラットフォームで開発者に提供される新機能の情報を反映して継続的に更新されています。 ここに示す機能概要、開発者向けガイダンス、サンプルは Fall Creators Update のリリース後に公開されたもので、Windows 開発者向けの新しい情報や更新情報を含んでいます。
 
-Windows 10 の[ツールと SDK をインストール](https://go.microsoft.com/fwlink/?LinkId=821431)すると、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
+Windows 10 の[ツールと SDK をインストール](https://developer.microsoft.com/windows/downloads#_blank)すると、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
 
 ## <a name="features"></a>機能
 
 ### <a name="windows-mixed-reality-enthusiasts-guide"></a>Windows Mixed Reality: 技術者向けガイド
 
-Mixed Reality の世界に入ろうとしている技術者を対象とした[技術者向けガイド](https://docs.microsoft.com/en-us/windows/mixed-reality/enthusiast-guide/)は、Windows Mixed Reality に関してよくある質問の回答を示します。 
+Mixed Reality の世界に入ろうとしている技術者を対象とした[技術者向けガイド](https://docs.microsoft.com/windows/mixed-reality/enthusiast-guide/)では、Windows Mixed Reality に関してよくある質問の回答を示しています。 
 
 このガイドの内容は次のとおりです。 
 - 購入前の FAQ 
@@ -38,9 +38,9 @@ Mixed Reality の世界に入ろうとしている技術者を対象とした[�
 
 更新された[キーボード操作](../design/input/keyboard-interactions.md)によって、アクセシビリティ対応エクスペリエンスとパワー ユーザー向け機能の両方が提供される UWP アプリを設計し、最適化できます。 Fall Creators Update で追加されたこれらの操作に対する新しい機能強化が反映されるように、推奨事項とガイダンスが更新されました。
 
-アプリのキーボード機能を拡張するには、「[キーボード アクセラレータ](../design/input/keyboard-accelerators.md)」と[カスタムのキーボード操作](../design/input/custom-keyboard-interactions.md)」をご覧ください。
+アプリのキーボード機能を拡張するには、「[キーボード アクセラレータ](../design/input/keyboard-accelerators.md)」と、[カスタムのキーボード操作](../design/input/custom-keyboard-interactions.md)に関するページをご覧ください。
 
-タッチ操作をサポートするデバイスで、「[タッチ キーボードの表示への応答](../design/input/respond-to-the-presence-of-the-touch-keyboard.md)」と「[入力スコープを使用してタッチ キーボードを変更する](../design/input/use-input-scope-to-change-the-touch-keyboard.md)」を使ってキーボード機能を追加します。
+タッチ操作をサポートするデバイスで、「[タッチ キーボードの表示への応答](../design/input/respond-to-the-presence-of-the-touch-keyboard.md)」と「[入力値の種類を使ったタッチ キーボードの変更](../design/input/use-input-scope-to-change-the-touch-keyboard.md)」を使ってキーボード機能を追加します。
 
 ### <a name="microsoft-collaborate"></a>Microsoft Collaborate
 
@@ -52,15 +52,15 @@ Microsoft Collaborate ポータルには、エンジニアリング システム
 
 Visual Studio 2017 バージョン 15.5 では、**Windows アプリケーション パッケージ プロジェクト** テンプレートが更新されており、UWP プロジェクトがかなり追加しやすくなっています。 JavaScript ベースのパッケージ プロジェクトを使い、パッケージ マニフェストを手動で調整する必要がなくなりました。  
 
-この新しいテンプレートを使ってデスクトップ アプリケーションをパッケージ化する方法については、[Visual Studio を使ったアプリのパッケージ化に関するページ](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)をご覧ください。
+この新しいテンプレートを使ってデスクトップ アプリケーションをパッケージ化する方法については、[Visual Studio を使ったアプリのパッケージ化](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)に関するページをご覧ください。
 
-UWP プロジェクトをパッケージに追加する方法については、「[最新の UWP コンポーネントによるデスクトップ アプリケーションの拡張](https://docs.microsoft.com/windows/uwp/porting/desktop-to-uwp-extend)」をご覧ください。
+UWP プロジェクトをパッケージに追加する方法については、[最新の UWP コンポーネントによるデスクトップ アプリケーションの拡張](https://docs.microsoft.com/windows/uwp/porting/desktop-to-uwp-extend)に関するページをご覧ください。
 
 ### <a name="subscription-add-ons-are-now-available-to-developers-in-the-windows-dev-center-insider-program"></a>サブスクリプション アドオンを Windows デベロッパー センター Insider program の開発者が利用できるようになりました
 
 デベロッパー センター Insider プログラムに参加しているすべての開発者は、サブスクリプション アドオンを使うことにより、定期的な自動の課金期間を設定してアプリ内でデジタル製品 (アプリの機能やデジタル コンテンツなど) を販売できるようになりました。 詳しくは、「[アプリのサブスクリプション アドオンの有効化](../monetize/enable-subscription-add-ons-for-your-app.md)」をご覧ください。
 
-## <a name="developer-guidance"></a>開発者向けガイダンス
+## <a name="developer-guidance"></a>開発者ガイド
 
 ### <a name="color"></a>色
 
@@ -91,7 +91,7 @@ UWP プロジェクトをパッケージに追加する方法については、�
 
 ### <a name="customer-orders"></a>顧客の注文
 
-[顧客注文データベース](https://github.com/Microsoft/Windows-appsample-customers-orders-database) サンプルは、リポジトリ パターンの使用や複数のデータ ソース (Sqlite、SQL Azure、REST サービスなど) に接続する方法のような、データ アクセスに関するベスト プラクティスが示されるように更新されました。
+[顧客注文データベース](https://github.com/Microsoft/Windows-appsample-customers-orders-database) サンプルが更新され、リポジトリ パターンの使用や複数のデータ ソース (Sqlite、SQL Azure、REST サービスなど) に接続する方法のような、データ アクセスに関するベスト プラクティスが示されるようになりました。
 
 ## <a name="videos"></a>ビデオ
 

@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 7a660512abe5f18f7b1955853dc5389dc902fd2e
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 0b5e0ea6deef7dfe3531c8d0406e08bfae80f0e2
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66371276"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74260459"
 ---
 # <a name="free-memory-when-your-app-moves-to-the-background"></a>アプリがバックグラウンドに移動したときのメモリの解放
 
@@ -76,7 +76,7 @@ Windows 10 バージョン 1607 では、2 つ新しいアプリケーション 
 
 [!code-cs[LeavingBackground](./code/ReduceMemory/cs/App.xaml.cs#SnippetLeavingBackground)]
 
-**CreateRootFrame** ヘルパー メソッドは、アプリ ビューのコンテンツを再作成します。 このメソッドのコードは、既定のプロジェクト テンプレートで提供される [**OnLaunched**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onlaunched) ハンドラーのコードとほぼ同じです。 1 つ異なる点は、**Launching** ハンドラーが [**LaunchActivatedEventArgs**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Activation.LaunchActivatedEventArgs) の [**PreviousExecutionState**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs.previousexecutionstate) プロパティから以前の実行状態を特定するのに対して、**CreateRootFrame** メソッドは単に引数として渡される以前の実行状態を取得します。 重複するコードを最小限に抑えるには、既定の **Launching** イベント ハンドラーのコードをリファクタリングして、**CreateRootFrame** を呼び出します。
+**CreateRootFrame** ヘルパー メソッドは、アプリ ビューのコンテンツを再作成します。 このメソッドのコードは、既定のプロジェクト テンプレートで提供される [**OnLaunched**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onlaunched) ハンドラーのコードとほぼ同じです。 1 つ異なる点は、**Launching** ハンドラーが [**LaunchActivatedEventArgs**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs.previousexecutionstate) の [**PreviousExecutionState**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Activation.LaunchActivatedEventArgs) プロパティから以前の実行状態を特定するのに対して、**CreateRootFrame** メソッドは単に引数として渡される以前の実行状態を取得します。 重複するコードを最小限に抑えるには、既定の **Launching** イベント ハンドラーのコードをリファクタリングして、**CreateRootFrame** を呼び出します。
 
 [!code-cs[CreateRootFrame](./code/ReduceMemory/cs/App.xaml.cs#SnippetCreateRootFrame)]
 
@@ -103,5 +103,5 @@ Windows 10 バージョン 1607 では、2 つ新しいアプリケーション 
 
 ## <a name="related-topics"></a>関連トピック
 
-* [バックグラウンド メディア再生のサンプル](https://go.microsoft.com/fwlink/p/?LinkId=800141) - アプリがバックグラウンド状態に移行するときにメモリを解放する方法を説明します。
+* [バックグラウンド メディア再生のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/BackgroundMediaPlayback) - アプリがバックグラウンド状態に移行するときにメモリを解放する方法を説明します。
 * [診断ツール](https://devblogs.microsoft.com/devops/diagnostic-tools-debugger-window-in-visual-studio-2015/) - 診断ツールを使用して、ガベージ コレクション イベントを監視し、予想される方法によりアプリでメモリが解放されているかどうかを検証します。

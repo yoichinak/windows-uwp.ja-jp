@@ -8,18 +8,18 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 97eae5f3-c16b-4aa5-b4a1-dd892cf32ead
 ms.localizationpriority: medium
-ms.openlocfilehash: 9b34f88d198ec80c67e5aac7b57001e42fe5c516
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 56104dd5608356b47a405c37eba71e544c5ba23c
+ms.sourcegitcommit: 37e4af3ba203295c7e88448414cf7ea537ab5402
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66825022"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84257441"
 ---
 # <a name="inking-controls"></a>インク コントロール
 
 
 
-ユニバーサル Windows プラットフォーム (UWP) アプリでの手書き入力を容易にする、[InkCanvas](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas) と [InkToolbar](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar) という 2 つのコントロールがあります。
+Windows アプリでの手描き入力を容易にする、[InkCanvas](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas) と [InkToolbar](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar) という 2 つのコントロールがあります。
 
 InkCanvas コントロールは、インク ストローク (色と太さの既定の設定を使用) か消去ストロークのいずれかとしてペン入力をレンダリングします。 このコントロールは透明なオーバーレイで、インク ストロークの既定のプロパティを変更するための組み込みの UI は含まれていません。
 
@@ -38,7 +38,7 @@ InkCanvas コントロールにはインク ストロークの既定の設定を
 > **重要な API**:[InkCanvas クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas)、[InkToolbar クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar)、[InkPresenter クラス](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkpresenter)、[Windows.UI.Input.Inking](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking)
 
 
-## <a name="is-this-the-right-control"></a>適切なコントロールの選択
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 ユーザーにインク設定を提供せずに、アプリで基本的な手書き入力機能を有効にする必要がある場合、InkCanvas を使います。
 
@@ -54,7 +54,7 @@ InkCanvas コントロールにはインク ストロークの既定の設定を
 <table>
 <th align="left">XAML コントロール ギャラリー<th>
 <tr>
-<td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td><img src="images/xaml-controls-gallery-app-icon-sm.png" alt="XAML controls gallery"></img></td>
 <td>
     <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合、こちらをクリックして<a href="xamlcontrolsgallery:/item/InkCanvas">アプリを開き、InkCanvas の動作を確認</a>してください。</p>
     <ul>
@@ -72,7 +72,7 @@ Microsoft Edge では、**Web ノート**に InkCanvas と InkToolbar を使い�
 
 **Windows Ink ワークスペース**
 
-InkCanvas と InkToolbar は、**Windows Ink ワークスペース**の**スケッチパッド**と**画面スケッチ**の両方にも使われます。  
+InkCanvas と InkToolbar は、**Windows Ink ワークスペース**の**切り取り & スケッチ**でも使用できます。  
 ![Windows Ink ワークスペースの InkToolbar](images/ink-tools-ink-workspace.png)
 
 ## <a name="create-an-inkcanvas-and-inktoolbar"></a>InkCanvas と InkToolbar を作成する
@@ -80,16 +80,16 @@ InkCanvas と InkToolbar は、**Windows Ink ワークスペース**の**スケ�
 アプリに InkCanvas を追加するには、次に示す 1 行のマークアップが必要です。
 
 ```xaml
-<InkCanvas x:Name=“myInkCanvas”/>
+<InkCanvas x:Name="myInkCanvas"/>
 ```
 
 > [!NOTE]
-> InkPresenter 使った InkCanvas のカスタマイズについて詳しくは、[「UWP アプリでのペン操作と Windows Ink」](https://docs.microsoft.com/windows/uwp/design/input/pen-and-stylus-interactions)の記事をご覧ください。
+> InkPresenter を使った InkCanvas のカスタマイズについて詳しくは、[Windows アプリでのペン操作と Windows Ink](https://docs.microsoft.com/windows/uwp/design/input/pen-and-stylus-interactions) に関する記事をご覧ください。
 
 InkToolbar コントロールは、InkCanvas と組み合わせて使う必要があります。 InkToolbar (組み込みのすべてのツールが含まれています) をアプリに組み込むには、さらに次の 1 行のマークアップを追加する必要があります。
 
  ```xaml
-<InkToolbar TargetInkCanvas=“{x:Bind myInkCanvas}”/>
+<InkToolbar TargetInkCanvas="{x:Bind myInkCanvas}"/>
  ```
 
 これにより、次のような InkToolbar が表示されます。
@@ -137,7 +137,7 @@ InkToolbar は、次のような 2 つの異なるボタンの種類のグルー
 - カスタム トグル – アプリで定義された機能の状態をオンまたはオフに設定します。 オンにすると、機能はアクティブなツールと連携して動作します。
 
 > [!NOTE]
-> 組み込みのボタンの表示順序を変更することはできません。 既定の表示順序は、ボールペン、鉛筆、蛍光ペン、消しゴム、ルーラーです。 カスタム ペンは最後の既定のペンに追加され、カスタム ツール ボタンは最後のペン ボタンと消しゴム ボタンの間に追加され、カスタム トグル ボタンはルーラー ボタンの後に追加されます (カスタム ボタンは、指定されている順序で追加されます)。
+> 組み込みのボタンの表示順序を変更することはできません。 既定の表示順序は、次のとおりです: ボールペン、鉛筆、蛍光ペン、消しゴム、ルーラー。 カスタム ペンは最後の既定のペンに追加され、カスタム ツール ボタンは最後のペン ボタンと消しゴム ボタンの間に追加され、カスタム トグル ボタンはルーラー ボタンの後に追加されます (カスタム ボタンは、指定されている順序で追加されます)。
 
 InkToolbar はトップ レベルの項目にすることもできますが、通常は "手書き入力" ボタンまたはコマンドを使って公開されます。 Segoe MLD2 アセット フォントの EE56 グリフをトップ レベルのアイコンとして使うことをお勧めします。
 
@@ -158,11 +158,11 @@ InkToolbar はトップ レベルの項目にすることもできますが、�
 - 手書き入力の基本的な機能と設定を提供するには、InkToolbar コントロールと InkCanvas を使います。 InkCanvas と InkToolbar は共に、プログラムでカスタマイズできます。
 - InkToolbar と手書き入力全般は、アクティブなペンを通じて最適なエクスペリエンスを実現します。 ただし、アプリで必要な場合は、マウスやタッチによる手書き入力をサポートできます。
 - タッチ入力による手書き入力をサポートする場合、トグル ボタンに Segoe MLD2 アセット フォントの ED5F アイコンを使うと共に、"タッチによる手書き" というヒントを表示することをお勧めします。
-- ストローク選択を提供する場合は、「選択ツール」ツールチップを使用して、ツール ボタンの Segoe MLD2 アセット フォントの EF20 アイコンを使用することをお勧めします。
+- ストローク選択を提供する場合は、"選択ツール" ツールチップを使用して、ツール ボタンの Segoe MLD2 アセット フォントの EF20 アイコンを使用することをお勧めします。
 - 複数の InkCanvas を使う場合、1 つの InkToolbar を使ってキャンバス間の手書き入力を制御することをお勧めします。
 - 最高のパフォーマンスを得るには、既定のツールとカスタム ツールの両方にカスタム ポップアップを作成するのではなく、既定のポップアップを変更することをお勧めします。
 
-## <a name="get-the-sample-code"></a>サンプル コードを入手する
+## <a name="get-the-sample-code"></a>サンプル コードの入手
 
 - [SimpleInk のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/SimpleInk) - InkCanvas コントロールと InkToolbar コントロールのカスタマイズ機能と拡張機能に関する 8 個のシナリオを示しています。 各シナリオでは、一般的な手書き入力の状況とコントロールの実装に関する基本的なガイダンスが提供されています。
 - [ComplexInk のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/ComplexInk) - 高度な手書き入力のシナリオを示しています。
@@ -170,6 +170,6 @@ InkToolbar はトップ レベルの項目にすることもできますが、�
 
 ## <a name="related-articles"></a>関連記事
 
-- [UWP アプリでのペン操作と Windows Ink](https://docs.microsoft.com/windows/uwp/design/input/pen-and-stylus-interactions)
+- [Windows アプリでのペン操作と Windows Ink](https://docs.microsoft.com/windows/uwp/design/input/pen-and-stylus-interactions)
 - [Windows Ink のストロークをテキストおよび図形として認識する](https://docs.microsoft.com/windows/uwp/design/input/convert-ink-to-text)
 - [Windows Ink ストローク データの保存と取得](https://docs.microsoft.com/windows/uwp/design/input/save-and-load-ink)

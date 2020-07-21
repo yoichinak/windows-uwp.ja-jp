@@ -6,12 +6,12 @@ ms.date: 11/20/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, 入力
 ms.localizationpriority: medium
-ms.openlocfilehash: 73e0ba3e563b57c2e392809097567b7e6739c90d
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 8235b2c2029b2bb3b9351263a3c908879b4beba9
+ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57634947"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79210568"
 ---
 # <a name="input-practices-for-games"></a>ゲームの入力プラクティス
 
@@ -31,7 +31,7 @@ ms.locfileid: "57634947"
 
 その一方で、複雑なフライトやレーシングのシミュレーションでは、すべての [RawGameController](https://docs.microsoft.com/uwp/api/windows.gaming.input.rawgamecontroller) オブジェクトを基準として列挙し、熱心なプレイヤーが所有しているあらゆるニッチ デバイス (シングル プレイヤー用の独立したペダルやスロットルなどのデバイス) を確実にサポートできます。 
 
-そこから、入力クラスの **FromGameController** メソッド ([Gamepad.FromGameController](https://docs.microsoft.com/uwp/api/windows.gaming.input.gamepad.fromgamecontroller) など) を使用して、各デバイスが整理されたビューが表示するかどうかを確認できます。 たとえば、デバイスが **Gamepad** でもある場合、それを反映するようにボタン マッピング UI を調整し、選択可能ないくつかの適切な既定のボタン マッピングを提供できます  (これは、**RawGameController** のみを使用している場合、プレイヤーがゲームパッド入力を手動で構成することが必要になるのとは対照的です)。 
+そこから、入力クラスの **FromGameController** メソッド ([Gamepad.FromGameController](https://docs.microsoft.com/uwp/api/windows.gaming.input.gamepad.fromgamecontroller) など) を使用して、各デバイスが整理されたビューが表示するかどうかを確認できます。 たとえば、デバイスが **Gamepad** でもある場合、それを反映するようにボタン マッピング UI を調整し、選択可能ないくつかの適切な既定のボタン マッピングを提供できます (これは、**RawGameController** のみを使用している場合、プレイヤーがゲームパッド入力を手動で構成することが必要になるのとは対照的です)。 
 
 代わりに、**RawGameController** のベンダー ID (VID) と製品 ID (PID) を参照し (それぞれ [HardwareVendorId](https://docs.microsoft.com/uwp/api/windows.gaming.input.rawgamecontroller.HardwareVendorId) と [HardwareProductId](https://docs.microsoft.com/uwp/api/windows.gaming.input.rawgamecontroller.HardwareProductId) を使用)、一般的なデバイスの推奨されるボタン マッピングを提供できます。その一方で、プレイヤーが手動でマッピングすることにより将来の未知のデバイスとの互換性を維持できます。
 
@@ -41,7 +41,7 @@ ms.locfileid: "57634947"
 
 それでは、プレイヤーがコントローラーを取り外した場合や、新しいコントローラーを接続した場合は、どうなるでしょうか。 これらのイベントを処理し、リストを適宜更新する必要があります。 詳細については、「[ゲームパッドの追加と削除](gamepad-and-vibration.md#adding-and-removing-gamepads)」を参照してください (ここでも、各コントローラーの型には、それぞれのトピックに類似する名前のセクションがあります)。
 
-追加および削除のイベントは非同期的に発生するため、コントローラーの一覧を処理するときに誤った結果を取得する可能性があります。 そのため、コントローラーのリストにアクセスするときは、常に、一度に 1 つのスレッドのみがリストにアクセスできるようにその周囲にロックを配置する必要があります。 この処理は、**&lt;ppl.h&gt;** の[同時実行ランタイム](https://docs.microsoft.com/cpp/parallel/concrt/concurrency-runtime)、具体的には、[critical_section クラス](https://docs.microsoft.com/cpp/parallel/concrt/reference/critical-section-class)で行うことができます。
+追加および削除のイベントは非同期的に発生するため、コントローラーの一覧を処理するときに誤った結果を取得する可能性があります。 そのため、コントローラーのリストにアクセスするときは、常に、一度に 1 つのスレッドのみがリストにアクセスできるようにその周囲にロックを配置する必要があります。 この処理は、 **&lt;ppl.h&gt;** の[同時実行ランタイム](https://docs.microsoft.com/cpp/parallel/concrt/concurrency-runtime)、具体的には、[critical_section クラス](https://docs.microsoft.com/cpp/parallel/concrt/reference/critical-section-class)で行うことができます。
 
 もう 1 つ考慮しなければならないのは、接続されているコントローラーのリストは最初は空であり、設定されるのに 1、2 秒かかるという点です。 start メソッドで、現在のゲームパッドを割り当てるだけでは、**null** になります。
 
@@ -227,7 +227,7 @@ bool ButtonJustReleased(GamepadButtons selection)
 }
 ```
 
-上記の 2 つの関数は、まず `newReading` と `oldReading` からボタンの選択状態をブール値で求めています。次に、ブール値の論理演算を実行し、対象となるボタンの状態遷移が発生しているかどうかを判断します。 この 2 つの関数は、新しい読み取り結果が目的の状態 (それぞれ押した状態または離した状態) を含み、*かつ、* 前回の読み取り結果が目的の状態を含まない場合にのみ **true** を返します。それ以外の場合は **false** を返します。
+上記の 2 つの関数は、まず `newReading` と `oldReading` からボタンの選択状態をブール値で求めています。次に、ブール値の論理演算を実行し、対象となるボタンの状態遷移が発生しているかどうかを判断します。 この 2 つの関数は、新しい読み取り結果が目的の状態 (それぞれ押した状態または離した状態) を含み、かつ、前回の読み取り結果が目的の状態を含まない場合にのみ **true** を返します。それ以外の場合は **false** を返します。
 
 ## <a name="detecting-complex-button-arrangements"></a>ボタンの複雑な配置の検出
 
@@ -251,7 +251,7 @@ if (GamepadButtons::None == (reading.Buttons & GamepadButtons::A))
 }
 ```
 
-1 つのボタンの状態は、簡単ですが、複数のボタンが押された状態またはリリースされるかどうかを確認することがありますを決定する、表示できるか、ボタンが特定の方法で配置された場合、一連の&mdash;いくつか押すと、失敗します。 複数のボタンをテストするは 1 つのボタンをテストするよりもさらに複雑な&mdash;混合ボタンの状態の可能性を特に&mdash;が同じテストを単一および複数のボタンに適用されるこれらのテスト用の単純な数式。
+ご覧のように、1つのボタンの状態を確認するのは簡単ですが、複数のボタンが押されたか離されているのかを判断したり、押された&mdash;特定の方法でボタンのセットが配置されている場合は、何もできないことがあります。 複数のボタンのテストは、1つのボタンをテストするよりも複雑です。これは、&mdash;のボタンの状態が混在する可能性がある場合に特に&mdash;ですが、1つのボタンと複数のボタンのテストに当てはまる単純な式があります。
 
 次の例では、ゲームパッドのボタン A とボタン B が両方押されているかどうかを判断します。
 
@@ -298,13 +298,13 @@ if (buttonArrangement == buttonSelection)
 
 ## <a name="get-the-state-of-the-battery"></a>バッテリーの状態を取得する
 
-[IGameControllerBatteryInfo](https://docs.microsoft.com/uwp/api/windows.gaming.input.igamecontrollerbatteryinfo) インターフェイスを実装しているゲーム コントローラーの場合は、コントローラー インスタンスで [TryGetBatteryReport](https://docs.microsoft.com/uwp/api/windows.gaming.input.igamecontrollerbatteryinfo.TryGetBatteryReport) を呼び出すことによって、コントローラーのバッテリーに関する情報を提供する [BatteryReport](https://docs.microsoft.com/uwp/api/windows.devices.power.batteryreport) オブジェクトを取得できます。 バッテリーの充電速度 ([ChargeRateInMilliwatts](https://docs.microsoft.com/uwp/api/windows.devices.power.batteryreport.ChargeRateInMilliwatts))、新しいバッテリーの電力容量の見積もり ([DesignCapacityInMilliwattHours](https://docs.microsoft.com/en-us/uwp/api/windows.devices.power.batteryreport.DesignCapacityInMilliwattHours))、現在のバッテリーの完全に充電した場合の電力容量 ([FullChargeCapacityInMilliwattHours](https://docs.microsoft.com/en-us/uwp/api/windows.devices.power.batteryreport.FullChargeCapacityInMilliwattHours)) などのプロパティを取得することができます。
+[IGameControllerBatteryInfo](https://docs.microsoft.com/uwp/api/windows.gaming.input.igamecontrollerbatteryinfo) インターフェイスを実装しているゲーム コントローラーの場合は、コントローラー インスタンスで [TryGetBatteryReport](https://docs.microsoft.com/uwp/api/windows.gaming.input.igamecontrollerbatteryinfo.TryGetBatteryReport) を呼び出すことによって、コントローラーのバッテリーに関する情報を提供する [BatteryReport](https://docs.microsoft.com/uwp/api/windows.devices.power.batteryreport) オブジェクトを取得できます。 バッテリーの充電速度 ([ChargeRateInMilliwatts](https://docs.microsoft.com/uwp/api/windows.devices.power.batteryreport.ChargeRateInMilliwatts))、新しいバッテリーの電力容量の見積もり ([DesignCapacityInMilliwattHours](https://docs.microsoft.com/uwp/api/windows.devices.power.batteryreport.DesignCapacityInMilliwattHours))、現在のバッテリーの完全に充電した場合の電力容量 ([FullChargeCapacityInMilliwattHours](https://docs.microsoft.com/uwp/api/windows.devices.power.batteryreport.FullChargeCapacityInMilliwattHours)) などのプロパティを取得することができます。
 
 詳細なバッテリーのレポートをサポートするゲーム コントローラーの場合、「[バッテリー情報の取得](../devices-sensors/get-battery-info.md)」で説明されているように、この情報に加えて、バッテリーに関するさらに詳しい情報を取得できます。 ただし、ほとんどのゲーム コントローラーはこのレベルのバッテリー レポートをサポートしておらず、代わりに低コストのハードウェアを使用しています。 このようなコントローラーでは、次の考慮事項に留意する必要があります。
 
 * **ChargeRateInMilliwatts** と **DesignCapacityInMilliwattHours** は常に **NULL** になります。
 
-* バッテリ残量の割合は、[RemainingCapacityInMilliwattHours](https://docs.microsoft.com/en-us/uwp/api/windows.devices.power.batteryreport.RemainingCapacityInMilliwattHours) / **FullChargeCapacityInMilliwattHours** を計算することによって取得できます。 これらのプロパティの値を無視して、計算される割合のみを処理する必要があります。
+* バッテリ残量の割合は、[RemainingCapacityInMilliwattHours](https://docs.microsoft.com/uwp/api/windows.devices.power.batteryreport.RemainingCapacityInMilliwattHours) / **FullChargeCapacityInMilliwattHours** を計算することによって取得できます。 これらのプロパティの値を無視して、計算される割合のみを処理する必要があります。
 
 * 前の項目の割合は、常に次のいずれかになります。
 
@@ -317,6 +317,6 @@ if (buttonArrangement == buttonSelection)
 
 ## <a name="see-also"></a>関連項目
 
-* [Windows.System.User クラス](https://docs.microsoft.com/uwp/api/windows.system.user)
-* [Windows.Gaming.Input.IGameController インターフェイス](https://docs.microsoft.com/uwp/api/windows.gaming.input.igamecontroller)
-* [Windows.Gaming.Input.GamepadButtons 列挙型](https://docs.microsoft.com/uwp/api/windows.gaming.input.gamepadbuttons)
+* [Windows. system.object クラス](https://docs.microsoft.com/uwp/api/windows.system.user)
+* [Windows. IGameController インターフェイス](https://docs.microsoft.com/uwp/api/windows.gaming.input.igamecontroller)
+* [Windows. ゲーム. 入力ボタン列挙型](https://docs.microsoft.com/uwp/api/windows.gaming.input.gamepadbuttons)

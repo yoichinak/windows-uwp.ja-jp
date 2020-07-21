@@ -12,25 +12,28 @@ design-contact: ksulliv
 dev-contact: mitra
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 841903f9bc998af5ead2a3486c500487cb070855
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: ed202bca80518333201595987c4af631f82f0853
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66364300"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970787"
 ---
 # <a name="sliders"></a>スライダー
 
- 
-
 スライダーはユーザーがトラックに沿って thumb コントロールを動かすことで値の範囲から選択できるようにするコントロールです。
-
-> **重要な API**:[Slider クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.slider)、[Value プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.rangebase.value)、[ValueChanged イベント](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.rangebase.valuechanged)
 
 ![スライダー コントロール](images/controls/slider.png)
 
+**Windows UI ライブラリを入手する**
 
-## <a name="is-this-the-right-control"></a>適切なコントロールの選択
+|  |  |
+| - | - |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | Windows UI ライブラリ 2.2 以降には、丸めた角を使用するこのコントロールの新しいテンプレートが含まれます。 詳しくは、「[角の半径](/windows/uwp/design/style/rounded-corner)」をご覧ください。 WinUI は、Windows アプリの新しいコントロールと UI 機能が含まれる NuGet パッケージです。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+
+> **プラットフォーム API**: [Slider クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.slider)、[Value プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.rangebase.value)、[ValueChanged イベント](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.rangebase.valuechanged)
+
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 定義された連続的な値 (音量や明るさなど) または個別の値の範囲 (画面解像度の設定など) をユーザーが設定できるようにする場合に、スライダーを使います。
 
@@ -40,27 +43,27 @@ ms.locfileid: "66364300"
 
 スライダーを使うかどうかを決める際には、他にも次のような点を考慮します。
 
--   **設定が相対的な量のように見えるか?** 見えない場合は、[ラジオ ボタン](radio-button.md)または[リスト ボックス](lists.md)を使います。
--   **設定は正確な既知の数値か?** その場合は、数値[テキスト ボックス](text-box.md)を使います。
--   **設定の変更による効果をすぐに確認できると、ユーザーにとって便利か?** 便利である場合は、スライダーを使います。 たとえば、色合い、鮮やかさ、明度の値を変更した場合の効果をすぐに確認できると、ユーザーは色をより簡単に選べるようになります。
--   **設定に 4 つ以上の値の範囲があるか?** ない場合は、[ラジオ ボタン](radio-button.md)を使います。
--   **ユーザーが値を変えられるか?** スライダーは、ユーザーの操作用です。 ユーザーが値を変えられない場合は、代わりに読み取り専用のテキストを使います。
+- **設定が相対的な量のように見えるか?** 見えない場合は、[ラジオ ボタン](radio-button.md)または[リスト ボックス](lists.md)を使います。
+- **設定は正確な既知の数値か?** その場合は、数値[テキスト ボックス](text-box.md)を使います。
+- **設定の変更による効果をすぐに確認できると、ユーザーにとって便利か?** 便利である場合は、スライダーを使います。 たとえば、色合い、鮮やかさ、明度の値を変更した場合の効果をすぐに確認できると、ユーザーは色をより簡単に選べるようになります。
+- **設定に 4 つ以上の値の範囲があるか?** ない場合は、[ラジオ ボタン](radio-button.md)を使います。
+- **ユーザーが値を変えられるか?** スライダーは、ユーザーの操作用です。 ユーザーが値を変えられない場合は、代わりに読み取り専用のテキストを使います。
 
 スライダーと数値テキスト ボックスのどちらを使うかを決める際に、次の場合には数値テキスト ボックスを使います。
 
--   画面領域が狭い。
--   ユーザーがキーボードを使おうとする可能性が高い。
+- 画面領域が狭い。
+- ユーザーがキーボードを使おうとする可能性が高い。
 
 次の場合にはスライダーを使います。
 
--   ユーザーにとって、すぐに結果がわかると便利。
+- ユーザーにとって、すぐに結果がわかると便利。
 
 ## <a name="examples"></a>例
 
 <table>
 <th align="left">XAML コントロール ギャラリー<th>
 <tr>
-<td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td><img src="images/xaml-controls-gallery-app-icon-sm.png" alt="XAML controls gallery"></img></td>
 <td>
     <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合、こちらをクリックして<a href="xamlcontrolsgallery:/item/Slider">アプリを開き、Slider の動作を確認</a>してください。</p>
     <ul>
@@ -186,9 +189,9 @@ private void Slider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e
 
 カスタム スライダーを設計する際は、余分な要素をできるだけなくし、ユーザーに必要なすべての情報を示す方法を検討してください。 ユーザーが設定を理解できるように単位を表示する必要がある場合は、値ラベルを使います。これらの値を視覚的に示す方法を工夫してください。 たとえば、音量を調整するスライダーでは、スライダーの最小の端に音波のないスピーカーのグラフィック、最大の端に音波のあるスピーカーのグラフィックを表示できます。
 
-## <a name="get-the-sample-code"></a>サンプル コードを入手する
+## <a name="get-the-sample-code"></a>サンプル コードの入手
 
-- [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - インタラクティブな形で XAML コントロールのすべてを参照できます。
+- [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - 対話形式で XAML コントロールのすべてを参照できます。
 
 ## <a name="related-topics"></a>関連トピック
 - [トグル スイッチ](toggles.md)

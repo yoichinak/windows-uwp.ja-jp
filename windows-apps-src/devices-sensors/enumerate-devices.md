@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: cddd7fbcff62f070fa4c4e181e012ec871f1c0c2
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: b562dd139705e983bc8a8ad10962d923cff55559
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66370161"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74259675"
 ---
 # <a name="enumerate-devices"></a>デバイスの列挙
 
@@ -26,7 +26,7 @@ async void enumerateSnapshot(){
 }
 ```
 
-[  **Windows.Devices.Enumeration**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration) API のより高度な使い方を示すサンプルをダウンロードするには、[ここ](https://go.microsoft.com/fwlink/?LinkID=620536)をクリックしてください。
+[  **Windows.Devices.Enumeration**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration) API のより高度な使い方を示すサンプルをダウンロードするには、[ここ](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/DeviceEnumerationAndPairing)をクリックしてください。
 
 ## <a name="enumeration-apis"></a>列挙 API
 
@@ -43,12 +43,12 @@ async void enumerateSnapshot(){
 -   [UPnP](https://docs.microsoft.com/windows/desktop/UPnP/universal-plug-and-play-start-page)
 -   デジタル リビング ネットワーク アライアンス (DLNA)
 -   [**検出と起動 (ダイヤル)** ](https://docs.microsoft.com/uwp/api/Windows.Media.DialProtocol)
--   [**DNS サービス探索 (DNS SD)** ](https://docs.microsoft.com/uwp/api/Windows.Networking.ServiceDiscovery.Dnssd)
--   [Web Services on Devices (WSD)](https://docs.microsoft.com/windows/desktop/WsdApi/wsd-portal)
+-   [**DNS サービスの検出 (DNS-SD)** ](https://docs.microsoft.com/uwp/api/Windows.Networking.ServiceDiscovery.Dnssd)
+-   [デバイス上の Web サービス (WSD)](https://docs.microsoft.com/windows/desktop/WsdApi/wsd-portal)
 -   [Bluetooth](https://docs.microsoft.com/windows/desktop/Bluetooth/bluetooth-start-page)
--   [**Wi-Fi Direct**](https://docs.microsoft.com/uwp/api/Windows.Devices.WiFiDirect)
+-   [**Wi-fi ダイレクト**](https://docs.microsoft.com/uwp/api/Windows.Devices.WiFiDirect)
 -   WiGig
--   [**Point of Service**](https://docs.microsoft.com/uwp/api/Windows.Devices.PointOfService)
+-   [**サービスのポイント**](https://docs.microsoft.com/uwp/api/Windows.Devices.PointOfService)
 
 多くの場合、列挙 API の使用について心配する必要はありません。 その理由は、デバイスを使う API の多くが、適切な既定のデバイスを自動的に選択するか、より合理的な列挙 API を提供するためです。 たとえば、[**MediaElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.MediaElement) は既定のオーディオ レンダリング デバイスを自動的に使います。 アプリが既定のデバイスを使うことができる限り、アプリケーションで列挙 API を使用する必要はありません。 列挙 API は、利用可能なデバイスを検出して接続するための一般的で柔軟な方法を提供します。 このトピックでは、デバイスの列挙についての情報を提供し、デバイスを列挙する 4 つの一般的な方法について説明します。
 
@@ -65,8 +65,8 @@ async void enumerateSnapshot(){
 | プロパティ                         | コメント                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 |----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **DeviceInformation.Id**         | これはデバイス固有の識別子であり、文字列変数として提供されます。 多くの場合、これは、あるメソッドから別のメソッドに渡すためだけの不透明な値であり、ユーザーが関心を持つ特定のデバイスを示します。 このプロパティと **DeviceInformation.Kind** プロパティは、アプリを終了し、再度アプリを開くときに使うこともできます。 これにより、確実に同じ [**DeviceInformation**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceInformation) オブジェクトを回復して再び使うことができます。 |
-| **DeviceInformation.Kind**       | [  **DeviceInformation**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceInformation) オブジェクトで表されるデバイス オブジェクトの種類を示します。 これは、デバイスのカテゴリでも種類でもありません。 1 つのデバイスを、種類の異なる複数の **DeviceInformation** オブジェクトで表すことができます。 このプロパティに指定できる値とそれらの相互関係については、[**DeviceInformationKind**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformationkind) をご覧ください。                           |
-| **DeviceInformation.Properties** | このプロパティ バッグには、[**DeviceInformation**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceInformation) オブジェクトについて要求される情報が含まれています。 最も一般的なプロパティは、[**DeviceInformation.Name**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformation.name) のように、**DeviceInformation** オブジェクトのプロパティとして簡単に参照されます。 詳しくは、「[デバイス情報のプロパティ](device-information-properties.md)」をご覧ください。                                                                |
+| **DeviceInformation. Kind**       | [  **DeviceInformation**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceInformation) オブジェクトで表されるデバイス オブジェクトの種類を示します。 これは、デバイスのカテゴリでも種類でもありません。 1 つのデバイスを、種類の異なる複数の **DeviceInformation** オブジェクトで表すことができます。 このプロパティに指定できる値とそれらの相互関係については、[**DeviceInformationKind**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformationkind) をご覧ください。                           |
+| **DeviceInformation. プロパティ** | このプロパティ バッグには、[**DeviceInformation**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceInformation) オブジェクトについて要求される情報が含まれています。 最も一般的なプロパティは、DeviceInformation.Name[ **のように、** DeviceInformation](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformation.name) オブジェクトのプロパティとして簡単に参照されます。 詳しくは、「[デバイス情報のプロパティ](device-information-properties.md)」をご覧ください。                                                                |
 
  
 
@@ -77,12 +77,12 @@ async void enumerateSnapshot(){
 
 -   UI に表示されるデバイスは、[**SupportedDeviceSelectors**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.devicepickerfilter.supporteddeviceselectors)、[**SupportedDeviceClasses**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.devicepickerfilter.supporteddeviceclasses)、または両方を [**DevicePicker.Filter**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.devicepicker.filter) に追加することで制御できます。 多くの場合、セレクターまたはクラスを 1 つ追加するだけですが、2 つ以上必要な場合は、複数を追加できます。 複数のセレクターまたはクラスを追加する場合は、OR ロジック関数を使ってそれらを結び付けます。
 -   デバイスから取得するプロパティを指定できます。 このためには、プロパティを [**DevicePicker.RequestedProperties**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.devicepicker.requestedproperties) に追加します。
--   [  **Appearance**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.devicepicker.appearance) を使って、[**DevicePicker**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DevicePicker) の外観を変更できます。
+-   [  **Appearance**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DevicePicker) を使って、[**DevicePicker**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.devicepicker.appearance) の外観を変更できます。
 -   [  **DevicePicker**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DevicePicker) を表示するときに、そのサイズと場所を指定できます。
 
 [  **DevicePicker**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DevicePicker) を表示すると、デバイスの追加、削除、更新に合わせて、UI の内容が自動的に更新されます。
 
-**注**  指定することはできません、 [ **DeviceInformationKind** ](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformationkind)を使用して、 [ **DevicePicker**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DevicePicker)します。 特定の **DeviceInformationKind** のデバイスが必要な場合は、[**DeviceWatcher**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceWatcher) を作成して独自の UI を提供する必要があります。
+Devicepicker を使用して[**Deviceinformationkind**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformationkind)を指定[](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DevicePicker)**する  は**できません。 特定の **DeviceInformationKind** のデバイスが必要な場合は、[**DeviceWatcher**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceWatcher) を作成して独自の UI を提供する必要があります。
 
  
 
@@ -121,9 +121,9 @@ async void enumerateSnapshot(){
 ## <a name="watch-devices-as-a-background-task"></a>バックグラウンド タスクによるデバイスの監視
 
 
-バックグラウンド タスクによるデバイスの監視は、上で説明した [**DeviceWatcher**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceWatcher) を作成する方法によく似ています。 実際、最初に前のセクションの説明に従って通常の **DeviceWatcher** オブジェクトを作成する必要があります。 オブジェクトを作成したら、[**DeviceWatcher.Start**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.devicewatcher.start) の代わりに [**GetBackgroundTrigger**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.devicewatcher.enumerationcompleted) を使います。 **GetBackgroundTrigger** を呼び出すときに目的の通知 (追加、削除、更新) を指定する必要があります。 更新または削除を要求する際には追加も要求する必要があります。 トリガーを登録すると、すぐにバックグラウンドで **DeviceWatcher** の実行が開始されます。 それ以降、条件に一致する新しい通知を受け取るたびに、バックグラウンド タスクがアプリケーションをトリガーして、前回のトリガー以降の最新の変更が提供されます。
+バックグラウンド タスクによるデバイスの監視は、上で説明した [**DeviceWatcher**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceWatcher) を作成する方法によく似ています。 実際、最初に前のセクションの説明に従って通常の **DeviceWatcher** オブジェクトを作成する必要があります。 オブジェクトを作成したら、[**DeviceWatcher.Start**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.devicewatcher.enumerationcompleted) の代わりに [**GetBackgroundTrigger**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.devicewatcher.start) を使います。 **GetBackgroundTrigger** を呼び出すときに目的の通知 (追加、削除、更新) を指定する必要があります。 更新または削除を要求する際には追加も要求する必要があります。 トリガーを登録すると、すぐにバックグラウンドで **DeviceWatcher** の実行が開始されます。 それ以降、条件に一致する新しい通知を受け取るたびに、バックグラウンド タスクがアプリケーションをトリガーして、前回のトリガー以降の最新の変更が提供されます。
 
-**重要な**  初めて、 [ **DeviceWatcherTrigger** ](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.DeviceWatcherTrigger)ウォッチャーに達すると、アプリケーションが表示されるトリガー、 **EnumerationCompleted**状態。 したがって、そのときには最初の結果がすべて含まれます。 その後にアプリケーションがトリガーされるときには、前回のトリガー以降に発生した追加、更新、削除の通知のみが含まれます。 最初の結果が一度に 1 つずつ送られるのではなく、**EnumerationCompleted** に達した後にまとめて送られるため、フォアグラウンドの [**DeviceWatcher**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceWatcher) オブジェクトとは若干異なります。
+[**DeviceWatcherTrigger**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.DeviceWatcherTrigger)は、ウォッチャーが**EnumerationCompleted**状態になったときに、アプリケーションが初めてアプリケーションをトリガーするときに  **重要**になります。 したがって、そのときには最初の結果がすべて含まれます。 その後にアプリケーションがトリガーされるときには、前回のトリガー以降に発生した追加、更新、削除の通知のみが含まれます。 最初の結果が一度に 1 つずつ送られるのではなく、[EnumerationCompleted**に達した後にまとめて送られるため、フォアグラウンドの**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceWatcher)DeviceWatcher オブジェクトとは若干異なります。
 
  
 
@@ -142,7 +142,7 @@ async void enumerateSnapshot(){
 ## <a name="using-deviceinformationkind"></a>DeviceInformationKind の使用
 
 
-ほとんどの場合、[**DeviceInformation**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceInformation) オブジェクトの [**DeviceInformationKind**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformationkind) を気にする必要はありません。 お使いのデバイス API で返されるデバイス セレクターでは、多くの場合、その API で使うための正しい種類のデバイス オブジェクトが取得されることが保証されているからです。 しかし、デバイスの **DeviceInformation** を取得する際に、対応するデバイス API がなく、デバイス セレクターを取得できない場合もあります。 そのような場合は、独自のセレクターを作成する必要があります。 たとえば、Web Services on Devices には専用の API がありませんが、[**Windows.Devices.Enumeration**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration) API を使ってそれらのデバイスを検出し、情報を取得できます。その後、ソケット API でそれらを使うことができます。
+ほとんどの場合、[**DeviceInformation**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformationkind) オブジェクトの [**DeviceInformationKind**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceInformation) を気にする必要はありません。 お使いのデバイス API で返されるデバイス セレクターでは、多くの場合、その API で使うための正しい種類のデバイス オブジェクトが取得されることが保証されているからです。 しかし、デバイスの **DeviceInformation** を取得する際に、対応するデバイス API がなく、デバイス セレクターを取得できない場合もあります。 そのような場合は、独自のセレクターを作成する必要があります。 たとえば、Web Services on Devices には専用の API がありませんが、[**Windows.Devices.Enumeration**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration) API を使ってそれらのデバイスを検出し、情報を取得できます。その後、ソケット API でそれらを使うことができます。
 
 独自のデバイス セレクターを作成してデバイス オブジェクトを列挙する場合は、[**DeviceInformationKind**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformationkind) の理解が重要になります。 使用可能なすべての種類と、それらの相互関係については、**DeviceInformationKind** のリファレンス ページをご覧ください。 **DeviceInformationKind** の最も一般的な使い方の 1 つでは、クエリをデバイス セレクターと組み合わせて送信するときに、検索するデバイスの種類を指定するために使います。 これにより、指定した **DeviceInformationKind** と一致するデバイスのみを確実に列挙します。 たとえば、**DeviceInterface** オブジェクトを検索してから、親 **Device** オブジェクトの情報を取得するクエリを実行します。 その親オブジェクトには詳細情報が含まれる場合があります。
 
@@ -153,7 +153,7 @@ async void enumerateSnapshot(){
 ## <a name="save-a-device-for-later-use"></a>後で使うためにデバイスを保存する
 
 
-すべて[ **DeviceInformation** ](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceInformation)オブジェクトが 2 つの情報の組み合わせによって一意に識別されます。[**DeviceInformation.Id** ](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformation.id)と[ **DeviceInformation.Kind**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformation.kind)します。 この 2 つの情報を手元に残しておくと、**DeviceInformation** オブジェクトが失われたとしても、この情報を [**CreateFromIdAsync**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformation.createfromidasync) に渡して再び作成することができます。 この場合、アプリと統合するデバイスのユーザー設定を保存できます。
+すべての [**DeviceInformation**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceInformation) オブジェクトが、[**DeviceInformation.Id**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformation.id) と [**DeviceInformation.Kind**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformation.kind) の 2 つの情報を組み合わせて個別に識別されています。 この 2 つの情報を手元に残しておくと、**DeviceInformation** オブジェクトが失われたとしても、この情報を [**CreateFromIdAsync**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformation.createfromidasync) に渡して再び作成することができます。 この場合、アプリと統合するデバイスのユーザー設定を保存できます。
 
 
  

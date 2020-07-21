@@ -3,20 +3,20 @@ title: アプリ内からのバックグラウンド タスクのトリガー
 description: アプリケーション内からバックグラウンド タスクをトリガーする方法について説明します。
 ms.date: 07/06/2018
 ms.topic: article
-keywords: バック グラウンド タスクのトリガー、バック グラウンド タスク
+keywords: バックグラウンドタスクトリガー、バックグラウンドタスク
 ms.localizationpriority: medium
-ms.openlocfilehash: d5d163d36b51e414a403986d1fdd73db7925cc0b
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 3d8917c6ed181607459d6126aa295d270cfea838
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66371895"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74259405"
 ---
 # <a name="trigger-a-background-task-from-within-your-app"></a>アプリ内からのバックグラウンド タスクのトリガー
 
 [ApplicationTrigger](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.ApplicationTrigger) を使ってアプリ内からバックグラウンド タスクをアクティブ化する方法について説明します。
 
-アプリケーション、トリガーを作成する方法の例は、この参照してください[例](https://github.com/Microsoft/Windows-universal-samples/blob/v2.0.0/Samples/BackgroundTask/cs/BackgroundTask/Scenario5_ApplicationTriggerTask.xaml.cs)します。
+アプリケーショントリガーを作成する方法の例については、次の[例](https://github.com/Microsoft/Windows-universal-samples/blob/v2.0.0/Samples/BackgroundTask/cs/BackgroundTask/Scenario5_ApplicationTriggerTask.xaml.cs)を参照してください。
 
 このトピックでは、アプリケーションからアクティブ化する必要のあるバックグラウンド タスクがあることを前提としています。 まだバックグラウンド タスクがない場合は、[BackgroundActivity.cs](https://github.com/Microsoft/Windows-universal-samples/blob/master/Samples/BackgroundActivation/cs/BackgroundActivity.cs) にサンプルのバックグラウンド タスクがあります。 または、「[アウトプロセス バックグラウンド タスクの作成と登録](create-and-register-a-background-task.md)」の手順に従って、バックグラウンド タスクを作成してください。
 
@@ -56,7 +56,7 @@ ApplicationTrigger ^ _AppTrigger = ref new ApplicationTrigger();
 
 いつタスクを実行するかを制御するバックグラウンド タスクの条件を作成できます。 条件を指定すると、条件が満たされるまではバックグラウンド タスクが実行されないようにすることができます。 詳しくは、「[バックグラウンド タスクを実行するための条件の設定](set-conditions-for-running-a-background-task.md)」をご覧ください。
 
-この例では、条件に設定されて**InternetAvailable**タスクはインターネット アクセスが使用可能なのみが実行されるため、1 回トリガーされると、します。 指定できる条件の一覧については、「[**SystemConditionType**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.SystemConditionType)」をご覧ください。
+この例では、条件は**Internetavailable**に設定されています。これにより、トリガーされると、インターネットアクセスが利用可能になるとタスクのみが実行されるようになります。 指定できる条件の一覧については、「[**SystemConditionType**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.SystemConditionType)」をご覧ください。
 
 ```csharp
 SystemCondition internetCondition = new SystemCondition(SystemConditionType.InternetAvailable);
@@ -134,28 +134,28 @@ var result = await _AppTrigger.RequestAsync();
 
 [BackgroundExecutionManager.RequestAccessAsync](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundexecutionmanager) を使用して、アプリのバックグラウンド アクティビティを制限するようにユーザーが設定しているかどうかを確認します。 バッテリー使用量を注意し、ユーザーが望む操作を完了するために必要な場合にのみ、バックグラウンドで実行するようにしてください。 ユーザーがバックグラウンド アクティビティの設定を制御する方法について詳しくは、「[バックグラウンド アクティビティの最適化](https://docs.microsoft.com/windows/uwp/debug-test-perf/optimize-background-activity)」を参照してください。  
 
-- メモリ:チューニングにアプリのメモリとエネルギーの使用は、オペレーティング システムで、バック グラウンド タスクを実行を許可することを保証するキーです。 [メモリ管理 API](https://docs.microsoft.com/uwp/api/windows.system.memorymanager) を使用して、バックグラウンド タスクが使用しているメモリ量を確認します。 バックグラウンド タスクが使用するメモリ量が多くなるほど、別のアプリがフォアグラウンドのときに、バックグラウンド タスクの実行を OS が維持することは難しくなります。 アプリが実行できるすべてのバックグラウンド アクティビティについて、最終的に管理できるのはユーザーです。また、ユーザーは、アプリがどの程度バッテリー消費に影響しているかを確認できます。  
-- CPU 時間:バック グラウンド タスクは、トリガーの種類に基づいて、取得、ウォール クロック使用時間の量によって制限されます。 アプリケーション トリガーによってトリガーされるバックグラウンド タスクは、約 10 分間に制限されます。
+- メモリ: オペレーティング システムからバックグラウンド タスクの実行を許可されるうえで重要なのが、アプリのメモリと電力使用の調整です。 [メモリ管理 API](https://docs.microsoft.com/uwp/api/windows.system.memorymanager) を使用して、バックグラウンド タスクが使用しているメモリ量を確認します。 バックグラウンド タスクが使用するメモリ量が多くなるほど、別のアプリがフォアグラウンドのときに、バックグラウンド タスクの実行を OS が維持することは難しくなります。 アプリが実行できるすべてのバックグラウンド アクティビティについて、最終的に管理できるのはユーザーです。また、ユーザーは、アプリがどの程度バッテリー消費に影響しているかを確認できます。  
+- CPU 時間: バックグラウンド タスクは、トリガーの種類に基づいて取得するウォールクロック時間の長さによって使用が制限されます。 アプリケーション トリガーによってトリガーされるバックグラウンド タスクは、約 10 分間に制限されます。
 
 バックグラウンド タスクに適用されるリソースの制約については、「[バックグラウンド タスクによるアプリのサポート](support-your-app-with-background-tasks.md)」をご覧ください。
 
 ## <a name="remarks"></a>注釈
 
-Windows 10 以降の場合は、バック グラウンド タスクを利用するには、ロック画面にアプリを追加するユーザーのために必要な不要になった。
+Windows 10 以降では、バックグラウンドタスクを利用するためにユーザーがロック画面にアプリを追加する必要がなくなりました。
 
 バックグラウンド タスクが **ApplicationTrigger** を使って実行されるのは、先に [**RequestAccessAsync**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundexecutionmanager.requestaccessasync) を呼び出した場合のみです。
 
 ## <a name="related-topics"></a>関連トピック
 
 * [バックグラウンド タスクのガイドライン](guidelines-for-background-tasks.md)
-* [バック グラウンド タスクのコード サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/BackgroundTask)
+* [バックグラウンドタスクのコードサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/BackgroundTask)
 * [インプロセス バックグラウンド タスクの作成と登録](create-and-register-an-inproc-background-task.md)
 * [アウトプロセス バックグラウンド タスクの作成と登録](create-and-register-a-background-task.md)
 * [バックグラウンド タスクのデバッグ](debug-a-background-task.md)
 * [アプリケーション マニフェストでのバックグラウンド タスクの宣言](declare-background-tasks-in-the-application-manifest.md)
 * [アプリがバックグラウンドに移動したときのメモリの解放](reduce-memory-usage.md)
 * [取り消されたバックグラウンド タスクの処理](handle-a-cancelled-background-task.md)
-* [トリガーする方法を中断、再開、および (デバッグ) 場合は、UWP アプリでイベントをバック グラウンド](https://go.microsoft.com/fwlink/p/?linkid=254345)
+* [UWP アプリで中断イベント、再開イベント、およびバックグラウンドイベントをトリガーする方法 (デバッグ時)](https://msdn.microsoft.com/library/windows/apps/hh974425(v=vs.110).aspx)
 * [バックグラウンド タスクの進捗状況と完了の監視](monitor-background-task-progress-and-completion.md)
 * [延長実行を使ってアプリの中断を延期する](run-minimized-with-extended-execution.md)
 * [バックグラウンド タスクの登録](register-a-background-task.md)

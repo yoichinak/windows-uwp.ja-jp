@@ -12,12 +12,12 @@ design-contact: kimsea
 dev-contact: stpete
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 2efd091d90a856e45d76c0b1357f30417812160a
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: faff0857679d50f6995640bbf9bf0222bb0d2e37
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63791516"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "80081611"
 ---
 # <a name="pull-to-refresh"></a>引っ張って更新
 
@@ -27,11 +27,27 @@ ms.locfileid: "63791516"
 
 ![引っ張って更新 gif](images/Pull-To-Refresh.gif)
 
-## <a name="is-this-the-right-control"></a>適切なコントロールの選択
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか? 
 
 ユーザーが定期的に更新するデータのリストやグリッドがあり、アプリがタッチ操作主体のデバイスで実行されることが多いときは、引っ張って更新を使います。
 
 [RefreshVisualizer](/uwp/api/windows.ui.xaml.controls.refreshvisualizer) を使用して、更新ボタンなど他の方法で呼び出される一貫した更新エクスペリエンスを作成することもできます。
+
+## <a name="examples"></a>例
+
+<table>
+<th align="left">XAML コントロール ギャラリー<th>
+<tr>
+<td><img src="images/xaml-controls-gallery-app-icon-sm.png" alt="XAML controls gallery"></img></td>
+<td>
+    <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合、こちらをクリックして<a href="xamlcontrolsgallery:/item/PullToRefresh">アプリを開き、PullToRefresh の動作を確認</a>してください。</p>
+    <ul>
+    <li><a href="https://www.microsoft.com/store/productId/9MSVH128X2ZT">XAML コントロール ギャラリー アプリを入手する (Microsoft Store)</a></li>
+    <li><a href="https://github.com/Microsoft/Xaml-Controls-Gallery">ソース コード (GitHub) を入手する</a></li>
+    </ul>
+</td>
+</tr>
+</table>
 
 ## <a name="refresh-controls"></a>更新コントロール
 
@@ -70,7 +86,7 @@ ms.locfileid: "63791516"
 
     視覚的に、アイコンが 100% の不透明度に切り替わり、切り替えの過程でサイズは最大 150％ になり、その後 100％ に戻ります。
 
-### <a name="pending"></a>保留中
+### <a name="pending"></a>Pending
 
 ユーザーがしきい値を超えてリストをプルした場合、ビジュアライザーは**保留中**状態になります。
 
@@ -183,6 +199,8 @@ private void Visualizer_RefreshStateChanged(RefreshVisualizer sender, RefreshSta
 ## <a name="examples"></a>例
 
 ### <a name="using-a-scrollviewer-in-a-refreshcontainer"></a>RefreshContainer での ScrollViewer の使用
+> [!NOTE]
+> RefreshContainer のコンテンツは、ScrollViewer、GridView、ListView などのスクロール可能なコントロールである必要があります。コントロールに Grid などのコンテンツを設定すると、未定義の動作が発生します。
 
 この例では、スクロール ビューアーで引っ張って更新を使用する方法を示します。
 
@@ -330,6 +348,10 @@ public class ListItemData
     public string Body { get; set; }
 }
 ```
+
+## <a name="get-the-sample-code"></a>サンプル コードの入手
+
+- [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - インタラクティブな形で XAML コントロールのすべてを参照できます。
 
 ## <a name="related-articles"></a>関連記事
 

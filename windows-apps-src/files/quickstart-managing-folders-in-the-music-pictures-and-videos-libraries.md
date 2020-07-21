@@ -1,17 +1,17 @@
 ---
 ms.assetid: 1AE29512-7A7D-4179-ADAC-F02819AC2C39
-title: ミュージック、画像、およびビデオ ライブラリのファイルとフォルダー
+title: 音楽、画像、ビデオのライブラリの管理
 description: 音楽、画像、またはビデオの既存のフォルダーを対応するライブラリに追加できます。 ライブラリからフォルダーを削除したり、ライブラリ内のフォルダーの一覧を取得したり、保存した写真、音楽、ビデオにアクセスしたりすることもできます。
 ms.date: 06/18/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: f9dba57d8e75ba105a2154be5add5b101a4a6aa4
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 4c75bd62fb5548cc03247772427fb5aabac4fb5a
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66369334"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "74735077"
 ---
 # <a name="files-and-folders-in-the-music-pictures-and-videos-libraries"></a>ミュージック、画像、およびビデオ ライブラリのファイルとフォルダー
 

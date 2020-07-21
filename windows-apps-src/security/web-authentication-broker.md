@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp, セキュリティ
 ms.localizationpriority: medium
-ms.openlocfilehash: c8130c6a8e4d8441fdf8ff60c702bd1ae30bae6e
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 0b870bd59cb5b6c524cf85165fa182314b93c855
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66372265"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74259819"
 ---
 # <a name="web-authentication-broker"></a>Web 認証ブローカー
 
@@ -21,7 +21,7 @@ ms.locfileid: "66372265"
 この記事では、OpenID や OAuth などの認証プロトコルを使うオンライン ID プロバイダー (Facebook、Twitter、Flickr、Instagram など) にユニバーサル Windows プラットフォーム (UWP) アプリを接続する方法について説明します。 [  **AuthenticateAsync**](https://docs.microsoft.com/uwp/api/windows.security.authentication.web.webauthenticationbroker.authenticateasync) メソッドは、要求をオンライン ID プロバイダーに送信し、アプリがアクセスできるプロバイダー リソースを示すアクセス トークンを返します。
 
 >[!NOTE]
->動作する完全なコード例が必要な場合は、[GitHub の WebAuthenticationBroker リポジトリ](https://go.microsoft.com/fwlink/p/?LinkId=620622)をコピーしてください。
+>動作する完全なコード例が必要な場合は、[GitHub の WebAuthenticationBroker リポジトリ](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/WebAuthenticationBroker)をコピーしてください。
 
  
 
@@ -35,7 +35,7 @@ ms.locfileid: "66372265"
 
 要求の URI は、オンライン プロバイダーに対する認証要求の送信先のアドレスと、必要なその他の情報 (アプリ ID またはシークレット、認証後にユーザーが転送されるリダイレクト URI、必要な応答の型など) で構成されます。 必要なパラメーターについては、プロバイダーに確認してください。
 
-要求の URI は、[**AuthenticateAsync**](https://docs.microsoft.com/uwp/api/windows.security.authentication.web.webauthenticationbroker.authenticateasync) メソッドの *requestUri* パラメーターとして送信されます。 また、セキュリティで保護されたアドレスである (`https://` で始まる) 必要があります。
+要求の URI は、AuthenticateAsync[**メソッドの**requestUri](https://docs.microsoft.com/uwp/api/windows.security.authentication.web.webauthenticationbroker.authenticateasync) パラメーターとして送信されます。 また、セキュリティで保護されたアドレスである (`https://` で始まる) 必要があります。
 
 次の例は、要求の URI を作成する方法を示しています。
 
@@ -87,12 +87,12 @@ catch (Exception ex)
 ```
 
 >[!WARNING]
->[  **AuthenticateAsync**](https://docs.microsoft.com/uwp/api/windows.security.authentication.web.webauthenticationbroker.authenticateasync) に加え、[**Windows.Security.Authentication.Web**](https://docs.microsoft.com/uwp/api/Windows.Security.Authentication.Web) 名前空間には [**AuthenticateAndContinue**](https://docs.microsoft.com/uwp/api/Windows.Security.Authentication.Web.WebAuthenticationBroker#methods) メソッドが含まれています。 このメソッドは呼び出さないでください。 Windows Phone 8.1 のみを対象とするアプリの設計されていて、Windows 10 以降では非推奨します。
+>[  **AuthenticateAsync**](https://docs.microsoft.com/uwp/api/windows.security.authentication.web.webauthenticationbroker.authenticateasync) に加え、[**Windows.Security.Authentication.Web**](https://docs.microsoft.com/uwp/api/Windows.Security.Authentication.Web) 名前空間には [**AuthenticateAndContinue**](https://docs.microsoft.com/uwp/api/Windows.Security.Authentication.Web.WebAuthenticationBroker#methods) メソッドが含まれています。 このメソッドは呼び出さないでください。 Windows Phone 8.1 のみを対象とするアプリ向けに設計されており、Windows 10 以降では非推奨とされます。
 
 ## <a name="connecting-with-single-sign-on-sso"></a>シングル サインオン (SSO) を使った接続
 
 
-既定では、Web 認証ブローカーは Cookie の保存を許可していません。 そのため、アプリ ユーザーは (たとえば、プロバイダーのログイン ダイアログのチェック ボックスをオンにして) ログオン状態を維持することを示した場合でも、そのプロバイダーのリソースにアクセスするたびにログインする必要があります。 SSO を使ってログインするには、オンライン ID プロバイダーが Web 認証ブローカーに対して SSO を有効にしており、*callbackUri*  パラメーターを受け取らない [**AuthenticateAsync** ](https://docs.microsoft.com/uwp/api/windows.security.authentication.web.webauthenticationbroker.authenticateasync) のオーバーロードをアプリで呼び出す必要があります。 これで Web 認証ブローカーが永続 cookie を保存でき、これ以降に同じアプリから認証を求められたときに、ユーザーは再びサインインを行う必要がありません (アクセス トークンの期限が切れるまで、ユーザーは実質的に "ログイン" した状態になります)。
+既定では、Web 認証ブローカーは Cookie の保存を許可していません。 そのため、アプリ ユーザーは (たとえば、プロバイダーのログイン ダイアログのチェック ボックスをオンにして) ログオン状態を維持することを示した場合でも、そのプロバイダーのリソースにアクセスするたびにログインする必要があります。 SSO を使ってログインするには、オンライン ID プロバイダーが Web 認証ブローカーに対して SSO を有効にしており、[callbackUri **パラメーターを受け取らない**](https://docs.microsoft.com/uwp/api/windows.security.authentication.web.webauthenticationbroker.authenticateasync)AuthenticateAsync のオーバーロードをアプリで呼び出す必要があります。 これで Web 認証ブローカーが永続 cookie を保存でき、これ以降に同じアプリから認証を求められたときに、ユーザーは再びサインインを行う必要がありません (アクセス トークンの期限が切れるまで、ユーザーは実質的に "ログイン" した状態になります)。
 
 SSO をサポートするには、オンライン プロバイダーが `ms-app://<appSID>` という形式のリダイレクト URI の登録を許可している必要があります。`<appSID>` は、アプリの SID です。 アプリの SID は、アプリ開発者のページか、[**GetCurrentApplicationCallbackUri**](https://docs.microsoft.com/uwp/api/windows.security.authentication.web.webauthenticationbroker.getcurrentapplicationcallbackuri) メソッドを呼び出すことで確認できます。
 
@@ -136,30 +136,30 @@ Web 認証ブローカー API のトラブルシューティングには、操�
 
 ### <a name="operational-logs"></a>操作ログ
 
-問題の原因の多くは、操作ログを使って特定できます。 専用のイベント ログ チャネルが Microsoft-Windows-WebAuth\\により、web サイト開発者は、web ページを Web 認証ブローカーによって処理されている方法を理解して操作します。 起動 eventvwr.exe と有効にする操作が アプリケーションとサービスのログに有効にするに\\Microsoft\\Windows\\WebAuth します。 また、Web 認証ブローカーは Web サーバー上で自身を識別するために、ユーザー エージェント文字列に一意の文字列を追加します。 その文字列は、"MSAuthHost/1.0" です。 バージョン番号は今後変更される可能性があるため、コード内のそれに依存しないようにしてください。 ユーザー エージェント文字列全体の例とデバッグの全ステップは次のとおりです。
+問題の原因の多くは、操作ログを使って特定できます。 Web 認証ブローカーによって web ページがどのように処理されているかを web サイト開発者が理解できるようにするための、専用のイベントログチャネル、Microsoft-Windows-WebAuth\\Operational があります。 有効にするには、eventvwr を起動し、アプリケーションとサービス\\Microsoft\\Windows\\WebAuth を使用して操作ログを有効にします。 また、Web 認証ブローカーは Web サーバー上で自身を識別するために、ユーザー エージェント文字列に一意の文字列を追加します。 その文字列は、"MSAuthHost/1.0" です。 バージョン番号は今後変更される可能性があるため、コード内のそれに依存しないようにしてください。 ユーザー エージェント文字列全体の例とデバッグの全ステップは次のとおりです。
 
 `User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Win64; x64; Trident/6.0; MSAuthHost/1.0)`
 
 1.  操作ログを有効にします。
 2.  Contoso ソーシャル アプリを実行します。 ![WebAuth 操作ログが表示されたイベント ビューアー](images/wab-event-viewer-1.png)
 3.  生成されたログ エントリで、Web 認証ブローカーの動作を把握することができます。 この例では、次の情報を知ることができます。
-    -   ナビゲーションの開始:ログと、AuthHost が開始され、開始と終了 Url に関する情報が含まれます。
+    -   ナビゲーションの開始: AuthHost が開始された時点のログ。開始 URL と終了 URL に関する情報が含まれています。
     -   ![ナビゲーションの開始の例](images/wab-event-viewer-2.png)
-    -   ナビゲーションが完了します。Web ページの読み込みの完了を記録します。
-    -   Meta タグ:Meta タグの詳細などが発生したときに記録します。
-    -   ナビゲーションを終了します。ナビゲーションは、ユーザーが終了します。
-    -   ナビゲーション エラー:AuthHost は、HttpStatusCode を含む URL にあるナビゲーション エラーが発生します。
-    -   ナビゲーションの終了:URL の終了が発生しました。
+    -   ナビゲーションの完了: Web ページの読み込み完了時のログ。
+    -   メタ タグ: メタ タグが検出されたときのログ。詳しい情報を含みます。
+    -   ナビゲーションの停止: ユーザーによって停止されたナビゲーション。
+    -   ナビゲーション エラー: AuthHost が HttpStatusCode を含む URL でナビゲーション エラーを検出。
+    -   ナビゲーションの終了: 終了 URL を検出。
 
 ### <a name="fiddler"></a>Fiddler
 
 Fiddler Web デバッガーはアプリに対して使うことができます。
 
-1.  AuthHost で独自のアプリのコンテナー内で稼働するため、プライベート ネットワーク機能を提供する必要があります設定するレジストリ キー。Windows レジストリ エディタ Version 5.00
+1.  AuthHost は独自のアプリコンテナーで実行されるため、プライベートネットワーク機能を提供するには、レジストリキーを設定する必要があります。 Windows レジストリエディターバージョン5.00
 
-    **HKEY\_ローカル\_マシン**\\**ソフトウェア**\\**Microsoft**\\**Windows NT** \\ **CurrentVersion**\\**File Execution Options をイメージ**\\**authhost.exe** \\ **EnablePrivateNetwork** 00000001 を =
+    **HKEY\_ローカル\_マシン**\\**ソフトウェア**\\**Microsoft**\\**Windows NT**\\**CurrentVersion**\\**イメージファイル実行オプション**\\**authhost**\\**EnablePrivateNetwork** = 00000001
 
-    このレジストリ キーがいない場合は、管理者特権でコマンド プロンプトで作成できます。
+    このレジストリキーがない場合は、管理者特権でコマンドプロンプトで作成できます。
 
     ```cmd 
     REG ADD "HKLM\Software\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\authhost.exe" /v EnablePrivateNetwork /t REG_DWORD /d 1 /f

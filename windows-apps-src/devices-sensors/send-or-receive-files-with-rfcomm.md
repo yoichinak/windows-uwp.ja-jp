@@ -2,7 +2,7 @@
 ms.assetid: 5B3A6326-15EE-4618-AA8C-F1C7FB5232FB
 title: Bluetooth RFCOMM
 description: この記事では、ファイルの送受信方法に関するコード例と一緒に、ユニバーサル Windows プラットフォーム (UWP) アプリでの Bluetooth RFCOMM の概要を説明します。
-ms.date: 07/19/2018
+ms.date: 06/26/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
@@ -10,25 +10,30 @@ dev_langs:
 - csharp
 - cppwinrt
 - cpp
-ms.openlocfilehash: a63272f9d301fba094a17af0408841db62731586
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: d95b7159c64c7796e55d4566d62630c076a707b1
+ms.sourcegitcommit: 015291bdf2e7d67076c1c85fc025f49c840ba475
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66369791"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85469557"
 ---
 # <a name="bluetooth-rfcomm"></a>Bluetooth RFCOMM
 
 **重要な API**
 
--   [**Windows.Devices.Bluetooth**](https://docs.microsoft.com/uwp/api/Windows.Devices.Bluetooth)
--   [**Windows.Devices.Bluetooth.Rfcomm**](https://docs.microsoft.com/uwp/api/Windows.Devices.Bluetooth.Rfcomm)
+- [**Windows. デバイス. Bluetooth**](https://docs.microsoft.com/uwp/api/Windows.Devices.Bluetooth)
+- [**Windows.Devices.Bluetooth.Rfcomm**](https://docs.microsoft.com/uwp/api/Windows.Devices.Bluetooth.Rfcomm)
 
 この記事では、ファイルの送受信方法に関するコード例と一緒に、ユニバーサル Windows プラットフォーム (UWP) アプリでの Bluetooth RFCOMM の概要を説明します。
 
+> [!Important]
+> *Package.appxmanifest*で "bluetooth" 機能を宣言する必要があります。
+>
+> `<Capabilities> <DeviceCapability Name="bluetooth" /> </Capabilities>`
+
 ## <a name="overview"></a>概要
 
-[  **Windows.Devices.Bluetooth.Rfcomm**](https://docs.microsoft.com/uwp/api/Windows.Devices.Bluetooth.Rfcomm) 名前空間の API は、[**enumeration**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration) や [**instantiation**](https://docs.microsoft.com/uwp/api/Windows.Devices.Portable.StorageDevice) など、既にある Windows.Devices のパターンに基づいて作成されています。 データの読み取りと書き込みは、[**定型的なデータ ストリーム パターン**](https://docs.microsoft.com/uwp/api/Windows.Storage.Streams.DataReader)と [**Windows.Storage.Streams**](https://docs.microsoft.com/uwp/api/Windows.Storage.Streams) 内のオブジェクトを有効に活用できるように設計されています。 Service Discovery Protocol (SDP) の属性は、値のほかに、想定されている型を持ちます。 ところが、広く普及しているデバイスの中には、SDP の属性の実装に不備のあるものが存在し、値の型が、想定されている型とは異なる場合があります。 加えて、RFCOMM の多くの用法は、SDP の拡張属性を必要としません。 そのため、この API は、未解析の SDP データへのアクセスを提供し、開発者が必要に応じて情報を取得できるようになっています。
+[**Windows.Devices.Bluetooth.Rfcomm**](https://docs.microsoft.com/uwp/api/Windows.Devices.Bluetooth.Rfcomm) 名前空間の API は、[**enumeration**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration) や [**instantiation**](https://docs.microsoft.com/uwp/api/Windows.Devices.Portable.StorageDevice) など、既にある Windows.Devices のパターンに基づいて作成されています。 データの読み取りと書き込みは、[**定型的なデータ ストリーム パターン**](https://docs.microsoft.com/uwp/api/Windows.Storage.Streams.DataReader)と [**Windows.Storage.Streams**](https://docs.microsoft.com/uwp/api/Windows.Storage.Streams) 内のオブジェクトを有効に活用できるように設計されています。 Service Discovery Protocol (SDP) の属性は、値のほかに、想定されている型を持ちます。 ところが、広く普及しているデバイスの中には、SDP の属性の実装に不備のあるものが存在し、値の型が、想定されている型とは異なる場合があります。 加えて、RFCOMM の多くの用法は、SDP の拡張属性を必要としません。 そのため、この API は、未解析の SDP データへのアクセスを提供し、開発者が必要に応じて情報を取得できるようになっています。
 
 RFCOMM API にはサービス識別子の概念が使われています。 サービス識別子は単なる 128 ビットの GUID ですが、16 ビットまたは 32 ビットの整数として指定されることも少なくありません。 RFCOMM API には、サービス識別子を 128 ビットの GUID としてだけでなく、32 ビットの整数として指定したり利用したりするためのラッパーが用意されていますが、16 ビット整数用のラッパーはありません。 API にとってこの点は問題ではありません。言語が自動的に 32 ビット整数に拡大し、識別子は正しく生成されるためです。
 
@@ -38,14 +43,21 @@ RFCOMM 操作の詳細を示す完全なコード サンプルについては、
 
 ## <a name="send-a-file-as-a-client"></a>クライアントとしてファイルを送信する
 
-ファイルを送信する際の基本的なアプリのシナリオは、必要なサービスに基づいてペアリングされたデバイスに接続することです。 これには、次の手順に従う必要があります。
+ファイルを送信する際の基本的なアプリのシナリオは、必要なサービスに基づいてペアリングされたデバイスに接続することです。 これには、次の手順が含まれます。
 
--   使用して、 **RfcommDeviceService.GetDeviceSelector\*** ペアになっている目的のサービスのデバイスのインスタンスを列挙に使用できる AQS クエリの作成を支援する関数。
--   列挙されたデバイスを選んで [**RfcommDeviceService**](https://docs.microsoft.com/uwp/api/Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceService) を作成し、適宜 SDP 属性を読み取ります ([**established data helpers**](https://docs.microsoft.com/uwp/api/Windows.Storage.Streams.DataReader) を使って属性のデータを解析します)。
--   ソケットを作成して、[**RfcommDeviceService.ConnectionHostName**](https://docs.microsoft.com/uwp/api/windows.devices.bluetooth.rfcomm.rfcommdeviceservice.connectionhostname) と [**RfcommDeviceService.ConnectionServiceName**](https://docs.microsoft.com/uwp/api/windows.devices.bluetooth.rfcomm.rfcommdeviceservice.connectionservicename) プロパティを [**StreamSocket.ConnectAsync**](https://docs.microsoft.com/uwp/api/windows.networking.sockets.streamsocket.connectasync) に渡し、適切なパラメーターでリモート デバイス サービスに接続します。
--   定型的なデータ ストリーム パターンに従って、ファイルからデータのチャンクを読み取り、ソケットの [**StreamSocket.OutputStream**](https://docs.microsoft.com/uwp/api/windows.networking.sockets.streamsocket.outputstream) でデバイスに送信します。
+- 必要なサービスのペアリングされたデバイスインスタンスを列挙するために使用できる AQS クエリを生成するには、 **Rfcommdeviceservice の GetDeviceSelector \* **関数を使用します。
+- 列挙されたデバイスを選んで [**RfcommDeviceService**](https://docs.microsoft.com/uwp/api/Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceService) を作成し、適宜 SDP 属性を読み取ります ([**established data helpers**](https://docs.microsoft.com/uwp/api/Windows.Storage.Streams.DataReader) を使って属性のデータを解析します)。
+- ソケットを作成して、[**RfcommDeviceService.ConnectionHostName**](https://docs.microsoft.com/uwp/api/windows.devices.bluetooth.rfcomm.rfcommdeviceservice.connectionhostname) と [**RfcommDeviceService.ConnectionServiceName**](https://docs.microsoft.com/uwp/api/windows.devices.bluetooth.rfcomm.rfcommdeviceservice.connectionservicename) プロパティを [**StreamSocket.ConnectAsync**](https://docs.microsoft.com/uwp/api/windows.networking.sockets.streamsocket.connectasync) に渡し、適切なパラメーターでリモート デバイス サービスに接続します。
+- 定型的なデータ ストリーム パターンに従って、ファイルからデータのチャンクを読み取り、ソケットの [**StreamSocket.OutputStream**](https://docs.microsoft.com/uwp/api/windows.networking.sockets.streamsocket.outputstream) でデバイスに送信します。
 
 ```csharp
+using System;
+using System.Threading.Tasks;
+using Windows.Devices.Bluetooth.Rfcomm;
+using Windows.Networking.Sockets;
+using Windows.Storage.Streams;
+using Windows.Devices.Bluetooth;
+
 Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceService _service;
 Windows.Networking.Sockets.StreamSocket _socket;
 
@@ -62,8 +74,10 @@ async void Initialize()
         // Initialize the target Bluetooth BR device
         var service = await RfcommDeviceService.FromIdAsync(services[0].Id);
 
+        bool isCompatibleVersion = await IsCompatibleVersionAsync(service);
+
         // Check that the service meets this App's minimum requirement
-        if (SupportsProtection(service) && IsCompatibleVersion(service))
+        if (SupportsProtection(service) && isCompatibleVersion)
         {
             _service = service;
 
@@ -76,7 +90,7 @@ async void Initialize()
                     .BluetoothEncryptionAllowNullAuthentication);
 
             // The socket is connected. At this point the App can wait for
-            // the user to take some action, e.g. click a button to send a
+            // the user to take some action, for example, click a button to send a
             // file to the device, which could invoke the Picker and then
             // send the picked file. The transfer itself would use the
             // Sockets API and not the Rfcomm API, and so is omitted here for
@@ -91,27 +105,27 @@ bool SupportsProtection(RfcommDeviceService service)
 {
     switch (service.ProtectionLevel)
     {
-    case SocketProtectionLevel.PlainSocket:
-        if ((service.MaxProtectionLevel == SocketProtectionLevel
-                .BluetoothEncryptionWithAuthentication)
-            || (service.MaxProtectionLevel == SocketProtectionLevel
-                .BluetoothEncryptionAllowNullAuthentication))
-        {
-            // The connection can be upgraded when opening the socket so the
-            // App may offer UI here to notify the user that Windows may
-            // prompt for a PIN exchange.
+        case SocketProtectionLevel.PlainSocket:
+            if ((service.MaxProtectionLevel == SocketProtectionLevel
+                    .BluetoothEncryptionWithAuthentication)
+                || (service.MaxProtectionLevel == SocketProtectionLevel
+                    .BluetoothEncryptionAllowNullAuthentication))
+            {
+                // The connection can be upgraded when opening the socket so the
+                // App may offer UI here to notify the user that Windows may
+                // prompt for a PIN exchange.
+                return true;
+            }
+            else
+            {
+                // The connection cannot be upgraded so an App may offer UI here
+                // to explain why a connection won't be made.
+                return false;
+            }
+        case SocketProtectionLevel.BluetoothEncryptionWithAuthentication:
             return true;
-        }
-        else
-        {
-            // The connection cannot be upgraded so an App may offer UI here
-            // to explain why a connection won't be made.
-            return false;
-        }
-    case SocketProtectionLevel.BluetoothEncryptionWithAuthentication:
-        return true;
-    case SocketProtectionLevel.BluetoothEncryptionAllowNullAuthentication:
-        return true;
+        case SocketProtectionLevel.BluetoothEncryptionAllowNullAuthentication:
+            return true;
     }
     return false;
 }
@@ -120,10 +134,10 @@ bool SupportsProtection(RfcommDeviceService service)
 const uint SERVICE_VERSION_ATTRIBUTE_ID = 0x0300;
 const byte SERVICE_VERSION_ATTRIBUTE_TYPE = 0x0A;   // UINT32
 const uint MINIMUM_SERVICE_VERSION = 200;
-bool IsCompatibleVersion(RfcommDeviceService service)
+async Task<bool> IsCompatibleVersionAsync(RfcommDeviceService service)
 {
     var attributes = await service.GetSdpRawAttributesAsync(
-        BluetothCacheMode.Uncached);
+        BluetoothCacheMode.Uncached);
     var attribute = attributes[SERVICE_VERSION_ATTRIBUTE_ID];
     var reader = DataReader.FromBuffer(attribute);
 
@@ -135,6 +149,7 @@ bool IsCompatibleVersion(RfcommDeviceService service)
         uint version = reader.ReadUInt32();
         return version >= MINIMUM_SERVICE_VERSION;
     }
+    else return false;
 }
 ```
 
@@ -176,7 +191,7 @@ Windows::Foundation::IAsyncAction Initialize()
                 Windows::Networking::Sockets::SocketProtectionLevel::BluetoothEncryptionAllowNullAuthentication);
 
             // The socket is connected. At this point the App can
-            // wait for the user to take some action, e.g. click
+            // wait for the user to take some action, for example, click
             // a button to send a file to the device, which could
             // invoke the Picker and then send the picked file.
             // The transfer itself would use the Sockets API and
@@ -276,7 +291,7 @@ void Initialize()
                     .then([](void)
                     {
                         // The socket is connected. At this point the App can
-                        // wait for the user to take some action, e.g. click
+                        // wait for the user to take some action, for example, click
                         // a button to send a file to the device, which could
                         // invoke the Picker and then send the picked file.
                         // The transfer itself would use the Sockets API and
@@ -346,11 +361,11 @@ bool IsCompatibleVersion(RfcommDeviceService^ service)
 
 RFCOMM アプリのシナリオとしては、サービスを PC でホストし、他のデバイスに対して公開するケースも一般的です。
 
--   [  **RfcommServiceProvider**](https://docs.microsoft.com/uwp/api/Windows.Devices.Bluetooth.Rfcomm.RfcommServiceProvider) を作成して必要なサービスをアドバタイズします。
--   SDP 属性を適宜設定 ([**established data helpers**](https://docs.microsoft.com/uwp/api/Windows.Storage.Streams.DataReader) を使って属性のデータを生成) し、その SDP レコードを他のデバイスが検索できるようにアドバタイズします。
--   クライアント デバイスに接続するには、ソケット リスナーを作成して、着信接続要求のリッスンを開始します。
--   接続を受信したら、接続済みのソケットを後続の処理のために保存します。
--   定型的なデータ ストリーム パターンに従って、ソケットの InputStream からデータのチャンクを読み取り、ファイルに保存します。
+- [**RfcommServiceProvider**](https://docs.microsoft.com/uwp/api/Windows.Devices.Bluetooth.Rfcomm.RfcommServiceProvider) を作成して必要なサービスをアドバタイズします。
+- SDP 属性を適宜設定 ([**established data helpers**](https://docs.microsoft.com/uwp/api/Windows.Storage.Streams.DataReader) を使って属性のデータを生成) し、その SDP レコードを他のデバイスが検索できるようにアドバタイズします。
+- クライアント デバイスに接続するには、ソケット リスナーを作成して、着信接続要求のリッスンを開始します。
+- 接続を受信したら、接続済みのソケットを後続の処理のために保存します。
+- 定型的なデータ ストリーム パターンに従って、ソケットの InputStream からデータのチャンクを読み取り、ファイルに保存します。
 
 バックグラウンドで RFCOMM サービスを保持するために、[**RfcommConnectionTrigger**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.rfcommconnectiontrigger) を使います。 サービスに接続されたら、バックグラウンド タスクがトリガーされます。 開発者は、バックグラウンド タスクでソケットへのハンドルを受け取ります。 バックグラウンド タスクは実行に時間がかかり、ソケットが使用中である限り保持されます。    
 
@@ -360,12 +375,13 @@ Windows.Devices.Bluetooth.Rfcomm.RfcommServiceProvider _provider;
 async void Initialize()
 {
     // Initialize the provider for the hosted RFCOMM service
-    _provider = await Windows.Devices.Bluetooth.
-        RfcommServiceProvider.CreateAsync(RfcommServiceId.ObexObjectPush);
+    _provider =
+        await Windows.Devices.Bluetooth.Rfcomm.RfcommServiceProvider.CreateAsync(
+            RfcommServiceId.ObexObjectPush);
 
     // Create a listener for this service and start listening
     StreamSocketListener listener = new StreamSocketListener();
-    listener.ConnectionReceived += OnConnectionReceived;
+    listener.ConnectionReceived += OnConnectionReceivedAsync;
     await listener.BindServiceNameAsync(
         _provider.ServiceId.AsString(),
         SocketProtectionLevel
@@ -379,30 +395,31 @@ async void Initialize()
 const uint SERVICE_VERSION_ATTRIBUTE_ID = 0x0300;
 const byte SERVICE_VERSION_ATTRIBUTE_TYPE = 0x0A;   // UINT32
 const uint SERVICE_VERSION = 200;
+
 void InitializeServiceSdpAttributes(RfcommServiceProvider provider)
 {
-    auto writer = new Windows.Storage.Streams.DataWriter();
+    Windows.Storage.Streams.DataWriter writer = new Windows.Storage.Streams.DataWriter();
 
     // First write the attribute type
     writer.WriteByte(SERVICE_VERSION_ATTRIBUTE_TYPE);
     // Then write the data
-    writer.WriteUInt32(SERVICE_VERSION);
+    writer.WriteUInt32(MINIMUM_SERVICE_VERSION);
 
-    auto data = writer.DetachBuffer();
+    IBuffer data = writer.DetachBuffer();
     provider.SdpRawAttributes.Add(SERVICE_VERSION_ATTRIBUTE_ID, data);
 }
 
-void OnConnectionReceived(
+void OnConnectionReceivedAsync(
     StreamSocketListener listener,
     StreamSocketListenerConnectionReceivedEventArgs args)
 {
     // Stop advertising/listening so that we're only serving one client
     _provider.StopAdvertising();
-    await listener.Close();
+    listener.Dispose();
     _socket = args.Socket;
 
     // The client socket is connected. At this point the App can wait for
-    // the user to take some action, e.g. click a button to receive a file
+    // the user to take some action, for example, click a button to receive a file
     // from the device, which could invoke the Picker and then save the
     // received file to the picked location. The transfer itself would use
     // the Sockets API and not the Rfcomm API, and so is omitted here for
@@ -466,7 +483,7 @@ void OnConnectionReceived(
     m_socket = args.Socket();
 
     // The client socket is connected. At this point the application can wait for
-    // the user to take some action, e.g. click a button to receive a
+    // the user to take some action, for example, click a button to receive a
     // file from the device, which could invoke the Picker and then save
     // the received file to the picked location. The transfer itself
     // would use the Sockets API and not the Rfcomm API, and so is
@@ -532,7 +549,7 @@ void OnConnectionReceived(
         _socket = args->Socket;
 
         // The client socket is connected. At this point the App can wait for
-        // the user to take some action, e.g. click a button to receive a
+        // the user to take some action, for example, click a button to receive a
         // file from the device, which could invoke the Picker and then save
         // the received file to the picked location. The transfer itself
         // would use the Sockets API and not the Rfcomm API, and so is

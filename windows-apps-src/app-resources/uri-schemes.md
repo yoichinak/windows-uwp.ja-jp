@@ -6,12 +6,12 @@ ms.date: 10/16/2017
 ms.topic: article
 keywords: Windows 10, UWP, リソース, 画像, アセット, MRT, 修飾子
 ms.localizationpriority: medium
-ms.openlocfilehash: f199d70fc9194f211533820a7b23e20de929752d
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 8627bd7f9f405509cb1bff40d94f10552241f4ce
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66359339"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74254597"
 ---
 # <a name="uri-schemes"></a>URI スキーム
 
@@ -19,9 +19,9 @@ ms.locfileid: "66359339"
 
 ## <a name="common-features-of-the-uri-schemes"></a>URI スキームの一般的な機能
 
-このトピックで説明しているスキームはすべて、正規化とリソース取得について一般的な URI スキーム規則に従っています。 URI の一般的な構文については、[RFC 3986](https://go.microsoft.com/fwlink/p/?LinkId=263444) をご覧ください。
+このトピックで説明しているスキームはすべて、正規化とリソース取得について一般的な URI スキーム規則に従っています。 URI の一般的な構文については、[RFC 3986](https://www.ietf.org/rfc/rfc3986.txt) をご覧ください。
 
-すべての URI スキームでは [RFC 3986](https://go.microsoft.com/fwlink/p/?LinkId=263444) に従い、URI の機関コンポーネントおよびパス コンポーネントとして階層部分を定義しています。
+すべての URI スキームでは [RFC 3986](https://www.ietf.org/rfc/rfc3986.txt) に従い、URI の機関コンポーネントおよびパス コンポーネントとして階層部分を定義しています。
 
 ```syntax
 URI         = scheme ":" hier-part [ "?" query ] [ "#" fragment ]
@@ -41,7 +41,7 @@ hier-part   = "//" authority path-abempty
 
 このトピックで説明している URI スキームはすべて、スキームの正規化とリソース取得について一般的な URI 規則 (RFC 3986) に従っています。 これらの URI の正規化された形式では、大文字と小文字が保持され、RFC 3986 の非予約文字がパーセントデコードされます。
 
-このトピックで説明されているすべての URI スキームでは、標準では*スキーム*、*機関*、および*パス*の大文字と小文字が区別されません。それ以外でも、大文字と小文字を区別せずシステムによって処理されます。 **注** そのルールの唯一の例外は、`ms-resource` の*機関*で、大文字と小文字が区別されます。
+このトピックで説明されているすべての URI スキームでは、標準では*スキーム*、*機関*、および*パス*の大文字と小文字が区別されません。それ以外でも、大文字と小文字を区別せずシステムによって処理されます。 **注** そのルールの唯一の例外は、 *の*機関`ms-resource`で、大文字と小文字が区別されます。
 
 ## <a name="ms-appx-and-ms-appx-web"></a>ms-appx と ms-appx-web
 
@@ -112,7 +112,7 @@ ms-appx:///images/logo.png
 
 パス コンポーネント `ms-appx(-web)` では、一般的な URI と同様、大文字と小文字が区別されます。 ただし、リソースにアクセスする基になるファイル システムが大文字と小文字を区別しない場合 (NTFS など)、リソースの取得は大文字と小文字の区別なく実行されます。
 
-正規化された URI 形式では大文字と小文字が保持され、RFC 3986 の非予約文字がパーセントデコードされます ("%" 記号の後に 2 桁の 16 進数表現)。 "?"、"#"、"/"、"*"、'”' (二重引用符) の各文字は、ファイル名やフォルダー名などのデータを示すパス内でパーセントエンコードする必要があります。 パーセントエンコードされたすべての文字は、取得前にデコードされます。 したがって、Hello#World.html という名前のファイルを取得するには、この URI を使用します。
+正規化された URI 形式では大文字と小文字が保持され、RFC 3986 の非予約文字がパーセントデコードされます ("%" 記号の後に 2 桁の 16 進数表現)。 文字 "?"、"#"、"/"、"*"、および "" (二重引用符) は、ファイル名やフォルダー名などのデータを表すパスでパーセントエンコードする必要があります。 パーセントエンコードされたすべての文字は、取得前にデコードされます。 したがって、Hello#World.html という名前のファイルを取得するには、この URI を使用します。
 
 ```xml
 ms-appx:///Hello%23World.html
@@ -185,7 +185,7 @@ ms-appdata:///roaming/
 
 パス コンポーネント `ms-appdata` では、一般的な URI と同様、大文字と小文字が区別されます。 ただし、リソースにアクセスする基になるファイル システムが大文字と小文字を区別しない場合 (NTFS など)、リソースの取得は大文字と小文字の区別なく実行されます。
 
-正規化された URI 形式では大文字と小文字が保持され、RFC 3986 の非予約文字がパーセントデコードされます ("%" 記号の後に 2 桁の 16 進数表現)。 "?"、"#"、"/"、"*"、'”' (二重引用符) の各文字は、ファイル名やフォルダー名などのデータを示すパス内でパーセントエンコードする必要があります。 パーセントエンコードされたすべての文字は、取得前にデコードされます。 したがって、Hello#World.html という名前のローカル ファイルを取得するには、この URI を使用します。
+正規化された URI 形式では大文字と小文字が保持され、RFC 3986 の非予約文字がパーセントデコードされます ("%" 記号の後に 2 桁の 16 進数表現)。 文字 "?"、"#"、"/"、"*"、および "" (二重引用符) は、ファイル名やフォルダー名などのデータを表すパスでパーセントエンコードする必要があります。 パーセントエンコードされたすべての文字は、取得前にデコードされます。 したがって、Hello#World.html という名前のローカル ファイルを取得するには、この URI を使用します。
 
 ```xml
 ms-appdata://local/Hello%23World.html
@@ -253,9 +253,9 @@ ms-resource://john:password@contoso.myapp:8080/Resources/String1
 
 例と詳しい情報については、「[UI とアプリ パッケージ マニフェスト内の文字列をローカライズする](localize-strings-ui-manifest.md)」と「[言語、スケール、ハイ コントラストに合わせたタイルとトースト通知のサポート](../design/shell/tiles-and-notifications/tile-toast-language-scale-contrast.md)」をご覧ください。
 
-パス コンポーネント `ms-resource` では、一般的な URI と同様、大文字と小文字が区別されます。 ただし、基になる検索が、 [CompareStringOrdinal](https://docs.microsoft.com/windows/desktop/api/winstring/nf-winstring-windowscomparestringordinal)で*ignoreCase*設定`true`します。
+パス コンポーネント `ms-resource` では、一般的な URI と同様、大文字と小文字が区別されます。 ただし、基になる取得では、 *ignoreCase*が `true`に設定された[comparestringordinal](https://docs.microsoft.com/windows/desktop/api/winstring/nf-winstring-windowscomparestringordinal)が使用されます。
 
-正規化された URI 形式では大文字と小文字が保持され、RFC 3986 の非予約文字がパーセントデコードされます ("%" 記号の後に 2 桁の 16 進数表現)。 "?"、"#"、"/"、"*"、'”' (二重引用符) の各文字は、ファイル名やフォルダー名などのデータを示すパス内でパーセントエンコードする必要があります。 パーセントエンコードされたすべての文字は、取得前にデコードされます。 したがって、という名前のリソース ファイルから文字列リソースを取得する`Hello#World.resw`、この URI を使用します。
+正規化された URI 形式では大文字と小文字が保持され、RFC 3986 の非予約文字がパーセントデコードされます ("%" 記号の後に 2 桁の 16 進数表現)。 文字 "?"、"#"、"/"、"*"、および "" (二重引用符) は、ファイル名やフォルダー名などのデータを表すパスでパーセントエンコードする必要があります。 パーセントエンコードされたすべての文字は、取得前にデコードされます。 したがって、`Hello#World.resw`という名前のリソースファイルから文字列リソースを取得するには、この URI を使用します。
 
 ```xml
 ms-resource:///Hello%23World/String1
@@ -269,10 +269,10 @@ ms-resource:///Hello%23World/String1
 
 ## <a name="related-topics"></a>関連トピック
 
-* [Uniform Resource Identifier (URI):一般的な構文](https://go.microsoft.com/fwlink/p/?LinkId=263444)
+* [Uniform Resource Identifier (URI): ジェネリック構文](https://www.ietf.org/rfc/rfc3986.txt)
 * [アプリのパッケージ化](../packaging/index.md)
-* [XAML マークアップとコードから、イメージやその他の資産を参照します。](images-tailored-for-scale-theme-contrast.md#reference-an-image-or-other-asset-from-xaml-markup-and-code)
+* [XAML マークアップとコードからイメージまたはその他のアセットを参照する](images-tailored-for-scale-theme-contrast.md#reference-an-image-or-other-asset-from-xaml-markup-and-code)
 * [設定と他のアプリ データを保存して取得する](../design/app-settings/store-and-retrieve-app-data.md)
 * [UI とアプリ パッケージ マニフェスト内の文字列をローカライズする](localize-strings-ui-manifest.md)
 * [リソース管理システム](https://docs.microsoft.com/previous-versions/windows/apps/jj552947(v=win.10))
-* [言語、スケール、およびハイ コントラストのタイルとトースト通知のサポート](../design/shell/tiles-and-notifications/tile-toast-language-scale-contrast.md)
+* [言語、スケール、およびハイコントラストに対するタイルとトースト通知のサポート](../design/shell/tiles-and-notifications/tile-toast-language-scale-contrast.md)

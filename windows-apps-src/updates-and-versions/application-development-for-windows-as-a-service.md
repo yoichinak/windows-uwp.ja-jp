@@ -6,18 +6,18 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: f384ca56-f2b2-4793-b251-f7f5735376bb
 ms.localizationpriority: medium
-ms.openlocfilehash: 478c4a16902329e1dd9267e0339dca0e0dcf3539
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 47be38c6d7a5374b06789beede02647ef9b264d8
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67321967"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "75737635"
 ---
 # <a name="application-development-for-windows-as-a-service"></a>サービスとしての Windows アプリケーション開発
 
 **適用対象**
 -   Windows 10
--   Windows 10 Mobile
+-   Windows 10 Mobile
 -   Windows 10 IoT Core 
 
 現在の環境では、ユーザーはデバイス中心のエクスペリエンスで期待を抱くことが多いため、完全な製品サイクルを年ではなく月で測定する必要があります。 また、新しいリリースは頻繁に入手可能にする必要があり、ユーザーへの影響を最小限に抑えて展開できる必要があります。 Microsoft は革新、開発、配信のための新しいアプローチを実装することで、これらの要件を満たすように Windows 10 を設計しました。このアプローチは、[サービスとしての Windows (WaaS)](https://docs.microsoft.com/windows/deployment/update/waas-overview) と呼ばれます。 高い品質レベルを維持しながら、非常に短い製品サイクルを実現するためにキーとなるのは、Microsoft が Windows 10 向けに実装したテストに対するコミュニティ中心の革新的なアプローチです。 Windows Insider として知られるこのコミュニティは、世界中の何百万ものユーザーで構成されています。 Windows Insider ユーザーはコミュニティにオプトインすると、製品サイクルの経過と共に数多くのビルドをテストし、Insider プレビュー ビルドという反復的な方法で Microsoft にフィードバックを提供します。
@@ -40,7 +40,7 @@ Windows 10 の開発時、ユーザーが求める機能やエクスペリエ�
 | --- | --- | --- | --- | --- |
 | 半期チャネル (対象指定) | Microsoft が最初に発行した直後 | 18 か月 | できるだけ早く新機能をユーザーに利用可能にする | Home、Pro、Education、Enterprise、Mobile、IoT Core、Windows 10 IoT Core Pro (IoT Core Pro) |
 | 半期チャネル | Microsoft が最初に発行してから約 4 か月後 | 最初に発行してから 18 か月 | 展開の前に新しい機能アップグレードをテストするための追加時間を提供する | Pro、Education、Enterprise、Mobile Enterprise、IoT Core Pro |
-| 長期的なサービス チャネル (LTSC) | Microsoft が発行した直後 | 10 年 | 低料金構成で選択された Windows 10 リリースの長期的な展開を可能にする | エンタープライズ LTSB |
+| 長期的なサービス チャネル (LTSC) | Microsoft が発行した直後 | 10 年 | 低料金構成で選択された Windows 10 リリースの長期的な展開を可能にする | Enterprise LTSB |
 
 詳しくは、「[更新とアップグレードに関する Windows 10 のサービス オプション](https://docs.microsoft.com/windows/deployment/update/waas-overview#servicing-channels)」をご覧ください。
 
@@ -50,7 +50,7 @@ Windows 10 の開発時、ユーザーが求める機能やエクスペリエ�
 
 サービスとしての Windows のモデルで、Microsoft は基になる OS の互換性の維持に取り組んでいます。 そのため Microsoft は、仕様変更によってアプリのエコシステムに悪影響が出ないように、一致協力して取り組んでいきます。 このシナリオでは、Windows ビルドがリリースされた場合、ほとんどのアプリ (カーネルに依存しないアプリ) は引き続き動作します。
 
-この変更の観点から、ISV パートナーの皆様には、アプリのリリースとサポートを特定の Windows ビルドから切り離すことをお勧めします。 アプリケーション ライフサイクルのアプローチを使用すると、Microsoft と ISV パートナーの共通のお客様に対するサービスが向上します。 つまり、アプリケーションのバージョンがリリースされると、このバージョンは特定の期間サポートされます。これはその間に多くの Windows ビルドがリリースされても関係ありません。 ISV は、そのアプリの特定のバージョンがライフサイクルでサポートされている限り、サポートを提供します。 Microsoft は、Windows について同様のライフサイクル アプローチに従っています。[こちら](https://go.microsoft.com/fwlink/?LinkID=780549)をご覧ください。
+この変更の観点から、ISV パートナーの皆様には、アプリのリリースとサポートを特定の Windows ビルドから切り離すことをお勧めします。 アプリケーション ライフサイクルのアプローチを使用すると、Microsoft と ISV パートナーの共通のお客様に対するサービスが向上します。 つまり、アプリケーションのバージョンがリリースされると、このバージョンは特定の期間サポートされます。これはその間に多くの Windows ビルドがリリースされても関係ありません。 ISV は、そのアプリの特定のバージョンがライフサイクルでサポートされている限り、サポートを提供します。 Microsoft は、Windows について同様のライフサイクル アプローチに従っています。[こちら](https://support.microsoft.com/hub/4095338/microsoft-lifecycle-policy?C2=14019)をご覧ください。
 
 このアプローチでは、Windows のリリースに合わせてアプリのスケジュールを維持せずに済むため、負担が軽減されます。 ISV パートナーは、独自の間隔で機能更新プログラムや品質更新プログラムを自由にリリースできます。 Microsoft は、パートナーが Windows のリリースに依存することなく、それぞれの顧客ベースを最新のアプリ更新プログラムによって継続的に更新できると考えています。 さらに、Windows ビルドがリリースされるたびに、お客様が明示的にサポート ステートメントを探す必要はなくなります。 OS の異なるバージョン間でアプリがどのようにサポートされるかを説明するサポート ステートメントの例を次に示します。
 
@@ -77,7 +77,7 @@ Microsoft は、診断データと使用状況データを、問題の特定と�
 
 以下のセクションでは、アプリと Windows 10 の互換性を確保するために、Microsoft がお勧めするベスト プラクティスをいくつか紹介します。
 
-### <a name="windows-version-check"></a>Windows のバージョン チェック
+### <a name="windows-version-check"></a>Windows バージョン確認
 
 Windows 10 で OS のバージョンがインクリメントされています。 つまり、内部バージョン番号が 10.0 に変更されています。 Microsoft はこれまでと同様に、OS のバージョン変更後のアプリケーションとデバイスの互換性を維持するために全力を尽くしています。 ほとんどのアプリ カテゴリ (カーネルに依存しない) では、変更によってアプリの機能への悪影響はなく、既存のアプリは Windows 10 で正しく動作します。
 
@@ -90,7 +90,7 @@ Windows 10 で OS のバージョンがインクリメントされています�
 -   アプリが特定の API 機能に依存している場合は、正しい API バージョンをターゲットにしてください。
 -   APISet または別のパブリック API を使用して変更を検出し、そのバージョンは機能や修正プログラムのプロキシとして使用しないでください。 仕様変更があり、しかも適切なチェックが公開されていない場合、それはバグです。
 -   アプリがその他の方法 (レジストリ、ファイルのバージョン、オフセット、カーネル モード、ドライバーなどの方法) でバージョン チェックを行わないことを確認します。 アプリでどうしてもバージョンを確認する必要がある場合は、メジャー番号、マイナー番号、およびビルド番号を返す GetVersion API を使用します。
--   [GetVersion](https://go.microsoft.com/fwlink/?LinkID=780555) API を使用している場合は、この API の動作が Windows 8.1 以降に変更されていることにご注意ください。
+-   [GetVersion](https://docs.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-getversion?redirectedfrom=MSDN) API を使用している場合は、この API の動作が Windows 8.1 以降に変更されていることにご注意ください。
 
 マルウェア対策やファイアウォール アプリなどのアプリを所有している場合は、通常のフィードバックのチャンネルを通じて、または Windows Insider プログラムから対応してください。
 
@@ -100,9 +100,9 @@ Windows 10 で OS のバージョンがインクリメントされています�
 
 ### <a name="develop-universal-windows-platform-uwp-and-centennial-apps"></a>ユニバーサル Windows プラットフォーム (UWP) アプリおよび Centennial アプリの開発
 
-すべての Win32 アプリの ISV に、今後は[ユニバーサル Windows プラットフォーム (UWP)](https://go.microsoft.com/fwlink/?LinkID=780560) アプリ、中でも特に [Centennial](https://go.microsoft.com/fwlink/?LinkID=780562) アプリを開発することをお勧めします。 従来の Win32 インストーラーを使用するのではなく、これらのアプリ パッケージを開発することには大きな利点があります。 UWP アプリは [Microsoft Store](https://go.microsoft.com/fwlink/?LinkID=780563)でもサポートされているため、一貫した同じバージョンにユーザーを自動的に更新することが簡単にできるようになりました。これにより、サポートのコストを削減できます。
+すべての Win32 アプリの ISV に、今後は[ユニバーサル Windows プラットフォーム (UWP)](https://blogs.windows.com/windowsdeveloper/2016/02/25/an-update-on-the-developer-opportunity-and-windows-10/) アプリ、中でも特に [Centennial](https://channel9.msdn.com/Events/Build/2015/2-692) アプリを開発することをお勧めします。 従来の Win32 インストーラーを使用するのではなく、これらのアプリ パッケージを開発することには大きな利点があります。 UWP アプリは [Microsoft Store](https://blogs.windows.com/windowsdeveloper/2016/02/04/windows-store-trends-february-2016/)でもサポートされているため、一貫した同じバージョンにユーザーを自動的に更新することが簡単にできるようになりました。これにより、サポートのコストを削減できます。
 
-Win32 アプリの種類が Centennial モデルで動作しない場合は、適切なインストーラーを使用し、これが完全にテストされていることを確認します。 インストーラーは、ユーザーまたはお客様が体験するアプリの最初のエクスペリエンスであるため、適切に動作するようにします。 これが十分に動作しなかったり、すべてのシナリオに対して完全にテストされていなかったりすることがよくあります。 [Windows アプリ認定キット](https://go.microsoft.com/fwlink/?LinkID=780565)を使用すると、ユーザーよりも前に、Win32 アプリのインストールとアンインストールを試し、文書化されていない API を使用していないことを確認できます。また、パフォーマンスに関連した他の基本的なベスト プラクティスの問題がないかも確認できます。
+Win32 アプリの種類が Centennial モデルで動作しない場合は、適切なインストーラーを使用し、これが完全にテストされていることを確認します。 インストーラーは、ユーザーまたはお客様が体験するアプリの最初のエクスペリエンスであるため、適切に動作するようにします。 これが十分に動作しなかったり、すべてのシナリオに対して完全にテストされていなかったりすることがよくあります。 [Windows アプリ認定キット](https://developer.microsoft.com/windows/develop/app-certification-kit)を使用すると、ユーザーよりも前に、Win32 アプリのインストールとアンインストールを試し、文書化されていない API を使用していないことを確認できます。また、パフォーマンスに関連した他の基本的なベスト プラクティスの問題がないかも確認できます。
 
 **ベスト プラクティス:**
 -   32 ビットと 64 ビットの両方のバージョンの Windows で動作するインストーラーを使用します。
@@ -117,7 +117,7 @@ Windows OS のフライティングは、一般ユーザーに最終ビルドが
 アプリがストアに登録されている場合は、ストアを通してアプリのフライティングを行うことができます。つまり、Windows Insider カタログからアプリを選んでインストールできるようになります。 ユーザーにアプリをインストールしてもらい、一般リリースの前にアプリについて予備的なフィードバックを受け取ることができます。 以下のセクションでは、フライティング後の Windows ビルドに対してアプリをテストする手順の概要を示します。
 
 ### <a name="step-1-become-a-windows-insider-and-participate-in-flighting"></a>手順 1:Windows Insider に参加してフライティングに参加する
-[Windows Insider](https://go.microsoft.com/fwlink/p/?LinkId=521639) に登録して Windows の将来像を形作るためにご協力ください。皆様からのフィードバックは、プラットフォームの機能向上に役立てられます。 この活発なコミュニティで熱意のある他のユーザーと交流できます。フォーラムに参加して互いにアドバイスし合ったり、Insider 参加者限定イベントの予定を把握したりできます。
+[Windows Insider](https://insider.windows.com/) に登録して Windows の将来像を形作るためにご協力ください。皆様からのフィードバックは、プラットフォームの機能向上に役立てられます。 この活発なコミュニティで熱意のある他のユーザーと交流できます。フォーラムに参加して互いにアドバイスし合ったり、Insider 参加者限定イベントの予定を把握したりできます。
 
 Windows 10、Windows 10 Mobile、最新の Windows SDK とエミュレーターのプレビュー ビルドにアクセスできるため、優れたアプリの開発に自由に使用できるあらゆるツールを手にすることができます。また、ユニバーサル Windows プラットフォームと Microsoft Store の新着情報を探すこともできます。
 
@@ -150,14 +150,12 @@ Windows Insider に登録する前に、参加するユーザーについて次�
 -   ペン (シングル\\ダブルタップ、プッシュ、長押し、消しゴムなど)
 -   印刷\\スキャン
 -   センサー (加速度計、フュージョン センサーなど)
--   Camera
+-   カメラ
 
-### <a name="step-3-provide-feedback"></a>手順 3:フィードバックの提供
+### <a name="step-3-provide-feedback"></a>手順 3:ご意見とご感想
 
 フライティング後のビルドに対してアプリが動作するかどうかをお知らせください。 テスト中にアプリで問題が見つかった場合、パートナー ポータルにアクセスできる場合はパートナー ポータルにログを登録してください。または、Microsoft の担当者にお伝えください。 ユーザー向けの高品質なエクスペリエンスを協力して構築するために、情報をお寄せください。
 
-### <a name="step-4-register-on-ready-for-windows"></a>手順 4:Ready For Windows に登録する
-[Ready for Windows](https://go.microsoft.com/fwlink/?LinkID=780580) の Web サイトには、Windows 10 に対応したソフトウェアが登録されています。 Windows 10 の導入を検討している世界中の企業や組織の IT 管理者向けです。 IT 管理者はこのサイトをチェックして、エンタープライズに導入したソフトウェアが Windows 10 でサポートされているかどうかを確認できます。
 
 ## <a name="related-topics"></a>関連トピック
 [更新プログラムおよびアップグレードに関する Windows 10 のサービス オプション](https://docs.microsoft.com/windows/manage/introduction-to-windows-10-servicing)

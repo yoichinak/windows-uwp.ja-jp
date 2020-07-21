@@ -1,40 +1,38 @@
 ---
 description: コンテンツをユーザーに理解しやすくするための、アプリにおける文字体裁の使用方法について説明します。
-title: UWP アプリの文字体裁
+title: Windows アプリの文字体裁
 ms.date: 04/06/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 76196add0829dcfa0aa638a2d8ae6995fafce69e
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 3a5b6df7a5d8333e0f4834c256a38fc912f8f51e
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63820600"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970627"
 ---
-# <a name="typography"></a>文字体裁
+# <a name="typography-in-windows-apps"></a>Windows アプリの文字体裁
 
 ![ヒーロー イメージ](images/header-typography.svg)
 
-言語の視覚的表現である文字体裁において、何よりも重要な役割は情報を伝達することです。 スタイルによってその目的が邪魔されてはなりません。 この記事では、ユーザーが簡単かつ効率的にコンテンツを理解できるように、UWP アプリで文字体裁のスタイルを決定する方法について説明します。
+言語の視覚的表現である文字体裁において、何よりも重要な役割は情報を伝達することです。 スタイルによってその目的が邪魔されてはなりません。 この記事では、ユーザーが簡単かつ効率的にコンテンツを理解できるような Windows アプリの文字体裁のスタイルを決定する方法について説明します。
 
-## <a name="font"></a>Font
+## <a name="font"></a>フォント
 
-アプリ全体で同じフォントを使用してください。UWP アプリの既定のフォントである **Segoe UI** に統一することをお勧めします。 このフォントは、常に最適な読みやすさが維持されるサイズとピクセル密度を備え、システムのコンテンツを清潔で軽快、かつオープンに美しく表示します。
+アプリの UI 全体で同じフォントを使用してください。Windows アプリの既定のフォントである **Segoe UI** に統一することをお勧めします。 このフォントは、常に最適な読みやすさが維持されるサイズとピクセル密度を備え、システムのコンテンツを清潔で軽快、かつオープンに美しく表示します。
 
 ![Segoe UI フォントのサンプル テキスト](images/type/segoe-sample.svg)
 
-アプリで英語以外の言語を表示する場合、または異なるフォントを選択する場合は、「[言語](#Languages)」と「[フォント](#Fonts)」のセクションで、弊社が UWP アプリ向けに推奨するフォントを確認してください。
+アプリで英語以外の言語を表示する場合、または異なるフォントを選択する場合は、「[言語](#languages)」と「[フォント](#fonts)」のセクションで、弊社が Windows アプリ向けに推奨するフォントを確認してください。
 
 :::row:::
     :::column:::
-        ![do](images/do.svg)
-        Pick one font for your UI.
+![推奨](images/do.svg) UI のフォントを統一してください。
     :::column-end:::
     :::column:::
-        ![don't](images/dont.svg)
-        Don't mix multiple fonts.
+![非推奨](images/dont.svg) 複数のフォントを混在させないでください。
     :::column-end:::
 :::row-end:::
 
@@ -48,12 +46,10 @@ UWP アプリのフォント サイズは、すべてのデバイスで自動的
 
 :::row:::
     :::column:::
-        ![do](images/do.svg)
-        Follow the UWP [type ramp](#type-ramp) sizing.
+![推奨](images/do.svg) Windows の[書体見本](#type-ramp)に従います。
     :::column-end:::
     :::column:::
-        ![don't](images/dont.svg)
-        Use a font size smaller than 12 px.
+![非推奨](images/dont.svg) 12 ピクセルよりも小さいフォント サイズを使用しないでください。
     :::column-end:::
 :::row-end:::
 
@@ -61,16 +57,16 @@ UWP アプリのフォント サイズは、すべてのデバイスで自動的
 
 :::row:::
     :::column:::
-        Users rely on visual hierarchy when scanning a page: headers summarize content, and body text provides more detail. To create a clear visual hierarchy in your app, follow the UWP type ramp.
+ユーザーはページを斜め読みするとき、視覚的な階層を手掛かりにしています。見出しは内容を要約し、本文は詳細を説明するものと想定されます。 アプリでわかりやすい視覚的な階層を作成するためには、Windows 書体見本に従ってください。
     :::column-end:::
     :::column:::
-        ![text block styles](images/type/type-hierarchy.svg)
+![テキスト ブロック スタイル](images/type/type-hierarchy.svg)
     :::column-end:::
 :::row-end:::
 
 ### <a name="type-ramp"></a>書体見本
 
-UWP 書体見本は、ユーザーがコンテンツを読みやすいように、ページ上の各書体スタイル間の重要な関係を定めたものです。 すべてのサイズは有効ピクセル単位で示され、UWP アプリが動作するデバイスを問わず、常に最適に表示されるように調整されています。
+Windows 書体見本は、ユーザーがコンテンツを読みやすいように、ページ上の各書体スタイル間の重要な関係を定めたものです。 すべてのサイズは有効ピクセル単位で示され、UWP アプリが動作するデバイスを問わず、常に最適に表示されるように調整されています。
 
 ![書体見本](images/type/type-ramp.png)
 
@@ -78,10 +74,10 @@ UWP 書体見本は、ユーザーがコンテンツを読みやすいように�
 
 :::row:::
     :::column:::
-        You can access levels of the type ramp as XAML [static resources](../controls-and-patterns/xaml-theme-resources.md#the-xaml-type-ramp). The styles follow the `*TextBlockStyle` naming convention.
+各レベルの書体見本は、XAML の[静的リソース](../controls-and-patterns/xaml-theme-resources.md#the-xaml-type-ramp)としてアクセスできます。 これらのスタイルは、`*TextBlockStyle` 名前付け規則に従っています。
     :::column-end:::
     :::column:::
-        ![text block styles](images/type/text-block-type-ramp.svg)
+![テキスト ブロック スタイル](images/type/text-block-type-ramp.svg)
     :::column-end:::
 :::row-end:::
 
@@ -97,16 +93,14 @@ UWP 書体見本は、ユーザーがコンテンツを読みやすいように�
 
 :::row:::
     :::column:::
-        ![do](images/do.svg)
-        Use "Body" for most text.
+![推奨](images/do.svg) ほとんどのテキストには "Body" を使用します。
 
-        Use "Base" for titles when space is constrained.
+スペースに制約がある場合はタイトルに "Base" を使用します。
     :::column-end:::
     :::column:::
-        ![don't](images/dont.svg)
-        Use "Caption" for primary action or any long strings.
+![非推奨](images/dont.svg) プライマリ操作や長い文字列に "Caption" を使用する。
 
-        Use "Header" or "Subheader" if text needs to wrap.
+テキストを折り返す必要がある場合に "Header" や "Subheader" を使用する。
     :::column-end:::
 :::row-end:::
 
@@ -124,12 +118,10 @@ UWP 書体見本は、ユーザーがコンテンツを読みやすいように�
 
 :::row:::
     :::column:::
-        ![do](images/do.svg)
-        Keep to 50–60 letters per line for ease of reading.
+![推奨](images/do.svg) 読みやすさを確保するため、1 行当たり 50 ～ 60 文字の文字カウントを維持します。
     :::column-end:::
     :::column:::
-        ![don't](images/dont.svg)
-        Less than 20 characters or more than 60 characters per line is difficult to read.
+![非推奨](images/dont.svg) 1 行当たりの文字カウントが 20 文字を下回るか 60 文字を超えると読みにくくなります。
     :::column-end:::
 :::row-end:::
 
@@ -145,16 +137,14 @@ UWP 書体見本は、ユーザーがコンテンツを読みやすいように�
 
 :::row:::
     :::column:::
-        ![do](images/do.svg)
-        Clip text, and wrap if multiple lines are enabled.
+![推奨](images/do.svg) テキストをクリップし、複数行を使用できる場合は、行を折り返します。
     :::column-end:::
     :::column:::
-        ![don't](images/dont.svg)
-        Use ellipses to avoid visual clutter.
+![非推奨](images/dont.svg) すっきりと表示するため、省略記号は使用しないでください。
     :::column-end:::
 :::row-end:::
 
-**注意**:表示領域が不明確な場合 (領域が異なる背景色によって明確に表示されていない場合など)、または詳細テキストへのリンクがある場合は、省略記号を使用します。
+**注**:表示領域が不明確な場合 (領域が異なる背景色によって明確に表示されていない場合など)、または詳細テキストへのリンクがある場合は、省略記号を使用します。
 
 ## <a name="languages"></a>言語 
 
@@ -171,7 +161,7 @@ Segoe UI は、英語、ヨーロッパの各言語、ギリシャ語、ヘブ�
 <tr class="header">
 <th align="left">フォント ファミリー</th>
 <th align="left">スタイル</th>
-<th align="left">説明</th>
+<th align="left">メモ</th>
 </tr>
 </thead>
 <tbody>
@@ -203,7 +193,7 @@ Segoe UI は、英語、ヨーロッパの各言語、ギリシャ語、ヘブ�
 <tr class="odd">
 <td align="left" style="font-family: Microsoft YaHei UI;">Microsoft YaHei UI</td>
 <td align="left">標準、太字、細字</td>
-<td align="left">簡体字中国語用のユーザー インターフェイス フォント。</td>
+<td align="left">簡体中国語用のユーザー インターフェイス フォント。</td>
 </tr>
 <tr class="odd">
 <td align="left" style="font-family: Myanmar Text;">Myanmar Text</td>
@@ -244,7 +234,7 @@ Segoe UI は、英語、ヨーロッパの各言語、ギリシャ語、ヘブ�
 <tr class="header">
 <th align="left">フォント ファミリー</th>
 <th align="left">スタイル</th>
-<th align="left">説明</th>
+<th align="left">メモ</th>
 </tr>
 </thead>
 <tbody>
@@ -287,7 +277,7 @@ Segoe UI は、英語、ヨーロッパの各言語、ギリシャ語、ヘブ�
 <tr class="header">
 <th align="left">フォント ファミリー</th>
 <th align="left">スタイル</th>
-<th align="left">説明</th>
+<th align="left">メモ</th>
 </tr>
 </thead>
 <tbody>
@@ -323,7 +313,7 @@ Segoe UI は、英語、ヨーロッパの各言語、ギリシャ語、ヘブ�
 <tr class="header">
 <th align="left">フォント ファミリー</th>
 <th align="left">スタイル</th>
-<th align="left">説明</th>
+<th align="left">メモ</th>
 </tr>
 </thead>
 <tbody>

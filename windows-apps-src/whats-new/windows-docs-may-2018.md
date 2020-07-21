@@ -5,18 +5,18 @@ keywords: 最新情報, 更新, 機能, 開発者向けガイダンス, Windows 
 ms.date: 05/07/2018
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 9adf5a80595e00a30098044536d1ecfe4fd62279
-ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
+ms.openlocfilehash: cd84892f9d90a69379ac5a7f84dfa188adf1211e
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67820491"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "74258784"
 ---
 # <a name="whats-new-in-the-windows-developer-docs-in-may-2018"></a>Windows 開発者向けドキュメントの最新情報、2018 年 5 月
 
 Windows 開発者向けドキュメントは、Windows プラットフォームで開発者に提供される新機能の情報を反映して継続的に更新されています。 ここに示す機能概要、開発者向けガイダンス、ビデオ、サンプルは、[Microsoft Build 2018](https://www.microsoft.com/build/) 開発者カンファレンスに合わせて 5 月に利用可能になりました。
 
-Windows 10 の[ツールと SDK をインストール](https://go.microsoft.com/fwlink/?LinkId=821431)すると、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
+Windows 10 の[ツールと SDK をインストール](https://developer.microsoft.com/windows/downloads#_blank)すると、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
 
 ## <a name="features"></a>機能
 
@@ -83,7 +83,7 @@ MSIX パッケージ形式は、Microsoft のパートナーが自身のツー�
 
 ### <a name="optional-packages-with-executable-code"></a>実行可能コードによるオプション パッケージ
 
-アプリ内のオプション パッケージに実行可能な C# コードを含めることができるようになりました。 [Visual Studio を使用して、メイン アプリ パッケージをサポートするオプションのアドオン パッケージを構成する方法については、こちらをご覧ください。](../packaging/optional-packages-with-executable-code.md)
+アプリ内のオプション パッケージに実行可能な C# コードを含めることができるようになりました。 [Visual Studio を使用して、メイン アプリ パッケージをサポートするオプションのアドオン パッケージを構成する方法については、こちらをご覧ください。](/windows/msix/package/optional-packages)
 
 ### <a name="page-transitions"></a>ページ切り替え効果
 
@@ -97,9 +97,9 @@ Project Rome チームは、iOS と Android の SDK を徹底的に見直しま�
 
 Sets 機能は、Windows Insider のプレビュー ビルドで利用できます。 Sets 機能を使用すると、他のアプリと共有される可能性があるウィンドウにアプリが描画され、タイトル バーには各アプリの専用のタブが表示されます。 
 
-## <a name="developer-guidance"></a>開発者向けガイダンス
+## <a name="developer-guidance"></a>開発者ガイド
 
-### <a name="get-started"></a>はじめに
+### <a name="get-started"></a>開始
 
 「はじめに」の内容に新しい学習トラックを追加して更新しました。 これらの新しいトピックは、新たな Windows 10 開発者に、実現できる一般的なタスクに関する情報を提供することを目的としています。 これらはチュートリアルではなく、コンパクトな解説を提供するものでもありません。代わりに、既存のドキュメントがある場所とその使用方法を示しています。 改善された「[コーディングの開始](../get-started/create-uwp-apps.md)」ページを確認するか、個々の学習トラックをそれぞれ確認してください。
 
@@ -122,7 +122,7 @@ Sets 機能は、Windows Insider のプレビュー ビルドで利用できま�
 
 ### <a name="cwinrt"></a>C++/WinRT
 
-C++/WinRT は、Windows ランタイム API を作成したり使用したりするための新しい方法です。 ヘッダー ファイルに単独で実装され、最新のアプリ機能への最適なアクセスを提供するように設計されています。 [ビデオを視聴して](https://www.youtube.com/watch?v=TLSul1XxppA&feature=youtu.be)そのしくみを確認したうえで、詳細については[開発者向けドキュメントをご覧ください](../cpp-and-winrt-apis/index.md)。
+C++/WinRT は、Windows ランタイム API を作成および使用するための新しい方法です。 ヘッダー ファイルに単独で実装され、最新のアプリ機能への最適なアクセスを提供するように設計されています。 [ビデオを視聴して](https://www.youtube.com/watch?v=TLSul1XxppA&feature=youtu.be)そのしくみを確認したうえで、詳細については[開発者向けドキュメントをご覧ください](../cpp-and-winrt-apis/index.md)。
 
 ### <a name="multi-instance-uwp-apps"></a>マルチインスタンスの UWP アプリ
 
@@ -132,4 +132,4 @@ Windows で UWP アプリの複数のインスタンスを実行できるよう�
 
 ### <a name="customer-database-tutorial"></a>顧客データベース チュートリアル
 
-このチュートリアルでは、顧客の一覧を管理するための基本的な UWP アプリを作成し、エンタープライズ開発の概念と実践を紹介しています。 UI 要素の実装とローカル SQLite データベースに対する操作の追加を順番に説明し、さらに詳細を希望される方には、リモート REST データベースへの接続の大まかなガイダンスを示します。 [チュートリアルはこちらからご覧ください](../enterprise/customer-database-tutorial.md)
+このチュートリアルでは、顧客の一覧を管理するための基本的な UWP アプリを作成し、エンタープライズ開発の概念と実践を紹介しています。 UI 要素の実装とローカル SQLite データベースに対する操作の追加を順を追って説明し、さらに希望する場合のために、リモート REST データベースへの接続の大まかなガイダンスを示します。 [チュートリアルはこちらからご覧ください](../enterprise/customer-database-tutorial.md)

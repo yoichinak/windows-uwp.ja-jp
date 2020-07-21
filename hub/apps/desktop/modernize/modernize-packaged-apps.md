@@ -1,6 +1,6 @@
 ---
-Description: Windows アプリのパッケージにパッケージ化したデスクトップ アプリケーションで Windows 10 ユーザー向けの最新のエクスペリエンスを追加する方法について説明します。
-title: パッケージのデスクトップ アプリを最新化します。
+Description: Windows アプリ パッケージにパッケージ化したデスクトップ アプリケーションに、Windows 10 ユーザー向けの最新のエクスペリエンスを追加する方法について説明します。
+title: パッケージ化したデスクトップ アプリの現代化
 ms.date: 04/22/2019
 ms.topic: article
 keywords: windows 10, uwp
@@ -8,41 +8,40 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 191a8b8a007a866f37780a7c52cd40047dc9817f
-ms.sourcegitcommit: d1c3e13de3da3f7dce878b3735ee53765d0df240
-ms.translationtype: MT
+ms.openlocfilehash: 1930d879177bc9282a3b55d019aa2bef7eb8f120
+ms.sourcegitcommit: ef723e3d6b1b67213c78da696838a920c66d5d30
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66215207"
+ms.lasthandoff: 05/02/2020
+ms.locfileid: "82730083"
 ---
 # <a name="features-that-require-package-identity"></a>パッケージ ID が必要な機能
 
-使用してデスクトップ アプリを更新する場合[最新の Windows 10 エクスペリエンス](index.md)、多くの機能が MSIX パッケージにパッケージ化、デスクトップ アプリでのみ使用できます。
+[最新の Windows 10 エクスペリエンス](index.md)によって、デスクトップ アプリを更新する場合、多くの機能が、[パッケージ ID](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-identity) を持つデスクトップ アプリでのみ利用できます。 デスクトップ アプリにパッケージ ID を付与する方法はいくつかあります。
 
-MSIX には、すべての Windows アプリ、WPF、Windows フォーム、Win32 アプリのユニバーサル パッケージ化エクスペリエンスを提供する最新 Windows アプリ パッケージ形式です。 デスクトップの Windows アプリをパッケージ化するには、ライブ タイルや通知などの最新の Windows 10 エクスペリエンスをアプリに統合することができます。 また、堅牢なインストールと更新エクスペリエンス、機能の柔軟性の高いシステムでは、Microsoft Store、エンタープライズ管理、および多くのカスタムの配布モデルのサポートで管理セキュリティ モデルへのアクセスを取得します。 詳しくは、MSIX ドキュメントの「[デスクトップ アプリケーションのパッケージ化](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-root)」をご覧ください。
+* [MSIX パッケージ](/windows/msix/desktop/desktop-to-uwp-root)でパッケージ化します。 MSIX は、すべての Windows アプリ、WPF、Windows フォーム、Win32 アプリ用のユニバーサルなパッケージ化エクスペリエンスを提供するモダンなアプリ パッケージ形式です。 これは、堅牢なインストールと更新のエクスペリエンス、柔軟な機能システムによる管理されたセキュリティ モデル、Microsoft Store のサポート、エンタープライズ管理、および多くのカスタム配布モデルを提供します。 詳しくは、MSIX ドキュメントの「[デスクトップ アプリケーションのパッケージ化](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-root)」をご覧ください。
+* デスクトップ アプリを配置するために MSIX パッケージを導入できない場合、Windows 10 バージョン 2004 以降では、パッケージ マニフェストのみを含む "*スパース MSIX パッケージ*" を作成することでパッケージ ID を付与できます。 詳細については、「[パッケージ化されていないデスクトップ アプリに ID を付与する](grant-identity-to-nonpackaged-apps.md)」を参照してください。
 
-デスクトップ アプリをパッケージ化する場合は、パッケージ id、パッケージの拡張機能、およびパッケージ化されたアプリでの UWP コンポーネントを必要とする UWP Api を使用できます。 詳細については、次の記事を参照してください。
+デスクトップ アプリにパッケージ ID がある場合は、アプリで次の機能を使用できます。
 
-## <a name="use-uwp-apis-that-require-package-identity"></a>パッケージ id を必要とする UWP Api を使用して、
+## <a name="use-windows-runtime-apis-that-require-package-identity"></a>パッケージ ID が必要な Windows ランタイム API の使用
 
-一部の UWP Api を必要と[パッケージ identity](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-identity)デスクトップ アプリで使用します。 (パッケージ マニフェストを含む) MSIX パッケージは、この id を提供します。
-
-詳細については、次を参照してください。 [Api の一覧はこの](desktop-to-uwp-supported-api.md#list-of-apis)します。
+次の一覧の Windows ランタイム API では、デスクトップ アプリでパッケージ ID を使用する必要があります。[API の一覧](desktop-to-uwp-supported-api.md#list-of-apis)。
 
 ## <a name="integrate-with-package-extensions"></a>パッケージ拡張機能との統合
 
-アプリケーションは、システムと統合する必要がある場合 (例: ファイアウォール規則の確立) と、アプリケーションのパッケージ マニフェストではこの記述、システムが処理してくれます。 これらのタスクのほとんどは、まったくコードを記述する必要がありません。 Xml マニフェスト内のビットを使用して操作を実行できます、ユーザーがログオンしたときにプロセスを開始、ファイル エクスプ ローラーで、アプリケーションに統合およびアプリケーションを追加するように他のアプリに表示される印刷のターゲットの一覧。
+アプリケーションをシステムと統合する必要がある場合 (ファイアウォール規則を確立する場合など)、アプリケーションのパッケージ マニフェストにそのことを記述すると、システムによって残りの処理が行われます。 これらのタスクのほとんどは、まったくコードを記述する必要がありません。 マニフェストに少し XML を追加するだけで、ユーザーがログオンしたときにプロセスを開始する、アプリケーションをエクスプローラーに統合する、他のアプリに表示される印刷先の一覧に対象アプリケーションを追加する、などの処理を行うことができます。
 
-詳細については、次を参照してください。[パッケージ拡張機能とデスクトップ アプリを統合](desktop-to-uwp-extensions.md)します。
+詳細については、[デスクトップ アプリケーションとパッケージ拡張機能の統合](desktop-to-uwp-extensions.md)に関するページをご覧ください。
 
 ## <a name="extend-with-uwp-components"></a>UWP コンポーネントによる拡張
 
-一部の Windows 10 エクスペリエンス (タッチ対応 UI ページなど) は、最新のアプリ コンテナー内で実行する必要があります。 一般に、最初に決定する必要あるかどうかによって、エクスペリエンスを追加することができます[強化](desktop-to-uwp-enhance.md)UWP Api を使用した既存のデスクトップ アプリケーションです。 コード型の場合は、エクスペリエンスを実現するために、UWP コンポーネントを使用する必要が UWP プロジェクトをソリューションに追加するアプリ サービスを使用して、お客様のデスクトップ アプリケーションと UWP コンポーネント間の通信し、ことができます。
+一部の Windows 10 エクスペリエンス (タッチ対応 UI ページなど) は、最新のアプリ コンテナー内で実行する必要があります。 一般的に、Windows ランタイム API を使用して既存のデスクトップ アプリケーションを[強化](desktop-to-uwp-enhance.md)することでエクスペリエンスを追加できるかどうかを、最初に判断する必要があります。 エクスペリエンスを実現するために UWP コンポーネントを使用する必要がある場合、ソリューションに UWP プロジェクトを追加すると、アプリ サービスを使用してデスクトップ アプリケーションと UWP コンポーネントの間で通信を行うことができます。
 
-詳細については、次を参照してください。 [UWP コンポーネントを使ってデスクトップ アプリを拡張](desktop-to-uwp-extend.md)します。
+詳細については、[UWP コンポーネントによるデスクトップ アプリケーションの拡張](desktop-to-uwp-extend.md)に関するページを参照してください。
 
 ## <a name="distribute"></a>配布
 
-アプリケーションを配布するには、Microsoft Store を発行すること、またはサイドローディングによって他のシステムにします。
+MSIX パッケージにアプリをパッケージ化する場合、Microsoft Store に公開するか、他のシステムにサイドローディングすることで、アプリを配布できます。
 
-参照してください[パッケージ化されたデスクトップ アプリを配布](desktop-to-uwp-distribute.md)します。
+「[パッケージ化されたデスクトップ アプリを配布する](desktop-to-uwp-distribute.md)」をご覧ください。

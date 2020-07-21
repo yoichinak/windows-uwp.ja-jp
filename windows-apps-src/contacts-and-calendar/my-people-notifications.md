@@ -3,14 +3,14 @@ title: マイ連絡先の通知
 description: 新しい種類のトーストである、マイ連絡先の通知を作成して使用する方法について説明します。
 ms.date: 10/25/2017
 ms.topic: article
-keywords: windows 10, uwp
+keywords: Windows 10, UWP
 ms.localizationpriority: medium
-ms.openlocfilehash: bd9071eaaea0dd88a3dad06de78eff82b29725ec
-ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
+ms.openlocfilehash: 1c106df0efc7952895f882ec5c05cc1af52bcfac
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67820239"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75683500"
 ---
 # <a name="my-people-notifications"></a>マイ連絡先の通知
 
@@ -18,12 +18,12 @@ ms.locfileid: "67820239"
 
 ![ハート絵文字通知](images/heart-emoji-notification-small.gif)
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>要件
 
-+ Windows 10 と Microsoft Visual Studio 2019。 インストールについて詳しくは、「[Visual Studio のセットアップ](https://docs.microsoft.com/en-us/windows/uwp/get-started/get-set-up)」をご覧ください。
-+ C# またはこれに類似するオブジェクト指向プログラミング言語に関する基本的な知識。 C# で作業を始めるには、「["Hello, world" アプリを作成する](https://docs.microsoft.com/en-us/windows/uwp/get-started/create-a-hello-world-app-xaml-universal)」をご覧ください。
++ Windows 10 と Microsoft Visual Studio 2019。 インストールについて詳しくは、「[Visual Studio のセットアップ](https://docs.microsoft.com/windows/uwp/get-started/get-set-up)」をご覧ください。
++ C# またはこれに類似するオブジェクト指向プログラミング言語に関する基本的な知識。 C# で作業を始めるには、「["Hello, world" アプリを作成する](https://docs.microsoft.com/windows/uwp/get-started/create-a-hello-world-app-xaml-universal)」をご覧ください。
 
-## <a name="how-it-works"></a>しくみ
+## <a name="how-it-works"></a>機能のしくみ
 
 汎用のトースト通知の代わりに、マイ連絡先の機能を使って、通知を送信できます。これによって、さらにパーソナルなエクスペリエンスをユーザーに提供できます。 これは、ユーザーのタスク バーにピン留めされた連絡先からマイ連絡先機能を使用して送信される、新しい種類のトーストです。 通知を受信すると、通知が開始されていることを知らせるため、送信者の連絡先の写真がタスク バー上でアニメーションされ、サウンドが再生されます。 アニメーションまたはペイロードで指定された画像が 5 秒間表示されます (または、ペイロードが 5 秒以下のアニメーションの場合、5 秒までループされます)。
 
@@ -42,7 +42,7 @@ ms.locfileid: "67820239"
 マイ連絡先の通知は、[トースト通知](../design/shell/tiles-and-notifications/adaptive-interactive-toasts.md)フレームワークを使用しますが、トースト ペイロードには追加のバインド ノードが必要です。 2 つ目のバインドには、次のパラメーターを含める必要があります。
 
 ```xml
-experienceType=”shoulderTap”
+experienceType="shoulderTap"
 ```
 
 これは、トーストをマイ連絡先の通知として扱う必要があることを示します。
@@ -53,13 +53,13 @@ experienceType=”shoulderTap”
     + アセットの URI。 HTTP/HTTPS Web URI、msappx URI、またはローカル ファイルへのパスを指定できます。
 + **spritesheet-src**
     + アセットの URI。 HTTP/HTTPS Web URI、msappx URI、またはローカル ファイルへのパスを指定できます。 Spritesheet アニメーションの場合のみ必要です。
-+ **spritesheet-height**
++ **spritesheet-高さ**
     + フレームの高さ (ピクセル単位)。 Spritesheet アニメーションの場合のみ必要です。
-+ **spritesheet-fps**
++ **spritesheet**
     + 1 秒あたりのフレーム数 (FPS)。 Spritesheet アニメーションの場合のみ必要です。 1 ～ 120 の値のみがサポートされます。
-+ **spritesheet startingFrame**
++ **spritesheet-startingFrame**
     + アニメーションを開始するフレーム番号です。 Spritesheet アニメーションの場合のみ使用されます。指定されていない場合は、既定値は 0 となります。
-+ **Alt キー**
++ **alt**
     + スクリーン リーダー ナレーションに使用されるテキスト文字列。
 
 > [!NOTE]
@@ -75,7 +75,7 @@ experienceType=”shoulderTap”
     + 例: remoteid:1234
 
 > [!NOTE]
-> [ContactStore APIs](https://docs.microsoft.com/en-us/uwp/api/windows.applicationmodel.contacts.contactstore) を使ったアプリで [StoredContact.RemoteId](https://docs.microsoft.com/en-us/uwp/api/Windows.Phone.PersonalInformation.StoredContact.RemoteId) プロパティを使い、PC に保存されている連絡先とリモートに保存されている連絡先とを関連付ける場合、RemoteId プロパティの値は不変かつ一意であることが不可欠です。 つまり、リモート ID は、PC にある他の連絡先 (他のアプリが所有する連絡先も含む) のリモート ID と決して競合しないよう、常に同じユーザー アカウントを一意に識別し、固有のタグを保持している必要があります。
+> [ContactStore APIs](https://docs.microsoft.com/uwp/api/windows.applicationmodel.contacts.contactstore) を使ったアプリで [StoredContact.RemoteId](https://docs.microsoft.com/uwp/api/Windows.Phone.PersonalInformation.StoredContact.RemoteId) プロパティを使い、PC に保存されている連絡先とリモートに保存されている連絡先とを関連付ける場合、RemoteId プロパティの値は不変かつ一意であることが不可欠です。 つまり、リモート ID は、PC にある他の連絡先 (他のアプリが所有する連絡先も含む) のリモート ID と決して競合しないよう、常に同じユーザー アカウントを一意に識別し、固有のタグを保持している必要があります。
 > アプリで使われるリモート ID の不変性と一意性に確証がない場合、[RemoteIdHelper クラス](https://docs.microsoft.com/previous-versions/windows/apps/jj207024(v=vs.105)#BKMK_UsingtheRemoteIdHelperclass)を使うと、システムに追加するすべてのリモート ID にあらかじめ一意のタグを追加することができます。 または、RemoteId プロパティを一切使わない代わりに、カスタムの拡張プロパティを作成し、そこに連絡先のリモート ID を格納する方法もあります。
 
 2 番目のバインドとペイロードだけでなく、フォールバック トーストの最初のバインドに別のペイロードを含める必要があります。 標準のトーストに強制的に戻される場合に、通知でこれが使用されます (詳細については、[この記事の最後](/windows/uwp/contacts-and-calendar/my-people-notifications#falling-back-to-toast)を参照)。
@@ -93,7 +93,7 @@ experienceType=”shoulderTap”
             <text>Add your fallback toast content here</text>
         </binding>
         <binding template="ToastGeneric" experienceType="shoulderTap">
-            <image src="https://docs.microsoft.com/en-us/windows/uwp/contacts-and-calendar/images/shoulder-tap-static-payload.png"/>
+            <image src="https://docs.microsoft.com/windows/uwp/contacts-and-calendar/images/shoulder-tap-static-payload.png"/>
         </binding>
     </visual>
 </toast>
@@ -113,8 +113,8 @@ experienceType=”shoulderTap”
             <text>Add your fallback toast content here</text>
         </binding>
         <binding template="ToastGeneric" experienceType="shoulderTap">
-            <image src="https://docs.microsoft.com/en-us/windows/uwp/contacts-and-calendar/images/shoulder-tap-pizza-static.png"
-                spritesheet-src="https://docs.microsoft.com/en-us/windows/uwp/contacts-and-calendar/images/shoulder-tap-pizza-spritesheet.png"
+            <image src="https://docs.microsoft.com/windows/uwp/contacts-and-calendar/images/shoulder-tap-pizza-static.png"
+                spritesheet-src="https://docs.microsoft.com/windows/uwp/contacts-and-calendar/images/shoulder-tap-pizza-spritesheet.png"
                 spritesheet-height='80' spritesheet-fps='25' spritesheet-startingFrame='15'/>
         </binding>
     </visual>
@@ -150,8 +150,8 @@ ToastNotificationManager.CreateToastNotifier().Show(notification);
 
 マイ連絡先の通知がトーストにフォールバックすると、2 番目のマイ連絡先固有のバインドは無視され、1 番目のバインドのみが使用されて、トーストが表示されます。 これは、最初のトースト バインドでフォールバック ペイロードを指定することが重要である理由です。
 
-## <a name="see-also"></a>関連項目
-+ [ユーザー通知のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/dev/Samples/MyPeopleNotifications)
-+ [ユーザーの追加のサポートします。](my-people-support.md)
-+ [適応型のトースト通知](../design/shell/tiles-and-notifications/adaptive-interactive-toasts.md)
-+ [ToastNotification クラス](https://docs.microsoft.com/en-us/uwp/api/windows.ui.notifications.toastnotification)
+## <a name="see-also"></a>「
++ [マイユーザーの通知のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/dev/Samples/MyPeopleNotifications)
++ [People サポートを追加する](my-people-support.md)
++ [アダプティブトースト通知](../design/shell/tiles-and-notifications/adaptive-interactive-toasts.md)
++ [ToastNotification クラス](https://docs.microsoft.com/uwp/api/windows.ui.notifications.toastnotification)

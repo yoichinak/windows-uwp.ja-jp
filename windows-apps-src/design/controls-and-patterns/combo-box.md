@@ -1,7 +1,7 @@
 ---
 Description: ユーザーが入力するときに、検索候補を表示するテキスト入力ボックスです。
-title: コンボ ボックス (ドロップダウン リスト)
-label: Combo box
+title: コンボ ボックスとリスト ボックス
+label: Combo box and list box
 template: detail.hbs
 ms.date: 10/02/2018
 ms.topic: article
@@ -10,26 +10,32 @@ pm-contact: stmoy
 design-contact: ''
 doc-status: Draft
 ms.localizationpriority: medium
-ms.openlocfilehash: 4ea8c4476a47c8bd00ce74e893e2f0a730615a99
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: f484df97c6d29281941c8eed7b91fd0b156fff60
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67319162"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82968787"
 ---
-# <a name="combo-box"></a>コンボ ボックス
+# <a name="combo-box-and-list-box"></a>コンボ ボックスとリスト ボックス
 
-ユーザーが選択できる項目の一覧を提供するには、コンボ ボックス (ドロップダウン リストとも呼ばれる) を使用します。 コンボ ボックスは、最初はコンパクトな状態で、展開すると選択可能な項目の一覧が表示されます。
+ユーザーが選択できる項目の一覧を提供するには、コンボ ボックス (ドロップダウン リストとも呼ばれる) を使用します。 コンボ ボックスは、最初はコンパクトな状態で、展開すると選択可能な項目の一覧が表示されます。 ListBox はコンボ ボックスに似ていますが、折りたたむことができず、コンパクトな状態がありません。 リスト ボックスの詳細については、この記事の最後で詳細を確認できます。
 
 コンボ ボックスを閉じると、現在の選択が表示されるか、選択された項目がない場合は空です。 ユーザーがコンボ ボックスを展開すると、選択可能な項目の一覧が表示されます。
 
-> **重要な API**:[ComboBox クラス](/uwp/api/Windows.UI.Xaml.Controls.ComboBox)、[IsEditable プロパティ](/uwp/api/windows.ui.xaml.controls.combobox.iseditable)、[Text プロパティ](/uwp/api/Windows.UI.Xaml.Controls.ComboBox)、[TextSubmitted イベント](/uwp/api/Windows.UI.Xaml.Controls.ComboBox)
-
-ヘッダーが表示されたコンパクトな状態のコンボ ボックス。
-
 ![コンパクトな状態のドロップダウン リストの例](images/combo_box_collapsed.png)
 
-## <a name="is-this-the-right-control"></a>適切なコントロールの選択
+> _ヘッダーが表示されたコンパクトな状態のコンボ ボックス。_
+
+**Windows UI ライブラリを入手する**
+
+|  |  |
+| - | - |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | Windows UI ライブラリ 2.2 以降には、丸めた角を使用するこのコントロールの新しいテンプレートが含まれます。 詳しくは、「[角の半径](/windows/uwp/design/style/rounded-corner)」をご覧ください。 WinUI は、Windows アプリの新しいコントロールと UI 機能が含まれる NuGet パッケージです。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+
+> **プラットフォーム API:** [ComboBox クラス](/uwp/api/Windows.UI.Xaml.Controls.ComboBox)、[IsEditable プロパティ](/uwp/api/windows.ui.xaml.controls.combobox.iseditable)、[Text プロパティ](/uwp/api/Windows.UI.Xaml.Controls.ComboBox)、[TextSubmitted イベント](/uwp/api/Windows.UI.Xaml.Controls.ComboBox)
+
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 - 1 行のテキストで十分に表すことができる項目のセットから、ユーザーが単一の値を選ぶことができるようにするには、ドロップダウン リストを使います。
 - 複数のテキスト行や画像が含まれる項目を表示するには、コンボ ボックスではなくリスト ビューまたはグリッド ビューを使います。
@@ -41,7 +47,7 @@ ms.locfileid: "67319162"
 <table>
 <th align="left">XAML コントロール ギャラリー<th>
 <tr>
-<td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td><img src="images/xaml-controls-gallery-app-icon-sm.png" alt="XAML controls gallery"></img></td>
 <td>
     <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合、こちらをクリックして<a href="xamlcontrolsgallery:/item/ComboBox">アプリを開き、ComboBox の動作を確認</a>してください。</p>
     <ul>
@@ -240,13 +246,13 @@ private void FontSizeComboBox_TextSubmitted(ComboBox sender, ComboBoxTextSubmitt
 {
     if (byte.TryParse(e.Text, out double newValue))
     {
-        // Update the app’s font size.
+        // Update the app's font size.
         _fontSize = newValue;
     }
     else
     {
         // If the item is invalid, reject it and revert the text.
-        // Mark the event as handled so the framework doesn’t update the selected item.
+        // Mark the event as handled so the framework doesn't update the selected item.
         sender.Text = sender.SelectedValue.ToString();
         e.Handled = true;
     }
@@ -279,7 +285,7 @@ private void FavoriteColorComboBox_TextSubmitted(ComboBox sender, ComboBoxTextSu
     else
     {
         // If the item is invalid, reject it but do not revert the text.
-        // Mark the event as handled so the framework doesn’t update the selected item.
+        // Mark the event as handled so the framework doesn't update the selected item.
         e.Handled = true;
     }
 }
@@ -295,7 +301,33 @@ bool IsValid(string Text)
 - コンボ ボックス項目のテキストのコンテンツは、単一行に制限します。
 - コンボ ボックス内の項目は、最も論理的な順序に並べ替えます。 関連するオプションをグループ化し、最も一般的なオプションを先頭に配置します。 名前はアルファベット順、数値は数値順、日付は時系列順に並べ替えます。
 
-## <a name="get-the-sample-code"></a>サンプル コードを入手する
+## <a name="list-boxes"></a>リスト ボックス
+
+リスト ボックスを使うと、ユーザーはコレクションから 1 つまたは複数の項目を選択できます。 リスト ボックスはドロップダウン リストと似ていますが、常に開いている点がドロップダウン リストと異なります。リスト ボックスには、コンパクトな (展開されていない) 状態がありません。 すべての項目を表示する領域がない場合には、リスト内の項目をスクロールできます。
+
+### <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
+
+- リスト ボックスは、リスト内の項目が重要であるため目立つように表示する場合や、項目一式を表示するための十分な画面領域がある場合に便利です。
+- リスト ボックスでは、重要な選択で完全な代替セットにユーザーの注意を向ける必要があります。 ドロップダウン リストの場合はまず、選択した項目にユーザーの注意を引き付けます。
+- 次のような場合はリスト ボックスの使用を避けてください。
+    - リスト内の項目が非常に少ない場合。 単一選択のリスト ボックスで常に同じ 2 つのオプションを提示するのであれば、[オプション ボタン](radio-button.md)の方が適している可能性があります。 3 ～ 4 個の静的な項目を提示する場合もオプション ボタンの使用を検討してください。
+    - リスト ボックスが単一選択であり、リスト内のオプションが常に同じ 2 項目で、その一方が他方の否定を意味している場合 ("オン" と "オフ" など)。 このような場合は、単一のチェック ボックスまたはトグル スイッチを使用してください。
+    - 項目数が非常に多い場合。 長いリストには、グリッド ビューまたはリスト ビューの方が適しています。 グループ化されたデータの非常に長いリストの場合はセマンティック ズームの使用をお勧めします。
+    - 項目が連続する数値である場合。 このような場合は、[スライダー](slider.md)の使用を検討してください。
+    - 選択項目がアプリのフローで二次的な重要性しか持たないか、または大半の状況で大半のユーザーに既定のオプションが推奨される場合。 このような場合は、ドロップダウン リストを使用してください。
+
+### <a name="recommendations"></a>推奨事項
+
+- リスト ボックス内の項目数の最適な範囲は 3 ～ 9 です。
+- リスト ボックスは、項目が動的に変化する可能性がある場合に適しています。
+- 可能であれば、項目のリストのパンまたはスクロールが必要にならないように、リスト ボックスのサイズを設定します。
+- リスト ボックスの目的、および現在選択されている項目が明確であることを確認します。
+- タッチ フィードバックおよび項目の選択状態の視覚効果とアニメーションを予約します。
+- リスト ボックス項目のテキストのコンテンツは、単一行に制限します。 項目がビジュアルである場合、サイズをカスタマイズできます。 項目に複数行のテキストまたは画像が含まれる場合は、グリッド ビューまたはリスト ビューを使用してください。
+- ブランドのガイドラインで別のフォントが指示されていない限り、既定のフォントを使います。
+- コマンドの実行または他のコントロールの動的な表示と非表示の切り替えのためにリスト ボックスを使わないでください。
+
+## <a name="get-the-sample-code"></a>サンプル コードの入手
 
 - [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - インタラクティブな形で XAML コントロールのすべてを参照できます。
 - [AutoSuggestBox サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlAutoSuggestBox)
@@ -307,4 +339,4 @@ bool IsValid(string Text)
 - [検索](search.md)
 - [TextBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox)
 - [Windows.UI.Xaml.Controls PasswordBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.PasswordBox)
-- [String.Length プロパティ](https://docs.microsoft.com/dotnet/api/system.string.length?redirectedfrom=MSDN#System_String_Length)
+- [String.Length プロパティ](https://docs.microsoft.com/dotnet/api/system.string.length)

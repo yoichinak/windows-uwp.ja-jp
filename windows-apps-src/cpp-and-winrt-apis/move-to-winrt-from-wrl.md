@@ -5,17 +5,17 @@ ms.date: 05/30/2018
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 移植, 移行, WRL
 ms.localizationpriority: medium
-ms.openlocfilehash: 9695548c7e12cf5fad905a171f22e6fa1f9c1af7
-ms.sourcegitcommit: d37a543cfd7b449116320ccfee46a95ece4c1887
+ms.openlocfilehash: 663e0dddb9823e35e2d31ba9667bd3d16bd1d5de
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68270049"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "79510995"
 ---
 # <a name="move-to-cwinrt-from-wrl"></a>WRL から C++/WinRT への移行
 このトピックでは、[Windows ランタイム C++ テンプレート ライブラリ (WRL)](/cpp/windows/windows-runtime-cpp-template-library-wrl) のコードを [C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) の同等のコードに移植する方法について説明します。
 
-C++/WinRT への移植の最初の手順は、C++/WinRT サポートをプロジェクトに手動で追加することです ([Visual Studio support for C++/WinRT (Visual Studio での C++/WinRT のサポート)](intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package) に関する記事を参照)。 そのためには、[Microsoft.Windows.CppWinRT NuGet パッケージ](https://www.nuget.org/packages/Microsoft.Windows.CppWinRT/)をプロジェクトにインストールします。 Visual Studio でプロジェクションを開き、 **[プロジェクト]** \> **[NuGet パッケージの管理]** \> **[参照]** の順にクリックし、検索ボックスに「**Microsoft.Windows.CppWinRT**」を入力するか貼り付けます。検索結果の項目を選択し、 **[インストール]** をクリックしてそのプロジェクトのパッケージをインストールします。 その変更による 1 つの効果は、[C++/CX](/cpp/cppcx/visual-c-language-reference-c-cx) のサポートがプロジェクトで無効になることです。 プロジェクトで C++/CX を使用している場合は、サポートを無効にしたままにし、C++/CX コードを C++/WinRT に更新することもできます (「[C++/CX から C++/WinRT への移行](move-to-winrt-from-cx.md)」を参照してください)。 または、サポートをもう一度有効にし (プロジェクトのプロパティで、 **[C/C++]** \> **[全般]** \> **[Windows ランタイム拡張機能の使用]** \> **[はい (/ZW)]** の順に選択)、まず WRL コードを移植することに集中することもできます。 C++/CX コードと C++/WinRT コードは同じプロジェクト内に共存できます。ただし、XAML コンパイラのサポートと Windows ランタイム コンポーネントについては例外です (「[C++/CX から C++/WinRT への移行](move-to-winrt-from-cx.md)」を参照)。
+C++/WinRT への移植の最初の手順は、C++/WinRT サポートをプロジェクトに手動で追加することです ([Visual Studio support for C++/WinRT (Visual Studio での C++/WinRT のサポート)](intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package) に関する記事を参照)。 そのためには、[Microsoft.Windows.CppWinRT NuGet パッケージ](https://www.nuget.org/packages/Microsoft.Windows.CppWinRT/)をプロジェクトにインストールします。 Visual Studio でプロジェクトを開き、 **[プロジェクト]** \> **[NuGet パッケージの管理]** \> **[参照]** をクリックし、検索ボックスに「**Microsoft.Windows.CppWinRT**」を入力するか貼り付けます。検索結果の項目を選択し、 **[インストール]** をクリックして、そのプロジェクトのパッケージをインストールします。 その変更による 1 つの効果は、[C++/CX](/cpp/cppcx/visual-c-language-reference-c-cx) のサポートがプロジェクトで無効になることです。 プロジェクトで C++/CX を使用している場合は、サポートを無効にしたままにし、C++/CX コードを C++/WinRT に更新することもできます (「[C++/CX から C++/WinRT への移行](move-to-winrt-from-cx.md)」を参照してください)。 または、サポートをもう一度有効にし (プロジェクトのプロパティで、 **[C/C++]** \> **[全般]** \> **[Windows ランタイム拡張機能の使用]** \> **[はい (/ZW)]** の順に選択)、まず WRL コードを移植することに集中することもできます。 C++/CX コードと C++/WinRT コードは同じプロジェクト内に共存できます。ただし、XAML コンパイラのサポートと Windows ランタイム コンポーネントについては例外です (「[C++/CX から C++/WinRT への移行](move-to-winrt-from-cx.md)」を参照)。
 
 プロジェクトのプロパティ ( **[全般]** \> **[ターゲット プラットフォーム バージョン]** ) を 10.0.17134.0 (Windows 10 バージョン 1803) 以上に設定します。
 
@@ -27,7 +27,7 @@ C++/WinRT への移植の最初の手順は、C++/WinRT サポートをプロジ
 
 C++/WinRT の投影された Windows API ヘッダー (たとえば、`winrt/Windows.Foundation.h`) を含める場合は、それが自動的に含められるため、このように明示的に `winrt/base.h` を含める必要はありません。
 
-## <a name="porting-wrl-com-smart-pointers-microsoftwrlcomptrcppwindowscomptr-class"></a>WRL COM スマート ポインター ([Microsoft::WRL::ComPtr](/cpp/windows/comptr-class)) の移植
+## <a name="porting-wrl-com-smart-pointers-microsoftwrlcomptr"></a>WRL COM スマート ポインター ([Microsoft::WRL::ComPtr](/cpp/windows/comptr-class)) の移植
 [**winrt::com_ptr\<T\>** ](/uwp/cpp-ref-for-winrt/com-ptr) を使うには、**Microsoft::WRL::ComPtr\<T\>** を使うコードを移植します。 変更前と変更後のコード例を次に示します。 *変更後の*バージョンでは、[**com_ptr::put**](/uwp/cpp-ref-for-winrt/com-ptr#com_ptrput-function) メンバー関数は基になる生のポインターを取得して設定できるようにします。
 
 ```cpp
@@ -87,7 +87,7 @@ m_d3dDevice->CreateDepthStencilView(m_depthStencil.Get(), &dsvDesc, m_dsvHeap->G
 m_d3dDevice->CreateDepthStencilView(m_depthStencil.get(), &dsvDesc, m_dsvHeap->GetCPUDescriptorHandleForHeapStart());
 ```
 
-基になる生のポインターを **IUnknown** へのポインターを受け取る関数に渡す場合は、次の例に示すように、[**winrt::get_unknown**](/uwp/cpp-ref-for-winrt/windows-foundation-iunknown#get_unknown-function) 自由関数を使用します。
+基になる生のポインターを **IUnknown** へのポインターを受け取る関数に渡す場合は、次の例に示すように、[**winrt::get_unknown**](/uwp/cpp-ref-for-winrt/get-unknown) 自由関数を使用します。
 
 ```cpp
 ComPtr<IDXGISwapChain1> swapChain;

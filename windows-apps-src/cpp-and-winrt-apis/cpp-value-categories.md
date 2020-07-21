@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 移動, 転送, 値のカテゴリ, 移動セマンティクス, 完全転送, lvalue, rvalue, glvalue, prvalue, xvalue
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: a11d7763c33df6733a8dbf78392d27417e7cf18d
-ms.sourcegitcommit: d37a543cfd7b449116320ccfee46a95ece4c1887
+ms.openlocfilehash: 1312b84ded26859cd4b83ffbe3e8a75bfdef6950
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68270207"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "77037882"
 ---
 # <a name="value-categories-and-references-to-them"></a>値のカテゴリと、その参照
 このトピックでは、C++ に存在する値のさまざまなカテゴリ (および値の参照) について説明します。 *lvalue* と *value* については聞いたことがあると思いますが、このトピックで説明するような観点でそれらを考えたことはないかもしれません。 また、値には他の種類もあります。
@@ -58,7 +58,7 @@ int main()
 lvalue を移動することはできません。 ただし、自分が何を行っているのかを理解した上でなら (移動後にアクセスしないように注意することなど) 移動できる glvalue の種類が "*あります*"。それが xvalue です。 このアイデアについては、後で値のカテゴリについて詳しく見るときに改めて説明します。
 
 ## <a name="rvalue-references-and-reference-binding-rules"></a>rvalue 参照と参照バインド ルール
-このセクションでは、rvalue を参照するときの構文について説明します。 移動および転送の処理の多くについては別のトピックで説明されていますが、それらは rvalue 参照によって解決される問題です。 ただし、rvalue 参照について説明する前にまず、`T&` についてはっきりさせておく必要があります。つまり、これまで単に "参照" と呼んでいた事柄です。 それは本当は "lvalue (非定数) の参照" であり、参照のユーザーが書き込むことのできる値を参照しています。
+このセクションでは、rvalue を参照するときの構文について説明します。 移動および転送の処理の多くについては別のトピックで説明されていますが、それらの問題の解決に必要なものは rvalue 参照です。 ただし、rvalue 参照について説明する前にまず、`T&` についてはっきりさせておく必要があります。つまり、これまで単に "参照" と呼んでいた事柄です。 それは本当は "lvalue (非定数) の参照" であり、参照のユーザーが書き込むことのできる値を参照しています。
 
 ```cppwinrt
 template<typename T> T& get_by_lvalue_ref() { ... } // Get by lvalue (non-const) reference.
@@ -188,5 +188,5 @@ template <typename _Ty> void bar(_Ty&& ty) { ... }
 - rvalue を渡すと、転送参照は `_Ty&& &&` になり、rvalue 参照 `_Ty&&` に縮小されます。
 - 転送参照 (`_Ty&&` など) が存在する理由は、最適化のためでは "*なく*"、渡されたものを取得して、透過的かつ効率的に転送するためです。 おそらく、転送参照が出てくるのは、ライブラリ コードを書く (または、詳しく学習する) 場合だけです。たとえば、コンストラクターの引数に転送するファクトリ関数などです。
 
-## <a name="sources"></a>Sources
+## <a name="sources"></a>ソース
 * \[Stroustrup、2013 年\] B. Stroustrup: C++ プログラミング言語、第 4 版。 Addison-Wesley. 2013 年。

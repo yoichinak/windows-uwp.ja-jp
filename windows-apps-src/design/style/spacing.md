@@ -6,20 +6,36 @@ ms.date: 04/19/2019
 ms.topic: article
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: ff88332e0b44749bcd86e06adafeb596ca8678b3
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 634393e700538dc5db43b2d4065c6742fd7673f1
+ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63820629"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83234335"
 ---
 # <a name="control-size-and-density"></a>コントロールのサイズと密度
 
-コントロールのサイズと密度の組み合わせを使って、ユニバーサル Windows プラットフォーム (UWP) アプリケーションを最適化し、アプリの機能と対話の要件に最適なユーザー エクスペリエンスを提供します。
+コントロールのサイズと密度の組み合わせを使って、Windows アプリケーションを最適化し、アプリの機能と対話式操作の要件に最適なユーザー エクスペリエンスを提供します。
 
 既定では、UWP アプリは低密度 (または `Standard`) のレイアウトでレンダリングされます。 ただし、WinUI 2.1 以降では、情報量の多い UI や同様の特殊なシナリオのための高密度 (または`Compact`) レイアウト オプションもサポートされます。 これは、基本的なスタイル リソースで指定できます (次の例を参照)。
 
 機能と動作は変わらず、サイズと密度の 2 つのオプション間で一貫性が保たれていますが、既定の本文フォント サイズは、これら 2 つの密度オプションをサポートするため、すべてのコントロールで 14 ピクセルに更新されました。 このフォント サイズは領域やデバイスが異なっても機能し、アプリケーションのバランスが取れたユーザーに使いやすい状態を保ちます。
+
+## <a name="examples"></a>例
+
+<table>
+<th align="left">XAML コントロール ギャラリー<th>
+<tr>
+<td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td>
+    <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合、こちらをクリックして<a href="xamlcontrolsgallery:/item/Compact Sizing">アプリを開き、Compact サイズの動作を確認</a>してください。</p>
+    <ul>
+    <li><a href="https://www.microsoft.com/store/productId/9MSVH128X2ZT">XAML コントロール ギャラリー アプリを入手する (Microsoft Store)</a></li>
+    <li><a href="https://github.com/Microsoft/Xaml-Controls-Gallery">ソース コード (GitHub) を入手する</a></li>
+    </ul>
+</td>
+</tr>
+</table>
 
 ## <a name="fluent-standard-sizing"></a>Fluent Standard サイズ
 
@@ -28,7 +44,7 @@ ms.locfileid: "63820629"
 **Standard サイズは、タッチ入力とポインター入力の両方に対応するように設計されています。**
 
 > [!NOTE]
->有効ピクセルとスケーリングについて詳しくは、「[UWP アプリ設計の概要](../basics/design-and-ui-intro.md#effective-pixels-and-scaling)」をご覧ください
+>有効ピクセルとスケーリングについて詳しくは、[Windows アプリ デザインの概要](../basics/design-and-ui-intro.md#effective-pixels-and-scaling)に関するページをご覧ください。
 >
 > システム レベルのスケーリングについて詳しくは、「[配置、余白、パディング](../layout/alignment-margin-padding.md)」をご覧ください。
 
@@ -56,7 +72,7 @@ Compact サイズは、高密度で情報量の多いコントロールのグル
 
 ### <a name="examples"></a>例
 
-Compact サイズは、アプリケーションにおいてページ レベルまたは特定のレイアウトで指定できる特殊なリソース ディクショナリによって実装されます。 リソース ディクショナリは、[WinUI](https://docs.microsoft.com/en-us/uwp/toolkits/winui/) Nuget パッケージで使用できます。
+Compact サイズは、アプリケーションにおいてページ レベルまたは特定のレイアウトで指定できる特殊なリソース ディクショナリによって実装されます。 リソース ディクショナリは、[WinUI](https://docs.microsoft.com/uwp/toolkits/winui/) Nuget パッケージで使用できます。
 
 次の例では、`Compact` スタイルをページおよび個々のグリッド コントロールに対して適用できる方法を示します。
 
@@ -78,9 +94,13 @@ Compact サイズは、アプリケーションにおいてページ レベル�
 </Grid>
 ```
 
+## <a name="get-the-sample-code"></a>サンプル コードを入手する
+
+- [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - インタラクティブな形で XAML コントロールのすべてを参照できます。
+
 ## <a name="related-articles"></a>関連記事
 
 - [タッチ ターゲットのガイドライン](../input/guidelines-for-targeting.md)
-- [ResourceDictionary と XAML リソースの参照](https://docs.microsoft.com/en-us/windows/uwp/design/controls-and-patterns/resourcedictionary-and-xaml-resource-references)
-- [リソース ディクショナリ](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.resourcedictionary)
-- [XAML スタイル](https://docs.microsoft.com/en-us/windows/uwp/design/controls-and-patterns/xaml-styles) 
+- [ResourceDictionary と XAML リソースの参照](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/resourcedictionary-and-xaml-resource-references)
+- [リソース ディクショナリ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.resourcedictionary)
+- [XAML スタイル](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/xaml-styles) 

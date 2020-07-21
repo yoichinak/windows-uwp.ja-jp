@@ -1,0 +1,55 @@
+### YamlMime:Landing
+title: .NET TraceProcessing のドキュメント
+summary: .NET TraceProcessing は、Windows イベント トレーシング (ETW) ファイルのデータに簡単にアクセスできるようにする NuGet パッケージです。
+metadata:
+  title: ドキュメント - .NET TraceProcessing
+  description: .NET TraceProcessing は、Windows イベント トレーシング (ETW) ファイルのデータに簡単にアクセスできるようにする NuGet パッケージです。
+  ms.prod: traceprocessor
+  ms.technology: ''
+  ms.topic: landing-page
+  author: maiak
+  ms.author: maiak
+  ms.date: 02/20/2020
+  ms.openlocfilehash: f3107b3cc9b3cc0875e2bf3a9bce1ae7f11fc276
+  ms.sourcegitcommit: f727b68e86a86c94eff00f67ed79a1c12666e7bc
+  ms.translationtype: HT
+  ms.contentlocale: ja-JP
+  ms.lasthandoff: 04/29/2020
+  ms.locfileid: "77705747"
+landingContent:
+- title: .NET TraceProcessing の概要
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: .NET での ETW トレースの処理
+      url: overview.md
+- title: 開始
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 最初のトレースを処理する
+      url: quickstart.md
+- title: 開発
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: トレース データへのアクセス
+      url: tutorial.md
+    - text: TraceProcessor の拡張
+      url: extensibility.md
+    - text: シンボルの読み込み
+      url: symbols.md
+    - text: ストリーミングの使用
+      url: streaming.md
+- title: サンプル
+  linkLists:
+  - linkListType: sample
+    links:
+    - text: サンプルを検索する
+      url: https://github.com/microsoft/eventtracing-processing-samples
+- title: 参照先
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: API リファレンス
+      url: reference.md

@@ -1,55 +1,55 @@
 ---
-title: PointOfService デバイス要求し、モデルを有効にします。
-description: PointOfService 要求について説明し、モデルを有効にします。
+title: PointOfService device claim と enable model
+description: PointOfService の要求とモデルの有効化について学習する
 ms.date: 06/19/2018
 ms.topic: article
 keywords: Windows 10, UWP, 店舗販売時点管理, POS
 ms.localizationpriority: medium
-ms.openlocfilehash: 0e7d60c0b612a8067ac4c225dff9da5da428f1a1
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: bc3a8afbc0d3ca4655e0b1745090db633bcd92b7
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57639317"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75684676"
 ---
-# <a name="point-of-service-device-claim-and-enable-model"></a>ポイントのサービスのデバイス要求し、モデルを有効にします。
+# <a name="point-of-service-device-claim-and-enable-model"></a>サービスを使用するデバイスの要求とモデルの有効化
 
-## <a name="claiming-for-exclusive-use"></a>主張して排他的に使用
+## <a name="claiming-for-exclusive-use"></a>排他的使用を要求しています
 
 PointOfService デバイス オブジェクトを正常に作成したら、入出力にデバイスを使用する前に、デバイスの種類に適切な要求方法を使用して要求する必要があります。  要求により、多くのデバイスの機能に対する排他的アクセスがアプリケーションに付与され、あるアプリケーションが別のアプリケーションによるデバイスの使用を妨げないようにします。  排他的使用のために一度に PointOfService デバイスを要求できるアプリケーションは 1 つだけです。 
 
 > [!Note]
-> 要求アクションはデバイスに排他ロックを確立しますが、動作状態には配置されません。  参照してください[I/O 操作を有効にするデバイス](#enable-device-for-io-operations)詳細についてはします。
+> 要求アクションは、デバイスに対して排他ロックを確立しますが、動作状態にはなりません。  詳細については、「 [i/o 操作用にデバイスを有効にする](#enable-device-for-io-operations)」を参照してください。
 
-### <a name="apis-used-to-claim--release"></a>要求/リリースに使用する Api
+### <a name="apis-used-to-claim--release"></a>要求/リリースに使用される Api
 
 |デバイス|要求 | リリース | 
 |-|:-|:-|
-|BarcodeScanner | [BarcodeScanner.ClaimScannerAsync](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.barcodescanner.claimscannerasync) | [ClaimedBarcodeScanner.Close](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.claimedbarcodescanner.close) |
-|CashDrawer | [CashDrawer.ClaimDrawerAsync](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.cashdrawer.claimdrawerasync) | [ClaimedCashDrawer.Close](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.claimedcashdrawer.close) | 
-|LineDisplay | [LineDisplay.ClaimAsync](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.linedisplay.claimasync) |  [ClaimedineDisplay.Close](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.claimedlinedisplay.close) | 
-|MagneticStripeReader | [MagneticStripeReader.ClaimReaderAsync](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.magneticstripereader.claimreaderasync) |  [ClaimedMagneticStripeReader.Close](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.claimedmagneticstripereader.close) | 
-|PosPrinter | [PosPrinter.ClaimPrinterAsync](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.posprinter.claimprinterasync) |  [ClaimedPosPrinter.Close](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.claimedposprinter.close) | 
+|BarcodeScanner | [Bar、Claimscanを非同期に](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.barcodescanner.claimscannerasync) | [ClaimedBarcodeScanner](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.claimedbarcodescanner.close) |
+|CashDrawer | [CashDrawer を呼び出す](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.cashdrawer.claimdrawerasync) | [ClaimedCashDrawer](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.claimedcashdrawer.close) | 
+|LineDisplay | [LineDisplay. ClaimAsync](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.linedisplay.claimasync) |  [ClaimedineDisplay](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.claimedlinedisplay.close) | 
+|MagneticStripeReader | [MagneticStripeReader](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.magneticstripereader.claimreaderasync) |  [ClaimedMagneticStripeReader](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.claimedmagneticstripereader.close) | 
+|PosPrinter | [PosPrinter](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.posprinter.claimprinterasync) |  [ClaimedPosPrinter](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.claimedposprinter.close) | 
  | 
 
-## <a name="enable-device-for-io-operations"></a>デバイスの I/O 操作を有効にします。
+## <a name="enable-device-for-io-operations"></a>I/o 操作のためにデバイスを有効にする
 
-要求アクションは、デバイスに対して、排他的な権限を確立するだけですが動作状態には配置されません。  イベントを受信または出力操作を実行するために使用して、デバイスを有効する必要があります**EnableAsync**します。  逆に、呼び出すことができます**DisableAsync**デバイスからイベントをリッスンしているまたは出力の実行を停止します。  使用することも**IsEnabled**デバイスの状態を判断します。
+要求アクションは、単純にデバイスに対する排他的な権限を確立しますが、動作状態にはなりません。  イベントを受信するか、出力操作を実行するには、 **Enableasync**を使用してデバイスを有効にする必要があります。  逆に、 **Disableasync**を呼び出して、デバイスからのイベントのリッスンを停止したり、出力を実行したりすることができます。  **IsEnabled**を使用して、デバイスの状態を確認することもできます。
 
-### <a name="apis-used-enable--disable"></a>Api の使用を有効にする/無効にします。
+### <a name="apis-used-enable--disable"></a>有効/無効に使用される Api
 
-| デバイス | Enable | 無効 | IsEnabled でしょうか。 |
+| デバイス | [有効にする] | [無効] | IsEnabled? |
 |-|:-|:-|:-|
 |ClaimedBarcodeScanner | [EnableAsync](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.claimedbarcodescanner.enableasync) | [DisableAsync](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.claimedbarcodescanner.disableasync) | [IsEnabled](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.claimedbarcodescanner.isenabled) | 
 |ClaimedCashDrawer | [EnableAsync](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.claimedcashdrawer.enableasync) | [DisableAsync](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.claimedcashdrawer.disableasync) | [IsEnabled](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.claimedcashdrawer.isenabled) |
-|ClaimedLineDisplay | Applicable¹ されません。 | Applicable¹ されません。 | Applicable¹ されません。 | 
+|ClaimedLineDisplay | 該当なし¹ | 該当なし¹ | 該当なし¹ | 
 |ClaimedMagneticStripeReader | [EnableAsync](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.claimedmagneticstripereader.enableasync) | [DisableAsync](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.claimedmagneticstripereader.disableasync) | [IsEnabled](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.claimedmagneticstripereader.isenabled) |  
-|ClaimedPosPrinter | [EnableAsync](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.claimedposprinter.enableasync) | [DisableAsync](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.claimedposprinter.disableasyc) | [IsEnabled](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.claimedposprinter.isenabled) |
+|ClaimedPosPrinter | [EnableAsync](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.claimedposprinter.enableasync) | [DisableAsync](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.claimedposprinter.disableasync) | [IsEnabled](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.claimedposprinter.isenabled) |
 |
 
-¹ の行の表示では、デバイスの I/O 操作を明示的に有効にする必要はありません。  有効化は、I/O を実行する PointOfService LineDisplay Api によって自動的に実行されます。
+¹行の表示では、i/o 操作のためにデバイスを明示的に有効にする必要はありません。  を有効にすると、i/o を実行する PointOfService LineDisplay Api によって自動的に実行されます。
 
-## <a name="code-sample-claim-and-enable"></a>コード サンプル: 要求し、有効にします。
+## <a name="code-sample-claim-and-enable"></a>コードサンプル: 要求と有効化
 
 次のサンプルでは、バーコード スキャナー オブジェクトを正常に作成した後で、バーコード スキャナーのデバイスを要求する方法を示しています。
 
@@ -81,8 +81,8 @@ PointOfService デバイス オブジェクトを正常に作成したら、入�
 
 > [!Warning]
 > 次のような場合に要求が失われることがあります。
-> 1. 別のアプリで同じデバイスの要求がリクエストされ、アプリが **ReleaseDeviceRequested** イベントへの応答として **RetainDevice** を発行しなかった   (詳細については、以下の「[要求のネゴシエーション](#Claim-negotiation)」を参照してください)。
-> 2. アプリが中断され、その結果としてデバイス オブジェクトが終了し、結果的に要求が有効ではなくなった  (詳細については、「[デバイス オブジェクトのライフサイクル](pos-basics-deviceobject.md#device-object-lifecycle)」を参照してください)。
+> 1. 別のアプリで同じデバイスの要求がリクエストされ、アプリが **ReleaseDeviceRequested** イベントへの応答として **RetainDevice** を発行しなかった  (詳細については、以下の「[要求のネゴシエーション](#claim-negotiation)」を参照してください)。
+> 2. アプリが中断され、その結果としてデバイス オブジェクトが終了し、結果的に要求が有効ではなくなった (詳細については、「[デバイス オブジェクトのライフサイクル](pos-basics-deviceobject.md#device-object-lifecycle)」を参照してください)。
 
 
 ## <a name="claim-negotiation"></a>要求のネゴシエーション
@@ -93,7 +93,7 @@ Windows はマルチタスク環境であるため、同じコンピューター
 
 アクティブな要求を持つアプリケーションが **RetainDevice** ですぐに応答しない場合は、アプリケーションが中断されたか、またはデバイスが不要であると見なされ、要求が取り消されて新しいアプリケーションに渡されます。 
 
-イベント ハンドラーを作成するには、まず、 **ReleaseDeviceRequested**イベントと**RetainDevice**します。  
+最初の手順では、 **RetainDevice**で**ReleaseDeviceRequested**イベントに応答するイベントハンドラーを作成します。  
 
 ```Csharp
     /// <summary>
@@ -107,7 +107,7 @@ Windows はマルチタスク環境であるため、同じコンピューター
     }
 ```
 
-要求されたデバイスとの関連付けでイベント ハンドラーを登録します。
+次に、要求されたデバイスとの関連付けでイベントハンドラーを登録します。
 
 ```Csharp
     BarcodeScanner barcodeScanner = await BarcodeScanner.FromIdAsync(DeviceId);

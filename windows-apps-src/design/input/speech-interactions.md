@@ -8,23 +8,23 @@ keywords: スピーチ, 音声, 音声認識, 自然言語, ディクテーシ�
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: ef8cdad247a57ce5fab461e70c2725fda4231efd
-ms.sourcegitcommit: ed32219e04f814a12ea018348e9cf678fcfd5e3a
+ms.openlocfilehash: fd33720255a04ffd8669673f027973afb4369086
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67253063"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75684210"
 ---
 # <a name="speech-interactions"></a>音声操作
 
 音声認識や音声合成 (TTS: text-to-speech) をアプリのユーザー エクスペリエンスに直接統合します。
 
-**音声認識:** ユーザーが発声した単語を、フォーム入力やテキストのディクテーション用にテキストに変換し、操作やコマンドを指定したり、タスクを実行したります。 この機能は、フリーテキストのディクテーションと Web 検索向けの定義済みの文法、および Speech Recognition Grammar Specification (SRGS) バージョン 1.0 を使って作成されたカスタム文法をサポートしています。
+**音声認識:** ユーザーが発声した単語を、フォーム入力やテキストのディクテーション用にテキストに変換し、操作やコマンドを指定したり、タスクを実行したります。 この機能は、フリーテキストのディクテーションと Web 検索向けの定義済みの文法、および Speech Recognition Grammar Specification (SRGS) Version 1.0 を使って作成されたカスタム文法をサポートしています。
 
 **TTS:** 音声合成エンジン (声) を使って、テキスト文字列を音声に変換します。 入力文字列は、基本的でシンプルなテキスト、またはより複雑な Speech Synthesis Markup Language (SSML) のいずれかになります。 SSML は、発音、音量、ピッチ、速度、強調など、音声出力の特性を制御する標準的な方法です。
 
 **その他の音声関連のコンポーネント:** 
-Windows アプリケーションの **Cortana** ではカスタマイズした音声コマンド (発声したコマンドまたは入力したコマンド) を使って、アプリをフォアグラウンドで起動したり (スタート メニューから起動した場合と同様にアプリがフォーカスを取得します)、バック グラウンド サービスとしてアクティブ化したりすることができます (**Cortana** がフォーカスを維持しますが、アプリからの結果を表示します)。 **Cortana** UI でアプリの機能を公開する場合は、「[Cortana voice command (VCD) guidelines](https://docs.microsoft.com/en-us/cortana/voice-commands/vcd)」(Cortana 音声コマンド (VCD) のガイドライン) をご覧ください。
+Windows アプリケーションの **Cortana** ではカスタマイズした音声コマンド (発声したコマンドまたは入力したコマンド) を使って、アプリをフォアグラウンドで起動したり (スタート メニューから起動した場合と同様にアプリがフォーカスを取得します)、バック グラウンド サービスとしてアクティブ化したりすることができます (**Cortana** がフォーカスを維持しますが、アプリからの結果を表示します)。 **Cortana** UI でアプリの機能を公開する場合は、「[Cortana voice command (VCD) guidelines](https://docs.microsoft.com/cortana/voice-commands/vcd)」(Cortana 音声コマンド (VCD) のガイドライン) をご覧ください。
 
 ## <a name="speech-interaction-design"></a>音声操作の設計
 
@@ -58,7 +58,7 @@ Windows アプリケーションの **Cortana** ではカスタマイズした�
 
 音声入力がないときに認識を終了までの時間を指定します。 この時間が経過した後で音声認識を自動的に再開しないでください。これは、ユーザーがアプリの操作を停止したことを示している場合が多いためです。
 
-ネットワーク接続が利用できない場合は、すべての継続的な認識 UI を無効にし、認識セッションを停止します。 継続的な認識では、ネットワーク接続が必要です。
+ネットワーク接続が利用できない場合は、すべての継続的な認識 UI を無効にし、認識セッションを停止します。 連続認識では、ネットワーク接続が必要です。
 
 ## <a name="commanding"></a>コマンド実行
 
@@ -157,7 +157,7 @@ SRGS で定義された制約を使う音声認識エンジンにおける組み
 カスタム文法はお客様が設計および作成を行い、アプリと共にインストールされます。 カスタム制約を使う音声認識は、デバイスで実行されます。
 
 -   プログラムによる一覧の制約は、単語や語句の一覧を使って単純な文法を作成する手法で、軽量です。 個別の短い語句を認識するには、一覧の制約が適しています。 文法にすべての単語を明示的に指定すると、音声認識エンジンは音声と単語の一致を確認する際に音声だけを処理すればよいので、認識の精度が向上します。 また、一覧はプログラムで更新することもできます。
--   SRGS 文法は静的ドキュメントで、プログラムによる一覧の制約とは異なり、[SRGS Version 1.0](https://go.microsoft.com/fwlink/p/?LinkID=262302) で定義された XML 形式を使います。 SRGS 文法では、1 回の認識で複数の意味をキャプチャすることができるため、音声認識エクスペリエンスを最大限に制御することができます。
+-   SRGS 文法は静的ドキュメントで、プログラムによる一覧の制約とは異なり、[SRGS Version 1.0](https://www.w3.org/TR/speech-grammar/) で定義された XML 形式を使います。 SRGS 文法では、1 回の認識で複数の意味をキャプチャすることができるため、音声認識エクスペリエンスを最大限に制御することができます。
 
     SRGS 文法を作成するためのヒントを次にいくつか紹介します。
 
@@ -179,7 +179,7 @@ SRGS で定義された制約を使う音声認識エンジンにおける組み
 
 単語や語句の一覧が大規模な場合や、頻繁に使われる単語や語句については、発音辞書のドキュメントを別途作成することもできます。 詳しくは、[辞書と音標文字に関するページ](https://docs.microsoft.com/previous-versions/office/developer/speech-technologies/hh361646(v=office.14))をご覧ください。
 
-## <a name="testing"></a>Testing (テスト)
+## <a name="testing"></a>テスト
 
 音声認識の精度のテストとサポートされている UI のテストは、アプリの対象ユーザーに対して行います。 このようなテスト方法は、アプリの音声操作エクスペリエンスの有効性を判断するために最適な方法です。 たとえば、アプリが一般的な語句を聞き取らないために、ユーザーが良好な認識結果を得られない可能性があります。
 
@@ -200,18 +200,18 @@ TTS では、プレーンテキストまたは SSML から音声出力が生成�
 -   単語が不自然な順番で連続している場合や、文字列に含まれる数値や句読点を発声する場合に、語句が不明瞭になる可能性があります。
 -   韻律や抑揚がネイティブ スピーカーによる発声と異なると、音声が不自然に聞こえる場合があります。
 
-音声シンセサイザーへの入力として、プレーン テキストではなく SSML を使用して、両方の問題を解決できます。 SSML について詳しくは、「[SSML による合成音声の制御](https://docs.microsoft.com/previous-versions/office/developer/speech-technologies/hh378454(v=office.14))」と「[Speech Synthesis Markup Language (SSML) のリファレンス](https://docs.microsoft.com/previous-versions/office/developer/speech-technologies/hh378377(v=office.14))」をご覧ください。
+両方の問題に対処するには、音声シンセサイザーへの入力としてプレーンテキストではなく SSML を使用します。 SSML について詳しくは、「[SSML による合成音声の制御](https://docs.microsoft.com/previous-versions/office/developer/speech-technologies/hh378454(v=office.14))」と「[Speech Synthesis Markup Language (SSML) のリファレンス](https://docs.microsoft.com/previous-versions/office/developer/speech-technologies/hh378377(v=office.14))」をご覧ください。
 
 ## <a name="other-articles-in-this-section"></a>このセクションの他の記事 
 
 | トピック | 説明 |
 | --- | --- |
 | [音声認識](speech-recognition.md) | 音声認識を使って、入力を行ったり、操作やコマンドを指定したり、タスクを実行したりできます。 |
-| [音声認識エンジンの言語を指定します。](specify-the-speech-recognizer-language.md) | 音声認識に使われるインストール済みの言語を選ぶ方法について説明します。 |
+| [音声認識エンジンの言語を指定する](specify-the-speech-recognizer-language.md) | 音声認識に使われるインストール済みの言語を選ぶ方法について説明します。 |
 | [カスタム認識の制約の定義](define-custom-recognition-constraints.md) | 音声認識のカスタム制約を定義して使う方法について説明します。 |
 | [継続的なディクテーションの有効化](enable-continuous-dictation.md) |長い形式の継続的なディクテーション音声入力をキャプチャし、認識する方法について説明します。 |
-| [オーディオ入力に問題を管理します。](manage-issues-with-audio-input.md) | オーディオ入力の品質が原因で発生する音声認識の精度の問題を管理する方法について説明します。 |
-| [音声認識のタイムアウトを設定します。](set-speech-recognition-timeouts.md) | 音声認識エンジンが無音または認識できないサウンド (雑音) を無視し、音声入力を待機する時間の長さを設定します。 |
+| [オーディオ入力に関する問題の管理](manage-issues-with-audio-input.md) | オーディオ入力の品質が原因で発生する音声認識の精度の問題を管理する方法について説明します。 |
+| [音声認識のタイムアウトを設定する](set-speech-recognition-timeouts.md) | 音声認識エンジンが無音または認識できないサウンド (雑音) を無視し、音声入力を待機する時間の長さを設定します。 |
 
 ## <a name="related-articles"></a>関連記事
 
@@ -220,7 +220,7 @@ TTS では、プレーンテキストまたは SSML から音声出力が生成�
 
  **サンプル**
 
-* [音声認識と音声合成のサンプル](https://go.microsoft.com/fwlink/p/?LinkID=619897)
+* [音声認識と音声合成のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/SpeechRecognitionAndSynthesis)
  
 
  

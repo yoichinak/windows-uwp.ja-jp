@@ -5,15 +5,18 @@ ms.date: 04/23/2019
 ms.topic: article
 keywords: wwindows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 頻繁, 質問, 質問, faq
 ms.localizationpriority: medium
-ms.openlocfilehash: 01ff6fb443550287330d6fe503c3d49d81e2142c
-ms.sourcegitcommit: a7a1e27b04f0ac51c4622318170af870571069f6
+ms.openlocfilehash: 95f5ad82831b6b07e0bbc2127947f777f0cd50e5
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67717639"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "81759927"
 ---
 # <a name="frequently-asked-questions-about-cwinrt"></a>C++/WinRT についてよく寄せられる質問
 [C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) での Windows ランタイム API の作成と使用に関する質問への回答です。
+
+> [!IMPORTANT]
+> C++/WinRT に関するリリース ノートについては、「[C++/WinRT 2.0 の新機能と変更点](news.md#news-and-changes-in-cwinrt-20)」を参照してください。
 
 > [!NOTE]
 > 質問の内容が、表示されたエラー メッセージに関するものである場合は、「[C++/WinRT に関する問題のトラブルシューティング](troubleshooting.md)」のトピックも参照してください。
@@ -29,6 +32,10 @@ Visual Studio 2017 (Version 15.8.0 以降) を使用し、Windows SDK Version 10
 
 ## <a name="how-do-i-resolve-the-build-error-the-cwinrt-vsix-no-longer-provides-project-build-support--please-add-a-project-reference-to-the-microsoftwindowscppwinrt-nuget-package"></a>ビルド エラー "The C++/WinRT VSIX no longer provides project build support.  Please add a project reference to the Microsoft.Windows.CppWinRT Nuget package" (C++/WinRT VSIX はプロジェクトのビルドをサポートしなくなりました。Microsoft.Windows.CppWinRT Nuget パッケージへのプロジェクト参照を追加してください) を解決するにはどうすればよいですか?
 **Microsoft.Windows.CppWinRT** NuGet パッケージをプロジェクトにインストールします。 詳細については、「[VSIX 拡張機能の以前のバージョン](intro-to-using-cpp-with-winrt.md#earlier-versions-of-the-vsix-extension)」を参照してください。
+
+## <a name="how-do-i-customize-the-build-support-in-the-nuget-package"></a>NuGet パッケージでビルド サポートをカスタマイズするにはどうすればよいですか?
+
+C++/WinRT ビルド サポート (プロパティ/ターゲット) については、Microsoft.Windows.CppWinRT NuGet パッケージの [readme](https://github.com/microsoft/cppwinrt/blob/master/nuget/readme.md#customizing) に記載されています。
 
 ## <a name="what-are-the-requirements-for-the-cwinrt-visual-studio-extension-vsix"></a>C++/WinRT Visual Studio Extension (VSIX) の要件は何ですか?
 VSIX 拡張機能の Version 1.0.190128.4 以降については、[C++/WinRT の Visual Studio のサポート](intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)に関する記事を参照してください。 その他のバージョンについては、「[VSIX 拡張機能の以前のバージョン](intro-to-using-cpp-with-winrt.md#earlier-versions-of-the-vsix-extension)」を参照してください。
@@ -47,7 +54,7 @@ Windows ランタイム クラス (ランタイム クラス) を*使用*する�
 ## <a name="why-is-the-linker-giving-me-a-lnk2019-unresolved-external-symbol-error"></a>リンカーで "LNK2019:Unresolved external symbol" (外部シンボルは未解決です) エラーが発生するのはなぜですか?
 未解決のシンボルが (**winrt** 名前空間内の) C++/WinRT プロジェクションの Windows 名前空間ヘッダーからの API である場合、その API は含まれているヘッダー内で事前宣言されていますが、その定義は含まれていないヘッダー内にあります。 API の名前空間で付けられた名前のヘッダーを含めてから、リビルドしてください。 詳細については、「[C++/WinRT プロジェクション ヘッダー](consume-apis.md#cwinrt-projection-headers)」を参照してください。
 
-未解決のシンボルが [RoInitialize](https://docs.microsoft.com/windows/desktop/api/roapi/nf-roapi-roinitialize) などの Windows ランタイムの自由関数である場合、[WindowsApp.lib](/uwp/win32-and-com/win32-apis) の包括的なライブラリを明示的にプロジェクトにリンクする必要があります。 C++/WinRT プロジェクションは、これらの一部の自由 (非メンバー) 関数とエントリ ポイントに依存します。 アプリケーションでいずれかの [C++/WinRT Visual Studio Extension (VSIX)](https://aka.ms/cppwinrt/vsix) プロジェクト テンプレートを使用する場合は、`WindowsApp.lib` が自動的にリンクされます。 それ以外の場合、プロジェクトのリンク設定を使用して含めるか、またはソース コードでそれを行うことができます。
+未解決のシンボルが [RoInitialize](https://docs.microsoft.com/windows/desktop/api/roapi/nf-roapi-roinitialize) などの Windows ランタイムの自由関数である場合、[WindowsApp.lib](/uwp/win32-and-com/win32-apis) の包括的なライブラリを明示的にプロジェクトにリンクする必要があります。 C++/WinRT プロジェクションは、これらの一部の自由 (非メンバー) 関数とエントリ ポイントに依存します。 アプリケーションでいずれかの [C++/WinRT Visual Studio Extension (VSIX)](https://marketplace.visualstudio.com/items?itemName=CppWinRTTeam.cppwinrt101804264) プロジェクト テンプレートを使用する場合は、`WindowsApp.lib` が自動的にリンクされます。 それ以外の場合、プロジェクトのリンク設定を使用して含めるか、またはソース コードでそれを行うことができます。
 
 ```cppwinrt
 #pragma comment(lib, "windowsapp")
@@ -63,21 +70,20 @@ Windows ランタイム クラス (ランタイム クラス) を*使用*する�
 
 ### <a name="uniform-construction"></a>均一の構築
 
-このエラーは、投影された型のコンストラクターのいずれか (**std::nullptr_t** コンストラクター以外) を使ってローカルに実装されているランタイム クラスをインスタンス化しようとした場合にも、発生する可能性があります。 それを行うには、均一の構築と呼ばれることがよくある C++/WinRT 2.0 の機能が必要です。 一方、均一の構築を必要と "*しない*" でローカルに実装されたランタイム クラスをインスタンス化する方法については、「[XAML コントロール: C++/WinRT プロパティへのバインド](binding-property.md)」をご覧ください。
+このエラーは、投影された型のコンストラクターのいずれか (**std::nullptr_t** コンストラクター以外) を使ってローカルに実装されているランタイム クラスをインスタンス化しようとした場合にも、発生する可能性があります。 それを行うには、均一の構築と呼ばれることがよくある C++/WinRT 2.0 の機能が必要です。 その機能にオプトインする場合は、詳細とコード例について、「[均一コンストラクション、実装への直接アクセス](/windows/uwp/cpp-and-winrt-apis/author-apis#opt-in-to-uniform-construction-and-direct-implementation-access)」を参照してください。
 
-均一の構築を "*行う*" 場合は、新しいプロジェクトに対しては既定で有効になります。 既存のプロジェクトの場合は、`cppwinrt.exe` ツールを構成することで、均一の構築をオプトインする必要があります。 Visual Studio で、プロジェクトのプロパティ **[共通プロパティ]**  >  **[C++/WinRT]**  >  **[最適化]** を *[はい]* に設定します。 その効果として、プロジェクト ファイルに `<CppWinRTOptimized>true</CppWinRTOptimized>` が追加されます。 また、コマンド ラインから `cppwinrt.exe` を呼び出すときに `-opt[imize]` スイッチを追加するのと同じ効果があります。
+均一の構築を必要と "*しない*" ローカルに実装されたランタイム クラスをインスタンス化する方法については、「[XAML コントロール: C++/WinRT プロパティへのバインド](binding-property.md)」をご覧ください。
 
-それを設定 "*しないで*" プロジェクトをビルドすると、結果の C++/WinRT プロジェクションでは、ランタイム クラスのコンストラクターおよび静的メンバーにアクセスするために、[**RoGetActivationFactory**](/windows/win32/api/roapi/nf-roapi-rogetactivationfactory) が呼び出されます。 そして、そのためには、クラスを登録し、モジュールで [**DllGetActivationFactory**](/previous-versions/br205771(v=vs.85)) エントリ ポイントを実装する必要があります。
-
-`-opt[imize]`スイッチを "*指定して*" プロジェクトをビルドすると、プロジェクトではコンポーネント内のクラスの **RoGetActivationFactory** がバイパスされ、コンポーネントの外部にクラスがある場合とまったく同じ方法で (登録する必要なしに) クラスを構築できます。
-
-均一の構築を使うには、各実装の `.cpp` ファイルを編集し、実装ヘッダー ファイルをインクルードした後で `#include <Sub/Namespace/ClassName.g.cpp>` を行うようにする必要もあります。
-
-## <a name="should-i-implement-windowsfoundationiclosableuwpapiwindowsfoundationiclosable-and-if-so-how"></a>[  **Windows::Foundation::IClosable**](/uwp/api/windows.foundation.iclosable) を実装するかどうかとその方法
+## <a name="should-i-implement-windowsfoundationiclosable-and-if-so-how"></a>[  **Windows::Foundation::IClosable**](/uwp/api/windows.foundation.iclosable) を実装するかどうかとその方法
 自身のデストラクターのリソースを解放するランタイム クラスを使用し、そのランタイム クラスが実装するコンパイル ユニット (Windows ランタイム クライアント アプリで一般的に使用するための Windows ランタイム コンポーネント) 以外で使用されるように設計されている場合、確定終了処理が不足する言語でランタイム クラスの使用をサポートするために、**IClosable** も実装することをお勧めします。 デストラクター、[**IClosable::Close**](/uwp/api/windows.foundation.iclosable.close)、または両方が呼び出されたときにリソースが解放されるようにしてください。 **IClosable::Close** は必要に応じて呼び出すことができます。
 
-## <a name="do-i-need-to-call-iclosablecloseuwpapiwindowsfoundationiclosableclose-on-runtime-classes-that-i-consume"></a>使用するランタイム クラスで [**IClosable::Close**](/uwp/api/windows.foundation.iclosable.close) を読み出す必要性
-**IClosable** は確定終了処理が不足する言語をサポートします。 そのため、シャットダウン状態やデッドロック状態といった非常にまれな場合を除いて、C++/WinRT から **IClosable::Close** を呼び出さないでください。 たとえば、**Windows.UI.Composition** を使用していて、設定順序でオブジェクトを破棄する場合、その代わりとして、C++/WinRT ラッパーを破棄することができます。
+## <a name="do-i-need-to-call-iclosableclose-on-runtime-classes-that-i-consume"></a>使用するランタイム クラスで [**IClosable::Close**](/uwp/api/windows.foundation.iclosable.close) を読み出す必要性
+**IClosable** は確定終了処理が不足する言語をサポートします。 そのため、一般に、C++/WinRT から **IClosable::Close** を呼び出す必要はありません。 ただし、その一般的な規則に対して以下の例外を考慮してください。
+- **IClosable::Close** の呼び出しが必要になるような、シャットダウンの競合や破壊的に近い支配が関係する場合はほとんどありません。 たとえば、**Windows.UI.Composition** を使用していて、設定順序でオブジェクトを破棄する場合、その代わりとして、C++/WinRT ラッパーを破棄することができます。
+- オブジェクトに対する残りの最後の参照を自分が持っていることが確実でない場合 (オブジェクトを他の API に渡し、そこで参照が保持されている可能性があるため)、**IClosable::Close** を呼び出すのはよいアイデアです。
+- 不明な場合は、破棄時にラッパーによって呼び出されるのを待つのではなく、手動で **IClosable::Close** を呼び出すのが安全です。
+
+それで、自分が最後の参照を持っていることが分かっている場合は、ラッパー デストラクターに処理させることができます。 最後の参照が消える前にクローズする必要がある場合は、**Close** を呼び出す必要があります。 例外を適切に処理するには、resource-acquisition-is-initialization (RAII) 型で **Close** を実行する必要があります (アンワインド時にクローズされるようにする)。 C++/WinRT には **unique_close** ラッパーはありませんが、自分で作成することができます。
 
 ## <a name="can-i-use-llvmclang-to-compile-with-cwinrt"></a>LLVM/Clang を使用して C++/WinRT でコンパイルすることはできますか。
 C++/WinRT の LLVM および Clang ツール チェーンはサポートしていませんが、C++/WinRT の標準への準拠を検証するためにそれを内部で使用します。 たとえば、マイクロソフトが内部で行っている内容をエミュレートする場合は、次に説明するような実験を試してみることができます。

@@ -5,12 +5,12 @@ ms.date: 04/24/2019
 ms.topic: article
 keywords: windows 10、uwp、標準、c ++、cpp、winrt、COM、コンポーネント、クラス、インターフェイス
 ms.localizationpriority: medium
-ms.openlocfilehash: bb28ec7afa22f81033bfce2aff530119e53a4b91
-ms.sourcegitcommit: 7585bf66405b307d7ed7788d49003dc4ddba65e6
+ms.openlocfilehash: d5fae09192262b63b11175bf08e7a2c522b31abd
+ms.sourcegitcommit: 82d441e3b9da920cf860fad6b59d6b848466c90f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67660156"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84271881"
 ---
 # <a name="consume-com-components-with-cwinrt"></a>C++/WinRT での COM コンポーネントの使用
 
@@ -18,7 +18,7 @@ ms.locfileid: "67660156"
 
 このトピックの末尾には、最小限の Direct2D アプリケーションの完全なソース コード一覧が掲載されています。 ここでは、そのコードの抜粋を取り上げ、それを使い、C++/WinRT ライブラリのさまざまな機能を使用し、C++/WinRT を使って COM コンポーネントを利用する方法を説明します。
 
-## <a name="com-smart-pointers-winrtcomptruwpcpp-ref-for-winrtcom-ptr"></a>COM スマート ポインター ([**winrt::com_ptr**](/uwp/cpp-ref-for-winrt/com-ptr))
+## <a name="com-smart-pointers-winrtcom_ptr"></a>COM スマート ポインター ([**winrt::com_ptr**](/uwp/cpp-ref-for-winrt/com-ptr))
 
 COM を使ってプログラミングする場合は、オブジェクトではなくインターフェイスを直接使って作業します (これは、COM が進化したものである Windows ランタイム API のバックグラウンドにも当てはまります)。 たとえば、COM クラスに対して関数を呼び出すには、そのクラスをアクティブ化し、インターフェイスを取得してから、そのインターフェイスに対して関数を呼び出します。 オブジェクトの状態にアクセスするには、そのデータ メンバーに直接アクセスしないでください。代わりに、インターフェイスに対してアクセサー関数とミューテーター関数を呼び出します。
 
@@ -81,7 +81,7 @@ DWriteCreateFactory(
     reinterpret_cast<IUnknown**>(dwriteFactory2.put()));
 ```
 
-## <a name="re-seat-a-winrtcomptr"></a>**winrt::com_ptr** を再設定する
+## <a name="re-seat-a-winrtcom_ptr"></a>**winrt::com_ptr** を再設定する
 
 > [!IMPORTANT]
 > [**winrt::com_ptr**](/uwp/cpp-ref-for-winrt/com-ptr) が既に設定されていて (内部の生のポインターが既にターゲットを持っていて)、別のオブジェクトを指すように再設定する場合は、次のコード例に示すように、最初に `nullptr` をそれに割り当てる必要があります。 そうしない場合、([**com_ptr::put**](/uwp/cpp-ref-for-winrt/com-ptr#com_ptr_put-function) または [**com_ptr::put_void**](/uwp/cpp-ref-for-winrt/com-ptr#com_ptrput_void-function) を呼び出すときに) 既に設定されている **com_ptr** によって内部ポインターが null ではないとアサートされるため、問題に気づきます。
@@ -127,14 +127,13 @@ winrt::check_hresult(D2D1CreateFactory(
 
 ## <a name="com-functions-that-take-an-iunknown-interface-pointer"></a>**IUnknown** インターフェイス ポインターを受け取る COM 関数
 
-[**winrt::get_unknown**](/uwp/cpp-ref-for-winrt/windows-foundation-iunknown#get_unknown-function) free 関数を呼び出して、**com_ptr** を **IUnknown** インターフェイス ポインターを受け取る関数に渡すことができます。
+[**com_ptr::get**](/uwp/cpp-ref-for-winrt/com-ptr#com_ptrget-function) を使用して、**com_ptr** を **IUnknown** インターフェイス ポインターを受け取る関数に渡すことができます。
 
-```cppwinrt
-winrt::check_hresult(factory->CreateSwapChainForCoreWindow(
-    ...
-    winrt::get_unknown(CoreWindow::GetForCurrentThread()),
-    ...));
-```
+[**winrt::get_unknown**](/uwp/cpp-ref-for-winrt/get-unknown) 関数を使用して、プロジェクションされた型のオブジェクトの基になる生の [IUnknown インターフェイス](/windows/win32/api/unknwn/nn-unknwn-iunknown)のアドレス (つまり、それに対するポインター) を返すことができます。 その後、そのアドレスを、**IUnknown** インターフェイス ポインターを受け取る関数に渡すことができます。
+
+"*プロジェクションされた型*" については、「[C++/WinRT での API の使用](/windows/uwp/cpp-and-winrt-apis/consume-apis)」をご覧ください。
+
+**get_unknown** のコード例については、[**winrt::get_unknown**](/uwp/cpp-ref-for-winrt/get-unknown) に関するページか、このトピックの「[最小限の Direct2D アプリケーションの完全なソース コード一覧](/windows/uwp/cpp-and-winrt-apis/consume-com#full-source-code-listing-of-a-minimal-direct2d-application)」をご覧ください。
 
 ## <a name="passing-and-returning-com-smart-pointers"></a>COM スマート ポインターの受け渡し
 
@@ -169,7 +168,21 @@ void ExampleFunction(winrt::com_ptr<ID3D11Device> const& device)
 
 ## <a name="full-source-code-listing-of-a-minimal-direct2d-application"></a>最小限の Direct2D アプリケーションの完全なソース コード一覧
 
-このソース コード例をビルドして実行する場合は、まず Visual Studio で新しい**コア アプリ (C++/WinRT)** を作成します。 `Direct2D` はプロジェクトに適した名前ですが、任意の名前を付けることができます。 `App.cpp` を開き、内容全体を削除し、以下の一覧に貼り付けます。
+> [!NOTE]
+> &mdash;C++/WinRT Visual Studio Extension (VSIX) と NuGet パッケージ (両者が連携してプロジェクト テンプレートとビルドをサポート) のインストールと使用など、&mdash;C++/WinRT 開発用に Visual Studio を設定する方法については、[Visual Studio での C++/WinRT のサポート](intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)に関する記事を参照してください。
+
+このソースコードの例をビルドして実行する場合は、まず、最新バージョンの C++/WinRT Visual Studio 拡張機能 (VSIX) をインストール (または更新) します。上記の注を参照してください。 次に、Visual Studio で、新しい**コア アプリ (C++/WinRT)** を作成します。 `Direct2D` はプロジェクトに適した名前ですが、任意の名前を付けることができます。 Windows SDK の最新の一般公開された (プレビュー以外の) バージョンを対象とします。
+
+### <a name="step-1-edit-pchh"></a>手順 1. `pch.h` を編集します
+
+`pch.h` を開き、`windows.h` のインクルードの直後に `#include <unknwn.h>` を追加します。 これは、[**winrt:: get_unknown**](/uwp/cpp-ref-for-winrt/get-unknown) を使用しているためです。 **winrt::get_unknown** を使用するときは常に、そのヘッダーが別のヘッダーにインクルードされている場合でも、明示的に `#include <unknwn.h>` することをお勧めします。
+
+> [!NOTE]
+> この手順を省略すると、ビルドエラー " *'get_unknown': 識別子が見つかりません*" が表示されます。
+
+### <a name="step-2-edit-appcpp"></a>手順 2. `App.cpp` を編集します
+
+`App.cpp` を開き、内容全体を削除し、以下の一覧に貼り付けます。
 
 次のコードでは、可能な場合は [winrt::com_ptr::capture 関数](/uwp/cpp-ref-for-winrt/com-ptr#com_ptrcapture-function)を使用しています。 `WINRT_ASSERT` はマクロ定義であり、[_ASSERTE](/cpp/c-runtime-library/reference/assert-asserte-assert-expr-macros) に展開されます。
 

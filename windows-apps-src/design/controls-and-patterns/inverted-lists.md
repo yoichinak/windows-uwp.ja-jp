@@ -12,10 +12,10 @@ design-contact: kimsea
 doc-status: Published
 ms.localizationpriority: medium
 ms.openlocfilehash: c552109b243688c2618425adce797c4d208eac31
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "66364775"
 ---
 # <a name="inverted-lists"></a>反転リスト
@@ -24,7 +24,7 @@ ms.locfileid: "66364775"
 
 リスト ビューを使って、送信者と受信者を見た目で区別しやすい項目を利用するチャット エクスペリエンスで会話を表示することができます。  異なる色と水平方向の配置を使って送信者と受信者のメッセージを区別すると、ユーザーはすばやく自分の会話の位置を確認できます。
 
-> **重要な API**:[ListView クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listview)、[ItemsStackPanel クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemsstackpanel)、[ItemsUpdatingScrollMode プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemsstackpanel.itemsupdatingscrollmode)
+> **重要な API**: [ListView クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listview)、[ItemsStackPanel クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemsstackpanel)、[ItemsUpdatingScrollMode プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemsstackpanel.itemsupdatingscrollmode)
  
 通常では、上から下ではなく、下から上に一覧を表示することが必要になります。  新しいメッセージを受信して末尾に追加するときは、以前のメッセージを上にスライドして空きを作り、ユーザーの注目が新着メッセージに集まるようにします。  ただし、ユーザーが上にスクロールして以前の返信を確認している場合は、ユーザーの集中を妨害することのないように、新しいメッセージの受信で表示位置を変更しないでください。
 

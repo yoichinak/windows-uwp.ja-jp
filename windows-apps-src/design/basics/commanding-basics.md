@@ -1,26 +1,25 @@
 ---
-Description: ユニバーサル Windows プラットフォーム (UWP) アプリでは、コマンド要素は、ユーザーがメール送信、項目の削除、フォームの送信などのアクションを実行できる対話型の UI 要素です。
-title: ユニバーサル Windows プラットフォーム (UWP) アプリのコマンド設計の基本
+Description: Windows アプリのコマンド要素は、ユーザーがメール送信、項目の削除、フォームの送信などのアクションを実行できる対話型の UI 要素です。
+title: Windows アプリのコマンド デザインの基本
 ms.assetid: 1DB48285-07B7-4952-80EF-02B57D4469F2
 label: Command design basics
 template: detail.hbs
 op-migration-status: ready
-ms.author: mijacobs
 ms.date: 11/01/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: ac2bd55d1cea25359c3c609148c7098532d76c46
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 154f1969f18cffc485252971258ef801ca86a56e
+ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63796405"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83234021"
 ---
-# <a name="command-design-basics-for-uwp-apps"></a>UWP アプリのコマンド設計の基本
+# <a name="command-design-basics-for-windows-apps"></a>Windows アプリのコマンド デザインの基本
 
-ユニバーサル Windows プラットフォーム (UWP) アプリでは、"*コマンド要素*" は、ユーザーがメール送信、項目の削除、フォームの送信などのアクションを実行できる対話型の UI 要素です。 "*コマンド インターフェイス*" は、共通のコマンド要素、それをホストするコマンド サーフェス、サポートされている対話、提供されているエクスペリエンスで構成されます。
+Windows アプリの "*コマンド要素*" は、ユーザーがメール送信、項目の削除、フォームの送信などのアクションを実行できる対話型の UI 要素です。 "*コマンド インターフェイス*" は、共通のコマンド要素、それをホストするコマンド サーフェス、サポートされている対話、提供されているエクスペリエンスで構成されます。
 
 ## <a name="provide-the-best-command-experience"></a>最善のコマンド エクスペリエンスを提供する
 
@@ -34,7 +33,7 @@ ms.locfileid: "63796405"
 - ファイルを開く、保存する、削除する
 - コンテンツの編集または作成
 
-クリエイティブにコマンド エクスペリエンスを設計してください。 アプリでサポートする入力デバイスと、各デバイスに対するアプリでの対応方法を選択します。 最大限の範囲の機能と設定をサポートすることにより、アプリの使いやすさ、移植性、アクセシビリティが最大になります (詳しくは [Commanding design for Universal Windows Platform (UWP) apps (ユニバーサル Windows プラットフォーム (UWP) アプリ向けのコマンドのデザイン)](../controls-and-patterns/commanding.md) に関する記事を参照)。
+クリエイティブにコマンド エクスペリエンスを設計してください。 アプリでサポートする入力デバイスと、各デバイスに対するアプリでの対応方法を選択します。 幅広い機能と設定をサポートすることにより、アプリの使いやすさ、移植性、アクセシビリティを最大限に引き出せます (詳しくは、[Windows アプリ向けのコマンド デザイン](../controls-and-patterns/commanding.md)に関する記事をご覧ください)。
 
 
 
@@ -44,56 +43,56 @@ When designing a command interface, the most important decision is choosing what
 
 ## <a name="choose-the-right-command-elements"></a>適切なコマンド要素を選択する
 
-適切な要素をコマンド インターフェイスで使うことが、直感的で使いやすいアプリとなるか、使いにくくてややこしいアプリとなるかの分かれ目になります。 ユニバーサル Windows プラットフォーム (UWP) では、包括的なコマンド要素のセットを使用できます。 最も一般的な UWP のコマンド要素を次に示します。
+適切な要素をコマンド インターフェイスで使うことが、直感的で使いやすいアプリとなるか、使いにくくてややこしいアプリとなるかの分かれ目になります。 Windows アプリでは、包括的なコマンド要素のセットを使用できます。 最も一般的な UWP のコマンド要素を次に示します。
 
 :::row:::
     :::column:::
-        ![button image](images/commanding/thumbnail-button.svg)
+![ボタンの画像](images/commanding/thumbnail-button.svg)
     :::column-end:::
     :::column span="2":::
-        <b>Buttons</b>
+<b>ボタン</b>
 
-        <a href="../controls-and-patterns/buttons.md" style="text-decoration:none">Buttons</a> trigger an immediate action. Examples include sending an email, submitting form data, or confirming an action in a dialog.
+<a href="../controls-and-patterns/buttons.md" style="text-decoration:none">ボタン</a>は、即時アクションをトリガーします。 メールの送信、フォーム データの送信、ダイアログでのアクションの確認などの操作です。
 :::row-end:::
 
 :::row:::
     :::column:::
-        ![list image](images/commanding/thumbnail-list.svg)
+![リストの画像](images/commanding/thumbnail-list.svg)
     :::column-end:::
     :::column span="2":::
-        <b>Lists</b>
+<b>リスト</b>
 
-        <a href="../controls-and-patterns/lists.md" style="text-decoration:none">Lists</a> present items in a interactive list or a grid. Usually used for many options or display items. Examples include drop-down list, list box, list view and grid view.
+<a href="../controls-and-patterns/lists.md" style="text-decoration:none">リスト</a>は、対話型のリストまたはグリッド内に項目を表示します。 通常、オプションや表示項目が多い場合に使用されます。 例として、ドロップダウン リスト、リスト ボックス、リスト ビューとグリッド ビューなどがあります。
 :::row-end:::
 
 :::row:::
     :::column:::
-        ![selection control image](images/commanding/thumbnail-selection.svg)
+![選択コントロールの画像](images/commanding/thumbnail-selection.svg)
     :::column-end:::
     :::column span="2":::
-        <b>Selection controls</b>
+<b>選択コントロール</b>
 
-        Lets users choose from a few options, such as when completing a survey or configuring app settings. Examples include <a href="../controls-and-patterns/checkbox.md">check box</a>, <a href="../controls-and-patterns/radio-button.md">radio button</a>, and <a href="../controls-and-patterns/toggles.md">toggle switch</a>.
+アンケートに入力するときや、アプリ設定を構成するときなどに、ユーザーがいくつかのオプションから選択できるようにします。 例として、<a href="../controls-and-patterns/checkbox.md">チェック ボックス</a>、<a href="../controls-and-patterns/radio-button.md">ラジオ ボタン</a>、<a href="../controls-and-patterns/toggles.md">トグル スイッチ</a>などがあります。
 :::row-end:::
 
 :::row:::
     :::column:::
-        ![Calendar  image](images/commanding/thumbnail-calendar.svg)
+![カレンダーの画像](images/commanding/thumbnail-calendar.svg)
     :::column-end:::
     :::column span="2":::
-        <b>Calendar, date and time pickers</b>
+<b>カレンダー、日付、および時刻の選択コントロール</b>
 
-        <a href="../controls-and-patterns/date-and-time.md">Calendar, date and time pickers</a> enable users to view and modify date and time info, such as when creating an event or setting an alarm. Examples include calendar date picker, calendar view, date picker, time picker.
+<a href="../controls-and-patterns/date-and-time.md">カレンダー、日付、および時刻の選択コントロール</a>は、イベントを作成するときや、アラームを設定するときなどに、ユーザーが日時情報を表示して変更できるようにします。 例として、カレンダーの日付の選択コントロール、カレンダー ビュー、日付の選択コントロール、時刻の選択コントロールなどがあります。
 :::row-end:::
 
 :::row:::
     :::column:::
-        ![Predictive text entry image](images/commanding/thumbnail-autosuggest.svg)
+![テキスト予測入力の画像](images/commanding/thumbnail-autosuggest.svg)
     :::column-end:::
     :::column span="2":::
-        <b>Predictive text entry</b>
+<b>テキスト予測入力</b>
 
-        Provides suggestions as users type, such as when entering data or performing queries. Examples include <a href="../controls-and-patterns/auto-suggest-box.md">auto-suggest box</a>.<br>
+データを入力したりクエリを実行したりするときに、ユーザーが入力するにつれて入力候補を表示します。 例として、<a href="../controls-and-patterns/auto-suggest-box.md">自動提案ボックス</a>などがあります。<br>
 :::row-end:::
 
 全一覧については、「[コントロールと UI 要素](../controls-and-patterns/index.md)」をご覧ください。
@@ -110,36 +109,36 @@ When designing a command interface, the most important decision is choosing what
 
 :::row:::
     :::column:::
-        ![app canvas image](images/commanding/thumbnail-canvas.svg)
+![アプリのキャンバスの画像](images/commanding/thumbnail-canvas.svg)
     :::column-end:::
     :::column span="2":::
-        <b>App canvas (content area)</b>
+<b>アプリのキャンバス (コンテンツ領域)</b>
 
-        If a command is constantly needed for users to complete core scenarios, put it on the canvas. Because you can put commands near (or on) the objects they affect, putting commands on the canvas makes them easy and obvious to use. However, choose the commands you put on the canvas carefully. Too many commands on the app canvas take up valuable screen space and can overwhelm the user. If the command won't be frequently used, consider putting it in another command surface.
+ユーザーがコア シナリオを完了するためにあるコマンドが常に必要な場合は、そのコマンドをキャンバスに配置できます。 コマンドは影響を与えるオブジェクトの近く (またはその上) に配置できるため、キャンバスにコマンドを配置すると使い方がわかりやすくなります。 ただし、キャンバスに配置するコマンドは慎重に選んでください。 アプリのキャンバスにコマンドが多すぎると、貴重な画面のスペースがなくなり、ユーザーを困惑させる可能性があります。 それほど頻繁に使わないコマンドの場合、別のコマンド サーフェスに配置することを検討してください。
 :::row-end:::
 
 :::row:::
     :::column:::
-        ![commandbar image](images/commanding/thumbnail-commandbar.svg)
+![コマンド バーの画像](images/commanding/thumbnail-commandbar.svg)
     :::column-end:::
     :::column span="2":::
-        <b>Command bars and menu bars</b>
+<b>コマンド バーとメニュー バー</b>
 
-        <a href="../controls-and-patterns/app-bars.md">Command bars</a> help organize commands and make them easy to access. Command bars can be placed at the top of the screen, at the bottom of the screen, or at both the top and bottom of the screen (a <a href="../controls-and-patterns/menus.md#create-a-menu-bar">MenuBar</a> can also be used when the functionality in your app is too complex for a command bar).
+<a href="../controls-and-patterns/app-bars.md">コマンド バー</a>を使うと、コマンドを整理しやすくなり、アクセスしやすくなります。 コマンド バーは画面の上部または画面の下部、あるいは画面の上部と下部の両方に配置できます (アプリの機能がコマンド バーに対して複雑すぎる場合は<a href="../controls-and-patterns/menus.md#create-a-menu-bar">メニュー バー</a>も使用できます)。
 :::row-end:::
 
 :::row:::
     :::column:::
-        ![context menu image](images/commanding/thumbnail-contextmenu.svg)
+![コンテキスト メニューの画像](images/commanding/thumbnail-contextmenu.svg)
     :::column-end:::
     :::column span="2":::
-        <b>Menus and context menus</b>
+<b>メニューとショートカット メニュー</b>
 
-        <p>Menus and context menus save space by organizing commands and hiding them until the user needs them. Users typically access a menu or context menu by clicking a button or right-clicking a control.</p> 
+<p>メニューとコンテキスト メニューは、コマンドを整理してユーザーに要求されるまで非表示にすることによって、スペースを節約します。 通常、ユーザーはボタンをクリックするか、コントロールを右クリックして、メニューまたはコンテキスト メニューにアクセスします。</p> 
 
-        <p>The <a href="../controls-and-patterns/command-bar-flyout.md">command bar flyout </a> is a type of contextual menu that combines the benefits of a command bar and a context menu into a single control. It can provide shortcuts to commonly-used actions and provide access to secondary commands that are only relevant in certain contexts, such as clipboard or custom commands.</p>
+<p><a href="../controls-and-patterns/command-bar-flyout.md">コマンド バーのポップアップ</a>は、コマンド バーとコンテキスト メニューの利点を単一のコントロールに結合するコンテキスト メニューの一種です。 これにより、よく使うアクションへのショートカットが提供され、クリップボードやカスタム コマンドなど、特定のコンテキストにのみ関連するセカンダリ コマンドにアクセスできます。</p>
 
-        <p>UWP also provides a set of traditional menus and context menus; for more info, see the <a href="../controls-and-patterns/menus.md">menus and context menus overview</a>.</p>
+<p>UWP には、従来のメニューとコンテキスト メニューのセットも用意されています。詳細については、<a href="../controls-and-patterns/menus.md">メニューとコンテキスト メニューの概要</a>に関する記事を参照してください。</p>
 :::row-end:::
 
 ## <a name="provide-command-feedback"></a>コマンドのフィードバックを提供する 
@@ -153,32 +152,32 @@ When designing a command interface, the most important decision is choosing what
 
 :::row:::
     :::column:::
-        ![commandbar content area image](images/commanding/thumbnail-commandbar2.svg)
+![コマンド バー コンテンツ領域の画像](images/commanding/thumbnail-commandbar2.svg)
     :::column-end:::
     :::column span="2":::
-        <b>Command bar</b>
+<b>コマンド バー</b>
 
-        The content area of the <a href="../controls-and-patterns/app-bars.md">command bar</a> is an intuitive place to communicate status to users if they'd like to see feedback.
+<a href="../controls-and-patterns/app-bars.md">コマンド バー</a>のコンテンツ領域は、ユーザーがフィードバックを確認したい場合にユーザーに状態を伝えるための直感的な場所です。
 :::row-end:::
 
 :::row:::
     :::column:::
-        ![Flyout image](images/commanding/thumbnail-flyout.svg)
+![ポップアップの画像](images/commanding/thumbnail-flyout.svg)
     :::column-end:::
     :::column span="2":::
-        <b>Flyouts</b>
+<b>ポップアップ</b>
 
        <a href="../controls-and-patterns/dialogs-and-flyouts/index.md">フライアウト</a>は、その外側をタップまたはクリックして閉じることができる、軽量な状況依存のポップアップです。
 :::row-end:::
 
 :::row:::
     :::column:::
-        ![Dialog image](images/commanding/thumbnail-dialog.svg)
+![ダイアログの画像](images/commanding/thumbnail-dialog.svg)
     :::column-end:::
     :::column span="2":::
-        <b>Dialog controls</b>
+<b>ダイアログ コントロール</b>
 
-        <a href="../controls-and-patterns/dialogs-and-flyouts/index.md">Dialog controls</a> are modal UI overlays that provide contextual app information. In most cases, dialogs block interactions with the app window until being explicitly dismissed, and often request some kind of action from the user. Dialogs can be disruptive and should only be used in certain situations. For more info, see the [When to confirm or undo actions](#when-to-confirm-or-undo-actions) section.
+<a href="../controls-and-patterns/dialogs-and-flyouts/index.md">ダイアログ コントロール</a>は、状況依存のアプリ情報を表示するモーダル UI オーバーレイです。 ほとんどの場合、ダイアログは明示的に閉じられまでアプリ ウィンドウの操作を妨げます。また、多くの場合、ユーザーに操作を要求します。 ダイアログは、煩わしく感じることがあるため、特定の状況でのみ使用してください。 詳しくは、「[アクションを確認または元に戻すタイミング](#when-to-confirm-or-undo-actions)」をご覧ください。
     :::column-end:::
 :::row-end:::
 
@@ -191,23 +190,23 @@ When designing a command interface, the most important decision is choosing what
 
 :::row:::
     :::column:::
-        ![do image](images/do.svg)
+![推奨の画像](images/do.svg)
 
-        For actions that can't be undone and have major consequences, we recommend using a confirmation dialog. Examples of such actions include:
-        -   Overwriting a file
-        -   Not saving a file before closing
-        -   Confirming permanent deletion of a file or data
-        -   Making a purchase (unless the user opts out of requiring a confirmation)
-        -   Submitting a form, such as signing up for something
+元に戻すことができず、実行結果が重大な操作の場合は、確認ダイアログ ボックスの使用をお勧めします。 このような操作の例は、次のとおりです。
+-   ファイルを上書きする
+-   ファイルを保存せずに終了する
+-   ファイルやデータを完全に削除することを確認する
+-   購入する (確認メッセージを表示しないことをユーザーが選択した場合を除く)
+-   何かへのサインアップなどのフォームを送信する
     :::column-end:::
     :::column:::
-        ![do image](images/do.svg)
+![推奨の画像](images/do.svg)
 
-        For actions that can be undone, offering a simple undo command is usually enough. Examples of such actions include:
-        -   Deleting a file
-        -   Deleting an email (not permanently)
-        -   Modifying content or editing text
-        -   Renaming a file
+元に戻すことができる操作の場合は、通常、単純な "元に戻す" コマンドを提供すれば十分です。 このような操作の例は、次のとおりです。
+-   ファイルを削除する
+-   メールを削除する (完全には削除しない)
+-   コンテンツを変更する、またはテキストを編集する
+ファイル名を変更する
 :::row-end:::
 
 ##  <a name="optimize-for-specific-input-types"></a>特定の入力タイプの最適化

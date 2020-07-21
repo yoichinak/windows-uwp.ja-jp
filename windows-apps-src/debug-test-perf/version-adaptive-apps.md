@@ -6,13 +6,13 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: b947d0b6cc83dc6bca45efb7103a933e79972e3b
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
-ms.translationtype: MT
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67317450"
 ---
-# <a name="version-adaptive-apps-use-new-apis-while-maintaining-compatibility-with-previous-versions"></a>アダプティブ アプリのバージョン:新しい Api を使用して、以前のバージョンとの互換性を維持しながら
+# <a name="version-adaptive-apps-use-new-apis-while-maintaining-compatibility-with-previous-versions"></a>バージョン アダプティブ アプリ: 以前のバージョンとの互換性を保ちながら新しい API を使う
 
 Windows 10 SDK の各リリースには、ユーザーが利用したくなるような魅力的な新機能が追加されています。 ただし、すべてのユーザーがデバイスを最新バージョンの Windows 10 に同時に更新するわけではないため、できるだけ幅広いデバイスでアプリが動作するようにする必要があります。 ここでは、アプリが以前のバージョンの Windows 10 で動作するだけでなく、最新の更新プログラムがインストールされたデバイスでアプリを実行したときに新機能を利用できるように、アプリを設計する方法について説明します。
 
@@ -26,8 +26,8 @@ Windows 10 SDK の各リリースには、ユーザーが利用したくなる�
 
 複数の Windows 10 バージョンをサポートするための最初の手順は、Visual Studio プロジェクトで、サポートされる*ターゲット*と*最小*の OS/SDK バージョンを指定することです。
 
-- *Target*:SDK のバージョン Visual Studio は、アプリのコードをコンパイルし、に対するすべてのツールを実行します。 この SDK バージョンに含まれているすべての API とリソースは、コンパイル時にアプリ コードで使うことができます。
-- *最小*:アプリで実行できます (およびストアに配置されます)、最も古い OS バージョンと Visual Studio は、アプリのマークアップ コードをコンパイルするバージョンをサポートする SDK のバージョン。 
+- *ターゲット*: Visual Studio がアプリ コードをコンパイルし、すべてのツールを実行する際に対象となる SDK バージョン。 この SDK バージョンに含まれているすべての API とリソースは、コンパイル時にアプリ コードで使うことができます。
+- *最小*: アプリを実行できる (ストアからの展開先となる) 以前の OS バージョンと、Visual Studio がアプリ マークアップ コードをコンパイルする際に対象となるバージョンをサポートする SDK バージョン。 
 
 実行時には展開先の OS バージョンに対してアプリが実行されるため、そのバージョンで利用できないリソースを使ったり、そのような API を呼び出したりすると、アプリによって例外がスローされます。 ランタイム チェックを使って適切な API を呼び出す方法については、この記事の後半で説明します。
 
@@ -56,12 +56,12 @@ Visual Studio で既に作成済みのプロジェクトの最小バージョン
 | Creators Update | 1703 | 15063 |
 | Fall Creators Update | 1709 | 16299 |
 | April 2018 Update | 1803 | 17134 |
-| 2018年 10 月 Update | 1809 | 17763 |
-| 2019 の月の更新 | 1903 | 18362 |
+| October 2018 Update | 1809 | 17763 |
+| May 2019 Update | 1903 | 18362 |
 
 SDK のすべてのリリース版は、「[Windows SDK とエミュレーターのアーカイブ](https://developer.microsoft.com/windows/downloads/sdk-archive)」からダウンロードできます。 最新の Windows Insider Preview SDK は、[Windows Insider](https://insider.windows.com/for-developers/) サイトの「開発者向け」セクションからダウンロードできます。
 
- Windows 10 更新プログラムの詳細については、次を参照してください。 [Windows 10 のリリース情報](https://www.microsoft.com/itpro/windows-10/release-information)します。 Windows 10 のサポート ライフ サイクルに関する重要な情報は、次を参照してください。、 [Windows ライフ サイクル ファクト シート](https://support.microsoft.com/help/13853/windows-lifecycle-fact-sheet)します。
+ Windows 10 更新プログラムについて詳しくは、「[Windows 10 リリース情報](https://www.microsoft.com/itpro/windows-10/release-information)」をご覧ください。 Windows 10 のサポート ライフサイクルに関する重要な情報については、「[Windows ライフサイクルのファクトシート](https://support.microsoft.com/help/13853/windows-lifecycle-fact-sheet)」を参照してください。
 
 ## <a name="perform-api-checks"></a>API チェックの実行
 
@@ -84,7 +84,7 @@ API コントラクトとは何でしょうか。 基本的に、API コント�
 最も大規模で最もよく使われる API コントラクトは **Windows.Foundation.UniversalApiContract** です。 これには、ユニバーサル Windows プラットフォームの API の大部分が含まれています。 「[デバイス ファミリの拡張 SDK および API コントラクト](https://docs.microsoft.com/uwp/extension-sdks/)」ドキュメントでは、利用できるさまざまな API コントラクトについて説明しています。 ほとんどの API コントラクトは、機能的に関連のある API のセットを表していることがわかります。
 
 > [!NOTE]
-> SDK のインストール フォルダーにある 'Platform.xml' ファイルに API コントラクトのサポートに関する情報を見つけることができますもまだ文書化されていないプレビュー Windows ソフトウェア開発キット (SDK) をインストールした場合 '\(Program Files (x86)) \Windows Kits\10\Platforms\<プラットフォーム >\<SDK バージョン > \Platform.xml'。
+> まだドキュメントが公開されていないプレビュー版の Windows ソフトウェア開発キット (SDK) をインストールしている場合は、SDK のインストール フォルダーにある "Platform.xml" ファイル ("\(Program Files (x86))\Windows Kits\10\Platforms\<platform>\<SDK version>\Platform.xml") で API コントラクトのサポートに関する情報を確認できます。
 
 ### <a name="version-adaptive-code-and-conditional-xaml"></a>バージョン アダプティブ コードと条件付き XAML
 
@@ -105,6 +105,6 @@ API コントラクトとは何でしょうか。 基本的に、API コント�
 
 ## <a name="related-articles"></a>関連記事
 
-- [UWP アプリですか。](https://docs.microsoft.com/windows/uwp/get-started/universal-application-platform-guide)
-- [API コントラクトの機能を動的に検出します。](https://blogs.windows.com/buildingapps/2015/09/15/dynamically-detecting-features-with-api-contracts-10-by-10/)
+- [UWP アプリとは](https://docs.microsoft.com/windows/uwp/get-started/universal-application-platform-guide)
+- [API コントラクトを使った機能の動的な検出](https://blogs.windows.com/buildingapps/2015/09/15/dynamically-detecting-features-with-api-contracts-10-by-10/)
 - [API コントラクト](https://channel9.msdn.com/Events/Build/2015/3-733) (Build 2015 のビデオ)

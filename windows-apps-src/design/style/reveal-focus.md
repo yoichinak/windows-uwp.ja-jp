@@ -9,12 +9,12 @@ pm-contact: chphilip
 design-contact: ''
 dev-contact: stevenki
 ms.localizationpriority: medium
-ms.openlocfilehash: 2cb91b37b1d2a6924a80bbe666129343ad778d8e
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 098c46499e65c34e3699b09e137ea94c40590ef7
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66370477"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82968008"
 ---
 # <a name="reveal-focus"></a>表示フォーカス
 
@@ -27,7 +27,7 @@ ms.locfileid: "66370477"
 
 > **重要な API**:[Application.FocusVisualKind プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.FocusVisualKind)、[FocusVisualKind 列挙型](https://docs.microsoft.com/uwp/api/windows.ui.xaml.focusvisualkind)、[Control.UseSystemFocusVisuals プロパティ](/uwp/api/Windows.UI.Xaml.Controls.Control.UseSystemFocusVisuals)
 
-## <a name="how-it-works"></a>方法
+## <a name="how-it-works"></a>しくみ
 表示フォーカスでは、フォーカスが置かれた要素に注意が向くように、要素の境界線の周囲にアニメーション化されたグロー (蛍光ライト効果) が追加されます。
 
 ![表示のビジュアル効果](images/traveling-focus-fullscreen-light-rf.gif)
@@ -98,7 +98,7 @@ ms.locfileid: "66370477"
 
 ## <a name="customize-the-margin"></a>余白のカスタマイズ
 
-余白は、コントロールの視覚的な境界線と、フォーカスの視覚効果で示されるセカンダリ境界線の開始点との間にあるスペースです。 既定の余白は、コントロールの境界線から 1 px の幅になります。 この余白は、[FocusVisualMargin](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.FocusVisualMargin) プロパティを変更することでコントロールごとに変更できます。
+余白とは、コントロールの視覚的な境界線と、フォーカスの視覚効果で示されるセカンダリ境界線の開始点との間にあるスペースです。 既定の余白は、コントロールの境界線から 1 px の幅になります。 この余白は、[FocusVisualMargin](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.FocusVisualMargin) プロパティを変更することでコントロールごとに変更できます。
 
 ```xaml
 <Button FocusVisualPrimaryThickness="2" FocusVisualSecondaryThickness="1" FocusVisualMargin="-3"/>
@@ -108,7 +108,7 @@ ms.locfileid: "66370477"
 
 ## <a name="customize-the-color"></a>色のカスタマイズ
 
-表示フォーカス視覚効果の色を変更するには、[FocusVisualPrimaryBrush](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.FocusVisualPrimaryBrush) プロパティと [FocusVisualSecondaryBrush](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.frameworkelement.FocusVisualSecondaryBrush) プロパティを使用します。
+表示フォーカス視覚効果の色を変更するには、[FocusVisualPrimaryBrush](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.FocusVisualPrimaryBrush) プロパティと [FocusVisualSecondaryBrush](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.FocusVisualSecondaryBrush) プロパティを使用します。
 
 | プロパティ | 既定のリソース | 既定のリソースの値 |
 | ---- | ---- | --- | 
@@ -163,19 +163,19 @@ ms.locfileid: "66370477"
 
 ## <a name="use-your-own-focus-visuals"></a>独自のフォーカス視覚効果を使用する
 
-表示フォーカスをカスタマイズするもう 1 つの方法は、表示状態を使って独自のフォーカス表示効果を描画することにより、システムから提供されるフォーカス表示効果を除外することです。 詳しくは、「[フォーカスの視覚効果のサンプル](https://go.microsoft.com/fwlink/p/?LinkID=619895)」をご覧ください。
+表示フォーカスをカスタマイズするもう 1 つの方法は、表示状態を使って独自のフォーカス表示効果を描画することにより、システムから提供されるフォーカス表示効果を除外することです。 詳しくは、[フォーカスの視覚効果のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlFocusVisuals)をご覧ください。
 
 
 ## <a name="reveal-focus-and-the-fluent-design-system"></a>表示フォーカスと Fluent Design System
 
-表示フォーカスは、アプリに発光効果を加える Fluent Design System コンポーネントです。 Fluent Design System およびその他のコンポーネントについて詳しくは、[UWP 用の Fluent Design の概要](/windows/apps/fluent-design-system)をご覧ください。
+表示フォーカスは、アプリに発光効果を加える Fluent Design System コンポーネントです。 Fluent Design System およびその他のコンポーネントについて詳しくは、[Fluent Design の概要](/windows/apps/fluent-design-system)をご覧ください。
 
 ## <a name="related-articles"></a>関連記事
 
 - [表示ハイライト](https://docs.microsoft.com/windows/uwp/design/style/reveal)
 - [Xbox およびテレビ向け設計](/windows/uwp/design/devices/designing-for-tv)
 - [ゲームパッドとリモコンの操作](https://docs.microsoft.com/windows/uwp/design/input/gamepad-and-remote-interactions)
-- [フォーカスの視覚効果のサンプル](https://go.microsoft.com/fwlink/p/?LinkID=619895)
+- [フォーカスの視覚効果のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlFocusVisuals)
 - [コンポジション効果](https://docs.microsoft.com/windows/uwp/graphics/composition-effects)
-- [システムの科学: Fluent Design と奥行き](https://medium.com/microsoft-design/science-in-the-system-fluent-design-and-depth-fb6d0f23a53f)
+- [システムの科学:Fluent Design と奥行き](https://medium.com/microsoft-design/science-in-the-system-fluent-design-and-depth-fb6d0f23a53f)
 - [システムの科学:Fluent Design と明るさ](https://medium.com/microsoft-design/the-science-in-the-system-fluent-design-and-light-94a17e0b3a4f)

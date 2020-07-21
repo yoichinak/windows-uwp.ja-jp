@@ -1,22 +1,22 @@
 ---
-title: Windows 10 の開発者向け新着情報、ツール、機能
+title: Windows 10 ビルド 17134 の新着情報
 description: Windows 10 ビルド 17134 と新しい開発者ツールでは、ユニバーサル Windows プラットフォームによって強化されたツール、機能、エクスペリエンスを利用できます。
-keywords: 新着情報, 新機能, 更新, 更新プログラム, 機能, 新規, Windows 10, 最新, 開発者, 17134
+keywords: Windows 10, 17134, 1803
 ms.date: 04/10/2018
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: dc35dc50b8dc523aff5478b3ec19c3daeed9dafb
-ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
+ms.openlocfilehash: 12c788cae02cdc5a0cf8e26f02ea03264960ce49
+ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67820447"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83234372"
 ---
 # <a name="whats-new-in-windows-10-for-developers-build-17134"></a>Windows 10 ビルド 17134 の開発者向け新着情報
 
-Windows 10 ビルド 17134 (April Update またはバージョン 1803 とも呼ばれます) では、Visual Studio 2019 や更新された SDK と組み合わせて使うことで、優れたユニバーサル Windows プラットフォーム アプリを作成するためのツール、機能、エクスペリエンスが利用可能になります。 Windows 10 の[ツールと SDK をインストール](https://go.microsoft.com/fwlink/?LinkId=821431)すると、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
+Windows 10 ビルド 17134 (April Update またはバージョン 1803 とも呼ばれます) では、Visual Studio 2019 や更新された SDK と組み合わせて使うことで、優れたユニバーサル Windows プラットフォーム アプリを作成するためのツール、機能、エクスペリエンスが利用可能になります。 Windows 10 の[ツールと SDK をインストール](https://developer.microsoft.com/windows/downloads#_blank)すると、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
 
-ここには、Windows 開発者にとって重要なこのリリースの新機能、強化された機能、ガイダンスを集めました。 Windows SDK に追加されたすべての新しい名前空間の一覧については、「[Windows 10 ビルド 17134 API の変更点](windows-10-build-17134-api-diff.md)」をご覧ください。 Windows 10 での注目すべき機能について詳しくは、「[Windows 10 の優れた機能](https://go.microsoft.com/fwlink/?LinkId=823181)」をご覧ください。 また、Windows プラットフォームに過去に追加された機能と今後追加される機能の概要については、[Windows 開発者向けプラットフォーム機能に関するページ](https://developer.microsoft.com/windows/platform/features)をご覧ください。
+ここには、Windows 開発者にとって重要なこのリリースの新機能、強化された機能、ガイダンスを集めました。 Windows SDK に追加されたすべての新しい名前空間の一覧については、「[Windows 10 ビルド 17134 API の変更点](windows-10-build-17134-api-diff.md)」をご覧ください。 Windows 10 での注目すべき機能について詳しくは、「[Windows 10 の優れた機能](https://developer.microsoft.com/windows/windows-10-for-developers)」をご覧ください。 また、Windows プラットフォームに過去に追加された機能と今後追加される機能の概要については、[Windows 開発者向けプラットフォーム機能](https://developer.microsoft.com/windows/platform/features)に関するページをご覧ください。
 
 ## <a name="design--ui"></a>設計および UI
 
@@ -34,7 +34,7 @@ Fluent Design の更新 | 多くの Fluent Design ページが新しい情報と
 ナビゲーション ビュー | [ナビゲーション ビュー](../design/controls-and-patterns/navigationview.md) コントロールでは、アプリ内でトップレベルのナビゲーションを行うための折りたたみ可能なナビゲーション メニューを提供します。 このコントロールは、ナビゲーション ウィンドウ (またはハンバーガー メニュー) パターンを実装し、ウィンドウの表示モードをさまざまなウィンドウ サイズに自動的に合わせます。
 表示フォーカス | 新しい[表示フォーカス](../design/style/reveal-focus.md)効果では、Xbox One やテレビ画面などのエクスペリエンスに発光効果を提供します。 ユーザーがゲームパッドやキーボードのフォーカスをボタンなどのフォーカス可能な要素に移動したときに、その要素の境界線がアニメーション化されます。
 サウンド | XAML では、**SpatialAudioMode** プロパティで 3D オーディオがサポートされるようになりました。 構成方法については、「[サウンド](../design/style/sound.md)」をご覧ください。
-タイル | [追跡可能なタイル通知](../design/shell/tiles-and-notifications/chaseable-tile-notifications.md)が JavaScript ベースの UWP アプリでサポートされるようになりました。<br><br>セカンダリ タイルとバッジの通知が[デスクトップ ブリッジ アプリでサポートされるようになりました](../design/shell/tiles-and-notifications/secondary-tiles-desktop-pinning.md#send-tile-notifications)。
+Tiles | [追跡可能なタイル通知](../design/shell/tiles-and-notifications/chaseable-tile-notifications.md)が JavaScript ベースの UWP アプリでサポートされるようになりました。<br><br>セカンダリ タイルとバッジの通知が[デスクトップ ブリッジ アプリでサポートされるようになりました](../design/shell/tiles-and-notifications/secondary-tiles-desktop-pinning.md#send-tile-notifications)。
 ツリー ビュー | [TreeView](../design/controls-and-patterns/tree-view.md) コントロールを使用すると、階層リストが有効になり、入れ子になった項目を含むノードを展開したり、折りたたんだりすることができるようになります。 フォルダー構造や入れ子になった関係を UI で視覚的に示すために使用できます。
 記述スタイル | 文体と語調に関する記事を更新および拡張し、[記述スタイルに関するガイダンス](../design/style/writing-style.md)を作成しました。 この新しいガイドでは、アプリ内に効果的なテキストを作成するための原則と、エラー メッセージやダイアログなどのコントロールに使用する記述スタイルのベスト プラクティスを示しています。
 
@@ -44,7 +44,7 @@ Fluent Design の更新 | 多くの Fluent Design ページが新しい情報と
 ゲーム開発の概要 | Windows 10 用のゲーム開発に関心をお持ちですか? 新しい[ゲーム開発の作業の概要](../gaming/getting-started.md)ページでは、セットアップ、登録、アプリとゲームの申請準備のために必要な作業全体の概要を示します。
 グラフィックス アダプター | 以下の DXGI API が追加されました。これらは、グラフィックス アダプターの基本設定と削除に関連しています。 </br> * [IDXGIFactory6](https://docs.microsoft.com/windows/desktop/api/dxgi1_6/nn-dxgi1_6-idxgifactory6) インターフェイスでは、GPU 基本設定に基づいてグラフィックス アダプターを列挙する単一のメソッドが有効になります。 </br> * [DXGIDeclareAdapterRemovalSupport](https://docs.microsoft.com/windows/desktop/api/dxgi1_6/nf-dxgi1_6-dxgideclareadapterremovalsupport) 関数を使用すると、グラフィックス デバイスの削除に対してプロセスで対応可能であると示すことができます。 </br> * [DXGI_GPU_PREFERENCE](https://docs.microsoft.com/windows/desktop/api/dxgi1_6/ne-dxgi1_6-dxgi_gpu_preference) 列挙では、アプリを実行する GPU の基本設定を記述します。
 
-## <a name="develop-windows-apps"></a>Windows アプリを開発
+## <a name="develop-windows-apps"></a>Windows アプリの開発
 
 機能 | 説明
  :------ | :------

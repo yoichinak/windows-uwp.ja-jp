@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, UWP, 延長実行, 最小化, ExtendedExecutionSession, バックグラウンド タスク, アプリケーション ライフサイクル, ロック画面
 ms.assetid: e6a6a433-5550-4a19-83be-bbc6168fe03a
 ms.localizationpriority: medium
-ms.openlocfilehash: 68d2c9937b02d60bb8509aedaf6277512a4e0c4a
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: fdb47a7c57ff8ef719b819253ab768c0d836be14
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66371424"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75684551"
 ---
 # <a name="postpone-app-suspension-with-extended-execution"></a>延長実行を使ってアプリの中断を延期する
 
@@ -23,7 +23,7 @@ ms.locfileid: "66371424"
 
 アプリが実行し続ける必要がある場合、OS によって実行を維持することも、アプリから実行の継続を要求することもできます。 たとえば、バックグラウンドでオーディオを再生している場合、「[バックグラウンドでのメディアの再生](../audio-video-camera/background-audio.md)」の手順に従うと、OS によってアプリの実行を延長できます。 この手順に従わない場合は、手動で実行延長を要求する必要があります。 バックグラウンド実行にかかる時間は数分である可能性がありますが、いつでも失効されたセッションを処理できるようにしておく必要があります。 このようなアプリケーションのライフ サイクル時間の制約は、アプリの実行時にデバッガーで無効になっています。 このような理由から、デバッガーで、または Visual Studio で利用可能なライフサイクル イベントを使用して、実行されていないときにアプリの中断を延期するための延長実行やその他のツールをテストすることが重要です。 
  
-バックグラウンドで操作を完了するまで実行の延長を要求するには、[ExtendedExecutionSession](https://docs.microsoft.com/uwp/api/windows.applicationmodel.extendedexecution.extendedexecutionsession) を作成します。 作成する **ExtendedExecutionSession** の種類は、作成時に提供する [ExtendedExecutionReason](https://docs.microsoft.com/uwp/api/windows.applicationmodel.extendedexecution.extendedexecutionreason) によって決まります。 3 つ**ExtendedExecutionReason**列挙値。**指定しないと、LocationTracking**と**SavingData**します。 常に 1 つの **ExtendedExecutionSession** のみを要求できます。ある承認されたセッション要求が現在アクティブのときに別のセッションを作成しようとすると、**ExtendedExecutionSession** コンストラクターから例外 0x8007139F がスローされ、グループまたはリソースが要求された操作を実行するために適切な状態にないことが示されます。 [ExtendedExecutionForegroundSession](https://docs.microsoft.com/uwp/api/windows.applicationmodel.extendedexecution.foreground.extendedexecutionforegroundsession) と [ExtendedExecutionForegroundReason](https://docs.microsoft.com/uwp/api/windows.applicationmodel.extendedexecution.foreground.extendedexecutionforegroundreason) は、制限された機能が必要で、ストア アプリケーションで利用できないため、使用しないでください。
+バックグラウンドで操作を完了するまで実行の延長を要求するには、[ExtendedExecutionSession](https://docs.microsoft.com/uwp/api/windows.applicationmodel.extendedexecution.extendedexecutionsession) を作成します。 作成する **ExtendedExecutionSession** の種類は、作成時に提供する [ExtendedExecutionReason](https://docs.microsoft.com/uwp/api/windows.applicationmodel.extendedexecution.extendedexecutionreason) によって決まります。 **ExtendedExecutionReason** 列挙値には、**Unspecified、LocationTracking**、および **SavingData** の 3 種類があります。 常に 1 つの **ExtendedExecutionSession** のみを要求できます。ある承認されたセッション要求が現在アクティブのときに別のセッションを作成しようとすると、**ExtendedExecutionSession** コンストラクターから例外 0x8007139F がスローされ、グループまたはリソースが要求された操作を実行するために適切な状態にないことが示されます。 [ExtendedExecutionForegroundSession](https://docs.microsoft.com/uwp/api/windows.applicationmodel.extendedexecution.foreground.extendedexecutionforegroundsession) と [ExtendedExecutionForegroundReason](https://docs.microsoft.com/uwp/api/windows.applicationmodel.extendedexecution.foreground.extendedexecutionforegroundreason) は、制限された機能が必要で、ストア アプリケーションで利用できないため、使用しないでください。
 
 ## <a name="run-while-minimized"></a>最小化状態での実行
 
@@ -81,7 +81,7 @@ switch (result)
         break;
 }
 ```
-[コード サンプルを参照してください。](https://github.com/Microsoft/Windows-universal-samples/blob/master/Samples/ExtendedExecution/cs/Scenario1_UnspecifiedReason.xaml.cs#L81-L110)  
+[コードサンプルを参照してください](https://github.com/Microsoft/Windows-universal-samples/blob/master/Samples/ExtendedExecution/cs/Scenario1_UnspecifiedReason.xaml.cs#L81-L110)  
 
 **RequestExtensionAsync** を呼び出すと、ユーザーがアプリのバックグラウンド アクティビティを承認しているかどうかと、バックグラウンドで実行できるだけのリソースがシステムにあるかどうかについて、オペレーティング システムが確認されます。 アプリで常に 1 つのセッションのみが承認されるため、**RequestExtensionAsync** への追加の呼び出しでセッションが拒否されます。
 
@@ -119,7 +119,7 @@ private async void SessionRevoked(object sender, ExtendedExecutionRevokedEventAr
     });
 }
 ```
-[コード サンプルを参照してください。](https://github.com/Microsoft/Windows-universal-samples/blob/master/Samples/ExtendedExecution/cs/Scenario1_UnspecifiedReason.xaml.cs#L124-L141)
+[コードサンプルを参照してください](https://github.com/Microsoft/Windows-universal-samples/blob/master/Samples/ExtendedExecution/cs/Scenario1_UnspecifiedReason.xaml.cs#L124-L141)
 
 ### <a name="dispose"></a>破棄
 
@@ -140,7 +140,7 @@ void ClearExtendedExecution(ExtendedExecutionSession session)
     }
 }
 ```
-[コード サンプルを参照してください。](https://github.com/Microsoft/Windows-universal-samples/blob/master/Samples/ExtendedExecution/cs/Scenario1_UnspecifiedReason.xaml.cs#L49-L63)
+[コードサンプルを参照してください](https://github.com/Microsoft/Windows-universal-samples/blob/master/Samples/ExtendedExecution/cs/Scenario1_UnspecifiedReason.xaml.cs#L49-L63)
 
 アプリのアクティブな **ExtendedExecutionSession** は、一度に 1 つしか保持できません。 多くのアプリでは、ストレージ、ネットワーク、またはネットワーク ベースのサービスなどのリソースにアクセスする必要がある複雑な操作を完了するために、非同期タスクを使用します。 複数の非同期タスクを完了する必要がある操作の場合、各タスクの状態が、**ExtendedExecutionSession** を破棄し、アプリの中断を許可できる状態になっている必要があります。 それには、まだ実行中のタスクの数の参照カウントを行い、その値がゼロになるまでセッションを破棄しないでおく必要があります。
 
@@ -247,7 +247,7 @@ static class ExtendedExecutionHelper
     }
 }
 ```
-[コード サンプルを参照してください。](https://github.com/Microsoft/Windows-universal-samples/blob/master/Samples/ExtendedExecution/cs/Scenario4_MultipleTasks.xaml.cs)
+[コードサンプルを参照してください](https://github.com/Microsoft/Windows-universal-samples/blob/master/Samples/ExtendedExecution/cs/Scenario4_MultipleTasks.xaml.cs)
 
 ## <a name="ensure-that-your-app-uses-resources-well"></a>アプリがリソースを適切に使用するための処理
 
@@ -255,13 +255,13 @@ static class ExtendedExecutionHelper
 
 [BackgroundExecutionManager.RequestAccessAsync](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundexecutionmanager) を使用して、アプリのバックグラウンド アクティビティを制限するようにユーザーが設定しているかどうかを確認します。 バッテリー使用量を注意し、ユーザーが望む操作を完了するために必要な場合にのみ、バックグラウンドで実行するようにしてください。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>「
 
-[延長実行のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/ExtendedExecution)  
+[拡張実行のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/ExtendedExecution)  
 [アプリケーションのライフ サイクル](https://docs.microsoft.com/windows/uwp/launch-resume/app-lifecycle)  
-[アプリ ライフサイクル - バックグラウンド タスクと延長実行によるアプリ稼働状態の維持](https://msdn.microsoft.com/en-us/magazine/mt590969.aspx)
+[アプリ ライフサイクル - バックグラウンド タスクと延長実行によるアプリ稼働状態の維持](https://msdn.microsoft.com/magazine/mt590969.aspx)
 [バック グラウンド メモリの管理](https://docs.microsoft.com/windows/uwp/launch-resume/reduce-memory-usage)  
-[バック グラウンド転送](https://docs.microsoft.com/windows/uwp/networking/background-transfers)  
-[バッテリの意識向上とバック グラウンド アクティビティ](https://blogs.windows.com/buildingapps/2016/08/01/battery-awareness-and-background-activity/#I2bkQ6861TRpbRjr.97)  
+[バックグラウンド転送](https://docs.microsoft.com/windows/uwp/networking/background-transfers)  
+[バッテリ認識とバックグラウンドアクティビティ](https://blogs.windows.com/buildingapps/2016/08/01/battery-awareness-and-background-activity/#I2bkQ6861TRpbRjr.97)  
 [MemoryManager クラス](https://docs.microsoft.com/uwp/api/windows.system.memorymanager)  
-[バック グラウンドでメディアを再生します。](https://docs.microsoft.com/windows/uwp/audio-video-camera/background-audio)  
+[バックグラウンドでメディアを再生する](https://docs.microsoft.com/windows/uwp/audio-video-camera/background-audio)  

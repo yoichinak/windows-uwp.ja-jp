@@ -6,23 +6,23 @@ ms.date: 06/04/2018
 ms.topic: article
 keywords: windows 10, uwp, ネットワーク, websocket, messagewebsocket, streamwebsocket
 ms.localizationpriority: medium
-ms.openlocfilehash: 8af1f478bc466719eef3c5e19d055ac6073a0b11
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 221ab5e0647fe95e8d715fc320ba2b9c1bee2dfe
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63777840"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "75684959"
 ---
 # <a name="websockets"></a>WebSocket
 WebSocket は、クライアントとサーバー間の高速で安全な双方向通信を、HTTP(S) を使った Web 経由で実現するメカニズムを提供し、UTF-8 メッセージとバイナリ メッセージの両方をサポートします。
 
-[WebSocket プロトコル](https://tools.ietf.org/html/rfc6455)では、データはすぐに、全二重の 1 つのソケット接続によって転送され、両方のエンドポイント間のメッセージの送受信をリアルタイムで実行できます。 WebSocket はマルチプレイヤー ゲーム (リアルタイムとターン制のどちらも)、ソーシャル ネットワークのインスタント通知、株価や天気予報のリアルタイム表示、セキュリティや高速なデータ転送を必要とするアプリなど、Microsoft Store アプリでの使用に適しています。
+[WebSocket プロトコル](https://tools.ietf.org/html/rfc6455)では、データがすぐに、全二重の 1 つのソケット接続によって転送され、両方のエンドポイント間のメッセージの送受信をリアルタイムで実行できます。 WebSocket はマルチプレイヤー ゲーム (リアルタイムとターン制のどちらも)、ソーシャル ネットワークのインスタント通知、株価や天気予報のリアルタイム表示、セキュリティや高速なデータ転送を必要とするアプリなど、Microsoft Store アプリでの使用に適しています。
 
-WebSocket 接続を確立するには、クライアントとサーバー間で専用の HTTP ベースのハンドシェークをやり取りします。 成功した場合、直前に確立された TCP 接続を使って、アプリケーション レイヤー プロトコルが HTTP から WebSocket に "アップグレード" されます。 この時点で、HTTP は完全に不要となります。WebSocket 接続が閉じるまで、データの送受信は、両方のエンドポイントから WebSocket プロトコルを使って行うことができます。
+WebSocket 接続を確立するには、クライアントとサーバー間で専用の HTTP ベースのハンドシェイクをやり取りします。 成功した場合、直前に確立された TCP 接続を使って、アプリケーション レイヤー プロトコルが HTTP から WebSocket に "アップグレード" されます。 この時点で、HTTP は完全に不要となります。WebSocket 接続が閉じるまで、データの送受信を、両方のエンドポイントから WebSocket プロトコルを使って行うことができます。
 
-**注** クライアントとサーバーの両方が WebSocket プロトコルを使っていないと、クライアントは WebSocket を使ってデータを転送することはできません。 サーバーが WebSocket をサポートしていない場合は、別の方法でデータ転送を行う必要があります。
+**注** クライアントとサーバーの両方が WebSocket プロトコルを使っていないと、クライアントで WebSocket を使ってデータを転送することはできません。 サーバーが WebSocket をサポートしていない場合は、別の方法でデータ転送を行う必要があります。
 
-ユニバーサル Windows プラットフォーム (UWP) は、クライアントとサーバーの両方について、WebSocket の使用をサポートしています。 [  **Windows.Networking.Sockets**](/uwp/api/windows.networking.sockets) 名前空間には、クライアントが使うことのできる 2 つの WebSocket クラスが定義されています。それらは、&mdash;[**MessageWebSocket**](/uwp/api/windows.networking.sockets.messagewebsocket) と [**StreamWebSocket**](/uwp/api/windows.networking.sockets.streamwebsocket) です。 これら 2 つの WebSocket クラスの比較を次に示します。
+ユニバーサル Windows プラットフォーム (UWP) では、クライアントとサーバーの両方について、WebSocket の使用をサポートしています。 [**Windows.Networking.Sockets**](/uwp/api/windows.networking.sockets) 名前空間には、クライアントが使うことのできる 2 つの WebSocket クラスが定義されています。それらは、&mdash;[**MessageWebSocket**](/uwp/api/windows.networking.sockets.messagewebsocket) と [**StreamWebSocket**](/uwp/api/windows.networking.sockets.streamwebsocket) です。 これら 2 つの WebSocket クラスの比較を次に示します。
 
 | [MessageWebSocket](/uwp/api/windows.networking.sockets.messagewebsocket) | [StreamWebSocket](/uwp/api/windows.networking.sockets.streamwebsocket) |
 | - | - |
@@ -298,9 +298,9 @@ private:
 データを受信すると **MessageReceived** が発生します。 データには、[**MessageWebSocketMessageReceivedEventArgs**](/uwp/api/windows.networking.sockets.messagewebsocketmessagereceivedeventargs) 経由でアクセスできます。 クライアントまたはサーバーがソケットを閉じると **Closed** が発生します。
  
 ### <a name="send-data-on-a-messagewebsocket"></a>MessageWebSocket でのデータの送信
-接続が確立されたら、サーバーにデータを送信できます。 これを行うには、[**MessageWebSocket.OutputStream**](https://docs.microsoft.com/en-us/uwp/api/Windows.Networking.Sockets.MessageWebSocket.OutputStream) プロパティと [**DataWriter**](/uwp/api/windows.storage.streams.datawriter) を使って、データを書き込みます。 
+接続が確立されたら、サーバーにデータを送信できます。 これを行うには、[**MessageWebSocket.OutputStream**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.MessageWebSocket.OutputStream) プロパティと [**DataWriter**](/uwp/api/windows.storage.streams.datawriter) を使って、データを書き込みます。 
 
-**注:** **DataWriter** が出力ストリームの所有権を取得します。 **DataWriter** がスコープ外になると、出力ストリームがそれにアタッチされている場合は **DataWriter** は出力ストリームの割り当てを解除します。 その後、出力ストリームを使おうとすると、HRESULT 値 0x80000013 のエラーが発生します。 ただし、[**DataWriter.DetachStream**](/uwp/api/windows.storage.streams.datawriter.DetachStream) を呼び出して **DataWriter** から出力ストリームをデタッチし、ストリームの所有権を **MessageWebSocket** に返すことができます。
+**注** **DataWriter** が出力ストリームの所有権を取得します。 **DataWriter** がスコープ外になると、出力ストリームがそれにアタッチされている場合は **DataWriter** が出力ストリームの割り当てを解除します。 その後、出力ストリームを使おうとすると、HRESULT 値 0x80000013 のエラーが発生します。 ただし、[**DataWriter.DetachStream**](/uwp/api/windows.storage.streams.datawriter.DetachStream) を呼び出して **DataWriter** から出力ストリームをデタッチし、ストリームの所有権を **MessageWebSocket** に返すことができます。
 
 ## <a name="use-streamwebsocket-to-connect"></a>StreamWebSocket を使用した接続
 [**StreamWebSocket**](/uwp/api/windows.networking.sockets.streamwebsocket) を使うと、メッセージを分割し、何回かに分けて読み取ることができます。 したがって、かなり大きなファイル (写真やビデオなど) を転送する場合に適しています。 このクラスでは、バイナリ メッセージのみサポートされます。
@@ -564,12 +564,12 @@ private:
 **StreamWebSocket** を使って接続を確立してデータを送信する前に、[**StreamWebSocket.Closed**](/uwp/api/windows.networking.sockets.streamwebsocket.Closed) イベントにサブスクライブしてください。 クライアントまたはサーバーがソケットを閉じると **Closed** が発生します。
  
 ### <a name="send-data-on-a-streamwebsocket"></a>StreamWebSocket でのデータの送信
-接続が確立されたら、サーバーにデータを送信できます。 これを行うには、[**StreamWebSocket.OutputStream**](https://docs.microsoft.com/en-us/uwp/api/Windows.Networking.Sockets.StreamWebSocket.OutputStream) プロパティと [**DataWriter**](/uwp/api/windows.storage.streams.datawriter) を使って、データを書き込みます。
+接続が確立されたら、サーバーにデータを送信できます。 これを行うには、[**StreamWebSocket.OutputStream**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamWebSocket.OutputStream) プロパティと [**DataWriter**](/uwp/api/windows.storage.streams.datawriter) を使って、データを書き込みます。
 
 **注** 同じソケットにさらにデータを書き込む場合、**DataWriter** がスコープ外になる前に、必ず [**DataWriter.DetachStream**](/uwp/api/windows.storage.streams.datawriter.DetachStream) を呼び出して **DataWriter** から出力ストリームをデタッチしてください。 これにより、ストリームの所有権が **MessageWebSocket** に返されます。
 
 ### <a name="receive-data-on-a-streamwebsocket"></a>StreamWebSocket でのデータの受信
-[  **StreamWebSocket.InputStream**](https://docs.microsoft.com/en-us/uwp/api/Windows.Networking.Sockets.StreamWebSocket.InputStream) プロパティと [**DataReader**](/uwp/api/windows.storage.streams.datareader) を使って、データを読み取ります。
+[**StreamWebSocket.InputStream**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamWebSocket.InputStream) プロパティと [**DataReader**](/uwp/api/windows.storage.streams.datareader) を使って、データを読み取ります。
 
 ## <a name="advanced-options-for-messagewebsocket-and-streamwebsocket"></a>MessageWebSocket と StreamWebSocket の高度なオプション
 接続を確立する前に、[**MessageWebSocketControl**](/uwp/api/windows.networking.sockets.messagewebsocketcontrol) または [**StreamWebSocketControl**](/uwp/api/windows.networking.sockets.streamwebsocketcontrol) でプロパティを設定して、ソケットで高度なオプションを設定できます。 必要に応じて [**MessageWebSocket.Control**](/uwp/api/windows.networking.sockets.messagewebsocket.control) プロパティまたは [**StreamWebSocket.Control**](/uwp/api/windows.networking.sockets.streamwebsocket.control) プロパティを使って、ソケット オブジェクト自体からそれらのクラスのインスタンスにアクセスできます。
@@ -615,16 +615,16 @@ auto connectTask = Concurrency::create_task(streamWebSocket->ConnectAsync(ref ne
 これらの情報クラスのプロパティは読み取り専用ですが、WebSocket オブジェクトの有効期間中はいつでも現在の情報を取得するために使うことができます。
 
 ## <a name="handling-exceptions"></a>例外処理
-[  **MessageWebSocket**](/uwp/api/Windows.Networking.Sockets.MessageWebSocket) または [**StreamWebSocket**](/uwp/api/Windows.Networking.Sockets.StreamWebSocket) 操作で発生したエラーは **HRESULT** 値として返されます。 その **HRESULT** 値を [**WebSocketError.GetStatus**](/uwp/api/windows.networking.sockets.websocketerror.getstatus) メソッドに渡し、[**WebErrorStatus**](/uwp/api/Windows.Web.WebErrorStatus) 列挙値に変換することができます。
+[**MessageWebSocket**](/uwp/api/Windows.Networking.Sockets.MessageWebSocket) または [**StreamWebSocket**](/uwp/api/Windows.Networking.Sockets.StreamWebSocket) 操作で発生したエラーは **HRESULT** 値として返されます。 その **HRESULT** 値を [**WebSocketError.GetStatus**](/uwp/api/windows.networking.sockets.websocketerror.getstatus) メソッドに渡し、[**WebErrorStatus**](/uwp/api/Windows.Web.WebErrorStatus) 列挙値に変換することができます。
 
-**WebErrorStatus** 列挙値のほとんどは、ネイティブ HTTP クライアント操作から返されるエラーに対応しています。 アプリは **WebErrorStatus** 列挙値で切り替えを行い、例外の原因に応じてアプリの動作を変更することができます。
+**WebErrorStatus** 列挙値のほとんどは、ネイティブ HTTP クライアント操作から返されるエラーに対応しています。 アプリでは **WebErrorStatus** 列挙値で切り替えを行い、例外の原因に応じてアプリの動作を変更することができます。
 
 パラメーター検証エラーの場合、例外からの **HRESULT** を使ってエラーの詳細情報を確認することもできます。 考えられる **HRESULT** 値は、SDK インストールに含まれる `Winerror.h` に一覧表示されています (たとえば、`C:\Program Files (x86)\Windows Kits\10\Include\<VERSION>\shared` フォルダーにあります)。 ほとんどのパラメーター検証エラーの場合、返される **HRESULT** は **E_INVALIDARG** です。
 
 ## <a name="setting-timeouts-on-websocket-operations"></a>WebSocket の操作に対してタイムアウトを設定する
-**MessageWebSocket** クラスと **StreamWebSocket** は、内部システム サービスを使って WebSocket クライアントに要求を送信し、サーバーからの応答を受信します。 WebSocket の接続操作で既定されているタイムアウト値は 60 秒です。 WebSocket をサポートする HTTP サーバーが、WebSocket の接続要求に応答できない場合 (一時的にダウンするか、ネットワーク停止によってブロックされる) は、内部システム サービスは 60 秒待った後でエラーを返します。 このエラーによって、WebSocket の **ConnectAsync** メソッドに例外がスローされます。 WebSocket 接続確立後の送受信操作では、既定のタイムアウト値は 30 秒です。
+**MessageWebSocket** と **StreamWebSocket** では、内部システム サービスを使って WebSocket クライアントに要求を送信し、サーバーからの応答を受信します。 WebSocket の接続操作で既定されているタイムアウト値は 60 秒です。 WebSocket をサポートする HTTP サーバーが、WebSocket の接続要求に応答できない場合 (一時的にダウンするか、ネットワーク停止によってブロックされる) は、内部システム サービスが 60 秒待った後でエラーを返します。 このエラーによって、WebSocket の **ConnectAsync** メソッドに例外がスローされます。 WebSocket 接続確立後の送受信操作では、既定のタイムアウト値は 30 秒です。
 
-URI 内の HTTP サーバー名に対する名前クエリで複数の IP アドレスが返されると、内部システム サービスは最大で 5 つのサイトの IP アドレスに接続を試みます (各アドレスについて既定のタイムアウト時間である 60 秒待ちます)。 したがって、アプリは例外を処理する前に複数の IP アドレスへの接続を数分間待機する可能性があります。 この動作は、ユーザーからはアプリが停止しているかのように見えることがあります。 
+URI 内の HTTP サーバー名に対する名前クエリで複数の IP アドレスが返されると、内部システム サービスが最大で 5 つのサイトの IP アドレスに接続を試みます (各アドレスについて既定のタイムアウト時間である 60 秒待ちます)。 したがって、アプリでは例外を処理する前に複数の IP アドレスへの接続を数分間待機する可能性があります。 この動作は、ユーザーからはアプリが停止しているかのように見えることがあります。 
 
 アプリの応答性を高めてこれらの問題を最小限に抑えるには、接続要求に短いタイムアウトを設定します。 **MessageWebSocket** と **StreamWebSocket** の両方でタイムアウトを同じように設定します。
 
@@ -814,7 +814,7 @@ protected:
 * [MessageWebSocket.Control](/uwp/api/windows.networking.sockets.messagewebsocket.control)
 * [MessageWebSocket.Information](/uwp/api/Windows.Networking.Sockets.MessageWebSocket.Information)
 * [MessageWebSocket.MessageReceived](/uwp/api/Windows.Networking.Sockets.MessageWebSocket.MessageReceived)
-* [MessageWebSocket.OutputStream](https://docs.microsoft.com/en-us/uwp/api/Windows.Networking.Sockets.MessageWebSocket.OutputStream)
+* [MessageWebSocket.OutputStream](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.MessageWebSocket.OutputStream)
 * [MessageWebSocketControl](/uwp/api/Windows.Networking.Sockets.MessageWebSocketControl)
 * [MessageWebSocketControl.MessageType](/uwp/api/Windows.Networking.Sockets.MessageWebSocketControl.MessageType)
 * [MessageWebSocketInformation](/uwp/api/Windows.Networking.Sockets.MessageWebSocketInformation)
@@ -825,8 +825,8 @@ protected:
 * [StreamSocket.ConnectAsync](/uwp/api/windows.networking.sockets.streamsocket.connectasync)
 * [StreamWebSocket.Control](/uwp/api/windows.networking.sockets.streamwebsocket.control)
 * [StreamWebSocket.Information](/uwp/api/windows.networking.sockets.streamwebsocket.Information)
-* [StreamWebSocket.InputStream](https://docs.microsoft.com/en-us/uwp/api/Windows.Networking.Sockets.StreamWebSocket.InputStream)
-* [StreamWebSocket.OutputStream](https://docs.microsoft.com/en-us/uwp/api/Windows.Networking.Sockets.StreamWebSocket.OutputStream)
+* [StreamWebSocket.InputStream](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamWebSocket.InputStream)
+* [StreamWebSocket.OutputStream](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamWebSocket.OutputStream)
 * [StreamWebSocketControl](/uwp/api/Windows.Networking.Sockets.StreamWebSocketControl)
 * [StreamWebSocketInformation](/uwp/api/Windows.Networking.Sockets.StreamWebSocketInformation)
 * [WebErrorStatus](/uwp/api/Windows.Web.WebErrorStatus) 
@@ -838,4 +838,4 @@ protected:
 * [ソケット](sockets.md)
 
 ## <a name="samples"></a>サンプル
-* [WebSocket のサンプル](https://go.microsoft.com/fwlink/p/?LinkId=620623)
+* [WebSocket のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/WebSocket)

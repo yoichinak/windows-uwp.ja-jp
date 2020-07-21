@@ -4,29 +4,31 @@ design-contact: ksulliv
 dev-contact: Shmazlou
 doc-status: Published
 Description: スワイプ コマンドの実行とは、コンテキスト メニューのタッチ アクセラレータです。
-title: スワイプ
+title: Swipe
 label: Swipe
 template: detail.hbs
 ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 3d575eb25d9a013aa999cf304db6d83faeb87765
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 315edbddccc51b7e742bf9beffad8497a104ce03
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63774704"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "80614089"
 ---
-# <a name="swipe"></a>スワイプ
+# <a name="swipe"></a>Swipe
 
 スワイプによるコマンド実行は、ユーザーがタッチ操作によってアプリ内の状態を変更することなく、一般的なメニュー アクションに簡単にアクセスできるようにするコンテキスト メニューのアクセラレータです。
 
-> **重要な API**: [SwipeControl](/uwp/api/windows.ui.xaml.controls.swipecontrol)、[SwipeItem](/uwp/api/windows.ui.xaml.controls.swipeitem)、[ListView class](/uwp/api/Windows.UI.Xaml.Controls.ListView)
+> **Windows UI ライブラリ API**: [SwipeControl](/uwp/api/microsoft.ui.xaml.controls.swipecontrol)、[SwipeItem](/uwp/api/microsoft.ui.xaml.controls.swipeitem)
+>
+> **プラットフォーム API**: [SwipeControl](/uwp/api/windows.ui.xaml.controls.swipecontrol)、[SwipeItem](/uwp/api/windows.ui.xaml.controls.swipeitem)、[ListView class](/uwp/api/Windows.UI.Xaml.Controls.ListView)
 
 ![実行と表示の淡色テーマ](images/LightThemeSwipe.png)
 
-## <a name="is-this-the-right-control"></a>適切なコントロールの選択
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか? 
 
 スワイプによるコマンド実行によって、領域が節約されます。 これは、ユーザーが複数の項目に対して同じ操作をすばやく連続して実行できる場合に役立ちます。 ページ内で完全なポップアップや状態の変更を必要としないアイテムに対して「クイック アクション」を提供します。
 
@@ -42,7 +44,7 @@ ms.locfileid: "63774704"
 <table>
 <th align="left">XAML コントロール ギャラリー<th>
 <tr>
-<td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td><img src="images/xaml-controls-gallery-app-icon-sm.png" alt="XAML controls gallery"></img></td>
 <td>
     <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合、こちらをクリックして<a href="xamlcontrolsgallery:/item/SwipeControl">アプリを開き、SwipeControl の動作を確認</a>してください。</p>
     <ul>
@@ -233,12 +235,12 @@ SwipeControl がその項目の DataTemplate で適用されている ListView �
 - 幅の広い項目では水平方向のスワイプを使用し、高さのある項目では垂直方向のスワイプを使用します。
 - 短く、簡潔なテキスト ラベルを使用します。
 
-## <a name="get-the-sample-code"></a>サンプル コードを入手する
+## <a name="get-the-sample-code"></a>サンプル コードの入手
 
 - [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - インタラクティブな形で XAML コントロールのすべてを参照できます。
 
 ## <a name="related-articles"></a>関連記事
 
 - [リスト ビューとグリッド ビュー](listview-and-gridview.md)
-- [項目コンテナーとテンプレート](item-containers-templates.md)
+- [項目コンテナーやテンプレート](item-containers-templates.md)
 - [引っ張って更新](pull-to-refresh.md)

@@ -6,12 +6,12 @@ ms.date: 11/14/2017
 ms.topic: article
 keywords: Windows 10, UWP, リソース, 画像, アセット, MRT, 修飾子
 ms.localizationpriority: medium
-ms.openlocfilehash: b11f6dfec2941ae4eaa277f37de66965bd1ea4aa
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 5dfd09f2a1a3ab326c09434ee2c613ae57214d59
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57593987"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74254643"
 ---
 # <a name="specify-the-default-resources-that-your-app-uses"></a>アプリで使用する既定のリソースを指定する
 
@@ -44,7 +44,7 @@ ms.locfileid: "57593987"
    </default>
    ```
    
-   **メモ** 値 `LANGUAGE-TAG(S)` は、アプリの既定の言語と同期する必要があります。 それが単一の [BCP-47 言語タグ](https://go.microsoft.com/fwlink/p/?linkid=227302) である場合は、アプリの既定の言語は同じタグである必要があります。 それが言語タグのコンマ区切りのリストである場合、アプリの既定の言語はリストの最初のタグである必要があります。 アプリ パッケージ マニフェスト ソース ファイル (`Package.appxmanifest`) の **[アプリケーション]** タブの **[既定の言語]** フィールドでアプリの既定の言語を設定します。
+   **メモ** 値 `LANGUAGE-TAG(S)` は、アプリの既定の言語と同期する必要があります。 それが単一の [BCP-47 言語タグ](https://tools.ietf.org/html/bcp47) である場合は、アプリの既定の言語は同じタグである必要があります。 それが言語タグのコンマ区切りのリストである場合、アプリの既定の言語はリストの最初のタグである必要があります。 アプリ パッケージ マニフェスト ソース ファイル ( **) の** [アプリケーション]**タブの**[既定の言語]`Package.appxmanifest` フィールドでアプリの既定の言語を設定します。
 
 4. 各 `<qualifier>` 要素は Visual Studio に対して、各修飾子名の既定値として使用する値を指示します。 ファイルの内容はこれまでのものであり、Visual Studio の動作を実際には変更していません。 つまり、これらの内容が既定値であるため、Visual Studio はこれらの内容を持つファイルが存在しているかのように*既に動作しました*。 そのため、既定値を独自の既定値で上書きするには、ファイル内の値を変更する必要があります。 最初の 3 つの値を編集した場合、ファイルの外観は次のようになります。
    ```xml
@@ -103,5 +103,5 @@ ms.locfileid: "57593987"
 ## <a name="related-topics"></a>関連トピック
 
 * [言語、スケール、ハイ コントラスト、その他の修飾子用にリソースを調整する](tailor-resources-lang-scale-contrast.md)
-* [Bcp-47 言語タグ](https://go.microsoft.com/fwlink/p/?linkid=227302)
+* [BCP-47 言語タグ](https://tools.ietf.org/html/bcp47)
 * [MakePri.exe を使用して手動でリソースをコンパイルする](compile-resources-manually-with-makepri.md)

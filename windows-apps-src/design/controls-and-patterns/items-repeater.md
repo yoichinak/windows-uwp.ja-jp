@@ -7,12 +7,12 @@ ms.date: 02/01/2019
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 93a81501b524826484111419899675fbb99b86fa
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: c66fc2b07b5ee5ce87b6c1f37657b3eec49f3105
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66364756"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970407"
 ---
 # <a name="itemsrepeater"></a>ItemsRepeater
 
@@ -22,13 +22,17 @@ ms.locfileid: "66364756"
 
 [ItemsRepeater](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater) は概念的に、ListView などの完全なコントロールとしてではなく、データドリブン パネルと考えることができます。 表示されるデータ項目のコレクション、各データ項目の UI 要素を生成する項目テンプレート、要素のサイズと位置を設定する方法を決定するレイアウトを指定します。 その後、ItemsRepeater でデータ ソースに基づいた子要素が生成され、項目テンプレートとレイアウトで指定されたとおりに表示されます。 表示される項目が同種である必要はありません。これは、データ テンプレート セレクターで指定する条件に基づいてデータ項目を表すために、ItemsRepeater でコンテンツを読み込むことができるためです。
 
-| **Windows UI ライブラリを入手する** |
-| - |
-| このコントロールは、Windows UI ライブラリの NuGet パッケージの一部として組み込まれており、パッケージには、UWP アプリの新しいコントロールと UI 機能が含まれています。 インストール手順などの詳細については、[Windows UI ライブラリの概要](https://docs.microsoft.com/uwp/toolkits/winui/)に関するページを参照してください。 |
+**Windows UI ライブラリを入手する**
 
-> **重要な API**:[ItemsRepeater クラス](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater)、[ScrollViewer クラス](/uwp/api/windows.ui.xaml.controls.scrollviewer)
+|  |  |
+| - | - |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | **ItemsRepeater** コントロールは、Windows アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリの一部として含まれています。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
 
-## <a name="is-this-the-right-control"></a>適切なコントロールの選択
+> **Windows UI ライブラリ API:** [ItemsRepeater クラス](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater)
+>
+> **プラットフォーム API:** [ScrollViewer クラス](/uwp/api/windows.ui.xaml.controls.scrollviewer)
+
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 データ コレクション用のカスタム表示を作成するには、[ItemsRepeater](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater) を使用します。 これは基本的な一連の項目を表示するために使用できますが、多くの場合、カスタム コントロールのテンプレートで表示要素として使用します。
 
@@ -46,7 +50,7 @@ ItemsRepeater には組み込みの項目コレクションはありません。
 <table>
 <th align="left">XAML コントロール ギャラリー<th>
 <tr>
-<td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td><img src="images/xaml-controls-gallery-app-icon-sm.png" alt="XAML controls gallery"></img></td>
 <td>
     <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合は、こちらをクリックしてアプリを開き、<a href="xamlcontrolsgallery:/item/ItemsRepeater">ItemsRepeater</a> の動作を確認してください。</p>
     <ul>
@@ -189,7 +193,7 @@ itemsRepeater1.ItemsSource = Items;
 
     インデックスを使用してコントロールで項目にアクセスできるようにし、内部の冗長コピーの回避を可能にします。
 
-    **警告**:[INotifyCollectionChanged](/dotnet/api/system.collections.specialized.inotifycollectionchanged) を実装せずに list/vector を変更した場合、UI では反映されません。
+    **警告**: [INotifyCollectionChanged](/dotnet/api/system.collections.specialized.inotifycollectionchanged) を実装せずに list/vector を変更した場合、UI では反映されません。
 
 - [INotifyCollectionChanged](/dotnet/api/system.collections.specialized.inotifycollectionchanged)(.NET)
 
@@ -203,7 +207,7 @@ itemsRepeater1.ItemsSource = Items;
 
     **INotifyCollectionChanged** インターフェイスと同様、これにより、コントロールでデータ ソース内の変更を監視し、対応できるようになります。
 
-    **警告**:Windows.Foundation.IObservableVector\<T> では '移動' アクションはサポートされません。 そのため、UI で項目の表示状態が失われる可能性があります。  たとえば、現在選択されているか、'削除' の後、'追加' によって移動が行われた場所にフォーカスがあるか、あるいはその両方の状態の項目のフォーカスが失われ、選択できなくなります。
+    **警告**: Windows.Foundation.IObservableVector\<T> では '移動' アクションはサポートされません。 そのため、UI で項目の表示状態が失われる可能性があります。  たとえば、現在選択されているか、'削除' の後、'追加' によって移動が行われた場所にフォーカスがあるか、あるいはその両方の状態の項目のフォーカスが失われ、選択できなくなります。
 
     Platform.Collections.Vector\<T> では IObservableVector\<T> が使用され、これと同じ制限があります。 '移動' アクションのサポートが必要な場合は、**INotifyCollectionChanged** インターフェイスを使用します。  .NET ObservableCollection\<T> クラスでは **INotifyCollectionChanged** が使用されます。
 
@@ -264,7 +268,7 @@ private async void ScrollViewer_ViewChanged(object sender, ScrollViewerViewChang
 
 [StackLayout](/uwp/api/microsoft.ui.xaml.controls.stacklayout) では 1 行に要素が配置され、これを水平方向または垂直方向に設定することができます。
 
-[Spacing](/en-us/uwp/api/microsoft.ui.xaml.controls.stacklayout.spacing) プロパティを設定することで、項目間のスペースの量を調整できます。 Spacing は、レイアウトの [Orientation](/uwp/api/microsoft.ui.xaml.controls.stacklayout.orientation) の方向に適用されます。
+[Spacing](/uwp/api/microsoft.ui.xaml.controls.stacklayout.spacing) プロパティを設定することで、項目間のスペースの量を調整できます。 Spacing は、レイアウトの [Orientation](/uwp/api/microsoft.ui.xaml.controls.stacklayout.orientation) の方向に適用されます。
 
 ![スタック レイアウトの間隔](images/stack-layout.png)
 
@@ -300,7 +304,7 @@ private async void ScrollViewer_ViewChanged(object sender, ScrollViewerViewChang
 
 このリストには使用可能な値が示されています。 定義では、既定の **Orientation** が **Horizontal** であることが前提となります。
 
-- **なし**:余分なスペースが行の末尾に未使用のまま残されます。 これが既定値です。
+- **None**: 余分なスペースが行の末尾に未使用のまま残されます。 これは既定です。
 - **Fill**:使用可能なスペースを使い切るように、項目に追加の幅 (垂直の場合は高さ) が指定されます。
 - **Uniform**:使用可能なスペースを使い切るように、項目に追加の幅が指定され、縦横比を維持するために追加の高さが指定されます (垂直の場合は、高さと幅が切り替わります)。
 
@@ -312,7 +316,7 @@ private async void ScrollViewer_ViewChanged(object sender, ScrollViewerViewChang
 
 このリストには使用可能な値が示されています。 定義では、既定の **Orientation** が **Horizontal** であることが前提となります。
 
-- **Start**:項目は行の先頭に揃えられます。 余分なスペースが行の末尾に未使用のまま残されます。 これが既定値です。
+- **Start**:項目は行の先頭に揃えられます。 余分なスペースが行の末尾に未使用のまま残されます。 これは既定です。
 - **Center**:項目は行の中央に揃えられます。 余分なスペースは、行の先頭と末尾に均等に分割されます。
 - **End**:項目は行の末尾に揃えられます。 余分なスペースが行の先頭に未使用のまま残されます。
 - **SpaceAround**:項目は均等に分散されます。 各項目の前後に同量のスペースが追加されます。
@@ -642,6 +646,12 @@ public sealed class MediaCollectionView : Control
 
 ```xaml
 <!-- xmlns:muxc="using:Microsoft.UI.Xaml.Controls" -->
+
+<Page.Resources>
+    <muxc:StackLayout x:Key="MyGroupLayout"/>
+    <muxc:StackLayout x:Key="MyItemLayout" Orientation="Horizontal"/>
+</Page.Resources>
+
 <ScrollViewer>
   <muxc:ItemsRepeater ItemsSource="{x:Bind AppNotifications}"
                       Layout="{StaticResource MyGroupLayout}">
@@ -650,7 +660,7 @@ public sealed class MediaCollectionView : Control
         <!-- Group -->
         <StackPanel>
           <!-- Header -->
-          TextBlock Text="{x:Bind AppTitle}"/>
+          <TextBlock Text="{x:Bind AppTitle}"/>
           <!-- Items -->
           <muxc:ItemsRepeater ItemsSource="{x:Bind Notifications}"
                               Layout="{StaticResource MyItemLayout}"
@@ -663,10 +673,11 @@ public sealed class MediaCollectionView : Control
   </muxc:ItemsRepeater>
 </ScrollViewer>
 ```
-
-この例では、以下に示すように、ユーザー設定で変更でき、水平スクロール リストとして表示される、さまざまなカテゴリがあるアプリのレイアウトを示します。
+以下の図は、上のサンプルをガイドラインとして使用して作成された基本的なレイアウトを示しています。
 
 ![items repeater を使用して入れ子にされたレイアウト](images/items-repeater-nested-layout.png)
+
+次の例では、ユーザー設定で変更でき、水平スクロール リストとして表示される、さまざまなカテゴリを含むアプリのレイアウトを示します。 この例のレイアウトは、上の図によっても示されています。
 
 ```xaml
 <!-- xmlns:muxc="using:Microsoft.UI.Xaml.Controls" -->
@@ -729,22 +740,22 @@ public class MyPage : Page
 {
     // ...
 
-    protected override void OnNavigatedTo(NavigationEventArgs e)
+     protected override void OnNavigatedTo(NavigationEventArgs e)
     {
         base.OnNavigatedTo(e);
 
-            // retrieve saved offset + index(es) of the tracked element and then bring it into view.
-            // ... 
+        // retrieve saved offset + index(es) of the tracked element and then bring it into view.
+        // ... 
+        
+        var element = repeater.GetOrCreateElement(index);
 
-            var element = repeater.GetOrCreateElement(index);
+        // ensure the item is given a valid position
+        element.UpdateLayout();
 
-            // ensure the item is given a valid position
-            element.UpdateLayout();
-
-            element.StartBringIntoView(new BringIntoViewOptions()
-            {
-                VerticalOffset = relativeVerticalOffset
-            });
+        element.StartBringIntoView(new BringIntoViewOptions()
+        {
+            VerticalOffset = relativeVerticalOffset
+        });
     }
 
     protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
@@ -754,8 +765,8 @@ public class MyPage : Page
         // retrieve and save the relative offset and index(es) of the scrollviewer's current anchor element ...
         var anchor = this.scrollviewer.CurrentAnchor;
         var index = this.repeater.GetElementIndex(anchor);
-        var anchorBounds = anchor.TransformToVisual(this.scrollviewer).TransformBounds(new Rect(0, 0, anchor.ActualWidth, anchor.ActualHeight));
-        relativeVerticalOffset = this.sv.VerticalOffset – anchorBounds.Top;
+        var anchorBounds = anchor.TransformToVisual(this.scrollviewer).TransformBounds(new Rect(0, 0, anchor.ActualSize.X, anchor.ActualSize.Y));
+        relativeVerticalOffset = this.scrollviewer.VerticalOffset - anchorBounds.Top;
     }
 }
 
@@ -763,7 +774,7 @@ public class MyPage : Page
 
 ## <a name="enable-accessibility"></a>アクセシビリティを有効にする
 
-[ItemsRepeater](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater) では、既定のアクセシビリティ エクスペリエンスは提供されません。 [UWP アプリのユーザビリティ](/windows/uwp/design/usability)に関するドキュメントに、確実にアプリで包括的なユーザー エクスペリエンスを提供するのに役立つ豊富な情報が示されています。 ItemsRepeater を使ってカスタム コントロールを作成する場合は、必ず、[カスタム オートメーション ピア](/windows/uwp/design/accessibility/custom-automation-peers)に関するドキュメントを参照してください。
+[ItemsRepeater](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater) では、既定のアクセシビリティ エクスペリエンスは提供されません。 [Windows アプリのユーザビリティ](/windows/uwp/design/usability)に関するドキュメントでは、確実にアプリで包括的なユーザー エクスペリエンスを提供できるようにするために役立つ情報が豊富に示されています。 ItemsRepeater を使ってカスタム コントロールを作成する場合は、必ず、[カスタム オートメーション ピア](/windows/uwp/design/accessibility/custom-automation-peers)に関するドキュメントを参照してください。
 
 ### <a name="keyboarding"></a>キーボード操作
 ItemsRepeater で提供されるフォーカス移動のためのキーボード操作の最小限のサポートは、XAML の[キーボード操作の 2D 方向ナビゲーション](/windows/uwp/design/input/focus-navigation#2d-directional-navigation-for-keyboard)に関する記述に基づいています。
@@ -777,7 +788,7 @@ ItemsRepeater では、項目の既定のタブ順序が (仮想化されてい�
 > [!NOTE]
 > ItemsRepeater では、最後にフォーカスが置かれた項目が自動的に記憶されません。  これは、ユーザーが Shift + Tab キーを使用したときに、最後に認識された項目に移動される可能性があることを意味します。
 
-### <a name="announcing-item-x-of-y-in-screen-readers"></a>スクリーン リーダーでの "_Y_ の _X_ 項目" の読み上げ
+### <a name="announcing-item-_x_-of-_y_-in-screen-readers"></a>スクリーン リーダーでの "_Y_ の _X_ 項目" の読み上げ
 
 **PositionInSet** や **SizeOfSet** の値などの、適切なオートメーション プロパティの設定を管理する必要があり、項目の追加、移動、削除などが行われた場合、確実に最新の状態が保たれているようにする必要があります。
 

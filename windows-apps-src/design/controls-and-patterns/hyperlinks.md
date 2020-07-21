@@ -12,25 +12,23 @@ design-contact: kimsea
 dev-contact: stpete
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: b17220a039612e0b13cd9842800c37c39bf194dd
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: fa4ff0cbc2bd361b241f660f9c6b28f03bc7c24c
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66362757"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "80080893"
 ---
 # <a name="hyperlinks"></a>ハイパーリンク
 
- 
-
 ハイパーリンクはユーザーを、アプリの別の部分、別のアプリ、または別のブラウザー アプリを使って呼び出した URI (Uniform Resource Identifier) に誘導します。 XAML アプリにハイパーリンクを追加するには 2 つの方法、**ハイパーリンク** テキスト要素と **HyperlinkButton** コントロールがあります。
 
-> **重要な API**:[ハイパーリンク テキスト要素](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Documents.Hyperlink)、[HyperlinkButton コントロール](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.HyperlinkButton)
+> **プラットフォーム API**: [ハイパーリンク テキスト要素](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Documents.Hyperlink)、[HyperlinkButton コントロール](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.HyperlinkButton)
 
 ![ハイパーリンク ボタン](images/controls/hyperlink-button.png)
 
 
-## <a name="is-this-the-right-control"></a>適切なコントロールの選択
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか? 
 
 ユーザーがテキストを選び、そのテキストに関する詳しい情報が表示される場所に移動するとき、この操作に応答するテキストが必要となる場合に、ハイパーリンクを使います。
 
@@ -45,7 +43,7 @@ ms.locfileid: "66362757"
 <table>
 <th align="left">XAML コントロール ギャラリー<th>
 <tr>
-<td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td><img src="images/xaml-controls-gallery-app-icon-sm.png" alt="XAML controls gallery"></img></td>
 <td>
     <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合、こちらをクリックして<a href="xamlcontrolsgallery:/item/HyperlinkButton">アプリを開き、HyperlinkButton の動作を確認</a>してください。</p>
     <ul>
@@ -107,7 +105,7 @@ helpLinkButton.NavigateUri = new Uri("http://www.contoso.com");
 
 ## <a name="handle-navigation"></a>ナビゲーションの処理
 
-どちらの種類のハイパーリンクでも同様にナビゲーションを処理します。**NavigateUri** プロパティを設定するか、または**クリック**イベントを処理することができます。
+どちらの種類のハイパーリンクでも同様にナビゲーションを処理します。**NavigateUri** プロパティを設定するか、または**クリック**イベントを処理することができます。 
 
 **URI に移動**
 
@@ -173,7 +171,7 @@ helpLinkButton.NavigateUri = new Uri("http://www.contoso.com");
 -   個々のハイパーリンクの間には十分な間隔を空けます。これにより、それぞれのハイパーリンクを区別することができ、ハイパーリンクを間違えずに選ぶことができます。
 -   ユーザーの移動先を示すヒントをハイパーリンクに追加します。 ユーザーが外部サイトに移動する場合は、ヒント内にトップレベルのドメイン名を入れ、補助的なフォント色を使ってそのテキストのスタイルを指定します。
 
-## <a name="get-the-sample-code"></a>サンプル コードを入手する
+## <a name="get-the-sample-code"></a>サンプル コードの入手
 
 - [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - インタラクティブな形で XAML コントロールのすべてを参照できます。
 

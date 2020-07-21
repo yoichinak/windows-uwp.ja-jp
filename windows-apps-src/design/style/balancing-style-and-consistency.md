@@ -1,23 +1,23 @@
 ---
 description: 一貫性があって使いやすく、独創性と創造性を発揮できるアプリを作成するためのヒントを示します。
-title: スタイルと一貫性のバランスをとる (UWP アプリの設計)
+title: スタイルと一貫性のバランスをとる (Windows アプリのデザイン)
 template: detail.hbs
 ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: ecb511fad1aa4e1605d83090a5e4e8d98efff1be
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 0972fcdaba2ed8c1a9a7b3f297302b0b90184bc2
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63790659"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970477"
 ---
 # <a name="balancing-style-and-consistency"></a>スタイルと一貫性のバランスをとる
 
  
 
-> 注:この記事は、Windows 10 RS2 向けの初期段階の下書きです。 機能名、用語、および機能は最終版ではありません。
+> 注: この記事は、Windows 10 RS2 向けの初期段階の下書きです。 機能名、用語、および機能は最終版ではありません。
 
 製品を設計する際は、お客様はユーザーの代弁者として設計することになります。 弊社では、弊社の目的に即した最適な設計が実現できるように努めています。 この記事では、一貫性のあるユーザー エクスペリエンスを作成するための以下の規則と、アプリを特徴付ける独自の機能やエクスペリエンスの作成との間のバランスについて説明します。 
 

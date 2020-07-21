@@ -8,18 +8,18 @@ ms.localizationpriority: medium
 ms.custom: RS5
 ms.author: mcleans
 author: mcleanbyron
-ms.openlocfilehash: aa04337612efadde0b8ce47d2faed9d839b44c26
-ms.sourcegitcommit: a6b0c900d8b507c6747afc5ebedcd15d7333b572
-ms.translationtype: MT
+ms.openlocfilehash: 7d340b3db12aef964a65860855acc0f0722cda64
+ms.sourcegitcommit: 6cdba316bdbd85a2429259ebfb59ff94440e234a
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66308409"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85882926"
 ---
 # <a name="the-fluent-design-system-for-windows-app-creators"></a>Windows アプリ作成者用の Fluent Design System
 
-![Fluent Design のヘッダー](images/fluent/fluentdesign-app-header.jpg)
+![Fluent Design のヘッダー](images/fluent/fluentdesign-app-header.png)
 
-## <a name="introduction"></a>概要
+## <a name="introduction"></a>はじめに
 
 Fluent Design System は、順応性が高く、親近感があり、美しいユーザー インターフェイスを作成するためのシステムです。
 
@@ -58,7 +58,7 @@ Fluent Design 機能は UWP に組み込まれています。 これらの機能
 </Grid>
 ```
 
-![](images/fluent/xaml-example.png)
+![XAML の例](images/fluent/xaml-example.png)
 
 
 > UWP を初めて開発する場合は、[UWP の概要に関するページ](/windows/uwp/get-started)を参照してください。
@@ -69,52 +69,52 @@ Fluent Design 機能は UWP に組み込まれています。 これらの機能
 
 :::row:::
     :::column:::
-        ![fpo image](images/fluent/thumbnail-size-classes.jpg)
+        ![fpo の画像](images/fluent/thumbnail-size-classes.jpg)
     :::column-end:::
     :::column span="2":::
 **適切なブレークポイントの設計**
 
 それぞれの画面サイズに合わせて設計する代わりに、いくつかの主要な幅 ("ブレークポイント" とも呼ばれる) に注目すると、設計とコードが非常に簡単になり、大小の画面に対応する魅力的なアプリを作成できます。
 
-[画面サイズとブレークポイントについて説明します](/windows/uwp/design/layout/screen-sizes-and-breakpoints-for-responsive-design)
+[画面のサイズとブレークポイントの詳細](/windows/uwp/design/layout/screen-sizes-and-breakpoints-for-responsive-design)
     :::column-end:::
 :::row-end:::
 
 :::row:::
     :::column:::
-        ![fpo image](images/fluent/rspd-resize.gif)
+        ![fpo の画像](images/fluent/rspd-resize.gif)
     :::column-end:::
     :::column span="2":::
-**レスポンシブ レイアウトを作成します。**
+**レスポンシブ レイアウトの作成**
 
-自然にアプリでは、さまざまな画面サイズとデバイスにそのレイアウトを適応させるする必要があります。 自動サイズ変更、レイアウト パネル、ビジュアルの状態を使用し、でも、レスポンシブ UI を作成する XAML の UI 定義を分離できます。
+アプリが自然に感じられるようにするには、そのレイアウトをさまざまな画面サイズやデバイスに適合させる必要があります。 応答性の高い UI を作成するために、自動サイズ変更、レイアウト パネル、表示状態、さらには XAML での独立した UI 定義を使用することができます。
 
-[レスポンシブ デザインについて説明します](/windows/uwp/design/layout/responsive-design)
+[応答性の高い設計の詳細](/windows/uwp/design/layout/responsive-design)
     :::column-end:::
 :::row-end:::
 
 :::row:::
     :::column:::
-        ![fpo image](images/fluent/devices.jpg)
+        ![fpo の画像](images/fluent/devices.jpg)
     :::column-end:::
     :::column span="2":::
-**さまざまなデバイス用の設計**
+**多様なデバイスの設計**
 
 UWP アプリはさまざまな Windows ベースのデバイスで実行できます。 これは、利用可能なデバイス、デバイスの利用目的、デバイスの操作方法を理解するのに役立ちます。
 
-[UWP デバイスについて説明します](/windows/uwp/design/devices/)
+[UWP デバイスの詳細](/windows/uwp/design/devices/)
 :::row-end:::
 
 :::row:::
     :::column:::
-        ![fpo image](images/fluent/keyboard-shortcuts.jpg)
+        ![fpo の画像](images/fluent/keyboard-shortcuts.jpg)
     :::column-end:::
     :::column span="2":::
-**右側の入力に合わせて最適化します。**
+**入力方法に合わせた最適化**
 
-UWP アプリは自動的に共通のマウス、キーボード、ペンをサポートし、タッチ操作&mdash;何も行う必要がある余分なを使用する必要があります。 ただし、ペンや Surface Dial など、特定の入力方法に合わせてサポートを最適化することで、アプリの機能を強化することができます。
+UWP アプリは、一般的なマウス、キーボード、ペンを自動的にサポートします。 余分な操作をする必要がありません。 ただし、必要に応じて、ペンや Surface Dial など、特定の入力方法に合わせてサポートを最適化することで、アプリの機能を強化することができます。
 
-[入力との相互作用について説明します](/windows/uwp/design/input/input-primer)
+[入力方法と操作方法の詳細](/windows/uwp/design/input/input-primer)
 :::row-end:::
 
 ## <a name="make-it-intuitive"></a>直感的なものにする
@@ -127,48 +127,48 @@ Fluent エクスペリエンスは一貫性のあるコントロールとパタ�
 
 :::row:::
     :::column:::
-        ![fpo image](images/fluent/thumbnail-navview.png)
+        ![fpo の画像](images/fluent/thumbnail-navview.png)
     :::column-end:::
     :::column span="2":::
-**右側のナビゲーションを提供します。**
+**適切なナビゲーションを提供する**
 
-簡単な経験を作成するには、適切なアプリの構造とナビゲーションのコンポーネントを使用します。
+適切なアプリ構造とナビゲーション コンポーネントを使用して、使いやすさを向上させます。
 
-[ナビゲーションについて説明します](/windows/uwp/design/basics/navigation-basics/)
+[ナビゲーションの詳細](/windows/uwp/design/basics/navigation-basics/)
 :::row-end:::
 
 :::row:::
     :::column:::
-        ![fpo image](images/fluent/thumbnail-commanding.png)
+        ![fpo の画像](images/fluent/thumbnail-commanding.png)
     :::column-end:::
     :::column span="2":::
-**対話形式にします。**
+**対話性を高める**
 
-ボタン、コマンド バー、ショートカット キー、およびコンテキスト メニューは、アプリと対話するユーザーを有効にします。動的なものに静的なエクスペリエンスを変更するツールです。
+ユーザーは、ボタン、コマンド バー、キーボード ショートカット、コンテキスト メニューを使用してアプリと対話できます。これらは、静的なエクスペリエンスを動的なものに変えるツールです。
 
-[コマンドの実行について説明します](/windows/uwp/design/basics/commanding-basics/)
+[コマンドの詳細](/windows/uwp/design/basics/commanding-basics/)
 :::row-end:::
 
 :::row:::
     :::column:::
-        ![fpo image](images/fluent/thumbnail-controls-2.jpg)
+        ![fpo の画像](images/fluent/thumbnail-controls-2.jpg)
     :::column-end:::
     :::column span="2":::
-**ジョブの適切なコントロールを使用します。**
+**ジョブに最適なコントロールの使用**
 
-コントロールとはユーザー インターフェイスの構成要素です。最適なコントロールを使用すると、ユーザーの想像どおりに動作するユーザー インターフェイスを作成できます。  UWP では、単純なボタンから強力なデータ コントロールに至るまでの 45 を超えるコントロールを提供します。
+コントロールとはユーザー インターフェイスの構成要素です。最適なコントロールを使用すると、ユーザーの想像どおりに動作するユーザー インターフェイスを作成できます。 UWP には、単純なボタンから強力なデータ コントロールまで、45 を超えるコントロールがあります。
 
-[UWP コントロールの概要について説明します](/windows/uwp/design/controls-and-patterns/)
+[UWP コントロールの詳細](/windows/uwp/design/controls-and-patterns/)
 :::row-end:::
 
 :::row:::
     :::column:::
-        ![inclusive image](images/fluent/thumbnail-inclusive.png)
+        ![インクルーシブの画像](images/fluent/thumbnail-inclusive.png)
     :::column-end:::
     :::column span="2":::
-**包括**アプリを適切に設計では、障碍を持つユーザーにアクセスできます。 いくつかのコーディングを追加すると、世界中のユーザーとアプリを共有できます。
+**インクルーシブに** 適切に設計されたアプリは、障碍のある方も利用できます。 いくつかのコーディングを追加すると、世界中のユーザーとアプリを共有できます。
 
-[使いやすさについて説明します](/windows/uwp/design/usability/)
+[ユーザビリティの詳細](/windows/uwp/design/usability/)
 :::row-end:::
 
 ## <a name="be-engaging-and-immersive"></a>魅力と臨場感を実現する
@@ -183,20 +183,20 @@ UWP アプリにライトを追加する
 
 :::row:::
     :::column:::
-        ![fpo image](images/fluent/Nav_Reveal_Animation.gif)
+        ![fpo の画像](images/fluent/Nav_Reveal_Animation.gif)
     :::column-end:::
     :::column span="2":::
-**強調表示を表示します。**
+**表示ハイライト**
 
-[強調表示を表示](/windows/uwp/design/style/reveal)light を使用して対話型の要素を目立たせます。ライトは、ユーザーが使用すると、対話できる非表示の境界線を表示する要素を照射します。 表示は、リスト ビューやグリッド ビューなど、いくつかのコントロールで自動的に有効になります。 定義済みの表示ハイライト スタイルを適用すると、他のコントロールでも表示を有効にできます。
+[表示ハイライト](/windows/uwp/design/style/reveal)は、ライトを使用して対話型の要素を目立たせます。ライトはユーザーが対話できる要素を照らし、隠れた境界線を表示します。 表示は、リスト ビューやグリッド ビューなど、いくつかのコントロールで自動的に有効になります。 定義済みの表示ハイライト スタイルを適用すると、他のコントロールでも表示を有効にできます。
 :::row-end:::
 
 :::row:::
     :::column:::
-        ![fpo image](images/fluent/traveling-focus-fullscreen-light-rf.gif)
+        ![fpo の画像](images/fluent/traveling-focus-fullscreen-light-rf.gif)
     :::column-end:::
     :::column span="2":::
-**フォーカスを表示します。**
+**表示フォーカス**
 
 [表示フォーカス](/windows/uwp/design/style/reveal-focus) はライトを使用して、入力フォーカスのある要素に注意を向けます。
 :::row-end:::
@@ -209,10 +209,10 @@ UWP アプリに奥行きを追加する
 
 :::row:::
     :::column:::
-        ![fpo image](images/fluent/_parallax_v2.gif)
+        ![fpo の画像](images/fluent/_parallax_v2.gif)
     :::column-end:::
     :::column span="2":::
-**視差効果**
+**視差**
 
 "[視差](/windows/uwp/design/motion/parallax)" は、前景にあるアイテムを背景にあるアイテムよりも速く動くように見せて、奥行き感を作り出します。
 :::row-end:::
@@ -225,10 +225,10 @@ UWP アプリにモーションを追加する
 
 :::row:::
     :::column:::
-        ![continuity gif](images/fluent/continuityXbox.gif)
+        ![継続性 gif](images/fluent/continuityXbox.gif)
     :::column-end:::
     :::column span="2":::
-**アニメーションの結び付け**
+**接続型アニメーション**
 
 "[接続型アニメーション](/windows/uwp/design/motion/connected-animation)" を使用すると、ユーザーはシームレスなシーンの切り替えを作成することでコンテキストを維持することができます。
 :::row-end:::
@@ -241,10 +241,10 @@ UWP アプリに素材を追加する
 
 :::row:::
     :::column:::
-        ![fpo image](images/fluent/acrylic_lighttheme_base.png)
+        ![fpo の画像](images/fluent/acrylic_lighttheme_base.png)
     :::column-end:::
     :::column span="2":::
-**アクリル**
+**Acrylic**
 
 "[アクリル](/windows/uwp/design/style/acrylic)" は、ユーザーに対してコンテンツのレイヤーを表示する半透明な素材です。UI 要素の階層を確立します。
 :::row-end:::
@@ -255,10 +255,10 @@ Fluent Design で独自アプリの作成を始めてみませんか。 Adobe XD
 
 :::row:::
     :::column:::
-        ![fpo image](images/fluent/thumbnail-toolkits.jpg)
+        ![fpo の画像](images/fluent/thumbnail-toolkits.jpg)
     :::column-end:::
     :::column span="2":::
-**設計のツールキットとサンプルのページ**
+**設計ツールキットとサンプルのページ**
 
 [設計ツールキットとサンプルのページ](/windows/uwp/design/downloads/)を確認してください。
 :::row-end:::

@@ -1,0 +1,102 @@
+### YamlMime:Landing
+title: ユニバーサル Windows プラットフォームのドキュメント
+summary: ユニバーサル Windows プラットフォーム (UWP) では、どのような Windows デバイス (PC、Xbox One、HoloLens など) 向けのアプリでも構築して、Microsoft Store　に発行できます。
+metadata:
+  title: UWP ドキュメンテーション - UWP アプリ開発者 |Microsoft Docs
+  description: ユニバーサル Windows プラットフォーム (UWP) では、どのような Windows デバイス (PC、Xbox One、HoloLens など) 向けのアプリでも構築して、Microsoft Store　に発行できます。
+  ms.topic: landing-page
+  ms.collection: collection
+  ms.author: quradic
+  author: QuinnRadich
+  ms.date: 09/24/2019
+  ms.technology: uwp-conceptual-docs
+  keywords: windows uwp, universal windows platform, Windows Runtime APIs, windows api, windows api ref, winrt api, windows api reference, uwp api, uwp api reference, develop uwp, design uwp, publish uwp
+  ms.openlocfilehash: 688f34e3e2316133713e71c99763d86255914aee
+  ms.sourcegitcommit: f727b68e86a86c94eff00f67ed79a1c12666e7bc
+  ms.translationtype: HT
+  ms.contentlocale: ja-JP
+  ms.lasthandoff: 04/29/2020
+  ms.locfileid: "77545001"
+landingContent:
+- title: 初めての UWP
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: UWP 開発の基本
+      url: get-started/index.md
+    - text: UWP アプリのコーディングの開始
+      url: get-started/create-uwp-apps.md
+  - linkListType: concept
+    links:
+    - text: UWP とその他の Windows アプリ プラットフォーム
+      url: https://docs.microsoft.com/windows/apps/desktop/choose-your-platform
+  - linkListType: learn
+    links:
+    - text: Microsoft Learn で Windows コースを参照する
+      url: https://docs.microsoft.com/learn/browse/?products=windows&resource_type=module
+    - text: UWP アプリとは
+      url: get-started/universal-application-platform-guide.md
+- title: 最新機能
+  linkLists:
+  - linkListType: whats-new
+    links:
+    - text: 最新の UWP 機能について
+      url: https://docs.microsoft.com/windows/uwp/whats-new/windows-10-version-latest
+    - text: Windows 10 の注目すべき機能を確認する
+      url: https://developer.microsoft.com/windows/windows-10-for-developers
+  - linkListType: concept
+    links:
+    - text: C# 言語の最新情報を確認する
+      url: https://docs.microsoft.com/dotnet/csharp/index
+    - text: Visual Studio の新機能を確認する
+      url: https://docs.microsoft.com/visualstudio/ide/
+- title: 開発
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Windows 10 用 UWP アプリの構築
+      url: develop/index.md
+    - text: Xbox と Windows 10 用の UWP ゲームを構築する
+      url: gaming/getting-started.md
+  - linkListType: reference
+    links:
+    - text: UWP 用の API リファレンス ドキュメントを参照する
+      url: https://docs.microsoft.com/uwp/
+    - text: Windows コード サンプルを見る
+      url: https://developer.microsoft.com/windows/samples
+  - linkListType: download
+    links:
+    - text: Windows の開発ツールを入手する
+      url: https://developer.microsoft.com/windows/downloads
+- title: 設計
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Fluent Design System を使ってアプリを設計する
+      url: design/index.md
+  - linkListType: reference
+    links:
+    - text: Windows UI ライブラリを使って UI コントロールを追加する
+      url: https://docs.microsoft.com/uwp/toolkits/winui/
+- title: 公開
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Microsoft Store へのアプリ発行
+      url: publish/index.md
+    - text: MSIX によるアプリのパッケージとデプロイ
+      url: /windows/msix
+  - linkListType: concept
+    links:
+    - text: アプリの収益の獲得
+      url: monetize/index.md
+- title: コミュニティとサポート
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Twitter の @WindowsDocs
+      url: https://twitter.com/WindowsDocs
+    - text: YouTube の OneDevMinute
+      url: https://aka.ms/OneDevMinute
+    - text: Windows 開発者向けサポート
+      url: https://developer.microsoft.com/windows/support

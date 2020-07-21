@@ -9,12 +9,12 @@ design-contact: Judysa
 doc-status: Published
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 0352e01363fc077439325eba4f74fe97febac33c
-ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
+ms.openlocfilehash: 0ad8b78538a2b047501361072a017658ba152e73
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67820547"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82971007"
 ---
 # <a name="app-icons-and-logos"></a>アプリのアイコンとロゴ 
 
@@ -22,7 +22,6 @@ ms.locfileid: "67820547"
 
 :::row:::
     :::column:::
-        * アプリ ウィンドウのタイトル バー
         * スタート メニューのアプリ一覧
         * タスク バーとタスク マネージャー
         * アプリのタイル
@@ -30,7 +29,7 @@ ms.locfileid: "67820547"
         * Microsoft Store 内
     :::column-end:::
     :::column:::
-        ![windows 10 start and tiles](images/assetguidance01.jpg)
+        ![Windows 10 のスタート画面とタイル](images/assetguidance01.jpg)
     :::column-end:::
 :::row-end:::
 
@@ -49,25 +48,24 @@ Visual Studio では、既定でアイコン アセットがアセット サブ�
 | ワイド タイル  | スタート メニュー   | Wide310x150Logo.png |
 | 大きいタイル   | スタート メニュー、Microsoft Store 登録情報\* |  LargeTile.png  |
 | アプリのアイコン | スタート メニューのアプリ一覧、タスク バー、タスク マネージャー | Square44x44Logo.png |
-| スプラッシュ画面 | アプリのスプラッシュ スクリーン | SplashScreen.png  |
+| スプラッシュ スクリーン | アプリのスプラッシュ スクリーン | SplashScreen.png  |
 | バッジ ロゴ | アプリのタイル | BadgeLogo.png  |
 | パッケージ ロゴ/Microsoft Store ロゴ | アプリ インストーラー、パートナー センター、Microsoft Store の [Report an app]\(アプリを報告)\ オプション、Microsoft Store の [Write a review]\(レビューを書く)\ オプション | StoreLogo.png  |
 
-\* [アップロードした画像のみを Microsoft Store で表示](/windows/uwp/publish/app-screenshots-and-images#display-only-uploaded-logo-images-in-the-store)することを選択しなかった場合に使用されます。 
+\*[アップロードした画像のみを Microsoft Store で表示](/windows/uwp/publish/app-screenshots-and-images#display-only-uploaded-logo-images-in-the-store)することを選択しなかった場合に使用されます。 
 
 これらのアイコンがどの画面でも鮮明に表示されるようにするには、同じアイコンに、異なる表示倍率に対応する複数のバージョンを作成します。 
 
 倍率によって、テキストなどの UI 要素のサイズが決まります。 倍率の範囲は 100% から 400% までです。 値が大きいほど UI 要素も大きくなり、高解像度ディスプレイで見やすくなります。 
 
 :::row:::
-    :::column:::
-        Windows automatically sets the scale factor for each display based on its DPI (dots-per-inch) and the viewing distance of the device. 
-
-        (Users can override the default value by going to the **Settings &gt; Display &gt; Scale and layout** page.)
-    :::column-end:::
-    :::column:::
-        ![](images/icons/display-settings-screen.png)
-    :::column-end:::
+   :::column:::
+      Windows では、ディスプレイの DPI (1 インチあたりのドット数) と、デバイスの視聴距離に基づいて各ディスプレイの倍率が自動的に設定されます 
+      (ユーザーは、 **[設定] &gt; [ディスプレイ] &gt; [拡大縮小とレイアウト]** のページに移動して既定値を上書きできます)。
+   :::column-end:::
+   :::column:::
+      ![](images/icons/display-settings-screen.png)
+   :::column-end:::
 :::row-end:::  
 
 
@@ -77,7 +75,7 @@ Visual Studio では、既定でアイコン アセットがアセット サブ�
 
 "Microsoft Store で自分のアプリの登録情報の画像を指定するにはどうしたらいいでしょうか。"
 
-このページの上部の表で説明しているように、Microsoft Store では既定でパッケージ内の画像が使用されます ([申請プロセスで指定したその他の画像](https://docs.microsoft.com/en-us/windows/uwp/publish/app-screenshots-and-images)とともに)。 ただし、Windows 10 (Xbox を含む) ユーザーに Microsoft Store 登録情報が表示されるときに、アプリのパッケージのロゴ画像ではなく、アップロードした画像のみが使用されるようにすることもできます。 これにより、ストアのさまざまな画面でアプリがどのように表示されるかをさらに細かく制御できます。 (製品が以前の OS バージョンをサポートしている場合は、このオプションを使用してもパッケージの画像が引き続きユーザーに表示される場合があるので注意してください。)これは、申請プロセスの **[Store 登録情報]** の手順の **[Microstore Store ロゴ]** セクションで行うことができます。
+このページの上部の表で説明しているように、Microsoft Store では既定でパッケージ内の画像が使用されます ([申請プロセスで指定したその他の画像](https://docs.microsoft.com/windows/uwp/publish/app-screenshots-and-images)とともに)。 ただし、Windows 10 (Xbox を含む) ユーザーに Microsoft Store 登録情報が表示されるときに、アプリのパッケージのロゴ画像ではなく、アップロードした画像のみが使用されるようにすることもできます。 これにより、ストアのさまざまな画面でアプリがどのように表示されるかをさらに細かく制御できます。 (製品が以前の OS バージョンをサポートしている場合は、このオプションを使用してもパッケージの画像が引き続きユーザーに表示される場合があるので注意してください。)これは、申請プロセスの **[Store 登録情報]** の手順の **[Microstore Store ロゴ]** セクションで行うことができます。
 
 ![アプリ申請プロセスでの Microsoft Store ロゴの指定](images/app-icons/storelogodisplay.png)
 
@@ -135,15 +133,15 @@ Visual Studio には、**マニフェスト デザイナー**と呼ばれるア�
         2. **[ソリューション エクスプローラー]** で Package.appxmanifest ファイルをダブルクリックします。
     :::column-end:::
     :::column:::
-        ![The Visual Studio 2019 Manifest Designer](images/icons/vs-solution-explorer.png)
+        ![Visual Studio 2019 マニフェスト デザイナー](images/icons/vs-solution-explorer.png)
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-            Visual Studio displays the Manifest Designer.
+            Visual Studio によってマニフェスト デザイナーが表示されます。
     :::column-end:::
     :::column:::
-            ![The Visual Assets tab](images/icons/vs-manfiest-designer.png)
+            ![[ビジュアル資産] タブ](images/icons/vs-manfiest-designer.png)
     :::column-end:::
 :::row-end:::    
 :::row:::
@@ -151,7 +149,7 @@ Visual Studio には、**マニフェスト デザイナー**と呼ばれるア�
         3. **[ビジュアル資産]** タブをクリックします。
     :::column-end:::
     :::column:::
-        ![The Visual Assets tab](images/icons/vs-manfiest-designer-visual-assets.png)
+        ![[ビジュアル資産] タブ](images/icons/vs-manfiest-designer-visual-assets.png)
     :::column-end:::
 :::row-end:::        
 
@@ -167,11 +165,11 @@ Visual Studio には、**マニフェスト デザイナー**と呼ばれるア�
 1. **[ソース]** フィールドの横の **[...]** をクリックし、使用する画像を選択します。 ビットマップ画像を使用する場合は、鮮明な画像になるように、400 × 400 ピクセル以上を指定してください。 ベクトル ベースの画像が最適です。Visual Studio では AI (Adobe Illustrator) ファイルや PDF ファイルを使用できます。 
 2. (省略可能) **[設定値を表示]** セクションで、以下のオプションを設定します。
 
-    a.  **短い名前**:アプリの短い名前を指定します。
+    a。  **短い名前**:アプリの短い名前を指定します。
 
     b.  **名前の表示**:普通サイズのタイル、ワイド タイル、または大きいタイルに短い名前を表示するかどうかを指定します。 
 
-    c. **タイルの背景**:タイルの背景色に対応する 16 進値または色名を指定します。 たとえば、`#464646` と記述します。 既定値は、`transparent` です。
+    c. **タイルの背景**:タイルの背景色に対応する 16 進値または色名を指定します。 たとえば、`#464646` のように指定します。 既定値は `transparent` です。
 
     d. **スプラッシュ スクリーンの背景**:スプラッシュ スクリーンの背景色に対応する 16 進値または色名を指定します。 
 
@@ -183,11 +181,11 @@ Visual Studio で画像ファイルが生成され、プロジェクトに追加
 
 *filename*-scale-*scale factor*.png
 
-以下に例を示します。
+たとえば、
 
 Square150x150Logo-scale-100.png、Square150x150Logo-scale-200.png、Square150x150Logo-scale-400.png
 
-Visual Studio では既定でバッジ ロゴが生成されません。 これは、バッジ ロゴが独特であり、他のアプリ アイコンと一致していることがまずないためです。 詳細については、「[UWP アプリ向けのバッジ通知](/windows/uwp/design/shell/tiles-and-notifications/badges)」をご覧ください。 
+Visual Studio では既定でバッジ ロゴが生成されません。 これは、バッジ ロゴが独特であり、他のアプリ アイコンと一致していることがまずないためです。 詳しくは、「[Windows アプリ向けのバッジ通知](/windows/uwp/design/shell/tiles-and-notifications/badges)」をご覧ください。 
 
 
 ## <a name="more-about-app-icon-assets"></a>アプリ アイコン アセットの詳細
@@ -238,9 +236,9 @@ Windows では、ターゲット ベースのアセットが既定で色付き�
 
 次に示すサーフェスでは、プレートなしのアプリ アイコン アセットが使用されています。
 * タスク バーとタスク バー サムネイル (デスクトップ)
-* タスク バーのジャンプ リスト
+* タスク バーのジャンプリスト
 * タスク ビュー
-* Alt + Tab キー
+* Alt + Tab
 
 ### <a name="unplated-assets-and-themes"></a>プレートなしのアセットとテーマ
 
@@ -255,13 +253,13 @@ Windows では、ターゲット ベースのアセットが既定で色付き�
 
 
 ## <a name="more-about-splash-screen-assets"></a>スプラッシュ スクリーン アセットの詳細
-スプラッシュ スクリーンの詳細については、[UWP のスプラッシュ スクリーンに関する記事](/windows/uwp/launch-resume/splash-screens)をご覧ください。
+スプラッシュ スクリーンについて詳しくは、[Windows アプリのスプラッシュ スクリーン](/windows/uwp/launch-resume/splash-screens)に関する記事をご覧ください。
 
 ## <a name="more-about-badge-logo-assets"></a>バッジ ロゴ アセットの詳細
 
 資産ジェネレーターを使用して必要なアセットをすべて生成する場合、バッジ ロゴは既定で生成されません。これは、バッジ ロゴが他のアプリ アセットと大きく異なっているからです。 バッジ ロゴは、通知やアプリのタイルに表示される状態の画像です。 
 
-詳細については、[UWP アプリ向けのバッジ通知に関する記事](/windows/uwp/design/shell/tiles-and-notifications/badges)をご覧ください。
+詳しくは、「[Windows アプリ向けのバッジ通知](/windows/uwp/design/shell/tiles-and-notifications/badges)」をご覧ください。
 
 
 ## <a name="customizing-asset-padding"></a>アセットの埋め込みのカスタマイズ

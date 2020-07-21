@@ -12,32 +12,39 @@ dev-contact: llongley
 doc-status: Draft
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 9793679dcd036415ba6a1c238c1986392beb5761
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: bdd18fea2fe563fcee835e6b61e24d6a9b03d029
+ms.sourcegitcommit: f945df77f8a19961ba053ee62e593ec8e015038f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67319143"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82989825"
 ---
 # <a name="command-bar-flyout"></a>コマンド バーのポップアップ
 
 コマンド バーのポップアップを使用すると、UI キャンバス上の要素に関連した移動可能なツールバーにコマンドを表示することによって、一般的なタスクへの簡単なアクセスをユーザーに提供できます。
 
-![展開されたテキスト コマンド バーのポップアップ](images/command-bar-flyout-header.png)
-
-> CommandBarFlyout には、Windows 10 Version 1809 ([SDK 17763](https://developer.microsoft.com/windows/downloads/windows-10-sdk)) 以降、または [Windows UI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)が必要です。
-
-> - **プラットフォーム API**: [CommandBarFlyout クラス](/uwp/api/windows.ui.xaml.controls.commandbarflyout)、[TextCommandBarFlyout クラス](/uwp/api/windows.ui.xaml.controls.textcommandbarflyout)、[AppBarButton クラス](/uwp/api/windows.ui.xaml.controls.appbarbutton)、[AppBarToggleButton クラス](/uwp/api/windows.ui.xaml.controls.appbartogglebutton)、[AppBarSeparator クラス](/uwp/api/windows.ui.xaml.controls.appbarseparator)
->- **Windows UI ライブラリ API**: [CommandBarFlyout クラス](/uwp/api/microsoft.ui.xaml.controls.commandbarflyout)、[TextCommandBarFlyout クラス](/uwp/api/microsoft.ui.xaml.controls.textcommandbarflyout)
+![展開されたテキスト コマンド バーのポップアップ](images/command-bar-flyout-text-full.png)
 
 [CommandBar](app-bars.md) と同様に、CommandBarFlyout には、コマンドを追加するために使用できる **PrimaryCommands** プロパティと **SecondaryCommands** プロパティがあります。 コマンドは、どちらかまたは両方のコレクションに配置できます。 プライマリとセカンダリのコマンドが、どのような場合にどのような方法で表示されるかは、表示モードによって異なります。
 
 コマンド バーのポップアップには、"*折りたたみ*" と "*展開*" の 2 つの表示モードがあります。
 
-- 折りたたみモードでは、プライマリ コマンドのみが表示されます。 コマンド バーのポップアップにプライマリとセカンダリの両方のコマンドが含まれる場合は、省略記号 \[•••\] によって表される "see more" (詳細表示) ボタンが表示されます。 これにより、ユーザーは展開モードに切り替えることでセカンダリ コマンドにアクセスできます。
+- 折りたたみモードでは、プライマリ コマンドのみが表示されます。 コマンド バーのポップアップにプライマリとセカンダリの両方のコマンドが含まれる場合は、省略記号 \[***\] によって表される "see more" (詳細表示) ボタンが表示されます。 これにより、ユーザーは展開モードに切り替えることでセカンダリ コマンドにアクセスできます。
 - 展開モードでは、プライマリとセカンダリの両方のコマンドが表示されます (コントロールにセカンダリ項目のみが含まれる場合、それらの項目は MenuFlyout コントロールと同様の方法で表示されます)。
 
-## <a name="is-this-the-right-control"></a>適切なコントロールの選択
+**Windows UI ライブラリを入手する**
+
+|  |  |
+| - | - |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | **CommandBarFlyout** コントロールは、Windows アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリの一部として含まれています。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+
+>**Windows UI ライブラリ API**: [CommandBarFlyout クラス](/uwp/api/microsoft.ui.xaml.controls.commandbarflyout)、[TextCommandBarFlyout クラス](/uwp/api/microsoft.ui.xaml.controls.textcommandbarflyout)
+>
+>**プラットフォーム API**: [CommandBarFlyout クラス](/uwp/api/windows.ui.xaml.controls.commandbarflyout)、[TextCommandBarFlyout クラス](/uwp/api/windows.ui.xaml.controls.textcommandbarflyout)、[AppBarButton クラス](/uwp/api/windows.ui.xaml.controls.appbarbutton)、[AppBarToggleButton クラス](/uwp/api/windows.ui.xaml.controls.appbartogglebutton)、[AppBarSeparator クラス](/uwp/api/windows.ui.xaml.controls.appbarseparator)
+>
+> CommandBarFlyout には、Windows 10 Version 1809 ([SDK 17763](https://developer.microsoft.com/windows/downloads/windows-10-sdk)) 以降、または [Windows UI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)が必要です。
+
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 アプリ キャンバス上の要素のコンテキスト内でボタンやメニュー項目などのコマンドのコレクションをユーザーに表示するには、CommandBarFlyout コントロールを使用します。
 
@@ -56,7 +63,7 @@ TextCommandBarFlyout では、TextBox、TextBlock、RichEditBox、RichTextBlock�
 <table>
 <th align="left">XAML コントロール ギャラリー<th>
 <tr>
-<td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td><img src="images/xaml-controls-gallery-app-icon-sm.png" alt="XAML controls gallery"></img></td>
 <td>
     <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合、こちらをクリックして<a href="xamlcontrolsgallery:/item/CommandBarFlyout">アプリを開き、CommandBarFlyout の動作を確認</a>してください。</p>
     <ul>
@@ -386,13 +393,13 @@ CommandBarFlyout を DropDownButton と共に使用して、標準メニュー�
 
 | コマンド | 表示される場合 |
 | ------- | -------- |
-| Bold | テキスト コントロールが読み取り専用でない場合 (RichEditBox のみ)。 |
-| Italic | テキスト コントロールが読み取り専用でない場合 (RichEditBox のみ)。 |
+| 太字 | テキスト コントロールが読み取り専用でない場合 (RichEditBox のみ)。 |
+| 斜体 | テキスト コントロールが読み取り専用でない場合 (RichEditBox のみ)。 |
 | Underline | テキスト コントロールが読み取り専用でない場合 (RichEditBox のみ)。 |
 | Proofing | IsSpellCheckEnabled が **true** で、スペル ミスのテキストが選択されている場合。 |
-| 切り取り | テキスト コントロールが読み取り専用ではなく、テキストが選択されている場合。 |
+| ［切り取り］ | テキスト コントロールが読み取り専用ではなく、テキストが選択されている場合。 |
 | コピー | テキストが選択されている場合。 |
-| Paste | テキスト コントロールが読み取り専用ではなく、クリップボードが空でない場合。 |
+| 貼り付け | テキスト コントロールが読み取り専用ではなく、クリップボードが空でない場合。 |
 | 元に戻す | 元に戻すことができるアクションがある場合。 |
 | すべて選択 | テキストを選択できる場合。 |
 
@@ -403,12 +410,12 @@ TextCommandBarFlyout はカスタマイズできず、各テキスト コント�
 - テキスト選択時に表示される既定の TextCommandBarFlyout を置き換えるために、カスタム CommandBarFlyout (またはその他の種類のポップアップ) を作成して、**SelectionFlyout** プロパティに割り当てることができます。 SelectionFlyout を **null** に設定した場合、選択時にコマンドは表示されません。
 - コンテキスト メニューとして表示される既定の TextCommandBarFlyout を置き換えるには、カスタムの CommandBarFlyout (またはその他の種類のポップアップ) をテキスト コントロールの **ContextFlyout** プロパティに割り当てます。 ContextFlyout を **null** に設定すると、以前のバージョンのテキスト コントロールに表示されるメニュー ポップアップが、TextCommandBarFlyout の代わりに表示されます。
 
-## <a name="get-the-sample-code"></a>サンプル コードを入手する
+## <a name="get-the-sample-code"></a>サンプル コードの入手
 
 - [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - インタラクティブな形で XAML コントロールのすべてを参照できます。
-- [XAML コマンド実行のサンプル](https://go.microsoft.com/fwlink/p/?LinkId=620019)
+- [XAML コマンド実行のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlCommanding)
 
 ## <a name="related-articles"></a>関連記事
 
-- [UWP アプリのコマンド設計の基本](../basics/commanding-basics.md)
+- [Windows アプリのコマンド デザインの基本](../basics/commanding-basics.md)
 - [CommandBar クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CommandBar)

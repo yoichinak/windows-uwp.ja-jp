@@ -1,24 +1,24 @@
 ---
 Description: すべての UWP アプリに含まれているユニバーサル デザイン機能は、さまざまなデバイス間で美しく拡大縮小されるアプリを構築するのに役立ちます。
-title: ユニバーサル Windows プラットフォーム (UWP) アプリ設計の概要 (Windows アプリ)
+title: Windows アプリ デザインの概要 (Windows アプリ)
 ms.assetid: 50A5605E-3A91-41DB-800A-9180717C1E86
 ms.date: 05/05/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 25dc7118fcb7d9c6e997fae458ef7846777b1262
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: add292dd5b58c3e8da1a0ce2c2371bf211b2a617
+ms.sourcegitcommit: 7704c888a28edc7ab0515a75afac93d1dda4d693
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65983924"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84151951"
 ---
-# <a name="introduction-to-uwp-app-design"></a>UWP アプリ設計の概要
+# <a name="introduction-to-windows-app-design"></a>Windows アプリ デザインの概要
 
 ![サンプルの照明アプリ](images/introUWP-header.jpg)
 
-ユニバーサル Windows プラットフォーム (UWP) の設計ガイダンスは、美しく洗練されたアプリを設計および構築するのに役立つリソースです。
+Windows アプリのデザイン ガイダンスは、美しく洗練されたアプリをデザインおよび構築するのに役立つリソースです。
 
 これは規範的な規則の一覧ではなく、進化する [Fluent Design System](/windows/apps/fluent-design-system)、およびアプリ構築コミュニティのニーズに適応するように設計された生きたドキュメントです。
 
@@ -47,12 +47,12 @@ UWP は、すべてのデバイスと画面サイズで読みやすく、操作�
 
 :::row:::
     :::column span:::
-        The sizes, margins, and positions of UI elements should always be in **multiples of 4 epx** in your UWP apps.
+UWP アプリでは、UI 要素のサイズ、余白、および位置は、必ず **4 epx の倍数**にする必要があります。
 
-        UWP scales across a range of devices with scaling plateaus of 100%, 125%, 150%, 175%, 200%, 225%, 250%, 300%, 350%, and 400%. The base unit is 4 because it's the only integer that can be scaled by non-whole numbers (e.g. 4*1.5 = 6). Using multiples of four aligns all UI elements with whole pixels and ensures UI elements have crisp, sharp edges. (Note that text doesn't have this requirement; text can have any size and position.)
+UWP のスケールはデバイスによって異なり、100%、125%、150%、175%、200%、225%、250%、300%、350%、および 400% のスケール プラトーがあります。 基本単位は 4 になりますが、これは、整数以外の数値によってスケーリングできる唯一の整数であるためです (例: 4*1.5 = 6)。 4 の倍数の使用によってすべての UI 要素のピクセル全体が整列し、UI 要素のエッジがすっきりとシャープになります (この要件はテキストには適用されません。テキストのサイズと位置に制限はありません)。
     :::column-end:::
     :::column:::
-        ![grid](images/4epx.svg)
+![グリッド](images/4epx.svg)
     :::column-end:::
 :::row-end:::
 
@@ -64,21 +64,21 @@ UWP アプリは、すべてのデバイスに合わせて自動的に拡大縮�
 
 :::row:::
     :::column:::
-        UWPアプリが起動される時はどのWindows 10デバイスであれ、[Window](/uwp/api/windows.ui.xaml.window)に[Frame](/uwp/api/windows.ui.xaml.controls.frame)が付いて、[Page](/uwp/api/windows.ui.xaml.controls.page)のインスタンス間をナビゲーションできるよう起動します。
+Windows 10 デバイスで UWP アプリが起動されると、[フレーム](/uwp/api/windows.ui.xaml.controls.frame)がある[ウィンドウ](/uwp/api/windows.ui.xaml.window)で起動し、[ページ](/uwp/api/windows.ui.xaml.controls.page) インスタンス間を移動できます。
     :::column-end:::
     :::column:::
-        ![Frame](images/frame.svg)
+![Frame](images/frame.svg)
     :::column-end:::
 :::row-end:::
 
 :::row:::
     :::column:::
-        アプリのUIはページの集合体であると捉えることができます。各ページで起こるべきことやページ間の関係性はあなたが決めることができます。
+アプリの UI は、ページのコレクションとして考えることができます。 各ページに配置する項目や、ページ間の関係は、開発者が自由に決めることができます。
 
-        ページの設計について詳しくは、[UWP アプリのナビゲーション デザインの基本](navigation-basics.md)を参照してください。
+ページを整理する方法については、[ナビゲーションの基本](navigation-basics.md)に関する記事を参照してください。
     :::column-end:::
     :::column:::
-        ![Frame](images/collection-pages.svg)
+![Frame](images/collection-pages.svg)
     :::column-end:::
 :::row-end:::
 
@@ -112,18 +112,18 @@ UWP コントロールとコントロールに基づいて作成できるパタ�
 
 ![アクセント カラーの gif](images/intro-style.gif)
 
-## <a name="shell"></a>シェル
+## <a name="shell"></a>Shell
 
 :::row:::
     :::column:::
-        Your UWP app will interact with the broader Windows experience with tiles and notifications in the Windows [Shell](../shell/tiles-and-notifications/creating-tiles.md).
+UWP アプリでは、Windows [シェル](../shell/tiles-and-notifications/creating-tiles.md)のタイルと通知を使用して、幅広い Windows エクスペリエンスとの対話が実行されます。
 
-        Tiles are displayed in the Start menu and when your app launches, and they provide a glimpse of what's going on in your app. Their power comes from the content behind them, and the intelligence and craft with which they're offered up.
+タイルは、[スタート] メニューとアプリの起動時に表示され、アプリで何が行われるのかを簡単に示します。 タイルのパワーは、背後にあるコンテンツ、および提供するインテリジェンスと技術によるものです。
 
-        UWP apps have four tile sizes (small, medium, wide, and large) that can be customized with the app's icon and identity. For guidance on designing tiles for your UWP app, see [Guidelines for tile and icon assets](../shell/tiles-and-notifications/app-assets.md).
+UWP アプリには 4 つのタイル サイズ (小、中、横長、大) があり、アプリのアイコンと ID でカスタマイズできます。 UWP アプリのタイルのデザインに関するガイダンスについては、「[タイルとアイコン アセットのガイドライン](../style/app-icons-and-logos.md)」をご覧ください。
     :::column-end:::
     :::column:::
-        ![tiles on start menu](images/shell.svg)
+![スタート メニューのタイル](images/shell.svg)
     :::column-end:::
 :::row-end:::
 
@@ -131,10 +131,10 @@ UWP コントロールとコントロールに基づいて作成できるパタ�
 
 :::row:::
     :::column:::
-        UWP apps rely on smart interactions. You can design around a click interaction without having to know or define whether the click comes from a mouse, a stylus, or a tap of a finger. However, you can also design your apps for [specific input modes](../input/input-primer.md).
+UWP アプリではスマート操作が使用されます。 クリックの発生元がマウスか、スタイラスか、指によるタップかを認識または定義しなくても、クリック操作に対応したデザインを行うことができます。 ただし、[特定の入力モード](../input/input-primer.md)向けにアプリを設計することもできます。
     :::column-end:::
     :::column:::
-        ![inputs](images/inputs.svg)
+![入力](images/inputs.svg)
     :::column-end:::
 :::row-end:::
 
@@ -144,7 +144,7 @@ UWP コントロールとコントロールに基づいて作成できるパタ�
 
 同様に、UWP では、さまざまなデバイスに合わせてアプリを自動的にスケーリングしますが、[特定のデバイス向けに UWP アプリを最適化](../devices/index.md)することもできます。
 
-## <a name="usability"></a>ユーザビリティ
+## <a name="usability"></a>使いやすさ
 
 <img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/REYaAb?ver=727c">
 

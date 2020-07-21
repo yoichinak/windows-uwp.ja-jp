@@ -6,18 +6,16 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: b9fcdff5b8648822bb5cc22771daded23f6d52a5
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 1d306c02d4fd99acaa49ec59230181ac0a20c9f3
+ms.sourcegitcommit: f561efbda5c1d47b85601d91d70d86c5332bbf8c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67322230"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72690386"
 ---
 # <a name="distributing-a-managed-windows-runtime-component"></a>マネージ Windows ランタイム コンポーネントの配布
 
-
-
-Windows ランタイム コンポーネントは、ファイルをコピーすることで配布できます。 ただし、コンポーネントが多数のファイルで構成されている場合、インストールがユーザーの負担になる可能性があります。 また、ファイルの配置の誤りや、参照設定のエラーが原因で問題が発生する可能性もあります。 複雑なコンポーネントは、Visual Studio 拡張 SDK としてパッケージ化すると、簡単にインストールして使用することができます。 ユーザーは、パッケージ全体で参照を 1 つだけ設定する必要があります。 **[拡張機能と更新プログラム]** ダイアログ ボックスを使用すると、コンポーネントを簡単に配置してインストールできます。詳しくは、MSDN ライブラリの「[Visual Studio 拡張機能の検索と使用](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions?view=vs-2015)」をご覧ください。
+Windows ランタイム コンポーネントは、ファイルをコピーすることで配布できます。 ただし、コンポーネントが多数のファイルで構成されている場合、インストールがユーザーの負担になる可能性があります。 また、ファイルの配置の誤りや、参照設定のエラーが原因で問題が発生する可能性もあります。 複雑なコンポーネントは、Visual Studio 拡張 SDK としてパッケージ化すると、簡単にインストールして使用することができます。 ユーザーは、パッケージ全体で参照を 1 つだけ設定する必要があります。 「 [Visual Studio 拡張機能の検索と使用](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions?view=vs-2015)」で説明されているように、 **[拡張機能と更新プログラム]** ダイアログボックスを使用して、コンポーネントを簡単に見つけてインストールできます。
 
 ## <a name="planning-a-distributable-windows-runtime-component"></a>配布可能な Windows ランタイム コンポーネントの計画
 
@@ -28,7 +26,7 @@ company.product.purpose.extension
 For example: Microsoft.Cpp.Build.dll
 ```
 
-バイナリ ファイルは、アプリ パッケージにインストールされます。場合によっては、他の開発者のバイナリ ファイルも一緒にインストールされます。 「拡張機能 Sdk」を参照してください[方法。ソフトウェア開発キットの作成](https://docs.microsoft.com/visualstudio/extensibility/creating-a-software-development-kit?view=vs-2015)、MSDN ライブラリ。
+バイナリ ファイルは、アプリ パッケージにインストールされます。場合によっては、他の開発者のバイナリ ファイルも一緒にインストールされます。 「[方法: ソフトウェア開発キットを作成](https://docs.microsoft.com/visualstudio/extensibility/creating-a-software-development-kit?view=vs-2015)する」の「拡張機能 sdk」を参照してください。
 
 コンポーネントを配布する方法を決定する際は、複雑さを考慮します。 次の場合、拡張 SDK、または同様のパッケージ マネージャーを使用することをお勧めします。
 
@@ -39,13 +37,13 @@ For example: Microsoft.Cpp.Build.dll
 
 拡張 SDK は上記の 1 つ以上の条件に当てはまる場合に特に便利です。
 
-> **注**  複雑なコンポーネントは、NuGet パッケージの管理システムはオープン ソースの代わりに拡張機能 Sdk を提供します。 NuGet を使用すると、拡張 SDK と同様にパッケージを作成できるため、複雑なコンポーネントのインストールが簡単にできます。 NuGet パッケージと Visual Studio 拡張 SDK を比較するには、MSDN ライブラリの[NuGet と拡張 SDK を使用して参照を追加する方法に関するページ](https://docs.microsoft.com/visualstudio/ide/adding-references-using-nuget-versus-an-extension-sdk?view=vs-2015)をご覧ください。
+> **注**  複雑なコンポーネントの場合、NuGet パッケージ管理システムには拡張 sdk に代わるオープンソースが用意されています。 NuGet を使用すると、拡張 SDK と同様にパッケージを作成できるため、複雑なコンポーネントのインストールが簡単にできます。 NuGet パッケージと Visual Studio 拡張機能 sdk の比較については、「 [nuget と拡張 Sdk を使用した参照の追加](https://docs.microsoft.com/visualstudio/ide/adding-references-using-nuget-versus-an-extension-sdk?view=vs-2015)」を参照してください。
 
 ## <a name="distribution-by-file-copy"></a>ファイルのコピーによる配布
 
 コンポーネントが 1 つの .winmd ファイル、または 1 つの .winmd ファイルと 1 つのリソース インデックス (.pri) ファイルで構成されている場合は、.winmd ファイルをユーザーがコピーできるように用意するだけです。 ユーザーは、プロジェクトの任意の場所にファイルを置き、 **[既存項目の追加]** ダイアログ ボックスを使用して、.winmd ファイルをプロジェクトに追加してから、[参照マネージャー] ダイアログ ボックスを使用して参照を作成することができます。 .pri ファイルまたは .xml ファイルを含める場合は、.winmd ファイルと共に、それらのファイルを配置するようにユーザーに伝えます。
 
-> **注**  Visual Studio 常に生成 .pri ファイル、Windows ランタイム コンポーネントをビルドするときに、プロジェクトにはすべてのリソースが含まれていない場合でもです。 コンポーネントのテスト アプリがあれば、箱の中のアプリ パッケージの内容が検査される .pri ファイルが使用されるかどうかを判断できます\\デバッグ\\AppX フォルダー。 コンポーネントの .pri ファイルがそこにない場合は、.pri ファイルを配布する必要はありません。 または、[MakePRI.exe](https://docs.microsoft.com/previous-versions/windows/apps/jj552945(v=win.10)) ツールを使用して、Windows ランタイム コンポーネント プロジェクトからリソース ファイルをダンプすることもできます。 たとえば、Visual Studio コマンド プロンプト ウィンドウで次のように入力します。makepri dump /if MyComponent.pri /of MyComponent.pri.xml .pri ファイルについて詳しくは、「[リソース管理システム (Windows)](https://docs.microsoft.com/previous-versions/windows/apps/jj552947(v=win.10))」をご覧ください。
+>   Visual Studio では、プロジェクトにリソースが含まれていない場合でも、Windows ランタイムコンポーネントをビルドすると常に .pri ファイルが生成される**ことに注意**してください。 コンポーネント用のテストアプリがある場合は、アプリケーションパッケージの内容を確認するために、bin\\デバッグ\\AppX フォルダー内のアプリケーションパッケージの内容を調べることによって、.pri ファイルが使用されているかどうかを判断できます。 コンポーネントの .pri ファイルがそこにない場合は、.pri ファイルを配布する必要はありません。 または、[MakePRI.exe](https://docs.microsoft.com/previous-versions/windows/apps/jj552945(v=win.10)) ツールを使用して、Windows ランタイム コンポーネント プロジェクトからリソース ファイルをダンプすることもできます。 たとえば、Visual Studio コマンド プロンプト ウィンドウで次のように入力します。makepri dump /if MyComponent.pri /of MyComponent.pri.xml .pri ファイルについて詳しくは、「[リソース管理システム (Windows)](https://docs.microsoft.com/previous-versions/windows/apps/jj552947(v=win.10))」をご覧ください。
 
 ## <a name="distribution-by-extension-sdk"></a>拡張 SDK による配布
 
@@ -54,7 +52,7 @@ For example: Microsoft.Cpp.Build.dll
 **拡張機能 SDK を作成するには**
 
 1.  Visual Studio SDK がインストールされていることを確認します。 Visual Studio SDK は、[Visual Studio ダウンロード](https://visualstudio.microsoft.com/downloads/download-visual-studio-vs) ページからダウンロードできます。
-2.  VSIX プロジェクト テンプレートを使用して、新しいプロジェクトを作成します。 [機能拡張] カテゴリの [Visual C#] または [Visual Basic] の下にテンプレートがあります。 このテンプレートは、Visual Studio SDK の一部としてインストールされます。 ([チュートリアル。SDK を使用して、作成C#または Visual Basic](https://docs.microsoft.com/visualstudio/extensibility/walkthrough-creating-an-sdk-using-csharp-or-visual-basic?view=vs-2015)または[チュートリアル。C++ を使用して SDK を作成する](https://docs.microsoft.com/visualstudio/extensibility/walkthrough-creating-an-sdk-using-cpp?view=vs-2015)、非常に単純なシナリオでこのテンプレートの使用方法を示します。 )
+2.  VSIX プロジェクト テンプレートを使用して、新しいプロジェクトを作成します。 [機能拡張] カテゴリの [Visual C#] または [Visual Basic] の下にテンプレートがあります。 このテンプレートは、Visual Studio SDK の一部としてインストールされます。 ([C# または Visual Basic を使用して SDK を作成する方法のチュートリアル](https://docs.microsoft.com/visualstudio/extensibility/walkthrough-creating-an-sdk-using-csharp-or-visual-basic?view=vs-2015)または [C++ を使用して SDK を作成する方法のチュートリアル](https://docs.microsoft.com/visualstudio/extensibility/walkthrough-creating-an-sdk-using-cpp?view=vs-2015)で、このテンプレートを非常に単純なシナリオで使用する方法を紹介しています。 )
 3.  SDK のフォルダー構造を決定します。 フォルダーの構造は、VSIX プロジェクトのルート レベルの、**References**、**Redist**、および **DesignTime** フォルダーで始まります。
 
     -   **References** は、ユーザーがプログラミングできるバイナリ ファイルの場所です。 拡張 SDK は、ユーザーの Visual Studio プロジェクトで、これらのファイルへの参照を作成します。
@@ -63,15 +61,15 @@ For example: Microsoft.Cpp.Build.dll
 
     これらの各フォルダーで、構成フォルダーを作成できます。 使用できる名前は、debug、retail、CommonConfiguration です。 CommonConfiguration フォルダーに格納されるファイルは、製品ビルドでも、デバッグ ビルドでも同じです。 製品ビルドのコンポーネントのみを配布する場合は、CommonConfiguration にすべてのファイルを置いて、他の 2 つのフォルダーを省略できます。
 
-    各構成フォルダーには、プラットフォーム固有のファイルを格納するアーキテクチャ フォルダーを作成できます。 すべてのプラットフォームで同じファイルを使用する場合は、neutral という名前のフォルダーを 1 つ作成します。 他のアーキテクチャのフォルダーの名前を含む、フォルダー構造の詳細を確認することができます[方法。ソフトウェア開発キットの作成](https://docs.microsoft.com/visualstudio/extensibility/creating-a-software-development-kit?view=vs-2015)、MSDN ライブラリ。 (この記事は、プラットフォーム SDK と拡張 SDK の両方について説明しています。 混乱を避けるため、プラットフォーム SDK に関するセクションを折りたたむとわかりやすくなります。 )
+    各構成フォルダーには、プラットフォーム固有のファイルを格納するアーキテクチャ フォルダーを作成できます。 すべてのプラットフォームで同じファイルを使用する場合は、neutral という名前のフォルダーを 1 つ作成します。 フォルダー構造の詳細については、「[方法: ソフトウェア開発キットを作成](https://docs.microsoft.com/visualstudio/extensibility/creating-a-software-development-kit?view=vs-2015)する」を参照してください。 (この記事は、プラットフォーム SDK と拡張 SDK の両方について説明しています。 混乱を避けるため、プラットフォーム SDK に関するセクションを折りたたむとわかりやすくなります。 )
 
-4.  SDK マニフェスト ファイルを作成します。 マニフェストでは、名前とバージョン情報、SDK がサポートしているアーキテクチャ、.NET Framework のバージョン、および Visual Studio が SDK を使用する方法に関する他の情報を指定します。 詳細と例が見つかります[方法。ソフトウェア開発キットの作成](https://docs.microsoft.com/visualstudio/extensibility/creating-a-software-development-kit?view=vs-2015)です。
-5.  拡張 SDK をビルドして配布します。 VSIX パッケージのローカライズや、署名などの詳細は、MSDN ライブラリの「VSIX 配置」をご覧ください。
+4.  SDK マニフェスト ファイルを作成します。 マニフェストでは、名前とバージョン情報、SDK がサポートするアーキテクチャ、.NET のバージョン、Visual Studio が SDK を使用する方法に関するその他の情報を指定します。 詳細と例は、[ソフトウェア開発キットを作成する方法に関するページ](https://docs.microsoft.com/visualstudio/extensibility/creating-a-software-development-kit?view=vs-2015)をご覧ください。
+5.  拡張 SDK をビルドして配布します。 VSIX パッケージのローカライズや署名などの詳細については、「 [vsix の配置](https://docs.microsoft.com/visualstudio/misc/how-to-manually-package-an-extension-vsix-deployment?view=vs-2015)」を参照してください。
 
 ## <a name="related-topics"></a>関連トピック
 
-* [ソフトウェア開発キットを作成します。](https://docs.microsoft.com/visualstudio/extensibility/creating-a-software-development-kit?view=vs-2015)
+* [ソフトウェア開発キットの作成](https://docs.microsoft.com/visualstudio/extensibility/creating-a-software-development-kit?view=vs-2015)
 * [NuGet パッケージ管理システム](https://github.com/NuGet/Home)
 * [リソース管理システム (Windows)](https://docs.microsoft.com/previous-versions/windows/apps/jj552947(v=win.10))
-* [検索と Visual Studio 拡張機能の使用](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions?view=vs-2015)
-* [MakePRI.exe のコマンド オプション](https://docs.microsoft.com/previous-versions/windows/apps/jj552945(v=win.10))
+* [Visual Studio 拡張機能の検索と使用](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions?view=vs-2015)
+* [MakePRI コマンドオプション](https://docs.microsoft.com/previous-versions/windows/apps/jj552945(v=win.10))

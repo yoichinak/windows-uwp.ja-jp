@@ -1,20 +1,19 @@
 ---
-title: ユニバーサル Windows プラットフォーム (UWP) アプリのコマンド処理
+title: Windows アプリでのコマンド処理
 description: XamlUICommand クラスと StandardUICommand クラスを (ICommand インターフェイスと共に) 使用し、使用しているデバイスや入力の種類に関係なく、さまざまな型のコントロール型でコマンドを共有し、管理する方法。
-author: Karl-Bridge-Microsoft
 ms.service: ''
 ms.topic: overview
-ms.date: 03/11/2019
-ms.openlocfilehash: a85a101cd529bf487cbc97b93bb3905f28213c19
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.date: 09/13/2019
+ms.openlocfilehash: 5ab46a479e882b9975f24731dfcbb6e433126f80
+ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63793851"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83233762"
 ---
-# <a name="commanding-in-universal-windows-platform-uwp-apps-using-standarduicommand-xamluicommand-and-icommand"></a>StandardUICommand、XamlUICommand、ICommand を使用するユニバーサル Windows プラットフォーム (UWP) アプリのコマンド処理
+# <a name="commanding-in-windows-apps-using-standarduicommand-xamluicommand-and-icommand"></a>StandardUICommand、XamlUICommand、ICommand を使用する Windows アプリでのコマンド処理
 
-このトピックでは、ユニバーサル Windows プラットフォーム (UWP) アプリケーションのコマンド処理について説明します。 具体的には、[XamlUICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.xamluicommand) クラスと [StandardUICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.standarduicommand) クラスを (ICommand インターフェイスと共に) 使用し、使用しているデバイスや入力の種類に関係なく、さまざまな型のコントロールでコマンドを共有し、管理する方法について説明します。
+このトピックでは、Windows アプリケーションでのコマンド処理について説明します。 具体的には、[XamlUICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.xamluicommand) クラスと [StandardUICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.standarduicommand) クラスを (ICommand インターフェイスと共に) 使用し、使用しているデバイスや入力の種類に関係なく、さまざまな型のコントロールでコマンドを共有し、管理する方法について説明します。
 
 ![共有コマンドで共通する使用方法を表す図: 複数の UI サーフェスと "お気に入り" コマンド](images/commanding/generic-commanding.png)
 
@@ -36,9 +35,11 @@ ms.locfileid: "63793851"
 
 コマンドは、テキストを削除する、アクションを元に戻すなど、アプリ内の特定のコンテキストで操作できます。あるいは、音声を消す、明るさを調整するなど、コンテキストがない場合もあります。
 
-次の画像で確認できる 2 つのコマンド インターフェイス ([CommandBar](app-bars.md) とフローティング コンテキスト [CommandBarFlyout](command-bar-flyout.md)) では、同じコマンドがたくさん共有されています。
+次の画像で確認できる 2 つのコマンド インターフェイス ([CommandBar](app-bars.md) とフローティング コンテキスト [CommandBarFlyout](command-bar-flyout.md)) では、同じコマンドがいくつか共有されています。
 
-![コマンド インターフェイスの例](images/commanding/command-interface-example.png)
+![展開されたコマンド バー](images/control-examples/command-bar-photos.png)<br>*コマンド バー*
+
+![Microsoft フォト ギャラリーのコンテキスト メニュー](images/ContextMenu_example.png)<br>*Microsoft フォト ギャラリーのコンテキスト メニュー*
 
 ## <a name="command-interactions"></a>コマンド操作
 
@@ -61,14 +62,14 @@ ms.locfileid: "63793851"
 | ---------------- | -------------- | ----------------- | -------------------- | ----------------- |
 | 項目の削除      | ショートカット メニュー   | ホバー ボタン      | DEL キー              | スワイプして削除   |
 | フラグの設定        | ショートカット メニュー   | ホバー ボタン      | Ctrl + Shift + G         | スワイプしてフラグを設定     |
-| データの更新     | ショートカット メニュー   | 該当なし               | F5 キー               | 引っ張って更新   |
+| データの更新     | ショートカット メニュー   | なし               | F5 キー               | 引っ張って更新   |
 | お気に入りに追加 | ショートカット メニュー   | ホバー ボタン      | F、Ctrl + S            | スワイプしてお気に入りに追加 |
 
 **コンテキスト メニューを常に提供する** 従来のコンテキスト コマンドまたは CommandBarFlyout に関連するすべてのコンテキスト コマンドを含めることをお勧めします。いずれも、入力の種類を問わず、サポートされています。 たとえば、ポインターのホバー イベント中にのみコマンドが公開される場合、タッチ専用デバイスでは利用できません。
 
-## <a name="commands-in-uwp-applications"></a>UWP アプリケーションのコマンド
+## <a name="commands-in-windows-applications"></a>Windows アプリケーションのコマンド
 
-UWP アプリケーションのコマンド処理方法は、いくつかの方法で共有し、管理できます。 分離コードで、クリックなど、標準的な操作にイベント ハンドラーを定義したり (UI の複雑度によっては、かなり非効率的になることがあります)、標準的な操作のイベント リスナーを共有ハンドラーにバインドしたり、コマンド ロジックを表す ICommand 実装にコントロールの Command プロパティをバインドしたりできます。
+Windows アプリケーションのコマンド実行エクスペリエンスは、いくつかの方法で共有および管理できます。 分離コードで、クリックなど、標準的な操作にイベント ハンドラーを定義したり (UI の複雑度によっては、かなり非効率的になることがあります)、標準的な操作のイベント リスナーを共有ハンドラーにバインドしたり、コマンド ロジックを表す ICommand 実装にコントロールの Command プロパティをバインドしたりできます。
 
 コマンド サーフェス全体で、機能が豊富で包括的なユーザー エクスペリエンスを効率的かつ、コード重複を最小限に抑えて提供するには、このトピックで説明するコマンド バインド機能を利用することをお勧めします (標準的なイベント処理については、個々のイベント トピックをご覧ください)。
 
@@ -404,7 +405,10 @@ private void ListViewSwipeContainer_PointerExited(
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Page.Resources>
-        <XamlUICommand x:Name="CustomXamlUICommand" ExecuteRequested="DeleteCommand_ExecuteRequested" Description="Custom XamlUICommand" Label="Custom XamlUICommand">
+        <XamlUICommand x:Name="CustomXamlUICommand" 
+                       ExecuteRequested="DeleteCommand_ExecuteRequested"
+                       Description="Custom XamlUICommand" 
+                       Label="Custom XamlUICommand">
             <XamlUICommand.IconSource>
                 <FontIconSource FontFamily="Wingdings" Glyph="&#x4D;"/>
             </XamlUICommand.IconSource>
@@ -456,7 +460,8 @@ private void ListViewSwipeContainer_PointerExited(
             <muxcontrols:MenuBarItem Title="File">
             </muxcontrols:MenuBarItem>
             <muxcontrols:MenuBarItem Title="Edit">
-                <MenuFlyoutItem x:Name="DeleteFlyoutItem" Command="{StaticResource CustomXamlUICommand}"/>
+                <MenuFlyoutItem x:Name="DeleteFlyoutItem" 
+                                Command="{StaticResource CustomXamlUICommand}"/>
             </muxcontrols:MenuBarItem>
             <muxcontrols:MenuBarItem Title="Help">
             </muxcontrols:MenuBarItem>
@@ -544,7 +549,8 @@ private void ControlExample_Loaded(object sender, RoutedEventArgs e)
 {
     for (var i = 0; i < 5; i++)
     {
-        collection.Add(new ListItemData { Text = "List item " + i.ToString(), Command = CustomXamlUICommand });
+        collection.Add(
+           new ListItemData { Text = "List item " + i.ToString(), Command = CustomXamlUICommand });
     }
 }
 
@@ -558,7 +564,8 @@ private void ListView_Loaded(object sender, RoutedEventArgs e)
 3. 次に、ICommand ExecuteRequested ハンドラーを定義します。このハンドラーに項目の削除コマンドを実装します。
 
 ``` csharp
-private void DeleteCommand_ExecuteRequested(XamlUICommand sender, ExecuteRequestedEventArgs args)
+private void DeleteCommand_ExecuteRequested(
+   XamlUICommand sender, ExecuteRequestedEventArgs args)
 {
     if (args.Parameter != null)
     {
@@ -591,7 +598,9 @@ private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs 
 
 private void ListViewSwipeContainer_PointerEntered(object sender, PointerRoutedEventArgs e)
 {
-    if (e.Pointer.PointerDeviceType == Windows.Devices.Input.PointerDeviceType.Mouse || e.Pointer.PointerDeviceType == Windows.Devices.Input.PointerDeviceType.Pen)
+    if (e.Pointer.PointerDeviceType == 
+        Windows.Devices.Input.PointerDeviceType.Mouse || 
+        e.Pointer.PointerDeviceType == Windows.Devices.Input.PointerDeviceType.Pen)
     {
         VisualStateManager.GoToState(sender as Control, "HoverButtonsShown", true);
     }
@@ -605,7 +614,7 @@ private void ListViewSwipeContainer_PointerExited(object sender, PointerRoutedEv
 
 ## <a name="command-experiences-using-the-icommand-interface"></a>ICommand インターフェイスを使用したコマンド エクスペリエンス
 
-標準の UWP コントロール (ボタン、リスト、選択、暦、予測テキスト) からは、さまざまな共通コマンド操作の基本が提供されます。 コントロールの種類の完全一覧については、[UWP アプリのコントロールとパターン](index.md)に関するページを参照してください。
+標準の UWP コントロール (ボタン、リスト、選択、暦、予測テキスト) からは、さまざまな共通コマンド操作の基本が提供されます。 コントロールの種類の完全な一覧については、[Windows アプリのコントロールとパターン](index.md)に関するページをご覧ください。
 
 構造化されたコマンド処理をサポートする最も基本的な方法は、ICommand インターフェイスの実装を定義することです ([Windows.UI.Xaml.Input.ICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.icommand) for C++ または [System.Windows.Input.ICommand](https://docs.microsoft.com/dotnet/api/system.windows.input.icommand) for C#)。  この ICommand インスタンスはその後、ボタンなどのコントロールにバインドできます。
 
@@ -843,8 +852,10 @@ namespace UICommand1.ViewModel
         public RelayCommand MoveRightCommand { get; private set; }
 
         // Item collections
-        public ObservableCollection<ListItemData> ListItemLeft { get; } = new ObservableCollection<ListItemData>();
-        public ObservableCollection<ListItemData> ListItemRight { get; } = new ObservableCollection<ListItemData>();
+        public ObservableCollection<ListItemData> ListItemLeft { get; } = 
+           new ObservableCollection<ListItemData>();
+        public ObservableCollection<ListItemData> ListItemRight { get; } = 
+           new ObservableCollection<ListItemData>();
 
         public ListItemData listItem;
 
@@ -853,8 +864,10 @@ namespace UICommand1.ViewModel
         /// </summary>
         public UICommand1ViewModel()
         {
-            MoveLeftCommand = new RelayCommand(new Action(MoveLeft), CanExecuteMoveLeftCommand);
-            MoveRightCommand = new RelayCommand(new Action(MoveRight), CanExecuteMoveRightCommand);
+            MoveLeftCommand = 
+               new RelayCommand(new Action(MoveLeft), CanExecuteMoveLeftCommand);
+            MoveRightCommand = 
+               new RelayCommand(new Action(MoveRight), CanExecuteMoveRightCommand);
 
             LoadItems();
         }
@@ -1032,7 +1045,8 @@ namespace UICommand1
         /// Determines whether this <see cref="RelayCommand"/> can execute in its current state.
         /// </summary>
         /// <param name="parameter">
-        /// Data used by the command. If the command does not require data to be passed, this object can be set to null.
+        /// Data used by the command. If the command does not require 
+        /// data to be passed, this object can be set to null.
         /// </param>
         /// <returns>true if this command can be executed; otherwise, false.</returns>
         public bool CanExecute(object parameter)
@@ -1044,7 +1058,8 @@ namespace UICommand1
         /// Executes the <see cref="RelayCommand"/> on the current command target.
         /// </summary>
         /// <param name="parameter">
-        /// Data used by the command. If the command does not require data to be passed, this object can be set to null.
+        /// Data used by the command. If the command does not require 
+        /// data to be passed, this object can be set to null.
         /// </param>
         public void Execute(object parameter)
         {
@@ -1068,11 +1083,11 @@ namespace UICommand1
 }
 ```
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>要約
 
 ユニバーサル Windows プラットフォームからは、コントロールの種類、デバイス、入力の種類を問わず、コマンドを共有し、管理するアプリを構築できる堅牢かつ柔軟なコマンド処理システムが与えられます。
 
-UWP アプリのコマンドを構築するときは、次の手法を使用してください。
+Windows アプリのコマンドを構築するときは、次の手法を使用してください。
 
 - XAML/分離コードのイベントを待ち受け、処理する
 - クリックなど、イベント処理メソッドにバインドする
@@ -1080,13 +1095,13 @@ UWP アプリのコマンドを構築するときは、次の手法を使用し�
 - 事前定義された一連のプロパティに独自の値を指定し、XamlUICommand オブジェクトを定義する
 - 事前定義された一連のプロパティや値を利用し、StandardUICommand オブジェクトを作成する
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
 [XamlUICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.xamluicommand) と [StandardUICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.standarduicommand) の実装を実演する完全な例については、[XAML コントロール ギャラリー](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlUIBasics) サンプルをご覧ください。
 
 ## <a name="see-also"></a>関連項目
 
-[UWP アプリのコントロールとパターン](index.md)
+[Windows アプリのコントロールとパターン](index.md)
 
 ### <a name="samples"></a>サンプル
 
@@ -1098,15 +1113,5 @@ UWP アプリのコマンドを構築するときは、次の手法を使用し�
 
 #### <a name="other-samples"></a>その他のサンプル
 
-- [ユニバーサル Windows プラットフォームのサンプル (C# と C++)](https://go.microsoft.com/fwlink/?linkid=832713)
+- [ユニバーサル Windows プラットフォームのサンプル (C# と C++)](https://github.com/Microsoft/Windows-universal-samples/tree/b78d95134ce2d57c848e0a8dc339fc362748fb9c/Samples/RadialController)
 - [XAML コントロール ギャラリー](https://github.com/Microsoft/Xaml-Controls-Gallery)
-
-<!---Some context for the following links goes here
-- [link to next logical step for the customer](global-quickstart-template.md)--->
-
-<!--- Required:
-In Overview articles, provide at least one next step and no more than three.
-Next steps in overview articles will often link to a quickstart.
-Use regular links; do not use a blue box link. What you link to will depend on what is really a next step for the customer.
-Do not use a "More info section" or a "Resources section" or a "See also section".
---->

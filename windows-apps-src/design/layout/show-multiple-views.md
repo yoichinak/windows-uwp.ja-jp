@@ -1,151 +1,112 @@
 ---
-Description: 別のウィンドウで、アプリの複数の部分を表示します。
+Description: アプリのさまざまな部分を別々のウィンドウに表示します。
 title: アプリの複数のビューの表示
 ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 275dc6ab7cdb310dff817a3e0017568ad2fed80c
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
-ms.translationtype: MT
+ms.openlocfilehash: e7d6ea614a9d85eadfcb807c6e6100dbe15ed0c4
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67317124"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970737"
 ---
 # <a name="show-multiple-views-for-an-app"></a>アプリの複数のビューの表示
 
 ![複数のウィンドウでアプリを表示するワイヤーフレーム](images/multi-view.gif)
 
-アプリの独立した部分を別々のウィンドウで表示できるようにすることは、ユーザーが生産性を高めるために役立ちます。 アプリの複数のウィンドウを作成すると、各ウィンドウは別々に動作します。 タスク バーには各ウィンドウが別々に表示されます。 ユーザーはアプリ ウィンドウの移動、サイズ変更、表示、非表示を個別に行うことができます。また、個別のアプリの場合と同じように各アプリ ウィンドウを切り替えることができます。 各ウィンドウは、独自のスレッドで動作します。
+アプリの独立した部分を別々のウィンドウで表示できるようにすることは、ユーザーが生産性を高めるために役立ちます。 アプリに複数のウィンドウを作成すると、タスクバーに各ウィンドウが別々に表示されます。 ユーザーはアプリ ウィンドウの移動、サイズ変更、表示、非表示を個別に行うことができます。また、個別のアプリの場合と同じように各アプリ ウィンドウを切り替えることができます。
 
-> **重要な API**:[**ApplicationViewSwitcher**](https://docs.microsoft.com/uwp/api/Windows.UI.ViewManagement.ApplicationViewSwitcher)、 [ **CreateNewView**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplication.createnewview)
+> **重要な API**:[Windows.UI.ViewManagement namespace](/uwp/api/windows.ui.viewmanagement)、[Windows.UI.WindowManagement namespace](/uwp/api/windows.ui.windowmanagement)
 
 ## <a name="when-should-an-app-use-multiple-views"></a>アプリが複数のビューを使用する場合
+
 複数のビューによるメリットを活用できる、さまざまなシナリオがあります。 以下は例です。
- - 受信したメッセージの一覧を表示しながら、新しいメールを作成できるメール アプリ
- - 複数の連絡先情報を並列に表示して比較できるアドレス帳アプリ
- - 再生中の曲の情報を表示しながら、その他の利用可能な曲のリストを閲覧できるミュージック プレイヤー アプリ
- - ノートの 1 つのページから別のページに情報をコピーできるメモ アプリ
- - すべてのヘッドライン概要に目を通しながら、後から読むための記事を複数開くことができる閲覧アプリ
 
-アプリの別のインスタンスを作成するには、「[マルチインスタンスの UWP アプリの作成](../../launch-resume/multi-instance-uwp.md)」を参照してください。
+- 受信したメッセージの一覧を表示しながら、新しいメールを作成できるメール アプリ
+- 複数の連絡先情報を並列に表示して比較できるアドレス帳アプリ
+- 再生中の曲の情報を表示しながら、その他の利用可能な曲のリストを閲覧できるミュージック プレイヤー アプリ
+- ノートの 1 つのページから別のページに情報をコピーできるメモ アプリ
+- すべてのヘッドライン概要に目を通しながら、後から読むための記事を複数開くことができる閲覧アプリ
 
-## <a name="what-is-a-view"></a>ビューとは
+各アプリのレイアウトはそれぞれ異なりますが、「新しいウィンドウ」ボタンを予測可能な場所に含めることを推奨します。たとえば、新しいウィンドウで開くことができるコンテンツの右上隅などです。 さらに、[新しいウィンドウで開く] ための[コンテキスト メニュー](../controls-and-patterns/menus.md) オプションを含めることを検討します。
 
-アプリのビューは、スレッドとウィンドウが 1:1 で対応したもので、アプリがコンテンツの表示に使います。 ビューは [**Windows.ApplicationModel.Core.CoreApplicationView**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Core.CoreApplicationView) オブジェクトによって表現されます。
+アプリの別のインスタンス (同じインスタンスの別のウィンドウではなく) を作成するには、[マルチインスタンスの Windows アプリの作成](../../launch-resume/multi-instance-uwp.md)に関するページをご覧ください。
 
-また、[**CoreApplication**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Core.CoreApplication) オブジェクトによって管理されます。 [  **CoreApplication.CreateNewView**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplication.createnewview) を呼び出して、[**CoreApplicationView**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Core.CoreApplicationView) オブジェクトを作成できます。 **CoreApplicationView** は [**CoreWindow**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreWindow) と [**CoreDispatcher**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreDispatcher) ([**CoreWindow**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplicationview.corewindow) プロパティと [**Dispatcher**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplicationview.dispatcher) プロパティに格納) を関連付けます。 **CoreApplicationView** は、Windows ランタイムがコア Windows システムとのやり取りに使うオブジェクトとして考えることができます。
+## <a name="windowing-hosts"></a>ウィンドウ化ホスト
 
-通常は [**CoreApplicationView**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Core.CoreApplicationView) を直接操作しません。 代わりに Windows ランタイムでは、[**ApplicationView**](https://docs.microsoft.com/uwp/api/Windows.UI.ViewManagement.ApplicationView) クラスは [**Windows.UI.ViewManagement**](https://docs.microsoft.com/uwp/api/Windows.UI.ViewManagement) 名前空間にあります。 このクラスには、アプリがウィンドウ システムとのやり取りに使うプロパティ、メソッド、イベントが用意されています。 **ApplicationView** を操作するには、静的メソッド [**ApplicationView.GetForCurrentView**](https://docs.microsoft.com/uwp/api/windows.ui.viewmanagement.applicationview.getforcurrentview) を呼び出して、現在の **CoreApplicationView** のスレッドに関連付けられている **ApplicationView** インスタンスを取得します。
+アプリ内で Windows コンテンツをホストできるさまざまな方法があります。
 
-同様に、XAML フレーム ワークは [**CoreWindow**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreWindow) オブジェクトを [**Windows.UI.XAML.Window**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Window) オブジェクトにラップします。 XAML アプリでは通常、**CoreWindow** を直接操作しないで、**Window** オブジェクトを操作します。
+- [CoreWindow](/uwp/api/windows.ui.core.corewindow)/[ApplicationView](/uwp/api/windows.ui.viewmanagement.applicationview)
 
-## <a name="show-a-new-view"></a>新しいビューの表示
+     アプリのビューは、スレッドとウィンドウが 1:1 で対応したもので、アプリがコンテンツの表示に使います。 アプリの起動時に最初に作成されるビューは、*メイン ビュー*と呼ばれます。 各 CoreWindow/ApplicationView は、独自のスレッドで動作します。 さまざまな UI スレッドを操作する必要がある場合、マルチウィンドウ アプリが複雑になる可能性があります。
 
-各アプリのレイアウトはそれぞれ異なりますが、「新しいウィンドウ」ボタンを予測可能な場所に含めることを推奨します。たとえば、新しいウィンドウで開くことができるコンテンツの右上隅などです。 さらに、[新しいウィンドウで開く] ためのコンテキスト メニュー オプションを含めることを検討します。
+    アプリのメイン ビューは、常に ApplicationView でホストされます。 セカンダリ ウィンドウ内のコンテンツは、ApplicationView または AppWindow でホストできます。
 
-新しいビューを作成する手順を見てみましょう。 ここでは、新しいビューがボタンのクリックに応じて起動されます。
+    ApplicationView を使用して、アプリでセカンダリ ウィンドウを表示する方法については、「[ApplicationView の使用](application-view.md)」を参照してください。
+- [AppWindow](/uwp/api/windows.ui.windowmanagement.appwindow)
 
-```csharp
-private async void Button_Click(object sender, RoutedEventArgs e)
-{
-    CoreApplicationView newView = CoreApplication.CreateNewView();
-    int newViewId = 0;
-    await newView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
-    {
-        Frame frame = new Frame();
-        frame.Navigate(typeof(SecondaryPage), null);   
-        Window.Current.Content = frame;
-        // You have to activate the window in order to show it later.
-        Window.Current.Activate();
+    AppWindow は作成元と同じ UI スレッド上で動作するので、これを使用することでマルチウィンドウ Windows アプリの作成が簡単になります。
 
-        newViewId = ApplicationView.GetForCurrentView().Id;
-    });
-    bool viewShown = await ApplicationViewSwitcher.TryShowAsStandaloneAsync(newViewId);
-}
-```
+    [WindowManagement](/uwp/api/windows.ui.windowmanagement) 名前空間内の AppWindow クラスやその他の API は、Windows 10 バージョン 1903 (SDK 18362) 以降で使用できます。 アプリで以前のバージョンの Windows 10 を対象としている場合は、ApplicationView を使用して、セカンダリ ウィンドウを作成する必要があります。
 
-**新しいビューを表示するには**
+    AppWindow を使用して、アプリでセカンダリ ウィンドウを表示する方法については、「[AppWindow の使用](app-window.md)」を参照してください。
 
-1.  [  **CoreApplication.CreateNewView**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplication.createnewview) を呼び出して、ビュー コンテンツに使う新しいウィンドウとスレッドを作成します。
+    > [!NOTE]
+    > AppWindow は現在、プレビュー段階です。 つまり、AppWindow を使用するアプリを Store に送信することはできますが、一部のプラットフォームおよびフレームワーク コンポーネントが AppWindow では動作しないことがわかっています (「[制限事項](/uwp/api/windows.ui.windowmanagement.appwindow#limitations)」を参照)。
+- [DesktopWindowXamlSource](/uwp/api/windows.ui.xaml.hosting.desktopwindowxamlsource) (XAML Islands)
 
-    ```csharp
-    CoreApplicationView newView = CoreApplication.CreateNewView();
-    ```
+     Win32 アプリ内の UWP XAML コンテンツ (HWND を使用) は、XAML Islands とも呼ばれ、DesktopWindowXamlSource でホストされます。
 
-2.  新しいビューの [**Id**](https://docs.microsoft.com/uwp/api/windows.ui.viewmanagement.applicationview.id) を記録します。 これは後でビューの表示に使います。
+    XAML Islands の詳細については、[デスクトップ アプリケーションでの UWP XAML ホスティング API の使用](/windows/apps/desktop/modernize/using-the-xaml-hosting-api)に関するページを参照してください
 
-    作成するビューの追跡に役立つ何らかのインフラストラクチャをアプリに構築することを検討することもできます。 例については、[MultipleViews サンプル](https://go.microsoft.com/fwlink/p/?LinkId=620574)の `ViewLifetimeControl` クラスをご覧ください。
+### <a name="make-code-portable-across-windowing-hosts"></a>ウィンドウ化ホスト間でコードを移植可能にする
 
-    ```csharp
-    int newViewId = 0;
-    ```
+XAML コンテンツが [CoreWindow](/uwp/api/windows.ui.core.corewindow) に表示される場合、常に [ApplicationView](/uwp/api/windows.ui.viewmanagement.applicationview) および XAML [Window](/uwp/api/windows.ui.xaml.window) が関連付けられています。 これらのクラスで API を使用すると、ウィンドウの境界などの情報を取得できます。 これらのクラスのインスタンスを取得するには、静的 [CoreWindow.GetForCurrentThread](/uwp/api/windows.ui.core.corewindow.getforcurrentthread) メソッド、[ApplicationView.GetForCurrentView](/uwp/api/windows.ui.viewmanagement.applicationview.getforcurrentview) メソッド、または [Window.Current](/uwp/api/windows.ui.xaml.window.current) プロパティを使用します。 また、`GetForCurrentView` パターンを使用して、[DisplayInformation.GetForCurrentView](/uwp/api/windows.graphics.display.displayinformation.getforcurrentview) などのクラスのインスタンスを取得するクラスも多数あります。
 
-3.  新しいスレッドで、ウィンドウにコンテンツを読み込みます。
+これらの API は、CoreWindow/ApplicationView の XAML コンテンツのツリーが 1 つしかなく、XAML には、それがホストされているコンテキストがその CoreWindow/ApplicationView であることがわかっているため、機能します。
 
-    [  **CoreDispatcher.RunAsync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync) メソッドを使って、UI スレッドでの新しいビューの操作をスケジュールします。 [ラムダ式](https://go.microsoft.com/fwlink/p/?LinkId=389615)を使って、**RunAsync** メソッドの引数として関数を渡します。 ラムダ関数による操作は新しいビューのスレッドで実行されます。
+XAML コンテンツが AppWindow または DesktopWindowXamlSource 内で実行している場合、複数の XAML コンテンツのツリーを同じスレッドで同時に実行させることができます。 この場合、コンテンツが現在の CoreWindow/ApplicationView (および XAML ウィンドウ) 内で実行されなくなるため、これらの API から適切な情報が得られません。
 
-    XAML では通常、[**Window**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Window) の [**Content**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.window.content) プロパティに [**Frame**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Frame) を追加した後、**Frame** から、アプリのコンテンツを定義した XAML [**Page**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Page) に移ります。 詳しくは、「[2 ページ間のピア ツー ピア ナビゲーション](../basics/navigate-between-two-pages.md)」をご覧ください。
+すべてのウィンドウ化ホストでコードが正常に動作するようにするには、[CoreWindow](/uwp/api/windows.ui.core.corewindow)、[ApplicationView](/uwp/api/windows.ui.viewmanagement.applicationview)、および [Window](/uwp/api/windows.ui.xaml.window) を [XamlRoot](/uwp/api/windows.ui.xaml.xamlroot) クラスからコンテキストを取得する新しい API に置き換える必要があります。
+XamlRoot クラスは、XAML コンテンツのツリー、およびそれがホストされているコンテキストに関する情報を表します。それが CoreWindow、AppWindow、DesktopWindowXamlSource のいずれでも同じです。 この抽象化レイヤーを使用すると、XAML が実行されるウィンドウ化ホストに関係なく、同じコードを記述できます。
 
-    新しい [**Window**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Window) にコンテンツが読み込まれたら、後で **Window** を表示するには、**Window** の [**Activate**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.window.activate) メソッドを呼び出す必要があります。 この操作は新しいビューのスレッドで実行されるため、新しい **Window** がアクティブになります。
+この表では、ウィンドウ化ホスト間で正常に機能しないコードと、それと置換できる新しい移植可能コード、および変更する必要のない API を示しています。
 
-    最後に、後でビューの表示に使う新しいビューの [**Id**](https://docs.microsoft.com/uwp/api/windows.ui.viewmanagement.applicationview.id) を取得します。 やはり、この操作も新しいビューのスレッドで実行されるため、[**ApplicationView.GetForCurrentView**](https://docs.microsoft.com/uwp/api/windows.ui.viewmanagement.applicationview.getforcurrentview) は新しいビューの **Id** を取得します。
-
-    ```csharp
-    await newView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
-    {
-        Frame frame = new Frame();
-        frame.Navigate(typeof(SecondaryPage), null);   
-        Window.Current.Content = frame;
-        // You have to activate the window in order to show it later.
-        Window.Current.Activate();
-
-        newViewId = ApplicationView.GetForCurrentView().Id;
-    });
-    ```
-
-4.  [  **ApplicationViewSwitcher.TryShowAsStandaloneAsync**](https://docs.microsoft.com/uwp/api/windows.ui.viewmanagement.applicationviewswitcher.tryshowasstandaloneasync) を呼び出して、新しいビューを表示します。
-
-    新しいビューを作成したら、[**ApplicationViewSwitcher.TryShowAsStandaloneAsync**](https://docs.microsoft.com/uwp/api/windows.ui.viewmanagement.applicationviewswitcher.tryshowasstandaloneasync) メソッドを呼び出して、そのビューを新しいウィンドウに表示できます。 このメソッドの *viewId* パラメーターはアプリの各ビューを一意に識別する整数です。 ビュー [**Id**](https://docs.microsoft.com/uwp/api/windows.ui.viewmanagement.applicationview.id) は、**ApplicationView.Id** プロパティまたは [**ApplicationView.GetApplicationViewIdForWindow**](https://docs.microsoft.com/uwp/api/windows.ui.viewmanagement.applicationview.getapplicationviewidforwindow) メソッドを使って取得できます。
-
-    ```csharp
-    bool viewShown = await ApplicationViewSwitcher.TryShowAsStandaloneAsync(newViewId);
-    ```
-
-## <a name="the-main-view"></a>メイン ビュー
-
-
-アプリの起動時に最初に作成されるビューは、*メイン ビュー*と呼ばれます。 このビューは、[**CoreApplication.MainView**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplication.mainview) プロパティに格納され、その [**IsMain**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplicationview.ismain) プロパティは true です。 このビューは作成しません。アプリによって作成されます。 メイン ビューのスレッドはアプリのマネージャーとして機能し、すべてのアプリの起動イベントはこのスレッドに振り分けられます。
-
-セカンダリ ビューが開いている場合は、ウィンドウのタイトル バーの閉じるボタン (x) をクリックするなどして、メイン ビューのウィンドウを非表示にすることができます。ただし、そのスレッドはアクティブのままになります。 メイン ビューの [**Window**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Window) で [**Close**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.window.close) を呼び出すと、**InvalidOperationException** が発生します (使用[ **Application.Exit** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.exit)アプリを閉じます)。メイン ビューのスレッドが終了した場合、アプリを閉じます。
-
-## <a name="secondary-views"></a>セカンダリ ビュー
-
-
-アプリのコードで [**CreateNewView**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplication.createnewview) を呼び出すことで作成するすべてのビューなど、その他のビューがセカンダリ ビューです。 メイン ビューとセカンダリ ビューの両方が [**CoreApplication.Views**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplication.views) コレクションに格納されます。 通常、ユーザーの操作に応じてセカンダリ ビューを作成します。 システムによってアプリのセカンダリ ビューが作成される場合もあります。
+| 使用していた場合... | 置換先... |
+| - | - |
+| CoreWindow.GetForCurrentThread().[Bounds](/uwp/api/windows.ui.core.corewindow.bounds) | _uiElement_.XamlRoot.[Size](/uwp/api/windows.ui.xaml.xamlroot.size) |
+| CoreWindow.GetForCurrentThread().[SizeChanged](/uwp/api/windows.ui.core.corewindow.sizechanged) | _uiElement_.XamlRoot.[Changed](/uwp/api/windows.ui.xaml.xamlroot.changed) |
+| CoreWindow.[Visible](/uwp/api/windows.ui.core.corewindow.visible) | _uiElement_.XamlRoot.[IsHostVisible](/uwp/api/windows.ui.xaml.xamlroot.ishostvisible) |
+| CoreWindow.[VisibilityChanged](/uwp/api/windows.ui.core.corewindow.visibilitychanged) | _uiElement_.XamlRoot.[Changed](/uwp/api/windows.ui.xaml.xamlroot.changed) |
+| CoreWindow.GetForCurrentThread().[GetKeyState](/uwp/api/windows.ui.core.corewindow.getkeystate) | 変更なし。 これは AppWindow と DesktopWindowXamlSource でサポートされています。 |
+| CoreWindow.GetForCurrentThread().[GetAsyncKeyState](/uwp/api/windows.ui.core.corewindow.getasynckeystate) | 変更なし。 これは AppWindow と DesktopWindowXamlSource でサポートされています。 |
+| Window.[Current](/uwp/api/windows.ui.xaml.window.current) | 現在の CoreWindow に緊密にバインドされているメイン XAML Window オブジェクトを返します。 この表の後の「注」を参照してください。 |
+| Window.Current.[Bounds](/uwp/api/windows.ui.xaml.window.bounds) | _uiElement_.XamlRoot.[Size](/uwp/api/windows.ui.xaml.xamlroot.size) |
+| Window.Current.[Content](/uwp/api/windows.ui.xaml.window.content) | UIElement root =  _uiElement_.XamlRoot.[Content](/uwp/api/windows.ui.xaml.xamlroot.content) |
+| Window.Current.[Compositor](/uwp/api/windows.ui.xaml.window.compositor) | 変更なし。 これは AppWindow と DesktopWindowXamlSource でサポートされています。 |
+| VisualTreeHelper.[GetOpenPopups](/uwp/api/windows.ui.xaml.media.visualtreehelper.getopenpopups)<br/>XAML Islands アプリでは、これによってエラーがスローされます。 AppWindow アプリでは、これによって、メインウィンドウに開いているポップアップが返されます。 | VisualTreeHelper.[GetOpenPopupsForXamlRoot](/uwp/api/windows.ui.xaml.media.visualtreehelper.getopenpopupsforxamlroot)(_uiElement_.XamlRoot) |
+| FocusManager.[GetFocusedElement](/uwp/api/windows.ui.xaml.input.focusmanager.getfocusedelement) | FocusManager.[GetFocusedElement](/uwp/api/windows.ui.xaml.input.focusmanager.getfocusedelement#Windows_UI_Xaml_Input_FocusManager_GetFocusedElement_Windows_UI_Xaml_XamlRoot_)(_uiElement_.XamlRoot) |
+| contentDialog.ShowAsync() | contentDialog.[XamlRoot](/uwp/api/windows.ui.xaml.uielement.xamlroot) = _uiElement_.XamlRoot;<br/>contentDialog.ShowAsync(); |
+| menuFlyout.ShowAt(null, new Point(10, 10)); | menuFlyout.[XamlRoot](/uwp/api/windows.ui.xaml.controls.primitives.flyoutbase.xamlroot) = _uiElement_.XamlRoot;<br/>menuFlyout.ShowAt(null, new Point(10, 10)); |
 
 > [!NOTE]
-> Windows の*割り当てられたアクセス*機能を使うと、[キオスク モード](https://docs.microsoft.com/windows/manage/set-up-a-device-for-anyone-to-use)でアプリを実行できます。 この場合、システムによってロック画面に、アプリの UI を表示するセカンダリ ビューが作成されます。 アプリによるセカンダリ ビューの作成は許可されないため、キオスク モードで独自のセカンダリ ビューを表示しようとすると、例外がスローされます。
+> DesktopWindowXamlSource の XAML コンテンツの場合、スレッドに CoreWindow/Window が存在しますが、常に非表示で、サイズが 1x1 になります。 アプリから引き続きアクセスできますが、意味のある境界や表示対象は返されません。
+>
+>AppWindow の XAML コンテンツの場合、同じスレッドには常に 1 つの CoreWindow が存在します。 `GetForCurrentView` または `GetForCurrentThread` API を呼び出すと、その API からは、そのスレッドで実行されている可能性のある AppWindows ではなく、スレッドの CoreWindow の状態を反映するオブジェクトが返されます。
 
-## <a name="switch-from-one-view-to-another"></a>ビュー間の切り替え
-
-ユーザーには、セカンダリ ウィンドウから親ウィンドウに戻る方法を提供することを検討します。 そのためには、[**ApplicationViewSwitcher.SwitchAsync**](https://docs.microsoft.com/uwp/api/windows.ui.viewmanagement.applicationviewswitcher.switchasync) メソッドを使用します。 このメソッドを切り替え元のウィンドウのスレッドから呼び出し、切り替え先のウィンドウのビュー ID を渡します。
-
-```csharp
-await ApplicationViewSwitcher.SwitchAsync(viewIdToShow);
-```
-
-[  **SwitchAsync**](https://docs.microsoft.com/uwp/api/windows.ui.viewmanagement.applicationviewswitcher.switchasync) を使うときは、[**ApplicationViewSwitchingOptions**](https://docs.microsoft.com/uwp/api/Windows.UI.ViewManagement.ApplicationViewSwitchingOptions) の値を指定することで、最初のウィンドウを閉じてタスク バーから削除するかどうかを選べます。
 
 ## <a name="dos-and-donts"></a>推奨と非推奨
 
-* 「新しいウィンドウを開く」のグリフを利用することにより、セカンダリ ビューへの明確なエントリ ポイントを提供します。
-* セカンダリ ビューの目的をユーザーに伝えます。
-* アプリが単一のビューでも完全に機能することを確認します。セカンダリ ビューは利便性のためのみに提供します。
-* 通知やその他の一時的な視覚効果を提供するためにセカンダリ ビューを使用しないようにします。
+- 「新しいウィンドウを開く」のグリフを利用することにより、セカンダリ ビューへの明確なエントリ ポイントを提供します。
+- セカンダリ ビューの目的をユーザーに伝えます。
+- アプリが単一のビューで完全に機能することを確認します。ユーザーは利便性のためにのみ、セカンダリ ビューを開きます。
+- 通知やその他の一時的な視覚効果を提供するためにセカンダリ ビューを使用しないようにします。
 
 ## <a name="related-topics"></a>関連トピック
 
-* [ApplicationViewSwitcher](https://docs.microsoft.com/uwp/api/Windows.UI.ViewManagement.ApplicationViewSwitcher)
-* [CreateNewView](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplication.createnewview)
- 
+- [AppWindow の使用](app-window.md)
+- [ApplicationView の使用](application-view.md)
+- [ApplicationViewSwitcher](https://docs.microsoft.com/uwp/api/Windows.UI.ViewManagement.ApplicationViewSwitcher)
+- [CreateNewView](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplication.createnewview)

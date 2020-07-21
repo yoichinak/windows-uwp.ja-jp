@@ -1,24 +1,24 @@
 ---
-Description: UWP アプリ内でのユーザーのナビゲーション履歴を横断するための戻る移動を実装する方法について説明します。
-title: ナビゲーション履歴と前に戻る移動 (Windows アプリ)
+Description: Windows アプリ内でのユーザーのナビゲーション履歴を横断して実行される、前に戻る移動を実装する方法について説明します。
+title: ナビゲーション履歴と前に戻る移動
 template: detail.hbs
 op-migration-status: ready
 ms.date: 04/09/2019
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: de2e70a09f75ed5380a47bed225c0689eb029e89
-ms.sourcegitcommit: 139717a79af648a9231821bdfcaf69d8a1e6e894
+ms.openlocfilehash: 705b0ecb474c0bb821c3a21f4b8b66073984827f
+ms.sourcegitcommit: 015291bdf2e7d67076c1c85fc025f49c840ba475
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67713798"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85469577"
 ---
-# <a name="navigation-history-and-backwards-navigation-for-uwp-apps"></a>UWP アプリのナビゲーション履歴と前に戻る移動
+# <a name="navigation-history-and-backwards-navigation-for-windows-apps"></a>Windows アプリでのナビゲーション履歴と前に戻る移動
 
 > **重要な API**:[BackRequested イベント](https://docs.microsoft.com/uwp/api/Windows.UI.Core.SystemNavigationManager.BackRequested)、[SystemNavigationManager クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Core.SystemNavigationManager)、[OnNavigatedTo](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.page.onnavigatedto#Windows_UI_Xaml_Controls_Page_OnNavigatedTo_Windows_UI_Xaml_Navigation_NavigationEventArgs_)
 
-ユニバーサル Windows プラットフォーム (UWP) では、アプリのユーザーのナビゲーションの履歴内の移動や、デバイスによってはアプリ間の移動について、一貫性のある "戻る" ナビゲーション システムを提供します。
+Windows アプリでは、アプリ内でのユーザーのナビゲーション履歴の横断や、デバイスによってはアプリ間の移動が可能な、一貫性のある "戻る" ナビゲーション システムが提供されています。
 
 アプリに前に戻る移動を実装するには、アプリの UI の左上隅に[戻るボタン](#back-button)を配置します。 アプリで [NavigationView](../controls-and-patterns/navigationview.md) コントロールを使用する場合は、[NavigationView の組み込みの戻るボタン](../controls-and-patterns/navigationview.md#backwards-navigation)を使用できます。
 
@@ -201,7 +201,7 @@ App.xaml 分離コード:
 ```csharp
 // App.xaml.cs
 Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested += App_BackRequested;
-Frame rootFrame = Window.Current.Content;
+Frame rootFrame = Window.Current.Content as Frame;
 rootFrame.PointerPressed += On_PointerPressed;
 
 private void App_BackRequested(object sender, Windows.UI.Core.BackRequestedEventArgs e)

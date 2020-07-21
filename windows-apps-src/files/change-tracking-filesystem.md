@@ -5,12 +5,12 @@ ms.date: 12/19/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: b0ec7762fd64f0f0b8de65faa1aaf079bdaba3a3
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 1cef2fb660681d3e382eb8ca7dcb92456756f627
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63806999"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "75685234"
 ---
 # <a name="track-file-system-changes-in-the-background"></a>ファイル システムの変更のバック グラウンドでの追跡
 
@@ -21,7 +21,7 @@ ms.locfileid: "63806999"
 -   [**StorageLibraryChangedTrigger**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.StorageLibraryContentChangedTrigger)
 -   [**StorageLibrary**](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrary)
 
-アプリで [**StorageLibraryChangeTracker** ](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageLibraryChangeTracker) クラスを使用すると、システム内でユーザーがファイルやフォルダーを移動したときに、それらの変更を追跡することができます。 アプリでは、**StorageLibraryChangeTracker** クラスを使用して以下を追跡できます。
+アプリで [**StorageLibraryChangeTracker**](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageLibraryChangeTracker) クラスを使用すると、システム内でユーザーがファイルやフォルダーを移動したときに、それらの変更を追跡することができます。 アプリでは、**StorageLibraryChangeTracker** クラスを使用して以下を追跡できます。
 
 - 追加、削除、変更を含むファイル操作。
 - 名前変更や削除などのフォルダー操作。
@@ -56,7 +56,7 @@ videoTracker.Enable();
 
 いくつかの重要な注意:
 
-- [**StorageLibrary**](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrary) オブジェクトを作成する前に、アプリに正しいライブラリへのアクセス許可があることをマニフェスト内で確認してください。 詳しくは、「[ファイル アクセス許可](https://docs.microsoft.com/en-us/windows/uwp/files/file-access-permissions)」をご覧ください。
+- [**StorageLibrary**](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrary) オブジェクトを作成する前に、アプリに正しいライブラリへのアクセス許可があることをマニフェスト内で確認してください。 詳しくは、「[ファイル アクセス許可](https://docs.microsoft.com/windows/uwp/files/file-access-permissions)」をご覧ください。
 - [**Enable**](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrarychangetracker.enable) はスレッド セーフであり、ポインターのリセットは発生せず、必要な回数だけ呼び出すことができます (これについての詳細は後述)。
 
 ![空の変更トラッカーを有効にする](images/changetracker-enable.png)
@@ -97,7 +97,7 @@ await changeReader.AcceptChangesAsync();
 
 今後アプリで変更トラッカーを読み取るときは、新しい変更のみを受け取ります。
 
-- [ **ReadBatchAsync**](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrarychangereader.readbatchasync) と [AcceptChangesAsync](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrarychangereader.acceptchangesasync) の呼び出しの間に変更が発生した場合、ポインターは、アプリに表示された最新の変更にまでしか移されません。 その他の変更は、**ReadBatchAsync** を次回呼び出したときにまだ使用できます。
+- [**ReadBatchAsync**](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrarychangereader.readbatchasync) と [AcceptChangesAsync](https://docs.microsoft.com/uwp/api/windows.storage.storagelibrarychangereader.acceptchangesasync) の呼び出しの間に変更が発生した場合、ポインターは、アプリに表示された最新の変更にまでしか移されません。 その他の変更は、**ReadBatchAsync** を次回呼び出したときにまだ使用できます。
 - 変更を受け入れなかった場合、アプリでの **ReadBatchAsync** の次回呼び出し時に、システムから同じ変更セットが返されます。
 
 ## <a name="important-things-to-remember"></a>重要な注意点

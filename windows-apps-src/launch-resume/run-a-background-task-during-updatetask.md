@@ -3,14 +3,14 @@ title: UWP アプリが更新された際のバックグラウンド タスク�
 description: ユニバーサル Windows プラットフォーム (UWP) アプリが更新された際に実行されるバックグラウンド タスクの作成方法を説明します。
 ms.date: 04/21/2017
 ms.topic: article
-keywords: windows 10、uwp、更新、バック グラウンド タスク、updatetask、バック グラウンド タスク
+keywords: windows 10、uwp、更新、バックグラウンドタスク、updatetask、バックグラウンドタスク
 ms.localizationpriority: medium
-ms.openlocfilehash: fa5420b14d3d73f370031eed917e0e7c367c41c7
-ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
+ms.openlocfilehash: 15406e52eeceb579f2add783c74a1011074c69b7
+ms.sourcegitcommit: d38e2f31c47434cd6dbbf8fe8d01c20b98fabf02
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67820953"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70393544"
 ---
 # <a name="run-a-background-task-when-your-uwp-app-is-updated"></a>UWP アプリが更新された際のバックグラウンド タスクの実行
 
@@ -20,11 +20,11 @@ ms.locfileid: "67820953"
 
 更新タスクは、[ServicingComplete](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.SystemTriggerType) トリガーを使用してバックグラウンド タスクを起動することとは異なります。それは、トリガーを使用する場合、アプリが更新される前にアプリが少なくとも 1 回は実行されて、**ServicingComplete** トリガーによってアクティブ化されるバックグラウンド タスクが登録されている必要があるからです。  更新タスクは登録されないので、1 回も実行されずにアップグレードされたアプリでも更新タスクはトリガーされます。
 
-## <a name="step-1-create-the-background-task-class"></a>手順 1:バック グラウンド タスク クラスを作成します。
+## <a name="step-1-create-the-background-task-class"></a>手順 1:Background タスククラスを作成する
 
 他の種類のバックグラウンド タスクの場合と同様に、Windows ランタイム コンポーネントとして更新タスク バックグラウンド タスクを実装します。 このコンポーネントを作成するには、「[アウトプロセス バックグラウンド タスクの作成と登録](https://docs.microsoft.com/windows/uwp/launch-resume/create-and-register-a-background-task)」の「**バックグラウンド タスク クラスを作る**」セクションの手順に従ってください。 次のような手順で構成されます。
 
-- ソリューションに Windows ランタイム コンポーネント プロジェクトを追加する。
+- Windows ランタイムコンポーネントプロジェクトをソリューションに追加しています。
 - アプリからコンポーネントへの参照を作成する。
 - [  **IBackgroundTask**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.IBackgroundTask) を実装するコンポーネント内の public sealed クラスを作成する。
 - 更新タスクの実行時に呼び出される必要なエントリ ポイントである [**Run**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtask.run) メソッドを実装する。 バックグラウンド タスクからの非同期呼び出しを作成する場合は、「[アウトプロセス バックグラウンド タスクの作成と登録](https://docs.microsoft.com/windows/uwp/launch-resume/create-and-register-a-background-task)」で **Run** メソッドでの遅延の使用方法を説明しています。
@@ -48,7 +48,7 @@ namespace BackgroundTasks
 }
 ```
 
-## <a name="step-2-declare-your-background-task-in-the-package-manifest"></a>手順 2:パッケージ マニフェストに、バック グラウンド タスクを宣言します。
+## <a name="step-2-declare-your-background-task-in-the-package-manifest"></a>手順 2:パッケージマニフェストでのバックグラウンドタスクの宣言
 
 Visual Studio のソリューション エクスプローラーで、**Package.appxmanifest** を右クリックし、 **[コードの表示]** をクリックして、パッケージ マニフェストを表示します。 次の `<Extensions>` XML を追加して更新タスクを宣言します。
 
@@ -70,7 +70,7 @@ Visual Studio のソリューション エクスプローラーで、**Package.a
 
 上記の XML で、`EntryPoint` 属性が更新タスク クラスの <名前空間>.<クラス> 名となるように設定します。 この名前では、大文字と小文字を区別します。
 
-## <a name="step-3-debugtest-your-update-task"></a>手順 3:デバッグ/テスト タスクの更新
+## <a name="step-3-debugtest-your-update-task"></a>手順 3:更新タスクのデバッグとテスト
 
 アプリを PC に展開して、更新対象を用意します。
 
@@ -86,12 +86,12 @@ Visual Studio のソリューション エクスプローラーで、**Package.a
 
 ![バージョンの更新](images/bump-version.png)
 
-ここで、Visual Studio 2019 で f5 キーを押すと、アプリ更新され、システムが、バック グラウンドで UpdateTask コンポーネントをアクティブにします。 デバッガーは自動的にバックグラウンド プロセスにアタッチします。 ブレークポイントに到達すると、更新コード ロジックをステップ実行できます。
+これで、Visual Studio 2019 で F5 キーを押すと、アプリが更新され、バックグラウンドで UpdateTask コンポーネントがアクティブ化されます。 デバッガーは自動的にバックグラウンド プロセスにアタッチします。 ブレークポイントに到達すると、更新コード ロジックをステップ実行できます。
 
 バックグラウンド タスクが完了したら、同じデバッグ セッション内で Windows のスタート メニューからフォアグラウンド アプリを起動できます。 デバッガーが今回はフォアグラウンド プロセスに自動的にアタッチし、アプリのロジックをステップ実行できます。
 
 > [!NOTE]
-> Visual Studio 2015 のユーザー:上記の手順は、Visual Studio 2017 または Visual Studio 2019 に適用されます。 Visual Studio 2015 を使用している場合、同じ手法を使用して UpdateTask をトリガーしてテストできますが、Visual Studio によってデバッガーがアタッチされることはありません。 VS 2015 での代替の手順は、UpdateTask をエントリ ポイントとして設定する [ApplicationTrigger](https://docs.microsoft.com/windows/uwp/launch-resume/trigger-background-task-from-app) をセットアップし、フォアグラウンド アプリから直接実行をトリガーすることです。
+> Visual Studio 2015 ユーザー:上記の手順は、Visual Studio 2017 または Visual Studio 2019 に適用されます。 Visual Studio 2015 を使用している場合、同じ手法を使用して UpdateTask をトリガーしてテストできますが、Visual Studio によってデバッガーがアタッチされることはありません。 VS 2015 での代替の手順は、UpdateTask をエントリ ポイントとして設定する [ApplicationTrigger](https://docs.microsoft.com/windows/uwp/launch-resume/trigger-background-task-from-app) をセットアップし、フォアグラウンド アプリから直接実行をトリガーすることです。
 
 ## <a name="see-also"></a>関連項目
 

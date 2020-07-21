@@ -6,19 +6,19 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 996cc797ff46bd7eb9a172d66ffbb1fd6fe621bc
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
-ms.translationtype: MT
+ms.openlocfilehash: f9e7cc16b65f4ee2727fae5a711da9372ee91c01
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67317538"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "72282188"
 ---
 # <a name="improve-garbage-collection-performance"></a>ガベージ コレクションのパフォーマンスの向上
 
 
 C# と Visual Basic で記述されたユニバーサル Windows プラットフォーム (UWP) アプリは、.NET ガベージ コレクターによって、自動的にメモリ管理が行われます。 このセクションでは、UWP アプリでの .NET ガーベジ コレクターの動作とパフォーマンスに関するベスト プラクティスについて説明します。 .NET ガーベジ コレクターのしくみと、ガーベジ コレクターのパフォーマンスをデバッグおよび分析するためのツールについて詳しくは、「[ガベージ コレクション](https://docs.microsoft.com/dotnet/standard/garbage-collection/index)」をご覧ください。
 
-**注**  ガベージ コレクターの既定の動作に介入する必要があるは、アプリの全般的なメモリの問題の厳密に示しています。 詳しくは、「[Memory Usage Tool while debugging in Visual Studio 2015 (Visual Studio でのユーザー モード デバッグの設定)](https://devblogs.microsoft.com/devops/memory-usage-tool-while-debugging-in-visual-studio-2015/)」をご覧ください。 このトピックは、C# と Visual Basic にのみ適用されます。
+**注**  ガベージ コレクターの既定の動作に介入が必要な場合、アプリに関して一般的なメモリの問題があることを強く示唆しています。 詳しくは、「[Memory Usage Tool while debugging in Visual Studio 2015 (Visual Studio でのユーザー モード デバッグの設定)](https://devblogs.microsoft.com/devops/memory-usage-tool-while-debugging-in-visual-studio-2015/)」をご覧ください。 このトピックは、C# と Visual Basic にのみ適用されます。
 
  
 
@@ -40,11 +40,11 @@ C# と Visual Basic で記述されたユニバーサル Windows プラットフ
 
 アプリのパフォーマンスを測定し、コレクションを実行することでパフォーマンスが向上すると判断した場合にのみ、ガベージ コレクションを実行します。
 
-[  **GC.Collect(n)** ](https://docs.microsoft.com/dotnet/api/system.gc.collect?redirectedfrom=MSDN#System_GC_Collect_System_Int32_) を呼び出すと、ジェネレーション別にガベージ コレクションを実行できます。n には、コレクションを実行するジェネレーション (0、1、または 2) を指定します。
+[  **GC.Collect(n)** ](https://docs.microsoft.com/dotnet/api/system.gc.collect#System_GC_Collect_System_Int32_) を呼び出すと、ジェネレーション別にガベージ コレクションを実行できます。n には、コレクションを実行するジェネレーション (0、1、または 2) を指定します。
 
-**注**  しない強制実行すること、ガベージ コレクション、アプリで、ガベージ コレクターは、コレクションの実行に最適な時期を決定する多くのヒューリスティックを使用して、コレクションを強制を使用しない不要な多くの場合をお勧めします。CPU。 ただし、アプリ内のたくさんのオブジェクトが使われなくなることがわかっており、そのメモリをシステムに返す必要がある場合は、ガベージ コレクションを強制的に実行してもかまいません。 たとえば、ゲームの読み込みシーケンスの最後にコレクションを実行すると、ゲームプレイが始まる前にメモリを解放できます。
+**注**  アプリでは、ガベージ コレクションを強制的に実行しないでください。ガーベジ コレクターはコレクションの実行に最も適したタイミングを判断するためにさまざまなヒューリスティックを使うため、コレクションを強制的に実行すると、多くの場合は CPU が不必要に使われます。 ただし、アプリ内のたくさんのオブジェクトが使われなくなることがわかっており、そのメモリをシステムに返す必要がある場合は、ガベージ コレクションを強制的に実行してもかまいません。 たとえば、ゲームの読み込みシーケンスの最後にコレクションを実行すると、ゲームプレイが始まる前にメモリを解放できます。
  
-ガベージ コレクションが誤って何度も実行されないようにするには、[**GCCollectionMode**](https://docs.microsoft.com/dotnet/api/system.gccollectionmode?redirectedfrom=MSDN) を **Optimized** に設定します。 これにより、コレクションが妥当で生産的であると判断した場合にのみ、ガベージ コレクターがコレクションを開始するようになります。
+ガベージ コレクションが誤って何度も実行されないようにするには、[**GCCollectionMode**](https://docs.microsoft.com/dotnet/api/system.gccollectionmode) を **Optimized** に設定します。 これにより、コレクションが妥当で生産的であると判断した場合にのみ、ガベージ コレクターがコレクションを開始するようになります。
 
 ## <a name="reduce-garbage-collection-time"></a>ガベージ コレクションの実行時間の短縮
 

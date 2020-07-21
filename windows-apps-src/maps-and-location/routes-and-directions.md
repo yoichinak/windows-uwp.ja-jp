@@ -6,12 +6,12 @@ ms.date: 09/20/2017
 ms.topic: article
 keywords: Windows 10, UWP, ルート, マップ, 位置情報, ルート案内
 ms.localizationpriority: medium
-ms.openlocfilehash: 196cb4801436e8094dae4ead363ff86cc746034e
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: e9e464f9a3b49d3a94edbc8593df58e1e7c24515
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66371690"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74259340"
 ---
 # <a name="display-routes-and-directions-on-a-map"></a>地図へのルートとルート案内の表示
 
@@ -20,7 +20,7 @@ ms.locfileid: "66371690"
 ルートとルート案内を要求し、アプリで表示します。
 
 >[!Note]
->アプリでの地図の使用について詳しくは、[ユニバーサル Windows プラットフォーム (UWP) の地図サンプル](https://go.microsoft.com/fwlink/p/?LinkId=619977)をダウンロードしてください。
+>アプリでの地図の使用について詳しくは、[ユニバーサル Windows プラットフォーム (UWP) の地図サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/MapControl)をダウンロードしてください。
 >地図表示がアプリの主要機能でない場合は、代わりに Windows マップ アプリを起動することを検討します。 `bingmaps:`、`ms-drive-to:`、`ms-walk-to:` の各 UI スキームを使って、Windows マップ アプリを起動し、特定の地図やターン バイ ターン方式のルート案内を表示することができます。 詳しくは、「[Windows マップ アプリの起動](https://docs.microsoft.com/windows/uwp/launch-resume/launch-maps-app)」をご覧ください。
 
  
@@ -31,11 +31,11 @@ ms.locfileid: "66371690"
 
 * [  **MapRouteFinder**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapRouteFinder) クラスには、ルートとルート案内を取得するメソッドがあります。 これらのメソッドは、[**MapRouteFinderResult**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapRouteFinderResult) を返します。
 
-* [  **MapRouteFinderResult**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapRouteFinderResult) には [**MapRoute**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapRoute) オブジェクトが含まれています。 **MapRouteFinderResult** の [**Route**](https://docs.microsoft.com/uwp/api/windows.services.maps.maproutefinderresult.route) プロパティを通じてこのオブジェクトにアクセスします。
+* [  **MapRouteFinderResult**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapRouteFinderResult) には [**MapRoute**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapRoute) オブジェクトが含まれています。 [MapRouteFinderResult**の**](https://docs.microsoft.com/uwp/api/windows.services.maps.maproutefinderresult.route)Route プロパティを通じてこのオブジェクトにアクセスします。
 
-* [  **MapRoute**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapRoute) には、[**MapRouteLeg**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapRouteLeg) オブジェクトのコレクションが含まれています。 **MapRoute** の [**Legs**](https://docs.microsoft.com/uwp/api/windows.services.maps.maproute.legs) プロパティを通じてこのコレクションにアクセスします。
+* [  **MapRoute**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapRoute) には、[**MapRouteLeg**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapRouteLeg) オブジェクトのコレクションが含まれています。 [MapRoute**の**](https://docs.microsoft.com/uwp/api/windows.services.maps.maproute.legs)Legs プロパティを通じてこのコレクションにアクセスします。
 
-* 各 [**MapRouteLeg**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapRouteLeg) には、[**MapRouteManeuver**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapRouteManeuver) オブジェクトのコレクションが含まれています。 **MapRouteLeg** の [**Maneuvers**](https://docs.microsoft.com/uwp/api/windows.services.maps.maprouteleg.maneuvers) プロパティを通じてこのコレクションにアクセスします。
+* 各 [**MapRouteLeg**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapRouteLeg) には、[**MapRouteManeuver**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapRouteManeuver) オブジェクトのコレクションが含まれています。 [MapRouteLeg**の**](https://docs.microsoft.com/uwp/api/windows.services.maps.maprouteleg.maneuvers)Maneuvers プロパティを通じてこのコレクションにアクセスします。
 
 自動車や徒歩でのルートとルート案内を取得するには、[**MapRouteFinder**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapRouteFinder) クラスのメソッドを呼び出します。 たとえば、[**GetDrivingRouteAsync**](https://docs.microsoft.com/uwp/api/windows.services.maps.maproutefinder.getdrivingrouteasync) や [**GetWalkingRouteAsync**](https://docs.microsoft.com/uwp/api/windows.services.maps.maproutefinder.getwalkingrouteasync) を使用できます。
 
@@ -138,7 +138,7 @@ You have reached your destination.
 ## <a name="display-routes"></a>ルートの表示
 
 
-[  **MapControl**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl) に [**MapRoute**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapRoute) を表示するには、**MapRoute** を使って [**MapRouteView**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapRouteView) を構成します。 次に、**MapControl** の [**Routes**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.routes) コレクションに **MapRouteView** を追加します。
+[  **MapControl**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps.MapRoute) に [**MapRoute**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl) を表示するには、[MapRoute**を使って**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapRouteView)MapRouteView を構成します。 次に、**MapControl** の [**Routes**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.routes) コレクションに **MapRouteView** を追加します。
 
 >[!IMPORTANT]
 >マップ サービスまたはマップ コントロールを使用する前に、マップ認証キーを指定する必要があります。 詳しくは、「[マップ認証キーの要求](authentication-key.md)」をご覧ください。
@@ -190,7 +190,7 @@ private async void ShowRouteOnMap()
 }
 ```
 
-この例では、**MapWithRoute** という名前の [**MapControl**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl) に次のルートが表示されます。
+この例では、[MapWithRoute**という名前の**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl)MapControl に次のルートが表示されます。
 
 ![ルートが表示されたマップ コントロール。](images/routeonmap.png)
 
@@ -242,7 +242,7 @@ private async void ShowRouteOnMap()
 ## <a name="related-topics"></a>関連トピック
 
 * [Bing Maps Developer Center](https://www.bingmapsportal.com/)
-* [UWP の地図のサンプル](https://go.microsoft.com/fwlink/p/?LinkId=619977)
+* [UWP の地図のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/MapControl)
 * [地図の設計ガイドライン](https://docs.microsoft.com/windows/uwp/maps-and-location/controls-map)
-* [Build 2015 のビデオ:Windows アプリでの電話、タブレット、PC で使用できるマップと位置情報の活用](https://channel9.msdn.com/Events/Build/2015/2-757)
-* [UWP の交通情報アプリのサンプル](https://go.microsoft.com/fwlink/p/?LinkId=619982)
+* [ビルド2015ビデオ: Windows アプリでの電話、タブレット、および PC でのマップと場所の活用](https://channel9.msdn.com/Events/Build/2015/2-757)
+* [UWP の交通情報アプリのサンプル](https://github.com/Microsoft/Windows-appsample-trafficapp)

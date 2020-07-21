@@ -2,16 +2,16 @@
 title: バックグラウンドで無期限に実行する
 description: extendedExecutionUnconstrained 機能を使用すると、バックグラウンドで無期限にバックグラウンド タスクまたは延長実行セッションを実行できます。
 ms.assetid: 6E48B8B6-D3BF-4AE2-85FB-D463C448C9D3
-keywords: バック グラウンド タスクを実行、リソース、制限、およびバック グラウンド タスクの拡張
+keywords: バックグラウンドタスク、拡張実行、リソース、制限、バックグラウンドタスク
 ms.date: 10/03/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: faac1d8d47ddcff4e5ec32d35f2e46bab7a3f4aa
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 55025d0348abdf311ebf020c70ccf9029bf7ec5a
+ms.sourcegitcommit: ebd35887b00d94f1e76f7d26fa0d138ec4abe567
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57630247"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888665"
 ---
 # <a name="run-in-the-background-indefinitely"></a>バックグラウンドで無期限に実行する
 
@@ -27,34 +27,39 @@ ms.locfileid: "57630247"
 
 `extendedExecutionUnconstrained` 機能は、制限された機能としてアプリのマニフェストに追加されます。 制限された機能について詳しくは、「[アプリ機能の宣言](https://docs.microsoft.com/windows/uwp/packaging/app-capability-declarations)」をご覧ください。
 
+> **注:** *Xmlns: rescap* XML 名前空間宣言を追加し、 *rescap*プレフィックスを使用して機能を宣言します。
+
 _Package.appxmanifest_
 ```xml
-<Package ...>
-...
-  <Capabilities>  
-    <rescap:Capability Name="extendedExecutionUnconstrained"/>  
-  </Capabilities>  
+<Package
+    ...
+    xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+    IgnorableNamespaces="uap mp rescap">
+  ...
+  <Capabilities>
+    <rescap:Capability Name="extendedExecutionUnconstrained"/>
+  </Capabilities>
 </Package>
 ```
 
-`extendedExecutionUnconstrained` 機能を使用する場合は、[ExtendedExecutionSession](https://docs.microsoft.com/uwp/api/windows.applicationmodel.extendedexecution.extendedexecutionsession) と [ExtendedExecutionReason](https://docs.microsoft.com/uwp/api/windows.applicationmodel.extendedexecution.extendedexecutionreason) ではなく [ExtendedExecutionForegroundSession](https://docs.microsoft.com/uwp/api/windows.applicationmodel.extendedexecution.foreground.extendedexecutionforegroundsession) と [ExtendedExecutionForegroundReason](https://docs.microsoft.com/en-us/uwp/api/windows.applicationmodel.extendedexecution.foreground.extendedexecutionforegroundreason) が使用されます。 この場合も、セッションの作成、メンバーの設定、非同期的な延長要求は同じパターンになります。 
+`extendedExecutionUnconstrained` 機能を使用する場合は、[ExtendedExecutionSession](https://docs.microsoft.com/uwp/api/windows.applicationmodel.extendedexecution.extendedexecutionsession) と [ExtendedExecutionReason](https://docs.microsoft.com/uwp/api/windows.applicationmodel.extendedexecution.extendedexecutionreason) ではなく [ExtendedExecutionForegroundSession](https://docs.microsoft.com/uwp/api/windows.applicationmodel.extendedexecution.foreground.extendedexecutionforegroundsession) と [ExtendedExecutionForegroundReason](https://docs.microsoft.com/uwp/api/windows.applicationmodel.extendedexecution.foreground.extendedexecutionforegroundreason) が使用されます。 この場合も、セッションの作成、メンバーの設定、非同期的な延長要求は同じパターンになります。 
 
 ```cs
-var newSession = new ExtendedExecutionForegroundSession();  
-newSession.Reason = ExtendedExecutionForegroundReason.Unconstrained;  
-newSession.Description = "Long Running Processing";  
-newSession.Revoked += SessionRevoked;  
-ExtendedExecutionResult result = await newSession.RequestExtensionAsync();  
-switch (result)  
-{  
-    case ExtendedExecutionResult.Allowed:  
-        DoLongRunningWork();  
-        break;  
+var newSession = new ExtendedExecutionForegroundSession();
+newSession.Reason = ExtendedExecutionForegroundReason.Unconstrained;
+newSession.Description = "Long Running Processing";
+newSession.Revoked += SessionRevoked;
+ExtendedExecutionResult result = await newSession.RequestExtensionAsync();
+switch (result)
+{
+    case ExtendedExecutionResult.Allowed:
+        DoLongRunningWork();
+        break;
 
-    default:  
-    case ExtendedExecutionResult.Denied:  
-        DoShortRunningWork();  
-        break;  
+    default:
+    case ExtendedExecutionResult.Denied:
+        DoShortRunningWork();
+        break;
 }
 ```
 
@@ -66,16 +71,22 @@ switch (result)  
 
 ユニバーサル Windows プラットフォームのバックグラウンド タスクは、どのような形のユーザー インターフェイスも持たない、バックグラウンドで実行されるプロセスです。 一般的に、バックグラウンド タスクは取り消されるまで最長で 25 秒間実行できます。 長時間実行されるタスクについても、バックグラウンド タスクのアイドル状態やメモリ使用について確認が行われます。 Windows Creators Update (Version 1703) では、制限された機能 [extendedBackgroundTaskTime](https://docs.microsoft.com/windows/uwp/packaging/app-capability-declarations) が導入され、これらの制限が解消されました。 **extendedBackgroundTaskTime** 機能は、制限された機能としてアプリのマニフェスト ファイルに追加されます。
 
+> **注:** *Xmlns: rescap* XML 名前空間宣言を追加し、 *rescap*プレフィックスを使用して機能を宣言します。
+
 _Package.appxmanifest_
 ```xml
-<Package ...>
-   <Capabilities>  
-       <rescap:Capability Name="extendedBackgroundTaskTime"/>  
-   </Capabilities>  
+<Package
+    ... 
+    xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+    IgnorableNamespaces="uap mp rescap">
+...
+  <Capabilities>
+    <rescap:Capability Name="extendedBackgroundTaskTime"/>
+  </Capabilities>
 </Package>
 ```
 
-この機能を使用すると、実行時間の制限とアイドル タスクに対するウォッチドッグが解除されます。 トリガーまたはアプリ サービスの呼び出しによってバックグラウンド タスクが開始され、**Run** メソッドで指定された [BackgroundTaskInstance](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.IBackgroundTaskInstance) によって延期されると、そのバックグラウンド タスクは無期限に実行されます。 アプリが **[Windows で管理]** に設定されている場合は、割り当て電力が指定されていることがあり、バッテリー節約機能が有効であればバックグラウンド タスクがアクティブになりません。 これは、OS の設定を変更できます。 詳しくは、「[バックグラウンド アクティビティの最適化](https://docs.microsoft.com/windows/uwp/debug-test-perf/optimize-background-activity)」をご覧ください。
+この機能を使用すると、実行時間の制限とアイドル タスクに対するウォッチドッグが解除されます。 トリガーまたはアプリ サービスの呼び出しによってバックグラウンド タスクが開始され、**Run** メソッドで指定された [BackgroundTaskInstance](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.IBackgroundTaskInstance) によって延期されると、そのバックグラウンド タスクは無期限に実行されます。 アプリが **[Windows で管理]** に設定されている場合は、割り当て電力が指定されていることがあり、バッテリー節約機能が有効であればバックグラウンド タスクがアクティブになりません。 これは、OS の設定で変更できます。 詳しくは、「[バックグラウンド アクティビティの最適化](https://docs.microsoft.com/windows/uwp/debug-test-perf/optimize-background-activity)」をご覧ください。
 
 ユニバーサル Windows プラットフォームでは、バッテリ寿命を維持し、フォアグラウンド アプリで最適なエクスペリエンスを提供するために、バックグラウンド タスクの実行が監視されます。 ただし、個人用アプリや企業の基幹業務アプリでは、延長実行と **extendedBackgroundTaskTime** 機能を使用して、デバイス リソースの可用性にかかわらず、必要な限り実行されるアプリを作成できます。
 
@@ -83,4 +94,4 @@ _Package.appxmanifest_
 
 ## <a name="see-also"></a>関連項目
 
-[バック グラウンド タスクのリソース制限を削除します。](https://docs.microsoft.com/windows/application-management/enterprise-background-activity-controls)
+[バックグラウンドタスクリソースの制限の削除](https://docs.microsoft.com/windows/application-management/enterprise-background-activity-controls)

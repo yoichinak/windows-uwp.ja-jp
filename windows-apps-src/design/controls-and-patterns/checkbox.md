@@ -12,25 +12,29 @@ design-contact: kimsea
 dev-contact: mitra
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 3905ef8786a06d4221ce42511f786927c3173ba6
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 3fca2695cbb57375964beff0f8a3fd9be603228c
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66363169"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82968927"
 ---
 # <a name="check-boxes"></a>チェック ボックス
 
- 
-
 チェック ボックスは、アクション項目の選択や選択解除を行うときに使います。 また、チェック ボックスはユーザーが選択する単一の項目や複数の項目の一覧に対して使うことができます。 コントロールには 3 つの選択状態 (選択されていない、選択されている、不確定) があります。 不確定状態は、選択されていない状態と選択されている状態の両方がサブ選択肢のコレクションに含まれている場合に使います。
-
-> **重要な API**:[CheckBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CheckBox)、[Checked イベント](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.togglebutton.checked)、[IsChecked プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.togglebutton.ischecked)
 
 ![チェック ボックスの状態の例](images/templates-checkbox-states-default.png)
 
+**Windows UI ライブラリを入手する**
 
-## <a name="is-this-the-right-control"></a>適切なコントロールの選択
+|  |  |
+| - | - |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | Windows UI ライブラリ 2.2 以降には、丸めた角を使用するこのコントロールの新しいテンプレートが含まれます。 詳しくは、「[角の半径](/windows/uwp/design/style/rounded-corner)」をご覧ください。 WinUI は、Windows アプリの新しいコントロールと UI 機能が含まれる NuGet パッケージです。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+
+> **プラットフォーム API:** [CheckBox クラス](/uwp/api/Windows.UI.Xaml.Controls.CheckBox)、[Checked イベント](/uwp/api/windows.ui.xaml.controls.primitives.togglebutton.checked)、[IsChecked プロパティ](/uwp/api/windows.ui.xaml.controls.primitives.togglebutton.ischecked)
+
+
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 **1 つのチェック ボックス**を使うのは、"このアカウントを記憶する" ログイン シナリオや、 サービス契約の条項など、はい/いいえの二者択一の選択肢の場合です。
 
@@ -54,7 +58,7 @@ ms.locfileid: "66363169"
 
 <table>
 <tr>
-<td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td><img src="images/xaml-controls-gallery-app-icon-sm.png" alt="XAML controls gallery"></img></td>
 <td>
     <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合、こちらをクリックして<a href="xamlcontrolsgallery:/item/CheckBox">アプリを開き、CheckBox の動作を確認</a>してください。</p>
     <ul>
@@ -85,11 +89,33 @@ checkBox1.Content = "I agree to the terms of service.";
 
 ### <a name="bind-to-ischecked"></a>IsChecked にバインドする
 
-チェック ボックスがオンになっているかオフになっているかを判断するには、[IsChecked](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.togglebutton.ischecked) プロパティを使います。 IsChecked プロパティの値を他のバイナリ値にバインドできます。 ただし、IsChecked は [null 許容](https://docs.microsoft.com/dotnet/api/system.nullable-1?redirectedfrom=MSDN)のブール値であるため、値コンバーターを使ってブール値にバインドする必要があります。
+チェック ボックスがオンになっているかオフになっているかを判断するには、[IsChecked](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.togglebutton.ischecked) プロパティを使います。 IsChecked プロパティの値を他のバイナリ値にバインドできます。
+ただし、IsChecked は [Null 許容](https://docs.microsoft.com/dotnet/api/system.nullable-1)のブール値であるため、キャストまたは値コンバーターを使ってブール型プロパティにバインドする必要があります。 これは、使用している実際のバインディングの種類によって異なります。考えられる各型については、次の例を参照してください。 
 
 次の例では、サービス条件に同意するためのチェック ボックスの **IsChecked** プロパティが送信ボタンの [IsEnabled](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.isenabled) プロパティにバインドされます。 送信ボタンは、サービス条件に同意した場合にのみ有効です。
 
-> 注&nbsp;&nbsp;ここには関連するコードのみ掲載しています。 データ バインディングと値コンバーターについて詳しくは、「[データ バインディングの概要](../../data-binding/data-binding-quickstart.md)」をご覧ください。
+#### <a name="using-xbind"></a>x:Bind の使用
+
+> 注&nbsp;&nbsp;ここには関連するコードのみ掲載しています。 データ バインディングについて詳しくは、「[データ バインディングの概要](../../data-binding/data-binding-quickstart.md)」をご覧ください。 特定の {x:Bind} の情報 (キャストなど) について詳しくは[こちら](https://docs.microsoft.com/windows/uwp/xaml-platform/x-bind-markup-extension)をご覧ください。
+
+```xaml
+<StackPanel Grid.Column="2" Margin="40">
+    <CheckBox x:Name="termsOfServiceCheckBox" Content="I agree to the terms of service."/>
+    <Button Content="Submit" 
+            IsEnabled="{x:Bind (x:Boolean)termsOfServiceCheckBox.IsChecked, Mode=OneWay}"/>
+</StackPanel>
+```
+
+チェック ボックスを**不確定**状態にもできる場合は、バインディングの [FallbackValue](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.fallbackvalue) プロパティを使用して、この状態を表すブール値を指定します。 この場合、[送信] ボタンも有効にしないようにします。
+
+```xaml
+<Button Content="Submit" 
+        IsEnabled="{x:Bind (x:Boolean)termsOfServiceCheckBox.IsChecked, Mode=OneWay, FallbackValue=False}"/>
+```
+
+#### <a name="using-xbind-or-binding"></a>x:Bind または Binding の使用
+
+> 注:&nbsp;&nbsp;ここには {x:Bind} を使用する関連コードのみ掲載しています。 {Binding} の例では、{x:Bind} を {Binding} に置き換えます。 データ バインディング、値コンバーター、{x:Bind} と {Binding} マークアップ拡張機能の相違点について詳しくは、「[データ バインディングの概要](../../data-binding/data-binding-quickstart.md)」をご覧ください。
 
 ```xaml
 ...
@@ -106,6 +132,7 @@ checkBox1.Content = "I agree to the terms of service.";
                         Converter={StaticResource NullableBooleanToBooleanConverter}, Mode=OneWay}"/>
 </StackPanel>
 ```
+
 
 ```csharp
 public class NullableBooleanToBooleanConverter : IValueConverter
@@ -185,7 +212,7 @@ private void toppingsCheckbox_Click(object sender, RoutedEventArgs e)
 
 CheckBox コントロールは [ToggleButton](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.togglebutton) を継承します。また、このコントロールには 3 つの状態を指定できます。 
 
-状態 | プロパティ | Value
+State | プロパティ | 値
 ------|----------|------
 オン | IsChecked | **true** 
 オフ | IsChecked | **false** 
@@ -298,7 +325,7 @@ private void SetCheckedState()
 
     ![3 つのオプションがあるラジオ ボタン グループ: [Not spicy]、[Spicy]、[Extra spicy]](images/spicyoptions.png)
 
-## <a name="get-the-sample-code"></a>サンプル コードを入手する
+## <a name="get-the-sample-code"></a>サンプル コードの入手
 
 - [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - インタラクティブな形で XAML コントロールのすべてを参照できます。
 

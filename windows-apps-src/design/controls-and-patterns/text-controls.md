@@ -11,12 +11,12 @@ pm-contact: miguelrb
 design-contact: ksulliv
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: cdf361bfd993ce93e2c3b9eec4e66cb1417e36f8
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 7f2421316be30d24ef44784974fc2c6c199a6570
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66364143"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "80081486"
 ---
 # <a name="text-controls"></a>テキスト コントロール
 
@@ -27,7 +27,7 @@ ms.locfileid: "66364143"
 
 > **重要な API**:[TextBlock クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock)、[RichTextBlock クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RichTextBlock)、[TextBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox)、[RichEditBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RichEditBox)、[AutoSuggestBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.AutoSuggestBox)、[PasswordBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.PasswordBox)
 
-## <a name="is-this-the-right-control"></a>適切なコントロールの選択
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか? 
 
 使うテキスト コントロールは、シナリオによって異なります。 以下の情報を参考にして、アプリに適切なテキスト コントロールを選んでください。
 
@@ -45,11 +45,11 @@ RichTextBlock のコンテンツ プロパティは [Blocks](https://docs.micros
 
 ### <a name="text-input"></a>テキスト入力
 
-ユーザーが書式設定されていないテキストを入力、編集できるようにするには、**TextBox** コントロールを使います。 TextBox 内のテキストの取得と設定には、[Text](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.text) プロパティを使います。
+フォームなどで書式設定されていないテキストをユーザーが入力、編集できるようにするには、**TextBox** コントロールを使用します。 TextBox 内のテキストの取得と設定には、[Text](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.text) プロパティを使用します。
 
 TextBox を読み取り専用にすることはできますが、これは一時的な条件付きの状態である必要があります。 テキストを編集可能にしない場合は、代わりに TextBlock を使用することを検討してください。
 
-**PasswordBox** コントロールを使用して、パスワードや、社会保障番号などの機密データを収集できます。 パスワード ボックスは、プライバシー保護用に入力文字が非表示になるテキスト入力ボックスです。 パスワード ボックスは、入力されたテキストの代わりに記号が表示される点を除けば、テキスト入力ボックスに似ています。 この記号は、カスタマイズできます。
+**PasswordBox** コントロールを使用して、パスワードや、社会保障番号などのプライベート データを収集できます。 パスワード ボックスは、プライバシー保護用に入力文字が非表示になるテキスト入力ボックスです。 パスワード ボックスは、入力されたテキストの代わりに記号が表示される点を除けば、テキスト入力ボックスに似ています。 この記号は、カスタマイズできます。
 
 **AutoSuggestBox** コントロールを使って、ユーザーが入力時に選べる候補リストを表示します。 自動提案ボックスは、基本的な検索候補の一覧をトリガーするテキスト入力ボックスです。 候補となる用語は、一般的な検索用語とユーザーが入力した履歴の組み合わせから取得できます。
 
@@ -63,7 +63,7 @@ TextBox を読み取り専用にすることはできますが、これは一時
 
 -   **有効なすべての値を効率的に列挙することは現実的か。** そうである場合は、いずれかの選択コントロールを使うことを検討します。考えられる選択コントロールは、[チェック ボックス](checkbox.md)、[ドロップダウン リスト](lists.md)、リスト ボックス、[ラジオ ボタン](radio-button.md)、[スライダー](slider.md)、[トグル スイッチ](toggles.md)、[日付の選択コントロール](date-and-time.md)、または時刻の選択コントロールです。
 -   **有効な値は比較的少数か。** 少数の場合は、[ドロップダウン リスト](lists.md)またはリスト ボックス (値の文字数が多い場合) をお勧めします。
--   **有効なデータに、何も制約がないか。それとも、形式の制約 (長さや文字の種類の制約) だけがあるか。** これに該当する場合は、テキスト入力コントロールを使います。 入力できる文字数を制限したり、アプリ コードで形式を検証したりすることができます。
+-   **有効なデータに、何も制約がないか。または、形式の制約 (長さや文字の種類による制約) だけがあるか。** これに該当する場合は、テキスト入力コントロールを使います。 入力できる文字数を制限したり、アプリ コードで形式を検証したりすることができます。
 -   **値は、専用の共通コントロールがあるデータ型を表しているか。** そうである場合は、テキスト入力コントロールではなく、適切なコントロールを使います。 たとえば、データ入力を受け付けるには、テキスト入力コントロールの代わりに [DatePicker](https://docs.microsoft.com/previous-versions/windows/apps/br211681(v=win.10)) を使います。
 -   数値データのみに制限されている場合:
     -   **入力される値は、同じページの別の数量の近似値および相対値、またはそのいずれかか。** そうである場合は、[スライダー](slider.md)を使います。
@@ -75,7 +75,7 @@ TextBox を読み取り専用にすることはできますが、これは一時
 <table>
 <th align="left">XAML コントロール ギャラリー<th>
 <tr>
-<td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td><img src="images/xaml-controls-gallery-app-icon-sm.png" alt="XAML controls gallery"></img></td>
 <td>
     <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合、こちらをクリックして<a href="xamlcontrolsgallery:/category/Text">アプリを開き、テキスト コントロールの動作を確認</a>してください。</p>
     <ul>
@@ -133,7 +133,7 @@ Windows 10 バージョン 1803 以降では、XAML テキスト入力ボック�
 
 >ヒント この情報は、SIP にのみ適用されます。 ハードウェア キーボードにも、Windows の簡単操作オプションで使用できるスクリーン キーボードにも適用されません。
 
-タッチ キーボードは、アプリがタッチ スクリーン付きのデバイスで実行されているときにテキスト入力に使うことができます。 タッチ キーボードは、TextBox または RichEditBox などの編集可能な入力フィールドをユーザーがタップしたときに呼び出されます。 ユーザーが入力すると予想されるデータの種類と一致するようにテキスト コントロールの入力値の種類を設定することで、ユーザーがより速く簡単にアプリにデータを入力できるようになります。 入力値の種類は、システムに対してコントロールが予期しているテキスト入力の種類のヒントとなるため、システムはその入力の種類用の特殊なタッチ キーボード レイアウトを提供できます。
+タッチ キーボードは、アプリがタッチ スクリーン付きのデバイスで実行されているときにテキスト入力に使用できます。 タッチ キーボードは、TextBox または RichEditBox などの編集可能な入力フィールドをユーザーがタップしたときに呼び出されます。 ユーザーが入力すると予想されるデータの種類と一致するようにテキスト コントロールの入力値の種類を設定することで、ユーザーがより速く簡単にアプリにデータを入力できるようになります。 入力値の種類は、システムに対してコントロールが予期しているテキスト入力の種類のヒントとなるため、システムはその入力の種類用の特殊なタッチ キーボード レイアウトを提供できます。
 
 たとえば、テキスト ボックスが 4 桁の PIN の入力専用の場合は、[InputScope](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.inputscope) プロパティを **Number** に設定します。 これにより、システムに数字キーパッド レイアウトの表示が指示されるため、ユーザーは簡単に PIN を入力できます。
 
@@ -208,4 +208,4 @@ TextBox コントロールおよび RichEditBox コントロールでは、ス�
 **開発者向け (XAML)**
 - [TextBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox)
 - [Windows.UI.Xaml.Controls PasswordBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.PasswordBox)
-- [String.Length プロパティ](https://docs.microsoft.com/dotnet/api/system.string.length?redirectedfrom=MSDN#System_String_Length)
+- [String.Length プロパティ](https://docs.microsoft.com/dotnet/api/system.string.length)

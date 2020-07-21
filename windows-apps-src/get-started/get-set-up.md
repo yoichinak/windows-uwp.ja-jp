@@ -6,12 +6,12 @@ ms.date: 05/07/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 30ffec0f2a5e771e649eda6240d9e7ef90f50890
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 7c95d915c8906e2052243fee509e260fc8864454
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67318793"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "74258366"
 ---
 # <a name="get-set-up"></a>準備
 
@@ -28,7 +28,7 @@ Microsoft Visual Studio 2019 は、アプリの設計、コード化、テス�
 
 Visual Studio 2019 をまだお持ちでない場合は、Microsoft Visual Studio Community 2019 を無料でインストールできます。 このダウンロードには、アプリのテスト用としてデバイスのシミュレーターが含まれています。
 
--   [Windows 10 開発者ツールをダウンロードする](https://go.microsoft.com/fwlink/p/?LinkID=534189)
+-   [Windows 10 開発者ツールをダウンロードする](https://developer.microsoft.com/windows/downloads)
 
 Visual Studio をインストールする場合は、次のように [ユニバーサル Windows アプリ開発ツール] オプションを必ず選択してください。
 
@@ -47,7 +47,7 @@ UWP アプリのテストは実際の PC と電話で行うことが重要です
 
 -   詳しい手順については、「[デバイスを開発用に有効にする](enable-your-device-for-development.md)」をご覧ください。
 
-## <a name="3-register-as-an-app-developer"></a>3.アプリ開発者として登録する
+## <a name="3-register-as-an-app-developer"></a>3. アプリ開発者としての登録
 
 アプリの開発をすぐに開始できますが、ストアへの提出前に開発者アカウントが必要です。
 
@@ -67,7 +67,7 @@ UWP アプリのテストは実際の PC と電話で行うことが重要です
 
 ## <a name="want-more-tools-and-downloads"></a>その他のツールとダウンロード
 
-ツールとダウンロードの一覧については、[ダウンロード ページ](https://go.microsoft.com/fwlink/p/?linkid=285935)をご覧ください。
+ツールとダウンロードの一覧については、[ダウンロード ページ](https://developer.microsoft.com/windows/downloads)をご覧ください。
 
 ## <a name="see-also"></a>参照
 

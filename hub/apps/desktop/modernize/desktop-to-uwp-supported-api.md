@@ -1,6 +1,6 @@
 ---
-Description: パッケージ デスクトップ アプリは、UWP アプリに完全に移行されていない場合でも、さまざまなユニバーサル Windows プラットフォーム (UWP) API を使うことができます。 この記事では、パッケージ アプリが使うことができるクラスについて説明します。
-title: パッケージ デスクトップ アプリで利用可能な UWP API (デスクトップ ブリッジ)
+Description: パッケージ化されたデスクトップ アプリは、UWP アプリに完全に移行されていない場合でも、さまざまな Windows ランタイム API を使うことができます。 この記事では、パッケージ アプリが使うことができるクラスについて説明します。
+title: パッケージ化されたデスクトップ アプリで利用可能な Windows ランタイム API (デスクトップ ブリッジ)
 ms.date: 04/19/2019
 ms.topic: article
 keywords: windows 10, uwp
@@ -9,54 +9,50 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: e4b919d42cb113c6ec9f2710baec6c9aa1765840
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
-ms.translationtype: MT
+ms.openlocfilehash: 63648743536dae9f7655f82674ad04255a13f437
+ms.sourcegitcommit: 4df8c04fc6c22ec76cdb7bb26f327182f2dacafa
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67317587"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85334405"
 ---
-# <a name="uwp-apis-available-to-desktop-apps"></a>デスクトップ アプリに利用可能な UWP Api
+# <a name="windows-runtime-apis-available-to-desktop-apps"></a>デスクトップ アプリで使用できる Windows ランタイム API
 
-UWP アプリに完全に移行がない場合でも、デスクトップ アプリでは、幅広い範囲のユニバーサル Windows プラットフォーム (UWP) Api を使用できます。 この記事では、デスクトップ アプリで使用できる使用可能なクラスを示します。
+デスクトップ アプリは、UWP アプリに完全に移行されていない場合でも、さまざまなユニバーサル Windows プラットフォーム (UWP) API を使用することができます。 この記事では、デスクトップ アプリで使用することができるクラスを一覧します。
 
-> [!NOTE]
-> 多くの UWP Api を必要と[identity をパッケージ化](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-identity)デスクトップ アプリで使用します。 デスクトップ アプリがパッケージ化する場合は、パッケージ id を使用できる、 [MSIX パッケージ](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-root)します。 この記事では、これらのアプリが呼び出されます*パッケージ アプリ*します。
-
-ほとんどの UWP Api には、パッケージ アプリで適切に機能します。 ただし、一部の機能領域はまだ十分にテストされていないか、現在のところは意図したとおりに機能しません。
+多くの Windows ランタイム API では、デスクトップ アプリで[パッケージ ID](modernize-packaged-apps.md) を使用する必要があります。 ほとんどの Windows ランタイム API は、パッケージ ID を持つアプリでの使用に適しています。 ただし、一部の機能領域はまだ十分にテストされていないか、現在のところは意図したとおりに機能しません。
 
 | Feature area (機能領域) | 詳細 |
 |--------------|---------|
-| 予定、連絡先、メール | 現在のところ、すべての API がパッケージ アプリでサポートされているわけではありません。 |
-| 認証とユーザー ID | 現在のところ、すべての API がパッケージ アプリでサポートされているわけではありません。 |
-| バックグラウンド タスク | パッケージ アプリはバックグラウンド タスクを登録できますが、完全な UWP アプリのみバックグラウンド タスク<i>として</i>実行できます。 詳しくは、[GitHub のバックグラウンド タスク サンプル](https://github.com/Microsoft/DesktopBridgeToUWP-Samples/tree/master/Samples/BackgroundTasksSample)をご覧ください。 |
-| Bluetooth | 現在のところ、すべての API がパッケージ アプリでサポートされているわけではありません。 |
-| チャットと電話 | パッケージ アプリは、UWP に完全に移植するまでモバイルで実行できません。 |
-| コントラクトによるアクティブ化 | コントラクトでは、完全な UWP アプリのみをアクティブにできます。 |
-| 暗号化 | 現在のところ、すべての API がパッケージ アプリでサポートされているわけではありません。 |
-| 位置情報 | 現在のところ、すべての API がパッケージ アプリでサポートされているわけではありません。 |
-| ファイルおよびフォルダー ピッカー | パッケージ アプリは、ファイル システムにフル アクセスでき、UWP ピッカーは必要ありません。 |
-| メディア | 現在のところ、すべての API がパッケージ アプリでサポートされているわけではありません。 |
-| 店舗販売時点管理 | 現在のところ、すべての API がパッケージ アプリでサポートされているわけではありません。 |
-| スマート カード | 現在のところ、すべての API がパッケージ アプリでサポートされているわけではありません。 |
-| PlayReady | 現在のところ、すべての API がパッケージ アプリでサポートされているわけではありません。 |
-| VPN | 現在のところ、すべての API がパッケージ アプリでサポートされているわけではありません。 |
-| ウォレット | パッケージ アプリは、UWP に完全に移植するまでモバイルで実行できません。 |
-| XAML UI | Windows 10、1809、およびそれ以前のバージョンのリリースはサポートされませんホスティング UWP XAML コンテンツでデスクトップ アプリ。 使用できます Windows 10、バージョンが 1903 年以降[XAML 諸島](xaml-islands.md)UWP XAML コンテンツをホストします。  |
+| 予定、連絡先、メール | 現在、すべての API がサポートされているわけではありません。 |
+| 認証とユーザー ID | 現在、すべての API がサポートされているわけではありません。 |
+| バックグラウンド タスク | デスクトップ アプリはバックグラウンド タスクを登録できますが、完全な UWP アプリのみバックグラウンド タスク<i>として</i>実行できます。 詳しくは、[GitHub のバックグラウンド タスク サンプル](https://github.com/Microsoft/DesktopBridgeToUWP-Samples/tree/master/Samples/BackgroundTasksSample)をご覧ください。 |
+| Bluetooth | 現在、すべての API がサポートされているわけではありません。 |
+| チャットと電話 | デスクトップ アプリは、UWP に完全に移植するまでモバイルで実行できません。 |
+| コントラクトによるアクティブ化 | 完全な UWP アプリのみコントラクトによってアクティブ化できます。 |
+| 暗号化 | 現在、すべての API がサポートされているわけではありません。 |
+| 位置情報 | 現在、すべての API がサポートされているわけではありません。 |
+| ファイルおよびフォルダー ピッカー | ID を持つアプリは、ファイル システムにフル アクセスでき、UWP ピッカーは必要ありません。 |
+| メディア | 現在、すべての API がサポートされているわけではありません。 |
+| 店舗販売時点管理 | 現在、すべての API がサポートされているわけではありません。 |
+| スマート カード | 現在、すべての API がサポートされているわけではありません。 |
+| PlayReady | 現在、すべての API がサポートされているわけではありません。 |
+| VPN | 現在、すべての API がサポートされているわけではありません。 |
+| ウォレット | デスクトップ アプリは、UWP に完全に移植するまでモバイルで実行できません。 |
+| XAML UI | Windows 10 バージョン 1809 以前のリリースでは、デスクトップ アプリでの UWP XAML コンテンツのホストはサポートされていません。 Windows 10 バージョン 1903 以降では、[XAML Islands](xaml-islands.md) を使用して UWP XAML コンテンツをホストできます。  |
 
 場合によっては、これらの領域の API が正常に機能しているように見えることがあります。 ただし、API がサポート対象と明示されていない場合、予想外の副作用や動作が生じる可能性があるため使わないでください。 これらの API は、今後のリリースでサポートされる可能性があります。 それまでの間、代わりに関連する Win32 または .NET API をアプリに使ってください。
 
 ## <a name="list-of-apis"></a>API の一覧
 
-次にデスクトップ アプリでサポートされている UWP Api の一覧を示します。 表示することができます[パッケージ アプリでのみサポートされている Api](#new)または[パッケージ アプリとデスクトップ アプリケーションの両方でサポートされている Api](#both)します。
+デスクトップ アプリでサポートされている Windows ランタイム API の完全な一覧を次に示します。 [パッケージ ID を持つアプリでのみサポートされる API](#new) または[すべてのデスクトップ アプリでサポートされている API](#both) を確認できます。
 
-UWP Api を使用する方法の例については、次を参照してください。、[デスクトップ ブリッジ サンプル](https://github.com/Microsoft/DesktopBridgeToUWP-Samples)と[ユニバーサル Windows プラットフォーム (UWP) アプリのサンプル](https://github.com/Microsoft/Windows-universal-samples)GitHub でします。 Windows 用アプリの構築に関するブログの[デスクトップ アプリケーションからの Windows 10 API の呼び出しに関する投稿](https://blogs.windows.com/buildingapps/2017/01/25/calling-windows-10-apis-desktop-application/)もご覧ください。
+Windows ランタイム API の使用方法の例については、GitHub で[デスクトップ ブリッジのサンプル](https://github.com/Microsoft/DesktopBridgeToUWP-Samples)に関するページと「[ユニバーサル Windows プラットフォーム (UWP) のアプリ サンプル](https://github.com/Microsoft/Windows-universal-samples)」をご覧ください。 Windows 用アプリの構築に関するブログの[デスクトップ アプリケーションからの Windows 10 API の呼び出しに関する投稿](https://blogs.windows.com/buildingapps/2017/01/25/calling-windows-10-apis-desktop-application/)もご覧ください。
 
-<a id="new" />
+<a id="new"></a>
 
-### <a name="apis-supported-only-in-packaged-apps"></a>パッケージ アプリでのみサポートされている Api
+### <a name="apis-supported-only-in-apps-with-package-identity"></a>パッケージ ID を持つアプリでのみサポートされる API
 
-* [Windows.ApplicationModel.AppService.AppServiceConnection](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.AppService.AppServiceConnection)
 * [Windows.ApplicationModel.DataTransfer.DataProviderHandler](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.dataproviderhandler)
 * [Windows.ApplicationModel.DataTransfer.DataRequest](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.DataTransfer.DataRequest)
 * [Windows.ApplicationModel.DataTransfer.DataRequestDeferral](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.DataTransfer.DataRequestDeferral)
@@ -379,18 +375,12 @@ UWP Api を使用する方法の例については、次を参照してくださ
 * [Windows.UI.StartScreen.JumpList](https://docs.microsoft.com/uwp/api/Windows.UI.StartScreen.JumpList)
 * [Windows.UI.StartScreen.JumpListItem](https://docs.microsoft.com/uwp/api/Windows.UI.StartScreen.JumpListItem)
 
-<a id="both" />
+<a id="both"></a>
 
-### <a name="apis-supported-in-both-packaged-apps-and-desktop-applications"></a>パッケージ アプリとデスクトップ アプリケーションの両方でサポートされている API
+### <a name="apis-supported-in-all-desktop-applications"></a>すべてのデスクトップ アプリケーションでサポートされている API
 
-Api を[DualApiPartition](https://docs.microsoft.com/uwp/api/Windows.Foundation.Metadata.DualApiPartitionAttribute)パッケージ アプリとデスクトップ アプリケーションをパッケージ化されていないの両方でサポートされます。 デスクトップ アプリケーションから呼び出す API がサポートされているかどうかを判断するクラスまたはメンバーに関心のリファレンス記事を検索、 [WinRT 名前空間のリファレンス ドキュメント](https://docs.microsoft.com/uwp/api/)します。 次を確認するかどうか、**属性**リファレンス」のセクションが含まれています、 [DualApiPartition](https://docs.microsoft.com/uwp/api/Windows.Foundation.Metadata.DualApiPartitionAttribute)属性。
+[DualApiPartition](https://docs.microsoft.com/uwp/api/Windows.Foundation.Metadata.DualApiPartitionAttribute) を持つ API は、すべてのデスクトップ アプリでサポートされています。これには、パッケージ ID を持つものと、パッケージ ID を持たないものが含まれます。 デスクトップ アプリケーションから呼び出す API がサポートされているかどうかを判断するには、[WinRT 名前空間のリファレンス ドキュメント](https://docs.microsoft.com/uwp/api/)で関心があるクラスまたはメンバーの参照記事をご覧ください。 次に、参照記事の **Attributes** セクションに [DualApiPartition](https://docs.microsoft.com/uwp/api/Windows.Foundation.Metadata.DualApiPartitionAttribute) 属性が含まれているかどうかを確認します。
 
 ## <a name="next-steps"></a>次のステップ
 
-**質問の回答を検索**
-
 ご質問がある場合は、 Stack Overflow でお問い合わせください。 Microsoft のチームでは、これらの[タグ](https://stackoverflow.com/questions/tagged/project-centennial+or+desktop-bridge)をチェックしています。 [こちら](https://social.msdn.microsoft.com/Forums/en-US/home?filter=alltypes&sort=relevancedesc&searchTerm=%5BDesktop%20Converter%5D)から質問することもできます。
-
-**ご意見や機能を提案します。**
-
-[UserVoice](https://wpdev.uservoice.com/forums/110705-universal-windows-platform/category/161895-desktop-bridge-centennial) のページをご覧ください。

@@ -12,18 +12,18 @@ design-contact: kimsea
 dev-contact: tpaine
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 7381d8d99f47a69ba7398366762a7dbb4088e04a
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: e5df29f4ce91bd272fd921b23b5fc05b6655d4c0
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66364178"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "80081538"
 ---
 # <a name="split-view-control"></a>分割ビュー コントロール
 
 分割ビュー コントロールには、展開/折りたたみ可能なウィンドウとコンテンツ領域があります。
 
-> **重要な API**:[SplitView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.SplitView)
+> **重要な API**: [SplitView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.SplitView)
 
 SplitView を使ってハブを表示する Microsoft Edge アプリの例を次に示します。
 
@@ -59,7 +59,7 @@ SplitView を使ってハブを表示する Microsoft Edge アプリの例を次
 <table>
 <th align="left">XAML コントロール ギャラリー<th>
 <tr>
-<td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td><img src="images/xaml-controls-gallery-app-icon-sm.png" alt="XAML controls gallery"></img></td>
 <td>
     <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合、こちらをクリックして<a href="xamlcontrolsgallery:/item/SplitView">アプリを開き、SplitView の動作を確認</a>してください。</p>
     <ul>

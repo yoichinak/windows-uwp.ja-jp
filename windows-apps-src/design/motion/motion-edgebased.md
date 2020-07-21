@@ -1,6 +1,6 @@
 ---
 Description: エッジに基づく UI アニメーションでは、画面の端を起点とする UI の表示と非表示を切り替えられます。
-title: UWP アプリでのエッジに基づく UI アニメーション
+title: エッジに基づく UI アニメーション
 ms.assetid: 5A8F73B1-F4F6-424b-9EDF-A9766C5DEAE8
 label: Motion--edge-based UI
 template: detail.hbs
@@ -8,12 +8,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: fd7071092a66f46a81095a5cb6aff8b623a774a5
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 02108ad2926fc1514ca94f08d11f565bc342a62d
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66366624"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970317"
 ---
 # <a name="edge-based-ui-animations"></a>エッジに基づく UI アニメーション
 
@@ -23,7 +23,7 @@ ms.locfileid: "66366624"
 
 エッジに基づく UI アニメーションでは、画面の端を起点とする UI の表示と非表示を切り替えられます。 この表示と非表示のアクションは、ユーザーが開始することも、アプリから開始することもできます。 UI は、アプリの手前に表示するか、メイン アプリ サーフェスの一部として表示することができます。 UI をアプリ サーフェスの一部として表示する場合は、UI を表示できるようにアプリの残りの部分のサイズを調整する必要があります。
 
-> **重要な API**:[**EdgeUIThemeTransition クラス**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.EdgeUIThemeTransition)
+> **重要な API**: [**EdgeUIThemeTransition クラス**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.EdgeUIThemeTransition)
 
 
 ## <a name="dos-and-donts"></a>推奨と非推奨
@@ -46,12 +46,12 @@ ms.locfileid: "66366624"
 
 **開発者向け**
 * [アニメーションの概要](https://docs.microsoft.com/windows/uwp/graphics/animations-overview)
-* [Edge ベースの UI をアニメーション化](https://docs.microsoft.com/previous-versions/windows/apps/jj649428(v=win.10))
-* [クイック スタート:Library のアニメーションを使用して、UI をアニメーション化](https://docs.microsoft.com/previous-versions/windows/apps/hh452703(v=win.10))
+* [エッジに基づく UI のアニメーション化](https://docs.microsoft.com/previous-versions/windows/apps/jj649428(v=win.10))
+* [クイック スタート: ライブラリのアニメーションを使った UI のアニメーション化](https://docs.microsoft.com/previous-versions/windows/apps/hh452703(v=win.10))
 * [**EdgeUIThemeTransition クラス**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.EdgeUIThemeTransition)
 * [**PaneThemeTransition クラス**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.PaneThemeTransition)
-* [フェード アニメーション化](https://docs.microsoft.com/previous-versions/windows/apps/jj649429(v=win.10))
-* [位置を変更をアニメーション化](https://docs.microsoft.com/previous-versions/windows/apps/jj649434(v=win.10))
+* [フェードのアニメーション化](https://docs.microsoft.com/previous-versions/windows/apps/jj649429(v=win.10))
+* [位置変更のアニメーション化](https://docs.microsoft.com/previous-versions/windows/apps/jj649434(v=win.10))
 
  
 

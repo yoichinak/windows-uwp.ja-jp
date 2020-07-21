@@ -1,18 +1,21 @@
 ---
 description: UWP アプリにネイティブ広告を追加する方法について説明します。
 title: ネイティブ広告
-ms.date: 05/11/2018
+ms.date: 02/18/2020
 ms.topic: article
 keywords: Windows 10, UWP, 広告, Advertising, 広告コントロール, ネイティブ広告
 ms.localizationpriority: medium
-ms.openlocfilehash: 4cb77f7f2622a06334ee35ec61e18b3b01f98bdb
-ms.sourcegitcommit: 6a7dd4da2fc31ced7d1cdc6f7cf79c2e55dc5833
-ms.translationtype: HT
+ms.openlocfilehash: 692a532320203fb5348db7c3dd008ddfb6c3b887
+ms.sourcegitcommit: 71f9013c41fc1038a9d6c770cea4c5e481c23fbc
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58335020"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77506836"
 ---
 # <a name="native-ads"></a>ネイティブ広告
+
+>[!WARNING]
+> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細情報](https://social.msdn.microsoft.com/Forums/windowsapps/en-US/db8d44cb-1381-47f7-94d3-c6ded3fea36f/microsoft-ad-monetization-platform-shutting-down-june-1st?forum=aiamgr)
 
 ネイティブ広告は、コンポーネント ベースの広告形式で、各広告クリエイティブ (タイトル、画像、説明、行動喚起テキストなど) が個々の要素としてアプリに配信されます。 これらの要素は、独自のフォント、色、アニメーション、その他の UI コンポーネントを使ってアプリに統合して、アプリの外観に合った控えめなユーザー エクスペリエンスを組み込むことができるうえに、広告から高収益を獲得できます。
 
@@ -23,7 +26,7 @@ ms.locfileid: "58335020"
 
 ## <a name="prerequisites"></a>前提条件
 
-* Visual Studio 2015 以降の Visual Studio のリリースと共に [Microsoft Advertising SDK](https://aka.ms/ads-sdk-uwp) をインストールします。 インストール手順については、[この記事](install-the-microsoft-advertising-libraries.md)をご覧ください。
+* Visual Studio 2015 以降の Visual Studio のリリースと共に [Microsoft Advertising SDK](https://marketplace.visualstudio.com/items?itemName=AdMediator.MicrosoftAdvertisingSDK) をインストールします。 インストール手順については、[この記事](install-the-microsoft-advertising-libraries.md)をご覧ください。
 
 ## <a name="integrate-a-native-ad-into-your-app"></a>ネイティブ広告をアプリに統合する
 
@@ -33,12 +36,12 @@ ms.locfileid: "58335020"
     > [!NOTE]
     > 既存のプロジェクトを使用している場合、プロジェクトの Package.appxmanifest ファイルを開き、**インターネット (クライアント)** 機能が選択されていることを確認します。 アプリでは、テスト広告やライブ広告を受信するためにこの機能が必要になります。
 
-2. プロジェクトのターゲットが **[Any CPU]** (任意の CPU) になっている場合は、アーキテクチャ固有のビルド出力 (たとえば、**[x86]**) を使うようにプロジェクトを更新します。 プロジェクトのターゲットが **[Any CPU]** (任意の CPU) になっていると、次の手順で Microsoft Advertising SDK への参照を正常に追加できません。 詳しくは、「[プロジェクトのターゲットを "Any CPU" に設定すると参照エラーが発生する](known-issues-for-the-advertising-libraries.md#reference_errors)」をご覧ください。
+2. プロジェクトのターゲットが **[Any CPU]** (任意の CPU) になっている場合は、アーキテクチャ固有のビルド出力 (たとえば、 **[x86]** ) を使うようにプロジェクトを更新します。 プロジェクトのターゲットが **[Any CPU]** (任意の CPU) になっていると、次の手順で Microsoft Advertising SDK への参照を正常に追加できません。 詳しくは、「[プロジェクトのターゲットを "Any CPU" に設定すると参照エラーが発生する](known-issues-for-the-advertising-libraries.md#reference_errors)」をご覧ください。
 
 3. プロジェクトで Microsoft Advertising SDK への参照を追加します。
 
-    1. **[ソリューション エクスプローラー]** ウィンドウで、**[参照設定]** を右クリックし、**[参照の追加]** を選択します。
-    2.  **[参照マネージャー]** で、**[Universal Windows]** を展開し、**[拡張]** をクリックして、**[Microsoft Advertising SDK for XAML]** (バージョン 10.0) の横にあるチェック ボックスをオンにします。
+    1. **[ソリューション エクスプローラー]** ウィンドウで、 **[参照設定]** を右クリックし、 **[参照の追加]** を選択します。
+    2.  **[参照マネージャー]** で、 **[Universal Windows]** を展開し、 **[拡張]** をクリックして、 **[Microsoft Advertising SDK for XAML]** (バージョン 10.0) の横にあるチェック ボックスをオンにします。
     3.  **[参照マネージャー]** で、[OK] をクリックします。
 
 4. アプリの適切なコード ファイル (たとえば、MainPage.xaml.cs またはその他のページのコード ファイル) に、次の名前空間の参照を追加します。
@@ -47,7 +50,7 @@ ms.locfileid: "58335020"
 
 5.  アプリの適切な場所 (たとえば、```MainPage``` またはその他のページ) で、[NativeAdsManagerV2](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.nativeadsmanagerv2)オブジェクトと、ネイティブ広告のアプリケーション ID および広告ユニット ID を表す複数の文字列フィールドを宣言します。 次のコード例では、`myAppId` フィールドと `myAdUnitId` フィールドをネイティブ広告の[テスト値](set-up-ad-units-in-your-app.md#test-ad-units)に割り当てています。
     > [!NOTE]
-    > 各 **NativeAdsManagerV2** に、対応する*広告ユニット*があります。広告ユニットは、ネイティブ広告コントロールに広告を提供するためにサービスで使われます。すべての広告ユニットは、*広告ユニット ID* と*アプリケーション ID* で構成されます。 ここでは、広告ユニット ID とアプリケーション ID のテスト値をコントロールに割り当てます。 これらのテスト値は、テスト バージョンのアプリでのみ使用できます。 ストアにアプリを発行する前にする必要があります[を交換してこれらのテストのライブの値を持つ値](#release)パートナー センターから。
+    > 各 **NativeAdsManagerV2** に、対応する*広告ユニット*があります。広告ユニットは、ネイティブ広告コントロールに広告を提供するためにサービスで使われます。すべての広告ユニットは、*広告ユニット ID* と*アプリケーション ID* で構成されます。 ここでは、広告ユニット ID とアプリケーション ID のテスト値をコントロールに割り当てます。 これらのテスト値は、テスト バージョンのアプリでのみ使用できます。 ストアにアプリを発行する前に、[これらのテスト値をパートナーセンターのライブ値に置き換える](#release)必要があります。
 
     [!code-csharp[NativeAd](./code/AdvertisingSamples/NativeAdSamples/cs/MainPage.xaml.cs#Variables)]
 
@@ -63,7 +66,7 @@ ms.locfileid: "58335020"
     > [!NOTE]
     > ネイティブ広告の一部の要素は必須であり、アプリに常に表示する必要があります。 詳しくは、「[ネイティブ広告のガイドライン](ui-and-user-experience-guidelines.md#guidelines-for-native-ads)」をご覧ください。
 
-    たとえば、アプリに次のような **StackPanel** を持つ ```MainPage``` (またはその他のページ) が含まれているとします。 この **StackPanel** には、ネイティブ広告のさまざまな要素 (タイトル、説明、画像、*スポンサー* テキスト、*行動喚起*テキストを表示するボタンなど) を表示する一連のコントロールが含まれています。
+    たとえば、アプリに次のような ```MainPage```StackPanel**を持つ** (またはその他のページ) が含まれているとします。 この **StackPanel** には、ネイティブ広告のさまざまな要素 (タイトル、説明、画像、*スポンサー* テキスト、*行動喚起*テキストを表示するボタンなど) を表示する一連のコントロールが含まれています。
 
     ``` xml
     <StackPanel x:Name="NativeAdContainer" Background="#555555" Width="Auto" Height="Auto"
@@ -109,17 +112,17 @@ ms.locfileid: "58335020"
 
 1.  ネイティブ広告の実装が[ネイティブ広告のガイドライン](ui-and-user-experience-guidelines.md#guidelines-for-native-ads)に従っていることを確認してください。
 
-2.  パートナー センターに移動、[アプリ内広告](../publish/in-app-ads.md)ページと[ad 単位を作成](set-up-ad-units-in-your-app.md#live-ad-units)です。 広告ユニットの種類として、**[ネイティブ]** を指定します。 広告ユニット ID とアプリケーション ID の両方をメモしておきます。
+2.  パートナーセンターで、[アプリ内広告](../publish/in-app-ads.md)ページにアクセスし、[広告ユニットを作成](set-up-ad-units-in-your-app.md#live-ad-units)します。 広告ユニットの種類として、 **[ネイティブ]** を指定します。 広告ユニット ID とアプリケーション ID の両方をメモしておきます。
     > [!NOTE]
-    > テスト広告ユニットとライブ UWP 広告ユニットでは、アプリケーション ID の値の形式が異なります。 テスト アプリケーション ID の値は GUID です。 パートナー センターでライブ UWP ad 単位を作成するときに ad 単体のアプリケーション ID の値は常に (Store ID 値の例を次のように 9NBLGGH4R315) アプリの Store ID を一致します。
+    > テスト広告ユニットとライブ UWP 広告ユニットでは、アプリケーション ID の値の形式が異なります。 テスト アプリケーション ID の値は GUID です。 パートナーセンターでライブ UWP ad ユニットを作成すると、ad ユニットの [アプリケーション ID] の値は、常にアプリのストア ID と一致します (たとえば、ストア ID 値は9NBLGGH4R315 のようになります)。
 
-3. 必要に応じて、[[アプリ内広告]](../publish/in-app-ads.md) ページの [[仲介設定]](../publish/in-app-ads.md#mediation) セクションで設定を構成することで、ネイティブ広告の広告仲介を有効にできます。 広告仲介を利用すると、複数の広告ネットワークから広告を表示することにより、広告収益とアプリ プロモーションの機能を最大限に引き出すことができます。
+3. 必要に応じて、[[アプリ内広告]](../publish/in-app-ads.md#mediation) ページの [[仲介設定]](../publish/in-app-ads.md) セクションで設定を構成することで、ネイティブ広告の広告仲介を有効にできます。 広告仲介を利用すると、複数の広告ネットワークから広告を表示することにより、広告収益とアプリ プロモーションの機能を最大限に引き出すことができます。
 
-4.  コード、テスト ad 単位の値に置き換えてください (これは、 *applicationId*と*adUnitId*のパラメーター、 [NativeAdsManagerV2](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.nativeadsmanagerv2.-ctor)コンストラクター)、ライブの値パートナー センターで生成されます。
+4.  コードで、テスト ad の単位の値 ( [NativeAdsManagerV2](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.nativeadsmanagerv2.-ctor)コンストラクターの*applicationId*と*adUnitId*のパラメーター) を、パートナーセンターで生成したライブ値に置き換えます。
 
-5.  [アプリの提出](../publish/app-submissions.md)パートナー センターを使用して、ストアにします。
+5.  パートナーセンターを使用して、ストアに[アプリを送信](../publish/app-submissions.md)します。
 
-6.  レビュー、[広告のパフォーマンス レポート](../publish/advertising-performance-report.md)パートナー センターでします。
+6.  パートナーセンターで、[広告のパフォーマンスレポート](../publish/advertising-performance-report.md)を確認します。
 
 ## <a name="manage-ad-units-for-multiple-native-ads-in-your-app"></a>アプリで複数のネイティブ広告の広告ユニットを管理する
 
@@ -130,6 +133,6 @@ ms.locfileid: "58335020"
 
 ## <a name="related-topics"></a>関連トピック
 
-* [ネイティブの広告のガイドライン](ui-and-user-experience-guidelines.md#guidelines-for-native-ads)
+* [ネイティブ広告のガイドライン](ui-and-user-experience-guidelines.md#guidelines-for-native-ads)
 * [アプリ内広告](../publish/in-app-ads.md)
-* [アプリの ad 単位を設定します](set-up-ad-units-in-your-app.md)
+* [アプリの ad ユニットを設定する](set-up-ad-units-in-your-app.md)

@@ -1,17 +1,17 @@
 ---
 title: Windows 10 バージョン 1607 API の変更点
 description: 開発者は、次の一覧を使用して、Windows 10 バージョン 1607 での新しいまたは変更された名前空間を確認することができます。
-keywords: 新着情報, 新機能, 更新, 更新プログラム, Windows 10, 1607, 14393, anniversary
+keywords: Windows 10, 1607, 14393, API
 ms.date: 11/02/2017
 ms.topic: article
 ms.assetid: 40335c70-46cc-40fd-9fe0-3cc8e6200482
 ms.localizationpriority: medium
-ms.openlocfilehash: fa390123389b20564a94d1e59f9248adcf673061
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: e634ad41e974a78d02383deb3cb1868f36252702
+ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66372924"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83234782"
 ---
 # <a name="new-apis-in-windows-10-build-14393"></a>Windows 10 ビルド 14393 の新しい API
 

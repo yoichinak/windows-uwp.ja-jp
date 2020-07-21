@@ -4,67 +4,64 @@ title: Windows アプリ認定キット
 description: 作成したアプリを Microsoft Store に公開する、または Windows 認定を受ける最善の方法は、認定のためにアプリを提出する前に、ローカルでアプリの検証とテストを行うことです。 このトピックでは、Windows アプリ認定キットのインストール方法と実行方法について説明します。
 ms.date: 02/08/2017
 ms.topic: article
-keywords: windows 10 は、uwp アプリの認定
+keywords: Windows 10, UWP, アプリ認定
 ms.localizationpriority: medium
-ms.openlocfilehash: ea84d57fbfba9666a2553500dc94275bd8b4d209
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
-ms.translationtype: MT
+ms.openlocfilehash: 174ff4e588d75293ecb729312883f4792196c87a
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66359748"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "79110106"
 ---
 # <a name="windows-app-certification-kit"></a>Windows アプリ認定キット
 
-
-
-アプリを取得する[Windows 認定](https://msdn.microsoft.com/windows/desktop/jj134964.aspx)の準備を行うまたは[Microsoft Store への発行](https://docs.microsoft.com/windows/uwp/publish/app-submissions)、検証し、最初にテストがローカルにする必要があります。 このトピックでは、インストールして実行する方法、 [Windows アプリ認定キット](https://go.microsoft.com/fwlink/p/?LinkID=309666)アプリが安全で効率的なことを確認します。
+アプリ [Windows Certified](/windows/win32/win_cert/windows-certification-portal) を取得するか、または [Microsoft Store への発行](/windows/uwp/publish/app-submissions)の準備をするには、最初にローカルで検証してテストする必要があります。 このトピックでは、[Windows アプリ認定キット](https://developer.microsoft.com/windows/develop/app-certification-kit)をインストールして実行し、アプリが安全で効率的であることを確認する方法について説明します。
 
 ## <a name="prerequisites"></a>前提条件
 
 ユニバーサル Windows アプリのテストの前提条件:
 
--   インストールして、Windows 10 を実行する必要があります。
--   インストールする必要があります[Windows アプリ認定キットのバージョン 10]( https://go.microsoft.com/fwlink/p/?LinkID=309666)、Windows 10 用 Windows ソフトウェア開発キット (SDK) に含まれています。
--   [開発用にデバイスを有効にする](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)必要があります。
--   テストする Windows アプリをコンピューターに展開する必要があります。
+- Windows 10 をインストールして実行する必要があります。
+- Windows 10 用 Windows ソフトウェア開発キット (Windows SDK) に含まれる [Windows アプリ認定キット](https://developer.microsoft.com/windows/downloads/app-certification-kit/)をインストールする必要があります。
+- [開発用にデバイスを有効にする](/windows/uwp/get-started/enable-your-device-for-development)必要があります。
+- テストする Windows アプリをコンピューターに展開する必要があります。
 
-**インプレース アップグレードに関する注意事項**
-
-最新の [Windows アプリ認定キット]( https://go.microsoft.com/fwlink/p/?LinkID=309666)をインストールすると、コンピューターにインストールされているキットの以前のバージョンが置き換えられます。
+> [!NOTE]
+> **一括アップグレード:** より新しい [Windows アプリ認定キット](https://developer.microsoft.com/windows/develop/app-certification-kit)をインストールすると、以前にインストールされていたバージョンのキットがすべて置き換えられます。
 
 ## <a name="validate-your-windows-app-using-the-windows-app-certification-kit-interactively"></a>Windows アプリ認定キットを使った Windows アプリをインタラクティブに検証する
 
-1.  **[スタート]** メニューから、 **[アプリ]** 、 **[Windows キット]** の順に進み、 **[Windows アプリ認定キット]** をクリックします。
+1. **[スタート]** メニューから、 **[アプリ]** 、 **[Windows キット]** の順に進み、 **[Windows アプリ認定キット]** をクリックします。
 
-2.  [Windows アプリ認定キット] で、実行する検証のカテゴリを選びます。 次に、例を示します。Windows アプリを検証する場合は、選択**Windows アプリを検証**です。
+2. [Windows アプリ認定キット] で、実行する検証のカテゴリを選びます。 たとえば、次のように入力します。Windows アプリを検証する場合、 **[Validate a Windows app]** (Windows アプリの検証) を選択します。
 
     テストするアプリを直接参照するか、UI で一覧からアプリを選ぶことができます。 Windows アプリ認定キットを初めて実行すると、UI にはコンピューターにインストールされているすべての Windows アプリが一覧表示されます。 以降の実行では、UI には検証済みの最新の Windows アプリが表示されます。 テストするアプリが表示されていない場合は、 **[自分のアプリが表示されない]** をクリックして、システムにインストールされているすべてのアプリを一覧表示できます。
 
-3.  テストするアプリを入力するか選択したら **[次へ]** をクリックします。
+3. テストするアプリを入力するか選択したら **[次へ]** をクリックします。
 
-4.  次の画面からは、テストするアプリの種類に合ったテスト ワークフローが表示されます。 一覧でテストが淡色されている場合、お使いの環境にはそのテストが適用されません。 たとえば、Windows 7 で Windows 10 アプリをテストする場合、静的テストのみがワークフローに適用されます。 Microsoft Store がワークフローからすべてのテストを適用可能性がありますに注意してください。 実行するテストを選んで **[次へ]** をクリックします。
+4. 次の画面からは、テストするアプリの種類に合ったテスト ワークフローが表示されます。 一覧でテストが淡色されている場合、お使いの環境にはそのテストが適用されません。 たとえば、Windows 7 で Windows 10 アプリをテストする場合、静的テストのみがワークフローに適用されます。 Microsoft Store にはこのワークフローのすべてのテストを適用できる点に注意してください。 実行するテストを選んで **[次へ]** をクリックします。
 
     Windows アプリ認定キットによってアプリの検証が開始されます。
 
-5.  テストが終わった後のプロンプトで、テスト レポートを保存するフォルダーのパスを入力します。
+5. テストが終わった後のプロンプトで、テスト レポートを保存するフォルダーのパスを入力します。
 
     Windows アプリ認定キットによって XML 形式のレポートと共に HTML が作成され、このフォルダーに保存されます。
 
-6.  レポート ファイルを開いて、テストの結果を確認します。
+6. レポート ファイルを開いて、テストの結果を確認します。
 
-**注**  Visual Studio を使用している場合、アプリ パッケージを作成するときに、Windows アプリ認定キットを実行できます。 方法については、「[UWP アプリのパッケージ化](https://docs.microsoft.com/windows/uwp/packaging/packaging-uwp-apps)」をご覧ください。
-
- 
+> [!NOTE]
+> Visual Studio を使っている場合は、アプリ パッケージを作るときに Windows アプリ認定キットを実行できます。 方法については、「[UWP アプリのパッケージ化](/windows/msix/package/packaging-uwp-apps)」をご覧ください。
 
 ## <a name="validate-your-windows-app-using-the-windows-app-certification-kit-from-a-command-line"></a>コマンド ラインから Windows アプリ認定キットを使った Windows アプリを検証する
 
-**重要な**  Windows アプリ認定キットは、アクティブなユーザー セッションのコンテキスト内で実行する必要があります。
+> [!IMPORTANT]
+> Windows アプリ認定キットは、アクティブなユーザー セッションで実行する必要があります。
 
-1.  コマンド ウィンドウで、Windows アプリ認定キットを含むディレクトリに移動します。
+1. コマンド ウィンドウで、Windows アプリ認定キットを含むディレクトリに移動します。
 
-    **注**  既定のパスは c:\\Program Files\\Windows キット\\10\\アプリ認定キット\\します。
+    **注**   既定のパスは C:\\Program Files\\Windows Kits\\10\\App Certification Kit\\ です。
 
-2.  次のコマンドをこの順序で入力し、テスト コンピューターにすでにインストールされているアプリをテストします。
+2. 次のコマンドをこの順序で入力し、テスト コンピューターにすでにインストールされているアプリをテストします。
 
     `appcert.exe reset`
 
@@ -76,28 +73,21 @@ ms.locfileid: "66359748"
 
     `appcert.exe test -appxpackagepath [package path] -reportoutputpath [report file name]`
 
-3.  テストが完了したら、`[report file name]` という名前のレポート ファイルを開いて、テスト結果を確認します。
+3. テストが完了したら、`[report file name]` という名前のレポート ファイルを開いて、テスト結果を確認します。
 
-**注**  サービスから、Windows アプリ認定キットを実行できますが、サービスは、アクティブなユーザー セッション内でキット プロセスを開始する必要があり、Session0 で実行することはできません。
+**注**   Windows アプリ認定キットはサービスから実行できますが、サービスはアクティブなユーザー セッションでキットのプロセスを開始する必要があり、Session0 では実行できません。
 
-**注**   Windows アプリ認定キットのコマンドラインの詳細については、コマンドを入力します。 `appcert.exe /?`
+**注**   Windows アプリ認定キットのコマンド ラインについて詳しく知るには、次のコマンドを入力します。`appcert.exe /?`
 
 ## <a name="testing-with-a-low-power-computer"></a>低電力コンピューターでのテスト
 
 Windows アプリ認定キットで使用するパフォーマンス テストのしきい値は、低電力コンピューターのパフォーマンスに基づいて設定します。
 
-テストを実行するコンピューターの特性がテスト結果に影響することがあります。 アプリのパフォーマンスが満たしているかどうかを判断する、 [Microsoft Store ポリシー](https://docs.microsoft.com/legal/windows/agreements/store-policies)画面の解像度の 1366 x 768 (または以降)、Intel Atom プロセッサ ベース コンピュータなどの低電力コンピューターでアプリをテストすることをお勧めします。(ソリッドステート ドライブ) ではなく、回転のハード ドライブを選択します。
+テストを実行するコンピューターの特性がテスト結果に影響することがあります。 アプリのパフォーマンスが [Microsoft Store ポリシー](https://docs.microsoft.com/legal/windows/agreements/store-policies)を満たしているかどうかを判断するには、アプリを低電力コンピューター (たとえば画面の解像度が 1366x768 またはそれ以上で、ソリッド ステート ハード ドライブではなく回転式ハード ドライブを搭載した Intel Atom プロセッサ ベースのコンピューター) 上でテストすることをお勧めします。
 
-低電力コンピューターの進化に伴い、パフォーマンスの特性が時間の経過と共に変化する可能性があります。 最新を参照してください[Microsoft Store ポリシー](https://docs.microsoft.com/legal/windows/agreements/store-policies)し、アプリが最新のパフォーマンス要件に準拠しているかどうかを確認するには、Windows アプリ認定キットの最新バージョンを使用してアプリケーションをテストします。
+低電力コンピューターの進化に伴い、パフォーマンスの特性が時間の経過と共に変化する可能性があります。 アプリが最新のパフォーマンス要件を満たすように、最新の [Microsoft Store ポリシー](https://docs.microsoft.com/legal/windows/agreements/store-policies)を参照し、最新版の Windows アプリ認定キットでアプリをテストしてください。
 
 ## <a name="related-topics"></a>関連トピック
 
-* [Windows アプリ認定キット テスト](windows-app-certification-kit-tests.md)
-* [Microsoft Store ポリシー](https://docs.microsoft.com/legal/windows/agreements/store-policies)
- 
-
- 
-
-
-
-
+- [Windows アプリ認定キットのテスト](windows-app-certification-kit-tests.md)
+- [Microsoft Store ポリシー](https://docs.microsoft.com/legal/windows/agreements/store-policies)

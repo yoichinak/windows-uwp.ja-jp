@@ -4,15 +4,15 @@ title: デバイスのペアリング
 description: 一部のデバイスは、使う前にペアリングする必要があります。 Windows.Devices.Enumeration 名前空間では、デバイスをペアリングするための 3 つの異なる方法がサポートされています。
 ms.date: 04/19/2019
 ms.topic: article
-keywords: windows 10, uwp
+keywords: Windows 10, UWP
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: 84835449c7c259c45423a93716b4fbc85fa0a7ab
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 1dbf843d9a45cbf31e5ec5c1a538e6e5e2b53ee2
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66369949"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75684684"
 ---
 # <a name="pair-devices"></a>デバイスのペアリング
 
@@ -20,7 +20,7 @@ ms.locfileid: "66369949"
 
 **重要な API**
 
-- [**Windows.Devices.Enumeration**](https://docs.microsoft.com/en-us/uwp/api/Windows.Devices.Enumeration)
+- [**Windows.Devices.Enumeration**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration)
 
 一部のデバイスは、使う前にペアリングする必要があります。 [  **Windows.Devices.Enumeration**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration) 名前空間では、デバイスをペアリングするための 3 つの異なる方法がサポートされています。
 
@@ -28,7 +28,7 @@ ms.locfileid: "66369949"
 -   基本ペアリング
 -   カスタム ペアリング
 
-**ヒント:**   一部のデバイスを使用するためにはペアにする必要はありません。 これについては、自動ペアリングに関するセクションで説明します。
+**ヒント**  使用するために、一部のデバイスがペアリングされている必要はありません。 これについては、自動ペアリングに関するセクションで説明します。
 
  
 
@@ -46,7 +46,7 @@ ms.locfileid: "66369949"
 
 基本ペアリングを試行するためには、対象のデバイス用の [**DeviceInformation**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceInformation) オブジェクトを最初に入手する必要があります。 オブジェクトを入手したら、[**DeviceInformation.Pairing**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformation.pairing) プロパティを操作します。これは、[**DeviceInformationPairing**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformation.pairing) オブジェクトです。 ペアリングを試みるには、[**DeviceInformationPairing.PairAsync**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformationpairing.pairasync) を呼び出します。 ペアリング アクションの完了を試みる時間をアプリに与えるために、結果を **await** する必要があります。 ペアリング アクションの結果が返され、エラーが返されない限り、デバイスはペアリングされます。
 
-基本ペアリングを使っている場合は、デバイスのペアリング状態に関する追加情報にもアクセスできます。 たとえば、ペアリング状態 ([**IsPaired**](https://docs.microsoft.com/en-us/uwp/api/Windows.Devices.Enumeration.DeviceInformationPairing.IsPaired)) と、デバイスがペアリングできるかどうか ([**CanPair**](https://docs.microsoft.com/en-us/uwp/api/Windows.Devices.Enumeration.DeviceInformationPairing.CanPair)) がわかります。 これらはどちらも [**DeviceInformationPairing**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformation.pairing) オブジェクトのプロパティです。 自動ペアリングを使っている場合、該当する [**DeviceInformation**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceInformation) オブジェクトを入手しない限り、この情報にアクセスできない可能性があります。
+基本ペアリングを使っている場合は、デバイスのペアリング状態に関する追加情報にもアクセスできます。 たとえば、ペアリング状態 ([**IsPaired**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceInformationPairing.IsPaired)) と、デバイスがペアリングできるかどうか ([**CanPair**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceInformationPairing.CanPair)) がわかります。 これらはどちらも [**DeviceInformationPairing**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformation.pairing) オブジェクトのプロパティです。 自動ペアリングを使っている場合、該当する [**DeviceInformation**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceInformation) オブジェクトを入手しない限り、この情報にアクセスできない可能性があります。
 
 ## <a name="custom-pairing"></a>カスタム ペアリング
 
@@ -59,7 +59,7 @@ ms.locfileid: "66369949"
 
 カスタム ペアリングは常にシステム レベルの操作であることを認識することが重要です。 このため、デスクトップまたは Windows Phone を操作している場合、ペアリングが発生するときに、システム ダイアログが常にユーザーに表示されます。 これは、これらの両方のプラットフォームが、ユーザーの同意を必要とするユーザー エクスペリエンスを発生させるためです。 このダイアログは自動的に生成されるため、これらのプラットフォームを使用中に **ConfirmOnly** の [**DevicePairingKinds**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DevicePairingKinds) を選ぶ場合に、独自のダイアログを作る必要はありません。 他の **DevicePairingKinds** については、特定の **DevicePairingKinds** 値に応じて、いくつかの特別な処理を実行する必要があります。 さまざまな **DevicePairingKinds** の値のカスタム ペアリングを処理する方法の例については、サンプルをご覧ください。
 
-以降では、Windows 10、バージョンが 1903、新しい**DevicePairingKinds**はサポートされている**ProvidePasswordCredential**します。 この値は、アプリケーションする必要がありますから要求するユーザー名とパスワードをユーザー ペアになっているデバイスで認証するためを意味します。 このケースを処理するために呼び出す、 [ **AcceptWithPasswordCredential** ](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.devicepairingrequestedeventargs.acceptwithpasswordcredential?branch=release-19h1#Windows_Devices_Enumeration_DevicePairingRequestedEventArgs_AcceptWithPasswordCredential_Windows_Security_Credentials_PasswordCredential_)のイベント引数のメソッド、 **PairingRequested**ペアリングを許可するイベント ハンドラー。 渡す、 [ **PasswordCredential** ](https://docs.microsoft.com/uwp/api/windows.security.credentials.passwordcredential)ユーザー名とパスワードをパラメーターとしてカプセル化するオブジェクト。 ユーザー名とパスワードをリモート デバイスが異なることに注意してください。 多くの場合とは異なります、ローカルでサインインしているユーザーの資格情報とします。
+Windows 10 バージョン1903以降では、新しい**DevicePairingKinds**がサポートされて**います。** この値は、アプリがペアリングされたデバイスで認証を行うために、ユーザーのユーザー名とパスワードを要求する必要があることを意味します。 この場合に対処するには、 **PairingRequested**イベントハンドラーのイベント引数の[**Acceptwithpasswordcredential**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.devicepairingrequestedeventargs.acceptwithpasswordcredential?branch=release-19h1#Windows_Devices_Enumeration_DevicePairingRequestedEventArgs_AcceptWithPasswordCredential_Windows_Security_Credentials_PasswordCredential_)メソッドを呼び出して、ペアリングを受け入れます。 ユーザー名とパスワードをパラメーターとしてカプセル化する[**Passwordcredential**](https://docs.microsoft.com/uwp/api/windows.security.credentials.passwordcredential)オブジェクトを渡します。 リモートデバイスのユーザー名とパスワードは、ローカルでサインインしているユーザーの資格情報とは異なる場合があることに注意してください。
 
 ## <a name="unpairing"></a>ペアリング解除
 
@@ -68,10 +68,10 @@ ms.locfileid: "66369949"
 
 デバイスをペアリング解除する最初の手順は、ペアリング解除するデバイスの [**DeviceInformation**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceInformation) オブジェクトを入手することです。 次に、[**DeviceInformation.Pairing**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformation.pairing) プロパティを取得し、[**DeviceInformationPairing.UnpairAsync**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformationpairing.unpairasync) を呼び出す必要があります。 ペアリングと同様に、結果を **await** します。 ペアリング解除アクションの結果が返され、エラーが返されない限り、デバイスはペアリング解除されます。
 
-## <a name="sample"></a>サンプル
+## <a name="sample"></a>［サンプル］
 
 
-[  **Windows.Devices.Enumeration**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration) API の使い方を示すサンプルをダウンロードするには、[ここ](https://go.microsoft.com/fwlink/?LinkID=620536)をクリックしてください。
+[  **Windows.Devices.Enumeration**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration) API の使い方を示すサンプルをダウンロードするには、[ここ](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/DeviceEnumerationAndPairing)をクリックしてください。
 
  
 

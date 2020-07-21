@@ -6,19 +6,19 @@ ms.date: 08/21/2017
 ms.topic: article
 keywords: Windows 10, UWP, Microsoft Store Services SDK
 ms.localizationpriority: medium
-ms.openlocfilehash: 9f88480bde2ba5a5e0856028921e5d9d933edcb0
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 679dde6802a2c0d27444fbcda040f2ba19039457
+ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67320080"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79210748"
 ---
 # <a name="engage-customers-with-the-microsoft-store-services-sdk"></a>Microsoft Store Services SDK を使ってユーザーとの関係を深める
 
-Microsoft Store Services SDK の提供する際に役立つ機能など、アプリを対象となる通知を送信して、A を実行して、ユニバーサル Windows プラットフォーム (UWP) アプリでの顧客とかかわります/、B はアプリで実験します。 この SDK は、Visual Studio 2015 とそれ以降のバージョンの Visual Studio 用の拡張です。
+Microsoft Store Services SDK には、対象となる通知をアプリに送信したり、アプリで A/B の実験を実行したりするなど、ユニバーサル Windows プラットフォーム (UWP) アプリの顧客との連携に役立つ機能が用意されています。 この SDK は、Visual Studio 2015 とそれ以降のバージョンの Visual Studio 用の拡張です。
 
 > [!NOTE]
-> UWP アプリで広告を表示するには、Microsoft Store Services SDK ではなく [Microsoft Advertising SDK](https://aka.ms/ads-sdk-uwp) を使います。 Advertising ライブラリは、Microsoft Store Services SDK から Microsoft Advertising SDK に移動されました。 詳しくは、「[アプリでの広告の表示](display-ads-in-your-app.md)」をご覧ください。
+> UWP アプリで広告を表示するには、Microsoft Store Services SDK ではなく [Microsoft Advertising SDK](https://marketplace.visualstudio.com/items?itemName=AdMediator.MicrosoftAdvertisingSDK) を使います。 Advertising ライブラリは、Microsoft Store Services SDK から Microsoft Advertising SDK に移動されました。 詳しくは、「[アプリでの広告の表示](display-ads-in-your-app.md)」をご覧ください。
 
 
 
@@ -28,10 +28,10 @@ Microsoft Store Services SDK の提供する際に役立つ機能など、アプ
 
 |  シナリオ  |  説明   |
 |------------|----------------|
-|  [実験を実行すると、UWP アプリ B のテスト](run-app-experiments-with-a-b-testing.md)    |  ユニバーサル Windows プラットフォーム (UWP) アプリで A/B テストを実施して、すべてのユーザー向けに機能を公開する前に、一部のユーザーに対して機能の有効性を測定することができます。 使用して、パートナー センターで実験を定義した後、 [StoreServicesExperimentVariation](https://docs.microsoft.com/uwp/api/microsoft.services.store.engagement.storeservicesexperimentvariation)アプリでは、実験では、このデータを使用するテストは、機能の動作を変更するは、バリエーションを取得するクラスを使用して、[LogForVariation](https://docs.microsoft.com/uwp/api/microsoft.services.store.engagement.storeservicescustomeventlogger.logforvariation)パートナー センターにイベントを表示し、変換イベントを送信する方法。 最後に、パートナー センターを使用して、結果を表示したり、実験を管理します。  |
-|  [UWP アプリからのフィードバック ハブを起動します。](launch-feedback-hub-from-your-app.md)    |  UWP アプリで [StoreServicesFeedbackLauncher](https://docs.microsoft.com/uwp/api/microsoft.services.store.engagement.storeservicesfeedbacklauncher) クラスを使用し、Windows 10 ユーザーをフィードバック Hub に誘導して、ユーザーが問題、提案、賛成票を送信できるようにします。 次に、パートナー センターの[フィードバック レポート](../publish/feedback-report.md)でこのフィードバックを管理します。 |
-|  [パートナー センターのプッシュ通知を受信する UWP アプリを構成します。](configure-your-app-to-receive-dev-center-notifications.md)    |  使用して、 [StoreServicesEngagementManager](https://docs.microsoft.com/uwp/api/microsoft.services.store.engagement.storeservicesengagementmanager)パートナー センターを使用してお客様に送信するターゲットを絞ったプッシュ通知を受信するアプリを登録する UWP アプリでのクラス。  |
-|   [パートナー センターでの使用状況レポートの UWP アプリでカスタム イベントを記録します。](log-custom-events-for-dev-center.md)   |  使用して、 [StoreServicesCustomEventLogger](https://docs.microsoft.com/uwp/api/microsoft.services.store.engagement.storeservicescustomeventlogger.log)パートナー センターでアプリに関連付けられているカスタム イベントを記録する UWP アプリでのクラス。 その後、カスタム イベントの合計出現回数を確認、**カスタム イベント**のセクション、[使用状況レポート](https://docs.microsoft.com/windows/uwp/publish/usage-report)パートナー センターでします。  |
+|  [A/B テストを使用して UWP アプリで実験を実行する](run-app-experiments-with-a-b-testing.md)    |  ユニバーサル Windows プラットフォーム (UWP) アプリで A/B テストを実施して、すべてのユーザー向けに機能を公開する前に、一部のユーザーに対して機能の有効性を測定することができます。 パートナーセンターで実験を定義した後、 [StoreServicesExperimentVariation](https://docs.microsoft.com/uwp/api/microsoft.services.store.engagement.storeservicesexperimentvariation)クラスを使用して、アプリ内の実験のバリエーションを取得し、このデータを使用してテストする機能の動作を変更します。次に、 [logforvariation](https://docs.microsoft.com/uwp/api/microsoft.services.store.engagement.storeservicescustomeventlogger.logforvariation)メソッドを使用して、ビューイベントと変換イベントをパートナーセンターに送信します。 最後に、パートナーセンターを使用して結果を表示し、実験を管理します。  |
+|  [UWP アプリからフィードバックハブを起動します](launch-feedback-hub-from-your-app.md)    |  UWP アプリで [StoreServicesFeedbackLauncher](https://docs.microsoft.com/uwp/api/microsoft.services.store.engagement.storeservicesfeedbacklauncher) クラスを使用し、Windows 10 ユーザーをフィードバック Hub に誘導して、ユーザーが問題、提案、賛成票を送信できるようにします。 次に、パートナー センターの[フィードバック レポート](../publish/feedback-report.md)でこのフィードバックを管理します。 |
+|  [パートナーセンターのプッシュ通知を受信するように UWP アプリを構成する](configure-your-app-to-receive-dev-center-notifications.md)    |  UWP アプリの[StoreServicesEngagementManager](https://docs.microsoft.com/uwp/api/microsoft.services.store.engagement.storeservicesengagementmanager)クラスを使用して、パートナーセンターを使用して顧客に送信する対象のプッシュ通知を受信するようにアプリを登録します。  |
+|   [パートナーセンターの使用状況レポートのために、UWP アプリのカスタムイベントをログに記録します](log-custom-events-for-dev-center.md)   |  UWP アプリの[StoreServicesCustomEventLogger](https://docs.microsoft.com/uwp/api/microsoft.services.store.engagement.storeservicescustomeventlogger.log)クラスを使用して、パートナーセンターのアプリに関連付けられているカスタムイベントをログに記録します。 次に、パートナーセンターの[使用状況レポート](https://docs.microsoft.com/windows/uwp/publish/usage-report)の **[カスタムイベント]** セクションで、カスタムイベントの合計発生回数を確認します。  |
 
 <span id="prerequisites" />
 
@@ -48,7 +48,7 @@ Microsoft Store Services SDK には以下が必要となります。
 
 開発用コンピューターに Microsoft Store Services SDK をインストールするには、次の 2 つのオプションがあります。
 
-* **MSI インストーラー**&nbsp;&nbsp;[ここ](https://aka.ms/store-em-sdk)から利用できる MSI インストーラーを使って SDK をインストールできます。
+* **MSI インストーラー**&nbsp;&nbsp;[ここ](https://marketplace.visualstudio.com/items?itemName=AdMediator.MicrosoftStoreServicesSDK)から利用できる MSI インストーラーを使って SDK をインストールできます。
 * **NuGet パッケージ**&nbsp;&nbsp;NuGet パッケージとして、SDK をインストールすることができます。
 
 マイクロソフトでは定期的に、向上したパフォーマンスと新しい機能を備えた、新しいバージョンの Microsoft Store Services SDK をリリースしています。 開発用コンピューターに Microsoft Store Services SDK を使っている既存のプロジェクトがあり、そのプロジェクトで最新バージョンを使う場合は、最新バージョンの SDK をダウンロードしてインストールしてください。
@@ -68,7 +68,7 @@ MSI インストーラーを使って Microsoft Store Services SDK をインス�
     MsiExec.exe /x{6AC81125-8485-463D-9352-3F35A2508C11}
     ```
 
-3.  [Microsoft Store Services SDK](https://aka.ms/store-em-sdk) をダウンロードしてインストールします。 インストールには数分かかることがあります。 確実に処理が完了するまでお待ちください。
+3.  [Microsoft Store Services SDK](https://marketplace.visualstudio.com/items?itemName=AdMediator.MicrosoftStoreServicesSDK) をダウンロードしてインストールします。 インストールには数分かかることがあります。 確実に処理が完了するまでお待ちください。
 
 4.  Visual Studio を再起動します。
 
@@ -99,7 +99,7 @@ NuGet を使って Microsoft Store Services SDK をインストールするに�
 
 5. 検索ボックスに「**Microsoft.Services.Store.Engagement**」と入力し、Microsoft.Services.Store.Engagement パッケージをインストールします。 パッケージのインストールが完了したら、ソリューションを保存します。
     > [!NOTE]
-    > **[出力]** ウィンドウに、指定されたパスが長すぎることを示す*インストール パッケージ* エラーが表示されたとき、場合によっては、NuGet を構成して、既定の場所よりも短いパスで示される別の場所にパッケージを展開する必要があります。 これを行うには、`repositoryPath` 値をコンピューターの nuget.config ファイルに追加し、それを短いフォルダーのパスに割り当て、そこに NuGet パッケージが展開されるようにします。 詳しくは、NuGet ドキュメントの[この記事](https://docs.microsoft.com/nuget/consume-packages/configuring-nuget-behavior)をご覧ください。 または、Visual Studio プロジェクトを短いパスを持つ別のフォルダーに移動してみることができます。 問題が、グローバル パッケージ パスが長すぎるによっても原因。 この場合、追加、 `globalPackagesFolder` nuget.config ファイルに値。
+    > **[出力]** ウィンドウに、指定されたパスが長すぎることを示す*インストール パッケージ* エラーが表示されたとき、場合によっては、NuGet を構成して、既定の場所よりも短いパスで示される別の場所にパッケージを展開する必要があります。 これを行うには、`repositoryPath` 値をコンピューターの nuget.config ファイルに追加し、それを短いフォルダーのパスに割り当て、そこに NuGet パッケージが展開されるようにします。 詳しくは、NuGet ドキュメントの[この記事](https://docs.microsoft.com/nuget/consume-packages/configuring-nuget-behavior)をご覧ください。 または、Visual Studio プロジェクトを短いパスを持つ別のフォルダーに移動してみることができます。 この問題は、グローバルパッケージのパスが長すぎることが原因で発生する場合もあります。 この場合は、`globalPackagesFolder` 値を nuget.exe ファイルに追加します。
 
 6. プロジェクトが含まれている Visual Studio ソリューションを閉じ、そのソリューションを再度開きます。
 
@@ -121,7 +121,7 @@ NuGet を使って Microsoft Store Services SDK をインストールするに�
 
 3. **[参照マネージャー]** で **[ユニバーサル Windows]** を展開し、 **[拡張機能]** をクリックして、 **[Microsoft Engagement Framework]** の横のチェック ボックスをオンにします。 これにより、[Microsoft.Services.Store.Engagement](https://docs.microsoft.com/uwp/api/microsoft.services.store.engagement) 名前空間の API を使用できます。
 
-3. **[OK]** をクリックします。
+3. **[OK]** をクリックすると、
 
 > [!NOTE]
 > NuGet から SDK ライブラリをインストールした場合、プロジェクトには **Microsoft.Services.Store.Engagement** 参照が含められます。 **Microsoft.Services.Store.Engagement** の参照は (その中のライブラリではなく) NuGet パッケージを表し、これは無視することができます。
@@ -138,7 +138,7 @@ Microsoft Store Services SDK の Microsoft.Services.Store.Engagement.dll ライ�
 
 ## <a name="related-topics"></a>関連トピック
 
-* [Microsoft Store Services SDK の API リファレンス](https://docs.microsoft.com/uwp/api/overview/engagement)
+* [Microsoft Store Services SDK API リファレンス](https://docs.microsoft.com/uwp/api/overview/engagement)
 * [A/B テストによる実験の実行](run-app-experiments-with-a-b-testing.md)
 * [アプリからのフィードバック Hub の起動](launch-feedback-hub-from-your-app.md)
 * [パートナー センターのプッシュ通知を受信するようにアプリを設定する](configure-your-app-to-receive-dev-center-notifications.md)

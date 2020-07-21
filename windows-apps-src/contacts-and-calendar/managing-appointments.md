@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, 予定, カレンダー
 ms.localizationpriority: medium
-ms.openlocfilehash: 1e4eeaf486738996ce5a860f567fc18a7d41cca2
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 52200d7896c9edea727bf31c69c04c4c1bd02bb2
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66361251"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74255494"
 ---
 # <a name="manage-appointments"></a>予定の管理
 
@@ -156,7 +156,7 @@ private void Create-Click(object sender, RoutedEventArgs e)
         }
         else
         {
-            // Organizer Address (e.g. Email Address)
+            // Organizer Address (for example, Email Address)
             organizer.Address = OrganizerAddressTextBox.Text;
 
             if (organizer.Address.Length > 321)
@@ -192,7 +192,7 @@ private void Create-Click(object sender, RoutedEventArgs e)
         }
         else
         {
-            // Invitee Address (e.g. Email Address)
+            // Invitee Address (for example, Email Address)
             invitee.Address = InviteeAddressTextBox.Text;
 
             if (invitee.Address.Length > 321)
@@ -282,7 +282,7 @@ private async void Add-Click(object sender, RoutedEventArgs e)
 }
 ```
 
-**注**  Windows Phone ストアのアプリ、 [ **ShowAddAppointment** ](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appointments.appointmentmanager.showaddappointmentasync)同様に機能[ **ShowEditNewAppointment**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appointments.appointmentmanager.showeditnewappointmentasync)予定を追加するために表示されるダイアログ ボックスが編集可能にします。
+**注**  Windows Phone ストアアプリ[**の場合は、** ](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appointments.appointmentmanager.showaddappointmentasync) [**ShowEditNewAppointment**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appointments.appointmentmanager.showeditnewappointmentasync)と同様に、予定を追加するために表示されるダイアログが編集可能であることに注意してください。
 
 ## <a name="replace-an-appointment-in-the-users-calendar"></a>ユーザーのカレンダーで予定を置換する
 
@@ -390,7 +390,7 @@ private async void Remove-Click(object sender, RoutedEventArgs e)
 
 ## <a name="show-a-time-span-for-the-appointments-provider"></a>予定プロバイダーの一定の期間を表示する
 
-ユーザーが **[表示]** をクリックした場合、[**AppointmentManager.ShowTimeFrameAsync**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appointments.appointmentmanager.showtimeframeasync) メソッドを呼び出して、既定の予定プロバイダーのプライマリ UI の一定期間を表示します。 このサンプルは、既定の予定プロバイダーが画面に表示されたことを出力します。
+ユーザーが [[表示] **をクリックした場合、** ](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appointments.appointmentmanager.showtimeframeasync)AppointmentManager.ShowTimeFrameAsync メソッドを呼び出して、既定の予定プロバイダーのプライマリ UI の一定期間を表示します。 このサンプルは、既定の予定プロバイダーが画面に表示されたことを出力します。
 
 ```cs
 private async void Show-Click(object sender, RoutedEventArgs e)
@@ -507,7 +507,7 @@ private void Create-Click(object sender, RoutedEventArgs e)
 
 ## <a name="add-a-new-editable-appointment"></a>新しい編集可能な予定を追加する
 
-[**ShowEditNewAppointmentAsync** ](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appointments.appointmentmanager.showeditnewappointmentasync)同様の機能[ **ShowAddAppointmentAsync** ](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appointments.appointmentmanager.showaddappointmentasync)ユーザーが変更できるように、予定を追加するためのダイアログ ボックスが編集可能ながある点が保存する前に、予定データ。
+[**ShowEditNewAppointmentAsync**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appointments.appointmentmanager.showeditnewappointmentasync)は、 [**ShowAddAppointmentAsync**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appointments.appointmentmanager.showaddappointmentasync)と同様に機能します。ただし、予定を追加するためのダイアログが編集可能になり、ユーザーが予定データを保存する前に変更できるようになります。
 
 ``` cs
 private async void AddAndEdit-Click(object sender, RoutedEventArgs e)
@@ -542,7 +542,7 @@ private async void AddAndEdit-Click(object sender, RoutedEventArgs e)
 
 ## <a name="show-appointment-details"></a>予定の詳しい情報を表示する
 
-[**ShowAppointmentDetailsAsync** ](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appointments.appointmentmanager.showappointmentdetailsasync)により、システムが指定された予定の詳細を表示します。 カレンダーを実装するアプリでは、所有下にあるカレンダー内の予定について詳しい情報を表示するときに、そのアプリをアクティブにするかどうかを選ぶことができます。 それ以外の場合、予定の詳しい情報がシステムによって表示されます。 開始日を引数として受け取るメソッドのオーバーロードが用意されており、定期的に発生する予定について、詳しい情報をいつから表示するかを指定することができます。
+[**ShowAppointmentDetailsAsync**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appointments.appointmentmanager.showappointmentdetailsasync)を指定すると、指定した予定の詳細がシステムに表示されます。 カレンダーを実装するアプリでは、所有下にあるカレンダー内の予定について詳しい情報を表示するときに、そのアプリをアクティブにするかどうかを選ぶことができます。 それ以外の場合、予定の詳しい情報がシステムによって表示されます。 開始日を引数として受け取るメソッドのオーバーロードが用意されており、定期的に発生する予定について、詳しい情報をいつから表示するかを指定することができます。
 
 ```cs
 private async void ShowAppointmentDetails-Click(object sender, RoutedEventArgs e)
@@ -565,11 +565,11 @@ private async void ShowAppointmentDetails-Click(object sender, RoutedEventArgs e
 
 ## <a name="summary-and-next-steps"></a>要約と次のステップ
 
-これで、予定を管理する方法の基本について理解できました。 予定を管理する方法のその他の例については、GitHub から[ユニバーサル Windows アプリのサンプル](https://go.microsoft.com/fwlink/p/?linkid=619979)をダウンロードしてください。
+これで、予定を管理する方法の基本について理解できました。 予定を管理する方法のその他の例については、GitHub から[ユニバーサル Windows アプリのサンプル](https://github.com/Microsoft/Windows-universal-samples)をダウンロードしてください。
 
 ## <a name="related-topics"></a>関連トピック
 
-* [予定 API のサンプル](https://go.microsoft.com/fwlink/p/?linkid=309836)
+* [予定 API のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Appointments)
  
 
  

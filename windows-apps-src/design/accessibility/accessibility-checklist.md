@@ -1,5 +1,5 @@
 ---
-Description: ユニバーサル Windows プラットフォーム (UWP) アプリをアクセシビリティ対応にするために役立つチェック リストを示します。
+Description: Windows アプリにアクセスできるかどうかを確認するためのチェックリストを提供します。
 ms.assetid: BB8399E2-7013-4F77-AF2C-C1A0E5412856
 title: アクセシビリティのチェック リスト
 label: Accessibility checklist
@@ -8,22 +8,22 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 9b789102b90e63e5456c030f6eb90df372354d7a
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: c7775c2d6c9e579e14c9f607fa0a09b665dbb24b
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67318999"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82969763"
 ---
 # <a name="accessibility-checklist"></a>アクセシビリティのチェック リスト
 
-ユニバーサル Windows プラットフォーム (UWP) アプリをアクセシビリティ対応にするために役立つチェック リストを示します。
+Windows アプリにアクセスできるかどうかを確認するためのチェックリストを提供します。
 
 ここでは、アプリをアクセシビリティ対応にするときに使用できるチェック リストを示します。
 
 1. コンテンツやアプリの対話型の UI 要素にアクセシビリティ対応の名前 (必須) と説明 (省略可能) を設定します。
 
-    アクセシビリティ対応の名前とは、スクリーン リーダーが UI 要素を読み上げるときに使う短い説明の文字列です。 [  **TextBlock**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock) や [**TextBox**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox) などの一部の UI 要素では、既定のアクセシビリティ対応の名前としてテキスト コンテンツを昇格させるものがあります。「[基本的なアクセシビリティ情報](basic-accessibility-information.md#name_from_inner_text)」をご覧ください。
+    アクセシビリティ対応の名前とは、スクリーン リーダーが UI 要素を読み上げるときに使う短い説明の文字列です。 [**TextBlock**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock) や [**TextBox**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox) などの一部の UI 要素では、既定のアクセシビリティ対応の名前としてテキスト コンテンツを昇格させるものがあります。「[基本的なアクセシビリティ情報](basic-accessibility-information.md#name_from_inner_text)」をご覧ください。
 
     暗黙的なアクセシビリティ対応の名前として内部テキスト コンテンツを昇格させない画像などのコントロールに対し、明示的にアクセシビリティ対応の名前を設定する必要があります。 フォーム要素のラベルのテキストは、ラベルと入力を関連付けるために、Microsoft UI オートメーション モデルの [**LabeledBy**](https://docs.microsoft.com/previous-versions/windows/silverlight/dotnet-windows-silverlight/ms591292(v=vs.95)) ターゲットとして使うことができるようにする必要があります。 ユーザーに、通常アクセシビリティ対応の名前に含まれているものよりも詳しい UI のガイダンスを提供する場合は、アクセシビリティ対応の説明やヒントを用意すると、UI の内容がわかりやすくなります。
 
@@ -37,16 +37,16 @@ ms.locfileid: "67318999"
     * 対話式操作をサポートする UI の一部に対するアクセス キーを設定するか、ショートカット キーを実装します。
     * UI で使うカスタム コントロールで、アクティブ化用に適切な [**AutomationPeer**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Automation.Peers.AutomationPeer) サポートを設定した状態でコントロールが実装され、アクティブ化キー、トラバーサル キー、アクセス キーまたはショートカット キーのサポートに必要なキー処理の上書きが定義されていることを確認します。
 
-    詳しくは、「[キーボード操作](https://docs.microsoft.com/windows/uwp/input-and-devices/keyboard-interactions)」をご覧ください。
+    詳細については、「[キーボード操作](https://docs.microsoft.com/windows/uwp/input-and-devices/keyboard-interactions)」を参照してください。
 
-3. テキストが読み取り可能なサイズであることを確認します。
+3. テキストが読み取り可能なサイズであることを確認する
 
-    * Windows には、さまざまなアクセシビリティ ツールとユーザーが活用し、独自のニーズとテキストを読み取るための基本設定を調整する設定が含まれています。 次のようなクラスがあります。
-        * 拡大鏡ツール、UI の選択範囲を拡大します。 アプリ内のテキストのレイアウトが困難に拡大鏡を使用して、読み取り用に行う必要があります。
-        * スケールと解像度の設定をグローバル**設定]、[システムの表示]-> [-> スケールとレイアウト**します。 正確にサイズ変更オプションが使用可能なディスプレイ デバイスの機能に依存とは異なります。
-        * テキスト サイズ設定**設定、アクセスの容易さの表示->** します。 調整、**テキストを大きく**すべてのアプリケーションと画面 (すべての UWP テキスト コントロールは、テキストをカスタマイズまたはテンプレートなしのエクスペリエンスをスケーリングをサポート) 間でのサポート コントロールでテキストのサイズだけを指定する設定。
+    * Windows にはさまざまなユーザー補助ツールと設定が含まれており、ユーザーはこれを利用して、テキストを読み取るためのニーズや好みに合わせて調整できます。 これには以下が含まれます。
+        * 拡大鏡ツール。 UI の選択領域を拡大します。 アプリ内のテキストのレイアウトによって、拡大鏡を使用した読み取りが困難になることはありません。
+        * [設定] のグローバルなスケールと解像度の設定 **->システム >表示->スケールとレイアウト**です。 使用できるサイズ変更オプションは、ディスプレイデバイスの機能によって異なります。
+        * [設定] の [テキストサイズ] 設定 **->簡単なアクセス >表示**。 [テキストのサイズを**大きく**する] 設定を調整して、すべてのアプリケーションと画面でのサポートコントロール内のテキストのサイズのみを指定します (すべての UWP テキストコントロールは、カスタマイズまたはテンプレートを使用しないテキストスケーリングエクスペリエンスをサポートします)。
         > [!NOTE]
-        > **すべての大きな**設定により、ユーザーのプライマリ画面のみに一般にテキストとアプリの推奨サイズを指定します。
+        > [**すべてを大きく**する] 設定を使用すると、ユーザーは、通常、テキストとアプリのサイズをプライマリ画面のみで指定できます。
 
 4. テキスト コントラストが適切であること、ハイ コントラスト テーマで要素が正しくレンダリングされること、色が正しく使われていることを確認するため、UI を表示して検証します。
 
@@ -54,11 +54,11 @@ ms.locfileid: "67318999"
     * ハイ コントラスト テーマに切り替え、アプリの UI が読みやすく使いやすいことを確認します。
     * UI が情報を伝える唯一の手段として色を使っていないことを確認します。
 
-    詳しくは、「[ハイ コントラスト テーマ](high-contrast-themes.md)」と「[アクセシビリティに対応したテキストの要件](accessible-text-requirements.md)」をご覧ください。
+    詳細については、「[ハイコントラストテーマ](high-contrast-themes.md)と[アクセス可能なテキスト要件](accessible-text-requirements.md)」を参照してください。
 
 5. アクセシビリティ ツールを実行し、報告された問題に対処して、画面の読み上げを確認します。
 
-    [  **Inspect**](https://docs.microsoft.com/windows/desktop/WinAuto/inspect-objects) などのツールを使ってプログラムによるアクセスを検証し、[**AccChecker**](https://docs.microsoft.com/windows/desktop/WinAuto/ui-accessibility-checker) などの診断ツールを実行して一般的なエラーを見つけます。画面の読み上げの確認には、ナレーターを使います。
+    [**Inspect**](https://docs.microsoft.com/windows/desktop/WinAuto/inspect-objects) などのツールを使ってプログラムによるアクセスを検証し、[**AccChecker**](https://docs.microsoft.com/windows/desktop/WinAuto/ui-accessibility-checker) などの診断ツールを実行して一般的なエラーを見つけます。画面の読み上げの確認には、ナレーターを使います。
 
     詳しくは、「[アクセシビリティ テスト](accessibility-testing.md)」をご覧ください。
 
@@ -73,7 +73,7 @@ ms.locfileid: "67318999"
 ## <a name="related-topics"></a>関連トピック  
 
 * [アクセシビリティに対応したテキストの要件](accessible-text-requirements.md)
-* [テキストのスケーリング](../input/text-scaling.md)
+* [テキストの拡大縮小](../input/text-scaling.md)
 * [ユーザー補助](accessibility.md)
-* [ユーザー補助のための設計](https://docs.microsoft.com/windows/uwp/accessibility/accessibility-overview)
+* [アクセシビリティのための設計](https://docs.microsoft.com/windows/uwp/accessibility/accessibility-overview)
 * [避ける事項](practices-to-avoid.md)

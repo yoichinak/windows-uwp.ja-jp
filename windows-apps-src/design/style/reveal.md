@@ -10,12 +10,12 @@ design-contact: conrwi
 dev-contact: jevansa
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 5cb076de6cd9c44280bf7030a59c645f601487bd
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 26e756b52d4faf18eff2fc684c7db94bca058642
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66370432"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82971077"
 ---
 # <a name="reveal-highlight"></a>表示ハイライト
 
@@ -23,9 +23,9 @@ ms.locfileid: "66370432"
 
 表示ハイライトは、ユーザーがポインターを近付けたときにコマンド バーなどの対話型要素を目立たせるための発光効果です。 
 
-> **重要な API**:[RevealBrush クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.revealbrush)、[RevealBackgroundBrush クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.revealbackgroundbrush)、[RevealBorderBrush クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.revealborderbrush)、[RevealBrushHelper クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.revealbrushhelper)、[VisualState クラス](https://docs.microsoft.com/en-us/uwp/api/Windows.UI.Xaml.VisualState)
+> **重要な API**:[RevealBrush クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.revealbrush)、[RevealBackgroundBrush クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.revealbackgroundbrush)、[RevealBorderBrush クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.revealborderbrush)、[RevealBrushHelper クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.revealbrushhelper)、[VisualState クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.VisualState)
 
-## <a name="how-it-works"></a>方法
+## <a name="how-it-works"></a>しくみ
 表示ハイライトでは、対話型要素に注意が向くように、ポインターが近付いたときに要素のコンテナーが明示されます (下図参照)。
 
 ![表示のビジュアル効果](images/Nav_Reveal_Animation.gif)
@@ -72,13 +72,13 @@ ms.locfileid: "66370432"
 
 ## <a name="enabling-reveal-on-other-controls"></a>他のコントロールで表示効果を有効にする
 
-表示の適用が必要なシナリオの場合 (シナリオで使用されるコントロールはメイン コンテンツである場合、またはそれらのコントロールがリストやコレクションに対応するために使用される場合)、オプトインのリソース スタイルが用意されているので、これらのスタイルを使用することで、そのような状況で表示を有効にすることができます。
+表示の適用が必要なシナリオの場合 (シナリオで使用されるコントロールがメイン コンテンツである場合、またはそれらのコントロールがリストやコレクションに対応するために使用される場合)、オプトインのリソース スタイルが用意されているので、これらのスタイルを使用することで、そのような状況で表示を有効にすることができます。
 
 以下に示すコントロールは、既定では表示の機能を備えていません。これらのコントロールは小さなコントロールであり、通常は、アプリケーションの重要なコンテンツをサポートするヘルパー コントロールですが、アプリによってはその状況は異なります。これらのコントロールをアプリの多くの部分で使用する場合は、その表示をサポートするスタイルがいくつか用意されているのでご利用ください。
 
 | コントロール名   | リソース名 |
 |----------|:-------------:|
-| Button |  ButtonRevealStyle |
+| ボタン |  ButtonRevealStyle |
 | ToggleButton | ToggleButtonRevealStyle |
 | RepeatButton | RepeatButtonRevealStyle |
 | AppBarButton | AppBarButtonRevealStyle |
@@ -88,7 +88,7 @@ ms.locfileid: "66370432"
 これらのスタイルを適用するには、コントロールの [Style](/uwp/api/Windows.UI.Xaml.Style) プロパティを次のように設定します。
 
 ```xaml
-<Button Content="Button Content" Style="{StaticResource ButtonRevealStyle}"/>
+<Button Content="Button Content" Style="{ThemeResource ButtonRevealStyle}"/>
 ```
 
 ### <a name="reveal-in-themes"></a>テーマ内の表示効果
@@ -105,7 +105,7 @@ ms.locfileid: "66370432"
 </Grid>
 ```
 
-または、RevealBorderBrush の TargetTheme を黒に変更します。 注意: TargetTheme が黒に設定されている場合、表示効果は白になりますが、TargetTheme が白に設定されている場合、表示効果の境界線は灰色になります。
+または、RevealBorderBrush の TargetTheme を黒に変更します。 注意: TargetTheme が黒に設定されている場合、表示効果は白になりますが、これが白に設定されている場合、表示効果の境界線は灰色になります。
 
 ```xaml
  <RevealBorderBrush x:Key="MyLightBorderBrush" TargetTheme="Dark" Color="{ThemeResource SystemAccentColor}" FallbackColor="{ThemeResource SystemAccentColor}" />
@@ -265,7 +265,7 @@ ms.locfileid: "66370432"
 ### <a name="do"></a>推奨:
 - ユーザーが多数の操作を実行できる要素 (CommandBar、ナビゲーション メニュー) で表示効果を使う
 - 既定で視覚的な区切りがない対話型要素のグループ (一覧、リボン) 内で表示効果を使う
-- 対話型要素が密集している領域では表示を使う (コマンド実行シナリオ)
+- 対話型要素が密集している領域で表示効果を使う (コマンド実行シナリオ)
 - 表示効果を適用する項目と項目の間に 1 px の余白を配置する
 
 ### <a name="dont"></a>非推奨
@@ -282,7 +282,7 @@ ms.locfileid: "66370432"
 
 ## <a name="reveal-and-the-fluent-design-system"></a>表示と Fluent Design System
 
- Fluent Design System では、ライト、深度、モーション、マテリアル、スケールを取り入れた、モダンで目を引く UI を作成できます。 表示は、アプリに発光効果を加える Fluent Design System コンポーネントです。 詳しくは、[UWP 用の Fluent Design の概要に関するページ](/windows/apps/fluent-design-system)をご覧ください。
+ Fluent Design System では、ライト、深度、モーション、マテリアル、スケールを取り入れた、モダンで目を引く UI を作成できます。 表示は、アプリに発光効果を加える Fluent Design System コンポーネントです。 詳しくは、[Fluent Design の概要](/windows/apps/fluent-design-system)に関するページをご覧ください。
 
 ## <a name="related-articles"></a>関連記事
 
@@ -290,5 +290,5 @@ ms.locfileid: "66370432"
 - [Acrylic](acrylic.md)
 - [コンポジション効果](https://docs.microsoft.com/windows/uwp/graphics/composition-effects)
 - [UWP 用 Fluent Design](/windows/apps/fluent-design-system)
-- [システムの科学: Fluent Design と奥行き](https://medium.com/microsoft-design/science-in-the-system-fluent-design-and-depth-fb6d0f23a53f)
-- [システムの科学: Fluent Design と明るさ](https://medium.com/microsoft-design/the-science-in-the-system-fluent-design-and-light-94a17e0b3a4f)
+- [システムの科学:Fluent Design と奥行き](https://medium.com/microsoft-design/science-in-the-system-fluent-design-and-depth-fb6d0f23a53f)
+- [システムの科学:Fluent Design と明るさ](https://medium.com/microsoft-design/the-science-in-the-system-fluent-design-and-light-94a17e0b3a4f)

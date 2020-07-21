@@ -1,6 +1,6 @@
 ---
-Description: UWP アプリでコンテンツを表示するための一般的なページ パターンと UI 要素の概要。
-title: ユニバーサル Windows プラットフォーム (UWP) アプリのコンテンツ デザインの基本
+Description: Windows アプリでコンテンツを表示するための一般的なページ パターンと UI 要素の概要。
+title: Windows アプリのコンテンツ デザインの基本
 ms.assetid: 3102530A-E0D1-4C55-AEFF-99443D39D567
 label: Content design basics
 template: detail.hbs
@@ -9,14 +9,14 @@ ms.date: 12/01/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 0e5b46223ea7dfa5e43b5a50a04a4c3f31307d49
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 2ea7d6da9461aa3c8dc2bd4d3f50c5d14c3928bb
+ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63796314"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83233934"
 ---
-# <a name="content-design-basics-for-uwp-apps"></a>UWP アプリのコンテンツ デザインの基本
+# <a name="content-design-basics-for-windows-apps"></a>Windows アプリのコンテンツ デザインの基本
 
 どのようなアプリでも、主な目的はコンテンツへのアクセスを提供することです。 アプリはさまざまな目的で存在するため、コンテンツにも多くの形式があります。たとえば、写真編集アプリでは写真がコンテンツであり、旅行アプリでは地図と旅行の目的地に関する情報がコンテンツです。 
 
@@ -45,7 +45,7 @@ ms.locfileid: "63796314"
 
 [マスター/詳細](../controls-and-patterns/master-details.md)モデルは、リスト ビュー (マスター) とコンテンツ ビュー (詳細) で構成されます。 両方のウィンドウは固定されていて、垂直方向にスクロールできます。 リスト項目とコンテンツ ビューの間には明確な関係があります。マスター ビューで項目が選択されると、詳細ビューがそれに応じて更新されます。 詳細ビューのナビゲーションが提供されるだけでなく、マスター ビュー内の項目を追加および削除することができます。
 
-### <a name="details"></a>詳細
+### <a name="details"></a>詳細情報
 
 ![複数のビュー](images/multi-view.png)
 

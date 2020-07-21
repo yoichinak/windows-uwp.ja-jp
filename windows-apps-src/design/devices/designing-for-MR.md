@@ -1,5 +1,5 @@
 ---
-Description: 問題ありませんし、複合現実でも機能するようにアプリを設計します。
+Description: アプリを設計して、優れた機能と、混合現実に適した機能を実現できるようにします。
 title: Mixed Reality 向けの設計
 ms.assetid: ''
 label: Designing for Mixed Reality
@@ -13,12 +13,12 @@ design-contact: jeffarn
 dev-contact: ''
 doc-status: ''
 ms.localizationpriority: medium
-ms.openlocfilehash: 0e8cee688cbfbda0fe3822017b769560fc0fffe3
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 5aaa5b5a51ab2aea863fece8fb466f274a00ace3
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67319380"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75684248"
 ---
 # <a name="designing-for-mixed-reality"></a>Mixed Reality 向けの設計
 
@@ -26,7 +26,7 @@ Mixed Reality で適切に表示されるようにアプリを設計し、新し
 
 ## <a name="overview"></a>概要
 
-[Mixed Reality](https://developer.microsoft.com/windows/mixed-reality/mixed_reality) は現実世界とデジタル世界を組み合わせたものです。 Mixed Reality のさまざまなエクスペリエンスには、HoloLens (コンピューターで生成されたコンテンツと現実世界を組み合わせるデバイス) など、1 つの優れたデバイスによるものと、他の Virtual Reality の完全なイマーシブ ビュー (Windows Mixed Reality ヘッドセットに表示される) によるものが含まれます。 さまざまなエクスペリエンスの例については、「[Mixed Reality アプリの種類](https://developer.microsoft.com/en-us/windows/mixed-reality/types_of_mixed_reality_apps)」をご覧ください。
+[Mixed Reality](https://developer.microsoft.com/windows/mixed-reality/mixed_reality) は現実世界とデジタル世界を組み合わせたものです。 Mixed Reality のさまざまなエクスペリエンスには、HoloLens (コンピューターで生成されたコンテンツと現実世界を組み合わせるデバイス) など、1 つの優れたデバイスによるものと、他の Virtual Reality の完全なイマーシブ ビュー (Windows Mixed Reality ヘッドセットに表示される) によるものが含まれます。 さまざまなエクスペリエンスの例については、「[Mixed Reality アプリの種類](https://developer.microsoft.com/windows/mixed-reality/types_of_mixed_reality_apps)」をご覧ください。
 
 このトピックのいくつかのガイダンスを実行してユーザー エクスペリエンスを改善しますが、既存のほぼすべての UWP アプリは、変更しなくても Mixed Reality 環境で 2D アプリとして実行されます。
 
@@ -34,9 +34,9 @@ Mixed Reality で適切に表示されるようにアプリを設計し、新し
 
 HoloLens と Windows Mixed Reality ヘッドセットの両方が UWP プラットフォーム上で実行されるアプリケーションをサポートし、両方とも 2 つの異なる種類のエクスペリエンスをサポートしています。 
 
-### <a name="2d-vs-immersive-experience"></a>2D とします。没入型エクスペリエンス
+### <a name="2d-vs-immersive-experience"></a>2D とイマーシブ エクスペリエンス
 
-イマーシブ アプリはユーザーに表示される画面全体を制御し、アプリによって作成されるビューの中央にユーザーが配置されます。 たとえば、イマーシブなゲームでは、エイリアンの惑星の地表にユーザーが配置されたり、ツアー ガイド アプリでは、南米の村にユーザーが配置されることもあります。 イマーシブ アプリを作成するには、3 D グラフィックスまたはキャプチャした立体映像が必要です。 多くの場合、Unity や DirectX など、サード パーティのゲーム エンジンを使用してイマーシブ アプリを開発します。
+イマーシブ アプリはユーザーに表示される画面全体を制御し、アプリによって作成されるビューの中央にユーザーが配置されます。 たとえば、イマーシブなゲームでは、エイリアンの惑星の地表にユーザーが配置されたり、ツアー ガイド アプリでは、南アメリカの村にユーザーが配置されることもあります。 イマーシブ アプリを作成するには、3 D グラフィックスまたはキャプチャした立体映像が必要です。 多くの場合、Unity や DirectX など、サード パーティのゲーム エンジンを使用してイマーシブ アプリを開発します。
 
 イマーシブ アプリを作成する場合、詳細については、[Windows Mixed Reality デベロッパー センター](https://developer.microsoft.com/mixed-reality) を参照してください。
 
@@ -84,7 +84,7 @@ Mixed Reality 専用のいくつかの新しい入力方法が設計されまし
 * [クリッカー デバイス](https://developer.microsoft.com/windows/mixed-reality/hardware_accessories) (HoloLens のみ)
 * [モーション コントローラー](https://docs.microsoft.com/windows/mixed-reality/motion-controllers) (Mixed Reality デバイスのみ、上述のとおり)
 
-これらのコントローラーにより、仮想オブジェクトの操作が自然かつ正確になります。 いくつかの操作は無料で利用できます。 たとえば、HoloLens ジェスチャ を選択またはアニメーション コント ローラーの Windows キーまたはトリガーをクリックすると予想どおり、ここでも、ユーザー側でコーディングを行わずに、入力の応答が生成されます。
+これらのコントローラーにより、仮想オブジェクトの操作が自然かつ正確になります。 いくつかの操作は無料で利用できます。 たとえば、HoloLens を選択するジェスチャや、モーションコントローラーの Windows キーまたはトリガーをクリックすると、必要な入力応答が再び生成されます。コードを記述する必要はありません。
 
 それ以外の場合は、追加情報と利用可能な入力情報を活用するコードを追加します。 たとえば、位置とボタン操作を考慮するコードを作成する場合、モーション コントローラーを使用すると、オブジェクトを細かく操作できます。
 
@@ -92,7 +92,7 @@ Mixed Reality 専用のいくつかの新しい入力方法が設計されまし
 > 要約: 基本理念では、常にできるだけ自然でスムーズな入力方法をユーザーに提供するようにしています。
 
 
-## <a name="2d-app-design-considerations-functionality"></a>2D のアプリの設計に関する考慮事項:機能
+## <a name="2d-app-design-considerations-functionality"></a>2D アプリ設計の考慮事項: 機能
 
 Mixed Reality プラットフォームで使用する可能性がある UWP アプリを作成する場合は、次の点に注意してください。
 
@@ -105,7 +105,7 @@ Mixed Reality プラットフォームで使用する可能性がある UWP ア�
 * 2D アプリには[アプリ バー](https://developer.microsoft.com/windows/mixed-reality/app_bar_and_bounding_box) が自動的に用意されるため、ユーザーは仮想環境で移動および拡大縮小を行うことができます。 ビューは、垂直方向にサイズ変更したり、同じ縦横比を維持するようにサイズ変更できます。
 
 
-## <a name="2d-app-design-considerations-uiux"></a>2D アプリの設計に関する考慮事項:UI/UX
+## <a name="2d-app-design-considerations-uiux"></a>2D アプリ設計の考慮事項: UI/UX
 
 * [ナビゲーション ビュー](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/navigationview) などの[Fluent Design System](https://docs.microsoft.com/windows/uwp/design/fluent-design-system/) を実装する XAML コントロールと [アクリル](https://docs.microsoft.com/windows/uwp/design/style/acrylic) などのエフェクトはすべて、2D Mixed Reality アプリに特化して適切に動作します。
 
@@ -163,9 +163,9 @@ bool isViewingInMR = Windows.ApplicationModel.Preview.Holographic.HolographicApp
 ## <a name="related-articles"></a>関連記事
 
 
-* [シェルから Api を使ったアプリの現在の制限事項](https://developer.microsoft.com/windows/mixed-reality/current_limitations_for_apps_using_apis_from_the_shell)
+* [シェルの Api を使用するアプリの現在の制限事項](https://developer.microsoft.com/windows/mixed-reality/current_limitations_for_apps_using_apis_from_the_shell)
 * [2D アプリの構築](https://developer.microsoft.com/windows/mixed-reality/building_2d_apps)
-* [HoloLens:Microsoft HoloLens 用の UWP 2D アプリの構築](https://channel9.msdn.com/Events/Build/2016/B854)
-* [条件付き XAML](https://docs.microsoft.com/en-us/windows/uwp/debug-test-perf/conditional-xaml)
+* [HoloLens: Microsoft HoloLens 用の UWP 2D アプリの構築](https://channel9.msdn.com/Events/Build/2016/B854)
+* [条件付き XAML](https://docs.microsoft.com/windows/uwp/debug-test-perf/conditional-xaml)
 
 

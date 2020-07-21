@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10、UWP、C#、Visual Basic、非同期
 ms.localizationpriority: medium
-ms.openlocfilehash: db0e3064cc64e6ffbafa50d045ced020ad30b460
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 92cded952f1d4d80290a121d038c57c356e5e206
+ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66371541"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71340546"
 ---
 # <a name="call-asynchronous-apis-in-c-or-visual-basic"></a>C# または Visual Basic での非同期 API の呼び出し
 
@@ -36,41 +36,41 @@ ms.locfileid: "66371541"
 [!code-csharp[Main](./AsyncSnippets/csharp/MainPage.xaml.cs#SnippetDownloadRSS)]
 [!code-vb[Main](./AsyncSnippets/vbnet/MainPage.xaml.vb#SnippetDownloadRSS)]
 
-この例には、いくつかの重要なポイントがあります。 まず、`SyndicationFeed feed = await client.RetrieveFeedAsync(feedUri)` の行では、非同期メソッド [**RetrieveFeedAsync**](https://docs.microsoft.com/uwp/api/windows.web.syndication.syndicationclient.retrievefeedasync) を呼び出す際に、**await** 演算子が使われています。 **await** 演算子は、非同期メソッドを呼び出していることをコンパイラに伝えていると考えることができます。これにより、コンパイラが追加作業を行うようになります。 もう 1 つは、イベント ハンドラーの宣言に **async** というキーワードが含まれている点です。 **await** 演算子を使うメソッドのメソッド宣言には、このキーワードを含める必要があります。
+この例には、いくつかの重要なポイントがあります。 まず、`SyndicationFeed feed = await client.RetrieveFeedAsync(feedUri)` の行では、非同期メソッド [**RetrieveFeedAsync**](https://docs.microsoft.com/uwp/api/windows.web.syndication.syndicationclient.retrievefeedasync)演算子が使われています。**await** 演算子は、非同期メソッドを呼び出していることをコンパイラに伝えていると考えることができます。これにより、コンパイラが追加作業を行うようになります。もう 1 つは、イベント ハンドラーの宣言に **async** というキーワードが含まれている点です。**await** 演算子を使うメソッドのメソッド宣言には、このキーワードを含める必要があります。
 
-このトピックでは、コンパイラでの **await** 演算子の処理方法については詳しく取り上げませんが、非同期で応答性を保つためにアプリが何を行っているか説明していきます。 同期コードを使った場合はどうなるか考えてみましょう。 たとえば、同期の `SyndicationClient.RetrieveFeed` というメソッドがあるとします  (このようなメソッドはありませんがあることを想像してください)。アプリには、行が含まれている場合`SyndicationFeed feed = client.RetrieveFeed(feedUri)`の代わりに`SyndicationFeed feed = await client.RetrieveFeedAsync(feedUri)`、アプリの実行の戻り値まで停止`RetrieveFeed`は使用できます。 アプリは、このメソッドが完了するのを待機している間、他のイベント (別の [**Click**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.click) イベントなど) には応答できません。 つまり、`RetrieveFeed` が戻るまで、アプリはブロックされます。
+このトピックでは、コンパイラでの **await** 演算子の処理方法については詳しく取り上げませんが、非同期で応答性を保つためにアプリが何を行っているか説明していきます。 同期コードを使った場合はどうなるか考えてみましょう。 たとえば、同期の `SyndicationClient.RetrieveFeed` というメソッドがあるとします (そのような方法はありませんが、があることを想像してください)。アプリに `SyndicationFeed feed = await client.RetrieveFeedAsync(feedUri)` ではなく `SyndicationFeed feed = client.RetrieveFeed(feedUri)` という行が含まれている場合、`RetrieveFeed` の戻り値が使用可能になるまで、アプリの実行は停止します。 アプリは、このメソッドが完了するのを待機している間、他のイベント (別の [**Click**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.click) イベントなど) には応答できません。 つまり、`RetrieveFeed` が戻るまで、アプリはブロックされます。
 
-しかし、`client.RetrieveFeedAsync` メソッドは、呼び出されると、取得を開始して直ちに戻ります。 [  **RetrieveFeedAsync**](https://docs.microsoft.com/uwp/api/windows.web.syndication.syndicationclient.retrievefeedasync) と一緒に **await** を使うと、アプリが一時的にイベント ハンドラーを終了します。 このとき、**RetrieveFeedAsync** を非同期で実行しながら、他のイベントを処理することができます。 これにより、アプリの応答性が維持されます。 **RetrieveFeedAsync** が完了し、[**SyndicationFeed**](https://docs.microsoft.com/uwp/api/Windows.Web.Syndication.SyndicationFeed) が使用可能になると、アプリは、実質的に中断したイベント ハンドラーに戻り、`SyndicationFeed feed = await client.RetrieveFeedAsync(feedUri)` の後の残りのメソッドを完了します。
+しかし、`client.RetrieveFeedAsync` メソッドは、呼び出されると、取得を開始して直ちに戻ります。 [**RetrieveFeedAsync**](https://docs.microsoft.com/uwp/api/windows.web.syndication.syndicationclient.retrievefeedasync)で **await** を使用すると、アプリが一時的にイベント ハンドラーを終了します。 このとき、**RetrieveFeedAsync** を非同期で実行しながら、他のイベントを処理することができます。 これにより、アプリの応答性が維持されます。 **RetrieveFeedAsync** が完了し、[**SyndicationFeed**](https://docs.microsoft.com/uwp/api/Windows.Web.Syndication.SyndicationFeed)が使用可能になると、アプリは、実質的に中断したイベント ハンドラーに戻り、`SyndicationFeed feed = await client.RetrieveFeedAsync(feedUri)` の後の残りのメソッドを完了します。
 
 **await** 演算子を使うメリットは、架空の `RetrieveFeed` メソッドを使った場合のコードとそれほど違いがないという点です。 C# または Visual Basic で **await** 演算子を使わずに非同期コードを記述する方法もありますが、このようなコードでは、非同期で実行するしくみに重点が置かれる傾向があります。 これにより、非同期コードが記述しづらく、わかりにくく、保守しにくいものになります。 **await** 演算子を使うことによって、コードが複雑になることなく、非同期アプリのメリットを享受できます。
 
 ## <a name="return-types-and-results-of-asynchronous-apis"></a>戻り値の型と非同期 API の結果
 
 
-[  **RetrieveFeedAsync**](https://docs.microsoft.com/uwp/api/windows.web.syndication.syndicationclient.retrievefeedasync) へのリンクをたどると、**RetrieveFeedAsync** の戻り値の型が [**SyndicationFeed**](https://docs.microsoft.com/uwp/api/Windows.Web.Syndication.SyndicationFeed) ではないことがわかると思います。 戻り値の型は、`IAsyncOperationWithProgress<SyndicationFeed, RetrievalProgress>` になります。 構文そのものを見ると、非同期 API は結果を含むオブジェクトを返します。 非同期メソッドが待機可能であると考えることは一般的であり、有用な場合もありますが、**await** 演算子は、実際にはメソッドではなくメソッドの戻り値を制御します。 **await** 演算子を適用すると、メソッドによって返されるオブジェクトの **GetResult** を呼び出した結果が取得されます。 この例では、**SyndicationFeed** は **RetrieveFeedAsync.GetResult()** の結果です。
+[**RetrieveFeedAsync**](https://docs.microsoft.com/uwp/api/windows.web.syndication.syndicationclient.retrievefeedasync) へのリンクをたどると、**RetrieveFeedAsync** の戻り値の型が [**SyndicationFeed**](https://docs.microsoft.com/uwp/api/Windows.Web.Syndication.SyndicationFeed) ではないことがわかると思います。 戻り値の型は、`IAsyncOperationWithProgress<SyndicationFeed, RetrievalProgress>` になります。 構文そのものを見ると、非同期 API は結果を含むオブジェクトを返します。 非同期メソッドが待機可能であると考えることは一般的であり、有用な場合もありますが、**await** 演算子は、実際にはメソッドではなくメソッドの戻り値を制御します。 **await** 演算子を適用すると、メソッドによって返されるオブジェクトの **GetResult** を呼び出した結果が取得されます。 この例では、**SyndicationFeed** は **RetrieveFeedAsync.GetResult()** の結果です。
 
 非同期メソッドを使うと、シグネチャを調べて、メソッドから返される値を待機した後でどのようなデータを取得したかを確認することができます。 UWP の各非同期 API は、次のいずれかの型を返します。
 
--   [**IAsyncOperation&lt;TResult&gt;** ](https://docs.microsoft.com/uwp/api/Windows.Foundation.IAsyncOperation_TResult_)
--   [**IAsyncOperationWithProgress&lt;TResult, TProgress&gt;** ](https://docs.microsoft.com/uwp/api/Windows.Foundation.IAsyncOperationWithProgress_TResult_TProgress_)
+-   [**IAsyncOperation @ no__t-2TResult @ no__t-3**](https://docs.microsoft.com/uwp/api/Windows.Foundation.IAsyncOperation_TResult_)
+-   [**IAsyncOperationWithProgress @ no__t-2TResult, TProgress @ no__t-3**](https://docs.microsoft.com/uwp/api/Windows.Foundation.IAsyncOperationWithProgress_TResult_TProgress_)
 -   [**IAsyncAction**](https://docs.microsoft.com/uwp/api/windows.foundation.iasyncaction)
--   [**IAsyncActionWithProgress&lt;TProgress&gt;** ](https://docs.microsoft.com/uwp/api/Windows.Foundation.IAsyncActionWithProgress_TProgress_)
+-   [**IAsyncActionWithProgress @ no__t-2TProgress @ no__t**](https://docs.microsoft.com/uwp/api/Windows.Foundation.IAsyncActionWithProgress_TProgress_)
 
 非同期メソッドの結果の型は、`      TResult` 型パラメーターと同じです。 `TResult` のない型には結果がありません。 その場合の結果は **void** と見なすことができます。 Visual Basic の [Sub](https://docs.microsoft.com/dotnet/articles/visual-basic/programming-guide/language-features/procedures/sub-procedures) プロシージャは、戻り値の型が **void** のメソッドと同じです。
 
 次の表に、非同期メソッドの例と、それぞれの戻り値と結果の型を示します。
 
-| 非同期メソッド                                                                           | の戻り値の型 :                                                                                                                                         | 結果の型                                       |
+| 非同期メソッド                                                                           | の戻り値の型 :                                                                                                                                        | 結果の型                                       |
 |-----------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------|
-| [**SyndicationClient.RetrieveFeedAsync**](https://docs.microsoft.com/uwp/api/windows.web.syndication.syndicationclient.retrievefeedasync)     | [**IAsyncOperationWithProgress&lt;SyndicationFeed、RetrievalProgress&gt;** ](https://docs.microsoft.com/uwp/api/Windows.Foundation.IAsyncOperationWithProgress_TResult_TProgress_)                                 | [**SyndicationFeed**](https://docs.microsoft.com/uwp/api/Windows.Web.Syndication.SyndicationFeed) |
-| [**FileOpenPicker.PickSingleFileAsync**](https://docs.microsoft.com/uwp/api/windows.storage.pickers.fileopenpicker.picksinglefileasync) | [**IAsyncOperation&lt;StorageFile&gt;** ](https://docs.microsoft.com/uwp/api/Windows.Foundation.IAsyncOperation_TResult_)                                                                                | [**StorageFile**](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageFile)          |
-| [**XmlDocument.SaveToFileAsync**](https://docs.microsoft.com/uwp/api/windows.data.xml.dom.xmldocument.savetofileasync)                 | [**IAsyncAction**](https://docs.microsoft.com/uwp/api/windows.foundation.iasyncaction)                                                                                                           | **void**                                          |
-| [**InkStrokeContainer.LoadAsync**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkstrokecontainer.loadasync)               | [**IAsyncActionWithProgress&lt;UInt64&gt;** ](https://docs.microsoft.com/uwp/api/Windows.Foundation.IAsyncActionWithProgress_TProgress_)                                                                   | **void**                                          |
-| [**DataReader.LoadAsync**](https://docs.microsoft.com/uwp/api/windows.storage.streams.datareader.loadasync)                            | [**DataReaderLoadOperation**](https://docs.microsoft.com/uwp/api/Windows.Storage.Streams.DataReaderLoadOperation)、カスタムの結果を実装するクラス**IAsyncOperation&lt;UInt32&gt;** | [**UInt32**](https://docs.microsoft.com/uwp/api/Windows.Foundation.IAsyncOperation_TResult_)                     |
+| [**SyndicationClient RetrieveFeedAsync**](https://docs.microsoft.com/uwp/api/windows.web.syndication.syndicationclient.retrievefeedasync)     | [**IAsyncOperationWithProgress @ no__t-2SyndicationFeed、RetrievalProgress @ no__t-3**](https://docs.microsoft.com/uwp/api/Windows.Foundation.IAsyncOperationWithProgress_TResult_TProgress_)                                 | [**SyndicationFeed**](https://docs.microsoft.com/uwp/api/Windows.Web.Syndication.SyndicationFeed) |
+| [**FileOpenPicker. PickSingleFileAsync**](https://docs.microsoft.com/uwp/api/windows.storage.pickers.fileopenpicker.picksinglefileasync) | [**IAsyncOperation @ no__t-2StorageFile @ no__t**](https://docs.microsoft.com/uwp/api/Windows.Foundation.IAsyncOperation_TResult_)                                                                                | [**StorageFile**](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageFile)          |
+| [**SaveToFileAsync**](https://docs.microsoft.com/uwp/api/windows.data.xml.dom.xmldocument.savetofileasync)                 | [**IAsyncAction**](https://docs.microsoft.com/uwp/api/windows.foundation.iasyncaction)                                                                                                           | **無効化**                                          |
+| [**InkStrokeContainer LoadAsync**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkstrokecontainer.loadasync)               | [**IAsyncActionWithProgress @ no__t-2UInt64 @ no__t**](https://docs.microsoft.com/uwp/api/Windows.Foundation.IAsyncActionWithProgress_TProgress_)                                                                   | **無効化**                                          |
+| [**LoadAsync**](https://docs.microsoft.com/uwp/api/windows.storage.streams.datareader.loadasync)                            | [**Datareaderloadoperation**](https://docs.microsoft.com/uwp/api/Windows.Storage.Streams.DataReaderLoadOperation)。 **IAsyncOperation @ No__t-3uint32 @ no__t**を実装するカスタム結果クラス | [**UInt32**](https://docs.microsoft.com/uwp/api/Windows.Foundation.IAsyncOperation_TResult_)                     |
 
  
 
-「[**UWP アプリの .NET**](https://dotnet.microsoft.com/apps/desktop)」で定義されている非同期メソッドの戻り値の型は [**Task**](https://docs.microsoft.com/dotnet/api/system.threading.tasks.task?redirectedfrom=MSDN) または [**Task&lt;TResult&gt;** ](https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1?redirectedfrom=MSDN) です。 **Task** を返すメソッドは、[**IAsyncAction**](https://docs.microsoft.com/uwp/api/windows.foundation.iasyncaction) を返す UWP の非同期メソッドに似ています。 どちらの場合も、非同期メソッドの結果は **void** です。 戻り値の型 **Task&lt;TResult&gt;** は、タスク実行時の非同期メソッドの結果が `TResult` 型パラメーターと同じ型であるという点で、[**IAsyncOperation&lt;TResult&gt;** ](https://docs.microsoft.com/uwp/api/Windows.Foundation.IAsyncOperation_TResult_) に似ています。 **UWP アプリ用 .NET** とタスクの使い方について詳しくは、「[Windows ランタイム アプリ用 .NET の概要](https://docs.microsoft.com/previous-versions/windows/apps/br230302(v=vs.140))」をご覧ください。
+「[**UWP アプリの .NET**](https://dotnet.microsoft.com/apps/desktop)」で定義されている非同期メソッドの戻り値の型は [**Task クラス**](https://docs.microsoft.com/dotnet/api/system.threading.tasks.task) または [**Task<TResult> クラス** ](https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1) です。 **Task** を返すメソッドは、[**IAsyncAction インターフェイス**](https://docs.microsoft.com/uwp/api/windows.foundation.iasyncaction)を返す UWP の非同期メソッドに似ています。 どちらの場合も、非同期メソッドの結果は **void** です。 戻り値の型 **Task<TResult> クラス** は、タスク実行時の非同期メソッドの結果が `TResult` 型パラメーターと同じ型であるという点で、 [**IAsyncOperation<TResult> インターフェイス**](https://docs.microsoft.com/uwp/api/Windows.Foundation.IAsyncOperation_TResult_) と似ています。 **UWP アプリ用 .NET** とタスクの使い方について詳しくは、「[Windows ランタイム アプリ用 .NET の概要](https://docs.microsoft.com/previous-versions/windows/apps/br230302(v=vs.140))」をご覧ください。
 
 ## <a name="handling-errors"></a>エラーの処理
 
@@ -79,7 +79,7 @@ ms.locfileid: "66371541"
 
 非同期メソッドが他の非同期メソッドを呼び出している場合は、例外が発生した非同期メソッドが外側のメソッドに伝達されます。 つまり、最も外側のメソッドで **try/catch** ブロックを使うと、入れ子になっている非同期メソッドのエラーをキャッチできます。 これも、同期メソッドで例外をキャッチする方法と同様です。 ただし、**catch** ブロックで **await** を使うことはできません。
 
-**ヒント:**   以降C#Microsoft Visual Studio 2005 で使用できます**await**で、**キャッチ**ブロック。
+**ヒント**  starting 2005 C#では、 **catch**ブロックで**await**を使用できます。
 
 ## <a name="summary-and-next-steps"></a>要約と次のステップ
 

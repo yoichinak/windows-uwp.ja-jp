@@ -6,12 +6,12 @@ ms.date: 08/10/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: f46967cd26f10510e2620229fee0eec13ca7f52a
-ms.sourcegitcommit: 7bbc24d770bf23a8d7e2b234503aad743eb354f3
-ms.translationtype: MT
+ms.openlocfilehash: beb6dde4036019e004d94e5f60e8f3583c78d775
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67852056"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "72980026"
 ---
 # <a name="optimize-your-xaml-markup"></a>XAML マークアップの最適化
 
@@ -126,7 +126,7 @@ ListView とその子はメモリに読み込まれていません。
 
 レイアウト パネルには [Background](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.panel.background) プロパティが用意されているため、色を付ける目的でパネルの前面に [Rectangle](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle) を配置する必要はありません。
 
-**非効率的です**
+**非効率的**
 
 ```xaml
 <!-- NOTE: EXAMPLE OF INEFFICIENT CODE; DO NOT COPY-PASTE. -->
@@ -135,7 +135,7 @@ ListView とその子はメモリに読み込まれていません。
 </Grid>
 ```
 
-**効率的です**
+**効率的**
 
 ```xaml
 <Grid Background="Black"/>
@@ -159,7 +159,7 @@ ListView とその子はメモリに読み込まれていません。
 
 ### <a name="resourcedictionary-in-a-usercontrol"></a>UserControl 内の ResourceDictionary
 
-[UserControl](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.usercontrol) の内部に定義された ResourceDictionary にはペナルティが発生します。 プラットフォームは、UserControl のすべてのインスタンスに対して、このような ResourceDictionary のコピーを作成します。 です。 よく使用する UserControl があれば、UserControl から ResourceDictionary に移動され、ページ レベルで配置されます。
+[UserControl](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.usercontrol) の内部に定義された ResourceDictionary にはペナルティが発生します。 プラットフォームは、UserControl のすべてのインスタンスに対して、このような ResourceDictionary のコピーを作成します。 よく使われる UserControl を使っている場合、UserControl から ResourceDictionary を移動し、ページ レベルに配置します。
 
 ### <a name="resource-and-resourcedictionary-scope"></a>リソースと ResourceDictionary のスコープ
 
@@ -167,7 +167,7 @@ ListView とその子はメモリに読み込まれていません。
 
 次の例では、_InitialPage.xaml_ で _ExampleResourceDictionary.xaml_ のリソースが 1 つ使われているため、起動時に _ExampleResourceDictionary.xaml_ 全体を解析する必要があります。
 
-**InitialPage.xaml します。**
+**InitialPage.xaml**
 
 ```xaml
 <Page x:Class="ExampleNamespace.InitialPage" ...>
@@ -185,7 +185,7 @@ ListView とその子はメモリに読み込まれていません。
 </Page>
 ```
 
-**ExampleResourceDictionary.xaml します。**
+**ExampleResourceDictionary.xaml**
 
 ```xaml
 <ResourceDictionary>
@@ -212,7 +212,7 @@ ListView とその子はメモリに読み込まれていません。
 </Application>
 ```
 
-**InitialPage.xaml します。**
+**InitialPage.xaml**
 
 ```xaml
 <!-- NOTE: EXAMPLE OF INEFFICIENT CODE; DO NOT COPY-PASTE. -->
@@ -223,7 +223,7 @@ ListView とその子はメモリに読み込まれていません。
 </Page>
 ```
 
-**SecondPage.xaml します。**
+**SecondPage.xaml**
 
 ```xaml
 <!-- NOTE: EXAMPLE OF INEFFICIENT CODE; DO NOT COPY-PASTE. -->
@@ -234,13 +234,13 @@ ListView とその子はメモリに読み込まれていません。
 </Page>
 ```
 
-この例の効率を改善するには、`SecondPageTextBrush` を _SecondPage.xaml_ に移動し、`ThirdPageTextBrush` を _ThirdPage.xaml_ に移動します。 `InitialPageTextBrush` 保持できる_App.xaml_アプリケーション リソースをアプリの起動時にどのような場合に解析する必要があるためです。
+この例の効率を改善するには、`SecondPageTextBrush` を _SecondPage.xaml_ に移動し、`ThirdPageTextBrush` を _ThirdPage.xaml_ に移動します。 `InitialPageTextBrush` は、どの場合でもアプリケーション リソースをアプリの起動時に解析する必要があるため、_App.xaml_ 内に残しておくことができます。
 
 ### <a name="consolidate-multiple-brushes-that-look-the-same-into-one-resource"></a>同じように見える複数のブラシを 1 つのリソースに統合する
 
 XAML プラットフォームは、よく使われるオブジェクトをキャッシュして、何度も再利用できるようにします。 しかし、あるマークアップで宣言されているブラシが別のマークアップで宣言されているブラシと同じであるかどうかは簡単に判断できません。 ここでは、例として [SolidColorBrush](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.SolidColorBrush) を使っていますが、より多く使われる可能性があって重要なのは [GradientBrush](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.GradientBrush) です。 また、事前定義された色を使うブラシもチェックする必要があります。たとえば、`"Orange"` と `"#FFFFA500"` は同じ色です。
 
-**非効率的です。**
+**非効率的**
 
 ```xaml
 <!-- NOTE: EXAMPLE OF INEFFICIENT CODE; DO NOT COPY-PASTE. -->
@@ -250,7 +250,7 @@ XAML プラットフォームは、よく使われるオブジェクトをキャ
             <TextBlock.Foreground>
                 <SolidColorBrush Color="#FFFFA500"/>
             </TextBlock.Foreground>
-        </TextBox>
+        </TextBlock>
         <Button Content="Submit">
             <Button.Foreground>
                 <SolidColorBrush Color="#FFFFA500"/>
@@ -262,7 +262,7 @@ XAML プラットフォームは、よく使われるオブジェクトをキャ
 
 重複を除去するには、ブラシをリソースとして定義します。 他のページのコントロールで同じブラシを使う場合は、ブラシを _App.xaml_ に移動します。
 
-**効率的です。**
+**効率的**
 
 ```xaml
 <Page ... >
@@ -291,7 +291,7 @@ XAML プラットフォームは、よく使われるオブジェクトをキャ
 
 複数の要素を重ねて効果を作成する代わりに、複合要素を使います。 次の例では、結果は 2 色の図形になり、上半分は黒 ([Grid](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid) の背景)、下半分は灰色 (**Grid** の黒い背景の上にアルファ ブレンドされた半透明の白い [Rectangle](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle)) で表示されます。 この場合、結果を得るために必要なピクセルの 150% が塗りつぶされることになります。
 
-**非効率的です。**
+**非効率的**
 
 ```xaml
 <!-- NOTE: EXAMPLE OF INEFFICIENT CODE; DO NOT COPY-PASTE. -->
@@ -304,7 +304,7 @@ XAML プラットフォームは、よく使われるオブジェクトをキャ
 </Grid>
 ```
 
-**効率的です。**
+**効率的**
 
 ```xaml
 <Grid>
@@ -321,7 +321,7 @@ XAML プラットフォームは、よく使われるオブジェクトをキャ
 
 レイアウト パネルには、領域の色指定と、子要素のレイアウトの 2 つの目的があります。 z オーダーの要素の領域が既に塗られている場合は、前面のレイアウト パネルでその領域を塗りつぶす必要はありません。代わりに、パネルではその子を重点的にレイアウトします。 次に例を示します。
 
-**非効率的です。**
+**非効率的**
 
 ```xaml
 <!-- NOTE: EXAMPLE OF INEFFICIENT CODE; DO NOT COPY-PASTE. -->
@@ -334,7 +334,7 @@ XAML プラットフォームは、よく使われるオブジェクトをキャ
 </GridView>
 ```
 
-**効率的です。**
+**効率的**
 
 ```xaml
 <GridView Background="Blue">
@@ -352,7 +352,7 @@ XAML プラットフォームは、よく使われるオブジェクトをキャ
 
 オブジェクトの周りに境界線を描画するには、[Border](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.border) 要素を使います。 次の例では、[TextBox](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox) を囲む間に合わせの境界線として [Grid](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid) を使用しています。 この方法では、中央のセル内のすべてのピクセルが複数回描画されます。
 
-**非効率的です。**
+**非効率的**
 
 ```xaml
 <!-- NOTE: EXAMPLE OF INEFFICIENT CODE; DO NOT COPY-PASTE. -->
@@ -371,7 +371,7 @@ XAML プラットフォームは、よく使われるオブジェクトをキャ
 </Grid>
 ```
 
-**効率的です。**
+**効率的**
 
 ```xaml
  <Border BorderBrush="Blue" BorderThickness="5" Width="300" Height="45">
@@ -387,7 +387,7 @@ XAML プラットフォームは、よく使われるオブジェクトをキャ
 
 過剰な描画の別の原因として、多数の要素を重ね合わせて作成される図形があります。 複合図形を含む [UIElement](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement) で [CacheMode](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.CacheMode) を **BitmapCache** に設定すると、プラットフォームによって要素がいったんビットマップにレンダリングされ、何度も描画する代わりに、そのビットマップが各フレームで使われます。
 
-**非効率的です。**
+**非効率的**
 
 ```xaml
 <Canvas Background="White">
@@ -403,7 +403,7 @@ XAML プラットフォームは、よく使われるオブジェクトをキャ
 
 ![重なっている部分がわかるベン図](images/translucentvenn.png)
 
-**効率的です。**
+**効率的**
 
 ```xaml
 <Canvas Background="White" CacheMode="BitmapCache">
@@ -425,7 +425,7 @@ XBF2 があるかどうかを確認するには、バイナリ エディター�
 
 ## <a name="related-articles"></a>関連記事
 
-- [アプリの起動時のパフォーマンスのベスト プラクティス](best-practices-for-your-app-s-startup-performance.md)
+- [アプリ起動時のパフォーマンスのベスト プラクティス](best-practices-for-your-app-s-startup-performance.md)
 - [XAML レイアウトの最適化](optimize-your-xaml-layout.md)
 - [ListView と GridView の UI の最適化](optimize-gridview-and-listview.md)
-- [プロファイリングとパフォーマンスのためのツール](tools-for-profiling-and-performance.md)
+- [プロファイリングとパフォーマンスに関するツール](tools-for-profiling-and-performance.md)

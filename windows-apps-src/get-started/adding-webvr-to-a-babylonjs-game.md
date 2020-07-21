@@ -5,45 +5,38 @@ ms.date: 11/29/2017
 ms.topic: article
 keywords: WebVR、Edge、Web 開発、Babylon、Babylonjs、Babylon.js、JavaScript
 ms.localizationpriority: medium
-ms.openlocfilehash: 5f212e4e06035134b0ac5b5ea69381ed0d985783
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: ff350f8ce08f566b8c95c3c46faad330923e4b2e
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67321160"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "75685199"
 ---
 # <a name="adding-webvr-support-to-a-3d-babylonjs-game"></a>3D の Babylon.js ゲームに WebVR サポートを追加する
 
 Babylon.js を使って 3D ゲームを作成したことがあり、仮想現実 (VR) をサポートしてみたいと考えている場合には、次の簡単な手順に沿って、実現することができます。
 
-次に示すゲームに WebVR サポートを追加します。 Xbox コントローラーを接続して、試してみてください。
-
-
-<iframe height='300' scrolling='no' title='Babylon.GUI を使用した Babylon.js dino game' src='//codepen.io/MicrosoftEdgeDocumentation/embed/preview/wrOvoj/?height=300&theme-id=23761&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a> で、Microsoft Edge Docs (<a href='https://codepen.io/MicrosoftEdgeDocumentation'>@MicrosoftEdgeDocumentation</a>) による Pen (<a href='https://codepen.io/MicrosoftEdgeDocumentation/pen/wrOvoj/'>Babylon.GUI を使用した Babylon.js dino game</a>) をご覧ください。
-</iframe>
-
-これはフラット画面上では適切に動作する 3D ゲームですが、VR ではどうなるでしょうか。
-このチュートリアルでは、このゲームを WebVR で実行できるようにするための、いつくかの手順について説明します。 [Windows Mixed Reality](https://developer.microsoft.com/mixed-reality) ヘッドセットを使って、Microsoft Edge に追加された WebVR サポートを利用します。 これらの変更をゲームに適用すると、WebVR をサポートする他のブラウザー/ヘッドセットの組み合わせでも動作します。
+このチュートリアルでは、3D ゲームを WebVR で実行できるようにするための、いくつかの手順について説明します。 [Windows Mixed Reality](https://developer.microsoft.com/mixed-reality) ヘッドセットを使って、Microsoft Edge に追加された WebVR サポートを利用します。 これらの変更をゲームに適用すると、WebVR をサポートする他のブラウザー/ヘッドセットの組み合わせでも動作します。
 
 
 
-## <a name="prerequisites"></a>前提条件
+## <a name="prerequisites"></a>必要条件
 
 - テキスト エディター ([Visual Studio Code](https://code.visualstudio.com/download) など)
 - コンピューターに接続されている Xbox コントローラー
 - Windows 10 Creators Update
-- [Windows Mixed Reality を実行するための最小要件仕様](https://developer.microsoft.com/en-us/windows/mixed-reality/immersive_headset_setup)を満たすコンピューター
+- [Windows Mixed Reality を実行するための最小要件仕様](https://developer.microsoft.com/windows/mixed-reality/immersive_headset_setup)を満たすコンピューター
 - Windows Mixed Reality デバイス (オプション) 
 
 
 
-## <a name="getting-started"></a>概要
+## <a name="getting-started"></a>はじめに
 
-最も簡単に始める方法は、[Windows-tutorials-web GitHub repo](https://github.com/Microsoft/Windows-tutorials-web) に移動して、緑色の **[Clone or download]** (複製またはダウンロード) ボタンを押し、 **[Open in Visual Studio]** (Visual Studio で開く) を選択することです。
+最も簡単に始める方法としては、[Windows-tutorials-web GitHub repo](https://github.com/Microsoft/Windows-tutorials-web) に移動して、緑色の **[Clone or download]**\(クローンまたはダウンロード\) ボタンを押し、 **[Open in Visual Studio]**\(Visual Studio で開く\) を選択します。
 
-![[Clone or download] (複製またはダウンロード) ボタン](images/3dclone.png)
+![[Clone or download] (クローンまたはダウンロード) ボタン](images/3dclone.png)
 
-プロジェクトを複製しない場合は、zip ファイルとしてダウンロードすることもできます。
+プロジェクトをクローンしない場合は、zip ファイルとしてダウンロードすることもできます。
 [[Before](https://github.com/Microsoft/Windows-tutorials-web/tree/master/BabylonJS-game-with-WebVR/before)] と [[After](https://github.com/Microsoft/Windows-tutorials-web/tree/master/BabylonJS-game-with-WebVR/after)] という 2 つのフォルダーがあります。 [Before] フォルダーは VR 機能が追加される前のゲームで、[After] フォルダーは、VR サポートを追加して完成したゲームです。
 
 [Before] と [After] のフォルダーには、次のファイルが含まれています。
@@ -132,7 +125,7 @@ navigator.getVRDisplays().then(function (displays) {
 
 ## <a name="creating-and-selecting-the-initial-camera"></a>初期のカメラを作成および選択する
 
-Babylon.js では、[`WebVRFreeCamera`](https://doc.babylonjs.com/api/classes/babylon.webvrfreecamera) を使用して、WebVR をすばやく追加できます。 このカメラはキーボード入力を受け取ることができ、VR ヘッドセットを使用して、「ヘッド」の回転を制御することができます。
+Babylon.js では、[`WebVRFreeCamera`](https://doc.babylonjs.com/api/classes/babylon.webvrfreecamera) を使用して、WebVR をすばやく追加できます。 このカメラはキーボード入力を受け取ることができ、VR ヘッドセットを使用して、"ヘッド" の回転を制御することができます。
 
 
 ### <a name="step-1-checking-for-headsets"></a>手順 1: ヘッドセットを確認する
@@ -141,7 +134,7 @@ Babylon.js では、[`WebVRFreeCamera`](https://doc.babylonjs.com/api/classes/ba
 
 `headset` 変数を確認して、`WebVRFreeCamera` カメラを使用できるかどうかを判断します。
 
-次のコードで `camera = new BABYLON.UniversalCamera("Camera", new BABYLON.Vector3(0, 18, -45), scene);` を置き換えます。
+`camera = new BABYLON.UniversalCamera("Camera", new BABYLON.Vector3(0, 18, -45), scene);` を次のコードに置き換えます。
 ```javascript
         if(headset){
             // Create a WebVR camera with the trackPosition property set to false so that we can control movement with the gamepad
@@ -185,7 +178,7 @@ Babylon.js では、[`WebVRFreeCamera`](https://doc.babylonjs.com/api/classes/ba
             }
 ```
 
-### <a name="step-3-adding-gamepad-support"></a>手順 3:ゲームパッドのサポートの追加
+### <a name="step-3-adding-gamepad-support"></a>手順 3: ゲームパッドのサポートを追加する
 
 `WebVRFreeCamera` は、初期状態ではゲームパッドをサポートしないため、ゲームパッドのボタンをキーボードの方向キーにマッピングします。 カメラの `inputs` プロパティを詳細に設定することで、これを行います。 左のアナログ スティックの上、下、左、右を方向キーに対応させるコードを追加します。これでゲームパッドを使えるようになります。
 
@@ -205,10 +198,7 @@ Babylon.js では、[`WebVRFreeCamera`](https://doc.babylonjs.com/api/classes/ba
 ヘッドセットとゲーム コントローラーを接続して **index.html** を開き、青いゲーム ウィンドウで左クリックすると、ゲームが VR モードに切り替わります。 ヘッドセットを装着して、結果を確認します。 
 
 
-<iframe height='300' scrolling='no' title='Babylon.GUI を使用した Babylon.js dino game - WebVR' src='//codepen.io/MicrosoftEdgeDocumentation/embed/preview/RjgpJd/?height=300&theme-id=23761&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a> で、Microsoft Edge Docs (<a href='https://codepen.io/MicrosoftEdgeDocumentation'>@MicrosoftEdgeDocumentation</a>) による Pen (<a href='https://codepen.io/MicrosoftEdgeDocumentation/pen/RjgpJd/'>Babylon.GUI を使用した Babylon.js dino game - WebVR</a>) をご覧ください。
-</iframe>
-
 
 ## <a name="conclusion"></a>まとめ
 
-これで終了です。 WebVR サポートが追加された、完全な Babylon.js ゲームが完成しました。 学習した内容を利用して、さらにこのゲームを改良したり、変更したりできます。
+お疲れさまでした。 WebVR サポートが追加された、完全な Babylon.js ゲームが完成しました。 学習した内容を利用して、さらにこのゲームを改良したり、変更したりできます。

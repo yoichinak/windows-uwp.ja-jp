@@ -5,24 +5,24 @@ keywords: 最新情報, 更新, 機能, 開発者向けガイダンス, Windows 
 ms.date: 08/03/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 52b929f2b6f95c2be2feb68a6221a606ca3715e5
-ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
+ms.openlocfilehash: 824cdb74a809ae3f9ae2ed202a9889535021f711
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67821131"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "75684720"
 ---
 # <a name="whats-new-in-the-windows-developer-docs-in-august-2017"></a>Windows 開発者向けドキュメントの最新情報、2017 年 8 月
 
 Windows 開発者向けドキュメントは、Windows プラットフォームで開発者に提供される新機能の情報を反映して継続的に更新されています。 ここに示す機能概要、開発者向けガイダンス、ビデオは最近公開されたもので、Windows 開発者向けの新しい情報や更新情報を含んでいます。
 
-Windows 10 の[ツールと SDK をインストール](https://go.microsoft.com/fwlink/?LinkId=821431)すると、[新しいユニバーサル Windows アプリを作成](../get-started/your-first-app.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
+Windows 10 の[ツールと SDK をインストール](https://developer.microsoft.com/windows/downloads#_blank)すると、[新しいユニバーサル Windows アプリを作成](../get-started/your-first-app.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
 
 ## <a name="features"></a>機能
 
 ### <a name="windows-template-studio"></a>Windows Template Studio
 
-Visual Studio 2019 用の新しい [Windows Template Studio](https://aka.ms/wtsinstall) 拡張機能を使うと、必要なページ、フレームワーク、機能が組み込まれた UWP アプリをすばやく作成できます。 このウィザード ベースのエクスペリエンスには、実証済みのパターンとベスト プラクティスが実装されています。これにより、アプリに機能を追加するときにかかる時間を短縮し、よくある問題を避けることができます。
+Visual Studio 2019 用の新しい [Windows Template Studio](https://marketplace.visualstudio.com/items?itemName=WASTeamAccount.WindowsTemplateStudio) 拡張機能を使うと、必要なページ、フレームワーク、機能が組み込まれた UWP アプリをすばやく作成できます。 このウィザード ベースのエクスペリエンスには、実証済みのパターンとベスト プラクティスが実装されています。これにより、アプリに機能を追加するときにかかる時間を短縮し、よくある問題を避けることができます。
 
 ![Windows Template Studio](images/template-studio.png)
 
@@ -41,7 +41,7 @@ Visual Studio 2019 用の新しい [Windows Template Studio](https://aka.ms/wtsi
 [Microsoft Store 申請 API](../monetize/create-and-manage-submissions-using-windows-store-services.md) で、アプリの申請に[ビデオ トレーラー](../monetize/manage-app-submissions.md#trailer-object)や[ゲーム オプション](../monetize/manage-app-submissions.md#gaming-options-object)を含めることができるようになりました。
 
 
-## <a name="developer-guidance"></a>開発者向けガイダンス
+## <a name="developer-guidance"></a>開発者ガイド
 
 ### <a name="data-schemas-for-store-products"></a>Store 製品のデータ スキーマ
 
@@ -57,7 +57,7 @@ Windows 10 ユーザーの利便性を高める最新のエクスペリエンス
 
 ### <a name="getting-started-with-point-of-service"></a>POS (店舗販売時点管理) の概要
 
-[POS (店舗販売時点管理) サービス](https://docs.microsoft.com/en-us/windows/uwp/devices-sensors/pos-get-started)を利用する場合に役立つ新しいガイドが追加されました。 このガイドでは、デバイスの列挙、デバイス機能の確認、デバイスの要求、デバイスの共有といったトピックについて説明します。 
+[POS (店舗販売時点管理) サービス](https://docs.microsoft.com/windows/uwp/devices-sensors/pos-get-started)を利用する場合に役立つ新しいガイドが追加されました。 このガイドでは、デバイスの列挙、デバイス機能の確認、デバイスの要求、デバイスの共有といったトピックについて説明します。 
 
 ### <a name="xbox-live"></a>Xbox Live
 
@@ -73,7 +73,7 @@ Xbox Live 開発者向けに提供されているプログラムと機能につ�
 
 ### <a name="mixed-reality"></a>Mixed Reality
 
-[Microsoft HoloLens Course 250](https://developer.microsoft.com/en-us/windows/mixed-reality/mixed_reality_250) 向けに一連のチュートリアル ビデオが公開されました。 既にツールをインストールしていて、Mixed Reality の開発の基本を理解している場合は、これらのビデオ コースをチェックして、Mixed Reality デバイス間で共通のエクスペリエンスを作成する方法をご覧ください。
+[Microsoft HoloLens Course 250](https://developer.microsoft.com/windows/mixed-reality/mixed_reality_250) 向けに一連のチュートリアル ビデオが公開されました。 既にツールをインストールしていて、Mixed Reality の開発の基本を理解している場合は、これらのビデオ コースをチェックして、Mixed Reality デバイス間で共通のエクスペリエンスを作成する方法をご覧ください。
 
 ### <a name="narrator-and-dev-mode"></a>ナレーターと開発者モード
 
@@ -81,4 +81,4 @@ Xbox Live 開発者向けに提供されているプログラムと機能につ�
 
 ### <a name="windows-template-studio"></a>Windows Template Studio
 
-[このビデオ](https://channel9.msdn.com/Blogs/One-Dev-Minute/Getting-Started-with-Windows-Template-Studio)では、Windows Template Studio の概要について詳しく紹介しています。 準備ができたら、[拡張機能をインストール](https://aka.ms/wtsinstall)することも、[ソース コードとドキュメントを確認](https://aka.ms/wtsinstall)することもできます。
+[このビデオ](https://channel9.msdn.com/Blogs/One-Dev-Minute/Getting-Started-with-Windows-Template-Studio)では、Windows Template Studio の概要について詳しく紹介しています。 準備ができたら、[拡張機能をインストール](https://marketplace.visualstudio.com/items?itemName=WASTeamAccount.WindowsTemplateStudio)することも、[ソース コードとドキュメントを確認](https://marketplace.visualstudio.com/items?itemName=WASTeamAccount.WindowsTemplateStudio)することもできます。

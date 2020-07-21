@@ -1,5 +1,5 @@
 ---
-Description: シミュレートし、キーボード、マウス、タッチ、ペン、および UWP アプリでのゲーム パッドなどのデバイスからの入力を自動化します。
+Description: Windows アプリのキーボード、マウス、タッチ、ペン、ゲームパッドなどのデバイスからの入力をシミュレートし、自動化します。
 title: 入力の挿入によるユーザー入力のシミュレート
 label: Input injection
 template: detail.hbs
@@ -7,28 +7,28 @@ keywords: デバイス, デジタイザー, 入力, 操作, 挿入
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 2ff3150d4c1ed713451669b8918906141daa9659
-ms.sourcegitcommit: 09edf480f2224e29e190fad8518f680c16e21c6d
+ms.openlocfilehash: 7bcd63d940e53d90d925f83f27e4c77165a11650
+ms.sourcegitcommit: 124cea09be7f12444bfff541badb65d539d55c83
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65065242"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84124120"
 ---
 # <a name="simulate-user-input-through-input-injection"></a>入力の挿入によるユーザー入力のシミュレート
 
-UWP アプリケーションで、キーボード、マウス、タッチ、ペン、ゲームパッドなどのデバイスからユーザー入力をシミュレートし、自動化します。
+Windows アプリケーションのキーボード、マウス、タッチ、ペン、ゲームパッドなどのデバイスからのユーザー入力をシミュレートし、自動化します。
 
-> **重要な API**:[**Windows.UI.Input.Preview.Injection**](https://docs.microsoft.com/uwp/api/windows.ui.input.preview.injection)
+> **Important APIs**: [**Windows.UI.Input.Preview.Injection**](https://docs.microsoft.com/uwp/api/windows.ui.input.preview.injection)
 
 ## <a name="overview"></a>概要
 
-入力の挿入により、UWP アプリケーションは、さまざまな入力デバイスからの入力をシミュレートし、アプリのクライアント領域の外部など任意の場所にその入力を送信します (レジストリ エディターなど、管理者特権で実行されているアプリにも送信されます)。
+入力インジェクションを使用すると、Windows アプリケーションでさまざまな入力デバイスからの入力をシミュレートし、アプリのクライアント領域の外側 (レジストリエディターなどの管理者特権で実行されているアプリでも) に入力を送ることができます。
 
-入力の挿入は、アクセシビリティ、テスト (アドホック、自動)、リモート アクセスおよびサポート機能を含む機能を提供する必要のあるツールや UWP アプリに有用です。
+入力インジェクションは、ユーザー補助、テスト (アドホック、自動化)、およびリモートアクセスとサポート機能を含む機能を提供する必要がある Windows アプリおよびツールに役立ちます。
 
 ## <a name="setup"></a>セットアップ
 
-UWP アプリで入力の挿入 API を使用するには、次のコードをアプリ マニフェストに追加する必要があります。
+Windows アプリで入力インジェクション Api を使用するには、アプリケーションマニフェストに次の内容を追加する必要があります。
 
 1. **[Package.appxmanifest]** ファイルを右クリックして **[コードの表示]** を選択します。
 1. 次を `Package` ノードに挿入します。
@@ -41,17 +41,17 @@ UWP アプリで入力の挿入 API を使用するには、次のコードを�
 
 | ![タッチ入力の挿入のサンプル](images/injection/touch-input-injection.gif) | 
 |:--:|
-| *タッチ入力インジェクション サンプル* |
+| *タッチ入力の挿入のサンプル* |
 
 この例では、入力の挿入の API ([Windows.UI.Input.Preview.Injection](https://docs.microsoft.com/uwp/api/windows.ui.input.preview.injection)) を使用してアプリの 1 つの領域でマウス入力のイベントをリッスンし、別の領域で対応するタッチ入力のイベントをシミュレートする方法を示します。
 
-**このサンプルをからダウンロード[インジェクション サンプルの入力 (タッチをマウスの場合)](https://github.com/MicrosoftDocs/windows-topic-specific-samples/archive/uwp-input-injection-mouse-to-touch.zip)**
+**このサンプルを[入力挿入サンプルからダウンロードする (マウスポインター)](https://github.com/MicrosoftDocs/windows-topic-specific-samples/archive/uwp-input-injection-mouse-to-touch.zip)**
 
 1. まず、UI を設定します (MainPage.xaml)。
 
     2 つのグリッド領域 (マウス入力用に 1 つとタッチ入力用に 1 つ) があり、それぞれ 4 つのボタンがあります。
       > [!NOTE] 
-      > グリッドの背景色に値を代入する必要があります (`Transparent`、この場合)、それ以外の場合、ポインター イベントは検出されません。
+      > グリッドの背景に値 (この場合は) が割り当てられている必要があり `Transparent` ます。それ以外の場合、ポインターイベントは検出されません。
 
     入力領域でマウスのクリックが検出されると、対応するタッチ イベントが入力の挿入領域に挿入されます。 挿入の入力からのボタンのクリックはタイトル領域で報告されます。
 
@@ -365,4 +365,4 @@ UWP アプリで入力の挿入 API を使用するには、次のコードを�
 
 ### <a name="topic-samples"></a>トピックのサンプル
 
-- [入力のインジェクション サンプル (タッチをマウスの場合)](https://github.com/MicrosoftDocs/windows-topic-specific-samples/archive/uwp-input-injection-mouse-to-touch.zip)
+- [入力の挿入のサンプル (マウスからタッチ)](https://github.com/MicrosoftDocs/windows-topic-specific-samples/archive/uwp-input-injection-mouse-to-touch.zip)

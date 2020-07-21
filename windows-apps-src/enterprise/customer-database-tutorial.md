@@ -1,76 +1,76 @@
 ---
 title: 顧客データベース アプリケーションの作成
-description: 顧客のデータベース アプリケーションを作成し、基本的なエンタープライズ アプリの機能を実装する方法について説明します。
-keywords: enterprise、チュートリアル、顧客データを読み取り、更新の削除、REST、認証を作成します。
+description: 顧客データベースアプリケーションを作成し、基本的なエンタープライズアプリ機能を実装する方法について説明します。
+keywords: enterprise、チュートリアル、顧客、データ、読み取り更新の削除、REST、認証の作成
 ms.date: 05/07/2018
 ms.topic: article
 ms.localizationpriority: med
-ms.openlocfilehash: 7bd3a180762c3ef06d7c24ae001fb2c7fb7fc55e
-ms.sourcegitcommit: 6df46d7d5b5522805eab11a9c0e07754f28673c6
+ms.openlocfilehash: b8cf0554464b56337e3d57b58db543092682ffa3
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58808300"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74258618"
 ---
-# <a name="tutorial-create-a-customer-database-application"></a>チュートリアル:顧客データベース アプリケーションの作成
+# <a name="tutorial-create-a-customer-database-application"></a>チュートリアル: 顧客データベース アプリケーションの作成
 
-このチュートリアルでは、顧客の一覧を管理するための簡単なアプリを作成します。 これを行うには、UWP でエンタープライズ アプリケーションの基本的な概念の選択範囲が導入されています。 次の方法について説明します。
+このチュートリアルでは、顧客の一覧を管理するための簡単なアプリを作成します。 これにより、UWP におけるエンタープライズアプリの基本的な概念を選択できます。 次の方法について説明します。
 
-* 作成、読み取り、更新プログラムを実装し、ローカルの SQL データベースに対する操作を削除します。
-* 表示し、編集、UI 内の顧客データへのデータ グリッドを追加します。
-* 基本的なフォーム レイアウトで UI 要素を配置します。
+* ローカルの SQL データベースに対して、作成、読み取り、更新、削除の各操作を実装します。
+* データグリッドを追加して、UI で顧客データを表示および編集します。
+* 基本的なフォームレイアウトで UI 要素を整列します。
 
-このチュートリアルの開始点は、最小限の UI との簡略化バージョンに基づく機能によるシングル ページ アプリ、[顧客注文データベース サンプル アプリ](https://github.com/Microsoft/Windows-appsample-customers-orders-database)します。 記述されてC#XAML、およびこれら両方の言語の基礎知識が得られたらを想定しているとします。
+このチュートリアルの開始点は、[顧客注文データベースサンプルアプリ](https://github.com/Microsoft/Windows-appsample-customers-orders-database)の簡略化されたバージョンに基づく、最小限の UI と機能を備えたシングルページアプリです。 これはと XAML C#で記述されており、これらの言語について基本的な知識を持っていることを期待しています。
 
-![作業用アプリのメイン ページ](images/customer-database-tutorial/customer-list.png)
+![作業中のアプリのメインページ](images/customer-database-tutorial/customer-list.png)
 
 ### <a name="prerequisites"></a>前提条件
 
-* [Visual Studio と Windows 10 SDK の最新バージョンであることを確認します。](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
-* [複製するか、顧客データベース チュートリアルのサンプルをダウンロード](https://aka.ms/customer-database-tutorial)
+* [最新バージョンの Visual Studio と Windows 10 SDK があることを確認します。](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
+* [顧客データベースのチュートリアルサンプルを複製またはダウンロードする](https://github.com/microsoft/windows-tutorials-customer-database)
 
-開き、プロジェクトを編集するには複製/をダウンロードしたら、リポジトリ、 **CustomerDatabaseTutorial.sln** Visual Studio を使用します。
+リポジトリを複製またはダウンロードした後、Visual Studio で**CustomerDatabaseTutorial**を開いてプロジェクトを編集できます。
 
 > [!NOTE]
-> チェック アウト、[完全な顧客注文データベース サンプル](https://github.com/Microsoft/Windows-appsample-customers-orders-database)に、このチュートリアルに基づいていますが、アプリを参照してください。
+> このチュートリアルの基になっているアプリを確認するには、 [Customer Orders データベースの完全なサンプル](https://github.com/Microsoft/Windows-appsample-customers-orders-database)を参照してください。
 
-## <a name="part-1-code-of-interest"></a>作業 1:目的のコード
+## <a name="part-1-code-of-interest"></a>パート 1: 関心のあるコード
 
-アプリを開いた後すぐに実行する場合、空の画面の上部にある、いくつかのボタンが表示されます。 表示はされませんが、アプリが既にいくつかのテスト ユーザーのプロビジョニングされたローカルの SQLite データベースに含まれます。 ここは、顧客を表示する UI コントロールを実装することで開始し、データベースに対する処理の追加に移ります。 開始する前にする操作をここでは。
+アプリを開いた直後に実行すると、空の画面の上部にいくつかのボタンが表示されます。 お客様には見えませんが、アプリには、いくつかのテスト顧客によってプロビジョニングされたローカルの SQLite データベースが既に含まれています。 ここから、まず、顧客を表示するための UI コントロールを実装し、次にデータベースに対する [操作の追加] に移動します。 作業を開始する前に、ここで作業を行います。
 
 ### <a name="views"></a>ビュー
 
-**CustomerListPage.xaml**はアプリのビューは、このチュートリアルでは、1 つのページの UI を定義します。 いつでも追加または UI では、視覚的要素を変更する必要があることを行いこのファイル。 このチュートリアルではこれらの要素を追加します。
+**顧客 listpage .xaml**はアプリのビューで、このチュートリアルの単一ページの UI を定義します。 UI でビジュアル要素を追加または変更する必要がある場合はいつでも、このファイルを使用します。 このチュートリアルでは、次の要素を追加する手順について説明します。
 
-* A **RadDataGrid**を表示すると、顧客を編集します。 
-* A **StackPanel**新しい顧客の初期値を設定します。
+* 顧客を表示および編集するための**レーダーデータグリッド**。 
+* 新しい顧客の初期値を設定する**StackPanel** 。
 
 ### <a name="viewmodels"></a>ViewModels
 
-**ViewModels\CustomerListPageViewModel.cs**はアプリケーションの基本的なロジックが存在します。 ビューで実行されるすべてのユーザー アクションは、このファイルを処理するために渡されます。 このチュートリアルで、新しいコードを追加し、次のメソッドの実装します。
+**Viewmodel\ 顧客の listpageviewmodel, cs**は、アプリの基本的なロジックが配置されている場所です。 ビューで実行されるすべてのユーザー操作は、処理のためにこのファイルに渡されます。 このチュートリアルでは、新しいコードをいくつか追加し、次のメソッドを実装します。
 
-* **CreateNewCustomerAsync**、新しい CustomerViewModel オブジェクトを初期化します。
-* **DeleteNewCustomerAsync**UI に表示される前に新しい顧客を削除します。
-* **DeleteAndUpdateAsync**delete ボタンのロジックを処理します。
-* **GetCustomerListAsync**、データベースから顧客の一覧を取得します。
-* **SaveInitialChangesAsync**データベースに新しい顧客の情報を追加します。
-* **UpdateCustomersAsync**、すべての顧客を追加または削除を反映するように UI が更新されます。
+* **CreateNewCustomerAsync**。新しい顧客ビューモデルオブジェクトを初期化します。
+* **Deleは**、UI に表示される前に新しい顧客を削除します。
+* **DeleteAndUpdateAsync**。削除ボタンのロジックを処理します。
+* **Getcustomers Listasync**。データベースから顧客のリストを取得します。
+* **Saveinitialchangesasync**は、新しい顧客の情報をデータベースに追加します。
+* **UpdateCustomersAsync**は、追加または削除された顧客を反映するように UI を更新します。
 
-**CustomerViewModel**が最近変更されたがかどうかを追跡する顧客の情報用のラッパーです。 このクラスには何も追加する必要はありませんが、別の場所を追加するコードの一部は参照します。
+顧客**ビューモデル**は、顧客の情報のラッパーであり、最近変更されたかどうかを追跡します。 このクラスに何も追加する必要はありませんが、他の場所に追加するコードの一部は参照できます。
 
-サンプルの構築方法の詳細については、のチェック アウト、[アプリ構造の概要](../enterprise/customer-database-app-structure.md)します。
+サンプルの構築方法の詳細については、「[アプリの構造の概要」](../enterprise/customer-database-app-structure.md)を参照してください。
 
-## <a name="part-2-add-the-datagrid"></a>パート 2:DataGrid を追加します。
+## <a name="part-2-add-the-datagrid"></a>パート 2: DataGrid の追加
 
-顧客データを操作を開始する前に、これらの顧客を表示する UI コントロールを追加する必要があります。 事前に作成されたサード パーティには、使用する**RadDataGrid**コントロール。 **Telerik.UI.for.UniversalWindowsPlatform** NuGet パッケージは、このプロジェクトに既に含まれています。 グリッドをプロジェクトに追加してみましょう。
+顧客データの操作を開始する前に、それらの顧客を表示するための UI コントロールを追加する必要があります。 これを行うには、事前に作成されたサードパーティの**レーダー**コントロールを使用します。 **Telerik Microsoft.netcore.universalwindowsplatform** NuGet パッケージは、このプロジェクトに既に含まれています。 プロジェクトにグリッドを追加してみましょう。
 
-1. 開いている**Views\CustomerListPage.xaml**ソリューション エクスプ ローラーから。 内のコードの次の行を追加、**ページ**データ グリッドを含む Telerik 名前空間へのマッピングを宣言するタグ。
+1. ソリューションエクスプローラーから**Views\CustomerListPage.xaml**を開きます。 **ページ**タグ内に次のコード行を追加して、データグリッドを含む Telerik 名前空間へのマッピングを宣言します。
 
     ```xaml
         xmlns:telerikGrid="using:Telerik.UI.Xaml.Controls.Grid"
     ```
 
-2. 以下、 **CommandBar**メイン内**RelativePanel** 、ビューの追加、 **RadDataGrid**いくつかの基本的な構成オプションを使用して、コントロール。
+2. ビューのメイン**RelativePanel**内の**CommandBar**の下に、いくつかの基本的な構成オプションを使用して、**レーダー datagrid**コントロールを追加します。
 
     ```xaml
     <Grid
@@ -96,21 +96,21 @@ ms.locfileid: "58808300"
     </Grid>
     ```
 
-3. データ グリッドを追加しましたが、データを表示する必要があります。 これには、次のコード行を追加します。
+3. データグリッドを追加しましたが、表示するデータが必要です。 次のコード行を追加します。
 
     ```xaml
     ItemsSource="{x:Bind ViewModel.Customers}"
     UserEditMode="Inline"
     ```
-    表示するにはデータのソースを定義するところ**RadDataGrid**の UI ロジックのほとんどを処理します。 ただし、プロジェクトを実行する場合もが表示されなくなりますデータ表示します。 ViewModel がまだロードされていないためにです。
+    これで、表示するデータのソースが定義されました。次は、UI のロジックの大部分を**ユーザーが処理**します。 ただし、プロジェクトを実行しても、表示されるデータは表示されません。 これは、ビューモデルでまだ読み込まれていないためです。
 
-![空のアプリで顧客がありません。](images/customer-database-tutorial/blank-customer-list.png)
+![空のアプリ (顧客なし)](images/customer-database-tutorial/blank-customer-list.png)
 
-## <a name="part-3-read-customers"></a>パート 3:顧客を読み取り
+## <a name="part-3-read-customers"></a>パート 3: 顧客の読み取り
 
-初期化されると、 **ViewModels\CustomerListPageViewModel.cs**呼び出し、 **GetCustomerListAsync**メソッド。 チュートリアルでは、SQLite からテストの顧客データを取得するメソッドの必要があるデータベースが含まれます。
+初期化が開始されると、 **Viewmodel\ 顧客の Listpageviewmodel.cs**が**getasync listasync**メソッドを呼び出します。 この方法では、チュートリアルに含まれている SQLite データベースからテスト顧客データを取得する必要があります。
 
-1. **ViewModels\CustomerListPageViewModel.cs**、更新、 **GetCustomerListAsync**メソッドをこのコード。
+1. **Viewmodelget-help**で、次のコードを使用して**Get顧客 listasync**メソッドを更新します。
 
     ```csharp
     public async Task GetCustomerListAsync()
@@ -130,23 +130,23 @@ ms.locfileid: "58808300"
         });
     }
     ```
-    **GetCustomerListAsync**ビューモデルが読み込まれますが、この手順では、前に何も出力しないメソッドが呼び出されます。 ここへの呼び出しが追加されました、 **GetAsync**メソッド**リポジトリ/SqlCustomerRepository**します。 これによって、Customer オブジェクトの列挙可能なコレクションを取得するリポジトリにお問い合わせください。 解析の個々 のオブジェクトの内部に追加する前に**ObservableCollection**表示および編集できるようにします。
+    **Get顧客 Listasync**メソッドは、ビューモデルが読み込まれるときに呼び出されますが、この手順の前には何も実行しませんでした。 ここでは、**リポジトリ/SqlGetAsync リポジトリ**にメソッドの呼び出しを追加しました。 これにより、リポジトリに接続して、顧客オブジェクトの列挙可能なコレクションを取得できます。 次に、それらを個々のオブジェクトに解析してから、それらを内部**system.collections.objectmodel.observablecollection**に追加してから、表示および編集できるようにします。
 
-2. -アプリの実行の顧客のリストを表示するデータ グリッドを今すぐ表示されます。
+2. アプリを実行する-顧客の一覧を表示するデータグリッドが表示されるようになります。
 
-![最初に顧客のリスト](images/customer-database-tutorial/initial-customers.png)
+![最初の顧客一覧](images/customer-database-tutorial/initial-customers.png)
 
-## <a name="part-4-edit-customers"></a>パート 4:顧客を編集します。
+## <a name="part-4-edit-customers"></a>パート 4: 顧客を編集する
 
-ダブルクリックして、データ グリッド内のエントリを編集することができますが、UI に加えた変更はすべてが分離コード内の顧客のコレクションにも行われることを確認する必要があります。 つまり、双方向データ バインディングを実装する必要があります。 この詳細についてを実行する場合に、チェック アウト、[データ バインディングの概要](../get-started/display-customers-in-list-learning-track.md)します。
+データグリッド内のエントリをダブルクリックすることで編集できますが、UI で行った変更は、分離コードで顧客のコレクションにも加えられていることを確認する必要があります。 これは、双方向のデータバインディングを実装する必要があることを意味します。 詳細については、「[データバインディングの概要」を](../get-started/display-customers-in-list-learning-track.md)参照してください。
 
-1. 最初に、宣言する**ViewModels\CustomerListPageViewModel.cs**実装、 **INotifyPropertyChanged**インターフェイス。
+1. まず、 **ViewmodelINotifyPropertyChanged**インターフェイスを実装することを宣言します。
 
     ```csharp
     public class CustomerListPageViewModel : INotifyPropertyChanged
     ```
 
-2. 次に、クラスのメイン本体では、次のイベントとメソッドを追加します。
+2. 次に、クラスの本体内で、次のイベントとメソッドを追加します。
 
     ```csharp
     public event PropertyChangedEventHandler PropertyChanged;
@@ -155,9 +155,9 @@ ms.locfileid: "58808300"
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     ```
 
-    **OnPropertyChanged**メソッドを簡単に発生させる、setter、 **PropertyChanged**双方向データ バインドに必要なは、そのイベント。
+    **OnPropertyChanged**メソッドを使用すると、setter は、双方向のデータバインディングに必要な**PropertyChanged**イベントを簡単に生成できます。
 
-3. 更新の set アクセス操作子**SelectedCustomer**のこの関数の呼び出しで。
+3. 次の関数呼び出しを使用して、 **Selectedcustomer**の setter を更新します。
 
     ```csharp
     public CustomerViewModel SelectedCustomer
@@ -174,23 +174,23 @@ ms.locfileid: "58808300"
     }
     ```
 
-4. **Views\CustomerListPage.xaml**、追加、 **SelectedCustomer**プロパティをデータ グリッドに表示します。
+4. **Views\CustomerListPage.xaml**で、 **selectedcustomer**プロパティをデータグリッドに追加します。
 
     ```xaml
     SelectedItem="{x:Bind ViewModel.SelectedCustomer, Mode=TwoWay}"
     ```
 
-    これにより、データ グリッドで、ユーザーの選択が分離コード内の対応する顧客オブジェクトに関連付けられます。 TwoWay バインド モードには、そのオブジェクトに反映されるまで、UI で行われた変更ができます。
+    これにより、データグリッド内のユーザーの選択が、分離コード内の対応する Customer オブジェクトに関連付けられます。 TwoWay binding モードでは、UI に加えられた変更をそのオブジェクトに反映させることができます。
 
-5. アプリを実行します。 お客様は、グリッドに表示され、UI を基になるデータに変更を加えることができますようになりました。
+5. アプリを実行します。 グリッドに表示されている顧客を確認し、UI を通じて基になるデータに変更を加えることができます。
 
-![データ グリッド内の顧客の編集](images/customer-database-tutorial/edit-customer-inline.png)
+![データグリッドで顧客を編集する](images/customer-database-tutorial/edit-customer-inline.png)
 
-## <a name="part-5-update-customers"></a>パート 5:お客様を更新します。
+## <a name="part-5-update-customers"></a>パート 5: 顧客を更新する
 
-これで、表示して、顧客を編集できるは、データベースに変更をプッシュし、他のユーザーによって行われたすべての更新プログラムを取得できる必要があります。
+顧客を表示して編集できるようになったので、変更をデータベースにプッシュし、他のユーザーが行った更新をプルできるようにする必要があります。
 
-1. 戻り**ViewModels\CustomerListPageViewModel.cs**に移動し、 **UpdateCustomersAsync**メソッド。 このコードは、データベースに変更をプッシュして、新しい情報を取得すると、更新します。
+1. **ViewmodelUpdateCustomersAsync**に戻り、[] メソッドに移動します (& a) 。 変更をデータベースにプッシュし、新しい情報を取得するには、次のコードで更新します。
 
     ```csharp
     public async Task UpdateCustomersAsync()
@@ -203,15 +203,15 @@ ms.locfileid: "58808300"
         await GetCustomerListAsync();
     }
     ```
-    このコードを利用、 **IsModified**プロパティの**ViewModels\CustomerViewModel.cs**顧客が変更されるたびに自動的に更新されます。 これにより、のみ更新された顧客からデータベースに変更をプッシュして、不要な呼び出しを回避することができます。
+    このコードでは、ユーザーが変更されるたびに自動的に更新される**viewmodel\** の**ismodified**プロパティを使用します。 これにより、不要な呼び出しを回避して、更新された顧客からの変更のみをデータベースにプッシュすることができます。
 
-## <a name="part-6-create-a-new-customer"></a>パート 6:新しい顧客を作成します。
+## <a name="part-6-create-a-new-customer"></a>パート 6: 新しい顧客を作成する
 
-新しい顧客を追加するように、UI にそのプロパティの値を指定する前に追加する場合、空白行として、顧客が表示されます、課題を表示します。 問題ないが、ここで私たちを容易に顧客の初期値を設定します。 このチュートリアルで、単純な折りたたみ可能なパネルを追加しますが、詳細については、追加した場合、この目的のため、別のページを作成できます。
+新しい顧客を追加すると、そのプロパティの値を指定する前に、ユーザーが UI に追加された場合に空白行として表示されるため、問題が生じます。 これは問題ではありませんが、ここでは顧客の初期値を簡単に設定できるようにします。 このチュートリアルでは、簡単に折りたたみ可能なパネルを追加しますが、追加する情報が多い場合は、この目的のために別のページを作成することもできます。
 
-### <a name="update-the-code-behind"></a>分離コードを更新します。
+### <a name="update-the-code-behind"></a>分離コードを更新する
 
-1. 新しいプライベート フィールドとパブリック プロパティを追加**ViewModels\CustomerListPageViewModel.cs**します。 パネルが表示されるかどうかを制御するために使用されます。
+1. 新しいプライベートフィールドとパブリックプロパティを**Viewmodel\ 顧客の Listpageviewmodel.cs**に追加します。 これは、パネルを表示するかどうかを制御するために使用されます。
 
     ```csharp
     private bool _addingNewCustomer = false;
@@ -230,14 +230,14 @@ ms.locfileid: "58808300"
     }
     ```
 
-2. 値の逆元、ViewModel に新しいパブリック プロパティを追加**AddingNewCustomer**します。 パネルが表示されたら、通常コマンド バーのボタンを無効にするために使用されます。
+2. 新しいパブリックプロパティをビューモデルに**追加します。この**値は、[追加] の値の逆になります。 これは、パネルが表示されているときに通常のコマンドバーボタンを無効にするために使用されます。
 
     ```csharp
     public bool EnableCommandBar => !AddingNewCustomer;
     ```
-    折りたたみ可能なパネルを表示し、そこを編集する顧客を作成する方法を今すぐ必要があります。 
+    ここでは、折りたたみ可能なパネルを表示し、その中で編集する顧客を作成する方法が必要になります。 
 
-3. 新しく作成された顧客を保持するために、ViewModel に新しいプライベート フィーンドおよびパブリック プロパティを追加します。
+3. 新しく作成された顧客を保持するために、新しいプライベート fiend とパブリックプロパティをビューモデルに追加します。
 
     ```csharp
     private CustomerViewModel _newCustomer;
@@ -256,7 +256,7 @@ ms.locfileid: "58808300"
     }
     ```
 
-2.  更新プログラム、 **CreateNewCustomerAsync**メソッドを新しい顧客を作成、リポジトリに追加され、選択した顧客として設定します。
+2.  **CreateNewCustomerAsync**メソッドを更新して新しい顧客を作成し、それをリポジトリに追加して、選択した顧客として設定します。
 
     ```csharp
     public async Task CreateNewCustomerAsync()
@@ -268,7 +268,7 @@ ms.locfileid: "58808300"
     }
     ```
 
-3. 更新、 **SaveInitialChangesAsync**リポジトリに新しく作成された顧客を追加するメソッド、UI を更新し、パネルを閉じます。
+3. **Saveinitial変更 async**メソッドを更新して、新しく作成した顧客をリポジトリに追加し、UI を更新して、パネルを閉じます。
 
     ```csharp
     public async Task SaveInitialChangesAsync()
@@ -278,17 +278,17 @@ ms.locfileid: "58808300"
         AddingNewCustomer = false;
     }
     ```
-4. Setter の最後の行として次のコード行を追加**AddingNewCustomer**:
+4. 次のコード行を、add **Newcustomer**の set アクセス操作子の最後の行として追加します。
 
     ```csharp
     OnPropertyChanged(nameof(EnableCommandBar));
     ```
 
-    これにより**EnableCommandBar**が自動的に更新されるたびに**AddingNewCustomer**が変更されました。
+    これにより、 **EnableCommandBar**が**変更されるたびに**、自動的に更新されるようになります。
 
-### <a name="update-the-ui"></a>UI を更新します。
+### <a name="update-the-ui"></a>UI を更新する
 
-1. 戻る**Views\CustomerListPage.xaml**、追加、 **StackPanel**との間で次のプロパティ、 **CommandBar**と、データ グリッド。
+1. **Views\CustomerListPage.xaml**に戻り、 **CommandBar**とデータグリッドの間に次のプロパティを持つ**StackPanel**を追加します。
 
     ```xaml
     <StackPanel
@@ -298,15 +298,15 @@ ms.locfileid: "58808300"
         RelativePanel.Below="mainCommandBar">
     </StackPanel>
     ```
-    **X: 負荷**属性により、新しい顧客を追加するときに、このパネルをのみ表示されるようになります。
+    **X:Load**属性を使用すると、新しい顧客を追加するときにのみこのパネルが表示されるようになります。
 
-2. 新しいパネルが表示されたら、下へ移動することを確認して、データ グリッドの位置には、次の変更を加えます。
+2. データグリッドの位置を次のように変更して、新しいパネルが表示されたときに移動するようにします。
 
     ```xaml
     RelativePanel.Below="newCustomerPanel"
     ```
 
-3. 4 つで、スタック パネルを更新**TextBox**コントロール。 新規の顧客の個々 のプロパティにバインドし、データ グリッドに追加する前に、その値を編集することがあります。
+3. 4つの**テキストボックス**コントロールを使用して、スタックパネルを更新します。 新しい顧客の個々のプロパティにバインドし、データグリッドに追加する前にその値を編集できるようにします。
 
     ```xaml
     <StackPanel
@@ -341,7 +341,7 @@ ms.locfileid: "58808300"
     </StackPanel>
     ```
 
-4. 新しいスタック パネルが新たに作成された顧客を保存するには、単純なボタンを追加します。
+4. 新しいスタックパネルに単純なボタンを追加して、新しく作成した顧客を保存します。
 
     ```xaml
     <StackPanel>
@@ -353,7 +353,7 @@ ms.locfileid: "58808300"
     </StackPanel>
     ```
 
-5. 更新、 **CommandBar**ので、スタック パネルが表示される場合、正規表現の作成、削除、および更新 ボタンが無効にします。
+5. **コマンドバー**を更新すると、[スタック] パネルが表示されているときに、[作成]、[削除]、および [更新] の通常のボタンが無効になります。
 
     ```xaml
     <CommandBar
@@ -365,15 +365,15 @@ ms.locfileid: "58808300"
     </CommandBar>
     ```
 
-6. アプリを実行します。 顧客を作成し、スタック パネル内のデータを入力できます。
+6. アプリを実行します。 これで、顧客を作成し、そのデータを [スタック] パネルに入力できるようになりました。
 
-![新しい顧客を作成します。](images/customer-database-tutorial/add-new-customer.png)
+![新しい顧客を作成する](images/customer-database-tutorial/add-new-customer.png)
 
-## <a name="part-7-delete-a-customer"></a>パート 7:顧客を削除します。
+## <a name="part-7-delete-a-customer"></a>パート 7: 顧客を削除する
 
-実装する必要がある最後の基本的な操作は、顧客を削除しています。 データ グリッド内で選択した顧客を削除するときに、すぐに呼び出したい**UpdateCustomersAsync** UI を更新するためにします。 ただし、先ほど作成した顧客を削除する場合は、そのメソッドを呼び出す必要はありません。
+顧客の削除は、実装する必要のある最終的な基本操作です。 データグリッド内で選択した顧客を削除する場合は、UI を更新するために**UpdateCustomersAsync**をすぐに呼び出す必要があります。 ただし、先ほど作成した顧客を削除する場合は、そのメソッドを呼び出す必要はありません。
 
-1. 移動します**ViewModels\CustomerListPageViewModel.cs**、し、更新、 **DeleteAndUpdateAsync**メソッド。
+1. **ViewmodelDeleteAndUpdateAsync**に移動し、次のようにして、メソッドを更新します。
 
     ```csharp
     public async void DeleteAndUpdateAsync()
@@ -386,7 +386,7 @@ ms.locfileid: "58808300"
     }
     ```
 
-2. **Views\CustomerListPage.xaml**、2 番目のボタンが含まれるように、新しい顧客を追加するため、スタック パネルを更新します。
+2. **Views\CustomerListPage.xaml**で、2番目のボタンが表示されるように、新しい顧客を追加するためにスタックパネルを更新します。
 
     ```xaml
     <StackPanel>
@@ -402,7 +402,7 @@ ms.locfileid: "58808300"
     </StackPanel>
     ```
 
-3. **ViewModels\CustomerListPageViewModel.cs**、更新、 **DeleteNewCustomerAsync**メソッドは、新しい顧客を削除します。
+3. 次のように、 **Viewmodelewcustomer listpageviewmodel, cs**で、新しい顧客を削除するように**deleを**更新します。
 
     ```csharp
     public async Task DeleteNewCustomerAsync()
@@ -415,50 +415,50 @@ ms.locfileid: "58808300"
     }
     ```
 
-4. アプリを実行します。 これで、スタック パネル内またはデータ グリッド内の顧客を削除することができます。
+4. アプリを実行します。 データグリッドまたはスタックパネル内の顧客を削除できるようになりました。
 
-![新しい顧客を削除します。](images/customer-database-tutorial/delete-new-customer.png)
+![新しい顧客を削除する](images/customer-database-tutorial/delete-new-customer.png)
 
 ## <a name="conclusion"></a>まとめ
 
-これで終了です。 アプリではすべてこれを行う、ローカルのデータベース操作の完全なようになりましたが。 作成、読み取り、更新、および、UI 内の顧客を削除し、これらの変更は、データベースに保存され、アプリのさまざまな起動の間で保持されます。
+これで終了です。 すべての処理が完了すると、アプリケーションにローカルデータベース操作がすべて含まれるようになります。 UI 内で顧客を作成、読み取り、更新、削除することができます。これらの変更はデータベースに保存され、アプリのさまざまな起動にわたって保持されます。
 
-完了したら、これで、次を考慮してください。
-* まだインストールしていない場合はチェック アウト、[アプリ構造の概要](../enterprise/customer-database-app-structure.md)はその理由の詳細については、アプリがビルドされます。
-* 探索、[完全な顧客注文データベース サンプル](https://github.com/Microsoft/Windows-appsample-customers-orders-database)に、このチュートリアルに基づいていますが、アプリを参照してください。
+これで完了です。次の点を考慮してください。
+* アプリがビルドされている理由の詳細については、「[アプリの構造の概要」](../enterprise/customer-database-app-structure.md)を参照してください。
+* このチュートリアルの基になっているアプリを確認するには、 [Customer Orders データベースの完全なサンプル](https://github.com/Microsoft/Windows-appsample-customers-orders-database)を参照してください。
 
-または、以降続行する場合は、チャレンジにサインアップしたら、.
+または、問題がある場合は、続行することができます...
 
-## <a name="going-further-connect-to-a-remote-database"></a>さらにします。リモート データベースへの接続します。
+## <a name="going-further-connect-to-a-remote-database"></a>詳細: リモートデータベースへの接続
 
-ローカルの SQLite データベースに対してこれらの呼び出しを実装する方法の詳細なチュートリアルについてご紹介します。 しかし、代わりに、リモートのデータベースを使用する場合でしょうか。
+ローカルの SQLite データベースに対してこれらの呼び出しを実装する方法の手順について説明しました。 では、リモートデータベースを使用する場合はどうでしょうか。
 
-実際にやってする場合は、自分の Azure Active Directory (AAD) アカウントと独自のデータ ソースをホストする機能が必要があります。
+これを試してみる場合は、独自の Azure Active Directory (AAD) アカウントと、独自のデータソースをホストする機能が必要です。
 
-認証では、REST の呼び出しを処理し、やり取りするリモート データベースを作成する関数を追加する必要があります。 完全なコードがある[顧客注文データベース サンプル](https://github.com/Microsoft/Windows-appsample-customers-orders-database)のために必要な操作ごとに参照することができます。
+REST 呼び出しを処理するための認証と関数を追加し、と対話するためのリモートデータベースを作成する必要があります。 [Customer Orders データベース](https://github.com/Microsoft/Windows-appsample-customers-orders-database)の完全なサンプルには、必要な操作ごとに参照できるコードが用意されています。
 
 ### <a name="settings-and-configuration"></a>設定と構成
 
-リモート データベースへの接続に必要な手順が記述された、[サンプルの readme](https://github.com/Microsoft/Windows-appsample-customers-orders-database/blob/master/README.md)します。 以下を行う必要があります。
+独自のリモートデータベースに接続するために必要な手順については、[サンプルの readme](https://github.com/Microsoft/Windows-appsample-customers-orders-database/blob/master/README.md)をご覧ください。 次の手順を実行する必要があります。
 
-* Azure アカウント クライアント Id を提供する[Constants.cs](https://github.com/Microsoft/Windows-appsample-customers-orders-database/blob/master/ContosoRepository/Constants.cs)します。
-* リモート データベースへの url を指定して[Constants.cs](https://github.com/Microsoft/Windows-appsample-customers-orders-database/blob/master/ContosoRepository/Constants.cs)します。
-* データベースの接続文字列を指定[Constants.cs](https://github.com/Microsoft/Windows-appsample-customers-orders-database/blob/master/ContosoRepository/Constants.cs)します。
-* Microsoft Store アプリを関連付けます。
-* 経由でコピー、[サービス プロジェクト](https://github.com/Microsoft/Windows-appsample-customers-orders-database/tree/master/ContosoService)をアプリにし、Azure にデプロイします。
+* Azure アカウントのクライアント Id を[Constants.cs](https://github.com/Microsoft/Windows-appsample-customers-orders-database/blob/master/ContosoRepository/Constants.cs)に入力します。
+* リモートデータベースの url を[Constants.cs](https://github.com/Microsoft/Windows-appsample-customers-orders-database/blob/master/ContosoRepository/Constants.cs)に指定します。
+* データベースの接続文字列を[Constants.cs](https://github.com/Microsoft/Windows-appsample-customers-orders-database/blob/master/ContosoRepository/Constants.cs)に指定します。
+* アプリを Microsoft Store に関連付けます。
+* [サービスプロジェクト](https://github.com/Microsoft/Windows-appsample-customers-orders-database/tree/master/ContosoService)をアプリにコピーし、Azure にデプロイします。
 
 ### <a name="authentication"></a>認証
 
-認証シーケンスでは、ポップアップやユーザーの情報を収集するために、別のページを開始するボタンを作成する必要があります。 作成したら、ユーザーの情報を要求し、アクセス トークンを取得するために使用するコードを提供する必要があります。 顧客注文データベース サンプルでは、Microsoft Graph 呼び出しをラップする、 **web アカウント マネージャー**トークンを取得して、AAD アカウントへの認証を処理するライブラリ。
+認証シーケンスを開始するボタンを作成し、ポップアップまたは別のページを作成して、ユーザーの情報を収集する必要があります。 これを作成したら、ユーザーの情報を要求し、それを使用してアクセストークンを取得するコードを指定する必要があります。 Customer Orders データベースのサンプルでは、 **Webaccountmanager**ライブラリを使用して Microsoft Graph 呼び出しをラップしてトークンを取得し、AAD アカウントに対する認証を処理します。
 
-* 認証ロジックが実装されている[ **AuthenticationViewModel.cs**](https://github.com/Microsoft/Windows-appsample-customers-orders-database/blob/master/ContosoApp/ViewModels/AuthenticationViewModel.cs)します。
-* 認証プロセスは、カスタム表示[ **AuthenticationControl.xaml** ](https://github.com/Microsoft/Windows-appsample-customers-orders-database/blob/master/ContosoApp/UserControls/AuthenticationControl.xaml)コントロール。
+* 認証ロジックは[**AuthenticationViewModel.cs**](https://github.com/Microsoft/Windows-appsample-customers-orders-database/blob/master/ContosoApp/ViewModels/AuthenticationViewModel.cs)に実装されています。
+* 認証プロセスは、カスタム[**authenticationcontrol .xaml**](https://github.com/Microsoft/Windows-appsample-customers-orders-database/blob/master/ContosoApp/UserControls/AuthenticationControl.xaml)コントロールに表示されます。
 
-### <a name="rest-calls"></a>REST の呼び出し
+### <a name="rest-calls"></a>REST 呼び出し
 
-いずれかを変更する必要はありませんが、コードで追加されたこのチュートリアルの REST 呼び出しを実装するためにします。 代わりに、以下を行う必要があります。
+REST 呼び出しを実装するために、このチュートリアルで追加したコードを変更する必要はありません。 代わりに、次の操作を行う必要があります。
 
-* 新しい実装を作成、 **ICustomerRepository**と**ITutorialRepository** SQLite の代わりに REST を使用して関数の同じセットを実装するインターフェイス。 および JSON の逆シリアル化する必要があり、別の REST 呼び出しをラップできます**HttpHelper**クラスの場合する必要があります。 参照してください[完全なサンプル](https://github.com/Microsoft/Windows-appsample-customers-orders-database/tree/master/ContosoRepository/Rest)固有です。
-* **App.xaml.cs**REST リポジトリを初期化するために新しい関数を作成しての代わりにそれを呼び出す**SqliteDatabase**アプリが初期化されます。 ここでもを参照してください。[完全なサンプル](https://github.com/Microsoft/Windows-appsample-customers-orders-database/blob/master/ContosoApp/App.xaml.cs)します。
+* **ICustomerRepository**インターフェイスと**ITutorialRepository**インターフェイスの新しい実装を作成し、SQLITE ではなく REST を使用して同じ関数のセットを実装します。 JSON をシリアル化および逆シリアル化する必要があります。必要に応じて、別の**Httphelper**クラスで REST 呼び出しをラップすることができます。 詳細について[は、完全なサンプル](https://github.com/Microsoft/Windows-appsample-customers-orders-database/tree/master/ContosoRepository/Rest)を参照してください。
+* **App.xaml.cs**で、REST リポジトリを初期化する新しい関数を作成し、アプリの初期化時に**SqliteDatabase**の代わりに呼び出します。 ここでも、[完全なサンプル](https://github.com/Microsoft/Windows-appsample-customers-orders-database/blob/master/ContosoApp/App.xaml.cs)を参照してください。
 
-次の手順の 3 つすべてが完了したら、アプリで AAD アカウントに認証はずです。 リモート データベースへの REST 呼び出しが、ローカルの SQLite の呼び出しに置き換えられますが、ユーザー エクスペリエンスは同じにする必要があります。 さらに取り組むは気分を場合は、2 つを動的に切り替えるユーザーを許可する設定 ページを追加できます。
+これら3つの手順がすべて完了したら、アプリを使用して AAD アカウントに対する認証を行うことができます。 リモートデータベースへの REST 呼び出しでは、ローカルの SQLite 呼び出しが置き換えられますが、ユーザーエクスペリエンスは同じである必要があります。 さらに大きいを感じている場合は、[設定] ページを追加して、ユーザーがこの2つを動的に切り替えることができるようにすることができます。

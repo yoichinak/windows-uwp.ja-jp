@@ -5,18 +5,18 @@ keywords: 最新情報, 更新, 機能, 開発者向けガイダンス, Windows 
 ms.date: 08/14/2018
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 9922aa1ad2442153dcc2c13d05520c05c3b56d31
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 723cae783ba16fe5be9bb2076f96d4a5f823d733
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63780236"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "74258832"
 ---
 # <a name="whats-new-in-the-windows-developer-docs-in-august-2018"></a>Windows 開発者向けドキュメントの最新情報、2018 年 8 月
 
 Windows 開発者向けドキュメントは、Windows プラットフォームで開発者に提供される新機能の情報を反映して継続的に更新されています。 次の機能概要、開発者向けガイダンス、およびビデオは 8 月に公開されたものです。
 
-Windows 10 の[ツールと SDK をインストール](https://go.microsoft.com/fwlink/?LinkId=821431)すると、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
+Windows 10 の[ツールと SDK をインストール](https://developer.microsoft.com/windows/downloads#_blank)すると、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
 
 ## <a name="features"></a>機能
 
@@ -24,7 +24,7 @@ Windows 10 の[ツールと SDK をインストール](https://go.microsoft.com/
 
 次の機能が Windows Insider Preview ビルドに追加されました。これらは、[Windows Insider](https://insider.windows.com/) プログラムを通じて使用できます。
 
-* [Windows UI ライブラリ](https://aka.ms/winui-docs)は、UWP アプリ用のコントロールとその他のユーザー インターフェイス要素を提供する NuGet パッケージのセットです。 これらのパッケージは Windows 10 の以前のバージョンにも対応しているため、ユーザーが最新の OS を持っていない場合でも、アプリは動作します。
+* [Windows UI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)は、UWP アプリ用のコントロールとその他のユーザー インターフェイス要素を提供する NuGet パッケージのセットです。 これらのパッケージは Windows 10 の以前のバージョンにも対応しているため、ユーザーが最新の OS を持っていない場合でも、アプリは動作します。
 
 * [DropDownButton](../design/controls-and-patterns/buttons.md#create-a-drop-down-button)、[SplitButton](../design/controls-and-patterns/buttons.md#create-a-split-button)、および [ToggleSplitButton](../design/controls-and-patterns/buttons.md#create-a-toggle-split-button) は、アプリのユーザー インターフェイスを強化するための特別な機能を持つボタン コントロールを提供します。
 
@@ -40,11 +40,11 @@ Windows 10 の[ツールと SDK をインストール](https://go.microsoft.com/
 
 詳細については、[パッケージ サポート フレームワークを使用した MSIX パッケージへのランタイム修正の適用](../porting/package-support-framework.md)に関するページをご覧ください。
 
-## <a name="developer-guidance"></a>開発者向けガイダンス
+## <a name="developer-guidance"></a>開発者ガイド
 
 ### <a name="web-api-extensions"></a>Web API の拡張機能
 
-クロスブラウザー Web 開発用の Mozilla Developer Network ドキュメントに、一連の[従来の Microsoft API 拡張機能](https://developer.mozilla.org/docs/Web/API/Microsoft_API_extensions)が追加されました。 これらの API 拡張機能は Internet Explorer または Microsoft Edge に固有のもので、MDN の Web ドキュメントの互換性とブラウザーのサポートに関する既存の情報を補完します。従来の Microsoft [CSS 拡張機能](https://developer.mozilla.org/docs/Web/CSS/Microsoft_Extensions)と [JavaScript 拡張機能](https://developer.mozilla.org/docs/Web/JavaScript/Microsoft_JavaScript_extensions)も利用でき、リッチな Web API 情報を、[Visual Studio Code](https://code.visualstudio.com/updates/v1_25#_new-css-pseudo-selectors-and-pseudo-elements-from-mdn) で直接表示される MDN から見つけることができます。
+クロスブラウザー Web 開発用の Mozilla Developer Network ドキュメントに、[従来の Microsoft API 拡張機能](https://developer.mozilla.org/docs/Web/API/Microsoft_API_extensions)の一覧が追加されました。 これらの API 拡張機能は Internet Explorer または Microsoft Edge に固有のもので、MDN の Web ドキュメントの互換性とブラウザーのサポートに関する既存の情報を補足します。従来の Microsoft [CSS 拡張機能](https://developer.mozilla.org/docs/Web/CSS/Microsoft_Extensions)と [JavaScript 拡張機能](https://developer.mozilla.org/docs/Web/JavaScript/Microsoft_JavaScript_extensions)も利用でき、リッチな Web API 情報を、[Visual Studio Code](https://code.visualstudio.com/updates/v1_25#_new-css-pseudo-selectors-and-pseudo-elements-from-mdn) で直接表示される MDN から見つけることができます。
 
 ### <a name="cwinrt-code-examples"></a>C++/WinRT コード例
 
@@ -64,10 +64,10 @@ Unity 用の Xbox Live プラグインには、Xbox Live の署名、統計、�
 
 One Dev Question ビデオ シリーズでは、ベテランの Microsoft 開発者が Windows 開発、チーム カルチャ、および歴史に関する一連の質問に答えています。 最新の質問に対してお答えした内容を以下に示します。
 
-Raymond Chen:
+Raymond Chen: 
 
 * [カーネルはビデオ ドライバーを再起動するタイミングをどのように認識しますか?](https://youtu.be/3SNAdyO1l5c)
 
-Larry Osterman:
+Larry Osterman: 
 
 * [Windows の Burgermaster オブジェクトの背景にあるストーリーを教えてください。](https://youtu.be/0TDSbyAIvX0)

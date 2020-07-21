@@ -6,12 +6,12 @@ ms.date: 12/19/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: c1480c17d97cb8b5e227cc44b384f13095bfd469
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 2293907b3088890ac01d9037609054961aa95992
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66369253"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "74259578"
 ---
 # <a name="save-a-file-with-a-picker"></a>ピッカーによるファイルの保存
 
@@ -23,11 +23,11 @@ ms.locfileid: "66369253"
 [  **FileSavePicker**](https://docs.microsoft.com/uwp/api/Windows.Storage.Pickers.FileSavePicker) を使ってユーザーがアプリで保存するファイルの名前とその保存場所を指定できるようにします。
 
 > [!NOTE]
-> 完全なサンプルについては、[ファイル ピッカーのサンプル](https://go.microsoft.com/fwlink/p/?linkid=619994)に関するページをご覧ください。
+> 完全なサンプルについては、[ファイル ピッカーのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/FilePicker)に関するページをご覧ください。
 
  
 
-## <a name="prerequisites"></a>前提条件
+## <a name="prerequisites"></a>必要条件
 
 
 -   **ユニバーサル Windows プラットフォーム (UWP) アプリの非同期プログラミングについての理解**
@@ -54,7 +54,7 @@ ms.locfileid: "66369253"
     savePicker.SuggestedFileName = "New Document";
     ```
 
-ファイル ピッカー オブジェクトの、ユーザーとアプリに関連するプロパティを設定します。 この例では、次の 3 つのプロパティを設定します: [**SuggestedStartLocation**](https://docs.microsoft.com/uwp/api/windows.storage.pickers.filesavepicker.suggestedstartlocation)、[**FileTypeChoices**](https://docs.microsoft.com/uwp/api/windows.storage.pickers.filesavepicker.filetypechoices)、[**SuggestedFileName**](https://docs.microsoft.com/uwp/api/windows.storage.pickers.filesavepicker.suggestedfilename)。
+ファイル ピッカー オブジェクトの、ユーザーとアプリに関連するプロパティを設定します。 この例では、3 つのプロパティ [**SuggestedStartLocation**](https://docs.microsoft.com/uwp/api/windows.storage.pickers.filesavepicker.suggestedstartlocation)、[**FileTypeChoices**](https://docs.microsoft.com/uwp/api/windows.storage.pickers.filesavepicker.filetypechoices)、および [**SuggestedFileName**](https://docs.microsoft.com/uwp/api/windows.storage.pickers.filesavepicker.suggestedfilename) を設定します。
      
 - このサンプルでは [**LocalFolder**](https://docs.microsoft.com/uwp/api/windows.storage.applicationdata.localfolder) を使って、ドキュメントまたはテキスト ファイルを保存する場所として [**SuggestedStartLocation**](https://docs.microsoft.com/uwp/api/windows.storage.pickers.filesavepicker.suggestedstartlocation) をアプリのローカル フォルダーに設定しています。 [  **SuggestedStartLocation**](https://docs.microsoft.com/uwp/api/windows.storage.pickers.fileopenpicker.suggestedstartlocation) を保存するファイルの種類 (音楽、画像、ビデオ、ドキュメントなど) に適切な場所に設定します。 ユーザーは、開始場所から別の場所に移動できます。
 

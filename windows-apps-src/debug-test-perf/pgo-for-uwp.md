@@ -1,15 +1,15 @@
 ---
 title: ユニバーサル Windows プラットフォーム (UWP) アプリにおけるガイド付き最適化のプロファイル (PGO) の実行
-description: ユニバーサル Windows プラットフォーム (UWP) アプリをプロファイル ガイド付き最適化 (PGO) を適用するステップ バイ ステップ ガイドです。
+description: ユニバーサル Windows プラットフォーム (UWP) アプリに対してガイド付き最適化のプロファイル (PGO) を適用するための手順を説明するガイドです。
 ms.date: 02/08/2017
 ms.localizationpriority: medium
 ms.topic: article
-ms.openlocfilehash: 8c19ea1701c6b5e82e66a54223620dace57de4b6
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
-ms.translationtype: MT
+ms.openlocfilehash: c784812d2e070aba0857cb84e5729b1426717b8d
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57632917"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "73062366"
 ---
 # <a name="running-profile-guided-optimization-on-universal-windows-platform-apps"></a>ユニバーサル Windows プラットフォーム アプリにおけるガイド付き最適化のプロファイルの実行 
  
@@ -17,7 +17,7 @@ ms.locfileid: "57632917"
 
 Visual Studio 2015 Update 3 を使用して既定の DirectX 11 アプリ (UWP) テンプレートに PGO を適用する方法の基本的なチュートリアルを次に示します。
  
-このガイド全体でスクリーン ショットは、次の新しいプロジェクトに基づいています。![新しいプロジェクト ダイアログ ボックス](images/pgo-001.png)
+このガイド全体にわたって、スクリーンショットは次の新しいプロジェクトに基づきます。![[新しいプロジェクト] ダイアログ ボックス](images/pgo-001.png)
 
 PGO を DirectX 11 アプリ テンプレートに適用するには、次の手順に従います。
 
@@ -25,15 +25,15 @@ PGO を DirectX 11 アプリ テンプレートに適用するには、次の手
  
  ![[App1] ウィンドウ](images/pgo-002.png)
  
-2. プロジェクトのプロパティ (**[プロパティ]** > **[C/C++]** > **[最適化]**) で、**[プログラム全体の最適化]** に /GL フラグを設定してビルドしていることを確認します (これは構成によって既に設定されている可能性があります)。
+2. プロジェクトのプロパティ ( **[プロパティ]**  >  **[C/C++]**  >  **[最適化]** ) で、 **[プログラム全体の最適化]** に /GL フラグを設定してビルドしていることを確認します (これは構成によって既に設定されている可能性があります)。
 
  ![プログラム全体の最適化](images/pgo-003.png)
 
-3. リンカーのプロパティ (**[プロパティ]** > **[リンカー]** > **[最適化]**) に移動し、**[リンク時のコード生成]** を **[ガイド付き最適化のプロファイル - インストルメント (LTCG:PGInstrument)]** に設定します。
+3. リンカーのプロパティ ( **[プロパティ]**  >  **[リンカー]**  >  **[最適化]** ) に移動し、 **[リンク時のコード生成]** を **[ガイド付き最適化のプロファイル - インストルメント (LTCG:PGInstrument)]** に設定します。
  
  ![リンク時のコード生成](images/pgo-004.png)
 
-4. **[ソリューションのビルド]** をクリックした後、**[ソリューションの配置]** をクリックします。 
+4. **[ソリューションのビルド]** をクリックした後、 **[ソリューションの配置]** をクリックします。 
 
  ![[新しいプロジェクト] ダイアログ ボックス](images/pgo-005.png)
  
@@ -64,18 +64,18 @@ PGO を DirectX 11 アプリ テンプレートに適用するには、次の手
   .pgd が含まれるビルド場所に .pgc ファイルを出力し、ファイルに `<PGDName>!<RunIdentifier>.pgc` という名前を付けることもお勧めします。 この例では、次のようになります。
  
   ```
-  pgosweep.exe App1.exe “C:\Users\<USER>\Documents\Visual Studio 2015\Projects\App1\Release\App1\App1!1.pgc”
+  pgosweep.exe App1.exe "C:\Users\<USER>\Documents\Visual Studio 2015\Projects\App1\Release\App1\App1!1.pgc"
   ```
  
-  さらに収集可能性もあります`App1!CoreScenario.pgc`、`App1!UseCase5.pgc`など.Pgc ファイルの名前は、この方法でと、ビルド出力の場所、.pgd と共に、それらは自動的に統合されます手順 9. でリンクするときにします。
+  さらに収集する場合は、`App1!CoreScenario.pgc`、`App1!UseCase5.pgc` などのようにもできます。.pgc の名前をこのように付け、ビルドの出力場所が .pgd の隣である場合、手順 9 でリンクするときに自動的にマージされます。
  
-8. 省略可能。リンクと同様に、重み付け時に既定では、手順 7. で指定されていると、.pgd の横に配置されたという .pgc ファイルをすべてがマージする、大きくすることもできますが、特定の実行は重み付けを制御します。 これを行うには、**pgomgr.exe** ツールを使用します。このツールも、最初に `pgort140.dll` のコピーを見つけたフォルダーと同じフォルダーにあります。 たとえば、`CoreScenario` の実行を他の実行の優先度の 3 倍でマージするには、次のコマンドを使用します。
+8. 省略可能:既定では、手順 7 で指定したように名前を付け、.pgd の隣に配置した .pgc ファイルはすべて、リンクするときにマージされ、平等に重み付けされますが、特定の実行に重みを付ける方法をより詳細に制御することもできます。 これを行うには、**pgomgr.exe** ツールを使用します。このツールも、最初に `pgort140.dll` のコピーを見つけたフォルダーと同じフォルダーにあります。 たとえば、`CoreScenario` の実行を他の実行の優先度の 3 倍でマージするには、次のコマンドを使用します。
  
  ```
- pgomgr.exe -merge:3 “C:\Users\<USER>\Documents\Visual Studio 2015\Projects\App1\Release\App1\App1!CoreScenario.pgc” “C:\Users\<USER>\Documents\Visual Studio 2015\Projects\App1\Release\App1\App1.pgd”
+ pgomgr.exe -merge:3 "C:\Users\<USER>\Documents\Visual Studio 2015\Projects\App1\Release\App1\App1!CoreScenario.pgc" "C:\Users\<USER>\Documents\Visual Studio 2015\Projects\App1\Release\App1\App1.pgd"
  ```
  
-9. 1 つ以上の .pgc ファイルを生成し、それを .pgd の隣に配置するか手動でマージ (手順 8) したら、リンカーを使用して最終的な最適化されたビルドを作成できます。 リンカーのプロパティ (**[プロパティ]** > **[リンカー]** > **[最適化]**) に戻り、**[リンク時のコード生成]** を **[ガイド付き最適化のプロファイル - 最適化 (LTCG:PGOptimize)]** に設定したら、**[ガイド付きデータベースのプロファイル]** が使用予定の .pgd をポイントしていることを確認します (これを変更していない場合、すべてを順序どおりにする必要があります)。
+9. 1 つ以上の .pgc ファイルを生成し、それを .pgd の隣に配置するか手動でマージ (手順 8) したら、リンカーを使用して最終的な最適化されたビルドを作成できます。 リンカーのプロパティ ( **[プロパティ]**  >  **[リンカー]**  >  **[最適化]** ) に戻り、 **[リンク時のコード生成]** を **[ガイド付き最適化のプロファイル - 最適化 (LTCG:PGOptimize)]** に設定したら、 **[ガイド付きデータベースのプロファイル]** が使用予定の .pgd をポイントしていることを確認します (これを変更していない場合、すべてを順序どおりにする必要があります)。
 
  ![[新しいプロジェクト] ダイアログ ボックス](images/pgo-009.png)
  

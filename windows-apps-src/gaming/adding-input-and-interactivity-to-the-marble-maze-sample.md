@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10、UWP、ゲーム、入力、サンプル
 ms.localizationpriority: medium
-ms.openlocfilehash: 8daada2424dfc7a1bbe0a227449911f1fbb3b34d
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: f078cd721406120105efb35d1519e7fd0b36e74c
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66369182"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74258607"
 ---
 # <a name="adding-input-and-interactivity-to-the-marble-maze-sample"></a>Marble Maze サンプルへの入力と対話機能の追加
 
@@ -21,7 +21,7 @@ ms.locfileid: "66369182"
 ユニバーサル Windows プラットフォーム (UWP) ゲームは、デスクトップ コンピューター、ノート PC、タブレットなど、さまざまなデバイスで実行されます。 デバイスに備わっている入力機構と制御機構も多岐にわたります。 このドキュメントでは、入力デバイスを扱う際に考慮する必要のある主な手法について説明すると共に、それらが Marble Maze でどのように適用されているかを紹介します。
 
 > [!NOTE]
-> このドキュメントに対応するサンプル コードは、[DirectX Marble Maze ゲームのサンプルに関するページ](https://go.microsoft.com/fwlink/?LinkId=624011)にあります。
+> このドキュメントに対応するサンプル コードは、[DirectX Marble Maze ゲームのサンプルに関するページ](https://github.com/microsoft/Windows-appsample-marble-maze)にあります。
 
  
 このドキュメントでは、ゲームで入力を扱う際に重要となるいくつかの事柄について説明します。取り上げる内容は次のとおりです。
@@ -222,7 +222,7 @@ bool MarbleMaze::MarbleMazeMain::ButtonJustReleased(GamepadButtons selection)
 }
 ```
 
-[GamepadButtons](https://docs.microsoft.com/uwp/api/windows.gaming.input.gamepadbuttons)の測定値はビットごとの演算を使用して比較&mdash;チェックを使用して、ボタンが押されたかどうか*ビットごとと*(&)。 前回の読み取り値と新しい読み取り値を比較することによって、ボタンがたった今押されたか、離されたかを特定します。
+[説明][ボタン](https://docs.microsoft.com/uwp/api/windows.gaming.input.gamepadbuttons)の読み取りはビットごとの演算を使用して比較され&mdash;*ビットごとの and* (&) を使用してボタンが押されているかどうかを確認します。 前回の読み取り値と新しい読み取り値を比較することによって、ボタンがたった今押されたか、離されたかを特定します。
 
 上記の方法を使用して、特定のボタンが押されたかどうかを確認し、必要な対応するアクションを実行します。 たとえば、メニュー ボタン (**GamepadButtons::Menu**) が押されたときは、ゲームの状態がアクティブから一時停止、または一時停止からアクティブに変わります。
 
@@ -324,7 +324,7 @@ case GameState::InGamePaused:
 
 ### <a name="tracking-touch-and-mouse-input"></a>タッチとマウスによる入力のトラッキング
 
-タッチとマウスによる入力では、メニュー項目は、ユーザーがその項目をタッチまたはクリックしたときに選択されます。 次の例は、**MarbleMazeMain::Update** メソッドがポインターの入力を処理してメニュー項目を選択する方法を示します。 **M\_pointQueue**メンバー変数は、画面に、ユーザーが操作したり、クリックした場所を追跡します。 Marble Maze のポインター入力の収集方法については、このドキュメントの「[ポインターの入力の処理](#processing-pointer-input)」で詳しく説明します。
+タッチとマウスによる入力では、メニュー項目は、ユーザーがその項目をタッチまたはクリックしたときに選択されます。 次の例は、**MarbleMazeMain::Update** メソッドがポインターの入力を処理してメニュー項目を選択する方法を示します。 **M\_pointQueue**メンバー変数は、ユーザーが画面を操作またはクリックした場所を追跡します。 Marble Maze のポインター入力の収集方法については、このドキュメントの「[ポインターの入力の処理](#processing-pointer-input)」で詳しく説明します。
 
 ```cpp
 // Check whether the user chose a button from the UI. 
@@ -541,7 +541,7 @@ if ((oppositeSquared + adjacentSquared) > m_deadzoneSquared)
 
 ###  <a name="applying-input-to-the-game-state"></a>ゲームの状態への入力の適用
 
-デバイスは、さまざまな方法で入力値を報告します。 たとえば、ポインターの入力は通常、画面座標で報告されますが、コントローラーの入力の形式は、それとはまったく異なることが考えられます。 複数のデバイスからの入力を一連の入力値に結合する際の課題の 1 つに、正規化 (共通形式への値の変換) があります。 Marble Maze はそれらの範囲にスケーリングして値を正規化\[-1.0, 1.0\]します。 このセクションで既に説明した **PointToTouch** 関数は、画面座標をおよそ -1.0 ～ +1.0 の範囲内の正規化された値に変換します。
+デバイスは、さまざまな方法で入力値を報告します。 たとえば、ポインターの入力は通常、画面座標で報告されますが、コントローラーの入力の形式は、それとはまったく異なることが考えられます。 複数のデバイスからの入力を一連の入力値に結合する際の課題の 1 つに、正規化 (共通形式への値の変換) があります。 大理石の迷路は、値を \[-1.0、1.0\]の範囲に拡張することで、値を正規化します。 このセクションで既に説明した **PointToTouch** 関数は、画面座標をおよそ -1.0 ～ +1.0 の範囲内の正規化された値に変換します。
 
 > [!TIP]
 > アプリケーションで用いられる入力方法が 1 つであっても、常に入力値を正規化することをお勧めします。 そうすることで、ゲームの他のコンポーネント (物理シミュレーションなど) が入力を解釈する方法を簡略化でき、さまざまな画面解像度で動作するゲームが作成しやすくなります。
@@ -613,9 +613,9 @@ if (marblePosition.z >= resetDepth)
 ## <a name="related-topics"></a>関連トピック
 
 
-* [Marble Maze サンプルへのオーディオの追加](adding-audio-to-the-marble-maze-sample.md)
-* [Marble Maze サンプルへのビジュアル コンテンツの追加](adding-visual-content-to-the-marble-maze-sample.md)
-* [Marble Maze、C++ および DirectX での UWP ゲームの開発](developing-marble-maze-a-windows-store-game-in-cpp-and-directx.md)
+* [大理石の迷路サンプルにオーディオを追加する](adding-audio-to-the-marble-maze-sample.md)
+* [大理石の迷路サンプルにビジュアルコンテンツを追加する](adding-visual-content-to-the-marble-maze-sample.md)
+* [および DirectX でのC++ UWP ゲームである大理石迷路の開発](developing-marble-maze-a-windows-store-game-in-cpp-and-directx.md)
 
  
 

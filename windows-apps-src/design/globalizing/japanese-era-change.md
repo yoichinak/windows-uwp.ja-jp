@@ -7,10 +7,10 @@ ms.topic: article
 keywords: Windows 10, UWP, ローカライズの可否, ローカライズ, 日本, 元号
 ms.localizationpriority: high
 ms.openlocfilehash: 7e8250ccae96ed835aba2a2a993fdde9ae31a884
-ms.sourcegitcommit: 139717a79af648a9231821bdfcaf69d8a1e6e894
+ms.sourcegitcommit: f727b68e86a86c94eff00f67ed79a1c12666e7bc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67714119"
 ---
 # <a name="prepare-your-application-for-the-japanese-era-change"></a>アプリケーションの新元号対応
@@ -79,7 +79,7 @@ ms.locfileid: "67714119"
 
 ### <a name="gannen-"></a>*元年*
 
-和暦の年は通常、 **&lt;元号&gt;&lt;元号年&gt;** という形式で表記します。 たとえば、2018 年は "**平成 30 年**" です。  ただし、各元号の最初の年には特殊な表記法を使用し、" **&lt;元号&gt; 1 年**" ではなく " **&lt;元号&gt; 元年**" ** と表記します。 このため、平成の最初の年は "*平成元年*" となります。 各アプリケーションでは、新元号の最初の年を適切に処理し、正しく "令和元年" と出力してください。
+和暦の年は通常、 **&lt;元号&gt; &lt;元号年&gt;** という形式で表記します。 たとえば、2018 年は "**平成 30 年**" です。  ただし、各元号の最初の年には特殊な表記法を使用し、" **&lt;元号&gt; 1 年**" ではなく " **&lt;元号&gt; 元年**" ** と表記します。 このため、平成の最初の年は "*平成元年*" となります。 各アプリケーションでは、新元号の最初の年を適切に処理し、正しく "令和元年" と出力してください。
 
 ## <a name="related-apis"></a>関連する API
 

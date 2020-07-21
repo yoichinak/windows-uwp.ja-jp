@@ -4,14 +4,14 @@ title: HoloLens 用 Device Portal API リファレンス
 description: HoloLens 用の Windows Device Portal REST API について説明します。これらの API を使うと、プログラムからデータにアクセスしてデバイスを制御できます。
 ms.date: 03/22/2018
 ms.topic: article
-keywords: windows 10、uwp、デバイス ポータル
+keywords: windows 10, uwp, デバイス ポータル
 ms.localizationpriority: medium
 ms.openlocfilehash: 3aeb068908adf6d6c40a50cee3aececba1861ee8
-ms.sourcegitcommit: 81511fddf1393dffcfc069c769bb149da99529b1
-ms.translationtype: MT
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59013339"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "63801383"
 ---
 # <a name="device-portal-api-reference-for-hololens"></a>HoloLens 用 Device Portal API リファレンス
 
@@ -25,7 +25,7 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 次の要求型式を使用して、Device Portal の HTTPS 要件を取得できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/holographic/os/webmanagement/settings/https |
 
@@ -56,7 +56,7 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 次の要求型式を使用して、保存されている IPD の値を取得できます。 値はミリメートル単位で返されます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/holographic/os/settings/ipd |
 
@@ -87,7 +87,7 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 次の要求型式を使用して、システムには登録されていない HoloLens 固有の ETW プロバイダーの一覧を取得できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/holographic/os/etw/customproviders |
 
@@ -119,7 +119,7 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 次の要求形式を使用して、現在実行されているすべてのサービスの状態を取得できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/holographic/os/services |
 
@@ -151,7 +151,7 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 次の要求形式を使用して、Device Portal の HTTPS 要件を設定できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/holographic/management/settings/https |
 
@@ -162,7 +162,7 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 | URI パラメーター | 説明 |
 | :---          | :--- |
-| required   | (**必須**) Device Portal で HTTPS を必要とするかどうかを決定します。 指定できる値は、**yes**、**no**、**default** です。 |
+| 必須   | (**必須**) Device Portal で HTTPS を必要とするかどうかを決定します。 指定できる値は、**yes**、**no**、**default** です。 |
 
 **要求ヘッダー**
 
@@ -187,7 +187,7 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 次の要求形式を使用して、保存されている IPD を設定できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/holographic/os/settings/ipd |
 
@@ -225,7 +225,7 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 次の要求型式を使用して、WebSocket のアップグレードを受け入れ、30fps で更新を送信するミラージュ クライアントを実行できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET/WebSocket | /api/holographic/perception/client |
 
@@ -263,7 +263,7 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 次の要求形式を使用して、デバイスの温度ステージを取得できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/holographic/ |
 
@@ -283,11 +283,11 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 返される可能性のある値を次の表に示します。
 
-| 値 | 説明 |
+| Value | 説明 |
 | --- | --- |
-| 1 | 標準 |
-| 2 | 中温 |
-| 3 | 重大 |
+| 1 | Normal |
+| 2 で保護されたプロセスとして起動されました | 中 |
+| 3 で保護されたプロセスとして起動されました | ［重大］ |
 
 **状態コード**
 
@@ -300,7 +300,7 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 次の要求形式を使用して、制御ストリームを作成したり、作成されたストリームにデータをポストしたりできます。 ポストされるデータの種類は **application/octet-stream** と想定されます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/holographic/simulation/control/stream |
 
@@ -336,9 +336,9 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 次の要求形式を使用して、制御ストリームを削除できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
-| Del | /api/holographic/simulation/control/stream |
+| DELETE | /api/holographic/simulation/control/stream |
 
 
 **URI パラメーター**
@@ -367,7 +367,7 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 次の要求形式を使用して、制御ストリームの Web ソケット接続を開くことができます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET/WebSocket | /api/holographic/simulation/control/stream |
 
@@ -392,13 +392,13 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 - 標準の状態コード。
 
-### <a name="get-the-simulation-mode"></a>シミュレーションのモードを取得します。
+### <a name="get-the-simulation-mode"></a>シミュレーション モードを取得する
 
 **要求**
 
 次の要求形式を使用して、シミュレーション モードを取得できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/holographic/simulation/control/mode |
 
@@ -423,13 +423,13 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 - 標準の状態コード。
 
-### <a name="set-the-simulation-mode"></a>シミュレーションのモードを設定します。
+### <a name="set-the-simulation-mode"></a>シミュレーション モードを設定する
 
 **要求**
 
 次の要求型式を使用して、シミュレーション モードを設定できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/holographic/simluation/control/mode |
 
@@ -466,9 +466,9 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 次の要求型式を使用して、レコーディングを削除できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
-| Del | /api/holographic/simulation/playback/file |
+| DELETE | /api/holographic/simulation/playback/file |
 
 
 **URI パラメーター**
@@ -501,7 +501,7 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 次の要求形式を使用して、利用可能なすべてのレコーディングを取得できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/holographic/simulation/playback/files |
 
@@ -532,7 +532,7 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 次の要求形式を使用して、読み込まれたレコーディング内のデータの種類を取得できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/holographic/simulation/playback/session/types |
 
@@ -567,7 +567,7 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 次の要求形式を使用して、読み込まれたすべてのレコーディングを取得できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/holographic/simulation/playback/session/files |
 
@@ -598,7 +598,7 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 次の要求形式を使用して、レコーディングの現在の再生状態を取得できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/holographic/simulation/playback/session |
 
@@ -633,7 +633,7 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 次の要求形式を使用して、レコーディングを読み込むことができます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/holographic/simulation/playback/session/file |
 
@@ -668,7 +668,7 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 次の要求形式を使用して、レコーディングを一時停止できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/holographic/simulation/playback/session/pause |
 
@@ -703,7 +703,7 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 次の要求形式を使用して、レコーディングを再生できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/holographic/simulation/playback/session/play |
 
@@ -738,7 +738,7 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 次の要求形式を使用して、レコーディングを停止できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/holographic/simulation/playback/session/stop |
 
@@ -773,9 +773,9 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 次の要求形式を使用して、レコーディングをダウンロードできます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
-| Del | /api/holographic/simulation/playback/session/file |
+| DELETE | /api/holographic/simulation/playback/session/file |
 
 
 **URI パラメーター**
@@ -808,7 +808,7 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 次の要求形式を使用して、レコーディングをアップロードできます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/holographic/simulation/playback/file |
 
@@ -841,7 +841,7 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 次の要求形式を使用して、現在のレコーディングの状態を取得できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/holographic/simulation/recording/status |
 
@@ -872,7 +872,7 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 次の要求形式を使用して、レコーディングを開始できます。 アクティブにできるレコーディングは一度に 1 つだけです。 
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/holographic/simulation/recording/start |
 
@@ -914,7 +914,7 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 次の要求形式を使用して、現在のレコーディングを停止できます。 レコーディングはファイルとして返されます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/holographic/simulation/recording/stop |
 
@@ -947,9 +947,9 @@ Windows Device Portal の機能はすべて、REST API の上に構築されて�
 
 次の要求形式を使用して、MRC レコーディングを削除できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
-Del | /api/holographic/mrc/file |
+DELETE | /api/holographic/mrc/file |
 
 
 **URI パラメーター**
@@ -982,7 +982,7 @@ Del | /api/holographic/mrc/file |
 
 次の要求形式を使用して、デバイスから MRC ファイルをダウンロードできます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/holographic/mrc/file |
 
@@ -1018,7 +1018,7 @@ Del | /api/holographic/mrc/file |
 
 次の要求形式を使用して、MRC の設定を取得できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/holographic/mrc/settings |
 
@@ -1049,7 +1049,7 @@ Del | /api/holographic/mrc/file |
 
 次の要求形式を使用して、MRC レコーディングの状態を取得できます。 返される可能性のある値は、**running** と **stopped** です。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/holographic/mrc/status |
 
@@ -1080,7 +1080,7 @@ Del | /api/holographic/mrc/file |
 
 次の要求形式を使用して、デバイスに保存されている MRC ファイルを取得できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/holographic/mrc/files |
 
@@ -1111,7 +1111,7 @@ Del | /api/holographic/mrc/file |
 
 次の要求形式を使用して、MRC の設定を行うことができます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/holographic/mrc/settings |
 
@@ -1142,7 +1142,7 @@ Del | /api/holographic/mrc/file |
 
 次の要求形式を使用して、MRC レコーディングを開始できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/holographic/mrc/video/control/start |
 
@@ -1173,7 +1173,7 @@ Del | /api/holographic/mrc/file |
 
 次の要求形式を使用して、現在の MRC レコーディングを停止できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/holographic/mrc/video/control/stop |
 
@@ -1204,7 +1204,7 @@ Del | /api/holographic/mrc/file |
 
 次の要求形式を使用して、MRC の写真を撮ることができます。 写真は JPEG 形式で返されます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/holographic/mrc/photo |
 
@@ -1237,7 +1237,7 @@ Del | /api/holographic/mrc/file |
 
 次の要求型式を使用して、フラグメント化 mp4 のチャンク ダウンロードを開始できます。 この API では既定の品質が使われます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/holographic/stream/live.mp4 |
 
@@ -1275,7 +1275,7 @@ Del | /api/holographic/mrc/file |
 
 次の要求型式を使用して、フラグメント化 mp4 のチャンク ダウンロードを開始できます。 この API では高品質が使われます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/holographic/stream/live_high.mp4 |
 
@@ -1313,7 +1313,7 @@ Del | /api/holographic/mrc/file |
 
 次の要求型式を使用して、フラグメント化 mp4 のチャンク ダウンロードを開始できます。 この API では低品質が使われます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/holographic/stream/live_low.mp4 |
 
@@ -1351,7 +1351,7 @@ Del | /api/holographic/mrc/file |
 
 次の要求型式を使用して、フラグメント化 mp4 のチャンク ダウンロードを開始できます。 この API では中品質が使われます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/holographic/stream/live_med.mp4 |
 

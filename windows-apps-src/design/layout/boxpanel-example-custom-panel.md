@@ -12,12 +12,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 3fdde8c5af2120786f215480cc7e7ae422d77c5c
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
-ms.translationtype: MT
+ms.openlocfilehash: b4aad4ecc4d45d2fca3d429d872a0e7c73ddeaa1
+ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66365056"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83233695"
 ---
 # <a name="boxpanel-an-example-custom-panel"></a>BoxPanel、カスタム パネルの例
 
@@ -25,7 +25,7 @@ ms.locfileid: "66365056"
 
 カスタム [**Panel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Panel) クラスのコードの記述、[**ArrangeOverride**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.arrangeoverride) メソッドと [**MeasureOverride**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.measureoverride) メソッドの実装、[**Children**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.panel.children) プロパティの使用について説明します。 
 
-> **重要な API**:[**パネル**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Panel)、 [ **ArrangeOverride**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.arrangeoverride)、[**MeasureOverride**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.measureoverride) 
+> **重要な API**:[**Panel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Panel)、[**ArrangeOverride**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.arrangeoverride)、[**MeasureOverride**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.measureoverride) 
 
 コード例ではカスタム パネルの実装を示しますが、さまざまなレイアウト シナリオのパネルのカスタマイズ方法に影響を与えるレイアウトの概念については、詳しく説明していません。 このようなレイアウトの概念や、自分の特定のレイアウト シナリオへの適用方法に関する詳細情報が必要な場合は、「[XAML カスタム パネルの概要](custom-panels-overview.md)」をご覧ください。
 
@@ -47,7 +47,7 @@ ms.locfileid: "66365056"
 
 まず、[**Panel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Panel) からカスタム クラスを派生させます。 このために最も簡単と思われる方法は、このクラスのための別のコード ファイルを定義することです。これには、Microsoft Visual Studio の**ソリューション エクスプローラー**でプロジェクトに対してコンテキスト メニューの **[追加]**  |  **[新しい項目]**  |  **[クラス]** をクリックします。 このクラス (とファイル) に、`BoxPanel` という名前を付けます。
 
-クラスのテンプレート ファイルが、多くの **using** ステートメントで始まることはありません。このステートメントは、特にユニバーサル Windows プラットフォーム (UWP) アプリ用ではないためです。 まず、**using** ステートメントを追加します。 また、テンプレート ファイルはいくつかの **using** ステートメントで始まっていますが、おそらく不要と思われるため、削除することができます。 次に示すのは、一般的なカスタム パネル コードに必要となる型を解決できる **using** ステートメントの候補の一覧です。
+クラスのテンプレート ファイルは、特に Windows アプリ用ではないため、多くの **using** ステートメントで始まることはありません。 まず、**using** ステートメントを追加します。 また、テンプレート ファイルはいくつかの **using** ステートメントで始まっていますが、おそらく不要と思われるため、削除することができます。 次に示すのは、一般的なカスタム パネル コードに必要となる型を解決できる **using** ステートメントの候補の一覧です。
 
 ```CSharp
 using System;
@@ -134,7 +134,7 @@ protected override Size MeasureOverride(Size availableSize)
 このパネルが、*availableSize* の高さコンポーネントが無限である場合に使われる可能性があります。 これに該当する場合、パネルには、分割するための既知の高さがありません。 この場合、測定パスのロジックは、有限の高さがまだないことを各子要素に知らせます。 知らせるには、[**Size.Height**](https://docs.microsoft.com/uwp/api/windows.foundation.size.height) が無限である子の [**Measure**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.measure) 呼び出しに [**Size**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Size) を渡します。 これは適正な動作です。 **Measure** が呼び出されるときのロジックは、[**DesiredSize**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.desiredsize) が、**Measure** に渡されたものの最小値、または、明示的に設定された [**Height**](/uwp/api/Windows.UI.Xaml.FrameworkElement.Height) と [**Width**](/uwp/api/Windows.UI.Xaml.FrameworkElement.Width) などの要因からのその要素の自然なサイズの最小値として設定されていることです。
 
 > [!NOTE]
-> 内部ロジック[ **StackPanel** ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.StackPanel)この動作があります。**StackPanel**に無限のディメンション値が渡された[**メジャー** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.measure)向きディメンション内の子に制約がないことを示す子にします。 **StackPanel** は、通常、動的にサイズ設定され、そのサイズ内で拡大されるスタックにすべての子が配置されます。
+> [**StackPanel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.StackPanel) の内部ロジックにも、この動作があります。**StackPanel** は、子の [**Measure**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.measure) に無限サイズの値を渡します。これは、子には、向きのサイズの制約がないことを示します。 **StackPanel** は、通常、動的にサイズ設定され、そのサイズ内で拡大されるスタックにすべての子が配置されます。
 
 ただし、パネル自体は、[**MeasureOverride**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.measureoverride) から、無限値を持つ [**Size**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Size) を返すことができません。返すと、レイアウト時に例外がスローされます。 したがって、ロジックの一部は、子が要求する最大の高さを調べ、それが既にパネル自体のサイズ制約によるものでない場合は、その高さをセルの高さとして使うことです。 次に示すのは、前のコードで参照されるヘルパー関数 `LimitUnboundedSize` です。これは、このセルの最大の高さを受け取り、これを使って、返すことができる有限の高さをパネルに与えます。また、配置パスの開始前に `cellheight` が有限数であることを確認します。
 
@@ -182,7 +182,7 @@ protected override Size ArrangeOverride(Size finalSize)
 
 パネルでは、そのコンテンツのクリップが必要な場合があります。 クリップが必要な場合、クリップされたサイズは、[**DesiredSize**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.desiredsize) にあるサイズです。これは、[**Measure**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.measure) ロジックがこのサイズを、**Measure** に渡された最小値、またはその他の自然なサイズの要因として設定するためです。 したがって、[**Arrange**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.arrange) では、特にクリップを確認する必要はありません。クリップは、各 **Arrange** 呼び出しを介して **DesiredSize** を渡すことに基づいて発生するだけです。
 
-描画位置を定義するために必要なすべての情報が他の方法でわかっている場合は、ループ処理中に常に数を数える必要はありません。 たとえば、[**Canvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Canvas) レイアウト ロジックで、[**Children**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.panel.children) コレクションでの位置は重要ではありません。 **Canvas** の各要素の位置を決定するために必要なすべての情報は、配置ロジックの一部として子の [**Canvas.Left**](https://docs.microsoft.com/dotnet/api/system.windows.controls.canvas.left?view=netframework-4.8) 値と [**Canvas.Top**](https://docs.microsoft.com/dotnet/api/system.windows.controls.canvas.top?view=netframework-4.8) 値を読み取ることで得られるためです。 ただし、`BoxPanel` のロジックでは、新しい行の開始と、*y* 値のオフセットのタイミングを知るために、数を数えて *colcount* と比較する必要があります。
+描画位置を定義するために必要なすべての情報が他の方法でわかっている場合は、ループ処理中に常に数を数える必要はありません。 たとえば、[**Canvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Canvas) レイアウト ロジックで、[**Children**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.panel.children) コレクションでの位置は重要ではありません。 **Canvas** の各要素の位置を決定するために必要なすべての情報は、配置ロジックの一部として子の [**Canvas.Left**](https://docs.microsoft.com/dotnet/api/system.windows.controls.canvas.left) 値と [**Canvas.Top**](https://docs.microsoft.com/dotnet/api/system.windows.controls.canvas.top) 値を読み取ることで得られるためです。 ただし、`BoxPanel` のロジックでは、新しい行の開始と、*y* 値のオフセットのタイミングを知るために、数を数えて *colcount* と比較する必要があります。
 
 入力 *finalSize* と、[**ArrangeOverride**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.arrangeoverride) の実装から返す [**Size**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Size) が同じであることは一般的です。 その理由について詳しくは、「[XAML カスタム パネルの概要](custom-panels-overview.md)」の「**ArrangeOverride**」セクションをご覧ください。
 
@@ -209,7 +209,7 @@ if (UseOppositeRCRatio) { aspectratio = 1 / aspectratio;}
 
 ## <a name="the-scenario-for-boxpanel"></a>BoxPanel のシナリオ
 
-`BoxPanel` の特定のシナリオは、子項目の数がわかっており、パネルで使用できるとわかっているスペースを分割することが、スペースの分割方法の主な決定要因の 1 つであるパネルです。 パネルの形状は本質的に四角形です。 多くのパネルは、その四角形のスペースをさらに四角形に分割して動作します。これは、セルに対する [**Grid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid) の動作です。 **Grid** の場合は、セルのサイズが [**ColumnDefinition**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ColumnDefinition) と [**RowDefinition**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RowDefinition) の値によって設定され、これらの値が使用される正確なセルが要素によって、[**Grid.Row**](https://docs.microsoft.com/dotnet/api/system.windows.controls.grid.row?view=netframework-4.8) 添付プロパティと [**Grid.Column**](https://docs.microsoft.com/dotnet/api/system.windows.controls.grid.column?view=netframework-4.8) 添付プロパティで宣言されます。 **Grid** から適切なレイアウトを取得するには、通常、子要素の数を事前に知っている必要があります。これは、セルの数が十分であり、各子要素がそのセル サイズに収まるように自身の添付プロパティを設定する必要があるためです。
+`BoxPanel` の特定のシナリオは、子項目の数がわかっており、パネルで使用できるとわかっているスペースを分割することが、スペースの分割方法の主な決定要因の 1 つであるパネルです。 パネルの形状は本質的に四角形です。 多くのパネルは、その四角形のスペースをさらに四角形に分割して動作します。これは、セルに対する [**Grid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid) の動作です。 **Grid** の場合は、セルのサイズが [**ColumnDefinition**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ColumnDefinition) と [**RowDefinition**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RowDefinition) の値によって設定され、これらの値が使用される正確なセルが要素によって、[**Grid.Row**](https://docs.microsoft.com/dotnet/api/system.windows.controls.grid.row) 添付プロパティと [**Grid.Column**](https://docs.microsoft.com/dotnet/api/system.windows.controls.grid.column) 添付プロパティで宣言されます。 **Grid** から適切なレイアウトを取得するには、通常、子要素の数を事前に知っている必要があります。これは、セルの数が十分であり、各子要素がそのセル サイズに収まるように自身の添付プロパティを設定する必要があるためです。
 
 では、子の数が動的な場合はどうでしょうか。 これは、確実にあり得ます。アプリ コードは、UI を更新する価値があるだけ重要であると考えられる動的ランタイム状態に対応して、コレクションに項目を追加できます。 コレクション/ビジネス オブジェクトのバッキングにデータ バインドを使っている場合は、このような更新プログラムの取得と UI の更新が自動的に処理されます。これは、多くの場合、優先して使われる手法です (「[データ バインディングの詳細](https://docs.microsoft.com/windows/uwp/data-binding/data-binding-in-depth)」をご覧ください)。
 
@@ -225,8 +225,8 @@ if (UseOppositeRCRatio) { aspectratio = 1 / aspectratio;}
 
 * [**FrameworkElement.ArrangeOverride**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.arrangeoverride)
 * [**FrameworkElement.MeasureOverride**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.measureoverride)
-* [**パネル**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Panel)
+* [**Panel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Panel)
 
 **概念**
 
-* [配置、余白、および余白](alignment-margin-padding.md)
+* [配置、余白、およびパディング](alignment-margin-padding.md)

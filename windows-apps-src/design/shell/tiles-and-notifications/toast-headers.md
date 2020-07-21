@@ -1,5 +1,5 @@
 ---
-Description: ヘッダーを使用して、アクション センターで、トースト通知を視覚的にグループ化する方法について説明します。
+Description: ヘッダーを使用して、アクションセンターでトースト通知を視覚的にグループ化する方法について説明します。
 title: トースト ヘッダー
 label: Toast headers
 template: detail.hbs
@@ -7,19 +7,19 @@ ms.date: 12/07/2017
 ms.topic: article
 keywords: windows 10, uwp, トースト, ヘッダー, トースト ヘッダー, 通知, トーストのグループ化, アクション センター
 ms.localizationpriority: medium
-ms.openlocfilehash: c7d1e3ce0a012d36bea671f87efb8df3a5d49b5f
-ms.sourcegitcommit: 139717a79af648a9231821bdfcaf69d8a1e6e894
+ms.openlocfilehash: af94b501b0e98515a1d3b3216f3a76a28fedab67
+ms.sourcegitcommit: 6e7665b457ec4585db19b70acfa2554791ad6e10
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67714084"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70987213"
 ---
 # <a name="toast-headers"></a>トースト ヘッダー
 
 通知に対してトースト ヘッダーを使用して、アクション センター内の互いに関連する複数の通知を視覚的にグループ化することができます。
 
 > [!IMPORTANT]
-> **デスクトップ Creators Update と通知ライブラリの 1.4.0 必要**:デスクトップ ビルド 15063 以上トーストを表示するヘッダーを実行する必要があります。 トーストのコンテンツ内にヘッダーを作成するには、[UWP コミュニティ ツールキットの Notifications NuGet ライブラリ](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/)、バージョン 1.4.0 以上を使用する必要があります。 ヘッダーはデスクトップでのみサポートされます。
+> **デスクトップクリエーターを更新し、通知ライブラリを作成する必要があり**ます。トーストヘッダーを表示するには、デスクトップビルド15063以降を実行している必要があります。 トーストのコンテンツ内にヘッダーを作成するには、[UWP コミュニティ ツールキットの Notifications NuGet ライブラリ](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/)、バージョン 1.4.0 以上を使用する必要があります。 ヘッダーはデスクトップでのみサポートされます。
 
 以下に示すように、このグループの会話は "Camping!!" という 1 つのヘッダーの下にまとめられています。 会話内の個々のメッセージは、同じトースト ヘッダーを共有する別個のトースト通知です。
 
@@ -77,7 +77,7 @@ ToastContent toastContent = new ToastContent()
 
 そのため、アプリではトースト自体の起動引数に似た **Arguments** をヘッダーに設定できます。
 
-アクティブ化は、[通常のトーストのアクティブ化](send-local-toast.md#handling-activation-1)と同じ方法で処理されるため、ユーザーがトースト本体やトーストのボタンをクリックした場合と同様、`App.xaml.cs` の **OnActivated** メソッドでこれらの引数を取得できます。
+アクティブ化は、[通常のトーストのアクティブ化](send-local-toast.md#activation-handling)と同じ方法で処理されるため、ユーザーがトースト本体やトーストのボタンをクリックした場合と同様、`App.xaml.cs` の **OnActivated** メソッドでこれらの引数を取得できます。
 
 ```csharp
 protected override void OnActivated(IActivatedEventArgs e)
@@ -96,7 +96,7 @@ protected override void OnActivated(IActivatedEventArgs e)
 
 ヘッダーは複数の通知を視覚的に分類し、グループ化します。 アプリが保持できる通知の最大数 (20) や、先入れ先出し法による通知の一覧の処理など、その他のしくみはヘッダーを使用しても変わりません。
 
-ヘッダー内の通知の順序は、次のとおりです.特定のアプリのアプリ (およびすべてのヘッダー グループ ヘッダーの一部の場合) から最新の通知は、先頭に表示されます。
+ヘッダー内の通知の順序は次のとおりです。特定のアプリについては、アプリからの最新の通知 (ヘッダーの一部の場合はヘッダーグループ全体) が最初に表示されます。
 
 **Id** には、任意の文字列を設定できます。 **ToastHeader** のどのプロパティにも、長さや文字の制限はありません。 唯一の制限は、XML トースト コンテンツ全体の上限が 5 KB ということのみです。
 
@@ -107,5 +107,5 @@ protected override void OnActivated(IActivatedEventArgs e)
 
 ## <a name="related-topics"></a>関連トピック
 
-- [ローカル ハンドルとトーストのアクティブ化を送信します。](send-local-toast.md)
-- [トーストのコンテンツのドキュメント](adaptive-interactive-toasts.md)
+- [ローカルトーストを送信し、アクティブ化を処理する](send-local-toast.md)
+- [トーストコンテンツのドキュメント](adaptive-interactive-toasts.md)

@@ -6,17 +6,17 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: c11a812aaa62e9fa4d27fddc1d55739fe491bd20
-ms.sourcegitcommit: 04683376dbdbff987601f546f058748442170068
+ms.openlocfilehash: 1d6c1b4c477bfe5c4f584227491ef5a94e375fa2
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68340846"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74255660"
 ---
 # <a name="using-the-visual-layer-with-xaml"></a>XAML でのビジュアル レイヤーの使用
 
 ビジュアル レイヤーの機能を利用するほとんどのアプリは、XAML を使用して、メイン UI コンテンツを定義します。 Windows 10 Anniversary Update では、XAML フレームワークやビジュアル レイヤーの新しい機能を利用し、これら 2 つのテクノロジを組み合わせて、魅力的なユーザー エクスペリエンスを簡単に作成することができます。
-XAML とビジュアル レイヤーの相互運用機能を使用すると、XAML API 単独では実現できない、高度なアニメーションや効果を作成できます。 この機能には、次が含まれます。
+XAML とビジュアル レイヤーの相互運用機能を使用すると、XAML API 単独では実現できない、高度なアニメーションや効果を作成できます。 たとえば、次のようなアニメーションや効果を作成できます。
 
 - ぼかしやすりガラスなどのブラシ効果
 - 動的な照明効果
@@ -47,10 +47,10 @@ XAML UI 要素の照明など、ライトの使い方について詳しくは、
 
 [**ElementCompositionPreview**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.elementcompositionpreview)は、XAML とビジュアル層の相互運用機能を提供する静的クラスです。 ビジュアル レイヤーとその機能の概要については、「[ビジュアル レイヤー](https://docs.microsoft.com/windows/uwp/graphics/visual-layer)」をご覧ください。 **ElementCompositionPreview** クラスには、次のメソッドが用意されています。
 
--   [**GetElementVisual**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.elementcompositionpreview.getelementvisual):この要素のレンダリングに使用される "配付資料" ビジュアルを取得します
--   [**Setelementchildvisual**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.elementcompositionpreview.setelementchildvisual):この要素のビジュアルツリーの最後の子として "アドイン" ビジュアルを設定します。 この Visual は、他の要素の上に描画されます。 
--   [**GetElementChildVisual**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.elementcompositionpreview.getelementvisual):**Setelementchildvisual**を使用してビジュアルセットを取得する
--   [**GetScrollViewerManipulationPropertySet**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.elementcompositionpreview.getelementvisual):**ScrollViewer**内のスクロールオフセットに基づいて60fps アニメーションを作成するために使用できるオブジェクトを取得します。
+-   [**GetElementVisual**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.elementcompositionpreview.getelementvisual): この要素のレンダリングに使用される "配付資料" ビジュアルを取得します
+-   [**Setelementchildvisual**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.elementcompositionpreview.setelementchildvisual): この要素のビジュアルツリーの最後の子として "アドイン" ビジュアルを設定します。 この Visual は、他の要素の上に描画されます。 
+-   [**GetElementChildVisual**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.elementcompositionpreview.getelementvisual): **setelementchildvisual**を使用してビジュアルセットを取得する
+-   [**GetScrollViewerManipulationPropertySet**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.elementcompositionpreview.getelementvisual): **ScrollViewer**内のスクロールオフセットに基づいて60fps アニメーションを作成するために使用できるオブジェクトを取得します。
 
 ## <a name="remarks-on-elementcompositionpreviewgetelementvisual"></a>ElementCompositionPreview.GetElementVisual の解説
 
@@ -199,7 +199,7 @@ private void InitializeDropShadow(UIElement shadowHost, Shape shadowTarget)
 }
 ```
 
-次の 2 つの一覧では、同じ XAML 構造を使用する、以前の C&#35; コードと同等の [C++/WinRT](https://aka.ms/cppwinrt) および [C++/CX](https://docs.microsoft.com/cpp/cppcx/visual-c-language-reference-c-cx) を示しています。
+次の 2 つの一覧では、同じ XAML 構造を使用する、以前の C&#35; コードと同等の [C++/WinRT](https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/index) および [C++/CX](https://docs.microsoft.com/cpp/cppcx/visual-c-language-reference-c-cx) を示しています。
 
 ```cppwinrt
 #include <winrt/Windows.UI.Composition.h>

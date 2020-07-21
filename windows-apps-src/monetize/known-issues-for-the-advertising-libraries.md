@@ -2,23 +2,26 @@
 ms.assetid: 9ca1f880-2ced-46b4-8ea7-aba43d2ff863
 description: Microsoft Advertising SDK の現在のリリースにおける既知の問題について説明します。
 title: アプリ内広告の既知の問題とトラブルシューティング
-ms.date: 04/16/2018
+ms.date: 02/18/2020
 ms.topic: article
 keywords: Windows 10, UWP, 広告, Advertising, 既知の問題, トラブルシューティング
 ms.localizationpriority: medium
-ms.openlocfilehash: 029d595c41301e62f74c9b08b633bb22bfb12786
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: f39d8512398c43ea65037de82434e3740bac7ff2
+ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57641067"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79209708"
 ---
 # <a name="known-issues-and-troubleshooting-for-ads-in-apps"></a>アプリ内広告の既知の問題とトラブルシューティング
 
+>[!WARNING]
+> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細情報](https://social.msdn.microsoft.com/Forums/windowsapps/en-US/db8d44cb-1381-47f7-94d3-c6ded3fea36f/microsoft-ad-monetization-platform-shutting-down-june-1st?forum=aiamgr)
+
 このトピックでは、Microsoft Advertising SDK の現在のリリースにおける既知の問題を示します。 トラブルシューティングのガイダンスについては、以下のトピックを参照してください。
 
-* [HTML および JavaScript のトラブルシューティング ガイド](html-and-javascript-troubleshooting-guide.md)
-* [XAML とC#トラブルシューティング ガイド](xaml-and-c-troubleshooting-guide.md)
+* [HTML および JavaScript のトラブルシューティングガイド](html-and-javascript-troubleshooting-guide.md)
+* [XAML とC#トラブルシューティングガイド](xaml-and-c-troubleshooting-guide.md)
 
 ## <a name="adcontrol-interface-unknown-in-xaml"></a>XAML での不明な AdControl インターフェイス
 
@@ -30,7 +33,7 @@ ms.locfileid: "57641067"
 
 ## <a name="interstitial-ads-and-navigation-buttons-on-phones"></a>スポット広告と電話のナビゲーション ボタン
 
-ハードウェア ボタンの代わりにソフトウェア ボタンの **"戻る"**、**"スタート"**、**"検索"** を備えた電話 (またはエミュレーター) では、スポット広告用のカウントダウン タイマー ボタンとクリックスルー ボタンが隠れる場合があります。
+ハードウェア ボタンの代わりにソフトウェア ボタンの **"戻る"** 、 **"スタート"** 、 **"検索"** を備えた電話 (またはエミュレーター) では、スポット広告用のカウントダウン タイマー ボタンとクリックスルー ボタンが隠れる場合があります。
 
 ## <a name="recently-created-ads-are-not-being-served-to-your-app"></a>最近作成した広告がアプリに提供されない
 
@@ -40,15 +43,15 @@ ms.locfileid: "57641067"
 
 広告が表示されない場合、ネットワーク エラーを含むさまざまな理由があります。 次の理由も考えられます。
 
-* サイズが大きいか小のサイズであるパートナー センターで、ad 単位を選択すると、 **AdControl**アプリのコードにします。
+* アプリのコード内の**Adcontrol**のサイズより大きいか小さいサイズのパートナーセンターの広告ユニットを選択します。
 
 * 広告ユニット ID に[テスト モードの値](set-up-ad-units-in-your-app.md#test-ad-units)を使ってライブ アプリを実行した場合、広告は表示されません。
 
 * 新しい広告ユニット ID の作成を行ったのがこの 30 分以内の場合、サーバーによってシステムに新しいデータが伝達されるまで、広告は表示されません。 広告が表示されていた既存の ID を使用すると、広告はすぐに表示されます。
 
-アプリにテスト広告が表示される場合は、コードが正常に動作していて広告を表示できることを示します。 問題が発生した場合は、[製品サポート](https://developer.microsoft.com/en-us/windows/support)にお問い合わせください。 ページで、次のように選択します。**問い合わせ**します。
+アプリにテスト広告が表示される場合は、コードが正常に動作していて広告を表示できることを示します。 問題が発生した場合は、[製品サポート](https://developer.microsoft.com/windows/support)にお問い合わせください。 このページで、 **[お問い合わせ]** を選択します。
 
-[フォーラム](https://go.microsoft.com/fwlink/p/?LinkId=401266)に質問を投稿することもできます。
+[フォーラム](https://social.msdn.microsoft.com/forums/windowsapps/en-US/home?category=windowsapps)に質問を投稿することもできます。
 
 ## <a name="test-ads-are-showing-in-your-app-instead-of-live-ads"></a>ライブ広告ではなくテスト広告がアプリに表示される
 
@@ -58,7 +61,7 @@ ms.locfileid: "57641067"
 
 * サイドローディングされたアプリやエミュレーターで実行されているアプリには、ライブ広告は表示されません。
 
-ライブ広告ユニットは、テストの広告を提供している、ad ユニットのステータスが表示されます**アクティブ、およびサービスのテスト広告**パートナー センターでします。 現時点で、これは、電話アプリには適用されません。
+ライブ ad ユニットがテスト広告にサービスを提供している場合、ad ユニットの状態は [アクティブ] と表示され、パートナーセンターの**テスト広告を提供**します。 現時点で、これは、電話アプリには適用されません。
 
 
 <span id="reference_errors"/>
@@ -89,9 +92,9 @@ JavaScript/HTML アプリでは、z オーダーの予約済みの MAX-10 の範
 
 **AdControl** によってその親クラスから継承される境界線に関連するプロパティを設定すると、広告の配置に関して問題が発生します。
 
-## <a name="more-information"></a>説明
+## <a name="more-information"></a>詳細
 
-最新の既知の問題についての詳細を調べたり、Microsoft Advertising SDK に関連する質問を投稿したりするには、[フォーラム](https://go.microsoft.com/fwlink/p/?LinkId=401266)をご利用ください。
+最新の既知の問題についての詳細を調べたり、Microsoft Advertising SDK に関連する質問を投稿したりするには、[フォーラム](https://social.msdn.microsoft.com/forums/windowsapps/en-US/home?category=windowsapps)をご利用ください。
 
  
 

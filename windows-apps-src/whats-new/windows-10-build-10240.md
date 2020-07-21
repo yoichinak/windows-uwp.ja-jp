@@ -1,21 +1,21 @@
 ---
 Description: Windows 10 ビルド 10240 と開発者ツールの更新プログラムでは、引き続きユニバーサル Windows プラットフォームによって強化されたツール、機能、およびエクスペリエンスを提供しています。
 title: Windows 10 ビルド 10240 の新機能 - 2015 年 7 月
-keywords: 新着情報, 新機能, 更新, 更新プログラム, 機能, 新規, Windows 10, 1507, 10240
+keywords: Windows 10, 1507, 10240
 ms.date: 11/02/2017
 ms.topic: article
 ms.assetid: 4853e55b-2232-4589-903a-ccb60e07aeb8
 ms.localizationpriority: medium
-ms.openlocfilehash: 28eb1dfecf9f6648bd43606c541daf7b57960771
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 0cdb5dc2746e155d0c7a52b8edd29915524c85e5
+ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67320441"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83234752"
 ---
 # <a name="whats-new-in-windows10-for-developers-build-10240"></a>Windows 10 ビルド 10240 の開発者向け新機能
 
-Windows 10 ビルド 10240 と更新された SDK では、優れたユニバーサル Windows プラットフォーム アプリを作るためツール、機能、エクスペリエンスを利用できます。 Windows 10 への[ツールと SDK のインストール](https://go.microsoft.com/fwlink/?LinkId=821431)が完了したら、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
+Windows 10 ビルド 10240 と更新された SDK では、優れたユニバーサル Windows プラットフォーム アプリを作るためツール、機能、エクスペリエンスを利用できます。 Windows 10 への[ツールと SDK のインストール](https://developer.microsoft.com/windows/downloads#_blank)が完了したら、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
 
 以下では、Windows 10 ビルド 10240 (Windows 10 バージョン 1507 とも呼ばれます) の新機能をそれぞれ見ていきます。
 
@@ -72,7 +72,7 @@ AutoSuggestBox | Windows Phone 8.1 の [AutoSuggestBox](https://docs.microsoft.c
 ContentDialog | Windows Phone 8.1 の [ContentDialog](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.contentdialog) コントロールは、すべてのデバイス ファミリのユニバーサル Windows アプリで使用できるようになりました。 ContentDialog を使えば、ありとあらゆるデバイスで適切に機能するカスタマイズ可能なモーダル ダイアログを表示できます。
 Pivot | Windows Phone 8.1 の [Pivot](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.pivot) コントロールは、すべてのデバイス ファミリのユニバーサル Windows アプリで使用できるようになりました。 モバイル デバイスとデスクトップ デバイスに対応したアプリで、同じ Pivot コントロールを使用できるようになりました。 Pivot は、画面サイズと入力の種類に基づいてアダプティブ動作を提供します。 各ピボット項目の異なる情報のビューで、タブに似た動作を提供するように Pivot コントロールのスタイルを指定できます。
 
-## <a name="text"></a>Text
+## <a name="text"></a>テキスト
 
 機能 | 説明
  :---- | :----
@@ -90,7 +90,7 @@ Windows の基本的なテキスト API | 新しい [Windows.UI.Text.Core](https
 Cortana | 音声コマンドが Cortana の基本機能を拡張し、外部アプリケーションで単一の操作を起動して実行します。 アプリの基本的な機能を統合して、ユーザーが直接アプリを開かずにほとんどのタスクを実行できる中心的エントリ ポイントを提供することで、Cortana は、アプリとユーザーの仲介役となります。 多くの場合、これによってユーザーの時間と労力を大幅に減らすことができます。 [Cortana のキャンバスにアプリを統合](https://docs.microsoft.com/previous-versions/windows/apps/dn974230(v=win.10))する方法について説明します。 アイデアが必要な場合は、[ユニバーサル Windows アプリの設計の基本](https://docs.microsoft.com/windows/uwp/design/layout/index)に関するページで、Cortana に固有の設計に関する推奨事項とユーザー エクスペリエンスのガイドラインをご確認いただけます。
 エクスプローラー | 新しい [Windows.System.Launcher.LaunchFolderAsync](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchfolderasync) メソッドでは、エクスプローラーを起動して、指定したフォルダーの内容を表示できます。
 共有ストレージ | 新しい [Windows.ApplicationModel.DataTransfer.SharedStorageAccessManager](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.sharedstorageaccessmanager) クラスとそのメソッドでは、URI のアクティブ化を使って他のアプリを起動するときに共有トークンを渡し、別のアプリとファイルを共有できます。 ターゲット アプリはトークンを利用して、ソース アプリが共有しているファイルを取得します。
-設定 | ms-settings プロトコルと [LaunchUriAsync](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchuriasync) メソッドを使って組み込みの設定ページを表示できます。 たとえば、次のコードは Wi-Fi の設定ページを表示します。**bool result = await Launcher.LaunchUriAsync(new Uri("ms-settings://network/wifi"));** <br /><br />表示できる設定ページの一覧については、「[ms-settings プロトコルを使って組み込みの設定ページを表示する方法](https://docs.microsoft.com/previous-versions/windows/apps/jj207014(v=vs.105))」を参照してください。
+Settings | ms-settings プロトコルと [LaunchUriAsync](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchuriasync) メソッドを使って組み込みの設定ページを表示できます。 たとえば、次のコードは Wi-Fi の設定ページを表示します。**bool result = await Launcher.LaunchUriAsync(new Uri("ms-settings://network/wifi"));** <br /><br />表示できる設定ページの一覧については、「[ms-settings プロトコルを使って組み込みの設定ページを表示する方法](https://docs.microsoft.com/previous-versions/windows/apps/jj207014(v=vs.105))」を参照してください。
 App-to-App communication | Windows 10 の新しい[アプリ間通信](https://docs.microsoft.com/previous-versions/windows/apps/dn997827(v=win.10)) API により、Windows アプリケーション (および Windows Web アプリケーション) 間での相互起動やデータとファイルの交換が可能になります。 これらの新しい API を使うと、複数のアプリケーションを使う必要のあった複雑な作業をシームレスに処理できるようになります。 たとえば、アプリでソーシャル ネットワー キング アプリを起動して連絡先を選択したり、チェックアウト アプリケーションを起動して支払処理を完了したりできます。
 アプリ サービス | アプリ サービスは、Windows 10 でアプリが他のアプリにサービスを提供する方法の 1 つです。 アプリ サービスは、バックグラウンド タスクの形式を取ります。 フォアグラウンド アプリは、別のアプリでアプリ サービスを呼び出してバックグラウンドでタスクを実行できます。 アプリ サービス API のリファレンス情報については、[Windows.ApplicationModel.AppService](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.AppService) をご覧ください。
 アプリ パッケージ マニフェスト | Windows 10 の[パッケージ マニフェスト スキーマ](https://docs.microsoft.com/uwp/schemas/appxpackage/appx-package-manifest)のリファレンスへの更新には、追加、削除、変更された要素が含まれています。 このスキーマのすべての要素、属性、タイプに関するリファレンス情報については、「[要素の階層](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/root-elements)」をご覧ください。
@@ -100,10 +100,10 @@ App-to-App communication | Windows 10 の新しい[アプリ間通信](https://d
 機能 | 説明
  :---- | :----
 Microsoft Surface Hub | Microsoft Surface Hub は、高性能なチーム共同作業デバイスであり、Surface Hub または接続されているデバイスからネイティブで実行されるユニバーサル Windows アプリに対応する大画面プラットフォームです。 ビジネス向けの独自アプリを作成し、大画面、タッチ入力、手描き入力、広範なオンボード ハードウェア (カメラ、センサーなど) を活用しましょう。<br /><br />[ユニバーサル Windows アプリの設計の基本](https://docs.microsoft.com/windows/uwp/design/layout/index)に関するページで、Surface Hub に固有の設計に関する推奨事項とユーザー エクスペリエンスのガイドラインをご確認いただけます。 次のドキュメントでは、ユニバーサル Windows アプリのレスポンシブ デザイン手法を説明しています。 <br /><br />共同の共有アプリのサポートについては、[SharedModeSettings](https://docs.microsoft.com/uwp/api/windows.system.profile.sharedmodesettings) に関するページをご覧ください。 手描き入力と新しい [InkCanvas](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas) コントロールでのマルチポイント手描き入力のサポートについて詳しくは、[Windows.UI.Input.Inking](https://docs.microsoft.com/uwp/api/windows.ui.input.inking) に関するページと [Windows.UI.Input.Inking.Core](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.core) に関するページをご覧ください。 センサー入力の処理については、[デバイス、プリンター、センサーの統合](https://docs.microsoft.com/previous-versions/windows/apps/br229563(v=win.10))に関するページをご覧ください。
-Location | Windows 10 では、位置情報へのアクセス許可をユーザーに求める画面を表示する新しいメソッド、[RequestAccessAsync](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geolocator.requestaccessasync) が導入されます。 ユーザーが**設定**アプリの**位置情報に関するプライバシー設定**で位置情報に関するプライバシーを設定します。 次の場合にのみ、アプリでユーザーの位置情報にアクセスできます。 **[このデバイスの位置情報]** がオンになっている場合 *(Windows 10 for phones には適用されません)* 、位置情報サービス設定の " **[位置情報]** " がオンになっている場合、 **[位置情報を使えるようにするアプリを選ぶ]** で、アプリがオンになっている場合。 <br /><br />ユーザーの位置情報にアクセスする前に、**RequestAccessAsync** を呼び出すことが重要です。 このときに、アプリをフォアグラウンドで実行し、**RequestAccessAsync** を UI スレッドから呼び出す必要があります。 位置情報に対するアクセス許可をユーザーがアプリに与えるまで、アプリは位置情報にアクセスできません。
+インストール先 | Windows 10 では、位置情報へのアクセス許可をユーザーに求める画面を表示する新しいメソッド、[RequestAccessAsync](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geolocator.requestaccessasync) が導入されます。 ユーザーが**設定**アプリの**位置情報に関するプライバシー設定**で位置情報に関するプライバシーを設定します。 次の場合にのみ、アプリでユーザーの位置情報にアクセスできます。 **[このデバイスの位置情報]** がオンになっている場合 *(Windows 10 for phones には適用されません)* 、位置情報サービス設定の " **[位置情報]** " がオンになっている場合、 **[位置情報を使えるようにするアプリを選ぶ]** で、アプリがオンになっている場合。 <br /><br />ユーザーの位置情報にアクセスする前に、**RequestAccessAsync** を呼び出すことが重要です。 このときに、アプリをフォアグラウンドで実行し、**RequestAccessAsync** を UI スレッドから呼び出す必要があります。 位置情報に対するアクセス許可をユーザーがアプリに与えるまで、アプリは位置情報にアクセスできません。
 AllJoyn | [Windows.Devices.AllJoyn](https://docs.microsoft.com/uwp/api/windows.devices.alljoyn) Windows ランタイム名前空間には、AllJoyn オープン ソース ソフトウェア フレームワークとサービスのマイクロソフトによる実装が導入されています。 これらの API により、Windows デバイス用のユニバーサル アプリは、AllJoyn に基づくモノのインターネット (IoT) のシナリオに他のデバイスと共に参加できるようになります。 AllJoyn C API について詳しくは、[AllSeen Alliance](https://allseenalliance.org/) でドキュメントをダウンロードしてください。 デバイス アプリでの AllJoyn シナリオの実現に使用できる Windows コンポーネントを生成するには、このリリースに含まれている [AllJoynCodeGen](https://docs.microsoft.com/previous-versions/windows/apps/dn913809(v=win.10)) ツールを使います。 <br /><br />**注:** Windows 10 IoT Core が、小型デバイス用の新しいクラスで使用できるようになりました。これで、Windows と Visual Studio を使って "モノのインターネット" (IoT) デバイスを作成できます。 詳しくは、[Windows デベロッパー センターで Windows IoT](https://developer.microsoft.com/windows/iot) についてご覧ください。
 モバイルでの印刷 API (XAML) | There is a single, unified set of APIs that let you print from your XAML-based UWP apps across device families, including mobile devices. Windows.Graphics.Printing 名前空間と Windows.UI.Xaml.Printing 名前空間の慣れ親しんでいる印刷関連の API を使って、印刷機能をモバイル アプリに追加できるようになりました。
-バッテリー | [Windows.Devices.Power](https://docs.microsoft.com/uwp/api/windows.devices.power) 名前空間のバッテリー API を使うと、アプリを実行しているデバイスに接続されたバッテリーについて、詳しい情報をアプリで取得できます。 個々のバッテリー コントローラーまたはすべてのバッテリー コントローラーの集合を表す [Battery](https://docs.microsoft.com/uwp/api/windows.devices.power.battery) オブジェクトを作成します (それぞれ、[FromIdAsync](https://docs.microsoft.com/uwp/api/windows.devices.power.battery.fromidasync) または [AggregateBattery](https://docs.microsoft.com/uwp/api/windows.devices.power.battery.aggregatebattery) によって作成されている場合)。 [GetReport](https://docs.microsoft.com/uwp/api/windows.devices.power.battery.getreport) メソッドを使って、対応するバッテリーの充電量、容量、状態を示す [BatteryReport](https://docs.microsoft.com/uwp/api/windows.devices.power.batteryreport) オブジェクトを取得します。
+バッテリ | [Windows.Devices.Power](https://docs.microsoft.com/uwp/api/windows.devices.power) 名前空間のバッテリー API を使うと、アプリを実行しているデバイスに接続されたバッテリーについて、詳しい情報をアプリで取得できます。 個々のバッテリー コントローラーまたはすべてのバッテリー コントローラーの集合を表す [Battery](https://docs.microsoft.com/uwp/api/windows.devices.power.battery) オブジェクトを作成します (それぞれ、[FromIdAsync](https://docs.microsoft.com/uwp/api/windows.devices.power.battery.fromidasync) または [AggregateBattery](https://docs.microsoft.com/uwp/api/windows.devices.power.battery.aggregatebattery) によって作成されている場合)。 [GetReport](https://docs.microsoft.com/uwp/api/windows.devices.power.battery.getreport) メソッドを使って、対応するバッテリーの充電量、容量、状態を示す [BatteryReport](https://docs.microsoft.com/uwp/api/windows.devices.power.batteryreport) オブジェクトを取得します。
 MIDI デバイス | 新しい [Windows.Devices.Midi](https://docs.microsoft.com/uwp/api/windows.devices.midi) 名前空間では、外部 MIDI デバイスと通信可能なアプリ、Microsoft GS MIDI ソフトウェア シンセサイザーと直接通信するアプリと外部デバイス、複数のクライアントが同時に 1 つの MIDI ポートにアクセスするシナリオを作成できます。
 カスタム センサーのサポート | [Windows.Devices.Sensors.Custom](https://docs.microsoft.com/uwp/api/windows.devices.sensors.custom) 名前空間により、ハードウェアの開発者は CO2 センサーのような新しいカスタム センサーの種類を定義できます。
 ホスト ベースのカード エミュレーション (HCE) | ホスト カード エミュレーションを使うと、OS でホストされている NFC カード エミュレーション サービスを実装すると同時に、NFC 無線経由で外部リーダー ターミナルと通信することができます。 バックグラウンド タスクをトリガーして NFC 経由でスマートカードをエミュレートするには、[SmartCardTrigger](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.SmartCardTrigger) クラスを使います。 [SmartCardTriggerType](https://docs.microsoft.com/uwp/api/Windows.Devices.SmartCards.SmartCardTriggerType) 列挙型の EmulatorHostApplicationActivated 値によりアプリは、HCE イベントが発生したことを認識します。
@@ -159,7 +159,7 @@ Power | バッテリー節約機能が有効または無効になったときは
 ユーザー情報 | [Windows.System](https://docs.microsoft.com/uwp/api/windows.system) 名前空間の新しい API により、ユーザー名やアカウントの画像など、ユーザーに関する情報にアクセスしやすくなります。 ログインやログアウトなどのユーザー イベントに応答する機能も提供されます。
 メモリ管理とプロファイリング | [Windows.System](https://docs.microsoft.com/uwp/api/windows.system) のメモリ プロファイリング API のサポートがすべてのプラットフォームに拡張され、その全体的な機能が、新しいクラスと機能で強化されています。
 
-## <a name="storage"></a>ストレージ
+## <a name="storage"></a>記憶域
 
 機能 | 説明
  :---- | :----
@@ -172,7 +172,7 @@ Windows Phone で利用可能なファイル検索 API | アプリの発行者�
 Visual Studio のライブ ビジュアル ツリー機能 | Visual Studio に、新しいライブ ビジュアル ツリー機能が搭載されました。 デバッグの際にこの機能を使うことで、アプリのビジュアル ツリーの状態をすばやく把握し、要素のプロパティの設定を検出することができます。 It also lets you change property values while your app is running, so you can tweak and experiment without having to re-launch.
 Trace logging | [TraceLogging](https://docs.microsoft.com/windows/desktop/tracelogging/trace-logging-portal) は、ユーザー モード アプリとカーネル モード ドライバー用の新しいイベント トレース API です。[Windows イベント トレーシング](https://docs.microsoft.com/windows/desktop/ETW/event-tracing-portal) (ETW) を基にして構築されています。 This API provides a simplified way to instrument code and include structured data with events without requiring a separate instrumentation manifest XML file. 対象となるさまざまな開発者に対応するために、WinRT、.NET、C/C++ の TraceLogging API が用意されています。
 
-## <a name="user-experience"></a>ユーザー エクスペリエンス
+## <a name="user-experience"></a>ユーザーの作業
 
 機能 | 説明
  :---- | :----

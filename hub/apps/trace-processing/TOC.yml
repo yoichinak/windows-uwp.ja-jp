@@ -1,0 +1,19 @@
+- name: .NET TraceProcessing のドキュメント
+  href: index.yml
+  items:
+    - name: 概要
+      href: overview.md
+    - name: 最初のトレースを処理する
+      href: quickstart.md
+    - name: トレース データへのアクセス
+      href: tutorial.md
+    - name: TraceProcessor の拡張
+      href: extensibility.md
+    - name: シンボルの読み込み
+      href: symbols.md
+    - name: ストリーミングの使用
+      href: streaming.md
+    - name: サンプル
+      href: 'https://github.com/microsoft/eventtracing-processing-samples'
+    - name: 参照先
+      href: reference.md

@@ -1,17 +1,17 @@
 ---
-Description: SendRequestAsync メソッドを使用すると、Windows SDK で利用できる API がまだない操作のための Microsoft Store に要求を送信します。
+Description: SendRequestAsync メソッドを使用すると、Windows SDK で使用可能な API をまだ持っていない操作の Microsoft Store に要求を送信できます。
 title: Microsoft Store に要求を送信する
 ms.assetid: 070B9CA4-6D70-4116-9B18-FBF246716EF0
 ms.date: 03/22/2018
 ms.topic: article
 keywords: Windows 10, UWP, StoreRequestHelper, SendRequestAsync
 ms.localizationpriority: medium
-ms.openlocfilehash: d492bc7dde990404552689516731850974c31a7c
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 810c546eb0ee0263dcb50b3ce58e593ad294435c
+ms.sourcegitcommit: 577a54d36145f91c8ade8e4509d4edddd8319137
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57589797"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83867332"
 ---
 # <a name="send-requests-to-the-microsoft-store"></a>Microsoft Store に要求を送信する
 
@@ -27,14 +27,14 @@ Windows 10 バージョン 1607 以降、Windows SDK の [Windows.Services.Store
 * ストアに送信する要求を識別する整数。
 * 要求が任意の引数をサポートする場合、要求と共に渡す引数を含む JSON 形式の文字列も渡すことができます。
 
-次の例は、このメソッドを呼び出す方法を示しています。 この例では、**Windows.Services.Store** 名前空間と **System.Threading.Tasks** 名前空間のステートメントを使う必要があります。
+このメソッドの呼び出し方法を次の例に示します。 この例では、**Windows.Services.Store** 名前空間と **System.Threading.Tasks** 名前空間のステートメントを使う必要があります。
 
 ```csharp
 public async Task<bool> AddUserToFlightGroup()
 {
     StoreSendRequestResult result = await StoreRequestHelper.SendRequestAsync(
         StoreContext.GetDefault(), 8,
-        "{ \"type\": \"AddToFlightGroup\", \"parameters\": \"{ \"flightGroupId\": \"your group ID\" }\" }");
+        "{ \"type\": \"AddToFlightGroup\", \"parameters\": { \"flightGroupId\": \"your group ID\" } }");
 
     if (result.ExtendedError == null)
     {
@@ -72,12 +72,12 @@ public async Task<bool> AddUserToFlightGroup()
 
 この要求は、現在のユーザーまたはデバイスの最も順位の高いフライト グループのリモート変数を取得します。 この要求を送信するには、次の情報を **SendRequestAsync** メソッドの *requestKind* パラメーターと *parametersAsJson* パラメーターに渡します。
 
-|  パラメーター  |  説明  |
+|  パラメーター  |  [説明]  |
 |----------------------|---------------|
 |  *requestKind*                   |  デバイスの最も順位の高いフライト グループを返すには 7 を指定し、現在のユーザーとデバイスの最も順位の高いフライト グループを返すには 8 を指定します。 *requestKind* パラメーターには値 8 を使うことをお勧めします。この値は、現在のユーザーおよびデバイスの両方のメンバーシップにおいて最も順位の高いフライト グループを返すためです。  |
 |  *parametersAsJson*                   |  次の例に示すように、データを含む JSON 形式の文字列を渡します。  |
 
-次の例は、JSON 形式のデータを *parametersAsJson* に渡す方法を示しています。 *type* フィールドは、文字列 *GetRemoteVariables* に割り当てる必要があります。 割り当てる、 *projectId*フィールドをパートナー センターでリモート変数が定義されているプロジェクトの ID。
+次の例は、JSON 形式のデータを *parametersAsJson* に渡す方法を示しています。 *type* フィールドは、文字列 *GetRemoteVariables* に割り当てる必要があります。 パートナーセンターで、リモート変数を定義したプロジェクトの ID に*projectId*フィールドを割り当てます。
 
 ```json
 { 
@@ -90,7 +90,7 @@ public async Task<bool> AddUserToFlightGroup()
 
 |  フィールド  |  説明  |
 |----------------------|---------------|
-|  *匿名*                   |  ブール値。**true** はユーザーまたはデバイス ID が要求に存在していなかったことを示し、**false** はユーザーまたはデバイス ID が要求に存在していたことを示します。  |
+|  *anonymous*                   |  ブール値。**true** はユーザーまたはデバイス ID が要求に存在していなかったことを示し、**false** はユーザーまたはデバイス ID が要求に存在していたことを示します。  |
 |  *name*                   |  デバイスまたはユーザーが所属する最も順位の高いフライト グループの名前を含む文字列です。  |
 |  *設定*                   |  開発者がフライト グループに構成したリモート変数の名前を値を含むキー/値ペアのディクショナリです。  |
 
@@ -115,7 +115,7 @@ public async Task<bool> AddUserToFlightGroup()
 
 この要求を送信するには、次の情報を **SendRequestAsync** メソッドの *requestKind* パラメーターと *parametersAsJson* パラメーターに渡します。
 
-|  パラメーター  |  説明  |
+|  パラメーター  |  [説明]  |
 |----------------------|---------------|
 |  *requestKind*                   |  デバイスをフライト グループに追加するには 7 を指定し、現在ストアにサインインしているユーザーをフライト グループに追加するには 8 を指定します。  |
 |  *parametersAsJson*                   |  次の例に示すように、データを含む JSON 形式の文字列を渡します。  |
@@ -138,7 +138,7 @@ public async Task<bool> AddUserToFlightGroup()
 
 この要求を送信するには、次の情報を **SendRequestAsync** メソッドの *requestKind* パラメーターと *parametersAsJson* パラメーターに渡します。
 
-|  パラメーター  |  説明  |
+|  パラメーター  |  [説明]  |
 |----------------------|---------------|
 |  *requestKind*                   |  デバイスをフライト グループから削除するには 7 を指定し、現在ストアにサインインしているユーザーをフライト グループから削除するには 8 を指定します。  |
 |  *parametersAsJson*                   |  次の例に示すように、データを含む JSON 形式の文字列を渡します。  |
@@ -156,5 +156,5 @@ public async Task<bool> AddUserToFlightGroup()
 
 ## <a name="related-topics"></a>関連トピック
 
-* [評価を表示して、アプリのダイアログを確認してください。](request-ratings-and-reviews.md#show-a-rating-and-review-dialog-in-your-app)
+* [アプリ内での評価とレビュー ダイアログの表示](request-ratings-and-reviews.md#show-a-rating-and-review-dialog-in-your-app)
 * [SendRequestAsync](https://docs.microsoft.com/uwp/api/windows.services.store.storerequesthelper.sendrequestasync)

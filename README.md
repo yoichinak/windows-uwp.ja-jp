@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: f36ab1f90c36d87f710ddb02dd078363bdb896dd
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "63770146"
 ---
 ## <a name="legal-notices"></a>法的通知

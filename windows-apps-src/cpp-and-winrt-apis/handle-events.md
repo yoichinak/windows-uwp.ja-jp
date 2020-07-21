@@ -5,12 +5,12 @@ ms.date: 04/23/2019
 ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、プロジェクション、処理、イベント、デリゲート
 ms.localizationpriority: medium
-ms.openlocfilehash: 194fd9041b76acb1ef76288fed21c8098462b406
-ms.sourcegitcommit: 8b4c1fdfef21925d372287901ab33441068e1a80
+ms.openlocfilehash: eae966c130c52305b53cc4122844aeae49ecab92
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844342"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82267495"
 ---
 # <a name="handle-events-by-using-delegates-in-cwinrt"></a>C++/WinRT でのデリゲートを使用したイベントの処理
 
@@ -38,6 +38,9 @@ XAML デザイナーにより、適切なイベント ハンドラー関数の�
 ```
 
 ```cppwinrt
+// MainPage.h
+void ClickHandler(winrt::Windows::Foundation::IInspectable const& sender, winrt::Windows::UI::Xaml::RoutedEventArgs const& args);
+
 // MainPage.cpp
 void MainPage::ClickHandler(IInspectable const& /* sender */, RoutedEventArgs const& /* args */)
 {
@@ -59,6 +62,22 @@ MainPage::MainPage()
 
 > [!IMPORTANT]
 > デリゲートを登録するとき、上のコード例では (現在のオブジェクトを指す) 生の *this* ポインターが渡されます。 現在のオブジェクトに対する強い参照または弱い参照を確立する方法については、「[デリゲートとしてメンバー関数を使用する場合](weak-references.md#if-you-use-a-member-function-as-a-delegate)」をご覧ください。
+
+静的メンバー関数を使用する例を次に示します。さらにシンプルな構文に注目します。
+
+```cppwinrt
+// MainPage.h
+static void ClickHandler(winrt::Windows::Foundation::IInspectable const& sender, winrt::Windows::UI::Xaml::RoutedEventArgs const& args);
+
+// MainPage.cpp
+MainPage::MainPage()
+{
+    InitializeComponent();
+
+    Button().Click( MainPage::ClickHandler );
+}
+void MainPage::ClickHandler(IInspectable const& /* sender */, RoutedEventArgs const& /* args */) { ... }
+```
 
 **RoutedEventHandler** の作成には他の方法もあります。 次に、[**RoutedEventHandler**](/uwp/api/windows.ui.xaml.routedeventhandler) のドキュメント内にある構文ブロックを示します (Web ページの右上の **[言語]** ドロップダウンから [*C++/WinRT*] を選択します)。 さまざまなコンストラクターがあることに注意してください。ラムダ、自由関数、メンバー関数へのオブジェクトとポインター (上記で使用したもの) を受け取ります。
 
@@ -126,7 +145,9 @@ MainPage::MainPage()
 
 ## <a name="revoke-a-registered-delegate"></a>登録済みデリゲートの取り消し
 
-デリゲートを登録すると、通常、トークンがユーザーに返されます。 その後、このトークンを使用してデリゲートを取り消すことができます。つまり、このトークンはイベントから登録解除され、イベントが再び発生しても呼び出されることはありません。 説明を簡単にするために、上記の例にはその方法を示すコードは含まれていません。 ただし、次のコード例では、トークンを構造体のプライベート データ メンバーに格納し、デストラクターの該当するハンドラーを取り消しています。
+デリゲートを登録すると、通常、トークンがユーザーに返されます。 その後、このトークンを使用してデリゲートを取り消すことができます。つまり、このトークンはイベントから登録解除され、イベントが再び発生しても呼び出されることはありません。
+
+説明を簡単にするために、上記の例にはその方法を示すコードは含まれていません。 ただし、次のコード例では、トークンを構造体のプライベート データ メンバーに格納し、デストラクターの該当するハンドラーを取り消しています。
 
 ```cppwinrt
 struct Example : ExampleT<Example>
@@ -150,6 +171,9 @@ private:
 ```
 
 上の例のような強参照の代わりに、弱参照をボタンに格納することができます (「[C++/WinRT の強参照と弱参照](weak-references.md)」を参照してください)。
+
+> [!NOTE]
+> イベント ソースでそのイベントが同期的に生成される場合は、ハンドラーを取り消して、それ以上イベントを受け取ることはないという確信を持つことができます。 ただし、非同期イベントの場合は、取り消し後 (特にデストラクター内で取り消す場合) でも、破棄が開始された後に実行中のイベントがオブジェクトに到着する可能性があります。 破棄の前に登録を解除する場所を見つけることで、問題が軽減される可能性があります。または、堅牢なソリューションについて、「[イベント処理デリゲートで *this* ポインターに安全にアクセスする](weak-references.md#safely-accessing-the-this-pointer-with-an-event-handling-delegate)」を参照してください。
 
 または、デリゲートを登録する場合、**winrt::auto_revoke** (型 [**winrt::auto_revoke_t**](/uwp/cpp-ref-for-winrt/auto-revoke-t) の値) を指定して ([**winrt::event_revoker**](/uwp/cpp-ref-for-winrt/event-revoker) 型の) イベント リボーカーを要求できます。 イベント リボーカーにより、イベント ソース (イベントを発生させるオブジェクト) への弱参照が保持されます。 **event_revoker::revoke** メンバー関数を呼び出して手動で取り消すことができますが、イベント リボーカーは参照が範囲外になったときに自動的にその関数自体を呼び出します。 **revoke** 関数は、イベント ソースがまだ存在するかどうかを確認し、存在する場合は、デリケートを取り消します。 次の例では、イベント ソースを格納する必要がないため、デストラクターは必要ありません。
 
@@ -190,11 +214,11 @@ Button::Click_revoker Click(winrt::auto_revoke_t,
 
 ### <a name="if-your-auto-revoke-delegate-fails-to-register"></a>自動取り消しのデリゲートの登録が失敗する場合
 
-デリゲートを登録するときに [**winrt::auto_revoke**](/uwp/cpp-ref-for-winrt/auto-revoke-t) を指定しようとして、結果が [**winrt::hresult_no_interface**](/uwp/cpp-ref-for-winrt/error-handling/hresult-no-interface) 例外である場合、通常それはイベント ソースで弱い参照がサポートされていないことを意味します。 たとえば、[**Windows.UI.Composition** ](/uwp/api/windows.ui.composition) 名前空間ではよくあることです。 このような場合は、自動取り消し機能を使用できません。 イベント ハンドラーの手動取り消しにフォールバックする必要があります。
+デリゲートを登録するときに [**winrt::auto_revoke**](/uwp/cpp-ref-for-winrt/auto-revoke-t) を指定しようとして、結果が [**winrt::hresult_no_interface**](/uwp/cpp-ref-for-winrt/error-handling/hresult-no-interface) 例外である場合、通常それはイベント ソースで弱い参照がサポートされていないことを意味します。 たとえば、[**Windows.UI.Composition**](/uwp/api/windows.ui.composition) 名前空間ではよくあることです。 このような場合は、自動取り消し機能を使用できません。 イベント ハンドラーの手動取り消しにフォールバックする必要があります。
 
 ## <a name="delegate-types-for-asynchronous-actions-and-operations"></a>非同期アクションと非同期操作のデリゲート型
 
-上記の例では、**RoutedEventHandler** デリゲート型を使用していますが、他にも多くのデリゲート型があります。 たとえば、非同期アクションと非同期操作 (進行状況ありとなし) には、対応するデリゲート型を必要とする完了イベントと進行状況イベントがあります。 たとえば、進行状況ありの非同期操作の進行状況イベント ([**IAsyncOperationWithProgress**](/uwp/api/windows.foundation.iasyncoperationwithprogress_tresult_tprogress_) を実装する任意のイベント) には、[**AsyncOperationProgressHandler**](/uwp/api/windows.foundation.asyncoperationprogresshandler) のデリゲート型が必要です。 次に、ラムダ関数を使用してこの型のデリゲートを作成するコード例を示します。 この例は、[**AsyncOperationWithProgressCompletedHandler**](/uwp/api/windows.foundation.asyncoperationwithprogresscompletedhandler) デリゲートの作成方法も示しています。
+上記の例では、**RoutedEventHandler** デリゲート型を使用していますが、他にも多くのデリゲート型があります。 たとえば、非同期アクションと非同期操作 (進行状況ありとなし) には、対応するデリゲート型を必要とする完了イベントと進行状況イベントがあります。 たとえば、進行状況ありの非同期操作の進行状況イベント ([**IAsyncOperationWithProgress**](/uwp/api/windows.foundation.iasyncoperationwithprogress-2) を実装する任意のイベント) には、[**AsyncOperationProgressHandler**](/uwp/api/windows.foundation.asyncoperationprogresshandler-2) のデリゲート型が必要です。 次に、ラムダ関数を使用してこの型のデリゲートを作成するコード例を示します。 この例は、[**AsyncOperationWithProgressCompletedHandler**](/uwp/api/windows.foundation.asyncoperationwithprogresscompletedhandler-2) デリゲートの作成方法も示しています。
 
 ```cppwinrt
 #include <winrt/Windows.Foundation.h>
@@ -272,5 +296,5 @@ winrt::hstring f(ListView listview)
 
 ## <a name="related-topics"></a>関連トピック
 * [C++/WinRT でのイベントの作成](author-events.md)
-* [C++/WinRT を使用した同時実行操作と非同期操作](concurrency.md)
+* [C++/WinRT を使用した同時開催操作と非同期操作](concurrency.md)
 * [C++/WinRT の強参照と弱参照](weak-references.md)

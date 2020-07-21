@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 3293e91e-6888-4cc3-bad3-61e5a7a7ab4e
 ms.localizationpriority: medium
-ms.openlocfilehash: f542c76d879881af296351ce51a803aa9986ecbb
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
-ms.translationtype: MT
+ms.openlocfilehash: 2c03475c0c4007508a18c17645dbe99eeb7d6cb0
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66359709"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "75681983"
 ---
 # <a name="version-adaptive-code"></a>バージョン アダプティブ コード
 
@@ -23,7 +23,7 @@ ApiInformation に関する重要な背景情報、API コントラクト、Visu
 
 呼び出す API が存在するかどうかをテストするには、コード内の条件で [Windows.Foundation.Metadata.ApiInformation](https://docs.microsoft.com/uwp/api/windows.foundation.metadata.apiinformation) クラスを使います。 この条件は、アプリがどこで実行された場合でも評価されますが、API が存在して呼び出すことができるデバイスでのみ **true** と評価されます。 これにより、特定の OS バージョンでのみ利用できる API を使うアプリを作成するためのバージョン アダプティブ コードを記述できます。
 
-ここでは、Windows Insider Preview の新機能をターゲットにするための具体的な例を示します。 **ApiInformation** を使う場合の一般的な概要については、[デバイス ファミリの概要に関する記事](https://docs.microsoft.com/en-us/uwp/extension-sdks/device-families-overview#writing-code)と [API コントラクトを使った機能の動的な検出に関するブログの投稿](https://blogs.windows.com/buildingapps/2015/09/15/dynamically-detecting-features-with-api-contracts-10-by-10/)をご覧ください。
+ここでは、Windows Insider Preview の新機能をターゲットにするための具体的な例を示します。 **ApiInformation** を使う場合の一般的な概要については、[デバイス ファミリの概要に関する記事](https://docs.microsoft.com/uwp/extension-sdks/device-families-overview#writing-code)と [API コントラクトを使った機能の動的な検出に関するブログの投稿](https://blogs.windows.com/buildingapps/2015/09/15/dynamically-detecting-features-with-api-contracts-10-by-10/)をご覧ください。
 
 > [!TIP]
 > さまざまなランタイム API チェックが、アプリのパフォーマンスに影響する可能性があります。 それらの例では、チェックをインラインで示します。 運用コードでは、チェックを一度実行してから結果をキャッシュし、キャッシュされた結果をアプリ全体で使う必要があります。 
@@ -42,7 +42,7 @@ ApiInformation に関する重要な背景情報、API コントラクト、Visu
 
 ここで、以下のオプションを比較します。
 
-**アプリのコード**
+**アプリケーション コード**
 
 使う状況:
 - すべてのアダプティブ コード シナリオにお勧めします。ただし、拡張可能なトリガー用に以下に定義されている特定のケースは除きます。
@@ -53,7 +53,7 @@ ApiInformation に関する重要な背景情報、API コントラクト、Visu
 欠点:
 - デザイナーがサポートされていません。
 
-**状態のトリガー**
+**状態トリガー**
 
 使う状況:
 - OS バージョン間で、ロジックを変更する必要のない、表示状態に関連付けられているプロパティまたは列挙値のみに変更がある場合に使います。
@@ -73,7 +73,7 @@ ApiInformation に関する重要な背景情報、API コントラクト、Visu
 
 ### <a name="example-1-new-enum-value"></a>例 1:新しい列挙値
 
-Windows 10 バージョン 1607 を追加する新しい値を[InputScopeNameValue](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.inputscopenamevalue)列挙体。**ChatWithoutEmoji**します。 この新しい入力スコープの入力動作は、**Chat** 入力スコープ (スペルチェック、オートコンプリート、大文字の自動設定) と同じですが、絵文字ボタンのないタッチ キーボードにマップされます。 これは、独自の絵文字ピッカーを作成し、タッチ キーボードに組み込まれている絵文字ボタンを無効にする場合に便利です。 
+Windows 10 バージョン 1607 では、[InputScopeNameValue](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.inputscopenamevalue) 列挙体に新しい値の**ChatWithoutEmoji** が追加されています。 この新しい入力スコープの入力動作は、**Chat** 入力スコープ (スペルチェック、オートコンプリート、大文字の自動設定) と同じですが、絵文字ボタンのないタッチ キーボードにマップされます。 これは、独自の絵文字ピッカーを作成し、タッチ キーボードに組み込まれている絵文字ボタンを無効にする場合に便利です。 
 
 次の例は、**ChatWithoutEmoji** 列挙値が存在するかどうかを確認し、存在する場合は **TextBox** の [InputScope](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.inputscope) プロパティを設定する方法を示しています。 アプリが実行されているシステムにこの列挙値が存在しない場合、**InputScope** は **Chat** に設定されます。 ここに示されているコードは、Page コンストラクターまたは Page.Loaded イベント ハンドラーに配置できます。
 
@@ -154,7 +154,7 @@ private void messageBox_Loaded(object sender, RoutedEventArgs e)
 
 XAML またはチェックを含まないコードで ChatWithoutEmoji 値を使うと、ChatWithoutEmoji 値がターゲットの OS バージョンに存在するためエラーなしでコンパイルされます。 また、ターゲットの OS バージョンが含まれたシステムで、エラーなしで実行されます。 ただし、アプリが最小バージョンを使っている OS を含むシステムで実行されると、ChatWithoutEmoji 列挙値が存在しないため実行時にクラッシュします。 そのため、コードでのみこの値を使って、この値が現在のシステムでサポートされている場合だけ呼び出されるように、ランタイム API チェックにラップする必要があります。
 
-### <a name="example-2-new-control"></a>例 2:新しいコントロール
+### <a name="example-2-new-control"></a>例 2: 新しいコントロール
 
 通常、新しいバージョンの Windows では、プラットフォームに新機能をもたらす新しいコントロールが UWP API サーフェスに追加されています。 新しいコントロールを活用するには、[ApiInformation.IsTypePresent](https://docs.microsoft.com/uwp/api/windows.foundation.metadata.apiinformation.istypepresent) メソッドを使います。
 
@@ -267,7 +267,7 @@ namespace MediaApp
 > [!NOTE]
 > `MediaElementUserControl` のコード ページには、生成されたコードのみが含まれているため、ここでは示しません。
 
-**IsTypePresent に基づき、コントロールを初期化します。**
+**IsTypePresent に基づいてコントロールを初期化する**
 
 実行時に、**ApiInformation.IsTypePresent** を呼び出して、MediaPlayerElement の有無を確認します。 MediaPlayerElement が存在する場合は `MediaPlayerUserControl` を読み込み、存在しない場合は `MediaElementUserControl` を読み込みます。
 
@@ -371,7 +371,7 @@ Windows 10 バージョン 1607 では、ユーザーがコントロールを操
 </Grid>
 ```
 
-### <a name="example-2-new-enum-value"></a>例 2:新しい列挙値
+### <a name="example-2-new-enum-value"></a>例 2: 新しい列挙値
 
 次の例は、値が存在するかどうかに基づいてさまざまな列挙値を設定する方法を示しています。 カスタム状態トリガーを使って、前のチャットの例と同じ結果を実現します。 この例では、デバイスが Windows 10 バージョン 1607 を実行している場合に、新しい ChatWithoutEmoji 入力スコープを使います。それ以外の場合、**Chat** 入力スコープが使われます。 このトリガーを使う表示状態は、新しい列挙値の有無に基づいて入力スコープが選択される *if-else* スタイルで設定されます。
 
@@ -445,5 +445,5 @@ class IsEnumPresentTrigger : StateTriggerBase
 
 ## <a name="related-articles"></a>関連記事
 
-- [デバイスのファミリの概要](https://docs.microsoft.com/uwp/extension-sdks/device-families-overview)
-- [API コントラクトの機能を動的に検出します。](https://blogs.windows.com/buildingapps/2015/09/15/dynamically-detecting-features-with-api-contracts-10-by-10/)
+- [デバイス ファミリの概要](https://docs.microsoft.com/uwp/extension-sdks/device-families-overview)
+- [API コントラクトを使った機能の動的な検出](https://blogs.windows.com/buildingapps/2015/09/15/dynamically-detecting-features-with-api-contracts-10-by-10/)

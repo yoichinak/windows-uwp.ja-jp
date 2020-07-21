@@ -5,18 +5,18 @@ keywords: 最新情報, 更新, 機能, 開発者向けガイダンス, Windows 
 ms.date: 09/10/2018
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 0876b2d9b65143cde2387a42e221460cc617cf0b
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 85e41a26343c9e4c6eb239cbfdd74dc946d5b657
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63800478"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "74258802"
 ---
 # <a name="whats-new-in-the-windows-developer-docs-in-september-2018"></a>Windows 開発者向けドキュメントの最新情報、2018 年 9 月
 
 Windows 開発者向けドキュメントは、Windows プラットフォームで開発者に提供される新機能の情報を反映して継続的に更新されています。 次の機能概要、開発者向けガイダンス、ビデオは 9 月に使用可能になりました。
 
-Windows 10 の[ツールと SDK をインストール](https://go.microsoft.com/fwlink/?LinkId=821431)すると、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
+Windows 10 の[ツールと SDK をインストール](https://developer.microsoft.com/windows/downloads#_blank)すると、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
 
 ## <a name="features"></a>機能
 
@@ -32,11 +32,11 @@ Windows 10 の[ツールと SDK をインストール](https://go.microsoft.com/
 
 ### <a name="windows-ui-library"></a>Windows UI ライブラリ
 
-[Windows UI ライブラリ](https://aka.ms/winui-docs)は、UWP アプリ用のコントロールとその他のユーザー インターフェイス要素を提供する NuGet パッケージのセットです。 これらのパッケージは Windows 10 の以前のバージョンにも対応しているため、ユーザーが最新の OS を持っていない場合でも、アプリは動作します。
+[Windows UI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)は、UWP アプリ用のコントロールとその他のユーザー インターフェイス要素を提供する NuGet パッケージのセットです。 これらのパッケージは Windows 10 の以前のバージョンにも対応しているため、ユーザーが最新の OS を持っていない場合でも、アプリは動作します。
 
 Windows UI ライブラリの詳細については、[NuGet パッケージに含まれる API 名前空間を示すこちらの一覧](https://docs.microsoft.com/uwp/api/overview/winui/)を参照してください。
 
-## <a name="developer-guidance"></a>開発者向けガイダンス
+## <a name="developer-guidance"></a>開発者ガイド
 
 ### <a name="how-blur-effects-work"></a>ぼかし効果のしくみ
 
@@ -52,9 +52,9 @@ Microsoft の UWP ドキュメントを対象にした[共同作成のガイダ�
 
 ### <a name="one-dev-question"></a>One Dev Question
 
-One Dev Question ビデオ シリーズでは、ベテランの Microsoft 開発者が Windows 開発、チーム カルチャー、履歴に関する一連の質問に答えています。 最新の質問に対してお答えした内容を以下に示します。
+One Dev Question ビデオ シリーズでは、ベテランの Microsoft 開発者が Windows 開発、チーム カルチャー、および歴史に関する一連の質問に答えています。 最新の質問に対してお答えした内容を以下に示します。
 
-Aaron Gustafson:
+Aaron Gustafson: 
 
 * [プログレッシブ Web アプリに関する 6 本のビデオ](https://www.youtube.com/playlist?list=PLWs4_NfqMtoyPHoI-CIB71mEq-om6m35I)
 
@@ -62,6 +62,6 @@ Chris Heilmann
 
 * [webhint ツールに関する 4 本のビデオ](https://www.youtube.com/watch?v=eXfmxmiA00Y&list=PLWs4_NfqMtow00LM-vgyECAlMDxx84Q2v)
 
-Larry Osterman:
+Larry Osterman: 
 
 * [Windows ランタイム内にあるのは COM のどの部分ですか?](https://youtu.be/_nsMjHqRn1w)

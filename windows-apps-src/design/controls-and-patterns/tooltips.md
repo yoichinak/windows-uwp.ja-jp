@@ -1,6 +1,6 @@
 ---
 Description: ユーザーに操作の実行を指示する前に、ヒントを使ってコントロールに関する詳しい情報を表示します。
-title: ヒント
+title: ツール ヒント
 ms.assetid: A21BB12B-301E-40C9-B84B-C055FD43D307
 label: Tooltips
 template: detail.hbs
@@ -12,22 +12,28 @@ design-contact: kimsea
 dev-contact: stpete
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 1dabfee25df08d933fc892c3ed6e46f3cc6f4513
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 621b687e54cfba55bfd176d4fe0072e47cf79183
+ms.sourcegitcommit: db48036af630f33f0a2f7a908bfdfec945f3c241
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66364030"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84437152"
 ---
-# <a name="tooltips"></a>ヒント
+# <a name="tooltips"></a>ツール ヒント
 
 ヒントは、他のコントロールまたはオブジェクトにリンクされた短い説明です。 ヒントを使うと、UI では直接説明されていない、なじみのないオブジェクトをユーザーが理解しやすくなります。 ヒントは、ユーザーがコントロールにフォーカスを移動する、コントロール上で長押しする、またはマウス ポインターをコントロール上にホバーすると、自動的に表示されます。 また、ヒントは数秒経過するか、ユーザーが指、ポインター、またはキーボード/ゲームパッドのフォーカスを移動すると消えます。
 
 ![ヒント](images/controls/tool-tip.png)
 
-> **重要な API**:[ToolTip クラス](/uwp/api/Windows.UI.Xaml.Controls.ToolTip)、[ToolTipService クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.tooltipservice)
+**Windows UI ライブラリを入手する**
 
-## <a name="is-this-the-right-control"></a>適切なコントロールの選択
+|  |  |
+| - | - |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | Windows UI ライブラリ 2.2 以降には、丸めた角を使用するこのコントロールの新しいテンプレートが含まれます。 詳しくは、「[角の半径](/windows/uwp/design/style/rounded-corner)」をご覧ください。 WinUI は、Windows アプリの新しいコントロールと UI 機能が含まれる NuGet パッケージです。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+
+> **プラットフォーム API**: [ToolTip クラス](/uwp/api/Windows.UI.Xaml.Controls.ToolTip)、[ToolTipService クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.tooltipservice)
+
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 ユーザーに操作の実行を指示する前に、ヒントを使ってコントロールに関する詳しい情報を表示します。 ヒントは慎重に使い、タスクを完了しようとしているユーザーにとって明らかに重要である場合にのみ追加します。 1 つの目安は、情報が同じエクスペリエンスのどこかで入手できる場合、ヒントは必要ありません。 価値あるヒントによって、不明瞭な操作を明確にします。
 
@@ -59,7 +65,7 @@ ms.locfileid: "66364030"
 <table>
 <th align="left">XAML コントロール ギャラリー<th>
 <tr>
-<td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td><img src="images/xaml-controls-gallery-app-icon-sm.png" alt="XAML controls gallery"></img></td>
 <td>
     <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合、こちらをクリックして<a href="xamlcontrolsgallery:/item/ToolTip">アプリを開き、ToolTip の動作を確認</a>してください。</p>
     <ul>
@@ -70,9 +76,9 @@ ms.locfileid: "66364030"
 </tr>
 </table>
 
-Bing 地図アプリのヒントです。
+Windows マップ アプリのヒント。
 
-![Bing Maps アプリのヒントです](images/control-examples/tool-tip-maps.png)
+![Windows マップ アプリのヒント](images/control-examples/tool-tip-maps.png)
 
 ## <a name="create-a-tooltip"></a>ToolTip の作成
 
@@ -125,7 +131,7 @@ ToolTipService.SetToolTip(submitButton, toolTip);
 </Image>
 ```
 
-参照しているコンテンツが ToolTip によって隠れている場合は、新しい **PlacementRect** プロパティを使用して配置を正確に調整できます。 PlacementRect は Tooltip の位置を固定し、この領域の外部に ToolTip を表示する十分な画面領域がある場合は、ToolTip によって隠されない領域としても機能します。 ToolTip のオーナーに対して相対的な四角形の原点を指定し、除外領域の高さと幅を指定できます。 [Placement](/uwp/api/windows.ui.xaml.controls.tooltip.placement) プロパティによって、ToolTip を PlacementRect の上、下、左、右のいずれに表示するかが定義されます。 
+参照しているコンテンツが ToolTip によって隠れている場合は、新しい **PlacementRect** プロパティを使用して配置を正確に調整できます。 PlacementRect は ToolTip の位置を固定し、この領域の外部に ToolTip を表示する十分な画面領域がある場合は、ToolTip によって隠されない領域としても機能します。 ToolTip の元の画面に対して相対的な四角形の原点を指定し、除外領域の高さと幅を指定できます。 [Placement](/uwp/api/windows.ui.xaml.controls.tooltip.placement) プロパティによって、ToolTip を PlacementRect の上、下、左、右のいずれに表示するかが定義されます。 
 
 ```xaml
 <!-- An Image with a non-occluding ToolTip. -->
@@ -147,7 +153,7 @@ ToolTipService.SetToolTip(submitButton, toolTip);
 - ヒント内に対話的なコントロールを配置しないでください。
 - 対話的に見えるような画像をヒント内に配置しないでください。
 
-## <a name="get-the-sample-code"></a>サンプル コードを入手する
+## <a name="get-the-sample-code"></a>サンプル コードの入手
 
 - [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - インタラクティブな形で XAML コントロールのすべてを参照できます。
 

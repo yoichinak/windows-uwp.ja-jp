@@ -1,5 +1,5 @@
 ---
-Description: Windows 10 のライブ タイルをビジュアライザーは、新しいユニバーサル Windows プラットフォーム (UWP) アプリにより、開発者はアダプティブ デザインをストアに通知します。
+Description: 通知ビジュアライザーは、開発者が Windows 10 用のアダプティブライブタイルを設計するのに役立つ、ストアの新しい Windows アプリです。
 title: Notifications Visualizer
 ms.assetid: FCBB7BB1-2C79-484B-8FFC-26FE1934EC1C
 template: detail.hbs
@@ -7,19 +7,19 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: e2bb5a450aebdf38f3d4f1a710f3537544dcddd6
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 5f9dc51a8ba387018a50e95702db1c539e889a5d
+ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57616677"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83234684"
 ---
 # <a name="notifications-visualizer"></a>Notifications Visualizer
 
  
 
 
-通知のビジュアライザーは、新しいユニバーサル Windows プラットフォーム (UWP) アプリ[ストア](https://www.microsoft.com/store/apps/notifications-visualizer/9nblggh5xsl1)開発者の適応型ライブ タイルと Windows 10 用の対話型トースト通知を設計するために役立ちます。
+通知ビジュアライザーは、開発者が Windows 10 のアダプティブライブタイルと対話型トースト通知をデザインするのに役立つ、[ストア](https://www.microsoft.com/store/apps/notifications-visualizer/9nblggh5xsl1)の新しい Windows アプリです。
 
 
 ## <a name="overview"></a>概要
@@ -34,7 +34,7 @@ Notifications Visualizer では、Visual Studio の XAML エディター/デザ�
 
 Notifications Visualizer を使うと、アプリ自体を編集、展開しなくても、アダプティブ タイルとトーストのペイロードを作成してテストすることができます。 適切な表示のペイロードが完成したら、そのペイロードをアプリに統合できます。 詳しくは、「[ローカル タイル通知の送信](sending-a-local-tile-notification.md)」および 「[ローカル トースト通知の送信](send-local-toast.md)」をご覧ください。
 
-**注**   Windows スタート メニューおよびトースト通知の通知のビジュアライザーのシミュレーションが完全に正確でない、常に、いくつかの高度なペイロード プロパティをサポートしていません。 タイルやトーストを適切にデザインしたら、意図したとおりに表示されることを確認するために、タイルをスタート メニューにピン留めしたり、トーストを表示したりしてテストします。
+**メモ**   通知ビジュアライザーの Windows の [スタート] メニューとトースト通知のシミュレーションは、常に完全に正確ではありません。また、一部の高度なペイロードプロパティはサポートされていません。 タイルやトーストを適切にデザインしたら、意図したとおりに表示されることを確認するために、タイルをスタート メニューにピン留めしたり、トーストを表示したりしてテストします。
 
  
 
@@ -54,6 +54,6 @@ Notifications Visualizer にはさまざまなサンプル ペイロードが付
 
 ## <a name="related-topics"></a>関連トピック
 
-* [ストアで通知のビジュアライザーを取得します。](https://www.microsoft.com/store/apps/notifications-visualizer/9nblggh5xsl1)
+* [ストアでの Notifications Visualizer の入手](https://www.microsoft.com/store/apps/notifications-visualizer/9nblggh5xsl1)
 * [アダプティブ タイルの作成](create-adaptive-tiles.md)
-* [対話型トースト通知](adaptive-interactive-toasts.md)
+* [対話型トースト](adaptive-interactive-toasts.md)

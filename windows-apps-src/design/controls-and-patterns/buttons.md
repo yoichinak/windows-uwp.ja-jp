@@ -13,12 +13,12 @@ dev-contact: mitra
 doc-status: Published
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 8f8d4172389fc2778fda4e335a29b3bae7d90fd0
-ms.sourcegitcommit: 5fcd3a595efd3686009505602c34e10163fd0aa5
+ms.openlocfilehash: 4f0814621c67c01d5d1a73235faf02d3d753f2c2
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67558760"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970057"
 ---
 # <a name="buttons"></a>ボタン
 
@@ -28,24 +28,27 @@ ms.locfileid: "67558760"
 
 [XAML (Extensible Application Markup Language)](../../xaml-platform/xaml-overview.md) フレームワークには、標準のボタン コントロールといくつかの特殊なボタン コントロールが提供されています。
 
-コントロール | 説明
+Control | 説明
 ------- | -----------
 [ボタン](/uwp/api/windows.ui.xaml.controls.button) | 直ちに操作を開始しするボタン。 [Click](/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.click) イベントまたは[コマンド](/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.command) バインディングと共に使用することができます。
 [RepeatButton](/uwp/api/windows.ui.xaml.controls.primitives.repeatbutton) | 押されている間は継続的に [Click](/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.click) イベントを発生させるボタン。
 [HyperlinkButton](/uwp/api/windows.ui.xaml.controls.hyperlinkbutton) | ハイパーリンクのようなスタイルに設定された、ナビゲーションに使用されるボタン。 ハイパーリンクについて詳しくは、「[ハイパーリンク](hyperlinks.md)」をご覧ください。
-[DropDownButton](/uwp/api/windows.ui.xaml.controls.dropdownbutton) | アタッチされたポップアップを開くシェブロンが付いたボタン。
-[SplitButton](/uwp/api/windows.ui.xaml.controls.splitbutton) | 2 つの側面を持つボタン。 一方の側に操作を示し、もう一方の側でメニューを開きます。
-[ToggleSplitButton](/uwp/api/windows.ui.xaml.controls.togglesplitbutton) | 2 つの側面を持つトグル ボタン。 一方の側でオンとオフを切り替え、もう一方の側でメニューを開きます。
+[DropDownButton](/uwp/api/windows.ui.xaml.controls.dropdownbutton) | ![WinUI ロゴ](images/winui-logo-16x16.png) アタッチされたポップアップを開くシェブロンが付いたボタン。
+[SplitButton](/uwp/api/windows.ui.xaml.controls.splitbutton) | ![WinUI ロゴ](images/winui-logo-16x16.png) 2 つの側面を持つボタン。 一方の側に操作を示し、もう一方の側でメニューを開きます。
+[ToggleSplitButton](/uwp/api/windows.ui.xaml.controls.togglesplitbutton) | ![WinUI ロゴ](images/winui-logo-16x16.png) 2 つの側面を持つトグル ボタン。 一方の側でオンとオフを切り替え、もう一方の側でメニューを開きます。
+[ToggleButton](/uwp/api/windows.ui.xaml.controls.primitives.togglebutton) | オンまたはオフにできるボタン。
 
-| **Windows UI ライブラリを入手する** |
-| - |
-| **DropDownButton**、**SplitButton**、**ToggleSplitButton** は、Windows UI ライブラリの NuGet パッケージの一部として組み込まれており、パッケージには、UWP アプリの新しいコントロールと UI 機能が含まれています。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+**Windows UI ライブラリを入手する**
 
-| **プラットフォーム API** | **Windows UI ライブラリ API** |
+|  |  |
 | - | - |
-| [Click イベント](/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.click)<br/> [Command プロパティ](/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.command) | [DropDownButton クラス](/uwp/api/microsoft.ui.xaml.controls.dropdownbutton)<br/> [SplitButton クラス](/uwp/api/microsoft.ui.xaml.controls.splitbutton)<br/> [ToggleSplitButton クラス](/uwp/api/microsoft.ui.xaml.controls.togglesplitbutton) |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | **DropDownButton**、**SplitButton**、**ToggleSplitButton** は、Windows アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリの一部として含まれています。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
 
-## <a name="is-this-the-right-control"></a>適切なコントロールの選択
+> **Windows UI ライブラリ API:** [DropDownButton クラス](/uwp/api/microsoft.ui.xaml.controls.dropdownbutton)、[SplitButton クラス](/uwp/api/microsoft.ui.xaml.controls.splitbutton)、[ToggleSplitButton クラス](/uwp/api/microsoft.ui.xaml.controls.togglesplitbutton)
+>
+> **プラットフォーム API:** [Click イベント](/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.click)、[Command プロパティ](/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.command)
+
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 **Button** コントロールを使用すると、ユーザーは直ちに操作を開始できます (フォームの送信など)。
 
@@ -60,12 +63,14 @@ ms.locfileid: "67558760"
 
 ユーザーが直ちに操作を開始できるようにする場合や、追加のオプションから独立して選択できるようにする場合は、**SplitButton** コントロールを使用します。
 
+ユーザーが相互に排他的な 2 つの状態をすぐに切り替えることができるようにする場合に、UI の要件にボタンが最も適している場合は、**ToggleButton** コントロールを使用します。 UI がボタンのメリットを得られない場合は、[AppBarToggleButton](/uwp/api/windows.ui.xaml.controls.appbartogglebutton)、[CheckBox](checkbox.md)、[RadioButton](radio-button.md)、または [ToggleSwitch](toggles.md) を使用するほうが良い場合があります。
+
 ## <a name="examples"></a>例
 
 <table>
 <th align="left">XAML コントロール ギャラリー<th>
 <tr>
-<td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td><img src="images/xaml-controls-gallery-app-icon-sm.png" alt="XAML controls gallery"></img></td>
 <td>
     <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong>がインストールされている場合、こちらをクリックして<a href="xamlcontrolsgallery:/item/Button">アプリを開き、Button の動作を確認</a>してください。</p>
     <ul>
@@ -126,7 +131,7 @@ private async void SubscribeButton_Click(object sender, RoutedEventArgs e)
 
 通常、**Button** オブジェクトでは低レベルな [PointerPressed](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerpressed) イベントを処理できません。これに代わる **Click** 動作があるためです。 詳しくは、「[イベントとルーティング イベントの概要](https://docs.microsoft.com/windows/uwp/xaml-platform/events-and-routed-events-overview)」をご覧ください。
 
-[ClickMode](https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.clickmode) プロパティを変更することにより、ボタンで **Click** イベントが発生する方法を変えることができます。 **ClickMode** の既定値は **Release** ですが、ボタンの **ClickMode** の値を **Hover** または **Press** に設定することもできます。 **ClickMode** が **Hover** の場合、キーボードやタッチを使って **Click** イベントを発生させることはできません。
+[ClickMode](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.clickmode) プロパティを変更することにより、ボタンで **Click** イベントが発生する方法を変えることができます。 **ClickMode** の既定値は **Release** ですが、ボタンの **ClickMode** の値を **Hover** または **Press** に設定することもできます。 **ClickMode** が **Hover** の場合、キーボードやタッチを使って **Click** イベントを発生させることはできません。
 
 
 ### <a name="button-content"></a>ボタンのコンテンツ
@@ -151,7 +156,7 @@ private async void SubscribeButton_Click(object sender, RoutedEventArgs e)
 <td> <img src="images/button-wraptext.png"/> </td>
 </tr>
 <tr>
-<td> <b>選択肢 1:</b><br> テキストの長さが 26 文字より大きい場合は、ボタンの幅やスタック ボタンを増やし、テキストを折り返します。 </td>
+<td> <b>選択肢 1</b><br> テキストの長さが 26 文字より大きい場合は、ボタンの幅やスタック ボタンを増やし、テキストを折り返します。 </td>
 <td> <img src="images/button-wraptext1.png"> </td>
 </tr>
 <tr>
@@ -214,7 +219,7 @@ private void Decrease_Click(object sender, RoutedEventArgs e)
 
 ## <a name="create-a-drop-down-button"></a>ドロップダウン ボタンの作成
 
-> **DropDownButton** には、[Windows UI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)または Windows 10 バージョン 1809 (SDK 17763) 以降が必要です。 最新の SDK をダウンロードするには、「[Windows 10 SDK](https://developer.microsoft.com/windows/downloads/windows-10-sdk)」をご覧ください。以前の SDK をダウンロードするには、「[Windows SDK とエミュレーターのアーカイブ](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive)」をご覧ください。
+> **DropDownButton** には、[Windows UI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)または Windows 10 バージョン 1809 (SDK 17763) 以降が必要です。 最新の SDK をダウンロードするには、「[Windows 10 SDK](https://developer.microsoft.com/windows/downloads/windows-10-sdk)」をご覧ください。以前の SDK をダウンロードするには、「[Windows SDK とエミュレーターのアーカイブ](https://developer.microsoft.com/windows/downloads/sdk-archive)」をご覧ください。
 
 [DropDownButton](/uwp/api/windows.ui.xaml.controls.dropdownbutton) は、その他のオプションを含むアタッチされたポップアップがあることを示す視覚的なインジケーターとしてシェブロンを表示するボタンです。 動作はポップアップがある標準の **Button** コントロールと同じであり、外観だけが異なります。
 
@@ -275,7 +280,7 @@ private void AlignmentMenuFlyoutItem_Click(object sender, RoutedEventArgs e)
 ## <a name="create-a-split-button"></a>分割ボタンの作成
 
  > [!IMPORTANT]
- > **SplitButton** には、[Windows UI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)または Windows 10 バージョン 1809 (SDK 17763) 以降が必要です。 最新の SDK をダウンロードするには、「[Windows 10 SDK](https://developer.microsoft.com/windows/downloads/windows-10-sdk)」をご覧ください。以前の SDK をダウンロードするには、「[Windows SDK とエミュレーターのアーカイブ](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive)」をご覧ください。
+ > **SplitButton** には、[Windows UI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)または Windows 10 バージョン 1809 (SDK 17763) 以降が必要です。 最新の SDK をダウンロードするには、「[Windows 10 SDK](https://developer.microsoft.com/windows/downloads/windows-10-sdk)」をご覧ください。以前の SDK をダウンロードするには、「[Windows SDK とエミュレーターのアーカイブ](https://developer.microsoft.com/windows/downloads/sdk-archive)」をご覧ください。
 
 [SplitButton](/uwp/api/windows.ui.xaml.controls.splitbutton) コントロールには、個別に呼び出せる 2 つのパーツがあります。 1 つのパーツは標準のボタンのように動作し、即座にアクションを呼び出します。 もう一方のパーツは、ユーザーが選択できる追加オプションを含むポップアップを呼び出します。
 
@@ -385,7 +390,7 @@ public sealed partial class MainPage : Page
 ## <a name="create-a-toggle-split-button"></a>分割トグル ボタンの作成
 
 > [!NOTE]
-> **ToggleSplitButton** には、[Windows UI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)または Windows 10 バージョン 1809 (SDK 17763) 以降が必要です。 最新の SDK をダウンロードするには、「[Windows 10 SDK](https://developer.microsoft.com/windows/downloads/windows-10-sdk)」をご覧ください。以前の SDK をダウンロードするには、「[Windows SDK とエミュレーターのアーカイブ](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive)」をご覧ください。
+> **ToggleSplitButton** には、[Windows UI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)または Windows 10 バージョン 1809 (SDK 17763) 以降が必要です。 最新の SDK をダウンロードするには、「[Windows 10 SDK](https://developer.microsoft.com/windows/downloads/windows-10-sdk)」をご覧ください。以前の SDK をダウンロードするには、「[Windows SDK とエミュレーターのアーカイブ](https://developer.microsoft.com/windows/downloads/sdk-archive)」をご覧ください。
 
 [ToggleSplitButton](/uwp/api/windows.ui.xaml.controls.togglesplitbutton) コントロールには、個別に呼び出せる 2 つのパーツがあります。 1 つのパーツは、オンまたはオフにできるトグル ボタンのように動作します。 もう一方のパーツは、ユーザーが選択できる追加オプションを含むポップアップを呼び出します。
 
@@ -516,14 +521,14 @@ private void ApplyListStyle(string listStyle)
 
 - ボタンの用途と状態をユーザーがはっきりと理解できるようにします。
 
-- 同じ意思決定に対して複数のボタンが存在する場合 (確認のダイアログなど)、コミット ボタンは次の順番で提示します。この "[実行する]" と "[実行しない]" は、メインの指示に対応する具体的な文になります。
+- 同じ意思決定に対して複数のボタンが存在する場合 (確認のダイアログなど)、コミット ボタンは次の順番で提示します。この "[実行する]" と "[実行しない]" は、主要な指示への具体的な応答になります。
   - [OK]/[実行する]/[はい]
     - [実行しない]/[いいえ]
-    - Cancel
+    - キャンセル
 
-- ユーザーに対して表示するボタンは、1 つまたは 2 つにします (例: **[承諾]** と **[キャンセル]** )。 3 つ以上の操作をユーザーに示す必要がある場合は、ユーザーが操作を選択できる [チェック ボックス](checkbox.md) または [オプション ボタン](radio-button.md) を、それらの操作を開始するための 1 つのコマンド ボタンと共に使うことを検討します。
+- ユーザーに対して表示するボタンは、1 つまたは 2 つにします (例: **[承諾]** と **[キャンセル]** )。 3 つ以上の操作をユーザーに示す必要がある場合は、ユーザーが操作を選択できる[チェック ボックス](checkbox.md)または[オプション ボタン](radio-button.md)を、それらの操作を開始するための 1 つのコマンド ボタンと共に使うことを検討します。
 
-- ある操作をアプリの複数のページで実行できるようにするには、各ページでボタンを使うのではなく、[下部のアプリ バー](app-bars.md) を使うことを検討します。
+- ある操作をアプリの複数のページで実行できるようにするには、複数のページ上にボタンを複製するのではなく、[下部のアプリ バー](app-bars.md)を使うことを検討します。
 
 
 ### <a name="recommended-single-button-layout"></a>単一ボタンの推奨レイアウト
@@ -534,21 +539,21 @@ private void ApplyListStyle(string listStyle)
 
     ![ダイアログ内のボタン](images/pushbutton_doc_dialog.png)
 
-  - ボタンがコンテナー UI 内 (トースト通知、ポップアップ、またはリスト ビュー項目内など) に表示される場合は、コンテナー内でボタンを**左揃え**にします。
+  - ボタンがコンテナー UI 内 (トースト通知、ポップアップ、またはリスト ビュー項目内など) に表示される場合は、コンテナー内でボタンを**右揃え**にします。
 
     ![コンテナー内のボタン](images/pushbutton_doc_container.png)
 
-  - ページに含まれるボタンが 1 つだけの場合は (設定ページの下部にある **[適用]** ボタンなど)、ボタンを**左揃え**にします。 これで、ページのその他のコンテンツとボタンを揃えて配置できます。
+  - ページに含まれるボタンが 1 つだけの場合は (設定ページの下部にある **[適用]** ボタンなど)、ボタンを**左揃え**にします。 これで、ボタンをページのその他のコンテンツと揃えて配置できます。
 
     ![ページのボタン](images/pushbutton_doc_page.png)
 
 
 ## <a name="back-buttons"></a>戻るボタン
 
-戻るボタンは、バック スタックまたはユーザーのナビゲーション履歴を使って "戻る" ナビゲーションを実現する、システムの UI 要素です。 独自の"戻る"ボタンを作成する必要はありませんが、前に戻る移動で適切なエクスペリエンスを提供するために作業が必要になることがあります。 詳しくは、「[UWP アプリのナビゲーション履歴と前に戻る移動](../basics/navigation-history-and-backwards-navigation.md)」をご覧ください。
+戻るボタンは、バック スタックまたはユーザーのナビゲーション履歴を使って "戻る" ナビゲーションを実現する、システム指定の UI 要素です。 独自の "戻る" ボタンを作成する必要はありませんが、前に戻る移動で適切なエクスペリエンスを提供するために作業が必要になることがあります。 詳しくは、「[Windows アプリでのナビゲーション履歴と前に戻る移動](../basics/navigation-history-and-backwards-navigation.md)」をご覧ください。
 
 
-## <a name="get-the-sample-code"></a>サンプル コードを入手する
+## <a name="get-the-sample-code"></a>サンプル コードの入手
 
 - [XAML コントロール ギャラリー](https://github.com/Microsoft/Xaml-Controls-Gallery): このサンプルでは、対話形式ですべての XAML コントロールが示されます。
 

@@ -13,12 +13,12 @@ design-contact: kimsea
 dev-contact: llongley
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 5e3465d108fc725c45999782eff80593832208b5
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 884bd2e1eded5e3c0dfa92f1488fe0b8661af18d
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67319511"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970357"
 ---
 # <a name="menus-and-context-menus"></a>メニューとショートカット メニュー
 
@@ -26,15 +26,17 @@ ms.locfileid: "67319511"
 
 ![一般的なコンテキスト メニューの例](images/contextmenu_rs2_icons.png)
 
-| **Windows UI ライブラリを入手する** |
-| - |
-| このコントロールは、Windows UI ライブラリの NuGet パッケージの一部として組み込まれており、パッケージには、UWP アプリの新しいコントロールと UI 機能が含まれています。 インストール手順などの詳細については、[Windows UI ライブラリの概要](https://docs.microsoft.com/uwp/toolkits/winui/)に関するページを参照してください。 |
+**Windows UI ライブラリを入手する**
 
-| **プラットフォーム API** | **Windows UI ライブラリ API** |
+|  |  |
 | - | - |
-| [MenuFlyout クラス](/uwp/api/windows.ui.xaml.controls.menuflyout)、[MenuBar クラス](/uwp/api/windows.ui.xaml.controls.menubar)、[ContextFlyout プロパティ](/uwp/api/windows.ui.xaml.uielement.contextflyout)、[FlyoutBase.AttachedFlyout プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.flyoutbase.attachedflyout) | [MenuBar クラス](/uwp/api/microsoft.ui.xaml.controls.menubar) |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | **MenuBar** コントロールは、Windows アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリの一部として含まれています。 インストール手順などの詳細については、[Windows UI ライブラリの概要](https://docs.microsoft.com/uwp/toolkits/winui/)に関するページを参照してください。 |
 
-## <a name="is-this-the-right-control"></a>適切なコントロールの選択
+> **Windows UI ライブラリ API:** [MenuBar クラス](/uwp/api/microsoft.ui.xaml.controls.menubar)
+>
+> **プラットフォーム API:** [MenuFlyout クラス](/uwp/api/windows.ui.xaml.controls.menuflyout)、[MenuBar クラス](/uwp/api/windows.ui.xaml.controls.menubar)、[ContextFlyout プロパティ](/uwp/api/windows.ui.xaml.uielement.contextflyout)、[FlyoutBase.AttachedFlyout プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.flyoutbase#xaml-attached-properties)
+
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 メニューとコンテキスト メニューは、コマンドを整理してユーザーに要求されるまで非表示にすることによって、スペースを節約します。 特定のコマンドを頻繁に使っていて、利用可能なスペースがある場合は、メニューを使って移動しなくてもよいように、メニュー内ではなく、独自の要素に直接配置することを検討してください。
 
@@ -57,7 +59,7 @@ MenuBar を CommandBar と組み合わせて使うこともできます。 MenuB
 <table>
 <th align="left">XAML コントロール ギャラリー<th>
 <tr>
-<td><img src="images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td><img src="images/xaml-controls-gallery-app-icon-sm.png" alt="XAML controls gallery"></img></td>
 <td>
     <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合、こちらをクリックして<a href="xamlcontrolsgallery:/item/MenuFlyout">アプリを開き、MenuFlyout の動作を確認</a>してください。</p>
     <ul>
@@ -90,7 +92,7 @@ MenuBar を CommandBar と組み合わせて使うこともできます。 MenuB
 - 常に表示される 1 つのエントリ ポイント (たとえば、画面上部の [ファイル] メニュー) があります。
 - 通常、ボタンまたは親のメニュー項目にアタッチされます。
 - 左クリック (または、指でタップするなどの同等の操作) によって呼び出されます。
-- [Flyout](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.button.flyout) プロパティまたは [FlyoutBase.AttachedFlyout](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.flyoutbase.attachedflyout) プロパティを介して要素に関連付けられます。また、アプリ ウィンドウの上部のメニュー バーにグループ化されます。
+- [Flyout](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.button.flyout) プロパティまたは [FlyoutBase.AttachedFlyout](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.flyoutbase#xaml-attached-properties) プロパティを介して要素に関連付けられます。また、アプリ ウィンドウの上部のメニュー バーにグループ化されます。
 
 ### <a name="context-menus"></a>コンテキスト メニュー
 
@@ -266,7 +268,7 @@ private void ChangeColorItem_Click(object sender, RoutedEventArgs e)
 </muxc:MenuBar>
 ```
 
-## <a name="get-the-sample-code"></a>サンプル コードを入手する
+## <a name="get-the-sample-code"></a>サンプル コードの入手
 
 - [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - インタラクティブな形で XAML コントロールのすべてを参照できます。
 - [XAML コンテキスト メニューのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlContextMenu)

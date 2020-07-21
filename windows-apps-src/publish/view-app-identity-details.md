@@ -1,33 +1,33 @@
 ---
-Description: Microsoft Store、により、アプリに割り当てられた一意の id に関連する詳細を表示し、アプリのストアの一覧へのリンクを取得します。
+Description: Microsoft Store によってアプリに割り当てられた一意の id に関する詳細を表示し、アプリのストアの一覧へのリンクを取得します。
 title: アプリ ID の詳細の表示
 ms.assetid: 86F05A79-EFBC-4705-9A71-3A056323AC65
 ms.date: 10/02/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: acc39dfecaf4360f9f5b7db9f3c1fe34021f35c0
-ms.sourcegitcommit: fca0132794ec187e90b2ebdad862f22d9f6c0db8
+ms.openlocfilehash: 07c2d3308d204d37e246a9a56c0a7203a1340dc0
+ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63788229"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79210428"
 ---
 # <a name="view-app-identity-details"></a>アプリ ID の詳細の表示
 
 
-は、Microsoft Store によって、アプリに割り当てられた一意の id に関連する詳細を表示するその**アプリ id**ページ。 取得できます、アプリのストアのリンクをこのページに一覧表示します。
+アプリに割り当てられた一意の id に関する詳細は、**アプリ id**ページの Microsoft Store によって表示できます。 また、このページでアプリのストアの一覧へのリンクを取得することもできます。
 
 アプリ ID の情報を探すには、アプリのいずれかに移動し、左側のナビゲーション メニューで **[アプリ管理]** を展開します。 **[アプリ ID]** を選ぶと、アプリ ID の詳細が表示されます。
 
 
 ## <a name="values-to-include-in-your-app-package-manifest"></a>アプリのパッケージ マニフェストに追加する値
 
-パッケージ マニフェストでは、次の値を含める必要があります。 [パッケージのビルドに Microsoft Visual Studio を使っていて](../packaging/packaging-uwp-apps.md)、開発者アカウントに関連付けられている同じ Microsoft アカウントでサインインしている場合は、これらの値は自動的に追加されています。 パッケージを手動でビルドしている場合は、以下の項目を追加する必要があります。
+パッケージマニフェストには、次の値を含める必要があります。 [パッケージのビルドに Microsoft Visual Studio を使っていて](/windows/msix/package/packaging-uwp-apps)、開発者アカウントに関連付けられている同じ Microsoft アカウントでサインインしている場合は、これらの値は自動的に追加されています。 パッケージを手動でビルドしている場合は、以下の項目を追加する必要があります。
 
--   **パッケージ/ユーザー/名前**
--   **パッケージ/ユーザー/パブリッシャー**
--   **Package/Properties/PublisherDisplayName**
+-   **パッケージ/Id/名前**
+-   **パッケージ/Id/パブリッシャー**
+-   **パッケージ/プロパティ/PublisherDisplayName**
 
 詳しくは、[パッケージ マニフェスト スキーマのリファレンス](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/schema-root)の「[**Identity**](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-identity)」をご覧ください。
 
@@ -38,15 +38,15 @@ ms.locfileid: "63788229"
 
 次の値は、アプリのパッケージ ファミリを参照するが、マニフェストには含まれていないその他の値です。
 
--   **パッケージ ファミリ名 (PFN)**:この値は、特定の Windows Api で使用されます。
--   **パッケージ SID**:この値をアプリに WNS 通知を送信する必要があります。 詳しくは、「[Windows プッシュ通知サービスの概要](../design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview.md)」をご覧ください。
+-   **パッケージファミリ名 (PFN)** :この値は、特定の Windows Api で使用されます。
+-   **パッケージ SID**:この値は、WNS 通知をアプリに送信するために必要になります。 詳しくは、「[Windows プッシュ通知サービスの概要](../design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview.md)」をご覧ください。
 
 
 ## <a name="link-to-your-apps-listing"></a>アプリの登録情報へのリンク
 
-アプリのページへの直接リンクを共有することで、ユーザーはストアでアプリを見つけやすくなります。 このリンクは、**`https://www.microsoft.com/store/apps/<your app's Store ID>`** の形式で示されます。 ユーザーがこのリンクをクリックすると、アプリの Web ベースの登録情報ページが開きます。 Windows デバイスでは、ストア アプリも起動して、アプリの登録情報を表示します。
+アプリのページへの直接リンクを共有することで、ユーザーはストアでアプリを見つけやすくなります。 このリンクは、 **`https://www.microsoft.com/store/apps/<your app's Store ID>`** の形式で示されます。 ユーザーがこのリンクをクリックすると、アプリの Web ベースの登録情報ページが開きます。 Windows デバイスでは、ストア アプリも起動して、アプリの登録情報を表示します。
 
-アプリの**ストア ID** も、このセクションに表示されます。 このストア ID を使って、[ストア バッジを生成](https://go.microsoft.com/fwlink/p/?LinkId=534236)したり、その他の方法でアプリを識別したりすることができます。
+アプリの**ストア ID** も、このセクションに表示されます。 このストア ID を使って、[ストア バッジを生成](https://developer.microsoft.com/store/badges)したり、その他の方法でアプリを識別したりすることができます。
 
 **ストア プロトコルのリンク**を使うと、アプリ内からリンクする場合などに、ブラウザーを開かずにストア内のアプリに直接リンクできます。 詳しくは、「[アプリへのリンク](link-to-your-app.md)」をご覧ください。
 

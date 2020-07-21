@@ -1,5 +1,5 @@
 ---
-Description: このトピックでは、新しい Windows UI の選択とテキスト、イメージ、およびコントロールの操作を記述し、UWP アプリでこれらの新しい選択と操作メカニズムを使用すると見なす必要があるユーザー エクスペリエンス ガイドラインを提供します。
+Description: このトピックでは、テキスト、イメージ、およびコントロールを選択して操作するための新しい Windows UI について説明します。また、Windows アプリで新しい選択と操作のメカニズムを使用するときに考慮する必要があるユーザーエクスペリエンスのガイドラインを提供します。
 title: テキストと画像の選択
 ms.assetid: d973ffd8-602e-47b5-ab0b-4b2a964ec53d
 label: Selecting text and images
@@ -8,23 +8,23 @@ keywords: キーボード, テキスト, 入力, ユーザーの操作
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 8dab8d26436d312601b749bed7e97048ed5805bb
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: a118a7160842154a656e0f2d29783b1b2e676755
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67317284"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970097"
 ---
 # <a name="selecting-text-and-images"></a>テキストと画像の選択
 
 
 この記事では、テキスト、画像、コントロールの選択と操作について説明し、アプリでこれらのメカニズムを使うときに考慮する必要があるユーザー エクスペリエンスのガイドラインを示します。
 
-> **重要な API**:[**Windows.UI.Xaml.Input**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input)、 [ **Windows.UI.Input**](https://docs.microsoft.com/uwp/api/Windows.UI.Input)
+> **重要な API**: [**Windows.UI.Xaml.Input**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input)、[**Windows.UI.Input**](https://docs.microsoft.com/uwp/api/Windows.UI.Input)
  
 
 
-## <a name="dos-and-donts"></a>推奨と非推奨
+## <a name="dos-and-donts"></a>すべきこととやってはいけないこと
 
 
 -   独自のグリッパー UI を実装する場合は、フォント グリフを使います。 グリッパーは、システム全体で利用できる 2 つの Segoe UI フォントを組み合わせたものです。 フォント リソースを使うと、さまざまな dpi におけるレンダリングの問題が軽減され、さまざまな UI 表示スケール プラトーに対応できます。 独自のグリッパーを実装する場合は、どのグリッパーにも次の UI の特性を持たせてください。
@@ -47,20 +47,20 @@ ms.locfileid: "67317284"
 
 **考慮事項と推奨事項**
 
-Windows の言語フレームワークを通じて公開される組み込みのコントロールを使用すると、選択、および操作の動作を含む、プラットフォームの完全なユーザー操作のエクスペリエンスを提供するアプリを構築できます。 ビルトイン コントロールの対話式操作の機能は、大部分の UWP アプリにとって十分なものです。
+Windows の言語フレームワークによって公開されるビルトイン コントロールを利用して、選択や操作の動作など、完全なプラットフォームのユーザー操作エクスペリエンスを実現するアプリを作成してください。 Windows アプリの大部分に対して十分な組み込みコントロールの対話機能を見つけることができます。
 
-標準の UWP テキスト コントロールを使う場合、このトピックで説明した選択の動作と視覚効果はカスタマイズできません。
+標準の Windows テキストコントロールを使用する場合、このトピックで説明する選択動作とビジュアルはカスタマイズできません。
 
 **テキストの選択**
 
-アプリは、テキスト選択をサポートするカスタム UI を必要とする場合は、ここで説明する Windows の選択動作を実行することをお勧めします。
+アプリにテキストの選択をサポートするカスタム UI を実装する必要がある場合は、ここで説明する Windows の選択動作に従うことをお勧めします。
 
-**編集可能なとが編集可能なコンテンツ**
+**編集可能なコンテンツと編集不可のコンテンツ**
 
 
-タッチでは、選択操作は主に挿入カーソルの設定や単語の選択を行うタップ、選択範囲の変更を行うスライドなどのジェスチャを通じて実行されます。 その他の Windows では、タッチの操作と時間指定の相互作用は、キーを押してに制限されます情報 UI を表示するジェスチャを保持します。 詳しくは、「[視覚的なフィードバックのガイドライン](guidelines-for-visualfeedback.md)」をご覧ください。
+タッチでは、選択操作は主に挿入カーソルの設定や単語の選択を行うタップ、選択範囲の変更を行うスライドなどのジェスチャを通じて実行されます。 他の Windows タッチ操作と同様に、時間制限のある対話式操作は情報 UI を表示するための長押しジェスチャに制限されます。 詳しくは、「[視覚的なフィードバックのガイドライン](guidelines-for-visualfeedback.md)」をご覧ください。
 
-Windows では、編集可能にし、編集可能な選択範囲の相互作用の 2 つの状態を認識し、UI の選択、フィードバック、および機能を適宜調整されます。
+Windows では、選択操作のために "編集可能" と "編集不可" の 2 つの状態が認識され、その状態に合わせて選択 UI、フィードバック、機能が調整されます。
 
 **編集可能なコンテンツ**
 
@@ -78,11 +78,11 @@ Windows では、編集可能にし、編集可能な選択範囲の相互作用
 
 ![選択範囲内またはグリッパー上でタップ (または長押し) してコンテキスト メニューを呼び出します。](images/textselection-show-context.png)
 
-**注**  これらのインタラクションは、スペル ミスの単語の場合に、やや異なります。 綴りに誤りがあるとしてマークされている単語をタップすると、単語全体が強調表示されて、スペル候補のコンテキスト メニューが呼び出されます。
+**注:**  単語のスペルが間違っている場合、これらの相互作用は多少異なります。 綴りに誤りがあるとしてマークされている単語をタップすると、単語全体が強調表示されて、スペル候補のコンテキスト メニューが呼び出されます。
 
  
 
-**非編集可能なコンテンツ**
+**編集不可のコンテンツ**
 
 次の図は、単語内でタップして単語を選ぶ方法を示しています (最初の選択にスペースは含まれていません)。
 
@@ -92,44 +92,38 @@ Windows では、編集可能にし、編集可能な選択範囲の相互作用
 
 **オブジェクトの操作**
 
-UWP アプリでカスタム オブジェクト操作を実装する場合は、できる限り、テキストの選択と同じ (類似する) グリッパー リソースを使います。 そうすれば、プラットフォーム間で操作エクスペリエンスの一貫性が保たれます。
+Windows アプリでカスタムオブジェクト操作を実装する場合、可能な限り、同じ (または類似した) グリッパーリソースをテキスト選択として使用します。 そうすれば、プラットフォーム間で操作エクスペリエンスの一貫性が保たれます。
 
 たとえば、次の図に示すように、グリッパーは、サイズ変更とトリミングをサポートする画像処理アプリや、調節可能なプログレス バーを備えたメディア プレーヤー アプリでも利用できます。
 
 ![プログレス グリッパーを備えたメディア プレーヤー](images/gripper-mediaplayer.png)
 
-*調整可能な進行状況バーでメディア プレーヤー。*
+*調節可能なプログレス バーを備えたメディア プレーヤーです。*
 
 ![トリミング グリッパーが表示された図](images/gripper-imagemanip.png)
 
-*イメージ エディター グリッパーをトリミングします。*
+*トリミング グリッパーが表示された画像エディターです。*
 
 ## <a name="related-articles"></a>関連記事
 
+### <a name="for-developers"></a>開発者向け
 
+- [カスタム ユーザー操作](https://docs.microsoft.com/windows/uwp/design/layout/index)
 
-**開発者向け**
-* [カスタム ユーザー操作](https://docs.microsoft.com/windows/uwp/design/layout/index)
+### <a name="samples"></a>サンプル
 
-**サンプル**
-* [基本的な入力サンプル](https://go.microsoft.com/fwlink/p/?LinkID=620302)
-* [低待機時間の入力サンプル](https://go.microsoft.com/fwlink/p/?LinkID=620304)
-* [ユーザー操作モードのサンプル](https://go.microsoft.com/fwlink/p/?LinkID=619894)
-* [フォーカスの視覚効果のサンプル](https://go.microsoft.com/fwlink/p/?LinkID=619895)
+- [基本的な入力のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/BasicInput)
+- [待機時間が短い入力のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/LowLatencyInput)
+- [ユーザー操作モードのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/UserInteractionMode)
+- [フォーカスの視覚効果のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlFocusVisuals)
 
-**サンプルのアーカイブ**
-* [入力:XAML ユーザー入力イベントのサンプル](https://go.microsoft.com/fwlink/p/?linkid=226855)
-* [入力:デバイス機能のサンプル](https://go.microsoft.com/fwlink/p/?linkid=231530)
-* [入力:タッチ ヒット テストのサンプル](https://go.microsoft.com/fwlink/p/?linkid=231590)
-* [XAML のスクロール、パン、ズームのサンプル](https://go.microsoft.com/fwlink/p/?linkid=251717)
-* [入力:簡略化されたインクのサンプル](https://go.microsoft.com/fwlink/p/?linkid=246570)
-* [入力:Windows 8 のジェスチャのサンプル](https://go.microsoft.com/fwlink/p/?LinkId=264995)
-* [入力:操作とジェスチャ (C++) のサンプル](https://go.microsoft.com/fwlink/p/?linkid=231605)
-* [DirectX のタッチ入力サンプル](https://go.microsoft.com/fwlink/p/?LinkID=231627)
- 
+### <a name="archive-samples"></a>サンプルのアーカイブ
 
- 
-
-
-
-
+- [入力: XAML ユーザー入力イベントのサンプルに関するページ](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Input%20XAML%20user%20input%20events%20sample)
+- [入力: デバイス機能のサンプルに関するページ](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Windows%208%20app%20samples/%5BC%23%5D-Windows%208%20app%20samples/C%23/Windows%208%20app%20samples/Input%20Device%20capabilities%20sample%20(Windows%208))
+- [入力: タッチのヒット テストのサンプルに関するページ](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Windows%208%20desktop%20samples/%5BC%2B%2B%5D-Windows%208%20desktop%20samples/C%2B%2B/Windows%208%20desktop%20samples/Input%20Touch%20hit%20testing%20sample)
+- [XAML のスクロール、パン、ズームのサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Universal%20Windows%20app%20samples/111487-Universal%20Windows%20app%20samples/XAML%20scrolling%2C%20panning%2C%20and%20zooming%20sample)
+- [入力: 簡略化されたインクのサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Input%20Simplified%20ink%20sample)
+- [入力: Windows 8 のジェスチャのサンプルに関するページ](https://docs.microsoft.com/samples/browse/?redirectedfrom=MSDN-samples)
+- [入力: 操作とジェスチャのサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Input%20Gestures%20and%20manipulations%20with%20GestureRecognizer)
+- [DirectX タッチ入力のサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Windows%208%20app%20samples/%5BC%2B%2B%5D-Windows%208%20app%20samples/C%2B%2B/Windows%208%20app%20samples/DirectX%20touch%20input%20sample%20(Windows%208))

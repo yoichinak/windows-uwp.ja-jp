@@ -2,16 +2,16 @@
 title: アプリ サービスの作成と利用
 description: 他のユニバーサル Windows プラットフォーム (UWP) アプリにサービスを提供できる UWP アプリを作成する方法と、それらのサービスを利用する方法について説明します。
 ms.assetid: 6E48B8B6-D3BF-4AE2-85FB-D463C448C9D3
-keywords: アプリへの通信、IPC、メッセージング、バック グラウンドの通信、アプリへのアプリ サービス バック グラウンドのプロセス間の通信
+keywords: アプリ間通信, プロセス間通信, IPC, バックグラウンドメッセージング, バックグラウンド通信, アプリからアプリ, app service
 ms.date: 01/16/2019
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: d122a51c53fc7eb32ab79f6decc570238af22973
-ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
+ms.openlocfilehash: 8d6edc49bc97a336b8d722c496c1980a5f9b0efb
+ms.sourcegitcommit: d38e2f31c47434cd6dbbf8fe8d01c20b98fabf02
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67821043"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70393557"
 ---
 # <a name="create-and-consume-an-app-service"></a>アプリ サービスの作成と利用
 
@@ -25,24 +25,24 @@ Windows 10 バージョン 1607 以降では、ホスト アプリと同じプ�
 
 このトピックでは、わかりやすくするためにすべてを 1 つのソリューションで作成します。
 
-1. Visual Studio 2015 以降では、新しい UWP アプリ プロジェクトを作成し、名前**AppServiceProvider**します。
-    1. 選択**ファイル > 新規 > プロジェクト.** 
-    2. **新しいプロジェクトを作成**ダイアログ ボックスで、**空のアプリ (ユニバーサル Windows) C#** します。 これは、他の UWP アプリがアプリ サービスを利用できるアプリとなります。
-    3. をクリックして**次**、プロジェクト名と**AppServiceProvider**、場所を選択し、をクリックし、**作成**します。
+1. Visual Studio 2015 以降で、新しい UWP アプリプロジェクトを作成し、その名前を「 **Appserviceprovider**」にします。
+    1. **ファイル > 新しい > プロジェクトの**選択... 
+    2. **[新しいプロジェクトの作成]** ダイアログボックスで、 **[空のアプリ (ユニバーサルC#Windows) ]** を選択します。 これは、他の UWP アプリがアプリ サービスを利用できるアプリとなります。
+    3. **[次へ]** をクリックし、プロジェクトに「 **appserviceprovider**」という名前を指定して、場所を選択し、 **[作成]** をクリックします。
 
-2. 選択を求められたら、**ターゲット**と**最小バージョン**、プロジェクトの選択には少なくとも**10.0.14393**します。 新たに使用する場合**SupportsMultipleInstances**属性、する必要がありますを使っている Visual Studio 2017 または Visual Studio 2019、およびターゲット**10.0.15063 追加されたため**(**Windows 10 Creators Update**)またはそれ以降。
+2. プロジェクトの**ターゲット**と**最小バージョン**を選択するよう求められたら、少なくとも**10.0.14393**を選択します。 新しい**supports複数インスタンス**の属性を使用する場合は、visual studio 2017 または visual studio 2019 を使用し、target **10.0.15063** (**Windows 10**の作成者の更新) 以降を使用する必要があります。
 
 <span id="appxmanifest"/>
 
-## <a name="add-an-app-service-extension-to-packageappxmanifest"></a>Package.appxmanifest にアプリ サービスの拡張機能を追加します。
+## <a name="add-an-app-service-extension-to-packageappxmanifest"></a>Package.appxmanifest に app service 拡張機能を追加する
 
-**AppServiceProvider**プロジェクトを開き、 **Package.appxmanifest**ファイルをテキスト エディターで。 
+**Appserviceprovider**プロジェクトで、 **package.appxmanifest**ファイルをテキストエディターで開きます。 
 
-1. を右クリックし、**ソリューション エクスプ ローラー**します。 
-2. 選択**プログラムから開く**します。 
-3. 選択**XML (テキスト) エディター**します。 
+1. **ソリューションエクスプローラー**で右クリックします。 
+2. [**ファイルを開くアプリケーションの**選択] を選びます。 
+3. **XML (テキスト) エディター**を選択します。 
 
-次の追加`AppService`内に拡張機能、`<Application>`要素。 この例では、`com.microsoft.inventory` サービスをアドバタイズし、このアプリをアプリ サービス プロバイダーとして識別します。 実際のサービスは、バックグラウンド タスクとして実装されます。 アプリ サービスのプロジェクトは、サービスを他のアプリに公開します。 サービス名には逆のドメイン名スタイルを使うことをお勧めします。
+要素内に`AppService` `<Application>`次の拡張機能を追加します。 この例では、`com.microsoft.inventory` サービスをアドバタイズし、このアプリをアプリ サービス プロバイダーとして識別します。 実際のサービスは、バックグラウンド タスクとして実装されます。 アプリ サービスのプロジェクトは、サービスを他のアプリに公開します。 サービス名には逆のドメイン名スタイルを使うことをお勧めします。
 
 `xmlns:uap4` 名前空間のプレフィックスと `uap4:SupportsMultipleInstances` 属性は、Windows SDK バージョン 10.0.15063 以降をターゲットとしている場合のみ有効です。 以前のバージョンの SDK をターゲットとしている場合には、それらは安全に削除できます。
 
@@ -67,24 +67,24 @@ Windows 10 バージョン 1607 以降では、ホスト アプリと同じプ�
     </Applications>
 ```
 
-`Category`属性は、アプリのサービス プロバイダーとしては、このアプリケーションを識別します。
+属性`Category`は、このアプリケーションを app service プロバイダーとして識別します。
 
-`EntryPoint`属性は、次を実装すると、サービスを実装する名前空間で修飾クラスを識別します。
+属性`EntryPoint`は、次に実装するサービスを実装する名前空間修飾クラスを識別します。
 
-`SupportsMultipleInstances`属性は、app service が呼び出されるたびに実行する新しいプロセスを示します。 これは必要ありませんが、その機能を必要とし、10.0.15063 追加されたため、対象とする場合は、使用する SDK (**Windows 10 Creators Update**) またはそれ以降。 また、先頭に `uap4` 名前空間を付ける必要があります。
+属性`SupportsMultipleInstances`は、app service が呼び出されるたびに、新しいプロセスで実行する必要があることを示します。 この機能は必須ではありませんが、10.0.15063 SDK (Windows 10 の作成者の**更新プログラム**) 以降を対象としている場合に使用できます。 また、先頭に `uap4` 名前空間を付ける必要があります。
 
 ## <a name="create-the-app-service"></a>アプリ サービスの作成
 
-1.  アプリ サービスは、バックグラウンド タスクとして実装できます。 これにより、フォアグラウンド アプリケーションは、別のアプリケーションのアプリ サービスを呼び出すことができます。 バック グラウンド タスクとして、app service を作成するには、ソリューションに新しい Windows ランタイム コンポーネント プロジェクトを追加 (**ファイル&gt;追加&gt;新しいプロジェクト**) という名前の**MyAppService**します。 **新しいプロジェクトの追加** ダイアログ ボックスで、選択**インストール済み > Visual C# > Windows ランタイム コンポーネント (ユニバーサル Windows)** します。
-2.  **AppServiceProvider**プロジェクトに、新しいプロジェクト間参照を追加**MyAppService**プロジェクト (で、**ソリューション エクスプ ローラー**、右クリックし、 **AppServiceProvider**プロジェクト >**追加** > **参照** > **プロジェクト** >  **ソリューション**、 **MyAppService** > **OK**)。 参照を追加しない場合でも、アプリ サービスは実行時に接続されないため、この手順は重要です。
-3.  **MyAppService**プロジェクトで、次の追加**を使用して**ステートメントの先頭に**Class1.cs**:
+1.  アプリ サービスは、バックグラウンド タスクとして実装できます。 これにより、フォアグラウンド アプリケーションは、別のアプリケーションのアプリ サービスを呼び出すことができます。 バックグラウンドタスクとして app service を作成するには、 **MyAppService**という名前の新しい Windows ランタイムコンポーネントプロジェクトをソリューションに追加します ([ファイル **&gt; ] [ &gt;新しいプロジェクトの追加**])。 **[新しいプロジェクトの追加]** ダイアログボックスで、 **[インストールC#済み > Visual > Windows ランタイムコンポーネント (ユニバーサル Windows)]** を選択します。
+2.  **Appserviceprovider**プロジェクトで、新しい**MyAppService**プロジェクトへのプロジェクト間参照を追加します (**ソリューションエクスプローラー**で、 **appserviceprovider**プロジェクトを右クリックし > [**追加** >   **] をクリックします。参照**プロジェクトソリューション、[MyAppService > OK] を選択します)。 >  >  参照を追加しない場合でも、アプリ サービスは実行時に接続されないため、この手順は重要です。
+3.  **MyAppService**プロジェクトで、 **Class1.cs**の先頭に次の**using**ステートメントを追加します。
     ```cs
     using Windows.ApplicationModel.AppService;
     using Windows.ApplicationModel.Background;
     using Windows.Foundation.Collections;
     ```
 
-4.  名前を変更**Class1.cs**に**Inventory.cs**のスタブのコードに置き換えます**Class1**という名前の新しいバック グラウンド タスク クラスを使用して**インベントリ**:
+4.  **Class1.cs**の名前を**Inventory.cs**に変更し、 **Class1**のスタブコードを**Inventory**という名前の新しい background task クラスに置き換えます。
 
     ```cs
     public sealed class Inventory : IBackgroundTask
@@ -126,18 +126,18 @@ Windows 10 バージョン 1607 以降では、ホスト アプリと同じプ�
 
     このクラスは、アプリ サービスが作業を実行する場所です。
 
-    **実行**バック グラウンド タスクが作成されるときに呼び出されます。 バックグラウンド タスクは **Run** が完了すると終了するため、バックグラウンド タスクが要求に引き続き対応できるように、コードは保留されます。 バック グラウンド タスクとして実装されている app service は、その時間枠内でもう一度呼び出されたか、遅延を除外しない限り、呼び出しを受信した後、約 30 秒間有効で維持されます。App service は、呼び出し元と同じプロセスで実装されている場合、app service の有効期間は、呼び出し元の有効期間に関連付けられています。
+    **Run**は、バックグラウンドタスクが作成されるときに呼び出されます。 バックグラウンド タスクは **Run** が完了すると終了するため、バックグラウンド タスクが要求に引き続き対応できるように、コードは保留されます。 バックグラウンドタスクとして実装されている app service は、その時間枠内で再度呼び出されていない場合、または遅延が発生した場合を除き、呼び出しを受信してから約30秒間、待機したままになります。App service が呼び出し元と同じプロセスで実装されている場合、app service の有効期間は呼び出し元の有効期間に関連付けられます。
 
     アプリ サービスの有効期間は、呼び出し元に依存します。
 
-    * 呼び出し元がフォア グラウンドである場合は、アプリ サービスの有効期間は、呼び出し元の場合と同じです。
-    * 呼び出し元は、バック グラウンドでは、app service は 30 秒の実行を取得します。 保留されると、1 回 5 秒追加されます。
+    * 呼び出し元がフォアグラウンドの場合、app service の有効期間は呼び出し元と同じになります。
+    * 呼び出し元がバックグラウンドの場合、app service は実行に30秒かかります。 保留されると、1 回 5 秒追加されます。
 
-    **OnTaskCanceled**タスクが取り消されたときに呼び出されます。 クライアント アプリを破棄するときにタスクが取り消された、 [AppServiceConnection](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.AppService.AppServiceConnection)、クライアント アプリケーションが中断された、OS がシャット ダウンしたり、スリープ状態になり、または OS のタスクを実行するリソースが不足します。
+    **Ontaskcanceled**は、タスクが取り消されたときに呼び出されます。 クライアントアプリが[AppServiceConnection](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.AppService.AppServiceConnection)を破棄するか、クライアントアプリが中断されるか、os がシャットダウンまたはスリープ状態になるか、os がタスクを実行するためにリソース不足になると、タスクは取り消されます。
 
 ## <a name="write-the-code-for-the-app-service"></a>アプリ サービスのコードを記述する
 
-**OnRequestReceived** app service のコードの行き先が。 スタブを置換**OnRequestReceived**で**MyAppService**の**Inventory.cs**この例のコードを使用します。 このコードは、インベントリの項目のインデックスを取得し、コマンド文字列と共にサービスに渡して、指定したインベントリ項目の名前と価格を取得します。 独自のプロジェクトには、エラー処理コードを追加します。
+**Onrequestreceived**は、app service のコードが存在する場所です。 **MyAppService**の**Inventory.cs**で**受信したスタブ onrequestreceived** 、この例のコードで置き換えます。 このコードは、インベントリの項目のインデックスを取得し、コマンド文字列と共にサービスに渡して、指定したインベントリ項目の名前と価格を取得します。 独自のプロジェクトには、エラー処理コードを追加します。
 
 ```cs
 private async void OnRequestReceived(AppServiceConnection sender, AppServiceRequestReceivedEventArgs args)
@@ -202,34 +202,34 @@ private async void OnRequestReceived(AppServiceConnection sender, AppServiceRequ
 }
 ```
 
-なお**OnRequestReceived**は**async** 、この待機可能なメソッドを呼び出すため、 [SendResponseAsync](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appservice.appservicerequest.sendresponseasync)この例では。
+この例では[Sendresponseasync](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appservice.appservicerequest.sendresponseasync)に対して待機可能メソッド呼び出しを行うため、 **onrequestreceived**は**async**であることに注意してください。
 
-サービスが使用できるように、遅延が実行される**async**メソッド、 **OnRequestReceived**ハンドラー。 これにより、**OnRequestReceived** への呼び出しは、メッセージの処理が完了するまで完了しません。  [SendResponseAsync](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appservice.appservicerequest.sendresponseasync)呼び出し元に結果を送信します。 **SendResponseAsync** は、呼び出しの完了時に通知しません。 信号を遅延の完了が[SendMessageAsync](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appservice.appserviceconnection.sendmessageasync)を**OnRequestReceived**が完了します。 呼び出し**SendResponseAsync**いても、遅延を完了する必要がありますので、try/finally ブロックでラップされて**SendResponseAsync**例外をスローします。
+サービスが**Onrequestreceived**ハンドラーで**非同期**メソッドを使用できるように、遅延が発生します。 これにより、**OnRequestReceived** への呼び出しは、メッセージの処理が完了するまで完了しません。  [Sendresponseasync](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appservice.appservicerequest.sendresponseasync)は、呼び出し元に結果を送信します。 **SendResponseAsync** は、呼び出しの完了時に通知しません。 これは、 **Onrequestreceived**が完了したことを[SendMessageAsync](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appservice.appserviceconnection.sendmessageasync)に通知する遅延の完了です。 Sendresponseasync の呼び出しは try/finally ブロックで**ラップされ**ます。これは、 **sendresponseasync**が例外をスローした場合でも遅延を完了する必要があるためです。
 
-App services の使用[ValueSet](https://docs.microsoft.com/uwp/api/Windows.Foundation.Collections.ValueSet)情報を交換するオブジェクト。 渡すことができるデータのサイズは、システム リソースによってのみ制限されます。 **ValueSet** で使うことができる定義済みのキーはありません。 アプリ サービスのプロトコルの定義に使うキーの値を決定する必要があります。 呼び出し元は、そのプロトコルを念頭に置いて記述する必要があります。 この例では、アプリ サービスがインベントリ項目またはその価格の名前を提供するかどうかを示す値を持つ、`Command` という名前のキーを選びました。 インベントリ名のインデックスは、`ID` キーに保存されています。 戻り値は `Result` キーに保存されます。
+App services は、 [Valueset](https://docs.microsoft.com/uwp/api/Windows.Foundation.Collections.ValueSet)オブジェクトを使用して情報を交換します。 渡すことができるデータのサイズは、システム リソースによってのみ制限されます。 **ValueSet** で使うことができる定義済みのキーはありません。 アプリ サービスのプロトコルの定義に使うキーの値を決定する必要があります。 呼び出し元は、そのプロトコルを念頭に置いて記述する必要があります。 この例では、アプリ サービスがインベントリ項目またはその価格の名前を提供するかどうかを示す値を持つ、`Command` という名前のキーを選びました。 インベントリ名のインデックスは、`ID` キーに保存されています。 戻り値は `Result` キーに保存されます。
 
-[AppServiceClosedStatus](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.AppService.AppServiceClosedStatus)列挙型は、app service への呼び出しが成功または失敗するかどうかを示すために、呼び出し元に返されます。 アプリ サービスへの呼び出しが失敗する例として、OS がサービスのエンドポイントを中止した、リソースが超過したなどがあります。 使用して追加のエラー情報を返すことができます、 [ValueSet](https://docs.microsoft.com/uwp/api/Windows.Foundation.Collections.ValueSet)します。 この例では、`Status` という名前のキーを使って、より詳細なエラー情報を呼び出し元に返します。
+[AppServiceClosedStatus](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.AppService.AppServiceClosedStatus)列挙型は、app service への呼び出しが成功したか失敗したかを示すために呼び出し元に返されます。 アプリ サービスへの呼び出しが失敗する例として、OS がサービスのエンドポイントを中止した、リソースが超過したなどがあります。 [Valueset](https://docs.microsoft.com/uwp/api/Windows.Foundation.Collections.ValueSet)を使用して、追加のエラー情報を返すことができます。 この例では、`Status` という名前のキーを使って、より詳細なエラー情報を呼び出し元に返します。
 
-呼び出し[SendResponseAsync](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appservice.appservicerequest.sendresponseasync)を返します、 [ValueSet](https://docs.microsoft.com/uwp/api/Windows.Foundation.Collections.ValueSet)呼び出し元にします。
+[Sendresponseasync](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appservice.appservicerequest.sendresponseasync)を呼び出すと、呼び出し元に対して[valueset](https://docs.microsoft.com/uwp/api/Windows.Foundation.Collections.ValueSet)が返されます。
 
 ## <a name="deploy-the-service-app-and-get-the-package-family-name"></a>サービス アプリを展開して、パッケージ ファミリ名を取得する
 
-クライアントから呼び出せる前に、アプリのサービス プロバイダーを配置する必要があります。 選択してデプロイする**ビルド > ソリューションの配置**Visual Studio でします。
+App service プロバイダーは、クライアントから呼び出す前に展開する必要があります。 これをデプロイするには、Visual Studio で **[ビルド > 配置]** を選択します。
 
-これを呼び出すために、アプリのサービス プロバイダーのパッケージ ファミリ名も必要になります。 開いて表示できます、 **AppServiceProvider**プロジェクトの**Package.appxmanifest**デザイナーのビュー内のファイル (でそれをダブルクリックして、**ソリューション エクスプ ローラー**)。 選択、**パッケージ** タブで、次に、値をコピーします。**パッケージ ファミリ名**、などに貼り付けメモ帳の今とします。
+また、それを呼び出すためには、app service プロバイダーのパッケージファミリ名も必要です。 これを取得するには、デザイナービューで**Appserviceprovider**プロジェクトの**package.appxmanifest**ファイルを開きます (**ソリューションエクスプローラー**でダブルクリックします)。 **[パッケージング]** タブを選択し、 **[パッケージファミリ名]** の横の値をコピーして、メモ帳などの場所に貼り付けます。
 
 ## <a name="write-a-client-to-call-the-app-service"></a>アプリ サービスを呼び出すクライアントを作成する
 
-1.  **[ファイル] &gt; [追加] &gt; [新しいプロジェクト]** で、新しい空の Windows ユニバーサル アプリ プロジェクトをソリューションに追加します。 **新しいプロジェクトの追加** ダイアログ ボックスで、選択**インストール済み > Visual C# > 空のアプリ (ユニバーサル Windows)** 名前を付けます**ClientApp**します。
+1.  **[ファイル] &gt; [追加] &gt; [新しいプロジェクト]** で、新しい空の Windows ユニバーサル アプリ プロジェクトをソリューションに追加します。 **[新しいプロジェクトの追加]** ダイアログボックスで、 **[インストールC#済み > Visual > 空のアプリ (ユニバーサル Windows)]** を選択し、 **ClientApp**という名前を指定します。
 
-2.  **ClientApp**プロジェクトで、次の追加**を使用して**ステートメントの先頭に**MainPage.xaml.cs**:
+2.  **ClientApp**プロジェクトで、 **MainPage.xaml.cs**の先頭に次の**using**ステートメントを追加します。
     ```cs
     using Windows.ApplicationModel.AppService;
     ```
 
-3.  呼ばれるテキスト ボックスを追加**textBox**ボタンを**MainPage.xaml**します。
+3.  **TextBox**という名前のテキストボックスと、 **mainpage.xaml**にボタンを追加します。
 
-4.  ボタンを追加するハンドラーというボタンをクリックします**button_Click**、キーワードを追加および**非同期**をボタン ハンドラーのシグネチャにします。
+4.  **Button_Click**という名前のボタンのボタンクリックハンドラーを追加し、そのボタンハンドラーのシグネチャに**async**キーワードを追加します。
 
 5. ボタンのクリック ハンドラーのスタブを、次のコードで置き換えます。 必ず、`inventoryService` フィールドの宣言を含めます。
     ```cs
@@ -298,68 +298,68 @@ App services の使用[ValueSet](https://docs.microsoft.com/uwp/api/Windows.Foun
     行 `this.inventoryService.PackageFamilyName = "Replace with the package family name";` のパッケージ ファミリ名を、「[サービス アプリを展開して、パッケージ ファミリ名を取得する](#deploy-the-service-app-and-get-the-package-family-name)」で得た **AppServiceProvider** プロジェクトのパッケージ ファミリ名に置き換えます。
 
     > [!NOTE]
-    > 必ず、文字列リテラルに配置し、変数に貼り付けます。 変数を使用する場合は機能しません。
+    > 文字列リテラルは、変数に配置するのではなく、必ず貼り付けてください。 変数を使用する場合は機能しません。
 
-    最初に、コードによってアプリ サービスとの接続が確立されます。 接続は、`this.inventoryService` を破棄するまで開いたままになります。 App service の名前に一致する必要があります、`AppService`要素の`Name`に追加する属性、 **AppServiceProvider**プロジェクトの**Package.appxmanifest**ファイル。 この例では、 `<uap3:AppService Name="com.microsoft.inventory"/>`です。
+    最初に、コードによってアプリ サービスとの接続が確立されます。 接続は、`this.inventoryService` を破棄するまで開いたままになります。 App service の名前は、 **appserviceprovider**プロジェクト`Name`の**package.appxmanifest**ファイルに追加した`AppService`要素の属性と一致している必要があります。 この例では、 `<uap3:AppService Name="com.microsoft.inventory"/>`です。
 
-    A [ValueSet](https://docs.microsoft.com/uwp/api/Windows.Foundation.Collections.ValueSet)という`message`を app service に送信するコマンドを指定するが作成されます。 この例のアプリ サービスでは、2 つのアクションのどちらを実行するかをコマンドが示すことを想定しています。 クライアント アプリでテキスト ボックスからインデックスを取得し、使用して、サービスを呼び出して、`Item`項目の説明を取得するコマンド。 その後、`Price` コマンドで呼び出しを行い、項目の価格を取得します。 ボタンのテキストは結果に設定されています。
+    という名前`message`の[valueset](https://docs.microsoft.com/uwp/api/Windows.Foundation.Collections.ValueSet)が作成され、app service に送信するコマンドを指定します。 この例のアプリ サービスでは、2 つのアクションのどちらを実行するかをコマンドが示すことを想定しています。 クライアントアプリのテキストボックスからインデックスを取得し、 `Item`コマンドを使用してサービスを呼び出し、項目の説明を取得します。 その後、`Price` コマンドで呼び出しを行い、項目の価格を取得します。 ボタンのテキストは結果に設定されています。
 
-    [AppServiceResponseStatus](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.AppService.AppServiceResponseStatus)オペレーティング システムがチェックを app service への呼び出しに接続できるかどうかを示します、`Status`キー、 [ValueSet](https://docs.microsoft.com/uwp/api/Windows.Foundation.Collections.ValueSet)アプリからの受信サービス要求を処理することであったことをします。
+    [AppServiceResponseStatus](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.AppService.AppServiceResponseStatus)は、オペレーティングシステムが呼び出しを app service に接続できたかどうかを示すだけなの`Status`で、app service から受け取った[valueset](https://docs.microsoft.com/uwp/api/Windows.Foundation.Collections.ValueSet)内のキーを確認して、申請.
 
-6. 設定、 **ClientApp**プロジェクトをスタートアップ プロジェクト (で右クリックし、**ソリューション エクスプ ローラー** > **スタートアップ プロジェクトとして設定**) し、ソリューションを実行します。 数値 1 をテキスト ボックスに入力し、ボタンをクリックします。 取得する必要があります"椅子。価格 = 88.99"、サービスから返信します。
+6. **ClientApp**プロジェクトをスタートアッププロジェクトとして設定し (**スタートアッププロジェクトとして設定** **ソリューションエクスプローラー** > で右クリック)、ソリューションを実行します。 数値 1 をテキスト ボックスに入力し、ボタンをクリックします。 "椅子:価格 = 88.99 "サービスからの返送。
 
     ![Chair : price = 88.99 を表示するサンプル アプリ](images/appserviceclientapp.png)
 
-アプリ サービスの呼び出しに失敗した場合、次を確認してください。、 **ClientApp**プロジェクト。
+App service の呼び出しが失敗した場合は、 **ClientApp**プロジェクトで次のことを確認します。
 
-1.  インベントリ サービスの接続に割り当てられたパッケージ ファミリ名のパッケージ ファミリ名と一致していることを確認、 **AppServiceProvider**アプリ。 内の行を参照してください**ボタン\_クリックして**で`this.inventoryService.PackageFamilyName = "...";`します。
-2.  **ボタン\_クリックして**、インベントリ サービスの接続に割り当てられている app service の名前の app service の名前と一致していることを確認、 **AppServiceProvider**の**Package.appxmanifest**ファイル。 `this.inventoryService.AppServiceName = "com.microsoft.inventory";` をご覧ください。
-3.  いることを確認、 **AppServiceProvider**アプリが展開されています。 (で、**ソリューション エクスプ ローラー**ソリューションを右クリックし、選択、**ソリューションの配置**)。
+1.  Inventory service 接続に割り当てられているパッケージファミリ名が、 **Appserviceprovider**アプリのパッケージファミリ名と一致していることを確認します。 「 **」の\_** `this.inventoryService.PackageFamilyName = "...";`行を参照してください。
+2.  **[ボタン\_** ] で、inventory service 接続に割り当てられている app service 名が、 **appserviceprovider**の**package.appxmanifest**ファイルの app service 名と一致していることを確認します。 `this.inventoryService.AppServiceName = "com.microsoft.inventory";` をご覧ください。
+3.  **Appserviceprovider**アプリがデプロイされていることを確認します。 (**ソリューションエクスプローラー**で、ソリューションを右クリックし、 **[ソリューションの配置]** を選択します)。
 
 ## <a name="debug-the-app-service"></a>アプリ サービスのデバッグ
 
 1.  サービスを呼び出す前にアプリ サービス プロバイダーのアプリが配置される必要があるため、ソリューションがデバッグする前に展開されるようにします。 (Visual Studio で、 **[ビルド] &gt; [ソリューションの配置]** の順にクリックします)。
-2.  **ソリューション エクスプ ローラー**を右クリックし、 **AppServiceProvider**プロジェクト**プロパティ**します。 **[デバッグ]** タブで、 **[開始動作]** を **[起動しないが、開始時にマイ コードをデバッグする]** に変更します。 (C++ を使ってアプリ サービス プロバイダーを実装した場合、 **[デバッグ]** タブから **[アプリケーションの起動]** を **[いいえ]** に変更します)。
-3.  **MyAppService**プロジェクトの**Inventory.cs**にブレークポイントを設定ファイルで、 **OnRequestReceived**します。
-4.  設定、 **AppServiceProvider**プロジェクトをスタートアップ プロジェクトとキーを押して**F5**します。
-5.  開始**ClientApp** (Visual Studio) からではなく [スタート] メニューから。
+2.  **ソリューションエクスプローラー**で、 **appserviceprovider**プロジェクトを右クリックし、 **[プロパティ]** を選択します。 **[デバッグ]** タブで、 **[開始動作]** を **[起動しないが、開始時にマイ コードをデバッグする]** に変更します。 (C++ を使ってアプリ サービス プロバイダーを実装した場合、 **[デバッグ]** タブから **[アプリケーションの起動]** を **[いいえ]** に変更します)。
+3.  **MyAppService**プロジェクトの**Inventory.cs**ファイルで、 **onrequestreceived**にブレークポイントを設定します。
+4.  **Appserviceprovider**プロジェクトをスタートアッププロジェクトとして設定し、 **F5**キーを押します。
+5.  (Visual Studio からではなく) [スタート] メニューから**ClientApp**を起動します。
 6.  数値 1 をテキスト ボックスに入力し、ボタンを押します。 デバッガーは、アプリ サービス内のブレークポイントでアプリ サービスの呼び出しを停止します。
 
 ## <a name="debug-the-client"></a>クライアントのデバッグ
 
 1.  前の手順に従って、アプリ サービスを呼び出すクライアントをデバッグします。
-2.  起動**ClientApp** [スタート] メニュー。
-3.  デバッガーをアタッチ、 **ClientApp.exe**プロセス (いない、 **ApplicationFrameHost.exe**プロセス)。 (Visual Studio で、 **[デバッグ] &gt; [プロセスにアタッチ]** の順に選びます)。
-4.  **ClientApp**プロジェクトでのブレークポイントを設定、**ボタン\_クリックして**。
-5.  テキスト ボックスに数字 1 を入力すると、クライアントと、app service の両方でブレークポイントにヒット今すぐ**ClientApp**ボタンをクリックします。
+2.  [スタート] メニューから**ClientApp**を起動します。
+3.  **ClientApp**プロセスにデバッガーをアタッチします ( **applicationmsbuild.exe**のプロセスではありません)。 (Visual Studio で、 **[デバッグ] &gt; [プロセスにアタッチ]** の順に選びます)。
+4.  **ClientApp**プロジェクトで、**ボタン\_をクリック**してブレークポイントを設定します。
+5.  **ClientApp**のテキストボックスに数字1を入力し、ボタンをクリックすると、クライアントと app service の両方のブレークポイントがヒットするようになります。
 
 ## <a name="general-app-service-troubleshooting"></a>一般的なアプリ サービスのトラブルシューティング
 
-発生した場合、 **AppUnavailable** app service に接続しようとしました。 後のステータスは、次を確認します。
+App service に接続しようとした後に**Appunavailable できない**状態が発生した場合は、次のことを確認してください。
 
 - アプリ サービス プロバイダー プロジェクトとアプリ サービス プロジェクトが展開されていることを確認します。 クライアントを実行する前に、両方が展開されている必要があります。展開されていない場合、クライアントには接続先がありません。 Visual Studio から **[ビルド]**  >  **[ソリューションの配置]** で展開できます。
-- **ソリューション エクスプ ローラー**、アプリ サービスのプロバイダー プロジェクトが、app service を実装するプロジェクトへのプロジェクト間参照であることを確認します。
-- いることを確認、`<Extensions>`エントリとその子要素が追加されました、 **Package.appxmanifest**で上で指定したアプリ サービス プロバイダーのプロジェクトに属しているファイル[するアプリ サービスの拡張機能の追加Package.appxmanifest](#appxmanifest)します。
-- いることを確認、 [AppServiceConnection.AppServiceName](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appservice.appserviceconnection.appservicename)をアプリのサービス プロバイダーを呼び出すクライアントでの文字列に一致する、`<uap3:AppService Name="..." />`アプリ サービス プロバイダー プロジェクトで指定された**Package.appxmanifest**ファイル。
-- いることを確認、 [AppServiceConnection.PackageFamilyName](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appservice.appserviceconnection.packagefamilyname)で上で指定したアプリのサービス プロバイダー コンポーネントのパッケージ ファミリ名と一致する[Package.appxmanifest にアプリ サービスの拡張機能を追加します。](#appxmanifest)
-- この例では、1 つなど、アウト プロセス アプリケーション サービスのことを検証、`EntryPoint`で指定されている、`<uap:Extension ...>`アプリ サービス プロバイダー プロジェクトの要素**Package.appxmanifest**ファイル名前空間に一致し、実装するパブリック クラスのクラス名[IBackgroundTask](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtask)アプリ サービス プロジェクト。
+- **ソリューションエクスプローラー**で、app service プロバイダープロジェクトに、app service を実装するプロジェクトへのプロジェクト間参照があることを確認します。
+- 「App [service 拡張機能を package.appxmanifest に追加](#appxmanifest)する」で前述したように、エントリとその子要素が、appserviceプロバイダープロジェクトに属するpackage.appxmanifestファイルに追加されていることを確認し`<Extensions>`ます。
+- App service プロバイダーを呼び出すクライアントの[AppServiceConnection](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appservice.appserviceconnection.appservicename)文字列が、app service プロバイダープロジェクトの**package.appxmanifest**ファイルに`<uap3:AppService Name="..." />`指定されていると一致していることを確認します。
+- [AppServiceConnection Efamilyname](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appservice.appserviceconnection.packagefamilyname)が、前述の「 [app service 拡張機能を package.appxmanifest に追加](#appxmanifest)する」で指定した、app service プロバイダーコンポーネントのパッケージファミリ名と一致していることを確認します。
+- この例のようなアウトプロセスアプリサービスの場合は、app service プロバイダープロジェクトの package.appxmanifest `EntryPoint`ファイルの`<uap:Extension ...>`要素で指定されたがパブリックの名前空間とクラス名と一致することを検証し**ます。** app service プロジェクトの[Ibackgroundtask](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtask)を実装するクラス。
 
 ### <a name="troubleshoot-debugging"></a>デバッグのトラブルシューティング
 
 アプリ サービス プロバイダーまたはアプリ サービス プロジェクトのブレークポイントでデバッガーが停止しない場合は、以下を確認します。
 
 - アプリ サービス プロバイダー プロジェクトとアプリ サービス プロジェクトが展開されていることを確認します。 クライアントを実行する前に、両方が展開されている必要があります。 Visual Studio から **[ビルド]**  >  **[ソリューションの配置]** で展開できます。
-- デバッグするプロジェクトがスタートアップ プロジェクトとして設定されていると、プロジェクトを実行しない、そのプロジェクトのデバッグのプロパティが設定されていることを確認時に**F5**が押されました。 プロジェクトを右クリックし、 **[プロパティ]** 、 **[デバッグ]** (または C++ では **[デバッグ]** ) の順にクリックします。 C# では、 **[開始動作]** を **[起動しないが、開始時にマイ コードをデバッグする]** に設定します。 C++ では、 **[アプリケーションの起動]** を **[いいえ]** に設定します。
+- デバッグするプロジェクトがスタートアッププロジェクトとして設定されていること、およびそのプロジェクトのデバッグプロパティが**F5 キー**が押されたときにプロジェクトを実行しないように設定されていることを確認します。 プロジェクトを右クリックし、 **[プロパティ]** 、 **[デバッグ]** (または C++ では **[デバッグ]** ) の順にクリックします。 C# では、 **[開始動作]** を **[起動しないが、開始時にマイ コードをデバッグする]** に設定します。 C++ では、 **[アプリケーションの起動]** を **[いいえ]** に設定します。
 
 ## <a name="remarks"></a>コメント
 
-この例では、バックグラウンド タスクとして実行されるアプリ サービスを作成して、それを別のアプリから呼び出す概要を示しています。 注意することは、次のとおりです。
+この例では、バックグラウンド タスクとして実行されるアプリ サービスを作成して、それを別のアプリから呼び出す概要を示しています。 注意すべき重要な点は次のとおりです。
 
-* アプリ サービスをホストするバック グラウンド タスクを作成します。
-* 追加、`windows.appService`をアプリ サービス プロバイダーの拡張機能**Package.appxmanifest**ファイル。
-* クライアント アプリからそれに接続できるように、アプリのサービス プロバイダーのパッケージ ファミリ名を取得します。
-* アプリのサービス プロバイダーのプロジェクトからアプリ サービスのプロジェクトにプロジェクト間参照を追加します。
-* 使用[Windows.ApplicationModel.AppService.AppServiceConnection](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.AppService.AppServiceConnection)サービスを呼び出します。
+* App service をホストするバックグラウンドタスクを作成します。
+* 拡張機能を app service プロバイダーの package.appxmanifest ファイルに追加します。 `windows.appService`
+* クライアントアプリからアプリに接続できるように、app service プロバイダーのパッケージファミリ名を取得します。
+* App service プロバイダープロジェクトから app service プロジェクトへのプロジェクト間参照を追加します。
+* [AppService](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.AppService.AppServiceConnection)を使用してサービスを呼び出します。
 
 ## <a name="full-code-for-myappservice"></a>MyAppService の完全なコード
 
@@ -461,4 +461,4 @@ namespace MyAppService
 
 * [ホスト アプリと同じプロセスで実行するようにアプリ サービスを変換する](convert-app-service-in-process.md)
 * [バックグラウンド タスクによるアプリのサポート](support-your-app-with-background-tasks.md)
-* [アプリ サービスのコード サンプル (C#、C++、および VB)](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/AppServices)
+* [App service のコードサンプルC#( C++、、VB)](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/AppServices)

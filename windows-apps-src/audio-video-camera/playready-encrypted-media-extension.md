@@ -1,31 +1,31 @@
 ---
 ms.assetid: 79C284CA-C53A-4C24-807E-6D4CE1A29BFA
-description: このセクションでは、以前のバージョンの Windows 8.1、Windows 10 バージョンに加えられた変更をサポートするために、PlayReady の web アプリを変更する方法について説明します。
+description: このセクションでは、以前の Windows 8.1 から、Windows 10 バージョンに加えられた変更をサポートするために、PlayReady Web アプリを変更する方法について説明します。
 title: PlayReady の Encrypted Media Extension
 ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: ad304d22fd1c519f7364ac69882eeaac9fa1a5c7
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 4145fbc67c6788a1d742fb0db616ecbc719e4b34
+ms.sourcegitcommit: 2dbf4a3f3473c1d3a0ad988bcbae6e75dfee3640
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66360708"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82619316"
 ---
 # <a name="playready-encrypted-media-extension"></a>PlayReady の Encrypted Media Extension
 
 
 
-このセクションでは、以前のバージョンの Windows 8.1、Windows 10 バージョンに加えられた変更をサポートするために、PlayReady の web アプリを変更する方法について説明します。
+このセクションでは、以前の Windows 8.1 から、Windows 10 バージョンに加えられた変更をサポートするために、PlayReady Web アプリを変更する方法について説明します。
 
 Internet Explorer で PlayReady メディア要素を使うと、開発者はコンテンツ プロバイダーが定義したアクセス ルールを適用しながら、ユーザーに PlayReady コンテンツを提供することのできる Web アプリを作成することができます。 ここでは、HTML5 と JavaScript のみを使って、既存の Web アプリに PlayReady メディア要素を追加する方法について説明します。
 
 ## <a name="whats-new-in-playready-encrypted-media-extension"></a>PlayReady の Encrypted Media Extension の新機能
 
-このセクションでは、Windows 10 で PlayReady コンテンツ保護を有効にする PlayReady Encrypted Media Extension (EME) に加えられた変更の一覧を示します。
+このセクションでは、Windows 10 で PlayReady コンテンツ保護を有効にするために PlayReady Encrypted Media Extension (EME) に加えられた変更を示します。
 
-次の一覧には、PlayReady 暗号化されたメディア拡張機能の Windows 10 への変更、新しい機能について説明します。
+次に、Windows 10 の PlayReady Encrypted Media Extension に関する新機能や変更点について説明します。
 
 -   追加されたハードウェア デジタル著作権管理 (DRM)。
 
@@ -34,10 +34,10 @@ Internet Explorer で PlayReady メディア要素を使うと、開発者はコ
 -   永続的でないライセンスの事前の取得を提供します。
 -   1 つのメッセージで複数のライセンスを取得できるようにします。
 
-    Windows 8.1 では、ように複数のキー識別子 (KeyIDs) と PlayReady オブジェクトを使用するかを使用して、[コンテンツ モデル データの復号化 (CDMData)](https://go.microsoft.com/fwlink/p/?LinkID=626819)複数 KeyIDs とします。
+    Windows 8.1 のように PlayReady オブジェクトと複数のキー識別子 (KeyID) を使うか、[Content Decryption Model データ (CDMData)](https://docs.microsoft.com/previous-versions/windows/apps/dn457361(v=ieb.10)?redirectedfrom=MSDN) と複数の KeyID を使うことができます。
 
     > [!NOTE]
-    > Windows 10 で複数のキー識別子がサポートされている&lt;KeyID&gt; CDMData でします。
+    > Windows 10 では、複数のキー識別子が CDMData の &lt;KeyID&gt; でサポートされます。
 
 -   リアルタイムの有効期限のサポートや期間限定ライセンス (LDL) が追加されました。
 
@@ -90,7 +90,7 @@ PlayReady ハードウェア DRM を使うには、JavaScript Web アプリは�
 プレゼンテーションの通常の終了時にセキュア ストップを設定するには
 
 1.  再生が開始する前に **onEnded** イベントを登録します。
-2.  **onEnded** イベント ハンドラーは、ビデオ/オーディオ要素のオブジェクトから `removeAttribute(“src”)` を呼び出し、ソースを **NULL** に設定する必要があります。これにより、メディア ファンデーションをトリガーしてトポロジを終了し、暗号化解除機能を破棄して、停止状態を設定します。
+2.  **onEnded** イベント ハンドラーは、ビデオ/オーディオ要素のオブジェクトから `removeAttribute("src")` を呼び出し、ソースを **NULL** に設定する必要があります。これにより、メディア ファンデーションをトリガーしてトポロジを終了し、暗号化解除機能を破棄して、停止状態を設定します。
 3.  ハンドラー内の CDM セッションのセキュア ストップを開始し、セキュア ストップ チャレンジをサーバーに送信して、現在は再生が停止したが、後でも実行できることを通知できます。
 
 ユーザーがページから移動したか、タブまたはブラウザーを閉じた場合にセキュア ストップを設定するには
@@ -262,13 +262,13 @@ function formatSecureStopCDMData(encodedSessionId, customData, encodedPublisherC
 ```
 
 > [!NOTE]
-> データのセキュリティで保護された停止の`<SessionID>B64 encoded session ID</SessionID>`上の例では、アスタリスクを指定できます (\*)、記録されたすべての停止をセキュリティで保護されたセッションはワイルド カード。 つまり、 **SessionID**タグは、特定のセッションまたはワイルドカード (\*) をセキュリティで保護された停止のすべてのセッションを選択します。
+> 上記のサンプルのセキュリティ`<SessionID>B64 encoded session ID</SessionID>`で保護された停止データは、\*アスタリスク () にすることができます。これは、記録されたすべてのセキュリティ停止セッションのワイルドカードです。 つまり、 **SessionID**タグは、特定のセッション、またはワイルドカード (\*) を使用して、すべてのセキュリティで保護された停止セッションを選択できます。
 
 ## <a name="programming-considerations-for-encrypted-media-extension"></a>Encrypted Media Extension のプログラミングについての考慮事項
 
-このセクションでは、Windows 10 用の PlayReady 対応の web アプリを作成するときに考慮するプログラミングの考慮事項を示します。
+このセクションでは、PlayReady 対応の Windows 10 用の Web アプリを作成するときに検討する必要があるプログラミングの考慮事項を示します。
 
-アプリで作成した **MSMediaKeys** オブジェクトと **MSMediaKeySession** オブジェクトは、アプリが終了するまで有効なままである必要があります。 これらのオブジェクトが必ず有効な状態にとどまるようにする方法の 1 つは、それらをグローバル変数として割り当てることです (関数内でローカル変数宣言された場合、変数はスコープ外になり、ガベージ コレクションの対象になります)。 たとえば、次の例は、変数を割り当てられます*g\_msMediaKeys*と*g\_mediaKeySession*グローバル変数は、次に割り当てられる、 **。MSMediaKeys**と**MSMediaKeySession**関数内のオブジェクト。
+アプリで作成した **MSMediaKeys** オブジェクトと **MSMediaKeySession** オブジェクトは、アプリが終了するまで有効なままである必要があります。 これらのオブジェクトが必ず有効な状態にとどまるようにする方法の 1 つは、それらをグローバル変数として割り当てることです (関数内でローカル変数宣言された場合、変数はスコープ外になり、ガベージ コレクションの対象になります)。 たとえば、次のサンプルでは、変数*g\_msmediakeys*と*g\_mediakeysession*をグローバル変数として割り当てます。この変数は、関数の**msmediakeys**オブジェクトと**msmediakeysession**オブジェクトに割り当てられます。
 
 ``` syntax
 var g_msMediaKeys;
@@ -296,7 +296,7 @@ function foo() {
 }
 ```
 
-詳しくは、[サンプル アプリケーション](https://code.msdn.microsoft.com/windowsapps/PlayReady-samples-for-124a3738)をご覧ください。
+詳しくは、[サンプル アプリケーション](https://github.com/microsoft/Windows-universal-samples/tree/master/Samples/PlayReady)をご覧ください。
 
 ## <a name="see-also"></a>関連項目
 - [PlayReady DRM](playready-client-sdk.md)

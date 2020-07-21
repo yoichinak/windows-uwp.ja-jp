@@ -1,6 +1,6 @@
 ---
 Description: 目的がはっきりとしており、適切にデザインされたモーションは、アプリに強い印象を与え、精巧で完成度の高い操作性を感じさせます。 コンテキストの変化がわかりやすく、視覚的な切り替えがエクスペリエンスに結び付きます。
-title: UWP アプリでのモーションとアニメーション
+title: Windows アプリのモーション
 ms.assetid: 21AA1335-765E-433A-85D8-560B340AE966
 label: Motion
 template: detail.hbs
@@ -12,14 +12,14 @@ design-contact: jeffarn
 doc-status: Published
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 1096bdab340c3f0fef24b5815423f72b0f5c8219
-ms.sourcegitcommit: cc0ef75f314658b14376eb60ef8e5bb4d7726e04
+ms.openlocfilehash: 49fc31729bc8f195bacf1d743c570aa5293b33de
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65444169"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970337"
 ---
-# <a name="motion-for-uwp-apps"></a>UWP アプリのモーション
+# <a name="motion-for-windows-apps"></a>Windows アプリのモーション
 
 ![モーション アイコン](../images/motion-2x.png)
 
@@ -56,7 +56,7 @@ Fluent モーションはアプリで目的を果たします。 これは、ユ
 ![機能的なモーションの UI の例](images/functional.gif)
 > ページ切り替えは、目的に特化されています。 ページが相互に関連する方法に関するヒントを提供します。 パフォーマンスが最適でない場合でも速く感じられるような方法で移動します。
 
-### <a name="continuous"></a>継続性
+### <a name="continuous"></a>継続
 
 ポイントからポイントへの滑らか動きは、自然に目を引きつけ、ユーザーを誘導します。 適切にユーザーのタスクをまとめて、よりコンシューマブルで親しみやすく感じられるようにします。
 
@@ -74,21 +74,21 @@ Fluent モーションはアプリで目的を果たします。 これは、ユ
 
 :::row:::
     :::column:::
-        ### [Timing and easing](timing-and-easing.md)
-        Timing and easing are important elements that make motion feel natural for objects entering, exiting, or moving within the UI.
+### <a name="timing-and-easing"></a>[タイミングとイージング](timing-and-easing.md)
+タイミングとイージングは、UI 内で出入りしたり、移動したりするオブジェクトのモーションを自然に感じさせる重要な要素です。
     :::column-end:::
     :::column:::
-        ### [Directionality and gravity](directionality-and-gravity.md)
-        Directional signals help provide a solid mental model of the journey a user takes across experiences. Directional movement is subject to forces like gravity, which reinforces the natural feel of the movement.
+### <a name="directionality-and-gravity"></a>[方向性と重力](directionality-and-gravity.md)
+方向指示は、ユーザーがエクスペリエンス全体を通じて行う取り組みの強固な概念的モデルを提供するのに役立ちます。 方向性は、重力などのエネルギーの影響を受け、これにより移動の自然な感覚が強化されます。
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-        ### [Page transitions](page-transitions.md)
-        Page transitions navigate users between pages in an app, providing feedback about the relationship between pages. They help users understand where they are in the navigation hierarchy.
+### <a name="page-transitions"></a>[ページ切り替え効果](page-transitions.md)
+ページ切り替え効果により、ユーザーがアプリ内のページ間を移動するため、ページ間の関係がフィードバックされます。 ユーザーがナビゲーション階層内の場所を理解するのに役立ちます。
     :::column-end:::
     :::column:::
-        ### [Connected animation](connected-animation.md)
-        Connected animations let you create a dynamic and compelling navigation experience by animating the transition of an element between two different views.
+### <a name="connected-animation"></a>[接続型アニメーション](connected-animation.md)
+接続型アニメーションを使用すると、2 つの異なるビューの間で要素が切り替わる様子をアニメーション化することによって、動的で魅力的なナビゲーション エクスペリエンスを作成できます。
     :::column-end:::
 :::row-end:::

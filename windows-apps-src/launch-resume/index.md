@@ -6,12 +6,12 @@ ms.date: 10/04/2017
 ms.topic: article
 keywords: windows 10, uwp, バックグラウンド タスク, アプリ サービス, 接続済みのデバイス, リモート システム
 ms.localizationpriority: medium
-ms.openlocfilehash: 79f3f1d28294527d6987540a159baa31d663db4c
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 9280a240f35c2fdf5290c94d837e2fafc008dbfd
+ms.sourcegitcommit: f727b68e86a86c94eff00f67ed79a1c12666e7bc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66371722"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "80483008"
 ---
 # <a name="launching-resuming-and-background-tasks"></a>起動、再開、およびバックグラウンド タスク
 
@@ -98,6 +98,7 @@ ms.locfileid: "66371722"
 | [バックグラウンド タスクからのセンサーやデバイスへのアクセス](access-sensors-and-devices-from-a-background-task.md)   | [**DeviceUseTrigger**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.DeviceUseTrigger) を使うと、フォアグラウンド アプリが中断しているときにも、バックグラウンドでユニバーサル Windows アプリからセンサーや周辺機器にアクセスできます。 |
 | [インプロセス バックグラウンド タスクの作成と登録](create-and-register-an-inproc-background-task.md)       | フォアグラウンド アプリと同じプロセスで実行されるバックグラウンド タスクを作成して登録します。 |
 | [アウトプロセス バックグラウンド タスクの作成と登録](create-and-register-a-background-task.md)           | アプリとは別のプロセスで実行されるバックグラウンド タスクを作成して登録し、アプリがフォアグラウンドにないときに実行するように登録します。 |
+| [winmain アプリの COM バックグラウンド タスクを作成して登録する](create-and-register-a-winmain-background-task.md) | パッケージ化された winmain アプリが実行されていない可能性がある場合に、メイン プロセス内またはプロセス外で実行できる COM バックグラウンド タスクを作成します。 |
 | [アウトプロセスのバックグラウンド タスクをインプロセスのバックグラウンド タスクに移植する](convert-out-of-process-background-task.md) | アウトプロセスのバックグラウンド タスクを、フォアグラウンド アプリと同じプロセスで実行されるインプロセスのバックグラウンド タスクに移植する方法を説明します。|
 | [バックグラウンド タスクのデバッグ](debug-a-background-task.md)                                                       | バックグラウンド タスクをデバッグする方法について説明します。バックグラウンド タスクのアクティブ化のほか、Windows イベント ログでのデバッグ トレースなどについて取り上げます。 |
 | [アプリケーション マニフェストでのバックグラウンド タスクの宣言](declare-background-tasks-in-the-application-manifest.md) | アプリ マニフェストでバックグラウンド タスクを拡張機能として宣言し、バックグラウンド タスクを使うことができるようにします。 |

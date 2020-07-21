@@ -6,12 +6,12 @@ keywords: 連絡先, 単一の連絡先の選択, 複数の連絡先の選択, �
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: facad25446dca286ac150e59d0418c2dd8bfc896
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 634b72032b37fe4a6bc4ea44a2e4fe27abede47d
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66361269"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74255073"
 ---
 # <a name="select-contacts"></a>連絡先の選択
 
@@ -60,7 +60,7 @@ contacts = await contactPicker.PickContactsAsync();
 
 ピッカーから制御が戻ったら、ユーザーが連絡先を選んだかどうかを調べ、 選んでいた場合は連絡先情報を処理します。
 
-1 つの連絡先を処理する例を次に示します。 この例では、連絡先の名前を取得し、*OutputName* と呼ばれる [**TextBlock**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock) コントロールにコピーしています。
+1 つの連絡先を処理する例を次に示します。 この例では、連絡先の名前を取得し、[OutputName**と呼ばれる**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock)TextBlock コントロールにコピーしています。
 
 ```cs
 if (contact != null)
@@ -167,7 +167,7 @@ private void AppendContactFieldValues<T>(TextBlock content, IList<T> fields)
 
 ## <a name="complete-example-multiple-contacts"></a>完全な例 (複数の連絡先)
 
-次の例では、連絡先ピッカーを使って複数の連絡先を取得し、`OutputContacts` という名前の [**ListView**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView) コントロールに追加しています。
+次の例では、連絡先ピッカーを使って複数の連絡先を取得し、[ という名前のListView](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView)`OutputContacts` コントロールに追加しています。
 
 ```cs
 MainPage rootPage = MainPage.Current;
@@ -230,4 +230,4 @@ public class ContactItemAdapter
 
 ## <a name="summary-and-next-steps"></a>要約と次のステップ
 
-ここでは、連絡先ピッカーを使って連絡先情報を取得する基本的な方法について説明しました。 連絡先や連絡先選択ツールの使い方に関するその他の例については、GitHub から [ユニバーサル Windows アプリのサンプル](https://go.microsoft.com/fwlink/p/?linkid=619979) をダウンロードしてください。
+ここでは、連絡先ピッカーを使って連絡先情報を取得する基本的な方法について説明しました。 連絡先や連絡先選択ツールの使い方に関するその他の例については、GitHub から [ユニバーサル Windows アプリのサンプル](https://github.com/Microsoft/Windows-universal-samples) をダウンロードしてください。

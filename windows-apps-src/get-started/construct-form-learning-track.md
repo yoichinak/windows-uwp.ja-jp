@@ -6,16 +6,16 @@ ms.topic: article
 keywords: 概要, uwp, windows 10, 学習トラック, レイアウト, フォーム
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 2e64392e1de5f6061b802acc0a2eed81c3e750fb
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 02cb15d948bf35b1c449bb430c9c31dd33d9eec6
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67318806"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "79543975"
 ---
 # <a name="create-and-customize-a-form"></a>フォームを作成してカスタマイズする
 
-大量の情報をユーザーが入力する必要のあるアプリを作成している場合は、ユーザーが記入するフォームが必要になる可能性があります。この記事では、利便性と信頼性の高いフォームを作成するために知っておく必要のあることについて説明します。
+ユーザーが大量の情報を入力する必要のあるアプリを作成している場合は、ユーザーが入力するフォームが必要になる可能性があります。この記事では、利便性と信頼性の高いフォームを作成するために知っておく必要のあることについて説明します。
 
 これはチュートリアルではありません。 チュートリアルが必要な場合は、「[アダプティブ レイアウトのチュートリアル](../design/basics/xaml-basics-adaptive-layout.md)」を参照してください。このチュートリアルでは、手順を説明したガイド付きのエクスペリエンスが提供されます。
 
@@ -51,7 +51,7 @@ UWP には、アプリに追加して構成することができる明示的な�
 * [ToggleSwitch](../design/controls-and-patterns/toggles.md) では、ユーザーが 2 つのオプションから選択できます。
 * [DatePicker](../design/controls-and-patterns/date-picker.md) では、ユーザーが日付値を選択できます。
 * [TimePicker](../design/controls-and-patterns/time-picker.md) では、ユーザーが時刻値を選択できます。
-* [ComboBox](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ComboBox) は、選択可能な項目の一覧を表示するために展開します。 これらの詳細については、[こちら](../design/controls-and-patterns/lists.md#drop-down-lists)を参照してください。
+* [ComboBox](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ComboBox) は、選択可能な項目の一覧を表示するために展開します。 これらの詳細については、[こちら](../design/controls-and-patterns/combo-box.md)を参照してください。
 
 また、ユーザーが保存やキャンセルを行うことができるように、[ボタン](../design/controls-and-patterns/buttons.md)を追加することができます。
 

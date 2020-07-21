@@ -6,16 +6,16 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, スレッド, スレッド プール
 ms.localizationpriority: medium
-ms.openlocfilehash: 0ff0eca18eeab72dbf0a2f9a539e452a5923392d
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: a9da63e05380987d69d97a74123e593acd0b8cb1
+ms.sourcegitcommit: 2dbf4a3f3473c1d3a0ad988bcbae6e75dfee3640
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67322015"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82619346"
 ---
 # <a name="submit-a-work-item-to-the-thread-pool"></a>スレッド プールへの作業項目の送信
 
-\[ Windows 10 での UWP アプリが更新されました。 Windows 8.x の記事を参照してください、[アーカイブ](https://go.microsoft.com/fwlink/p/?linkid=619132) \]
+\[Windows 10 の UWP アプリ用に更新されました。 Windows 8.x の記事については、「[アーカイブ](https://docs.microsoft.com/previous-versions/windows/apps/mt244353(v=win.10)?redirectedfrom=MSDN)」を参照してください。\]
 
 <b>重要な API</b>
 
@@ -26,12 +26,12 @@ ms.locfileid: "67322015"
 
 ## <a name="create-and-submit-the-work-item"></a>作業項目の作成と送信
 
-[  **RunAsync**](https://docs.microsoft.com/uwp/api/windows.system.threading.threadpool.runasync) を呼び出して作業項目を作成します。 作業を実行するデリゲートを指定します (ラムダやデリゲート関数を使うことができます)。 **RunAsync** が [**IAsyncAction**](https://docs.microsoft.com/uwp/api/Windows.Foundation.IAsyncAction) オブジェクトを返すことに注意してください。このオブジェクトは次の手順で使うために格納しておきます。
+[**RunAsync**](https://docs.microsoft.com/uwp/api/windows.system.threading.threadpool.runasync) を呼び出して作業項目を作成します。 作業を実行するデリゲートを指定します (ラムダやデリゲート関数を使うことができます)。 **RunAsync** が [**IAsyncAction**](https://docs.microsoft.com/uwp/api/Windows.Foundation.IAsyncAction) オブジェクトを返すことに注意してください。このオブジェクトは次の手順で使うために格納しておきます。
 
 3 つのバージョンの [**RunAsync**](https://docs.microsoft.com/uwp/api/windows.system.threading.threadpool.runasync) を使うことができるため、必要に応じて作業項目の優先度を指定し、他の作業項目と同時に実行するかどうかを制御できます。
 
 >[!NOTE]
->使用[ **CoreDispatcher.RunAsync** ](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync)を UI スレッドにアクセスし、作業項目からの進行状況を表示します。
+>[**CoreDispatcher**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync)を使用して UI スレッドにアクセスし、作業項目の進行状況を表示します。
 
 次の例では作業項目を作成し、作業を実行するラムダを指定します。
 
@@ -269,7 +269,7 @@ auto asyncAction = ThreadPool::RunAsync(workItem);
 m_workItem = asyncAction;
 ```
 
-[  **RunAsync**](https://docs.microsoft.com/uwp/api/windows.system.threading.threadpool.runasync) が呼び出された後に、スレッド プールで作業項目がキューに入れられ、スレッドが使用可能になったときに実行されます。 スレッド プールの作業項目は非同期に実行されます。任意の順番で実行されることがあるため、作業項目は単独で機能するようにしてください。
+[**RunAsync**](https://docs.microsoft.com/uwp/api/windows.system.threading.threadpool.runasync) が呼び出された後に、スレッド プールで作業項目がキューに入れられ、スレッドが使用可能になったときに実行されます。 スレッド プールの作業項目は非同期に実行されます。任意の順番で実行されることがあるため、作業項目は単独で機能するようにしてください。
 
 作業項目は [**IAsyncInfo.Status**](https://docs.microsoft.com/uwp/api/windows.foundation.iasyncinfo.status) プロパティをチェックし、作業項目が取り消されている場合は終了することに注意してください。
 
@@ -348,9 +348,9 @@ asyncAction.Completed = new AsyncActionCompletedHandler(
 
 完了ハンドラーは、UI 更新をディスパッチする前に作業項目が取り消されたかどうかをチェックします。
 
-## <a name="summary-and-next-steps"></a>要約と次のステップ
+## <a name="summary-and-next-steps"></a>まとめと次のステップ
 
-このクイック スタートからコードをダウンロードすることによって詳細については、 [ThreadPool 作業項目のサンプルを作成する](https://go.microsoft.com/fwlink/p/?LinkID=328569)Windows 8.1、および、win でソース コードを再利用向けに書かれた\_unap Windows 10 アプリ。
+詳細については、このクイックスタートの「Windows 8.1 用に記述された[ThreadPool 作業項目サンプルの作成](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Thread%20pool%20sample)」に記載されているコードを\_ダウンロードし、win unap Windows 10 アプリでソースコードを再利用する方法に関するページを参照してください。
 
 ## <a name="related-topics"></a>関連トピック
 

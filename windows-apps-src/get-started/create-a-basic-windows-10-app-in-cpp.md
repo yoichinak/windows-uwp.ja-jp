@@ -6,12 +6,12 @@ ms.date: 06/11/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 65436d7efd1de6e9c3649ad27b29b925bc632d95
-ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
+ms.openlocfilehash: 4c388b9b81744c0d27d96c1f97b4e405af63eaef
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67820657"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "80524084"
 ---
 # <a name="create-a-hello-world-app-in-ccx"></a>"Hello world" アプリを C++/CX で作成する
 
@@ -23,9 +23,9 @@ Microsoft Visual Studio では、Extensible Application Markup Language (XAML) �
 > [!NOTE]
 > このチュートリアルでは、Visual Studio Community 2019 を使います。 異なるバージョンの Visual Studio を使っている場合には、見た目が多少異なることがあります。
 
-## <a name="before-you-start"></a>開始前の作業
+## <a name="before-you-start"></a>開始する前に
 
--   このチュートリアルを完了するには、Windows 10 が実行されているコンピューターで、Visual Studio Community、または Community バージョン以外のいずれかの Visual Studio を使う必要があります。 ツールをダウンロードするには、[ツールの入手に関するページ](https://go.microsoft.com/fwlink/p/?LinkId=532666)をご覧ください。
+-   このチュートリアルを完了するには、Windows 10 が実行されているコンピューターで、Visual Studio Community、または Community バージョン以外のいずれかの Visual Studio を使う必要があります。 ツールをダウンロードするには、[ツールの入手に関するページ](https://visualstudio.microsoft.com/downloads/)をご覧ください。
 -   このトピックは、C++/CX、XAML、そして「[XAML の概要](https://docs.microsoft.com/windows/uwp/xaml-platform/xaml-overview)」で説明されている概念について基本的な知識があることを前提としています。
 -   Visual Studio の既定のウィンドウ レイアウトを使用することを前提としています。 既定のレイアウトに戻すには、メニュー バーで **[ウィンドウ]**  >  **[ウィンドウ レイアウトのリセット]** の順に選択します。
 
@@ -45,7 +45,7 @@ C++ を使った Windows デスクトップのプログラミングに関する�
 
 -   Visual C++ コンパイラでネイティブ マシン コードにコンパイルされるアプリを引き続き作成します。 C++/CX で作成された UWP アプリは、マネージド ランタイム環境では実行されません。
 
-### <a name="whats-new"></a>最新情報
+### <a name="whats-new"></a>新機能
 
 -   UWP アプリとユニバーサル Windows アプリの設計原則は、デスクトップ アプリの設計原則とは大きく異なります。 ウィンドウの境界線、ラベル、ダイアログ ボックスなどの強調は解除され、 コンテンツが最も目立つように表示されます。 優れたユニバーサル Windows アプリには、こうした原則が計画段階の初期から活かされています。
 
@@ -110,7 +110,7 @@ C++ を使った Windows デスクトップのプログラミングに関する�
 
 **Ref クラス**
 
-Windows ランタイムのほぼすべてのクラスは、Windows API のすべての型 (XAML コントロール、アプリ内のページ、App クラス自体、すべてのデバイス オブジェクトとネットワーク オブジェクト、すべてのコンテナー型) を含んでおり、**ref クラス** として宣言されます (**value class** または **value struct** の Windows 型もわずかに存在します)。 ref クラスはすべての言語から利用できます。 C++/CX では、これらの型の有効期間が (ガベージ コレクションではなく) 自動参照カウントによって制御されるため、それらのオブジェクトを明示的に削除することはできません。 ref クラスは独自に作成することもできます。
+Windows ランタイムのほぼすべてのクラスは、Windows API のすべての型 (XAML コントロール、アプリ内のページ、App クラス自体、すべてのデバイス オブジェクトとネットワーク オブジェクト、すべてのコンテナー型) を含んでおり、**ref クラス** として宣言されます  (**value class** または **value struct** の Windows 型もわずかに存在します)。 ref クラスはすべての言語から利用できます。 C++/CX では、これらの型の有効期間が (ガベージ コレクションではなく) 自動参照カウントによって制御されるため、それらのオブジェクトを明示的に削除することはできません。 ref クラスは独自に作成することもできます。
 
 ```cpp
 namespace HelloWorld
@@ -231,7 +231,7 @@ MainPage::MainPage()
 
 アプリのデバッグを停止して閉じるには、Visual Studio に戻り、Shift キーを押しながら F5 キーを押します。
 
-詳しくは、「[Visual Studio からのストア アプリの実行](https://go.microsoft.com/fwlink/p/?LinkId=619619)」をご覧ください。
+詳しくは、「[Visual Studio からのストア アプリの実行](https://msdn.microsoft.com/library/windows/apps/xaml/Hh441477(v=VS.140).aspx)」をご覧ください。
 
 アプリの [**TextBox**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox) に文字を入力することはできますが、この時点では [**Button**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Button) をクリックしても何も起こりません。 この後の手順で、ユーザーに合わせたあいさつを表示する、ボタンの [**Click**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.click) イベント用のイベント ハンドラーを作成します。
 
@@ -255,7 +255,7 @@ MainPage::MainPage()
 
    デザイナーは、レンダリング中にハンドルされない例外が発生すると、読み込みに失敗します。 デザイナーでのレンダリングでは、ページの設計時のバージョンが実行されます。 これは、ユーザー コードの実行を無効にする場合に便利です。 そのためには、 **[ツール]、[オプション]** の順にクリックして、開いたダイアログ ボックスで設定を変更します。 **[XAML デザイナー]** で、 **[プロジェクト コードを XAML デザイナーで実行する (サポートされている場合)]** チェック ボックスをオフにします。
 
-5.  MainPage.xaml.cpp で、作成した **Button\_Click** イベント ハンドラーに次のコードを追加します。 このコードは、`nameInput`[**TextBox**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox) コントロールからユーザー名を取得し、それを使ってあいさつを作ります。 結果は、`greetingOutput`[**TextBlock**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock) に表示されます。
+5.  MainPage.xaml.cpp で、作成した **Button\_Click** イベント ハンドラーに次のコードを追加します。 このコードは、`nameInput` [**TextBox**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox) コントロールからユーザー名を取得し、それを使ってあいさつを作ります。 結果は、`greetingOutput` [**TextBlock**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock) に表示されます。
 
     ```cpp
     void HelloWorld::MainPage::Button_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
@@ -385,18 +385,18 @@ MainPage::MainPage()
 
 `wideState` という名前の [**VisualState**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.VisualState) で、[**AdaptiveTrigger**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.AdaptiveTrigger) の [**MinWindowWidth**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.adaptivetrigger.minwindowwidth) プロパティが 641 に設定されています。 これは、ウィンドウの幅が 641 DIP という最小値以上である場合に限って、状態が適用されることを意味します。 この状態には [**Setter**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Setter) オブジェクトを定義していないため、XAML でページのコンテンツに対して定義したレイアウト プロパティが使用されます。
 
-2 つ目の [**VisualState**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.VisualState) である `narrowState` で、[**AdaptiveTrigger**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.AdaptiveTrigger) の [**MinWindowWidth**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.adaptivetrigger.minwindowwidth) プロパティが 0 に設定されています。 この状態は、ウィンドウの幅が 0 より大きく 641 DIP より小さい場合に適用されます (641 DIP では、`wideState` が適用されます)。この状態では、いくつかの [**Setter**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Setter) オブジェクトを設定して、UI のコントロールのレイアウト プロパティを変更します。
+2 つ目の [**VisualState**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.VisualState) である `narrowState` で、[**AdaptiveTrigger**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.AdaptiveTrigger) の [**MinWindowWidth**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.adaptivetrigger.minwindowwidth) プロパティが 0 に設定されています。 この状態は、ウィンドウの幅が 0 より大きく 641 DIP より小さい場合に適用されます  (641 DIP では、`wideState` が適用されます)。この状態では、いくつかの [**Setter**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Setter) オブジェクトを設定して、UI のコントロールのレイアウト プロパティを変更します。
 
 -   `contentPanel` の左側の余白を 120 から 20 に減らします。
 -   `inputPanel` 要素の [**Orientation**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.stackpanel.orientation) を **Horizontal** から **Vertical** に変更します。
 -   4 DIP の上余白を `inputButton` 要素に追加します。
 
-### <a name="summary"></a>概要
+### <a name="summary"></a>要約
 
 これで、最初のチュートリアルは終わりです。 このチュートリアルでは、Windows ユニバーサル アプリにコンテンツを追加する方法、そのコンテンツで対話式操作を実現する方法、見た目を変更する方法の 3 点について説明しました。
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
-Windows 8.1 や Windows Phone 8.1 を対象とする Windows ユニバーサル アプリ プロジェクトがある場合は、そのプロジェクトを Windows 10 に移植できます。 この移植を自動的に行うプロセスはありませんが、手動で実行することができます。 新しい Windows ユニバーサル プロジェクトを使って開発を始めることで、最新のプロジェクト システム構造を入手し、お使いのコード ファイルをプロジェクトのディレクトリ構造にコピーしたり、項目をプロジェクトに追加したりすることができます。また、このトピックのガイダンスに従い、[**VisualStateManager**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.VisualStateManager) を使って XAML を書き換えることもできます。 詳しくは、「[Windows ランタイム 8 プロジェクトのユニバーサル Windows プラットフォーム (UWP) プロジェクトへの移植](https://docs.microsoft.com/windows/uwp/porting/w8x-to-uwp-porting-to-a-uwp-project)」と「[ユニバーサル Windows プラットフォームへの移植 (C++)](https://go.microsoft.com/fwlink/p/?LinkId=619525)」をご覧ください。
+Windows 8.1 や Windows Phone 8.1 を対象とする Windows ユニバーサル アプリ プロジェクトがある場合は、そのプロジェクトを Windows 10 に移植できます。 この移植を自動的に行うプロセスはありませんが、手動で実行することができます。 新しい Windows ユニバーサル プロジェクトを使って開発を始めることで、最新のプロジェクト システム構造を入手し、お使いのコード ファイルをプロジェクトのディレクトリ構造にコピーしたり、項目をプロジェクトに追加したりすることができます。また、このトピックのガイダンスに従い、[**VisualStateManager**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.VisualStateManager) を使って XAML を書き換えることもできます。 詳しくは、「[Windows ランタイム 8 プロジェクトのユニバーサル Windows プラットフォーム (UWP) プロジェクトへの移植](https://docs.microsoft.com/windows/uwp/porting/w8x-to-uwp-porting-to-a-uwp-project)」と「[ユニバーサル Windows プラットフォームへの移植 (C++)](https://msdn.microsoft.com/library/mt186164.aspx)」をご覧ください。
 
-UWP アプリと統合する既存の C++ コードがある場合、たとえば、既存のアプリケーションに新しい UWP UI を作成する場合は、[ユニバーサル Windows プロジェクトでの既存の C++ コードの使用](https://go.microsoft.com/fwlink/p/?LinkId=619623)に関するページをご覧ください。
+UWP アプリと統合する既存の C++ コードがある場合、たとえば、既存のアプリケーションに新しい UWP UI を作成する場合は、[ユニバーサル Windows プロジェクトでの既存の C++ コードの使用](https://msdn.microsoft.com/library/mt186162.aspx)に関するページをご覧ください。

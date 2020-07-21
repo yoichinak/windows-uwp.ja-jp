@@ -4,14 +4,14 @@ description: このセクションの各トピックでは、トリガーに対�
 ms.assetid: EFF7CBFB-D309-4ACB-A2A5-28E19D447E32
 ms.date: 08/21/2017
 ms.topic: article
-keywords: windows 10、uwp、バック グラウンド タスク
+keywords: windows 10、uwp、バックグラウンドタスク
 ms.localizationpriority: medium
-ms.openlocfilehash: 73d279ca0afe67fa6c7d2240fb62c91d1ab3c4c3
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 7ca567d34c98deb75d7ebfa5ec9f70688ad18fdb
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66370572"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74259418"
 ---
 # <a name="support-your-app-with-background-tasks"></a>バックグラウンド タスクによるアプリのサポート
 
@@ -42,7 +42,7 @@ Windows 10 バージョン 1607 では、バックグラウンド タスクを�
 アウトプロセス バックグラウンド タスクの概要については、「[アウトプロセス バックグラウンド タスクの作成と登録](create-and-register-a-background-task.md)」をご覧ください。
 
 > [!TIP]
-> Windows 10 以降が不要になったのバック グラウンド タスクを登録するための前提条件として、ロック画面にアプリを配置します。
+> Windows 10 以降では、バックグラウンドタスクを登録するための前提条件として、ロック画面にアプリを配置する必要がなくなりました。
 
 ## <a name="background-tasks-for-system-events"></a>システム イベントに対するバックグラウンド タスク
 
@@ -51,7 +51,7 @@ Windows 10 バージョン 1607 では、バックグラウンド タスクを�
 | トリガー名                     | 説明                                                                                                    |
 |----------------------------------|----------------------------------------------------------------------------------------------------------------|
 | **InternetAvailable**            | インターネットが利用可能になります。                                                                                |
-| **NetworkStateChange**           | コストや接続の変更などネットワークの変更が行われます。                                              |
+| **し**           | コストや接続の変更などネットワークの変更が行われます。                                              |
 | **OnlineIdConnectedStateChange** | アカウントに関連付けられたオンライン ID が変更されます。                                                                 |
 | **SmsReceived**                  | インストールされたモバイル ブロードバンド デバイスにより、新しい SMS メッセージが受け取られます。                                         |
 | **TimeZoneChange**               | デバイスでタイム ゾーンが変更されます (たとえば、システムが夏時間に合わせて時刻を調整したとき)。 |
@@ -66,14 +66,14 @@ Windows 10 バージョン 1607 では、バックグラウンド タスクを�
 |--------------------------|-----------------------------------|
 | **InternetAvailable**    | インターネットが利用可能である必要があります。   |
 | **InternetNotAvailable** | インターネットが利用不可である必要があります。 |
-| **SessionConnected**     | セッションが接続されている必要があります。    |
+| **接続されたセッション**     | セッションが接続されている必要があります。    |
 | **SessionDisconnected**  | セッションが切断されている必要があります。 |
 | **UserNotPresent**       | ユーザーが不在である必要があります。            |
 | **UserPresent**          | ユーザーが在席している必要があります。         |
 
-バックグラウンド タスク [BackgroundTaskBuilder.AddCondition](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.BackgroundTaskBuilder) に **InternetAvailable** 条件を追加して、ネットワーク スタックが実行されるまで、バックグラウンド タスクのトリガーを遅らせます。 この条件では、ネットワークが利用可能になるまでバックグラウンド タスクが実行されないため、電力が節約されます。 この条件では、リアルタイムのアクティブ化は行われません。
+バックグラウンド タスク **BackgroundTaskBuilder.AddCondition** に [InternetAvailable](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.BackgroundTaskBuilder) 条件を追加して、ネットワーク スタックが実行されるまで、バックグラウンド タスクのトリガーを遅らせます。 この条件では、ネットワークが利用可能になるまでバックグラウンド タスクが実行されないため、電力が節約されます。 この条件では、リアルタイムのアクティブ化は行われません。
 
-バックグラウンド タスクでネットワーク接続が必要である場合は、[IsNetworkRequested](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.BackgroundTaskBuilder) を設定すると、バックグラウンド タスクが実行されている間、ネットワークは稼働状態のままになります。 これによって、デバイスがコネクト スタンバイ モードに入っている場合でも、タスクの実行中はネットワークを稼働状態に保つようにバックグラウンド タスク インフラストラクチャに指示されます。 バック グラウンド タスクが設定されていない場合**IsNetworkRequested**、バック グラウンド タスクは (たとえば、スマート フォンの画面がオフにするとします) コネクト スタンバイ モードでネットワークにアクセスできません。  
+バックグラウンド タスクでネットワーク接続が必要である場合は、[IsNetworkRequested](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.BackgroundTaskBuilder) を設定すると、バックグラウンド タスクが実行されている間、ネットワークは稼働状態のままになります。 これによって、デバイスがコネクト スタンバイ モードに入っている場合でも、タスクの実行中はネットワークを稼働状態に保つようにバックグラウンド タスク インフラストラクチャに指示されます。 バックグラウンドタスクで**Isnetworkrequested**が設定されていない場合、スタンバイモード (電話の画面がオフになっている場合など) では、バックグラウンドタスクはネットワークにアクセスできません。  
 バックグラウンド タスクの条件について詳しくは、「[バックグラウンド タスクを実行するための条件の設定](set-conditions-for-running-a-background-task.md)」をご覧ください。
 
 ## <a name="application-manifest-requirements"></a>アプリケーション マニフェストの要件
@@ -86,8 +86,8 @@ Windows 10 バージョン 1607 では、バックグラウンド タスクを�
 
 | リアルタイム トリガー  | 説明 |
 |--------------------|-------------|
-| **コントロール チャネル** | バックグラウンド タスクでは、[**ControlChannelTrigger**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) を使って接続が有効な状態を維持し、コントロール チャネルでメッセージを受け取ることができます。 アプリがソケットをリッスンしている場合は、**ControlChannelTrigger** の代わりにソケット ブローカーを使うことができます。 ソケット ブローカーの使用について詳しくは、「[SocketActivityTrigger](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.SocketActivityTrigger)」をご覧ください。 **ControlChannelTrigger** は、Windows Phone ではサポートされていません。 |
-| **タイマー** | バックグラウンド タスクは、15 分おきに実行できます。また、[**TimeTrigger**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.TimeTrigger) を使って特定の時刻に実行するように設定することもできます。 詳しくは、「[タイマーでのバックグラウンド タスクの実行](run-a-background-task-on-a-timer-.md)」をご覧ください。 |
+| **コントロールチャネル** | バックグラウンド タスクでは、[**ControlChannelTrigger**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) を使って接続が有効な状態を維持し、コントロール チャネルでメッセージを受け取ることができます。 アプリがソケットをリッスンしている場合は、**ControlChannelTrigger** の代わりにソケット ブローカーを使うことができます。 ソケット ブローカーの使用について詳しくは、「[SocketActivityTrigger](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.SocketActivityTrigger)」をご覧ください。 **ControlChannelTrigger** は、Windows Phone ではサポートされていません。 |
+| **期限** | バックグラウンド タスクは、15 分おきに実行できます。また、[**TimeTrigger**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.TimeTrigger) を使って特定の時刻に実行するように設定することもできます。 詳しくは、「[タイマーでのバックグラウンド タスクの実行](run-a-background-task-on-a-timer-.md)」をご覧ください。 |
 | **プッシュ通知** | バックグラウンド タスクは、[**PushNotificationTrigger**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.PushNotificationTrigger) に応答して、直接プッシュ通知を受け取ります。 |
 
 **注:**  
@@ -96,7 +96,7 @@ Windows 10 バージョン 1607 では、バックグラウンド タスクを�
 
 更新プログラムのリリース後にユニバーサル Windows アプリが引き続き適切に実行されるようにするには、更新後にアプリが起動する際に、[**RemoveAccess**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundexecutionmanager.removeaccess)、[**RequestAccessAsync**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundexecutionmanager.requestaccessasync) の順に呼び出します。 詳しくは、「[バックグラウンド タスクのガイドライン](guidelines-for-background-tasks.md)」をご覧ください。
 
-**トリガーのインスタンスの数の制限:** アプリを登録できるいくつかのトリガーのインスタンスの数の制限があります。 アプリが [ApplicationTrigger](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.ApplicationTrigger)、[MediaProcessingTrigger](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.mediaprocessingtrigger)、および [DeviceUseTrigger](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.deviceusetrigger?f=255&MSPPError=-2147217396) を登録できるのは、アプリのインスタンスごとに 1 回のみです。 アプリでこの制限を超えると、登録で例外がスローされます。
+**トリガー インスタンスの数の制限:** アプリが登録できる一部のトリガー インスタンスの数には制限があります。 アプリが [ApplicationTrigger](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.ApplicationTrigger)、[MediaProcessingTrigger](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.mediaprocessingtrigger)、および [DeviceUseTrigger](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.deviceusetrigger?f=255&MSPPError=-2147217396) を登録できるのは、アプリのインスタンスごとに 1 回のみです。 アプリでこの制限を超えると、登録で例外がスローされます。
 
 ## <a name="system-event-triggers"></a>システム イベント トリガー
 
@@ -105,9 +105,9 @@ Windows 10 バージョン 1607 では、バックグラウンド タスクを�
 | トリガー名            | 説明                                                       |
 |-------------------------|-------------------------------------------------------------------|
 | **UserPresent**         | ユーザーが在席になったら、バックグラウンド タスクがトリガーされます。   |
-| **UserAway**            | ユーザーが不在になったら、バックグラウンド タスクがトリガーされます。    |
+| **ユーザーの移動**            | ユーザーが不在になったら、バックグラウンド タスクがトリガーされます。    |
 | **ControlChannelReset** | コントロール チャネルがリセットされたら、バックグラウンド タスクがトリガーされます。 |
-| **SessionConnected**    | セッションが接続されたら、バックグラウンド タスクがトリガーされます。   |
+| **接続されたセッション**    | セッションが接続されたら、バックグラウンド タスクがトリガーされます。   |
 
    
 以下のシステム イベント トリガーは、ユーザーがアプリをロック画面に配置した場合や、アプリをロック画面から削除した場合に、そのことを通知します。
@@ -115,7 +115,7 @@ Windows 10 バージョン 1607 では、バックグラウンド タスクを�
 | トリガー名                     | 説明                                  |
 |----------------------------------|----------------------------------------------|
 | **LockScreenApplicationAdded**   | アプリのタイルがロック画面に追加されます。     |
-| **LockScreenApplicationRemoved** | アプリのタイルがロック画面から削除されます。 |
+| **LockScreenApplicationRemoved 削除されました** | アプリのタイルがロック画面から削除されます。 |
 
  
 ## <a name="background-task-resource-constraints"></a>バックグラウンド タスク リソースの制限
@@ -138,7 +138,7 @@ Windows 10 バージョン 1607 では、バックグラウンド タスクを�
 
 バッテリー節約機能が有効であってもバックグラウンド タスクを実行しプッシュ通知を受信するようにアプリを設定していない限り、デバイスが外部電源に接続されていない状態でバッテリー残量が指定量を下回ると、バッテリー節約機能 (有効な場合) によりバックグラウンド タスクが実行されなくなります。 これによりバックグラウンド タスクを登録できなくなることはありません。
 
-ただし、エンタープライズ アプリ、および Microsoft Store では発行されませんアプリは、次のように表示します[、バック グラウンドでの実行を無期限に](run-in-the-background-indefinetly.md)な機能を使用して、バック グラウンドでバック グラウンド タスクまたは延長実行セッションを実行する方法を学習するには。無期限にします。
+ただし、エンタープライズアプリと、Microsoft Store で公開されないアプリについては、「バックグラウンド[で無期限に実行](run-in-the-background-indefinetly.md)する」を参照して、バックグラウンドタスクまたは拡張実行セッションをバックグラウンドで無期限に実行する機能の使用方法を学習してください。
 
 ## <a name="background-task-resource-guarantees-for-real-time-communication"></a>リアルタイム通信に対するバックグラウンド タスク リソース保証
 
@@ -157,7 +157,7 @@ Windows 10 バージョン 1607 では、バックグラウンド タスクを�
 > [!IMPORTANT]
 > **DeviceUseTrigger** と **DeviceServicingTrigger** は、インプロセスのバックグラウンド タスクでは使用できません。
 
-時間がかかるファームウェア更新など、一部の重要なデバイス操作は、[**DeviceUseTrigger**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.DeviceUseTrigger) では実行できません。 このような操作は PC でのみ、[**DeviceServicingTrigger**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.DeviceServicingTrigger) を使う特権アプリによってのみ実行できます。 *特権アプリ*とは、これらの操作を実行する権限をデバイス製造元から与えられているアプリです。 デバイス メタデータを使って、どのアプリがデバイスの特権アプリであるか (存在する場合) を指定します。 詳細については、次を参照してください[デバイスとの同期とデバイスの Microsoft Store アプリ用の更新プログラム。](https://go.microsoft.com/fwlink/p/?LinkId=306619)
+時間がかかるファームウェア更新など、一部の重要なデバイス操作は、[**DeviceUseTrigger**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.DeviceUseTrigger) では実行できません。 このような操作は PC でのみ、[**DeviceServicingTrigger**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.DeviceServicingTrigger) を使う特権アプリによってのみ実行できます。 *特権アプリ*とは、これらの操作を実行する権限をデバイス製造元から与えられているアプリです。 デバイス メタデータを使って、どのアプリがデバイスの特権アプリであるか (存在する場合) を指定します。 詳細については、「[デバイスの同期と Microsoft Store デバイスアプリの更新プログラム](https://msdn.microsoft.com/library/windows/hardware/dn265139(v=vs.85).aspx)」を参照してください。
 
 ## <a name="managing-background-tasks"></a>バックグラウンド タスクの管理
 
@@ -170,30 +170,30 @@ Windows 10 バージョン 1607 では、バックグラウンド タスクを�
 
 ## <a name="related-topics"></a>関連トピック
 
-**Windows 10 のマルチタス キングの概念的なガイダンス**
+**Windows 10 のマルチタスキングに関する概念的なガイダンス**
 
-* [起動する、再開、およびマルチタス キング](index.md)
+* [起動、再開、およびマルチタスキング](index.md)
 
-**関連するバック グラウンド タスクのガイダンス**
+**関連するバックグラウンドタスクのガイダンス**
 
 * [バックグラウンド タスクのガイドライン](guidelines-for-background-tasks.md)
 * [バックグラウンド タスクからのセンサーやデバイスへのアクセス](access-sensors-and-devices-from-a-background-task.md)
 * [インプロセス バックグラウンド タスクの作成と登録](create-and-register-an-inproc-background-task.md)
 * [アウトプロセス バックグラウンド タスクの作成と登録](create-and-register-a-background-task.md)
-* [プロセス内のバック グラウンド タスクに、プロセス外のバック グラウンド タスクを変換します。](convert-out-of-process-background-task.md)
+* [プロセス外のバックグラウンドタスクをインプロセスバックグラウンドタスクに変換する](convert-out-of-process-background-task.md)
 * [バックグラウンド タスクのデバッグ](debug-a-background-task.md)
 * [アプリケーション マニフェストでのバックグラウンド タスクの宣言](declare-background-tasks-in-the-application-manifest.md)
 * [バックグラウンド タスクの登録のグループ化](group-background-tasks.md)
 * [取り消されたバックグラウンド タスクの処理](handle-a-cancelled-background-task.md)
-* [トリガーする方法を中断、再開、および (デバッグ) 場合は、UWP アプリでイベントをバック グラウンド](https://docs.microsoft.com/visualstudio/debugger/how-to-trigger-suspend-resume-and-background-events-for-windows-store-apps-in-visual-studio)
+* [UWP アプリで中断イベント、再開イベント、およびバックグラウンドイベントをトリガーする方法 (デバッグ時)](https://docs.microsoft.com/visualstudio/debugger/how-to-trigger-suspend-resume-and-background-events-for-windows-store-apps-in-visual-studio)
 * [バックグラウンド タスクの進捗状況と完了の監視](monitor-background-task-progress-and-completion.md)
-* [バック グラウンドでメディアを再生します。](https://docs.microsoft.com/windows/uwp/audio-video-camera/background-audio)
+* [バックグラウンドでメディアを再生する](https://docs.microsoft.com/windows/uwp/audio-video-camera/background-audio)
 * [バックグラウンド タスクの登録](register-a-background-task.md)
 * [バックグラウンド タスクによるシステム イベントへの応答](respond-to-system-events-with-background-tasks.md)
 * [タイマーでのバックグラウンド タスクの実行](run-a-background-task-on-a-timer-.md)
-* [UWP アプリが更新されたときに、バック グラウンド タスクを実行します。](run-a-background-task-during-updatetask.md)
+* [UWP アプリが更新されたときにバックグラウンドタスクを実行する](run-a-background-task-during-updatetask.md)
 * [バックグラウンドで無期限に実行する](run-in-the-background-indefinetly.md)
 * [バックグラウンド タスクを実行するための条件の設定](set-conditions-for-running-a-background-task.md)
-* [アプリからバック グラウンド タスクをトリガーします。](trigger-background-task-from-app.md)
+* [アプリからバックグラウンドタスクをトリガーする](trigger-background-task-from-app.md)
 * [バックグラウンド タスクのライブ タイルの更新](update-a-live-tile-from-a-background-task.md)
 * [メンテナンス トリガーの使用](use-a-maintenance-trigger.md)

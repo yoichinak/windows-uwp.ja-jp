@@ -1,29 +1,29 @@
 ---
-description: UWP アプリにコントロールとパターンを追加する方法についての設計ガイダンスとコーディングの手順を入手できます。 アプリで使用できる 45 種類以上の強力なコントロールを紹介します。
-title: UWP のコントロールとパターン - Windows アプリ開発
-keywords: UWP コントロール, ユーザー インターフェイス, アプリ コントロール
+description: Windows アプリにコントロールとパターンを追加する方法についての設計ガイダンスとコーディングの手順を入手できます。 アプリで使用できる 45 種類以上の強力なコントロールを紹介します。
+title: Windows のコントロールとパターン - Windows アプリの開発
+keywords: UWP コントロール, ユーザー インターフェイス, アプリ コントロール, Windows コントロール
 label: Controls & patterns
 template: detail.hbs
-ms.date: 11/16/2017
+ms.date: 03/23/2020
 ms.topic: article
 ms.assetid: ce2e611c-c419-4a14-9095-b88ac711d1b8
 ms.localizationpriority: medium
-ms.openlocfilehash: 2ecf82294614114e711483dfdc58cfad36591369
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 82e6d91b5a4147237cd04b46dc5b69b8151fece9
+ms.sourcegitcommit: 6dd6d61c912daab2cc4defe5ba0cf717339f7765
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67319558"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84978384"
 ---
-# <a name="controls-for-uwp-apps"></a>UWP アプリのコントロール 
+# <a name="controls-for-windows-apps"></a>Windows アプリ用のコントロール
 
 ![コントロール](../images/controls-2x.png)
 
-UWP アプリ開発では、<i>コントロール</i>は、コンテンツを表示したり、操作を有効にしたりする UI 要素です。 コントロールとは、ユーザー インターフェイスの構成要素です。 <i>パターン</i>とは、いくつかのコントロールを組み合わせて、新しいものを作成するためのレシピです。
+Windows アプリの開発では、"<i>コントロール</i>" は、コンテンツを表示したり、操作を有効にしたりする UI 要素です。 コントロールとは、ユーザー インターフェイスの構成要素です。 <i>パターン</i>とは、いくつかのコントロールを組み合わせて、新しいものを作成するためのレシピです。
 
-単純なボタンから、グリッド ビューのような強力なデータ コントロールまで、ユーザーが使用できる 45 種類以上のコントロールが用意されています。  これらのコントロールは Fluent Design System の一部です。すべでのデバイスやあらゆる画面サイズで見栄えがよく、力強い、スケーラブルな UI を作成できます。 
+単純なボタンから、グリッド ビューのような強力なデータ コントロールまで、ユーザーが使用できる 45 種類以上のコントロールが用意されています。  これらのコントロールは Fluent Design System の一部です。すべでのデバイスやあらゆる画面サイズで見栄えがよく、力強い、スケーラブルな UI を作成できます。
 
-このセクションの記事では、UWP アプリにコントロールとパターンを追加するための設計ガイダンスとコーディングの手順を示します。 
+このセクションの記事では、Windows アプリにコントロールとパターンを追加するための設計ガイダンスとコーディングの手順を示します。
 
 ## <a name="intro"></a>はじめに
 
@@ -41,85 +41,92 @@ XAML フレームワークを使って、さまざまな方法でアプリの外
 :::row-end:::
 
 ## <a name="get-the-windows-ui-library"></a>Windows UI ライブラリを入手する
-一部のコントロールは、Windows UI ライブラリでのみ利用できます。 これを入手する場合は、[Windows UI ライブラリの概要とインストール手順](/uwp/toolkits/winui/)に関するページを参照してください。
 
-## <a name="alphabetical-index"></a>アルファベット順インデックス 
+|  |  |
+| - | - |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | 一部のコントロールは、Windows UI ライブラリ (WinUI) (新しいコントロールと UI 機能を含む NuGet パッケージ) でのみ入手可能です。 これを入手する場合は、[Windows UI ライブラリの概要とインストール手順](/uwp/toolkits/winui/)に関するページを参照してください。<br/>WinUI 2.2 から、多くのコントロールで既定のスタイルが更新され、角の丸めを使用するようになりました。 詳しくは、「[角の半径](/windows/uwp/design/style/rounded-corner)」をご覧ください。 |
 
-特定のコントロールとパターンに関する詳細情報を説明します。 (機能別に並べ替えた一覧については、「<a href="controls-by-function.md">機能別コントロールのインデックス</a>」をご覧ください。)
+## <a name="alphabetical-index"></a>アルファベット順インデックス
 
-<div style="column-count: 2; column-gap: 40px; margin-top: 40px;" >
-<ul style="margin-top: 0px; padding-top: 0px; list-style-type: none;">
-<li style="list-style-type: none;"><a href="auto-suggest-box.md">自動提案ボックス</a></li>
+特定のコントロールとパターンに関する詳細情報を説明します。 (機能別に並べ替えた一覧については、「[機能別コントロールのインデックス](controls-by-function.md)」をご覧ください。)
 
-<li style="list-style-type: none;"><a href="app-bars.md">バー</a></li>
+:::row:::
+    :::column:::
 
-<li style="list-style-type: none;"><a href="buttons.md">ボタン</a></li>
+- アニメーション化された視覚的プレーヤー ([Lottie](/windows/communitytoolkit/animations/lottie)) ![WinUI ロゴ](images/winui-logo-16x16.png)
+- [自動提案ボックス](auto-suggest-box.md)
+- [ボタン](buttons.md)
+- [カレンダーの日付の選択コントロール](calendar-date-picker.md)
+- [カレンダー ビュー](calendar-view.md)
+- [チェック ボックス](checkbox.md)
+- [カラー ピッカー](color-picker.md) ![WinUI ロゴ](images/winui-logo-16x16.png)
+- [コンボ ボックス](combo-box.md)
+- [コマンド バー](app-bars.md)
+- [コマンド バーのポップアップ](command-bar-flyout.md) ![WinUI ロゴ](images/winui-logo-16x16.png)
+- [連絡先カード](contact-card.md)
+- [コンテンツ ダイアログ](dialogs-and-flyouts/dialogs.md)
+- [コンテンツ リンク](content-links.md)
+- [コンテキスト メニュー](menus.md)
+- [日付の選択コントロール](date-picker.md)
+- [ダイアログとポップアップ](dialogs-and-flyouts/index.md)
+- [ドロップ ダウン ボタン](buttons.md#create-a-drop-down-button) ![WinUI ロゴ](images/winui-logo-16x16.png)
+- [FlipView](flipview.md)
+- [Flyout](dialogs-and-flyouts/flyouts.md)
+- [フォーム](forms.md) (パターン)
+- [グリッド ビュー](listview-and-gridview.md)
+- [ハイパーリンク](hyperlinks.md)
+- [ハイパーリンク ボタン](hyperlinks.md#create-a-hyperlinkbutton)
+- [画像とイメージ ブラシ](images-imagebrushes.md)
+- [インク コントロール](inking-controls.md)
+- [リスト ビュー](listview-and-gridview.md)
+- [マップ コントロール](../../maps-and-location/controls-map.md)
+- [マスターと詳細](master-details.md) (パターン)
+- [メディア再生](media-playback.md)
+- [メニュー バー](menus.md#create-a-menu-bar) ![WinUI ロゴ](images/winui-logo-16x16.png)
+- [メニュー ポップアップ](menus.md)
+- [ナビゲーション ビュー](navigationview.md) ![WinUI ロゴ](images/winui-logo-16x16.png)
 
-<li style="list-style-type: none;"><a href="checkbox.md">チェックボックス</a></li>
+    :::column-end:::
+    :::column:::
 
-<li style="list-style-type: none;"><a href="color-picker.md">カラー ピッカー</a></li>
+- [数値ボックス](number-box.md) ![WinUI ロゴ](images/winui-logo-16x16.png)
+- [視差ビュー](..\motion\parallax.md) ![WinUI ロゴ](images/winui-logo-16x16.png)
+- [パスワード ボックス](password-box.md)
+- [ユーザー画像](person-picture.md) ![WinUI ロゴ](images/winui-logo-16x16.png)
+- [ピボット](pivot.md)
+- [進行状況バー](progress-controls.md) ![WinUI ロゴ](images/winui-logo-16x16.png)
+- [進行状況リング](progress-controls.md) ![WinUI ロゴ](images/winui-logo-16x16.png)
+- [ラジオ ボタン](radio-button.md) ![WinUI ロゴ](images/winui-logo-16x16.png)
+- [評価コントロール](rating.md) ![WinUI ロゴ](images/winui-logo-16x16.png)
+- [繰り返しボタン](buttons.md#create-a-repeat-button)
+- [リッチ エディット ボックス](rich-edit-box.md)
+- [リッチ テキスト ブロック](rich-text-block.md)
+- [スクロール ビューアー](scroll-controls.md)
+- [検索](search.md) (パターン)
+- [セマンティック ズーム](semantic-zoom.md)
+- [図形](shapes.md)
+- [スライダー](slider.md)
+- [分割ボタン](buttons.md#create-a-split-button) ![WinUI ロゴ](images/winui-logo-16x16.png)
+- [分割ビュー](split-view.md)
+- [スワイプ コントロール](swipe.md) ![WinUI ロゴ](images/winui-logo-16x16.png)
+- [タブ ビュー](tab-view.md) ![WinUI ロゴ](images/winui-logo-16x16.png)
+- [教育のヒント](dialogs-and-flyouts/teaching-tip.md) ![WinUI ロゴ](images/winui-logo-16x16.png)
+- [テキスト ブロック](text-block.md)
+- [テキスト ボックス](text-box.md)
+- [時刻の選択コントロール](time-picker.md)
+- [トグル スイッチ](toggles.md)
+- [トグル ボタン](buttons.md)
+- [分割トグル ボタン](buttons.md#create-a-toggle-split-button)
+- [ヒント](tooltips.md)
+- [ツリー ビュー](tree-view.md) ![WinUI ロゴ](images/winui-logo-16x16.png)
+- [2 つのペインからなるビュー](two-pane-view.md) ![WinUI ロゴ](images/winui-logo-16x16.png)
+- [Web ビュー](web-view.md)
 
-<li style="list-style-type: none;"><a href="contact-card.md">連絡先カード</a></li>
-
-<li style="list-style-type: none;"><a href="date-and-time.md">日付と時刻コントロール</a></li>
-
-<li style="list-style-type: none;"><a href="dialogs-and-flyouts/index.md">ダイアログとポップアップ</a></li>
-
-<li style="list-style-type: none;"><a href="flipview.md">FlipView</a></li>
-
-<li style="list-style-type: none;"><a href="forms.md">フォーム</a></li>
-
-<li style="list-style-type: none;"><a href="hyperlinks.md">ハイパーリンク</a></li>
-
-<li style="list-style-type: none;"><a href="images-imagebrushes.md">画像とイメージ ブラシ</a></li>
-
-<li style="list-style-type: none;"><a href="inking-controls.md">インク コントロール</a></li>
-
-<li style="list-style-type: none;"><a href="lists.md">リスト</a></li>
-
-<li style="list-style-type: none;"><a href="../../maps-and-location/controls-map.md">マップ コントロール</a></li>
-
-<li style="list-style-type: none;"><a href="master-details.md">マスター/詳細</a></li>
-
-<li style="list-style-type: none;"><a href="media-playback.md">メディア再生</a></li>
-
-<li style="list-style-type: none;"><a href="menus.md">メニューとショートカット メニュー</a></li>
-
-<li style="list-style-type: none;"><a href="navigationview.md">ナビゲーション ビュー</a></li>
-
-<li style="list-style-type: none;"><a href="person-picture.md">ユーザー画像</a></li>
-
-<li style="list-style-type: none;"><a href="pivot.md">ピボット</a></li>
-
-<li style="list-style-type: none;"><a href="progress-controls.md">プログレス コントロール</a></li>
-
-<li style="list-style-type: none;"><a href="radio-button.md">ラジオ ボタン</a></li>
-
-<li style="list-style-type: none;"><a href="rating.md">評価コントロール</a></li>
-
-<li style="list-style-type: none;"><a href="scroll-controls.md">スクロール コントロールとパン コントロール</a></li>
-
-<li style="list-style-type: none;"><a href="search.md">検索</a></li>
-
-<li style="list-style-type: none;"><a href="semantic-zoom.md">セマンティック ズーム</a></li>
-
-<li style="list-style-type: none;"><a href="shapes.md">図形</a></li>
-
-<li style="list-style-type: none;"><a href="slider.md">スライダー</a></li>
-
-<li style="list-style-type: none;"><a href="split-view.md">分割ビュー</a></li>
-
-<li style="list-style-type: none;"><a href="text-controls.md">テキスト コントロール</a></li>
+    :::column-end:::
+:::row-end:::
 
 
-<li style="list-style-type: none;"><a href="toggles.md">トグル</a></li>
-<li style="list-style-type: none;"><a href="tooltips.md">ヒント</a></li>
 
-<li style="list-style-type: none;"><a href="tree-view.md">ツリー ビュー</a></li>
-
-<li style="list-style-type: none;"><a href="web-view.md">Web ビュー</a></li>
-</ul>
-</div>
 
 ## <a name="xaml-controls-gallery"></a>XAML コントロール ギャラリー
 
@@ -133,6 +140,4 @@ Microsoft Store から _XAML コントロール ギャラリー_ アプリを入
 
 ## <a name="additional-controls"></a>その他のコントロール
 
-UWP 開発用の追加のコントロールは、<a href="https://www.telerik.com/">Telerik</a>、<a href="https://www.syncfusion.com/uwp-ui-controls">SyncFusion</a>、<a href="https://www.devexpress.com/Products/NET/Controls/Win10Apps/">DevExpress</a>、<a href="https://www.infragistics.com/products/universal-windows-platform">Infragistics</a>、<a href="https://www.componentone.com/Studio/Platform/UWP">ComponentOne</a>、<a href="https://www.actiprosoftware.com/products/controls/universal">ActiPro</a> などの企業から入手できます。 これらのコントロールは、カスタム コントロールおよびサービスによって標準システム コントロールを補うことにより、エンタープライズおよび .NET 開発者に追加のサポートを提供します。  
-
-これらのコントロールの詳しい情報については、GitHub の<a href="https://github.com/Microsoft/Windows-appsample-customers-orders-database">顧客注文データベース</a> サンプルをご覧ください。 このサンプルでは、Telerik によるデータ グリッド コントロールおよびデータ入力検証を使っています。これは、UWP スイート用の UI の一部となっています。 UI for UWP スイートは、.NET Foundation を通じてオープン ソース プロジェクトとして利用できる、20 を超えるコントロールのコレクションです。
+Windows 開発用の追加のコントロールは、<a href="https://www.telerik.com/">Telerik</a>、<a href="https://www.syncfusion.com/uwp-ui-controls">SyncFusion</a>、<a href="https://www.devexpress.com/Products/NET/Controls/Win10Apps/">DevExpress</a>、<a href="https://www.infragistics.com/products/universal-windows-platform">Infragistics</a>、<a href="https://www.componentone.com/Studio/Platform/UWP">ComponentOne</a>、<a href="https://www.actiprosoftware.com/products/controls/universal">ActiPro</a> などの企業から入手できます。 これらのコントロールは、カスタム コントロールおよびサービスによって標準システム コントロールを補うことにより、エンタープライズおよび .NET 開発者に追加のサポートを提供します。

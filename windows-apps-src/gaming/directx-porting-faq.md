@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, DirectX 11
 ms.localizationpriority: medium
-ms.openlocfilehash: 2452d4bfcce01dfc86e44c9f57a82baa6beb8ce7
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: e99aec682ee02463fc282a70a183776d13dd58a8
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66368792"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74258524"
 ---
 # <a name="directx-11-porting-faq"></a>DirectX 11 の移植に関する FAQ
 
@@ -28,12 +28,12 @@ Direct3D 11 は Direct3D 9 からの大幅なアップグレードです。 仮�
 ## <a name="what-is-the-new-device-context-for-am-i-supposed-to-replace-my-direct3d-9-device-with-the-direct3d-11-device-the-device-context-or-both"></a>新しいデバイス コンテキストの用途は何ですか。 自分の Direct3D 9 デバイスを Direct3D 11 デバイスに置き換えたり、Direct3D 9 デバイス コンテキストを Direct3D 11 デバイス コンテキストに置き換えたりする必要はありますか。その両方が必要でしょうか。
 
 
-Direct3D デバイスは、ビデオ メモリにリソースを作成するために使われます。一方、デバイス コンテキストは、パイプラインの状態を設定し、レンダリング コマンドを生成するために使われます。 詳しくは、次のトピックをご覧ください。[Direct3D 9 以降最も重要な変更は?](understand-direct3d-11-1-concepts.md)
+Direct3D デバイスは、ビデオ メモリにリソースを作成するために使われます。一方、デバイス コンテキストは、パイプラインの状態を設定し、レンダリング コマンドを生成するために使われます。 詳しくは、「[Direct3D 9 と Direct3D 11 の間の重要な変更点](understand-direct3d-11-1-concepts.md)」をご覧ください。
 
 ##  <a name="do-i-have-to-update-my-game-timer-for-uwp"></a>UWP 向けのゲーム タイマーを更新する必要はありますか。
 
 
-[**QueryPerformanceCounter**](https://docs.microsoft.com/windows/desktop/api/profileapi/nf-profileapi-queryperformancecounter)、と共に[ **QueryPerformanceFrequency**](https://docs.microsoft.com/windows/desktop/api/profileapi/nf-profileapi-queryperformancefrequency)、UWP アプリ用のゲーム タイマーを実装する最善の方法ではまだします。
+[**Queryperformancecounter**](https://docs.microsoft.com/windows/desktop/api/profileapi/nf-profileapi-queryperformancecounter)と[**queryperformancecounter FREQUENCY**](https://docs.microsoft.com/windows/desktop/api/profileapi/nf-profileapi-queryperformancefrequency)は、UWP アプリ用のゲームタイマーを実装するための最適な方法でもあります。
 
 タイマーと UWP アプリのライフサイクルのニュアンスに注意する必要があります。 中断と再開は、プレーヤーによるデスクトップ ゲームの再起動とは異なります。ゲームでは、最後にプレイされていた時点のスナップショットを再開します。 数週間など、長時間経過した場合は、ゲーム タイマーの実装は適切に動作しない可能性があります。 ゲームの再開時にアプリのライフサイクル イベントを使ってタイマーをリセットできます。
 
@@ -42,12 +42,12 @@ Direct3D デバイスは、ビデオ メモリにリソースを作成するた�
 ## <a name="my-game-code-is-based-on-d3dx-and-dxut-is-there-anything-available-that-can-help-me-migrate-my-code"></a>自分のゲーム コードは D3DX と DXUT に基づいています。 コードの移植に役立つものはありますか。
 
 
-[DirectX ツール キット (DirectXTK)](https://go.microsoft.com/fwlink/p/?LinkID=248929) コミュニティのプロジェクトには、Direct3D 11 で利用できるヘルパー クラスが用意されています。
+[DirectX ツール キット (DirectXTK)](https://github.com/Microsoft/DirectXTK) コミュニティのプロジェクトには、Direct3D 11 で利用できるヘルパー クラスが用意されています。
 
-##  <a name="how-do-i-maintain-code-paths-for-the-desktop-and-the-microsoft-store"></a>デスクトップと Microsoft Store のコード パスを維持する方法は?
+##  <a name="how-do-i-maintain-code-paths-for-the-desktop-and-the-microsoft-store"></a>デスクトップと Microsoft Store のコードパスを維持操作方法には、
 
 
-Chuck Walbourn の記事シリーズの「[ゲームの二重用途のコーディング手法](https://go.microsoft.com/fwlink/p/?LinkID=286210)デスクトップと Microsoft Store のコード パス間コードの共有に関するガイダンスを示します。
+Chuck Walbourn の記事シリーズでは、 [2 つのゲームのコーディング技法](https://blogs.msdn.com/b/chuckw/archive/2012/09/17/dual-use-coding-techniques-for-games.aspx)について説明しています。デスクトップと Microsoft Store コードパスの間でコードを共有するためのガイダンスを提供しています。
 
 ##  <a name="how-do-i-load-image-resources-in-my-directx-uwp-app"></a>DirectX UWP アプリの画像リソースを読み込む方法を教えてください。
 
@@ -57,7 +57,7 @@ Chuck Walbourn の記事シリーズの「[ゲームの二重用途のコーデ�
 -   コンテンツ パイプラインは Direct3D のテクスチャ リソースとして使われる DDS ファイルに画像を変換します。 「[ゲームまたはアプリケーションでの 3-D アセットの使用](https://docs.microsoft.com/visualstudio/designers/using-3-d-assets-in-your-game-or-app?view=vs-2015)」をご覧ください。
 -   [Windows Imaging Component](https://docs.microsoft.com/windows/desktop/wic/-wic-lh) を使うと、さまざまな形式から画像を読み込むことができます。このコンポーネントは、Direct2D ビットマップや、Direct3D のテクスチャ リソースに使用できます。
 
-[DirectXTK](https://go.microsoft.com/fwlink/p/?LinkID=248929) または [DirectXTex](https://go.microsoft.com/fwlink/p/?LinkID=248926) の DDSTextureLoader と WICTextureLoader を使うこともできます。
+[DirectXTK](https://github.com/Microsoft/DirectXTK) または [DirectXTex](https://github.com/Microsoft/DirectXTex) の DDSTextureLoader と WICTextureLoader を使うこともできます。
 
 ## <a name="where-is-the-directx-sdk"></a>DirectX SDK の場所
 
@@ -74,7 +74,7 @@ Win32 デスクトップ アプリケーションは引き続き DirectSetup を
 ## <a name="is-there-any-way-i-can-update-my-desktop-code-to-directx-11-before-moving-away-from-effects"></a>Effects から離れる前にデスクトップ コードを DirectX 11 に更新する方法はありますか。
 
 
-[Direct3D 11 向けの Effects の更新に関するページ](https://go.microsoft.com/fwlink/p/?LinkId=271568)をご覧ください。 Effects 11 は、レガシ DirectX SDK ヘッダーへの依存を排除します。移植のサポート用に作成されたものであり、デスクトップ アプリでのみ利用できます。
+[Direct3D 11 向けの Effects の更新に関するページ](https://github.com/Microsoft/FX11)をご覧ください。 Effects 11 は、レガシ DirectX SDK ヘッダーへの依存を排除します。移植のサポート用に作成されたものであり、デスクトップ アプリでのみ利用できます。
 
 ##  <a name="is-there-a-path-for-porting-my-directx-8-game-to-uwp"></a>UWP に DirectX 8 ゲームを移植するためのパスはありますか。
 
@@ -83,7 +83,7 @@ Win32 デスクトップ アプリケーションは引き続き DirectSetup を
 
 -   「[Direct3D 9 への変換](https://docs.microsoft.com/windows/desktop/direct3d9/converting-to-directx-9)」をご覧ください。
 -   ゲームに固定パイプラインが残っていないことを確かめます。「[推奨されなくなった機能](https://docs.microsoft.com/windows/desktop/direct3d10/d3d10-graphics-programming-guide-api-features-deprecated)」をご覧ください。
--   DirectX 9 への移植のパスを実行します。[ポート D3D から UWP への 9](walkthrough--simple-port-from-direct3d-9-to-11-1.md)します。
+-   次に、DirectX 9 移植パスに従います。「[チュートリアル: DirectX 11 とユニバーサル Windows プラットフォーム (UWP) への簡単な Direct3D 9 アプリの移植](walkthrough--simple-port-from-direct3d-9-to-11-1.md)」をご覧ください。
 
 ##  <a name="can-i-port-my-directx-10-or-11-game-to-uwp"></a>UWP に DirectX 10 または 11 ゲームを移植することはできますか。
 
@@ -93,12 +93,12 @@ DirectX 10.x と 11 のデスクトップ ゲームは、UWP に簡単に移植�
 ## <a name="how-do-i-choose-the-right-display-device-in-a-multi-monitor-system"></a>マルチモニター システムで適切なディスプレイ デバイスを選ぶにはどうすればよいですか。
 
 
-アプリを表示するモニターはユーザーが選びます。 最初のパラメーターを **nullptr** に設定して [**D3D11CreateDevice**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-d3d11createdevice) を呼び出すことで、Windows が正しいアダプターを提供できるようにしてください。 次にデバイスの [**IDXGIDevice interface**](https://docs.microsoft.com/windows/desktop/api/dxgi/nn-dxgi-idxgidevice) を取得し、[**GetAdapter**](https://docs.microsoft.com/windows/desktop/api/dxgi/nf-dxgi-idxgidevice-getadapter) を呼び出して、DXGI アダプターを使ってスワップ チェーンを作成します。
+アプリを表示するモニターはユーザーが選びます。 最初のパラメーターを [nullptr**に設定して**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-d3d11createdevice)D3D11CreateDevice を呼び出すことで、Windows が正しいアダプターを提供できるようにしてください。 次にデバイスの [**IDXGIDevice interface**](https://docs.microsoft.com/windows/desktop/api/dxgi/nn-dxgi-idxgidevice) を取得し、[**GetAdapter**](https://docs.microsoft.com/windows/desktop/api/dxgi/nf-dxgi-idxgidevice-getadapter) を呼び出して、DXGI アダプターを使ってスワップ チェーンを作成します。
 
 ## <a name="how-do-i-turn-on-antialiasing"></a>アンチエイリアシングをオンにするにはどうすればよいですか。
 
 
-Direct3D デバイスを作成するとアンチエイリアシング (マルチサンプリング) が有効になります。 マルチ サンプリング サポートを呼び出すことによって列挙[ **CheckMultisampleQualityLevels**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11device-checkmultisamplequalitylevels)、マルチ サンプリング オプションを設定し、 [ **DXGI\_サンプル\_DESC 構造**](https://docs.microsoft.com/windows/desktop/api/dxgicommon/ns-dxgicommon-dxgi_sample_desc)を呼び出すと[ **CreateSurface**](https://docs.microsoft.com/windows/desktop/api/dxgi/nf-dxgi-idxgidevice-createsurface)します。
+Direct3D デバイスを作成するとアンチエイリアシング (マルチサンプリング) が有効になります。 CheckMultisampleQualityLevels を呼び出してマルチサンプリングサポートを列挙します。次に、 [](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11device-checkmultisamplequalitylevels)を呼び出すときに、 [**DXGI\_SAMPLE\_DESC 構造体**](https://docs.microsoft.com/windows/desktop/api/dxgicommon/ns-dxgicommon-dxgi_sample_desc)のマルチサンプリングオプションを[**設定します**](https://docs.microsoft.com/windows/desktop/api/dxgi/nf-dxgi-idxgidevice-createsurface)。
 
 ## <a name="my-game-renders-using-multithreading-andor-deferred-rendering-what-do-i-need-to-know-for-direct3d-11"></a>自分のゲームでは、マルチスレッドや遅延レンダリングを使ってレンダリングを行います。 Direct3D 11 向けに何を把握しておく必要がありますか。
 
@@ -110,25 +110,25 @@ Direct3D デバイスを作成するとアンチエイリアシング (マルチ
 
 次のトピックをご覧ください。
 
--   [HLSL のプログラミング ガイド](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-pguide)
--   [Direct3D 10 についてよく寄せられる質問](https://docs.microsoft.com/windows/desktop/DxTechArts/direct3d10-frequently-asked-questions)
+-   [HLSL のプログラミングガイド](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-pguide)
+-   [Direct3D 10 に関してよく寄せられる質問](https://docs.microsoft.com/windows/desktop/DxTechArts/direct3d10-frequently-asked-questions)
 
 ## <a name="what-should-i-use-instead-of-the-x-file-format-for-my-models"></a>モデルには .x ファイル形式の代わりに何を使えばよいですか。
 
 
-.x ファイル形式に代わる公式のファイル形式はありませんが、サンプルの多くで SDKMesh 形式を利用しています。 Visual Studio には、一般的な形式を CMO ファイルにコンパイルする[コンテンツ パイプライン](https://docs.microsoft.com/visualstudio/designers/using-3-d-assets-in-your-game-or-app?view=vs-2015)があります。CMO ファイルは、Visual Studio 3D スターター キットのコードか、[DirectXTK](https://go.microsoft.com/fwlink/p/?LinkID=248929) を使って読み込むことができます。
+.x ファイル形式に代わる公式のファイル形式はありませんが、サンプルの多くで SDKMesh 形式を利用しています。 Visual Studio には、一般的な形式を CMO ファイルにコンパイルする[コンテンツ パイプライン](https://docs.microsoft.com/visualstudio/designers/using-3-d-assets-in-your-game-or-app?view=vs-2015)があります。CMO ファイルは、Visual Studio 3D スターター キットのコードか、[DirectXTK](https://github.com/Microsoft/DirectXTK) を使って読み込むことができます。
 
 ## <a name="how-do-i-debug-my-shaders"></a>シェーダーをデバッグするにはどうしたらよいですか。
 
 
-Microsoft Visual Studio 2015 には、DirectX のグラフィックス診断ツールが含まれています。 「[DirectX グラフィックスのデバッグ](https://docs.microsoft.com/visualstudio/debugger/visual-studio-graphics-diagnostics?view=vs-2015)」をご覧ください。
+Microsoft Visual Studio 2015 には、DirectX グラフィックス用の診断ツールが含まれています。 「[DirectX グラフィックスのデバッグ](https://docs.microsoft.com/visualstudio/debugger/visual-studio-graphics-diagnostics?view=vs-2015)」をご覧ください。
 
 ##  <a name="what-is-the-direct3d-11-equivalent-for-x-function"></a>*x* 関数に相当する Direct3D 11 の要素は何ですか。
 
 
 「DirectX 11 API への DirectX 9 の機能のマッピング」の「[関数のマッピング](feature-mapping.md#function-mapping)」をご覧ください。
 
-##  <a name="what-is-the-dxgiformat-equivalent-of-y-surface-format"></a>新機能、DXGI\_形式と等価の*y*サーフェス フォーマットしますか?
+##  <a name="what-is-the-dxgi_format-equivalent-of-y-surface-format"></a>*X*形式に相当する DXGI\_形式は何ですか。
 
 
 「DirectX 11 API への DirectX 9 の機能のマッピング」の「[サーフェス形式のマッピング](feature-mapping.md#surface-format-mapping)」をご覧ください。

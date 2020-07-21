@@ -1,19 +1,19 @@
 ---
 title: UWP アプリでの SQL Server データベースの使用
 description: UWP アプリでの SQL Server データベースの使用。
-ms.date: 03/28/2019
+ms.date: 06/26/2020
 ms.topic: article
 keywords: windows 10, UWP, SQL Server, データベース
 ms.localizationpriority: medium
-ms.openlocfilehash: 487497fd3b715f6d497eb76b8da6a3e60903772a
-ms.sourcegitcommit: 139717a79af648a9231821bdfcaf69d8a1e6e894
+ms.openlocfilehash: d5c5c0f107a9e9a2adb0587b544a2c74b8321886
+ms.sourcegitcommit: 48e047a581fcfcc9a4084d65a78b89f2c01cf4f3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67713777"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85448342"
 ---
 # <a name="use-a-sql-server-database-in-a-uwp-app"></a>UWP アプリでの SQL Server データベースの使用
-アプリで [System.Data.SqlClient](https://docs.microsoft.com/dotnet/api/system.data.sqlclient?redirectedfrom=MSDN) 名前空間のクラスを使用して、SQL Server データベースに直接接続し、データを保存および取得することができます。
+アプリで [System.Data.SqlClient](https://docs.microsoft.com/dotnet/api/system.data.sqlclient) 名前空間のクラスを使用して、SQL Server データベースに直接接続し、データを保存および取得することができます。
 
 このガイドでは、それを行う方法の 1 つを示します。 [Northwind](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/linq/downloading-sample-databases) サンプル データベースを SQL Server インスタンスにインストールし、ここで示すスニペットを使用して、Northwind サンプルのデータベースから取得した製品を表示する基本的な UI を作成します。
 
@@ -21,7 +21,7 @@ ms.locfileid: "67713777"
 
 このガイドで示すスニペットは、このもっと[完全なサンプル](https://github.com/StefanWickDev/IgniteDemos/tree/master/NorthwindDemo)に基づいています。
 
-## <a name="first-set-up-your-solution"></a>まず、ソリューションをセットアップする
+## <a name="first-set-up-your-solution"></a>まず、ソリューションをセットアップします。
 
 アプリを SQL Server データベースに直接接続するために、プロジェクトの最小バージョンが Fall Creators Update を対象にしていることを確認します。  UWP プロジェクトのプロパティ ページにその情報があります。
 
@@ -32,6 +32,9 @@ ms.locfileid: "67713777"
 Windows 認証を使用してご利用の SQL Server を認証する場合は、 **[機能]** タブで **[エンタープライズ認証]** チェックボックスを選択します。
 
 ![エンタープライズ認証機能](images/enterprise-authentication.png)
+
+> [!IMPORTANT]
+> また、Windows 認証を使用しているかどうかにかかわらず、**インターネット (クライアントとサーバー)** 、**インターネット (クライアント)** 、および**プライベート ネットワーク (クライアントとサーバー)** を選択する必要があります。
 
 <a id="use-data" />
 
@@ -50,7 +53,7 @@ Windows 認証を使用してご利用の SQL Server を認証する場合は、
 :5:UI に製品を追加します。
 
 >[!NOTE]
-> このセクションでは、データ アクセス コードを編成する方法の 1 つを示します。 つまり、[System.Data.SqlClient](https://docs.microsoft.com/dotnet/api/system.data.sqlclient?redirectedfrom=MSDN) を使用して、SQL Server データベースのデータを保存および取得する方法の例を示すだけです。 アプリケーションの設計に最も適した方法でコードを編成してください。
+> このセクションでは、データ アクセス コードを編成する方法の 1 つを示します。 つまり、[System.Data.SqlClient](https://docs.microsoft.com/dotnet/api/system.data.sqlclient) を使用して、SQL Server データベースのデータを保存および取得する方法の例を示すだけです。 アプリケーションの設計に最も適した方法でコードを編成してください。
 
 ### <a name="add-a-connection-string"></a>接続文字列を追加する
 
@@ -77,7 +80,7 @@ sealed partial class App : Application
 
 ### <a name="create-a-class-to-hold-product-data"></a>製品データを保持するクラスを作成する
 
-XAML UI でこのクラスのプロパティに属性をバインドできるように、[INotifyPropertyChanged](https://docs.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged?redirectedfrom=MSDN) イベントを実装するクラスを作成します。
+XAML UI でこのクラスのプロパティに属性をバインドできるように、[INotifyPropertyChanged](https://docs.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged) イベントを実装するクラスを作成します。
 
 ```csharp
 public class Product : INotifyPropertyChanged
@@ -95,18 +98,15 @@ public class Product : INotifyPropertyChanged
     public event PropertyChangedEventHandler PropertyChanged;
     private void NotifyPropertyChanged(string propertyName)
     {
-        if (PropertyChanged != null)
-        {
-            PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-        }
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 
 }
 ```
 
-### <a name="retrieve-products-from-the-sql-server-database"></a>SQL Server データベースから製品を取得する
+### <a name="retrieve-products-from-the-sql-server-database"></a>SQL Server データベースから製品を取得します。
 
-Northwind サンプル データベースから製品を取得し、``Product`` インスタンスの [ObservableCollection](https://docs.microsoft.com/dotnet/api/system.collections.objectmodel.observablecollection-1?redirectedfrom=MSDN) コレクションとしてそれらを返すメソッドを作成します。
+Northwind サンプル データベースから製品を取得し、``Product``インスタンスの [ObservableCollection](https://docs.microsoft.com/dotnet/api/system.collections.objectmodel.observablecollection-1) コレクションとしてそれらを返すメソッドを作成します。
 
 ```csharp
 public ObservableCollection<Product> GetProducts(string connectionString)
@@ -208,7 +208,7 @@ public ObservableCollection<Product> GetProducts(string connectionString)
 
 ### <a name="show-products-in-the-listview"></a>ListView で製品を表示する
 
-**MainPage.xaml.cs** ファイルを開き、[ListView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listview) の **ItemSource** プロパティを ``Product`` インスタンスの [ObservableCollection](https://docs.microsoft.com/dotnet/api/system.collections.objectmodel.observablecollection-1?redirectedfrom=MSDN) に設定するコードを、``MainPage`` クラスのコンストラクターに追加します。
+**MainPage.xaml.cs** ファイルを開き、[ListView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listview) の **ItemSource** プロパティを ``Product`` インスタンスの [ObservableCollection](https://docs.microsoft.com/dotnet/api/system.collections.objectmodel.observablecollection-1) に設定するコードを、``MainPage`` クラスのコンストラクターに追加します。
 
 ```csharp
 public MainPage()
@@ -222,7 +222,7 @@ public MainPage()
 
 ![Northwind 製品](images/products-northwind.png)
 
-[System.Data.SqlClient](https://docs.microsoft.com/dotnet/api/system.data.sqlclient?redirectedfrom=MSDN) 名前空間を調べて、SQL Server データベース内のデータを使用して他に何ができるかを確認してください。
+[System.Data.SqlClient](https://docs.microsoft.com/dotnet/api/system.data.sqlclient) 名前空間を調べて、SQL Server データベース内のデータを使用して他に何ができるかを確認してください。
 
 ## <a name="trouble-connecting-to-your-database"></a>データベースへの接続で問題が発生した場合
 
@@ -234,7 +234,7 @@ public MainPage()
 
 ![SQL Server Browser サービス](images/sql-browser-service.png)
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
 **簡易データベースを使用して、ユーザー デバイスにデータを保存する**
 
@@ -242,8 +242,8 @@ public MainPage()
 
 **異なるプラットフォームにわたる異なるアプリの間でコードを共有する**
 
-「[デスクトップと UWP でコードを共有する](https://docs.microsoft.com/windows/uwp/porting/desktop-to-uwp-migrate)」をご覧ください。
+[デスクトップと UWP 間のコード共有](https://docs.microsoft.com/windows/uwp/porting/desktop-to-uwp-migrate)に関するページをご覧ください。
 
 **Azure SQL バックエンドでマスター/詳細ページを追加する**
 
-「[顧客注文データベースのサンプル](https://github.com/Microsoft/Windows-appsample-customers-orders-database)」をご覧ください。
+[顧客注文データベースのサンプル](https://github.com/Microsoft/Windows-appsample-customers-orders-database)をご覧ください。

@@ -8,16 +8,19 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 671f33cf106eabf11b317b00d5c2a6cd9abcf3d0
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+dev_langs:
+- csharp
+- cppwinrt
+ms.openlocfilehash: addb4e7d929fb0222deda63494546d731f01cecd
+ms.sourcegitcommit: 3a7f9f05f0127bc8e38139b219e30a8df584cad3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66363036"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83775795"
 ---
 # <a name="intro-to-controls-and-patterns"></a>コントロールとパターンの概要
 
-UWP アプリ開発では、*コントロール*は、コンテンツを表示したり、操作を有効にしたりする UI 要素です。 ボタン、テキスト ボックス、コンボ ボックスなどのコントロールを使って、データを表示し、ユーザー入力を取得するためのアプリの UI を作ります。
+Windows アプリの開発では、"*コントロール*" は、コンテンツを表示したり、操作を有効にしたりする UI 要素です。 ボタン、テキスト ボックス、コンボ ボックスなどのコントロールを使って、データを表示し、ユーザー入力を取得するためのアプリの UI を作ります。
 
 > **重要な API**:[Windows.UI.Xaml.Controls 名前空間](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls)
 
@@ -102,6 +105,9 @@ Foreground プロパティを設定した後の結果の XAML を次に示しま
 ```csharp
 Button1.Foreground = new SolidColorBrush(Windows.UI.Colors.Beige);
 ```
+```cppwinrt
+Button1().Foreground(Media::SolidColorBrush(Windows::UI::Colors::Beige()));
+```
 
 ## <a name="create-an-event-handler"></a>イベント ハンドラーの作成 
 
@@ -122,6 +128,22 @@ private void Button_Click(object sender, RoutedEventArgs e)
     b.Foreground = new SolidColorBrush(Windows.UI.Colors.Blue);
 }
 ```
+```cppwinrt
+#MainPage.h
+struct MainPage : MainPageT<MainPage>
+    {
+        MainPage();
+        ...
+        void Button1_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Windows::UI::Xaml::RoutedEventArgs const& e);
+    };
+    
+#MainPage.cpp
+void MainPage::Button1_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Windows::UI::Xaml::RoutedEventArgs const& e)
+    {
+        auto b{ sender.as<winrt::Windows::UI::Xaml::Controls::Button>() };
+        b.Foreground(Media::SolidColorBrush(Windows::UI::Colors::Blue()));
+    }
+```
 
 また、イベント ハンドラーを XAML で関連付けることもできます。 XAML エディターで、処理するイベント名を入力します。 入力を始めると、Visual Studio に IntelliSense ウィンドウが表示されます。 イベントを指定した後は、IntelliSense ウィンドウで `<New Event Handler>` をダブルクリックして新しいイベント ハンドラーを既定の名前で作成するか、一覧から既にあるイベント ハンドラーを選びます。 
 
@@ -139,6 +161,9 @@ private void Button_Click(object sender, RoutedEventArgs e)
 
 ```csharp
 Button1.Click += new RoutedEventHandler(Button_Click);
+```
+```cppwinrt
+Button1().Click({ this, &MainPage::Button1_Click });
 ```
 
 ## <a name="related-topics"></a>関連トピック

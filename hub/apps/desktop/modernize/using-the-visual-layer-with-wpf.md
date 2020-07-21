@@ -1,6 +1,6 @@
 ---
 title: WPF でのビジュアル レイヤーの使用
-description: 既存の WPF コンテンツと組み合わせて、ビジュアル レイヤー API を使用して、高度なアニメーションや効果を作成するための手法について説明します。
+description: ビジュアル レイヤー API を既存の WPF コンテンツと組み合わせて使用し、高度なアニメーションや効果を作成する方法について説明します。
 ms.date: 03/18/2019
 ms.topic: article
 keywords: windows 10, uwp
@@ -8,81 +8,81 @@ ms.author: jimwalk
 author: jwmsft
 ms.localizationpriority: medium
 ms.openlocfilehash: a2f30ba67acc12d622acd09f9fae872ee2058a2f
-ms.sourcegitcommit: d1c3e13de3da3f7dce878b3735ee53765d0df240
-ms.translationtype: MT
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/24/2019
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "66215150"
 ---
 # <a name="using-the-visual-layer-with-wpf"></a>WPF でのビジュアル レイヤーの使用
 
-Windows ランタイムの合成 Api を使用することができます (とも呼ばれる、[ビジュアル レイヤー](/windows/uwp/composition/visual-layer)) で、Windows Presentation Foundation (WPF) アプリ用 Windows 10 のユーザーに光を最新のエクスペリエンスを作成します。
+Windows Presentation Foundation (WPF) アプリで Windows ランタイム コンポジション API ([ビジュアル レイヤー](/windows/uwp/composition/visual-layer)とも呼ばれる) を使用して、Windows 10 ユーザーの利便性を高める最新のエクスペリエンスを作成できます。
 
-このチュートリアルの完成したコードは GitHub で入手できます。[WPF HelloComposition サンプル](https://github.com/Microsoft/Windows.UI.Composition-Win32-Samples/tree/master/dotnet/WPF/HelloComposition)します。
+このチュートリアルの完全なコードは、GitHub で入手できます。[WPF HelloComposition サンプル](https://github.com/Microsoft/Windows.UI.Composition-Win32-Samples/tree/master/dotnet/WPF/HelloComposition).
 
 ## <a name="prerequisites"></a>前提条件
 
-API をホストしている UWP XAML では、これらの前提条件があります。
+UWP XAML ホスティング API には、これらの前提条件があります。
 
-- WPF および UWP を使用してアプリ開発の知識があると仮定します。 For more info, see:
+- WPF と UWP を使用したアプリ開発に関するいくらかの知識があることを前提としています。 For more info, see:
   - [概要 (WPF)](/dotnet/framework/wpf/getting-started/)
-  - [Windows 10 アプリを概要します。](/windows/uwp/get-started/)
-  - [Windows 10 のデスクトップ アプリケーションを拡張します。](/windows/uwp/porting/desktop-to-uwp-enhance)
-- .NET framework 4.7.2 以降
+  - [Windows 10 アプリの概要](/windows/uwp/get-started/)
+  - [Windows 10 向けのデスクトップ アプリケーションの強化](/windows/uwp/porting/desktop-to-uwp-enhance)
+- .NET Framework 4.7.2 以降
 - Windows 10 バージョン 1803 以降
-- Windows 10 SDK 17134 またはそれ以降
+- Windows 10 SDK 17134 以降
 
-## <a name="how-to-use-composition-apis-in-wpf"></a>WPF で合成 Api を使用する方法
+## <a name="how-to-use-composition-apis-in-wpf"></a>WPF で Composition API を使用する方法
 
-このチュートリアルでは、単純な WPF アプリの UI を作成し、アニメーションの合成要素を追加します。 WPF と合成の両方のコンポーネントを単純に保持されますが、相互運用機能のコードは、コンポーネントの複雑さに関係なく同じです。 次のような完成したアプリが表示されます。
+このチュートリアルでは、シンプルな WPF アプリ の UI を作成し、アニメーション化したコンポジション要素を追加します。 WPF コンポーネントとコンポジション コンポーネントは両方ともシンプルにしますが、示されている相互運用コードは、コンポーネントの複雑さに関係なく同じものです。 完成したアプリは次のようになります。
 
 ![実行中のアプリの UI](images/visual-layer-interop/wpf-comp-interop-app-ui.png)
 
-## <a name="create-a-wpf-project"></a>WPF プロジェクトを作成します。
+## <a name="create-a-wpf-project"></a>WPF プロジェクトの作成
 
-最初の手順では、UI のアプリケーションの定義と、XAML ページを含む WPF アプリ プロジェクトを作成します。
+最初の手順は、WPF アプリ プロジェクトを作成することであり、これにはアプリケーションの定義と UI の XAML ページが含まれます。
 
-ビジュアルで新しい WPF アプリケーション プロジェクトを作成するC#という_HelloComposition_:
+Visual C# で _HelloComposition_ という名前の新しい WPF アプリケーション プロジェクトを作成するには:
 
-1. Visual Studio を開き、選択**ファイル** > **新規** > **プロジェクト**します。
+1. Visual Studio を開き、 **[ファイル]**  >  **[新規作成]**  >  **[プロジェクト]** の順に選択します。
 
-    **新しいプロジェクト**ダイアログ ボックスが開きます。
-1. 下、**インストール済み**カテゴリで、展開、 **Visual C#** ノードをクリックして**Windows デスクトップ**します。
-1. 選択、 **WPF アプリ (.NET Framework)** テンプレート。
-1. 名前を入力します_HelloComposition_、フレームワークを選択します **.NET Framework 4.7.2**、 をクリックし、 **OK**。
+    **[新しいプロジェクト]** ダイアログが開きます。
+1. **[インストール済み]** カテゴリで、 **[Visual C#]** ノードを展開し、 **[Windows デスクトップ]** を選択します。
+1. **[WPF アプリ (.NET Framework)]** テンプレートを選択します。
+1. 名前「_HelloComposition_」を入力し、 **[.NET Framework 4.7.2]** Framework を選択して、 **[OK]** をクリックします。
 
-    Visual Studio では、プロジェクトを作成し、MainWindow.xaml をという名前の既定アプリケーション ウィンドウのデザイナーを開きます。
+    Visual Studio によって、プロジェクトが作成され、MainWindow.xaml という名前の既定のアプリケーション ウィンドウのデザイナーが開きます。
 
-## <a name="configure-the-project-to-use-windows-runtime-apis"></a>Windows ランタイム Api を使用してプロジェクトを構成します。
+## <a name="configure-the-project-to-use-windows-runtime-apis"></a>Windows ランタイム API を使用するようにプロジェクトを構成する
 
-Windows ランタイム (WinRT)、WPF アプリで Api を使用するには、Windows ランタイムにアクセスする Visual Studio プロジェクトを構成する必要があります。 さらに、ベクターを使用するために必要な参照を追加する必要があるために、合成 Api でベクターは広範囲に使用されます。
+WPF アプリで Windows ランタイム (WinRT) API を使用するには、Windows ランタイムにアクセスするように、Visual Studio プロジェクトを構成する必要があります。 さらに、Composition API ではベクトルが広範囲に使用されるため、ベクトルを使用するために必要な参照を追加する必要があります。
 
-NuGet パッケージのこれらのニーズの両方のアドレスを利用できます。 これらのパッケージをプロジェクトに必要な参照を追加するの最新バージョンをインストールします。  
+NuGet パッケージは、これらの両方のニーズに対処するために使用できます。 これらのパッケージの最新バージョンをインストールして、プロジェクトに必要な参照を追加します。  
 
-- [Microsoft.Windows.SDK.Contracts](https://www.nuget.org/packages/Microsoft.Windows.SDK.Contracts) (PackageReference に既定のパッケージ管理形式のセットが必要)。
+- [Microsoft.Windows.SDK.Contracts](https://www.nuget.org/packages/Microsoft.Windows.SDK.Contracts) (既定のパッケージ管理形式を PackageReference に設定する必要があります。)
 - [System.Numerics.Vectors](https://www.nuget.org/packages/System.Numerics.Vectors/)
 
 > [!NOTE]
-> NuGet パッケージを使用して、プロジェクトを構成することをお勧め、中には、必要な参照を手動で追加することができます。 詳細については、次を参照してください。 [Windows 10 のデスクトップ アプリケーションの拡張](/windows/uwp/porting/desktop-to-uwp-enhance)します。 次の表への参照を追加する必要のあるファイルを示します。
+> NuGet パッケージを使用してプロジェクトを構成することをお勧めしますが、必要な参照を手動で追加できます。 詳細については、[Windows 10 向けのデスクトップ アプリの強化](/windows/uwp/porting/desktop-to-uwp-enhance)に関する記事を参照してください。 次の表に、参照を追加する必要があるファイルを示します。
 
-|ファイル|Location|
+|ファイル|インストール先|
 |--|--|
 |System.Runtime.WindowsRuntime|C:\Windows\Microsoft.NET\Framework\v4.0.30319|
-|Windows.Foundation.UniversalApiContract.winmd|C:\Program Files (x86)\Windows Kits\10\References\<*sdk version*>\Windows.Foundation.UniversalApiContract\<*version*>|
-|Windows.Foundation.FoundationContract.winmd|C:\Program Files (x86)\Windows Kits\10\References\<*sdk version*>\Windows.Foundation.FoundationContract\<*version*>|
+|Windows.Foundation.UniversalApiContract.winmd|C:\Program Files (x86)\Windows Kits\10\References\<*SDK バージョン*>\Windows.Foundation.UniversalApiContract\<*バージョン*>|
+|Windows.Foundation.FoundationContract.winmd|C:\Program Files (x86)\Windows Kits\10\References\<*SDK バージョン*>\Windows.Foundation.FoundationContract\<*バージョン*>|
 |System.Numerics.Vectors.dll|C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Numerics.Vectors\v4.0_4.0.0.0__b03f5f7f11d50a3a|
 |System.Numerics.dll|C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2|
 
-## <a name="configure-the-project-to-be-per-monitor-dpi-aware"></a>あるモニターごとの DPI 対応のプロジェクトを構成します。
+## <a name="configure-the-project-to-be-per-monitor-dpi-aware"></a>モニターごとの DPI 対応になるように、プロジェクトを構成する
 
-表示されます。 画面の DPI 設定と一致するアプリに追加するビジュアル レイヤーのコンテンツは自動的に対応できません。 アプリの場合、モニターごとの DPI 対応を有効にすること、ビジュアル レイヤーのコンテンツの作成に使用するコード、現在の DPI スケールするときは考慮、アプリが実行されるかどうかを確認する必要があります。 ここでは、DPI 対応にするプロジェクトを構成します。 以降のセクションでは、DPI 情報を使用して、ビジュアル レイヤーのコンテンツを拡大縮小する方法を説明します。
+アプリに追加するビジュアル レイヤーのコンテンツは、それが表示される画面の DPI 設定に合わせて自動的に拡大縮小されません。 アプリのモニターごとの DPI 対応を有効にして、ビジュアル レイヤーのコンテンツを作成するために使用するコードで、アプリの実行時に現在の DPI スケールが考慮されることを確認する必要があります。 ここでは、モニターごとの DPI 対応になるように、プロジェクトを構成します。 後のシナリオで、ビジュアル レイヤー コンテンツを拡大縮小するための DPI 情報の使用方法について説明します。
 
-WPF アプリは、システム DPI の既定では、認識がモニターごとの DPI 対応で app.manifest ファイルに対して自身を宣言する必要があります。 アプリ マニフェスト ファイルでモニターごとの DPI 認識を Windows レベル: オンにする
+WPF アプリは、既定でシステム DPI 対応ですが、app.manifest ファイルで、モニターごとの DPI 対応になるように、それ自体を宣言する必要があります。 アプリ マニフェスト ファイルで、Windows レベルのモニターごとの DPI 対応を有効にするには:
 
-1. **ソリューション エクスプ ローラー**を右クリックして、 _HelloComposition_プロジェクト。
-1. コンテキスト メニューで選択**追加** > **新しい項目.** .
-1. **新しい項目の追加**ダイアログ ボックスで、' アプリケーション マニフェスト ファイル ' を選択し、クリックして**追加**します。 (既定の名前をおくことができます。)
-1. アプリケーション マニフェスト ファイルでこの xml とコメントを解除を見つけること。
+1. **ソリューション エクスプローラー**で、_HelloComposition_ プロジェクトを右クリックします。
+1. コンテキスト メニューで、 **[追加]**  >  **[新しい項目...]** を選択します。
+1. **[新しい項目の追加]** ダイアログで、[アプリケーション マニフェスト ファイル] を選択し、 **[追加]** をクリックします。 (既定の名前はそのままにしておいてかまいません)。
+1. app.manifest ファイルでこの xml を見つけて、そのコメントを解除します。
 
     ```xaml
     <application xmlns="urn:schemas-microsoft-com:asm.v3">
@@ -92,15 +92,15 @@ WPF アプリは、システム DPI の既定では、認識がモニターご�
       </application>
     ```
 
-1. 開始後にこの設定を追加`<windowsSettings>`タグ。
+1. 開始の `<windowsSettings>` タグの後に次の設定を追加します。
 
     ```xaml
           <dpiAwareness xmlns="http://schemas.microsoft.com/SMI/2016/WindowsSettings">PerMonitor</dpiAwareness>
     ```
 
-1. 設定する必要があります、 **DoNotScaleForDpiChanges** App.config ファイルで設定します。
+1. App.config ファイルに、**DoNotScaleForDpiChanges** 設定を指定する必要もあります。
 
-    App.Config を開き、内には、この xml を追加、`<configuration>`要素。
+    App.config ファイルを開き、`<configuration>` 要素内に次の xml を追加します。
 
     ```xml
     <runtime>
@@ -109,22 +109,22 @@ WPF アプリは、システム DPI の既定では、認識がモニターご�
     ```
 
 > [!NOTE]
-> **AppContextSwitchOverrides** 1 回のみ設定できます。 既にアプリケーションに 1 つのセットがある場合は、セミコロン必要があります。 属性値内でこのスイッチを区切ります。
+> **AppContextSwitchOverrides** を設定できるのは 1 回のみです。 アプリケーションに既に 1 セットある場合は、値属性内でこの switch をセミコロンで区切る必要があります。
 
-(詳細については、次を参照してください、[あたりモニター DPI 開発者ガイドとサンプル](https://github.com/Microsoft/WPF-Samples/tree/master/PerMonitorDPI)github。)。
+(詳しくは、GitHub の[モニターごとの DPI 開発者ガイドとサンプル](https://github.com/Microsoft/WPF-Samples/tree/master/PerMonitorDPI)を参照してください)。
 
-## <a name="create-an-hwndhost-derived-class-to-host-composition-elements"></a>コンポジションのホスト要素に HwndHost が派生クラスを作成します。
+## <a name="create-an-hwndhost-derived-class-to-host-composition-elements"></a>コンポジション要素をホストする HwndHost 派生クラスを作成する
 
-ビジュアル レイヤーで作成するコンテンツのホストにから派生するクラスを作成する必要があります。 [HwndHost](/dotnet/api/system.windows.interop.hwndhost)します。 これは、合成 Api をホストするための構成の大部分を実行します。 このクラスを使用して[プラットフォーム呼び出しサービス (PInvoke)](/cpp/dotnet/calling-native-functions-from-managed-code)と[COM 相互運用機能](/dotnet/api/system.runtime.interopservices.comimportattribute)WPF アプリに合成 Api を表示します。 PInvoke と COM 相互運用機能の詳細については、次を参照してください。[アンマネージ コードとの相互運用](/dotnet/framework/interop/index)します。
+ビジュアル レイヤーによって作成したコンテンツをホストするには、[HwndHost](/dotnet/api/system.windows.interop.hwndhost) から派生するクラスを作成する必要があります。 ここでは、Composition API をホストするための構成の大半を行います。 このクラスでは、[プラットフォーム呼び出しサービス (PInvoke)](/cpp/dotnet/calling-native-functions-from-managed-code) と [COM 相互運用](/dotnet/api/system.runtime.interopservices.comimportattribute)を使用して、Composition API を WPF アプリに取り込みます。 PInvoke と COM 相互運用の詳細については、「[アンマネージ コードとの相互運用](/dotnet/framework/interop/index)」を参照してください。
 
 > [!TIP]
-> 必要がある場合は、すべてのコードは、チュートリアルを使用すると適切な場所にいるかどうかを確認するチュートリアルの最後に完全なコードを確認します。
+> チュートリアルを進めながら、必要に応じて、チュートリアルの最後にある完全なコードを確認して、すべてのコードが適切な場所にあることを確認してください。
 
-1. 派生するプロジェクトに新しいクラス ファイルを追加[HwndHost](/dotnet/api/system.windows.interop.hwndhost)します。
-    - **ソリューション エクスプ ローラー**を右クリックして、 _HelloComposition_プロジェクト。
-    - コンテキスト メニューで選択**追加** > **クラス.** .
-    - **新しい項目の追加**ダイアログ ボックスで、クラス名_CompositionHost.cs_、 をクリックし、**追加**します。
-1. 派生するクラス定義を編集、CompositionHost.cs で**HwndHost**します。
+1. プロジェクトに、[HwndHost](/dotnet/api/system.windows.interop.hwndhost) から派生する新しいクラス ファイルを追加します。
+    - **ソリューション エクスプローラー**で、_HelloComposition_ プロジェクトを右クリックします。
+    - コンテキスト メニューで、 **[追加]**  >  **[クラス...]** を選択します。
+    - **[新しい項目の追加]** ダイアログ ボックスで、クラスに _CompositionHost.cs_ という名前を付けて、 **[追加]** をクリックします。
+1. CompositionHost.cs で、クラス定義を **HwndHost** から派生するように編集します。
 
     ```csharp
     // Add
@@ -138,7 +138,7 @@ WPF アプリは、システム DPI の既定では、認識がモニターご�
     }
     ```
 
-1. クラスに次のコードとコンス トラクターを追加します。
+1. クラスに次のコードとコンストラクターを追加します。
 
     ```csharp
     // Add
@@ -179,9 +179,9 @@ WPF アプリは、システム DPI の既定では、認識がモニターご�
     }
     ```
 
-1. 上書き、 **BuildWindowCore**と**次**メソッド。
+1. **BuildWindowCore** メソッドと **DestroyWindowCore** メソッドをオーバーライドします。
     > [!NOTE]
-    > BuildWindowCore でを呼び出す、 _InitializeCoreDispatcher_と_InitComposition_メソッド。 次の手順では、これらのメソッドを作成します。
+    > BuildWindowCore で _InitializeCoreDispatcher_ メソッドと _InitComposition_ メソッドを呼び出します。 これらのメソッドは、次の手順で作成します。
 
     ```csharp
     // Add
@@ -219,7 +219,7 @@ WPF アプリは、システム DPI の既定では、認識がモニターご�
     }
     ```
 
-    - [CreateWindowEx](/windows/desktop/api/winuser/nf-winuser-createwindowexa)と[DestroyWindow](/windows/desktop/api/winuser/nf-winuser-destroywindow) PInvoke 宣言が必要です。 この宣言をクラスのコードの最後に配置します。
+    - [CreateWindowEx](/windows/desktop/api/winuser/nf-winuser-createwindowexa) および [DestroyWindow](/windows/desktop/api/winuser/nf-winuser-destroywindow) には、PInvoke 宣言が必要です。 この宣言は、クラスのコードの末尾に配置します。
 
     ```csharp
     #region PInvoke declarations
@@ -242,8 +242,8 @@ WPF アプリは、システム DPI の既定では、認識がモニターご�
     #endregion PInvoke declarations
     ```
 
-1. スレッドの初期化、 [CoreDispatcher](/uwp/api/windows.ui.core.coredispatcher)します。 Core ディスパッチャーは、ウィンドウ メッセージを処理して、イベントをディスパッチ WinRT Api を担当します。 新しいインスタンス**CoreDispatcher** CoreDispatcher を含むスレッドで作成する必要があります。
-    - という名前のメソッドを作成する_InitializeCoreDispatcher_ディスパッチャー キューを設定するコードを追加します。
+1. [CoreDispatcher](/uwp/api/windows.ui.core.coredispatcher) でスレッドを初期化します。 コア ディスパッチャーは、ウィンドウ メッセージの処理と WinRT API のイベントのディスパッチを担当します。 **CoreDispatcher** の新しいインスタンスは、CoreDispatcher があるスレッドで作成する必要があります。
+    - _InitializeCoreDispatcher_ という名前のメソッドを作成し、ディスパッチャー キューをセットアップするコードを追加します。
 
     ```csharp
     private object InitializeCoreDispatcher()
@@ -259,7 +259,7 @@ WPF アプリは、システム DPI の既定では、認識がモニターご�
     }
     ```
 
-    - ディスパッチャー キューには、PInvoke 宣言も必要です。 この宣言内の配置、 _PInvoke 宣言_前の手順で作成されるリージョン。
+    - ディスパッチャー キューには、PInvoke 宣言も必要です。 前の手順で作成した _PInvoke 宣言_領域内に、この宣言を配置します。
 
     ```csharp
     //typedef enum DISPATCHERQUEUE_THREAD_APARTMENTTYPE
@@ -314,9 +314,9 @@ WPF アプリは、システム DPI の既定では、認識がモニターご�
                                             out object dispatcherQueueController);
     ```
 
-    今すぐディスパッチャー キューの準備ができているし、初期化し、合成コンテンツの作成を開始できます。
+    これでディスパッチャー キューが準備され、コンポジション コンテンツの初期化と作成を開始できます。
 
-1. 初期化、[コンポジター](/uwp/api/windows.ui.composition.compositor)します。 コンポジターがさまざまな型を作成するファクトリを[Windows.UI.Composition](/uwp/api/windows.ui.composition)ビジュアル、効果のシステム、およびアニメーション システムにまたがる名前空間。 コンポジター クラスには、ファクトリから作成されたオブジェクトの有効期間も管理します。
+1. [Compositor](/uwp/api/windows.ui.composition.compositor) を初期化します。 Compositor は、ビジュアル、効果システム、アニメーション システムにまたがる [Windows.UI.Composition](/uwp/api/windows.ui.composition) 名前空間にさまざまな型を作成するファクトリです。 Compositor クラスでは、ファクトリから作成されたオブジェクトの有効期間も管理します。
 
     ```csharp
     private void InitComposition(IntPtr hwndHost)
@@ -336,7 +336,7 @@ WPF アプリは、システム DPI の既定では、認識がモニターご�
     }
     ```
 
-    - **ICompositorDesktopInterop**と**ICompositionTarget** COM インポートが必要です。 このコードの後、 _CompositionHost_クラスが内部名前空間の宣言。
+    - **ICompositorDesktopInterop** と **ICompositionTarget** には COM インポートが必要です。 このコードは _CompositionHost_ クラスの後で、名前空間宣言内に配置します。
 
     ```csharp
     #region COM Interop
@@ -385,29 +385,29 @@ WPF アプリは、システム DPI の既定では、認識がモニターご�
     #endregion COM Interop
     ```
 
-## <a name="create-a-usercontrol-to-add-your-content-to-the-wpf-visual-tree"></a>WPF のビジュアル ツリーにコンテンツを追加するユーザー コントロールを作成します。
+## <a name="create-a-usercontrol-to-add-your-content-to-the-wpf-visual-tree"></a>WPF ビジュアル ツリーにコンテンツを追加するための UserControl を作成する
 
-HwndHost を WPF のビジュアル ツリーに追加するコンテンツは、コンポジションのホストに必要なインフラストラクチャをセットアップする最後の手順。
+コンポジション コンテンツをホストするために必要なインフラストラクチャをセットアップする最後の手順は、WPF ビジュアルツリーに HwndHost を追加することです。
 
-### <a name="create-a-usercontrol"></a>UserControl を作成します。
+### <a name="create-a-usercontrol"></a>UserControl の作成
 
-UserControl は、コンポジションのコンテンツを管理するコードをパッケージ化し、XAML にコンテンツを簡単に追加する便利な方法です。
+UserControl は、コンポジション コンテンツを作成して管理するコードをパッケージ化し、XAML にコンテンツを簡単に追加する便利な方法です。
 
 1. 新しいユーザー コントロール ファイルをプロジェクトに追加します。
-    - **ソリューション エクスプ ローラー**を右クリックして、 _HelloComposition_プロジェクト。
-    - コンテキスト メニューで選択**追加** > **ユーザー制御しています.** .
-    - **新しい項目の追加**ダイアログ ボックスで、ユーザー コントロールに名前を_CompositionHostControl.xaml_、 をクリックし、**追加**します。
+    - **ソリューション エクスプローラー**で、_HelloComposition_ プロジェクトを右クリックします。
+    - コンテキスト メニューで、 **[追加]**  >  **[ユーザー コントロール...]** を選択します。
+    - **[新しい項目の追加]** ダイアログ ボックスで、ユーザー コントロールに _CompositionHostControl.xaml_ という名前を付けて、 **[追加]** をクリックします。
 
-    CompositionHostControl.xaml と CompositionHostControl.xaml.cs の両方のファイルが作成され、プロジェクトに追加します。
-1. CompositionHostControl.xaml、置き換えます、`<Grid> </Grid>`このタグ**境界線**HwndHost がである XAML コンテナーである要素。
+    CompositionHostControl.xaml ファイルと CompositionHostControl.xaml.cs ファイルの両方が作成され、プロジェクトに追加されます。
+1. CompositionHostControl.xaml で、`<Grid> </Grid>` タグをこの **Border** 要素に置き換えます。これは、HwndHost が入る XAML コンテナーです。
 
     ```xaml
     <Border Name="CompositionHostElement"/>
     ```
 
-ユーザー コントロールのコードで、前の手順で作成した CompositionHost クラスのインスタンスを作成し、子要素として追加_CompositionHostElement_、XAML ページで作成した境界線。
+ユーザー コントロールのコードで、前の手順で作成した CompositionHost クラスのインスタンスを作成し、XAML ページに作成した Border である _CompositionHostElement_ の子要素として、それを追加します。
 
-1. CompositionHostControl.xaml.cs では、構成コードで使用するオブジェクトのプライベート変数を追加します。 クラス定義の後にこれらを追加します。
+1. CompositionHostControl.xaml.cs で、コンポジション コードで使用するオブジェクトのプライベート変数を追加します。 これらはクラス定義の後に追加します。
 
     ```csharp
     CompositionHost compositionHost;
@@ -416,9 +416,9 @@ UserControl は、コンポジションのコンテンツを管理するコー�
     DpiScale currentDpi;
     ```
 
-1. ユーザー コントロールのハンドラーを追加**Loaded**イベント。 これは、CompositionHost インスタンスを設定します。
+1. ユーザー コントロールの **Loaded** イベントのハンドラーを追加します。 ここで、CompositionHost インスタンスをセットアップします。
 
-    - コンス トラクターのフック イベント ハンドラーを次に示すよう (`Loaded += CompositionHostControl_Loaded;`)。
+    - コンストラクターで、ここに示すようにイベントハンドラーをフックします (`Loaded += CompositionHostControl_Loaded;`)。
 
     ```csharp
     public CompositionHostControl()
@@ -428,7 +428,7 @@ UserControl は、コンポジションのコンテンツを管理するコー�
     }
     ```
 
-    - 名前のイベント ハンドラー メソッドを追加*CompositionHostControl_Loaded*します。
+    - *CompositionHostControl_Loaded* という名前のイベント ハンドラー メソッドを追加します。
     ```csharp
     private void CompositionHostControl_Loaded(object sender, RoutedEventArgs e)
     {
@@ -449,9 +449,9 @@ UserControl は、コンポジションのコンテンツを管理するコー�
     }
     ```
 
-    このメソッドでは、構成コードで使用するオブジェクトを設定します。 何が起こっているかの概要を次に示します。
+    このメソッドで、コンポジション コードで使用するオブジェクトをセットアップします。 何が起こるかを簡単に説明します。
 
-    - 最初に、セットアップに一度だけ実行をチェックして CompositionHost のインスタンスが既に存在するかどうかを確認します。
+    - まず、CompositionHost のインスタンスが既に存在するかどうかを確認することによって、セットアップが 1 回だけ行われるようにします。
 
     ```csharp
     // If the user changes the DPI scale setting for the screen the app is on,
@@ -463,13 +463,13 @@ UserControl は、コンポジションのコンテンツを管理するコー�
     }
     ```
 
-    - 現在の DPI を取得します。 これは、合成要素を適切にスケールに使用されます。
+    - 現在の DPI を取得します。 これは、コンポジション要素を適切に拡大縮小するために使用されます。
 
     ```csharp
     currentDpi = VisualTreeHelper.GetDpi(this);
     ```
 
-    - CompositionHost のインスタンスを作成し、境界線の子として代入_CompositionHostElement_します。
+    - CompositionHost のインスタンスを作成し、Border _CompositionHostElement_ の子としてそれを割り当てます。
 
     ```csharp
     compositionHost =
@@ -483,20 +483,20 @@ UserControl は、コンポジションのコンテンツを管理するコー�
     compositor = compositionHost.Compositor;
     ```
 
-    - ビジュアル コンテナーを作成するのにには、コンポジターを使用します。 これは、合成要素を追加する合成コンテナーです。
+    - Compositor を使用して、コンテナー ビジュアルを作成します。 これは、コンポジション要素を追加するコンポジション コンテナーです。
 
     ```csharp
     containerVisual = compositor.CreateContainerVisual();
     compositionHost.Child = containerVisual;
     ```
 
-### <a name="add-composition-elements"></a>合成要素を追加します。
+### <a name="add-composition-elements"></a>コンポジション要素を追加する
 
-インフラストラクチャを導入するに表示する合成コンテンツを生成できます。
+インフラストラクチャが配置されたので、表示するコンポジション コンテンツを生成できるようになりました。
 
-この例で作成して単純な四角形をアニメーション化するコードを追加する[SpriteVisual](/uwp/api/windows.ui.composition.spritevisual)します。
+この例では、シンプルな正方形 [SpriteVisual](/uwp/api/windows.ui.composition.spritevisual) を作成してアニメーション化するコードを追加します。
 
-1. 合成要素を追加します。 CompositionHostControl.xaml.cs では、CompositionHostControl クラスにこれらのメソッドを追加します。
+1. コンポジション要素を追加します。 CompositionHostControl.xaml.cs で、これらのメソッドを CompositionHostControl クラスに追加します。
 
     ```csharp
     // Add
@@ -546,17 +546,17 @@ UserControl は、コンポジションのコンテンツを管理するコー�
     }
     ```
 
-### <a name="handle-dpi-changes"></a>DPI 変更を処理します。
+### <a name="handle-dpi-changes"></a>DPI の変更を処理する
 
-コードを追加して要素をアニメーション化する現在の DPI スケールするときは考慮要素が作成されますが、アプリの実行中に、DPI の変更を考慮する必要もあります。 処理することができます、 [HwndHost.DpiChanged](/dotnet/api/system.windows.interop.hwndhost.dpichanged)新しい DPI に基づいてイベントの変更を通知し、計算の結果を調整します。
+要素を追加して、アニメーション化するコードでは、要素の作成時に現在の DPI スケールが考慮されますが、アプリの実行中にも DPI の変更を考慮する必要があります。 変更が通知されるように [HwndHost.DpiChanged](/dotnet/api/system.windows.interop.hwndhost.dpichanged) イベントを処理し、新しい DPI に基づいて計算を調整できます。
 
-1. CompositionHostControl_Loaded メソッドで最後の行の後、DpiChanged イベントのハンドラーをフックするこれを追加します。
+1. CompositionHostControl_Loaded メソッドで、最後の行の後に、DpiChanged イベントハンドラーをフックするために、これを追加します。
 
     ```csharp
     compositionHost.DpiChanged += CompositionHost_DpiChanged;
     ```
 
-1. 名前のイベント ハンドラー メソッドを追加_CompositionHostDpiChanged_します。 このコードでは、スケールと、各要素のオフセットを調整し、完了しないすべてのアニメーションを再計算されます。
+1. _CompositionHostDpiChanged_ という名前のイベント ハンドラー メソッドを追加します。 このコードは、各要素のスケールとオフセットを調整し、完了していないすべてのアニメーションを再計算します。
 
     ```csharp
     private void CompositionHost_DpiChanged(object sender, DpiChangedEventArgs e)
@@ -577,12 +577,12 @@ UserControl は、コンポジションのコンテンツを管理するコー�
     }
     ```
 
-## <a name="add-the-user-control-to-your-xaml-page"></a>XAML ページに、ユーザー コントロールを追加します。
+## <a name="add-the-user-control-to-your-xaml-page"></a>XAML ページにユーザー コントロールを追加する
 
-次に、XAML UI にユーザー コントロールを追加できます。
+これで、XAML UI にユーザー コントロールを追加できます。
 
-1. MainWindow.xaml では、600 と 840 に幅にウィンドウの高さを設定します。
-1. UI の XAML を追加します。 MainWindow.xaml で、ルートの間には、この XAML を追加`<Grid> </Grid>`タグ。
+1. Mainwindow.xaml で、ウィンドウの高さを 600 に設定し、幅を 840 に設定します。
+1. UI の XAML を追加します。 MainWindow.xaml で、この XAML をルート `<Grid> </Grid>` タグの間に追加します。
 
     ```xaml
     <Grid.ColumnDefinitions>
@@ -608,9 +608,9 @@ UserControl は、コンポジションのコンテンツを管理するコー�
                                   BorderThickness="3"/>
     ```
 
-1. 新しい要素を作成するボタンのクリックを処理します。 (クリック イベントは既にフック、XAML でします。)
+1. 新しい要素を作成するには、ボタン クリックを処理します。 (クリック イベントは XAML で既にフックされています)。
 
-    MainWindow.xaml.cs でこれを追加*Button_Click*イベント ハンドラー メソッド。 このコードは呼び出して_CompositionHost.AddElement_ランダムに生成されたサイズおよびオフセットを新しい要素を作成します。
+    MainWindow.xaml.cs で、この *Button_Click* イベント ハンドラー メソッドを追加します。 このコードは _CompositionHost.AddElement_ を呼び出して、ランダムに生成されたサイズとオフセットで新しい要素を作成します。
 
     ```csharp
     // Add
@@ -626,25 +626,25 @@ UserControl は、コンポジションのコンテンツを管理するコー�
     }
     ```
 
-ビルドして、WPF アプリを実行することができますようになりました。 必要がある場合は、すべてのコードは、適切な場所にいるかどうかを確認するチュートリアルの最後に完全なコードを確認します。
+これで、WPF アプリをビルドして実行できるようになりました。 必要に応じて、チュートリアルの最後にある完全なコードを確認して、すべてのコードが適切な場所にあることを確認してください。
 
-アプリを実行する ボタンをクリックすると、UI に追加するアニメーションの正方形が表示されます。
+アプリを実行して、ボタンをクリックすると、UI に追加されたアニメーションの正方形が表示されるはずです。
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
-同じインフラストラクチャ上に構築するより詳細な例については、 [WPF Visual レイヤーの統合サンプル](https://github.com/Microsoft/Windows.UI.Composition-Win32-Samples/tree/master/dotnet/WPF/VisualLayerIntegration)GitHub でします。
+同じインフラストラクチャにビルドする、より完全な例については、GitHub の [WPF ビジュアル レイヤー統合サンプル](https://github.com/Microsoft/Windows.UI.Composition-Win32-Samples/tree/master/dotnet/WPF/VisualLayerIntegration)を参照してください。
 
 ## <a name="additional-resources"></a>その他の資料
 
 - [概要 (WPF)](/dotnet/framework/wpf/getting-started/) (.NET)
-- [アンマネージ コードと相互運用](/dotnet/framework/interop/)(.NET)
-- [Windows 10 アプリの概要](/windows/uwp/get-started/)(UWP)
-- [Windows 10 のデスクトップ アプリケーションの拡張](/windows/uwp/porting/desktop-to-uwp-enhance)(UWP)
-- [名前空間の Windows.UI.Composition](/uwp/api/windows.ui.composition) (UWP)
+- [アンマネージ コードとの相互運用](/dotnet/framework/interop/) (.NET)
+- [Windows 10 アプリの概要](/windows/uwp/get-started/) (UWP)
+- [Windows 10 向けのデスクトップ アプリケーションの強化](/windows/uwp/porting/desktop-to-uwp-enhance) (UWP)
+- [Windows.UI.Composition 名前空間](/uwp/api/windows.ui.composition) (UWP)
 
 ## <a name="complete-code"></a>コードを完成させる
 
-このチュートリアルの完全なコードを示します。
+このチュートリアルの完全なコードを次に示します。
 
 ### <a name="mainwindowxaml"></a>MainWindow.xaml
 

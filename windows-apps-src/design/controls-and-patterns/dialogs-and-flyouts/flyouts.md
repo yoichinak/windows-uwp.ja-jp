@@ -11,12 +11,12 @@ design-contact: kimsea
 dev-contact: niallm
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 52de0933bf51adaae6b0923868e12eb92ced4a1a
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 1e008f08d9bf98e309d895f2916ea8aaf84e8464
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63793776"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82969907"
 ---
 # <a name="flyouts"></a>ポップアップ
 
@@ -24,20 +24,26 @@ ms.locfileid: "63793776"
 
 ![ポップアップ内で入れ子になったコンテキスト メニュー](../images/flyout-nested.png)
 
-> **重要な API**:[Flyout クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Flyout)
+**Windows UI ライブラリを入手する**
 
-## <a name="is-this-the-right-control"></a>適切なコントロールの選択
+|  |  |
+| - | - |
+| ![WinUI ロゴ](../images/winui-logo-64x64.png) | Windows UI ライブラリ 2.2 以降には、丸めた角を使用するこのコントロールの新しいテンプレートが含まれます。 詳しくは、「[角の半径](/windows/uwp/design/style/rounded-corner)」をご覧ください。 WinUI は、Windows アプリの新しいコントロールと UI 機能が含まれる NuGet パッケージです。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+
+> **プラットフォーム API:** [Flyout クラス](/uwp/api/Windows.UI.Xaml.Controls.Flyout)
+
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 * [ヒント](../tooltips.md)や[コンテキスト メニュー](../menus.md)の変わりにポップアップを使用しないようにします。 指定した時間が経過すると非表示になる短い説明を表示するには、ヒントを使います。 UI 要素に関連した状況依存の操作 (コピーや貼り付けなど) には、コンテキスト メニューを使います。
 
-どのようなときにポップアップを使い、どのようなときにダイアログ (同様のコントロール) を使うかに関する推奨事項については、「[ダイアログとポップアップ](index.md)」をご覧ください。 
+どのようなときにポップアップを使い、どのようなときにダイアログ (同様のコントロール) を使うかに関する推奨事項については、「[ダイアログとポップアップ](index.md)」をご覧ください。
 
 ## <a name="examples"></a>例
 
 <table>
 <th align="left">XAML コントロール ギャラリー<th>
 <tr>
-<td><img src="../images/xaml-controls-gallery-sm.png" alt="XAML controls gallery"></img></td>
+<td><img src="../images/xaml-controls-gallery-app-icon-sm.png" alt="XAML controls gallery"></img></td>
 <td>
     <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合、こちらをクリックしてアプリを開き、<a href="xamlcontrolsgallery:/item/ContentDialog">ContentDialog</a> または <a href="xamlcontrolsgallery:/item/Flyout">Flyout</a> の動作を確認してください。</p>
     <ul>
@@ -74,7 +80,7 @@ ms.locfileid: "63793776"
   <FlyoutBase.AttachedFlyout>
     <Flyout>
       <TextBlock Text="This is some text in a flyout."  />
-    </Flyout>        
+    </Flyout>
   </FlyoutBase.AttachedFlyout>
 </Image>
 ````
@@ -121,7 +127,7 @@ private void Image_Tapped(object sender, TappedRoutedEventArgs e)
 ````csharp
 private void Image_Tapped(object sender, TappedRoutedEventArgs e)
 {
-    FlyoutBase.ShowAttachedFlyout((FrameworkElement)sender);  
+    FlyoutBase.ShowAttachedFlyout((FrameworkElement)sender);
 }
 ````
 
@@ -157,10 +163,10 @@ private void Image_Tapped(object sender, TappedRoutedEventArgs e)
 
 ## <a name="light-dismiss-behavior"></a>簡易非表示の動作
 ポップアウトは、次のクイック簡易非表示アクションで閉じることができます。
--   ポップアップの外側をタップする
--   Esc キーを押す
--   ハードウェアまたはソフトウェアのシステムの戻るボタンを押す
--   ゲームパッドの B ボタンを押す
+-    ポップアップの外側をタップする
+-    Esc キーを押す
+-    ハードウェアまたはソフトウェアのシステムの戻るボタンを押す
+-    ゲームパッドの B ボタンを押す
 
 タップで非表示にする場合、通常ではこのジェスチャは吸収されて下の UI に渡されません。 たとえば、開いているポップアウトの背後にボタンが見えている場合、ユーザーが 1 回目のタップでポップアップを閉じても、このボタンはアクティブ化されません。 ボタンを押すには、もう 1 回タップする必要があります。
 
@@ -177,7 +183,7 @@ private void Image_Tapped(object sender, TappedRoutedEventArgs e)
                 OverlayInputPassThroughElement="{x:Bind FavoritesBar}">
             <StackPanel>
                 <HyperlinkButton Content="Washington Trails Association"/>
-                <HyperlinkButton Content="Washington Cascades - Go Northwest! A Travel Guide"/>  
+                <HyperlinkButton Content="Washington Cascades - Go Northwest! A Travel Guide"/>
             </StackPanel>
         </Flyout>
     </Page.Resources>
@@ -188,7 +194,7 @@ private void Image_Tapped(object sender, TappedRoutedEventArgs e)
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackPanel x:Name="FavoritesBar" Orientation="Horizontal">
-            <HyperlinkButton x:Name="PageLinkBtn">Bing</HyperlinkButton>  
+            <HyperlinkButton x:Name="PageLinkBtn">Bing</HyperlinkButton>
             <Button x:Name="Folder1" Content="Travel" Flyout="{StaticResource TravelFlyout}"/>
             <Button x:Name="Folder2" Content="Entertainment" Click="Folder2_Click"/>
         </StackPanel>
@@ -208,7 +214,7 @@ private void Folder2_Click(object sender, RoutedEventArgs e)
 {
 ````
 
-## <a name="get-the-sample-code"></a>サンプル コードを入手する
+## <a name="get-the-sample-code"></a>サンプル コードの入手
 
 - [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - インタラクティブな形で XAML コントロールのすべてを参照できます。
 

@@ -4,14 +4,14 @@ description: この記事では、MediaFrameReader で MediaCapture を使用し
 title: MediaFrameReader を使ったオーディオ フレームの処理
 ms.date: 04/18/2018
 ms.topic: article
-keywords: windows 10, uwp
+keywords: Windows 10, UWP
 ms.localizationpriority: medium
-ms.openlocfilehash: 60abc29ad4f9e16dc9d37e99f94c9f30039c0087
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 170452443588399e0257bb49f3c63604bc0a7830
+ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66360698"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75683885"
 ---
 # <a name="process-audio-frames-with-mediaframereader"></a>MediaFrameReader を使ったオーディオ フレームの処理
 
@@ -21,17 +21,17 @@ ms.locfileid: "66360698"
 > この記事で説明している機能は、Windows 10 バージョン 1803 以降でのみ利用できます。
 
 > [!NOTE] 
-> **MediaFrameReader** を使ってカラー カメラ、深度カメラ、赤外線カメラなど、さまざまなフレーム ソースからのフレームを表示する方法を示す、ユニバーサル Windows アプリのサンプルがあります。 詳しくは、「[カメラ フレームのサンプル](https://go.microsoft.com/fwlink/?LinkId=823230)」をご覧ください。
+> **MediaFrameReader** を使って色、深度、赤外線カメラなど、さまざまなフレーム ソースからのフレームを表示する方法を示す、ユニバーサル Windows アプリのサンプルがあります。 詳しくは、「[カメラ フレームのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/CameraFrames)」をご覧ください。
 
 ## <a name="setting-up-your-project"></a>プロジェクトの設定
 オーディオ フレームを取得するためのプロセスは、他の種類のメディア フレームを取得する場合とほぼ同じです。 **MediaCapture** を使う他のアプリと同様に、カメラ デバイスにアクセスする前にアプリが *webcam* 機能を使うことを宣言する必要があります。 アプリがオーディオ デバイスからキャプチャする場合は、*microphone* デバイス機能も宣言する必要があります。 
 
-**アプリケーション マニフェストに機能を追加します。**
+**アプリマニフェストに機能を追加する**
 
-1.  Microsoft Visual Studio の**ソリューション エクスプローラー**で、**package.appxmanifest** 項目をダブルクリックしてアプリケーション マニフェストのデザイナーを開きます。
+1.  Microsoft Visual Studio では、**ソリューション エクスプローラー**で **package.appxmanifest** 項目をダブルクリックし、アプリケーション マニフェストのデザイナーを開きます。
 2.  **[機能]** タブをクリックします。
 3.  **[Web カメラ]** のボックスと **[マイク]** のボックスをオンにします。
-4.  画像ライブラリとビデオ ライブラリにアクセスするには、 **[画像ライブラリ]** のボックスと **[ビデオ ライブラリ]** のボックスをオンにします。
+4.  画像ライブラリとビデオ ライブラリにアクセスするには、**画像ライブラリ**のボックスと**ビデオ ライブラリ**のボックスをオンにします。
 
 
 
@@ -72,14 +72,14 @@ ms.locfileid: "66360698"
 
 [!code-cs[AudioDeviceControllerMute](./code/Frames_Win10/Frames_Win10/MainPage.xaml.cs#SnippetAudioDeviceControllerMute)]
 
-メディア フレーム ソースによってキャプチャされたオーディオ データは、[**AudioFrame**](https://docs.microsoft.com/uwp/api/windows.media.audioframe) オブジェクトを使用して、[**AudioGraph**](https://docs.microsoft.com/uwp/api/windows.media.audio.audiograph) に渡すことができます。 フレームは、[**AudioFrameInputNode**](https://docs.microsoft.com/en-us/uwp/api/windows.media.audio.audioframeinputnode) の [**AddFrame**](https://docs.microsoft.com/uwp/api/windows.media.audio.audioframeinputnode.addframe) メソッドに渡します。 オーディオ グラフを使用して、オーディオ信号をキャプチャ、処理、ミックスする方法について詳しくは、「[オーディオ グラフ](audio-graphs.md)」をご覧ください。
+メディア フレーム ソースによってキャプチャされたオーディオ データは、[**AudioFrame**](https://docs.microsoft.com/uwp/api/windows.media.audioframe) オブジェクトを使用して、[**AudioGraph**](https://docs.microsoft.com/uwp/api/windows.media.audio.audiograph) に渡すことができます。 フレームは、[**AudioFrameInputNode**](https://docs.microsoft.com/uwp/api/windows.media.audio.audioframeinputnode) の [**AddFrame**](https://docs.microsoft.com/uwp/api/windows.media.audio.audioframeinputnode.addframe) メソッドに渡します。 オーディオ グラフを使用して、オーディオ信号をキャプチャ、処理、ミックスする方法について詳しくは、「[オーディオ グラフ](audio-graphs.md)」をご覧ください。
 
 ## <a name="related-topics"></a>関連トピック
 
-* [プロセスのメディア MediaFrameReader フレーム](process-media-frames-with-mediaframereader.md)
+* [MediaFrameReader を使用してメディアフレームを処理する](process-media-frames-with-mediaframereader.md)
 * [カメラ](camera.md)
-* [MediaCapture で基本的な写真、ビデオ、およびオーディオのキャプチャします。](basic-photo-video-and-audio-capture-with-MediaCapture.md)
-* [カメラのフレームのサンプル](https://go.microsoft.com/fwlink/?LinkId=823230)
+* [MediaCapture を使用した基本的な写真、ビデオ、オーディオキャプチャ](basic-photo-video-and-audio-capture-with-MediaCapture.md)
+* [カメラフレームのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/CameraFrames)
 * [オーディオ グラフ](audio-graphs.md)
  
 

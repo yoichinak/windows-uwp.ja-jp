@@ -6,18 +6,18 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: a7b82570-1f99-4bc3-ac78-412f6360e936
 ms.localizationpriority: medium
-ms.openlocfilehash: 01bc72051e9efa69adbbab574b932da829c83e72
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: dbf9d40d4dc2cfedaa78cbca5b16c4cc26d2d4e1
+ms.sourcegitcommit: ef723e3d6b1b67213c78da696838a920c66d5d30
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57626637"
+ms.lasthandoff: 05/02/2020
+ms.locfileid: "82730073"
 ---
 # <a name="known-issues-with-uwp-on-xbox-developer-program"></a>Xbox 開発者プログラムの UWP の既知の問題
 
 このトピックでは、Xbox One 開発者プログラムの UWP の既知の問題について説明します。 このプログラムについて詳しくは、「[Xbox One の UWP](index.md)」をご覧ください。 
 
-\[場合は、API リファレンスのトピックのリンクから来たユニバーサル デバイス ファミリ API の情報を探してを参照してください[Xbox でまだサポートされていない UWP 機能](https://go.microsoft.com/fwlink/?LinkID=760755)します。\]
+\[API リファレンストピックのリンクから、ユニバーサルデバイスファミリ API 情報を探している場合は、「 [Xbox でまだサポートされていない UWP 機能](https://docs.microsoft.com/uwp/extension-sdks/uwp-limitations-on-xbox?redirectedfrom=MSDN)」を参照してください。\]
 
 以下では、発生する可能性のある既知の問題を示していますが、すべての問題は網羅されていません。 
 
@@ -36,7 +36,7 @@ ms.locfileid: "57626637"
 3. 本体からアプリを起動します。
 4. アプリを起動できるように、PIN またはパスワードを入力します。
 5. アプリが起動します。
-6. アプリを閉じます。
+6. アプリケーションを閉じます。
 7. F5 キーを使用して VS から起動すると、プロンプトを表示せずにアプリが起動します。
 
 この時点では、アプリのアンインストールと再インストールを行っても、ユーザーをサインアウトさせるまで、アクセス許可は_固定_されます。
@@ -58,9 +58,9 @@ System.UnauthorizedAccessException: Access is denied. (Excep_FromHResult 0x80070
 
 Xbox One デバイスでは、範囲 [57344, 65535] に含まれるポートへのユニバーサル Windows プラットフォーム (UWP) アプリのバインドは制限されています。 実行時にはこの範囲のポートへのバインドは成功しているように見えても、ネットワーク トラフィックはアプリに到達する前にエラーや警告なしで破棄される可能性があります。 できる限りポート 0 にアプリをバインドし、システムによってローカル ポートが選択されるようにしてください。 使用するポートを指定する必要がある場合は、範囲 [1025, 49151] 内のポート番号を使用する必要があります。この場合、IANA レジストリと競合しないように、確認してください。 詳しくは、[サービス名およびトランスポート プロトコル ポート番号のレジストリ](https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml)についてのページをご覧ください。
 
-## <a name="uwp-api-coverage"></a>UWP API カバレッジ
+## <a name="windows-runtime-api-coverage"></a>Windows ランタイム API カバレッジ
 
-Xbox では、すべての UWP API がサポートされているわけではありません。 動作しないことが確認されている API の一覧については、「[Xbox でまだサポートされていない UWP 機能](https://go.microsoft.com/fwlink/p/?LinkId=760755)」をご覧ください。 他の API に問題が見つかった場合は、フォーラムでご報告ください。 
+すべての Windows ランタイム Api が Xbox でサポートされているわけではありません。 動作しないことが確認されている API の一覧については、「[Xbox でまだサポートされていない UWP 機能](https://docs.microsoft.com/uwp/extension-sdks/uwp-limitations-on-xbox?redirectedfrom=MSDN)」をご覧ください。 他の API に問題が見つかった場合は、フォーラムでご報告ください。 
 
 
 ## <a name="navigating-to-wdp-causes-a-certificate-warning"></a>WDP に移動すると証明書の警告が表示される

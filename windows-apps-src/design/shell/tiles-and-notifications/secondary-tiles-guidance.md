@@ -1,18 +1,18 @@
 ---
-Description: UWP アプリでセカンダリ タイルを使用する必要がある場合について説明します。
-title: セカンダリ タイル
+Description: Windows アプリでセカンダリタイルを使用するタイミングと場所について説明します。
+title: セカンダリタイルの設計ガイダンス
 label: Secondary tiles
 template: detail.hbs
 ms.date: 05/25/2017
 ms.topic: article
 keywords: Windows 10、UWP、セカンダリ タイル、ガイダンス、ガイドライン、ベスト プラクティス
 ms.localizationpriority: medium
-ms.openlocfilehash: de3bfa94de1152b3945d42169143a5ae36328c75
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 400b0d48fd68c720d613325d1938c0c4a70931a7
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57625347"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82971027"
 ---
 # <a name="secondary-tile-guidance"></a>セカンダリ タイルのガイダンス
 
@@ -23,7 +23,7 @@ ms.locfileid: "57625347"
 > セカンダリ タイルをスタート メニューにピン留めできるのはユーザーだけです。アプリでプログラムによってピン留めすることはできません。 タイルの削除もユーザーがコントロールし、セカンダリ タイルをスタート メニューや親アプリ内から削除することができます。
 
 
-## <a name="recommendations"></a>推奨事項
+## <a name="recommendations"></a>Recommendations
 
 アプリでセカンダリ タイルを有効にするときは、以下の推奨事項を考慮してください。
 
@@ -32,7 +32,7 @@ ms.locfileid: "57625347"
 * 対象のコンテンツが既にピン留めされている場合は、アプリ バーの [スタートにピン留めする] ボタンを [スタートからピン留めを外す] ボタンに置き換えます。 [スタートからピン留めを外す] ボタンは、既存のセカンダリ タイルを削除する必要があります。
 * 対象のコンテンツがピン留めできない場合は、[スタートにピン留めする] ボタンを表示しません (または、[スタートにピン留めする] ボタンを無効にします)。
 * [スタートにピン留めする] ボタンと [スタートからピン留めを外す] ボタンには、システムが提供するグリフを使います (Windows.UI.Xaml.Controls.Symbol または WinJS.UI.AppBarIcon のピン留めとピン止め解除のメンバーをご覧ください)。
-* 標準のボタンのテキストを使用します。「スタートにピン留めする」および「最初からピン留めを外す」。 システムによって提供されるピン留めとピン留め解除のグリフを使うときは、既定のテキストをオーバーライドする必要があります。
+* ボタンのテキストは標準の "スタートにピン留めする" と "スタートからピン留めを外す" を使います。 システムによって提供されるピン留めとピン留め解除のグリフを使うときは、既定のテキストをオーバーライドする必要があります。
 * "次のトラックにスキップ" タイルのように、親アプリと対話するための、事実上のコマンド ボタンとしてセカンダリ タイルを使わないでください。
 
 
@@ -45,10 +45,10 @@ ms.locfileid: "57625347"
 * スタート画面のすべてのタイルと同様に、セカンダリ タイルは新しいコンテンツで頻繁に更新できる動的な表示機能です。 セカンダリ タイルでは、他のタイルと同じメカニズムを使って通知や最新情報を表示できます。 詳しくは、「[通知配信方法の選択](choosing-a-notification-delivery-method.md)」をご覧ください。
 
 
-## <a name="related"></a>関連
+## <a name="related"></a>関連項目
 
 * [セカンダリ タイルの概要](secondary-tiles.md)
-* [セカンダリ タイルをピン留め](secondary-tiles-pinning.md)
-* [タイルの資産](app-assets.md)
-* [タイルのコンテンツのドキュメント](create-adaptive-tiles.md)
+* [セカンダリ タイルをピン留めする](secondary-tiles-pinning.md)
+* [タイル アセット](app-assets.md)
+* [タイル コンテンツのドキュメント](create-adaptive-tiles.md)
 * [ローカル タイル通知の送信](sending-a-local-tile-notification.md)

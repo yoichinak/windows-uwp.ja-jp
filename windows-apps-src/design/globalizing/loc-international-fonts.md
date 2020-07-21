@@ -1,23 +1,23 @@
 ---
-Description: このトピックには、米国以外の言語にローカライズされている UWP アプリの使用可能なフォントが表示されます。英語。
+Description: このトピックでは、英語 (米国) 以外の言語にローカライズされた Windows アプリで使用できるフォントの一覧を示します。
 title: 国際フォント
 template: detail.hbs
 ms.date: 11/02/2017
 ms.topic: article
 keywords: Windows 10, UWP, グローバリゼーション, ローカライズの可否, ローカライズ
 ms.localizationpriority: medium
-ms.openlocfilehash: 6f1d618a111ee207eacfceb52680859c8272e0ed
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: aa0b560ad684ba230e0a498b9069d24d510f49c0
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57601137"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970907"
 ---
 # <a name="international-fonts"></a>国際フォント
 
-このトピックには、米国以外の言語にローカライズされている UWP アプリの使用可能なフォントが表示されます。英語。
+このトピックでは、英語 (米国) 以外の言語にローカライズされた Windows アプリで使用できるフォントの一覧を示します。
 
-次の表の "言語タグ" 列は、言語の [BCP-47 言語タグ](https://go.microsoft.com/fwlink/p/?linkid=227302) を示します。 特に Microsoft Store でサポートされる言語タグの一覧については、「[サポートされている言語](../../publish/supported-languages.md)」をご覧ください。
+次の表の "言語タグ" 列は、言語の [BCP-47 言語タグ](https://tools.ietf.org/html/bcp47) を示します。 特に Microsoft Store でサポートされる言語タグの一覧については、「[サポートされている言語](../../publish/supported-languages.md)」をご覧ください。
 
 | 言語 | 言語タグ | Windows で使用されているフォント |
 | --------- | ----------- | -------------------- |
@@ -34,20 +34,20 @@ ms.locfileid: "57601137"
 | ベラルーシ語 | be-BY | Segoe UI |
 | ボスニア語 (ラテン) | bs-Latn-BA | Segoe UI |
 | ブルガリア語 | bg-BG | Segoe UI |
-| カタルニア語 | ca-ES | Segoe UI |
+| カタロニア語 | ca-ES | Segoe UI |
 | 中央クルド語 (アラビア) | ku-ARAB-IQ | Segoe UI |
 | チェロキー語 (チェロキー) | chr-CHER-US | Gadugi |
-| 簡体字中国語 | zh-CN | MS YaHei UI |
-| 繁体字中国語 (香港特別行政区) | zh-HK | MS JhengHei UI |
-| 繁体字中国語 (台湾) | zh-TW | MS JhengHei UI |
+| 簡体中国語 | zh-CN | Microsoft YaHei UI |
+| 繁体字中国語 (香港) | zh-HK | Microsoft JhengHei UI |
+| 繁体字中国語 (台湾) | zh-TW | Microsoft JhengHei UI |
 | クロアチア語 | hr-HR | Segoe UI |
 | チェコ語 | cs-CZ | Segoe UI |
 | デンマーク語 | da-DK | Segoe UI |
 | ダリー語 | prs-AF | Segoe UI |
 | オランダ語 | nl-NL | Segoe UI |
-| 英語 (英国) | en-GB | Segoe UI |
+| 英語 (イギリス) | en-GB | Segoe UI |
 | エストニア語 | et-EE | Segoe UI |
-| フィリピノ語 | fil-PH | Segoe UI |
+| フィリピン語 | fil-PH | Segoe UI |
 | フィンランド語 | fi-FI | Segoe UI |
 | フランス語 | fr-FR | Segoe UI |
 | ガリシア語 | gl-ES | Segoe UI |
@@ -66,14 +66,14 @@ ms.locfileid: "57601137"
 | コサ語 | xh-ZA | Segoe UI |
 | ズールー語 | zu-ZA | Segoe UI |
 | イタリア語 | it-IT | Segoe UI |
-| Japanese | ja-JP | Meiryo UI (以下の注釈をご覧ください) |
+| 日本語 | ja-JP | Yu Gothic UI |
 | カンナダ語 | kn-IN | Nirmala UI |
 | カザフ語 | kk-KZ | Segoe UI |
 | クメール語 | km-KH | Leelawadee UI |
 | キチェ語 | qut-GT | Segoe UI |
-| キニヤルワンダ語 | rw-RW | Segoe UI |
+| キニアルワンダ語 | rw-RW | Segoe UI |
 | スワヒリ語 | sw-KE | Segoe UI |
-| コンカニ語 | kok-IN | Nirmala UI |
+| コーンクニー語 | kok-IN | Nirmala UI |
 | 韓国語 | ko-KR | Malgun Gothic |
 | キルギス語 | ky-KG | Segoe UI |
 | ラトビア語 | lv-LV | Segoe UI |
@@ -88,7 +88,7 @@ ms.locfileid: "57601137"
 | モンゴル語 (キリル) | mn-MN | Segoe UI |
 | ネパール語 | ne-NP | Nirmala UI |
 | ノルウェー語 (ブークモール) | nb-NO | Segoe UI |
-| ノルウェー語 (ニーノシク) | nn-NO | Segoe UI |
+| ノルウェー語 (ニーノシュク) | nn-NO | Segoe UI |
 | オディア語 | or-IN | Nirmala UI |
 | ペルシャ語 | fa-IR | Segoe UI |
 | ポーランド語 | pl-PL | Segoe UI |
@@ -112,7 +112,7 @@ ms.locfileid: "57601137"
 | スペイン語 | es-ES | Segoe UI |
 | スウェーデン語 | sv-SE | Segoe UI |
 | タジク語 (キリル) | tg-Cyrl-TJ | Segoe UI |
-| タミール語 | ta-IN | Nirmala UI |
+| タミル語 | ta-IN | Nirmala UI |
 | タタール語 | tt-RU | Segoe UI |
 | テルグ語 | te-IN | Nirmala UI |
 | タイ語 | th-TH | Leelawadee UI |
@@ -129,11 +129,7 @@ ms.locfileid: "57601137"
 | ウォロフ語 | wo-SN | Segoe UI |
 | ヨルバ語 | yo-NG | Segoe UI |
 
-## <a name="japanese-fonts"></a>日本語フォント
-
-Windows では Meiryo UI フォントが使用されます。 Windows には、日本語のドキュメントの表示および編集をサポートするために Yu Gothic と Yu Mincho という 2 つのフォント ファミリが付属しています。 アプリの UI に Yu Gothic はお勧めしません。
-
 ## <a name="related-topics"></a>関連トピック
 
-* [Bcp-47 言語タグ](https://go.microsoft.com/fwlink/p/?linkid=227302)
+* [BCP-47 言語タグ](https://tools.ietf.org/html/bcp47)
 * [サポートされている言語](../../publish/supported-languages.md)

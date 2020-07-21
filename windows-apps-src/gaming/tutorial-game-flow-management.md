@@ -2,105 +2,87 @@
 title: ゲームのフロー管理
 description: ゲームの状態の初期化、イベントの処理、ゲームの更新ループのセットアップの方法について説明します。
 ms.assetid: 6c33bf09-b46a-4bb5-8a59-ca83ce257eb3
-ms.date: 10/24/2017
+ms.date: 06/24/2020
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, DirectX
 ms.localizationpriority: medium
-ms.openlocfilehash: 4e4d8f43893b5f2a9a58c2eb6209ecb7d8dd1c21
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 181eca743a9ccdc76ebfc1302e8bb04d85a32269
+ms.sourcegitcommit: 20969781aca50738792631f4b68326f9171a3980
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66367582"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85409631"
 ---
 # <a name="game-flow-management"></a>ゲームのフロー管理
 
-ゲームは、ウィンドウを持ち、いくつかのイベント ハンドラーを登録し、アセットを非同期的に読み込むようになりました。 このセクションでは、ゲームの状態の使用方法、特定の主要なゲーム状態を管理する方法、ゲーム エンジンの更新ループを作成する方法について説明します。 次に、ユーザー インターフェイスのフローについて学習し、最後に、UWP ゲームに必要なイベント ハンドラーとイベントについての理解を深めます。
+> [!NOTE]
+> このトピックは、「DirectX チュートリアルシリーズ[を含む simple ユニバーサル Windows プラットフォーム (UWP) ゲームの作成](tutorial--create-your-first-uwp-directx-game.md)」に含まれています。 このリンクのトピックでは、系列のコンテキストを設定します。
 
->[!Note]
->このサンプルの最新ゲーム コードをダウンロードしていない場合は、[Direct3D ゲーム サンプルのページ](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Simple3DGameDX)に移動してください。 このサンプルは、UWP 機能のサンプルの大規模なコレクションの一部です。 サンプルをダウンロードする手順については、「[GitHub から UWP のサンプルを取得する](https://docs.microsoft.com/windows/uwp/get-started/get-uwp-app-samples)」をご覧ください。
+これで、ゲームにウィンドウが表示され、いくつかのイベントハンドラーが登録され、アセットが非同期に読み込まれました。 このトピックでは、ゲームの状態の使用方法、特定の主要なゲームの状態を管理する方法、およびゲームエンジンの更新ループを作成する方法について説明します。 次に、ユーザーインターフェイスフローについて説明し、最後に UWP ゲームに必要なイベントハンドラーについて詳しく説明します。
 
 ## <a name="game-states-used-to-manage-game-flow"></a>ゲームのフローを管理するために使用するゲームの状態
 
-ゲームのフローを管理するには、ゲームの状態を使用します。 ユーザーは UWP ゲーム アプリを中断状態からいつでも再開できるため、アプリが置かれる可能性のある状態は任意に設定できます。
+ゲームのフローを管理するには、ゲームの状態を使用します。
 
-このゲーム サンプルの場合、ゲームの開始時に、次の 3 つのいずれかの状態になります。
-* ゲーム ループが実行中で、いずれかのレベル中の状態。
-* ゲームがちょうど完了したため、ゲーム ループが実行されていない状態。 (ハイ スコアが設定されます)
-* ゲームが開始されていないか、ゲームが 2 つのレベルの中間にある状態。 (ハイ スコアは 0)
+**Simple3DGameDX**サンプルゲームをコンピューターで初めて実行すると、ゲームが開始されていない状態になります。 その後、ゲームを実行すると、次のいずれかの状態になります。
 
-ゲームのニーズに応じて必要なの数の状態を定義することができます。 繰り返しますが、UWP ゲームはいつでも終了できるため、プレイヤーは再開時に、ゲームをまったく停止していなかったかのようにゲームが動作すると期待することを覚えておいてください。
+- ゲームが開始されていないか、またはゲームがレベルの間にあります (高いスコアはゼロ)。
+- ゲームループは実行中で、はレベルの中にあります。
+- ゲームが完了したため、ゲームループは実行されていません (高スコアには0以外の値があります)。
 
-## <a name="game-states-initialization"></a>ゲームの状態の初期化
+ゲームは、必要なだけの状態を持つことができます。 ただし、いつでも終了できることに注意してください。 また、再開されると、ユーザーは、終了時の状態で再開することを想定しています。
 
-ゲームの初期化では、ゲームのコールド スタートだけでなく、一時停止または終了後の再開も考慮します。 サンプル ゲームではゲームの状態が常に保存されるので、アプリの実行が継続しているように見えます。 
+## <a name="game-state-management"></a>ゲーム状態の管理
 
-中断状態では、ゲーム プレイは中断されますが、ゲームのリソースはメモリに残されます。 
+そのため、ゲームの初期化中に、ゲームのコールドスタートをサポートし、フライトを停止した後にゲームを再開する必要があります。 **Simple3DGameDX**サンプルでは、停止しないという印象を与えるために、常にゲーム状態を保存します。
 
-同様に、再開イベントでは、サンプル ゲームが前回中断または終了された時点から再開されます。 サンプル ゲームが終了後に再起動されると、通常どおり開始され、その後、最後の既知の状態が判断されるため、プレーヤーはゲームの続きを即座に続行できます。
+中断イベントに応答して、ゲームプレイは中断されますが、ゲームのリソースはまだメモリ内にあります。 同様に、resume イベントは、サンプルゲームが中断または終了したときの状態で取得されるように処理されます。 状態に応じて、異なるオプションがプレーヤーに表示されます。 
 
-状態に応じて、異なるオプションがプレーヤーに表示されます。 
+- ゲームが途中で再開した場合は、[一時停止] と表示され、オーバーレイは続行するオプションを提供します。
+- ゲームが完了した状態でゲームが再開されると、ハイスコアと新しいゲームをプレイするためのオプションが表示されます。
+- 最後に、レベルが開始される前にゲームが再開した場合は、オーバーレイによってユーザーに開始オプションが表示されます。
 
-* ゲームは、2 つのレベルの中間から再開された場合、一時停止しているように見え、オーバーレイで続行オプションが表示されます。
-* また、完了状態から再開された場合は、ハイ スコアと、新しいゲームを開始するオプションが表示されます。
-* そして、いずれかのレベルが開始される前にゲームが再開された場合は、オーバーレイで開始オプションがユーザーに表示されます。
+サンプルゲームでは、ゲームがコールドスタートされているか、中断イベントが発生して初めて起動するのか、中断状態から再開しているのかを区別していません。 これは、どの UWP アプリにも適切な設計です。
 
-このゲーム サンプルでは、ゲームのコールド スタート、中断イベントがない状態での初めての起動、ゲームの中断状態からの再開を区別していません。 これは、どの UWP アプリにも適切な設計です。
+このサンプルでは、ゲームの状態の初期化は[**GameMain::::**](#the-gamemaininitializegamestate-method)初期化された状態で発生します (そのメソッドの概要を次のセクションで説明します)。
 
-このサンプルでは、[__GameMain::InitializeGameState__](#gamemaininitializegamestate-method) でゲームの状態の初期化が行われます。
+フローを視覚化するためのフローチャートを次に示します。 初期化と更新ループの両方が対象となります。
 
-このフローを視覚化するためのフローチャートを以下に示します。これは、初期化と更新ループの両方を示しています。
-
-* 初期化は、__Start__ ノードから始まり、現在のゲームの状態をチェックします。 ゲームのコードについては、[__GameMain::InitializeGameState__](#gamemaininitializegamestate-method) の説明をご覧ください。
-* 更新ループについて詳しくは、「[ゲーム エンジンを更新する](#update-game-engine)」をご覧ください。 ゲームのコードについては、[__App::Update__](#appupdate-method) の説明をご覧ください。
+- 初期化は、**Start** ノードから始まり、現在のゲームの状態をチェックします。 ゲームコードについては、次のセクションの「 [**GameMain:: 初期化**](#the-gamemaininitializegamestate-method)された状態」を参照してください。
+* 更新ループについて詳しくは、「[ゲーム エンジンを更新する](#update-game-engine)」をご覧ください。 ゲームコードについては、 [**GameMain:: Update**](#the-gamemainupdate-method)にアクセスしてください。
 
 ![ゲームのメイン ステート マシン](images/simple-dx-game-flow-statemachine.png)
 
-### <a name="gamemaininitializegamestate-method"></a>GameMain::InitializeGameState メソッド
+### <a name="the-gamemaininitializegamestate-method"></a>GameMain:: 初期化された状態メソッド
 
-__InitializeGameState__ メソッドは、[__GameMain__](https://github.com/Microsoft/Windows-universal-samples/blob/5f0d0912214afc1c2a7c7470203933ddb46f7c89/Samples/Simple3DGameDX/cpp/GameMain.cpp#L32-L131) コンストラクター クラスから呼び出されます。このコンストラクターは、[__App::Load__](https://github.com/Microsoft/Windows-universal-samples/blob/5f0d0912214afc1c2a7c7470203933ddb46f7c89/Samples/Simple3DGameDX/cpp/App.cpp#L115-L123) メソッドで __GameMain__ クラスのオブジェクトが作成されるときに呼び出されます。
+**GameMain::** **GameMain**クラスのコンストラクターを介して間接的に呼び出されます。これは、 **App:: Load**内で**GameMain**インスタンスを作成した結果です。
 
-```cpp
-
-GameMain::GameMain(...)
+```cppwinrt
+GameMain::GameMain(std::shared_ptr<DX::DeviceResources> const& deviceResources) : ...
 {
     m_deviceResources->RegisterDeviceNotify(this);
     ...
-
-    create_task([this]()
-    {
-        ...
-
-    }).then([this]()
-    {
-        // The finalize code needs to run in the same thread context
-        // as the m_renderer object was created because the D3D device context
-        // can ONLY be accessed on a single thread.
-        m_renderer->FinalizeCreateGameDeviceResources();
-
-        InitializeGameState(); //Initialization of game states occurs here.
-        
-        ...
-    
-    }, task_continuation_context::use_current()).then([this]()
-    {
-        ...
-        
-    }, task_continuation_context::use_current());
+    ConstructInBackground();
 }
 
-```
+winrt::fire_and_forget GameMain::ConstructInBackground()
+{
+    ...
+    m_renderer->FinalizeCreateGameDeviceResources();
 
-```cpp
+    InitializeGameState();
+    ...
+}
 
 void GameMain::InitializeGameState()
 {
     // Set up the initial state machine for handling Game playing state.
     if (m_game->GameActive() && m_game->LevelActive())
     {
-        // The last time the game terminated it was in the middle of a level.
+        // The last time the game terminated it was in the middle
+        // of a level.
         // We are waiting for the user to continue the game.
-        //...
+        ...
     }
     else if (!m_game->GameActive() && (m_game->HighScore().totalHits > 0))
     {
@@ -108,98 +90,101 @@ void GameMain::InitializeGameState()
         // Show the high score.
         // We are waiting for the user to acknowledge the high score and start a new game.
         // The level resources for the first level will be loaded later.
-        //...
+        ...
     }
     else
     {
         // This is either the first time the game has run or
         // the last time the game terminated the level was completed.
         // We are waiting for the user to begin the next level.
-        m_updateState = UpdateEngineState::WaitingForResources;
-        m_pressResult = PressResultState::PlayLevel;
-        SetGameInfoOverlay(GameInfoOverlayState::LevelStart);
-        m_uiControl->SetAction(GameInfoOverlayCommand::PleaseWait);
+        ...
     }
     m_uiControl->ShowGameInfoOverlay();
 }
-
 ```
 
 ## <a name="update-game-engine"></a>ゲーム エンジンを更新する
 
-[  __App::Run__](https://github.com/Microsoft/Windows-universal-samples/blob/5f0d0912214afc1c2a7c7470203933ddb46f7c89/Samples/Simple3DGameDX/cpp/App.cpp#L127-L130) メソッドで、[__GameMain::Run__](https://github.com/Microsoft/Windows-universal-samples/blob/5f0d0912214afc1c2a7c7470203933ddb46f7c89/Samples/Simple3DGameDX/cpp/GameMain.cpp#L143-L202) を呼び出します。 このサンプルでは、このメソッド内に、プレイヤーが実行できる主な操作すべてを処理する基本的なステート マシンを実装しています。 このステート マシンの最上位レベルは、ゲームの読み込み、特定のレベルのゲーム プレイ、ゲームが (システムあるいはプレーヤーによって) 一時停止された後のレベルの続行を処理します。
+**App:: run**メソッドは**GameMain:: run**を呼び出します。 **GameMain:: Run**は、ユーザーが実行できる主要なアクションをすべて処理するための基本的なステートマシンです。 このステートマシンの最上位レベルでは、ゲームの読み込み、特定のレベルの再生、またはゲームが一時停止された後のレベル (システムまたはユーザーによる) の継続を処理します。
 
-このゲーム サンプルには、ゲームの主な状態 (__UpdateEngineState__) として次の 3 つがあります。
+サンプルゲームでは、3つの主要な状態 ( **UpdateEngineState**列挙型によって表されます) がゲームに使用できます。
 
-1. __リソースを待機__:ゲーム ループが循環していて、リソース (具体的にはグラフィックス リソース) が使用可能になるまで、移行はできません。 リソースを読み込む非同期タスクが完了すると、状態が __ResourcesLoaded__ に更新されます。 これは通常、2 つのレベルの中間で発生します。レベルの中間では、新しいリソースをディスク、ゲーム サーバー、クラウド バックエンドから読み込みます。 このゲーム サンプルでは、その時点ではレベルごとに追加のリソースは必要ないため、この動作はシミュレートされます。
-2. __キーを押して待つ__:ゲーム ループが循環していて、特定のユーザー入力を待機しています。 この入力は、プレイヤーによるゲームの読み込み、レベルの開始、またはレベルの続行の操作です。 サンプル コードでは、これらの下位状態として、__PressResultState__ 列挙値を使っています。
-3. __Dynamics__:ゲーム ループが実行中で、ユーザーがゲームをしています。 ユーザーがプレイ中に、ゲームは移行できる 3 つの条件をチェックします。 
-    * __TimeExpired__: レベルに設定されている時間の有効期限
-    * __LevelComplete__: プレイヤーによるレベルの完了 
-    * __GameComplete__: プレイヤーによるすべてのレベルの完了
+1. **UpdateEngineState:: WaitingForResources**。 ゲーム ループが循環していて、リソース (具体的にはグラフィックス リソース) が使用可能になるまで、移行はできません。 非同期のリソース読み込みタスクが完了したら、状態を**UpdateEngineState:: ResourcesLoaded**に更新します。 これは通常、レベルがディスク、ゲームサーバー、またはクラウドバックエンドから新しいリソースを読み込んだときに発生します。 サンプルゲームでは、この動作をシミュレートします。このサンプルでは、その時点で追加のレベルごとのリソースは必要ありません。
+2. **UpdateEngineState:: WaitingForPress**。 ゲーム ループが循環していて、特定のユーザー入力を待機しています。 この入力は、ゲームの読み込み、レベルの開始、またはレベルの継続を行うプレーヤーアクションです。 このサンプルコードでは、 **Pressresultstate**列挙を使用してこれらのサブ状態を参照しています。
+3. **UpdateEngineState::D ynamics**。 ゲーム ループが実行中で、ユーザーがゲームをしています。 ユーザーがプレイ中に、ゲームは移行できる 3 つの条件をチェックします。 
+ - **状態:: TimeExpired 切れ**。 レベルの制限時間の有効期限。
+ - お持ちの**状態:: LevelComplete**。 Player によるレベルの完了。
+ - **GameComplete 状態::**。 プレーヤーによるすべてのレベルの完了。
 
-ゲームは、複数の小さいステート マシンが含まれているステート マシンにすぎません。 それぞれの状態は、非常に具体的な条件によって定義されている必要があります。 ある状態から別の状態への移行は、ユーザー入力またはシステムによる個々の操作 (グラフィックス リソースの読み込みなど) に基づいて行われる必要があります。 ゲームの計画時に、ユーザーやシステムが実行すると考えられるすべての操作に確実に対応できるように、ゲーム フローの全体像を詳細に計画することを検討してください。 ゲームは非常に複雑な場合があり、ステート マシンは、この複雑さを視覚化して扱いやすくする強力なツールです。
+ゲームとは、複数の小さいステートマシンを含むステートマシンのことです。 特定の状態は、非常に限定的な条件で定義する必要があります。 ある状態から別の状態への遷移は、個別のユーザー入力またはシステムアクション (グラフィックスリソースの読み込みなど) に基づいて行う必要があります。
 
-次に、更新ループのコードを見てみましょう。
+ゲームを計画するときに、ユーザーまたはシステムが実行できるすべてのアクションに対処したことを確認するために、ゲームフロー全体を描画することを検討してください。 ゲームは非常に複雑になる可能性があるため、ステートマシンは、この複雑さを視覚化し、より管理しやすくするための強力なツールです。
 
-### <a name="appupdate-method"></a>App::Update メソッド
+Update ループのコードを見てみましょう。
 
-ゲーム エンジンの更新に使われるステート マシンの構造
+### <a name="the-gamemainupdate-method"></a>GameMain:: Update メソッド
 
-```cpp
+これは、ゲームエンジンを更新するために使用されるステートマシンの構造です。
+
+```cppwinrt
 void GameMain::Update()
 {
-    m_controller->Update(); //the controller instance has its own update loop.
+    // The controller object has its own update loop.
+    m_controller->Update(); 
 
     switch (m_updateState)
     {
     case UpdateEngineState::WaitingForResources:
-        //...
+        ...
         break;
 
     case UpdateEngineState::ResourcesLoaded:
-        //...
+        ...
         break;
 
     case UpdateEngineState::WaitingForPress:
         if (m_controller->IsPressComplete())
         {
-            //...
+            ...
         }
         break;
 
     case UpdateEngineState::Dynamics:
         if (m_controller->IsPauseRequested())
         {
-            //...
+            ...
         }
         else
         {
-            GameState runState = m_game->RunGame(); //when the player is playing, the work is handled by this Simple3DGame::RunGame method.
+            // When the player is playing, work is done by Simple3DGame::RunGame.
+            GameState runState = m_game->RunGame();
             switch (runState)
             {
             case GameState::TimeExpired:
-                //...
+                ...
                 break;
 
             case GameState::LevelComplete:
-                //...
+                ...
                 break;
 
             case GameState::GameComplete:
-                //...
+                ...
                 break;
             }
         }
 
         if (m_updateState == UpdateEngineState::WaitingForPress)
         {
-            // Transitioning state, so enable waiting for the press event
-            m_controller->WaitForPress(m_renderer->GameInfoOverlayUpperLeft(), m_renderer->GameInfoOverlayLowerRight());
+            // Transitioning state, so enable waiting for the press event.
+            m_controller->WaitForPress(
+                m_renderer->GameInfoOverlayUpperLeft(),
+                m_renderer->GameInfoOverlayLowerRight());
         }
         if (m_updateState == UpdateEngineState::WaitingForResources)
         {
-            // Transitioning state, so shut down the input controller until resources are loaded
+            // Transitioning state, so shut down the input controller
+            // until resources are loaded.
             m_controller->Active(false);
         }
         break;
@@ -207,30 +192,33 @@ void GameMain::Update()
 }
 ```
 
-## <a name="update-user-interface"></a>ユーザー インターフェイスを更新する
+## <a name="update-the-user-interface"></a>ユーザーインターフェイスを更新する
 
-プレイヤーには、システムの状態を継続的に通知して、プレイヤーの操作とゲームを定義するルールに応じて、ゲームの状態を変更できるようにする必要があります。 このゲームのサンプルを含む多くのゲームは、通常、ユーザー インターフェイス (UI) を使用して、プレイヤーにこの情報を表示します。 UI には、ゲームの状態や、スコア、弾薬、残りのチャンスの数などのプレイ固有の情報が表されます。 UI はオーバーレイとも呼ばれます。メインのグラフィックス パイプラインとは別にレンダリングされ、3D プロジェクションの上に配置されるためです。 一部の UI の情報は、ヘッドアップ ディスプレイ (HUD) としても表示され、ユーザーはゲームプレイのメイン領域から視線を移動することなく、これらの情報を把握できます。 このサンプル ゲームでは、このオーバーレイを Direct2D API を使って作成しています。 このオーバーレイは、XAML を使って作成することもできます。これについては、「[ゲーム サンプルの紹介](tutorial-resources.md)」で説明します。
+プレイヤーには、システムの状態を継続的に通知して、プレイヤーの操作とゲームを定義するルールに応じて、ゲームの状態を変更できるようにする必要があります。 このサンプルゲームを含む多くのゲームでは、ユーザーインターフェイス (UI) 要素を使用して、この情報をプレーヤーに提示します。 UI には、ゲーム状態の表現と、スコア、ammo、残りの可能性の数などの再生固有の情報が含まれています。 UI は、メイングラフィックスパイプラインとは別にレンダリングされ、3D 投影の上に配置されるため、オーバーレイとも呼ばれます。
 
-ユーザー インターフェイスには次の 2 つのコンポーネントがあります。
+一部の UI 情報は、ヘッドアップディスプレイ (HUD) としても表示されます。これは、ユーザーがメインのゲームプレイ領域を完全にオフにせずにその情報を見ることができるようにするためです。 サンプルゲームでは、Direct2D Api を使用してこのオーバーレイを作成します。 または、このオーバーレイを XAML を使用して作成することもできます。これについては、[サンプルゲームの拡張](tutorial-resources.md)について説明します。
 
--   スコアとゲーム プレイの現在の状態に関する情報が含まれている HUD。
--   一時停止ビットマップ。これは、ゲームの一時停止/中断状態中にテキストがオーバーレイされる黒の四角形です。 これがゲーム オーバーレイです。 これについては、「[ユーザー インターフェイスの追加](tutorial--adding-a-user-interface.md)」で詳しく説明します。
+ユーザーインターフェイスには、2つのコンポーネントがあります。
 
-当然のことながら、オーバーレイにもステート マシンがあります。 オーバーレイは、レベル開始またはゲーム オーバーのメッセージを表示できます。 これは、ゲームが一時停止または中断されたときに、プレイヤーに表示する必要があるゲームの状態に関する情報を出力するキャンバスのように機能します。
+- ゲームプレイの現在の状態に関するスコアと情報を格納している HUD。
+- 一時停止ビットマップ。これは、ゲームの一時停止/中断状態中にテキストがオーバーレイされる黒の四角形です。 これがゲーム オーバーレイです。 これについては、「[ユーザー インターフェイスの追加](tutorial--adding-a-user-interface.md)」で詳しく説明します。
 
-オーバーレイのレンダリングには、ゲームの状態に応じて、6 つの画面のいずれかを指定できます。 
-1. ゲームの開始時のリソースの読み込み画面
-2. ゲームのプレイ開始画面
-3. レベルの開始メッセージ画面
-4. 時間切れになる前にすべてのレベルが完了した場合のゲーム オーバー画面
-5. 時間切れになった場合のゲーム オーバー画面
-6. 一時停止メニュー画面
+当然のことながら、オーバーレイにもステート マシンがあります。 オーバーレイには、レベルの開始メッセージやゲームオーバーメッセージが表示されます。 これは基本的に、ゲームが一時停止または中断しているときにプレーヤーに表示するゲームの状態に関する情報を出力できるキャンバスです。
 
-ユーザー インターフェイスをゲームのグラフィックス パイプラインから分離すると、ゲームのグラフィックス レンダリング エンジンとは別に操作でき、ゲームのコードの複雑さが大幅に軽減されます。
+表示されるオーバーレイは、ゲームの状態に応じて、これらの6つの画面のいずれかになります。
 
-このゲーム サンプルでオーバーレイのステート マシンを構成する方法は次のとおりです。
+1. ゲーム開始時のリソース読み込みの進行状況画面。
+2. ゲームプレイ統計画面。
+3. レベルの開始メッセージ画面。
+4. 時間をかけずにすべてのレベルを完了したときのゲーム画面。
+5. 時間が経過したときのゲーム画面。
+6. メニュー画面を一時停止します。
 
-```cpp
+ユーザーインターフェイスをゲームのグラフィックスパイプラインから分離することで、ゲームのグラフィックスレンダリングエンジンとは関係なく作業を行い、ゲームのコードの複雑さを大幅に軽減できます。
+
+ここでは、サンプルゲームによるオーバーレイのステートマシンの構造を示します。
+
+```cppwinrt
 void GameMain::SetGameInfoOverlay(GameInfoOverlayState state)
 {
     m_gameInfoOverlayState = state;
@@ -241,33 +229,35 @@ void GameMain::SetGameInfoOverlay(GameInfoOverlayState state)
         break;
 
     case GameInfoOverlayState::GameStats:
-        //...
+        ...
         break;
 
     case GameInfoOverlayState::LevelStart:
-        //...
+        ...
         break;
 
     case GameInfoOverlayState::GameOverCompleted:
-        //...
+        ...
         break;
 
     case GameInfoOverlayState::GameOverExpired:
-        //...
+        ...
         break;
 
     case GameInfoOverlayState::Pause:
-        //...
+        ...
         break;
     }
 }
 ```
 
-## <a name="events-handling"></a>イベントの処理
+## <a name="event-handling"></a>イベント処理
 
-サンプル コードでは、特定のイベントに対する多数のハンドラーが App.cpp の **Initialize**、**SetWindow**、**Load** に登録されています。 これらは重要なイベントであり、ゲームのしくみを追加したり、グラフィックス開発を開始したりする前に処理する必要があります。 これらのイベントは、適切な UWP アプリのエクスペリエンスの基本です。 UWP アプリはいつでもアクティブ化、非アクティブ化、サイズ変更、スナップ、スナップの解除、中断、再開ができるため、ゲームではこれらのイベント自体をできる限り早く登録し、プレイヤーのエクスペリエンスをスムーズで予測可能な状態に保てる方法で、これらのイベントを処理する必要があります。
+「[ゲームの UWP アプリフレームワークの定義](tutorial--building-the-games-uwp-app-framework.md)」で説明したように、 **app**クラスのビュープロバイダーメソッドの多くはイベントハンドラーを登録します。 これらのメソッドは、ゲーム機構を追加したり、グラフィックス開発を開始したりする前に、これらの重要なイベントを正しく処理する必要があります。
 
-次の表に、このサンプルで使用されているイベント ハンドラーと、ハンドラーが処理するイベントを示します。
+問題のイベントの適切な処理は、UWP アプリのエクスペリエンスの基礎となります。 UWP アプリはいつでもアクティブ化、非アクティブ化、サイズ変更、スナップ、スナップ解除、中断、または再開できます。そのため、ゲームは、可能な限り早くこれらのイベントを登録し、プレーヤーに対してスムーズで予測可能な方法で処理する必要があります。
+
+これらは、このサンプルで使用されるイベントハンドラーと、それらが処理するイベントです。
 
 <table>
 <colgroup>
@@ -283,60 +273,61 @@ void GameMain::SetGameInfoOverlay(GameInfoOverlayState state)
 <tbody>
 <tr class="odd">
 <td align="left">OnActivated</td>
-<td align="left"><a href="https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplicationview.activated">  <strong>CoreApplicationView::Activated</strong></a> を処理します。 ゲーム アプリがフォアグラウンドに表示されているため、メイン ウィンドウがアクティブ化されます。</td>
+<td align="left"><a href="/uwp/api/windows.applicationmodel.core.coreapplicationview.activated"><strong>CoreApplicationView::Activated</strong></a> を処理します。 ゲーム アプリがフォアグラウンドに表示されているため、メイン ウィンドウがアクティブ化されます。</td>
 </tr>
 <tr class="even">
 <td align="left">OnDpiChanged</td>
-<td align="left"><a href="https://docs.microsoft.com/uwp/api/windows.graphics.display.displayinformation#Windows_Graphics_Display_DisplayInformation_DpiChanged">  <strong>Graphics::Display::DisplayInformation::DpiChanged</strong></a> を処理します。 ディスプレイの DPI が変更されていて、それに応じてゲームそのリソースを調整します。
+<td align="left"><a href="/uwp/api/windows.graphics.display.displayinformation#Windows_Graphics_Display_DisplayInformation_DpiChanged"><strong>Graphics::Display::DisplayInformation::DpiChanged</strong></a> を処理します。 ディスプレイの DPI が変更されていて、それに応じてゲームそのリソースを調整します。
 <div class="alert">
-<strong>注</strong> <a href="https://docs.microsoft.com/windows/desktop/api/dxgi1_2/nf-dxgi1_2-idxgifactory2-createswapchainforcorewindow"><strong>CoreWindow</strong> </a>の座標は、Dip (デバイス非依存ピクセル) で<a href="https://docs.microsoft.com/windows/desktop/Direct2D/direct2d-overview">Direct2D</a>します。 このため、2D アセットまたはプリミティブを正しく表示するには、Direct2D に DPI の変更を通知する必要があります。
+<strong>注</strong> <a href="/windows/desktop/api/dxgi1_2/nf-dxgi1_2-idxgifactory2-createswapchainforcorewindow"><strong>corewindow</strong></a>座標は、 <a href="/windows/desktop/Direct2D/direct2d-overview">Direct2D</a>のデバイスに依存しないピクセル (dip) です。 このため、2D アセットまたはプリミティブを正しく表示するには、Direct2D に DPI の変更を通知する必要があります。
 </div>
 <div>
 </div></td>
 </tr>
 <tr class="odd">
 <td align="left">OnOrientationChanged</td>
-<td align="left"><a href="https://docs.microsoft.com/uwp/api/windows.graphics.display.displayinformation#Windows_Graphics_Display_DisplayInformation_OrientationChanged">  <strong>Graphics::Display::DisplayInformation::OrientationChanged</strong></a> を処理します。 ディスプレイの向きが変更され、レンダリングを更新する必要があります。</td>
+<td align="left"><a href="/uwp/api/windows.graphics.display.displayinformation#Windows_Graphics_Display_DisplayInformation_OrientationChanged"><strong>Graphics::Display::DisplayInformation::OrientationChanged</strong></a> を処理します。 ディスプレイの向きが変更され、レンダリングを更新する必要があります。</td>
 </tr>
 <tr class="even">
 <td align="left">OnDisplayContentsInvalidated</td>
-<td align="left"><a href="https://docs.microsoft.com/uwp/api/windows.graphics.display.displayinformation#Windows_Graphics_Display_DisplayInformation_DisplayContentsInvalidated">  <strong>Graphics::Display::DisplayInformation::DisplayContentsInvalidated</strong></a> を処理します。 ディスプレイを再描画する必要があり、ゲームをもう一度レンダリングする必要があります。</td>
+<td align="left"><a href="/uwp/api/windows.graphics.display.displayinformation#Windows_Graphics_Display_DisplayInformation_DisplayContentsInvalidated"><strong>Graphics::Display::DisplayInformation::DisplayContentsInvalidated</strong></a> を処理します。 ディスプレイを再描画する必要があり、ゲームをもう一度レンダリングする必要があります。</td>
 </tr>
 <tr class="odd">
 <td align="left">OnResuming</td>
-<td align="left"><a href="https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplication.resuming">  <strong>CoreApplication::Resuming</strong></a> を処理します。 ゲーム アプリがゲームを中断状態から復元します。</td>
+<td align="left"><a href="/uwp/api/windows.applicationmodel.core.coreapplication.resuming"><strong>CoreApplication::Resuming</strong></a> を処理します。 ゲーム アプリがゲームを中断状態から復元します。</td>
 </tr>
 <tr class="even">
 <td align="left">OnSuspending</td>
-<td align="left"><a href="https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplication.suspending">  <strong>CoreApplication::Suspending</strong></a> を処理します。 ゲーム アプリがその状態をディスクに保存します。 ストレージへの状態の保存に使用できる時間は 5 秒です。</td>
+<td align="left"><a href="/uwp/api/windows.applicationmodel.core.coreapplication.suspending"><strong>CoreApplication::Suspending</strong></a> を処理します。 ゲーム アプリがその状態をディスクに保存します。 ストレージへの状態の保存に使用できる時間は 5 秒です。</td>
 </tr>
 <tr class="odd">
 <td align="left">OnVisibilityChanged</td>
-<td align="left"><a href="https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.visibilitychanged">  <strong>CoreWindow::VisibilityChanged</strong></a> を処理します。 ゲーム アプリの表示が切り替わり、表示されるようになったか、別のアプリが表示されたために非表示になったことを示します。</td>
+<td align="left"><a href="/uwp/api/windows.ui.core.corewindow.visibilitychanged"><strong>CoreWindow::VisibilityChanged</strong></a> を処理します。 ゲーム アプリの表示が切り替わり、表示されるようになったか、別のアプリが表示されたために非表示になったことを示します。</td>
 </tr>
 <tr class="even">
 <td align="left">OnWindowActivationChanged</td>
-<td align="left"><a href="https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.activated">  <strong>CoreWindow::Activated</strong></a> を処理します。 ゲーム アプリのメイン ウィンドウが非アクティブ化またはアクティブ化されたため、フォーカスを動かしてゲームを一時停止するか、フォーカスを再取得する必要があります。 どちらの場合も、ゲームが一時停止されていることがオーバーレイに表示されます。</td>
+<td align="left"><a href="/uwp/api/windows.ui.core.corewindow.activated"><strong>CoreWindow::Activated</strong></a> を処理します。 ゲーム アプリのメイン ウィンドウが非アクティブ化またはアクティブ化されたため、フォーカスを動かしてゲームを一時停止するか、フォーカスを再取得する必要があります。 どちらの場合も、ゲームが一時停止されていることがオーバーレイに表示されます。</td>
 </tr>
 <tr class="odd">
 <td align="left">OnWindowClosed</td>
-<td align="left"><a href="https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.closed">  <strong>CoreWindow::Closed</strong></a> を処理します。 ゲーム アプリがメイン ウィンドウを閉じ、ゲームを中断します。</td>
+<td align="left"><a href="/uwp/api/windows.ui.core.corewindow.closed"><strong>CoreWindow::Closed</strong></a> を処理します。 ゲーム アプリがメイン ウィンドウを閉じ、ゲームを中断します。</td>
 </tr>
 <tr class="even">
 <td align="left">OnWindowSizeChanged</td>
-<td align="left"><a href="https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.sizechanged">  <strong>CoreWindow::SizeChanged</strong></a> を処理します。 サイズ変更に応じてゲーム アプリがグラフィックス リソースとオーバーレイを再割り当てし、その後、レンダー ターゲットを更新します。</td>
+<td align="left"><a href="/uwp/api/windows.ui.core.corewindow.sizechanged"><strong>CoreWindow::SizeChanged</strong></a> を処理します。 サイズ変更に応じてゲーム アプリがグラフィックス リソースとオーバーレイを再割り当てし、その後、レンダー ターゲットを更新します。</td>
 </tr>
 </tbody>
 </table>
 
 ## <a name="next-steps"></a>次のステップ
 
-このトピックでは、ゲームの状態を使用してゲーム フロー全体を管理する方法と、ゲームが複数の異なるステート マシンで構成されていることを説明しました。 また、UI を更新する方法や、主要なアプリのイベント ハンドラーを管理する方法についても説明しました。 これで、レンダリング ループ、ゲーム、そのしくみを解説する準備が整いました。
+このトピックでは、ゲームの状態を使用してゲームフロー全体がどのように管理されているか、およびゲームが複数の異なるステートマシンで構成されていることを説明しました。 また、UI を更新する方法や、キーアプリのイベントハンドラーを管理する方法についても説明しました。 これで、レンダリングループ、ゲーム、およびその機構を調べる準備ができました。
  
-任意の順序でこのゲームを構成するその他のコンポーネントについて学習することができます。
-* [メイン ゲーム オブジェクトを定義します。](tutorial--defining-the-main-game-loop.md)
-* [レンダリングのフレームワーク i:レンダリングの概要](tutorial--assembling-the-rendering-pipeline.md)
-* [レンダリングのフレームワーク II:ゲームのレンダリング](tutorial-game-rendering.md)
-* [ユーザー インターフェイスを追加します。](tutorial--adding-a-user-interface.md)
-* [コントロールを追加します。](tutorial--adding-controls.md)
-* [サウンドを追加します。](tutorial--adding-sound.md)
+このゲームを任意の順序で文書化する残りのトピックを参照できます。
+
+- [メイン ゲーム オブジェクトの定義](tutorial--defining-the-main-game-loop.md)
+- [レンダリング フレームワーク I: レンダリングの概要](tutorial--assembling-the-rendering-pipeline.md)
+- [レンダリング フレームワーク II: ゲームのレンダリング](tutorial-game-rendering.md)
+- [ユーザー インターフェイスの追加](tutorial--adding-a-user-interface.md)
+- [コントロールを追加する](tutorial--adding-controls.md)
+- [サウンドの追加](tutorial--adding-sound.md)

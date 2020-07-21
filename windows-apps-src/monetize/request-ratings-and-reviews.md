@@ -1,16 +1,16 @@
 ---
-Description: についていくつかの方法についてには、プログラムを使用して評価し、アプリのレビューに顧客を有効にすることができます。
+Description: プログラムを使用して、ユーザーがアプリを評価して確認できるようにするためのいくつかの方法について説明します。
 title: アプリの評価とレビューを求める
 ms.date: 01/22/2019
 ms.topic: article
 keywords: Windows 10, UWP, 評価, レビュー
 ms.localizationpriority: medium
 ms.openlocfilehash: b167f4cc40ee72e6405436bacee28f2f20b4623c
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57601307"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79210718"
 ---
 # <a name="request-ratings-and-reviews-for-your-app"></a>アプリの評価とレビューを求める
 
@@ -18,14 +18,14 @@ ms.locfileid: "57601307"
 * アプリのコンテキストで評価とレビュー ダイアログを直接表示する。
 * Microsoft Store のアプリの評価とレビュー ページをプログラムで開く。
 
-お客様の評価とレビュー データを分析する準備ができたら、パートナー センターでデータを表示または Microsoft Store analytics API を使用してプログラムでこのデータを取得できます。
+評価を分析してデータをレビューする準備ができたら、パートナーセンターでデータを表示するか、Microsoft Store analytics API を使用してこのデータをプログラムで取得することができます。
 
 > [!IMPORTANT]
-> アプリ内で評価関数を追加するときに、すべてのレビューは、ユーザーを星の評価の選択に関係なく、ストアの評価メカニズムに送信しなければなりません。 ユーザーからのフィードバックやコメントを収集する場合は、アプリの評価またはストア内のレビューには関連しないが、アプリ開発者に直接送信されることは明確場合があります。 関連する詳細については、開発者の倫理を参照してください[Fraudulent または悪意を持つアクティビティ](https://docs.microsoft.com/legal/windows/agreements/store-developer-code-of-conduct#3-fraudulent-or-dishonest-activities)します。
+> アプリ内で評価関数を追加する場合、すべてのレビューでは、選択した星の評価に関係なく、店舗の評価メカニズムにユーザーを送信する必要があります。 ユーザーからフィードバックまたはコメントを収集する場合は、ストアのアプリの評価やレビューに関連付けられていないことを明確にする必要がありますが、アプリの開発者に直接送信されます。 [不正または揃っアクティビティ](https://docs.microsoft.com/legal/windows/agreements/store-developer-code-of-conduct#3-fraudulent-or-dishonest-activities)に関する詳細については、開発者コード「倫理規定」を参照してください。
 
 ## <a name="show-a-rating-and-review-dialog-in-your-app"></a>アプリ内での評価とレビュー ダイアログの表示
 
-プログラムによって、お客様のアプリを評価し、レビューを送信するかを確認する、アプリからのダイアログを表示するには、呼び出し、 [RequestRateAndReviewAppAsync](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.requestrateandreviewappasync)メソッドで、 [Windows.Services.Store](https://docs.microsoft.com/uwp/api/windows.services.store)名前空間。 
+アプリを評価してレビューを送信するように顧客に求めるダイアログをプログラムから表示するには、 [RequestRateAndReviewAppAsync](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.requestrateandreviewappasync)名前空間の[Windows.Services.Store](https://docs.microsoft.com/uwp/api/windows.services.store)メソッドを呼び出します。 
 
 > [!IMPORTANT]
 > 評価とレビュー ダイアログを表示する要求は、アプリの UI スレッドで呼び出す必要があります。
@@ -101,11 +101,11 @@ private async Task PromptUserToRateApp()
 }
 ```
 
-**RequestRateAndReviewAppAsync**メソッドは Windows 10、バージョンは 1809 で導入され、対象とするプロジェクトでのみ使用できます**Windows 10 年 2018年 10 月 Update (10.0;17763 をビルドする)** または Visual Studio の今後のリリース。
+**RequestRateAndReviewAppAsync**メソッドは、windows 10 バージョン1809で導入されたものであり、 **Windows 10 10 月2018更新プログラムを対象とするプロジェクトでのみ使用できます (10.0;ビルド 17763)** 以降のリリース (Visual Studio)。
 
 ### <a name="response-data-for-the-rating-and-review-request"></a>評価とレビューの要求に対する応答データ
 
-評価を表示し、確認ダイアログ ボックスで、要求を送信した後、 [ExtendedJsonData](https://docs.microsoft.com/uwp/api/windows.services.store.storerateandreviewresult.extendedjsondata)のプロパティ、 [StoreRateAndReviewResult](https://docs.microsoft.com/uwp/api/windows.services.store.storerateandreviewresult)クラスには示す JSON 形式の文字列が含まれて かどうか要求が成功します。
+要求を送信して [評価とレビュー] ダイアログを表示した後、 [StoreRateAndReviewResult](https://docs.microsoft.com/uwp/api/windows.services.store.storerateandreviewresult)クラスの[extendedjsondata](https://docs.microsoft.com/uwp/api/windows.services.store.storerateandreviewresult.extendedjsondata)プロパティには、要求が成功したかどうかを示す JSON 形式の文字列が含まれます。
 
 次の例は、ユーザーが評価またはレビューを正しく提出した後のこの要求の戻り値を示しています。
 
@@ -132,13 +132,13 @@ private async Task PromptUserToRateApp()
 
 | フィールド          | 説明                                                                                                                                   |
 |----------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
-| *状態*       | ユーザーから評価またはレビューが正しく提出されたかどうかを示す文字列です。 サポートされる値は **success** と **aborted** です。 |
+| *オンライン*       | ユーザーから評価またはレビューが正しく提出されたかどうかを示す文字列です。 サポートされる値は **success** と **aborted** です。 |
 | *データ*         | *updated* という名前の単一のブール値を含むオブジェクトです。 この値は、ユーザーが既存の評価またはレビューを更新したかどうかを示します。 *data* オブジェクトは、成功の応答にのみ含まれます。 |
-| *ErrorDetails* | 要求のエラーの詳細を含む文字列です。                                                                                     |
+| *errorDetails* | 要求のエラーの詳細を含む文字列です。                                                                                     |
 
 ## <a name="launch-the-rating-and-review-page-for-your-app-in-the-store"></a>Store でのアプリの評価とレビュー ページの起動
 
-Store のアプリの評価とレビュー ページをプログラムによって開くには、次のコード例に示すように、```ms-windows-store://review``` URI スキームを指定して [LaunchUriAsync](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchuriasync) メソッドを使用します。
+Store のアプリの評価とレビュー ページをプログラムによって開くには、次のコード例に示すように、[ URI スキームを指定して ](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchuriasync)LaunchUriAsync```ms-windows-store://review``` メソッドを使用します。
 
 ```csharp
 bool result = await Windows.System.Launcher.LaunchUriAsync(new Uri("ms-windows-store://review/?ProductId=9WZDNCRFHVJL"));
@@ -149,11 +149,11 @@ bool result = await Windows.System.Launcher.LaunchUriAsync(new Uri("ms-windows-s
 ## <a name="analyze-your-ratings-and-reviews-data"></a>評価とレビュー データの分析
 
 ユーザーから提出された評価とレビューのデータを分析するには、いくつかの方法があります。
-* 使用することができます、[レビュー](../publish/reviews-report.md)評価とお客様からのレビューを表示するパートナー センターでのレポート。 このレポートは、ダウンロードしてオフラインで参照することもできます。
+* パートナーセンターの[レビュー](../publish/reviews-report.md)レポートを使用して、顧客からの評価とレビューを確認することができます。 このレポートは、ダウンロードしてオフラインで参照することもできます。
 * Microsoft Store 分析 API の[アプリの評価の取得](get-app-ratings.md)メソッドと[アプリのレビューの取得](get-app-reviews.md)メソッドを使って、ユーザーから提出された評価とレビューをプログラムによって JSON 形式で取得できます。
 
 ## <a name="related-topics"></a>関連トピック
 
-* [ストアに要求を送信します。](send-requests-to-the-store.md)
+* [ストアに要求を送信する](send-requests-to-the-store.md)
 * [Microsoft Store アプリの起動](../launch-resume/launch-store-app.md)
 * [レビュー レポート](../publish/reviews-report.md)

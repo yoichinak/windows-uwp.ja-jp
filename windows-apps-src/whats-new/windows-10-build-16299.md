@@ -1,22 +1,22 @@
 ---
-title: Windows 10 の開発者向け新着情報、ツール、機能
+title: Windows 10 ビルド 16299 の新着情報
 description: Windows 10 ビルド 16299 と新しい開発者ツールでは、ユニバーサル Windows プラットフォームによって強化されたツール、機能、エクスペリエンスを利用できます。
-keywords: 新着情報, 新機能, 更新, 更新プログラム, 機能, 新規, Windows 10, 1709, 10 月, 最新, 開発者, 16299, Fall Creators
+keywords: Windows 10, 1709, 16299, Fall Creators
 ms.date: 11/02/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: bc0172246c14459113ae1952f5db880ecf44e9d9
-ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
+ms.openlocfilehash: fc4f0a50a70531d9d0591c1153aad1ab23e8250d
+ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67820986"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83234213"
 ---
 # <a name="whats-new-in-windows-10-for-developers-build-16299"></a>Windows 10 ビルド 16299 の開発者向け新着情報
 
-Windows 10 ビルド 16299 (Fall Creators Update またはバージョン 1709 とも呼ばれます) と Visual Studio 2019 および更新された SDK には、優れたユニバーサル Windows プラットフォーム アプリを作るためのツール、機能、エクスペリエンスが用意されています。 Windows 10 の[ツールと SDK をインストール](https://go.microsoft.com/fwlink/?LinkId=821431)すると、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
+Windows 10 ビルド 16299 (Fall Creators Update またはバージョン 1709 とも呼ばれます) と Visual Studio 2019 および更新された SDK には、優れたユニバーサル Windows プラットフォーム アプリを作るためのツール、機能、エクスペリエンスが用意されています。 Windows 10 の[ツールと SDK をインストール](https://developer.microsoft.com/windows/downloads#_blank)すると、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
 
-ここには、Windows 開発者にとって重要なこのリリースの新機能、強化された機能、ガイダンスを集めました。 Windows SDK に追加されたすべての新しい名前空間の一覧については、「[Windows 10 ビルド 16299 API の変更点](windows-10-build-16299-api-diff.md)」をご覧ください。 Windows 10 での注目すべき機能について詳しくは、「[Windows 10 の優れた機能](https://go.microsoft.com/fwlink/?LinkId=823181)」をご覧ください。 また、Windows プラットフォームに過去に追加された機能と今後追加される機能の概要については、[Windows 開発者向けプラットフォーム機能に関するページ](https://developer.microsoft.com/windows/platform/features)をご覧ください。
+ここには、Windows 開発者にとって重要なこのリリースの新機能、強化された機能、ガイダンスを集めました。 Windows SDK に追加されたすべての新しい名前空間の一覧については、「[Windows 10 ビルド 16299 API の変更点](windows-10-build-16299-api-diff.md)」をご覧ください。 Windows 10 での注目すべき機能について詳しくは、「[Windows 10 の優れた機能](https://developer.microsoft.com/windows/windows-10-for-developers)」をご覧ください。 また、Windows プラットフォームに過去に追加された機能と今後追加される機能の概要については、[Windows 開発者向けプラットフォーム機能](https://developer.microsoft.com/windows/platform/features)に関するページをご覧ください。
 
 ## <a name="design--ui"></a>設計および UI
 
@@ -39,13 +39,13 @@ UI コントロール | 新しいコントロールを使用すると、優れ�
  :------ | :------
 ゲームのブロードキャスト | **[Windows.Media.AppBroadcasting](https://docs.microsoft.com/uwp/api/windows.media.appbroadcasting)** 名前空間の新しい API を使うと、システムが提供するゲーム ブロードキャスト UI をアプリが起動できるようになります。 </br>ブロードキャストが開始または停止したときにアプリに通知するイベントを登録することもできます。 **[Windows.Media.AppRecording](https://docs.microsoft.com/uwp/api/windows.media.apprecording)** 名前空間の新しい API を使うと、ゲームプレイのオーディオおよびビデオを録画または録音して画面をキャプチャできます。 </br>システムがブロードキャストに埋め込むメタデータを提供してストリームをキャプチャすることもできるため、アプリはゲームプレイ イベントと同期された表示エクスペリエンスを提供できるようになります。 これらの機能について詳しくは、「[ゲームのブロードキャストとキャプチャ](../gaming/game-broadcast-and-capture.md)」をご覧ください。
 ゲーム チャット オーバーレイ | [GameChatOverlay クラス](https://docs.microsoft.com/uwp/api/windows.gaming.ui.gamechatoverlay)は、既定のゲーム チャット オーバーレイ インスタンスを取得するメソッド、オーバーレイの目的の位置を設定するメソッド、メッセージを追加するメソッドを提供します。
-ゲーム デバイス情報 | さまざまなコンソール機能があるため、ユニバーサル Windows プラットフォーム (UWP) ゲームの開発者には、ハードウェアの最適な使用方法を実行時に選択するため、ゲームが実行されているコンソールの種類を決定する方法が必要です。 **&lt;gamingdeviceinformation.h&gt;** の[ゲーム デバイス情報](https://aka.ms/gamingdeviceinfo) API がこの機能を提供します。
+ゲーム デバイス情報 | さまざまなコンソール機能があるため、ユニバーサル Windows プラットフォーム (UWP) ゲームの開発者には、ハードウェアの最適な使用方法を実行時に選択するため、ゲームが実行されているコンソールの種類を決定する方法が必要です。 **&lt;gamingdeviceinformation.h&gt;** の[ゲーム デバイス情報](https://docs.microsoft.com/previous-versions/windows/desktop/gamingdvcinfo/gaming-device-information-portal?redirectedfrom=MSDN) API がこの機能を提供します。
 ゲーム モード | ユニバーサル Windows プラットフォーム (UWP) 用の[ゲーム モード](https://docs.microsoft.com/previous-versions/windows/desktop/gamemode/game-mode-portal) API では、Windows 10 のゲーム モードを利用することで最適化されたゲーム エクスペリエンスを実現できます。 これらの API は **&lt;expandedresources.h&gt;** ヘッダーに含まれています。
 ゲーム モニター | [GameMonitor クラス](https://docs.microsoft.com/uwp/api/windows.gaming.ui.gamemonitor)を使うと、アプリがデバイスのアクセス許可の状態を監視するゲームを取得し、必要に応じてゲームの監視を有効にするようユーザーに確認できるようになります。
-TruePlay | [TruePlay](https://aka.ms/trueplay) は、PC ゲーム内での不正な行為の防止するための新しいツール セットを開発者に提供します。 TruePlay に登録されているゲームは、保護されたプロセスで実行されるため、一般的な種類の攻撃が軽減されます。 ユニバーサル Windows プラットフォーム (UWP) 用の TruePlay API を使うと、Windows 10 PC におけるゲームとゲーム監視システムの間の操作を制限することができます。 これらの API は **&lt;gamemonitor.h&gt;** ヘッダーに含まれています。
+TruePlay | [TruePlay](https://docs.microsoft.com/previous-versions//mt808781(v=vs.85)?redirectedfrom=MSDN) は、PC ゲーム内での不正な行為の防止するための新しいツール セットを開発者に提供します。 TruePlay に登録されているゲームは、保護されたプロセスで実行されるため、一般的な種類の攻撃が軽減されます。 ユニバーサル Windows プラットフォーム (UWP) 用の TruePlay API を使うと、Windows 10 PC におけるゲームとゲーム監視システムの間の操作を制限することができます。 これらの API は **&lt;gamemonitor.h&gt;** ヘッダーに含まれています。
 Xbox Live | Xbox Live 開発者向けに、UWP ゲームと Xbox 開発キット (XDK) のゲームの両方に関するドキュメントが追加されました。 </br>* 「[Xbox Live 開発者向けガイド](https://docs.microsoft.com/gaming/xbox-live/index.md)」では、Xbox Live API を使ってゲームを Xbox Live ソーシャル ゲーミング ネットワークに接続する方法について説明します。 </br>* [Xbox Live クリエーターズ プログラム](https://docs.microsoft.com/gaming/xbox-live/get-started-with-creators/get-started-with-xbox-live-creators.md)を利用すると、UWP ゲーム開発者はだれでも、PC と Xbox One の両方で Xbox Live 対応ゲームを開発して公開できます。 </br>* Xbox Live 開発者向けに提供されているプログラムと機能については、「[Xbox Live 開発者プログラムの概要](https://docs.microsoft.com/gaming/xbox-live/developer-program-overview.md)」をご覧ください。
 
-## <a name="develop-windows-apps"></a>Windows アプリを開発
+## <a name="develop-windows-apps"></a>Windows アプリの開発
 
 機能 | 説明
  :------ | :------
@@ -63,7 +63,7 @@ EdgeHTML 16 | Microsoft Edge および JS ベースのユニバーサル Windows
 マップ レイヤー | 対象の要素の点を[マップ レイヤー](../maps-and-location/display-poi.md#layers)に追加し、XAML をそのレイヤーに直接バインドできます。 要素をレイヤーにグループ化します。 その後、各レイヤーを互いに独立して操作することができます。 たとえば、各レイヤーには独自のイベント セットがあるため、特定のレイヤーのイベントに応答し、そのイベントに固有の操作を実行することができます。
 マップの場所の情報 | UI 要素またはユーザーがタッチするアプリの領域の上下左右にある[軽量なポップアップ ウィンドウ](../maps-and-location/display-maps.md#placecard)の内部にマップを表示できます。  このウィンドウは、ユーザーがコンテキストを変更すると消えます。 これにより、ユーザーが別のアプリやブラウザー ウィンドウに切り替えて場所に関する情報を取得する必要がなくなります。
 マップ サービス | 観光旅行の場合は、 新しい [MapRouteOptimization.Scenic](https://docs.microsoft.com/uwp/api/windows.services.maps.maprouteoptimization) 値を使って最も景色の良い道を通るようにルートを最適化し、[MapRoute.IsScenic](https://docs.microsoft.com/uwp/api/windows.services.maps.maproute) を使って既存のルートに景色の良い道が含まれているかどうかを調べることができます。
-メディア キャプチャ | 「[MediaFrameReader を使ったメディア フレームの処理](../audio-video-camera/process-media-frames-with-mediaframereader.md)」が更新され、新しい [MultiSourceMediaFrameReader](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.multisourcemediaframereader) クラスの使用方法が追加されました。このクラスを使うと、複数のメディア ソースから時間相関フレームを取得できます。 </br></br>「[MediaFrameReader を使ったメディア フレームの処理](../audio-video-camera/process-media-frames-with-mediaframereader.md)」が更新され、バッファリングされたフレーム取得モードの説明が追加されました。このモードでは、アプリが前のフレームを処理していたときに取得したフレームを破棄せずに、取得したフレームを順番にアプリに提供することをアプリが要求できます。 </br></br>さらに、1 つ以上のメディア フレーム ソースを含むメディア フレーム ソース グループを使って **MediaCapture** オブジェクトが初期化されると、XAML ページ内の **MediaPlayerElement** コントロールにメディア フレームを表示できるようにする **[MediaSource](https://docs.microsoft.com/uwp/api/windows.media.core.mediasource)** オブジェクトを作成できます。</br></br>詳しくは、「[MediaFrameReader を使ったメディア フレームの処理](../audio-video-camera/process-media-frames-with-mediaframereader.md)」をご覧ください。
+メディアのキャプチャ | 「[MediaFrameReader を使ったメディア フレームの処理](../audio-video-camera/process-media-frames-with-mediaframereader.md)」が更新され、新しい [MultiSourceMediaFrameReader](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.multisourcemediaframereader) クラスの使用方法が追加されました。このクラスを使うと、複数のメディア ソースから時間相関フレームを取得できます。 </br></br>「[MediaFrameReader を使ったメディア フレームの処理](../audio-video-camera/process-media-frames-with-mediaframereader.md)」が更新され、バッファリングされたフレーム取得モードの説明が追加されました。このモードでは、アプリが前のフレームを処理していたときに取得したフレームを破棄せずに、取得したフレームを順番にアプリに提供することをアプリが要求できます。 </br></br>さらに、1 つ以上のメディア フレーム ソースを含むメディア フレーム ソース グループを使って **MediaCapture** オブジェクトが初期化されると、XAML ページ内の **MediaPlayerElement** コントロールにメディア フレームを表示できるようにする **[MediaSource](https://docs.microsoft.com/uwp/api/windows.media.core.mediasource)** オブジェクトを作成できます。</br></br>詳しくは、「[MediaFrameReader を使ったメディア フレームの処理](../audio-video-camera/process-media-frames-with-mediaframereader.md)」をご覧ください。
 メディア再生 | メディア再生の基本について説明する記事に、新しいセクション「[MediaPlayer を使ったオーディオとビデオの再生](../audio-video-camera/play-audio-and-video-with-mediaplayer.md)」が追加されました。 </br></br>* 「[MediaPlayer を使った球面ビデオの再生](../audio-video-camera/play-audio-and-video-with-mediaplayer.md)」セクションでは、球状にエンコードされたビデオの再生方法を示します。サポートされる形式に合わせて視野やビューの向きを調整する方法についても説明しています。 </br></br>* 「[フレーム サーバー モードでの MediaPlayer の使用](../audio-video-camera/play-audio-and-video-with-mediaplayer.md#use-mediaplayer-in-frame-server-mode)」セクションでは、[MediaPlayer](https://docs.microsoft.com/uwp/api/Windows.Media.Playback.MediaPlayer) で再生されるメディアから Direct3D サーフェスにフレームをコピーする方法を示します。 これにより、ピクセル シェーダーを使ってリアルタイムの効果を適用するといったシナリオを実現できます。 コード例では、Win2D を使ってビデオ再生にぼかし効果を適用する簡単な実装を紹介しています。
 マイ連絡先 | マイ連絡先では、ユーザーがアプリケーションから直接、タスク バーに連絡先をピン留めできます。 [ご自分のアプリケーションにマイ連絡先のサポートを追加する方法について説明します。](../contacts-and-calendar/my-people-support.md) </br></br>* [マイ連絡先の共有](../contacts-and-calendar/my-people-sharing.md)では、アプリケーションを通じて、ユーザーがタスク バーから直接ファイルを共有できます。 </br>* [マイ連絡先の通知](../contacts-and-calendar/my-people-support.md)は、ピン留めした連絡先にユーザーが通知を送信できる新しい種類のトースト通知です。
 .NET Standard 2.0 | ユニバーサル Windows プラットフォームに [.NET Standard 2.0](https://docs.microsoft.com/dotnet/standard/net-standard#net-implementation-support) が完全に実装されました。 この新しいバージョンの標準では、お気に入りの NuGet パッケージとサード パーティ製ライブラリに対する互換性 shim が追加されているだけでなく、.NET API の数が大幅に増えています。 </br></br> iOS や Android などの他のプラットフォームをターゲットとする予定の場合、またはデスクトップ アプリケーションを持っていて UWP アプリを作成したいと思っている場合は、コードを .NET Standard 2.0 クラス ライブラリに移動し、アプリの各バージョンでそのコードを再利用できます。

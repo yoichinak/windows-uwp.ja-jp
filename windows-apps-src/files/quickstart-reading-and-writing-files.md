@@ -11,12 +11,12 @@ dev_langs:
 - cppwinrt
 - cpp
 - vb
-ms.openlocfilehash: 6ff7b37eee4f2b9228a635a117e164d7d9859629
-ms.sourcegitcommit: aaa4b898da5869c064097739cf3dc74c29474691
+ms.openlocfilehash: 0dbe5e2f1cc32a3d1b52572f71fba7547af99f17
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63803618"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "74258564"
 ---
 # <a name="create-write-and-read-a-file"></a>ファイルの作成、書き込み、および読み取り
 
@@ -29,13 +29,13 @@ ms.locfileid: "63803618"
 [  **StorageFile**](/uwp/api/windows.storage.storagefile) オブジェクトを使ってファイルの読み取りと書き込みを行います。
 
 > [!NOTE]
-> 完全なサンプルについては、「[File access sample](https://go.microsoft.com/fwlink/p/?linkid=619995)」 (ファイル アクセスのサンプル) のページをご覧ください。
+> 完全なサンプルについては、「[File access sample](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/FileAccess)」 (ファイル アクセスのサンプル) のページをご覧ください。
 
 ## <a name="prerequisites"></a>前提条件
 
 -   **ユニバーサル Windows プラットフォーム (UWP) アプリの非同期プログラミングについての理解**
 
-    C# や Visual Basic での非同期アプリの作成方法については、「[C# または Visual Basic での非同期 API の呼び出し](/windows/uwp/threading-async/call-asynchronous-apis-in-csharp-or-visual-basic)」をご覧ください。 C++/WinRT での非同期アプリの作成方法については、「[C++/WinRT を使用した同時実行操作と非同期操作](/windows/uwp/cpp-and-winrt-apis/concurrency)」をご覧ください。 C++/CX での非同期アプリの記述方法については、「[C++/CX での非同期プログラミング](/windows/uwp/threading-async/asynchronous-programming-in-cpp-universal-windows-platform-apps)」をご覧ください。
+    C# や Visual Basic での非同期アプリの作成方法については、「[C# または Visual Basic での非同期 API の呼び出し](/windows/uwp/threading-async/call-asynchronous-apis-in-csharp-or-visual-basic)」をご覧ください。 C++/WinRT での非同期アプリの作成方法については、「[C++/WinRT を使用した同時開催操作と非同期操作](/windows/uwp/cpp-and-winrt-apis/concurrency)」をご覧ください。 C++/CX での非同期アプリの記述方法については、「[C++/CX での非同期プログラミング](/windows/uwp/threading-async/asynchronous-programming-in-cpp-universal-windows-platform-apps)」をご覧ください。
 
 -   **読み取り、書き込み、またはその両方の対象となるファイルを取得する方法についての知識**
 

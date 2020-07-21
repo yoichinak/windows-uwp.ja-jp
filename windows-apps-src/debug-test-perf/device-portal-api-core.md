@@ -5,14 +5,14 @@ description: Windows Device Portal コア REST API について説明します�
 ms.custom: 19H1
 ms.date: 04/19/2019
 ms.topic: article
-keywords: windows 10、uwp、デバイス ポータル
+keywords: windows 10, uwp, デバイス ポータル
 ms.localizationpriority: medium
-ms.openlocfilehash: b2e1e2dfdb1dd52e1dd07a146badd78a6bb809fa
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
-ms.translationtype: MT
+ms.openlocfilehash: 9e091cc7ad62f69b9e76541101555493609b8a06
+ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66359929"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "75955308"
 ---
 # <a name="device-portal-core-api-reference"></a>デバイス ポータル コア API リファレンス
 
@@ -26,7 +26,7 @@ ms.locfileid: "66359929"
 
 次の要求形式を使用して、アプリをインストールできます。
 
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/app/packagemanager/package |
 
@@ -36,11 +36,11 @@ ms.locfileid: "66359929"
 
 | URI パラメーター | 説明 |
 | :------          | :------ |
-| パッケージ (package)   | (**必須**) インストールするパッケージのファイル名。 |
+| パッケージ   | (**必須**) インストールするパッケージのファイル名。 |
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
@@ -59,10 +59,10 @@ ms.locfileid: "66359929"
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -75,7 +75,7 @@ ms.locfileid: "66359929"
 
 次の要求形式を使用して、[関連セット](https://blogs.msdn.microsoft.com/appinstaller/2017/05/12/tooling-to-create-a-related-set/)をインストールできます。
 
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :------ |
 | POST | /api/app/packagemanager/package |
 
@@ -85,11 +85,11 @@ ms.locfileid: "66359929"
 
 | URI パラメーター | 説明 |
 | :------          | :------ |
-| パッケージ (package)   | (**必須**) インストールするパッケージのファイル名。 |
+| パッケージ   | (**必須**) インストールするパッケージのファイル名。 |
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文** 
 - オプション パッケージをパラメーターとして指定するときは、"foo.appx.opt"、"bar.appxbundle.opt" などのようにパッケージのファイル名に ".opt" を追加します。 
@@ -108,10 +108,10 @@ ms.locfileid: "66359929"
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -124,17 +124,17 @@ ms.locfileid: "66359929"
 
 次の要求形式を使用して、アプリをルース フォルダーに登録できます。
 
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/app/packagemanager/networkapp |
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
@@ -161,9 +161,9 @@ ms.locfileid: "66359929"
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -176,17 +176,17 @@ ms.locfileid: "66359929"
 
 次の要求形式を使用して、[関連セット](https://blogs.msdn.microsoft.com/appinstaller/2017/05/12/tooling-to-create-a-related-set/)をルース フォルダーに登録できます。
 
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/app/packagemanager/networkapp |
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
@@ -222,9 +222,9 @@ ms.locfileid: "66359929"
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -237,21 +237,21 @@ ms.locfileid: "66359929"
 
 次の要求形式を使用して、現在進行中のアプリのインストールの状態を取得できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/app/packagemanager/state |
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -265,10 +265,10 @@ ms.locfileid: "66359929"
 | 204 | インストールは実行中です |
 | 404 | インストール操作は見つかりませんでした |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -281,23 +281,23 @@ ms.locfileid: "66359929"
 
 次の要求形式を使用して、アプリをアンインストールできます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
-| Del | /api/app/packagemanager/package |
+| DELETE | /api/app/packagemanager/package |
 
 **URI パラメーター**
 
 | URI パラメーター | 説明 |
 | :------          | :------ |
-| パッケージ (package)   | (**必須**) ターゲット アプリの PackageFullName (GET /api/app/packagemanager/packages から) |
+| パッケージ   | (**必須**) ターゲット アプリの PackageFullName (GET /api/app/packagemanager/packages から) |
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -311,10 +311,10 @@ ms.locfileid: "66359929"
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -327,22 +327,22 @@ ms.locfileid: "66359929"
 
 次の要求形式を使用して、システムにインストールされているアプリの一覧を取得できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/app/packagemanager/packages |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -353,7 +353,7 @@ ms.locfileid: "66359929"
         "Name": string,
         "PackageFamilyName": string,
         "PackageFullName": string,
-        "PackageOrigin": int, (https://msdn.microsoft.com/en-us/library/windows/desktop/dn313167(v=vs.85).aspx)
+        "PackageOrigin": int, (https://msdn.microsoft.com/library/windows/desktop/dn313167(v=vs.85).aspx)
         "PackageRelativeId": string,
         "Publisher": string,
         "Version": {
@@ -381,10 +381,10 @@ ms.locfileid: "66359929"
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -399,9 +399,9 @@ ms.locfileid: "66359929"
 
 **要求**
 
-次の要求形式を使用して、コンピューターにインストールされている Bluetooth 無線の一覧を取得できます。 これは、同じ JSON データを同様に、WebSocket 接続にアップグレードできます。
+次の要求形式を使用して、コンピューターにインストールされている Bluetooth 無線の一覧を取得できます。 これは、同じ JSON データを使用して、WebSocket 接続にアップグレードすることもできます。
  
-| メソッド        | 要求 URI |
+| 認証方法        | 要求 URI |
 | :------          | :------ |
 | GET           | /api/bt/getradios |
 | GET/WebSocket | /api/bt/getradios |
@@ -409,15 +409,15 @@ ms.locfileid: "66359929"
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -445,9 +445,9 @@ ms.locfileid: "66359929"
 | 4XX              | エラー コード |
 | 5XX              | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -459,7 +459,7 @@ ms.locfileid: "66359929"
 
 特定の Bluetooth 無線をオンまたはオフに設定します。
  
-| メソッド | 要求 URI |
+| 認証方法 | 要求 URI |
 | :------   | :------ |
 | POST   | /api/bt/setradio |
 
@@ -470,15 +470,15 @@ ms.locfileid: "66359929"
 | URI パラメーター | 説明 |
 | :------          | :------ |
 | ID            | (**必須**) Bluetooth 無線のデバイス ID であり、base 64 でエンコードされている必要があります。 |
-| 状態         | (**必要**) これは、`"On"`または`"Off"`します。 |
+| State         | (**必須**) これは、`"On"` または `"Off"` にすることができます。 |
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -492,39 +492,39 @@ ms.locfileid: "66359929"
 | 4XX              | エラー コード |
 | 5XX              | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
 ---
-### <a name="get-a-list-of-paired-bluetooth-devices"></a>ペアリングされた Bluetooth デバイスの一覧を取得します。
+### <a name="get-a-list-of-paired-bluetooth-devices"></a>ペアリングした Bluetooth デバイスの一覧を取得する
 
 **要求**
 
-次の要求形式を使用して、ペアになっている現在の Bluetooth デバイスの一覧を取得できます。 これは、同じ JSON データで WebSocket 接続にアップグレードできます。 WebSocket 接続の有効期間中、デバイスの一覧を変更できます。 デバイスの完全な一覧は、更新プログラムがあるたびに WebSocket 接続経由で送信されます。
+現在ペアリングされている Bluetooth デバイスの一覧を取得するには、次の要求形式を使用します。 これは、同じ JSON データを使用して、WebSocket 接続にアップグレードすることもできます。 WebSocket 接続の有効期間中、デバイスの一覧が変更される可能性があります。 更新が行われるたびに、WebSocket 接続を介してデバイスの完全な一覧が送信されます。
 
-| メソッド        | 要求 URI       |
+| 認証方法        | 要求 URI       |
 | :---          | :---              |
 | GET           | /api/bt/getpaired |
 | GET/WebSocket | /api/bt/getpaired |
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
-応答には、現在はペアになっている Bluetooth デバイスの JSON 配列が含まれています。
+応答には、現在ペアリングされている Bluetooth デバイスの JSON 配列が含まれます。
 ```json
 {"PairedDevices": [
     {
@@ -534,35 +534,35 @@ ms.locfileid: "66359929"
     },...
 ]}
 ```
-*AudioConnectionStatus*フィールドが存在するは、このシステムでのオーディオ デバイスを使用できる場合になります。 (ポリシーと省略可能なコンポーネントが影響。)*AudioConnectionStatus* 「接続済み」または「切断」のいずれかになります。
+デバイスをこのシステムのオーディオに使用できる場合は、*AudioConnectionStatus* フィールドが表示されます  (ポリシーとオプションのコンポーネントがこの影響を受ける可能性があります)。*AudioConnectionStatus* は、"Connected" または "Disconnected" のいずれかです。
 
 ---
-### <a name="get-a-list-of-available-bluetooth-devices"></a>使用可能な Bluetooth デバイスの一覧を取得します。
+### <a name="get-a-list-of-available-bluetooth-devices"></a>利用可能な Bluetooth デバイスの一覧を取得する
 
 **要求**
 
-次の要求形式を使用してペアリングの Bluetooth デバイスの一覧を取得することができます。 これは、同じ JSON データで WebSocket 接続にアップグレードできます。 WebSocket 接続の有効期間中、デバイスの一覧を変更できます。 デバイスの完全な一覧は、更新プログラムがあるたびに WebSocket 接続経由で送信されます。
+ペアリングに使用できる Bluetooth デバイスの一覧を取得するには、次の要求形式を使用します。 これは、同じ JSON データを使用して、WebSocket 接続にアップグレードすることもできます。 WebSocket 接続の有効期間中、デバイスの一覧が変更される可能性があります。 更新が行われるたびに、WebSocket 接続を介してデバイスの完全な一覧が送信されます。
 
-| メソッド        | 要求 URI          |
+| 認証方法        | 要求 URI          |
 | :---          | :---                 |
 | GET           | /api/bt/getavailable |
 | GET/WebSocket | /api/bt/getavailable |
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
-応答には、ペアリングには現在使用できる Bluetooth デバイスの JSON 配列が含まれています。
+応答には、現在ペアリングに利用可能な Bluetooth デバイスの JSON 配列が含まれます。
 ```json
 {"AvailableDevices": [
     {
@@ -573,13 +573,13 @@ ms.locfileid: "66359929"
 ```
 
 ---
-### <a name="connect-a-bluetooth-device"></a>Bluetooth デバイスを接続します。
+### <a name="connect-a-bluetooth-device"></a>Bluetooth デバイスを接続する
 
 **要求**
 
-このシステムでのオーディオ デバイスを使用できる場合、デバイスに接続されます。 (ポリシーと省略可能なコンポーネントが影響。)
+デバイスをこのシステムのオーディオに使用できる場合、デバイスに接続します  (ポリシーとオプションのコンポーネントがこの影響を受ける可能性があります)。
 
-| メソッド       | 要求 URI           |
+| 認証方法       | 要求 URI           |
 | :---         | :---                  |
 | POST         | /api/bt/connectdevice |
 
@@ -587,15 +587,15 @@ ms.locfileid: "66359929"
 
 | URI パラメーター | 説明 |
 | :---          | :--- |
-| ID            | (**必要**)、Bluetooth デバイスの関連付けのエンドポイント ID と Base64 でエンコードする必要があります。 |
+| ID            | (**必須**) Bluetooth デバイスのアソシエーション エンドポイント ID。Base64 でエンコードされている必要があります。 |
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -609,21 +609,21 @@ ms.locfileid: "66359929"
 | 4XX              | エラー コード |
 | 5XX              | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
 
 ---
-### <a name="disconnect-a-bluetooth-device"></a>Bluetooth デバイスを切断します。
+### <a name="disconnect-a-bluetooth-device"></a>Bluetooth デバイスを切断する
 
 **要求**
 
-このシステムでのオーディオ デバイスを使用できる場合、デバイスが切断されます。 (ポリシーと省略可能なコンポーネントが影響。)
+デバイスをこのシステムのオーディオに使用できる場合は、デバイスを切断します  (ポリシーとオプションのコンポーネントがこの影響を受ける可能性があります)。
 
-| メソッド       | 要求 URI              |
+| 認証方法       | 要求 URI              |
 | :---         | :---                     |
 | POST         | /api/bt/disconnectdevice |
 
@@ -631,15 +631,15 @@ ms.locfileid: "66359929"
 
 | URI パラメーター | 説明 |
 | :---          | :--- |
-| ID            | (**必要**)、Bluetooth デバイスの関連付けのエンドポイント ID と Base64 でエンコードする必要があります。 |
+| ID            | (**必須**) Bluetooth デバイスのアソシエーション エンドポイント ID。Base64 でエンコードされている必要があります。 |
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -653,9 +653,9 @@ ms.locfileid: "66359929"
 | 4XX              | エラー コード |
 | 5XX              | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -669,21 +669,21 @@ ms.locfileid: "66359929"
 
 次の要求形式を使用して、コンピューターにインストールされているデバイスの一覧を取得できます。
 
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/devicemanager/devices |
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -712,10 +712,10 @@ ms.locfileid: "66359929"
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * IoT
 
 <hr>
@@ -726,22 +726,22 @@ ms.locfileid: "66359929"
 
 次の要求形式を使用して、接続された USB デバイスおよびハブの USB 記述子の一覧を取得できます。
 
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /ext/devices/usbdevices |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -762,7 +762,7 @@ ms.locfileid: "66359929"
 }
 ```
 
-**サンプル データを返す**
+**返されるデータのサンプル**
 ```json
 {
     "DeviceList": [{
@@ -798,9 +798,9 @@ ms.locfileid: "66359929"
 |  200 | OK | 
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * IoT
 
 <hr>
@@ -815,22 +815,22 @@ ms.locfileid: "66359929"
 
 次の要求形式を使用して、サイドローディングされたすべてのアプリについて、利用可能なすべてのクラッシュ ダンプの一覧を取得できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/debug/dump/usermode/dumps |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -846,10 +846,10 @@ ms.locfileid: "66359929"
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Window Mobile (Windows Insider Program のみ)
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -861,7 +861,7 @@ ms.locfileid: "66359929"
 
 次の要求形式を使用して、サイドローディングされたアプリのクラッシュ ダンプ収集設定を取得できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/debug/dump/usermode/crashcontrol |
 
@@ -876,11 +876,11 @@ ms.locfileid: "66359929"
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -899,10 +899,10 @@ ms.locfileid: "66359929"
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Window Mobile (Windows Insider Program のみ)
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -914,9 +914,9 @@ ms.locfileid: "66359929"
 
 次の要求形式を使用して、サイドローディングされたアプリのクラッシュ ダンプを削除できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
-| Del | /api/debug/dump/usermode/crashdump |
+| DELETE | /api/debug/dump/usermode/crashdump |
 
 
 **URI パラメーター**
@@ -930,11 +930,11 @@ ms.locfileid: "66359929"
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -948,10 +948,10 @@ ms.locfileid: "66359929"
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Window Mobile (Windows Insider Program のみ)
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -963,9 +963,9 @@ ms.locfileid: "66359929"
 
 次の要求形式を使用して、サイドローディングされたアプリのクラッシュ ダンプを無効にすることができます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
-| Del | /api/debug/dump/usermode/crashcontrol |
+| DELETE | /api/debug/dump/usermode/crashcontrol |
 
 
 **URI パラメーター**
@@ -978,11 +978,11 @@ ms.locfileid: "66359929"
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -996,10 +996,10 @@ ms.locfileid: "66359929"
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Window Mobile (Windows Insider Program のみ)
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -1011,7 +1011,7 @@ ms.locfileid: "66359929"
 
 次の要求形式を使用して、サイドローディングされたアプリのクラッシュ ダンプをダウンロードできます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/debug/dump/usermode/crashdump |
 
@@ -1027,11 +1027,11 @@ ms.locfileid: "66359929"
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -1047,10 +1047,10 @@ ms.locfileid: "66359929"
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Window Mobile (Windows Insider Program のみ)
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -1062,7 +1062,7 @@ ms.locfileid: "66359929"
 
 次の要求形式を使用して、サイドローディングされたアプリのクラッシュ ダンプを有効にすることができます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/debug/dump/usermode/crashcontrol |
 
@@ -1077,11 +1077,11 @@ ms.locfileid: "66359929"
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -1093,10 +1093,10 @@ ms.locfileid: "66359929"
 | :------     | :----- |
 |  200 | OK | 
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Window Mobile (Windows Insider Program のみ)
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -1108,22 +1108,22 @@ ms.locfileid: "66359929"
 
 次の要求形式を使用して、バグチェックのミニダンプ ファイルの一覧を取得できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/debug/dump/kernel/dumplist |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -1145,9 +1145,9 @@ ms.locfileid: "66359929"
 | :------     | :----- |
 |  200 | OK | 
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * IoT
 
 <hr>
@@ -1158,7 +1158,7 @@ ms.locfileid: "66359929"
 
 次の要求形式を使用して、バグチェックのダンプ ファイルをダウンロードできます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/debug/dump/kernel/dump |
 
@@ -1174,11 +1174,11 @@ ms.locfileid: "66359929"
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -1194,9 +1194,9 @@ ms.locfileid: "66359929"
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * IoT
 
 <hr>
@@ -1207,22 +1207,22 @@ ms.locfileid: "66359929"
 
 次の要求形式を使用して、バグチェックのクラッシュ制御の設定を取得できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/debug/dump/kernel/crashcontrol |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -1238,13 +1238,13 @@ ms.locfileid: "66359929"
 
 **ダンプの種類**
 
-0:Disabled
+0: 無効
 
-1:完全メモリ ダンプを (すべての使用中のメモリを収集します)
+1:完全なメモリ ダンプ (使用中のすべてのメモリを収集)
 
-2:カーネル メモリ ダンプが (ユーザー モードのメモリは無視されます)
+2:カーネル メモリ ダンプ (ユーザー モード メモリは無視)
 
-3:制限付きのカーネルのミニダンプ
+3:制限付きカーネル ミニダンプ
 
 **状態コード**
 
@@ -1256,9 +1256,9 @@ ms.locfileid: "66359929"
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * IoT
 
 <hr>
@@ -1269,22 +1269,22 @@ ms.locfileid: "66359929"
 
 次の要求形式を使用して、ライブ カーネル ダンプを取得できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/debug/dump/livekernel |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -1300,9 +1300,9 @@ ms.locfileid: "66359929"
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * IoT
 
 <hr>
@@ -1313,7 +1313,7 @@ ms.locfileid: "66359929"
 
 次の要求形式を使用して、ライブ ユーザー プロセスのダンプを取得できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/debug/dump/usermode/live |
 
@@ -1328,11 +1328,11 @@ ms.locfileid: "66359929"
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -1348,9 +1348,9 @@ ms.locfileid: "66359929"
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * IoT
 
 <hr>
@@ -1361,7 +1361,7 @@ ms.locfileid: "66359929"
 
 次の要求形式を使用して、バグチェック データの収集に関する設定を行うことができます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/debug/dump/kernel/crashcontrol |
 
@@ -1379,11 +1379,11 @@ ms.locfileid: "66359929"
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -1397,9 +1397,9 @@ ms.locfileid: "66359929"
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * IoT
 
 <hr>
@@ -1414,22 +1414,22 @@ ms.locfileid: "66359929"
 
 次の要求形式を使用して、リアルタイムの ETW セッションを作成できます。 これは、websocket 経由で管理されます。  ETW イベントは、サーバーで一括処理され、1 秒に 1 回クライアントに送信されます。 
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET/WebSocket | /api/etw/session/realtime |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -1445,10 +1445,10 @@ ms.locfileid: "66359929"
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -1480,7 +1480,7 @@ ms.locfileid: "66359929"
 
 payload objects は、追加のキーと値のペア (文字列: 文字列) で、元の ETW イベントから提供されます。
 
-以下に例を示します。
+例:
 ```json
 {
     "ID" : 42, 
@@ -1509,22 +1509,22 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 
 次の要求形式を使用して、登録済みプロバイダーを列挙できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/etw/providers |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -1546,10 +1546,10 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 | :------     | :----- |
 |  200 | OK | 
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -1561,22 +1561,22 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 
 次の要求形式を使用して、登録済みプロバイダーを列挙できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/etw/customproviders |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -1595,16 +1595,16 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 
 - 標準の状態コード。
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
 <hr>
 
-## <a name="location"></a>Location
+## <a name="location"></a>インストール先
 
 <hr>
 
@@ -1614,22 +1614,22 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 
 次の要求型式を使用して、デバイスの場所スタック上書き状態を取得できます。 この呼び出しを成功させるには、開発者モードを有効にしておく必要があります。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /ext/location/override |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -1649,10 +1649,10 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -1663,18 +1663,18 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 
 次の要求型式を使用して、デバイスの場所スタック上書き状態を設定できます。 有効になっている場合は、場所スタックによって位置挿入が許可されます。 この呼び出しを成功させるには、開発者モードを有効にしておく必要があります。
 
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | PUT | /ext/location/override |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
@@ -1700,10 +1700,10 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -1714,22 +1714,22 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 
 次の要求型式を使用して、デバイスの挿入 (スプーフィング) された場所を取得できます。 挿入された場所を設定する必要があります。設定されなかった場合は、エラーがスローされます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /ext/location/position |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -1752,10 +1752,10 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -1766,18 +1766,18 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 
 次の要求型式を使用して、デバイスの挿入 (スプーフィング) された場所を設定できます。 あらかじめデバイス上で場所の上書きモードが有効になっており、設定される場所も有効である必要があります。それ以外の場合はエラーがスローされます。
 
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | PUT | /ext/location/override |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
@@ -1809,10 +1809,10 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -1829,22 +1829,22 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 
 次の要求形式を使用して、コンピューターの名前を取得できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/os/machinename |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -1864,10 +1864,10 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -1880,22 +1880,22 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 
 次の要求形式を使用して、コンピューターの OS 情報を取得できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/os/info |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -1921,10 +1921,10 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -1937,22 +1937,22 @@ payload objects は、追加のキーと値のペア (文字列: 文字列) で�
 
 次の要求形式を使用して、デバイス ファミリ (Xbox、携帯電話、デスクトップなど) を取得できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/os/devicefamily |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -1976,10 +1976,10 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -1992,7 +1992,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 次の要求形式を使用して、コンピューターの名前を設定できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/os/machinename |
 
@@ -2003,15 +2003,15 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | URI パラメーター | 説明 |
 | :------          | :------ |
-| name | (**必須**) コンピューターの新しい名前。 |
+| name | (**必須**) コンピューターの新しい名前。 base64 でエンコードされている必要があります。 |
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -2023,10 +2023,10 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | :------     | :----- |
 | 200 | OK |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -2043,22 +2043,22 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 次の要求形式を使用して、デバイスのアクティブ ユーザーの名前を取得できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/users/activeuser |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -2091,9 +2091,9 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -2109,7 +2109,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 次の要求形式を使用して、現在実行中のプロセスの一覧を取得できます。  これは、WebSocket 接続にアップグレードすることもでき、1 秒に 1 度クライアントにプッシュされる同じ JSON データを取得できます。 
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/resourcemanager/processes |
 | GET/WebSocket | /api/resourcemanager/processes |
@@ -2117,15 +2117,15 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -2156,10 +2156,10 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -2171,7 +2171,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 次の要求形式を使用して、システム パフォーマンスの統計情報を取得できます。 これには、読み取りと書き込みのサイクルや、使用されているメモリの量などの情報が含まれます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/resourcemanager/systemperf |
 | GET/WebSocket | /api/resourcemanager/systemperf |
@@ -2180,15 +2180,15 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -2235,10 +2235,10 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -2255,22 +2255,22 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 次の要求形式を使用して、バッテリの現在の状態を取得できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/power/battery |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -2298,10 +2298,10 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -2313,22 +2313,22 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 次の要求形式を使用して、アクティブな電源設定を取得できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/power/activecfg |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -2347,9 +2347,9 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * IoT
 
 <hr>
@@ -2360,7 +2360,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 次の要求形式を使用して、電源設定のサブ値を取得できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/power/cfg/ *<power scheme path>* |
 
@@ -2369,11 +2369,11 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
@@ -2391,9 +2391,9 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * IoT
 
 <hr>
@@ -2404,22 +2404,22 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 次の要求形式を使用して、システムの電源状態を確認できます。 これによって、低電力状態になっているかどうかを確認できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/power/state |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -2438,9 +2438,9 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -2452,7 +2452,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 次の要求形式を使用して、アクティブな電源設定を設定できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/power/activecfg |
 
@@ -2467,11 +2467,11 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -2485,9 +2485,9 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * IoT
 
 <hr>
@@ -2498,7 +2498,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 次の要求形式を使用して、電源設定のサブ値を設定できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/power/cfg/ *<power scheme path>* |
 
@@ -2514,11 +2514,11 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -2530,9 +2530,9 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | :------     | :----- |
 | 200 | OK |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * IoT
 
 <hr>
@@ -2541,7 +2541,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 **要求**
 
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/power/sleepstudy/report |
 
@@ -2554,11 +2554,11 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -2574,9 +2574,9 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * IoT
 
 <hr>
@@ -2587,22 +2587,22 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 次の要求形式を使用して、利用可能な SleepStudy レポートを列挙できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/power/sleepstudy/reports |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -2626,9 +2626,9 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * IoT
 
 <hr>
@@ -2639,22 +2639,22 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 次の要求形式を使用して、スリープ スタディ変換を取得できます。 この変換は、SleepStudy レポートを、ユーザーが読み取ることができる XML 形式に変換する XSLT です。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/power/sleepstudy/transform |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -2670,14 +2670,14 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * IoT
 
 <hr>
 
-## <a name="remote-control"></a>リモコン
+## <a name="remote-control"></a>リモート コントロール
 
 <hr>
 
@@ -2687,22 +2687,22 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 次の要求形式を使用して、ターゲット コンピューターを再起動できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/control/restart |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -2714,10 +2714,10 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | :------     | :----- |
 | 200 | OK |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -2730,22 +2730,22 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 次の要求形式を使用して、ターゲット コンピューターをシャット ダウンできます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/control/shutdown |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -2759,10 +2759,10 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -2779,7 +2779,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 次の要求形式を使用して、最新のアプリを起動できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/taskmanager/app |
 
@@ -2791,15 +2791,15 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | URI パラメーター | 説明 |
 | :---          | :--- |
 | appid   | (**必須**) 起動するアプリの PRAID。 この値は、hex64 エンコードされている必要があります。 |
-| パッケージ (package)   | (**必須**) 起動するアプリ パッケージの完全な名前。 この値は、hex64 エンコードされている必要があります。 |
+| パッケージ   | (**必須**) 起動するアプリ パッケージの完全な名前。 この値は、hex64 エンコードされている必要があります。 |
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -2813,10 +2813,10 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -2829,9 +2829,9 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 次の要求形式を使用して、最新のアプリを停止できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
-| Del | /api/taskmanager/app |
+| DELETE | /api/taskmanager/app |
 
 
 **URI パラメーター**
@@ -2840,16 +2840,16 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | URI パラメーター | 説明 |
 | :---          | :--- |
-| パッケージ (package)   | (**必須**) 停止するアプリ パッケージの完全な名前。 この値は、hex64 エンコードされている必要があります。 |
+| パッケージ   | (**必須**) 停止するアプリ パッケージの完全な名前。 この値は、hex64 エンコードされている必要があります。 |
 | forcestop   | (**オプション**) 値が **yes** の場合は、システムがすべてのプロセスを強制的に停止することを示します。 |
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -2863,10 +2863,10 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -2879,9 +2879,9 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 次の要求形式を使用して、プロセスを強制終了できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
-| Del | /api/taskmanager/process |
+| DELETE | /api/taskmanager/process |
 
 
 **URI パラメーター**
@@ -2894,11 +2894,11 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -2912,9 +2912,9 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -2930,22 +2930,22 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 次の要求形式を使用して、現在の IP 構成を取得できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/networking/ipconfig |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -3001,23 +3001,23 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
 
 <hr>
 
-### <a name="set-a-static-ip-address-ipv4-configuration"></a>静的 IP アドレス (IPV4 構成) の設定します。
+### <a name="set-a-static-ip-address-ipv4-configuration"></a>静的 IP アドレスを設定する (IPV4 構成)
 
 **要求**
 
-静的 IP と DNS で IPV4 構成を設定します。 静的 IP が指定されていない場合は、DHCP が使用できます。 静的 IP が指定されている場合は、DNS も指定する必要があります。
+静的 IP と DNS を使用して IPV4 構成を設定します。 静的 IP を指定しない場合、DHCP が有効になります。 静的 IP を指定する場合、DNS も指定する必要があります。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | PUT | /api/networking/ipv4config |
 
@@ -3026,14 +3026,14 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 | URI パラメーター | 説明 |
 | :---          | :--- |
-| AdapterName | (**必要**) ネットワーク インターフェイスの GUID。 |
+| AdapterName | (**必須**) ネットワーク インターフェイスの GUID。 |
 | IPAddress | 設定する静的 IP アドレス。 |
-| サブネット マスク | (**必要**場合*IPAddress*が null でない)、静的なサブネット マスク。 |
-| DefaultGateway | (**必要**場合*IPAddress*が null でない)、静的な既定ゲートウェイ。 |
-| PrimaryDNS | (**必要**場合*IPAddress*が null でない) を設定する静的なプライマリ DNS。 |
-| SecondayDNS | (**必要**場合*PrimaryDNS*が null でない) を設定する静的セカンダリ DNS。 |
+| SubnetMask | (*IPAddress* が null でない場合は**必須**) 静的サブネット マスク。 |
+| DefaultGateway | (*IPAddress* が null でない場合は**必須**) 既定の静的ゲートウェイ。 |
+| PrimaryDNS | (*IPAddress* が null でない場合は**必須**) 設定する静的プライマリ DNS。 |
+| SecondayDNS | (*PrimaryDNS* が null でない場合は**必須**) 設定する静的セカンダリ DNS。 |
 
-わかりやすくするため、DHCP にインターフェイスを設定するシリアル化、`AdapterName`ネットワーク上で。
+わかりやすくするために、インターフェイスを DHCP に設定するには、ネットワーク上の `AdapterName` のみをシリアル化します。
 
 ```json
 {
@@ -3043,11 +3043,11 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -3061,10 +3061,10 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -3077,22 +3077,22 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 次の要求形式を使用して、利用可能なワイヤレス ネットワーク インターフェイスを列挙できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/wifi/interfaces |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -3124,10 +3124,10 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -3140,7 +3140,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 次の要求形式を使用して、指定されたインターフェイスのワイヤレス ネットワークの一覧を列挙できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/wifi/networks |
 
@@ -3155,11 +3155,11 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -3171,7 +3171,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
         "AlreadyConnected": bool,
         "AuthenticationAlgorithm": string, (WPA2, etc)
         "Channel": int,
-        "CipherAlgorithm": string, (e.g. AES)
+        "CipherAlgorithm": string, (for example, AES)
         "Connectable": int, (0 | 1)
         "InfrastructureType": string,
         "ProfileAvailable": bool,
@@ -3195,10 +3195,10 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -3211,7 +3211,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 次の要求形式を使用して、Wi-Fi ネットワークを接続および切断できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/wifi/network |
 
@@ -3230,11 +3230,11 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -3246,10 +3246,10 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | :------     | :----- |
 | 200 | OK |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -3262,9 +3262,9 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 次の要求形式を使用して、特定のインターフェイス上のネットワークに関連付けられたプロファイルを削除できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
-| Del | /api/wifi/profile |
+| DELETE | /api/wifi/profile |
 
 
 **URI パラメーター**
@@ -3278,11 +3278,11 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -3294,10 +3294,10 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | :------     | :----- |
 | 200 | OK |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -3314,7 +3314,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 次の要求形式を使用して、WER 関連のファイルをダウンロードできます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/wer/report/file |
 
@@ -3326,17 +3326,17 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | URI パラメーター | 説明 |
 | :------          | :------ |
 | ユーザー   | (**必須**) レポートに関連付けられたユーザー名。 |
-| type   | (**必須**) レポートの種類。 これは **queried** または **archived** のいずれかになります。 |
+| 型   | (**必須**) レポートの種類。 これは **queried** または **archived** のいずれかになります。 |
 | name   | (**必須**) レポートの名前。 base64 でエンコードされている必要があります。 |
 | ファイル   | (**必須**) レポートからダウンロードするファイルの名前。 base64 でエンコードされている必要があります。 |
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -3352,9 +3352,9 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -3366,7 +3366,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 次の要求形式を使用して、WER レポート内のファイルを列挙できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/wer/report/files |
 
@@ -3378,12 +3378,12 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | URI パラメーター | 説明 |
 | :------          | :------ |
 | ユーザー   | (**必須**) レポートに関連付けられたユーザー。 |
-| type   | (**必須**) レポートの種類。 これは **queried** または **archived** のいずれかになります。 |
+| 型   | (**必須**) レポートの種類。 これは **queried** または **archived** のいずれかになります。 |
 | name   | (**必須**) レポートの名前。 base64 でエンコードされている必要があります。 |
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
@@ -3408,9 +3408,9 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -3422,22 +3422,22 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 次の要求形式を使用して、WER レポートを取得できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/wer/reports |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -3467,9 +3467,9 @@ WER 報告の形式は次のとおりです。
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -3485,18 +3485,18 @@ WER 報告の形式は次のとおりです。
 
 次の要求形式を使用して、WPR プロファイルをアップロードし、そのプロファイルを使用してトレースを開始できます。  一度に実行できるトレースは 1 つのみです。 プロファイルはデバイス上に残りません。 
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/wpr/customtrace |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
@@ -3523,10 +3523,10 @@ WPR セッション状態の形式は次のとおりです。
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -3538,7 +3538,7 @@ WPR セッション状態の形式は次のとおりです。
 
 次の要求形式を使用して、WPR の起動トレース セッションを開始できます。 これは、パフォーマンス トレース セッションとも呼びます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/wpr/boottrace |
 
@@ -3553,11 +3553,11 @@ WPR セッション状態の形式は次のとおりです。
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -3580,10 +3580,10 @@ WPR セッション状態の形式は次のとおりです。
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -3595,26 +3595,26 @@ WPR セッション状態の形式は次のとおりです。
 
 次の要求形式を使用して、WPR の起動トレース セッションを停止できます。 これは、パフォーマンス トレース セッションとも呼びます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/wpr/boottrace |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
--  なし。  **注:** これは、実行時間の長い操作です。  ETL のディスクへの書き込みが終了すると、制御が戻ります。
+-  なし。  **注:** これは時間のかかる操作です。  ETL のディスクへの書き込みが終了すると、制御が戻ります。
 
 **状態コード**
 
@@ -3626,10 +3626,10 @@ WPR セッション状態の形式は次のとおりです。
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -3641,7 +3641,7 @@ WPR セッション状態の形式は次のとおりです。
 
 次の要求形式を使用して、WPR のトレース セッションを開始できます。 これは、パフォーマンス トレース セッションとも呼びます。  一度に実行できるトレースは 1 つのみです。 
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/wpr/trace |
 
@@ -3656,11 +3656,11 @@ WPR セッション状態の形式は次のとおりです。
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -3683,10 +3683,10 @@ WPR セッション状態の形式は次のとおりです。
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -3698,26 +3698,26 @@ WPR セッション状態の形式は次のとおりです。
 
 次の要求形式を使用して、WPR のトレース セッションを停止できます。 これは、パフォーマンス トレース セッションとも呼びます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/wpr/trace |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
-- なし。  **注:** これは、実行時間の長い操作です。  ETL のディスクへの書き込みが終了すると、制御が戻ります。  
+- なし。  **注:** これは時間のかかる操作です。  ETL のディスクへの書き込みが終了すると、制御が戻ります。  
 
 **状態コード**
 
@@ -3729,10 +3729,10 @@ WPR セッション状態の形式は次のとおりです。
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -3744,22 +3744,22 @@ WPR セッション状態の形式は次のとおりです。
 
 次の要求形式を使用して、現在の WPR セッションの状態を取得できます。
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/wpr/status |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -3782,10 +3782,10 @@ WPR トレース セッションの状態の形式は次のとおりです。
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -3797,22 +3797,22 @@ WPR トレース セッションの状態の形式は次のとおりです。
 
 次の要求形式を使用して、デバイス上の ETL トレースの一覧を取得できます。 
 
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/wpr/tracefiles |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -3840,10 +3840,10 @@ WPR トレース セッションの状態の形式は次のとおりです。
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -3855,7 +3855,7 @@ WPR トレース セッションの状態の形式は次のとおりです。
 
 次の要求形式を使用して、トレースファイル (ブート トレースまたはユーザー モード トレース) をダウンロードできます。 
 
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/wpr/tracefile |
 
@@ -3870,11 +3870,11 @@ WPR トレース セッションの状態の形式は次のとおりです。
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -3890,10 +3890,10 @@ WPR トレース セッションの状態の形式は次のとおりです。
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -3905,9 +3905,9 @@ WPR トレース セッションの状態の形式は次のとおりです。
 
 次の要求形式を使用して、トレースファイル (ブート トレースまたはユーザー モード トレース) を削除できます。 
 
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
-| Del | /api/wpr/tracefile |
+| DELETE | /api/wpr/tracefile |
 
 
 **URI パラメーター**
@@ -3920,11 +3920,11 @@ WPR トレース セッションの状態の形式は次のとおりです。
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -3940,10 +3940,10 @@ WPR トレース セッションの状態の形式は次のとおりです。
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * IoT
 
@@ -3959,22 +3959,22 @@ WPR トレース セッションの状態の形式は次のとおりです。
 
 デバイスに現在適用されているタグを表示します。  これらのタグは、T キー内の DNS-SD TXT レコードを使用してアドバタイズされます。  
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/dns-sd/tags |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答** 現在適用されているタグの形式は次のとおりです。 
 ```json
@@ -3997,10 +3997,10 @@ WPR トレース セッションの状態の形式は次のとおりです。
 | 5XX | サーバー エラー |
 
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -4013,25 +4013,25 @@ WPR トレース セッションの状態の形式は次のとおりです。
 
 DNS-SD によって現在アドバタイズされているすべてのタグを削除します。   
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
-| Del | /api/dns-sd/tags |
+| DELETE | /api/dns-sd/tags |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
- - なし
+ - None
 
 **状態コード**
 
@@ -4043,10 +4043,10 @@ DNS-SD によって現在アドバタイズされているすべてのタグを�
 | 5XX | サーバー エラー |
 
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -4059,9 +4059,9 @@ DNS-SD によって現在アドバタイズされているすべてのタグを�
 
 DNS-SD によって現在アドバタイズされている 1 つのタグを削除します。   
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
-| Del | /api/dns-sd/tag |
+| DELETE | /api/dns-sd/tag |
 
 
 **URI パラメーター**
@@ -4072,14 +4072,14 @@ DNS-SD によって現在アドバタイズされている 1 つのタグを削�
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
- - なし
+ - None
 
 **状態コード**
 
@@ -4090,10 +4090,10 @@ DNS-SD によって現在アドバタイズされている 1 つのタグを削�
 | 200 | OK |
 
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -4106,7 +4106,7 @@ DNS-SD によって現在アドバタイズされている 1 つのタグを削�
 
 DNS-SD アドバタイズにタグを追加します。   
  
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/dns-sd/tag |
 
@@ -4119,14 +4119,14 @@ DNS-SD アドバタイズにタグを追加します。
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
- - なし
+ - None
 
 **状態コード**
 
@@ -4138,10 +4138,10 @@ DNS-SD アドバタイズにタグを追加します。
 | 401 | タグ領域のオーバーフロー。  提供されたタグが、結果として生成される DNS-SD サービス レコードに対して長すぎます。 |
 
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * Xbox
 * HoloLens
 * IoT
@@ -4156,22 +4156,22 @@ DNS-SD アドバタイズにタグを追加します。
 
 アクセス可能なトップ レベル フォルダーの一覧を取得します。
 
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/filesystem/apps/knownfolders |
 
 
 **URI パラメーター**
 
-- なし
+- None
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答** 利用可能なフォルダーの形式は次のとおりです。 
 ```json
@@ -4191,10 +4191,10 @@ DNS-SD アドバタイズにタグを追加します。
 | 5XX | エラー コード |
 
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * Xbox
 * IoT
@@ -4207,7 +4207,7 @@ DNS-SD アドバタイズにタグを追加します。
 
 フォルダー内のファイルの一覧を取得します。
 
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/filesystem/apps/files |
 
@@ -4218,15 +4218,15 @@ DNS-SD アドバタイズにタグを追加します。
 | :------     | :----- |
 | knownfolderid | (**必須**) 必要なファイルの一覧の対象となるトップレベル ディレクトリ。 サイドロードされたアプリにアクセスするには、**LocalAppData** を使用します。 |
 | packagefullname | ( ***knownfolderid* == LocalAppData の場合は必須**) 対象となるアプリのパッケージのフルネーム。 |
-| path | (**オプション**) 上で指定したフォルダーまたはパッケージ内のサブディレクトリ。 |
+| パス | (**オプション**) 上で指定したフォルダーまたはパッケージ内のサブディレクトリ。 |
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答** 利用可能なフォルダーの形式は次のとおりです。 
 ```json
@@ -4252,10 +4252,10 @@ DNS-SD アドバタイズにタグを追加します。
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * Xbox
 * IoT
@@ -4268,7 +4268,7 @@ DNS-SD アドバタイズにタグを追加します。
 
 既知のフォルダーまたは appLocalData からファイルを取得します。
 
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | GET | /api/filesystem/apps/file |
 
@@ -4279,11 +4279,11 @@ DNS-SD アドバタイズにタグを追加します。
 | knownfolderid | (**必須**) ファイルをダウンロードするトップレベル ディレクトリ。 サイドロードされたアプリにアクセスするには、**LocalAppData** を使用します。 |
 | &lt;ファイル名&gt; | (**必須**) ダウンロードするファイルの名前。 |
 | packagefullname | ( ***knownfolderid* == LocalAppData の場合は必須**) 対象となるパッケージのフルネーム。 |
-| path | (**オプション**) 上で指定したフォルダーまたはパッケージ内のサブディレクトリ。 |
+| パス | (**オプション**) 上で指定したフォルダーまたはパッケージ内のサブディレクトリ。 |
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
@@ -4301,10 +4301,10 @@ DNS-SD アドバタイズにタグを追加します。
 | 404 | ファイルが見つからない |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * Xbox
 * IoT
@@ -4317,7 +4317,7 @@ DNS-SD アドバタイズにタグを追加します。
 
 フォルダー内のファイルの名前を変更します。
 
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/filesystem/apps/rename |
 
@@ -4330,19 +4330,19 @@ DNS-SD アドバタイズにタグを追加します。
 | &lt;ファイル名&gt; | (**必須**) 名前を変更するファイルの元の名前。 |
 | newfilename | (**必須**) ファイルの新しい名前。|
 | packagefullname | ( ***knownfolderid* == LocalAppData の場合は必須**) 対象となるアプリのパッケージのフルネーム。 |
-| path | (**オプション**) 上で指定したフォルダーまたはパッケージ内のサブディレクトリ。 |
+| パス | (**オプション**) 上で指定したフォルダーまたはパッケージ内のサブディレクトリ。 |
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
-- なし
+- None
 
 **状態コード**
 
@@ -4350,14 +4350,14 @@ DNS-SD アドバタイズにタグを追加します。
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |. ファイルの名前が変更されました
+| 200 | OK |。 ファイルの名前が変更されました
 | 404 | ファイルが見つからない |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * Xbox
 * IoT
@@ -4370,9 +4370,9 @@ DNS-SD アドバタイズにタグを追加します。
 
 フォルダー内のファイルを削除します。
 
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
-| Del | /api/filesystem/apps/file |
+| DELETE | /api/filesystem/apps/file |
 
 **URI パラメーター**
 
@@ -4381,19 +4381,19 @@ DNS-SD アドバタイズにタグを追加します。
 | knownfolderid | (**必須**) ファイルを削除するトップレベル ディレクトリ。 サイドロードされたアプリにアクセスするには、**LocalAppData** を使用します。 |
 | &lt;ファイル名&gt; | (**必須**) 削除するファイルの名前。 |
 | packagefullname | ( ***knownfolderid* == LocalAppData の場合は必須**) 対象となるアプリのパッケージのフルネーム。 |
-| path | (**オプション**) 上で指定したフォルダーまたはパッケージ内のサブディレクトリ。 |
+| パス | (**オプション**) 上で指定したフォルダーまたはパッケージ内のサブディレクトリ。 |
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
-- なし 
+- None 
 
 **状態コード**
 
@@ -4401,14 +4401,14 @@ DNS-SD アドバタイズにタグを追加します。
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |. ファイルが削除されます。 |
+| 200 | OK |。 ファイルが削除されます。 |
 | 404 | ファイルが見つからない |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * Xbox
 * IoT
@@ -4421,7 +4421,7 @@ DNS-SD アドバタイズにタグを追加します。
 
 フォルダーにファイルをアップロードします。  この場合、同じ名前を持つ既存のファイルは上書きされますが、新しいフォルダーは作成されません。 
 
-| メソッド      | 要求 URI |
+| 認証方法      | 要求 URI |
 | :------     | :----- |
 | POST | /api/filesystem/apps/file |
 
@@ -4431,15 +4431,15 @@ DNS-SD アドバタイズにタグを追加します。
 | :------     | :----- |
 | knownfolderid | (**必須**) ファイルをアップロードするトップレベル ディレクトリ。 サイドロードされたアプリにアクセスするには、**LocalAppData** を使用します。 |
 | packagefullname | ( ***knownfolderid* == LocalAppData の場合は必須**) 対象となるアプリのパッケージのフルネーム。 |
-| path | (**オプション**) 上で指定したフォルダーまたはパッケージ内のサブディレクトリ。 |
+| パス | (**オプション**) 上で指定したフォルダーまたはパッケージ内のサブディレクトリ。 |
 
 **要求ヘッダー**
 
-- なし
+- None
 
 **要求本文**
 
-- なし
+- None
 
 **応答**
 
@@ -4449,14 +4449,14 @@ DNS-SD アドバタイズにタグを追加します。
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |. ファイルがアップロードされます。 |
+| 200 | OK |。 ファイルがアップロードされます。 |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Mobile
-* Windows Desktop
+* Windows デスクトップ
 * HoloLens
 * Xbox
 * IoT

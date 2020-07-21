@@ -1,24 +1,24 @@
 ---
 ms.assetid: ''
-title: UWP アプリで手書き入力をサポートする
-description: 作成した UWP アプリにインクのサポートを追加するための、ステップ バイ ステップ チュートリアルです。
+title: Windows アプリでインクをサポートする
+description: Windows アプリにインクサポートを追加するためのステップバイステップチュートリアルです。
 keywords: インク, 手描き入力, チュートリアル
 ms.date: 01/25/2018
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 929d72da46c52cfdb510f1e1b6a97ddcbbe066d5
-ms.sourcegitcommit: 51d884c3646ba3595c016e95bbfedb7ecd668a88
+ms.openlocfilehash: d0df2b531510d86591c44bc69f6ed5c6ad9f200f
+ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67820569"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83234624"
 ---
-# <a name="tutorial-support-ink-in-your-uwp-app"></a>チュートリアル:UWP アプリで手書き入力をサポートする
+# <a name="tutorial-support-ink-in-your-windows-app"></a>チュートリアル: Windows アプリでインクをサポートする
 
-![画面のペン](images/ink/ink-hero-small.png)  
-*Surface ペン* ([Microsoft ストア](https://aka.ms/purchasesurfacepen)で購入できます)。
+![Surface ペン](images/ink/ink-hero-small.png)  
+*Surface ペン* ([Microsoft ストア](https://www.microsoft.com/p/surface-pen/8zl5c82qmg6b)で購入できます)。
 
-このチュートリアルでは、Windows Ink を使った描画と手書きをサポートする、基本的な ユニバーサル Windows プラットフォーム (UWP) アプリを作成する手順を示します。 使用するサンプル アプリは GitHub ([サンプル コード](#sample-code)) からダウンロードできます。このサンプル アプリのスニペットは、各手順でのさまざまな機能と関連する Windows Ink API ([Windows Ink プラットフォームのコンポーネント](#components-of-the-windows-ink-platform)をご覧ください) の使い方を示します。
+このチュートリアルでは、Windows Ink での書き込みと描画をサポートする基本的な Windows アプリを作成する手順について説明します。 使用するサンプル アプリは GitHub ([サンプル コード](#sample-code)) からダウンロードできます。このサンプル アプリのスニペットは、各手順でのさまざまな機能と関連する Windows Ink API ([Windows Ink プラットフォームのコンポーネント](#components-of-the-windows-ink-platform)をご覧ください) の使い方を示します。
 
 次の点を中心に説明します。
 * 基本的なインクのサポートを追加する
@@ -27,21 +27,21 @@ ms.locfileid: "67820569"
 * 基本的な図形の認識をサポートする
 * インクを保存して読み込む
 
-これらの機能の実装について詳しくは「[UWP アプリでのペン操作と Windows Ink](https://docs.microsoft.com/windows/uwp/design/input/pen-and-stylus-interactions)」をご覧ください。
+これらの機能の実装の詳細については、「 [windows アプリにおけるペンの相互作用と Windows Ink](https://docs.microsoft.com/windows/uwp/design/input/pen-and-stylus-interactions)」を参照してください。
 
-## <a name="introduction"></a>概要
+## <a name="introduction"></a>はじめに
 
 Windows Ink を使うと、ユーザーに、ペンと紙の体験とほぼ同等のデジタル エクスペリエンスを提供できます。すばやく手書きでメモを取ったり、ホワイトボードのデモに注釈を書き込んだり、建築製図や工業図面の作成から、個人的な作品の制作まで行えます。
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
 * 現在のバージョンの Windows 10 を実行するコンピューター (または仮想マシン)。
-* [Visual Studio 2019 と、RS2 SDK](https://developer.microsoft.com/windows/downloads)
+* [Visual Studio 2019 と RS2 SDK](https://developer.microsoft.com/windows/downloads)
 * [Windows 10 SDK (10.0.15063.0)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
-* 構成によっては、インストールする必要があります、 [Microsoft.NETCore.UniversalWindowsPlatform](https://www.nuget.org/packages/Microsoft.NETCore.UniversalWindowsPlatform) NuGet のパッケージ化し、有効にする**開発者モード**(設定)、[更新プログラム、システム設定(& A) の開発者が使用して開発者向けの機能]-> [セキュリティ] の順)。
-* Visual Studio を使ってユニバーサル Windows プラットフォーム (UWP) アプリの開発を初めて行う場合は、このチュートリアルを開始する前に、次のトピックをご覧ください。  
+* 構成によっては、 [Microsoft.netcore.universalwindowsplatform](https://www.nuget.org/packages/Microsoft.NETCore.UniversalWindowsPlatform) NuGet パッケージをインストールし、システム設定で**開発者モード**を有効にすることが必要になる場合があります > (開発者向け > & のセキュリティ-> 開発者向けの機能を使用します)。
+* Visual Studio を使用した Windows アプリの開発に慣れていない場合は、このチュートリアルを開始する前に、次のトピックを参照してください。  
     * [準備](https://docs.microsoft.com/windows/uwp/get-started/get-set-up)
-    * [作成「こんにちは, world」アプリ (XAML)](https://docs.microsoft.com/windows/uwp/get-started/create-a-hello-world-app-xaml-universal)
+    * ["Hello, world" アプリを作成する (XAML)](https://docs.microsoft.com/windows/uwp/get-started/create-a-hello-world-app-xaml-universal)
 * **[オプション]** デジタル ペンと、そのデジタル ペンからの入力をサポートしているディスプレイを搭載したコンピューター。
 
 > [!NOTE] 
@@ -50,58 +50,58 @@ Windows Ink を使うと、ユーザーに、ペンと紙の体験とほぼ同�
 ## <a name="sample-code"></a>サンプル コード
 このチュートリアル全体で、1 つサンプル インク アプリを使って概念と機能を説明します。
 
-この Visual Studio サンプルとソース コードは [GitHub](https://github.com/) の [windows-appsample-get-started-ink sample](https://aka.ms/appsample-ink) からダウンロードできます。
+この Visual Studio サンプルとソース コードは [GitHub](https://github.com/) の [windows-appsample-get-started-ink sample](https://github.com/Microsoft/Windows-tutorials-inputs-and-devices/tree/master/GettingStarted-Ink) からダウンロードできます。
 
-1. 緑の **[Clone or download]** (複製またはダウンロード) ボタンを選択します。  
-![リポジトリの複製](images/ink/ink-clone.png)
-2. GitHub のアカウントを使っている場合には、 **[Open in Visual Studio]** (Visual Studio で開く) を選択して、リポジトリをローカル コンピューターに複製できます。 
-3. GitHub アカウントを使っていない場合、またはプロジェクトのローカル コピーのみが必要な場合には、 **[Download ZIP]** (ZIP をダウンロードする) を選択します (最新の更新をダウンロードするには、定期的に確認する必要があります)。
+1. 緑色の**複製またはダウンロード**ボタンを選択します。  
+![リポジトリを複製する](images/ink/ink-clone.png)
+2. GitHub のアカウントを使っている場合には、[**Open in Visual Studio**] (Visual Studio で開く) を選択して、リポジトリをローカル コンピューターに複製できます。 
+3. GitHub アカウントを持っていない場合、またはプロジェクトのローカルコピーが必要な場合は、[ **ZIP のダウンロード**] を選択します (最新の更新プログラムをダウンロードするには、定期的に確認する必要があります)。
 
 > [!IMPORTANT]
 > サンプル コードのほとんどの部分はコメント アウトされています。各手順を進めていく際に、コードの各セクションのコメントを解除します。 Visual Studio では、コードの行を強調表示して Ctrl + K キーを押して Ctrl + U キーを押します。
 
 ## <a name="components-of-the-windows-ink-platform"></a>Windows Ink プラットフォームのコンポーネント
 
-これらのオブジェクトは、UWP アプリ用の手描き入力エクスペリエンスの大部分を提供します。
+これらのオブジェクトは、Windows アプリのインク操作の大部分を提供します。
 
 | コンポーネント | 説明 |
 | --- | --- |
-| [**InkCanvas**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas) | XAML UI プラットフォーム コントロール、既定では、受信し、インク ストロークまたは消去ストロークをペンからすべての入力を表示します。 |
-| [**InkPresenter**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking.InkPresenter) | [  **InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) コントロールと共にインスタンス化される分離コード オブジェクトです ([**InkCanvas.InkPresenter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas.InkPresenter) プロパティによって公開されます)。 [  **InkCanvas**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas) によって公開される既定の手描き入力機能のすべてと、追加のカスタマイズや個人用設定のための包括的な API のセットを提供します。 |
-| [**InkToolbar**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkToolbar) | 関連付けられているインクに関連する機能をアクティブ化するボタンのカスタマイズおよび拡張可能なコレクションを含む XAML UI プラットフォーム コントロール[ **InkCanvas**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas)します。 |
-| [**IInkD2DRenderer**](https://docs.microsoft.com/windows/desktop/api/inkrenderer/nn-inkrenderer-iinkd2drenderer)<br/>この機能は、このドキュメントの対象範囲外です。詳しくは、「[複雑なインクのサンプル](https://go.microsoft.com/fwlink/p/?LinkID=620314)」をご覧ください。 | 既定の [**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) コントロールの代わりに、ユニバーサル Windows アプリが指定した Direct2D デバイス コンテキストにインク ストロークをレンダリングできます。 |
+| [**System.windows.controls.inkcanvas>**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas) | 既定でペンからのすべての入力を受け取ってインク ストロークか消去ストロークとして表示する XAML UI プラットフォーム コントロールです。 |
+| [**System.windows.controls.inkpresenter>**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking.InkPresenter) | [**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) コントロールと共にインスタンス化される分離コード オブジェクトです ([**InkCanvas.InkPresenter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas.InkPresenter) プロパティによって公開されます)。 このオブジェクトは、 [**system.windows.controls.inkcanvas>**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas)によって公開されるすべての既定のインク機能を提供し、さらにカスタマイズと個人用設定のための包括的な api のセットを提供します。 |
+| [**InkToolbar**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkToolbar) | 関連付けられた [**InkCanvas**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas) のインク関連機能をアクティブ化する、カスタマイズと拡張が可能なボタンのコレクションが含まれている XAML UI プラットフォーム コントロールです。 |
+| [**IInkD2DRenderer**](https://docs.microsoft.com/windows/desktop/api/inkrenderer/nn-inkrenderer-iinkd2drenderer)<br/>この機能は、このドキュメントの対象範囲外です。詳しくは、「[複雑なインクのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/ComplexInk)」をご覧ください。 | 既定の [**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) コントロールの代わりに、ユニバーサル Windows アプリが指定した Direct2D デバイス コンテキストにインク ストロークをレンダリングできます。 |
 
-## <a name="step-1-run-the-sample"></a>手順 1:サンプルの実行
+## <a name="step-1-run-the-sample"></a>手順 1: サンプルを実行する
 
 RadialController サンプル アプリをダウンロードしたら、実行できることを確認します。
 1. Visual Studio でサンプル プロジェクトを開きます。
-2. **[ソリューション プラットフォーム]** のドロップダウンを ARM 以外の選択肢に設定します。
+2. [**ソリューション プラットフォーム**] のドロップダウンを ARM 以外の選択肢に設定します。
 3. F5 キーを押して、コンパイル、展開、および実行します。  
 
    > [!NOTE]
-   > または、 **[デバッグ]**  >  **[デバッグの開始]** メニュー項目を選択するか、または次のように **[ローカル コンピューター]** の実行ボタンを選択することもできます。
-   > ![Visual Studio ビルド プロジェクトのボタン](images/ink/ink-vsrun-small.png)
+   > または、 **[デバッグ**  >  ] [**デバッグの開始**] メニュー項目を選択するか、ここに表示されている [**ローカルコンピューター**の実行] ボタンを選択します。
+   > ![Visual Studio のプロジェクトのビルド ボタン](images/ink/ink-vsrun-small.png)
 
 アプリ ウィンドウが開き、スプラッシュ画面が数秒表示されて、次のような初期画面が表示されます。
 
 ![空のアプリ](images/ink/ink-app-step1-empty-small.png)
 
-これでチュートリアルの残りの部分で使う、基本的な UWP アプリの準備ができました。 これ以降の手順では、インク機能を追加します。
+これで、このチュートリアルの残りの部分で使用する基本的な Windows アプリが完成しました。 これ以降の手順では、インク機能を追加します。
 
-## <a name="step-2-use-inkcanvas-to-support-basic-inking"></a>手順 2:InkCanvas を使用して基本的な手描き入力機能をサポートするには
+## <a name="step-2-use-inkcanvas-to-support-basic-inking"></a>手順 2: InkCanvas を使って基本的な手描き入力をサポートする
 
 お気付きのように、このアプリは初期状態では、ペンを使って手描きを行うことはできません (ただし、標準のポインター デバイスとしてペンを使用してアプリを操作することはできます)。 
 
 この手順では、その欠点を修正します。
 
-基本的な手描き機能を追加するには、[**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) UWP プラットフォーム コントロールをアプリの適切なページに配置します。
+基本的なインク機能を追加するには、アプリの適切なページに[**system.windows.controls.inkcanvas>**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas)コントロールを配置するだけです。
 
 > [!NOTE]
 > InkCanvas の[**高さ**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.Height)と[**幅**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.Width)のプロパティは、子要素のサイズを自動的に設定する要素の子である場合を除き、既定では 0 です。 
 
 ### <a name="in-the-sample"></a>このサンプルを使って、次を行います:
 1. MainPage.xaml.cs ファイルを開きます。
-2. この手順のタイトルでマークされたコードの検索 ("//手順 2。使用して、InkCanvas 基本的な手描き入力機能をサポートするために")。
+2. この手順のタイトル ("// Step 2: Use InkCanvas to support basic inking") が付いているコードを見つけます。
 3. 以下の行のコメントを解除します。 (これらの参照は、これ以降の手順で使用される機能に必要です。)  
 
 ``` csharp
@@ -112,7 +112,7 @@ RadialController サンプル アプリをダウンロードしたら、実行�
 ```
 
 4. MainPage.xaml ファイルを開きます。
-5. この手順のタイトルでマークされたコードの検索 ("\<!--手順 2。--> InkCanvas で基本的な手描き入力機能")。
+5. この手順のタイトルでマークされているコードを探します (" \< !--step 2: Basic インク With system.windows.controls.inkcanvas>-->")。
 6. 以下の行のコメントを解除します。  
 
 ``` xaml
@@ -121,11 +121,11 @@ RadialController サンプル アプリをダウンロードしたら、実行�
 
 これで完了です。 
 
-では、アプリを再度実行します。 何でも自由に書き込んだり、自画像の絵などを描いてみてください。
+ここで、アプリをもう一度実行します。 何でも自由に書き込んだり、自画像の絵などを描いてみてください。
 
 ![基本的な手描き入力](images/ink/ink-app-step1-name-small.png)
 
-## <a name="step-3-support-inking-with-touch-and-mouse"></a>手順 3:タッチとマウスを使って手描き入力機能をサポートします。
+## <a name="step-3-support-inking-with-touch-and-mouse"></a>手順 3: タッチとマウスを使って手描き入力をサポートする
 
 お気付きのように、既定では、インクはペン入力のみをサポートします。 指、マウス、またはタッチパッドを使って描画することはできません。
 
@@ -140,7 +140,7 @@ RadialController サンプル アプリをダウンロードしたら、実行�
 
 ### <a name="in-the-sample"></a>このサンプルを使って、次を行います:
 1. MainPage.xaml.cs ファイルを開きます。
-2. この手順のタイトルでマークされたコードの検索 ("//手順 3。サポート タッチとマウスを使って手描き入力機能")。
+2. この手順のタイトル ("// Step 3: Support inking with touch and mouse") が付いているコードを見つけます。
 3. 以下の行のコメントを解除します。  
 
 ``` csharp
@@ -155,17 +155,17 @@ RadialController サンプル アプリをダウンロードしたら、実行�
 > [!NOTE]
 > 入力デバイスの種類を指定する場合は、特定の入力の種類のサポート (ペンを含む) を指定する必要があります。このプロパティの設定は既定の [**InkCanvas**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas) 設定を上書きするためです。
 
-## <a name="step-4-add-an-ink-toolbar"></a>手順 4:[インク] ツールバーを追加します。
+## <a name="step-4-add-an-ink-toolbar"></a>手順 4: インク ツールバーを追加する
 
-[  **InkToolbar**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar) は、インク関連の機能を有効化するための、カスタマイズと拡張が可能なボタンのコレクションを提供する、UWP プラットフォーム コントロールです。 
+[**InkToolbar**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar) は、インク関連の機能を有効化するための、カスタマイズと拡張が可能なボタンのコレクションを提供する、UWP プラットフォーム コントロールです。 
 
-[  **InkToolbar**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar) には、既定では、ボタンの基本的なセットが含まれています。ユーザーはこれを使って、ペン、鉛筆、蛍光ペン、消しゴムをすばやく選択でき、これらはいずれもステンシル (ルーラーまたは分度器) と共に使用できます。 ペン、鉛筆、および蛍光ペンのボタンは、インクの色と線のサイズを選択できるポップアップも提供します。
+[**InkToolbar**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar) には、既定では、ボタンの基本的なセットが含まれています。ユーザーはこれを使って、ペン、鉛筆、蛍光ペン、消しゴムをすばやく選択でき、これらはいずれもステンシル (ルーラーまたは分度器) と共に使用できます。 ペン、鉛筆、および蛍光ペンのボタンは、インクの色と線のサイズを選択できるポップアップも提供します。
 
 既定の [**InkToolbar**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar) を手描き入力のアプリに追加するには、[**InkCanvas**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas) と同じページに配置して、2 つのコントロールを関連付けます。
 
 ### <a name="in-the-sample"></a>このサンプルを使って、次を行います:
 1. MainPage.xaml ファイルを開きます。
-2. この手順のタイトルでマークされたコードの検索 ("\<!--手順 4。[インク] ツールバー--> を追加")。
+2. この手順のタイトルでマークされたコードを探し \< ます ("!--手順 4: インクツールバーの追加-->")。
 3. 以下の行のコメントを解除します。  
 
 ``` xaml
@@ -177,13 +177,13 @@ RadialController サンプル アプリをダウンロードしたら、実行�
 ```
 
 > [!NOTE]
-> UI とコードをなるべくクリーンでシンプルにするため、基本的なグリッド レイアウトを使って、グリッド行で [**InkCanvas**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas) の後で、[**InkToolbar**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar) を宣言します。 [  **InkCanvas**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas) の前で宣言すると、キャンバスの下で [**InkToolbar**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar) が先にレンダリングされ、ユーザーはアクセスできません。  
+> UI とコードをなるべくクリーンでシンプルにするため、基本的なグリッド レイアウトを使って、グリッド行で [**InkCanvas**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas) の後で、[**InkToolbar**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar) を宣言します。 [**InkCanvas**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas) の前で宣言すると、キャンバスの下で [**InkToolbar**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar) が先にレンダリングされ、ユーザーはアクセスできません。  
 
 アプリを再度実行し、[**InkToolbar**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar) が表示されることを確認してツールを試します。
 
 ![Windows Ink ワークスペースのスケッチパッドの InkToolbar](images/ink/ink-inktoolbar-default-small.png)
 
-### <a name="challenge-add-a-custom-button"></a>課題:カスタム ボタンを追加します。
+### <a name="challenge-add-a-custom-button"></a>課題: カスタム ボタンを追加する
 <table class="wdg-noborder">
 <tr>
 <td>
@@ -197,29 +197,29 @@ RadialController サンプル アプリをダウンロードしたら、実行�
 
 ![Windows Ink ワークスペースのスケッチパッドの InkToolbar](images/ink/ink-inktoolbar-sketchpad-small.png)
 
-[InkToolbar](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar) のカスタマイズについて詳しくは、[「InkToolbar をユニバーサル Windows プラットフォーム (UWP) 手描き入力アプリに追加する」](ink-toolbar.md)をご覧ください。
+[Inktoolbar](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar)のカスタマイズの詳細については、「 [Windows アプリインクアプリに Inktoolbar を追加する](ink-toolbar.md)」を参照してください。
 
 </td>
 </tr>
 </table>
 
-## <a name="step-5-support-handwriting-recognition"></a>手順 5:手書き認識をサポートします。
+## <a name="step-5-support-handwriting-recognition"></a>手順 5: 手書き認識をサポートする
 
 これでアプリで手描きや描画ができるようになりました。これを使って、さらに便利な機能を追加します。
 
 この手順では、Windows Ink の手書き認識機能を使用して、手描き入力を解読します。
 
 > [!NOTE]
-> 手書き認識は **[ペンと Windows Ink]** の設定を使って改善できます。
-> 1. スタート メニューを開き、 **[設定]** を選択します。
-> 2. 設定画面から **[デバイス]**  >  **[ペンと Windows Ink]** を選択します。
-> ![Ink ワークスペースでスケッチ パッドから InkToolbar](images/ink/ink-settings-small.png)
-> 3. **[手書き入力を認識します]** を選択して、 **[手書き認識の個人用設定]** ダイアログを開きます。
-> ![Ink ワークスペースでスケッチ パッドから InkToolbar](images/ink/ink-settings-handwritingpersonalization-small.png)
+> 手書き認識は [**ペンと Windows Ink**] の設定を使って改善できます。
+> 1. スタート メニューを開き、[**設定**] を選択します。
+> 2. [設定] 画面で、[**デバイス**] [  >  **ペン & Windows Ink**] を選択します。
+> ![Windows Ink ワークスペースのスケッチパッドの InkToolbar](images/ink/ink-settings-small.png)
+> 3. [**手書き入力を認識します**] を選択して、[**手書き認識の個人用設定**] ダイアログを開きます。
+> ![Windows Ink ワークスペースのスケッチパッドの InkToolbar](images/ink/ink-settings-handwritingpersonalization-small.png)
 
 ### <a name="in-the-sample"></a>このサンプルを使って、次を行います:
 1. MainPage.xaml ファイルを開きます。
-2. この手順のタイトルでマークされたコードの検索 ("\<!-手順 5。手書き認識のサポート-->")。
+2. この手順のタイトルでマークされたコードを探し \< ます ("!--step 5: Support 手書き認識-->")。
 3. 以下の行のコメントを解除します。  
 
 ``` xaml
@@ -236,7 +236,7 @@ RadialController サンプル アプリをダウンロードしたら、実行�
 ```
 
 4. MainPage.xaml.cs ファイルを開きます。
-5. この手順のタイトルでマークされたコードの検索 ("手順 5。手書き認識をサポート")。
+5. この手順のタイトル  (" Step 5: Support handwriting recognition") が付いているコードを見つけます。
 6. 以下の行のコメントを解除します。  
 
 - これらは、この手順で必要なグローバル変数です。
@@ -248,7 +248,7 @@ RadialController サンプル アプリをダウンロードしたら、実行�
     IReadOnlyList<IInkAnalysisNode> words = null;
 ```
 
-- これは、 **[Recognize text]** (テキストの認識) ボタンのハンドラーで、これにより認識処理を行います。
+- これは、[**Recognize text**] (テキストの認識) ボタンのハンドラーで、これにより認識処理を行います。
 
 ``` csharp
     private async void recognizeText_ClickAsync(object sender, RoutedEventArgs e)
@@ -278,10 +278,10 @@ RadialController サンプル アプリをダウンロードしたら、実行�
     }
 ```
 
-7. アプリを再び実行し、何かを書き込んで、 **[Recognize text]** (テキストの認識) ボタンをクリックします。
+7. アプリを再び実行し、何かを書き込んで、[**Recognize text**] (テキストの認識) ボタンをクリックします。
 8. 認識の結果は、ボタンの横に表示されます。
 
-### <a name="challenge-1-international-recognition"></a>課題 1:地域と言語の認識
+### <a name="challenge-1-international-recognition"></a>課題1: 地域と言語の認識
 <table class="wdg-noborder">
 <tr>
 <td>
@@ -301,7 +301,7 @@ Windows Ink は、Windowsでサポートされている多くの言語のテキ�
 </tr>
 </table>
 
-### <a name="challenge-2-dynamic-recognition"></a>課題 2:動的な認識
+### <a name="challenge-2-dynamic-recognition"></a>課題 2: 動的な認識
 <table class="wdg-noborder">
 <tr>
 <td>
@@ -319,27 +319,27 @@ Windows Ink は、Windowsでサポートされている多くの言語のテキ�
 </tr>
 </table>
 
-## <a name="step-6-recognize-shapes"></a>手順 6:図形を認識します。
+## <a name="step-6-recognize-shapes"></a>手順 6: 図形を認識する
 
 これで手書きのメモを判読可能なものに変換できるようになりました。 では、手書きのフローチャートなどを認識することはできるでしょうか。
 
 インクの分析を使うと、アプリは次のような基本的な図形を認識することができます。
 
-- [円]
+- Circle
 - ひし形
-- 線
-- 楕円形
+- 描画
+- Ellipse
 - 正三角形
 - 六角形
 - 二等辺三角形
 - 平行四辺形
 - 五角形
 - 四辺形
-- 四角形
+- Rectangle
 - 直角三角形
-- 正方形
+- Square
 - 台形
-- 三角形
+- Triangle
 
 この手順では、Windows Ink の図形認識機能を使用して、手書きの図形をクリーンにします。
 
@@ -347,7 +347,7 @@ Windows Ink は、Windowsでサポートされている多くの言語のテキ�
 
 ### <a name="in-the-sample"></a>このサンプルを使って、次を行います:
 1. MainPage.xaml ファイルを開きます。
-2. この手順のタイトルでマークされたコードの検索 ("\<!--手順 6。認識図形-->")
+2. このステップのタイトルでマークされたコードを探し \< ます ("!--手順 6: 図形を認識します-->")
 3. この行のコメントを解除します。  
 
 ``` xaml
@@ -361,7 +361,7 @@ Windows Ink は、Windowsでサポートされている多くの言語のテキ�
 ```
 
 4. MainPage.xaml.cs ファイルを開きます。
-5. この手順のタイトルでマークされたコードの検索 ("//手順 6。図形を認識")
+5. この手順のタイトル ("// Step 6: Recognize shapes") が付いているコードを見つけます。
 6. これらの行のコメントを解除します。  
 
 ``` csharp
@@ -381,7 +381,7 @@ Windows Ink は、Windowsでサポートされている多くの言語のテキ�
     }
 ```
 
-7. アプリを実行し、いくつかの図形を描画して、 **[Recognize shape]** (図形の認識) ボタンをクリックします。
+7. アプリを実行し、いくつかの図形を描画して、[**Recognize shape**] (図形の認識) ボタンをクリックします。
 
 デジタルの走り書きを使った、基本的なフローチャートの例を示します。
 
@@ -392,17 +392,17 @@ Windows Ink は、Windowsでサポートされている多くの言語のテキ�
 ![元のインクのフローチャート](images/ink/ink-app-step6-shapereco2-small.png)
 
 
-## <a name="step-7-save-and-load-ink"></a>手順 7:保存し、インクの読み込み
+## <a name="step-7-save-and-load-ink"></a>手順 7: インクの保存と読み込み
 
 手書きの文字や図形の認識ができるようになりましたが、それらを後から使いたい場合にはどうすればよいでしょうか。 インク ストロークを Ink Serialized Format (ISF) ファイルに保存し、後でそれを読み込んで編集することができます。 
 
 ISF ファイルは、インク ストロークのプロパティと動作に関する追加のメタデータを含む、基本的な GIF 画像です。 インク対応でないアプリでは、追加のメタデータを無視して、基本的な GIF 画像 (アルファ チャンネルの背景の透明度を含む) を読み込むことができます。
 
-この手順では、インク ツールバーの横にある、 **[保存]** と **[読み込み]** ボタンをフックします。
+この手順では、インク ツールバーの横にある、[**保存**] と [**読み込み**] ボタンをフックします。
 
 ### <a name="in-the-sample"></a>このサンプルを使って、次を行います:
 1. MainPage.xaml ファイルを開きます。
-2. この手順のタイトルでマークされたコードの検索 ("\<!-手順 7。--> の保存とインクの読み込み")。
+2. この手順のタイトルでマークされているコードを探します (" \< !--手順 7: インクの保存と読み込み-->")。
 3. 以下の行のコメントを解除します。 
 
 ``` xaml
@@ -419,7 +419,7 @@ ISF ファイルは、インク ストロークのプロパティと動作に関
 ```
 
 4. MainPage.xaml.cs ファイルを開きます。
-5. この手順のタイトルでマークされたコードの検索 ("//手順 7。保存して読み込むインク")。
+5. この手順のタイトル ("// Step 7: Save and load ink") が付いているコードを見つけます。
 6. 以下の行のコメントを解除します。  
 
 ``` csharp
@@ -435,11 +435,11 @@ ISF ファイルは、インク ストロークのプロパティと動作に関
 ```
 
 7. アプリを実行し、何かを描画します。
-8. **[保存]** ボタンを選択し、描画を保存します。
+8. [**保存**] ボタンを選択し、描画を保存します。
 9. インクを消去するか、またはアプリを再起動します。
-10. **[読み込み]** ボタンを選択して、保存したインク ファイルを開きます。
+10. [**読み込み**] ボタンを選択して、保存したインク ファイルを開きます。
 
-### <a name="challenge-use-the-clipboard-to-copy-and-paste-ink-strokes"></a>課題:クリップボードを使用してコピーし、インク ストロークを貼り付ける 
+### <a name="challenge-use-the-clipboard-to-copy-and-paste-ink-strokes"></a>課題: クリップボードを使って、インク ストロークをコピーして貼り付ける 
 <table class="wdg-noborder">
 <tr>
 <td>
@@ -458,25 +458,25 @@ Windows Ink とクリップボードの使用について詳しくは、「[Wind
 </tr>
 </table>
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>まとめ
 
-これが完了したら、**入力。UWP アプリでインクをサポートして**チュートリアルです。 UWP アプリでインクをサポートするために必要な基本的なコードについて説明しました。また Windows Ink プラットフォームでサポートされる、優れたユーザー エクスペリエンスを提供する方法を説明しました。
+これで、 **「Windows アプリでのインクのサポート」** チュートリアルが完了しました。 Windows アプリでインクをサポートするために必要な基本的なコードと、Windows Ink プラットフォームでサポートされている充実したユーザーエクスペリエンスを提供する方法について説明しました。
 
 ## <a name="related-articles"></a>関連記事
 
-* [UWP アプリでのペン操作と Windows Ink](pen-and-stylus-interactions.md)
+* [Windows アプリでのペン操作と Windows インク](pen-and-stylus-interactions.md)
 
 ### <a name="samples"></a>サンプル
 
-* [インク分析のサンプル (basic) (C#)](https://github.com/MicrosoftDocs/windows-topic-specific-samples/archive/uwp-ink-analysis-basic.zip)
+* [インクの分析のサンプル (基本) (C#)](https://github.com/MicrosoftDocs/windows-topic-specific-samples/archive/uwp-ink-analysis-basic.zip)
 * [インクの手書き認識のサンプル (C#)](https://github.com/MicrosoftDocs/windows-topic-specific-samples/archive/uwp-ink-handwriting-reco.zip)
-* [保存し、インク ストロークを形式 ISF (Ink Serialized) ファイルから読み込む](https://github.com/MicrosoftDocs/windows-topic-specific-samples/archive/uwp-ink-store.zip)
-* [保存し、クリップボードからインク ストロークを読み込む](https://github.com/MicrosoftDocs/windows-topic-specific-samples/archive/uwp-ink-store-clipboard.zip)
-* [インク ツールバー位置や向きのサンプル (基本)](https://github.com/MicrosoftDocs/windows-topic-specific-samples/archive/uwp-ink-toolbar-handedness.zip)
-* [インク ツールバー位置や向きのサンプル (動的)](https://github.com/MicrosoftDocs/windows-topic-specific-samples/archive/uwp-ink-toolbar-handedness-dynamic.zip)
-* [単純なインクのサンプル (C#/C++)](https://go.microsoft.com/fwlink/p/?LinkID=620312)
-* [複雑なインクのサンプル (C++)](https://go.microsoft.com/fwlink/p/?LinkID=620314)
-* [インクのサンプル (JavaScript)](https://go.microsoft.com/fwlink/p/?LinkID=620308)
-* [チュートリアルを開始します。UWP アプリでのインクをサポートします。](https://aka.ms/appsample-ink)
-* [書籍のサンプルを色分け表示](https://aka.ms/cpubsample-coloringbook)
-* [ファミリのノートのサンプル](https://aka.ms/cpubsample-familynotessample)
+* [インク ストロークを Ink Serialized Format (ISF) ファイルに保存し、読み込む](https://github.com/MicrosoftDocs/windows-topic-specific-samples/archive/uwp-ink-store.zip)
+* [インク ストロークをクリップボードに保存し、読み込む](https://github.com/MicrosoftDocs/windows-topic-specific-samples/archive/uwp-ink-store-clipboard.zip)
+* [インク ツール バーの位置と向きのサンプル (基本)](https://github.com/MicrosoftDocs/windows-topic-specific-samples/archive/uwp-ink-toolbar-handedness.zip)
+* [インク ツール バーの位置と向きのサンプル (動的)](https://github.com/MicrosoftDocs/windows-topic-specific-samples/archive/uwp-ink-toolbar-handedness-dynamic.zip)
+* [単純なインクのサンプル (C#/C++)](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/SimpleInk)
+* [複雑なインクのサンプル (C++)](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/ComplexInk)
+* [インクのサンプル (JavaScript)](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Windows%208%20app%20samples/%5BJavaScript%5D-Windows%208%20app%20samples/JavaScript/Windows%208%20app%20samples/Input%20Ink%20sample%20(Windows%208))
+* [入門チュートリアル: Windows アプリでインクをサポートする](https://github.com/Microsoft/Windows-tutorials-inputs-and-devices/tree/master/GettingStarted-Ink)
+* [塗り絵帳のサンプル](https://github.com/Microsoft/Windows-appsample-coloringbook)
+* [Family Notes のサンプル](https://github.com/Microsoft/Windows-appsample-familynotes)

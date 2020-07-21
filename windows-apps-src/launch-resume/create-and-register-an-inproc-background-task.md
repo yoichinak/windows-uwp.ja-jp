@@ -3,15 +3,15 @@ title: インプロセス バックグラウンド タスクの作成と登録
 description: フォアグラウンド アプリと同じプロセスで実行されるインプロセスのタスクを作成して登録します。
 ms.date: 11/03/2017
 ms.topic: article
-keywords: windows 10、uwp、バック グラウンド タスク
+keywords: windows 10、uwp、バックグラウンドタスク
 ms.assetid: d99de93b-e33b-45a9-b19f-31417f1e9354
 ms.localizationpriority: medium
-ms.openlocfilehash: f37ffe21795fc68ff72b4e6f1de591c96d2f8b90
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 9ee8a0e6538abd879921dd9d1496d29a61054a02
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66366213"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74260502"
 ---
 # <a name="create-and-register-an-in-process-background-task"></a>インプロセス バックグラウンド タスクの作成と登録
 
@@ -29,7 +29,7 @@ ms.locfileid: "66366213"
 
 ## <a name="fundamentals"></a>基本事項
 
-インプロセス モデルでは、アプリがフォアグラウンドまたはバックグラウンドで実行されるときの改善された通知によってアプリケーションのライフサイクルが強化されます。 2 つの新しいイベントはこれらの遷移のアプリケーション オブジェクトから使用できます。[**EnteredBackground** ](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplication.enteredbackground)と[ **LeavingBackground**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplication.leavingbackground)します。 これらのイベントは、アプリケーションの表示状態に基づくアプリケーションのライフサイクルに適合します。これらのイベントの詳細とアプリケーションのライフサイクルに与える影響については、[アプリのライフサイクル](app-lifecycle.md)をご覧ください。
+インプロセス モデルでは、アプリがフォアグラウンドまたはバックグラウンドで実行されるときの改善された通知によってアプリケーションのライフサイクルが強化されます。 これらの切り替え用に、Application オブジェクトから [**EnteredBackground**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplication.enteredbackground) と [**LeavingBackground**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplication.leavingbackground) という 2 つの新しいイベントを使用できます。 これらのイベントは、アプリケーションの表示状態に基づくアプリケーションのライフサイクルに適合します。これらのイベントの詳細とアプリケーションのライフサイクルに与える影響については、[アプリのライフサイクル](app-lifecycle.md)をご覧ください。
 
 大まかに言うと、**EnteredBackground** イベントは、アプリがバックグラウンドで実行されている間に実行されるコードを実行します。また、**LeavingBackground** イベントは、アプリがフォアグラウンドに移動したことを知るために処理します。
 
@@ -68,7 +68,7 @@ ms.locfileid: "66366213"
 
 ## <a name="place-your-background-activity-code-in-onbackgroundactivated"></a>バックグラウンド アクティビティのコードを OnBackgroundActivated() に配置する
 
-バック グラウンド アクティビティ コードを配置[OnBackgroundActivated](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onbackgroundactivated)を発生させるときに、バック グラウンドのトリガーに応答します。 **OnBackgroundActivated** は、[IBackgroundTask.Run](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtask.run?f=255&MSPPError=-2147217396) と同様に処理することができます。 メソッドには、 [BackgroundActivatedEventArgs](https://docs.microsoft.com/uwp/api/windows.applicationmodel.activation.backgroundactivatedeventargs)パラメーターで、すべてのものが含まれていますが、**実行**メソッドを提供します。 たとえば、App.xaml.cs: で
+バックグラウンドのアクティビティコードを[Onbackgroundactivated アクティブ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onbackgroundactivated)にして、バックグラウンドトリガーが起動したときに応答します。 **OnBackgroundActivated** は、[IBackgroundTask.Run](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtask.run?f=255&MSPPError=-2147217396) と同様に処理することができます。 メソッドには[BackgroundActivatedEventArgs](https://docs.microsoft.com/uwp/api/windows.applicationmodel.activation.backgroundactivatedeventargs)パラメーターがあり、このパラメーターには**Run**メソッドが提供するすべてのものが含まれています。 たとえば、App.xaml.cs の場合は次のようになります。
 
 ``` cs
 using Windows.ApplicationModel.Background;
@@ -88,7 +88,7 @@ sealed partial class App : Application
 }
 ```
 
-豊富な**OnBackgroundActivated**例を参照してください[ホスト アプリケーションと同じプロセスで実行する app service の変換](convert-app-service-in-process.md)します。
+より充実した**Onbackgroundactivated 化**の例については、「[ホストアプリと同じプロセスで実行されるように App service を変換する](convert-app-service-in-process.md)」を参照してください。
 
 ## <a name="handle-background-task-progress-and-completion"></a>バックグラウンド タスクの進捗状況と完了を処理する
 
@@ -110,11 +110,11 @@ API リファレンス、バックグラウンド タスクの概念的ガイダ
 
 ## <a name="related-topics"></a>関連トピック
 
-**詳細なバック グラウンド タスクの説明のトピック**
+**バックグラウンドタスクの詳細な手順に関するトピック**
 
-* [プロセス内のバック グラウンド タスクに、プロセス外のバック グラウンド タスクを変換します。](convert-out-of-process-background-task.md)
+* [プロセス外のバックグラウンドタスクをインプロセスバックグラウンドタスクに変換する](convert-out-of-process-background-task.md)
 * [アウトプロセス バックグラウンド タスクの作成と登録](create-and-register-a-background-task.md)
-* [バック グラウンドでメディアを再生します。](https://docs.microsoft.com/windows/uwp/audio-video-camera/background-audio)
+* [バックグラウンドでメディアを再生する](https://docs.microsoft.com/windows/uwp/audio-video-camera/background-audio)
 * [バックグラウンド タスクによるシステム イベントへの応答](respond-to-system-events-with-background-tasks.md)
 * [バックグラウンド タスクの登録](register-a-background-task.md)
 * [バックグラウンド タスクを実行するための条件の設定](set-conditions-for-running-a-background-task.md)
@@ -123,12 +123,12 @@ API リファレンス、バックグラウンド タスクの概念的ガイダ
 * [バックグラウンド タスクの進捗状況と完了の監視](monitor-background-task-progress-and-completion.md)
 * [タイマーでのバックグラウンド タスクの実行](run-a-background-task-on-a-timer-.md)
 
-**バック グラウンド タスクのガイダンス**
+**バックグラウンドタスクのガイダンス**
 
 * [バックグラウンド タスクのガイドライン](guidelines-for-background-tasks.md)
 * [バックグラウンド タスクのデバッグ](debug-a-background-task.md)
-* [トリガーする方法を中断、再開、および (デバッグ) 場合は、UWP アプリでイベントをバック グラウンド](https://go.microsoft.com/fwlink/p/?linkid=254345)
+* [UWP アプリで中断イベント、再開イベント、およびバックグラウンドイベントをトリガーする方法 (デバッグ時)](https://msdn.microsoft.com/library/windows/apps/hh974425(v=vs.110).aspx)
 
-**バック グラウンド タスクの API リファレンス**
+**バックグラウンドタスク API リファレンス**
 
-* [**Windows.ApplicationModel.Background**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background)
+* [**Windows. ApplicationModel. Background**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background)

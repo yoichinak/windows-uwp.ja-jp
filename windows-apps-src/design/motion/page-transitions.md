@@ -1,6 +1,6 @@
 ---
-Description: UWP アプリでページの切り替え効果を使用する方法について説明します。
-title: UWP アプリのページ切り替え効果
+Description: Windows アプリでのページ切り替えの使用方法について説明します。
+title: ページ切り替え効果
 template: detail.hbs
 ms.date: 04/08/2018
 ms.topic: article
@@ -8,12 +8,12 @@ keywords: windows 10, uwp
 pm-contact: stmoy
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 9b3244c24ff4fa8e3c85ee9970536b1b35d8efd5
-ms.sourcegitcommit: cc0ef75f314658b14376eb60ef8e5bb4d7726e04
+ms.openlocfilehash: 6239d8409767cab06d4d2c8c9c3abb9d743ca1c9
+ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65444198"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82970517"
 ---
 # <a name="page-transitions"></a>ページ切り替え効果
 
@@ -21,14 +21,14 @@ ms.locfileid: "65444198"
 
 アプリ内のページ間のナビゲーションについて 2 つの異なるアニメーション (*ページの更新*および*ドリル*) が提供されており、[**NavigationTransitionInfo**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.navigationtransitioninfo) のサブクラスとして表されています。
 
-## <a name="examples"></a>例
+## <a name="examples"></a>使用例
 
 <table>
 <th align="left">XAML コントロール ギャラリー<th>
 <tr>
 <td><img src="images/xaml-controls-gallery-app-icon.png" alt="XAML controls gallery" width="168"></img></td>
 <td>
-    <p>ある場合、 <strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong>アプリをインストールするには、ここをクリックして<a href="xamlcontrolsgallery:/item/PageTransition">アプリを開き、操作ページの切り替え効果を参照してください</a>します。</p>
+    <p><strong style="font-weight: semi-bold">XAML コントロールギャラリー</strong>アプリがインストールされている場合は、ここをクリックして<a href="xamlcontrolsgallery:/item/PageTransition">アプリを開き、動作中のページの切り替え効果を確認</a>します。</p>
     <ul>
     <li><a href="https://www.microsoft.com/store/productId/9MSVH128X2ZT">XAML コントロール ギャラリー アプリを入手する (Microsoft Store)</a></li>
     <li><a href="https://github.com/Microsoft/Xaml-Controls-Gallery">ソース コード (GitHub) を入手する</a></li>
@@ -45,7 +45,7 @@ ms.locfileid: "65444198"
 
 ![ページの更新のアニメーション](images/page-refresh.gif)
 
-ページの更新のアニメーションは、[**EntranceNavigationTransitionInfoClass**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.entrancenavigationtransitioninfo) で表されます。
+ページ更新アニメーションは、 [**EntranceNavigationTransitionInfoClass**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.entrancenavigationtransitioninfo)によって表されます。
 
 ```csharp
 // Explicitly play the page refresh animation
@@ -53,9 +53,9 @@ myFrame.Navigate(typeof(Page2), null, new EntranceNavigationTransitionInfo());
 
 ```
 
-**注意**:A [**フレーム**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.frame)自動的に使用して[ **NavigationThemeTransition** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.navigationthemetransition)を 2 つのページ間のナビゲーションをアニメーション化します。 既定では、アニメーションはページの更新です。
+**注**: [**フレーム**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.frame)は自動的に [**NavigationThemeTransition**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.navigationthemetransition) を使用して 2 つのページ間のナビゲーションをアニメーション化します。 既定では、アニメーションはページの更新です。
 
-## <a name="drill"></a>ドリル
+## <a name="drill"></a>Drill
 
 ドリルは、項目を選択した後で詳細情報を表示するなど、ユーザーがアプリ内でより深く移動するときに使用します。
 
@@ -70,11 +70,11 @@ myFrame.Navigate(typeof(Page2), null, new EntranceNavigationTransitionInfo());
 myFrame.Navigate(typeof(Page2), null, new DrillInNavigationTransitionInfo());
 ```
 
-## <a name="horizontal-slide"></a>水平方向のスライド
+## <a name="horizontal-slide"></a>横方向のスライド
 
-水平方向のスライドを使用して、互いの横にある兄弟のページが表示されることを示します。 [NavigationView](../controls-and-patterns/navigationview.md)コントロールでは、上部のナビゲーションでのこのアニメーションを自動的に使用しますが、独自の水平方向のナビゲーション エクスペリエンスを構築する場合するを実装できます SlideNavigationTransitionInfo で水平方向にスライドします。
+横方向のスライドを使用して、兄弟ページが相互に表示されることを示します。 [Navigationview](../controls-and-patterns/navigationview.md)コントロールは、トップナビゲーション用にこのアニメーションを自動的に使用しますが、独自の水平方向のナビゲーションエクスペリエンスを構築する場合は、SlideNavigationTransitionInfo を使用して横方向のスライドを実装できます。
 
-必要な感情は、ユーザーが互いの横にあるページ間で移動することです。 
+ユーザーが互いに隣にあるページ間を移動していることが期待できます。 
 
 ```csharp
 // Navigate to the right, ie. from LeftPage to RightPage
@@ -84,7 +84,7 @@ myFrame.Navigate(typeof(RightPage), null, new SlideNavigationTransitionInfo() { 
 myFrame.Navigate(typeof(LeftPage), null, new SlideNavigationTransitionInfo() { Effect = SlideNavigationTransitionEffect.FromLeft } );
 ```
 
-## <a name="suppress"></a>抑制
+## <a name="suppress"></a>Suppress
 
 ナビゲーション中にアニメーションの再生を回避するには、[**SuppressNavigationTransitionInfo**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.suppressnavigationtransitioninfo) を他の **NavigationTransitionInfo** サブタイプの代わりに使用します。
 
@@ -95,7 +95,7 @@ myFrame.Navigate(typeof(Page2), null, new SuppressNavigationTransitionInfo());
 
 アニメーションの抑制は、[接続型アニメーション](connected-animation.md)または暗黙的な表示/非表示アニメーションを使用して独自の切り替え効果を作成している場合に役立ちます。
 
-## <a name="backwards-navigation"></a>逆方向のナビゲーション
+## <a name="backwards-navigation"></a>後方ナビゲーション
 
 `Frame.GoBack(NavigationTransitionInfo)` を使用して逆方向に移動するときに特定の切り替え効果を再生することができます。
 
@@ -103,5 +103,5 @@ myFrame.Navigate(typeof(Page2), null, new SuppressNavigationTransitionInfo());
 
 ## <a name="related-topics"></a>関連トピック
 
-- [2 つのページ間を移動します。](../basics/navigate-between-two-pages.md)
-- [UWP アプリでのモーション](index.md)
+- [2 つのページ間の移動](../basics/navigate-between-two-pages.md)
+- [UWindowsWP アプリでの動き](index.md)

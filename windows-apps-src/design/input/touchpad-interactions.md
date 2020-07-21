@@ -1,5 +1,5 @@
 ---
-Description: タッチパッド向けに最適化される一方で、さまざまな入力デバイスで一貫した機能を提供する、直観的で独特なユーザー操作エクスペリエンスを備えたユニバーサル Windows プラットフォーム (UWP) アプリを作成します。
+Description: タッチパッド用に最適化されているが、入力デバイス間で機能的に一貫性がある、直感的で独特なユーザー操作エクスペリエンスを備えた Windows アプリを作成します。
 title: タッチパッド操作
 ms.assetid: CEDEA30A-FE94-4553-A7FB-6C1FA44F06AB
 label: Touchpad interactions
@@ -8,12 +8,12 @@ keywords: タッチパッド, PTP, タッチ, ポインター, 入力, ユーザ
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 7a4c3c5e2c3041aef3e2223e3bb45c1c3d3d37ad
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: ffc3ce96c7e8c2ad4a34aecd1ca85ff644bdef97
+ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66365270"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83234484"
 ---
 # <a name="touchpad-design-guidelines"></a>タッチパッドの設計ガイドライン
 
@@ -29,7 +29,7 @@ ms.locfileid: "66365270"
 
 -   標準のタッチパッド、または Windows 高精度タッチパッド。
 
-    高精度タッチパッドは、ユニバーサル Windows プラットフォーム (UWP) デバイス向けに最適化されています。 高精度タッチパッドを使用すると、システムが指の追跡や手のひら検出などの一部のタッチパッド操作をネイティブに処理でき、さまざまなデバイス全体での一貫した操作を実現しやすくなります。
+    Precision タッチパッド向けは Windows アプリデバイス用に最適化されています。 高精度タッチパッドを使用すると、システムが指の追跡や手のひら検出などの一部のタッチパッド操作をネイティブに処理でき、さまざまなデバイス全体での一貫した操作を実現しやすくなります。
 
 -   タッチパッドへの 1 本以上の指の直接的な接触。
 -   タッチ接触の動き (または、時間のしきい値に基づく動きの欠落)。
@@ -40,7 +40,7 @@ ms.locfileid: "66365270"
 -   マウス、ペンなどの代替の入力方式として見なす。
 -   他の入力方法の外観を補完するために使う (ペンで描画したインク ストロークをこするなど)。
 
-タッチパッドは、間接的なマルチタッチ入力と、マウスのようなポインティング デバイスの精密入力を組み合わせたものです。 この組み合わせにより、タッチパッドはタッチに最適化された UI にも、生産性アプリとデスクトップ環境で使用される一般的に小さなターゲットにも適しています。 UWP アプリの設計をタッチ入力用に最適化し、既定のタッチパッドのサポートを利用します。
+タッチパッドは、間接的なマルチタッチ入力と、マウスのようなポインティング デバイスの精密入力を組み合わせたものです。 この組み合わせにより、タッチパッドはタッチに最適化された UI にも、生産性アプリとデスクトップ環境で使用される一般的に小さなターゲットにも適しています。 タッチ入力用に Windows アプリのデザインを最適化し、既定でタッチパッドのサポートを取得します。
 
 タッチパッドでサポートされている操作エクスペリエンスは複合的なので、[**PointerEntered**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerentered) イベントを使って、タッチ入力の組み込みサポートの他にマウス スタイル UI コマンドも提供することをお勧めします。 たとえば、コンテンツをパンするだけでなく、"前へ" ボタンと "次へ" ボタンを使ってコンテンツのページをフリップできるようにします。
 
@@ -55,11 +55,11 @@ ms.locfileid: "66365270"
 
 ![標準のタッチパッドの設定](images/mouse-touchpad-settings-standard.png)
 
-<sup>標準\\タッチパッド\\設定</sup>
+<sup>標準 \\ タッチパッドの \\ 設定</sup>
 
 ![Windows 高精度タッチパッドの設定](images/mouse-touchpad-settings-ptp.png)
 
-<sup>Windows\\精度\\タッチパッド\\設定</sup>
+<sup>Windows \\ Precision の \\ タッチパッドの \\ 設定</sup>
 
 以下に、一般的なタスクを実行するためのタッチパッドに最適化されたジェスチャの例を示します。
 
@@ -146,25 +146,24 @@ ms.locfileid: "66365270"
 -   クリック可能な要素には常に矢印カーソル (![矢印カーソル](images/cursor-arrow.png)) を使います。 リンクなどのインタラクティブな要素には手の形のポインティング カーソル (![手の形のポインティング カーソル](images/cursor-pointinghand.png)) を使いません。 代わりに、前に説明したホバー効果を使います。
 -   選択可能なテキストにはテキスト カーソル (![テキスト カーソル](images/cursor-text.png)) を使います。
 -   ドラッグやトリミングなど、移動がメインの操作である場合は、移動カーソル (![移動カーソル](images/cursor-move.png)) を使います。 スタート画面のタイルなどでのナビゲーションがメインの操作である場合は、要素に対して移動カーソルを使いません。
--   サイズ変更ができるオブジェクトに対しては、横、縦、対角線のサイズ変更カーソル (![縦のサイズ変更カーソル](images/cursor-vertical.png)、 ![横のサイズ変更カーソル](images/cursor-horizontal.png)、 ![対角線のサイズ変更カーソル (左下、右上)](images/cursor-diagonal2.png)、 ![対角線のサイズ変更カーソル (左上、右下)](images/cursor-diagonal1.png)) を使います。
--   地図など、固定キャンバス内のコンテンツのパンを行うときは、手でつかむ形のカーソル (![手でつかむ形のカーソル (開いた状態)](images/cursor-pan1.png)、 ![手でつかむ形のカーソル (つかんだ状態)](images/cursor-pan2.png)) を使います。
+-   サイズ変更ができるオブジェクトに対しては、横、縦、対角線のサイズ変更カーソル (![縦のサイズ変更カーソル](images/cursor-vertical.png), ![横のサイズ変更カーソル](images/cursor-horizontal.png), ![対角線のサイズ変更カーソル (左下、右上)](images/cursor-diagonal2.png), ![対角線のサイズ変更カーソル (左上、右下)](images/cursor-diagonal1.png)) を使います。
+-   地図など、固定キャンバス内のコンテンツのパンを行うときは、手でつかむ形のカーソル (![手でつかむ形のカーソル (開いた状態)](images/cursor-pan1.png), ![手でつかむ形のカーソル (つかんだ状態)](images/cursor-pan2.png)) を使います。
 
 ## <a name="related-articles"></a>関連記事
 
+- [ポインター入力の処理](handle-pointer-input.md)
+- [入力デバイスの識別](identify-input-devices.md)
 
-* [ポインター入力の処理](handle-pointer-input.md)
-* [入力デバイスの識別](identify-input-devices.md)
-**サンプル**
-* [基本的な入力サンプル](https://go.microsoft.com/fwlink/p/?LinkID=620302)
-* [低待機時間の入力サンプル](https://go.microsoft.com/fwlink/p/?LinkID=620304)
-* [ユーザー操作モードのサンプル](https://go.microsoft.com/fwlink/p/?LinkID=619894)
-* [フォーカスの視覚効果のサンプル](https://go.microsoft.com/fwlink/p/?LinkID=619895)
-**サンプルのアーカイブ**
-* [入力:デバイス機能のサンプル](https://go.microsoft.com/fwlink/p/?linkid=231530)
-* [入力:XAML ユーザー入力イベントのサンプル](https://go.microsoft.com/fwlink/p/?linkid=226855)
-* [XAML のスクロール、パン、ズームのサンプル](https://go.microsoft.com/fwlink/p/?linkid=251717)
-* [入力:ジェスチャと GestureRecognizer の操作](https://go.microsoft.com/fwlink/p/?LinkID=231605)
- 
+### <a name="samples"></a>サンプル
 
+- [基本的な入力のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/BasicInput)
+- [待機時間が短い入力のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/LowLatencyInput)
+- [ユーザー操作モードのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/UserInteractionMode)
+- [フォーカスの視覚効果のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlFocusVisuals)
 
+### <a name="archive-samples"></a>サンプルのアーカイブ
 
+- [入力: デバイス機能のサンプルに関するページ](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Windows%208%20app%20samples/%5BC%23%5D-Windows%208%20app%20samples/C%23/Windows%208%20app%20samples/Input%20Device%20capabilities%20sample%20(Windows%208))
+- [入力: XAML ユーザー入力イベントのサンプルに関するページ](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Input%20XAML%20user%20input%20events%20sample)
+- [XAML のスクロール、パン、ズームのサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Universal%20Windows%20app%20samples/111487-Universal%20Windows%20app%20samples/XAML%20scrolling%2C%20panning%2C%20and%20zooming%20sample)
+- [入力: GestureRecognizer によるジェスチャと操作](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Input%20Gestures%20and%20manipulations%20with%20GestureRecognizer)

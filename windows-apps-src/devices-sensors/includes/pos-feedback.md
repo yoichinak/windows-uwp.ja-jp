@@ -1,26 +1,26 @@
 ---
 title: サポートとフィードバック
-description: ファイルのサポートおよびフィードバック
+description: サポートとフィードバックのインクルードファイル
 ms.date: 06/12/2018
-ms.topic: article
+ms.topic: include
 keywords: Windows 10, UWP, 店舗販売時点管理, POS
 ms.localizationpriority: medium
-ms.openlocfilehash: fd8f39ccaa735f02a8f014179b9cc254eacc26cd
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: e1b6850c294e0427ac05ad4a4d7b2945df0dc34f
+ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66376921"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74260798"
 ---
 ## <a name="support-and-feedback"></a>サポートとフィードバック
 
 ### <a name="find-answers-to-your-questions"></a>質問に対する回答を見つける
 
-ご質問がある場合は、 いずれかを尋ね[Stack Overflow](https://aka.ms/pos-stackoverflow)または[UWP の MSDN フォーラム](https://social.msdn.microsoft.com/Forums/en-US/home?forum=wpdevelop&filter=alltypes&sort=relevancedesc&searchTerm=%5Bpointofservice%5D)
+ご質問がある場合は、 [Stack Overflow](https://stackoverflow.com/questions/tagged/pointofservice)または[MSDN UWP フォーラム](https://social.msdn.microsoft.com/Forums/en-US/home?forum=wpdevelop&filter=alltypes&sort=relevancedesc&searchTerm=%5Bpointofservice%5D)でお問い合わせください
 
-質問の検索に役立ちます。
-- 追加、 [pointofservice](https://aka.ms/pos-stackoverflow) Stack Overflow で質問するタグ。 
-- 含める、 ["pointofservice"](https://social.msdn.microsoft.com/Forums/en-US/home?forum=wpdevelop&filter=alltypes&sort=relevancedesc&searchTerm=%5Bpointofservice%5D) UWP の MSDN フォーラムで投稿の用語
+質問の検索にご協力ください。
+- Stack Overflow の質問に[pointofservice](https://stackoverflow.com/questions/tagged/pointofservice)タグを追加します。 
+- MSDN UWP フォーラムの投稿に["pointofservice"](https://social.msdn.microsoft.com/Forums/en-US/home?forum=wpdevelop&filter=alltypes&sort=relevancedesc&searchTerm=%5Bpointofservice%5D)という用語を含める
 
-### <a name="make-feature-suggestions-or-give-feedback"></a>機能の提案を行うこと、またはフィードバックの提供
-参照してください[開発者フィードバック UserVoice](https://wpdev.uservoice.com/forums/110705-universal-windows-platform?category_id=202594)します。
+### <a name="make-feature-suggestions-or-give-feedback"></a>機能の提案を作成するか、フィードバックをお寄せください
+「 [Developer フィードバック UserVoice](https://wpdev.uservoice.com/forums/110705-universal-windows-platform?category_id=202594)」を参照してください。

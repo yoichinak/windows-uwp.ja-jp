@@ -39,7 +39,13 @@
     - name: XAML を使ったレイアウト
       href: layout/layouts-with-xaml.md
     - name: 複数のビューの表示
-      href: layout/show-multiple-views.md
+      items:
+        - name: 複数のビューの表示
+          href: layout/show-multiple-views.md
+        - name: AppWindow の使用
+          href: layout/app-window.md
+        - name: ApplicationView の使用
+          href: layout/application-view.md
     - name: 配置、余白、およびパディング
       href: layout/alignment-margin-padding.md
     - name: パネル
@@ -80,7 +86,7 @@
           href: controls-and-patterns/buttons.md
         - name: チェック ボックス
           href: controls-and-patterns/checkbox.md
-        - name: コンボ ボックス
+        - name: コンボ ボックスとリスト ボックス
           href: controls-and-patterns/combo-box.md
         - name: ハイパーリンク
           href: controls-and-patterns/hyperlinks.md
@@ -96,31 +102,42 @@
       items:
         - name: 概要
           href: controls-and-patterns/lists.md
-        - name: コレクションのコマンド実行
-          href: controls-and-patterns/collection-commanding.md
-        - name: カスタム コレクション ビュー
-          href: controls-and-patterns/items-repeater.md
-        - name: フリップ ビュー
-          href: controls-and-patterns/flipview.md
-        - name: 反転リスト
-          href: controls-and-patterns/inverted-lists.md
         - name: リスト ビューとグリッド ビュー
           href: controls-and-patterns/listview-and-gridview.md
+        - name: フリップ ビュー
+          href: controls-and-patterns/flipview.md
+        - name: ツリー構造
+          href: controls-and-patterns/tree-view.md
+        - name: ItemsRepeater
+          href: controls-and-patterns/items-repeater.md
+        - name: 項目コンテナーとテンプレート
           items:
-            - name: 項目コンテナーやテンプレート
+            - name: 項目コンテナーとテンプレート
               href: controls-and-patterns/item-containers-templates.md
+            - name: データ テンプレートの選択
+              href: controls-and-patterns/data-template-selector.md
             - name: リスト ビューの項目テンプレート
               href: controls-and-patterns/item-templates-listview.md
             - name: グリッド ビューの項目テンプレート
               href: controls-and-patterns/item-templates-gridview.md
-        - name: 入れ子になった UI
-          href: controls-and-patterns/nested-ui.md
-        - name: 引っ張って更新
-          href: controls-and-patterns/pull-to-refresh.md
-        - name: スワイプ
-          href: controls-and-patterns/swipe.md
-        - name: ツリー ビュー
-          href: controls-and-patterns/tree-view.md
+        - name: 選択と操作
+          items:
+            - name: コレクションのコマンド実行
+              href: controls-and-patterns/collection-commanding.md
+            - name: 選択モードの概要
+              href: controls-and-patterns/selection-modes.md
+            - name: Swipe
+              href: controls-and-patterns/swipe.md
+            - name: 引っ張って更新
+              href: controls-and-patterns/pull-to-refresh.md
+            - name: コレクションのフィルター処理
+              href: controls-and-patterns/listview-filtering.md
+        - name: 追加のコレクション オプションとカスタマイズ
+          items:
+            - name: 反転リスト
+              href: controls-and-patterns/inverted-lists.md
+            - name: 入れ子になった UI
+              href: controls-and-patterns/nested-ui.md
     - name: ダイアログとポップアップ
       items:
         - name: 概要
@@ -155,15 +172,17 @@
           href: controls-and-patterns/command-bar-flyout.md
         - name: メニューとショートカット メニュー
           href: controls-and-patterns/menus.md
-    - name: ナビゲーション
+    - name: ［ナビゲーション］
       items:
-        - name: マスター/詳細
+        - name: マスターと詳細
           href: controls-and-patterns/master-details.md
         - name: ナビゲーション ビュー
           href: controls-and-patterns/navigationview.md
         - name: Pivot
           href: controls-and-patterns/pivot.md
-    - name: People
+        - name: タブ ビュー
+          href: controls-and-patterns/tab-view.md
+    - name: ユーザー
       items:
         - name: 連絡先カード
           href: controls-and-patterns/contact-card.md
@@ -193,11 +212,11 @@
       href: controls-and-patterns/search.md
     - name: 状態と情報
       items:
-        - name: 進行状況
+        - name: ［進行状況］
           href: controls-and-patterns/progress-controls.md
         - name: ヒント
           href: controls-and-patterns/tooltips.md
-    - name: Text
+    - name: テキスト
       items:
         - name: 概要
           href: controls-and-patterns/text-controls.md
@@ -213,17 +232,21 @@
           href: controls-and-patterns/rich-edit-box.md
         - name: パスワード ボックス
           href: controls-and-patterns/password-box.md
+        - name: 数値ボックス
+          href: controls-and-patterns/number-box.md
         - name: ラベル
           href: controls-and-patterns/labels.md
         - name: コンテンツ リンク
           href: controls-and-patterns/content-links.md
         - name: 手書きビュー
           href: controls-and-patterns/text-handwriting-view.md
+    - name: 2 つのペインからなるビュー
+      href: controls-and-patterns/two-pane-view.md
 - name: スタイル
   items:
     - name: 概要
       href: style/index.md
-    - name: 色
+    - name: Color
       href: style/color.md
     - name: 文字体裁
       href: style/typography.md
@@ -241,6 +264,8 @@
       href: style/reveal.md
     - name: 表示フォーカス
       href: style/reveal-focus.md
+    - name: 角の半径
+      href: style/rounded-corner.md
     - name: サウンド
       href: style/sound.md
     - name: 間隔
@@ -283,9 +308,9 @@
           href: motion/storyboarded-animations.md
         - name: キー フレームとイージング関数のアニメーション
           href: motion/key-frame-and-easing-function-animations.md
-- name: シェル
+- name: Shell
   items:
-    - name: タイル
+    - name: Tiles
       href: shell/tiles-and-notifications/creating-tiles.md
       items:
         - name: セカンダリ タイル
@@ -328,15 +353,19 @@
             - name: トーストのコンテンツのスキーマ
               href: shell/tiles-and-notifications/toast-schema.md
             - name: ローカル トーストの送信
-              href: shell/tiles-and-notifications/send-local-toast.md
               items:
+                - name: Windows アプリ
+                  href: shell/tiles-and-notifications/send-local-toast.md
                 - name: デスクトップ アプリ
-                  href: shell/tiles-and-notifications/toast-desktop-apps.md
                   items:
+                    - name: 概要
+                      href: shell/tiles-and-notifications/toast-desktop-apps.md
                     - name: 'C# アプリ'
                       href: shell/tiles-and-notifications/send-local-toast-desktop.md
                     - name: C++ WRL アプリ
                       href: shell/tiles-and-notifications/send-local-toast-desktop-cpp-wrl.md
+            - name: トーストのスケジュールを設定する
+              href: shell/tiles-and-notifications/scheduled-toast.md
             - name: カスタム オーディオ
               href: shell/tiles-and-notifications/custom-audio-on-toasts.md
             - name: 進行状況バー
@@ -400,7 +429,7 @@
           href: input/save-and-load-ink.md
         - name: Ink ツール バーの追加
           href: input/ink-toolbar.md
-    - name: タッチ
+    - name: Touch
       href: input/touch-interactions.md
     - name: マウス
       href: input/mouse-interactions.md
@@ -423,7 +452,7 @@
           href: input/use-input-scope-to-change-the-touch-keyboard.md
     - name: ゲームパッドとリモート制御
       href: input/gamepad-and-remote-interactions.md
-    - name: タッチパッド
+    - name: Touchpad
       href: input/touchpad-interactions.md
     - name: Surface Dial
       href: input/windows-wheel-interactions.md
@@ -482,7 +511,7 @@
       href: input/guidelines-for-rotation.md
     - name: テキストと画像の選択
       href: input/guidelines-for-textselection.md
-    - name: ターゲット設定
+    - name: ターゲット
       href: input/guidelines-for-targeting.md
     - name: 視覚的なフィードバック
       href: input/guidelines-for-visualfeedback.md
@@ -494,7 +523,7 @@
       href: devices/designing-for-tv.md
     - name: Mixed Reality
       href: devices/designing-for-MR.md
-- name: ユーザビリティ
+- name: 使いやすさ
   items:
     - name: 概要
       href: usability/index.md
@@ -517,6 +546,8 @@
           href: accessibility/basic-accessibility-information.md
         - name: キーボードのアクセシビリティ
           href: accessibility/keyboard-accessibility.md
+        - name: スクリーン リーダーとハードウェア システムのボタン
+          href: accessibility/system-button-narration.md
         - name: ランドマークと見出し
           href: accessibility/landmarks-and-headings.md
         - name: ハイ コントラスト テーマ
@@ -527,13 +558,11 @@
           href: accessibility/practices-to-avoid.md
         - name: カスタム オートメーション ピア
           href: accessibility/custom-automation-peers.md
-          items:
-            - name: コントロール パターンとインターフェイス
-              href: accessibility/control-patterns-and-interfaces.md
+        - name: コントロール パターンとインターフェイス
+          href: accessibility/control-patterns-and-interfaces.md
     - name: アプリの設定
-      href: app-settings/app-settings-and-data.md
       items:
-        - name: ガイドライン
+        - name: アプリ設定のガイドライン
           href: app-settings/guidelines-for-app-settings.md
         - name: アプリの設定とデータを保存して取得する
           href: app-settings/store-and-retrieve-app-data.md
@@ -566,9 +595,10 @@
           href: globalizing/use-utf8-code-page.md
         - name: アプリケーションの新元号対応
           href: globalizing/japanese-era-change.md
-    - name: アプリのヘルプのガイドライン
-      href: in-app-help/guidelines-for-app-help.md
+    - name: アプリ内ヘルプ
       items:
+        - name: アプリのヘルプのガイドライン
+          href: in-app-help/guidelines-for-app-help.md
         - name: 説明 UI
           href: in-app-help/instructional-ui.md
         - name: アプリ内ヘルプ

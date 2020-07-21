@@ -6,12 +6,12 @@ ms.topic: article
 keywords: 概要, uwp, windows 10, 学習トラック, ファイル, ファイル io, ファイルの読み取り, ファイルの書き込み, ファイルの作成, テキストの書き込み, テキストの読み取り
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 29cfeef852f240548f1cd961f73766346da7afa4
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: c36f4885dffa86452543f05f5b7a59a882d25710
+ms.sourcegitcommit: ef723e3d6b1b67213c78da696838a920c66d5d30
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67321130"
+ms.lasthandoff: 05/02/2020
+ms.locfileid: "82730054"
 ---
 # <a name="work-with-files"></a>ファイルの操作
 
@@ -26,7 +26,7 @@ ms.locfileid: "67321130"
 ファイルに対してテキストの読み取りや書き込みを行うために知っておく必要がある主な型を次に示します。
 
 - [Windows.Storage.StorageFile](https://docs.microsoft.com/uwp/api/windows.storage.storagefile) はファイルを表します。 このクラスには、ファイルに関する情報を提供するプロパティ、およびファイルを作成、開く、コピー、削除、名前変更するためのメソッドがあります。
-文字列パスの処理には慣れているかもしれません。 文字列パスを指定するいくつかの UWP API がありますが、より多くの場合に、**StorageFile** を使用してファイルを表します。これは、UWP で操作する一部のファイルにパスがないか、または扱うのが難しいパスがあるためです。 [StorageFile.GetFileFromPathAsync()](https://docs.microsoft.com/uwp/api/windows.storage.storagefile.getfilefrompathasync) を使用して文字列パスを **StorageFile** に変換します。 
+文字列パスの処理には慣れているかもしれません。 文字列パスを指定する Windows ランタイム API もありますが、ファイルを表すのにより多く使用されるのが **StorageFile** です。これは、UWP を使用して操作するファイルの場合、パスがなかったり、パスの扱いが難しかったりすることがあるためです。 [StorageFile.GetFileFromPathAsync()](https://docs.microsoft.com/uwp/api/windows.storage.storagefile.getfilefrompathasync) を使用して文字列パスを **StorageFile** に変換します。 
 
 - [FileIO](https://docs.microsoft.com/uwp/api/windows.storage.fileio) クラスを使用すると、テキストの読み取りと書き込みを簡単に行うことができます。 また、このクラスは、バイトの配列またはバッファーの内容の読み取り/書き込みを行うことができます。 このクラスは [PathIO](https://docs.microsoft.com/uwp/api/windows.storage.pathio) クラスとよく似ています。 主な違いは、**PathIO** が行うように文字列パスを指定する代わりに、**StorageFile** を指定する点です。
 - [Windows.Storage.StorageFolder](https://docs.microsoft.com/uwp/api/windows.storage.storagefolder) はフォルダー (ディレクトリ) を表します。 このクラスには、ファイルの作成、フォルダーの内容の照会、フォルダーの作成、名前変更、削除を行うためのメソッド、およびフォルダーに関する情報を提供するプロパティがあります。 
@@ -141,8 +141,8 @@ API の簡単な概要と、ファイルやフォルダーの使用を開始す�
 
 | コード サンプル | 説明 |
 |-----------------|---------------|
-| [アプリケーション データ サンプル](https://code.msdn.microsoft.com/windowsapps/ApplicationData-sample-fb043eb2) | アプリケーション データ API を使って、ユーザーごとに特有のデータを保存、取得する方法を示します。 |
+| [アプリケーション データ サンプル](https://docs.microsoft.com/samples/microsoft/windows-universal-samples/applicationdata/) | アプリケーション データ API を使って、ユーザーごとに特有のデータを保存、取得する方法を示します。 |
 | [ファイル アクセスのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/FileAccess) | ファイルを作成、読み取り、書き込み、コピー、および削除する方法を示します。 |
-| [ファイル ピッカーのサンプル](https://code.msdn.microsoft.com/windowsapps/File-picker-sample-9f294cba) | ユーザーが UI で選択できるようにしてファイルやフォルダーにアクセスする方法、ユーザーが保存するファイルの名前、ファイルの種類、場所を指定できるようにファイルを保存する方法を示します。 |
+| [ファイル ピッカーのサンプル](https://docs.microsoft.com/samples/microsoft/windows-universal-samples/filepicker/) | ユーザーが UI で選択できるようにしてファイルやフォルダーにアクセスする方法、ユーザーが保存するファイルの名前、ファイルの種類、場所を指定できるようにファイルを保存する方法を示します。 |
 | [JSON サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Json) | [Windows.Data.Json namespace](https://docs.microsoft.com/uwp/api/Windows.Data.Json) を使用して、JavaScript Object Notation (JSON) オブジェクト、配列、文字列、数値、ブール値をエンコードおよびデコードする方法を示します。 |
 | [その他のコード サンプル](https://developer.microsoft.com/windows/samples) | [カテゴリ] ドロップダウン リストで、 **[Files, folder, and libraries] (ファイル、フォルダー、およびライブラリ)** を選択します。 |
