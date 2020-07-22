@@ -2,15 +2,15 @@
 title: Windows UI ライブラリ
 description: WinUI 2.x と Windows アプリの開発に関する情報を提供します。
 ms.topic: article
-ms.date: 04/15/2020
+ms.date: 07/15/2020
 keywords: windows 10, uwp, ツールキット sdk, winui, Windows UI ライブラリ
 ms.custom: RS5
-ms.openlocfilehash: c1828405c424ca54dcb70e587479fd5307b1046d
-ms.sourcegitcommit: 3a7f9f05f0127bc8e38139b219e30a8df584cad3
+ms.openlocfilehash: 42f790ed92a41f298465bcc42b21dcdb3fa8bc86
+ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83775856"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86493637"
 ---
 # <a name="windows-ui-library-2x"></a>Windows UI ライブラリ 2.x
 
@@ -21,7 +21,7 @@ Windows UI ライブラリでは、Windows アプリ向けに公式のネイテ�
 以前のバージョンの Windows 10 との下位互換性が維持されるため、ユーザーが最新の OS を使用していない場合でも、アプリが動作します。
 
 > [!NOTE]
-> 2020 年のリリースが計画されている Windows 10 UI プラットフォームのメジャー アップデートである、[WinUI 3.0 Preview 1](../winui3/index.md) を確認してください。
+> Windows 10 UI プラットフォームのメジャー アップデートである、[Windows UI ライブラリ 3 Preview 2 (2020 年 7 月)](../winui3/index.md) を確認してください。
 
 ## <a name="features"></a>機能
 

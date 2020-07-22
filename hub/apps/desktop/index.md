@@ -7,12 +7,12 @@ keywords: windows win32, デスクトップ開発
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: d052ad0f670bccd9b32d2e3643520dd6129ed22a
-ms.sourcegitcommit: cc645386b996f6e59f1ee27583dcd4310f8fb2a6
+ms.openlocfilehash: 20399b9a6398b1f17f74d2de74cc4b5e4ba270ac
+ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84262743"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86492997"
 ---
 # <a name="build-desktop-apps-for-windows-pcs"></a>Windows PC 用のデスクトップ アプリの構築
 
@@ -20,9 +20,7 @@ ms.locfileid: "84262743"
 
 ## <a name="platforms-for-desktop-apps"></a>デスクトップ アプリのプラットフォーム
 
-Windows PC 用のデスクトップ アプリを構築するプラットフォームは、主に 4 つあります。 各プラットフォームには、アプリのライフサイクル、UI コントロールの完全なセット、Windows 機能を使用するための包括的な一連のマネージド API またはネイティブ API へのアクセスを定義するアプリ モデルが用意されています。
-
-次の表は、プラットフォームについて説明しています。 これらのプラットフォームと、各プラットフォームのその他のリソースの詳細な比較については、「[アプリのプラットフォームを選択する](choose-your-platform.md)」を参照してください。
+Windows PC 用のデスクトップ アプリを構築するプラットフォームは、主に 4 つあります。 各プラットフォームには、アプリのライフサイクルを定義するアプリ モデルのほか、Word、Excel、Photoshop などのデスクトップ アプリの作成と、Windows 機能を使用するための包括的な一連のマネージド API またはネイティブ API へのアクセスを可能にする完全な UI フレームワークと UI コントロール セットが用意されています。 これらのプラットフォームと、各プラットフォームのその他のリソースの詳細な比較については、「[アプリのプラットフォームを選択する](choose-your-platform.md)」を参照してください。
 
 <br/>
 
@@ -46,8 +44,8 @@ Windows PC 用のデスクトップ アプリを構築するプラットフォ�
 <td><a href="/windows/uwp/get-started/">作業開始</a><br/><a href="/uwp/">API リファレンス</a><br/><a href="https://github.com/Microsoft/Windows-universal-samples">サンプル</a></td>
 </tr>
 <tr class="even">
-<td><a href="https://docs.microsoft.com/windows/win32/">Win32</a></td>
-<td><p>Windows とハードウェアへの直接アクセスを必要とするネイティブ C/C++ の Windows アプリのために用意されたプラットフォームです。</p></td>
+<td><a href="https://docs.microsoft.com/windows/win32/">C++/Win32</a></td>
+<td><p>Windows とハードウェアへの直接アクセスを必要とするネイティブ Windows アプリに最も適したプラットフォームです。</p></td>
 <td><a href="/windows/win32/desktop-programming/">作業開始</a><br/><a href="/windows/win32/apiindex/windows-api-list/">API リファレンス</a><br/><a href="https://github.com/Microsoft/Windows-classic-samples">サンプル</a></td>
 </tr>
 <tr class="odd">
@@ -64,7 +62,7 @@ Windows PC 用のデスクトップ アプリを構築するプラットフォ�
 </table>
 
 > [!NOTE]
-> これらのアプリケーション プラットフォームは、一連の UI フレームワークおよび UI コントロールを備えています。従来の Windows デスクトップで実行される Word、Excel、Photoshop などのデスクトップ アプリを作成し、その環境固有の機能を最大限に活用できます。 Windows 10 では、この各プラットフォームで Windows UI (WinUI) ライブラリ を使用したユーザー インターフェイスの作成がサポートされています。 デスクトップ アプリ用の WinUI の詳細については、[こちらのセクション](choose-your-platform.md#windows-ui-library)を参照してください。
+> Windows 10 では、これらのプラットフォームのそれぞれで、Windows UI (WinUI) ライブラリを使用したユーザー インターフェイスの作成がサポートされています。 デスクトップ アプリ用の WinUI の詳細については、[こちらのセクション](choose-your-platform.md#windows-ui-library)を参照してください。
 
 ## <a name="update-existing-desktop-apps-for-windows-10"></a>Windows 10 用に既存のデスクトップ アプリを更新する
 
@@ -94,6 +92,7 @@ Windows 用の新しいデスクトップ アプリを作成する場合の、�
 | アーティクル | 説明 |
 |---------|-------------|
 | [アプリ プラットフォームの選択](choose-your-platform.md) | 主要なデスクトップ アプリ プラットフォームの詳細な比較が提供されるため、ニーズに適したプラットフォームを選択するのに役立ちます。 この記事では、各プラットフォームのドキュメントへの便利なリンクも提供します。 |
+| [Windows アプリ用の Visual Studio プロジェクト テンプレート](visual-studio-templates.md) | Visual Studio に用意されている、C\# または C++ を使用して Windows 10 デバイス用のアプリをビルドする際に役立つプロジェクト テンプレートと項目テンプレートについて説明します。 |
 | [デスクトップ アプリの現代化](/windows/apps/desktop/modernize) | WPF、Windows フォーム、C++ Win32 アプリなどの、任意のデスクトップ アプリで使用できる最新の Windows 10 および UWP 開発機能について説明します。 |
 | [機能とテクノロジ](/windows/apps/features-and-technologies) | 主要なデスクトップ アプリ プラットフォームを通じてアクセスできる Windows 機能の概要と、関連ドキュメントへのリンクを示します。 |
 

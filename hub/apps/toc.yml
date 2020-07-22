@@ -7,6 +7,8 @@
           href: desktop/index.md
         - name: アプリ プラットフォームの選択
           href: desktop/choose-your-platform.md
+        - name: Windows アプリ用の Visual Studio テンプレート
+          href: desktop/visual-studio-templates.md
         - name: デスクトップ アプリの現代化
           items:
             - name: 概要
@@ -77,18 +79,23 @@
       items:
         - name: 概要
           href: winui/index.md
-        - name: Windows UI ライブラリ 3.0 Preview 1
+        - name: Windows UI ライブラリ 3.0 Preview 2
           items:
-            - name: ダウンロードおよびリリース ノート
+            - name: 概要およびリリース ノート
               href: winui/winui3/index.md
-            - name: デスクトップ アプリ用の WinUI 3.0 の概要
+            - name: デスクトップ アプリ用の WinUI 3 の概要
               href: winui/winui3/get-started-winui3-for-desktop.md
+            - name: UWP アプリ用の WinUI 3 の概要
+              href: winui/winui3/get-started-winui3-for-uwp.md
+            - name: C++/WinRT を使用した UWP および WinUI 3 アプリ用のテンプレート化された XAML コントロール
+              href: winui/winui3/xaml-templated-controls-cppwinrt-winui3.md
         - name: Windows UI 2.x ライブラリ
-          href: winui/winui2/index.md
           items:
+            - name: 概要
+              href: winui/winui2/index.md
             - name: セットアップ
               items:
-                - name: 開始
+                - name: WinUI 2.x の概要
                   href: winui/winui2/getting-started.md
                 - name: NuGet パッケージの一覧
                   href: winui/winui2/nuget-packages.md
