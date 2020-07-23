@@ -8,44 +8,20 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: high
 ms.custom: 19H1
-ms.openlocfilehash: 8775113c22716259f9449899b577481738dc6c0f
-ms.sourcegitcommit: da1c0ae251883987f105bc2919b2d67846194bc5
+ms.openlocfilehash: 7393d4d1bae227bf3b586a54fba5d43ca2dcb53e
+ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85198520"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86493407"
 ---
-# <a name="get-started-with-winui-30-for-desktop-apps"></a>デスクトップ アプリ用の WinUI 3.0 の概要
+# <a name="get-started-with-winui-3-for-desktop-apps"></a>デスクトップ アプリ用の WinUI 3 の概要
 
-WinUI 3.0 Preview 1 では、全面的に WinUI ベースのユーザー インターフェイスを使用する、マネージド デスクトップ C#/.NET およびネイティブ C++/Win32 デスクトップ アプリを作成できる新しいプロジェクト テンプレートが導入されています。 これらのプロジェクト テンプレートを使用してアプリを作成すると、アプリケーションのユーザー インターフェイス全体が、WinUI 3.0 で提供されるウィンドウ、コントロール、その他の種類の UI を使用して実装されます。
-
-WinUI 3.0 Preview 1 では、WinUI 3.0 を使用するデスクトップ アプリを構築するために、次のプロジェクト テンプレートが Visual Studio 2019 に追加されます。
-
-* .NET 5 を対象とする C# アプリとライブラリ用のプロジェクト テンプレート:
-  * **[Blank App, Packaged (WinUI in Desktop)]\(空のアプリ、パッケージ (WinUI in Desktop)\)**
-  * **[Class Library (WinUI in Desktop)]\(クラス ライブラリ (WinUI in Desktop)\)**
-
-* C++/Win32 アプリ用のプロジェクト テンプレート:
-  * **[Blank App, Packaged (WinUI in Desktop)]\(空のアプリ、パッケージ (WinUI in Desktop)\)**
-
-このアプリ プロジェクト テンプレートにより、WinUI アプリ プロジェクトと、アプリを展開するために [MSIX パッケージ](https://docs.microsoft.com/windows/msix/overview)に組み込むよう構成されている [Windows アプリケーション パッケージ プロジェクト](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)が生成されます。
+WinUI 3 Preview 2 では、全面的に WinUI ベースのユーザー インターフェイスを使用する、マネージド デスクトップ C#/.NET Core およびネイティブ C++/Win32 デスクトップ アプリを作成できる新しいプロジェクト テンプレートが導入されています。 これらのプロジェクト テンプレートを使用してアプリを作成すると、アプリケーションのユーザー インターフェイス全体が、WinUI 3 で提供されるウィンドウ、コントロール、その他の種類の UI を使用して実装されます。 プロジェクト テンプレートの完全な一覧については、[こちらのセクション](index.md#project-templates-for-winui-3)を参照してください。
 
 ## <a name="prerequisites"></a>前提条件
 
-この記事で説明されているデスクトップ プロジェクト テンプレートに WinUI 3 を使用するには、次の手順に従って開発用コンピューターを構成します。
-
-1. 開発用コンピューターに Windows 10 のバージョン 1803 (ビルド 17134) または最新バージョンがインストールされていることを確認します。 デスクトップ アプリ用の WinUI 3 では、1803 以降の OS バージョンが必要です。
-
-2. Visual Studio 2019 バージョン 16.7 Preview 1 をインストールします。 詳細については、[こちらの手順](index.md#configure-your-dev-environment)を参照してください。
-
-3. .NET 5 Preview 4 の x64 版と x86 版の両方をインストールします。
-    * x64: [https://aka.ms/dotnet/net5/preview4/Sdk/dotnet-sdk-win-x64.exe](https://aka.ms/dotnet/net5/preview4/Sdk/dotnet-sdk-win-x64.exe)
-    * x86: [https://aka.ms/dotnet/net5/preview4/Sdk/dotnet-sdk-win-x86.exe](https://aka.ms/dotnet/net5/preview4/Sdk/dotnet-sdk-win-x86.exe)
-
-    > [!NOTE]
-    > WinUI 3.0 Preview 1 には、.NET 5 Preview 4 が必要です。 .NET 5 のこれより後のプレビュー バージョンは、WinUI 3.0 Preview 1 ではサポートされていません。
-
-4. Visual Studio 2019 用の WinUI 3.0 Preview 1 プロジェクト テンプレートを含む VSIX 拡張機能をインストールします。 詳細については、[こちらの手順](index.md#visual-studio-project-templates)を参照してください。
+この記事で説明されているデスクトップ プロジェクト テンプレート用の WinUI 3 を使用するには、[こちら](index.md#install-winui-3-preview-2)の手順に従って開発用コンピューターを構成し、WinUI 3 Preview 2 をインストールします。
 
 ## <a name="create-a-winui-3-desktop-app-for-c-and-net-5"></a>C# および .NET 5 用の WinUI 3 デスクトップ アプリを作成する
 
@@ -69,18 +45,11 @@ WinUI 3.0 Preview 1 では、WinUI 3.0 を使用するデスクトップ アプ�
 
         ![アプリ プロジェクト](images/WinUI-csharp-appproject.png)
 
-    * ***<プロジェクト名>* (パッケージ)** : これは、アプリを展開するために MSIX パッケージに組み込むよう構成されている [Windows アプリケーション パッケージ プロジェクト](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)です。 このプロジェクトは、アプリの[パッケージ マニフェスト](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/schema-root)を格納しており、既定では、ソリューションのスタートアップ プロジェクトになります。
+    * ***<プロジェクト名>* (パッケージ)** : これは、アプリを [MSIX パッケージ](https://docs.microsoft.com/windows/msix/overview)に組み込むように構成されている [Windows アプリケーション パッケージ プロジェクト](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)です。 これによって、最新のデプロイ エクスペリエンスがもたらされ、パッケージ拡張機能を使用して Windows 10 の機能と統合できるなど、さまざまなメリットがあります。 このプロジェクトは、アプリの[パッケージ マニフェスト](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/schema-root)を格納しており、既定では、ソリューションのスタートアップ プロジェクトになります。
 
         ![アプリ プロジェクト](images/WinUI-csharp-packageproject.png)
 
-7. アプリ プロジェクトに新しい項目を追加するには、**ソリューション エクスプローラー**で **[ *<プロジェクト名>* (デスクトップ)]** プロジェクト ノードを右クリックし、 **[追加]**  ->  **[新しい項目]** の順に選択します。 **[新しい項目の追加]** ダイアログ ボックスで、 **[WinUI]** タブを選択し、追加する項目を選択して、 **[追加]** をクリックします。 次の種類の項目から選択できます。
-
-    * **空白のページ**
-    * **空のウィンドウ**
-    * **カスタム コントロール**
-    * **リソース ディクショナリ**
-    * **リソース ファイル**
-    * **ユーザー コントロール**
+7. アプリ プロジェクトに新しい項目を追加するには、**ソリューション エクスプローラー**で **[ *<プロジェクト名>* (デスクトップ)]** プロジェクト ノードを右クリックし、 **[追加]**  ->  **[新しい項目]** の順に選択します。 **[新しい項目の追加]** ダイアログ ボックスで、 **[WinUI]** タブを選択し、追加する項目を選択して、 **[追加]** をクリックします。 使用可能な項目の詳細については、[こちらのセクション](index.md#item-templates-for-winui-3)を参照してください。
 
     ![新しい項目](images/WinUI-csharp-newitem.png)
 
@@ -108,18 +77,11 @@ WinUI 3.0 Preview 1 では、WinUI 3.0 を使用するデスクトップ アプ�
 
         ![アプリ プロジェクト](images/WinUI-cpp-appproject.png)
 
-    * ***<プロジェクト名>* (パッケージ)** : これは、アプリを展開するために MSIX パッケージに組み込むよう構成されている [Windows アプリケーション パッケージ プロジェクト](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)です。 このプロジェクトは、アプリの[パッケージ マニフェスト](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/schema-root)を格納しており、既定では、ソリューションのスタートアップ プロジェクトになります。
+    * ***<プロジェクト名>* (パッケージ)** : これは、アプリを [MSIX パッケージ](https://docs.microsoft.com/windows/msix/overview)に組み込むように構成されている [Windows アプリケーション パッケージ プロジェクト](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)です。 これによって、最新のデプロイ エクスペリエンスがもたらされ、パッケージ拡張機能を使用して Windows 10 の機能と統合できるなど、さまざまなメリットがあります。 このプロジェクトは、アプリの[パッケージ マニフェスト](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/schema-root)を格納しており、既定では、ソリューションのスタートアップ プロジェクトになります。
 
         ![パッケージ プロジェクト](images/WinUI-cpp-packageproject.png)
 
-7. アプリ プロジェクトに新しい項目を追加するには、**ソリューション エクスプローラー**で **[ *<プロジェクト名>* (デスクトップ)]** プロジェクト ノードを右クリックし、 **[追加]**  ->  **[新しい項目]** の順に選択します。 **[新しい項目の追加]** ダイアログ ボックスで、 **[WinUI]** タブを選択し、追加する項目を選択して、 **[追加]** をクリックします。 次の種類の項目から選択できます。
-
-    * **空白のページ**
-    * **空のウィンドウ**
-    * **カスタム コントロール**
-    * **リソース ディクショナリ**
-    * **リソース ファイル**
-    * **ユーザー コントロール**
+7. アプリ プロジェクトに新しい項目を追加するには、**ソリューション エクスプローラー**で **[ *<プロジェクト名>* (デスクトップ)]** プロジェクト ノードを右クリックし、 **[追加]**  ->  **[新しい項目]** の順に選択します。 **[新しい項目の追加]** ダイアログ ボックスで、 **[WinUI]** タブを選択し、追加する項目を選択して、 **[追加]** をクリックします。 使用可能な項目の詳細については、[こちらのセクション](index.md#item-templates-for-winui-3)を参照してください。
 
     ![新しい項目](images/WinUI-cpp-newitem.png)
 
@@ -127,8 +89,8 @@ WinUI 3.0 Preview 1 では、WinUI 3.0 を使用するデスクトップ アプ�
 
 ## <a name="known-issues-and-limitations"></a>既知の問題と制限事項
 
-Preview 1 の既知の問題と制限事項の一覧については、[こちらのセクション](index.md#preview-1-limitations-and-known-issues)を参照してください。
+既知の問題と制限事項の一覧については、[こちらのセクション](index.md#preview-2-limitations-and-known-issues)を参照してください。
 
 ## <a name="related-topics"></a>関連トピック
 
-* [WinUI 3.0](index.md)
+* [Windows UI ライブラリ 3](index.md)
