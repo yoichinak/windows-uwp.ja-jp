@@ -8,12 +8,12 @@ keywords: スピーチ, 音声, 音声認識, 自然言語, ディクテーシ�
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: a1db38120252febefd55933fa106f473b3f920d8
-ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
+ms.openlocfilehash: 8e672d67909a9090ac622ec53894a53fa8485f16
+ms.sourcegitcommit: e1104689fc1db5afb85701205c2580663522ee6d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83234861"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86997769"
 ---
 # <a name="specify-the-speech-recognizer-language"></a>音声認識エンジンの言語の指定
 
@@ -33,7 +33,7 @@ ms.locfileid: "83234861"
 
 Windows アプリの開発に慣れていない場合は、以下のトピックを参照して、ここで説明するテクノロジについて理解してください。
 
--   [最初のアプリを作成する](https://docs.microsoft.com/windows/uwp/get-started/your-first-app)
+-   [初めてのアプリの作成](https://docs.microsoft.com/windows/uwp/get-started/your-first-app)
 -   「[イベントとルーティング イベントの概要](https://docs.microsoft.com/windows/uwp/xaml-platform/events-and-routed-events-overview)」に記載されているイベントの説明
 
 **ユーザーエクスペリエンスのガイドライン:**
@@ -90,13 +90,7 @@ SRGS 文法は、[**SpeechRecognitionGrammarFileConstraint**](https://docs.micro
 
 ## <a name="related-articles"></a>関連記事
 
-**開発者**
-
 * [音声操作](speech-interactions.md)
-
-**デザイナー**
-
-* [音声認識のデザイン ガイドライン](https://docs.microsoft.com/windows/uwp/input-and-devices/speech-interactions)
 
 **サンプル**
 
