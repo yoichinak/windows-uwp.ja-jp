@@ -2,23 +2,23 @@
 title: Windows UI ライブラリの概要
 description: Windows UI ライブラリをインストールして使用する方法。
 ms.topic: reference
-ms.date: 05/08/2020
+ms.date: 07/15/2020
 keywords: windows 10, uwp, ツールキット sdk
-ms.openlocfilehash: d96efb2f3de3084d74e06e70ff2811a944604f56
-ms.sourcegitcommit: 47899c30a39087bca1f058a4395cf58daacf5ae9
+ms.openlocfilehash: 336439d35c74073db490772dbfdae4ca3e580625
+ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85345476"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86492957"
 ---
-# <a name="getting-started-with-the-windows-ui-library"></a>Windows UI ライブラリの概要
+# <a name="getting-started-with-the-windows-ui-2x-library"></a>Windows UI 2.x ライブラリの概要
 
 [WinUI 2.4](release-notes/winui-2.4.md) は、WinUI の最新の安定したバージョンであり、生産中のアプリで使用する必要があります。
 
 ライブラリは、新規または既存の任意の Visual Studio プロジェクトに追加できる NuGet パッケージとして提供されています。
 
 > [!NOTE]
-> WinUI 3.0 の早期プレビューを試す方法の詳細については、「[WinUI 3.0 プレビュー 1](../winui3/index.md)」を参照してください。
+> WinUI 3 の早期プレビューを試す方法の詳細については、「[Windows UI ライブラリ 3 Preview 2 (2020 年 7 月)](../winui3/index.md)」を参照してください。
 
 ## <a name="download-and-install-the-windows-ui-library"></a>Windows UI ライブラリのダウンロードとインストール
 

@@ -5,20 +5,22 @@ ms.date: 06/21/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, XAML, コントロール, バインド, プロパティ
 ms.localizationpriority: medium
-ms.openlocfilehash: 12a20ae3df6ae83723550bf365aadab99b1b3b7b
-ms.sourcegitcommit: 90fe7a9a5bfa7299ad1b78bbef289850dfbf857d
+ms.openlocfilehash: 5ba06ece905e6a91a2279f0fe78e867a8f943bb3
+ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2020
-ms.locfileid: "84756531"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86492937"
 ---
 # <a name="xaml-controls-bind-to-a-cwinrt-property"></a>XAML コントロール: C++/WinRT プロパティへのバインド
+
 XAML コントロールに効果的にバインドできるプロパティは、*監視可能な*プロパティと呼ばれます。 この概念は、*オブザーバー パターン*と呼ばれるソフトウェアの設計パターンに基づいています。 このトピックでは、[C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) で監視可能なプロパティを実装する方法と、これらに XAML コントロールをバインドする方法を示します (背景情報については、「[データ バインディング](/windows/uwp/data-binding)」をご覧ください)。
 
 > [!IMPORTANT]
 > C++/WinRT でランタイム クラスを使用および作成する方法についての理解をサポートするために重要な概念と用語については、「[C++/WinRT での API の使用](consume-apis.md)」と「[C++/WinRT での作成者 API](author-apis.md)」を参照してください。
 
 ## <a name="what-does-observable-mean-for-a-property"></a>プロパティの*監視可能*とはどういう意味ですか?
+
 たとえば、**BookSku** という名前のランタイム クラスに **Title** という名前のプロパティがあるとします。 **Title** の値が変わるたびに **BookSku** が [**INotifyPropertyChanged::PropertyChanged**](/uwp/api/windows.ui.xaml.data.inotifypropertychanged.PropertyChanged) イベントを発生させることを選択する場合、**Title** は監視可能なプロパティです。 そのプロパティ (あれば) のどれが監視可能かを決定するのは **BookSku** の動作 (イベントを発生させるまたは発生させない) です。
 
 XAML テキスト要素、またはコントロールでは、更新された値を取得して、新しい値を表示するためにそれ自体を更新することで、これらのイベントをバインドし、処理することができます。
@@ -27,7 +29,8 @@ XAML テキスト要素、またはコントロールでは、更新された値
 > C++/WinRT Visual Studio Extension (VSIX) と NuGet パッケージ (両者が連携してプロジェクト テンプレートとビルドをサポート) のインストールと使用については、[Visual Studio での C++/WinRT のサポート](intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)に関する記事を参照してください。
 
 ## <a name="create-a-blank-app-bookstore"></a>空のアプリ (Bookstore) を作成する
-まず、Microsoft Visual Studio で、新しいプロジェクトを作成します。 **空のアプリ (C++/WinRT)** プロジェクトを作成し、*Bookstore* と名前を付けます。
+
+まず、Microsoft Visual Studio で、新しいプロジェクトを作成します。 **空のアプリ (C++/WinRT)** プロジェクトを作成し、*Bookstore* と名前を付けます。 **[ソリューションとプロジェクトを同じディレクトリに配置する]** がオフになっていることを確認します。 Windows SDK の最新の一般公開された (プレビュー以外の) バージョンを対象とします。
 
 監視可能なタイトルのプロパティを持つブックを表すための新しいクラスを作成します。 同じコンパイル ユニット内のクラスを作成および使用しています。 ただし、XAML からこのクラスへバインドできるようにしたいため、ランタイム クラスにします。 また、この作成と使用のどちらにも C++/WinRT を使用します。
 
@@ -240,7 +243,7 @@ namespace winrt::Bookstore::implementation
 ...
 ```
 
-`\Bookstore\Bookstore\MainPage.cpp` では、[**winrt::make**](/uwp/cpp-ref-for-winrt/make) を (実装型で) 呼び出して、投影型の新しいインスタンスを m_mainViewModel に割り当てます。 ブックのタイトルの初期値を割り当てます。 MainViewModel プロパティのアクセサーを実装します。 最後に、ボタンのイベント ハンドラーでブックのタイトルを更新します。 **MyProperty** プロパティも削除します。
+`\Bookstore\Bookstore\MainPage.cpp` で、下記のリストに示すように、次の変更を行います。 [**winrt::make**](/uwp/cpp-ref-for-winrt/make) を (**BookstoreViewModel** 実装型で) 呼び出して、投影型 **BookstoreViewModel** の新しいインスタンスを *m_mainViewModel* に割り当てます。 前に説明したように、**BookstoreViewModel** コンストラクターでは、新しい **BookSku** オブジェクトがプライベート データ メンバーとして作成され、そのタイトルは最初に `L"Atticus"` に設定されます。 ボタンのイベント ハンドラー (**ClickHandler**) では、本のタイトルを公開されたタイトルに更新します。 そして最後に、**MainViewModel** プロパティのアクセサーを実装します。 **MyProperty** プロパティも削除します。
 
 ```cppwinrt
 // MainPage.cpp

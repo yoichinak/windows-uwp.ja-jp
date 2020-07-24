@@ -8,12 +8,12 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: dbe40498d128fa483f2c414e088060ec90fc1c22
-ms.sourcegitcommit: c4f912ba0313ae49632f81e38d7d2d983ac132ad
+ms.openlocfilehash: 8c2133c4f1132b55d62149ad5aaf42e04fc5da5b
+ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84200789"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86493324"
 ---
 # <a name="host-a-custom-uwp-control-in-a-c-win32-app"></a>C++ Win32 アプリでカスタム UWP コントロールをホストする
 
@@ -63,12 +63,7 @@ ms.locfileid: "84200789"
     1. **MyUWPApp** プロジェクトを右クリックし、 **[NuGet パッケージの管理]** を選択します。
     2. **[参照]** タブを選択し、[Microsoft.Toolkit.Win32.UI.XamlApplication](https://www.nuget.org/packages/Microsoft.Toolkit.Win32.UI.XamlApplication) パッケージを見つけて、このパッケージの 6.0.0 以降のバージョンをインストールします。
 
-4. **MyUWPApp** ノードを右クリックし、 **[プロパティ]** を選択します。 **[共通プロパティ]**  ->  **[C++/WinRT]** ページで、次のプロパティを設定して、 **[適用]** をクリックします。
-
-    * **[詳細]** を **[通常]** に設定します。
-    * **[最適化済み]** を **[いいえ]** に設定します。
-
-    完了すると、プロパティ ページは次のようになります。
+4. **MyUWPApp** ノードを右クリックし、 **[プロパティ]** を選択します。 **[共通プロパティ]**  ->  **[C++/WinRT]** ページで、 **[詳細]** プロパティを **[通常]** に設定して、 **[適用]** をクリックします。 完了すると、プロパティ ページは次のようになります。
 
     ![C++/WinRT プロジェクトのプロパティ](images/xaml-islands/xaml-island-cpp-1.png)
 
@@ -260,6 +255,9 @@ ms.locfileid: "84200789"
             }
         }
         ```
+
+        > [!NOTE]
+        > プロジェクト プロパティの **[共通プロパティ]**  ->  **[C++/WinRT]** ページで **[最適化済み]** プロパティが **[はい]** に設定されている場合は、`#include "App.g.cpp"` ステートメントが必要です、 これは、新しい C++/WinRT プロジェクトの既定値です。 **[最適化済み]** プロパティの効果の詳細については、[こちらのセクション](/windows/uwp/cpp-and-winrt-apis/author-apis#opt-in-to-uniform-construction-and-direct-implementation-access)を参照してください。
 
 4. **app.base.h** という名前の新しいヘッダー ファイルを、**MyUWPApp** プロジェクトに追加します。
 5. 次のコードを **app.base.h** ファイルに追加し、ファイルを保存して閉じます。

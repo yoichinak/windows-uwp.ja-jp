@@ -8,12 +8,12 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 keywords: windows win32, デスクトップ開発
-ms.openlocfilehash: c14b092b9cce9ce7e3b180eaedef657e2d3d03db
-ms.sourcegitcommit: d0f479f1955881afb62c2af249db5d0b053b63e5
+ms.openlocfilehash: 778c15bc511404fad9cf5713876f89c7fef56165
+ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83580009"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86493007"
 ---
 # <a name="choose-your-app-platform"></a>アプリ プラットフォームの選択
 
@@ -39,6 +39,7 @@ UWP は、Windows PC 用のデスクトップ アプリケーションを作成�
 UWP の詳細については、次の記事を参照してください。
 
 * [作業開始](/windows/uwp/get-started/)
+* [プロジェクト テンプレート](visual-studio-templates.md#uwp-templates)
 * [設計と UI](/windows/uwp/design/)
 * [テクノロジと機能](/windows/uwp/develop/)
 * [API リファレンス](/uwp/)
@@ -50,7 +51,8 @@ WPF は、.NET Core にアクセスできるか、.NET Framework にフル ア�
 
 WPF の詳細については、次の記事を参照してください。
 
-* [使ってみる (WPF)](https://docs.microsoft.com/dotnet/framework/wpf/getting-started/)。
+* [概要 (WPF)](https://docs.microsoft.com/dotnet/framework/wpf/getting-started/)
+* [プロジェクト テンプレート](visual-studio-templates.md#net-templates)
 * [初めてのアプリの作成 (.NET Core)](/visualstudio/get-started/csharp/tutorial-wpf/)
 * [初めてのアプリの作成 (.NET Framework)](/dotnet/framework/wpf/getting-started/walkthrough-my-first-wpf-desktop-application/)
 * [WPF アプリを .NET Core に移行する](/dotnet/desktop-wpf/migration/convert-project-from-net-framework/)
@@ -64,6 +66,7 @@ Windows フォームは、軽量 UI モデルや、.NET Core へのアクセス�
 Windows フォームの詳細については、次の記事を参照してください。
 
 * [Windows フォームについて](https://docs.microsoft.com/dotnet/framework/winforms/getting-started-with-windows-forms)
+* [プロジェクト テンプレート](visual-studio-templates.md#net-templates)
 * [初めての Windows フォーム アプリの作成](/dotnet/framework/winforms/creating-a-new-windows-form)
 * [チュートリアル: ピクチャ ビューアーの作成](/visualstudio/ide/tutorial-1-create-a-picture-viewer?view=vs-2019)
 * [API リファレンス (.NET)](https://docs.microsoft.com/dotnet/api/index)
@@ -84,6 +87,7 @@ C++ で Win32 API を使用すると、WinRT や .NET などのマネージド �
 詳細については、以下の記事を参照してください。
 
 * [作業開始](/windows/win32/desktop-programming/)
+* [プロジェクト テンプレート](visual-studio-templates.md#cwin32-templates)
 * [初めての Win32 および C++ アプリの作成](/windows/win32/learnwin32/learn-to-program-for-windows/)
 * [テクノロジと機能](/windows/win32/desktop-app-technologies)
 * [API リファレンス](/windows/win32/apiindex/windows-api-list/)
@@ -97,7 +101,7 @@ Windows 10 では、メインのデスクトップ プラットフォームそ�
 
 * UWP アプリでは、Windows SDK によって提供される UWP コントロールの代わりに、WinUI コントロールを使用できます。
 * WPF、Windows フォーム、および C++/Win32 の既存のアプリを更新して、これらのアプリで [XAML Islands](modernize/xaml-islands.md) を使用して WinUI 2.x コントロールをホストできます。
-* [WinUi 3.0 Preview 1](../winui/winui3/index.md) からは、[全面的に WinUI ベースの UI を使用する .NET アプリと C++/Win32 アプリ](../winui/winui3/get-started-winui3-for-desktop.md)を作成できます。
+* [WinUi 3.0](../winui/winui3/index.md) 以降では、[全面的に WinUI ベースの UI を使用する .NET アプリと C++/Win32 アプリ](../winui/winui3/get-started-winui3-for-desktop.md)を作成できます。
 
 ## <a name="platform-comparison-uwp-wpf-and-windows-forms"></a>プラットフォームの比較:UWP、WPF、Windows フォーム
 

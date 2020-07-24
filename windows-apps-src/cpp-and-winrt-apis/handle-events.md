@@ -5,12 +5,12 @@ ms.date: 04/23/2019
 ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、プロジェクション、処理、イベント、デリゲート
 ms.localizationpriority: medium
-ms.openlocfilehash: eae966c130c52305b53cc4122844aeae49ecab92
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 5960de52c6cd68e98f80e7618f34dd0a94d08312
+ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82267495"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86493367"
 ---
 # <a name="handle-events-by-using-delegates-in-cwinrt"></a>C++/WinRT でのデリゲートを使用したイベントの処理
 
@@ -295,6 +295,6 @@ winrt::hstring f(ListView listview)
 * [winrt::implements::get_strong 関数](/uwp/cpp-ref-for-winrt/implements#implementsget_strong-function)
 
 ## <a name="related-topics"></a>関連トピック
-* [C++/WinRT でのイベントの作成](author-events.md)
-* [C++/WinRT を使用した同時開催操作と非同期操作](concurrency.md)
-* [C++/WinRT の強参照と弱参照](weak-references.md)
+* [C++/WinRT でのイベントの作成](/windows/uwp/cpp-and-winrt-apis/author-events)
+* [C++/WinRT を使用した同時開催操作と非同期操作](/windows/uwp/cpp-and-winrt-apis/concurrency)
+* [C++/WinRT の強参照と弱参照](/windows/uwp/cpp-and-winrt-apis/weak-references)

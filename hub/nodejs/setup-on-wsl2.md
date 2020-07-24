@@ -8,12 +8,12 @@ ms.topic: article
 keywords: NodeJS, Node.js, Windows 10, Microsoft, ラーニング NodeJS, Windows 上のノード, WSL 上のノード, Windows 上の Linux 上のノード, Windows 上のインストール ノード, NodeJS と VS Code, Windows 上のノードでの開発, Windows 上の NodeJS での開発, WSL 上のインストール ノード, Linux 用 Windows サブシステム上の NodeJS
 ms.localizationpriority: medium
 ms.date: 06/09/2020
-ms.openlocfilehash: 494db609db577bd2b199f828fcf80e80a5c8c624
-ms.sourcegitcommit: 22ed0d4edad5e6bab352e641cf86cf455cf83825
+ms.openlocfilehash: e8fb06cb1e68d5dfa7f23e6966f917c96eb79859
+ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85133975"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86493277"
 ---
 # <a name="set-up-your-nodejs-development-environment-with-wsl-2"></a>WSL 2 を使用して Node.js 開発環境を設定する
 
@@ -36,7 +36,7 @@ WSL 2 と Linux ディストリビューションをインストールしたら�
 
 新しい Windows ターミナルでは、複数のタブ (コマンド プロンプト、PowerShell、複数の Linux ディストリビューション間をすばやく切り替える) が有効になり、カスタム キー バインド (タブを開くまたは閉じる、コピーと貼り付けを行うなどのためのショートカット キー) を作成でき、検索機能、カスタム テーマ (配色、フォント スタイルとサイズ、背景画像/ぼかし/透明度) を使用できます。 [詳しくはこちらをご覧ください](https://docs.microsoft.com/windows/terminal)。
 
-1. [Microsoft Store で Windows ターミナル (プレビュー)](https://www.microsoft.com/store/apps/9n0dx20hk701) を取得します: ストアを介してインストールすると、更新プログラムが自動的に処理されます。
+1. [Microsoft Store で Windows ターミナル](https://www.microsoft.com/store/apps/9n0dx20hk701)を取得します: ストアを介してインストールすると、更新プログラムが自動的に処理されます。
 
 2. インストールが完了したら、Windows ターミナルを開き、 **[設定]** を選択して、`settings.json` ファイルによってターミナルをカスタマイズします。
 
@@ -140,5 +140,5 @@ WSL で NodeJS プロジェクトの Git をセットアップするには、WSL
 
 - [初心者向けの Node.js 概要](./beginners.md)
 - [Windows での Node.js Web フレームワークの概要](./web-frameworks.md)
-- [Node.js アプリのデータベースへの接続の概要](./databases.md)
+- [Node.js アプリのデータベースへの接続の概要](https://docs.microsoft.com/windows/wsl/tutorials/wsl-database)
 - [Node.js で Docker コンテナーを使ってみる](./containers.md)

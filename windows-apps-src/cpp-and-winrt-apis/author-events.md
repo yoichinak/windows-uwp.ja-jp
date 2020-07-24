@@ -5,16 +5,20 @@ ms.date: 04/23/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 作成者, イベント
 ms.localizationpriority: medium
-ms.openlocfilehash: e7cb0e10efec9077292faa8f8d72a7dad1da2c1b
-ms.sourcegitcommit: 83f4a528b5e3fc2b140c76fdf2acf734d6d851d4
+ms.openlocfilehash: 980f39f20de369bce226c4d8c1070bda851480c2
+ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84683381"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86493657"
 ---
 # <a name="author-events-in-cwinrt"></a>C++/WinRT でのイベントの作成
 
-このトピックでは、銀行口座 (その残高が借方にに入るときにイベントを発生させる口座) を表すランタイム クラスを含む Windows ランタイム コンポーネントを作成する方法を示します。 このトピックでは、銀行口座ランタイム クラスを使用し、関数を呼び出して残高を調整して、発生するイベントを処理するコア アプリも示します。
+このトピックでは、「[C++/WinRT を使用した Windows ランタイム コンポーネント](/windows/uwp/winrt-components/create-a-windows-runtime-component-in-cppwinrt)」トピックで作成方法が示されている Windows ランタイム コンポーネントとそれを使用するアプリケーションが基になっています。
+
+このトピックで追加される新機能を次に示します。
+- 銀行口座ランタイム クラスを更新し、残高がマイナスになったらイベントを発生させます。
+- そのイベントを処理するように、銀行口座ランタイム クラスを使用する Core アプリを更新しします。
 
 > [!NOTE]
 > [C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) Visual Studio Extension (VSIX) と NuGet パッケージ (両者が連携してプロジェクト テンプレートとビルドをサポート) のインストールと使用については、[Visual Studio での C++/WinRT のサポート](intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)に関する記事を参照してください。
@@ -22,11 +26,13 @@ ms.locfileid: "84683381"
 > [!IMPORTANT]
 > C++/WinRT でランタイム クラスを使用および作成する方法についての理解をサポートするために重要な概念と用語については、「[C++/WinRT での API の使用](consume-apis.md)」と「[C++/WinRT での作成者 API](author-apis.md)」を参照してください。
 
-## <a name="create-a-windows-runtime-component-bankaccountwrc"></a>Windows ランタイム コンポーネントの作成 (BankAccountWRC)
+## <a name="create-bankaccountwrc-and-bankaccountcoreapp"></a>**BankAccountWRC** と **BankAccountCoreApp** を作成する
 
-まず、Microsoft Visual Studio で、新しいプロジェクトを作成します。 **Windows ランタイム コンポーネント (C++/WinRT)** プロジェクトを作成し、("銀行口座 Windows ランタイム コンポーネント" 用に) *BankAccountWRC* と名前を付けます。 プロジェクトに *BankAccountWRC* という名前を付けると、このトピックの残りの手順が非常に簡単になります。 プロジェクトはまだビルドしないでください。
+このトピックで示されている更新に従って、コードをビルドして実行できるようにする場合は、最初に「[C++/WinRT を使用した Windows ランタイム コンポーネント](/windows/uwp/winrt-components/create-a-windows-runtime-component-in-cppwinrt)」トピックのチュートリアルに従ってください。 これにより、**BankAccountWRC** Windows ランタイム コンポーネントと、それを使用する **BankAccountCoreApp** Core アプリが作成されます。
 
-新しく作成したプロジェクトには、`Class.idl` という名前のファイルが含まれています。 ソリューション エクスプローラーで、そのファイル `BankAccount.idl` の名前を変更します (`.idl` ファイルの名前を変更すると、依存ファイル `.h` および `.cpp` も自動的に名前変更されます)。 `BankAccount.idl` の内容を、以下のリストで置き換えます。
+## <a name="update-bankaccountwrc-to-raise-an-event"></a>イベントを生成するように **BankAccountWRC** を更新する
+
+次のリストのように `BankAccount.idl` を更新します。 これは、デリゲート型が [**EventHandler**](/uwp/api/windows.foundation.eventhandler-1) で引数が単精度浮動小数点数であるイベントを宣言する方法です。
 
 ```idl
 // BankAccountWRC.idl
@@ -35,17 +41,15 @@ namespace BankAccountWRC
     runtimeclass BankAccount
     {
         BankAccount();
-        event Windows.Foundation.EventHandler<Single> AccountIsInDebit;
         void AdjustBalance(Single value);
+        event Windows.Foundation.EventHandler<Single> AccountIsInDebit;
     };
 }
 ```
 
-ファイルを保存します。 現時点ではプロジェクトは完成するまでビルドされませんが、ここでビルドすることは有用です。それによって、**BankAccount** ランタイム クラスを実装するためのソース コード ファイルが生成されるからです。 それでは、今すぐビルドしてみましょう (この段階で表示されることが予想されるビルド エラーは、`Class.h` と `Class.g.h` が見つからないことに関係しています)。
+ファイルを保存します。 現在の状態では、プロジェクトは完全にはビルドされませんが、それでもここでビルドを実行して、`\BankAccountWRC\BankAccountWRC\Generated Files\sources\BankAccount.h` および `BankAccount.cpp` スタブ ファイルの更新バージョンを生成します。 それらのファイルの内容で、**AccountIsInDebit** イベントのスタブの実装を確認できるようになります。 C++/WinRT では、IDL で宣言したイベントは過負荷の状態である関数のセットとして実装されます (プロパティが過負荷の状態の Get および Set 関数のペアとして実装される方法と同様です)。 1 つのオーバーロードが登録するデリゲートを受け取り、トークン ([**winrt::event_token**](/uwp/cpp-ref-for-winrt/event-token)) を返します。 別のオーバーロードはトークンを受け取り、関連付けられているデリゲートの登録を取り消します。
 
-ビルド プロセス中に、`midl.exe` ツールが実行されてコンポーネントの Windows ランタイム メタデータ ファイルが作成されます (これは `\BankAccountWRC\Debug\BankAccountWRC\BankAccountWRC.winmd` です)。 次に、`cppwinrt.exe` ツールが (`-component` オプションで) 実行され、コンポーネントの作成をサポートするソース コード ファイルが生成されます。 これらのファイルには、IDL で宣言した **BankAccount** ランタイム クラスの実装を開始するためのスタブが含まれています。 これらのスタブは `\BankAccountWRC\BankAccountWRC\Generated Files\sources\BankAccount.h` と `BankAccount.cpp` です。
-
-プロジェクト ノードを右クリックし、 **[エクスプローラーでフォルダーを開く]** をクリックします。 これにより、エクスプローラーでプロジェクト フォルダーが開きます。 そこで、スタブ ファイル `BankAccount.h` および `BankAccount.cpp` をフォルダー `\BankAccountWRC\BankAccountWRC\Generated Files\sources\` から、ご自分のプロジェクト ファイルを含むフォルダー `\BankAccountWRC\BankAccountWRC\` にコピーし、コピー先のファイルを置き換えます。 ここで、`BankAccount.h` と `BankAccount.cpp` を開いてランタイム クラスを実装してみましょう。 `BankAccount.h` で、**BankAccount** の実装 (ファクトリの実装*ではありません*) に 2 つのプライベート メンバーを追加します。
+次に、`BankAccount.h` と `BankAccount.cpp` を開き、**BankAccount** ランタイム クラスの実装を更新します。 `BankAccount.h` で、2 つのオーバーロードされた **AccountIsInDebit** 関数と、それらの関数の実装で使用するためのプライベート イベント データ メンバーを追加します。
 
 ```cppwinrt
 // BankAccount.h
@@ -55,23 +59,24 @@ namespace winrt::BankAccountWRC::implementation
     struct BankAccount : BankAccountT<BankAccount>
     {
         ...
+        winrt::event_token AccountIsInDebit(Windows::Foundation::EventHandler<float> const& handler);
+        void AccountIsInDebit(winrt::event_token const& token) noexcept;
 
     private:
         winrt::event<Windows::Foundation::EventHandler<float>> m_accountIsInDebitEvent;
-        float m_balance{ 0.f };
+        ...
     };
 }
 ...
 ```
 
-上に示したように、イベントは、特定のデリゲート型によってパラメータ化された [**winrt :: event**](/uwp/cpp-ref-for-winrt/event) 構造体テンプレートについて実装されています。
+前述のように、イベントは [**winrt::event**](/uwp/cpp-ref-for-winrt/event) 構造体テンプレートによって表され、(それ自体が args 型によってパラメーター化できる) 特定のデリゲート型によってパラメーター化されます。
 
-`BankAccount.cpp` で、次のコード例に示すように関数を実装します。 C++/WinRT では、IDL で宣言したイベントは過負荷の状態である関数のセットとして実装されます (プロパティが過負荷の状態の Get および Set 関数のペアとして実装される方法と同様です)。 1 つのオーバーロードが登録するデリゲートを受け取り、トークンを返します。 別のオーバーロードはトークンを受け取り、関連付けられているデリゲートの登録を取り消します。
+`BankAccount.cpp` で、2 つのオーバーロードされた **AccountIsInDebit** 関数を実装します。
 
 ```cppwinrt
 // BankAccount.cpp
 ...
-#include "BankAccountWRC.g.cpp"
 namespace winrt::BankAccountWRC::implementation
 {
     winrt::event_token BankAccount::AccountIsInDebit(Windows::Foundation::EventHandler<float> const& handler)
@@ -92,42 +97,22 @@ namespace winrt::BankAccountWRC::implementation
 }
 ```
 
-また、両方のファイルから `static_assert` を削除する必要もあります。
-
 > [!NOTE]
 > 自動イベント リボーカーについて詳しくは、「[登録済みデリゲートの取り消し](handle-events.md#revoke-a-registered-delegate)」をご覧ください。 イベント用の自動イベント リボーカーの実装は、無料で手に入ります。 つまり、C++/WinRT プロジェクションによって提供されているイベント リボーカーのオーバーロードを実装する必要はありません。
 
 他のオーバーロード (登録と手動取り消しのオーバーロード) は、プロジェクションには書き込まれて "*いません*"。 それは、シナリオに最適なように柔軟に実装できるようにするためです。 これらの実装で示されているような [**event::add**](/uwp/cpp-ref-for-winrt/event#eventadd-function) および [**event::remove**](/uwp/cpp-ref-for-winrt/event#eventremove-function) の呼び出しは、効率的で同時実行の安全性を確保できるスレッドセーフな既定値です。 ただし、大量のイベントがある場合は、各イベントのイベント フィールドが必要ないことがあり、代わりに、ある種のスパース実装を選択します。
 
-また、**AdjustBalance** 関数の実装によって、残高が負の値になった場合でも **AccountIsInDebit** イベントが発生することを上で確認できます。
+また、上の例では、残高がマイナスになった場合に **AccountIsInDebit** イベントを生成するように **AdjustBalance** 関数の実装が更新されていることも確認できます。
 
-任意の警告によってビルドが妨げられる場合は、該当する警告を解決するか、またはプロジェクトのプロパティ **C/C++**  > **General** > **Treat Warnings As Errors** を **No (/WX-)** に設定して、もう一度プロジェクトをビルドします。
+## <a name="update-bankaccountcoreapp-to-handle-the-event"></a>イベントを処理するように **BankAccountCoreApp** を更新する
 
-## <a name="create-a-core-app-bankaccountcoreapp-to-test-the-windows-runtime-component"></a>コア アプリ (BankAccountCoreApp) を作成して Windows ランタイム コンポーネントをテストする
-
-ここで (*BankAccountWRC* ソリューション、または新しいソリューションのいずれかに) 新しいプロジェクトを作成します。 **コア アプリ (C++/WinRT)** プロジェクトを作成し、*BankAccountCoreApp* と名前を付けます。 2 つのプロジェクトが同じソリューションに属している場合は、*BankAccountCoreApp* をスタートアップ プロジェクトとして設定します。
-
-> [!NOTE]
-> 既に説明したように、Windows ランタイム コンポーネント (そのプロジェクト名は *BankAccountWRC*) の Windows ランタイム メタデータ ファイルは `\BankAccountWRC\Debug\BankAccountWRC\` フォルダーに作成されます。 このパスの最初のセグメントは、ソリューション ファイルを含むフォルダーの名前です。次のセグメントは、`Debug` という名前のサブディレクトリです。最後のセグメントは、Windows ランタイム コンポーネントの名前を付けられたサブディレクトリです。 プロジェクトに *BankAccountWRC* という名前を指定しなかった場合、メタデータ ファイルは `\<YourProjectName>\Debug\<YourProjectName>\` フォルダーに配置されます。
-
-次に、コア アプリ プロジェクト (*BankAccountCoreApp*) で、参照を追加し、`\BankAccountWRC\Debug\BankAccountWRC\BankAccountWRC.winmd` を参照します (または 2 つのプロジェクトが同じソリューションに属している場合は、プロジェクト間の参照を追加します)。 **[追加]** をクリックして **[OK]** をクリックします。 ここで *BankAccountCoreApp* をビルドします。 万が一、ペイロード ファイル `readme.txt` が存在しないというエラーが表示された場合、Windows ランタイム コンポーネント プロジェクトからそのファイルを除外し、これを再ビルドしてから、*BankAccountCoreApp* を再ビルドします。
-
-ビルド プロセス中に、`cppwinrt.exe` ツールが実行され、参照されている `.winmd` ファイルを投影型を含むソース コード ファイルに処理して、コンポーネントの使用をサポートします。 コンポーネントのランタイム クラス (`BankAccountWRC.h` という名前) の投影型のヘッダーは、フォルダー `\BankAccountCoreApp\BankAccountCoreApp\Generated Files\winrt\` 内に生成されます。
-
-そのヘッダーを `App.cpp` に含めます。
-
-```cppwinrt
-#include <winrt/BankAccountWRC.h>
-```
-
-`App.cpp` でも、(投影型の既定のコンストラクターを使用して) **BankAccount** のインスタンスを作成するために次のコードを追加し、イベント ハンドラーを登録して、口座が借方に入るようにします。
+**BankAccountCoreApp** プロジェクトの `App.cpp` で、イベント ハンドラーを登録してから残高をマイナスにするよう、コードを次のように変更します。
 
 `WINRT_ASSERT` はマクロ定義であり、[_ASSERTE](/cpp/c-runtime-library/reference/assert-asserte-assert-expr-macros) に展開されます。
 
 ```cppwinrt
 struct App : implements<App, IFrameworkViewSource, IFrameworkView>
 {
-    BankAccountWRC::BankAccount m_bankAccount;
     winrt::event_token m_eventToken;
     ...
     
@@ -145,7 +130,7 @@ struct App : implements<App, IFrameworkViewSource, IFrameworkView>
         m_bankAccount.AccountIsInDebit(m_eventToken);
     }
     ...
-
+    
     void OnPointerPressed(IInspectable const &, PointerEventArgs const & args)
     {
         m_bankAccount.AdjustBalance(-1.f);
@@ -155,7 +140,7 @@ struct App : implements<App, IFrameworkViewSource, IFrameworkView>
 };
 ```
 
-ウィンドウをクリックするたびに、銀行口座の残高から 1 を減算します。 期待どおりにイベントが発生することを実証するには、**AccountIsInDebit** イベントを処理しているラムダ式内にブレークポイントを置き、アプリを実行して、そのウィンドウ内をクリックします。
+**OnPointerPressed** メソッドの変更に注意してください。 ウィンドウをクリックするたびに、銀行口座の残高から 1 が "*減算*" されるようになっています。 また、アプリでは、残高がマイナスになると生成されるイベントが処理されています。 期待どおりにイベントが発生することを実証するには、**AccountIsInDebit** イベントを処理しているラムダ式内にブレークポイントを置き、アプリを実行して、そのウィンドウ内をクリックします。
 
 ## <a name="parameterized-delegates-across-an-abi"></a>ABI 間でのパラメーター化されたデリゲート
 
@@ -362,6 +347,7 @@ struct App : implements<App, IFrameworkViewSource, IFrameworkView>
 ```
 
 ## <a name="parameterized-delegates-simple-signals-and-callbacks-within-a-project"></a>パラメーター化されたデリゲート、シンプルなシグナル、およびプロジェクト内でのコールバック
+
 Visual Studio プロジェクトの内部の (複数のバイナリにまたがらない) イベントが必要であり、それらのイベントが Windows ランタイム型に限定されない場合でも、[**winrt::event**](/uwp/cpp-ref-for-winrt/event)\<Delegate\> クラス テンプレートを使用できます。 **winrt::delegate** は Windows ランタイム以外のパラメーターもサポートするため、実際の Windows ランタイム デリゲート型の代わりに [**winrt::delegate**](/uwp/cpp-ref-for-winrt/delegate) を使用するだけです。
 
 以下の例では、最初にパラメーターを取らないデリゲート シグネチャ (基本的にシンプルなシグナル) を示し、次に文字列を取るシグネチャを示します。
@@ -404,3 +390,4 @@ logCallback(L"Hello, World!");
 * [C++/WinRT で API を作成する](author-apis.md)
 * [C++/WinRT で API を使用する](consume-apis.md)
 * [C++/WinRT でのデリゲートを使用したイベントの処理](handle-events.md)
+* [C++/WinRT を使用した Windows ランタイム コンポーネント](/windows/uwp/winrt-components/create-a-windows-runtime-component-in-cppwinrt)

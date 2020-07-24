@@ -2,29 +2,29 @@
 ms.assetid: 82ab5fc9-3a7f-4d9e-9882-077ccfdd0ec9
 title: Device Portal 用のカスタム プラグインの作成
 description: Windows Device Portal を使用して Web ページをホストし、診断情報を提供する UWP アプリを作成する方法について説明します。
-ms.date: 03/24/2017
+ms.date: 07/06/2020
 ms.topic: article
 keywords: windows 10, uwp, デバイス ポータル
 ms.localizationpriority: medium
-ms.openlocfilehash: 4881fe961979243849728d3f835c449e0f71f4b4
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: b806344fa7e0517caf4d04efaaa605371a200202
+ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75683845"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86493207"
 ---
 # <a name="write-a-custom-plugin-for-device-portal"></a>Device Portal 用のカスタム プラグインの作成
 
 Windows Device Portal を使用して Web ページをホストし、診断情報を提供する UWP アプリを作成する方法について説明します。
 
-Creators Update 以降では、Device Portal を使用してアプリの診断インターフェイスをホストすることができます。 この記事では、アプリ用の DevicePortalProvider の作成に必要な 3 つの要素である、appxmanifest の変更、Device Portal サービスへのアプリの接続の設定、着信要求の処理について説明します。 すぐに作業を開始するためのサンプル アプリも提供されます (近日提供予定)。 
+Windows 10 Creators Update (バージョン 1703、ビルド 15063) 以降では、Device Portal を使用してアプリの診断インターフェイスをホストすることができます。 この記事では、アプリ用の DevicePortalProvider の作成に必要な 3 つの要素である、[アプリケーション パッケージ マニフェスト](https://docs.microsoft.com/uwp/schemas/appxpackage/appx-package-manifest)の変更、[デバイス ポータル サービス](/windows/uwp/debug-test-perf/device-portal)へのアプリの接続の設定、着信要求の処理について説明します。
 
 ## <a name="create-a-new-uwp-app-project"></a>新しい UWP アプリ プロジェクトを作成する
-このガイドでは、わかりやすくするためにすべてを 1 つのソリューションで作成します。
 
-Microsoft Visual Studio 2019 で、新しい UWP アプリ プロジェクトを作成します。 [ファイル] > [新規] > [プロジェクト] の順に選択し、C# に空のアプリ (Windows ユニバーサル) を選択して [次へ] をクリックします。 [新しいプロジェクトの構成] ダイアログ ボックスで、 プロジェクトに "DevicePortalProvider" という名前を指定し、[作成] をクリックします。 これは、アプリ サービスを格納するアプリです。 サポートする "Windows 10 Creators Update (10.0、ビルド 15063)" を確実に選択します。  Visual Studio の更新や新しい SDK のインストールが必要になる場合があります。詳しくは、[こちら](https://blogs.windows.com/buildingapps/2017/04/05/updating-tooling-windows-10-creators-update/)をご覧ください。 
+Microsoft Visual Studio で、新しい UWP アプリ プロジェクトを作成します。 **[ファイル] > [新規] > [プロジェクト]** に移動し、 **[Blank App (Windows Universal) for C#]\(C# 用空のアプリ (Windows ユニバーサル)\)** を選択して **[次へ]** をクリックします。 **[新しいプロジェクトの構成]** ダイアログ ボックスで、 プロジェクトに "DevicePortalProvider" という名前を指定し、 **[作成]** をクリックします。 これは、アプリ サービスを格納するアプリです。 Visual Studio の更新、または最新の [Windows SDK](https://developer.microsoft.com/windows/downloads/windows-10-sdk/) のインストールが必要になる場合があります。
 
-## <a name="add-the-deviceportalprovider-extension-to-your-packageappxmanifest-file"></a>package.appxmanifest ファイルに devicePortalProvider 拡張機能を追加する
+## <a name="add-the-deviceportalprovider-extension-to-your-application-package-manifest"></a>アプリケーション パッケージ マニフェストに devicePortalProvider 拡張機能を追加する
+
 アプリを Device Portal プラグインとして機能させるために、*package.appxmanifest* ファイルにコードを追加する必要があります。 最初に、ファイルの先頭に次の名前空間の定義を追加します。 また、これらを `IgnorableNamespaces` 属性にも追加します。
 
 ```xml

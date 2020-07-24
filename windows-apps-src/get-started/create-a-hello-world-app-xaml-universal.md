@@ -6,14 +6,14 @@ ms.date: 03/06/2017
 ms.topic: article
 keywords: windows 10, uwp, 初めてのアプリ, hello world
 ms.localizationpriority: medium
-ms.openlocfilehash: 93c78845a218620a8a46fc4439733734099b9853
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 7c4d4ba374c68509c0378e769262afda0dae7422
+ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73847604"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86492837"
 ---
-# <a name="create-a-hello-world-app-xaml"></a>"Hello, world" アプリを作成する (XAML)
+# <a name="create-a-hello-world-app-xaml"></a>"Hello, World!" アプリを作成する (XAML)
 
 このチュートリアルでは、Windows 10 のユニバーサル Windows プラットフォーム (UWP) 向けの単純な "Hello, world" アプリを XAML と C# で作る方法について説明します。 Microsoft Visual Studio プロジェクトを 1 つ開発すれば、あらゆる Windows 10 デバイスで動作するアプリを構築できます。
 
@@ -46,7 +46,7 @@ ms.locfileid: "73847604"
 
 3.  左側のテンプレートの一覧で、 **[インストール済み]、[Visual C#]、[Windows ユニバーサル]** の順に選択し、UWP プロジェクト テンプレートの一覧を表示します。
 
-    ユニバーサル テンプレートが表示されない場合は、UWP アプリを作成するためのコンポーネントがない可能性があります。 インストール プロセスを繰り返して UWP サポートを追加することもできます (*[新しいプロジェクト]* ダイアログで **[Visual Studio インストーラーを開く]** をクリック)。 「[準備](get-set-up.md)」をご覧ください。
+    ユニバーサル テンプレートが表示されない場合は、UWP アプリを作成するためのコンポーネントがない可能性があります。 インストール プロセスを繰り返して UWP サポートを追加することもできます ( *[新しいプロジェクト]* ダイアログで **[Visual Studio インストーラーを開く]** をクリック)。 「[準備](get-set-up.md)」をご覧ください。
 
     ![インストール プロセスを繰り返す方法](images/win10-cs-install.png)
 
@@ -155,7 +155,7 @@ ms.locfileid: "73847604"
 
 **ローカル コンピューターでデバッグを開始するには**
 
-1.  **[標準]** ツール バーの [ターゲット デバイス] メニュー (![[デバッグの開始] メニュー](images/startdebug-full.png)) で、**[ローカル コンピューター]** が選択されていることを確認します  (既定で選択されています)。
+1.  **[標準]** ツール バーの [ターゲット デバイス] メニュー (![[デバッグの開始] メニュー](images/startdebug-full.png)) で、 **[ローカル コンピューター]** が選択されていることを確認します (既定で選択されています)。
 2.  ツール バーの **[デバッグの開始]** ボタン (![[デバッグの開始] ボタン](images/startdebug-sm.png)) をクリックします。
 
    \- または -

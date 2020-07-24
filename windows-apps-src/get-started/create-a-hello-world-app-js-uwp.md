@@ -6,14 +6,14 @@ ms.date: 09/12/2019
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: a161a5e26bd647a37b06a270ef6714d54bc16d80
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 88ae290bf88a21aa2846697833d099df663915f6
+ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74467409"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86492967"
 ---
-# <a name="create-a-hello-world-app-js"></a>"Hello, world" アプリを作成する (JS)
+# <a name="create-a-hello-world-app-js"></a>"Hello, World!" アプリを作成する (JS)
 
 このチュートリアルでは、Windows 10 のユニバーサル Windows プラットフォーム (UWP) を対象にした単純な "Hello, world" アプリを JavaScript と HTML で作る方法について説明します。 Microsoft Visual Studio プロジェクトを 1 つ開発すれば、あらゆる Windows 10 デバイスで動作するアプリを構築できます。
 
@@ -35,7 +35,7 @@ ms.locfileid: "74467409"
 -   このチュートリアルを行うには、Windows 10 と Visual Studio が必要です。 [準備してください](get-set-up.md)。
 -   また、Visual Studio の既定のウィンドウ レイアウトを使用することを前提としています。 既定のレイアウトを変更した場合は、 **[ウィンドウ]** メニューの **[ウィンドウ レイアウトのリセット]** を使って、レイアウトをリセットできます。
 
-## <a name="step-1-create-a-new-project-in-visual-studio"></a>手順 1. Visual Studio で新しいプロジェクトを作る
+## <a name="step-1-create-a-new-project-in-visual-studio"></a>手順 1:Visual Studio で新しいプロジェクトを作る
 
 1.  Visual Studio 2017 を起動します。
 
@@ -84,7 +84,7 @@ ms.locfileid: "74467409"
 -   Assets/StoreLogo.png は、Microsoft Store 内のアプリを表します。
 -   Assets/SplashScreen.scale-200.png は、アプリが起動したときに表示するスプラッシュ画面です。
 
-## <a name="step-2-adding-a-button"></a>手順 2. ボタンを追加する
+## <a name="step-2-adding-a-button"></a>手順 2:ボタンを追加する
 
 エディターで **index.html** を選択して選択し、含まれている HTML を次のように変更します。
 
@@ -114,7 +114,7 @@ ms.locfileid: "74467409"
 この HTML では、JavaScript が含まれた *main.js* を参照し、Web ページの本文に 1 行のテキストと単一のボタンを追加します。 ボタンには、JavaScript が参照できるように *ID* が設定されます。
 
 
-## <a name="step-3-adding-some-javascript"></a>手順 3: JavaScript を追加する
+## <a name="step-3-adding-some-javascript"></a>手順 3:JavaScript を追加する
 
 次は、JavaScript を追加します。 **main.js** を選択して選択し、以下を追加します。
 
@@ -144,7 +144,7 @@ function sayHello() {
 2 番目の関数 *sayHello()* では、ダイアログを作成して表示します。 これは、前の JavaScript 開発で使用した *Alert()* 関数とよく似ています。
 
 
-## <a name="step-4-run-the-app"></a>手順 4: アプリを実行する
+## <a name="step-4-run-the-app"></a>手順 4:アプリを実行する
 
 ここで F5 キーを押すと、アプリを実行できます。 アプリが読み込まれ、Web ページが表示されます。 ボタンを選択すると、メッセージ ダイアログ ボックスが表示されます。
 

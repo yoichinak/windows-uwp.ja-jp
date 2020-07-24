@@ -5,12 +5,12 @@ ms.date: 07/08/2019
 ms.topic: article
 keywords: windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、プロジェクション、実装、インプリメント、ランタイム クラス、ライセンス認証
 ms.localizationpriority: medium
-ms.openlocfilehash: fcdeaec3728306de420baa4a2aea06ef1952641e
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 64f605fc716970d2fd4ca534a0c31fb62baa34d4
+ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82255266"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86493667"
 ---
 # <a name="author-apis-with-cwinrt"></a>C++/WinRT での API の作成
 
@@ -178,7 +178,7 @@ struct MyRuntimeClass_base : implements<D, MyProject::IMyRuntimeClass, I...>
 
 そのため、このシナリオでは、継承のルートの階層はもう一度 [**winrt::implements**](/uwp/cpp-ref-for-winrt/implements) 基本構造体のテンプレートです。
 
-詳細、コード、および Windows ランタイム コンポーネントの API の作成に関するチュートリアルについては、「[C++/WinRT でのイベントの作成](author-events.md#create-a-core-app-bankaccountcoreapp-to-test-the-windows-runtime-component)」を参照してください。
+Windows ランタイム コンポーネントでの API の作成に関する詳細、コード、チュートリアルについては、「[C++/WinRT を使用した Windows ランタイム コンポーネント](/windows/uwp/winrt-components/create-a-windows-runtime-component-in-cppwinrt)」および「[C++/WinRT でのイベントの作成](/windows/uwp/cpp-and-winrt-apis/author-events)」を参照してください。
 
 ## <a name="if-youre-authoring-a-runtime-class-to-be-referenced-in-your-xaml-ui"></a>XAML UI で参照されるランタイム クラスを作成する場合
 
@@ -751,5 +751,7 @@ namespace winrt::MyNamespace::implementation
 * [winrt::Windows::Foundation::IUnknown::as 関数](/uwp/cpp-ref-for-winrt/windows-foundation-iunknown#iunknownas-function)
 
 ## <a name="related-topics"></a>関連トピック
-* [C++/WinRT で API を使用する](consume-apis.md)
-* [XAML コントロール: C++/WinRT プロパティへのバインド](binding-property.md#add-a-property-of-type-bookstoreviewmodel-to-mainpage)
+* [C++/WinRT でのイベントの作成](/windows/uwp/cpp-and-winrt-apis/author-events)
+* [C++/WinRT で API を使用する](/windows/uwp/cpp-and-winrt-apis/consume-apis)
+* [C++/WinRT を使用した Windows ランタイム コンポーネント](/windows/uwp/winrt-components/create-a-windows-runtime-component-in-cppwinrt)
+* [XAML コントロール: C++/WinRT プロパティへのバインド](/windows/uwp/cpp-and-winrt-apis/binding-property)

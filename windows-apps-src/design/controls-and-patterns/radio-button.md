@@ -12,146 +12,158 @@ design-contact: kimsea
 dev-contact: mitra
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 6705c314d9a70f8b6282841a7f8b1df76c6ef880
-ms.sourcegitcommit: 6dd6d61c912daab2cc4defe5ba0cf717339f7765
+ms.openlocfilehash: dc6f5eb32cdedf442b6866e1e53be85edfb98dcb
+ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84978404"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86493437"
 ---
 # <a name="radio-buttons"></a>ラジオ ボタン
 
-ラジオ ボタンは、相互排他的であるものの、関連している 2 つ以上のオプションのコレクションから 1 つのオプションをユーザーが選択できるようにするボタンです。 各オプションは、1 つのラジオ ボタンによって表されます。
+ラジオ ボタン (オプション ボタンとも呼ばれます) は、相互排他的であるものの、関連している 2 つ以上のオプションのコレクションから 1 つのオプションをユーザーが選択できるようにするボタンです。 各オプションは、1 つのラジオ ボタンによって表されます。
 
-既定の状態では、グループ内のラジオ ボタンはどれも選択されていません。 ただし、ラジオ ボタンのオプションがユーザーによって選択されると、そのグループをどれも選択されていない状態にユーザーが復元することはできません。
+既定の状態では、RadioButtons グループ内のラジオ ボタンはどれも選択されていません。 つまり、すべてのオプション ボタンがオフになっています。 ただし、ラジオ ボタンが選択された後では、グループをオフ状態に戻すことはできません。
 
-ラジオ ボタン グループのこの独特の動作が、[チェック ボックス](checkbox.md)とは異なる部分です。チェック ボックスでは、複数選択や選択解除がサポートされています。
+RadioButtons グループのこの独特の動作が、複数選択や選択の解除 (クリア) がサポートされている[チェック ボックス](checkbox.md)とは異なる点です。
 
-![ラジオ ボタン](images/controls/radio-button.png)
+![1 つのラジオ ボタンが選択されている RadioButtons グループの例](images/controls/radio-button.png)
 
-**Windows UI ライブラリを入手する**
+## <a name="get-the-windows-ui-library"></a>Windows UI ライブラリを入手する
 
-|  |  |
+| &nbsp; | &nbsp; |
 | - | - |
-| ![WinUI ロゴ](images/winui-logo-64x64.png) | **RadioButtons** コントロールは、Windows アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである、Windows UI ライブラリの一部として含まれています。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | RadioButtons コントロールは、Windows アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである、Windows UI ライブラリの一部として含まれています。 インストール手順などについて詳しくは、[Windows UI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)に関する記事を参照してください。 |
 
-> **Windows UI ライブラリ API:** [RadioButtons クラス](/uwp/api/microsoft.ui.xaml.controls.radiobuttons)、[SelectionChanged イベント](/uwp/api/microsoft.ui.xaml.controls.radiobuttons.selectionchanged)、[SelectedItem プロパティ](/uwp/api/microsoft.ui.xaml.controls.radiobuttons.selecteditem)、[SelectedIndex プロパティ](/uwp/api/microsoft.ui.xaml.controls.radiobuttons.selectedindex)
->
-> **プラットフォーム API:** [RadioButton クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RadioButton)、[Checked イベント](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Primitives.ToggleButton.Checked)、[IsChecked プロパティ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Primitives.ToggleButton.IsChecked)
+**Windows UI ライブラリ API**: 
+* [RadioButtons クラス](/uwp/api/microsoft.ui.xaml.controls.radiobuttons)
+* [SelectionChanged イベント](/uwp/api/microsoft.ui.xaml.controls.radiobuttons.selectionchanged)
+* [SelectedItem プロパティ](/uwp/api/microsoft.ui.xaml.controls.radiobuttons.selecteditem)
+* [SelectedIndex プロパティ](/uwp/api/microsoft.ui.xaml.controls.radiobuttons.selectedindex)
+
+**プラットフォーム API**: 
+* [RadioButton クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RadioButton)
+* [Checked イベント](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Primitives.ToggleButton.Checked)
+* [IsChecked プロパティ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Primitives.ToggleButton.IsChecked)
 
 ## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
-ユーザーが 2 つ以上の相互排他的なオプションの中から選択できるようにするには、ラジオ ボタンを使用します。
+ユーザーが 2 つ以上の相互排他的なオプションから選択できるようにするには、ラジオ ボタンを使用します。
 
-![ラジオ ボタンのグループ](images/radiobutton_basic.png)
+![1 つのラジオ ボタンが選択されている RadioButtons グループ](images/radiobutton_basic.png)
 
-ユーザーが選択するすべてのオプションを表示する必要がある場合は、ラジオ ボタンを使用します。 ラジオ ボタンでは、すべてのオプションが均等に強調されるため、オプションが必要以上ないしは望ましいレベルを超えて注目される可能性があります。 どのオプションにも均等にユーザーの注意を引く必要がある場合を除き、他のコントロールを使うことを検討してください。 たとえば、ほとんどの状況でほとんどのユーザーに既定のオプションが推奨されている場合は、代わりに[コンボ ボックス](combo-box.md)を使います。
+選択する前にユーザーがすべてのオプションを見る必要がある場合は、ラジオ ボタンを使用します。 ラジオ ボタンでは、すべてのオプションが同じように強調されます。これは、一部のオプションが必要以上に、または望ましいレベルを超えて、注目される可能性があることを意味します。 
 
-![既定のオプションを強調するために使用されるドロップダウン リスト](images/combo_box_collapsed.png)
+どのオプションも均等に注意を引く場合を除き、他のコントロールを使うことを検討してください。 たとえば、ほとんどのユーザーおよびほとんどの状況に対して 1 つの最適なオプションを推奨するには、[コンボ ボックス](combo-box.md)を使用して、その最適なオプションを既定のオプションとして表示します。
 
-相互排他的なオプションが 2 つだけの場合は、それらを 1 つの[チェック ボックス](checkbox.md)か[トグル スイッチ](toggles.md)にまとめます。 たとえば、"I agree" と "I don't agree" という 2 つのラジオ ボタンではなく、"I agree" のチェック ボックスを使います。
+![既定のオプションが表示されているコンボ ボックス](images/combo_box_collapsed.png)
 
-![チェックボックスは二者択一を表すのに適した代替手段](images/radiobutton_vs_checkbox.png)
+オプションが 2 つだけで、それらが相互に排他的である場合は、それらを 1 つの[チェック ボックス](checkbox.md)または[トグル スイッチ](toggles.md) コントロールにまとめます。 たとえば、"同意する" と "同意しない" という 2 つのラジオ ボタンではなく、"同意する" という 1 つのチェック ボックスを使用します。
 
-ユーザーが複数のオプションを選択できる場合は、[チェックボックス](checkbox.md) を使います。
+![チェック ボックスは二者択一を表すのに適した代替手段である](images/radiobutton_vs_checkbox.png)
 
-![チェックボックスでは複数選択がサポートされる](images/checkbox2.png)
+ユーザーが複数のオプションを選択できる場合は、[チェック ボックス](checkbox.md)を使用します。
 
-オプションが固定間隔の数値 (10, 20, 30) である場合は、[スライダー](slider.md) コントロールを使用します。
+![チェック ボックスでは複数選択がサポートされる](images/checkbox2.png)
 
-![階段値を選択するために使用されるスライダー](images/controls/slider.png)
+ユーザーのオプションがある値の範囲に限定される場合は (例: *10、20、30、... 100*)、[スライダー](slider.md) コントロールを使用します。
 
-オプションが 8 個より多い場合は、[コンボ ボックスかリスト ボックス](combo-box.md)を使用します。
+![ある値の範囲内の 1 つの値が表示されているスライダー コントロール](images/controls/slider.png)
 
-![複数のオプションを表示するために使用されるリスト ボックス](images/combo_box_scroll.png)
+8 つ以上のオプションがある場合は、[コンボ ボックス](combo-box.md)を使用します。
+
+![複数のオプションが表示されているリスト ボックス](images/combo_box_scroll.png)
 
 > [!NOTE]
-> オプションがアプリの現在のコンテキストに基づいて表示される場合や、その他の方法で動的に変化する場合は、単一選択の [リスト ボックス](combo-box.md#list-boxes) を使います。
+> 使用できるオプションが、アプリの現在のコンテキストに基づく場合、またはそれ以外の理由で非常に動的な場合は、リスト コントロールを使用します。
 
 ## <a name="radiobuttons-behavior"></a>RadioButtons の動作
 
-[RadioButton](/uwp/api/windows.ui.xaml.controls.radiobutton?view=winrt-19041) グループでは、キーボード アクセスとナビゲーションの動作が最適化されており、アクセシビリティ ユーザーもキーボード パワー ユーザーもオプションのリスト内をすばやく簡単に移動できます。
+キーボード アクセスおよびナビゲーション動作は、[RadioButton クラス](/uwp/api/windows.ui.xaml.controls.radiobutton?view=winrt-19041)で最適化されています。 これらの機能強化は、アクセシビリティと、キーボード パワー ユーザーによるオプションの一覧のすばやく簡単な移動の両方に役立ちます。
 
-キーボード ショートカットとアクセシビリティの改善に加えて、RadioButton グループ内の個々のラジオ ボタンの既定の表示レイアウトも、それらの向き、間隔、余白の設定が自動化されて最適化されました。 [StackPanel](../layout/layout-panels.md#stackpanel) や [Grid](../layout/layout-panels.md#grid) などのよりプリミティブなグループ化コントロールを使用する場合にはこれらのプロパティを使用する必要がありましたが、その必要がなくなりました。
+これらの機能強化に加えて、RadioButtons グループ内の個々のラジオ ボタンの既定の表示レイアウトが、自動化な向き、間隔、余白の設定によって最適化されています。 この最適化により、[StackPanel](../layout/layout-panels.md#stackpanel) や [Grid](../layout/layout-panels.md#grid) などのよりプリミティブなグループ化コントロールを使用する場合にはこれらのプロパティを使用する必要がありましたが、その必要がなくなりました。
 
 ### <a name="navigating-a-radiobuttons-group"></a>RadioButtons グループ内の移動
 
 RadioButtons コントロールでは、次の 2 つの状態がサポートされています。
 
-- どれも選択またはチェックされていない RadioButton コントロールのリスト
-- 1 つが既に選択またはチェックされた RadioButton コントロールのリスト
+- どのラジオ ボタンも選択されていない
+- 1 つのラジオ ボタンが選択されている
 
 次の 2 つのセクションで、両方の場合のラジオ ボタンのフォーカス動作について説明します。
 
-#### <a name="item-already-selected"></a>項目が既に選択されている場合
-
-ラジオ ボタンが既に選択されている場合、ユーザーがリスト内にタブ キーで移動すると、選択されているラジオ ボタンがフォーカスされます。
-
-|タブ フォーカスされていないリスト | タブで初期フォーカスされているリスト |
-|:--:|:--:|
-| ![タブ フォーカスされていないリスト](images/radiobutton-selected-item-no-tab-focus.png) | ![タブで初期フォーカスされているリスト](images/radiobutton-selected-item-tab-focus.png)|
-
-#### <a name="no-item-selected"></a>項目が選択されていない場合
+#### <a name="no-radio-button-is-selected"></a>どのラジオ ボタンも選択されていない
 
 どのラジオ ボタンも選択されていない場合、リスト内の最初のラジオ ボタンがフォーカスされます。
 
 > [!NOTE]
-> 最初のタブ ナビゲーションでタブ フォーカスされた項目は、選択またはチェックされていません。
+> 最初のタブ ナビゲーションからタブ フォーカスを受け取る項目が、選択されていません。
 
 |タブ フォーカスされていないリスト | タブで初期フォーカスされているリスト|
 |:--:|:--:|
 | ![タブ フォーカスされていないリスト](images/radiobutton-no-selected-item-no-tab-focus.png) | ![タブで初期フォーカスされているリスト](images/radiobutton-no-selected-item-tab-focus.png)|
 
+#### <a name="one-radio-button-is-selected"></a>1 つのラジオ ボタンが選択されている
+
+ラジオ ボタンが選択されていて、ユーザーがリスト内にタブ移動すると、選択されているラジオ ボタンにフォーカスが設定されます。
+
+|タブ フォーカスされていないリスト | タブで初期フォーカスされているリスト |
+|:--:|:--:|
+| ![タブ フォーカスされていないリスト](images/radiobutton-selected-item-no-tab-focus.png) | ![タブで初期フォーカスされているリスト](images/radiobutton-selected-item-tab-focus.png)|
+
+
 ### <a name="keyboard-navigation"></a>キーボード ナビゲーション
 
-ラジオ ボタンのオプションが 1 行または 1 列になっており、1 つの項目が既にタブ フォーカスされている場合、RadioButtons コントロール内の項目間の "内部ナビゲーション" を矢印キーで実行できます。 キーボード ナビゲーションの動作の詳細については、[キーボード操作のナビゲーション](../input/keyboard-interactions.md#navigation)に関するセクションを参照してください。
+ラジオ ボタンのオプションが 1 行または 1 列になっており、1 つの項目に既にタブ フォーカスが設定されている場合、ユーザーは RadioButtons コントロール内の項目間の "内部ナビゲーション" に方向キーを使用できます。 キーボード ナビゲーションの動作の詳細については、[キーボード操作のナビゲーション](../input/keyboard-interactions.md#navigation)に関するセクションを参照してください。
 
-RadioButtons コントロールでは、オプションのリストが垂直方向に (排他的に) 配置されている場合、上下方向キーで項目間を移動できます。左右方向キーでは何も実行されません。 ただし、水平方向に (排他的に) 配置されているリストでは、左右方向キーでも上下方向キーでも、すべて同様に項目間を移動できます。
+RadioButtons コントロールで、オプションのリストが垂直方向だけに配置されている場合、上下方向キーでは項目間を移動できますが、左右方向キーでは何も行われません。 一方、水平方向だけに配置されているリストでは、左右方向キーと上下方向キーのすべてで、同じように項目間を移動できます。
 
-![1 列または 1 行の RadioButton グループ内のキーボード ナビゲーションの例](images/radiobutton-keyboard-navigation-single-column-row.png)<br/>
-*1 列または 1 行の RadioButton グループ内のキーボード ナビゲーションの例*
+![1 列または 1 行の RadioButtons グループでのキーボード ナビゲーションの例](images/radiobutton-keyboard-navigation-single-column-row.png)<br/>
+*1 列または 1 行の RadioButtons グループでのキーボード ナビゲーションの例*
 
-#### <a name="navigating-within-multi-columnrow-layouts"></a>複数列または複数行のレイアウト内の移動
+#### <a name="navigating-within-multi-column-or-multi-row-layouts"></a>複数列または複数行のレイアウト内の移動
 
-列優先順序 (項目が上から下、左から右に入力される) では、列内の最後の項目がフォーカスされている状況で下方向キーが押されると、フォーカスは次の列の最初の項目に移動します。 逆向きにも同様に動作します。列内の最初の項目がフォーカスされている状況で上方向キーが押されると、フォーカスは前の列の最後の項目に移動します。
+列優先順序では、フォーカスは上から下、左から右に移動します。 列の最後の項目にフォーカスが設定されている状況で下方向キーを押すと、フォーカスは次の列の最初の項目に移動します。 これと同じ動作が逆の順序で発生します。フォーカスが列の最初の項目に設定されているときに上方向キーを押すと、フォーカスは前の列の最後の項目に移動します。
 
-![複数列または複数行の RadioButton グループ内のキーボード ナビゲーションの例](images/radiobutton-keyboard-navigation-multi-column-row.png)
+![複数列または複数行の RadioButtons グループ内のキーボード ナビゲーションの例](images/radiobutton-keyboard-navigation-multi-column-row.png)
 
-行優先順序 (項目が左から右、上から下に入力される) では、行内の最後の項目がフォーカスされている状況で右方向キーが押されると、フォーカスは次の行の最初の項目に移動します。 逆向きにも同様に動作します。行内の最初の項目がフォーカスされている状況で左方向キーが押されると、フォーカスは前の行の最後の項目に移動します。
+行優先順序 (項目が左から右、上から下に入力される) では、行内の最後の項目がフォーカスされている状況で右方向キーが押されると、フォーカスは次の行の最初の項目に移動します。 これと同じ動作が逆の順序で発生します。フォーカスが行の最初の項目に設定されているときに左方向キーを押すと、フォーカスは前の行の最後の項目に移動します。
+
+詳細については、「[キーボード操作](https://docs.microsoft.com/windows/uwp/design/input/keyboard-interactions#wrapping-homogeneous-list-and-grid-view-items)」を参照してください。
 
 ##### <a name="wrapping"></a>折り返し
 
-RadioButtons グループは折り返されません。 これは、スクリーン リーダーを使用するときに、境界や、先頭と末尾がはっきりしなくなると、視覚障碍のあるユーザーがリスト内を移動しにくくなるためです。 RadioButtons コントロールでは、適切な数の項目が含まれるようにするため、列挙もサポートされていません (「[これは適切なコントロールですか?](#is-this-the-right-control)」を参照してください)。
+RadioButtons グループは折り返されません。 これは、ユーザーがスクリーン リーダーを使用していて、境界や、先頭と末尾がはっきりしなくなったときに、視覚障碍のあるユーザーがリスト内を移動しにくくなるためです。 また、RadioButtons コントロールでは、コントロールに適切な数の項目が含まれることが意図されているため、列挙もサポートされていません (「[これは適切なコントロールですか?](#is-this-the-right-control)」を参照してください)。
 
 ## <a name="selection-follows-focus"></a>フォーカスに連動した選択
 
-キーボードを使用して RadioButtons リスト内の項目間を移動する場合 (項目が既に選択されている場合)、フォーカスが 1 つの項目から次の項目に移動すると同時に、新しくフォーカスされた項目が選択またはチェックされ、前にフォーカスされていた項目の選択またはチェックが解除されます。
+ユーザーがキーボードを使用して RadioButtons リスト内の項目間を移動する場合 (項目が既に選択されている場合)、フォーカスが 1 つの項目から次の項目に移動すると、新しくフォーカスが設定された項目はオンになり、前にフォーカスが設定されていた項目はオフになります。
 
 |キーボード ナビゲーション前 | キーボード ナビゲーション後|
 |:--|:--|
-| ![キーボード ナビゲーション前のフォーカスと選択の例](images/radiobutton-two-selected-before-keyboard-navigation.png)</br>*キーボード ナビゲーション前のフォーカスと選択の例* | ![キーボード ナビゲーション後のフォーカスと選択の例](images/radiobutton-three-selected-after-keyboard-navigation.png)<br/>*キーボード ナビゲーション後のフォーカスと選択の例。下矢印キーまたは右方向キーでフォーカスが "3" RadioButton に移動した結果、"3" が選択され、"2" の選択が解除されている。*
+| ![キーボード ナビゲーション前のフォーカスと選択の例](images/radiobutton-two-selected-before-keyboard-navigation.png)</br>*キーボード ナビゲーション前のフォーカスと選択の例* | ![キーボード ナビゲーション後のフォーカスと選択の例](images/radiobutton-three-selected-after-keyboard-navigation.png)<br/>*キーボード ナビゲーション後のフォーカスと選択の例。下方向キーまたは右方向キーでフォーカスをラジオ ボタン 3 に移動すると、それが選択され、ラジオ ボタン 2 はオフになる* |
 
 ### <a name="navigating-with-xbox-gamepad-and-remote-control"></a>Xbox ゲームパッドやリモート コントロールを使用した移動
 
-Xbox ゲームパッドやリモート コントロールを使用して RadioButtons コントロール内を移動する場合、"フォーカスに連動した選択" の動作は無効になるため、フォーカスされているラジオ ボタンを選択するには、A ボタンを押す必要があります。
+ユーザーが Xbox のゲームパッドやリモート コントロールを使用してラジオ ボタン間を移動している場合、"フォーカスに連動した選択" の動作は無効になり、フォーカスが設定されているラジオ ボタンを選択するには、ユーザーは "A" ボタンを押す必要があります。
 
 ## <a name="accessibility-behavior"></a>アクセシビリティの動作
 
-次の表に、ナレーターによるラジオ ボタン グループの処理方法と、読み上げられる内容の詳細を示します (これは、ユーザーが設定したナレーターの詳細設定によって異なります)。
+次の表では、ナレーターによる RadioButtons グループの処理方法と、読み上げられる内容について説明します。 この動作は、ユーザーによるナレーターの詳細設定によって異なります。
 
 | 初期フォーカス | 選択された項目にフォーカスが移動する場合 |
 |:--|:--|
-| "グループ名" RadioButton コレクションの、N の中の x が選択されています | RadioButton "名前" が選択されています。N の中の x です |
-|"グループ名" RadioButton コレクションは、どれも選択されていません| RadioButton "名前" は選択されていません。N の中の x です <br> *(Shift キーを押しながら方向キーを使って移動する場合、フォーカスに選択が連動しないことを示します)* |
+| "グループ名" RadioButton コレクションにフォーカスがあり、N 個の項目のうちの項目 x が選択されています | RadioButton "名前" が選択されている場合、項目 x にフォーカスが設定されます。 |
+| "グループ名" RadioButton コレクションにフォーカスがあり、項目は選択されていません| RadioButton "名前" が選択されていない場合、項目 x にフォーカスが設定されます。 <br> ユーザーが Shift キーを押しながら方向キーを使用した場合、フォーカスに連動して選択されません。 |
 
 ## <a name="examples"></a>例
 
 <table>
 <th align="left">XAML コントロール ギャラリー<th>
 <tr>
-<td><img src="images/xaml-controls-gallery-app-icon-sm.png" alt="XAML controls gallery"></img></td>
+<td><img src="images/xaml-controls-gallery-app-icon-sm.png" alt="The XAML Controls Gallery app icon"></img></td>
 <td>
-    <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong> アプリがインストールされている場合、こちらをクリックして<a href="xamlcontrolsgallery:/item/RadioButton">アプリを開き、RadioButton の動作を確認</a>してください。</p>
+    <p><strong style="font-weight: semi-bold">XAML コントロール ギャラリー</strong>のアプリをインストールしてある場合は、<a href="xamlcontrolsgallery:/item/RadioButton">それを開いて RadioButtons コントロールの動作を確認</a>してください。</p>
     <ul>
     <li><a href="https://www.microsoft.com/store/productId/9MSVH128X2ZT">XAML コントロール ギャラリー アプリを入手する (Microsoft Store)</a></li>
     <li><a href="https://github.com/Microsoft/Xaml-Controls-Gallery">ソース コード (GitHub) を入手する</a></li>
@@ -166,7 +178,7 @@ Xbox ゲームパッドやリモート コントロールを使用して RadioBu
 
 RadioButtons コントロールは簡単にセットアップして使用でき、キーボードやナレーターで期待どおりの適切な動作を実現できます。
 
-次に、オプションが 3 つある基本的な RadioButtons コントロールを宣言します。
+次のコードでは、オプションが 3 つある基本的な RadioButtons コントロールが宣言されています。
 
 ```xaml
 <RadioButtons Header="App Mode" SelectedIndex="2">
@@ -175,6 +187,7 @@ RadioButtons コントロールは簡単にセットアップして使用でき�
     <RadioButton>Item 3</RadioButton>
 </RadioButtons>
 ```
+結果は次の図のようになります。
 
 ![ラジオ ボタンの 2 つのグループ](images/default-radiobutton-group.png)
 
@@ -193,11 +206,11 @@ RadioButtons コントロールは簡単にセットアップして使用でき�
 </muxc:RadioButtons>
 ```
 
-![2 列のグループのラジオ ボタン](images/radiobutton-multi-columns.png)
+![3 列のグループのラジオ ボタン](images/radiobutton-multi-columns.png)
 
 ### <a name="data-binding"></a>データ バインディング
 
-RadioButtons コントロールでは、次のスニペットに示すように、その [ItemsSource](/uwp/api/microsoft.ui.xaml.controls.radiobuttons.itemssource) プロパティを使用したデータ バインディングがサポートされています。
+RadioButtons コントロールでは、次のスニペットに示すように、その [ItemsSource](/uwp/api/microsoft.ui.xaml.controls.radiobuttons.itemssource) プロパティを使用するデータ バインディングがサポートされています。
 
 ```xaml
 <RadioButtons Header="App Mode" ItemsSource="{x:Bind radioButtonItems}" />
@@ -229,15 +242,15 @@ public sealed partial class MainPage : Page
 }
 ```
 
-## <a name="create-your-own-radio-button-group"></a>独自のラジオ ボタン グループを作成する
+## <a name="create-your-own-radiobuttons-group"></a>独自の RadioButtons グループを作成する
 
 > [!Important]
-> RadioButton の要素をグループ化する場合は、WinUI RadioButtons コントロールを使用することをお勧めします (以前のバージョンの WinUI を使用している場合を除く)。
+> 古いバージョンの WinUI を使用している場合を除き、RadioButton 要素をグループ化するには WinUI の RadioButtons コントロールを使用することをお勧めします。
 
-ラジオ ボタンは、グループで動作します。 ラジオ ボタン コントロールをグループ化する 2 つの方法があります。
+ラジオ ボタンは、グループで動作します。 ラジオ ボタンは、次の 2 つの方法のいずれかでグループ化できます。
 
-- 同一の親コンテナー内にそれらを配置する
-- 各ラジオ ボタンの [GroupName](/uwp/api/Windows.UI.Xaml.Controls.RadioButton.GroupName) プロパティを同じ値に設定する
+- 同じ親コンテナー内に追加します。
+- 各ラジオ ボタンの [GroupName](/uwp/api/Windows.UI.Xaml.Controls.RadioButton.GroupName) プロパティを同じ値に設定します。
 
 この例では、スタック パネルを同じにすることでラジオ ボタンの最初のグループが暗黙的にグループ化されます。 2 つ目のグループは、2 つのスタック パネルの間で分割されているので、GroupName で明示的にグループ化されます。
 
@@ -321,36 +334,36 @@ private void BorderRadioButton_Checked(object sender, RoutedEventArgs e)
 }
 ```
 
-このラジオ ボタン グループがどのようにレンダリングされるかを次の図に示します。
+この RadioButtons グループがどのようにレンダリングされるかを次の図に示します。
 
 ![ラジオ ボタンの 2 つのグループ](images/radio-button-groups.png)
 
 ## <a name="radio-button-states"></a>ラジオ ボタンの状態
 
-ラジオ ボタンには、チェックされているかチェックが解除されているかの 2 つの状態があります。 ラジオ ボタンを選択すると、[IsChecked](/uwp/api/Windows.UI.Xaml.Controls.Primitives.ToggleButton.IsChecked) プロパティは **true** になります。 ラジオ ボタンのチェックが解除されると、**IsChecked** プロパティは **false** になります。 ラジオ ボタンは、同じグループ内の別のラジオ ボタンをクリックするとチェックを解除できますが、そのボタン自体をもう一度クリックしてもチェックを解除することはできません。 ただし、プログラムで IsChecked プロパティを **false** に設定することでラジオ ボタンのチェックを解除することはできます。
+ラジオ ボタンにはオンまたはオフの 2 つの状態があります。 ラジオ ボタンをオンにすると、[IsChecked プロパティ](/uwp/api/Windows.UI.Xaml.Controls.Primitives.ToggleButton.IsChecked)が `true` になります。 ラジオ ボタンをオフにすると、IsChecked プロパティは `false` になります。 ラジオ ボタンは、ユーザーが同じグループ内の別のラジオ ボタンを選択するとオフにできますが、それをもう一度選択してもオフにすることはできません。 ただし、プログラムで IsChecked プロパティを `false` に設定してラジオ ボタンをオフにすることができます。
 
 ## <a name="recommendations"></a>推奨事項
 
-- 一連のラジオ ボタンの用途と現在の状態が明確に表示されていることを確認します。
-- ラジオ ボタンのテキスト コンテンツは、1 行に収まるように作成します。
-- テキスト コンテンツが動的な場合、ボタンのサイズがどのように変わり、周囲の視覚効果にどのような影響が生じるかを検討してください。
+- 一連のラジオ ボタンの用途と現在の状態が明確に示されていることを確認します。
+- ラジオ ボタンのテキスト ラベルは、1 行に制限します。
+- テキスト ラベルが動的な場合は、ボタンのサイズが自動的にどのように変化し、周囲の視覚化にどのように影響するかを検討してください。
 - ブランドのガイドラインで別の指示がない限り、既定のフォントを使います。
-- 2 つのラジオ ボタン グループを並べて配置しないようにします。 2 つのラジオ ボタン グループが並んでいると、どのボタンがどのグループに属しているかがわかりにくくなります。
+- 2 つの RadioButtons グループを並べて配置しないようにします。 2 つの RadioButtons グループが並んでいると、ユーザーはどのボタンがどのグループに属しているかがわかりにくくなります。
 
 ### <a name="visuals-to-consider"></a>表示に関する考慮事項
 
-RadioButton グループのラジオ ボタンをレイアウトするのに最適な方法を次の図に示します。
+RadioButtons グループのラジオ ボタンを配置するのに最適な方法を次の図に示します。
 
-![一連のラジオ ボタン](images/radiobutton-layout.png)
+![垂直方向に整列されたラジオ ボタンのセットを示す画像](images/radiobutton-layout.png)
 
-![ラジオ ボタンの間隔ガイドライン](images/radiobutton-redline.png)
+![ラジオ ボタンの間隔のガイドラインを示す画像](images/radiobutton-redline.png)
 
 > [!NOTE]
 > WinUI RadioButtons コントロールを使用している場合、スペース、余白、向きは既に最適化されています。
 
 ## <a name="get-the-sample-code"></a>サンプル コードの入手
 
-- [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - 対話形式で XAML コントロールのすべてを参照できます。
+- すべての XAML コントロールを対話形式で取得するには、[XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery)を参照してください。 
 
 ## <a name="related-topics"></a>関連トピック
 

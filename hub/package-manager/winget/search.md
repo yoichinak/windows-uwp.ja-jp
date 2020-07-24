@@ -4,12 +4,12 @@ description: ソースに対して、インストールできる使用可能な�
 ms.date: 04/28/2020
 ms.topic: overview
 ms.localizationpriority: medium
-ms.openlocfilehash: 366d2176fe9465495d8ed8f2eeb7912229bd07f1
-ms.sourcegitcommit: 4df8c04fc6c22ec76cdb7bb26f327182f2dacafa
+ms.openlocfilehash: 7038f9b31c4c0446e3af56cac2d118598347d4d3
+ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85334477"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86493257"
 ---
 # <a name="search-command-winget"></a>search コマンド (winget)
 
@@ -48,7 +48,7 @@ search コマンドにフィルターやオプションが含まれていない�
 | **--name**      |  検索をアプリケーションの名前に限定します。 |
 | **--moniker**  |    検索を指定されたモニカーに限定します。 |
 | **--tag**    |  検索をアプリケーション用に一覧表示されているタグに限定します。 |
-| **--command**   |   検索をアプリケーションの名前に限定します。 |
+| **--command**   |   検索を、アプリケーション用に一覧表示されているコマンドに限定します。 |
 
 文字列は部分文字列として扱われます。 また、既定の検索では大文字と小文字は区別されません。 たとえば、`winget search micro` では以下が返される可能性があります。
 

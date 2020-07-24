@@ -6,14 +6,14 @@ ms.date: 06/11/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 4c388b9b81744c0d27d96c1f97b4e405af63eaef
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 79022d1be13b98be4b086cbe452e55767ca0cedc
+ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80524084"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86492911"
 ---
-# <a name="create-a-hello-world-app-in-ccx"></a>"Hello world" アプリを C++/CX で作成する
+# <a name="create-a-hello-world-app-in-ccx"></a>"Hello, World!" アプリを C++/CX で作成する
 
 > [!IMPORTANT]
 > このチュートリアルでは C++/CX を使います。 Microsoft は C++/WinRT をリリースしました。これは、Windows ランタイム (WinRT) API 用に完全に標準化された、最新の C++17 言語プロジェクションです。 この言語の詳細については、「[C++/WinRT](https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/)」をご覧ください。
@@ -99,10 +99,10 @@ C++ を使った Windows デスクトップのプログラミングに関する�
 まずプロジェクト ファイルを見てみましょう。
 
 -   **App.xaml、App.xaml.h、App.xaml.cpp:** アプリのエントリ ポイントとなる Application オブジェクトを表します。 App.xaml に、ページ固有の UI マークアップは含まれませんが、UI のスタイルなどの要素を追加して任意のページからアクセスすることができます。 分離コード ファイルには、**OnLaunched** イベントと **OnSuspending** イベントのハンドラーが含まれます。 通常、ここには、起動時にアプリを初期化したり、中断または終了時にクリーンアップ処理を実行したりするためのカスタム コードを追加します。
--   **MainPage.xaml、MainPage.xaml.h、MainPage.xaml.cpp:** アプリの既定の "スタート" ページに使う XAML マークアップと分離コードが記述されます。 ナビゲーション サポートやビルトイン コントロールはありません。
+-   **MainPage.xaml、MainPage.xaml.h、MainPage.xaml.cpp:** アプリの既定の "スタート" ページに関する XAML マークアップと分離コードが含まれます。 ナビゲーション サポートやビルトイン コントロールはありません。
 -   **pch.h、pch.cpp:** プリコンパイル済みヘッダー ファイルと、それをプロジェクトにインクルードするファイルです。 pch.h には、変更頻度が低く、ソリューション内の他のファイルにインクルードされるヘッダーを含めることができます。
 -   **Package.appxmanifest:** アプリが必要とするデバイスの機能、そしてアプリのバージョン情報やその他のメタデータを表す XML ファイルです。 このファイルをダブルクリックすると、**マニフェスト デザイナー**で開くことができます。
--   **HelloWorld\_TemporaryKey.pfx:** Visual Studio から対象のコンピューター上にアプリを展開するためのキーです。
+-   **HelloWorld\_TemporaryKey.pfx:** Visual Studio からこのコンピューターにアプリを展開できるようにするキーです。
 
 ## <a name="a-first-look-at-the-code"></a>初めてのコード
 
@@ -110,7 +110,7 @@ C++ を使った Windows デスクトップのプログラミングに関する�
 
 **Ref クラス**
 
-Windows ランタイムのほぼすべてのクラスは、Windows API のすべての型 (XAML コントロール、アプリ内のページ、App クラス自体、すべてのデバイス オブジェクトとネットワーク オブジェクト、すべてのコンテナー型) を含んでおり、**ref クラス** として宣言されます  (**value class** または **value struct** の Windows 型もわずかに存在します)。 ref クラスはすべての言語から利用できます。 C++/CX では、これらの型の有効期間が (ガベージ コレクションではなく) 自動参照カウントによって制御されるため、それらのオブジェクトを明示的に削除することはできません。 ref クラスは独自に作成することもできます。
+Windows ランタイムのほぼすべてのクラスは、Windows API のすべての型 (XAML コントロール、アプリ内のページ、App クラス自体、すべてのデバイス オブジェクトとネットワーク オブジェクト、すべてのコンテナー型) を含んでおり、**ref クラス** として宣言されます (**value class** または **value struct** の Windows 型もわずかに存在します)。 ref クラスはすべての言語から利用できます。 C++/CX では、これらの型の有効期間が (ガベージ コレクションではなく) 自動参照カウントによって制御されるため、それらのオブジェクトを明示的に削除することはできません。 ref クラスは独自に作成することもできます。
 
 ```cpp
 namespace HelloWorld
@@ -247,9 +247,9 @@ MainPage::MainPage()
 
    同時に、MainPage.xaml で、[**Button**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Button) の XAML が更新されて、次のように [**Click**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.click) イベント ハンドラーが宣言されます。
 
-    ```xaml
-    <Button Content="Say &quot;Hello&quot;" Click="Button_Click"/>
-    ```
+```xaml
+<Button Content="Say &quot;Hello&quot;" Click="Button_Click"/>
+```
 
    これを XAML コードに手動で入力することもできます。これは、デザイナーが読み込みに失敗する場合に役立つことがあります。 手動で入力する場合は、「Click」と入力すると、IntelliSense によって新しいイベント ハンドラーを追加するオプションがポップアップされます。 このように、Visual Studio によって必要なメソッド宣言とスタブが作成されます。
 
@@ -257,12 +257,12 @@ MainPage::MainPage()
 
 5.  MainPage.xaml.cpp で、作成した **Button\_Click** イベント ハンドラーに次のコードを追加します。 このコードは、`nameInput` [**TextBox**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox) コントロールからユーザー名を取得し、それを使ってあいさつを作ります。 結果は、`greetingOutput` [**TextBlock**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock) に表示されます。
 
-    ```cpp
-    void HelloWorld::MainPage::Button_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
-    {
-        greetingOutput->Text = "Hello, " + nameInput->Text + "!";
-    }
-    ```
+```cpp
+void HelloWorld::MainPage::Button_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
+{
+    greetingOutput->Text = "Hello, " + nameInput->Text + "!";
+}
+```
 
 6.  プロジェクトをスタートアップ プロジェクトとして設定し、F5 キーを押してアプリをビルド、実行します。 テキスト ボックスに名前を入力してボタンをクリックすると、ユーザーに合わせたあいさつが表示されます。
 
@@ -279,20 +279,20 @@ MainPage::MainPage()
 1.  App.xaml を開きます。
 2.  開始 [**Application**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Application) タグで、[**RequestedTheme**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.requestedtheme) プロパティを編集し、その値を **Dark** に設定します。
 
-    ```xaml
-    RequestedTheme="Dark"
-    ```
+```xaml
+RequestedTheme="Dark"
+```
 
-    濃色テーマを追加した [**Application**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Application) タグ全体を次に示します。
+    Here's the full [**Application**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Application) tag with the dark theme :
 
-    ```xaml
-        <Application
-        x:Class="HelloWorld.App"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:local="using:HelloWorld"
-        RequestedTheme="Dark">
-    ```
+```xaml
+    <Application
+    x:Class="HelloWorld.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:HelloWorld"
+    RequestedTheme="Dark">
+```
 
 3.  F5 キーを押して、アプリをビルドし、実行します。 濃色テーマが使われていることに注目してください。
 
@@ -321,9 +321,9 @@ MainPage::MainPage()
 
      XAML デザイン サーフェイスで、テキストの外観が変化します。 XAML エディターで、[**TextBlock**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock) の XAML が更新されます。
 
-    ```xaml
-    <TextBlock Text="What's your name?" Style="{ThemeResource BaseTextBlockStyle}"/>
-    ```
+```xaml
+<TextBlock Text="What's your name?" Style="{ThemeResource BaseTextBlockStyle}"/>
+```
 
 7.  このプロセスを繰り返してフォント サイズを設定し、**BaseTextBlockStyle** を `greetingOutput`[**TextBlock**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock) 要素に割り当てます。
 
@@ -331,16 +331,16 @@ MainPage::MainPage()
 
     XAML は次のようになります。
 
-    ```xaml
-    <StackPanel x:Name="contentPanel" Margin="120,30,0,0">
-        <TextBlock Style="{ThemeResource BaseTextBlockStyle}" FontSize="18" Text="What's your name?"/>
-        <StackPanel x:Name="inputPanel" Orientation="Horizontal" Margin="0,20,0,20">
-            <TextBox x:Name="nameInput" Width="300" HorizontalAlignment="Left"/>
-            <Button x:Name="inputButton" Content="Say &quot;Hello&quot;" Click="Button_Click"/>
-        </StackPanel>
-        <TextBlock Style="{ThemeResource BaseTextBlockStyle}" FontSize="18" x:Name="greetingOutput"/>
+```xaml
+<StackPanel x:Name="contentPanel" Margin="120,30,0,0">
+    <TextBlock Style="{ThemeResource BaseTextBlockStyle}" FontSize="18" Text="What's your name?"/>
+    <StackPanel x:Name="inputPanel" Orientation="Horizontal" Margin="0,20,0,20">
+        <TextBox x:Name="nameInput" Width="300" HorizontalAlignment="Left"/>
+        <Button x:Name="inputButton" Content="Say &quot;Hello&quot;" Click="Button_Click"/>
     </StackPanel>
-    ```
+    <TextBlock Style="{ThemeResource BaseTextBlockStyle}" FontSize="18" x:Name="greetingOutput"/>
+</StackPanel>
+```
 
 8.  F5 キーを押して、アプリをビルドし、実行します。 次のように表示されます。
 
@@ -354,27 +354,27 @@ MainPage::MainPage()
 
 1.  XAML エディターで、ルートの [**Grid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid) 要素の開始タグの後に、この XAML ブロックを追加します。
 
-    ```xaml
-    <VisualStateManager.VisualStateGroups>
-        <VisualStateGroup>
-            <VisualState x:Name="wideState">
-                <VisualState.StateTriggers>
-                    <AdaptiveTrigger MinWindowWidth="641" />
-                </VisualState.StateTriggers>
-            </VisualState>
-            <VisualState x:Name="narrowState">
-                <VisualState.StateTriggers>
-                    <AdaptiveTrigger MinWindowWidth="0" />
-                </VisualState.StateTriggers>
-                <VisualState.Setters>
-                    <Setter Target="contentPanel.Margin" Value="20,30,0,0"/>
-                    <Setter Target="inputPanel.Orientation" Value="Vertical"/>
-                    <Setter Target="inputButton.Margin" Value="0,4,0,0"/>
-                </VisualState.Setters>
-            </VisualState>
-        </VisualStateGroup>
-    </VisualStateManager.VisualStateGroups>
-    ```
+```xaml
+<VisualStateManager.VisualStateGroups>
+    <VisualStateGroup>
+        <VisualState x:Name="wideState">
+            <VisualState.StateTriggers>
+                <AdaptiveTrigger MinWindowWidth="641" />
+            </VisualState.StateTriggers>
+        </VisualState>
+        <VisualState x:Name="narrowState">
+            <VisualState.StateTriggers>
+                <AdaptiveTrigger MinWindowWidth="0" />
+            </VisualState.StateTriggers>
+            <VisualState.Setters>
+                <Setter Target="contentPanel.Margin" Value="20,30,0,0"/>
+                <Setter Target="inputPanel.Orientation" Value="Vertical"/>
+                <Setter Target="inputButton.Margin" Value="0,4,0,0"/>
+            </VisualState.Setters>
+        </VisualState>
+    </VisualStateGroup>
+</VisualStateManager.VisualStateGroups>
+```
 
 2.  ローカル コンピューターでアプリをデバッグします。 UI は、ウィンドウが 641 DIP (デバイスに依存しないピクセル) より狭くならない限り、前と同じように表示されることに注意してください。
 3.  モバイル デバイス エミュレーターでアプリをデバッグします。 `narrowState` で定義したプロパティが UI に使用され、小さい画面で適切に表示されていることに注意してください。
@@ -385,7 +385,7 @@ MainPage::MainPage()
 
 `wideState` という名前の [**VisualState**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.VisualState) で、[**AdaptiveTrigger**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.AdaptiveTrigger) の [**MinWindowWidth**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.adaptivetrigger.minwindowwidth) プロパティが 641 に設定されています。 これは、ウィンドウの幅が 641 DIP という最小値以上である場合に限って、状態が適用されることを意味します。 この状態には [**Setter**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Setter) オブジェクトを定義していないため、XAML でページのコンテンツに対して定義したレイアウト プロパティが使用されます。
 
-2 つ目の [**VisualState**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.VisualState) である `narrowState` で、[**AdaptiveTrigger**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.AdaptiveTrigger) の [**MinWindowWidth**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.adaptivetrigger.minwindowwidth) プロパティが 0 に設定されています。 この状態は、ウィンドウの幅が 0 より大きく 641 DIP より小さい場合に適用されます  (641 DIP では、`wideState` が適用されます)。この状態では、いくつかの [**Setter**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Setter) オブジェクトを設定して、UI のコントロールのレイアウト プロパティを変更します。
+2 つ目の [**VisualState**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.VisualState) である `narrowState` で、[**AdaptiveTrigger**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.AdaptiveTrigger) の [**MinWindowWidth**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.adaptivetrigger.minwindowwidth) プロパティが 0 に設定されています。 この状態は、ウィンドウの幅が 0 より大きく 641 DIP より小さい場合に適用されます (641 DIP では、`wideState` が適用されます)。この状態では、いくつかの [**Setter**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Setter) オブジェクトを設定して、UI のコントロールのレイアウト プロパティを変更します。
 
 -   `contentPanel` の左側の余白を 120 から 20 に減らします。
 -   `inputPanel` 要素の [**Orientation**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.stackpanel.orientation) を **Horizontal** から **Vertical** に変更します。
