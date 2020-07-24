@@ -96,7 +96,7 @@
           href: controls-and-patterns/rating.md
         - name: スライダー
           href: controls-and-patterns/slider.md
-        - name: トグル
+        - name: トグル スイッチ
           href: controls-and-patterns/toggles.md
     - name: コレクション
       items:
@@ -360,7 +360,7 @@
                   items:
                     - name: 概要
                       href: shell/tiles-and-notifications/toast-desktop-apps.md
-                    - name: 'C# アプリ'
+                    - name: C# アプリ
                       href: shell/tiles-and-notifications/send-local-toast-desktop.md
                     - name: C++ WRL アプリ
                       href: shell/tiles-and-notifications/send-local-toast-desktop-cpp-wrl.md
