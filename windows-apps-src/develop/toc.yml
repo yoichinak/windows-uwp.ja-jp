@@ -426,7 +426,7 @@
                 - name: スポット広告
                   href: ../monetize/interstitial-ads.md
                   items:
-                    - name: 'C# を使ったスポット広告のサンプル コード'
+                    - name: C# を使ったスポット広告のサンプル コード
                       href: ../monetize/interstitial-ad-sample-code-in-c.md
                     - name: JavaScript を使ったスポット広告のサンプル コード
                       href: ../monetize/interstitial-ad-sample-code-in-javascript.md
@@ -448,7 +448,7 @@
                 - name: 広告のエラー処理
                   href: ../monetize/error-handling-with-advertising-libraries.md
                   items:
-                    - name: 'XAML/C# ウォークスルーでのエラー処理'
+                    - name: XAML/C# ウォークスルーでのエラー処理
                       href: ../monetize/error-handling-in-xamlc-walkthrough.md
                     - name: JavaScript ウォークスルーでのエラー処理
                       href: ../monetize/error-handling-in-javascript-walkthrough.md
@@ -457,7 +457,7 @@
               items:
                 - name: HTML と JavaScript のトラブルシューティング ガイド
                   href: ../monetize/html-and-javascript-troubleshooting-guide.md
-                - name: 'XAML と C# のトラブルシューティング ガイド'
+                - name: XAML と C# のトラブルシューティング ガイド
                   href: ../monetize/xaml-and-c-troubleshooting-guide.md
             - name: リリース ノート
               href: ../monetize/release-notes-for-the-advertising-libraries.md
@@ -722,8 +722,6 @@
                   href: ../monetize/change-the-billing-state-of-a-subscription-for-a-user.md
                 - name: Microsoft Store ID キーの更新
                   href: ../monetize/renew-a-windows-store-id-key.md
-            - name: 広告ネットワーク用のアプリのメタデータ API
-              href: ../monetize/app-metadata-api-for-advertising-networks.md
         - name: Store に要求を送信する
           href: ../monetize/send-requests-to-the-store.md
         - name: 市販デモ (RDX) 機能の追加
@@ -749,7 +747,7 @@
       items:
         - name: はじめに
           href: ../cpp-and-winrt-apis/intro-to-using-cpp-with-winrt.md
-        - name: 開始
+        - name: 作業開始
           href: ../cpp-and-winrt-apis/get-started.md
         - name: 新機能
           href: ../cpp-and-winrt-apis/news.md
@@ -799,9 +797,9 @@
           href: ../cpp-and-winrt-apis/interop-winrt-cx.md
         - name: WRL から C++/WinRT への移行
           href: ../cpp-and-winrt-apis/move-to-winrt-from-wrl.md
-        - name: 'C# からのサンプル アプリの移植'
+        - name: C# からのサンプル アプリの移植
           href: ../cpp-and-winrt-apis/clipboard-to-winrt-from-csharp.md
-        - name: 'C# から C++/WinRT への移行'
+        - name: C# から C++/WinRT への移行
           href: ../cpp-and-winrt-apis/move-to-winrt-from-csharp.md
         - name: ABI との相互運用
           href: ../cpp-and-winrt-apis/interop-winrt-abi.md
@@ -819,7 +817,7 @@
           items:
             - name: 値のカテゴリと参照
               href: ../cpp-and-winrt-apis/cpp-value-categories.md
-    - name: 'C#/WinRT'
+    - name: C#/WinRT
       href: ../csharp-winrt/index.md
     - name: セキュリティ
       href: ../security/index.md
@@ -930,11 +928,13 @@
     - name: Windows ランタイム コンポーネント
       href: ../winrt-components/index.md
       items:
+        - name: C++/WinRT を使用した Windows ランタイム コンポーネント
+          href: ../winrt-components/create-a-windows-runtime-component-in-cppwinrt.md
         - name: C++/CX を使用した Windows ランタイム コンポーネント
           href: ../winrt-components/creating-windows-runtime-components-in-cpp.md
         - name: C++/CX Windows ランタイム コンポーネントのチュートリアル
           href: ../winrt-components/walkthrough-creating-a-basic-windows-runtime-component-in-cpp-and-calling-it-from-javascript-or-csharp.md
-        - name: 'C# および Visual Basic を使用した Windows ランタイム コンポーネント'
+        - name: C# および Visual Basic を使用した Windows ランタイム コンポーネント
           href: ../winrt-components/creating-windows-runtime-components-in-csharp-and-visual-basic.md
           items:
             - name: Windows ランタイム コンポーネントのカスタム イベントおよびイベント アクセサー
@@ -947,7 +947,7 @@
               href: ../winrt-components/distributing-a-managed-windows-runtime-component.md
             - name: .NET での Windows ランタイム型の対応付け
               href: ../winrt-components/net-framework-mappings-of-windows-runtime-types.md
-        - name: 'C# または Visual Basic Windows ランタイム コンポーネントのチュートリアル'
+        - name: C# または Visual Basic Windows ランタイム コンポーネントのチュートリアル
           href: ../winrt-components/walkthrough-creating-a-simple-windows-runtime-component-and-calling-it-from-javascript.md
         - name: Windows ランタイム コンポーネントでイベントを生成する
           href: ../winrt-components/raising-events-in-windows-runtime-components.md
@@ -1438,7 +1438,7 @@
           href: ../threading-async/asynchronous-programming-in-cpp-universal-windows-platform-apps.md
         - name: スレッド プールを使うためのベスト プラクティス
           href: ../threading-async/best-practices-for-using-the-thread-pool.md
-        - name: 'C# または Visual Basic での非同期 API の呼び出し'
+        - name: C# または Visual Basic での非同期 API の呼び出し
           href: ../threading-async/call-asynchronous-apis-in-csharp-or-visual-basic.md
         - name: 定期的な作業項目の作成
           href: ../threading-async/create-a-periodic-work-item.md

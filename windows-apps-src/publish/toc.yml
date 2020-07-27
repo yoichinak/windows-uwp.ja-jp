@@ -178,14 +178,12 @@
       href: ../publish/insights-report.md
     - name: 広告パフォーマンス レポート
       href: ../publish/advertising-performance-report.md
-    - name: 広告キャンペーン レポート
-      href: ../publish/ad-campaign-report.md
     - name: 分析レポートのダウンロード
       href: ../publish/download-analytic-reports.md
-- name: 支払いの受け取り
+- name: 支払いを受ける
   href: ../publish/getting-paid-apps.md
   items:
-    - name: 受取りアカウントの設定と税関連の書類
+    - name: 支払いアカウントと税フォームを設定する
       href: ../publish/setting-up-your-payout-account-and-tax-forms.md
     - name: 受け取りしきい値、方法、期間
       href: ../publish/payment-thresholds-methods-and-timeframes.md
@@ -210,3 +208,5 @@
       href: ../publish/store-app-quality.md
     - name: 開発者倫理規定
       href: ../publish/store-developer-code-of-conduct.md
+    - name: Microsoft Store 製品の順位付け、配置、販売に関する開示ステートメント
+      href: 'https://aka.ms/disclosurepolicypdf'

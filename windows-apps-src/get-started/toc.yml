@@ -23,11 +23,13 @@
     - name: 初めてのアプリ
       href: ../get-started/your-first-app.md
       items:
-        - name: '"Hello, world" アプリを作成する (C#)'
+        - name: '"Hello World" アプリを C# で作成する'
           href: ../get-started/create-a-hello-world-app-xaml-universal.md
-        - name: '"Hello, world" アプリを作成する (C++)'
+        - name: '"Hello World" アプリを C++/WinRT で作成する'
+          href: ../get-started/create-a-basic-windows-10-app-in-cppwinrt.md
+        - name: '"Hello World" アプリを C++/CX で作成する'
           href: ../get-started/create-a-basic-windows-10-app-in-cpp.md
-        - name: '"Hello, world" アプリを作成する (JS)'
+        - name: '"Hello World" アプリを JavaScript で作成する'
           href: ../get-started/create-a-hello-world-app-js-uwp.md
     - name: 複雑なアプリを構築する
       href: ../get-started/plan-your-app.md

@@ -3,12 +3,12 @@ title: WinUI 3 Preview 2 (2020 年 7 月)
 description: WinUI 3 Preview 2 リリースの概要。
 ms.date: 07/15/2020
 ms.topic: article
-ms.openlocfilehash: 6dd29b7da0ce2d0f3a08538d392792337f1e1b5a
-ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
+ms.openlocfilehash: 0acea4520f10d5f64baa29cb64fdf0ba1cc4552e
+ms.sourcegitcommit: e1104689fc1db5afb85701205c2580663522ee6d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86493065"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86997959"
 ---
 # <a name="windows-ui-library-3-preview-2-july-2020"></a>Windows UI ライブラリ 3 Preview 2 (2020 年 7 月)
 
@@ -103,6 +103,9 @@ WinUI 3 Preview 1 を使用してプロジェクトを作成した場合、Previ
 ## <a name="bug-fixes-and-other-improvements-in-winui-3-preview-2"></a>WinUI 3 Preview 2 のバグ修正とその他の機能強化
 
 Preview 2 のバグ修正とその他の更新の包括的な一覧を次に示します。 このリリースで解決された重大度の高いバグ修正の一覧については、[リリースのお知らせ](https://aka.ms/winui3/preview2-announcement)を参照してください。
+
+> [!NOTE]
+> WinUI 3 プレビュー 2 は WinUI 2 ライブラリのバージョン 2.4.2 を使用します。 
 
 - [INotifyCollectionChanged](https://docs.microsoft.com/dotnet/api/system.collections.specialized.inotifycollectionchanged?view=net-5.0) と [INotifyPropertyChanged](https://docs.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged?view=net-5.0) が C# デスクトップ アプリで正常に機能するようになりました
   - これにより、バックエンドで更新されている間、UI の更新されないコレクション コントロールに関連する他のいくつかの問題が解消されました。
