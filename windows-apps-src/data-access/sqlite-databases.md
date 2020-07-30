@@ -5,12 +5,12 @@ ms.date: 06/26/2020
 ms.topic: article
 keywords: windows 10, UWP, SQLite, データベース
 ms.localizationpriority: medium
-ms.openlocfilehash: c8eb384be08addd75e77f37d6fb579a179e68581
-ms.sourcegitcommit: 48e047a581fcfcc9a4084d65a78b89f2c01cf4f3
+ms.openlocfilehash: 0db89408d5bc0af8b9101768a6498e70f9be6147
+ms.sourcegitcommit: e1104689fc1db5afb85701205c2580663522ee6d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85448352"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86997939"
 ---
 # <a name="use-a-sqlite-database-in-a-uwp-app"></a>UWP アプリでの SQLite データベースの使用
 SQLite を使用すると、ユーザーのデバイス上の軽量なデータベースにデータを保存し、取得することができます。 このガイドでその方法を示します。
@@ -75,7 +75,7 @@ Visual Studio 2015 を使用している場合は、 **[インストール済み
 
 ![SQLite パッケージ](images/sqlite-package.png)
 
-このガイドの「[SQLite データベースのデータの追加と取得](#use-data)」のセクションに移動します。
+このガイドの「[SQLite データベースのデータの追加と取得](/windows/uwp/data-access/sqlite-databases#add-and-retrieve-data-in-a-sqlite-database)」のセクションに移動します。
 
 ### <a name="the-minimum-version-of-your-project-targets-the-fall-creators-update"></a>プロジェクトの最小バージョンが Fall Creators Update を対象とする場合
 
@@ -122,7 +122,6 @@ UWP プロジェクトの最小バージョンを Fall Creators Update に上げ
 
 ![SQLite パッケージ](images/sqlite-package-v2.png)
 
-<a id="use-data" />
 
 ## <a name="add-and-retrieve-data-in-a-sqlite-database"></a>SQLite データベースのデータの追加と取得
 
@@ -173,7 +172,6 @@ using Microsoft.Data.Sqlite;
 using System.Collections.Generic;
 ```
 
-<a id="initialize" />
 
 ### <a name="initialize-the-sqlite-database"></a>SQLite データベースを初期化する
 
@@ -217,7 +215,6 @@ public App()
 }
 ```
 
-<a id="insert" />
 
 ### <a name="insert-data-into-the-sqlite-database"></a>SQLite データベースにデータを挿入する
 
@@ -247,7 +244,6 @@ public static void AddData(string inputText)
 }
 ```
 
-<a id="retrieve" />
 
 ### <a name="retrieve-data-from-the-sqlite-database"></a>SQLite データベースからデータを取得する
 

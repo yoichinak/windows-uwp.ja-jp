@@ -12,12 +12,12 @@ design-contact: ksulliv
 dev-contact: mitra
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: ed202bca80518333201595987c4af631f82f0853
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: a1de8437c5b463b13e3adb8c4d7eb7161663f4d6
+ms.sourcegitcommit: e1104689fc1db5afb85701205c2580663522ee6d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970787"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86997969"
 ---
 # <a name="sliders"></a>スライダー
 
@@ -73,10 +73,6 @@ ms.locfileid: "82970787"
 </td>
 </tr>
 </table>
-
-Windows Phone の音量を制御するためのスライダー。
-
-![Windows Phone の音量を制御するためのスライダー](images/control-examples/slider-phone.png)
 
 Windows 画面設定でテキスト サイズを変更するためのスライダー。
 

@@ -12,12 +12,12 @@ design-contact: jeffarn
 dev-contact: mitra
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 34eca0c822b0da96cae39463777c5c3e9888240c
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 25ca05dc6c604d40092cdc28d186de4b835774b2
+ms.sourcegitcommit: e1104689fc1db5afb85701205c2580663522ee6d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970807"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86997999"
 ---
 # <a name="progress-controls"></a>プログレス コントロール
 
@@ -213,7 +213,3 @@ Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows
 
 - [ProgressBar クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ProgressBar)
 - [ProgressRing クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ProgressRing)
-
-**開発者向け (XAML)**
-- [プログレス コントロールの追加](https://docs.microsoft.com/previous-versions/windows/apps/hh780651(v=win.10))
-- [Windows Phone 向けのカスタム進行状況不定バーを作成する方法](https://msdn.microsoft.com/library/windows/apps/gg442303.aspx)
