@@ -1,101 +1,117 @@
 - name: Windows の開発環境
-  href: index.yml
+  href: overview.md
   items:
-    - name: Python を使った開発
+    - name: 概要
       items:
-        - name: 概要
-          href: ../python/index.yml
-        - name: 初心者向けスタートアップ ガイド
-          href: ../python/beginners.md
-        - name: Web 開発の概要
-          href: ../python/web-frameworks.md
-        - name: 自動化の概要
-          href: ../python/scripting.md
-        - name: データベースの概要
-          href: 'https://docs.microsoft.com/windows/wsl/tutorials/wsl-database'
-        - name: よく寄せられる質問
-          href: ../python/faqs.md
-        - name: 参照情報
-          href: ../python/resources.md
-    - name: Node.js を使った開発
-      items:
-        - name: 概要
-          href: ../nodejs/index.yml
-        - name: WSL2 を使用したセットアップ (Linux)
-          href: ../nodejs/setup-on-wsl2.md
-        - name: Windows を使用したセットアップ (初心者)
-          href: ../nodejs/setup-on-windows.md
-        - name: 初心者向けスタートアップ ガイド
-          href: ../nodejs/beginners.md
-        - name: Web フレームワークの概要
-          href: ../nodejs/web-frameworks.md
-        - name: データベースの概要
-          href: '.https://docs.microsoft.com/windows/wsl/tutorials/wsl-database'
-        - name: コンテナーの概要
-          href: ../nodejs/containers.md
-    - name: Android を使った開発
-      items:
-        - name: 概要
-          href: ../android/overview.md
-        - name: ネイティブ Android の概要
-          href: ../android/native-android.md
-        - name: クロスプラットフォームの概要
-          items:
-            - name: Xamarin ネイティブ
-              href: ../android/xamarin-android.md
-            - name: Xamarin フォーム
-              href: ../android/xamarin-forms.md
-            - name: React Native
-              href: ../android/react-native.md
-            - name: PWA (Ionic、PhoneGap、Cordova)
-              href: ../android/pwa.md
-        - name: パフォーマンスを向上させるための Defender 設定
-          href: ../android/defender-settings.md
-        - name: デバイスまたはエミュレーターでのテスト
-          href: ../android/emulator.md
-    - name: Windows パッケージ マネージャー
-      items:
-        - name: 概要
-          href: ../package-manager/index.md
-        - name: winget ツールの使用
-          items:
-            - name: 概要
-              href: ../package-manager/winget/index.md
-            - name: hash コマンド
-              href: ../package-manager/winget/hash.md
-            - name: help コマンド
-              href: ../package-manager/winget/help.md
-            - name: install コマンド
-              href: ../package-manager/winget/install.md
-            - name: search コマンド
-              href: ../package-manager/winget/search.md
-            - name: show コマンド
-              href: ../package-manager/winget/show.md
-            - name: source コマンド
-              href: ../package-manager/winget/source.md
-            - name: validate コマンド
-              href: ../package-manager/winget/validate.md
-        - name: パッケージの送信
-          items:
-            - name: 概要
-              href: ../package-manager/package/index.md
-            - name: パッケージ マニフェストを作成する
-              href: ../package-manager/package/manifest.md
-            - name: リポジトリにマニフェストを送信する
-              href: ../package-manager/package/repository.md
-    - name: Linux 用 Windows サブシステム
-      href: 'https://docs.microsoft.com/windows/wsl/'
-    - name: Windows ターミナル
-      href: 'https://docs.microsoft.com/windows/terminal/'
-    - name: Mac-to-Windows ガイド
-      items:
-        - name: 開発環境の変更
+        - name: ワークフローとパフォーマンスのヒント
+          href: tips.md
+        - name: 開発者のストーリー
+          href: dev-stories.md
+        - name: 人気のあるチュートリアル
+          href: tutorials.md
+        - name: Mac-to-Windows ガイド
           href: mac-to-windows.md
         - name: キーボード ショートカット
           href: mac-to-windows.md#keyboard-shortcuts
-        - name: トラックパッドのショートカット
-          href: mac-to-windows.md#trackpad-shortcuts
-        - name: ターミナルとシェル
-          href: mac-to-windows.md#terminal-and-shell
-        - name: アプリとユーティリティ
-          href: mac-to-windows.md#apps-and-utilities
+    - name: 開発パス
+      items:
+        - name: Python の概要
+          items:
+            - name: 概要
+              href: ../python/index.yml
+            - name: 初心者向けスタートアップ ガイド
+              href: ../python/beginners.md
+            - name: Web 開発の概要
+              href: ../python/web-frameworks.md
+            - name: 自動化の概要
+              href: ../python/scripting.md
+            - name: よく寄せられる質問
+              href: ../python/faqs.md
+        - name: Node.js の概要
+          items:
+            - name: 概要
+              href: ../nodejs/index.yml
+            - name: WSL2 を使用したセットアップ
+              href: ../nodejs/setup-on-wsl2.md
+            - name: Windows を使用したセットアップ (初心者)
+              href: ../nodejs/setup-on-windows.md
+            - name: 初心者向けスタートアップ ガイド
+              href: ../nodejs/beginners.md
+            - name: Web フレームワークの概要
+              href: ../nodejs/web-frameworks.md
+        - name: Android の概要
+          items:
+            - name: 概要
+              href: ../android/overview.md
+            - name: ネイティブ Android の概要
+              href: ../android/native-android.md
+            - name: クロスプラットフォームの概要
+              items:
+                - name: Xamarin ネイティブ
+                  href: ../android/xamarin-android.md
+                - name: Xamarin フォーム
+                  href: ../android/xamarin-forms.md
+                - name: React Native
+                  href: ../android/react-native.md
+                - name: PWA (Ionic、PhoneGap、Cordova)
+                  href: ../android/pwa.md
+            - name: パフォーマンスを向上させるための Defender 設定
+              href: ../android/defender-settings.md
+            - name: デバイスまたはエミュレーターでのテスト
+              href: ../android/emulator.md
+        - name: C および C++ の概要
+          href: 'https://docs.microsoft.com/cpp/'
+        - name: C# の概要
+          href: 'https://docs.microsoft.com/dotnet/csharp/'
+        - name: Azure での Java の概要
+          href: 'https://docs.microsoft.com/azure/developer/java/'
+        - name: PowerShell の概要
+          href: 'https://docs.microsoft.com/powershell/'
+        - name: WSL のデータベースの概要
+          href: 'https://docs.microsoft.com/windows/wsl/tutorials/wsl-database'
+    - name: ツールとプラットフォーム
+      items:
+        - name: Linux 用 Windows サブシステム
+          href: 'https://docs.microsoft.com/windows/wsl/'
+        - name: Windows ターミナル
+          href: 'https://docs.microsoft.com/windows/terminal/'
+        - name: Windows パッケージ マネージャー
+          items:
+            - name: 概要
+              href: ../package-manager/index.md
+            - name: winget ツールの使用
+              items:
+                - name: 概要
+                  href: ../package-manager/winget/index.md
+                - name: hash コマンド
+                  href: ../package-manager/winget/hash.md
+                - name: help コマンド
+                  href: ../package-manager/winget/help.md
+                - name: install コマンド
+                  href: ../package-manager/winget/install.md
+                - name: search コマンド
+                  href: ../package-manager/winget/search.md
+                - name: show コマンド
+                  href: ../package-manager/winget/show.md
+                - name: source コマンド
+                  href: ../package-manager/winget/source.md
+                - name: validate コマンド
+                  href: ../package-manager/winget/validate.md
+            - name: パッケージの送信
+              items:
+                - name: 概要
+                  href: ../package-manager/package/index.md
+                - name: パッケージ マニフェストを作成する
+                  href: ../package-manager/package/manifest.md
+                - name: リポジトリにマニフェストを送信する
+                  href: ../package-manager/package/repository.md
+        - name: PowerToys
+          href: 'https://github.com/microsoft/PowerToys'
+        - name: VS Code
+          href: 'https://code.visualstudio.com/docs'
+        - name: "Visual\_Studio"
+          href: 'https://docs.microsoft.com/visualstudio/windows/?view=vs-2019'
+        - name: Azure
+          href: 'https://docs.microsoft.com/azure/?product=featured'
+        - name: .NET
+          href: 'https://docs.microsoft.com/dotnet/'
