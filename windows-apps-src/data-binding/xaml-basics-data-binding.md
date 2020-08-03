@@ -5,12 +5,12 @@ keywords: XAML, UWP, 概要
 ms.date: 08/30/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 707c2ed110498f4ef18fea31ace87d1fd2434112
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: d8f8d869bd18b6d3e6897d91b2616bc4eb1335d0
+ms.sourcegitcommit: e1104689fc1db5afb85701205c2580663522ee6d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67820343"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86997839"
 ---
 # <a name="create-data-bindings"></a>データ バインディングを作成する
 
@@ -18,14 +18,14 @@ ms.locfileid: "67820343"
 
 このチュートリアルでは、ボイラープレートをデータ バインディングに置き換え、UI とデータの間で直接リンクを作成する方法を学習します。 また、データを表示用に書式化または変換し、UI とデータの同期を維持する方法についても学習します。このチュートリアルを完了すると、XAML および C# コードのわかりやすさと構造を改善し、保守や拡張が容易なコードを作成できるようになります。
 
-まず、PhotoLab サンプルの簡易バージョンから開始します。 このスターター バージョンには、完全なデータ レイヤーと基本的な XAML ページ レイアウトが含まれています。ただしこのバージョンでは、コードを見やすくするために多くの機能が除外されています。 このチュートリアルで完全なアプリは作成されません。必ず最終バージョンでカスタム アニメーションやスマートフォン サポートなどの機能を確認してください。 最終バージョンは、[Windows-appsample-photo-lab](https://github.com/Microsoft/Windows-appsample-photo-lab) リポジトリのルート フォルダーにあります。 
+まず、PhotoLab サンプルの簡易バージョンから開始します。 このスターター バージョンには、完全なデータ レイヤーと基本的な XAML ページ レイアウトが含まれています。ただしこのバージョンでは、コードを見やすくするために多くの機能が除外されています。 このチュートリアルで完全なアプリは作成されません。必ず最終バージョンでカスタム アニメーションやアダプティブ レイアウトなどの機能を確認してください。 最終バージョンは、[Windows-appsample-photo-lab](https://github.com/Microsoft/Windows-appsample-photo-lab) リポジトリのルート フォルダーにあります。 
 
 ## <a name="prerequisites"></a>前提条件
 
 * [Visual Studio 2019 と Windows 10 SDK の最新バージョン](https://developer.microsoft.com/windows/downloads)。
 
 ## <a name="part-0-get-the-code"></a>パート 0: コードを入手する
-この演習の開始点は、PhotoLab サンプル リポジトリ ([xaml-basics-starting-points/data-binding](https://github.com/Microsoft/Windows-appsample-photo-lab/tree/master/xaml-basics-starting-points/data-binding) フォルダー) です。 このリポジトリをクローンまたはダウンロードした後、Visual Studio 2019 で PhotoLab.sln を開くことによって、プロジェクトを編集できます。
+この演習の開始点は、PhotoLab サンプル リポジトリ ([xaml-basics-starting-points/data-binding](https://github.com/Microsoft/Windows-appsample-photo-lab/tree/master/xaml-basics-starting-points/data-binding) フォルダー) です。 このリポジトリを複製またはダウンロードした後、Visual Studio 2019 で PhotoLab.sln を開くことによって、プロジェクトを編集できます。
 
 PhotoLab アプリには、2 つのプライマリ ページが用意されています。
 
@@ -171,7 +171,7 @@ private ObservableCollection<ImageFileInfo> Images { get; }
     = new ObservableCollection<ImageFileInfo>();
 ```
 
-**Images** プロパティ値は変化しませんが、プロパティの型は **ObservableCollection\<T\>** であるため、コレクションの*コンテンツ*は変化することがあります。バインディングは自動的に変更を通知し、UI を更新します。 
+**Images** プロパティ値は変化しませんが、プロパティの型は **ObservableCollection\<T\>** であるため、コレクションの "*コンテンツ*" は変化することがあります。バインディングによって自動的に変更が通知され、UI は更新されます。 
 
 これをテストするために、現在選択されているイメージを削除するボタンを一時的に追加します。 イメージを選択すると詳細ページに移動するため、このボタンは最終バージョンではありません。 ただし、XAML はページ コンストラクター内で (**InitializeComponent** メソッド呼び出しを介して) 初期化されるため、最終的な PhotoLab サンプルの中では、やはり **ObservableCollection\<T\>** の動作が重要になりますが、**Images** コレクションのデータは後で **OnNavigatedTo** メソッド内で設定されます。 
 
@@ -231,7 +231,7 @@ private ObservableCollection<ImageFileInfo> Images { get; }
     
     <!-- TODO talk about dependency properties --> 
     
-    これらは **x:Bind** 式ではなく **Binding** 式であることにお気づきですか?  これは、データ バインディングの従来の方法であり、現在はほとんど使用されていません。 **x:Bind** では、**Binding** で行われるほとんどすべての処理と、それ以上のことが行われます。 ただし、データ テンプレートで **x:Bind** を使用した場合は、**x:DataType** 値で宣言されている型にバインドされます。 では、テンプレート内の項目をページ XAML 内または分離コード内の項目にバインドするには、どのようにすればよいでしょうか?  この場合は、従来のスタイルの **Binding** 式を使用する必要があります。 
+    これらは **x:Bind** 式ではなく **Binding** 式であることにお気づきですか? これは、データ バインディングの従来の方法であり、現在はほとんど使用されていません。 **x:Bind** では、**Binding** で行われるほとんどすべての処理と、それ以上のことが行われます。 ただし、データ テンプレートで **x:Bind** を使用した場合は、**x:DataType** 値で宣言されている型にバインドされます。 では、テンプレート内の項目をページ XAML 内または分離コード内の項目にバインドするには、どのようにすればよいでしょうか? この場合は、従来のスタイルの **Binding** 式を使用する必要があります。 
     
     **Binding** 式では **x:DataType** 値が認識されませんが、**Binding** 式には、同様の役割を果たす **ElementName** 値があります。 これらの値は、**Binding Value** はページ上にある指定された要素 (つまり、**x:Name** 値を持つ要素) の **Value** プロパティに対するバインディングであることをバインディング エンジンに伝えます。 分離コード内のプロパティにバインドする場合は、```{Binding MyCodeBehindProperty, ElementName=page}``` のようになります (**page** は、XAML の **Page** 要素で設定されている **x:Name** 値)。 
     
@@ -428,7 +428,7 @@ UI が **ItemSize** の変化に対応できるようになったため、実際
 1. MainPage.xaml で、**ImageGridView** という名前の **GridView** を探し、**ItemClick** 値を追加します。 
 
     > [!TIP] 
-    > コピー/貼り付けの代わりに以下の変更を入力すると、IntelliSense ポップアップに "\<New Event Handler\>" と表示されます。 Tab キーを押すと、既定のメソッド ハンドラー名を使用して値が指定され、メソッドが自動的にスタブアウトされます (次の手順を参照)。 F12 キーを押すと、分離コード内にある、このメソッドに移動できます。 
+    > 以下の変更をコピーして貼り付ける代わりに入力すると、IntelliSense ポップアップに "\<New Event Handler\>" と表示されます。 Tab キーを押すと、既定のメソッド ハンドラー名を使用して値が指定され、メソッドが自動的にスタブアウトされます (次の手順を参照)。 F12 キーを押すと、分離コード内にある、このメソッドに移動できます。 
 
     **前:**
     ```xaml
@@ -583,7 +583,7 @@ public string ImageTitle
 }
 ```
 
-ご覧のように、setter が **ImageProperties.Title** プロパティを更新してから、新しい値をファイルに書き込むために **SavePropertiesAsync** を呼び出しています  (これは非同期のメソッドですが、プロパティに **await** キーワードを使うことはできません。プロパティの getter と setter を直ちに完了する必要があるため、このキーワードの使用は不適切です。 代わりに、メソッドを呼び出して、返される **Task** オブジェクトを無視します)。 
+ご覧のように、setter が **ImageProperties.Title** プロパティを更新してから、新しい値をファイルに書き込むために **SavePropertiesAsync** を呼び出しています (これは非同期のメソッドですが、プロパティに **await** キーワードを使うことはできません。プロパティの getter と setter を直ちに完了する必要があるため、このキーワードの使用は不適切です。 代わりに、メソッドを呼び出して、返される **Task** オブジェクトを無視します)。 
 
 <!-- TODO more screenshots? -->
 
@@ -591,7 +591,7 @@ public string ImageTitle
 
 これで、この演習は終わりです。自身で問題に取り組むために必要な、バインディングに関する知識を身につけることができました。
 
-お気付きのように、詳細ページでズーム レベルを変更しても、前に戻って同じイメージをもう一度選択すると、ズーム レベルが自動的にリセットされます。 各イメージのズーム レベルを保存して個別に復元する方法はわかりますか?  幸運をお祈りします!
+お気付きのように、詳細ページでズーム レベルを変更しても、前に戻って同じイメージをもう一度選択すると、ズーム レベルが自動的にリセットされます。 各イメージのズーム レベルを保存して個別に復元する方法はわかりますか? 幸運をお祈りします!
     
 必要な情報はすべてこのチュートリアルにありますが、さらにガイダンスが必要な場合は、データ バインディングに関するドキュメントをご覧ください。 以下のリンクから参照できます。
 

@@ -1,23 +1,22 @@
 ---
-title: Windows 10 の開発環境をセットアップする
-description: Windows 開発環境をセットアップして最適化するためのガイドです。 Windows または Linux 用 Windows サブシステムを使用して開発するために必要な言語とツールのインストールを開始します。
+title: Windows 10 で開発環境を設定する
+description: Windows で開発環境を設定し、好みのツールとコード言語をインストールするためのガイドです。 Python、NodeJS、VS Code、Git、Bash、Linux のツールとコマンド、Android Studio のいずれを使用するかに関わらず、Windows ターミナルや WSL などの優れた新しいツールを活用できます。
 author: mattwojo
 ms.author: mattwoj
 manager: jken
 ms.topic: article
 ms.technology: windows-nodejs
-keywords: ''
+keywords: Windows の設定, 開発環境, 開発ツール, 開発パス, Microsoft, Windows, 開発者, ヒント, パフォーマンス, WSL, ターミナル, nodejs, Python
 ms.localizationpriority: medium
-ms.date: 07/01/2020
-ROBOTS: NOINDEX
-ms.openlocfilehash: 237c3e8f58e41007840cf72aa1fd65efdc5763a5
-ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
+ms.date: 07/24/2020
+ms.openlocfilehash: e62ca938a23910290a8c63682fc2fde77ec0ea92
+ms.sourcegitcommit: 1e06168ada5ce6013b1d07c428548f084464a286
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86493829"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87363734"
 ---
-# <a name="set-up-your-windows-10-development-environment"></a>Windows 10 の開発環境をセットアップする
+# <a name="set-up-your-development-environment-on-windows-10"></a>Windows 10 で開発環境を設定する
 
 このガイドでは、Windows または Linux 用 Windows サブシステムを使用して開発するために必要な言語とツールのインストールとセットアップを始められるようにします。
 
@@ -41,8 +40,31 @@ ms.locfileid: "86493829"
     :::column-end:::
     :::column:::
        [![Windows デスクトップ](../images/windows-logo.png)](https://docs.microsoft.com/windows/apps/)<br>
-        **[Windows の概要](https://docs.microsoft.com/windows/apps/)**<br>
+        **[Windows デスクトップの概要](https://docs.microsoft.com/windows/apps/)**<br>
         UWP、Win32、WPF、Windows フォームを使用して Windows 10 用のデスクトップ アプリの構築を始めるか、MSIX と XAML Island を使用して既存のデスクトップ アプリの更新とデプロイを始めます。
+    :::column-end:::
+:::row-end:::
+
+:::row:::
+    :::column:::
+       [![C / C++](../images/c-logo.png)](https://docs.microsoft.com/cpp/)<br>
+        **[C++ と C の概要](https://docs.microsoft.com/cpp/)**<br>
+        C++、C、アセンブリを使用して、アプリ、サービス、ツールを開発します。
+    :::column-end:::
+    :::column:::
+       [![C#](../images/csharp-logo.png)](https://docs.microsoft.com/dotnet/csharp/)<br>
+        **[C# の概要](https://docs.microsoft.com/dotnet/csharp/)**<br>
+        C# と .NET Core を使用してアプリを構築します。
+    :::column-end:::
+    :::column:::
+       [![Java 向け Azure](../images/java-logo.png)](https://docs.microsoft.com/azure/developer/java/)<br>
+        **[Azure での Java の概要](https://docs.microsoft.com/azure/developer/java/)**<br>
+        Java 開発者向けのこれらのチュートリアルとツールを使用して、クラウド向けのアプリを構築します。
+    :::column-end:::
+    :::column:::
+       [![PowerShell](../images/powershell.png)](https://docs.microsoft.com/powershell/)<br>
+        **[PowerShell の概要](https://docs.microsoft.com/powershell/)**<br>
+        PowerShell、コマンドライン シェル、スクリプト言語を使用して、クロスプラットフォームのタスク自動化と構成管理を行います。
     :::column-end:::
 :::row-end:::
 
@@ -66,13 +88,13 @@ ms.locfileid: "86493829"
        [![Windows パッケージ マネージャー](../images/winget.png)](https://docs.microsoft.com/windows/package-manager/)<br>
         **[Windows パッケージ マネージャー](https://docs.microsoft.com/windows/package-manager/)**<br>
         包括的なパッケージ マネージャーである WinGet をコマンド ラインで使用して、Windows 10 にアプリケーションをインストールします。<br>
-        [WinGet をインストールする](https://docs.microsoft.com/windows/package-manager/winget/#install-winget)
+        [WinGet のインストール (パブリック プレビュー)](https://docs.microsoft.com/windows/package-manager/winget/#install-winget)
     :::column-end:::
     :::column:::
        [![PowerToys](../images/powertoys.png)](https://github.com/microsoft/PowerToys)<br>
         **[Windows PowerToys](https://github.com/microsoft/PowerToys)**<br>
         この一連のパワー ユーザー ユーティリティを使用して、生産性が向上するように Windows のエクスペリエンスを調整して合理化します。<br>
-        [PowerToys をインストールする](https://github.com/microsoft/PowerToys#installing-and-running-microsoft-powertoys)
+        [PowerToys のインストール (パブリック プレビュー)](https://github.com/microsoft/PowerToys#installing-and-running-microsoft-powertoys)
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -104,37 +126,18 @@ ms.locfileid: "86493829"
 
 <br>
 
----
+## <a name="run-windows-and-linux"></a>Windows と Linux を実行する
 
-<br>
+Linux 用 Windows サブシステム (WSL) を使用することにより、開発者は Windows と並列で Linux オペレーティング システムを実行できるようになります。 これらは同じハード ドライブを使用するため (お互いのファイルにアクセスすることが可能)、クリップボードではこれらの間での自然なコピーと貼り付けがサポートされ、デュアル ブートは必要ありません。 WSL では BASH を使用することができ、Mac ユーザーにとって慣れ親しんだ環境が提供されます。
+- 詳細については、[WSL ドキュメント](https://docs.microsoft.com/windows/wsl)か [Channel 9 の WSL についての動画](https://channel9.msdn.com/Search?term=wsl&lang-en=true)を参照してください。
 
-![フィラー イメージ](../images/flashy-office.png)
+> [!VIDEO https://channel9.msdn.com/Blogs/One-Dev-Minute/What-can-I-do-with-WSL--One-Dev-Question/player?format=ny]
 
-## <a name="tips-for-improving-your-workflow"></a>ワークフローを改善するためのヒント
+また Windows ターミナルを使用して、あらゆる好みのコマンド ライン ツールを、複数タブを使用する同じウィンドウで、または複数のペインで開くこともできます。それには、PowerShell、Windows コマンド プロンプト、Ubuntu、Debian、Azure CLI、Oh-my-Zsh、Git Bash が含まれ、これらすべてを開くこともできます。
 
-ワークフローをいっそう効率的で楽しいものにするのに役立ついくつかのヒントをまとめました。 共有したいヒントが他にもありますか。 上の [編集] ボタンを使用して Pull Request を提出するか、下の [フィードバック] ボタンを使用して問題を報告していただけば、こちらでそれを一覧に追加します。
+- 詳細については、[Windows ターミナルのドキュメント](https://docs.microsoft.com/windows/terminal)や [Channel 9 の WT についての動画](https://channel9.msdn.com/Search?term=windows%20terminal&lang-en=true)を参照してください。
 
-* Linux 用 Windows サブシステムは、内部開発ループの一部として使用することが意図されています。 たとえば、CI/CD パイプラインを作成し、WSL 2 を使用して Windows コンピューターに Ubuntu をインストールして、実際の Linux インスタンスでローカルに開発するワークフローをお勧めします。 正常に動作していることを確認したら、Docker コンテナーに格納し、そのコンテナーをクラウド インスタンスにプッシュして、運用対応の Ubuntu VM で実行することにより、その CI/CD パイプラインをクラウドにプッシュできます。 WSL を使用する他の方法については、[WSL 2 でのタブとスペースの比較のエピソード](https://channel9.msdn.com/Shows/Tabs-vs-Spaces/WSL2-Code-faster-on-the-Windows-Subsystem-for-Linux)に関する動画をご覧ください。
-
-* Windows と Linux 用 Windows サブシステムの両方を使用している場合は、次の 2 つのファイル システムがインストールされます: NTSF (Windows) と WSL (お使いの Linux ディストリビューション)。 パフォーマンスを向上させるには、使用しているツールと同じシステムにプロジェクト ファイルを格納してください。 詳細については、[パフォーマンスを向上させるための適切なファイル システムの選択](https://docs.microsoft.com/windows/wsl/compare-versions#use-the-linux-file-system-for-faster-performance)に関するページを参照してください。
-
-* Windows Defender の設定を更新し、セキュリティ脅威のスキャンを避けるのに十分であると信じられるプロジェクト フォルダーまたはファイルの種類の除外を追加することで、ビルドの速度を向上させることができます。 詳細については、「[パフォーマンスを向上させるための Windows Defender 設定の更新](https://docs.microsoft.com/windows/android/defender-settings)」を参照してください。
-
-![Windows Defender のスクリーンショット](../images/windows-defender-exclusions.png)
-
-* `code .` コマンドを使用し、コマンド ラインから VS Code を起動してプロジェクを開くことができます。または、Windows または WSL ディストリビューションから `explorer.exe .` を使用して、エクスプローラーでコマンド ラインからプロジェクト ディレクトリを開くことができます。 これが既定で動作しない場合は、VS Code の実行可能ファイルを PATH 環境変数に追加することが必要な場合があります。 詳細については、「[コマンド ラインからの起動](https://code.visualstudio.com/docs/editor/command-line#_launching-from-command-line)」を参照してください。
-
-![エクスプローラーのスクリーンショット](../images/wsl-file-explorer.png)
-
-* バージョン管理とコラボレーションに Git を使用している場合は、[Git Credential Manager を設定](https://docs.microsoft.com/windows/wsl/tutorials/wsl-git#git-credential-manager-setup)してトークンを Windows 資格情報マネージャーに格納することで、認証プロセスを効率化できます。 また、プロジェクトに [.gitignore ファイルを追加する](https://docs.microsoft.com/windows/wsl/tutorials/wsl-git#adding-a-git-ignore-file)ことをお勧めします。
-
-* [Windows ターミナルのコマンド ライン引数](https://docs.microsoft.com/windows/terminal/command-line-arguments?tabs=powershell#multiple-panes)を使用することで、PowerShell、Ubuntu、Azure CLI など、複数のコマンド ラインをすべて、単一のウィンドウの複数のペインで起動することができます。 [Windows ターミナル](https://docs.microsoft.com/windows/terminal/get-started)、[WSL/Ubuntu](https://docs.microsoft.com/windows/wsl/install-win10)、[Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) をインストールした後、PowerShell で次のコマンドを入力して、新しい複数ペイン ウィンドウで 3 つをすべて開きます。
-
-    ```powershell
-    wt -p "Command Prompt" `; split-pane -p "Windows PowerShell" `; split-pane -H wsl.exe
-    ```
-
-![フィラー イメージ](../images/flashy-office2.png)
+> [!VIDEO https://channel9.msdn.com/Blogs/One-Dev-Minute/What-are-the-main-features-of-the-new-Terminal--One-Dev-Question/player?format=ny]
 
 ## <a name="transitioning-between-mac-and-windows"></a>Mac と Windows の間での移行
 
@@ -145,46 +148,11 @@ ms.locfileid: "86493829"
 * [ターミナルとシェルのツール](https://docs.microsoft.com/windows/dev-environment/mac-to-windows#terminal-and-shell)
 * [アプリとユーティリティ](https://docs.microsoft.com/windows/dev-environment/mac-to-windows#apps-and-utilities)
 
-## <a name="stories-from-developers-who-have-switched"></a>切り替えた開発者からのストーリー
-
-他の開発者から、Mac と Windows の間での開発環境エクスペリエンスの切り替えについて話を聞くと役に立つと思われます。 多くは、プロセスが非常にシンプルであると感じ、使い慣れた Linux やオープンソース ツールを使用できる一方で、[Microsoft Office](https://www.microsoft.com/microsoft-365/products-apps-services)、[Outlook](https://www.microsoft.com/microsoft-365/outlook/email-and-calendar-software-microsoft-outlook)、[Teams](https://www.microsoft.com/microsoft-365/microsoft-teams/group-chat-software) などの Windows の生産性向上ツールへのアクセスも統合されていることを、喜んでいました。 いくつかの記事とブログ エントリを紹介しておきます。
-
-* Ken Wang、「[違うことを考える — Mac から Windows に切り替えるソフトウェア開発者](https://medium.com/@kenwang_57215/software-developer-switching-from-mac-to-windows-66773d331910)」
-* Owen Williams、「[2019 の Mac から Windows への切り替えの状態](https://char.gd/blog/2019/the-state-of-switching-to-windows-from-mac-in-2019)」
-* Brent Rose、「[私が Mac から Windows に切り替えたときに何が起こったか](https://www.wired.com/story/rant-switching-from-mac-to-windows/)」
-* Jack Franklin、「[フロントエンド Web 開発への Windows 10 と WSL の使用](https://www.jackfranklin.co.uk/blog/frontend-development-with-windows-10/)」
-* Aaron Schlesinger、「[Mac から Windows と WSL 2 に](https://arschles.com/blog/coming-from-a-mac-to-windows-wsl-2/)」
-* David Heinemeier Hansson、「[20 年後に Windows に戻る](https://m.signalvnoise.com/back-to-windows-after-twenty-years/)」
-* Ray Elenteny、「[私が Windows に戻った理由](https://dzone.com/articles/why-i-returned-to-windows)」
-
-## <a name="tutorials-courses-and-code-samples"></a>チュートリアル、コース、コード サンプル
-
-いくつかの一般的な作業シナリオを始めるときに役立つ、チュートリアル、コース、コード サンプルを以下に示します。
-
-* [React と Azure Cosmos DB を使って MongoDB アプリを作成する](https://docs.microsoft.com/azure/cosmos-db/tutorial-develop-mongodb-react)
-
-* [ドラッグ アンド ドロップ機能を備えた Android デュアル スクリーン アプリを構築する](https://docs.microsoft.com/dual-screen/android/samples)
-
-* [Xamarin.Forms を使用して To Do リストのクロス プラットフォーム アプリを構築する](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/todo/)
-
-* [Google Play 開発者サービスを利用して Google Maps API をデモする Xamarin.Android アプリを構築する](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/todo/)
-
-* [Azure App Service で PostgreSQL を使用して Python (Django) Web アプリをデプロイする](https://docs.microsoft.com/azure/app-service/containers/tutorial-python-postgresql-app?tabs=bash)
-
-* [Blazor を使用して最初の ASP.Net Core Web アプリを構築する](https://docs.microsoft.com/aspnet/core/tutorials/build-your-first-blazor-app?view=aspnetcore-3.1)
-
-* [Microsoft Graph を使って Java アプリを構築する](https://docs.microsoft.com/graph/tutorials/java)
-
-* [Azure AD V2 を使用して WPF アプリケーションから ASP.NET Core Web API を呼び出す](https://docs.microsoft.com/samples/azure-samples/active-directory-dotnet-native-aspnetcore-v2/calling-an-aspnet-core-web-api-from-a-wpf-application-using-azure-ad-v2/?view=aspnetcore-3.1)
-
-* [クラウドネイティブの ASP.NET Core マイクロサービスを作成してデプロイする](https://docs.microsoft.com/learn/modules/microservices-aspnet-core/?view=aspnetcore-3.1)
-
-* [Microsoft Learn の無料オンライン コースを調べる](https://docs.microsoft.com/learn/browse/)
-
-![フィラー イメージ](../images/flashy-office3.png)
+![オフィスの画像](../images/flashy-office3.png)
 
 ## <a name="additional-resources"></a>その他の資料
 
-* [Microsoft Edge Web ブラウザーのドキュメント](https://docs.microsoft.com/microsoft-edge/)
-* [Web サイトの品質向上のために WebHint を試す](https://webhint.io/)
+* [ワークフローを改善するためのヒント](./tips.md)
+* [Mac から Windows に切り替えた開発者のストーリー](./dev-stories.md)
+* [人気のあるチュートリアル、コース、コード サンプル](./tutorials.md)
 * [Microsoft Game Stack のドキュメント](https://docs.microsoft.com/gaming/)

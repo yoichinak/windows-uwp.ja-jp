@@ -5,12 +5,12 @@ ms.date: 07/23/2019
 ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、同時実行、非同期、非同期、非同期操作
 ms.localizationpriority: medium
-ms.openlocfilehash: 26a0ea1ec70f4ae4255030541a6513541db1fb99
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: ff00264d0806e7fbdfcabd000ec68857b1485dcd
+ms.sourcegitcommit: 1e8f51d5730fe748e9fe18827895a333d94d337f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82267502"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87296155"
 ---
 # <a name="more-advanced-concurrency-and-asynchrony-with-cwinrt"></a>C++/WinRT でのより高度な同時実行操作と非同期操作
 
@@ -81,11 +81,14 @@ IAsyncAction DoWorkAsync(TextBlock textblock)
     co_await winrt::resume_background();
     // Do compute-bound work here.
 
-    co_await winrt::resume_foreground(textblock.Dispatcher()); // Switch to the foreground thread associated with textblock.
+    // Switch to the foreground thread associated with textblock.
+    co_await winrt::resume_foreground(textblock.Dispatcher());
 
     textblock.Text(L"Done!"); // Guaranteed to work.
 }
 ```
+
+**winrt::resume_foreground** 関数は、オプションの priority パラメーターを受け取ります。 このパラメーターを使用する場合、上記のパターンは適切です。 使用しない場合、`co_await winrt::resume_foreground(someDispatcherObject);` を簡略化して `co_await someDispatcherObject;` にすることができます。
 
 ## <a name="execution-contexts-resuming-and-switching-in-a-coroutine"></a>実行コンテキスト、再開、およびコルーチンでの切り替え
 
@@ -655,7 +658,7 @@ winrt::fire_and_forget MyClass::MyMediaBinder_OnBinding(MediaBinder const&, Medi
 
 ## <a name="awaiting-a-kernel-handle"></a>カーネル ハンドルの待機
 
-C++/WinRT には **resume_on_signal** クラスが用意されています。このクラスを使用して、カーネル イベントが呼び出されるまで中断することができます。 `co_await resume_on_signal(h)` が返されるまではハンドルが有効なままであることを確認する必要があります。 これは **resume_on_signal** 自体で自動的に行うことはできません。最初の例のように、**resume_on_signal** が開始される前でもハンドルが失われている可能性があるためです。
+C++/WinRT には [**winrt::resume_on_signal**](/uwp/cpp-ref-for-winrt/resume-on-signal) 関数が用意されています。これを使用して、カーネル イベントが通知されるまで中断することができます。 `co_await resume_on_signal(h)` が返されるまではハンドルが有効なままであることを確認する必要があります。 これは **resume_on_signal** 自体で自動的に行うことはできません。最初の例のように、**resume_on_signal** が開始される前でもハンドルが失われている可能性があるためです。
 
 ```cppwinrt
 IAsyncAction Async(HANDLE event)
@@ -712,6 +715,21 @@ IAsyncAction SampleCaller()
     event.close(); // Our handle is closed, but Async still has a valid handle.
 
     co_await async; // Will wake up when *event* is signaled.
+}
+```
+
+この例のように、**resume_on_signal** にタイムアウト値を渡すことができます。
+
+```cppwinrt
+winrt::handle event = ...
+
+if (co_await winrt::resume_on_signal(event.get(), std::literals::2s))
+{
+    puts("signaled");
+}
+else
+{
+    puts("timed out");
 }
 ```
 

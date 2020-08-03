@@ -5,12 +5,12 @@ ms.date: 07/15/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 移植, 移行, C#
 ms.localizationpriority: medium
-ms.openlocfilehash: 21032a99c389e968728fe2dac2875475efc351c4
-ms.sourcegitcommit: 379fd00bfcc6c5f1e3c7e379a367b08641a7f961
+ms.openlocfilehash: 734173812ff5a853abfb93eb34fcfa43b9f16872
+ms.sourcegitcommit: 1e8f51d5730fe748e9fe18827895a333d94d337f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84819009"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87296206"
 ---
 # <a name="move-to-cwinrt-from-c"></a>C# から C++/WinRT への移行
 
@@ -274,6 +274,34 @@ C# には、文字列の作成用に組み込みの [**StringBuilder**](/dotnet/
 | 結果にアクセス | `s = builder.ToString();` | `ws = builder.str();` |
 
 [**BuildClipboardFormatsOutputString** メソッドの移植](/windows/uwp/cpp-and-winrt-apis/clipboard-to-winrt-from-csharp#buildclipboardformatsoutputstring)および [**DisplayChangedFormats** メソッドの移植](/windows/uwp/cpp-and-winrt-apis/clipboard-to-winrt-from-csharp#displaychangedformats) に関する記事も参照してください。
+
+### <a name="running-code-on-the-main-ui-thread"></a>メイン UI スレッドでコードを実行する 
+
+この例は、「[バーコード スキャナーのサンプル](/samples/microsoft/windows-universal-samples/barcodescanner/)」に基づいています。
+
+C# プロジェクトで、メイン UI スレッドで何らかの操作を行いたい場合は、通常は次のように [**CoreDispatcher.RunAsync**](/uwp/api/windows.ui.core.coredispatcher.runasync) メソッドを使用します。
+
+```csharp
+private async void Watcher_Added(DeviceWatcher sender, DeviceInformation args)
+{
+    await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+    {
+        // Do work on the main UI thread here.
+    });
+}
+```
+
+C++/WinRT では、ずっとシンプルに表現できます。 最初の中断ポイント (この例では `co_await`) の後にパラメーターにアクセスすることを想定して、パラメーターを値渡しで受け取っていることに注目してください。 詳細については、「[パラメーターの引き渡し](/windows/uwp/cpp-and-winrt-apis/concurrency#parameter-passing)」を参照してください。
+
+```cppwinrt
+winrt::fire_and_forget Watcher_Added(DeviceWatcher sender, winrt::DeviceInformation args)
+{
+    co_await Dispatcher();
+    // Do work on the main UI thread here.
+}
+```
+
+既定以外の優先順位で操作を行う必要がある場合、[**winrt::resume_foreground**](/uwp/cpp-ref-for-winrt/resume-foreground) 関数を確認してください。これには、優先されるオーバーロードがあります。 **winrt::resume_foreground** への呼び出しを待つ方法を示すコード例については、「[スレッドの関係を考慮したプログラミング](/windows/uwp/cpp-and-winrt-apis/concurrency-2#programming-with-thread-affinity-in-mind)」を参照してください。
 
 ## <a name="porting-related-tasks-that-are-specific-to-cwinrt"></a>C++/WinRT に特有の移植関連のタスク
 

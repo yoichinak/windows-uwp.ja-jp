@@ -12,12 +12,12 @@ pm-contact: miguelrb
 design-contact: ksulliv
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 57002a1edafd5dd7a367220fc0425fdc52b711d1
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: b68b5bc5fc6042d7abeae6944c351af178b70874
+ms.sourcegitcommit: e1104689fc1db5afb85701205c2580663522ee6d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970847"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86998019"
 ---
 # <a name="password-box"></a>パスワード ボックス
 
@@ -145,9 +145,7 @@ PasswordBox には、ユーザーが押すとパスワード テキストを表�
 
 [PasswordRevealMode](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.PasswordRevealMode) には、そのほかに **Hidden** と **Visible** という列挙値があります。これらの列挙値を使うと、パスワード表示ボタンを非表示にして、パスワードを非表示にするかどうかをプログラムで管理できます。
 
-パスワードを常に非表示にするには、PasswordRevealMode を Hidden に設定します。 パスワードを常に非表示にする必要がある場合以外は、カスタム UI を用意して、ユーザーが PasswordRevealMode の Hidden と Visible を切り替えられるようにすることができます。
-
-以前のバージョンの Windows Phone では、PasswordBox のパスワードの表示/非表示の切り替えにチェック ボックスが使われていました。 次の例に示すように、これと同様の UI をアプリで作成することもできます。 [ToggleButton](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Primitives.ToggleButton) などのその他のコントロールを使ってユーザーがモードを切り替えられるようにすることもできます。
+パスワードを常に非表示にするには、PasswordRevealMode を Hidden に設定します。 パスワードを常に非表示にする必要がある場合以外は、カスタム UI を用意して、ユーザーが PasswordRevealMode の Hidden と Visible を切り替えられるようにすることができます。 たとえば、次の例に示すように、パスワードを表示するかどうかをチェック ボックスで切り替えることができます。 [ToggleButton](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Primitives.ToggleButton) などのその他のコントロールを使ってユーザーがモードを切り替えられるようにすることもできます。
 
 次の例は、[CheckBox](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CheckBox) を使ってユーザーが PasswordBox の表示モードを切り替えられるようにする方法を示しています。
 

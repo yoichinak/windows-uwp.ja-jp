@@ -7,13 +7,13 @@ manager: jken
 ms.topic: article
 keywords: NodeJS, Node.js, Windows 10, Microsoft, ラーニング NodeJS, Windows 上のノード, WSL 上のノード, Windows 上の Linux 上のノード, Windows 上のインストール ノード, NodeJS と VS Code, Windows 上のノードでの開発, Windows 上の NodeJS での開発, WSL 上のインストール ノード, Linux 用 Windows サブシステム上の NodeJS
 ms.localizationpriority: medium
-ms.date: 06/09/2020
-ms.openlocfilehash: e8fb06cb1e68d5dfa7f23e6966f917c96eb79859
-ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
+ms.date: 07/28/2020
+ms.openlocfilehash: ce4e736751d5586c6ab4489e976fc397b1be0301
+ms.sourcegitcommit: 6b83f1854a113490dcd4f52425ecade9e66e0b44
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86493277"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87333796"
 ---
 # <a name="set-up-your-nodejs-development-environment-with-wsl-2"></a>WSL 2 を使用して Node.js 開発環境を設定する
 
@@ -85,7 +85,10 @@ nvm は現在、最も一般的なノード用バージョン マネージャー
 
 ## <a name="install-your-favorite-code-editor"></a>お気に入りのコード エディターをインストールする
 
-Node.js プロジェクトには、**Visual Studio Code** と **Remote WSL 拡張機能**を併用することをお勧めします。 これにより、VS Code が "クライアントサーバー" アーキテクチャに分割され、クライアント (ユーザー インターフェイス) はご利用の Windows コンピューター上で実行され、サーバー (ご利用のコード、Git、プラグインなど) はリモートで実行されます。
+Node.js プロジェクトには、Visual Studio Code と Remote WSL 拡張機能を併用することをお勧めします。 これにより、VS Code が "クライアントサーバー" アーキテクチャに分割され、クライアント (VS Code ユーザー インターフェイス) はご利用の Windows オペレーティング システム上で実行され、サーバー (自分のコード、Git、プラグインなど) は WSL Linux ディストリビューション上で "リモートで" 実行されます。 
+
+> [!NOTE]
+> この "リモートの" のシナリオは、慣れている方法とは少し違う可能性があります。 WSL では、プロジェクト コードが実行される本物の Linux ディストリビューションがサポートされます。これは Windows オペレーティング システムとは別個のものですが、やはりローカル コンピューター上にあります。 Remote-WSL 拡張機能により、リモート サーバーに対するかのように Linux サブシステムへの接続が行われますが、これはクラウドで実行されているわけではありません。 これもローカル コンピューター上にあり、Windows との並列実行が有効化された WSL 環境内で実行されています。 
 
 - Linux ベースの Intellisense とリンティングがサポートされています。
 - プロジェクトは、Linux で自動的にビルドされます。

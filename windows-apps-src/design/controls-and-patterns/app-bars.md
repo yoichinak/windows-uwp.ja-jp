@@ -4,7 +4,7 @@ title: コマンド バー
 label: App bars/command bars
 template: detail.hbs
 op-migration-status: ready
-ms.date: 05/19/2017
+ms.date: 07/23/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 868b4145-319b-4a97-82bd-c98d966144db
@@ -13,12 +13,12 @@ design-contact: ksulliv
 dev-contact: niallm
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 97507e0d9a954bc102bd4d2bcd825369df4cced7
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: f7b2c260d20c95012297c1f78037626844f6badf
+ms.sourcegitcommit: 83225cd9f3ef184277fc293d09982ecd511cc088
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970047"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87160887"
 ---
 # <a name="command-bar"></a>コマンド バー
 
@@ -54,10 +54,6 @@ CommandBar コントロールは、汎用的で柔軟、軽量なコントロー
 展開されたコマンド バー。
 
 ![展開されたコマンド バー](images/control-examples/command-bar-photos.png)
-
-Windows Phone の Outlook カレンダーのコマンド バーです。
-
-![Outlook カレンダー アプリのコマンド バー](images/control-examples/command-bar-calendar-phone.png)
 
 ## <a name="anatomy"></a>構造
 
@@ -260,7 +256,7 @@ Minimal モードと Hidden モードが役に立つ場合もありますが、�
 ClosedDisplayMode を変更してユーザーにヒントを表示すると、周囲にある要素のレイアウトが影響を受けます。 これに対し、CommandBar の開閉を切り替えても他の要素のレイアウトには影響しません。
 
 ## <a name="placement"></a>配置
-コマンド バーは、アプリ ウィンドウの上部、アプリ ウィンドウの下部、またはインラインに配置できます。
+コマンド バーは、```Grid.row``` などのレイアウト コントロールに組み込むことにより、アプリ ウィンドウの上部、アプリ ウィンドウの下部、またはインラインに配置できます。
 
 ![アプリ バーの配置の例 1](images/AppbarGuidelines_Placement1.png)
 

@@ -5,12 +5,12 @@ ms.date: 04/18/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 取得, 取得, 開始
 ms.localizationpriority: medium
-ms.openlocfilehash: 968c347927edf0ad44476ec4bdca97aae19bb9a4
-ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
+ms.openlocfilehash: 3e17e3f8107e82547ec0d367099f621e5b2e590a
+ms.sourcegitcommit: e1104689fc1db5afb85701205c2580663522ee6d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86493037"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86997849"
 ---
 # <a name="get-started-with-cwinrt"></a>C++/WinRT の使用を開始する
 
@@ -71,7 +71,9 @@ int main()
 このヘッダーには、C++/WinRT に投影された Windows API が含まれます。 つまり、Windows の種類ごとに、C++/WinRT は C++ 対応の同等の型 (*投影された型*と呼ばれます) を定義します。 投影された型には Windows の型と同じ完全修飾名がありますが、C++ **winrt** 名前空間に配置されます。 これらのインクルードをプリコンパイル済みヘッダーに配置すると、段階的なビルド時間が短縮されます。
 
 > [!IMPORTANT]
-> Windows 名前空間から型を使用する場合は、上に示すように、対応する C++/WinRT Windows 名前空間ヘッダー ファイルを含めます。 *対応する*ヘッダーは、その型の名前空間と同じ名前を持つヘッダーです。 たとえば、C++/WinRT プロジェクションを [**Windows::Foundation::Collections::PropertySet**](/uwp/api/windows.foundation.collections.propertyset) ランタイム クラスに使用するには、`#include <winrt/Windows.Foundation.Collections.h>` を指定します。 `winrt/Windows.Foundation.Collections.h` を含める場合は、`winrt/Windows.Foundation.h` "*も*" 含める必要はありません。 各 C++/WinRT プロジェクションのヘッダーには、その親の名前空間のヘッダー ファイルが自動的に含まれるため、それを明示的に含める "*必要*" はありません。 ただし、含めてもエラーは発生しません。
+> Windows 名前空間から型を使用する場合は、上に示すように、対応する C++/WinRT Windows 名前空間ヘッダー ファイルを `#include` する必要があります。 *対応する*ヘッダーは、その型の名前空間と同じ名前を持つヘッダーです。 たとえば、C++/WinRT プロジェクションを [**Windows::Foundation::Collections::PropertySet**](/uwp/api/windows.foundation.collections.propertyset) ランタイム クラスに使用するには、`winrt/Windows.Foundation.Collections.h` ヘッダーを含めます。
+> 
+> C++/WinRT プロジェクション ヘッダーに、その親の名前空間のヘッダー ファイルが自動的に含まれるのはよくあることです。 たとえば `winrt/Windows.Foundation.Collections.h` には `winrt/Windows.Foundation.h` が含まれます。 とはいえ、実装の詳細は時とともに変化するので、この挙動に依存するべきではありません。 必要なヘッダーはすべて明示的に含める必要があります。
 
 ```cppwinrt
 using namespace winrt;

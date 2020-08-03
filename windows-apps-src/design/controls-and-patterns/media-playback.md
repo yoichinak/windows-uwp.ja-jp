@@ -9,12 +9,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: bc12d76cf34b5a631435a7535567aab0cafb0f44
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: dcccc862768b276c3c7965e51e8b2c30dca61e59
+ms.sourcegitcommit: e1104689fc1db5afb85701205c2580663522ee6d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970377"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86998009"
 ---
 # <a name="media-player"></a>メディア プレーヤー
 
@@ -85,7 +85,7 @@ XAML で [MediaPlayerElement](https://docs.microsoft.com/uwp/api/windows.ui.xaml
 
 ほとんどの使用シナリオ (特に大きな画面) では、2 行のコントロールのレイアウト (下の図) をお勧めします。 このレイアウトでは、コントロールの領域がより多く確保されており、ユーザーが簡単にタイムラインを操作できます。
 
-![携帯電話に表示される 2 行の MTC コントロールの例](images/controls/mtc_double_inprod.png)
+![2 行の MTC コントロールの例](images/controls/mtc_double_inprod.png)
 
 **システム メディア トランスポート コントロール**
 

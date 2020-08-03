@@ -5,12 +5,12 @@ ms.date: 11/30/2018
 ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、ポート、移行、相互運用、ABI
 ms.localizationpriority: medium
-ms.openlocfilehash: 4249618a4b26fd7e8129547a679c80c5e2ed6903
-ms.sourcegitcommit: a2b340dc3a28e845830eeb9ce00342a3f7351d62
+ms.openlocfilehash: db66e276ffa0337da943917543a0065ac160e468
+ms.sourcegitcommit: 1e8f51d5730fe748e9fe18827895a333d94d337f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85835000"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87296176"
 ---
 # <a name="interop-between-cwinrt-and-the-abi"></a>C++/WinRT と ABI 間の相互運用
 
@@ -333,6 +333,14 @@ GUID abiguid;
 |-|-|-|
 | **winrt::guid** から **GUID** に | `abiguid = winrtguid;` | `abiguid = reinterpret_cast<GUID&>(winrtguid);` |
 | **GUID** から **winrt::guid** に | `winrtguid = abiguid;` | `winrtguid = reinterpret_cast<winrt::guid&>(abiguid);` |
+
+**winrt::guid** は、次のように構築できます。
+
+```cppwinrt
+winrt::guid myGuid{ 0xC380465D, 0x2271, 0x428C, { 0x9B, 0x83, 0xEC, 0xEA, 0x3B, 0x4A, 0x85, 0xC1} };
+```
+
+文字列から **winrt::guid** を構築する方法を示す gist については、[make_guid.cpp](https://gist.github.com/kennykerr/6c948882de395c25b3218ad8d4daf362) のページを参照してください。
 
 ## <a name="interoperating-with-the-abis-hstring"></a>ABI の HSTRING との相互運用
 

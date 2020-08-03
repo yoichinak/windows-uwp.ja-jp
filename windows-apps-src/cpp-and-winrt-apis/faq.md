@@ -5,12 +5,12 @@ ms.date: 04/23/2019
 ms.topic: article
 keywords: wwindows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 頻繁, 質問, 質問, faq
 ms.localizationpriority: medium
-ms.openlocfilehash: 95f5ad82831b6b07e0bbc2127947f777f0cd50e5
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 23f1733f5710d86c8481899f5865d0c190e21885
+ms.sourcegitcommit: 1e8f51d5730fe748e9fe18827895a333d94d337f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81759927"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87296192"
 ---
 # <a name="frequently-asked-questions-about-cwinrt"></a>C++/WinRT についてよく寄せられる質問
 [C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) での Windows ランタイム API の作成と使用に関する質問への回答です。
@@ -197,6 +197,9 @@ a.f();
 #pragma pop_macro("TRY")
 #pragma pop_macro("GetCurrentTime")
 ```
+
+## <a name="how-do-i-speed-up-symbol-loading"></a>シンボルの読み込みを高速化するにはどうすればよいですか?
+Visual Studio で、 **[ツール]**  >  **[オプション]**  >  **[デバッグ]**  >  **[シンボル]** に移動し、" *[指定したモジュールのみ]* " のチェック ボックスをオンにします。 その後スタックの一覧で DLL を右クリックして、個々のモジュールを読み込むことができます。
 
 > [!NOTE]
 > このトピックで質問の答えが見つからなかった場合は、[Visual Studio C++ 開発者コミュニティ](https://developercommunity.visualstudio.com/spaces/62/index.html)にアクセスするか、[`c++-winrt` タグを Stack Overflow](https://stackoverflow.com/questions/tagged/c%2b%2b-winrt) で使用することでヘルプが得られる場合があります。

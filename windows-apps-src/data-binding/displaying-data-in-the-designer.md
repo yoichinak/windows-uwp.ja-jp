@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 5f08c2cc39bb4cdf9a49351f70143a0f86df1fb7
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 2c717a74824db43984794b67638dd19b51b5dacd
+ms.sourcegitcommit: 83225cd9f3ef184277fc293d09982ecd511cc088
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74254724"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87160876"
 ---
 <a name="sample-data-on-the-design-surface-and-for-prototyping"></a>デザイン サーフェイス上のサンプル データとプロトタイプを作るためのサンプル データ
 =============================================================================================
@@ -26,6 +26,10 @@ ms.locfileid: "74254724"
 
 -   [Bookstore1](https://codeload.github.com/MicrosoftDocs/windows-topic-specific-samples/zip/Bookstore1Universal_10) アプリのダウンロード。
 -   [Bookstore2](https://codeload.github.com/MicrosoftDocs/windows-topic-specific-samples/zip/Bookstore2Universal_10) アプリのダウンロード。
+
+
+> [!NOTE]
+> この記事のスクリーンショットは、以前のバージョンの Visual Studio のものです。 Visual Studio 2019 をご利用の場合は、ご自分の開発エクスペリエンスと完全に同じではない可能性があります。
 
 <a name="setting-datacontext-in-markup"></a>マークアップでの DataContext の設定
 -----------------------------
@@ -44,7 +48,7 @@ public MainPage()
 
 ![デザイン性の乏しい UI。](images/displaying-data-in-the-designer-01.png)
 
-この問題を解決するための最初の方法では、その **DataContext** の割り当てをコメント アウトして、代わりにページのマークアップで **DataContext** を設定します。 これにより、実行時だけでなく設計時にもライブ データが表示されるようになります。 これを行うには、まず、XAML ページを開きます。 次に、 **[ドキュメント アウトライン]** ウィンドウでルート デザイン要素 (通常は **\[Page\]** というラベルが付いています) をクリックして選択します。 **[プロパティ]** ウィンドウで **[DataContext]** プロパティを見つけて ([共通] カテゴリにあります)、 **[新規]** をクリックします。 **[オブジェクトの選択]** ダイアログ ボックスで目的のビュー モデルの種類をクリックし、 **[OK]** をクリックします。
+この問題を解決するための最初の方法では、その **DataContext** の割り当てをコメント アウトして、代わりにページのマークアップで **DataContext** を設定します。 これにより、実行時だけでなく設計時にもライブ データが表示されるようになります。 これを行うには、まず、XAML ページを開きます。 次に、 **[ドキュメント アウトライン]** ウィンドウでルート デザイン要素 (通常は **\[Page\]** というラベルが付いています) をクリックして選択します。 **[プロパティ]** ウィンドウで **[DataContext]** プロパティを探し ([共通] カテゴリにあります)、修正します。 **[オブジェクトの選択]** ダイアログ ボックスで目的のビュー モデルの種類を選択し、 **[OK]** をクリックします。
 
 ![DataContext を設定するための UI。](images/displaying-data-in-the-designer-02.png)
 

@@ -5,12 +5,12 @@ keywords: XAML, UWP, 概要
 ms.date: 08/30/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: c23a9539d0fc3902f715917b380e8b6b3e132c15
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 23cadaca6f82d7cb43834f5a86c56a3fa34cb00e
+ms.sourcegitcommit: e1104689fc1db5afb85701205c2580663522ee6d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68974459"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86997799"
 ---
 # <a name="tutorial-create-a-user-interface"></a>チュートリアル: ユーザー インターフェイスの作成
 
@@ -99,7 +99,7 @@ XAML デザイナーを使用してコントロールを追加するには:
 
     次の手順では、これらの値を更新します。
 
-4. **[プロパティ]** パネルで、**TextBlock** コントロールの **[名前]** の値を **textBlock** から **TitleTextBlock** に変更します  (まだ **TextBlock** コントロールがアクティブなオブジェクトであることを確認してください)。
+4. **[プロパティ]** パネルで、**TextBlock** コントロールの **[名前]** の値を **textBlock** から **TitleTextBlock** に変更します (まだ **TextBlock** コントロールがアクティブなオブジェクトであることを確認してください)。
 
 5. **[共通]** の下で、**Text** 値を **Collection** に変更します。
 
@@ -138,7 +138,7 @@ XAML デザイナーを使用してコントロールを追加するには:
                Style="{StaticResource TitleTextBlockStyle}"/>
     ```
 
-9. **[プロパティ]** パネルの検索ボックスに「**textwrapping**」と入力して、**TextWrapping** プロパティを見つけます。 **TextWrapping** プロパティの_プロパティ マーカー_を選択して、メニューを開きます  (プロパティ マーカーは、各プロパティ値の右側に表示される小さな四角形のシンボルです。 プロパティ マーカーは、プロパティが既定値以外に設定されていることを示す黒色になっています)。 **[プロパティ]** メニューの **[リセット]** を選択して **TextWrapping** プロパティをリセットします。
+9. **[プロパティ]** パネルの検索ボックスに「**textwrapping**」と入力して、**TextWrapping** プロパティを見つけます。 **TextWrapping** プロパティの_プロパティ マーカー_を選択して、メニューを開きます (プロパティ マーカーは、各プロパティ値の右側に表示される小さな四角形のシンボルです。 プロパティ マーカーは、プロパティが既定値以外に設定されていることを示す黒色になっています)。 **[プロパティ]** メニューの **[リセット]** を選択して **TextWrapping** プロパティをリセットします。
 
     Visual Studio によってこのプロパティが追加されますが、適用したスタイルに既に設定されているため、ここでは必要ありません。
 
@@ -472,7 +472,7 @@ XAML エディターを使用してコントロールを追加するには
 
 ## <a name="part-5-apply-some-final-adjustments-to-the-layout"></a>パート 5: レイアウトに最終調整を適用する
 
-画像をページの中央に配置するには、ページ内で **Grid** コントロールの配置を調整する必要があります。 それとも、**GridView** 内で画像の配置を調整する必要があるでしょうか。 どちらでも同じでしょうか?  見てみましょう。
+画像をページの中央に配置するには、ページ内で **Grid** コントロールの配置を調整する必要があります。 それとも、**GridView** 内で画像の配置を調整する必要があるでしょうか。 どちらでも同じでしょうか? 見てみましょう。
 
 配置について詳しくは、「[配置、余白、パディング](../layout/alignment-margin-padding.md)」をご覧ください。
 
@@ -515,7 +515,7 @@ XAML エディターを使用してコントロールを追加するには
 
 5. ダイアログ ボックスで、 **[名前 (キー)]** の値を **ImageGridView_ItemsPanelTemplate** に変更し、 **[OK]** を選択します。
 
-    既定の **ItemsPanelTemplate** のコピーが XAML の **Page.Resources** セクションに追加されます  (今回も、このリソースを参照するように **GridView** が更新されます)。
+    既定の **ItemsPanelTemplate** のコピーが XAML の **Page.Resources** セクションに追加されます (今回も、このリソースを参照するように **GridView** が更新されます)。
 
     ```xaml
     <ItemsPanelTemplate x:Key="ImageGridView_ItemsPanelTemplate">
@@ -546,7 +546,7 @@ XAML エディターを使用してコントロールを追加するには
 
 ![アプリの UI チェックポイント 4](images/xaml-basics/layout-3.png)
 
-これで、スクロール バーがウィンドウの端に位置合わせされました。 おめでとうございます!  アプリの基本的な UI を作成できました。
+これで、スクロール バーがウィンドウの端に位置合わせされました。 おめでとうございます! アプリの基本的な UI を作成できました。
 
 ## <a name="go-further"></a>次の手順
 
@@ -558,5 +558,4 @@ XAML エディターを使用してコントロールを追加するには
 
 ## <a name="get-the-final-version-of-the-photolab-sample"></a>PhotoLab サンプルの最終バージョンを入手する
 
-このチュートリアルは、写真編集アプリについての完全な説明ではありません。 そのため、カスタム アニメーションや電話サポートなどのその他の機能については、[最終バージョン](https://github.com/Microsoft/Windows-appsample-photo-lab)を確認してください。
-
+このチュートリアルは、写真編集アプリについての完全な説明ではありません。 そのため、カスタム アニメーションやアダプティブ レイアウトなどのその他の機能については、[最終バージョン](https://github.com/Microsoft/Windows-appsample-photo-lab)を確認してください。

@@ -5,12 +5,12 @@ keywords: XAML, UWP, 概要
 ms.date: 08/30/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: b9c5348063f277d4d76cbea120689328bcc217b1
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 389b4ec2566a392de35ae43505274511b4294f9f
+ms.sourcegitcommit: e1104689fc1db5afb85701205c2580663522ee6d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75684152"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86997789"
 ---
 # <a name="tutorial-create-adaptive-layouts"></a>チュートリアル: アダプティブ レイアウトを作成する
 
@@ -37,7 +37,7 @@ ms.locfileid: "75684152"
 このチュートリアルでは、PhotoLab サンプルの簡易バージョンから開始します。 
 
 1. [https://github.com/Microsoft/Windows-appsample-photo-lab](https://github.com/Microsoft/Windows-appsample-photo-lab) に移動します。 これで、サンプルの GitHub ページが表示されます。 
-2. 次に、サンプルをクローンまたはダウンロードする必要があります。 **[Clone or download]\(クローンまたはダウンロード\)** ボタンをクリックします。 サブメニューが表示されます。
+2. 次に、サンプルを複製またはダウンロードする必要があります。 **[Clone or download]\(クローンまたはダウンロード\)** ボタンをクリックします。 サブメニューが表示されます。
     <figure>
         <img src="../basics/images/xaml-basics/clone-repo.png" alt="The Clone or download menu on GitHub">
         <figcaption>写真ラボ サンプルの GitHub ページの <b>[Clone or download]\(クローンまたはダウンロード\)</b> メニュー。</figcaption>
@@ -53,7 +53,7 @@ ms.locfileid: "75684152"
 
     **GitHub に慣れている場合:**
 
-    a。 リポジトリのマスター ブランチをローカルにクローンします。
+    a。 リポジトリのマスター ブランチをローカルに複製します。
 
     b. `Windows-appsample-photo-lab\xaml-basics-starting-points\adaptive-layout` ディレクトリに移動します。
 
@@ -211,12 +211,12 @@ Visual Studio ツールバーで、ソリューション プラットフォー�
 これらの setter は、画像ギャラリーの **ItemTemplate** を、先ほど作成した新しい **DataTemplate** に設定します。さらに、携帯電話の画面で親指によってアクセスしやすくなるように、コマンド バーとズーム スライダーを画面の下端に揃えます。
 
 ### <a name="run-the-app"></a>アプリを実行する
-では、モバイル エミュレーターを使用してアプリを実行してみましょう。 新しいレイアウトは正しく表示されますか?  次のように、グリッド状に並んだ小さなサムネイルが表示されるはずです。 まだ以前のレイアウトが表示される場合は、**VisualStateManager** コードにスペルの間違いがないか確認してください。
+では、モバイル エミュレーターを使用してアプリを実行してみましょう。 新しいレイアウトは正しく表示されますか? 次のように、グリッド状に並んだ小さなサムネイルが表示されるはずです。 まだ以前のレイアウトが表示される場合は、**VisualStateManager** コードにスペルの間違いがないか確認してください。
 
 ![モバイル レイアウト: 変更後](../basics/images/xaml-basics/adaptive-layout-mobile-after.png)
 
 ## <a name="part-3-adapt-to-multiple-window-sizes-on-a-single-device"></a>パート 3: 単一デバイスのさまざまなウィンドウ サイズに対応する
-新しいカスタム レイアウトを作成すると、モバイル デバイスのレスポンシブ デザインに関する問題が解決しますが、デスクトップとタブレットの場合はどうでしょうか?  アプリは、全画面では見栄え良く表示されても、ユーザーがウィンドウ サイズを縮小すると、インターフェイスが使いづらくなることがあります。 エンドユーザーが常に適切な外観および操作性を得ることができるように、**VisualStateManager** を使用して、単一デバイスのさまざまなウィンドウ サイズに対応することができます。
+新しいカスタム レイアウトを作成すると、モバイル デバイスのレスポンシブ デザインに関する問題が解決しますが、デスクトップとタブレットの場合はどうでしょうか? アプリは、全画面では見栄え良く表示されても、ユーザーがウィンドウ サイズを縮小すると、インターフェイスが使いづらくなることがあります。 エンドユーザーが常に適切な外観および操作性を得ることができるように、**VisualStateManager** を使用して、単一デバイスのさまざまなウィンドウ サイズに対応することができます。
 
 ![小さなウィンドウ: 変更前](../basics/images/xaml-basics/adaptive-layout-small-before.png)
 
@@ -332,4 +332,4 @@ Visual Studio ツール バーで、ターゲット デバイスを **Local Mach
 
 ## <a name="get-the-final-version-of-the-photolab-sample"></a>PhotoLab サンプルの最終バージョンを入手する
 
-このチュートリアルで完全な写真編集アプリは作成されません。必ず[最終バージョン](https://github.com/Microsoft/Windows-appsample-photo-lab)でカスタム アニメーションやスマートフォン サポートなど、他の機能を確認してください。
+このチュートリアルで完全な写真編集アプリは作成されません。必ず[最終バージョン](https://github.com/Microsoft/Windows-appsample-photo-lab)でカスタム アニメーションやスタイルなど、他の機能を確認してください。
