@@ -450,6 +450,18 @@
           href: input/respond-to-the-presence-of-the-touch-keyboard.md
         - name: 入力値の種類を使ったタッチ キーボードの変更
           href: input/use-input-scope-to-change-the-touch-keyboard.md
+    - name: テキスト入力
+      items:
+        - name: カスタム テキスト入力
+          href: input/custom-text-input.md
+        - name: テキストの拡大縮小
+          href: input/text-scaling.md
+        - name: テキストと画像の選択
+          href: input/guidelines-for-textselection.md
+        - name: 入力方式エディター
+          href: input/input-method-editors.md
+        - name: 入力方式エディターの要件
+          href: input/input-method-editor-requirements.md
     - name: ゲームパッドとリモート制御
       href: input/gamepad-and-remote-interactions.md
     - name: Touchpad
@@ -497,10 +509,6 @@
       href: input/input-injection.md
     - name: 入力デバイスの識別
       href: input/identify-input-devices.md
-    - name: カスタム テキスト入力
-      href: input/custom-text-input.md
-    - name: テキストの拡大縮小
-      href: input/text-scaling.md
     - name: ドラッグ アンド ドロップ
       href: input/drag-and-drop.md
     - name: 光学式ズームとサイズ変更
@@ -509,8 +517,6 @@
       href: input/guidelines-for-panning.md
     - name: 回転
       href: input/guidelines-for-rotation.md
-    - name: テキストと画像の選択
-      href: input/guidelines-for-textselection.md
     - name: ターゲット
       href: input/guidelines-for-targeting.md
     - name: 視覚的なフィードバック
@@ -527,7 +533,7 @@
   items:
     - name: 概要
       href: usability/index.md
-    - name: アクセシビリティ
+    - name: ユーザー補助
       href: accessibility/accessibility.md
       items:
         - name: 概要
