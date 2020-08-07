@@ -1,5 +1,4 @@
 ---
-author: mijacobs
 Description: 多くの企業では、ファイアウォールを使用して不要なトラフィックをブロックしています。 このドキュメントでは、WNS トラフィックがファイアウォールを通過することを許可する方法について説明します。
 title: ファイアウォール許可リストへの WNS トラフィックの追加
 ms.assetid: 2125B09F-DB90-4515-9AA6-516C7E9ACCCD
@@ -8,12 +7,12 @@ ms.date: 05/20/2019
 ms.topic: article
 keywords: windows 10、uwp、WNS、windows notification service、通知、windows、ファイアウォール、トラブルシューティング、IP、トラフィック、エンタープライズ、ネットワーク、IPv4、VIP、FQDN、パブリック IP アドレス
 ms.localizationpriority: medium
-ms.openlocfilehash: 7f87dc0cc174a22f474c91a58f3ffeb738822fa8
-ms.sourcegitcommit: 963316e065cf36c17b6360c3f89fba93a1a94827
+ms.openlocfilehash: 9594b90bd3bf9a4db082586a2823f4013340b85a
+ms.sourcegitcommit: b5232934702b28102c4014a96b34f2e459c9660d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82868908"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87928009"
 ---
 # <a name="enterprise-firewall-and-proxy-configurations-to-support-wns-traffic"></a>WNS トラフィックをサポートするためのエンタープライズファイアウォールとプロキシ構成
 
@@ -71,7 +70,7 @@ Windows Notification Service によって使用される Fqdn、Vip、および 
 ### <a name="terms-and-notations"></a>用語と表記
 次に、上記の XML スニペットで使用される表記法と要素について説明します。
 
-| 用語 | 説明 |
+| 期間 | 説明 |
 |---|---|
 | **ドット小数点表記 (64.4.28.0/26)** | ドット10進数表記は、IP アドレスの範囲を記述する方法です。 たとえば、64.4.28.0/26 は、64.4.28.0 の最初の26ビットが定数であり、最後の6ビットは変数であることを意味します。  この場合、IPv4 の範囲は 64.4.28.0-64.4.28.63 です。 |
 | **ClientDNS** | これらは、WNS から通知を受け取るクライアントデバイス (Windows Pc、デスクトップ) の完全修飾ドメイン名 (FQDN) フィルターです。 WNS クライアントで WNS 機能を使用するためには、ファイアウォールを通過する必要があります。  IP/VIP 範囲ではなく Fqdn によってリストを許可することをお勧めします。これは変更されないためです。 |
