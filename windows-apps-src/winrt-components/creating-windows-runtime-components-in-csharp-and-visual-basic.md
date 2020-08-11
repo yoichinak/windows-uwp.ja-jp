@@ -4,17 +4,17 @@ description: .NET 4.5 以降では、マネージコードを使用して、Wind
 ms.assetid: A5672966-74DF-40AB-B01E-01E3FCD0AD7A
 ms.date: 12/04/2018
 ms.topic: article
+keywords: windows 10, uwp
+ms.localizationpriority: medium
 dev_langs:
 - csharp
 - vb
-keywords: windows 10, uwp
-ms.localizationpriority: medium
-ms.openlocfilehash: 3ac5e08b328e8e094906d2e1793ea87fa2e66ae4
-ms.sourcegitcommit: 91ac6db556fa2a49374fffb143f55fed864200ac
+ms.openlocfilehash: a52bca6ecc08016d1cb7633acadd362e2215cd3a
+ms.sourcegitcommit: 9beb6cce7375b726ad90ee84b72754268ae2819a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82173488"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88047779"
 ---
 # <a name="windows-runtime-components-with-c-and-visual-basic"></a>C# および Visual Basic を使用した Windows ランタイム コンポーネント
 
@@ -28,9 +28,9 @@ Visual Basic または C# で記述された UWP アプリでのみ使用する�
 
 外部的には、型のメンバーは、パラメーターと戻り値に対して Windows ランタイム型のみを公開できます。 次の一覧では、Windows ランタイムコンポーネントから公開される .NET 型の制限事項について説明します。
 
-- コンポーネント内にあるすべてのパブリック型とメンバーのフィールド、パラメーター、戻り値は、Windows ランタイム型である必要があります。 この制限には、作成した Windows ランタイムの種類と、Windows ランタイム自体によって提供される型が含まれます。 また、多くの .NET 型も含まれています。 これらの型の追加は、マネージコード&mdash;での Windows ランタイムの自然な使用を有効にするために .net が提供するサポートの一部です。基になる Windows ランタイム型の代わりに、使い慣れた .net 型を使用するようにコードが表示されます。 たとえば、 **Int32**や**Double**などの .net プリミティブ型、 **DateTimeOffset**や**Uri**などの特定の基本型、および**&lt;ienumerable T&gt; ** (Visual Basic の ienumerable (Of T) など) および**IDictionary&lt;TKey, TValue&gt;** などの一般的に使用されるジェネリックインターフェイス型を使用できます。 これらのジェネリック型の型引数は Windows ランタイム型である必要があることに注意してください。 この点については、このトピックの後半の「[マネージコードに Windows ランタイム型を渡す](#passing-windows-runtime-types-to-managed-code)」と「[マネージ型を Windows ランタイムに渡す](#passing-managed-types-to-the-windows-runtime)」セクションで説明します。
+- コンポーネント内にあるすべてのパブリック型とメンバーのフィールド、パラメーター、戻り値は、Windows ランタイム型である必要があります。 この制限には、作成した Windows ランタイムの種類と、Windows ランタイム自体によって提供される型が含まれます。 また、多くの .NET 型も含まれています。 これらの型の追加は、マネージコードでの Windows ランタイムの自然な使用を有効にするために .NET が提供するサポートの一部です &mdash; 。基になる Windows ランタイム型の代わりに、使い慣れた .net 型を使用するようにコードが表示されます。 たとえば、 **Int32**や**Double**などの .Net プリミティブ型、 **DateTimeOffset**や**Uri**などの特定の基本型、および**ienumerable &lt; T &gt; ** (Visual Basic の ienumerable (Of T) など) および**IDictionary &lt; TKey, TValue &gt; **などの一般的に使用されるジェネリックインターフェイス型を使用できます。 これらのジェネリック型の型引数は Windows ランタイム型である必要があることに注意してください。 この点については、このトピックの後半の「[マネージコードに Windows ランタイム型を渡す](#passing-windows-runtime-types-to-managed-code)」と「[マネージ型を Windows ランタイムに渡す](#passing-managed-types-to-the-windows-runtime)」セクションで説明します。
 
-- パブリック クラスとインターフェイスには、メソッド、プロパティ、イベントを含めることができます。 イベントのデリゲートを宣言することも、 **EventHandler&lt;T&gt; **デリゲートを使用することもできます。 パブリッククラスまたはインターフェイスでは、次のことはできません。
+- パブリック クラスとインターフェイスには、メソッド、プロパティ、イベントを含めることができます。 イベントのデリゲートを宣言することも、 **EventHandler &lt; T &gt; **デリゲートを使用することもできます。 パブリッククラスまたはインターフェイスでは、次のことはできません。
     - ジェネリックにする。
     - Windows ランタイムインターフェイスではないインターフェイスを実装します (ただし、独自の Windows ランタイムインターフェイスを作成して実装することもできます)。
     - **System.exception**や system.servicemodel など、Windows ランタイムに含まれていない型から派生し**ます。**
@@ -51,7 +51,7 @@ C++ を使用して UWP アプリの一部としてコンポーネントをテ�
 ## <a name="to-debug-both-native-c-code-and-managed-code"></a>ネイティブ C++ コードとマネージ コードの両方をデバッグするには
 1.  Visual C++ プロジェクトのショートカット メニューを開き、**[プロパティ]** をクリックします。
 2.  プロパティ ページの **[構成プロパティ]** で、**[デバッグ]** を選びます。
-3.  **[デバッガーの種類]** を選び、ドロップダウン リスト ボックスで、**[ネイティブのみ]** を **[混合 (マネージとネイティブ)]** に変更します。 **[OK]** をクリックします。
+3.  **[デバッガーの種類]** を選び、ドロップダウン リスト ボックスで、**[ネイティブのみ]** を **[混合 (マネージとネイティブ)]** に変更します。 **[OK]** を選択します。
 4.  ネイティブ コードとマネージ コードのブレークポイントを設定します。
 
 JavaScript を使用して UWP アプリの一部としてコンポーネントをテストしている場合、既定では、ソリューションは JavaScript デバッグモードになります。 Visual Studio では、JavaScript とマネージ コードを同時にデバッグすることはできません。
@@ -59,7 +59,7 @@ JavaScript を使用して UWP アプリの一部としてコンポーネント�
 ## <a name="to-debug-managed-code-instead-of-javascript"></a>JavaScript ではなくマネージ コードをデバッグするには
 1.  JavaScript プロジェクトのショートカット メニューを開き、**[プロパティ]** を選びます。
 2.  プロパティ ページの **[構成プロパティ]** で、**[デバッグ]** を選びます。
-3.  **[デバッガーの種類]** を選び、ドロップダウン リスト ボックスで、**[スクリプトのみ]** を **[マネージのみ]** に変更します。 **[OK]** をクリックします。
+3.  **[デバッガーの種類]** を選び、ドロップダウン リスト ボックスで、**[スクリプトのみ]** を **[マネージのみ]** に変更します。 **[OK]** を選択します。
 4.  マネージ コードのブレークポイントを設定し、通常どおりにデバッグします。
 
 ## <a name="passing-windows-runtime-types-to-managed-code"></a>マネージ コードへの Windows ランタイム型の引き渡し
@@ -82,26 +82,26 @@ C# または Visual Basic が、これらの型のいずれかに言語キーワ
 
 | Windows ランタイム                                  | .NET                                    |
 |-|-|
-| IIterable&lt;T&gt;                               | IEnumerable&lt;T&gt;                              |
-| IVector&lt;T&gt;                                 | IList&lt;T&gt;                                    |
-| IVectorView&lt;T&gt;                             | IReadOnlyList&lt;T&gt;                            |
-| IMap&lt;K、V&gt;                                 | IDictionary&lt;TKey, TValue&gt;                   |
-| IMapView&lt;K, V&gt;                             | Ireadonlydictionary<&lt;TKey, TValue&gt;           |
-| Ikeyvaluepair<k,&lt;K、V&gt;                        | KeyValuePair&lt;TKey, TValue&gt;                  |
+| IIterable&lt;T&gt;                               | IEnumerable &lt; T&gt;                              |
+| IVector&lt;T&gt;                                 | IList &lt; T&gt;                                    |
+| IVectorView&lt;T&gt;                             | IReadOnlyList &lt; T&gt;                            |
+| IMap &lt; K、V&gt;                                 | IDictionary &lt; TKey, TValue&gt;                   |
+| IMapView&lt;K, V&gt;                             | Ireadonlydictionary< &lt; TKey, TValue&gt;           |
+| Ikeyvaluepair<k, &lt; K、V&gt;                        | KeyValuePair &lt; TKey, TValue&gt;                  |
 | IBindableIterable                                | IEnumerable                                       |
 | IBindableVector                                  | IList                                             |
 | Windows.UI.Xaml.Data.INotifyPropertyChanged      | System.ComponentModel.INotifyPropertyChanged      |
 | Windows.UI.Xaml.Data.PropertyChangedEventHandler | System.ComponentModel.PropertyChangedEventHandler |
 | Windows.UI.Xaml.Data.PropertyChangedEventArgs    | System.ComponentModel.PropertyChangedEventArgs    |
 
-型によって複数のインターフェイスが実装される場合、メンバーのパラメーターの型または戻り値の型として実装されるインターフェイスをすべて使うことができます。 たとえば、**ディクショナリ&lt;の int、string&gt; ** (Visual Basic**のディクショナリ (Of Integer, string)** ) を**IDictionary&lt;int、string&gt;**、 **ireadonlydictionary<&lt;int、string&gt;**、または**IEnumerable&lt;KeyValuePair&lt;TKey, TValue&gt;** として渡すか、返すことができます。
+型によって複数のインターフェイスが実装される場合、メンバーのパラメーターの型または戻り値の型として実装されるインターフェイスをすべて使うことができます。 たとえば、**ディクショナリの &lt; int、string &gt; ** (Visual Basic**のディクショナリ (Of Integer, string)** ) を**IDictionary &lt; int、string &gt; **、 **ireadonlydictionary< &lt; int、string &gt; **、または**IEnumerable &lt; KeyValuePair &lt; TKey, TValue &gt; &gt; **として渡すか、返すことができます。
 
 > [!IMPORTANT]
-> JavaScript は、マネージド型が実装するインターフェイスのリストに最初に示されるインターフェイスを使用します。 たとえば、**辞書&lt;int、文字列&gt; **を JavaScript コードに返す場合、戻り値の型として指定したインターフェイスに関係なく、 **IDictionary&lt;int, string&gt; **として表示されます。 つまり、後のインターフェイスにメンバーが最初のインターフェイスに含まれていない場合、そのメンバーは JavaScript では認識されません。
+> JavaScript は、マネージド型が実装するインターフェイスのリストに最初に示されるインターフェイスを使用します。 たとえば、**辞書 &lt; int、 &gt; 文字列**を JavaScript コードに返す場合、戻り値の型として指定したインターフェイスに関係なく、 **IDictionary &lt; int, string &gt; **として表示されます。 つまり、後のインターフェイスにメンバーが最初のインターフェイスに含まれていない場合、そのメンバーは JavaScript では認識されません。
 
-Windows ランタイムでは、ikeyvaluepair<k, を使用することにより **、&lt;&gt; ** **IMap&lt;k、v&gt; ** 、IMapView K が反復処理されます。 これらのコードをマネージコードに渡すと、 **IDictionary&lt;tkey, TValue&gt; ** and **ireadonlydictionary<&lt;tkey, TValue&gt;** として表示されます。そのため、自然に、 **&lt;KeyValuePair tkey&gt; , TValue**を使用してそれらを列挙します。
+Windows ランタイムでは、Ikeyvaluepair<k, を使用することにより、 **IMap &lt; k、v &gt; ** 、 ** &lt; &gt; IMapView K**が反復処理されます。 これらのコードをマネージコードに渡すと、 **IDictionary &lt; Tkey, &gt; TValue** And **ireadonlydictionary< &lt; tkey, TValue &gt; **として表示されます。そのため、自然に、 **KeyValuePair &lt; tkey &gt; , TValue**を使用してそれらを列挙します。
 
-インターフェイスがマネージド コード内に表示される方法によって、これらのインターフェイスを実装する型の表示方法が決まります。 たとえば、 **PropertySet**クラスは、マネージコードで**IDictionary&lt;TKey, TValue&gt;** として表示される**IMap&lt;K V&gt;** を実装します。 **PropertySet**は、 **IMap&lt;&gt;K, V**ではなく**&lt;IDictionary TKey, TValue&gt; **を実装しているように見えます。そのため、マネージコードでは、.net ディクショナリの**add**メソッドのように動作する**add**メソッドがあるように見えます。 **Insert**メソッドがないように見えます。 この例については、 [C# または Visual Basic Windows ランタイムコンポーネントの作成に関するチュートリアルと、JavaScript からの呼び出し](walkthrough-creating-a-simple-windows-runtime-component-and-calling-it-from-javascript.md)に関するトピックを参照してください。
+インターフェイスがマネージド コード内に表示される方法によって、これらのインターフェイスを実装する型の表示方法が決まります。 たとえば、 **PropertySet**クラスは、マネージコードで**IDictionary &lt; TKey, TValue &gt; **として表示される**IMap &lt; K V &gt; **を実装します。 **PropertySet**は、 **IMap &lt; K &gt; , V**ではなく**IDictionary &lt; TKey, &gt; TValue**を実装しているように見えます。そのため、マネージコードでは、.Net ディクショナリの**add**メソッドのように動作する**add**メソッドがあるように見えます。 **Insert**メソッドがないように見えます。 この例については、 [C# または Visual Basic Windows ランタイムコンポーネントの作成に関するチュートリアルと、JavaScript からの呼び出し](walkthrough-creating-a-simple-windows-runtime-component-and-calling-it-from-javascript.md)に関するトピックを参照してください。
 
 ## <a name="passing-managed-types-to-the-windows-runtime"></a>Windows ランタイムへのマネージ型の引き渡し
 
@@ -177,13 +177,13 @@ Windows 8.1 以降、Windows ランタイムには**istringable**インターフ
 
 ## <a name="asynchronous-operations"></a>非同期操作
 
-コンポーネントに非同期メソッドを実装するには、メソッド名の末尾に "Async" を追加し、非同期アクションまたは操作を表す Windows ランタイムインターフェイス ( **iasyncaction**、 **&lt;iasyncactionwithprogress&gt;tprogress**、 **IAsyncOperation&lt;tresult&gt;**、または**IAsyncOperationWithProgress&lt;tresult、tprogress&gt;**) のいずれかを返します。
+コンポーネントに非同期メソッドを実装するには、メソッド名の末尾に "Async" を追加し、非同期アクションまたは操作を表す Windows ランタイムインターフェイス ( **iasyncaction**、 **iasyncactionwithprogress &lt; tprogress &gt; **、 **IAsyncOperation &lt; &gt; tresult**、または**IAsyncOperationWithProgress &lt; tresult、tprogress &gt; **) のいずれかを返します。
 
-.Net タスク ([**タスク**](/dotnet/api/system.threading.tasks.task)クラスと汎用[**タスク&lt;TResult&gt; **](/dotnet/api/system.threading.tasks.task-1)クラス) を使用して、非同期メソッドを実装できます。 C# または Visual Basic で記述された非同期メソッドから返されたタスクや、[**タスクの Run**](/dotnet/api/system.threading.tasks.task.run)メソッドから返されたタスクなど、進行中の操作を表すタスクを返す必要があります。 コンストラクターを使ってタスクを作成する場合、その [Task.Start](/dotnet/api/system.threading.tasks.task.start) メソッドを呼び出してから戻す必要があります。
+.NET タスク ([**タスク**](/dotnet/api/system.threading.tasks.task)クラスと汎用[**タスク &lt; TResult &gt; **](/dotnet/api/system.threading.tasks.task-1)クラス) を使用して、非同期メソッドを実装できます。 C# または Visual Basic で記述された非同期メソッドから返されたタスクや、[**タスクの Run**](/dotnet/api/system.threading.tasks.task.run)メソッドから返されたタスクなど、進行中の操作を表すタスクを返す必要があります。 コンストラクターを使ってタスクを作成する場合、その [Task.Start](/dotnet/api/system.threading.tasks.task.start) メソッドを呼び出してから戻す必要があります。
 
-( `await` `Await` Visual Basic) を使用するメソッドには、 `async`キーワード (`Async` Visual Basic) が必要です。 このようなメソッドを Windows ランタイムコンポーネントから公開する場合は、 `async` **Run**メソッドに渡すデリゲートにキーワードを適用します。
+(Visual Basic) を使用するメソッドには `await` `Await` 、 `async` キーワード ( `Async` Visual Basic) が必要です。 このようなメソッドを Windows ランタイムコンポーネントから公開する場合は、 `async` **Run**メソッドに渡すデリゲートにキーワードを適用します。
 
-取り消しや進行状況の報告をサポートしない非同期アクションと非同期操作では、タスクを適切なインターフェイスにラップするために、[WindowsRuntimeSystemExtensions.AsAsyncAction](https://docs.microsoft.com/dotnet/api/system) または [AsAsyncOperation&lt;TResult&gt;](https://docs.microsoft.com/dotnet/api/system) の拡張メソッドを使うことができます。 たとえば、次のコードでは、タスクを開始するために、 **&lt;TResult&gt; **メソッドを使用して非同期メソッドを実装しています。 **AsAsyncOperation&lt;TResult&gt; **拡張メソッドは、タスクを Windows ランタイム非同期操作として返します。
+取り消しや進行状況の報告をサポートしない非同期アクションと非同期操作では、タスクを適切なインターフェイスにラップするために、[WindowsRuntimeSystemExtensions.AsAsyncAction](https://docs.microsoft.com/dotnet/api/system) または [AsAsyncOperation&lt;TResult&gt;](https://docs.microsoft.com/dotnet/api/system) の拡張メソッドを使うことができます。 たとえば、次のコードでは、タスクを開始するために、 ** &lt; TResult &gt; **メソッドを使用して非同期メソッドを実装しています。 **AsAsyncOperation &lt; TResult &gt; **拡張メソッドは、タスクを Windows ランタイム非同期操作として返します。
 
 ```csharp
 public static IAsyncOperation<IList<string>> DownloadAsStringsAsync(string id)
@@ -222,7 +222,7 @@ function asyncExample(id) {
 
 キャンセルまたは進行状況レポートをサポートする非同期アクションおよび操作の場合は、 [**Asyncinfo**](/dotnet/api/system.runtime.interopservices.windowsruntime)クラスを使用して開始されたタスクを生成し、適切な Windows ランタイムインターフェイスのキャンセル機能と進行状況レポート機能を使用してタスクのキャンセル機能と進行状況レポート機能をフックします。 キャンセルと進行状況レポートの両方をサポートする例については、「 [C# または Visual Basic Windows ランタイムコンポーネントの作成と JavaScript からの呼び出し」のチュートリアル](walkthrough-creating-a-simple-windows-runtime-component-and-calling-it-from-javascript.md)を参照してください。
 
-非同期メソッドがキャンセルまたは進行状況レポートをサポートしていない場合でも、 **Asyncinfo**クラスのメソッドを使用できることに注意してください。 Visual Basic のラムダ関数または C# の匿名メソッドを使用する場合は、トークンと[**iprogress&lt;t&gt; **](https://docs.microsoft.com/dotnet/api/system.iprogress-1)インターフェイスのパラメーターを指定しないでください。 C# のラムダ関数を使う場合は、トークンのパラメーターを指定しますが、無視されます。 前の例&lt;では、AsAsyncOperation tresult&gt;メソッドを使用しています。これは、代わりに[**&lt;tresult&gt;(Func&lt;CancellationToken, Task&lt;TResult&gt;**](https://docs.microsoft.com/dotnet/api/system.runtime.interopservices.windowsruntime)) メソッドのオーバーロードを使用すると、次のようになります。
+非同期メソッドがキャンセルまたは進行状況レポートをサポートしていない場合でも、 **Asyncinfo**クラスのメソッドを使用できることに注意してください。 Visual Basic のラムダ関数または C# の匿名メソッドを使用する場合は、トークンと[**Iprogress &lt; t &gt; **](https://docs.microsoft.com/dotnet/api/system.iprogress-1)インターフェイスのパラメーターを指定しないでください。 C# のラムダ関数を使う場合は、トークンのパラメーターを指定しますが、無視されます。 前の例では、AsAsyncOperation tresult メソッドを使用して &lt; &gt; います。これは、代わりに[** &lt; tresult &gt; (Func &lt; CancellationToken, Task &lt; &gt; &gt; TResult**](https://docs.microsoft.com/dotnet/api/system.runtime.interopservices.windowsruntime)) メソッドのオーバーロードを使用すると、次のようになります。
 
 ```csharp
 public static IAsyncOperation<IList<string>> DownloadAsStringsAsync(string id)
@@ -247,7 +247,7 @@ Public Shared Function DownloadAsStringsAsync(ByVal id As String) _
 End Function
 ```
 
-オプションでキャンセルまたは進行状況レポートをサポートする非同期メソッドを作成する場合は、キャンセルトークンまたは**iprogress&lt;t&gt; **インターフェイスのパラメーターを持たないオーバーロードを追加することを検討してください。
+オプションでキャンセルまたは進行状況レポートをサポートする非同期メソッドを作成する場合は、キャンセルトークンまたは**Iprogress &lt; t &gt; **インターフェイスのパラメーターを持たないオーバーロードを追加することを検討してください。
 
 ## <a name="throwing-exceptions"></a>例外のスロー
 
@@ -269,7 +269,7 @@ Windows アプリ用 .NET に含まれている例外の型は、どれでもス
 
 ## <a name="declaring-and-raising-events"></a>イベントの宣言と発生
 
-イベントのデータを保持する型を宣言する場合、EventArgs は Windows ランタイム型ではないので、EventArgs の代わりに Object から派生させます。 イベントの種類として[**&lt;EventHandler teventargs&gt; **](https://docs.microsoft.com/dotnet/api/system.eventhandler-1)を使用し、イベント引数の型をジェネリック型引数として使用します。 .NET アプリケーションの場合と同じように、イベントを発生させます。
+イベントのデータを保持する型を宣言する場合、EventArgs は Windows ランタイム型ではないので、EventArgs の代わりに Object から派生させます。 イベントの種類として[**EventHandler &lt; teventargs &gt; **](https://docs.microsoft.com/dotnet/api/system.eventhandler-1)を使用し、イベント引数の型をジェネリック型引数として使用します。 .NET アプリケーションの場合と同じように、イベントを発生させます。
 
 Windows ランタイム コンポーネントが JavaScript や C++ で使われる場合、イベントはそれらの言語で想定されている Windows ランタイムのイベント パターンに従います。 C# または Visual Basic のコンポーネントを使用する場合、イベントは通常の .NET イベントとして表示されます。 [C# または Visual Basic Windows ランタイムコンポーネントを作成し、JavaScript から呼び出す方法](/windows/uwp/winrt-components/walkthrough-creating-a-simple-windows-runtime-component-and-calling-it-from-javascript)については、「チュートリアル」を使用して説明します。
 
