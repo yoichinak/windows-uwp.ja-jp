@@ -6,18 +6,18 @@ ms.date: 11/20/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, 入力
 ms.localizationpriority: medium
-ms.openlocfilehash: 8235b2c2029b2bb3b9351263a3c908879b4beba9
-ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
+ms.openlocfilehash: aa2036cb8d91b17d084e4e4922d01d4256bdb7de
+ms.sourcegitcommit: 29eb375bc634bf733be58107c1d648dc818da7f8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79210568"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88051327"
 ---
 # <a name="input-practices-for-games"></a>ゲームの入力プラクティス
 
-このページでは、ユニバーサル Windows プラットフォーム (UWP) ゲームで入力デバイスを効果的に使用するためのパターンと手法について説明します。
+このトピックでは、ユニバーサル Windows プラットフォーム (UWP) ゲームで入力デバイスを効果的に使用するためのパターンと手法について説明します。
 
-ここでは、次の項目について紹介します。
+このトピックを読むと、次のことを学習できます。
 
 * プレイヤーと、そのプレイヤーが現在使用中の入力デバイスとナビゲーション デバイスを追跡する方法
 * ボタンの状態遷移 (押してから離す、離してから押す) を検出する方法
@@ -31,7 +31,7 @@ ms.locfileid: "79210568"
 
 その一方で、複雑なフライトやレーシングのシミュレーションでは、すべての [RawGameController](https://docs.microsoft.com/uwp/api/windows.gaming.input.rawgamecontroller) オブジェクトを基準として列挙し、熱心なプレイヤーが所有しているあらゆるニッチ デバイス (シングル プレイヤー用の独立したペダルやスロットルなどのデバイス) を確実にサポートできます。 
 
-そこから、入力クラスの **FromGameController** メソッド ([Gamepad.FromGameController](https://docs.microsoft.com/uwp/api/windows.gaming.input.gamepad.fromgamecontroller) など) を使用して、各デバイスが整理されたビューが表示するかどうかを確認できます。 たとえば、デバイスが **Gamepad** でもある場合、それを反映するようにボタン マッピング UI を調整し、選択可能ないくつかの適切な既定のボタン マッピングを提供できます (これは、**RawGameController** のみを使用している場合、プレイヤーがゲームパッド入力を手動で構成することが必要になるのとは対照的です)。 
+そこから、入力クラスの **FromGameController** メソッド ([Gamepad.FromGameController](https://docs.microsoft.com/uwp/api/windows.gaming.input.gamepad.fromgamecontroller) など) を使用して、各デバイスが整理されたビューが表示するかどうかを確認できます。 たとえば、デバイスが **Gamepad** でもある場合、それを反映するようにボタン マッピング UI を調整し、選択可能ないくつかの適切な既定のボタン マッピングを提供できます  (これは、**RawGameController** のみを使用している場合、プレイヤーがゲームパッド入力を手動で構成することが必要になるのとは対照的です)。 
 
 代わりに、**RawGameController** のベンダー ID (VID) と製品 ID (PID) を参照し (それぞれ [HardwareVendorId](https://docs.microsoft.com/uwp/api/windows.gaming.input.rawgamecontroller.HardwareVendorId) と [HardwareProductId](https://docs.microsoft.com/uwp/api/windows.gaming.input.rawgamecontroller.HardwareProductId) を使用)、一般的なデバイスの推奨されるボタン マッピングを提供できます。その一方で、プレイヤーが手動でマッピングすることにより将来の未知のデバイスとの互換性を維持できます。
 
@@ -41,7 +41,7 @@ ms.locfileid: "79210568"
 
 それでは、プレイヤーがコントローラーを取り外した場合や、新しいコントローラーを接続した場合は、どうなるでしょうか。 これらのイベントを処理し、リストを適宜更新する必要があります。 詳細については、「[ゲームパッドの追加と削除](gamepad-and-vibration.md#adding-and-removing-gamepads)」を参照してください (ここでも、各コントローラーの型には、それぞれのトピックに類似する名前のセクションがあります)。
 
-追加および削除のイベントは非同期的に発生するため、コントローラーの一覧を処理するときに誤った結果を取得する可能性があります。 そのため、コントローラーのリストにアクセスするときは、常に、一度に 1 つのスレッドのみがリストにアクセスできるようにその周囲にロックを配置する必要があります。 この処理は、 **&lt;ppl.h&gt;** の[同時実行ランタイム](https://docs.microsoft.com/cpp/parallel/concrt/concurrency-runtime)、具体的には、[critical_section クラス](https://docs.microsoft.com/cpp/parallel/concrt/reference/critical-section-class)で行うことができます。
+追加および削除のイベントは非同期的に発生するため、コントローラーの一覧を処理するときに誤った結果を取得する可能性があります。 そのため、コントローラーのリストにアクセスするときは、常に、一度に 1 つのスレッドのみがリストにアクセスできるようにその周囲にロックを配置する必要があります。 この処理は、**&lt;ppl.h&gt;** の[同時実行ランタイム](https://docs.microsoft.com/cpp/parallel/concrt/concurrency-runtime)、具体的には、[critical_section クラス](https://docs.microsoft.com/cpp/parallel/concrt/reference/critical-section-class)で行うことができます。
 
 もう 1 つ考慮しなければならないのは、接続されているコントローラーのリストは最初は空であり、設定されるのに 1、2 秒かかるという点です。 start メソッドで、現在のゲームパッドを割り当てるだけでは、**null** になります。
 
@@ -172,8 +172,7 @@ void OnGamepadRemoved(Platform::Object^ sender, Gamepad^ args)
 
 これらの理由から、デバイス クラス ([IGameController](https://docs.microsoft.com/uwp/api/windows.gaming.input.igamecontroller) インターフェイスから継承) の [User](https://docs.microsoft.com/uwp/api/windows.gaming.input.igamecontroller.User) プロパティを使用して、プレイヤーの入力が追跡され、関係付けられます。
 
-[UserGamepadPairingUWP (GitHub)](
-https://github.com/Microsoft/Xbox-ATG-Samples/tree/master/Samples/System/UserGamepadPairingUWP) サンプルでは、ユーザーとそのユーザーが使用中のデバイスを追跡する方法を示してます。
+[UserGamepadPairingUWP](/samples/microsoft/xbox-atg-samples/usergamepadpairinguwp/)サンプルでは、ユーザーと、ユーザーが使用しているデバイスを追跡する方法を示します。
 
 ## <a name="detecting-button-transitions"></a>ボタンの状態遷移の検出
 
@@ -227,7 +226,7 @@ bool ButtonJustReleased(GamepadButtons selection)
 }
 ```
 
-上記の 2 つの関数は、まず `newReading` と `oldReading` からボタンの選択状態をブール値で求めています。次に、ブール値の論理演算を実行し、対象となるボタンの状態遷移が発生しているかどうかを判断します。 この 2 つの関数は、新しい読み取り結果が目的の状態 (それぞれ押した状態または離した状態) を含み、かつ、前回の読み取り結果が目的の状態を含まない場合にのみ **true** を返します。それ以外の場合は **false** を返します。
+上記の 2 つの関数は、まず `newReading` と `oldReading` からボタンの選択状態をブール値で求めています。次に、ブール値の論理演算を実行し、対象となるボタンの状態遷移が発生しているかどうかを判断します。 この 2 つの関数は、新しい読み取り結果が目的の状態 (それぞれ押した状態または離した状態) を含み、** かつ、前回の読み取り結果が目的の状態を含まない場合にのみ **true** を返します。それ以外の場合は **false** を返します。
 
 ## <a name="detecting-complex-button-arrangements"></a>ボタンの複雑な配置の検出
 
@@ -251,7 +250,7 @@ if (GamepadButtons::None == (reading.Buttons & GamepadButtons::A))
 }
 ```
 
-ご覧のように、1つのボタンの状態を確認するのは簡単ですが、複数のボタンが押されたか離されているのかを判断したり、押された&mdash;特定の方法でボタンのセットが配置されている場合は、何もできないことがあります。 複数のボタンのテストは、1つのボタンをテストするよりも複雑です。これは、&mdash;のボタンの状態が混在する可能性がある場合に特に&mdash;ですが、1つのボタンと複数のボタンのテストに当てはまる単純な式があります。
+ご覧のように、1つのボタンの状態を簡単に確認できますが、複数のボタンが押されたか離されているかを判断したり、ボタンのセットが特定の方法で並べ替えられているかどうかを判断したりすることが必要になる場合があり &mdash; ます。 複数のボタンのテストは、ボタンの状態が混在する可能性が特に1つのボタンをテストするよりも複雑です &mdash; &mdash; が、1つのボタンと複数のボタンのテストに当てはまる単純な式があります。
 
 次の例では、ゲームパッドのボタン A とボタン B が両方押されているかどうかを判断します。
 
@@ -304,7 +303,7 @@ if (buttonArrangement == buttonSelection)
 
 * **ChargeRateInMilliwatts** と **DesignCapacityInMilliwattHours** は常に **NULL** になります。
 
-* バッテリ残量の割合は、[RemainingCapacityInMilliwattHours](https://docs.microsoft.com/uwp/api/windows.devices.power.batteryreport.RemainingCapacityInMilliwattHours) / **FullChargeCapacityInMilliwattHours** を計算することによって取得できます。 これらのプロパティの値を無視して、計算される割合のみを処理する必要があります。
+* [RemainingCapacityInMilliwattHours](https://docs.microsoft.com/uwp/api/windows.devices.power.batteryreport.RemainingCapacityInMilliwattHours)FullChargeCapacityInMilliwattHours を計算することで、バッテリの割合を取得でき  /  **FullChargeCapacityInMilliwattHours**ます。 これらのプロパティの値を無視して、計算される割合のみを処理する必要があります。
 
 * 前の項目の割合は、常に次のいずれかになります。
 
@@ -317,6 +316,7 @@ if (buttonArrangement == buttonSelection)
 
 ## <a name="see-also"></a>関連項目
 
-* [Windows. system.object クラス](https://docs.microsoft.com/uwp/api/windows.system.user)
-* [Windows. IGameController インターフェイス](https://docs.microsoft.com/uwp/api/windows.gaming.input.igamecontroller)
-* [Windows. ゲーム. 入力ボタン列挙型](https://docs.microsoft.com/uwp/api/windows.gaming.input.gamepadbuttons)
+* [Windows.System.User クラス](https://docs.microsoft.com/uwp/api/windows.system.user)
+* [Windows.Gaming.Input.IGameController インターフェイス](https://docs.microsoft.com/uwp/api/windows.gaming.input.igamecontroller)
+* [Windows.Gaming.Input.GamepadButtons 列挙型](https://docs.microsoft.com/uwp/api/windows.gaming.input.gamepadbuttons)
+* [UserGamepadPairingUWP サンプル](/samples/microsoft/xbox-atg-samples/usergamepadpairinguwp/)
