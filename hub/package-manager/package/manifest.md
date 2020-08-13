@@ -4,12 +4,12 @@ description: ソフトウェア パッケージを Windows パッケージ マ�
 ms.date: 04/29/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 7ecc6687527ca330f466e6a97ef14c0b5c9b56cf
-ms.sourcegitcommit: 4df8c04fc6c22ec76cdb7bb26f327182f2dacafa
+ms.openlocfilehash: 960caede306228c492bc88c81ac3c1c841b6c18c
+ms.sourcegitcommit: 9c2b21081158e712a856158d25dce76b3e213a9c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85334611"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88129749"
 ---
 # <a name="create-your-package-manifest"></a>パッケージ マニフェストを作成する
 
@@ -109,7 +109,7 @@ Log: string # Specifies log redirection switches and path.
 InstallLocation: string # Specifies alternate location to install package.
 Installers: # Nested map of keys for specific installer.
   - Arch: string # Enumeration of supported architectures.
-  - URL: string # Path to download installation file.
+  - Url: string # Path to download installation file.
   - Sha256: string # SHA256 calculated from installer.
   - SignatureSha256: string # SHA256 calculated from signature file's hash of MSIX file.
   - Switches: # Collection of entries to override root keys. The primary supported values are: Custom, Silent, SilentWithProgress, Interactive. For a complete list see the specification at https://github.com/microsoft/winget-cli/blob/master/doc/ManifestSpecv0.1.md.
