@@ -10,12 +10,12 @@ dev_langs:
 - csharp
 - cppwinrt
 - cpp
-ms.openlocfilehash: d2b6ba88587f4f536d4fe6fc2750a520166fde18
-ms.sourcegitcommit: 2571af6bf781a464a4beb5f1aca84ae7c850f8f9
+ms.openlocfilehash: f660c17cd981ca830f0751819d01bf2141408ecc
+ms.sourcegitcommit: 894decaf374f22bf39d4aecc1ab50d34ac011e31
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82606351"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88162557"
 ---
 # <a name="handle-a-cancelled-background-task"></a>取り消されたバックグラウンド タスクの処理
 
@@ -67,7 +67,7 @@ void ExampleBackgroundTask::OnCanceled(
 }
 ```
 
-** \_Cancelrequested**というフラグ変数を background task クラスに追加します。 この変数は、いつ取り消し要求が出されたかを示すために使います。
+** \_ Cancelrequested**というフラグ変数を background task クラスに追加します。 この変数は、いつ取り消し要求が出されたかを示すために使います。
 
 ```csharp
 volatile bool _CancelRequested = false;
@@ -83,9 +83,9 @@ private:
     volatile bool CancelRequested;
 ```
 
-手順 1. で作成した**oncanceled**メソッドで、flag 変数** \_cancelrequested**を**true**に設定します。
+手順 1. で作成した**Oncanceled**メソッドで、flag 変数** \_ cancelrequested**を**true**に設定します。
 
-フル[バックグラウンドタスクのサンプル]( https://code.msdn.microsoft.com/windowsapps/Background-Task-Sample-9209ade9) **oncanceled**メソッドは、 ** \_cancelrequested**を**true**に設定し、役に立つ可能性のあるデバッグ出力を書き込みます。
+フル[バックグラウンドタスクのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/BackgroundTask) **oncanceled**メソッドは、 ** \_ cancelrequested**を**true**に設定し、役に立つ可能性のあるデバッグ出力を書き込みます。
 
 ```csharp
 private void OnCanceled(IBackgroundTaskInstance sender, BackgroundTaskCancellationReason reason)
@@ -131,9 +131,9 @@ taskInstance->Canceled += ref new BackgroundTaskCanceledEventHandler(this, &Exam
 
 ## <a name="handle-cancellation-by-exiting-your-background-task"></a>バックグラウンド タスクを終了することによって、取り消しを処理します。
 
-キャンセル要求を受信すると、バックグラウンド作業を行うメソッドは、 ** \_cancelrequested**が**true**に設定されていることを認識することで、作業を停止して終了する必要があります。 インプロセスバックグラウンドタスクの場合、これは**Onbackgroundactivated 化**されたメソッドからを返すことを意味します。 アウトプロセスのバックグラウンドタスクの場合、これは**Run**メソッドからを返すことを意味します。
+キャンセル要求を受信すると、バックグラウンド作業を行うメソッドは、 ** \_ cancelrequested**が**true**に設定されていることを認識することで、作業を停止して終了する必要があります。 インプロセスバックグラウンドタスクの場合、これは**Onbackgroundactivated 化**されたメソッドからを返すことを意味します。 アウトプロセスのバックグラウンドタスクの場合、これは**Run**メソッドからを返すことを意味します。
 
-バックグラウンド タスク クラスの処理中にフラグ変数を確認するようにコードを変更します。 Cancelrequested が true に設定** \_され**ている場合は、作業を停止します。
+バックグラウンド タスク クラスの処理中にフラグ変数を確認するようにコードを変更します。 Cancelrequested が true に設定** \_ され**ている場合は、作業を停止します。
 
 [バックグラウンドタスクのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/BackgroundTask)には、バックグラウンドタスクが取り消された場合に定期的なタイマーコールバックを停止するチェックが含まれています。
 
@@ -253,7 +253,7 @@ else
 }
 ```
 
-## <a name="remarks"></a>Remarks
+## <a name="remarks"></a>注釈
 
 [バックグラウンド タスクのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/BackgroundTask)をダウンロードして、メソッドのコンテキストに従ってコード例を確認できます。
 
