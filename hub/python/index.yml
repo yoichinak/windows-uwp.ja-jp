@@ -3,19 +3,19 @@ title: Windows での Python に関するドキュメント
 summary: 開発環境のセットアップ、スクリプト作成と自動化、Web アプリのビルド、および FAQ など、Windows を使用した Python による開発を始めましょう。
 metadata:
   author: mattwojo
-  description: Windows での Python を使用した開発を始めましょう。
+  description: Windows での Python を使用した開発を始めましょう。 開発環境の設定、Web アプリのビルド、またデータベースへの接続のためのリソースをご確認ください。
   manager: jken
   ms.author: mattwoj
   ms.date: 09/15/2019
   ms.prod: dev-environment
   ms.technology: windows-python
   ms.topic: landing-page
-  ms.openlocfilehash: e9bf81f267010fa7500a60fcf327ab7540683efa
-  ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
+  ms.openlocfilehash: 5c19f6fba69ede76c6a29a1fd3dda7637d40373f
+  ms.sourcegitcommit: b6138f9565252460ace6fa0acdc2a902e591681a
   ms.translationtype: HT
   ms.contentlocale: ja-JP
-  ms.lasthandoff: 07/20/2020
-  ms.locfileid: "86493587"
+  ms.lasthandoff: 08/15/2020
+  ms.locfileid: "88243254"
 landingContent:
 - title: 初心者向けスタートアップ ガイド
   linkLists:
