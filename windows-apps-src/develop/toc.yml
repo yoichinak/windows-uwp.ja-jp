@@ -60,7 +60,7 @@
           href: ../audio-video-camera/process-media-frames-with-mediaframereader.md
           items:
             - name: MediaFrameReader を使ったオーディオ フレームの処理
-              href: ../audio-video-camera/use-opencv-with-mediaframereader.md
+              href: ../audio-video-camera/process-audio-frames-with-mediaframereader.md
             - name: OpenCV と MediaFrameReader の使用
               href: ../audio-video-camera/use-opencv-with-mediaframereader.md
         - name: MediaFrameSourceGroup を使用して複数のソースからキャプチャする
@@ -795,6 +795,8 @@
           href: ../cpp-and-winrt-apis/move-to-winrt-from-cx.md
         - name: C++/CX との相互運用
           href: ../cpp-and-winrt-apis/interop-winrt-cx.md
+        - name: 非同期性、および C++/CX との相互運用
+          href: ../cpp-and-winrt-apis/interop-winrt-cx-async.md
         - name: WRL から C++/WinRT への移行
           href: ../cpp-and-winrt-apis/move-to-winrt-from-wrl.md
         - name: C# からのサンプル アプリの移植
