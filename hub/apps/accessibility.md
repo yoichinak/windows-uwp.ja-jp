@@ -6,12 +6,12 @@ ms.date: 09/12/2019
 keywords: Windows 10 のアクセシビリティ, アクセシビリティ, アクセシビリティ対応 win32 アプリの構築, アクセシビリティ対応 UWP アプリの構築, アクセシビリティ対応 WPF アプリの構築, アクセシビリティ対応 WinForms アプリの構築
 ms.author: kbridge
 author: Karl-Bridge-Microsoft
-ms.openlocfilehash: 2739546061febcfc96403ed5520fdcbd8bc2c462
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 04dc3571f6b2d8ddf57a3695330070d7c5b5061e
+ms.sourcegitcommit: 9beb6cce7375b726ad90ee84b72754268ae2819a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76725935"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88047789"
 ---
 # <a name="accessibility-in-windows-10"></a>Windows 10 のアクセシビリティ
 
@@ -77,7 +77,7 @@ ms.locfileid: "76725935"
 
       Windows マネージド アプリケーション用として実績のあるプラットフォームで、XAML UI モデルと .NET Framework を使用して、アクセシビリティに対応したアプリやツールを開発します。
 
-      [アクセシビリティのベスト プラクティス](https://docs.microsoft.com/dotnet/framework/ui-automation/accessibility-best-practices)
+      [ユーザー補助のベスト プラクティス](https://docs.microsoft.com/dotnet/framework/ui-automation/accessibility-best-practices)
 
       [UI オートメーションの基礎](https://docs.microsoft.com/dotnet/framework/ui-automation/index)
 
@@ -91,7 +91,7 @@ ms.locfileid: "76725935"
 
       [UI オートメーション コントロール型](https://docs.microsoft.com/dotnet/framework/ui-automation/ui-automation-control-types)
 
-      [UI オートメーションの仕様とコミュニティ規約](https://docs.microsoft.com/dotnet/framework/ui-automation/ui-automation-specification-and-community-promise) (英語)
+      [UI Automation Specification および UI Automation Community Promise](https://docs.microsoft.com/dotnet/framework/ui-automation/ui-automation-specification-and-community-promise)
    :::column-end:::
    :::column:::
       ![Windows フォーム プラットフォーム アプリ](images/platform-winforms.png)
@@ -104,7 +104,7 @@ ms.locfileid: "76725935"
 
       [アクセシビリティ対応の Windows アプリケーションの作成](https://docs.microsoft.com/dotnet/framework/winforms/advanced/walkthrough-creating-an-accessible-windows-based-application)
 
-      [ユーザー補助ガイドラインをサポートする Windows フォーム コントロールのプロパティ](https://docs.microsoft.com/dotnet/framework/winforms/advanced/properties-on-windows-forms-controls-that-support-accessibility-guidelines)
+      [ユーザ補助ガイドラインをサポートする Windows フォーム コントロールのプロパティ](https://docs.microsoft.com/dotnet/framework/winforms/advanced/properties-on-windows-forms-controls-that-support-accessibility-guidelines)
 
       [Windows フォーム上のコントロールのユーザー補助情報の提供](https://docs.microsoft.com/dotnet/framework/winforms/controls/providing-accessibility-information-for-controls-on-a-windows-form)
    :::column-end:::
@@ -140,7 +140,7 @@ ms.locfileid: "76725935"
       MSDN コード ギャラリーに代わる新しいサンプル ブラウザーです。
    :::column-end:::
    :::column:::
-      [MSDN コード ギャラリー (提供終了)](https://code.msdn.microsoft.com/site/search?query=accessibility&f%5B0%5D.Value=accessibility&f%5B0%5D.Type=SearchText&ac=2)
+      [MSDN コード ギャラリー (GitHub アーカイブ)](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/master/Official%20Windows%20Platform%20Sample)
 
       Windows、Windows Phone、Microsoft Azure、Office、SharePoint、Silverlight、その他の製品に関するサンプルをダウンロードします。
    :::column-end:::

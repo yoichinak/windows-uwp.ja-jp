@@ -5,17 +5,17 @@ ms.date: 02/06/2019
 ms.topic: article
 keywords: Windows 10, uwp, xBind
 ms.localizationpriority: medium
-ms.openlocfilehash: 879be9591bae36a1dbcd485387fbb4ac7f502fea
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 5d74e99526ed5531db92ba88a1053e07a3fc993b
+ms.sourcegitcommit: c7f33dbe9516d28664df1b91e03edca3cb9fb0c8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "66360081"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87871688"
 ---
 # <a name="functions-in-xbind"></a>x:Bind の関数
 
 > [!NOTE]
-> **{x:Bind}** によりアプリでデータ バインディングを使う方法に関する一般的な情報 (および **{x:Bind}** と **{Binding}** の全体的な比較) については、「[データ バインディングの詳細](data-binding-in-depth.md)」をご覧ください。
+> **{x:Bind}** によりアプリでデータ バインディングを使う方法に関する一般的な情報 (および **{x:Bind}** と **{Binding}** の全体的な比較) については、「[データ バインディングの詳細](data-binding-in-depth.md)」および「[{x:Bind} マークアップ拡張](../xaml-platform/x-bind-markup-extension.md)」をご覧ください。
 
 Windows 10 バージョン 1607 以降、 **{x:Bind}** はバインド パスのリーフ ステップとしての関数の使用をサポートします。 これにより次のことが可能になります。
 
@@ -61,7 +61,7 @@ class ColorEntry
 
 ## <a name="path-to-the-function"></a>関数へのパス
 
-関数へのパスは、他のプロパティ パスと同じように指定され、関数を見つけるためにドット (.)、インデクサー、またはキャストを含めることができます。
+[関数へのパス](../xaml-platform/x-bind-markup-extension.md#property-path)は、他のプロパティ パスと同じように指定され、関数を見つけるために[ドット (.)](../xaml-platform/x-bind-markup-extension.md#property-path-resolution)、[インデクサー](../xaml-platform/x-bind-markup-extension.md#collections)、または[キャスト](../xaml-platform/x-bind-markup-extension.md#casting)を含めることができます。
 
 静的関数は、XMLNamespace:ClassName.MethodName 構文を使って指定できます。 たとえば、分離コードで静的関数にバインドする場合は、次の構文を使用します。
 
@@ -120,7 +120,7 @@ namespace MyNamespace
 ```
 
 ```csharp
-public class Person:INotifyPropertyChanged
+public class Person : INotifyPropertyChanged
 {
     //Implementation for an Icon property and a CancellationToken property with PropertyChanged notifications
     ...
@@ -183,3 +183,6 @@ public class Person:INotifyPropertyChanged
 ```xaml
 <TextBlock Text="{x:Bind a.MyFunc(b), BindBack=a.MyFunc2, Mode=TwoWay}" />
 ```
+
+## <a name="see-also"></a>関連項目
+* [{x:Bind} マークアップ拡張](../xaml-platform/x-bind-markup-extension.md)

@@ -9,12 +9,12 @@ ms.technology: windows-nodejs
 keywords: Windows の設定, 開発環境, 開発ツール, 開発パス, Microsoft, Windows, 開発者, ヒント, パフォーマンス, WSL, ターミナル, nodejs, Python
 ms.localizationpriority: medium
 ms.date: 07/24/2020
-ms.openlocfilehash: e62ca938a23910290a8c63682fc2fde77ec0ea92
-ms.sourcegitcommit: 1e06168ada5ce6013b1d07c428548f084464a286
+ms.openlocfilehash: 4c9311c8aacf708e92feaea0b26ac20a01403257
+ms.sourcegitcommit: 894decaf374f22bf39d4aecc1ab50d34ac011e31
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87363734"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88162577"
 ---
 # <a name="set-up-your-development-environment-on-windows-10"></a>Windows 10 で開発環境を設定する
 
@@ -87,8 +87,8 @@ ms.locfileid: "87363734"
     :::column:::
        [![Windows パッケージ マネージャー](../images/winget.png)](https://docs.microsoft.com/windows/package-manager/)<br>
         **[Windows パッケージ マネージャー](https://docs.microsoft.com/windows/package-manager/)**<br>
-        包括的なパッケージ マネージャーである WinGet をコマンド ラインで使用して、Windows 10 にアプリケーションをインストールします。<br>
-        [WinGet のインストール (パブリック プレビュー)](https://docs.microsoft.com/windows/package-manager/winget/#install-winget)
+        包括的なパッケージ マネージャーである winget.exe クライアントをコマンド ラインで使用して、Windows 10 にアプリケーションをインストールします。<br>
+        [Windows パッケージ マネージャー (パブリック プレビュー) のインストール](https://docs.microsoft.com/windows/package-manager/winget/#install-winget)
     :::column-end:::
     :::column:::
        [![PowerToys](../images/powertoys.png)](https://github.com/microsoft/PowerToys)<br>

@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 強, 弱, 参照
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: dc991ff485d9e4ba90264e1b8082a40e0f4ab801
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: c8ca914737698c22d52657d20ee655d20491b3e8
+ms.sourcegitcommit: a9f44bbb23f0bc3ceade3af7781d012b9d6e5c9a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82267483"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88180767"
 ---
 # <a name="strong-and-weak-references-in-cwinrt"></a>C++/WinRT の強参照と弱参照
 
@@ -105,7 +105,7 @@ IAsyncOperation<winrt::hstring> RetrieveValueAsync()
 }
 ```
 
-C++/WinRT クラスは、[**winrt::implements**](/uwp/cpp-ref-for-winrt/implements) テンプレートから直接的または間接的に派生します。 そのため、C++/WinRT オブジェクトでは、[**implements.get_strong**](/uwp/cpp-ref-for-winrt/implements#implementsget_strong-function) というその保護メンバー関数を呼び出し、その *this* ポインターの強参照を取得できます。 上のコード例では実際に `strong_this` 変数を使用する必要はないことにご留意ください。**get_strong** を呼び出すだけで、C++/WinRT オブジェクトの参照カウントがインクリメントされ、その暗黙的 *this* ポインターの有効な状態が維持されます。
+C++/WinRT クラスは、[**winrt::implements**](/uwp/cpp-ref-for-winrt/implements) テンプレートから直接的または間接的に派生します。 そのため、C++/WinRT オブジェクトでは、[**implements::get_strong**](/uwp/cpp-ref-for-winrt/implements#implementsget_strong-function) というその保護メンバー関数を呼び出し、その *this* ポインターの強参照を取得できます。 上のコード例では実際に `strong_this` 変数を使用する必要はないことにご留意ください。**get_strong** を呼び出すだけで、C++/WinRT オブジェクトの参照カウントがインクリメントされ、その暗黙的 *this* ポインターの有効な状態が維持されます。
 
 > [!IMPORTANT]
 > **get_strong** は **winrt::implements** 構造体テンプレートのメンバー関数であるため、C++/WinRT クラスなど、**winrt::implements** から直接的または間接的に派生するクラスからのみ呼び出すことができます。 **winrt::implements** から派生されるものに関する詳細と例については、「[C++/WinRT での API の作成](/windows/uwp/cpp-and-winrt-apis/author-apis)」を参照してください。
@@ -253,7 +253,7 @@ event_source.Event([this](auto&& ...)
 
 ### <a name="the-solution"></a>解決策
 
-解決策は、強参照 (または、ここで説明するように、より適切な場合は弱参照) をキャプチャすることです。 強参照は参照カウントをインクリメント*します*。また、現在のオブジェクトの有効な状態を維持*します*。 キャプチャ変数 (この例では `strong_this`) を宣言し、[**implements.get_strong**](/uwp/cpp-ref-for-winrt/implements#implementsget_strong-function) を呼び出すことでそれを初期化します。結果、*this* ポインターの強参照が取得されます。
+解決策は、強参照 (または、ここで説明するように、より適切な場合は弱参照) をキャプチャすることです。 強参照は参照カウントをインクリメント*します*。また、現在のオブジェクトの有効な状態を維持*します*。 キャプチャ変数 (この例では `strong_this`) を宣言し、[**implements::get_strong**](/uwp/cpp-ref-for-winrt/implements#implementsget_strong-function) を呼び出すことでそれを初期化します。結果、*this* ポインターの強参照が取得されます。
 
 > [!IMPORTANT]
 > **get_strong** は **winrt::implements** 構造体テンプレートのメンバー関数であるため、C++/WinRT クラスなど、**winrt::implements** から直接的または間接的に派生するクラスからのみ呼び出すことができます。 **winrt::implements** から派生されるものに関する詳細と例については、「[C++/WinRT での API の作成](/windows/uwp/cpp-and-winrt-apis/author-apis)」を参照してください。
