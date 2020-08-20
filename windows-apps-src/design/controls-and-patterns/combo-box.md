@@ -10,12 +10,12 @@ pm-contact: stmoy
 design-contact: ''
 doc-status: Draft
 ms.localizationpriority: medium
-ms.openlocfilehash: f484df97c6d29281941c8eed7b91fd0b156fff60
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 65f65fc62f839e379535f4e1a3df8a188620fed9
+ms.sourcegitcommit: 99100b58a5b49d8ba78905b15b076b2c5cffbe49
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82968787"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88502363"
 ---
 # <a name="combo-box-and-list-box"></a>コンボ ボックスとリスト ボックス
 
@@ -23,7 +23,7 @@ ms.locfileid: "82968787"
 
 コンボ ボックスを閉じると、現在の選択が表示されるか、選択された項目がない場合は空です。 ユーザーがコンボ ボックスを展開すると、選択可能な項目の一覧が表示されます。
 
-![コンパクトな状態のドロップダウン リストの例](images/combo_box_collapsed.png)
+![コンパクトな状態のドロップダウン リストの例](images/combo-box-expand.gif)
 
 > _ヘッダーが表示されたコンパクトな状態のコンボ ボックス。_
 
