@@ -5,12 +5,12 @@ ms.date: 10/09/2018
 ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、ポート、移行、相互運用、C++/CX
 ms.localizationpriority: medium
-ms.openlocfilehash: c786256efb5488fff65a8e2bdb4c5d2ca0fa181c
-ms.sourcegitcommit: a9f44bbb23f0bc3ceade3af7781d012b9d6e5c9a
+ms.openlocfilehash: d3fa04f0aabe001dc87ce4292dff7557432583a6
+ms.sourcegitcommit: 99100b58a5b49d8ba78905b15b076b2c5cffbe49
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88180797"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88502287"
 ---
 # <a name="interop-between-cwinrt-and-ccx"></a>C++/WinRT と C++/CX 間の相互運用
 
@@ -27,7 +27,9 @@ ms.locfileid: "88180797"
 
 ## <a name="the-from_cx-and-to_cx-functions"></a>**from_cx** および **to_cx** 関数
 
-ここでは、`interop_helpers.h` という名前のヘッダー ファイルのソース コード リストを次に示します。このファイルには、2 つの変換ヘルパー関数が含まれています。 以下のセクションでは、この関数について、およびプロジェクトでヘッダー ファイルを作成して使用する方法について説明します。
+ここでは、`interop_helpers.h` という名前のヘッダー ファイルのソース コード リストを次に示します。このファイルには、2 つの変換ヘルパー関数が含まれています。 プロジェクトを段階的に移植すると、まだ C++/CX である部分と、既に C++/WinRT に移植された部分が存在することになります。 これらのヘルパー関数を使用すると、このような 2 つの部分の境界点で、プロジェクト内のオブジェクトを C++/CX と C++/WinRT との間で変換できます。
+
+コード リストの後のセクションでは、この 2 つの関数と、プロジェクトでヘッダー ファイルを作成して使用する方法について説明します。
 
 ```cppwinrt
 // interop_helpers.h
@@ -39,8 +41,7 @@ T from_cx(Platform::Object^ from)
     T to{ nullptr };
 
     winrt::check_hresult(reinterpret_cast<::IUnknown*>(from)
-        ->QueryInterface(winrt::guid_of<T>(),
-            reinterpret_cast<void**>(winrt::put_abi(to))));
+        ->QueryInterface(winrt::guid_of<T>(), winrt::put_abi(to)));
 
     return to;
 }
@@ -99,11 +100,9 @@ T^ to_cx(winrt::Windows::Foundation::IUnknown const& from)
 別の方法として (または、XAML プロジェクトの場合は、それに加えて)、Visual Studio の C++/WinRT プロジェクト プロパティ ページを使用して、C++/CX サポートを追加することもできます。 プロジェクトのプロパティで、 **[共通プロパティ]** \> **[C++ /WinRT]** \> **[Project Language]\(プロジェクト言語\)** \> **[C++/CX]** の順に選択します。 これを行うと、次のプロパティが `.vcxproj` ファイルに追加されます。
 
 ```xml
-<syntaxhighlight lang="xml">
   <PropertyGroup Label="Globals">
     <CppWinRTProjectLanguage>C++/CX</CppWinRTProjectLanguage>
   </PropertyGroup>
-</syntaxhighlight>
 ```
 
 > [!IMPORTANT]

@@ -4,19 +4,19 @@ title: セマンティック ズーム
 ms.assetid: B5C21FE7-BA83-4940-9CC1-96F6A2DC28C7
 label: Semantic zoom
 template: detail.hbs
-ms.date: 05/19/2017
+ms.date: 08/07/2020
 ms.topic: article
 keywords: windows 10, uwp
 pm-contact: predavid
 design-contact: kimsea
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 35613366078531a9e342df0b4314d049fde844e9
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 3398be1569143e253b2b9cb9ee25133ee7fe5fd9
+ms.sourcegitcommit: 99100b58a5b49d8ba78905b15b076b2c5cffbe49
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80081571"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88502343"
 ---
 # <a name="semantic-zoom"></a>セマンティック ズーム
 
@@ -59,17 +59,17 @@ ms.locfileid: "80081571"
 </tr>
 </table>
 
+**XAML コントロール ギャラリー**
+
+コントロール ギャラリー内の SemanticZoom セクションは、コントロールの種類がグループ化されたセクションをユーザーがすばやく拡大および縮小できるナビゲーション エクスペリエンスを示しています。 
+
+![XAMl コントロール ギャラリーで使用されているセマンティック ズームの例](images/semanticzoom-gallery.gif)
+
 **フォト アプリ**
 
 フォト アプリで使われるセマンティック ズームの例です。 写真は月ごとにグループ化されています。 既定のグリッド ビューで月ヘッダーを選択すると、月の一覧ビューにズームアウトして、すばやく移動できます。
 
 ![フォト アプリで使われるセマンティック ズーム](images/control-examples/semantic-zoom-photos.png)
-
-**アドレス帳**
-
-セマンティック ズームを使って簡単にナビゲートできるデータ セットの例として、アドレス帳があります。 縮小表示ビューを使用すると、必要な文字にすばやく移動できます (左の画像)。拡大表示ビューには、個別のデータ項目が表示されます (右の画像)。
-
-![連絡先の一覧で使用されているセマンティック ズームの例](images/semanticzoom-win10.png)
 
 ## <a name="create-a-semantic-zoom"></a>セマンティック ズームの作成
 
@@ -183,7 +183,7 @@ private void SemanticZoom_ViewChangeStarted(object sender, SemanticZoomViewChang
 }
 ```
 
-## <a name="recommendations"></a>推奨事項
+## <a name="recommendations"></a>Recommendations
 
 -   アプリでセマンティック ズームを使うときは、ズーム レベルごとに項目のレイアウトとパン方向が変わらないようにする必要があります。 レイアウトとパン操作は、ズーム レベルに関係なく一貫して予測できるものにしてください。
 -   セマンティック ズームを使ってすばやくコンテンツにジャンプできるようにするため、縮小モードでのページや画面の数は 3 つまでに制限します。 パンが多すぎると、セマンティック ズームの実用性が損なわれます。
@@ -193,7 +193,7 @@ private void SemanticZoom_ViewChangeStarted(object sender, SemanticZoomViewChang
 -   グループ化せずに並べ替えたコレクションには並べ替え順序を使います (日付の場合は時系列順、名前の一覧の場合はアルファベット順など)。
 
 
-## <a name="get-the-sample-code"></a>サンプル コードを入手する
+## <a name="get-the-sample-code"></a>サンプル コードの入手
 
 - [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - インタラクティブな形で XAML コントロールのすべてを参照できます。
 
@@ -202,7 +202,7 @@ private void SemanticZoom_ViewChangeStarted(object sender, SemanticZoomViewChang
 
 - [ナビゲーション デザインの基本](../basics/navigation-basics.md)
 - [リスト ビューとグリッド ビュー](listview-and-gridview.md)
-- [項目コンテナーとテンプレート](item-containers-templates.md)
+- [項目コンテナーやテンプレート](item-containers-templates.md)
 
 
 

@@ -4,16 +4,16 @@ title: アプリ設定のガイドライン
 ms.assetid: 2D765E90-3FA0-42F5-A5CB-BEDC14C3F60A
 label: Guidelines
 template: detail.hbs
-ms.date: 02/08/2017
+ms.date: 08/07/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: a9b27094a5861151b907dc7787828068122e4a54
-ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
+ms.openlocfilehash: 418c33952c4be6be08683b5e396f423f771bb997
+ms.sourcegitcommit: 99100b58a5b49d8ba78905b15b076b2c5cffbe49
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83233984"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88502383"
 ---
 # <a name="guidelines-for-app-settings"></a>アプリ設定のガイドライン
 
@@ -46,13 +46,13 @@ ms.locfileid: "83233984"
 
 ナビゲーション ウィンドウ レイアウトの場合、アプリ設定は、選択肢が示されるナビゲーション リストの最後の項目として配置し、下部にピン留めすることをお勧めします。
 
-![ナビゲーション ウィンドウでのアプリ設定のエントリ ポイント](images/appsettings-entrypoint-navpane.png)
+![ナビゲーション ウィンドウでのアプリ設定のエントリ ポイント](images/appsettings-nav-settings.png)
 
 **アプリ バー**
 
-[アプリ バー](../controls-and-patterns/app-bars.md)またはツール バーを使っている場合、設定のエントリ ポイントを [その他] オーバーフロー メニューの最後の項目として配置します。 設定のエントリ ポイントを簡単に検索できることがアプリで重要となる場合は、オーバーフローではなく、アプリ バーに直接エントリ ポイントを配置します。
+[アプリ バー](../controls-and-patterns/app-bars.md)またはツール バーを使用している場合は、設定のエントリ ポイントを [その他] オーバーフロー メニューの最後の項目の 1 つとして配置します。 設定のエントリ ポイントを簡単に検索できることがアプリで重要となる場合は、オーバーフローではなく、アプリ バーに直接エントリ ポイントを配置します。
 
-![アプリ バーでのアプリ設定のエントリ ポイント](images/appsettings-entrypoint-tabs.png)
+![アプリ バーでのアプリ設定のエントリ ポイント](../controls-and-patterns/images/appbar_rs2_overflow_icons.png)
 
 **ハブ**
 
@@ -69,15 +69,10 @@ ms.locfileid: "83233984"
 ## <a name="layout"></a>レイアウト
 
 
-デスクトップの場合でも、モバイルの場合でも、アプリ設定のウィンドウは全画面で開き、ウィンドウ全体に表示されるようにします。 アプリ設定のメニューに 4 つまでの最上位グループが含まれる場合は、それらのグループが 1 列分右下がりで表示されるようにします。
-
-デスクトップ:
+アプリ設定のウィンドウは全画面で開き、ウィンドウ全体に表示されるはずです。 アプリ設定のメニューに 4 つまでの最上位グループが含まれる場合は、それらのグループが 1 列分右下がりで表示されるようにします。
 
 ![デスクトップにおけるアプリ設定のページのレイアウト](images/appsettings-layout-navpane-desktop.png)
 
-モバイル:
-
-![電話におけるアプリ設定のページのレイアウト](images/appsettings-layout-navpane-mobile.png)
 
 ## <a name="color-mode-settings"></a>"カラー モード" の設定
 

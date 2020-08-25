@@ -1,6 +1,6 @@
 ---
 title: Windows での Python の使用についてよく寄せられる質問
-description: Windows での Python の使用についてよく寄せられる質問
+description: 開発のための Windows での Python の使用についてよく寄せられる質問 (FAQ) に対する回答を確認することにより、役立つ情報が得られます。
 author: mattwojo
 ms.author: mattwoj
 manager: jken
@@ -8,12 +8,12 @@ ms.topic: article
 keywords: python, windows 10, microsoft, pip, py.exe, ファイル パス, PYTHONPATH, python 開発, python パッケージ化
 ms.localizationpriority: medium
 ms.date: 07/19/2019
-ms.openlocfilehash: 6dbf86e0f9435e44140159ebb2bcbc3d67928999
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 2541186a1dd0f205d88e1e14c146934490afff55
+ms.sourcegitcommit: b6138f9565252460ace6fa0acdc2a902e591681a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74663559"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88243264"
 ---
 # <a name="frequently-asked-questions-about-using-python-on-windows"></a>Windows での Python の使用についてよく寄せられる質問
 
@@ -59,7 +59,7 @@ PYTHONPATH 環境変数は、モジュールのインポート元にすること
 
 PowerShell からこの変数を設定するには、Python を起動する直前に `$env:PYTHONPATH=’list;of;paths’` を使用します。
 
-この変数は、使用する予定の Python だけでなく、すべてのバージョンの Python によって使用される可能性があるため、 **[環境変数]** 設定でこの変数をグローバルに設定することは**非推奨**です。
+この変数は、使用する予定の Python だけでなく、すべてのバージョンの Python によって使用される可能性があるため、**[環境変数]** 設定でこの変数をグローバルに設定することは**非推奨**です。
 
 ## <a name="where-can-i-find-help-with-packaging-and-deployment"></a>パッケージ化と配置のヘルプはどこにありますか?
 
