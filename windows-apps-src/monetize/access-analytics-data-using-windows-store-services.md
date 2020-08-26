@@ -7,12 +7,12 @@ ms.topic: article
 keywords: Windows 10, UWP, Store サービス, Microsoft Store 分析 API
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 3b732da8f92c258647f905e6939dc3cb1b9c9f87
-ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
+ms.openlocfilehash: 51b0180d6b550cda082b5ee10530194824a48e33
+ms.sourcegitcommit: 720413d2053c8d5c5b34d6873740be6e913a4857
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79210788"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88846802"
 ---
 # <a name="access-analytics-data-using-store-services"></a>ストア サービスを使った分析データへのアクセス
 
@@ -30,25 +30,25 @@ ms.locfileid: "79210788"
 
 Microsoft Store 分析 API を呼び出すコードの作成を開始する前に、次の前提条件が満たされていることを確認します。
 
-* ユーザー (またはユーザーの組織) は、Azure AD ディレクトリと、そのディレクトリに対する[全体管理者](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)のアクセス許可を持っている必要があります。 Office 365 または Microsoft の他のビジネス サービスを既に使っている場合は、既に Azure AD ディレクトリをお持ちです。 それ以外の場合は、追加料金なしに[パートナー センターで新しい Azure AD を作成](../publish/associate-azure-ad-with-partner-center.md#create-a-brand-new-azure-ad-to-associate-with-your-partner-center-account)できます。
+* 自分 (または自分の組織) に Azure AD ディレクトリがあり、自分がそのディレクトリに対する[グローバル管理者](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)のアクセス許可を持っている必要があります。 Microsoft 365 または Microsoft の他のビジネス サービスをすでに使用している場合、Azure AD ディレクトリをすでに所有しています。 それ以外の場合は、追加料金なしに[パートナー センターで新しい Azure AD を作成](../publish/associate-azure-ad-with-partner-center.md#create-a-brand-new-azure-ad-to-associate-with-your-partner-center-account)できます。
 
-* Azure AD アプリケーションをパートナーセンターアカウントに関連付けて、アプリケーションのテナント ID とクライアント ID を取得し、キーを生成する必要があります。 Azure AD アプリケーションは、Microsoft Store 分析 API の呼び出し元のアプリまたはサービスを表します。 テナント ID、クライアント ID、およびキーは、API に渡す Azure AD アクセス トークンを取得するために必要です。
+* Azure AD アプリケーションをパートナーセンターアカウントに関連付けて、アプリケーションのテナント ID とクライアント ID を取得し、キーを生成する必要があります。 Azure AD アプリケーションは、Microsoft Store 分析 API の呼び出し元のアプリまたはサービスを表します。 API に渡す Azure AD アクセス トークンを取得するには、テナント ID、クライアント ID、キーが必要です。
     > [!NOTE]
-    > この作業を行うのは一度だけです。 テナント ID、クライアント ID、キーがあれば、新しい Azure AD アクセス トークンの作成が必要になったときに、いつでもそれらを再利用できます。
+    > この作業を行うのは一度だけです。 テナント ID、クライアント ID、キーがあれば、新しい Azure AD アクセス トークンを作成する必要がある度にそれらを再利用できます。
 
 Azure AD アプリケーションをパートナーセンターアカウントに関連付け、必要な値を取得するには、次のようにします。
 
-1.  パートナーセンターで、[組織のパートナーセンターアカウントを組織の Azure AD ディレクトリに関連付け](../publish/associate-azure-ad-with-partner-center.md)ます。
+1.  パートナー センターで、[組織のパートナー センター アカウントを組織の Azure AD ディレクトリに関連付けます](../publish/associate-azure-ad-with-partner-center.md)。
 
-2.  次に、パートナーセンターの **[アカウントの設定]** セクションの **[ユーザー]** ページで、パートナーセンターアカウントの分析データにアクセスするために使用するアプリまたはサービスを表す[Azure AD アプリケーションを追加](../publish/add-users-groups-and-azure-ad-applications.md#add-azure-ad-applications-to-your-partner-center-account)します。 このアプリケーションに必ず**マネージャー** ロールを割り当てます。 アプリケーションが Azure AD ディレクトリにまだ存在しない場合は、[パートナーセンターで新しい Azure AD アプリケーションを作成](../publish/add-users-groups-and-azure-ad-applications.md#create-a-new-azure-ad-application-account-in-your-organizations-directory-and-add-it-to-your-partner-center-account)できます。
+2.  次に、パートナーセンターの [**アカウントの設定**] セクションの [**ユーザー** ] ページで、パートナーセンターアカウントの分析データにアクセスするために使用するアプリまたはサービスを表す[Azure AD アプリケーションを追加](../publish/add-users-groups-and-azure-ad-applications.md#add-azure-ad-applications-to-your-partner-center-account)します。 このアプリケーションに**マネージャー** ロールを確実に割り当てます。 アプリケーションがまだ Azure AD ディレクトリに存在しない場合、[パートナー センターで新しい Azure AD アプリケーションを作成](../publish/add-users-groups-and-azure-ad-applications.md#create-a-new-azure-ad-application-account-in-your-organizations-directory-and-add-it-to-your-partner-center-account)できます。
 
-3.  **[ユーザー]** ページに戻り、Azure AD アプリケーションの名前をクリックしてアプリケーション設定に移動し、 **[テナント ID]** と **[クライアント ID]** の値を書き留めます。
+3.  **[ユーザー]** ページに戻り、Azure AD アプリケーションの名前をクリックしてアプリケーション設定に移動し、**テナント ID** と**クライアント ID** の値を書き留めます。
 
-4. **[新しいキーの追加]** をクリックします。 次の画面で、 **[キー]** の値を書き留めます。 このページから離れると、この情報に再度アクセスすることはできません。 詳しくは、「[Azure AD アプリケーションのキーを管理する方法](../publish/add-users-groups-and-azure-ad-applications.md#manage-keys)」をご覧ください。
+4. **[新しいキーを追加]** をクリックします。 次の画面で、**キー**の値を書き留めます。 このページを離れると、この情報にアクセスすることはできなくなります。 詳細については、「[Azure AD アプリケーションのキーを管理する](../publish/add-users-groups-and-azure-ad-applications.md#manage-keys)」を参照してください。
 
 <span id="obtain-an-azure-ad-access-token" />
 
-## <a name="step-2-obtain-an-azure-ad-access-token"></a>手順 2: Azure AD のアクセス トークンを取得する
+## <a name="step-2-obtain-an-azure-ad-access-token"></a>手順 2:Azure AD アクセス トークンを取得する
 
 Microsoft Store 分析 API のいずれかのメソッドを呼び出す前に、まず API の各メソッドの **Authorization** ヘッダーに渡す Azure AD アクセス トークンを取得する必要があります。 アクセス トークンを取得した後、アクセス トークンを使用できるのは、その有効期限が切れるまでの 60 分間です。 トークンの有効期限が切れた後は、トークンを更新してそれ以降の API 呼び出しで引き続き使用できます。
 
@@ -65,7 +65,7 @@ grant_type=client_credentials
 &resource=https://manage.devcenter.microsoft.com
 ```
 
-[POST URI] と [ *client\_id* ] および [client *\_secret* parameters] の [ *tenant\_id* ] の値について、前のセクションでパートナーセンターから取得したアプリケーションのテナント id、クライアント id、キーを指定します。 *resource* パラメーターには、```https://manage.devcenter.microsoft.com``` を指定します。
+[POST URI] と [*クライアント \_ id* ] と [*クライアント \_ シークレット*] の [*テナント \_ id* ] の値について、前のセクションでパートナーセンターから取得したアプリケーションのテナント id、クライアント id、キーを指定します。 *resource* パラメーターには、```https://manage.devcenter.microsoft.com``` を指定します。
 
 アクセス トークンの有効期限が切れた後は、[この](https://azure.microsoft.com/documentation/articles/active-directory-protocols-oauth-code/#refreshing-the-access-tokens)手順に従って更新できます。
 
@@ -78,8 +78,8 @@ Azure AD アクセス トークンを取得したら、Microsoft Store 分析 AP
 ### <a name="methods-for-uwp-apps-and-games"></a>UWP アプリとゲームのメソッド
 次の方法は、アプリとゲームの取得とアドオンの購入に使用できます。 
 
-* [ゲームとアプリの取得データを取得する](acquisitions-data.md)
-* [お客様のゲームとアプリのアドオンの取得データを入手する](add-on-acquisitions-data.md)
+* [ゲームとアプリの入手データを取得する](acquisitions-data.md)
+* [ゲームとアプリのアドオン入手データを取得する](add-on-acquisitions-data.md)
 
 ### <a name="methods-for-uwp-apps"></a>UWP アプリ向けのメソッド 
 
@@ -87,11 +87,11 @@ Azure AD アクセス トークンを取得したら、Microsoft Store 分析 AP
 
 | シナリオ       | メソッド      |
 |---------------|--------------------|
-| 取得、変換、インストール、および使用 |  <ul><li>[アプリの購入を取得](get-app-acquisitions.md)する (レガシ)</li><li>[アプリ取得じょうごデータを取得](get-acquisition-funnel-data.md)する (レガシ)</li><li>[チャネルによるアプリ変換の取得](get-app-conversions-by-channel.md)</li><li>[アドオンの購入を取得する](get-in-app-acquisitions.md)</li><li>[サブスクリプションのアドオンの取得](get-subscription-acquisitions.md)</li><li>[チャンネル別のアドオン変換を取得する](get-add-on-conversions-by-channel.md)</li><li>[アプリのインストールを取得する](get-app-installs.md)</li><li>[アプリの使用量を毎日取得する](get-app-usage-daily.md)</li><li>[月単位のアプリの使用状況の取得](get-app-usage-monthly.md)</li></ul> |
-| アプリのエラー | <ul><li>[エラーレポートデータの取得](get-error-reporting-data.md)</li><li>[アプリのエラーの詳細を取得する](get-details-for-an-error-in-your-app.md)</li><li>[アプリでエラーのスタックトレースを取得する](get-the-stack-trace-for-an-error-in-your-app.md)</li><li>[アプリでエラーの CAB ファイルをダウンロードする](download-the-cab-file-for-an-error-in-your-app.md)</li></ul> |
-| イン | <ul><li>[アプリの洞察データを取得する](get-insights-data-for-your-app.md)</li></ul>  |
-| 評価とレビュー | <ul><li>[アプリの評価を取得する](get-app-ratings.md)</li><li>[アプリのレビューを取得する](get-app-reviews.md)</li></ul> |
-| アプリ内広告と広告キャンペーン | <ul><li>[Ad パフォーマンスデータを取得する](get-ad-performance-data.md)</li><li>[Ad キャンペーンのパフォーマンスデータを取得する](get-ad-campaign-performance-data.md)</li></ul> |
+| 取得、変換、インストール、および使用 |  <ul><li>[アプリの購入を取得](get-app-acquisitions.md) する (レガシ)</li><li>[アプリ取得じょうごデータを取得](get-acquisition-funnel-data.md) する (レガシ)</li><li>[チャネルごとのアプリのコンバージョンの取得](get-app-conversions-by-channel.md)</li><li>[アドオンの入手数の取得](get-in-app-acquisitions.md)</li><li>[サブスクリプション アドオンの取得数の取得](get-subscription-acquisitions.md)</li><li>[チャネルごとのアドオンのコンバージョンの取得](get-add-on-conversions-by-channel.md)</li><li>[アプリのインストール数の取得](get-app-installs.md)</li><li>[アプリの使用状況 (日単位) の取得](get-app-usage-daily.md)</li><li>[アプリの使用状況 (月単位) の取得](get-app-usage-monthly.md)</li></ul> |
+| アプリのエラー | <ul><li>[エラー報告データの取得](get-error-reporting-data.md)</li><li>[アプリのエラーに関する詳細情報の取得](get-details-for-an-error-in-your-app.md)</li><li>[アプリのエラーに関するスタック トレースの取得](get-the-stack-trace-for-an-error-in-your-app.md)</li><li>[アプリのエラーの CAB ファイルをダウンロードする](download-the-cab-file-for-an-error-in-your-app.md)</li></ul> |
+| 洞察 | <ul><li>[アプリのインサイト データの取得](get-insights-data-for-your-app.md)</li></ul>  |
+| 評価とレビュー | <ul><li>[アプリの評価の取得](get-app-ratings.md)</li><li>[アプリのレビューの取得](get-app-reviews.md)</li></ul> |
+| アプリ内広告と広告キャンペーン | <ul><li>[広告のパフォーマンス データの取得](get-ad-performance-data.md)</li><li>[広告キャンペーンのパフォーマンス データの取得](get-ad-campaign-performance-data.md)</li></ul> |
 
 ### <a name="methods-for-desktop-applications"></a>デスクトップ アプリケーション向けのメソッド
 
@@ -99,10 +99,10 @@ Azure AD アクセス トークンを取得したら、Microsoft Store 分析 AP
 
 | シナリオ       | メソッド      |
 |---------------|--------------------|
-| インストール |  <ul><li>[デスクトップアプリケーションのインストールを取得する](get-desktop-app-installs.md)</li></ul> |
-| Blocks |  <ul><li>[デスクトップアプリケーションのアップグレードブロックを取得する](get-desktop-block-data.md)</li><li>[デスクトップアプリケーションのアップグレードブロックの詳細を取得する](get-desktop-block-data-details.md)</li></ul> |
-| アプリケーション エラー |  <ul><li>[デスクトップアプリケーションのエラーレポートデータを取得する](get-desktop-application-error-reporting-data.md)</li><li>[デスクトップアプリケーションでエラーの詳細を取得する](get-details-for-an-error-in-your-desktop-application.md)</li><li>[デスクトップアプリケーションでエラーのスタックトレースを取得する](get-the-stack-trace-for-an-error-in-your-desktop-application.md)</li><li>[デスクトップアプリケーションでエラーの CAB ファイルをダウンロードする](download-the-cab-file-for-an-error-in-your-desktop-application.md)</li></ul> |
-| イン | <ul><li>[デスクトップアプリケーションの洞察データを取得する](get-insights-data-for-your-desktop-app.md)</li></ul>  |
+| インストール |  <ul><li>[デスクトップ アプリケーションのインストール数の取得](get-desktop-app-installs.md)</li></ul> |
+| Blocks |  <ul><li>[デスクトップ アプリケーションのアップグレード ブロックの取得](get-desktop-block-data.md)</li><li>[デスクトップ アプリケーションのアップグレード ブロックの詳細情報の取得](get-desktop-block-data-details.md)</li></ul> |
+| アプリケーション エラー |  <ul><li>[デスクトップ アプリケーションのエラー報告データの取得](get-desktop-application-error-reporting-data.md)</li><li>[デスクトップ アプリケーションのエラーに関する詳細情報の取得](get-details-for-an-error-in-your-desktop-application.md)</li><li>[デスクトップ アプリケーションのエラーに関するスタック トレースの取得](get-the-stack-trace-for-an-error-in-your-desktop-application.md)</li><li>[デスクトップ アプリケーションのエラーの CAB ファイルをダウンロードする](download-the-cab-file-for-an-error-in-your-desktop-application.md)</li></ul> |
+| 洞察 | <ul><li>[デスクトップ アプリケーションのインサイト データの取得](get-insights-data-for-your-desktop-app.md)</li></ul>  |
 
 ### <a name="methods-for-xbox-live-services"></a>Xbox Live サービス向けのメソッド
 
@@ -110,13 +110,13 @@ Azure AD アクセス トークンを取得したら、Microsoft Store 分析 AP
 
 | シナリオ       | メソッド      |
 |---------------|--------------------|
-| 一般的な分析 |  <ul><li>[Xbox ライブ分析データを取得する](get-xbox-live-analytics.md)</li><li>[Xbox Live アチーブメントデータを取得する](get-xbox-live-achievements-data.md)</li><li>[Xbox ライブの同時使用状況データの取得](get-xbox-live-concurrent-usage-data.md)</li></ul> |
-| 正常性分析 |  <ul><li>[Xbox Live 正常性データを取得する](get-xbox-live-health-data.md)</li></ul> |
-| コミュニティ分析 |  <ul><li>[Xbox Live Game Hub データを取得する](get-xbox-live-game-hub-data.md)</li><li>[Xbox Live クラブデータを取得する](get-xbox-live-club-data.md)</li><li>[Xbox Live のマルチプレイヤーデータを取得する](get-xbox-live-multiplayer-data.md)</li></ul>  |
+| 一般的な分析 |  <ul><li>[Xbox Live の分析データの取得](get-xbox-live-analytics.md)</li><li>[Xbox Live の実績データの取得](get-xbox-live-achievements-data.md)</li><li>[Xbox Live の同時使用状況データの取得](get-xbox-live-concurrent-usage-data.md)</li></ul> |
+| 正常性分析 |  <ul><li>[Xbox Live の正常性データの取得](get-xbox-live-health-data.md)</li></ul> |
+| コミュニティ分析 |  <ul><li>[Xbox Live ゲーム ハブのデータの取得](get-xbox-live-game-hub-data.md)</li><li>[Xbox Live クラブのデータの取得](get-xbox-live-club-data.md)</li><li>[Xbox Live のマルチプレイヤー データの取得](get-xbox-live-multiplayer-data.md)</li></ul>  |
 
 ### <a name="methods-for-hardware-and-drivers"></a>ハードウェアとドライバー向けのメソッド
 
-[Windows ハードウェアダッシュボードプログラム](https://docs.microsoft.com/windows-hardware/drivers/dashboard/get-started-with-the-hardware-dashboard)に属する開発者アカウントは、ハードウェアおよびドライバーの分析データを取得するための一連のメソッドにアクセスできます。 詳細については、「[ハードウェアダッシュボード API](https://docs.microsoft.com/windows-hardware/drivers/dashboard/dashboard-api)」を参照してください。
+[Windows ハードウェアダッシュボードプログラム](https://docs.microsoft.com/windows-hardware/drivers/dashboard/get-started-with-the-hardware-dashboard)に属する開発者アカウントは、ハードウェアおよびドライバーの分析データを取得するための一連のメソッドにアクセスできます。 詳細については、「 [ハードウェアダッシュボード API](https://docs.microsoft.com/windows-hardware/drivers/dashboard/dashboard-api)」を参照してください。
 
 ## <a name="code-example"></a>コードの例
 

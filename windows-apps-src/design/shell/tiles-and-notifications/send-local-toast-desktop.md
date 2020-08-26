@@ -6,18 +6,18 @@ label: Send a local toast notification from desktop C# apps
 template: detail.hbs
 ms.date: 01/23/2018
 ms.topic: article
-keywords: windows 10、uwp、win32、デスクトップ、トースト通知、トースト送信、ローカルトースト、デスクトップブリッジ、msix、スパースパッケージ、C#、C シャープ、トースト通知、wpf
+keywords: windows 10、uwp、win32、デスクトップ、トースト通知、トースト送信、ローカルトースト、デスクトップブリッジ、msix、スパースパッケージ、C#、C シャープ、トースト通知、wpf、送信トースト通知 wpf、送信トースト通知 winforms、送信トースト通知 c#、送信通知 wpf、送信通知 c#、トースト通知 wpf、トースト通知 C#
 ms.localizationpriority: medium
-ms.openlocfilehash: 6f1eef86045f44fa75363b54fa58e3e7089d64e0
-ms.sourcegitcommit: e1104689fc1db5afb85701205c2580663522ee6d
+ms.openlocfilehash: 8a339a4f2dca52a9bc04b1bba92f149a3e627878
+ms.sourcegitcommit: 720413d2053c8d5c5b34d6873740be6e913a4857
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86997929"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88846752"
 ---
 # <a name="send-a-local-toast-notification-from-desktop-c-apps"></a>デスクトップ C# アプリからのローカル トースト通知の送信
 
-デスクトップアプリ (パッケージ化された[Msix](https://docs.microsoft.com/windows/msix/desktop/source-code-overview)アプリ、[スパースパッケージ](https://docs.microsoft.com/windows/apps/desktop/modernize/grant-identity-to-nonpackaged-apps)を使用してパッケージ id を取得するアプリ、および従来のパッケージ化されていない Win32 アプリを含む) は、Windows アプリと同様に対話型のトースト通知を送信できます。 ただし、さまざまなライセンス認証スキームと、MSIX またはスパースパッケージを使用していない場合、パッケージ id が存在しない可能性があるため、デスクトップアプリにはいくつかの特別な手順があります。
+デスクトップアプリ (パッケージ化された [Msix](https://docs.microsoft.com/windows/msix/desktop/source-code-overview) アプリ、 [スパースパッケージ](https://docs.microsoft.com/windows/apps/desktop/modernize/grant-identity-to-nonpackaged-apps) を使用してパッケージ id を取得するアプリ、および従来のパッケージ化されていない Win32 アプリを含む) は、Windows アプリと同様に対話型のトースト通知を送信できます。 ただし、さまざまなライセンス認証スキームと、MSIX またはスパースパッケージを使用していない場合、パッケージ id が存在しない可能性があるため、デスクトップアプリにはいくつかの特別な手順があります。
 
 > [!IMPORTANT]
 > UWP アプリを作成している場合は、[UWP のドキュメント](send-local-toast.md) をご覧ください。 その他のデスクトップ言語については、[デスクトップ C++ WRLに関するページ](send-local-toast-desktop-cpp-wrl.md) をご覧ください。
@@ -27,14 +27,14 @@ ms.locfileid: "86997929"
 
 `Microsoft.Toolkit.Uwp.Notifications` [NuGet パッケージ](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/)をプロジェクトにインストールします。
 
-この[通知ライブラリ](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/)には、デスクトップアプリからのトースト通知を操作するための互換性ライブラリコードが追加されています。 また、UWP Sdk を参照し、生の XML ではなく、C# を使用して通知を作成することもできます。 このクイックスタートの残りの部分は、通知ライブラリによって異なります。
+この [通知ライブラリ](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/) には、デスクトップアプリからのトースト通知を操作するための互換性ライブラリコードが追加されています。 また、UWP Sdk を参照し、生の XML ではなく、C# を使用して通知を作成することもできます。 このクイックスタートの残りの部分は、通知ライブラリによって異なります。
 
 
 ## <a name="step-2-implement-the-activator"></a>手順 2: アクティベーターを実装する
 
 トーストをアクティブ化するためのハンドラーを実装する必要があります。これにより、ユーザーがトーストをクリックすると、アプリで何らかの処理を実行できるようになります。 これは、アクション センターにトーストを継続的に表示するために必要です (トーストは、数日後、アプリが閉じているときにクリックされる可能性があります)。 このクラスは、プロジェクトの任意の位置に指定できます。
 
-新しい**Mynotificationactivator**クラスを作成し、 **notificationactivator**クラスを拡張します。 以下に示す3つの属性を追加し、多数のオンライン GUID ジェネレーターのいずれかを使用して、アプリの一意の GUID CLSID を作成します。 アクション センターは、この CLSID (クラス識別子) に基づいて、COM アクティブ化するクラスを認識します。
+新しい **Mynotificationactivator** クラスを作成し、 **notificationactivator** クラスを拡張します。 以下に示す3つの属性を追加し、多数のオンライン GUID ジェネレーターのいずれかを使用して、アプリの一意の GUID CLSID を作成します。 アクション センターは、この CLSID (クラス識別子) に基づいて、COM アクティブ化するクラスを認識します。
 
 **MyNotificationActivator.cs** (このファイルを作成する)
 
@@ -66,7 +66,7 @@ public class MyNotificationActivator : NotificationActivator
 2. **xmlns:desktop** のための宣言
 3. **IgnorableNamespaces** 属性に **com** と **desktop** を追加
 4. **com:** 手順 #2 の GUID を使用して、com アクティベーターの拡張機能。 トーストから起動されたことがわかるように、必ず、`Arguments="-ToastActivated"` を指定します。
-5. **desktop:** **Windows. toastNotificationActivation**の拡張機能を使用して、トーストアクティベーター CLSID (手順 #2 の GUID) を宣言します。
+5. **desktop:** **Windows. toastNotificationActivation** の拡張機能を使用して、トーストアクティベーター CLSID (手順 #2 の GUID) を宣言します。
 
 **Package.appxmanifest**
 
@@ -134,7 +134,7 @@ public class MyNotificationActivator : NotificationActivator
 
 ### <a name="step-32-register-aumid-and-com-server"></a>手順 3.2: AUMID と COM サーバーを登録する
 
-次に、アプリのスタートアップコード (通知 Api を呼び出す前) で、インストーラーに関係なく、 **RegisterAumidAndComServer**メソッドを呼び出して、手順 #2 で通知アクティベータークラスを指定し、上で使用した AUMID を指定します。
+次に、アプリのスタートアップコード (通知 Api を呼び出す前) で、インストーラーに関係なく、 **RegisterAumidAndComServer** メソッドを呼び出して、手順 #2 で通知アクティベータークラスを指定し、上で使用した AUMID を指定します。
 
 ```csharp
 // Register AUMID and COM server (for MSIX/sparse package apps, this no-ops)
@@ -152,7 +152,7 @@ MSIX/スパースパッケージと従来の Win32 の両方をサポートし�
 
 MSIX/スパースパッケージと従来の Win32 アプリの両方について、トーストのアクティベーションを処理できるように、通知アクティベーターの種類を登録する必要があります。
 
-アプリのスタートアップコードで、次の**registeractivator**メソッドを呼び出し、手順 #2 で作成した**notificationactivator**クラスの実装を渡します。 これにより、トーストのアクティブ化を受信できるようになります。
+アプリのスタートアップコードで、次の **registeractivator** メソッドを呼び出し、手順 #2 で作成した **notificationactivator** クラスの実装を渡します。 これにより、トーストのアクティブ化を受信できるようになります。
 
 ```csharp
 // Register COM server and activator type
@@ -167,7 +167,7 @@ DesktopNotificationManagerCompat.RegisterActivator<MyNotificationActivator>();
 > [!NOTE]
 > [Notifications ライブラリ](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/) をインストールすると、以下に示すように、生の XML ではなく、C# を使って通知を作成できます。
 
-レガシ Windows 8.1 トースト通知テンプレートでは、手順 #2 で作成した COM 通知アクティベーターがアクティブにならないため、以下に示す**Toastcontent** (または Toastcontent テンプレート) を使用してください。
+レガシ Windows 8.1 トースト通知テンプレートでは、手順 #2 で作成した COM 通知アクティベーターがアクティブにならないため、以下に示す **Toastcontent** (または Toastcontent テンプレート) を使用してください。
 
 > [!IMPORTANT]
 > Http イメージは、マニフェストにインターネット機能を持つ MSIX/スパースパッケージアプリでのみサポートされています。 従来の Win32 アプリは http イメージをサポートしていないため、ローカル アプリ データにイメージをダウンロードし、それをローカルに参照する必要があります。
@@ -338,7 +338,7 @@ DesktopNotificationManagerCompat.History.Clear();
 
 ## <a name="step-8-deploying-and-debugging"></a>手順 8: 配置とデバッグ
 
-MSIX アプリをデプロイしてデバッグする方法については、「[パッケージ化されたデスクトップアプリの実行、デバッグ、およびテスト](/windows/uwp/porting/desktop-to-uwp-debug)」を参照してください。
+MSIX アプリをデプロイしてデバッグする方法については、「 [パッケージ化されたデスクトップアプリの実行、デバッグ、およびテスト](/windows/uwp/porting/desktop-to-uwp-debug)」を参照してください。
 
 従来の Win32 アプリを展開およびデバッグするには、通常のデバッグ前に、アプリをインストーラー経由でインストールして、AUMID と CLSID を使用したスタート ショートカットを表示する必要があります。 スタート ショートカットが表示された後は、Visual Studio で F5 キーを使用してデバッグできます。
 

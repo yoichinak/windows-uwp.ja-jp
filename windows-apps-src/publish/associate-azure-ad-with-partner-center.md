@@ -1,82 +1,82 @@
 ---
-Description: 追加し、アカウントのユーザーを管理するために、組織の Azure Active Directory で最初に、パートナー センター アカウントを関連付ける必要があります。
-title: Azure Active Directory をパートナー センター アカウントに関連付ける
+Description: アカウントユーザーを追加して管理するには、最初にパートナーセンターアカウントを組織の Azure Active Directory に関連付ける必要があります。
+title: Azure Active Directory をパートナーセンターアカウントに関連付ける
 ms.date: 10/31/2018
 ms.topic: article
 keywords: windows 10, uwp, azure ad, azure テナント, aad テナント, azure ad テナント, テナント管理, テナント
 ms.localizationpriority: medium
-ms.openlocfilehash: 5d830fb3a984faecd93519b4e682ade59077d2d6
-ms.sourcegitcommit: fca0132794ec187e90b2ebdad862f22d9f6c0db8
+ms.openlocfilehash: fa26f4ea3fa91f43dea117ff5ffd2fec87514544
+ms.sourcegitcommit: 720413d2053c8d5c5b34d6873740be6e913a4857
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63787229"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88846762"
 ---
-# <a name="associate-azure-active-directory-with-your-partner-center-account"></a>Azure Active Directory をパートナー センター アカウントに関連付ける
+# <a name="associate-azure-active-directory-with-your-partner-center-account"></a>Azure Active Directory をパートナーセンターアカウントに関連付ける
 
-[を追加し、アカウントのユーザーを管理する](add-users-groups-and-azure-ad-applications.md)、最初に、組織の Azure Active Directory で、パートナー センター アカウントを関連付ける必要があります。 
+[アカウントユーザーを追加して管理](add-users-groups-and-azure-ad-applications.md)するには、最初にパートナーセンターアカウントを組織の Azure Active Directory に関連付ける必要があります。 
 
-[パートナー センター](https://partner.microsoft.com/dashboard)マルチ ユーザー アカウントのアクセスと管理のために Azure AD を活用します。 組織で Office 365 または Microsoft の他のビジネス サービスが既に使用されている場合は、既に Azure AD をお持ちです。 それ以外の場合、作成、新しい Azure AD テナントからパートナー センター内で無料になります。
+[パートナーセンター](https://partner.microsoft.com/dashboard) では、マルチユーザーアカウントのアクセスと管理に Azure AD を活用します。 組織で既に Microsoft の Microsoft 365 またはその他のビジネスサービスを使用している場合は、既に Azure AD があります。 それ以外の場合は、追加料金なしで、パートナーセンター内から新しい Azure AD テナントを作成することができます。
 
 > [!TIP]
-> このトピックでは、Windows アプリ開発者プログラムに特定されて[パートナー センター](https://partner.microsoft.com/dashboard)、Windows デスクトップ アプリケーションにアカウントのテナントに関連付けると、ユーザーの管理は同様に (を参照してください[Windowsデスクトップ アプリケーション プログラム](https://docs.microsoft.com/windows/desktop/appxpkg/windows-desktop-application-program#add-and-manage-account-users)詳細については) と、Windows ハードウェア開発者プログラム (場所への参照、 **Manager**ロールとハードウェアのアカウントにも適用、**管理者**ロール; を参照してください[ダッシュ ボード管理](https://docs.microsoft.com/windows-hardware/drivers/dashboard/dashboard-administration)の詳細)。
+> このトピックは、[パートナーセンター](https://partner.microsoft.com/dashboard)の windows アプリ開発者プログラムに固有のものですが、テナントの関連付けとユーザーの管理は、Windows デスクトップアプリケーションプログラムのアカウント (詳細については「 [Windows デスクトップアプリケーションプログラム](https://docs.microsoft.com/windows/desktop/appxpkg/windows-desktop-application-program#add-and-manage-account-users)」を参照してください) および Windows ハードウェア**開発者プログラム**(詳細について**は、「** [ダッシュボードの管理](https://docs.microsoft.com/windows-hardware/drivers/dashboard/dashboard-administration)」を参照してください)。
 
-1 つの Azure AD テナントが複数のパートナー センター アカウントに関連付けることができます。 複数のアカウント ユーザーを追加するには、パートナー センター アカウントに関連付けられている 1 つの Azure AD テナントを設定するだけで済みますが、1 つのパートナー センター アカウントに複数の Azure AD テナントを追加するオプションもあります。 すべてのユーザーが、 **Manager**ロール、パートナー センター アカウントには追加し、アカウントから Azure AD テナントを削除することが可能です。
-
-> [!IMPORTANT]
-> パートナー センター アカウントを関連付けるには、Azure AD テナントと、追加し、そのテナント内のアカウント ユーザーを管理するためにする必要があります、同じテナントを持つユーザーとして、パートナー センターにサインインする、 **Manager**ロール。
-
-
-## <a name="associate-your-partner-center-account-with-your-organizations-existing-azure-ad-tenant"></a>パートナー センター アカウントを組織の既存の Azure AD テナントに関連付ける
-
-組織が既に Azure AD を使用する場合は、パートナー センター アカウントをリンクする次の手順に従います。
-
-1.  [パートナー センター](https://partner.microsoft.com/dashboard)、ダッシュ ボードの上部の右下隅) の近くの歯車アイコンを選択し、[**開発者設定が**します。 **設定**メニューの **テナント**します。
-2.  選択**Azure AD に関連付けられた、パートナー センター アカウント**します。
-3.  関連付けるテナントの Azure AD 資格情報を入力します。
-4.  Azure AD テナントの組織とドメイン名を確認します。 関連付けを完了するには、**[確認]** を選びます。
-5.  追加し、アカウントのユーザーを管理する準備ができます、アソシエーションが成功した場合、**ユーザー**パートナー センターの「します。
+1つの Azure AD テナントを複数のパートナーセンターアカウントに関連付けることができます。 複数のアカウントユーザーを追加するために必要なのは、パートナーセンターアカウントに関連付けられている Azure AD テナント1つだけですが、複数の Azure AD テナントを1つのパートナーセンターアカウントに追加するオプションもあります。 パートナー センター アカウントにおける**マネージャー** ロールのユーザーが、そのアカウントに対して Azure AD テナントを追加したり削除したりすることができます。
 
 > [!IMPORTANT]
-> 新しいユーザーを作成したり、Azure AD に他の変更を加えたりするには、[グローバル管理者のアクセス許可](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)を持つアカウントを使ってその Azure AD にサインインする必要があります。 ただし、またはそのテナントで、パートナー センター アカウントに既に存在するユーザーを追加する、テナントを関連付けるためには、グローバル管理者のアクセス許可を必要はありません。
+> パートナーセンターアカウントを Azure AD テナントに関連付けると、そのテナントのアカウントユーザーを追加して管理するために、 **マネージャー** ロールを持つ同じテナントのユーザーとしてパートナーセンターにサインインする必要があります。
 
 
-## <a name="create-a-brand-new-azure-ad-to-associate-with-your-partner-center-account"></a>パートナー センター アカウントに関連付ける新しい Azure AD を作成します。
+## <a name="associate-your-partner-center-account-with-your-organizations-existing-azure-ad-tenant"></a>パートナーセンターアカウントを組織の既存の Azure AD テナントに関連付ける
 
-パートナー センター アカウントとリンクする新しい Azure AD を設定する必要がある場合は次の手順に従います。
+組織で既に Azure AD を使用している場合は、次の手順に従ってパートナーセンターアカウントをリンクします。
 
-1.  [パートナー センター](https://partner.microsoft.com/dashboard)、ダッシュ ボードの上部の右下隅) の近くの歯車アイコンを選択し、[**開発者設定が**します。 **設定**メニューの **テナント**します。
+1.  [パートナーセンター](https://partner.microsoft.com/dashboard)で、歯車アイコン (ダッシュボードの右上隅の近く) を選択し、[**開発者向け設定**] を選択します。 [ **設定** ] メニューの [ **テナント**] を選択します。
+2.  [ **Azure AD をパートナーセンターアカウントに関連付ける**] を選択します。
+3.  関連付けたいテナントの Azure AD 資格情報を入力します。
+4.  Azure AD テナントの組織とドメイン名を確認します。 関連付けを完了するには、 **[Confirm]\(確定\)** を選択します。
+5.  関連付けに成功した場合、パートナー センターの **[ユーザー]** セクションで、アカウントのユーザーを追加したり管理したりできるようになります。
+
+> [!IMPORTANT]
+> 新しいユーザーを作成したり、Azure AD に他の変更を加えたりするには、[グローバル管理者のアクセス許可](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)を持つアカウントを使ってその Azure AD にサインインする必要があります。 ただし、テナントを関連付けるため、またはそのテナントに既に存在するユーザーをパートナーセンターアカウントに追加するために、グローバル管理者のアクセス許可は必要ありません。
+
+
+## <a name="create-a-brand-new-azure-ad-to-associate-with-your-partner-center-account"></a>パートナーセンターアカウントに関連付ける新しい Azure AD を作成する
+
+パートナーセンターアカウントとリンクする新しい Azure AD を設定する必要がある場合は、次の手順を実行します。
+
+1.  [パートナーセンター](https://partner.microsoft.com/dashboard)で、歯車アイコン (ダッシュボードの右上隅の近く) を選択し、[**開発者向け設定**] を選択します。 [ **設定** ] メニューの [ **テナント**] を選択します。
 2.  **[新しい Azure AD の作成]** を選びます。
 3.  新しい Azure AD のディレクトリ情報を入力します。
-    - **ドメイン名**:と共に、Azure AD ドメインを使用する一意の名前". onmicrosoft.com"。 たとえば、「example」と入力した場合、Azure AD ドメインは "example.onmicrosoft.com" になります。
-    - **連絡先の電子メール**:電子メール アドレスをお送りするため、アカウントに関する必要な場合。
-    - **グローバル管理者ユーザー アカウント情報**:名、姓、ユーザー名、および新しいのグローバル管理者アカウントを使用するパスワード。
+    - **ドメイン名**: "onmicrosoft.com" と共に Azure AD ドメインに使用する一意の名前。 たとえば、「example」と入力した場合、Azure AD ドメインは "example.onmicrosoft.com" になります。
+    - **連絡先の電子メール**: ご利用のアカウントに関して、Microsoft がパートナー様に連絡する際のメール アドレス。
+    - **グローバル管理者ユーザー アカウント情報**: 新しいグローバル管理者アカウントに使用する名、姓、ユーザー名、パスワード。
 4.  **[作成]** をクリックして、新しいドメインとアカウントの情報を確定します。
 5.  新しい Azure AD 全体管理者のユーザー名とパスワードでサインインすると、[追加のアカウント ユーザーを追加および管理](add-users-groups-and-azure-ad-applications.md)を開始できます。
 
 
 ## <a name="manage-azure-ad-tenant-associations"></a>Azure AD テナントの関連付けの管理
 
-パートナー センター アカウントと Azure AD テナントを関連付けた後は、新しいテナントを追加または既存のテナントからの削除、**テナント**ページ。
+Azure AD テナントをパートナーセンターアカウントに関連付けたら、新しいテナントを追加したり、[ **テナント** ] ページから既存のテナントを削除したりできます。
 
 
-### <a name="add-multiple-azure-ad-tenants-to-your-partner-center-account"></a>パートナー センター アカウントに複数の Azure AD テナントを追加します。
+### <a name="add-multiple-azure-ad-tenants-to-your-partner-center-account"></a>パートナーセンターアカウントに複数の Azure AD テナントを追加する
 
-あるユーザーに対して、 **Manager**パートナー センター アカウントのロールは、アカウントを使用して Azure AD テナントを関連付けることができます。
+パートナーセンターアカウントの **マネージャー** ロールを持つユーザーは、Azure AD テナントをそのアカウントに関連付けることができます。
 
 新しいテナントを関連付けるには、**[別の Azure AD テナントの関連付け]** を選び、上記の手順に従います。 関連付ける Azure AD テナントの資格情報が求められる点に注意してください。
 
 
-### <a name="remove-an-azure-ad-tenant-from-your-partner-center-account"></a>パートナー センター アカウントから Azure AD テナントを削除します。
+### <a name="remove-an-azure-ad-tenant-from-your-partner-center-account"></a>パートナーセンターアカウントから Azure AD テナントを削除する
 
-あるユーザーに対して、 **Manager**パートナー センター アカウントのロールは、アカウントからの Azure AD テナントを削除することができます。
+パートナーセンターアカウントの **マネージャー** ロールを持つユーザーは、アカウントから Azure AD テナントを削除できます。
 
 > [!IMPORTANT]
-> テナントを削除すると、パートナー センター アカウントにそのテナントから追加されたすべてのユーザーは、アカウントにサインインすることできなきます。 
+> テナントを削除すると、そのテナントからパートナー センター アカウントに追加されていたユーザーはだれも、そのアカウントにサインインできなくなります。 
 
-テナントを削除するには、上の名前を検索、**テナント**ページ (で**アカウント設定**) を選択し、**削除**します。 テナントの削除を確認するメッセージが表示されます。 そうと、パートナー センター アカウントにサインインすることはそのテナント内のユーザーはありませんし、それらのユーザー用に構成したすべてのアクセス許可は削除されます。
+テナントを削除するには、[ **テナント** ] ページ ([ **アカウントの設定**]) で名前を確認し、[ **削除**] を選択します。 テナントを削除してよいか確認するメッセージが表示されます。 これを行うと、そのテナント内のユーザーはだれもパートナー センター アカウントにサインインできなくなり、また、それらのユーザーに対して構成したアクセス許可も削除されます。
 
 > [!TIP]
-> 現在にサインインするパートナー センター アカウントを使用して、同じテナント内の場合は、テナントを削除できません。 テナントを削除するにはパートナー センターにサインインする必要があります、 **Manager**アカウントに関連付けられている別のテナント。 アカウントにテナントが 1 つだけ関連付けられている場合、アカウントを開いた Microsoft アカウントを使ってサインインした後のみそのテナントを削除できます。
+> パートナー センターへのサインインに使用しているテナント内のアカウントを使用して、そのテナントを削除することはできません。 テナントを削除するには、アカウントに関連付けられている別のテナントの**マネージャー**として、パートナー センターにサインインする必要があります。 アカウントに関連付けられているテナントが 1 つしかない場合、そのテナントを削除するには、そのアカウントを開いた Microsoft アカウントでサインインする必要があります。
 
 

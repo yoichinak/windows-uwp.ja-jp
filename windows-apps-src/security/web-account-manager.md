@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp, セキュリティ
 ms.assetid: ec9293a1-237d-47b4-bcde-18112586241a
 ms.localizationpriority: medium
-ms.openlocfilehash: e5b835c837ca750f2ccc1ebad9ec119047b02ce7
-ms.sourcegitcommit: 97d2ef33253af210ad2d4f036b4820056ff03f62
+ms.openlocfilehash: 7cf4cfa4b87842cd7113b36220cdfdff69449a3a
+ms.sourcegitcommit: 720413d2053c8d5c5b34d6873740be6e913a4857
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85441629"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88846792"
 ---
 # <a name="web-account-manager"></a>Web アカウント マネージャー
 
@@ -20,7 +20,7 @@ ms.locfileid: "85441629"
 > [!NOTE]
 > 完全なコード サンプルについては、[GitHub の WebAccountManagement サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/WebAccountManagement)をご覧ください。
 
-## <a name="get-set-up"></a>準備
+## <a name="get-set-up"></a>事前準備する
 
 まず、Visual Studio で新しい空白のアプリを作成します。 
 
@@ -172,9 +172,9 @@ private async void GetMsaTokenAsync(WebAccountProviderCommand command)
 }
 ```
 
-この例では、文字列 "wl" を_スコープ_パラメーターに渡します。 スコープは、特定のユーザーの提供サービスから要求する情報の種類を表します。 スコープには、名前やメール アドレスなど、ユーザーの基本情報のみへのアクセス権を与えるものや、ユーザーの写真やメールの受信トレイなど、機密情報へのアクセス権を与えるものもあります。 一般的に、アプリではその機能を実行するために必要な最も制限の多いスコープが使われます。 サービス プロバイダーからは、サービス プロバイダーのサービスで使うトークンを取得する場合に必要となるスコープについて示したドキュメントが提供されます。 
+この例では、文字列 "wl" を _スコープ_ パラメーターに渡します。 スコープは、特定のユーザーの提供サービスから要求する情報の種類を表します。 スコープには、名前やメール アドレスなど、ユーザーの基本情報のみへのアクセス権を与えるものや、ユーザーの写真やメールの受信トレイなど、機密情報へのアクセス権を与えるものもあります。 一般的に、アプリではその機能を実行するために必要な最も制限の多いスコープが使われます。 サービス プロバイダーからは、サービス プロバイダーのサービスで使うトークンを取得する場合に必要となるスコープについて示したドキュメントが提供されます。 
 
-* Office 365 と Outlook.com のスコープについては、「[v2.0 認証エンドポイントを使用した Office 365 および Outlook.com の API の認証](https://developer.microsoft.com/graph/docs/concepts/auth_overview)」をご覧ください。 
+* Microsoft 365 スコープと Outlook.com スコープについては、「 [Outlook REST API を使用する (バージョン 2.0)](/previous-versions/office/office-365-api/api/version-2.0/use-outlook-rest-api)」を参照してください。 
 * OneDrive のスコープについては、「[OneDrive の認証とサインイン](https://dev.onedrive.com/auth/msa_oauth.htm#authentication-scopes)」をご覧ください。 
 
 > [!TIP]
@@ -351,7 +351,7 @@ private async Task SignOutAccountAsync(WebAccount account)
 
 ## <a name="add-providers-that-dont-support-webaccountmanager"></a>WebAccountManager をサポートしていないプロバイダーの追加
 
-サービスからの認証をアプリに統合するが、そのサービスが WebAccountManager (Google + または Twitter) をサポートしていない場合でも、そのプロバイダーを手動で**AccountsSettingsPane**に追加することができます。 これを行うには、新しい WebAccountProvider オブジェクトを作成し、独自の名前と .png アイコンを指定してから、WebAccountProviderCommands リストに追加します。 いくつかのスタブ コードを次に示します。 
+サービスからの認証をアプリに統合するが、そのサービスが WebAccountManager (Google + または Twitter) をサポートしていない場合でも、そのプロバイダーを手動で **AccountsSettingsPane**に追加することができます。 これを行うには、新しい WebAccountProvider オブジェクトを作成し、独自の名前と .png アイコンを指定してから、WebAccountProviderCommands リストに追加します。 いくつかのスタブ コードを次に示します。 
 
  ```csharp
 private async void BuildPaneAsync(AccountsSettingsPane s, AccountsSettingsPaneCommandsRequestedEventArgs e)
