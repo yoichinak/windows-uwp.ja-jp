@@ -6,12 +6,12 @@ ms.date: 04/17/2019
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: 31d7805e7ae936e5c7427b54f2eb9b0ad4b4c3e9
-ms.sourcegitcommit: 37e4af3ba203295c7e88448414cf7ea537ab5402
+ms.openlocfilehash: c871149f764024de41309f21dbd036848633a2af
+ms.sourcegitcommit: 720413d2053c8d5c5b34d6873740be6e913a4857
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84257383"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88846732"
 ---
 # <a name="modernize-your-desktop-apps"></a>デスクトップ アプリの現代化
 
@@ -97,7 +97,7 @@ UWP 以外のデスクトップ アプリで Windows ランタイム API を使�
 
 Microsoft Graph は、数百万に及ぶユーザーのデータとやり取りする組織やコンシューマーがアプリの構築に使用できる API のコレクションです。 Microsoft Graph では、次のデータにアクセスするための REST API とクライアント ライブラリが公開されます。
 * Azure Active Directory
-* Office 365 サービス:SharePoint、OneDrive、Outlook/Exchange、Microsoft Teams、OneNote、Planner、Excel
+* Microsoft 365 Office アプリ:SharePoint、OneDrive、Outlook/Exchange、Microsoft Teams、OneNote、Planner、Excel
 * Enterprise Mobility および Security サービス:Identity Manager、Intune、Advanced Threat Analytics、Advanced Threat Protection
 * Windows 10 サービス: アクティビティとデバイス
 
