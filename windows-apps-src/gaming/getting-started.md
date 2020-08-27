@@ -1,77 +1,77 @@
 ---
-title: 概要
-description: ゲーム開発の学習ガイド
+title: はじめに
+description: このクイックスタートガイドに従って、Windows または Xbox のゲーム開発をすぐに開始する方法について説明します。
 ms.assetid: 40490837-6c7f-4f82-96b5-14f6858982b3
 ms.date: 01/25/2018
 ms.topic: article
-keywords: windows 10、uwp、ゲーム、作業の開始
+keywords: windows 10、uwp、ゲーム、はじめに
 localizationpriority: medium
-ms.openlocfilehash: c0d819322e7e9479772f8ca3d72bbdcdb4d192b8
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: eb2feeaa7d4ad67ecb9d6b54c5bc275faf9cc0bd
+ms.sourcegitcommit: eb725a47c700131f5975d737bd9d8a809e04943b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67321268"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88970240"
 ---
-# <a name="getting-started"></a>概要
+# <a name="getting-started"></a>作業の開始
 
-この記事では、ファースト ステップ ガイドでは、Windows、Xbox のゲームの開発を希望する作成者用です。 
+この記事は、Windows または Xbox でゲームを開発するための入門ガイドです。 
 
-必要な情報を探すのに役立ついくつかの質問を次に示します。
-* すべての詳細が必要し、する、経験豊富なゲーム開発者ですか。 参照してください、 [Windows 10 ゲームの開発ガイド](e2e.md)します。
-* コーディングにまったく新しいですか。 ような何か楽しい、[コードのチュートリアルの Minecraft 時間](https://code.org/minecraft)関心のある可能性があります。
-* 優れたゲームをプレイする探しだけですか。 チェック アウト、 [Microsoft Store](https://www.microsoft.com/store)します。
-* Windows または Xbox 向けの優れたゲームの開発を開始する準備ができてですか。  適切な場所にできました。
+次に、必要な情報の検索に役立ついくつかの質問を示します。
+* ゲーム開発者が経験していて、すべての情報を必要としていますか。 「 [Windows 10 ゲーム開発ガイド](e2e.md)」を参照してください。
+* コーディングについてはまったく新しいことがありますか。 [コードチュートリアルの Minecraft](https://code.org/minecraft)のような楽しいものがあります。
+* 遊びたいゲームを探しているだけです。 [Microsoft Store](https://www.microsoft.com/store)を確認します。
+* Windows または Xbox の優れたゲーム開発を始める準備はできましたか?  お客様は正しい場所にあります。
 
 ## <a name="quick-start-guide"></a>クイック スタート ガイド
 
-ゲームの開発をすぐに取得する手順を実行します。
+ゲームをすぐに開発するための手順です。
 
-### <a name="step-1-get-the-software-and-tools"></a>手順 1:ソフトウェアとツールを取得します。
+### <a name="step-1-get-the-software-and-tools"></a>手順 1: ソフトウェアとツールを入手する
 
-最新を Windows 10 のデバイスにインストールして確認します。 更新プログラムをインストールします。
+デバイスに Windows 10 がインストールされており、最新の更新プログラムがインストールされていることを確認します。
 
-Visual Studio などの適切な IDE をインストールします。 Visual Studio Community 2017 では無償でダウンロードします。 詳細については、次を参照してください。 [Visual Studio のダウンロード](https://visualstudio.microsoft.com/downloads/)します。
+Visual Studio のような適切な IDE をインストールします。 Visual Studio Community 2017 は無料でダウンロードできます。 詳細については、「 [Visual Studio のダウンロード](https://visualstudio.microsoft.com/downloads/)」を参照してください。
 
-ゲーム エンジンとその他のミドルウェアを使用する場合は「[ブリッジ、ゲーム エンジン、およびミドルウェア](e2e.md#bridges-game-engines-and-middleware)セクション、 [Windows 10 ゲームの開発ガイド](e2e.md)します。 特定のゲーム エンジンを使用して Windows と Xbox のゲームの開発については、ゲーム エンジンのドキュメントに移動する必要があります。
+ゲームエンジンとその他のミドルウェアの使用を計画している場合は、「 [Windows 10 ゲーム開発ガイド](e2e.md)」の「[ブリッジ、ゲームエンジン、ミドルウェア](e2e.md#bridges-game-engines-and-middleware)」セクションを参照してください。 特定のゲームエンジンを使用して Windows および Xbox ゲームを開発する方法の詳細については、ゲームエンジンのドキュメントを参照してください。
 
-### <a name="step-2-prepare-your-hardware-for-development"></a>手順 2:開発用にハードウェアを準備します。
+### <a name="step-2-prepare-your-hardware-for-development"></a>手順 2: 開発用にハードウェアを準備する
 
-初めて開発を実行している場合は、デバイスで開発者モードを有効にする必要があります。 詳細については、次を参照してください。[開発用にデバイスを有効にする](../get-started/enable-your-device-for-development.md)します。
+初めて開発を行っている場合は、デバイスで開発者モードを有効にする必要があります。 詳細については、「[デバイスを開発用に有効にする](../get-started/enable-your-device-for-development.md)」を参照してください。
 
-ユーザーにとって、製品版の Xbox コンソールを使用して、Xbox ゲームを開発しようとしている、する必要もありますをアクティブ化し、これで開発者モードを有効にします。 詳細については、次を参照してください。 [Xbox 開発者モードは 1 つのアクティブ化](../xbox-apps/devkit-activation.md)と[Xbox で UWP アプリ開発入門](../xbox-apps/getting-started.md)します。 
-
-> [!Note]
-> サインアップする必要があります、[パートナー センター](https://partner.microsoft.com/dashboard)アカウントを Xbox コンソールで開発者モードを有効にすることができます。 パートナー センター アカウントにサインアップする詳細については、次を参照してください。[手順 5](#step-5-sign-up-for-a-partner-center-account)以下。
-
-### <a name="step-3-run-a-sample-and-see-how-it-works"></a>手順 3:サンプルを実行して、そのしくみを参照してください。
-
-UWP の DirectX の開発を開始するを参照してください。 [UWP の簡単なゲームを DirectX を使った作成](tutorial--create-your-first-uwp-directx-game.md)です。 読み取り、どのようなバッファーは DirectX の概念について理解してを参照してくださいにする場合[Direct3D グラフィックス概念](../graphics-concepts/index.md)します。
-
-その他のサンプルを参照してください。[サンプルのゲーム](e2e.md#game-samples)します。
-
-### <a name="step-4-consider-joining-a-program"></a>手順 4:プログラムに参加を検討してください。
-
-Xbox ゲームを開発またはゲームの Xbox Live の機能を使用する場合は、いずれかの参加、 [Xbox Live クリエーターズ プログラム](https://developer.microsoft.com/games/xbox/xboxlive/creator)または[ ID@Xbox ](https://www.xbox.com/Developers/id)プログラム。 
-
-各プログラムに使用できる Xbox Live の機能の詳細については、次を参照してください。[機能テーブル](https://docs.microsoft.com/gaming/xbox-live/developer-program-overview.md#feature-table)します。 詳細については、次を参照してください。[開発者プログラム](e2e.md#developer-programs)します。
+リテール Xbox コンソールを使用して Xbox ゲームの開発を計画しているユーザーについては、開発者モードをアクティブ化して有効にする必要もあります。 詳細については、「 [Xbox One Developer Mode activation](../xbox-apps/devkit-activation.md) 」と「 [XBOX での UWP アプリ開発の](../xbox-apps/getting-started.md)概要」を参照してください。 
 
 > [!Note]
-> Xbox Live クリエーターズ プログラムは、すべての開発者が利用できます。 **すべてのユーザー** Xbox ゲームを公開することができます。 Xbox Live クリエーターズ プログラムのタイトル部分をするためは、単に、パートナー センターからこのオプションを有効にする必要があります。 パートナー センター アカウントにサインアップする詳細については、次を参照してください。[手順 5](#step-5-sign-up-for-a-partner-center-account)以下。
+> Xbox コンソールで開発者モードを有効にするには、 [パートナーセンター](https://partner.microsoft.com/dashboard)  アカウントにサインアップする必要があります。 パートナーセンターアカウントへのサインアップの詳細については、以下の [手順 5](#step-5-sign-up-for-a-partner-center-account) . を参照してください。
 
-### <a name="step-5-sign-up-for-a-partner-center-account"></a>手順 5:パートナー センター アカウントにサインアップします。
+### <a name="step-3-run-a-sample-and-see-how-it-works"></a>手順 3: サンプルを実行し、その動作を確認する
 
-パートナー センター アカウントへのアクセスを提供する[パートナー センター](https://partner.microsoft.com/dashboard)、管理し、すべてのアプリと 1 つの場所で Windows デバイス用のゲームを送信することができます。
+UWP DirectX 開発を開始するには、「 [DirectX を使用した簡単な uwp ゲームの作成](tutorial--create-your-first-uwp-directx-game.md)」を参照してください。 バッファーの内容などの DirectX の概念を単に読んで理解したい場合は、「 [Direct3D graphics の概念](../graphics-concepts/index.md)」を参照してください。
 
-Windows のゲーム開発のゲームに Xbox Live の機能を使用する場合またはパートナー センターにアクセスするまで待機することができます。
+その他のサンプルについては、「 [Game samples](e2e.md#game-samples)」を参照してください。
 
-Xbox のゲーム開発の必要がありますへのサインアップ、パートナー センター アカウントの開発、retail Xbox を設定する必要があるよう。 参照してください[手順 2.](#step-2-prepare-your-hardware-for-development)詳細についてはします。
+### <a name="step-4-consider-joining-a-program"></a>手順 4: プログラムに参加することを検討する
 
-詳細については、次を参照してください。[発行の Windows アプリやゲーム](../publish/index.md)します。
+Xbox ゲームを開発する場合、またはゲームで Xbox Live 機能を使用する場合は、 [Xbox live](https://developer.microsoft.com/games/xbox/xboxlive/creator) 作成者プログラムまたはプログラムのいずれかに参加し [ID@Xbox](https://www.xbox.com/Developers/id) ます。 
 
-## <a name="useful-links"></a>役に立つリンク
+各プログラムで使用できる Xbox Live 機能の詳細については、「 [Feature Table](https://docs.microsoft.com/gaming/xbox-live/developer-program-overview.md#feature-table)」を参照してください。 詳細については、「 [開発者プログラム](e2e.md#developer-programs)」を参照してください。
+
+> [!Note]
+> Xbox Live クリエータープログラムは、すべての開発者が利用できます。 **だれ** でも Xbox ゲームを発行できます。 Xbox Live 作成者プログラムのタイトル部分を作成するには、パートナーセンターからこのオプションを有効にするだけです。 パートナーセンターアカウントへのサインアップの詳細については、以下の [手順 5](#step-5-sign-up-for-a-partner-center-account) . を参照してください。
+
+### <a name="step-5-sign-up-for-a-partner-center-account"></a>手順 5: パートナーセンターアカウントにサインアップする
+
+パートナーセンターアカウントを使用すると、 [パートナーセンター](https://partner.microsoft.com/dashboard)にアクセスして、Windows デバイス用のすべてのアプリとゲームを1か所で管理し、送信することができます。
+
+Windows ゲーム開発では、パートナーセンターへのアクセスが必要になるまで、またはゲームで Xbox Live 機能を使用する場合は、待機することを選択できます。
+
+Xbox ゲーム開発では、開発用のリテール Xbox を設定するために必要なため、パートナーセンターアカウントにサインアップする必要があります。 詳細については、 [手順 2](#step-2-prepare-your-hardware-for-development) . を参照してください。
+
+詳細については、「[Publish Windows apps and games](../publish/index.md)」(Windows のアプリとゲームを公開する) を参照してください。
+
+## <a name="useful-links"></a>便利なリンク
 
 * [Windows 10 ゲーム開発ガイド](e2e.md)
 * [UWP アプリとは](../get-started/universal-application-platform-guide.md)
-* [UWP ゲーム向けクラウド サービスを使用します。](cloud-for-games.md)
-* [ゲームにアクセスできるように](accessibility-for-games.md)
+* [UWP ゲーム用のクラウド サービスの使用](cloud-for-games.md)
+* [ゲームをアクセシビリティ対応にする](accessibility-for-games.md)

@@ -1,17 +1,17 @@
 ---
 ms.assetid: AAE467F9-B3C7-4366-99A2-8A880E5692BE
 title: タイマーを使った作業項目の送信
-description: タイマーが終了した後に実行される作業項目の作成方法を説明します。
+description: ThreadPoolTimer API を使用して、ユニバーサル Windows プラットフォーム (UWP) アプリでタイマーが経過したときに作業項目を送信するタイマーを作成する方法について説明します。
 ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, タイマー, スレッド
 ms.localizationpriority: medium
-ms.openlocfilehash: 1b5c0982c10cde25fc5f61314c540c194d6519a2
-ms.sourcegitcommit: 2dbf4a3f3473c1d3a0ad988bcbae6e75dfee3640
+ms.openlocfilehash: 2c34f50d7b5abec28b11fc67a7e0515f07206060
+ms.sourcegitcommit: eb725a47c700131f5975d737bd9d8a809e04943b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82619336"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88970130"
 ---
 # <a name="use-a-timer-to-submit-a-work-item"></a>タイマーを使った作業項目の送信
 
@@ -27,7 +27,7 @@ ms.locfileid: "82619336"
 
 [**CreateTimer**](https://docs.microsoft.com/uwp/api/windows.system.threading.threadpooltimer.createtimer) メソッドを使って、作業項目に対応するタイマーを作成します。 作業を実行するラムダを指定し、*delay* パラメーターを使って、利用可能なスレッドに作業項目を割り当てることができるようになるまでスレッド プールが待機する時間を指定します。 delay パラメーターは [**TimeSpan**](https://docs.microsoft.com/uwp/api/Windows.Foundation.TimeSpan) 構造体を使って指定します。
 
-> **メモ**   [**CoreDispatcher**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync)を使用して UI にアクセスし、作業項目の進行状況を表示することができます。
+> **メモ**   [**CoreDispatcher**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync)を使用して UI にアクセスし、作業項目の進行状況を表示することができます。
 
 次の例では、3 分間実行される作業項目を作成します。
 
@@ -217,7 +217,7 @@ ms.locfileid: "82619336"
 > DelayTimer->Cancel();
 > ```
 
-## <a name="remarks"></a>Remarks
+## <a name="remarks"></a>解説
 
 ユニバーサル Windows プラットフォーム (UWP) アプリでは UI スレッドをブロックできるため、**Thread.Sleep** を使うことができません。 代わりに、[**ThreadPoolTimer**](https://docs.microsoft.com/uwp/api/Windows.System.Threading.ThreadPoolTimer) を使って作業項目を作ります。これによって、UI スレッドをブロックすることなく、作業項目によって実行されたタスクを遅延します。
 

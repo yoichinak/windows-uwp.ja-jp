@@ -1,17 +1,17 @@
 ---
-title: C++UWP を使用した Xbox でのゲーム開発
-description: Xbox での C++ UWP ゲーム開発。
+title: UWP を使用した Xbox での C++ ゲーム開発
+description: Xbox のユニバーサル Windows プラットフォーム (UWP) での C++ ゲーム開発について説明します。これには、コンソールを開発キットに変換する方法が含まれます。
 ms.date: 02/08/2017
 ms.topic: article
-keywords: Windows 10, UWP
+keywords: windows 10, uwp
 ms.assetid: 6ae36021-94d3-43df-9e96-69a93cfe8b56
 ms.localizationpriority: medium
-ms.openlocfilehash: e64a9a443a35e1585257c02ad58186ae53192b48
-ms.sourcegitcommit: ae9c1646398bb5a4a888437628eca09ae06e6076
+ms.openlocfilehash: 44e85fbbbf426aca73fed7642a7a9d969d989476
+ms.sourcegitcommit: eb725a47c700131f5975d737bd9d8a809e04943b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74734937"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88970100"
 ---
 # <a name="bring-custom-c-games-to-uwp-on-xbox"></a>カスタム C++ ゲームを Xbox の UWP に移行する
 

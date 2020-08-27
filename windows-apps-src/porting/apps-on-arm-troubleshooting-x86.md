@@ -1,16 +1,16 @@
 ---
 title: x86 デスクトップ アプリのトラブルシューティング
-description: ARM で実行する際の x86 アプリの一般的な問題とその解決方法。
+description: ドライバー、シェル拡張機能、デバッグに関する情報など、ARM64 で実行されている x86 デスクトップアプリに関する一般的な問題のトラブルシューティングと解決方法について説明します。
 ms.date: 05/09/2018
 ms.topic: article
 keywords: windows 10 s, 常時接続, ARM での x86 エミュレーション, トラブルシューティング
 ms.localizationpriority: medium
-ms.openlocfilehash: a71f33438a336aba67afbb30b19987b0e0aef83b
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.openlocfilehash: 4dbb3c485d3f6ba3ba410e2a960162880b6f3660
+ms.sourcegitcommit: eb725a47c700131f5975d737bd9d8a809e04943b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75683935"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88970270"
 ---
 # <a name="troubleshooting-x86-desktop-apps"></a>x86 デスクトップ アプリのトラブルシューティング
 >[!IMPORTANT]
@@ -18,7 +18,7 @@ ms.locfileid: "75683935"
 
 x86 デスクトップ アプリが x86 コンピューターで実行したときのように動作しない場合、トラブルシューティングに役立つガイダンスを次に示します。
 
-|問題|ソリューション|
+|問題|解決策|
 |-----|--------|
 | アプリが ARM 用に設計されていないドライバーに依存している。 | x86 ドライバーを ARM64 に再コンパイルします。 「[WDK を使った ARM64 ドライバーのビルド](https://docs.microsoft.com/windows-hardware/drivers/develop/building-arm64-drivers)」をご覧ください。 |
 | アプリが x64 でしか使用できない。 | Microsoft Store 向けに開発する場合、ARM バージョンのアプリを提出します。 詳しくは、「[アプリ パッケージのアーキテクチャ](/windows/msix/package/device-architecture)」をご覧ください。 Win32 開発者の場合、アプリを ARM64 に再コンパイルすることをお勧めします。 詳細については、「[ARM 開発での Windows 10 の Visual Studio サポートの初期プレビュー](https://blogs.windows.com/buildingapps/2018/05/08/visual-studio-support-for-windows-10-on-arm-development/)」に関するブログ記事を参照してください。 |
@@ -36,7 +36,7 @@ x86 デスクトップ アプリが x86 コンピューターで実行したと�
 
 アプリは、ネイティブ レジストリ ビューにレジストリ キーを配置したり、WOW の存在に基づいて機能を実行したりする可能性があります。 元の **IsWow64Process** は、アプリが x64 コンピューターで実行されているかどうかのみ示しています。 アプリは [IsWow64Process2](https://docs.microsoft.com/windows/desktop/api/wow64apiset/nf-wow64apiset-iswow64process2) を使って、WOW をサポートするシステムで実行されているかどうかを判断するようになりました。 
 
-## <a name="drivers"></a>Drivers 
+## <a name="drivers"></a>ドライバー 
 すべてのカーネル モード ドライバー、[ユーザー モード ドライバー フレームワーク (UMDF)](https://docs.microsoft.com/windows-hardware/drivers/wdf/overview-of-the-umdf) ドライバー、印刷ドライバーが OS のアーキテクチャと一致するようにコンパイルする必要があります。 x86 アプリにドライバーがある場合、そのドライバーを ARM64 用に再コンパイルする必要があります。 x86 アプリはエミュレーション下で適切に実行される可能性がありますが、そのドライバーは ARM64 用に再コンパイルする必要があり、ドライバーに依存するアプリ エクスペリエンスは利用できなくなります。 ARM64 用ドライバーのコンパイルについて詳しくは、「[WDK を使った ARM64 ドライバーのビルド](https://docs.microsoft.com/windows-hardware/drivers/develop/building-arm64-drivers)」をご覧ください。
 
 ## <a name="shell-extensions"></a>シェル拡張 
@@ -45,10 +45,10 @@ Windows コンポーネントをフックしたり、DLL を Windows プロセ�
 ## <a name="debugging"></a>デバッグ
 アプリの動作をより詳しく調査するには、[ARM でのデバッグに関するページ](https://docs.microsoft.com/windows-hardware/drivers/debugger/debugging-arm64)で、ARM でデバッグするためのツールと戦略についてご覧ください。
 
-## <a name="virtual-machines"></a>仮想マシン
+## <a name="virtual-machines"></a>Virtual Machines
 Windows ハイパーバイザー プラットフォームは、Qualcomm の Snapdragon 835 モバイル PC プラットフォームでサポートされていません。 したがって、Hyper-V を使った仮想マシンの実行は機能しません。 将来の Qualcomm チップセットでは、これらのテクノロジへの投資が続けられます。 
 
 ## <a name="dynamic-code-generation"></a>動的なコード生成
 X86 デスクトップアプリは、実行時に ARM64 命令を生成するシステムによって ARM64 でエミュレートされます。 つまり、x86 デスクトップアプリでプロセスの動的なコードの生成や変更ができない場合は、そのアプリを ARM64 で x86 として実行することはできません。 
 
-これは、`ProcessDynamicCodePolicy` フラグを使用して[SetProcessMitigationPolicy](https://docs.microsoft.com/windows/desktop/api/processthreadsapi/nf-processthreadsapi-setprocessmitigationpolicy) API を使用してプロセスで有効にする一部のアプリのセキュリティを軽減するものです。 ARM64 で x86 プロセスとして正常に実行するには、この軽減ポリシーを無効にする必要があります。 
+これは、 [SetProcessMitigationPolicy](https://docs.microsoft.com/windows/desktop/api/processthreadsapi/nf-processthreadsapi-setprocessmitigationpolicy) API とフラグを使用して、プロセスで有効にする一部のアプリのセキュリティを軽減するものです `ProcessDynamicCodePolicy` 。 ARM64 で x86 プロセスとして正常に実行するには、この軽減ポリシーを無効にする必要があります。 

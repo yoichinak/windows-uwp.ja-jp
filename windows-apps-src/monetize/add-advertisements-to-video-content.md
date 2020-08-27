@@ -1,17 +1,17 @@
 ---
 ms.assetid: cc24ba75-a185-4488-b70c-fd4078bc4206
-description: AdScheduler クラスを使ってビデオ コンテンツに広告を表示する方法について説明します。
+description: AdScheduler クラスを使用して、JavaScript と HTML を使用して記述されたユニバーサル Windows プラットフォーム (UWP) アプリのビデオコンテンツに広告を表示する方法について説明します。
 title: ビデオ コンテンツに広告を表示する
 ms.date: 02/18/2020
 ms.topic: article
 keywords: Windows 10, UWP, 広告, 宣伝, ビデオ, スケジューラ, Javascript
 ms.localizationpriority: medium
-ms.openlocfilehash: 2b07b24de9d89d8021090312f62df4f0fb1e78dc
-ms.sourcegitcommit: 71f9013c41fc1038a9d6c770cea4c5e481c23fbc
+ms.openlocfilehash: b42c917a0532a015a789c8b4ac57d59c65804ce1
+ms.sourcegitcommit: eb725a47c700131f5975d737bd9d8a809e04943b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77507176"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88970200"
 ---
 # <a name="show-ads-in-video-content"></a>ビデオ コンテンツに広告を表示する
 
@@ -50,17 +50,17 @@ ms.locfileid: "77507176"
 
 1. Visual Studio でプロジェクトを開くか、新しいプロジェクトを作ります。
 
-2. プロジェクトのターゲットが **[Any CPU]** (任意の CPU) になっている場合は、アーキテクチャ固有のビルド出力 (たとえば、 **[x86]** ) を使うようにプロジェクトを更新します。 プロジェクトのターゲットが **[Any CPU]** (任意の CPU) になっていると、次の手順で Microsoft Advertising ライブラリへの参照を正常に追加できません。 詳しくは、「[プロジェクトのターゲットを "Any CPU" に設定すると参照エラーが発生する](known-issues-for-the-advertising-libraries.md#reference_errors)」をご覧ください。
+2. プロジェクトのターゲットが **[Any CPU]** (任意の CPU) になっている場合は、アーキテクチャ固有のビルド出力 (たとえば、**[x86]**) を使うようにプロジェクトを更新します。 プロジェクトのターゲットが **[Any CPU]** (任意の CPU) になっていると、次の手順で Microsoft Advertising ライブラリへの参照を正常に追加できません。 詳しくは、「[プロジェクトのターゲットを "Any CPU" に設定すると参照エラーが発生する](known-issues-for-the-advertising-libraries.md#reference_errors)」をご覧ください。
 
 3. **Microsoft Advertising SDK for JavaScript** ライブラリへの参照をプロジェクトに追加します。
 
-    1. **[ソリューション エクスプローラー]** ウィンドウで、 **[参照設定]** を右クリックし、 **[参照の追加]** を選択します。
-    2. **[参照マネージャー]** で、 **[ユニバーサル Windows]** を展開し、 **[拡張]** をクリックして、 **[Microsoft Advertising SDK for JavaScript]** (バージョン 10.0) の横にあるチェック ボックスをオンにします。
+    1. **[ソリューション エクスプローラー]** ウィンドウで、**[参照設定]** を右クリックし、**[参照の追加]** を選択します。
+    2. **[参照マネージャー]** で、**[ユニバーサル Windows]** を展開し、**[拡張]** をクリックして、**[Microsoft Advertising SDK for JavaScript]** (バージョン 10.0) の横にあるチェック ボックスをオンにします。
     3. **[参照マネージャー]** で、[OK] をクリックします。
 
 4.  AdScheduler.js ファイルをプロジェクトに追加します。
 
-    1. Visual Studio で、 **[プロジェクト]** と **[NuGet パッケージの管理]** をクリックします。
+    1. Visual Studio で、**[プロジェクト]** と **[NuGet パッケージの管理]** をクリックします。
     2. 検索ボックスに、「**Microsoft.StoreServices.VideoAdScheduler**」と入力し、Microsoft.StoreServices.VideoAdScheduler パッケージをインストールします。 AdScheduler.js ファイルがプロジェクトの ../js サブディレクトリに追加されます。
 
 5.  index.html ファイル (またはプロジェクトに対応するその他の html ファイル) を開きます。 `<head>` セクションで、プロジェクトの default.css と main.js の JavaScript 参照の後に、ad.js と adscheduler.js への参照を追加します。
