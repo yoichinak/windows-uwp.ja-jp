@@ -1,17 +1,17 @@
 ---
 title: 付録
-description: これらのセクションでは、技術的な面について詳しく説明します。
+description: 浮動小数点ルールの技術的な詳細、データ型の変換、ラスタライズルール、およびテクスチャブロックの圧縮に関するトピックへのリンクの表を表示します。
 ms.assetid: 461CCE6F-BAF0-4965-90A5-FD36B511F72C
 ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: f4cd2e17754dc5b5958e8bca208e30b87718cdd8
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 41762bf24202d155ed7af288ff43ea898b43e46d
+ms.sourcegitcommit: 8e0e4cac79554e86dc7f035c4b32cb1f229142b0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57632497"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88942772"
 ---
 # <a name="appendices"></a>付録
 
@@ -41,7 +41,7 @@ ms.locfileid: "57632497"
 <td align="left"><p>次のセクションでは、Direct3D がデータ型の間の変換を処理する方法について説明します。</p></td>
 </tr>
 <tr class="odd">
-<td align="left"><p><a href="rasterization-rules.md">ラスタライズ ルール</a></p></td>
+<td align="left"><p><a href="rasterization-rules.md">ラスター化ルール</a></p></td>
 <td align="left"><p>ラスター化ルールは、ベクトル データをラスター データにマップする方法を定義します。 ラスター データは、整数値の位置に配置されてからカリングおよびクリッピングされ (描画するピクセルの数を最小限にするため)、ピクセル単位の属性が (頂点単位の属性から) 補間された後、ピクセル シェーダーに渡されます。</p></td>
 </tr>
 <tr class="even">

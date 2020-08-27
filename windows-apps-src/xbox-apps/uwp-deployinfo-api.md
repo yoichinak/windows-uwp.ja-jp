@@ -1,21 +1,21 @@
 ---
 title: デバイス ポータル展開情報 API リファレンス
-description: 展開情報 API にプログラムでアクセスする方法について説明します。
+description: Xbox デバイスポータル REST API deployinfo を使用して、インストールされている1つ以上のパッケージの展開情報を要求する方法について説明します。
 ms.localizationpriority: medium
 ms.topic: article
 ms.date: 02/08/2017
-ms.openlocfilehash: 7543b41c6ee1d9c07f4540012f84dccc10bb4d76
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 5260125625ced6c258a683bcfb9b552e57d07f06
+ms.sourcegitcommit: 8e0e4cac79554e86dc7f035c4b32cb1f229142b0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57638007"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88943002"
 ---
 # <a name="requests-deployment-information-for-one-or-more-installed-packages"></a>1 つ以上のインストール パッケージの展開情報を要求します。
 
-**要求**
+**Request**
 
-メソッド      | 要求 URI
+Method      | 要求 URI
 :------     | :------
 POST | /ext/app/deployinfo
 <br />
@@ -49,17 +49,17 @@ POST | /ext/app/deployinfo
   * DeploySizeInBytes - 該当する展開の種類のパッケージのサイズ (バイト単位) です。
   * OverlayFolder - この機能をサポートする展開のオーバーレイ フォルダーです。
 
-**状態コード**
+**status code**
 
 この API では次の状態コードが返される可能性があります。
 
 HTTP 状態コード      | 説明
 :------     | :-----
-200 | 成功
+200 | Success
 4XX | エラー コード
 5XX | エラー コード
 <br />
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Xbox

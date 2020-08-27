@@ -1,6 +1,6 @@
 ---
-Description: Fluent モーションが方向性と重力をどのように使用するかについて説明します。
 title: Windows アプリにおける方向性と重力のアニメーション
+description: 例を見て、移動の方向、ナビゲーションの方向、およびアニメーションシーンでの重心の使用について説明します。
 label: Directionality and gravity
 template: detail.hbs
 ms.date: 10/02/2018
@@ -11,12 +11,12 @@ design-contact: jeffarn
 doc-status: Draft
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: ddcfac5e36500a8fc6dc41c7c86037f5a1483203
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: a9b6fbc639ac225e68a6ae1b008537cba6f72ead
+ms.sourcegitcommit: 8e0e4cac79554e86dc7f035c4b32cb1f229142b0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970647"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88943112"
 ---
 # <a name="directionality-and-gravity"></a>方向性と重力
 
@@ -59,7 +59,7 @@ ms.locfileid: "82970647"
 
 "戻る" ナビゲーションでは、動きが逆になります (B から A)。 ユーザーは戻る移動をしたときに、できるだけ早く以前の状態に戻ることを期待します。 タイミングはより迅速で直接的であり、減速のイージングを使用します。
 
-ここでは、前後のナビゲーション中に選択された項目が画面上に表示されたままになるため、これらの原則が適用されます。
+ここでは、これらの原則が適用されます。これは、選択した項目が前方および back ナビゲーション中に画面上に表示されるためです。
 
 ![継続的なモーションの UI の例](images/continuous3.gif)
 
@@ -75,7 +75,7 @@ ms.locfileid: "82970647"
 
 :::row:::
     :::column:::
-**転送**送信コンテンツと競合しない方法でシーンを入力するようにします。 コンテンツをシーンに減速します。
+**転送** 送信コンテンツと競合しない方法でシーンを入力するようにします。 コンテンツをシーンに減速します。
     :::column-end:::
     :::column:::
         ![転送方向](images/forwardIN.gif)
@@ -83,7 +83,7 @@ ms.locfileid: "82970647"
 :::row-end:::
 :::row:::
     :::column:::
-**転送**コンテンツはすぐに終了します。 オブジェクトは、画面を加速します。
+**転送** コンテンツはすぐに終了します。 オブジェクトは、画面を加速します。
     :::column-end:::
     :::column:::
         ![方向に進む](images/forwardOUT.gif)
@@ -91,7 +91,7 @@ ms.locfileid: "82970647"
 :::row-end:::
 :::row:::
     :::column:::
-**後方**フォワードインと同じですが、逆になります。
+**後方** フォワードインと同じですが、逆になります。
     :::column-end:::
     :::column:::
         ![逆方向へのイン](images/backwardIN.gif)
@@ -99,7 +99,7 @@ ms.locfileid: "82970647"
 :::row-end:::
 :::row:::
     :::column:::
-**バックアウト**フォワードアウトと同じですが、逆になります。
+**バックアウト** フォワードアウトと同じですが、逆になります。
     :::column-end:::
     :::column:::
         ![逆方向](images/backwardOUT.gif)

@@ -1,16 +1,16 @@
 ---
 title: カメラ バーコード スキャナーのシンボル体系
-description: カメラ バーコード スキャナーでサポートされるシンボル体系
+description: Windows 10 に付属するソフトウェアバーコードデコーダーでサポートされている各 symbologies のサンプルバーコードを表示します。
 ms.date: 05/02/2018
 ms.topic: article
 keywords: Windows 10, UWP, 店舗販売時点管理, POS
 ms.localizationpriority: medium
-ms.openlocfilehash: 481d10f2fea076f45124a3c75819dfe6494300bf
-ms.sourcegitcommit: 48e047a581fcfcc9a4084d65a78b89f2c01cf4f3
+ms.openlocfilehash: a9618402a6ee76a20ff5f95418ee7280b39db4a2
+ms.sourcegitcommit: 8e0e4cac79554e86dc7f035c4b32cb1f229142b0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85448402"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88943132"
 ---
 # <a name="symbologies"></a>シンボル体系
 

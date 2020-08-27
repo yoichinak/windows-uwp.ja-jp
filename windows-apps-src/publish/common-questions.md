@@ -1,17 +1,17 @@
 ---
-Description: 広告キャンペーンに関してよく寄せられる質問
-title: 広告キャンペーンに関してよく寄せられる質問
+title: コスト、課金、カスタマイズ、サポートなどのトピックで、アプリの ad キャンペーンに関してよく寄せられる質問への回答を表示します。
+description: 広告キャンペーンに関してよく寄せられる質問
 ms.assetid: EAF7CC74-7DE4-4D11-B9A6-29C6EA6E734B
 ms.date: 02/18/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: eec32cab8da41b6069862484372ae8bc55ad1a0c
-ms.sourcegitcommit: 71f9013c41fc1038a9d6c770cea4c5e481c23fbc
+ms.openlocfilehash: 9294ea5928b5da9feb1c94e6b134dc45ccb1c053
+ms.sourcegitcommit: 8e0e4cac79554e86dc7f035c4b32cb1f229142b0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77506826"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88943012"
 ---
 # <a name="common-questions-about-ad-campaigns"></a>広告キャンペーンに関してよく寄せられる質問
 
@@ -24,7 +24,7 @@ ms.locfileid: "77506826"
 
 ### <a name="how-can-i-increase-the-maximum-monthly-budget-amount-allowed-for-my-ad-campaign"></a>広告キャンペーンの月額予算の上限金額を増やすにはどうすればよいですか。
 
-広告キャンペーンで 1 万ドルを超える月額予算をご希望の場合は、[aiacare@microsoft.com](mailto:aiacare@microsoft.com) までご連絡ください。 キャンペーン当たり 5 万ドルまでお使いになれるプレミアム アカウントにお客様をアップグレードします。 プレミアム アカウントではその他の追加機能として、設定キャンペーンの開始日と終了日を設定したり、キャンペーンのリンク先 URLを指定したりすることができます。
+Ad キャンペーンで1か月に $1万以上の支出を予定している場合は、にお問い合わせください [aiacare@microsoft.com](mailto:aiacare@microsoft.com) 。 キャンペーン当たり 5 万ドルまでお使いになれるプレミアム アカウントにお客様をアップグレードします。 プレミアム アカウントではその他の追加機能として、設定キャンペーンの開始日と終了日を設定したり、キャンペーンのリンク先 URLを指定したりすることができます。
 
 ### <a name="can-i-run-ads-for-one-of-my-apps-in-my-other-apps"></a>自分のいずれかのアプリの広告を、自分の他のアプリに表示できますか。
 
@@ -58,9 +58,9 @@ ms.locfileid: "77506826"
 
 アカウントの最終請求日から 30 日間の請求金額が 50 米ドルに満たない場合は、その請求金額が翌月の初旬に請求されます。 これにより、お客様のアカウントの広告キャンペーン料金の請求残高が 1 か月以上残ることはありません。
 
-請求書の発行を待たずに、すぐに支払うこともできます。これには、 **[課金の概要]** ページ ( **[プロモーション]** [請求履歴] > ) で **[今すぐ課金]** を選びます。 ご指定のお支払い方法に請求される金額が、 **[未払い額]** の下に表示されます。
+請求書の発行を待たずに、すぐに支払うこともできます。これには、**[課金の概要]** ページ (**[プロモーション]** > **[請求履歴]**) で **[今すぐ課金]** を選びます。 ご指定のお支払い方法に請求される金額が、**[未払い額]** の下に表示されます。
 
 ### <a name="how-do-i-delete-a-credit-card-or-edit-the-details-of-a-credit-card"></a>クレジット カードを削除したり、クレジット カードの詳細を編集したりするにはどうすればよいですか。
 
-[https://commerce.microsoft.com](https://commerce.microsoft.com)にアクセスし、Microsoft アカウントの資格情報でログインして、必要な変更を行います。
+にアクセスし [https://commerce.microsoft.com](https://commerce.microsoft.com) 、Microsoft アカウントの資格情報でログインして、必要な変更を行います。
 

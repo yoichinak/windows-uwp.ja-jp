@@ -1,17 +1,17 @@
 ---
 ms.assetid: 454953E1-DD8F-44B7-A614-7BAD8C683536
 title: ジャイロメーターの使用
-description: ジャイロメーターを使ってユーザーの動きの変化を検出する方法を説明します。
+description: ジャイロ API を使用して、傾斜速度や回転運動などのユーザー移動の変化を検出するジャイロ入力をアプリに統合する方法について説明します。
 ms.date: 06/06/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 8a6ad3b98c559dff8781c96a98a6428a4d1f95a4
-ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
+ms.openlocfilehash: 10d65a6b752c904d7145c3c5e09194dab7c8e0a5
+ms.sourcegitcommit: 8e0e4cac79554e86dc7f035c4b32cb1f229142b0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86493127"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88943092"
 ---
 # <a name="use-the-gyrometer"></a>ジャイロメーターの使用
 
@@ -29,7 +29,7 @@ ms.locfileid: "86493127"
 
 ゲーム コントローラーとして使う場合、ジャイロメーターは加速度計の機能を補完します。 加速度計で直線的な動きを計測し、ジャイロメーターで角速度、つまり回転の動きを計測します。
 
-## <a name="prerequisites"></a>必須コンポーネント
+## <a name="prerequisites"></a>前提条件
 
 Extensible Application Markup Language (XAML)、Microsoft Visual C#、イベントについて理解している必要があります。
 
