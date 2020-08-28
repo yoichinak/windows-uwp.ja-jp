@@ -1,18 +1,18 @@
 ---
-description: iOS から UWP への移行
 Search.SourceType: Video
 title: iOS から UWP への移行
+description: IOS 開発者がユーザーベースを拡張して、Windows 10 とユニバーサル Windows プラットフォーム (UWP) を含めるために使用できるツールについて説明します。
 ms.assetid: 7a05751d-02df-4240-9ba5-d95f65a7a9c5
 ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 266a5f147b57e522088dab2ec298b54596ef77b7
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: 608f254114a200850341837528cb7506597c3bed
+ms.sourcegitcommit: cb5af00af05e838621c270173e7fde1c5d2168ef
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74260155"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89043524"
 ---
 # <a name="move-from-ios-to-uwp"></a>iOS から UWP への移行
 
@@ -26,12 +26,12 @@ ms.locfileid: "74260155"
 
 | トピック | 説明 |
 |-------|-------------|
-| [IOS と UWP アプリ開発のアプローチを選択する](selecting-an-approach-to-ios-and-uwp-app-development.md) | クロスプラットフォーム アプリを開発するときの選択肢 |
-| [IOS 開発者向け UWP の概要](getting-started-with-uwp-for-ios-developers.md) | この記事は、Windows 10 用の開発を検討している iOS 開発者向けに用意されています。 |
-| [Windows 10 を使用して Mac をセットアップする](setting-up-your-mac-with-windows-10.md) | 現在の Mac コンピューターを使用して、Windows 用アプリを開発します。 |
+| [iOS と UWP のアプリ開発方法の選択](selecting-an-approach-to-ios-and-uwp-app-development.md) | クロスプラットフォーム アプリを開発するときの選択肢 |
+| [iOS 開発者のための UWP の概要](getting-started-with-uwp-for-ios-developers.md) | この記事は、Windows 10 用の開発を検討している iOS 開発者向けに用意されています。 |
+| [Windows 10 を使用するための Mac のセットアップ](setting-up-your-mac-with-windows-10.md) | 現在の Mac コンピューターを使用して、Windows 用アプリを開発します。 |
 
 ## <a name="related-topics"></a>関連トピック
 
-**デザイナーと開発者向け**
-* [すべての Windows デバイス用のユニバーサル Windows アプリの構築](https://docs.microsoft.com/windows/uwp/get-started/universal-application-platform-guide)
-* [UWP アプリ用のデザインアセットをダウンロードする](https://docs.microsoft.com/windows/uwp/design/downloads/index)
+**設計者と開発者向け**
+* [すべての Windows デバイスを対象としたユニバーサル Windows アプリの構築](https://docs.microsoft.com/windows/uwp/get-started/universal-application-platform-guide)
+* [UWP アプリの設計アセットのダウンロード](https://docs.microsoft.com/windows/uwp/design/downloads/index)

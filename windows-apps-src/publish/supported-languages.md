@@ -1,33 +1,33 @@
 ---
-Description: 100 を超える言語で Microsoft Store にアプリを送信することができます。
 title: サポートされている言語
+description: Microsoft Store へのアプリの送信に関してサポートされている言語とそれに対応する言語コードの表を表示します。
 ms.assetid: FCA66311-4145-46AC-8B20-1E736F940976
 ms.date: 03/07/2019
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 716a6e86e03feb6edcbc5cde5aa37d0282df6aca
-ms.sourcegitcommit: bad7ed6def79acbb4569de5a92c0717364e771d9
-ms.translationtype: HT
+ms.openlocfilehash: a3b3ada3415e6f1abc98dc3c351f6db791adc984
+ms.sourcegitcommit: cb5af00af05e838621c270173e7fde1c5d2168ef
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59244288"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89043434"
 ---
 # <a name="supported-languages"></a>サポートされている言語
 
 
-100 を超える言語で Microsoft Store にアプリを送信することができます。
+100以上の言語で Microsoft Store にアプリを送信できます。
 
-アプリでの言語を構成する方法の詳細についてを参照してください。[グローバリゼーションとローカリゼーション](../design/globalizing/globalizing-portal.md)と[言語を理解するユーザー プロファイルの言語とアプリ マニフェスト](../design/globalizing/manage-language-and-region.md)します。 複数の言語をサポートするアプリを作るのに役立つ[多言語アプリ ツールキット](https://docs.microsoft.com/windows/uwp/design/globalizing/use-mat)も用意されています。
+アプリでの言語の構成の詳細については、「 [グローバリゼーションとローカリゼーション](../design/globalizing/globalizing-portal.md) 」および「 [ユーザープロファイル言語とアプリマニフェスト言語](../design/globalizing/manage-language-and-region.md)について」を参照してください。 複数の言語をサポートするアプリを作るのに役立つ[多言語アプリ ツールキット](https://docs.microsoft.com/windows/uwp/design/globalizing/use-mat)も用意されています。
 
 ## <a name="supported-languages"></a>サポートされている言語
 
 
-これらは、Microsoft Store がでサポートされる言語です。 アプリには、これらの言語の 1 つ以上をサポートする必要があります。 
+これらの言語は、Microsoft Store がサポートしています。 アプリでは、これらの言語の少なくとも1つをサポートする必要があります。 
 
-これ以外の言語コードは、ストアではサポートされていません。 以下に示します。 記載されている以外の言語コードを対象とするパッケージに含めないことをお勧めします。このようなパッケージは、顧客には配布されず、認証の遅延や障害を引き起こす可能性があります。
+ここに含まれていない言語コードは、ストアではサポートされていません。 以下に記載されていない言語コードを対象とするパッケージを含めないことをお勧めします。このようなパッケージは顧客に配布されず、証明書の遅延またはエラーが発生する可能性があります。
 
-| 言語名         | サポートされる言語コード                                                                                                                                                                              |
+| 言語名         | サポートされている言語コード                                                                                                                                                                              |
 |-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | アラビア語                | ar、ar-sa、ar-ae、ar-bh、ar-dz、ar-eg、ar-iq、ar-jo、ar-kw、ar-lb、ar-ly、ar-ma、ar-om、ar-qa、ar-sy、ar-tn、ar-ye                                                                                    |
 | アフリカーンス語             | af、af-za                                                                                                                                                                                             |
@@ -35,24 +35,24 @@ ms.locfileid: "59244288"
 | アムハラ語               | am、am-et                                                                                                                                                                                             |
 | アルメニア語              | hy、hy-am                                                                                                                                                                                             |
 | アッサム語              | as、as-in                                                                                                                                                                                             |
-| アゼルバイジャン語           | az アラブ、az-アラブ-az az アゼルバイジャン、az-アゼルバイジャン、az、az latn、az-latn-az                                                                                                                                     |
+| アゼルバイジャン語           | az-アラブ、az-アラブ-az、az-cyrl、az-cyrl-az、az-latn、az-latn-az                                                                                                                                     |
 | バスク語 (バスク)       | eu、eu-es                                                                                                                                                                                             |
 | ベラルーシ語            | be、be-by                                                                                                                                                                                             |
 | ベンガル語                | bn、bn-bd、bn-in                                                                                                                                                                                      |
 | ボスニア語               | bs、bs-cyrl、bs-cyrl-ba、bs-latn、bs-latn-ba                                                                                                                                                          |
 | ブルガリア語             | bg、bg-bg                                                                                                                                                                                             |
-| カタルニア語               | ca、ca-es、ca-es-valencia                                                                                                                                                                             |
+| カタロニア語               | ca、ca-es、ca-es-valencia                                                                                                                                                                             |
 | チェロキー語              | chr-cher、chr-cher-us、chr-latn                                                                                                                                                                       |
-| 簡体中国語  | Zh-hans、zh cn、hans zh-cn、zh sg、zh hans sg                                                                                                                                                     |
-| 中国語 (繁体字) | zh-Hant、zh-hk、zh-mo、zh-tw、zh-hant-hk、zh-hant-mo、zh-hant-tw                                                                                                                                      |
+| 簡体中国語  | zh-tw-Hans, zh-tw, zh-tw-cn, Hans-sg, zh-tw-zh-tw-sg                                                                                                                                                     |
+| 繁体中国語 | zh-Hant、zh-hk、zh-mo、zh-tw、zh-hant-hk、zh-hant-mo、zh-hant-tw                                                                                                                                      |
 | クロアチア語              | hr、hr-hr、hr-ba                                                                                                                                                                                      |
 | チェコ語                 | cs、cs-cz                                                                                                                                                                                             |
 | デンマーク語                | da、da-dk                                                                                                                                                                                             |
 | ダリー語                  | prs、prs-af、prs-arab                                                                                                                                                                                 |
 | オランダ語                 | nl、nl-nl、nl-be                                                                                                                                                                                      |
-| 日本語               | en、en-au、en-ca、en-gb、en-ie、en-in、en-nz、en-sg、en-us、en-za、en-bz、en-hk、en-id、en-jm、en-kz、en-mt、en-my、en-ph、en-pk、en-tt、en-vn、en-zw、en-053、en-021、en-029、en-011、en-018、en-014 |
+| 英語               | en、en-au、en-ca、en-gb、en-ie、en-in、en-nz、en-sg、en-us、en-za、en-bz、en-hk、en-id、en-jm、en-kz、en-mt、en-my、en-ph、en-pk、en-tt、en-vn、en-zw、en-053、en-021、en-029、en-011、en-018、en-014 |
 | エストニア語              | et、et-ee                                                                                                                                                                                             |
-| フィリピノ語              | fil、fil-latn、fil-ph                                                                                                                                                                                 |
+| フィリピン語              | fil、fil-latn、fil-ph                                                                                                                                                                                 |
 | フィンランド語               | fi、fi-fi                                                                                                                                                                                             |
 | フランス語                | fr、fr-be、fr-ca、fr-ch、fr-fr、fr-lu、fr-015、fr-cd、fr-ci、fr-cm、fr-ht、fr-ma、fr-mc、fr-ml、fr-re、frc-latn、frp-latn、fr-155、fr-029、fr-021、fr-011                                         |
 | ガリシア語              | gl、gl-es                                                                                                                                                                                             |
@@ -72,14 +72,14 @@ ms.locfileid: "59244288"
 | コサ語              | xh、xh-za                                                                                                                                                                                             |
 | ズールー語               | zu、zu-za                                                                                                                                                                                             |
 | イタリア語               | it、it-it、it-ch                                                                                                                                                                                      |
-| Japanese              | ja、ja-jp                                                                                                                                                                                            |
+| 日本語              | ja、ja-jp                                                                                                                                                                                            |
 | カンナダ語               | kn、kn-in                                                                                                                                                                                             |
 | カザフ語                | kk、kk-kz                                                                                                                                                                                             |
 | クメール語                 | km、km-kh                                                                                                                                                                                             |
 | キチェ語               | quc-latn、qut-gt、qut-latn                                                                                                                                                                            |
 | キニヤルワンダ語           | rw、rw-rw                                                                                                                                                                                             |
 | スワヒリ語             | sw、sw-ke                                                                                                                                                                                             |
-| コンカニ語               | kok、kok-in                                                                                                                                                                                           |
+| コーンクニー語               | kok、kok-in                                                                                                                                                                                           |
 | 韓国語                | ko、ko-kr                                                                                                                                                                                             |
 | クルド語               | ku-arab、ku-arab-iq                                                                                                                                                                                   |
 | キルギス語                | ky-kg、ky-cyrl                                                                                                                                                                                        |
@@ -117,7 +117,7 @@ ms.locfileid: "59244288"
 | スペイン語               | es、es-cl、es-co、es-es、es-mx、es-ar、es-bo、es-cr、es-do、es-ec、es-gt、es-hn、es-ni、es-pa、es-pe、es-pr、es-py、es-sv、es-us、es-uy、es-ve、es-019、es-419                                        |
 | スウェーデン語               | sv、sv-se、sv-fi                                                                                                                                                                                      |
 | タジク語 (キリル)      | tg-arab、tg-cyrl、tg-cyrl-tj、tg-latn                                                                                                                                                                 |
-| タミール語                 | ta、ta-in                                                                                                                                                                                             |
+| タミル語                 | ta、ta-in                                                                                                                                                                                             |
 | タタール語                 | tt-arab、tt-cyrl、tt-latn、tt-ru                                                                                                                                                                      |
 | テルグ語                | te、te-in                                                                                                                                                                                             |
 | タイ語                  | th、th-th                                                                                                                                                                                             |

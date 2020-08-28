@@ -1,26 +1,26 @@
 ---
 title: Device Portal の SSH ピン API のリファレンス
-description: 信頼されているすべての SSH ピンをプログラムで削除する方法について説明します。
+description: /Ext/app/sshpins Xbox デバイスポータル REST API を使用して、すべての信頼された Secure Shell (SSH) pin をプログラムから削除する方法について説明します。
 ms.localizationpriority: medium
 ms.topic: article
 ms.date: 02/08/2017
-ms.openlocfilehash: 2c7dc6fab021c11c98276ee53af161bea25601a9
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 307af4cdd4e998832f4a2fe7a8f874615fe10ad7
+ms.sourcegitcommit: cb5af00af05e838621c270173e7fde1c5d2168ef
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57663357"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89043534"
 ---
 # <a name="ssh-pins-api-reference"></a>SSH ピン API リファレンス
 この REST API を使用して、開発キットで信頼されているすべての SSH ピンを削除することができます。
 
 ## <a name="remove-trusted-ssh-pins"></a>信頼されている SSH ピンの削除
 
-**要求**
+**Request**
 
-メソッド      | 要求 URI
+Method      | 要求 URI
 :------     | :-----
-Del | /ext/app/sshpins
+DELETE | /ext/app/sshpins
 <br />
 **URI パラメーター**
 
@@ -34,11 +34,11 @@ Del | /ext/app/sshpins
 
 - なし
 
-**応答**   
+**Response**   
 
 - なし 
 
-**状態コード**
+**status code**
 
 この API では次の状態コードが返される可能性があります。
 
@@ -49,7 +49,7 @@ HTTP 状態コード      | 説明
 5XX | エラー コード
 
 <br />
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Xbox
 

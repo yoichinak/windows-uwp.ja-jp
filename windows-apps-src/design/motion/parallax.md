@@ -1,6 +1,6 @@
 ---
-Description: ParallaxView コントロールを使用して、アプリに奥行きと動きを追加します。
-title: 視差を使用して、アプリに深さと移動を追加します。
+title: 視差を利用してアプリに深さと移動を追加する
+description: UWP アプリで ParallaxView コントロールを使用して、ビューアーに近い項目が背景の項目よりも速く移動する視覚効果を作成する方法について説明します。
 ms.assetid: ''
 label: Parallax View
 template: detail.hbs
@@ -12,22 +12,22 @@ design-contact: conrwi
 dev-contact: stpete
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: d659683d6871d9d48fd17b73c74477e7bd03e258
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 5ded09e2de6e3aafa0108d3f7ef66808cb02bfd8
+ms.sourcegitcommit: cb5af00af05e838621c270173e7fde1c5d2168ef
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970497"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89043574"
 ---
 # <a name="parallax"></a>視差
 
 視差は、アプリの閲覧者の近くにある項目を背景にある項目よりも速く動かすという視覚効果です。 視差によって、奥行き、遠近感、および動きといった感覚が引き起こされます。 UWP アプリでは、ParallaxView コントロールを使用して、視差効果を作成できます。  
 
-> **WINDOWS UI ライブラリ api:** [ParallaxView クラス](/uwp/api/Microsoft.UI.Xaml.Controls.Parallaxview)、[垂直シフトプロパティ](/uwp/api/Microsoft.UI.Xaml.Controls.Parallaxview.VerticalShift)、[水平シフトプロパティ](/uwp/api/Microsoft.UI.Xaml.Controls.Parallaxview.HorizontalShift)
+> **WINDOWS UI ライブラリ api:** [ParallaxView クラス](/uwp/api/Microsoft.UI.Xaml.Controls.Parallaxview)、 [垂直シフトプロパティ](/uwp/api/Microsoft.UI.Xaml.Controls.Parallaxview.VerticalShift)、 [水平シフトプロパティ](/uwp/api/Microsoft.UI.Xaml.Controls.Parallaxview.HorizontalShift)
 >
-> **プラットフォーム api**: [ParallaxView クラス](/uwp/api/Windows.UI.Xaml.Controls.Parallaxview)、[垂直シフトプロパティ](/uwp/api/Windows.UI.Xaml.Controls.Parallaxview.VerticalShift)、[水平シフトプロパティ](/uwp/api/Windows.UI.Xaml.Controls.Parallaxview.HorizontalShift)
+> **プラットフォーム api**: [ParallaxView クラス](/uwp/api/Windows.UI.Xaml.Controls.Parallaxview)、 [垂直シフトプロパティ](/uwp/api/Windows.UI.Xaml.Controls.Parallaxview.VerticalShift)、 [水平シフトプロパティ](/uwp/api/Windows.UI.Xaml.Controls.Parallaxview.HorizontalShift)
 
-## <a name="examples"></a>使用例
+## <a name="examples"></a>例
 
 <table>
 <th align="left">XAML コントロール ギャラリー<th>
@@ -45,7 +45,7 @@ ms.locfileid: "82970497"
 
 ## <a name="parallax-and-the-fluent-design-system"></a>視差と Fluent Design System
 
- Fluent Design System では、ライト、深度、モーション、マテリアル、スケールを取り入れた、モダンで目を引く UI を作成できます。 視差は、アプリにモーション、深度、スケールを追加する Fluent Design System コンポーネントです。 詳細については、「 [Fluent Design の概要](/windows/apps/fluent-design-system)」を参照してください。
+ Fluent Design System では、ライト、深度、モーション、マテリアル、スケールを取り入れた、モダンで目を引く UI を作成できます。 視差は、アプリにモーション、深度、スケールを追加する Fluent Design System コンポーネントです。 詳しくは、[Fluent Design の概要](/windows/apps/fluent-design-system)に関するページをご覧ください。
 
 ## <a name="how-it-works-in-a-user-interface"></a>ユーザー インターフェイスでのしくみ
 
@@ -125,4 +125,4 @@ VerticalShift プロパティと HorizontalShift プロパティでは、視差�
 
 - [ParallaxView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Parallaxview) 
 - [UWP 用 Fluent Design](/windows/apps/fluent-design-system)
-- [システムの科学: Fluent Design と奥行き](https://medium.com/microsoft-design/science-in-the-system-fluent-design-and-depth-fb6d0f23a53f)
+- [システムの科学:Fluent Design と奥行き](https://medium.com/microsoft-design/science-in-the-system-fluent-design-and-depth-fb6d0f23a53f)
