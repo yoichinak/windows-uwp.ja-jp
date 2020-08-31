@@ -1,17 +1,17 @@
 ---
-description: UWP アプリで連絡先とカレンダーの情報を使う方法。
+description: コンテンツ、メール、カレンダー情報、メッセージを共有するために、ユーザーが連絡先や予定にアクセスできるようにする方法について説明します。
 title: 連絡先とカレンダー
 ms.assetid: b7e53ab5-2828-4fb7-8656-2bec70b3467f
 ms.date: 05/18/2018
 ms.topic: article
 keywords: windows 10, uwp, 連絡先, カレンダー, 予定, メール メッセージ
 ms.localizationpriority: medium
-ms.openlocfilehash: b2e3f0b1d93d2b2c32e117f61fd7514077ca3923
-ms.sourcegitcommit: 90fe7a9a5bfa7299ad1b78bbef289850dfbf857d
+ms.openlocfilehash: e94810ef3fac9c21221181338b7efd8d78fefb97
+ms.sourcegitcommit: 5d34eb13c7b840c05e5394910a22fa394097dc36
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2020
-ms.locfileid: "84756548"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89054152"
 ---
 # <a name="contacts-my-people-and-calendar"></a>連絡先、マイ連絡先、カレンダー
 

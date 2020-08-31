@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: a54f87de49e9d43bfa423b0c01b086de1f89426f
-ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
+ms.openlocfilehash: 6f73f0aef6cf7a1abec420e48713d3d3776a1867
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71340485"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89155046"
 ---
 # <a name="move-and-draw-commands-syntax"></a>移動と描画のコマンド構文
 
@@ -20,26 +20,26 @@ ms.locfileid: "71340485"
 
 ## <a name="properties-that-use-move-and-draw-command-strings"></a>移動と描画のコマンド文字列を使うプロパティ
 
-移動と描画のコマンド構文は、XAML の内部型コンバーターによってサポートされます。コンバーターはコマンドを解析し、実行時にグラフィックス表現を生成します。 この表現は、基本的には完成したベクター セットであり、そのまま表示することができます。 ただし、ベクター自体では表現の詳細までは定義されないため、他の値を要素に設定する必要もあります。 [  **Path**](/uwp/api/Windows.UI.Xaml.Shapes.Path) オブジェクトについては、[**Fill**](/uwp/api/Windows.UI.Xaml.Shapes.Shape.Fill) や [**Stroke**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.shape.stroke) などのプロパティに値を設定してから、その **Path** を何らかの方法でビジュアル ツリーに関連付ける必要もあります。 [  **PathIcon**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.PathIcon) オブジェクトでは、[**Foreground**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.iconelement.foreground) プロパティを設定します。
+移動と描画のコマンド構文は、XAML の内部型コンバーターによってサポートされます。コンバーターはコマンドを解析し、実行時にグラフィックス表現を生成します。 この表現は、基本的には完成したベクター セットであり、そのまま表示することができます。 ただし、ベクター自体では表現の詳細までは定義されないため、他の値を要素に設定する必要もあります。 [**Path**](/uwp/api/Windows.UI.Xaml.Shapes.Path) オブジェクトについては、[**Fill**](/uwp/api/Windows.UI.Xaml.Shapes.Shape.Fill) や [**Stroke**](/uwp/api/windows.ui.xaml.shapes.shape.stroke) などのプロパティに値を設定してから、その **Path** を何らかの方法でビジュアル ツリーに関連付ける必要もあります。 [**PathIcon**](/uwp/api/Windows.UI.Xaml.Controls.PathIcon) オブジェクトでは、[**Foreground**](/uwp/api/windows.ui.xaml.controls.iconelement.foreground) プロパティを設定します。
 
-Windows ランタイムには、移動と描画のコマンドを表す文字列を使うことのできるプロパティとして、[**Path.Data**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.path.data) と [**PathIcon.Data**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.pathicon.data) の 2 つがあります。 通常、これらのプロパティに移動と描画のコマンドを指定するときは、その要素に必要な他の属性と共に、コマンドを XAML 属性値として設定します。 単純な例としては次のようになります。
+Windows ランタイムには、移動と描画のコマンドを表す文字列を使うことのできるプロパティとして、[**Path.Data**](/uwp/api/windows.ui.xaml.shapes.path.data) と [**PathIcon.Data**](/uwp/api/windows.ui.xaml.controls.pathicon.data) の 2 つがあります。 通常、これらのプロパティに移動と描画のコマンドを指定するときは、その要素に必要な他の属性と共に、コマンドを XAML 属性値として設定します。 単純な例としては次のようになります。
 
 ```xml
 <Path x:Name="Arrow" Fill="White" Height="11" Width="9.67"
   Data="M4.12,0 L9.67,5.47 L4.12,10.94 L0,10.88 L5.56,5.47 L0,0.06" />
 ```
 
-[**Pathgeometry**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.pathgeometry.figures)は、move コマンドと draw コマンドを使用することもできます。 移動と描画のコマンドを使う [**PathGeometry**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.PathGeometry) オブジェクトは、[**GeometryGroup**](/uwp/api/Windows.UI.Xaml.Media.Geometry) オブジェクトに含まれる他の [**Geometry**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.GeometryGroup) 型と結合して、[**Path.Data**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.path.data) の値として使うこともできます。 ただし、この使い方は、属性定義のデータで移動と描画のコマンドを使う方法ほど一般的ではありません。
+[**PathGeometry.Figures**](/uwp/api/windows.ui.xaml.media.pathgeometry.figures) でも移動と描画のコマンドを使うことができます。 移動と描画のコマンドを使う [**PathGeometry**](/uwp/api/Windows.UI.Xaml.Media.PathGeometry) オブジェクトは、[**GeometryGroup**](/uwp/api/Windows.UI.Xaml.Media.GeometryGroup) オブジェクトに含まれる他の [**Geometry**](/uwp/api/Windows.UI.Xaml.Media.Geometry) 型と結合して、[**Path.Data**](/uwp/api/windows.ui.xaml.shapes.path.data) の値として使うこともできます。 ただし、この使い方は、属性定義のデータで移動と描画のコマンドを使う方法ほど一般的ではありません。
 
 ## <a name="using-move-and-draw-commands-versus-using-a-pathgeometry"></a>移動と描画のコマンドの使用と **PathGeometry** の使用
 
-Windows ランタイム XAML では、移動と描画のコマンドにより、単一の [**PathFigure**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.PathGeometry) オブジェクトと [**Figures**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.PathFigure) プロパティの値を持つ [**PathGeometry**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.pathgeometry.figures) が生成されます。 各描画コマンドは、その単一の [PathFigure**の**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.PathSegment)Segments コレクションに [**PathSegment**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.pathfigure.segments) 派生クラスを生成します。移動コマンドは [**StartPoint**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.pathfigure.startpoint) を変更します。終了コマンドがある場合は、[**IsClosed**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.pathfigure.isclosed) が **true** に設定されます。 実行時に **Data** の値を調べると、この構造をオブジェクト モデルとしてたどることができます。
+Windows ランタイム XAML では、移動と描画のコマンドにより、単一の [**PathFigure**](/uwp/api/Windows.UI.Xaml.Media.PathFigure) オブジェクトと [**Figures**](/uwp/api/windows.ui.xaml.media.pathgeometry.figures) プロパティの値を持つ [**PathGeometry**](/uwp/api/Windows.UI.Xaml.Media.PathGeometry) が生成されます。 各描画コマンドは、その単一の **PathFigure** の [**Segments**](/uwp/api/windows.ui.xaml.media.pathfigure.segments) コレクションに [**PathSegment**](/uwp/api/Windows.UI.Xaml.Media.PathSegment) 派生クラスを生成します。移動コマンドは [**StartPoint**](/uwp/api/windows.ui.xaml.media.pathfigure.startpoint) を変更します。終了コマンドがある場合は、[**IsClosed**](/uwp/api/windows.ui.xaml.media.pathfigure.isclosed) が **true** に設定されます。 実行時に **Data** の値を調べると、この構造をオブジェクト モデルとしてたどることができます。
 
 ## <a name="the-basic-syntax"></a>基本構文
 
 移動と描画のコマンド構文を簡単にまとめると、次のようになります。
 
-1.  まず、オプションの塗りつぶしルールを指定します。 通常、これを指定するのは、既定の **EvenOdd** では望ましくない場合だけです (**EvenOdd** については後ほど詳しく説明します)。
+1.  まず、オプションの塗りつぶしルールを指定します。 通常、これを指定するのは、既定の **EvenOdd** では望ましくない場合だけです  (**EvenOdd** については後ほど詳しく説明します)。
 2.  移動コマンドを 1 つだけ指定します。
 3.  1 つ以上の描画コマンドを指定します。
 4.  終了コマンドを指定します。 終了コマンドは省略することもできますが、その場合は図が開いたままになります (これは一般的ではありません)。
@@ -51,9 +51,9 @@ Windows ランタイム XAML では、移動と描画のコマンドにより、
 -   通常、終了コマンド以外の各コマンドには 1 つ以上の数値が続きます。
 -   1 つのコマンドに複数の数値を指定する場合は、コンマまたはスペースで区切ります。
 
-**\[** _fillrule_ **\]** _movecommand_ _drawcommand_ **\[** _drawcommand_ **\*\]** **\[** _closeCommand_ **\]**
+**\[**_Fillrule_ **\]**_movecommand_ _drawcommand_ **\[** _drawcommand_ **\*\]** **\[** _closeCommand_**\]**
 
-描画コマンドの多くでは点が使われますが、これは _x,y_ 値として指定します。 \*_ポイント_のプレースホルダーが表示される場合は、ポイントの_x、y_値に2つの10進値を指定することを前提としています。
+描画コマンドの多くでは点が使われますが、これは _x,y_ 値として指定します。 ポイントのプレースホルダーが表示さ \* _points_れている場合は、ポイントの_x、y_値に2つの10進値を指定することを前提としています。
 
 空白がなくても結果があいまいにならない場合は、空白を省略できます。 すべての数値 (ポイントとサイズ) の区切り文字をコンマにすると、空白をすべて省略することができます。 たとえば、`F1M0,58L2,56L6,60L13,51L15,53L6,64z` という使い方は正当です。 ただし、読みやすくするために、コマンドの間には空白を含めるのが一般的です。
 
@@ -61,25 +61,25 @@ Windows ランタイム XAML では、移動と描画のコマンドにより、
 
 ## <a name="syntax-specifics"></a>構文仕様
 
-**ルールの塗りつぶし**
+**塗りつぶしルール**
 
-オプションの塗りつぶしルールとして指定できる値には、**F0** と **F1** の 2 つがあります (**F** は常に大文字です)。**F0** が既定のルールです。これは **EvenOdd** の塗りつぶし動作になるので、通常は指定しません。 **Nonzero** の塗りつぶし動作を有効にするには、**F1** を使います。 これらの塗りつぶしの値は、[**FillRule**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.FillRule) 列挙体の値と対応しています。
+オプションの塗りつぶしルールとして指定できる値には、**F0** と **F1** の 2 つがあります  (**F** は常に大文字です)。**F0** が既定のルールです。これは **EvenOdd** の塗りつぶし動作になるので、通常は指定しません。 **Nonzero** の塗りつぶし動作を有効にするには、**F1** を使います。 これらの塗りつぶしの値は、[**FillRule**](/uwp/api/Windows.UI.Xaml.Media.FillRule) 列挙体の値と対応しています。
 
 **Move コマンド**
 
-新しい図の始点を指定します。
+新しい図形の始点を指定します。
 
 | 構文 |
 |--------|
-| `M ` _startPoint_ <br/>- または -<br/>`m` _startPoint_|
+| `M ` _startPoint_ <br/>または<br/>`m` _startPoint_|
 
 | 用語 | 説明 |
 |------|-------------|
-| _startPoint_ | [**視点**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Point) <br/>新しい図の始点。|
+| _startPoint_ | [**ポイント**](/uwp/api/Windows.Foundation.Point) <br/>新しい図形の始点。|
 
 大文字の **M** は *startPoint* が絶対座標であることを示し、小文字の **m** は、*startPoint* が前の点からのオフセットか、前の点がない場合は (0,0) からのオフセットであることを示します。
 
-[移動] コマンドの後に複数のポイントを指定**することは  有効**です。 これらの点の間には、直線コマンドを指定した場合と同様に直線が描画されます。 ただし、これは推奨されるスタイルではありません。代わりに専用の直線コマンドを使ってください。
+**メモ**   Move コマンドの後に複数のポイントを指定することは有効です。 これらの点の間には、直線コマンドを指定した場合と同様に直線が描画されます。 ただし、これは推奨されるスタイルではありません。代わりに専用の直線コマンドを使ってください。
 
 **描画コマンド**
 
@@ -87,156 +87,155 @@ Windows ランタイム XAML では、移動と描画のコマンドにより、
 
 すべての描画コマンドで大文字と小文字が区別されます。 大文字は絶対座標を示し、小文字は前のコマンドからの相対座標を示します。
 
-セグメントの制御点は、前のセグメントの終点からの相対値で表されます。 同じ種類のコマンドを複数回続けて入力するときは、重複するコマンドの入力を省略できます。 たとえば、`L 100,200 300,400` は `L 100,200 L 300,400` と同じです。
+セグメントの制御点は、前のセグメントの終点からの相対値で表されます。 同じ種類のコマンドを複数回続けて入力するときは、重複するコマンドの入力を省略できます。 たとえば、`L 100,200 300,400` は、`L 100,200 L 300,400` と同じです。
 
 **Line コマンド**
 
-現在の点と指定した終点の間に直線を作成します。 たとえば、`l 20 30` や `L 20,30` は有効な直線コマンドです。 [  **LineGeometry**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.LineGeometry) オブジェクトと同等の結果が定義されます。
+現在の点と指定された終点の間に直線を作成します。 たとえば、`l 20 30` や `L 20,30` は有効な直線コマンドです。 [**LineGeometry**](/uwp/api/Windows.UI.Xaml.Media.LineGeometry) オブジェクトと同等の結果が定義されます。
 
 | 構文 |
 |--------|
-| `L`_エンドポイント_ <br/>- または -<br/>`l`_エンドポイント_ |
+| `L` _endPoint_ <br/>または<br/>`l` _endPoint_ |
 
 | 用語 | 説明 |
 |------|-------------|
-| endPoint | [**視点**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Point)<br/>直線の終点。|
+| endPoint | [**ポイント**](/uwp/api/Windows.Foundation.Point)<br/>線の終点。|
 
 **水平線コマンド**
 
-現在の点と指定した x 座標の間に水平線を作成します。 たとえば、`H 90` は有効な水平線コマンドです。
+現在の点と指定された x 座標の間に水平線を作成します。 `H 90` は、有効な水平線コマンドの例です。
 
 | 構文 |
 |--------|
 | `H ` _x_ <br/> - または - <br/>`h ` _x_ |
 
-| 用語 | 説明 |
+| 期間 | 説明 |
 |------|-------------|
-| ○ | [**小数**](https://docs.microsoft.com/dotnet/api/system.double) <br/> 直線の終点の x 座標。 |
+| x | [**小数**](/dotnet/api/system.double) <br/> 直線の終点の x 座標。 |
 
 **垂直線コマンド**
 
-現在の点と指定した y 座標の間に垂直線を作成します。 たとえば、`v 90` は有効な垂直線コマンドです。
+現在の点と指定された y 座標の間に垂直線を作成します。 `v 90` は、有効な垂直線コマンドの例です。
 
 | 構文 |
 |--------|
-| `V ` _y_ <br/> - または - <br/> `v ` _y_ |
+| `V `_y_ <br/> - または - <br/> `v `_y_ |
 
-| 用語 | 説明 |
+| 期間 | 説明 |
 |------|-------------|
-| *y* | [**小数**](https://docs.microsoft.com/dotnet/api/system.double) <br/> 直線の終点の y 座標。 |
+| *y* | [**小数**](/dotnet/api/system.double) <br/> 直線の終点の y 座標。 |
 
-**3次ベジエ曲線コマンド**
+**三次ベジエ曲線コマンド**
 
-指定した 2 つの制御点 (*controlPoint1* と *controlPoint2*) を使って、現在の点と指定した終点の間に三次ベジエ曲線を作成します。 たとえば、`C 100,200 200,400 300,200` は有効な曲線コマンドです。 [  **BezierSegment**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.PathGeometry) オブジェクトを持つ [**PathGeometry**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.BezierSegment) オブジェクトと同等の結果が定義されます。
+指定した 2 つの制御点 (*controlPoint1* と *controlPoint2*) を使って、現在の点と指定した終点の間に三次ベジエ曲線を作成します。 `C 100,200 200,400 300,200` は、有効な曲線コマンドの例です。 [**BezierSegment**](/uwp/api/Windows.UI.Xaml.Media.BezierSegment) オブジェクトを持つ [**PathGeometry**](/uwp/api/Windows.UI.Xaml.Media.PathGeometry) オブジェクトと同等の結果が定義されます。
 
 | 構文 |
 |--------|
-| `C ` *controlPoint1* *controlPoint2* *エンドポイント* <br/> - または - <br/> `c ` *controlPoint1* *controlPoint2* *エンドポイント* |
+| `C ` *controlPoint1* *controlPoint2* *endPoint* <br/> - または - <br/> `c ` *controlPoint1* *controlPoint2* *endPoint* |
 
-| 用語 | 説明 |
+| 期間 | 説明 |
 |------|-------------|
-| *controlPoint1* | [**視点**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Point) <br/> 曲線の 1 つ目の制御点。曲線の開始接線を決定します。 |
-| *controlPoint2* | [**視点**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Point) <br/> 曲線の 2 つ目の制御点。曲線の終了接線を決定します。 |
-| *終点* | [**視点**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Point) <br/> 描画される曲線の終点。 | 
+| *controlPoint1* | [**ポイント**](/uwp/api/Windows.Foundation.Point) <br/> 曲線の 1 つ目の制御点。曲線の前半の接線を決定します。 |
+| *controlPoint2* | [**ポイント**](/uwp/api/Windows.Foundation.Point) <br/> 曲線の 2 つ目の制御点。曲線の後半の接線を決定します。 |
+| *endPoint* | [**ポイント**](/uwp/api/Windows.Foundation.Point) <br/> 曲線が描画される点。 | 
 
-**2次ベジエ曲線コマンド**
+**二次ベジエ曲線コマンド**
 
-指定した制御点 (*controlPoint*) を使って、現在の点と指定した終点の間に二次ベジエ曲線を作成します。 たとえば、`q 100,200 300,200` は有効な二次ベジエ曲線コマンドです。 [  **QuadraticBezierSegment**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.PathGeometry) を持つ [**PathGeometry**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.QuadraticBezierSegment) と同等の結果が定義されます。
+指定した制御点 (*controlPoint*) を使って、現在の点と指定した終点の間に二次ベジエ曲線を作成します。 たとえば、`q 100,200 300,200` は有効な二次ベジエ曲線コマンドです。 [**QuadraticBezierSegment**](/uwp/api/Windows.UI.Xaml.Media.QuadraticBezierSegment) を持つ [**PathGeometry**](/uwp/api/Windows.UI.Xaml.Media.PathGeometry) と同等の結果が定義されます。
 
 | 構文 |
 |--------|
-| `Q ` *Controlpoint エンド*ポイント <br/> - または - <br/> `q ` *Controlpoint エンド*ポイント |
+| `Q ` *controlPoint endPoint* <br/> - または - <br/> `q ` *controlPoint endPoint* |
 
-| 用語 | 説明 |
+| 期間 | 説明 |
 |------|-------------|
-| *コントロールポイント* | [**視点**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Point) <br/> 曲線の制御点。曲線の開始接線と終了接線を決定します。 |
-| *終点* | [**視点**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Point)<br/> 描画される曲線の終点。 |
+| *controlPoint* | [**ポイント**](/uwp/api/Windows.Foundation.Point) <br/> 曲線の制御点。曲線の前半と後半の接線を決定します。 |
+| *endPoint* | [**ポイント**](/uwp/api/Windows.Foundation.Point)<br/> 曲線が描画される点。 |
 
-**Smooth 三次ベジエ曲線コマンド**
+**平滑三次ベジエ曲線コマンド**
 
-現在の点と指定した終点の間に三次ベジエ曲線を作成します。 1 つ目の制御点は、現在の点を基準として、前のコマンドの 2 つ目の制御点に点対称となるものと想定されます。 前のコマンドがない場合や、前のコマンドが三次ベジエ曲線コマンドまたは平滑三次ベジエ曲線コマンドでない場合、1 つ目の制御点は現在の点と一致すると見なされます。 2 つ目の制御点 (曲線の終端の制御点) は、*controlPoint2* によって指定します。 たとえば、 `S 100,200 200,300` は有効な平滑三次ベジエ曲線コマンドです。 このコマンドは、前に曲線セグメントがある場合の、[**BezierSegment**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.PathGeometry) を持つ [**PathGeometry**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.BezierSegment) と同等の結果を定義します。
+現在の点と指定した終点の間に三次ベジエ曲線を作成します。 1 つ目の制御点は、現在の点に対する前のコマンドの 2 つ目の制御点のリフレクションと見なされます。 前のコマンドがない場合や、前のコマンドが三次ベジエ曲線コマンドまたは平滑三次ベジエ曲線コマンドでない場合、1 つ目の制御点は現在の点と一致すると見なされます。 2 つ目の制御点 (曲線の終端の制御点) は、*controlPoint2* によって指定します。 たとえば、 `S 100,200 200,300` は有効な平滑三次ベジエ曲線コマンドです。 このコマンドは、前に曲線セグメントがある場合の、[**BezierSegment**](/uwp/api/Windows.UI.Xaml.Media.BezierSegment) を持つ [**PathGeometry**](/uwp/api/Windows.UI.Xaml.Media.PathGeometry) と同等の結果を定義します。
 
 | 構文 |
 |--------|
-| *controlPoint2* *エンドポイント*の `S` <br/> - または - <br/>*ControlPoint2 エンドポイント*の `s` |
+| `S` *controlPoint2* *endPoint* <br/> - または - <br/>`s` *controlPoint2 endPoint* |
 
-| 用語 | 説明 |
+| 期間 | 説明 |
 |------|-------------|
-| *controlPoint2* | [**視点**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Point) <br/> 曲線の制御点。曲線の終了接線を決定します。 |
-| *終点* | [**視点**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Point)<br/> 描画される曲線の終点。 |
+| *controlPoint2* | [**ポイント**](/uwp/api/Windows.Foundation.Point) <br/> 曲線の制御点。曲線の後半の接線を決定します。 |
+| *endPoint* | [**ポイント**](/uwp/api/Windows.Foundation.Point)<br/> 曲線が描画される点。 |
 
-**Smooth 2 次ベジエ曲線コマンド**
+**平滑二次ベジエ曲線コマンド**
 
-現在の点と指定した終点の間に二次ベジエ曲線を作成します。 制御点は、現在の点を基準として、前のコマンドの制御点に点対称となるものと想定されます。 前のコマンドがない場合や、前のコマンドが二次ベジエ曲線コマンドまたは平滑二次ベジエ曲線コマンドでない場合、制御点は現在の点と一致します。 このコマンドは、前に曲線セグメントがある場合の、[**QuadraticBezierSegment**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.PathGeometry) を持つ [**PathGeometry**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.QuadraticBezierSegment) と同等の結果を定義します。
+現在の点と指定した終点の間に二次ベジエ曲線を作成します。 制御点は、現在の点に対する前のコマンドの制御点のリフレクションと見なされます。 前のコマンドがない場合や、前のコマンドが二次ベジエ曲線コマンドまたは平滑二次ベジエ曲線コマンドでない場合、制御点は現在の点と一致します。 このコマンドは、前に曲線セグメントがある場合の、[**QuadraticBezierSegment**](/uwp/api/Windows.UI.Xaml.Media.QuadraticBezierSegment) を持つ [**PathGeometry**](/uwp/api/Windows.UI.Xaml.Media.PathGeometry) と同等の結果を定義します。
 
 | 構文 |
 |--------|
-| `T` *Controlpoint* *エンド*ポイント <br/> - または - <br/> `t` *Controlpoint* *エンド*ポイント |
+| `T` *controlPoint* *endPoint* <br/> - または - <br/> `t` *controlPoint* *endPoint* |
 
-| 用語 | 説明 |
+| 期間 | 説明 |
 |------|-------------|
-| *コントロールポイント* | [**視点**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Point)<br/> 曲線の制御点。曲線の開始接線を決定します。 |
-| *終点* | [**視点**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Point)<br/> 描画される曲線の終点。 |
+| *controlPoint* | [**ポイント**](/uwp/api/Windows.Foundation.Point)<br/> 曲線の制御点。曲線の前半の接線を決定します。 |
+| *endPoint* | [**ポイント**](/uwp/api/Windows.Foundation.Point)<br/> 曲線が描画される点。 |
 
 **楕円の円弧コマンド**
 
-現在の点と指定した終点の間に楕円の円弧を作成します。 [  **ArcSegment**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.PathGeometry) を持つ [**PathGeometry**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.ArcSegment) と同等の結果が定義されます。
+現在の点と指定された終点の間に楕円の円弧を作成します。 [**ArcSegment**](/uwp/api/Windows.UI.Xaml.Media.ArcSegment) を持つ [**PathGeometry**](/uwp/api/Windows.UI.Xaml.Media.PathGeometry) と同等の結果が定義されます。
 
 | 構文 |
 |--------|
-| `A `*サイズ* *rotationAngle* *isLargeArcFlag* *sweepDirectionFlag* *エンドポイント* <br/> - または - <br/>`a ` *sizerotationAngleisLargeArcFlagsweepDirectionFlagendPoint* |
+| `A ` *size* *rotationAngle* *isLargeArcFlag* *sweepDirectionFlag* *endPoint* <br/> - または - <br/>`a `*sizerotationAngleisLargeArcFlagsweepDirectionFlagendPoint* |
 
-| 用語 | 説明 |
+| 期間 | 説明 |
 |------|-------------|
-| *size* | [**幅**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Size)<br/>円弧の x 半径と y 半径。 |
-| *rotationAngle* | [**小数**](https://docs.microsoft.com/dotnet/api/system.double) <br/> 楕円の回転角度。 |
-| *isLargeArcFlag* | 円弧の角度を 180°以上にする場合は 1、それ以外の場合は 0 に設定します。 |
-| *sweepDirectionFlag* | 円弧を正方向の角度に描画する場合は 1、それ以外の場合は 0 に設定します。 |
-| *終点* | [**視点**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Point) <br/> 描画される円弧の終点。|
+| *size* | [**Size**](/uwp/api/Windows.Foundation.Size)<br/>円弧の x 半径と y 半径。 |
+| *rotationAngle* | [**小数**](/dotnet/api/system.double) <br/> 楕円の回転 (度単位)。 |
+| *isLargeArcFlag* | 円弧の角度を 180 度以上にする場合は 1 に設定します。それ以外の場合は 0 に設定します。 |
+| *sweepDirectionFlag* | 円弧が正の角度の方向に描画される場合は 1 に設定します。それ以外の場合は 0 に設定します。 |
+| *endPoint* | [**ポイント**](/uwp/api/Windows.Foundation.Point) <br/> 円弧が描画される点。|
  
 **コマンドを閉じる**
 
-現在の図を終了し、現在の点と図の始点を結ぶ直線を作成します。 このコマンドは、図の最後のセグメントと最初のセグメントの間に線結合 (角) を作成します。
+現在の図形を終了し、現在の点と図の開始点を結ぶ線を作成します。 このコマンドは、図形の最初のセグメントと最後のセグメントの間に線結合 (コーナー) を作成します。
 
 | 構文 |
 |--------|
-| `Z` <br/> - または - <br/> `z ` |
+| `Z` <br/> または <br/> `z ` |
 
 **Point 構文**
 
-点の x 座標と y 座標を記述します。 [  **Point**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Point) もご覧ください。
+点の x 座標と y 座標を記述します。 [**Point**](/uwp/api/Windows.Foundation.Point) もご覧ください。
 
 | 構文 |
 |--------|
-| *x*,*y*<br/> - または - <br/>*x* *y* |
+| *x*、*y*<br/> - または - <br/>*x* *y* |
 
-| 用語 | 説明 |
+| 期間 | 説明 |
 |------|-------------|
-| *x* | [**小数**](https://docs.microsoft.com/dotnet/api/system.double) <br/> 点の x 座標。 |
-| *y* | [**小数**](https://docs.microsoft.com/dotnet/api/system.double) <br/> 点の y 座標。 |
+| *x* | [**小数**](/dotnet/api/system.double) <br/> 点の x 座標。 |
+| *y* | [**小数**](/dotnet/api/system.double) <br/> 点の y 座標。 |
 
-**その他の注意事項**
+**補足メモ**
 
-標準的な数値の代わりに、次の特殊な値を使うこともできます。 これらの値では、大文字と小文字が区別されます。
+標準的な数値ではなく、次の特殊な値を使用することもできます。 これらの値では、大文字と小文字が区別されます。
 
 -   **Infinity**: **PositiveInfinity** を表します。
--   **\-無限大**: は **.negativeinfinity**を表します。
+-   ** \- 無限大**: **.negativeinfinity**を表します。
 -   **NaN**: **NaN** を表します。
 
 10 進数や整数を使う代わりに、指数表記を使うこともできます。 たとえば、`+1.e17` は有効な値です。
 
 ## <a name="design-tools-that-produce-move-and-draw-commands"></a>移動と描画のコマンドを生成するデザイン ツール
 
-Microsoft Visual Studio 2015 に対して、Blend の**ペン**ツールとその他の描画ツールを使用すると、通常、move コマンドと draw コマンドを使用して[**Path**](/uwp/api/Windows.UI.Xaml.Shapes.Path)オブジェクトが生成されます。
+Blend for Microsoft Visual Studio 2015 で**ペン** ツールやその他の描画ツールを使うと、通常、[**Path**](/uwp/api/Windows.UI.Xaml.Shapes.Path) オブジェクトが移動と描画のコマンドと共に生成されます。
 
-Windows ランタイムのコントロール用の既定の XAML テンプレートを見ると、定義されているコントロールのパーツの一部に、移動と描画のコマンドのデータが含まれていることに気付くことがあります。 たとえば、一部のコントロールで使われる [**PathIcon**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.PathIcon) では、データが移動と描画のコマンドとして定義されています。
+Windows ランタイムのコントロール用の既定の XAML テンプレートを見ると、定義されているコントロールのパーツの一部に、移動と描画のコマンドのデータが含まれていることに気付くことがあります。 たとえば、一部のコントロールで使われる [**PathIcon**](/uwp/api/Windows.UI.Xaml.Controls.PathIcon) では、データが移動と描画のコマンドとして定義されています。
 
-その他のよく使われるベクター グラフィックス デザイン ツールにも、ベクターを XAML 形式で出力できるエクスポーターやプラグインがあります。 これらは通常、レイアウト コンテナーに [**Path**](/uwp/api/Windows.UI.Xaml.Shapes.Path) オブジェクトを作成し、[**Path.Data**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.path.data) に移動と描画のコマンドを設定します。 XAML には、別々のブラシを適用できるように複数の **Path** 要素が含まれている場合があります。 これらのエクスポートまたはプラグインの多くは、もともと Windows Presentation Foundation (WPF) XAML または Silverlight 用に記述されていましたが、XAML パス構文は Windows ランタイム XAML と同じです。 通常、エクスポーターからの XAML の大部分を Windows ランタイムの XAML ページに直接貼り付けることができます (ただし、変換後の XAML に **RadialGradientBrush** が含まれている場合、このブラシは Windows ランタイム XAML でサポートされないため、使うことはできません)。
+その他のよく使われるベクター グラフィックス デザイン ツールにも、ベクターを XAML 形式で出力できるエクスポーターやプラグインがあります。 これらは通常、レイアウト コンテナーに [**Path**](/uwp/api/Windows.UI.Xaml.Shapes.Path) オブジェクトを作成し、[**Path.Data**](/uwp/api/windows.ui.xaml.shapes.path.data) に移動と描画のコマンドを設定します。 XAML には、別々のブラシを適用できるように複数の **Path** 要素が含まれている場合があります。 これらのエクスポーターやプラグインの多くは、本来は Windows Presentation Foundation (WPF) の XAML や Silverlight 用に作成されたものですが、XAML のパス構文は Windows ランタイム XAML と同じです。 通常、エクスポーターからの XAML の大部分を Windows ランタイムの XAML ページに直接貼り付けることができます  (ただし、変換後の XAML に **RadialGradientBrush** が含まれている場合、このブラシは Windows ランタイム XAML でサポートされないため、使うことはできません)。
 
 ## <a name="related-topics"></a>関連トピック
 
-* [図形の描画](https://docs.microsoft.com/windows/uwp/graphics/drawing-shapes)
-* [ブラシを使用する](https://docs.microsoft.com/windows/uwp/graphics/using-brushes)
-* [**Path. データ**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.shapes.path.data)
-* [**PathIcon**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.PathIcon)
-
+* [図形の描画](../design/controls-and-patterns/shapes.md)
+* [ブラシの使用](../design/style/brushes.md)
+* [**Path.Data**](/uwp/api/windows.ui.xaml.shapes.path.data)
+* [**PathIcon**](/uwp/api/Windows.UI.Xaml.Controls.PathIcon)

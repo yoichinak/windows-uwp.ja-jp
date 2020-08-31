@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp, セキュリティ
 ms.localizationpriority: medium
-ms.openlocfilehash: 28419df1a37ff640db7246b54e50da5bfce9fedb
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 7c8d3fd007e688bd11423c32bd175203a6f1917d
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66372620"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89157886"
 ---
 # <a name="intro-to-certificates"></a>証明書の概要
 
@@ -22,7 +22,7 @@ ms.locfileid: "66372620"
 
 ### <a name="shared-certificate-stores"></a>共有証明書ストア
 
-UWP アプリでは、Windows 8 で導入された新しい主義アプリケーション モデルを使用します。 この分離モデルでは、アプリ コンテナーと呼ばれる低レベルのオペレーティング システム構造内で実行し、明示的に許可されない限り、アプリの外にあるリソースやファイルにアクセスすることは禁止されます。 次のセクションでは、これが公開キー基盤 (PKI) に与える影響について説明します。
+UWP アプリは、Windows 8 で導入された新しい分離アプリケーション モデルを使います。 この分離モデルでは、アプリ コンテナーと呼ばれる低レベルのオペレーティング システム構造内で実行し、明示的に許可されない限り、アプリの外にあるリソースやファイルにアクセスすることは禁止されます。 次のセクションでは、これが公開キー基盤 (PKI) に与える影響について説明します。
 
 ### <a name="certificate-storage-per-app-container"></a>アプリ コンテナーごとの証明書ストレージ
 
@@ -53,7 +53,7 @@ X.509 公開キー証明書標準は、長い間に改定されてきました�
 
 ![x.509 証明書バージョン 1、2、3](images/x509certificateversions.png)
 
-これらのフィールドと拡張機能の一部は、[**CertificateRequestProperties**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.Certificates.CertificateRequestProperties) クラスを使って証明書要求を作成するときに直接指定できます。 ほとんどはできません。 それらのフィールドは、発行元の機関によって入力される場合や、空欄のままにしておける場合があります。 フィールドについて詳しくは、次のセクションをご覧ください。
+これらのフィールドと拡張機能の一部は、[**CertificateRequestProperties**](/uwp/api/Windows.Security.Cryptography.Certificates.CertificateRequestProperties) クラスを使って証明書要求を作成するときに直接指定できます。 ほとんどはできません。 それらのフィールドは、発行元の機関によって入力される場合や、空欄のままにしておける場合があります。 フィールドについて詳しくは、次のセクションをご覧ください。
 
 ### <a name="version-1-fields"></a>バージョン 1 のフィールド
 
@@ -63,7 +63,7 @@ X.509 公開キー証明書標準は、長い間に改定されてきました�
 | シリアル番号 | 証明機関 (CA) によって証明書に割り当てられる、正の一意な整数を格納します。 |
 | 署名アルゴリズム | 証明書への署名に CA が使うアルゴリズムを指定するオブジェクト識別子 (OID) を格納します。 たとえば、1.2.840.113549.1.1.5 は、SHA-1 ハッシュ アルゴリズムと、RSA Laboratories による RSA 暗号化アルゴリズムの組み合わせを示します。 |
 | 発行者 | 証明書を作成し署名した CA の X.500 識別名 (DN) を格納します。 |
-| 有効期間 | 証明書が有効である時間間隔を指定します。 2049 年末までの日付には、協定世界時 (グリニッジ標準時) 形式 (yymmddhhmmssz) を使います。 2050 年 1 月 1 日以降の日付には、一般化された時刻形式 (yyyymmddhhmmssz) を使います。 |
+| 有効期限までの日数 | 証明書が有効である時間間隔を指定します。 2049 年末までの日付には、協定世界時 (グリニッジ標準時) 形式 (yymmddhhmmssz) を使います。 2050 年 1 月 1 日以降の日付には、一般化された時刻形式 (yyyymmddhhmmssz) を使います。 |
 | サブジェクト | 証明書に含まれる公開キーに関連付けられているエンティティの X.500 識別名を格納します。 |
 | 公開キー | 公開キーと関連するアルゴリズム情報を格納します。 |
 
@@ -96,4 +96,3 @@ X.509 バージョン 3 の証明書には、バージョン 1 とバージョ�
 | サブジェクト代替名 | 証明書要求のサブジェクトに対する 1 つ以上の別名形式を指定します。 別名形式の例として、メール アドレス、DNS 名、IP アドレス、URI などがあります。 |
 | Subject Directory Attributes (サブジェクト ディレクトリ属性) | 証明書サブジェクトの国籍など、識別属性を指定します。 この拡張機能の値は、OID と値のペアが連続する形になります。 |
 | サブジェクト キー識別子 | 証明書サブジェクトが保持する複数の公開キーを区別します。 この拡張機能の値は、通常は、キーの SHA-1 ハッシュです。 |
-

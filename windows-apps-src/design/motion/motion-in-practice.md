@@ -1,5 +1,5 @@
 ---
-Description: アプリで Fluent モーションの基礎をどのように使用するかについて説明します。
+description: タイミング、イージング、方向性、重力など、Fluent モーションの基礎をアプリでどのように使用するかについて説明します。
 title: モーションのモーション-Windows アプリでのアニメーション
 label: Motion in practice
 template: detail.hbs
@@ -11,12 +11,12 @@ design-contact: jeffarn
 doc-status: Draft
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 45ab6c593b9e20f778e4b352a8b284cefe57c9a8
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 8604d925ffefc96cd74726909afab6e2016cce76
+ms.sourcegitcommit: 5d34eb13c7b840c05e5394910a22fa394097dc36
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970327"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89054532"
 ---
 # <a name="bringing-it-together"></a>まとめる
 
@@ -26,13 +26,13 @@ ms.locfileid: "82970327"
 
 :::row:::
     :::column:::
-**暗黙的なアニメーション**標準の値を使用して非常に単純な Fluent モーションを実現するために、パラメーターの値の間の自動トゥイーンとタイミングを変更します。
+**暗黙的なアニメーション** 標準の値を使用して非常に単純な Fluent モーションを実現するために、パラメーターの値の間の自動トゥイーンとタイミングを変更します。
     :::column-end:::
     :::column:::
-**組み込みのアニメーション**一般的なコントロールや共有モーションなどのシステムコンポーネントは、"既定では" Fluent です。 基本は、暗黙的な使用法と一貫性のある方法で適用されています。
+**組み込みのアニメーション** 一般的なコントロールや共有モーションなどのシステムコンポーネントは、"既定では" Fluent です。 基本は、暗黙的な使用法と一貫性のある方法で適用されています。
     :::column-end:::
     :::column:::
-**ガイダンス推奨事項に従うカスタムアニメーション**お客様のシナリオに対して、システムが正確なモーションソリューションを提供していない場合があります。 そのような場合は、エクスペリエンスの出発点としてベースラインの基本的な推奨事項を使用します。
+**ガイダンス推奨事項に従うカスタムアニメーション** お客様のシナリオに対して、システムが正確なモーションソリューションを提供していない場合があります。 そのような場合は、エクスペリエンスの出発点としてベースラインの基本的な推奨事項を使用します。
     :::column-end:::
 :::row-end:::
 
@@ -43,12 +43,12 @@ ms.locfileid: "82970327"
 :::row:::
     :::column:::
 <b>転送方向:</b><br>
-フェードアウト: 150 m;イージング: 既定<b>の高速転送方向:</b><br>
+フェードアウト: 150 m;イージング: 既定 <b>の高速転送方向:</b><br>
 スライドアップ 150 px: 300ms;イージング: 既定の減速
     :::column-end:::
     :::column:::
 <b>逆方向:</b><br>
-スライドダウン 150 px: 150 ミリ秒。イージング: 既定<b>で後方方向に加速します。</b><br>
+スライドダウン 150 px: 150 ミリ秒。イージング: 既定 <b>で後方方向に加速します。</b><br>
 フェードイン: 300 ミリ秒。イージング: 既定の減速
     :::column-end:::
 :::row-end:::
@@ -68,7 +68,7 @@ ms.locfileid: "82970327"
     :::column-end:::
 :::row-end:::
 
-## <a name="examples"></a>使用例
+## <a name="examples"></a>例
 
 <table>
 <tr>
@@ -97,10 +97,10 @@ ms.locfileid: "82970327"
   - **スケール**
   - **翻訳**
 
-- [Border](/uwp/api/windows.ui.xaml.controls.border)、 [ContentPresenter](/uwp/api/windows.ui.xaml.controls.contentpresenter)、または[Panel](/uwp/api/windows.ui.xaml.controls.panel)
+- [Border](/uwp/api/windows.ui.xaml.controls.border)、 [ContentPresenter](/uwp/api/windows.ui.xaml.controls.contentpresenter)、または [Panel](/uwp/api/windows.ui.xaml.controls.panel)
   - **バックグラウンド**
 
-暗黙的にアニメーション化された変更が可能な各プロパティには、対応する_transition_プロパティがあります。 プロパティをアニメーション化するには、対応する_transition_プロパティに遷移の種類を割り当てます。 次の表は、_遷移_プロパティと、それぞれに使用する遷移の種類を示しています。
+暗黙的にアニメーション化された変更が可能な各プロパティには、対応する _transition_ プロパティがあります。 プロパティをアニメーション化するには、対応する _transition_ プロパティに遷移の種類を割り当てます。 次の表は、 _遷移_ プロパティと、それぞれに使用する遷移の種類を示しています。
 
 | アニメーション化プロパティ | Transition プロパティ | 暗黙の移行の種類 |
 | -- | -- | -- |

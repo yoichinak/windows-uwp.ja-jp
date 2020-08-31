@@ -7,19 +7,19 @@ keywords:
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 0ea3e7ec73b042eeef560af3d88754afdfa5b441
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 61d794e93718bc9450c1a0f3dce2e921da7e513d
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66370460"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89168076"
 ---
 # <a name="geometry-shader-gs-stage"></a>ジオメトリ シェーダー (GS) ステージ
 
 
 ジオメトリ シェーダー (GS) ステージでは、プリミティブの全体の三角形、線、点が、隣接する頂点と共に処理されます。 これは、ポイント スプライト拡張、動的パーティクル システム、シャドウ ボリュームの生成などのアルゴリズムで便利です。 これは、ジオメトリ増幅と減幅をサポートします。
 
-## <a name="span-idpurposeandusesspanspan-idpurposeandusesspanspan-idpurposeandusesspanpurpose-and-uses"></a><span id="Purpose_and_uses"></span><span id="purpose_and_uses"></span><span id="PURPOSE_AND_USES"></span>目的と使用
+## <a name="span-idpurpose_and_usesspanspan-idpurpose_and_usesspanspan-idpurpose_and_usesspanpurpose-and-uses"></a><span id="Purpose_and_uses"></span><span id="purpose_and_uses"></span><span id="PURPOSE_AND_USES"></span>目的と用途
 
 
 ジオメトリ シェーダー ステージでは、プリミティブの全体、つまり三角形 (3 つの頂点と最大 3 つの隣接頂点)、線 (2 つの頂点と最大 2 つの隣接頂点)、点 (1 つの頂点) を処理します。
@@ -28,7 +28,7 @@ ms.locfileid: "66370460"
 
 ジオメトリ シェーダーは、限定的なジオメトリの増幅と減幅もサポートしています。 ジオメトリ シェーダーは、入力プリミティブに対して、プリミティブを破棄することも、1つまたは複数の新しいプリミティブを出力することもできます。
 
-ジオメトリ シェーダー (GS) ステージはプログラム可能なシェーダー ステージです。[グラフィックス パイプライン](graphics-pipeline.md)の図では角丸ブロックとして表示されます。 このシェーダー ステージは、シェーダー モデル (「[共通シェーダー コア](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-common-core)」を参照) に基づいて構築された、独自の機能を公開します。
+ジオメトリ シェーダー (GS) ステージはプログラム可能なシェーダー ステージです。[グラフィックス パイプライン](graphics-pipeline.md)の図では角丸ブロックとして表示されます。 このシェーダー ステージは、シェーダー モデル (「[共通シェーダー コア](/windows/desktop/direct3dhlsl/dx-graphics-hlsl-common-core)」を参照) に基づいて構築された、独自の機能を公開します。
 
 ジオメトリ シェーダー ステージは、次のようなアルゴリズムに最適です。
 
@@ -40,12 +40,12 @@ ms.locfileid: "66370460"
 -   プリミティブ単位のマテリアル スワップ
 -   プリミティブ単位のマテリアル セットアップ: この機能にはプリミティブ データとしての重心座標の生成も含まれています。これにより、ピクセル シェーダーはカスタム属性補間を実行できます。
 
-## <a name="span-idinputspanspan-idinputspanspan-idinputspaninput"></a><span id="Input"></span><span id="input"></span><span id="INPUT"></span>入力
+## <a name="span-idinputspanspan-idinputspanspan-idinputspaninput"></a><span id="Input"></span><span id="input"></span><span id="INPUT"></span>代入
 
 
 ジオメトリ シェーダー ステージでは、アプリケーション指定のシェーダー コードが、プリミティブ全体を入力として実行され、出力では頂点を生成することができます。 1 つの頂点を処理する頂点シェーダーとは異なり、ジオメトリ シェーダーの入力はプリミティブ全体 (三角形の 3 つの頂点、線の 2 つの頂点、点の 1 つの頂点など) の頂点です。 また、ジオメトリ シェーダーでは、エッジ隣接プリミティブの頂点データを入力として受け取ることができます (三角形の場合は追加の 3 つの頂点、線の場合は追加の 2 つの頂点)。
 
-ジオメトリ シェーダーのステージで使用できる、 **SV\_PrimitiveID**によって自動生成されるシステムで生成された値、[入力アセンブラー (IA) ステージ](input-assembler-stage--ia-.md)します。 これにより、必要に応じて、プリミティブ単位のデータをフェッチまたは計算することができます。
+ジオメトリシェーダーステージは、[入力アセンブラー (IA) ステージ](input-assembler-stage--ia-.md)によって自動生成される、 **SV \_ PrimitiveID**のシステム生成値を使用できます。 これにより、必要に応じて、プリミティブ単位のデータをフェッチまたは計算することができます。
 
 ジオメトリ シェーダーがアクティブである場合、前にパイプラインで渡された、または生成されたすべてのプリミティブについて 1 回呼び出されます。 ジオメトリ シェーダーの呼び出しのたびに、入力となるプリミティブのデータが 1 つの点、1 つの線、または 1 つの三角形のいずれになるか確認されます。 前にパイプラインで生成された三角形ストリップでは、ストリップ内の三角形ごとにジオメトリ シェーダーが呼び出されます (ストリップが三角形リストに展開されている場合と同様になります)。 個々のプリミティブ内の各頂点のすべての入力データが利用可能なほか (三角形の場合は 3 つの頂点)、隣接頂点のデータも利用可能です (該当し、利用可能な場合)。
 
@@ -59,10 +59,10 @@ ms.locfileid: "66370460"
 
  
 
-## <a name="span-idoutputspanspan-idoutputspanspan-idoutputspanoutput"></a><span id="Output"></span><span id="output"></span><span id="OUTPUT"></span>出力
+## <a name="span-idoutputspanspan-idoutputspanspan-idoutputspanoutput"></a><span id="Output"></span><span id="output"></span><span id="OUTPUT"></span>Output
 
 
-ジオメトリ シェーダー (GS) ステージでは、1 つの選択したトポロジを形成する複数の頂点を出力することができます。 利用可能なジオメトリ シェーダーの出力トポロジには、**tristrip**、**linestrip**、および**pointlist** があります。 生成されるプリミティブの数は、ジオメトリ シェーダーの呼び出し内で自由に変えることができますが、生成可能な頂点の最大数は、静的に宣言する必要があります。 ジオメトリ シェーダーの呼び出しから生成されるストリップの長さは任意で、新しいストリップは [RestartStrip](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-so-restartstrip) HLSL 組み込み関数を使用して作成できます。
+ジオメトリ シェーダー (GS) ステージでは、1 つの選択したトポロジを形成する複数の頂点を出力することができます。 利用可能なジオメトリ シェーダーの出力トポロジには、**tristrip**、**linestrip**、および**pointlist** があります。 生成されるプリミティブの数は、ジオメトリ シェーダーの呼び出し内で自由に変えることができますが、生成可能な頂点の最大数は、静的に宣言する必要があります。 ジオメトリシェーダーの呼び出しから生成されたストリップの長さは任意で、 [RestartStrip](/windows/desktop/direct3dhlsl/dx-graphics-hlsl-so-restartstrip) HLSL 関数を使用して新しいストリップを作成できます。
 
 ジオメトリ シェーダー インスタンスの実行は、ストリームに追加されるデータがシリアルであることを除き、他の呼び出しからアトミックです。 ジオメトリ シェーダーの特定の呼び出しの出力は、他の呼び出しから独立しています (ただし、順序は考慮されます)。 三角形ストリップを生成するジオメトリ シェーダーは、すべての呼び出しで新しいストリップを開始します。
 
@@ -70,9 +70,9 @@ ms.locfileid: "66370460"
 
 ジオメトリ シェーダーは、頂点を出力ストリーム オブジェクトに追加することで 1 つの頂点ごとにデータを出力します。 ストリームのトポロジは、固定された宣言によって決定され、GS ステージの出力として **TriangleStream**、**LineStream**、**PointStream** のいずれかを選択します。
 
-使用可能な 3 種類のストリーム オブジェクトは。**TriangleStream**、 **LineStream**と**PointStream**、これらはすべてにテンプレート化されたオブジェクトです。 出力のトポロジはそれぞれのオブジェクトの種類によって決定され、ストリームに追加される頂点のフォーマットはテンプレートの種類によって決定されます。
+利用可能なストリーム オブジェクトには **TriangleStream**、**LineStream**、**PointStream** の 3 種類があり、これらはすべてテンプレート化されたオブジェクトです。 出力のトポロジはそれぞれのオブジェクトの種類によって決定され、ストリームに追加される頂点のフォーマットはテンプレートの種類によって決定されます。
 
-システムの解釈の値として、ジオメトリ シェーダーの出力を識別するときに (たとえば、 **SV\_RenderTargetArrayIndex**または**SV\_位置**)、ハードウェアはこのデータを考察し、入力の次のシェーダー ステージに自体データを渡すことだけでなく、値に依存するいくつかの動作を実行します。 ジオメトリ シェーダーからこのようなデータの出力がプリミティブ単位にハードウェアに意味を持っている場合 (など**SV\_RenderTargetArrayIndex**または**SV\_ViewportArrayIndex**)、頂点ごとではなく (など**SV\_ClipDistance\[n\]** または**SV\_位置**)、プリミティブ単位のデータ先頭の頂点、プリミティブ型の出力から取得されます。
+ジオメトリシェーダーの出力がシステムによって解釈される値として識別されると (たとえば、 **sv \_ rendertargetarrayindex** や **sv の \_ 位置**など)、ハードウェアはこのデータを参照し、値に依存するいくつかの動作を実行します。また、データ自体を入力のために次のシェーダーステージに渡すことができるようになります。 ジオメトリシェーダーからのこのようなデータ出力が、頂点単位ではなく、プリミティブベース (sv ** \_ rendertargetarrayindex**や**sv \_ ViewportArrayIndex****など) の \_ **ハードウェアに対して意味を持つ場合は、プリミティブに**対し \_ \[ \] て生成**された先頭の頂点からプリミティブデータごとに取得されます。
 
 ジオメトリ シェーダーが終了し、プリミティブが不完全な場合、部分的に終了したプリミティブをジオメトリ シェーダーによって生成することができます。 不完全なプリミティブは自動的に破棄されます。 これは、部分的に終了したプリミティブを IA が処理する方法に似ています。
 
@@ -86,7 +86,3 @@ ms.locfileid: "66370460"
  
 
  
-
-
-
-

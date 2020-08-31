@@ -6,22 +6,22 @@ ms.date: 10/24/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, レンダリング
 ms.localizationpriority: medium
-ms.openlocfilehash: 1a3f689f86e629ce81946927fa732a3ab692b219
-ms.sourcegitcommit: 20969781aca50738792631f4b68326f9171a3980
+ms.openlocfilehash: a87382aeffb0e0b7a8eaca1c4baec8561049e91e
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85409511"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89168246"
 ---
 # <a name="rendering-framework-ii-game-rendering"></a>レンダリング フレームワーク II: ゲームのレンダリング
 
 > [!NOTE]
-> このトピックは、「DirectX チュートリアルシリーズ[を含む simple ユニバーサル Windows プラットフォーム (UWP) ゲームの作成](tutorial--create-your-first-uwp-directx-game.md)」に含まれています。 このリンクのトピックでは、系列のコンテキストを設定します。
+> このトピックは、「DirectX チュートリアルシリーズ [を含む simple ユニバーサル Windows プラットフォーム (UWP) ゲームの作成](tutorial--create-your-first-uwp-directx-game.md) 」に含まれています。 このリンクのトピックでは、系列のコンテキストを設定します。
 
 「[レンダリング フレームワーク I](tutorial--assembling-the-rendering-pipeline.md)」では、シーン情報を取得し、ディスプレイの画面に表示する方法を説明しました。 ここでは、一歩戻って、レンダリングのためのデータを準備する方法について説明します。
 
 >[!Note]
->このサンプルの最新のゲームコードをダウンロードしていない場合は、「 [Direct3D サンプルゲーム](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Simple3DGameDX)」にアクセスしてください。 このサンプルは、UWP 機能のサンプルの大規模なコレクションの一部です。 サンプルをダウンロードする手順については、「[GitHub から UWP のサンプルを取得する](/windows/uwp/get-started/get-uwp-app-samples)」をご覧ください。
+>このサンプルの最新のゲームコードをダウンロードしていない場合は、「 [Direct3D サンプルゲーム](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Simple3DGameDX)」にアクセスしてください。 このサンプルは、UWP 機能のサンプルの大規模なコレクションの一部です。 サンプルをダウンロードする手順については、「[GitHub から UWP のサンプルを取得する](../get-started/get-app-samples.md)」をご覧ください。
 
 ## <a name="objective"></a>目的
 
@@ -44,15 +44,15 @@ ms.locfileid: "85409511"
 * 定数バッファーは、レンダリングに必要なさまざまなデータを保持するために、このクラスで定義されます。
     * GPU に送信するデータの 1 フレームあたりの量を減らすために、更新頻度の異なる複数の定数バッファーを使用します。 このサンプルでは、更新する必要のある頻度に基づいて定数を異なるバッファーに分けています。 Direct3D プログラミングでは、このような処理をお勧めします。 
     * このサンプルゲームでは、4つの定数バッファーが定義されています。
-        1. __m \_ constantBufferNeverChanges__には、光源のパラメーターが含まれています。 これは、__FinalizeCreateGameDeviceResources__ メソッドで一度設定されると、再び変更されることはありません。
-        2. __m \_ constantBufferChangeOnResize__は、射影行列を含みます。 プロジェクション マトリックスは、ウィンドウのサイズと縦横比に依存します。 これは、[__CreateWindowSizeDependentResources__](#createwindowsizedependentresource-method) で設定され、[__FinalizeCreateGameDeviceResources__](#finalizecreategamedeviceresources-method) メソッドでリソースが読み込まれた後で更新されます。 3D でレンダリングする場合は、フレームごとに 2 回変更されます。
-        3. __m \_ constantBufferChangesEveryFrame__には、ビュー行列が含まれています。 このマトリックスは、カメラ位置とルック方向 (標準はプロジェクション方向) に依存し、__Render__ メソッドで 1 フレームあたり 1 回変更されます。 これについては、「__レンダリング フレームワーク I: レンダリングの概要__」の「[__GameRenderer::Render__ メソッド](tutorial--assembling-the-rendering-pipeline.md#gamerendererrender-method)」で既に説明しました。
-        4. __m \_ constantBufferChangesEveryPrim__には、各プリミティブのモデルマトリックスと素材のプロパティが含まれています。 モデル マトリックスは、頂点をローカル座標からワールド座標に変換します。 これらの定数は各プリミティブに固有で、描画呼び出しのたびに更新されます。 これについては、「__レンダリング フレームワーク I: レンダリングの概要__」の「[プリミティブのレンダリング](tutorial--assembling-the-rendering-pipeline.md#primitive-rendering)」で既に説明しました。
+        1. __m \_ constantBufferNeverChanges__ には、光源のパラメーターが含まれています。 これは、__FinalizeCreateGameDeviceResources__ メソッドで一度設定されると、再び変更されることはありません。
+        2. __m \_ constantBufferChangeOnResize__ は、射影行列を含みます。 プロジェクション マトリックスは、ウィンドウのサイズと縦横比に依存します。 これは、[__CreateWindowSizeDependentResources__](#createwindowsizedependentresource-method) で設定され、[__FinalizeCreateGameDeviceResources__](#finalizecreategamedeviceresources-method) メソッドでリソースが読み込まれた後で更新されます。 3D でレンダリングする場合は、フレームごとに 2 回変更されます。
+        3. __m \_ constantBufferChangesEveryFrame__ には、ビュー行列が含まれています。 このマトリックスは、カメラ位置とルック方向 (標準はプロジェクション方向) に依存し、__Render__ メソッドで 1 フレームあたり 1 回変更されます。 これについては、「__レンダリング フレームワーク I: レンダリングの概要__」の「[__GameRenderer::Render__ メソッド](tutorial--assembling-the-rendering-pipeline.md#gamerendererrender-method)」で既に説明しました。
+        4. __m \_ constantBufferChangesEveryPrim__ には、各プリミティブのモデルマトリックスと素材のプロパティが含まれています。 モデル マトリックスは、頂点をローカル座標からワールド座標に変換します。 これらの定数は各プリミティブに固有で、描画呼び出しのたびに更新されます。 これについては、「__レンダリング フレームワーク I: レンダリングの概要__」の「[プリミティブのレンダリング](tutorial--assembling-the-rendering-pipeline.md#primitive-rendering)」で既に説明しました。
 * プリミティブのテクスチャを保持するシェーダー リソース オブジェクトも、このクラスで定義されます。
     * 一部のテクスチャは事前に定義されています ([DDS](/windows/desktop/direct3ddds/dx-graphics-dds-pguide) は、圧縮および非圧縮テクスチャを格納するために使用されるファイル形式です。 DDS テクスチャは、ワールドの壁や床、弾薬の球体に使用されます)。
-    * このサンプルゲームでは、シェーダーリソースオブジェクトは__m \_ sphereTexture__、 __m \_ cylinderTexture__、 __m \_ ceilingTexture__、 __m \_ floorTexture__、 __m \_ wallsTexture__です。
+    * このサンプルゲームでは、シェーダーリソースオブジェクトは __m \_ sphereTexture__、 __m \_ cylinderTexture__、 __m \_ ceilingTexture__、 __m \_ floorTexture__、 __m \_ wallsTexture__です。
 * シェーダー オブジェクトは、プリミティブやテクスチャを計算するために、このクラスで定義されます。 
-    * このサンプルゲームでは、シェーダーオブジェクトは__m \_ vertexshader__、 __m \_ vertexShaderFlat__、 __m \_ pixelShader__、 __m \_ pixelShaderFlat__です。
+    * このサンプルゲームでは、シェーダーオブジェクトは __m \_ vertexshader__、 __m \_ vertexShaderFlat__、 __m \_ pixelShader__、 __m \_ pixelShaderFlat__です。
     * 頂点シェーダーはプリミティブと基本的な照明を処理し、ピクセル シェーダー (フラグメント シェーダーとも呼ばれます) はテクスチャとピクセルごとの効果を処理します。
     * これらのシェーダーには、異なるプリミティブをレンダリングするための 2 つのバージョン (標準とフラット) があります。 異なるバージョンを用意しているでは、フラット バージョンは、標準と比べるときわめて単純であり、鏡面ハイライトやピクセル単位の照明効果が一切実行されないためです。 壁に使われ、低電力デバイスでレンダリングを高速化します。
 
@@ -124,7 +124,7 @@ private:
 
 ## <a name="constructor"></a>コンストラクター
 
-次に、サンプルゲームの__GameRenderer__コンストラクターを調べて、DirectX 11 アプリケーションテンプレートで提供されている__Sample3DSceneRenderer__コンストラクターと比較してみましょう。
+次に、サンプルゲームの __GameRenderer__ コンストラクターを調べて、DirectX 11 アプリケーションテンプレートで提供されている __Sample3DSceneRenderer__ コンストラクターと比較してみましょう。
 
 ```cppwinrt
 // Constructor method of the main rendering class object
@@ -143,7 +143,7 @@ GameRenderer::GameRenderer(std::shared_ptr<DX::DeviceResources> const& deviceRes
 
 ## <a name="create-and-load-directx-graphic-resources"></a>DirectX グラフィックス リソースの作成と読み込み
 
-サンプルゲーム (および Visual Studio の__DirectX 11 アプリ (ユニバーサル Windows)__ テンプレート) では、 __GameRenderer__コンストラクターから呼び出される次の2つのメソッドを使用して、ゲームリソースの作成と読み込みが実装されます。
+サンプルゲーム (および Visual Studio の __DirectX 11 アプリ (ユニバーサル Windows)__ テンプレート) では、 __GameRenderer__ コンストラクターから呼び出される次の2つのメソッドを使用して、ゲームリソースの作成と読み込みが実装されます。
 
 * [__CreateDeviceDependentResources__](#createdevicedependentresources-method)
 * [__CreateWindowSizeDependentResources__](#createwindowsizedependentresource-method)
@@ -156,7 +156,7 @@ DirectX 11 アプリ テンプレートでは、このメソッドを使用し�
 
 このサンプルゲームでは、この方法について説明します。
 
-* レンダリングに進む前にリソースが読み込まれているかどうかを示す、インスタンス化された変数 (__m \_ gameResourcesLoaded__ = false および__m \_ levelresourcesloaded__ = false)。これは、それらを非同期に読み込むためです。 
+* レンダリングに進む前にリソースが読み込まれているかどうかを示す、インスタンス化された変数 (__m \_ gameResourcesLoaded__ = false および __m \_ levelresourcesloaded__ = false)。これは、それらを非同期に読み込むためです。 
 * HUD とオーバーレイのレンダリングは別のクラスのオブジェクトで行われるため、ここでは __GameHud::CreateDeviceDependentResources__ メソッドと __GameInfoOverlay::CreateDeviceDependentResources__ メソッドを呼び出します。
 
 __GameRenderer::CreateDeviceDependentResources__ のコードは次のとおりです。
@@ -355,7 +355,7 @@ __FinalizeCreateGameDeviceResources__ と [__CreateWindowSizeDependentResources_
 * __SetProjParams__ を使用して、カメラのプロジェクション マトリックスが適切になるように設定します。 詳しくは、「[カメラと座標空間](tutorial--assembling-the-rendering-pipeline.md#camera-and-coordinate-space)」をご覧ください。
 * カメラのプロジェクション マトリックスに 3D 回転マトリックスを乗算することにより、画面の向きを処理します。 結果として得られるプロジェクション マトリックスを使って、__ConstantBufferChangeOnResize__ 定数バッファーを更新します。
 * __M \_ gameResourcesLoaded__ __Boolean__グローバル変数を設定して、リソースがバッファーに読み込まれ、次の手順の準備ができたことを示します。 最初に __GameRenderer__ のコンストラクター メソッドで、__GameRenderer::CreateDeviceDependentResources__ メソッドを使用して、この変数を __FALSE__ として初期化したことを思い出してください。 
-* この__m \_ GameResourcesLoaded__が__TRUE__の場合、シーンオブジェクトのレンダリングを実行できます。 これについては、「__レンダリング フレームワーク I: レンダリングの概要__」の「[__GameRenderer::Render メソッド__](tutorial--assembling-the-rendering-pipeline.md#gamerendererrender-method)」で説明しました。
+* この __m \_ GameResourcesLoaded__ が __TRUE__の場合、シーンオブジェクトのレンダリングを実行できます。 これについては、「__レンダリング フレームワーク I: レンダリングの概要__」の「[__GameRenderer::Render メソッド__](tutorial--assembling-the-rendering-pipeline.md#gamerendererrender-method)」で説明しました。
 
 ```cppwinrt
 // This method is called from the GameMain constructor.
@@ -576,7 +576,7 @@ CreateWindowSizeDependentResources メソッドは、ウィンドウのサイズ
 * メイン ゲーム ループにイベントが通知され、メイン クラス (__GameMain__) インスタンスで __CreateWindowSizeDependentResources__ を呼び出します。これは、次に、ゲーム レンダラー (__GameRenderer__) クラスでの __CreateWindowSizeDependentResources__ の実装を呼び出します。
 * このメソッドの主な役割は、ウィンドウのプロパティが変化したために視覚効果が混乱したり、誤ったものにならないようにすることです。
 
-このサンプルゲームでは、多くのメソッド呼び出しは[__FinalizeCreateGameDeviceResources__](#finalizecreategamedeviceresources-method)メソッドと同じです。 コード チュートリアルについては、前のセクションを参照してください。
+このサンプルゲームでは、多くのメソッド呼び出しは [__FinalizeCreateGameDeviceResources__](#finalizecreategamedeviceresources-method) メソッドと同じです。 コード チュートリアルについては、前のセクションを参照してください。
 
 ゲームの HUD とオーバーレイ ウィンドウ サイズのレンダリングの調整については、「[ユーザー インターフェイスの追加](tutorial--adding-a-user-interface.md)」を参照してください。
 
@@ -633,6 +633,6 @@ void GameRenderer::CreateWindowSizeDependentResources()
 }
 ```
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
 これは、ゲームのグラフィックス レンダリング フレームワークを実装する基本的なプロセスです。 ゲームの規模が大きくなるほど、オブジェクトの種類とアニメーションの動作の階層を処理するために必要な抽象化も増加します。 メッシュやテクスチャなどのアセットを読み込んで管理するために、より複雑なメソッドの実装が必要になります。 次に、[ユーザー インターフェイスを追加する](tutorial--adding-a-user-interface.md)方法について説明します。

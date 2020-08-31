@@ -1,30 +1,30 @@
 ---
-Description: UWP アプリからカスタム イベントを記録し、パートナー センターでの使用状況レポートでこれらのイベントを確認できます。
+Description: UWP アプリからカスタムイベントをログに記録し、パートナーセンターの使用状況レポートでこれらのイベントを確認することができます。
 title: パートナー センターのカスタム イベントをログに記録する
 ms.date: 06/01/2018
 ms.topic: article
 keywords: windows 10, uwp, Microsoft Store Services SDK, イベントをログ記録
 ms.assetid: 4aa591e0-c22a-4c90-b316-0b5d0410af19
 ms.localizationpriority: medium
-ms.openlocfilehash: e45b14daf6951142cb0d0ed8714e981eb6a55628
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: ec4bee888d055b5331252e91bfd979d81b976f3c
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66371039"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89158436"
 ---
 # <a name="log-custom-events-for-partner-center"></a>パートナー センターのカスタム イベントをログに記録する
 
-[使用状況レポート](https://docs.microsoft.com/windows/uwp/publish/usage-report)でパートナー センター、ユニバーサル Windows プラットフォーム (UWP) アプリで定義したカスタム イベントに関する情報を取得することができます。 カスタムイベントは、アプリ内のイベントやアクティビティを表す任意の文字列です。 たとえば、ゲームで *firstLevelPassed*、*secondLevelPassed* という名前のカスタム イベントを定義して、ユーザーがゲームの各レベルをクリアしたときに記録されるようにできます。
+パートナーセンターの [使用状況レポート](../publish/usage-report.md) では、ユニバーサル WINDOWS プラットフォーム (UWP) アプリで定義したカスタムイベントに関する情報を取得できます。 カスタムイベントは、アプリ内のイベントやアクティビティを表す任意の文字列です。 たとえば、ゲームで *firstLevelPassed*、*secondLevelPassed* という名前のカスタム イベントを定義して、ユーザーがゲームの各レベルをクリアしたときに記録されるようにできます。
 
-アプリからのカスタム イベントをログに記録するには、カスタム イベントの文字列を Microsoft Store Services SDK で提供されている [Log](https://docs.microsoft.com/uwp/api/microsoft.services.store.engagement.storeservicescustomeventlogger.log) メソッドに渡します。 カスタム イベントの合計出現回数を確認することができます、**カスタム イベント**のセクション、[使用状況レポート](https://docs.microsoft.com/windows/uwp/publish/usage-report)パートナー センターでします。
+アプリからのカスタム イベントをログに記録するには、カスタム イベントの文字列を Microsoft Store Services SDK で提供されている [Log](/uwp/api/microsoft.services.store.engagement.storeservicescustomeventlogger.log) メソッドに渡します。 カスタムイベントの合計発生回数は、パートナーセンターの[使用状況レポート](../publish/usage-report.md)の [**カスタムイベント**] セクションで確認できます。
 
 > [!NOTE]
-> パートナー センターにログインするカスタム イベントに関連しない[Windows イベント](https://docs.microsoft.com/windows/desktop/Events/windows-events)には表示されませんし**イベント ビューアー**します。
+> パートナーセンターにログを記録するカスタムイベントは、 [Windows イベント](/windows/desktop/Events/windows-events)とは無関係であり、 **イベントビューアー**には表示されません。
 
 ## <a name="prerequisites"></a>前提条件
 
-カスタム ログのイベントを確認する前に、**使用状況レポート**、パートナー センターでアプリのアプリをストアに公開する必要があります。
+パートナーセンターでアプリの **使用状況レポート** のカスタムログイベントを確認する前に、アプリをストアで公開する必要があります。
 
 ## <a name="how-to-log-custom-events"></a>カスタム イベントをログに記録する方法
 
@@ -32,23 +32,23 @@ ms.locfileid: "66371039"
 
 2. Visual Studio でプロジェクトを開きます。
 
-3. ソリューション エクスプローラーで、プロジェクトの **[参照設定]** ノードを右クリックし、 **[参照の追加]** をクリックします。
+3. ソリューション エクスプローラーで、プロジェクトの **[参照設定]** ノードを右クリックし、**[参照の追加]** をクリックします。
 
-4. **[参照マネージャー]** で、 **[ユニバーサル Windows]** を展開し、 **[拡張機能]** をクリックします。
+4. **[参照マネージャー]** で、**[ユニバーサル Windows]** を展開し、**[拡張機能]** をクリックします。
 
-5. SDK の一覧で、 **[Microsoft Engagement Framework]** の横にあるチェック ボックスをオンにして、 **[OK]** をクリックします。
+5. SDK の一覧で、**[Microsoft Engagement Framework]** の横にあるチェック ボックスをオンにして、**[OK]** をクリックします。
 
 6. カスタム イベントを記録する各コード ファイルの先頭に、次のステートメントを追加します。
     [!code-csharp[EventLogger](./code/StoreSDKSamples/cs/LogEvents.cs#EngagementNamespace)]
 
-7. カスタム イベントのログを記録するコードの各セクションで、[StoreServicesCustomEventLogger](https://docs.microsoft.com/uwp/api/microsoft.services.store.engagement.storeservicescustomeventlogger.log) オブジェクトを取得し、[Log](https://docs.microsoft.com/uwp/api/microsoft.services.store.engagement.storeservicescustomeventlogger.log) メソッドを呼び出します。 カスタム イベント文字列をメソッドに渡します。
+7. カスタム イベントのログを記録するコードの各セクションで、[StoreServicesCustomEventLogger](/uwp/api/microsoft.services.store.engagement.storeservicescustomeventlogger.log) オブジェクトを取得し、[Log](/uwp/api/microsoft.services.store.engagement.storeservicescustomeventlogger.log) メソッドを呼び出します。 カスタム イベント文字列をメソッドに渡します。
     [!code-csharp[EventLogger](./code/StoreSDKSamples/cs/LogEvents.cs#Log)]
 
     > [!NOTE]
-    > アプリで長い名前を持つ多くのカスタム イベントをログに記録する場合は、[[使用状況] レポート](https://docs.microsoft.com/windows/uwp/publish/usage-report)の読み込みに時間がかかることもあります。 カスタム イベントには簡単な名前を使用することをお勧めします。 
+    > アプリで長い名前を持つ多くのカスタム イベントをログに記録する場合は、[[使用状況] レポート](../publish/usage-report.md)の読み込みに時間がかかることもあります。 カスタム イベントには簡単な名前を使用することをお勧めします。 
 
 ## <a name="related-topics"></a>関連トピック
 
-* [利用状況レポート](https://docs.microsoft.com/windows/uwp/publish/usage-report)
-* [Log メソッド](https://docs.microsoft.com/uwp/api/microsoft.services.store.engagement.storeservicescustomeventlogger.log)
-* [Microsoft Store Services SDK](https://docs.microsoft.com/windows/uwp/monetize/microsoft-store-services-sdk)
+* [利用状況レポート](../publish/usage-report.md)
+* [Log メソッド](/uwp/api/microsoft.services.store.engagement.storeservicescustomeventlogger.log)
+* [Microsoft Store Services SDK](./microsoft-store-services-sdk.md)

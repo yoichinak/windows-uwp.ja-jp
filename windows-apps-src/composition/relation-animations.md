@@ -1,16 +1,16 @@
 ---
 title: 関係ベース アニメーション
-description: 別のオブジェクトのプロパティに基づいくモーションを作成します。
+description: 式のアニメーションを使用して、モーションが別のオブジェクトのプロパティに依存している場合に、リレーションベースのアニメーションを作成する方法について説明します。
 ms.date: 10/10/2017
 ms.topic: article
 keywords: Windows 10, UWP, アニメーション
 ms.localizationpriority: medium
-ms.openlocfilehash: bfed00cf4866d79d4ac3097026cc09c70f9327cd
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 91e3ae5b23b7429633053f4d4d876f02127d26e3
+ms.sourcegitcommit: 5d34eb13c7b840c05e5394910a22fa394097dc36
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67318167"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89054422"
 ---
 # <a name="relation-based-animations"></a>関係ベース アニメーション
 
@@ -31,8 +31,8 @@ ms.locfileid: "67318167"
 関係ベースのモーション エクスペリエンスを作成するには、ExpressionAnimation という種類のアニメーションを使用します。 ExpressionAnimation (短く示す場合は Expression) は新しい種類のアニメーションで、数学的な関係を表すことができます。数学的な関係とは、各フレームでアニメーション化するプロパティの値を計算する際にシステムで使用される関係です。 言い換えれば、Expression は、各フレームでアニメーション化するプロパティの目的の値を定義する単純な方程式です。 Expression は用途の広いコンポーネントで、次のようなさまざまなシナリオで使用できます。
 
 - 相対サイズ、オフセット アニメーション。
-- ScrollViewer を使用した固定ヘッダーや視差 (「[既存の ScrollViewer エクスペリエンスを強化する](scroll-input-animations.md)」をご覧ください)。
-- InertiaModifier と InteractionTracker を使用したスナップ位置 (「[慣性修飾子を使用したスナップ位置の作成](inertia-modifiers.md)」をご覧ください)。
+- ScrollViewer を使用した固定ヘッダーや視差  (「[既存の ScrollViewer エクスペリエンスを強化する](scroll-input-animations.md)」をご覧ください)。
+- InertiaModifier と InteractionTracker を使用したスナップ位置  (「[慣性修飾子を使用したスナップ位置の作成](inertia-modifiers.md)」をご覧ください)。
 
 ExpressionAnimation を使用するときは、以下の点について留意してください。
 
@@ -45,7 +45,7 @@ ExpressionAnimation を使用するときは、以下の点について留意し
 Expression の数学的な関係を構築する際に利用できる主なコンポーネントには、以下のものがあります。
 
 - パラメーター – 定数値または他のコンポジション オブジェクトへの参照を表す値です。
-- 数学演算子 – 式を構成するためにパラメーターを結合する一般的な数学演算子 (加算 (+)、減算 (-)、乗算 (*)、除算 (/)) です。 条件演算子 (より大きい (>)、等しい (==) など) や、三項演算子 (condition ? ifTrue : ifFalse) なども含まれます。
+- 数学演算子 – 式を構成するためにパラメーターを結合する一般的な数学演算子 (加算 (+)、減算 (-)、乗算 (*)、除算 (/)) です。 条件演算子 (より大きい (>)、等しい (==) など) や、三項演算子 (condition ?  ifTrue : ifFalse) なども含まれます。
 - 数学関数 – System.Numerics に基づく数学関数/数学ショートカットです。 サポートされる関数の完全な一覧については、「[ExpressionAnimation](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.ExpressionAnimation)」をご覧ください。
 
 Expression では一連のキーワードもサポートされています。キーワードとは、ExpressionAnimation システム内でのみ使われる独自の意味を持つ特別な語句です。 これらのキーワードの一覧 (および数学関数の完全な一覧) については、「[ExpressionAnimation](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.ExpressionAnimation)」の説明をご覧ください。
@@ -91,7 +91,7 @@ Expression を使用した例を確認してみましょう。具体的には、
 1. 軌道の周回を駆動する際に利用される **Rotation** プロパティを含んでいる PropertySet。他の KeyFrameAnimation によってアニメーション化されます。
 1. 青い円のオフセットを駆動する ExpressionAnimation。赤い円のオフセットと Rotation プロパティを参照して、完全な軌道の周回を維持します。
 
-3\. で定義されている ExpressionAnimation に注目します。 また、ExpressionBuilder クラスも使用した、この Expression の作成も行います。 String を使用してこのエクスペリエンスを作成するためのコードのコピーが、最後に記載されています。
+3. で定義されている ExpressionAnimation に注目します。 また、ExpressionBuilder クラスも使用した、この Expression の作成も行います。 String を使用してこのエクスペリエンスを作成するためのコードのコピーが、最後に記載されています。
 
 この式では、PropertySet から参照する必要がある 2 つのプロパティが使用されています。1 つは中心点のオフセット、もう 1 つは回転です。
 
@@ -112,7 +112,7 @@ var orbitRotation = EF.Vector3(
 ```
 
 > [!NOTE]
-> `EF` ExpressionBuilder.ExpressionFunctions を定義する短縮形"using"表記です。
+> `EF` は、式ビルダーの式を定義するための省略形の "using" 表記です。
 
 最後に、これらのコンポーネントを一緒に組み合わせ、赤い円の位置を参照して、数学的な関係を定義します。
 

@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp, セキュリティ
 ms.assetid: 89f3d331-20cd-457b-83e8-1a22aaab2658
 ms.localizationpriority: medium
-ms.openlocfilehash: 1e1e27ad47385b3ded743d39cc6a347cab5960ce
-ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
+ms.openlocfilehash: d9d9041b5e90ce8ffc16fe0158dda597f99b41bc
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86493137"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89157946"
 ---
 # <a name="windows-unlock-with-windows-hello-companion-iot-devices"></a>Windows Hello コンパニオン (IoT) デバイスを使った Windows のロック解除
 
@@ -40,7 +40,7 @@ Windows Hello コンパニオン デバイスは、ユーザー認証のエク�
 
 ### <a name="biometric-enabled-windows-hello-companion-devices"></a>生体認証対応 Windows Hello コンパニオン デバイス
 
-コンパニオン デバイスが生体認証をサポートしている場合は、Windows Hello コンパニオン デバイス フレームワークよりも [Windows 生体認証フレームワーク](https://msdn.microsoft.com/windows/hardware/commercialize/design/device-experiences/windows-hello)の方が効果的なことがあります。 お問い合わせください [cdfonboard@microsoft.com](mailto:cdfonboard@microsoft.com) 。適切なアプローチを選択するのに役立ちます。
+コンパニオン デバイスが生体認証をサポートしている場合は、Windows Hello コンパニオン デバイス フレームワークよりも [Windows 生体認証フレームワーク](/windows-hardware/design/device-experiences/windows-hello)の方が効果的なことがあります。 お問い合わせください [cdfonboard@microsoft.com](mailto:cdfonboard@microsoft.com) 。適切なアプローチを選択するのに役立ちます。
 
 ### <a name="components-of-the-solution"></a>ソリューションのコンポーネント
 
@@ -52,7 +52,7 @@ Windows Hello コンパニオン デバイス フレームワークは、Windows
 
 Windows Hello コンパニオン デバイス フレームワークとの統合には、以下が必要です。
 
-- コンパニオン デバイス用の[ユニバーサル Windows プラットフォーム (UWP)](https://docs.microsoft.com/windows/uwp/get-started/universal-application-platform-guide) Windows Hello コンパニオン デバイス アプリ。Windows アプリ ストアからダウンロードできます。 
+- コンパニオン デバイス用の[ユニバーサル Windows プラットフォーム (UWP)](../get-started/universal-application-platform-guide.md) Windows Hello コンパニオン デバイス アプリ。Windows アプリ ストアからダウンロードできます。 
 - 2 つの 256 ビットの HMAC キーを Windows Hello コンパニオン デバイス上に作成し、HMAC を (SHA-256 を使用して) 生成する能力。
 - 適切に構成された Windows 10 デスクトップのセキュリティ設定。 Companion Authentication Service では、Windows Hello コンパニオン デバイスが接続される前に PIN が設定されている必要があります。 ユーザーは、[設定]、[アカウント]、[サインイン オプション] の順に移動して、PIN を設定する必要があります。
 
@@ -92,7 +92,7 @@ Windows Hello コンパニオン デバイスは、PC と通信する前に、�
 - ユーザーは、Windows Hello コンパニオン デバイスを使用してロックを解除する各 Windows 10 デスクトップ デバイスで PIN を設定します。
 - ユーザーは、Windows 10 デスクトップ デバイスで Windows Hello コンパニオン デバイス アプリを実行して、自分の Windows Hello コンパニオン デバイスを Windows 10 デスクトップ デバイスに登録します。
 
-メモ:
+注:
 
 - Windows Hello コンパニオンデバイスアプリの検出、ダウンロード、および起動は合理化されており、可能な場合は自動化されています (たとえば、Windows 10 デスクトップデバイス側の NFC リーダーで Windows Hello コンパニオンデバイスをタップしたときにアプリをダウンロードできます)。 ただし、これは、Windows Hello コンパニオン デバイスと Windows Hello コンパニオン デバイス アプリの責任で実行する必要があります。
 - エンタープライズ環境では、MDM によって Windows Hello コンパニオン デバイス アプリを展開できます。
@@ -642,17 +642,17 @@ Windows Hello コンパニオン デバイス アプリは、ShowNotificationMes
 - "Setting up your companion device.  Please wait or use another sign-in option." (コンパニオン デバイスをセットアップしています。しばらく待機するか、別のサインイン オプションを使用してください。)
 - "サインインするには、*デバイス名* を NFC リーダーにタップしてください。"
 - "*デバイス名* を探しています..."
-- "サインインするには、*デバイス名*を USB ポートに接続してください。"
+- "サインインするには、 *デバイス名* を USB ポートに接続してください。"
 
 **エラー**
 
 - "*デバイス名* にサインインする方法を確認してください。"
 - "*デバイス名* を使用してサインインするには、Bluetooth をオンにしてください。"
 - "*デバイス名* を使用してサインインするには、NFC をオンにしてください。"
-- "*デバイス名*を使用してサインインするには、wi-fi ネットワークに接続します。"
-- "*デバイス名*をもう一度タップします。"
-- "企業により、*デバイス名*を使用したサインインが禁止されています。 別のサインイン オプションを使用してください。"
-- "サインインするには、*デバイス名*をタップしてください。"
+- " *デバイス名* を使用してサインインするには、wi-fi ネットワークに接続します。"
+- " *デバイス名* をもう一度タップします。"
+- "企業により、 *デバイス名*を使用したサインインが禁止されています。 別のサインイン オプションを使用してください。"
+- "サインインするには、 *デバイス名* をタップしてください。"
 - "サインインするには、*デバイス名* の上に指を置いてください。"
 - "サインインするには、*デバイス名* を指でスワイプしてください。"
 - "*デバイス名* にサインインできませんでした。 別のサインイン オプションを使用してください。"

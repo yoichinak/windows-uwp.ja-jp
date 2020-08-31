@@ -7,19 +7,19 @@ keywords:
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: b8960d9723460fcbb8cec71da0998958cac8a6e8
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 90dfb8d28be786cb542e72fde5a24bed4de68f78
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66370940"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89167976"
 ---
 # <a name="tessellator-ts-stage"></a>テッセレータ (TS) ステージ
 
 
 テッセレータ (TS) ステージは、ジオメトリ パッチを表すドメインのサンプリング パターンを作成し、サンプルを接続する一連の小さいオブジェクト (三角形、点、または線) を生成します。
 
-## <a name="span-idpurposeandusesspanspan-idpurposeandusesspanspan-idpurposeandusesspanpurpose-and-uses"></a><span id="Purpose_and_uses"></span><span id="purpose_and_uses"></span><span id="PURPOSE_AND_USES"></span>目的と使用
+## <a name="span-idpurpose_and_usesspanspan-idpurpose_and_usesspanspan-idpurpose_and_usesspanpurpose-and-uses"></a><span id="Purpose_and_uses"></span><span id="purpose_and_uses"></span><span id="PURPOSE_AND_USES"></span>目的と用途
 
 
 次の図は、Direct3D のグラフィックス パイプラインのステージを示しています。
@@ -52,38 +52,38 @@ Direct3D ランタイムは、テッセレーションを実装する 3 ステ�
 
 Direct3D グラフィックス パイプラインは、ハードウェアでテッセレーションを実装し、CPU から GPU に処理をオフロードします。 アプリケーションが多数のモーフ ターゲットや洗練されたスキニング/変形モデルを実装している場合、パフォーマンスの大幅な向上を実現できます。
 
-テッセレーションは、[ハル シェーダー](hull-shader-stage--hs-.md)をパイプラインにバインドすることで初期化される固定機能ステージです。 (を参照してください[How To:テッセレータ ステージを初期化](https://docs.microsoft.com/windows/desktop/direct3d11/direct3d-11-advanced-stages-tessellator-initialize))。 テッセレータ ステージの目的は、ドメイン (クワッド、トライアングル、またはライン) を多数のより小さいオブジェクト (三角形、点または線) に分割することです。 テッセレータは、正規のドメインを標準化された (0 ～ 1 の) 座標系でタイル化します。 たとえば、クワッド ドメインは、単位正方形にテッセレーションされます。 
+テッセレーションは、[ハル シェーダー](hull-shader-stage--hs-.md)をパイプラインにバインドすることで初期化される固定機能ステージです。 (「[How To: Initialize the Tessellator Stage](/windows/desktop/direct3d11/direct3d-11-advanced-stages-tessellator-initialize)」(方法: テッセレーション ステージの初期化) を参照)。 テッセレータ ステージの目的は、ドメイン (クワッド、トライアングル、またはライン) を多数のより小さいオブジェクト (三角形、点または線) に分割することです。 テッセレータは、正規のドメインを標準化された (0 ～ 1 の) 座標系でタイル化します。 たとえば、クワッド ドメインは、単位正方形にテッセレーションされます。 
 
-### <a name="span-idphasesinthetessellatortsstagespanspan-idphasesinthetessellatortsstagespanspan-idphasesinthetessellatortsstagespanphases-in-the-tessellator-ts-stage"></a><span id="Phases_in_the_Tessellator__TS__stage"></span><span id="phases_in_the_tessellator__ts__stage"></span><span id="PHASES_IN_THE_TESSELLATOR__TS__STAGE"></span>テッセレータ (TS) ステージ内のフェーズ
+### <a name="span-idphases_in_the_tessellator__ts__stagespanspan-idphases_in_the_tessellator__ts__stagespanspan-idphases_in_the_tessellator__ts__stagespanphases-in-the-tessellator-ts-stage"></a><span id="Phases_in_the_Tessellator__TS__stage"></span><span id="phases_in_the_tessellator__ts__stage"></span><span id="PHASES_IN_THE_TESSELLATOR__TS__STAGE"></span>テッセレータ (TS) ステージのフェーズ
 
 テッセレータ (TS) ステージは次の 2 つのフェーズで動作します。
 
 -   最初のフェーズでは、32 ビット浮動小数点演算を使用して、テッセレーション係数を処理して丸めの問題を解決した後、非常に小さい係数を処理することで係数の削減および結合を行います。
 -   2 番目のフェーズでは、選択したパーティションの種類に基づいてポイント リストまたはトポロジ リストを生成します。 これはテッセレータ ステージの中核タスクで、固定小数点演算の 16 ビットの小数を使用します。 固定小数点演算により、許容範囲内の精度を維持しつつハードウェアを加速化できます。 たとえば、64 メートル幅のパッチの場合、この精度を 2mm の解像度の点にできます。
 
-    | パーティションの種類 | 範囲                       |
+    | パーティションの種類 | Range                       |
     |----------------------|-----------------------------|
-    | 小数部から成る\_奇数      | \[1...63\]                  |
-    | 小数部から成る\_でも     | TessFactor 範囲:\[2..64\] |
-    | 整数型              | TessFactor 範囲:\[1..64\] |
-    | Pow2                 | TessFactor 範囲:\[1..64\] |
+    | 奇数の小数部 \_      | \[1... 63\]                  |
+    | \_偶数     | TessFactor の範囲: \[ 2.. 64\] |
+    | Integer              | TessFactor の範囲: \[ 1.. 64\] |
+    | Pow2                 | TessFactor の範囲: \[ 1.. 64\] |
 
      
 
-テッセレーションは、[ハル シェーダー](hull-shader-stage--hs-.md)と[ドメイン シェーダー](domain-shader-stage--ds-.md)の 2 つのプログラム可能なシェーダー ステージにより実装されます。 これらのシェーダー ステージは、シェーダー モデル 5 で定義された HLSL コードでプログラムされます。 シェーダーのターゲットは、: hs\_5\_0 および ds\_5\_0。 タイトルによってシェーダーが作成され、その後、シェーダーがパイプラインにバインドされるときにランタイムに渡されるコンパイル済みのシェーダーから、ハードウェア用のコードが抽出されます。
+テッセレーションは、[ハル シェーダー](hull-shader-stage--hs-.md)と[ドメイン シェーダー](domain-shader-stage--ds-.md)の 2 つのプログラム可能なシェーダー ステージにより実装されます。 これらのシェーダー ステージは、シェーダー モデル 5 で定義された HLSL コードでプログラムされます。 シェーダーのターゲットは、hs \_ 5 \_ 0 および ds \_ 5 \_ 0 です。 タイトルによってシェーダーが作成され、その後、シェーダーがパイプラインにバインドされるときにランタイムに渡されるコンパイル済みのシェーダーから、ハードウェア用のコードが抽出されます。
 
-### <a name="span-idenablingdisablingtessellationspanspan-idenablingdisablingtessellationspanspan-idenablingdisablingtessellationspanenablingdisabling-tessellation"></a><span id="Enabling_disabling_tessellation"></span><span id="enabling_disabling_tessellation"></span><span id="ENABLING_DISABLING_TESSELLATION"></span>テセレーションの有効化/無効化
+### <a name="span-idenabling_disabling_tessellationspanspan-idenabling_disabling_tessellationspanspan-idenabling_disabling_tessellationspanenablingdisabling-tessellation"></a><span id="Enabling_disabling_tessellation"></span><span id="enabling_disabling_tessellation"></span><span id="ENABLING_DISABLING_TESSELLATION"></span>テッセレーションの有効化/無効化
 
 テッセレーションは、ハル シェーダーを作成し、これをハル シェーダー ステージにバインドすることによって有効にします (これにより、テッセレータ ステージが自動的にセットアップされます)。 テッセレーションされたパッチから最終的な頂点位置を生成するには、[ドメイン シェーダー](domain-shader-stage--ds-.md)を作成し、これをドメイン シェーダー ステージにバインドする必要があります。 テッセレーションが有効になると、入力アセンブラー (IA) ステージに入力するデータは、パッチ データである必要があります。 つまり、入力アセンブラー トポロジは、パッチ定数トポロジである必要があります。
 
 テッセレーションを無効にするには、ハル シェーダーおよびドメイン シェーダーを **NULL** に設定します。 [ジオメトリ シェーダー (GS) ステージ](geometry-shader-stage--gs-.md)と [ストリーム出力 (SO) ステージ](stream-output-stage--so-.md)のいずれも、ハル シェーダーの出力コントロール ポイントまたはパッチ データを読み取れません。
 
-## <a name="span-idinputspanspan-idinputspanspan-idinputspaninput"></a><span id="Input"></span><span id="input"></span><span id="INPUT"></span>入力
+## <a name="span-idinputspanspan-idinputspanspan-idinputspaninput"></a><span id="Input"></span><span id="input"></span><span id="INPUT"></span>代入
 
 
 テッセレータは、ハル シェーダー ステージから渡されるテッセレーション係数 (ドメインをどの程度詳細にテッセレーションするかを指定する) およびパーティションの種類 (パッチのスライスに使用するアルゴリズムを指定する) を使用して、パッチごとに 1 回動作します。
 
-## <a name="span-idoutputspanspan-idoutputspanspan-idoutputspanoutput"></a><span id="Output"></span><span id="output"></span><span id="OUTPUT"></span>出力
+## <a name="span-idoutputspanspan-idoutputspanspan-idoutputspanoutput"></a><span id="Output"></span><span id="output"></span><span id="OUTPUT"></span>Output
 
 
 テッセレータは、uv (およびオプションとして w) 座標およびサーフェス トポロジをドメイン シェーダー ステージに出力します。
@@ -96,7 +96,3 @@ Direct3D グラフィックス パイプラインは、ハードウェアでテ�
  
 
  
-
-
-
-

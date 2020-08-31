@@ -6,32 +6,32 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, スレッド, スレッド プール
 ms.localizationpriority: medium
-ms.openlocfilehash: a9da63e05380987d69d97a74123e593acd0b8cb1
-ms.sourcegitcommit: 2dbf4a3f3473c1d3a0ad988bcbae6e75dfee3640
+ms.openlocfilehash: 3576f907e4ab601013d22fe9ae7697e0ec523ce4
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82619346"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89155206"
 ---
 # <a name="submit-a-work-item-to-the-thread-pool"></a>スレッド プールへの作業項目の送信
 
-\[Windows 10 の UWP アプリ用に更新されました。 Windows 8.x の記事については、「[アーカイブ](https://docs.microsoft.com/previous-versions/windows/apps/mt244353(v=win.10)?redirectedfrom=MSDN)」を参照してください。\]
+\[ Windows 10 の UWP アプリ用に更新されました。 Windows 8.x の記事については、「 [アーカイブ](/previous-versions/windows/apps/mt244353(v=win.10))」を参照してください。 \]
 
 <b>重要な API</b>
 
--   [**RunAsync**](https://docs.microsoft.com/uwp/api/windows.system.threading.threadpool.runasync)
--   [**IAsyncAction**](https://docs.microsoft.com/uwp/api/Windows.Foundation.IAsyncAction)
+-   [**RunAsync**](/uwp/api/windows.system.threading.threadpool.runasync)
+-   [**IAsyncAction**](/uwp/api/Windows.Foundation.IAsyncAction)
 
 スレッド プールに作業項目を送信することで独立したスレッドで作業を実行する方法について説明します。 これによって、非常に時間のかかる作業を実行しながら UI の応答性を確保でき、また複数のタスクを並行して実行することができます。
 
 ## <a name="create-and-submit-the-work-item"></a>作業項目の作成と送信
 
-[**RunAsync**](https://docs.microsoft.com/uwp/api/windows.system.threading.threadpool.runasync) を呼び出して作業項目を作成します。 作業を実行するデリゲートを指定します (ラムダやデリゲート関数を使うことができます)。 **RunAsync** が [**IAsyncAction**](https://docs.microsoft.com/uwp/api/Windows.Foundation.IAsyncAction) オブジェクトを返すことに注意してください。このオブジェクトは次の手順で使うために格納しておきます。
+[**RunAsync**](/uwp/api/windows.system.threading.threadpool.runasync) を呼び出して作業項目を作成します。 作業を実行するデリゲートを指定します (ラムダやデリゲート関数を使うことができます)。 **RunAsync** が [**IAsyncAction**](/uwp/api/Windows.Foundation.IAsyncAction) オブジェクトを返すことに注意してください。このオブジェクトは次の手順で使うために格納しておきます。
 
-3 つのバージョンの [**RunAsync**](https://docs.microsoft.com/uwp/api/windows.system.threading.threadpool.runasync) を使うことができるため、必要に応じて作業項目の優先度を指定し、他の作業項目と同時に実行するかどうかを制御できます。
+3 つのバージョンの [**RunAsync**](/uwp/api/windows.system.threading.threadpool.runasync) を使うことができるため、必要に応じて作業項目の優先度を指定し、他の作業項目と同時に実行するかどうかを制御できます。
 
 >[!NOTE]
->[**CoreDispatcher**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync)を使用して UI スレッドにアクセスし、作業項目の進行状況を表示します。
+>[**CoreDispatcher**](/uwp/api/windows.ui.core.coredispatcher.runasync)を使用して UI スレッドにアクセスし、作業項目の進行状況を表示します。
 
 次の例では作業項目を作成し、作業を実行するラムダを指定します。
 
@@ -269,13 +269,13 @@ auto asyncAction = ThreadPool::RunAsync(workItem);
 m_workItem = asyncAction;
 ```
 
-[**RunAsync**](https://docs.microsoft.com/uwp/api/windows.system.threading.threadpool.runasync) が呼び出された後に、スレッド プールで作業項目がキューに入れられ、スレッドが使用可能になったときに実行されます。 スレッド プールの作業項目は非同期に実行されます。任意の順番で実行されることがあるため、作業項目は単独で機能するようにしてください。
+[**RunAsync**](/uwp/api/windows.system.threading.threadpool.runasync) が呼び出された後に、スレッド プールで作業項目がキューに入れられ、スレッドが使用可能になったときに実行されます。 スレッド プールの作業項目は非同期に実行されます。任意の順番で実行されることがあるため、作業項目は単独で機能するようにしてください。
 
-作業項目は [**IAsyncInfo.Status**](https://docs.microsoft.com/uwp/api/windows.foundation.iasyncinfo.status) プロパティをチェックし、作業項目が取り消されている場合は終了することに注意してください。
+作業項目は [**IAsyncInfo.Status**](/uwp/api/windows.foundation.iasyncinfo.status) プロパティをチェックし、作業項目が取り消されている場合は終了することに注意してください。
 
 ## <a name="handle-work-item-completion"></a>作業項目の完了の処理
 
-作業項目の [**IAsyncAction.Completed**](https://docs.microsoft.com/uwp/api/windows.foundation.iasyncaction.completed) プロパティを設定することで、完了ハンドラーを指定します。 作業項目の完了を処理するデリゲートを指定します (ラムダやデリゲート関数を使うことができます)。 たとえば、UI スレッドにアクセスしたり、結果を表示したりするには、[**CoreDispatcher.RunAsync**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync) を使います。
+作業項目の [**IAsyncAction.Completed**](/uwp/api/windows.foundation.iasyncaction.completed) プロパティを設定することで、完了ハンドラーを指定します。 作業項目の完了を処理するデリゲートを指定します (ラムダやデリゲート関数を使うことができます)。 たとえば、UI スレッドにアクセスしたり、結果を表示したりするには、[**CoreDispatcher.RunAsync**](/uwp/api/windows.ui.core.coredispatcher.runasync) を使います。
 
 次の例では、手順 1. で送信した作業項目の結果を使って UI を更新します。
 
@@ -350,7 +350,7 @@ asyncAction.Completed = new AsyncActionCompletedHandler(
 
 ## <a name="summary-and-next-steps"></a>まとめと次のステップ
 
-詳細については、このクイックスタートの「Windows 8.1 用に記述された[ThreadPool 作業項目サンプルの作成](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Thread%20pool%20sample)」に記載されているコードを\_ダウンロードし、win unap Windows 10 アプリでソースコードを再利用する方法に関するページを参照してください。
+詳細については、このクイックスタートの「Windows 8.1 用に記述された [ThreadPool 作業項目サンプルの作成](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Thread%20pool%20sample) 」に記載されているコードをダウンロードし、win \_ unap Windows 10 アプリでソースコードを再利用する方法に関するページを参照してください。
 
 ## <a name="related-topics"></a>関連トピック
 

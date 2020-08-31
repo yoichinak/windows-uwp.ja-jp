@@ -1,17 +1,17 @@
 ---
 ms.assetid: 16AD53CA-1252-456C-8567-2263D3EC95F3
 title: 傾斜計の使用
-description: 傾斜計を使ってピッチ、ロール、ヨーを検出する方法を説明します。
+description: Inclinometer 入力デバイスを使用してピッチ、ロール、およびヨーを決定する基本的なアプリを作成する方法について説明します。
 ms.date: 06/06/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 15ea49ea0e8e334158000248caf26f662ee5bd35
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: ebfbdda8f5f7bf308ee427ab79d8dd45969e3108
+ms.sourcegitcommit: 5d34eb13c7b840c05e5394910a22fa394097dc36
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66369643"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89054332"
 ---
 # <a name="use-the-inclinometer"></a>傾斜計の使用
 
@@ -19,7 +19,7 @@ ms.locfileid: "66369643"
 **重要な API**
 
 -   [**Windows.Devices.Sensors**](https://docs.microsoft.com/uwp/api/Windows.Devices.Sensors)
--   [**傾斜計**](https://docs.microsoft.com/uwp/api/Windows.Devices.Sensors.Inclinometer)
+-   [**Inclinometer**](https://docs.microsoft.com/uwp/api/Windows.Devices.Sensors.Inclinometer)
 
 **サンプル**
 
@@ -29,9 +29,9 @@ ms.locfileid: "66369643"
 
 一部の 3D ゲームでは、入力デバイスとして傾斜計が必要です。 よくある例としては、フライト シミュレーターがあります。傾斜計の 3 軸 (X、Y、Z) を、航空機のエレベーター、エルロン、ラダーの入力として割り当てます。
 
- ## <a name="prerequisites"></a>前提条件
+ ## <a name="prerequisites"></a>必須コンポーネント
 
-Extensible Application Markup Language (XAML)、Microsoft Visual 知っておくべきC#、およびイベント。
+Extensible Application Markup Language (XAML)、Microsoft Visual C#、イベントについて理解している必要があります。
 
 使うデバイスやエミュレーターが傾斜計をサポートしている必要があります。
 
@@ -39,7 +39,7 @@ Extensible Application Markup Language (XAML)、Microsoft Visual 知っておく
 
 このセクションは、次の 2 つのサブセクションに分かれています。 最初のサブセクションでは、シンプルな傾斜計アプリケーションを最初から作成するために必要な手順を示します。 次のサブセクションでは、作成したアプリについて説明します。
 
-###  <a name="instructions"></a>手順
+###  <a name="instructions"></a>Instructions
 
 -   **[Visual C#]** プロジェクト テンプレートから **[空白のアプリ (ユニバーサル Windows]** を選んで、新しいプロジェクトを作成します。
 
@@ -136,11 +136,11 @@ Extensible Application Markup Language (XAML)、Microsoft Visual 知っておく
 
 元のスニペットのクラス名の最初の部分を、自分のアプリの名前空間に置き換える必要があります。 たとえば、作成したプロジェクトの名前が **InclinometerCS** だとすると、`x:Class="App1.MainPage"` を `x:Class="InclinometerCS.MainPage"` に置き換えます。 また、`xmlns:local="using:App1"` を `xmlns:local="using:InclinometerCS"` に置き換える必要があります。
 
--   アプリをビルド、展開、実行するには、F5 キーを押すか、 **[デバッグ]**  >  **[デバッグの開始]** の順にクリックします。
+-   F5 キーを押すか **、[デバッグ**] [デバッグの開始] を選択してアプリを  >  **Start Debugging**ビルド、デプロイ、実行します。
 
 アプリを実行した後、デバイスを移動するか、エミュレーター ツールを使うことによって、傾斜計の値を変更できます。
 
--   アプリを停止するには、Visual Studio に戻り、Shift キーを押しながら F5 キーを押すか、 **[デバッグ]**  >  **[デバッグの停止]** の順にクリックします。
+-   Visual Studio に戻り、Shift キーを押しながら F5 キーを押すか、[**デバッグ**] [  >  **デバッグの停止**] を選択してアプリを停止し、アプリを停止します。
 
 ###  <a name="explanation"></a>説明
 

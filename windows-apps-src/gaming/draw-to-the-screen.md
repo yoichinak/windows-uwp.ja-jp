@@ -1,17 +1,17 @@
 ---
 title: 画面への描画
-description: 最後に、回転する立方体を画面に描画するコードを移植します。
+description: GXDI Api と Direct3D Api を使用して、OpenGL コードを DirectX に移植し、回転するキューブを画面に描画する方法について説明します。
 ms.assetid: cc681548-f694-f613-a19d-1525a184d4ab
 ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, DirectX, グラフィックス
 ms.localizationpriority: medium
-ms.openlocfilehash: 68d2c6ec250286b9820ff218f9b35637f49f3b97
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 7380ede77eeb14f8b1865d4c948387df7e072453
+ms.sourcegitcommit: 5d34eb13c7b840c05e5394910a22fa394097dc36
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66368751"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89054502"
 ---
 # <a name="draw-to-the-screen"></a>画面への描画
 
@@ -28,20 +28,20 @@ ms.locfileid: "66368751"
 
 OpenGL ES 2.0 では、描画コンテキストは EGLContext の型として定義されます。これには、ウィンドウとサーフェスのパラメーターのほか、ウィンドウに表示される最終的な画像の作成に使われるレンダー ターゲットへの描画に必要なリソースが含まれます。 このコンテキストを使ってグラフィックス リソースを構成し、シェーダー パイプラインの結果をディスプレイに正しく表示します。 主要なリソースの 1 つは "バック バッファー" (または "フレーム バッファー オブジェクト") と呼ばれ、ディスプレイに表示できる最終的な構成済みレンダー ターゲットが含まれます。
 
-Direct3D を使ってディスプレイに描画するためのグラフィックス リソースを構成するプロセスは、もう少し解説が必要なプロセスであり、かなりの数の API を必要とします  (Microsoft Visual Studio Direct3D テンプレートが大幅に簡略化できますこのプロセスは、ただし!)(Direct3D デバイス コンテキストと呼ばれます) のコンテキストを取得する必要があります最初に取得する、 [ **ID3D11Device1** ](https://docs.microsoft.com/windows/desktop/api/d3d11_1/nn-d3d11_1-id3d11device1)オブジェクト、および作成および構成することを使用して、 [ **ID3D11DeviceContext1** ](https://docs.microsoft.com/windows/desktop/api/d3d11_1/nn-d3d11_1-id3d11devicecontext1)オブジェクト。 これら 2 つのオブジェクトは、ディスプレイへの描画に必要な特定のリソースを構成するために、組み合わせて使われます。
+Direct3D を使ってディスプレイに描画するためのグラフィックス リソースを構成するプロセスは、もう少し解説が必要なプロセスであり、かなりの数の API を必要とします  (ただし、Microsoft Visual Studio Direct3D テンプレートを使うと、このプロセスを大幅に簡素化できます)。コンテキスト (Direct3D デバイス コンテキスト) を取得するには、最初に [**ID3D11Device1**](https://docs.microsoft.com/windows/desktop/api/d3d11_1/nn-d3d11_1-id3d11device1) オブジェクトを取得し、それを使って [**ID3D11DeviceContext1**](https://docs.microsoft.com/windows/desktop/api/d3d11_1/nn-d3d11_1-id3d11devicecontext1) オブジェクトを作成、構成する必要があります。 これら 2 つのオブジェクトは、ディスプレイへの描画に必要な特定のリソースを構成するために、組み合わせて使われます。
 
 つまり、DXGI API には、グラフィックス アダプターに直接関係するリソースを管理するための API が主として含まれ、Direct3D には、CPU で実行されるメイン プログラムと GPU の橋渡しをする API が含まれます。
 
 このサンプルでの比較のために、各 API から該当する型を紹介します。
 
 -   [**ID3D11Device1**](https://docs.microsoft.com/windows/desktop/api/d3d11_1/nn-d3d11_1-id3d11device1): グラフィックス デバイスとそのリソースの仮想表現を提供します。
--   [**ID3D11DeviceContext1**](https://docs.microsoft.com/windows/desktop/api/d3d11_1/nn-d3d11_1-id3d11devicecontext1): バッファーを構成して、レンダリングのコマンドを発行するインターフェイスを提供します。
--   [**IDXGISwapChain1**](https://docs.microsoft.com/windows/desktop/api/dxgi1_2/nn-dxgi1_2-idxgiswapchain1): スワップ チェーンは OpenGL ES 2.0 では、バック バッファーに似ています。 これは、ディスプレイに表示する最終的なレンダリング画像を含むグラフィックス アダプターのメモリ領域です。 これは、最新のレンダリングを画面に表示するために、書き込みと "スワップ" を行うことのできるバッファーをいくつか持つため、"スワップ チェーン" と呼ばれます。
--   [**ID3D11RenderTargetView**](https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11rendertargetview): 2D のビットマップのバッファーには、Direct3D デバイス コンテキストを描画しますが、スワップ チェーンで表示している、これが含まれています。 OpenGL ES 2.0 の場合と同様に、レンダー ターゲットは複数作成できます。その一部はスワップ チェーンにバインドされませんが、マルチパス シェーディング手法で利用されます。
+-   [**ID3D11DeviceContext1**](https://docs.microsoft.com/windows/desktop/api/d3d11_1/nn-d3d11_1-id3d11devicecontext1): バッファーを構成し、レンダリング コマンドを発行するためのインターフェイスを提供します。
+-   [**IDXGISwapChain1**](https://docs.microsoft.com/windows/desktop/api/dxgi1_2/nn-dxgi1_2-idxgiswapchain1): スワップ チェーンは OpenGL ES 2.0 のバック バッファーに似ています。 これは、ディスプレイに表示する最終的なレンダリング画像を含むグラフィックス アダプターのメモリ領域です。 これは、最新のレンダリングを画面に表示するために、書き込みと "スワップ" を行うことのできるバッファーをいくつか持つため、"スワップ チェーン" と呼ばれます。
+-   [**ID3D11RenderTargetView**](https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11rendertargetview): Direct3D デバイス コンテキストの描画先の 2D ビットマップ バッファー (スワップ チェーンによって表示される) が含まれます。 OpenGL ES 2.0 の場合と同様に、レンダー ターゲットは複数作成できます。その一部はスワップ チェーンにバインドされませんが、マルチパス シェーディング手法で利用されます。
 
 テンプレートのレンダラー オブジェクトには次のフィールドがあります。
 
-Direct3D 11。デバイスとデバイス コンテキストの宣言
+Direct3D 11: デバイスとデバイス コンテキストの宣言
 
 ``` syntax
 Platform::Agile<Windows::UI::Core::CoreWindow>       m_window;
@@ -67,15 +67,15 @@ Direct3D ランタイムは [**ID3D11Texture2D**](https://docs.microsoft.com/win
 
 レンダー ターゲットのほか、Direct3D デバイスとデバイス コンテキストの初期化と構成は、Direct3D テンプレートのカスタムの **CreateDeviceResources** メソッドと **CreateWindowSizeDependentResources** メソッドで確かめることができます。
 
-EGL と EGLContext の型に関連する Direct3D デバイス コンテキストについて詳しくは、「[DXGI と Direct3D の EGL コードの比較](moving-from-egl-to-dxgi.md)」をご覧ください。
+タイプと EGLContext に関連する Direct3D デバイスコンテキストの詳細については、 [ポートのコード「DXGI と Direct3D」を](moving-from-egl-to-dxgi.md)参照してください。
 
-## <a name="instructions"></a>手順
+## <a name="instructions"></a>Instructions
 
-### <a name="step-1-rendering-the-scene-and-displaying-it"></a>手順 1:シーンのレンダリングと表示
+### <a name="step-1-rendering-the-scene-and-displaying-it"></a>手順 1: シーンのレンダリングと表示
 
 立方体のデータを更新した後 (この例では y 軸を中心に少し回転させる) で、Render メソッドはビューポートを描画コンテキスト (EGLContext) のサイズに設定します。 このコンテキストには、構成済みのディスプレイ (EGLDisplay) を使ってウィンドウ サーフェス (EGLSurface) に表示される色のバッファーが含まれます。 この時点で、この例では、頂点データの属性を更新する、インデックス バッファーを再バインドする、立方体を描画する、表示サーフェスへのシェーディング パイプラインによって描画される色のバッファーでスワップするという一連の処理を行います。
 
-OpenGL ES 2.0:ディスプレイのフレームのレンダリング
+OpenGL ES 2.0: 表示するフレームのレンダリング
 
 ``` syntax
 void Render(GraphicsContext *drawContext)
@@ -123,17 +123,17 @@ void Render(GraphicsContext *drawContext)
 
 Direct3D 11 では、プロセスはよく似ています  (Direct3D テンプレートのビューポートとレンダー ターゲットの構成を使っていることを前提とします)。
 
--   [  **ID3D11DeviceContext1::UpdateSubresource**](https://docs.microsoft.com/windows/desktop/api/d3d11_1/nf-d3d11_1-id3d11devicecontext1-updatesubresource1) を呼び出して定数バッファー (この場合はモデル ビュー プロジェクション マトリックス) を更新します。
--   [  **ID3D11DeviceContext1::IASetVertexBuffers**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-iasetvertexbuffers) で頂点バッファーを設定します。
--   [  **ID3D11DeviceContext1::IASetIndexBuffer**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-iasetindexbuffer) でインデックス バッファーを設定します。
--   [  **ID3D11DeviceContext1::IASetPrimitiveTopology**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-iasetprimitivetopology) で特定の三角形のトポロジ (三角形のリスト) を設定します。
--   [  **ID3D11DeviceContext1::IASetInputLayout**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-iasetinputlayout) で頂点バッファーの入力レイアウトを設定します。
--   [  **ID3D11DeviceContext1::VSSetShader**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-vssetshader) で頂点シェーダーをバインドします。
--   [  **ID3D11DeviceContext1::PSSetShader**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-pssetshader) でフラグメント シェーダーをバインドします。
--   [  **ID3D11DeviceContext1::DrawIndexed**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-drawindexed) を使って、シェーダーを通じてインデックス付き頂点を送信し、レンダー ターゲット バッファーに色の結果を出力します。
--   [  **IDXGISwapChain1::Present1**](https://docs.microsoft.com/windows/desktop/api/dxgi1_2/nf-dxgi1_2-idxgiswapchain1-present1) でレンダー ターゲット バッファーを表示します。
+-   [**ID3D11DeviceContext1::UpdateSubresource**](https://docs.microsoft.com/windows/desktop/api/d3d11_1/nf-d3d11_1-id3d11devicecontext1-updatesubresource1) を呼び出して定数バッファー (この場合はモデル ビュー プロジェクション マトリックス) を更新します。
+-   [**ID3D11DeviceContext1:: IASetVertexBuffers**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-iasetvertexbuffers)を使用して頂点バッファーを設定します。
+-   [**ID3D11DeviceContext1:: IASetIndexBuffer**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-iasetindexbuffer)でインデックスバッファーを設定します。
+-   [**ID3D11DeviceContext1::IASetPrimitiveTopology**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-iasetprimitivetopology) で特定の三角形のトポロジ (三角形のリスト) を設定します。
+-   [**ID3D11DeviceContext1:: IASetInputLayout**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-iasetinputlayout)を使用して、頂点バッファーの入力レイアウトを設定します。
+-   頂点シェーダーを [**ID3D11DeviceContext1:: VSSetShader**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-vssetshader)にバインドします。
+-   フラグメントシェーダーを [**ID3D11DeviceContext1::P SSetShader**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-pssetshader)にバインドします。
+-   [**ID3D11DeviceContext1::DrawIndexed**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-drawindexed) を使って、シェーダーを通じてインデックス付き頂点を送信し、レンダー ターゲット バッファーに色の結果を出力します。
+-   [**IDXGISwapChain1::Present1**](https://docs.microsoft.com/windows/desktop/api/dxgi1_2/nf-dxgi1_2-idxgiswapchain1-present1) でレンダー ターゲット バッファーを表示します。
 
-Direct3D 11。ディスプレイのフレームのレンダリング
+Direct3D 11: 表示するフレームのレンダリング
 
 ``` syntax
 void RenderObject::Render()
@@ -196,9 +196,9 @@ void RenderObject::Render()
 
 ```
 
-[  **IDXGISwapChain1::Present1**](https://docs.microsoft.com/windows/desktop/api/dxgi1_2/nf-dxgi1_2-idxgiswapchain1-present1) が呼び出されると、フレームが構成済みのディスプレイに出力されます。
+[**IDXGISwapChain1::Present1**](https://docs.microsoft.com/windows/desktop/api/dxgi1_2/nf-dxgi1_2-idxgiswapchain1-present1) が呼び出されると、フレームが構成済みのディスプレイに出力されます。
 
-## <a name="previous-step"></a>前のステップ
+## <a name="previous-step"></a>前の手順
 
 
 [GLSL の移植](port-the-glsl.md)
@@ -210,7 +210,7 @@ void RenderObject::Render()
 ## <a name="related-topics"></a>関連トピック
 
 
-* [方法: direct3d11 を単純な OpenGL ES 2.0 レンダラーのポート](port-a-simple-opengl-es-2-0-renderer-to-directx-11-1.md)
+* [簡単な OpenGL ES 2.0 レンダラーを Direct3D 11 に移植する方法](port-a-simple-opengl-es-2-0-renderer-to-directx-11-1.md)
 * [シェーダー オブジェクトの移植](port-the-shader-config.md)
 * [GLSL の移植](port-the-glsl.md)
 * [画面への描画](draw-to-the-screen.md)

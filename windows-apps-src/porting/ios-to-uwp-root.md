@@ -7,16 +7,16 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 608f254114a200850341837528cb7506597c3bed
-ms.sourcegitcommit: cb5af00af05e838621c270173e7fde1c5d2168ef
+ms.openlocfilehash: ef0f712a87f0b2aea7fdb2204691e9b439315b44
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89043524"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89155386"
 ---
 # <a name="move-from-ios-to-uwp"></a>iOS から UWP への移行
 
-ユーザー ベースを Windows 10 とユニバーサル Windows プラットフォーム (UWP) にまで拡大する方法に悩んでいる iOS 開発者向けに、便利なツールが提供されています。そしてその数は日々増え続けています。 どの方法を使うかは、対象のアプリの種類 (ゲーム、ライフ スタイル、エンタープライズなど) と、開発プロセスにどれだけ関与できるかに応じて異なります。 たとえば、OpenGL または Cocos2D に大きく依存している完成済みのゲームまたはほぼ完成しているゲームの場合は、[iOS 用 Windows ブリッジ](https://developer.microsoft.com/windows/bridges/ios)が有力な候補になります。また、スモール ビジネス用のクロスプラットフォーム アプリを計画している場合は、[Xamarin.Forms](https://docs.microsoft.com/xamarin/xamarin-forms/) の使用を検討する必要があります。 Unity などのクロスプラットフォーム ツールでアプリを記述している場合は、[Windows に公開](https://blogs.unity3d.com/2015/09/09/windows-10-universal-apps-in-unity-5-2/)するのが簡単です。
+ユーザー ベースを Windows 10 とユニバーサル Windows プラットフォーム (UWP) にまで拡大する方法に悩んでいる iOS 開発者向けに、便利なツールが提供されています。そしてその数は日々増え続けています。 どの方法を使うかは、対象のアプリの種類 (ゲーム、ライフ スタイル、エンタープライズなど) と、開発プロセスにどれだけ関与できるかに応じて異なります。 たとえば、OpenGL または Cocos2D に大きく依存している完成済みのゲームまたはほぼ完成しているゲームの場合は、[iOS 用 Windows ブリッジ](https://developer.microsoft.com/windows/bridges/ios)が有力な候補になります。また、スモール ビジネス用のクロスプラットフォーム アプリを計画している場合は、[Xamarin.Forms](/xamarin/xamarin-forms/) の使用を検討する必要があります。 Unity などのクロスプラットフォーム ツールでアプリを記述している場合は、[Windows に公開](https://blogs.unity3d.com/2015/09/09/windows-10-universal-apps-in-unity-5-2/)するのが簡単です。
 
 ## <a name="why-windows"></a>Windows を選ぶ理由
 
@@ -33,5 +33,5 @@ ms.locfileid: "89043524"
 ## <a name="related-topics"></a>関連トピック
 
 **設計者と開発者向け**
-* [すべての Windows デバイスを対象としたユニバーサル Windows アプリの構築](https://docs.microsoft.com/windows/uwp/get-started/universal-application-platform-guide)
-* [UWP アプリの設計アセットのダウンロード](https://docs.microsoft.com/windows/uwp/design/downloads/index)
+* [すべての Windows デバイスを対象としたユニバーサル Windows アプリの構築](../get-started/universal-application-platform-guide.md)
+* [UWP アプリの設計アセットのダウンロード](../design/downloads/index.md)

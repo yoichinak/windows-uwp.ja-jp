@@ -6,19 +6,19 @@ ms.date: 05/14/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 605b8cf927067da78785ec470cfdbe27852205fd
-ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
+ms.openlocfilehash: c7f0e1ba5c78ce41a5326d3643b5afe80f380b3c
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86493187"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89155176"
 ---
 # <a name="walkthrough-of-creating-a-ccx-windows-runtime-component-and-calling-it-from-javascript-or-c"></a>C++/CX Windows ランタイム コンポーネントの作成と JavaScript または C# からの呼び出しに関するチュートリアル
 
 > [!NOTE]
-> このトピックは、C++/CX アプリケーションの管理ができるようにすることを目的としています。 ただし、新しいアプリケーションには [C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) を使用することをお勧めします。 C++/WinRT は Windows ランタイム (WinRT) API の標準的な最新の C++17 言語プロジェクションで、ヘッダー ファイル ベースのライブラリとして実装され、最新の Windows API への最上位アクセス権を提供するように設計されています。 C++/winrt を使用して Windows ランタイムコンポーネントを作成する方法については、「 [c++/winrt](/windows/uwp/winrt-components/create-a-windows-runtime-component-in-cppwinrt)を使用したコンポーネントの Windows ランタイム」を参照してください。
+> このトピックは、C++/CX アプリケーションの管理ができるようにすることを目的としています。 ただし、新しいアプリケーションには [C++/WinRT](../cpp-and-winrt-apis/intro-to-using-cpp-with-winrt.md) を使用することをお勧めします。 C++/WinRT は Windows ランタイム (WinRT) API の標準的な最新の C++17 言語プロジェクションで、ヘッダー ファイル ベースのライブラリとして実装され、最新の Windows API への最上位アクセス権を提供するように設計されています。 C++/WinRT を使用して Windows ランタイム コンポーネントを作成する方法については、「[C++/WinRT を使用した Windows Runtime コンポーネント](./create-a-windows-runtime-component-in-cppwinrt.md)」を参照してください。
 
-このチュートリアルでは、JavaScript、C#、または Visual Basic から呼び出すことができる基本的な Windows ランタイム コンポーネント DLL を作成する方法について説明します。 このチュートリアルを開始する前に、抽象バイナリ インターフェイス (ABI)、ref クラス、Visual C++ コンポーネント拡張などの概念を必ず理解しておいてください。ref クラスの操作が容易になります。 詳細については、「C++/CX および[Visual C++ 言語リファレンス (c++/cx)](https://docs.microsoft.com/cpp/cppcx/visual-c-language-reference-c-cx)[を使用したコンポーネントの Windows ランタイム](creating-windows-runtime-components-in-cpp.md)」を参照してください。
+このチュートリアルでは、JavaScript、C#、または Visual Basic から呼び出すことができる基本的な Windows ランタイム コンポーネント DLL を作成する方法について説明します。 このチュートリアルを開始する前に、抽象バイナリ インターフェイス (ABI)、ref クラス、Visual C++ コンポーネント拡張などの概念を必ず理解しておいてください。ref クラスの操作が容易になります。 詳細については、「C++/CX および[Visual C++ 言語リファレンス (c++/cx)](/cpp/cppcx/visual-c-language-reference-c-cx)[を使用したコンポーネントの Windows ランタイム](creating-windows-runtime-components-in-cpp.md)」を参照してください。
 
 ## <a name="creating-the-c-component-dll"></a>C++ コンポーネント DLL の作成
 この例では、最初にコンポーネント プロジェクトを作成しますが、JavaScript プロジェクトを最初に作成しても構いません。 順序は重要ではありません。
@@ -26,16 +26,16 @@ ms.locfileid: "86493187"
 コンポーネントのメイン クラスには、プロパティとメソッドの定義およびイベント宣言の例が含まれています。 これらは方法を示すことだけを目的に用意されており、 必須ではありません。この例では、生成されたコードはすべて独自のコードに置き換えます。
 
 ### <a name="to-create-the-c-component-project"></a>**C++ コンポーネント プロジェクトを作成するには**
-1. Visual Studio のメニューバーで、[**ファイル]、[新規作成]、[プロジェクト**] の順に選択します。
+1. Visual Studio のメニューバーで、[ **ファイル]、[新規作成]、[プロジェクト**] の順に選択します。
 
 2. **[新しいプロジェクト]** ダイアログ ボックスの左ペインで、**[Visual C++]** を展開し、ユニバーサル Windows アプリのノードを選択します。
 
-3. 中央のウィンドウで、[ **Windows ランタイムコンポーネント**] を選択し、プロジェクトに WinRT CPP という名前を指定し \_ ます。
+3. 中央のウィンドウで、[ **Windows ランタイムコンポーネント** ] を選択し、プロジェクトに WinRT CPP という名前を指定し \_ ます。
 
 4. **[OK]** を選択します。
 
 ## <a name="to-add-an-activatable-class-to-the-component"></a>**コンポーネントにアクティブ化可能なクラスを追加するには**
-アクティブ化可能なクラスとは、クライアント コードで **new** 式 (Visual Basic では **New**、C++ では **ref new**) を使って作成できるクラスのことです。 コンポーネントでは、**public ref class sealed** として宣言します。 実際には、Class1.h ファイルと .cpp ファイルに ref クラスが既に含まれています。 名前を変更することはできますが、この例では既定の名前 (Class1) を使います。 必要に応じて、コンポーネント内で追加の ref クラスまたは regular クラスを定義できます。 ref クラスについて詳しくは、「[型システム (C++/CX)](https://docs.microsoft.com/cpp/cppcx/type-system-c-cx)」をご覧ください。
+アクティブ化可能なクラスとは、クライアント コードで **new** 式 (Visual Basic では **New**、C++ では **ref new**) を使って作成できるクラスのことです。 コンポーネントでは、**public ref class sealed** として宣言します。 実際には、Class1.h ファイルと .cpp ファイルに ref クラスが既に含まれています。 名前を変更することはできますが、この例では既定の名前 (Class1) を使います。 必要に応じて、コンポーネント内で追加の ref クラスまたは regular クラスを定義できます。 ref クラスについて詳しくは、「[型システム (C++/CX)](/cpp/cppcx/type-system-c-cx)」をご覧ください。
 
 これらの \# include ディレクティブを Class1 に追加します。
 
@@ -275,7 +275,7 @@ C# クライアントを作成する場合は、このセクションを省略�
 > ユニバーサル Windows プラットフォーム (UWP) プロジェクトは、Visual Studio 2019 ではサポートされていません。 「 [Visual Studio 2019 での JavaScript と TypeScript](/visualstudio/javascript/javascript-in-vs-2019?view=vs-2019#projects)」を参照してください。 このセクションに従うには、Visual Studio 2017 を使用することをお勧めします。 「 [Visual Studio 2017 での JavaScript」を](/visualstudio/javascript/javascript-in-vs-2017)参照してください。
 
 ### <a name="to-create-a-javascript-project"></a>JavaScript プロジェクトを作成するには
-1. ソリューションエクスプローラー (Visual Studio 2017 では、上の**メモ**を参照) で、ソリューションノードのショートカットメニューを開き、[**追加]、[新しいプロジェクト**] の順に選択します。
+1. ソリューションエクスプローラー (Visual Studio 2017 では、上の **メモ** を参照) で、ソリューションノードのショートカットメニューを開き、[ **追加]、[新しいプロジェクト**] の順に選択します。
 
 2. [JavaScript] (**[他の言語]** の下に入れ子になっていることがあります) を展開し、**[空白のアプリ (ユニバーサル Windows)]** を選択します。
 
@@ -426,7 +426,7 @@ function ButtonClear_Click() {
 }
 ```
 
-default.js 内の app.onactivated での WinJS.UI.processAll の既存の呼び出しを、then ブロックでイベント登録を実装する次のコードに置き換えて、イベント リスナーを追加するコードを追加します。 詳細については、 [「Hello, World "アプリ (JS) を作成する](/windows/uwp/get-started/create-a-hello-world-app-js-uwp)」を参照してください。
+default.js 内の app.onactivated での WinJS.UI.processAll の既存の呼び出しを、then ブロックでイベント登録を実装する次のコードに置き換えて、イベント リスナーを追加するコードを追加します。 詳細については、 [「Hello, World "アプリ (JS) を作成する](../get-started/create-a-hello-world-app-js-uwp.md)」を参照してください。
 
 ```JavaScript
 args.setPromise(WinJS.UI.processAll().then( function completed() {
@@ -456,9 +456,9 @@ F5 キーを押して、アプリを実行します。
 
 5. WinRT_CPP へのプロジェクト参照を追加します。
 
-   - [**参照**] ノードのショートカットメニューを開き、[**参照の追加**] を選択します。
+   - [ **参照** ] ノードのショートカットメニューを開き、[ **参照の追加**] を選択します。
 
-   - [**参照マネージャー** ] ダイアログボックスの左ペインで、[**プロジェクト**] を選択し、[**ソリューション**] を選択します。
+   - [ **参照マネージャー** ] ダイアログボックスの左ペインで、[ **プロジェクト** ] を選択し、[ **ソリューション**] を選択します。
 
    - 中央のウィンドウで、[WinRT_CPP] を選択し、[ **OK** ] をクリックします。
 
@@ -598,7 +598,7 @@ private void Clear_Button_Click(object sender, RoutedEventArgs e)
 デバッグ操作を向上させるには、パブリックな Microsoft シンボル サーバーからデバッグ シンボルをダウンロードします。
 
 ### <a name="to-download-debugging-symbols"></a>**デバッグ シンボルをダウンロードするには**
-1. メニューバーで、[**ツール]、[オプション**] の順に選択します。
+1. メニューバーで、[ **ツール]、[オプション**] の順に選択します。
 
 2. **[オプション]** ダイアログ ボックスで、**[デバッグ]** を展開し、**[シンボル]** をクリックします。
 

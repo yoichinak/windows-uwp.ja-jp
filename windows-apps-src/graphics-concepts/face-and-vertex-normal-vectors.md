@@ -7,19 +7,19 @@ keywords:
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 7146fe6489d61c641b7104e8c7c25728550c1c54
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: ef0d3ea5a3bc0f5c4ac6b6b660dc543919d297ec
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66370663"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89168166"
 ---
 # <a name="face-and-vertex-normal-vectors"></a>顔と頂点の標準ベクター
 
 
 メッシュ内の各面には、垂直な単位法線ベクトルがあります。 ベクトルの方向は、頂点が定義された順序によって、また座標系が右手系であるか左手系であるかによって決まります。
 
-## <a name="span-idperpendicularunitnormalvectorforafrontfacespanspan-idperpendicularunitnormalvectorforafrontfacespanspan-idperpendicularunitnormalvectorforafrontfacespanperpendicular-unit-normal-vector-for-a-front-face"></a><span id="Perpendicular_unit_normal_vector_for_a_front_face"></span><span id="perpendicular_unit_normal_vector_for_a_front_face"></span><span id="PERPENDICULAR_UNIT_NORMAL_VECTOR_FOR_A_FRONT_FACE"></span>フロント面の法線ベクトルを垂直単位
+## <a name="span-idperpendicular_unit_normal_vector_for_a_front_facespanspan-idperpendicular_unit_normal_vector_for_a_front_facespanspan-idperpendicular_unit_normal_vector_for_a_front_facespanperpendicular-unit-normal-vector-for-a-front-face"></a><span id="Perpendicular_unit_normal_vector_for_a_front_face"></span><span id="perpendicular_unit_normal_vector_for_a_front_face"></span><span id="PERPENDICULAR_UNIT_NORMAL_VECTOR_FOR_A_FRONT_FACE"></span>前面対して垂直な単位法線ベクトル
 
 
 メッシュ内の各面には、垂直な単位法線ベクトルがあります。 ベクトルの方向は、頂点が定義された順序によって、また座標系が右手系であるか左手系であるかによって決まります。 面の法線の向きは面の前面から離れる方向です。 Direct3D では、面の前面のみが表示されます。 前面は、頂点が時計回りの順序で定義されている面です。
@@ -28,12 +28,12 @@ ms.locfileid: "66370663"
 
 ![前面の法線ベクトル](images/nrmlvect.png)
 
-## <a name="span-idcullingbackfacesspanspan-idcullingbackfacesspanspan-idcullingbackfacesspanculling-back-faces"></a><span id="Culling_back_faces"></span><span id="culling_back_faces"></span><span id="CULLING_BACK_FACES"></span>Faces カリング戻る
+## <a name="span-idculling_back_facesspanspan-idculling_back_facesspanspan-idculling_back_facesspanculling-back-faces"></a><span id="Culling_back_faces"></span><span id="culling_back_faces"></span><span id="CULLING_BACK_FACES"></span>背面の顔をカリングする
 
 
-前面ではない面はすべて背面です。 Direct3D では、背面は常にレンダリングされるわけではありません。これを、背面がカリングされているといいます。 背面のカリングは、背面がレンダリングされなくなることを意味します。 必要に応じて、カリング モードを変更し、背面をレンダリングすることもできます。 詳細については、「[カリング ステート](https://docs.microsoft.com/windows/desktop/direct3d9/culling-state)」を参照してください。
+前面ではない面はすべて背面です。 Direct3D では、背面は常にレンダリングされるわけではありません。これを、背面がカリングされているといいます。 背面のカリングは、背面がレンダリングされなくなることを意味します。 必要に応じて、カリング モードを変更し、背面をレンダリングすることもできます。 詳細については、「[カリング ステート](/windows/desktop/direct3d9/culling-state)」を参照してください。
 
-## <a name="span-idvertexunitnormalsspanspan-idvertexunitnormalsspanspan-idvertexunitnormalsspanvertex-unit-normals"></a><span id="Vertex_unit_normals"></span><span id="vertex_unit_normals"></span><span id="VERTEX_UNIT_NORMALS"></span>単位の頂点の法線
+## <a name="span-idvertex_unit_normalsspanspan-idvertex_unit_normalsspanspan-idvertex_unit_normalsspanvertex-unit-normals"></a><span id="Vertex_unit_normals"></span><span id="vertex_unit_normals"></span><span id="VERTEX_UNIT_NORMALS"></span>頂点の単位法線
 
 
 Direct3D では、グーロー シェーディング、光源、テクスチャの効果に頂点の単位法線を使用します。
@@ -44,7 +44,7 @@ Direct3D では、グーロー シェーディング、光源、テクスチャ�
 
 グーロー シェーディングを多角形に適用するとき、Direct3D では、頂点法線を使用して光源とサーフェスの間の角度が計算されます。 頂点の色と明るさの値が計算され、プリミティブのすべてのサーフェスで、すべてのポイントが補間されます。 Direct3D では、角度を使用して光の強さを計算します。 角度が大きいほど、サーフェスでの光の輝きは少なくなります。
 
-## <a name="span-idflatsurfacesspanspan-idflatsurfacesspanspan-idflatsurfacesspanflat-surfaces"></a><span id="Flat_surfaces"></span><span id="flat_surfaces"></span><span id="FLAT_SURFACES"></span>フラット サーフェス
+## <a name="span-idflat_surfacesspanspan-idflat_surfacesspanspan-idflat_surfacesspanflat-surfaces"></a><span id="Flat_surfaces"></span><span id="flat_surfaces"></span><span id="FLAT_SURFACES"></span>平坦なサーフェス
 
 
 平坦なオブジェクトを作成している場合は、サーフェスに対して垂線になるように頂点法線を設定します。
@@ -53,7 +53,7 @@ Direct3D では、グーロー シェーディング、光源、テクスチャ�
 
 ![頂点法線と 2 つの三角形から成る平坦なサーフェス](images/flatvert.png)
 
-## <a name="span-idsmoothshadingonanon-flatobjectspanspan-idsmoothshadingonanon-flatobjectspanspan-idsmoothshadingonanon-flatobjectspansmooth-shading-on-a-non-flat-object"></a><span id="Smooth_shading_on_a_non-flat_object"></span><span id="smooth_shading_on_a_non-flat_object"></span><span id="SMOOTH_SHADING_ON_A_NON-FLAT_OBJECT"></span>フラットでないオブジェクトで滑らかな網掛け
+## <a name="span-idsmooth_shading_on_a_non-flat_objectspanspan-idsmooth_shading_on_a_non-flat_objectspanspan-idsmooth_shading_on_a_non-flat_objectspansmooth-shading-on-a-non-flat-object"></a><span id="Smooth_shading_on_a_non-flat_object"></span><span id="smooth_shading_on_a_non-flat_object"></span><span id="SMOOTH_SHADING_ON_A_NON-FLAT_OBJECT"></span>非フラットオブジェクトの滑らかな網かけ
 
 
 オブジェクトは、平坦なオブジェクトではなく、三角形ストリップで構成されており、三角形が同一平面上にないことがほとんどです。 ストリップ内のすべての三角形でスムーズ シェーディングを実現するための最も簡単な方法の 1 つは、まず頂点が関連付けられている多角形の面ごとにサーフェスの法線ベクトルを計算することです。 頂点法線は、各サーフェスの法線と等しい角度になるように設定できます。 ただし、この方法は、複雑なプリミティブには十分に効率的でないことがあります。
@@ -70,7 +70,7 @@ Direct3D では、グーロー シェーディング、光源、テクスチャ�
 
 ![1 つの面に向かって傾いた頂点法線ベクトルを持つ 2 つのサーフェス (s1 と s2)](images/gvert2.png)
 
-## <a name="span-idsharpedgesspanspan-idsharpedgesspanspan-idsharpedgesspansharp-edges"></a><span id="Sharp_edges"></span><span id="sharp_edges"></span><span id="SHARP_EDGES"></span>鋭いエッジ
+## <a name="span-idsharp_edgesspanspan-idsharp_edgesspanspan-idsharp_edgesspansharp-edges"></a><span id="Sharp_edges"></span><span id="sharp_edges"></span><span id="SHARP_EDGES"></span>鋭いエッジ
 
 
 グーロー シェーディングを使用すると、3D シーンで鋭いエッジを持つオブジェクトを表示できます。 そのためには、鋭いエッジが必要な面の交線で頂点法線ベクトルを重複させます。
@@ -93,7 +93,3 @@ DrawPrimitive メソッドを使用してシーンをレンダリングする場
  
 
  
-
-
-
-

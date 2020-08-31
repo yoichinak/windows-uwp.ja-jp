@@ -5,12 +5,12 @@ ms.date: 05/02/2018
 ms.topic: article
 keywords: Windows 10, UWP, 店舗販売時点管理, POS
 ms.localizationpriority: medium
-ms.openlocfilehash: f5f19d1337a7ae49f46ab65d8420fedb775eeb2f
-ms.sourcegitcommit: ef723e3d6b1b67213c78da696838a920c66d5d30
+ms.openlocfilehash: 7f8f180c25aca0be3bfe9131de4e2c415fbe7968
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/02/2020
-ms.locfileid: "82730382"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89168466"
 ---
 # <a name="getting-started-with-point-of-service"></a>POS (店舗販売時点管理) の概要
 
@@ -205,7 +205,7 @@ if (claimedBarcodeScanner != null)
 ```
 
 > [!NOTE]
-> POS デバイス クラスには、要求状態にかかわらず [IClosable インターフェイス](https://docs.microsoft.com/uwp/api/windows.foundation.iclosable)が実装されています。 デバイスがネットワークまたは Bluetooth を通じてアプリに接続されている場合、要求されているオブジェクトも要求されていないオブジェクトも、解放されるまで他のアプリが接続することはできません。
+> POS デバイス クラスには、要求状態にかかわらず [IClosable インターフェイス](/uwp/api/windows.foundation.iclosable)が実装されています。 デバイスがネットワークまたは Bluetooth を通じてアプリに接続されている場合、要求されているオブジェクトも要求されていないオブジェクトも、解放されるまで他のアプリが接続することはできません。
 
 ## <a name="see-also"></a>関連項目
 + [バーコード スキャナーのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/BarcodeScanner)
@@ -213,4 +213,3 @@ if (claimedBarcodeScanner != null)
 + [ライン ディスプレイのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/LineDisplay)
 + [磁気ストライプ リーダーのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/MagneticStripeReader)
 + [POS プリンターのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/PosPrinter)
-

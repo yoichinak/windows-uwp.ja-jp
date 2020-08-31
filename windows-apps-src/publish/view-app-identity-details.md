@@ -6,17 +6,17 @@ ms.date: 10/02/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 07c2d3308d204d37e246a9a56c0a7203a1340dc0
-ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
+ms.openlocfilehash: 9232acbf83659c661e1b1f3c35a7fb7ad546e819
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79210428"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89157926"
 ---
 # <a name="view-app-identity-details"></a>アプリ ID の詳細の表示
 
 
-アプリに割り当てられた一意の id に関する詳細は、**アプリ id**ページの Microsoft Store によって表示できます。 また、このページでアプリのストアの一覧へのリンクを取得することもできます。
+アプリに割り当てられた一意の id に関する詳細は、 **アプリ id** ページの Microsoft Store によって表示できます。 また、このページでアプリのストアの一覧へのリンクを取得することもできます。
 
 アプリ ID の情報を探すには、アプリのいずれかに移動し、左側のナビゲーション メニューで **[アプリ管理]** を展開します。 **[アプリ ID]** を選ぶと、アプリ ID の詳細が表示されます。
 
@@ -25,11 +25,11 @@ ms.locfileid: "79210428"
 
 パッケージマニフェストには、次の値を含める必要があります。 [パッケージのビルドに Microsoft Visual Studio を使っていて](/windows/msix/package/packaging-uwp-apps)、開発者アカウントに関連付けられている同じ Microsoft アカウントでサインインしている場合は、これらの値は自動的に追加されています。 パッケージを手動でビルドしている場合は、以下の項目を追加する必要があります。
 
--   **パッケージ/Id/名前**
--   **パッケージ/Id/パブリッシャー**
--   **パッケージ/プロパティ/PublisherDisplayName**
+-   **Package/Identity/Name**
+-   **Package/Identity/Publisher**
+-   **Package/Properties/PublisherDisplayName**
 
-詳しくは、[パッケージ マニフェスト スキーマのリファレンス](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/schema-root)の「[**Identity**](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-identity)」をご覧ください。
+詳しくは、[パッケージ マニフェスト スキーマのリファレンス](/uwp/schemas/appxpackage/uapmanifestschema/schema-root)の「[**Identity**](/uwp/schemas/appxpackage/uapmanifestschema/element-identity)」をご覧ください。
 
 また、アプリ ID を宣言するこれらの値により、パッケージが属している "パッケージ ファミリ" が確定されます。 個々のパッケージには、アーキテクチャやバージョンなど、その他の詳細が含まれています。
 
@@ -38,13 +38,13 @@ ms.locfileid: "79210428"
 
 次の値は、アプリのパッケージ ファミリを参照するが、マニフェストには含まれていないその他の値です。
 
--   **パッケージファミリ名 (PFN)** :この値は、特定の Windows Api で使用されます。
--   **パッケージ SID**:この値は、WNS 通知をアプリに送信するために必要になります。 詳しくは、「[Windows プッシュ通知サービスの概要](../design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview.md)」をご覧ください。
+-   **パッケージ ファミリ名 (PFN)**: この値は特定の Windows API で使われます。
+-   **パッケージ SID**: アプリに WNS の通知を渡すには、この値が必要になります。 詳しくは、「[Windows プッシュ通知サービスの概要](../design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview.md)」をご覧ください。
 
 
 ## <a name="link-to-your-apps-listing"></a>アプリの登録情報へのリンク
 
-アプリのページへの直接リンクを共有することで、ユーザーはストアでアプリを見つけやすくなります。 このリンクは、 **`https://www.microsoft.com/store/apps/<your app's Store ID>`** の形式で示されます。 ユーザーがこのリンクをクリックすると、アプリの Web ベースの登録情報ページが開きます。 Windows デバイスでは、ストア アプリも起動して、アプリの登録情報を表示します。
+アプリのページへの直接リンクを共有することで、ユーザーはストアでアプリを見つけやすくなります。 このリンクの形式は **`https://www.microsoft.com/store/apps/<your app's Store ID>`** です。 ユーザーがこのリンクをクリックすると、アプリの Web ベースの登録情報ページが開きます。 Windows デバイスでは、ストア アプリも起動して、アプリの登録情報を表示します。
 
 アプリの**ストア ID** も、このセクションに表示されます。 このストア ID を使って、[ストア バッジを生成](https://developer.microsoft.com/store/badges)したり、その他の方法でアプリを識別したりすることができます。
 
@@ -55,7 +55,3 @@ ms.locfileid: "79210428"
  
 
  
-
-
-
-

@@ -6,26 +6,26 @@ ms.date: 02/18/2020
 ms.topic: article
 keywords: Windows 10, UWP, 広告, Advertising, 既知の問題, トラブルシューティング
 ms.localizationpriority: medium
-ms.openlocfilehash: f39d8512398c43ea65037de82434e3740bac7ff2
-ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
+ms.openlocfilehash: c69c61cc1db0796edbaedb2f8e2970e1100c5774
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79209708"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89158536"
 ---
 # <a name="known-issues-and-troubleshooting-for-ads-in-apps"></a>アプリ内広告の既知の問題とトラブルシューティング
 
 >[!WARNING]
-> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細情報](https://social.msdn.microsoft.com/Forums/windowsapps/en-US/db8d44cb-1381-47f7-94d3-c6ded3fea36f/microsoft-ad-monetization-platform-shutting-down-june-1st?forum=aiamgr)
+> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細を表示](https://social.msdn.microsoft.com/Forums/windowsapps/en-US/db8d44cb-1381-47f7-94d3-c6ded3fea36f/microsoft-ad-monetization-platform-shutting-down-june-1st?forum=aiamgr)
 
 このトピックでは、Microsoft Advertising SDK の現在のリリースにおける既知の問題を示します。 トラブルシューティングのガイダンスについては、以下のトピックを参照してください。
 
-* [HTML および JavaScript のトラブルシューティングガイド](html-and-javascript-troubleshooting-guide.md)
-* [XAML とC#トラブルシューティングガイド](xaml-and-c-troubleshooting-guide.md)
+* [HTML と JavaScript のトラブルシューティング ガイド](html-and-javascript-troubleshooting-guide.md)
+* [XAML と C# のトラブルシューティング ガイド](xaml-and-c-troubleshooting-guide.md)
 
 ## <a name="adcontrol-interface-unknown-in-xaml"></a>XAML での不明な AdControl インターフェイス
 
-[AdControl](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.adcontrol) の XAML マークアップに、そのインターフェイスが不明であることを示す青い破線が表示される場合があります。 これは、x86 をターゲットとして設定している場合にのみ発生するもので、無視してかまいません。
+[AdControl](/uwp/api/microsoft.advertising.winrt.ui.adcontrol) の XAML マークアップに、そのインターフェイスが不明であることを示す青い破線が表示される場合があります。 これは、x86 をターゲットとして設定している場合にのみ発生するもので、無視してかまいません。
 
 ## <a name="lasterror-from-previous-ad-request"></a>以前の広告要求からの lastError
 
@@ -33,7 +33,7 @@ ms.locfileid: "79209708"
 
 ## <a name="interstitial-ads-and-navigation-buttons-on-phones"></a>スポット広告と電話のナビゲーション ボタン
 
-ハードウェア ボタンの代わりにソフトウェア ボタンの **"戻る"** 、 **"スタート"** 、 **"検索"** を備えた電話 (またはエミュレーター) では、スポット広告用のカウントダウン タイマー ボタンとクリックスルー ボタンが隠れる場合があります。
+ハードウェア ボタンの代わりにソフトウェア ボタンの **"戻る"**、**"スタート"**、**"検索"** を備えた電話 (またはエミュレーター) では、スポット広告用のカウントダウン タイマー ボタンとクリックスルー ボタンが隠れる場合があります。
 
 ## <a name="recently-created-ads-are-not-being-served-to-your-app"></a>最近作成した広告がアプリに提供されない
 
@@ -43,13 +43,13 @@ ms.locfileid: "79209708"
 
 広告が表示されない場合、ネットワーク エラーを含むさまざまな理由があります。 次の理由も考えられます。
 
-* アプリのコード内の**Adcontrol**のサイズより大きいか小さいサイズのパートナーセンターの広告ユニットを選択します。
+* アプリのコード内の **Adcontrol** のサイズより大きいか小さいサイズのパートナーセンターの広告ユニットを選択します。
 
 * 広告ユニット ID に[テスト モードの値](set-up-ad-units-in-your-app.md#test-ad-units)を使ってライブ アプリを実行した場合、広告は表示されません。
 
 * 新しい広告ユニット ID の作成を行ったのがこの 30 分以内の場合、サーバーによってシステムに新しいデータが伝達されるまで、広告は表示されません。 広告が表示されていた既存の ID を使用すると、広告はすぐに表示されます。
 
-アプリにテスト広告が表示される場合は、コードが正常に動作していて広告を表示できることを示します。 問題が発生した場合は、[製品サポート](https://developer.microsoft.com/windows/support)にお問い合わせください。 このページで、 **[お問い合わせ]** を選択します。
+アプリにテスト広告が表示される場合は、コードが正常に動作していて広告を表示できることを示します。 問題が発生した場合は、[製品サポート](https://developer.microsoft.com/windows/support)にお問い合わせください。 このページで、[ **お問い合わせ**] を選択します。
 
 [フォーラム](https://social.msdn.microsoft.com/forums/windowsapps/en-US/home?category=windowsapps)に質問を投稿することもできます。
 
@@ -61,7 +61,7 @@ ms.locfileid: "79209708"
 
 * サイドローディングされたアプリやエミュレーターで実行されているアプリには、ライブ広告は表示されません。
 
-ライブ ad ユニットがテスト広告にサービスを提供している場合、ad ユニットの状態は [アクティブ] と表示され、パートナーセンターの**テスト広告を提供**します。 現時点で、これは、電話アプリには適用されません。
+ライブ ad ユニットがテスト広告にサービスを提供している場合、ad ユニットの状態は [アクティブ] と表示され、パートナーセンターの **テスト広告を提供** します。 現時点で、これは、電話アプリには適用されません。
 
 
 <span id="reference_errors"/>
@@ -70,7 +70,7 @@ ms.locfileid: "79209708"
 
 Microsoft Advertising SDK を使う場合、プロジェクトで**任意の CPU** をターゲットにすることはできません。 プロジェクトのターゲットを **Any CPU** プラットフォームに設定した場合、次のような参照を追加した後で警告が表示される場合があります。
 
-![referenceerror\-solutionexplorer](images/13-19629921-023c-42ec-b8f5-bc0b63d5a191.jpg)
+![referenceerror \- solutionexplorer](images/13-19629921-023c-42ec-b8f5-bc0b63d5a191.jpg)
 
 この警告を解決するには、アーキテクチャ固有のビルド出力 (たとえば、**x86**) を使用するようにプロジェクトを更新します。 デバッグおよびリリース用の構成のプラットフォームのターゲットを設定するには、**Configuration Manager** を使用します。
 
@@ -92,7 +92,7 @@ JavaScript/HTML アプリでは、z オーダーの予約済みの MAX-10 の範
 
 **AdControl** によってその親クラスから継承される境界線に関連するプロパティを設定すると、広告の配置に関して問題が発生します。
 
-## <a name="more-information"></a>詳細
+## <a name="more-information"></a>詳細情報
 
 最新の既知の問題についての詳細を調べたり、Microsoft Advertising SDK に関連する質問を投稿したりするには、[フォーラム](https://social.msdn.microsoft.com/forums/windowsapps/en-US/home?category=windowsapps)をご利用ください。
 

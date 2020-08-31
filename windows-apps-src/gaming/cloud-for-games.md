@@ -1,17 +1,17 @@
 ---
 title: UWP ゲーム用のクラウド サービスの使用
-description: UWP ゲーム用のバックエンドとしてクラウドを実装することについて説明します。
+description: プラットフォームとデバイスをまたいで UWP ゲームを開発する場合は、クラウドバックエンドを使用して、要求に応じてゲームの規模を調整します。
 ms.assetid: 1a7088e0-0d7b-11e6-8e05-0002a5d5c51b
 ms.date: 03/27/2018
 ms.topic: article
 keywords: Windows 10、UWP、ゲーム、クラウド サービス
 ms.localizationpriority: medium
-ms.openlocfilehash: 3d959c490474a6280d878be9679abafc31b565d8
-ms.sourcegitcommit: 720413d2053c8d5c5b34d6873740be6e913a4857
+ms.openlocfilehash: 7c0cfd98a37c4822d80eded7fe69e23c54bcdc89
+ms.sourcegitcommit: 5d34eb13c7b840c05e5394910a22fa394097dc36
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88846862"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89054412"
 ---
 #  <a name="using-cloud-services-for-uwp-games"></a>UWP ゲーム用のクラウド サービスの使用
 
@@ -48,7 +48,7 @@ Windows 10 のユニバーサル Windows プラットフォーム (UWP) では�
     <col width="30%" />
     </colgroup>
     <tr class="header" align="left">
-        <th>Developer</th>
+        <th>開発者</th>
         <th>説明</th>
         <th>主なゲーム シナリオ</th>
         <th>詳細情報</th>
@@ -159,7 +159,7 @@ Windows 10 のユニバーサル Windows プラットフォーム (UWP) では�
 
 Azure のクラウド サービスをゲームに使用するためのいくつかの方法を以下に示します。 Azure は、Windows や Linux、および Ruby、Python、Java、PHP などのオープン ソース テクノロジと連携して動作します。 詳しくは、「[ゲームのための Azure](https://azure.microsoft.com/solutions/gaming/)」をご覧ください。
 
-| 必要条件                 | アクティビティのシナリオ                            | 提供されるサービス                      | サービスの機能                                    |
+| 要件                 | アクティビティのシナリオ                            | 提供されるサービス                      | サービスの機能                                    |
 |-----------------------------------|-----------------------------------------------|---------------------------------------|----------------------------------------------------|
 | クラウドでのドメインのホスティング     | 効率的に DNS クエリに応答する            | [Azure DNS](https://azure.microsoft.com/services/dns/) | 高パフォーマンスと高可用性を備えたドメインのホスティング  |
 | サインイン、本人確認      | ゲーマーがサインインし、ゲーマーの ID が認証される  | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) | 多要素認証を備えた、あらゆるクラウドとオンプレミス Web アプリへのシングル サインオン            | 

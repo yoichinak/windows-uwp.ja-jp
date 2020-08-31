@@ -5,20 +5,20 @@ ms.date: 10/04/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: be8f22be6fea7c85b1cb1332c255ec74d6527ea3
-ms.sourcegitcommit: ef723e3d6b1b67213c78da696838a920c66d5d30
+ms.openlocfilehash: 764809b37602923db06e9d9bf03cab5e264ec07b
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/02/2020
-ms.locfileid: "82729781"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89168556"
 ---
 # <a name="point-of-service"></a>POS (店舗販売時点管理)
-このセクションには、[Windows.Devices.PointOfService](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice) を使用して、ユニバーサル Windows アプリケーションから、小売業やホスピタリティ環境で使用される周辺機器を操作する方法に関する記事が含まれています。
+このセクションには、[Windows.Devices.PointOfService](/uwp/api/windows.devices.pointofservice) を使用して、ユニバーサル Windows アプリケーションから、小売業やホスピタリティ環境で使用される周辺機器を操作する方法に関する記事が含まれています。
 
 | トピック | 説明 |
 |------|------------|
 | [基本操作](pos-basics.md) | この記事では、サービス Windows ランタイム Api の使用を開始する際に役立つ情報を提供します。 |
-| [ハードウェアサポート](pos-device-support.md) | [PointOfService](https://docs.microsoft.com/uwp/api/Windows.Devices.PointOfService) Windows ランタイム api と互換性のある既知のデバイスの一覧。 |
-| [バーコード スキャナー](pos-barcodescanner.md) | バーコードスキャナーの記事のインデックス。 |
+| [ハードウェア サポート](pos-device-support.md) | [PointOfService](/uwp/api/Windows.Devices.PointOfService) Windows ランタイム api と互換性のある既知のデバイスの一覧。 |
+| [バーコードスキャナー](pos-barcodescanner.md) | バーコードスキャナーの記事のインデックス。 |
 | [磁気ストライプ リーダー](pos-magnetic-stripe-reader.md) | 磁気ストライプリーダーの記事のインデックス。
-| [POSPrinter](pos-printer.md) | POSPrinter の記事のインデックス。 |
+| [POS プリンター](pos-printer.md) | POSPrinter の記事のインデックス。 |

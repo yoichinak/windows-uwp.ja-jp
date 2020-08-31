@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, Microsoft Store 申請 API, アドオン, アプリ内製品, IAP
 ms.localizationpriority: medium
-ms.openlocfilehash: 8e06f8e915466f116692c63df5c53c2a0f97447f
-ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
+ms.openlocfilehash: 7f02e222cf495f56352a645ac3a366da39dc5e3a
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79209658"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89158416"
 ---
 # <a name="manage-add-ons"></a>アドオンの管理
 
@@ -27,7 +27,7 @@ ms.locfileid: "79209658"
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">メソッド</th>
+<th align="left">認証方法</th>
 <th align="left">URI</th>
 <th align="left">説明</th>
 </tr>
@@ -36,22 +36,22 @@ ms.locfileid: "79209658"
 <tr>
 <td align="left">GET</td>
 <td align="left">https://manage.devcenter.microsoft.com/v1.0/my/inappproducts</td>
-<td align="left"><a href="get-all-add-ons.md">アプリのすべてのアドオンを取得する</a></td>
+<td align="left"><a href="get-all-add-ons.md">アプリのすべてのアドオンを取得します</a></td>
 </tr>
 <tr>
 <td align="left">GET</td>
 <td align="left">https://manage.devcenter.microsoft.com/v1.0/my/inappproducts/{inAppProductId}</td>
-<td align="left"><a href="get-an-add-on.md">特定のアドオンを取得する</a></td>
+<td align="left"><a href="get-an-add-on.md">特定のアドオンを取得します</a></td>
 </tr>
 <tr>
 <td align="left">POST</td>
 <td align="left">https://manage.devcenter.microsoft.com/v1.0/my/inappproducts</td>
-<td align="left"><a href="create-an-add-on.md">アドオンを作成する</a></td>
+<td align="left"><a href="create-an-add-on.md">アドオンの作成</a></td>
 </tr>
 <tr>
 <td align="left">DELETE</td>
 <td align="left">https://manage.devcenter.microsoft.com/v1.0/my/inappproducts/{inAppProductId}</td>
-<td align="left"><a href="delete-an-add-on.md">アドオンを削除する</a></td>
+<td align="left"><a href="delete-an-add-on.md">アドオンの削除</a></td>
 </tr>
 </tbody>
 </table>
@@ -97,11 +97,11 @@ Microsoft Store 申請 API に関するすべての[前提条件](create-and-man
 
 このリソースには、次の値があります。
 
-| 値      | 種類   | 説明        |
+| 値      | Type   | 説明        |
 |------------|--------|--------------|
-| アプリケーション      | array  | このアドオンが関連付けられるアプリを表す 1 つの[アプリケーション リソース](#application-object)を格納する配列です。 この配列でサポートされる項目は 1 つのみです。  |
+| applications      | array  | このアドオンが関連付けられるアプリを表す 1 つの[アプリケーション リソース](#application-object)を格納する配列です。 この配列でサポートされる項目は 1 つのみです。  |
 | id | string  | アドオンのストア ID です。 この値は、ストアによって提供されます。 ストア ID の例は 9NBLGGH4TNMP です。  |
-| productId | string  | アドオンの製品 ID です。 これは、アドオンの作成時に開発者が指定した ID です。 詳しくは、「[IAP の製品の種類と製品 ID を設定する](https://docs.microsoft.com/windows/uwp/publish/set-your-iap-product-id)」をご覧ください。 |
+| productId | string  | アドオンの製品 ID です。 これは、アドオンの作成時に開発者が指定した ID です。 詳しくは、「[IAP の製品の種類と製品 ID を設定する](../publish/set-your-add-on-product-id.md)」をご覧ください。 |
 | productType | string  | アドオンの製品の種類です。 値 **Durable** と **Consumable** がサポートされています。  |
 | lastPublishedInAppProductSubmission       | object | アドオンの最後に公開された申請に関する情報を提供する[申請のリソース](#submission-object)。         |
 | pendingInAppProductSubmission        | object  |  アドオンの現在保留中の申請に関する情報を提供する[申請のリソース](#submission-object)。  |   |
@@ -128,10 +128,10 @@ Microsoft Store 申請 API に関するすべての[前提条件](create-and-man
 
 このリソースには、次の値があります。
 
-| 値           | 種類    | 説明        |
+| 値           | Type    | 説明        |
 |-----------------|---------|-----------|
-| value            | object  |  次の値を格納するオブジェクトです。 <br/><br/> <ul><li>*id*. アプリの Store ID です。 ストア ID について詳しくは、「[アプリ ID の詳細の表示](https://docs.microsoft.com/windows/uwp/publish/view-app-identity-details)」をご覧ください。</li><li>*resourceLocation*。 アプリの完全なデータを取得するために基本 ```https://manage.devcenter.microsoft.com/v1.0/my/``` 要求 URI に付加できる相対パス。</li></ul>   |
-| totalCount   | int  | 応答本文の *applications* 配列のアプリ オブジェクトの数。                                                                                                                                                 |
+| value            | object  |  次の値を格納するオブジェクトです。 <br/><br/> <ul><li>*id*. アプリの Store ID です。 ストア ID について詳しくは、「[アプリ ID の詳細の表示](../publish/view-app-identity-details.md)」をご覧ください。</li><li>*Resourcelocation*。 アプリの完全なデータを取得するために基本 ```https://manage.devcenter.microsoft.com/v1.0/my/``` 要求 URI に付加できる相対パス。</li></ul>   |
+| totalCount   | INT  | 応答本文の *applications* 配列のアプリ オブジェクトの数。                                                                                                                                                 |
 
 <span id="submission-object" />
 
@@ -150,7 +150,7 @@ Microsoft Store 申請 API に関するすべての[前提条件](create-and-man
 
 このリソースには、次の値があります。
 
-| 値           | 種類    | 説明     |
+| 値           | Type    | 説明     |
 |-----------------|---------|------------------|
 | id            | string  | 申請 ID。    |
 | resourceLocation   | string  | 申請の完全なデータを取得するために基本 ```https://manage.devcenter.microsoft.com/v1.0/my/``` 要求 URI に付加できる相対パス。     |
@@ -159,9 +159,9 @@ Microsoft Store 申請 API に関するすべての[前提条件](create-and-man
 
 ## <a name="related-topics"></a>関連トピック
 
-* [Microsoft Store services を使用した送信の作成と管理](create-and-manage-submissions-using-windows-store-services.md)
-* [Microsoft Store 送信 API を使用してアドオンの送信を管理する](manage-add-on-submissions.md)
-* [すべてのアドオンを取得する](get-all-add-ons.md)
-* [アドオンを取得する](get-an-add-on.md)
-* [アドオンを作成する](create-an-add-on.md)
-* [アドオンを削除する](delete-an-add-on.md)
+* [Microsoft Store サービスを使用した申請の作成と管理](create-and-manage-submissions-using-windows-store-services.md)
+* [Microsoft Store 申請 API を使用したアドオンの申請の管理](manage-add-on-submissions.md)
+* [すべてのアドオンの入手](get-all-add-ons.md)
+* [アドオンの入手](get-an-add-on.md)
+* [アドオンの作成](create-an-add-on.md)
+* [アドオンの削除](delete-an-add-on.md)

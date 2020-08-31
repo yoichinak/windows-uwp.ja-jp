@@ -1,5 +1,5 @@
 ---
-Description: Fluent モーションでタイミングとイージング関数を使用する方法について説明します。
+description: UI 内で入力、終了、または移動するオブジェクトの動きを自然にするためのタイミングとイージングの重要性について説明します。
 title: タイミングとイージング
 label: Timing and easing
 template: detail.hbs
@@ -11,18 +11,18 @@ design-contact: jeffarn
 doc-status: Draft
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 098a75da573a977aa393197a61a62b0337f0dc06
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 46ec373ffb7ad141bcff36c33fa35900c888daf8
+ms.sourcegitcommit: 5d34eb13c7b840c05e5394910a22fa394097dc36
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970507"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89054432"
 ---
 # <a name="timing-and-easing"></a>タイミングとイージング
 
 モーションが現実世界に基づいている場合、私たちは速度とパフォーマンスへの期待を伴うデジタル メディアでもあります。
 
-## <a name="examples"></a>使用例
+## <a name="examples"></a>例
 
 <table>
 <tr>

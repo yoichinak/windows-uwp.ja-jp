@@ -5,12 +5,12 @@ ms.date: 09/02/2019
 ms.topic: article
 keywords: Windows 10, UWP, 店舗販売時点管理, POS
 ms.localizationpriority: medium
-ms.openlocfilehash: f48d0d8c06a9718479c73ff4523f62ddd2fa0a06
-ms.sourcegitcommit: 5d34eb13c7b840c05e5394910a22fa394097dc36
+ms.openlocfilehash: f7206250b2495ae2c905d2aece2b8cd1b85d6859
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89053742"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89168476"
 ---
 # <a name="getting-started-with-a-camera-barcode-scanner"></a>カメラ バーコード スキャナーの概要
 
@@ -49,7 +49,7 @@ DeviceInformationCollection deviceCollection = await DeviceInformation.FindAllAs
 
 ## <a name="step-4-enumerate-all-barcode-scanners"></a>手順 4: すべてのバーコードスキャナーを列挙する
 
-アプリケーションの有効期間中にデバイスの一覧が変化することが予想されない場合は、Deviceinformation を使用して1回だけスナップショットを列挙することができ [ます。](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformation.findallasync)ただし、アプリケーションの有効期間中にバーコードスキャナーの一覧が変更される可能性がある場合は、代わりに [deviceinformation](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.devicewatcher) を使用する必要があります。  
+アプリケーションの有効期間中にデバイスの一覧が変化することが予想されない場合は、Deviceinformation を使用して1回だけスナップショットを列挙することができ [ます。](/uwp/api/windows.devices.enumeration.deviceinformation.findallasync)ただし、アプリケーションの有効期間中にバーコードスキャナーの一覧が変更される可能性がある場合は、代わりに [deviceinformation](/uwp/api/windows.devices.enumeration.devicewatcher) を使用する必要があります。  
 
 > [!Important]
 > GetDefaultAsync を使用して PointOfService デバイスを列挙すると、結果の動作が一貫しない可能性があります。GetDefaultAsync は、クラスで見つかった最初のデバイスを返すだけであり、このデバイスはセッションによって変化する可能性があるためです。
@@ -61,7 +61,7 @@ DeviceInformationCollection deviceCollection = await DeviceInformation.FindAllAs
 ```
 
 > [!TIP]
-> *FindAllAsync* の使用方法の詳細については、「[*デバイスのスナップショットの列挙*](https://docs.microsoft.com/windows/uwp/devices-sensors/enumerate-devices#enumerate-a-snapshot-of-devices)」を参照してください。
+> *FindAllAsync* の使用方法の詳細については、「[*デバイスのスナップショットの列挙*](./enumerate-devices.md#enumerate-a-snapshot-of-devices)」を参照してください。
 
 ### <a name="option-b-enumerate-available-barcode-scanners-and-watch-for-changes-to-the-available-scanners"></a>**オプション B: 使用可能なバーコードスキャナーを列挙し、使用可能なスキャナーの変更を監視する**
 
@@ -74,13 +74,13 @@ watcher.Start();
 ```
 
 > [!TIP]
-> 詳細については、「[*デバイスの列挙と監視*](https://docs.microsoft.com/windows/uwp/devices-sensors/enumerate-devices#enumerate-and-watch-devices)」と「[*DeviceWatcher*](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceWatcher)」を参照してください。
+> 詳細については、「[*デバイスの列挙と監視*](./enumerate-devices.md#enumerate-and-watch-devices)」と「[*DeviceWatcher*](/uwp/api/Windows.Devices.Enumeration.DeviceWatcher)」を参照してください。
 
 ## <a name="step-5-identify-camera-barcode-scanners"></a>手順 5: カメラ バーコード スキャナーの識別
 
 カメラ バーコード スキャナーは、Windows によって、コンピューターに接続されているカメラとソフトウェア デコーダーがペアリングされたときに動的に作成されます。  カメラとデコーダーのペアはそれぞれ完全な機能を持つバーコード スキャナーです。
 
-結果として得られるデバイスコレクション内のバーコードスキャナーごとに、Barコードのスキャナーと物理的なバーコードスキャナーを区別できます。これを行うには、 [*Bardeviceid*](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.barcodescanner.videodeviceid#Windows_Devices_PointOfService_BarcodeScanner_VideoDeviceId) プロパティを調べます。  NULL でない VideoDeviceID は、デバイスコレクションのバーコードスキャナーオブジェクトがカメラバーコードスキャナーであることを示します。  複数のカメラバーコードスキャナーがある場合は、物理的なバーコードスキャナーを除外する個別のコレクションを作成することをお勧めします。
+結果として得られるデバイスコレクション内のバーコードスキャナーごとに、Barコードのスキャナーと物理的なバーコードスキャナーを区別できます。これを行うには、 [*Bardeviceid*](/uwp/api/windows.devices.pointofservice.barcodescanner.videodeviceid#Windows_Devices_PointOfService_BarcodeScanner_VideoDeviceId) プロパティを調べます。  NULL でない VideoDeviceID は、デバイスコレクションのバーコードスキャナーオブジェクトがカメラバーコードスキャナーであることを示します。  複数のカメラバーコードスキャナーがある場合は、物理的なバーコードスキャナーを除外する個別のコレクションを作成することをお勧めします。
 
 Windows に付属しているデコーダーを使用したカメラバーコードスキャナーは、次のように識別されます。
 
@@ -125,7 +125,7 @@ private async void ScannerSelection_Changed(object sender, SelectionChangedEvent
 
 ## <a name="step-6-claim-the-camera-barcode-scanner"></a>手順 6: カメラ バーコード スキャナーを要求する
 
-[BarcodeScanner.ClaimScannerAsync](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.barcodescanner.claimscannerasync#Windows_Devices_PointOfService_BarcodeScanner_ClaimScannerAsync) を使用して、カメラ バーコード スキャナーの排他的使用を取得します。
+[BarcodeScanner.ClaimScannerAsync](/uwp/api/windows.devices.pointofservice.barcodescanner.claimscannerasync#Windows_Devices_PointOfService_BarcodeScanner_ClaimScannerAsync) を使用して、カメラ バーコード スキャナーの排他的使用を取得します。
 
 ```csharp
 private async Task SelectScannerAsync(string scannerDeviceId)
@@ -153,23 +153,23 @@ private async Task SelectScannerAsync(string scannerDeviceId)
 
 ## <a name="step-7-system-provided-preview"></a>手順 7: システムが提供するプレビュー
 
-ユーザーがカメラを正しくバーコードに向けるには、カメラ プレビューが必要です。  Windows には、カメラバーコードスキャナーの基本的なコントロールのダイアログを起動する単純なカメラプレビューが用意されています。  ダイアログを開くときは [ClaimedBarcodeScanner.ShowVideoPreview](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.claimedbarcodescanner.showvideopreviewasync) を呼び出し、作業が終わってダイアログを閉じるときは [ClaimedBarcodeScanner.HideVideoPreview](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.claimedbarcodescanner.hidevideopreview) を呼び出すだけです。
+ユーザーがカメラを正しくバーコードに向けるには、カメラ プレビューが必要です。  Windows には、カメラバーコードスキャナーの基本的なコントロールのダイアログを起動する単純なカメラプレビューが用意されています。  ダイアログを開くときは [ClaimedBarcodeScanner.ShowVideoPreview](/uwp/api/windows.devices.pointofservice.claimedbarcodescanner.showvideopreviewasync) を呼び出し、作業が終わってダイアログを閉じるときは [ClaimedBarcodeScanner.HideVideoPreview](/uwp/api/windows.devices.pointofservice.claimedbarcodescanner.hidevideopreview) を呼び出すだけです。
 
 > [!TIP]
 > アプリケーションでカメラ バーコード スキャナーのプレビューをホストする方法については、「[プレビューのホスト](pos-camerabarcode-hosting-preview.md)」を参照してください。
 
 ## <a name="step-8-initiate-scan"></a>手順 8: スキャンを開始する
 
-[**StartSoftwareTriggerAsync**](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.claimedbarcodescanner.startsoftwaretriggerasync#Windows_Devices_PointOfService_ClaimedBarcodeScanner_StartSoftwareTriggerAsync) を呼び出すことでスキャン プロセスを開始できます。
+[**StartSoftwareTriggerAsync**](/uwp/api/windows.devices.pointofservice.claimedbarcodescanner.startsoftwaretriggerasync#Windows_Devices_PointOfService_ClaimedBarcodeScanner_StartSoftwareTriggerAsync) を呼び出すことでスキャン プロセスを開始できます。
 
-[**IsDisabledOnDataReceived**](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.claimedbarcodescanner.isdisabledondatareceived#Windows_Devices_PointOfService_ClaimedBarcodeScanner_IsDisabledOnDataReceived)の値によっては、スキャナーが1つのバーコードだけをスキャンし、 [**StopSoftwareTriggerAsync**](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.claimedbarcodescanner.stopsoftwaretriggerasync#Windows_Devices_PointOfService_ClaimedBarcodeScanner_StopSoftwareTriggerAsync)を呼び出すまで継続的に停止またはスキャンすることがあります。
+[**IsDisabledOnDataReceived**](/uwp/api/windows.devices.pointofservice.claimedbarcodescanner.isdisabledondatareceived#Windows_Devices_PointOfService_ClaimedBarcodeScanner_IsDisabledOnDataReceived)の値によっては、スキャナーが1つのバーコードだけをスキャンし、 [**StopSoftwareTriggerAsync**](/uwp/api/windows.devices.pointofservice.claimedbarcodescanner.stopsoftwaretriggerasync#Windows_Devices_PointOfService_ClaimedBarcodeScanner_StopSoftwareTriggerAsync)を呼び出すまで継続的に停止またはスキャンすることがあります。
 
-[**IsDisabledOnDataReceived**](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.claimedbarcodescanner.isdisabledondatareceived#Windows_Devices_PointOfService_ClaimedBarcodeScanner_IsDisabledOnDataReceived) を目的の値に設定することで、バーコードがデコードされたときのスキャナー動作を制御します。
+[**IsDisabledOnDataReceived**](/uwp/api/windows.devices.pointofservice.claimedbarcodescanner.isdisabledondatareceived#Windows_Devices_PointOfService_ClaimedBarcodeScanner_IsDisabledOnDataReceived) を目的の値に設定することで、バーコードがデコードされたときのスキャナー動作を制御します。
 
-| [値] | 説明 |
+| 値 | 説明 |
 | ----- | ----------- |
 | True   | バーコードを 1 つだけスキャンして停止する |
-| ×  | 停止せずに継続的にバーコードをスキャンする |
+| False  | 停止せずに継続的にバーコードをスキャンする |
 
 ## <a name="see-also"></a>関連項目
 

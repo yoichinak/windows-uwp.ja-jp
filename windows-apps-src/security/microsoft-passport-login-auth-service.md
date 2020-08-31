@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp, セキュリティ
 ms.localizationpriority: medium
-ms.openlocfilehash: 6d15173471b7f1ef3f1c6b042671eb85b7a53dc4
-ms.sourcegitcommit: 445320ff0ee7323d823194d4ec9cfa6e710ed85d
+ms.openlocfilehash: 1a875a0cb56e6a2a29627f05e6c01398233c8a48
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72282341"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89155396"
 ---
 # <a name="create-a-windows-hello-login-service"></a>Windows Hello ログイン サービスの作成
 
@@ -51,7 +51,7 @@ ms.locfileid: "72282341"
     }
     ```
 
-    PassportDevices のコメント アウトされた一覧があります。 現在の実装の既存のユーザー モデルにこの変更を加える必要があります。 PassportDevices の一覧には deviceID、Windows Hello から生成された公開キー、[**KeyCredentialAttestationResult**](https://docs.microsoft.com/uwp/api/Windows.Security.Credentials.KeyCredentialAttestationResult) が含められます。 このハンズオン ラボでは、keyAttestationResult を実装する必要があります。これらが、TPM (Trusted Platform Modules) チップを搭載するデバイスの Windows Hello によってのみ提供されるためです。 **KeyCredentialAttestationResult** は、複数のプロパティの組み合わせであるため、保存してデータベースに読み込むには分割する必要があります。
+    PassportDevices のコメント アウトされた一覧があります。 現在の実装の既存のユーザー モデルにこの変更を加える必要があります。 PassportDevices の一覧には deviceID、Windows Hello から生成された公開キー、[**KeyCredentialAttestationResult**](/uwp/api/Windows.Security.Credentials.KeyCredentialAttestationResult) が含められます。 このハンズオン ラボでは、keyAttestationResult を実装する必要があります。これらが、TPM (Trusted Platform Modules) チップを搭載するデバイスの Windows Hello によってのみ提供されるためです。 **KeyCredentialAttestationResult** は、複数のプロパティの組み合わせであるため、保存してデータベースに読み込むには分割する必要があります。
 
 -   AuthService フォルダーに "PassportDevice.cs" という新しいクラスを作成します。 これは、上で説明した Windows Hello デバイスのモデルです。 クラス定義をパブリックに変更し、次のプロパティを追加します。
 
@@ -804,7 +804,7 @@ ms.locfileid: "72282341"
     }
     ```
 
--   アカウントを削除するときに AuthService を使用するので、ボタンの AccountHelper への参照を\_忘れ\_ユーザー\_クリックして削除することができます。 この結果、メソッドは次のようになります。
+-   アカウントを削除するときに AuthService を使用するので、[ユーザーを忘れる] ボタンの AccountHelper への参照は \_ \_ \_ 削除できます。 この結果、メソッドは次のようになります。
 
     ```cs
     private void Button_Forget_User_Click(object sender, RoutedEventArgs e)

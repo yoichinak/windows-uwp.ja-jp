@@ -1,26 +1,26 @@
 ---
 title: 入力駆動型アニメーション
-description: アプリの UI で入力アニメーションを使用する方法について説明します。
+description: InputAnimation API について、および入力ドリブンアニメーションを使用してアプリ UI で動的に反応する動きを作成する方法について説明します。
 ms.date: 10/10/2017
 ms.topic: article
 keywords: Windows 10, UWP, アニメーション
 ms.localizationpriority: medium
-ms.openlocfilehash: 94d15fc7f2443475020aa7e134c076b833db46a8
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 0f9abd902e39b645f27b7a0f5d521097ca4aff8a
+ms.sourcegitcommit: 5d34eb13c7b840c05e5394910a22fa394097dc36
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57597757"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89054362"
 ---
 # <a name="input-driven-animations"></a>入力駆動型アニメーション
 
 この記事では、InputAnimation API について簡単に説明し、UI でこれらの種類のアニメーションを使用するための推奨方法を紹介します。
 
-## <a name="prerequisites"></a>前提条件
+## <a name="prerequisites"></a>必須コンポーネント
 
 ここでは、以下の記事で説明されている概念を理解していることを前提とします。
 
-- [ベースのリレーションのアニメーション](relation-animations.md)
+- [関係ベース アニメーション](relation-animations.md)
 
 ## <a name="smooth-motion-driven-from-user-interactions"></a>ユーザーの操作で駆動するスムーズなモーション
 

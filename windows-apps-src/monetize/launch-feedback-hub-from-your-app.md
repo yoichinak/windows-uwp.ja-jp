@@ -6,31 +6,31 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, フィードバック Hub, 起動
 ms.localizationpriority: medium
-ms.openlocfilehash: 589cad0c5055f0bfbade457e035702ee2cffd43d
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: efdc4a4b39f71b26658e3fbaf57287098b23e4be
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74259247"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89158496"
 ---
 # <a name="launch-feedback-hub-from-your-app"></a>アプリからのフィードバック Hub の起動
 
-フィードバック Hub を起動するユニバーサル Windows プラットフォーム (UWP) アプリにコントロール (ボタンなど) を追加してフィードバックを送信することをユーザーにお勧めできます。 フィードバック Hub は、Windows およびインストール済みアプリでフィードバックを 1 か所で収集できるようにするプレインストール アプリです。 フィードバックハブを通じてアプリに送信されたすべてのカスタマーフィードバックが収集され、パートナーセンターの[フィードバックレポート](../publish/feedback-report.md)に表示されるので、顧客が1つのレポートで送信した問題、提案、およびアップ投票を確認できます。
+フィードバック Hub を起動するユニバーサル Windows プラットフォーム (UWP) アプリにコントロール (ボタンなど) を追加してフィードバックを送信することをユーザーにお勧めできます。 フィードバック Hub は、Windows およびインストール済みアプリでフィードバックを 1 か所で収集できるようにするプレインストール アプリです。 フィードバックハブを通じてアプリに送信されたすべてのカスタマーフィードバックが収集され、パートナーセンターの [フィードバックレポート](../publish/feedback-report.md) に表示されるので、顧客が1つのレポートで送信した問題、提案、およびアップ投票を確認できます。
 
 アプリからフィードバック Hub を起動するには、[Microsoft Store Services SDK](https://marketplace.visualstudio.com/items?itemName=AdMediator.MicrosoftStoreServicesSDK) が提供する API を使用します。 この API を使用して、設計ガイドラインに準拠したアプリの UI 要素からフィードバック Hub を起動することをお勧めします。
 
 > [!NOTE]
-> フィードバック Hub は、デスクトップとモバイルの[デバイス ファミリ](https://docs.microsoft.com/windows/uwp/get-started/universal-application-platform-guide)に基づく Windows 10 OS の バージョン 10.0.14271 またはそれ以降を実行しているデバイスのみで利用できます。 フィードバック Hub がユーザーのデバイスで利用できる場合にのみ、アプリにフィードバック コントロールを表示することをお勧めします。 このトピックのコードは、これを実行する方法を示しています。
+> フィードバック Hub は、デスクトップとモバイルの[デバイス ファミリ](../get-started/universal-application-platform-guide.md)に基づく Windows 10 OS の バージョン 10.0.14271 またはそれ以降を実行しているデバイスのみで利用できます。 フィードバック Hub がユーザーのデバイスで利用できる場合にのみ、アプリにフィードバック コントロールを表示することをお勧めします。 このトピックのコードは、これを実行する方法を示しています。
 
 ## <a name="how-to-launch-feedback-hub-from-your-app"></a>アプリからフィードバック Hub を起動する方法
 
 アプリからフィードバック Hub を起動するには、次の手順に従います。
 
-1. [Microsoft Store Services SDK](microsoft-store-services-sdk.md#install-the-sdk) をインストールします。
+1. [Microsoft Store SERVICES SDK をインストール](microsoft-store-services-sdk.md#install-the-sdk)します。
 2. Visual Studio でプロジェクトを開きます。
-3. ソリューション エクスプローラーで、プロジェクトの **[参照設定]** ノードを右クリックし、 **[参照の追加]** をクリックします。
-4. **[参照マネージャー]** で、 **[ユニバーサル Windows]** を展開し、 **[拡張機能]** をクリックします。
-5. SDK の一覧で、 **[Microsoft Engagement Framework]** の横にあるチェック ボックスをオンにして、 **[OK]** をクリックします。
+3. ソリューション エクスプローラーで、プロジェクトの **[参照設定]** ノードを右クリックし、**[参照の追加]** をクリックします。
+4. **[参照マネージャー]** で、**[ユニバーサル Windows]** を展開し、**[拡張機能]** をクリックします。
+5. SDK の一覧で、**[Microsoft Engagement Framework]** の横にあるチェック ボックスをオンにして、**[OK]** をクリックします。
 6. プロジェクトで、フィードバック Hub を起動するために、ユーザーに表示するボタンなどのコントロールを追加します。 コントロールを次のように構成することをお勧めします。
   * コントロールに表示するコンテンツのフォントを **Segoe MDL2 Assets** に設定します。
   * コントロールのテキストを 16 進数の Unicode 文字コード E939 に設定します。 これは、**Segoe MDL2 アセット** フォントで推奨されるフィードバック アイコンの文字コードです。
@@ -38,21 +38,21 @@ ms.locfileid: "74259247"
     > [!NOTE]
     > フィードバック Hub がユーザーのデバイスで利用できる場合、既定でフィードバック コントロールを非表示にし、初期化コードのみにフィードバック コントロールを表示することをお勧めします。 次の手順は、この処理を実行する方法を示しています。
 
-    次のコードは、上記のように構成されている[ボタン](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Button)の XAML 定義を示しています。
+    次のコードは、上記のように構成されている[ボタン](/uwp/api/Windows.UI.Xaml.Controls.Button)の XAML 定義を示しています。
 
     ```XML
     <Button x:Name="feedbackButton" FontFamily="Segoe MDL2 Assets" Content="&#xE939;" HorizontalAlignment="Left" Margin="138,352,0,0" VerticalAlignment="Top" Visibility="Collapsed"  Click="feedbackButton_Click"/>
     ```
 
-7. フィードバック コントロールをホストするアプリのページの初期化コードで、[StoreServicesFeedbackLauncher](https://docs.microsoft.com/uwp/api/microsoft.services.store.engagement.storeservicesfeedbacklauncher.issupported) クラスの [IsSupported](https://docs.microsoft.com/uwp/api/microsoft.services.store.engagement.storeservicesfeedbacklauncher) 静的メソッドを使用して、フィードバック Hub がユーザーのデバイスで利用できるかどうかを指定します。 フィードバック Hub は、デスクトップとモバイルの[デバイス ファミリ](https://docs.microsoft.com/windows/uwp/get-started/universal-application-platform-guide)に基づく Windows 10 OS の バージョン 10.0.14271 またはそれ以降を実行しているデバイスのみで利用できます。
+7. フィードバック コントロールをホストするアプリのページの初期化コードで、[StoreServicesFeedbackLauncher](/uwp/api/microsoft.services.store.engagement.storeservicesfeedbacklauncher) クラスの [IsSupported](/uwp/api/microsoft.services.store.engagement.storeservicesfeedbacklauncher.issupported) 静的メソッドを使用して、フィードバック Hub がユーザーのデバイスで利用できるかどうかを指定します。 フィードバック Hub は、デスクトップとモバイルの[デバイス ファミリ](../get-started/universal-application-platform-guide.md)に基づく Windows 10 OS の バージョン 10.0.14271 またはそれ以降を実行しているデバイスのみで利用できます。
 
-    このプロパティが **true** を返す場合、コントロールを表示にします。 次のコードは、[Button](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.button) に対してこの処理を実行する方法を示しています。
+    このプロパティが **true** を返す場合、コントロールを表示にします。 次のコードは、[Button](/uwp/api/windows.ui.xaml.controls.button) に対してこの処理を実行する方法を示しています。
 
     [!code-csharp[LaunchFeedback](./code/StoreSDKSamples/cs/FeedbackPage.xaml.cs#ToggleFeedbackVisibility)]
       > [!NOTE]
       > フィードバック Hub は現時点では Xbox デバイスではサポートされていませんが、Windows 10 のバージョン 10.0.14271 およびそれ以降を実行している Xbox デバイスでは **IsSupported** プロパティは現在 **true** を返します。 これは既知の問題で、Microsoft Store Services SDK の今後のリリースで修正される予定です。  
 
-8. ユーザーがコントロールをクリックすると実行されるイベント ハンドラーで、[StoreServicesFeedbackLauncher](https://docs.microsoft.com/uwp/api/microsoft.services.store.engagement.storeservicesfeedbacklauncher) オブジェクトを取得し、[LaunchAsync](https://docs.microsoft.com/uwp/api/microsoft.services.store.engagement.storeservicesfeedbacklauncher.launchasync) の静的メソッドを呼び出して、フィードバック Hub アプリを起動します。 このメソッドには 2 つのオーバーロードがあります。1 つは、パラメーターのないオーバーロードで、もう 1 つは、フィードバックを関連付けるメタデータが含まれる、キーと値のペアのディクショナリを受け取るオーバーロードです。 次の例は、[ボタン](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.click)の [Click](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Button) イベント ハンドラーでフィードバック Hub を起動する方法を示しています。
+8. ユーザーがコントロールをクリックすると実行されるイベント ハンドラーで、[StoreServicesFeedbackLauncher](/uwp/api/microsoft.services.store.engagement.storeservicesfeedbacklauncher) オブジェクトを取得し、[LaunchAsync](/uwp/api/microsoft.services.store.engagement.storeservicesfeedbacklauncher.launchasync) の静的メソッドを呼び出して、フィードバック Hub アプリを起動します。 このメソッドには 2 つのオーバーロードがあります。1 つは、パラメーターのないオーバーロードで、もう 1 つは、フィードバックを関連付けるメタデータが含まれる、キーと値のペアのディクショナリを受け取るオーバーロードです。 次の例は、[ボタン](/uwp/api/Windows.UI.Xaml.Controls.Button)の [Click](/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.click) イベント ハンドラーでフィードバック Hub を起動する方法を示しています。
 
     [!code-csharp[LaunchFeedback](./code/StoreSDKSamples/cs/FeedbackPage.xaml.cs#FeedbackButtonClick)]
 

@@ -1,5 +1,5 @@
 ---
-Description: トースト通知でカスタムの音声を使用する方法について説明します。
+description: トースト通知でカスタムオーディオを使用して、アプリがブランドの固有のサウンド効果を表現できるようにする方法について説明します。
 title: トーストでのカスタム オーディオの使用
 label: Custom audio on toasts
 template: detail.hbs
@@ -7,12 +7,12 @@ ms.date: 12/15/2017
 ms.topic: article
 keywords: windows 10, uwp, トースト, カスタム オーディオ, 通知, オーディオ, サウンド
 ms.localizationpriority: medium
-ms.openlocfilehash: 982340901d13f17945c1e7ffa11099f52732f619
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 81bec439f17cadb7db0576dafcf4299f0978b192
+ms.sourcegitcommit: 5d34eb13c7b840c05e5394910a22fa394097dc36
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57644067"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89054462"
 ---
 # <a name="custom-audio-on-toasts"></a>トーストでのカスタム オーディオの使用
 
@@ -25,9 +25,9 @@ ms.locfileid: "57644067"
 NuGet から [Microsoft.Toolkit.Uwp.Notifications](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/) をインストールします (このページのサンプルでは、バージョン 1.0.0 を使用しています)。
 
 
-## <a name="add-namespace-declarations"></a>名前空間宣言を追加する
+## <a name="add-namespace-declarations"></a>名前空間宣言の追加
 
-`Windows.UI.Notifications` タイルとトースト API が含まれています。 `Microsoft.Toolkit.Uwp.Notifications` 通知ライブラリが含まれています。
+`Windows.UI.Notifications` タイルとトースト API のが含まれています。 `Microsoft.Toolkit.Uwp.Notifications` には、通知ライブラリが含まれています。
 
 ```csharp
 using Microsoft.Toolkit.Uwp.Notifications;
@@ -54,7 +54,7 @@ ToastContent toastContent = new ToastContent()
 
 Windows Mobile は、常にトースト通知でカスタム オーディオがサポートされてきました。 しかし、デスクトップ版では、バージョン 1511 (ビルド 10586) で初めてカスタム オーディオのサポートが追加されました。 バージョン 1511 より前のデスクトップ デバイスに、カスタム オーディオを含んだトーストを送信すると、トーストは無音となります。 そのため、バージョン 1511 より前のバージョンのデスクトップでは、トースト通知にカスタム オーディオを含めないでください。これにより、通知の際に、少なくとも既定の通知サウンドが使用されます。
 
-**既知の問題**:デスクトップ バージョン 1511 を使用している場合、カスタムのトースト オーディオはストアを経由して、アプリがインストールされている場合をのみ機能します。 そのため、Microsoft Store への提出前に、ローカル デスクトップでカスタムのオーディオをテストすることはできませんが、Microsoft Store からインストールしたときには、オーディオが正常に機能します。 Anniversary update ではこの問題が修正され、ローカルに展開されたアプリからでもカスタム オーディオが正常に動作します。
+**既知の問題**: デスクトップ バージョン 1511 を使用している場合、トーストのカスタム オーディオは、アプリが Microsoft Store 経由でインストールされた場合にのみ機能します。 そのため、Microsoft Store への提出前に、ローカル デスクトップでカスタムのオーディオをテストすることはできませんが、Microsoft Store からインストールしたときには、オーディオが正常に機能します。 Anniversary update ではこの問題が修正され、ローカルに展開されたアプリからでもカスタム オーディオが正常に動作します。
 
 ```csharp
 ?
@@ -102,6 +102,6 @@ ToastNotificationManager.CreateToastNotifier().Show(notification);
 
 ## <a name="related-topics"></a>関連トピック
 
-- [GitHub の完全なコード サンプル](https://github.com/WindowsNotifications/quickstart-toast-with-custom-audio)
-- [ローカルのトーストを送信します。](send-local-toast.md)
-- [トーストのコンテンツのドキュメント](adaptive-interactive-toasts.md)
+- [GitHub での完全なコード サンプル](https://github.com/WindowsNotifications/quickstart-toast-with-custom-audio)
+- [ローカル トーストの送信](send-local-toast.md)
+- [トースト コンテンツのドキュメント](adaptive-interactive-toasts.md)

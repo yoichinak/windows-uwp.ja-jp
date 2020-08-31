@@ -6,12 +6,12 @@ ms.date: 10/31/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 0032a5bbaafabab3c847b2b7c48536873f4532dd
-ms.sourcegitcommit: 978df7dfd3813de51609b6a44aedcd402083a5fd
+ms.openlocfilehash: 07c814fc48e47b2bdc8980ac72732783d7ea9139
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66826169"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89158026"
 ---
 # <a name="avoid-common-certification-failures"></a>一般的な認定エラーの回避
 
@@ -19,7 +19,7 @@ ms.locfileid: "66826169"
 アプリの認定の妨げになることが多い問題、またはアプリの公開後のスポット チェックで識別された問題を回避するために、このリストを確認します。
 
 > [!NOTE]
-> 確認してください、 [Microsoft Store ポリシー](store-policies.md)アプリが一覧表示の要件をすべてを満たしていることを確認します。
+> [Microsoft Store ポリシー](store-policies.md)を確認して、アプリがそこに記載されているすべての要件を満たしていることを確認してください。
 
 -   アプリを申請するのは、アプリが完成した場合だけにします。 アプリの説明を使って今後の機能を言及することをお勧めしますが、不完全なセクションや、作成中の Web ページへのリンクなど、アプリが不完全であるという印象をユーザーに与えるものをアプリに含めないようにしてください。
 
@@ -31,7 +31,7 @@ ms.locfileid: "66826169"
 
 -   テスト アカウントのユーザー名とパスワード (ユーザーがサービスにログインする必要のあるアプリの場合) や、非表示の機能やロックされている機能へのアクセスに必要な手順など、アプリを使うために [必要な情報を提供](notes-for-certification.md) してください。
 
--   含める、[プライバシー ポリシー URL](enter-app-properties.md#privacy-policy-url)アプリでは、1 つ; が必要な場合など、アプリのあらゆる種類の任意の方法で個人情報にアクセスまたはそれ以外の場合は、法律によって必要とします。 アプリのプライバシー ポリシーが必要かどうかを判断するためには、確認、[アプリ開発者契約](https://docs.microsoft.com/legal/windows/agreements/app-developer-agreement)と[Microsoft Store ポリシー](store-policies.md)します。
+-   アプリに必要な場合は、 [プライバシーポリシーの URL](enter-app-properties.md#privacy-policy-url) を含めます。たとえば、アプリが何らかの方法で任意の種類の個人情報にアクセスする場合や、法律によって要求される場合などです。 アプリにプライバシーポリシーが必要かどうかを判断するには、 [アプリ開発者契約](/legal/windows/agreements/app-developer-agreement) と [Microsoft Store ポリシー](store-policies.md)を確認します。
 
 -   アプリの内容を明確に表せるように、アプリの説明はできるだけ詳しく記載します。 ヘルプが必要な場合は、[アプリに関する優れた説明を記載する](write-a-great-app-description.md) ためのガイダンスをご覧ください。
 
@@ -39,13 +39,9 @@ ms.locfileid: "66826169"
 
 -   アクセシビリティのシナリオを想定して具体的な設計とテストを行っていない限り、[アプリをアクセシビリティ対応として宣言](product-declarations.md#this-app-has-been-tested-to-meet-accessibility-guidelines)しないでください。
 
--   アプリが [**Windows.ApplicationModel.Store**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Store) 名前空間から商取引 API を使う場合、アプリを必ずテストして、一般的な例外が処理されることを確認します。 また、アプリがテスト用途のみの [**CurrentAppSimulator**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Store.CurrentAppSimulator) クラスではなく、[**CurrentApp**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Store.CurrentApp) クラスを使っていることも確認してください。 (アプリが Windows 10 バージョン 1607 以降のバージョンをターゲットにする場合は、Windows.ApplicationModel.Store 名前空間ではなく、[Windows.Services.Store](https://docs.microsoft.com/uwp/api/windows.services.store) 名前空間を使用することをお勧めします)。
+-   アプリが [**Windows.ApplicationModel.Store**](/uwp/api/Windows.ApplicationModel.Store) 名前空間から商取引 API を使う場合、アプリを必ずテストして、一般的な例外が処理されることを確認します。 また、アプリがテスト用途のみの [**CurrentAppSimulator**](/uwp/api/Windows.ApplicationModel.Store.CurrentAppSimulator) クラスではなく、[**CurrentApp**](/uwp/api/Windows.ApplicationModel.Store.CurrentApp) クラスを使っていることも確認してください。 (アプリが Windows 10 バージョン 1607 以降のバージョンをターゲットにする場合は、Windows.ApplicationModel.Store 名前空間ではなく、[Windows.Services.Store](/uwp/api/windows.services.store) 名前空間を使用することをお勧めします)。
 
 
  
 
  
-
-
-
-
